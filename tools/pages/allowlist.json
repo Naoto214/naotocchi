@@ -4234,14 +4234,14 @@
     "home-diorama.css": "9b96642319b3348a03bf011d04cab17f50c553dfb8c8b0d464b9de8660fafe60",
     "home-diorama.js": "5c97dfcf8a452f1d1e1acb34cc728d4113ffb2e0b3915f4c73aa884703ce86bd",
     "home-occlusion.mjs": "df563807ad8ddc680815a3236e4d681168dc72a29346b592940f3b5a63838e7f",
-    "home-production-diorama.js": "6e6f881003be4528096bc789f8cac75270aae942e76ff3c888a062680e504068",
+    "home-production-diorama.js": "81641b6e3ff16b81ff830dc806609c62e03616489dba49f1306808fa4006f533",
     "home-production-egg.mjs": "cb72e194cb1641df7cf28a1d1a1db5333e02cb188a89693ee68db30a31b24015",
     "home-production-layout.css": "47023a3d19a0c7c15c60b01916cf49fbff3c4910cae908cf429390d983bceecc",
     "home-production-manifest.mjs": "8c9c44d8adecc52051a7ce9b9e542c6f98da58971e81b6adb77c2543bf2303f3",
     "home-production-model.js": "90030a08b14d539ef8f9ec1ccc191dd8d57cfbfccc663b9a96ccd035923735de",
-    "home-production-touch.js": "0dbe4108ac3c59f3d428c6be99caf3199c3a6425cc23b415ddaf793137cee880",
+    "home-production-touch.js": "5f41a168a87df5df26d3390cccd097ee59cbdd7acf1188aeccc766bb2ac40648",
     "home-production-transform.mjs": "e4ab3a2d221e2efa2baee71092738767d9e1e33d46d04147e32b5b2f57c06214",
-    "home-production-world.mjs": "353b38225af80462b50528154d6c9f9b0456f407bd60f3cc3cd733e8ff547a57",
+    "home-production-world.mjs": "bf2e652be03d3824fa12407281a9ba470afa52952bfb817624fe3dc0f190b62b",
     "home-recovered-navigation.mjs": "6f92d1c732dc23ba549b99e61a39531fc670e74d615f047149491fdcde4689c5",
     "home-scenery.mjs": "48ec065506a71828e3aaf60dd0ac0675ca113d592ae910067018a415a0ba96e8",
     "home-terrain-navigation.mjs": "1af689d299863b8d51d431fb252ceaff54d865ffcda033c8fca588f579b0daa2",
@@ -4435,4 +4435,3 @@
     "prototypes/card-game/art-pilot/symbols/attributes.mjs"
   ]
 }
-

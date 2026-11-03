@@ -215,18 +215,45 @@
   const spare=Math.max(0,viewHeight-(bottom-top));
   return {scale,viewWidth,viewHeight,pad,scrollTop:Math.max(0,stageTop+pad+top-spare/2),inset:(viewWidth-nativeWidth)/2};
  }
+ // V13 changes only the presentation basis. Native positions/navigation stay intact.
+ function residentScale(count){return count<=2?1:count<=5?.92:count<=10?.86:count<=18?.8:.74;}
+ function portraitPresentation({paneWidth,paneHeight,nativeWidth,stageTop,envelope,count,reserveBodyScale=0}){
+  const e=envelope,gap=3;
+  const sizeLimit=Math.min((paneHeight-gap*2)/Math.max(1,e.above+e.below+24),(paneWidth-gap*2)/Math.max(1,e.side*2+24));
+  const bodyScale=Math.min(residentScale(count),sizeLimit),bodyScaleLimit=Math.min(sizeLimit,Math.max(bodyScale,reserveBodyScale));
+  const scaleX=Math.max(.02,(paneWidth-gap*2-e.side*2*bodyScaleLimit)/Math.max(1,e.right-e.left));
+  const scaleY=Math.max(.02,(paneHeight-gap*2-(e.above+e.below)*bodyScaleLimit)/Math.max(1,e.bottom-e.top));
+  const inset=(gap+e.side*bodyScaleLimit)/scaleX-e.left;
+  const camera=stageTop+e.top-(gap+e.above*bodyScaleLimit)/scaleY,pad=Math.max(0,-camera);
+  return {scale:scaleX,scaleX,scaleY,bodyScale,bodyScaleLimit,inset,pad,scrollTop:camera+pad,viewWidth:paneWidth/scaleX,viewHeight:paneHeight/scaleY};
+ }
+ function landscapePresentation({paneWidth,paneHeight,nativeWidth,nativeHeight,stageTop,stageHeight,frameLeft,hostWidth,hostHeight,count}){
+  const width=Math.min(hostWidth,hostHeight/1.5),height=width*1.5;
+  const art={width,height,left:(hostWidth-width)/2,top:(hostHeight-height)/2};
+  const scale=width/nativeWidth,artTop=stageTop+stageHeight-nativeWidth*1.5*.94;
+  const offset=art.top/scale-artTop,pad=Math.max(0,offset),scrollTop=Math.max(0,-offset);
+  return {scale,scaleX:scale,scaleY:scale,bodyScale:residentScale(count)*Math.min(1,scale*2.2),
+   inset:(art.left-frameLeft)/scale,pad,scrollTop,viewWidth:paneWidth/scale,viewHeight:paneHeight/scale,art};
+ }
  let presentation=null;
- function unscalePoint(p,t=presentation){return t?{x:t.x+(p.x-t.x)/t.scale,y:t.y+(p.y-t.y)/t.scale}:p;}
- function presentationRect(e){const r=e.getBoundingClientRect();if(presentation?.world&&e.matches?.('.home-living-world'))return presentation.world;if(!presentation||!e.closest?.('.screen-frame,.home-living-world'))return r;const p=unscalePoint({x:r.left,y:r.top});return {left:p.x,top:p.y,width:Math.round(r.width/presentation.scale*1000)/1000,height:Math.round(r.height/presentation.scale*1000)/1000,right:p.x+r.width/presentation.scale,bottom:p.y+r.height/presentation.scale};}
- root.NaotocchiHomeViewport={revealDelta,layout,layoutV9,layoutV10,layoutV12,fitV12Text,landscapeOverview,portraitFit,presentationRect,unscalePoint};
+ function unscalePoint(p,t=presentation){return t?{x:t.x+(p.x-t.x)/(t.scaleX||t.scale),y:t.y+(p.y-t.y)/(t.scaleY||t.scale)}:p;}
+ function presentationRect(e){
+  const r=e.getBoundingClientRect();
+  if(presentation?.world&&e.matches?.('.home-living-world'))return presentation.world;
+  if(!presentation||!e.closest?.('.screen-frame,.home-living-world'))return r;
+  const p=unscalePoint({x:r.left,y:r.top}),sx=presentation.scaleX||presentation.scale,sy=presentation.scaleY||presentation.scale;
+  return {left:p.x,top:p.y,width:Math.round(r.width/sx*1000)/1000,height:Math.round(r.height/sy*1000)/1000,right:p.x+r.width/sx,bottom:p.y+r.height/sy};
+ }
+ root.NaotocchiHomeViewport={revealDelta,layout,layoutV9,layoutV10,layoutV12,fitV12Text,landscapeOverview,portraitFit,residentScale,portraitPresentation,landscapePresentation,presentationRect,unscalePoint,residentPresentation:()=>presentation?.bodyScale?presentation:null};
  const doc=root.document,device=doc?.getElementById('device'),frame=device?.querySelector?.('.screen-frame');
  if(!frame||!['8','9','10','11','12'].includes(doc.body.dataset.homeViewportVersion))return;
+ const v13=doc.body.dataset.homeDisplayVersion==='13';
  const v12=doc.body.dataset.homeViewportVersion==='12',v11=v12||doc.body.dataset.homeViewportVersion==='11',v10=v11||doc.body.dataset.homeViewportVersion==='10',v9=v10||doc.body.dataset.homeViewportVersion==='9';
  const screen=doc.getElementById('screen'),normal=doc.getElementById('screenNormal'),stage=doc.getElementById('castStage'),notice=doc.getElementById('homeEventSlot'),dock=doc.getElementById('homeCommentDock'),info=doc.getElementById('homeInformation'),controls=doc.getElementById('careActions');
  if(!screen||!normal||!stage||!notice||!dock||!info||!controls)return;
  const meters=normal.querySelector('.home-meters');
  const rect=e=>e.getBoundingClientRect(),saved=new Map();
- let resumeAt=0,textLayoutKey='';
+ let resumeAt=0,textLayoutKey='',settleTimer=0;
  let active=false,pending=false,markers=[],navigation=null,landscape=false,followKey='',followUntil=0,dragging=false,viewKey='';
  const eligible=()=>doc.body.dataset.homeProduction==='true'&&doc.body.dataset.homeTerrain==='true'&&device.dataset.homeFixed==='true'&&device.classList.contains('ui-home-active')&&!normal.classList.contains('hidden');
  function style(e,props){
@@ -249,7 +276,7 @@
   const css=root.getComputedStyle(e);return css.display==='none'||css.position==='fixed'?0:rect(e).height;
  }));}
  function apply(){
-  pending=false;const should=eligible();if(!should){restore();return;}if(v9&&root.visualViewport&&root.visualViewport.scale!==1)return;restore();
+  const previousPresentation=presentation;pending=false;const should=eligible();if(!should){restore();return;}if(v9&&root.visualViewport&&root.visualViewport.scale!==1)return;restore();
   const fr=rect(frame),cr=rect(controls),hr=rect(device.querySelector('.device-header')),sw=rect(screen).width;
   const viewport=root.visualViewport;
   if(v9&&viewport&&viewport.scale!==1)return;
@@ -324,7 +351,25 @@
    if(meters)style(meters,{overflow:'hidden'});
    style(notice,{height:p.noticeHeight+'px','min-height':p.noticeHeight+'px','max-height':p.noticeHeight+'px',overflow:'visible','align-items':'flex-start'});
    style(dock,{top:p.commentTop+'px',height:p.commentHeight+'px','min-height':p.commentHeight+'px','max-height':p.commentHeight+'px',overflow:'visible','justify-content':'flex-end'});
-   if(landscape){
+   if(v13&&stage.__homeResidentEnvelope){
+    if(landscape){const nativeWidth=Math.max(320,p.frameWidth*(rect(stage).height+96)/p.frameHeight);style(screen,{width:nativeWidth+'px','min-width':nativeWidth+'px'});}
+    const nativeWidth=rect(screen).width,nativeHeight=Math.max(screen.scrollHeight,rect(screen).height),stageTop=rect(stage).top-rect(screen).top,stageHeight=rect(stage).height;
+    const envelope=stage.__homeResidentEnvelope,count=actors().length;
+    const fit=landscape?landscapePresentation({paneWidth:p.frameWidth,paneHeight:p.frameHeight,nativeWidth,nativeHeight,stageTop,stageHeight,frameLeft:fr.left,hostWidth:fr.left+p.frameWidth,hostHeight:viewport?.height||root.innerHeight,count}):portraitPresentation({paneWidth:p.frameWidth,paneHeight:p.frameHeight,nativeWidth,stageTop,envelope,count,reserveBodyScale:previousPresentation?.landscape===false?previousPresentation.bodyScale:0});
+    const {scale,scaleX,scaleY,viewWidth,viewHeight,inset,pad,scrollTop,bodyScale}=fit;
+    // The cast is a flex child: freeze its native height before adding camera space.
+    style(stage,{height:stageHeight+'px','min-height':stageHeight+'px','max-height':stageHeight+'px',flex:'0 0 '+stageHeight+'px'});
+    // Extra empty flow allows the fixed camera offset without changing cast dimensions.
+    style(screen,{width:nativeWidth+'px','min-width':nativeWidth+'px',height:Math.max(nativeHeight,scrollTop+viewHeight-pad)+'px','min-height':nativeHeight+'px','margin-left':inset+'px','margin-top':pad+'px'});
+    presentation={x:fr.left,y:p.frameTop,scale,scaleX,scaleY,bodyScale,bodyScaleLimit:fit.bodyScaleLimit??bodyScale,landscape};
+    if(fit.bodyScaleLimit>bodyScale+.001){root.clearTimeout(settleTimer);settleTimer=root.setTimeout(schedule,350);}
+    style(frame,{width:viewWidth+'px',height:viewHeight+'px',transform:'scale('+scaleX+','+scaleY+')','transform-origin':'0 0'});
+    frame.scrollLeft=0;frame.scrollTop=scrollTop;
+    presentation.world={left:fr.left+inset,top:p.frameTop-frame.scrollTop,width:nativeWidth,height:nativeHeight+pad};
+    style(stage,{'--home-selection-top':(4/scaleY)+'px','--home-selection-left':(4/scaleX)+'px'});
+    doc.body.dataset.homeTinyOverview='true';
+    doc.body.dataset.homePortraitScale=scale.toFixed(4);
+   }else if(landscape){
     // Scale the complete reserved world and its artwork together. Simulation
     // geometry and pointer coordinates are converted at the display boundary.
     const gameHeight=rect(stage).height+96;
@@ -361,6 +406,7 @@
    const vw=viewport?.width||root.innerWidth,vh=viewport?.height||root.innerHeight,ot=viewport?.offsetTop||0;
    // Background coverage is independent of the resident-safe presentation.
    style(doc.body,{'--home-backdrop-width':(landscape?fr.left+p.frameWidth:vw)+'px','--home-backdrop-top':ot+'px','--home-backdrop-height':vh+'px'});
+   if(v13&&root.CustomEvent)stage.dispatchEvent(new root.CustomEvent('home-presentation'));
    style(dock,{'--v12-choice-x':(vw/2)+'px','--v12-choice-y':(ot+vh/2)+'px','--v12-choice-width':Math.min(360,vw-32)+'px','--v12-choice-height':Math.max(44,vh-32)+'px'});
   }
   root.requestAnimationFrame(()=>root.requestAnimationFrame(()=>{if(active){reveal(selected(),true);if(v11 || v10&&!landscape){followKey=selected()?.dataset.dioramaActor||'';followUntil=Infinity;}}}));
