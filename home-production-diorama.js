@@ -1,6 +1,10 @@
 /* Lightweight Home adapter. Existing code owns attendance, art and all care. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;if(root)root.NaotocchiHomeDiorama=api;})(typeof window!=='undefined'?window:null,function(){
   'use strict';
+  function residentInkBand({x,y,top,bottom,up,down},navigation){
+    // Continuous drag endpoints can lie anywhere in the original 8px grid cell.
+    return [Math.max(top,y-8),y,Math.min(bottom,y+8)].map(y=>{const depth=navigation?.depthScale?.({x,y})||1;return [y,up*depth+5,down*depth+3];});
+  }
   // Home presentation boundary. Raw feedback, history and state remain canonical.
   function homeText(text, preserveMilestone = false) {
     return String(text || '')
@@ -310,7 +314,8 @@
     }
     let residentEnvelopeKey='';
     function publishResidentEnvelope(){
-      if(doc.body?.dataset.homeDisplayVersion!=='13')return;
+      if(!['13','14'].includes(doc.body?.dataset.homeDisplayVersion))return;
+      const depthAware=doc.body.dataset.homeDisplayVersion==='14',vertical=new Map();
       const key=JSON.stringify([scene.width,scene.height,world?.stats().projectionRevision,...[...rows.values()].map(r=>[r.key,r.asset,r.w,r.h,r.extent])]);
       if(key===residentEnvelopeKey)return;residentEnvelopeKey=key;
       let left=Infinity,right=-Infinity,top=Infinity,bottom=-Infinity,above=0,below=0,side=0;
@@ -329,7 +334,11 @@
           for(let x=b.left;x<=b.right+.001;x+=Math.min(8,Math.max(1,b.right-x))){
             if(!scene.navigation||scene.navigation.valid({x,y})){
               left=Math.min(left,x);right=Math.max(right,x);top=Math.min(top,y);bottom=Math.max(bottom,y);
-              maxDepth=Math.max(maxDepth,scene.navigation?.depthScale?.({x,y})||1);
+              const depth=scene.navigation?.depthScale?.({x,y})||1;
+              maxDepth=Math.max(maxDepth,depth);
+              if(depthAware)for(const [sy,sup,sdown]of residentInkBand({x,y,top:b.top,bottom:b.bottom,up,down},scene.navigation)){
+                const ink=vertical.get(sy)||[0,0];vertical.set(sy,[Math.max(ink[0],sup),Math.max(ink[1],sdown)]);top=Math.min(top,sy);bottom=Math.max(bottom,sy);
+              }
             }
           }
         }
@@ -337,6 +346,7 @@
       }
       if(!Number.isFinite(left))return;
       const value={left,right,top,bottom,above,below,side,width:scene.width,height:scene.height,count:rows.size};
+      if(depthAware)value.vertical=[...vertical].sort((a,b)=>a[0]-b[0]).map(([y,ink])=>[y,...ink]);
       if(JSON.stringify(value)===JSON.stringify(stage.__homeResidentEnvelope))return;
       stage.__homeResidentEnvelope=value;
       if(env.CustomEvent)stage.dispatchEvent(new env.CustomEvent('home-paint-envelope'));
@@ -499,6 +509,6 @@
     doc.addEventListener('visibilitychange',visibility);media?.addEventListener?.('change',preference);
     return {model,update,sync,interrupt,prepareNewborn(){newbornPending=true;},overview:()=>overview,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){placeHomeSlots(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);view.remove();selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
   }
-  return {noticeChunks,textLayout,homeText,homeWarnings,sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,effectPosition,effectTrajectory,placeActorEffects,speechPlacement,speechTail,placeGroundProps};
+  return {residentInkBand,noticeChunks,textLayout,homeText,homeWarnings,sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,effectPosition,effectTrajectory,placeActorEffects,speechPlacement,speechTail,placeGroundProps};
 });
 

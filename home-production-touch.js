@@ -191,6 +191,15 @@
   }
   return p;
  }
+ function layoutV14(args){
+  const p=layoutV12(args);p.nativeFrameWidth=p.frameWidth;
+  if(p.landscape){
+   // Keep the complete height-fitted picture clear of the existing right rail.
+   p.railWidth=Math.min(p.railWidth,args.width-args.left-args.height/1.5-8);
+   p.railLeft=args.width-args.left-p.railWidth;p.frameWidth=p.railLeft-8-args.left;
+  }
+  return p;
+ }
  function fitV12Text(base,noticeContentHeight,commentContentHeight){
   const p={...base},nh=Math.ceil(noticeContentHeight),ch=Math.ceil(commentContentHeight);
   // Text may wrap inside its reserved lane; it never resizes the world.
@@ -222,13 +231,21 @@
   const sizeLimit=Math.min((paneHeight-gap*2)/Math.max(1,e.above+e.below+24),(paneWidth-gap*2)/Math.max(1,e.side*2+24));
   const bodyScale=Math.min(residentScale(count),sizeLimit),bodyScaleLimit=Math.min(sizeLimit,Math.max(bodyScale,reserveBodyScale));
   const scaleX=Math.max(.02,(paneWidth-gap*2-e.side*2*bodyScaleLimit)/Math.max(1,e.right-e.left));
-  const scaleY=Math.max(.02,(paneHeight-gap*2-(e.above+e.below)*bodyScaleLimit)/Math.max(1,e.bottom-e.top));
+  let scaleY=Math.max(.02,(paneHeight-gap*2-(e.above+e.below)*bodyScaleLimit)/Math.max(1,e.bottom-e.top));
+  let topInk=e.top*scaleY-e.above*bodyScaleLimit;
+  if(e.vertical?.length){
+   // The farther actor is smaller: reserve its real depth, not the nearest size.
+   const span=k=>{let lo=Infinity,hi=-Infinity;for(const [y,up,down]of e.vertical){lo=Math.min(lo,y*k-up*bodyScaleLimit);hi=Math.max(hi,y*k+down*bodyScaleLimit);}return {lo,hi};};
+   let low=scaleY,high=Math.max(low,(paneHeight-gap*2)/Math.max(1,e.bottom-e.top));
+   for(let i=0;i<32;i++){const mid=(low+high)/2,b=span(mid);if(b.hi-b.lo<=paneHeight-gap*2)low=mid;else high=mid;}
+   scaleY=low;topInk=span(scaleY).lo;
+  }
   const inset=(gap+e.side*bodyScaleLimit)/scaleX-e.left;
-  const camera=stageTop+e.top-(gap+e.above*bodyScaleLimit)/scaleY,pad=Math.max(0,-camera);
+  const camera=stageTop+(topInk-gap)/scaleY,pad=Math.max(0,-camera);
   return {scale:scaleX,scaleX,scaleY,bodyScale,bodyScaleLimit,inset,pad,scrollTop:camera+pad,viewWidth:paneWidth/scaleX,viewHeight:paneHeight/scaleY};
  }
- function landscapePresentation({paneWidth,paneHeight,nativeWidth,nativeHeight,stageTop,stageHeight,frameLeft,hostWidth,hostHeight,count}){
-  const width=Math.min(hostWidth,hostHeight/1.5),height=width*1.5;
+ function landscapePresentation({paneWidth,paneHeight,nativeWidth,nativeHeight,stageTop,stageHeight,frameLeft,hostWidth,hostHeight,count,fullHeight=false}){
+  const width=fullHeight?hostHeight/1.5:Math.min(hostWidth,hostHeight/1.5),height=width*1.5;
   const art={width,height,left:(hostWidth-width)/2,top:(hostHeight-height)/2};
   const scale=width/nativeWidth,artTop=stageTop+stageHeight-nativeWidth*1.5*.94;
   const offset=art.top/scale-artTop,pad=Math.max(0,offset),scrollTop=Math.max(0,-offset);
@@ -244,14 +261,14 @@
   const p=unscalePoint({x:r.left,y:r.top}),sx=presentation.scaleX||presentation.scale,sy=presentation.scaleY||presentation.scale;
   return {left:p.x,top:p.y,width:Math.round(r.width/sx*1000)/1000,height:Math.round(r.height/sy*1000)/1000,right:p.x+r.width/sx,bottom:p.y+r.height/sy};
  }
- root.NaotocchiHomeViewport={revealDelta,layout,layoutV9,layoutV10,layoutV12,fitV12Text,landscapeOverview,portraitFit,residentScale,portraitPresentation,landscapePresentation,presentationRect,unscalePoint,residentPresentation:()=>presentation?.bodyScale?presentation:null};
+ root.NaotocchiHomeViewport={revealDelta,layout,layoutV9,layoutV10,layoutV12,layoutV14,fitV12Text,landscapeOverview,portraitFit,residentScale,portraitPresentation,landscapePresentation,presentationRect,unscalePoint,residentPresentation:()=>presentation?.bodyScale?presentation:null};
  const doc=root.document,device=doc?.getElementById('device'),frame=device?.querySelector?.('.screen-frame');
  if(!frame||!['8','9','10','11','12'].includes(doc.body.dataset.homeViewportVersion))return;
- const v13=doc.body.dataset.homeDisplayVersion==='13';
+ const v14=doc.body.dataset.homeDisplayVersion==='14',v13=v14||doc.body.dataset.homeDisplayVersion==='13';
  const v12=doc.body.dataset.homeViewportVersion==='12',v11=v12||doc.body.dataset.homeViewportVersion==='11',v10=v11||doc.body.dataset.homeViewportVersion==='10',v9=v10||doc.body.dataset.homeViewportVersion==='9';
  const screen=doc.getElementById('screen'),normal=doc.getElementById('screenNormal'),stage=doc.getElementById('castStage'),notice=doc.getElementById('homeEventSlot'),dock=doc.getElementById('homeCommentDock'),info=doc.getElementById('homeInformation'),controls=doc.getElementById('careActions');
  if(!screen||!normal||!stage||!notice||!dock||!info||!controls)return;
- const meters=normal.querySelector('.home-meters');
+ const meters=normal.querySelector('.home-meters'),invite=doc.getElementById('companionInviteOverlay');
  const rect=e=>e.getBoundingClientRect(),saved=new Map();
  let resumeAt=0,textLayoutKey='',settleTimer=0;
  let active=false,pending=false,markers=[],navigation=null,landscape=false,followKey='',followUntil=0,dragging=false,viewKey='';
@@ -280,7 +297,7 @@
   const fr=rect(frame),cr=rect(controls),hr=rect(device.querySelector('.device-header')),sw=rect(screen).width;
   const viewport=root.visualViewport;
   if(v9&&viewport&&viewport.scale!==1)return;
-  const p=v9?(v12?layoutV12:v10?layoutV10:layoutV9)({width:viewport?.width||root.innerWidth,height:viewport?.height||root.innerHeight,offsetTop:viewport?.offsetTop||0,left:fr.left,headerBottom:hr.bottom,controlsHeight:cr.height}):layout({width:root.innerWidth,height:root.innerHeight,left:fr.left,headerBottom:hr.bottom,controlsTop:cr.top,controlsBottom:cr.bottom});
+  const p=v9?(v14?layoutV14:v12?layoutV12:v10?layoutV10:layoutV9)({width:viewport?.width||root.innerWidth,height:viewport?.height||root.innerHeight,offsetTop:viewport?.offsetTop||0,left:fr.left,headerBottom:hr.bottom,controlsHeight:cr.height}):layout({width:root.innerWidth,height:root.innerHeight,left:fr.left,headerBottom:hr.bottom,controlsTop:cr.top,controlsBottom:cr.bottom});
   reserve(notice);if(p.landscape||v9)reserve(info);if(v9&&meters)reserve(meters);
   active=true;landscape=p.landscape;doc.body.dataset.homeViewportV8='true';
   style(notice,{position:'fixed',top:(hr.bottom+3)+'px',left:fr.left+'px',width:p.frameWidth+'px',height:'42px','min-height':'42px','max-height':'42px',overflow:'auto','margin-bottom':'0','z-index':'1201'});
@@ -352,10 +369,10 @@
    style(notice,{height:p.noticeHeight+'px','min-height':p.noticeHeight+'px','max-height':p.noticeHeight+'px',overflow:'visible','align-items':'flex-start'});
    style(dock,{top:p.commentTop+'px',height:p.commentHeight+'px','min-height':p.commentHeight+'px','max-height':p.commentHeight+'px',overflow:'visible','justify-content':'flex-end'});
    if(v13&&stage.__homeResidentEnvelope){
-    if(landscape){const nativeWidth=Math.max(320,p.frameWidth*(rect(stage).height+96)/p.frameHeight);style(screen,{width:nativeWidth+'px','min-width':nativeWidth+'px'});}
+    if(landscape){const nativeWidth=Math.max(320,(p.nativeFrameWidth??p.frameWidth)*(rect(stage).height+96)/p.frameHeight);style(screen,{width:nativeWidth+'px','min-width':nativeWidth+'px'});}
     const nativeWidth=rect(screen).width,nativeHeight=Math.max(screen.scrollHeight,rect(screen).height),stageTop=rect(stage).top-rect(screen).top,stageHeight=rect(stage).height;
     const envelope=stage.__homeResidentEnvelope,count=actors().length;
-    const fit=landscape?landscapePresentation({paneWidth:p.frameWidth,paneHeight:p.frameHeight,nativeWidth,nativeHeight,stageTop,stageHeight,frameLeft:fr.left,hostWidth:fr.left+p.frameWidth,hostHeight:viewport?.height||root.innerHeight,count}):portraitPresentation({paneWidth:p.frameWidth,paneHeight:p.frameHeight,nativeWidth,stageTop,envelope,count,reserveBodyScale:previousPresentation?.landscape===false?previousPresentation.bodyScale:0});
+    const fit=landscape?landscapePresentation({paneWidth:p.frameWidth,paneHeight:p.frameHeight,nativeWidth,nativeHeight,stageTop,stageHeight,frameLeft:fr.left,hostWidth:fr.left+p.frameWidth,hostHeight:viewport?.height||root.innerHeight,count,fullHeight:v14}):portraitPresentation({paneWidth:p.frameWidth,paneHeight:p.frameHeight,nativeWidth,stageTop,envelope,count,reserveBodyScale:previousPresentation?.landscape===false?previousPresentation.bodyScale:0});
     const {scale,scaleX,scaleY,viewWidth,viewHeight,inset,pad,scrollTop,bodyScale}=fit;
     // The cast is a flex child: freeze its native height before adding camera space.
     style(stage,{height:stageHeight+'px','min-height':stageHeight+'px','max-height':stageHeight+'px',flex:'0 0 '+stageHeight+'px'});
@@ -406,6 +423,12 @@
    const vw=viewport?.width||root.innerWidth,vh=viewport?.height||root.innerHeight,ot=viewport?.offsetTop||0;
    // Background coverage is independent of the resident-safe presentation.
    style(doc.body,{'--home-backdrop-width':(landscape?fr.left+p.frameWidth:vw)+'px','--home-backdrop-top':ot+'px','--home-backdrop-height':vh+'px'});
+   if(v14&&invite?.dataset.companionId==='snail'&&!invite.classList.contains('hidden')){
+    // Keep the original card outside the transformed resident pane; the full
+    // transparent surface still intercepts input while existing modal guards run.
+    movePresentation(invite,device);
+    style(invite,{position:'fixed',inset:'0',width:'auto',height:'auto','z-index':'1300'});
+   }
    if(v13&&root.CustomEvent)stage.dispatchEvent(new root.CustomEvent('home-presentation'));
    style(dock,{'--v12-choice-x':(vw/2)+'px','--v12-choice-y':(ot+vh/2)+'px','--v12-choice-width':Math.min(360,vw-32)+'px','--v12-choice-height':Math.max(44,vh-32)+'px'});
   }
@@ -416,6 +439,7 @@
  new MutationObserver(()=>{if(eligible()!==active)schedule();}).observe(doc.body,{attributes:true,attributeFilter:['data-home-production','data-home-terrain']});
 
  stage.addEventListener('home-paint-envelope',schedule);
+ if(v14&&invite)new MutationObserver(schedule).observe(invite,{attributes:true,attributeFilter:['class','data-companion-id']});
  root.addEventListener('resize',schedule);root.visualViewport?.addEventListener('resize',schedule);
  if(v11)root.visualViewport?.addEventListener('scroll',schedule);
  doc.addEventListener('pointerdown',e=>{if(!active)return;dragging=stage.contains(e.target);if(frame.contains(e.target)&&!e.target.closest?.('[data-diorama-actor]')){followKey='';if(v11)resumeAt=Date.now()+1500;}},{capture:true,passive:true});

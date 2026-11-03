@@ -17,16 +17,17 @@ export function createHomeWorld(options){
   if(!flags.reducedMotion)time+=Math.max(0,Math.min(1,Number(dt)||0))*1000;
   const fullBackdrop=doc.body.dataset.homeViewportVersion==='12'&&doc.body.dataset.homeTinyOverview==='true';
   const native=geometry(),host=fullBackdrop?container.getBoundingClientRect():native.host,stage=native.stage;
-  const contain=fullBackdrop&&doc.body.dataset.homeDisplayVersion==='13'&&win.NaotocchiHomeViewport?.residentPresentation?.()?.landscape;
-  const cover=backdropComposition(host,stage).cover,cw=Math.min(host.width,host.height/1.5);
+  const v14=doc.body.dataset.homeDisplayVersion==='14';
+  const contain=fullBackdrop&&['13','14'].includes(doc.body.dataset.homeDisplayVersion)&&win.NaotocchiHomeViewport?.residentPresentation?.()?.landscape;
+  const cover=backdropComposition(host,stage).cover,cw=v14?host.height/1.5:Math.min(host.width,host.height/1.5);
   const t=contain?{width:cw,height:cw*1.5,left:(host.width-cw)/2,top:(host.height-cw*1.5)/2}:fullBackdrop?cover:artTransform(host,stage),stamp=JSON.stringify([fullBackdrop,contain,host.width,host.height,t.top,env.time,env.weather,loaded,flags.reducedMotion,Math.floor(time/120)]);if(stamp===lastPaint)return;lastPaint=stamp;
   const dpr=Math.min(2,win.devicePixelRatio||1),W=Math.round(host.width*dpr),H=Math.round(host.height*dpr);if(canvas.width!==W||canvas.height!==H){canvas.width=W;canvas.height=H;}
-  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle=env.region==='city'?'#ac8c90':env.region==='forest'?'#173d35':'#b5d4d9';ctx.fillRect(0,0,host.width,host.height);
+  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle=contain&&v14?'#eee8dc':env.region==='city'?'#ac8c90':env.region==='forest'?'#173d35':'#b5d4d9';ctx.fillRect(0,0,host.width,host.height);
   if(!loaded||!img)return;
   const key=JSON.stringify([fullBackdrop,contain,generation,W,H,t.left,t.top,t.width,t.height,stage.top,stage.height]);
   if(key!==paintingKey){paintingKey=key;painting.width=W;painting.height=H;const pc=painting.getContext('2d');pc.setTransform(dpr,0,0,dpr,0,0);if(contain){
     // Same image supplies edge colours; the complete original remains sharp.
-    pc.save();pc.filter='blur(18px)';pc.drawImage(img,cover.left-20,cover.top-20,cover.width+40,cover.height+40);pc.restore();
+    if(!v14){pc.save();pc.filter='blur(18px)';pc.drawImage(img,cover.left-20,cover.top-20,cover.width+40,cover.height+40);pc.restore();}
     pc.drawImage(img,t.left,t.top,t.width,t.height);
    }else if(fullBackdrop)pc.drawImage(img,t.left,t.top,t.width,t.height);else paintBackdrop(pc,img,host,stage);}
   ctx.drawImage(painting,0,0,host.width,host.height);

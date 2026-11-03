@@ -12151,6 +12151,7 @@
       ? `${companion.name}とめがあった`
       : reunited ? `${companion.name}がまたきた` : `${companion.name}がこっちをみている`;
     el.companionInviteFlavor.textContent = companion.flavor;
+    el.companionInviteOverlay.dataset.companionId = companion.id;
     el.companionInviteOverlay.classList.toggle('rare', !!isRare);
     // まだ ミニゲームが はじまる まえに、ちゃんと 目に はいるよう
     // ひとこと メッセージらんにも のこす
@@ -12943,7 +12944,10 @@
     el.device.dataset.textSize = state.lifetime.textSize === 'large' ? 'large' : 'normal';
     el.device.classList.toggle('ui-home-active', !el.screenNormal.classList.contains('hidden'));
     el.device.dataset.homeFixed = String((state.stage === STAGE.GROWING || state.stage === STAGE.EGG)
-      && !el.screenNormal.classList.contains('hidden') && !suppressFrontFx);
+      && !el.screenNormal.classList.contains('hidden') && (!suppressFrontFx || (
+        document.body.dataset.homeDisplayVersion==='14' && companionInviteOpen && pendingCompanionId==='snail'
+        && !gameActive && !hasTransformChoice && !lifeCardVisible && !activeOverlay && !dateOpen && !duelOpen
+        && !pendingItemScene && !itemSceneRecord && !grandGoalPending && !dexDetail && !meguruActive && !individualityDialogOpen)));
     renderWorldScene(suppressFrontFx);
     renderHomeCast();
     positionWeatherSky();
