@@ -265,7 +265,7 @@
  root.NaotocchiHomeViewport={revealDelta,layout,layoutV9,layoutV10,layoutV12,layoutV14,fitV12Text,landscapeOverview,portraitFit,residentScale,portraitPresentation,landscapePresentation,presentationRect,unscalePoint,residentPresentation:()=>presentation?.bodyScale?presentation:null};
  const doc=root.document,device=doc?.getElementById('device'),frame=device?.querySelector?.('.screen-frame');
  if(!frame||!['8','9','10','11','12'].includes(doc.body.dataset.homeViewportVersion))return;
- const v15=doc.body.dataset.homeDisplayVersion==='15',v14=v15||doc.body.dataset.homeDisplayVersion==='14',v13=v14||doc.body.dataset.homeDisplayVersion==='13';
+ const v16=doc.body.dataset.homeDisplayVersion==='16',v15=v16||doc.body.dataset.homeDisplayVersion==='15',v14=v15||doc.body.dataset.homeDisplayVersion==='14',v13=v14||doc.body.dataset.homeDisplayVersion==='13';
  const v12=doc.body.dataset.homeViewportVersion==='12',v11=v12||doc.body.dataset.homeViewportVersion==='11',v10=v11||doc.body.dataset.homeViewportVersion==='10',v9=v10||doc.body.dataset.homeViewportVersion==='9';
  const screen=doc.getElementById('screen'),normal=doc.getElementById('screenNormal'),stage=doc.getElementById('castStage'),notice=doc.getElementById('homeEventSlot'),dock=doc.getElementById('homeCommentDock'),info=doc.getElementById('homeInformation'),controls=doc.getElementById('careActions');
  if(!screen||!normal||!stage||!notice||!dock||!info||!controls)return;
@@ -356,11 +356,25 @@
    }
    // Keep the optional partner row visible too; only presentation grows.
    style(info,{height:'auto',overflow:'visible'});
-   const infoHeight=Math.max(p.infoHeight,Math.ceil(rect(info).height));
+   if(v16&&landscape){
+    const header=device.querySelector('.device-header'),title=header.querySelector('.header-title'),actions=header.querySelector('.header-actions');
+    const left=p.railLeft,top=(viewport?.offsetTop||0)+4,width=Math.max(120,p.railWidth-rect(actions).width-8);
+    // Move the existing labels only. Preserve the header's world-flow height.
+    style(header,{height:hr.height+'px','min-height':hr.height+'px'});
+    style(actions,{position:'fixed',left:(left+p.railWidth-rect(actions).width)+'px',top:hr.top+'px','z-index':'1201'});
+    style(title,{display:'block',position:'fixed',left:left+'px',top:top+'px',width:width+'px',padding:'0','z-index':'1201'});
+    style(info,{left:left+'px',top:(top+rect(title).height+2)+'px',width:width+'px'});
+   }
+   const infoHeight=v16&&landscape?Math.ceil(rect(info).height):Math.max(p.infoHeight,Math.ceil(rect(info).height));
    const infoExtra=infoHeight-p.infoHeight;p.infoHeight=infoHeight;
    if(!landscape){p.frameTop+=infoExtra;p.frameHeight=Math.max(0,p.frameHeight-infoExtra);}
    if(!landscape){const season=info.querySelector('.sub-status-row');p.noticeTop=(season?rect(season).bottom:rect(info).bottom)+3;}
    style(info,{height:infoHeight+'px'});
+   if(v16&&landscape){
+    p.noticeTop=Math.max(p.noticeTop,rect(info).bottom+3);
+    p.commentTop=p.noticeTop+p.noticeHeight+3;
+    p.commentHeight=Math.max(0,p.metersTop-3-p.commentTop);
+   }
    style(notice,{top:p.noticeTop+'px'});
    if(!landscape){p.frameTop=p.noticeTop+p.noticeHeight+2;p.frameHeight=Math.max(1,p.commentTop-2-p.frameTop);}
    style(frame,{top:p.frameTop+'px',height:p.frameHeight+'px'});
@@ -368,7 +382,7 @@
    style(frame,{overflow:'hidden','clip-path':'inset(0)','touch-action':'none'});
    if(meters)style(meters,{overflow:'hidden'});
    style(notice,{height:p.noticeHeight+'px','min-height':p.noticeHeight+'px','max-height':p.noticeHeight+'px',overflow:'visible','align-items':'flex-start'});
-   style(dock,{top:p.commentTop+'px',height:p.commentHeight+'px','min-height':p.commentHeight+'px','max-height':p.commentHeight+'px',overflow:'visible','justify-content':v15&&!landscape?'flex-start':'flex-end'});
+   style(dock,{top:p.commentTop+'px',height:p.commentHeight+'px','min-height':p.commentHeight+'px','max-height':p.commentHeight+'px',overflow:'visible','justify-content':v15&&!v16&&!landscape?'flex-start':'flex-end'});
    if(v13&&stage.__homeResidentEnvelope){
     if(landscape){const nativeWidth=Math.max(320,(p.nativeFrameWidth??p.frameWidth)*(rect(stage).height+96)/p.frameHeight);style(screen,{width:nativeWidth+'px','min-width':nativeWidth+'px'});}
     const nativeWidth=rect(screen).width,nativeHeight=Math.max(screen.scrollHeight,rect(screen).height),stageTop=rect(stage).top-rect(screen).top,stageHeight=rect(stage).height;

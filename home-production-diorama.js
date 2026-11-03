@@ -11,11 +11,12 @@
     return [Math.max(top,y-8),y,Math.min(bottom,y+8)].map(y=>{const depth=navigation?.depthScale?.({x,y})||1;return [y,up*depth+5,down*depth+3];});
   }
   // Home presentation boundary. Raw feedback, history and state remain canonical.
-  function homeText(text, preserveMilestone = false) {
-    return String(text || '')
+  function homeText(text, preserveMilestone = false, hideTransientCounts = false) {
+    const prose = String(text || '').replace(hideTransientCounts ? /(?:うんち|おかね|コイン)\s*[+＋−-]\s*\d+(?:\.\d+)?/g : /$^/g, '');
+    return prose
       .replace(/そだち\s*[+＋−-]\s*\d+(?:\.\d+)?[：:]\s*(せいちょうした|おとろえでさがった)/g, (_, prose) => preserveMilestone ? prose : '')
       .replace(/(?:おなか|ごきげん|げんき|けんこう|いのち|せいちょう|おとろえ|へんしん|そだち)\s*(?:[+＋−-]|[↑↓])\s*\d+(?:\.\d+)?\s*[%％]?/g, '')
-      .replace(/(?:\s*[/／、]\s*){2,}/g, ' / ').replace(/^[\s/／、]+|[\s/／、]+$/g, '').trim();
+      .replace(/(?:\s*[/／、]\s*){2,}/g, ' / ').replace(/^[\s/／、]+|[\s/／、]+$/g, '').replace(hideTransientCounts ? /変化[：:]\s*$/ : /$^/, '').trim();
   }
   function homeWarnings(state, current) {
     if (!state || ['egg','dead','farewell'].includes(state.stage)) return '';
@@ -319,8 +320,8 @@
     }
     let residentEnvelopeKey='';
     function publishResidentEnvelope(){
-      if(!['13','14','15'].includes(doc.body?.dataset.homeDisplayVersion))return;
-      const v15=doc.body.dataset.homeDisplayVersion==='15',depthAware=v15||doc.body.dataset.homeDisplayVersion==='14',vertical=new Map(),fitVertical=new Map();
+      if(!['13','14','15','16'].includes(doc.body?.dataset.homeDisplayVersion))return;
+      const v15=['15','16'].includes(doc.body.dataset.homeDisplayVersion),depthAware=v15||doc.body.dataset.homeDisplayVersion==='14',vertical=new Map(),fitVertical=new Map();
       const key=JSON.stringify([scene.width,scene.height,world?.stats().projectionRevision,...[...rows.values()].map(r=>[r.key,r.asset,r.w,r.h,r.extent])]);
       if(key===residentEnvelopeKey)return;residentEnvelopeKey=key;
       let left=Infinity,right=-Infinity,top=Infinity,bottom=-Infinity,above=0,below=0,side=0;
