@@ -5,7 +5,7 @@ test('V4 input, physics, app control flow and shared motion/painter/timing sourc
  const hashes=JSON.parse(fs.readFileSync(new URL('../../docs/naopoyo-time-hand-chapter1-20261102/v5/protected-hashes.json',root)));
  for(const [file,hash]of Object.entries(hashes)){
  let source=fs.readFileSync(new URL(file,root));
- if(file==='app.mjs')source=Buffer.from(source.toString().replace("$('goal').textContent=s.goal;$('lesson-text').textContent=s.text;$('lesson-goal').textContent=s.goal;","$('goal').textContent=s.goal;").replace("?'重力 ↓ ・ 支えがないと落ちる':'ひかりの牢屋'","?'重力あり · 仲間も足場':'平面'"));
+ if(file==='app.mjs')source=Buffer.from(source.toString().replace(" const sign=document.querySelector('.gravity-sign'),bounds=canvas.getBoundingClientRect(),bottom=bounds.top+bounds.height,below=bottom+18<=canvas.ownerDocument.defaultView.innerHeight;canvas.parentElement.append(sign);sign.hidden=!state.gravity;sign.style.left=(below?bounds.left+8:bounds.left-26)+'px';sign.style.top=(below?bottom:bottom-18)+'px';\n",'').replace("$('goal').textContent=s.goal;$('lesson-text').textContent=s.text;$('lesson-goal').textContent=s.goal;","$('goal').textContent=s.goal;").replace("?'重力 ↓ ・ 支えがないと落ちる':'ひかりの牢屋'","?'重力あり · 仲間も足場':'平面'"));
  assert.equal(crypto.createHash('sha256').update(source).digest('hex'),hash,file);
  }
 });
