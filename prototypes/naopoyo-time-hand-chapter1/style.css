@@ -35,6 +35,6 @@ main{grid-template-rows:44px auto minmax(0,1fr) 22px 46px}
 
 .intro>div:first-child{flex-wrap:wrap;gap:2px 6px}
 
-/* Fixed gravity marker attached below the frame, outside all 64 cells. */
-.gravity-sign{position:fixed;box-sizing:border-box;width:26px;height:18px;pointer-events:none;user-select:none;border:1px solid #687584;border-radius:3px;background:linear-gradient(135deg,#c0c5c8,#919ba5);box-shadow:inset 0 1px #e0e3e4,0 1px 1px #101e2d;color:#a52a27;font:bold 17px/16px sans-serif;text-align:center}
+/* Gravity marker inside A8, resting on the board floor; no input or collision. */
+.gravity-sign{position:fixed;transform-origin:top left;box-sizing:border-box;width:26px;height:18px;pointer-events:none;user-select:none;border:1px solid #687584;border-radius:3px;background:linear-gradient(135deg,#c0c5c8,#919ba5);box-shadow:inset 0 1px #e0e3e4;color:#a52a27;font:bold 17px/16px sans-serif;text-align:center}
 .gravity-sign[hidden]{display:none}
