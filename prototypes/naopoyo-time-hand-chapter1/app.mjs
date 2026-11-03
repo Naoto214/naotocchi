@@ -16,6 +16,7 @@ import {playbackClock} from '../naopoyo-chapter2/example-clock.mjs';
 import {clone,mass} from './engine.mjs';
 const $=id=>document.getElementById(id),canvas=$('board'),progress=new ChapterProgress();
 try{progress.restore(localStorage.getItem(STORAGE_KEY));}catch{}
+let gravityHelpOpen=false;
 let mode='play',demo=null,demoIndex=progress.index,auto=null,loaded=false,message='',motion=null,frameRequest=null,lastFrame=0,pendingVictory=false,playPresentation=null;
 const presentation={motion:[],state:null,active:null},advanceMotion=ForestSession.prototype.animate;
 let gateEffects=new GateEffects();
@@ -42,7 +43,7 @@ function command(id,dx,dy){
  message='';
  save();animate(before,r,id,dx,dy);render();if(current().cleared){pendingVictory=!!motion;if(!motion)showVictory();}return r;
 }
-function switchStage(i,revisit=false){if(!progress.unlocked(i))return;stopAuto();cancel();mode='play';progress.index=i;if(revisit&&current().cleared)current().reset();message='';input.select(null);$('predict').checked=false;$('hint-text').hidden=true;save();render();}
+function switchStage(i,revisit=false){if(!progress.unlocked(i))return;stopAuto();cancel();mode='play';gravityHelpOpen=false;progress.index=i;if(revisit&&current().cleared)current().reset();message='';input.select(null);$('predict').checked=false;$('hint-text').hidden=true;save();render();}
 function keepPosition(){if(demo){positions.set(demoIndex,{key:solutionKey(demoIndex),index:demo.index});try{localStorage.setItem(STORAGE_KEY+'.examples',JSON.stringify([...positions]));}catch{}}}
 try{const saved=JSON.parse(localStorage.getItem(STORAGE_KEY+'.examples'));if(Array.isArray(saved))for(const [i,p]of saved)if(stages[i]&&p.key===solutionKey(i)&&Number.isInteger(p.index)&&p.index>=0&&p.index<=solutions[i].length)positions.set(i,p);}catch{}
 function openDemo(i=progress.index){if(mode==='play')playPresentation={motion:[...presentation.motion],pendingVictory};keepPosition();stopAuto();cancel();mode='demo';demoIndex=i;demo=new ExampleReplay(i);const old=positions.get(i);if(old?.key===solutionKey(i))demo.show(old.index);message='';exampleArena.append(canvas);exampleDialog.showModal();render();}
@@ -61,7 +62,7 @@ function draw(){const q=shown(),s=q.state,stage=q.stage;syncPresentation();let s
  drawBoard(canvas,state,{gravitySign:sign,stage,selected,stateEffects,now,reduced,gates,candidates,route,turns,showRanks:!!candidates.length,target:stage.objective?.target,effects:motion?contactEffects(motion,Math.min(1,motion.elapsed/motion.duration)):[]});
 }
 function render(){const q=shown(),s=q.stage,isDemo=mode==='demo';$('scene').dataset.scene=s.scene;$('number').textContent=s.id;$('title').textContent=s.title;$('difficulty').textContent='★'.repeat(s.difficulty)+'☆'.repeat(5-s.difficulty);$('goal').textContent=s.goal;$('lesson-text').textContent=s.text;$('lesson-goal').textContent=s.goal;$('hint-text').textContent=s.hint;
- $('phase').textContent=isDemo?'おてほん · 通常プレイと別の盤面':'プレイ中';$('moves').textContent=q.state.moves+' 手';$('mass').textContent='段階合計 '+mass(q.state);$('gravity').textContent=q.state.gravity?'重力 ↓ ・ 支えがないと落ちる':'ひかりの牢屋';$('progress').textContent=progress.completed.filter(Boolean).length+' / 10 クリア';
+ $('phase').textContent=isDemo?'おてほん · 通常プレイと別の盤面':'プレイ中';$('moves').textContent=q.state.moves+' 手';$('mass').textContent='段階合計 '+mass(q.state);$('gravity').textContent=q.state.gravity?'重力 ↓ ・ 支えがないと落ちる':'ひかりの牢屋';$('gravity').hidden=!!q.state.gravity&&!gravityHelpOpen;$('progress').textContent=progress.completed.filter(Boolean).length+' / 10 クリア';
  $('dialogue').textContent=q.cleared?'みんなで、自由へ。':s.text;
  $('status').textContent=message||(q.cleared?'全員脱出！':isDemo?'前後に進めて、操作を確かめよう。':'キャラをタップして選択。なぞって移動。');
  $('play-tools').hidden=isDemo;$('replay').hidden=true;$('predict').disabled=isDemo;$('undo').disabled=!current().actions.length;
@@ -74,13 +75,14 @@ $('predict').onchange=draw;
 $('undo').onclick=()=>{cancel();current().undo();message='';save();render();};$('retry').onclick=()=>{cancel();current().reset();message='';save();render();};$('hint').onclick=()=>{$('hint-text').hidden=false;$('details').showModal();};
 $('example').onclick=()=>openDemo();$('example-stage').onchange=()=>openDemo(Number($('example-stage').value));$('return').onclick=()=>{keepPosition();stopAuto();cancel();exampleDialog.close();boardHome.append(canvas);mode='play';presentation.motion=playPresentation?.motion||[];motion=presentation.motion[0]||null;pendingVictory=playPresentation?.pendingVictory||false;playPresentation=null;message='';sizeBoard();render();if(motion)startFrames();else if(pendingVictory){pendingVictory=false;showVictory();}};$('back').onclick=()=>{stopAuto();demoStep(-1);};$('forward').onclick=()=>{stopAuto();demoStep(1);};$('restart').onclick=()=>{stopAuto();presentation.motion=[];motion=null;demo.reset();keepPosition();render();};$('auto').onclick=()=>{if(auto!==null)stopAuto();else{if(demo.index===demo.path.length)return;let clock={elapsed:0},last=performance.now();auto=setInterval(()=>{const now=performance.now();clock=playbackClock(clock,now-last,true,!!motion);last=now;if(!$('details').open&&!$('dialog').open&&clock.advance){demoStep(1);if(demo.index===demo.path.length){stopAuto();render();}}},32);}render();};
 function point(e){const r=canvas.getBoundingClientRect();return {x:(e.clientX-r.left)/r.width*8,y:(e.clientY-r.top)/r.height*8};}
-let pointer=null;
-function release(){const id=pointer;pointer=null;if(id!==null&&canvas.hasPointerCapture?.(id))canvas.releasePointerCapture(id);}
+let pointer=null,signTap=null;
+const onSign=p=>p.x>=0&&p.x<1&&p.y>=7&&p.y<8;
+function release(){const id=pointer;pointer=null;signTap=null;if(id!==null&&canvas.hasPointerCapture?.(id))canvas.releasePointerCapture(id);}
 const end=()=>{input.end();current().endGesture();release();render();};
-canvas.onpointerdown=e=>{if(pointer!==null||!loaded||mode!=='play'||$('details').open||$('dialog').open||current().cleared||e.isPrimary===false)return;e.preventDefault();const p=point(e);syncPresentation();const hit=pointerActor(presentation,p)||null;const a=current().state.actors.find(a=>a.id===input.selected);if(!hit&&(!a||Math.max(Math.abs(Math.floor(p.x)-a.x),Math.abs(Math.floor(p.y)-a.y))!==1))return;cancel();pointer=e.pointerId;canvas.setPointerCapture(pointer);current().beginGesture();input.start(p,{hit});render();};
+canvas.onpointerdown=e=>{if(pointer!==null||!loaded||mode!=='play'||$('details').open||$('dialog').open||current().cleared||e.isPrimary===false)return;e.preventDefault();const p=point(e);syncPresentation();const hit=pointerActor(presentation,p)||null;if(!hit&&current().state.gravity&&onSign(p)){pointer=e.pointerId;signTap={x:e.clientX,y:e.clientY,moved:false};canvas.setPointerCapture(pointer);return;}const a=current().state.actors.find(a=>a.id===input.selected);if(!hit&&(!a||Math.max(Math.abs(Math.floor(p.x)-a.x),Math.abs(Math.floor(p.y)-a.y))!==1))return;cancel();pointer=e.pointerId;canvas.setPointerCapture(pointer);current().beginGesture();input.start(p,{hit});render();};
 function travel(e){for(const sample of e.getCoalescedEvents?.().length?e.getCoalescedEvents():[e])input.drag(point(sample));render();}
-canvas.onpointermove=e=>{if(e.pointerId!==pointer||mode!=='play')return;e.preventDefault();travel(e);};
-canvas.onpointerup=e=>{if(e.pointerId!==pointer)return;travel(e);end();};
+canvas.onpointermove=e=>{if(e.pointerId!==pointer||mode!=='play')return;e.preventDefault();if(signTap){if(Math.hypot(e.clientX-signTap.x,e.clientY-signTap.y)>10)signTap.moved=true;return;}travel(e);};
+canvas.onpointerup=e=>{if(e.pointerId!==pointer)return;if(signTap){const tap=!signTap.moved&&Math.hypot(e.clientX-signTap.x,e.clientY-signTap.y)<=10&&onSign(point(e));release();if(tap){gravityHelpOpen=!gravityHelpOpen;render();}return;}travel(e);end();};
 canvas.onpointercancel=canvas.onlostpointercapture=e=>{if(e.pointerId===pointer)end();};
 $('details-open').onclick=()=>{end();$('details').showModal();};$('details-close').onclick=()=>$('details').close();
 window.addEventListener('resize',()=>{end();sizeBoard();});document.addEventListener('visibilitychange',()=>{lastFrame=performance.now();if(document.hidden){stopAuto();end();}});
