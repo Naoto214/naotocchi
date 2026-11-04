@@ -43,6 +43,9 @@ export const VARIANTS={
  'T-2v':{time:{cost:2,counter:true,cpu:'smart2'},note:'VERSION 2：時2・特殊カウンターあり・CPU は勝率見込み（smart2）で判断。デッキ構成はマニフェストで指定'},
  'T-4v':{time:{cost:2,counter:true,cpu:'smart3'},v4:true,note:'VERSION 4：時のカード＋新カード7種類・U12・CPU smart3。デッキ構成はマニフェストで指定'},
  'T-5v':{time:{cost:2,counter:true,cpu:'smart4'},v4:true,v5:true,note:'VERSION 5：T-4v＋おいわいのつるの比較案（ラウンド終了・ラウンド開始）・CPU smart4'},
+ 'T-6h':{time:{cost:2,counter:true,cpu:'smart4'},v4:true,v5:true,v6:{naga:'hold'},note:'VERSION 6：T-5v＋しゃしんの記録（CPU は VERSION 5 と同じ温存型）'},
+ 'T-6e':{time:{cost:2,counter:true,cpu:'smart4-early'},v4:true,v5:true,v6:{naga:'early'},note:'VERSION 6：ながいきのひけつを VERSION 4 の判断（早期使用型）で'},
+ 'T-6a':{time:{cost:2,counter:true,cpu:'smart4-adaptive'},v4:true,v5:true,v6:{naga:'adaptive'},note:'VERSION 6：ながいきのひけつを状況に応じた判断で'},
  'T-8s':{time:{cost:2,counter:true,cpu:'smart'},note:'各2（8枚）・時2・特殊カウンターあり'},
 };
 
@@ -404,3 +407,21 @@ export function policyTrialV5(){const v1=policyTime('smart')[0][2].replace('cons
  return [['time-helper',h[1],SMART4+v4fn+v1+"const growthMult=o=>"],
   ['time-score',"if(a.slot==='world')return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;","if(a.slot==='world'){const M=globalThis.__timeCpu,V1=M==='v1',tv=V1?timeValueV1(c,o):timeValue(c,o);if(tv!==null)return (V1?(tv===0?-1:tv):(tv<=.5?-1:tv))-spend-(b.world&&!TIMEN[b.world.name]?3+(M!=='v4'&&!V1&&ownHand(o).some(x=>x.cardId==='X-N-photo')?5:0):0);return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;}"],
   [n[0],n[1],n[2].replace('const nv=newCardValue(a,o,spend);','const nv=(globalThis.__timeCpu==="v4"?newCardValueV4:newCardValue)(a,o,spend);')]];}
+
+// ---- VERSION 6 (PLAN-V6.md): measurement and CPU comparison only; the cards' effects are unchanged ----
+// (1) おもいでのしゃしん: each resolution is logged in life.events {op:'photo', n, count, actor, round, turn, final} (state only;
+//     saves are commands, decisions do not read events).
+export const EFFECTS_V6_LOG=[['v6-photo-log',"case 'growthByValue':{const n=Math.min(e.max,e.per*value(s,a,e.key,l));","case 'growthByValue':{const n=Math.min(e.max,e.per*value(s,a,e.key,l));if(e.key==='photoCount')s.life.events.push({op:'photo',n,count:value(s,a,e.key,l),actor:a,round:s.round,turn:s.turn,final:s.life.final,serial:s.serial,growth:{A:owner(s,'A').growth,B:owner(s,'B').growth}});"]];
+// (2) ながいきのひけつ: three CPU decisions on top of smart4 (everything else identical).
+//   early   : VERSION 4 (smart3) — hold only when behind with XI/XII in hand before R10, else use now (+5 / +15).
+//   hold    : VERSION 5 (smart4) — unchanged.
+//   adaptive: now vs later, where later = (5 + 10 × P(final>=11, discounted by the opponent's counter chance) × P(behind then,
+//             from the current win estimate)) × late weight × (1 − risk of never finding time for it, from the own hand size);
+//             now = the card's value this turn after its time opportunity cost (0 when the time would be unused). Uses now for
+//             +15, the final round, or reaching 100. Only own hand, public counts and public state are read.
+const NAGA_HOLD="if(id==='X-N-nagaiki'){const big=F>=11&&behind;if(big||o.round>=F)return G(big?15:5)-3-spend;const ext=ownHand(o).some(c=>c.name==='XI'||c.name==='XII');const pExt=F>=11?1:ext&&o.round<=10?.75:o.round<=6?.35:o.round<=8?.25:.12;const d=op.growth-me.growth,pBehind=d>0?.85:d>-10?.45:.2;if(me.growth<100&&me.growth+5>=100&&!o.life?.holding?.[o.seat])return G(5)+10-3-spend;const later=(5+10*pExt*pBehind)*2.2*.95;if(later>G(5))return -1;return G(5)-3-spend;}";
+const NAGA_EARLY="if(id==='X-N-nagaiki'){const big=F>=11&&behind;if(!big&&behind&&o.round<10&&ownHand(o).some(c=>c.name==='XI'||c.name==='XII'))return -1;return G(big?15:5)-3-spend;}";
+const NAGA_ADAPTIVE="if(id==='X-N-nagaiki'){const big=F>=11&&behind;if(big||o.round>=F)return G(big?15:5)-3-spend;if(me.growth<100&&me.growth+5>=100&&!o.life?.holding?.[o.seat])return G(5)+10-3-spend;const ext=ownHand(o).some(c=>c.name==='XI'||c.name==='XII');const oh=op.handCount??op.hand?.length??0,qC=(op.time??0)>=2?1-Math.pow(.92,oh):0;const pExt=(F>=11?1:ext&&o.round<=10?.75:o.round<=6?.35:o.round<=8?.25:.12)*(F>=11?1:1-.5*qC);const pW=winP(o,F),pBehind=Math.min(.95,Math.max(.05,1-pW));const hs=ownHand(o).length,crowd=hs>=7?.3:hs>=5?.15:.05;const later=(5+10*pExt*pBehind)*2.2*(1-crowd);if(later>G(5)-spend)return -1;return G(5)-3-spend;}";
+if(!SMART4.includes(NAGA_HOLD))throw Error('smart4 naga text changed');
+export function policyV6(naga='hold'){const [h,s,n]=policyV5();const body=naga==='early'?NAGA_EARLY:naga==='adaptive'?NAGA_ADAPTIVE:NAGA_HOLD;
+ return [[h[0],h[1],h[2].replace(NAGA_HOLD,body)],s,n];}
