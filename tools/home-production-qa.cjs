@@ -12,7 +12,7 @@ script+=`\nwindow.HomeReleaseQA={
  Object.assign(state.lifetime,{timeMode:time,weatherMode:'sunny',seasonMode:'summer'});
  homeCastLayoutKey='';render();homeDiorama.sync();return this.detail();
  },
- detail(){const s=homeDiorama.inspectScene();return {blocked:homeDioramaBlocked(),paused:el.castStage.dataset.dioramaPaused,world:homeDiorama.inspectWorld(),actors:homeDiorama.model.snapshot().map(a=>({...a,safe:s.navigation?.valid(a),ground:s.navigation?.unproject(a)})),slots:{castStage:el.castStage.getBoundingClientRect().toJSON(),notice:document.getElementById('homeEventSlot').getBoundingClientRect().height,speech:document.getElementById('speechSlot').getBoundingClientRect().height},metrics:homeDiorama.model.metrics()};},
+ detail(){const s=homeDiorama.inspectScene();return {blocked:homeDioramaBlocked(),paused:el.castStage.dataset.dioramaPaused,world:homeDiorama.inspectWorld(),actors:homeDiorama.model.snapshot().map(a=>({...a,safe:s.navigation?.valid(a),ground:s.navigation?.unproject(a)})),slots:{castStage:el.castStage.getBoundingClientRect().toJSON(),notice:document.getElementById('homeEventSlot').getBoundingClientRect().height,speech:document.getElementById('homeCommentDock').getBoundingClientRect().height},metrics:homeDiorama.model.metrics()};},
  inspect(){const scene=homeDiorama.inspectScene();return {scene,bounds:homeDiorama.model.snapshot().map(a=>homeDiorama.model.bounds(a))};},
  move(){return (${require('./home-v8-qa-movement.cjs').toString()})(homeDiorama.model,homeDiorama.inspectScene().navigation);},
  save(){saveState();return JSON.parse(JSON.stringify(state));}, state:()=>JSON.parse(JSON.stringify(state)),
