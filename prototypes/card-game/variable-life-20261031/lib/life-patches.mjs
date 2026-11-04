@@ -356,3 +356,9 @@ function newCardValue(a,o,spend){const id=a.card?.cardId;if(!id?.startsWith('X-N
 export function policyV4(){return [['time-helper',"const growthMult=o=>",SMART3+"const growthMult=o=>"],
  ['time-score',"if(a.slot==='world')return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;","if(a.slot==='world'){const tv=timeValue(c,o);if(tv!==null)return (tv<=.5?-1:tv)-spend-(b.world&&!TIMEN[b.world.name]?3:0);return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;}"],
  ['v4-score'," const spend=spendOf(a,o);"," const spend=spendOf(a,o);{const nv=newCardValue(a,o,spend);if(nv!==null)return nv;}"]];}
+// Trial only (VERSION 4): smart3 (default) and VERSION 1's smart in one bundle, chosen at run time by globalThis.__timeCpu
+// ('v1' = smart; otherwise smart3, which decides exactly like smart2 when no new card is involved).
+export function policyTrialV4(){const v1=policyTime('smart')[0][2].replace('const growthMult=o=>','').replace(/const TIMEN=[^\n]*\n/,'').replace(/function pendingFinal[^\n]*\n/,'').replace('function timeValue(','function timeValueV1(');
+ const [h,,n]=policyV4();
+ return [['time-helper',h[1],SMART3+v1+"const growthMult=o=>"],
+  ['time-score',"if(a.slot==='world')return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;","if(a.slot==='world'){const V1=globalThis.__timeCpu==='v1',tv=V1?timeValueV1(c,o):timeValue(c,o);if(tv!==null)return (V1?(tv===0?-1:tv):(tv<=.5?-1:tv))-spend-(b.world&&!TIMEN[b.world.name]?3:0);return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;}"],n];}

@@ -45,11 +45,14 @@ try{for(const [name,viewport] of process.env.QA_ONLY_CPU?[]:[['iphone-portrait',
  assert.match(await p.locator('#life-trial-note').innerText(),/特殊カウンター[\s\S]*最後に出したカードだけが成立/);
  await p.locator('#time-config-A').selectOption('H8');await p.locator('#time-config-B').selectOption('L3');await shot('setup');
  await p.locator('#new').tap();await reveal();await p.locator('#game').waitFor({state:'visible'});
- assert.match(await p.locator('body').innerText(),/時のカード試遊版：CPU判断 VERSION 2／A：各2（8枚）（8枚入れ替え）／B：XI×1・XII×2（延長）（3枚入れ替え）/);
+ assert.match(await p.locator('body').innerText(),/時のカード試遊版：CPU判断 VERSION 4／A：各2（8枚）（8枚入れ替え）／B：XI×1・XII×2（延長）（3枚入れ替え）/);
  {const g=JSON.parse(await saved()),n=(s,id)=>g.decks[s].filter(c=>c===id).length;for(const id of ['X-T-IX','X-T-X','X-T-XI','X-T-XII'])assert.equal(n('A',id),2,`Aに${id}×2`);
   assert.deepEqual([n('B','X-T-IX'),n('B','X-T-X'),n('B','X-T-XI'),n('B','X-T-XII')],[0,0,1,2],'B は XI×1・XII×2');assert.equal(g.decks.A.length,40);assert.equal(g.decks.B.length,40);}
  const keys=await p.evaluate(()=>{const out=[];for(let i=0;i<localStorage.length;i++)out.push(localStorage.key(i));return out;});assert.ok(keys.every(k=>k.startsWith(PREFIX)));
  await p.reload();await p.locator('#hotseat-open').tap();assert.equal(await p.locator('#time-config-A').inputValue(),'H8');assert.equal(await p.locator('#time-config-B').inputValue(),'L3');note(name,'準備 OK（A 各2・B XI×1・XII×2）');
+ if(process.env.V4DIR){await p.locator('#time-config-A').selectOption('C_haya');await p.locator('#time-config-B').selectOption('C_naga');await p.locator('#new').tap();await reveal();
+  const g=JSON.parse(await saved()),n=(s,id)=>g.decks[s].filter(c=>c===id).length;assert.deepEqual([n('A','X-T-IX'),n('A','X-N-hayajimai')],[2,2],'A：IX×2・はやじまい×2');assert.deepEqual([n('B','X-T-XII'),n('B','X-T-XI'),n('B','X-N-nagaiki')],[2,2,2],'B：XI・XII 各2・ながいき×2');
+  note(name,'準備 V4：はやじまい＋IX／ながいき＋XI・XII OK');await p.goto(URL0);await p.locator('#hotseat-open').tap();await p.locator('#time-config-A').selectOption('H8');await p.locator('#time-config-B').selectOption('L3');}
  // マイデッキ：時のカードは通常のセカイと同じく同名3枚まで（4種類合計の上限なし）。
  await p.locator('#my-decks-open').tap();await p.locator('#deck-create').tap();await p.locator('#card-search').fill('終了ラウンドを12');
  const row=p.locator('#catalog-list [data-card-id="X-T-XII"]');await row.waitFor();for(let i=0;i<3;i++)await row.locator('[data-add]').tap();
@@ -76,6 +79,24 @@ try{for(const [name,viewport] of process.env.QA_ONLY_CPU?[]:[['iphone-portrait',
  // 3) IX に XII でカウンター：R12 で終了。時計は XII。
  await restore(SAVE);await doAction('A','IXを配置');await doAction('B','XIIでカウンター');v=await until(v=>v.phase==='normal'&&!v.chain.length);assert.equal(v.life.final,12);await clock(12);
  await finish(12);note(name,'IX→XII：R12終了 OK');
+ // V4) 新カード（VERSION 4）。保存は make-save-v4.mjs が本物のコマンドの列で作ったもの。
+ if(process.env.V4DIR){const F=n=>fs.readFileSync(path.join(process.env.V4DIR,n+'.json'),'utf8');
+  const doLabel=async(seat,re)=>{const v=await until(v=>v.actor===seat&&v.actions.some(a=>re.test(a.label)));const a=v.actions.find(a=>re.test(a.label));await press(a);note(name,`${seat}：${a.label}`);};
+  // はやじまい：R8 に負けている A が IX → 残り1ラウンド → +15 → R9 で終了。
+  await restore(F('r8-haya'));let w=await view();const g0=w.players.A.growth;await doAction('A','IXを配置');w=await until(v=>v.phase==='normal'&&!v.chain.length&&v.life.final===9);
+  await doAction('A','はやじまい');w=await until(v=>v.phase==='normal'&&!v.chain.length);assert.equal(w.players.A.growth,g0+15,'はやじまい +15');assert.match(await indicator(),/ROUND 8\/9/);await clock(9);await shot('v4-haya');
+  await finish(9);note(name,'はやじまい：R8 IX→+15→R9終了 OK');
+  // ながいきのひけつ：R9 に負けている A が XII → 終了ラウンド12 → +15。
+  await restore(F('r9-naga'));w=await view();const n0=w.players.A.growth;await doAction('A','XIIを配置');w=await until(v=>v.phase==='normal'&&!v.chain.length&&v.life.final===12);
+  await doAction('A','ながいきのひけつ');w=await until(v=>v.phase==='normal'&&!v.chain.length);assert.equal(w.players.A.growth,n0+15,'ながいきのひけつ +15');await clock(12);await shot('v4-naga');
+  await finish(12);note(name,'ながいきのひけつ：XII→+15→R12終了 OK');
+  // まちぶせどけい：A が伏せる → B の IX に、A が時を2少なくカウンター（1枚引く）。
+  await restore(F('r7-machi'));await doAction('A','まちぶせどけい');await doAction('B','IXを配置');await doLabel('A',/XIIでカウンター.*まちぶせどけい/);
+  w=await until(v=>v.phase==='normal'&&!v.chain.length);assert.equal(w.life.final,12,'まちぶせどけいで返した XII が成立');assert.ok(w.players.A.discard.some(c=>c.name==='まちぶせどけい'),'まちぶせどけいは捨て札');await shot('v4-machi');note(name,'まちぶせどけい：時−2のカウンター OK');
+  // U12：A のメインがヒトデ⑦。A の IX に B が XII でカウンター → A はヒトデ⑦の置換で IX を山札の一番下へ。IX の効果は不成立（終了ラウンド12）。
+  await restore(F('u12-star'));await doAction('A','IXを配置');await doAction('B','XIIでカウンター');await doLabel('A',/ヒトデ⑦の置換を使う/);
+  w=await until(v=>v.phase==='normal'&&!v.chain.length);assert.equal(w.life.final,12,'U12：IX は不成立');assert.ok(!w.players.A.discard.some(c=>c.name==='IX')&&w.players.A.board.world?.name!=='IX','U12：IX は捨て札にも場にもない（山札の下）');await clock(12);await shot('v4-u12');note(name,'U12：ヒトデ⑦の置換 OK');
+ }
  // 4) 現在ラウンドより前は不可：R10 の自分の番で IX は出ない（R9 で終わらなかった対戦を続けた局面は 1) の R11 で確認済み）。
  assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'横スクロールなし');
  await ctx.close();note(name,'OK');
@@ -83,7 +104,7 @@ try{for(const [name,viewport] of process.env.QA_ONLY_CPU?[]:[['iphone-portrait',
 // 5) CPU 対戦（VERSION 2）：CPU の判断の切り替え、CPU はデッキ別の推奨構成（アイテム・じゅんび）、人は各1。人はパスだけで最後まで。
 {const ctx=await b.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:2});const p=await ctx.newPage();p.on('pageerror',e=>errors.push(`cpu: ${e.message}`));
  await p.goto(URL0);await p.locator('#solo-open').tap();await p.locator('#time-cpu').selectOption('v1');assert.equal(await p.evaluate(()=>globalThis.__timeCpu),'v1');
- await p.locator('#time-cpu').selectOption('v2');assert.equal(await p.evaluate(()=>globalThis.__timeCpu),'v2');
+ await p.locator('#time-cpu').selectOption('v4');assert.equal(await p.evaluate(()=>globalThis.__timeCpu),'v4');
  await p.locator('#cpu-deck-mode').selectOption('choose');await p.locator('#cpu-deck-type').selectOption('item');
  const human=await p.locator('#human-seat').inputValue(),cpuSeat=human==='A'?'B':'A';await p.locator('#time-config-'+human).selectOption('B4');await p.locator('#time-config-'+cpuSeat).selectOption('rec');
  await p.locator('#new').tap();await p.locator('#game').waitFor({state:'visible'});
