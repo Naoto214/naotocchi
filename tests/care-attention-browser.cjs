@@ -3,6 +3,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const {useLegacyHomePresentation}=require('./helpers/home-cast-fixture.cjs');
 
 async function attentionState(page) {
   return page.evaluate(() => {
@@ -51,6 +52,7 @@ module.exports = async function checkCareAttention(browser, engine, fixtures, ba
       const context=await browser.newContext({viewport:{width,height},deviceScaleFactor:1,
         reducedMotion:reduced?'reduce':'no-preference'});
       const page=await context.newPage(), errors=[];
+      await useLegacyHomePresentation(context,engine+'-care-'+name,errors);
       page.on('pageerror',e=>errors.push(e.message));
       const save=JSON.parse(JSON.stringify(fixtures[fixture]));
       if(reduced) save.lifetime.textSize='large';
