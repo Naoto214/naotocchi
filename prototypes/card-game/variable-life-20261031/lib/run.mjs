@@ -16,7 +16,7 @@ async function mods(v){if(MODS[v])return MODS[v];const u=f=>pathToFileURL(v==='O
  const [e,o,p,ap,cat,rules]=await Promise.all([import(u('engine.mjs')),import(u('cpu-observation.mjs')),import(u('cpu-policy.mjs')),import(u('auto-progress.mjs')),import(u('full-catalog.mjs')),import(u('rules.mjs'))]);
  return MODS[v]={e,observeCpu:o.observeCpu,chooseCpuAction:p.chooseCpuAction,policy:p.POLICY_VERSION,advanceResponses:ap.advanceResponses,CATALOG:cat.CATALOG,RULES:rules.RULES};}
 // VERSION 7: LIFE_UNMAP=1 also hashes the save with the candidate IDs mapped back to the experiment IDs (I7 ≡ I-7 check).
-const UNMAP=process.env.LIFE_UNMAP?(await import('../integration/candidate-cards.mjs').then(m=>{const r=Object.entries(m.ID_MAP);return t=>r.reduce((x,[a,b])=>x.split('"'+b+'"').join('"'+a+'"'),t);})):null;
+const UNMAP=process.env.LIFE_UNMAP?(await import('../integration/candidate-cards.mjs').then(m=>{const r=Object.fromEntries(Object.entries(m.ID_MAP).map(([a,b])=>[b,a])),re=new RegExp('(?<![A-Za-z0-9_-])('+Object.keys(r).join('|')+')(?![A-Za-z0-9_-])','g');return t=>t.replace(re,x=>r[x]);})):null;
 const STEP_LIMIT=8000,TURN_LIMIT=512;
 const other=a=>a==='A'?'B':'A';
 // Round-dependent cards whose text names a fixed round (kept literally in R12; usage is recorded).
