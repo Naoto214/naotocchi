@@ -37,7 +37,9 @@ src['full-catalog.mjs']+=`\n// ---- variable-life-20261031 time trial: provision
 src['rules.mjs']+=timeRules(true)+newRules()+v5Rules();
 const NW=Object.fromEntries(Object.entries({...newCards(),...v5Cards()}).map(([id,c])=>[id,{...c,source:'variable-life-20261031 VERSION 4 試遊版（仮カード・画像は後日）'}]));
 src['full-catalog.mjs']+=`\n// ---- variable-life-20261031 VERSION 4 trial: provisional new cards ----\nObject.assign(CATALOG,${JSON.stringify(NW,null,1)});\n`;
-apply('records.mjs',[['records-round',"!num(r.round,10)","!num(r.round,12)"]]);
+// 戦績：試遊用カード（時のカード・新カード）は 452枚の後ろの番号になるので、保存した戦績を読み直す時の番号の上限を、写しの中だけカードの総数にする
+// （正式は 451 まで。VERSION 1〜4 の試遊版では、2戦目以降の戦績が「デッキ辞書が不正です」で保存できなかった。VERSION 5 で修正）。
+apply('records.mjs',[['records-round',"!num(r.round,10)","!num(r.round,12)"],['records-deck-index',"x[2].some(i=>!num(i,451))","x[2].some(i=>!num(i,ids.length-1))"],['records-use-index',"!num(p[0],451)","!num(p[0],ids.length-1)"]]);
 // 時計：描画（文字盤・針の色・形・寸法・配置）は変えず、対戦の終了ラウンドを小針に渡すだけ。小針の角度は採用版のまま「終了ラウンド×30度」。
 // 採用版の入力チェックは終了ラウンド10〜12だけを受け付けるため、試遊版の写しに限り9も受け付ける（文字盤には IX が印刷済み）。正式採用には別承認が必要。
 // CPU 対戦：CPU の戦略デッキにも時のカードを入れるため、試遊版の写しに限り「時のカード入りの戦略デッキ」を試遊用の版として認める

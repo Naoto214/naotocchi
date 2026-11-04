@@ -97,6 +97,7 @@ try{for(const [name,viewport] of process.env.QA_ONLY_CPU?[]:[['iphone-portrait',
   if(fs.existsSync(path.join(process.env.V4DIR,'r10-tsuru.json'))){await restore(F('r10-tsuru'));w=await view();const t0=w.players.A.growth,b0=w.players.B.growth;await doLabel('A',/おいわいのつる（ラウンド終了）/);
    const v2=await until(v=>v.actor==='B'&&v.phase==='normal');assert.equal(v2.players.A.growth,t0,'先攻の終了時には増えない');const res=await finish(10);
    const g=await view();assert.ok(g.result,'終了');const A=g.result.growth.A,B=g.result.growth.B;note(name,`つる（ラウンド終了）：A ${t0}→${A}（B ${b0}→${B}）`);assert.ok(A>=t0+5||A>=B,'ラウンドの終わりに負けている A が +5');await shot('v5-tsuru');}
+  {const msg=await p.locator('body').innerText();assert.ok(!/戦績を保存できません|戦績を読み込めません/.test(msg),'戦績の保存エラーが出ない');const raw=await p.evaluate(()=>localStorage.getItem('naotocchi-card-records-v1'));const n=JSON.parse(raw).rows.length;assert.ok(n>=4,'終わった対戦（別々の4試合：r8-chain・r8-haya・r9-naga・r10-tsuru）がすべて戦績に残る：'+n);note(name,'戦績：'+n+'件（2戦目以降も保存）');}
   // U12：A のメインがヒトデ⑦。A の IX に B が XII でカウンター → A はヒトデ⑦の置換で IX を山札の一番下へ。IX の効果は不成立（終了ラウンド12）。
   await restore(F('u12-star'));await doAction('A','IXを配置');await doAction('B','XIIでカウンター');await doLabel('A',/ヒトデ⑦の置換を使う/);
   w=await until(v=>v.phase==='normal'&&!v.chain.length);assert.equal(w.life.final,12,'U12：IX は不成立');assert.ok(!w.players.A.discard.some(c=>c.name==='IX')&&w.players.A.board.world?.name!=='IX','U12：IX は捨て札にも場にもない（山札の下）');await clock(12);await shot('v4-u12');note(name,'U12：ヒトデ⑦の置換 OK');
