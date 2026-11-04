@@ -3,7 +3,7 @@ const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_pro
 const out=path.resolve(process.argv[2]);
 cp.execFileSync(process.execPath,['tools/home-production-v8-qa.cjs',out]);
 for(const name of ['script.js','home-production-touch.js','home-production-layout.css'])fs.copyFileSync(name,path.join(out,name));
-const prepare=html=>html.replace(/data-home-viewport-version="8"/g,'data-home-viewport-version="9"').replace('<body data-home-production','<body data-home-viewport-version="9" data-home-production').replace('</head>','<meta name="theme-color" content="#342b25"></head>').replace(/((?:src|href)=")([^"?]+)\?v=([^"\s]+)(")/g,(all,pre,file,token,post)=>fs.existsSync(file)?pre+file+'?v='+token.split('-')[0]+'-'+crypto.createHash('sha1').update(fs.readFileSync(file)).digest('hex').slice(0,8)+post:all);
+const prepare=html=>html.replace(/<body\b[^>]*>/,tag=>tag.replace(/\sdata-home-(?:viewport|display)-version="[^"]*"/g,'').replace('<body','<body data-home-viewport-version="9"')).replace(/data-home-viewport-version="8"/g,'data-home-viewport-version="9"').replace('<body data-home-production','<body data-home-viewport-version="9" data-home-production').replace('</head>','<meta name="theme-color" content="#342b25"></head>').replace(/((?:src|href)=")([^"?]+)\?v=([^"\s]+)(")/g,(all,pre,file,token,post)=>fs.existsSync(file)?pre+file+'?v='+token.split('-')[0]+'-'+crypto.createHash('sha1').update(fs.readFileSync(file)).digest('hex').slice(0,8)+post:all);
 for(const kind of ['script.js','diorama.js'])fs.copyFileSync(path.join(out,'v8-qa-'+kind),path.join(out,'v9-qa-'+kind));
 // Exercise real independent comment producers through the isolated QA entry.
 const q=path.join(out,'v9-qa-script.js');
