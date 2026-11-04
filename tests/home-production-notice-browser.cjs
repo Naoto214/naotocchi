@@ -19,6 +19,9 @@ const inspect=()=>{
  await page.goto(base+'/v5-qa.html?region='+region+'&count=6');await page.waitForFunction(()=>window.HomeReleaseQA?.detail().world?.loaded);await page.evaluate(()=>document.fonts.ready);
  // Rotate the same live document, not a separate landscape-only fixture.
  if(landscape)await page.setViewportSize({width:844,height:width});
+ // Rotation completes asynchronously in WebKit; capture the fixed-control
+ // baseline only after the application's viewport measurement has caught up.
+ await page.waitForFunction(([w,h])=>innerWidth===w&&innerHeight===h&&Number.parseFloat(document.documentElement.style.getPropertyValue('--app-height'))===Math.round(visualViewport?.height||innerHeight),landscape?[844,width]:[width,844]);
  await page.evaluate(()=>HomeReleaseQA.noticeCase(''));await page.clock.runFor(100);
  const baseline=await page.evaluate(inspect);
  for(const kind of ['short','forest','multiline','story','court']){

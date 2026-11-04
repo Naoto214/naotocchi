@@ -1,4 +1,5 @@
-// Production package matrix: scroll is a viewport translation, never world movement.
+// Historical scroll contract; the separate production/layout gates retain V18.
+// Scroll is a viewport translation, never world movement.
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),assert=require('node:assert/strict');
 const root=path.resolve(process.argv[2]||'../production'),output=path.resolve(process.env.HOME_RELEASE_OUTPUT||'test-results/home-production-scroll');fs.mkdirSync(output,{recursive:true});
 const mime={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2'};
@@ -11,7 +12,7 @@ for(const [width,height]of [[320,568],[375,667],[390,844],[430,932],[568,320],[6
 const label=`${engine}/${width}x${height}/${region}/${count}`;
 // Each fixture starts from the same seed; a choice/encounter in one case must
 // not obscure the controls in the next. Landscape still rotates a live scene.
-try{await page.setViewportSize({width:Math.min(width,height),height:Math.max(width,height)});await page.goto(base+'/release-qa.html');await page.waitForFunction(()=>window.HomeReleaseQA);await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[region,count]);
+try{await page.setViewportSize({width:Math.min(width,height),height:Math.max(width,height)});await page.goto(base+'/historical-release-qa.html');await page.waitForFunction(()=>window.HomeReleaseQA);await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[region,count]);
 await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.world?.loaded&&d.world.region===r&&d.actors.length===c&&d.actors.every(a=>a.safe);},[region,count],{timeout:15000});
 if(width>height)await page.setViewportSize({width,height});
 await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.world?.loaded&&d.world.region===r&&d.actors.length===c&&d.actors.every(a=>a.safe);},[region,count],{timeout:15000});
