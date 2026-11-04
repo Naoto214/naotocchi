@@ -397,3 +397,10 @@ if(SMART4===SMART3||!SMART4.includes('pExt')||!SMART4.includes('TSURU'))throw Er
 export function policyV5(){const [h,s,n]=policyV4();
  return [['time-helper',h[1],SMART4+"const growthMult=o=>"],
   ['time-score',s[1],s[2].replace("-spend-(b.world&&!TIMEN[b.world.name]?3:0);return","-spend-(b.world&&!TIMEN[b.world.name]?3+(ownHand(o).some(x=>x.cardId==='X-N-photo')?5:0):0);return")],n];}
+// Trial only (VERSION 5): smart4 (default), smart3 (VERSION 4: globalThis.__timeCpu==='v4') and VERSION 1's smart (=== 'v1').
+export function policyTrialV5(){const v1=policyTime('smart')[0][2].replace('const growthMult=o=>','').replace(/const TIMEN=[^\n]*\n/,'').replace(/function pendingFinal[^\n]*\n/,'').replace('function timeValue(','function timeValueV1(');
+ const v4fn=SMART3.slice(SMART3.indexOf('function newCardValue(')).replace('function newCardValue(','function newCardValueV4(');
+ const [h,,n]=policyV4();
+ return [['time-helper',h[1],SMART4+v4fn+v1+"const growthMult=o=>"],
+  ['time-score',"if(a.slot==='world')return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;","if(a.slot==='world'){const M=globalThis.__timeCpu,V1=M==='v1',tv=V1?timeValueV1(c,o):timeValue(c,o);if(tv!==null)return (V1?(tv===0?-1:tv):(tv<=.5?-1:tv))-spend-(b.world&&!TIMEN[b.world.name]?3+(M!=='v4'&&!V1&&ownHand(o).some(x=>x.cardId==='X-N-photo')?5:0):0);return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;}"],
+  [n[0],n[1],n[2].replace('const nv=newCardValue(a,o,spend);','const nv=(globalThis.__timeCpu==="v4"?newCardValueV4:newCardValue)(a,o,spend);')]];}

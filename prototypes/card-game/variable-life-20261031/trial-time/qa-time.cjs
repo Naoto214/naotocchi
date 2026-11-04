@@ -45,7 +45,7 @@ try{for(const [name,viewport] of process.env.QA_ONLY_CPU?[]:[['iphone-portrait',
  assert.match(await p.locator('#life-trial-note').innerText(),/特殊カウンター[\s\S]*最後に出したカードだけが成立/);
  await p.locator('#time-config-A').selectOption('H8');await p.locator('#time-config-B').selectOption('L3');await shot('setup');
  await p.locator('#new').tap();await reveal();await p.locator('#game').waitFor({state:'visible'});
- assert.match(await p.locator('body').innerText(),/時のカード試遊版：CPU判断 VERSION 4／A：各2（8枚）（8枚入れ替え）／B：XI×1・XII×2（延長）（3枚入れ替え）/);
+ assert.match(await p.locator('body').innerText(),/時のカード試遊版：CPU判断 VERSION 5／A：各2（8枚）（8枚入れ替え）／B：XI×1・XII×2（延長）（3枚入れ替え）/);
  {const g=JSON.parse(await saved()),n=(s,id)=>g.decks[s].filter(c=>c===id).length;for(const id of ['X-T-IX','X-T-X','X-T-XI','X-T-XII'])assert.equal(n('A',id),2,`Aに${id}×2`);
   assert.deepEqual([n('B','X-T-IX'),n('B','X-T-X'),n('B','X-T-XI'),n('B','X-T-XII')],[0,0,1,2],'B は XI×1・XII×2');assert.equal(g.decks.A.length,40);assert.equal(g.decks.B.length,40);}
  const keys=await p.evaluate(()=>{const out=[];for(let i=0;i<localStorage.length;i++)out.push(localStorage.key(i));return out;});assert.ok(keys.every(k=>k.startsWith(PREFIX)));
@@ -93,6 +93,10 @@ try{for(const [name,viewport] of process.env.QA_ONLY_CPU?[]:[['iphone-portrait',
   // まちぶせどけい：A が伏せる → B の IX に、A が時を2少なくカウンター（1枚引く）。
   await restore(F('r7-machi'));await doAction('A','まちぶせどけい');await doAction('B','IXを配置');await doLabel('A',/XIIでカウンター.*まちぶせどけい/);
   w=await until(v=>v.phase==='normal'&&!v.chain.length);assert.equal(w.life.final,12,'まちぶせどけいで返した XII が成立');assert.ok(w.players.A.discard.some(c=>c.name==='まちぶせどけい'),'まちぶせどけいは捨て札');await shot('v4-machi');note(name,'まちぶせどけい：時−2のカウンター OK');
+  // VERSION 5：おいわいのつる（ラウンド終了）。R10・終了ラウンド10。A が置く → 後攻の B が終わるとラウンドの終わりに、負けている A が +5 → R10最終比較。
+  if(fs.existsSync(path.join(process.env.V4DIR,'r10-tsuru.json'))){await restore(F('r10-tsuru'));w=await view();const t0=w.players.A.growth,b0=w.players.B.growth;await doLabel('A',/おいわいのつる（ラウンド終了）/);
+   const v2=await until(v=>v.actor==='B'&&v.phase==='normal');assert.equal(v2.players.A.growth,t0,'先攻の終了時には増えない');const res=await finish(10);
+   const g=await view();assert.ok(g.result,'終了');const A=g.result.growth.A,B=g.result.growth.B;note(name,`つる（ラウンド終了）：A ${t0}→${A}（B ${b0}→${B}）`);assert.ok(A>=t0+5||A>=B,'ラウンドの終わりに負けている A が +5');await shot('v5-tsuru');}
   // U12：A のメインがヒトデ⑦。A の IX に B が XII でカウンター → A はヒトデ⑦の置換で IX を山札の一番下へ。IX の効果は不成立（終了ラウンド12）。
   await restore(F('u12-star'));await doAction('A','IXを配置');await doAction('B','XIIでカウンター');await doLabel('A',/ヒトデ⑦の置換を使う/);
   w=await until(v=>v.phase==='normal'&&!v.chain.length);assert.equal(w.life.final,12,'U12：IX は不成立');assert.ok(!w.players.A.discard.some(c=>c.name==='IX')&&w.players.A.board.world?.name!=='IX','U12：IX は捨て札にも場にもない（山札の下）');await clock(12);await shot('v4-u12');note(name,'U12：ヒトデ⑦の置換 OK');

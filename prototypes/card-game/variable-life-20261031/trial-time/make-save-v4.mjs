@@ -4,6 +4,7 @@
 //   r8-haya.json  : R8・先攻A。A が負けていて、手札に IX とはやじまい。A の時4以上。
 //   r9-naga.json  : R9・先攻A。A が負けていて、手札に XII とながいきのひけつ。A の時4以上。
 //   r7-machi.json : R7・先攻A。A の手札にまちぶせどけいと XII、B の手札に IX。
+//   r10-tsuru.json: R10・先攻A（VERSION 5）。A が負けていて、手札においわいのつる（ラウンド終了）。終了ラウンド10。
 //   u12-star.json : R8・先攻A。A のメインがヒトデ⑦で、A の手札に IX、B の手札に XII（U12 の確認。見つからなければ作らない）。
 import fs from 'node:fs';import path from 'node:path';import {pathToFileURL} from 'node:url';
 const [stage,outDir]=process.argv.slice(2);const u=f=>pathToFileURL(path.join(path.resolve(stage),f)).href;
@@ -20,6 +21,7 @@ const SPECS=[
  {name:'r8-haya',round:8,decks:{A:inject(deck('growth'),[...T,'X-T-IX',NW('hayajimai'),NW('hayajimai')]),B:inject(deck('item'),T)},ready:s=>has(s,'A',['X-T-IX',NW('hayajimai')])&&s.players.A.growth<s.players.B.growth&&s.players.B.growth-s.players.A.growth<=15&&s.players.A.time>=4,label:['試験A（そだち獲得＋はやじまい）','試験B（アイテム）']},
  {name:'r9-naga',round:9,decks:{A:inject(deck('balance'),[...T,'X-T-XII',NW('nagaiki'),NW('nagaiki')]),B:inject(deck('item'),T)},ready:s=>has(s,'A',['X-T-XII',NW('nagaiki')])&&s.players.A.growth<s.players.B.growth&&s.players.A.time>=4,label:['試験A（バランス＋ながいき）','試験B（アイテム）']},
  {name:'r7-machi',round:7,decks:{A:inject(deck('balance'),[...T,'X-T-XII',NW('machibuse'),NW('machibuse')]),B:inject(deck('item'),[...T,'X-T-IX'])},ready:s=>has(s,'A',['X-T-XII',NW('machibuse')])&&has(s,'B',['X-T-IX']),label:['試験A（バランス＋まちぶせ）','試験B（アイテム）']},
+ {name:'r10-tsuru',round:10,decks:{A:inject(deck('companion'),[...T,NW('tsuruR'),NW('tsuruR')]),B:inject(deck('item'),T)},ready:s=>has(s,'A',[NW('tsuruR')])&&s.players.A.growth<s.players.B.growth&&s.players.A.board.companions.length<3&&s.life.final===10,label:['試験A（なかま＋つる・ラウンド終了）','試験B（アイテム）']},
  {name:'u12-star',round:8,decks:{A:inject(starDeck.slice(0,40),[...T,'X-T-IX']),B:inject(deck('item'),[...T,'X-T-XII'])},ready:s=>mainIs(s,'A','M-starfish-07')&&has(s,'A',['X-T-IX'])&&has(s,'B',['X-T-XII'])&&s.players.B.time>=2,label:['試験A（ヒトデ）','試験B（アイテム）'],optional:true},
 ];
 fs.mkdirSync(outDir,{recursive:true});const found={};
