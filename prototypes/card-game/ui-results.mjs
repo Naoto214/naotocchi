@@ -1,6 +1,7 @@
 // Read-only result journal. Observes committed command boundaries, never rules.
 import {CARDS,view,createGame,act,actor} from './engine.mjs';
 import * as legacy from './legacy-engine.mjs';
+import {marriedText,marriedAbilitiesActive} from './lover-married.mjs';
 const zoneNames={hand:'手札',deck:'山札',discard:'捨て札',main:'メイン',partner:'こいびと',world:'セカイ',companions:'なかま',prepared:'準備',chain:'発動領域'};
 const describe=(s,id)=>({...CARDS[s.cards[id].cardId],cardId:s.cards[id].cardId,id});
 function locations(s){const out=new Map();for(const seat of ['A','B']){const p=s.players[seat],b=p.board;
@@ -66,12 +67,13 @@ export function captureResult(before,after){
  if(before)for(const event of events.filter(e=>e.kind==='marriage')){
   const seat=event.actor,p=after.players[seat];
   if(before.players[seat].relationship!==4&&p.relationship===4)
-   rowSpecs.push({kind:'marriage',seat,ids:[p.board.main,p.board.partner].filter(Boolean),publicCards:true,text:'けっこん成立'});
+   rowSpecs.push({kind:'marriage',seat,ids:[p.board.main,p.board.partner].filter(Boolean),publicCards:true,text:marriedAbilitiesActive(after)&&marriedText(after.cards[p.board.partner]?.cardId)?'けっこん成立 · ♥ 結婚したら の能力が使えるようになった':'けっこん成立'});
  }
  // 479: a breakup row says whether the relationship ended before (−5) or after marriage (−10). The amount is the
  // engine's own recorded penalty; the actual change (floor at 0) stays in the そだち row.
  if(before)for(const event of events.filter(e=>e.kind==='breakup'))
-  rowSpecs.push({kind:'breakup',seat:event.actor,ids:[event.source],publicCards:true,text:`${event.married?'けっこんした あいてと おわかれ':'こいびとと おわかれ'}（そだち−${event.penalty}）`});
+  rowSpecs.push({kind:'breakup',seat:event.actor,ids:[event.source],publicCards:true,text:`${event.married?'けっこんした あいてと おわかれ':'こいびとと おわかれ'}（そだち−${event.penalty}）${marriedAbilitiesActive(after)&&marriedText(event.cardId)?(event.married?' · こいびとの能力と ♥ 結婚の能力を失った':' · こいびとの能力を失った'):''}`});
+ if(before)for(const event of events.filter(e=>e.kind==='ability'&&e.marriedAbility))rowSpecs.push({kind:'loverMarried',seat:event.actor,ids:[event.source],publicCards:true,text:`♥ 結婚したら：${CARDS[event.cardId]?.name??'こいびと'}の能力が発動`});
  if(before&&!before.result&&after.result)rowSpecs.push({kind:'finish',text:`${after.result.winner?after.result.winner+' の勝利':'引き分け'} · ${after.result.reason} · A ${after.players.A.growth} / B ${after.players.B.growth}`});
  const historyOnly=!rowSpecs.length&&!resolving.length;
  // Turn boundaries come from committed state; never infer an end from a pass request.

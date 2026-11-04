@@ -1,11 +1,16 @@
 // Pure replaceable decision policy. No engine import, transition, random source or hidden state.
+// 依存は表だけ（lover-married.mjs：恋人の結婚の能力の種類と見積もり値。エンジンは読まない）。
+import {LOVER_MARRIED,MARRIED_CPU_VALUE} from './lover-married.mjs';
 // Policy versions. A CPU match is saved with the version it was started with and keeps using it after a restore
 // (cpu-session.mjs), so a saved match never changes its CPU. heuristic-1 = the policy up to 2026-10-30.
 // heuristic-2 = heuristic-1 + `statChoice` for the intermediate CPU (stat-choosing candidates follow the compared stat
 // of an open challenge; PR #491 B1). The beginner is identical in both versions.
-export const POLICY_VERSION='heuristic-2';
-export const POLICY_VERSIONS=Object.freeze(['heuristic-1','heuristic-2']);
-const VERSION_FEATURES=Object.freeze({'heuristic-1':{},'heuristic-2':{intermediate:{statChoice:true}}});
+export const POLICY_VERSION='heuristic-3';
+export const POLICY_VERSIONS=Object.freeze(['heuristic-1','heuristic-2','heuristic-3']);
+const VERSION_FEATURES=Object.freeze({'heuristic-1':{},'heuristic-2':{intermediate:{statChoice:true}},'heuristic-3':{intermediate:{statChoice:true,loverMarried:true}}});
+// heuristic-3（中級だけ）：恋人の「♥ 結婚したら」の見積もり。1回型は値そのもの、それ以外は値×残りのターン数（480・VERSION 5 で検証）。
+const marriedKind=id=>LOVER_MARRIED[id]?.cpuKind??LOVER_MARRIED[id]?.kind;
+const marriedWorth=(id,o)=>{const v=MARRIED_CPU_VALUE[id]??0,left=Math.max(0,10-(o.round??1));return marriedKind(id)==='once'?v:v*left;};
 export const DIFFICULTIES=['beginner','intermediate'];
 // Difficulty = judgment quality, not injected randomness. Beginner keeps the earlier, simpler evaluations:
 // flat time penalty, flat search value, declares a challenge only when already ahead, and does not react on the
@@ -19,7 +24,7 @@ function tie(seed,step,index){let n=(seed^Math.imul(step+1,2654435761)^Math.imul
 function cardValue(c,o){
  if(!c)return 0;const p=o.players[o.seat],b=p.board;
  if(c.type==='main'){const cost=!b.main?c.stage:b.main.species===c.species?c.stage-b.main.stage:c.stage;if(cost<=0)return 1;return (!b.main?16:4)+(cost<=Math.max(p.time,Math.min(10,o.round+1))?8:-3)+(b.main?.species===c.species?4:0)+Math.max(c.power??0,c.wisdom??0)*.3-cost*.6;}
- if(c.type==='partner')return b.partner?2:12;
+ if(c.type==='partner')return b.partner?2:12+(o.loverMarried?Math.min(4,(MARRIED_CPU_VALUE[c.cardId]??0)):0);
  if(c.type==='companion')return b.companions.length<3?10:4;
  if(c.type==='world')return b.world?.cardId===c.cardId?1:b.world?3:8;
  return 5-Math.min(5,c.cost??0)*.4+(c.rare?1:0);
@@ -106,12 +111,12 @@ export function scoreCpuAction(a,o,spendOf=legacySpend,prof=PROFILES.intermediat
  const spend=spendOf(a,o);
  if(a.kind==='place'){
   if(a.slot==='main'){if(a.variant==='birth')return 40+Math.max(c?.power??0,c?.wisdom??0)-spend;const improvement=Math.max(c?.power??0,c?.wisdom??0)-Math.max(p.stats?.power??0,p.stats?.wisdom??0);return (a.variant==='time_skip'?13+Math.min(a.timeSkipBonus??0,100-p.growth)*growthMult(o):0)+improvement*2+(c?.stage??0)-(b.main?.stage??0)-spend;}
-  if(a.slot==='partner')return 20+(b.main?6:0);
+  if(a.slot==='partner')return 20+(b.main?6:0)+(o.loverMarried?Math.min(4,(MARRIED_CPU_VALUE[c?.cardId]??0)):0);
   if(a.slot==='companions')return a.target?cardValue(c,o)-cardValue(a.target,o)-2:15;
   if(a.slot==='world')return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;
-  if(a.slot==='prepared')return 7-spend+(b.main?2:0);
+  if(a.slot==='prepared')return 7-spend+(b.main?2:0)+(o.loverMarried&&c?.cardId==='I-partner1'&&p.relationship===4?4:0);
  }
- if(a.kind==='relationship')return (p.relationship===3?28:17)-spend;
+ if(a.kind==='relationship')return (p.relationship===3?28+(o.loverMarried&&b.partner?marriedWorth(b.partner.cardId,o):0):17)-spend;
  if(a.kind==='challenge'){if(prof.challenge==='expected')return challengeValue(a,o);const delta=(p.stats?.[a.parameter]??0)-(opp.stats?.[a.parameter]??0);return delta>0?12+Math.min(delta,8):delta===0?-2:-15;}
  let value=a.program?stepValue(a.program.steps,o,a,prof):0;
  // Legacy cards expose canonical text rather than a rule program. Estimate utility only;
@@ -119,6 +124,7 @@ export function scoreCpuAction(a,o,spendOf=legacySpend,prof=PROFILES.intermediat
  if(!a.program&&c){const t=c.text??'';if(/そだち|成長/.test(t))value+=8;if(/引く|手札に|回収/.test(t))value+=5;if(/ちから|ちえ/.test(t))value+=o.challenge?5:1;}
  if(a.kind==='ability')value+=5;
  if(a.kind==='trigger'&&!a.program)value+=4;
+ if(o.loverMarried&&c?.cardId==='E-misunderstanding'){const r=opp.relationship;value+=r===4?6+(opp.board.partner?Math.min(4,marriedWorth(opp.board.partner.cardId,o)/2):0):r!==null&&r!==undefined&&r<=1?-3:0;}
  if(a.program?.handCost)value-=cardValue(a.costCard,o)*.7;
  if(a.program?.selfCost)value-=5;
  value-=(a.program?.select??[]).filter(g=>g.cost).reduce((n,g)=>n+g.count*3,0);
@@ -149,7 +155,7 @@ export function chooseCpuAction(observation,{difficulty='intermediate',seed=1,st
  if(!DIFFICULTIES.includes(difficulty))throw Error('Unsupported CPU difficulty');
  if(!POLICY_VERSIONS.includes(version))throw Error('Unsupported CPU policy version');
  if(!observation?.actions?.length)throw Error('CPU has no legal candidates');
- const prof={...PROFILES[difficulty],...VERSION_FEATURES[version][difficulty],...profile},o=observation,timed=timeOpportunity(o,prof);
+ const prof={...PROFILES[difficulty],...VERSION_FEATURES[version][difficulty],...profile},o={...observation,loverMarried:!!prof.loverMarried},timed=timeOpportunity(o,prof);
  // Beginner does not react on the opponent's turn: only required choices/triggers and passing.
  const idle=!prof.opponentTurn&&o.turn!==o.seat&&o.phase==='response';
  const ranked=o.actions.map((a,i)=>{let score=timed?timed[i]:scoreCpuAction(a,o,legacySpend,prof);if(!Number.isFinite(score))throw Error('Non-finite CPU evaluation');if(idle&&a.kind!=='pass'&&!a.mandatory)score=Math.min(score,-1);if(prof.cap!==null&&score>0&&a.kind!=='choose')score=Math.min(score,prof.cap);return {id:a.id,score,tie:tie(seed,step,i)};}).sort((a,b)=>b.score-a.score||b.tie-a.tie);

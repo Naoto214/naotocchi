@@ -10,5 +10,57 @@
   "docs/naopoyo-time-hand-chapter1-20261102/v10/stage-10.jpg": {
     "sha256": "d45cedb16f413963bee5ab6b5dd4f61bb913647027aacbce1250b70b2a8b38e1",
     "reason": "本人要求の重力面06・07・10のV10完成スクリーンショット。盤面内左下の接地確認。"
+  },
+  "docs/life-sugoroku/qa/naokoro-board-320.jpg": {
+    "sha256": "a79f7267036234c86ebb7bf8d0d17a673f33662d5d53fef5101e471c088d5007",
+    "reason": "PR #461のV1〜V3で保存済みの盤面・表示検証証拠。V4仕様に従い過去成果を削除・移動せず原本のまま保持。新規V4の比較画像は本人限定QAファイルへ保存。"
+  },
+  "docs/life-sugoroku/qa/naokoro-board-375.jpg": {
+    "sha256": "b95ca0fdaca9413f345008a55c1c0a0db0704066795fb22e9ec740703b909f8e",
+    "reason": "PR #461のV1〜V3で保存済みの盤面・表示検証証拠。V4仕様に従い過去成果を削除・移動せず原本のまま保持。新規V4の比較画像は本人限定QAファイルへ保存。"
+  },
+  "docs/life-sugoroku/qa/naokoro-board-390.jpg": {
+    "sha256": "818f7ed5ce897a592fea6cf232da6e155aa1aaf52a5b7e3509c16989a85d9ded",
+    "reason": "PR #461のV1〜V3で保存済みの盤面・表示検証証拠。V4仕様に従い過去成果を削除・移動せず原本のまま保持。新規V4の比較画像は本人限定QAファイルへ保存。"
+  },
+  "docs/life-sugoroku/qa/naokoro-board-430.jpg": {
+    "sha256": "a6ef0758efabba58e34acf908b52cbe0d30054868df8c785fafa8781eda4d333",
+    "reason": "PR #461のV1〜V3で保存済みの盤面・表示検証証拠。V4仕様に従い過去成果を削除・移動せず原本のまま保持。新規V4の比較画像は本人限定QAファイルへ保存。"
+  },
+  "docs/life-sugoroku/qa/naokoro-v2-overview-390-7809.jpg": {
+    "sha256": "0458834405793398afb13f919bf1303f317bd4673b9a222c380f25f93ac05c54",
+    "reason": "PR #461のV1〜V3で保存済みの盤面・表示検証証拠。V4仕様に従い過去成果を削除・移動せず原本のまま保持。新規V4の比較画像は本人限定QAファイルへ保存。"
+  },
+  "docs/life-sugoroku/qa/naokoro-v2-regions-items-7809.jpg": {
+    "sha256": "b8a32207f23136cf44022a67b2e25e505838ca374134506c60e13fb99ab38bcf",
+    "reason": "PR #461のV1〜V3で保存済みの盤面・表示検証証拠。V4仕様に従い過去成果を削除・移動せず原本のまま保持。新規V4の比較画像は本人限定QAファイルへ保存。"
+  },
+  "docs/life-sugoroku/qa/v3-followers-browser.jpg": {
+    "sha256": "a0052ded7b73c62c71005ec99c3cdc0254fe1ecf7f597ee72e92b7b924492ff7",
+    "reason": "PR #461のV1〜V3で保存済みの盤面・表示検証証拠。V4仕様に従い過去成果を削除・移動せず原本のまま保持。新規V4の比較画像は本人限定QAファイルへ保存。"
+  },
+  "docs/life-sugoroku/qa/v3-japan-board.png": {
+    "sha256": "0fc670e9b38115960932ada28bfe8c69462c8009be97acb7d9ec7a9395eb136f",
+    "reason": "PR #461のV1〜V3で保存済みの盤面・表示検証証拠。V4仕様に従い過去成果を削除・移動せず原本のまま保持。新規V4の比較画像は本人限定QAファイルへ保存。"
+  },
+  "docs/life-sugoroku/qa/v3-overview-browser.jpg": {
+    "sha256": "411c152000677c7937d3624b050f7b693f624e6a20f0dbc56dcd4af92c7b3664",
+    "reason": "PR #461のV1〜V3で保存済みの盤面・表示検証証拠。V4仕様に従い過去成果を削除・移動せず原本のまま保持。新規V4の比較画像は本人限定QAファイルへ保存。"
+  },
+  "docs/life-sugoroku/qa/v3-region-city.png": {
+    "sha256": "2df8f62156e0bdb64e41329bc348ffbb2214d5bce48ca7a2a7a9f32eaa7303d7",
+    "reason": "PR #461のV1〜V3で保存済みの盤面・表示検証証拠。V4仕様に従い過去成果を削除・移動せず原本のまま保持。新規V4の比較画像は本人限定QAファイルへ保存。"
+  },
+  "docs/life-sugoroku/qa/v3-region-forest.png": {
+    "sha256": "95fe2c8d1588364e225d7a23114a5342fc2c22ff2c43d7e7a0978c314bb1ac15",
+    "reason": "PR #461のV1〜V3で保存済みの盤面・表示検証証拠。V4仕様に従い過去成果を削除・移動せず原本のまま保持。新規V4の比較画像は本人限定QAファイルへ保存。"
+  },
+  "docs/life-sugoroku/qa/v3-region-river.png": {
+    "sha256": "939351969e41cb2d0adf223ebf21dfd6668240f03f3534c9a130f3541cf80a5e",
+    "reason": "PR #461のV1〜V3で保存済みの盤面・表示検証証拠。V4仕様に従い過去成果を削除・移動せず原本のまま保持。新規V4の比較画像は本人限定QAファイルへ保存。"
+  },
+  "docs/life-sugoroku/qa/v3-region-sea.png": {
+    "sha256": "79aae94833fc5d0643647a031426679b00dacd63617ca46f1f8a2c909ef44e56",
+    "reason": "PR #461のV1〜V3で保存済みの盤面・表示検証証拠。V4仕様に従い過去成果を削除・移動せず原本のまま保持。新規V4の比較画像は本人限定QAファイルへ保存。"
   }
 }

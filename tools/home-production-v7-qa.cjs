@@ -4,6 +4,7 @@ const out=path.resolve(process.argv[2]);
 cp.execFileSync(process.execPath,['tools/home-production-v5-qa.cjs',out]);
 let js=fs.readFileSync(path.join(out,'v5-qa-script.js'),'utf8');
 js=js.replace('window.HomeReleaseQA={',`window.HomeReleaseQA={
+ currentPaint(){const sc=homeDiorama.inspectScene(),vp=window.NaotocchiHomeViewport,p=vp.residentPresentation(),r=vp.presentationRect(el.castStage),inks=homeDiorama.inspectPaint();return {presentation:p,paint:homeDiorama.model.snapshot().map(a=>{const ink=inks.find(i=>i.key===a.key)?.ink,d=sc.navigation.depthScale(a),foot=p.y+(r.top+a.y-p.y)*p.scaleY;return {key:a.key,valid:sc.navigation.valid(a),top:foot-(ink.up*d+5)*p.bodyScale,bottom:foot+(ink.down*d+3)*p.bodyScale};})};},
  commentCase(kind='pet',text='うれしいな',name='',story=false){
   clearConversationTimers();clearTimeout(storyFlashTimer);storyFlashTimer=null;homeNoticeQueue.length=0;homeStoryCurrent=null;el.storyFlash.classList.add('hidden');
   hideSpeechBubble();state.hunger=5;state.health=100;state.isSleeping=false;render();
@@ -27,6 +28,10 @@ js=js.replace('window.HomeReleaseQA={',`window.HomeReleaseQA={
   // The disposable adult scene skips hatching, where this is normally created.
   state.individuality ||= INDIVIDUALITY.create(state.speciesLine,REGIONS.map(r=>r.id));
   state.individuality.lastExchangeAge=-1;state.isSick=false;state.isSleeping=false;
+  // Isolate the authored exchange from the independently scheduled random idle
+  // greeting. clearConversationTimers does not own that recursive idle timer.
+  // Keep the real choice handler, result renderer and expiry timer unchanged.
+  conversationBusyUntil=Date.now()+60000;
   return maybeIndividualExchange();
  },
  clearComment(){hideSpeechBubble();el.storyFlash.classList.add('hidden');},
@@ -37,7 +42,10 @@ if(p7.has('comment'))setTimeout(()=>HomeReleaseQA.commentCase(p7.get('kind')||'p
 })();`);
 fs.writeFileSync(path.join(out,'v7-qa-script.js'),js);
 fs.copyFileSync(path.join(out,'v5-qa-diorama.js'),path.join(out,'v7-qa-diorama.js'));
-fs.writeFileSync(path.join(out,'v7-qa.html'),fs.readFileSync(path.join(out,'v5-qa.html'),'utf8').replaceAll('v5-qa','v7-qa').replace(/<body\b[^>]*>/,tag=>tag.replace(/\sdata-home-(?:viewport-version|display-version)="[^"]*"/g,'')));
+fs.writeFileSync(path.join(out,'v7-qa.html'),fs.readFileSync(path.join(out,'v5-qa.html'),'utf8').replaceAll('v5-qa','v7-qa'));
+// A separate entry runs the same isolated fixtures in the actual shipped home.
+// Keep its body byte-for-byte: viewport 12 / display 18 is not historical V7.
+fs.writeFileSync(path.join(out,'current-production-qa.html'),fs.readFileSync(path.join(out,'v7-qa.html'),'utf8').replace(/<body\b[^>]*>/,fs.readFileSync('index.html','utf8').match(/<body\b[^>]*>/)[0]));
 fs.mkdirSync(path.join(out,'v7-review'),{recursive:true});
 fs.writeFileSync(path.join(out,'v7-review/index.html'),fs.readFileSync(path.join(out,'v5-review/index.html'),'utf8').replaceAll('VERSION 5','VERSION 7').replaceAll('v5-qa','v7-qa'));
 const texts=['うれしいな','今日はいい日だった','遊びの途中で、ふと何かを思い出したような顔をした','きれいな景色を見て、しばらく立ちどまっていた。となりの仲間と目が合って、小さく笑った。','遊びの途中で、ふと何かを思い出したような顔をした。きれいな景色を見て、しばらく立ちどまっていた。となりの仲間と目が合って、小さく笑った。今日のことを、明日もおぼえていられたらいいなと思った。'];

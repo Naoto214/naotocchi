@@ -2,18 +2,18 @@ import {createDayparts,atmosphere} from './home-dayparts.mjs';
 import {ART_CANDIDATES,selectRecoveredScene} from './home-production-manifest.mjs';
 import {artTransform,paintBackdrop,backdropComposition} from './home-production-transform.mjs';
 import {createRecoveredNavigation} from './home-recovered-navigation.mjs';
-import {createHomeWorld as createLegacyWorld} from './home-world.mjs';
 export function createHomeWorld(options){
  const {container,document:doc,window:win=window,onStatus=()=>{}}=options;
  const painting=doc.createElement('canvas');let paintingKey='';
  const dayparts=createDayparts(win);let fade=null,fxKey='';
  const fx=doc.createElement('div');fx.className='home-dayparts-fx';container.appendChild(fx);
  const canvas=doc.createElement('canvas');canvas.className='home-art-canvas';container.appendChild(canvas);const ctx=canvas.getContext('2d');
- let env={},spec=null,img=null,loaded=false,error=null,generation=0,time=0,dead=false,nav=null,navKey='',revision=0,lastPaint='',legacy=null;
+ let env={},spec=null,img=null,loaded=false,error=null,generation=0,time=0,dead=false,nav=null,navKey='',revision=0,lastPaint='';
  const displayRect=e=>win.NaotocchiHomeViewport?.presentationRect?.(e)||e.getBoundingClientRect();
  const geometry=()=>{const host=displayRect(container),r=displayRect(doc.getElementById('castStage'));return {host,stage:{left:r.left-host.left,top:r.top-host.top,width:r.width,height:r.height}};};
- function setEnvironment(e){if(dead)return;env={...e};const selected=selectRecoveredScene(e.region);if(!selected){generation++;canvas.style.display='none';fx.hidden=true;if(!legacy)legacy=createLegacyWorld(options);legacy.setEnvironment(e);return;}
-  legacy?.destroy();legacy=null;canvas.style.display='';fx.hidden=false;dayparts.select(e.region,e.time);
+ // Unknown regions already resolve to the recovered Home painting.
+ function setEnvironment(e){if(dead)return;env={...e};const selected=selectRecoveredScene(e.region);
+  canvas.style.display='';fx.hidden=false;dayparts.select(e.region,e.time);
   if(spec===selected)return;
   spec=selected;error=null;nav=null;navKey='';lastPaint='';revision++;const token=++generation;
   // Keep the previous successful painting visible while either new image loads.
@@ -22,8 +22,8 @@ export function createHomeWorld(options){
   next.src=ART_CANDIDATES.find(a=>a.id===spec.candidate).src;onStatus(loaded?'art-25d':'art-25d-loading');
  }
 
- function navigation(rect){if(legacy)return legacy.navigation(rect);if(!spec)return null;const {host}=geometry(),stage={left:rect.left-host.left,top:rect.top-host.top,width:rect.width,height:rect.height},key=JSON.stringify([env.region,host.width,host.height,stage]);if(key!==navKey){navKey=key;nav=createRecoveredNavigation(spec,host,stage);revision++;lastPaint='';}return nav;}
- function draw(dt,flags={}){if(dead||flags.paused)return;if(legacy){legacy.draw(dt,flags);return;}if(!spec)return;
+ function navigation(rect){if(!spec)return null;const {host}=geometry(),stage={left:rect.left-host.left,top:rect.top-host.top,width:rect.width,height:rect.height},key=JSON.stringify([env.region,host.width,host.height,stage]);if(key!==navKey){navKey=key;nav=createRecoveredNavigation(spec,host,stage);revision++;lastPaint='';}return nav;}
+ function draw(dt,flags={}){if(dead||flags.paused)return;if(!spec)return;
   fade=dayparts.frame(dt,flags.reducedMotion);if(fade.image){img=fade.image;loaded=true;onStatus('art-25d');}error=fade.error;
   if(!flags.reducedMotion)time+=Math.max(0,Math.min(1,Number(dt)||0))*1000;
   const fullBackdrop=doc.body.dataset.homeViewportVersion==='12'&&doc.body.dataset.homeTinyOverview==='true';
@@ -59,8 +59,8 @@ export function createHomeWorld(options){
   if(!fade.image&&(env.time==='night'||env.weather==='rain')){ctx.fillStyle=env.time==='night'?'rgba(21,30,73,.24)':'rgba(38,57,78,.15)';if(contain&&v15)ctx.fillRect(t.left,t.top,t.width,t.height);else ctx.fillRect(0,0,host.width,host.height);}
   if(!flags.reducedMotion){ctx.save();ctx.globalCompositeOperation='screen';for(let i=0;i<7;i++){const u=.18+(i*.117)% .65,v=spec.accent==='water'?.28+(i%3)*.035:.16+(i%4)*.13,x=(contain?t.left:0)+u*t.width,y=t.top+v*t.height+Math.sin(time/2400+i)*3;ctx.globalAlpha=.08+.12*(.5+.5*Math.sin(time/1500+i));ctx.fillStyle=spec.accent==='glow'?'#ffdb9b':'#fffad4';ctx.beginPath();ctx.ellipse(x,y,spec.accent==='water'?7:1.4,spec.accent==='water'?1:1.4,0,0,Math.PI*2);ctx.fill();}ctx.restore();}
  }
- return {setEnvironment,navigation,draw,observationPoints(n){return legacy?legacy.observationPoints(n):spec.points.map(([x,z,action,tag])=>({...n.project({x,z}),activity:action,id:'art-'+env.region+'-'+tag,tag,target:n.project({x:x+.02,z:z-.04})})).filter(p=>n.valid(p));},
-  occlusion(p){if(legacy)return legacy.occlusion(p);if(!spec||!nav)return [];const {host,stage}=geometry();
+ return {setEnvironment,navigation,draw,observationPoints(n){return spec.points.map(([x,z,action,tag])=>({...n.project({x,z}),activity:action,id:'art-'+env.region+'-'+tag,tag,target:n.project({x:x+.02,z:z-.04})})).filter(p=>n.valid(p));},
+  occlusion(p){if(!spec||!nav)return [];const {host,stage}=geometry();
    if(['17','18'].includes(doc.body.dataset.homeDisplayVersion)&&doc.body.dataset.homeTinyOverview==='true'){
     // Match the displayed painting, then invert only the resident presentation.
     // Native navigation, floor polygons and sprite foot coordinates are unchanged.
@@ -71,6 +71,6 @@ export function createHomeWorld(options){
     return spec.foreground.map(poly=>poly.map(([x,z])=>{const p=vp.unscalePoint({x:left+x*width,y:top+z*height});return [p.x-host.left,p.y-host.top];}));
    }
    const t=artTransform(host,stage);return spec.foreground.map(poly=>poly.map(([x,y])=>[t.left+x*t.width,t.top+y*t.height]));},
-  stats:()=>legacy?legacy.stats():({mode:'art-25d',region:env.region,candidate:spec?.candidate,loaded,error,destroyed:dead,animationTime:time,projectionRevision:revision,renderer:{mode:'canvas-2d-art',objects:spec?.foreground.length||0,images:loaded?1:0,decodedBytes:loaded?1024*1536*4:0}}),
-  destroy(){dead=true;generation++;dayparts.destroy();fx.remove();img=null;legacy?.destroy();canvas.remove();}};
+  stats:()=>({mode:'art-25d',region:env.region,candidate:spec?.candidate,loaded,error,destroyed:dead,animationTime:time,projectionRevision:revision,renderer:{mode:'canvas-2d-art',objects:spec?.foreground.length||0,images:loaded?1:0,decodedBytes:loaded?1024*1536*4:0}}),
+  destroy(){dead=true;generation++;dayparts.destroy();fx.remove();img=null;canvas.remove();}};
 }

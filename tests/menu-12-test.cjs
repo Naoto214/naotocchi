@@ -7,7 +7,7 @@ test('menu retains existing destinations in the requested order and includes the
  const labels=[...grid.matchAll(/<span class="menu-label">([\s\S]*?)<\/span>/g)].map(m=>m[1].replace(/<[^>]+>/g,''));
  assert.deepEqual(labels,['せかい','あいてむ','ずかん','じっせき','シールちょう','でざいん','ゲームをえらぶ','クイック','なおぽよ。','なおころ。','CARD GAME','ものがたり']);
  assert.match(grid,/href="prototypes\/naopoyo\/"/);assert.match(grid,/href="prototypes\/card-game\/"/);assert.match(grid,/href="prototypes\/madoromi-white-reader-20261027\/dist\/\?from=game#top"/);
- assert.match(html,/ころがるサイコロ、かわる人生。/);assert.match(html,/ただいま準備中！/);
+ assert.match(html,/ころがるサイコロ、かわる人生。/);assert.match(html, /href="prototypes\/life-sugoroku\/"/);assert.doesNotMatch(html,/ただいま準備中！/);
 });
 
 test('prepared dialog keeps Escape from closing the underlying menu',()=>{

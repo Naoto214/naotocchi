@@ -1,0 +1,2370 @@
+[
+  {
+    "label": "flow-dice",
+    "width": 320,
+    "phase": "moving",
+    "revision": 2,
+    "pos": 0,
+    "remaining": 4,
+    "dice": [
+      1,
+      3
+    ],
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": false,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [
+      {
+        "result": "1",
+        "faces": 6
+      },
+      {
+        "result": "3",
+        "faces": 6
+      }
+    ],
+    "actions": "サイコロ1 ＋ 3"
+  },
+  {
+    "label": "restore-dice",
+    "width": 320,
+    "equal": true,
+    "phase": "moving",
+    "revision": 2
+  },
+  {
+    "label": "flow-hop",
+    "width": 320,
+    "animated": true,
+    "highlight": true
+  },
+  {
+    "label": "restore-moving",
+    "width": 320,
+    "equal": true,
+    "phase": "moving",
+    "revision": 0
+  },
+  {
+    "label": "restore-branch",
+    "width": 320,
+    "equal": true,
+    "phase": "branch",
+    "revision": 1
+  },
+  {
+    "label": "flow-branch",
+    "width": 320,
+    "from": 1,
+    "dest": 2,
+    "actual": 2
+  },
+  {
+    "label": "restore-event",
+    "width": 320,
+    "equal": true,
+    "phase": "event",
+    "revision": 0
+  },
+  {
+    "label": "flow-result",
+    "width": 320,
+    "phase": "result",
+    "revision": 1,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 23,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "雲の落としもの「おかわり雲」。呼ぶたび、少しだけ形が変わった。そだち +3　お金 +0この一日をしまう"
+  },
+  {
+    "label": "restore-result",
+    "width": 320,
+    "equal": true,
+    "phase": "result",
+    "revision": 1
+  },
+  {
+    "label": "flow-rewind",
+    "width": 320,
+    "phase": "turn",
+    "revision": 1,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 4
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "1P ときもどし時計を使いました。そだち +0　お金 +0⚄サイコロをふる1〜6マスで進む · 若返りの発見 あと2回"
+  },
+  {
+    "label": "rewind-visible",
+    "width": 320,
+    "visible": true,
+    "noResourceChange": true
+  },
+  {
+    "label": "restore-rewind",
+    "width": 320,
+    "equal": true,
+    "phase": "turn",
+    "revision": 1
+  },
+  {
+    "label": "growth-visible",
+    "width": 320,
+    "visible": true,
+    "stage": 2
+  },
+  {
+    "label": "restore-growth",
+    "width": 320,
+    "equal": true,
+    "phase": "turn",
+    "revision": 1
+  },
+  {
+    "label": "restore-cpu",
+    "width": 320,
+    "equal": true,
+    "phase": "turn",
+    "revision": 0
+  },
+  {
+    "label": "pause-cpu",
+    "width": 320,
+    "unchanged": true
+  },
+  {
+    "label": "flow-cpu",
+    "width": 320,
+    "phase": "turn",
+    "revision": 1,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 0,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "1P そだちの種を買いました。そだち +0　お金 -20そだちの種を使います⚄CPUが考えています…1〜6マスで進む"
+  },
+  {
+    "label": "flow-dice",
+    "width": 375,
+    "phase": "moving",
+    "revision": 2,
+    "pos": 0,
+    "remaining": 4,
+    "dice": [
+      1,
+      3
+    ],
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": false,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [
+      {
+        "result": "1",
+        "faces": 6
+      },
+      {
+        "result": "3",
+        "faces": 6
+      }
+    ],
+    "actions": "サイコロ1 ＋ 3"
+  },
+  {
+    "label": "restore-dice",
+    "width": 375,
+    "equal": true,
+    "phase": "moving",
+    "revision": 2
+  },
+  {
+    "label": "flow-hop",
+    "width": 375,
+    "animated": true,
+    "highlight": true
+  },
+  {
+    "label": "restore-moving",
+    "width": 375,
+    "equal": true,
+    "phase": "moving",
+    "revision": 0
+  },
+  {
+    "label": "restore-branch",
+    "width": 375,
+    "equal": true,
+    "phase": "branch",
+    "revision": 1
+  },
+  {
+    "label": "flow-branch",
+    "width": 375,
+    "from": 1,
+    "dest": 2,
+    "actual": 2
+  },
+  {
+    "label": "restore-event",
+    "width": 375,
+    "equal": true,
+    "phase": "event",
+    "revision": 0
+  },
+  {
+    "label": "flow-result",
+    "width": 375,
+    "phase": "result",
+    "revision": 1,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 23,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "雲の落としもの「おかわり雲」。呼ぶたび、少しだけ形が変わった。そだち +3　お金 +0この一日をしまう"
+  },
+  {
+    "label": "restore-result",
+    "width": 375,
+    "equal": true,
+    "phase": "result",
+    "revision": 1
+  },
+  {
+    "label": "flow-rewind",
+    "width": 375,
+    "phase": "turn",
+    "revision": 1,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 4
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "1P ときもどし時計を使いました。そだち +0　お金 +0⚄サイコロをふる1〜6マスで進む · 若返りの発見 あと2回"
+  },
+  {
+    "label": "rewind-visible",
+    "width": 375,
+    "visible": true,
+    "noResourceChange": true
+  },
+  {
+    "label": "restore-rewind",
+    "width": 375,
+    "equal": true,
+    "phase": "turn",
+    "revision": 1
+  },
+  {
+    "label": "growth-visible",
+    "width": 375,
+    "visible": true,
+    "stage": 2
+  },
+  {
+    "label": "restore-growth",
+    "width": 375,
+    "equal": true,
+    "phase": "turn",
+    "revision": 1
+  },
+  {
+    "label": "restore-cpu",
+    "width": 375,
+    "equal": true,
+    "phase": "turn",
+    "revision": 0
+  },
+  {
+    "label": "pause-cpu",
+    "width": 375,
+    "unchanged": true
+  },
+  {
+    "label": "flow-cpu",
+    "width": 375,
+    "phase": "turn",
+    "revision": 1,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 0,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "1P そだちの種を買いました。そだち +0　お金 -20そだちの種を使います⚄CPUが考えています…1〜6マスで進む"
+  },
+  {
+    "label": "flow-dice",
+    "width": 390,
+    "phase": "moving",
+    "revision": 2,
+    "pos": 0,
+    "remaining": 4,
+    "dice": [
+      1,
+      3
+    ],
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": false,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [
+      {
+        "result": "1",
+        "faces": 6
+      },
+      {
+        "result": "3",
+        "faces": 6
+      }
+    ],
+    "actions": "サイコロ1 ＋ 3"
+  },
+  {
+    "label": "restore-dice",
+    "width": 390,
+    "equal": true,
+    "phase": "moving",
+    "revision": 2
+  },
+  {
+    "label": "flow-hop",
+    "width": 390,
+    "animated": true,
+    "highlight": true
+  },
+  {
+    "label": "restore-moving",
+    "width": 390,
+    "equal": true,
+    "phase": "moving",
+    "revision": 0
+  },
+  {
+    "label": "restore-branch",
+    "width": 390,
+    "equal": true,
+    "phase": "branch",
+    "revision": 1
+  },
+  {
+    "label": "flow-branch",
+    "width": 390,
+    "from": 1,
+    "dest": 2,
+    "actual": 2
+  },
+  {
+    "label": "restore-event",
+    "width": 390,
+    "equal": true,
+    "phase": "event",
+    "revision": 0
+  },
+  {
+    "label": "flow-result",
+    "width": 390,
+    "phase": "result",
+    "revision": 1,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 23,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "雲の落としもの「おかわり雲」。呼ぶたび、少しだけ形が変わった。そだち +3　お金 +0この一日をしまう"
+  },
+  {
+    "label": "restore-result",
+    "width": 390,
+    "equal": true,
+    "phase": "result",
+    "revision": 1
+  },
+  {
+    "label": "flow-rewind",
+    "width": 390,
+    "phase": "turn",
+    "revision": 1,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 4
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "1P ときもどし時計を使いました。そだち +0　お金 +0⚄サイコロをふる1〜6マスで進む · 若返りの発見 あと2回"
+  },
+  {
+    "label": "rewind-visible",
+    "width": 390,
+    "visible": true,
+    "noResourceChange": true
+  },
+  {
+    "label": "restore-rewind",
+    "width": 390,
+    "equal": true,
+    "phase": "turn",
+    "revision": 1
+  },
+  {
+    "label": "growth-visible",
+    "width": 390,
+    "visible": true,
+    "stage": 2
+  },
+  {
+    "label": "restore-growth",
+    "width": 390,
+    "equal": true,
+    "phase": "turn",
+    "revision": 1
+  },
+  {
+    "label": "restore-cpu",
+    "width": 390,
+    "equal": true,
+    "phase": "turn",
+    "revision": 0
+  },
+  {
+    "label": "pause-cpu",
+    "width": 390,
+    "unchanged": true
+  },
+  {
+    "label": "flow-cpu",
+    "width": 390,
+    "phase": "turn",
+    "revision": 1,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 0,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "1P そだちの種を買いました。そだち +0　お金 -20そだちの種を使います⚄CPUが考えています…1〜6マスで進む"
+  },
+  {
+    "label": "flow-dice",
+    "width": 430,
+    "phase": "moving",
+    "revision": 2,
+    "pos": 0,
+    "remaining": 4,
+    "dice": [
+      1,
+      3
+    ],
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": false,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [
+      {
+        "result": "1",
+        "faces": 6
+      },
+      {
+        "result": "3",
+        "faces": 6
+      }
+    ],
+    "actions": "サイコロ1 ＋ 3"
+  },
+  {
+    "label": "restore-dice",
+    "width": 430,
+    "equal": true,
+    "phase": "moving",
+    "revision": 2
+  },
+  {
+    "label": "flow-hop",
+    "width": 430,
+    "animated": true,
+    "highlight": true
+  },
+  {
+    "label": "restore-moving",
+    "width": 430,
+    "equal": true,
+    "phase": "moving",
+    "revision": 0
+  },
+  {
+    "label": "restore-branch",
+    "width": 430,
+    "equal": true,
+    "phase": "branch",
+    "revision": 1
+  },
+  {
+    "label": "flow-branch",
+    "width": 430,
+    "from": 1,
+    "dest": 2,
+    "actual": 2
+  },
+  {
+    "label": "restore-event",
+    "width": 430,
+    "equal": true,
+    "phase": "event",
+    "revision": 0
+  },
+  {
+    "label": "flow-result",
+    "width": 430,
+    "phase": "result",
+    "revision": 1,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 23,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "雲の落としもの「おかわり雲」。呼ぶたび、少しだけ形が変わった。そだち +3　お金 +0この一日をしまう"
+  },
+  {
+    "label": "restore-result",
+    "width": 430,
+    "equal": true,
+    "phase": "result",
+    "revision": 1
+  },
+  {
+    "label": "flow-rewind",
+    "width": 430,
+    "phase": "turn",
+    "revision": 1,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 4
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "1P ときもどし時計を使いました。そだち +0　お金 +0⚄サイコロをふる1〜6マスで進む · 若返りの発見 あと2回"
+  },
+  {
+    "label": "rewind-visible",
+    "width": 430,
+    "visible": true,
+    "noResourceChange": true
+  },
+  {
+    "label": "restore-rewind",
+    "width": 430,
+    "equal": true,
+    "phase": "turn",
+    "revision": 1
+  },
+  {
+    "label": "growth-visible",
+    "width": 430,
+    "visible": true,
+    "stage": 2
+  },
+  {
+    "label": "restore-growth",
+    "width": 430,
+    "equal": true,
+    "phase": "turn",
+    "revision": 1
+  },
+  {
+    "label": "restore-cpu",
+    "width": 430,
+    "equal": true,
+    "phase": "turn",
+    "revision": 0
+  },
+  {
+    "label": "pause-cpu",
+    "width": 430,
+    "unchanged": true
+  },
+  {
+    "label": "flow-cpu",
+    "width": 430,
+    "phase": "turn",
+    "revision": 1,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 0,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "1P そだちの種を買いました。そだち +0　お金 -20そだちの種を使います⚄CPUが考えています…1〜6マスで進む"
+  },
+  {
+    "label": "overview",
+    "width": 320,
+    "phase": "turn",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [
+      "http://terminal.local:4173/assets/characters/dog/01.png"
+    ],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "⚄サイコロをふる1〜6マスで進む"
+  },
+  {
+    "label": "matrix-overview",
+    "width": 320,
+    "phase": "turn",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "⚄サイコロをふる1〜6マスで進む"
+  },
+  {
+    "label": "event",
+    "width": 320,
+    "phase": "event",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [
+      "名前をつける",
+      "絵に残す"
+    ],
+    "diceFaces": [],
+    "actions": "LIFE EVENT雲の落としもの空に、さっき食べたおやつそっくりの雲。見ていると、おなかが返事をした。「今日は、どんな一日になるかな。」名前をつける絵に残す"
+  },
+  {
+    "label": "matrix-event",
+    "width": 320,
+    "phase": "event",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [
+      "名前をつける",
+      "絵に残す"
+    ],
+    "diceFaces": [],
+    "actions": "LIFE EVENT雲の落としもの空に、さっき食べたおやつそっくりの雲。見ていると、おなかが返事をした。「今日は、どんな一日になるかな。」名前をつける絵に残す"
+  },
+  {
+    "label": "result",
+    "width": 320,
+    "phase": "result",
+    "revision": 1,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 23,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [
+      "http://terminal.local:4173/assets/characters/expressions/dog/01-happy.png"
+    ],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "雲の落としもの「おかわり雲」。呼ぶたび、少しだけ形が変わった。そだち +3　お金 +0この一日をしまう"
+  },
+  {
+    "label": "matrix-result",
+    "width": 320,
+    "phase": "result",
+    "revision": 1,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 23,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "雲の落としもの「おかわり雲」。呼ぶたび、少しだけ形が変わった。そだち +3　お金 +0この一日をしまう"
+  },
+  {
+    "label": "items",
+    "width": 320,
+    "phase": "turn",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 100,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [
+      "http://terminal.local:4173/prototypes/life-sugoroku/item-double.svg",
+      "http://terminal.local:4173/prototypes/life-sugoroku/item-slow.svg",
+      "http://terminal.local:4173/prototypes/life-sugoroku/item-clock.svg",
+      "http://terminal.local:4173/prototypes/life-sugoroku/item-double.svg",
+      "http://terminal.local:4173/prototypes/life-sugoroku/item-slow.svg",
+      "http://terminal.local:4173/prototypes/life-sugoroku/item-charm.svg",
+      "http://terminal.local:4173/prototypes/life-sugoroku/item-clock.svg",
+      "http://terminal.local:4173/prototypes/life-sugoroku/item-seed.svg",
+      "http://terminal.local:4173/prototypes/life-sugoroku/item-box.svg"
+    ],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "⚄サイコロをふる1〜6マスで進む"
+  },
+  {
+    "label": "matrix-items",
+    "width": 320,
+    "phase": "turn",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 100,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "⚄サイコロをふる1〜6マスで進む"
+  },
+  {
+    "label": "overview",
+    "width": 375,
+    "phase": "turn",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "⚄サイコロをふる1〜6マスで進む"
+  },
+  {
+    "label": "matrix-overview",
+    "width": 375,
+    "phase": "turn",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "⚄サイコロをふる1〜6マスで進む"
+  },
+  {
+    "label": "event",
+    "width": 375,
+    "phase": "event",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [
+      "名前をつける",
+      "絵に残す"
+    ],
+    "diceFaces": [],
+    "actions": "LIFE EVENT雲の落としもの空に、さっき食べたおやつそっくりの雲。見ていると、おなかが返事をした。「今日は、どんな一日になるかな。」名前をつける絵に残す"
+  },
+  {
+    "label": "matrix-event",
+    "width": 375,
+    "phase": "event",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [
+      "名前をつける",
+      "絵に残す"
+    ],
+    "diceFaces": [],
+    "actions": "LIFE EVENT雲の落としもの空に、さっき食べたおやつそっくりの雲。見ていると、おなかが返事をした。「今日は、どんな一日になるかな。」名前をつける絵に残す"
+  },
+  {
+    "label": "result",
+    "width": 375,
+    "phase": "result",
+    "revision": 1,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 23,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "雲の落としもの「おかわり雲」。呼ぶたび、少しだけ形が変わった。そだち +3　お金 +0この一日をしまう"
+  },
+  {
+    "label": "matrix-result",
+    "width": 375,
+    "phase": "result",
+    "revision": 1,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 23,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "雲の落としもの「おかわり雲」。呼ぶたび、少しだけ形が変わった。そだち +3　お金 +0この一日をしまう"
+  },
+  {
+    "label": "items",
+    "width": 375,
+    "phase": "turn",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 100,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [
+      "http://terminal.local:4173/prototypes/life-sugoroku/item-double.svg",
+      "http://terminal.local:4173/prototypes/life-sugoroku/item-slow.svg",
+      "http://terminal.local:4173/prototypes/life-sugoroku/item-clock.svg",
+      "http://terminal.local:4173/prototypes/life-sugoroku/item-double.svg",
+      "http://terminal.local:4173/prototypes/life-sugoroku/item-slow.svg",
+      "http://terminal.local:4173/prototypes/life-sugoroku/item-charm.svg",
+      "http://terminal.local:4173/prototypes/life-sugoroku/item-clock.svg",
+      "http://terminal.local:4173/prototypes/life-sugoroku/item-seed.svg",
+      "http://terminal.local:4173/prototypes/life-sugoroku/item-box.svg"
+    ],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "⚄サイコロをふる1〜6マスで進む"
+  },
+  {
+    "label": "matrix-items",
+    "width": 375,
+    "phase": "turn",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 100,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "⚄サイコロをふる1〜6マスで進む"
+  },
+  {
+    "label": "overview",
+    "width": 390,
+    "phase": "turn",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "⚄サイコロをふる1〜6マスで進む"
+  },
+  {
+    "label": "matrix-overview",
+    "width": 390,
+    "phase": "turn",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "⚄サイコロをふる1〜6マスで進む"
+  },
+  {
+    "label": "event",
+    "width": 390,
+    "phase": "event",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [
+      "名前をつける",
+      "絵に残す"
+    ],
+    "diceFaces": [],
+    "actions": "LIFE EVENT雲の落としもの空に、さっき食べたおやつそっくりの雲。見ていると、おなかが返事をした。「今日は、どんな一日になるかな。」名前をつける絵に残す"
+  },
+  {
+    "label": "matrix-event",
+    "width": 390,
+    "phase": "event",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [
+      "名前をつける",
+      "絵に残す"
+    ],
+    "diceFaces": [],
+    "actions": "LIFE EVENT雲の落としもの空に、さっき食べたおやつそっくりの雲。見ていると、おなかが返事をした。「今日は、どんな一日になるかな。」名前をつける絵に残す"
+  },
+  {
+    "label": "result",
+    "width": 390,
+    "phase": "result",
+    "revision": 1,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 23,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "雲の落としもの「おかわり雲」。呼ぶたび、少しだけ形が変わった。そだち +3　お金 +0この一日をしまう"
+  },
+  {
+    "label": "matrix-result",
+    "width": 390,
+    "phase": "result",
+    "revision": 1,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 23,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "雲の落としもの「おかわり雲」。呼ぶたび、少しだけ形が変わった。そだち +3　お金 +0この一日をしまう"
+  },
+  {
+    "label": "items",
+    "width": 390,
+    "phase": "turn",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 100,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "⚄サイコロをふる1〜6マスで進む"
+  },
+  {
+    "label": "matrix-items",
+    "width": 390,
+    "phase": "turn",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 100,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "⚄サイコロをふる1〜6マスで進む"
+  },
+  {
+    "label": "overview",
+    "width": 430,
+    "phase": "turn",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "⚄サイコロをふる1〜6マスで進む"
+  },
+  {
+    "label": "matrix-overview",
+    "width": 430,
+    "phase": "turn",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "⚄サイコロをふる1〜6マスで進む"
+  },
+  {
+    "label": "event",
+    "width": 430,
+    "phase": "event",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [
+      "名前をつける",
+      "絵に残す"
+    ],
+    "diceFaces": [],
+    "actions": "LIFE EVENT雲の落としもの空に、さっき食べたおやつそっくりの雲。見ていると、おなかが返事をした。「今日は、どんな一日になるかな。」名前をつける絵に残す"
+  },
+  {
+    "label": "matrix-event",
+    "width": 430,
+    "phase": "event",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [
+      "名前をつける",
+      "絵に残す"
+    ],
+    "diceFaces": [],
+    "actions": "LIFE EVENT雲の落としもの空に、さっき食べたおやつそっくりの雲。見ていると、おなかが返事をした。「今日は、どんな一日になるかな。」名前をつける絵に残す"
+  },
+  {
+    "label": "result",
+    "width": 430,
+    "phase": "result",
+    "revision": 1,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 23,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "雲の落としもの「おかわり雲」。呼ぶたび、少しだけ形が変わった。そだち +3　お金 +0この一日をしまう"
+  },
+  {
+    "label": "matrix-result",
+    "width": 430,
+    "phase": "result",
+    "revision": 1,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 23,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "雲の落としもの「おかわり雲」。呼ぶたび、少しだけ形が変わった。そだち +3　お金 +0この一日をしまう"
+  },
+  {
+    "label": "items",
+    "width": 430,
+    "phase": "turn",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 100,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "⚄サイコロをふる1〜6マスで進む"
+  },
+  {
+    "label": "matrix-items",
+    "width": 430,
+    "phase": "turn",
+    "revision": 0,
+    "pos": 0,
+    "resources": [
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 100,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      },
+      {
+        "pos": 0,
+        "sodachi": 20,
+        "money": 20,
+        "stage": 1
+      }
+    ],
+    "nodeCount": 48,
+    "allNodesInside": true,
+    "overflow": false,
+    "missingImages": [],
+    "choices": [],
+    "diceFaces": [],
+    "actions": "⚄サイコロをふる1〜6マスで進む"
+  }
+]

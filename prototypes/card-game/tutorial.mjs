@@ -63,7 +63,7 @@ export const LESSONS=[
   item('別のターン：こいびとと交際開始','別のターンの固定局面に切り替えました。人物配置の回数が残っています。がけのヤギさんを迎え、交際0を始めましょう。',matches('place',{slot:'partner'}),{setup:()=>{const s=fixed({round:6,handA:['P-cliff_goat','W-forest']});put(s,'A','C-box','companions');return s;},settle:true}),
   item('セカイを配置する','もりを選び、時2で配置しましょう。セカイは自分に1枚。人物を出したターンにも配置できます。',matches('place',{slot:'world'}),{settle:true}),
   item('交際0→1へ','交際は自動では進みません。時1で進めるボタンを押しましょう。通常は自分ターンに1回です。',matches('relationship'),{settle:true}),
-  item('別のターン：交際3→結婚','交際3まで進んだ別の固定局面です。時1で結婚へ進め、基本報酬のそだち+10を確認しましょう。結婚した後にこいびとが離れると−10、結婚する前なら−5です。',matches('relationship'),{setup:()=>{const s=fixed({round:9});put(s,'A','P-cliff_goat','partner');s.players.A.relationship=3;return s;},settle:true})],outcome:'なかま最大3、こいびと1、セカイ1。結婚で+10、別れ／離婚で−10。メインだけの離脱では関係は残ります。'},
+  item('別のターン：交際3→結婚','交際3まで進んだ別の固定局面です。時1で結婚へ進め、そだち+10と、カード下の段の「♥ 結婚したら」の能力が使えるようになったことを確認しましょう（がけのヤギさんは、セカイを名前のちがうものに変えた時に1枚引けるようになります）。結婚した後にこいびとが離れると−10、結婚する前なら−5です。',matches('relationship'),{setup:()=>{const s=fixed({round:9});put(s,'A','P-cliff_goat','partner');s.players.A.relationship=3;return s;},settle:true})],outcome:'なかま最大3、こいびと1、セカイ1。結婚で+10と「♥ 結婚したら」の能力。結婚前の別れ−5、離婚−10。メインだけの離脱では関係は残ります。'},
  {title:'アクションカードと準備枠',chapter:11,setup:()=>fixed({round:6,handA:['I-c_coin2','I-bowtie','G-curling-ice','E-first-date']}),steps:[
   item('すぐつかう：ラッキーコイン','時1を払い、発動領域へ。今回は双方パスを自動で進め、解決した結果を履歴で確認します。準備枠は使いません。',matches('play',{card:'I-c_coin2'}),{settle:true}),
   item('みにつける：おべんとうばこ','時2で自分のメインに装備します。準備枠を1つ使い、対象が離れたら装備も捨て札になります。',matches('place',{card:'I-bowtie',slot:'prepared'}),{settle:true}),

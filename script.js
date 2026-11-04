@@ -3143,11 +3143,12 @@
     const DIR_PX_FIRST = 4, DIR_PX = 8, VEC_PAUSE_MS = 120;
     const ZERO = { x: 0, y: 0 };
     const pad = document.createElement('div');
-    pad.className = 'mg-pad mg-pad-' + mode + (opts.className ? ' ' + opts.className : '');
+    const directions = mode === 'steps' && !!opts.directionButtons;
+    pad.className = 'mg-pad mg-pad-' + mode + (directions ? ' mg-pad-directions' : '') + (opts.className ? ' ' + opts.className : '');
     const keys = axis === 'x' ? ['left', 'right'] : axis === 'y' ? ['up', 'down'] : ['left', 'right', 'up', 'down'];
     const hold = mode === 'steps' ? ' data-hold="step"' : '';
-    pad.innerHTML = `<span class="mg-pad-label">${escapeHtml(opts.label || (mode === 'steps' ? 'ここを なぞって うごかす(1マスずつ)' : 'ここを なぞって うごかす'))}</span><span class="mg-pad-dot" aria-hidden="true"></span>`
-      + keys.map((k) => `<button type="button" class="mg-pad-key" data-key="${k}"${hold} tabindex="-1" aria-hidden="true">${({ left: '◀', right: '▶', up: '▲', down: '▼' })[k]}</button>`).join('');
+    pad.innerHTML = `<span class="mg-pad-label">${escapeHtml(opts.label || (directions ? '矢印・なぞって1マス' : mode === 'steps' ? 'なぞって1マスずつ' : 'ここをなぞって動かす'))}</span><span class="mg-pad-dot" aria-hidden="true"></span>`
+      + keys.map((k) => `<button type="button" class="mg-pad-key" data-key="${k}"${hold} ${directions ? `aria-label="${({left:'左',right:'右',up:'上',down:'下'})[k]}へ1マス"` : 'tabindex="-1" aria-hidden="true"'}>${({ left: '◀', right: '▶', up: '▲', down: '▼' })[k]}</button>`).join('');
     if (opts.height) pad.style.minHeight = opts.height + 'px';
     if (opts.before && typeof host.insertBefore === 'function') host.insertBefore(pad, opts.before); else host.appendChild(pad);
     const dot = pad.querySelector('.mg-pad-dot');
@@ -3269,6 +3270,7 @@
     }
     pad.addEventListener('pointerdown', (e) => {
       if (e.mgSynthetic) return;
+      if (e.target && e.target !== pad && e.target.closest?.('button')) return;
       if (e.preventDefault) e.preventDefault();
       // pointerup が とどかず ptr が のこっていても、あたらしい ゆびで すぐ うごかせる
       if (ptr) { if (ptr.id === e.pointerId) return; release(null); }
@@ -3321,9 +3323,10 @@
       const dur = performance.now() - p.t0;
       const fx = p.x - p.sx, fy = p.y - p.sy;
       // triggerPx に とどかない ごく みじかい フリックも、はなした ときに 1マス
-      if (mode === 'steps' && !p.stepped && Math.hypot(fx, fy) >= 6) {
+      const cancelled = !e || e.type === 'pointercancel';
+      if (!cancelled && mode === 'steps' && !p.stepped && Math.hypot(fx, fy) >= 6) {
         if (Math.abs(fx) >= Math.abs(fy) && axis !== 'y') emitStep(Math.sign(fx), 0); else if (axis !== 'x') emitStep(0, Math.sign(fy));
-      } else if (p.moved < 6 && dur < 320 && typeof opts.onTap === 'function') opts.onTap();
+      } else if (!cancelled && p.moved < 6 && dur < 320 && typeof opts.onTap === 'function') opts.onTap();
       vec = ZERO; vecUntil = 0; clearTimeout(stopTimer);
       notifyStop();
       if (typeof opts.onRelease === 'function') opts.onRelease();
@@ -3337,11 +3340,15 @@
       const k = btn.dataset.key;
       btn.addEventListener('pointerdown', (e) => {
         if (e.preventDefault) e.preventDefault();
+        if (e.stopPropagation) e.stopPropagation();
         if (mode === 'steps') emitStep(DIRS[k][0], DIRS[k][1]);
         else { keyHeld[k] = true; if (typeof opts.onVector === 'function') { const v = keyVector(); if (v) opts.onVector(v.x, v.y, stepPx); } if (mode === 'delta') emitDelta(DIRS[k][0] * stepPx, DIRS[k][1] * stepPx); }
       });
       const up = () => { keyHeld[k] = false; if (typeof opts.onVector === 'function') { const v = keyVector(); opts.onVector(v ? v.x : 0, v ? v.y : 0, 0); } };
       btn.addEventListener('pointerup', up); btn.addEventListener('pointercancel', up);
+      // Native keyboard/assistive activation has no pointerdown. Pointer clicks
+      // already moved, so only handle the detail=0 activation here.
+      if (directions) btn.addEventListener('click', (e) => { if (e.detail === 0) emitStep(DIRS[k][0], DIRS[k][1]); });
     }
     return {
       el: pad, vector, held,
@@ -3413,6 +3420,7 @@
     const num = (v, d) => (typeof v === 'number' && v > 0 && isFinite(v) ? v : d);
     const W = Math.round(num(canvas && canvas.clientWidth, 244));
     let H = Math.round(typeof height === 'function' ? height(W) : num(height, 240));
+    let aspectRoom = 0;
     if (opts && opts.grow && canvas && typeof canvas.closest === 'function') {
       const wrap = canvas.closest('.mg-canvas-wrap');
       const overlay = wrap && wrap.parentElement;
@@ -3440,7 +3448,18 @@
         // ならびの とちゅうで はかると はこが つぶれて いる ことが あり、その ときの
         // 「のこり」を つかうと canvas が ありえない ほど 小さく なる。220 を きったら
         // まだ おちついて いない と 見なして、うわぎりを かけない
-        if (room >= 220 && H > room) H = Math.round(room);
+        if (opts?.preserveAspect) {
+          let exactRoom = room;
+          if (typeof getComputedStyle === 'function') {
+            const css = getComputedStyle(overlay), px = value => parseFloat(value) || 0;
+            const siblings = [...overlay.children].filter(ch => ch !== wrap && getComputedStyle(ch).display !== 'none');
+            const occupied = siblings.reduce((sum,ch) => { const style=getComputedStyle(ch); return sum+(ch.offsetHeight||0)+Math.min(12,px(style.marginTop))+Math.min(12,px(style.marginBottom)); },0);
+            exactRoom = overlay.clientHeight - px(css.paddingTop) - px(css.paddingBottom) - occupied - px(css.rowGap) * siblings.length - 6;
+            if (css.display.includes('grid') && wrap.clientHeight > 0) exactRoom = wrap.clientHeight - 4;
+          }
+          aspectRoom = Math.max(120, exactRoom);
+        }
+        else if (room >= 220 && H > room) H = Math.round(room);
       }
     }
     // おもい たんまつ(けいりょうモード)では かいぞうどを 1に おとして えがく りょうを へらす
@@ -3451,6 +3470,11 @@
       canvas.width = Math.round(W * dpr);
       canvas.height = Math.round(H * dpr);
       if (canvas.style) { canvas.style.width = '100%'; canvas.style.height = H + 'px'; }
+      if (opts?.preserveAspect && aspectRoom > 0 && H > aspectRoom && canvas.style) {
+        canvas.style.width = Math.round(W * aspectRoom / H) + 'px';
+        canvas.style.height = Math.round(aspectRoom) + 'px';
+        canvas.style.maxWidth = '100%'; canvas.style.margin = '0 auto'; canvas.style.display = 'block';
+      }
     }
     if (ctx) ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     return { ctx: CANVAS_ILLUSTRATIONS?.canvas(ctx) || ctx, W, H, dpr };
