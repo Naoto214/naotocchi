@@ -6,7 +6,7 @@
 import {readFileSync,appendFileSync,existsSync} from 'node:fs';
 import {dirname,join} from 'node:path';import {fileURLToPath,pathToFileURL} from 'node:url';
 import {permutations,inputFor,apply,sha} from '../../balance-verification-20261020/lib.mjs';
-const HERE=dirname(fileURLToPath(import.meta.url)),BUILD=join(HERE,'..','build');
+const HERE=dirname(fileURLToPath(import.meta.url)),BUILD=process.env.LIFE_BUILD??join(HERE,'..','build');
 const [manifestPath,out,shard='0',shards='1']=process.argv.slice(2);
 const M=JSON.parse(readFileSync(manifestPath,'utf8')),G=Object.fromEntries(M.groups.map(g=>[g.group,g]));
 const done=new Set(existsSync(out)?readFileSync(out,'utf8').split('\n').filter(Boolean).map(l=>JSON.parse(l).match):[]);
@@ -15,6 +15,8 @@ const MODS={};
 async function mods(v){if(MODS[v])return MODS[v];const u=f=>pathToFileURL(v==='OFFICIAL'?join(HERE,'..','..',f):join(BUILD,v,f)).href;
  const [e,o,p,ap,cat,rules]=await Promise.all([import(u('engine.mjs')),import(u('cpu-observation.mjs')),import(u('cpu-policy.mjs')),import(u('auto-progress.mjs')),import(u('full-catalog.mjs')),import(u('rules.mjs'))]);
  return MODS[v]={e,observeCpu:o.observeCpu,chooseCpuAction:p.chooseCpuAction,policy:p.POLICY_VERSION,advanceResponses:ap.advanceResponses,CATALOG:cat.CATALOG,RULES:rules.RULES};}
+// VERSION 7: LIFE_UNMAP=1 also hashes the save with the candidate IDs mapped back to the experiment IDs (I7 ≡ I-7 check).
+const UNMAP=process.env.LIFE_UNMAP?(await import('../integration/candidate-cards.mjs').then(m=>{const r=Object.entries(m.ID_MAP);return t=>r.reduce((x,[a,b])=>x.split('"'+b+'"').join('"'+a+'"'),t);})):null;
 const STEP_LIMIT=8000,TURN_LIMIT=512;
 const other=a=>a==='A'?'B':'A';
 // Round-dependent cards whose text names a fixed round (kept literally in R12; usage is recorded).
@@ -107,7 +109,7 @@ async function play(m){
  R.elapsedMs=Math.round(performance.now()-t0);R.round=s.round;R.result=s.result;R.revision=s.revision;R.final=s.life?.final??10;R.life=s.life?{final:s.life.final,cap:s.life.cap,hold:s.life.hold,events:s.life.events}:null;
  for(const a of ['A','B']){const x=R.seat[a],p=s.players[a];x.growth=p.growth;x.result=s.result?.winner===a?'win':!s.result?.winner?'draw':'loss';x.handEnd=p.hand.length;x.deckEnd=p.deck.length;
   x.relEnd=p.board.partner?p.relationship:null;x.stageEnd=x.stageEnd;x.xHandEnd=p.hand.map(cid).filter(k=>k.startsWith('X-'));x.xDeckEnd=p.deck.map(cid).filter(k=>k.startsWith('X-'));x.xPreparedEnd=p.board.prepared.map(e=>cid(e.id)).filter(k=>k.startsWith('X-'));x.xSeen=Object.values(x.xSeen);}
- if(R.status==='completed'){const saved=e.save(s);R.saveSha256=sha(saved);
+ if(R.status==='completed'){const saved=e.save(s);R.saveSha256=sha(saved);if(UNMAP)R.saveSha256Unmapped=sha(UNMAP(saved));
   try{const back=e.restore(saved);R.replay=JSON.stringify(back.result)===JSON.stringify(s.result)&&e.save(back)===saved?'match':'mismatch';}catch(err){R.replay='error:'+err.message;}}
  delete globalThis.__rLog;return R;
 }

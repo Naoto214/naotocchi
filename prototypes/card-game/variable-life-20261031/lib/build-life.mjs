@@ -15,7 +15,7 @@ import {createHash} from 'node:crypto';
 import {dirname,join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {execFileSync} from 'node:child_process';
-const HERE=dirname(fileURLToPath(import.meta.url)),SRC=join(HERE,'..','..'),OUT=join(HERE,'..','build');
+const HERE=dirname(fileURLToPath(import.meta.url)),SRC=join(HERE,'..','..'),OUT=process.env.LIFE_OUT??join(HERE,'..','build');
 const BASE=process.argv[2]??'7c1f18c7';
 const sha=t=>createHash('sha256').update(t).digest('hex');
 const git=(...a)=>execFileSync('git',a,{cwd:SRC,maxBuffer:1<<28}).toString();
@@ -27,15 +27,16 @@ const treeBefore=tree();
 const before=Object.fromEntries(files.map(f=>[f,sha(source(f))]));
 function patch(text,from,to,label){const n=text.split(from).length-1;if(n!==1)throw Error(`patch ${label}: expected 1 match, found ${n}`);return text.replace(from,()=>to);}
 
-import {VARIANTS,cards,rulesAppendix,HOOKS,ENGINE,effectsPatches,OBSERVATION,policyPatches,worldCards,worldRules,ENGINE_WORLD,EFFECTS_WORLD,policyWorld,timeCards,timeRules,ENGINE_TIME,EFFECTS_TIME,policyTime,EXTRA_BLANKS,extraBlankRules,newCards,newRules,EFFECTS_V4,EFFECTS_TIME_U12,ENGINE_V4,policyV4,v5Cards,v5Rules,EFFECTS_V5,policyV5,EFFECTS_V6_LOG,policyV6} from './life-patches.mjs';
+import {VARIANTS,cards,rulesAppendix,HOOKS,ENGINE,effectsPatches,OBSERVATION,policyPatches,worldCards,worldRules,ENGINE_WORLD,EFFECTS_WORLD,policyWorld,timeCards,timeRules,ENGINE_TIME,EFFECTS_TIME,policyTime,EXTRA_BLANKS,extraBlankRules,newCards,newRules,EFFECTS_V4,EFFECTS_TIME_U12,ENGINE_V4,policyV4,v5Cards,v5Rules,EFFECTS_V5,policyV5,EFFECTS_V6_LOG,policyV6,HOOKS_H8} from './life-patches.mjs';
 
 
-for(const v of Object.keys(VARIANTS))rmSync(join(OUT,v),{recursive:true,force:true});
+const ONLY=process.env.LIFE_ONLY?.split(',');const H8=source('engine.mjs').includes('breakupPenalty(s,stage)');
+for(const v of Object.keys(VARIANTS))if(!ONLY||ONLY.includes(v))rmSync(join(OUT,v),{recursive:true,force:true});
 const manifest={source:'prototypes/card-game/*.mjs',sourceCommit:commit,sourceSha256:before,variants:{}};
-for(const [v,cfg] of Object.entries(VARIANTS)){
+for(const [v,cfg] of Object.entries(VARIANTS)){if(ONLY&&!ONLY.includes(v))continue;
  const dir=join(OUT,v);mkdirSync(dir,{recursive:true});const out={};
  for(const f of files)out[f]=source(f);
- let eng=out['engine.mjs'];for(const [l,a,b] of [...HOOKS,...ENGINE])eng=patch(eng,a,b,l);out['engine.mjs']=eng;
+ let eng=out['engine.mjs'];for(const [l,a,b] of [...(H8?HOOKS_H8:HOOKS),...ENGINE])eng=patch(eng,a,b,l);out['engine.mjs']=eng;
  let eff=out['effects.mjs'];for(const [l,a,b] of effectsPatches(cfg))eff=patch(eff,a,b,l);out['effects.mjs']=eff;
  let obs=out['cpu-observation.mjs'];for(const [l,a,b] of OBSERVATION)obs=patch(obs,a,b,l);out['cpu-observation.mjs']=obs;
  let pol=out['cpu-policy.mjs'];for(const [l,a,b] of policyPatches(cfg))pol=patch(pol,a,b,l);out['cpu-policy.mjs']=pol;
@@ -44,7 +45,7 @@ for(const [v,cfg] of Object.entries(VARIANTS)){
  if(cfg.blanks){out['full-catalog.mjs']+=`\nObject.assign(CATALOG,${JSON.stringify(EXTRA_BLANKS,null,1)});\n`;out['rules.mjs']+=extraBlankRules;}
  if(cfg.time){ // time cards IX–XII (PLAN-TIME.md): world placement condition + counter + timeSet + CPU helper
   const T=cfg.time,V4=!!cfg.v4,V5=!!cfg.v5,V6=cfg.v6; // VERSION 4: U12 move, new cards' effects, ambush counter, CPU smart3 (older builds unchanged)
-  for(const [f,list] of [['engine.mjs',[...ENGINE_WORLD,...ENGINE_TIME,...(V4?ENGINE_V4:[])]],['effects.mjs',V4?[EFFECTS_TIME[0],...EFFECTS_TIME_U12,...EFFECTS_V4,...(V5?EFFECTS_V5:[]),...(V6?EFFECTS_V6_LOG:[])]:EFFECTS_TIME],['cpu-policy.mjs',V6?policyV6(V6.naga):V5?policyV5():V4?policyV4():policyTime(T.cpu)]])for(const [l,a,b] of list)out[f]=patch(out[f],a,b,l);
+  for(const [f,list] of [['engine.mjs',[...ENGINE_WORLD,...ENGINE_TIME,...(V4?ENGINE_V4:[])]],['effects.mjs',V4?[EFFECTS_TIME[0],...EFFECTS_TIME_U12,...EFFECTS_V4,...(V5?EFFECTS_V5:[]),...(V6&&V6.log!==false?EFFECTS_V6_LOG:[])]:EFFECTS_TIME],['cpu-policy.mjs',V6?policyV6(V6.naga):V5?policyV5():V4?policyV4():policyTime(T.cpu)]])for(const [l,a,b] of list)out[f]=patch(out[f],a,b,l);
   if(V4){out['full-catalog.mjs']+=`\n// ---- variable-life-20261031 VERSION 4 new cards ----\nObject.assign(CATALOG,${JSON.stringify(newCards(),null,1)});\n`;out['rules.mjs']+=newRules();}
   if(V5){out['full-catalog.mjs']+=`\n// ---- variable-life-20261031 VERSION 5 cards ----\nObject.assign(CATALOG,${JSON.stringify(v5Cards(),null,1)});\n`;out['rules.mjs']+=v5Rules();}
   out['full-catalog.mjs']+=`\n// ---- variable-life-20261031 time cards ----\nObject.assign(CATALOG,${JSON.stringify(timeCards(T.cost,T.counter),null,1)});\n`;

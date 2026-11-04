@@ -97,3 +97,8 @@ Object.assign(CONFIGS,{
  PAIR_NP:{label:'ながいき＋しゃしん 各1',fill:[...T4,NN('nagaiki'),NN('photo')]},
  FREE:{label:'自由構成（はやじまい×2・ながいき×2・しゃしん・つる（ラウンド終了）・IX・XII）',fill:[...T4,NN('hayajimai'),NN('hayajimai'),NN('nagaiki'),NN('nagaiki'),NN('photo'),NN('tsuruR'),'X-T-IX','X-T-XII']},
 });
+// ---- VERSION 7 (integration candidate): the VERSION 2 recommended time cards per deck (XII×2 or none) + the 3 reversal cards. ----
+Object.assign(CONFIGS,{
+ L2P3:{label:'XII×2＋有望3枚（はやじまい・ながいき・しゃしん 各1）',fill:['X-T-XII','X-T-XII',NN('hayajimai'),NN('nagaiki'),NN('photo')]},
+ N0P3:{label:'時のカードなし＋有望3枚（はやじまい・ながいき・しゃしん 各1）',fill:[NN('hayajimai'),NN('nagaiki'),NN('photo')]},
+});

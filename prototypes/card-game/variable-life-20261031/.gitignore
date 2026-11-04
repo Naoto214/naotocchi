@@ -14,3 +14,7 @@ ref/*.jsonl.gz
 /runs/SENSW-manifest.json
 /runs/V2S-manifest.json
 /runs/V4S-manifest.json
+build-main/
+runs-v7/*.jsonl
+runs-v7/*.jsonl.gz
+runs-v7/*.log

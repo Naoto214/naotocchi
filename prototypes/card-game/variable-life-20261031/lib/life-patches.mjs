@@ -46,6 +46,8 @@ export const VARIANTS={
  'T-6h':{time:{cost:2,counter:true,cpu:'smart4'},v4:true,v5:true,v6:{naga:'hold'},note:'VERSION 6：T-5v＋しゃしんの記録（CPU は VERSION 5 と同じ温存型）'},
  'T-6e':{time:{cost:2,counter:true,cpu:'smart4-early'},v4:true,v5:true,v6:{naga:'early'},note:'VERSION 6：ながいきのひけつを VERSION 4 の判断（早期使用型）で'},
  'T-6a':{time:{cost:2,counter:true,cpu:'smart4-adaptive'},v4:true,v5:true,v6:{naga:'adaptive'},note:'VERSION 6：ながいきのひけつを状況に応じた判断で'},
+ // VERSION 7: the source of the integration candidate (integration/build-candidate.mjs): T-6a without the photo log.
+ 'I-7':{time:{cost:2,counter:true,cpu:'smart4-adaptive'},v4:true,v5:true,v6:{naga:'adaptive',log:false},note:'VERSION 7：正式導入候補の元（T-6a と同じ規則・CPU。しゃしんの記録なし）'},
  'T-8s':{time:{cost:2,counter:true,cpu:'smart'},note:'各2（8枚）・時2・特殊カウンターあり'},
 };
 
@@ -77,6 +79,9 @@ export const HOOKS=[ // state-neutral logging (same as PR #495 build-variants.mj
  ['reset',"p.time=s.round;p.personUsed=false;","globalThis.__rLog?.({kind:'reset',actor:s.turn,expired:p.time,granted:s.round,round:s.round,growth:{A:s.players.A.growth,B:s.players.B.growth}});p.time=s.round;p.personUsed=false;"],
  ['leave',"if(key==='partner'){p.relationship=null;grow(s,a,-10);}","if(key==='partner'){globalThis.__rLog?.({kind:'leave',actor:a,stage:p.relationship,round:s.round,effectActor:context.effectActor??null,cause:context.cause??'cost'});p.relationship=null;grow(s,a,-10);}"],
 ];
+// hotseat-7/8 (main after PR #515/#518): the partner leave goes through breakupPenalty; the same experiment-only log is inserted
+// there (no rule change). Used only when the base engine has that code (build-life.mjs picks it), so older builds are unchanged.
+export const HOOKS_H8=HOOKS.map(h=>h[0]!=='leave'?h:['leave',"if(key==='partner'){const stage=p.relationship,penalty=breakupPenalty(s,stage);p.relationship=null;","if(key==='partner'){const stage=p.relationship,penalty=breakupPenalty(s,stage);globalThis.__rLog?.({kind:'leave',actor:a,stage,round:s.round,effectActor:context.effectActor??null,cause:context.cause??'cost'});p.relationship=null;"]);
 export const ENGINE=[
  ['life-state',"challenge:null};\n const rng=random(seed);","challenge:null,life:{final:10,cap:{A:100,B:100},hold:{A:100,B:100},events:[]}};\n const rng=random(seed);"],
  ['grow',"p.growth=Math.max(0,Math.min(100,old+n));","const H=s.life.hold[a];p.growth=Math.max(0,Math.min(s.life.cap[a],old+n));"],
