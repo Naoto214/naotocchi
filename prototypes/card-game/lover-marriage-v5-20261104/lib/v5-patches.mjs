@@ -37,7 +37,7 @@ export const VARIANTS={
   none:{plan:'追加なし',kind:'event',value:0,married:null}},
  snow:{
   v4:{plan:'V4（V2 A）',kind:'event',married:'自分のターン終了時、現在のラウンドがR10の場合、発動する。自分のそだち+5。'},
-  v5:{plan:'V4（本文だけ明確化）',kind:'event',married:'R10の自分のターン終了時に、このこいびとと結婚していれば発動する（R10に結婚したターンも含む）。自分のそだち+5。'},
+  v5:{plan:'V4（本文だけ明確化）',kind:'event',cpuKind:'once',value:5,married:'R10の自分のターン終了時に、このこいびとと結婚していれば発動する（R10に結婚したターンも含む）。自分のそだち+5。'},
   draw:{plan:'V5案（1枚）',kind:'once',value:1,married:'自分のターン開始時、現在のラウンドがR10の場合、発動する。1枚引く。'},
   b:{plan:'V2 B',kind:'cont',value:0.3,married:'自分のメインが⑦か⑧である間、そのメインのちえ+1。'},
   none:{plan:'追加なし',kind:'event',value:0,married:null}},
@@ -46,11 +46,15 @@ export const VARIANTS={
   b:{plan:'V2 B',kind:'cont',married:'このカードにカードがみにつけられていない間、自分のメインのちえ+1。'},
   c3:{plan:'V5新案',kind:'event',value:1,married:'1ターンに1回。このカードにカードがみにつけられていない間、自分のメインが相手からちょうせんされた時、このちょうせんの間、そのメインの使用する能力値+1。'},
   none:{plan:'追加なし',kind:'cont',value:0,married:null}},
+ deer:{
+  v5:{plan:'V5',kind:'once',married:'結婚した時と、結婚している間の自分のターン開始時に手札が1枚以下の時にも、「こいびとのとき」の能力を発動できる（結婚した時は山札上3枚を見る）。'},
+  m:{plan:'結婚した時だけ',kind:'once',value:2.5,married:'このこいびとと結婚した時にも、「こいびとのとき」の能力を発動できる（山札上3枚を見る）。'},
+  s:{plan:'ターン開始時だけ',kind:'event',value:0.4,married:'結婚している間、自分のターン開始時に手札が1枚以下なら、「こいびとのとき」の能力を発動できる。'}},
  spider:{
   v4:{plan:'V4（V2 A）',kind:'once',married:'このこいびとと結婚した時、自分の捨て札の「みにつける」のカード1枚を手札に戻す。'},
   top:{plan:'V5案（山札の上）',kind:'once',value:1.5,married:'このこいびとと結婚した時、自分の捨て札の「みにつける」のカード1枚を山札の一番上に置く。'}}};
-export const VKEYS=[['gorilla','P-gentle_gorilla'],['snow','P-snow_spirit'],['cactus','P-oasis_cactus'],['spider','P-knitting_spider']];
-export const FINAL={gorilla:'v3n',snow:'v5',cactus:'v4',spider:'top'};
+export const VKEYS=[['gorilla','P-gentle_gorilla'],['snow','P-snow_spirit'],['cactus','P-oasis_cactus'],['spider','P-knitting_spider'],['deer','P-grove_deer']];
+export const FINAL={gorilla:'v3n',snow:'v5',cactus:'v4',spider:'top',deer:'v5'};
 // CPU（中級だけ）：結婚後の能力の目安の価値。once は結婚の価値に足し、cont／event は残りの自分のターン数で重み付け。
 export const CPU_VALUE={'P-anglerfish':3,'P-cat_ceo':4,'P-cliff_goat':1,'P-desert_scorpion':3,'P-field_cow':1.2,'P-forest_bear':0.8,'P-gentle_gorilla':1.2,
  'P-grove_deer':4,'P-high_eagle':3,'P-knitting_spider':3,'P-oasis_cactus':1.8,'P-robot_neighbor':1.8,'P-rock_octopus':0.6,'P-sea_mermaid':1.5,'P-snow_spirit':6,
@@ -71,7 +75,7 @@ const RULES_APPENDIX=`
  if(V.gorilla==='v2b')R('P-gentle_gorilla',r=>{const t=r.triggers[0];return {...r,triggers:[{...t,limitGroup:'gorilla'},T({...t,limitGroup:'gorilla',condition:{all:['ownChallenge','challengeWisdom','mainWisdomLower',M]},steps:[stat(0,2,'challenge')]})]};});
  if(V.gorilla==='v3n')R('P-gentle_gorilla',r=>({...r,triggers:[...r.triggers,T({when:'marriage',mandatory:true,target:'ownMain',steps:[stat(2,0,'turn')]})]}));
  if(V.gorilla==='g4')R('P-gentle_gorilla',r=>{const t=r.triggers[0];return {...r,triggers:[{...t,limitGroup:'gorilla'},T({...t,limitGroup:'gorilla',condition:{all:['ownChallenge','challengePower',M]}})]};});
- R('P-grove_deer',r=>({...r,triggers:[...keep(r,0,{limitGroup:'deer'}),T({when:'marriage',steps:[search(3)],once:true,limitGroup:'deer'}),T({when:'start',condition:{all:[M,'v4Hand1']},steps:[search(2)],once:true,limitGroup:'deer'})]}));
+ {const dv=V.deer??'v5',dm=dv!=='s',ds=dv!=='m';R('P-grove_deer',r=>({...r,triggers:[...keep(r,0,{limitGroup:'deer'}),...(dm?[T({when:'marriage',steps:[search(3)],once:true,limitGroup:'deer'})]:[]),...(ds?[T({when:'start',condition:{all:[M,'v4Hand1']},steps:[search(2)],once:true,limitGroup:'deer'})]:[])]}));}
  R('P-high_eagle',r=>({...r,triggers:[...r.triggers,T({when:'marriage',mandatory:true,steps:[draw()]})]}));
  if((V.spider??'v4')==='v4')R('P-knitting_spider',r=>({...r,triggers:[...r.triggers,T({when:'marriage',mandatory:true,target:'ownDiscardEquipment',steps:[move()]})]}));
  if(V.spider==='top')R('P-knitting_spider',r=>({...r,triggers:[...r.triggers,T({when:'marriage',mandatory:true,target:'ownDiscardEquipment',steps:[move('top')]})]}));
@@ -130,7 +134,7 @@ export function engineFixes(){return {
 export function cpuFixes(variants=FINAL){const L=lovers(variants),VAL={...CPU_VALUE};for(const [k,id] of VKEYS)VAL[id]=VARIANTS[k][variants[k]].value??CPU_VALUE[id];for(const id of variants.off??[])VAL[id]=0;return {'cpu-policy.mjs':[
  P('policy-version',"export const POLICY_VERSION='heuristic-2';",`export const POLICY_VERSION='${TRIAL_POLICY}';`),
  P('policy-versions',"export const POLICY_VERSIONS=Object.freeze(['heuristic-1','heuristic-2']);",`export const POLICY_VERSIONS=Object.freeze(['heuristic-1','heuristic-2','${TRIAL_POLICY}']);`),
- P('policy-features',"'heuristic-2':{intermediate:{statChoice:true}}});",`'heuristic-2':{intermediate:{statChoice:true}},'${TRIAL_POLICY}':{intermediate:{statChoice:true,lover4:true}}});\nconst V4_VALUE=${JSON.stringify(VAL)},V4_KIND=${JSON.stringify(Object.fromEntries(Object.entries(L).map(([k,v])=>[k,v.kind])))};\nconst v4Worth=(id,o)=>{const v=V4_VALUE[id]??0,left=Math.max(0,10-(o.round??1));return V4_KIND[id]==='once'?v:v*left;};`),
+ P('policy-features',"'heuristic-2':{intermediate:{statChoice:true}}});",`'heuristic-2':{intermediate:{statChoice:true}},'${TRIAL_POLICY}':{intermediate:{statChoice:true,lover4:true}}});\nconst V4_VALUE=${JSON.stringify(VAL)},V4_KIND=${JSON.stringify(Object.fromEntries(Object.entries(L).map(([k,v])=>[k,v.cpuKind??v.kind])))};\nconst v4Worth=(id,o)=>{const v=V4_VALUE[id]??0,left=Math.max(0,10-(o.round??1));return V4_KIND[id]==='once'?v:v*left;};`),
  P('observation-flag',",o=observation,timed=timeOpportunity(o,prof);",",o={...observation,lover4:!!prof.lover4},timed=timeOpportunity(o,prof);"),
  P('lover-card',"if(c.type==='partner')return b.partner?2:12;","if(c.type==='partner')return b.partner?2:12+(o.lover4?Math.min(4,(V4_VALUE[c.cardId]??0)):0);"),
  P('place-lover',"if(a.slot==='partner')return 20+(b.main?6:0);","if(a.slot==='partner')return 20+(b.main?6:0)+(o.lover4?Math.min(4,(V4_VALUE[c?.cardId]??0)):0);"),

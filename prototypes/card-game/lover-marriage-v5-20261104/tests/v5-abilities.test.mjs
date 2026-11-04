@@ -235,3 +235,25 @@ test('V5：CPU対戦の記録で、結婚の能力は結婚中だけ発動し、
     if(x.cardId==='P-snow_spirit'&&FINAL.snow!=='b')assert.equal(x.round,10,'せいれいはR10だけ');}}});
  assert.ok(fired>0);
 });
+
+// ---- 最終検証で追加 ----
+test('最終：シカの「結婚中のターン開始時」は自分のターン開始時だけ。相手のターン開始時・手札2枚以上では発動しない',()=>{
+ let {s,p}=lover('P-grove_deer',4);s.players.A.deck.push(...s.players.A.hand.splice(0));
+ // A のターン終了 → B のターン開始（A の手札0枚でも、相手のターンなので発動しない）
+ s=settle(doIt(s,acts(s).find(a=>a.kind==='pass')),(st,a)=>st.turn==='B'?null:null,200);
+ assert.equal(s.turn,'B');assert.equal(v4Hist(s,p).length,0,'相手のターン開始時は発動しない');
+ // 手札を2枚以上にして A のターン開始 → 発動しない
+ hand(s,'A','G-dot-eater');hand(s,'A','G-dot-eater');s=passTurn(s);assert.equal(s.turn,'A');assert.equal(v4Hist(s,p).length,0,'手札2枚以上では発動しない');
+});
+
+test('最終：共通ルール（結婚+10・結婚前の別れ−5・結婚後の別れ−10）は18種類とも同じ',()=>{
+ for(const id of IDS){let {s,p}=lover(id,3);kit(s,id);s=marry(s,pickTrig(p));assert.equal(s.players.A.growth,60,id+' 結婚+10');
+  let {s:t,p:q}=lover(id,2);t=misplay(t);if(t.players.A.board.partner!==q)assert.equal(t.players.A.growth,45,id+' 結婚前の別れ−5');}
+});
+
+test('最終：中級CPUの評価値（せいれいは R10 だけの+5 なので1回分で数える）。初級は試遊版の評価を使わない',async()=>{
+ const src=fs.readFileSync(path.join(dir,'cpu-policy.mjs'),'utf8');const kind=JSON.parse(src.match(/V4_KIND=(\{[^}]*\})/)[1]),val=JSON.parse(src.match(/V4_VALUE=(\{[^}]*\})/)[1]);
+ assert.equal(kind['P-snow_spirit'],'once');assert.equal(val['P-snow_spirit'],5);assert.equal(kind['P-gentle_gorilla'],'once');assert.equal(kind['P-knitting_spider'],'once');
+ assert.equal(Object.keys(val).length,18);
+ assert.match(src,/beginner/);assert.match(src,/intermediate:\{statChoice:true,lover4:true\}/,'中級だけ lover4');
+});
