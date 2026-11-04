@@ -41,6 +41,7 @@ export const VARIANTS={
  'T-3s':{time:{cost:3,counter:true,cpu:'smart'},note:'各1・時3・特殊カウンターあり'},
  'T-2n':{time:{cost:2,counter:false,cpu:'smart'},note:'各1・時2・特殊カウンターなし（比較用）'},
  'T-2v':{time:{cost:2,counter:true,cpu:'smart2'},note:'VERSION 2：時2・特殊カウンターあり・CPU は勝率見込み（smart2）で判断。デッキ構成はマニフェストで指定'},
+ 'T-4v':{time:{cost:2,counter:true,cpu:'smart3'},v4:true,note:'VERSION 4：時のカード＋新カード7種類・U12・CPU smart3。デッキ構成はマニフェストで指定'},
  'T-8s':{time:{cost:2,counter:true,cpu:'smart'},note:'各2（8枚）・時2・特殊カウンターあり'},
 };
 
@@ -274,3 +275,84 @@ function timeValue(c,o){const n=TIMEN[c?.name],L=o.life;if(!n||!L)return null;co
 export const EXTRA_BLANKS={'X-blank-2':{id:'X-blank-2',name:'対照札2（効果なし・仮）',type:'event',cost:1,rare:false,text:'（実験の対照用。プレイできない。）',source:'variable-life-20261031（実験専用の仮カード）',source_sha256:'experimental',method:'すぐつかう'},
  'X-blank-3':{id:'X-blank-3',name:'対照札3（効果なし・仮）',type:'event',cost:1,rare:false,text:'（実験の対照用。プレイできない。）',source:'variable-life-20261031（実験専用の仮カード）',source_sha256:'experimental',method:'すぐつかう'}};
 export const extraBlankRules="\nadd('X-blank-2',{mode:'quick',condition:'lifeNever',steps:[]});\nadd('X-blank-3',{mode:'quick',condition:'lifeNever',steps:[]});\n";
+
+// ---- VERSION 4 (PLAN-V4.md, CARDS-V3.md): 7 new provisional cards, U12, CPU smart3 --------------------------------------
+// Card ids X-N-*. Experiment/trial only; the 452 official cards and their programs are untouched.
+export const NEW_IDS=['X-N-hayajimai','X-N-nagaiki','X-N-tsuru','X-N-photo','X-N-machibuse','X-N-omiyage','X-N-chotto'];
+export function newCards(){
+ const c=(id,name,type,cost,text,method)=>({id,name,type,cost,rare:false,text,source:'variable-life-20261031 VERSION 4（実験専用の仮カード）',source_sha256:'experimental',...(method?{method}:{})});
+ return Object.fromEntries([
+  c('X-N-hayajimai','はやじまい','event',2,'自分のそだちが相手より少なく、終了ラウンドが現在のラウンドの次のラウンドの場合に発動できる。終了ラウンドが9なら自分のそだち+15、10なら+10、11以上なら+5。この名前のカードは1ターンに1回しか発動できない。','すぐつかう'),
+  c('X-N-nagaiki','ながいきのひけつ','event',2,'自分のそだち+5。この効果の解決直前に、終了ラウンドが11以上で、自分のそだちが相手より少ない場合、さらに自分のそだち+10。','すぐつかう'),
+  c('X-N-tsuru','おいわいのつる','companion',0,'この名前の能力は1ターンに1回。現在のラウンドがR10以降の場合、自分のターン終了時、自分のそだちが相手以下なら、発動できる。自分のそだち+5。'),
+  c('X-N-photo','おもいでのしゃしん','event',2,'現在のラウンドが終了ラウンドの場合に発動できる。自分の場の、なかま・こいびと・セカイ（時のカードを除く）の枚数1枚につき自分のそだち+5（最大+15）。この名前のカードは1ターンに1回しか発動できない。','すぐつかう'),
+  c('X-N-machibuse','まちぶせどけい','play',1,'自分が相手の時のカードに時のカードでカウンターする時、準備枠に伏せてあるこのカードを捨て札に置いてもよい。そうしたなら、そのカウンターの時を2少なくし、1枚引く。','しかける'),
+  c('X-N-omiyage','いなかのおみやげ','event',1,'自分の捨て札の、時のカード以外のセカイ1枚を対象として発動できる。対象を手札に戻す。このターンに自分が時のカードを出していたなら、さらに1枚引く。','すぐつかう'),
+  c('X-N-chotto','ちょっとまった','play',2,'相手のターン終了時、相手のそだちが100で、終了ラウンドが現在のラウンドより後の場合に発動できる。相手のそだち-5。','しかける'),
+ ].map(x=>[x.id,x]));
+}
+export function newRules(){
+ const v=(value,op,n)=>JSON.stringify({value,op,n}),all=(...c)=>`{"all":[${c.join(',')}]}`,g=(n,to='self')=>`{"op":"growth","n":${n},"to":"${to}"}`,iff=(c,s)=>`{"op":"if","condition":${c},"steps":[${s.join(',')}]}`;
+ const behind=v('growth','lt',{value:'opponentGrowth'});
+ return '\n// ---- variable-life-20261031 VERSION 4 new cards ----\n'+[
+  `add('X-N-hayajimai',{mode:'quick',condition:${all(behind,v('roundsLeft','eq',1))},onceName:true,steps:[${g(5)},${iff(v('final','lte',10),[g(5)])},${iff(v('final','eq',9),[g(5)])}]});`,
+  `add('X-N-nagaiki',{mode:'quick',steps:[${iff(all(v('final','gte',11),behind),[g(10)])},${g(5)}]});`,
+  `add('X-N-tsuru',{mode:'companion',triggers:[{when:'end',onceName:true,condition:${all(v('round','gte',10),v('growth','lte',{value:'opponentGrowth'}))},steps:[${g(5)}]}]});`,
+  `add('X-N-photo',{mode:'quick',condition:${v('roundsLeft','eq',0)},onceName:true,steps:[{op:'growthByValue',key:'photoCount',per:5,max:15}]});`,
+  `add('X-N-machibuse',{mode:'trap',triggers:[]});`,
+  `add('X-N-omiyage',{mode:'quick',target:'ownDiscardWorldNonTime',steps:[{op:'move',destination:'hand'},${iff('"timePlacedThisTurn"',[`{"op":"draw","n":1,"to":"self"}`])}]});`,
+  `add('X-N-chotto',{mode:'trap',triggers:[{when:'end',opponent:true,condition:${all(v('opponentGrowth','gte',100),v('roundsLeft','gte',1))},steps:[${g(-5,'opponent')}]}]});`,
+ ].join('\n')+'\n';
+}
+// effects.mjs: values (final round, rounds left, photo count), a condition, a target and one op used by the new cards.
+export const EFFECTS_V4=[
+ ['v4-values',"opponentGrowth:owner(s,other(a)).growth,","opponentGrowth:owner(s,other(a)).growth,final:s.life.final,round:s.round,roundsLeft:s.life.final-s.round,photoCount:Math.min(3,b.companions.length+(b.partner?1:0)+(b.world&&!/^X-T-/.test(card(s,b.world).id)?1:0)),"],
+ ['v4-condition'," case 'finalTime':return s.round===10||m?.stage===8;"," case 'timePlacedThisTurn':return s.history.some(e=>e.serial===s.serial&&e.kind==='place'&&e.actor===a&&/^X-T-/.test(s.cards[e.source]?.cardId??''));case 'finalTime':return s.round===10||m?.stage===8;"],
+ ['v4-target'," case 'ownDiscardNonMain':return p.discard.filter(id=>card(s,id).type!=='main');"," case 'ownDiscardNonMain':return p.discard.filter(id=>card(s,id).type!=='main');\n case 'ownDiscardWorldNonTime':return p.discard.filter(id=>card(s,id).type==='world'&&!/^X-T-/.test(card(s,id).id));"],
+ ['v4-op',"case 'growthVariant':","case 'growthByValue':{const n=Math.min(e.max,e.per*value(s,a,e.key,l));if(n>0){l.applied=true;work.steps.unshift({op:'quantity',effect:{kind:'growth',actor:a,n}});}break;}\n case 'growthVariant':"],
+];
+// U12 (VERSION 4): a countered time card leaves the world slot through the ordinary move (destination: discard), so existing
+// replacement effects of its owner apply (タンポポ④: stay by discarding a world from hand; ヒトデ⑦: deck bottom; サンゴ⑦: stay).
+// Its effect is negated in every case: the link is marked negated before any move, and only the last time card sets the final.
+export const EFFECTS_TIME_U12=[['time-op',EFFECTS_TIME[1][1],EFFECTS_TIME[1][2].replace(
+ "x.negated=true;const own=s.cards[x.source].owner;if(owner(s,own).board.world===x.source)h.discardField(s,own,x.source,{cause:'effect',effectActor:a});",
+ "x.negated=true;const own=s.cards[x.source].owner;if(owner(s,own).board.world===x.source)moves.push({id:x.source,generation:s.cards[x.source].generation,zone:'field'});")
+ .replace("superseded=[],names=[];","superseded=[],names=[],moves=[];")
+ .replace("'カウンター成立：'+names.join('・')+' は捨て札へ。'","'カウンター成立：'+names.join('・')+' は効果なし。'")
+ .replace("reached:{A:owner(s,'A').reached,B:owner(s,'B').reached}});break;}","reached:{A:owner(s,'A').reached,B:owner(s,'B').reached}});if(moves.length)work.steps.unshift(...moves.flatMap(ref=>[{op:'bindTarget',ref},{op:'move',destination:'discard'}]));break;}")]];
+if(!EFFECTS_TIME_U12[0][2].includes('moves.flatMap')||EFFECTS_TIME_U12[0][2].includes('h.discardField(s,own'))throw Error('U12 patch did not apply');
+// engine.mjs: まちぶせどけい — an extra counter action (cost −2, discard this face-down card, draw 1) while it is set face-down.
+export const ENGINE_V4=[
+ ['v4-ambush-action',"if(cost!==Infinity)add('place',`${c.name}でカウンター（時${cost}）`,{source,slot:'world',cost,counter:true});",
+  "if(cost!==Infinity){add('place',`${c.name}でカウンター（時${cost}）`,{source,slot:'world',cost,counter:true});const amb=p.board.prepared.find(e=>e.faceDown&&s.cards[e.id].cardId==='X-N-machibuse');if(amb)add('place',`${c.name}でカウンター（時${Math.max(0,cost-2)}・まちぶせどけい）`,{source,slot:'world',cost:Math.max(0,cost-2),counter:true,ambush:amb.id});}"],
+ ['v4-ambush-cost',"-(data.discount?1:0);","-(data.discount?1:0)-(data.ambush?2:0);"],
+ ['v4-ambush-consume',"-(x.discount?1:0);const ctx","-(x.discount?1:0)-(x.ambush?2:0);const ctx"],
+ ['v4-ambush-pay',"consumeActionCost(s,who,a);p.time-=a.cost;remove(p.hand,a.source);","consumeActionCost(s,who,a);p.time-=a.cost;remove(p.hand,a.source);if(a.ambush&&b.prepared.some(e=>e.id===a.ambush)){discardField(s,who,a.ambush);draw(s,who);log(s,who+'：まちぶせどけいを使った（時−2・1枚引く）');}"],
+];
+// CPU smart3 (VERSION 4, experiment only): smart2 plus (1) the new cards' values and (2) time-card values that count the own
+// hand's new cards and both sides' public tsuru (おいわいのつる) as extra projected growth. Only own hand, public board and
+// public state are read. Without new cards it decides exactly like smart2 (checked by save hashes, PLAN-V4).
+const SMART3=SMART2.replace("function winP(o,F){","function winP(o,F,bonus=0){")
+ .replace("return PHI((a-b)/(6*Math.sqrt(left+.3)+2));}","return PHI((Math.min(100,a+bonus)-b)/(6*Math.sqrt(left+.3)+2));}")
+ .replace("let v=80*(winP(o,n)-winP(o,F));","let v=80*(winP(o,n,v4Bonus(o,n))-winP(o,F,v4Bonus(o,F)));")+`
+const ownHand=o=>o.players[o.seat]?.hand??[],hasNew=(o,id)=>ownHand(o).filter(c=>c.cardId===id).length;
+const onBoard=(o,seat,id)=>(o.players[seat]?.board?.companions??[]).some(c=>c.cardId===id);
+function tsuruRounds(o,n){return Math.max(0,n-Math.max(10,o.round)+1);}
+function v4Bonus(o,n){const me=o.players[o.seat],op=o.players[other(o.seat)];let b=0;
+ if(me.growth<op.growth){if(hasNew(o,'X-N-hayajimai')&&n-o.round===1)b+=n===9?15:n===10?10:5;b+=10*Math.min(2,hasNew(o,'X-N-nagaiki'))*(n>=11?1:0);}
+ if(me.growth<=op.growth&&onBoard(o,o.seat,'X-N-tsuru'))b+=5*tsuruRounds(o,n);
+ if(op.growth<=me.growth&&onBoard(o,other(o.seat),'X-N-tsuru'))b-=5*tsuruRounds(o,n);
+ return b;}
+function newCardValue(a,o,spend){const id=a.card?.cardId;if(!id?.startsWith('X-N-'))return null;
+ const me=o.players[o.seat],op=o.players[other(o.seat)],F=o.life?.final??10,G=g=>g*growthMult(o),behind=me.growth<op.growth;
+ if(a.kind==='place'&&a.slot==='prepared'){if(id==='X-N-machibuse')return ownHand(o).some(c=>TIMEN[c.name])?6-spend:-1;if(id==='X-N-chotto')return op.growth>=85&&F>o.round?7-spend:-1;return null;}
+ if(!['play','programPlay'].includes(a.kind))return null;
+ if(id==='X-N-hayajimai')return G(F===9?15:F===10?10:5)-3-spend;
+ if(id==='X-N-nagaiki'){const big=F>=11&&behind;if(!big&&behind&&o.round<10&&ownHand(o).some(c=>c.name==='XI'||c.name==='XII'))return -1;return G(big?15:5)-3-spend;}
+ if(id==='X-N-photo'){const b=me.board,n=Math.min(3,(b.companions?.length??0)+(b.partner?1:0)+(b.world&&!TIMEN[b.world.name]?1:0));return n?G(5*n)-3-spend:-1;}
+ if(id==='X-N-omiyage')return (!me.board.world||TIMEN[me.board.world.name])?10-spend:2-spend;
+ return null;}
+`;
+export function policyV4(){return [['time-helper',"const growthMult=o=>",SMART3+"const growthMult=o=>"],
+ ['time-score',"if(a.slot==='world')return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;","if(a.slot==='world'){const tv=timeValue(c,o);if(tv!==null)return (tv<=.5?-1:tv)-spend-(b.world&&!TIMEN[b.world.name]?3:0);return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;}"],
+ ['v4-score'," const spend=spendOf(a,o);"," const spend=spendOf(a,o);{const nv=newCardValue(a,o,spend);if(nv!==null)return nv;}"]];}

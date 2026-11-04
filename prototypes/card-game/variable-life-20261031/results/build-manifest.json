@@ -1824,6 +1824,69 @@
     "rules.mjs": "976b52bfd195e969ec01047055020a201db9a6ee7da26a483f958f8ae81cf3ff"
    }
   },
+  "T-4v": {
+   "time": {
+    "cost": 2,
+    "counter": true,
+    "cpu": "smart3"
+   },
+   "v4": true,
+   "note": "VERSION 4：時のカード＋新カード7種類・U12・CPU smart3。デッキ構成はマニフェストで指定",
+   "cards": {
+    "X-blank": {
+     "id": "X-blank",
+     "name": "対照札（効果なし・仮）",
+     "type": "event",
+     "cost": 1,
+     "rare": false,
+     "text": "（実験の対照用。プレイできない。）",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-extend": {
+     "id": "X-life-extend",
+     "name": "人生延長（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばす（両プレイヤー共通・最大R12）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-cap-raise": {
+     "id": "X-cap-raise",
+     "name": "そだち上限解放（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大120）。現在のそだちは変わらない。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-both": {
+     "id": "X-life-both",
+     "name": "人生延長・上限解放（仮）",
+     "type": "event",
+     "cost": 3,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばし、両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大R12・120）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    }
+   },
+   "patchedSha256": {
+    "cpu-observation.mjs": "1a621e00cb226d918857d3ef7b5f61542ea0588415594d5b7b5f02f714a83265",
+    "cpu-policy.mjs": "e97adf27b74499cc2fcee1d1802becbdbc6c69caaed19d3cc7ce8c2e1cc3333f",
+    "effects.mjs": "8f8b30c04bcf0cd44384cb40c6640aae29a048903711507056f902fe59d65d7c",
+    "engine.mjs": "12d406670e67e21688bc2c918da1ad3e5afb56eba995a6c567d61734cb0c5601",
+    "full-catalog.mjs": "aaea614ef789d705afc9aa541ded9dccec6d0609dc8f06f7d625f8343d9f88d4",
+    "rules.mjs": "b68c257d9bf65a123d3ed4969cf9c13ce8b13d80b01f5829c14aa5f44fd0383e"
+   }
+  },
   "T-8s": {
    "time": {
     "cost": 2,
