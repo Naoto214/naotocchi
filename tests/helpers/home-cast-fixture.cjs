@@ -2,13 +2,23 @@
 // visits remain sparse; their lifecycle is covered by the free-life tests.
 const assert=require('node:assert/strict');
 const {guardedRoute}=require('./browser-route.cjs');
+// Select the retained legacy presentation without changing saved state,
+// attendance, clocks or game rules. Modern fixed-lane/2.5D behavior has its
+// own production browser suites; these callers assert the legacy DOM.
+const legacyPresentation='window.NaotocchiHomeDiorama=undefined;window.NaotocchiHomeDioramaModel=undefined;document.body.dataset.homeProduction="";delete document.body.dataset.homeDisplayVersion;delete document.body.dataset.homeViewportVersion;\n';
+async function useLegacyHomePresentation(context,label,errors) {
+ return guardedRoute(context,'**/script.js?*',label,errors,async route=>{
+  const response=await route.fetch();
+  await route.fulfill({response,body:legacyPresentation+await response.text()});
+ });
+}
 async function presentLegacyHomeCast(context,label,errors) {
  return guardedRoute(context,'**/script.js?*',label,errors,async route=>{
   const response=await route.fetch();let body=await response.text();
   // This suite asserts the legacy centered rows and speech-below-cast layout.
   // Exercise that retained fallback explicitly; the production 2.5D adapter
   // has separate real-browser matrices with fixed 5+4 controls and 76px speech.
-  body='window.NaotocchiHomeDiorama=undefined;window.NaotocchiHomeDioramaModel=undefined;document.body.dataset.homeProduction="";\n'+body;
+  body=legacyPresentation+body;
   for(const [signature,fixture] of [
    ['function homePresentCompanions() {','return state.companions;'],
    ['function homePresentPartner() {','return state.partner;'],
@@ -20,4 +30,4 @@ async function presentLegacyHomeCast(context,label,errors) {
   await route.fulfill({response,body});
  });
 }
-module.exports={presentLegacyHomeCast};
+module.exports={presentLegacyHomeCast,useLegacyHomePresentation};

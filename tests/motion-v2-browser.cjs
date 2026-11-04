@@ -2,6 +2,7 @@
 // separately exercised through the real runtime in motion-v2-test.cjs.
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const {chromium,webkit}=require('playwright');
+const {useLegacyHomePresentation}=require('./helpers/home-cast-fixture.cjs');
 (async()=>{
  let html;require('./visual-qa.cjs')().configureServer({middlewares:{use(_p,h){h({},{setHeader(){},end(v){html=v;}});}}});
  const src=html.match(/<script>([\s\S]*?)<\/script>/)[1];const fixtures=vm.runInNewContext(src.slice(0,src.indexOf('const mount='))+'\nfixtures');
@@ -11,6 +12,8 @@ const {chromium,webkit}=require('playwright');
   const browser=await engine.launch();
   try{for(const [width,height] of [[390,844],[320,568]])for(const scene of ['solo','pair','few','dense26'])for(const reduced of [false,true]){
    const context=await browser.newContext({viewport:{width,height},reducedMotion:reduced?'reduce':'no-preference'}),page=await context.newPage();
+   const routeErrors=[];
+   await useLegacyHomePresentation(context,`${engine.name()}-${width}-${scene}-${reduced}`,routeErrors);
    try{
     await context.addInitScript(save=>{localStorage.clear();localStorage.setItem('naotocchi-save-v1',JSON.stringify(save));},fixtures['l2_feed_'+scene]);
     await page.goto('http://127.0.0.1:5199/');await page.locator('#feedBtn').waitFor({state:'visible'});
@@ -49,6 +52,7 @@ const {chromium,webkit}=require('playwright');
      return {samples,unchanged:JSON.stringify(initial)===JSON.stringify(actors.map(a=>[a.node.style.left,a.node.style.top,a.node.style.width,a.node.style.height])),baseline:baseline.size,leftover:actors.reduce((n,a)=>n+a.node.getAnimations().filter(animation=>!baseline.has(animation)).length,0),remaining:actors.flatMap(a=>a.node.getAnimations().filter(animation=>!baseline.has(animation)).map(animation=>({id:a.id,state:animation.playState,frames:animation.effect.getKeyframes().map(f=>f.transform)}))),overflow:document.documentElement.scrollWidth>innerWidth+1};
     },{reduced});
     console.log(JSON.stringify({engine:engine.name(),width,height,scene,reduced,...data}));
+    assert.deepEqual(routeErrors,[],'legacy presentation fixture loads');
     assert.equal(data.unchanged,true);assert.equal(data.leftover,0);assert.equal(data.overflow,false);assert.equal(data.samples===0,reduced);
     results.push({engine:engine.name(),width,height,scene,reduced,...data});
    }finally{await context.close();}

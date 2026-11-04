@@ -89,6 +89,14 @@ module.exports=async function(browser,engine,fixtures,baseURL,output){
       const used=await readSave(page),payout=used.lifetime.money-purchased.lifetime.money;
       assert.equal(payout,50);
       assert.equal(used.items.c_coin2||0,stock);
+      // V18 queues Home notices while the item menu is open. The payout and
+      // stock above are immediate; inspect its real notice after returning
+      // Home, advancing the existing paused clock through at most 3 slots.
+      await page.locator('#itemCloseBtn').click();
+      for(let elapsed=0;elapsed<12600;elapsed+=100){
+        if((await page.locator('#message').textContent()).includes(`${payout}コイン`))break;
+        await page.clock.runFor(100);
+      }
       assert.match(await page.locator('#message').textContent(),new RegExp(`${payout}コイン`));
       assert.equal(await page.locator('[data-item-action="cancel"][data-id="c_coin2"]').count(),0);
       assert.doesNotMatch(await page.locator('#onetimeActive').textContent(),/ラッキー/);

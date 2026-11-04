@@ -37,7 +37,9 @@ async function target(page,kind){return page.evaluate(kind=>{
   const node=document.querySelector('[data-diorama-actor="'+a.key+'"]');
   const x=v.x+(s.left+a.x-v.x)*v.scaleX,y=v.y+(s.top+a.y-v.y)*v.scaleY;
   // Search the exposed ink densely; a partner's head may be a narrow sliver.
-  for(let dy=.975;dy>=.025;dy-=.025)for(let dx=-.475;dx<=.475;dx+=.025){
+  const probes=[.45,.65,.25,.85,.95,.05].flatMap(dy=>[0,-.3,.3,-.45,.45].map(dx=>({dx,dy})));
+  for(let dy=.975;dy>=.025;dy-=.025)for(let dx=-.475;dx<=.475;dx+=.025)probes.push({dx,dy});
+  for(const {dx,dy} of probes){
    const p={x:x+dx*a.w*v.bodyScale,y:y-dy*a.h*v.bodyScale};
    if(p.x<=frame.left||p.x>=frame.right||p.y<=frame.top||p.y>=frame.bottom)continue;
    const hit=document.elementFromPoint(p.x,p.y);
@@ -55,7 +57,13 @@ function verifyPaint(state,expected){
  assert.equal(state.notice.height,42);assert.equal(state.comment.height,76);
 }
 async function tap(page,kind,single=false){
- const p=await target(page,kind);await page.touchscreen.tap(p.x,p.y);
+ // A visitor can be fully covered after a walk/rotation; wait for the existing
+ // autonomous movement to expose it, without changing positions or selection.
+ let p;
+ for(let attempt=0;attempt<100;attempt++){
+  try{p=await target(page,kind);break;}catch(error){if(!error.message.includes('No exposed touch target')||attempt===99)throw error;await page.waitForTimeout(200);}
+ }
+ await page.touchscreen.tap(p.x,p.y);
  const state=await inspect(page);assert.equal(state.selected,p.key);
  if(single)assert.equal(state.display,'none');else verifyPaint(state,p.name);
  if(kind==='pet')assert.equal(state.text,'大人のいぬ');
