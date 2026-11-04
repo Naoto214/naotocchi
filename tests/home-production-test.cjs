@@ -41,7 +41,12 @@ test('production runtime harness loads the exact shipped presenter and model',()
 });
 test('latest-main game catalogs, conversations, formal images and other games stay byte-identical',()=>{
  const cp=require('child_process');const unchanged=['assets/characters','prototypes','conversation-*.js','relationship-*.js','individuality*.js','item-*.js','games.js','quick.js','style.css','ui.css','character-world-master.v1.js'];
- assert.equal(cp.execFileSync('git',['diff','--name-only',testedMain,'--',...unchanged],{encoding:'utf8'}).trim(),'');
+ // Experiment-only directories (never in the Pages allowlist, never served) may change on their own Draft PRs; everything else
+ // under the protected paths must stay byte-identical. The allowlist check keeps experimental files out of production.
+ const experiments=['prototypes/card-game/variable-life-20261031'];
+ const allow=JSON.parse(require('fs').readFileSync(require('path').join(__dirname,'..','tools/pages/allowlist.json'),'utf8')).files;
+ for(const dir of experiments)assert.equal(allow.filter(f=>f===dir||f.startsWith(dir+'/')).length,0,'experiment files must not be served: '+dir);
+ assert.equal(cp.execFileSync('git',['diff','--name-only',testedMain,'--',...unchanged,...experiments.map(d=>':(exclude)'+d)],{encoding:'utf8'}).trim(),'');
  const original=cp.execFileSync('git',['ls-tree','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa'],{encoding:'utf8'}).trim().split('\n').filter(p=>p.startsWith('home-')&&/\.(js|mjs|css)$/.test(p));
  assert.equal(cp.execFileSync('git',['diff','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa','--',...original],{encoding:'utf8'}).trim(),'');
 });
