@@ -46,6 +46,7 @@
       if (!ctx) return;
       ctx.save();
       if (alpha != null) ctx.globalAlpha = alpha;
+      if(size>=32){ctx.fillStyle='rgba(65,49,38,.12)';ctx.beginPath();ctx.ellipse(x,y+size*.4,size*.27,size*.07,0,0,Math.PI*2);ctx.fill();}
       ctx.font = `${Math.round(size)}px sans-serif`;
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       ctx.fillText(ch, x, y + size * 0.05);
@@ -55,6 +56,21 @@
       if (!ctx) return;
       const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, top); g.addColorStop(1, bottom);
       ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+      ctx.save();
+      const dark = drawingScene === 'night';
+      const light = ctx.createLinearGradient(0,0,W,H);
+      light.addColorStop(0,dark?'rgba(159,176,225,.12)':'rgba(255,255,255,.5)');light.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=light;ctx.fillRect(0,0,W,H);
+      ctx.strokeStyle=dark?'rgba(208,218,255,.1)':'rgba(113,87,59,.1)';ctx.lineWidth=1;
+      if(drawingScene==='kitchen'||drawingScene==='workshop'){
+        for(let x=0;x<W;x+=W/6){ctx.beginPath();ctx.moveTo(x,H*.94);ctx.lineTo(x,H);ctx.stroke();}
+        ctx.beginPath();ctx.moveTo(0,H*.94);ctx.lineTo(W,H*.94);ctx.stroke();
+      }else if(drawingScene==='garden'||drawingScene==='river'){
+        ctx.fillStyle=drawingScene==='river'?'rgba(55,135,159,.1)':'rgba(96,142,84,.12)';ctx.beginPath();ctx.moveTo(0,H);ctx.lineTo(0,H*.96);ctx.quadraticCurveTo(W*.28,H*.86,W*.56,H*.96);ctx.quadraticCurveTo(W*.8,H*.91,W,H*.96);ctx.lineTo(W,H);ctx.fill();
+      }else if(drawingScene==='sky'){
+        ctx.fillStyle='rgba(255,255,255,.2)';ctx.beginPath();ctx.ellipse(W*.1,H*.04,W*.2,H*.025,0,0,Math.PI*2);ctx.ellipse(W*.88,H*.96,W*.16,H*.02,0,0,Math.PI*2);ctx.fill();
+      }
+      // Subtle book-page border leaves interactive content unobstructed.
+      ctx.strokeStyle=dark?'rgba(207,215,246,.14)':'rgba(255,255,255,.55)';ctx.strokeRect(4,4,W-8,H-8);ctx.restore();
     }
     function ring(ctx, x, y, r, color, w) {
       if (!ctx) return;
@@ -68,8 +84,221 @@
     //  create(g) → { update(dt, t), draw(ctx), onTap(x,y), onDrag(x,y,dx,dy), onSwipe(dir), onPress(x,y), onRelease(x,y), anim(dt) }
     //  anim(dt): ○/× を 見せている あいだ(update は とまる)だけ よばれる。絵を うごかす だけで、はんてい・こうかおんは しない
     //  g: { W, H, level, speed, extra, feint, win(), lose(), t: keisoku }
+    const QUICK_PRESENTATION = {
+  "eat": [
+    "食べものをタップ。うんち・石・くつ下は押さない。",
+    "kitchen"
+  ],
+  "dodge": [
+    "左右になぞって、落ちてくるものをよけ続けよう。",
+    "garden"
+  ],
+  "catch": [
+    "動くなかまをタップ。まぎれた物にはさわらない。",
+    "garden"
+  ],
+  "mash": [
+    "画面を何度もタップして、メーターをいっぱいに。",
+    "stage"
+  ],
+  "clean": [
+    "よごれの上を、指で行ったり来たりなぞろう。",
+    "garden"
+  ],
+  "stop": [
+    "動くしるしが緑の範囲に来たら、1回タップ。",
+    "kitchen"
+  ],
+  "swipe": [
+    "矢印の方向へはらう。「ぎゃくへ！」なら反対へ。",
+    "sky"
+  ],
+  "medicine": [
+    "指で薬を動かして、上のキャラクターに届けよう。",
+    "studio"
+  ],
+  "find": [
+    "たくさんの中から、自分と同じキャラクターをタップ。",
+    "studio"
+  ],
+  "charge": [
+    "押したままためて、メーターが緑の範囲で指を離す。",
+    "garden"
+  ],
+  "partner": [
+    "上のお手本と同じ、恋人・なかまをタップしよう。",
+    "garden"
+  ],
+  "season": [
+    "指定された季節に合うものを、1つタップ。",
+    "garden"
+  ],
+  "jump": [
+    "岩が近づいたらタップしてジャンプ。最後までよけよう。",
+    "garden"
+  ],
+  "pull": [
+    "下へくり返しなぞって、野菜をひっこぬこう。",
+    "garden"
+  ],
+  "pet": [
+    "キャラクターの上を、左右になでるようになぞろう。",
+    "garden"
+  ],
+  "button": [
+    "ボタンが緑になったらタップ。赤の間は待とう。",
+    "workshop"
+  ],
+  "flames": [
+    "ろうそくの火を全部タップ。つき直した火も消そう。",
+    "kitchen"
+  ],
+  "coins": [
+    "左右になぞってかごを動かす。コインを取り、他はよける。",
+    "garden"
+  ],
+  "cliff": [
+    "がけの手前の緑の場所に来たら、タップで止まろう。",
+    "garden"
+  ],
+  "throw": [
+    "かごが真上に来たら、上へはらってシュート。",
+    "stage"
+  ],
+  "knock": [
+    "指定された回数だけタップ。押しすぎないで待とう。",
+    "workshop"
+  ],
+  "wait": [
+    "画面にさわらず、時間が終わるまで待とう。",
+    "kitchen"
+  ],
+  "flee": [
+    "おばけが来た方向と反対へ、指ではらおう。",
+    "night"
+  ],
+  "mole": [
+    "穴から出てきたものをタップ。必要な数をねらおう。",
+    "garden"
+  ],
+  "slice": [
+    "飛んでくるくだものの上を、指で横切るようになぞる。",
+    "kitchen"
+  ],
+  "guard": [
+    "飛んでくるものを、キャラクターに届く前にタップ。",
+    "stage"
+  ],
+  "bento": [
+    "食べものを弁当箱までドラッグ。うんちは入れない。",
+    "kitchen"
+  ],
+  "spin": [
+    "キャラクターのまわりを、指で大きく円を描こう。",
+    "sky"
+  ],
+  "lift": [
+    "下から上へくり返しなぞって、持ち上げよう。",
+    "garden"
+  ],
+  "tickle": [
+    "キャラクターのおなかを何度もタップしよう。",
+    "garden"
+  ],
+  "balance": [
+    "左右になぞり、頭の上のボールを落とさず支えよう。",
+    "stage"
+  ],
+  "color": [
+    "指定された色のものを、1つタップ。",
+    "studio"
+  ],
+  "count": [
+    "最初の星の数を覚え、同じ数字をタップしよう。",
+    "night"
+  ],
+  "bigger": [
+    "2つを見比べて、大きいほうをタップ。",
+    "studio"
+  ],
+  "odd": [
+    "1つだけ違う絵を見つけてタップしよう。",
+    "studio"
+  ],
+  "order": [
+    "風船の数字を、1から小さい順にタップ。",
+    "sky"
+  ],
+  "holdlid": [
+    "画面を押したまま、最後まで指を離さずふたを押さえる。",
+    "workshop"
+  ],
+  "umbrella": [
+    "雨が降り始めたら上へはらう。それまでは待とう。",
+    "sky"
+  ],
+  "shutter": [
+    "キャラクターが枠の中に来たら、タップで撮影。",
+    "studio"
+  ],
+  "sort": [
+    "食べものは左、うんちは右へ、指ではらって分けよう。",
+    "kitchen"
+  ],
+  "rhythm": [
+    "音符が横線に重なるタイミングでタップ。",
+    "night"
+  ],
+  "trace": [
+    "光っている丸を、順番に指でなぞってつなごう。",
+    "studio"
+  ],
+  "pushbox": [
+    "右へくり返しなぞって、箱を旗まで押そう。",
+    "workshop"
+  ],
+  "fish": [
+    "浮きが沈んで「！」が出たら、上へはらおう。",
+    "river"
+  ],
+  "stack": [
+    "動くブロックが塔の真上に来たら、1回タップ。",
+    "workshop"
+  ],
+  "pair": [
+    "4枚の中から、同じ絵の2枚をタップ。",
+    "studio"
+  ],
+  "doors": [
+    "隠れた場所を覚える。ドアが入れ替わった後にタップ。",
+    "workshop"
+  ],
+  "sneak": [
+    "急がずゆっくりドラッグして、ベッドへ運ぼう。",
+    "night"
+  ],
+  "feather": [
+    "上へくり返しはらって、羽を落とさないように。",
+    "sky"
+  ],
+  "weather": [
+    "上の天気に合うものを、1つタップしよう。",
+    "sky"
+  ]
+};
+    let drawingScene = null;
     const GAMES = [];
-    const def = (game) => { GAMES.push(game); return game; };
+    const def = (game) => {
+      const [instruction, scene] = QUICK_PRESENTATION[game.id];
+      game.instruction = instruction; game.scene = scene;
+      const create = game.create;
+      game.create = function(g) {
+        const instance = create.call(this, g), draw = instance.draw;
+        instance.draw = function(ctx) { const before = drawingScene; drawingScene = scene; try { return draw.call(this, ctx); } finally { drawingScene = before; } };
+        return instance;
+      };
+      GAMES.push(game); return game;
+    };
 
     // 1. たべろ! — ごはんを タップ。うんちや いしを おすと しっぱい
     def({ id: 'eat', cue: 'たべろ！', say: 'たべろ', dur: 3600, uses: ['tap'], motif: 'ごはん',
@@ -265,6 +494,7 @@
             glyph(ctx, sprite(), W / 2, H * 0.72 - jumpY, 52 + fill * 10); glyph(ctx, holding ? '💪' : '👆', W / 2 + 40, H * 0.72 - 30, 24);
           },
           onPress() { if (!done) holding = true; },
+          onCancel() { holding = false; fill = 0; },
           onRelease() { if (done || !holding) return; holding = false; done = true; if (fill >= lo && fill <= hi) { jumped = true; sfx('jump'); g.win(); } else { sfx('bad'); g.lose(); } },
           target() { return { kind: 'hold', x: W / 2, y: H / 2, release: fill >= (lo + hi) / 2 }; },
         };
@@ -703,6 +933,7 @@
           update(dt) { t += dt; shake = holding ? Math.sin(t * 30) * 3 * g.speed : 0; },
           draw(ctx) { bg(ctx, W, H, '#fff4f4', '#ffdede'); glyph(ctx, '🎁', W / 2 + shake, H * 0.52, 96); glyph(ctx, holding ? '🤚' : '👆', W / 2, H * 0.52 - 70, 34); glyph(ctx, sprite(), W * 0.82, H * 0.88, 36); if (ctx && !holding && t > 0.4) { ctx.fillStyle = '#e5484d'; ctx.font = 'bold 18px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('おさえて!', W / 2, H * 0.15); } },
           onPress() { holding = true; },
+          onCancel() { holding = false; },
           onRelease() { if (holding) { holding = false; sfx('bad'); g.lose(); } },
           onTimeout() { return holding; },
           target() { return { kind: 'hold', x: W / 2, y: H / 2, release: false }; },
@@ -958,7 +1189,7 @@
             // ながい cue(8〜9もじ)は 1ぎょうに おさまるよう 文字を ちいさく(375pt はばで おりかえさない)
             if (cueEl.style && cueEl.style.setProperty) cueEl.style.setProperty('--qk-cue-size', cueSize(game.cue || def.cue) + 'px');
             cueEl.classList.remove('pop'); void (cueEl.offsetWidth); cueEl.classList.add('pop');
-            hintEl.textContent = (game.cue || def.cue) + '（' + def.motif + '）';
+            hintEl.textContent = def.instruction;
             // こえが 出る ときは チャイムを かさねない(ことばの あたまが きこえなくなる)
             if (!voice(String(game.say || def.say), { question: /[？?]$/.test(String(game.cue || def.cue)) })) sfx('notify');
           }
@@ -997,25 +1228,29 @@
           const tapOnDown = () => game.onTap && !game.onDrag && !game.onSwipe;
           canvas.addEventListener('pointerdown', (e) => {
             if (e.preventDefault) e.preventDefault();
-            if (!active()) return;
+            if (!active() || ptr) return;
             if (def.graceMs && performance.now() - startedAt < def.graceMs) return; // はじまった ちょくごの おしは むし
             const p = pos(e); ptr = { id: e.pointerId, x: p.x, y: p.y, sx: p.x, sy: p.y, t0: performance.now(), moved: 0, swiped: false, tapped: false };
             try { if (canvas.setPointerCapture && e.pointerId != null) canvas.setPointerCapture(e.pointerId); } catch (err) {}
             if (game.onPress) game.onPress(p.x, p.y);
             if (tapOnDown()) { ptr.tapped = true; game.onTap(p.x, p.y); }
           });
-          canvas.addEventListener('pointermove', (e) => {
+          const movePointer = (e) => {
             if (!ptr || e.pointerId !== ptr.id) return;
             if (e.preventDefault) e.preventDefault();
             const p = pos(e); const dx = p.x - ptr.x, dy = p.y - ptr.y; ptr.x = p.x; ptr.y = p.y; ptr.moved += Math.hypot(dx, dy);
             if (!active()) return;
-            if (game.onDrag) game.onDrag(p.x, p.y, dx, dy);
+            if (game.onDrag && (dx || dy)) game.onDrag(p.x, p.y, dx, dy);
             if (game.onSwipe && !ptr.swiped) { const fx = p.x - ptr.sx, fy = p.y - ptr.sy; if (Math.hypot(fx, fy) >= 28) { ptr.swiped = true; game.onSwipe(Math.abs(fx) >= Math.abs(fy) ? (fx > 0 ? 'right' : 'left') : (fy > 0 ? 'down' : 'up')); } }
-          });
+          };
+          canvas.addEventListener('pointermove', movePointer);
           const up = (e) => {
             if (!ptr || (e && e.pointerId != null && e.pointerId !== ptr.id)) return;
+            const cancelled = e?.type === 'pointercancel';
+            if (!cancelled && e && Number.isFinite(e.clientX) && Number.isFinite(e.clientY)) movePointer(e);
             const p = ptr; ptr = null;
             if (!active()) return;
+            if (cancelled) { if (game.onCancel) game.onCancel(); else if (game.onRelease) game.onRelease(p.x,p.y); return; }
             if (game.onRelease) game.onRelease(p.x, p.y);
             if (game.onTap && !p.tapped && p.moved < 14 && performance.now() - p.t0 < 350) game.onTap(p.x, p.y);
           };

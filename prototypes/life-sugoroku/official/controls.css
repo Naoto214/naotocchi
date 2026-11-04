@@ -30,3 +30,30 @@
 .minigame-overlay > .mg-hint + .mg-pad-row, .minigame-overlay > .mg-hint + .mg-pad { margin-top: auto; padding-top: 8px; padding-bottom: 10px; }
 .minigame-overlay > .mg-hint:has(+ .mg-pad-row, + .mg-pad) { margin-top: auto; padding-top: 6px; }
 .minigame-overlay > .mg-pad-row { touch-action: none; }
+/* Game polish shared controls */
+#game .mg-pad { background: #f8f1e5; color: #453c35; box-shadow: inset 0 0 0 2px #dfcdb3, 0 3px 0 #796653; }
+#game .mg-pad.active { background: #eee2cc; }
+#game .mg-pad-label { opacity: 1; font-size: 11px; line-height: 1.4; padding: 0 6px; }
+#game .mg-pad-dot { background: #bc9362; box-shadow: 0 0 0 7px #eadbc4; opacity: 1; }
+#game .mg-hint { background: rgba(255,250,240,.96); color: #463c34; border: 1px solid #e3d3bd; text-shadow: none; font-size: 12px; line-height: 1.55; padding: 9px 12px; border-radius: 14px; }
+.mg-pad.mg-pad-directions { min-height: 148px; display: grid; grid-template: 44px 44px 44px / 44px 44px 44px; gap: 2px; justify-content: center; align-content: start; padding: 4px 4px 22px; box-sizing: border-box; cursor: default; }
+.mg-pad-directions .mg-pad-dot { display: none; }
+.mg-pad-directions .mg-pad-key { position: static; width: 44px; height: 44px; opacity: 1; pointer-events: auto; border-radius: 12px; background: linear-gradient(#fffdf7,#e7d5b9); border: 1px solid #c4ac88; box-shadow: 0 2px 0 #ad936f; color: #4d4337; font-size: 22px; touch-action: none; cursor: pointer; }
+.mg-pad-directions .mg-pad-key:active { background: #d9be93; box-shadow: inset 0 2px 3px #a3886455; }
+.mg-pad-directions .mg-pad-key:focus-visible { outline: 3px solid #387b70; outline-offset: 1px; }
+.mg-pad-directions [data-key="up"] { grid-area: 1 / 2; }
+.mg-pad-directions [data-key="left"] { grid-area: 2 / 1; }
+.mg-pad-directions [data-key="right"] { grid-area: 2 / 3; }
+.mg-pad-directions [data-key="down"] { grid-area: 3 / 2; }
+.mg-pad-directions .mg-pad-label { bottom: 2px; font-size: 10px; }
+.mg-practice-btn { align-self: center; border: 1px solid #d5bd94; background: #fff5dc; color: #57472e; border-radius: 12px; padding: 10px 14px; min-height: 44px; font: inherit; cursor: pointer; }
+
+/* Shared game surfaces: readable over every regional background. */
+#game .mg-header { background: #f8f1e8; color: #495847; border-radius: 10px; padding: 4px 8px; text-shadow: none; box-sizing: border-box; }
+#game .mg-title { background: #fff9ee; color: #4d493d; border-radius: 10px; padding: 5px 8px; text-shadow: none; line-height: 1.4; box-sizing: border-box; }
+#game .mg-canvas-wrap { box-shadow: 0 4px 12px #25382d30, inset 0 0 0 1px #ffffff60; outline: 1px solid #ffffff60; }
+#game .mg-tap-btn { background: linear-gradient(#fffaf0,#e8dcc7); color: #4c463c; border: 1px solid #c7b699; box-shadow: 0 2px 0 #a89577; text-shadow: none; }
+#game .mg-tap-btn.primary { background: #426f5b; color: #fff; border-color: #305643; }
+#game .mg-tap-btn:focus-visible { outline: 3px solid #e3a83b; outline-offset: 2px; }
+#game .mg-tap-btn:disabled { opacity: .55; }
+

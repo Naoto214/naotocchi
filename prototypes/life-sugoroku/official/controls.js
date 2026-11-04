@@ -31,11 +31,12 @@ globalThis.installNaokoroControls = function () {
     const DIR_PX_FIRST = 4, DIR_PX = 8, VEC_PAUSE_MS = 120;
     const ZERO = { x: 0, y: 0 };
     const pad = document.createElement('div');
-    pad.className = 'mg-pad mg-pad-' + mode + (opts.className ? ' ' + opts.className : '');
+    const directions = mode === 'steps' && !!opts.directionButtons;
+    pad.className = 'mg-pad mg-pad-' + mode + (directions ? ' mg-pad-directions' : '') + (opts.className ? ' ' + opts.className : '');
     const keys = axis === 'x' ? ['left', 'right'] : axis === 'y' ? ['up', 'down'] : ['left', 'right', 'up', 'down'];
     const hold = mode === 'steps' ? ' data-hold="step"' : '';
-    pad.innerHTML = `<span class="mg-pad-label">${escapeHtml(opts.label || (mode === 'steps' ? 'ここを なぞって うごかす(1マスずつ)' : 'ここを なぞって うごかす'))}</span><span class="mg-pad-dot" aria-hidden="true"></span>`
-      + keys.map((k) => `<button type="button" class="mg-pad-key" data-key="${k}"${hold} tabindex="-1" aria-hidden="true">${({ left: '◀', right: '▶', up: '▲', down: '▼' })[k]}</button>`).join('');
+    pad.innerHTML = `<span class="mg-pad-label">${escapeHtml(opts.label || (directions ? '矢印・なぞって1マス' : mode === 'steps' ? 'なぞって1マスずつ' : 'ここをなぞって動かす'))}</span><span class="mg-pad-dot" aria-hidden="true"></span>`
+      + keys.map((k) => `<button type="button" class="mg-pad-key" data-key="${k}"${hold} ${directions ? `aria-label="${({left:'左',right:'右',up:'上',down:'下'})[k]}へ1マス"` : 'tabindex="-1" aria-hidden="true"'}>${({ left: '◀', right: '▶', up: '▲', down: '▼' })[k]}</button>`).join('');
     if (opts.height) pad.style.minHeight = opts.height + 'px';
     if (opts.before && typeof host.insertBefore === 'function') host.insertBefore(pad, opts.before); else host.appendChild(pad);
     const dot = pad.querySelector('.mg-pad-dot');
@@ -157,6 +158,7 @@ globalThis.installNaokoroControls = function () {
     }
     pad.addEventListener('pointerdown', (e) => {
       if (e.mgSynthetic) return;
+      if (e.target && e.target !== pad && e.target.closest?.('button')) return;
       if (e.preventDefault) e.preventDefault();
       // pointerup が とどかず ptr が のこっていても、あたらしい ゆびで すぐ うごかせる
       if (ptr) { if (ptr.id === e.pointerId) return; release(null); }
@@ -209,9 +211,10 @@ globalThis.installNaokoroControls = function () {
       const dur = performance.now() - p.t0;
       const fx = p.x - p.sx, fy = p.y - p.sy;
       // triggerPx に とどかない ごく みじかい フリックも、はなした ときに 1マス
-      if (mode === 'steps' && !p.stepped && Math.hypot(fx, fy) >= 6) {
+      const cancelled = !e || e.type === 'pointercancel';
+      if (!cancelled && mode === 'steps' && !p.stepped && Math.hypot(fx, fy) >= 6) {
         if (Math.abs(fx) >= Math.abs(fy) && axis !== 'y') emitStep(Math.sign(fx), 0); else if (axis !== 'x') emitStep(0, Math.sign(fy));
-      } else if (p.moved < 6 && dur < 320 && typeof opts.onTap === 'function') opts.onTap();
+      } else if (!cancelled && p.moved < 6 && dur < 320 && typeof opts.onTap === 'function') opts.onTap();
       vec = ZERO; vecUntil = 0; clearTimeout(stopTimer);
       notifyStop();
       if (typeof opts.onRelease === 'function') opts.onRelease();
@@ -225,11 +228,15 @@ globalThis.installNaokoroControls = function () {
       const k = btn.dataset.key;
       btn.addEventListener('pointerdown', (e) => {
         if (e.preventDefault) e.preventDefault();
+        if (e.stopPropagation) e.stopPropagation();
         if (mode === 'steps') emitStep(DIRS[k][0], DIRS[k][1]);
         else { keyHeld[k] = true; if (typeof opts.onVector === 'function') { const v = keyVector(); if (v) opts.onVector(v.x, v.y, stepPx); } if (mode === 'delta') emitDelta(DIRS[k][0] * stepPx, DIRS[k][1] * stepPx); }
       });
       const up = () => { keyHeld[k] = false; if (typeof opts.onVector === 'function') { const v = keyVector(); opts.onVector(v ? v.x : 0, v ? v.y : 0, 0); } };
       btn.addEventListener('pointerup', up); btn.addEventListener('pointercancel', up);
+      // Native keyboard/assistive activation has no pointerdown. Pointer clicks
+      // already moved, so only handle the detail=0 activation here.
+      if (directions) btn.addEventListener('click', (e) => { if (e.detail === 0) emitStep(DIRS[k][0], DIRS[k][1]); });
     }
     return {
       el: pad, vector, held,
