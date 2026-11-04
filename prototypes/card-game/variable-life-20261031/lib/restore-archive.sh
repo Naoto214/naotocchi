@@ -7,7 +7,9 @@ cd "$(git rev-parse --show-toplevel)"
 python3 - <<'PY'
 import hashlib, json, subprocess
 from pathlib import Path
-idx = json.load(open('prototypes/card-game/variable-life-20261031/results/archive-index.json'))
+import glob
+files = [f for ix in sorted(glob.glob('prototypes/card-game/variable-life-20261031/results/archive-index*.json')) for f in json.load(open(ix))['files']]
+idx = {'files': files}
 bad = 0
 for f in idx['files']:
     data = subprocess.check_output(['git', 'show', f"{f['commit']}:{f['path']}"])
