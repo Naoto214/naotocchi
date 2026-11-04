@@ -10,7 +10,7 @@ window.HomeBirthQA={
  return {stage:state.stage,age:state.ageTicks,asset,box,sprite:rect('#petSprite'),image:r.toJSON(),
  alpha:{x:r.left+r.width*(box[0]+box[2])/256,y:r.top+r.height*(box[1]+box[3])/256,foot:r.top+r.height*box[3]/128},
  cast:stage,pane,visible:{left:Math.max(stage.left,pane.left),right:Math.min(stage.right,pane.right),top:Math.max(stage.top,pane.top),bottom:Math.min(stage.bottom,pane.bottom)},
- actor:a,ground:a&&scene?.navigation?.unproject(a),safe:a&&scene?.navigation?.valid(a),notice:rect('#homeEventSlot'),speech:rect('#speechSlot'),
+ actor:a,ground:a&&scene?.navigation?.unproject(a),safe:a&&scene?.navigation?.valid(a),notice:rect('#homeEventSlot'),speech:rect('#speechSlot'),comment:rect(document.getElementById('homeCommentDock')?'#homeCommentDock':'#speechSlot'),display:document.body.dataset.homeDisplayVersion,
  buttons:[...document.querySelectorAll('#careActions>button')].map(e=>({id:e.id,...e.getBoundingClientRect().toJSON()})),world:document.body.dataset.livingHome,
  save:JSON.parse(JSON.stringify(state))};},
  grow(){state.ageTicks=25*AGE_TICKS_PER_YEAR;state.stageIndex=3;homeCastLayoutKey='';render();},
@@ -26,7 +26,7 @@ const server=http.createServer((req,res)=>{let p=new URL(req.url,'http://localho
  res.setHeader('Content-Type',mime[path.extname(file)]||'application/octet-stream');
  if(p==='/script.js'){res.end(fs.readFileSync(file,'utf8').replace('setInterval(loop, TICK_MS);','/* QA controlled lifecycle clock */').replace(/\}\)\(\);\s*$/,inspect+'\n})();'));return;}
  if(p==='/home-production-diorama.js'){res.end(fs.readFileSync(file,'utf8').replace('return {model,update,sync,interrupt,','return {inspectScene:()=>scene,model,update,sync,interrupt,'));return;}
- if(p.endsWith('.css')){res.end(fs.readFileSync(file,'utf8').replace(/env\(safe-area-inset-(top|right|bottom|left)\)/g,(_,edge)=>(insets[edge]||0)+'px'));return;}
+ if(p.endsWith('.css')){res.end(fs.readFileSync(file,'utf8').replace(/env\(safe-area-inset-(top|right|bottom|left)(?:,\s*0px)?\)/g,(_,edge)=>(insets[edge]||0)+'px'));return;}
  fs.createReadStream(file).pipe(res);
 });
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port,results=[],errors=[];
@@ -71,7 +71,13 @@ try{for(const engine of (process.env.HOME_BIRTH_ENGINES||'chromium,webkit').spli
  row.afterBirthCare=await page.evaluate(()=>HomeBirthQA.detail().save.actionCounts.pet);
  assert.equal(row.afterBirthCare,row.newborn.save.actionCounts.pet+1,'care button works after birth');
  await page.evaluate(()=>HomeBirthQA.grow());await capture('grown');
- const saved=await page.evaluate(()=>HomeBirthQA.save());await page.reload();await page.waitForFunction(()=>window.HomeBirthQA&&document.body.dataset.livingHome==='art-25d');
+ const saved=await page.evaluate(()=>HomeBirthQA.save());
+ // Reload must run startup animation frames/timers; the paused test clock can
+ // otherwise strand a valid saved game before the renderer becomes ready.
+ await page.clock.resume();await page.reload();
+ try{await page.waitForFunction(()=>window.HomeBirthQA&&document.body.dataset.livingHome==='art-25d');}
+ catch(e){console.error('RELOAD_DIAGNOSTICS',await page.evaluate(()=>({qa:!!window.HomeBirthQA,body:document.body.dataset,ready:document.readyState,text:document.body.innerText.slice(0,1000)})),errors);throw e;}
+ await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+1000));
  await capture('resumed');
  assert.equal(row.resumed.save.speciesLine,saved.speciesLine);assert.equal(row.resumed.age,saved.ageTicks);
  fs.writeFileSync(path.join(out,'report.json'),JSON.stringify({results,errors},null,2));await page.close();
@@ -86,16 +92,24 @@ if(!process.env.HOME_BIRTH_CAPTURE_ONLY)for(const r of results)for(const phase o
  if(r.motion!=='reduce'&&phase==='egg')continue;
  const d=r[phase],cx=(d.visible.left+d.visible.right)/2,cy=(d.visible.top+d.visible.bottom)/2;
  assert.ok(Math.abs(d.alpha.x-cx)<=2,`${r.engine}/${r.width}/${phase}: alpha centre ${d.alpha.x}, visible centre ${cx}`);
- assert.ok(Math.abs(d.alpha.y-cy)<=2,`${r.engine}/${r.width}/${phase}: vertical alpha centre ${d.alpha.y}, visible centre ${cy}`);
+ if(phase==='newborn'&&d.display==='18'){
+  // V18 preserves legal world coordinates while independently scaling the
+  // resident body and the walking area. Its newborn need not occupy the old
+  // transformed stage midpoint, especially on the compact 320px viewport.
+  assert.ok(Math.abs(d.ground.x-.5)<.01,'newborn enters on the central world axis');
+  const inkTop=d.image.top+d.image.height*d.box[1]/128;
+  assert.ok(inkTop>=d.pane.top-1&&d.alpha.foot<=d.pane.bottom+1,'newborn ink stays in the world viewport');
+  assert.ok(inkTop>=d.notice.bottom-1&&d.alpha.foot<=d.comment.top+1,'newborn clears both fixed text lanes');
+ }else assert.ok(Math.abs(d.alpha.y-cy)<=2,`${r.engine}/${r.width}/${phase}: vertical alpha centre ${d.alpha.y}, visible centre ${cy}`);
  if(phase==='newborn')assert.ok(d.safe,'newborn stays on approved ground');
 }
 if(!process.env.HOME_BIRTH_CAPTURE_ONLY)for(const r of results){
  assert.deepEqual(r.grown.ground,r.newborn.ground,'growth preserves the hatch foot, not the body centre');
  assert.ok(r.grown.safe&&r.resumed.safe);
- assert.equal(r.resumed.ground.x,.55,'saved adult entry does not replay the hatch placement');
- assert.equal(r.resumed.ground.z,.74);
+ assert.ok(Math.abs(r.resumed.ground.x-.55)<=1e-12,'saved adult entry does not replay the hatch placement');
+ assert.ok(Math.abs(r.resumed.ground.z-.74)<=1e-12,'saved adult depth is preserved (floating-point projection)');
  for(const phase of ['newborn','grown','resumed']){
-  const d=r[phase];assert.equal(d.notice.height,42);assert.equal(d.speech.height,76);assert.equal(d.buttons.length,9);
+  const d=r[phase];assert.equal(d.notice.height,42);assert.equal(d.comment.height,76);assert.equal(d.buttons.length,9);
   assert.ok(d.buttons.every(b=>b.bottom<=r.height-(r.safe?34:0)+1),'fixed controls remain above the safe-area edge');
  }
 }
