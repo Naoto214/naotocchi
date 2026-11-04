@@ -5,6 +5,9 @@ const assert=require('node:assert/strict'),cp=require('node:child_process');
 const root=process.cwd(),out=path.resolve(process.env.HOME_NAME_OUTPUT||'.work-output/selected-name');
 fs.mkdirSync(out,{recursive:true});
 cp.execFileSync(process.execPath,['tools/home-production-qa.cjs',out]);
+// Name labels belong to the shipped V18 surface, not the retained legacy QA.
+fs.copyFileSync(path.join(out,'current-production-qa.html'),path.join(out,'release-qa.html'));
+assert.match(fs.readFileSync(path.join(out,'release-qa.html'),'utf8'),/<body[^>]*data-home-display-version="18"/);
 let fixture=fs.readFileSync(path.join(out,'release-qa-script.js'),'utf8');
 fixture=fixture.replace('window.HomeReleaseQA={',`window.HomeReleaseQA={
  resetDisplay(){const p=homeV11Presentation();clearTimeout(p.upperTimer);clearTimeout(p.lowerTimer);p.upper=null;p.upperQueue=[];p.lowerQueue=[];p.lowerUntil=0;homeV11ClearUpper();delete document.body.dataset.homeUpper;conv2Abort('qa');clearConversationTimers();hideSpeechBubble();},
@@ -46,7 +49,7 @@ async function target(page,kind){return page.evaluate(kind=>{
    if(hit?.closest('[data-diorama-actor]')===node)return {...p,key:a.key,name:node.getAttribute('aria-label').replace(/をえらぶ$/,'')};
   }
  }
- throw Error('No exposed touch target for '+kind);
+ throw Error('No exposed touch target for '+kind+' '+JSON.stringify({presentation:v,stage:s,frame:frame.toJSON(),actors:q.actors.map(a=>({key:a.key,x:a.x,y:a.y,w:a.w,h:a.h,rect:document.querySelector('[data-diorama-actor="'+a.key+'"]').getBoundingClientRect().toJSON()}))}));
 },kind);}
 function verifyPaint(state,expected){
  assert.equal(state.text,expected);assert.equal(state.hidden,false);

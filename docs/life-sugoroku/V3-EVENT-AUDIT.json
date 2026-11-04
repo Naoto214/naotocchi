@@ -1,0 +1,5682 @@
+{
+  "schemaVersion": 1,
+  "baselineCommit": "07c583b8912795585ea7a6ec38265955db0e52f7",
+  "scope": "Original 46 authored events only; narrative audit, no mechanic changes.",
+  "sources": [
+    "character-world-master.v1.js",
+    "prototypes/life-sugoroku/profiles.mjs",
+    "prototypes/life-sugoroku/engine.mjs"
+  ],
+  "mechanics": {
+    "immutableFields": [
+      "id",
+      "category",
+      "stages",
+      "regions",
+      "npc",
+      "once",
+      "choices.length",
+      "choices.sodachi",
+      "choices.money",
+      "choices.evolve",
+      "choices.time",
+      "choices.redo"
+    ],
+    "baseVsActual": "Base deltas are unchanged. 20-round growth scaling, youth bonus, charm, zero/100 clamping, redo caps and stage bounds can change actual outcomes. Stories identify the cause without promising a literal numeric transfer.",
+    "once": "Each original event is offered once per player; redo is a separate bounded action, not a fresh event offer.",
+    "romance": "Only four original romance events have named partner NPCs. Original romance-05/06 remain anonymous and always use friendship text under current canRomance."
+  },
+  "events": [
+    {
+      "id": "daily-01",
+      "before": {
+        "id": "daily-01",
+        "category": "daily",
+        "title": "雲の落としもの",
+        "text": "空に、さっき食べたおやつそっくりの雲。見ていると、おなかが返事をした。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "名前をつける",
+            "text": "「おかわり雲」。呼ぶたび、少しだけ形が変わった。",
+            "sodachi": 3,
+            "money": 0
+          },
+          {
+            "label": "絵に残す",
+            "text": "線がはみ出した。でも、おなかの音まで描けた気がする。",
+            "sodachi": 2,
+            "money": 2
+          }
+        ],
+        "album": "おやつに似た雲を眺めた。",
+        "once": true
+      },
+      "after": {
+        "id": "daily-01",
+        "category": "daily",
+        "title": "雲の落としもの",
+        "text": "空に、さっき食べたおやつそっくりの雲。近くの絵はがき屋さんが「今日の空の絵も募集中だよ」と声をかけた。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "名前をつける",
+            "text": "「おかわり雲」。呼ぶたび、少しだけ形が変わった。",
+            "sodachi": 3,
+            "money": 0
+          },
+          {
+            "label": "絵に残す",
+            "text": "線がはみ出した。でも、おなかの音まで描けた気がする。絵はがき屋さんが気に入って、原画代をくれた。",
+            "sodachi": 2,
+            "money": 2
+          }
+        ],
+        "album": "おやつに似た雲を眺めた。",
+        "once": true
+      },
+      "findings": "雲に名前をつける遊びは保持。絵の小さな収入は絵はがきの原画代として説明。",
+      "conditions": {
+        "stageRange": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "category": "daily",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "名前をつける",
+          "result": "「おかわり雲」。呼ぶたび、少しだけ形が変わった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "絵に残す",
+          "result": "線がはみ出した。でも、おなかの音まで描けた気がする。絵はがき屋さんが気に入って、原画代をくれた。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 2,
+            "money": 2
+          },
+          "moneyCause": "絵はがき屋さんが気に入って、原画代をくれた。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "daily-02",
+      "before": {
+        "id": "daily-02",
+        "category": "daily",
+        "title": "箱の会議",
+        "text": "ただのはこが、道の真ん中にいる。ふたは閉まっている。会議中かもしれない。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "npc": "box",
+        "choices": [
+          {
+            "label": "隣で待つ",
+            "text": "しばらくして、ふたが少し開いた。議題は、たぶん日なた。",
+            "sodachi": 3,
+            "money": 0
+          },
+          {
+            "label": "通り道を譲る",
+            "text": "一歩よけると、風ではこがころん。「どうぞ」が届いた気がした。",
+            "sodachi": 2,
+            "money": 3
+          }
+        ],
+        "album": "ただのはこと、言葉のない会議をした。",
+        "once": true
+      },
+      "after": {
+        "id": "daily-02",
+        "category": "daily",
+        "title": "箱の会議",
+        "text": "ただのはこが、道の真ん中にいる。ふたは閉まっている。会議中かもしれない。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "npc": "box",
+        "choices": [
+          {
+            "label": "隣で待つ",
+            "text": "しばらくして、ふたが少し開いた。議題は、たぶん日なた。",
+            "sodachi": 3,
+            "money": 0
+          },
+          {
+            "label": "通り道を譲る",
+            "text": "一歩よけると、風ではこがころん。「どうぞ」が届いた気がした。通れるようになった荷車の店主から、道を空けたお礼をもらった。",
+            "sodachi": 2,
+            "money": 3
+          }
+        ],
+        "album": "ただのはこと、言葉のない会議をした。",
+        "once": true
+      },
+      "findings": "箱は話させず、静かな会議の余韻を保持。通路を空ける謝礼の出し手を店主にする。",
+      "conditions": {
+        "stageRange": [
+          1,
+          8
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "category": "daily",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": {
+        "id": "box",
+        "label": "ただのはこ",
+        "personality": "言葉のない箱。台詞を発しない。",
+        "canonicalFirstRegion": null,
+        "profile": null
+      },
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "隣で待つ",
+          "result": "しばらくして、ふたが少し開いた。議題は、たぶん日なた。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "通り道を譲る",
+          "result": "一歩よけると、風ではこがころん。「どうぞ」が届いた気がした。通れるようになった荷車の店主から、道を空けたお礼をもらった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 2,
+            "money": 3
+          },
+          "moneyCause": "通れるようになった荷車の店主から、道を空けたお礼をもらった。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "encounter",
+        "next": "この場面だけで加入・交際・既存の友人関係を断定しない。再会後の明示的な誘いは別イベントで扱う。",
+        "romance": "交流として扱い、性別や指向を要求しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "daily-03",
+      "before": {
+        "id": "daily-03",
+        "category": "daily",
+        "title": "くつしたの旗",
+        "text": "片方だけのくつしたが、枝でひらひらしている。持ち主の帰りを待つ、小さな旗。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "見つけやすく結ぶ",
+            "text": "結び目はちょうちょ。帰ってきた誰かが、遠くで手を振った。",
+            "sodachi": 4,
+            "money": 2
+          },
+          {
+            "label": "持ち主を探す",
+            "text": "長く歩いて、くつしたの話ばかり上手になった。今日は見つからない。",
+            "sodachi": -1,
+            "money": 5
+          }
+        ],
+        "album": "片方のくつしたのために、少し寄り道した。",
+        "once": true
+      },
+      "after": {
+        "id": "daily-03",
+        "category": "daily",
+        "title": "くつしたの旗",
+        "text": "片方だけのくつしたが、枝でひらひらしている。落とし物係が、目印をつける人と、持ち主を探すお手伝いを募っている。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "見つけやすく結ぶ",
+            "text": "結び目はちょうちょ。帰ってきた誰かが、遠くで手を振った。落とし物係から、目印をつけたお礼を受け取った。",
+            "sodachi": 4,
+            "money": 2
+          },
+          {
+            "label": "持ち主を探す",
+            "text": "長く歩いて、くつしたの話ばかり上手になった。今日は見つからず、くたびれた。落とし物係は、探して歩いた時間の手当を払ってくれた。",
+            "sodachi": -1,
+            "money": 5
+          }
+        ],
+        "album": "片方のくつしたのために、少し寄り道した。",
+        "once": true
+      },
+      "findings": "探索失敗なのに収入が増える理由を、発見報酬ではなく探索の手当と明示。",
+      "conditions": {
+        "stageRange": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "square"
+        ],
+        "category": "daily",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "見つけやすく結ぶ",
+          "result": "結び目はちょうちょ。帰ってきた誰かが、遠くで手を振った。落とし物係から、目印をつけたお礼を受け取った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 2
+          },
+          "moneyCause": "落とし物係から、目印をつけたお礼を受け取った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "持ち主を探す",
+          "result": "長く歩いて、くつしたの話ばかり上手になった。今日は見つからず、くたびれた。落とし物係は、探して歩いた時間の手当を払ってくれた。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": -1,
+            "money": 5
+          },
+          "moneyCause": "落とし物係は、探して歩いた時間の手当を払ってくれた。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "daily-04",
+      "before": {
+        "id": "daily-04",
+        "category": "daily",
+        "title": "はじめての大きな声",
+        "text": "声を出すと、向こうの壁から小さな声が返ってきた。まだ、自分の声だと気づいていない。",
+        "stages": [
+          1,
+          3
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "もう一度呼ぶ",
+            "text": "「こんにちは！」。返事も元気になった。世界が少し広くなった。",
+            "sodachi": 4,
+            "money": 0,
+            "evolve": 1
+          },
+          {
+            "label": "小さくお礼を言う",
+            "text": "「ありがとう」。返ってきた声も、ちゃんと小さかった。",
+            "sodachi": 3,
+            "money": 3
+          }
+        ],
+        "album": "返ってくる自分の声に気づいた。",
+        "once": true
+      },
+      "after": {
+        "id": "daily-04",
+        "category": "daily",
+        "title": "はじめての大きな声",
+        "text": "声を出すと、向こうの壁から小さな声が返ってきた。近くでは、音の展示の係がいろいろな声を録音している。",
+        "stages": [
+          1,
+          3
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "もう一度呼ぶ",
+            "text": "「こんにちは！」。返事も元気になった。世界が少し広くなった。",
+            "sodachi": 4,
+            "money": 0,
+            "evolve": 1
+          },
+          {
+            "label": "小さくお礼を言う",
+            "text": "「ありがとう」。返ってきた声も、ちゃんと小さかった。係の人が「その小さな声も素敵」と録音し、協力のお礼をくれた。",
+            "sodachi": 3,
+            "money": 3
+          }
+        ],
+        "album": "返ってくる自分の声に気づいた。",
+        "once": true
+      },
+      "findings": "反響の発見を維持し、録音協力の謝礼を設定。全種族の表現上の発声は寓話として扱う。",
+      "conditions": {
+        "stageRange": [
+          1,
+          3
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "category": "daily",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "もう一度呼ぶ",
+          "result": "「こんにちは！」。返事も元気になった。世界が少し広くなった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 1,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "小さくお礼を言う",
+          "result": "「ありがとう」。返ってきた声も、ちゃんと小さかった。係の人が「その小さな声も素敵」と録音し、協力のお礼をくれた。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 3
+          },
+          "moneyCause": "係の人が「その小さな声も素敵」と録音し、協力のお礼をくれた。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "daily-05",
+      "before": {
+        "id": "daily-05",
+        "category": "daily",
+        "title": "ひざより高い草",
+        "text": "昨日は壁みたいだった草の間に、細い道が見える。先には、小さな光。",
+        "stages": [
+          1,
+          3
+        ],
+        "regions": [
+          "forest",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "一歩ずつ進む",
+            "text": "草を抜けたら、いつもの場所だった。でも、初めて自分で来た。",
+            "sodachi": 4,
+            "money": 0,
+            "evolve": 1
+          },
+          {
+            "label": "道の入口を覚える",
+            "text": "今日はここまで。帰り道を覚えられたのも、ひとつの発見。",
+            "sodachi": 3,
+            "money": 0
+          }
+        ],
+        "album": "大きな草の向こうの道を考えた。",
+        "once": true
+      },
+      "after": {
+        "id": "daily-05",
+        "category": "daily",
+        "title": "背より高い草",
+        "text": "壁みたいな草の間に、細い道が見える。先には、小さな光。",
+        "stages": [
+          1,
+          3
+        ],
+        "regions": [
+          "forest",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "一歩ずつ進む",
+            "text": "草を抜けたら、見覚えのある広場だった。でも、この道を自分で選んで来た。",
+            "sodachi": 4,
+            "money": 0,
+            "evolve": 1
+          },
+          {
+            "label": "道の入口を覚える",
+            "text": "今日はここまで。帰り道を覚えられたのも、ひとつの発見。",
+            "sodachi": 3,
+            "money": 0
+          }
+        ],
+        "album": "大きな草の向こうの道を考えた。",
+        "once": true
+      },
+      "findings": "膝を持たない種族にも合う題名へ。昨日からの比較や未記録の自立体験を断定しない。",
+      "conditions": {
+        "stageRange": [
+          1,
+          3
+        ],
+        "regions": [
+          "forest",
+          "square"
+        ],
+        "category": "daily",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "一歩ずつ進む",
+          "result": "草を抜けたら、見覚えのある広場だった。でも、この道を自分で選んで来た。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 1,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "道の入口を覚える",
+          "result": "今日はここまで。帰り道を覚えられたのも、ひとつの発見。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "daily-06",
+      "before": {
+        "id": "daily-06",
+        "category": "daily",
+        "title": "寝ぐせの王冠",
+        "text": "水面に映った姿に、ぴょこんと立つ寝ぐせ。風まで、そこだけ避けている。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "そのまま出かける",
+            "text": "今日はこれが目印。待ち合わせに、すぐ気づいてもらえた。",
+            "sodachi": 3,
+            "money": 2
+          },
+          {
+            "label": "水で直してみる",
+            "text": "直したところと、別のところが立った。王冠は引っ越しただけだった。",
+            "sodachi": 2,
+            "money": 3
+          }
+        ],
+        "album": "水面に映る寝ぐせを見つけた。",
+        "once": true
+      },
+      "after": {
+        "id": "daily-06",
+        "category": "daily",
+        "title": "寝ぐせの王冠",
+        "text": "水面に映った姿に、寝ぐせみたいに立った葉っぱ。通りがかりの絵描きさんが、二つのポーズのモデルを探している。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "葉っぱの王冠でポーズ",
+            "text": "今日はこれが目印。絵描きさんは、ぴょこんと立った王冠を描いた。立ち姿のモデル料を受け取った。",
+            "sodachi": 3,
+            "money": 2
+          },
+          {
+            "label": "水で直してからポーズ",
+            "text": "直した葉っぱと、別の葉っぱが立った。王冠は引っ越しただけだった。水面をのぞくポーズのモデル料を受け取った。",
+            "sodachi": 2,
+            "money": 3
+          }
+        ],
+        "album": "水面に映る、寝ぐせみたいな葉っぱを見つけた。",
+        "once": true
+      },
+      "findings": "髪がない種族でも遊べる葉っぱの王冠へ。待ち合わせ済みを削り、二種類のモデル料を説明。",
+      "conditions": {
+        "stageRange": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "category": "daily",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "葉っぱの王冠でポーズ",
+          "result": "今日はこれが目印。絵描きさんは、ぴょこんと立った王冠を描いた。立ち姿のモデル料を受け取った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 2
+          },
+          "moneyCause": "立ち姿のモデル料を受け取った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "水で直してからポーズ",
+          "result": "直した葉っぱと、別の葉っぱが立った。王冠は引っ越しただけだった。水面をのぞくポーズのモデル料を受け取った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 2,
+            "money": 3
+          },
+          "moneyCause": "水面をのぞくポーズのモデル料を受け取った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "daily-07",
+      "before": {
+        "id": "daily-07",
+        "category": "daily",
+        "title": "雨の拍手",
+        "text": "雨が屋根をたたいている。早い音、遅い音。今日は、空が演奏係。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "音を数える",
+            "text": "数えきれなくなって、ただ聴いた。雨上がりに、気持ちが軽くなった。",
+            "sodachi": 3,
+            "money": 0
+          },
+          {
+            "label": "雨の切れ間に走る",
+            "text": "あと一歩でまた雨。ぬれた道に、自分の足あとができた。",
+            "sodachi": -1,
+            "money": 7
+          }
+        ],
+        "album": "雨の降る日の過ごし方を選んだ。",
+        "once": true
+      },
+      "after": {
+        "id": "daily-07",
+        "category": "daily",
+        "title": "雨の拍手",
+        "text": "雨が屋根をたたいている。今日は空が演奏係。店先には、向かいの軒まで包みを届けるお手伝いの札も出ている。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "音を数える",
+            "text": "数えきれなくなって、ただ聴いた。雨上がりに、気持ちが軽くなった。",
+            "sodachi": 3,
+            "money": 0
+          },
+          {
+            "label": "雨の切れ間に届ける",
+            "text": "あと一歩でまた雨。包みはぬらさず届いたけれど、自分はびしょぬれでくたびれた。店主が雨の日の配達手当を渡してくれた。",
+            "sodachi": -1,
+            "money": 7
+          }
+        ],
+        "album": "雨の降る日の過ごし方を選んだ。",
+        "once": true
+      },
+      "findings": "走るだけで収入にならないよう、雨の日の短い配達という選択にする。疲れと配達手当を対応。",
+      "conditions": {
+        "stageRange": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "category": "daily",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "音を数える",
+          "result": "数えきれなくなって、ただ聴いた。雨上がりに、気持ちが軽くなった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "雨の切れ間に届ける",
+          "result": "あと一歩でまた雨。包みはぬらさず届いたけれど、自分はびしょぬれでくたびれた。店主が雨の日の配達手当を渡してくれた。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": -1,
+            "money": 7
+          },
+          "moneyCause": "店主が雨の日の配達手当を渡してくれた。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "daily-08",
+      "before": {
+        "id": "daily-08",
+        "category": "daily",
+        "title": "おやつ半分の計算",
+        "text": "おやつを半分にしたら、片方だけ少し大きい。じっと見るほど、差が大きく感じる。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "大きい方を譲る",
+            "text": "相手がまた半分をくれた。計算は難しくなったけれど、うれしかった。",
+            "sodachi": 4,
+            "money": -2
+          },
+          {
+            "label": "くじで決める",
+            "text": "引いた紙には「ゆっくり食べる」。誰が書いたのだろう。",
+            "sodachi": 2,
+            "money": 4
+          }
+        ],
+        "album": "半分のおやつから、分ける楽しさを知った。",
+        "once": true
+      },
+      "after": {
+        "id": "daily-08",
+        "category": "daily",
+        "title": "おやつ半分の計算",
+        "text": "お店の試食で、隣の席の人とおやつを半分にした。片方だけ少し大きい。店先には、お買いもの券が当たるくじもある。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "大きい方を譲る",
+            "text": "大きい方を譲ると、相手がまた半分をくれた。計算は難しくなったけれど、うれしかった。分けるための小皿をお店で買った。",
+            "sodachi": 4,
+            "money": -2
+          },
+          {
+            "label": "お店のくじで決める",
+            "text": "引いた紙には「大きい方。ゆっくり食べること」。二人で笑って、その通りにした。くじのおまけのお買いもの券を、店でお金に換えてもらった。",
+            "sodachi": 2,
+            "money": 4
+          }
+        ],
+        "album": "半分のおやつから、分ける楽しさを知った。",
+        "once": true
+      },
+      "findings": "相手を場面内で導入。くじの結果と分け方をつなぎ、負担・入金を別々に説明。",
+      "conditions": {
+        "stageRange": [
+          1,
+          8
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "category": "daily",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "大きい方を譲る",
+          "result": "大きい方を譲ると、相手がまた半分をくれた。計算は難しくなったけれど、うれしかった。分けるための小皿をお店で買った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": -2
+          },
+          "moneyCause": "分けるための小皿をお店で買った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "お店のくじで決める",
+          "result": "引いた紙には「大きい方。ゆっくり食べること」。二人で笑って、その通りにした。くじのおまけのお買いもの券を、店でお金に換えてもらった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 2,
+            "money": 4
+          },
+          "moneyCause": "くじのおまけのお買いもの券を、店でお金に換えてもらった。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "daily-09",
+      "before": {
+        "id": "daily-09",
+        "category": "daily",
+        "title": "道案内は反対向き",
+        "text": "おしゃべりオウムが「こっち！」と呼ぶ。よく聞くと、さっき自分が言った声だった。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "npc": "parrot",
+        "choices": [
+          {
+            "label": "地図を一緒に見る",
+            "text": "「ここ！」と指すと「ここ！」が返る。二人分の声で、道が決まった。",
+            "sodachi": 3,
+            "money": 3
+          },
+          {
+            "label": "声の方へ行く",
+            "text": "ぐるっと回って同じ場所。「おかえり！」だけは、とても上手だった。",
+            "sodachi": -2,
+            "money": 7
+          }
+        ],
+        "album": "おしゃべりオウムと、道を探した。",
+        "once": true
+      },
+      "after": {
+        "id": "daily-09",
+        "category": "daily",
+        "title": "道案内は反対向き",
+        "text": "おしゃべりオウムが「こっち！」と呼ぶ。よく聞くと、さっき自分が言った声だった。手元には、道の案内板を調べるお手伝いの地図がある。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "npc": "parrot",
+        "choices": [
+          {
+            "label": "地図を一緒に見る",
+            "text": "「ここ！」と指すと「ここ！」が返る。二人分の声で、道が決まった。地図に書いた案内板の場所を届け、確認の手当をもらった。",
+            "sodachi": 3,
+            "money": 3
+          },
+          {
+            "label": "声の方へ行く",
+            "text": "ぐるっと回って同じ場所。「おかえり！」だけは、とても上手だった。遠回りでへとへとになった。回り道で見た案内板も地図に写し、多めに歩いた分の調査手当を受け取った。",
+            "sodachi": -2,
+            "money": 7
+          }
+        ],
+        "album": "おしゃべりオウムと、道を探した。",
+        "once": true
+      },
+      "findings": "オウムの声まねを維持。迷うことへの報酬ではなく、確認した案内板の手当とする。",
+      "conditions": {
+        "stageRange": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "category": "daily",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": {
+        "id": "parrot",
+        "label": "おしゃべりオウム",
+        "personality": "他キャラの言葉を真似する",
+        "canonicalFirstRegion": null,
+        "profile": null
+      },
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "地図を一緒に見る",
+          "result": "「ここ！」と指すと「ここ！」が返る。二人分の声で、道が決まった。地図に書いた案内板の場所を届け、確認の手当をもらった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 3
+          },
+          "moneyCause": "地図に書いた案内板の場所を届け、確認の手当をもらった。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "声の方へ行く",
+          "result": "ぐるっと回って同じ場所。「おかえり！」だけは、とても上手だった。遠回りでへとへとになった。回り道で見た案内板も地図に写し、多めに歩いた分の調査手当を受け取った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": -2,
+            "money": 7
+          },
+          "moneyCause": "回り道で見た案内板も地図に写し、多めに歩いた分の調査手当を受け取った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "encounter",
+        "next": "この場面だけで加入・交際・既存の友人関係を断定しない。再会後の明示的な誘いは別イベントで扱う。",
+        "romance": "交流として扱い、性別や指向を要求しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "daily-10",
+      "before": {
+        "id": "daily-10",
+        "category": "daily",
+        "title": "ゆっくりのお茶",
+        "text": "湯気が消えるまで待っていたら、夕方になったような気がした。時計を見ると、まだ少ししか進んでいない。",
+        "stages": [
+          6,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "今日の話をする",
+            "text": "特別なことのない日にも、話すことはちゃんとあった。",
+            "sodachi": 4,
+            "money": 0
+          },
+          {
+            "label": "黙って味わう",
+            "text": "言葉を急がない時間。最後の一口が、いちばん甘く感じた。",
+            "sodachi": 3,
+            "money": 4
+          }
+        ],
+        "album": "温かいお茶の時間を過ごした。",
+        "once": true
+      },
+      "after": {
+        "id": "daily-10",
+        "category": "daily",
+        "title": "ゆっくりのお茶",
+        "text": "お茶屋さんの試飲席で、湯気を眺める。夕方になった気がしても、時計はまだ少ししか進んでいない。味の感想カードも置かれている。",
+        "stages": [
+          6,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "お店の人と今日の話をする",
+            "text": "特別なことのない日にも、話すことはちゃんとあった。",
+            "sodachi": 4,
+            "money": 0
+          },
+          {
+            "label": "味わって感想を書く",
+            "text": "言葉を急がない時間。最後の一口が、いちばん甘く感じた。味の感想をカードに書くと、試飲の協力金をもらえた。",
+            "sodachi": 3,
+            "money": 4
+          }
+        ],
+        "album": "温かいお茶の時間を過ごした。",
+        "once": true
+      },
+      "findings": "話す相手と試飲の場面を導入。静かに飲むだけの増金を感想提供の謝礼に結びつける。",
+      "conditions": {
+        "stageRange": [
+          6,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "category": "daily",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "お店の人と今日の話をする",
+          "result": "特別なことのない日にも、話すことはちゃんとあった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "味わって感想を書く",
+          "result": "言葉を急がない時間。最後の一口が、いちばん甘く感じた。味の感想をカードに書くと、試飲の協力金をもらえた。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 4
+          },
+          "moneyCause": "味の感想をカードに書くと、試飲の協力金をもらえた。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "daily-11",
+      "before": {
+        "id": "daily-11",
+        "category": "daily",
+        "title": "昔の歩幅",
+        "text": "前に歩いた道が、少し短く感じる。角の石だけは、昔と同じ顔をしている。",
+        "stages": [
+          6,
+          8
+        ],
+        "regions": [
+          "forest",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "小さい歩幅で歩く",
+            "text": "忘れていた景色が、足元から戻ってきた。急がなくても、今日が進む。",
+            "sodachi": 4,
+            "money": 0
+          },
+          {
+            "label": "新しい道を探す",
+            "text": "曲がった先に、知らなかったベンチ。昔の道の隣にも、初めてがあった。",
+            "sodachi": 3,
+            "money": 3
+          }
+        ],
+        "album": "昔も歩いた道に立った。",
+        "once": true
+      },
+      "after": {
+        "id": "daily-11",
+        "category": "daily",
+        "title": "昔の歩幅",
+        "text": "前に歩いた道が、少し短く感じる。角の石だけは、昔と同じ顔をしている。",
+        "stages": [
+          6,
+          8
+        ],
+        "regions": [
+          "forest",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "小さい歩幅で歩く",
+            "text": "忘れていた景色が、足元から戻ってきた。急がなくても、今日が進む。",
+            "sodachi": 4,
+            "money": 0
+          },
+          {
+            "label": "新しい道を探す",
+            "text": "曲がった先に、知らなかったベンチ。昔の道の隣にも、初めてがあった。地図屋さんにベンチの場所を知らせると、新しい情報のお礼をくれた。",
+            "sodachi": 3,
+            "money": 3
+          }
+        ],
+        "album": "昔も歩いた道に立った。",
+        "once": true
+      },
+      "findings": "長い人生の道の記憶は一般的な情景として保持。新しい道での収入を町の地図調べに関連づける。",
+      "conditions": {
+        "stageRange": [
+          6,
+          8
+        ],
+        "regions": [
+          "forest",
+          "city",
+          "square"
+        ],
+        "category": "daily",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "小さい歩幅で歩く",
+          "result": "忘れていた景色が、足元から戻ってきた。急がなくても、今日が進む。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "新しい道を探す",
+          "result": "曲がった先に、知らなかったベンチ。昔の道の隣にも、初めてがあった。地図屋さんにベンチの場所を知らせると、新しい情報のお礼をくれた。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 3
+          },
+          "moneyCause": "地図屋さんにベンチの場所を知らせると、新しい情報のお礼をくれた。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "daily-12",
+      "before": {
+        "id": "daily-12",
+        "category": "daily",
+        "title": "予定のない一日",
+        "text": "手帳を開くと、今日の欄だけまっしろ。何も書いていないのに、少しわくわくする。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "気になる方へ行く",
+            "text": "小さな寄り道が三つ。手帳には、書ききれない一日になった。",
+            "sodachi": 4,
+            "money": -2
+          },
+          {
+            "label": "何もしない日と書く",
+            "text": "予定どおり、よく休んだ。まっしろな欄に、小さな丸をつけた。",
+            "sodachi": 3,
+            "money": 2
+          }
+        ],
+        "album": "予定のない日に、自分で予定を選んだ。",
+        "once": true
+      },
+      "after": {
+        "id": "daily-12",
+        "category": "daily",
+        "title": "予定のない一日",
+        "text": "手帳を開くと、今日の欄だけまっしろ。何も書いていないのに、少しわくわくする。昨日もらった小さなお出かけ券は、使っても換金してもよいらしい。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "気になる方へ行く",
+            "text": "小さな寄り道が三つ。手帳には、書ききれない一日になった。途中で買ったおやつの代金を払った。",
+            "sodachi": 4,
+            "money": -2
+          },
+          {
+            "label": "何もしない日と書く",
+            "text": "予定どおり、よく休んだ。まっしろな欄に、小さな丸をつけた。使わなかったお出かけ券は、窓口でお金に換えてもらった。",
+            "sodachi": 3,
+            "money": 2
+          }
+        ],
+        "album": "予定のない日に、自分で予定を選んだ。",
+        "once": true
+      },
+      "findings": "寄り道の支出と休む日の入金を明示。休むだけで自動的にお金が湧く表現を避ける。",
+      "conditions": {
+        "stageRange": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "category": "daily",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "気になる方へ行く",
+          "result": "小さな寄り道が三つ。手帳には、書ききれない一日になった。途中で買ったおやつの代金を払った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": -2
+          },
+          "moneyCause": "途中で買ったおやつの代金を払った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "何もしない日と書く",
+          "result": "予定どおり、よく休んだ。まっしろな欄に、小さな丸をつけた。使わなかったお出かけ券は、窓口でお金に換えてもらった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 2
+          },
+          "moneyCause": "使わなかったお出かけ券は、窓口でお金に換えてもらった。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "friend-01",
+      "before": {
+        "id": "friend-01",
+        "category": "friend",
+        "title": "木の実の行方",
+        "text": "おっちょこちょいリスが、落とした木の実を探している。足元で、葉っぱが少しふくらんでいた。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "square"
+        ],
+        "npc": "squirrel",
+        "choices": [
+          {
+            "label": "葉っぱをそっとめくる",
+            "text": "木の実があった。リスは抱えて、今度はゆっくり歩き出した。",
+            "sodachi": 4,
+            "money": 2
+          },
+          {
+            "label": "一緒に広く探す",
+            "text": "探す範囲は広がったけれど、見つからない。休憩のおやつを分け合った。",
+            "sodachi": 2,
+            "money": 4
+          }
+        ],
+        "album": "リスと木の実を探した。",
+        "once": true
+      },
+      "after": {
+        "id": "friend-01",
+        "category": "friend",
+        "title": "木の実の行方",
+        "text": "おっちょこちょいリスが、落とした木の実を探している。足元で、葉っぱが少しふくらんでいた。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "square"
+        ],
+        "npc": "squirrel",
+        "choices": [
+          {
+            "label": "葉っぱをそっとめくる",
+            "text": "木の実があった。リスは抱えて、今度はゆっくり歩き出した。リスがお礼の小銭を渡してくれた。今度は、小銭を落とさないように。",
+            "sodachi": 4,
+            "money": 2
+          },
+          {
+            "label": "一緒に広く探す",
+            "text": "探す範囲は広がったけれど、見つからない。休憩のおやつを分け合った。帰りにリスの木の実袋を店まで運び、運び賃を受け取った。",
+            "sodachi": 2,
+            "money": 4
+          }
+        ],
+        "album": "リスと木の実を探した。",
+        "once": true
+      },
+      "findings": "木の実を落とす性格を保持。友だちの獲得料ではなく手伝いと届け物の謝礼。",
+      "conditions": {
+        "stageRange": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "square"
+        ],
+        "category": "friend",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": {
+        "id": "squirrel",
+        "label": "おっちょこちょいリス",
+        "personality": "木の実を運んで落とす",
+        "canonicalFirstRegion": null,
+        "profile": null
+      },
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "葉っぱをそっとめくる",
+          "result": "木の実があった。リスは抱えて、今度はゆっくり歩き出した。リスがお礼の小銭を渡してくれた。今度は、小銭を落とさないように。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 2
+          },
+          "moneyCause": "リスがお礼の小銭を渡してくれた。今度は、小銭を落とさないように。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "一緒に広く探す",
+          "result": "探す範囲は広がったけれど、見つからない。休憩のおやつを分け合った。帰りにリスの木の実袋を店まで運び、運び賃を受け取った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 2,
+            "money": 4
+          },
+          "moneyCause": "帰りにリスの木の実袋を店まで運び、運び賃を受け取った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "encounter",
+        "next": "この場面だけで加入・交際・既存の友人関係を断定しない。再会後の明示的な誘いは別イベントで扱う。",
+        "romance": "交流として扱い、性別や指向を要求しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "friend-02",
+      "before": {
+        "id": "friend-02",
+        "category": "friend",
+        "title": "ふくろうの小さな授業",
+        "text": "ものしりふくろうが、木の影を指している。「朝と夕方、長さは似ていても向きが違うんだ」。",
+        "stages": [
+          1,
+          5
+        ],
+        "regions": [
+          "forest",
+          "square"
+        ],
+        "npc": "owl",
+        "choices": [
+          {
+            "label": "自分の影で試す",
+            "text": "知っているだけの話が、自分の発見になった。ふくろうも、うなずいた。",
+            "sodachi": 4,
+            "money": 0
+          },
+          {
+            "label": "話を最後まで聞く",
+            "text": "影が伸びるまでの間、まだ知らない話をたくさん聞けた。",
+            "sodachi": 3,
+            "money": 3
+          }
+        ],
+        "album": "ふくろうに、影の向きを教わった。",
+        "once": true
+      },
+      "after": {
+        "id": "friend-02",
+        "category": "friend",
+        "title": "ふくろうの小さな授業",
+        "text": "ものしりふくろうが、木の影を指している。「朝と夕方、長さは似ていても向きが違うんだ」。",
+        "stages": [
+          1,
+          5
+        ],
+        "regions": [
+          "forest",
+          "square"
+        ],
+        "npc": "owl",
+        "choices": [
+          {
+            "label": "自分の影で試す",
+            "text": "知っているだけの話が、自分の発見になった。ふくろうも、うなずいた。",
+            "sodachi": 4,
+            "money": 0
+          },
+          {
+            "label": "話を最後まで聞く",
+            "text": "影が伸びるまでの間、まだ知らない話をたくさん聞けた。授業の資料を片づけるのも手伝って、お礼をもらった。",
+            "sodachi": 3,
+            "money": 3
+          }
+        ],
+        "album": "ふくろうに、影の向きを教わった。",
+        "once": true
+      },
+      "findings": "豆知識と自分で試す発見を保持。聞き手を続ける道では授業の片づけを引き受ける。",
+      "conditions": {
+        "stageRange": [
+          1,
+          5
+        ],
+        "regions": [
+          "forest",
+          "square"
+        ],
+        "category": "friend",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": {
+        "id": "owl",
+        "label": "ものしりふくろう",
+        "personality": "時々豆知識を言う",
+        "canonicalFirstRegion": null,
+        "profile": null
+      },
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "自分の影で試す",
+          "result": "知っているだけの話が、自分の発見になった。ふくろうも、うなずいた。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "話を最後まで聞く",
+          "result": "影が伸びるまでの間、まだ知らない話をたくさん聞けた。授業の資料を片づけるのも手伝って、お礼をもらった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 3
+          },
+          "moneyCause": "授業の資料を片づけるのも手伝って、お礼をもらった。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "encounter",
+        "next": "この場面だけで加入・交際・既存の友人関係を断定しない。再会後の明示的な誘いは別イベントで扱う。",
+        "romance": "交流として扱い、性別や指向を要求しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "friend-03",
+      "before": {
+        "id": "friend-03",
+        "category": "friend",
+        "title": "となりの日なた",
+        "text": "きまぐれなねこが、今日はこちらの隣で眠っている。起こすほどの用事は、特にない。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "city",
+          "square"
+        ],
+        "npc": "cat_friend",
+        "choices": [
+          {
+            "label": "静かに座る",
+            "text": "しばらくして、しっぽがそっと触れた。何も言わなくても、隣にいた。",
+            "sodachi": 4,
+            "money": 0
+          },
+          {
+            "label": "少し場所を空ける",
+            "text": "ねこは伸びをして、その分だけ近づいた。日なたは、二人分あった。",
+            "sodachi": 3,
+            "money": 3
+          }
+        ],
+        "album": "ねこと、何も話さない時間を過ごした。",
+        "once": true
+      },
+      "after": {
+        "id": "friend-03",
+        "category": "friend",
+        "title": "となりの日なた",
+        "text": "きまぐれなねこが、隣で眠っている。起こすほどの用事は、特にない。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "city",
+          "square"
+        ],
+        "npc": "cat_friend",
+        "choices": [
+          {
+            "label": "静かに座る",
+            "text": "しばらくして、しっぽがそっと触れた。何も言わなくても、隣にいた。",
+            "sodachi": 4,
+            "money": 0
+          },
+          {
+            "label": "少し場所を空ける",
+            "text": "ねこは伸びをして、その分だけ近づいた。日なたは、二人分あった。荷物を置く場所も空けると、隣の露店の人が手伝いのお礼をくれた。",
+            "sodachi": 3,
+            "money": 3
+          }
+        ],
+        "album": "ねこと、何も話さない時間を過ごした。",
+        "once": true
+      },
+      "findings": "「今日は」を削り既存の習慣を仮定しない。ねこが現金を出さず、席を空けた周囲の人から謝礼。",
+      "conditions": {
+        "stageRange": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "city",
+          "square"
+        ],
+        "category": "friend",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": {
+        "id": "cat_friend",
+        "label": "きまぐれなねこ",
+        "personality": "自由に寝る・箱に入る",
+        "canonicalFirstRegion": null,
+        "profile": null
+      },
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "静かに座る",
+          "result": "しばらくして、しっぽがそっと触れた。何も言わなくても、隣にいた。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "少し場所を空ける",
+          "result": "ねこは伸びをして、その分だけ近づいた。日なたは、二人分あった。荷物を置く場所も空けると、隣の露店の人が手伝いのお礼をくれた。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 3
+          },
+          "moneyCause": "荷物を置く場所も空けると、隣の露店の人が手伝いのお礼をくれた。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "encounter",
+        "next": "この場面だけで加入・交際・既存の友人関係を断定しない。再会後の明示的な誘いは別イベントで扱う。",
+        "romance": "交流として扱い、性別や指向を要求しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "friend-04",
+      "before": {
+        "id": "friend-04",
+        "category": "friend",
+        "title": "せっかちなお誘い",
+        "text": "せっかちなカタツムリが、雨上がりの葉っぱへ誘ってくれた。気持ちはもう到着しているらしい。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "square"
+        ],
+        "npc": "snail",
+        "choices": [
+          {
+            "label": "歩調を合わせる",
+            "text": "着くまでに、道端の花を全部見つけた。到着より先に、楽しくなった。",
+            "sodachi": 4,
+            "money": 0
+          },
+          {
+            "label": "先で場所を用意する",
+            "text": "乾いた葉を一枚。あとから来たカタツムリは、すぐ次の遊びを提案した。",
+            "sodachi": 3,
+            "money": 4
+          }
+        ],
+        "album": "カタツムリと、雨上がりの道を楽しんだ。",
+        "once": true
+      },
+      "after": {
+        "id": "friend-04",
+        "category": "friend",
+        "title": "せっかちなお誘い",
+        "text": "せっかちなカタツムリが、雨上がりの葉っぱへ誘ってくれた。気持ちはもう到着しているらしい。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "square"
+        ],
+        "npc": "snail",
+        "choices": [
+          {
+            "label": "歩調を合わせる",
+            "text": "着くまでに、道端の花を全部見つけた。到着より先に、楽しくなった。",
+            "sodachi": 4,
+            "money": 0
+          },
+          {
+            "label": "先で場所を用意する",
+            "text": "乾いた葉を一枚。あとから来たカタツムリは、すぐ次の遊びを提案した。ほかの遊び場にも乾いた葉を敷き、広場の係から準備の手当をもらった。",
+            "sodachi": 3,
+            "money": 4
+          }
+        ],
+        "album": "カタツムリと、雨上がりの道を楽しんだ。",
+        "once": true
+      },
+      "findings": "急ぐ気持ちと遅い身体、葉っぱと遊びの誘いを維持。会場の場所づくりに対する手当。",
+      "conditions": {
+        "stageRange": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "square"
+        ],
+        "category": "friend",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": {
+        "id": "snail",
+        "label": "せっかちなカタツムリ",
+        "personality": "気持ちは先へ急ぐが、からだはゆっくり。雨と葉っぱが好きで、思いついた遊びにすぐ誘う",
+        "canonicalFirstRegion": null,
+        "profile": null
+      },
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "歩調を合わせる",
+          "result": "着くまでに、道端の花を全部見つけた。到着より先に、楽しくなった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "先で場所を用意する",
+          "result": "乾いた葉を一枚。あとから来たカタツムリは、すぐ次の遊びを提案した。ほかの遊び場にも乾いた葉を敷き、広場の係から準備の手当をもらった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 4
+          },
+          "moneyCause": "ほかの遊び場にも乾いた葉を敷き、広場の係から準備の手当をもらった。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "encounter",
+        "next": "この場面だけで加入・交際・既存の友人関係を断定しない。再会後の明示的な誘いは別イベントで扱う。",
+        "romance": "交流として扱い、性別や指向を要求しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "friend-05",
+      "before": {
+        "id": "friend-05",
+        "category": "friend",
+        "title": "すべりすぎた日",
+        "text": "すべりたがりペンギンが、いつもより遠くまで滑った。戻る途中、ちょっと困った顔でこちらを見た。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "sea",
+          "square"
+        ],
+        "npc": "penguin_friend",
+        "choices": [
+          {
+            "label": "帰り道を一緒に歩く",
+            "text": "今度は一歩ずつ。さっきの失敗の話が、少しずつ笑い話になった。",
+            "sodachi": 4,
+            "money": 2
+          },
+          {
+            "label": "滑らない場所を探す",
+            "text": "遠回りになったけれど、並んで進めた。「また遊ぼう」が聞こえた。",
+            "sodachi": 3,
+            "money": 4
+          }
+        ],
+        "album": "ペンギンの失敗から、一緒の帰り道が生まれた。",
+        "once": true
+      },
+      "after": {
+        "id": "friend-05",
+        "category": "friend",
+        "title": "すべりすぎた日",
+        "text": "すべりたがりペンギンが、勢いよく遠くまで滑った。戻る途中、ちょっと困った顔でこちらを見た。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "sea",
+          "square"
+        ],
+        "npc": "penguin_friend",
+        "choices": [
+          {
+            "label": "帰り道を一緒に歩く",
+            "text": "今度は一歩ずつ。さっきの失敗の話が、少しずつ笑い話になった。帰りに遊び道具を片づけ、係の人からお礼をもらった。",
+            "sodachi": 4,
+            "money": 2
+          },
+          {
+            "label": "滑らない場所を探す",
+            "text": "遠回りになったけれど、並んで進めた。「また遊ぼう」が聞こえた。滑らない道に案内の目印を置くと、係の人が作業の手当をくれた。",
+            "sodachi": 3,
+            "money": 4
+          }
+        ],
+        "album": "ペンギンの失敗から、一緒の帰り道が生まれた。",
+        "once": true
+      },
+      "findings": "初対面でもわかる滑りたがりの失敗へ。「いつもより」の観察歴を削除。",
+      "conditions": {
+        "stageRange": [
+          1,
+          8
+        ],
+        "regions": [
+          "sea",
+          "square"
+        ],
+        "category": "friend",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": {
+        "id": "penguin_friend",
+        "label": "すべりたがりペンギン",
+        "personality": "腹ばいで滑る",
+        "canonicalFirstRegion": null,
+        "profile": null
+      },
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "帰り道を一緒に歩く",
+          "result": "今度は一歩ずつ。さっきの失敗の話が、少しずつ笑い話になった。帰りに遊び道具を片づけ、係の人からお礼をもらった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 2
+          },
+          "moneyCause": "帰りに遊び道具を片づけ、係の人からお礼をもらった。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "滑らない場所を探す",
+          "result": "遠回りになったけれど、並んで進めた。「また遊ぼう」が聞こえた。滑らない道に案内の目印を置くと、係の人が作業の手当をくれた。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 4
+          },
+          "moneyCause": "滑らない道に案内の目印を置くと、係の人が作業の手当をくれた。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "encounter",
+        "next": "この場面だけで加入・交際・既存の友人関係を断定しない。再会後の明示的な誘いは別イベントで扱う。",
+        "romance": "交流として扱い、性別や指向を要求しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "friend-06",
+      "before": {
+        "id": "friend-06",
+        "category": "friend",
+        "title": "待ち合わせの時計",
+        "text": "じかんにルーズなとけいが、約束より少し遅く来た。「途中で、花の開く音を待っていたんだ」。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "npc": "clock",
+        "choices": [
+          {
+            "label": "聞こえた音を教わる",
+            "text": "二人で耳をすませた。聞こえたかどうかより、待つ時間を覚えていたい。",
+            "sodachi": 4,
+            "money": 0
+          },
+          {
+            "label": "次の約束を決める",
+            "text": "「日がこの木に届くころ」。時計は、いつもより真剣にうなずいた。",
+            "sodachi": 3,
+            "money": 4
+          }
+        ],
+        "album": "時計と、待つ時間の話をした。",
+        "once": true
+      },
+      "after": {
+        "id": "friend-06",
+        "category": "friend",
+        "title": "待ち合わせの時計",
+        "text": "道で会ったじかんにルーズなとけいに「この先で待っていて」と頼まれた。やって来たのは、ずいぶんあと。「花の開く音を待っていたんだ」。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "npc": "clock",
+        "choices": [
+          {
+            "label": "聞こえた音を教わる",
+            "text": "二人で耳をすませた。聞こえたかどうかより、待つ時間を覚えていたい。",
+            "sodachi": 4,
+            "money": 0
+          },
+          {
+            "label": "次の約束を決める",
+            "text": "「日がこの木に届くころ」。時計は、いつもより真剣にうなずいた。待ち合わせの目印を描いた札が好評で、案内所が札の代金を払ってくれた。",
+            "sodachi": 3,
+            "money": 4
+          }
+        ],
+        "album": "時計と、待つ時間の話をした。",
+        "once": true
+      },
+      "findings": "未記録の過去の約束を、同じ場面で交わした待ち合わせへ。時計の音と時間の性格は保持。",
+      "conditions": {
+        "stageRange": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "category": "friend",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": {
+        "id": "clock",
+        "label": "じかんにルーズなとけい",
+        "personality": "時刻は大まか。小さな出来事の音を覚えていて、誰かを待つ時間は気にしない",
+        "canonicalFirstRegion": null,
+        "profile": null
+      },
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "聞こえた音を教わる",
+          "result": "二人で耳をすませた。聞こえたかどうかより、待つ時間を覚えていたい。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "次の約束を決める",
+          "result": "「日がこの木に届くころ」。時計は、いつもより真剣にうなずいた。待ち合わせの目印を描いた札が好評で、案内所が札の代金を払ってくれた。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 4
+          },
+          "moneyCause": "待ち合わせの目印を描いた札が好評で、案内所が札の代金を払ってくれた。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "encounter",
+        "next": "この場面だけで加入・交際・既存の友人関係を断定しない。再会後の明示的な誘いは別イベントで扱う。",
+        "romance": "交流として扱い、性別や指向を要求しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "friend-07",
+      "before": {
+        "id": "friend-07",
+        "category": "friend",
+        "title": "旅立つ背中",
+        "text": "いつも近くを歩いていたひとなつっこいしばいぬが、今日は別の道を見ている。少し遠くまで散歩に行くらしい。",
+        "stages": [
+          4,
+          8
+        ],
+        "regions": [
+          "forest",
+          "city",
+          "square"
+        ],
+        "npc": "shiba",
+        "choices": [
+          {
+            "label": "笑顔で見送る",
+            "text": "しっぽが一度、大きく動いた。帰ってきたら聞きたい話が増えた。",
+            "sodachi": 5,
+            "money": 0,
+            "evolve": 1
+          },
+          {
+            "label": "角まで一緒に歩く",
+            "text": "分かれ道で歩みを止めた。離れても、今までの散歩はなくならない。",
+            "sodachi": 4,
+            "money": 0
+          }
+        ],
+        "album": "しばいぬの新しい散歩に立ち会った。",
+        "once": true
+      },
+      "after": {
+        "id": "friend-07",
+        "category": "friend",
+        "title": "旅立つ背中",
+        "text": "ひとなつっこいしばいぬが、少しの間こちらの隣を歩いた。分かれ道で、遠くの道を見ている。今日は、あちらまで散歩に行くらしい。",
+        "stages": [
+          4,
+          8
+        ],
+        "regions": [
+          "forest",
+          "city",
+          "square"
+        ],
+        "npc": "shiba",
+        "choices": [
+          {
+            "label": "笑顔で見送る",
+            "text": "しっぽが一度、大きく動いた。帰ってきたら聞きたい話が増えた。",
+            "sodachi": 5,
+            "money": 0,
+            "evolve": 1
+          },
+          {
+            "label": "角まで一緒に歩く",
+            "text": "角まで並んで進み、分かれ道で歩みを止めた。短い散歩でも、一緒に歩いた時間は残った。",
+            "sodachi": 4,
+            "money": 0
+          }
+        ],
+        "album": "しばいぬの新しい散歩に立ち会った。",
+        "once": true
+      },
+      "findings": "長期の仲間・既存の絆を仮定せず、今回の短い同行と見送りで成立させる。",
+      "conditions": {
+        "stageRange": [
+          4,
+          8
+        ],
+        "regions": [
+          "forest",
+          "city",
+          "square"
+        ],
+        "category": "friend",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": {
+        "id": "shiba",
+        "label": "ひとなつっこいしばいぬ",
+        "personality": "主人公の近くを歩く",
+        "canonicalFirstRegion": null,
+        "profile": null
+      },
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "笑顔で見送る",
+          "result": "しっぽが一度、大きく動いた。帰ってきたら聞きたい話が増えた。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 5,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 1,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "角まで一緒に歩く",
+          "result": "角まで並んで進み、分かれ道で歩みを止めた。短い散歩でも、一緒に歩いた時間は残った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "encounter",
+        "next": "この場面だけで加入・交際・既存の友人関係を断定しない。再会後の明示的な誘いは別イベントで扱う。",
+        "romance": "交流として扱い、性別や指向を要求しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "friend-08",
+      "before": {
+        "id": "friend-08",
+        "category": "friend",
+        "title": "言えなかったありがとう",
+        "text": "ふわふわヒツジのそばで、前に助けてもらった日のことを思い出した。今日は、言葉にできそうだ。",
+        "stages": [
+          5,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "npc": "sheep",
+        "choices": [
+          {
+            "label": "ありがとうを伝える",
+            "text": "ヒツジは少し照れたように、こちらへ寄った。言ってよかった。",
+            "sodachi": 5,
+            "money": 0,
+            "evolve": 1
+          },
+          {
+            "label": "小さな贈り物を置く",
+            "text": "返事の代わりに、隣の場所が空いた。ゆっくり座って、同じ景色を見た。",
+            "sodachi": 4,
+            "money": -3
+          }
+        ],
+        "album": "ヒツジへの感謝を形にした。",
+        "once": true
+      },
+      "after": {
+        "id": "friend-08",
+        "category": "friend",
+        "title": "言えなかったありがとう",
+        "text": "風の強い道でふらつくと、ふわふわヒツジがそっと体を寄せ、支えてくれた。驚いて言えなかったお礼を、ひと息ついた今なら伝えられそうだ。",
+        "stages": [
+          5,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "npc": "sheep",
+        "choices": [
+          {
+            "label": "ありがとうを伝える",
+            "text": "ヒツジは少し照れたように、こちらへ寄った。言ってよかった。",
+            "sodachi": 5,
+            "money": 0,
+            "evolve": 1
+          },
+          {
+            "label": "小さな贈り物を買って渡す",
+            "text": "返事の代わりに、隣の場所が空いた。ゆっくり座って、同じ景色を見た。贈り物は、道端のお店で代金を払って選んだ。",
+            "sodachi": 4,
+            "money": -3
+          }
+        ],
+        "album": "ヒツジへの感謝を形にした。",
+        "once": true
+      },
+      "findings": "前に助けてもらった日の捏造を除去。今の場面でヒツジの寄りかかれる性格と感謝の理由を示す。",
+      "conditions": {
+        "stageRange": [
+          5,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "category": "friend",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": {
+        "id": "sheep",
+        "label": "ふわふわヒツジ",
+        "personality": "他の仲間が寄りかかる",
+        "canonicalFirstRegion": null,
+        "profile": null
+      },
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "ありがとうを伝える",
+          "result": "ヒツジは少し照れたように、こちらへ寄った。言ってよかった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 5,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 1,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "小さな贈り物を買って渡す",
+          "result": "返事の代わりに、隣の場所が空いた。ゆっくり座って、同じ景色を見た。贈り物は、道端のお店で代金を払って選んだ。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": -3
+          },
+          "moneyCause": "贈り物は、道端のお店で代金を払って選んだ。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "encounter",
+        "next": "この場面だけで加入・交際・既存の友人関係を断定しない。再会後の明示的な誘いは別イベントで扱う。",
+        "romance": "交流として扱い、性別や指向を要求しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "romance-01",
+      "before": {
+        "id": "romance-01",
+        "category": "romance",
+        "title": "仕事の合間の夕焼け",
+        "text": "ビルのねこ社長が、書類を閉じた。「この時間の空は、会議より先に見ておこう」。",
+        "stages": [
+          4,
+          8
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "npc": "cat_ceo",
+        "choices": [
+          {
+            "label": "並んで空を見る",
+            "text": "近づいた肩は、そのまま。夕焼けが消えるまで、少しだけ特別な時間になった。",
+            "sodachi": 4,
+            "money": -2,
+            "friendshipText": "並んで空を見た。仕事の話をしない時間も、心地よかった。"
+          },
+          {
+            "label": "飲み物を買ってくる",
+            "text": "戻ると、二人分の場所が空いていた。冷めないうちに、気持ちを言葉にした。",
+            "sodachi": 3,
+            "money": -1,
+            "friendshipText": "戻ると、二人分の場所が空いていた。今日の出来事をゆっくり話した。"
+          }
+        ],
+        "album": "ねこ社長と、夕焼けを見た。",
+        "once": true,
+        "friendshipTitle": "会議のあとで",
+        "friendshipText": "ビルのねこ社長が、書類を閉じた。忙しい一日の終わりに、友だちと空を見る時間ができた。"
+      },
+      "after": {
+        "id": "romance-01",
+        "category": "romance",
+        "title": "仕事の合間の夕焼け",
+        "text": "ビルのねこ社長が、書類を閉じた。「次の会議まで、夕焼けを優先しよう」。展望席は入場券が必要で、外のベンチなら飲み物を買って休める。",
+        "stages": [
+          4,
+          8
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "npc": "cat_ceo",
+        "choices": [
+          {
+            "label": "展望席で並んで空を見る",
+            "text": "並んでいいか尋ねると、社長がうなずいた。夕焼けが消えるまで、少しだけ特別な時間になった。展望席の入場料を払った。",
+            "sodachi": 4,
+            "money": -2,
+            "friendshipText": "並んで空を見た。仕事の話をしない時間も、心地よかった。展望席の入場料を払った。"
+          },
+          {
+            "label": "飲み物を買ってくる",
+            "text": "戻ると、二人分の場所が空いていた。「一緒に見られてうれしい」と伝えた。飲み物の代金を払った。",
+            "sodachi": 3,
+            "money": -1,
+            "friendshipText": "戻ると、二人分の場所が空いていた。今日の出来事をゆっくり話した。飲み物の代金を払った。"
+          }
+        ],
+        "album": "ねこ社長と、夕焼けを見た。",
+        "once": true,
+        "friendshipTitle": "会議のあとで",
+        "friendshipText": "ビルのねこ社長が、書類を閉じた。「会議の前に、少し空を見よう」。展望席には入場券、外のベンチなら飲み物。知り合うきっかけになりそうだ。"
+      },
+      "findings": "会議より交流を優先する性格を保持。肩の接近や告白の成立を断定せず、展望席・飲料代を両レンダリングに追加。",
+      "conditions": {
+        "stageRange": [
+          4,
+          8
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "category": "romance",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": {
+        "id": "cat_ceo",
+        "label": "ビルのねこ社長",
+        "personality": "仕事人なのにデートのため普通にサボる",
+        "canonicalFirstRegion": "city",
+        "profile": {
+          "emoji": "🐈‍⬛",
+          "gender": "female",
+          "orientationId": "gay",
+          "affinityHeart": "courage"
+        }
+      },
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "展望席で並んで空を見る",
+          "result": "並んでいいか尋ねると、社長がうなずいた。夕焼けが消えるまで、少しだけ特別な時間になった。展望席の入場料を払った。",
+          "friendshipResult": "並んで空を見た。仕事の話をしない時間も、心地よかった。展望席の入場料を払った。",
+          "baseDelta": {
+            "sodachi": 4,
+            "money": -2
+          },
+          "moneyCause": "展望席の入場料を払った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "飲み物を買ってくる",
+          "result": "戻ると、二人分の場所が空いていた。「一緒に見られてうれしい」と伝えた。飲み物の代金を払った。",
+          "friendshipResult": "戻ると、二人分の場所が空いていた。今日の出来事をゆっくり話した。飲み物の代金を払った。",
+          "baseDelta": {
+            "sodachi": 3,
+            "money": -1
+          },
+          "moneyCause": "飲み物の代金を払った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "encounter",
+        "next": "この場面だけで加入・交際・既存の友人関係を断定しない。再会後の明示的な誘いは別イベントで扱う。",
+        "romance": "相互の指向適合時のみ恋愛表現。非適合・不明・自分自身は同額の友情表現。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "romance-02",
+      "before": {
+        "id": "romance-02",
+        "category": "romance",
+        "title": "言葉を覚えるロボット",
+        "text": "となりまちのロボットが「会いたかった」を小さく繰り返している。意味を確かめるように、こちらを見た。",
+        "stages": [
+          4,
+          8
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "npc": "robot_neighbor",
+        "choices": [
+          {
+            "label": "自分の気持ちも伝える",
+            "text": "同じ言葉を返すと、ロボットは少し黙った。「今、少しわかった気がする」。",
+            "sodachi": 5,
+            "money": 0,
+            "evolve": 1,
+            "friendshipText": "「会えてうれしい」と返すと、ロボットはうなずいた。友だちの言葉を、また一つ覚えた。"
+          },
+          {
+            "label": "急がず隣で過ごす",
+            "text": "答えを決めないまま、並んで歩いた。わからない時間も、一緒なら大切だった。",
+            "sodachi": 4,
+            "money": 0,
+            "friendshipText": "答えを急がず、並んで歩いた。うれしい気持ちを、ゆっくり確かめた。"
+          }
+        ],
+        "album": "ロボットと、気持ちを表す言葉を考えた。",
+        "once": true,
+        "friendshipTitle": "うれしいの意味",
+        "friendshipText": "となりまちのロボットが「友だちに会うと、うれしい？」と尋ねた。答えを、ゆっくり考える時間になった。"
+      },
+      "after": {
+        "id": "romance-02",
+        "category": "romance",
+        "title": "言葉を覚えるロボット",
+        "text": "となりまちのロボットが「会えてうれしい」を小さく繰り返している。意味を確かめるように、こちらを見た。",
+        "stages": [
+          4,
+          8
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "npc": "robot_neighbor",
+        "choices": [
+          {
+            "label": "自分の気持ちも伝える",
+            "text": "同じ言葉を返すと、ロボットは少し黙った。「今、少しわかった気がする」。",
+            "sodachi": 5,
+            "money": 0,
+            "evolve": 1,
+            "friendshipText": "「会えてうれしい」と返すと、ロボットはうなずいた。気持ちを表す言葉を、また一つ覚えた。"
+          },
+          {
+            "label": "急がず隣で過ごす",
+            "text": "答えを決めないまま、並んで歩いた。わからない時間も、一緒なら大切だった。",
+            "sodachi": 4,
+            "money": 0,
+            "friendshipText": "答えを急がず、並んで歩いた。うれしい気持ちを、ゆっくり確かめた。"
+          }
+        ],
+        "album": "ロボットと、気持ちを表す言葉を考えた。",
+        "once": true,
+        "friendshipTitle": "うれしいの意味",
+        "friendshipText": "となりまちのロボットが「誰かに会うと、うれしい？」と尋ねた。答えを、ゆっくり考える時間になった。"
+      },
+      "findings": "会いたかったという未成立の関係を、今回会えた気持ちへ。感情を学ぶ性格と返事を急がない選択は保持。",
+      "conditions": {
+        "stageRange": [
+          4,
+          8
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "category": "romance",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": {
+        "id": "robot_neighbor",
+        "label": "となりまちのロボット",
+        "personality": "感情を少しずつ覚える",
+        "canonicalFirstRegion": "city",
+        "profile": {
+          "emoji": "🤖",
+          "gender": "nonbinary",
+          "orientationId": "bi",
+          "affinityHeart": "perseverance"
+        }
+      },
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "自分の気持ちも伝える",
+          "result": "同じ言葉を返すと、ロボットは少し黙った。「今、少しわかった気がする」。",
+          "friendshipResult": "「会えてうれしい」と返すと、ロボットはうなずいた。気持ちを表す言葉を、また一つ覚えた。",
+          "baseDelta": {
+            "sodachi": 5,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 1,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "急がず隣で過ごす",
+          "result": "答えを決めないまま、並んで歩いた。わからない時間も、一緒なら大切だった。",
+          "friendshipResult": "答えを急がず、並んで歩いた。うれしい気持ちを、ゆっくり確かめた。",
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "encounter",
+        "next": "この場面だけで加入・交際・既存の友人関係を断定しない。再会後の明示的な誘いは別イベントで扱う。",
+        "romance": "相互の指向適合時のみ恋愛表現。非適合・不明・自分自身は同額の友情表現。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "romance-03",
+      "before": {
+        "id": "romance-03",
+        "category": "romance",
+        "title": "大きな傘の下",
+        "text": "もりのクマさんが、大きな傘をこちらへ傾けてくれた。自分の肩は、少しぬれている。",
+        "stages": [
+          4,
+          8
+        ],
+        "regions": [
+          "forest",
+          "square"
+        ],
+        "npc": "forest_bear",
+        "choices": [
+          {
+            "label": "傘を真ん中へ戻す",
+            "text": "二人の肩が、同じくらいぬれた。クマさんは笑って、歩幅を合わせた。",
+            "sodachi": 4,
+            "money": 0,
+            "friendshipText": "二人の肩が、同じくらいぬれた。クマさんと笑って、歩幅を合わせた。"
+          },
+          {
+            "label": "雨宿りに誘う",
+            "text": "雨音の下で、好きなものの話をした。言葉が途切れても、帰りたくなかった。",
+            "sodachi": 5,
+            "money": -3,
+            "friendshipText": "雨音の下で、好きなものの話をした。友だちの知らなかった一面を聞けた。"
+          }
+        ],
+        "album": "クマさんと、雨を分け合った。",
+        "once": true,
+        "friendshipTitle": "半分ずつの雨",
+        "friendshipText": "もりのクマさんが、傘をこちらへ傾けてくれた。やさしさを、一人だけでもらわない方法を考えた。"
+      },
+      "after": {
+        "id": "romance-03",
+        "category": "romance",
+        "title": "大きな傘の下",
+        "text": "もりのクマさんが、大きな傘をこちらへ傾けてくれた。自分の肩は、少しぬれている。",
+        "stages": [
+          4,
+          8
+        ],
+        "regions": [
+          "forest",
+          "square"
+        ],
+        "npc": "forest_bear",
+        "choices": [
+          {
+            "label": "傘を真ん中へ戻す",
+            "text": "二人の肩が、同じくらいぬれた。クマさんは笑って、歩幅を合わせた。",
+            "sodachi": 4,
+            "money": 0,
+            "friendshipText": "二人の肩が、同じくらいぬれた。クマさんと笑って、歩幅を合わせた。"
+          },
+          {
+            "label": "お茶屋で雨宿りに誘う",
+            "text": "雨音の下で、好きなものの話をした。言葉が途切れても、帰りたくなかった。雨宿りしたお茶屋さんで、お茶の代金を払った。",
+            "sodachi": 5,
+            "money": -3,
+            "friendshipText": "雨音の下で、好きなものの話をした。クマさんのことを、少し知ることができた。雨宿りしたお茶屋さんで、お茶の代金を払った。"
+          }
+        ],
+        "album": "クマさんと、雨を分け合った。",
+        "once": true,
+        "friendshipTitle": "半分ずつの雨",
+        "friendshipText": "もりのクマさんが、傘をこちらへ傾けてくれた。やさしさを、一人だけでもらわない方法を考えた。"
+      },
+      "findings": "大きく優しいクマを保持。友だちとしての既知情報を前提にせず、雨宿りのお茶代を明示。",
+      "conditions": {
+        "stageRange": [
+          4,
+          8
+        ],
+        "regions": [
+          "forest",
+          "square"
+        ],
+        "category": "romance",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": {
+        "id": "forest_bear",
+        "label": "もりのクマさん",
+        "personality": "大きくて優しい",
+        "canonicalFirstRegion": "forest",
+        "profile": {
+          "emoji": "🐻",
+          "gender": "male",
+          "orientationId": "bi",
+          "affinityHeart": "kindness"
+        }
+      },
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "傘を真ん中へ戻す",
+          "result": "二人の肩が、同じくらいぬれた。クマさんは笑って、歩幅を合わせた。",
+          "friendshipResult": "二人の肩が、同じくらいぬれた。クマさんと笑って、歩幅を合わせた。",
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "お茶屋で雨宿りに誘う",
+          "result": "雨音の下で、好きなものの話をした。言葉が途切れても、帰りたくなかった。雨宿りしたお茶屋さんで、お茶の代金を払った。",
+          "friendshipResult": "雨音の下で、好きなものの話をした。クマさんのことを、少し知ることができた。雨宿りしたお茶屋さんで、お茶の代金を払った。",
+          "baseDelta": {
+            "sodachi": 5,
+            "money": -3
+          },
+          "moneyCause": "雨宿りしたお茶屋さんで、お茶の代金を払った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "encounter",
+        "next": "この場面だけで加入・交際・既存の友人関係を断定しない。再会後の明示的な誘いは別イベントで扱う。",
+        "romance": "相互の指向適合時のみ恋愛表現。非適合・不明・自分自身は同額の友情表現。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "romance-04",
+      "before": {
+        "id": "romance-04",
+        "category": "romance",
+        "title": "波打ち際の約束",
+        "text": "うみのにんぎょが、陸に続く道を見ている。「そっちには、どんな景色があるの？」。",
+        "stages": [
+          4,
+          8
+        ],
+        "regions": [
+          "sea"
+        ],
+        "npc": "sea_mermaid",
+        "choices": [
+          {
+            "label": "見えるものから話す",
+            "text": "遠くへ急がず、今日見える景色を二人で覚えた。次に会う日の話が、自然に出た。",
+            "sodachi": 5,
+            "money": 0,
+            "friendshipText": "遠くへ急がず、今日見える景色を一緒に覚えた。次は別の景色を教え合うことにした。"
+          },
+          {
+            "label": "小さな絵を描く",
+            "text": "絵はあまり似ていない。「あなたの見た世界なんだね」と、にんぎょは大切に受け取った。",
+            "sodachi": 4,
+            "money": -2,
+            "friendshipText": "絵はあまり似ていない。それでも、にんぎょは友だちからの景色を大切に受け取った。"
+          }
+        ],
+        "album": "にんぎょと、海と陸の景色を教え合った。",
+        "once": true,
+        "friendshipTitle": "海と陸の絵はがき",
+        "friendshipText": "うみのにんぎょが、陸の景色に興味を持っている。友だちとして、今見えるものを教え合うことになった。"
+      },
+      "after": {
+        "id": "romance-04",
+        "category": "romance",
+        "title": "波打ち際の約束",
+        "text": "うみのにんぎょが、陸に続く道を見ている。「そっちには、どんな景色があるの？」。",
+        "stages": [
+          4,
+          8
+        ],
+        "regions": [
+          "sea"
+        ],
+        "npc": "sea_mermaid",
+        "choices": [
+          {
+            "label": "見えるものから話す",
+            "text": "遠くへ急がず、今日見える景色を二人で覚えた。次に会う日の話が、自然に出た。",
+            "sodachi": 5,
+            "money": 0,
+            "friendshipText": "遠くへ急がず、今日見える景色を一緒に覚えた。次は別の景色を教え合うことにした。"
+          },
+          {
+            "label": "小さな絵を描く",
+            "text": "絵はあまり似ていない。「あなたの見た世界なんだね」と、にんぎょは大切に受け取った。絵を残す紙と絵の具を、お店で買った。",
+            "sodachi": 4,
+            "money": -2,
+            "friendshipText": "絵はあまり似ていない。それでも、にんぎょは教えてもらった景色を大切に受け取った。絵を残す紙と絵の具を、お店で買った。"
+          }
+        ],
+        "album": "にんぎょと、海と陸の景色を教え合った。",
+        "once": true,
+        "friendshipTitle": "海と陸の絵はがき",
+        "friendshipText": "うみのにんぎょが、陸の景色に興味を持っている。今見えるものを教え合うことになった。"
+      },
+      "findings": "陸を知りたい性格を維持。初対面で友だち成立を断定せず、絵の材料代を説明。",
+      "conditions": {
+        "stageRange": [
+          4,
+          8
+        ],
+        "regions": [
+          "sea"
+        ],
+        "category": "romance",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": {
+        "id": "sea_mermaid",
+        "label": "うみのにんぎょ",
+        "personality": "主人公と陸の世界を知っていく",
+        "canonicalFirstRegion": "sea",
+        "profile": {
+          "emoji": "🧜",
+          "gender": "female",
+          "orientationId": "pan",
+          "affinityHeart": "wonder"
+        }
+      },
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "見えるものから話す",
+          "result": "遠くへ急がず、今日見える景色を二人で覚えた。次に会う日の話が、自然に出た。",
+          "friendshipResult": "遠くへ急がず、今日見える景色を一緒に覚えた。次は別の景色を教え合うことにした。",
+          "baseDelta": {
+            "sodachi": 5,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "小さな絵を描く",
+          "result": "絵はあまり似ていない。「あなたの見た世界なんだね」と、にんぎょは大切に受け取った。絵を残す紙と絵の具を、お店で買った。",
+          "friendshipResult": "絵はあまり似ていない。それでも、にんぎょは教えてもらった景色を大切に受け取った。絵を残す紙と絵の具を、お店で買った。",
+          "baseDelta": {
+            "sodachi": 4,
+            "money": -2
+          },
+          "moneyCause": "絵を残す紙と絵の具を、お店で買った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "encounter",
+        "next": "この場面だけで加入・交際・既存の友人関係を断定しない。再会後の明示的な誘いは別イベントで扱う。",
+        "romance": "相互の指向適合時のみ恋愛表現。非適合・不明・自分自身は同額の友情表現。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "romance-05",
+      "before": {
+        "id": "romance-05",
+        "category": "romance",
+        "title": "同じ場所、違う明日",
+        "text": "待ち合わせの場所で、少し長く話した。明日からは、それぞれ別の道を歩く。それでも今日をなかったことにはしたくない。",
+        "stages": [
+          6,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "大切だったと伝える",
+            "text": "返事を急がず、最後まで話せた。さびしさと、ありがとうを一緒に持って帰った。",
+            "sodachi": 4,
+            "money": 0,
+            "friendshipText": "友だちに、大切な時間だったと伝えた。別々の道でも、今日のことは覚えていよう。"
+          },
+          {
+            "label": "次の便りを約束する",
+            "text": "いつ届くかは決めなかった。新しい景色を見たら、最初に伝えたい。",
+            "sodachi": 3,
+            "money": 4,
+            "friendshipText": "新しい景色を見つけたら、便りを送ろう。友だちとの約束を、そっと胸にしまった。"
+          }
+        ],
+        "album": "大切な相手と、それぞれの明日について話した。",
+        "once": true,
+        "friendshipTitle": "友だちの旅立ち",
+        "friendshipText": "友だちと、いつもの場所で話した。明日からは別々の道。離れても、今までの時間は消えない。"
+      },
+      "after": {
+        "id": "romance-05",
+        "category": "romance",
+        "title": "旅先で分け合う明日",
+        "text": "休憩所で出会った旅人と、今日の道の話をした。明日からは、それぞれ別の道を歩く。短い出会いも、覚えていたい。",
+        "stages": [
+          6,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "話せてよかったと伝える",
+            "text": "最後まで話して、「ありがとう」と伝えた。さびしさと、出会えたうれしさを一緒に持って帰った。",
+            "sodachi": 4,
+            "money": 0,
+            "friendshipText": "「話せてよかった」と伝えた。別々の道でも、今日のことは覚えていよう。"
+          },
+          {
+            "label": "次の景色を便りにすると話す",
+            "text": "新しい景色を見つけたら、休憩所の旅だよりに書こうと話した。今日の話も旅だよりに寄稿すると、休憩所から原稿料をもらった。",
+            "sodachi": 3,
+            "money": 4,
+            "friendshipText": "新しい景色を見つけたら、休憩所の旅だよりに書こうと話した。今日の話も旅だよりに寄稿すると、休憩所から原稿料をもらった。"
+          }
+        ],
+        "album": "旅先で出会った人と、それぞれの明日について話した。",
+        "once": true,
+        "friendshipTitle": "旅人とのひととき",
+        "friendshipText": "休憩所で出会った旅人と、今日の道の話をした。明日からは別々の道。短い出会いも、覚えていたい。"
+      },
+      "findings": "npc がないため常に友情表示。既存恋人との別れ・いつもの場所を廃し、その場の旅人との交流にする。",
+      "conditions": {
+        "stageRange": [
+          6,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "category": "romance",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "話せてよかったと伝える",
+          "result": "最後まで話して、「ありがとう」と伝えた。さびしさと、出会えたうれしさを一緒に持って帰った。",
+          "friendshipResult": "「話せてよかった」と伝えた。別々の道でも、今日のことは覚えていよう。",
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "次の景色を便りにすると話す",
+          "result": "新しい景色を見つけたら、休憩所の旅だよりに書こうと話した。今日の話も旅だよりに寄稿すると、休憩所から原稿料をもらった。",
+          "friendshipResult": "新しい景色を見つけたら、休憩所の旅だよりに書こうと話した。今日の話も旅だよりに寄稿すると、休憩所から原稿料をもらった。",
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 4
+          },
+          "moneyCause": "今日の話も旅だよりに寄稿すると、休憩所から原稿料をもらった。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "匿名の旅人／宛先未定の手紙。npc を捏造せず常に友情・内省表示。継続する関係は別イベントで具体化する。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "romance-06",
+      "before": {
+        "id": "romance-06",
+        "category": "romance",
+        "title": "返事のいらない手紙",
+        "text": "書きかけの手紙を、何度も読み返した。「好き」の後に、何を書けばいいのかわからない。",
+        "stages": [
+          4,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "飾らない言葉で書く",
+            "text": "うまく言えないことも、そのまま書いた。返事を待つ前に、自分の気持ちがわかった。",
+            "sodachi": 5,
+            "money": 0,
+            "evolve": 1,
+            "friendshipText": "「いつもありがとう」と、飾らない言葉で書いた。友だちを大切に思う気持ちが、紙の上に残った。"
+          },
+          {
+            "label": "今日はしまっておく",
+            "text": "今は、届かないままでいい。言葉になる途中の気持ちも、大切にすることにした。",
+            "sodachi": 3,
+            "money": 3,
+            "friendshipText": "今日はしまっておく。感謝を伝える自分らしい方法を、もう少し考えることにした。"
+          }
+        ],
+        "album": "手紙にしたい気持ちを考えた。",
+        "once": true,
+        "friendshipTitle": "ありがとうの下書き",
+        "friendshipText": "友だちへの手紙を書きかけている。「ありがとう」の後に、どの思い出を書こう。"
+      },
+      "after": {
+        "id": "romance-06",
+        "category": "romance",
+        "title": "返事のいらない手紙",
+        "text": "休憩所の机で、誰かに気持ちを伝える手紙の練習を始めた。「好き」の後に、何を書けばいいのかわからない。",
+        "stages": [
+          4,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "飾らない言葉で書く",
+            "text": "うまく言えないことも、そのまま書いた。返事を待つ前に、自分の気持ちがわかった。",
+            "sodachi": 5,
+            "money": 0,
+            "evolve": 1,
+            "friendshipText": "「助けてくれてありがとう」と、飾らない言葉で書いた。誰かを大切に思う気持ちが、紙の上に残った。"
+          },
+          {
+            "label": "今日はしまっておく",
+            "text": "今は、下書きのままでいい。言葉になる途中の気持ちも、大切にすることにした。使わなかった封筒セットを机の売店に返し、預けていた代金を返してもらった。",
+            "sodachi": 3,
+            "money": 3,
+            "friendshipText": "今日はしまっておく。感謝を伝える自分らしい方法を、もう少し考えることにした。使わなかった封筒セットを机の売店に返し、預けていた代金を返してもらった。"
+          }
+        ],
+        "album": "手紙にしたい気持ちを、下書きで考えた。",
+        "once": true,
+        "friendshipTitle": "ありがとうの下書き",
+        "friendshipText": "休憩所の机で、お礼の手紙を書く練習を始めた。宛先はまだ決めていない。「ありがとう」の後に、どんな言葉を続けよう。"
+      },
+      "findings": "npc がないため常に友情表示。実在する既存の友人を仮定せず、宛先未定の練習として成立させる。",
+      "conditions": {
+        "stageRange": [
+          4,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "category": "romance",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "飾らない言葉で書く",
+          "result": "うまく言えないことも、そのまま書いた。返事を待つ前に、自分の気持ちがわかった。",
+          "friendshipResult": "「助けてくれてありがとう」と、飾らない言葉で書いた。誰かを大切に思う気持ちが、紙の上に残った。",
+          "baseDelta": {
+            "sodachi": 5,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 1,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "今日はしまっておく",
+          "result": "今は、下書きのままでいい。言葉になる途中の気持ちも、大切にすることにした。使わなかった封筒セットを机の売店に返し、預けていた代金を返してもらった。",
+          "friendshipResult": "今日はしまっておく。感謝を伝える自分らしい方法を、もう少し考えることにした。使わなかった封筒セットを机の売店に返し、預けていた代金を返してもらった。",
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 3
+          },
+          "moneyCause": "使わなかった封筒セットを机の売店に返し、預けていた代金を返してもらった。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "匿名の旅人／宛先未定の手紙。npc を捏造せず常に友情・内省表示。継続する関係は別イベントで具体化する。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "work-01",
+      "before": {
+        "id": "work-01",
+        "category": "work",
+        "title": "一日だけのお店番",
+        "text": "小さなお店で、留守番を頼まれた。最初のお客さんは、値札をじっと見ている。",
+        "stages": [
+          3,
+          8
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "ゆっくり説明する",
+            "text": "焦らず伝えると、笑顔で買ってもらえた。初めての仕事の手応えが残った。",
+            "sodachi": 4,
+            "money": 8
+          },
+          {
+            "label": "大きな声で呼びこむ",
+            "text": "張り切りすぎて、値段を言い間違えた。差額は自分で直し、次に覚えた。",
+            "sodachi": -2,
+            "money": 5
+          }
+        ],
+        "album": "お店番で、伝える難しさを知った。",
+        "once": true
+      },
+      "after": {
+        "id": "work-01",
+        "category": "work",
+        "title": "一日だけのお店番",
+        "text": "小さなお店で、留守番を頼まれた。最初のお客さんは、値札をじっと見ている。",
+        "stages": [
+          3,
+          8
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "ゆっくり説明する",
+            "text": "焦らず伝えると、笑顔で買ってもらえた。初めての仕事の手応えが残った。約束していた店番代を受け取った。",
+            "sodachi": 4,
+            "money": 8
+          },
+          {
+            "label": "大きな声で呼びこむ",
+            "text": "張り切りすぎて、値段を言い間違えた。店主と訂正し、差額を引いた分の店番代を受け取った。次は落ち着いて伝えよう。",
+            "sodachi": -2,
+            "money": 5
+          }
+        ],
+        "album": "お店番で、伝える難しさを知った。",
+        "once": true
+      },
+      "findings": "失敗したのに正の収入という混乱を、差額精算後の店番代と説明。",
+      "conditions": {
+        "stageRange": [
+          3,
+          8
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "category": "work",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "ゆっくり説明する",
+          "result": "焦らず伝えると、笑顔で買ってもらえた。初めての仕事の手応えが残った。約束していた店番代を受け取った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 8
+          },
+          "moneyCause": "約束していた店番代を受け取った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "大きな声で呼びこむ",
+          "result": "張り切りすぎて、値段を言い間違えた。店主と訂正し、差額を引いた分の店番代を受け取った。次は落ち着いて伝えよう。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": -2,
+            "money": 5
+          },
+          "moneyCause": "差額を引いた後の店番代。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "work-02",
+      "before": {
+        "id": "work-02",
+        "category": "work",
+        "title": "箱いっぱいの書類",
+        "text": "ビルのねこ社長の机には、書類が山になっている。「上から片づけたら、下から出てくるんだ」。",
+        "stages": [
+          4,
+          8
+        ],
+        "regions": [
+          "city"
+        ],
+        "npc": "cat_ceo",
+        "choices": [
+          {
+            "label": "種類ごとに分ける",
+            "text": "山が小さな丘になった。社長は「これなら空が見える」と喜んだ。",
+            "sodachi": 3,
+            "money": 10
+          },
+          {
+            "label": "一気に運ぶ",
+            "text": "途中で書類が雪のように舞った。拾い直しながら、順番の大切さを覚えた。",
+            "sodachi": -2,
+            "money": 12
+          }
+        ],
+        "album": "ねこ社長の書類の山を片づけた。",
+        "once": true
+      },
+      "after": {
+        "id": "work-02",
+        "category": "work",
+        "title": "箱いっぱいの書類",
+        "text": "ビルのねこ社長の机には、書類が山になっている。「上から片づけたら、下から出てくるんだ」。",
+        "stages": [
+          4,
+          8
+        ],
+        "regions": [
+          "city"
+        ],
+        "npc": "cat_ceo",
+        "choices": [
+          {
+            "label": "種類ごとに分ける",
+            "text": "山が小さな丘になった。社長は「これなら空が見える」と喜んだ。社長から、書類整理の手当を受け取った。",
+            "sodachi": 3,
+            "money": 10
+          },
+          {
+            "label": "一気に運ぶ",
+            "text": "途中で書類が雪のように舞った。拾い直しながら、順番の大切さを覚えた。全部を届け終えると、運び直した分も含めた運搬代が支払われた。",
+            "sodachi": -2,
+            "money": 12
+          }
+        ],
+        "album": "ねこ社長の書類の山を片づけた。",
+        "once": true
+      },
+      "findings": "書類整理と運搬の手当を分け、失敗ルートの高い収入は運び直した作業分だと説明。",
+      "conditions": {
+        "stageRange": [
+          4,
+          8
+        ],
+        "regions": [
+          "city"
+        ],
+        "category": "work",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": {
+        "id": "cat_ceo",
+        "label": "ビルのねこ社長",
+        "personality": "仕事人なのにデートのため普通にサボる",
+        "canonicalFirstRegion": "city",
+        "profile": {
+          "emoji": "🐈‍⬛",
+          "gender": "female",
+          "orientationId": "gay",
+          "affinityHeart": "courage"
+        }
+      },
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "種類ごとに分ける",
+          "result": "山が小さな丘になった。社長は「これなら空が見える」と喜んだ。社長から、書類整理の手当を受け取った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 10
+          },
+          "moneyCause": "社長から、書類整理の手当を受け取った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "一気に運ぶ",
+          "result": "途中で書類が雪のように舞った。拾い直しながら、順番の大切さを覚えた。全部を届け終えると、運び直した分も含めた運搬代が支払われた。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": -2,
+            "money": 12
+          },
+          "moneyCause": "全部を届け終えると、運び直した分も含めた運搬代が支払われた。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "encounter",
+        "next": "この場面だけで加入・交際・既存の友人関係を断定しない。再会後の明示的な誘いは別イベントで扱う。",
+        "romance": "交流として扱い、性別や指向を要求しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "work-03",
+      "before": {
+        "id": "work-03",
+        "category": "work",
+        "title": "小さな手づくり市",
+        "text": "作ったものを並べてみた。隣のお店より、少しだけ形がいびつ。でも、全部自分で作った。",
+        "stages": [
+          3,
+          8
+        ],
+        "regions": [
+          "forest",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "作った理由を話す",
+            "text": "話を聞いた人が、一つを選んだ。形だけではないところが届いた。",
+            "sodachi": 4,
+            "money": 7
+          },
+          {
+            "label": "まとめて安く売る",
+            "text": "机の上がすっきりした。次に作りたいものの材料代になった。",
+            "sodachi": 2,
+            "money": 15
+          }
+        ],
+        "album": "手づくり市で、自分の作品を届けた。",
+        "once": true
+      },
+      "after": {
+        "id": "work-03",
+        "category": "work",
+        "title": "小さな手づくり市",
+        "text": "作ったものを並べてみた。隣のお店より、少しだけ形がいびつ。でも、全部自分で作った。",
+        "stages": [
+          3,
+          8
+        ],
+        "regions": [
+          "forest",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "作った理由を話す",
+            "text": "話を聞いた人が、一つを選んだ。形だけではないところが届いた。",
+            "sodachi": 4,
+            "money": 7
+          },
+          {
+            "label": "まとめて安く売る",
+            "text": "机の上がすっきりした。次に作りたいものの材料代になった。",
+            "sodachi": 2,
+            "money": 15
+          }
+        ],
+        "album": "手づくり市で、自分の作品を届けた。",
+        "once": true
+      },
+      "findings": "理由を話して一品販売／安くまとめ売りの数量差は自然。原文の経済因果を保持。",
+      "conditions": {
+        "stageRange": [
+          3,
+          8
+        ],
+        "regions": [
+          "forest",
+          "city",
+          "square"
+        ],
+        "category": "work",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "作った理由を話す",
+          "result": "話を聞いた人が、一つを選んだ。形だけではないところが届いた。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 7
+          },
+          "moneyCause": "一作品の売上。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "まとめて安く売る",
+          "result": "机の上がすっきりした。次に作りたいものの材料代になった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 2,
+            "money": 15
+          },
+          "moneyCause": "まとめ売りの売上。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "retained"
+    },
+    {
+      "id": "work-04",
+      "before": {
+        "id": "work-04",
+        "category": "work",
+        "title": "海辺の配達",
+        "text": "潮風で、配達の宛先が少しにじんでいる。読めるのは「いつもの、あの場所」だけ。",
+        "stages": [
+          3,
+          8
+        ],
+        "regions": [
+          "sea"
+        ],
+        "choices": [
+          {
+            "label": "近くで聞いて回る",
+            "text": "何度か聞いて、いつもの岩場に着いた。待っていた人が、ほっと笑った。",
+            "sodachi": 4,
+            "money": 8
+          },
+          {
+            "label": "記憶を頼りに急ぐ",
+            "text": "似た岩場を三つ回った。遅くなったけれど、最後はちゃんと届けられた。",
+            "sodachi": -1,
+            "money": 12
+          }
+        ],
+        "album": "海辺で、にじんだ宛先の荷物を届けた。",
+        "once": true
+      },
+      "after": {
+        "id": "work-04",
+        "category": "work",
+        "title": "海辺の配達",
+        "text": "潮風で、配達の宛先が少しにじんでいる。読めるのは「いつもの、あの場所」だけ。",
+        "stages": [
+          3,
+          8
+        ],
+        "regions": [
+          "sea"
+        ],
+        "choices": [
+          {
+            "label": "近くで聞いて回る",
+            "text": "何度か聞いて、いつもの岩場に着いた。待っていた人が、ほっと笑った。荷物を手渡し、約束の配達代を受け取った。",
+            "sodachi": 4,
+            "money": 8
+          },
+          {
+            "label": "似た岩場を順に回る",
+            "text": "似た岩場を三つ回った。遅くなったけれど、最後はちゃんと届けられた。配達代に、遠くの岩場まで回った分の距離手当がついた。",
+            "sodachi": -1,
+            "money": 12
+          }
+        ],
+        "album": "海辺で、にじんだ宛先の荷物を届けた。",
+        "once": true
+      },
+      "findings": "知らない配達先の記憶がある前提を除く。到着が遅くても収入が多い理由は長距離手当。",
+      "conditions": {
+        "stageRange": [
+          3,
+          8
+        ],
+        "regions": [
+          "sea"
+        ],
+        "category": "work",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "近くで聞いて回る",
+          "result": "何度か聞いて、いつもの岩場に着いた。待っていた人が、ほっと笑った。荷物を手渡し、約束の配達代を受け取った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 8
+          },
+          "moneyCause": "荷物を手渡し、約束の配達代を受け取った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "似た岩場を順に回る",
+          "result": "似た岩場を三つ回った。遅くなったけれど、最後はちゃんと届けられた。配達代に、遠くの岩場まで回った分の距離手当がついた。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": -1,
+            "money": 12
+          },
+          "moneyCause": "配達代に、遠くの岩場まで回った分の距離手当がついた。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "work-05",
+      "before": {
+        "id": "work-05",
+        "category": "work",
+        "title": "あこがれの仕事",
+        "text": "前から気になっていた仕事を、少しだけ手伝えることになった。見ていた時より、道具が重い。",
+        "stages": [
+          4,
+          7
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "教わった通りに試す",
+            "text": "一度ではできなかった。二度目に少しできた。その違いが、うれしかった。",
+            "sodachi": 5,
+            "money": 5,
+            "evolve": 1
+          },
+          {
+            "label": "得意な方法を試す",
+            "text": "工夫した部分はうまくいった。難しいところは、素直に教わることにした。",
+            "sodachi": 3,
+            "money": 10
+          }
+        ],
+        "album": "あこがれの仕事に、自分の手で触れた。",
+        "once": true
+      },
+      "after": {
+        "id": "work-05",
+        "category": "work",
+        "title": "あこがれの仕事",
+        "text": "前から気になっていた仕事を、少しだけ手伝えることになった。見ていた時より、道具が重い。",
+        "stages": [
+          4,
+          7
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "教わった通りに試す",
+            "text": "一度ではできなかった。二度目に少しできた。その違いが、うれしかった。教わりながら手伝った分の体験手当をもらった。",
+            "sodachi": 5,
+            "money": 5,
+            "evolve": 1
+          },
+          {
+            "label": "得意な方法を試す",
+            "text": "工夫した部分はうまくいった。難しいところは、素直に教わることにした。得意な部分を仕上げた分の作業代を受け取った。",
+            "sodachi": 3,
+            "money": 10
+          }
+        ],
+        "album": "あこがれの仕事に、自分の手で触れた。",
+        "once": true
+      },
+      "findings": "仕事の試行と工夫の物語を保持。体験と仕上げの手当の違いを補う。",
+      "conditions": {
+        "stageRange": [
+          4,
+          7
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "category": "work",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "教わった通りに試す",
+          "result": "一度ではできなかった。二度目に少しできた。その違いが、うれしかった。教わりながら手伝った分の体験手当をもらった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 5,
+            "money": 5
+          },
+          "moneyCause": "教わりながら手伝った分の体験手当をもらった。",
+          "evolution": 1,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "得意な方法を試す",
+          "result": "工夫した部分はうまくいった。難しいところは、素直に教わることにした。得意な部分を仕上げた分の作業代を受け取った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 10
+          },
+          "moneyCause": "得意な部分を仕上げた分の作業代を受け取った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "work-06",
+      "before": {
+        "id": "work-06",
+        "category": "work",
+        "title": "最後まで引き継ぐ",
+        "text": "長く使った道具を、次に使う人へ渡す日。説明書には書けない、小さなコツがたくさんある。",
+        "stages": [
+          6,
+          8
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "失敗した話も伝える",
+            "text": "笑いながら話すうち、相手の緊張がほどけた。道具が、安心して次へ渡った。",
+            "sodachi": 5,
+            "money": 5
+          },
+          {
+            "label": "手入れをして渡す",
+            "text": "使い込んだ傷も、きれいに残った。次の仕事が、ここから始まる。",
+            "sodachi": 3,
+            "money": 10
+          }
+        ],
+        "album": "大切な道具を次の人に引き継いだ。",
+        "once": true
+      },
+      "after": {
+        "id": "work-06",
+        "category": "work",
+        "title": "最後まで引き継ぐ",
+        "text": "道具屋さんで、使い込まれた道具を次に使う人へ渡す手伝いを頼まれた。試しに使うと、説明書にはない小さなコツや、つまずきやすい所がわかった。",
+        "stages": [
+          6,
+          8
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "試して気づいたコツを伝える",
+            "text": "試しに使ってつまずいた話もすると、相手の緊張がほどけた。道具が、安心して次へ渡った。道具屋さんから、使い方を伝えた説明役の手当をもらった。",
+            "sodachi": 5,
+            "money": 5
+          },
+          {
+            "label": "手入れをして渡す",
+            "text": "使い込んだ傷も、きれいに残った。次の仕事が、ここから始まる。道具屋さんから、手入れの作業代を受け取った。",
+            "sodachi": 3,
+            "money": 10
+          }
+        ],
+        "album": "使い込まれた道具を、次の人に引き継ぐ手伝いをした。",
+        "once": true
+      },
+      "findings": "所有・長年の仕事歴を仮定せず、店の道具の引き継ぎに立ち会う現在の場面へ。",
+      "conditions": {
+        "stageRange": [
+          6,
+          8
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "category": "work",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "試して気づいたコツを伝える",
+          "result": "試しに使ってつまずいた話もすると、相手の緊張がほどけた。道具が、安心して次へ渡った。道具屋さんから、使い方を伝えた説明役の手当をもらった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 5,
+            "money": 5
+          },
+          "moneyCause": "道具屋さんから、使い方を伝えた説明役の手当をもらった。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "手入れをして渡す",
+          "result": "使い込んだ傷も、きれいに残った。次の仕事が、ここから始まる。道具屋さんから、手入れの作業代を受け取った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 10
+          },
+          "moneyCause": "道具屋さんから、手入れの作業代を受け取った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "adventure-01",
+      "before": {
+        "id": "adventure-01",
+        "category": "adventure",
+        "title": "波の向こうの光",
+        "text": "浅い波の向こうで、何かがきらり。近くで見るか、岸から確かめるか。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "sea"
+        ],
+        "choices": [
+          {
+            "label": "安全な足場から見る",
+            "text": "光は、小さな貝の内側だった。濡れずに見つけた宝物を、心にしまった。",
+            "sodachi": 3,
+            "money": 5
+          },
+          {
+            "label": "波が引く瞬間を待つ",
+            "text": "足元まで来た貝を拾えた。タイミングを待つ冒険もあると知った。",
+            "sodachi": 5,
+            "money": -2
+          }
+        ],
+        "album": "波の中に光るものを見つけた。",
+        "once": true
+      },
+      "after": {
+        "id": "adventure-01",
+        "category": "adventure",
+        "title": "波の向こうの光",
+        "text": "浅い波の向こうで、何かがきらり。浜の展示係が、光る貝の観察記録を集めている。貝を持ち帰るなら、そばの店に保管用の小箱がある。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "sea"
+        ],
+        "choices": [
+          {
+            "label": "安全な足場から見る",
+            "text": "光は、小さな貝の内側だった。濡れずに見つけた宝物を、心にしまった。展示係に光の様子を伝え、観察のお礼を受け取った。",
+            "sodachi": 3,
+            "money": 5
+          },
+          {
+            "label": "波が引くのを待って拾う",
+            "text": "足元まで来た貝を拾えた。タイミングを待つ冒険もあると知った。貝をつぶさず持ち帰れるよう、小箱を買った。",
+            "sodachi": 5,
+            "money": -2
+          }
+        ],
+        "album": "波の中に光るものを見つけた。",
+        "once": true
+      },
+      "findings": "安全な観察は記録の謝礼、採集は保管箱の支出として別々の選択を説明。",
+      "conditions": {
+        "stageRange": [
+          1,
+          8
+        ],
+        "regions": [
+          "sea"
+        ],
+        "category": "adventure",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "安全な足場から見る",
+          "result": "光は、小さな貝の内側だった。濡れずに見つけた宝物を、心にしまった。展示係に光の様子を伝え、観察のお礼を受け取った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 5
+          },
+          "moneyCause": "展示係に光の様子を伝え、観察のお礼を受け取った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "波が引くのを待って拾う",
+          "result": "足元まで来た貝を拾えた。タイミングを待つ冒険もあると知った。貝をつぶさず持ち帰れるよう、小箱を買った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 5,
+            "money": -2
+          },
+          "moneyCause": "貝をつぶさず持ち帰れるよう、小箱を買った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "adventure-02",
+      "before": {
+        "id": "adventure-02",
+        "category": "adventure",
+        "title": "橋の一歩目",
+        "text": "小さな橋が、風で少し鳴っている。渡った先の景色は、まだ見えない。",
+        "stages": [
+          1,
+          4
+        ],
+        "regions": [
+          "forest",
+          "sea"
+        ],
+        "choices": [
+          {
+            "label": "ゆっくり渡る",
+            "text": "足元を確かめて、一歩ずつ。向こう岸から見る橋は、さっきより小さかった。",
+            "sodachi": 5,
+            "money": 0,
+            "evolve": 1
+          },
+          {
+            "label": "別の道を選ぶ",
+            "text": "遠回りの道に、花が咲いていた。今日は、この冒険でよかった。",
+            "sodachi": 3,
+            "money": 3
+          }
+        ],
+        "album": "橋の向こうへ進む方法を、自分で選んだ。",
+        "once": true
+      },
+      "after": {
+        "id": "adventure-02",
+        "category": "adventure",
+        "title": "橋の一歩目",
+        "text": "小さな橋が、風で少し鳴っている。渡った先の景色は、まだ見えない。",
+        "stages": [
+          1,
+          4
+        ],
+        "regions": [
+          "forest",
+          "sea"
+        ],
+        "choices": [
+          {
+            "label": "ゆっくり渡る",
+            "text": "足元を確かめて、一歩ずつ。向こう岸から見る橋は、さっきより小さかった。",
+            "sodachi": 5,
+            "money": 0,
+            "evolve": 1
+          },
+          {
+            "label": "別の道を選ぶ",
+            "text": "遠回りの道に、花が咲いていた。今日は、この冒険でよかった。道端で花の鉢を運ぶ人を手伝い、お礼を受け取った。",
+            "sodachi": 3,
+            "money": 3
+          }
+        ],
+        "album": "橋の向こうへ進む方法を、自分で選んだ。",
+        "once": true
+      },
+      "findings": "怖さに対処する二つの冒険を保持。遠回りの金銭は追加の小さな手伝いとする。",
+      "conditions": {
+        "stageRange": [
+          1,
+          4
+        ],
+        "regions": [
+          "forest",
+          "sea"
+        ],
+        "category": "adventure",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "ゆっくり渡る",
+          "result": "足元を確かめて、一歩ずつ。向こう岸から見る橋は、さっきより小さかった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 5,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 1,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "別の道を選ぶ",
+          "result": "遠回りの道に、花が咲いていた。今日は、この冒険でよかった。道端で花の鉢を運ぶ人を手伝い、お礼を受け取った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 3
+          },
+          "moneyCause": "道端で花の鉢を運ぶ人を手伝い、お礼を受け取った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "adventure-03",
+      "before": {
+        "id": "adventure-03",
+        "category": "adventure",
+        "title": "地図のない寄り道",
+        "text": "道の先に、小さな坂がある。地図には何も書かれていないけれど、風だけは気持ちよさそう。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "帰り道を覚えて登る",
+            "text": "坂の上から、さっきまでいた場所が見えた。地図に小さな印を増やした。",
+            "sodachi": 4,
+            "money": 3
+          },
+          {
+            "label": "宝物を探してみる",
+            "text": "見つかったのは、丸い石。期待とは違ったけれど、ポケットにちょうどよかった。",
+            "sodachi": -1,
+            "money": 8
+          }
+        ],
+        "album": "地図にない坂へ、寄り道した。",
+        "once": true
+      },
+      "after": {
+        "id": "adventure-03",
+        "category": "adventure",
+        "title": "地図のない寄り道",
+        "text": "道の先に、小さな坂がある。地図には何も書かれていないけれど、風だけは気持ちよさそう。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "帰り道を覚えて登る",
+            "text": "坂の上から、さっきまでいた場所が見えた。地図に小さな印を増やした。地図屋さんが坂の情報を受け取り、調べたお礼をくれた。",
+            "sodachi": 4,
+            "money": 3
+          },
+          {
+            "label": "宝物を探してみる",
+            "text": "見つかったのは、丸い石。期待とは違って少しがっかりしたけれど、ポケットにちょうどよかった。帰り道で石屋さんの荷運びを手伝い、運び賃をもらった。丸い石は持ち帰った。",
+            "sodachi": -1,
+            "money": 8
+          }
+        ],
+        "album": "地図にない坂へ、寄り道した。",
+        "once": true
+      },
+      "findings": "地図の発見・期待外れの石を保持。石の売却を勝手に仮定せず別の仕事の対価に。",
+      "conditions": {
+        "stageRange": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "category": "adventure",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "帰り道を覚えて登る",
+          "result": "坂の上から、さっきまでいた場所が見えた。地図に小さな印を増やした。地図屋さんが坂の情報を受け取り、調べたお礼をくれた。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 3
+          },
+          "moneyCause": "地図屋さんが坂の情報を受け取り、調べたお礼をくれた。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "宝物を探してみる",
+          "result": "見つかったのは、丸い石。期待とは違って少しがっかりしたけれど、ポケットにちょうどよかった。帰り道で石屋さんの荷運びを手伝い、運び賃をもらった。丸い石は持ち帰った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": -1,
+            "money": 8
+          },
+          "moneyCause": "帰り道で石屋さんの荷運びを手伝い、運び賃をもらった。丸い石は持ち帰った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "adventure-04",
+      "before": {
+        "id": "adventure-04",
+        "category": "adventure",
+        "title": "ころがる荷物",
+        "text": "坂道を、誰かの荷物がころころ転がってくる。追いかけるには、少し距離がある。",
+        "stages": [
+          2,
+          8
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "先で受け止める",
+            "text": "両側を確かめて待つと、荷物が足元へ。持ち主のお礼が、息を切らして届いた。",
+            "sodachi": 4,
+            "money": 5
+          },
+          {
+            "label": "声をかけて知らせる",
+            "text": "近くの人が止めてくれた。一人で全部しなくても、助けることはできた。",
+            "sodachi": 3,
+            "money": 7
+          }
+        ],
+        "album": "転がる荷物に気づいて行動した。",
+        "once": true
+      },
+      "after": {
+        "id": "adventure-04",
+        "category": "adventure",
+        "title": "ころがる荷物",
+        "text": "坂道を、誰かの荷物がころころ転がってくる。追いかけるには、少し距離がある。",
+        "stages": [
+          2,
+          8
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "先で受け止める",
+            "text": "両側を確かめて待つと、荷物が足元へ。持ち主のお礼が、息を切らして届いた。持ち主から、荷物を助けたお礼のお金を受け取った。",
+            "sodachi": 4,
+            "money": 5
+          },
+          {
+            "label": "声をかけて知らせる",
+            "text": "近くの人が止めてくれた。一人で全部しなくても、助けることはできた。持ち主を呼び、荷物の届け先まで案内すると、その分も含めたお礼をもらった。",
+            "sodachi": 3,
+            "money": 7
+          }
+        ],
+        "album": "転がる荷物に気づいて行動した。",
+        "once": true
+      },
+      "findings": "助け方の違いを維持。謝礼の出し手・理由を明示し、人を頼る選択にも主体性を残す。",
+      "conditions": {
+        "stageRange": [
+          2,
+          8
+        ],
+        "regions": [
+          "city",
+          "square"
+        ],
+        "category": "adventure",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "先で受け止める",
+          "result": "両側を確かめて待つと、荷物が足元へ。持ち主のお礼が、息を切らして届いた。持ち主から、荷物を助けたお礼のお金を受け取った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 5
+          },
+          "moneyCause": "持ち主から、荷物を助けたお礼のお金を受け取った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "声をかけて知らせる",
+          "result": "近くの人が止めてくれた。一人で全部しなくても、助けることはできた。持ち主を呼び、荷物の届け先まで案内すると、その分も含めたお礼をもらった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 7
+          },
+          "moneyCause": "持ち主を呼び、荷物の届け先まで案内すると、その分も含めたお礼をもらった。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "adventure-05",
+      "before": {
+        "id": "adventure-05",
+        "category": "adventure",
+        "title": "暗い道の小さな灯り",
+        "text": "夕方の道で、ひかるチョウチンアンコウが明かりを向けてくれた。暗い場所では、いつもより楽しそう。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "sea"
+        ],
+        "npc": "anglerfish",
+        "choices": [
+          {
+            "label": "光を頼りに進む",
+            "text": "暗さの中に、今まで見えなかった色があった。少しだけ、夜が好きになった。",
+            "sodachi": 4,
+            "money": 2
+          },
+          {
+            "label": "見つけたものを教える",
+            "text": "小さな影や波の形を、順番に教え合った。道が短く感じた。",
+            "sodachi": 3,
+            "money": 5
+          }
+        ],
+        "album": "チョウチンアンコウと、夜の景色を見た。",
+        "once": true
+      },
+      "after": {
+        "id": "adventure-05",
+        "category": "adventure",
+        "title": "暗い道の小さな灯り",
+        "text": "海辺の暗い観察路で、ひかるチョウチンアンコウが明かりを向けてくれた。明るい入口では照れていたのに、ここでは楽しそう。観察所は、夜の景色の記録を募っている。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "sea"
+        ],
+        "npc": "anglerfish",
+        "choices": [
+          {
+            "label": "光を頼りに進む",
+            "text": "暗さの中に、今まで見えなかった色があった。少しだけ、夜が好きになった。見えた色を観察所へ報告し、協力のお礼をもらった。",
+            "sodachi": 4,
+            "money": 2
+          },
+          {
+            "label": "見つけたものを教える",
+            "text": "小さな影や波の形を、順番に教え合った。道が短く感じた。二人で集めた詳しい観察記録を届け、記録係の手当を受け取った。",
+            "sodachi": 3,
+            "money": 5
+          }
+        ],
+        "album": "チョウチンアンコウと、夜の景色を見た。",
+        "once": true
+      },
+      "findings": "深海の出会い先を四地域版の sea に抽象化。明暗の性格差を場面内で描き、支払いは観察所から。",
+      "conditions": {
+        "stageRange": [
+          1,
+          8
+        ],
+        "regions": [
+          "sea"
+        ],
+        "category": "adventure",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": {
+        "id": "anglerfish",
+        "label": "ひかるチョウチンアンコウ",
+        "personality": "暗所では積極的、明るい場所では照れる",
+        "canonicalFirstRegion": "deepsea",
+        "profile": {
+          "emoji": "🐟",
+          "gender": "female",
+          "orientationId": "bi",
+          "affinityHeart": "wonder"
+        }
+      },
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "光を頼りに進む",
+          "result": "暗さの中に、今まで見えなかった色があった。少しだけ、夜が好きになった。見えた色を観察所へ報告し、協力のお礼をもらった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 2
+          },
+          "moneyCause": "見えた色を観察所へ報告し、協力のお礼をもらった。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "見つけたものを教える",
+          "result": "小さな影や波の形を、順番に教え合った。道が短く感じた。二人で集めた詳しい観察記録を届け、記録係の手当を受け取った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 5
+          },
+          "moneyCause": "二人で集めた詳しい観察記録を届け、記録係の手当を受け取った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "encounter",
+        "next": "この場面だけで加入・交際・既存の友人関係を断定しない。再会後の明示的な誘いは別イベントで扱う。",
+        "romance": "交流として扱い、性別や指向を要求しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "adventure-06",
+      "before": {
+        "id": "adventure-06",
+        "category": "adventure",
+        "title": "風に飛んだ帽子",
+        "text": "風が、誰かの帽子をさらった。枝に引っかかった帽子は、すっかり鳥の巣の顔をしている。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "届く道具を借りる",
+            "text": "長い枝を借りて、そっと下ろした。帽子は、また帽子の顔に戻った。",
+            "sodachi": 4,
+            "money": 3
+          },
+          {
+            "label": "落ちるまで待つ",
+            "text": "次の風で、さらに高い枝へ。今日は届かず、持ち主に場所を伝えた。",
+            "sodachi": -2,
+            "money": 8
+          }
+        ],
+        "album": "風に飛んだ帽子を見つけた。",
+        "once": true
+      },
+      "after": {
+        "id": "adventure-06",
+        "category": "adventure",
+        "title": "風に飛んだ帽子",
+        "text": "風が、誰かの帽子をさらった。枝に引っかかった帽子は、すっかり鳥の巣の顔をしている。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "届く道具を借りる",
+            "text": "長い枝を借りて、そっと下ろした。帽子は、また帽子の顔に戻った。持ち主から、帽子を下ろしたお礼を受け取った。",
+            "sodachi": 4,
+            "money": 3
+          },
+          {
+            "label": "落ちるまで待つ",
+            "text": "次の風で、さらに高い枝へ。今日は届かず、持ち主に場所を伝えた。持ち主は、帽子が飛んでいかないか長く見守ってくれた分の手当を渡してくれた。",
+            "sodachi": -2,
+            "money": 8
+          }
+        ],
+        "album": "風に飛んだ帽子を見つけた。",
+        "once": true
+      },
+      "findings": "帽子を取り戻す／戻せない差を保持。未回収ルートは成功報酬でなく長く見守った手当。",
+      "conditions": {
+        "stageRange": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "square"
+        ],
+        "category": "adventure",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "届く道具を借りる",
+          "result": "長い枝を借りて、そっと下ろした。帽子は、また帽子の顔に戻った。持ち主から、帽子を下ろしたお礼を受け取った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 3
+          },
+          "moneyCause": "持ち主から、帽子を下ろしたお礼を受け取った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "落ちるまで待つ",
+          "result": "次の風で、さらに高い枝へ。今日は届かず、持ち主に場所を伝えた。持ち主は、帽子が飛んでいかないか長く見守ってくれた分の手当を渡してくれた。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": -2,
+            "money": 8
+          },
+          "moneyCause": "持ち主は、帽子が飛んでいかないか長く見守ってくれた分の手当を渡してくれた。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "adventure-07",
+      "before": {
+        "id": "adventure-07",
+        "category": "adventure",
+        "title": "お祭りの迷子係",
+        "text": "にぎやかな広場で、離ればなれになった二人を探すことになった。手がかりは「一番楽しそうなところ」。",
+        "stages": [
+          3,
+          8
+        ],
+        "regions": [
+          "square",
+          "city"
+        ],
+        "choices": [
+          {
+            "label": "待ち合わせ場所を作る",
+            "text": "目印を決めて呼びかけたら、二人とも来た。再会の笑顔が、今日のお祭りになった。",
+            "sodachi": 5,
+            "money": 4
+          },
+          {
+            "label": "会場を一周する",
+            "text": "同じ人と三度すれ違った。最後は係の場所で会えて、みんなで笑った。",
+            "sodachi": -1,
+            "money": 10
+          }
+        ],
+        "album": "お祭りで、離ればなれの二人をつないだ。",
+        "once": true
+      },
+      "after": {
+        "id": "adventure-07",
+        "category": "adventure",
+        "title": "お祭りの迷子係",
+        "text": "にぎやかな広場で、離ればなれになった二人を探すことになった。手がかりは「一番楽しそうなところ」。",
+        "stages": [
+          3,
+          8
+        ],
+        "regions": [
+          "square",
+          "city"
+        ],
+        "choices": [
+          {
+            "label": "待ち合わせ場所を作る",
+            "text": "目印を決めて呼びかけたら、二人とも来た。再会の笑顔が、今日のお祭りになった。お祭りの係から、呼びかけを手伝ったお礼をもらった。",
+            "sodachi": 5,
+            "money": 4
+          },
+          {
+            "label": "会場を一周する",
+            "text": "同じ人と三度すれ違って、くたくた。最後は係の場所で会えて、みんなで笑った。お祭りの係から、長く会場を巡回した分の手当をもらった。",
+            "sodachi": -1,
+            "money": 10
+          }
+        ],
+        "album": "お祭りで、離ればなれの二人をつないだ。",
+        "once": true
+      },
+      "findings": "迷子捜索で誰が依頼・精算するかを明示。迂回の疲れと巡回の手当を対応。",
+      "conditions": {
+        "stageRange": [
+          3,
+          8
+        ],
+        "regions": [
+          "square",
+          "city"
+        ],
+        "category": "adventure",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "待ち合わせ場所を作る",
+          "result": "目印を決めて呼びかけたら、二人とも来た。再会の笑顔が、今日のお祭りになった。お祭りの係から、呼びかけを手伝ったお礼をもらった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 5,
+            "money": 4
+          },
+          "moneyCause": "お祭りの係から、呼びかけを手伝ったお礼をもらった。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "会場を一周する",
+          "result": "同じ人と三度すれ違って、くたくた。最後は係の場所で会えて、みんなで笑った。お祭りの係から、長く会場を巡回した分の手当をもらった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": -1,
+            "money": 10
+          },
+          "moneyCause": "お祭りの係から、長く会場を巡回した分の手当をもらった。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "adventure-08",
+      "before": {
+        "id": "adventure-08",
+        "category": "adventure",
+        "title": "こわれた看板",
+        "text": "分かれ道の看板が、反対を向いている。誰かが迷う前に、できることはあるだろうか。",
+        "stages": [
+          2,
+          8
+        ],
+        "regions": [
+          "forest",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "向きを確かめて直す",
+            "text": "道を確かめ、看板を戻した。後から来た人が、迷わず進んでいった。",
+            "sodachi": 4,
+            "money": 4
+          },
+          {
+            "label": "案内役になる",
+            "text": "しばらく立って案内した。声は少しかれたけれど、町の道に詳しくなった。",
+            "sodachi": 3,
+            "money": 8
+          }
+        ],
+        "album": "分かれ道の案内に力を貸した。",
+        "once": true
+      },
+      "after": {
+        "id": "adventure-08",
+        "category": "adventure",
+        "title": "こわれた看板",
+        "text": "分かれ道の看板が、反対を向いている。誰かが迷う前に、できることはあるだろうか。",
+        "stages": [
+          2,
+          8
+        ],
+        "regions": [
+          "forest",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "向きを確かめて直す",
+            "text": "道を確かめ、看板を戻した。後から来た人が、迷わず進んでいった。道の管理係から、看板を直した作業代をもらった。",
+            "sodachi": 4,
+            "money": 4
+          },
+          {
+            "label": "案内役になる",
+            "text": "しばらく立って案内した。声は少しかれたけれど、町の道に詳しくなった。道の管理係から、案内役を続けた時間の手当をもらった。",
+            "sodachi": 3,
+            "money": 8
+          }
+        ],
+        "album": "分かれ道の案内に力を貸した。",
+        "once": true
+      },
+      "findings": "看板を直す／案内役をする、どちらも成立する元の選択を保持し作業の対価を補う。",
+      "conditions": {
+        "stageRange": [
+          2,
+          8
+        ],
+        "regions": [
+          "forest",
+          "city",
+          "square"
+        ],
+        "category": "adventure",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "向きを確かめて直す",
+          "result": "道を確かめ、看板を戻した。後から来た人が、迷わず進んでいった。道の管理係から、看板を直した作業代をもらった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 4
+          },
+          "moneyCause": "道の管理係から、看板を直した作業代をもらった。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "案内役になる",
+          "result": "しばらく立って案内した。声は少しかれたけれど、町の道に詳しくなった。道の管理係から、案内役を続けた時間の手当をもらった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 8
+          },
+          "moneyCause": "道の管理係から、案内役を続けた時間の手当をもらった。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "adventure-09",
+      "before": {
+        "id": "adventure-09",
+        "category": "adventure",
+        "title": "忘れていた挑戦",
+        "text": "前にできなかった遊びを、もう一度見かけた。あの日より少し成長した自分で、向き合ってみる。",
+        "stages": [
+          5,
+          8
+        ],
+        "regions": [
+          "sea",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "もう一度挑む",
+            "text": "途中までは前と同じ。最後の一歩だけ、今度はできた。",
+            "sodachi": 5,
+            "money": 0,
+            "evolve": 1
+          },
+          {
+            "label": "挑む人を応援する",
+            "text": "応援しているうち、自分の時に欲しかった言葉がわかった。",
+            "sodachi": 4,
+            "money": 2
+          }
+        ],
+        "album": "前にできなかった挑戦を、違う気持ちで見つめた。",
+        "once": true
+      },
+      "after": {
+        "id": "adventure-09",
+        "category": "adventure",
+        "title": "忘れていた挑戦",
+        "text": "輪投げに一度挑んだら、最後の輪だけ届かなかった。少し休んで、もう一度見つめる。自分で再挑戦するか、次の人を応援するか。",
+        "stages": [
+          5,
+          8
+        ],
+        "regions": [
+          "sea",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "もう一度挑む",
+            "text": "途中までは同じ。狙いを定めた最後の一投だけ、今度は届いた。",
+            "sodachi": 5,
+            "money": 0,
+            "evolve": 1
+          },
+          {
+            "label": "挑む人を応援する",
+            "text": "応援しているうち、自分の時に欲しかった言葉がわかった。応援のあと輪を集めるのも手伝い、係からお礼をもらった。",
+            "sodachi": 4,
+            "money": 2
+          }
+        ],
+        "album": "届かなかった輪投げに、違う気持ちで向き合った。",
+        "once": true
+      },
+      "findings": "未知の遊びや過去の失敗を仮定せず、具体的な輪投げと直前の挑戦を導入。",
+      "conditions": {
+        "stageRange": [
+          5,
+          8
+        ],
+        "regions": [
+          "sea",
+          "square"
+        ],
+        "category": "adventure",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "もう一度挑む",
+          "result": "途中までは同じ。狙いを定めた最後の一投だけ、今度は届いた。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 5,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 1,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "挑む人を応援する",
+          "result": "応援しているうち、自分の時に欲しかった言葉がわかった。応援のあと輪を集めるのも手伝い、係からお礼をもらった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 2
+          },
+          "moneyCause": "応援のあと輪を集めるのも手伝い、係からお礼をもらった。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "adventure-10",
+      "before": {
+        "id": "adventure-10",
+        "category": "adventure",
+        "title": "遠くへ続く道",
+        "text": "旅の終わりが近づいても、道はまだ続いている。全部を見ることはできない。それでも、今日の景色は選べる。",
+        "stages": [
+          6,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "まだ知らない方へ",
+            "text": "初めての風を受けた。年を重ねても、初めてはなくならない。",
+            "sodachi": 5,
+            "money": 1
+          },
+          {
+            "label": "好きだった場所へ戻る",
+            "text": "同じ場所に、違う自分で立った。懐かしさと新しさが、並んでいた。",
+            "sodachi": 4,
+            "money": 5
+          }
+        ],
+        "album": "旅の終わりに、行きたい道を選んだ。",
+        "once": true
+      },
+      "after": {
+        "id": "adventure-10",
+        "category": "adventure",
+        "title": "遠くへ続く道",
+        "text": "旅の終わりが近づいても、道はまだ続いている。全部を見ることはできない。それでも、今日の景色は選べる。",
+        "stages": [
+          6,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "まだ知らない方へ",
+            "text": "初めての風を受けた。年を重ねても、初めてはなくならない。道中、案内所の便りを一通届けて、小さな配達代をもらった。",
+            "sodachi": 5,
+            "money": 1
+          },
+          {
+            "label": "好きだった場所へ戻る",
+            "text": "同じ場所に、違う自分で立った。懐かしさと新しさが、並んでいた。戻った休憩所で椅子の片づけを手伝い、お礼を受け取った。",
+            "sodachi": 4,
+            "money": 5
+          }
+        ],
+        "album": "旅の終わりに、行きたい道を選んだ。",
+        "once": true
+      },
+      "findings": "終盤の新しさと懐かしさを保持。収入は道中の配達や休憩所の仕事に対する謝礼。",
+      "conditions": {
+        "stageRange": [
+          6,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "category": "adventure",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "まだ知らない方へ",
+          "result": "初めての風を受けた。年を重ねても、初めてはなくならない。道中、案内所の便りを一通届けて、小さな配達代をもらった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 5,
+            "money": 1
+          },
+          "moneyCause": "道中、案内所の便りを一通届けて、小さな配達代をもらった。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "好きだった場所へ戻る",
+          "result": "同じ場所に、違う自分で立った。懐かしさと新しさが、並んでいた。戻った休憩所で椅子の片づけを手伝い、お礼を受け取った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 5
+          },
+          "moneyCause": "戻った休憩所で椅子の片づけを手伝い、お礼を受け取った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "fate-01",
+      "before": {
+        "id": "fate-01",
+        "category": "fate",
+        "title": "時計の忘れもの",
+        "text": "じかんにルーズなとけいが、針を一本ぶん首をかしげた。「若いころの景色、もう一度見てみる？」。",
+        "stages": [
+          2,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "npc": "clock",
+        "choices": [
+          {
+            "label": "少しだけ戻ってみる",
+            "text": "景色は同じなのに、目線が変わった。覚えていることを持ったまま、もう一度歩こう。",
+            "sodachi": 3,
+            "money": 0,
+            "time": -1
+          },
+          {
+            "label": "今の自分で進む",
+            "text": "「それもいいね」。時計は、今度は前を向いた。",
+            "sodachi": 3,
+            "money": 5
+          }
+        ],
+        "album": "時計と、時間の進む向きを考えた。",
+        "once": true
+      },
+      "after": {
+        "id": "fate-01",
+        "category": "fate",
+        "title": "時計の忘れもの",
+        "text": "じかんにルーズなとけいが、針を一本ぶん首をかしげた。「若いころの景色、もう一度見てみる？」。",
+        "stages": [
+          2,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "npc": "clock",
+        "choices": [
+          {
+            "label": "ひとつ前の姿へ戻ってみる",
+            "text": "戻れる段階なら、ひとつ前の姿へ。覚えていることを持ったまま、もう一度歩こう。",
+            "sodachi": 3,
+            "money": 0,
+            "time": -1
+          },
+          {
+            "label": "今の自分で進む",
+            "text": "「それもいいね」。時計は、今度は前を向いた。時計の落としたねじを見つけて渡すと、お礼のお金をもらった。",
+            "sodachi": 3,
+            "money": 5
+          }
+        ],
+        "album": "時計と、時間の進む向きを考えた。",
+        "once": true
+      },
+      "findings": "若返りが記憶や過去を消す表現は避け、段階変更の意味を明確化。進む選択は時計探しの謝礼。",
+      "conditions": {
+        "stageRange": [
+          2,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "category": "fate",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": {
+        "id": "clock",
+        "label": "じかんにルーズなとけい",
+        "personality": "時刻は大まか。小さな出来事の音を覚えていて、誰かを待つ時間は気にしない",
+        "canonicalFirstRegion": null,
+        "profile": null
+      },
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "ひとつ前の姿へ戻ってみる",
+          "result": "戻れる段階なら、ひとつ前の姿へ。覚えていることを持ったまま、もう一度歩こう。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 0,
+          "time": -1,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "今の自分で進む",
+          "result": "「それもいいね」。時計は、今度は前を向いた。時計の落としたねじを見つけて渡すと、お礼のお金をもらった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 5
+          },
+          "moneyCause": "時計の落としたねじを見つけて渡すと、お礼のお金をもらった。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "encounter",
+        "next": "この場面だけで加入・交際・既存の友人関係を断定しない。再会後の明示的な誘いは別イベントで扱う。",
+        "romance": "交流として扱い、性別や指向を要求しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "fate-02",
+      "before": {
+        "id": "fate-02",
+        "category": "fate",
+        "title": "もう一枚のページ",
+        "text": "アルバムの間に、白いページが見つかった。あの日と違う選択を、ここへ書き足せそうだ。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "違う選択を体験する",
+            "text": "過去は消さない。もう一つの選び方を、新しいページへ。",
+            "sodachi": 0,
+            "money": 0,
+            "redo": true
+          },
+          {
+            "label": "今の思い出を大切にする",
+            "text": "白いページは、次の出来事のために残した。",
+            "sodachi": 3,
+            "money": 5
+          }
+        ],
+        "album": "アルバムの白いページを見つけた。",
+        "once": true
+      },
+      "after": {
+        "id": "fate-02",
+        "category": "fate",
+        "title": "もう一枚のページ",
+        "text": "アルバムの間に、白いページが見つかった。選び直せる思い出があれば、違う選択をここへ書き足せそうだ。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "選び直せる思い出を探す",
+            "text": "過去は消さない。選び直せる思い出があれば、もう一つの道を新しいページへ。なければ、今日はここまで。",
+            "sodachi": 0,
+            "money": 0,
+            "redo": true
+          },
+          {
+            "label": "今の思い出を大切にする",
+            "text": "白いページは、次の出来事のために残した。アルバム売店の感想募集に思い出を書き、寄稿のお礼を受け取った。",
+            "sodachi": 3,
+            "money": 5
+          }
+        ],
+        "album": "アルバムの白いページを見つけた。",
+        "once": true
+      },
+      "findings": "redo 候補なし・上限到達でも嘘にならない結果へ。ページを残す収入は売店の感想募集。",
+      "conditions": {
+        "stageRange": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "category": "fate",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "選び直せる思い出を探す",
+          "result": "過去は消さない。選び直せる思い出があれば、もう一つの道を新しいページへ。なければ、今日はここまで。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 0,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 0,
+          "time": 0,
+          "redo": true
+        },
+        {
+          "index": 1,
+          "meaning": "今の思い出を大切にする",
+          "result": "白いページは、次の出来事のために残した。アルバム売店の感想募集に思い出を書き、寄稿のお礼を受け取った。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 5
+          },
+          "moneyCause": "アルバム売店の感想募集に思い出を書き、寄稿のお礼を受け取った。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "fate-03",
+      "before": {
+        "id": "fate-03",
+        "category": "fate",
+        "title": "時間のいたずら",
+        "text": "広場の針が、くるりと回る。進んだのか、戻ったのか。風だけが、事情を知っていそう。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "未来の風に乗る",
+            "text": "少し先の自分になった。何ができるかは、これから確かめよう。",
+            "sodachi": 2,
+            "money": 0,
+            "time": 1
+          },
+          {
+            "label": "昔の風に触れる",
+            "text": "体は少し若くなった。覚えたことは、ちゃんとここにある。",
+            "sodachi": 3,
+            "money": 0,
+            "time": -1
+          }
+        ],
+        "album": "いたずらな時間の風に出会った。",
+        "once": true
+      },
+      "after": {
+        "id": "fate-03",
+        "category": "fate",
+        "title": "時間のいたずら",
+        "text": "道ばたの不思議な時計の針が、くるりと回る。進んだのか、戻ったのか。風だけが、事情を知っていそう。",
+        "stages": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "未来の風に乗る",
+            "text": "進める段階なら、ひとつ先の姿へ。最後の姿なら、今の姿で未来の風を受ける。何ができるかは、これから確かめよう。",
+            "sodachi": 2,
+            "money": 0,
+            "time": 1
+          },
+          {
+            "label": "昔の風に触れる",
+            "text": "戻れる段階なら、ひとつ前の姿へ。最初の姿なら、そのままで昔の風に触れる。覚えたことは、ちゃんとここにある。",
+            "sodachi": 3,
+            "money": 0,
+            "time": -1
+          }
+        ],
+        "album": "いたずらな時間の風に出会った。",
+        "once": true
+      },
+      "findings": "全地域イベントの広場断定を削除。第1・8段階で time が clamp されても結果を偽らない。",
+      "conditions": {
+        "stageRange": [
+          1,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "category": "fate",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "未来の風に乗る",
+          "result": "進める段階なら、ひとつ先の姿へ。最後の姿なら、今の姿で未来の風を受ける。何ができるかは、これから確かめよう。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 2,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 0,
+          "time": 1,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "昔の風に触れる",
+          "result": "戻れる段階なら、ひとつ前の姿へ。最初の姿なら、そのままで昔の風に触れる。覚えたことは、ちゃんとここにある。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 3,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 0,
+          "time": -1,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    },
+    {
+      "id": "fate-04",
+      "before": {
+        "id": "fate-04",
+        "category": "fate",
+        "title": "八つ目の窓",
+        "text": "並んだ窓の一つに、まだ見たことのない景色が映る。今まで選んできた道が、後ろに続いている。",
+        "stages": [
+          6,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "窓を開ける",
+            "text": "新しい風が入ってきた。最後の姿でも、人生はまだ動いている。",
+            "sodachi": 5,
+            "money": 0,
+            "evolve": 1
+          },
+          {
+            "label": "後ろの道を眺める",
+            "text": "失敗も寄り道も、ここへ続いていた。一つずつ、覚えていたい。",
+            "sodachi": 4,
+            "money": 10
+          }
+        ],
+        "album": "八つ目の窓の前に立った。",
+        "once": true
+      },
+      "after": {
+        "id": "fate-04",
+        "category": "fate",
+        "title": "八つ目の窓",
+        "text": "並んだ窓の一つに、まだ見たことのない景色が映る。今まで選んできた道が、後ろに続いている。",
+        "stages": [
+          6,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "choices": [
+          {
+            "label": "窓を開ける",
+            "text": "新しい風が入ってきた。まだ先の姿があれば、そちらへ一歩。最後の姿でも、人生はまだ動いている。",
+            "sodachi": 5,
+            "money": 0,
+            "evolve": 1
+          },
+          {
+            "label": "後ろの道を眺める",
+            "text": "失敗も寄り道も、ここへ続いていた。一つずつ、覚えていたい。道の思い出を窓辺の展示に書き残すと、展示係から語り手の謝礼をもらった。",
+            "sodachi": 4,
+            "money": 10
+          }
+        ],
+        "album": "八つ目の窓の前に立った。",
+        "once": true
+      },
+      "findings": "第6段階でも最後の姿になったと断定しない。振り返りでの収入は展示の語り手の謝礼。",
+      "conditions": {
+        "stageRange": [
+          6,
+          8
+        ],
+        "regions": [
+          "forest",
+          "sea",
+          "city",
+          "square"
+        ],
+        "category": "fate",
+        "oncePerPlayer": true,
+        "recentGlobalWindow": 3,
+        "previousRelationshipRequired": false,
+        "npcSelfExclusion": "V3 relationship owner; no eligibility rule changed by this text audit"
+      },
+      "npc": null,
+      "choices": [
+        {
+          "index": 0,
+          "meaning": "窓を開ける",
+          "result": "新しい風が入ってきた。まだ先の姿があれば、そちらへ一歩。最後の姿でも、人生はまだ動いている。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 5,
+            "money": 0
+          },
+          "moneyCause": "金銭の移動なし。",
+          "evolution": 1,
+          "time": 0,
+          "redo": false
+        },
+        {
+          "index": 1,
+          "meaning": "後ろの道を眺める",
+          "result": "失敗も寄り道も、ここへ続いていた。一つずつ、覚えていたい。道の思い出を窓辺の展示に書き残すと、展示係から語り手の謝礼をもらった。",
+          "friendshipResult": null,
+          "baseDelta": {
+            "sodachi": 4,
+            "money": 10
+          },
+          "moneyCause": "道の思い出を窓辺の展示に書き残すと、展示係から語り手の謝礼をもらった。",
+          "evolution": 0,
+          "time": 0,
+          "redo": false
+        }
+      ],
+      "relationshipRecommendation": {
+        "mode": "none",
+        "next": "特定 NPC の関係状態を変更しない。"
+      },
+      "status": "revised"
+    }
+  ]
+}

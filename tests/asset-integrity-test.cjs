@@ -5,6 +5,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { assetHash } = require('../tools/bump-versions.js');
+const { expectedAssetToken } = require('./helpers/asset-token.cjs');
 const { harness } = require('./helpers/runtime-harness.cjs');
 
 // RH-3 asset gate: いまは 欠けは ない(QA で確認済み)。これからの 欠け・大文字小文字・古い token・
@@ -30,8 +31,8 @@ function checkRefs(refs, files) {
   }
   return { missing, caseMismatch };
 }
-// <script src> と <link rel="stylesheet"> は ?v=YYYYMMDD-<assetHash> が必須。preload は対象外(意図的に token なし)
-function checkTokens(html, hashOf) {
+// Local scripts/styles/lazy modules require dated SHA-1/8 or SHA-256/12 tokens. Preloads are intentionally unversioned.
+function checkTokens(html, readAsset) {
   const missingToken = [], stale = [];
   let checked = 0;
   // <template data-src> は あとから import() する module(めぐる 3D prototype)。おなじ token の きまり
@@ -44,13 +45,33 @@ function checkTokens(html, hashOf) {
     const [file, query = ''] = url.split('?');
     const token = (query.match(/(?:^|&)v=([^&]+)/) || [])[1];
     if (!token) { missingToken.push(file); continue; }
-    const m = token.match(/^\d{8}-([0-9a-f]{8})$/);
-    const actual = hashOf(file);
-    if (!m || actual !== m[1]) stale.push({ file, token, actual });
+    const actual = expectedAssetToken(token, readAsset(file));
+    if (token !== actual) stale.push({ file, token, actual });
   }
   return { checked, missingToken, stale };
 }
 function missingPaths(paths, files) { return [...paths].filter((p) => !files.has(p)); }
+
+test('asset tokens validate exact file bytes in both supported formats for scripts, stylesheets and lazy modules', () => {
+  const readAsset = (file) => file === 'app.js' ? Buffer.from('naotocchi') : null;
+  const tags = [
+    (token) => `<script src="app.js?v=${token}"></script>`,
+    (token) => `<link rel="stylesheet" href="app.js?v=${token}">`,
+    (token) => `<template data-src="app.js?v=${token}"></template>`,
+  ];
+  for (const tag of tags) {
+    for (const token of ['20260101-c8ff6571', '3a4799083ab7']) {
+      assert.deepEqual(checkTokens(tag(token), readAsset), { checked: 1, missingToken: [], stale: [] }, token);
+      assert.deepEqual(checkTokens(tag(token), () => Buffer.from('changed')).stale.map((s) => s.file), ['app.js'], 'changed file bytes');
+      assert.deepEqual(checkTokens(tag(token), () => null).stale.map((s) => s.file), ['app.js'], 'missing file');
+      assert.deepEqual(checkTokens(tag(token.toUpperCase()), readAsset).stale.map((s) => s.file), ['app.js'], 'uppercase token');
+    }
+    for (const token of ['20260101-00000000', '000000000000', 'c8ff65717a65', '20260101-3a479908', '3a4799083ab', '3a4799083ab73']) {
+      assert.deepEqual(checkTokens(tag(token), readAsset).stale.map((s) => s.file), ['app.js'], token);
+    }
+    assert.deepEqual(checkTokens(tag('').replace('?v=', ''), readAsset).missingToken, ['app.js']);
+  }
+});
 
 // --- いまの repo ---
 test('every static assets/… reference in HTML, CSS and JS exists with the exact case', () => {
@@ -63,10 +84,10 @@ test('every static assets/… reference in HTML, CSS and JS exists with the exac
   assert.deepEqual(caseMismatch, []);
 });
 
-test('every script and stylesheet carries a token whose hash matches the file (bump-versions formula)', () => {
+test('every script, stylesheet and lazy module carries a supported token whose hash matches the file', () => {
   const files = tracked();
   const html = read('index.html').toString('utf8');
-  const result = checkTokens(html, (file) => (files.has(file) ? assetHash(read(file)) : null));
+  const result = checkTokens(html, (file) => (files.has(file) ? read(file) : null));
   assert.ok(result.checked >= 25, 'scripts/stylesheets checked: ' + result.checked);
   assert.deepEqual(result.missingToken, []);
   assert.deepEqual(result.stale, []);
@@ -102,28 +123,29 @@ test('the checks catch a missing file, a case mismatch, a stale token, a missing
   const r = checkRefs(refs, files);
   assert.deepEqual(r.missing.map((m) => m.ref), ['assets/a/fox.png']);
   assert.deepEqual(r.caseMismatch.map((m) => [m.ref, m.actual]), [['assets/a/cat.png', 'assets/a/Cat.png']]);
-  const hashOf = (f) => ({ 'app.js': 'aaaaaaaa', 'app.css': 'bbbbbbbb' })[f] ?? null;
-  const ok = '<script src="app.js?v=20260101-aaaaaaaa"></script><link rel="stylesheet" href="app.css?v=20260101-bbbbbbbb"><link rel="preload" as="image" href="assets/a/dog.png">';
-  assert.deepEqual(checkTokens(ok, hashOf), { checked: 2, missingToken: [], stale: [] });
-  const stale = checkTokens('<script src="app.js?v=20260101-cccccccc"></script>', hashOf);
+  const readAsset = (f) => ({ 'app.js': 'naotocchi', 'app.css': 'app.css' })[f] ?? null;
+  const ok = '<script src="app.js?v=20260101-c8ff6571"></script><link rel="stylesheet" href="app.css?v=20260101-2aca11c5"><link rel="preload" as="image" href="assets/a/dog.png">';
+  assert.deepEqual(checkTokens(ok, readAsset), { checked: 2, missingToken: [], stale: [] });
+  const stale = checkTokens('<script src="app.js?v=20260101-cccccccc"></script>', readAsset);
   assert.deepEqual(stale.stale.map((s) => s.file), ['app.js']);
-  assert.deepEqual(checkTokens('<link rel="stylesheet" href="app.css">', hashOf).missingToken, ['app.css']);
-  assert.deepEqual(checkTokens('<script src="app.js?v=1"></script>', hashOf).stale.map((s) => s.file), ['app.js'], 'a token without the hash part is stale');
-  assert.deepEqual(checkTokens('<script src="gone.js?v=20260101-aaaaaaaa"></script>', hashOf).stale.map((s) => s.file), ['gone.js']);
+  assert.deepEqual(checkTokens('<link rel="stylesheet" href="app.css">', readAsset).missingToken, ['app.css']);
+  assert.deepEqual(checkTokens('<script src="app.js?v=1"></script>', readAsset).stale.map((s) => s.file), ['app.js'], 'a token without the hash part is stale');
+  assert.deepEqual(checkTokens('<script src="gone.js?v=20260101-c8ff6571"></script>', readAsset).stale.map((s) => s.file), ['gone.js']);
   // あとから import() する module(<template data-src>)も おなじ きまり
-  assert.deepEqual(checkTokens('<template id="m" data-src="app.js?v=20260101-cccccccc"></template>', hashOf).stale.map((s) => s.file), ['app.js']);
-  assert.deepEqual(checkTokens('<template id="m" data-src="app.js"></template>', hashOf).missingToken, ['app.js']);
+  assert.deepEqual(checkTokens('<template id="m" data-src="app.js?v=20260101-cccccccc"></template>', readAsset).stale.map((s) => s.file), ['app.js']);
+  assert.deepEqual(checkTokens('<template id="m" data-src="app.js"></template>', readAsset).missingToken, ['app.js']);
   assert.deepEqual(missingPaths(['assets/characters/dog/09.png', 'assets/a/dog.png'], files), ['assets/characters/dog/09.png']);
 });
 
 test('the real index.html and references turn red when a token goes stale, a token is dropped or a path changes case', () => {
   const files = tracked();
   const html = read('index.html').toString('utf8');
-  const hashOf = (file) => (files.has(file) ? assetHash(read(file)) : null);
-  const staleHtml = html.replace(/(script\.js\?v=\d{8}-)[0-9a-f]{8}/, '$100000000');
-  assert.deepEqual(checkTokens(staleHtml, hashOf).stale.map((x) => x.file), ['script.js']);
+  const readAsset = (file) => (files.has(file) ? read(file) : null);
+  const staleHtml = html.replace(/(src="script\.js\?v=)([^"]+)/, (_, prefix, token) => prefix + token.slice(0, -1) + (token.endsWith('0') ? '1' : '0'));
+  assert.notEqual(staleHtml, html, 'the mutation must replace the real script token');
+  assert.deepEqual(checkTokens(staleHtml, readAsset).stale.map((x) => x.file), ['script.js']);
   const droppedHtml = html.replace(/(href="style\.css)\?v=[^"]+"/, '$1"');
-  assert.deepEqual(checkTokens(droppedHtml, hashOf).missingToken, ['style.css']);
+  assert.deepEqual(checkTokens(droppedHtml, readAsset).missingToken, ['style.css']);
   const ref = staticAssetRefs([{ file: 'index.html', text: html }])[0].ref;
   const shouted = ref.replace(/[^/]+$/, (name) => name.toUpperCase());
   assert.deepEqual(checkRefs([{ file: 'index.html', ref: shouted }], files).caseMismatch.map((x) => x.actual), [ref]);

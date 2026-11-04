@@ -1,0 +1,1955 @@
+{
+  "method": "seed=cpuSeed=1..8; fixed official game difficulty .5; virtual60Hz; formal score unchanged",
+  "rows": [
+    {
+      "gameId": "lights-out",
+      "difficulty": "easy",
+      "mean": 58,
+      "min": 52,
+      "max": 76,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 76,
+          "frame": 2740,
+          "inputs": 22,
+          "summary": "おわり!2問クリア"
+        },
+        {
+          "seed": 2,
+          "score": 52,
+          "frame": 2740,
+          "inputs": 22,
+          "summary": "おわり!1問クリア"
+        },
+        {
+          "seed": 3,
+          "score": 52,
+          "frame": 2740,
+          "inputs": 22,
+          "summary": "おわり!1問クリア"
+        },
+        {
+          "seed": 4,
+          "score": 52,
+          "frame": 2740,
+          "inputs": 22,
+          "summary": "おわり!1問クリア"
+        },
+        {
+          "seed": 5,
+          "score": 52,
+          "frame": 2740,
+          "inputs": 20,
+          "summary": "おわり!1問クリア"
+        },
+        {
+          "seed": 6,
+          "score": 52,
+          "frame": 2740,
+          "inputs": 22,
+          "summary": "おわり!1問クリア"
+        },
+        {
+          "seed": 7,
+          "score": 52,
+          "frame": 2740,
+          "inputs": 22,
+          "summary": "おわり!1問クリア"
+        },
+        {
+          "seed": 8,
+          "score": 76,
+          "frame": 2740,
+          "inputs": 22,
+          "summary": "おわり!2問クリア"
+        }
+      ]
+    },
+    {
+      "gameId": "lights-out",
+      "difficulty": "normal",
+      "mean": 76,
+      "min": 76,
+      "max": 76,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 76,
+          "frame": 2740,
+          "inputs": 32,
+          "summary": "おわり!2問クリア"
+        },
+        {
+          "seed": 2,
+          "score": 76,
+          "frame": 2740,
+          "inputs": 32,
+          "summary": "おわり!2問クリア"
+        },
+        {
+          "seed": 3,
+          "score": 76,
+          "frame": 2740,
+          "inputs": 32,
+          "summary": "おわり!2問クリア"
+        },
+        {
+          "seed": 4,
+          "score": 76,
+          "frame": 2740,
+          "inputs": 34,
+          "summary": "おわり!2問クリア"
+        },
+        {
+          "seed": 5,
+          "score": 76,
+          "frame": 2740,
+          "inputs": 30,
+          "summary": "おわり!2問クリア"
+        },
+        {
+          "seed": 6,
+          "score": 76,
+          "frame": 2740,
+          "inputs": 32,
+          "summary": "おわり!2問クリア"
+        },
+        {
+          "seed": 7,
+          "score": 76,
+          "frame": 2740,
+          "inputs": 32,
+          "summary": "おわり!2問クリア"
+        },
+        {
+          "seed": 8,
+          "score": 76,
+          "frame": 2740,
+          "inputs": 30,
+          "summary": "おわり!2問クリア"
+        }
+      ]
+    },
+    {
+      "gameId": "takoyaki-grill",
+      "difficulty": "easy",
+      "mean": 18.375,
+      "min": 5,
+      "max": 29,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 27,
+          "frame": 1488,
+          "inputs": 22,
+          "summary": "おわり!✨5／😋0／💦12"
+        },
+        {
+          "seed": 2,
+          "score": 29,
+          "frame": 1488,
+          "inputs": 24,
+          "summary": "おわり!✨5／😋0／💦11"
+        },
+        {
+          "seed": 3,
+          "score": 18,
+          "frame": 1488,
+          "inputs": 22,
+          "summary": "おわり!✨4／😋0／💦12"
+        },
+        {
+          "seed": 4,
+          "score": 16,
+          "frame": 1488,
+          "inputs": 18,
+          "summary": "おわり!✨4／😋0／💦13"
+        },
+        {
+          "seed": 5,
+          "score": 5,
+          "frame": 1488,
+          "inputs": 18,
+          "summary": "おわり!✨3／😋0／💦14"
+        },
+        {
+          "seed": 6,
+          "score": 18,
+          "frame": 1488,
+          "inputs": 22,
+          "summary": "おわり!✨4／😋0／💦12"
+        },
+        {
+          "seed": 7,
+          "score": 5,
+          "frame": 1488,
+          "inputs": 12,
+          "summary": "おわり!✨2／😋0／💦15"
+        },
+        {
+          "seed": 8,
+          "score": 29,
+          "frame": 1488,
+          "inputs": 24,
+          "summary": "おわり!✨5／😋0／💦11"
+        }
+      ]
+    },
+    {
+      "gameId": "takoyaki-grill",
+      "difficulty": "normal",
+      "mean": 44.375,
+      "min": 38,
+      "max": 58,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 58,
+          "frame": 1488,
+          "inputs": 32,
+          "summary": "おわり!✨8／😋0／💦10"
+        },
+        {
+          "seed": 2,
+          "score": 40,
+          "frame": 1488,
+          "inputs": 28,
+          "summary": "おわり!✨6／😋0／💦10"
+        },
+        {
+          "seed": 3,
+          "score": 38,
+          "frame": 1488,
+          "inputs": 28,
+          "summary": "おわり!✨6／😋0／💦11"
+        },
+        {
+          "seed": 4,
+          "score": 47,
+          "frame": 1488,
+          "inputs": 30,
+          "summary": "おわり!✨7／😋0／💦11"
+        },
+        {
+          "seed": 5,
+          "score": 38,
+          "frame": 1488,
+          "inputs": 28,
+          "summary": "おわり!✨6／😋0／💦11"
+        },
+        {
+          "seed": 6,
+          "score": 38,
+          "frame": 1488,
+          "inputs": 26,
+          "summary": "おわり!✨6／😋0／💦11"
+        },
+        {
+          "seed": 7,
+          "score": 38,
+          "frame": 1488,
+          "inputs": 28,
+          "summary": "おわり!✨6／😋0／💦11"
+        },
+        {
+          "seed": 8,
+          "score": 58,
+          "frame": 1488,
+          "inputs": 32,
+          "summary": "おわり!✨8／😋0／💦10"
+        }
+      ]
+    },
+    {
+      "gameId": "stack-themed",
+      "difficulty": "easy",
+      "mean": 59.25,
+      "min": 54,
+      "max": 65,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 58,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨2"
+        },
+        {
+          "seed": 2,
+          "score": 62,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨3"
+        },
+        {
+          "seed": 3,
+          "score": 65,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨2"
+        },
+        {
+          "seed": 4,
+          "score": 61,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨1"
+        },
+        {
+          "seed": 5,
+          "score": 62,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨3"
+        },
+        {
+          "seed": 6,
+          "score": 58,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨2"
+        },
+        {
+          "seed": 7,
+          "score": 54,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨1"
+        },
+        {
+          "seed": 8,
+          "score": 54,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 6だんつんだ!✨1"
+        }
+      ]
+    },
+    {
+      "gameId": "stack-themed",
+      "difficulty": "normal",
+      "mean": 80.25,
+      "min": 72,
+      "max": 92,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 76,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨3"
+        },
+        {
+          "seed": 2,
+          "score": 92,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨7"
+        },
+        {
+          "seed": 3,
+          "score": 80,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨4"
+        },
+        {
+          "seed": 4,
+          "score": 87,
+          "frame": 1548,
+          "inputs": 18,
+          "summary": "⏰ 9だんつんだ!✨4"
+        },
+        {
+          "seed": 5,
+          "score": 72,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨2"
+        },
+        {
+          "seed": 6,
+          "score": 87,
+          "frame": 1548,
+          "inputs": 18,
+          "summary": "⏰ 9だんつんだ!✨4"
+        },
+        {
+          "seed": 7,
+          "score": 72,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨2"
+        },
+        {
+          "seed": 8,
+          "score": 76,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨3"
+        }
+      ]
+    },
+    {
+      "gameId": "stack-snowman",
+      "difficulty": "easy",
+      "mean": 63,
+      "min": 54,
+      "max": 69,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 62,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨3"
+        },
+        {
+          "seed": 2,
+          "score": 62,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨3"
+        },
+        {
+          "seed": 3,
+          "score": 69,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨3"
+        },
+        {
+          "seed": 4,
+          "score": 69,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨3"
+        },
+        {
+          "seed": 5,
+          "score": 54,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨1"
+        },
+        {
+          "seed": 6,
+          "score": 69,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨3"
+        },
+        {
+          "seed": 7,
+          "score": 61,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨1"
+        },
+        {
+          "seed": 8,
+          "score": 58,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨2"
+        }
+      ]
+    },
+    {
+      "gameId": "stack-snowman",
+      "difficulty": "normal",
+      "mean": 81,
+      "min": 69,
+      "max": 92,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 80,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨4"
+        },
+        {
+          "seed": 2,
+          "score": 84,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨5"
+        },
+        {
+          "seed": 3,
+          "score": 69,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 7だんつんだ!✨3"
+        },
+        {
+          "seed": 4,
+          "score": 87,
+          "frame": 1548,
+          "inputs": 18,
+          "summary": "⏰ 9だんつんだ!✨4"
+        },
+        {
+          "seed": 5,
+          "score": 92,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨7"
+        },
+        {
+          "seed": 6,
+          "score": 84,
+          "frame": 1548,
+          "inputs": 18,
+          "summary": "⏰ 8だんつんだ!✨5"
+        },
+        {
+          "seed": 7,
+          "score": 76,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨3"
+        },
+        {
+          "seed": 8,
+          "score": 76,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨3"
+        }
+      ]
+    },
+    {
+      "gameId": "stack-harvest",
+      "difficulty": "easy",
+      "mean": 63,
+      "min": 54,
+      "max": 69,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 62,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨3"
+        },
+        {
+          "seed": 2,
+          "score": 62,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨3"
+        },
+        {
+          "seed": 3,
+          "score": 69,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨3"
+        },
+        {
+          "seed": 4,
+          "score": 69,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨3"
+        },
+        {
+          "seed": 5,
+          "score": 54,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨1"
+        },
+        {
+          "seed": 6,
+          "score": 69,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨3"
+        },
+        {
+          "seed": 7,
+          "score": 61,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨1"
+        },
+        {
+          "seed": 8,
+          "score": 58,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨2"
+        }
+      ]
+    },
+    {
+      "gameId": "stack-harvest",
+      "difficulty": "normal",
+      "mean": 81,
+      "min": 69,
+      "max": 92,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 80,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨4"
+        },
+        {
+          "seed": 2,
+          "score": 84,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨5"
+        },
+        {
+          "seed": 3,
+          "score": 69,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 7だんつんだ!✨3"
+        },
+        {
+          "seed": 4,
+          "score": 87,
+          "frame": 1548,
+          "inputs": 18,
+          "summary": "⏰ 9だんつんだ!✨4"
+        },
+        {
+          "seed": 5,
+          "score": 92,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨7"
+        },
+        {
+          "seed": 6,
+          "score": 84,
+          "frame": 1548,
+          "inputs": 18,
+          "summary": "⏰ 8だんつんだ!✨5"
+        },
+        {
+          "seed": 7,
+          "score": 76,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨3"
+        },
+        {
+          "seed": 8,
+          "score": 76,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨3"
+        }
+      ]
+    },
+    {
+      "gameId": "stack-acorn",
+      "difficulty": "easy",
+      "mean": 63,
+      "min": 54,
+      "max": 69,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 62,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨3"
+        },
+        {
+          "seed": 2,
+          "score": 62,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨3"
+        },
+        {
+          "seed": 3,
+          "score": 69,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨3"
+        },
+        {
+          "seed": 4,
+          "score": 69,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨3"
+        },
+        {
+          "seed": 5,
+          "score": 54,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨1"
+        },
+        {
+          "seed": 6,
+          "score": 69,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨3"
+        },
+        {
+          "seed": 7,
+          "score": 61,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨1"
+        },
+        {
+          "seed": 8,
+          "score": 58,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨2"
+        }
+      ]
+    },
+    {
+      "gameId": "stack-acorn",
+      "difficulty": "normal",
+      "mean": 81,
+      "min": 69,
+      "max": 92,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 80,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨4"
+        },
+        {
+          "seed": 2,
+          "score": 84,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨5"
+        },
+        {
+          "seed": 3,
+          "score": 69,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 7だんつんだ!✨3"
+        },
+        {
+          "seed": 4,
+          "score": 87,
+          "frame": 1548,
+          "inputs": 18,
+          "summary": "⏰ 9だんつんだ!✨4"
+        },
+        {
+          "seed": 5,
+          "score": 92,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨7"
+        },
+        {
+          "seed": 6,
+          "score": 84,
+          "frame": 1548,
+          "inputs": 18,
+          "summary": "⏰ 8だんつんだ!✨5"
+        },
+        {
+          "seed": 7,
+          "score": 76,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨3"
+        },
+        {
+          "seed": 8,
+          "score": 76,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨3"
+        }
+      ]
+    },
+    {
+      "gameId": "stack-sakura",
+      "difficulty": "easy",
+      "mean": 63,
+      "min": 54,
+      "max": 69,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 62,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨3"
+        },
+        {
+          "seed": 2,
+          "score": 62,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨3"
+        },
+        {
+          "seed": 3,
+          "score": 69,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨3"
+        },
+        {
+          "seed": 4,
+          "score": 69,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨3"
+        },
+        {
+          "seed": 5,
+          "score": 54,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨1"
+        },
+        {
+          "seed": 6,
+          "score": 69,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨3"
+        },
+        {
+          "seed": 7,
+          "score": 61,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨1"
+        },
+        {
+          "seed": 8,
+          "score": 58,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨2"
+        }
+      ]
+    },
+    {
+      "gameId": "stack-sakura",
+      "difficulty": "normal",
+      "mean": 81,
+      "min": 69,
+      "max": 92,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 80,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨4"
+        },
+        {
+          "seed": 2,
+          "score": 84,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨5"
+        },
+        {
+          "seed": 3,
+          "score": 69,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 7だんつんだ!✨3"
+        },
+        {
+          "seed": 4,
+          "score": 87,
+          "frame": 1548,
+          "inputs": 18,
+          "summary": "⏰ 9だんつんだ!✨4"
+        },
+        {
+          "seed": 5,
+          "score": 92,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨7"
+        },
+        {
+          "seed": 6,
+          "score": 84,
+          "frame": 1548,
+          "inputs": 18,
+          "summary": "⏰ 8だんつんだ!✨5"
+        },
+        {
+          "seed": 7,
+          "score": 76,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨3"
+        },
+        {
+          "seed": 8,
+          "score": 76,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨3"
+        }
+      ]
+    },
+    {
+      "gameId": "stack-leaves",
+      "difficulty": "easy",
+      "mean": 63,
+      "min": 54,
+      "max": 69,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 62,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨3"
+        },
+        {
+          "seed": 2,
+          "score": 62,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨3"
+        },
+        {
+          "seed": 3,
+          "score": 69,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨3"
+        },
+        {
+          "seed": 4,
+          "score": 69,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨3"
+        },
+        {
+          "seed": 5,
+          "score": 54,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨1"
+        },
+        {
+          "seed": 6,
+          "score": 69,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨3"
+        },
+        {
+          "seed": 7,
+          "score": 61,
+          "frame": 1548,
+          "inputs": 14,
+          "summary": "⏰ 7だんつんだ!✨1"
+        },
+        {
+          "seed": 8,
+          "score": 58,
+          "frame": 1548,
+          "inputs": 12,
+          "summary": "⏰ 6だんつんだ!✨2"
+        }
+      ]
+    },
+    {
+      "gameId": "stack-leaves",
+      "difficulty": "normal",
+      "mean": 81,
+      "min": 69,
+      "max": 92,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 80,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨4"
+        },
+        {
+          "seed": 2,
+          "score": 84,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨5"
+        },
+        {
+          "seed": 3,
+          "score": 69,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 7だんつんだ!✨3"
+        },
+        {
+          "seed": 4,
+          "score": 87,
+          "frame": 1548,
+          "inputs": 18,
+          "summary": "⏰ 9だんつんだ!✨4"
+        },
+        {
+          "seed": 5,
+          "score": 92,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨7"
+        },
+        {
+          "seed": 6,
+          "score": 84,
+          "frame": 1548,
+          "inputs": 18,
+          "summary": "⏰ 8だんつんだ!✨5"
+        },
+        {
+          "seed": 7,
+          "score": 76,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨3"
+        },
+        {
+          "seed": 8,
+          "score": 76,
+          "frame": 1548,
+          "inputs": 16,
+          "summary": "⏰ 8だんつんだ!✨3"
+        }
+      ]
+    },
+    {
+      "gameId": "fruit-slice",
+      "difficulty": "easy",
+      "mean": 39.625,
+      "min": 35,
+      "max": 49,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 40,
+          "frame": 1488,
+          "inputs": 33,
+          "summary": "おわり!11こ切った／110点"
+        },
+        {
+          "seed": 2,
+          "score": 37,
+          "frame": 1488,
+          "inputs": 27,
+          "summary": "おわり!9こ切った／90点"
+        },
+        {
+          "seed": 3,
+          "score": 35,
+          "frame": 1488,
+          "inputs": 24,
+          "summary": "おわり!8こ切った／80点"
+        },
+        {
+          "seed": 4,
+          "score": 39,
+          "frame": 1488,
+          "inputs": 30,
+          "summary": "おわり!10こ切った／100点"
+        },
+        {
+          "seed": 5,
+          "score": 49,
+          "frame": 1488,
+          "inputs": 36,
+          "summary": "おわり!14こ切った／160点"
+        },
+        {
+          "seed": 6,
+          "score": 39,
+          "frame": 1488,
+          "inputs": 30,
+          "summary": "おわり!10こ切った／100点"
+        },
+        {
+          "seed": 7,
+          "score": 39,
+          "frame": 1488,
+          "inputs": 24,
+          "summary": "おわり!9こ切った／100点"
+        },
+        {
+          "seed": 8,
+          "score": 39,
+          "frame": 1488,
+          "inputs": 24,
+          "summary": "おわり!9こ切った／100点"
+        }
+      ]
+    },
+    {
+      "gameId": "fruit-slice",
+      "difficulty": "normal",
+      "mean": 51.25,
+      "min": 42,
+      "max": 55,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 52,
+          "frame": 1488,
+          "inputs": 54,
+          "summary": "おわり!18こ切った／180点"
+        },
+        {
+          "seed": 2,
+          "score": 42,
+          "frame": 1488,
+          "inputs": 36,
+          "summary": "おわり!12こ切った／120点"
+        },
+        {
+          "seed": 3,
+          "score": 55,
+          "frame": 1488,
+          "inputs": 54,
+          "summary": "おわり!19こ切った／200点"
+        },
+        {
+          "seed": 4,
+          "score": 50,
+          "frame": 1488,
+          "inputs": 51,
+          "summary": "おわり!17こ切った／170点"
+        },
+        {
+          "seed": 5,
+          "score": 52,
+          "frame": 1488,
+          "inputs": 42,
+          "summary": "おわり!16こ切った／180点"
+        },
+        {
+          "seed": 6,
+          "score": 55,
+          "frame": 1488,
+          "inputs": 54,
+          "summary": "おわり!19こ切った／200点"
+        },
+        {
+          "seed": 7,
+          "score": 50,
+          "frame": 1488,
+          "inputs": 42,
+          "summary": "おわり!15こ切った／170点"
+        },
+        {
+          "seed": 8,
+          "score": 54,
+          "frame": 1488,
+          "inputs": 51,
+          "summary": "おわり!18こ切った／190点"
+        }
+      ]
+    },
+    {
+      "gameId": "sushi-belt",
+      "difficulty": "easy",
+      "mean": 82.625,
+      "min": 50,
+      "max": 100,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 100,
+          "frame": 1488,
+          "inputs": 16,
+          "summary": "おわり!3件さばいた／212点"
+        },
+        {
+          "seed": 2,
+          "score": 66,
+          "frame": 1488,
+          "inputs": 12,
+          "summary": "おわり!2件さばいた／122点"
+        },
+        {
+          "seed": 3,
+          "score": 50,
+          "frame": 1488,
+          "inputs": 8,
+          "summary": "おわり!2件さばいた／80点"
+        },
+        {
+          "seed": 4,
+          "score": 89,
+          "frame": 1488,
+          "inputs": 14,
+          "summary": "おわり!3件さばいた／171点"
+        },
+        {
+          "seed": 5,
+          "score": 100,
+          "frame": 1488,
+          "inputs": 18,
+          "summary": "おわり!3件さばいた／240点"
+        },
+        {
+          "seed": 6,
+          "score": 100,
+          "frame": 1488,
+          "inputs": 22,
+          "summary": "おわり!4件さばいた／327点"
+        },
+        {
+          "seed": 7,
+          "score": 56,
+          "frame": 1488,
+          "inputs": 8,
+          "summary": "おわり!2件さばいた／95点"
+        },
+        {
+          "seed": 8,
+          "score": 100,
+          "frame": 1488,
+          "inputs": 20,
+          "summary": "おわり!4件さばいた／295点"
+        }
+      ]
+    },
+    {
+      "gameId": "sushi-belt",
+      "difficulty": "normal",
+      "mean": 93.625,
+      "min": 50,
+      "max": 100,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 100,
+          "frame": 1488,
+          "inputs": 26,
+          "summary": "おわり!4件さばいた／397点"
+        },
+        {
+          "seed": 2,
+          "score": 100,
+          "frame": 1488,
+          "inputs": 20,
+          "summary": "おわり!4件さばいた／280点"
+        },
+        {
+          "seed": 3,
+          "score": 50,
+          "frame": 1488,
+          "inputs": 8,
+          "summary": "おわり!2件さばいた／80点"
+        },
+        {
+          "seed": 4,
+          "score": 100,
+          "frame": 1488,
+          "inputs": 18,
+          "summary": "おわり!3件さばいた／225点"
+        },
+        {
+          "seed": 5,
+          "score": 100,
+          "frame": 1488,
+          "inputs": 22,
+          "summary": "おわり!4件さばいた／312点"
+        },
+        {
+          "seed": 6,
+          "score": 100,
+          "frame": 1488,
+          "inputs": 22,
+          "summary": "おわり!4件さばいた／327点"
+        },
+        {
+          "seed": 7,
+          "score": 99,
+          "frame": 1488,
+          "inputs": 16,
+          "summary": "おわり!3件さばいた／197点"
+        },
+        {
+          "seed": 8,
+          "score": 100,
+          "frame": 1488,
+          "inputs": 24,
+          "summary": "おわり!4件さばいた／346点"
+        }
+      ]
+    },
+    {
+      "gameId": "line-trace",
+      "difficulty": "easy",
+      "mean": 78.875,
+      "min": 71,
+      "max": 86,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 77,
+          "frame": 1156,
+          "inputs": 246,
+          "summary": "おわり!平均精度74%"
+        },
+        {
+          "seed": 2,
+          "score": 83,
+          "frame": 1156,
+          "inputs": 246,
+          "summary": "おわり!平均精度81%"
+        },
+        {
+          "seed": 3,
+          "score": 82,
+          "frame": 1156,
+          "inputs": 246,
+          "summary": "おわり!平均精度80%"
+        },
+        {
+          "seed": 4,
+          "score": 80,
+          "frame": 1156,
+          "inputs": 246,
+          "summary": "おわり!平均精度78%"
+        },
+        {
+          "seed": 5,
+          "score": 78,
+          "frame": 1156,
+          "inputs": 246,
+          "summary": "おわり!平均精度75%"
+        },
+        {
+          "seed": 6,
+          "score": 86,
+          "frame": 1156,
+          "inputs": 246,
+          "summary": "おわり!平均精度85%"
+        },
+        {
+          "seed": 7,
+          "score": 74,
+          "frame": 1156,
+          "inputs": 246,
+          "summary": "おわり!平均精度71%"
+        },
+        {
+          "seed": 8,
+          "score": 71,
+          "frame": 1156,
+          "inputs": 246,
+          "summary": "おわり!平均精度68%"
+        }
+      ]
+    },
+    {
+      "gameId": "line-trace",
+      "difficulty": "normal",
+      "mean": 90.375,
+      "min": 87,
+      "max": 93,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 88,
+          "frame": 916,
+          "inputs": 246,
+          "summary": "おわり!平均精度87%"
+        },
+        {
+          "seed": 2,
+          "score": 93,
+          "frame": 916,
+          "inputs": 246,
+          "summary": "おわり!平均精度92%"
+        },
+        {
+          "seed": 3,
+          "score": 92,
+          "frame": 916,
+          "inputs": 246,
+          "summary": "おわり!平均精度91%"
+        },
+        {
+          "seed": 4,
+          "score": 90,
+          "frame": 916,
+          "inputs": 246,
+          "summary": "おわり!平均精度89%"
+        },
+        {
+          "seed": 5,
+          "score": 90,
+          "frame": 916,
+          "inputs": 246,
+          "summary": "おわり!平均精度89%"
+        },
+        {
+          "seed": 6,
+          "score": 93,
+          "frame": 916,
+          "inputs": 246,
+          "summary": "おわり!平均精度92%"
+        },
+        {
+          "seed": 7,
+          "score": 90,
+          "frame": 916,
+          "inputs": 246,
+          "summary": "おわり!平均精度88%"
+        },
+        {
+          "seed": 8,
+          "score": 87,
+          "frame": 916,
+          "inputs": 246,
+          "summary": "おわり!平均精度86%"
+        }
+      ]
+    },
+    {
+      "gameId": "memory-cards",
+      "difficulty": "easy",
+      "mean": 44,
+      "min": 31,
+      "max": 79,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 45,
+          "frame": 2740,
+          "inputs": 50,
+          "summary": "時間切れ…5ペア"
+        },
+        {
+          "seed": 2,
+          "score": 45,
+          "frame": 2740,
+          "inputs": 52,
+          "summary": "時間切れ…5ペア"
+        },
+        {
+          "seed": 3,
+          "score": 45,
+          "frame": 2740,
+          "inputs": 50,
+          "summary": "時間切れ…5ペア"
+        },
+        {
+          "seed": 4,
+          "score": 31,
+          "frame": 2740,
+          "inputs": 50,
+          "summary": "時間切れ…3ペア"
+        },
+        {
+          "seed": 5,
+          "score": 45,
+          "frame": 2740,
+          "inputs": 50,
+          "summary": "時間切れ…5ペア"
+        },
+        {
+          "seed": 6,
+          "score": 79,
+          "frame": 2589,
+          "inputs": 48,
+          "summary": "🏆ぜんぶそろった!12かい"
+        },
+        {
+          "seed": 7,
+          "score": 31,
+          "frame": 2740,
+          "inputs": 52,
+          "summary": "時間切れ…3ペア"
+        },
+        {
+          "seed": 8,
+          "score": 31,
+          "frame": 2740,
+          "inputs": 50,
+          "summary": "時間切れ…3ペア"
+        }
+      ]
+    },
+    {
+      "gameId": "memory-cards",
+      "difficulty": "normal",
+      "mean": 69.5,
+      "min": 63,
+      "max": 81,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 72,
+          "frame": 2055,
+          "inputs": 56,
+          "summary": "🏆ぜんぶそろった!14かい"
+        },
+        {
+          "seed": 2,
+          "score": 68,
+          "frame": 2143,
+          "inputs": 60,
+          "summary": "🏆ぜんぶそろった!15かい"
+        },
+        {
+          "seed": 3,
+          "score": 72,
+          "frame": 2025,
+          "inputs": 56,
+          "summary": "🏆ぜんぶそろった!14かい"
+        },
+        {
+          "seed": 4,
+          "score": 64,
+          "frame": 2326,
+          "inputs": 64,
+          "summary": "🏆ぜんぶそろった!16かい"
+        },
+        {
+          "seed": 5,
+          "score": 68,
+          "frame": 2262,
+          "inputs": 60,
+          "summary": "🏆ぜんぶそろった!15かい"
+        },
+        {
+          "seed": 6,
+          "score": 81,
+          "frame": 1730,
+          "inputs": 48,
+          "summary": "🏆ぜんぶそろった!12かい"
+        },
+        {
+          "seed": 7,
+          "score": 68,
+          "frame": 2187,
+          "inputs": 60,
+          "summary": "🏆ぜんぶそろった!15かい"
+        },
+        {
+          "seed": 8,
+          "score": 63,
+          "frame": 2400,
+          "inputs": 64,
+          "summary": "🏆ぜんぶそろった!16かい"
+        }
+      ]
+    },
+    {
+      "gameId": "air-hockey",
+      "difficulty": "easy",
+      "mean": 42.25,
+      "min": 15,
+      "max": 62,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 59,
+          "frame": 1839,
+          "inputs": 100,
+          "summary": "時間切れ。点の差で判定かち"
+        },
+        {
+          "seed": 2,
+          "score": 62,
+          "frame": 1839,
+          "inputs": 100,
+          "summary": "時間切れ。点の差で判定かち"
+        },
+        {
+          "seed": 3,
+          "score": 40,
+          "frame": 1839,
+          "inputs": 100,
+          "summary": "時間切れ。同点"
+        },
+        {
+          "seed": 4,
+          "score": 59,
+          "frame": 1839,
+          "inputs": 100,
+          "summary": "時間切れ。点の差で判定かち"
+        },
+        {
+          "seed": 5,
+          "score": 15,
+          "frame": 1839,
+          "inputs": 100,
+          "summary": "時間切れ。判定まけ"
+        },
+        {
+          "seed": 6,
+          "score": 40,
+          "frame": 1839,
+          "inputs": 100,
+          "summary": "時間切れ。同点"
+        },
+        {
+          "seed": 7,
+          "score": 40,
+          "frame": 1839,
+          "inputs": 100,
+          "summary": "時間切れ。同点"
+        },
+        {
+          "seed": 8,
+          "score": 23,
+          "frame": 1839,
+          "inputs": 100,
+          "summary": "時間切れ。判定まけ"
+        }
+      ]
+    },
+    {
+      "gameId": "air-hockey",
+      "difficulty": "normal",
+      "mean": 58,
+      "min": 40,
+      "max": 98,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 40,
+          "frame": 1839,
+          "inputs": 198,
+          "summary": "時間切れ。同点"
+        },
+        {
+          "seed": 2,
+          "score": 40,
+          "frame": 1839,
+          "inputs": 198,
+          "summary": "時間切れ。同点"
+        },
+        {
+          "seed": 3,
+          "score": 40,
+          "frame": 1839,
+          "inputs": 198,
+          "summary": "時間切れ。同点"
+        },
+        {
+          "seed": 4,
+          "score": 66,
+          "frame": 1839,
+          "inputs": 198,
+          "summary": "時間切れ。点の差で判定かち"
+        },
+        {
+          "seed": 5,
+          "score": 59,
+          "frame": 1839,
+          "inputs": 198,
+          "summary": "時間切れ。点の差で判定かち"
+        },
+        {
+          "seed": 6,
+          "score": 59,
+          "frame": 1839,
+          "inputs": 198,
+          "summary": "時間切れ。点の差で判定かち"
+        },
+        {
+          "seed": 7,
+          "score": 98,
+          "frame": 1393,
+          "inputs": 148,
+          "summary": "🏆かち!"
+        },
+        {
+          "seed": 8,
+          "score": 62,
+          "frame": 1839,
+          "inputs": 198,
+          "summary": "時間切れ。点の差で判定かち"
+        }
+      ]
+    },
+    {
+      "gameId": "breakout-classic",
+      "difficulty": "easy",
+      "mean": 26.25,
+      "min": 19,
+      "max": 31,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 29,
+          "frame": 1848,
+          "inputs": 267,
+          "summary": "⏰タイムアップ130点"
+        },
+        {
+          "seed": 2,
+          "score": 29,
+          "frame": 1848,
+          "inputs": 267,
+          "summary": "⏰タイムアップ130点"
+        },
+        {
+          "seed": 3,
+          "score": 19,
+          "frame": 1059,
+          "inputs": 150,
+          "summary": "ゲームオーバー…60点"
+        },
+        {
+          "seed": 4,
+          "score": 27,
+          "frame": 1848,
+          "inputs": 267,
+          "summary": "⏰タイムアップ120点"
+        },
+        {
+          "seed": 5,
+          "score": 24,
+          "frame": 1848,
+          "inputs": 267,
+          "summary": "⏰タイムアップ100点"
+        },
+        {
+          "seed": 6,
+          "score": 31,
+          "frame": 1848,
+          "inputs": 267,
+          "summary": "⏰タイムアップ150点"
+        },
+        {
+          "seed": 7,
+          "score": 27,
+          "frame": 1848,
+          "inputs": 267,
+          "summary": "⏰タイムアップ120点"
+        },
+        {
+          "seed": 8,
+          "score": 24,
+          "frame": 1848,
+          "inputs": 267,
+          "summary": "⏰タイムアップ100点"
+        }
+      ]
+    },
+    {
+      "gameId": "breakout-classic",
+      "difficulty": "normal",
+      "mean": 34.5,
+      "min": 31,
+      "max": 50,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 31,
+          "frame": 1848,
+          "inputs": 594,
+          "summary": "⏰タイムアップ150点"
+        },
+        {
+          "seed": 2,
+          "score": 36,
+          "frame": 1848,
+          "inputs": 594,
+          "summary": "⏰タイムアップ180点"
+        },
+        {
+          "seed": 3,
+          "score": 33,
+          "frame": 1848,
+          "inputs": 594,
+          "summary": "⏰タイムアップ160点"
+        },
+        {
+          "seed": 4,
+          "score": 31,
+          "frame": 1848,
+          "inputs": 594,
+          "summary": "⏰タイムアップ150点"
+        },
+        {
+          "seed": 5,
+          "score": 33,
+          "frame": 1848,
+          "inputs": 594,
+          "summary": "⏰タイムアップ160点"
+        },
+        {
+          "seed": 6,
+          "score": 31,
+          "frame": 1848,
+          "inputs": 594,
+          "summary": "⏰タイムアップ150点"
+        },
+        {
+          "seed": 7,
+          "score": 31,
+          "frame": 1848,
+          "inputs": 594,
+          "summary": "⏰タイムアップ150点"
+        },
+        {
+          "seed": 8,
+          "score": 50,
+          "frame": 1848,
+          "inputs": 594,
+          "summary": "⏰タイムアップ280点"
+        }
+      ]
+    },
+    {
+      "gameId": "snake-classic",
+      "difficulty": "easy",
+      "mean": 66.5,
+      "min": 10,
+      "max": 99,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 21,
+          "frame": 634,
+          "inputs": 66,
+          "summary": "1こ食べた!"
+        },
+        {
+          "seed": 2,
+          "score": 65,
+          "frame": 991,
+          "inputs": 153,
+          "summary": "5こ食べた!"
+        },
+        {
+          "seed": 3,
+          "score": 76,
+          "frame": 944,
+          "inputs": 132,
+          "summary": "6こ食べた!"
+        },
+        {
+          "seed": 4,
+          "score": 99,
+          "frame": 1728,
+          "inputs": 273,
+          "summary": "🎉タイムアップ!7こ食べた"
+        },
+        {
+          "seed": 5,
+          "score": 98,
+          "frame": 1711,
+          "inputs": 267,
+          "summary": "8こ食べた!"
+        },
+        {
+          "seed": 6,
+          "score": 65,
+          "frame": 1079,
+          "inputs": 153,
+          "summary": "5こ食べた!"
+        },
+        {
+          "seed": 7,
+          "score": 10,
+          "frame": 266,
+          "inputs": 18,
+          "summary": "0こ食べた!"
+        },
+        {
+          "seed": 8,
+          "score": 98,
+          "frame": 1593,
+          "inputs": 258,
+          "summary": "8こ食べた!"
+        }
+      ]
+    },
+    {
+      "gameId": "snake-classic",
+      "difficulty": "normal",
+      "mean": 87.125,
+      "min": 21,
+      "max": 100,
+      "samples": [
+        {
+          "seed": 1,
+          "score": 21,
+          "frame": 264,
+          "inputs": 27,
+          "summary": "1こ食べた!"
+        },
+        {
+          "seed": 2,
+          "score": 100,
+          "frame": 1728,
+          "inputs": 411,
+          "summary": "🎉タイムアップ!10こ食べた"
+        },
+        {
+          "seed": 3,
+          "score": 100,
+          "frame": 1728,
+          "inputs": 432,
+          "summary": "🎉タイムアップ!15こ食べた"
+        },
+        {
+          "seed": 4,
+          "score": 100,
+          "frame": 1728,
+          "inputs": 432,
+          "summary": "🎉タイムアップ!10こ食べた"
+        },
+        {
+          "seed": 5,
+          "score": 100,
+          "frame": 1728,
+          "inputs": 450,
+          "summary": "🎉タイムアップ!11こ食べた"
+        },
+        {
+          "seed": 6,
+          "score": 100,
+          "frame": 1728,
+          "inputs": 447,
+          "summary": "🎉タイムアップ!13こ食べた"
+        },
+        {
+          "seed": 7,
+          "score": 100,
+          "frame": 1728,
+          "inputs": 408,
+          "summary": "🎉タイムアップ!9こ食べた"
+        },
+        {
+          "seed": 8,
+          "score": 76,
+          "frame": 882,
+          "inputs": 171,
+          "summary": "6こ食べた!"
+        }
+      ]
+    }
+  ]
+}

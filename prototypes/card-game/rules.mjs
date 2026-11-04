@@ -7,6 +7,7 @@ import {REMAINING_RULES} from './remaining-rules.mjs';
 import {MAIN_RULES} from './main-rules.mjs';
 import {CATALOG} from './full-catalog.mjs';
 import {CARDS as BASE} from './cards.mjs';
+import {MARRIED_VERSIONS,MARRIED_LEGACY_VERSIONS} from './lover-married.mjs';
 export const RULES={};
 export const other=a=>a==='A'?'B':'A';
 export const card=(s,id)=>id?CATALOG[s.cards[id].cardId]:null;
@@ -179,3 +180,28 @@ for(const [id,rule] of Object.entries(REMAINING_RULES))add(id,rule);
 for(const [id,rule] of Object.entries(INSPECTION_RULES))add(id,rule);
 for(const [id,rule] of Object.entries({...COST_RULES,...EQUIPMENT_RULES}))add(id,rule);
 for(const [id,rule] of Object.entries(COPY_RULES))add(id,rule);
+// ---- 恋人18種類の「♥ 結婚したら」（hotseat-8 から。480-lover-married-abilities.md） ----
+// 既存の「こいびとのとき」の規則は変えず、結婚の能力を別のトリガー・常時効果・置換として後ろに足す（旧保存の発動記録を変えないため）。
+// どれも onlyVersions:MARRIED_VERSIONS と条件 'married'（結婚中、かつ新しい版）付き。「こいびとのとき」と回数を分け合うものは limitKey:0（その恋人の最初のトリガーと同じ鍵）。
+// うし・ゆきだるまは「こいびとのとき」の処理そのものに加わるので、旧版用（そのまま）と新版用（結婚の処理つき）に分ける。
+{const M='married',V=MARRIED_VERSIONS,T=t=>({...t,onlyVersions:V,marriedAbility:true,condition:t.condition?{all:[M,t.condition]}:M});
+ const add2=(id,f)=>{RULES[id]=f(RULES[id]);};
+ const split=(r,f)=>{const base=r.triggers[0],legacy=MARRIED_LEGACY_VERSIONS;return [{...base,onlyVersions:legacy},...r.triggers.slice(1),{...f(base),onlyVersions:V}];};
+ add2('P-anglerfish',r=>({...r,triggers:[...r.triggers,T({when:'marriage',mandatory:true,steps:[{op:'search',n:4,filter:{cardId:'W-deepsea'},max:1,min:0,reveal:true}]})]}));
+ add2('P-cat_ceo',r=>({...r,triggers:[...r.triggers,T({when:'marriage',mandatory:true,steps:[draw(),{op:'discount',action:'action',type:'play',n:1}]})]}));
+ add2('P-cliff_goat',r=>({...r,triggers:[...r.triggers,T({when:'worldChange',condition:'changedName',steps:[draw()],once:true,limitKey:0})]}));
+ add2('P-desert_scorpion',r=>({...r,triggers:[...r.triggers,T({when:'marriage',mandatory:true,target:'ownDiscardPlayOrItem',steps:[move()]})]}));
+ add2('P-field_cow',r=>({...r,triggers:split(r,t=>({...t,steps:t.steps.map(x=>x.op==='look'?{...x,marriedSwap:true}:x)}))}));
+ add2('P-forest_bear',r=>({...r,replacements:[...r.replacements,{kind:'move',scope:'self',to:['hand'],replace:'stay',optional:true,limit:'round',cost:'attachedDiscard',condition:M,marriedAbility:true}]}));
+ add2('P-gentle_gorilla',r=>({...r,triggers:[...r.triggers,T({when:'marriage',mandatory:true,target:'ownMain',steps:[stat(2,0,'turn')]})]}));
+ add2('P-grove_deer',r=>({...r,triggers:[...r.triggers,T({when:'marriage',steps:[search(2)],once:true,limitKey:0}),T({when:'start',condition:'marriedHandAtMost1',steps:[search(2)],once:true,limitKey:0})]}));
+ add2('P-high_eagle',r=>({...r,triggers:[...r.triggers,T({when:'marriage',mandatory:true,steps:[draw()]})]}));
+ add2('P-knitting_spider',r=>({...r,triggers:[...r.triggers,T({when:'marriage',mandatory:true,target:'ownDiscardEquipment',steps:[move('top')]})]}));
+ add2('P-oasis_cactus',r=>({...r,passive:[...(r.passive??[]),{condition:{all:[M,'sourceUnequipped']},power:1,wisdom:0,marriedAbility:true}]}));
+ add2('P-robot_neighbor',r=>({...r,passive:[...r.passive,{condition:{all:[M,'ownTurn']},power:0,wisdom:1,marriedAbility:true}]}));
+ add2('P-rock_octopus',r=>({...r,activeMarried:{...r.active,condition:{all:['ownTurn','prepared2']},cost:0,marriedAbility:true}}));
+ add2('P-snow_spirit',r=>({...r,triggers:[...r.triggers,T({when:'end',mandatory:true,condition:'round10',steps:[growth(5)]})]}));
+ add2('P-snowman',r=>({...r,triggers:split(r,t=>({...t,steps:[...t.steps,iff('eventWasMarried',[draw()])]}))}));
+ add2('P-sunflower_partner',r=>({...r,triggers:[...r.triggers,T({when:'time_skip',target:'ownMain',steps:[stat(0,1)],once:true,limitKey:0})]}));
+ add2('P-swamp_croc',r=>({...r,triggers:[...r.triggers,T({when:'challengeResult',condition:{all:['tied',{not:'eventOwnChallenge'}]},once:true,limitKey:0,steps:[draw()]})]}));
+}

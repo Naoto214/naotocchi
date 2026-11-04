@@ -3,7 +3,6 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const {useLegacyHomePresentation}=require('./helpers/home-cast-fixture.cjs');
 
 async function attentionState(page) {
   return page.evaluate(() => {
@@ -25,7 +24,9 @@ async function attentionState(page) {
       sweatContent:getComputedStyle(el('petSprite'),'::after').content,
       sweatMotion:getComputedStyle(el('petSprite'),'::after').animationName,
       sweatTop:parseFloat(getComputedStyle(el('petSprite'),'::after').top),
-      spriteHeight:el('petSprite').getBoundingClientRect().height,
+      // Pseudo-element top is in local CSS pixels. The production diorama
+      // scales the actor, so its screen bounding height is a different unit.
+      spriteHeight:parseFloat(getComputedStyle(el('petSprite')).height),
       action:recommended?.id || '',actionMotion:recommended && getComputedStyle(recommended).animationName,
       actionShadow:recommended && getComputedStyle(recommended).boxShadow,
       medicineClickable:hit===button || button.contains(hit),
@@ -52,7 +53,6 @@ module.exports = async function checkCareAttention(browser, engine, fixtures, ba
       const context=await browser.newContext({viewport:{width,height},deviceScaleFactor:1,
         reducedMotion:reduced?'reduce':'no-preference'});
       const page=await context.newPage(), errors=[];
-      await useLegacyHomePresentation(context,engine+'-care-'+name,errors);
       page.on('pageerror',e=>errors.push(e.message));
       const save=JSON.parse(JSON.stringify(fixtures[fixture]));
       if(reduced) save.lifetime.textSize='large';
@@ -61,6 +61,12 @@ module.exports = async function checkCareAttention(browser, engine, fixtures, ba
         await page.goto(baseUrl);
         await page.locator('.device.ui-home-active').waitFor();
         await page.evaluate(()=>document.fonts.ready);
+        // The one V18 notice slot may first show the dying-warning event.
+        // Wait for its expiry and the persistent care warning to return.
+        await page.waitForFunction(sick=>{
+          const text=document.getElementById('message').textContent;
+          return sick ? /びょうき/.test(text) : /いのち/.test(text);
+        },name==='sick',{timeout:20000});
         const before=await attentionState(page);
         results.push({name,phase:'initial',...before});
         assert.equal(before.level,level,name+': attention level');
@@ -77,8 +83,11 @@ module.exports = async function checkCareAttention(browser, engine, fixtures, ba
           assert.ok(before.sweatTop>before.spriteHeight*.60 && before.sweatTop<before.spriteHeight*.90,
             name+': sweat is near the painted young fish, not the transparent upper frame');
         }
-        if(name==='sick') assert.match(before.title,/びょうき/);
-        else assert.match(before.title,/いのち/);
+        // V18 presents care text in the shared notice lane; the retired
+        // worldCareState title is deliberately empty in terrain notice mode.
+        assert.equal(await page.locator('#message').isVisible(),true,name+': care notice is visible');
+        if(name==='sick') assert.match(before.notice,/びょうき/);
+        else assert.match(before.notice,/いのち/);
         if(reduced) {
           assert.equal(before.fxMotion,'none');assert.equal(before.sweatMotion,'none');assert.equal(before.actionMotion,'none');
         } else {

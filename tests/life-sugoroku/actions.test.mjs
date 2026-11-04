@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {createGame,dispatch} from '../../prototypes/life-sugoroku/engine.mjs';
+let action;try{action=(await import('../../prototypes/life-sugoroku/actions.mjs')).bindRevision;}catch{}
+test('repeated rendered skip callback cannot score the next participant',()=>{assert.equal(typeof action,'function');let s=createGame({players:Array.from({length:4},()=>({character:{id:'dog',label:'いぬ'},human:true}))});s.phase='mini';s.pending={kind:0,challenge:{delay:1200},scores:[null,null,null,null],attempt:null};const callback=action(()=>s,c=>{s=dispatch(s,{type:'mini-pass',...c})});callback();assert.equal(s.active,1);callback();assert.equal(s.active,1);assert.equal(s.pending.scores[1],null);});

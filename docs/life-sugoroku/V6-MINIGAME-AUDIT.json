@@ -1,0 +1,2328 @@
+{
+  "base": "373f5f7d32f2af133de1b7c9c6b0e1363a0e9aeb",
+  "source": "V5 audit reused; games.js and quick.js latest main blob equal pinned source",
+  "counts": {
+    "normal": 15,
+    "quick": 45
+  },
+  "scope": "static classification of all100; only selected15 have execution verification; iPhone Safari hardware untested",
+  "rows": [
+    {
+      "pool": "game",
+      "id": "road-themed",
+      "name": "ロードラン",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(8 + points * 0.3 + bestCombo * 2), 8, 100);",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "family": "方向移動・回避"
+    },
+    {
+      "pool": "game",
+      "id": "stack-themed",
+      "name": "つみあげタワー",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        25
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const n = blocks.length - 1; const score = clamp(Math.round(8 + n * 7 + perfects * 4), 8, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "可視描画＋合法pointer入力、初級/中級",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "4席・途中入力・結果/報酬境界の自動検証済み",
+      "adoption": "V6対応",
+      "reason": null,
+      "family": "タイミング"
+    },
+    {
+      "pool": "game",
+      "id": "stack-snowman",
+      "name": "ゆきだるまタワー",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        25
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const n = blocks.length - 1; const score = clamp(Math.round(8 + n * 7 + perfects * 4), 8, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "可視描画＋合法pointer入力、初級/中級",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "4席・途中入力・結果/報酬境界の自動検証済み",
+      "adoption": "V6対応",
+      "reason": null,
+      "family": "タイミング"
+    },
+    {
+      "pool": "game",
+      "id": "falling-block-puzzle",
+      "name": "ブロックパズル",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドを左右になぞって移動、下になぞると速く下がる。タップで回転。⏬で一気に落とそう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "function finish(){if(done)return;done=true;cancelAnimationFrame(rafId);hint.textContent='おわり!'+lines+'ライン消した';const result=clamp(35+lines*11+Math.min(25,score/70),30,100);const play=meter.done();setTimeout(()=>onComplete(Math.round(result),null,play),650);}"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "family": "パズル"
+    },
+    {
+      "pool": "game",
+      "id": "crane-game-3d",
+      "name": "クレーンゲーム",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        45
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "ボタンをおしている間、アームが動く。景品の真ん中ではなそう。落ちても、左手前の落とし口に入ればゲット!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = won.length ? clamp(Math.round(40 + pts * 0.7 + tries * 5), 40, 100) : clamp(Math.round(14 + (TRIES - tries) * 2), 10, 25);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "family": "物理・軌道"
+    },
+    {
+      "pool": "game",
+      "id": "pinball-physics",
+      "name": "ピンボール",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "「はっしゃ」を長おしでためて、はなす。フリッパーはおしっぱなしで上がる。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "setTimeout(()=>onComplete(Math.round(result)),750);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "family": "物理・軌道"
+    },
+    {
+      "pool": "game",
+      "id": "haunted-house-3d",
+      "name": "おばけやしき3D",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドを左右になぞって向きを変え、上になぞって進む。かぎを取ると、ゆうれいが追いかけてくる!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "setTimeout(() => onComplete(Math.round(score)), 900);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "family": "方向移動・回避"
+    },
+    {
+      "pool": "game",
+      "id": "bowling-3d",
+      "name": "ボウリング",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "ボールから上へスワイプ!速くはらうほど強く、ななめにはらうとねらいが変わる。したのパッドを左右になぞって立ち位置を変えよう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(14 + pinsDown * 2.9 + strikes * 12 + spares * 5), 12, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "family": "物理・軌道"
+    },
+    {
+      "pool": "game",
+      "id": "archery-3d",
+      "name": "アーチェリー",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "画面をおさえて後ろへ引っぱり、はなすと発射。○が当たるところ（風の分も入っている）。まっすぐ下へ、いっぱいに引くとよく当たる。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(total / (ARROWS * 10) * 100), 8, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "family": "物理・軌道"
+    },
+    {
+      "pool": "game",
+      "id": "breakout-classic",
+      "name": "ブロックくずし",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        30
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "画面かしたのパッドを横になぞってパドルを動かす。パドルのはしで打つと、ボールがななめに飛ぶ。落ちてくるあいてむ：⬌ワイドはパドルが広がる／●マルチボールはボールが増える／🐢スローはボールがゆっくりになる。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "setTimeout(() => onComplete(final), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "可視描画＋合法pointer入力、初級/中級",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "4席・途中入力・結果/報酬境界の自動検証済み",
+      "adoption": "V6対応",
+      "reason": null,
+      "family": "反射・球技"
+    },
+    {
+      "pool": "game",
+      "id": "dragDecorate-cake",
+      "name": "ケーキデコレーション",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        16
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "下のトッピングを指でドラッグして、点線の場所に置く。ヒントに合ったトッピングを選ぼう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "onComplete(score);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "共通ドラッグは再利用可能。対象の配置条件・重なり判定・DOM操作の記録を未検証",
+      "family": "ドラッグ・なぞり"
+    },
+    {
+      "pool": "game",
+      "id": "dragDecorate-bento",
+      "name": "おべんとうづくり",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        11
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "見本を覚えてね!見本が消えたら、同じ場所に具をドラッグしてもどそう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "onComplete(score);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "共通ドラッグは再利用可能。対象の配置条件・重なり判定・DOM操作の記録を未検証",
+      "family": "ドラッグ・なぞり"
+    },
+    {
+      "pool": "game",
+      "id": "p3-space",
+      "name": "うちゅうフライト3D",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(8 + points * 0.3 + bestCombo * 2), 8, 100);",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "family": "方向移動・回避"
+    },
+    {
+      "pool": "game",
+      "id": "p3-drive",
+      "name": "ハイウェイ3D",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(8 + points * 0.3 + bestCombo * 2), 8, 100);",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "道路投影・曲率・速度制御の共通観測と操作が未実装",
+      "family": "レース"
+    },
+    {
+      "pool": "game",
+      "id": "fp-dungeon",
+      "name": "ダンジョン3D",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドを左右になぞって向きを変え、上になぞって進む（下でさがる）。画面をドラッグしても見まわせる。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "setTimeout(() => onComplete(Math.round(score)), 800);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "family": "方向移動・回避"
+    },
+    {
+      "pool": "game",
+      "id": "race-3d",
+      "name": "カーレース3D",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "アクセルをおしっぱなしで加速。カーブでは外にふられるので、したのパッドを左右になぞっておさえよう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "setTimeout(() => onComplete(Math.round(score)), 800);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "道路投影・曲率・速度制御の共通観測と操作が未実装",
+      "family": "レース"
+    },
+    {
+      "pool": "game",
+      "id": "rhythm-highway-3d",
+      "name": "リズムハイウェイ",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        22
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "ノーツが手前のラインに重なった瞬間に、そのレーンのボタンをタップ!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(pts / Math.max(1, total * 3) * 100), 8, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "レーン/拍の可視観測と入力時刻の評価が未実装",
+      "family": "リズム"
+    },
+    {
+      "pool": "game",
+      "id": "tilt-maze-3d",
+      "name": "たまころがし迷路",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "盤か したのパッドをなぞってかたむける。穴に落ちないようにゴールへ進もう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "setTimeout(() => onComplete(Math.round(score), null, play), 800);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "family": "物理・軌道"
+    },
+    {
+      "pool": "game",
+      "id": "space-gunner-3d",
+      "name": "スペースガンナー",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドか画面をなぞってねらいを合わせ、画面をタップするか「うつ!」で発射。赤くなった敵は攻撃直前!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = shields <= 0 ? clamp(12 + kills * 4, 12, 48) : clamp(30 + kills * 6.5 + shields * 7 + accuracy * 10, 15, 100);",
+        "setTimeout(() => onComplete(Math.round(score)), 850);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "照準・弾道・回避・アクションボタンを組み合わせる判断が未実装",
+      "family": "シューティング"
+    },
+    {
+      "pool": "game",
+      "id": "mini-golf-physics",
+      "name": "ミニゴルフ",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        40
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "ボールから後ろへ引っぱって、はなすとパット。引っぱる長さで強さが決まる。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(100 - Math.max(0, over) * 9 + Math.min(0, over) * -4, 15, 100);",
+        "setTimeout(() => onComplete(Math.round(score)), 900);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "family": "物理・軌道"
+    },
+    {
+      "pool": "game",
+      "id": "real-fishing",
+      "name": "ほんかくさかなつり",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "ボタンを長おしでためて、はなすとキャスト。うきがしずんだら「あわせる」!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(18 + pts * 1.2 - escaped * 4, 10, 100);",
+        "setTimeout(() => onComplete(Math.round(score)), 900);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "family": "物理・軌道"
+    },
+    {
+      "pool": "game",
+      "id": "basketball-3d",
+      "name": "バスケ3D",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "ボールを上へはらってシュート。はらっている間に出る白い輪が、ボールの落ちる場所。緑になったらリングの真上!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(18 + made * 11 + acc * 20 + best * 3), 12, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "family": "物理・軌道"
+    },
+    {
+      "pool": "game",
+      "id": "pingpong-3d",
+      "name": "卓球3D",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "画面をなぞってラケットを動かす。ボールが来た場所にラケットを置くと返せる。先に4点取ろう!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = mgVersusOutcome({ result: won ? 'win' : me < ai ? 'lose' : 'draw', by: me < WIN && ai < WIN ? 'judgement' : 'decisive', score: decided, margin: (me - ai) / WIN });",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "共通追跡ドラッグは再利用可能。球軌道・返球タイミング・相手側ルールの専用判断が未実装",
+      "family": "反射・球技"
+    },
+    {
+      "pool": "game",
+      "id": "chain-puzzle",
+      "name": "れんさパズル",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドを左右になぞって動かし、タップで回転、下になぞると速く落ちる。同じ色を4こつなげると消える。消えたあとに落ちてつながれば、れんさ!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "setTimeout(() => onComplete(result), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "family": "パズル"
+    },
+    {
+      "pool": "game",
+      "id": "street-fight",
+      "name": "かくとうバトル",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        25
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドを左右になぞって動く。パンチは速い。キックは強くて、相手をふき飛ばす。相手が光ったらガード（長おし）!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round((win ? 50 : 16) + me.hp * 0.3 + Math.min(12, hits) - Math.min(15, taken)), 10, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "連打だけではルールを満たさない。資源・対象・アクションボタンの判断が未実装",
+      "family": "連打・複合操作"
+    },
+    {
+      "pool": "game",
+      "id": "free-kick-3d",
+      "name": "フリーキック",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "ボールから上へはらってシュート。速くはらうほど強く、ななめにはらうとねらいが変わる。途中で曲げるとカーブ!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(12 + goals * 22 + (goals === KICKS ? 10 : 0)), 10, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "family": "物理・軌道"
+    },
+    {
+      "pool": "game",
+      "id": "tower-defense",
+      "name": "タワーディフェンス",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        90
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "茶色い道の外にタワーを建てよう。タワーを選び、もう一度タップすると強化。敵が来る前にそなえて!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = win ? clamp(Math.round(62 + lives * 3.8), 60, 100) : clamp(Math.round(12 + wave * 9 + kills * 0.4), 10, 55);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。連打だけではルールを満たさない。資源・対象・アクションボタンの判断が未実装",
+      "family": "連打・複合操作"
+    },
+    {
+      "pool": "game",
+      "id": "roguelike-dungeon",
+      "name": "ローグライク",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        90
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドをなぞって1マス動くと敵も動く。敵にぶつかって攻撃。🧪は回復、⚔️は攻撃力アップ、🪜で次の階へ。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = win ? clamp(Math.round(60 + hp * 1.2 + Math.min(20, gold * 0.3)), 60, 100) : clamp(Math.round(12 + (floor - 1) * 24 + kills * 3 + Math.min(10, gold * 0.2)), 10, 58);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "family": "方向移動・回避"
+    },
+    {
+      "pool": "game",
+      "id": "grand-prix-3d",
+      "name": "グランプリ",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        30
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "アクセルを長おし、したのパッドを左右になぞってハンドル操作。青いパッドでブースト、オイルはすべる。ライバルをぬいて1位をめざせ!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp((finished ? table[finalRank - 1] : table[finalRank - 1] - 25) - Math.min(10, hits), 12, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "道路投影・曲率・速度制御の共通観測と操作が未実装",
+      "family": "レース"
+    },
+    {
+      "pool": "game",
+      "id": "sky-shooter",
+      "name": "スカイシューター",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        27
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドか画面をなぞって機体を動かそう。弾は自動で出るよ。Pを取るとパワーアップ。ピンチではボム!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "setTimeout(() => onComplete(result, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "照準・弾道・回避・アクションボタンを組み合わせる判断が未実装",
+      "family": "シューティング"
+    },
+    {
+      "pool": "game",
+      "id": "jump-quest",
+      "name": "ジャンプクエスト",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドを左右になぞって走り、ジャンプは長おしで高く。敵は上からふみ、とげは飛びこえて、🚩まで!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = win ? clamp(Math.round(62 + got * 2.5 + stomps * 3 + p.lives * 5), 60, 100) : clamp(Math.round(12 + prog * 40 + got * 1.5), 10, 58);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "family": "方向移動・回避"
+    },
+    {
+      "pool": "game",
+      "id": "push-puzzle",
+      "name": "そうこばん",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        60
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドをなぞって1マスずつ動く。箱（📦）をおして★のマスへ。引っぱれないので、おす向きを考えよう。↩で1手もどせる。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(15 + solved * 25 + Math.max(0, 15 - Math.max(0, totalMoves - 45) * 0.5)), 10, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "family": "パズル"
+    },
+    {
+      "pool": "game",
+      "id": "reversi-6",
+      "name": "オセロ",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        60
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "光っているマスをタップ。相手の石をはさむと、全部自分の色に変わる。角を取ると強い!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = mgVersusOutcome({ result: diff > 0 ? 'win' : diff < 0 ? 'lose' : 'draw', by: timeUp ? 'judgement' : 'decisive', score: decided, margin: diff / 12 });",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。合法手生成・相手手番・勝敗比較・60秒内の正式終了が未検証",
+      "family": "盤上・カード"
+    },
+    {
+      "pool": "game",
+      "id": "billiards-6",
+      "name": "ビリヤード",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        40
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "白いボールから後ろへ引っぱって、はなすとショット。引っぱる長さで強さが変わる。ガイド線を見てねらおう!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = cleared ? clamp(70 + (MAX_SHOTS - shots) * 5, 70, 100) : clamp(10 + pocketed * 9, 10, 64);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "family": "物理・軌道"
+    },
+    {
+      "pool": "game",
+      "id": "animal-shogi",
+      "name": "どうぶつしょうぎ",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        60
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "こまをタップして、光ったマスへ。🦁を取るか、自分の🦁が一番奥まで行けば勝ち。取ったこまは、下の手持ちから打てる。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = mgVersusOutcome({ result: w === ME ? 'win' : w === AI ? 'lose' : 'draw', by: timeUp ? 'judgement' : 'decisive', score: decided, margin: lead / 13 });",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。合法手生成・相手手番・勝敗比較・60秒内の正式終了が未検証",
+      "family": "盤上・カード"
+    },
+    {
+      "pool": "game",
+      "id": "minesweeper-8",
+      "name": "マインスイーパー",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        60
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "マスをタップで開く。数字は、まわり8マスにあるばくだんの数。あやしいマスは🚩モードか長おしで、旗を立てよう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = win ? clamp(Math.round(72 + Math.max(0, 60 - el) * 0.4), 72, 100) : clamp(Math.round(10 + (revealed / total) * 45), 10, 55);",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "family": "パズル"
+    },
+    {
+      "pool": "game",
+      "id": "snake-classic",
+      "name": "スネーク",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドか画面をスワイプして向きを変える。🍎でのびてスピードアップ。⭐は3こ分!かべと体にぶつからないで。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(10 + ate * 11 + (alive ? 12 : 0)), 10, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "可視描画＋合法pointer入力、初級/中級",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "4席・途中入力・結果/報酬境界の自動検証済み",
+      "adoption": "V6対応",
+      "reason": null,
+      "family": "方向移動・回避"
+    },
+    {
+      "pool": "game",
+      "id": "baseball-batting",
+      "name": "やきゅう",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドか画面を横になぞって、バットを球のコースへ。球がホームベースに来る瞬間にスイング!真ん中で当てるとホームラン。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(12 + bases * 7.3 + hrs * 5), 12, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "既存の可視目標・反応遅延基盤は再利用可能。ゲーム固有の発射/投球判断と正式終了を未検証",
+      "family": "タイミング"
+    },
+    {
+      "pool": "game",
+      "id": "ring-flight-3d",
+      "name": "リングフライト3D",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        25
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドか画面をなぞって飛行機を動かす。リングの真ん中をくぐると○。雲に当たるとスピードダウン。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(15 + rings * 5.5 + rate * 20 + coins * 2), 15, 100);",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "family": "方向移動・回避"
+    },
+    {
+      "pool": "game",
+      "id": "bubble-shooter",
+      "name": "バブルシューター",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        32
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "画面をおさえてねらいを決め、はなすと発射。同じ色が3こつながると消える。かべではね返して、裏からねらうのもアリ。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = cleared ? 100 : gameOver ? clamp(Math.round(10 + popped * 1.2), 10, 55) : clamp(Math.round(20 + popped * 1.8), 20, MG_VS_BANDS.judgeWin[1]);",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "family": "パズル"
+    },
+    {
+      "pool": "game",
+      "id": "catapult-castle",
+      "name": "カタパルト",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        30
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "ボールをおさえて後ろへ引っぱり、はなすと発射。ブロックをくずして👻をたおそう。高い場所から落としてもOK。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = cleared ? clamp(75 + (SHOTS - shots) * 6, 75, 100) : clamp(Math.round(10 + killed * 11), 10, 70);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "family": "物理・軌道"
+    },
+    {
+      "pool": "game",
+      "id": "connect-four",
+      "name": "コネクトフォー",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        60
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "落としたい列をタップ。たて・横・ななめに4つならべたら勝ち。相手（🟡）の3つならびはふさごう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = mgVersusOutcome({ result: w === ME ? 'win' : w === AI ? 'lose' : 'draw', by: timeUp ? 'timeout' : 'decisive', score: decided });",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。合法手生成・相手手番・勝敗比較・60秒内の正式終了が未検証",
+      "family": "盤上・カード"
+    },
+    {
+      "pool": "game",
+      "id": "puzzle-2048",
+      "name": "2048",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        45
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドか画面をスワイプすると、全部のタイルがすべる。同じ数がぶつかると、足されて1つに。大きい数を角にためるのがコツ。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "setTimeout(() => onComplete(finalScore), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "family": "パズル"
+    },
+    {
+      "pool": "game",
+      "id": "frogger-road",
+      "name": "かえるのおうちがえり",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドか画面をスワイプして1マス飛ぶ（パッドのタップで前へ）。車に当たらないように道路をわたろう。川は🪵の上だけ安全。空いている🏠へ!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = goals >= GOAL_N ? clamp(80 + lives * 7, 80, 100) : clamp(Math.round(12 + goals * 22 + prog * 12), 12, 75);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "family": "方向移動・回避"
+    },
+    {
+      "pool": "game",
+      "id": "ski-jump",
+      "name": "スキージャンプ",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "ボタンでスタート。台のはし（赤い線）でタップして飛び出す!空中では長おしで前かがみになり、風の目印（▽）に重ねよう。着地直前にタップでテレマーク。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(10 + total * 0.26), 10, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "既存の可視目標・反応遅延基盤は再利用可能。ゲーム固有の発射/投球判断と正式終了を未検証",
+      "family": "タイミング"
+    },
+    {
+      "pool": "game",
+      "id": "air-hockey",
+      "name": "エアホッケー",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        30
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "下半分で指を動かすとマレットがついてくる。パックをはじいて上のゴールへ!自分のゴールも守ろう。先に4点取ったら勝ち。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = mgVersusOutcome({ result: me > ai ? 'win' : me < ai ? 'lose' : 'draw', by: timeUp ? 'judgement' : 'decisive', score: decided, margin: (me - ai) / WIN });",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "可視描画＋合法pointer入力、初級/中級",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "4席・途中入力・結果/報酬境界の自動検証済み",
+      "adoption": "V6対応",
+      "reason": null,
+      "family": "反射・球技"
+    },
+    {
+      "pool": "game",
+      "id": "submarine-3d",
+      "name": "サブマリン3D",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        25
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドか画面をなぞって潜水艦を動かす。💎を取り、岩やクラゲはよける。酸素メーターが減ったら🫧を取ろう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(12 + gems * 9 + (reason ? 0 : 10) + hp * 3), 12, 100);",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "family": "方向移動・回避"
+    },
+    {
+      "pool": "game",
+      "id": "match-3",
+      "name": "フルーツマッチ3",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        32
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "となり合うフルーツを、スワイプか2回のタップで入れかえる。たて・横に3つ以上そろうと消える。4つ・5つや、れんさで大きくかせごう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "setTimeout(() => onComplete(final), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "family": "パズル"
+    },
+    {
+      "pool": "game",
+      "id": "gomoku-9",
+      "name": "五目ならべ",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        60
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "マスをタップすると仮置き。同じ場所をもう一度タップで決定。たて・横・ななめに5つならべたら勝ち。相手の3つ・4つならびはふさごう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = mgVersusOutcome({ result: w === ME ? 'win' : w === AI ? 'lose' : 'draw', by: timeUp ? 'timeout' : 'decisive', score: decided });",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。合法手生成・相手手番・勝敗比較・60秒内の正式終了が未検証",
+      "family": "盤上・カード"
+    },
+    {
+      "pool": "game",
+      "id": "tank-battle",
+      "name": "タンクバトル",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドをなぞった向きに動き、🔥で発射（画面タップでもOK）。向いている方へ弾が飛ぶ。レンガのかべは、こわして道を作れる。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = cleared ? clamp(78 + lives * 7, 78, 100) : clamp(Math.round(12 + killed * 9), 12, 70);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "照準・弾道・回避・アクションボタンを組み合わせる判断が未実装",
+      "family": "シューティング"
+    },
+    {
+      "pool": "game",
+      "id": "tennis-rally",
+      "name": "テニス",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドを左右になぞって動き、ボールが近づいたらスイング（画面タップでもOK）!低い場所で打つと速いドライブ、高い場所で打つとロブ。相手のコートに落とそう。3ポイント先取り。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = mgVersusOutcome({ result: me > ai ? 'win' : me < ai ? 'lose' : 'draw', by: timeUp ? 'judgement' : 'decisive', score: decided, margin: (me - ai) / WIN });",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "共通追跡ドラッグは再利用可能。球軌道・返球タイミング・相手側ルールの専用判断が未実装",
+      "family": "反射・球技"
+    },
+    {
+      "pool": "game",
+      "id": "picross-5",
+      "name": "ピクロス",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        75
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "数字は、その列で続けてぬるマスの数。「2 1」なら2つぬって、間を空けて1つぬる。タップでぬる。✕モードか長おしで、ぬらない印をつけよう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(10 + solved * 28 - mistakes * 2 + (solved >= ROUNDS ? 6 : 0)), 10, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "family": "パズル"
+    },
+    {
+      "pool": "game",
+      "id": "darts-board",
+      "name": "ダーツ",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "画面をおさえてねらいを動かし、はなすと投げる。おさえている間は手がゆれるので、早めにはなすのがコツ。真ん中のブルは50点!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(10 + total / 2.1), 10, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "既存の可視目標・反応遅延基盤は再利用可能。ゲーム固有の発射/投球判断と正式終了を未検証",
+      "family": "タイミング"
+    },
+    {
+      "pool": "game",
+      "id": "hang-glider-3d",
+      "name": "ハンググライダー3D",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        25
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドか画面をなぞって左右に動き、上下で機首を上げ下げ。下げると速く進むけど、高さが減る。🌀の上昇気流で高さをかせぎ、🎈を集めよう。地面につくと終わり。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(8 + dist / 30 + balloons * 9 + thermals * 1.0 + (landed ? 0 : 8)), 8, 100);",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "family": "方向移動・回避"
+    },
+    {
+      "pool": "game",
+      "id": "bomber-maze",
+      "name": "ボンバー",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        30
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドをなぞった向きに動き、💣（画面タップでもOK）でばくだんを置く。2秒で十字に爆発!自分もまきこまれるので、はなれよう。レンガからあいてむが出る。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = cleared ? clamp(80 + lives * 10, 80, 100) : clamp(Math.round(12 + killed * 14), 12, 70);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "family": "方向移動・回避"
+    },
+    {
+      "pool": "game",
+      "id": "blackjack-21",
+      "name": "ブラックジャック",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "カードの合計を21に近づける。21をこえたら負け。Aは1か11、絵札は10。ヒットで1枚引き、スタンドで勝負。ディーラーは17以上で止まる。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(50 + (chips - START) * 0.5), 15, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "合法手生成・相手手番・勝敗比較・60秒内の正式終了が未検証",
+      "family": "盤上・カード"
+    },
+    {
+      "pool": "game",
+      "id": "pipe-connect",
+      "name": "パイプつなぎ",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        50
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "パイプをタップすると90°回る。左の🚰から右の🌻まで、水が通る道を作ろう。少ないタップでつなぐと高得点。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(12 + solved * 39 + (solved >= ROUNDS ? Math.max(0, 10 - Math.max(0, taps - 30) * 0.5) : 0)), 12, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "family": "パズル"
+    },
+    {
+      "pool": "game",
+      "id": "fruit-slice",
+      "name": "フルーツ斬り",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        24
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "指で素早くなぞってフルーツを切る!1回のスワイプで何こも切るとコンボ。💣を切るとライフが減る。落としすぎにも注意。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "setTimeout(() => onComplete(final), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "可視描画＋合法pointer入力、初級/中級",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "4席・途中入力・結果/報酬境界の自動検証済み",
+      "adoption": "V6対応",
+      "reason": null,
+      "family": "ドラッグ・なぞり"
+    },
+    {
+      "pool": "game",
+      "id": "track-field",
+      "name": "りくじょう",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "◀と▶を交互に素早くタップして走る!100mのあとは幅とび。白いラインの手前でジャンプボタンをおして、はなすと飛ぶ。長くおすと高く飛べる。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(dashPts + jumpPts), 10, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "連打だけではルールを満たさない。資源・対象・アクションボタンの判断が未実装",
+      "family": "連打・複合操作"
+    },
+    {
+      "pool": "game",
+      "id": "voxel-mine",
+      "name": "ボクセルマイニング",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドをなぞった向きに1マスほる（ゆびをおさえたままだとほり続ける）。石は時間がかかる。⚫石炭→⛓鉄→🟡金→💎ダイヤは、深いほど多い。🔥マグマにさわるとダメージ!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "setTimeout(() => onComplete(final), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "連打だけではルールを満たさない。資源・対象・アクションボタンの判断が未実装",
+      "family": "連打・複合操作"
+    },
+    {
+      "pool": "game",
+      "id": "sushi-belt",
+      "name": "かいてんずし",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        24
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "上の「注文」と同じネタのお皿を、レーンからタップして取る。ちがうお皿や🌶わさびはペナルティ。早くそろえるとボーナス。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "setTimeout(() => onComplete(final), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "可視描画＋合法pointer入力、初級/中級",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "4席・途中入力・結果/報酬境界の自動検証済み",
+      "adoption": "V6対応",
+      "reason": null,
+      "family": "記憶・選択タップ"
+    },
+    {
+      "pool": "game",
+      "id": "asteroids-classic",
+      "name": "アステロイド",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドを左右になぞって回り、上になぞると進む。🔥か画面のタップで打つ。岩をわると、小さく速くなる。画面のはしはつながっている。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "setTimeout(() => onComplete(final), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "照準・弾道・回避・アクションボタンを組み合わせる判断が未実装",
+      "family": "シューティング"
+    },
+    {
+      "pool": "game",
+      "id": "yacht-dice",
+      "name": "ヨット",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "「ふる」は1ターンに全部で3回。サイコロをタップでキープし、残りだけふり直す。役をタップして記録。同じ役は1回だけ。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(10 + total * 0.66), 10, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "合法手生成・相手手番・勝敗比較・60秒内の正式終了が未検証",
+      "family": "盤上・カード"
+    },
+    {
+      "pool": "game",
+      "id": "lights-out",
+      "name": "ライツアウト",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        45
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "タップしたマスと、上下左右のライトが反転する。全部消せばクリア。「さいてい」の手数をめざそう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(10 + solved * 24 + eff * 18), 10, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "可視描画＋合法pointer入力、初級/中級",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "4席・途中入力・結果/報酬境界の自動検証済み",
+      "adoption": "V6対応",
+      "reason": null,
+      "family": "パズル"
+    },
+    {
+      "pool": "game",
+      "id": "doodle-jump",
+      "name": "ぴょんぴょんジャンプ",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        25
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドか画面を横になぞって動き、台に降りよう。ジャンプは自動。緑はふつう、青は動く、茶色は1回でこわれる。🔴バネは大ジャンプ。左右のはしはつながっていて、1回だけ落ちても助かるよ。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(10 + best / 10 / 3.8 + coins * 3), 10, 100);",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "family": "方向移動・回避"
+    },
+    {
+      "pool": "game",
+      "id": "curling-ice",
+      "name": "カーリング",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        45
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "🔴を上へスワイプ。なぞった長さの先にある●が、石の止まる場所の目安。投げたあとは連打でのばせる。真ん中に一番近い石のチームが得点。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = mgVersusOutcome({ result: win ? 'win' : t.who === 0 ? 'draw' : 'lose', by: timeUp ? 'judgement' : 'decisive', score: decided, margin: t.n / STONES });",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "family": "物理・軌道"
+    },
+    {
+      "pool": "game",
+      "id": "jenga-tower",
+      "name": "ジェンガ",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        45
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "タップしたブロックをぬいて、上につみ直すよ。真ん中を残すと安定し、はしだけだとくずれやすい。安定度（%）を見ながら選ぼう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(10 + pulled * 8 + (collapsing ? 0 : 12)), 10, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "family": "物理・軌道"
+    },
+    {
+      "pool": "game",
+      "id": "line-trace",
+      "name": "せんなぞり",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        32
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "●から灰色の線をひと筆でなぞろう。線に近いと緑、はなれると赤。指をはなすと判定するよ。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(10 + avg * 0.9), 10, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "可視描画＋合法pointer入力、初級/中級",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "4席・途中入力・結果/報酬境界の自動検証済み",
+      "adoption": "V6対応",
+      "reason": null,
+      "family": "ドラッグ・なぞり"
+    },
+    {
+      "pool": "game",
+      "id": "checkers-6",
+      "name": "チェッカー",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        60
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "こまをタップして、光ったマスへ。ななめ前に1マス進める。相手のこまを飛びこすと取れる（続けて飛べる）。奥まで行くと👑キングになり、後ろにも進める。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = mgVersusOutcome({ result: w === ME ? 'win' : w === AI ? 'lose' : 'draw', by: timeUp ? 'judgement' : 'decisive', score: decided, margin: (count(ME) - count(AI)) / 6 });",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。合法手生成・相手手番・勝敗比較・60秒内の正式終了が未検証",
+      "family": "盤上・カード"
+    },
+    {
+      "pool": "game",
+      "id": "memory-cards",
+      "name": "しんけいすいじゃく",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        45
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "カードを2枚タップしてめくる。同じ絵ならそのまま、ちがえばもどる。場所を覚えて、少ない回数で全部そろえよう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = matched >= PAIRS ? clamp(Math.round(42 + eff * 50 + Math.max(0, 60 - el) * 0.13), 42, 100) : clamp(Math.round(10 + matched * 7), 10, 45);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "可視描画＋合法pointer入力、初級/中級",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "4席・途中入力・結果/報酬境界の自動検証済み",
+      "adoption": "V6対応",
+      "reason": null,
+      "family": "記憶・選択タップ"
+    },
+    {
+      "pool": "game",
+      "id": "halfpipe-skate",
+      "name": "ハーフパイプ",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        26
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "下り坂で「ポンプ」を長おしすると加速。勢いがつくと、ふちから飛び出す。空中で「トリック」をおすと1回転（何度もおせる）。着地までに回りきらないと転倒!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "setTimeout(() => onComplete(final), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "family": "物理・軌道"
+    },
+    {
+      "pool": "game",
+      "id": "domino-run",
+      "name": "ドミノたおし",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        45
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "道の途中でドミノが欠けている（点線）。手持ちのドミノを、欠けた場所にタップして置こう。全部つながったら「おす!」。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(10 + cleared * 42 + (cleared >= ROUNDS ? 6 : 0)), 10, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "family": "物理・軌道"
+    },
+    {
+      "pool": "game",
+      "id": "sudoku-mini",
+      "name": "ナンプレ",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        90
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "難易度により4×4（1〜4）か6×6（1〜6）。たて・横・太いわくの中に、それぞれの数字を1つずつ入れる。マスをタップで選び、下の数字ボタンで入れよう。まちがうと赤く光る。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(10 + solved * (90 / ROUNDS) - mistakes * 3), 10, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "family": "パズル"
+    },
+    {
+      "pool": "game",
+      "id": "mancala-kalah",
+      "name": "マンカラ",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        60
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "下にある自分の穴をタップ。たねを1つずつ、自分のストアの方向へまく。最後のたねが右の自分のストアに入ると、もう1回。空の自分の穴に落ちると、向かいのたねももらえる。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = mgVersusOutcome({ result: me > ai ? 'win' : me < ai ? 'lose' : 'draw', by: timeUp ? 'judgement' : 'decisive', score: decided, margin: (me - ai) / 12 });",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。合法手生成・相手手番・勝敗比較・60秒内の正式終了が未検証",
+      "family": "盤上・カード"
+    },
+    {
+      "pool": "game",
+      "id": "plane-landing",
+      "name": "ひこうき着陸",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "緑の線にのせて飛べば▲に着陸できる。接地の直前に機首を上げるとふわっと浮いて◎までのびる（これが高得点）。風で流されるので線にのせ直そう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(total / LANDINGS), 5, 100);",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "family": "物理・軌道"
+    },
+    {
+      "pool": "game",
+      "id": "dot-eater",
+      "name": "ドットイーター",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドか画面をスワイプして進む。ドットを全部食べよう。⭐を食べると、6秒間はおばけを食べ返せる!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = ([dx, dy]) => Math.hypot(cx + dx - target[0], cy + dy - target[1]);",
+        "const score = clamp(Math.round(eatenRatio * 95 + eatenGhosts * 5 + (cleared ? 18 : 0) + Math.max(0, lives) * 3), 5, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "family": "方向移動・回避"
+    },
+    {
+      "pool": "game",
+      "id": "missile-command",
+      "name": "ミサイルコマンド",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "空をタップすると、一番近い基地から迎撃ミサイルが飛ぶ。爆発の輪に敵のミサイルをまきこんで、町を守れ!基地の弾はウェーブごとに補給される。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(ratio * 62 + aliveCities() * 6 + (aliveCities() === 6 ? 4 : 0)), 5, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "照準・弾道・回避・アクションボタンを組み合わせる判断が未実装",
+      "family": "シューティング"
+    },
+    {
+      "pool": "game",
+      "id": "area-claim",
+      "name": "じんとり",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドをなぞった向きにふちを動き、中へ線を引いてかこもう。60%取ればクリア。✨が線にふれると1ミス。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(won ? 82 + Math.max(0, lives) * 6 : claimed * 1.05 + Math.max(0, lives) * 2), 5, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "family": "方向移動・回避"
+    },
+    {
+      "pool": "game",
+      "id": "solitaire-klondike",
+      "name": "ソリティア",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        90
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "カードをタップで選び、置きたい列か右上の台をタップ。選んだカードをもう1回タップすると台へ。山札はタップでめくる。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(won ? 90 + Math.min(10, remainS / 12) : 8 + n * 1.6), 5, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。合法手生成・相手手番・勝敗比較・60秒内の正式終了が未検証",
+      "family": "盤上・カード"
+    },
+    {
+      "pool": "game",
+      "id": "hit-blow",
+      "name": "ヒット&ブロー",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        50
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "答えは6色のうち4色（同じ色は2つない）。色を4つ選んで「けってい」。🎯ヒット＝色も場所も当たり。💨ブロー＝色はあるけど場所がちがう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(solved ? 100 - Math.max(0, guesses.length - 3) * 9 : 18 + (last ? last.hit * 6 + last.blow * 2 : 0)), 5, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "family": "パズル"
+    },
+    {
+      "pool": "game",
+      "id": "lunar-lander",
+      "name": "ルナランダー",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドを左右になぞってかたむけ、🔥で逆噴射。平らなパッド（×2/×3）に、まっすぐ、ゆっくり降りよう。速すぎたり、ななめだとクラッシュ。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(6 + total() * 1.08 + landed * 9), 5, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "family": "物理・軌道"
+    },
+    {
+      "pool": "game",
+      "id": "shanghai-tiles",
+      "name": "上海",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        75
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "上に牌がなく、左か右が空いている牌だけ取れる。同じ絵の2枚をタップして消そう。必ず解ききれるならびになっている。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(won ? 84 + Math.min(16, remainS / 6) - shuffles * 2 : 6 + pairs / totalPairs * 70 - shuffles * 2), 5, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "family": "パズル"
+    },
+    {
+      "pool": "game",
+      "id": "beach-volley",
+      "name": "ビーチバレー",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "すなの○がボールの落ちる場所。したのパッドを左右になぞって、そこへ走ろう。ふれると高く上がる（うけ）。🏐アタックをおしながらふれるとスパイク!先に4点取ろう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(10 + me * 12 + (won ? 22 : 0) - cpu * 2 + Math.min(8, bestRally)), 5, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "共通追跡ドラッグは再利用可能。球軌道・返球タイミング・相手側ルールの専用判断が未実装",
+      "family": "反射・球技"
+    },
+    {
+      "pool": "game",
+      "id": "slide-puzzle",
+      "name": "スライドパズル",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "空いたマスのとなりのピースを、タップかスワイプですべらせる。左上から順番にならべて、絵を完成させよう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(solved ? 74 + Math.min(26, remainS / (DURATION_MS / 1000) * 40) : 8 + correct / (N * N - 1) * 50), 5, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "family": "パズル"
+    },
+    {
+      "pool": "game",
+      "id": "sugoroku-race",
+      "name": "すごろく",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        50
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "「🎲とめる」をおすと、回っているサイコロが止まる。ねらって止めよう!➕は進む、➖はもどる、⭐はコイン、💤は1回休み。先にゴールへ!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round((rank === 1 ? 72 : rank === 2 ? 46 : 26) + coins * 1.5 + players[0].pos / LEN * 6), 5, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "合法手生成・相手手番・勝敗比較・60秒内の正式終了が未検証",
+      "family": "盤上・カード"
+    },
+    {
+      "pool": "game",
+      "id": "takoyaki-grill",
+      "name": "たこやきやさん",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        24
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "きつね色（緑のゾーン）になったら、タップでひっくり返す。裏もきつね色になったら、タップで取り出す。早いと生、おそいとこげ!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(6 + perfect * 9 + good * 3.6 - bad * 2), 5, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "可視描画＋合法pointer入力、初級/中級",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "4席・途中入力・結果/報酬境界の自動検証済み",
+      "adoption": "V6対応",
+      "reason": null,
+      "family": "タイミング"
+    },
+    {
+      "pool": "game",
+      "id": "road-city",
+      "name": "とかいラン",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(8 + points * 0.3 + bestCombo * 2), 8, 100);",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "family": "方向移動・回避"
+    },
+    {
+      "pool": "game",
+      "id": "stack-harvest",
+      "name": "しゅうかくタワー",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        25
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const n = blocks.length - 1; const score = clamp(Math.round(8 + n * 7 + perfects * 4), 8, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "可視描画＋合法pointer入力、初級/中級",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "4席・途中入力・結果/報酬境界の自動検証済み",
+      "adoption": "V6対応",
+      "reason": null,
+      "family": "タイミング"
+    },
+    {
+      "pool": "game",
+      "id": "stack-acorn",
+      "name": "きのみタワー",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        25
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const n = blocks.length - 1; const score = clamp(Math.round(8 + n * 7 + perfects * 4), 8, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "可視描画＋合法pointer入力、初級/中級",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "4席・途中入力・結果/報酬境界の自動検証済み",
+      "adoption": "V6対応",
+      "reason": null,
+      "family": "タイミング"
+    },
+    {
+      "pool": "game",
+      "id": "downhill-mountain",
+      "name": "やまの岩場のぼり",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        24
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "◀▶か画面のタップで岩をえらぼう。針が緑のわくに入ったら「つかむ」!明るい岩はつかみやすい。3段ごとの休憩で、にぎる力がもどる。12段の山頂をめざそう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "draw(); setTimeout(() => onComplete(Math.round(result)), 800);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "family": "方向移動・回避"
+    },
+    {
+      "pool": "game",
+      "id": "downhill-snow",
+      "name": "ゆきのゲレンデ",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドを左右になぞるか、画面のドラッグでハンドル操作。🚩🚩の間を通り、🪵はジャンプでこえよう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "setTimeout(() => onComplete(Math.round(score), null, play), 800);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "family": "方向移動・回避"
+    },
+    {
+      "pool": "game",
+      "id": "fishing-sea",
+      "name": "うみのさかなつり",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "ボタンを長おしでためて、はなすとキャスト。うきがしずんだら「あわせる」!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(18 + pts * 1.2 - escaped * 4, 10, 100);",
+        "setTimeout(() => onComplete(Math.round(score)), 900);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "family": "物理・軌道"
+    },
+    {
+      "pool": "game",
+      "id": "fishing-deepsea",
+      "name": "しんかいフィッシング",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "ボタンを長おしでためて、はなすとキャスト。うきがしずんだら「あわせる」!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(18 + pts * 1.2 - escaped * 4, 10, 100);",
+        "setTimeout(() => onComplete(Math.round(score)), 900);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "family": "物理・軌道"
+    },
+    {
+      "pool": "game",
+      "id": "fishing-river",
+      "name": "みずべのさかなつり",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "ボタンを長おしでためて、はなすとキャスト。うきがしずんだら「あわせる」!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(18 + pts * 1.2 - escaped * 4, 10, 100);",
+        "setTimeout(() => onComplete(Math.round(score)), 900);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "family": "物理・軌道"
+    },
+    {
+      "pool": "game",
+      "id": "road-jungle",
+      "name": "ジャングルラン",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(8 + points * 0.3 + bestCombo * 2), 8, 100);",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "family": "方向移動・回避"
+    },
+    {
+      "pool": "game",
+      "id": "road-desert",
+      "name": "さばくラン",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(8 + points * 0.3 + bestCombo * 2), 8, 100);",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "family": "方向移動・回避"
+    },
+    {
+      "pool": "game",
+      "id": "stack-sakura",
+      "name": "さくらタワー",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        25
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const n = blocks.length - 1; const score = clamp(Math.round(8 + n * 7 + perfects * 4), 8, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "可視描画＋合法pointer入力、初級/中級",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "4席・途中入力・結果/報酬境界の自動検証済み",
+      "adoption": "V6対応",
+      "reason": null,
+      "family": "タイミング"
+    },
+    {
+      "pool": "game",
+      "id": "ring-flight-summer",
+      "name": "なつのうみフライト",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        25
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "したのパッドか画面をなぞって飛行機を動かす。リングの真ん中をくぐると○。雲に当たるとスピードダウン。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = clamp(Math.round(15 + rings * 5.5 + rate * 20 + coins * 2), 15, 100);",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "family": "方向移動・回避"
+    },
+    {
+      "pool": "game",
+      "id": "stack-leaves",
+      "name": "おちばタワー",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        25
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const n = blocks.length - 1; const score = clamp(Math.round(8 + n * 7 + perfects * 4), 8, 100);",
+        "setTimeout(() => onComplete(score), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "可視描画＋合法pointer入力、初級/中級",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "4席・途中入力・結果/報酬境界の自動検証済み",
+      "adoption": "V6対応",
+      "reason": null,
+      "family": "タイミング"
+    },
+    {
+      "pool": "game",
+      "id": "curling-winter",
+      "name": "ふゆのカーリング大会",
+      "implementation": "正式原本に定義あり",
+      "baseSeconds": [
+        45
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "endAndControls": "🔴を上へスワイプ。なぞった長さの先にある●が、石の止まる場所の目安。投げたあとは連打でのばせる。真ん中に一番近い石のチームが得点。",
+      "scoring": "正式callbackの得点。新規の独自得点は作らない",
+      "scoreEvidence": [
+        "const score = mgVersusOutcome({ result: win ? 'win' : t.who === 0 ? 'draw' : 'lose', by: timeUp ? 'judgement' : 'decisive', score: decided, margin: t.n / STONES });",
+        "setTimeout(() => onComplete(score, null, play), 650);"
+      ],
+      "comparison": "4席同じseed・固定ゲーム難度、得点降順、同点同順位15/10/5/0",
+      "cpu": "未実装",
+      "input": "正式操作の継承が必要（上記endAndControls参照）",
+      "safari": "物理iPhone未検証",
+      "resume": "未検証",
+      "adoption": "保留",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "family": "物理・軌道"
+    }
+  ]
+}

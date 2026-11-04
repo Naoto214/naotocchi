@@ -1,0 +1,22 @@
+<!doctype html><meta charset="utf-8"><title>V6 正式ゲーム ブラウザーQA</title>
+<style>body{font:14px sans-serif}#hosts{display:flex;flex-wrap:wrap}pre{white-space:pre-wrap;max-height:180px;overflow:auto}button{padding:12px}</style>
+<h1>V6 正式ゲーム ブラウザーQA</h1><button id="run">全60候補を原本iframeで検証</button><a href="qa-v6.html">盤面・画面幅検証</a> <select id="game"></select><select id="difficulty"><option value="normal">中級</option><option value="easy">初級</option></select><button id="human">人間で試遊</button><button id="pause">一時停止と保存</button><button id="restore">保存から復帰</button><div id="hosts"></div><pre id="report">未実行</pre>
+<script type="module">
+import {mountOfficialFrame} from '../../prototypes/life-sugoroku/official-host-v4.js';
+import {POOLS} from '../../prototypes/life-sugoroku/tournament-v4.mjs';
+let manual,save;const selector=document.getElementById('game');for(const id of POOLS.game){const o=document.createElement('option');o.value=id;o.textContent=id;selector.append(o);}
+const report=document.getElementById('report'),hosts=document.getElementById('hosts');
+document.getElementById('human').onclick=async()=>{manual?.destroy();hosts.innerHTML='';manual=await mountOfficialFrame(hosts,{onSnapshot:s=>{save=s;report.textContent=JSON.stringify(s,null,2);},onError:e=>report.textContent=e});await manual.start({gameId:selector.value,seed:3,cpu:false,difficulty:document.getElementById('difficulty').value});};
+document.getElementById('pause').onclick=()=>manual?.pause();
+document.getElementById('restore').onclick=async()=>{const snapshot=structuredClone(save);manual?.destroy();manual=await mountOfficialFrame(hosts,{onSnapshot:s=>{save=s;report.textContent=JSON.stringify(s,null,2);},onError:e=>report.textContent=e});await manual.start(snapshot);};
+document.getElementById('run').onclick=async()=>{
+ const rows=[],queue=Object.entries(POOLS).flatMap(([pool,ids])=>ids.map(id=>({pool,id})));let index=0;
+ const show=()=>report.textContent=JSON.stringify({complete:rows.length===queue.length,count:rows.length,expected:queue.length,rows},null,2);
+ async function worker(){while(index<queue.length){const {pool,id}=queue[index++],box=document.createElement('div');hosts.append(box);let host,timer,finished=false;await new Promise(async resolve=>{
+  const end=row=>{if(finished)return;finished=true;clearTimeout(timer);rows.push({id,...row});show();host?.destroy();box.remove();resolve();};
+  timer=setTimeout(()=>end({error:'timeout'}),15000);
+  try{host=await mountOfficialFrame(box,{onError:error=>end({error}),onSnapshot:s=>{if(s.done)end({done:s.done,frame:s.frame,withinLimit:s.frame<=(pool==='quick'?1800:3600),score:s.score,inputs:s.inputs.length});}});await host.start({gameId:id,seed:3,cpu:true,difficulty:'normal'});host.speed(60);}catch(error){end({error:String(error)});}
+ });}}
+ await Promise.all(Array.from({length:1},worker));show();
+};
+</script>

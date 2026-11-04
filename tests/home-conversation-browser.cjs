@@ -341,6 +341,12 @@ module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) 
       console.log('PASS '+label);
     } catch(e) {
       failures.push(label+': '+e.message);
+      // Keep boot/route failures visible instead of reporting only the later
+      // home-selector timeout. Do not retry or suppress the failed scenario.
+      console.error(label+' diagnostics: '+JSON.stringify({routeErrors,errors,
+        boot:await page.evaluate(()=>({booted:window.__naotocchiBooted===true,
+          device:document.querySelector('.device')?.className,
+          rescue:document.querySelector('#bootRescue')?.textContent})).catch(()=>null)}));
       await page.screenshot({path:path.join(output,label+'-failure.png')}).catch(()=>{});
       console.error('FAIL '+label+': '+e.message);
     } finally {await context.close();}

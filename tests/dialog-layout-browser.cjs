@@ -2,7 +2,7 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
 const {measureDialogs,resultSpecimen}=require('./dialog-layout-probe.js');
-const {useLegacyHomePresentation}=require('./helpers/home-cast-fixture.cjs');
+const {guardedRoute}=require('./helpers/browser-route.cjs');
 
 module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) {
   const results=[];
@@ -16,7 +16,13 @@ module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) 
     const routeErrors=[];
     // The floor-gap assertions below belong to the retained legacy layout.
     // Keep the real dialog lifecycle, while selecting that layout explicitly.
-    await useLegacyHomePresentation(context,engine+'-dialogs-'+name,routeErrors);
+    await guardedRoute(context,'**/script.js?*',engine+'-dialogs-'+name,routeErrors,async route=>{
+      const response=await route.fetch();
+      // Retained legacy presentation has no V11/V12 upper-lane owner. Leaving
+      // its version flag set would apply production CSS that hides the result
+      // unless data-home-upper="result", which only the production owner sets.
+      await route.fulfill({response,body:'window.NaotocchiHomeDiorama=undefined;window.NaotocchiHomeDioramaModel=undefined;document.body.dataset.homeProduction="";delete document.body.dataset.homeViewportVersion;delete document.body.dataset.homeDisplayVersion;\n'+await response.text()});
+    });
     const page=await context.newPage();
     // Keep layout specimens stable across slow screenshots: quit confirmation
     // auto-dismisses after four seconds. Advance time explicitly for lifecycle QA.
@@ -55,6 +61,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) 
       // The specimen exercises the shipped result CSS with the reported text.
       // Game scoring itself remains covered by scoring-shop-test.cjs.
       await page.locator('#mgResultToast').evaluate((e,html)=>{e.innerHTML=html;e.classList.remove('hidden');e.style.animation='none';},resultSpecimen);
+      assert.equal(await page.locator('#mgResultToast').isVisible(),true,label+': result specimen is hidden');
       await check('result-first');
       await page.locator('.mg-result-sub').evaluate(e=>e.textContent='自己ベスト更新!99 → 100');
       await check('result-best');
@@ -86,12 +93,19 @@ module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) 
         await page.locator('#menuBtn').click();await page.locator('#gamesBtn').click();
         await page.locator('#gameListGrid .game-cell[data-game-id="takoyaki-grill"]').click();
         await page.locator('#mgIntroStart').click();
-        // T7 案B: 入力の ない プレイは「途中で やめた」に なり 結果カードが 出ない。ゲームの 画面を 1かい さわる
-        const game=await page.locator('#minigameOverlay').boundingBox();
-        await page.mouse.click(game.x+game.width/2,game.y+game.height/2);
-        await page.clock.fastForward(90000);
-        await page.clock.runFor(1300);
-        await page.locator('#mgResultToast').waitFor({state:'visible'});
+        // Participate on the actual canvas after the start grace, then run
+        // every animation frame. A 90s jump can pass the six-second result
+        // lifetime before the assertion observes it.
+        await page.clock.runFor(2000);
+        await page.locator('#tkCanvas').click();
+        // Exercise the post-game exchange deterministically, including its
+        // 300ms reading pause after the result card. Production also randomly
+        // chooses the immediate cheer; that made the old timing assertion flaky.
+        await page.evaluate(()=>{Math.random=()=>.01;});
+        for(let elapsed=0;elapsed<30000&&!await page.locator('#mgResultToast').isVisible();elapsed+=100){
+          await page.clock.runFor(100);
+        }
+        assert.equal(await page.locator('#mgResultToast').isVisible(),true,label+': completed game result never appeared');
         assert.equal(await page.locator('#speechBubble').isVisible(),false,label+': reaction covers results');
         const animation=await page.locator('#mgResultToast').evaluate(e=>{
           const a=e.getAnimations()[0];a.pause();a.currentTime=4500;
@@ -103,6 +117,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) 
         await page.screenshot({path:path.join(output,label+'-completed.png')});
         await page.clock.runFor(6001);
         assert.equal(await page.locator('#mgResultToast').isVisible(),false,label+': expired result remains clickable');
+        await page.clock.runFor(300);
         assert.equal(await page.locator('#speechBubble').isVisible(),true,label+': game reaction is missing');
         await check('completed-reaction');
       }

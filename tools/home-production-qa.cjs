@@ -12,7 +12,7 @@ script+=`\nwindow.HomeReleaseQA={
  Object.assign(state.lifetime,{timeMode:time,weatherMode:'sunny',seasonMode:'summer'});
  homeCastLayoutKey='';render();homeDiorama.sync();return this.detail();
  },
- detail(){const s=homeDiorama.inspectScene();return {blocked:homeDioramaBlocked(),paused:el.castStage.dataset.dioramaPaused,world:homeDiorama.inspectWorld(),actors:homeDiorama.model.snapshot().map(a=>({...a,safe:s.navigation?.valid(a),ground:s.navigation?.unproject(a)})),slots:{castStage:el.castStage.getBoundingClientRect().toJSON(),notice:document.getElementById('homeEventSlot').getBoundingClientRect().height,speech:document.getElementById(['10','11','12'].includes(document.body.dataset.homeViewportVersion)?'homeCommentDock':'speechSlot').getBoundingClientRect().height},metrics:homeDiorama.model.metrics()};},
+ detail(){const s=homeDiorama.inspectScene();return {layout:{viewport:document.body.dataset.homeViewportVersion||null,display:document.body.dataset.homeDisplayVersion||null},blocked:homeDioramaBlocked(),paused:el.castStage.dataset.dioramaPaused,world:homeDiorama.inspectWorld(),actors:homeDiorama.model.snapshot().map(a=>({...a,safe:s.navigation?.valid(a),ground:s.navigation?.unproject(a)})),slots:{castStage:el.castStage.getBoundingClientRect().toJSON(),notice:document.getElementById('homeEventSlot').getBoundingClientRect().height,speech:document.getElementById(['10','11','12'].includes(document.body.dataset.homeViewportVersion)?'homeCommentDock':'speechSlot').getBoundingClientRect().height},metrics:homeDiorama.model.metrics()};},
  inspect(){const scene=homeDiorama.inspectScene();return {scene,bounds:homeDiorama.model.snapshot().map(a=>homeDiorama.model.bounds(a))};},
  move(){return (${require('./home-v8-qa-movement.cjs').toString()})(homeDiorama.model,homeDiorama.inspectScene().navigation);},
  save(){saveState();return JSON.parse(JSON.stringify(state));}, state:()=>JSON.parse(JSON.stringify(state)),
@@ -32,9 +32,13 @@ for(const name of ['select','move']){const original=homeDiorama.model[name];home
 for(const type of ['pointerdown','pointermove','pointerup','pointercancel','lostpointercapture'])document.addEventListener(type,event=>recordInput(type,{x:event.clientX,y:event.clientY,target:event.target.id||event.target.className,actor:event.target.closest?.('[data-diorama-actor]')?.dataset.dioramaActor}),true);
 })();`;
 fs.writeFileSync(path.join(out,'release-qa-script.js'),script);
-fs.writeFileSync(path.join(out,'release-qa-diorama.js'),fs.readFileSync('home-production-diorama.js','utf8').replace('return {model,update,sync,interrupt,','return {inspectScene:()=>scene,inspectWorld:()=>world?.stats(),model,update,sync,interrupt,'));
-fs.writeFileSync(path.join(out,'release-qa.html'),fs.readFileSync('index.html','utf8').replaceAll('naotocchi-save-v1','naotocchi-home-release-qa-v1').replace(/src="script.js[^\"]*"/,'src="release-qa-script.js"').replace(/src="home-production-diorama.js[^\"]*"/,'src="release-qa-diorama.js"'));
+fs.writeFileSync(path.join(out,'release-qa-diorama.js'),fs.readFileSync('home-production-diorama.js','utf8').replace('return {model,update,sync,interrupt,','return {inspectPaint:()=>[...rows.values()].map(r=>({key:r.key,ink:r.paintExtent})),inspectScene:()=>scene,inspectWorld:()=>world?.stats(),model,update,sync,interrupt,'));
+// Historical scroll/notice suites retain their original layout. The regional
+// movement/input/save matrix uses the separate entry with exact shipped flags.
+const currentHTML=fs.readFileSync('index.html','utf8').replaceAll('naotocchi-save-v1','naotocchi-home-release-qa-v1').replace(/src="script.js[^\"]*"/,'src="release-qa-script.js"').replace(/src="home-production-diorama.js[^\"]*"/,'src="release-qa-diorama.js"');
+fs.writeFileSync(path.join(out,'current-production-qa.html'),currentHTML);
+fs.writeFileSync(path.join(out,'release-qa.html'),require('./home-production-qa-version.cjs')(currentHTML));
 fs.writeFileSync(path.join(out,'release-qa-seed.json'),JSON.stringify(seed));
 
-// Old guide and scroll suites retain their original layout; release-qa stays current.
+// Explicit legacy alias for guide/scroll suites; current-production-qa stays shipped.
 fs.writeFileSync(path.join(out,'historical-release-qa.html'),fs.readFileSync(path.join(out,'release-qa.html'),'utf8').replace(/<body\b[^>]*>/,tag=>tag.replace(/\sdata-home-(?:viewport-version|display-version)="[^"]*"/g,'')));
