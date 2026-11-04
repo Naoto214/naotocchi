@@ -1,8 +1,24 @@
-# 本人限定 iPhone Safari 試遊版：時のカード IX〜XII ＋ 逆転カード — VERSION 6
+# 本人限定 iPhone Safari 試遊版：時のカード IX〜XII ＋ 逆転カード — VERSION 7（正式導入候補）
 
-https://claude.ai/artifact/2vkeGuyKQG9LC2VwKpK4TK （Version 7）
+https://claude.ai/artifact/2vkeGuyKQG9LC2VwKpK4TK （Version 8）
 
-**VERSION 6：**
+**VERSION 7：**
+- **土台を最新の main にしました**（PR #518 の後。ルール hotseat-8・恋人の「♥ 結婚したら」入り）。
+- **「おすすめ」＝正式導入候補7枚**です。
+  - 人の席：時のカード各1＋はやじまい・ながいきのひけつ・おもいでのしゃしん。
+  - CPU：デッキ別の標準構成（REPORT §18）。
+- 見送ったカード（おいわいのつる・まちぶせどけい・いなかのおみやげ・ちょっとまった）も、比較のために選べます（候補ではありません）。
+- CPU の判断の既定は「VERSION 7 統合候補（状況型）」です（VERSION 6 と同じ判断）。VERSION 5・4・1 も選べます。
+- **戦績を version 2（カードIDの文字列）で保存**します（試作。`../RECORDS-V2.md`）。
+  - これまでの試遊版の戦績（version 1）は、最初の対戦の後に version 2 へ移ります。
+  - version 1 は1文字も変えず、そのまま残します。
+- 試遊版の中のカードIDは、これまでどおり実験用（`X-T-*`・`X-N-*`）です。これまでのマイデッキ・保存を壊さないためです。正式IDは統合候補（`../integration/`）で使っています。
+- 新カードの絵はありません（Astra が制作予定）。
+
+**ブラウザ確認（`qa-time.cjs`、縦・横・CPU 対戦）：** 結果は `evidence-v7/qa-log.txt` にあります。確認に使った保存は、hotseat-8 で作り直しました（`fixtures/`）。
+
+---
+**VERSION 6（Version 7）：**
 - CPU の判断に「VERSION 6（ながいきのひけつを状況に応じて使う）」を追加し、既定にしました。
 - VERSION 5（温存）・VERSION 4（早期使用）・VERSION 1 も選べます。
 - 有望3枚の効果は変えていません。VERSION 4・5 の構成・つるの3案・マイデッキ・戦績の修正は、そのままです。
