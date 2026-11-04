@@ -34,3 +34,6 @@ export function projectOperation(s,v,viewer){
  if(!current&&v.phase==='response'&&s.window==='start'&&!s.players[s.turn].board.main)current={kind:'egg',card:null,name:'たまご',ability:'ターン開始時の効果',actor:s.turn,status:'応答を待っています',instruction:'手札を戻しました。応答するカードを選ぶか、パスしてください。'};
  if(current){if(!current.instruction)current.instruction=v.phase==='trigger'?'表示された行動を選んでください。':v.phase==='response'?'応答するカードを選ぶか、パスしてください。':'必要な選択を続けてください。';v.effect=current;}
 }
+// Saves begun before hotseat-8 replay without the married abilities. Their lover cards are
+// shown without the「♥ 結婚したら」block; catalog screens keep the current official card.
+export function markLegacyRules(v){for(const c of visibleCards(v))if(!c.hidden)c.legacyRules=true;return v;}
