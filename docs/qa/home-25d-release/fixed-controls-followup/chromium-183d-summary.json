@@ -1,0 +1,11 @@
+{
+  "sourceCommit": "183d25139bdba168bd2a41216a134b386b109602",
+  "workflow": 41065721758,
+  "lines": [
+    "2026-10-30T13:52:51.5439900Z PASS fixed care layout 11",
+    "2026-10-30T13:54:53.3934339Z FAIL chromium/390x844/home/28 page.waitForFunction: Timeout 15000ms exceeded.",
+    "2026-10-30T13:57:58.6700387Z FAIL chromium/667x375/home/28 page.waitForFunction: Timeout 15000ms exceeded.",
+    "2026-10-30T14:00:29.3829796Z Artifact fixed-home-controls-chromium.zip successfully finalized. Artifact ID 12983856200",
+    "2026-10-30T14:00:29.3830974Z Artifact fixed-home-controls-chromium has been successfully uploaded! Final size is 11464116 bytes. Artifact ID is 12983856200"
+  ]
+}

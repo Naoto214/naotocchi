@@ -1,0 +1,47 @@
+(node:12) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/13ef013209ca/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/13ef013209ca/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ art transform preserves aspect and round trips at every phone width (173.036922ms)
+✔ three maps prohibit scenery and route around internal exclusions (101.320366ms)
+✔ real v22 crowd model retains 28 actors, safe feet, depth bands and protagonist escape (1147.327942ms)
+✔ renderer discards stale image callbacks and freezes decorative time (7.259866ms)
+✔ authored rest and observation points use the v22 activity and reaction contract (0.741593ms)
+✔ fallback regions invalidate pending image callbacks and restore the art status on return (7180.003487ms)
+✔ landscape solo actor retains reachable ground when device is narrower than viewport (0.668035ms)
+✔ all original runtime, dialogue, rules, tests and formal assets remain byte-identical to v22 (104.511069ms)
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/13ef013209ca/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/13ef013209ca/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ real v22 crowd model retains 28 actors, safe feet, depth bands and protagonist escape (1201.954233ms)
+✔ latest preset wins when clicked while a previous scene is loading (18.953669ms)
+✔ measurement controls preserve background errors instead of showing safe counts (4.565593ms)
+✔ measurement waits for the requested candidate before reporting readiness (1.16648ms)
+(node:21) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/13ef013209ca/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/13ef013209ca/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ six preserved images and distinct geometry are present (29.73047ms)
+✔ home room, waterfall, stream, rocks and river are not walkable (130.54218ms)
+✔ six scenes: 320px / 1 actors remain safe and pet can move (49.310162ms)
+✔ six scenes: 320px / 6 actors remain safe and pet can move (364.309145ms)
+✔ six scenes: 320px / 28 actors remain safe and pet can move (334.298707ms)
+✔ six scenes: 375px / 1 actors remain safe and pet can move (17.336053ms)
+✔ six scenes: 375px / 6 actors remain safe and pet can move (538.36192ms)
+✔ six scenes: 375px / 28 actors remain safe and pet can move (444.402934ms)
+✔ six scenes: 390px / 1 actors remain safe and pet can move (32.4973ms)
+✔ six scenes: 390px / 6 actors remain safe and pet can move (260.264722ms)
+✔ six scenes: 390px / 28 actors remain safe and pet can move (436.535524ms)
+✔ six scenes: 430px / 1 actors remain safe and pet can move (22.631843ms)
+✔ six scenes: 430px / 6 actors remain safe and pet can move (406.459634ms)
+✔ six scenes: 430px / 28 actors remain safe and pet can move (701.396233ms)
+✔ actual browser dimensions preserve a pet exit despite cramped fallback seats (25004.880821ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 29221.070981

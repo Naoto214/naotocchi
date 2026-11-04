@@ -243,5 +243,23 @@
     return { text: found.map((item) => item.text).join(' / '), icon: found[0].icon };
   }
 
-  return { assess, snapshot, changes, signals };
+  // Only routine care feedback passes through this formatter. Story rewards,
+  // choice outcomes and detailed stat displays keep their canonical numbers.
+  function summary(text, narrated = false) {
+    if (narrated) return String(text || "").replace(/(?<=[。！!？?])(?:げんき|おなか|ごきげん|せいちょう)\s*[+＋−-]\d+(?:\.\d+)?[。！!]?$/, "");
+    const phrases = {
+      'げんき': ['少しげんきになった', '少しつかれた'],
+      'おなか': ['おなかが満たされた', 'おなかがすいてきた'],
+      'ごきげん': ['うれしそう', '少ししょんぼり'],
+      'せいちょう': ['すくすく育っている', 'せいちょうが少しゆっくりに'],
+    };
+    return String(text || '').split(' / ').map(part => {
+      if (/^せいちょう\s*↑\s*\d+(?:\.\d+)?[%％]$/.test(part)) return phrases['せいちょう'][0];
+      if (/^けんこう\s*[+＋]\d+(?:\.\d+)?$/.test(part)) return '少し調子がよくなった';
+      const match = part.match(/^(げんき|おなか|ごきげん|せいちょう)\s*([+＋−-])\d+(?:\.\d+)?$/);
+      return match ? phrases[match[1]][/[+＋]/.test(match[2]) ? 0 : 1] : part;
+    }).join(' / ');
+  }
+
+  return { assess, snapshot, changes, signals, summary };
 });

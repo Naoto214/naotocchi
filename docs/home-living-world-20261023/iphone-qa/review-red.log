@@ -1,0 +1,73 @@
+✔ landmarks use the real Meguru profile and stage bounds (123.601061ms)
+✔ tap selects, release after drag sets destination without teleport (4.237975ms)
+✔ cancel and lost capture never dispatch a movement (0.894862ms)
+✔ hidden document cancels RAF and destination, visible resumes without catchup (0.874952ms)
+✔ Pilot exit restores original actor styles and input ownership (0.449479ms)
+✔ departed actor cannot receive stale drag release (0.473034ms)
+✔ leaving a paused Pilot removes all animation pause state (0.617429ms)
+✔ a 15-second held drag survives repeated normal render updates without autonomous movement (7.565035ms)
+✖ explicit visible actor target wins over a foreground actor padded touch area (1.930643ms)
+(node:15) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/a3f6baaf598f/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/a3f6baaf598f/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ native artwork facing produces correct left and right body scales across expressions (1.301667ms)
+✔ presentation scaling preserves all cast ratios and attachment offsets without modifying source (14.51151ms)
+✔ river width is visible and swimming geometry remains submerged inside shared stream (772.377368ms)
+✔ body-size separation prevents one large actor hiding another on adjacent depth rows (1.695943ms)
+✔ fish render inside scene below transparent water, pooled geometry never grows (7.186612ms)
+✖ right-facing unicorn and eagle are not mirrored on a rightward walk (1.25738ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 13
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 949.281963
+
+✖ failing tests:
+
+test at tests/home-diorama-adapter-test.cjs:46:1
+✖ explicit visible actor target wins over a foreground actor padded touch area (1.930643ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'companion:front'
+  - 'pet:back'
+  
+      at TestContext.<anonymous> (/workspace/scratch/a3f6baaf598f/naotocchi/tests/home-diorama-adapter-test.cjs:49:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'companion:front',
+    expected: 'pet:back',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/home-iphone-qa-test.cjs:41:1
+✖ right-facing unicorn and eagle are not mirrored on a rightward walk (1.25738ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  -1 !== 1
+  
+      at TestContext.<anonymous> (/workspace/scratch/a3f6baaf598f/naotocchi/tests/home-iphone-qa-test.cjs:42:118)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: -1,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

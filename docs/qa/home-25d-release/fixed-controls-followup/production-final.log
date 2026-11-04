@@ -1,0 +1,36 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9c6745e0ed55/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9c6745e0ed55/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ production notice lane delivers male/gay transition after growth and story (219.906142ms)
+✔ production notice lane delivers male/straight transition after growth and story (45.05419ms)
+✔ production notice lane delivers nonbinary/straight transition after growth and story (62.069521ms)
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9c6745e0ed55/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9c6745e0ed55/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ shipped home adapters preserve real save pre-v3.json (196.358731ms)
+✔ shipped home adapters preserve real save v3.json (89.820036ms)
+✔ shipped home adapters preserve real save v4-pre-master.json (62.298034ms)
+✔ shipped home adapters preserve real save v5-pre-items-v2.json (718.043629ms)
+✔ shipped home adapters preserve real save sticker-points-meguru-p1.json (338.668362ms)
+✔ shipped home adapters preserve real save meguru-p2.json (271.878189ms)
+✔ entry brings the existing actor into the central viewport (3.35405ms)
+✔ a pending entry focus cannot undo a later scroll to the meters (1.177863ms)
+✔ a delayed scroll event still preserves the latest viewport position (0.905063ms)
+✔ a later real resize may reveal the actor again after an interrupted focus (0.880336ms)
+✔ resize keeps an active question reachable using the existing speech slot (1.947752ms)
+✔ production entry activates approved art and egg presentation without preview save keys (6.643293ms)
+✔ all thirteen default scenes use approved source images and valid navigation (2.176928ms)
+✔ production distribution retains every existing main file and includes only approved home art (31.824359ms)
+✔ QA measures the fixed notification slot rather than the optional message contents (0.334894ms)
+✔ production runtime harness loads the exact shipped presenter and model (164.632424ms)
+✔ latest-main game catalogs, conversations, formal images and other games stay byte-identical (67.019684ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2101.682469

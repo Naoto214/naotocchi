@@ -1,0 +1,193 @@
+name: Production 2.5D home
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+concurrency:
+  group: home-production-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  fixed-controls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [chromium, webkit]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps ${{ matrix.engine }}
+      - run: python tools/pages/package.py --out "${{ runner.temp }}/fixed-controls" --report "${{ runner.temp }}/fixed-package.json"
+      - run: python tools/pages/verify.py --artifact "${{ runner.temp }}/fixed-controls" --package-report "${{ runner.temp }}/fixed-package.json" --report "${{ runner.temp }}/fixed-http.json"
+      - name: V7 actual character comments and native wrapping
+        run: |
+          node tools/home-production-v7-qa.cjs "${{ runner.temp }}/fixed-controls"
+          node tests/home-production-comments-v7-browser.cjs "${{ runner.temp }}/fixed-controls"
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
+      # V6's word-boundary contract is intentionally historical in V7. Keep
+      # the complete test, running against its frozen source, and add the new
+      # live native-wrap/portrait/bottom-dock gate above.
+      - name: Preserve V6 Japanese-break regression on frozen V6 source
+        run: |
+          git fetch origin b3c48ef52fbc78687a35d4b14b5506f18d2c935d --depth=1
+          git worktree add "${{ runner.temp }}/v6-source" b3c48ef52fbc78687a35d4b14b5506f18d2c935d
+          cp -a "${{ runner.temp }}/fixed-controls" "${{ runner.temp }}/v6-controls"
+          cd "${{ runner.temp }}/v6-source"
+          for file in script.js index.html home-production-layout.css home-production-touch.js; do
+            cp "$file" "${{ runner.temp }}/v6-controls/$file"
+          done
+          node tools/home-production-v6-qa.cjs "${{ runner.temp }}/v6-controls"
+      - name: V6 frozen baseline
+        run: node tests/home-production-notice-v6-browser.cjs "${{ runner.temp }}/v6-controls"
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
+      - run: node tools/home-production-qa.cjs "${{ runner.temp }}/fixed-controls"
+      - name: Capture unchanged VERSION 3 birth baseline
+        run: |
+          git fetch origin ed182b6d79422f1d85c95f5c8c2777849595f7ce --depth=1
+          cp -a "${{ runner.temp }}/fixed-controls" "${{ runner.temp }}/v3-baseline"
+          for file in script.js egg-hatching.css home-production-egg.mjs home-production-world.mjs home-production-transform.mjs index.html; do
+            git show "ed182b6d79422f1d85c95f5c8c2777849595f7ce:$file" > "${{ runner.temp }}/v3-baseline/$file"
+          done
+          git show ed182b6d79422f1d85c95f5c8c2777849595f7ce:tests/home-production-birth-browser.cjs > tests/.v3-birth-browser.cjs
+          node tests/.v3-birth-browser.cjs "${{ runner.temp }}/v3-baseline"
+        env:
+          HOME_BIRTH_ENGINES: ${{ matrix.engine }}
+          HOME_BIRTH_OUTPUT: test-results/home-production-v3-baseline
+      - run: node tests/home-production-birth-browser.cjs "${{ runner.temp }}/fixed-controls"
+        env:
+          HOME_BIRTH_ENGINES: ${{ matrix.engine }}
+      - run: node tests/home-production-guide-browser.cjs "${{ runner.temp }}/fixed-controls"
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
+      - run: node tests/home-production-layout-browser.cjs
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
+      - run: node tests/home-production-scroll-browser.cjs "${{ runner.temp }}/fixed-controls"
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
+      - name: Build private-only V5 QA fixture
+        run: node tools/home-production-v5-qa.cjs "${{ runner.temp }}/fixed-controls"
+      - name: Natural long notices and isolated special-region resume
+        run: node tests/home-production-notice-browser.cjs "${{ runner.temp }}/fixed-controls"
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fixed-home-controls-${{ matrix.engine }}
+          path: |
+            test-results/home-production-birth/
+            test-results/home-production-v3-baseline/
+            test-results/home-production-layout/
+            test-results/home-production-scroll/
+            test-results/home-production-native/
+            test-results/home-production-guide/
+            test-results/home-production-notices/
+            test-results/home-production-notice-v6/
+            test-results/home-production-comments-v7/
+  production-contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: node --test tests/home-production-backdrop-test.cjs tests/home-production-birth-test.cjs tests/egg-birth-story-test.cjs tests/egg-hatching-test.cjs
+      - run: node tools/home-production-regression.cjs
+      - run: node --test tests/home-production-startup-test.cjs tests/harness-determinism-test.cjs tests/meguru-resident-expression-test.cjs
+      - run: node --test tests/home-production-comments-v7-test.cjs tests/home-production-notice-queue-test.cjs tests/home-production-scroll-focus-test.cjs tests/home-production-notice-layout-test.cjs
+  production:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        region: [home, forest, river_lake, city, countryside, mountain, snow, sea, jungle, desert, deepsea, star_stop, memory_lake]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node --test tests/home-production-test.cjs tests/home-production-save-test.cjs
+      - run: python tools/pages/package.py --out "${{ runner.temp }}/home-production" --report "${{ runner.temp }}/home-package.json"
+      - run: node tools/home-production-qa.cjs "${{ runner.temp }}/home-production"
+      - run: node tests/home-production-browser.cjs "${{ runner.temp }}/home-production"
+        env:
+          HOME_RELEASE_REGION: ${{ matrix.region }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: production-home-${{ matrix.region }}
+          path: test-results/home-production/
+  viewport-v8:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [chromium, webkit]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps ${{ matrix.engine }}
+      - run: node --test tests/home-production-viewport-v8-test.cjs
+      - run: python tools/pages/package.py --out "${{ runner.temp }}/viewport-v8" --report "${{ runner.temp }}/viewport-v8-package.json"
+      - run: node tools/home-production-v8-qa.cjs "${{ runner.temp }}/viewport-v8"
+      - run: node tests/home-production-viewport-v8-browser.cjs "${{ runner.temp }}/viewport-v8"
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-viewport-v8-${{ matrix.engine }}
+          path: test-results/home-viewport-v8/
+
+      - run: node --test tests/home-production-v9-test.cjs
+      - run: node tools/home-production-v9-qa.cjs "${{ runner.temp }}/viewport-v8"
+      - run: node tests/home-production-v9-browser.cjs "${{ runner.temp }}/viewport-v8"
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-viewport-v9-${{ matrix.engine }}
+          path: test-results/home-viewport-v9/
+
+      - run: node --test tests/home-production-v10-test.cjs
+      - run: node tools/home-production-v10-qa.cjs "${{ runner.temp }}/viewport-v8"
+      - run: node tests/home-production-v10-browser.cjs "${{ runner.temp }}/viewport-v8"
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-viewport-v10-${{ matrix.engine }}
+          path: test-results/home-viewport-v10/

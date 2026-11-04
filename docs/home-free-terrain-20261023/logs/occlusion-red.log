@@ -1,0 +1,38 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/74ab9ab340a5/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/74ab9ab340a5/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Home removes dedicated plaza pads and rebuilds canonical collision grid (3186.856972ms)
+✔ terrain navigation routes around a solid, rejects water and cannot cut corners (14.145954ms)
+✔ real terrain projection roundtrips and water/road remain unavailable (2877.216715ms)
+✔ model follows routed waypoints and cancels the entire path on care (2.895989ms)
+✖ occlusion uses actual projected triangles only in front of the illustration (1.777337ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6350.381143
+
+✖ failing tests:
+
+test at tests/home-terrain-navigation-test.cjs:31:1
+✖ occlusion uses actual projected triangles only in front of the illustration (1.777337ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (/workspace/scratch/74ab9ab340a5/naotocchi/tests/home-terrain-navigation-test.cjs:32:132)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

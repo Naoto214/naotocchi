@@ -1,0 +1,40 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/208adb8bf351/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/208adb8bf351/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Home compositions reuse official geometry, preserve sources and keep cast foreground clear (3023.029783ms)
+✔ Living environment remains bounded with correct routes and pauses (128.56757ms)
+✔ Home recovers the same region after lost GPU without resetting its life clock (1211.248201ms)
+✔ Home renderer recovery is bounded, pauses while hidden and stops on destroy (2282.937738ms)
+✔ Home contains resize errors so the frame loop can recover (1169.099924ms)
+✔ Home contains level errors so the frame loop can recover (1167.939516ms)
+✖ Home ground follows the cast feet on portrait and wide viewports; river stays behind (3.227702ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9169.726074
+
+✖ failing tests:
+
+test at tests/home-world-test.cjs:76:1
+✖ Home ground follows the cast feet on portrait and wide viewports; river stays behind (3.227702ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (/workspace/scratch/208adb8bf351/naotocchi/tests/home-world-test.cjs:82:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

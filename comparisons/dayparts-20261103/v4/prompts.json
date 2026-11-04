@@ -1,0 +1,220 @@
+{
+  "method": "built-in imagegen lighting edits; source reuse; sharp encoding only",
+  "spec": {
+    "countryside": {
+      "reuse": "morning",
+      "scene": "South Shinshu rural terraced fields, rice and rustic houses, winding dirt path.",
+      "day": "High midday white sunlight, natural clear blue sky, short shadows, lively natural green and golden rice, neutral earth not gold.",
+      "evening": "Rich peach rose sunset, warm low amber light on farmhouse walls, long violet shadows, nostalgic sunset countryside.",
+      "night": "Deep blue starry rural night, soft silver moonlight on fields and path, modest warm lights in EXISTING house windows, quiet countryside."
+    },
+    "mountain": {
+      "reuse": "day",
+      "scene": "Existing dramatic mountain panorama and alpine meadow rocky walking foreground. Preserve exact peaks.",
+      "morning": "Low soft morning sunlight selectively gilding peaks, pale blue morning sky, long rock shadows and fresh cool valley air.",
+      "evening": "Beautiful rose alpenglow on peaks, peach sunset clouds, warm grazing light on meadow, long shadows.",
+      "night": "Natural star filled indigo night, moonlit silver mountain ridges, cool blue meadow, legible path."
+    },
+    "snow": {
+      "reuse": "evening",
+      "scene": "Existing snowy alpine village and broad snow path. Keep snow depth and all shapes.",
+      "morning": "Pale clear blue morning sky, soft low gold light on snowy peaks, elongated cool blue tree shadows, fresh and gentle not sunset.",
+      "day": "High white midday sun, vivid natural blue sky, bright white snow with short soft blue shadows, no orange snow, preserve texture.",
+      "night": "Deep cobalt starry night, blue-white moonlit snow, warm amber existing windows, tranquil enchanting winter."
+    },
+    "sea": {
+      "reuse": "day",
+      "scene": "Existing Japanese beach looking straight across sea, sand shallow transparent water and underwater plants.",
+      "morning": "Soft low golden morning sun, pale blue sky, long rock shadows on sand, delicate warm glints on pale turquoise water.",
+      "evening": "Rose orange sunset sky reflected on sea, warm sand with long cool shadows, shallow underwater visibility maintained.",
+      "night": "Deep blue night, soft silver moonlight band on sea and shallow water, cool pale sand with visible texture, magical calm natural coast."
+    },
+    "jungle": {
+      "reuse": "morning",
+      "scene": "Existing adopted jungle wetland with colorful muted plants, turquoise pool and dark matte soil. No new plants or water.",
+      "day": "High diffuse white midday canopy light, shorter leaf shadows, vivid natural green and red plants, crisp turquoise water, soil stays dark brown matte, not golden.",
+      "evening": "Low amber sunset shafts through existing canopy, warm rim leaves, lavender teal shaded pool, long soft leaf shadows, restful.",
+      "night": "Quiet cool moonlight shafts through same canopy, jade and blue pool, muted existing red and violet leaves, dark matte soil still legible, no added glowing creatures."
+    },
+    "desert": {
+      "reuse": "evening",
+      "scene": "Existing Tottori coastal sand dunes and distant sea. Preserve every dune contour and ripples.",
+      "morning": "Soft low pale gold morning sun, fresh pale blue sky, delicate long cool shadows on sand ripples, gentle morning not orange sunset.",
+      "day": "High white midday sun, rich natural blue sky and blue sea, pale beige sand with shorter compact dune shadows, crisp texture, no orange cast.",
+      "night": "Indigo starry night over coast, silver-blue moonlit dune crests and dark blue hollows, subtle sea shimmer, elegant legible sand ripples."
+    },
+    "deepsea": {
+      "reuse": "night",
+      "scene": "Existing abyssal deepsea rocky canyon and seafloor, existing delicate luminous organisms. Always underwater no sky no sun disk no surface or terrestrial light.",
+      "morning": "First phase of imagined light cycle: delicate diffuse teal ambient illumination from upper water, pale cyan organism glows, cool pearl seafloor, moderately quiet.",
+      "day": "Brightest phase of imagined deepwater cycle: clearer diffuse sapphire turquoise water light, rock edges legible, restrained luminous cyan organisms, brighter blue-gray seafloor. Still recognizably deepsea not shallow tropical reef.",
+      "evening": "Evening imagined deepwater phase: muted violet-blue water ambient, existing organisms gently glow mauve and soft lavender with a trace of warm pink, darker canyon, no orange sunlight."
+    },
+    "star_stop": {
+      "reuse": "night",
+      "scene": "Existing celestial floating islands, architecture, planets, spiral galaxy and engraved stone platform. Keep EXACT all cosmic bodies and structures. No earthly sun added.",
+      "morning": "Celestial awakening: pale periwinkle and pearly rose nebula ambient light, gentle side glow on platform long soft architecture shadows, existing stars and galaxy still visible, delicate and fresh.",
+      "day": "Celestial luminous phase: clear azure turquoise and pearl-white nebula illumination, brightest softly lit stone floor with shorter architecture shadows, existing galaxy and planets remain visible, no normal terrestrial blue sky replacing cosmos.",
+      "evening": "Celestial twilight: rose copper and muted violet glow from existing spiral galaxy and nebula, warmer architectural edges and long shadows, richly beautiful restrained ethereal sunset mood."
+    },
+    "memory_lake": {
+      "reuse": "morning",
+      "scene": "Existing dreamlike memory lake, willow, distant layered mountains and stone shore. Maintain ethereal stillness and exact reflection geometry.",
+      "day": "Luminous pearl-blue daytime dream, soft high diffuse white light, pale azure sky, clearer blue lake and gentle green willow, short soft shadows, retain thin distant mist.",
+      "evening": "Wistful rose lavender evening reflected perfectly in still lake, restrained peach glow at horizon, warm stone edges and elongated willow shadows, dreamy elegant nostalgia.",
+      "night": "Quiet deep indigo dream night, softly luminous silver-blue lake reflections and moonlight from offscreen, delicate existing mist, a few distant stars, stone shore legible, no new objects."
+    }
+  },
+  "jobs": [
+    {
+      "id": "river_lake-morning",
+      "prompt": "Lighting-only edit of exact supplied image for morning. 07:00 low soft pale gold sun, long tree shadows across shore, pale clear blue sky, fresh cool air, jade river with delicate warm glints. Preserve EXACT composition, portrait 1024x1536, camera, mountain silhouettes, every rock, tree, shoreline and broad foreground walking path. No new objects or creatures, no geometry change. Beautiful refined painterly game background, comfortable contrast, no crushed black or blown whites. Not a flat color filter; physically coherent directional light and shadows.",
+      "hint": "Generated images are saved to /workspace/scratch/46662d5429da/generated_images as /workspace/scratch/46662d5429da/generated_images/exec-7c72f023-314f-4edb-9d12-c365d8f5fe37.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "river_lake-evening",
+      "prompt": "Lighting-only edit of exact supplied image for evening. 17:30 beautiful peach rose sunset clouds and low amber light, long shadows, jade river reflecting rose gold sky while retaining deep green water. Preserve EXACT composition, portrait 1024x1536, camera, mountain silhouettes, every rock, tree, shoreline and broad foreground walking path. No new objects or creatures, no geometry change. Beautiful refined painterly game background, comfortable contrast, no crushed black or blown whites. Not a flat color filter; physically coherent directional light and shadows.",
+      "hint": "Generated images are saved to /workspace/scratch/46662d5429da/generated_images as /workspace/scratch/46662d5429da/generated_images/exec-ffe96d18-35cc-49ea-9f17-a514a11e114e.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "river_lake-night",
+      "prompt": "Lighting-only edit of exact supplied image for night. 22:00 deep blue night sky, delicate stars, natural soft silver moonlight from offscreen, cool jade river with moonlit silver ripples, legible shoreline, serene magical but natural. Preserve EXACT composition, portrait 1024x1536, camera, mountain silhouettes, every rock, tree, shoreline and broad foreground walking path. No new objects or creatures, no geometry change. Beautiful refined painterly game background, comfortable contrast, no crushed black or blown whites. Not a flat color filter; physically coherent directional light and shadows.",
+      "hint": "Generated images are saved to /workspace/scratch/46662d5429da/generated_images as /workspace/scratch/46662d5429da/generated_images/exec-2ae4fc4e-4312-48c1-8083-5e0b29ce0892.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "sea-morning",
+      "prompt": "Lighting-only edit for morning. Existing Japanese beach looking straight across sea, sand shallow transparent water and underwater plants. Soft low golden morning sun, pale blue sky, long rock shadows on sand, delicate warm glints on pale turquoise water. Preserve EXACT composition, camera, portrait 1024x1536, every object and foreground walking surface boundaries. Change light directions, shadows and atmospheric illumination only. No added objects or characters. Refined beautiful painterly game artwork, comfortable long viewing, no crushed black or clipped whites, no uniform color filter.",
+      "hint": "Generated images are saved to /workspace/scratch/46662d5429da/generated_images as /workspace/scratch/46662d5429da/generated_images/exec-24b114f0-305c-4fa7-b328-41b7282a1ca6.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "sea-evening",
+      "prompt": "Lighting-only edit for evening. Existing Japanese beach looking straight across sea, sand shallow transparent water and underwater plants. Rose orange sunset sky reflected on sea, warm sand with long cool shadows, shallow underwater visibility maintained. Preserve EXACT composition, camera, portrait 1024x1536, every object and foreground walking surface boundaries. Change light directions, shadows and atmospheric illumination only. No added objects or characters. Refined beautiful painterly game artwork, comfortable long viewing, no crushed black or clipped whites, no uniform color filter.",
+      "hint": "Generated images are saved to /workspace/scratch/46662d5429da/generated_images as /workspace/scratch/46662d5429da/generated_images/exec-7e88fa6e-4921-4f23-b1b9-25b447c1fc3c.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "sea-night",
+      "prompt": "Lighting-only edit for night. Existing Japanese beach looking straight across sea, sand shallow transparent water and underwater plants. Deep blue night, soft silver moonlight band on sea and shallow water, cool pale sand with visible texture, magical calm natural coast. Preserve EXACT composition, camera, portrait 1024x1536, every object and foreground walking surface boundaries. Change light directions, shadows and atmospheric illumination only. No added objects or characters. Refined beautiful painterly game artwork, comfortable long viewing, no crushed black or clipped whites, no uniform color filter.",
+      "hint": "Generated images are saved to /workspace/scratch/46662d5429da/generated_images as /workspace/scratch/46662d5429da/generated_images/exec-82bbeeb5-7a80-45f1-bd80-f7d4efe1ab4a.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "jungle-night",
+      "prompt": "Lighting-only edit for night. Existing adopted jungle wetland with colorful muted plants, turquoise pool and dark matte soil. No new plants or water. Quiet cool moonlight shafts through same canopy, jade and blue pool, muted existing red and violet leaves, dark matte soil still legible, no added glowing creatures. Preserve EXACT composition, camera, portrait 1024x1536, every object and foreground walking surface boundaries. Change light directions, shadows and atmospheric illumination only. No added objects or characters. Refined beautiful painterly game artwork, comfortable long viewing, no crushed black or clipped whites, no uniform color filter.",
+      "hint": "Generated images are saved to /workspace/scratch/46662d5429da/generated_images as /workspace/scratch/46662d5429da/generated_images/exec-bf1780d9-c2bd-4556-b93b-56b4d8cfd4a4.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "jungle-evening",
+      "prompt": "Lighting-only edit for evening. Existing adopted jungle wetland with colorful muted plants, turquoise pool and dark matte soil. No new plants or water. Low amber sunset shafts through existing canopy, warm rim leaves, lavender teal shaded pool, long soft leaf shadows, restful. Preserve EXACT composition, camera, portrait 1024x1536, every object and foreground walking surface boundaries. Change light directions, shadows and atmospheric illumination only. No added objects or characters. Refined beautiful painterly game artwork, comfortable long viewing, no crushed black or clipped whites, no uniform color filter.",
+      "hint": "Generated images are saved to /workspace/scratch/46662d5429da/generated_images as /workspace/scratch/46662d5429da/generated_images/exec-bc5694e7-d769-4760-a041-2bcb750d9c8a.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "jungle-day",
+      "prompt": "Lighting-only edit for day. Existing adopted jungle wetland with colorful muted plants, turquoise pool and dark matte soil. No new plants or water. High diffuse white midday canopy light, shorter leaf shadows, vivid natural green and red plants, crisp turquoise water, soil stays dark brown matte, not golden. Preserve EXACT composition, camera, portrait 1024x1536, every object and foreground walking surface boundaries. Change light directions, shadows and atmospheric illumination only. No added objects or characters. Refined beautiful painterly game artwork, comfortable long viewing, no crushed black or clipped whites, no uniform color filter.",
+      "hint": "Generated images are saved to /workspace/scratch/46662d5429da/generated_images as /workspace/scratch/46662d5429da/generated_images/exec-2494e8f6-f3d7-42f0-9436-f4aef8215a4b.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "desert-day",
+      "prompt": "Lighting-only edit for day. Existing Tottori coastal sand dunes and distant sea. Preserve every dune contour and ripples. High white midday sun, rich natural blue sky and blue sea, pale beige sand with shorter compact dune shadows, crisp texture, no orange cast. Preserve EXACT composition, camera, portrait 1024x1536, every object and foreground walking surface boundaries. Change light directions, shadows and atmospheric illumination only. No added objects or characters. Refined beautiful painterly game artwork, comfortable long viewing, no crushed black or clipped whites, no uniform color filter.",
+      "hint": "Generated images are saved to /workspace/scratch/46662d5429da/generated_images as /workspace/scratch/46662d5429da/generated_images/exec-f5868a46-6614-4c0a-bdbb-29f357a5a486.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "desert-night",
+      "prompt": "Lighting-only edit for night. Existing Tottori coastal sand dunes and distant sea. Preserve every dune contour and ripples. Indigo starry night over coast, silver-blue moonlit dune crests and dark blue hollows, subtle sea shimmer, elegant legible sand ripples. Preserve EXACT composition, camera, portrait 1024x1536, every object and foreground walking surface boundaries. Change light directions, shadows and atmospheric illumination only. No added objects or characters. Refined beautiful painterly game artwork, comfortable long viewing, no crushed black or clipped whites, no uniform color filter.",
+      "hint": "Generated images are saved to /workspace/scratch/46662d5429da/generated_images as /workspace/scratch/46662d5429da/generated_images/exec-63619af7-6772-4c54-9ec9-9a9f37752adb.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "desert-morning",
+      "prompt": "Lighting-only edit for morning. Existing Tottori coastal sand dunes and distant sea. Preserve every dune contour and ripples. Soft low pale gold morning sun, fresh pale blue sky, delicate long cool shadows on sand ripples, gentle morning not orange sunset. Preserve EXACT composition, camera, portrait 1024x1536, every object and foreground walking surface boundaries. Change light directions, shadows and atmospheric illumination only. No added objects or characters. Refined beautiful painterly game artwork, comfortable long viewing, no crushed black or clipped whites, no uniform color filter.",
+      "hint": "Generated images are saved to /workspace/scratch/46662d5429da/generated_images as /workspace/scratch/46662d5429da/generated_images/exec-f4bd0d1b-7878-43c8-91d9-86167cebfada.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "deepsea-evening",
+      "prompt": "Lighting-only edit for evening. Existing abyssal deepsea rocky canyon and seafloor, existing delicate luminous organisms. Always underwater no sky no sun disk no surface or terrestrial light. Evening imagined deepwater phase: muted violet-blue water ambient, existing organisms gently glow mauve and soft lavender with a trace of warm pink, darker canyon, no orange sunlight. Preserve EXACT composition, camera, portrait 1024x1536, every object and foreground walking surface boundaries. Change light directions, shadows and atmospheric illumination only. No added objects or characters. Refined beautiful painterly game artwork, comfortable long viewing, no crushed black or clipped whites, no uniform color filter.",
+      "hint": "Generated images are saved to /workspace/scratch/46662d5429da/generated_images as /workspace/scratch/46662d5429da/generated_images/exec-454f2a95-8027-4fde-827f-f18a7911d885.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "deepsea-day",
+      "prompt": "Lighting-only edit for day. Existing abyssal deepsea rocky canyon and seafloor, existing delicate luminous organisms. Always underwater no sky no sun disk no surface or terrestrial light. Brightest phase of imagined deepwater cycle: clearer diffuse sapphire turquoise water light, rock edges legible, restrained luminous cyan organisms, brighter blue-gray seafloor. Still recognizably deepsea not shallow tropical reef. Preserve EXACT composition, camera, portrait 1024x1536, every object and foreground walking surface boundaries. Change light directions, shadows and atmospheric illumination only. No added objects or characters. Refined beautiful painterly game artwork, comfortable long viewing, no crushed black or clipped whites, no uniform color filter.",
+      "hint": "Generated images are saved to /workspace/scratch/46662d5429da/generated_images as /workspace/scratch/46662d5429da/generated_images/exec-22139221-4bda-4509-8975-4c9fba3f011b.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "deepsea-morning",
+      "prompt": "Lighting-only edit for morning. Existing abyssal deepsea rocky canyon and seafloor, existing delicate luminous organisms. Always underwater no sky no sun disk no surface or terrestrial light. First phase of imagined light cycle: delicate diffuse teal ambient illumination from upper water, pale cyan organism glows, cool pearl seafloor, moderately quiet. Preserve EXACT composition, camera, portrait 1024x1536, every object and foreground walking surface boundaries. Change light directions, shadows and atmospheric illumination only. No added objects or characters. Refined beautiful painterly game artwork, comfortable long viewing, no crushed black or clipped whites, no uniform color filter.",
+      "hint": "Generated images are saved to /workspace/scratch/46662d5429da/generated_images as /workspace/scratch/46662d5429da/generated_images/exec-b52f14d7-4788-47e8-a340-f96bb7db7e4a.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "star_stop-morning",
+      "prompt": "Lighting-only edit for morning. Existing celestial floating islands, architecture, planets, spiral galaxy and engraved stone platform. Keep EXACT all cosmic bodies and structures. No earthly sun added. Celestial awakening: pale periwinkle and pearly rose nebula ambient light, gentle side glow on platform long soft architecture shadows, existing stars and galaxy still visible, delicate and fresh. Preserve EXACT composition, camera, portrait 1024x1536, every object and foreground walking surface boundaries. Change light directions, shadows and atmospheric illumination only. No added objects or characters. Refined beautiful painterly game artwork, comfortable long viewing, no crushed black or clipped whites, no uniform color filter.",
+      "hint": "Generated images are saved to /workspace/scratch/46662d5429da/generated_images as /workspace/scratch/46662d5429da/generated_images/exec-f09b0da4-3d9a-4efe-a71d-6f29d0e74c10.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "star_stop-evening",
+      "prompt": "Lighting-only edit for evening. Existing celestial floating islands, architecture, planets, spiral galaxy and engraved stone platform. Keep EXACT all cosmic bodies and structures. No earthly sun added. Celestial twilight: rose copper and muted violet glow from existing spiral galaxy and nebula, warmer architectural edges and long shadows, richly beautiful restrained ethereal sunset mood. Preserve EXACT composition, camera, portrait 1024x1536, every object and foreground walking surface boundaries. Change light directions, shadows and atmospheric illumination only. No added objects or characters. Refined beautiful painterly game artwork, comfortable long viewing, no crushed black or clipped whites, no uniform color filter.",
+      "hint": "Generated images are saved to /workspace/scratch/46662d5429da/generated_images as /workspace/scratch/46662d5429da/generated_images/exec-1024b8b5-ec0b-40b0-988b-09c4227a891c.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "star_stop-day",
+      "prompt": "Lighting-only edit for day. Existing celestial floating islands, architecture, planets, spiral galaxy and engraved stone platform. Keep EXACT all cosmic bodies and structures. No earthly sun added. Celestial luminous phase: clear azure turquoise and pearl-white nebula illumination, brightest softly lit stone floor with shorter architecture shadows, existing galaxy and planets remain visible, no normal terrestrial blue sky replacing cosmos. Preserve EXACT composition, camera, portrait 1024x1536, every object and foreground walking surface boundaries. Change light directions, shadows and atmospheric illumination only. No added objects or characters. Refined beautiful painterly game artwork, comfortable long viewing, no crushed black or clipped whites, no uniform color filter.",
+      "hint": "Generated images are saved to /workspace/scratch/46662d5429da/generated_images as /workspace/scratch/46662d5429da/generated_images/exec-74caf1b0-c8e3-4daf-8caa-d4048fcd5ff8.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "memory_lake-evening",
+      "prompt": "Lighting-only edit for evening. Existing dreamlike memory lake, willow, distant layered mountains and stone shore. Maintain ethereal stillness and exact reflection geometry. Wistful rose lavender evening reflected perfectly in still lake, restrained peach glow at horizon, warm stone edges and elongated willow shadows, dreamy elegant nostalgia. Preserve EXACT composition, camera, portrait 1024x1536, every object and foreground walking surface boundaries. Change light directions, shadows and atmospheric illumination only. No added objects or characters. Refined beautiful painterly game artwork, comfortable long viewing, no crushed black or clipped whites, no uniform color filter.",
+      "hint": "Generated images are saved to /workspace/scratch/46662d5429da/generated_images as /workspace/scratch/46662d5429da/generated_images/exec-b8431fb4-55e4-4817-bd8a-30011da1cf49.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "memory_lake-day",
+      "prompt": "Lighting-only edit for day. Existing dreamlike memory lake, willow, distant layered mountains and stone shore. Maintain ethereal stillness and exact reflection geometry. Luminous pearl-blue daytime dream, soft high diffuse white light, pale azure sky, clearer blue lake and gentle green willow, short soft shadows, retain thin distant mist. Preserve EXACT composition, camera, portrait 1024x1536, every object and foreground walking surface boundaries. Change light directions, shadows and atmospheric illumination only. No added objects or characters. Refined beautiful painterly game artwork, comfortable long viewing, no crushed black or clipped whites, no uniform color filter.",
+      "hint": "Generated images are saved to /workspace/scratch/46662d5429da/generated_images as /workspace/scratch/46662d5429da/generated_images/exec-2450cef9-a223-4c34-8b5e-47516a29e9b4.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "memory_lake-night",
+      "prompt": "Lighting-only edit for night. Existing dreamlike memory lake, willow, distant layered mountains and stone shore. Maintain ethereal stillness and exact reflection geometry. Quiet deep indigo dream night, softly luminous silver-blue lake reflections and moonlight from offscreen, delicate existing mist, a few distant stars, stone shore legible, no new objects. Preserve EXACT composition, camera, portrait 1024x1536, every object and foreground walking surface boundaries. Change light directions, shadows and atmospheric illumination only. No added objects or characters. Refined beautiful painterly game artwork, comfortable long viewing, no crushed black or clipped whites, no uniform color filter.",
+      "hint": "Generated images are saved to /workspace/scratch/46662d5429da/generated_images as /workspace/scratch/46662d5429da/generated_images/exec-407ee0c4-8613-4500-a386-941e11b66e25.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "countryside-day",
+      "prompt": "Recovered generated-image provenance; see regional lighting specification. Exact generation prompt not retained in this manifest.",
+      "hint": "Generated images are saved as /workspace/scratch/46662d5429da/generated_images/exec-c21ada79-3b33-44c1-b155-6fa9c8524161.png by default."
+    },
+    {
+      "id": "countryside-night",
+      "prompt": "Recovered generated-image provenance; see regional lighting specification. Exact generation prompt not retained in this manifest.",
+      "hint": "Generated images are saved as /workspace/scratch/46662d5429da/generated_images/exec-884f9d84-34d5-4be3-946c-44ace74a9fe7.png by default."
+    },
+    {
+      "id": "countryside-evening",
+      "prompt": "Recovered generated-image provenance; see regional lighting specification. Exact generation prompt not retained in this manifest.",
+      "hint": "Generated images are saved as /workspace/scratch/46662d5429da/generated_images/exec-40ed8317-0388-4c08-92a4-e0233d8fd2c6.png by default."
+    },
+    {
+      "id": "mountain-morning",
+      "prompt": "Recovered generated-image provenance; see regional lighting specification. Exact generation prompt not retained in this manifest.",
+      "hint": "Generated images are saved as /workspace/scratch/46662d5429da/generated_images/exec-6063c439-298a-4bf5-a0ab-1a3b5b71649d.png by default."
+    },
+    {
+      "id": "mountain-evening",
+      "prompt": "Recovered generated-image provenance; see regional lighting specification. Exact generation prompt not retained in this manifest.",
+      "hint": "Generated images are saved as /workspace/scratch/46662d5429da/generated_images/exec-15a12a32-1f22-4ae3-9783-32595d2efacc.png by default."
+    },
+    {
+      "id": "mountain-night",
+      "prompt": "Recovered generated-image provenance; see regional lighting specification. Exact generation prompt not retained in this manifest.",
+      "hint": "Generated images are saved as /workspace/scratch/46662d5429da/generated_images/exec-721de136-bf98-4b9e-9d9a-d71072e04c54.png by default."
+    },
+    {
+      "id": "snow-morning",
+      "prompt": "Recovered generated-image provenance; see regional lighting specification. Exact generation prompt not retained in this manifest.",
+      "hint": "Generated images are saved as /workspace/scratch/46662d5429da/generated_images/exec-24cddc72-593b-4dac-a8cd-9ff019d8911d.png by default."
+    },
+    {
+      "id": "snow-day",
+      "prompt": "Recovered generated-image provenance; see regional lighting specification. Exact generation prompt not retained in this manifest.",
+      "hint": "Generated images are saved as /workspace/scratch/46662d5429da/generated_images/exec-2677008d-cc05-4f7e-baa8-e5372d0824df.png by default."
+    },
+    {
+      "id": "snow-night",
+      "prompt": "Recovered generated-image provenance; see regional lighting specification. Exact generation prompt not retained in this manifest.",
+      "hint": "Generated images are saved as /workspace/scratch/46662d5429da/generated_images/exec-25cd0cf8-ab25-42f5-bb25-7dc5cd2f6396.png by default."
+    }
+  ]
+}

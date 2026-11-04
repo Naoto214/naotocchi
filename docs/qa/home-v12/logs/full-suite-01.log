@@ -1,0 +1,228 @@
+Started: 2026-10-24T03:18:27.037798+00:00
+Command: node --test --test-concurrency=2 tests/home-household-test.cjs tests/home-household-conversation-test.cjs tests/home-v8-test.cjs tests/home-terrain-navigation-test.cjs tests/home-information-test.cjs tests/conversation-quick-test.cjs tests/home-iphone-qa-test.cjs tests/home-world-test.cjs tests/home-diorama-test.cjs tests/home-diorama-adapter-test.cjs tests/home-diorama-runtime-test.cjs
+
+# quick talk rate 86/300 = 0.287
+✔ data: all 50 quick games have their own lines (the first 8 pilot games had different result shapes), short lines, no questions (181.106207ms)
+✔ moments are read from the quick result only (perfect, zero, best, first, combo, close, ended-by) (0.883192ms)
+✔ candidates follow the mode, the game, the visitor and the personality (1.379604ms)
+✔ a real solo run hands its counts to the talk: lastMiss is read, judging and records are unchanged (60.003486ms)
+✔ the result card and もういちど stay for their full 6 s; the talk comes after, in 1-2 lines (30.33927ms)
+✔ もういちど and the next game: the talk stops at once and nothing is said during the game (87.971775ms)
+✔ moving to another screen drops the talk; coming back does not resume it (520.060329ms)
+✔ reload and save: no talk survives, the save has no conversation data, quick records are the same (62.758452ms)
+✔ rewards and records are identical whether or not the talk happens (49.646255ms)
+✔ frequency: about one run in 3-5, never twice in a row (1181.757673ms)
+✔ every one of the 50 quick games can actually talk in the real game, about itself (289.602832ms)
+✔ a visitor joins some exchanges as the visitor, and the quick talk keeps idle chatter and questions out (59.282072ms)
+✔ landmarks use the real Meguru profile and stage bounds (214.29951ms)
+✔ tap selects, release after drag sets destination without teleport (4.953683ms)
+✔ cancel and lost capture never dispatch a movement (1.032943ms)
+✔ hidden document cancels RAF and destination, visible resumes without catchup (0.986945ms)
+✔ Pilot exit restores original actor styles and input ownership (0.46169ms)
+✔ departed actor cannot receive stale drag release (0.693132ms)
+✔ leaving a paused Pilot removes all animation pause state (0.675567ms)
+✔ a 15-second held drag survives repeated normal render updates without autonomous movement (8.591416ms)
+✔ explicit visible actor target wins over a foreground actor padded touch area (0.989999ms)
+✔ first-use guide persists on cancelled gesture and collapses only on successful actor drag; replay works (6.269934ms)
+✔ transparent padding of foreground PNG does not steal a visible visitor tap (0.673884ms)
+✔ keyboard selects and moves the focused actor without pointer coordinates (0.789123ms)
+✔ overview changes presentation mode and preserves all actors (0.734192ms)
+✔ resizing an actor around its unchanged foot repositions the terrain mask (4.865323ms)
+(node:30) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9a3496550164/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9a3496550164/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ live Home movement and idle change no saved state or relationship (249.086288ms)
+✔ household displays an acquired resident before its special visit (53.579263ms)
+✔ care button still runs official feeding and stops movement (6520.856117ms)
+✔ Pilot exits on egg/dead and non-Pilot regions without touching save schema (2694.020651ms)
+✔ routine live render preserves a user walking destination (28.492203ms)
+✔ another resident expression change preserves a stationary moved speaker anchor (2487.799743ms)
+✔ crowded minimum height stays applied when the measured height equals its floor (2293.881355ms)
+✔ only three official Pilot regions (1.293004ms)
+✔ movement is gradual and clamps extreme commands inside safe ground (2.287486ms)
+✔ roster sync never creates absent actors or mutates input state (3.30972ms)
+✔ blocked care interrupts destination; no delayed resume or command (0.266695ms)
+✔ reduced motion disables idle travel but intentional movement works (1.319924ms)
+✔ swept movement cannot pass through another actor (4.61952ms)
+✔ resize and region switch reset destinations within safe bounds (1.912262ms)
+✔ events are frozen context only, rate limited and no automatic speech (0.376398ms)
+✔ invalid inputs and absent actors are ignored (0.274416ms)
+✔ rain autonomy prefers tagged shelter and night has slower activity (0.701198ms)
+✔ an arriving visitor cannot trap an already moved pet (8.540675ms)
+✔ movement reserves asymmetric attachment bounds (0.500681ms)
+✔ frequent presentation sync does not starve life; actions diversify and stay ephemeral (24.273348ms)
+✔ repeated busy updates yield once, then manual and autonomous activity resume (1.12125ms)
+✔ held pointer keeps only the selected actor from choosing a new autonomous action (0.632526ms)
+✔ real visit reaches companion:cat_friend dedicated banter among the household (459.179749ms)
+✔ real visit reaches companion:rabbit_friend dedicated banter among the household (172.356216ms)
+✔ real visit reaches companion:tanuki dedicated banter among the household (131.44075ms)
+✔ real visit reaches companion:squirrel dedicated banter among the household (101.345313ms)
+✔ real visit reaches companion:owl dedicated banter among the household (88.583971ms)
+✔ real visit reaches companion:otter dedicated banter among the household (96.184593ms)
+✔ real visit reaches companion:hamster dedicated banter among the household (101.281399ms)
+✔ real visit reaches companion:panda dedicated banter among the household (119.227528ms)
+✔ real visit reaches companion:monkey dedicated banter among the household (85.691508ms)
+✔ real visit reaches companion:parrot dedicated banter among the household (82.889048ms)
+✔ real visit reaches companion:sheep dedicated banter among the household (90.652443ms)
+✔ real visit reaches companion:seal dedicated banter among the household (125.715734ms)
+✔ real visit reaches companion:bat dedicated banter among the household (87.712175ms)
+✔ real visit reaches companion:chicken dedicated banter among the household (108.051375ms)
+✔ real visit reaches companion:penguin_friend dedicated banter among the household (100.098874ms)
+✔ real visit reaches companion:hedgehog dedicated banter among the household (105.72353ms)
+✔ real visit reaches companion:shiba dedicated banter among the household (87.77563ms)
+✔ real visit reaches companion:snail dedicated banter among the household (79.275381ms)
+✔ real visit reaches companion:punyu dedicated banter among the household (98.735003ms)
+✔ real visit reaches companion:sekizou dedicated banter among the household (90.120268ms)
+✔ real visit reaches companion:chameleon dedicated banter among the household (86.039488ms)
+✔ real visit reaches companion:clock dedicated banter among the household (63.590098ms)
+✔ real visit reaches companion:unicorn dedicated banter among the household (95.015317ms)
+✔ real visit reaches companion:many_tail_fox dedicated banter among the household (58.36422ms)
+✔ real visit reaches companion:watcher dedicated banter among the household (42.605839ms)
+✔ real visit reaches companion:box dedicated banter among the household (67.461147ms)
+✔ real visit reaches partner:cat_ceo dedicated banter among the household (103.779092ms)
+✔ real visit reaches partner:robot_neighbor dedicated banter among the household (81.588734ms)
+✔ real visit reaches partner:field_cow dedicated banter among the household (78.211724ms)
+✔ real visit reaches partner:sunflower_partner dedicated banter among the household (41.139265ms)
+✔ real visit reaches partner:forest_bear dedicated banter among the household (72.345221ms)
+✔ real visit reaches partner:grove_deer dedicated banter among the household (51.542689ms)
+✔ real visit reaches partner:cliff_goat dedicated banter among the household (91.659567ms)
+✔ real visit reaches partner:high_eagle dedicated banter among the household (69.890501ms)
+✔ real visit reaches partner:snow_spirit dedicated banter among the household (58.528182ms)
+✔ real visit reaches partner:snowman dedicated banter among the household (59.466195ms)
+✔ real visit reaches partner:rock_octopus dedicated banter among the household (84.745991ms)
+✔ real visit reaches partner:sea_mermaid dedicated banter among the household (97.393794ms)
+✔ real visit reaches partner:anglerfish dedicated banter among the household (84.700594ms)
+✔ real visit reaches partner:swamp_croc dedicated banter among the household (75.007768ms)
+✔ real visit reaches partner:gentle_gorilla dedicated banter among the household (44.34243ms)
+✔ real visit reaches partner:knitting_spider dedicated banter among the household (74.26996ms)
+✔ real visit reaches partner:desert_scorpion dedicated banter among the household (95.843048ms)
+✔ real visit reaches partner:oasis_cactus dedicated banter among the household (202.827117ms)
+✔ leaving during a real visit ends speech eligibility without deleting acquired residents (63.050552ms)
+(node:54) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9a3496550164/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9a3496550164/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ crowded terrain layout fits all visible bodies at 288px (139.312459ms)
+✔ crowded terrain layout fits all visible bodies at 343px (120.494636ms)
+✔ crowded terrain layout fits all visible bodies at 358px (46.607351ms)
+✔ crowded terrain layout fits all visible bodies at 398px (35.398939ms)
+✔ 28 residents retain varied life for ten minutes, with at most two ambient walkers (138.415817ms)
+✔ household 0 companions / partner false exists before any visit (174.937173ms)
+✔ household 0 companions / partner true exists before any visit (332.767569ms)
+✔ household 1 companions / partner false exists before any visit (5056.815456ms)
+✔ household 1 companions / partner true exists before any visit (2135.88019ms)
+✔ household 5 companions / partner false exists before any visit (1956.366192ms)
+✔ household 5 companions / partner true exists before any visit (2529.402771ms)
+✔ household 13 companions / partner false exists before any visit (2643.537229ms)
+✔ household 13 companions / partner true exists before any visit (2454.188696ms)
+✔ household 20 companions / partner false exists before any visit (2375.338254ms)
+✔ household 20 companions / partner true exists before any visit (2295.590673ms)
+✔ household 26 companions / partner false exists before any visit (2618.573494ms)
+✔ household 26 companions / partner true exists before any visit (2749.870069ms)
+✔ visit expiry keeps resident, while relationship departure removes selection and actor (2666.75492ms)
+✔ duplicate or unknown old-save entries never create additional actors or change the save (2727.846265ms)
+✔ terrain seating rejects a position that hides the resident behind scenery (2201.573682ms)
+✔ short viewports reserve readable household space instead of shrinking bodies to single digits (85.251809ms)
+(node:62) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9a3496550164/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9a3496550164/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ multiple Home story notices retain their text and show in order (269.77534ms)
+✔ Home information contains ordered status/environment/name/gesture then event slot (13.125829ms)
+✔ hidden Home retains active and pending notices until visible (1926.00133ms)
+(node:70) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9a3496550164/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9a3496550164/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ native artwork facing produces correct left and right body scales across expressions (1.409058ms)
+✔ presentation scaling preserves all cast ratios and attachment offsets without modifying source (24.2978ms)
+✔ river width is visible and swimming geometry remains submerged inside shared stream (1214.951414ms)
+✔ body-size separation prevents one large actor hiding another on adjacent depth rows (4.69779ms)
+✔ fish render inside scene below transparent water, pooled geometry never grows (13.4564ms)
+✔ right-facing unicorn and eagle are not mirrored on a rightward walk (0.222188ms)
+✖ new terrain cast size is constant when visitors arrive and leave (12.06721ms)
+(node:78) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9a3496550164/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9a3496550164/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Home removes dedicated plaza pads and rebuilds canonical collision grid (6003.825055ms)
+✔ terrain navigation routes around a solid, rejects water and cannot cut corners (9.91575ms)
+✔ real terrain projection roundtrips and water/road remain unavailable (5590.595835ms)
+✔ model follows routed waypoints and cancels the entire path on care (2.319368ms)
+✔ occlusion uses actual projected triangles only in front of the illustration (1.569272ms)
+✔ UI reflow preserves a settled actor world position instead of recentering (1.250093ms)
+✔ all phone widths expose safe terrain beyond former foreground pad and reachable solids (16688.620969ms)
+(node:86) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9a3496550164/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9a3496550164/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ guide only completes after successful actor drag; separate namespace, replay and denied storage (0.8288ms)
+✔ city has connected pedestrian paving, separate curbs and traffic, no foreground asphalt spur (1775.555867ms)
+✖ all 26 registered companions and a partner still visit one at a time; formal maximum is 2 (38.725087ms)
+✔ runtime attendance with every registered companion never truncates relationships or renders more than one visitor (192.143287ms)
+(node:94) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9a3496550164/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9a3496550164/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Home compositions reuse official geometry, preserve sources and match solid collision footprints (5051.770123ms)
+✔ Living environment remains bounded with correct routes and pauses (178.167658ms)
+✔ Home recovers the same region after lost GPU without resetting its life clock (1959.345222ms)
+✔ Home renderer recovery is bounded, pauses while hidden and stops on destroy (3655.182459ms)
+✔ Home contains resize errors so the frame loop can recover (1727.154626ms)
+✔ Home contains level errors so the frame loop can recover (1518.460993ms)
+✔ Home ground follows the cast feet on portrait and wide viewports; river stays behind (3.179701ms)
+ℹ tests 142
+ℹ suites 0
+ℹ pass 140
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 60024.587023
+
+✖ failing tests:
+
+test at tests/home-iphone-qa-test.cjs:44:1
+✖ new terrain cast size is constant when visitors arrive and leave (12.06721ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 147.56
+  - 112.1456
+  
+      at TestContext.<anonymous> (/workspace/scratch/9a3496550164/naotocchi/tests/home-iphone-qa-test.cjs:48:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 147.56,
+    expected: 112.1456,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/home-v8-test.cjs:27:1
+✖ all 26 registered companions and a partner still visit one at a time; formal maximum is 2 (38.725087ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  149.6 !== 176
+  
+      at TestContext.<anonymous> (/workspace/scratch/9a3496550164/naotocchi/tests/home-v8-test.cjs:36:32)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 149.6,
+    expected: 176,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

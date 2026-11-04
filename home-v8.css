@@ -1,0 +1,4 @@
+/* The v7 single-pet / married-cast landscape band collapsed to one forbidden foot position.
+   Keep a stable presentation floor through both visualViewport resize events
+   and ResizeObserver callbacks, including cached-layout early returns. */
+body[data-home-terrain="true"] #castStage[data-diorama]{min-height:380px!important}

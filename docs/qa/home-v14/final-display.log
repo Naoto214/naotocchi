@@ -1,0 +1,37 @@
+✔ landmarks use the real Meguru profile and stage bounds (107.607971ms)
+✔ interrupt before a terrain scene exists leaves the legacy poop row untouched (2.423054ms)
+✔ leaving terrain preserves legacy poop visibility through interruption and permits reentry (2.987978ms)
+✔ tap selects, release after drag sets destination without teleport (1.137148ms)
+✔ cancel and lost capture never dispatch a movement (0.672091ms)
+✔ hidden document cancels RAF and destination, visible resumes without catchup (0.732661ms)
+✔ Pilot exit restores original actor styles and input ownership (0.417816ms)
+✔ departed actor cannot receive stale drag release (0.458717ms)
+✔ leaving a paused Pilot removes all animation pause state (0.451376ms)
+✔ a 15-second held drag survives repeated normal render updates without autonomous movement (3.919581ms)
+✔ explicit visible actor target wins over a foreground actor padded touch area (0.622108ms)
+✔ first-use guide persists on cancelled gesture and collapses only on successful actor drag; replay works (0.811798ms)
+✔ transparent padding of foreground PNG does not steal a visible visitor tap (0.356877ms)
+✔ keyboard selects and moves the focused actor without pointer coordinates (0.675426ms)
+✔ overview changes presentation mode and preserves all actors (0.580686ms)
+✔ resizing an actor around its unchanged foot repositions the terrain mask (6.023345ms)
+✔ stationary sleep subtree replacement refreshes head shift for each actor role and clears on wake (0.981017ms)
+(node:16) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/1459ad0b478c/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/1459ad0b478c/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ sleep emission reflects the approved per-stage small-Z center without changing expression artwork (5.316853ms)
+✔ routine care summary preserves numeric canonical feedback and important costs (0.672693ms)
+✔ small measured bubble dimensions survive edge clamping for each phone width (0.499597ms)
+✔ terrain dialogue measures intrinsic size and removes the 55px minimum (5.380286ms)
+✔ important story reward text remains intact and numeric state stays unchanged (173.814311ms)
+✔ ambient story hides only trailing routine deltas while preserving authored narration and rewards (5.329301ms)
+✔ result narration has independent width before measurement and mixed tone keeps original signs (1517.007503ms)
+✔ short dialogue tail is local to its centered bubble beside result narration (0.238693ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1815.8181

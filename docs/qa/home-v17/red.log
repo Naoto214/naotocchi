@@ -1,0 +1,77 @@
+✖ v17 uses restrained fonts and tries readable single-line sizes before wrapping (2.406028ms)
+✖ exchange carries canonical companion identity through question and reaction without changing narrative or effects (126.683553ms)
+✖ system age outcome clears prior actor identity (28.46488ms)
+✔ ordinary speech uses an official asset and updates identity per actual beat (18.288818ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 1
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 298.738662
+
+✖ failing tests:
+
+test at tests/home-v17-test.cjs:5:1
+✖ v17 uses restrained fonts and tries readable single-line sizes before wrapping (2.406028ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  20 !== 18
+  
+      at TestContext.<anonymous> (/workspace/scratch/53f8f12fa93e/repo/tests/home-v17-test.cjs:6:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 20,
+    expected: 18,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/home-v17-test.cjs:11:1
+✖ exchange carries canonical companion identity through question and reaction without changing narrative or effects (126.683553ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'shiba'
+  
+      at TestContext.<anonymous> (/workspace/scratch/53f8f12fa93e/repo/tests/home-v17-test.cjs:12:113)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'shiba',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/home-v17-test.cjs:20:1
+✖ system age outcome clears prior actor identity (28.46488ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  undefined !== ''
+  
+      at TestContext.<anonymous> (/workspace/scratch/53f8f12fa93e/repo/tests/home-v17-test.cjs:21:227)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: '',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

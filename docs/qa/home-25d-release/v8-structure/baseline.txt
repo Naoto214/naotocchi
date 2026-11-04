@@ -1,0 +1,39 @@
+(node:12) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/96a2448b9fab/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/96a2448b9fab/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ V7 native wrapping preserves authored text without Japanese phrase spans (157.753474ms)
+✔ V7 character narration uses the lower lane without changing system milestone routing (43.55009ms)
+✔ V7 pet header has a separate small name, not a constrained pseudo label (66.669164ms)
+✔ V7 first encounter uses the candidate formal portrait before becoming a partner (23.689343ms)
+✔ V7 actual court friend reply is lower with the candidate portrait, without becoming partners (42.736345ms)
+✔ V7 existing notice queue preserves lower, system, lower event order and full durations (22.26625ms)
+✔ V7 feed preserves care afterglow, reduced motion false (21.301938ms)
+✔ V7 medicine preserves care afterglow, reduced motion false (21.019332ms)
+✔ V7 feed preserves care afterglow, reduced motion true (22.29285ms)
+✔ V7 medicine preserves care afterglow, reduced motion true (22.241292ms)
+✔ V7 companion farewell keeps the companion name and official portrait below (26.650532ms)
+✔ V7 guest candidate reply retains official personal portrait and name (15.252062ms)
+✔ V7 critical notice defers the companion identity and restores the original message lifetime (26.926909ms)
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/96a2448b9fab/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/96a2448b9fab/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ production notice lane delivers male/gay transition after growth and story (169.888939ms)
+✔ production notice lane delivers male/straight transition after growth and story (34.970976ms)
+✔ production notice lane delivers nonbinary/straight transition after growth and story (41.652473ms)
+✔ entry brings the existing actor into the central viewport (3.71898ms)
+✔ a pending entry focus cannot undo a later scroll to the meters (1.004162ms)
+✔ a delayed scroll event still preserves the latest viewport position (0.866325ms)
+✔ scroll after entry focus paints even when WebKit delays the scroll event (1.026756ms)
+✔ a later real resize may reveal the actor again after an interrupted focus (1.004883ms)
+✔ resize keeps an active question reachable using the existing speech slot (1.032305ms)
+✔ comment dock remeasures controls after the rotation layout settles (1.205946ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1205.737504

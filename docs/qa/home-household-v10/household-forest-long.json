@@ -1,0 +1,82 @@
+{
+  "actors": 28,
+  "metrics": {
+    "cast": {
+      "activities": {
+        "approach": 5,
+        "look": 49,
+        "observe": 3,
+        "rest": 46,
+        "sit": 44,
+        "solitude": 2,
+        "together": 14,
+        "turn": 35,
+        "walk": 45
+      },
+      "clock": 50.75640000000022,
+      "distance": 553.0454837586426,
+      "moves": 45,
+      "turns": 83
+    },
+    "fps": 4.822918508753597,
+    "frames": 360,
+    "heapBytes": 84087764,
+    "seconds": 75,
+    "world": {
+      "life": {
+        "active": 8,
+        "capacity": 8,
+        "clock": 75.1180999999997,
+        "distance": 18022.66898736336,
+        "spawned": 11
+      },
+      "mode": "canvas-3d",
+      "projectionRevision": 14,
+      "recoveryAttempts": 0,
+      "region": "forest",
+      "renderer": {
+        "actors": 1,
+        "calls": 20,
+        "char3d": null,
+        "diag": {
+          "dprSteps": [],
+          "longFrames": 343,
+          "occlFrames": 0,
+          "on": false,
+          "ray": {
+            "blk": "",
+            "of": 3,
+            "seen": 3
+          },
+          "rayChecks": 0,
+          "uploads": 0
+        },
+        "drawMsAvg": 7.812500000093133,
+        "drawMsP95": 13.300000004470348,
+        "geometries": 19,
+        "ghosts": {
+          "attached": 0,
+          "hiddenObjects": 0,
+          "owners": [],
+          "total": 0,
+          "visible": 0
+        },
+        "mode": "canvas-3d",
+        "objects": 41,
+        "pixelRatio": 1,
+        "player": {
+          "applicable": false,
+          "mode": "dom",
+          "pixelVisibility": "DOM_QA_REQUIRED"
+        },
+        "textures": 0,
+        "triangles": 2423,
+        "water": {
+          "kind": null,
+          "meshes": [],
+          "ponds": 0
+        }
+      }
+    }
+  }
+}

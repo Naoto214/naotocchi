@@ -1,0 +1,44 @@
+[
+  {
+    "id": "home-morning",
+    "bytes": 284876,
+    "width": 1024,
+    "height": 1536,
+    "sha256": "786f0f9a5e4bf1c24fa9bbeefe8c7aac3b899718999a2962b90dbef69f32e045"
+  },
+  {
+    "id": "home-day",
+    "bytes": 357774,
+    "width": 1024,
+    "height": 1536,
+    "sha256": "b2d8b35e7d7dc44cf44656a015403880430b591ee7ddded899ea3d702ed9026d"
+  },
+  {
+    "id": "forest-morning",
+    "bytes": 638948,
+    "width": 1024,
+    "height": 1536,
+    "sha256": "e2560a178b9ab16b13476978cc2501959c303514f13e286e57c64bb4df5731aa"
+  },
+  {
+    "id": "forest-day",
+    "bytes": 754700,
+    "width": 1024,
+    "height": 1536,
+    "sha256": "c8a761d93797f21d7f660dd374a3838123712c005e9668c982231df05b50c70d"
+  },
+  {
+    "id": "city-morning",
+    "bytes": 458668,
+    "width": 1024,
+    "height": 1536,
+    "sha256": "57dd4092e037cb2a2b26188b4cb5fd6b83e38f0fa7379e767ae5bd38549ee130"
+  },
+  {
+    "id": "city-day",
+    "bytes": 530088,
+    "width": 1024,
+    "height": 1536,
+    "sha256": "771de762d75322944c41ac027cdfb1713e962826fa0de17c1f8b3673c09e8c3b"
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "node": "22.23.4",
+  "timezone": "UTC",
+  "full_regression": {
+    "passed": 3745,
+    "failed": 0,
+    "exit_code": 0,
+    "groups": [
+      32,
+      24,
+      3292,
+      159,
+      238
+    ]
+  },
+  "resident_timezones": {
+    "UTC": {
+      "passed": 18,
+      "failed": 0
+    },
+    "America/Chicago": {
+      "passed": 18,
+      "failed": 0
+    },
+    "Asia/Tokyo": {
+      "passed": 18,
+      "failed": 0
+    }
+  },
+  "browser_reset_fix": {
+    "city": {
+      "display": 24,
+      "normal_inputs": 8,
+      "blocked_inputs": 2,
+      "failed": 0,
+      "save_resume": "passed"
+    },
+    "home": {
+      "display": 24,
+      "normal_inputs": 8,
+      "blocked_inputs": 2,
+      "failed": 0,
+      "save_resume": "passed"
+    }
+  },
+  "final_ci": "See PR #490 for exact final HEAD run/job conclusions; not complete at commit time",
+  "iphone_safari": "not tested"
+}

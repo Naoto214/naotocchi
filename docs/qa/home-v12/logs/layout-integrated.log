@@ -1,0 +1,44 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9a3496550164/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9a3496550164/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ crowded terrain layout fits all visible bodies at 288px (149.269877ms)
+✔ crowded terrain layout fits all visible bodies at 343px (114.286071ms)
+✔ crowded terrain layout fits all visible bodies at 358px (64.993968ms)
+✔ crowded terrain layout fits all visible bodies at 398px (33.205829ms)
+✔ 28 residents retain varied life for ten minutes, with at most two ambient walkers (185.608472ms)
+✔ household 0 companions / partner false exists before any visit (258.979663ms)
+✔ household 0 companions / partner true exists before any visit (301.084353ms)
+✔ household 1 companions / partner false exists before any visit (4800.292018ms)
+✔ household 1 companions / partner true exists before any visit (1882.318121ms)
+✔ household 5 companions / partner false exists before any visit (1762.257664ms)
+✔ household 5 companions / partner true exists before any visit (2032.417415ms)
+✔ household 13 companions / partner false exists before any visit (1872.175156ms)
+✔ household 13 companions / partner true exists before any visit (2330.665509ms)
+✔ household 20 companions / partner false exists before any visit (3046.286407ms)
+✔ household 20 companions / partner true exists before any visit (2353.072259ms)
+✔ household 26 companions / partner false exists before any visit (2712.094862ms)
+✔ household 26 companions / partner true exists before any visit (2707.174541ms)
+✔ visit expiry keeps resident, while relationship departure removes selection and actor (2197.246356ms)
+✔ duplicate or unknown old-save entries never create additional actors or change the save (2601.556336ms)
+✔ terrain seating rejects a position that hides the resident behind scenery (2067.278849ms)
+✔ short viewports reserve readable household space instead of shrinking bodies to single digits (122.15039ms)
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9a3496550164/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9a3496550164/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ multiple Home story notices retain their text and show in order (251.520983ms)
+✔ Home information contains ordered status/environment/name/gesture then event slot (7.329404ms)
+✔ hidden Home retains active and pending notices until visible (2636.954303ms)
+✔ A: small-cast protagonist uses 85 percent with attachments following the painted foot (9.284905ms)
+✔ A: QA comparison supports all four protagonist scales without changing companion scale (57.479632ms)
+✔ D: curved depth placement differs from previous grid and retains everyone (3.987057ms)
+✔ B: care order follows approved keyboard and visual order (0.767871ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 33969.346002

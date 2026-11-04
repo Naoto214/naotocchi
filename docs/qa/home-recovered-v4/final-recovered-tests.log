@@ -1,0 +1,30 @@
+✔ latest preset wins when clicked while a previous scene is loading (8.275223ms)
+✔ measurement controls preserve background errors instead of showing safe counts (6.611099ms)
+✔ measurement waits for the requested candidate before reporting readiness (0.832809ms)
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/13ef013209ca/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/13ef013209ca/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ six preserved images and distinct geometry are present (32.927205ms)
+✔ home room, waterfall, stream, rocks and river are not walkable (194.996618ms)
+✔ six scenes: 320px / 1 actors remain safe and pet can move (23.715612ms)
+✔ six scenes: 320px / 6 actors remain safe and pet can move (213.111126ms)
+✔ six scenes: 320px / 28 actors remain safe and pet can move (167.216387ms)
+✔ six scenes: 375px / 1 actors remain safe and pet can move (6.331316ms)
+✔ six scenes: 375px / 6 actors remain safe and pet can move (355.494883ms)
+✔ six scenes: 375px / 28 actors remain safe and pet can move (239.122584ms)
+✔ six scenes: 390px / 1 actors remain safe and pet can move (14.762058ms)
+✔ six scenes: 390px / 6 actors remain safe and pet can move (189.639937ms)
+✔ six scenes: 390px / 28 actors remain safe and pet can move (233.57322ms)
+✔ six scenes: 430px / 1 actors remain safe and pet can move (12.373656ms)
+✔ six scenes: 430px / 6 actors remain safe and pet can move (188.11643ms)
+✔ six scenes: 430px / 28 actors remain safe and pet can move (269.355896ms)
+✔ actual browser dimensions preserve a pet exit despite cramped fallback seats (8775.106407ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11219.118219

@@ -1,0 +1,76 @@
+✔ index.html asset references exist and carry cache tokens (2.612408ms)
+✔ the bump tool rewrites only cache tokens (0.531229ms)
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/96a2448b9fab/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/96a2448b9fab/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ decorative cover fills all viewport shapes without changing the terrain transform (59.549098ms)
+✔ explicit newborn placement takes priority over the right-side default seat (1.839075ms)
+✔ newborn placement cannot bypass legal bounds or move existing actors (0.460302ms)
+✔ ordinary saved/established entries keep original seating and companion placement (1.465814ms)
+✔ a stale newborn request does not recenter a retained pet during crowd reflow (9.849537ms)
+✔ egg visible body is centred independently of transparent PNG padding (2.24115ms)
+(node:16) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/96a2448b9fab/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/96a2448b9fab/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ V7 native wrapping preserves authored text without Japanese phrase spans (169.428905ms)
+✔ V7 character narration uses the lower lane without changing system milestone routing (60.684896ms)
+✔ V7 pet header has a separate small name, not a constrained pseudo label (67.057035ms)
+✔ V7 first encounter uses the candidate formal portrait before becoming a partner (21.341586ms)
+✔ V7 actual court friend reply is lower with the candidate portrait, without becoming partners (47.055885ms)
+✔ V7 existing notice queue preserves lower, system, lower event order and full durations (16.78162ms)
+✔ V7 feed preserves care afterglow, reduced motion false (24.01156ms)
+✔ V7 medicine preserves care afterglow, reduced motion false (26.467591ms)
+✔ V7 feed preserves care afterglow, reduced motion true (29.908085ms)
+✔ V7 medicine preserves care afterglow, reduced motion true (25.367879ms)
+✔ V7 companion farewell keeps the companion name and official portrait below (31.618532ms)
+✔ V7 guest candidate reply retains official personal portrait and name (15.011909ms)
+✔ V7 critical notice defers the companion identity and restores the original message lifetime (26.913043ms)
+✔ notice expansion is reserved before the next animation frame, even when RAF is throttled (3.473412ms)
+✔ short, expired, hidden and non-terrain messages restore the original reservation (1.152934ms)
+(node:27) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/96a2448b9fab/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/96a2448b9fab/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ production notice lane delivers male/gay transition after growth and story (191.735802ms)
+✔ production notice lane delivers male/straight transition after growth and story (32.426161ms)
+✔ production notice lane delivers nonbinary/straight transition after growth and story (44.974496ms)
+(node:29) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/96a2448b9fab/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/96a2448b9fab/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ production event does not inherit persistent hungry care icon; care action remains recommended (222.796114ms)
+✔ Japanese notice groups preserve all characters and the reported word boundaries (10.222689ms)
+✔ shared notice renderer remains compatible with retained legacy comparison controllers (29.604168ms)
+(node:68) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/96a2448b9fab/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/96a2448b9fab/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ shipped home adapters preserve real save pre-v3.json (193.22458ms)
+✔ shipped home adapters preserve real save v3.json (111.826148ms)
+✔ shipped home adapters preserve real save v4-pre-master.json (63.271965ms)
+✔ shipped home adapters preserve real save v5-pre-items-v2.json (582.631728ms)
+✔ shipped home adapters preserve real save sticker-points-meguru-p1.json (259.175018ms)
+✔ shipped home adapters preserve real save meguru-p2.json (255.305981ms)
+✔ entry brings the existing actor into the central viewport (4.753156ms)
+✔ a pending entry focus cannot undo a later scroll to the meters (1.108397ms)
+✔ a delayed scroll event still preserves the latest viewport position (1.440545ms)
+✔ scroll after entry focus paints even when WebKit delays the scroll event (1.159313ms)
+✔ a later real resize may reveal the actor again after an interrupted focus (1.213845ms)
+✔ resize keeps an active question reachable using the existing speech slot (1.010058ms)
+✔ comment dock remeasures controls after the rotation layout settles (2.774291ms)
+✔ V8 horizontal camera translates the world host with the stage (1.733446ms)
+✔ the document-blocking egg module never depends on the optional Meguru 3D startup (1.201296ms)
+✔ reveal moves only the camera enough to show a clipped actor on both axes (2.6873ms)
+✔ visible actor does not pull a user-scrolled camera (1.691042ms)
+✔ portrait reserves 42 and 76 without moving controls (0.899622ms)
+✔ landscape rail preserves the 213px window from the approved spike (0.888917ms)
+ℹ tests 48
+ℹ suites 0
+ℹ pass 48
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1921.911276
