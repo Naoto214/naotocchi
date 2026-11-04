@@ -36,7 +36,8 @@ async function target(page,kind){return page.evaluate(kind=>{
  for(const a of q.actors.filter(a=>a.kind===kind)){
   const node=document.querySelector('[data-diorama-actor="'+a.key+'"]');
   const x=v.x+(s.left+a.x-v.x)*v.scaleX,y=v.y+(s.top+a.y-v.y)*v.scaleY;
-  for(const dy of [.45,.65,.25,.85,.95,.05])for(const dx of [0,-.3,.3,-.45,.45]){
+  // Search the exposed ink densely; a partner's head may be a narrow sliver.
+  for(let dy=.975;dy>=.025;dy-=.025)for(let dx=-.475;dx<=.475;dx+=.025){
    const p={x:x+dx*a.w*v.bodyScale,y:y-dy*a.h*v.bodyScale};
    if(p.x<=frame.left||p.x>=frame.right||p.y<=frame.top||p.y>=frame.bottom)continue;
    const hit=document.elementFromPoint(p.x,p.y);
@@ -91,7 +92,7 @@ async function tap(page,kind,single=false){
    if(!nav.valid({x,y})||Math.hypot(x-a.x,y-a.y)<20||!nav.route(a,{x,y},b).length)continue;
    const px=v.x+(s.left+x-v.x)*v.scaleX,py=v.y+(s.top+y-v.y)*v.scaleY;
    if(px<=f.left||px>=f.right||py<=f.top||py>=f.bottom)continue;
-   if(d.actors.some(c=>Math.abs(x-c.x)<=Math.max(22,c.w*v.bodyScale/v.scaleX/2)&&y>=c.y-Math.max(44,c.h*v.bodyScale/v.scaleY)&&y<=c.y+10))continue;
+   if(d.actors.some(c=>Math.abs(x-c.x)<=Math.max(22,c.w/2,c.w*v.bodyScale/v.scaleX/2)&&y>=c.y-Math.max(44,c.h,c.h*v.bodyScale/v.scaleY)&&y<=c.y+10))continue;
    const hit=document.elementFromPoint(px,py),stage=document.getElementById('castStage');
    if(hit===stage||stage.contains(hit))return {x:px,y:py};
   }throw Error('No exposed walkable ground');
