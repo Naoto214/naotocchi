@@ -41,7 +41,8 @@ test('physical pointer targets account for current presentation scale and indepe
   const owner={getBoundingClientRect:()=>({left:foot.x-10,right:foot.x+10,top:foot.y-40,bottom:foot.y})},other={};
   let coverage='clear';
   const context={module:{exports:{}},performance:{now:()=>0},window:{NaotocchiHomeViewport:current?{
-   residentPresentation:()=>({x:10,y:20,scaleX:.5,scaleY:.25,bodyScale:1}),presentationRect:()=>native
+   residentPresentation:()=>({x:10,y:20,scaleX:.5,scaleY:.25,bodyScale:1}),presentationRect:()=>native,
+   unscalePoint:p=>({x:10+(p.x-10)/.5,y:20+(p.y-20)/.25})
   }:undefined},document:{getElementById:()=>stage,
    elementFromPoint:(x,y)=>x>=foot.x-10&&x<=foot.x+10&&y>=foot.y-40&&y<=foot.y?{closest:()=>coverage==='covered'||coverage==='overlap'&&x===foot.x&&y===foot.y-16?other:owner}:stage,
    querySelector:selector=>selector==='.screen-frame'?{getBoundingClientRect:()=>({left:0,top:0,right:500,bottom:500})}:owner},
