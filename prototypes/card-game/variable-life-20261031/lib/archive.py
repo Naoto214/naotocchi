@@ -11,6 +11,8 @@ commit = subprocess.check_output(['git', 'rev-parse', sys.argv[1]]).decode().str
 base = subprocess.check_output(['git', 'merge-base', 'origin/main', commit]).decode().strip()
 out = subprocess.run(['python3', 'tools/work/check_storage.py', '--merge-base', base, '--head', commit], cwd=ROOT, capture_output=True, text=True).stdout
 flagged = [l.split(' ', 2)[1] for l in out.splitlines() if l.startswith('REVIEW ')]
+# Also the screenshots in evidence-v2/-v4/-v5 (not flagged only because of the directory name; same kind of regenerable QA output).
+flagged += [p for p in subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', commit, EXP + '/trial-time'], cwd=ROOT).decode().split() if '/evidence-v' in p and p.endswith('.png') and p not in flagged]
 assert all(p.startswith(EXP + '/') for p in flagged), 'a flagged file is outside this experiment'
 def category(p):
     rel = p[len(EXP) + 1:]
