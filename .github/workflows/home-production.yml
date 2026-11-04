@@ -27,6 +27,15 @@ jobs:
       - run: npm ci
       - run: npm install --no-save --package-lock=false playwright@1.62.1
       - run: npx playwright install --with-deps ${{ matrix.engine }}
+      - name: Verify approved V18 safe-area correction and unchanged UI
+        run: |
+          node --test tests/home-production-v18-test.cjs
+          git fetch --filter=blob:none --depth=1 origin d3dda79af81336c85358e99234a2669ae61c7d97
+          git show d3dda79af81336c85358e99234a2669ae61c7d97:home-production-touch.js > "${{ runner.temp }}/safe-area-before.js"
+          node tests/home-production-safe-area-browser.cjs
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
+          HOME_SAFE_BASELINE: ${{ runner.temp }}/safe-area-before.js
       - run: python tools/pages/package.py --out "${{ runner.temp }}/fixed-controls" --report "${{ runner.temp }}/fixed-package.json"
       - run: python tools/pages/verify.py --artifact "${{ runner.temp }}/fixed-controls" --package-report "${{ runner.temp }}/fixed-package.json" --report "${{ runner.temp }}/fixed-http.json"
       - name: V7 actual character comments and native wrapping
@@ -91,6 +100,7 @@ jobs:
             test-results/home-production-birth/
             test-results/home-production-v3-baseline/
             test-results/home-production-layout/
+            test-results/home-safe-area/
             test-results/home-production-scroll/
             test-results/home-production-native/
             test-results/home-production-guide/
