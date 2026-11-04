@@ -74,6 +74,9 @@ try{for(const engine of (process.env.HOME_BIRTH_ENGINES||'chromium,webkit').spli
  const saved=await page.evaluate(()=>HomeBirthQA.save());
  // Reload must run startup animation frames/timers; the paused test clock can
  // otherwise strand a valid saved game before the renderer becomes ready.
+ // Inspect restored entry before autonomous wandering; hatching above still
+ // exercises both motion modes. Reduced motion leaves manual input intact.
+ await page.emulateMedia({reducedMotion:'reduce'});row.resumeMotion='reduce';
  await page.clock.resume();await page.reload();
  try{await page.waitForFunction(()=>window.HomeBirthQA&&document.body.dataset.livingHome==='art-25d');}
  catch(e){console.error('RELOAD_DIAGNOSTICS',await page.evaluate(()=>({qa:!!window.HomeBirthQA,body:document.body.dataset,ready:document.readyState,text:document.body.innerText.slice(0,1000)})),errors);throw e;}
@@ -104,7 +107,7 @@ if(!process.env.HOME_BIRTH_CAPTURE_ONLY)for(const r of results)for(const phase o
  if(phase==='newborn')assert.ok(d.safe,'newborn stays on approved ground');
 }
 if(!process.env.HOME_BIRTH_CAPTURE_ONLY)for(const r of results){
- assert.deepEqual(r.grown.ground,r.newborn.ground,'growth preserves the hatch foot, not the body centre');
+ for(const axis of ['x','y','z'])assert.ok(Math.abs(r.grown.ground[axis]-r.newborn.ground[axis])<=1e-12,'growth preserves the hatch foot '+axis+' (floating-point projection)');
  assert.ok(r.grown.safe&&r.resumed.safe);
  assert.ok(Math.abs(r.resumed.ground.x-.55)<=1e-12,'saved adult entry does not replay the hatch placement');
  assert.ok(Math.abs(r.resumed.ground.z-.74)<=1e-12,'saved adult depth is preserved (floating-point projection)');

@@ -58,9 +58,16 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+10000));
  await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[inputRegion,inputCount]);
  await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return d.world?.loaded&&d.world.region===r&&d.actors.length===c&&!d.blocked&&d.paused==='false';},[inputRegion,inputCount],{polling:100,timeout:15000});
- // Image.onload and resident camera fitting are asynchronous. Let the
- // presentation settle before sampling; runFor leaves the clock paused.
- await page.clock.runFor(50);
+ // Image decode and V18 body/camera fitting can span several animation
+ // frames. Wait for stable model dimensions AND presentation before mapping
+ // the physical pointer; an earlier snapshot can use the previous body size.
+ let previousGeometry='',stableFrames=0;
+ for(let frame=0;frame<20&&stableFrames<3;frame++){
+  await page.clock.runFor(50);
+  const geometry=await page.evaluate(()=>JSON.stringify({actors:HomeReleaseQA.detail().actors.map(({key,x,y,w,h})=>({key,x,y,w,h})),presentation:window.NaotocchiHomeViewport?.residentPresentation?.()}));
+  stableFrames=geometry===previousGeometry?stableFrames+1:0;previousGeometry=geometry;
+ }
+ assert.equal(stableFrames,3,'V18 cast and camera settle before physical input');
  input.before=await page.evaluate(()=>HomeReleaseQA.detail());assert.deepEqual(input.before.layout,{viewport:'12',display:'18'},'physical input uses the shipped home');input.status='started';saveInputs();
  const t=await page.evaluate(targetFn,kind),{from,to}=t;
  input.target=t;input.from=from;input.to=to;input.selectionMs=t.selectionMs;saveInputs();

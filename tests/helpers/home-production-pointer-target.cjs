@@ -18,7 +18,7 @@ module.exports=(kind='tap')=>{
  const originPoints=[{x:foot.x,y:foot.y-a.h*.4*bodyScale}];
  if(rect)for(let y=Math.max(frame.top+1,rect.top+1,foot.y-a.h*bodyScale+1);y<Math.min(frame.bottom-1,rect.bottom-1,foot.y);y+=2)
   for(let x=Math.max(frame.left+1,rect.left+1,foot.x-a.w*bodyScale/2+1);x<Math.min(frame.right-1,rect.right-1,foot.x+a.w*bodyScale/2);x+=2)originPoints.push({x,y});
- const from=originPoints.find(p=>p.x>frame.left&&p.x<frame.right&&p.y>frame.top&&p.y<frame.bottom&&document.elementFromPoint(p.x,p.y)?.closest?.('[data-diorama-actor]')===owner);
+ const from=originPoints.map(p=>({x:Math.floor(p.x),y:Math.floor(p.y)})).find(p=>p.x>frame.left&&p.x<frame.right&&p.y>frame.top&&p.y<frame.bottom&&document.elementFromPoint(p.x,p.y)?.closest?.('[data-diorama-actor]')===owner);
  if(!owner||!from)throw Error('Protagonist cannot be reached by pointer');
  const clearance=(p,c)=>Math.hypot((p.x-c.x)/((a.w+c.w)*.5+10),(p.y-c.y)/((a.h+c.h)*.38+10));
  const free=p=>d.actors.slice(1).every(c=>clearance(p,c)>=1)&&inspection.scene.visible(p,a);
@@ -31,8 +31,13 @@ module.exports=(kind='tap')=>{
  const candidates=[],points=[];
  const scan=spacing===1?{left:Math.max(b.left,a.x-64),right:Math.min(b.right,a.x+64),top:Math.max(b.top,a.y-64),bottom:Math.min(b.bottom,a.y+64)}:b;
  for(let y=scan.top;y<scan.bottom;y+=spacing)for(let x=scan.left;x<scan.right;x+=spacing)points.push({x,y});
- for(const {x,y} of points){
-  const distance=Math.hypot(x-a.x,y-a.y),p={x,y},to=project(p);
+ for(const candidate of points){
+  // WebKit dispatches integer CSS pixels. Validate the world point that
+  // will actually arrive at the controller, not a fractional near-obstacle
+  // candidate that rounds into an occupied cell on delivery.
+  const projected=project(candidate),to={x:Math.floor(projected.x),y:Math.floor(projected.y)};
+  const unscaled=viewport?.unscalePoint?.(to)||to,p={x:unscaled.x-native.left,y:unscaled.y-native.top};
+  const {x,y}=p,distance=Math.hypot(x-a.x,y-a.y);
   // The pointer starts above the feet. A 45px ground route can still be a
   // sub-pixel gesture; require a real drag beyond the shipped 8px threshold.
   if(kind==='drag'&&Math.hypot(to.x-from.x,to.y-from.y)<12)continue;

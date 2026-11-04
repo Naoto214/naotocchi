@@ -2,8 +2,8 @@
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),assert=require('node:assert/strict');
 const pointerTarget=require('./helpers/home-production-pointer-target.cjs');
 async function readyForInput(page){
- for(let elapsed=0;elapsed<10000&&await page.evaluate(()=>HomeReleaseQA.detail().blocked);elapsed+=100)await page.clock.runFor(100);
- assert.equal(await page.evaluate(()=>HomeReleaseQA.detail().blocked),false,'scene ready for physical input');
+ for(let elapsed=0;elapsed<10000&&await page.evaluate(()=>{const d=HomeReleaseQA.detail();return d.blocked||d.paused!=='false';});elapsed+=100)await page.clock.runFor(100);
+ assert.equal(await page.evaluate(()=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false';}),true,'scene and animation loop ready for physical input');
 }
 const root=path.resolve(process.argv[2]),out=path.resolve('test-results/home-viewport-v8');fs.mkdirSync(out,{recursive:true});
 const server=http.createServer((req,res)=>{const p=path.resolve(root,'.'+new URL(req.url,'http://localhost').pathname);if(!p.startsWith(root+'/')||!fs.existsSync(p)||!fs.statSync(p).isFile())return res.writeHead(404).end();res.setHeader('Content-Type',({'.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.html':'text/html','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml'})[path.extname(p)]||'application/octet-stream');fs.createReadStream(p).pipe(res);});
