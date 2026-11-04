@@ -42,6 +42,7 @@ export const VARIANTS={
  'T-2n':{time:{cost:2,counter:false,cpu:'smart'},note:'各1・時2・特殊カウンターなし（比較用）'},
  'T-2v':{time:{cost:2,counter:true,cpu:'smart2'},note:'VERSION 2：時2・特殊カウンターあり・CPU は勝率見込み（smart2）で判断。デッキ構成はマニフェストで指定'},
  'T-4v':{time:{cost:2,counter:true,cpu:'smart3'},v4:true,note:'VERSION 4：時のカード＋新カード7種類・U12・CPU smart3。デッキ構成はマニフェストで指定'},
+ 'T-5v':{time:{cost:2,counter:true,cpu:'smart4'},v4:true,v5:true,note:'VERSION 5：T-4v＋おいわいのつるの比較案（ラウンド終了・ラウンド開始）・CPU smart4'},
  'T-8s':{time:{cost:2,counter:true,cpu:'smart'},note:'各2（8枚）・時2・特殊カウンターあり'},
 };
 
@@ -362,3 +363,37 @@ export function policyTrialV4(){const v1=policyTime('smart')[0][2].replace('cons
  const [h,,n]=policyV4();
  return [['time-helper',h[1],SMART3+v1+"const growthMult=o=>"],
   ['time-score',"if(a.slot==='world')return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;","if(a.slot==='world'){const V1=globalThis.__timeCpu==='v1',tv=V1?timeValueV1(c,o):timeValue(c,o);if(tv!==null)return (V1?(tv===0?-1:tv):(tv<=.5?-1:tv))-spend-(b.world&&!TIMEN[b.world.name]?3:0);return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;}"],n];}
+
+// ---- VERSION 5 (PLAN-V5.md): おいわいのつる timing variants (comparison only; the V4 card X-N-tsuru is kept unchanged) ----
+// R: at the end of each round (end of the second player's turn, after both players acted), R10 or later.
+// S: at the start of each round (start of the first player's turn), R10 or later.
+// Both: only a player whose growth is strictly lower than the opponent's gets +5; the check is made once for both players at
+// the same moment (trigger collection), so at most one player gains per round; the same name works once per turn (= once per
+// round, since there is one such turn per round). A tie gives nothing.
+export function v5Cards(){
+ const c=(id,name,text)=>({id,name,type:'companion',cost:0,rare:false,text,source:'variable-life-20261031 VERSION 5（実験専用の仮カード）',source_sha256:'experimental'});
+ return {'X-N-tsuruR':c('X-N-tsuruR','おいわいのつる（ラウンド終了）','R10以降の各ラウンドの終わり（後攻のターン終了時）に、自分のそだちが相手より少ないなら、自分のそだち+5。この名前の効果は1ラウンドに1回。'),
+  'X-N-tsuruS':c('X-N-tsuruS','おいわいのつる（ラウンド開始）','R10以降の各ラウンドの始め（先攻のターン開始時）に、自分のそだちが相手より少ないなら、自分のそだち+5。この名前の効果は1ラウンドに1回。')};
+}
+export function v5Rules(){
+ const v=(value,op,n)=>JSON.stringify({value,op,n}),all=(...c)=>`{"all":[${c.join(',')}]}`,g=`{"op":"growth","n":5,"to":"self"}`,behind=v('growth','lt',{value:'opponentGrowth'});
+ return '\n// ---- variable-life-20261031 VERSION 5 おいわいのつる variants ----\n'+
+  `add('X-N-tsuruR',{mode:'companion',triggers:[{when:'end',anyActor:true,mandatory:true,onceName:true,condition:${all(v('secondTurn','eq',1),v('round','gte',10),behind)},steps:[${g}]}]});\n`+
+  `add('X-N-tsuruS',{mode:'companion',triggers:[{when:'start',anyActor:true,mandatory:true,onceName:true,condition:${all(v('firstTurn','eq',1),v('round','gte',10),behind)},steps:[${g}]}]});\n`;
+}
+export const EFFECTS_V5=[['v5-values',"roundsLeft:s.life.final-s.round,","roundsLeft:s.life.final-s.round,secondTurn:Number(s.turn==='B'),firstTurn:Number(s.turn==='A'),"]];
+// CPU smart4 (VERSION 5, experiment only) = smart3 plus:
+//  (1) ながいきのひけつ: compare using it now (+5, or +15 if already final>=11 and behind) with holding it. Holding is worth
+//      (5 + 10 × P(final becomes >=11) × P(still behind then)) at the late-round weight, slightly discounted; P is read from own
+//      and public information only (own XI/XII in hand, rounds left; the opponent's hand is unknown → a fixed prior). It is used
+//      now when that is worth more: already final>=11 and behind, the final round, or +5 reaches 100 (starts the 100維持).
+//  (2) おもいでのしゃしん in hand: replacing an own non-time world with a time card also loses that world's +5 for the photo.
+//  (3) all おいわいのつる variants count in the time-card bonus (V4: ≤, R/S: strictly behind).
+const SMART4=SMART3
+ .replace("const onBoard=(o,seat,id)=>(o.players[seat]?.board?.companions??[]).some(c=>c.cardId===id);","const TSURU=['X-N-tsuru','X-N-tsuruR','X-N-tsuruS'],onBoard=(o,seat,id)=>(o.players[seat]?.board?.companions??[]).some(c=>id==='X-N-tsuru'?TSURU.includes(c.cardId):c.cardId===id);")
+ .replace("if(id==='X-N-nagaiki'){const big=F>=11&&behind;if(!big&&behind&&o.round<10&&ownHand(o).some(c=>c.name==='XI'||c.name==='XII'))return -1;return G(big?15:5)-3-spend;}",
+  "if(id==='X-N-nagaiki'){const big=F>=11&&behind;if(big||o.round>=F)return G(big?15:5)-3-spend;const ext=ownHand(o).some(c=>c.name==='XI'||c.name==='XII');const pExt=F>=11?1:ext&&o.round<=10?.75:o.round<=6?.35:o.round<=8?.25:.12;const d=op.growth-me.growth,pBehind=d>0?.85:d>-10?.45:.2;if(me.growth<100&&me.growth+5>=100&&!o.life?.holding?.[o.seat])return G(5)+10-3-spend;const later=(5+10*pExt*pBehind)*2.2*.95;if(later>G(5))return -1;return G(5)-3-spend;}");
+if(SMART4===SMART3||!SMART4.includes('pExt')||!SMART4.includes('TSURU'))throw Error('smart4 patch did not apply');
+export function policyV5(){const [h,s,n]=policyV4();
+ return [['time-helper',h[1],SMART4+"const growthMult=o=>"],
+  ['time-score',s[1],s[2].replace("-spend-(b.world&&!TIMEN[b.world.name]?3:0);return","-spend-(b.world&&!TIMEN[b.world.name]?3+(ownHand(o).some(x=>x.cardId==='X-N-photo')?5:0):0);return")],n];}

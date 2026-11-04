@@ -27,7 +27,7 @@ const treeBefore=tree();
 const before=Object.fromEntries(files.map(f=>[f,sha(source(f))]));
 function patch(text,from,to,label){const n=text.split(from).length-1;if(n!==1)throw Error(`patch ${label}: expected 1 match, found ${n}`);return text.replace(from,()=>to);}
 
-import {VARIANTS,cards,rulesAppendix,HOOKS,ENGINE,effectsPatches,OBSERVATION,policyPatches,worldCards,worldRules,ENGINE_WORLD,EFFECTS_WORLD,policyWorld,timeCards,timeRules,ENGINE_TIME,EFFECTS_TIME,policyTime,EXTRA_BLANKS,extraBlankRules,newCards,newRules,EFFECTS_V4,EFFECTS_TIME_U12,ENGINE_V4,policyV4} from './life-patches.mjs';
+import {VARIANTS,cards,rulesAppendix,HOOKS,ENGINE,effectsPatches,OBSERVATION,policyPatches,worldCards,worldRules,ENGINE_WORLD,EFFECTS_WORLD,policyWorld,timeCards,timeRules,ENGINE_TIME,EFFECTS_TIME,policyTime,EXTRA_BLANKS,extraBlankRules,newCards,newRules,EFFECTS_V4,EFFECTS_TIME_U12,ENGINE_V4,policyV4,v5Cards,v5Rules,EFFECTS_V5,policyV5} from './life-patches.mjs';
 
 
 for(const v of Object.keys(VARIANTS))rmSync(join(OUT,v),{recursive:true,force:true});
@@ -43,9 +43,10 @@ for(const [v,cfg] of Object.entries(VARIANTS)){
  out['rules.mjs']+=rulesAppendix(cfg);
  if(cfg.blanks){out['full-catalog.mjs']+=`\nObject.assign(CATALOG,${JSON.stringify(EXTRA_BLANKS,null,1)});\n`;out['rules.mjs']+=extraBlankRules;}
  if(cfg.time){ // time cards IX–XII (PLAN-TIME.md): world placement condition + counter + timeSet + CPU helper
-  const T=cfg.time,V4=!!cfg.v4; // VERSION 4: U12 move, new cards' effects, ambush counter, CPU smart3 (older builds unchanged)
-  for(const [f,list] of [['engine.mjs',[...ENGINE_WORLD,...ENGINE_TIME,...(V4?ENGINE_V4:[])]],['effects.mjs',V4?[EFFECTS_TIME[0],...EFFECTS_TIME_U12,...EFFECTS_V4]:EFFECTS_TIME],['cpu-policy.mjs',V4?policyV4():policyTime(T.cpu)]])for(const [l,a,b] of list)out[f]=patch(out[f],a,b,l);
+  const T=cfg.time,V4=!!cfg.v4,V5=!!cfg.v5; // VERSION 4: U12 move, new cards' effects, ambush counter, CPU smart3 (older builds unchanged)
+  for(const [f,list] of [['engine.mjs',[...ENGINE_WORLD,...ENGINE_TIME,...(V4?ENGINE_V4:[])]],['effects.mjs',V4?[EFFECTS_TIME[0],...EFFECTS_TIME_U12,...EFFECTS_V4,...(V5?EFFECTS_V5:[])]:EFFECTS_TIME],['cpu-policy.mjs',V5?policyV5():V4?policyV4():policyTime(T.cpu)]])for(const [l,a,b] of list)out[f]=patch(out[f],a,b,l);
   if(V4){out['full-catalog.mjs']+=`\n// ---- variable-life-20261031 VERSION 4 new cards ----\nObject.assign(CATALOG,${JSON.stringify(newCards(),null,1)});\n`;out['rules.mjs']+=newRules();}
+  if(V5){out['full-catalog.mjs']+=`\n// ---- variable-life-20261031 VERSION 5 cards ----\nObject.assign(CATALOG,${JSON.stringify(v5Cards(),null,1)});\n`;out['rules.mjs']+=v5Rules();}
   out['full-catalog.mjs']+=`\n// ---- variable-life-20261031 time cards ----\nObject.assign(CATALOG,${JSON.stringify(timeCards(T.cost,T.counter),null,1)});\n`;
   out['rules.mjs']+=timeRules(T.counter);}
  if(cfg.world){ // world redesign: only these variants get the world cards and their patches (older builds stay byte-identical)

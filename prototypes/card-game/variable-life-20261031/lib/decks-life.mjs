@@ -85,3 +85,15 @@ Object.assign(CONFIGS,{
  C_chotto:{label:'ちょっとまった×2＋IX（IX×2）',fill:[...T4,NN('chotto'),NN('chotto'),'X-T-IX']},
 });
 Object.assign(CONFIGS,{MULTI:{label:'有望カード（はやじまい・ながいき・しゃしん・おみやげ・ちょっとまった 各1）＋IX・XII',fill:[...T4,NN('hayajimai'),NN('nagaiki'),NN('photo'),NN('omiyage'),NN('chotto'),'X-T-IX','X-T-XII']}});
+// ---- VERSION 5 (PLAN-V5.md): final candidates. Same slot rule; every configuration starts with the B4 slots. ----
+Object.assign(CONFIGS,{
+ P3:{label:'有望3枚（はやじまい・ながいき・しゃしん 各1）',fill:[...T4,NN('hayajimai'),NN('nagaiki'),NN('photo')]},
+ TV4:{label:'おいわいのつる（V4：ターン終了時）×2',fill:[...T4,NN('tsuru'),NN('tsuru')]},
+ TR:{label:'おいわいのつる（ラウンド終了）×2',fill:[...T4,NN('tsuruR'),NN('tsuruR')]},
+ TS:{label:'おいわいのつる（ラウンド開始）×2',fill:[...T4,NN('tsuruS'),NN('tsuruS')]},
+ P4R:{label:'有望3枚＋おいわいのつる（ラウンド終了）各1',fill:[...T4,NN('hayajimai'),NN('nagaiki'),NN('photo'),NN('tsuruR')]},
+ PAIR_HN:{label:'はやじまい＋ながいき 各1',fill:[...T4,NN('hayajimai'),NN('nagaiki')]},
+ PAIR_HP:{label:'はやじまい＋しゃしん 各1',fill:[...T4,NN('hayajimai'),NN('photo')]},
+ PAIR_NP:{label:'ながいき＋しゃしん 各1',fill:[...T4,NN('nagaiki'),NN('photo')]},
+ FREE:{label:'自由構成（はやじまい×2・ながいき×2・しゃしん・つる（ラウンド終了）・IX・XII）',fill:[...T4,NN('hayajimai'),NN('hayajimai'),NN('nagaiki'),NN('nagaiki'),NN('photo'),NN('tsuruR'),'X-T-IX','X-T-XII']},
+});
