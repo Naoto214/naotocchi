@@ -36,7 +36,16 @@ const output=path.resolve('test-results/home-safe-area');fs.mkdirSync(output,{re
   }
   const [before,after]=snapshots;
   const lift=width>height?Math.max(0,before.buttons.at(-1).bottom-(height-(insets.bottom||0))):0;
-  assert.deepEqual(after.fixed,before.fixed,'background, world, comment, notice and header geometry unchanged');
+  // WebKit may round identical transformed rectangles by a fraction of its
+  // 1/64px layout unit. Styles and all larger geometric changes stay strict.
+  for(let i=0;i<before.fixed.length;i++){
+   const actual={...after.fixed[i]},expected={...before.fixed[i]};
+   for(const key of ['x','y','width','height','bottom','right']){
+    assert.ok(Number.isFinite(actual[key])&&Number.isFinite(expected[key])&&Math.abs(actual[key]-expected[key])<=1/64,`fixed region ${i}: ${key} changed`);
+    delete actual[key];delete expected[key];
+   }
+   assert.deepEqual(actual,expected,'fixed region styles unchanged');
+  }
   assert.deepEqual(after.presentation,before.presentation,'resident projection and safe movement bounds unchanged');
   assert.deepEqual(after.background,before.background,'background coverage unchanged');
   const shifted=r=>({...r,y:r.y-lift,bottom:r.bottom-lift});

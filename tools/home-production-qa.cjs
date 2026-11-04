@@ -12,7 +12,7 @@ script+=`\nwindow.HomeReleaseQA={
  Object.assign(state.lifetime,{timeMode:time,weatherMode:'sunny',seasonMode:'summer'});
  homeCastLayoutKey='';render();homeDiorama.sync();return this.detail();
  },
- detail(){const s=homeDiorama.inspectScene();return {blocked:homeDioramaBlocked(),paused:el.castStage.dataset.dioramaPaused,world:homeDiorama.inspectWorld(),actors:homeDiorama.model.snapshot().map(a=>({...a,safe:s.navigation?.valid(a),ground:s.navigation?.unproject(a)})),slots:{castStage:el.castStage.getBoundingClientRect().toJSON(),notice:document.getElementById('homeEventSlot').getBoundingClientRect().height,speech:document.getElementById('homeCommentDock').getBoundingClientRect().height},metrics:homeDiorama.model.metrics()};},
+ detail(){const s=homeDiorama.inspectScene();return {blocked:homeDioramaBlocked(),paused:el.castStage.dataset.dioramaPaused,world:homeDiorama.inspectWorld(),actors:homeDiorama.model.snapshot().map(a=>({...a,safe:s.navigation?.valid(a),ground:s.navigation?.unproject(a)})),slots:{castStage:el.castStage.getBoundingClientRect().toJSON(),notice:document.getElementById('homeEventSlot').getBoundingClientRect().height,speech:document.getElementById(['10','11','12'].includes(document.body.dataset.homeViewportVersion)?'homeCommentDock':'speechSlot').getBoundingClientRect().height},metrics:homeDiorama.model.metrics()};},
  inspect(){const scene=homeDiorama.inspectScene();return {scene,bounds:homeDiorama.model.snapshot().map(a=>homeDiorama.model.bounds(a))};},
  move(){return (${require('./home-v8-qa-movement.cjs').toString()})(homeDiorama.model,homeDiorama.inspectScene().navigation);},
  save(){saveState();return JSON.parse(JSON.stringify(state));}, state:()=>JSON.parse(JSON.stringify(state)),
@@ -35,3 +35,6 @@ fs.writeFileSync(path.join(out,'release-qa-script.js'),script);
 fs.writeFileSync(path.join(out,'release-qa-diorama.js'),fs.readFileSync('home-production-diorama.js','utf8').replace('return {model,update,sync,interrupt,','return {inspectScene:()=>scene,inspectWorld:()=>world?.stats(),model,update,sync,interrupt,'));
 fs.writeFileSync(path.join(out,'release-qa.html'),fs.readFileSync('index.html','utf8').replaceAll('naotocchi-save-v1','naotocchi-home-release-qa-v1').replace(/src="script.js[^\"]*"/,'src="release-qa-script.js"').replace(/src="home-production-diorama.js[^\"]*"/,'src="release-qa-diorama.js"'));
 fs.writeFileSync(path.join(out,'release-qa-seed.json'),JSON.stringify(seed));
+
+// Old guide and scroll suites retain their original layout; release-qa stays current.
+fs.writeFileSync(path.join(out,'historical-release-qa.html'),fs.readFileSync(path.join(out,'release-qa.html'),'utf8').replace(/<body\b[^>]*>/,tag=>tag.replace(/\sdata-home-(?:viewport-version|display-version)="[^"]*"/g,'')));
