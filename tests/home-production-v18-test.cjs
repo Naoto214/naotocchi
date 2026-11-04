@@ -62,3 +62,15 @@ test('compact CSS follows the same visual-viewport decision as geometry',()=>{
  assert.match(source,/if\(v18&&p.landscape&&p.compact\)doc.body.dataset.homeCompactV18='true'/);
  assert.match(source,/function restore\(\)\{delete doc.body.dataset.homeCompactV18/);
 });
+test('landscape safe area moves only controls and meters by the missing clearance',()=>{
+ for(const [height,safeBottom,delta] of [[390,21,13],[390,0,0],[390,8,0],[390,9,1],[176,21,17]]){
+  const args={width:844,height,left:59,headerBottom:46,controlsHeight:72,offsetTop:7};
+  const before=viewport.layoutV18(args),after=viewport.layoutV18({...args,safeBottom});
+  assert.equal(after.controlsTop,before.controlsTop-delta);
+  assert.equal(after.metersTop,before.metersTop-delta);
+  assert.ok(after.controlsTop+after.controlsHeight<=7+height-safeBottom);
+  for(const key of Object.keys(before))if(!['controlsTop','metersTop'].includes(key))assert.deepEqual(after[key],before[key],key);
+ }
+ const portrait={width:390,height:844,left:16,headerBottom:46,controlsHeight:103};
+ assert.deepEqual(viewport.layoutV18({...portrait,safeBottom:34}),viewport.layoutV18(portrait));
+});

@@ -28,8 +28,9 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     try {
       await page.goto(baseURL,{waitUntil:'networkidle'});
       await page.clock.runFor(3001);
-      assert.equal(await page.locator('#storyFlash').isVisible(),true,label+': transition notice is hidden');
       // The shared Home lane serializes growth, story and identity notices.
+      // A birthday/message may own the lane at the transition tick; assert the
+      // transition's visibility when its bounded queue slot actually arrives.
       // Advance the real paused clock, keeping every content/identity/save
       // assertion below. A missing notice still fails within three slots.
       const noticeHistory=[];

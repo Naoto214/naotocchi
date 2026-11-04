@@ -1,0 +1,1110 @@
+[
+  {
+    "label": "selection",
+    "width": 320,
+    "phase": "turn",
+    "active": 0,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "allNodesInside": true
+  },
+  {
+    "label": "overview",
+    "width": 320,
+    "phase": "turn",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "⚄サイコロをふる\n\n1〜6マスで進む",
+    "allNodesInside": true
+  },
+  {
+    "label": "followers",
+    "width": 320,
+    "phase": "turn",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 2,
+    "missingImages": [],
+    "actions": "⚄サイコロをふる\n\n1〜6マスで進む",
+    "allNodesInside": false
+  },
+  {
+    "label": "event",
+    "width": 320,
+    "phase": "event",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "LIFE EVENT\n木の実の行方\nおっちょこちょいリス\n\nおっちょこちょいリスが、落とした木の実を探している。足元で、葉っぱが少しふくらんでいた。\n\n「今日は、どんな一日になるかな。」\n\n葉っぱをそっとめくる\n一緒に広く探す",
+    "allNodesInside": true
+  },
+  {
+    "label": "relationship",
+    "width": 320,
+    "phase": "relationship",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "旅のつながり\nおっちょこちょいリスとひと休み\n\nおっちょこちょいリスと、道の途中でひと休み。木の実を運んで落とす。まだ知らないことを、少しずつ話してみよう。\n\n交流中 · 気持ちは急がなくて大丈夫\n\n旅の話を聞かせ合う\n旅の仲間になってくれる？\nまた会えたら、話そうね",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini0",
+    "width": 320,
+    "phase": "mini",
+    "active": 0,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "EVERYONE PLAYS\nひかりをキャッチ\n\nなおころ独自・反射ミニ\n\n1P いぬの挑戦\n\n緑になったらタップ。早押しは0点です。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini1",
+    "width": 320,
+    "phase": "mini",
+    "active": 0,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "EVERYONE PLAYS\nしんけいすいじゃく\n\n本編ルールの短縮版・4ペア\n\n1P いぬの挑戦\n\n2枚ずつめくって同じ絵を探そう。4組そろえたらクリア！\n\n30秒の短い挑戦。休憩中は時間が止まります。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini2",
+    "width": 320,
+    "phase": "mini",
+    "active": 0,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "EVERYONE PLAYS\nまどあかりパズル\n\nライツアウトの短縮版・3×3\n\n1P いぬの挑戦\n\n窓を押すと上下左右も反転。すべての明かりを消そう！\n\n30秒の短い挑戦。休憩中は時間が止まります。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "rewind",
+    "width": 320,
+    "phase": "turn",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "1P ときもどし時計を使いました。そだち +0　お金 +0\n\n⚄サイコロをふる\n\n1〜6マスで進む · 若返りの発見 あと2回",
+    "allNodesInside": true
+  },
+  {
+    "label": "evolution",
+    "width": 320,
+    "phase": "turn",
+    "active": 1,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "⚄サイコロをふる\n\n1〜6マスで進む",
+    "allNodesInside": true
+  },
+  {
+    "label": "album",
+    "width": 320,
+    "phase": "done",
+    "active": 3,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "allNodesInside": true
+  },
+  {
+    "label": "selection",
+    "width": 375,
+    "phase": "turn",
+    "active": 0,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "allNodesInside": true
+  },
+  {
+    "label": "overview",
+    "width": 375,
+    "phase": "turn",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "⚄サイコロをふる\n\n1〜6マスで進む",
+    "allNodesInside": true
+  },
+  {
+    "label": "followers",
+    "width": 375,
+    "phase": "turn",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 2,
+    "missingImages": [],
+    "actions": "⚄サイコロをふる\n\n1〜6マスで進む",
+    "allNodesInside": false
+  },
+  {
+    "label": "event",
+    "width": 375,
+    "phase": "event",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "LIFE EVENT\n木の実の行方\nおっちょこちょいリス\n\nおっちょこちょいリスが、落とした木の実を探している。足元で、葉っぱが少しふくらんでいた。\n\n「今日は、どんな一日になるかな。」\n\n葉っぱをそっとめくる\n一緒に広く探す",
+    "allNodesInside": true
+  },
+  {
+    "label": "relationship",
+    "width": 375,
+    "phase": "relationship",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "旅のつながり\nおっちょこちょいリスとひと休み\n\nおっちょこちょいリスと、道の途中でひと休み。木の実を運んで落とす。まだ知らないことを、少しずつ話してみよう。\n\n交流中 · 気持ちは急がなくて大丈夫\n\n旅の話を聞かせ合う\n旅の仲間になってくれる？\nまた会えたら、話そうね",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini0",
+    "width": 375,
+    "phase": "mini",
+    "active": 0,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "EVERYONE PLAYS\nひかりをキャッチ\n\nなおころ独自・反射ミニ\n\n1P いぬの挑戦\n\n緑になったらタップ。早押しは0点です。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini1",
+    "width": 375,
+    "phase": "mini",
+    "active": 0,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "EVERYONE PLAYS\nしんけいすいじゃく\n\n本編ルールの短縮版・4ペア\n\n1P いぬの挑戦\n\n2枚ずつめくって同じ絵を探そう。4組そろえたらクリア！\n\n30秒の短い挑戦。休憩中は時間が止まります。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini2",
+    "width": 375,
+    "phase": "mini",
+    "active": 0,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "EVERYONE PLAYS\nまどあかりパズル\n\nライツアウトの短縮版・3×3\n\n1P いぬの挑戦\n\n窓を押すと上下左右も反転。すべての明かりを消そう！\n\n30秒の短い挑戦。休憩中は時間が止まります。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "rewind",
+    "width": 375,
+    "phase": "turn",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "1P ときもどし時計を使いました。そだち +0　お金 +0\n\n⚄サイコロをふる\n\n1〜6マスで進む · 若返りの発見 あと2回",
+    "allNodesInside": true
+  },
+  {
+    "label": "evolution",
+    "width": 375,
+    "phase": "turn",
+    "active": 1,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "⚄サイコロをふる\n\n1〜6マスで進む",
+    "allNodesInside": true
+  },
+  {
+    "label": "album",
+    "width": 375,
+    "phase": "done",
+    "active": 3,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "allNodesInside": true
+  },
+  {
+    "label": "selection",
+    "width": 390,
+    "phase": "turn",
+    "active": 0,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "allNodesInside": true
+  },
+  {
+    "label": "overview",
+    "width": 390,
+    "phase": "turn",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "⚄サイコロをふる\n\n1〜6マスで進む",
+    "allNodesInside": true
+  },
+  {
+    "label": "followers",
+    "width": 390,
+    "phase": "turn",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 2,
+    "missingImages": [],
+    "actions": "⚄サイコロをふる\n\n1〜6マスで進む",
+    "allNodesInside": false
+  },
+  {
+    "label": "event",
+    "width": 390,
+    "phase": "event",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "LIFE EVENT\n木の実の行方\nおっちょこちょいリス\n\nおっちょこちょいリスが、落とした木の実を探している。足元で、葉っぱが少しふくらんでいた。\n\n「今日は、どんな一日になるかな。」\n\n葉っぱをそっとめくる\n一緒に広く探す",
+    "allNodesInside": true
+  },
+  {
+    "label": "relationship",
+    "width": 390,
+    "phase": "relationship",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "旅のつながり\nおっちょこちょいリスとひと休み\n\nおっちょこちょいリスと、道の途中でひと休み。木の実を運んで落とす。まだ知らないことを、少しずつ話してみよう。\n\n交流中 · 気持ちは急がなくて大丈夫\n\n旅の話を聞かせ合う\n旅の仲間になってくれる？\nまた会えたら、話そうね",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini0",
+    "width": 390,
+    "phase": "mini",
+    "active": 0,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "EVERYONE PLAYS\nひかりをキャッチ\n\nなおころ独自・反射ミニ\n\n1P いぬの挑戦\n\n緑になったらタップ。早押しは0点です。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini1",
+    "width": 390,
+    "phase": "mini",
+    "active": 0,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "EVERYONE PLAYS\nしんけいすいじゃく\n\n本編ルールの短縮版・4ペア\n\n1P いぬの挑戦\n\n2枚ずつめくって同じ絵を探そう。4組そろえたらクリア！\n\n30秒の短い挑戦。休憩中は時間が止まります。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini2",
+    "width": 390,
+    "phase": "mini",
+    "active": 0,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "EVERYONE PLAYS\nまどあかりパズル\n\nライツアウトの短縮版・3×3\n\n1P いぬの挑戦\n\n窓を押すと上下左右も反転。すべての明かりを消そう！\n\n30秒の短い挑戦。休憩中は時間が止まります。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "rewind",
+    "width": 390,
+    "phase": "turn",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "1P ときもどし時計を使いました。そだち +0　お金 +0\n\n⚄サイコロをふる\n\n1〜6マスで進む · 若返りの発見 あと2回",
+    "allNodesInside": true
+  },
+  {
+    "label": "evolution",
+    "width": 390,
+    "phase": "turn",
+    "active": 1,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "⚄サイコロをふる\n\n1〜6マスで進む",
+    "allNodesInside": true
+  },
+  {
+    "label": "album",
+    "width": 390,
+    "phase": "done",
+    "active": 3,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "allNodesInside": true
+  },
+  {
+    "label": "selection",
+    "width": 430,
+    "phase": "turn",
+    "active": 0,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "allNodesInside": true
+  },
+  {
+    "label": "overview",
+    "width": 430,
+    "phase": "turn",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "⚄サイコロをふる\n\n1〜6マスで進む",
+    "allNodesInside": true
+  },
+  {
+    "label": "followers",
+    "width": 430,
+    "phase": "turn",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 2,
+    "missingImages": [],
+    "actions": "⚄サイコロをふる\n\n1〜6マスで進む",
+    "allNodesInside": false
+  },
+  {
+    "label": "event",
+    "width": 430,
+    "phase": "event",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "LIFE EVENT\n木の実の行方\nおっちょこちょいリス\n\nおっちょこちょいリスが、落とした木の実を探している。足元で、葉っぱが少しふくらんでいた。\n\n「今日は、どんな一日になるかな。」\n\n葉っぱをそっとめくる\n一緒に広く探す",
+    "allNodesInside": true
+  },
+  {
+    "label": "relationship",
+    "width": 430,
+    "phase": "relationship",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "旅のつながり\nおっちょこちょいリスとひと休み\n\nおっちょこちょいリスと、道の途中でひと休み。木の実を運んで落とす。まだ知らないことを、少しずつ話してみよう。\n\n交流中 · 気持ちは急がなくて大丈夫\n\n旅の話を聞かせ合う\n旅の仲間になってくれる？\nまた会えたら、話そうね",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini0",
+    "width": 430,
+    "phase": "mini",
+    "active": 0,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "EVERYONE PLAYS\nひかりをキャッチ\n\nなおころ独自・反射ミニ\n\n1P いぬの挑戦\n\n緑になったらタップ。早押しは0点です。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini1",
+    "width": 430,
+    "phase": "mini",
+    "active": 0,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "EVERYONE PLAYS\nしんけいすいじゃく\n\n本編ルールの短縮版・4ペア\n\n1P いぬの挑戦\n\n2枚ずつめくって同じ絵を探そう。4組そろえたらクリア！\n\n30秒の短い挑戦。休憩中は時間が止まります。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini2",
+    "width": 430,
+    "phase": "mini",
+    "active": 0,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "EVERYONE PLAYS\nまどあかりパズル\n\nライツアウトの短縮版・3×3\n\n1P いぬの挑戦\n\n窓を押すと上下左右も反転。すべての明かりを消そう！\n\n30秒の短い挑戦。休憩中は時間が止まります。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "rewind",
+    "width": 430,
+    "phase": "turn",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "1P ときもどし時計を使いました。そだち +0　お金 +0\n\n⚄サイコロをふる\n\n1〜6マスで進む · 若返りの発見 あと2回",
+    "allNodesInside": true
+  },
+  {
+    "label": "evolution",
+    "width": 430,
+    "phase": "turn",
+    "active": 1,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "⚄サイコロをふる\n\n1〜6マスで進む",
+    "allNodesInside": true
+  },
+  {
+    "label": "album",
+    "width": 430,
+    "phase": "done",
+    "active": 3,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "allNodesInside": true
+  },
+  {
+    "label": "dice waiting",
+    "width": 320,
+    "equal": true
+  },
+  {
+    "label": "dice settling",
+    "width": 320,
+    "equal": true
+  },
+  {
+    "label": "dice-tap",
+    "width": 320,
+    "phase": "moving",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "サイコロ 1＋3 · あと 4マス",
+    "allNodesInside": true
+  },
+  {
+    "label": "relationship",
+    "width": 320,
+    "equal": true
+  },
+  {
+    "label": "friend",
+    "width": 320,
+    "equal": true
+  },
+  {
+    "label": "friend joined",
+    "width": 320,
+    "phase": "result",
+    "active": 0,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "allNodesInside": true
+  },
+  {
+    "label": "CPU skipped",
+    "width": 320,
+    "equal": true
+  },
+  {
+    "label": "CPU summary",
+    "width": 320,
+    "phase": "result",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [
+      "http://terminal.local:4173/assets/characters/dog/01.png",
+      "http://terminal.local:4173/assets/characters/expressions/dog/01-happy.png"
+    ],
+    "actions": "おこづかい\n\n道ばたのお手伝い。「ありがとう」が、おこづかいになった。\n\nスキップした行動の記録\n\nそだち +2　お金 +5\n\nCPUの一日を記録しています…",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini0",
+    "width": 320,
+    "equal": true
+  },
+  {
+    "label": "mini0 played",
+    "width": 320,
+    "phase": "mini",
+    "active": 1,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [
+      "http://terminal.local:4173/assets/characters/cat/01.png"
+    ],
+    "actions": "EVERYONE PLAYS\nひかりをキャッチ\n\nなおころ独自・反射ミニ\n\n2P ねこの挑戦\n\n緑になったらタップ。早押しは0点です。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini1",
+    "width": 320,
+    "equal": true
+  },
+  {
+    "label": "mini1 played",
+    "width": 320,
+    "phase": "mini",
+    "active": 1,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [
+      "http://terminal.local:4173/assets/characters/cat/01.png"
+    ],
+    "actions": "EVERYONE PLAYS\nしんけいすいじゃく\n\n本編ルールの短縮版・4ペア\n\n2P ねこの挑戦\n\n2枚ずつめくって同じ絵を探そう。4組そろえたらクリア！\n\n30秒の短い挑戦。休憩中は時間が止まります。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini2",
+    "width": 320,
+    "equal": true
+  },
+  {
+    "label": "mini2 played",
+    "width": 320,
+    "phase": "mini",
+    "active": 1,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [
+      "http://terminal.local:4173/assets/characters/cat/01.png"
+    ],
+    "actions": "EVERYONE PLAYS\nまどあかりパズル\n\nライツアウトの短縮版・3×3\n\n2P ねこの挑戦\n\n窓を押すと上下左右も反転。すべての明かりを消そう！\n\n30秒の短い挑戦。休憩中は時間が止まります。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "rewind",
+    "width": 320,
+    "equal": true
+  },
+  {
+    "label": "growth",
+    "width": 320,
+    "equal": true
+  },
+  {
+    "label": "dice waiting",
+    "width": 375,
+    "equal": true
+  },
+  {
+    "label": "dice settling",
+    "width": 375,
+    "equal": true
+  },
+  {
+    "label": "dice-tap",
+    "width": 375,
+    "phase": "moving",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "サイコロ 1＋3 · あと 4マス",
+    "allNodesInside": true
+  },
+  {
+    "label": "relationship",
+    "width": 375,
+    "equal": true
+  },
+  {
+    "label": "friend",
+    "width": 375,
+    "equal": true
+  },
+  {
+    "label": "friend joined",
+    "width": 375,
+    "phase": "result",
+    "active": 0,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "allNodesInside": true
+  },
+  {
+    "label": "CPU skipped",
+    "width": 375,
+    "equal": true
+  },
+  {
+    "label": "CPU summary",
+    "width": 375,
+    "phase": "result",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [
+      "http://terminal.local:4173/assets/characters/dog/01.png",
+      "http://terminal.local:4173/assets/characters/expressions/dog/01-happy.png"
+    ],
+    "actions": "おこづかい\n\n道ばたのお手伝い。「ありがとう」が、おこづかいになった。\n\nスキップした行動の記録\n\nそだち +2　お金 +5\n\nCPUの一日を記録しています…",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini0",
+    "width": 375,
+    "equal": true
+  },
+  {
+    "label": "mini0 played",
+    "width": 375,
+    "phase": "mini",
+    "active": 1,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [
+      "http://terminal.local:4173/assets/characters/cat/01.png"
+    ],
+    "actions": "EVERYONE PLAYS\nひかりをキャッチ\n\nなおころ独自・反射ミニ\n\n2P ねこの挑戦\n\n緑になったらタップ。早押しは0点です。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini1",
+    "width": 375,
+    "equal": true
+  },
+  {
+    "label": "mini1 played",
+    "width": 375,
+    "phase": "mini",
+    "active": 1,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [
+      "http://terminal.local:4173/assets/characters/cat/01.png"
+    ],
+    "actions": "EVERYONE PLAYS\nしんけいすいじゃく\n\n本編ルールの短縮版・4ペア\n\n2P ねこの挑戦\n\n2枚ずつめくって同じ絵を探そう。4組そろえたらクリア！\n\n30秒の短い挑戦。休憩中は時間が止まります。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini2",
+    "width": 375,
+    "equal": true
+  },
+  {
+    "label": "mini2 played",
+    "width": 375,
+    "phase": "mini",
+    "active": 1,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [
+      "http://terminal.local:4173/assets/characters/cat/01.png"
+    ],
+    "actions": "EVERYONE PLAYS\nまどあかりパズル\n\nライツアウトの短縮版・3×3\n\n2P ねこの挑戦\n\n窓を押すと上下左右も反転。すべての明かりを消そう！\n\n30秒の短い挑戦。休憩中は時間が止まります。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "rewind",
+    "width": 375,
+    "equal": true
+  },
+  {
+    "label": "growth",
+    "width": 375,
+    "equal": true
+  },
+  {
+    "label": "dice waiting",
+    "width": 390,
+    "equal": true
+  },
+  {
+    "label": "dice settling",
+    "width": 390,
+    "equal": true
+  },
+  {
+    "label": "dice-tap",
+    "width": 390,
+    "phase": "moving",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "サイコロ 1＋3 · あと 4マス",
+    "allNodesInside": true
+  },
+  {
+    "label": "relationship",
+    "width": 390,
+    "equal": true
+  },
+  {
+    "label": "friend",
+    "width": 390,
+    "equal": true
+  },
+  {
+    "label": "friend joined",
+    "width": 390,
+    "phase": "result",
+    "active": 0,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "allNodesInside": true
+  },
+  {
+    "label": "CPU skipped",
+    "width": 390,
+    "equal": true
+  },
+  {
+    "label": "CPU summary",
+    "width": 390,
+    "phase": "result",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [
+      "http://terminal.local:4173/assets/characters/dog/01.png",
+      "http://terminal.local:4173/assets/characters/expressions/dog/01-happy.png"
+    ],
+    "actions": "おこづかい\n\n道ばたのお手伝い。「ありがとう」が、おこづかいになった。\n\nスキップした行動の記録\n\nそだち +2　お金 +5\n\nCPUの一日を記録しています…",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini0",
+    "width": 390,
+    "equal": true
+  },
+  {
+    "label": "mini0 played",
+    "width": 390,
+    "phase": "mini",
+    "active": 1,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [
+      "http://terminal.local:4173/assets/characters/cat/01.png"
+    ],
+    "actions": "EVERYONE PLAYS\nひかりをキャッチ\n\nなおころ独自・反射ミニ\n\n2P ねこの挑戦\n\n緑になったらタップ。早押しは0点です。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini1",
+    "width": 390,
+    "equal": true
+  },
+  {
+    "label": "mini1 played",
+    "width": 390,
+    "phase": "mini",
+    "active": 1,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [
+      "http://terminal.local:4173/assets/characters/cat/01.png"
+    ],
+    "actions": "EVERYONE PLAYS\nしんけいすいじゃく\n\n本編ルールの短縮版・4ペア\n\n2P ねこの挑戦\n\n2枚ずつめくって同じ絵を探そう。4組そろえたらクリア！\n\n30秒の短い挑戦。休憩中は時間が止まります。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini2",
+    "width": 390,
+    "equal": true
+  },
+  {
+    "label": "mini2 played",
+    "width": 390,
+    "phase": "mini",
+    "active": 1,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [
+      "http://terminal.local:4173/assets/characters/cat/01.png"
+    ],
+    "actions": "EVERYONE PLAYS\nまどあかりパズル\n\nライツアウトの短縮版・3×3\n\n2P ねこの挑戦\n\n窓を押すと上下左右も反転。すべての明かりを消そう！\n\n30秒の短い挑戦。休憩中は時間が止まります。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "rewind",
+    "width": 390,
+    "equal": true
+  },
+  {
+    "label": "growth",
+    "width": 390,
+    "equal": true
+  },
+  {
+    "label": "dice waiting",
+    "width": 430,
+    "equal": true
+  },
+  {
+    "label": "dice settling",
+    "width": 430,
+    "equal": true
+  },
+  {
+    "label": "dice-tap",
+    "width": 430,
+    "phase": "moving",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "actions": "サイコロ 1＋3 · あと 4マス",
+    "allNodesInside": true
+  },
+  {
+    "label": "relationship",
+    "width": 430,
+    "equal": true
+  },
+  {
+    "label": "friend",
+    "width": 430,
+    "equal": true
+  },
+  {
+    "label": "friend joined",
+    "width": 430,
+    "phase": "result",
+    "active": 0,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [],
+    "allNodesInside": true
+  },
+  {
+    "label": "CPU skipped",
+    "width": 430,
+    "equal": true
+  },
+  {
+    "label": "CPU summary",
+    "width": 430,
+    "phase": "result",
+    "active": 0,
+    "overflow": false,
+    "nodes": 48,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [
+      "http://terminal.local:4173/assets/characters/dog/01.png",
+      "http://terminal.local:4173/assets/characters/expressions/dog/01-happy.png"
+    ],
+    "actions": "おこづかい\n\n道ばたのお手伝い。「ありがとう」が、おこづかいになった。\n\nスキップした行動の記録\n\nそだち +2　お金 +5\n\nCPUの一日を記録しています…",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini0",
+    "width": 430,
+    "equal": true
+  },
+  {
+    "label": "mini0 played",
+    "width": 430,
+    "phase": "mini",
+    "active": 1,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [
+      "http://terminal.local:4173/assets/characters/cat/01.png"
+    ],
+    "actions": "EVERYONE PLAYS\nひかりをキャッチ\n\nなおころ独自・反射ミニ\n\n2P ねこの挑戦\n\n緑になったらタップ。早押しは0点です。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini1",
+    "width": 430,
+    "equal": true
+  },
+  {
+    "label": "mini1 played",
+    "width": 430,
+    "phase": "mini",
+    "active": 1,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [
+      "http://terminal.local:4173/assets/characters/cat/01.png"
+    ],
+    "actions": "EVERYONE PLAYS\nしんけいすいじゃく\n\n本編ルールの短縮版・4ペア\n\n2P ねこの挑戦\n\n2枚ずつめくって同じ絵を探そう。4組そろえたらクリア！\n\n30秒の短い挑戦。休憩中は時間が止まります。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "mini2",
+    "width": 430,
+    "equal": true
+  },
+  {
+    "label": "mini2 played",
+    "width": 430,
+    "phase": "mini",
+    "active": 1,
+    "overflow": false,
+    "nodes": 0,
+    "numbers": 0,
+    "followers": 0,
+    "missingImages": [
+      "http://terminal.local:4173/assets/characters/cat/01.png"
+    ],
+    "actions": "EVERYONE PLAYS\nまどあかりパズル\n\nライツアウトの短縮版・3×3\n\n2P ねこの挑戦\n\n窓を押すと上下左右も反転。すべての明かりを消そう！\n\n30秒の短い挑戦。休憩中は時間が止まります。\n\n準備OK、はじめる今回はおやすみ（0点）",
+    "allNodesInside": true
+  },
+  {
+    "label": "rewind",
+    "width": 430,
+    "equal": true
+  },
+  {
+    "label": "growth",
+    "width": 430,
+    "equal": true
+  }
+]

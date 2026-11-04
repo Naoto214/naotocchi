@@ -6,8 +6,20 @@ const {serve}=require('../tools/character-3d/shot.cjs');
 const {makeSave}=require('../tools/meguru-3d-qa/character-integration.cjs');
 const ROOT=path.resolve(__dirname,'..'),OUT=path.resolve(process.env.PAD_OUT||'test-results/home-layout/pad-size');
 const BASE='e9932859c1479b2c1e53d77b20bb3b8f104343df';
-const baseline=execFileSync('git',['show',BASE+':style.css'],{cwd:ROOT,encoding:'utf8'});
+const historical=execFileSync('git',['show',BASE+':style.css'],{cwd:ROOT,encoding:'utf8'});
 const candidate=fs.readFileSync(path.join(ROOT,'style.css'),'utf8');
+// Compare only the pad enlargement against its original declarations. Replacing
+// the whole historical stylesheet also reverts approved #516 header/hint padding
+// and changes canvas height before the pad is involved.
+let baseline=candidate;
+for(const selector of ['#meguruOverlay .mg-pad', '#meguruOverlay .mg-pad-actions']){
+ const escaped=selector.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+ const rule=new RegExp(escaped+' \\{[^}]+\\}', 'g');
+ const old=historical.match(rule),current=candidate.match(rule);
+ assert.equal(old?.length,1,'one historical pad rule: '+selector);
+ assert.equal(current?.length,1,'one current pad rule: '+selector);
+ baseline=baseline.replace(current[0],old[0]);
+}
 async function snapshot(page){return page.evaluate(()=>{
  const box=e=>{const b=e.getBoundingClientRect();return {x:b.x,y:b.y,width:b.width,height:b.height,bottom:b.bottom,right:b.right};};
  const pad=document.querySelector('#meguruOverlay .mg-pad'),p=box(pad),c=globalThis.__padCamera;
