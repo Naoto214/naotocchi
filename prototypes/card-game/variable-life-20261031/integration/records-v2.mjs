@@ -17,7 +17,8 @@ const fail=m=>{throw Error(m);},obj=x=>x&&typeof x==='object'&&!Array.isArray(x)
 const num=(x,max=Number.MAX_SAFE_INTEGER)=>Number.isSafeInteger(x)&&x>=0&&x<=max;
 const str=(x,max)=>typeof x==='string'&&x.length>0&&x.length<=max;
 export {V1_CATALOG};
-export function createRecords({CARDS,validateDeck,CPU_DECK_IDS}){
+export function createRecords({CARDS,validateDeck,CPU_DECK_IDS,v1Catalogs=[V1_CATALOG]}){
+ // v1Catalogs: the v1 catalogs accepted (official app: only the frozen 452 list; the trial adds its own earlier list).
  const known=id=>Object.hasOwn(CARDS,id),size=Object.keys(CARDS).length;
  function validateMetadata(m){
   if(!obj(m)||!str(m.id,100)||!['cpu','hotseat','online'].includes(m.mode)||!(m.startedAt===null||num(m.startedAt)))fail('対戦情報が不正です');
@@ -42,8 +43,9 @@ export function createRecords({CARDS,validateDeck,CPU_DECK_IDS}){
  function pack(records,held=[]){const decks=[],keys=new Map(),deck=d=>{const k=JSON.stringify([d.id,d.name,d.cards]);if(!keys.has(k)){keys.set(k,decks.length);decks.push([d.id,d.name,[...d.cards]]);}return keys.get(k);};
   return {format:'naotocchi-records',version:2,decks,rows:records.map(r=>[...ROW(r),deck(r.decks.A),deck(r.decks.B),r.uses.A,r.uses.B]),held};}
  function parseV1(d){ // the official v1 reader, with the frozen 452 catalog instead of the live one
-  if(JSON.stringify(d.catalog)!==JSON.stringify(V1_CATALOG)||!Array.isArray(d.decks)||d.decks.length>MAX_RECORDS*2||!Array.isArray(d.rows)||d.rows.length>MAX_RECORDS)fail('戦績の形式・件数が不正です');
-  const ids=V1_CATALOG,decks=d.decks.map(x=>{if(!Array.isArray(x)||x.length!==3||!Array.isArray(x[2])||x[2].some(i=>!num(i,ids.length-1)))fail('デッキ辞書が不正です');return {id:x[0],name:x[1],cards:x[2].map(i=>ids[i])};});
+  const ids=v1Catalogs.find(c=>JSON.stringify(c)===JSON.stringify(d.catalog));
+  if(!ids||!Array.isArray(d.decks)||d.decks.length>MAX_RECORDS*2||!Array.isArray(d.rows)||d.rows.length>MAX_RECORDS)fail('戦績の形式・件数が不正です');
+  const decks=d.decks.map(x=>{if(!Array.isArray(x)||x.length!==3||!Array.isArray(x[2])||x[2].some(i=>!num(i,ids.length-1)))fail('デッキ辞書が不正です');return {id:x[0],name:x[1],cards:x[2].map(i=>ids[i])};});
   const seen=new Set();return d.rows.map(x=>{if(!Array.isArray(x)||x.length!==15||seen.has(x[0])||![x[11],x[12]].every(i=>num(i,decks.length-1)))fail('対戦ID・行が不正です');seen.add(x[0]);const uses={};
    for(const [s,i] of [['A',13],['B',14]]){if(!Array.isArray(x[i]))fail('使用一覧が不正です');uses[s]=x[i].map(p=>{if(!Array.isArray(p)||p.length!==2||!num(p[0],ids.length-1))fail('カード使用数が不正です');return [ids[p[0]],p[1]];});}
    return validateRecord(UNROW(x,i=>structuredClone(decks[i]),uses));});
@@ -87,6 +89,8 @@ export function createRecords({CARDS,validateDeck,CPU_DECK_IDS}){
   migrate(){this.write([]);if(this.raw===null&&!this.error){const raw=serialize(this.records,this.held);if(this.migratedFrom!==null&&this.storage.getItem(V1_LEGACY_KEY)===null)this.storage.setItem(V1_LEGACY_KEY,this.migratedFrom);this.storage.setItem(RECORDS_KEY,raw);this.raw=raw;this.migratedFrom=null;}}
   importJSON(raw){const {records}=parse(raw);this.write(records);}
   exportJSON(){return serialize(union(this.records,this.pending),this.held);}
+  exportPendingJSON(){return serialize(this.pending);}
+  exportDamaged(){return this.storage.getItem(RECORDS_KEY)??this.raw??this.storage.getItem(V1_KEY)??'';}
   recover(){const raw=this.storage.getItem(BACKUP_KEY);if(raw===null)fail('復旧できるバックアップがありません');const next=parse(raw);this.storage.setItem(RECORDS_KEY,raw);({records:this.records,held:this.held}=next);this.raw=raw;this.error=null;}
  }
  return {validateMetadata,validateRecord,buildRecord,parse,pack,serialize,RecordsStore};

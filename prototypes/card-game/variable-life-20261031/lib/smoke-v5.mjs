@@ -5,7 +5,7 @@
 // Usage: node lib/smoke-v4.mjs > evidence/smoke-v4.txt
 import {dirname,join} from 'node:path';import {fileURLToPath,pathToFileURL} from 'node:url';
 import {BASE_DECKS,slotsK} from './decks-life.mjs';
-const HERE=dirname(fileURLToPath(import.meta.url)),BUILD=join(HERE,'..','build');
+const HERE=dirname(fileURLToPath(import.meta.url)),BUILD=process.env.LIFE_BUILD??join(HERE,'..','build');
 const e=await import(pathToFileURL(join(BUILD,'T-5v','engine.mjs')).href);
 let fails=0;const ok=(name,cond,info='')=>{console.log(`${cond?'PASS':'FAIL'} ${name}${info?' — '+info:''}`);if(!cond)fails++;};
 const T=n=>'X-T-'+n,N=n=>'X-N-'+n;

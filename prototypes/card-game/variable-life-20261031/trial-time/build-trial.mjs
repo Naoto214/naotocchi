@@ -39,6 +39,16 @@ const NW=Object.fromEntries(Object.entries({...newCards(),...v5Cards()}).map(([i
 src['full-catalog.mjs']+=`\n// ---- variable-life-20261031 VERSION 4 trial: provisional new cards ----\nObject.assign(CATALOG,${JSON.stringify(NW,null,1)});\n`;
 // 戦績：試遊用カード（時のカード・新カード）は 452枚の後ろの番号になるので、保存した戦績を読み直す時の番号の上限を、写しの中だけカードの総数にする
 // （正式は 451 まで。VERSION 1〜4 の試遊版では、2戦目以降の戦績が「デッキ辞書が不正です」で保存できなかった。VERSION 5 で修正）。
+// VERSION 7：戦績を version 2（カードIDの文字列。integration/records-v2.mjs）で保存する試作。正式の records.mjs（version 1）の写しは
+// records-v1.mjs として残し、集計・表示（summarize など）はそのまま使う。試遊版のこれまでの version 1 の戦績は、読むだけで残し、
+// 最初の書き込みで version 2 へ移す（integration/RECORDS-V2.md と同じ手順。鍵は試遊版の接頭辞つき）。
+{const v2=fs.readFileSync(path.join(HERE,'../integration/records-v2.mjs'),'utf8'),cat=fs.readFileSync(path.join(HERE,'../integration/records-v1-catalog.json'),'utf8').trim();
+ src['records-v2.mjs']=patch(v2,"import V1_CATALOG from './records-v1-catalog.json' with {type:'json'};",'const V1_CATALOG='+cat+';','records-v2-inline');}
+src['records-adapter.mjs']=`export * from './records-v1.mjs';
+import {CARDS,validateDeck} from './engine.mjs';import {CPU_DECK_IDS} from './cpu-decks.mjs';import {createRecords,V1_CATALOG} from './records-v2.mjs';
+const R=createRecords({CARDS,validateDeck,CPU_DECK_IDS,v1Catalogs:[V1_CATALOG,Object.keys(CARDS).sort()]});
+export const RecordsStore=R.RecordsStore,buildRecord=R.buildRecord,validateRecord=R.validateRecord,RECORDS_FORMAT=2;
+`;
 apply('records.mjs',[['records-round',"!num(r.round,10)","!num(r.round,12)"],['records-deck-index',"x[2].some(i=>!num(i,451))","x[2].some(i=>!num(i,ids.length-1))"],['records-use-index',"!num(p[0],451)","!num(p[0],ids.length-1)"]]);
 // 時計：描画（文字盤・針の色・形・寸法・配置）は変えず、対戦の終了ラウンドを小針に渡すだけ。小針の角度は採用版のまま「終了ラウンド×30度」。
 // 採用版の入力チェックは終了ラウンド10〜12だけを受け付けるため、試遊版の写しに限り9も受け付ける（文字盤には IX が印刷済み）。正式採用には別承認が必要。
@@ -56,7 +66,8 @@ apply('ui-presentation.mjs',[
 // 「おすすめ」は CPU の戦略デッキ別の推奨構成（results/summary-v2.json の selected。人の席・マイデッキでは各1）。
 // すでに時のカードがデッキに入っている場合（マイデッキに自分で入れた場合）は、そのまま使う。
 const SUMMARY=path.join(HERE,'../results/summary-v2.json'),SUMMARY4=path.join(HERE,'../results/summary-v4.json'),SUMMARY5=path.join(HERE,'../results/summary-v5.json');
-const REC=(fs.existsSync(SUMMARY5)&&JSON.parse(fs.readFileSync(SUMMARY5,'utf8')).recommended)||(fs.existsSync(SUMMARY4)&&JSON.parse(fs.readFileSync(SUMMARY4,'utf8')).recommended)||(fs.existsSync(SUMMARY)?JSON.parse(fs.readFileSync(SUMMARY,'utf8')).selected??{}:{});
+const SUMMARY7=path.join(HERE,'../results/summary-v7.json');
+const REC=(fs.existsSync(SUMMARY7)&&JSON.parse(fs.readFileSync(SUMMARY7,'utf8')).recommended)||(fs.existsSync(SUMMARY5)&&JSON.parse(fs.readFileSync(SUMMARY5,'utf8')).recommended)||(fs.existsSync(SUMMARY4)&&JSON.parse(fs.readFileSync(SUMMARY4,'utf8')).recommended)||(fs.existsSync(SUMMARY)?JSON.parse(fs.readFileSync(SUMMARY,'utf8')).selected??{}:{});
 const CONF=Object.fromEntries(Object.entries(CONFIGS).map(([k,v])=>[k,{label:v.label,fill:v.fill}]));
 src['app.mjs']=`import {CARDS as __LC} from './engine.mjs';
 const __lifeTrial=(()=>{let last=[];const X=/^X-[TN]-/,CONF=${JSON.stringify(CONF)},REC=${JSON.stringify(REC)};
@@ -65,7 +76,7 @@ const __lifeTrial=(()=>{let last=[];const X=/^X-[TN]-/,CONF=${JSON.stringify(CON
   const cards=[...list],from=[];for(const to of CONF[conf].fill){const id=[...order].sort((x,y)=>left[y]-left[x]||order.indexOf(x)-order.indexOf(y))[0];const i=cards.lastIndexOf(id);from.push(id);cards[i]=to;left[id]--;}return {cards,from,conf};};
  const save=()=>{try{for(const k of ['time-config-A','time-config-B','time-cpu'])localStorage.setItem('naotocchi-'+k,document.getElementById(k).value);}catch{}};
  const cpuMode=()=>{{const m=document.getElementById('time-cpu')?.value;globalThis.__timeCpu=['v1','v4','v5'].includes(m)?m:'v6';}};
- return {inject(match,cpuSeat=null,cpuDeckId=null){save();cpuMode();const out={};last=['CPU判断 '+({v1:'VERSION 1',v4:'VERSION 4',v5:'VERSION 5'}[globalThis.__timeCpu]??'VERSION 6')];for(const seat of ['A','B']){let c=pick(seat);if(c==='rec')c=seat===cpuSeat&&REC[cpuDeckId]?REC[cpuDeckId]:'B4';const r=inject(match[seat],c);out[seat]=r.cards;
+ return {inject(match,cpuSeat=null,cpuDeckId=null){save();cpuMode();const out={};last=['CPU判断 '+({v1:'VERSION 1',v4:'VERSION 4',v5:'VERSION 5'}[globalThis.__timeCpu]??'VERSION 7 統合候補（状況型）')];for(const seat of ['A','B']){let c=pick(seat);if(c==='rec')c=seat===cpuSeat&&REC[cpuDeckId]?REC[cpuDeckId]:'P3';const r=inject(match[seat],c);out[seat]=r.cards;
    last.push(seat+'：'+(r.conf==='own'?'マイデッキの時のカード':r.conf==='N0'?'時のカードなし':CONF[r.conf].label+'（'+r.from.length+'枚入れ替え）'));}return out;},
   cpuMode,note(){return '時のカード試遊版：'+last.join('／');}};})();
 try{for(const k of ['time-config-A','time-config-B','time-cpu']){const m=localStorage.getItem('naotocchi-'+k),sel=document.getElementById(k);if(sel&&m&&[...sel.options].some(o=>o.value===m))sel.value=m;}}catch{}
@@ -76,12 +87,13 @@ apply('app.mjs',[
  ['metadata',"myDecks.list().find(d=>d.id===$('select-deck-'+seat).value)","{...myDecks.list().find(d=>d.id===$('select-deck-'+seat).value),cards:[...match[seat]]}"],
  ['notice',"if(label)writePref({last:label.id});persist();}catch","if(label)writePref({last:label.id});persist();message(__lifeTrial.note());}catch"],
 ]);
+src['records-v1.mjs']=src['records.mjs'];src['records.mjs']=src['records-adapter.mjs'];delete src['records-adapter.mjs'];
 for(const [f,t] of Object.entries(src))fs.writeFileSync(path.join(STAGE,f),t);
 // 下位ディレクトリから読み込まれる正式モジュール（無変更）も写す。
 const subMods=['art-pilot/approved-colors.mjs','art-pilot/symbols/attributes.mjs'];(function walk(d){for(const n of fs.readdirSync(path.join(CG,d),{withFileTypes:true})){const f=path.join(d,n.name);if(n.isDirectory())walk(f);else if(f.endsWith('.mjs'))subMods.push(f);}})('life-clock');
 for(const f of subMods){const to=path.join(STAGE,f);fs.mkdirSync(path.dirname(to),{recursive:true});fs.copyFileSync(path.join(CG,f),to);}
 fs.writeFileSync(path.join(STAGE,'life-clock/clock.mjs'),clockPatched);
-const patched=Object.keys(src).filter(f=>sha(src[f])!==sha(fs.readFileSync(path.join(CG,f),'utf8'))).sort();
+const patched=Object.keys(src).filter(f=>!fs.existsSync(path.join(CG,f))||sha(src[f])!==sha(fs.readFileSync(path.join(CG,f),'utf8'))).sort();
 if(stageOnly){console.log(JSON.stringify({stage:STAGE,patched}));process.exit(0);}
 
 // 2) JS をまとめる。
@@ -108,9 +120,9 @@ const storage=`(()=>{const P=${JSON.stringify(PREFIX)},S=Storage.prototype,{getI
 const css=`.life-badge{display:inline-block;margin-left:4px;padding:0 5px;border-radius:6px;font-weight:700;color:#fff}.life-r9{background:#b03030}.life-r11{background:#2e9b5f}.life-r12{background:#2f6fd6}`
  +`.life-r10{margin-top:4px;font-size:.9em;color:#5a4a33}.life-trial-note{margin:8px 0 12px;padding:10px 12px;border-radius:10px;background:#fff4e0;border:2px solid #d64545;color:#3d3326;line-height:1.6;font-size:14px}`
  +`.life-trial-note select{max-width:100%;min-height:44px;font-size:14px;margin:4px 0}.life-trial-note strong{color:#b03030}.life-trial-note .c10{color:#d64545;font-weight:700}.life-trial-note .c11{color:#2e9b5f;font-weight:700}.life-trial-note .c12{color:#2f6fd6;font-weight:700}`;
-const OPTS=`<option value="rec">おすすめ（CPUはデッキ別の推奨、人は各1）</option>`+Object.entries(CONFIGS).map(([k,v])=>`<option value="${k}">${v.label}</option>`).join('')+'<option value="N0">時のカードなし</option>';
-const note=`<div id="life-trial-note" class="life-trial-note"><strong>試遊版 VERSION 6：時のカード IX・X・XI・XII＋逆転カード（最終検証）</strong><br>ふつうは<span class="c10">R10</span>で終わります。時のカード（せかい・時2・同名3枚まで）を自分の番にふつうのセカイと同じように出すと、終了ラウンドが9・10・11・12のどれかになります（両者共通。現在のラウンドより前にはできない）。<br><b>特殊カウンター：</b>相手が時のカードを出したら、応答のときに手札の時のカードで「カウンター」できます（時2・何回でも）。最後に出したカードだけが成立し、それまでの時のカードは捨て札へ。終了ラウンドはすべての応答が終わってから決まり、人生の時計の下中央の小針がそのラウンドを指します。<br><b>新カード（仮・絵なし）：</b>最終候補のはやじまい・ながいきのひけつ・おもいでのしゃしん・おいわいのつる（VERSION 4／ラウンド終了／ラウンド開始の3案）と、VERSION 4 の まちぶせどけい・いなかのおみやげ・ちょっとまった。下の構成で入れるか、マイデッキで同名3枚まで入れられます。<br><label for="time-config-A">Aのデッキの時のカード・新カード</label> <select id="time-config-A">${OPTS}</select><br><label for="time-config-B">Bのデッキの時のカード・新カード</label> <select id="time-config-B">${OPTS}</select><br><label for="time-cpu">CPUの判断</label> <select id="time-cpu"><option value="v6">VERSION 6（ながいきを状況に応じて使う）</option><option value="v5">VERSION 5（ながいきを温存・しゃしん・つるの効果も考える）</option><option value="v4">VERSION 4（勝率見込み・新カードの使い方も考える）</option><option value="v1">VERSION 1（終盤の点差だけで判断）</option></select><br>選んだ枚数だけ、デッキのカード（メイン以外で枚数の多いもの）と入れ替えます。マイデッキにすでに時のカードを入れている場合は、そのまま使います。新カードの絵はまだありません。この試遊版の保存・戦績・マイデッキは、正式版・ほかの試遊版とは別です。</div>`;
-swap('<title>なおとっち CARD GAME</title>','<title>CARD GAME 時のカード 試遊 V6</title>');
+const OPTS=`<option value="rec">おすすめ＝正式導入候補（CPUはデッキ別の標準構成、人は時のカード各1＋有望3枚）</option>`+Object.entries(CONFIGS).map(([k,v])=>`<option value="${k}">${v.label}</option>`).join('')+'<option value="N0">時のカードなし</option>';
+const note=`<div id="life-trial-note" class="life-trial-note"><strong>試遊版 VERSION 7：正式導入候補7枚（時のカード IX・X・XI・XII＋はやじまい・ながいきのひけつ・おもいでのしゃしん）</strong><br>ふつうは<span class="c10">R10</span>で終わります。時のカード（せかい・時2・同名3枚まで）を自分の番にふつうのセカイと同じように出すと、終了ラウンドが9・10・11・12のどれかになります（両者共通。現在のラウンドより前にはできない）。<br><b>特殊カウンター：</b>相手が時のカードを出したら、応答のときに手札の時のカードで「カウンター」できます（時2・何回でも）。最後に出したカードだけが成立し、それまでの時のカードは捨て札へ。終了ラウンドはすべての応答が終わってから決まり、人生の時計の下中央の小針がそのラウンドを指します。<br><b>正式導入候補（絵は Astra が制作予定・今は絵なし）：</b>はやじまい・ながいきのひけつ・おもいでのしゃしん。「おすすめ」でこの7枚が入ります。見送ったカード（おいわいのつる・まちぶせどけい・いなかのおみやげ・ちょっとまった）も、比較のため下の構成で選べます（正式導入の候補ではありません）。<br><b>戦績：</b>この試遊版は、戦績を version 2（カードIDの文字列）で保存します（試作）。<br><label for="time-config-A">Aのデッキの時のカード・新カード</label> <select id="time-config-A">${OPTS}</select><br><label for="time-config-B">Bのデッキの時のカード・新カード</label> <select id="time-config-B">${OPTS}</select><br><label for="time-cpu">CPUの判断</label> <select id="time-cpu"><option value="v6">VERSION 7 統合候補（状況型：ながいきを状況に応じて使う。VERSION 6 と同じ）</option><option value="v5">VERSION 5（ながいきを温存・しゃしん・つるの効果も考える）</option><option value="v4">VERSION 4（勝率見込み・新カードの使い方も考える）</option><option value="v1">VERSION 1（終盤の点差だけで判断）</option></select><br>選んだ枚数だけ、デッキのカード（メイン以外で枚数の多いもの）と入れ替えます。マイデッキにすでに時のカードを入れている場合は、そのまま使います。新カードの絵はまだありません。この試遊版の保存・戦績・マイデッキは、正式版・ほかの試遊版とは別です。</div>`;
+swap('<title>なおとっち CARD GAME</title>','<title>CARD GAME 時のカード 試遊 V7</title>');
 swap('<link rel="stylesheet" href="records.css">','<link rel="stylesheet" href="records.css"><style>'+css+'</style><script>'+storage+'</script>');
 swap('<h2 id="match-setup-title">対戦の準備</h2>','<h2 id="match-setup-title">対戦の準備</h2>'+note);
 swap('<a id="home-return" class="home-return" href="../../">','<a id="home-return" class="home-return" href="home.html">');

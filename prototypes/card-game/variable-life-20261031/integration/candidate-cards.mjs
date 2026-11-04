@@ -2,9 +2,12 @@
 // NOT part of the official catalog. Only the candidate build (build-candidate.mjs) and the trial use this file.
 // IDs: type prefix + slug like the 452 official IDs; none collides with them (checked by test-candidate.mjs).
 // The effects are the ones the owner fixed (VERSION 4–6, unchanged); the texts are the candidate wording (U-items: wording).
-import {createHash} from 'node:crypto';
-export const CANDIDATE_SOURCE='variable-life-20261031/integration/CANDIDATE-V7.md';
-const sha=t=>createHash('sha256').update(t).digest('hex');
+import {createHash} from 'node:crypto';import {readFileSync,existsSync} from 'node:fs';
+// Provenance like the official catalog (build_full_catalog.py): source = '<file in docs/card-game>#<heading>', source_sha256 = the
+// whole file. The candidate's source file is integration/481-time-reversal-cards.md (generated from DEFS below; it moves to
+// docs/card-game/ on adoption). The texts below are the only place the wording is written.
+export const CANDIDATE_DOC='481-time-reversal-cards.md',CANDIDATE_DOC_PATH=new URL('./'+CANDIDATE_DOC,import.meta.url);
+const docSha=existsSync(CANDIDATE_DOC_PATH)?createHash('sha256').update(readFileSync(CANDIDATE_DOC_PATH)).digest('hex'):'missing';
 const TIME_TEXT=n=>`このカードを出した時、終了ラウンドを${n}にする（両者共通）。現在のラウンドが${n}より後なら出せない。`
  +'相手の時のカードの効果が解決を待っている間、手札のこのカードをカウンターとして出してもよい（時はふつうに払う）。'
  +'カウンターが続いた時は、最後に出された時のカードだけが成立し、それより前の時のカードは効果がなく捨て札に置く。終了ラウンドは、すべての応答のあとに一度だけ変わる。';
@@ -19,7 +22,7 @@ const DEFS=[
 ];
 // Same keys and order as the official entries (id, name, type, cost, rare, text, source, source_sha256[, method]).
 export const CANDIDATE_CARDS=Object.freeze(Object.fromEntries(DEFS.map(([id,name,type,cost,text,method])=>[id,Object.freeze({id,name,type,cost,rare:false,text,
- source:`${CANDIDATE_SOURCE}#${id} — ${name}`,source_sha256:sha(text),...(method?{method}:{})})])));
+ source:`${CANDIDATE_DOC}#${id} — ${name}`,source_sha256:docSha,...(method?{method}:{})})])));
 export const CANDIDATE_IDS=Object.freeze(Object.keys(CANDIDATE_CARDS));
 export const TIME_IDS=Object.freeze({IX:'W-time-ix',X:'W-time-x',XI:'W-time-xi',XII:'W-time-xii'});
 // Experiment ID → candidate ID (the experiment builds and records keep their X-* IDs).

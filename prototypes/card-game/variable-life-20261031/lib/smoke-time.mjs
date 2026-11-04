@@ -3,7 +3,7 @@
 // Usage: node lib/smoke-time.mjs > evidence/smoke-time.txt
 import {dirname,join} from 'node:path';import {fileURLToPath,pathToFileURL} from 'node:url';
 import {deckFor} from './decks-life.mjs';
-const HERE=dirname(fileURLToPath(import.meta.url)),BUILD=join(HERE,'..','build');
+const HERE=dirname(fileURLToPath(import.meta.url)),BUILD=process.env.LIFE_BUILD??join(HERE,'..','build');
 const load=v=>import(pathToFileURL(join(BUILD,v,'engine.mjs')).href);
 let fails=0;const ok=(name,cond,info='')=>{console.log(`${cond?'PASS':'FAIL'} ${name}${info?' — '+info:''}`);if(!cond)fails++;};
 function give(s,a,cardId){const p=s.players[a];const held=p.hand.find(x=>s.cards[x].cardId===cardId);if(held)return held;const id=[...p.deck,...p.discard].find(x=>s.cards[x].cardId===cardId);if(!id)throw Error('no '+cardId);p.deck=p.deck.filter(x=>x!==id);p.discard=p.discard.filter(x=>x!==id);p.hand.push(id);return id;}

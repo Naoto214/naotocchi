@@ -1,7 +1,7 @@
 // VERSION 6 CPU checks (PLAN-V6.md §2): ながいきのひけつ decisions of the three builds on hand-made public observations.
 // Usage: node lib/smoke-v6.mjs > evidence/smoke-v6.txt
 import {dirname,join} from 'node:path';import {fileURLToPath,pathToFileURL} from 'node:url';
-const HERE=dirname(fileURLToPath(import.meta.url)),B=v=>import(pathToFileURL(join(HERE,'..','build',v,'cpu-policy.mjs')).href);
+const HERE=dirname(fileURLToPath(import.meta.url)),B=v=>import(pathToFileURL(join(process.env.LIFE_BUILD??join(HERE,'..','build'),v,'cpu-policy.mjs')).href);
 const P={early:(await B('T-6e')).scoreCpuAction,hold:(await B('T-6h')).scoreCpuAction,adaptive:(await B('T-6a')).scoreCpuAction};
 let fails=0;const ok=(n,c,i='')=>{console.log(`${c?'PASS':'FAIL'} ${n}${i?' — '+i:''}`);if(!c)fails++;};
 const card=(name,cardId)=>({name,cardId}),xii=card('XII','X-T-XII'),filler=k=>Array.from({length:k},(_,i)=>card('ほか'+i,'C-owl'));

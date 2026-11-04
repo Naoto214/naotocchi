@@ -10,9 +10,13 @@ const ANGLE={9:'270',10:'300',11:'330',12:'0'}; // 採用版の小針の角度�
 const log=[];const note=(...m)=>{log.push(m.join(' '));console.log(...m);};
 (async()=>{
 const {decodeMatch}=await import(path.join(STAGE,'records-match.mjs'));
+// VERSION 7：試遊版のこれまでの戦績（version 1）を1件、最初の読み込みの前に置く。最初の書き込みで version 2 へ移り、version 1 はそのまま残ること。
+const R1=await import(path.join(STAGE,'records-v1.mjs')),{CPU_DECKS}=await import(path.join(STAGE,'cpu-decks.mjs'));
+const OLD_V1=(()=>{const m=new Map(),st={getItem:k=>m.get(k)??null,setItem:(k,v)=>m.set(k,v)},deck=CPU_DECKS[0].cards;new R1.RecordsStore(st).add({id:'old-v6-trial',startedAt:1,endedAt:2,mode:'hotseat',human:null,difficulty:null,cpuDeck:null,decks:{A:{id:null,name:'A',cards:deck},B:{id:null,name:'B',cards:deck}},winner:'A',growth:{A:60,B:50},round:10,uses:{A:[],B:[]}});return m.get(R1.RECORDS_KEY);})();
+const V1K=PREFIX+'naotocchi-card-records-v1',V2K=PREFIX+'naotocchi-card-records-v2';
 const b=await (process.env.BROWSER==='webkit'?webkit:chromium).launch({headless:true});const errors=[];
 try{for(const [name,viewport] of process.env.QA_ONLY_CPU?[]:[['iphone-portrait',{width:390,height:844}],['iphone-landscape',{width:844,height:390}]]){
- const ctx=await b.newContext({viewport,isMobile:true,hasTouch:true,deviceScaleFactor:2});const p=await ctx.newPage();p.on('pageerror',e=>errors.push(`${name}: ${e.message}`));
+ const ctx=await b.newContext({viewport,isMobile:true,hasTouch:true,deviceScaleFactor:2});await ctx.addInitScript(([k,v])=>{if(localStorage.getItem(k)===null)localStorage.setItem(k,v);},[V1K,OLD_V1]);const p=await ctx.newPage();p.on('pageerror',e=>errors.push(`${name}: ${e.message}`));
  const shot=async n=>{if(SHOTS)await p.screenshot({path:`${SHOTS}/${name}-${n}.png`});};
  let key=KEY;const saved=()=>p.evaluate(k=>localStorage.getItem(k),key);
  const view=async()=>{const {session}=decodeMatch(await saved());session.reveal();return session.projection;};
@@ -45,7 +49,7 @@ try{for(const [name,viewport] of process.env.QA_ONLY_CPU?[]:[['iphone-portrait',
  assert.match(await p.locator('#life-trial-note').innerText(),/特殊カウンター[\s\S]*最後に出したカードだけが成立/);
  await p.locator('#time-config-A').selectOption('H8');await p.locator('#time-config-B').selectOption('L3');await shot('setup');
  await p.locator('#new').tap();await reveal();await p.locator('#game').waitFor({state:'visible'});
- assert.match(await p.locator('body').innerText(),/時のカード試遊版：CPU判断 VERSION 6／A：各2（8枚）（8枚入れ替え）／B：XI×1・XII×2（延長）（3枚入れ替え）/);
+ assert.match(await p.locator('body').innerText(),/時のカード試遊版：CPU判断 VERSION 7 統合候補（状況型）／A：各2（8枚）（8枚入れ替え）／B：XI×1・XII×2（延長）（3枚入れ替え）/);
  {const g=JSON.parse(await saved()),n=(s,id)=>g.decks[s].filter(c=>c===id).length;for(const id of ['X-T-IX','X-T-X','X-T-XI','X-T-XII'])assert.equal(n('A',id),2,`Aに${id}×2`);
   assert.deepEqual([n('B','X-T-IX'),n('B','X-T-X'),n('B','X-T-XI'),n('B','X-T-XII')],[0,0,1,2],'B は XI×1・XII×2');assert.equal(g.decks.A.length,40);assert.equal(g.decks.B.length,40);}
  const keys=await p.evaluate(()=>{const out=[];for(let i=0;i<localStorage.length;i++)out.push(localStorage.key(i));return out;});assert.ok(keys.every(k=>k.startsWith(PREFIX)));
@@ -71,7 +75,7 @@ try{for(const [name,viewport] of process.env.QA_ONLY_CPU?[]:[['iphone-portrait',
  const disc=s=>v.players[s].discard.map(c=>c.name);assert.ok(disc('A').includes('IX')&&disc('A').includes('X')&&disc('B').includes('XII'),'カウンターされたカードは捨て札');assert.equal(v.players.B.board.world?.name,'XI','XI だけが場に残る');assert.equal(v.players.A.board.world,null);
  await clock(11);const before=await saved();await restore(before);assert.equal(await saved(),before,'再開で保存が変わらない');assert.match(await indicator(),/\/11/);
  v=await finish(11);await shot('result-r11');
- const rec=await p.evaluate(()=>localStorage.getItem('naotocchi-card-records-v1'));assert.ok(rec&&JSON.parse(rec).rows.some(r=>r[10]===11),'R11 の対戦が戦績に記録される');note(name,'IX→XII→X→XI：XI成立・R11終了 OK');
+ const rec=await p.evaluate(()=>localStorage.getItem('naotocchi-card-records-v2'));assert.equal(JSON.parse(rec).version,2,'戦績は version 2');assert.ok(JSON.parse(rec).rows.some(r=>r[10]===11),'R11 の対戦が戦績に記録される');assert.ok(JSON.parse(rec).rows.some(r=>r[0]==='old-v6-trial'),'これまでの戦績（version 1）が version 2 へ移る');note(name,'IX→XII→X→XI：XI成立・R11終了 OK');
 
  // 2) IX だけ：R9 で終了。時計は IX。
  await restore(SAVE);await doAction('A','IXを配置');v=await until(v=>v.phase==='normal'&&!v.chain.length);assert.equal(v.life.final,9);assert.match(await indicator(),/ROUND 8\/9.*短縮/);await clock(9);await shot('ix');
@@ -97,7 +101,7 @@ try{for(const [name,viewport] of process.env.QA_ONLY_CPU?[]:[['iphone-portrait',
   if(fs.existsSync(path.join(process.env.V4DIR,'r10-tsuru.json'))){await restore(F('r10-tsuru'));w=await view();const t0=w.players.A.growth,b0=w.players.B.growth;await doLabel('A',/おいわいのつる（ラウンド終了）/);
    const v2=await until(v=>v.actor==='B'&&v.phase==='normal');assert.equal(v2.players.A.growth,t0,'先攻の終了時には増えない');const res=await finish(10);
    const g=await view();assert.ok(g.result,'終了');const A=g.result.growth.A,B=g.result.growth.B;note(name,`つる（ラウンド終了）：A ${t0}→${A}（B ${b0}→${B}）`);assert.ok(A>=t0+5||A>=B,'ラウンドの終わりに負けている A が +5');await shot('v5-tsuru');}
-  {const msg=await p.locator('body').innerText();assert.ok(!/戦績を保存できません|戦績を読み込めません/.test(msg),'戦績の保存エラーが出ない');const raw=await p.evaluate(()=>localStorage.getItem('naotocchi-card-records-v1'));const n=JSON.parse(raw).rows.length;assert.ok(n>=4,'終わった対戦（別々の4試合：r8-chain・r8-haya・r9-naga・r10-tsuru）がすべて戦績に残る：'+n);note(name,'戦績：'+n+'件（2戦目以降も保存）');}
+  {const msg=await p.locator('body').innerText();assert.ok(!/戦績を保存できません|戦績を読み込めません/.test(msg),'戦績の保存エラーが出ない');const raw=await p.evaluate(()=>localStorage.getItem('naotocchi-card-records-v2'));const n=JSON.parse(raw).rows.length;{const [v1,leg]=await p.evaluate(()=>[localStorage.getItem('naotocchi-card-records-v1'),localStorage.getItem('naotocchi-card-records-v1-legacy')]);assert.equal(v1,OLD_V1,'version 1 は1文字も変わらない');assert.equal(leg,OLD_V1,'version 1 の控え');assert.ok(raw.includes('"X-T-')&&!raw.includes('"catalog"'),'カードIDの文字列で保存（番号の一覧なし）');}assert.ok(n>=4,'終わった対戦（別々の4試合：r8-chain・r8-haya・r9-naga・r10-tsuru）がすべて戦績に残る：'+n);note(name,'戦績：'+n+'件（2戦目以降も保存）');}
   // U12：A のメインがヒトデ⑦。A の IX に B が XII でカウンター → A はヒトデ⑦の置換で IX を山札の一番下へ。IX の効果は不成立（終了ラウンド12）。
   await restore(F('u12-star'));await doAction('A','IXを配置');await doAction('B','XIIでカウンター');await doLabel('A',/ヒトデ⑦の置換を使う/);
   w=await until(v=>v.phase==='normal'&&!v.chain.length);assert.equal(w.life.final,12,'U12：IX は不成立');assert.ok(!w.players.A.discard.some(c=>c.name==='IX')&&w.players.A.board.world?.name!=='IX','U12：IX は捨て札にも場にもない（山札の下）');await clock(12);await shot('v4-u12');note(name,'U12：ヒトデ⑦の置換 OK');
@@ -111,10 +115,10 @@ try{for(const [name,viewport] of process.env.QA_ONLY_CPU?[]:[['iphone-portrait',
  await p.goto(URL0);await p.locator('#solo-open').tap();await p.locator('#time-cpu').selectOption('v1');assert.equal(await p.evaluate(()=>globalThis.__timeCpu),'v1');
  await p.locator('#time-cpu').selectOption('v4');assert.equal(await p.evaluate(()=>globalThis.__timeCpu),'v4');await p.locator('#time-cpu').selectOption('v5');assert.equal(await p.evaluate(()=>globalThis.__timeCpu),'v5');await p.locator('#time-cpu').selectOption('v6');assert.equal(await p.evaluate(()=>globalThis.__timeCpu),'v6');
  await p.locator('#cpu-deck-mode').selectOption('choose');await p.locator('#cpu-deck-type').selectOption('item');
- const human=await p.locator('#human-seat').inputValue(),cpuSeat=human==='A'?'B':'A';await p.locator('#time-config-'+human).selectOption('B4');await p.locator('#time-config-'+cpuSeat).selectOption('rec');
+ const human=await p.locator('#human-seat').inputValue(),cpuSeat=human==='A'?'B':'A';await p.locator('#time-config-'+human).selectOption('rec');await p.locator('#time-config-'+cpuSeat).selectOption('rec');
  await p.locator('#new').tap();await p.locator('#game').waitFor({state:'visible'});
  const saved=()=>p.evaluate(k=>localStorage.getItem(k),CPU_KEY);const g=JSON.parse(await saved());
- assert.equal(g.game.decks[human].filter(c=>/^X-T-/.test(c)).length,4,'人は各1');
+ assert.equal(g.game.decks[human].filter(c=>/^X-T-/.test(c)).length,4,'人は時のカード各1');assert.deepEqual(g.game.decks[human].filter(c=>/^X-N-/.test(c)).sort(),['X-N-hayajimai','X-N-nagaiki','X-N-photo'],'人は有望3枚（おすすめ＝正式導入候補）');
  const REC=JSON.parse(process.env.REC??'{}'),FILL=JSON.parse(process.env.FILL??'{}'),want=FILL[REC.item??'B4']??[];
  assert.equal(g.game.decks[cpuSeat].filter(c=>/^X-[TN]-/.test(c)).sort().join(),[...want].sort().join(),'CPU はアイテム・じゅんびの推奨構成 '+(REC.item??'B4'));note('cpu','CPU 推奨構成（アイテム）：',REC.item);
  for(let n=0;n<4000&&!(await p.locator('#result').count());n++){const {session}=decodeMatch(await saved());session.reveal();const v=session.projection;if(v.result)break;if(v.actor!==v.humanSeat||!v.actions?.length){await p.waitForTimeout(80);continue;}
