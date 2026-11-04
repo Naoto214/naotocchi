@@ -4,6 +4,7 @@ import {visibleCards} from './ui-context.mjs';
 import {CARD_ART} from './ui-art.mjs';
 import {ATTRIBUTE_COLORS,CATEGORY_COLORS,cardArtColors} from './art-pilot/approved-colors.mjs';
 import {attributeIcon,marks} from './art-pilot/symbols/attributes.mjs';
+import {marriedText} from './lover-married.mjs';
 export const ATTRIBUTES = ATTRIBUTE_COLORS;
 export const CATEGORIES = {main:['メイン',ATTRIBUTE_COLORS['むし']],...Object.fromEntries(Object.entries({companion:'なかま',partner:'こいびと',world:'セカイ',play:'あそび',item:'あいてむ',event:'できごと'}).map(([type,name])=>[type,[name,CATEGORY_COLORS[type]]]))};
 export const escapeHTML = value => String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;');
@@ -105,20 +106,20 @@ export function cardRarityLabel(c){return c.rare?'レア · 同名1枚まで':'�
 
 export function cardMarkup(c,{compact=false,detail=false}={}){
  if(!c||c.hidden)return `<div class="card-back" role="img" aria-label="非公開のカード"><img src="ui-assets/card-back-approved.png" alt="" draggable="false"></div>`;
- const main=c.type==='main',id=c.cardId??c.id,category=CATEGORIES[c.type]??['カード','#A5A7AE'];
+ const main=c.type==='main',id=c.cardId??c.id,married=marriedText(id),category=CATEGORIES[c.type]??['カード','#A5A7AE'];
  const {color,markInk}=cardArtColors(c),species=main?c.name.replace(/[①-⑧]/g,''):'';
  const title=main?(c.form??species):c.name,ability=c.source?.match(/「([^」]+)」/)?.[1];
  const asset=CARD_ART[id],src=asset?.[detail?'large':'small'];
  const fallback=`<div class="art-fallback" role="img" aria-label="${h(title)}・画像を表示できません">${icon(main?c.attribute:c.type)}<small>画像を表示できません</small></div>`;
  const art=fallback+(src?`<img class="dedicated-art" src="${h(src)}" alt="${h(title)}の専用イラスト" width="${detail?1152:384}" height="${detail?768:256}" loading="${detail?'eager':'lazy'}" decoding="async" draggable="false">`:'');
- return `<article class="card-face${main?' main-face':''}${compact?' compact':''}${c.text?.length>140?' long-copy':''}" style="--card-color:${color};--mark-ink:${markInk??'#353024'};--title-size:${main?7.2:[...title].length>13?5.8:[...title].length>8?6.8:8}cqw" aria-label="${h(c.name)}">
+ return `<article class="card-face${main?' main-face':''}${compact?' compact':''}${(c.text?.length??0)+(married?.length??0)>(married?200:140)?' long-copy':''}${married?' lover-two':''}" style="--card-color:${color};--mark-ink:${markInk??'#353024'};--title-size:${main?7.2:[...title].length>13?5.8:[...title].length>8?6.8:8}cqw" aria-label="${h(c.name)}">
  ${ornament}<div class="card-heading"><small class="card-category">${category[0]}</small>
  ${main?`<div class="card-attribute">${icon(c.attribute)}<span>${h(c.attribute)}</span></div>`:''}
  <span class="card-cost" aria-label="通常時コスト ${main?c.stage:c.cost}">${main?c.stage:c.cost}</span>
  <strong class="card-title">${main?(MAIN_TITLE_LINES.get(title)??[title]).map(line=>`<span>${h(line)}</span>`).join(''):h(title)}</strong>${main?`<span class="card-species">${h(species)}</span>`:''}</div>
  <div class="card-art">${art}</div>
  ${main?`<div class="card-stats"><span>${icon('fist')}${compact?'':'<small>ちから</small>'}<b>${c.power}</b></span><span>${icon('brain')}${compact?'':'<small>ちえ</small>'}<b>${c.wisdom}</b></span></div>`:''}
- ${!compact?`<div class="card-copy"${detail&&['M-cat-07','M-antlion-06','M-antlion-07'].includes(id)?' style="font-size:2.9cqw"':''}>${ability?`<strong>${h(ability)}</strong>`:''}<p>${h(c.text)}</p></div>
+ ${!compact?`<div class="card-copy"${detail&&['M-cat-07','M-antlion-06','M-antlion-07'].includes(id)?' style="font-size:2.9cqw"':''}>${ability?`<strong>${h(ability)}</strong>`:''}${married?`<p class="lover-block"><b>こいびとのとき</b>${h(c.text)}</p><p class="lover-block lover-married"><b>♥ 結婚したら</b>${h(married)}</p>`:`<p>${h(c.text)}</p>`}</div>
  `:''}<small class="card-footer">NAOTOCCHI</small>${c.rare?`<span class="card-rarity" role="img" aria-label="${cardRarityLabel(c)}">◆</span>`:''}</article>`;
 }
 export function canInspectCard(v,viewer,c){if(v?.mode==='cpu'&&viewer===v.humanSeat&&!c.hidden)return true;return !v||v.phase!=='response'||Boolean(viewer===v.actor&&!c.hidden&&v.actions.some(a=>a.kind!=='pass'&&a.source===c.id));}
@@ -226,7 +227,7 @@ function unavailableReason(v,viewer,c){
 }
 export function detailMarkup(c,{v=null,viewer=null,catalog=false,handPosition=null,readOnly=false}={}){
  const actions=cardActions(v,viewer,c),hidden=c.hidden,ability=c.source?.match(/「([^」]+)」/)?.[1],priority=v&&(v.choice||v.phase!=='normal');
- return `<header class="detail-toolbar"><span>${catalog?'カード図鑑':readOnly?'カード閲覧':h(turnStatus(v))}</span><button type="button" class="dialog-close" data-close>閉じる ×</button></header><div class="detail-layout"><div class="detail-image"><div class="detail-card-canvas">${cardMarkup(c,{detail:true})}</div></div><div class="detail-copy"><header class="detail-summary"><h2>${h(hidden?'しかけたカード':c.form??c.name)}</h2>${!hidden?`<p>${h(CATEGORIES[c.type]?.[0])}${c.type==='main'?' · '+h(c.name.replace(/[①-⑧]/g,''))+' · '+h(c.attribute):''}</p><p>${c.type==='main'?`ちから <b>${c.power}</b> · ちえ <b>${c.wisdom}</b> · `:''}通常時コスト <b>${c.type==='main'?c.stage:c.cost}</b></p><p class="card-rarity-description">${cardRarityLabel(c)}</p>`:''}</header><section class="effect-scroll" tabindex="0" aria-label="能力全文">${hidden?'<p>相手の伏せ札は確認できません。</p>':`${ability?`<h3>${h(ability)}</h3>`:''}<p class="full-effect">${h(c.text)}</p>`}</section>${!hidden?`<button type="button" class="learning-related" data-related-rule="${relatedChapter(c)}">関連ルールを読む</button>`:''}${readOnly&&!hidden&&actions.length?`<button type="button" data-inspect="${h(c.id)}">このカードの操作を開く</button>`:''}${!catalog&&!readOnly&&!hidden?`<section class="detail-command"><h3>${v.choice?'必須選択：このカードを選ぶ':actions.length===1?'このカードでできる行動':'行動を選択'}</h3>${priority?`<p class="choice-guide">${v.effect?`${h(v.effect.name)}：`:''}${h(choiceGuide(v))}</p>`:''}<div class="detail-actions actions${actions.length===1?' single-action':''}">${actionMarkup(actions,{selected:c.id})}${!actions.length?`<p class="unavailable">${h(unavailableReason(v,viewer,c))}</p>`:''}</div>${priority?`<div class="detail-pass actions">${actionMarkup(v.actions.filter(a=>a.kind==='pass'))}</div>`:''}</section>`:''}</div></div>`;
+ return `<header class="detail-toolbar"><span>${catalog?'カード図鑑':readOnly?'カード閲覧':h(turnStatus(v))}</span><button type="button" class="dialog-close" data-close>閉じる ×</button></header><div class="detail-layout"><div class="detail-image"><div class="detail-card-canvas">${cardMarkup(c,{detail:true})}</div></div><div class="detail-copy"><header class="detail-summary"><h2>${h(hidden?'しかけたカード':c.form??c.name)}</h2>${!hidden?`<p>${h(CATEGORIES[c.type]?.[0])}${c.type==='main'?' · '+h(c.name.replace(/[①-⑧]/g,''))+' · '+h(c.attribute):''}</p><p>${c.type==='main'?`ちから <b>${c.power}</b> · ちえ <b>${c.wisdom}</b> · `:''}通常時コスト <b>${c.type==='main'?c.stage:c.cost}</b></p><p class="card-rarity-description">${cardRarityLabel(c)}</p>`:''}</header><section class="effect-scroll" tabindex="0" aria-label="能力全文">${hidden?'<p>相手の伏せ札は確認できません。</p>':`${ability?`<h3>${h(ability)}</h3>`:''}${marriedText(c.cardId??c.id)?`<h3>こいびとのとき</h3><p class="full-effect">${h(c.text)}</p><h3>♥ 結婚したら</h3><p class="full-effect">${h(marriedText(c.cardId??c.id))}</p>`:`<p class="full-effect">${h(c.text)}</p>`}`}</section>${!hidden?`<button type="button" class="learning-related" data-related-rule="${relatedChapter(c)}">関連ルールを読む</button>`:''}${readOnly&&!hidden&&actions.length?`<button type="button" data-inspect="${h(c.id)}">このカードの操作を開く</button>`:''}${!catalog&&!readOnly&&!hidden?`<section class="detail-command"><h3>${v.choice?'必須選択：このカードを選ぶ':actions.length===1?'このカードでできる行動':'行動を選択'}</h3>${priority?`<p class="choice-guide">${v.effect?`${h(v.effect.name)}：`:''}${h(choiceGuide(v))}</p>`:''}<div class="detail-actions actions${actions.length===1?' single-action':''}">${actionMarkup(actions,{selected:c.id})}${!actions.length?`<p class="unavailable">${h(unavailableReason(v,viewer,c))}</p>`:''}</div>${priority?`<div class="detail-pass actions">${actionMarkup(v.actions.filter(a=>a.kind==='pass'))}</div>`:''}</section>`:''}</div></div>`;
 }
 const MOVE_RESULTS={bottom:'山札の一番下へ戻します',top:'山札の一番上へ戻します',discard:'捨て札に置きます',hand:'手札に戻します',reveal:'公開します'};
 const SLOT_NAMES=['セカイ','メイン','こいびと','なかま①','なかま②','なかま③','準備①','準備②','準備③'];
@@ -273,6 +274,7 @@ export function importantResult(g){
  if(rows.some(r=>r.kind==='finish'))return {kind:'finish',title:'対戦終了！',symbol:'⚑'};
  if(rows.some(r=>r.kind==='marriage'))return {kind:'marriage',title:'けっこん！',symbol:'♥'};
  if(rows.some(r=>r.kind==='breakup'))return {kind:'breakup',title:'おわかれ',symbol:'♡'};
+ if(rows.some(r=>r.kind==='loverMarried'))return {kind:'loverMarried',title:'結婚の能力！',symbol:'♥'};
  if(rows.some(r=>r.kind==='birth'))return {kind:'birth',title:'たんじょう！',symbol:'✦'};
  if(rows.some(r=>r.kind==='main'&&r.text.includes('ときおくり')))return {kind:'main',title:'成長！',symbol:'↑'};
  // Ten points is a display threshold, never a rule or a changed amount.
@@ -283,7 +285,7 @@ export function resultNoticeMarkup(g){
  if(!g)return '';
  const special=importantResult(g);
  if(special){
-  const eventRows=g.rows.filter(r=>['marriage','breakup','birth','main','finish'].includes(r.kind)),numbers=g.rows.filter(r=>['growth','time','power','wisdom','relationship'].includes(r.kind));
+  const eventRows=g.rows.filter(r=>['marriage','breakup','loverMarried','birth','main','finish'].includes(r.kind)),numbers=g.rows.filter(r=>['growth','time','power','wisdom','relationship'].includes(r.kind));
   return `<section class="result-notice result-important" data-milestone="${special.kind}"><button type="button" class="result-collapse" data-result-collapse aria-label="結果通知を収納">×</button><strong><span class="milestone-symbol" aria-hidden="true">${special.symbol}</span> ${special.title}</strong><p class="milestone-cause">${h(eventRows.map(r=>r.text).join(' / ')||g.heading)}</p><div class="milestone-values">${numbers.map(r=>`<span>${h(r.text)}</span>`).join('')}</div><small>${g.combined?'この処理全体の変化 · ':''}次は上部の操作担当を確認 · 詳細は操作・履歴</small></section>`;
  }
  const rows=g.rows.slice(0,1);

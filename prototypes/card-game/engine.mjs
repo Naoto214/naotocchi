@@ -7,20 +7,22 @@ import * as eventEffects from './event-effects.mjs';
  */
 import {CARDS as BASE_CARDS} from './cards.mjs';
 import {CATALOG as CARDS} from './full-catalog.mjs';
+import {marriedAbilitiesActive} from './lover-married.mjs';
 import * as legacy from './legacy-engine.mjs';
 import {RULES, supported} from './rules.mjs';
 import * as fx from './effects.mjs';
 import * as selections from './selection.mjs';
 export {CARDS};
-export const VERSION='hotseat-7';
+export const VERSION='hotseat-8';
 /** 対戦の版。旧保存はその版のまま再生する（保存を新しい版へ変換しない）。
  * hotseat-2 = PR #446 修正前のこいびと（クモが結婚時にも誘発、サソリが伏せたあいてむも数える）＋ぴょんぴょんジャンプ改善前。
  * hotseat-3 = こいびと修正（PR #449）＋ぴょんぴょんジャンプ改善前（次のときおくりで1枚、その次のときおくりで+5）。
  * hotseat-4 = こいびと修正＋ぴょんぴょんジャンプ改善案B（PR #452）。
  * hotseat-5 = hotseat-4＋たこやきやさんが自分自身を対象にできない（87接続・88 X06）。
  * hotseat-6 = hotseat-5＋かえるのおうちがえりが自分自身を対象にできない（81接続）。
- * hotseat-7 = hotseat-6＋結婚前の別れはそだち−5（結婚後の別れは−10のまま。479、2026-11-04 正式決定）。 */
-export const RULE_VERSIONS=Object.freeze(['hotseat-2','hotseat-3','hotseat-4','hotseat-5','hotseat-6',VERSION]);
+ * hotseat-7 = hotseat-6＋結婚前の別れはそだち−5（結婚後の別れは−10のまま。479、2026-11-04 正式決定）。
+ * hotseat-8 = hotseat-7＋恋人18種類の「♥ 結婚したら」（結婚後の追加能力。480、2026-11-04 正式決定）。hotseat-7 以前の保存は追加能力なしで再生する。 */
+export const RULE_VERSIONS=Object.freeze(['hotseat-2','hotseat-3','hotseat-4','hotseat-5','hotseat-6','hotseat-7',VERSION]);
 export const DEFAULT_DECK=Object.values(BASE_CARDS).flatMap(c=>Array(c.rare?1:c.id==='G-area-claim'?2:3).fill(c.id));
 export function validateDeck(deck){if(!Array.isArray(deck)||deck.length!==40)throw Error('デッキは40枚必要です');const counts={};for(const id of deck){if(!CARDS[id]||!supported(id))throw Error('未対応カードです：'+id);counts[id]=(counts[id]??0)+1;if(counts[id]>(CARDS[id].rare?1:3))throw Error('同名上限を超えています：'+id);}return true;}
 export {supported};
@@ -56,12 +58,12 @@ function token(s,id){return `${id}#${s.cards[id].generation}`;}
 // それより前の版（hotseat-2〜6）の保存は、旧ルール（交際段階にかかわらず−10）のまま再生する。
 export const LEGACY_BREAKUP_VERSIONS=Object.freeze(['hotseat-2','hotseat-3','hotseat-4','hotseat-5','hotseat-6']);
 export function breakupPenalty(s,stage){return stage===4||LEGACY_BREAKUP_VERSIONS.includes(s.version)?10:5;}
-function discardField(s,a,id,context={}){const p=s.players[a],b=p.board;const slot=['main','partner','world'].find(k=>b[k]===id)??(b.companions.includes(id)?'companions':'prepared'),attachment=b.prepared.find(e=>e.id===id),generation=s.cards[id].generation;const related=slot==='partner'&&p.relationship!==null;if(s.challenge&&!s.challenge.completed&&s.challenge.participants?.[a]===id&&s.challenge.generations?.[a]===generation)s.challenge.aborted=true;
+function discardField(s,a,id,context={}){const p=s.players[a],b=p.board;const slot=['main','partner','world'].find(k=>b[k]===id)??(b.companions.includes(id)?'companions':'prepared'),attachment=b.prepared.find(e=>e.id===id),generation=s.cards[id].generation;const related=slot==='partner'&&p.relationship!==null,relationshipStage=p.relationship;if(s.challenge&&!s.challenge.completed&&s.challenge.participants?.[a]===id&&s.challenge.generations?.[a]===generation)s.challenge.aborted=true;
  for(const key of ['main','partner','world'])if(b[key]===id){b[key]=null;if(key==='partner'){const stage=p.relationship,penalty=breakupPenalty(s,stage);p.relationship=null;s.history.push({serial:s.serial,actor:a,kind:'breakup',source:id,cardId:s.cards[id].cardId,stage,married:stage===4,penalty});grow(s,a,-penalty);}}
  b.companions=b.companions.filter(x=>x!==id);b.prepared=b.prepared.filter(x=>x.id!==id);
  p.discard.push(id);
  for(const e of [...b.prepared])if(e.target===id)discardField(s,a,e.id,{cause:'cleanup'});
- const event={kind:'departure',actor:a,source:id,generation,slot,attachment,relationshipEnded:related,destination:context.destination??'discard',cause:context.cause??'cost',effectActor:context.effectActor,transition:context.transition};if(!context.defer)enqueueTriggers(s,event);return event;
+ const event={kind:'departure',actor:a,source:id,generation,slot,attachment,relationshipEnded:related,...(related&&marriedAbilitiesActive(s)?{relationshipStage}:{}),destination:context.destination??'discard',cause:context.cause??'cost',effectActor:context.effectActor,transition:context.transition};if(!context.defer)enqueueTriggers(s,event);return event;
 }
 function window(s,kind='normal',priority=s.turn){s.phase='response';s.window=kind;s.priority=priority;s.passes=0;}
 function requestChoice(s,a,kind,options,resume){if(!options.length)return false;s.choice={actor:a,kind,options,resume};s.phase='choice';return true;}
@@ -141,7 +143,7 @@ function execute(s,a){const who=actor(s),p=s.players[who],b=p.board;const eq=b.p
  }
  if(a.kind==='trigger'||a.kind==='skip'){
   const i=s.pending.findIndex(t=>t.source===a.source&&(a.index===undefined||t.index===a.index)),t=s.pending.splice(i,1)[0];
-  if(a.kind==='trigger'){if(t.kind==='program'){payAbilityCost(s,who,t.program,a,t.source);paySelections(s,who,t.program,a);const trap=RULES[card(s,t.source).id]?.mode==='trap';if(trap)b.prepared=b.prepared.filter(e=>e.id!==t.source);const key=t.source+'#'+s.cards[t.source].generation+':'+(t.program.limitKey??t.program.limitGroup??t.index);p.used.push(key);s.history.push({kind:'ability',actor:who,serial:s.serial,round:s.round,generation:s.cards[t.source].generation,index:t.program.limitKey??t.program.limitGroup??t.index,source:t.source,nameScope:t.program.nameScope,cardId:t.program.onceNameCardId??card(s,t.source).id});s.chain.push({actor:who,source:t.source,target:a.target??null,targetGeneration:a.target?s.cards[a.target].generation:null,targetZone:a.target?cardZone(s,a.target):null,kind:'program',steps:t.program.steps,contract:t.program,attachment,...selectionLink(a,t.program),event:t.event,variant:a.variant,ability:!trap});}else s.chain.push({actor:who,source:t.source,kind:t.kind,ability:true});log(s,`${who}：${title(s,t.source)}の能力を発動`);s.priority=who;}
+  if(a.kind==='trigger'){if(t.kind==='program'){payAbilityCost(s,who,t.program,a,t.source);paySelections(s,who,t.program,a);const trap=RULES[card(s,t.source).id]?.mode==='trap';if(trap)b.prepared=b.prepared.filter(e=>e.id!==t.source);const key=t.source+'#'+s.cards[t.source].generation+':'+(t.program.limitKey??t.program.limitGroup??t.index);p.used.push(key);s.history.push({kind:'ability',actor:who,serial:s.serial,round:s.round,generation:s.cards[t.source].generation,index:t.program.limitKey??t.program.limitGroup??t.index,...(t.program.marriedAbility?{marriedAbility:true}:{}),source:t.source,nameScope:t.program.nameScope,cardId:t.program.onceNameCardId??card(s,t.source).id});s.chain.push({actor:who,source:t.source,target:a.target??null,targetGeneration:a.target?s.cards[a.target].generation:null,targetZone:a.target?cardZone(s,a.target):null,kind:'program',steps:t.program.steps,contract:t.program,attachment,...selectionLink(a,t.program),event:t.event,variant:a.variant,ability:!trap});}else s.chain.push({actor:who,source:t.source,kind:t.kind,ability:true});log(s,`${who}：${title(s,t.source)}の能力を発動`);s.priority=who;}
   if(a.kind==='trigger'&&t.kind==='program'&&(t.program.once||t.program.limit||t.program.onceName))s.pending=s.pending.filter(x=>!(x.actor===who&&(t.program.onceName?(x.program?.onceNameCardId??card(s,x.source).id)===(t.program.onceNameCardId??card(s,t.source).id)&&(x.program?.nameScope??null)===(t.program.nameScope??null):x.source===t.source&&(x.program?.limitKey??x.program?.limitGroup??x.index)===(t.program.limitKey??t.program.limitGroup??t.index))));if(!s.pending.length){s.phase='response';s.passes=0;}if(a.kind==='trigger')recordActivation(s,s.chain.at(-1));if(a.kind==='trigger'&&t.kind==='program'&&RULES[card(s,t.source).id]?.mode==='trap')enqueueTriggers(s,{kind:'trapActivation',actor:who,source:t.source,setSerial:t.setSerial});return;
  }
  if(a.kind==='place'){
