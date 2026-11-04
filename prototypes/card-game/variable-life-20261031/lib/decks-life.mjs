@@ -65,3 +65,22 @@ export function deckForConfig(id,config){
  const s=fill.length>2?slotsK(BASE_DECKS[id].cards,fill.length):slots(BASE_DECKS[id].cards);s.forEach((x,k)=>{cards[x.index]=fill[k];});
  return {cards,replaced:s.map((x,k)=>({from:x.id,index:x.index,to:fill[k]}))};
 }
+// ---- VERSION 4 (PLAN-V4.md): every configuration starts with the B4 slots (IX・X・XI・XII 各1), so the first four replaced
+// slots are identical to B4 and each new card only replaces the next slots (paired with V2C / V2S B4 runs).
+const NN=n=>'X-N-'+n;
+Object.assign(CONFIGS,{
+ N_haya:{label:'各1＋はやじまい×2',fill:[...T4,NN('hayajimai'),NN('hayajimai')]},
+ N_naga:{label:'各1＋ながいきのひけつ×2',fill:[...T4,NN('nagaiki'),NN('nagaiki')]},
+ N_tsuru:{label:'各1＋おいわいのつる×2',fill:[...T4,NN('tsuru'),NN('tsuru')]},
+ N_photo:{label:'各1＋おもいでのしゃしん×2',fill:[...T4,NN('photo'),NN('photo')]},
+ N_machi:{label:'各1＋まちぶせどけい×2',fill:[...T4,NN('machibuse'),NN('machibuse')]},
+ N_omiya:{label:'各1＋いなかのおみやげ×2',fill:[...T4,NN('omiyage'),NN('omiyage')]},
+ N_chotto:{label:'各1＋ちょっとまった×2',fill:[...T4,NN('chotto'),NN('chotto')]},
+ C_haya:{label:'はやじまい×2＋IX（IX×2）',fill:[...T4,NN('hayajimai'),NN('hayajimai'),'X-T-IX']},
+ C_naga:{label:'ながいきのひけつ×2＋XI・XII（各2）',fill:[...T4,NN('nagaiki'),NN('nagaiki'),'X-T-XI','X-T-XII']},
+ C_tsuru:{label:'おいわいのつる×2＋XII（XII×2）',fill:[...T4,NN('tsuru'),NN('tsuru'),'X-T-XII']},
+ C_photo:{label:'おもいでのしゃしん×2＋おいわいのつる（なかま）',fill:[...T4,NN('photo'),NN('photo'),NN('tsuru')]},
+ C_machi:{label:'まちぶせどけい×2＋XI・XII（各2）',fill:[...T4,NN('machibuse'),NN('machibuse'),'X-T-XI','X-T-XII']},
+ C_omiya:{label:'いなかのおみやげ×2＋IX（IX×2）',fill:[...T4,NN('omiyage'),NN('omiyage'),'X-T-IX']},
+ C_chotto:{label:'ちょっとまった×2＋IX（IX×2）',fill:[...T4,NN('chotto'),NN('chotto'),'X-T-IX']},
+});
