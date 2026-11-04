@@ -19,6 +19,8 @@ export const ARMS={A0:{v4:false},V4:{v4:true,cpu:true,variants:V4V},
 ARMS.V5c={v4:true,cpu:true,variants:FINAL};
 // シカの代替案：結婚した時だけ（Dm）／ターン開始時だけ（Ds）。
 ARMS.Dm={v4:true,cpu:true,variants:{...FINAL,deer:'m'}};ARMS.Ds={v4:true,cpu:true,variants:{...FINAL,deer:'s'}};ARMS.D2={v4:true,cpu:true,variants:{...FINAL,deer:'two'}};
+// 最終候補（V5 確定版）：シカは結婚した時も2枚、せいれいの CPU 評価を修正。
+ARMS.V5f={v4:true,cpu:true,variants:FINAL};
 // 最終検証（V5 固定）：恋人ごとに「結婚後の追加能力だけ」を外した腕（V5off-<名前>）。
 for(const id of LOVERS)ARMS['V5off-'+id.slice(2)]={v4:true,cpu:true,variants:{...FINAL,off:[id]}};
 for(const a of Object.values(ARMS)){a.v4??=true;a.cpu??=true;}

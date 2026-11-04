@@ -98,7 +98,7 @@ test('ゴリラ（V5：V3新案）：結婚した時、このターンだけメ�
 
 test('シカ：結婚した時にも発動でき、結婚中は手札1枚以下のターン開始時にも発動できる',()=>{
  let {s,p}=lover('P-grove_deer');s=doIt(s,acts(s).find(a=>a.kind==='relationship'));assert.ok(v4rows(s).some(a=>a.source===p));
- s=settle(s,pickTrig(p));const h=s.players.A.hand.length;assert.equal(h,1,'結婚した時に3枚見て1枚');
+ s=settle(s,pickTrig(p));const h=s.players.A.hand.length;assert.equal(h,1,'結婚した時に山札上を見て1枚');
  s.players.A.deck.push(...s.players.A.hand.splice(0));s=settle(doIt(s,acts(s).find(a=>a.kind==='pass')));s=settle(doIt(s,acts(s).find(a=>a.kind==='pass')),pickTrig(p),200);
  // A の次のターン開始：手札は通常ドローで1枚 → 発動の機会がある（settle で選ばれて手札に加わる）
  assert.equal(s.turn,'A');assert.ok(s.history.some(x=>x.kind==='ability'&&x.v4&&x.source===p&&x.serial===s.serial),'開始時に発動');
@@ -256,4 +256,12 @@ test('最終：中級CPUの評価値（せいれいは R10 だけの+5 なので
  assert.equal(kind['P-snow_spirit'],'once');assert.equal(val['P-snow_spirit'],5);assert.equal(kind['P-gentle_gorilla'],'once');assert.equal(kind['P-knitting_spider'],'once');
  assert.equal(Object.keys(val).length,18);
  assert.match(src,/beginner/);assert.match(src,/intermediate:\{statChoice:true,lover4:true\}/,'中級だけ lover4');
+});
+
+test('最終：シカは結婚した時も「こいびとのとき」と同じく山札上2枚を見る（V5 確定版）',()=>{
+ assert.equal(FINAL.deer,'two');assert.doesNotMatch(e.CARDS['P-grove_deer'].married,/3枚/);
+ let {s,p}=lover('P-grove_deer');const top2=[top(s,'A','G-real-fishing'),top(s,'A','G-connect-four')];const third=s.players.A.deck[2];
+ let opts=null;s=marry(s,(st,a)=>{const c=a.filter(x=>x.kind==='choose'&&!['cancel','decline','done'].includes(x.value));if(c.length&&!opts)opts=c.map(x=>x.value);return a.find(x=>x.kind==='trigger'&&x.source===p)??null;});
+ assert.ok(top2.every(x=>opts.includes(x)),'上の2枚を見る');
+ assert.equal(opts.length,2,'見るのは2枚 '+JSON.stringify(opts));assert.ok(!opts.includes(third),'3枚目は見ない');
 });

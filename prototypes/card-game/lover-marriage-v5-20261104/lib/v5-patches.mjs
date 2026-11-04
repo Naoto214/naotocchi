@@ -47,6 +47,7 @@ export const VARIANTS={
   c3:{plan:'V5新案',kind:'event',value:1,married:'1ターンに1回。このカードにカードがみにつけられていない間、自分のメインが相手からちょうせんされた時、このちょうせんの間、そのメインの使用する能力値+1。'},
   none:{plan:'追加なし',kind:'cont',value:0,married:null}},
  deer:{
+  v4:{plan:'V4',kind:'once',married:'このこいびとと結婚した時にも、「こいびとのとき」の能力を発動できる（山札上3枚を見る）。結婚している間、自分のターン開始時に手札が1枚以下なら、「こいびとのとき」の能力を発動できる。'},
   v5:{plan:'V5',kind:'once',married:'結婚した時と、結婚している間の自分のターン開始時に手札が1枚以下の時にも、「こいびとのとき」の能力を発動できる（結婚した時は山札上3枚を見る）。'},
   m:{plan:'結婚した時だけ',kind:'once',value:2.5,married:'このこいびとと結婚した時にも、「こいびとのとき」の能力を発動できる（山札上3枚を見る）。'},
   two:{plan:'結婚した時も2枚（こいびとのときと同じ）',kind:'once',married:'結婚した時と、結婚している間の自分のターン開始時に手札が1枚以下の時にも、「こいびとのとき」の能力を発動できる。'},
@@ -55,7 +56,7 @@ export const VARIANTS={
   v4:{plan:'V4（V2 A）',kind:'once',married:'このこいびとと結婚した時、自分の捨て札の「みにつける」のカード1枚を手札に戻す。'},
   top:{plan:'V5案（山札の上）',kind:'once',value:1.5,married:'このこいびとと結婚した時、自分の捨て札の「みにつける」のカード1枚を山札の一番上に置く。'}}};
 export const VKEYS=[['gorilla','P-gentle_gorilla'],['snow','P-snow_spirit'],['cactus','P-oasis_cactus'],['spider','P-knitting_spider'],['deer','P-grove_deer']];
-export const FINAL={gorilla:'v3n',snow:'v5',cactus:'v4',spider:'top',deer:'v5'};
+export const FINAL={gorilla:'v3n',snow:'v5',cactus:'v4',spider:'top',deer:'two'};
 // CPU（中級だけ）：結婚後の能力の目安の価値。once は結婚の価値に足し、cont／event は残りの自分のターン数で重み付け。
 export const CPU_VALUE={'P-anglerfish':3,'P-cat_ceo':4,'P-cliff_goat':1,'P-desert_scorpion':3,'P-field_cow':1.2,'P-forest_bear':0.8,'P-gentle_gorilla':1.2,
  'P-grove_deer':4,'P-high_eagle':3,'P-knitting_spider':3,'P-oasis_cactus':1.8,'P-robot_neighbor':1.8,'P-rock_octopus':0.6,'P-sea_mermaid':1.5,'P-snow_spirit':6,

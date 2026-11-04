@@ -1,6 +1,7 @@
 # 恋人18種類「♥ 結婚したら」VERSION 5：本人限定試遊版（2026-11-04・未承認）
 
 - 試遊版 V5（本人のみ閲覧可）：https://claude.ai/artifact/Ttxw56rothNvss3vVYxtGW（V4：https://claude.ai/artifact/HDJZ8ekM7a3F7LTuGfTZHT はそのまま）
+- **最終検証（シカの調整・12種類・正式統合の手順）：[FINAL-CHECK.md](FINAL-CHECK.md)、[INTEGRATION.md](INTEGRATION.md)**
 - 報告：[REPORT.md](REPORT.md)／正式公開時の説明文の差分案：[RULEBOOK-DIFF.md](RULEBOOK-DIFF.md)
 - V4（`../lover-marriage-v4-20261104/`）を写して作りました。V4 のファイルは変更していません。
 - **正式カード・ルール・エンジン・CPU・保存形式・main・本番 Pages は変更していません。**
