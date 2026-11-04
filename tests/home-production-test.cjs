@@ -40,14 +40,25 @@ test('production runtime harness loads the exact shipped presenter and model',()
  assert.equal(h.window.NaotocchiHomeDioramaModel,require('../home-production-model.js'));
 });
 test('latest-main game catalogs, conversations, formal images and other games stay byte-identical',()=>{
- const cp=require('child_process');const unchanged=['assets/characters','prototypes','conversation-*.js','relationship-*.js','individuality*.js','item-*.js','games.js','quick.js','style.css','ui.css','character-world-master.v1.js'];
+ const cp=require('child_process');const unchanged=['assets/characters','prototypes','conversation-*.js','relationship-*.js','individuality*.js','item-*.js','games.js','quick.js','script.js','style.css','ui.css','character-world-master.v1.js'];
  // FIRST START permits only the exact owner-approved files/bytes from PR #511.
  // Keep every other prototype (CARD GAME/naopoyo included) and asset protected.
  const firstStart='8de189af03dc3bf9ca0139982341edc5c33b5518';
  const approved=new Set(cp.execFileSync('git',['ls-tree','-r','--name-only',firstStart,'--','prototypes/life-sugoroku'],{encoding:'utf8'}).trim().split('\n'));
+ // Owner approved PR #516 with FIRST START on 2026-11-04. Permit only
+ // these exact files at that immutable merge, not future minigame edits.
+ const polish='e834ae10f2f26aec7c99c7bb8cd3744acce184dc';
+ const polishFiles=new Set(['games.js','quick.js','script.js','style.css',
+  'prototypes/life-sugoroku/official-host-v4.js',
+  'prototypes/life-sugoroku/official/controls.css',
+  'prototypes/life-sugoroku/official/controls.js',
+  'prototypes/life-sugoroku/official/games.js',
+  'prototypes/life-sugoroku/official/quick.js']);
  const changed=cp.execFileSync('git',['diff','--name-only',testedMain,'--',...unchanged],{encoding:'utf8'}).trim().split('\n').filter(Boolean);
- assert.deepEqual(changed.filter(file=>!approved.has(file)),[],'unapproved protected file changes');
- if(changed.length) assert.equal(cp.execFileSync('git',['diff','--name-only',firstStart,'--',...changed],{encoding:'utf8'}).trim(),'','FIRST START additions must match approved bytes');
+ assert.deepEqual(changed.filter(file=>!approved.has(file)&&!polishFiles.has(file)),[],'unapproved protected file changes');
+ const originalAdditions=changed.filter(file=>!polishFiles.has(file));
+ if(originalAdditions.length) assert.equal(cp.execFileSync('git',['diff','--name-only',firstStart,'--',...originalAdditions],{encoding:'utf8'}).trim(),'','FIRST START additions must match approved bytes');
+ assert.equal(cp.execFileSync('git',['diff','--name-only',polish,'--',...polishFiles],{encoding:'utf8'}).trim(),'','PR #516 files must match approved bytes');
  const original=cp.execFileSync('git',['ls-tree','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa'],{encoding:'utf8'}).trim().split('\n').filter(p=>p.startsWith('home-')&&/\.(js|mjs|css)$/.test(p));
  // The startup repair only moves the pure route function out of the module
  // that imports optional 3D. Reconstruct the original files byte-for-byte;
