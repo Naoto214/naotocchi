@@ -28,6 +28,10 @@ js=js.replace('window.HomeReleaseQA={',`window.HomeReleaseQA={
   // The disposable adult scene skips hatching, where this is normally created.
   state.individuality ||= INDIVIDUALITY.create(state.speciesLine,REGIONS.map(r=>r.id));
   state.individuality.lastExchangeAge=-1;state.isSick=false;state.isSleeping=false;
+  // Isolate the authored exchange from the independently scheduled random idle
+  // greeting. clearConversationTimers does not own that recursive idle timer.
+  // Keep the real choice handler, result renderer and expiry timer unchanged.
+  conversationBusyUntil=Date.now()+60000;
   return maybeIndividualExchange();
  },
  clearComment(){hideSpeechBubble();el.storyFlash.classList.add('hidden');},

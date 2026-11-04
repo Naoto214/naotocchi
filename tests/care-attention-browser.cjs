@@ -61,6 +61,12 @@ module.exports = async function checkCareAttention(browser, engine, fixtures, ba
         await page.goto(baseUrl);
         await page.locator('.device.ui-home-active').waitFor();
         await page.evaluate(()=>document.fonts.ready);
+        // The one V18 notice slot may first show the dying-warning event.
+        // Wait for its expiry and the persistent care warning to return.
+        await page.waitForFunction(sick=>{
+          const text=document.getElementById('message').textContent;
+          return sick ? /びょうき/.test(text) : /いのち/.test(text);
+        },name==='sick',{timeout:20000});
         const before=await attentionState(page);
         results.push({name,phase:'initial',...before});
         assert.equal(before.level,level,name+': attention level');
@@ -77,8 +83,11 @@ module.exports = async function checkCareAttention(browser, engine, fixtures, ba
           assert.ok(before.sweatTop>before.spriteHeight*.60 && before.sweatTop<before.spriteHeight*.90,
             name+': sweat is near the painted young fish, not the transparent upper frame');
         }
-        if(name==='sick') assert.match(before.title,/びょうき/);
-        else assert.match(before.title,/いのち/);
+        // V18 presents care text in the shared notice lane; the retired
+        // worldCareState title is deliberately empty in terrain notice mode.
+        assert.equal(await page.locator('#message').isVisible(),true,name+': care notice is visible');
+        if(name==='sick') assert.match(before.notice,/びょうき/);
+        else assert.match(before.notice,/いのち/);
         if(reduced) {
           assert.equal(before.fxMotion,'none');assert.equal(before.sweatMotion,'none');assert.equal(before.actionMotion,'none');
         } else {

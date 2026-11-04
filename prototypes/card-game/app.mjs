@@ -41,7 +41,7 @@ function clearResultMotion(){document.querySelectorAll('.result-arrive,.result-d
 const feedback=new ResultFeedback({dock:available=>{const b=document.querySelector('[data-result-reopen]');if(b)b.hidden=!available;},clear:()=>{feedbackHost.replaceChildren();clearResultMotion();},paint:g=>{
  feedbackHost.innerHTML=resultNoticeMarkup(g);clearResultMotion();
  for(const r of g.rows){if(r.to==='deck')document.querySelector(`[data-player="${r.seat}"] [data-zone="deck"]`)?.classList.add('result-deck');
-  if(['draw','birth','main','move','marriage'].includes(r.kind))for(const c of r.cards)for(const n of document.querySelectorAll('[data-inspect],[data-browse]'))if((n.dataset.inspect??n.dataset.browse)===c.id)n.classList.add('result-arrive');
+  if(['draw','birth','main','move','marriage','breakup'].includes(r.kind))for(const c of r.cards)for(const n of document.querySelectorAll('[data-inspect],[data-browse]'))if((n.dataset.inspect??n.dataset.browse)===c.id)n.classList.add('result-arrive');
  }
 }});
 function persistOrder(){try{localStorage.setItem(ORDER_KEY,handOrder.serialize());}catch{message("手札の表示順はこの画面だけで保持します");}}

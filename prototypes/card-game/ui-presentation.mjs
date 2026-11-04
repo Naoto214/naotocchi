@@ -272,6 +272,7 @@ export function importantResult(g){
  const rows=g?.rows??[];
  if(rows.some(r=>r.kind==='finish'))return {kind:'finish',title:'対戦終了！',symbol:'⚑'};
  if(rows.some(r=>r.kind==='marriage'))return {kind:'marriage',title:'けっこん！',symbol:'♥'};
+ if(rows.some(r=>r.kind==='breakup'))return {kind:'breakup',title:'おわかれ',symbol:'♡'};
  if(rows.some(r=>r.kind==='birth'))return {kind:'birth',title:'たんじょう！',symbol:'✦'};
  if(rows.some(r=>r.kind==='main'&&r.text.includes('ときおくり')))return {kind:'main',title:'成長！',symbol:'↑'};
  // Ten points is a display threshold, never a rule or a changed amount.
@@ -282,7 +283,7 @@ export function resultNoticeMarkup(g){
  if(!g)return '';
  const special=importantResult(g);
  if(special){
-  const eventRows=g.rows.filter(r=>['marriage','birth','main','finish'].includes(r.kind)),numbers=g.rows.filter(r=>['growth','time','power','wisdom','relationship'].includes(r.kind));
+  const eventRows=g.rows.filter(r=>['marriage','breakup','birth','main','finish'].includes(r.kind)),numbers=g.rows.filter(r=>['growth','time','power','wisdom','relationship'].includes(r.kind));
   return `<section class="result-notice result-important" data-milestone="${special.kind}"><button type="button" class="result-collapse" data-result-collapse aria-label="結果通知を収納">×</button><strong><span class="milestone-symbol" aria-hidden="true">${special.symbol}</span> ${special.title}</strong><p class="milestone-cause">${h(eventRows.map(r=>r.text).join(' / ')||g.heading)}</p><div class="milestone-values">${numbers.map(r=>`<span>${h(r.text)}</span>`).join('')}</div><small>${g.combined?'この処理全体の変化 · ':''}次は上部の操作担当を確認 · 詳細は操作・履歴</small></section>`;
  }
  const rows=g.rows.slice(0,1);

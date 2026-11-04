@@ -49,5 +49,16 @@ test('latest-main game catalogs, conversations, formal images and other games st
  assert.deepEqual(changed.filter(file=>!approved.has(file)),[],'unapproved protected file changes');
  if(changed.length) assert.equal(cp.execFileSync('git',['diff','--name-only',firstStart,'--',...changed],{encoding:'utf8'}).trim(),'','FIRST START additions must match approved bytes');
  const original=cp.execFileSync('git',['ls-tree','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa'],{encoding:'utf8'}).trim().split('\n').filter(p=>p.startsWith('home-')&&/\.(js|mjs|css)$/.test(p));
- assert.equal(cp.execFileSync('git',['diff','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa','--',...original],{encoding:'utf8'}).trim(),'');
+ // The startup repair only moves the pure route function out of the module
+ // that imports optional 3D. Reconstruct the original files byte-for-byte;
+ // this exception cannot permit any navigation or legacy rendering changes.
+ const route=fs.readFileSync('home-route-navigation.mjs','utf8').replace('// Pure presentation routes, independent of the optional 3D renderer.\n','');
+ const splitFiles=['home-art-navigation.mjs','home-terrain-navigation.mjs'];
+ for(const file of splitFiles){
+  let restored=fs.readFileSync(file,'utf8');
+  if(file==='home-art-navigation.mjs')restored=restored.replace("from './home-route-navigation.mjs'","from './home-terrain-navigation.mjs'");
+  else restored=restored.replace("import {createTerrainNavigation} from './home-route-navigation.mjs';\nexport {createTerrainNavigation} from './home-route-navigation.mjs';\n",route);
+  assert.equal(restored,cp.execFileSync('git',['show','e0c5c52671666e8ab06b37afabf3eeae29f530fa:'+file],{encoding:'utf8'}),'mechanical route extraction only: '+file);
+ }
+ assert.equal(cp.execFileSync('git',['diff','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa','--',...original.filter(file=>!splitFiles.includes(file))],{encoding:'utf8'}).trim(),'');
 });
