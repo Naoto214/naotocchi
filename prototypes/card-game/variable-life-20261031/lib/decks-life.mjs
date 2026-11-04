@@ -84,3 +84,4 @@ Object.assign(CONFIGS,{
  C_omiya:{label:'いなかのおみやげ×2＋IX（IX×2）',fill:[...T4,NN('omiyage'),NN('omiyage'),'X-T-IX']},
  C_chotto:{label:'ちょっとまった×2＋IX（IX×2）',fill:[...T4,NN('chotto'),NN('chotto'),'X-T-IX']},
 });
+Object.assign(CONFIGS,{MULTI:{label:'有望カード（はやじまい・ながいき・しゃしん・おみやげ・ちょっとまった 各1）＋IX・XII',fill:[...T4,NN('hayajimai'),NN('nagaiki'),NN('photo'),NN('omiyage'),NN('chotto'),'X-T-IX','X-T-XII']}});
