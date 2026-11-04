@@ -1,7 +1,17 @@
-# 本人限定 iPhone Safari 試遊版：時のカード IX〜XII ＋ 逆転カード — VERSION 5
+# 本人限定 iPhone Safari 試遊版：時のカード IX〜XII ＋ 逆転カード — VERSION 6
 
-https://claude.ai/artifact/2vkeGuyKQG9LC2VwKpK4TK （Version 6）
+https://claude.ai/artifact/2vkeGuyKQG9LC2VwKpK4TK （Version 7）
 
+**VERSION 6：**
+- CPU の判断に「VERSION 6（ながいきのひけつを状況に応じて使う）」を追加し、既定にしました。
+- VERSION 5（温存）・VERSION 4（早期使用）・VERSION 1 も選べます。
+- 有望3枚の効果は変えていません。VERSION 4・5 の構成・つるの3案・マイデッキ・戦績の修正は、そのままです。
+
+**ブラウザ確認（`qa-time.cjs`、縦・横）：** 成功し、ページエラーは0件でした（`evidence-v6/qa-log.txt`）。
+- 確認した内容：VERSION 1〜5 の全項目、CPU の判断の切替（V1・V4・V5・V6）、戦績の保存。
+- 画面の画像は、保存容量の方針に合わせて残していません（確認スクリプトで再生成できます）。
+
+---
 **VERSION 5：**
 - おいわいのつるの3案を、別々のカードとして使えます。
   - 「おいわいのつる」（VERSION 4：自分のターン終了時）
