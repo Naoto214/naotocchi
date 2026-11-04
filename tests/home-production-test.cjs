@@ -34,11 +34,15 @@ test('production distribution retains every existing main file and includes only
 test('QA measures the fixed notification slot rather than the optional message contents',()=>{
  assert.match(fs.readFileSync('tools/home-production-qa.cjs','utf8'),/notice:document.getElementById\('homeEventSlot'\).getBoundingClientRect\(\).height/);
 });
-test('QA measures the visible comment dock after V10 makes its speech wrapper zero-height',()=>{
+test('QA measures the visible comment region for historical and current layouts',()=>{
  const source=fs.readFileSync('tools/home-production-qa.cjs','utf8');
- const measurement=source.match(/speech:(document\.getElementById\('[^']+'\)\.getBoundingClientRect\(\)\.height)/)[1];
- const document={getElementById:id=>({getBoundingClientRect:()=>({height:{speechSlot:0,homeCommentDock:76}[id]})})};
- assert.equal(require('node:vm').runInNewContext(measurement,{document}),76);
+ const match=source.match(/speech:(document\.getElementById\([^\n]*?\)\.getBoundingClientRect\(\)\.height)/);
+ assert.ok(match,'the QA detail exposes its actual comment measurement');
+ for(const version of [undefined,'8','9','10','11','12']){
+  const dock=['10','11','12'].includes(version);
+  const document={body:{dataset:{homeViewportVersion:version}},getElementById:id=>({getBoundingClientRect:()=>({height:{speechSlot:dock?0:76,homeCommentDock:dock?76:0}[id]})})};
+  assert.equal(require('node:vm').runInNewContext(match[1],{document}),76,`visible comment in viewport ${version||'legacy'}`);
+ }
 });
 test('production runtime harness loads the exact shipped presenter and model',()=>{
  const h=require('./helpers/runtime-harness.cjs').harness({homeDiorama:true,productionHome:true});

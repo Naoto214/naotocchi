@@ -30,7 +30,7 @@ fs.writeFileSync(path.join(out,'v5-qa-script.js'),js);
 fs.renameSync(path.join(out,'release-qa-diorama.js'),path.join(out,'v5-qa-diorama.js'));
 // Scope every storage API used by the page, including other modules' markers.
 const storage=`<script>(function(){const p=Storage.prototype,g=p.getItem,s=p.setItem,r=p.removeItem,k=p.key,n='naotocchi-home-v5-qa:';p.getItem=function(key){return g.call(this,n+key)};p.setItem=function(key,value){return s.call(this,n+key,value)};p.removeItem=function(key){return r.call(this,n+key)};p.clear=function(){const keys=[];for(let i=0;i<this.length;i++){const key=k.call(this,i);if(key.startsWith(n))keys.push(key)}keys.forEach(key=>r.call(this,key))};})();</script>`;
-let html=fs.readFileSync(path.join(out,'release-qa.html'),'utf8').replace('<head>','<head>'+storage).replace('release-qa-script.js','v5-qa-script.js').replace('release-qa-diorama.js','v5-qa-diorama.js');
+let html=fs.readFileSync(path.join(out,'historical-release-qa.html'),'utf8').replace('<head>','<head>'+storage).replace('release-qa-script.js','v5-qa-script.js').replace('release-qa-diorama.js','v5-qa-diorama.js');
 fs.writeFileSync(path.join(out,'v5-qa.html'),html);
 for(const name of ['release-qa.html','release-qa-script.js','release-qa-seed.json'])fs.unlinkSync(path.join(out,name));
 (async()=>{
