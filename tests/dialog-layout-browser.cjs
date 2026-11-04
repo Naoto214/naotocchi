@@ -98,6 +98,10 @@ module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) 
         // lifetime before the assertion observes it.
         await page.clock.runFor(2000);
         await page.locator('#tkCanvas').click();
+        // Exercise the post-game exchange deterministically, including its
+        // 300ms reading pause after the result card. Production also randomly
+        // chooses the immediate cheer; that made the old timing assertion flaky.
+        await page.evaluate(()=>{Math.random=()=>.01;});
         for(let elapsed=0;elapsed<30000&&!await page.locator('#mgResultToast').isVisible();elapsed+=100){
           await page.clock.runFor(100);
         }
@@ -113,6 +117,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) 
         await page.screenshot({path:path.join(output,label+'-completed.png')});
         await page.clock.runFor(6001);
         assert.equal(await page.locator('#mgResultToast').isVisible(),false,label+': expired result remains clickable');
+        await page.clock.runFor(300);
         assert.equal(await page.locator('#speechBubble').isVisible(),true,label+': game reaction is missing');
         await check('completed-reaction');
       }
