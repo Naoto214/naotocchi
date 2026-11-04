@@ -37,18 +37,46 @@ test('physical pointer targets account for current presentation scale and indepe
  const actor={key:'pet:dog',x:100,y:100,w:20,h:40},bounds={left:100,right:160,top:100,bottom:104};
  const stage={contains:()=>false},native={left:30,top:60};
  for(const current of [false,true]){
+  const foot=current?{x:70,y:55}:{x:130,y:160};
+  const owner={getBoundingClientRect:()=>({left:foot.x-10,right:foot.x+10,top:foot.y-40,bottom:foot.y})},other={};
+  let coverage='clear';
   const context={module:{exports:{}},performance:{now:()=>0},window:{NaotocchiHomeViewport:current?{
    residentPresentation:()=>({x:10,y:20,scaleX:.5,scaleY:.25,bodyScale:1}),presentationRect:()=>native
-  }:undefined},document:{getElementById:()=>stage,elementFromPoint:()=>stage,querySelector:()=>({getBoundingClientRect:()=>({left:0,top:0,right:500,bottom:500})})},
+  }:undefined},document:{getElementById:()=>stage,
+   elementFromPoint:(x,y)=>x>=foot.x-10&&x<=foot.x+10&&y>=foot.y-40&&y<=foot.y?{closest:()=>coverage==='covered'||coverage==='overlap'&&x===foot.x&&y===foot.y-16?other:owner}:stage,
+   querySelector:selector=>selector==='.screen-frame'?{getBoundingClientRect:()=>({left:0,top:0,right:500,bottom:500})}:owner},
   HomeReleaseQA:{detail:()=>({actors:[actor],slots:{castStage:current?{x:20,y:30}:{x:30,y:60}}}),inspect:()=>({bounds:[bounds],scene:{visible:()=>true,navigation:{valid:()=>true,route:(_,p)=>[p]}}})}};
   vm.runInNewContext(select,context);
   for(const kind of ['tap','drag']){
+   coverage='clear';
    const target=context.module.exports(kind);
    // Current ground: (10+(30+148-10)/2, 20+(60+100-20)/4).
    // Body height stays 40px, independent of the quarter-height world.
    assert.deepEqual(JSON.parse(JSON.stringify(target.p)),{x:148,y:100});
    assert.deepEqual(JSON.parse(JSON.stringify(target.from)),current?{x:70,y:39}:{x:130,y:144});
    assert.deepEqual(JSON.parse(JSON.stringify(target.to)),current?{x:94,y:55}:{x:178,y:160});
+   coverage='overlap';
+   const uncovered=context.module.exports(kind);
+   assert.notDeepEqual(JSON.parse(JSON.stringify(uncovered.from)),JSON.parse(JSON.stringify(target.from)),'overlapping resident cannot steal the physical origin');
+   assert.equal(context.document.elementFromPoint(uncovered.from.x,uncovered.from.y).closest(),owner,'alternate origin physically reaches protagonist');
+   // A reserved exit may lie between all rows of the original four-pixel
+   // bounds grid. The real route still has to approve the sampled point.
+   coverage='clear';
+   const inspect=context.HomeReleaseQA.inspect;
+   context.HomeReleaseQA.inspect=()=>({bounds:[{...bounds,top:99,bottom:103}],scene:{visible:()=>true,navigation:{valid:()=>true,route:(_,p)=>p.y===actor.y?[p]:[]}}});
+   const narrow=context.module.exports(kind);
+   assert.equal(narrow.p.y,actor.y,'sample the actor-aligned reserved corridor');
+   assert.ok(narrow.p.x-actor.x>=45,'retain a substantial real route');
+   context.HomeReleaseQA.inspect=()=>({bounds:[bounds],scene:{visible:()=>true,navigation:{valid:()=>true,route:()=>[]}}});
+   assert.throws(()=>context.module.exports(kind),/No visible grounded destination/,'additional samples never bypass an obstructed route');
+   const detail=context.HomeReleaseQA.detail;
+   context.HomeReleaseQA.detail=()=>({...detail(),actors:[actor,{key:'companion:edge',x:124,y:125.19,w:0,h:0}]});
+   context.HomeReleaseQA.inspect=()=>({bounds:[bounds],scene:{visible:()=>true,navigation:{valid:()=>true,route:(_,p)=>p.x>=145?[p]:[]}}});
+   assert.throws(()=>context.module.exports(kind),/No visible grounded destination/,'a sampled route cannot cut a tiny overlap between route samples');
+   context.HomeReleaseQA.detail=detail;
+   context.HomeReleaseQA.inspect=inspect;
+   coverage='covered';
+   assert.throws(()=>context.module.exports(kind),/Protagonist cannot be reached by pointer/,'a fully covered protagonist must fail rather than test another actor');
   }
  }
 });

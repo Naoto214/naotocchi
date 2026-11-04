@@ -58,8 +58,8 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+10000));
  await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[inputRegion,inputCount]);
  await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return d.world?.loaded&&d.world.region===r&&d.actors.length===c&&!d.blocked&&d.paused==='false';},[inputRegion,inputCount],{polling:100,timeout:15000});
- // Image.onload is asynchronous; paint the new canvas/cast before sampling.
- // runFor leaves the clock paused after these three normal animation frames.
+ // Image.onload and resident camera fitting are asynchronous. Let the
+ // presentation settle before sampling; runFor leaves the clock paused.
  await page.clock.runFor(50);
  input.before=await page.evaluate(()=>HomeReleaseQA.detail());assert.deepEqual(input.before.layout,{viewport:'12',display:'18'},'physical input uses the shipped home');input.status='started';saveInputs();
  const t=await page.evaluate(targetFn,kind),{from,to}=t;
@@ -75,15 +75,31 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  finally{await page.clock.resume();input.after=await page.evaluate(()=>HomeReleaseQA.detail()).catch(()=>null);input.trace=await page.evaluate(()=>window.HomeReleaseInputTrace).catch(()=>null);saveInputs();}
  }
  }
- const stopInput={engine:engineName,region:inputRegion,count:28,kind:'question-blocks-drag',status:'started'};inputs.push(stopInput);saveInputs();
+ const stopInput={engine:engineName,region:'home',count:28,kind:'question-blocks-drag',viewport:{width:844,height:600},status:'started'};inputs.push(stopInput);saveInputs();
  try{
+ // The conversation block is shared across regions. Use the home fixture
+ // with a verified free route; regional movement is exercised above.
+ // Portrait choices cover the protagonist; use the exposed landscape cast
+ // to exercise the controller block with a pointer that actually reaches it.
+ await page.setViewportSize(stopInput.viewport);
+ // The preceding drag ends at a different seat and ambient residents keep
+ // moving. Start the blocking comparison from the same fresh, reachable cast
+ // as the successful physical inputs, then hold it still through delivery.
+ await page.evaluate(()=>sessionStorage.setItem('home-release-reset-fixture','1'));
+ await page.reload();await page.waitForFunction(()=>window.HomeReleaseQA);
+ await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+10000));
+ await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[stopInput.region,28]);
+ await page.waitForFunction(r=>{const d=HomeReleaseQA.detail();return d.world?.loaded&&d.world.region===r&&d.actors.length===28&&!d.blocked&&d.paused==='false';},stopInput.region,{polling:100,timeout:15000});
+ await page.clock.runFor(50);
  const questionStarted=await page.evaluate(()=>HomeReleaseQA.question());assert.ok(questionStarted,'existing conversation accepts prepared healthy fixture: '+JSON.stringify(await page.evaluate(()=>HomeReleaseQA.conversationStatus())));
- await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+ await page.clock.runFor(50);
  const blockedTarget=await page.evaluate(targetFn,'drag');stopInput.target=blockedTarget;
  const blockedBefore=await page.evaluate(()=>({detail:HomeReleaseQA.detail(),traceIndex:HomeReleaseInputTrace.length,blockers:HomeReleaseQA.blockers()}));stopInput.before=blockedBefore;saveInputs();
  assert.ok(blockedBefore.detail.blocked,'question holds movement');
+ await page.screenshot({path:path.join(dest,`${engineName}-${stopInput.region}-question-blocks-drag.png`)});
  await page.mouse.move(blockedTarget.from.x,blockedTarget.from.y);await page.mouse.down();await page.mouse.move(blockedTarget.to.x,blockedTarget.to.y,{steps:8});await page.mouse.up();
- await page.waitForTimeout(150);
+ // Advance real animation callbacks while the question owns the block.
+ await page.clock.runFor(150);
  const blockedAfter=await page.evaluate(index=>({detail:HomeReleaseQA.detail(),trace:HomeReleaseInputTrace.slice(index)}),blockedBefore.traceIndex);stopInput.after=blockedAfter;saveInputs();
  assert.ok(blockedAfter.trace.some(t=>t.type==='pointerdown'&&t.actor==='pet:dog'&&t.blocked),'blocked pointerdown reaches protagonist');
  assert.ok(blockedAfter.trace.some(t=>t.type==='pointerup'),'blocked gesture completes');
@@ -91,7 +107,8 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  assert.ok(!blockedAfter.trace.some(t=>t.type==='move'&&t.result),'question must not accept a route');
  await page.locator('#speechChoices [data-choice]').first().click();await page.waitForFunction(()=>document.getElementById('speechChoices').classList.contains('hidden'));stopInput.status='passed';
  }catch(error){stopInput.status='failed';stopInput.error=error.message;throw error;}
- finally{stopInput.trace=await page.evaluate(()=>window.HomeReleaseInputTrace).catch(()=>null);saveInputs();}
+ finally{stopInput.trace=await page.evaluate(()=>window.HomeReleaseInputTrace).catch(()=>null);saveInputs();await page.clock.resume();}
+ await page.setViewportSize({width:390,height:844});
  await page.locator('#menuBtn').click();await page.locator('#menuOverlay').waitFor({state:'visible'});assert.equal(await page.locator('#menuOverlay .menu-grid > :is(button,a)').count(),12);await page.locator('#menuCloseBtn').click();
  await page.emulateMedia({reducedMotion:'reduce'});await page.waitForFunction(()=>matchMedia('(prefers-reduced-motion: reduce)').matches&&document.getElementById('castStage').dataset.dioramaReduced==='true');await page.waitForTimeout(100);const clock=await page.evaluate(()=>HomeReleaseQA.detail().world.animationTime);assert.ok(Number.isFinite(clock),'real environment clock');await page.waitForTimeout(500);assert.equal(await page.evaluate(()=>HomeReleaseQA.detail().world.animationTime),clock);
  await page.setViewportSize({width:844,height:390});await page.evaluate(()=>HomeReleaseQA.scene('star_stop',28));await page.waitForFunction(()=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world?.region==='star_stop'&&d.world.loaded&&d.actors.length===28&&d.actors.every(a=>a.safe);},null,{timeout:30000});

@@ -68,6 +68,10 @@ export function captureResult(before,after){
   if(before.players[seat].relationship!==4&&p.relationship===4)
    rowSpecs.push({kind:'marriage',seat,ids:[p.board.main,p.board.partner].filter(Boolean),publicCards:true,text:'けっこん成立'});
  }
+ // 479: a breakup row says whether the relationship ended before (−5) or after marriage (−10). The amount is the
+ // engine's own recorded penalty; the actual change (floor at 0) stays in the そだち row.
+ if(before)for(const event of events.filter(e=>e.kind==='breakup'))
+  rowSpecs.push({kind:'breakup',seat:event.actor,ids:[event.source],publicCards:true,text:`${event.married?'けっこんした あいてと おわかれ':'こいびとと おわかれ'}（そだち−${event.penalty}）`});
  if(before&&!before.result&&after.result)rowSpecs.push({kind:'finish',text:`${after.result.winner?after.result.winner+' の勝利':'引き分け'} · ${after.result.reason} · A ${after.players.A.growth} / B ${after.players.B.growth}`});
  const historyOnly=!rowSpecs.length&&!resolving.length;
  // Turn boundaries come from committed state; never infer an end from a pass request.
@@ -77,7 +81,7 @@ export function captureResult(before,after){
  const audiences={};for(const viewer of [null,'A','B']){
   const rows=rowSpecs.map(({ids,publicCards,label,...r})=>{
    const cards=ids&&(publicCards||r.seat===viewer)?ids.map(id=>describe(after,id)):[];
-   const number=label?`${label} ${r.before??'—'} → ${r.kind==='relationship'&&r.after===4?'結婚':r.after??'—'}${r.delta===null||r.kind==='relationship'?'':`（${r.delta>0?'+':r.delta<0?'−':''}${Math.abs(r.delta)}）`}`:r.text;
+   const number=label?`${label} ${r.kind==='relationship'&&r.before===4?'結婚':r.before??'—'} → ${r.kind==='relationship'&&r.after===4?'結婚':r.after??'—'}${r.delta===null||r.kind==='relationship'?'':`（${r.delta>0?'+':r.delta<0?'−':''}${Math.abs(r.delta)}）`}`:r.text;
    return {...r,text:`${r.seat?r.seat+'：':''}${number}${ids?` ${cards.length?cards.map(c=>c.name).join('・'):ids.length+'枚'}`:''}`,cards};
   });
   audiences[viewer??'public']={id:after.revision,revision:after.revision,actor:before?actor(before):null,turn:before?.turn??after.turn,round:before?.round??after.round,historyOnly,historyNotes:[...historyNotes],heading,combined:resolving.length>1||events.filter(e=>e.kind==='effectApplied').length>1,trace:[...trace],rows};

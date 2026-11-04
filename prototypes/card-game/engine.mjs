@@ -12,14 +12,15 @@ import {RULES, supported} from './rules.mjs';
 import * as fx from './effects.mjs';
 import * as selections from './selection.mjs';
 export {CARDS};
-export const VERSION='hotseat-6';
+export const VERSION='hotseat-7';
 /** 対戦の版。旧保存はその版のまま再生する（保存を新しい版へ変換しない）。
  * hotseat-2 = PR #446 修正前のこいびと（クモが結婚時にも誘発、サソリが伏せたあいてむも数える）＋ぴょんぴょんジャンプ改善前。
  * hotseat-3 = こいびと修正（PR #449）＋ぴょんぴょんジャンプ改善前（次のときおくりで1枚、その次のときおくりで+5）。
  * hotseat-4 = こいびと修正＋ぴょんぴょんジャンプ改善案B（PR #452）。
  * hotseat-5 = hotseat-4＋たこやきやさんが自分自身を対象にできない（87接続・88 X06）。
- * hotseat-6 = hotseat-5＋かえるのおうちがえりが自分自身を対象にできない（81接続）。 */
-export const RULE_VERSIONS=Object.freeze(['hotseat-2','hotseat-3','hotseat-4','hotseat-5',VERSION]);
+ * hotseat-6 = hotseat-5＋かえるのおうちがえりが自分自身を対象にできない（81接続）。
+ * hotseat-7 = hotseat-6＋結婚前の別れはそだち−5（結婚後の別れは−10のまま。479、2026-11-04 正式決定）。 */
+export const RULE_VERSIONS=Object.freeze(['hotseat-2','hotseat-3','hotseat-4','hotseat-5','hotseat-6',VERSION]);
 export const DEFAULT_DECK=Object.values(BASE_CARDS).flatMap(c=>Array(c.rare?1:c.id==='G-area-claim'?2:3).fill(c.id));
 export function validateDeck(deck){if(!Array.isArray(deck)||deck.length!==40)throw Error('デッキは40枚必要です');const counts={};for(const id of deck){if(!CARDS[id]||!supported(id))throw Error('未対応カードです：'+id);counts[id]=(counts[id]??0)+1;if(counts[id]>(CARDS[id].rare?1:3))throw Error('同名上限を超えています：'+id);}return true;}
 export {supported};
@@ -51,8 +52,12 @@ function grow(s,a,n){const p=s.players[a];const old=p.growth;p.growth=Math.max(0
 function remove(xs,id){const i=xs.indexOf(id);if(i<0)throw Error('カードの所在が一致しません');xs.splice(i,1);}
 function enter(s,id){s.cards[id].generation++;}
 function token(s,id){return `${id}#${s.cards[id].generation}`;}
+// こいびとが枠を離れた時の基本のそだち減少（共通処理はここだけ）。hotseat-7 以降：結婚前の別れ−5・結婚後の別れ（離婚）−10。
+// それより前の版（hotseat-2〜6）の保存は、旧ルール（交際段階にかかわらず−10）のまま再生する。
+export const LEGACY_BREAKUP_VERSIONS=Object.freeze(['hotseat-2','hotseat-3','hotseat-4','hotseat-5','hotseat-6']);
+export function breakupPenalty(s,stage){return stage===4||LEGACY_BREAKUP_VERSIONS.includes(s.version)?10:5;}
 function discardField(s,a,id,context={}){const p=s.players[a],b=p.board;const slot=['main','partner','world'].find(k=>b[k]===id)??(b.companions.includes(id)?'companions':'prepared'),attachment=b.prepared.find(e=>e.id===id),generation=s.cards[id].generation;const related=slot==='partner'&&p.relationship!==null;if(s.challenge&&!s.challenge.completed&&s.challenge.participants?.[a]===id&&s.challenge.generations?.[a]===generation)s.challenge.aborted=true;
- for(const key of ['main','partner','world'])if(b[key]===id){b[key]=null;if(key==='partner'){p.relationship=null;grow(s,a,-10);}}
+ for(const key of ['main','partner','world'])if(b[key]===id){b[key]=null;if(key==='partner'){const stage=p.relationship,penalty=breakupPenalty(s,stage);p.relationship=null;s.history.push({serial:s.serial,actor:a,kind:'breakup',source:id,cardId:s.cards[id].cardId,stage,married:stage===4,penalty});grow(s,a,-penalty);}}
  b.companions=b.companions.filter(x=>x!==id);b.prepared=b.prepared.filter(x=>x.id!==id);
  p.discard.push(id);
  for(const e of [...b.prepared])if(e.target===id)discardField(s,a,e.id,{cause:'cleanup'});
