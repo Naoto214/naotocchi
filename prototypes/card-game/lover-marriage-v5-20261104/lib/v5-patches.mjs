@@ -49,6 +49,7 @@ export const VARIANTS={
  deer:{
   v5:{plan:'V5',kind:'once',married:'結婚した時と、結婚している間の自分のターン開始時に手札が1枚以下の時にも、「こいびとのとき」の能力を発動できる（結婚した時は山札上3枚を見る）。'},
   m:{plan:'結婚した時だけ',kind:'once',value:2.5,married:'このこいびとと結婚した時にも、「こいびとのとき」の能力を発動できる（山札上3枚を見る）。'},
+  two:{plan:'結婚した時も2枚（こいびとのときと同じ）',kind:'once',married:'結婚した時と、結婚している間の自分のターン開始時に手札が1枚以下の時にも、「こいびとのとき」の能力を発動できる。'},
   s:{plan:'ターン開始時だけ',kind:'event',value:0.4,married:'結婚している間、自分のターン開始時に手札が1枚以下なら、「こいびとのとき」の能力を発動できる。'}},
  spider:{
   v4:{plan:'V4（V2 A）',kind:'once',married:'このこいびとと結婚した時、自分の捨て札の「みにつける」のカード1枚を手札に戻す。'},
@@ -75,7 +76,7 @@ const RULES_APPENDIX=`
  if(V.gorilla==='v2b')R('P-gentle_gorilla',r=>{const t=r.triggers[0];return {...r,triggers:[{...t,limitGroup:'gorilla'},T({...t,limitGroup:'gorilla',condition:{all:['ownChallenge','challengeWisdom','mainWisdomLower',M]},steps:[stat(0,2,'challenge')]})]};});
  if(V.gorilla==='v3n')R('P-gentle_gorilla',r=>({...r,triggers:[...r.triggers,T({when:'marriage',mandatory:true,target:'ownMain',steps:[stat(2,0,'turn')]})]}));
  if(V.gorilla==='g4')R('P-gentle_gorilla',r=>{const t=r.triggers[0];return {...r,triggers:[{...t,limitGroup:'gorilla'},T({...t,limitGroup:'gorilla',condition:{all:['ownChallenge','challengePower',M]}})]};});
- {const dv=V.deer??'v5',dm=dv!=='s',ds=dv!=='m';R('P-grove_deer',r=>({...r,triggers:[...keep(r,0,{limitGroup:'deer'}),...(dm?[T({when:'marriage',steps:[search(3)],once:true,limitGroup:'deer'})]:[]),...(ds?[T({when:'start',condition:{all:[M,'v4Hand1']},steps:[search(2)],once:true,limitGroup:'deer'})]:[])]}));}
+ {const dv=V.deer??'v5',dm=dv!=='s',ds=dv!=='m';R('P-grove_deer',r=>({...r,triggers:[...keep(r,0,{limitGroup:'deer'}),...(dm?[T({when:'marriage',steps:[search(dv==='two'?2:3)],once:true,limitGroup:'deer'})]:[]),...(ds?[T({when:'start',condition:{all:[M,'v4Hand1']},steps:[search(2)],once:true,limitGroup:'deer'})]:[])]}));}
  R('P-high_eagle',r=>({...r,triggers:[...r.triggers,T({when:'marriage',mandatory:true,steps:[draw()]})]}));
  if((V.spider??'v4')==='v4')R('P-knitting_spider',r=>({...r,triggers:[...r.triggers,T({when:'marriage',mandatory:true,target:'ownDiscardEquipment',steps:[move()]})]}));
  if(V.spider==='top')R('P-knitting_spider',r=>({...r,triggers:[...r.triggers,T({when:'marriage',mandatory:true,target:'ownDiscardEquipment',steps:[move('top')]})]}));
