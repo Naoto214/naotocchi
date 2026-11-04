@@ -111,7 +111,7 @@ try{for(const [name,viewport] of process.env.QA_ONLY_CPU?[]:[['iphone-portrait',
  const saved=()=>p.evaluate(k=>localStorage.getItem(k),CPU_KEY);const g=JSON.parse(await saved());
  assert.equal(g.game.decks[human].filter(c=>/^X-T-/.test(c)).length,4,'人は各1');
  const REC=JSON.parse(process.env.REC??'{}'),FILL=JSON.parse(process.env.FILL??'{}'),want=FILL[REC.item??'B4']??[];
- assert.equal(g.game.decks[cpuSeat].filter(c=>/^X-T-/.test(c)).sort().join(),[...want].sort().join(),'CPU はアイテム・じゅんびの推奨構成 '+(REC.item??'B4'));note('cpu','CPU 推奨構成（アイテム）：',REC.item);
+ assert.equal(g.game.decks[cpuSeat].filter(c=>/^X-[TN]-/.test(c)).sort().join(),[...want].sort().join(),'CPU はアイテム・じゅんびの推奨構成 '+(REC.item??'B4'));note('cpu','CPU 推奨構成（アイテム）：',REC.item);
  for(let n=0;n<4000&&!(await p.locator('#result').count());n++){const {session}=decodeMatch(await saved());session.reveal();const v=session.projection;if(v.result)break;if(v.actor!==v.humanSeat||!v.actions?.length){await p.waitForTimeout(80);continue;}
   const a=v.actions.find(x=>x.kind==='choose')??v.actions.find(x=>x.kind==='skip')??v.actions.find(x=>x.kind==='pass')??v.actions[0];
   const ns=p.locator('#operation-panel [data-action], #card-dialog [data-action]');const i=await ns.evaluateAll((ns,id)=>ns.findIndex(n=>n.dataset.action===id),a.id);
