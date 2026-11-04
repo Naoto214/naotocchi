@@ -47,6 +47,10 @@ try{for(const engine of (process.env.HOME_BIRTH_ENGINES||'chromium,webkit').spli
   assert.equal(await page.locator('#message').innerText(),words[i]);
   assert.doesNotMatch(await page.locator('#worldDescription').innerText(),/[0-9]+%/);
   assert.equal(await page.locator('#evoValue').isVisible(),false);
+  assert.equal(await page.evaluate(()=>HomeBirthQA.detail().save.growth),(i+1)*4,'each real tap warms the egg once');
+  // V18 queues upper notices for their full 4200ms reading duration.
+  // Let this notice finish before checking the next one; do not clear the queue.
+  await page.clock.runFor(4200);
  }
  await capture('ready');
  await page.locator('#playWithBtn').click();await page.clock.runFor(1050);
