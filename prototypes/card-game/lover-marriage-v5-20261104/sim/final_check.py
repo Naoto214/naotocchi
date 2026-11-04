@@ -37,27 +37,30 @@ deer['V5-off_score']=pairdiff('V5','V5off-grove_deer','score');deer['V5-off_seat
 deer['V5-A0_seatGap']=pairdiff('V5','A0','gap');deer['V5-A0_score']=pairdiff('V5','A0','score')
 out['deer']=deer
 # ---- 2. 公式7デッキにない恋人12種類（恋人デッキのシカ3枚を入れ替え、6相手×6群×先後） ----
-lv={}
-for (g,a,f),r in by.items():
-    if not g.startswith('LV:') or a!='V5':continue
-    lover=r['X'].split('/')[1];off='V5off-'+lover[2:]
-    if (g,off,f) not in by:continue
-    o=by[(g,off,f)];e=lv.setdefault(lover,{'v5':[],'off':[],'d':[],'S':[],'O':[],'a0':[],'byOpp':C.defaultdict(list)})
-    e['v5'].append(r['x']['result']);e['off'].append(o['x']['result']);e['d'].append(r['x']['result']-o['x']['result']);e['S'].append(r['x']);e['O'].append(o['x'])
-    e['byOpp'][r['Y']].append(r['x']['result']-o['x']['result'])
-    if (g,'A0',f) in by:e['a0'].append(by[(g,'A0',f)]['x']['result'])
-L12={}
-for lover,e in sorted(lv.items()):
-    S=e['S'];n=len(S);mine=lambda s:[c for c in s['loverUse'] if c.startswith(lover)]
-    L12[lover]={'n':n,'V5':round(st.mean(e['v5']),4),'V5off':round(st.mean(e['off']),4),'V5-off':ci(e['d']),'A0_g1to4':round(st.mean(e['a0']),4) if e['a0'] else None,
-     'first':round(st.mean(s['result'] for s in S if s['first']),4),'second':round(st.mean(s['result'] for s in S if not s['first']),4),
-     'married':round(sum(bool(s['married']) for s in S)/n,3),'marriedRound':round(st.mean([s['marriedRound'] for s in S if s['marriedRound']] or [0]),2),
-     'marriedAbilityUsesPerGame':round(sum(sum(1 for c in mine(s) if not c.endswith('*')) for s in S)/n,3),
-     'loverUsesWhileMarriedPerGame':round(sum(len(mine(s)) for s in S)/n,3),
-     'gamesWithMarriedUse':round(sum(1 for s in S if any(not c.endswith('*') for c in mine(s)))/n,3),
-     'maxHand':max(s['hand'] for s in S),'maxHandOff':max(s['hand'] for s in e['O']),'perTurnMax':max(s.get('perTurnMax',0) for s in S),
-     'byOpp':{k:round(st.mean(v),3) for k,v in sorted(e['byOpp'].items())}}
-out['L12']=L12
+def lovers_table(prefix):
+ lv={}
+ for (g,a,f),r in by.items():
+     if not g.startswith(prefix+':') or a!='V5':continue
+     lover=r['X'].split('/')[1];off='V5off-'+lover[2:]
+     if (g,off,f) not in by:continue
+     o=by[(g,off,f)];e=lv.setdefault(lover,{'v5':[],'off':[],'d':[],'S':[],'O':[],'a0':[],'byOpp':C.defaultdict(list)})
+     e['v5'].append(r['x']['result']);e['off'].append(o['x']['result']);e['d'].append(r['x']['result']-o['x']['result']);e['S'].append(r['x']);e['O'].append(o['x'])
+     e['byOpp'][r['Y']].append(r['x']['result']-o['x']['result'])
+     if (g,'A0',f) in by:e['a0'].append(by[(g,'A0',f)]['x']['result'])
+ L12={}
+ for lover,e in sorted(lv.items()):
+     S=e['S'];n=len(S);mine=lambda s:[c for c in s['loverUse'] if c.startswith(lover)]
+     L12[lover]={'n':n,'V5':round(st.mean(e['v5']),4),'V5off':round(st.mean(e['off']),4),'V5-off':ci(e['d']),'A0_g1to4':round(st.mean(e['a0']),4) if e['a0'] else None,
+      'first':round(st.mean(s['result'] for s in S if s['first']),4),'second':round(st.mean(s['result'] for s in S if not s['first']),4),
+      'married':round(sum(bool(s['married']) for s in S)/n,3),'marriedRound':round(st.mean([s['marriedRound'] for s in S if s['marriedRound']] or [0]),2),
+      'marriedAbilityUsesPerGame':round(sum(sum(1 for c in mine(s) if not c.endswith('*')) for s in S)/n,3),
+      'loverUsesWhileMarriedPerGame':round(sum(len(mine(s)) for s in S)/n,3),
+      'gamesWithMarriedUse':round(sum(1 for s in S if any(not c.endswith('*') for c in mine(s)))/n,3),
+      'maxHand':max(s['hand'] for s in S),'maxHandOff':max(s['hand'] for s in e['O']),'perTurnMax':max(s.get('perTurnMax',0) for s in S),
+      'byOpp':{k:round(st.mean(v),3) for k,v in sorted(e['byOpp'].items())}}
+ return L12
+out['L12']=lovers_table('LV')
+out['AF12']=lovers_table('AF')
 fv=[r for r in R if r['arm'] in ('V5',) or r['arm'].startswith('V5off')]
 out['fv_integrity']={'games':len(fv),'abnormal':sum(r['status']!='completed' for r in fv),'replay':dict(C.Counter(r['replay'] for r in fv)),'maxHand':max(max(r['x']['hand'],r['y']['hand']) for r in fv),
  'deckOut':sum(r['x']['deck']==0 or r['y']['deck']==0 for r in fv),'perTurnMax':max(max(r['x'].get('perTurnMax',0),r['y'].get('perTurnMax',0)) for r in fv)}

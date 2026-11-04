@@ -29,6 +29,11 @@ const swap=(l,from,to,n=99)=>{let k=n;return l.map(id=>id===from&&k>0?(k--,to):i
 function decks(){const D=Object.fromEntries(CPU_DECKS.map(d=>[d.id,base(d.id)]));
  for(const l of LOVERS.filter(l=>!['P-grove_deer','P-high_eagle'].includes(l)))D['partner/'+l]=swap(base('partner'),'P-grove_deer',l);
  const S='E-misunderstanding';D['challenge+S']=swap(base('challenge'),'E-mirror',S,2);D['growth+S']=swap(base('growth'),'G-mini-golf-physics',S,2);D['item+S']=swap(base('item'),'G-gomoku-9',S,2);D['partner+S']=swap(base('partner'),'E-reconciliation',S,2);
+ // 相性のよいデッキ（最終検証）：その恋人が得意な公式デッキの恋人を入れ替える。aff/<恋人> の名前で参照する。
+ const AFF={'P-cliff_goat':['challenge','P-gentle_gorilla'],'P-sea_mermaid':['challenge','P-gentle_gorilla'],'P-oasis_cactus':['challenge','P-gentle_gorilla'],'P-robot_neighbor':['challenge','P-gentle_gorilla'],
+  'P-rock_octopus':['item','P-knitting_spider'],'P-cat_ceo':['item','P-knitting_spider'],'P-desert_scorpion':['item','P-knitting_spider'],'P-forest_bear':['item','P-knitting_spider'],
+  'P-snowman':['partner','P-grove_deer'],'P-sunflower_partner':['growth','P-field_cow'],'P-swamp_croc':['balance','P-grove_deer'],'P-anglerfish':['partner','P-grove_deer']};
+ for(const [l,[host,from]] of Object.entries(AFF)){let d=swap(base(host),from,l);if(l==='P-anglerfish')d=swap(d,'W-home','W-deepsea');D['aff/'+l]=d;}
  return D;}
 // plan <out.json> <spec>：spec は「set:X:Y群:groups:arms」を ; で並べたもの（X/Y は * で公式7デッキ、!d で d 以外）。key は V4 と同じ形。
 if(cmd==='plan'){const D=decks(),ids=CPU_DECKS.map(d=>d.id),M=[],seen=new Set();
