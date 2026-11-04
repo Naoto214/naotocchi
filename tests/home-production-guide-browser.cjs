@@ -10,7 +10,7 @@ try{for(const engine of (process.env.HOME_LAYOUT_ENGINES||'chromium,webkit').spl
  try{for(const [width,height]of [[320,568],[375,667],[390,844],[430,932],[667,375]])for(const count of [1,6,28]){
   const page=await browser.newPage({viewport:{width,height},reducedMotion:'reduce'});
   try{
-   await page.goto(`http://127.0.0.1:${server.address().port}/release-qa.html`);
+   await page.goto(`http://127.0.0.1:${server.address().port}/historical-release-qa.html`);
    await page.waitForFunction(()=>window.HomeReleaseQA);
    await page.evaluate(count=>HomeReleaseQA.scene('home',count),count);
    await page.waitForFunction(count=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.world?.loaded&&d.actors.length===count;},count);
