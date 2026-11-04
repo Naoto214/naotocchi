@@ -29,6 +29,17 @@
   - ただし、延ばした側はあまり逆転できない（得点率0.20）。アイテム型は +8.5pt。
   - **本人の試遊で操作性とバランスを確認するまで、正式導入はしません。**
 
+## VERSION 7（2026-11-04）：正式導入候補7枚の統合準備
+- 計画：[PLAN-V7.md](PLAN-V7.md)。結果：REPORT.md **§18**。
+- **統合候補（459枚）：** [integration/CANDIDATE-V7.md](integration/CANDIDATE-V7.md)。
+  - ID は `W-time-ix`〜`W-time-xii`・`E-hayajimai`・`E-nagaiki`・`E-omoide-photo`。
+  - 新カードのない対戦は main（hotseat-8・heuristic-3）と完全に同じでした（560/560）。正式IDへの付け替えも、対戦に影響しません（560/560）。
+- **CPU：** 状況型（`heuristic-4-candidate`）。標準の構成は VERSION 2 の推奨＋有望3枚（RECP3）。別の案は P3（U20、本人の判断）。
+- **戦績 version 2：** [RECORDS-V2.md](RECORDS-V2.md)。9項目すべて合格。
+- **未確定事項：** [OPEN-ITEMS.md](OPEN-ITEMS.md)。**絵の仕様（Astra 向け）：** [ASTRA-ART-SPEC.md](ASTRA-ART-SPEC.md)。**再現と長期保存：** [REPRODUCE.md](REPRODUCE.md)。
+- 試遊版 VERSION 7（Version 8、同じ URL）：https://claude.ai/artifact/2vkeGuyKQG9LC2VwKpK4TK
+- **記録ファイルは HEAD にありません。** `sh lib/restore-archive.sh` で、VERSION 1〜7 の358件を戻せます。
+
 ## VERSION 6（2026-11-04）：有望3枚の最終検証・CI の修復・正式導入の準備
 - 計画：[PLAN-V6.md](PLAN-V6.md)。結果：REPORT.md **§17**（4,480戦、全 61,460戦で保存→復元一致）。
 - **おもいでのしゃしん：** 持つ席だけを入れ替えた比較で、後攻−先攻 +2.2pt [−1.2, +5.1]（有意でない）。最大 +15 を維持します。
