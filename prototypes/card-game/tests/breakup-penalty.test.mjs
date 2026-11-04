@@ -22,8 +22,9 @@ function loverAt(stage,{version,seat='A',growth=50,lover='P-robot_neighbor'}={})
 function misunderstand(s,mis){s=doAction(s,find(s,a=>a.source===mis&&['play','programPlay'].includes(a.kind)));return settle(s);}
 
 test('共通処理：結婚前（交際0〜3）は5、結婚後は10。旧版（hotseat-2〜6）は交際段階によらず10',()=>{
- const s=e.createGame(1);assert.equal(s.version,'hotseat-7');assert.equal(e.VERSION,e.RULE_VERSIONS.at(-1));
- for(const k of [0,1,2,3])assert.equal(e.breakupPenalty(s,k),5,'stage '+k);assert.equal(e.breakupPenalty(s,4),10);
+ // hotseat-8（結婚後の追加能力、480）でも別れの基本値は hotseat-7 と同じ。
+ const s=e.createGame(1);assert.equal(s.version,'hotseat-8');assert.equal(e.VERSION,e.RULE_VERSIONS.at(-1));assert.ok(e.RULE_VERSIONS.includes('hotseat-7'));
+ for(const v of [s,e.createGame(1,undefined,'hotseat-7')]){for(const k of [0,1,2,3])assert.equal(e.breakupPenalty(v,k),5,v.version+' stage '+k);assert.equal(e.breakupPenalty(v,4),10);}
  for(const version of OLD)for(const k of [0,1,2,3,4])assert.equal(e.breakupPenalty(e.createGame(1,undefined,version),k),10,version+' '+k);
 });
 
@@ -85,4 +86,4 @@ test('CPU対戦：別れを含む対戦を最後まで進め、保存→復帰�
   assert.deepEqual(back.history.filter(x=>x.kind==='breakup'),ev);}
  assert.ok(found>0,'少なくとも1回は別れが起きる');
 });
-test('CPU対戦の保存（cpu-session の読込経路）でも新ルールの版のまま',()=>{const s=cpuMatch(5);const saved=e.save(s);assert.equal(JSON.parse(saved).version,'hotseat-7');assert.equal(restoreMatch(saved).save(),saved);});
+test('CPU対戦の保存（cpu-session の読込経路）でも新ルールの版のまま',()=>{const s=cpuMatch(5);const saved=e.save(s);assert.equal(JSON.parse(saved).version,e.VERSION);assert.equal(restoreMatch(saved).save(),saved);});

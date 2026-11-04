@@ -1,3 +1,4 @@
+import {marriedAbilitiesActive} from './lover-married.mjs';
 /** Activated-text snapshots, never a copy of another instance's used state. */
 const clone=value=>structuredClone(value);
 const onField=(s,source)=>Object.values(s.players??{}).some(p=>{const b=p.board;return b&&[b.main,b.partner,b.world,...(b.companions??[]),...(b.prepared??[]).map(e=>e.id)].includes(source);});
@@ -23,6 +24,8 @@ export function handle(s,l,e,h){
  l.applied=true;h?.log?.(s,'発動時の能力本文をコピー');return {waiting:false};
 }
 export function effectiveRule(s,source,base={}){
+ // いわばのタコさんの「♥ 結婚したら」（hotseat-8 から）：結婚中は、時0・なかまなしの能力に替わる。
+ if(base?.activeMarried&&marriedAbilitiesActive(s)){const o=s.cards[source]?.owner,q=o&&s.players[o];if(q&&q.board.partner===source&&q.relationship===4)base={...base,active:base.activeMarried};}
  if(!onField(s,source))return base;
  const copy=(s.effects??[]).filter(e=>e.kind==='copiedAbility'&&e.source===source&&e.generation===s.cards[source]?.generation&&e.serial===s.serial).at(-1);
  if(!copy)return base;
