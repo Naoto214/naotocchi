@@ -211,6 +211,9 @@
    p.artWidth=args.height/1.5;p.artLeft=(p.railLeft-8-p.artWidth)/2;
    p.compact=args.height<200;
    if(p.compact){p.controlsTop=(args.offsetTop||0)+args.height-4-p.controlsHeight;p.metersHeight=48;p.metersTop=p.controlsTop-3-p.metersHeight;}
+   // Preserve the approved layout; lift only the footer that overlaps the safe area.
+   const lift=Math.max(0,p.controlsTop+p.controlsHeight-((args.offsetTop||0)+args.height-(args.safeBottom||0)));
+   p.controlsTop-=lift;p.metersTop-=lift;
   }
   return p;
  }
@@ -346,7 +349,7 @@
   const fr=rect(frame),cr=rect(controls),hr=rect(device.querySelector('.device-header')),sw=rect(screen).width;
   const viewport=root.visualViewport;
   if(v9&&viewport&&viewport.scale!==1)return;
-  const p=v9?(v18?layoutV18:v17?layoutV17:v14?layoutV14:v12?layoutV12:v10?layoutV10:layoutV9)({width:viewport?.width||root.innerWidth,height:viewport?.height||root.innerHeight,offsetTop:viewport?.offsetTop||0,left:fr.left,headerBottom:hr.bottom,controlsHeight:cr.height}):layout({width:root.innerWidth,height:root.innerHeight,left:fr.left,headerBottom:hr.bottom,controlsTop:cr.top,controlsBottom:cr.bottom});
+  const p=v9?(v18?layoutV18:v17?layoutV17:v14?layoutV14:v12?layoutV12:v10?layoutV10:layoutV9)({width:viewport?.width||root.innerWidth,height:viewport?.height||root.innerHeight,offsetTop:viewport?.offsetTop||0,left:fr.left,headerBottom:hr.bottom,controlsHeight:cr.height,safeBottom:v18?(parseFloat(root.getComputedStyle(doc.documentElement).getPropertyValue('--safe-bottom'))||0):0}):layout({width:root.innerWidth,height:root.innerHeight,left:fr.left,headerBottom:hr.bottom,controlsTop:cr.top,controlsBottom:cr.bottom});
   if(v18&&p.landscape&&p.compact)doc.body.dataset.homeCompactV18='true';
   reserve(notice);if(p.landscape||v9)reserve(info);if(v9&&meters)reserve(meters);
   active=true;landscape=p.landscape;doc.body.dataset.homeViewportV8='true';
