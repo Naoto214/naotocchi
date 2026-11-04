@@ -28,7 +28,9 @@ async function run(out){
    if(mode==='resize')body=body.replace('renderer.setSize(W, H, false); place();',"if(globalThis.__fault) throw new Error('injected resize'); renderer.setSize(W, H, false); place();");
    await route.fulfill({response,body});
   });
-  await page.goto(base+'/index.html',{waitUntil:'domcontentloaded'});await page.locator('.device.ui-home-active').waitFor({timeout:60000});
+  // The held module is also imported by Home. Waiting for DOMContentLoaded
+  // deadlocks the fault injector itself; the real Home-ready predicate follows.
+  await page.goto(base+'/index.html',{waitUntil:'commit'});await page.locator('.device.ui-home-active').waitFor({timeout:60000});
   return {page,ctx,release};
  }
  async function enter(p){await p.locator('#travelBtn').click();await p.locator('#meguruEnterBtn').click();}

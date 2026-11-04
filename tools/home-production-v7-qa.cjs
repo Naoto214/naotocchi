@@ -37,7 +37,7 @@ if(p7.has('comment'))setTimeout(()=>HomeReleaseQA.commentCase(p7.get('kind')||'p
 })();`);
 fs.writeFileSync(path.join(out,'v7-qa-script.js'),js);
 fs.copyFileSync(path.join(out,'v5-qa-diorama.js'),path.join(out,'v7-qa-diorama.js'));
-fs.writeFileSync(path.join(out,'v7-qa.html'),fs.readFileSync(path.join(out,'v5-qa.html'),'utf8').replaceAll('v5-qa','v7-qa'));
+fs.writeFileSync(path.join(out,'v7-qa.html'),fs.readFileSync(path.join(out,'v5-qa.html'),'utf8').replaceAll('v5-qa','v7-qa').replace(/<body\b[^>]*>/,tag=>tag.replace(/\sdata-home-(?:viewport-version|display-version)="[^"]*"/g,'')));
 fs.mkdirSync(path.join(out,'v7-review'),{recursive:true});
 fs.writeFileSync(path.join(out,'v7-review/index.html'),fs.readFileSync(path.join(out,'v5-review/index.html'),'utf8').replaceAll('VERSION 5','VERSION 7').replaceAll('v5-qa','v7-qa'));
 const texts=['うれしいな','今日はいい日だった','遊びの途中で、ふと何かを思い出したような顔をした','きれいな景色を見て、しばらく立ちどまっていた。となりの仲間と目が合って、小さく笑った。','遊びの途中で、ふと何かを思い出したような顔をした。きれいな景色を見て、しばらく立ちどまっていた。となりの仲間と目が合って、小さく笑った。今日のことを、明日もおぼえていられたらいいなと思った。'];

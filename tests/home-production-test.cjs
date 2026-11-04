@@ -41,7 +41,16 @@ test('production runtime harness loads the exact shipped presenter and model',()
 });
 test('latest-main game catalogs, conversations, formal images and other games stay byte-identical',()=>{
  const cp=require('child_process');const unchanged=['assets/characters','prototypes','conversation-*.js','relationship-*.js','individuality*.js','item-*.js','games.js','quick.js','style.css','ui.css','character-world-master.v1.js'];
- assert.equal(cp.execFileSync('git',['diff','--name-only',testedMain,'--',...unchanged],{encoding:'utf8'}).trim(),'');
+ // Exact reviewed adoption is allowed; unrelated games and any unreviewed bytes still fail.
+ const reviewed=JSON.parse(fs.readFileSync('docs/naopoyo-time-hand-chapter1-20261102/ci-repair/reviewed-prototype-blobs.json')).files;
+ const changed=cp.execFileSync('git',['diff','--name-only',testedMain,'--',...unchanged],{encoding:'utf8'}).trim().split('\n').filter(Boolean);
+ for(const file of changed){
+  assert.ok(Object.hasOwn(reviewed,file),'unreviewed protected change: '+file);
+ }
+ for(const [file,hash] of Object.entries(reviewed)){
+  assert.ok(fs.existsSync(file),'retained approved file: '+file);
+  assert.equal(cp.execFileSync('git',['hash-object','--',file],{encoding:'utf8'}).trim(),hash,'approved bytes: '+file);
+ }
  const original=cp.execFileSync('git',['ls-tree','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa'],{encoding:'utf8'}).trim().split('\n').filter(p=>p.startsWith('home-')&&/\.(js|mjs|css)$/.test(p));
  assert.equal(cp.execFileSync('git',['diff','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa','--',...original],{encoding:'utf8'}).trim(),'');
 });
