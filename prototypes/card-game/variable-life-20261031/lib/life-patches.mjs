@@ -417,11 +417,16 @@ export const EFFECTS_V6_LOG=[['v6-photo-log',"case 'growthByValue':{const n=Math
 //   hold    : VERSION 5 (smart4) — unchanged.
 //   adaptive: now vs later, where later = (5 + 10 × P(final>=11, discounted by the opponent's counter chance) × P(behind then,
 //             from the current win estimate)) × late weight × (1 − risk of never finding time for it, from the own hand size);
-//             now = the card's value this turn after its time opportunity cost (0 when the time would be unused). Uses now for
-//             +15, the final round, or reaching 100. Only own hand, public counts and public state are read.
+//             now = +5 minus this turn's time opportunity cost (0 when the time would be unused); both sides are compared in
+//             growth points (the CPU's round weight is not applied to one side only). Uses now for +15, the final round, or 100. Only own hand, public counts and public state are read.
 const NAGA_HOLD="if(id==='X-N-nagaiki'){const big=F>=11&&behind;if(big||o.round>=F)return G(big?15:5)-3-spend;const ext=ownHand(o).some(c=>c.name==='XI'||c.name==='XII');const pExt=F>=11?1:ext&&o.round<=10?.75:o.round<=6?.35:o.round<=8?.25:.12;const d=op.growth-me.growth,pBehind=d>0?.85:d>-10?.45:.2;if(me.growth<100&&me.growth+5>=100&&!o.life?.holding?.[o.seat])return G(5)+10-3-spend;const later=(5+10*pExt*pBehind)*2.2*.95;if(later>G(5))return -1;return G(5)-3-spend;}";
 const NAGA_EARLY="if(id==='X-N-nagaiki'){const big=F>=11&&behind;if(!big&&behind&&o.round<10&&ownHand(o).some(c=>c.name==='XI'||c.name==='XII'))return -1;return G(big?15:5)-3-spend;}";
-const NAGA_ADAPTIVE="if(id==='X-N-nagaiki'){const big=F>=11&&behind;if(big||o.round>=F)return G(big?15:5)-3-spend;if(me.growth<100&&me.growth+5>=100&&!o.life?.holding?.[o.seat])return G(5)+10-3-spend;const ext=ownHand(o).some(c=>c.name==='XI'||c.name==='XII');const oh=op.handCount??op.hand?.length??0,qC=(op.time??0)>=2?1-Math.pow(.92,oh):0;const pExt=(F>=11?1:ext&&o.round<=10?.75:o.round<=6?.35:o.round<=8?.25:.12)*(F>=11?1:1-.5*qC);const pW=winP(o,F),pBehind=Math.min(.95,Math.max(.05,1-pW));const hs=ownHand(o).length,crowd=hs>=7?.3:hs>=5?.15:.05;const later=(5+10*pExt*pBehind)*2.2*(1-crowd);if(later>G(5)-spend)return -1;return G(5)-3-spend;}";
+const NAGA_ADAPTIVE="if(id==='X-N-nagaiki'){const big=F>=11&&behind;if(big||o.round>=F)return G(big?15:5)-3-spend;if(me.growth<100&&me.growth+5>=100&&!o.life?.holding?.[o.seat])return G(5)+10-3-spend;const ext=ownHand(o).some(c=>c.name==='XI'||c.name==='XII');const oh=op.handCount??op.hand?.length??0,qC=(op.time??0)>=2?1-Math.pow(.92,oh):0;const pExt=(F>=11?1:ext&&o.round<=10?.75:o.round<=6?.35:o.round<=8?.25:.12)*(F>=11?1:1-.5*qC);const pW=winP(o,F),pBehind=Math.min(.95,Math.max(.05,1-pW));const hs=ownHand(o).length,crowd=hs>=7?.3:hs>=5?.15:.05;const later=(5+10*pExt*pBehind)*(1-crowd)*.95;if(later>5-spend/growthMult(o))return -1;return G(5)-3-spend;}";
 if(!SMART4.includes(NAGA_HOLD))throw Error('smart4 naga text changed');
 export function policyV6(naga='hold'){const [h,s,n]=policyV5();const body=naga==='early'?NAGA_EARLY:naga==='adaptive'?NAGA_ADAPTIVE:NAGA_HOLD;
  return [[h[0],h[1],h[2].replace(NAGA_HOLD,body)],s,n];}
+// Trial only (VERSION 6): like policyTrialV5, plus 'v6' (default: situation-based ながいき). 'v5' keeps VERSION 5's hold rule.
+export function policyTrialV6(){const p=policyTrialV5();
+ const disp="{if(globalThis.__timeCpu==='v5'){"+NAGA_HOLD+"}else{"+NAGA_ADAPTIVE+"}}";
+ if(!p[0][2].includes(NAGA_HOLD))throw Error('trial v6: naga text not found');
+ return [[p[0][0],p[0][1],p[0][2].replace(NAGA_HOLD,disp)],p[1],p[2]];}

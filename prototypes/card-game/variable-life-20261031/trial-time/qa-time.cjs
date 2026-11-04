@@ -45,7 +45,7 @@ try{for(const [name,viewport] of process.env.QA_ONLY_CPU?[]:[['iphone-portrait',
  assert.match(await p.locator('#life-trial-note').innerText(),/特殊カウンター[\s\S]*最後に出したカードだけが成立/);
  await p.locator('#time-config-A').selectOption('H8');await p.locator('#time-config-B').selectOption('L3');await shot('setup');
  await p.locator('#new').tap();await reveal();await p.locator('#game').waitFor({state:'visible'});
- assert.match(await p.locator('body').innerText(),/時のカード試遊版：CPU判断 VERSION 5／A：各2（8枚）（8枚入れ替え）／B：XI×1・XII×2（延長）（3枚入れ替え）/);
+ assert.match(await p.locator('body').innerText(),/時のカード試遊版：CPU判断 VERSION 6／A：各2（8枚）（8枚入れ替え）／B：XI×1・XII×2（延長）（3枚入れ替え）/);
  {const g=JSON.parse(await saved()),n=(s,id)=>g.decks[s].filter(c=>c===id).length;for(const id of ['X-T-IX','X-T-X','X-T-XI','X-T-XII'])assert.equal(n('A',id),2,`Aに${id}×2`);
   assert.deepEqual([n('B','X-T-IX'),n('B','X-T-X'),n('B','X-T-XI'),n('B','X-T-XII')],[0,0,1,2],'B は XI×1・XII×2');assert.equal(g.decks.A.length,40);assert.equal(g.decks.B.length,40);}
  const keys=await p.evaluate(()=>{const out=[];for(let i=0;i<localStorage.length;i++)out.push(localStorage.key(i));return out;});assert.ok(keys.every(k=>k.startsWith(PREFIX)));
@@ -109,7 +109,7 @@ try{for(const [name,viewport] of process.env.QA_ONLY_CPU?[]:[['iphone-portrait',
 // 5) CPU 対戦（VERSION 2）：CPU の判断の切り替え、CPU はデッキ別の推奨構成（アイテム・じゅんび）、人は各1。人はパスだけで最後まで。
 {const ctx=await b.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:2});const p=await ctx.newPage();p.on('pageerror',e=>errors.push(`cpu: ${e.message}`));
  await p.goto(URL0);await p.locator('#solo-open').tap();await p.locator('#time-cpu').selectOption('v1');assert.equal(await p.evaluate(()=>globalThis.__timeCpu),'v1');
- await p.locator('#time-cpu').selectOption('v4');assert.equal(await p.evaluate(()=>globalThis.__timeCpu),'v4');
+ await p.locator('#time-cpu').selectOption('v4');assert.equal(await p.evaluate(()=>globalThis.__timeCpu),'v4');await p.locator('#time-cpu').selectOption('v5');assert.equal(await p.evaluate(()=>globalThis.__timeCpu),'v5');await p.locator('#time-cpu').selectOption('v6');assert.equal(await p.evaluate(()=>globalThis.__timeCpu),'v6');
  await p.locator('#cpu-deck-mode').selectOption('choose');await p.locator('#cpu-deck-type').selectOption('item');
  const human=await p.locator('#human-seat').inputValue(),cpuSeat=human==='A'?'B':'A';await p.locator('#time-config-'+human).selectOption('B4');await p.locator('#time-config-'+cpuSeat).selectOption('rec');
  await p.locator('#new').tap();await p.locator('#game').waitFor({state:'visible'});
