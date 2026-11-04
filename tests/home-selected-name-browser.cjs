@@ -93,20 +93,14 @@ async function tap(page,kind,single=false){
  const drag=await page.evaluate(()=>HomeReleaseInputTrace.filter(t=>t.type==='move'&&t.args[2]==='drag'));
  assert.ok(drag.length,'drag reaches the existing move handler');assert.equal(drag.at(-1).result,true,'drag keeps a valid walking route');rec.checks.push({drag:true});
  if(kind!=='single')verifyPaint(await inspect(page),'大人のいぬ');
- const ground=await page.evaluate(()=>{
-  const q=HomeReleaseQA,d=q.detail(),v=NaotocchiHomeViewport.residentPresentation(),s=NaotocchiHomeViewport.presentationRect(document.getElementById('castStage'));
-  const a=d.actors.find(a=>a.kind==='pet'),b=q.inspect().bounds[d.actors.indexOf(a)],nav=q.inspect().scene.navigation,f=document.querySelector('.screen-frame').getBoundingClientRect();
-  for(let y=b.bottom-8;y>b.top;y-=12)for(let x=b.left+8;x<b.right;x+=12){
-   if(!nav.valid({x,y})||Math.hypot(x-a.x,y-a.y)<20||!nav.route(a,{x,y},b).length)continue;
-   const px=v.x+(s.left+x-v.x)*v.scaleX,py=v.y+(s.top+y-v.y)*v.scaleY;
-   if(px<=f.left||px>=f.right||py<=f.top||py>=f.bottom)continue;
-   if(d.actors.some(c=>Math.abs(x-c.x)<=Math.max(22,c.w/2,c.w*v.bodyScale/v.scaleX/2)&&y>=c.y-Math.max(44,c.h,c.h*v.bodyScale/v.scaleY)&&y<=c.y+10))continue;
-   const hit=document.elementFromPoint(px,py),stage=document.getElementById('castStage');
-   if(hit===stage||stage.contains(hit))return {x:px,y:py};
-  }throw Error('No exposed walkable ground');
- });
- await page.touchscreen.tap(ground.x,ground.y);
- assert.ok(await page.evaluate(()=>HomeReleaseInputTrace.some(t=>t.type==='move'&&t.args[2]==='ground'&&t.result)),'ground tap retains movement');rec.checks.push({ground:true});
+ // Hold only input sampling and delivery still; the live collision-aware
+ // helper chooses reachable ground without moving or removing residents.
+ await page.clock.install();await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+1000));
+ const ground=await page.evaluate(require('./helpers/home-production-pointer-target.cjs'),'tap');
+ const groundTraceStart=await page.evaluate(()=>HomeReleaseInputTrace.length);
+ await page.touchscreen.tap(ground.to.x,ground.to.y);
+ assert.ok(await page.evaluate(start=>HomeReleaseInputTrace.slice(start).some(t=>t.type==='move'&&t.args[2]==='ground'&&t.result),groundTraceStart),'ground tap retains movement');
+ await page.clock.resume();rec.checks.push({ground:true});
  await page.setViewportSize({width:844,height:390});await page.waitForTimeout(800);
  for(const actor of kinds)rec.checks.push({landscape:await tap(page,actor,kind==='single')});
  if(kind!=='single'){await page.evaluate(()=>HomeReleaseQA.notices());rec.checks.push({landscapeNotices:await tap(page,'pet')});await page.evaluate(()=>HomeReleaseQA.resetDisplay());}
