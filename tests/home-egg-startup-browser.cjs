@@ -21,8 +21,10 @@ const server=http.createServer((req,res)=>{const p=path.resolve(root,'.'+new URL
  assert.match(await page.locator('.home-v6-egg-world').evaluate(e=>e.style.backgroundImage),/home-interior-c/);
  await page.locator('#playWithBtn').tap();
  assert.equal(await page.locator('#message').innerText(),'たまごが、ほんのりあたたかい。');
- await page.screenshot({path:path.join(out,engine+'-waiting.png')});
  release();await page.waitForFunction(()=>document.querySelector('.home-v6-egg-world .home-art-canvas')?.width>0);
+ // WebKit font readiness can wait on the deliberately held module request.
+ // Keep all pre-release visibility/tap assertions above; capture after release.
+ await page.screenshot({path:path.join(out,engine+'-resumed.png')});
  // Finish the original warming flow after background readiness.
  for(let i=0;i<4;i++){await page.locator('#playWithBtn').tap();await page.waitForTimeout(150);}
  await page.waitForFunction(()=>!document.querySelector('.home-v6-egg-world')&&document.body.dataset.livingHome==='art-25d');
