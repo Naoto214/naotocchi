@@ -30,7 +30,7 @@ test('start trap activates once, consumes prepared source and allows response',(
  let s=fixture();const trap=put(s,'A','G-real-fishing');s=go(s,'place',a=>a.source===trap);for(let i=0;i<100&&s.serial<3;i++)s=s.choice?go(s,'choose'):go(s,'pass');s=choices(s);assert.equal(s.phase,'trigger');s=go(s,'trigger',a=>a.source===trap);assert.equal(s.players.A.board.prepared.length,0);assert.equal(s.chain.length,1);s=resolve(s);s=choices(s);assert.ok(s.players.A.discard.includes(trap));e.validate(s);
 });
 test('replacement partner relationship loss and equipment cleanup apply centrally',()=>{
- let s=fixture();const partner=field(s,'B','P-cliff_goat','partner');s.players.B.relationship=0;const source=put(s,'A','E-misunderstanding');s=go(s,'programPlay',a=>a.source===source);s=resolve(s);assert.ok(s.players.B.hand.includes(partner));assert.equal(s.players.B.growth,10);assert.equal(s.players.B.relationship,null);
+ let s=fixture();const partner=field(s,'B','P-cliff_goat','partner');s.players.B.relationship=0;const source=put(s,'A','E-misunderstanding');s=go(s,'programPlay',a=>a.source===source);s=resolve(s);assert.ok(s.players.B.hand.includes(partner));assert.equal(s.players.B.growth,15,'479: 結婚前（交際0）の別れは−5');assert.equal(s.players.B.relationship,null);
 });
 test('new custom decks complete R10 and replay exactly after choices',()=>{
  const deck=[...e.DEFAULT_DECK];deck[0]='M-beetle-07';deck[3]='M-cat-03';deck[10]='G-real-fishing';deck[15]='G-crane-game-3d';deck[18]='E-midlife-flower';deck[25]='G-dot-eater';let s=e.createGame(719,{A:deck,B:deck});
