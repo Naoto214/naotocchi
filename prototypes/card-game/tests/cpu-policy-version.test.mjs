@@ -19,8 +19,9 @@ const cpuSave=(f,policy,policySeed)=>JSON.stringify({version:'cpu-match-1',polic
 function stepOnce(raw){const s=restoreMatch(raw);s.reveal(); // the app reveals the human seat after a restore (app.mjs)
  assert.ok(s.cpuPending,'CPU to move');const before=JSON.parse(s.engineSave).commands.length;
  assert.ok(s.stepCpu(s.projection.revision));const cmds=JSON.parse(s.engineSave).commands;assert.equal(cmds.length,before+1);return {session:s,command:JSON.parse(cmds.at(-1))};}
-test('方針の版：現在は heuristic-2、既知の版は heuristic-1 と heuristic-2',()=>{assert.equal(POLICY_VERSION,'heuristic-2');assert.deepEqual([...POLICY_VERSIONS],['heuristic-1','heuristic-2']);});
-test('新しいCPU対戦は heuristic-2 で保存される',()=>{const s=new CpuSession({humanSeat:'A',difficulty:'intermediate',policySeed:3});s.start(e.createGame(5));assert.equal(JSON.parse(s.save()).policy,'heuristic-2');});
+// heuristic-3（480）：中級だけ、恋人の結婚の能力を評価に加えた版。heuristic-1・2 の保存はそのまま再開できる（下のテスト）。
+test('方針の版：現在は heuristic-3、既知の版は heuristic-1・heuristic-2・heuristic-3',()=>{assert.equal(POLICY_VERSION,'heuristic-3');assert.deepEqual([...POLICY_VERSIONS],['heuristic-1','heuristic-2','heuristic-3']);});
+test('新しいCPU対戦は heuristic-3 で保存される',()=>{const s=new CpuSession({humanSeat:'A',difficulty:'intermediate',policySeed:3});s.start(e.createGame(5));assert.equal(JSON.parse(s.save()).policy,'heuristic-3');});
 test('heuristic-1 の途中保存は再開でき、続きも heuristic-1 で指す（再保存しても heuristic-1）',()=>{
  const f=F['ski:power'];let differs=0;
  for(let seed=1;seed<=12;seed++){
@@ -35,8 +36,9 @@ test('heuristic-1 の途中保存は再開でき、続きも heuristic-1 で指�
 test('未知の方針の版は従来どおり拒否する',()=>{assert.throws(()=>restoreMatch(cpuSave(F['ski:power'],'heuristic-9',1)),/CPU保存形式が異なります/);});
 test('heuristic-1 のCPU同士の対戦は、実装前の main の保存と完全に一致する',()=>{
  const got=goldenGames('heuristic-1');got.forEach((g,i)=>assert.equal(g.sha,golden[i].sha,`game ${i} seed ${g.seed}`));});
-test('新しいルールの版（hotseat-7）でも、同じCPU対戦は同じ手順になる（別れのないデッキ）',()=>{
- const old=goldenGames('heuristic-1'),now=goldenGames('heuristic-1',e.VERSION);assert.equal(e.VERSION,'hotseat-7');
+// hotseat-7（結婚前の別れ−5）の版でも、別れのないデッキの手順は変わらない。hotseat-8 では恋人の結婚の能力が加わるので、この比較は hotseat-7 で行う。
+test('ルールの版 hotseat-7 でも、同じCPU対戦は同じ手順になる（別れのないデッキ）',()=>{
+ const old=goldenGames('heuristic-1'),now=goldenGames('heuristic-1','hotseat-7');assert.ok(e.RULE_VERSIONS.includes('hotseat-7'));
  now.forEach((g,i)=>{assert.equal(g.commandsSha,old[i].commandsSha,`game ${i}`);assert.deepEqual(g.result,old[i].result);});});
 test('heuristic-2：初級だけの対戦は heuristic-1 と同一、中級を含む対戦も完走する',()=>{
  const got=goldenGames('heuristic-2');GAMES.forEach((g,i)=>{const beginnerOnly=g.difficulty.A==='beginner'&&g.difficulty.B==='beginner';

@@ -338,3 +338,11 @@ body>header h1{margin:0;min-width:0}
 #card-dialog.card-detail .detail-toolbar{flex-wrap:wrap}
 #card-dialog.card-detail .detail-toolbar>span{min-width:0;flex:1}
 #card-dialog.card-detail .stage-scroll{align-items:flex-start;overflow:auto}
+/* 恋人カードの二段表示（こいびとのとき／♥ 結婚したら、480）。詳細表示などの大きいカードで、正式の .card-copy の規則より後・詳細さを上げて上書きする。 */
+.card-face.lover-two:not(.main-face):not(.compact) .card-copy{flex:0 0 47%;font-size:3.25cqw;line-height:1.38;overflow-y:auto;padding:2.6% 3%}
+.card-face.lover-two:not(.main-face):not(.compact) .card-art{min-height:0}
+.card-face.lover-two.long-copy:not(.main-face):not(.compact) .card-copy{flex-basis:53%;font-size:3.05cqw}
+.card-face.lover-two .card-copy .lover-block{margin:0;line-height:1.38;white-space:normal}
+.card-face.lover-two .card-copy .lover-block b{display:block;font-size:3.1cqw;letter-spacing:.06em;color:#6e5a36;margin-bottom:.5%}
+.card-face.lover-two .card-copy .lover-married{margin-top:1.8%;padding-top:1.8%;border-top:1px dashed #b79a51}
+.card-face.lover-two .card-copy .lover-married b{color:#C04479}
