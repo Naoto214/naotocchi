@@ -18,7 +18,7 @@ def ident(a, b, field_b='saveSha256'):
             'notCompleted': sum(r['status'] != 'completed' for r in [*ka.values(), *kb.values()]),
             'policy': sorted({r['policy'] for r in ka.values()} | {r['policy'] for r in kb.values()})}
 out['E1'] = {'OFFICIAL=L-A0': ident('EQ_OFF', 'EQ_LA0'), 'OFFICIAL=I7(no new cards)': ident('EQ_OFF', 'EQ_I7N0')}
-out['E2'] = {'I-7(experiment IDs)=I7(candidate IDs, mapped back)': ident('EQ_IX', 'EQ_I7P3', 'saveSha256Unmapped')}
+out['E2'] = {} if not glob.glob('runs-v7/EQ_I7P3-shard3.jsonl.gz') else {'I-7(experiment IDs)=I7(candidate IDs, mapped back)': ident('EQ_IX', 'EQ_I7P3', 'saveSha256Unmapped')}
 # ---- hotseat-8 conditions ----
 cond = {'A0': L('EQ_LA0'), 'B4': L('M_B4'), 'P3': L('EQ_IX'), 'REC': L('M_REC'), 'RECP3': L('M_RECP3')}
 out['conditions'] = {}
