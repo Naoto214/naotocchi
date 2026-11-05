@@ -88,7 +88,12 @@ test('latest-main game catalogs, conversations, formal images and other games st
   'prototypes/card-game/ui-presentation.mjs',
   'prototypes/card-game/ui-session.mjs']);
  const reviewed=JSON.parse(fs.readFileSync('docs/naopoyo-time-hand-chapter1-20261102/ci-repair/reviewed-prototype-blobs.json')).files;
- const changed=cp.execFileSync('git',['diff','--name-only',testedMain,'--',...unchanged],{encoding:'utf8'}).trim().split('\n').filter(Boolean);
+ // U18 (owner-approved 2026-11-05): Draft PR #498's experiment directory only. It is never served (checked here and in
+ // tests/pages/test_experiment_not_served.py); every other protected path, including every other prototype, stays covered.
+ const experiments=['prototypes/card-game/variable-life-20261031'];
+ const allow=JSON.parse(fs.readFileSync(require('path').join(__dirname,'..','tools/pages/allowlist.json'),'utf8')).files;
+ for(const dir of experiments)assert.equal(allow.filter(f=>f===dir||f.startsWith(dir+'/')).length,0,'experiment files must not be served: '+dir);
+ const changed=cp.execFileSync('git',['diff','--name-only',testedMain,'--',...unchanged,...experiments.map(d=>':(exclude)'+d)],{encoding:'utf8'}).trim().split('\n').filter(Boolean);
  assert.deepEqual(changed.filter(file=>!approved.has(file)&&!polishFiles.has(file)&&!cardNameFiles.has(file)&&!Object.hasOwn(reviewed,file)),[],'unapproved protected file changes');
  const originalAdditions=changed.filter(file=>!polishFiles.has(file)&&!cardNameFiles.has(file)&&!Object.hasOwn(reviewed,file));
  const cardNameChanges=changed.filter(file=>cardNameFiles.has(file));
