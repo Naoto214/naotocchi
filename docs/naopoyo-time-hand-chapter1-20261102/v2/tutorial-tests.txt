@@ -1,0 +1,44 @@
+✔ tap selection and adjacent destination use real moves (3.635271ms)
+✔ diagonal drag does not become two orthogonal moves (1.200136ms)
+✔ continuous stroke collects all seven and reaches exit (2.246892ms)
+✔ cancel invalidates old gesture before Undo/retry or rotation (0.194172ms)
+✔ failed drag cannot jump wall or teleport (0.330727ms)
+✔ failed pointer-down cancels the whole gesture instead of moving later (1.056931ms)
+✔ successful move callback can cancel a gesture without start rearming it (0.504629ms)
+✔ 8-direction real entry 0,-1 (3.679457ms)
+✔ 8-direction real entry 1,-1 (0.577479ms)
+✔ 8-direction real entry 1,0 (0.29259ms)
+✔ 8-direction real entry 1,1 (0.316576ms)
+✔ 8-direction real entry 0,1 (1.138844ms)
+✔ 8-direction real entry -1,1 (0.313222ms)
+✔ 8-direction real entry -1,0 (0.233581ms)
+✔ 8-direction real entry -1,-1 (0.276676ms)
+✔ 90 degrees for cardinal and diagonal; keeps direction after turn (0.388605ms)
+✔ no jump, maximum7, level1 remains, shortage stops (4.240987ms)
+✔ generated ones block self closure, no loop (0.619872ms)
+✔ magic gate and rock close diagonal routes (0.437548ms)
+✔ 8+8 remains 8 plus surplus8, different species only swaps (0.869188ms)
+✔ seeded obstacles: mass, unique cells, specials, support, bounded trace and one split per spike (50.803942ms)
+✔ T1: legal witness, exact births, no premature clear, mass, Undo and replay (5.038993ms)
+✔ T2: legal witness, exact births, no premature clear, mass, Undo and replay (1.070922ms)
+✔ T3: legal witness, exact births, no premature clear, mass, Undo and replay (1.21649ms)
+✔ T4: legal witness, exact births, no premature clear, mass, Undo and replay (1.171753ms)
+✔ T5: legal witness, exact births, no premature clear, mass, Undo and replay (2.035133ms)
+✔ T6: legal witness, exact births, no premature clear, mass, Undo and replay (0.898732ms)
+✔ T7: legal witness, exact births, no premature clear, mass, Undo and replay (1.598346ms)
+✔ T8: legal witness, exact births, no premature clear, mass, Undo and replay (2.27281ms)
+✔ T4: straight split without moving frog is not success (0.315715ms)
+✔ T8: an unsplit level8 reaching the exit is not success (0.311629ms)
+✔ blocked/invalid input leaves moves, history, state untouched (0.187753ms)
+✔ preview uses the same real move and never mutates session (1.084902ms)
+✔ corrupt saves are rejected atomically (0.262244ms)
+✔ T7 actually falls and merges; generation and final boards differ (0.509226ms)
+✔ T4 cannot pass with irrelevant frog move and diagonal approach to the target (0.286441ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 172.573416

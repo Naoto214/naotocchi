@@ -1,0 +1,46 @@
+@import url('../naopoyo-chapter2/example-style.css');
+/* Direct reuse: official chapter1 -> world, including stage-grid and victory. */
+@import url('../naopoyo-chapter1/style.css');
+main{grid-template-columns:minmax(0,1fr)}header,.intro,.arena,nav,.intro>div{min-width:0}
+.intro .stage-heading{justify-content:flex-start;align-items:baseline;gap:10px;color:inherit;flex-wrap:nowrap}
+#title{min-width:0;overflow:hidden;text-overflow:ellipsis}#moves{flex:0 0 auto;white-space:nowrap;font-size:13px;line-height:1.2;letter-spacing:0;color:#d1dce7;font-variant-numeric:tabular-nums}
+.scene{width:var(--board-size,260px);height:var(--board-size,260px)}canvas{width:100%;height:100%}
+nav{grid-template-columns:repeat(5,minmax(0,1fr))}nav button{min-width:0;white-space:nowrap;padding:6px 2px;font-size:12px}nav button span{font-size:11px}
+#status{margin:0}dialog{overflow:auto}dialog .stage-grid{grid-template-columns:repeat(2,minmax(0,1fr))}dialog .level{min-width:0;overflow-wrap:anywhere}
+#hint-text{font-weight:bold}input{width:20px;height:20px;vertical-align:middle}
+#replay{min-width:0}.replay-top{display:flex;gap:6px;justify-content:space-between;align-items:center;margin-bottom:4px;font-size:12px}.replay-top select{min-width:0;max-width:65%;min-height:44px;font:inherit}.tools{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}.tools button{min-width:0;font-size:11px;padding:2px}
+main:has(#replay:not([hidden])){grid-template-rows:44px 44px minmax(0,1fr) 22px 92px}
+@media(max-width:350px){nav button span{display:block;margin:0;font-size:10px}nav button{line-height:1.1;min-height:44px}}
+@media(orientation:landscape) and (max-height:550px){main{grid-template-columns:minmax(150px,1fr) minmax(0,2fr);column-gap:12px}#replay{grid-column:1}main:has(#replay:not([hidden])){grid-template-rows:44px 44px minmax(0,1fr) 92px}}
+
+main{padding-left:max(10px,env(safe-area-inset-left));padding-right:max(10px,env(safe-area-inset-right))}
+
+.example-head select{min-width:0;max-width:70%;font:inherit;min-height:44px}.example-head button{min-height:44px}
+dialog.example{background:#192b3d;color:#e7e9ee}.example-note{color:#a9bbcd}
+
+/* V5: keep five controls and their labels. Stack icon/label to avoid Safari
+   inline text overflowing; the longest label gets a larger column. */
+#play-tools{grid-template-columns:minmax(0,1fr) minmax(0,1.32fr) minmax(0,1fr) minmax(0,1.16fr) minmax(0,1fr);gap:4px}
+#play-tools button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:44px;padding:3px 1px;font-size:14px;line-height:1;border-radius:12px;letter-spacing:0}
+#play-tools button span{display:block;margin:0;font-size:10px;line-height:1.2;white-space:nowrap;letter-spacing:0}
+@media(orientation:landscape) and (max-height:550px){main{grid-template-columns:minmax(280px,1fr) minmax(0,2fr);column-gap:8px}#play-tools button span{font-size:9px}}
+
+/* V6: existing information region grows to fit concise teaching text. */
+main{grid-template-rows:44px auto minmax(0,1fr) 22px 46px}
+#gravity{font:inherit;color:inherit;letter-spacing:inherit}
+#lesson-text,#lesson-goal{margin:2px 0 0;font-size:11px;line-height:1.45;letter-spacing:0;overflow-wrap:anywhere}
+#lesson-text{color:#c4d1dd}#lesson-goal{color:#f2e1ba;font-weight:600}
+@media(max-height:570px) and (orientation:portrait){main{grid-template-rows:36px auto minmax(0,1fr) 20px 44px}}
+@media(orientation:landscape) and (max-height:550px){main{grid-template-rows:44px auto minmax(0,1fr) 46px}.arena{grid-row:1/5}}
+
+.intro>div:first-child{flex-wrap:wrap;gap:2px 6px}
+
+/* Gravity marker inside A8, resting on the board floor; no input or collision. */
+.gravity-sign{position:fixed;transform-origin:top left;box-sizing:border-box;width:40px;height:40px;pointer-events:none;user-select:none;opacity:0}
+.gravity-sign[hidden]{display:none}
+
+/* The sign explains gravity in a readable speech bubble without resizing the board. */
+.gravity-help{position:fixed;z-index:5;box-sizing:border-box;margin:0;padding:14px 16px;border:2px solid #99734c;border-radius:16px;background:#fff6df;color:#392d24;box-shadow:0 5px 18px #0005;font:400 16px/1.65 system-ui,sans-serif;letter-spacing:0;text-align:left;transform:translateY(-100%);pointer-events:none;overflow-wrap:anywhere}
+.gravity-help[hidden]{display:none}
+.gravity-help::after{content:"";position:absolute;left:var(--tail-left,12px);bottom:-8px;width:12px;height:12px;background:#fff6df;border-right:2px solid #99734c;border-bottom:2px solid #99734c;transform:rotate(45deg)}
+.gravity-help strong{white-space:nowrap;font-weight:750;color:#814021}.gravity-help small{display:block;margin-top:8px;color:#706051;font-size:11px;line-height:1.5}

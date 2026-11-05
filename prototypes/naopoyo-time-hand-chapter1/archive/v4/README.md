@@ -1,0 +1,1 @@
+V4復元基準: f921fa293f28dd35ccbccae66db51bbd1c02372c。全盤面・解答・恋人救出案・画面資料を保存。session/replayのengine/priorities相対importだけ保管場所に合わせ変更。V4の完全起動版は上記GitコミットまたはSites version4から復元。旧保存キーは変更/削除しない。

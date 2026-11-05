@@ -1,4 +1,3 @@
-import {createHomeWorld} from './home-production-world.mjs';
 import {artTransform,backdropComposition} from './home-production-transform.mjs';
 export function eggPose(host,stage,box=[0,0,128,128]){
  const t=artTransform(host,stage),size=Math.min(140,host.width*.34);
@@ -9,16 +8,21 @@ export function eggPose(host,stage,box=[0,0,128,128]){
 // Background-only egg adapter. The original sprite, pointer handlers, warming,
 // hatching and save state are owned exclusively by the unchanged game code.
 export function createEggPresentation(doc){
- let host=null,img=null,world=null,raf=0,last=0;
+ let host=null,img=null,world=null,raf=0,last=0,loadToken=null,environment=null;
  const win=doc.defaultView;
- const stopWorld=()=>{win.cancelAnimationFrame?.(raf);raf=0;world?.destroy();world=null;last=0;};
+ const stopWorld=()=>{loadToken=null;win.cancelAnimationFrame?.(raf);raf=0;world?.destroy();world=null;last=0;};
  function frame(now){if(!world)return;world.draw(last?Math.min(1,(now-last)/1000):0,{reducedMotion:!!win.matchMedia?.('(prefers-reduced-motion: reduce)').matches,paused:doc.visibilityState==='hidden'});last=now;raf=win.requestAnimationFrame(frame);}
  return {update({active,stage,sprite,asset,time,weather,season}){
   if(!active){stopWorld();host?.remove();host=null;img=null;delete doc.body.dataset.homeV6Egg;return;}
   if(!host){host=doc.createElement('div');host.className='home-living-world home-v6-egg-world';host.setAttribute('aria-hidden','true');img=doc.createElement('img');img.src='assets/home-v6-20261029/runtime/home-interior-c.webp';img.decoding='async';host.append(img);doc.body.append(host);}
   doc.body.dataset.homeV6Egg='true';
-  if(!world){world=createHomeWorld({container:host,document:doc,window:win});raf=win.requestAnimationFrame(frame);}
-  world.setEnvironment({region:'home',time,weather,season,...win.NaotocchiDaypartsQA});
+  environment={region:'home',time,weather,season,...win.NaotocchiDaypartsQA};
+  // The egg and its authored backdrop must not wait for the optional 3D graph.
+  if(!world&&!loadToken){const token=loadToken={};import('./home-production-world.mjs').then(({createHomeWorld})=>{
+   if(loadToken!==token||!host)return;
+   world=createHomeWorld({container:host,document:doc,window:win});world.setEnvironment(environment);raf=win.requestAnimationFrame(frame);
+  }).catch(()=>{/* Keep the same static backdrop when the optional renderer is unavailable. */});}
+  world?.setEnvironment(environment);
   const h=host.getBoundingClientRect(),s=stage.getBoundingClientRect(),p=eggPose(h,{left:s.left-h.left,top:s.top-h.top,width:s.width,height:s.height},doc.defaultView.NaotocchiCastBounds?.[asset]?.box);
   const composition=backdropComposition(h,{left:s.left-h.left,top:s.top-h.top,width:s.width,height:s.height});
   host.style.backgroundImage=`url("${img.src}")`;host.style.backgroundSize='cover';host.style.backgroundPosition='center';

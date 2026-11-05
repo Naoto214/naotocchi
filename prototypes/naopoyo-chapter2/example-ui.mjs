@@ -7,7 +7,7 @@ const arrows={'-1,-1':'↖','0,-1':'↑','1,-1':'↗','-1,0':'←','1,0':'→','
 const labels={split:'分裂',fall:'落下',merge:'合体',swap:'交換',rescue:'救出'};
 export function openExample(stage,onClose){
  const dialog=document.createElement('dialog');dialog.className='example';
- dialog.innerHTML=`<div class="example-shell"><div class="example-head"><strong></strong><button data-close>ゲームにもどる</button></div><div class="example-count"></div><div class="example-arena"><canvas aria-label="おてほんの盤面"></canvas></div><div class="example-info" aria-live="polite"></div><div class="example-controls"><button data-prev>前へ</button><button data-next>次へ</button><button data-play>再生</button><button data-reset>最初から</button></div><div class="example-note">前回見たところから再開。最初から見るときは「最初から」。</div></div>`;
+ dialog.innerHTML=exampleShell();
  document.body.append(dialog);const $=s=>dialog.querySelector(s),canvas=$('canvas');let replay=null,position=null,playing=false,last=0,clock={elapsed:0},closed=false;
  function remember(){if(replay&&position)position.save(replay.index);}
  function draw(){if(!replay)return;const q=replay.session,rect=canvas.getBoundingClientRect(),width=rect.width;render(canvas,q,{dpr:Math.min(devicePixelRatio||1,2)});
@@ -24,3 +24,6 @@ export function openExample(stage,onClose){
  $('.example-head strong').textContent=stage.title;$('.example-info').textContent='おてほんを読み込み中…';for(const b of dialog.querySelectorAll('.example-controls button'))b.disabled=true;dialog.showModal();requestAnimationFrame(tick);
  fetch(new URL(`./examples/${stage.number}.json`,import.meta.url)).then(r=>{if(!r.ok)throw Error('load');return r.json()}).then(data=>{if(closed)return;if(data.id!==stage.id)throw Error('stage mismatch');replay=new ExampleReplay(stage,data.path);let storage;try{storage=localStorage;}catch{}position=new ExamplePosition(storage,stage.id,data.path,stage.movementRules);replay.show(position.index);remember();$('[data-reset]').disabled=false;draw();}).catch(()=>{$('.example-info').textContent='おてほんを読み込めませんでした。ゲームに戻ってください。';for(const b of dialog.querySelectorAll('.example-controls button'))b.disabled=true;});
 }
+
+// Shared formal example layout; the D chapter supplies its existing session controls.
+export const exampleShell=()=>`<div class="example-shell"><div class="example-head"><strong></strong><button data-close>ゲームにもどる</button></div><div class="example-count"></div><div class="example-arena"><canvas aria-label="おてほんの盤面"></canvas></div><div class="example-info" aria-live="polite"></div><div class="example-controls"><button data-prev>前へ</button><button data-next>次へ</button><button data-play>再生</button><button data-reset>最初から</button></div><div class="example-note">前回見たところから再開。最初から見るときは「最初から」。</div></div>`;

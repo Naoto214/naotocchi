@@ -39,3 +39,6 @@ const currentHTML=fs.readFileSync('index.html','utf8').replaceAll('naotocchi-sav
 fs.writeFileSync(path.join(out,'current-production-qa.html'),currentHTML);
 fs.writeFileSync(path.join(out,'release-qa.html'),require('./home-production-qa-version.cjs')(currentHTML));
 fs.writeFileSync(path.join(out,'release-qa-seed.json'),JSON.stringify(seed));
+
+// Explicit legacy alias for guide/scroll suites; current-production-qa stays shipped.
+fs.writeFileSync(path.join(out,'historical-release-qa.html'),fs.readFileSync(path.join(out,'release-qa.html'),'utf8').replace(/<body\b[^>]*>/,tag=>tag.replace(/\sdata-home-(?:viewport-version|display-version)="[^"]*"/g,'')));

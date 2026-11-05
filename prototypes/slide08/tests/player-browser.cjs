@@ -191,9 +191,12 @@ const assert = require("node:assert/strict"),
       .locator("#dialogChoices")
       .getByRole("button", { name: "モード選択へ戻る", exact: true })
       .click();
-    await page.waitForURL('**/prototypes/naopoyo-chapter1/index.html');
+    await page.waitForURL('**/prototypes/naopoyo-time-hand-chapter1/index.html');
       await page.locator('#board').waitFor();
-      assert.equal(await page.title(), 'なおぽよ。｜ひかりの牢屋');
+      assert.equal(await page.title(), 'なおぽよ。｜第1章 地下牢');
+      assert.equal(await page.locator('a[href*="naopoyo-chapter2"]').count(),0);
+      // Old saves remain usable by their retained direct URL, outside the public chapter route.
+      await page.goto('http://127.0.0.1:8765/prototypes/naopoyo-chapter1/index.html');
       // The separate old twelve-stage runtime and saved continuation stay reachable.
       await page.locator('a[href="../naopoyo-rescue/index.html"]').click();
       await page.waitForURL('**/prototypes/naopoyo-rescue/index.html');

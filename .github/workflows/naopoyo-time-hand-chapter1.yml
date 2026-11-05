@@ -1,0 +1,45 @@
+name: Naopoyo Time Hand Chapter 1
+on:
+  pull_request:
+    paths:
+      - 'prototypes/naopoyo-time-hand-chapter1/**'
+      - '.github/workflows/naopoyo-time-hand-chapter1.yml'
+  workflow_dispatch:
+jobs:
+  chapter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test prototypes/naopoyo-time-hand-chapter1/tests/*.test.mjs
+      - run: npm install --prefix /tmp/naopoyo-dom --no-audit --no-fund jsdom@26.1.0
+      - run: NAOPOYO_JSDOM=/tmp/naopoyo-dom/node_modules/jsdom node prototypes/naopoyo-time-hand-chapter1/tests/gravity-help-dom.cjs
+      - run: NAOPOYO_FRESH=1 NAOPOYO_JSDOM=/tmp/naopoyo-dom/node_modules/jsdom node prototypes/naopoyo-time-hand-chapter1/tests/gravity-help-dom.cjs
+      - run: node prototypes/naopoyo-time-hand-chapter1/build-preview.mjs /tmp/chapter1-preview
+  formal-puzzles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test --test-concurrency=2 prototypes/naopoyo-chapter2/tests/*.test.mjs prototypes/naopoyo-chapter1/tests/*.test.mjs prototypes/naopoyo-insight/tests/*.test.mjs prototypes/naopoyo-world/tests/*.test.mjs prototypes/naopoyo-v2/tests/*.test.mjs prototypes/naopoyo-rescue/tests/*.test.mjs
+  card:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test --test-concurrency=2 prototypes/card-game/tests/*.test.mjs
+  runtime:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: npm test

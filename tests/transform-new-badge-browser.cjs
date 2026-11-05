@@ -6,7 +6,13 @@ const fs=require('fs'),assert=require('assert/strict');
 fs.mkdirSync('test-results/home-layout/transform-new',{recursive:true});
 const server=spawn('python3',['-m','http.server','8017','--bind','127.0.0.1'],{stdio:'ignore'});
 try {
-for(let i=0;i<50;i++){try{await fetch('http://127.0.0.1:8017');break;}catch{await new Promise(r=>setTimeout(r,100));}}
+// Probe with HEAD so the Python server cannot close a partially read HTML body.
+let ready=false;
+for(let attempt=0;attempt<50&&!ready;attempt++){
+ try{ready=(await fetch('http://127.0.0.1:8017/',{method:'HEAD'})).ok;}catch{}
+ if(!ready)await new Promise(resolve=>setTimeout(resolve,100));
+}
+assert.ok(ready,'local server serves the game entry point');
 for(const [engine,type] of Object.entries({chromium,webkit})){
 const browser=await type.launch();
 try {

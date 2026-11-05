@@ -141,14 +141,9 @@ test('every possible representative in a dense 26-companion Home receives one sa
 test('26 simultaneous expiries coalesce Home work while removing every transient',()=>{
  const h=harness(),s=setup(h,{companions:companionIds.map(id=>({id,bond:20}))});
  vm.runInContext('Math.random=()=>0.99',h.sandbox);h.dispatch(h.get('playWithBtn'),'click');h.advance(2499);
- let measures=0;const node=h.get('castStage'),original=node.getBoundingClientRect;
- node.getBoundingClientRect=()=>{measures++;return original();};
- // A production diorama measures the stage twice more than the legacy Home.
- // Compare with one actual render, rather than mistaking layout reads for renders.
- h.api.render();const oneRenderMeasures=measures;assert.ok(oneRenderMeasures>0);
- assert.equal((companionHTML(h).match(/\/positive.png/g)||[]).length,26);
- measures=0;h.advance(2);
- assert.equal(measures,oneRenderMeasures,'all expiries must share exactly one Home render');
+ // Count renders directly: production Home legitimately reads geometry several times per render.
+ let renders=0;const stop=h.api.observeRender(()=>renders++);try{h.advance(2);}finally{stop();}
+ assert.equal(renders,1,'26 expiries must coalesce into exactly one Home render');
  assert.ok(!companionHTML(h).includes('/positive.png'));
  assert.equal(positiveHearts(h).length,0);
 });
