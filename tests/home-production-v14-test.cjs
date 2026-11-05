@@ -37,7 +37,8 @@ test('V14 landscape paints exactly one full-height image without blur or repeate
   const contexts=[];const canvas=()=>{const calls=[],ctx={drawImage:(...a)=>calls.push(a),setTransform(){},fillRect(){},save(){},restore(){}};contexts.push({calls,ctx});return {style:{},getContext:()=>ctx,remove(){}};};
   const host={left:0,top:0,width,height},stage={left:16,top:134,width:343,height:380};
   const container={appendChild(){},getBoundingClientRect:()=>host};
-  const doc={body:{dataset:{homeViewportVersion:'12',homeTinyOverview:'true',homeDisplayVersion:'14'}},createElement:canvas,getElementById:()=>({getBoundingClientRect:()=>stage})};
+  const doc={body:{dataset:{homeViewportVersion:'12',homeTinyOverview:'true',homeDisplayVersion:'14'},style:{setProperty(){}}},
+   createElement:tag=>tag==='canvas'?canvas():{style:{},dataset:{}}, getElementById:()=>({getBoundingClientRect:()=>stage})};
   class Image{set src(v){this.onload();}}
   const world=createHomeWorld({container,document:doc,window:{Image,devicePixelRatio:1,NaotocchiHomeViewport:{residentPresentation:()=>({landscape:true})}}});
   world.setEnvironment({region:'home',time:'day',weather:'sunny'});world.draw(0,{reducedMotion:true});

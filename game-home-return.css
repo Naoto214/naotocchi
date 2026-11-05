@@ -1,0 +1,18 @@
+/* Each exit has a reserved place outside the game's controls. */
+.game-home-link {
+  display:inline-flex; align-items:center; justify-content:center; gap:.35em;
+  box-sizing:border-box; min-height:44px; padding:0 12px;
+  border:1px solid currentColor; border-radius:12px;
+  color:inherit; font:600 13px/1.25 system-ui,sans-serif;
+  text-decoration:none; white-space:nowrap; touch-action:manipulation;
+}
+.game-home-link:focus-visible {outline:3px solid #dd963c;outline-offset:2px}
+.game-home-link::before {content:"";width:.48em;height:.48em;border:solid currentColor;border-width:0 0 2px 2px;transform:rotate(45deg)}
+.game-home-bar {
+  position:sticky; top:0; z-index:3; padding:2px max(12px,env(safe-area-inset-right)) 2px max(12px,env(safe-area-inset-left));
+  padding-top:max(2px,env(safe-area-inset-top)); background:#f5f0e3; border-bottom:1px solid #c7d3c4;
+}
+.game-home-bar .game-home-link {background:#fffdf6;color:#355c50}
+header .brand ~ .game-home-link {margin-left:auto;color:#f4e9d2}
+header .brand ~ .game-home-link + button {margin-left:0}
+#achOverlay #achCloseBtn {width:auto;min-width:44px;min-height:44px;padding:0 10px;font-size:13px;white-space:nowrap}

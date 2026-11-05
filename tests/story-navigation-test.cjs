@@ -8,7 +8,7 @@ function run({search='?from=game',type='navigate',state=null}={}) {
   const links=[];
   const history={state,replaceState(value){this.state=value;}};
   const cover={style:{},prepend(link){links.push(link);}};
-  const context={URLSearchParams,location:{search},history,performance:{getEntriesByType:()=>[{type}]},document:{querySelector:(selector)=>selector === '.title-page' ? cover : null,createElement:()=>({style:{}})}};
+  const context={URLSearchParams,location:{search},history,performance:{getEntriesByType:()=>[{type}]},document:{querySelector:(selector)=>selector === '.toolbar' ? cover : null,createElement:()=>({style:{}})}};
   vm.runInNewContext(fs.readFileSync(path.join(root,'story-navigation.js'),'utf8'),context);
   return {links,history};
 }
@@ -17,7 +17,7 @@ test('game entry opens the white cover without clearing any saved bookmark',()=>
   assert.equal(history.state.whiteReader.top,true);
   assert.equal(history.state.whiteReader.index,'0');
   assert.equal(links.length,1);
-  assert.equal(links[0].textContent,'ゲームにもどる');
+  assert.equal(links[0].textContent,'ホームにもどる');
   for(const base of ['https://example.com/','https://example.com/naotocchi/']){
     const reader=new URL('prototypes/madoromi-white-reader-20261027/dist/?from=game',base);
     assert.equal(new URL(links[0].href,reader).href,new URL('index.html',base).href);

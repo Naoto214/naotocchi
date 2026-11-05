@@ -319,3 +319,6 @@ body[data-home-production="true"]:is([data-home-display-version="15"],:is([data-
  body[data-home-display-version="18"][data-home-viewport-v8="true"][data-home-compact-v18="true"] .home-meters .bars .bar-line{grid-template-rows:11px 3px;gap:1px 2px}
  body[data-home-display-version="18"][data-home-viewport-v8="true"][data-home-compact-v18="true"] .home-meters :is(.bar-label,.bar-value){font-size:9px;line-height:11px}
  body[data-home-display-version="18"][data-home-viewport-v8="true"][data-home-compact-v18="true"] .home-meters .bar{height:3px}
+
+/* The fixed home lanes can sit outside the inert home screen in either orientation. */
+body[data-home-panel-open="true"] :is(#speechSlot,#homeEventSlot){display:none!important}

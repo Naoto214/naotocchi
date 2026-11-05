@@ -4095,7 +4095,7 @@
     setMessage(text,document.body.dataset.homeProduction==='true' && terrainNoticeMode() ? speaker : null);
   }
   function showMessage(msg, duration, speaker=null) {
-    if(msg && homeV11Upper('message',duration===CRITICAL_MESSAGE_MS?100:2,duration,()=>showMessage(msg,duration,speaker)))return;
+    if(msg && homeV11Upper('message',duration===CRITICAL_MESSAGE_MS?100:2,duration,()=>showMessage(msg,duration,speaker),!!speaker))return;
     if(homeUIV11() && !msg && homeV11Presentation().upper)return;
     el.message.classList.remove('hidden');
     messageSpeaker=speaker; messageSpeakerText=compactJapaneseText(msg);
@@ -4315,6 +4315,7 @@
 
   function setSpeechBubble(text, speaker, reaction = {}) {
     if (!el.speechBubble || !text || !speaker) return;
+    if (homeUIV11() && homeResidentCovered()) return;
     if (!(homeUIV11() && reaction.storySpeaker) && speaker.kind === 'partner' && (!state.partner || (speaker.id && speaker.id !== state.partner.id))) return;
     if (speaker.kind === 'companion' && !state.companions.some(c => canonicalCompanionId(c.id) === speaker.id)) return;
     if(homeUIV11()){
@@ -11077,13 +11078,22 @@
     render();
     resetIndividualityPopup(true);
   }
+  // Rotate each authored pool independently. Cosmetic text never consumes gameplay RNG or save space.
+  const nextIndividualityNoticeIndex=new WeakMap();
+  function individualityChoiceNotice(choice) {
+    const lines=choice.reactions;
+    const index=nextIndividualityNoticeIndex.get(lines) ?? Math.floor(Date.now()/1000)%lines.length;
+    nextIndividualityNoticeIndex.set(lines,(index+1)%lines.length);
+    return lines[index];
+  }
   function chooseIndividualityEvent(age,heart,lifeId) {
     if (!individualityWritable(lifeId) || !INDIVIDUALITY.choose(state.individuality,age,heart,lifeId)) return false;
     const homeResult=homeIndividualityPopupVisible();
     const e=INDIVIDUALITY.data.events.find(e=>e.age===age),choice=e.choices.find(c=>c.heart===heart);
+    const notice=individualityChoiceNotice(choice);
     pushLifeLog('🌱',`${age}さい：${choice.label}`);
-    closeIndividualityDialog(false);saveState();if(!homeResult)setMessage('その気持ちを、思い出にしまった。');render();
-    if(homeResult)showHomeChoiceResult('その気持ちを、思い出にしまった。');return true;
+    closeIndividualityDialog(false);saveState();if(!homeResult)setMessage(notice);render();
+    if(homeResult)showHomeChoiceResult(notice);return true;
   }
   function showIndividualityEvent(force=false) {
     if(force)individualityDeferred=false;
@@ -11104,8 +11114,9 @@
     if(!e || !individualityWritable(lifeId) || !state.companions.some(c=>c.id===e.companion))return false;
     if(!individualExperience('kindness',e.category,e.id,lifeId))return false;
     const homeResult=homeIndividualityPopupVisible();
-    individualMeeting(e.companion);pushLifeLog('💬',e.reaction);closeIndividualityDialog(false);saveState();if(!homeResult)setMessage(e.reaction);render();
-    if(homeResult)showHomeChoiceResult(e.reaction,exchangeSpeaker(e));return true;
+    const notice=individualityChoiceNotice(e);
+    individualMeeting(e.companion);pushLifeLog('💬',e.reaction);closeIndividualityDialog(false);saveState();if(!homeResult)setMessage(notice);render();
+    if(homeResult)showHomeChoiceResult(notice,exchangeSpeaker(e));return true;
   }
   function maybeIndividualExchange() {
     if(!individualityWritable() || individualityDialogOpen || gameActive || isAnyMenuOverlayOpen() || state.isSick || state.isSleeping || INDIVIDUALITY.pending(state.individuality).length)return false;
@@ -11394,10 +11405,15 @@
     el.message.textContent='';el.message.classList.remove('hidden');
     for(const id of ['homeActionComment','homeChoiceResult','storyFlash','birthdayToast','mgResultToast'])document.getElementById(id)?.classList.add('hidden');
   }
-  function homeV11Upper(kind,priority,duration,draw){
+  function homeResidentCovered() {
+    return gameActive || meguruActive || !!state.transformOptions || state.stage === STAGE.DEAD
+      || (isAnyMenuOverlayOpen() && !homeIndividualityPopupVisible());
+  }
+  function homeV11Upper(kind,priority,duration,draw,resident=false){
     if(!homeUIV11())return false;
     const p=homeV11Presentation();if(p.running)return false;
-    const entry={kind,priority,duration,draw};
+    if(resident && homeResidentCovered())return true;
+    const entry={kind,priority,duration,draw,resident};
     if(p.upper && priority===100){
       clearTimeout(p.upperTimer);p.upperQueue.unshift(p.upper);p.upper=null;homeV11ClearUpper();
     }
@@ -13050,7 +13066,8 @@
     if (gameActive || meguruActive || state.transformOptions) return;
     audio.play('open');
     clearConversationTimers();
-    hideSpeechBubble();
+    // Let the current line expire on its own clock while the panel covers it.
+    if (!homeUIV11()) hideSpeechBubble();
     closeAllMenuOverlays();
     if (OVERLAY_KINDS.includes(kind)) activeOverlay = kind;
     if (kind === 'sticker') stickerOpened();
@@ -15203,7 +15220,7 @@
     const asset = path => path && !failedCastAssets.has(path) ? path : null;
     const hasPartner = !!p && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
     const hasAccessory = !!state.lifetime.equippedItemId && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
-    const args = {width,height,conversationHeight,overview:homeDiorama?.overview()||false,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,hasRing:hasPartner && !!p.married,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
+    const args = {width,height,conversationHeight,heroPercent:Number(document.body.dataset.homeHeroPercent)||100,overview:homeDiorama?.overview()||false,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,hasRing:hasPartner && !!p.married,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
     const key = JSON.stringify([args, companionRenderKey, p?.id, p?.married, currentEnvironment().region, state.stage]);
     if (key === homeCastLayoutKey) { pointHomeSpeech(); renderRelationshipReactions(); renderHomeDiorama(); return; }
     homeCastLayoutKey = key;
@@ -20302,6 +20319,17 @@
       || !el.wipeConfirmOverlay.classList.contains('hidden') || !el.wipeOverlay.classList.contains('hidden')
       || !el.lifeCardOverlay.classList.contains('hidden');
     if (el.screenNormal.inert !== modal) el.screenNormal.inert = modal;
+    // Both fixed home lanes may be mounted outside screenNormal. Cover them as
+    // one surface for the entire panel stack, without touching game-owned UI.
+    const covered = modal || gameActive || meguruActive;
+    if (covered && document.body.dataset.homePanelOpen !== 'true') {
+      document.body.dataset.homePanelOpen = 'true';
+      if (homeUIV11()) {
+        const p = homeV11Presentation();
+        p.lowerQueue.length = 0;
+        p.upperQueue = p.upperQueue.filter(entry => !entry.resident);
+      }
+    } else if (!covered) delete document.body.dataset.homePanelOpen;
   }
   function syncHistoryLayer() {
     historySyncQueued = false;

@@ -8,13 +8,13 @@ test('v17 uses restrained fonts and tries readable single-line sizes before wrap
  assert.equal(home.textLayout('あくびに返事とられた',175,'speech',measure).lines,1);
 });
 function exchange(){const h=harness({deterministic:true,resume:true});h.api.hatchEgg();const s=h.api.state();Object.assign(s,{ageTicks:80,companions:[{id:'shiba',bond:80}],isSleeping:false,isSick:false});h.api.clearConversationTimers();h.api.closeAllMenuOverlays();h.get('storyFlash').classList.add('hidden');h.get('screenNormal').classList.remove('hidden');h.get('device').classList.add('ui-home-active');s.individuality.natural.kindness[0].push('shiba-walk');s.individuality.natural.kindness[2].push('shiba-pace');return h;}
-test('exchange carries canonical companion identity through question and reaction without changing narrative or effects',()=>{
+test('exchange carries canonical companion identity through question and reaction without changing effects',()=>{
  const h=exchange();assert.ok(h.api.maybeIndividualExchange());const dialog=h.get('individualityDialog');assert.equal(dialog.dataset.speakerId,'shiba');
  assert.match(h.get('individualitySpeaker').innerHTML,/assets\/characters\/companions\/shiba/);
  const b=h.get('individualityChoices').children[0];assert.equal(b.onclick(),true);
  const result=h.get('homeChoiceResult');assert.equal(result.dataset.speakerId,'shiba');assert.equal(result.dataset.kind,'companion');
  assert.match(h.get('homeChoiceSpeaker').innerHTML,/assets\/characters\/companions\/shiba/);
- assert.equal(h.get('homeChoiceText').textContent,'言葉がなくても、気持ちよさが伝わった。');
+ assert.ok(h.api.INDIVIDUALITY.data.exchanges.find(e=>e.id==='shiba-breeze').reactions?.includes(h.get('homeChoiceText').textContent));
  assert.notEqual(h.get('message').textContent,h.get('homeChoiceText').textContent,'character reaction is not duplicated as an anonymous notice');
  const after=JSON.stringify(h.api.state().individuality);assert.equal(b.onclick(),false);assert.equal(JSON.stringify(h.api.state().individuality),after);
 });

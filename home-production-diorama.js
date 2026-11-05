@@ -133,10 +133,13 @@
       // Assign the partner next to the protagonist. The other seats span all depths.
       if(args.hasPartner){const pet=slots[0],rest=slots.splice(1);rest.sort((a,b)=>Math.hypot(a.x-pet.x,a.y-pet.y)-Math.hypot(b.x-pet.x,b.y-pet.y));slots.push(...rest);}
     }
+    // Scale the actual solver frame, before deriving item anchors, touch bodies,
+    // speech, paint extents, depth and navigation clearance from its alpha bounds.
+    const heroFactor=[100,105,110,115,120].includes(args.heroPercent)?args.heroPercent/100:1;
     let index=0;
     function frame(f,path,relative){
       if(!crowded){
-        const order=index++,factor=relative===1?mainScale:1;
+        const order=index++,factor=relative===1?mainScale*heroFactor:1;
         // Keep established small casts stable as visitors arrive or leave.
         const density=1;
         const n=count-1,slot=order===0?null:(order-1),angle=n<=1?-.75:Math.PI*(.12+.76*slot/Math.max(1,n-1));
@@ -151,7 +154,7 @@
       }
       const sizeSlot=sizingSlots[index],q=slots[index++],b=box(path),body=Math.max(b[2]-b[0],b[3]-b[1])/128;
       const target=Math.min(cw-10,ch-7)*(relative===1?1:.80)*(.94+.06*sizeSlot.depth)*view;
-      return resized(f,target/Math.max(.1,body)*(relative===1?mainScale:1),path,q);
+      return resized(f,target/Math.max(.1,body)*(relative===1?mainScale*heroFactor:1),path,q);
     }
     const main=frame(raw.main,args.mainAsset,1),partner=raw.partner?frame(raw.partner,args.partnerAsset,.5):null;
     const attached=(f,old,next)=>f&&old&&next?{...f,x:next.x+(f.x-old.x)*next.w/old.w,y:next.y+(f.y-old.y)*next.w/old.w,w:f.w*next.w/old.w,h:f.h*next.w/old.w}:null;
@@ -573,12 +576,13 @@
       const items=model.snapshot().sort((a,b)=>b.y-a.y);
       const owner=target?.closest?.('[data-diorama-actor]');
       const v=env.NaotocchiHomeViewport?.residentPresentation?.(),kx=v?(paintedBodyScale??v.bodyScale)/v.scaleX:1,ky=v?(paintedBodyScale??v.bodyScale)/v.scaleY:1;
-      const bodyHit=a=>Math.abs(p.x-a.x)<=a.w*kx/2&&p.y>=a.y-a.h*ky&&p.y<=a.y;
+      const depth=a=>scene.navigation?.depthScale?.(a)||1;
+      const bodyHit=a=>Math.abs(p.x-a.x)<=a.w*kx*depth(a)/2&&p.y>=a.y-a.h*ky*depth(a)&&p.y<=a.y;
       // PNG frames include transparent padding. A foreground frame must not steal a visible visitor.
       for(const a of items){const row=rows.get(a.key);if(bodyHit(a)&&(target===row.owner||owner===row.owner))return a.key;}
       for(const a of items)if(bodyHit(a))return a.key;
-      const padded=items.filter(a=>Math.abs(p.x-a.x)<=Math.max(22,a.w/2)&&p.y>=a.y-Math.max(44,a.h)&&p.y<=a.y+10);
-      padded.sort((a,b)=>Math.hypot(p.x-a.x,p.y-a.y+a.h/2)-Math.hypot(p.x-b.x,p.y-b.y+b.h/2));
+      const padded=items.filter(a=>Math.abs(p.x-a.x)<=Math.max(22/(v?.scaleX||1),a.w*kx*depth(a)/2)&&p.y>=a.y-Math.max(44/(v?.scaleY||1),a.h*ky*depth(a))&&p.y<=a.y+10/(v?.scaleY||1));
+      padded.sort((a,b)=>Math.hypot(p.x-a.x,p.y-a.y+a.h*ky*depth(a)/2)-Math.hypot(p.x-b.x,p.y-b.y+b.h*ky*depth(b)/2));
       if(padded.length)return padded[0].key;
       return null;
     }

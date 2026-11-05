@@ -253,11 +253,15 @@
   return {scale,viewWidth,viewHeight,pad,scrollTop:Math.max(0,stageTop+pad+top-spare/2),inset:(viewWidth-nativeWidth)/2};
  }
  // V13 changes only the presentation basis. Native positions/navigation stay intact.
- function residentScale(count){return count<=2?1:count<=5?.92:count<=10?.86:count<=18?.8:.74;}
- function portraitPresentation({paneWidth,paneHeight,nativeWidth,stageTop,envelope,count,reserveBodyScale=0,edgeGap=3}){
+ const releaseScale=[1,.92,.86,.8,.74],referenceScale=[1,.9,.8,.7,.6],candidateScale=[1,1,.9,.8,.7];
+ function residentScale(count,profile){
+  const table=profile==='v1'?candidateScale:profile==='v18'?referenceScale:releaseScale;
+  return table[count<=2?0:count<=5?1:count<=10?2:count<=18?3:4];
+ }
+ function portraitPresentation({paneWidth,paneHeight,nativeWidth,stageTop,envelope,count,profile,reserveBodyScale=0,edgeGap=3}){
   const e=envelope,gap=edgeGap;
   const sizeLimit=Math.min((paneHeight-6)/Math.max(1,e.above+e.below+24),(paneWidth-6)/Math.max(1,e.side*2+24));
-  const bodyScale=Math.min(residentScale(count),sizeLimit),bodyScaleLimit=Math.min(sizeLimit,Math.max(bodyScale,reserveBodyScale));
+  const bodyScale=Math.min(residentScale(count,profile),sizeLimit),bodyScaleLimit=Math.min(sizeLimit,Math.max(bodyScale,reserveBodyScale));
   const scaleX=Math.max(.02,(paneWidth-6-e.side*2*bodyScaleLimit)/Math.max(1,e.right-e.left));
   let scaleY=Math.max(.02,(paneHeight-gap*2-(e.above+e.below)*bodyScaleLimit)/Math.max(1,e.bottom-e.top));
   let topInk=e.top*scaleY-e.above*bodyScaleLimit;
@@ -273,12 +277,12 @@
   const camera=stageTop+(topInk-gap)/scaleY,pad=Math.max(0,-camera);
   return {scale:scaleX,scaleX,scaleY,bodyScale,bodyScaleLimit,inset,pad,scrollTop:camera+pad,viewWidth:paneWidth/scaleX,viewHeight:paneHeight/scaleY};
  }
- function landscapePresentation({paneWidth,paneHeight,nativeWidth,nativeHeight,stageTop,stageHeight,frameLeft,hostWidth,hostHeight,count,fullHeight=false}){
+ function landscapePresentation({paneWidth,paneHeight,nativeWidth,nativeHeight,stageTop,stageHeight,frameLeft,hostWidth,hostHeight,count,profile,fullHeight=false}){
   const width=fullHeight?hostHeight/1.5:Math.min(hostWidth,hostHeight/1.5),height=width*1.5;
   const art={width,height,left:(hostWidth-width)/2,top:(hostHeight-height)/2};
   const scale=width/nativeWidth,artTop=stageTop+stageHeight-nativeWidth*1.5*.94;
   const offset=art.top/scale-artTop,pad=Math.max(0,offset),scrollTop=Math.max(0,-offset);
-  return {scale,scaleX:scale,scaleY:scale,bodyScale:residentScale(count)*Math.min(1,scale*2.2),
+  return {scale,scaleX:scale,scaleY:scale,bodyScale:residentScale(count,profile)*Math.min(1,scale*2.2),
    inset:(art.left-frameLeft)/scale,pad,scrollTop,viewWidth:paneWidth/scale,viewHeight:paneHeight/scale,art};
  }
  let presentation=null,fixedScrollTop=null;
@@ -470,8 +474,8 @@
    if(v13&&stage.__homeResidentEnvelope){
     if(landscape){const nativeWidth=Math.max(320,(p.nativeFrameWidth??p.frameWidth)*(rect(stage).height+96)/p.frameHeight);style(screen,{width:nativeWidth+'px','min-width':nativeWidth+'px'});}
     const nativeWidth=rect(screen).width,nativeHeight=Math.max(screen.scrollHeight,rect(screen).height),stageTop=rect(stage).top-rect(screen).top,stageHeight=rect(stage).height;
-    const envelope=stage.__homeResidentEnvelope,count=actors().length;
-    const fit=landscape?landscapePresentation({paneWidth:p.frameWidth,paneHeight:p.frameHeight,nativeWidth,nativeHeight,stageTop,stageHeight,frameLeft:fr.left,hostWidth:fr.left+p.frameWidth,hostHeight:viewport?.height||root.innerHeight,count,fullHeight:v14}):portraitPresentation({paneWidth:p.frameWidth,paneHeight:p.frameHeight,nativeWidth,stageTop,envelope,count,edgeGap:v18&&stage.dataset.diorama==='home'?1:3,reserveBodyScale:previousPresentation?.landscape===false?previousPresentation.bodyScale:0});
+    const envelope=stage.__homeResidentEnvelope,count=actors().length,profile=doc.body.dataset.homePopulationProfile;
+    const fit=landscape?landscapePresentation({paneWidth:p.frameWidth,paneHeight:p.frameHeight,nativeWidth,nativeHeight,stageTop,stageHeight,frameLeft:fr.left,hostWidth:fr.left+p.frameWidth,hostHeight:viewport?.height||root.innerHeight,count,profile,fullHeight:v14}):portraitPresentation({paneWidth:p.frameWidth,paneHeight:p.frameHeight,nativeWidth,stageTop,envelope,count,profile,edgeGap:v18&&stage.dataset.diorama==='home'?1:3,reserveBodyScale:previousPresentation?.landscape===false?previousPresentation.bodyScale:0});
     const {scale,scaleX,scaleY,viewWidth,viewHeight,inset,pad,scrollTop,bodyScale}=fit;
     // The cast is a flex child: freeze its native height before adding camera space.
     style(stage,{height:stageHeight+'px','min-height':stageHeight+'px','max-height':stageHeight+'px',flex:'0 0 '+stageHeight+'px'});
