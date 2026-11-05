@@ -2,6 +2,7 @@
 // the transformed/scrolled camera. Check painted bounds after real touch input.
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http');
 const assert=require('node:assert/strict'),cp=require('node:child_process');
+const pointerTarget=require('./helpers/home-production-pointer-target.cjs');
 const root=process.cwd(),out=path.resolve(process.env.HOME_NAME_OUTPUT||'.work-output/selected-name');
 fs.mkdirSync(out,{recursive:true});
 cp.execFileSync(process.execPath,['tools/home-production-qa.cjs',out]);
@@ -64,7 +65,18 @@ async function tap(page,kind,single=false){
  // autonomous movement to expose it, without changing positions or selection.
  let p;
  for(let attempt=0;attempt<100;attempt++){
-  try{p=await target(page,kind);break;}catch(error){if(!error.message.includes('No exposed touch target')||attempt===99)throw error;await page.waitForTimeout(200);}
+  try{p=await target(page,kind);break;}catch(error){
+   if(!error.message.includes('No exposed touch target')||attempt===99)throw error;
+   // The deterministic QA clock does not run autonomous walking. If another
+   // resident fully covers this one, move the protagonist through the shipped
+   // drag handler, then keep requiring a real exposed-pixel touch below.
+   if(attempt===9&&kind!=='pet'){
+    const move=await page.evaluate(pointerTarget,'drag');
+    await page.mouse.move(move.from.x,move.from.y);await page.mouse.down();
+    await page.mouse.move(move.to.x,move.to.y,{steps:8});await page.mouse.up();
+   }
+   await page.waitForTimeout(200);
+  }
  }
  await page.touchscreen.tap(p.x,p.y);
  const state=await inspect(page);assert.equal(state.selected,p.key);
@@ -99,7 +111,7 @@ async function tap(page,kind,single=false){
  // Hold only input sampling and delivery still; the live collision-aware
  // helper chooses reachable ground without moving or removing residents.
  await page.clock.install();await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+1000));
- const ground=await page.evaluate(require('./helpers/home-production-pointer-target.cjs'),'tap');
+ const ground=await page.evaluate(pointerTarget,'tap');
  const groundTraceStart=await page.evaluate(()=>HomeReleaseInputTrace.length);
  await page.touchscreen.tap(ground.to.x,ground.to.y);
  assert.ok(await page.evaluate(start=>HomeReleaseInputTrace.slice(start).some(t=>t.type==='move'&&t.args[2]==='ground'&&t.result),groundTraceStart),'ground tap retains movement');
