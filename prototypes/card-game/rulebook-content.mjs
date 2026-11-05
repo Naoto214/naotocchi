@@ -62,6 +62,7 @@ export const CHAPTERS=[
  'こいびとは1人。こいびと枠が空いている時だけ出せます。出しただけでは、そだちは変わりません（こいびとの能力は、条件を満たせば使えます）。出すと交際0で開始します。自分の行動機会に時1、1ターン1回で0→1→2→3→結婚と1つずつ進めます。出したターンでも配置後の応答を終え、条件を満たせば0→1へ進めます。自動進行はしません。',
  '結婚するとそだち+10。こいびとが枠を離れると関係が終わり、こいびとの能力も失います。結婚する前（交際0〜3）の別れはそだち−5、結婚した後の別れ（離婚）はそだち−10です。そだちは0より下がりません。',
  '自分からこいびとと別れたり、別のこいびとに交代したりする行動はありません。別れが起きるのは、すれちがい（相手のこいびとを手札に戻す）など、カードの効果でこいびとが枠を離れた時だけです。らぶれたー等で移動を防いだ時は、関係も続きます。手札に戻ったこいびとをもう一度出すと、交際0からやり直しです。',
+ '「すれちがい」は、交際中・結婚後のどちらのこいびとカードにも使えます。結婚前に別れると、そだち−5。結婚後に別れると、そだち−10。結婚後の別れでは、結婚後追加能力（「♥ 結婚したら」）も失います。',
  'メインだけが離れた場合は関係を維持し、たまご中は進行・こいびと能力が停止します。復帰で再結婚報酬は得ません。',
  'こいびとカードの下の段「♥ 結婚したら」は、そのこいびとと結婚すると使えるようになる能力です。上の段「こいびとのとき」の能力も、結婚した後にそのまま使えます。結婚の能力は、こいびとごとにちがいます。',
  '「♥ 結婚したら」には、結婚した時に1回だけ働くもの（例：たかねのワシ「1枚引く」）と、結婚している間ずっと働くもの（例：オアシスのサボテンさん「ちから+1」）があります。条件と回数は、カードに書いてあるとおりです。',
@@ -115,6 +116,7 @@ export const CHAPTERS=[
  '「代わりに」は置換、「防ぐ」は防止。出来事の直前に適用し、原則連鎖を作りません。複数候補は影響を受ける人が1つ選び、書換え後に再確認。同じ置換は同じ一連の出来事に1回。実行不能な置換は選べず、適用可能な強制処理は残せません。',
  '防いで実際の減少が0なら「減った時」は成立しません。置換された元の出来事も成立せず、実際に起きた出来事が誘発条件になります。詳しい裁定は、この章の詳細ルールで確認できます。',
  '自分のメインを自由に捨ててたまごへ戻す基本行動はありません。除去自体に共通のそだち報酬・ペナルティ・耐性判定・試合中回数制限もありません。カードごとの明記に従います。',
+ 'Q. 結婚したこいびとにも「すれちがい」は使える？ A. 使えます。対象は相手のこいびと1枚で、交際中（交際0〜3）でも結婚後でもかまいません。持ち主の手札に戻り、結婚前ならそだち−5、結婚後ならそだち−10。結婚後の別れでは「こいびとのとき」と「♥ 結婚したら」の能力を両方失います。',
  'ルールブックと練習は通常対戦セーブから独立。練習では固定局面を使い、指定した操作だけ進めます。実際の対戦でできる行動はそのときの合法手に従います。'
  ],[],[core,main,chain,advanced])
 ];
@@ -137,4 +139,5 @@ const normalize=s=>String(s).normalize('NFKC').toLowerCase().replace(/\s+/g,' ')
 export function rulingsForChapter(id){return CURRENT_RULINGS.filter(r=>r.chapter===Number(id));}
 export function searchRules(query='',chapterId=0){const q=normalize(query).trim();return CURRENT_RULINGS.filter(r=>(!chapterId||r.chapter===Number(chapterId))&&(!q||normalize([r.title,r.text].join(' ')).includes(q)));}
 export function searchChapters(query=''){const q=normalize(query).trim(),hits=new Set(searchRules(query).map(r=>r.chapter));return CHAPTERS.filter(c=>!q||hits.has(c.id)||normalize([c.title,c.summary,...c.details].join(' ')).includes(q));}
-export function relatedChapter(c){return c?.id==='special-egg'?5:({main:7,companion:9,partner:9,world:10,play:11,item:11,event:11}[c?.type]??15);}
+// すれちがいはこいびとを離す基本的な手段なので、交際・結婚の章を案内する。
+export function relatedChapter(c){return c?.id==='special-egg'?5:(c?.cardId??c?.id)==='E-misunderstanding'?9:({main:7,companion:9,partner:9,world:10,play:11,item:11,event:11}[c?.type]??15);}
