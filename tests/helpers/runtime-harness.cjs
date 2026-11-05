@@ -261,6 +261,7 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
       genreOf:minigameGenreId, INDIVIDUALITY, individualGameResult, individualVisit, individualMeeting, individualScenery, chooseIndividualityEvent, chooseIndividualExchange, showIndividualityEvent, closeIndividualityDialog, maybeIndividualExchange,
       setPresentCastFixture: () => {homePresentCompanions=()=>state.companions;homePresentPartner=()=>state.partner;homeInitiative=()=>true;},
       relationshipVisual,
+      observeRender: observer => {const original=render;render=(...args)=>{observer();return original(...args);};return ()=>{render=original;};},
       homeDiorama:()=>homeDiorama,dioramaActors,homeDioramaBlocked,renderHomeDiorama,
       homeVisitors: () => ({companions:homePresentCompanions(),partner:homePresentPartner()}),
       getMessage: () => message,

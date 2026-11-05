@@ -1,0 +1,86 @@
+{
+ "iPhone portrait 390x844": {
+  "cardsSeen": 453,
+  "gridCards": 452,
+  "detailCards": 499,
+  "backSide": [
+   "back"
+  ],
+  "twoLine": 95,
+  "failures": [],
+  "pageErrors": []
+ },
+ "iPhone landscape 844x390": {
+  "cardsSeen": 453,
+  "gridCards": 452,
+  "detailCards": 499,
+  "backSide": [
+   "back"
+  ],
+  "twoLine": 95,
+  "failures": [],
+  "pageErrors": []
+ },
+ "iPhone Pro Max landscape 932x430": {
+  "cardsSeen": 453,
+  "gridCards": 452,
+  "detailCards": 499,
+  "backSide": [
+   "back"
+  ],
+  "twoLine": 95,
+  "failures": [],
+  "pageErrors": []
+ },
+ "iPhone SE portrait 375x667": {
+  "cardsSeen": 453,
+  "gridCards": 452,
+  "detailCards": 499,
+  "backSide": [
+   "back"
+  ],
+  "twoLine": 95,
+  "failures": [],
+  "pageErrors": []
+ },
+ "portrait hotseat-8": {
+  "handCards": 7,
+  "details": 7,
+  "twoLineHand": 4,
+  "loversInHand": 1,
+  "detailsWithMarriedBlock": 1,
+  "detailsWithLegacyNote": 0,
+  "failures": [],
+  "pageErrors": []
+ },
+ "portrait hotseat-7": {
+  "handCards": 7,
+  "details": 7,
+  "twoLineHand": 4,
+  "loversInHand": 1,
+  "detailsWithMarriedBlock": 0,
+  "detailsWithLegacyNote": 0,
+  "failures": [],
+  "pageErrors": []
+ },
+ "landscape hotseat-8": {
+  "handCards": 7,
+  "details": 7,
+  "twoLineHand": 4,
+  "loversInHand": 1,
+  "detailsWithMarriedBlock": 1,
+  "detailsWithLegacyNote": 0,
+  "failures": [],
+  "pageErrors": []
+ },
+ "landscape hotseat-7": {
+  "handCards": 7,
+  "details": 7,
+  "twoLineHand": 4,
+  "loversInHand": 1,
+  "detailsWithMarriedBlock": 0,
+  "detailsWithLegacyNote": 0,
+  "failures": [],
+  "pageErrors": []
+ }
+}

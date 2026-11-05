@@ -34,6 +34,16 @@ test('production distribution retains every existing main file and includes only
 test('QA measures the fixed notification slot rather than the optional message contents',()=>{
  assert.match(fs.readFileSync('tools/home-production-qa.cjs','utf8'),/notice:document.getElementById\('homeEventSlot'\).getBoundingClientRect\(\).height/);
 });
+test('QA measures the visible comment region for historical and current layouts',()=>{
+ const source=fs.readFileSync('tools/home-production-qa.cjs','utf8');
+ const match=source.match(/speech:(document\.getElementById\([^\n]*?\)\.getBoundingClientRect\(\)\.height)/);
+ assert.ok(match,'the QA detail exposes its actual comment measurement');
+ for(const version of [undefined,'8','9','10','11','12']){
+  const dock=['10','11','12'].includes(version);
+  const document={body:{dataset:{homeViewportVersion:version}},getElementById:id=>({getBoundingClientRect:()=>({height:{speechSlot:dock?0:76,homeCommentDock:dock?76:0}[id]})})};
+  assert.equal(require('node:vm').runInNewContext(match[1],{document}),76,`visible comment in viewport ${version||'legacy'}`);
+ }
+});
 test('production runtime harness loads the exact shipped presenter and model',()=>{
  const h=require('./helpers/runtime-harness.cjs').harness({homeDiorama:true,productionHome:true});
  assert.equal(h.window.NaotocchiHomeDiorama,require('../home-production-diorama.js'));
@@ -54,11 +64,41 @@ test('latest-main game catalogs, conversations, formal images and other games st
   'prototypes/life-sugoroku/official/controls.js',
   'prototypes/life-sugoroku/official/games.js',
   'prototypes/life-sugoroku/official/quick.js']);
+ // Owner approved PR #519 (CARD GAME card-name display) on 2026-11-05. Permit only
+ // these exact files at its reviewed head, not the CARD GAME directory or later edits.
+ const cardNames='ed2ba9b895bef2ad5b165986ccc5fb870a6e744e';
+ const cardNameFiles=new Set([
+  'prototypes/card-game/card-name-display-20261104/README.md',
+  'prototypes/card-game/card-name-display-20261104/app-390x844-collection.png',
+  'prototypes/card-game/card-name-display-20261104/app-390x844-detail.png',
+  'prototypes/card-game/card-name-display-20261104/app-844x390-collection.png',
+  'prototypes/card-game/card-name-display-20261104/app-844x390-detail.png',
+  'prototypes/card-game/card-name-display-20261104/browser-audit.json',
+  'prototypes/card-game/card-name-display-20261104/compare-after.png',
+  'prototypes/card-game/card-name-display-20261104/compare-before.png',
+  'prototypes/card-game/card-name-display-20261104/match-hotseat-7-390x844.png',
+  'prototypes/card-game/card-name-display-20261104/match-hotseat-8-390x844.png',
+  'prototypes/card-game/card-name-display-20261104/match-hotseat-8-844x390.png',
+  'prototypes/card-game/card-title-lines.mjs',
+  'prototypes/card-game/rulebook-content.mjs',
+  'prototypes/card-game/style.css',
+  'prototypes/card-game/tests/card-name-display.test.mjs',
+  'prototypes/card-game/tests/card-name-layout.browser.cjs',
+  'prototypes/card-game/ui-context.mjs',
+  'prototypes/card-game/ui-presentation.mjs',
+  'prototypes/card-game/ui-session.mjs']);
+ const reviewed=JSON.parse(fs.readFileSync('docs/naopoyo-time-hand-chapter1-20261102/ci-repair/reviewed-prototype-blobs.json')).files;
  const changed=cp.execFileSync('git',['diff','--name-only',testedMain,'--',...unchanged],{encoding:'utf8'}).trim().split('\n').filter(Boolean);
- assert.deepEqual(changed.filter(file=>!approved.has(file)&&!polishFiles.has(file)),[],'unapproved protected file changes');
- const originalAdditions=changed.filter(file=>!polishFiles.has(file));
+ assert.deepEqual(changed.filter(file=>!approved.has(file)&&!polishFiles.has(file)&&!cardNameFiles.has(file)&&!Object.hasOwn(reviewed,file)),[],'unapproved protected file changes');
+ const originalAdditions=changed.filter(file=>!polishFiles.has(file)&&!cardNameFiles.has(file)&&!Object.hasOwn(reviewed,file));
+ const cardNameChanges=changed.filter(file=>cardNameFiles.has(file));
+ if(cardNameChanges.length) assert.equal(cp.execFileSync('git',['diff','--name-only',cardNames,'--',...cardNameChanges],{encoding:'utf8'}).trim(),'','PR #519 files must match approved bytes');
  if(originalAdditions.length) assert.equal(cp.execFileSync('git',['diff','--name-only',firstStart,'--',...originalAdditions],{encoding:'utf8'}).trim(),'','FIRST START additions must match approved bytes');
  assert.equal(cp.execFileSync('git',['diff','--name-only',polish,'--',...polishFiles],{encoding:'utf8'}).trim(),'','PR #516 files must match approved bytes');
+ for(const [file,hash] of Object.entries(reviewed)){
+  assert.ok(fs.existsSync(file),'retained approved file: '+file);
+  assert.equal(cp.execFileSync('git',['hash-object','--',file],{encoding:'utf8'}).trim(),hash,'approved bytes: '+file);
+ }
  const original=cp.execFileSync('git',['ls-tree','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa'],{encoding:'utf8'}).trim().split('\n').filter(p=>p.startsWith('home-')&&/\.(js|mjs|css)$/.test(p));
  // The startup repair only moves the pure route function out of the module
  // that imports optional 3D. Reconstruct the original files byte-for-byte;

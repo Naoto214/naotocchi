@@ -33,7 +33,12 @@ const root=path.resolve(__dirname,'../../..');
   await page.mouse.move(rect.x+(a.x+.5+c.dx)*cell,rect.y+(a.y+.5+c.dy)*cell,{steps:4});await page.mouse.up();
  }
  try{
-  await page.goto(base+'prototypes/naopoyo/');await page.waitForURL('**/prototypes/naopoyo-chapter1/index.html');
+  // Public adoption and retained legacy gameplay are separate contracts.
+  await page.goto(base+'prototypes/naopoyo/');await page.waitForURL('**/prototypes/naopoyo-time-hand-chapter1/index.html');
+  await page.locator('#board').waitFor();assert.equal(await page.title(),'なおぽよ。｜第1章 地下牢');
+  await page.click('#select');assert.equal(await page.locator('[data-stage]').count(),10);assert.equal(await page.locator('[data-stage]:disabled').count(),9);
+  assert.equal(await page.locator('a[href*="naopoyo-chapter2"]').count(),0);
+  await page.goto(base+'prototypes/naopoyo-chapter1/index.html');
   await page.waitForFunction(()=>window.pilot);
   await page.evaluate(({key,value})=>localStorage.setItem(key,value),{key:OLD,value:oldSave});
   assert.match(await page.locator('#content').innerText(),/ふくろう/);

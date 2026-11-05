@@ -17,7 +17,7 @@ export function createEggPresentation(doc,loadWorld=()=>import('./home-productio
   if(createWorld){world=createWorld({container:host,document:doc,window:win});world.setEnvironment(environment);raf=win.requestAnimationFrame(frame);return;}
   // Optional scenery must not delay DOMContentLoaded or the original egg.
   // A completed load only attaches to the currently active egg presentation.
-  loading=loadWorld().then(module=>{createWorld=module.createHomeWorld;loading=null;ensureWorld();}).catch(()=>{loading=null;});
+  loading=loadWorld().then(module=>{createWorld=module.createHomeWorld;loading=null;ensureWorld();}).catch(()=>{/* Keep the static backdrop and avoid retrying on every Home update. */});
  }
  return {update({active,stage,sprite,asset,time,weather,season}){
   if(!active){environment=null;stopWorld();host?.remove();host=null;img=null;delete doc.body.dataset.homeV6Egg;return;}

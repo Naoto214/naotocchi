@@ -4,7 +4,8 @@ import {observeCpu} from './cpu-observation.mjs';
 import {appendResult,projectResults,replayResults} from './ui-results.mjs';
 import {advanceResponses,responsePassLog} from './auto-progress.mjs';
 import {needsConfirmation,passLabel} from './ui-presentation.mjs';
-import {projectOperation,visibleCards} from './ui-context.mjs';
+import {projectOperation,visibleCards,markLegacyRules} from './ui-context.mjs';
+import {marriedAbilitiesActive} from './lover-married.mjs';
 export class HotseatSession {
  #state=null;
  #automatic=false;
@@ -48,6 +49,7 @@ export class HotseatSession {
    v.selectionSummary=(draft.rule.select??[]).flatMap(spec=>(draft.selection[spec.key]??[]).map(id=>`${spec.cost?'支払い':'対象'}：${names.get(id)??'非公開のカード'}`));
   }
   projectOperation(this.#state,v,this.viewer);
+  if(!marriedAbilitiesActive(this.#state))markLegacyRules(v);
   v.actions=v.actions.map(a=>a.kind==='pass'?{...a,displayLabel:passLabel(v)}:a);
   return v;
  }

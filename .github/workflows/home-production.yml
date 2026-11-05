@@ -50,8 +50,8 @@ jobs:
       # live native-wrap/portrait/bottom-dock gate above.
       - name: Preserve V6 Japanese-break regression on frozen V6 source
         run: |
-          git fetch origin b3c48ef52fbc78687a35d4b14b5506f18d2c935d --depth=1
-          git worktree add "${{ runner.temp }}/v6-source" b3c48ef52fbc78687a35d4b14b5506f18d2c935d
+          # Keep the exact V6 source while avoiding a second multi-GB checkout.
+          python tools/work/checkout.py "${{ runner.temp }}/v6-source" --ref b3c48ef52fbc78687a35d4b14b5506f18d2c935d
           cp -a "${{ runner.temp }}/fixed-controls" "${{ runner.temp }}/v6-controls"
           cd "${{ runner.temp }}/v6-source"
           for file in script.js index.html home-production-layout.css home-production-touch.js; do
@@ -65,7 +65,7 @@ jobs:
       - run: node tools/home-production-qa.cjs "${{ runner.temp }}/fixed-controls"
       - name: Capture unchanged VERSION 3 birth baseline
         run: |
-          git fetch origin ed182b6d79422f1d85c95f5c8c2777849595f7ce --depth=1
+          git fetch --filter=blob:none origin ed182b6d79422f1d85c95f5c8c2777849595f7ce --depth=1
           cp -a "${{ runner.temp }}/fixed-controls" "${{ runner.temp }}/v3-baseline"
           for file in script.js egg-hatching.css home-production-egg.mjs home-production-world.mjs home-production-transform.mjs index.html; do
             git show "ed182b6d79422f1d85c95f5c8c2777849595f7ce:$file" > "${{ runner.temp }}/v3-baseline/$file"

@@ -1,0 +1,37 @@
+{
+  "base": "a1ef372085d48224cd20077a96ffa01642c3d36d",
+  "unchangedFiles": [
+    "prototypes/naopoyo-time-hand-chapter1/abc-priorities.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/archive/tutorial/lessons.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/archive/v4/README.md",
+    "prototypes/naopoyo-time-hand-chapter1/archive/v4/progress.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/archive/v4/replay.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/archive/v4/session.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/archive/v4/solutions.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/archive/v4/stage-ui.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/archive/v4/stages.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/archive/v5/dungeon-art.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/archive/v5/progress.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/archive/v5/session.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/archive/v5/solutions.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/archive/v5/stages.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/archive/v6/stages.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/build-preview.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/dungeon-art.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/engine.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/input.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/priorities.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/progress.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/replay.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/session.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/solutions.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/stage-ui.mjs",
+    "prototypes/naopoyo-time-hand-chapter1/stages.mjs"
+  ],
+  "changedRuntimeFiles": [
+    "app.mjs",
+    "draw.mjs",
+    "index.html",
+    "style.css"
+  ]
+}
