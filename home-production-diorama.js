@@ -378,6 +378,9 @@
         // Depth scales about the foot. Include it when centring the painted body.
         for(let i=0;i<3;i++)newbornPoint.y=y+newborn.h*(scene.navigation.depthScale?.(newbornPoint)||1)/2;
       }
+      // Only the five-resident landscape sizing candidate needs the same
+      // open walking lane as a larger household.
+      scene.fiveResidentExit=next.size===5&&doc.body?.dataset.homePopulationProfile==='v1'&&!!env.NaotocchiHomeViewport?.residentPresentation?.()?.landscape;
       rows=next;view.hidden=!enabled||rows.size<=5;model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint});
       if(newbornPoint)newbornPending=false;
       publishPaintEnvelope();

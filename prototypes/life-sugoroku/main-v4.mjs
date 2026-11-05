@@ -147,6 +147,13 @@ function bindOfficial(){
    const launch=async()=>{
     if(token!==officialMount)return;
     if(paused||document.hidden){officialLaunch=launch;return;}
+    // An offscreen sandboxed iframe can lose its animation frames in Chromium.
+    // Bring the active game below the home bar once, when this seat starts.
+    const bounds = host.frame.getBoundingClientRect();
+    const barBottom = document.querySelector('.game-home-bar')?.getBoundingClientRect().bottom ?? 0;
+    if (bounds.top >= window.innerHeight || bounds.bottom <= barBottom) {
+      window.scrollBy(0, bounds.top - barBottom);
+    }
     await host.start(m.attempt||{gameId:m.gameId,seed:m.seed,cpuSeed:(m.seed^Math.imul(seat+1,2654435761))>>>0,difficulty:p.difficulty,cpu:!p.human});
     if(token!==officialMount)return;
     if(paused||document.hidden)host.pause();

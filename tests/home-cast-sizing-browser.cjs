@@ -19,11 +19,25 @@ try{
  for(const [width,height] of [[390,844],[844,390]]){
   const page=await browser.newPage({viewport:{width,height},hasTouch:true,reducedMotion:'reduce'});page.on('pageerror',e=>errors.push(e.message));
   await page.goto(base+'/save-check');await page.evaluate(()=>localStorage.setItem('naotocchi-save-v1','origin-sentinel'));
-  await page.goto(base+'/qa-cast.html');await page.waitForFunction(()=>window.HomeCastSizeQA?.detail().actors.length===5&&document.body.dataset.livingHome==='art-25d');
-  for(const count of [1,2,5,10,18,28])for(const [profile,hero] of [['current',100],['v18',105],['v1',110]]){
-   await page.evaluate(opts=>HomeCastSizeQA.set(opts),{count,profile,hero});
-   await page.waitForFunction(({count,profile})=>{const d=HomeCastSizeQA.detail();return d.actors.length===count&&d.profile===profile&&d.actors.every(a=>a.grounded&&a.ready)&&Math.abs((d.presentation?.bodyScale??0)-NaotocchiHomeViewport.residentScale(count,profile))<.001;},{count,profile});
-   await page.waitForTimeout(550);
+  // The panel loads a new iframe document when the population changes and
+  // updates profile/hero in place. Keep its input timing independent of CI speed.
+  const start=Date.UTC(2026,0,1);
+  await page.clock.install({time:new Date(start)});
+  await page.clock.pauseAt(new Date(start+60000));
+  for(const count of [1,2,5,10,18,28]){
+   await page.goto(base+'/qa-cast.html?count='+count+'&profile=current&hero=100',{waitUntil:'domcontentloaded'});
+   for(const [profile,hero] of [['current',100],['v18',105],['v1',110]]){
+   if(profile!=='current')await page.evaluate(opts=>HomeCastSizeQA.set(opts),{count,profile,hero});
+   // Image decoding uses real I/O. Advance camera frames until the shipped
+   // world, images and requested scale are ready, then let its size tween finish.
+   const deadline=Date.now()+30000;
+   let ready=false;
+   while(!ready&&Date.now()<deadline){
+    await page.clock.runFor(50);
+    ready=await page.evaluate(({count,profile})=>{const d=HomeCastSizeQA.detail();return document.body.dataset.livingHome==='art-25d'&&d.actors.length===count&&d.profile===profile&&d.actors.every(a=>a.grounded&&a.ready)&&Math.abs((d.presentation?.bodyScale??0)-NaotocchiHomeViewport.residentScale(count,profile))<.001;},{count,profile});
+   }
+   assert.ok(ready,'regional artwork, cast and camera ready for '+count+' '+profile);
+   await page.clock.runFor(550);
    const row=await page.evaluate(()=>{
     const d=HomeCastSizeQA.detail(),bounds=document.querySelector('.screen-frame').getBoundingClientRect(),top=document.querySelector('#homeEventSlot').getBoundingClientRect().bottom,bottom=document.querySelector('#homeCommentDock').getBoundingClientRect().top;
     const safe=d.presentation.landscape?{left:d.presentation.safeLeft-4,right:d.presentation.safeRight+4,top,bottom}:{left:bounds.left,right:bounds.right,top:bounds.top,bottom:bounds.bottom};
@@ -38,31 +52,59 @@ try{
    await page.screenshot({path:path.join(folder,width+'-'+count+'.png')});
    // Real touchscreen origin, actual DOM hits and controller movement. The
    // inspector chooses a legal destination; the input handler executes it.
-   await page.evaluate(()=>{window.castInputTrace=[];if(window.castTraceInstalled)return;window.castTraceInstalled=true;
+   await page.evaluate(()=>{window.castInputTrace=[];
+    document.getElementById('castStage').addEventListener('naotocchi:home-reaction',({detail})=>{
+     if(detail.type==='move')window.castInputTrace.push({type:'move',source:detail.source,actor:detail.actor.key});
+    });
     for(const type of ['pointerdown','pointerup','pointercancel'])document.addEventListener(type,e=>{const d=HomeCastSizeQA.detail();window.castInputTrace.push({type:e.type,pointer:e.pointerType,x:e.clientX,y:e.clientY,target:e.target.closest?.('[data-diorama-actor]')?.dataset.dioramaActor||e.target.id,blocked:d.blocked,selected:d.selected,pet:d.actors[0],metrics:d.metrics});},true);});
    const tap=await page.evaluate('('+pointer+')("drag")');
    await page.touchscreen.tap(tap.from.x,tap.from.y);assert.equal(await page.evaluate(()=>HomeCastSizeQA.detail().selected),'pet:dog');
    // Selection can trigger a camera/layout update. Measure again for the next
    // physical gesture instead of reusing a pointer origin from before the tap.
-   await page.waitForFunction(()=>!HomeCastSizeQA.detail().blocked);
+   await page.clock.runFor(100);
+   assert.equal(await page.evaluate(()=>HomeCastSizeQA.detail().blocked),false);
    const target=await page.evaluate('('+pointer+')("drag")');
-   const before=await page.evaluate(()=>HomeCastSizeQA.detail().metrics.distance);
    await page.mouse.move(target.from.x,target.from.y);await page.mouse.down();await page.mouse.move(target.to.x,target.to.y,{steps:5});await page.mouse.up();
-   try{await page.waitForFunction(n=>HomeCastSizeQA.detail().metrics.distance>n+1,before,{timeout:6500});}catch(error){
-    console.error('Drag diagnostics',JSON.stringify({target,before,after:await page.evaluate(()=>({d:HomeCastSizeQA.detail(),trace:window.castInputTrace}))}));throw error;
+   const checkFiveResidentLane=width>height&&count===5;
+   await page.clock.runFor(checkFiveResidentLane?1000:350);
+   const outcome=await page.evaluate(()=>({pet:HomeCastSizeQA.detail().actors[0],trace:window.castInputTrace}));
+   assert.ok(outcome.trace.some(e=>e.type==='move'&&e.source==='drag'&&e.actor===target.a.key),'drag must start a route for the protagonist: '+JSON.stringify(outcome.trace));
+   const travel=Math.hypot(outcome.pet.x-target.a.x,outcome.pet.y-target.a.y);
+   assert.ok(travel>(checkFiveResidentLane?20:1),'drag must move the protagonist: '+JSON.stringify({target,outcome}));
+   results.at(-1).drag={actor:outcome.pet.key,travel};
+   if(checkFiveResidentLane){
+    await page.evaluate(()=>HomeCastSizeQA.set({count:5,profile:'current',hero:100}));
+    await page.clock.runFor(550);
+    const normal=await page.evaluate(()=>{
+     const {scene,bounds}=HomeCastSizeQA.inspect(),pet=HomeCastSizeQA.detail().actors[0];
+     const seat=scene.navigation.nearest(scene.navigation.initialPoint(0,5),bounds[0]);
+     return {candidateLane:scene.fiveResidentExit,distance:Math.hypot(pet.x-seat.x,pet.y-seat.y)};
+    });
+    assert.equal(normal.candidateLane,false);
+    assert.ok(normal.distance<1,'switching back restores the normal protagonist seat');
+   }
    }
   }
+  await page.clock.resume();
   for(const hero of [115,120]){await page.evaluate(hero=>HomeCastSizeQA.set({count:5,hero,profile:'v1'}),hero);await page.waitForTimeout(400);assert.equal(await page.evaluate(()=>HomeCastSizeQA.detail().actors.every(a=>a.grounded)),true);}
   if(width===390){
    await page.goto(base+'/qa-cast-panel.html');const f=page.frameLocator('iframe');
    await f.locator('[data-diorama-actor]').first().waitFor();
+   const game=page.frames().find(frame=>frame.url().includes('qa-cast.html'));
    await page.getByLabel('主人公の足元に目印').check();
    assert.equal(await f.locator('.diorama-shadow[data-qa-role="pet"]').evaluate(e=>getComputedStyle(e).outlineStyle),'solid');
    await page.getByRole('button',{name:'年齢の選択肢を試す'}).click();
    const first=f.locator('#individualityChoices button').first();assert.equal(await first.textContent(),'近くで見てみる');
    await first.click();
-   const game=page.frames().find(frame=>frame.url().includes('qa-cast.html'));
    await game.waitForFunction(()=>window.NaotocchiIndividuality.data.events[0].choices[0].reactions.includes(document.getElementById('message').textContent.trim()),null,{timeout:15000});
+   const originalBody=await game.locator('body').elementHandle();
+   await page.locator('[name="profile"]').selectOption('v18');
+   await page.locator('[name="hero"]').selectOption('115');
+   await game.waitForFunction(()=>{const d=HomeCastSizeQA.detail();return d.profile==='v18'&&d.hero==='115'&&d.actors.length===5&&Math.abs(d.presentation.bodyScale-.9)<.001;});
+   assert.ok(await originalBody.evaluate(body=>body===document.body),'same-population controls update the existing cast');
+   await page.locator('[name="count"]').selectOption('18');
+   await game.waitForURL('**/qa-cast.html?count=18&**');
+   await game.waitForFunction(()=>{const d=window.HomeCastSizeQA?.detail();return d?.actors.length===18&&d.profile==='v18'&&d.hero==='115'&&d.actors.every(a=>a.grounded&&a.ready);});
   }
   await page.goto(base+'/save-check');assert.equal(await page.evaluate(()=>localStorage.getItem('naotocchi-save-v1')),'origin-sentinel');await page.close();
  }

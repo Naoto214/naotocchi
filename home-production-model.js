@@ -44,6 +44,10 @@
     function sync(list,next){
       const changed=next.region!==scene.region||next.width!==scene.width||next.height!==scene.height||next.navigation!==scene.navigation;
       const previousScene=scene,previousActors=actors;
+      const exitPolicyChanged=!!next.fiveResidentExit!==!!scene.fiveResidentExit;
+      // Returning from the preview's reserved lane uses the regular terrain
+      // seats again. Ordinary syncs keep residents where the player left them.
+      const restoreSeats=exitPolicyChanged&&!next.fiveResidentExit&&list.length===5;
       const retained=new Set(next.region===scene.region?actors.map(a=>a.key):[]);
       scene={...next,tags:(next.tags||[]).map(t=>({...t}))};
       // Centre first seating in the actually walkable band (water/roads may cut
@@ -57,7 +61,7 @@
       }
       actors=list.filter(a=>['pet','companion','partner'].includes(a.kind)&&Number.isFinite(a.x+a.y+a.w+a.h)).map((a,index)=>{
         const reflow=list.length>5&&(next.width!==previousScene.width||next.height!==previousScene.height||list.length!==previousActors.length||list.some(a=>previousActors.find(b=>b.key===a.key)?.w!==a.w));
-        const initial=scene.navigation?.initialPoint&&(!previousScene.navigation||previousScene.region!==scene.region||(list.length>5&&list.length!==previousActors.length)||!previousActors.some(b=>b.key===a.key));
+        const initial=scene.navigation?.initialPoint&&(restoreSeats||!previousScene.navigation||previousScene.region!==scene.region||(list.length>5&&list.length!==previousActors.length)||!previousActors.some(b=>b.key===a.key));
         const seed=initial?(a.kind==='pet'&&scene.newbornPoint&&(!previousScene.navigation||!previousActors.some(b=>b.key===a.key))?scene.newbornPoint:scene.navigation.initialPoint(index,list.length)):null;
         const old=!initial&&!changed&&!reflow&&actor(a.key),previous=!initial&&previousScene.region===scene.region?previousActors.find(b=>b.key===a.key):null,worldPoint=previous&&previousScene.navigation?.unproject(previous),preserved=worldPoint&&scene.navigation?scene.navigation.project(worldPoint):previous,limited=limit(a,old||preserved||seed||(a.kind==='pet'&&terrainCentre)||a,scene),p=scene.navigation?.nearest(limited,bounds(a,scene))||limited;
         return {...a,...p,route:old?.route?.map(p=>({...p}))||[],temperament:{...a.temperament},target:old&&old.w===a.w&&old.h===a.h&&old.target?limit(a,old.target,scene):null,activity:old?.activity||'rest',direction:old?.direction||1,source:old?.source||'ambient',manualUntil:previousActors.find(b=>b.key===a.key)?.manualUntil??0,nextAt:old?.nextAt??clock+1+random()*3,lastWalk:old?.lastWalk??clock-12,recent:old?.recent||[],after:old?.after||'observe',faceKey:old?.faceKey||null,visualReaction:old?.visualReaction,visualTarget:old?.visualTarget,nextVisualAt:old?.nextVisualAt||0};
@@ -68,8 +72,8 @@
       // residents merely to recreate this initial corridor.
       let exit=[];
       const lead=actors.find(a=>a.kind==='pet');
-      const arrange=changed||actors.length!==previousActors.length||actors.some(a=>{const b=previousActors.find(b=>b.key===a.key);return !b||a.w!==b.w||a.h!==b.h;});
-      if(lead&&actors.length>5&&arrange&&scene.navigation?.segmentSafe){
+      const arrange=changed||exitPolicyChanged||actors.length!==previousActors.length||actors.some(a=>{const b=previousActors.find(b=>b.key===a.key);return !b||a.w!==b.w||a.h!==b.h;});
+      if(lead&&(actors.length>5||scene.fiveResidentExit)&&arrange&&scene.navigation?.segmentSafe){
         const length=Math.max(40,lead.w*1.2),options=[];
         for(let i=0;i<8;i++){
           const end=limit(lead,{x:lead.x+Math.cos(i*Math.PI/4)*length,y:lead.y+Math.sin(i*Math.PI/4)*length},scene);

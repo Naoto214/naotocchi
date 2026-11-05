@@ -61,7 +61,7 @@ test('latest-main game catalogs, conversations, formal images and other games st
   "prototypes/card-game/tests/home-return-browser.cjs": "8d15849f16840bb4f4db249e9d40d4c1d2e0dd3e",
   "prototypes/life-sugoroku/index.html": "193ea229c806041c9dc9ce93aca86bfb86d39c2c",
   "prototypes/life-sugoroku/legacy.html": "4a8608e1e96bcf87242ed45a84c393cc4f05d67c",
-  "prototypes/life-sugoroku/main-v4.mjs": "89f01b258805ef9d686efaff25f211b7a9da6741",
+  "prototypes/life-sugoroku/main-v4.mjs": "737656fdc69b133f75401959f169c26054d6bec4",
   "prototypes/life-sugoroku/main.mjs": "16a57405d63c11e99f0ccf45135cf3a35e1bc6a1",
   "prototypes/life-sugoroku/v4.html": "193ea229c806041c9dc9ce93aca86bfb86d39c2c",
   "prototypes/naopoyo-time-hand-chapter1/build-preview.mjs": "949c11c5d16469277c3a2d0f1a333088e1b735d9",
