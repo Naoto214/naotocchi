@@ -1,0 +1,37 @@
+[
+  {
+    "path": "prototypes/naopoyo-time-hand-chapter1/engine.mjs",
+    "sha256": "f78db7940c32f85f1afb3e13910b1661eb610b25eab34b57e94f5b6aedfae7ad",
+    "unchanged": true
+  },
+  {
+    "path": "prototypes/naopoyo-time-hand-chapter1/priorities.mjs",
+    "sha256": "ae08693f260cdd8c42770cf5601bc1c2f83d601d87337d9c0cf24f644838cbaf",
+    "unchanged": true
+  },
+  {
+    "path": "prototypes/naopoyo-time-hand-chapter1/stages.mjs",
+    "sha256": "f690d35cc79ca8786ffc9179262cee70552e4035694c553c8ed9b2adb051ea0d",
+    "unchanged": true
+  },
+  {
+    "path": "prototypes/naopoyo-time-hand-chapter1/solutions.mjs",
+    "sha256": "76b135ab7ab1221fc265b55e0fc152a4e4a3d8e5cc00538c1bbb22e51ed270c2",
+    "unchanged": true
+  },
+  {
+    "path": "prototypes/naopoyo-time-hand-chapter1/session.mjs",
+    "sha256": "7580d40c7fcded0b49e940222a0863dd0084d7c7ac9373ccd0220383399b09c1",
+    "unchanged": true
+  },
+  {
+    "path": "prototypes/naopoyo-time-hand-chapter1/progress.mjs",
+    "sha256": "d812851d88900a02531b8ff38bd0b1dc68c5ce9bfe3c69b71c42154fc396f858",
+    "unchanged": true
+  },
+  {
+    "path": "prototypes/naopoyo-time-hand-chapter1/replay.mjs",
+    "sha256": "9df2bba28e3a80a24a48404426128858dcc78a16ca76d89453d162164aecb5c4",
+    "unchanged": true
+  }
+]

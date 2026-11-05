@@ -57,7 +57,16 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  // during this clock jump and can legitimately close the initial exit route.
  await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+10000));
  await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[inputRegion,inputCount]);
- await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return d.world?.loaded&&d.world.region===r&&d.actors.length===c&&!d.blocked&&d.paused==='false';},[inputRegion,inputCount],{polling:100,timeout:15000});
+ // A decoded daypart is published by draw(). Drive a frame while waiting
+ // for real image I/O, then leave the clock paused for physical input.
+ const readyDeadline=Date.now()+15000;
+ let ready=false;
+ do {
+  await page.clock.runFor(16);
+  ready=await page.evaluate(([r,c])=>{const d=HomeReleaseQA.detail();return d.world?.loaded&&d.world.region===r&&d.actors.length===c&&!d.blocked&&d.paused==='false';},[inputRegion,inputCount]);
+  if(!ready)await new Promise(resolve=>setTimeout(resolve,50));
+ } while(!ready&&Date.now()<readyDeadline);
+ assert.ok(ready,'decoded regional scene and cast ready before physical input');
  // Image decode and V18 body/camera fitting can span several animation
  // frames. Wait for stable model dimensions AND presentation before mapping
  // the physical pointer; an earlier snapshot can use the previous body size.

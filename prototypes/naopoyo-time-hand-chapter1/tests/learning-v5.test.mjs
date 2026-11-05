@@ -1,0 +1,17 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {stages} from '../archive/v5/stages.mjs';
+import {solutions} from '../archive/v5/solutions.mjs';
+import {createState,move,mass,validState,complete,cornerBlocked} from '../engine.mjs';
+import {timeHandTrace} from '../priorities.mjs';
+const replay=i=>{const s=createState(stages[i].board),events=[],splits=[];for(const action of solutions[i]){const r=move(s,...action,{observeSplit:sample=>splits.push(sample)});assert.ok(r.ok,`${i+1}: ${action}: ${r.reason}`);events.push(...r.events);assert.equal(mass(s),mass(createState(stages[i].board)));assert.ok(validState(stages[i].board,s));}return {s,events,splits};};
+for(let i=0;i<10;i++)test(`V5 ${i+1}: legal complete witness and species/mass invariants`,()=>assert.ok(complete(replay(i).s)));
+test('01 is a short movement introduction; boards keep D rules and versioned IDs',()=>{assert.equal(solutions[0].length,3);assert.equal(replay(0).events.filter(e=>e.type==='split').length,0);for(const [i,s] of stages.entries()){assert.equal(s.id,String(i+1).padStart(2,'0'));assert.match(s.board.id,/-v5$/);assert.equal(s.board.splitPriority,'D');assert.deepEqual(s.board.timeHand,{maxSteps:7,resetHeading:false,passGenerated:false});assert.deepEqual(s.board.gates,[]);}});
+test('02 one rear birth; 03 several collinear rear births',()=>{assert.deepEqual(replay(1).splits[0].children.map(a=>[a.x,a.y]),[[3,3]]);assert.deepEqual(replay(2).splits[0].children.map(a=>[a.x,a.y]),[[4,5],[3,5]]);});
+const trace=i=>{const s=createState(stages[i].board),a=s.actors[0],p=s.spikes[0];const dx=p.x-a.x,dy=p.y-a.y;a.x=p.x;a.y=p.y;return timeHandTrace(s,p.x,p.y,dx,dy,a).candidates.slice(0,a.level-1);};
+test('04 wall creates clockwise west-to-north turn; 06 two turns',()=>{assert.deepEqual(trace(3).map(p=>[p.x,p.y]),[[4,4],[3,4],[3,3]]);assert.equal(trace(3).filter(p=>p.turns>0).length,1);assert.equal(trace(5).filter(p=>p.turns>0).length,2);});
+test('05 same-species reunion restores level4 before rescue',()=>{const {events}=replay(4);assert.ok(events.some(e=>e.type==='merge'&&e.level===4));assert.ok(events.some(e=>e.type==='rescue'&&e.level===4));});
+test('07 moving frog changes birth route rather than merely decorating board',()=>{const before=trace(6).map(p=>[p.x,p.y]);const born=replay(6).splits[0].children.map(a=>[a.x,a.y]);assert.deepEqual(before,[[4,5],[3,5],[2,5]]);assert.deepEqual(born,[[4,5],[3,5],[3,4]]);assert.equal(solutions[6][0][0],'friend');assert.equal(replay(6).s.rescuedBySpecies.frog,1);});
+test('08 diagonal entry turns clockwise; closed diagonal corner stays blocked',()=>{assert.deepEqual(solutions[7][0],['parent',1,1]);assert.deepEqual(trace(7).map(p=>[p.x,p.y]),[[4,2],[3,1],[4,0]]);const s=createState(stages[7].board);assert.equal(cornerBlocked(s,2,0,1,1,s.actors[0]),true);});
+test('09 real support, split and falling recombination',()=>{const {events}=replay(8);for(const type of ['split','fall','merge'])assert.ok(events.some(e=>e.type===type));assert.ok(events.some(e=>e.type==='merge'&&e.fall));assert.ok(events.some(e=>e.type==='merge'&&e.level===4));});
+test('10 forced spike crossing, clockwise turn, reunions and total5 escape',()=>{assert.deepEqual(trace(9).map(p=>[p.x,p.y]),[[3,4],[2,4],[2,3]]);const {events,s}=replay(9);assert.ok(events.some(e=>e.type==='merge'&&e.level===5));assert.deepEqual(s.rescuedBySpecies,{dog:5});assert.equal(stages[9].board.walls.filter(p=>p[0]===4).length,7);assert.equal(stages[9].board.exits[0].exact,5);});

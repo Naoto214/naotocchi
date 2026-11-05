@@ -37,9 +37,12 @@ const root = path.resolve(__dirname, '../../..');
       const entry=page.locator('.independent-game[href="prototypes/naopoyo/"]'); await entry.scrollIntoViewIfNeeded();
       const rect=await entry.boundingBox(); assert.ok(rect.width>=44&&rect.height>=44&&rect.y>=0&&rect.y+rect.height<=height);
       await page.screenshot({path:path.join(output,`main-menu-${width}.png`)});
-      await entry.click(); await page.waitForURL('**/prototypes/naopoyo-chapter1/index.html');
+      await entry.click(); await page.waitForURL('**/prototypes/naopoyo-time-hand-chapter1/index.html');
       await page.locator('#board').waitFor();
-      assert.equal(await page.title(), 'なおぽよ。｜ひかりの牢屋');
+      assert.equal(await page.title(), 'なおぽよ。｜第1章 地下牢');
+      assert.equal(await page.locator('a[href*="naopoyo-chapter2"]').count(),0);
+      // Retained legacy saves are checked through the separate direct entry.
+      await page.goto(base+'/prototypes/naopoyo-chapter1/index.html');
       // The separate old twelve-stage runtime and saved continuation stay reachable.
       await page.locator('a[href="../naopoyo-rescue/index.html"]').click();
       await page.waitForURL('**/prototypes/naopoyo-rescue/index.html');

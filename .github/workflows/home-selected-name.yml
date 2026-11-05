@@ -1,0 +1,50 @@
+name: Home selected name
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'home-production-*.js'
+      - 'home-production-*.mjs'
+      - 'tests/home-egg-*.cjs'
+      - 'home-production-layout.css'
+      - 'home-diorama.css'
+      - 'script.js'
+      - 'index.html'
+      - 'tests/home-selected-name-browser.cjs'
+      - '.github/workflows/home-selected-name.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  touch-label:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [chromium, webkit]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps ${{ matrix.engine }}
+      - run: node --test tests/home-production-startup-test.cjs tests/home-egg-loading-test.cjs
+      - run: node tests/home-egg-startup-browser.cjs
+        env:
+          HOME_NAME_ENGINES: ${{ matrix.engine }}
+      - run: node tests/home-selected-name-browser.cjs
+        env:
+          HOME_NAME_ENGINES: ${{ matrix.engine }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-selected-name-${{ matrix.engine }}
+          path: |
+            .work-output/selected-name/
+            .work-output/egg-startup/
+          retention-days: 7

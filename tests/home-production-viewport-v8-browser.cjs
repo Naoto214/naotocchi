@@ -32,7 +32,11 @@ for(const [width,height]of [[320,568],[375,667],[390,844],[430,932],[568,320],[8
   record.navigation=[];
   if(width>height){for(let i=0;i<count;i++){
    await page.getByRole('button',{name:'次の住民',exact:true}).click();await page.clock.runFor(20);
-   const visible=await page.evaluate(()=>{const label=document.getElementById('homeViewportNavigation').getAttribute('aria-label').replace(/を表示中$/,''),actor=[...document.querySelectorAll('[data-diorama-actor]')].find(e=>e.getAttribute('aria-label')===label),v=document.querySelector('.screen-frame').getBoundingClientRect(),r=actor?.getBoundingClientRect();return {label,key:actor?.dataset.dioramaActor,full:r&&r.left>=v.left-1&&r.right<=v.right+1&&r.top>=v.top-1&&r.bottom<=v.bottom+1};});
+   const inspectNavigation=()=>page.evaluate(()=>{const label=document.getElementById('homeViewportNavigation').getAttribute('aria-label').replace(/を表示中$/,''),actor=[...document.querySelectorAll('[data-diorama-actor]')].find(e=>e.getAttribute('aria-label')===label),v=document.querySelector('.screen-frame').getBoundingClientRect(),r=actor?.getBoundingClientRect();return {label,key:actor?.dataset.dioramaActor,actorRect:r?.toJSON(),frameRect:v.toJSON(),full:r&&r.left>=v.left-1&&r.right<=v.right+1&&r.top>=v.top-1&&r.bottom<=v.bottom+1};});
+   // Native scrolling/paint delivery is asynchronous in WebKit. Keep the
+   // full-actor assertion, driving frames until the requested view is visible.
+   let visible=await inspectNavigation();
+   for(let elapsed=0;!visible.full&&elapsed<1000;elapsed+=50){await page.clock.runFor(50);visible=await inspectNavigation();}
    record.navigation.push(visible);const translated=await projection();for(const k of ['left','top','width','height','hostWidth'])assert.ok(Math.abs(translated[k]-originalProjection[k])<1,'scroll changed terrain projection '+k);assert.ok(visible.full,'navigation must reveal entire actor '+JSON.stringify(visible));
   }assert.equal(new Set(record.navigation.map(x=>x.key)).size,count);}
   // A real pointer gesture, with deterministic clock, not a call to QA.move.
@@ -41,6 +45,10 @@ for(const [width,height]of [[320,568],[375,667],[390,844],[430,932],[568,320],[8
   // physical point shared by both, then use a reachable navigation destination.
   const target=await page.evaluate(pointerTarget,'drag'),start=target.from;record.pointer=target;
   await page.mouse.click(start.x,start.y);record.selection=await page.evaluate(()=>({blockers:HomeReleaseQA.blockers(),trace:window.HomeReleaseInputTrace.slice(-12)}));assert.equal(await actor.getAttribute('aria-pressed'),'true');
+  // The selection tap can start the real greeting asynchronously. Finish that
+  // interaction before beginning the separate drag assertion; otherwise its
+  // input blocker can correctly cancel an already accepted walking route.
+  await readyForInput(page);
   const before=await page.evaluate(()=>HomeReleaseQA.detail().actors.find(a=>a.kind==='pet'));
   const end=target.to;
   await page.mouse.move(start.x,start.y);await page.mouse.down();await page.mouse.move(end.x,end.y,{steps:5});await page.mouse.up();await page.clock.runFor(500);
@@ -56,13 +64,13 @@ for(const [width,height]of [[320,568],[375,667],[390,844],[430,932],[568,320],[8
   // Rotate the same live scene and return, preserving stage dimensions and
   // unchanged fixed portrait geometry after the viewport event settles.
   // Resize events are delivered by the browser; let polling advance until the
-  // real viewport handler has consumed both orientations before freezing again.
+  // real viewport handler has consumed both orientations before measuring.
   await page.clock.resume();
   await page.setViewportSize({width:height,height:width});await page.clock.runFor(100);
   await page.waitForFunction(([w,h])=>innerWidth===w&&innerHeight===h&&Number.parseFloat(document.documentElement.style.getPropertyValue('--app-height'))===Math.round(visualViewport?.height||innerHeight),[height,width],{polling:100});
   await page.setViewportSize({width,height});await page.clock.runFor(100);
   await page.waitForFunction(([w,h])=>innerWidth===w&&innerHeight===h&&Number.parseFloat(document.documentElement.style.getPropertyValue('--app-height'))===Math.round(visualViewport?.height||innerHeight),[width,height],{polling:100});
-  await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+50));const returned=await inspect();assert.equal(returned.stage.width,initial.stage.width);assert.equal(returned.stage.height,initial.stage.height);assert.deepEqual(returned.frame,initial.frame);assert.equal(returned.comment.height,76);
+  await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));const returned=await inspect();assert.equal(returned.stage.width,initial.stage.width);assert.equal(returned.stage.height,initial.stage.height);assert.deepEqual(returned.frame,initial.frame);assert.equal(returned.comment.height,76);
   await page.screenshot({path:path.join(out,`${engine}-${width}x${height}-${count}.png`)});record.status='passed';
  }catch(e){record.status='failed';record.error=e.stack;failed=true;await page.screenshot({path:path.join(out,`${engine}-${width}x${height}-${count}-failed.png`)}).catch(()=>{});}finally{await page.close();fs.writeFileSync(path.join(out,engine+'.json'),JSON.stringify({records,errors},null,2));}
 }

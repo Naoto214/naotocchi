@@ -1,0 +1,36 @@
+@import url('../naopoyo-chapter2/example-style.css');
+/* Direct reuse: official chapter1 -> world, including stage-grid and victory. */
+@import url('../naopoyo-chapter1/style.css');
+main{grid-template-columns:minmax(0,1fr)}header,.intro,.arena,nav,.intro>div{min-width:0}
+.intro .stage-heading{justify-content:flex-start;align-items:baseline;gap:10px;color:inherit;flex-wrap:nowrap}
+#title{min-width:0;overflow:hidden;text-overflow:ellipsis}#moves{flex:0 0 auto;white-space:nowrap;font-size:13px;line-height:1.2;letter-spacing:0;color:#d1dce7;font-variant-numeric:tabular-nums}
+.scene{width:var(--board-size,260px);height:var(--board-size,260px)}canvas{width:100%;height:100%}
+nav{grid-template-columns:repeat(5,minmax(0,1fr))}nav button{min-width:0;white-space:nowrap;padding:6px 2px;font-size:12px}nav button span{font-size:11px}
+#status{margin:0}dialog{overflow:auto}dialog .stage-grid{grid-template-columns:repeat(2,minmax(0,1fr))}dialog .level{min-width:0;overflow-wrap:anywhere}
+#hint-text{font-weight:bold}input{width:20px;height:20px;vertical-align:middle}
+#replay{min-width:0}.replay-top{display:flex;gap:6px;justify-content:space-between;align-items:center;margin-bottom:4px;font-size:12px}.replay-top select{min-width:0;max-width:65%;min-height:44px;font:inherit}.tools{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}.tools button{min-width:0;font-size:11px;padding:2px}
+main:has(#replay:not([hidden])){grid-template-rows:44px 44px minmax(0,1fr) 22px 92px}
+@media(max-width:350px){nav button span{display:block;margin:0;font-size:10px}nav button{line-height:1.1;min-height:44px}}
+@media(orientation:landscape) and (max-height:550px){main{grid-template-columns:minmax(150px,1fr) minmax(0,2fr);column-gap:12px}#replay{grid-column:1}main:has(#replay:not([hidden])){grid-template-rows:44px 44px minmax(0,1fr) 92px}}
+
+main{padding-left:max(10px,env(safe-area-inset-left));padding-right:max(10px,env(safe-area-inset-right))}
+
+.example-head select{min-width:0;max-width:70%;font:inherit;min-height:44px}.example-head button{min-height:44px}
+dialog.example{background:#192b3d;color:#e7e9ee}.example-note{color:#a9bbcd}
+
+/* V5: keep five controls and their labels. Stack icon/label to avoid Safari
+   inline text overflowing; the longest label gets a larger column. */
+#play-tools{grid-template-columns:minmax(0,1fr) minmax(0,1.32fr) minmax(0,1fr) minmax(0,1.16fr) minmax(0,1fr);gap:4px}
+#play-tools button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:44px;padding:3px 1px;font-size:14px;line-height:1;border-radius:12px;letter-spacing:0}
+#play-tools button span{display:block;margin:0;font-size:10px;line-height:1.2;white-space:nowrap;letter-spacing:0}
+/* Noninteractive dungeon surround; all bars/doors here are behind the arena. */
+body{background-color:#243646;background-image:radial-gradient(ellipse at 17% 22%,#e8ba7140,transparent 32%),radial-gradient(ellipse at 83% 72%,#7daaaa22,transparent 45%),repeating-linear-gradient(0deg,transparent 0 62px,#111f3038 63px 66px),repeating-linear-gradient(90deg,#34475730 0 92px,#15273940 93px 96px)}
+.arena{position:relative;isolation:isolate;border-radius:48% 48% 16px 16px;background:radial-gradient(ellipse at 50% 0,#94acb330,transparent 70%)}
+.arena::before{content:"";position:absolute;z-index:-1;inset:4px 9%;border:8px solid #7789942a;border-bottom:0;border-radius:45% 45% 0 0;box-shadow:inset 0 0 0 2px #0f203033;pointer-events:none}
+.arena::after{content:"";position:absolute;z-index:-1;inset:14px 18% 20%;border-radius:45% 45% 0 0;background:repeating-linear-gradient(90deg,transparent 0 23px,#14273545 24px 27px,transparent 28px 45px);pointer-events:none}
+.scene{position:relative;isolation:isolate}
+.scene canvas{background:#cbd1d2}
+body:has(.scene[data-scene="moss"]){background-color:#293e3e}
+body:has(.scene[data-scene="hall"]){background-color:#253f4c;background-image:radial-gradient(ellipse at 50% 90%,#9bc8c240,transparent 65%),repeating-linear-gradient(0deg,transparent 0 62px,#111f3038 63px 66px),repeating-linear-gradient(90deg,transparent 0 92px,#15273940 93px 96px)}
+body:has(.scene[data-scene="dawn"]){background-color:#42515a;background-image:radial-gradient(ellipse at 50% 0,#ffe1a378,transparent 70%),repeating-linear-gradient(0deg,transparent 0 62px,#111f3028 63px 66px),repeating-linear-gradient(90deg,transparent 0 92px,#15273930 93px 96px)}
+@media(orientation:landscape) and (max-height:550px){main{grid-template-columns:minmax(280px,1fr) minmax(0,2fr);column-gap:8px}#play-tools button span{font-size:9px}}
