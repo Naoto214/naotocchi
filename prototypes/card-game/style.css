@@ -346,3 +346,11 @@ body>header h1{margin:0;min-width:0}
 .card-face.lover-two .card-copy .lover-block b{display:block;font-size:3.1cqw;letter-spacing:.06em;color:#6e5a36;margin-bottom:.5%}
 .card-face.lover-two .card-copy .lover-married{margin-top:1.8%;padding-top:1.8%;border-top:1px dashed #b79a51}
 .card-face.lover-two .card-copy .lover-married b{color:#C04479}
+
+/* Non-main card names: one display-only break point between unbreakable
+   segments (card-title-lines.mjs). Every line is centered; compact faces use
+   their own fitted size because their name lane is narrower. */
+.card-face:not(.main-face) .card-title{text-align:center;overflow-wrap:normal;word-break:keep-all;line-break:strict}
+.card-face:not(.main-face) .card-title>.title-seg{white-space:nowrap}
+.compact.card-face:not(.main-face) .card-title{font-size:var(--title-size-compact,var(--title-size,7cqw))}
+.effect-scroll .legacy-rules-note{font-size:12px;line-height:1.5;color:#e4dfc1;border-left:3px solid #d7bc76;padding:4px 8px;margin-top:8px}
