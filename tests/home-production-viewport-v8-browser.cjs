@@ -45,6 +45,10 @@ for(const [width,height]of [[320,568],[375,667],[390,844],[430,932],[568,320],[8
   // physical point shared by both, then use a reachable navigation destination.
   const target=await page.evaluate(pointerTarget,'drag'),start=target.from;record.pointer=target;
   await page.mouse.click(start.x,start.y);record.selection=await page.evaluate(()=>({blockers:HomeReleaseQA.blockers(),trace:window.HomeReleaseInputTrace.slice(-12)}));assert.equal(await actor.getAttribute('aria-pressed'),'true');
+  // The selection tap can start the real greeting asynchronously. Finish that
+  // interaction before beginning the separate drag assertion; otherwise its
+  // input blocker can correctly cancel an already accepted walking route.
+  await readyForInput(page);
   const before=await page.evaluate(()=>HomeReleaseQA.detail().actors.find(a=>a.kind==='pet'));
   const end=target.to;
   await page.mouse.move(start.x,start.y);await page.mouse.down();await page.mouse.move(end.x,end.y,{steps:5});await page.mouse.up();await page.clock.runFor(500);
