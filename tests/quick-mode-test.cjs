@@ -103,7 +103,9 @@ test('quick mode chains 3-6 second games: cue, immediate play, judge, next game 
 });
 
 test('every quick game can be solved from its own target hint and each kind of input is covered', () => {
-  const { h, run } = begin();
+  // Keep randomized game selection representative but reproducible. Otherwise
+  // one unlucky run can draw mostly collision-based survival games.
+  const { h, run } = begin(seededRandom(0x51f15e));
   const seen = new Map(); const kinds = new Set();
   const R = h.api.QUICK_RULES;
   for (let i = 0; i < 80 && run.current; i++) {

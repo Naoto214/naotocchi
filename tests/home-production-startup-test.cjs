@@ -13,9 +13,9 @@ test('the document-blocking egg module never depends on the optional Meguru 3D s
 async function deferredEgg(){
  const {artTransform,backdropComposition}=await import('../home-production-transform.mjs');
  let resolve,reject;const pending=new Promise((a,b)=>{resolve=a;reject=b;});let loads=0,created=0,frames=0;const environments=[];
- const source=fs.readFileSync('home-production-egg.mjs','utf8').replace(/^import .*;$/gm,'').replace(/export /g,'').replace(/import\('\.\/home-production-world\.mjs'\)/g,'loadWorld()');
+ const source=fs.readFileSync('home-production-egg.mjs','utf8').replace(/^import .*;$/gm,'').replace(/export /g,'').replace(/import\('\.\/home-production-world\.mjs'\)/g,'loadModule()');
  const createWorld=()=>{created++;return {setEnvironment(e){environments.push(e);},draw(){},destroy(){}};};
- const create=new Function('loadWorld','artTransform','backdropComposition','createHomeWorld',source+'\nreturn createEggPresentation;')(()=>{loads++;return pending;},artTransform,backdropComposition,createWorld);
+ const create=new Function('loadModule','artTransform','backdropComposition','createHomeWorld',source+'\nreturn createEggPresentation;')(()=>{loads++;return pending;},artTransform,backdropComposition,createWorld);
  const rect={left:0,top:0,width:320,height:568};
  const node=()=>({style:{setProperty(){}},children:[],append(n){this.children.push(n);},setAttribute(){},remove(){this.removed=true;},getBoundingClientRect:()=>rect});
  const doc={body:{...node(),dataset:{}},createElement:node,visibilityState:'visible',defaultView:{requestAnimationFrame(){frames++;return frames;},cancelAnimationFrame(){}}};

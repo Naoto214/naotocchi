@@ -7,22 +7,24 @@ export function eggPose(host,stage,box=[0,0,128,128]){
 }
 // Background-only egg adapter. The original sprite, pointer handlers, warming,
 // hatching and save state are owned exclusively by the unchanged game code.
-export function createEggPresentation(doc){
- let host=null,img=null,world=null,raf=0,last=0,loadToken=null,environment=null;
+export function createEggPresentation(doc,loadWorld=()=>import('./home-production-world.mjs')){
+ let host=null,img=null,world=null,raf=0,last=0,environment=null,loading=null,createWorld=null;
  const win=doc.defaultView;
- const stopWorld=()=>{loadToken=null;win.cancelAnimationFrame?.(raf);raf=0;world?.destroy();world=null;last=0;};
+ const stopWorld=()=>{win.cancelAnimationFrame?.(raf);raf=0;world?.destroy();world=null;last=0;};
  function frame(now){if(!world)return;world.draw(last?Math.min(1,(now-last)/1000):0,{reducedMotion:!!win.matchMedia?.('(prefers-reduced-motion: reduce)').matches,paused:doc.visibilityState==='hidden'});last=now;raf=win.requestAnimationFrame(frame);}
+ function ensureWorld(){
+  if(world||loading||!host||!environment)return;
+  if(createWorld){world=createWorld({container:host,document:doc,window:win});world.setEnvironment(environment);raf=win.requestAnimationFrame(frame);return;}
+  // Optional scenery must not delay DOMContentLoaded or the original egg.
+  // A completed load only attaches to the currently active egg presentation.
+  loading=loadWorld().then(module=>{createWorld=module.createHomeWorld;loading=null;ensureWorld();}).catch(()=>{/* Keep the static backdrop and avoid retrying on every Home update. */});
+ }
  return {update({active,stage,sprite,asset,time,weather,season}){
-  if(!active){stopWorld();host?.remove();host=null;img=null;delete doc.body.dataset.homeV6Egg;return;}
+  if(!active){environment=null;stopWorld();host?.remove();host=null;img=null;delete doc.body.dataset.homeV6Egg;return;}
   if(!host){host=doc.createElement('div');host.className='home-living-world home-v6-egg-world';host.setAttribute('aria-hidden','true');img=doc.createElement('img');img.src='assets/home-v6-20261029/runtime/home-interior-c.webp';img.decoding='async';host.append(img);doc.body.append(host);}
   doc.body.dataset.homeV6Egg='true';
   environment={region:'home',time,weather,season,...win.NaotocchiDaypartsQA};
-  // The egg and its authored backdrop must not wait for the optional 3D graph.
-  if(!world&&!loadToken){const token=loadToken={};import('./home-production-world.mjs').then(({createHomeWorld})=>{
-   if(loadToken!==token||!host)return;
-   world=createHomeWorld({container:host,document:doc,window:win});world.setEnvironment(environment);raf=win.requestAnimationFrame(frame);
-  }).catch(()=>{/* Keep the same static backdrop when the optional renderer is unavailable. */});}
-  world?.setEnvironment(environment);
+  if(world)world.setEnvironment(environment);else ensureWorld();
   const h=host.getBoundingClientRect(),s=stage.getBoundingClientRect(),p=eggPose(h,{left:s.left-h.left,top:s.top-h.top,width:s.width,height:s.height},doc.defaultView.NaotocchiCastBounds?.[asset]?.box);
   const composition=backdropComposition(h,{left:s.left-h.left,top:s.top-h.top,width:s.width,height:s.height});
   host.style.backgroundImage=`url("${img.src}")`;host.style.backgroundSize='cover';host.style.backgroundPosition='center';
@@ -31,6 +33,6 @@ export function createEggPresentation(doc){
   Object.assign(img.style,{maskImage:mask,webkitMaskImage:mask,position:'absolute',width:p.transform.width+'px',height:p.transform.height+'px',left:p.transform.left+'px',top:p.transform.top+'px',filter:'none'});
   Object.assign(sprite.style,{left:p.left+'px',top:p.top+'px',width:p.size+'px',height:p.size+'px'});
   sprite.style.setProperty('--cast-art-offset-y','0px');
- },destroy(){stopWorld();host?.remove();host=null;img=null;delete doc.body.dataset.homeV6Egg;}};
+ },destroy(){environment=null;stopWorld();host?.remove();host=null;img=null;delete doc.body.dataset.homeV6Egg;}};
 }
 if(typeof window!=='undefined'){window.HomeV6Egg=createEggPresentation(document);window.dispatchEvent(new Event('home-v6-egg-ready'));}

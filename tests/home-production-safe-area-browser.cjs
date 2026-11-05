@@ -17,16 +17,29 @@ const output=path.resolve('test-results/home-safe-area');fs.mkdirSync(output,{re
    const testedInsets=insets;
    const context=await browser.newContext({viewport:{width,height},hasTouch:true,isMobile:true,reducedMotion:'reduce'});
    const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
+   await page.clock.install({time:new Date('2026-11-05T00:00:00Z')});
    await context.route('**/*.css?*',async route=>{const r=await route.fetch();await route.fulfill({response:r,body:(await r.text()).replace(/env\(safe-area-inset-(top|right|bottom|left)(?:,\s*0px)?\)/g,(_,edge)=>(testedInsets[edge]||0)+'px')});});
    if(mode==='before'&&baseline)await context.route('**/home-production-touch.js*',route=>route.fulfill({contentType:'application/javascript',body:baseline}));
-   await page.addInitScript(save=>localStorage.setItem('naotocchi-save-v1',JSON.stringify(save)),fixtures.alone);
+   await page.addInitScript(save=>{
+    localStorage.setItem('naotocchi-save-v1',JSON.stringify(save));
+    // Compare the same resident placement and ambient decisions in both pages.
+    let value=0x51f15e;Math.random=()=>((value=(1664525*value+1013904223)>>>0)/4294967296);
+   },fixtures.alone);
    await page.goto('http://127.0.0.1:5194');await page.evaluate(()=>document.fonts.ready);
    await page.waitForFunction(()=>!!window.NaotocchiHomeViewport?.residentPresentation?.());
-   await page.waitForFunction(()=>{
-    const key=JSON.stringify(['careActions','homeCommentDock'].map(id=>document.getElementById(id).getBoundingClientRect().toJSON()));
-    if(window.__safeKey===key)window.__safeStable=(window.__safeStable||0)+1;else window.__safeStable=0;
-    window.__safeKey=key;return window.__safeStable>=5;
-   });
+   // Compare both documents at the same game time. Live autonomous walking can
+   // otherwise change the camera between the sequential before/after pages.
+   await page.clock.pauseAt(new Date('2026-11-05T00:01:00Z'));
+   let previous='',stable=0;
+   for(let sample=0;sample<20&&stable<5;sample++){
+    await page.clock.runFor(50);
+    const key=await page.evaluate(()=>JSON.stringify({
+     rects:['.screen-frame','#castStage','#homeCommentDock','#homeEventSlot','.device-header','#homeInformation','#careActions'].map(s=>document.querySelector(s).getBoundingClientRect().toJSON()),
+     presentation:window.NaotocchiHomeViewport.residentPresentation()
+    }));
+    stable=key===previous?stable+1:0;previous=key;
+   }
+   assert.equal(stable,5,'fixed UI and resident camera settle at the controlled time');
    const snapshot=await page.evaluate(()=>{
     const measure=e=>{const r=e.getBoundingClientRect(),c=getComputedStyle(e);return {x:r.x,y:r.y,width:r.width,height:r.height,bottom:r.bottom,right:r.right,font:c.font,padding:c.padding,gap:c.gap,border:c.border,background:c.background,color:c.color};};
     return {buttons:[...document.querySelectorAll('#careActions>button')].map(e=>({id:e.id,...measure(e)})),meters:measure(document.querySelector('.home-meters')),fixed:['.screen-frame','#castStage','#homeCommentDock','#homeEventSlot','.device-header','#homeInformation'].map(s=>measure(document.querySelector(s))),presentation:window.NaotocchiHomeViewport.residentPresentation(),background:[...document.body.style].filter(k=>k.startsWith('--home-backdrop')).map(k=>[k,document.body.style.getPropertyValue(k)])};
@@ -36,7 +49,17 @@ const output=path.resolve('test-results/home-safe-area');fs.mkdirSync(output,{re
   }
   const [before,after]=snapshots;
   const lift=width>height?Math.max(0,before.buttons.at(-1).bottom-(height-(insets.bottom||0))):0;
-  assert.deepEqual(after.fixed,before.fixed,'background, world, comment, notice and header geometry unchanged');
+  // WebKit may round identical transformed rectangles by a fraction of its
+  // 1/64px layout unit. Styles and all larger geometric changes stay strict.
+  for(let i=0;i<before.fixed.length;i++){
+   const actual={...after.fixed[i]},expected={...before.fixed[i]};
+   for(const key of ['x','y','width','height','bottom','right']){
+    const delta=Math.abs(actual[key]-expected[key]);
+    assert.ok(Number.isFinite(actual[key])&&Number.isFinite(expected[key])&&delta<=1/64,`fixed region ${i}: ${key} changed from ${expected[key]} to ${actual[key]} (delta ${delta}px)`);
+    delete actual[key];delete expected[key];
+   }
+   assert.deepEqual(actual,expected,'fixed region styles unchanged');
+  }
   assert.deepEqual(after.presentation,before.presentation,'resident projection and safe movement bounds unchanged');
   assert.deepEqual(after.background,before.background,'background coverage unchanged');
   const shifted=r=>({...r,y:r.y-lift,bottom:r.bottom-lift});
