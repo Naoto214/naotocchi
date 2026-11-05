@@ -12,11 +12,14 @@ const server=http.createServer((req,res)=>{const p=path.resolve(root,'.'+new URL
  try{const page=await browser.newPage({viewport:{width:393,height:720},hasTouch:true});const errors=[];page.on('pageerror',e=>errors.push(e.message));
  let release;const gate=new Promise(r=>release=r);
  const requested=page.waitForRequest('**/meguru-3d.mjs*',{timeout:15000});
- await page.route('**/meguru-3d.mjs*',async route=>{await gate;await route.continue();});
+ // The egg canvas now loads from its own optional world module. Hold both
+ // dependencies so the original game and the fallback art are exercised together.
+ const sceneryRequested=page.waitForRequest('**/home-production-world.mjs*',{timeout:15000});
+ await page.route(/\/(meguru-3d|home-production-world)\.mjs(?:\?|$)/,async route=>{await gate;await route.continue();});
  try{
  await page.goto(`http://127.0.0.1:${server.address().port}/`,{waitUntil:'domcontentloaded',timeout:15000});
  await page.waitForFunction(()=>window.HomeV6Egg&&document.body.dataset.homeV6Egg==='true');
- await requested;assert.equal(await page.locator('#petSprite').isVisible(),true);
+ await Promise.all([requested,sceneryRequested]);assert.equal(await page.locator('#petSprite').isVisible(),true);
  assert.equal(await page.locator('.home-v6-egg-world .home-art-canvas').count(),0);
  assert.match(await page.locator('.home-v6-egg-world').evaluate(e=>e.style.backgroundImage),/home-interior-c/);
  await page.locator('#playWithBtn').tap();
