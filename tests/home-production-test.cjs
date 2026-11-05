@@ -54,9 +54,34 @@ test('latest-main game catalogs, conversations, formal images and other games st
   'prototypes/life-sugoroku/official/controls.js',
   'prototypes/life-sugoroku/official/games.js',
   'prototypes/life-sugoroku/official/quick.js']);
+ // Owner approved PR #519 (CARD GAME card-name display) on 2026-11-05. Permit only
+ // these exact files at its reviewed head, not the CARD GAME directory or later edits.
+ const cardNames='ed2ba9b895bef2ad5b165986ccc5fb870a6e744e';
+ const cardNameFiles=new Set([
+  'prototypes/card-game/card-name-display-20261104/README.md',
+  'prototypes/card-game/card-name-display-20261104/app-390x844-collection.png',
+  'prototypes/card-game/card-name-display-20261104/app-390x844-detail.png',
+  'prototypes/card-game/card-name-display-20261104/app-844x390-collection.png',
+  'prototypes/card-game/card-name-display-20261104/app-844x390-detail.png',
+  'prototypes/card-game/card-name-display-20261104/browser-audit.json',
+  'prototypes/card-game/card-name-display-20261104/compare-after.png',
+  'prototypes/card-game/card-name-display-20261104/compare-before.png',
+  'prototypes/card-game/card-name-display-20261104/match-hotseat-7-390x844.png',
+  'prototypes/card-game/card-name-display-20261104/match-hotseat-8-390x844.png',
+  'prototypes/card-game/card-name-display-20261104/match-hotseat-8-844x390.png',
+  'prototypes/card-game/card-title-lines.mjs',
+  'prototypes/card-game/rulebook-content.mjs',
+  'prototypes/card-game/style.css',
+  'prototypes/card-game/tests/card-name-display.test.mjs',
+  'prototypes/card-game/tests/card-name-layout.browser.cjs',
+  'prototypes/card-game/ui-context.mjs',
+  'prototypes/card-game/ui-presentation.mjs',
+  'prototypes/card-game/ui-session.mjs']);
  const changed=cp.execFileSync('git',['diff','--name-only',testedMain,'--',...unchanged],{encoding:'utf8'}).trim().split('\n').filter(Boolean);
- assert.deepEqual(changed.filter(file=>!approved.has(file)&&!polishFiles.has(file)),[],'unapproved protected file changes');
- const originalAdditions=changed.filter(file=>!polishFiles.has(file));
+ assert.deepEqual(changed.filter(file=>!approved.has(file)&&!polishFiles.has(file)&&!cardNameFiles.has(file)),[],'unapproved protected file changes');
+ const originalAdditions=changed.filter(file=>!polishFiles.has(file)&&!cardNameFiles.has(file));
+ const cardNameChanges=changed.filter(file=>cardNameFiles.has(file));
+ if(cardNameChanges.length) assert.equal(cp.execFileSync('git',['diff','--name-only',cardNames,'--',...cardNameChanges],{encoding:'utf8'}).trim(),'','PR #519 files must match approved bytes');
  if(originalAdditions.length) assert.equal(cp.execFileSync('git',['diff','--name-only',firstStart,'--',...originalAdditions],{encoding:'utf8'}).trim(),'','FIRST START additions must match approved bytes');
  assert.equal(cp.execFileSync('git',['diff','--name-only',polish,'--',...polishFiles],{encoding:'utf8'}).trim(),'','PR #516 files must match approved bytes');
  const original=cp.execFileSync('git',['ls-tree','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa'],{encoding:'utf8'}).trim().split('\n').filter(p=>p.startsWith('home-')&&/\.(js|mjs|css)$/.test(p));
