@@ -34,9 +34,10 @@ async function inspect(page){return page.evaluate(()=>{
  notice:r(document.getElementById('homeEventSlot')),comment:r(document.getElementById('homeCommentDock')),count:HomeReleaseQA.detail().actors.length,
  actors:HomeReleaseQA.detail().actors.map(a=>({key:a.key,x:a.x,y:a.y})),bodyScale:NaotocchiHomeViewport.residentPresentation().bodyScale};
 });}
-async function target(page,kind){return page.evaluate(kind=>{
+async function target(page,kind,skip=0){return page.evaluate(({kind,skip})=>{
  const q=HomeReleaseQA.detail(),v=NaotocchiHomeViewport.residentPresentation(),s=NaotocchiHomeViewport.presentationRect(document.getElementById('castStage'));
  const frame=document.querySelector('.screen-frame').getBoundingClientRect();
+ const matches=[];
  for(const a of q.actors.filter(a=>a.kind===kind)){
   const node=document.querySelector('[data-diorama-actor="'+a.key+'"]');
   const x=v.x+(s.left+a.x-v.x)*v.scaleX,y=v.y+(s.top+a.y-v.y)*v.scaleY;
@@ -47,11 +48,12 @@ async function target(page,kind){return page.evaluate(kind=>{
    const p={x:x+dx*a.w*v.bodyScale,y:y-dy*a.h*v.bodyScale};
    if(p.x<=frame.left||p.x>=frame.right||p.y<=frame.top||p.y>=frame.bottom)continue;
    const hit=document.elementFromPoint(p.x,p.y);
-   if(hit?.closest('[data-diorama-actor]')===node)return {...p,key:a.key,name:node.getAttribute('aria-label').replace(/をえらぶ$/,'')};
+   if(hit?.closest('[data-diorama-actor]')===node)matches.push({...p,key:a.key,name:node.getAttribute('aria-label').replace(/をえらぶ$/,'')});
   }
  }
+ if(matches[skip])return matches[skip];
  throw Error('No exposed touch target for '+kind+' '+JSON.stringify({presentation:v,stage:s,frame:frame.toJSON(),actors:q.actors.map(a=>({key:a.key,x:a.x,y:a.y,w:a.w,h:a.h,rect:document.querySelector('[data-diorama-actor="'+a.key+'"]').getBoundingClientRect().toJSON()}))}));
-},kind);}
+},{kind,skip});}
 function verifyPaint(state,expected){
  assert.equal(state.text,expected);assert.equal(state.hidden,false);
  assert.equal(state.display,'block');assert.ok(state.label.width>0&&state.label.height>0);
@@ -61,6 +63,11 @@ function verifyPaint(state,expected){
  assert.equal(state.notice.height,42);assert.equal(state.comment.height,76);
 }
 async function tap(page,kind,single=false){
+ // Keep the real touchscreen hit test atomic with the exposed-pixel lookup.
+ // Otherwise WebKit can run an autonomous-walk frame between these two awaits
+ // and move another resident under the already verified point.
+ await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+1000));
+ try{
  // A visitor can be fully covered after a walk/rotation; wait for the existing
  // autonomous movement to expose it, without changing positions or selection.
  let p;
@@ -74,15 +81,27 @@ async function tap(page,kind,single=false){
     const move=await page.evaluate(pointerTarget,'drag');
     await page.mouse.move(move.from.x,move.from.y);await page.mouse.down();
     await page.mouse.move(move.to.x,move.to.y,{steps:8});await page.mouse.up();
+    // Finish that real routed walk while the clock remains deterministic;
+    // ordinary wall time cannot advance page timers under a paused clock.
+    await page.clock.runFor(2000);
    }
    await page.waitForTimeout(200);
   }
  }
- await page.touchscreen.tap(p.x,p.y);
- const state=await inspect(page);assert.equal(state.selected,p.key);
+ let state;
+ // A painted frame can expose pixels outside its smaller selection body. Try
+ // the other genuinely exposed pixels until the shipped hit test selects that
+ // same resident; every attempt remains a real touchscreen event.
+ for(let probe=0;probe<100;probe++){
+  if(probe)p=await target(page,kind,probe);
+  await page.touchscreen.tap(p.x,p.y);state=await inspect(page);
+  if(state.selected===p.key)break;
+ }
+ assert.equal(state.selected,p.key);
  if(single)assert.equal(state.display,'none');else verifyPaint(state,p.name);
  if(kind==='pet')assert.equal(state.text,'大人のいぬ');
  return {kind,key:p.key,text:state.text,label:state.label,frame:state.frame};
+ }finally{await page.clock.resume();}
 }
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));
  try{for(const engine of (process.env.HOME_NAME_ENGINES||'chromium,webkit').split(',')){
@@ -96,6 +115,7 @@ async function tap(page,kind,single=false){
  await page.goto(`http://127.0.0.1:${server.address().port}/release-qa.html`);
  await page.waitForFunction(()=>window.HomeReleaseQA);await page.evaluate(k=>HomeReleaseQA.setup(k),kind);
  await page.waitForFunction(()=>HomeReleaseQA.detail().world?.loaded);await page.waitForTimeout(1700);
+ await page.clock.install();
  assert.equal((await inspect(page)).count,{single:1,companion:2,partner:2,all:3,crowd:28}[kind]);
  const kinds=kind==='single'?['pet']:kind==='companion'?['pet','companion','pet']:kind==='partner'?['pet','partner','pet']:['pet','companion','partner','pet'];
  for(const actor of kinds)rec.checks.push(await tap(page,actor,kind==='single'));
@@ -110,7 +130,7 @@ async function tap(page,kind,single=false){
  if(kind!=='single')verifyPaint(await inspect(page),'大人のいぬ');
  // Hold only input sampling and delivery still; the live collision-aware
  // helper chooses reachable ground without moving or removing residents.
- await page.clock.install();await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+1000));
+ await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+1000));
  const ground=await page.evaluate(pointerTarget,'tap');
  const groundTraceStart=await page.evaluate(()=>HomeReleaseInputTrace.length);
  await page.touchscreen.tap(ground.to.x,ground.to.y);
