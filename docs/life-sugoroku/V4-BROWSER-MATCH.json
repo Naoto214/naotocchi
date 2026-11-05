@@ -1,0 +1,170 @@
+{
+  "evidence": {
+    "started": 1793699699421,
+    "phases": [
+      "turn",
+      "official",
+      "official-result",
+      "dice",
+      "done"
+    ],
+    "errors": [],
+    "done": true,
+    "elapsedMs": 85201,
+    "round": 10,
+    "players": [
+      {
+        "id": 0,
+        "sodachi": 75,
+        "money": 45,
+        "stage": 3
+      },
+      {
+        "id": 1,
+        "sodachi": 57,
+        "money": 15,
+        "stage": 3
+      },
+      {
+        "id": 2,
+        "sodachi": 64,
+        "money": 30,
+        "stage": 3
+      },
+      {
+        "id": 3,
+        "sodachi": 72,
+        "money": 55,
+        "stage": 1
+      }
+    ],
+    "games": [
+      {
+        "round": 1,
+        "pool": "game",
+        "gameId": "lights-out",
+        "seed": 273896889,
+        "requestId": "life-v4-405-10-4:12:official",
+        "results": [
+          {
+            "id": 0,
+            "score": 76,
+            "summary": "おわり!2問クリア",
+            "frame": 2740,
+            "rank": 1,
+            "reward": 15
+          },
+          {
+            "id": 1,
+            "score": 76,
+            "summary": "おわり!2問クリア",
+            "frame": 2740,
+            "rank": 1,
+            "reward": 15
+          },
+          {
+            "id": 2,
+            "score": 76,
+            "summary": "おわり!2問クリア",
+            "frame": 2740,
+            "rank": 1,
+            "reward": 15
+          },
+          {
+            "id": 3,
+            "score": 76,
+            "summary": "おわり!2問クリア",
+            "frame": 2740,
+            "rank": 1,
+            "reward": 15
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "pool": "quick",
+        "gameId": "eat",
+        "seed": 3212946153,
+        "requestId": "life-v4-405-10-4:419:official",
+        "results": [
+          {
+            "id": 0,
+            "score": 100,
+            "summary": "たべろ3こクリア（さいだい3れんぞく）",
+            "frame": 255,
+            "rank": 1,
+            "reward": 15
+          },
+          {
+            "id": 1,
+            "score": 100,
+            "summary": "たべろ3こクリア（さいだい3れんぞく）",
+            "frame": 260,
+            "rank": 1,
+            "reward": 15
+          },
+          {
+            "id": 2,
+            "score": 100,
+            "summary": "たべろ3こクリア（さいだい3れんぞく）",
+            "frame": 249,
+            "rank": 1,
+            "reward": 15
+          },
+          {
+            "id": 3,
+            "score": 100,
+            "summary": "たべろ3こクリア（さいだい3れんぞく）",
+            "frame": 262,
+            "rank": 1,
+            "reward": 15
+          }
+        ]
+      },
+      {
+        "round": 9,
+        "pool": "quick",
+        "gameId": "flee",
+        "seed": 729510098,
+        "requestId": "life-v4-405-10-4:671:official",
+        "results": [
+          {
+            "id": 0,
+            "score": 100,
+            "summary": "にげろ3こクリア（さいだい3れんぞく）",
+            "frame": 277,
+            "rank": 1,
+            "reward": 15
+          },
+          {
+            "id": 1,
+            "score": 100,
+            "summary": "にげろ3こクリア（さいだい3れんぞく）",
+            "frame": 271,
+            "rank": 1,
+            "reward": 15
+          },
+          {
+            "id": 2,
+            "score": 100,
+            "summary": "にげろ3こクリア（さいだい3れんぞく）",
+            "frame": 273,
+            "rank": 1,
+            "reward": 15
+          },
+          {
+            "id": 3,
+            "score": 100,
+            "summary": "にげろ3こクリア（さいだい3れんぞく）",
+            "frame": 267,
+            "rank": 1,
+            "reward": 15
+          }
+        ]
+      }
+    ]
+  },
+  "round": 10,
+  "phase": "done",
+  "games": 3
+}

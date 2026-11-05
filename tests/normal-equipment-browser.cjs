@@ -89,9 +89,20 @@ module.exports=async function(browser,engine,fixtures,baseURL,output){
       const used=await readSave(page),payout=used.lifetime.money-purchased.lifetime.money;
       assert.equal(payout,50);
       assert.equal(used.items.c_coin2||0,stock);
-      assert.match(await page.locator('#message').textContent(),new RegExp(`${payout}コイン`));
       assert.equal(await page.locator('[data-item-action="cancel"][data-id="c_coin2"]').count(),0);
       assert.doesNotMatch(await page.locator('#onetimeActive').textContent(),/ラッキー/);
+      // V18 holds Home notices while a menu is open. Return through the real
+      // close button, then advance the paused presentation queue to the payout.
+      await page.locator('#itemCloseBtn').click();await home(page);
+      const payoutText=new RegExp(`${payout}コイン`),noticeHistory=[];
+      for(let elapsed=0;elapsed<=20000;elapsed+=100){
+        const text=await page.locator('#message').textContent();
+        if(!noticeHistory.length||noticeHistory.at(-1).text!==text)noticeHistory.push({elapsed,text});
+        if(payoutText.test(text)&&await page.locator('#message').isVisible())break;
+        if(elapsed<20000)await page.clock.runFor(100);
+      }
+      assert.match(await page.locator('#message').textContent(),payoutText,JSON.stringify(noticeHistory));
+      assert.equal(await page.locator('#message').isVisible(),true,label+': payout notice remains hidden');
 
       // Legacy save injection is a public save fixture, not a closure hook.
       const legacy=await readSave(page);

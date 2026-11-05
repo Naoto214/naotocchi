@@ -1,3 +1,4 @@
+// Validate the shipped display first, then preserve the full historical V7 matrix.
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),assert=require('node:assert/strict');
 const root=path.resolve(process.argv[2]),out=path.resolve('test-results/home-production-comments-v7');fs.mkdirSync(out,{recursive:true});
 const server=http.createServer((req,res)=>{const f=path.resolve(root,'.'+new URL(req.url,'http://local').pathname);if(!f.startsWith(root+'/')||!fs.existsSync(f)){res.writeHead(404).end();return;}res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.webp':'image/webp'})[path.extname(f)]||'application/octet-stream');fs.createReadStream(f).pipe(res);});
@@ -22,6 +23,7 @@ const texts=['うれしいな','今日はいい日だった','遊びの途中で
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const results=[],errors=[];try{
 for(const engine of (process.env.HOME_LAYOUT_ENGINES||'chromium,webkit').split(',')){
  const browser=await require('playwright')[engine].launch();try{
+ await require('./helpers/home-production-current-browser.cjs')(browser,engine,'http://127.0.0.1:'+server.address().port,out);
  for(const width of [320,375,390,430]){
  const page=await browser.newPage({viewport:{width,height:844},reducedMotion:'reduce'});page.on('pageerror',e=>errors.push(e.message));await page.clock.install();
  await page.goto('http://127.0.0.1:'+server.address().port+'/v7-qa.html?region=forest&count=28');await page.waitForFunction(()=>window.HomeReleaseQA?.detail().world?.loaded);await page.evaluate(()=>document.fonts.ready);
@@ -73,7 +75,12 @@ for(const engine of (process.env.HOME_LAYOUT_ENGINES||'chromium,webkit').split('
  const exchange=await page.locator('#individualityDialog').evaluate(e=>{const n=document.getElementById('individualitySpeaker'),t=document.getElementById('individualityText'),r=e.getBoundingClientRect();return {portrait:n.querySelector('img')?.getAttribute('src'),nameBottom:n.getBoundingClientRect().bottom,textTop:t.getBoundingClientRect().top,bottom:r.bottom,controls:document.getElementById('careActions').getBoundingClientRect().top};});
  assert.ok(exchange.nameBottom<=exchange.textTop+1&&exchange.bottom<exchange.controls);assert.match(exchange.portrait,/assets\/characters\//);
  await page.locator('#individualityChoices button').first().click();await page.clock.runFor(100);
+ const reply=await page.evaluate(()=>({result:document.getElementById('homeChoiceResult').outerHTML,dialog:document.getElementById('individualityDialog').outerHTML,blockers:HomeReleaseQA.blockers(),state:HomeReleaseQA.state().individuality}));
+ fs.writeFileSync(path.join(out,'exchange-'+engine+'-'+width+'.json'),JSON.stringify(reply,null,2));
  assert.equal(await page.locator('#homeChoiceResult').isVisible(),true,'exchange reply stays in bottom component');
+ assert.ok(await page.locator('#homeChoiceText').textContent(),'exchange retains its authored reply');
+ await page.clock.runFor(4200);
+ assert.equal(await page.locator('#homeChoiceResult').isVisible(),false,'exchange reply expires through the real result timer');
  await page.close();fs.writeFileSync(path.join(out,'progress.json'),JSON.stringify({results,errors},null,2));
  }
  }finally{await browser.close();}

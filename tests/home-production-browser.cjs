@@ -14,15 +14,15 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  // beforeunload legitimately saves the old scene. Reset only explicitly
  // marked input fixtures, in the new document before application startup.
  await page.addInitScript(seed=>{
-  if(!location.pathname.endsWith('/release-qa.html')||sessionStorage.getItem('home-release-reset-fixture')!=='1')return;
+  if(!location.pathname.endsWith('/current-production-qa.html')||sessionStorage.getItem('home-release-reset-fixture')!=='1')return;
   localStorage.setItem('naotocchi-home-release-qa-v1',JSON.stringify(seed));
   sessionStorage.removeItem('home-release-reset-fixture');
  },original);
- await page.goto(base+'/release-qa.html');await page.waitForFunction(()=>window.HomeReleaseQA);
+ await page.goto(base+'/current-production-qa.html');await page.waitForFunction(()=>window.HomeReleaseQA);
  for(const width of [320,375,390,430])for(const region of (process.env.HOME_RELEASE_REGION?[process.env.HOME_RELEASE_REGION]:['home','forest','river_lake','city','countryside','mountain','snow','sea','jungle','desert','deepsea','star_stop','memory_lake']))for(const count of [1,6,28]){
  await page.setViewportSize({width,height:844});await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[region,count]);
  await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world?.mode==='art-25d'&&d.world.loaded&&d.world.region===r&&d.actors.length===c&&d.actors.every(a=>a.safe);},[region,count],{timeout:30000});
- const detail=await page.evaluate(()=>HomeReleaseQA.detail());assert.equal(Math.round(detail.slots.notice),42);assert.equal(Math.round(detail.slots.speech),76);assert.ok(await page.evaluate(()=>HomeReleaseQA.move()),`${region}/${width}/${count} pet exit: ${JSON.stringify(detail)}`);
+ const detail=await page.evaluate(()=>HomeReleaseQA.detail());assert.deepEqual(detail.layout,{viewport:'12',display:'18'},'regional matrix uses the shipped home');assert.equal(Math.round(detail.slots.notice),42);assert.equal(Math.round(detail.slots.speech),76);assert.ok(await page.evaluate(()=>HomeReleaseQA.move()),`${region}/${width}/${count} pet exit: ${JSON.stringify(detail)}`);
  results.push({engine:engineName,width,region,count,candidate:detail.world.candidate,safe:detail.actors.every(a=>a.safe),slots:detail.slots});
  if(width===390&&count===28)await page.screenshot({path:path.join(dest,`${engineName}-${region}-28.png`),fullPage:true});
  fs.writeFileSync(path.join(dest,'progress.json'),JSON.stringify({results,errors},null,2));
@@ -58,11 +58,18 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+10000));
  await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[inputRegion,inputCount]);
  await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return d.world?.loaded&&d.world.region===r&&d.actors.length===c&&!d.blocked&&d.paused==='false';},[inputRegion,inputCount],{polling:100,timeout:15000});
- // Image.onload is asynchronous; paint the new canvas/cast before sampling.
- // runFor leaves the clock paused after these three normal animation frames.
- await page.clock.runFor(50);
- input.before=await page.evaluate(()=>HomeReleaseQA.detail());input.status='started';saveInputs();
- const t=await page.evaluate(targetFn,kind),from={x:t.stage.x+t.a.x,y:t.stage.y+t.a.y-t.a.h*.4},to={x:t.stage.x+t.p.x,y:t.stage.y+t.p.y};
+ // Image decode and V18 body/camera fitting can span several animation
+ // frames. Wait for stable model dimensions AND presentation before mapping
+ // the physical pointer; an earlier snapshot can use the previous body size.
+ let previousGeometry='',stableFrames=0;
+ for(let frame=0;frame<20&&stableFrames<3;frame++){
+  await page.clock.runFor(50);
+  const geometry=await page.evaluate(()=>JSON.stringify({actors:HomeReleaseQA.detail().actors.map(({key,x,y,w,h})=>({key,x,y,w,h})),presentation:window.NaotocchiHomeViewport?.residentPresentation?.()}));
+  stableFrames=geometry===previousGeometry?stableFrames+1:0;previousGeometry=geometry;
+ }
+ assert.equal(stableFrames,3,'V18 cast and camera settle before physical input');
+ input.before=await page.evaluate(()=>HomeReleaseQA.detail());assert.deepEqual(input.before.layout,{viewport:'12',display:'18'},'physical input uses the shipped home');input.status='started';saveInputs();
+ const t=await page.evaluate(targetFn,kind),{from,to}=t;
  input.target=t;input.from=from;input.to=to;input.selectionMs=t.selectionMs;saveInputs();
  if(kind==='tap'){await page.mouse.click(from.x,from.y);await page.waitForTimeout(100);assert.equal(await page.locator('[data-diorama-actor="pet:dog"]').getAttribute('aria-pressed'),'true');await page.mouse.click(to.x,to.y);}
  else{await page.mouse.move(from.x,from.y);await page.mouse.down();await page.mouse.move(to.x,to.y,{steps:8});await page.mouse.up();}
@@ -75,15 +82,31 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  finally{await page.clock.resume();input.after=await page.evaluate(()=>HomeReleaseQA.detail()).catch(()=>null);input.trace=await page.evaluate(()=>window.HomeReleaseInputTrace).catch(()=>null);saveInputs();}
  }
  }
- const stopInput={engine:engineName,region:inputRegion,count:28,kind:'question-blocks-drag',status:'started'};inputs.push(stopInput);saveInputs();
+ const stopInput={engine:engineName,region:'home',count:28,kind:'question-blocks-drag',viewport:{width:844,height:600},status:'started'};inputs.push(stopInput);saveInputs();
  try{
+ // The conversation block is shared across regions. Use the home fixture
+ // with a verified free route; regional movement is exercised above.
+ // Portrait choices cover the protagonist; use the exposed landscape cast
+ // to exercise the controller block with a pointer that actually reaches it.
+ await page.setViewportSize(stopInput.viewport);
+ // The preceding drag ends at a different seat and ambient residents keep
+ // moving. Start the blocking comparison from the same fresh, reachable cast
+ // as the successful physical inputs, then hold it still through delivery.
+ await page.evaluate(()=>sessionStorage.setItem('home-release-reset-fixture','1'));
+ await page.reload();await page.waitForFunction(()=>window.HomeReleaseQA);
+ await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+10000));
+ await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[stopInput.region,28]);
+ await page.waitForFunction(r=>{const d=HomeReleaseQA.detail();return d.world?.loaded&&d.world.region===r&&d.actors.length===28&&!d.blocked&&d.paused==='false';},stopInput.region,{polling:100,timeout:15000});
+ await page.clock.runFor(50);
  const questionStarted=await page.evaluate(()=>HomeReleaseQA.question());assert.ok(questionStarted,'existing conversation accepts prepared healthy fixture: '+JSON.stringify(await page.evaluate(()=>HomeReleaseQA.conversationStatus())));
- await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+ await page.clock.runFor(50);
  const blockedTarget=await page.evaluate(targetFn,'drag');stopInput.target=blockedTarget;
  const blockedBefore=await page.evaluate(()=>({detail:HomeReleaseQA.detail(),traceIndex:HomeReleaseInputTrace.length,blockers:HomeReleaseQA.blockers()}));stopInput.before=blockedBefore;saveInputs();
  assert.ok(blockedBefore.detail.blocked,'question holds movement');
+ await page.screenshot({path:path.join(dest,`${engineName}-${stopInput.region}-question-blocks-drag.png`)});
  await page.mouse.move(blockedTarget.from.x,blockedTarget.from.y);await page.mouse.down();await page.mouse.move(blockedTarget.to.x,blockedTarget.to.y,{steps:8});await page.mouse.up();
- await page.waitForTimeout(150);
+ // Advance real animation callbacks while the question owns the block.
+ await page.clock.runFor(150);
  const blockedAfter=await page.evaluate(index=>({detail:HomeReleaseQA.detail(),trace:HomeReleaseInputTrace.slice(index)}),blockedBefore.traceIndex);stopInput.after=blockedAfter;saveInputs();
  assert.ok(blockedAfter.trace.some(t=>t.type==='pointerdown'&&t.actor==='pet:dog'&&t.blocked),'blocked pointerdown reaches protagonist');
  assert.ok(blockedAfter.trace.some(t=>t.type==='pointerup'),'blocked gesture completes');
@@ -91,7 +114,8 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  assert.ok(!blockedAfter.trace.some(t=>t.type==='move'&&t.result),'question must not accept a route');
  await page.locator('#speechChoices [data-choice]').first().click();await page.waitForFunction(()=>document.getElementById('speechChoices').classList.contains('hidden'));stopInput.status='passed';
  }catch(error){stopInput.status='failed';stopInput.error=error.message;throw error;}
- finally{stopInput.trace=await page.evaluate(()=>window.HomeReleaseInputTrace).catch(()=>null);saveInputs();}
+ finally{stopInput.trace=await page.evaluate(()=>window.HomeReleaseInputTrace).catch(()=>null);saveInputs();await page.clock.resume();}
+ await page.setViewportSize({width:390,height:844});
  await page.locator('#menuBtn').click();await page.locator('#menuOverlay').waitFor({state:'visible'});assert.equal(await page.locator('#menuOverlay .menu-grid > :is(button,a)').count(),12);await page.locator('#menuCloseBtn').click();
  await page.emulateMedia({reducedMotion:'reduce'});await page.waitForFunction(()=>matchMedia('(prefers-reduced-motion: reduce)').matches&&document.getElementById('castStage').dataset.dioramaReduced==='true');await page.waitForTimeout(100);const clock=await page.evaluate(()=>HomeReleaseQA.detail().world.animationTime);assert.ok(Number.isFinite(clock),'real environment clock');await page.waitForTimeout(500);assert.equal(await page.evaluate(()=>HomeReleaseQA.detail().world.animationTime),clock);
  await page.setViewportSize({width:844,height:390});await page.evaluate(()=>HomeReleaseQA.scene('star_stop',28));await page.waitForFunction(()=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world?.region==='star_stop'&&d.world.loaded&&d.actors.length===28&&d.actors.every(a=>a.safe);},null,{timeout:30000});

@@ -40,13 +40,41 @@ test('production runtime harness loads the exact shipped presenter and model',()
  assert.equal(h.window.NaotocchiHomeDioramaModel,require('../home-production-model.js'));
 });
 test('latest-main game catalogs, conversations, formal images and other games stay byte-identical',()=>{
- const cp=require('child_process');const unchanged=['assets/characters','prototypes','conversation-*.js','relationship-*.js','individuality*.js','item-*.js','games.js','quick.js','style.css','ui.css','character-world-master.v1.js'];
- // Experiment-only directories (never in the Pages allowlist, never served) may change on their own Draft PRs; everything else
- // under the protected paths must stay byte-identical. The allowlist check keeps experimental files out of production.
+ const cp=require('child_process');const unchanged=['assets/characters','prototypes','conversation-*.js','relationship-*.js','individuality*.js','item-*.js','games.js','quick.js','script.js','style.css','ui.css','character-world-master.v1.js'];
+ // FIRST START permits only the exact owner-approved files/bytes from PR #511.
+ // Keep every other prototype (CARD GAME/naopoyo included) and asset protected.
+ const firstStart='8de189af03dc3bf9ca0139982341edc5c33b5518';
+ const approved=new Set(cp.execFileSync('git',['ls-tree','-r','--name-only',firstStart,'--','prototypes/life-sugoroku'],{encoding:'utf8'}).trim().split('\n'));
+ // Owner approved PR #516 with FIRST START on 2026-11-04. Permit only
+ // these exact files at that immutable merge, not future minigame edits.
+ const polish='e834ae10f2f26aec7c99c7bb8cd3744acce184dc';
+ const polishFiles=new Set(['games.js','quick.js','script.js','style.css',
+  'prototypes/life-sugoroku/official-host-v4.js',
+  'prototypes/life-sugoroku/official/controls.css',
+  'prototypes/life-sugoroku/official/controls.js',
+  'prototypes/life-sugoroku/official/games.js',
+  'prototypes/life-sugoroku/official/quick.js']);
+ // U18 (owner-approved 2026-11-05): Draft PR #498's experiment directory only. It is never served (checked here and in
+ // tests/pages/test_experiment_not_served.py); every other protected path, including every other prototype, stays covered.
  const experiments=['prototypes/card-game/variable-life-20261031'];
- const allow=JSON.parse(require('fs').readFileSync(require('path').join(__dirname,'..','tools/pages/allowlist.json'),'utf8')).files;
+ const allow=JSON.parse(fs.readFileSync(require('path').join(__dirname,'..','tools/pages/allowlist.json'),'utf8')).files;
  for(const dir of experiments)assert.equal(allow.filter(f=>f===dir||f.startsWith(dir+'/')).length,0,'experiment files must not be served: '+dir);
- assert.equal(cp.execFileSync('git',['diff','--name-only',testedMain,'--',...unchanged,...experiments.map(d=>':(exclude)'+d)],{encoding:'utf8'}).trim(),'');
+ const changed=cp.execFileSync('git',['diff','--name-only',testedMain,'--',...unchanged,...experiments.map(d=>':(exclude)'+d)],{encoding:'utf8'}).trim().split('\n').filter(Boolean);
+ assert.deepEqual(changed.filter(file=>!approved.has(file)&&!polishFiles.has(file)),[],'unapproved protected file changes');
+ const originalAdditions=changed.filter(file=>!polishFiles.has(file));
+ if(originalAdditions.length) assert.equal(cp.execFileSync('git',['diff','--name-only',firstStart,'--',...originalAdditions],{encoding:'utf8'}).trim(),'','FIRST START additions must match approved bytes');
+ assert.equal(cp.execFileSync('git',['diff','--name-only',polish,'--',...polishFiles],{encoding:'utf8'}).trim(),'','PR #516 files must match approved bytes');
  const original=cp.execFileSync('git',['ls-tree','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa'],{encoding:'utf8'}).trim().split('\n').filter(p=>p.startsWith('home-')&&/\.(js|mjs|css)$/.test(p));
- assert.equal(cp.execFileSync('git',['diff','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa','--',...original],{encoding:'utf8'}).trim(),'');
+ // The startup repair only moves the pure route function out of the module
+ // that imports optional 3D. Reconstruct the original files byte-for-byte;
+ // this exception cannot permit any navigation or legacy rendering changes.
+ const route=fs.readFileSync('home-route-navigation.mjs','utf8').replace('// Pure presentation routes, independent of the optional 3D renderer.\n','');
+ const splitFiles=['home-art-navigation.mjs','home-terrain-navigation.mjs'];
+ for(const file of splitFiles){
+  let restored=fs.readFileSync(file,'utf8');
+  if(file==='home-art-navigation.mjs')restored=restored.replace("from './home-route-navigation.mjs'","from './home-terrain-navigation.mjs'");
+  else restored=restored.replace("import {createTerrainNavigation} from './home-route-navigation.mjs';\nexport {createTerrainNavigation} from './home-route-navigation.mjs';\n",route);
+  assert.equal(restored,cp.execFileSync('git',['show','e0c5c52671666e8ab06b37afabf3eeae29f530fa:'+file],{encoding:'utf8'}),'mechanical route extraction only: '+file);
+ }
+ assert.equal(cp.execFileSync('git',['diff','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa','--',...original.filter(file=>!splitFiles.includes(file))],{encoding:'utf8'}).trim(),'');
 });
