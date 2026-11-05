@@ -1,7 +1,8 @@
 // Browser-side fixture selection only; the shipped navigation remains the
 // authority. Try nearby candidates first so route search does not leave an
 // input origin stale while autonomous characters or conversations advance.
-module.exports=(kind='tap')=>{
+module.exports=(request='tap')=>{
+ const kind=typeof request==='string'?request:request.kind;
  const started=performance.now(),q=HomeReleaseQA,d=q.detail(),inspection=q.inspect(),a=d.actors[0],b=inspection.bounds[0],nav=inspection.scene.navigation,s=d.slots.castStage;
  const viewport=window.NaotocchiHomeViewport,presentation=viewport?.residentPresentation?.(),stageNode=document.getElementById('castStage');
  const native=presentation?viewport.presentationRect(stageNode):{left:s.x,top:s.y};
@@ -20,6 +21,12 @@ module.exports=(kind='tap')=>{
   for(let x=Math.max(frame.left+1,rect.left+1,foot.x-a.w*bodyScale/2+1);x<Math.min(frame.right-1,rect.right-1,foot.x+a.w*bodyScale/2);x+=2)originPoints.push({x,y});
  const from=originPoints.map(p=>({x:Math.floor(p.x),y:Math.floor(p.y)})).find(p=>p.x>frame.left&&p.x<frame.right&&p.y>frame.top&&p.y<frame.bottom&&document.elementFromPoint(p.x,p.y)?.closest?.('[data-diorama-actor]')===owner);
  if(!owner||!from)throw Error('Protagonist cannot be reached by pointer');
+ // A hidden resident needs a clear line of sight after the real drag, not
+ // simply the nearest legal step. Measure both existing DOM frames in CSS px.
+ const covered=typeof request==='object'&&d.actors.find(c=>c.kind===request.expose);
+ const coveredRect=covered&&document.querySelector('[data-diorama-actor="'+covered.key+'"]').getBoundingClientRect();
+ const needed=coveredRect&&rect?(rect.width+coveredRect.width)/2+3:0;
+ const visibleGap=to=>coveredRect?Math.min(needed,Math.abs(to.x+(rect.left+rect.width/2-foot.x)-(coveredRect.left+coveredRect.width/2))):0;
  const clearance=(p,c)=>Math.hypot((p.x-c.x)/((a.w+c.w)*.5+10),(p.y-c.y)/((a.h+c.h)*.38+10));
  const free=p=>d.actors.slice(1).every(c=>clearance(p,c)>=1)&&inspection.scene.visible(p,a);
  // Match the controller's escape-only routing from an already cramped seat.
@@ -49,7 +56,7 @@ module.exports=(kind='tap')=>{
   if(kind==='tap'&&presentation&&d.actors.some(c=>Math.abs(x-c.x)<=c.w*presentation.bodyScale/presentation.scaleX/2&&y>=c.y-c.h*presentation.bodyScale/presentation.scaleY&&y<=c.y))continue;
   candidates.push({p,to,distance});
  }
- candidates.sort((a,b)=>a.distance-b.distance);
+ candidates.sort((a,b)=>visibleGap(b.to)-visibleGap(a.to)||a.distance-b.distance);
  for(const minimumDistance of [45,12])for(const {p,to,distance} of candidates){
   if(distance<minimumDistance)continue;
   const route=nav.route(a,p,b,routeFree);if(!route.length)continue;

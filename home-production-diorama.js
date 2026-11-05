@@ -576,13 +576,12 @@
       const items=model.snapshot().sort((a,b)=>b.y-a.y);
       const owner=target?.closest?.('[data-diorama-actor]');
       const v=env.NaotocchiHomeViewport?.residentPresentation?.(),kx=v?(paintedBodyScale??v.bodyScale)/v.scaleX:1,ky=v?(paintedBodyScale??v.bodyScale)/v.scaleY:1;
-      const depth=a=>scene.navigation?.depthScale?.(a)||1;
-      const bodyHit=a=>Math.abs(p.x-a.x)<=a.w*kx*depth(a)/2&&p.y>=a.y-a.h*ky*depth(a)&&p.y<=a.y;
+      const bodyHit=a=>Math.abs(p.x-a.x)<=a.w*kx/2&&p.y>=a.y-a.h*ky&&p.y<=a.y;
       // PNG frames include transparent padding. A foreground frame must not steal a visible visitor.
       for(const a of items){const row=rows.get(a.key);if(bodyHit(a)&&(target===row.owner||owner===row.owner))return a.key;}
       for(const a of items)if(bodyHit(a))return a.key;
-      const padded=items.filter(a=>Math.abs(p.x-a.x)<=Math.max(22/(v?.scaleX||1),a.w*kx*depth(a)/2)&&p.y>=a.y-Math.max(44/(v?.scaleY||1),a.h*ky*depth(a))&&p.y<=a.y+10/(v?.scaleY||1));
-      padded.sort((a,b)=>Math.hypot(p.x-a.x,p.y-a.y+a.h*ky*depth(a)/2)-Math.hypot(p.x-b.x,p.y-b.y+b.h*ky*depth(b)/2));
+      const padded=items.filter(a=>Math.abs(p.x-a.x)<=Math.max(22,a.w/2)&&p.y>=a.y-Math.max(44,a.h)&&p.y<=a.y+10);
+      padded.sort((a,b)=>Math.hypot(p.x-a.x,p.y-a.y+a.h/2)-Math.hypot(p.x-b.x,p.y-b.y+b.h/2));
       if(padded.length)return padded[0].key;
       return null;
     }
