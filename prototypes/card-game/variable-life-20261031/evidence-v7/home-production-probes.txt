@@ -1,0 +1,10 @@
+ホーム本番テスト（tests/home-production-test.cjs）の保護の確認：HEAD 4fa468a8 の worktree で、1か所ずつ変えて実行（2026-11-04）
+0 そのまま: exit 0 # pass 6 # fail 0 
+1 ほかの prototypes（正式の engine.mjs）を変更: exit 1 # pass 5 # fail 1 
+2 実験ディレクトリを配信許可リストに追加: exit 1 # pass 5 # fail 1 
+3 ホームの style.css を変更: exit 1 # pass 5 # fail 1 
+4 ほかのゲーム games.js を変更: exit 1 # pass 5 # fail 1 
+5 この実験ディレクトリだけを変更: exit 0 # pass 6 # fail 0 
+
+[exited with code 0]
+→ 1〜4（ほかの prototypes・配信許可リストへの混入・ホームの UI・ほかのゲーム）はすべて失敗＝保護は維持。除外されるのは 5（この実験ディレクトリ）だけ。

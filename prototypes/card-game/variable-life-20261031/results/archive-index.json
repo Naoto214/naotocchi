@@ -1,0 +1,2287 @@
+{
+ "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b",
+ "files": [
+  {
+   "path": "prototypes/card-game/variable-life-20261031/ref/G120-AD.jsonl.gz",
+   "sha256": "b21d09039914fe5bf47750010432bf64bcc8fc7b6037025801b1e82d31935e9c",
+   "bytes": 955091,
+   "category": "復元に必要な資料（PR #495 の比較記録の写し）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/ref/G120E8-AD.jsonl.gz",
+   "sha256": "3faf2531194f0ef2c5a62f510c3307979bd33f3c076b588eff15b11ac609769d",
+   "bytes": 121079,
+   "category": "復元に必要な資料（PR #495 の比較記録の写し）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/E8-shard0.jsonl.gz",
+   "sha256": "b43f612158bac5d23c3e98ce2627bff49724135da0b6de2aa6b952555477a47d",
+   "bytes": 73198,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/E8-shard1.jsonl.gz",
+   "sha256": "b5f43f6e46dff4cfe3d959f020b95e2449f0fd04c524bba6cebba2b4a6f54673",
+   "bytes": 74230,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/E8-shard2.jsonl.gz",
+   "sha256": "ba232a9bef78d20dfd6901050bfc0055068b1f42b0d7e9ed9c3d9181e4ee107f",
+   "bytes": 74792,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/E8-shard3.jsonl.gz",
+   "sha256": "84f0c6b7fdd8f010cf4dfa8ffde2463775d82e59ba5a2a231bb77437d03d53e3",
+   "bytes": 75233,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/EQ-shard0.jsonl.gz",
+   "sha256": "1a7f5585370fe976b4db710b9da7828790ab99e05b8a52907703389f46f45bc0",
+   "bytes": 20525,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/EQ-shard1.jsonl.gz",
+   "sha256": "8387ae4704d84137bd8e63dafefcf929daf3e28ee63798aab524930e8563902b",
+   "bytes": 20642,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/EQ-shard2.jsonl.gz",
+   "sha256": "597afccf934736a713126755fcbd6d16ca5c1751ff00dffb7a995c22800050d5",
+   "bytes": 20604,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/EQ-shard3.jsonl.gz",
+   "sha256": "389343acfd0137b940efb8eeb66ee7b3a377c9d65b32c6cab80050652ea72b97",
+   "bytes": 20680,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK5_P3-shard0.jsonl.gz",
+   "sha256": "c50628e9066cab28810cd6060fee69098356e683e9fdfcb9d291fd4eaedabadf",
+   "bytes": 3963,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK5_P3-shard1.jsonl.gz",
+   "sha256": "76675ab02911c6ae6c68ad2edf092b9704fdbb981a2fa21ad9670e1a905a116c",
+   "bytes": 4000,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK5_P3-shard2.jsonl.gz",
+   "sha256": "d3bf7d749119ed5c82f3e7797c6254c42462824eab4cfbc87f208db99ba59a53",
+   "bytes": 4000,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK5_P3-shard3.jsonl.gz",
+   "sha256": "377f38f40f6375a0864d97446af99892b9d525f1252536b1e3b0eedfd66334b8",
+   "bytes": 4075,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK5_P4R-shard0.jsonl.gz",
+   "sha256": "3d676df9ce34d9bce733b5b2af721147438da5764faae8c2e1078bf688b39039",
+   "bytes": 3901,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK5_P4R-shard1.jsonl.gz",
+   "sha256": "965c24e31f6bd1a1be8e045b7e2a5cd78af0456e7bc0c477c2e70b905fbf1cbc",
+   "bytes": 3768,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK5_P4R-shard2.jsonl.gz",
+   "sha256": "db18f74176a1005e2a4ee18c897e0ad8c8c9891eb592a29b7f14fb28ea7ccf00",
+   "bytes": 3821,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK5_P4R-shard3.jsonl.gz",
+   "sha256": "1107605f1773a49afe9ce79db610325e69e04c153393572d8bebb4522133e916",
+   "bytes": 3865,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK_B4-shard0.jsonl.gz",
+   "sha256": "0f8e0ebde038f220421dbd4961334be66c245c0dabbf9aebfa118cfee7939b67",
+   "bytes": 3844,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK_B4-shard1.jsonl.gz",
+   "sha256": "2bb3a489ba28cb5d0698e5ea82c7ffba81e3fee191944ae61b49c7db84989d3c",
+   "bytes": 3847,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK_B4-shard2.jsonl.gz",
+   "sha256": "f187e0998d90668b0971ae6c152db986377d3baa598b8502da42e1e9fdbbbcda",
+   "bytes": 3802,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK_B4-shard3.jsonl.gz",
+   "sha256": "fc365b549e9dbeeca3d28dcf54878b32cd57eb3cd6461003009b461d673941d4",
+   "bytes": 3752,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK_haya-shard0.jsonl.gz",
+   "sha256": "53ebc53752ba4ffd8bdcaeb698ae9c25402700a842504abd4f32aaf84e7a4245",
+   "bytes": 4195,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK_haya-shard1.jsonl.gz",
+   "sha256": "afa19ff96b4e058096a6b45cadc98bed99d07e3b3cc5e9d05ca1f356c033afac",
+   "bytes": 4291,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK_haya-shard2.jsonl.gz",
+   "sha256": "28fb4f2a1525f7b14f953849a26998479a3b4a3a1cd4cfeafa4d42b62fa13548",
+   "bytes": 4235,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK_haya-shard3.jsonl.gz",
+   "sha256": "36d5e6b7a0652a022ecaecf086a26d878c9b2900c050c7fd29fa4559531c2f7f",
+   "bytes": 4086,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK_multi-shard0.jsonl.gz",
+   "sha256": "97f319db872bb1e50312e3ae4a232f852aa088b94bc73e8ffe4b2aa69d52b873",
+   "bytes": 4305,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK_multi-shard1.jsonl.gz",
+   "sha256": "38a5826c9bb649af28906348c5e76f679b053fceffa6ad6460963da5a8d2c74a",
+   "bytes": 4367,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK_multi-shard2.jsonl.gz",
+   "sha256": "f9bbcad0822377c2c8ad4e3e698869d1d076bedaba718a22573e5a03c0f83db0",
+   "bytes": 4333,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK_multi-shard3.jsonl.gz",
+   "sha256": "eb2f3ea21a482e688724196dde16060671f56d4028e4dd90f81584d5ea1869e2",
+   "bytes": 4207,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK_naga-shard0.jsonl.gz",
+   "sha256": "343d2e3b13379d6a672104787cd48e9597f895a3b174f02b52cb9f3c848d7ea9",
+   "bytes": 4279,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK_naga-shard1.jsonl.gz",
+   "sha256": "549d54ba3969dc906b198bc97bbbf4a78c2595cb3bc557427e55939a7bcd9ca2",
+   "bytes": 4332,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK_naga-shard2.jsonl.gz",
+   "sha256": "e81f4af8e62500eea119853a810b920d381ce3a8bcca2215f58218265d70f265",
+   "bytes": 4093,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/FORK_naga-shard3.jsonl.gz",
+   "sha256": "3f5f24745226dcee91fed70ab4c02de610b6459b8212a8fb68f839ab7f7e9ade",
+   "bytes": 4150,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/MAIN-manifest.json",
+   "sha256": "517a6ced31f66b2ea2f2fac04e042d9e6b5ffb958702a5df856ffa464572a127",
+   "bytes": 5279240,
+   "category": "再現に必要な設定（大きなマニフェスト。make-manifest で再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/MAIN-shard0.jsonl.gz",
+   "sha256": "df44323ecc5e04c0697d276178a91a1f3f8e43899f7404e1ea9d099ba7fafc43",
+   "bytes": 1577442,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/MAIN-shard1.jsonl.gz",
+   "sha256": "e7ae44133e48990279421632913756165732ef510ceb67bdbbe96af6b0b4a890",
+   "bytes": 1573437,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/MAIN-shard2.jsonl.gz",
+   "sha256": "83941282630f664d4424ad0dc25cba4252ece539042b7346336bec31aaa39503",
+   "bytes": 1564546,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/MAIN-shard3.jsonl.gz",
+   "sha256": "17b7db61b7b9bf051dc04318aaffeba4cda2a7258d545bd9d6caa585c460d162",
+   "bytes": 1572079,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/MAINT-manifest.json",
+   "sha256": "0823cd1bd6c0201b26a7e5e35ff11db69ff9ef440a1f9a6a914455594f24dddb",
+   "bytes": 3308104,
+   "category": "再現に必要な設定（大きなマニフェスト。make-manifest で再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/MAINT-shard0.jsonl.gz",
+   "sha256": "46c5440df20914a998706676573cc4f7822853d52f0276fdfac4af28d3a3098b",
+   "bytes": 1050518,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/MAINT-shard1.jsonl.gz",
+   "sha256": "f3947dc129614914059c5a328f690e0dd98dfbc8f9d4ecd7e7075961f768ee5b",
+   "bytes": 1051523,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/MAINT-shard2.jsonl.gz",
+   "sha256": "78da5b46d890798df9939e46c52e088027fac5535f699dee5015b0212c321afc",
+   "bytes": 1051193,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/MAINT-shard3.jsonl.gz",
+   "sha256": "597da7b76a136547795bbd2b26fef226dd64e3cedfc6fbe259be34dfad7cc942",
+   "bytes": 1049672,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/MAINW-manifest.json",
+   "sha256": "e3bd8d57351bb3cf60d91679c410a7a2123d909bd31866752e6c67ddc664ea5e",
+   "bytes": 2631378,
+   "category": "再現に必要な設定（大きなマニフェスト。make-manifest で再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/MAINW-shard0.jsonl.gz",
+   "sha256": "fe5a3174beefc970ea76435aba176a1d2f1442930e73505080d6b0a18fe3b001",
+   "bytes": 847085,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/MAINW-shard1.jsonl.gz",
+   "sha256": "ac8bf2aa547713398d5908c3a98732f2e3e803b3a8acc43d3a60edb23de66c4c",
+   "bytes": 845386,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/MAINW-shard2.jsonl.gz",
+   "sha256": "e7d1f43d43c3dd206c985689faa5739d8538bdd82b237bf5c064a3e6c66d9f02",
+   "bytes": 843235,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/MAINW-shard3.jsonl.gz",
+   "sha256": "533199c5bc00fec58f0862310027a057c51a1ad0343dc4fc4f86708973305bca",
+   "bytes": 844616,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/NEXT-shard0.jsonl.gz",
+   "sha256": "c20748bc37f7a654df789176cac7facdbfe86d8d2448ae5a81b67f1be9088d07",
+   "bytes": 199352,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/NEXT-shard1.jsonl.gz",
+   "sha256": "4066c66d8beaa8fc12ef039bd1026db7f5bf2fa0499a0ec39b2b8eababeb26de",
+   "bytes": 198343,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/NEXT-shard2.jsonl.gz",
+   "sha256": "17208771eb9e2d9fc271586e9b9893bf97079b5f26c524e13d5f53afda073226",
+   "bytes": 198601,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/NEXT-shard3.jsonl.gz",
+   "sha256": "f3fa052a72257b29fda6198c5060694dfcabeb6f5fc5c19200c66967821e0d01",
+   "bytes": 198480,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/NEXTn1-shard0.jsonl.gz",
+   "sha256": "85fb0ca92b272572c813da3e5a7b198ec137f8ab03a5cba28f1e791c4232128c",
+   "bytes": 100058,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/NEXTn1-shard1.jsonl.gz",
+   "sha256": "f3694b1a3c7a26a9b3d04c6b82829ace05bdfb60003ffb9fc51bd59bdf7899b5",
+   "bytes": 99880,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/NEXTn1-shard2.jsonl.gz",
+   "sha256": "513a623b81a97d9ee5a480a9dad2a219524407c172235addf21f7d49d4560780",
+   "bytes": 100224,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/NEXTn1-shard3.jsonl.gz",
+   "sha256": "0541bcaa0e33825f7db07829efe44a4c902f6ce978915fb8ef913454bf101370",
+   "bytes": 100261,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/SENS-shard0.jsonl.gz",
+   "sha256": "7291932ce651b6f667b1820a6757bfe7eddf115f8da2047b2384595fc6a6657f",
+   "bytes": 304665,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/SENS-shard1.jsonl.gz",
+   "sha256": "b39f108736b8c3387569d7a59a9230b13f32abd8ac491627e346d59294ec6345",
+   "bytes": 304673,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/SENS-shard2.jsonl.gz",
+   "sha256": "64d0ecc9faee465eef7a2586a6f23783b8e2b0aa45e92389d18059360f8dab3e",
+   "bytes": 301981,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/SENS-shard3.jsonl.gz",
+   "sha256": "1103012bafef0f7881535ccac2ecb937b0365a63916eb1533d5e3b00e457b664",
+   "bytes": 304541,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/SENST-shard0.jsonl.gz",
+   "sha256": "ac8860f3da65472b2cf7ff8699b2e4657b19970fd4078413f38383cf7cbff261",
+   "bytes": 209969,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/SENST-shard1.jsonl.gz",
+   "sha256": "91e3977d3fd8c05035429057ceb3e7c567efbae32c492da997739d8e4ea3259a",
+   "bytes": 208990,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/SENST-shard2.jsonl.gz",
+   "sha256": "d84769146c4e281ed60ab57210bece482c78229491180bb46cad7ea3a04a4d5c",
+   "bytes": 209114,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/SENST-shard3.jsonl.gz",
+   "sha256": "e47224f0923c29bdbafb1dc8c65187e476e8970948ebed663c18fbc7597974d1",
+   "bytes": 208411,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/SENSW-manifest.json",
+   "sha256": "ab077be6d4c5d8afb1b5802373f53ad9d69108f35c8bf68485bb885d47dc0d21",
+   "bytes": 1672755,
+   "category": "再現に必要な設定（大きなマニフェスト。make-manifest で再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/SENSW-shard0.jsonl.gz",
+   "sha256": "f1c43312373511b5be342ed2392ac77fbbb7fa36bbbfe5c06e4d2c678bebb1ad",
+   "bytes": 539525,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/SENSW-shard1.jsonl.gz",
+   "sha256": "51a0f0312f24c386ed204cd3949a2adfa566334970f33215881d9280f0029803",
+   "bytes": 540468,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/SENSW-shard2.jsonl.gz",
+   "sha256": "7ffcb302443983b4f0b37ae69dd463747578da22ca13ea11ecb69e420f0b8028",
+   "bytes": 536897,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/SENSW-shard3.jsonl.gz",
+   "sha256": "a003f4ebb111ce3153168043d2d08d12c243f5faf5b3dd76ecc6871a3f87a2d0",
+   "bytes": 539900,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2C-shard0.jsonl.gz",
+   "sha256": "0cbbbe14d38d61c508f434d214dbc0ad3dbb2c1c6b69d4175545ef19808e5882",
+   "bytes": 208689,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2C-shard1.jsonl.gz",
+   "sha256": "526f903962e5dc4a391064ca8f8eb75a91fe71ba4a518367e1ffdf25582a9653",
+   "bytes": 209813,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2C-shard2.jsonl.gz",
+   "sha256": "6e31be3d3d8d83f355b749ff1d7566f885edd8db0b0e5eefe6bb6b0b490e158f",
+   "bytes": 207569,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2C-shard3.jsonl.gz",
+   "sha256": "c24f02fd54fca828e7a0c8fbebf985f5c65360ee0a0d601d1ddc5ffdda4363cd",
+   "bytes": 208550,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2H-shard0.jsonl.gz",
+   "sha256": "22520a2db50d8479003da93b2df090523886761fe245cfc73d3f0a25362291de",
+   "bytes": 109081,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2H-shard1.jsonl.gz",
+   "sha256": "62191d55a4f76392893d48af7d76ce61d8ad88456cdaa440023cdf60c835e8c4",
+   "bytes": 108886,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2H-shard2.jsonl.gz",
+   "sha256": "8b7f32c5915cb04bcc8ca8bd3fc168f921672c50f219e867908040493bb0b9c7",
+   "bytes": 109686,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2H-shard3.jsonl.gz",
+   "sha256": "5be1ed4f412769e849e820ca1d33510c2ed3317bf0d20718661113eff1cf135d",
+   "bytes": 108938,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2H8-shard0.jsonl.gz",
+   "sha256": "bf16cfc067e7154dce5f86282d6e9eb1a265f5fad8075328d56fbd00323be66a",
+   "bytes": 108752,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2H8-shard1.jsonl.gz",
+   "sha256": "9ea7c3a6080a167cf1c8ebfafdebd17e4144444871cebb44127061f3b3767a6f",
+   "bytes": 108848,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2H8-shard2.jsonl.gz",
+   "sha256": "5987bb7a805a78d28565dfde0b4968ea8ed5b270179600b944590da7aea2a56c",
+   "bytes": 109253,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2H8-shard3.jsonl.gz",
+   "sha256": "6dcb8607ac92827c8b19a451e3ca3cceb7aac4d8ae03563977091c309797e5de",
+   "bytes": 107981,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2O-shard0.jsonl.gz",
+   "sha256": "6348c60109d717d7a7283a490dcaf4392ec50d5143a216941a541ebc89cd5c30",
+   "bytes": 192745,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2O-shard1.jsonl.gz",
+   "sha256": "bd47dc200a4c93c1882355f3fa9b013a6ab4ff296f111d6d8c0cd7ff5b8dde92",
+   "bytes": 193556,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2O-shard2.jsonl.gz",
+   "sha256": "b9d39d662997a88d81a47c1f97aaf6bb8b05a07e172cbc8b4e210c8d9d8e5ad0",
+   "bytes": 193181,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2O-shard3.jsonl.gz",
+   "sha256": "757287d207d80d1d72f6368f2c238838a3014f9e2917373af9219d892f0f2173",
+   "bytes": 192051,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2R-shard0.jsonl.gz",
+   "sha256": "7b082a62aa31c2fa8f8c5aed7f14d731f7015119aca7b817feeea29b5722373f",
+   "bytes": 104732,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2R-shard1.jsonl.gz",
+   "sha256": "95b591a5c9a7079ab7829b8d4c22eb8ad04830e053fcdc4c8504219b90629f19",
+   "bytes": 104749,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2R-shard2.jsonl.gz",
+   "sha256": "15ac741e387bbbda07be19bc529b23b9bcabab622a0a37bcde100e4ead39a929",
+   "bytes": 104198,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2R-shard3.jsonl.gz",
+   "sha256": "d50e64f88ef145573a422cc146c88df5d3e1483649d1accee3245ce25b94bea9",
+   "bytes": 103658,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2S-manifest.json",
+   "sha256": "a60c36e753e89fbdc3de5fb9e25b0708bd203143e85ea66e2c29398853f4436f",
+   "bytes": 4299452,
+   "category": "再現に必要な設定（大きなマニフェスト。make-manifest で再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2S-shard0.jsonl.gz",
+   "sha256": "08996ff768dbf66b4e87fd55b2a6ef6fa28147deb6c3fbd68bd48b297b205096",
+   "bytes": 1324859,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2S-shard1.jsonl.gz",
+   "sha256": "5e7c0d7876d7eb308687a3e15033fa7212f8257b37753140b0a0b3695d64c556",
+   "bytes": 1335152,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2S-shard2.jsonl.gz",
+   "sha256": "1f9518b496e933bcb6d536854a545238dcc119db8f8e92829f93879f182e2128",
+   "bytes": 1317235,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V2S-shard3.jsonl.gz",
+   "sha256": "b69966dee977213f6b6fbb2b7fb4f7b956623984b0afd724d7ef9068693878f7",
+   "bytes": 1325296,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_chotto-shard0.jsonl.gz",
+   "sha256": "0eb05545f977bee17a04322645a4f9fe4b66a01949c6cc0bf38a7e87d602bbc0",
+   "bytes": 107483,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_chotto-shard1.jsonl.gz",
+   "sha256": "4f22ae2b4193572cdd91871e42465f93cb7877894c96d7645cf6a0e4e172ea75",
+   "bytes": 109081,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_chotto-shard2.jsonl.gz",
+   "sha256": "9b37b5124526713abf18170f967e3b17f98659eaf01e1d8c97b6d9dab66115e3",
+   "bytes": 107057,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_chotto-shard3.jsonl.gz",
+   "sha256": "416acb32289077c1017f00c7dce3b24519c8fb6a3e7ec741885d40cbcb8ed2ed",
+   "bytes": 107181,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_haya-shard0.jsonl.gz",
+   "sha256": "263fa1b952f644af64dd60c74f223e3e9a2a13e33b9682f787600f74a55d5f9e",
+   "bytes": 108769,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_haya-shard1.jsonl.gz",
+   "sha256": "5688adb28114092941025bef299662e98fe655b298dbb00cb932cbb66e9582aa",
+   "bytes": 110069,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_haya-shard2.jsonl.gz",
+   "sha256": "dd47d5c15a7a3027686fa7caeaf7822353e6039b77e79162efc2b50db07b56a0",
+   "bytes": 110466,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_haya-shard3.jsonl.gz",
+   "sha256": "58caf26c8f019c962d77b3e0be38570c702c0d869af90d327350d2d236e5887b",
+   "bytes": 108726,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_machi-shard0.jsonl.gz",
+   "sha256": "42a1824a5aab6f76a087a5fdc0fea7162b2c84c18526231684991a0008069ae0",
+   "bytes": 111722,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_machi-shard1.jsonl.gz",
+   "sha256": "10054a985faf2b4dba23ccc143d951f4fd98f47b57ee1de151a5f6bd8eca02e7",
+   "bytes": 112109,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_machi-shard2.jsonl.gz",
+   "sha256": "d4a8335d48e814f5b775d93bd769c3a17a9af318fe179e2c0bb8375c9ef56f76",
+   "bytes": 111086,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_machi-shard3.jsonl.gz",
+   "sha256": "4446ef08d04d8ca1ca9d1c9a8580db7032cc5882b5dc9b7d81bc9458b4e49dea",
+   "bytes": 109731,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_naga-shard0.jsonl.gz",
+   "sha256": "e4a6265c6562faa6460c1e7a5dcfd22172777340de8efcbb05b72abc81ccc2b4",
+   "bytes": 112279,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_naga-shard1.jsonl.gz",
+   "sha256": "017f02fc08545f73efa76b9812098a0c0bca19d8618a22f5d9202c56380b47da",
+   "bytes": 113581,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_naga-shard2.jsonl.gz",
+   "sha256": "ec9b4aa80ca333c48804c11d0af0b46437543f9ab66a733476d4180a925fcd7b",
+   "bytes": 112363,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_naga-shard3.jsonl.gz",
+   "sha256": "1476b6d1444a58a7abfb1c8449de24fca83070cfeb5e8140d0b430973ccbfc9c",
+   "bytes": 112661,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_omiya-shard0.jsonl.gz",
+   "sha256": "138e9845332b6b5a8c0944df7bf385afd7e9522f71b7f33937d4ba1dd55d4593",
+   "bytes": 107451,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_omiya-shard1.jsonl.gz",
+   "sha256": "ee6ff225fcb10134edaff891409c7fd89ea944f733e71cb16d5b36d9fb8aa403",
+   "bytes": 108948,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_omiya-shard2.jsonl.gz",
+   "sha256": "45d19cefcb72e18f54f303b9c414891ce1c3a5d4b7e3efed5275229d2132a76c",
+   "bytes": 107015,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_omiya-shard3.jsonl.gz",
+   "sha256": "948be637ab78933e6f6249af12682a525308a608ebae21cf2cdc7cf03f8b339a",
+   "bytes": 106513,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_photo-shard0.jsonl.gz",
+   "sha256": "663d24eb77730660caaca1acab0de4075a2105e28f6e2d9222c354d3d7d28bc1",
+   "bytes": 114047,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_photo-shard1.jsonl.gz",
+   "sha256": "e20d5a3877bd558b5384e8d06f55ecb10996efb83d5fda4e36f7e88bbd61b1ac",
+   "bytes": 112838,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_photo-shard2.jsonl.gz",
+   "sha256": "b944cd65bda46200729a73dd9e4addaa187c17bcc7d7cc3ae586d4f0c8a94e37",
+   "bytes": 113707,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_photo-shard3.jsonl.gz",
+   "sha256": "a7e75ae6fc8c13777dd525c8931c9171cd414fa1884db1189b6f780aa53f0fba",
+   "bytes": 113425,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_tsuru-shard0.jsonl.gz",
+   "sha256": "6de091e8adcb7dea2f8d2d7b27b4e1af0be1602e67eeb2baa9b6b3563d8d7b9b",
+   "bytes": 113594,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_tsuru-shard1.jsonl.gz",
+   "sha256": "063ee66ec2fe27bd25681a7cb79a541e7fb2c5a0dd9fcc8046bd9a1c7fafaa9f",
+   "bytes": 115818,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_tsuru-shard2.jsonl.gz",
+   "sha256": "cb9c17805bbe3412c8682221cfddc2a8dd69d65c33b32e71f34f52c8a4e64572",
+   "bytes": 115714,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_C_tsuru-shard3.jsonl.gz",
+   "sha256": "9cc0c7cd65402f940a059d361cc887a4de6d0b8607424d97afd68a8cefbc759d",
+   "bytes": 115234,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_MULTI-shard0.jsonl.gz",
+   "sha256": "0ad1c01b93f6199c181e07942cf4f5090772e584f24b515b3010c9ae68e86860",
+   "bytes": 114766,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_MULTI-shard1.jsonl.gz",
+   "sha256": "581bb9a7d451731d36965e5563d0d5fc8014e425e3c37ae2382979ea3ddb784f",
+   "bytes": 115409,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_MULTI-shard2.jsonl.gz",
+   "sha256": "12d773a726d8f7de2ba23105c4e8100164ba94ff4fe18be613db0034be2c1999",
+   "bytes": 115835,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_MULTI-shard3.jsonl.gz",
+   "sha256": "6e55b4fb61248372bdfe36403c3209d11ec35f6358ce1e468897f2c147443193",
+   "bytes": 114059,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_chotto-shard0.jsonl.gz",
+   "sha256": "0d7ab95da1093bd48afd47e6d24c743bd6b18defb3e83193e8330532744b510e",
+   "bytes": 106214,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_chotto-shard1.jsonl.gz",
+   "sha256": "24dc1bc332f5ba698330902f08e73a220afad7df5b265b25e1840d9e00800f8f",
+   "bytes": 107346,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_chotto-shard2.jsonl.gz",
+   "sha256": "cdddd24cb16775f5234089fe7da0897d8e0e97caa148e7f47d02ff94c14ce4a3",
+   "bytes": 106497,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_chotto-shard3.jsonl.gz",
+   "sha256": "735248279c39f9ea3bc1bfec8a27d51f91b19b0762a59ebac5019a6f379c6db5",
+   "bytes": 106695,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_haya-shard0.jsonl.gz",
+   "sha256": "63b7b105ff671b82e8f0c8fe66ed9f24ea7a2209c7dbaaabb7b1e8c005cd5a40",
+   "bytes": 108309,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_haya-shard1.jsonl.gz",
+   "sha256": "6157556671ff491825d956660e38fb05da4411b5037b18528f2823aeca17ade7",
+   "bytes": 109431,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_haya-shard2.jsonl.gz",
+   "sha256": "921d76e12ec6371ed276568f46710684288ca68304f4d2b2e5016fdc874df85c",
+   "bytes": 108758,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_haya-shard3.jsonl.gz",
+   "sha256": "435f46e942cd7a1dbfa967fc045531e0e01485d15d5a2781dd761042e0b04923",
+   "bytes": 109653,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_machi-shard0.jsonl.gz",
+   "sha256": "e2fe1f95f27b09d31ee713c25d33a306cbbc33fcae287419495df0844002d0a1",
+   "bytes": 107180,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_machi-shard1.jsonl.gz",
+   "sha256": "db6275607c14e3b370b5f4bfa246eaf9113f590b5c68e22d1da6abbeafab92de",
+   "bytes": 108146,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_machi-shard2.jsonl.gz",
+   "sha256": "75a0119e8d89fce6772b7d83434defa93a213f2b8bae9ff40e7bb736fc56065f",
+   "bytes": 107810,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_machi-shard3.jsonl.gz",
+   "sha256": "1dd92e66744e0e812a6886bf2ece9319d0d81d66d057223203ce3a01af7c1f4b",
+   "bytes": 108053,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_naga-shard0.jsonl.gz",
+   "sha256": "8dfc3513e5e3c728c000e42dd103045f0c890c7772dba9b86e92fa3aaf5674b1",
+   "bytes": 108402,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_naga-shard1.jsonl.gz",
+   "sha256": "cea3f8bd6635b666c220cc3cd0bf261d8ae53e67554a65017b86c6ec8d2ab02b",
+   "bytes": 109637,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_naga-shard2.jsonl.gz",
+   "sha256": "26c84cca40b94adb349df0724b27b8934321e31ae99e1e1d06efbaf1f70c15e8",
+   "bytes": 109025,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_naga-shard3.jsonl.gz",
+   "sha256": "ff6fe13a92ab4b9f9e53d669e6730cc646a244498ee282054419e666f8a8f11d",
+   "bytes": 109916,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_omiya-shard0.jsonl.gz",
+   "sha256": "b43c42ac2499cd7d831e846742c1aa555a19ba96694d3f65cfd8978f37327edf",
+   "bytes": 106464,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_omiya-shard1.jsonl.gz",
+   "sha256": "196208f373ae7e23f30d8771262209f2a1b920f9c946f368a4068bea9fc80265",
+   "bytes": 107042,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_omiya-shard2.jsonl.gz",
+   "sha256": "096863f76a39d04383213ea3b5ccaa64909017433edf1945dcd9936a6538dcf3",
+   "bytes": 106074,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_omiya-shard3.jsonl.gz",
+   "sha256": "1a36b5c3a555a1159fb8e0506c514e7ba14530e1ce4d8498bc7362139240b5c1",
+   "bytes": 106391,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_photo-shard0.jsonl.gz",
+   "sha256": "8433b14dad2bc19938cdeedfc24d2093add3edad78c96797a34a008315127aa4",
+   "bytes": 108417,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_photo-shard1.jsonl.gz",
+   "sha256": "1a500836e053bf09b9fdb83e11101dfab25c67dde11a0fa3ca40d4c4c0dd0a4a",
+   "bytes": 108379,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_photo-shard2.jsonl.gz",
+   "sha256": "068e450f23182415ddb981de26b168e82b97d16669222c3058dd898964532868",
+   "bytes": 108788,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_photo-shard3.jsonl.gz",
+   "sha256": "d0ea20533477bf36dd8a435bcf83eff07667b6c1d7cc514483b6a3e179bf5782",
+   "bytes": 108324,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_tsuru-shard0.jsonl.gz",
+   "sha256": "850c1fa65546d928190ef1e7c92765ce4471901e7cf5134b09dbb11bf98f8f9c",
+   "bytes": 111029,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_tsuru-shard1.jsonl.gz",
+   "sha256": "d8a04b641a81b14ccd9048886d08623e1b8cbe4a0a8929788b99d137bbabbe32",
+   "bytes": 112575,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_tsuru-shard2.jsonl.gz",
+   "sha256": "2aed1966266dd11f0d36f0bbead81dc3f4f194f6a67ddf60f856835a2b304782",
+   "bytes": 112431,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4F_N_tsuru-shard3.jsonl.gz",
+   "sha256": "2a6d73f63f39d8d1b70cf16317afca5d54bca3882e8645650878eb14c9a58f30",
+   "bytes": 111366,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4S-manifest.json",
+   "sha256": "a0a8251fa6ff7f8336453259044ba482e4327fe91130f8a14ab518ef60764896",
+   "bytes": 1773174,
+   "category": "再現に必要な設定（大きなマニフェスト。make-manifest で再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4S-shard0.jsonl.gz",
+   "sha256": "a8f16636551e8fa07378f4ea376f429fe46f602d6488c5bbf4738b6bc6fbd05c",
+   "bytes": 527458,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4S-shard1.jsonl.gz",
+   "sha256": "21eaf0e0a444218877cc4d952e65c553717c38a5c57e920aa897b57b871dba53",
+   "bytes": 534509,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4S-shard2.jsonl.gz",
+   "sha256": "f6ca665e2253b475508dc698fc3cc2b9d88710e5e0deadafdbf3b90c70cd7326",
+   "bytes": 534339,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V4S-shard3.jsonl.gz",
+   "sha256": "0e19f73998b717ea5eef90a34b7217bc8540c9d90b1ea451bf3193b673b655b2",
+   "bytes": 524153,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_FREE-shard0.jsonl.gz",
+   "sha256": "2e3296ed2f3c6a704663ee93ae02c4d5923b3e4424e0014c41816e579e80b879",
+   "bytes": 120226,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_FREE-shard1.jsonl.gz",
+   "sha256": "b1ddbdf3e5b04bc11dcb9da6afc18112afc2b67551ba9f3bb9266b427fc325a3",
+   "bytes": 121215,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_FREE-shard2.jsonl.gz",
+   "sha256": "108422384562e25f540c94c34687187accd801dc518485043ab107454de08459",
+   "bytes": 120877,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_FREE-shard3.jsonl.gz",
+   "sha256": "d4f46fa6ec35f439a64134693f39c57f4e9312036fb073f4b7f630f47d188d0e",
+   "bytes": 121020,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_MULTI-shard0.jsonl.gz",
+   "sha256": "d24c8aeb1109626a9c40ccfe1b5f3923e01f091aca81633d745f0d7457caa326",
+   "bytes": 115424,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_MULTI-shard1.jsonl.gz",
+   "sha256": "1b97b7b6e9f3a2573d2846c6155576276d8d0396b1a12625ba2992df6a38522f",
+   "bytes": 115906,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_MULTI-shard2.jsonl.gz",
+   "sha256": "6f08036e459d18aa29ac36ad91eb9190a4fe140e7ea424aa151cbacebcd76190",
+   "bytes": 115695,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_MULTI-shard3.jsonl.gz",
+   "sha256": "29aa6d04e6c63f2690d89265a100c8ade44e11a235b9a55a57787ff552180999",
+   "bytes": 113856,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_N_naga-shard0.jsonl.gz",
+   "sha256": "c4379f8a86091f7ff4a3157b7ce456d3396d36da0eb33575ed042aed83f6772e",
+   "bytes": 109439,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_N_naga-shard1.jsonl.gz",
+   "sha256": "8123a3ed4fd96c0dff6717847c3f53f8031c3067da4118e6cd8c6f6b2129c6bc",
+   "bytes": 111151,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_N_naga-shard2.jsonl.gz",
+   "sha256": "65c87fb8aa29d10da9820034b228d2e55b6c5ae3d824b846a8fabde579c53177",
+   "bytes": 110856,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_N_naga-shard3.jsonl.gz",
+   "sha256": "af53551d8692b8ca7adde183f8d121bd859822db2b212bce2b6021a0eb1cf960",
+   "bytes": 110207,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_P3-shard0.jsonl.gz",
+   "sha256": "b5939e796788159319d11788f2c36405da92436f88ee7ac266e970e4f83a09a4",
+   "bytes": 112067,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_P3-shard1.jsonl.gz",
+   "sha256": "8da1e5d6c0da532659ed0a5591542954a7db505c29c63426632d7d010a0e3ab1",
+   "bytes": 111957,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_P3-shard2.jsonl.gz",
+   "sha256": "0c16096d51a70e8f35f2c054dd1c0a5dd2b704814cffbef2f324512fe79088b2",
+   "bytes": 112560,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_P3-shard3.jsonl.gz",
+   "sha256": "1200ee97786369a45493926263feaa70d27d32774965039ad65fb2f658e1b2de",
+   "bytes": 112490,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_P4R-shard0.jsonl.gz",
+   "sha256": "add7ac719a788c6f605f60a73bfb992280331f4ad90eb54f6bac7bfadd141a8b",
+   "bytes": 114625,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_P4R-shard1.jsonl.gz",
+   "sha256": "d5e9a2401b27eda2fff74995ed67f388e367358fa4361b72f3013609248e8f57",
+   "bytes": 115155,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_P4R-shard2.jsonl.gz",
+   "sha256": "f0ed9e9978851c10386e67f86583351c9505f8c6238728798a1dc46cdfc58f51",
+   "bytes": 115296,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_P4R-shard3.jsonl.gz",
+   "sha256": "9c0c618859daa281e855a1cf5b83fdfa28c510fc2bd033c39f947ab4518611db",
+   "bytes": 114396,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_PAIR_HN-shard0.jsonl.gz",
+   "sha256": "507c2d26ed0838fd4e5ec03717eff57f56591eaf2bb89ff674a756283d0c9d1c",
+   "bytes": 109813,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_PAIR_HN-shard1.jsonl.gz",
+   "sha256": "762b57d26c599d16bc69931cc483b50a50695b0f7d1dac562a4f3e0d273be416",
+   "bytes": 110664,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_PAIR_HN-shard2.jsonl.gz",
+   "sha256": "3ea1164b3977c8be3ca78fa25c05dfa0be86b900744bf07df19ef804396f5870",
+   "bytes": 110536,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_PAIR_HN-shard3.jsonl.gz",
+   "sha256": "619f1cca36af547b8b58ba963a2ef44d6f8521ddccee57202a3b140819ccb6fd",
+   "bytes": 110919,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_PAIR_HP-shard0.jsonl.gz",
+   "sha256": "e1cf0481f96ba22ddadc5293df5f03be3d07bfd12add2c3ded08588b60c60c26",
+   "bytes": 108389,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_PAIR_HP-shard1.jsonl.gz",
+   "sha256": "ff656bacb20659911d51ee627a2ed46c0ccf937066f03633c3fcc8b070f642d6",
+   "bytes": 109937,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_PAIR_HP-shard2.jsonl.gz",
+   "sha256": "492cdccd51e0e4411e149083352b249c6fee3b6ad82745d8b5f62e6c456a5a8d",
+   "bytes": 109503,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_PAIR_HP-shard3.jsonl.gz",
+   "sha256": "8efdcf80a65b4e993c3444d6ef54bcdaf7749cb3b12a46097bc39e3ba9c2955b",
+   "bytes": 110114,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_PAIR_NP-shard0.jsonl.gz",
+   "sha256": "eb308a371e0259d2c9dd55b3261fdb51b318fc9c077145d86a694394e16c19a8",
+   "bytes": 109944,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_PAIR_NP-shard1.jsonl.gz",
+   "sha256": "91f248dc71699bace4d7831d09f0d054ef8595ff1d31066dcf286fa9a98afad9",
+   "bytes": 110902,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_PAIR_NP-shard2.jsonl.gz",
+   "sha256": "89b10530f717a933a6cea07b49f36e347cba9cf066581f5e32ff465ba8d0b861",
+   "bytes": 111162,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_PAIR_NP-shard3.jsonl.gz",
+   "sha256": "c1dbe3ad136373e6df1fbd1e0ca313adb52d9f7bc0ef186d351730d312d19962",
+   "bytes": 110752,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_TR-shard0.jsonl.gz",
+   "sha256": "90c15d44eec43cf6f8e53772c3ba65f5860db14c8c2f6b320d7d21026162630a",
+   "bytes": 110612,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_TR-shard1.jsonl.gz",
+   "sha256": "bd3b7dc6ad32945329f3b8039c1c7743ca6adc1dcbd385a76732e4a093953bef",
+   "bytes": 112347,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_TR-shard2.jsonl.gz",
+   "sha256": "bb292a2ac643a9c0efd4bf1f984cec8489b24a419d392f058fbe1070bd403f0d",
+   "bytes": 112285,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_TR-shard3.jsonl.gz",
+   "sha256": "48467c99cd32a800e9d6282f7ca738bad8cb7d14e9795c3a800f25db40d9585e",
+   "bytes": 111232,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_TS-shard0.jsonl.gz",
+   "sha256": "ce350da84d51338e341e6c4ad806c82e2f3347cdca29d6a68e6242a98b5d3ca4",
+   "bytes": 110606,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_TS-shard1.jsonl.gz",
+   "sha256": "6b87c9ef0e271e568883db7b1000c4b76e75cf1c4ff7706daa95980f3e37f50c",
+   "bytes": 112278,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_TS-shard2.jsonl.gz",
+   "sha256": "4e5a3ce85e75c8b4d57a54f39ae034f029845c059f8c528d28d2379dafd2e99e",
+   "bytes": 112394,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_TS-shard3.jsonl.gz",
+   "sha256": "07e811191fc4ae4a4ce7ce9d5cbe6def6a148d1fde5b03c6861b263fe38308b5",
+   "bytes": 110882,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_TV4-shard0.jsonl.gz",
+   "sha256": "9492b19d0e2973fc37edced54c4d03df6f924956c82eca7eed16c1299e963518",
+   "bytes": 110895,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_TV4-shard1.jsonl.gz",
+   "sha256": "f94d137e4304690bb2d072420b94f6924461fc21b85f46a286d27f3dad20d8de",
+   "bytes": 112453,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_TV4-shard2.jsonl.gz",
+   "sha256": "f0c00bbd7f61fd4be319d1ac6c072df6234d15cf79abea28dbb0e8387b62ccb0",
+   "bytes": 112356,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V5F_TV4-shard3.jsonl.gz",
+   "sha256": "8c773f03b1d4e97fbc319bc5e13f404aa3f3fcc81a7d184d9223ad544b0ccd9e",
+   "bytes": 111266,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6A_P3-shard0.jsonl.gz",
+   "sha256": "846758749382320297ad284358a78fcb6952cdf0bbbe0ec4be8942537c343de7",
+   "bytes": 113233,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6A_P3-shard1.jsonl.gz",
+   "sha256": "1177b9614f18606f49a5b723ca422417c6e55a56dbfd845f53062c8b451c688a",
+   "bytes": 113756,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6A_P3-shard2.jsonl.gz",
+   "sha256": "9582cbc41e3d9ea2df611950fe236f9a2a18597dfc2976d5217d09ecba24e47b",
+   "bytes": 113540,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6A_P3-shard3.jsonl.gz",
+   "sha256": "16b206a994a2f8fbd96bc0f29b973c58f93a2313d01daa398dcc3950556c75ed",
+   "bytes": 113970,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6A_naga-shard0.jsonl.gz",
+   "sha256": "6202a6cf5c2936e412cdb9106d479c334e0f19522478bb112da0c0b4359fe866",
+   "bytes": 108886,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6A_naga-shard1.jsonl.gz",
+   "sha256": "7f33eb680409c500ba8a31f2ab424fd710d2c4a07dc1f08d76bdef3ab8346b69",
+   "bytes": 111014,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6A_naga-shard2.jsonl.gz",
+   "sha256": "0462a79cf482c7b372bfef8775655aacd5236ae48b54c4f80975aef3b6638047",
+   "bytes": 110949,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6A_naga-shard3.jsonl.gz",
+   "sha256": "5f627932a447c95e5f9cc111f9818e983c2958839130c8803c3989993eefa773",
+   "bytes": 109871,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6E_P3-shard0.jsonl.gz",
+   "sha256": "90aa1498a33ea5a850209ffb0cc066467b4cdafacd8db4c43f48f7a251a2ecc8",
+   "bytes": 112980,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6E_P3-shard1.jsonl.gz",
+   "sha256": "e98e7671b1541a8376bf2c0d33961755e41d6ad9ede7ecd08e3c761baa1a2076",
+   "bytes": 113419,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6E_P3-shard2.jsonl.gz",
+   "sha256": "d396552bd68ca0fe6cb34f4415c763d69256e0e484507ec54201907817e030ce",
+   "bytes": 113052,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6E_P3-shard3.jsonl.gz",
+   "sha256": "d216cc48a0304e2161b213ef749bc2929b2b616794a45c4d86433a4906087c6a",
+   "bytes": 112906,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6E_naga-shard0.jsonl.gz",
+   "sha256": "8e71c993701546a1aac4fffdb6aa2e084fc3b12cf2e60643578874c2818567e2",
+   "bytes": 108393,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6E_naga-shard1.jsonl.gz",
+   "sha256": "70da37e759ed977b69e64d16ddf887de8591d5d57bb714d89971994d1c60e158",
+   "bytes": 109604,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6E_naga-shard2.jsonl.gz",
+   "sha256": "6e7b22c572f13502654af054f9d64be3859347d0d3aa4201a9211a0491f10724",
+   "bytes": 108998,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6E_naga-shard3.jsonl.gz",
+   "sha256": "c50d083747c3983928feae3e68cf6104bbf322ec6ca6d9a02cd3375f8df3bb31",
+   "bytes": 109955,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6_P3-shard0.jsonl.gz",
+   "sha256": "e3047aec242ec0809dfd5427e454d6a8b93ce452cb9a5c5046e7aa5ca1bd5b72",
+   "bytes": 113416,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6_P3-shard1.jsonl.gz",
+   "sha256": "0c5a9e93129fd6aa9a7c6cfa710218f575a9537b7cda1e3df0975c8348db7d3b",
+   "bytes": 113269,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6_P3-shard2.jsonl.gz",
+   "sha256": "2fbf771c8e99f61cc21bb338030550589fdff374a19e6c61ed65eb1744d6aca9",
+   "bytes": 113908,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6_P3-shard3.jsonl.gz",
+   "sha256": "fe9fa7a2239d5dc9823b17248e012c40eb048b7ff3cc4b771caaea342995dcc9",
+   "bytes": 113815,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6_PF-shard0.jsonl.gz",
+   "sha256": "40d770f1d2d1136f07673977b5c4642cd0bfe86c15c7b82c79da136a37ade649",
+   "bytes": 109925,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6_PF-shard1.jsonl.gz",
+   "sha256": "422224a6fcf5a5f929a41c543e7f8c4f76a5746a0ef8c66227411f8a42865e5e",
+   "bytes": 109715,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6_PF-shard2.jsonl.gz",
+   "sha256": "640ff8b64933f62ca6eb68f12212f74a5e30c0074052a8d0eb9069ae9250164f",
+   "bytes": 109816,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6_PF-shard3.jsonl.gz",
+   "sha256": "916bdeb9f1bf51900e0a3c0b77b595572e0a2b28b398d353ffb8808253d4ea0c",
+   "bytes": 109550,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6_PHOTO-shard0.jsonl.gz",
+   "sha256": "b3b6dc27dbb404eb603c6c2a5e3ac5acf52c415fcf268a315eba19994414bbf9",
+   "bytes": 110087,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6_PHOTO-shard1.jsonl.gz",
+   "sha256": "45371c35df354f9889e6e5d395bf6fe57a314cd01f4e85445d3be65089e1ddfd",
+   "bytes": 110289,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6_PHOTO-shard2.jsonl.gz",
+   "sha256": "47167c552f51a07323a13fc2988e8e0f4c47cb0895bd792f926257172b22a1b4",
+   "bytes": 110800,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6_PHOTO-shard3.jsonl.gz",
+   "sha256": "47ffc1092978e1db4d0c4c885f75b547308d4da1f0396a6854e08a5f3e8c6ada",
+   "bytes": 110373,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6_PS-shard0.jsonl.gz",
+   "sha256": "0cb30a4275a720e0194afd3abcba979553b0f3b67b9cfc8a099916aac2e4b582",
+   "bytes": 110708,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6_PS-shard1.jsonl.gz",
+   "sha256": "8376241df31dea079df7713cd10624b0e6101e7a761bb9bf64a58b29b0f0f3fc",
+   "bytes": 111129,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6_PS-shard2.jsonl.gz",
+   "sha256": "6a721b56d609c696207fef3cda1c4d320e362063278bc5a2115e5215ade4a77a",
+   "bytes": 110124,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/V6_PS-shard3.jsonl.gz",
+   "sha256": "7481d03180b67828d55215500a066daa653ba0db95d28bbe22d397cab0ea4697",
+   "bytes": 109348,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/pilot-shard0.jsonl.gz",
+   "sha256": "3c01082b85b95aeb3b7b4c3df1dd51a4ba9e8ac3abb8ca3d38de3f042734ae25",
+   "bytes": 124901,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/pilot-shard1.jsonl.gz",
+   "sha256": "7dbc07b2910588aaced949ec7f338563a6cc75c42bcff0436d519e387f8b30f4",
+   "bytes": 123591,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/pilot-shard2.jsonl.gz",
+   "sha256": "796f2317c0ffa654b4d8f9ab8c276090f75633ff82124c7e9fb2e0f0da9ea08e",
+   "bytes": 128196,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/pilot-shard3.jsonl.gz",
+   "sha256": "ce7d8c55346cc9a23c5c1f1faf829204d2138283bbd48bd2f945e5b428c221fa",
+   "bytes": 126395,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/tpilot-shard0.jsonl.gz",
+   "sha256": "bf5f3767414f92ff910cda351f80dec9108ac18a41d9a6bbf5e4a9de7201e7cb",
+   "bytes": 78525,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/tpilot-shard1.jsonl.gz",
+   "sha256": "139c0cbd3b75bc530ec73e57fee56677e7e937ee93b6af0f95fc88481678df9e",
+   "bytes": 78640,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/tpilot-shard2.jsonl.gz",
+   "sha256": "32ba97826a7a0c208ec743a180d074f519f622f6a24902c9fe38015b2f98bbc8",
+   "bytes": 79132,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/tpilot-shard3.jsonl.gz",
+   "sha256": "c38c6c196ced79c0d5bdab7299617d72bb435983d4f82f7efc166f74413fbc1b",
+   "bytes": 78522,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/v2pilot-shard0.jsonl.gz",
+   "sha256": "06ce932b0d3e8f30f3ce441a69c5a6606cf093e89a2cb5e4bfc487f1375d04d2",
+   "bytes": 12037,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/v2pilot-shard1.jsonl.gz",
+   "sha256": "9fe49281240c1a5a9704bab3ff8435ca562171638ee5a5626c03f234439edc77",
+   "bytes": 11988,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/v2pilot-shard2.jsonl.gz",
+   "sha256": "60de82dba299c7208e84b19816ff70ae8297be6aeabf2e80b18b988220755576",
+   "bytes": 12471,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/v2pilot-shard3.jsonl.gz",
+   "sha256": "2fc3defea215ad4d895de0286b95ab29565460e030896b812bf628e5bd35de46",
+   "bytes": 12701,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/v4eq-shard0.jsonl.gz",
+   "sha256": "21022729fb96eea1394b20c6fc0f11e365ab642cf238ac8803136771ce3160e7",
+   "bytes": 22919,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/v4eq-shard1.jsonl.gz",
+   "sha256": "b14ba2e8c3d42f023e8fd0608f53ced324a2fdcdbfe78818c22f2af348e41a38",
+   "bytes": 23258,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/v4eq-shard2.jsonl.gz",
+   "sha256": "113e5e8411d86b059d1e1c0edee45db8e576e13ea5789199c193f61828cda84f",
+   "bytes": 23026,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/v4eq-shard3.jsonl.gz",
+   "sha256": "bf1b5522870ce3c252bd84ef63eb8f2e273d9a459fa53186a76e431c82d0bbec",
+   "bytes": 22275,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/v5eq-shard0.jsonl.gz",
+   "sha256": "8edccd8db430b208a5d6f8c874adb4b124a5050390f0a6888b65d9f4a05ea477",
+   "bytes": 22926,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/v5eq-shard1.jsonl.gz",
+   "sha256": "93429bdd3b4cd73da14a73cc10e38ef008a21065354be962cf5dab949067f28e",
+   "bytes": 23250,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/v5eq-shard2.jsonl.gz",
+   "sha256": "bdd97d89e3805b3a2528d6d5165b0fb679b9f119c7fa3559cfa5a0e825a4c3e4",
+   "bytes": 23023,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/v5eq-shard3.jsonl.gz",
+   "sha256": "94e81caced5e6975bcc691396fb69b3fbbe4a5ce10d10a3c02d789ee805dd9a9",
+   "bytes": 22260,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/wpilot-shard0.jsonl.gz",
+   "sha256": "6318252bee2152dc3634cac06b39196152bc129c2d8933b93c1c919a201b0987",
+   "bytes": 100805,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/wpilot-shard1.jsonl.gz",
+   "sha256": "5d33dc6ade5a5383c841a5bdac632f1c50486a19883217b627aecad7a798a1fa",
+   "bytes": 101481,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/wpilot-shard2.jsonl.gz",
+   "sha256": "f6983059c67a049bb8153dbfb81e6e00e8fb6116f0d2ffad22b832e565571f5a",
+   "bytes": 104527,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/runs/wpilot-shard3.jsonl.gz",
+   "sha256": "1dd8eadc70190d5bb24db2e3b3652de629faa34179ef73f0c171c2f667b4b316",
+   "bytes": 102755,
+   "category": "復元に必要な資料（CPU 対戦の記録。seed とビルドから再生成も可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence/cpu-result.png",
+   "sha256": "e6055525222562ea0c09762302c498324258fbd8fb9a392d939c1d37c38433a1",
+   "bytes": 363268,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence/iphone-landscape-chain-r11.png",
+   "sha256": "8b83f651f38f510ee1ed2791d5840b424c47a3ad9aa5ea4a02264729a9fa13a5",
+   "bytes": 404230,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence/iphone-landscape-clock-10-276.png",
+   "sha256": "f7a9359b1cce60966b04a2bafee5f1ab513a5b8fb832c6fe728166a93a7f12fe",
+   "bytes": 895327,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence/iphone-landscape-clock-10-485.png",
+   "sha256": "a3dede963e1d85c87b74399855654de17e67817e4f0e55d284debc41f589f33b",
+   "bytes": 895442,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence/iphone-landscape-clock-11-553.png",
+   "sha256": "8b82bd7d9dc75cf6b55103c627643ee20d464d776467ab332c9e6d13fb5d0640",
+   "bytes": 891816,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence/iphone-landscape-clock-12-511.png",
+   "sha256": "99c2a4d56b5a7d5833d4c9d48347324e697076ea1e2b705fadf605bd49e45daa",
+   "bytes": 895169,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence/iphone-landscape-clock-9-12.png",
+   "sha256": "43450f94642d23e5870a088a20504ae155ad2c47043e0021fd72375959a595ce",
+   "bytes": 894959,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence/iphone-landscape-ix.png",
+   "sha256": "0572dfc6d0f694d7b118e655ecdbe24a1744cff26afa7cfcc77594438f1ca613",
+   "bytes": 410558,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence/iphone-landscape-result-r11.png",
+   "sha256": "c1432d4b9e3badb989650912b9dc4b7cc9a8f0b9526b9d7d46d769d773841a71",
+   "bytes": 302621,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence/iphone-landscape-setup.png",
+   "sha256": "1616d2721adf215816ab44ff72aa1d2f32ec6292fef069072f64b9d7e6d82b37",
+   "bytes": 244012,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence/iphone-portrait-chain-r11.png",
+   "sha256": "c6af8d12e83d07d3dc8916e846bfb9f7296d9bfc961331a208989c60ec97a5ca",
+   "bytes": 497908,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence/iphone-portrait-clock-10-460.png",
+   "sha256": "f20a4e986a628b8912149c1b3b68abe20815bb0006290620e1db5f8a0b780503",
+   "bytes": 1027172,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence/iphone-portrait-clock-10-955.png",
+   "sha256": "8fc3e7cec3902c88464cb99e4ca793ebdf1fc98af63a786d5bc5b70c39f6cbb7",
+   "bytes": 1027187,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence/iphone-portrait-clock-11-79.png",
+   "sha256": "33f76400497a548e5973d8b41685fa9c0ce6c31d98b0d35536f3c8555f07d41e",
+   "bytes": 1024876,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence/iphone-portrait-clock-12-885.png",
+   "sha256": "2deaa9e24adfe878d5fb52038498a6eeb5dd47019b5bac9f2aae799b015e1620",
+   "bytes": 1026527,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence/iphone-portrait-clock-9-848.png",
+   "sha256": "69c9916c1f7a443bc3a2a9372e9e1c9392310882e429f9598c8f8729371452fa",
+   "bytes": 1026711,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence/iphone-portrait-ix.png",
+   "sha256": "80e22731a2d1e22ecf9c127dc27c97317c8bc3f4de1628f6533545f70fbd2ef8",
+   "bytes": 505635,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence/iphone-portrait-result-r11.png",
+   "sha256": "0f2914b599a57476d827906b3dbd79d620dd15212812e2444ed4a644c1894a07",
+   "bytes": 437633,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence/iphone-portrait-setup.png",
+   "sha256": "423794721e3fa9999f0d7295101e3378978d3f84729f12ae64725349702318b1",
+   "bytes": 290629,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-world/evidence/iphone-landscape-A-xi.png",
+   "sha256": "24990be0c8c722edbb3496df93f7f6df268ab793cddfc696db39d47fa15efda1",
+   "bytes": 424345,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-world/evidence/iphone-landscape-A-xii.png",
+   "sha256": "ba1fcc6bb7cec074620217f17a1caa1f03da0191d09fbd513f27383fde5bf8ed",
+   "bytes": 415605,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-world/evidence/iphone-landscape-B.png",
+   "sha256": "324d35d55b440e27c0aab43ae5f4f69619e7806063d68c04093d6f6e1382459a",
+   "bytes": 416166,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-world/evidence/iphone-landscape-C.png",
+   "sha256": "324d35d55b440e27c0aab43ae5f4f69619e7806063d68c04093d6f6e1382459a",
+   "bytes": 416166,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-world/evidence/iphone-landscape-result.png",
+   "sha256": "0665fd20a86917fb6605f303d3cf854b1458b3a23745913987120e8ab8eee0ef",
+   "bytes": 304612,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-world/evidence/iphone-landscape-setup.png",
+   "sha256": "c164f27430ed9c9098b7200a8920dc96ceff0f6b0613a34f4550df0a0b141847",
+   "bytes": 169772,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-world/evidence/iphone-portrait-A-xi.png",
+   "sha256": "d6a9bdbee10ed9a3bb66bf673c157fdfe92442208f9190dc58c7b8dd865ca115",
+   "bytes": 501202,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-world/evidence/iphone-portrait-A-xii.png",
+   "sha256": "c6ed461aca60461bfef0cc03c30759b565860bb3653c59c2be8f0f0d7a58f6d3",
+   "bytes": 494006,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-world/evidence/iphone-portrait-B.png",
+   "sha256": "95c496a72eee1d2dad4866457517022ac29e078d17d98c1892f28889ff1cb708",
+   "bytes": 493988,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-world/evidence/iphone-portrait-C.png",
+   "sha256": "95c496a72eee1d2dad4866457517022ac29e078d17d98c1892f28889ff1cb708",
+   "bytes": 493988,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-world/evidence/iphone-portrait-result.png",
+   "sha256": "628c3a15ee700454e51bb719a985f3a95363f879253e62f94d79f76fdcae94e2",
+   "bytes": 425880,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-world/evidence/iphone-portrait-setup.png",
+   "sha256": "c8323f10bad33c9c4680419055178a15a59c66c5400b56a90e3d2a088d662684",
+   "bytes": 222927,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial/evidence/iphone-landscape-extended-r11.png",
+   "sha256": "b8877af5c0597e26c0621d626d07d4d77e7a7bdb4f829492616e240a923d5aae",
+   "bytes": 486244,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial/evidence/iphone-landscape-extended-r12.png",
+   "sha256": "d7bbc18a649cdb146f52a8f6384d8bc79f79e8ecf93caaecceaca6926ad58e1c",
+   "bytes": 424740,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial/evidence/iphone-landscape-new-match.png",
+   "sha256": "a6bb7d9f2033211b07c1e6764e5ec1696b41500d816b7ba87c11340cf914bed2",
+   "bytes": 464793,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial/evidence/iphone-landscape-r10-restored.png",
+   "sha256": "d77dbb99a01390e56135aee69f069ab97aaccd65d5c30aa9c2a0325b37e64cd8",
+   "bytes": 421030,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial/evidence/iphone-landscape-result.png",
+   "sha256": "9210623dcece8e08d2a45e3c659336ad5606221e4550cd67a97eb592f4896a65",
+   "bytes": 313885,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial/evidence/iphone-landscape-setup.png",
+   "sha256": "d07719649b291e752f948a07cdd00cae0d96281346b7025617b266b6f4788551",
+   "bytes": 163587,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial/evidence/iphone-portrait-extended-r11.png",
+   "sha256": "ec8030bdec3400bd2073f349afac6603534f381aa89b4f501919489eac7643c8",
+   "bytes": 574483,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial/evidence/iphone-portrait-extended-r12.png",
+   "sha256": "8d3bf293e00094d6f0f4683acd23d5003ad69419d29872133ee459c4aa8b1fc4",
+   "bytes": 529046,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial/evidence/iphone-portrait-new-match.png",
+   "sha256": "c8af652bda9691a44ef63befcf71c8cc6ba5c080d95f77b034786eed6569f083",
+   "bytes": 441588,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial/evidence/iphone-portrait-r10-restored.png",
+   "sha256": "8a32667d1cfc2b2c093d0e11fed07161869988c4a08bb3d611bb9d8b98aaa2d0",
+   "bytes": 543880,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial/evidence/iphone-portrait-result.png",
+   "sha256": "7a3f62b2eaa728524b27cbe9db38d582a6d552ade056446dc24b290fd7b042fc",
+   "bytes": 487475,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial/evidence/iphone-portrait-setup.png",
+   "sha256": "8b848cb5162694288245f720ffe359cf294adf8a246c58cbe64dc9081209b208",
+   "bytes": 211278,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v2/cpu-result.png",
+   "sha256": "8eb8633d99c158c680c6054c4825bc74a8f5f6d87fa30191954f80d3613b7d1d",
+   "bytes": 361476,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v2/iphone-landscape-setup.png",
+   "sha256": "416cc6ba80b9db298988c23676a53611afc62b31832783b5c589d136a7a90d36",
+   "bytes": 257359,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v2/iphone-portrait-chain-r11.png",
+   "sha256": "c6af8d12e83d07d3dc8916e846bfb9f7296d9bfc961331a208989c60ec97a5ca",
+   "bytes": 497908,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v2/iphone-portrait-mydeck.png",
+   "sha256": "ab6cdfa236561c6d01a475cf6e81467d8df588d44f4a42e55f003a6955ea359d",
+   "bytes": 134020,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v2/iphone-portrait-setup.png",
+   "sha256": "5ecfd101b6300715b6bbea1edb2e083936379f2afbaf27dd6e6d72704eee216c",
+   "bytes": 286349,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v4/cpu-result.png",
+   "sha256": "f721936d9895fd8c8294d7cbcc4bb7cb98c56b64b3abe3004e8fac0513b92b67",
+   "bytes": 359417,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v4/iphone-landscape-v4-haya.png",
+   "sha256": "d06c43502a92a76d9b9c2de8b9458c21561fbf96f0668333fadb834bba9c32e5",
+   "bytes": 400609,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v4/iphone-landscape-v4-machi.png",
+   "sha256": "35029d7f96a04154c305d528362ee88ae438789cbc14955903c5ce3e1b1972cb",
+   "bytes": 410404,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v4/iphone-landscape-v4-naga.png",
+   "sha256": "e7380db4c39b78d3789540f6553d93549707e159dd776dfdf3e99fb75350a591",
+   "bytes": 469220,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v4/iphone-landscape-v4-u12.png",
+   "sha256": "e198c46f7d7903e7e9d8f6780c9e7ec4ec088a2c64564f3ca8dd1abad7f66d1e",
+   "bytes": 437496,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v4/iphone-portrait-setup.png",
+   "sha256": "dd790d1bd814618be10fb5961e0f00f8e176083efea97b704a64f71ef4f46b89",
+   "bytes": 333387,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v4/iphone-portrait-v4-haya.png",
+   "sha256": "ee7a05adef9214bd61cb686867d1b7495c66b942e478e53e5e74352eb0187885",
+   "bytes": 454234,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v4/iphone-portrait-v4-machi.png",
+   "sha256": "6c107394cafeefc6815f28ec2ec917031d7640d942a3ec1602b6c154491dbbdc",
+   "bytes": 485923,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v4/iphone-portrait-v4-naga.png",
+   "sha256": "7530a0d587b7b5fda091a8736b0d2093e661b9a2af811f101837e1a063ddf5e2",
+   "bytes": 521590,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v4/iphone-portrait-v4-u12.png",
+   "sha256": "fbae928396e14b1f9217d98b29221f2a7849f8cb9220094a444c31ad55d1acef",
+   "bytes": 507235,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v5/cpu-result.png",
+   "sha256": "3d3206df4e67f314adb5b770fa059385bdd7ba47b799f9b073068ffc179e0299",
+   "bytes": 361434,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v5/iphone-landscape-v4-haya.png",
+   "sha256": "d06c43502a92a76d9b9c2de8b9458c21561fbf96f0668333fadb834bba9c32e5",
+   "bytes": 400609,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v5/iphone-landscape-v4-u12.png",
+   "sha256": "e198c46f7d7903e7e9d8f6780c9e7ec4ec088a2c64564f3ca8dd1abad7f66d1e",
+   "bytes": 437496,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v5/iphone-landscape-v5-tsuru.png",
+   "sha256": "d9b40273cf61a3a360e63ed8fe4f9439cfc4b30ddf78050b7cc4769530c89725",
+   "bytes": 323062,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v5/iphone-portrait-setup.png",
+   "sha256": "5bfca409016f1d9d03b7b277b84968d4f4f0e105f9e826623e1421365b20b41c",
+   "bytes": 355196,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v5/iphone-portrait-v4-haya.png",
+   "sha256": "ee7a05adef9214bd61cb686867d1b7495c66b942e478e53e5e74352eb0187885",
+   "bytes": 454234,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v5/iphone-portrait-v4-u12.png",
+   "sha256": "fbae928396e14b1f9217d98b29221f2a7849f8cb9220094a444c31ad55d1acef",
+   "bytes": 507235,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  },
+  {
+   "path": "prototypes/card-game/variable-life-20261031/trial-time/evidence-v5/iphone-portrait-v5-tsuru.png",
+   "sha256": "5e211c992c63897ecf66a0b4073d77d2e8efb1e3501fb7ffe47bb9371e10cf0c",
+   "bytes": 367869,
+   "category": "再生成可能な画像（ブラウザ確認の画面。確認スクリプトで再生成可能）",
+   "commit": "8f3bc5850e73bc778527cd0422482b0aa613609b"
+  }
+ ]
+}

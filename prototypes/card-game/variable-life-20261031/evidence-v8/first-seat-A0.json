@@ -1,0 +1,13 @@
+{
+ "games": 560,
+ "seedGroups": 10,
+ "firstSeatScore": 0.514,
+ "ci95": [
+  0.49,
+  0.538
+ ],
+ "baselineP3": 0.491,
+ "baselineWithoutNewCards": 0.514,
+ "diffFromBaselineP3": 0.023,
+ "status": "範囲内"
+}
