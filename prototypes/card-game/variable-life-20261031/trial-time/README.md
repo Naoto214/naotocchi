@@ -1,8 +1,20 @@
-# 本人限定 iPhone Safari 試遊版：時のカード IX〜XII ＋ 逆転カード — VERSION 7（正式導入候補）
+# 本人限定 iPhone Safari 試遊版：時のカード IX〜XII ＋ 逆転カード — VERSION 8（正式導入候補・最終試遊用）
 
-https://claude.ai/artifact/2vkeGuyKQG9LC2VwKpK4TK （Version 8）
+https://claude.ai/artifact/2vkeGuyKQG9LC2VwKpK4TK （Version 9）
 
-**VERSION 7：**
+**VERSION 8：**
+- **CPU の「おすすめ」は P3**（本人決定）：時のカード各1＋はやじまい・ながいきのひけつ・おもいでのしゃしん。人の席の「おすすめ」も同じ7枚です。
+- CPU の判断の既定は「VERSION 8 統合候補（状況型）」です（VERSION 6 と同じ判断）。
+- **候補7枚の本文を短縮版にしました**（U9）。時のカードの共通ルールは、画面上部の説明とルールブックの項（`../integration/481-time-reversal-cards.md` §1）にあります。
+- 土台を最新の main（`3b0bf8bb`）にしました。
+- 戦績 version 2・確認用の保存・見送ったカードの比較用の構成は、VERSION 7 のままです。新カードの絵は、Astra の制作待ちで仮表示のままです。
+
+**ブラウザ確認（`qa-time.cjs`、縦・横・CPU 対戦）：** 成功し、ページエラーは0件でした（`evidence-v8/qa-log.txt`）。
+- 戦績：5件すべてが version 2 で保存されました。これまでの version 1 は移り、version 1 そのものは変わりません。
+- CPU（アイテム・じゅんび）の構成は P3 でした。人の席の「おすすめ」には、新カード7枚が各1枚入りました。
+
+---
+**VERSION 7（Version 8）：**
 - **土台を最新の main にしました**（PR #518 の後。ルール hotseat-8・恋人の「♥ 結婚したら」入り）。
 - **「おすすめ」＝正式導入候補7枚**です。
   - 人の席：時のカード各1＋はやじまい・ながいきのひけつ・おもいでのしゃしん。
