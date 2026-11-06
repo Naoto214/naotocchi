@@ -12,8 +12,8 @@ permissions:
 jobs:
   fixed-controls:
     runs-on: ubuntu-latest
-    # WebKit took 18 min to install on top of a measured 39 min suite.
-    timeout-minutes: ${{ matrix.engine == 'webkit' && 60 || 45 }}
+    # WebKit setup has taken 50 minutes before the 39-minute browser suite.
+    timeout-minutes: ${{ matrix.engine == 'webkit' && 100 || 45 }}
     strategy:
       fail-fast: false
       matrix:
