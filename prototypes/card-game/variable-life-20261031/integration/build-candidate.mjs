@@ -11,13 +11,15 @@
 //   the formal hotseat-9 bump is an integration step (CANDIDATE-V7.md §5).
 // Also builds build-main/L-A0 and build-main/I-7 for the equivalence checks.
 // Usage: node integration/build-candidate.mjs [base]
-import {readFileSync,writeFileSync,rmSync,cpSync,readdirSync} from 'node:fs';
+import {readFileSync,writeFileSync,rmSync,cpSync,readdirSync,mkdirSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {dirname,join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {execFileSync} from 'node:child_process';
 import {CANDIDATE_CARDS,candidateRules,ID_MAP} from './candidate-cards.mjs';
-export const PINNED_MAIN='88ff5e1f4db12abca6b971f899809a6d663e3281'; // main after PR #518 (hotseat-8, heuristic-3)
+// VERSION 8: re-pinned to main after PR #520 (3b0bf8bb). Every rule/CPU/catalog/records module is byte-identical to the
+// VERSION 7 base 88ff5e1f (only display modules changed: PR #519 card names), so the E1/E2 results (560/560) still apply.
+export const PINNED_MAIN='3b0bf8bbb30ba24c0da5e9b3547d5930aca62b5b'; // main after PR #519/#520 (hotseat-8, heuristic-3)
 const HERE=dirname(fileURLToPath(import.meta.url)),EXP=join(HERE,'..'),OUT=join(EXP,'build-main');
 const base=process.argv[2]??PINNED_MAIN;
 const sha=t=>createHash('sha256').update(t).digest('hex');
@@ -44,6 +46,10 @@ pol=rep(pol,"export const POLICY_VERSION='heuristic-3';","export const POLICY_VE
 pol=rep(pol,"export const POLICY_VERSIONS=Object.freeze(['heuristic-1','heuristic-2','heuristic-3']);","export const POLICY_VERSIONS=Object.freeze(['heuristic-1','heuristic-2','heuristic-3','heuristic-4-candidate']);",1,'policy versions');
 pol=rep(pol,"'heuristic-3':{intermediate:{statChoice:true,loverMarried:true}}});","'heuristic-3':{intermediate:{statChoice:true,loverMarried:true}},'heuristic-4-candidate':{intermediate:{statChoice:true,loverMarried:true}}});",1,'policy features');
 wr('cpu-policy.mjs',pol);
+// 4. modules the card UI imports from sub-directories (unchanged official files, read from <base>), so the candidate's card faces
+//    can be rendered in tests (placeholder art for the 7 candidates until Astra's images are adopted).
+for(const f of ['art-pilot/approved-colors.mjs','art-pilot/symbols/attributes.mjs']){mkdirSync(dirname(join(dst,f)),{recursive:true});
+ writeFileSync(join(dst,f),execFileSync('git',['show',`${base}:prototypes/card-game/${f}`],{cwd:EXP,maxBuffer:1<<26}));}
 const files=Object.fromEntries(readdirSync(dst).filter(f=>f.endsWith('.mjs')).sort().map(f=>[f,sha(rd(f))]));
 writeFileSync(join(OUT,'I7-manifest.json'),JSON.stringify({base:execFileSync('git',['rev-parse',base],{cwd:EXP}).toString().trim(),from:'I-7',candidates:Object.keys(CANDIDATE_CARDS),sha256:files},null,1)+'\n');
 console.log('I7 built from',base,Object.keys(CANDIDATE_CARDS).length,'candidates');

@@ -8,17 +8,25 @@ import {createHash} from 'node:crypto';import {readFileSync,existsSync} from 'no
 // docs/card-game/ on adoption). The texts below are the only place the wording is written.
 export const CANDIDATE_DOC='481-time-reversal-cards.md',CANDIDATE_DOC_PATH=new URL('./'+CANDIDATE_DOC,import.meta.url);
 const docSha=existsSync(CANDIDATE_DOC_PATH)?createHash('sha256').update(readFileSync(CANDIDATE_DOC_PATH)).digest('hex'):'missing';
-const TIME_TEXT=n=>`このカードを出した時、終了ラウンドを${n}にする（両者共通）。現在のラウンドが${n}より後なら出せない。`
- +'相手の時のカードの効果が解決を待っている間、手札のこのカードをカウンターとして出してもよい（時はふつうに払う）。'
- +'カウンターが続いた時は、最後に出された時のカードだけが成立し、それより前の時のカードは効果がなく捨て札に置く。終了ラウンドは、すべての応答のあとに一度だけ変わる。';
+// VERSION 8 (U9, owner's decision): short card texts. The shared time-card rules (both players, counter, discard, resolution
+// order, 100維持) are written once in the rulebook section RULEBOOK_TIME_CARDS (integration/481-time-reversal-cards.md §1).
+const TIME_TEXT=n=>`【時のカード】終了ラウンドを${n}にする。`;
+export const RULEBOOK_TIME_CARDS=[
+ '終了ラウンドは両者共通で、対戦の始めは10。終了ラウンドの後攻の番が終わったら最終比較をする。',
+ '時のカード（IX・X・XI・XII）は、自分の番にふつうのセカイと同じように出す。出した時、終了ラウンドをそのカードの数にする。現在のラウンドより前の数にはできない（そのカードは出せない）。',
+ '相手の時のカードの効果が解決を待っている間、手札の時のカードをカウンターとして出してよい（時はふつうに払う。何回でも続けられる）。同じ数でもカウンターできる。',
+ 'カウンターが続いた時は、最後に出された時のカードだけが成立する。それより前の時のカードは効果がなく、捨て札に置く。終了ラウンドは、すべての応答が終わってから一度だけ変わる。',
+ '100維持の判定は、終了ラウンドより前のラウンドだけで行う。',
+ '「負けている」は、自分のそだちが相手より少ないこと。',
+];
 const DEFS=[
  ['W-time-ix','IX','world',2,TIME_TEXT(9)],
  ['W-time-x','X','world',2,TIME_TEXT(10)],
  ['W-time-xi','XI','world',2,TIME_TEXT(11)],
  ['W-time-xii','XII','world',2,TIME_TEXT(12)],
- ['E-hayajimai','はやじまい','event',2,'自分のそだちが相手より少なく、終了ラウンドが現在のラウンドの次のラウンドの場合に発動できる。終了ラウンドが9なら自分のそだち+15、10なら+10、11以上なら+5。この名前のカードは1ターンに1回しか発動できない。','すぐつかう'],
- ['E-nagaiki','ながいきのひけつ','event',2,'自分のそだち+5。この効果の解決直前に、終了ラウンドが11以上で、自分のそだちが相手より少ない場合、さらに自分のそだち+10。','すぐつかう'],
- ['E-omoide-photo','おもいでのしゃしん','event',2,'現在のラウンドが終了ラウンドの場合に発動できる。自分の場の、なかま・こいびと・セカイ（時のカードを除く）の枚数1枚につき自分のそだち+5（最大+15）。この名前のカードは1ターンに1回しか発動できない。','すぐつかう'],
+ ['E-hayajimai','はやじまい','event',2,'負けていて、終了ラウンドが次のラウンドの時に使える。そだち+5（終了ラウンドが10なら+10、9なら+15）。1ターンに1回。','すぐつかう'],
+ ['E-nagaiki','ながいきのひけつ','event',2,'そだち+5。効果を解決する直前に、終了ラウンドが11以上で負けているなら、さらに+10。','すぐつかう'],
+ ['E-omoide-photo','おもいでのしゃしん','event',2,'終了ラウンドのラウンドに使える。自分のなかま・こいびと・セカイ（時のカードを除く）1枚につきそだち+5（最大+15）。1ターンに1回。','すぐつかう'],
 ];
 // Same keys and order as the official entries (id, name, type, cost, rare, text, source, source_sha256[, method]).
 export const CANDIDATE_CARDS=Object.freeze(Object.fromEntries(DEFS.map(([id,name,type,cost,text,method])=>[id,Object.freeze({id,name,type,cost,rare:false,text,

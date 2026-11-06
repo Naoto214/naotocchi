@@ -29,6 +29,12 @@
   - ただし、延ばした側はあまり逆転できない（得点率0.20）。アイテム型は +8.5pt。
   - **本人の試遊で操作性とバランスを確認するまで、正式導入はしません。**
 
+## VERSION 8（2026-11-06）：CPU の標準構成 P3 と、正式導入の直前までの準備
+- 本人の決定：CPU の標準構成は **P3**、CPU の判断は状況型。U8・U9・U11・U16・U17・U19 の方針も決まりました。
+- まとめ：[integration/CANDIDATE-V8.md](integration/CANDIDATE-V8.md)。報告：REPORT §19。未確定事項：[OPEN-ITEMS.md](OPEN-ITEMS.md)。
+- 道具：P3 のデッキ一覧（`integration/cpu-decks-p3.mjs`）、先攻得点率の見守り（`integration/first-seat-check.py`）、Astra の画像の受け入れ確認（`integration/art-intake.mjs`）、時計の確認（`integration/test-clock-u8.mjs`）。
+- 試遊版 VERSION 8（同じ URL）：https://claude.ai/artifact/2vkeGuyKQG9LC2VwKpK4TK
+
 ## VERSION 7（2026-11-04）：正式導入候補7枚の統合準備
 - 計画：[PLAN-V7.md](PLAN-V7.md)。結果：REPORT.md **§18**。
 - **統合候補（459枚）：** [integration/CANDIDATE-V7.md](integration/CANDIDATE-V7.md)。

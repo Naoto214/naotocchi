@@ -106,3 +106,35 @@ test('R9. 戦績の対象：新カード入りの CPU 対戦を最後まで行�
  const r=R7.buildRecord(s,meta,5);assert.equal(r.round,s.round);const back=R7.parse(R7.serialize([r])).records[0];assert.deepEqual(back,r);
  assert.equal(POLICY_VERSION,'heuristic-4-candidate');
 });
+
+// ---- VERSION 8 ----
+import {CPU_DECKS_P3,P3_BASELINE} from './cpu-decks-p3.mjs';
+import {check as artCheck} from './art-intake.mjs';
+import {RULEBOOK_TIME_CARDS} from './candidate-cards.mjs';
+import os from 'node:os';
+test('V8 P3：CPU の標準構成（候補）。正式7デッキの決まった7枠だけが新カード7枚に替わり、候補のエンジンで使える。正式7デッキは不変',()=>{
+ assert.equal(CPU_DECKS_P3.length,7);
+ for(const d of CPU_DECKS_P3){const o=CPU_DECKS.find(x=>x.id===d.id);assert.equal(d.cards.length,40);assert.equal(e.validateDeck(d.cards),true);assert.throws(()=>off.validateDeck(d.cards));
+  assert.deepEqual([...d.cards.filter(id=>CANDIDATE_IDS.includes(id))].sort(),[...CANDIDATE_IDS].sort(),d.id+'：7枚が各1');
+  const diff=d.cards.map((id,i)=>id!==o.cards[i]?i:-1).filter(i=>i>=0);assert.deepEqual(diff,d.replaced.map(r=>r.index).sort((a,b)=>a-b),d.id+'：替わったのは7枠だけ');
+  for(const r of d.replaced)assert.equal(o.cards[r.index],r.from);}
+ assert.equal(P3_BASELINE.firstSeatScore,0.491);
+});
+test('V8 U9：本文は短縮版。時のカードの共通ルールはルールブックの項に1回だけ書く',()=>{
+ for(const id of ['W-time-ix','W-time-x','W-time-xi','W-time-xii'])assert.match(CATALOG[id].text,/^【時のカード】終了ラウンドを(9|10|11|12)にする。$/);
+ for(const id of CANDIDATE_IDS)assert.ok(CATALOG[id].text.length<=70,id);
+ const rb=RULEBOOK_TIME_CARDS.join('');for(const k of ['両者共通','カウンター','最後に出された','捨て札','すべての応答','100維持','現在のラウンドより前'])assert.ok(rb.includes(k),k);
+ const doc=fs.readFileSync(join(HERE,'481-time-reversal-cards.md'),'utf8');for(const t of RULEBOOK_TIME_CARDS)assert.ok(doc.includes(t));
+});
+test('V8 Astra：画像の受け入れ確認（既存の正式の原画で検査だけを確かめる。画像は作らない）と、画像がない間の仮表示',async()=>{
+ const tmp=fs.mkdtempSync(join(os.tmpdir(),'art-intake-')),A=join(HERE,'..','..','art-pilot');
+ fs.copyFileSync(join(A,'illustrations','C-bat.png'),join(tmp,'W-time-ix.png'));                       // 1536×1024 RGB
+ fs.copyFileSync(join(HERE,'..','..','ui-assets','pupa-reference-approved.png'),join(tmp,'W-time-x.png'));  // 1024×1536
+ fs.copyFileSync(join(A,'references','approved-attribute-sheet.png'),join(tmp,'W-time-xi.png'));         // RGBA
+ const r=artCheck(tmp);fs.rmSync(tmp,{recursive:true,force:true});
+ assert.equal(r['W-time-ix'].status,'ok');assert.equal(r['W-time-x'].status,'rejected');assert.match(r['W-time-x'].problems.join(),/1536×1024/);
+ assert.equal(r['W-time-xi'].status,'rejected');assert.match(r['W-time-xi'].problems.join(),/透過/);assert.equal(r['E-hayajimai'].status,'placeholder');
+ const {cardMarkup}=await imp('ui-presentation.mjs'),{CARD_ART}=await imp('ui-art.mjs');
+ for(const id of CANDIDATE_IDS){assert.ok(!CARD_ART[id],'まだ絵の登録はない '+id);const h=cardMarkup(CATALOG[id]);assert.match(h,/art-fallback/);assert.doesNotMatch(h,/dedicated-art/);}
+ assert.match(cardMarkup(CATALOG['W-sea']),/dedicated-art/);
+});
