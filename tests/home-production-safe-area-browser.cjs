@@ -18,7 +18,7 @@ const output=path.resolve('test-results/home-safe-area');fs.mkdirSync(output,{re
    const context=await browser.newContext({viewport:{width,height},hasTouch:true,isMobile:true,reducedMotion:'reduce'});
    const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
    await page.clock.install({time:new Date('2026-11-05T00:00:00Z')});
-   await context.route('**/*.css?*',async route=>{const r=await route.fetch();await route.fulfill({response:r,body:(await r.text()).replace(/env\(safe-area-inset-(top|right|bottom|left)(?:,\s*0px)?\)/g,(_,edge)=>(testedInsets[edge]||0)+'px')});});
+   await context.route('**/*.css?*',async route=>{const r=await route.fetch({maxRetries:1});await route.fulfill({response:r,body:(await r.text()).replace(/env\(safe-area-inset-(top|right|bottom|left)(?:,\s*0px)?\)/g,(_,edge)=>(testedInsets[edge]||0)+'px')});});
    if(mode==='before'&&baseline)await context.route('**/home-production-touch.js*',route=>route.fulfill({contentType:'application/javascript',body:baseline}));
    await page.addInitScript(save=>{
     localStorage.setItem('naotocchi-save-v1',JSON.stringify(save));

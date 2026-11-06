@@ -68,9 +68,13 @@ async function autonomousExchange(browser,engine,base,out,records,errors){
       Math.random=()=>((x=(Math.imul(x,1664525)+1013904223)>>>0)/4294967296);
     },savedHousehold(friend));
     await page.goto(base+'/index.html');
-    // Wait in real time for the async scene module and background to load before
-    // advancing gameplay. Otherwise the same seed starts on different terrain.
-    await page.locator('#castStage[data-world-renderer="art-25d"]').waitFor({state:'attached'});
+    // If the daypart image loads first, the renderer publishes readiness on its
+    // next animation frame. Drive that frame while the gameplay clock is paused.
+    const stage=page.locator('#castStage[data-world-renderer="art-25d"]');
+    await page.locator('#castStage[data-world-renderer]').waitFor({state:'attached'});
+    const deadline=Date.now()+30000;
+    while(!await stage.count() && Date.now()<deadline)await page.clock.runFor(16);
+    assert.equal(await stage.count(),1,'the production artwork must finish rendering');
     await page.clock.runFor(400);
     await page.locator('#castStage').evaluate(s=>{
       s.addEventListener('naotocchi:home-reaction',({detail:d})=>{
