@@ -13,12 +13,23 @@ const browser=await require('playwright')[engine].launch();try{
 for(const [width,height]of [[320,568],[375,667],[390,844],[430,932],[568,320],[844,390]])for(const count of [1,6,28]){
  const page=await browser.newPage({viewport:{width,height},hasTouch:true,reducedMotion:'reduce'}),record={engine,width,height,count};records.push(record);page.on('pageerror',e=>errors.push(e.message));
  try{
-  await page.clock.install();await page.goto('http://127.0.0.1:'+server.address().port+'/v8-qa.html?region=home&count='+count);
-  // Asset loading and the renderer need live animation frames. Freezing before
-  // readiness leaves the scene unable to settle while the assertion waits.
-  await page.waitForFunction(n=>{const d=window.HomeReleaseQA?.detail();return d?.world?.loaded&&!d.blocked&&d.actors.length===n;},count);
+  // Give every runner the same world time and autonomous behaviour. Advance
+  // the renderer during loading so network speed cannot age the scene.
+  await page.addInitScript(()=>{
+   let seed=521;
+   Math.random=()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296);
+  });
+  await page.clock.install({time:new Date('2026-01-15T12:00:00Z')});
+  await page.clock.pauseAt(new Date('2026-01-15T12:00:01Z'));
+  await page.goto('http://127.0.0.1:'+server.address().port+'/v8-qa.html?region=home&count='+count);
   await page.evaluate(()=>document.fonts.ready);
-  await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+100));await page.clock.runFor(100);
+  const sceneReady=()=>page.evaluate(n=>{
+   const d=window.HomeReleaseQA?.detail();
+   return !!d?.world?.loaded&&!d.blocked&&d.actors.length===n;
+  },count);
+  for(let elapsed=0;elapsed<30000&&!await sceneReady();elapsed+=50)await page.clock.runFor(50);
+  assert.ok(await sceneReady(),'world loaded with the requested residents');
+  await page.clock.runFor(100);
   // Asset/font loading can outlast an idle timer. Drain any real greeting with
   // the controlled clock before the pointer scenario; polling alone cannot
   // expire it and the controller correctly rejects input while it is showing.
@@ -45,6 +56,8 @@ for(const [width,height]of [[320,568],[375,667],[390,844],[430,932],[568,320],[8
   // alone already fits at the edge of the scroll frame.
   await actor.evaluate(node=>node.scrollIntoView({block:'center',inline:'nearest',behavior:'instant'}));
   await page.clock.runFor(20);
+  // A greeting can start on the scroll paint frame and block pointer input.
+  await readyForInput(page);
   // The painted frame can extend beyond the controller's hitbox. Select a
   // physical point shared by both, then use a reachable navigation destination.
   const target=await page.evaluate(pointerTarget,'drag'),start=target.from;record.pointer=target;
