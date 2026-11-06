@@ -3901,12 +3901,17 @@
     if(!node)return;
     const visual=speaker&&commentActorVisual(speaker);
     const production=document.body.dataset.homeProduction==='true' && terrainNoticeMode();
-    node.innerHTML=visual?.asset?commentPictureHTML(visual.asset,'',compactJapaneseText(speaker.label))
-      +(production?'<span class="lane-speaker-name">'+escapeHtml(compactJapaneseText(speaker.label))+'</span>':''):'';
-    node.dataset.label=visual?compactJapaneseText(speaker.label):'';
+    const label=compactJapaneseText(speaker?.label||visual?.label||'');
+    node.innerHTML=(visual?.asset?commentPictureHTML(visual.asset,'',label):'')
+      +(production&&label?'<span class="lane-speaker-name">'+escapeHtml(label)+'</span>':'');
+    node.dataset.label=label;
     node.title=node.dataset.label;
-    node.classList.toggle('hidden',!visual);
-    if(container){container.dataset.kind=visual?speaker.kind:'';container.dataset.speakerId=visual?(speaker.id||'pet'):'';}
+    node.classList.toggle('hidden',!visual&&!label);
+    if(container)setLaneIdentity(container,speaker);
+  }
+  function setLaneIdentity(container,speaker) {
+    container.dataset.kind=speaker?.kind||'';
+    container.dataset.speakerId=speaker?.id||(speaker?.kind==='pet'?state.speciesLine||'pet':'');
   }
   function exchangeSpeaker(exchange) {
     const def=allCompanionsById(exchange.companion);
@@ -4316,8 +4321,8 @@
   function setSpeechBubble(text, speaker, reaction = {}) {
     if (!el.speechBubble || !text || !speaker) return;
     if (homeUIV11() && homeResidentCovered()) return;
-    if (!(homeUIV11() && reaction.storySpeaker) && speaker.kind === 'partner' && (!state.partner || (speaker.id && speaker.id !== state.partner.id))) return;
-    if (speaker.kind === 'companion' && !state.companions.some(c => canonicalCompanionId(c.id) === speaker.id)) return;
+    if (!(homeUIV11() && reaction.storySpeaker) && speaker.kind === 'partner' && (!state.partner || (speaker.id && canonicalPartnerId(speaker.id) !== canonicalPartnerId(state.partner.id)))) return;
+    if (speaker.kind === 'companion' && !state.companions.some(c => canonicalCompanionId(c.id) === canonicalCompanionId(speaker.id))) return;
     if(homeUIV11()){
       if(!reaction.unit && homeV11HoldSpeech(()=>setSpeechBubble(text,speaker,reaction),!!reaction.important))return;
       if(!reaction.unit && conversationIsBusy())clearConversationTimers();
@@ -4331,8 +4336,7 @@
     }
     renderLaneSpeaker(el.speechSpeaker,speaker);
     setCommentText(el.speechText, compactJapaneseText(text), true);
-    el.speechBubble.dataset.kind = speaker.kind || 'pet';
-    el.speechBubble.dataset.speakerId = speaker.id || '';
+    setLaneIdentity(el.speechBubble,speaker);
     el.speechBubble.dataset.reactionEvent = reaction.event || 'idle';
     el.speechBubble.classList.remove('hidden');
     // Director は「実際に表示した行」だけを記録する(抽選しただけの行は数えない)
@@ -4364,7 +4368,23 @@
 
   function partnerSpeaker() {
     const p = state.partner;
-    return p ? { kind: 'partner', id:p.id, emoji: p.emoji || '💕', label: p.label || 'こいびと' } : null;
+    return p ? { kind:'partner', id:p.id, emoji:p.emoji || '💕',
+      label:p.label || WORLD_MASTER?.partners?.find(def=>def.id===canonicalPartnerId(p.id))?.label || 'こいびと' } : null;
+  }
+
+  // Resolve the participant chosen by the event. The visit lottery is only
+  // for spontaneous visitors; a missing participant never borrows a portrait.
+  function homeParticipantSpeaker(actor) {
+    const [kind,id]=typeof actor==='string'?actor.split(':'):[actor?.kind,actor?.id];
+    if(kind==='pet')return !id||id===state.speciesLine?{...petSpeaker(),id:state.speciesLine}:null;
+    if(!id)return null;
+    if(kind==='partner' && state.partner && canonicalPartnerId(state.partner.id)===canonicalPartnerId(id))
+      return {...partnerSpeaker(),id:canonicalPartnerId(id)};
+    if(kind==='companion' && state.companions.some(c=>canonicalCompanionId(c.id)===canonicalCompanionId(id))){
+      const def=allCompanionsById(id);
+      if(def)return {kind,id:def.id,label:def.name,emoji:def.emoji};
+    }
+    return null;
   }
 
   function companionSpeaker() {
@@ -6386,10 +6406,17 @@
     }
   };
 
-  function partnerDailyLine(eventKey, ctx) {
-    if (!state.partner) return null;
-    const lines = PARTNER_DAILY_REACTIONS[canonicalPartnerId(state.partner.id)]?.[eventKey];
-    return pickCharacterConversationLine(lines, CONVERSATION_POOLS[eventKey]?.partner, {...(ctx || {}), speakerKey:'partner:' + canonicalPartnerId(state.partner.id)});
+  function partnerDailyLine(eventKey, ctx, id=state.partner?.id) {
+    if (!id) return null;
+    const key=canonicalPartnerId(id);
+    let own = PARTNER_DAILY_REACTIONS[key]?.[eventKey];
+    if (!own && eventKey === 'court' && ctx?.reply?.kind === 'partner' && homeUIV11()) {
+      // The first signature is the partner's own words (also used for letters).
+      // Some later entries are third-person descriptions, not spoken responses.
+      const signature = PARTNER_SIGNATURE_LINES[key]?.[0];
+      if (signature) own = [signature.replace(/^「|」$/g,'')];
+    }
+    return pickCharacterConversationLine(own, CONVERSATION_POOLS[eventKey]?.partner, {...ctx, speakerKey:'partner:' + key});
   }
 
   function speakEvent(eventKey, ctx = {}) {
@@ -6418,21 +6445,32 @@
       }
       beats.push({ speaker: petSpeaker(), text: petLine });
     }
-    if (state.partner && pool.partner && Math.random() < (ctx.partnerChance ?? 0.6)) {
-      const ps = homePresentPartner() ? partnerSpeaker() : null;
+    // Manual exchanges belong to the participants chosen by the action.
+    // Ordinary events can still invite visitors to comment.
+    const reply = homeUIV11() ? ctx.reply : null;
+    const manualExchange = homeUIV11() && Object.hasOwn(ctx, 'reply');
+    const partnerReply = reply?.kind === 'partner', companionReply = reply?.kind === 'companion';
+    if (pool.partner && (partnerReply || (!manualExchange && state.partner && Math.random() < (ctx.partnerChance ?? 0.6)))) {
+      const candidate = partnerReply && eventKey === 'court_fail';
+      const ps = partnerReply ? (candidate ? reply : homeParticipantSpeaker(reply)) : homePresentPartner() ? partnerSpeaker() : null;
+      const id = partnerReply ? reply.id : state.partner.id;
       // 成立・結婚の固有セリフは、必ず恋人の吹き出しへ。
       const relationshipKey = eventKey === 'partner_new' ? 'court' : eventKey === 'marriage' ? 'marriage' : null;
       // 記念日ムービーと同じく、吹き出しでは外側の「」を外す。
-      const relationshipLine = PARTNER_RELATIONSHIP_LINES[canonicalPartnerId(state.partner.id)]?.[relationshipKey]?.replace(/^「|」$/g, '');
+      const relationshipLine = PARTNER_RELATIONSHIP_LINES[canonicalPartnerId(id)]?.[relationshipKey]?.replace(/^「|」$/g, '');
       // 同じ会話の中で、同じ文・同じ family の台詞を重ねない
-      const line = relationshipLine || partnerDailyLine(dialogueKey, {...ctx, avoid:beats.map((b) => b.text)});
-      if (ps && line) beats.push({ speaker: ps, text: line });
+      const line = relationshipLine || partnerDailyLine(dialogueKey, {...ctx, avoid:beats.map((b) => b.text)}, id);
+      if (ps && line) beats.push({ speaker: ps, text: line, storySpeaker:candidate });
     }
-    if (state.companions.length && pool.companion && Math.random() < (ctx.companionChance ?? 0.55)) {
-      const cs = companionSpeaker();
+    if (pool.companion && (companionReply || (!manualExchange && state.companions.length && Math.random() < (ctx.companionChance ?? 0.55)))) {
+      const cs = companionReply ? homeParticipantSpeaker(reply) : companionSpeaker();
       const line = pickCharacterConversationLine(COMPANION_DAILY_REACTIONS[cs?.id]?.[dialogueKey], pool.companion,
         {...ctx, speakerKey:cs ? 'companion:' + canonicalCompanionId(cs.id) : null, avoid:beats.map((b) => b.text)});
-      if (cs && line) beats.push({ speaker: cs, text: line });
+      if (cs && line) {
+        const beat = {speaker:cs, text:line};
+        if (companionReply) beats.splice(petLine ? 1 : 0, 0, beat);
+        else beats.push(beat);
+      }
     }
     // いるキャラが次々しゃべるテンポを優先。本人→恋人→仲間だけで終わらず、
     // 複数キャラがいる場面では最後に本人がもう一言返して「掛け合い」にする。
@@ -6618,7 +6656,7 @@
         ? (event === 'play_with' ? visibleBeats.find(b=>b.speaker.kind === 'companion')?.speaker
           : ['court','partner_new','marriage'].includes(event) ? visibleBeats.find(b=>b.speaker.kind === 'partner')?.speaker : null)
         : petSpeaker();
-      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker, {event,listener,target,primaryBeat:i===0,unit:homeUIV11()}), delayMs + i * SPEECH_DURATION_MS));
+      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker, {event,listener,target,primaryBeat:i===0,unit:homeUIV11(),storySpeaker:beat.storySpeaker}), delayMs + i * SPEECH_DURATION_MS));
     });
   }
 
@@ -6788,10 +6826,14 @@
       const hold = i === beats.length - 1 ? CONV2.lastBeatHoldMs : SPEECH_DURATION_MS;
       conv2Later(unit, () => {
         if (!conv2ContextOk()) { conv2Abort('context'); return; }
-        const visitor = visitorKey ? conv2VisitorSpeaker(visitorKey) : null;
-        const speaker = b.role === 'pet' ? petSpeaker() : visitor;
-        if (!speaker || (visitorKey && !visitor)) { conv2Abort('visitor_left'); return; }
-        setSpeechBubble(b.text, speaker, {listener:b.role === 'pet' ? visitor : petSpeaker(), holdMs:hold,unit:homeUIV11()});
+        const pair = unit.terrainPair ? unit.terrainPair.map(homeParticipantSpeaker)
+          : [petSpeaker(), visitorKey ? conv2VisitorSpeaker(visitorKey) : null];
+        if(unit.terrainPair && (unit.life!==state || unit.region!==currentEnvironment().region || !pair.every(Boolean))){
+          conv2LeaveScene('participant_left');return;
+        }
+        const first = b.role === 'pet' || b.role === 'first', speaker = pair[first?0:1];
+        if (!speaker || (visitorKey && !pair[1])) { conv2Abort('visitor_left'); return; }
+        setSpeechBubble(b.text, speaker, {listener:pair[first?1:0], holdMs:hold,unit:homeUIV11()});
         unit.shown = true;
         if (unit.onShow) { const onShow = unit.onShow; unit.onShow = null; onShow(); }
       }, at);
@@ -6827,11 +6869,10 @@
     return true;
   }
   // 来訪が始まったとき。来てすぐではなく、少し落ちついてから。話せる状態になるまで少し待つ
-  function conv2ScheduleBanter() {
-    if (!CONVERSATION_BANTER || !conversationDirector) return;
+  function conv2ScheduleBanter(visitorKey = conv2CurrentVisitorKey()) {
+    if (!visitorKey || !CONVERSATION_BANTER || !conversationDirector) return;
     conv2VisitCount += 1;
     if (CONV2.banterSkipEvery && conv2VisitCount % CONV2.banterSkipEvery === 0) return;
-    const visitorKey = conv2CurrentVisitorKey();
     let tries = 0;
     const attempt = () => {
       if (conv2CurrentVisitorKey() !== visitorKey || !visitorKey) return; // もう帰った・入れかわった
@@ -11601,10 +11642,12 @@
   let endingBadgeTipTimer = null;
 
   function showStoryEvent(event) {
+    const noticeSpeaker=event.author?{...WORLD_MASTER?.playerSpecies?.author,kind:'author'}
+      :event.character?{...event.character,kind:'partner',label:event.character.label||event.character.name}
+      :event.petReaction?petSpeaker():null;
     if(homeUIV11()){
       if(event.characterComment){
-        const speaker=event.author?{...WORLD_MASTER?.playerSpecies?.author,kind:'author'}:event.character?{...event.character,kind:'partner',label:event.character.label||event.character.name}:petSpeaker();
-        setSpeechBubble(event.message,speaker,{important:true,storySpeaker:true,holdMs:STORY_FLASH_DURATION_MS});return;
+        setSpeechBubble(event.message,noticeSpeaker||petSpeaker(),{important:true,storySpeaker:true,holdMs:STORY_FLASH_DURATION_MS});return;
       }
       if(homeV11Upper('story',event.achievement?5:3,STORY_FLASH_DURATION_MS,()=>showStoryEvent(event)))return;
     }
@@ -11627,7 +11670,6 @@
     else if (event.achievement) el.storyFlashEmoji.innerHTML = document.body.dataset.homeProduction==='true' ? commentIconHTML('🏆') : achievementIconHTML(event.achievement);
     else if (event.petReaction) el.storyFlashEmoji.innerHTML = commentSpeakerHTML(petSpeaker());
     else setCommentText(el.storyFlashEmoji, event.emoji, true, inlineVisual);
-    const noticeSpeaker=event.author?{...WORLD_MASTER?.playerSpecies?.author,kind:'author'}:event.petReaction?petSpeaker():event.character?{...event.character,kind:'partner',label:event.character.label||event.character.name}:null;
     if(noticeSpeaker){renderLaneSpeaker(el.storyFlashEmoji,noticeSpeaker,el.storyFlash);if(!lower && document.body.dataset.homeProduction==='true')el.storyFlashEmoji.innerHTML=commentSpeakerHTML(noticeSpeaker);}
     else {el.storyFlashEmoji.dataset.label='';el.storyFlash.dataset.speakerId='';el.storyFlash.dataset.kind='';el.storyFlashEmoji.classList.remove('hidden');}
     if(el.storyFlashName){
@@ -12067,11 +12109,23 @@
     if (partner) candidates.push({key:'partner:' + canonicalPartnerId(partner.id), kind:'partner', weight:4, visitor:true});
     const present = homePresentCompanions();
     for (const c of present) candidates.push({key:'companion:' + canonicalCompanionId(c.id), kind:'companion', id:c.id, weight:4 / present.length, visitor:true});
+    // With reduced motion there are no autonomous looks. Give the same
+    // visible residents a turn on the existing idle greeting clock instead.
+    if (homeUIV11() && window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches && terrainSoloReady()) {
+      const residents = homeCastActors().filter(actor => ['partner','companion'].includes(actor.kind));
+      for (const actor of residents) {
+        const key = conversationSpeakerKey(actor);
+        if (!candidates.some(candidate => candidate.key === key)) {
+          candidates.push({key, kind:actor.kind, id:actor.id, resident:true, weight:4 / residents.length});
+        }
+      }
+    }
     // 本人が不調(空腹・病気など)のときは、こいびと・なかまの陽気な放置会話をこの回ごと半分に
     const visitorsQuiet = director.visitorStaysQuiet(unwell);
     for (const c of director.orderSpeakers(candidates)) {
       if (c.kind === 'pet') { if (speakPetIdleWithDirector()) return true; continue; }
       if (visitorsQuiet) continue;
+      if (c.resident) { if (speakTerrainResident(c)) return true; continue; }
       if (c.kind === 'partner') {
         const line = pickCharacterConversationLine(PARTNER_CHARACTER_IDLE_LINES[canonicalPartnerId(partner.id)], PARTNER_IDLE_LINES, {speakerKey:c.key});
         if (line && homeInitiative('affection_interaction', 'partner:' + partner.id)) { setSpeechBubble(line, partnerSpeaker()); return true; }
@@ -15309,6 +15363,65 @@
         attachments:a.kind==='pet'&&!el.petAccessory.classList.contains('hidden')?[el.petAccessory]:[],x,y,w,h,extent};
     }).filter(Boolean);
   }
+  // Terrain meetings use the two residents the movement model actually paired.
+  // This is only dialogue: no special visit, greeting reward or relationship roll.
+  const TERRAIN_SPEECH_GAP_MS = 24000;
+  function terrainSoloReady() {
+    const presentation = homeV11Presentation();
+    return Date.now() - (presentation.terrainVoiceAt ?? -Infinity) >= TERRAIN_SPEECH_GAP_MS
+      && !homeV11SpeechBlocked() && !presentation.lowerQueue.length && conv2CanStart();
+  }
+  function residentIdleLines(speaker) {
+    return (speaker.kind === 'partner' ? PARTNER_CHARACTER_IDLE_LINES : COMPANION_CHARACTER_IDLE_LINES)[speaker.id];
+  }
+  function speakTerrainResident(actor) {
+    const speaker = homeParticipantSpeaker(actor);
+    if (!speaker || speaker.kind === 'pet' || !terrainSoloReady()) return false;
+    const line = pickCharacterConversationLine(residentIdleLines(speaker), [], {speakerKey:conversationSpeakerKey(speaker)});
+    if (!line) return false;
+    homeV11Presentation().terrainVoiceAt = Date.now();
+    setSpeechBubble(line, speaker);
+    return true;
+  }
+  el.castStage.addEventListener('naotocchi:home-reaction',({detail:e})=>{
+    if(!['social','look'].includes(e?.type)||e.source!=='ambient'||!homeUIV11()||e.region!==currentEnvironment().region)return;
+    const presentation=homeV11Presentation();
+    if(e.type==='look'){
+      if(e.actor?.kind==='pet'||presentation.terrainLookPending||!terrainSoloReady())return;
+      // Defer this single idle line until the frame's real pairs and any
+      // player actions have had first choice of the lower lane.
+      presentation.terrainLookPending=true;
+      setTimeout(()=>{
+        presentation.terrainLookPending=false;
+        if(presentation.life===state&&e.region===currentEnvironment().region)speakTerrainResident(e.actor);
+      },0);
+      return;
+    }
+    if(!conv2CanStart()||homeV11SpeechBlocked()||presentation.lowerQueue.length
+        ||Date.now()-(presentation.terrainPairAt??-Infinity)<TERRAIN_SPEECH_GAP_MS)return;
+    const a=homeParticipantSpeaker(e.actor), b=homeParticipantSpeaker(e.listener);
+    if(!a||!b||conversationSpeakerKey(a)===conversationSpeakerKey(b))return;
+    const pair=b.kind==='pet'?[e.listener,e.actor]:[e.actor,e.listener];
+    let id,beats;
+    if(a.kind==='pet'||b.kind==='pet'){
+      const key=conversationSpeakerKey(a.kind==='pet'?b:a);
+      const {specific,generic}=CONVERSATION_BANTER.banterCandidates(key,{isQuiet:k=>conversationDirector.isQuiet(k)});
+      const chosen=conv2PickFrom(specific,generic,1);
+      if(!chosen)return;
+      ({id,beats}=chosen);
+    }else{
+      // The pet-specific part of an authored banter belongs to the pet. Two
+      // other residents use their own existing lines instead.
+      const first=pickConversationLine(residentIdleLines(a)),second=pickConversationLine(residentIdleLines(b),{avoid:[first]});
+      if(!first||!second)return;
+      id='terrain:'+conversationSpeakerKey(a)+'/'+conversationSpeakerKey(b);
+      beats=[{role:'first',text:first},{role:'second',text:second}];
+    }
+    presentation.terrainPairAt=presentation.terrainVoiceAt=Date.now();
+    const unit=conv2NewUnit('banter',id,null,{deferNote:true});
+    unit.terrainPair=pair;unit.region=e.region;
+    conv2Play(unit,beats,null,()=>conv2Finish(unit));
+  });
   function homeDioramaBlocked() {
     const passiveHome=document.body.dataset.homeProduction==='true' && document.body.dataset.homeViewportVersion==='12';
     const idleSpeech=passiveHome && speechActive && el.speechBubble.dataset.reactionEvent==='idle';
@@ -15858,7 +15971,7 @@
   meguruMod?.socialSession?.subscribe(event=>{
     if(event.context!=='home')return;
     // Conversation v2: 来た相手と本人の掛け合いは、この来訪の一部として少しあとに(新しい声かけの枠は使わない)
-    if(event.type==='visit')conv2ScheduleBanter();
+    if(event.type==='visit')conv2ScheduleBanter(conversationSpeakerKey(homeParticipantSpeaker(event.actorKey)));
     if(event.type==='return_to_free_life'){homeSocialReactions=newHomeSocialReactions();return;}
     if(!['visit','greeting','affection_interaction','reunion'].includes(event.type)||!pageVisible()||meguruActive)return;
     const [kind,id]=event.actorKey.split(':');
@@ -18602,6 +18715,7 @@
     state.actionCounts.pet += 1;
     state.actionCounts.talk += 1;
     const spammed = state.affectionStreak > affectionSpamThreshold();
+    let reply;
     if (spammed) {
       state.happiness = clamp(state.happiness - 5, 0, 100);
       applyDecline(6);
@@ -18616,6 +18730,8 @@
       });
       const positiveIds = RELATIONSHIP_EXPRESSION?.companionPositiveIds(beforeBonds,state.companions) || [];
       for (const c of state.companions) if (positiveIds.includes(c.id)) startRelationshipPositive('companion',c);
+      // The first ID is the existing ordinary play target; others may be bond rescues.
+      if (positiveIds.length) reply = {kind:'companion', id:positiveIds[0]};
     }
     const hasCompanions = state.companions.length > 0;
     const reaction = spammed
@@ -18626,7 +18742,7 @@
       // 日常の「じゃれる」は客観ナレーションを出さず、会話だけで見せる。
       // 状態変化の事実通知が必要な場面だけ setMessage() を使う。
       setMessage('');
-      speakEvent(spammed ? 'play_with_annoyed' : 'play_with', { petText: reaction, partnerChance: 0.45, companionChance: 0.8 });
+      speakEvent(spammed ? 'play_with_annoyed' : 'play_with', { petText: reaction, partnerChance: 0.45, companionChance: 0.8, reply });
       if (!spammed) { checkStoryEvents('pet'); setTimeout(()=>maybeIndividualExchange(),STORY_FLASH_DURATION_MS); }
     }
   }));
@@ -18743,7 +18859,7 @@
         }
         if (!checkMeters()) {
           setMessage(`💍 ${state.partner.label}とけっこんした`);
-          speakEvent('marriage', { partnerChance: 1, companionChance: 0.65 });
+          speakEvent('marriage', { partnerChance: 1, companionChance: 0.65, reply:{kind:'partner',id:state.partner.id} });
         }
         emotePet('love');
         return;
@@ -18753,7 +18869,7 @@
       if (!checkMeters()) {
         // 恋人への日常的ないちゃつきは、客観説明を重ねず会話だけで見せる。
         setMessage('');
-        speakEvent('court', { petText: reaction, partnerChance: 0.9, companionChance: 0.35 });
+        speakEvent('court', { petText: reaction, partnerChance: 0.9, companionChance: 0.35, reply:{kind:'partner',id:state.partner.id} });
         checkStoryEvents('court');
       }
       emotePet('love');
@@ -18863,7 +18979,7 @@
       lastCourtReaction = reaction;
       if (!checkMeters()) {
         setMessage(`💑 ${candidate.label}とこいびとになった`);
-        speakEvent('partner_new', { petText: reaction, partnerChance: 0.95, companionChance: 0.5 });
+        speakEvent('partner_new', { petText: reaction, partnerChance: 0.95, companionChance: 0.5, reply:{kind:'partner',id:state.partner.id} });
       }
       emotePet('love');
     } else {
@@ -18873,7 +18989,7 @@
       lastCourtReaction = reaction;
       if (!checkMeters()) {
         setMessage('💞気持ちはつたえた。返事は「もう少し友達でいたい」だった');
-        speakEvent('court_fail', { petText: reaction, partnerChance: 0, companionChance: 0.45 });
+        speakEvent('court_fail', { petText: reaction, partnerChance: 0, companionChance: 0.45, reply:{kind:'partner',id:candidate.id,label:candidate.label,emoji:candidate.emoji} });
       }
       emotePet('sad');
     }

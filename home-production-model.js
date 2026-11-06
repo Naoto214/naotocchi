@@ -20,12 +20,13 @@
     function trait(a,key){return clamp(Number(a.temperament?.[key])||3,1,5);}
     const actor=key=>actors.find(a=>a.key===key);
     function tagsAt(a){return (scene.tags||[]).filter(t=>Math.hypot(a.x-t.x,a.y-t.y)<66).map(t=>t.tag);}
-    function emit(type,a,source='ambient'){
+    function emit(type,a,source='ambient',listener=null){
       const key=a.key+':'+type,delay=source==='ambient'?6:.65;
       if(clock-(cooldown.get(key)??-Infinity)<delay)return;
       cooldown.set(key,clock);
       const near=actors.filter(b=>b!==a&&Math.hypot(a.x-b.x,a.y-b.y)<100).map(b=>Object.freeze({key:b.key,id:b.id,kind:b.kind,relationship:b.kind==='pet'?'self':b.kind}));
       onEvent(Object.freeze({version:1,type,source,actor:Object.freeze({key:a.key,id:a.id,kind:a.kind}),region:scene.region,
+        listener:listener&&Object.freeze({key:listener.key,id:listener.id,kind:listener.kind}),
         environmentTags:Object.freeze(tagsAt(a)),nearby:Object.freeze(near),relationship:a.kind==='pet'?'self':a.kind,silent:true}));
     }
     function visible(a,p){return !scene.visible||scene.visible(p,a);}
@@ -170,7 +171,25 @@
         if(flags.reducedMotion&&a.source==='ambient'){a.target=null;a.route=[];}
         if(!a.target)continue;
         const dx=a.target.x-a.x,dy=a.target.y-a.y,dist=Math.hypot(dx,dy),speed=(flags.reducedMotion?28:42)*(scene.time==='night'?.75:1),step=Math.min(dist,speed*dt);
-        if(dist<.5){if(a.route?.length){a.target=a.route.shift();continue;}a.target=null;activity(a,a.source==='ambient'?a.after:'rest');if(a.source==='ambient'&&a.visualTarget)a.direction=a.visualTarget.x<a.x?-1:1;defer(a,3+random()*5);if(a.faceKey){const b=actor(a.faceKey);if(b){a.direction=b.x<a.x?-1:1;if(!b.target&&b.source==='ambient'&&clock>=b.manualUntil&&b.key!==flags.heldActor){b.direction=-a.direction;activity(b,'together');defer(b,4);}}}emit('arrive',a,a.source);if(tagsAt(a).length)emit('environment',a);if(actors.some(b=>b!==a&&Math.hypot(a.x-b.x,a.y-b.y)<100))emit('proximity',a);continue;}
+        if(dist<.5){
+          if(a.route?.length){a.target=a.route.shift();continue;}
+          a.target=null;activity(a,a.source==='ambient'?a.after:'rest');
+          if(a.source==='ambient'&&a.visualTarget)a.direction=a.visualTarget.x<a.x?-1:1;
+          defer(a,3+random()*5);
+          const b=actor(a.faceKey);
+          if(b){
+            a.direction=b.x<a.x?-1:1;
+            if(!b.target&&b.source==='ambient'&&clock>=b.manualUntil&&b.key!==flags.heldActor){
+              b.direction=-a.direction;activity(b,'together');defer(b,4);
+              // The target of this completed approach is the other participant.
+              // A bystander inside the proximity radius did not take part.
+              if(a.source==='ambient'&&['approach','together'].includes(a.after)&&Math.hypot(a.x-b.x,a.y-b.y)<100)emit('social',a,'ambient',b);
+            }
+          }
+          emit('arrive',a,a.source);if(tagsAt(a).length)emit('environment',a);
+          if(actors.some(b=>b!==a&&Math.hypot(a.x-b.x,a.y-b.y)<100))emit('proximity',a);
+          continue;
+        }
         const p=limit(a,{x:a.x+dx/dist*step,y:a.y+dy/dist*step},scene);
         // If a very crowded/short viewport cannot seat everyone, permit escape only
         // when every existing overlap shrinks; never enter a new overlap.

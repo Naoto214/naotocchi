@@ -66,7 +66,7 @@ test('latest-main game catalogs, conversations, formal images and other games st
   "prototypes/life-sugoroku/v4.html": "193ea229c806041c9dc9ce93aca86bfb86d39c2c",
   "prototypes/naopoyo-time-hand-chapter1/build-preview.mjs": "949c11c5d16469277c3a2d0f1a333088e1b735d9",
   "prototypes/naopoyo-time-hand-chapter1/index.html": "d34a826b9ae1cc00306624213a9967d33ccf8820",
-  "script.js": "1d5888dcc8566bbf1be1cb550a85067fdcf82f08"
+  "script.js": "d3c610f1d6c03d38c6fe377d8453194b54cb911b"
 };
  for (const [file, blob] of Object.entries(homeUI)) {
   assert.equal(cp.execFileSync('git',['hash-object','--',file],{encoding:'utf8'}).trim(),blob,'home UI V1 reviewed bytes: '+file);

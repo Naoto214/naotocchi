@@ -319,6 +319,7 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
         data:CONVERSATION_BANTER, postgame:CONVERSATION_POSTGAME, quick:CONVERSATION_QUICK, away:CONVERSATION_AWAY, checkAway:conv2CheckAway, quickRuns:() => conv2QuickRuns, recordQuickRun, lastQuickRun:() => quickLastRun, leaveScene:conv2LeaveScene, syncLayer:syncHistoryLayer, director:() => conversationDirector, config:CONV2,
         visitorLeaves:() => {homePresentPartner=()=>null;homePresentCompanions=()=>[];}, pools:() => CONVERSATION_POOLS, setLifeEventOpen:v => {individualityDialogOpen=!!v;}},
       speakEvent, setMessage, setCriticalMessage, setSpeechBubble, clearConversationTimers, scheduleIdlePerk, scheduleIdleGreeting, scheduleItemContextMessage, renderHomeCast,
+      homeParticipantSpeaker,
       commentTextHTML, setCommentText, showStoryEvent, setBirthdayToast,
       achievementIconHTML: (...args) => achievementIconHTML(...args),
       minigameFoodHTML: (...args) => minigameFoodHTML(...args),
