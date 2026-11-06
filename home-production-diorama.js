@@ -133,10 +133,13 @@
       // Assign the partner next to the protagonist. The other seats span all depths.
       if(args.hasPartner){const pet=slots[0],rest=slots.splice(1);rest.sort((a,b)=>Math.hypot(a.x-pet.x,a.y-pet.y)-Math.hypot(b.x-pet.x,b.y-pet.y));slots.push(...rest);}
     }
+    // Scale the actual solver frame, before deriving item anchors, touch bodies,
+    // speech, paint extents, depth and navigation clearance from its alpha bounds.
+    const heroFactor=[100,105,110,115,120].includes(args.heroPercent)?args.heroPercent/100:1;
     let index=0;
     function frame(f,path,relative){
       if(!crowded){
-        const order=index++,factor=relative===1?mainScale:1;
+        const order=index++,factor=relative===1?mainScale*heroFactor:1;
         // Keep established small casts stable as visitors arrive or leave.
         const density=1;
         const n=count-1,slot=order===0?null:(order-1),angle=n<=1?-.75:Math.PI*(.12+.76*slot/Math.max(1,n-1));
@@ -151,7 +154,7 @@
       }
       const sizeSlot=sizingSlots[index],q=slots[index++],b=box(path),body=Math.max(b[2]-b[0],b[3]-b[1])/128;
       const target=Math.min(cw-10,ch-7)*(relative===1?1:.80)*(.94+.06*sizeSlot.depth)*view;
-      return resized(f,target/Math.max(.1,body)*(relative===1?mainScale:1),path,q);
+      return resized(f,target/Math.max(.1,body)*(relative===1?mainScale*heroFactor:1),path,q);
     }
     const main=frame(raw.main,args.mainAsset,1),partner=raw.partner?frame(raw.partner,args.partnerAsset,.5):null;
     const attached=(f,old,next)=>f&&old&&next?{...f,x:next.x+(f.x-old.x)*next.w/old.w,y:next.y+(f.y-old.y)*next.w/old.w,w:f.w*next.w/old.w,h:f.h*next.w/old.w}:null;
@@ -375,6 +378,9 @@
         // Depth scales about the foot. Include it when centring the painted body.
         for(let i=0;i<3;i++)newbornPoint.y=y+newborn.h*(scene.navigation.depthScale?.(newbornPoint)||1)/2;
       }
+      // Only the five-resident landscape sizing candidate needs the same
+      // open walking lane as a larger household.
+      scene.fiveResidentExit=next.size===5&&doc.body?.dataset.homePopulationProfile==='v1'&&!!env.NaotocchiHomeViewport?.residentPresentation?.()?.landscape;
       rows=next;view.hidden=!enabled||rows.size<=5;model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint});
       if(newbornPoint)newbornPending=false;
       publishPaintEnvelope();

@@ -231,11 +231,11 @@ $('export').onclick=()=>{if(!session.active)return;hide();const url=URL.createOb
 const HOME_URL=$('home-return').href;// 戻り先は開始画面ヘッダーのリンクと同じ（index.html の href が唯一の定義）
 const LEAVE={
  top:{label:'カードゲームトップへもどる',title:'カードゲームトップへもどりますか？',resume:route=>`「${route}」→「保存した対戦に戻る」で`},
- home:{label:'なおとっちへもどる',title:'なおとっちへもどりますか？',resume:route=>`あとで CARD GAME の「${route}」→「保存した対戦に戻る」で`},
+ home:{label:'ホームにもどる',title:'ホームにもどりますか？',resume:route=>`あとで CARD GAME の「${route}」→「保存した対戦に戻る」で`},
 };
 const menuParts=()=>[document.querySelector('#menu-dialog .utility-nav'),$('menu-leave')];
 function leaveConfirmReset(){$('menu-home-confirm').hidden=true;$('menu-home-confirm').replaceChildren();menuParts().forEach(n=>n.hidden=false);syncLeaveMenu();}
-// 開始画面から開いたとき（対戦なし）は、もどる操作を出さない（ヘッダーの「なおとっちへもどる」がある）。
+// 開始画面から開いたとき（対戦なし）は、もどる操作を出さない（ヘッダーの「ホームにもどる」がある）。
 function syncLeaveMenu(){const playing=!$('game').hidden;$('menu-leave').hidden=!playing;$('menu-continue').hidden=!session.active||session.finished;}
 // 対戦画面からカードゲームトップへ。保存済みの対戦は端末に残したまま（「保存した対戦に戻る」で再開できる）。
 function toWelcome({saved=false}={}){

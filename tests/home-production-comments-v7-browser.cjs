@@ -23,6 +23,7 @@ const texts=['うれしいな','今日はいい日だった','遊びの途中で
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const results=[],errors=[];try{
 for(const engine of (process.env.HOME_LAYOUT_ENGINES||'chromium,webkit').split(',')){
  const browser=await require('playwright')[engine].launch();try{
+ await require('./helpers/home-resident-dialogue-browser.cjs')(browser,engine,'http://127.0.0.1:'+server.address().port,out);
  await require('./helpers/home-production-current-browser.cjs')(browser,engine,'http://127.0.0.1:'+server.address().port,out);
  for(const width of [320,375,390,430]){
  const page=await browser.newPage({viewport:{width,height:844},reducedMotion:'reduce'});page.on('pageerror',e=>errors.push(e.message));await page.clock.install();

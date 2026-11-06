@@ -1,0 +1,19 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>住民の見え方をくらべる</title><style>
+@font-face{font-family:HomeRounded;src:url("assets/fonts/mplus-rounded-1c-regular.woff2") format("woff2");font-display:swap}*{box-sizing:border-box}body{margin:0;height:100dvh;display:flex;flex-direction:column;background:#eee8dc;color:#392e21;font:14px/1.5 HomeRounded,system-ui,sans-serif}header{background:#fffaf2;border-bottom:1px solid #cbc0ab;padding:6px 12px}summary{cursor:pointer;font-weight:700;min-height:28px}form{display:flex;gap:6px 12px;flex-wrap:wrap}label{display:flex;align-items:center;gap:4px}select,button{font:inherit;min-height:32px}iframe{flex:1;width:100%;border:0;min-height:0}p{margin:5px 0}a{color:#355640}
+</style><header><details open><summary>住民の見え方をくらべる</summary><form>
+<label>人数<select name="count"><option>1</option><option>2</option><option selected>5</option><option>10</option><option>18</option><option>28</option></select></label>
+<label>主人公<select name="hero"><option value="100">100%</option><option value="105">105%</option><option value="110" selected>110%</option><option value="115">115%</option><option value="120">120%</option></select></label>
+<label>全員の倍率<select name="profile"><option value="current">実装中の現行値</option><option value="v18">依頼表のV18</option><option value="v1" selected>VERSION 1</option></select></label>
+<label><input type="checkbox" name="marker" value="1">主人公の足元に目印</label>
+</form><p><span id="ratio"></span> · <a id="full" href="qa-cast.html">この条件で全画面を開く</a> · <button type="button" id="age" disabled>年齢の選択肢を試す</button></p><output id="ageStatus" aria-live="polite"></output></details></header>
+<iframe title="実際のホーム画面"></iframe><script>
+const form=document.querySelector('form'),frame=document.querySelector('iframe'),tables={current:[100,92,86,80,74],v18:[100,90,80,70,60],v1:[100,100,90,80,70]};
+let loadedCount=null;
+const age=document.querySelector('#age'),status=document.querySelector('#ageStatus');
+frame.onload=()=>{age.disabled=!frame.contentWindow?.HomeCastSizeQA;loadedCount=frame.contentWindow?.privateCastCount??null;};
+age.onclick=()=>{status.textContent=frame.contentWindow?.HomeCastSizeQA?.rehearseAge()?'':'メニューや表示中のイベントを閉じてから、もう一度試してください。';};
+function show(){const values=new URLSearchParams(new FormData(form)),n=Number(values.get('count'));const url='qa-cast.html?'+values;document.getElementById('full').href=url;document.getElementById('ratio').textContent='この人数の倍率 '+tables[values.get('profile')][n<=2?0:n<=5?1:n<=10?2:n<=18?3:4]+'%';
+if(loadedCount===n&&frame.contentWindow?.HomeCastSizeQA)frame.contentWindow.HomeCastSizeQA.set({count:n,hero:Number(values.get('hero')),profile:values.get('profile'),marker:values.has('marker')});else {age.disabled=true;loadedCount=null;frame.src=url;}status.textContent='';}
+form.onchange=show;show();
+</script></html>

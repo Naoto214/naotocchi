@@ -31,7 +31,7 @@ jobs:
           python tools/pages/package.py
           --out "${{ runner.temp }}/pages-runtime"
           --report "${{ runner.temp }}/pages-reports/package-report.json"
-          --tar "${{ runner.temp }}/pages-runtime.tar"
+          --tar "${{ runner.temp }}/artifact.tar"
       - name: Verify every HTTP file, entry point and card image
         run: >-
           python tools/pages/verify.py
@@ -42,9 +42,13 @@ jobs:
         with:
           name: pages-capacity-reports
           path: ${{ runner.temp }}/pages-reports/
-      - uses: actions/upload-pages-artifact@v4
+      # Publish the verified tar verbatim, including its allowlisted .nojekyll.
+      - uses: actions/upload-artifact@v4
         with:
-          path: ${{ runner.temp }}/pages-runtime
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          if-no-files-found: error
+          retention-days: 1
 
   deploy:
     # PRs (including the stacked capacity fix) can never deploy.

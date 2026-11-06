@@ -11,6 +11,15 @@ on:
       - 'script.js'
       - 'index.html'
       - 'tests/home-selected-name-browser.cjs'
+      - 'tests/home-panel-comments-browser.cjs'
+      - 'tests/game-home-return-browser.cjs'
+      - 'tests/home-cast-sizing-*.cjs'
+      - 'tools/home-cast-size-*'
+      - 'game-home-return.*'
+      - 'story-navigation.js'
+      - 'prototypes/card-game/index.html'
+      - 'prototypes/life-sugoroku/*.html'
+      - 'prototypes/naopoyo-time-hand-chapter1/index.html'
       - '.github/workflows/home-selected-name.yml'
   workflow_dispatch:
 permissions:
@@ -18,7 +27,7 @@ permissions:
 jobs:
   touch-label:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     strategy:
       fail-fast: false
       matrix:
@@ -40,6 +49,14 @@ jobs:
       - run: node tests/home-selected-name-browser.cjs
         env:
           HOME_NAME_ENGINES: ${{ matrix.engine }}
+      - name: Home panels, return routes and resident sizing
+        env:
+          HOME_NAME_ENGINES: ${{ matrix.engine }}
+        run: |
+          node --test tests/home-cast-sizing-test.cjs
+          node tests/home-panel-comments-browser.cjs
+          node tests/game-home-return-browser.cjs
+          node tests/home-cast-sizing-browser.cjs .work-output/cast-sizing
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -47,4 +64,5 @@ jobs:
           path: |
             .work-output/selected-name/
             .work-output/egg-startup/
+            .work-output/cast-sizing/
           retention-days: 7
