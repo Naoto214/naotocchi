@@ -1,0 +1,609 @@
+{
+ "counts": {
+  "base": 672,
+  "E1": 672,
+  "E4": 672,
+  "E14": 672
+ },
+ "abnormal": {
+  "base": 0,
+  "E1": 0,
+  "E4": 0,
+  "E14": 0
+ },
+ "remeasureIdentity": {
+  "base": {
+   "compared": 672,
+   "sameAsStored": 672
+  },
+  "E1": {
+   "compared": 672,
+   "sameAsStored": 672
+  }
+ },
+ "effect": {
+  "clean(相手が初級)": {
+   "E1": {
+    "growth": [
+     0.357,
+     0.104,
+     0.61,
+     448
+    ],
+    "points": [
+     0.016,
+     0.005,
+     0.026,
+     448
+    ]
+   },
+   "E4": {
+    "growth": [
+     -0.246,
+     -0.762,
+     0.271,
+     448
+    ],
+    "points": [
+     -0.013,
+     -0.032,
+     0.005,
+     448
+    ]
+   },
+   "E14": {
+    "growth": [
+     0.145,
+     -0.4,
+     0.691,
+     448
+    ],
+    "points": [
+     0.001,
+     -0.02,
+     0.022,
+     448
+    ]
+   }
+  },
+  "II(相手も同じ変更)": {
+   "E1": {
+    "growth": [
+     0.246,
+     -0.016,
+     0.507,
+     448
+    ],
+    "points": [
+     0.0,
+     -0.01,
+     0.01,
+     448
+    ]
+   },
+   "E4": {
+    "growth": [
+     0.592,
+     -0.005,
+     1.188,
+     448
+    ],
+    "points": [
+     0.0,
+     -0.021,
+     0.021,
+     448
+    ]
+   },
+   "E14": {
+    "growth": [
+     0.837,
+     0.238,
+     1.436,
+     448
+    ],
+    "points": [
+     0.0,
+     -0.022,
+     0.022,
+     448
+    ]
+   }
+  },
+  "all": {
+   "E1": {
+    "growth": [
+     0.301,
+     0.119,
+     0.483,
+     896
+    ],
+    "points": [
+     0.008,
+     0.0,
+     0.015,
+     896
+    ]
+   },
+   "E4": {
+    "growth": [
+     0.173,
+     -0.222,
+     0.568,
+     896
+    ],
+    "points": [
+     -0.007,
+     -0.021,
+     0.007,
+     896
+    ]
+   },
+   "E14": {
+    "growth": [
+     0.491,
+     0.086,
+     0.897,
+     896
+    ],
+    "points": [
+     0.001,
+     -0.015,
+     0.016,
+     896
+    ]
+   }
+  }
+ },
+ "interaction": {
+  "clean(相手が初級)": {
+   "growth": [
+    0.033,
+    -0.173,
+    0.24,
+    448
+   ],
+   "points": [
+    -0.001,
+    -0.007,
+    0.005,
+    448
+   ]
+  },
+  "II(相手も同じ変更)": {
+   "growth": [
+    0.0,
+    -0.248,
+    0.248,
+    448
+   ],
+   "points": [
+    0.0,
+    -0.008,
+    0.008,
+    448
+   ]
+  },
+  "all": {
+   "growth": [
+    0.017,
+    -0.144,
+    0.178,
+    896
+   ],
+   "points": [
+    -0.001,
+    -0.006,
+    0.004,
+    896
+   ]
+  }
+ },
+ "perDeckClean": {
+  "main": {
+   "E1": [
+    0.0,
+    0.0,
+    0.0,
+    64
+   ],
+   "E4": [
+    -0.047,
+    -0.099,
+    0.005,
+    64
+   ],
+   "E14": [
+    -0.047,
+    -0.099,
+    0.005,
+    64
+   ],
+   "interaction": [
+    0.0,
+    0.0,
+    0.0,
+    64
+   ]
+  },
+  "companion": {
+   "E1": [
+    0.0,
+    0.0,
+    0.0,
+    64
+   ],
+   "E4": [
+    -0.008,
+    -0.042,
+    0.027,
+    64
+   ],
+   "E14": [
+    -0.008,
+    -0.042,
+    0.027,
+    64
+   ],
+   "interaction": [
+    0.0,
+    0.0,
+    0.0,
+    64
+   ]
+  },
+  "partner": {
+   "E1": [
+    0.0,
+    0.0,
+    0.0,
+    64
+   ],
+   "E4": [
+    0.0,
+    -0.038,
+    0.038,
+    64
+   ],
+   "E14": [
+    0.0,
+    -0.038,
+    0.038,
+    64
+   ],
+   "interaction": [
+    0.0,
+    0.0,
+    0.0,
+    64
+   ]
+  },
+  "challenge": {
+   "E1": [
+    0.039,
+    -0.016,
+    0.094,
+    64
+   ],
+   "E4": [
+    0.008,
+    -0.019,
+    0.034,
+    64
+   ],
+   "E14": [
+    0.055,
+    0.005,
+    0.104,
+    64
+   ],
+   "interaction": [
+    0.008,
+    -0.027,
+    0.042,
+    64
+   ]
+  },
+  "growth": {
+   "E1": [
+    0.0,
+    0.0,
+    0.0,
+    64
+   ],
+   "E4": [
+    -0.047,
+    -0.094,
+    0.001,
+    64
+   ],
+   "E14": [
+    -0.047,
+    -0.094,
+    0.001,
+    64
+   ],
+   "interaction": [
+    0.0,
+    0.0,
+    0.0,
+    64
+   ]
+  },
+  "item": {
+   "E1": [
+    0.039,
+    -0.001,
+    0.079,
+    64
+   ],
+   "E4": [
+    -0.023,
+    -0.09,
+    0.044,
+    64
+   ],
+   "E14": [
+    0.008,
+    -0.069,
+    0.085,
+    64
+   ],
+   "interaction": [
+    -0.008,
+    -0.023,
+    0.007,
+    64
+   ]
+  },
+  "balance": {
+   "E1": [
+    0.031,
+    0.001,
+    0.061,
+    64
+   ],
+   "E4": [
+    0.023,
+    -0.04,
+    0.087,
+    64
+   ],
+   "E14": [
+    0.047,
+    -0.021,
+    0.115,
+    64
+   ],
+   "interaction": [
+    -0.008,
+    -0.023,
+    0.007,
+    64
+   ]
+  }
+ },
+ "statAccuracy": {
+  "base": {
+   "match": 177,
+   "mismatch": 178,
+   "rate": 0.499
+  },
+  "E1": {
+   "match": 311,
+   "mismatch": 0,
+   "rate": 1.0
+  },
+  "E4": {
+   "match": 164,
+   "mismatch": 197,
+   "rate": 0.454
+  },
+  "E14": {
+   "match": 316,
+   "mismatch": 0,
+   "rate": 1.0
+  }
+ },
+ "stall": {
+  "base": {
+   "seats": 896,
+   "zeroTiePass": 191,
+   "zeroTieOwn": 185,
+   "zeroTieOpp": 6,
+   "eggStall": 53,
+   "earlyMainStall": 34,
+   "perGame": {
+    "zeroTiePass": 0.213,
+    "zeroTieOwn": 0.206,
+    "zeroTieOpp": 0.007,
+    "eggStall": 0.059,
+    "earlyMainStall": 0.038
+   },
+   "byKind": {
+    "birth": 53,
+    "time_skip": 39,
+    "world": 36,
+    "prepared": 34,
+    "programPlay": 19,
+    "play": 10
+   },
+   "firstBirthMean": 1.997,
+   "neverBorn": 0
+  },
+  "E1": {
+   "seats": 896,
+   "zeroTiePass": 194,
+   "zeroTieOwn": 188,
+   "zeroTieOpp": 6,
+   "eggStall": 53,
+   "earlyMainStall": 36,
+   "perGame": {
+    "zeroTiePass": 0.217,
+    "zeroTieOwn": 0.21,
+    "zeroTieOpp": 0.007,
+    "eggStall": 0.059,
+    "earlyMainStall": 0.04
+   },
+   "byKind": {
+    "birth": 53,
+    "time_skip": 42,
+    "world": 36,
+    "prepared": 34,
+    "programPlay": 19,
+    "play": 10
+   },
+   "firstBirthMean": 1.997,
+   "neverBorn": 0,
+   "resolved": {
+    "zeroTiePass": -0.016,
+    "zeroTieOwn": -0.016,
+    "zeroTieOpp": 0.0,
+    "eggStall": 0.0,
+    "earlyMainStall": -0.059
+   }
+  },
+  "E4": {
+   "seats": 896,
+   "zeroTiePass": 0,
+   "zeroTieOwn": 0,
+   "zeroTieOpp": 0,
+   "eggStall": 0,
+   "earlyMainStall": 0,
+   "perGame": {
+    "zeroTiePass": 0.0,
+    "zeroTieOwn": 0.0,
+    "zeroTieOpp": 0.0,
+    "eggStall": 0.0,
+    "earlyMainStall": 0.0
+   },
+   "byKind": {},
+   "firstBirthMean": 1.94,
+   "neverBorn": 0,
+   "resolved": {
+    "zeroTiePass": 1.0,
+    "zeroTieOwn": 1.0,
+    "zeroTieOpp": 1.0,
+    "eggStall": 1.0,
+    "earlyMainStall": 1.0
+   }
+  },
+  "E14": {
+   "seats": 896,
+   "zeroTiePass": 0,
+   "zeroTieOwn": 0,
+   "zeroTieOpp": 0,
+   "eggStall": 0,
+   "earlyMainStall": 0,
+   "perGame": {
+    "zeroTiePass": 0.0,
+    "zeroTieOwn": 0.0,
+    "zeroTieOpp": 0.0,
+    "eggStall": 0.0,
+    "earlyMainStall": 0.0
+   },
+   "byKind": {},
+   "firstBirthMean": 1.94,
+   "neverBorn": 0,
+   "resolved": {
+    "zeroTiePass": 1.0,
+    "zeroTieOwn": 1.0,
+    "zeroTieOpp": 1.0,
+    "eggStall": 1.0,
+    "earlyMainStall": 1.0
+   }
+  }
+ },
+ "difficultyGap": {
+  "base": {
+   "games": 448,
+   "intermediatePoints": 0.552,
+   "interval": [
+    0.552,
+    0.509,
+    0.596,
+    448
+   ]
+  },
+  "E1": {
+   "games": 448,
+   "intermediatePoints": 0.568,
+   "interval": [
+    0.568,
+    0.524,
+    0.612,
+    448
+   ]
+  },
+  "E4": {
+   "games": 448,
+   "intermediatePoints": 0.539,
+   "interval": [
+    0.539,
+    0.495,
+    0.583,
+    448
+   ]
+  },
+  "E14": {
+   "games": 448,
+   "intermediatePoints": 0.554,
+   "interval": [
+    0.554,
+    0.51,
+    0.597,
+    448
+   ]
+  }
+ },
+ "firstSeatII": {
+  "base": 0.527,
+  "E1": 0.525,
+  "E4": 0.5,
+  "E14": 0.487
+ },
+ "deckBalanceII": {
+  "base": {
+   "challenge": 0.385,
+   "balance": 0.396,
+   "growth": 0.562,
+   "item": 0.615,
+   "companion": 0.344,
+   "partner": 0.542,
+   "main": 0.656
+  },
+  "E1": {
+   "challenge": 0.385,
+   "balance": 0.417,
+   "growth": 0.531,
+   "item": 0.615,
+   "companion": 0.354,
+   "partner": 0.542,
+   "main": 0.656
+  },
+  "E4": {
+   "challenge": 0.365,
+   "balance": 0.406,
+   "growth": 0.562,
+   "item": 0.656,
+   "companion": 0.396,
+   "partner": 0.49,
+   "main": 0.625
+  },
+  "E14": {
+   "challenge": 0.375,
+   "balance": 0.406,
+   "growth": 0.542,
+   "item": 0.656,
+   "companion": 0.406,
+   "partner": 0.49,
+   "main": 0.625
+  }
+ },
+ "msPerDecision": {
+  "base": 0.838,
+  "E1": 0.783,
+  "E4": 0.783,
+  "E14": 0.841
+ }
+}
