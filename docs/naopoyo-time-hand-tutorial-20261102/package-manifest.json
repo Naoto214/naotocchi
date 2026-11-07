@@ -1,0 +1,218 @@
+{
+  "sourceMain": "aafe4abe7842b2fcf57060b207500e5b24f6c7a0",
+  "sourceD": "329645edf89b6d34ef888e833643819296764f36",
+  "files": [
+    {
+      "path": "prototypes/naopoyo-time-hand-tutorial/index.html",
+      "sha256": "0feb08c250c6ae832b7f378722b1545c910e230bca1fd0334d193fdbaaf42dd6"
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand-tutorial/style.css",
+      "sha256": "f942cc1a90f526f02a923bea0fca5cbccca6fd5441e9e03ae94d584f7af56cb7"
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand-tutorial/app.mjs",
+      "sha256": "21bb143a9e1ac8a4edad034fe86be00912f51e01f79a2b5baf90b0395d03fde0"
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand-tutorial/session.mjs",
+      "sha256": "d74c8ac0e3acc7048591967f9a4e0ae426f46f171921f1094813412671828143"
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand-tutorial/engine.mjs",
+      "sha256": "f78db7940c32f85f1afb3e13910b1661eb610b25eab34b57e94f5b6aedfae7ad"
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand-tutorial/priorities.mjs",
+      "sha256": "ae08693f260cdd8c42770cf5601bc1c2f83d601d87337d9c0cf24f644838cbaf"
+    },
+    {
+      "path": "prototypes/naopoyo-v2/engine.mjs",
+      "sha256": "a79bfb3459a11198402eb6081f5f2d47d6c67347dc287a1f90e1af187919507c"
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/conditions.mjs",
+      "sha256": "2bb6f3dc0a2e6e020a37509dc9197e59d61713ddebc2d0c13708fff81051849c"
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand-tutorial/abc-priorities.mjs",
+      "sha256": "c94559954f7053e3108ede1cfff863b08a8830a3ac5e70462dcd95d5ad367fa0"
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand-tutorial/lessons.mjs",
+      "sha256": "eb80445da6515ba9de63bec1589fdfbe74c4b1abecff0fd74c32519055d809c1"
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand-tutorial/input.mjs",
+      "sha256": "a77adac278be4b3e779ccf12ec0850d8d4d678aa5ae2f5cf0b9ba743bae7fffd"
+    },
+    {
+      "path": "prototypes/naopoyo-v2/input.mjs",
+      "sha256": "91e1ea3812556f70a2f7b85317d157eb2d41572e554c80bfeae870e714afce78"
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/input.mjs",
+      "sha256": "627dfda45814d1d8063bd8f0ef41f21470fe844be905572b5dfbe1828a779f8b"
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/engine.mjs",
+      "sha256": "70eca38a1734e7ce7642655cb6cf86bd009a481f5186ee77d7a7320d26bc1ed3"
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand-tutorial/draw.mjs",
+      "sha256": "a92670cce4912cec9fca4bf39150cadc39cfbea39e30af4780547da5588aabc4"
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/sprites.mjs",
+      "sha256": "9ed13fbd6d711ff3e60baf118aae84570af9633ea3dc21805ef6e6a45e5ff342"
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/sprite-data.mjs",
+      "sha256": "105c314c6428c10fda58566fd08169fb712fc47412a2d7e214a20560a5b51d42"
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/stone.mjs",
+      "sha256": "37d5dc9152b4deafaa20a10e77a2b170b555e6955a34c5c6bf665d451031addd"
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/gate-art.mjs",
+      "sha256": "d5ca9313b95ec0b7e9f65381cc6c5cb0bbf6c97890681019595bc3dac73159dd"
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/fixtures.mjs",
+      "sha256": "fb8645c06971c43317247eecdc71a87ab24dd881270ff8207ae7b88c13ffbe06"
+    },
+    {
+      "path": "assets/characters/clownfish/01.png",
+      "sha256": "bd9097cf21d9e7eff29109a1bfc6cdb2331307057e1b86bcd24b15e46d163436"
+    },
+    {
+      "path": "assets/characters/clownfish/02.png",
+      "sha256": "3c05811dac91954f3a2e7946c698f8b8c4a0a67395aa559deca916551fdf3c28"
+    },
+    {
+      "path": "assets/characters/clownfish/03.png",
+      "sha256": "b8fadf6e358928f8dbf46753bf53d0b421334dcf45d322873d24cc262de10641"
+    },
+    {
+      "path": "assets/characters/clownfish/04.png",
+      "sha256": "b4939fe1cfcee1e23be5719769f250f6cabae2316bc643195e6a64ab8703c2e1"
+    },
+    {
+      "path": "assets/characters/clownfish/05.png",
+      "sha256": "dcdfc0da83f513c105799088b9bf5ca47170a5d9dc2e0b9f6acb76a43fb3a5d8"
+    },
+    {
+      "path": "assets/characters/clownfish/06.png",
+      "sha256": "1219ced10749edb37c456e334d55fe931ce47e8232b141407599f3dda75ac75f"
+    },
+    {
+      "path": "assets/characters/clownfish/07.png",
+      "sha256": "222fbe861cbb11c44fe2119b9888d3ad3b020e0c0a1767f12335c9aa88179e7c"
+    },
+    {
+      "path": "assets/characters/clownfish/08.png",
+      "sha256": "205f15a7c3603f020604dbdc39e7d38335381162c34b23a507f143ec7f67570a"
+    },
+    {
+      "path": "assets/characters/dog/01.png",
+      "sha256": "0b4fbe1b5d39e7d3de9df99abf177613a11cdd727274e52dbf2b6d802961419e"
+    },
+    {
+      "path": "assets/characters/dog/02.png",
+      "sha256": "7e8f25a1006e957a4f7d12ab0199f480f6f0121d2eed09542ee30735ce0dcfc2"
+    },
+    {
+      "path": "assets/characters/dog/03.png",
+      "sha256": "539fb6b30e43d39c7e08b4f48ac07aed8b431748ecd6aadb923559f96334a472"
+    },
+    {
+      "path": "assets/characters/dog/04.png",
+      "sha256": "2a30a664493e6e6e4ad6539255a75381cd86f0f35acb4d8c6bc80b85de31abe7"
+    },
+    {
+      "path": "assets/characters/dog/05.png",
+      "sha256": "5176f315bf90341b3a0354c13f11f5d1ca7e3813b33893518fae094a4adc96f7"
+    },
+    {
+      "path": "assets/characters/dog/06.png",
+      "sha256": "377669ea5b91689dbbb85ace4e19a93fd44aa07e0f0e289b9c1b0d080de40d20"
+    },
+    {
+      "path": "assets/characters/dog/07.png",
+      "sha256": "21a1af296e0e9ebd530db0ad7e8e500f0bba5daefd83a18f184ffab77741cded"
+    },
+    {
+      "path": "assets/characters/dog/08.png",
+      "sha256": "5d944d8e799dc3702f1f2e155264e9a56f581b2c28d1c3bd22ce3396d284a62f"
+    },
+    {
+      "path": "assets/characters/frog/01.png",
+      "sha256": "db197004b609bb0f93f273135968de0deff0d6993b02ee94dbd3eb010147ff7f"
+    },
+    {
+      "path": "assets/characters/frog/02.png",
+      "sha256": "af8c08619432eb34e8f8a3fb1213e13bb17582b3e1734ba6692101833dc96952"
+    },
+    {
+      "path": "assets/characters/frog/03.png",
+      "sha256": "5c0a95b75490414289cffb6902a31378f40e2a1b0c232dbcfcdbfa536de8d1b7"
+    },
+    {
+      "path": "assets/characters/frog/04.png",
+      "sha256": "7a553a48da43cccbd82a7a0b34ce7b685c0bad3e299ac0d879527c758c202571"
+    },
+    {
+      "path": "assets/characters/frog/05.png",
+      "sha256": "ea712f67c95fd017e39a6bf751440cdb8c37a558d77ab1e3315fcb0aa5c40ebf"
+    },
+    {
+      "path": "assets/characters/frog/06.png",
+      "sha256": "06704d5b03eb541b45c50896c6460740b3fcf89e772d16c1da2d0157ad3cfcf0"
+    },
+    {
+      "path": "assets/characters/frog/07.png",
+      "sha256": "2d6325b799c26cfbb1da78d51c052aa8eac50b62be58eb90b90f63f3f15da28b"
+    },
+    {
+      "path": "assets/characters/frog/08.png",
+      "sha256": "92da93f109a6e69843bec823895b10720ace19f471baabfceef5c65b71659264"
+    },
+    {
+      "path": "assets/characters/penguin/01.png",
+      "sha256": "1e3c09920dc8edb3f7d6cf107a67c883bf3948d2f1934f777142dd5733111b8e"
+    },
+    {
+      "path": "assets/characters/penguin/02.png",
+      "sha256": "94a64c31f5554661704315e01bb0bb9450e6bac405bc538f3c90ca630bcbe104"
+    },
+    {
+      "path": "assets/characters/penguin/03.png",
+      "sha256": "135c59c912ca9870f3113b4b35d40bca5d35980a418f84d27fe57a83ead842b6"
+    },
+    {
+      "path": "assets/characters/penguin/04.png",
+      "sha256": "826a374b27a0741e12e6e1d4d15eef4b614a230f0c658009aea942bdb071adba"
+    },
+    {
+      "path": "assets/characters/penguin/05.png",
+      "sha256": "ff18675618304f5e2429ff85578302c6b04fe97e47109379bd72f2dc5f5226a1"
+    },
+    {
+      "path": "assets/characters/penguin/06.png",
+      "sha256": "444e6fa64916da93dd5c5a7fc5c20ebbe63f688bc28b237432199829ac8cd610"
+    },
+    {
+      "path": "assets/characters/penguin/07.png",
+      "sha256": "f35e007ac80eaa8914a5356abc826267d6f7102ac98229f8c92f5f79198d203d"
+    },
+    {
+      "path": "assets/characters/penguin/08.png",
+      "sha256": "d7cc3627e011384258d6b6e47bf1cb646b308eddfa843096b9fc2182e05c6577"
+    },
+    {
+      "path": "index.html",
+      "sha256": "7cd8e2cb4710e80ca997e21714654196d993ec9c8f4bcec890e6040af3930b24"
+    }
+  ]
+}
