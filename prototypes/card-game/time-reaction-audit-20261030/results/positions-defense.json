@@ -1,0 +1,3386 @@
+[
+ {
+  "match": "T:main~companion:1:II:X-first",
+  "seat": "B",
+  "deck": "companion",
+  "round": 9,
+  "time": 8,
+  "parameter": "power",
+  "margin": -5,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "intermediate",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 7,
+       "B": 2
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:main~companion:1:II:X-first",
+  "seat": "B",
+  "deck": "companion",
+  "round": 10,
+  "time": 9,
+  "parameter": "power",
+  "margin": -5,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "intermediate",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 7,
+       "B": 2
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:main~companion:2:BB:X-first",
+  "seat": "B",
+  "deck": "companion",
+  "round": 4,
+  "time": 0,
+  "parameter": "power",
+  "margin": -3,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "beginner",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 6,
+       "B": 3
+      }
+     }
+    }
+   ]
+  },
+  "withTime": {
+   "time": 1,
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "programPlay",
+      "card": "E-midlife-flower",
+      "variant": null,
+      "cost": 1,
+      "score": 0.95
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "E-midlife-flower",
+     "variant": null,
+     "cost": 1
+    },
+    "scores": [
+     {
+      "kind": "programPlay",
+      "card": "E-midlife-flower",
+      "variant": null,
+      "cost": 1,
+      "score": 2.2
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "programPlay",
+     "card": "E-midlife-flower",
+     "variant": null,
+     "cost": 1,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 6,
+       "B": 3
+      }
+     }
+    },
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 6,
+       "B": 3
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:main~challenge:2:II:Y-first",
+  "seat": "A",
+  "deck": "challenge",
+  "round": 10,
+  "time": 8,
+  "parameter": "power",
+  "margin": -2,
+  "held": [
+   "G-street-fight"
+  ],
+  "natural": {
+   "difficulty": "intermediate",
+   "choice": {
+    "kind": "programPlay",
+    "card": "G-street-fight",
+    "variant": "ガード",
+    "cost": 1
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "score": 0.75
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1,
+      "score": 2.23
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "キック",
+      "cost": 1,
+      "score": 2.23
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "ガード",
+      "cost": 1,
+      "score": 2.23
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "パンチ",
+     "cost": 1
+    },
+    "scores": [
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "score": -0.54
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1,
+      "score": 3.48
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "キック",
+      "cost": 1,
+      "score": 3.48
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "ガード",
+      "cost": 1,
+      "score": 3.48
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "programPlay",
+     "card": "E-mirror",
+     "variant": null,
+     "cost": 1,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 8,
+       "B": 10
+      }
+     }
+    },
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "パンチ",
+     "cost": 1,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 8,
+       "B": 10
+      }
+     }
+    },
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "キック",
+     "cost": 1,
+     "result": {
+      "winner": "draw",
+      "values": {
+       "A": 10,
+       "B": 10
+      }
+     }
+    },
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "ガード",
+     "cost": 1,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 7,
+       "B": 10
+      }
+     }
+    },
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "draw",
+      "values": {
+       "A": 10,
+       "B": 10
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:main~challenge:4:II:X-first",
+  "seat": "B",
+  "deck": "challenge",
+  "round": 3,
+  "time": 0,
+  "parameter": "power",
+  "margin": -1,
+  "held": [
+   "G-street-fight"
+  ],
+  "natural": {
+   "difficulty": "intermediate",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 4,
+       "B": 2
+      }
+     }
+    }
+   ]
+  },
+  "withTime": {
+   "time": 1,
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1,
+      "score": 0.88
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "キック",
+      "cost": 1,
+      "score": 0.88
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "ガード",
+      "cost": 1,
+      "score": 0.88
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "パンチ",
+     "cost": 1
+    },
+    "scores": [
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1,
+      "score": 3.48
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "キック",
+      "cost": 1,
+      "score": 3.48
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "ガード",
+      "cost": 1,
+      "score": 3.48
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "パンチ",
+     "cost": 1,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 4,
+       "B": 3
+      }
+     }
+    },
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "キック",
+     "cost": 1,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 4,
+       "B": 5
+      }
+     }
+    },
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "ガード",
+     "cost": 1,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 4,
+       "B": 2
+      }
+     }
+    },
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 4,
+       "B": 5
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:main~challenge:4:II:X-first",
+  "seat": "B",
+  "deck": "challenge",
+  "round": 4,
+  "time": 0,
+  "parameter": "power",
+  "margin": -3,
+  "held": [
+   "G-street-fight"
+  ],
+  "natural": {
+   "difficulty": "intermediate",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 9,
+       "B": 6
+      }
+     }
+    }
+   ]
+  },
+  "withTime": {
+   "time": 1,
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1,
+      "score": 2.23
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "キック",
+      "cost": 1,
+      "score": 2.23
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "ガード",
+      "cost": 1,
+      "score": 2.23
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-basketball-3d",
+      "variant": null,
+      "cost": 1,
+      "score": -0.65
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "パンチ",
+     "cost": 1
+    },
+    "scores": [
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1,
+      "score": 2.88
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "キック",
+      "cost": 1,
+      "score": 2.88
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "ガード",
+      "cost": 1,
+      "score": 2.88
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-basketball-3d",
+      "variant": null,
+      "cost": 1,
+      "score": -2.88
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "パンチ",
+     "cost": 1,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 9,
+       "B": 7
+      }
+     }
+    },
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "キック",
+     "cost": 1,
+     "result": {
+      "winner": "draw",
+      "values": {
+       "A": 9,
+       "B": 9
+      }
+     }
+    },
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "ガード",
+     "cost": 1,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 9,
+       "B": 6
+      }
+     }
+    },
+    {
+     "kind": "programPlay",
+     "card": "G-basketball-3d",
+     "variant": null,
+     "cost": 1,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 9,
+       "B": 6
+      }
+     }
+    },
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 9,
+       "B": 6
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:main~challenge:4:BB:X-first",
+  "seat": "B",
+  "deck": "challenge",
+  "round": 3,
+  "time": 0,
+  "parameter": "power",
+  "margin": -1,
+  "held": [
+   "G-street-fight"
+  ],
+  "natural": {
+   "difficulty": "beginner",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 4,
+       "B": 2
+      }
+     }
+    }
+   ]
+  },
+  "withTime": {
+   "time": 1,
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1,
+      "score": 0.88
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "キック",
+      "cost": 1,
+      "score": 0.88
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "ガード",
+      "cost": 1,
+      "score": 0.88
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "パンチ",
+     "cost": 1
+    },
+    "scores": [
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1,
+      "score": 3.48
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "キック",
+      "cost": 1,
+      "score": 3.48
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "ガード",
+      "cost": 1,
+      "score": 3.48
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "パンチ",
+     "cost": 1,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 4,
+       "B": 3
+      }
+     }
+    },
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "キック",
+     "cost": 1,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 4,
+       "B": 5
+      }
+     }
+    },
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "ガード",
+     "cost": 1,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 4,
+       "B": 2
+      }
+     }
+    },
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 4,
+       "B": 5
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:main~challenge:4:BB:X-first",
+  "seat": "B",
+  "deck": "challenge",
+  "round": 4,
+  "time": 0,
+  "parameter": "power",
+  "margin": -3,
+  "held": [
+   "G-street-fight"
+  ],
+  "natural": {
+   "difficulty": "beginner",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 9,
+       "B": 6
+      }
+     }
+    }
+   ]
+  },
+  "withTime": {
+   "time": 1,
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1,
+      "score": 2.23
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "キック",
+      "cost": 1,
+      "score": 2.23
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "ガード",
+      "cost": 1,
+      "score": 2.23
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-basketball-3d",
+      "variant": null,
+      "cost": 1,
+      "score": -0.65
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "パンチ",
+     "cost": 1
+    },
+    "scores": [
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1,
+      "score": 2.88
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "キック",
+      "cost": 1,
+      "score": 2.88
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "ガード",
+      "cost": 1,
+      "score": 2.88
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-basketball-3d",
+      "variant": null,
+      "cost": 1,
+      "score": -2.88
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "パンチ",
+     "cost": 1,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 9,
+       "B": 7
+      }
+     }
+    },
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "キック",
+     "cost": 1,
+     "result": {
+      "winner": "draw",
+      "values": {
+       "A": 9,
+       "B": 9
+      }
+     }
+    },
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "ガード",
+     "cost": 1,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 9,
+       "B": 6
+      }
+     }
+    },
+    {
+     "kind": "programPlay",
+     "card": "G-basketball-3d",
+     "variant": null,
+     "cost": 1,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 9,
+       "B": 6
+      }
+     }
+    },
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 9,
+       "B": 6
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:main~challenge:4:II:Y-first",
+  "seat": "A",
+  "deck": "challenge",
+  "round": 2,
+  "time": 0,
+  "parameter": "power",
+  "margin": -1,
+  "held": [
+   "G-street-fight"
+  ],
+  "natural": {
+   "difficulty": "intermediate",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 2,
+       "B": 4
+      }
+     }
+    }
+   ]
+  },
+  "withTime": {
+   "time": 1,
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1,
+      "score": 0.88
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "キック",
+      "cost": 1,
+      "score": 0.88
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "ガード",
+      "cost": 1,
+      "score": 0.88
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "ガード",
+     "cost": 1
+    },
+    "scores": [
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1,
+      "score": 3.48
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "キック",
+      "cost": 1,
+      "score": 3.48
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "ガード",
+      "cost": 1,
+      "score": 3.48
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "パンチ",
+     "cost": 1,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 3,
+       "B": 4
+      }
+     }
+    },
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "キック",
+     "cost": 1,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 5,
+       "B": 4
+      }
+     }
+    },
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "ガード",
+     "cost": 1,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 2,
+       "B": 4
+      }
+     }
+    },
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 5,
+       "B": 4
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:main~challenge:4:II:Y-first",
+  "seat": "A",
+  "deck": "challenge",
+  "round": 3,
+  "time": 0,
+  "parameter": "power",
+  "margin": -3,
+  "held": [
+   "G-street-fight"
+  ],
+  "natural": {
+   "difficulty": "intermediate",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 6,
+       "B": 10
+      }
+     }
+    }
+   ]
+  },
+  "withTime": {
+   "time": 1,
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1,
+      "score": 0.88
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "キック",
+      "cost": 1,
+      "score": 0.88
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "ガード",
+      "cost": 1,
+      "score": 0.88
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-basketball-3d",
+      "variant": null,
+      "cost": 1,
+      "score": -2
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "ガード",
+     "cost": 1
+    },
+    "scores": [
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1,
+      "score": 2.88
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "キック",
+      "cost": 1,
+      "score": 2.88
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "ガード",
+      "cost": 1,
+      "score": 2.88
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-basketball-3d",
+      "variant": null,
+      "cost": 1,
+      "score": -2.88
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "パンチ",
+     "cost": 1,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 7,
+       "B": 10
+      }
+     }
+    },
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "キック",
+     "cost": 1,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 9,
+       "B": 10
+      }
+     }
+    },
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "ガード",
+     "cost": 1,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 6,
+       "B": 10
+      }
+     }
+    },
+    {
+     "kind": "programPlay",
+     "card": "G-basketball-3d",
+     "variant": null,
+     "cost": 1,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 6,
+       "B": 10
+      }
+     }
+    },
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 9,
+       "B": 10
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:companion~companion:1:BB:X-first",
+  "seat": "B",
+  "deck": "companion",
+  "round": 7,
+  "time": 3,
+  "parameter": "power",
+  "margin": -1,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "beginner",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 7,
+       "B": 4
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:companion~companion:1:BB:X-first",
+  "seat": "B",
+  "deck": "companion",
+  "round": 8,
+  "time": 5,
+  "parameter": "wisdom",
+  "margin": -1,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "beginner",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 7,
+       "B": 6
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:companion~companion:2:II:X-first",
+  "seat": "B",
+  "deck": "companion",
+  "round": 3,
+  "time": 1,
+  "parameter": "power",
+  "margin": -3,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "intermediate",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 4,
+       "B": 1
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:companion~companion:2:II:X-first",
+  "seat": "B",
+  "deck": "companion",
+  "round": 4,
+  "time": 0,
+  "parameter": "wisdom",
+  "margin": -1,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "intermediate",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 7,
+       "B": 6
+      }
+     }
+    }
+   ]
+  },
+  "withTime": {
+   "time": 1,
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 7,
+       "B": 6
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:companion~companion:2:BB:X-first",
+  "seat": "B",
+  "deck": "companion",
+  "round": 3,
+  "time": 1,
+  "parameter": "power",
+  "margin": -1,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "beginner",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "programPlay",
+      "card": "E-midlife-flower",
+      "variant": null,
+      "cost": 1,
+      "score": -0.4
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "E-midlife-flower",
+     "variant": null,
+     "cost": 1
+    },
+    "scores": [
+     {
+      "kind": "programPlay",
+      "card": "E-midlife-flower",
+      "variant": null,
+      "cost": 1,
+      "score": 2.2
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "programPlay",
+     "card": "E-midlife-flower",
+     "variant": null,
+     "cost": 1,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 2,
+       "B": 1
+      }
+     }
+    },
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 2,
+       "B": 1
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:companion~companion:2:II:Y-first",
+  "seat": "A",
+  "deck": "companion",
+  "round": 2,
+  "time": 1,
+  "parameter": "power",
+  "margin": -1,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "intermediate",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 1,
+       "B": 2
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:companion~companion:2:BB:Y-first",
+  "seat": "A",
+  "deck": "companion",
+  "round": 2,
+  "time": 1,
+  "parameter": "wisdom",
+  "margin": -1,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "beginner",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "programPlay",
+      "card": "E-midlife-flower",
+      "variant": null,
+      "cost": 1,
+      "score": -0.4
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "E-midlife-flower",
+     "variant": null,
+     "cost": 1
+    },
+    "scores": [
+     {
+      "kind": "programPlay",
+      "card": "E-midlife-flower",
+      "variant": null,
+      "cost": 1,
+      "score": 2.2
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "programPlay",
+     "card": "E-midlife-flower",
+     "variant": null,
+     "cost": 1,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 4,
+       "B": 5
+      }
+     }
+    },
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 4,
+       "B": 5
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:companion~companion:3:II:X-first",
+  "seat": "A",
+  "deck": "companion",
+  "round": 7,
+  "time": 5,
+  "parameter": "power",
+  "margin": -1,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "intermediate",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 3,
+       "B": 4
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:companion~companion:3:II:X-first",
+  "seat": "A",
+  "deck": "companion",
+  "round": 8,
+  "time": 8,
+  "parameter": "power",
+  "margin": -1,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "intermediate",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 3,
+       "B": 4
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:companion~companion:3:BB:X-first",
+  "seat": "A",
+  "deck": "companion",
+  "round": 7,
+  "time": 7,
+  "parameter": "wisdom",
+  "margin": -1,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "beginner",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 6,
+       "B": 7
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:companion~companion:3:BB:X-first",
+  "seat": "A",
+  "deck": "companion",
+  "round": 8,
+  "time": 7,
+  "parameter": "power",
+  "margin": -1,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "beginner",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 4,
+       "B": 7
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:companion~companion:3:II:Y-first",
+  "seat": "B",
+  "deck": "companion",
+  "round": 6,
+  "time": 1,
+  "parameter": "wisdom",
+  "margin": -1,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "intermediate",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 7,
+       "B": 6
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:companion~companion:3:II:Y-first",
+  "seat": "B",
+  "deck": "companion",
+  "round": 7,
+  "time": 4,
+  "parameter": "power",
+  "margin": -1,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "intermediate",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 4,
+       "B": 3
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:companion~companion:3:BB:Y-first",
+  "seat": "B",
+  "deck": "companion",
+  "round": 8,
+  "time": 7,
+  "parameter": "power",
+  "margin": -2,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "beginner",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 7,
+       "B": 3
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:companion~companion:3:BB:Y-first",
+  "seat": "B",
+  "deck": "companion",
+  "round": 9,
+  "time": 7,
+  "parameter": "power",
+  "margin": -1,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "beginner",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 5,
+       "B": 4
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:companion~companion:4:II:X-first",
+  "seat": "A",
+  "deck": "companion",
+  "round": 4,
+  "time": 0,
+  "parameter": "power",
+  "margin": -2,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "intermediate",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 3,
+       "B": 5
+      }
+     }
+    }
+   ]
+  },
+  "withTime": {
+   "time": 1,
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 3,
+       "B": 5
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:companion~companion:4:BB:X-first",
+  "seat": "A",
+  "deck": "companion",
+  "round": 5,
+  "time": 2,
+  "parameter": "power",
+  "margin": -4,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "beginner",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 1,
+       "B": 5
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:companion~companion:4:BB:X-first",
+  "seat": "A",
+  "deck": "companion",
+  "round": 6,
+  "time": 3,
+  "parameter": "power",
+  "margin": -3,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "beginner",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 2,
+       "B": 5
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:companion~companion:4:II:Y-first",
+  "seat": "B",
+  "deck": "companion",
+  "round": 5,
+  "time": 2,
+  "parameter": "power",
+  "margin": -4,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "intermediate",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 5,
+       "B": 1
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "match": "T:companion~companion:4:II:Y-first",
+  "seat": "B",
+  "deck": "companion",
+  "round": 6,
+  "time": 2,
+  "parameter": "power",
+  "margin": -3,
+  "held": [
+   "G-beach-volley"
+  ],
+  "natural": {
+   "difficulty": "intermediate",
+   "choice": {
+    "kind": "pass",
+    "card": null,
+    "variant": null,
+    "cost": 0
+   }
+  },
+  "actual": {
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "scores": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "score": 0
+     }
+    ]
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 5,
+       "B": 2
+      }
+     }
+    }
+   ]
+  }
+ }
+]
