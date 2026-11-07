@@ -1,0 +1,313 @@
+{
+  "status": "solved",
+  "failure": null,
+  "metrics": {
+    "steps": 5,
+    "splits": 0,
+    "children": 0,
+    "merges": 1,
+    "familyMerges": 0,
+    "overflow": 0,
+    "falls": 0
+  },
+  "rescued": 3,
+  "mass": 3,
+  "final": {
+    "id": "light-addition",
+    "title": "03 大きさのちがう仲間",
+    "w": 8,
+    "h": 8,
+    "revision": 1,
+    "theme": "cave",
+    "showSpecies": false,
+    "walls": [],
+    "gates": [],
+    "spikes": [],
+    "exits": [
+      {
+        "x": 6,
+        "y": 3,
+        "exact": 3
+      }
+    ],
+    "gravity": false,
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [],
+    "difficulty": 1,
+    "lesson": "大きさが違っても合体できる。1＋2は？",
+    "story": "少し大きな仲間が、暗がりで待っていました。",
+    "ending": "大きさが違っても、一緒に進める。",
+    "hints": [
+      "星は3。今いる仲間の数字を足そう。",
+      "1と2で3になるよ。",
+      "1を2へ重ね、そのまま右の星へ。"
+    ],
+    "mechanics": [
+      "merge"
+    ],
+    "hint": "星は3。今いる仲間の数字を足そう。",
+    "splitPriority": "D",
+    "rescued": 3,
+    "rescuedBySpecies": {
+      "dog": 3
+    },
+    "nextId": 1,
+    "moves": 5
+  },
+  "snapshots": [
+    {
+      "id": "light-addition",
+      "title": "03 大きさのちがう仲間",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 1,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 2,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 1,
+      "lesson": "大きさが違っても合体できる。1＋2は？",
+      "story": "少し大きな仲間が、暗がりで待っていました。",
+      "ending": "大きさが違っても、一緒に進める。",
+      "hints": [
+        "星は3。今いる仲間の数字を足そう。",
+        "1と2で3になるよ。",
+        "1を2へ重ね、そのまま右の星へ。"
+      ],
+      "mechanics": [
+        "merge"
+      ],
+      "hint": "星は3。今いる仲間の数字を足そう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 1
+    },
+    {
+      "id": "light-addition",
+      "title": "03 大きさのちがう仲間",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 1,
+      "lesson": "大きさが違っても合体できる。1＋2は？",
+      "story": "少し大きな仲間が、暗がりで待っていました。",
+      "ending": "大きさが違っても、一緒に進める。",
+      "hints": [
+        "星は3。今いる仲間の数字を足そう。",
+        "1と2で3になるよ。",
+        "1を2へ重ね、そのまま右の星へ。"
+      ],
+      "mechanics": [
+        "merge"
+      ],
+      "hint": "星は3。今いる仲間の数字を足そう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 2
+    },
+    {
+      "id": "light-addition",
+      "title": "03 大きさのちがう仲間",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 3,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 1,
+      "lesson": "大きさが違っても合体できる。1＋2は？",
+      "story": "少し大きな仲間が、暗がりで待っていました。",
+      "ending": "大きさが違っても、一緒に進める。",
+      "hints": [
+        "星は3。今いる仲間の数字を足そう。",
+        "1と2で3になるよ。",
+        "1を2へ重ね、そのまま右の星へ。"
+      ],
+      "mechanics": [
+        "merge"
+      ],
+      "hint": "星は3。今いる仲間の数字を足そう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 3
+    },
+    {
+      "id": "light-addition",
+      "title": "03 大きさのちがう仲間",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 5,
+          "y": 3,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 1,
+      "lesson": "大きさが違っても合体できる。1＋2は？",
+      "story": "少し大きな仲間が、暗がりで待っていました。",
+      "ending": "大きさが違っても、一緒に進める。",
+      "hints": [
+        "星は3。今いる仲間の数字を足そう。",
+        "1と2で3になるよ。",
+        "1を2へ重ね、そのまま右の星へ。"
+      ],
+      "mechanics": [
+        "merge"
+      ],
+      "hint": "星は3。今いる仲間の数字を足そう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 4
+    },
+    {
+      "id": "light-addition",
+      "title": "03 大きさのちがう仲間",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [],
+      "difficulty": 1,
+      "lesson": "大きさが違っても合体できる。1＋2は？",
+      "story": "少し大きな仲間が、暗がりで待っていました。",
+      "ending": "大きさが違っても、一緒に進める。",
+      "hints": [
+        "星は3。今いる仲間の数字を足そう。",
+        "1と2で3になるよ。",
+        "1を2へ重ね、そのまま右の星へ。"
+      ],
+      "mechanics": [
+        "merge"
+      ],
+      "hint": "星は3。今いる仲間の数字を足そう。",
+      "splitPriority": "D",
+      "rescued": 3,
+      "rescuedBySpecies": {
+        "dog": 3
+      },
+      "nextId": 1,
+      "moves": 5
+    }
+  ],
+  "splitLog": []
+}

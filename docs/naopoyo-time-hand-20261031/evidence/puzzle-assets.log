@@ -1,0 +1,41 @@
+✔ dog 1: official PNG is intact and fitted inside tile (2.531469ms)
+✔ dog 2: official PNG is intact and fitted inside tile (0.294664ms)
+✔ dog 3: official PNG is intact and fitted inside tile (0.196586ms)
+✔ dog 4: official PNG is intact and fitted inside tile (0.182615ms)
+✔ dog 5: official PNG is intact and fitted inside tile (0.256095ms)
+✔ dog 6: official PNG is intact and fitted inside tile (0.168673ms)
+✔ dog 7: official PNG is intact and fitted inside tile (1.360888ms)
+✔ dog 8: official PNG is intact and fitted inside tile (0.177797ms)
+✔ fish 1: official PNG is intact and fitted inside tile (0.288904ms)
+✔ fish 2: official PNG is intact and fitted inside tile (0.302205ms)
+✔ fish 3: official PNG is intact and fitted inside tile (0.229235ms)
+✔ fish 4: official PNG is intact and fitted inside tile (0.109615ms)
+✔ fish 5: official PNG is intact and fitted inside tile (0.142945ms)
+✔ fish 6: official PNG is intact and fitted inside tile (0.154923ms)
+✔ fish 7: official PNG is intact and fitted inside tile (0.178399ms)
+✔ fish 8: official PNG is intact and fitted inside tile (0.174993ms)
+✔ penguin 1: official PNG is intact and fitted inside tile (0.101002ms)
+✔ penguin 2: official PNG is intact and fitted inside tile (0.087652ms)
+✔ penguin 3: official PNG is intact and fitted inside tile (0.250136ms)
+✔ penguin 4: official PNG is intact and fitted inside tile (0.135433ms)
+✔ penguin 5: official PNG is intact and fitted inside tile (0.240843ms)
+✔ penguin 6: official PNG is intact and fitted inside tile (0.098628ms)
+✔ penguin 7: official PNG is intact and fitted inside tile (0.083906ms)
+✔ penguin 8: official PNG is intact and fitted inside tile (0.093601ms)
+✔ frog 1: official PNG is intact and fitted inside tile (0.175534ms)
+✔ frog 2: official PNG is intact and fitted inside tile (0.11934ms)
+✔ frog 3: official PNG is intact and fitted inside tile (0.089835ms)
+✔ frog 4: official PNG is intact and fitted inside tile (0.115964ms)
+✔ frog 5: official PNG is intact and fitted inside tile (0.09329ms)
+✔ frog 6: official PNG is intact and fitted inside tile (0.073911ms)
+✔ frog 7: official PNG is intact and fitted inside tile (0.076765ms)
+✔ frog 8: official PNG is intact and fitted inside tile (0.075664ms)
+✔ owl is the official companion, missing species is rejected (0.364649ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 33
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 123.926693

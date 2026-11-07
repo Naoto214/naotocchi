@@ -1,0 +1,562 @@
+{
+  "status": "solved",
+  "failure": null,
+  "metrics": {
+    "steps": 5,
+    "splits": 0,
+    "children": 0,
+    "merges": 1,
+    "familyMerges": 0,
+    "overflow": 0,
+    "falls": 0
+  },
+  "rescued": 3,
+  "mass": 3,
+  "final": {
+    "id": "light-key",
+    "title": "05 数字の魔法門",
+    "w": 8,
+    "h": 8,
+    "revision": 1,
+    "theme": "cave",
+    "showSpecies": false,
+    "walls": [
+      [
+        4,
+        0
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        7
+      ]
+    ],
+    "gates": [
+      {
+        "x": 4,
+        "y": 4,
+        "exact": 3,
+        "open": true
+      }
+    ],
+    "spikes": [],
+    "exits": [
+      {
+        "x": 6,
+        "y": 4,
+        "exact": 3
+      }
+    ],
+    "gravity": false,
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [],
+    "difficulty": 2,
+    "narrator": {
+      "id": "owl",
+      "name": "ものしりふくろう",
+      "category": "companion",
+      "asset": "assets/characters/companions/owl.png"
+    },
+    "lesson": "門の数字と同じ大きさで通ろう。斜めからも入れるよ。",
+    "story": "「この門は、鍵のかわりに数字を見ているんだ」",
+    "ending": "合わさった光に、門が静かに開いた。",
+    "hints": [
+      "門も星も3。",
+      "門の手前で1と2を合わせよう。",
+      "3になって真ん中の門を通り、右の星へ。"
+    ],
+    "mechanics": [
+      "merge",
+      "gate"
+    ],
+    "hint": "門も星も3。",
+    "splitPriority": "D",
+    "rescued": 3,
+    "rescuedBySpecies": {
+      "dog": 3
+    },
+    "nextId": 1,
+    "moves": 5
+  },
+  "snapshots": [
+    {
+      "id": "light-key",
+      "title": "05 数字の魔法門",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 4,
+          "exact": 3
+        }
+      ],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 4,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門の数字と同じ大きさで通ろう。斜めからも入れるよ。",
+      "story": "「この門は、鍵のかわりに数字を見ているんだ」",
+      "ending": "合わさった光に、門が静かに開いた。",
+      "hints": [
+        "門も星も3。",
+        "門の手前で1と2を合わせよう。",
+        "3になって真ん中の門を通り、右の星へ。"
+      ],
+      "mechanics": [
+        "merge",
+        "gate"
+      ],
+      "hint": "門も星も3。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 1
+    },
+    {
+      "id": "light-key",
+      "title": "05 数字の魔法門",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 4,
+          "exact": 3
+        }
+      ],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 4,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門の数字と同じ大きさで通ろう。斜めからも入れるよ。",
+      "story": "「この門は、鍵のかわりに数字を見ているんだ」",
+      "ending": "合わさった光に、門が静かに開いた。",
+      "hints": [
+        "門も星も3。",
+        "門の手前で1と2を合わせよう。",
+        "3になって真ん中の門を通り、右の星へ。"
+      ],
+      "mechanics": [
+        "merge",
+        "gate"
+      ],
+      "hint": "門も星も3。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 2
+    },
+    {
+      "id": "light-key",
+      "title": "05 数字の魔法門",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 4,
+          "exact": 3,
+          "open": true
+        }
+      ],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 4,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門の数字と同じ大きさで通ろう。斜めからも入れるよ。",
+      "story": "「この門は、鍵のかわりに数字を見ているんだ」",
+      "ending": "合わさった光に、門が静かに開いた。",
+      "hints": [
+        "門も星も3。",
+        "門の手前で1と2を合わせよう。",
+        "3になって真ん中の門を通り、右の星へ。"
+      ],
+      "mechanics": [
+        "merge",
+        "gate"
+      ],
+      "hint": "門も星も3。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 3
+    },
+    {
+      "id": "light-key",
+      "title": "05 数字の魔法門",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 4,
+          "exact": 3,
+          "open": true
+        }
+      ],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 4,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 5,
+          "y": 4,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門の数字と同じ大きさで通ろう。斜めからも入れるよ。",
+      "story": "「この門は、鍵のかわりに数字を見ているんだ」",
+      "ending": "合わさった光に、門が静かに開いた。",
+      "hints": [
+        "門も星も3。",
+        "門の手前で1と2を合わせよう。",
+        "3になって真ん中の門を通り、右の星へ。"
+      ],
+      "mechanics": [
+        "merge",
+        "gate"
+      ],
+      "hint": "門も星も3。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 4
+    },
+    {
+      "id": "light-key",
+      "title": "05 数字の魔法門",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 4,
+          "exact": 3,
+          "open": true
+        }
+      ],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 4,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門の数字と同じ大きさで通ろう。斜めからも入れるよ。",
+      "story": "「この門は、鍵のかわりに数字を見ているんだ」",
+      "ending": "合わさった光に、門が静かに開いた。",
+      "hints": [
+        "門も星も3。",
+        "門の手前で1と2を合わせよう。",
+        "3になって真ん中の門を通り、右の星へ。"
+      ],
+      "mechanics": [
+        "merge",
+        "gate"
+      ],
+      "hint": "門も星も3。",
+      "splitPriority": "D",
+      "rescued": 3,
+      "rescuedBySpecies": {
+        "dog": 3
+      },
+      "nextId": 1,
+      "moves": 5
+    }
+  ],
+  "splitLog": []
+}

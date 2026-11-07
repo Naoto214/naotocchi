@@ -1,0 +1,615 @@
+[
+  {
+    "stage": "light-arrival",
+    "complete": true,
+    "mass": 1,
+    "commands": [
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": -1
+      }
+    ],
+    "moves": 3,
+    "time": 0,
+    "shortestProven": false,
+    "title": "01 はじめての星",
+    "difficulty": 1,
+    "mechanics": []
+  },
+  {
+    "stage": "light-together",
+    "complete": true,
+    "mass": 2,
+    "commands": [
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      }
+    ],
+    "moves": 4,
+    "time": 0,
+    "shortestProven": false,
+    "title": "02 ふたりで、ひとつ",
+    "difficulty": 1,
+    "mechanics": [
+      "merge"
+    ]
+  },
+  {
+    "stage": "light-addition",
+    "complete": true,
+    "mass": 3,
+    "commands": [
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": -1
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      }
+    ],
+    "moves": 5,
+    "time": 0,
+    "shortestProven": false,
+    "title": "03 大きさのちがう仲間",
+    "difficulty": 1,
+    "mechanics": [
+      "merge"
+    ]
+  },
+  {
+    "stage": "light-unravel",
+    "complete": true,
+    "mass": 3,
+    "commands": [
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": -1
+      },
+      {
+        "id": "child1",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "child1",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "child1",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "child1",
+        "dx": 1,
+        "dy": 1
+      }
+    ],
+    "moves": 9,
+    "time": 0,
+    "shortestProven": false,
+    "title": "04 ほどける光",
+    "difficulty": 2,
+    "mechanics": [
+      "split"
+    ]
+  },
+  {
+    "stage": "light-key",
+    "complete": true,
+    "mass": 3,
+    "commands": [
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 1
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      }
+    ],
+    "moves": 5,
+    "time": 0,
+    "shortestProven": false,
+    "title": "05 数字の魔法門",
+    "difficulty": 2,
+    "mechanics": [
+      "merge",
+      "gate"
+    ]
+  },
+  {
+    "stage": "light-remainder",
+    "complete": true,
+    "mass": 11,
+    "commands": [
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": -1
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "b",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "b",
+        "dx": 1,
+        "dy": 1
+      },
+      {
+        "id": "b",
+        "dx": 1,
+        "dy": 1
+      },
+      {
+        "id": "b",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "b",
+        "dx": 1,
+        "dy": 0
+      }
+    ],
+    "moves": 10,
+    "time": 0,
+    "shortestProven": false,
+    "title": "06 あふれた光も、仲間",
+    "difficulty": 2,
+    "mechanics": [
+      "overflow",
+      "gate"
+    ]
+  },
+  {
+    "stage": "light-threads",
+    "complete": true,
+    "mass": 7,
+    "commands": [
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 1
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": -1
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": -1
+      },
+      {
+        "id": "a",
+        "dx": 0,
+        "dy": -1
+      },
+      {
+        "id": "child1",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "child1",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "child1",
+        "dx": 0,
+        "dy": 1
+      },
+      {
+        "id": "child1",
+        "dx": -1,
+        "dy": 1
+      },
+      {
+        "id": "child1",
+        "dx": -1,
+        "dy": 0
+      },
+      {
+        "id": "child1",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "child1",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "child1",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "child1",
+        "dx": 1,
+        "dy": -1
+      }
+    ],
+    "moves": 15,
+    "time": 0,
+    "shortestProven": false,
+    "title": "07 ふたつ、みっつ",
+    "difficulty": 2,
+    "mechanics": [
+      "split",
+      "merge"
+    ]
+  },
+  {
+    "stage": "light-order",
+    "complete": true,
+    "mass": 4,
+    "commands": [
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": -1
+      },
+      {
+        "id": "child1",
+        "dx": 1,
+        "dy": -1
+      },
+      {
+        "id": "child1",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "child1",
+        "dx": 1,
+        "dy": 0
+      }
+    ],
+    "moves": 9,
+    "time": 0,
+    "shortestProven": false,
+    "title": "08 門のむこうで",
+    "difficulty": 3,
+    "mechanics": [
+      "merge",
+      "split",
+      "gate"
+    ]
+  },
+  {
+    "stage": "light-knot",
+    "complete": true,
+    "mass": 5,
+    "commands": [
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 1
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 1
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 1
+      },
+      {
+        "id": "child1",
+        "dx": 1,
+        "dy": -1
+      },
+      {
+        "id": "child1",
+        "dx": 1,
+        "dy": 1
+      },
+      {
+        "id": "child1",
+        "dx": -1,
+        "dy": 1
+      },
+      {
+        "id": "child1",
+        "dx": 1,
+        "dy": -1
+      },
+      {
+        "id": "child1",
+        "dx": 1,
+        "dy": -1
+      },
+      {
+        "id": "child1",
+        "dx": 0,
+        "dy": -1
+      }
+    ],
+    "moves": 12,
+    "time": 0,
+    "shortestProven": false,
+    "title": "09 星から考える",
+    "difficulty": 3,
+    "mechanics": [
+      "merge",
+      "split",
+      "gate"
+    ]
+  },
+  {
+    "stage": "light-owl-trial",
+    "complete": true,
+    "mass": 11,
+    "commands": [
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": -1
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "b",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "id": "b",
+        "dx": 1,
+        "dy": 1
+      },
+      {
+        "id": "b",
+        "dx": 1,
+        "dy": 1
+      },
+      {
+        "id": "b",
+        "dx": 1,
+        "dy": 1
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": 1
+      },
+      {
+        "id": "a",
+        "dx": 0,
+        "dy": 1
+      },
+      {
+        "id": "a",
+        "dx": 1,
+        "dy": -1
+      },
+      {
+        "id": "a",
+        "dx": 0,
+        "dy": -1
+      },
+      {
+        "id": "a",
+        "dx": 0,
+        "dy": -1
+      },
+      {
+        "id": "b",
+        "dx": 1,
+        "dy": -1
+      },
+      {
+        "id": "b",
+        "dx": 1,
+        "dy": -1
+      },
+      {
+        "id": "b",
+        "dx": -1,
+        "dy": -1
+      },
+      {
+        "id": "b",
+        "dx": -1,
+        "dy": 1
+      },
+      {
+        "id": "b",
+        "dx": 1,
+        "dy": 1
+      },
+      {
+        "id": "b",
+        "dx": 1,
+        "dy": 1
+      }
+    ],
+    "moves": 19,
+    "time": 0,
+    "shortestProven": false,
+    "title": "10 ふくろうの試練",
+    "difficulty": 4,
+    "mechanics": [
+      "overflow",
+      "split",
+      "merge",
+      "gate"
+    ]
+  }
+]

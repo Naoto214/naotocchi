@@ -1,0 +1,866 @@
+{
+  "status": "incompatible",
+  "failure": {
+    "step": 8,
+    "reason": "actor-or-level"
+  },
+  "metrics": {
+    "steps": 7,
+    "splits": 1,
+    "children": 2,
+    "merges": 2,
+    "familyMerges": 0,
+    "overflow": 1,
+    "falls": 4
+  },
+  "rescued": 0,
+  "mass": 12,
+  "final": {
+    "id": "komorebi-thorn-ledge",
+    "w": 8,
+    "h": 8,
+    "gravity": true,
+    "walls": [
+      [
+        2,
+        7
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        6
+      ]
+    ],
+    "gates": [],
+    "exits": [
+      {
+        "x": 5,
+        "y": 5,
+        "exact": 4
+      },
+      {
+        "x": 7,
+        "y": 7,
+        "exact": 8
+      }
+    ],
+    "spikes": [
+      {
+        "x": 2,
+        "y": 6,
+        "power": 2
+      }
+    ],
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 7,
+        "y": 7,
+        "level": 6,
+        "species": "dog"
+      },
+      {
+        "id": "b",
+        "x": 1,
+        "y": 7,
+        "level": 5,
+        "species": "dog"
+      },
+      {
+        "id": "child2",
+        "species": "dog",
+        "level": 1,
+        "x": 0,
+        "y": 7
+      }
+    ],
+    "number": 15,
+    "title": "15 ほどける足場",
+    "revision": 6,
+    "theme": "forest",
+    "showSpecies": false,
+    "difficulty": 4,
+    "discovery": "トゲで分かれながら段差を越え、向こう側で必要な4と支える8を作り直す。",
+    "lesson": "トゲは仕掛け。その下の岩が足場。",
+    "story": "岩の切れ目に、二本のトゲが光っていた。",
+    "ending": "岩に支えられながら、ほどけた仲間を集め直した。",
+    "hints": [
+      "トゲは足場にならない。このトゲの下には岩があるよ。",
+      "4をそのまま運ぶことにこだわらず、向こう側で4と8を作り直そう。",
+      "左の8を右上へ動かし、4との落下合体で上下に分かれよう。トゲを越えた後も、小さな仲間を置き去りにしないで。"
+    ],
+    "hint": "トゲは足場にならない。このトゲの下には岩があるよ。",
+    "gravityRules": "supported-v1",
+    "movementRules": "contact-v2",
+    "terrainRules": "magic-gate-v2",
+    "splitRules": "recombine-once-v1",
+    "splitPriority": "D",
+    "rescued": 0,
+    "rescuedBySpecies": {},
+    "nextId": 3,
+    "moves": 7
+  },
+  "snapshots": [
+    {
+      "id": "komorebi-thorn-ledge",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          2,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 4
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [
+        {
+          "x": 2,
+          "y": 6,
+          "power": 2
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 1,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 6,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "number": 15,
+      "title": "15 ほどける足場",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 4,
+      "discovery": "トゲで分かれながら段差を越え、向こう側で必要な4と支える8を作り直す。",
+      "lesson": "トゲは仕掛け。その下の岩が足場。",
+      "story": "岩の切れ目に、二本のトゲが光っていた。",
+      "ending": "岩に支えられながら、ほどけた仲間を集め直した。",
+      "hints": [
+        "トゲは足場にならない。このトゲの下には岩があるよ。",
+        "4をそのまま運ぶことにこだわらず、向こう側で4と8を作り直そう。",
+        "左の8を右上へ動かし、4との落下合体で上下に分かれよう。トゲを越えた後も、小さな仲間を置き去りにしないで。"
+      ],
+      "hint": "トゲは足場にならない。このトゲの下には岩があるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 1
+    },
+    {
+      "id": "komorebi-thorn-ledge",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          2,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 4
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [
+        {
+          "x": 2,
+          "y": 6,
+          "power": 2
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 6,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 5,
+          "species": "dog"
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 7
+        }
+      ],
+      "number": 15,
+      "title": "15 ほどける足場",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 4,
+      "discovery": "トゲで分かれながら段差を越え、向こう側で必要な4と支える8を作り直す。",
+      "lesson": "トゲは仕掛け。その下の岩が足場。",
+      "story": "岩の切れ目に、二本のトゲが光っていた。",
+      "ending": "岩に支えられながら、ほどけた仲間を集め直した。",
+      "hints": [
+        "トゲは足場にならない。このトゲの下には岩があるよ。",
+        "4をそのまま運ぶことにこだわらず、向こう側で4と8を作り直そう。",
+        "左の8を右上へ動かし、4との落下合体で上下に分かれよう。トゲを越えた後も、小さな仲間を置き去りにしないで。"
+      ],
+      "hint": "トゲは足場にならない。このトゲの下には岩があるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 3,
+      "moves": 2
+    },
+    {
+      "id": "komorebi-thorn-ledge",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          2,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 4
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [
+        {
+          "x": 2,
+          "y": 6,
+          "power": 2
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 5,
+          "species": "dog"
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 7
+        }
+      ],
+      "number": 15,
+      "title": "15 ほどける足場",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 4,
+      "discovery": "トゲで分かれながら段差を越え、向こう側で必要な4と支える8を作り直す。",
+      "lesson": "トゲは仕掛け。その下の岩が足場。",
+      "story": "岩の切れ目に、二本のトゲが光っていた。",
+      "ending": "岩に支えられながら、ほどけた仲間を集め直した。",
+      "hints": [
+        "トゲは足場にならない。このトゲの下には岩があるよ。",
+        "4をそのまま運ぶことにこだわらず、向こう側で4と8を作り直そう。",
+        "左の8を右上へ動かし、4との落下合体で上下に分かれよう。トゲを越えた後も、小さな仲間を置き去りにしないで。"
+      ],
+      "hint": "トゲは足場にならない。このトゲの下には岩があるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 3,
+      "moves": 3
+    },
+    {
+      "id": "komorebi-thorn-ledge",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          2,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 4
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [
+        {
+          "x": 2,
+          "y": 6,
+          "power": 2
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 5,
+          "species": "dog"
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 7
+        }
+      ],
+      "number": 15,
+      "title": "15 ほどける足場",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 4,
+      "discovery": "トゲで分かれながら段差を越え、向こう側で必要な4と支える8を作り直す。",
+      "lesson": "トゲは仕掛け。その下の岩が足場。",
+      "story": "岩の切れ目に、二本のトゲが光っていた。",
+      "ending": "岩に支えられながら、ほどけた仲間を集め直した。",
+      "hints": [
+        "トゲは足場にならない。このトゲの下には岩があるよ。",
+        "4をそのまま運ぶことにこだわらず、向こう側で4と8を作り直そう。",
+        "左の8を右上へ動かし、4との落下合体で上下に分かれよう。トゲを越えた後も、小さな仲間を置き去りにしないで。"
+      ],
+      "hint": "トゲは足場にならない。このトゲの下には岩があるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 3,
+      "moves": 4
+    },
+    {
+      "id": "komorebi-thorn-ledge",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          2,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 4
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [
+        {
+          "x": 2,
+          "y": 6,
+          "power": 2
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 5,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 5,
+          "species": "dog"
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 7
+        }
+      ],
+      "number": 15,
+      "title": "15 ほどける足場",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 4,
+      "discovery": "トゲで分かれながら段差を越え、向こう側で必要な4と支える8を作り直す。",
+      "lesson": "トゲは仕掛け。その下の岩が足場。",
+      "story": "岩の切れ目に、二本のトゲが光っていた。",
+      "ending": "岩に支えられながら、ほどけた仲間を集め直した。",
+      "hints": [
+        "トゲは足場にならない。このトゲの下には岩があるよ。",
+        "4をそのまま運ぶことにこだわらず、向こう側で4と8を作り直そう。",
+        "左の8を右上へ動かし、4との落下合体で上下に分かれよう。トゲを越えた後も、小さな仲間を置き去りにしないで。"
+      ],
+      "hint": "トゲは足場にならない。このトゲの下には岩があるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 3,
+      "moves": 5
+    },
+    {
+      "id": "komorebi-thorn-ledge",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          2,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 4
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [
+        {
+          "x": 2,
+          "y": 6,
+          "power": 2
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 6,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 5,
+          "species": "dog"
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 7
+        }
+      ],
+      "number": 15,
+      "title": "15 ほどける足場",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 4,
+      "discovery": "トゲで分かれながら段差を越え、向こう側で必要な4と支える8を作り直す。",
+      "lesson": "トゲは仕掛け。その下の岩が足場。",
+      "story": "岩の切れ目に、二本のトゲが光っていた。",
+      "ending": "岩に支えられながら、ほどけた仲間を集め直した。",
+      "hints": [
+        "トゲは足場にならない。このトゲの下には岩があるよ。",
+        "4をそのまま運ぶことにこだわらず、向こう側で4と8を作り直そう。",
+        "左の8を右上へ動かし、4との落下合体で上下に分かれよう。トゲを越えた後も、小さな仲間を置き去りにしないで。"
+      ],
+      "hint": "トゲは足場にならない。このトゲの下には岩があるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 3,
+      "moves": 6
+    },
+    {
+      "id": "komorebi-thorn-ledge",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          2,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 4
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [
+        {
+          "x": 2,
+          "y": 6,
+          "power": 2
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 7,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 5,
+          "species": "dog"
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 7
+        }
+      ],
+      "number": 15,
+      "title": "15 ほどける足場",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 4,
+      "discovery": "トゲで分かれながら段差を越え、向こう側で必要な4と支える8を作り直す。",
+      "lesson": "トゲは仕掛け。その下の岩が足場。",
+      "story": "岩の切れ目に、二本のトゲが光っていた。",
+      "ending": "岩に支えられながら、ほどけた仲間を集め直した。",
+      "hints": [
+        "トゲは足場にならない。このトゲの下には岩があるよ。",
+        "4をそのまま運ぶことにこだわらず、向こう側で4と8を作り直そう。",
+        "左の8を右上へ動かし、4との落下合体で上下に分かれよう。トゲを越えた後も、小さな仲間を置き去りにしないで。"
+      ],
+      "hint": "トゲは足場にならない。このトゲの下には岩があるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 3,
+      "moves": 7
+    }
+  ],
+  "splitLog": [
+    {
+      "step": 2,
+      "state": {
+        "id": "komorebi-thorn-ledge",
+        "w": 8,
+        "h": 8,
+        "gravity": true,
+        "walls": [
+          [
+            2,
+            7
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            6
+          ]
+        ],
+        "gates": [],
+        "exits": [
+          {
+            "x": 5,
+            "y": 5,
+            "exact": 4
+          },
+          {
+            "x": 7,
+            "y": 7,
+            "exact": 8
+          }
+        ],
+        "spikes": [
+          {
+            "x": 2,
+            "y": 6,
+            "power": 2
+          }
+        ],
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 2,
+            "y": 6,
+            "level": 6,
+            "species": "dog"
+          },
+          {
+            "id": "b",
+            "x": 1,
+            "y": 6,
+            "level": 4,
+            "species": "dog"
+          },
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 1,
+            "y": 7
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 0,
+            "y": 6
+          }
+        ],
+        "number": 15,
+        "title": "15 ほどける足場",
+        "revision": 6,
+        "theme": "forest",
+        "showSpecies": false,
+        "difficulty": 4,
+        "discovery": "トゲで分かれながら段差を越え、向こう側で必要な4と支える8を作り直す。",
+        "lesson": "トゲは仕掛け。その下の岩が足場。",
+        "story": "岩の切れ目に、二本のトゲが光っていた。",
+        "ending": "岩に支えられながら、ほどけた仲間を集め直した。",
+        "hints": [
+          "トゲは足場にならない。このトゲの下には岩があるよ。",
+          "4をそのまま運ぶことにこだわらず、向こう側で4と8を作り直そう。",
+          "左の8を右上へ動かし、4との落下合体で上下に分かれよう。トゲを越えた後も、小さな仲間を置き去りにしないで。"
+        ],
+        "hint": "トゲは足場にならない。このトゲの下には岩があるよ。",
+        "gravityRules": "supported-v1",
+        "movementRules": "contact-v2",
+        "terrainRules": "magic-gate-v2",
+        "splitRules": "recombine-once-v1",
+        "splitPriority": "D",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 3,
+        "moves": 1
+      },
+      "parentId": "a",
+      "direction": [
+        1,
+        -1
+      ],
+      "children": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 7
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 6
+        }
+      ],
+      "family": 1
+    }
+  ]
+}

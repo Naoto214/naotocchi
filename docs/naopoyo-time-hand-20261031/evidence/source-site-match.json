@@ -1,0 +1,214 @@
+{
+  "matched": 52,
+  "files": [
+    {
+      "path": "prototypes/naopoyo-time-hand/index.html",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand/style.css",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand/app.mjs",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand/draw.mjs",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand/model.mjs",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand/stage20-arrival.mjs",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand/engine.mjs",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand/priorities.mjs",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand/atlas.html",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand/atlas.mjs",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand/report.html",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand/compatibility.json",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-split-priority/priorities.mjs",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-v2/engine.mjs",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/conditions.mjs",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/sprites.mjs",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/sprite-data.mjs",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/fixtures.mjs",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/stone.mjs",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/gate-art.mjs",
+      "match": true
+    },
+    {
+      "path": "assets/characters/clownfish/01.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/clownfish/02.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/clownfish/03.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/clownfish/04.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/clownfish/05.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/clownfish/06.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/clownfish/07.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/clownfish/08.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/dog/01.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/dog/02.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/dog/03.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/dog/04.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/dog/05.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/dog/06.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/dog/07.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/dog/08.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/frog/01.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/frog/02.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/frog/03.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/frog/04.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/frog/05.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/frog/06.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/frog/07.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/frog/08.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/penguin/01.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/penguin/02.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/penguin/03.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/penguin/04.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/penguin/05.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/penguin/06.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/penguin/07.png",
+      "match": true
+    },
+    {
+      "path": "assets/characters/penguin/08.png",
+      "match": true
+    }
+  ],
+  "moduleGraphComplete": true
+}

@@ -1,0 +1,32 @@
+✔ 320px coordinate mapping, power, edit, Undo, mode, gravity events (20.018372ms)
+✔ 375px coordinate mapping, power, edit, Undo, mode, gravity events (7.758564ms)
+✔ 390px coordinate mapping, power, edit, Undo, mode, gravity events (6.673702ms)
+✔ 430px coordinate mapping, power, edit, Undo, mode, gravity events (5.279925ms)
+✖ zero births shows no route, prediction hides comparison answers (5.461217ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 186.197118
+
+✖ failing tests:
+
+test at prototypes/naopoyo-time-hand/tests/dom.test.mjs:6:1
+✖ zero births shows no route, prediction hides comparison answers (5.461217ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(!h.draw().o.route)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/naopoyo-time-hand/tests/dom.test.mjs:6:163)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

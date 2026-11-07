@@ -1,0 +1,966 @@
+{
+  "status": "solved",
+  "failure": null,
+  "metrics": {
+    "steps": 11,
+    "splits": 0,
+    "children": 0,
+    "merges": 2,
+    "familyMerges": 0,
+    "overflow": 1,
+    "falls": 4
+  },
+  "rescued": 12,
+  "mass": 12,
+  "final": {
+    "id": "komorebi-fall-order",
+    "w": 8,
+    "h": 8,
+    "gravity": true,
+    "walls": [
+      [
+        0,
+        6
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        6
+      ]
+    ],
+    "gates": [],
+    "exits": [
+      {
+        "x": 4,
+        "y": 5,
+        "exact": 4
+      },
+      {
+        "x": 7,
+        "y": 7,
+        "exact": 8
+      }
+    ],
+    "spikes": [],
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [],
+    "number": 14,
+    "title": "14 落とす順番",
+    "revision": 6,
+    "theme": "forest",
+    "showSpecies": false,
+    "difficulty": 3,
+    "discovery": "先に5を下の2へ落として7にし、次の5との合体で8と4を上下に作る。",
+    "lesson": "同じ場所へ落ちても、順番で道が変わる。",
+    "story": "二つの枝の下に、小さな仲間が待っていた。",
+    "ending": "落ちた光が、帰り道の高さを変えた。",
+    "hints": [
+      "星は4と8。いまいるのは5と5と2。",
+      "下の2へ5を先に落とすと7。そこへ次の5を合わせると、8と余った4になる。",
+      "左の枝の5を右上へ動かし、下の2へ落とそう。その後、右の枝の5を左へ動かして7と合わせよう。"
+    ],
+    "hint": "星は4と8。いまいるのは5と5と2。",
+    "gravityRules": "supported-v1",
+    "movementRules": "contact-v2",
+    "terrainRules": "magic-gate-v2",
+    "splitRules": "recombine-once-v1",
+    "splitPriority": "D",
+    "rescued": 12,
+    "rescuedBySpecies": {
+      "dog": 12
+    },
+    "nextId": 1,
+    "moves": 11
+  },
+  "snapshots": [
+    {
+      "id": "komorebi-fall-order",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 4
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 1,
+          "y": 7,
+          "level": 7,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 5,
+          "level": 5,
+          "species": "dog"
+        }
+      ],
+      "number": 14,
+      "title": "14 落とす順番",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 3,
+      "discovery": "先に5を下の2へ落として7にし、次の5との合体で8と4を上下に作る。",
+      "lesson": "同じ場所へ落ちても、順番で道が変わる。",
+      "story": "二つの枝の下に、小さな仲間が待っていた。",
+      "ending": "落ちた光が、帰り道の高さを変えた。",
+      "hints": [
+        "星は4と8。いまいるのは5と5と2。",
+        "下の2へ5を先に落とすと7。そこへ次の5を合わせると、8と余った4になる。",
+        "左の枝の5を右上へ動かし、下の2へ落とそう。その後、右の枝の5を左へ動かして7と合わせよう。"
+      ],
+      "hint": "星は4と8。いまいるのは5と5と2。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 1
+    },
+    {
+      "id": "komorebi-fall-order",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 4
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 7,
+          "level": 7,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 5,
+          "level": 5,
+          "species": "dog"
+        }
+      ],
+      "number": 14,
+      "title": "14 落とす順番",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 3,
+      "discovery": "先に5を下の2へ落として7にし、次の5との合体で8と4を上下に作る。",
+      "lesson": "同じ場所へ落ちても、順番で道が変わる。",
+      "story": "二つの枝の下に、小さな仲間が待っていた。",
+      "ending": "落ちた光が、帰り道の高さを変えた。",
+      "hints": [
+        "星は4と8。いまいるのは5と5と2。",
+        "下の2へ5を先に落とすと7。そこへ次の5を合わせると、8と余った4になる。",
+        "左の枝の5を右上へ動かし、下の2へ落とそう。その後、右の枝の5を左へ動かして7と合わせよう。"
+      ],
+      "hint": "星は4と8。いまいるのは5と5と2。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 2
+    },
+    {
+      "id": "komorebi-fall-order",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 4
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 7,
+          "level": 7,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 5,
+          "level": 5,
+          "species": "dog"
+        }
+      ],
+      "number": 14,
+      "title": "14 落とす順番",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 3,
+      "discovery": "先に5を下の2へ落として7にし、次の5との合体で8と4を上下に作る。",
+      "lesson": "同じ場所へ落ちても、順番で道が変わる。",
+      "story": "二つの枝の下に、小さな仲間が待っていた。",
+      "ending": "落ちた光が、帰り道の高さを変えた。",
+      "hints": [
+        "星は4と8。いまいるのは5と5と2。",
+        "下の2へ5を先に落とすと7。そこへ次の5を合わせると、8と余った4になる。",
+        "左の枝の5を右上へ動かし、下の2へ落とそう。その後、右の枝の5を左へ動かして7と合わせよう。"
+      ],
+      "hint": "星は4と8。いまいるのは5と5と2。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 3
+    },
+    {
+      "id": "komorebi-fall-order",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 4
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 7,
+          "level": 7,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 5,
+          "level": 5,
+          "species": "dog"
+        }
+      ],
+      "number": 14,
+      "title": "14 落とす順番",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 3,
+      "discovery": "先に5を下の2へ落として7にし、次の5との合体で8と4を上下に作る。",
+      "lesson": "同じ場所へ落ちても、順番で道が変わる。",
+      "story": "二つの枝の下に、小さな仲間が待っていた。",
+      "ending": "落ちた光が、帰り道の高さを変えた。",
+      "hints": [
+        "星は4と8。いまいるのは5と5と2。",
+        "下の2へ5を先に落とすと7。そこへ次の5を合わせると、8と余った4になる。",
+        "左の枝の5を右上へ動かし、下の2へ落とそう。その後、右の枝の5を左へ動かして7と合わせよう。"
+      ],
+      "hint": "星は4と8。いまいるのは5と5と2。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 4
+    },
+    {
+      "id": "komorebi-fall-order",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 4
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 5,
+          "y": 7,
+          "level": 7,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 5,
+          "level": 5,
+          "species": "dog"
+        }
+      ],
+      "number": 14,
+      "title": "14 落とす順番",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 3,
+      "discovery": "先に5を下の2へ落として7にし、次の5との合体で8と4を上下に作る。",
+      "lesson": "同じ場所へ落ちても、順番で道が変わる。",
+      "story": "二つの枝の下に、小さな仲間が待っていた。",
+      "ending": "落ちた光が、帰り道の高さを変えた。",
+      "hints": [
+        "星は4と8。いまいるのは5と5と2。",
+        "下の2へ5を先に落とすと7。そこへ次の5を合わせると、8と余った4になる。",
+        "左の枝の5を右上へ動かし、下の2へ落とそう。その後、右の枝の5を左へ動かして7と合わせよう。"
+      ],
+      "hint": "星は4と8。いまいるのは5と5と2。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 5
+    },
+    {
+      "id": "komorebi-fall-order",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 4
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 5,
+          "y": 7,
+          "level": 7,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 5,
+          "level": 5,
+          "species": "dog"
+        }
+      ],
+      "number": 14,
+      "title": "14 落とす順番",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 3,
+      "discovery": "先に5を下の2へ落として7にし、次の5との合体で8と4を上下に作る。",
+      "lesson": "同じ場所へ落ちても、順番で道が変わる。",
+      "story": "二つの枝の下に、小さな仲間が待っていた。",
+      "ending": "落ちた光が、帰り道の高さを変えた。",
+      "hints": [
+        "星は4と8。いまいるのは5と5と2。",
+        "下の2へ5を先に落とすと7。そこへ次の5を合わせると、8と余った4になる。",
+        "左の枝の5を右上へ動かし、下の2へ落とそう。その後、右の枝の5を左へ動かして7と合わせよう。"
+      ],
+      "hint": "星は4と8。いまいるのは5と5と2。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 6
+    },
+    {
+      "id": "komorebi-fall-order",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 4
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 5,
+          "y": 7,
+          "level": 7,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 5,
+          "level": 5,
+          "species": "dog"
+        }
+      ],
+      "number": 14,
+      "title": "14 落とす順番",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 3,
+      "discovery": "先に5を下の2へ落として7にし、次の5との合体で8と4を上下に作る。",
+      "lesson": "同じ場所へ落ちても、順番で道が変わる。",
+      "story": "二つの枝の下に、小さな仲間が待っていた。",
+      "ending": "落ちた光が、帰り道の高さを変えた。",
+      "hints": [
+        "星は4と8。いまいるのは5と5と2。",
+        "下の2へ5を先に落とすと7。そこへ次の5を合わせると、8と余った4になる。",
+        "左の枝の5を右上へ動かし、下の2へ落とそう。その後、右の枝の5を左へ動かして7と合わせよう。"
+      ],
+      "hint": "星は4と8。いまいるのは5と5と2。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 7
+    },
+    {
+      "id": "komorebi-fall-order",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 4
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 5,
+          "y": 6,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 5,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "number": 14,
+      "title": "14 落とす順番",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 3,
+      "discovery": "先に5を下の2へ落として7にし、次の5との合体で8と4を上下に作る。",
+      "lesson": "同じ場所へ落ちても、順番で道が変わる。",
+      "story": "二つの枝の下に、小さな仲間が待っていた。",
+      "ending": "落ちた光が、帰り道の高さを変えた。",
+      "hints": [
+        "星は4と8。いまいるのは5と5と2。",
+        "下の2へ5を先に落とすと7。そこへ次の5を合わせると、8と余った4になる。",
+        "左の枝の5を右上へ動かし、下の2へ落とそう。その後、右の枝の5を左へ動かして7と合わせよう。"
+      ],
+      "hint": "星は4と8。いまいるのは5と5と2。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 8
+    },
+    {
+      "id": "komorebi-fall-order",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 4
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "b",
+          "x": 5,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "number": 14,
+      "title": "14 落とす順番",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 3,
+      "discovery": "先に5を下の2へ落として7にし、次の5との合体で8と4を上下に作る。",
+      "lesson": "同じ場所へ落ちても、順番で道が変わる。",
+      "story": "二つの枝の下に、小さな仲間が待っていた。",
+      "ending": "落ちた光が、帰り道の高さを変えた。",
+      "hints": [
+        "星は4と8。いまいるのは5と5と2。",
+        "下の2へ5を先に落とすと7。そこへ次の5を合わせると、8と余った4になる。",
+        "左の枝の5を右上へ動かし、下の2へ落とそう。その後、右の枝の5を左へ動かして7と合わせよう。"
+      ],
+      "hint": "星は4と8。いまいるのは5と5と2。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 4,
+      "rescuedBySpecies": {
+        "dog": 4
+      },
+      "nextId": 1,
+      "moves": 9
+    },
+    {
+      "id": "komorebi-fall-order",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 4
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "b",
+          "x": 6,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "number": 14,
+      "title": "14 落とす順番",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 3,
+      "discovery": "先に5を下の2へ落として7にし、次の5との合体で8と4を上下に作る。",
+      "lesson": "同じ場所へ落ちても、順番で道が変わる。",
+      "story": "二つの枝の下に、小さな仲間が待っていた。",
+      "ending": "落ちた光が、帰り道の高さを変えた。",
+      "hints": [
+        "星は4と8。いまいるのは5と5と2。",
+        "下の2へ5を先に落とすと7。そこへ次の5を合わせると、8と余った4になる。",
+        "左の枝の5を右上へ動かし、下の2へ落とそう。その後、右の枝の5を左へ動かして7と合わせよう。"
+      ],
+      "hint": "星は4と8。いまいるのは5と5と2。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 4,
+      "rescuedBySpecies": {
+        "dog": 4
+      },
+      "nextId": 1,
+      "moves": 10
+    },
+    {
+      "id": "komorebi-fall-order",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 4
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [],
+      "number": 14,
+      "title": "14 落とす順番",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 3,
+      "discovery": "先に5を下の2へ落として7にし、次の5との合体で8と4を上下に作る。",
+      "lesson": "同じ場所へ落ちても、順番で道が変わる。",
+      "story": "二つの枝の下に、小さな仲間が待っていた。",
+      "ending": "落ちた光が、帰り道の高さを変えた。",
+      "hints": [
+        "星は4と8。いまいるのは5と5と2。",
+        "下の2へ5を先に落とすと7。そこへ次の5を合わせると、8と余った4になる。",
+        "左の枝の5を右上へ動かし、下の2へ落とそう。その後、右の枝の5を左へ動かして7と合わせよう。"
+      ],
+      "hint": "星は4と8。いまいるのは5と5と2。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 12,
+      "rescuedBySpecies": {
+        "dog": 12
+      },
+      "nextId": 1,
+      "moves": 11
+    }
+  ],
+  "splitLog": []
+}
