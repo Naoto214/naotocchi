@@ -1,0 +1,5336 @@
+{
+ "engine": "hotseat-6",
+ "note": "flipWithRightStat: adding the same card's gain to the challenged stat instead would change the compared winner (approximation: same final values otherwise)",
+ "summary": {
+  "intermediate|G-street-fight": {
+   "activations": 45,
+   "rightStat": 26,
+   "wrongStat": 19,
+   "wrongAndResultWouldChange": 2
+  },
+  "intermediate|G-ski-jump": {
+   "activations": 134,
+   "rightStat": 73,
+   "wrongStat": 61,
+   "wrongAndResultWouldChange": 29
+  },
+  "beginner|G-street-fight": {
+   "activations": 26,
+   "rightStat": 16,
+   "wrongStat": 10,
+   "wrongAndResultWouldChange": 0
+  },
+  "beginner|G-ski-jump": {
+   "activations": 67,
+   "rightStat": 21,
+   "wrongStat": 46,
+   "wrongAndResultWouldChange": 0
+  }
+ },
+ "rows": [
+  {
+   "match": "TR:challenge:001:mirror:X-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 2,
+   "param": "wisdom",
+   "variant": "ガード",
+   "right": true,
+   "challengeId": 63,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 2,
+    "B": 5
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 167,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 13,
+    "B": 4
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 214,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 10,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 10,
+   "param": "power",
+   "variant": "キック",
+   "right": true,
+   "challengeId": 300,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 13,
+    "B": 6
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 2,
+   "param": "wisdom",
+   "variant": "ガード",
+   "right": true,
+   "challengeId": 63,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 2,
+    "B": 5
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:X-first:IB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 2,
+   "param": "wisdom",
+   "variant": "パンチ",
+   "right": false,
+   "challengeId": 66,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 2,
+    "B": 3
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 152,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 13,
+    "B": 4
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 199,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 10,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 10,
+   "param": "power",
+   "variant": "キック",
+   "right": true,
+   "challengeId": 283,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 13,
+    "B": 6
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:X-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 2,
+   "param": "wisdom",
+   "variant": "パンチ",
+   "right": false,
+   "challengeId": 66,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 2,
+    "B": 3
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:Y-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 2,
+   "param": "power",
+   "variant": "ガード",
+   "right": false,
+   "challengeId": 47,
+   "ownChallenge": false,
+   "alternatives": 3,
+   "values": {
+    "A": 1,
+    "B": 4
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "loss"
+  },
+  {
+   "match": "TR:challenge:001:mirror:Y-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 178,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 12
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:Y-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 211,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 10
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:Y-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 9,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 269,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 11
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 2,
+   "param": "power",
+   "variant": "キック",
+   "right": true,
+   "challengeId": 49,
+   "ownChallenge": false,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 4
+   },
+   "winner": null,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:challenge:001:mirror:Y-first:BI",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 167,
+   "ownChallenge": true,
+   "alternatives": 6,
+   "values": {
+    "A": 4,
+    "B": 5
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:Y-first:BI",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 167,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 5
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:Y-first:BI",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 205,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 13
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:Y-first:BI",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 10,
+   "param": "power",
+   "variant": "キック",
+   "right": true,
+   "challengeId": 275,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 13
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:Y-first:IB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 3,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 67,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 1
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:Y-first:IB",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 175,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 12
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:Y-first:IB",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 206,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 10
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:Y-first:IB",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 9,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 267,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 11
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:Y-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 166,
+   "ownChallenge": true,
+   "alternatives": 6,
+   "values": {
+    "A": 4,
+    "B": 5
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:Y-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 166,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 5
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:Y-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 202,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 13
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:001:mirror:Y-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 10,
+   "param": "power",
+   "variant": "キック",
+   "right": true,
+   "challengeId": 275,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 13
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:002:mirror:X-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 5,
+   "param": "power",
+   "variant": "キック",
+   "right": true,
+   "challengeId": 140,
+   "ownChallenge": false,
+   "alternatives": 3,
+   "values": {
+    "A": 9,
+    "B": 8
+   },
+   "winner": "A",
+   "outcome": "loss"
+  },
+  {
+   "match": "TR:challenge:002:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 171,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 11,
+    "B": 7
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:002:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "power",
+   "variant": "ガード",
+   "right": false,
+   "challengeId": 111,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 9
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:002:mirror:X-first:BI",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 194,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 14,
+    "B": 7
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:002:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 165,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 11,
+    "B": 5
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:002:mirror:Y-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 110,
+   "ownChallenge": false,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 11
+   },
+   "winner": "B",
+   "outcome": "loss"
+  },
+  {
+   "match": "TR:challenge:002:mirror:Y-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 165,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 14
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:002:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 90,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 1
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:002:mirror:Y-first:BI",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 207,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 14
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:002:mirror:Y-first:IB",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 180,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 14
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:002:mirror:Y-first:BB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "power",
+   "variant": "キック",
+   "right": true,
+   "challengeId": 104,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 8,
+    "B": 1
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:002:mirror:Y-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 221,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 5
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:003:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 5,
+   "param": "power",
+   "variant": "ガード",
+   "right": false,
+   "challengeId": 131,
+   "ownChallenge": false,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 10
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "loss"
+  },
+  {
+   "match": "TR:challenge:003:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 5,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 128,
+   "ownChallenge": false,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 9
+   },
+   "winner": "B",
+   "outcome": "loss"
+  },
+  {
+   "match": "TR:challenge:003:mirror:Y-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 6,
+   "param": "power",
+   "variant": "ガード",
+   "right": false,
+   "challengeId": 152,
+   "ownChallenge": false,
+   "alternatives": 3,
+   "values": {
+    "A": 10,
+    "B": 6
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "loss"
+  },
+  {
+   "match": "TR:challenge:003:mirror:Y-first:IB",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 6,
+   "param": "power",
+   "variant": "ガード",
+   "right": false,
+   "challengeId": 149,
+   "ownChallenge": false,
+   "alternatives": 3,
+   "values": {
+    "A": 9,
+    "B": 6
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "loss"
+  },
+  {
+   "match": "TR:challenge:004:mirror:X-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 4,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 113,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 6
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:004:mirror:X-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 7,
+   "param": "power",
+   "variant": "ガード",
+   "right": false,
+   "challengeId": 180,
+   "ownChallenge": false,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 2
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "loss"
+  },
+  {
+   "match": "TR:challenge:004:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 8,
+   "param": "power",
+   "variant": "キック",
+   "right": true,
+   "challengeId": 215,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 9,
+    "B": 2
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:004:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 4,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 113,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 6
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:004:mirror:X-first:BI",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 7,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 186,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 2
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:004:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 7,
+   "param": "power",
+   "variant": "ガード",
+   "right": false,
+   "challengeId": 186,
+   "ownChallenge": false,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 2
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "loss"
+  },
+  {
+   "match": "TR:challenge:004:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 8,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 218,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 3
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:004:mirror:X-first:BB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 7,
+   "param": "power",
+   "variant": "ガード",
+   "right": false,
+   "challengeId": 189,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 3
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:004:mirror:Y-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 4,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 103,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 3
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:004:mirror:Y-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 5,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 151,
+   "ownChallenge": false,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 5
+   },
+   "winner": "B",
+   "outcome": "loss"
+  },
+  {
+   "match": "TR:challenge:004:mirror:Y-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 8,
+   "param": "wisdom",
+   "variant": "キック",
+   "right": false,
+   "challengeId": 247,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 4
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:004:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 4,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 110,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 3
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:challenge:004:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 5,
+   "param": "power",
+   "variant": "キック",
+   "right": true,
+   "challengeId": 158,
+   "ownChallenge": false,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 5
+   },
+   "winner": null,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:challenge:004:mirror:Y-first:BI",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 7,
+   "param": "power",
+   "variant": "ガード",
+   "right": false,
+   "challengeId": 219,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 2,
+    "B": 5
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:004:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 10,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 301,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 9,
+    "B": 5
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:004:mirror:Y-first:IB",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 8,
+   "param": "power",
+   "variant": "キック",
+   "right": true,
+   "challengeId": 218,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 2,
+    "B": 9
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:004:mirror:Y-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 7,
+   "param": "power",
+   "variant": "ガード",
+   "right": false,
+   "challengeId": 190,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 2,
+    "B": 5
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:005:mirror:X-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 172,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 4
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:challenge:005:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 9,
+   "param": "wisdom",
+   "variant": "パンチ",
+   "right": false,
+   "challengeId": 232,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:005:mirror:X-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 248,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 12
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:005:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 162,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 10
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:005:mirror:X-first:BI",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 9,
+   "param": "power",
+   "variant": "ガード",
+   "right": false,
+   "challengeId": 216,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 9,
+    "B": 6
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:005:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 232,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 12
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:005:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 9,
+   "param": "wisdom",
+   "variant": "パンチ",
+   "right": false,
+   "challengeId": 212,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:005:mirror:X-first:BB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 9,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 202,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 10,
+    "B": 6
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:005:mirror:Y-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 213,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 6
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:005:mirror:Y-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 9,
+   "param": "power",
+   "variant": "ガード",
+   "right": false,
+   "challengeId": 213,
+   "ownChallenge": false,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 6
+   },
+   "winner": "A",
+   "flipWithRightStat": true,
+   "outcome": "loss"
+  },
+  {
+   "match": "TR:challenge:005:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 203,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 6
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:005:mirror:Y-first:BI",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 9,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 224,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 10
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:005:mirror:Y-first:IB",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 9,
+   "param": "power",
+   "variant": "ガード",
+   "right": false,
+   "challengeId": 209,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 9
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:005:mirror:Y-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 9,
+   "param": "wisdom",
+   "variant": "キック",
+   "right": false,
+   "challengeId": 199,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 5
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:006:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "power",
+   "variant": "ガード",
+   "right": false,
+   "challengeId": 99,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:006:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 10,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 269,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 9,
+    "B": 7
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:006:mirror:X-first:BI",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 103,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 10,
+    "B": 7
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:006:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 159,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 5
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:challenge:006:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "power",
+   "variant": "ガード",
+   "right": false,
+   "challengeId": 89,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:006:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 10,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 269,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 12,
+    "B": 9
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:006:mirror:X-first:BB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "wisdom",
+   "variant": "パンチ",
+   "right": false,
+   "challengeId": 93,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:006:mirror:Y-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 6,
+   "param": "power",
+   "variant": "キック",
+   "right": true,
+   "challengeId": 204,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 12
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:006:mirror:Y-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 271,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 13
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:006:mirror:Y-first:BI",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 3,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 82,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 6
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:006:mirror:Y-first:IB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 169,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:006:mirror:Y-first:IB",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 248,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 5
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:challenge:006:mirror:Y-first:IB",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 9,
+   "param": "wisdom",
+   "variant": "キック",
+   "right": false,
+   "challengeId": 248,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 5
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:challenge:006:mirror:Y-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 3,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 72,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 6
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:006:mirror:Y-first:BB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 172,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 3
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:007:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 8,
+   "param": "power",
+   "variant": "キック",
+   "right": true,
+   "challengeId": 234,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 12
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:007:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 8,
+   "param": "power",
+   "variant": "ガード",
+   "right": false,
+   "challengeId": 219,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 10,
+    "B": 6
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:008:mirror:X-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "power",
+   "variant": "ガード",
+   "right": false,
+   "challengeId": 106,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 2,
+    "B": 7
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:008:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 106,
+   "ownChallenge": false,
+   "alternatives": 3,
+   "values": {
+    "A": 2,
+    "B": 7
+   },
+   "winner": "B",
+   "outcome": "loss"
+  },
+  {
+   "match": "TR:challenge:008:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "power",
+   "variant": "ガード",
+   "right": false,
+   "challengeId": 101,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 1,
+    "B": 7
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:008:mirror:X-first:IB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "wisdom",
+   "variant": "ガード",
+   "right": true,
+   "challengeId": 98,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 6
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:008:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "wisdom",
+   "variant": "パンチ",
+   "right": false,
+   "challengeId": 98,
+   "ownChallenge": false,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 6
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "loss"
+  },
+  {
+   "match": "TR:challenge:008:mirror:X-first:IB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 162,
+   "ownChallenge": true,
+   "alternatives": 6,
+   "values": {
+    "A": 3,
+    "B": 8
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:008:mirror:X-first:IB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 162,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 8
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:008:mirror:X-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "wisdom",
+   "variant": "ガード",
+   "right": true,
+   "challengeId": 93,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 6
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:008:mirror:X-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 155,
+   "ownChallenge": true,
+   "alternatives": 6,
+   "values": {
+    "A": 3,
+    "B": 8
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:008:mirror:X-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 155,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 8
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:008:mirror:Y-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 102,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 8,
+    "B": 1
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:008:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 92,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 8,
+    "B": 1
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:008:mirror:Y-first:IB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 100,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 10,
+    "B": 1
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:008:mirror:Y-first:IB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 156,
+   "ownChallenge": true,
+   "alternatives": 6,
+   "values": {
+    "A": 10,
+    "B": 1
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:008:mirror:Y-first:IB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 156,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 10,
+    "B": 1
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:008:mirror:Y-first:BB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 84,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 1
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:008:mirror:Y-first:BB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 146,
+   "ownChallenge": true,
+   "alternatives": 6,
+   "values": {
+    "A": 8,
+    "B": 3
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:008:mirror:Y-first:BB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 146,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 8,
+    "B": 3
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:X-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 205,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 8
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:X-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 267,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 8
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 10,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 288,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 10,
+    "B": 7
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:X-first:BI",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 122,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 3
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 189,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 11
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 248,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 8
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:X-first:IB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 203,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 5
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:X-first:IB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 276,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 8
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 10,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 297,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 13,
+    "B": 7
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:X-first:BB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 127,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 5
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:X-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 203,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 5
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:X-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 262,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 8
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:Y-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 208,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 8,
+    "B": 6
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:Y-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 269,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 10,
+    "B": 6
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:Y-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 10,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 316,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 8
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 212,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 10,
+    "B": 6
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 269,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 8,
+    "B": 6
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:Y-first:IB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 208,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:Y-first:IB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 281,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:Y-first:IB",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 10,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 328,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 10
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:Y-first:BB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 210,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:009:mirror:Y-first:BB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 262,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 8,
+    "B": 6
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "wisdom",
+   "variant": "ガード",
+   "right": true,
+   "challengeId": 85,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 3
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 118,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 5
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:X-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 170,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 14
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 191,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 11,
+    "B": 6
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 277,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 5
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:challenge:010:mirror:X-first:BI",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "wisdom",
+   "variant": "パンチ",
+   "right": false,
+   "challengeId": 90,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 3
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:X-first:BI",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 126,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 3
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 184,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 7
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:X-first:BI",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 201,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "wisdom",
+   "variant": "ガード",
+   "right": true,
+   "challengeId": 82,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 3
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 123,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 8,
+    "B": 3
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 192,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 11,
+    "B": 5
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:X-first:IB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 217,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 12
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 276,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 8,
+    "B": 5
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:X-first:IB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 294,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 12
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:X-first:BB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "wisdom",
+   "variant": "パンチ",
+   "right": false,
+   "challengeId": 87,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 3
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:X-first:BB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 131,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 3
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:X-first:BB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 203,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 3
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:X-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 230,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 12
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:X-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 288,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 12
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:Y-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 5,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 146,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 8
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:Y-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 167,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 11,
+    "B": 7
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:Y-first:BI",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 117,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 8
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:Y-first:BI",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 153,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 7
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 179,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 5
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:Y-first:IB",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-street-fight",
+   "round": 5,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 146,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 8
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:Y-first:IB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 194,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 12,
+    "B": 7
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:Y-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-street-fight",
+   "round": 4,
+   "param": "power",
+   "variant": "パンチ",
+   "right": true,
+   "challengeId": 112,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 8
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:Y-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 148,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 7
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:challenge:010:mirror:Y-first:BB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 204,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 12,
+    "B": 7
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:001:mirror:X-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 8,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 318,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 9
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:001:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 8,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 318,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 9
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:001:mirror:Y-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 259,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 9,
+    "B": 6
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:001:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 253,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 5
+   },
+   "winner": "B",
+   "flipWithRightStat": true,
+   "outcome": "loss"
+  },
+  {
+   "match": "TR:item:002:mirror:X-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 3,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 109,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 7
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:002:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 4,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 132,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:002:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 3,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 109,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 7
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:002:mirror:X-first:BI",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 4,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 129,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:002:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 4,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 124,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 10,
+    "B": 4
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:002:mirror:X-first:BB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 4,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 121,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:002:mirror:Y-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 3,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 92,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 3
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:002:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 3,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 91,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 4
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:item:002:mirror:Y-first:IB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 3,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 92,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 3
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:003:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 279,
+   "ownChallenge": true,
+   "alternatives": 6,
+   "values": {
+    "A": 10,
+    "B": 5
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:003:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 279,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 10,
+    "B": 5
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:003:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 285,
+   "ownChallenge": true,
+   "alternatives": 6,
+   "values": {
+    "A": 10,
+    "B": 5
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:003:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 285,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 10,
+    "B": 5
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:003:mirror:Y-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 318,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 8
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:003:mirror:Y-first:IB",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 330,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 8
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:004:mirror:X-first:BI",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 4,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 98,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 3
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:004:mirror:X-first:BB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 4,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 98,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 3
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:004:mirror:Y-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 8,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 333,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": true,
+   "outcome": "loss"
+  },
+  {
+   "match": "TR:item:004:mirror:Y-first:BI",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 4,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 114,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 7
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:004:mirror:Y-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 4,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 117,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 7
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:006:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 161,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 1
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:006:mirror:X-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 289,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 10
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:006:mirror:X-first:BI",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 149,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 1
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:006:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 191,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 4
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:006:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 161,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 1
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:006:mirror:X-first:IB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 286,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 5
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:006:mirror:X-first:BB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 149,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 1
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:006:mirror:X-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 188,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 4
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:006:mirror:Y-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 231,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 6
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:007:mirror:Y-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 10,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 394,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:007:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 10,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 385,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 6
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:009:mirror:X-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 283,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 7
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:item:009:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 283,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 7
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:item:009:mirror:Y-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 199,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 10,
+    "B": 7
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:item:009:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 199,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 10,
+    "B": 7
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:001:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 169,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 3
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:balance:001:mirror:X-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 250,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 7
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:001:mirror:X-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 415,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 9
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:001:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 247,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 5
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:balance:001:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 170,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 3
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:balance:001:mirror:X-first:IB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 8,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 340,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 9
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:001:mirror:Y-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 200,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 4
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:balance:001:mirror:Y-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 274,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 4
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:001:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 169,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 3
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:001:mirror:Y-first:IB",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 186,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 3
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:balance:001:mirror:Y-first:IB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 8,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 315,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 9,
+    "B": 4
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:001:mirror:Y-first:IB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 359,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:002:mirror:X-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 480,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 9
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:002:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 408,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 8
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:002:mirror:X-first:IB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 8,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 395,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 6
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:002:mirror:Y-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 206,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 7
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:002:mirror:Y-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 307,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 3
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:002:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 295,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 4
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:002:mirror:Y-first:BI",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 8,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 358,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 6
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:002:mirror:Y-first:IB",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 187,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 5
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:002:mirror:Y-first:IB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 284,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 7,
+    "B": 3
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:002:mirror:Y-first:BB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 8,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 318,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 9,
+    "B": 4
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:003:mirror:X-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 10,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 446,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 9
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:003:mirror:X-first:BI",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 242,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:003:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 10,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 461,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 5
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:balance:003:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 281,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 9,
+    "B": 4
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:003:mirror:Y-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 275,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 6
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:003:mirror:Y-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 10,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 460,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 8,
+    "B": 5
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:003:mirror:Y-first:BI",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 279,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 9
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:003:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 10,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 459,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 8,
+    "B": 5
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:004:mirror:X-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 265,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 5
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:balance:004:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 248,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 5
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:balance:004:mirror:Y-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 262,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 8,
+    "B": 5
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:004:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 272,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 8,
+    "B": 5
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:004:mirror:Y-first:BI",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 305,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 6
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:004:mirror:Y-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 298,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 6
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:005:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 235,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:005:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 312,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 4
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:balance:005:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 212,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 5
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:balance:005:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 260,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 9,
+    "B": 4
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:005:mirror:X-first:BB",
+   "seat": "B",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 244,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 9
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:005:mirror:Y-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 242,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 6
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:005:mirror:Y-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 288,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 8
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:005:mirror:Y-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 10,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 401,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 5
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:balance:005:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 10,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 391,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 5
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:balance:005:mirror:Y-first:IB",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 239,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 5
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:balance:005:mirror:Y-first:IB",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 292,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 5
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:balance:005:mirror:Y-first:IB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 355,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 9,
+    "B": 4
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:005:mirror:Y-first:BB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 353,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:006:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 377,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 9,
+    "B": 6
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:006:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 9,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 372,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 8
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:006:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 10,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 397,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 5
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:balance:006:mirror:Y-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 8,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 348,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 5
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:balance:006:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 8,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 349,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 9,
+    "B": 6
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:006:mirror:Y-first:IB",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 10,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 457,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 8
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:007:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 224,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 3
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:007:mirror:X-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 10,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 474,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 6
+   },
+   "winner": "B",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:007:mirror:X-first:BI",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 278,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 9
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:007:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 212,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 3
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:007:mirror:Y-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 4,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 127,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 1,
+    "B": 2
+   },
+   "winner": "B",
+   "flipWithRightStat": true,
+   "outcome": "loss"
+  },
+  {
+   "match": "TR:balance:007:mirror:Y-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 5,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 217,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 3,
+    "B": 5
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:007:mirror:Y-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 299,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 9,
+    "B": 3
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:007:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 4,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 114,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 1,
+    "B": 1
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:balance:007:mirror:Y-first:BI",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 265,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 9,
+    "B": 3
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:007:mirror:Y-first:IB",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 4,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 138,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 4,
+    "B": 5
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:007:mirror:Y-first:IB",
+   "seat": "A",
+   "difficulty": "beginner",
+   "card": "G-ski-jump",
+   "round": 10,
+   "param": "power",
+   "variant": "wisdom",
+   "right": false,
+   "challengeId": 410,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 4
+   },
+   "winner": "A",
+   "flipWithRightStat": false,
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:009:mirror:Y-first:IB",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 10,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 425,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 6,
+    "B": 9
+   },
+   "winner": "B",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:010:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 6,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 178,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 8,
+    "B": 5
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:010:mirror:X-first:II",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 10,
+   "param": "power",
+   "variant": "power",
+   "right": true,
+   "challengeId": 393,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 11,
+    "B": 6
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:010:mirror:X-first:IB",
+   "seat": "A",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 10,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 396,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 8,
+    "B": 5
+   },
+   "winner": "A",
+   "outcome": "win"
+  },
+  {
+   "match": "TR:balance:010:mirror:Y-first:II",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "power",
+   "right": false,
+   "challengeId": 284,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 5
+   },
+   "winner": null,
+   "flipWithRightStat": true,
+   "outcome": "draw"
+  },
+  {
+   "match": "TR:balance:010:mirror:Y-first:IB",
+   "seat": "B",
+   "difficulty": "intermediate",
+   "card": "G-ski-jump",
+   "round": 7,
+   "param": "wisdom",
+   "variant": "wisdom",
+   "right": true,
+   "challengeId": 291,
+   "ownChallenge": true,
+   "alternatives": 3,
+   "values": {
+    "A": 5,
+    "B": 8
+   },
+   "winner": "B",
+   "outcome": "win"
+  }
+ ]
+}

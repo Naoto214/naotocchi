@@ -1,0 +1,552 @@
+{
+ "matches": 1360,
+ "completed": 1360,
+ "by": {
+  "sameName": {
+   "n": 560,
+   "candidateScore": 0.504,
+   "ci95": [
+    0.464,
+    0.543
+   ],
+   "firstBirthRound": {
+    "candidate": 1.857,
+    "official": 1.921
+   },
+   "timeLostPerMatch": {
+    "candidate": 26.62,
+    "official": 26.534
+   },
+   "finalGrowth": {
+    "candidate": 62.616,
+    "official": 62.643
+   },
+   "decisionsWherePoliciesDiffer": 0.225
+  },
+  "sameName|balance": {
+   "n": 80,
+   "candidateScore": 0.525,
+   "ci95": [
+    0.423,
+    0.627
+   ],
+   "firstBirthRound": {
+    "candidate": 2.1,
+    "official": 2.163
+   },
+   "timeLostPerMatch": {
+    "candidate": 24.725,
+    "official": 24.8
+   },
+   "finalGrowth": {
+    "candidate": 68.25,
+    "official": 68.625
+   },
+   "decisionsWherePoliciesDiffer": 0.3
+  },
+  "sameName|challenge": {
+   "n": 80,
+   "candidateScore": 0.5,
+   "ci95": [
+    0.391,
+    0.609
+   ],
+   "firstBirthRound": {
+    "candidate": 1.675,
+    "official": 1.725
+   },
+   "timeLostPerMatch": {
+    "candidate": 28.3,
+    "official": 28.137
+   },
+   "finalGrowth": {
+    "candidate": 55.938,
+    "official": 56.062
+   },
+   "decisionsWherePoliciesDiffer": 0.1
+  },
+  "sameName|companion": {
+   "n": 80,
+   "candidateScore": 0.5,
+   "ci95": [
+    0.397,
+    0.603
+   ],
+   "firstBirthRound": {
+    "candidate": 2.1,
+    "official": 2.212
+   },
+   "timeLostPerMatch": {
+    "candidate": 30.5,
+    "official": 30.387
+   },
+   "finalGrowth": {
+    "candidate": 60.875,
+    "official": 60.375
+   },
+   "decisionsWherePoliciesDiffer": 0.25
+  },
+  "sameName|first": {
+   "n": 280,
+   "candidateScore": 0.537,
+   "ci95": [
+    0.482,
+    0.593
+   ],
+   "firstBirthRound": {
+    "candidate": 1.857,
+    "official": 1.936
+   },
+   "timeLostPerMatch": {
+    "candidate": 26.679,
+    "official": 26.479
+   },
+   "finalGrowth": {
+    "candidate": 63.857,
+    "official": 61.089
+   },
+   "decisionsWherePoliciesDiffer": 0.229
+  },
+  "sameName|growth": {
+   "n": 80,
+   "candidateScore": 0.5,
+   "ci95": [
+    0.405,
+    0.595
+   ],
+   "firstBirthRound": {
+    "candidate": 1.975,
+    "official": 1.988
+   },
+   "timeLostPerMatch": {
+    "candidate": 24.688,
+    "official": 24.575
+   },
+   "finalGrowth": {
+    "candidate": 73.438,
+    "official": 73.5
+   },
+   "decisionsWherePoliciesDiffer": 0.263
+  },
+  "sameName|item": {
+   "n": 80,
+   "candidateScore": 0.494,
+   "ci95": [
+    0.386,
+    0.602
+   ],
+   "firstBirthRound": {
+    "candidate": 1.75,
+    "official": 1.863
+   },
+   "timeLostPerMatch": {
+    "candidate": 21.212,
+    "official": 20.863
+   },
+   "finalGrowth": {
+    "candidate": 66.562,
+    "official": 66.875
+   },
+   "decisionsWherePoliciesDiffer": 0.325
+  },
+  "sameName|main": {
+   "n": 80,
+   "candidateScore": 0.506,
+   "ci95": [
+    0.401,
+    0.612
+   ],
+   "firstBirthRound": {
+    "candidate": 1.375,
+    "official": 1.413
+   },
+   "timeLostPerMatch": {
+    "candidate": 29.025,
+    "official": 29.05
+   },
+   "finalGrowth": {
+    "candidate": 54.188,
+    "official": 53.875
+   },
+   "decisionsWherePoliciesDiffer": 0.175
+  },
+  "sameName|partner": {
+   "n": 80,
+   "candidateScore": 0.5,
+   "ci95": [
+    0.39,
+    0.61
+   ],
+   "firstBirthRound": {
+    "candidate": 2.025,
+    "official": 2.087
+   },
+   "timeLostPerMatch": {
+    "candidate": 27.887,
+    "official": 27.925
+   },
+   "finalGrowth": {
+    "candidate": 59.062,
+    "official": 59.188
+   },
+   "decisionsWherePoliciesDiffer": 0.163
+  },
+  "sameName|second": {
+   "n": 280,
+   "candidateScore": 0.47,
+   "ci95": [
+    0.414,
+    0.525
+   ],
+   "firstBirthRound": {
+    "candidate": 1.857,
+    "official": 1.907
+   },
+   "timeLostPerMatch": {
+    "candidate": 26.561,
+    "official": 26.589
+   },
+   "finalGrowth": {
+    "candidate": 61.375,
+    "official": 64.196
+   },
+   "decisionsWherePoliciesDiffer": 0.221
+  },
+  "strictlyBetter": {
+   "n": 560,
+   "candidateScore": 0.5,
+   "ci95": [
+    0.461,
+    0.539
+   ],
+   "firstBirthRound": {
+    "candidate": 1.852,
+    "official": 1.92
+   },
+   "timeLostPerMatch": {
+    "candidate": 26.688,
+    "official": 26.564
+   },
+   "finalGrowth": {
+    "candidate": 62.661,
+    "official": 62.67
+   },
+   "decisionsWherePoliciesDiffer": 0.814
+  },
+  "strictlyBetter|balance": {
+   "n": 80,
+   "candidateScore": 0.519,
+   "ci95": [
+    0.416,
+    0.621
+   ],
+   "firstBirthRound": {
+    "candidate": 2.1,
+    "official": 2.163
+   },
+   "timeLostPerMatch": {
+    "candidate": 24.8,
+    "official": 24.775
+   },
+   "finalGrowth": {
+    "candidate": 68.188,
+    "official": 68.688
+   },
+   "decisionsWherePoliciesDiffer": 0.988
+  },
+  "strictlyBetter|challenge": {
+   "n": 80,
+   "candidateScore": 0.487,
+   "ci95": [
+    0.38,
+    0.595
+   ],
+   "firstBirthRound": {
+    "candidate": 1.675,
+    "official": 1.725
+   },
+   "timeLostPerMatch": {
+    "candidate": 28.387,
+    "official": 28.25
+   },
+   "finalGrowth": {
+    "candidate": 56.25,
+    "official": 56.25
+   },
+   "decisionsWherePoliciesDiffer": 0.65
+  },
+  "strictlyBetter|companion": {
+   "n": 80,
+   "candidateScore": 0.519,
+   "ci95": [
+    0.416,
+    0.621
+   ],
+   "firstBirthRound": {
+    "candidate": 2.1,
+    "official": 2.212
+   },
+   "timeLostPerMatch": {
+    "candidate": 30.325,
+    "official": 30.462
+   },
+   "finalGrowth": {
+    "candidate": 61.438,
+    "official": 59.562
+   },
+   "decisionsWherePoliciesDiffer": 0.775
+  },
+  "strictlyBetter|first": {
+   "n": 280,
+   "candidateScore": 0.539,
+   "ci95": [
+    0.483,
+    0.595
+   ],
+   "firstBirthRound": {
+    "candidate": 1.85,
+    "official": 1.932
+   },
+   "timeLostPerMatch": {
+    "candidate": 26.736,
+    "official": 26.493
+   },
+   "finalGrowth": {
+    "candidate": 64.143,
+    "official": 61.214
+   },
+   "decisionsWherePoliciesDiffer": 0.825
+  },
+  "strictlyBetter|growth": {
+   "n": 80,
+   "candidateScore": 0.5,
+   "ci95": [
+    0.405,
+    0.595
+   ],
+   "firstBirthRound": {
+    "candidate": 1.975,
+    "official": 1.975
+   },
+   "timeLostPerMatch": {
+    "candidate": 24.688,
+    "official": 24.575
+   },
+   "finalGrowth": {
+    "candidate": 73.562,
+    "official": 73.5
+   },
+   "decisionsWherePoliciesDiffer": 0.537
+  },
+  "strictlyBetter|item": {
+   "n": 80,
+   "candidateScore": 0.494,
+   "ci95": [
+    0.384,
+    0.603
+   ],
+   "firstBirthRound": {
+    "candidate": 1.725,
+    "official": 1.863
+   },
+   "timeLostPerMatch": {
+    "candidate": 21.788,
+    "official": 20.938
+   },
+   "finalGrowth": {
+    "candidate": 66.125,
+    "official": 66.875
+   },
+   "decisionsWherePoliciesDiffer": 1.337
+  },
+  "strictlyBetter|main": {
+   "n": 80,
+   "candidateScore": 0.481,
+   "ci95": [
+    0.375,
+    0.588
+   ],
+   "firstBirthRound": {
+    "candidate": 1.363,
+    "official": 1.413
+   },
+   "timeLostPerMatch": {
+    "candidate": 28.913,
+    "official": 29.05
+   },
+   "finalGrowth": {
+    "candidate": 53.875,
+    "official": 54.625
+   },
+   "decisionsWherePoliciesDiffer": 0.662
+  },
+  "strictlyBetter|partner": {
+   "n": 80,
+   "candidateScore": 0.5,
+   "ci95": [
+    0.39,
+    0.61
+   ],
+   "firstBirthRound": {
+    "candidate": 2.025,
+    "official": 2.087
+   },
+   "timeLostPerMatch": {
+    "candidate": 27.913,
+    "official": 27.9
+   },
+   "finalGrowth": {
+    "candidate": 59.188,
+    "official": 59.188
+   },
+   "decisionsWherePoliciesDiffer": 0.75
+  },
+  "strictlyBetter|second": {
+   "n": 280,
+   "candidateScore": 0.461,
+   "ci95": [
+    0.405,
+    0.516
+   ],
+   "firstBirthRound": {
+    "candidate": 1.854,
+    "official": 1.907
+   },
+   "timeLostPerMatch": {
+    "candidate": 26.639,
+    "official": 26.636
+   },
+   "finalGrowth": {
+    "candidate": 61.179,
+    "official": 64.125
+   },
+   "decisionsWherePoliciesDiffer": 0.804
+  },
+  "variantAware": {
+   "n": 240,
+   "candidateScore": 0.542,
+   "ci95": [
+    0.481,
+    0.602
+   ],
+   "firstBirthRound": {
+    "candidate": 1.917,
+    "official": 1.917
+   },
+   "timeLostPerMatch": {
+    "candidate": 24.871,
+    "official": 24.883
+   },
+   "finalGrowth": {
+    "candidate": 64.812,
+    "official": 63.083
+   },
+   "decisionsWherePoliciesDiffer": 0.492
+  },
+  "variantAware|balance": {
+   "n": 80,
+   "candidateScore": 0.537,
+   "ci95": [
+    0.438,
+    0.637
+   ],
+   "firstBirthRound": {
+    "candidate": 2.163,
+    "official": 2.163
+   },
+   "timeLostPerMatch": {
+    "candidate": 25.0,
+    "official": 25.0
+   },
+   "finalGrowth": {
+    "candidate": 69.312,
+    "official": 68.125
+   },
+   "decisionsWherePoliciesDiffer": 0.263
+  },
+  "variantAware|challenge": {
+   "n": 80,
+   "candidateScore": 0.581,
+   "ci95": [
+    0.473,
+    0.689
+   ],
+   "firstBirthRound": {
+    "candidate": 1.725,
+    "official": 1.725
+   },
+   "timeLostPerMatch": {
+    "candidate": 28.438,
+    "official": 28.475
+   },
+   "finalGrowth": {
+    "candidate": 58.188,
+    "official": 55.125
+   },
+   "decisionsWherePoliciesDiffer": 1.012
+  },
+  "variantAware|first": {
+   "n": 120,
+   "candidateScore": 0.621,
+   "ci95": [
+    0.537,
+    0.704
+   ],
+   "firstBirthRound": {
+    "candidate": 1.908,
+    "official": 1.925
+   },
+   "timeLostPerMatch": {
+    "candidate": 24.592,
+    "official": 25.092
+   },
+   "finalGrowth": {
+    "candidate": 66.958,
+    "official": 60.667
+   },
+   "decisionsWherePoliciesDiffer": 0.383
+  },
+  "variantAware|item": {
+   "n": 80,
+   "candidateScore": 0.506,
+   "ci95": [
+    0.398,
+    0.614
+   ],
+   "firstBirthRound": {
+    "candidate": 1.863,
+    "official": 1.863
+   },
+   "timeLostPerMatch": {
+    "candidate": 21.175,
+    "official": 21.175
+   },
+   "finalGrowth": {
+    "candidate": 66.938,
+    "official": 66.0
+   },
+   "decisionsWherePoliciesDiffer": 0.2
+  },
+  "variantAware|second": {
+   "n": 120,
+   "candidateScore": 0.463,
+   "ci95": [
+    0.376,
+    0.549
+   ],
+   "firstBirthRound": {
+    "candidate": 1.925,
+    "official": 1.908
+   },
+   "timeLostPerMatch": {
+    "candidate": 25.15,
+    "official": 24.675
+   },
+   "finalGrowth": {
+    "candidate": 62.667,
+    "official": 65.5
+   },
+   "decisionsWherePoliciesDiffer": 0.6
+  }
+ }
+}
