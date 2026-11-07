@@ -1,0 +1,395 @@
+{
+ "games": 2616,
+ "abnormal": 0,
+ "replay": {
+  "match": 2616
+ },
+ "RR": {
+  "decks": {
+   "balance": {
+    "A0": 0.575,
+    "V4": 0.5667,
+    "diff": [
+     -0.0083,
+     -0.0625,
+     0.0458
+    ],
+    "n": 120
+   },
+   "challenge": {
+    "A0": 0.4458,
+    "V4": 0.3917,
+    "diff": [
+     -0.0542,
+     -0.1029,
+     -0.0054
+    ],
+    "n": 120
+   },
+   "companion": {
+    "A0": 0.4875,
+    "V4": 0.45,
+    "diff": [
+     -0.0375,
+     -0.0867,
+     0.0117
+    ],
+    "n": 120
+   },
+   "growth": {
+    "A0": 0.4833,
+    "V4": 0.4417,
+    "diff": [
+     -0.0417,
+     -0.0755,
+     -0.0078
+    ],
+    "n": 120
+   },
+   "item": {
+    "A0": 0.5833,
+    "V4": 0.6125,
+    "diff": [
+     0.0292,
+     -0.0216,
+     0.0799
+    ],
+    "n": 120
+   },
+   "main": {
+    "A0": 0.4917,
+    "V4": 0.5417,
+    "diff": [
+     0.05,
+     0.0077,
+     0.0923
+    ],
+    "n": 120
+   },
+   "partner": {
+    "A0": 0.4333,
+    "V4": 0.4958,
+    "diff": [
+     0.0625,
+     -0.0083,
+     0.1333
+    ],
+    "n": 120
+   }
+  },
+  "width": {
+   "A0": 0.15,
+   "V4": 0.2208
+  },
+  "A0_partner": {
+   "first": 0.4417,
+   "second": 0.425,
+   "marriedRate": 0.9417,
+   "marriedRound": 6.221,
+   "v4PerGame": 0.0,
+   "v4ByCard": {},
+   "maxHand": 15,
+   "growth": 67.08
+  },
+  "A0_all": {
+   "first": 0.4917,
+   "maxHand": 15,
+   "hand15": 2,
+   "deckOut": 0
+  },
+  "V4_partner": {
+   "first": 0.5833,
+   "second": 0.4083,
+   "marriedRate": 0.9417,
+   "marriedRound": 6.195,
+   "v4PerGame": 0.942,
+   "v4ByCard": {
+    "P-grove_deer": 75,
+    "P-high_eagle": 38
+   },
+   "maxHand": 15,
+   "growth": 69.29
+  },
+  "V4_all": {
+   "first": 0.5179,
+   "maxHand": 15,
+   "hand15": 1,
+   "deckOut": 0
+  }
+ },
+ "LV": {
+  "P-anglerfish": {
+   "A0": 0.4688,
+   "V4": 0.4583,
+   "diff": [
+    -0.0104,
+    -0.084,
+    0.0631
+   ],
+   "n": 48,
+   "v4PerGame": 0.958,
+   "marriedRate": 0.958,
+   "marriedRound": 6.35
+  },
+  "P-cat_ceo": {
+   "A0": 0.4792,
+   "V4": 0.5104,
+   "diff": [
+    0.0312,
+    -0.0135,
+    0.076
+   ],
+   "n": 48,
+   "v4PerGame": 1.0,
+   "marriedRate": 1.0,
+   "marriedRound": 6.25
+  },
+  "P-cliff_goat": {
+   "A0": 0.5312,
+   "V4": 0.5,
+   "diff": [
+    -0.0312,
+    -0.0984,
+    0.0359
+   ],
+   "n": 48,
+   "v4PerGame": 0.625,
+   "marriedRate": 0.938,
+   "marriedRound": 6.69
+  },
+  "P-desert_scorpion": {
+   "A0": 0.5833,
+   "V4": 0.625,
+   "diff": [
+    0.0417,
+    -0.0577,
+    0.141
+   ],
+   "n": 48,
+   "v4PerGame": 0.729,
+   "marriedRate": 1.0,
+   "marriedRound": 6.54
+  },
+  "P-field_cow": {
+   "A0": 0.5521,
+   "V4": 0.5521,
+   "diff": [
+    0.0,
+    -0.0764,
+    0.0764
+   ],
+   "n": 48,
+   "v4PerGame": 0.542,
+   "marriedRate": 1.0,
+   "marriedRound": 6.67
+  },
+  "P-forest_bear": {
+   "A0": 0.4688,
+   "V4": 0.4896,
+   "diff": [
+    0.0208,
+    -0.0366,
+    0.0783
+   ],
+   "n": 48,
+   "v4PerGame": 0.625,
+   "marriedRate": 1.0,
+   "marriedRound": 6.75
+  },
+  "P-gentle_gorilla": {
+   "A0": 0.4688,
+   "V4": 0.4062,
+   "diff": [
+    -0.0625,
+    -0.1175,
+    -0.0075
+   ],
+   "n": 48,
+   "v4PerGame": 0.542,
+   "marriedRate": 1.0,
+   "marriedRound": 6.31
+  },
+  "P-knitting_spider": {
+   "A0": 0.5625,
+   "V4": 0.5521,
+   "diff": [
+    -0.0104,
+    -0.0457,
+    0.0248
+   ],
+   "n": 48,
+   "v4PerGame": 0.396,
+   "marriedRate": 1.0,
+   "marriedRound": 6.4
+  },
+  "P-oasis_cactus": {
+   "A0": 0.4583,
+   "V4": 0.5208,
+   "diff": [
+    0.0625,
+    0.0004,
+    0.1246
+   ],
+   "n": 48,
+   "v4PerGame": 0.542,
+   "marriedRate": 1.0,
+   "marriedRound": 6.4
+  },
+  "P-robot_neighbor": {
+   "A0": 0.6146,
+   "V4": 0.5938,
+   "diff": [
+    -0.0208,
+    -0.0705,
+    0.0288
+   ],
+   "n": 48,
+   "v4PerGame": 0.542,
+   "marriedRate": 1.0,
+   "marriedRound": 6.42
+  },
+  "P-rock_octopus": {
+   "A0": 0.5417,
+   "V4": 0.5312,
+   "diff": [
+    -0.0104,
+    -0.084,
+    0.0631
+   ],
+   "n": 48,
+   "v4PerGame": 0.625,
+   "marriedRate": 1.0,
+   "marriedRound": 6.46
+  },
+  "P-sea_mermaid": {
+   "A0": 0.5208,
+   "V4": 0.5312,
+   "diff": [
+    0.0104,
+    -0.0435,
+    0.0644
+   ],
+   "n": 48,
+   "v4PerGame": 0.625,
+   "marriedRate": 0.958,
+   "marriedRound": 6.52
+  },
+  "P-snow_spirit": {
+   "A0": 0.3854,
+   "V4": 0.4062,
+   "diff": [
+    0.0208,
+    -0.0196,
+    0.0612
+   ],
+   "n": 48,
+   "v4PerGame": 0.958,
+   "marriedRate": 0.958,
+   "marriedRound": 6.3
+  },
+  "P-snowman": {
+   "A0": 0.4062,
+   "V4": 0.3854,
+   "diff": [
+    -0.0208,
+    -0.0612,
+    0.0196
+   ],
+   "n": 48,
+   "v4PerGame": 0.5,
+   "marriedRate": 1.0,
+   "marriedRound": 6.48
+  },
+  "P-sunflower_partner": {
+   "A0": 0.3958,
+   "V4": 0.3854,
+   "diff": [
+    -0.0104,
+    -0.0894,
+    0.0686
+   ],
+   "n": 48,
+   "v4PerGame": 0.667,
+   "marriedRate": 1.0,
+   "marriedRound": 6.65
+  },
+  "P-swamp_croc": {
+   "A0": 0.4583,
+   "V4": 0.4583,
+   "diff": [
+    0.0,
+    -0.0707,
+    0.0707
+   ],
+   "n": 48,
+   "v4PerGame": 0.604,
+   "marriedRate": 0.917,
+   "marriedRound": 6.55
+  }
+ },
+ "SX": {
+  "A0": {
+   "score": 0.5813,
+   "growth": 70.69,
+   "marriedRate": 0.988,
+   "breakupsPerGame": 0.512,
+   "byStage": {
+    "0": 6,
+    "1": 13,
+    "2": 7,
+    "3": 3,
+    "4": 12
+   },
+   "divorces": 12,
+   "oppBreakupsPerGame": 0.0,
+   "v4PerGame": 0.0
+  },
+  "V4": {
+   "score": 0.575,
+   "growth": 70.69,
+   "marriedRate": 0.988,
+   "breakupsPerGame": 0.537,
+   "byStage": {
+    "0": 8,
+    "1": 8,
+    "2": 11,
+    "3": 3,
+    "4": 13
+   },
+   "divorces": 13,
+   "oppBreakupsPerGame": 0.0,
+   "v4PerGame": 1.012
+  },
+  "V4cpu0": {
+   "score": 0.575,
+   "growth": 70.75,
+   "marriedRate": 0.988,
+   "breakupsPerGame": 0.512,
+   "byStage": {
+    "0": 6,
+    "1": 13,
+    "2": 8,
+    "3": 3,
+    "4": 11
+   },
+   "divorces": 11,
+   "oppBreakupsPerGame": 0.0,
+   "v4PerGame": 1.012
+  },
+  "V4-A0": [
+   -0.0063,
+   -0.0766,
+   0.0641
+  ],
+  "V4cpu0-A0": [
+   -0.0063,
+   -0.065,
+   0.0525
+  ],
+  "V4-V4cpu0": [
+   0.0,
+   -0.052,
+   0.052
+  ]
+ }
+}
