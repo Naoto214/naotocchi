@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {createHash} from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+import {dial,gameAngles,timeAngles,variants,palettes} from '../dist/clock.mjs';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const repo=path.resolve(root,'../..');const base='7c1f18c77b902d06159157899c36104e5d8c4a8d';
+const out={base,checks:[],scope:'Isolated design prototype; no full game regression needed because existing files must be byte-identical.'};
+function check(name,fn){fn();out.checks.push({name,pass:true});}
+check('Original copy is byte-identical to production PNG',()=>assert.deepEqual(fs.readFileSync(path.join(root,'dist/assets/official-card-back.png')),fs.readFileSync(path.join(repo,'prototypes/card-game/ui-assets/card-back-approved.png'))));
+check('Actual production hidden renderer shares one back for null, normal, rare and special hidden input',()=>{const text=fs.readFileSync(path.join(repo,'prototypes/card-game/ui-presentation.mjs'),'utf8');const fn=text.slice(text.indexOf('export function cardMarkup('),text.indexOf('export function canInspectCard(')).replace('export ','');const render=new Function(fn+';return cardMarkup;')();const expected=render(null);assert.ok(expected.includes('ui-assets/card-back-approved.png'));for(const input of [{hidden:true},{hidden:true,rare:true},{hidden:true,type:'egg'}])assert.equal(render(input),expected);});
+check('All 15 design/palette combinations use exactly 12 ordered numbers, 60 ticks and 3 equal round markers',()=>{for(const id of Object.keys(variants))for(const palette of Object.keys(palettes)){const s=dial(id,{palette});assert.deepEqual([...s.matchAll(/data-hour="(\d+)"/g)].map(m=>+m[1]),Array.from({length:12},(_,i)=>i+1));assert.equal((s.match(/<line /g)||[]).length,60);const m=[...s.matchAll(/<circle data-marker="(\d+)"[^>]*r="10"[^>]*>/g)];assert.deepEqual(m.map(x=>+x[1]),[10,11,12]);assert.equal((s.match(/data-hand=/g)||[]).length,3);}});
+check('AB markers sit outside numbers; original four retain their geometry',()=>{for(const id of Object.keys(variants)){const s=dial(id);for(const m of s.matchAll(/data-marker="(\d+)" cx="([^"]+)" cy="([^"]+)"/g)){assert.ok(Math.abs(Math.hypot(+m[2]-400,+m[3]-400)-(id==='AB'?291:205))<1e-8);}}});
+check('Game example, coincidence and independent growth geometry',()=>{assert.deepEqual(gameAngles(7,40,20),[210,120,60]);assert.deepEqual(gameAngles(10,100,100),[300,300,300]);assert.deepEqual(gameAngles(8,55,31),[240,165,93]);assert.deepEqual(gameAngles(1,0,0),[30,0,0]);});
+check('Ordinary clock advances hour hand with minute and second',()=>{const a=timeAngles(10,10,30);assert.ok(Math.abs(a[0]-63)<1e-9);assert.ok(Math.abs(a[1]-305.25)<1e-9);assert.equal(a[2],180);});
+check('No persistent game storage, external module or game engine import',()=>{for(const f of ['app.mjs','clock.mjs']){const s=fs.readFileSync(path.join(root,'dist',f),'utf8');assert.ok(!/localStorage|sessionStorage|indexedDB|fetch\(|https?:\/\//.test(s.replace('http://www.w3.org/2000/svg','')));}});
+check('All existing tracked repository paths match baseline',()=>{const changed=execFileSync('git',['diff',base,'--name-only'],{cwd:repo,encoding:'utf8'}).trim().split('\n').filter(Boolean);assert.ok(changed.every(f=>f.startsWith('prototypes/life-clock-20261031/')),changed.join('\n'));});
+out.assets=fs.readdirSync(path.join(root,'dist/assets')).sort().map(file=>{const bytes=fs.readFileSync(path.join(root,'dist/assets',file));return {file,bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex')};});
+fs.writeFileSync(path.join(root,'evidence/static-verification.json'),JSON.stringify(out,null,2)+'\n');console.log(JSON.stringify({passed:out.checks.length,failed:0,assets:out.assets.length},null,2));

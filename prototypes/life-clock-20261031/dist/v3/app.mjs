@@ -1,0 +1,13 @@
+import{sample,render,readings,angle}from'./chrono.mjs';
+const $=s=>document.querySelector(s),state={...sample};
+const fields=[['round','共通ラウンド',1,12,1],['growthA','Aのそだち',0,100,5],['growthB','Bのそだち',0,100,5],['timeA','Aの残り時',0,12,1],['timeB','Bの残り時',0,12,1],['end','現在の終了ラウンド',10,12,1]];
+$('#sliders').innerHTML=fields.map(([id,label,min,max,step])=>`<label for="${id}">${label}<output id="${id}-out">${state[id]}</output><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${state[id]}"></label>`).join('');
+function update(){const scale=$('#scale').value,profile=$('#profile').value;let rows='',bad=0;for(const layout of ['A','B']){$('#dial'+layout).innerHTML=render(layout,state,{scale,profile});const r=readings(layout,state,scale,profile);$('#readout'+layout).innerHTML=r.map(x=>`<span>${x.role} ${x.value}${x.endpoint?'（'+x.endpoint+'）':''}</span>`).join('');rows+=r.map((x,i)=>`<tr><td>${layout} / ${['中央R','中央A','中央B','左','右','下'][i]} ${x.role}</td><td>${x.value}</td><td>${x.angle.toFixed(1)}°</td><td>${x.tick.toFixed(2)} / ${x.ticks}</td><td class="${x.exact?'ok':'warn'}">${x.exact?'目盛り上':'目盛りの中間'}</td></tr>`).join('');bad+=r.filter(x=>!x.exact).length;}$('#angles').innerHTML=rows;$('#status').textContent=bad?`現在の入力：両配置の計12針中${bad}本が目盛りの中間です。換算または右の分割数を比較してください。`:'現在の入力：両配置とも6本すべて目盛りに一致。0と最大値は数値表示で区別します。';for(const[id]of fields){$('#'+id).value=state[id];$('#'+id+'-out').value=state[id];}}
+for(const[id]of fields)$('#'+id).addEventListener('input',e=>{state[id]=Number(e.target.value);update();});
+for(const id of ['scale','profile'])$('#'+id).addEventListener('change',update);
+$('#example').onclick=()=>{Object.assign(state,sample);update();};
+$('#zero').onclick=()=>{Object.assign(state,{growthA:0,growthB:100,timeA:0,timeB:12});update();};
+$('#overlap').onclick=()=>{Object.assign(state,{round:6,growthA:$('#scale').value==='legacy'?60:50,growthB:$('#scale').value==='legacy'?60:50,timeA:6,timeB:6});update();};
+function ordinary(){const parts=$('#ordinary-time').value.split(':').map(Number);let elapsed=Number($('#elapsed').value);elapsed=Math.max(0,Math.min(43199,Math.round(Number.isFinite(elapsed)?elapsed:0)));$('#ordinary').innerHTML=render('B',state,{mode:'clock',time:[parts[0]||0,parts[1]||0,parts[2]||0],elapsed});}
+$('#ordinary-time').addEventListener('input',ordinary);$('#elapsed').addEventListener('input',ordinary);
+$('#growth-table').innerHTML=Array.from({length:21},(_,i)=>{const g=i*5;return `<tr><td>${g}</td><td>${angle('growth',g).toFixed(0)}°</td><td>${g*.6}</td><td>${g*.3}</td><td>${angle('growth',g,'legacy')}°</td></tr>`;}).join('');update();ordinary();

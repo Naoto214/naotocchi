@@ -1,0 +1,87 @@
+[
+  {
+    "id": "A",
+    "svg": "A"
+  },
+  {
+    "id": "B",
+    "svg": "B"
+  },
+  {
+    "id": "C",
+    "svg": "C"
+  },
+  {
+    "id": "D",
+    "svg": "D"
+  },
+  {
+    "pal": "soft",
+    "markers": [
+      {
+        "fill": "#AD555B",
+        "hour": "10",
+        "r": "10",
+        "shape": "circle"
+      },
+      {
+        "fill": "#4F9078",
+        "hour": "11",
+        "r": "10",
+        "shape": "circle"
+      },
+      {
+        "fill": "#477EB9",
+        "hour": "12",
+        "r": "10",
+        "shape": "circle"
+      }
+    ]
+  },
+  {
+    "pal": "jewel",
+    "markers": [
+      {
+        "fill": "#9E2649",
+        "hour": "10",
+        "r": "10",
+        "shape": "circle"
+      },
+      {
+        "fill": "#24795E",
+        "hour": "11",
+        "r": "10",
+        "shape": "circle"
+      },
+      {
+        "fill": "#245CB0",
+        "hour": "12",
+        "r": "10",
+        "shape": "circle"
+      }
+    ]
+  },
+  {
+    "pal": "bright",
+    "markers": [
+      {
+        "fill": "#E04444",
+        "hour": "10",
+        "r": "10",
+        "shape": "circle"
+      },
+      {
+        "fill": "#27974C",
+        "hour": "11",
+        "r": "10",
+        "shape": "circle"
+      },
+      {
+        "fill": "#286BE7",
+        "hour": "12",
+        "r": "10",
+        "shape": "circle"
+      }
+    ]
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-31",
+  "environment": "Cloud Chrome / local Sites preview http://terminal.local:4173/",
+  "checks": [
+    {"name": "AB hero, five comparison cards and next-version design notes present in rendered page", "pass": true},
+    {"name": "AB is initially selected", "pass": true},
+    {"name": "Overlap button updates round to 10 and both growth values to 100", "pass": true}
+  ],
+  "limitations": "New AB image on physical iPhone Safari awaits owner evaluation. Existing prior-version mobile evidence is not a new AB device test."
+}
