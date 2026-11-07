@@ -1,0 +1,94 @@
+[
+  {
+    "path": "clock.mjs",
+    "sha256": "bf85e60421260941e4e3ba5ca63a19a42182d4cce26cb3119950f165aa8fd7c2"
+  },
+  {
+    "path": "assets/official-card-back.png",
+    "sha256": "028114e02034a5c5d84a0ace2c97babb92363e19eed6249f87cc591897189872"
+  },
+  {
+    "path": "assets/dial-art-v4.png",
+    "sha256": "656315389e2c1f7e297fd843941167a9e7b3473f0bb2bd66814064093197d073"
+  },
+  {
+    "path": "v6/style.css",
+    "sha256": "196f087ab9bf5dd3c871b75f3240cb70f4092bb8baa377876a3774431588298b"
+  },
+  {
+    "path": "v6/measure.mjs",
+    "sha256": "02d6d8484f04830c8f3a6cd59e72d04efb12f3be120717c0b57e94ca50af0087"
+  },
+  {
+    "path": "v6/verify.mjs",
+    "sha256": "21365daec0582ca3f79af4c128da408dce9147b293d1fb27e75f659bad4484e9"
+  },
+  {
+    "path": "v6/index.html",
+    "sha256": "2754c8a90c169a2c88e02df8d1a00d2ea1ce4592307a0cd8c6f629b770172e69"
+  },
+  {
+    "path": "v6/app.mjs",
+    "sha256": "593568d95c0e7227fdf93a5a9b9d9aca8fb2a98c88f138fbb2533ab02dd2a67f"
+  },
+  {
+    "path": "v6/qa.html",
+    "sha256": "739f3d6a8682ef122e2f3109c60dea5e49f34c823bd821a60fba44686022fdc9"
+  },
+  {
+    "path": "v6/clock-v6.mjs",
+    "sha256": "c5e9ac4876aae42ff745d93f9b15ae5fb96605da87ade92f756a45c30f26080d"
+  },
+  {
+    "path": "v7/clock-v7.mjs",
+    "sha256": "980111f68624d446bb706728de9ae75b60b84377ff96bbb5577fd72cb6b47763"
+  },
+  {
+    "path": "v7/verify.mjs",
+    "sha256": "d70df016489f7b6625d74b4083d30210fea2c2c48724c83ea355a47f1353f060"
+  },
+  {
+    "path": "v7/index.html",
+    "sha256": "774f70debb55ac8644d7ce828b5483c291eb320dddc861090f0e75686384703a"
+  },
+  {
+    "path": "v7/app.mjs",
+    "sha256": "15babb14397fa609244a619cea67ff27b8205fada7bb6b6233bb539432225931"
+  },
+  {
+    "path": "v7/qa.html",
+    "sha256": "3ca888b6d4bb169012b4c4201987b26dbf66bfa5c0ec7d987d2cd590465b1b98"
+  },
+  {
+    "path": "v7/REPORT.md",
+    "sha256": "6143af3d74d4ea5cabfe0d2ba6a077ac969bcecd917d29cc24f1cbd92b831f48"
+  },
+  {
+    "path": "v7/render-evidence.mjs",
+    "sha256": "810a95413168f857a393d4382a6f92166dedab9928abdd5326324282f1d65a82"
+  },
+  {
+    "path": "v5/clock-v5.mjs",
+    "sha256": "1ade38b66c1f3ed9b2a210e695a215ab82e872f025736af88c44ecedf3107830"
+  },
+  {
+    "path": "v6/evidence/color.json",
+    "sha256": "a1a34baaa50c6eafaeb5f75807dcb2504edffba95c9a70ddaca0e783b54b0b65"
+  },
+  {
+    "path": "v6/evidence/comparison.jpg",
+    "sha256": "0dc9d4b01c11d2ab8e268a668060b3fd6933c133b470ea3554cafe4f0c4d4aac"
+  },
+  {
+    "path": "v6/evidence/verification.json",
+    "sha256": "88f92e9618296dddd06ef2163859e545d54b9daed392c38f9567cb8380ebef3f"
+  },
+  {
+    "path": "v7/evidence/comparison.jpg",
+    "sha256": "975410015a2e3d49e0bc9b4199a1bb9f9a82e2b0b8f37dbc31fddd88eaa2fe3a"
+  },
+  {
+    "path": "v7/evidence/verification.json",
+    "sha256": "7c36378b76d480d6882af4100d956d98055f36527ce713165afdd9a51674b7e7"
+  }
+]
