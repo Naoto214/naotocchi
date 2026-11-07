@@ -1,0 +1,228 @@
+{
+  "baseMain": "aec03c20ae8b064c6c2f8aca5537f1938df6439f",
+  "sourceV3": "a4b873688aa2468e2d4c24e3bbca7bc6c130d8e1",
+  "checks": [
+    {
+      "name": "All valid values land on exact main/growth/end ticks in both palettes and both hand profiles",
+      "pass": true
+    },
+    {
+      "name": "Reference state maps to independently calculated six angles",
+      "pass": true
+    },
+    {
+      "name": "Changing each field changes only its own hand",
+      "pass": true
+    },
+    {
+      "name": "Main uses 1-9 then X XI XII; no markers by default",
+      "pass": true
+    },
+    {
+      "name": "Both growth dials have 20 ticks and ten labels at 0-90; end has only three roman labels",
+      "pass": true
+    },
+    {
+      "name": "Growth0 and100 same direction but distinct state and small100 indicator",
+      "pass": true
+    },
+    {
+      "name": "Central length and width hierarchy persists at overlap",
+      "pass": true
+    },
+    {
+      "name": "C1/C2 shapes identical after their background colors are normalized",
+      "pass": true
+    },
+    {
+      "name": "Clock edition has only three functional hands and no growth/end indicators",
+      "pass": true
+    },
+    {
+      "name": "Invalid or non5-step values rejected",
+      "pass": true
+    },
+    {
+      "name": "Original card back and imported comparison images are byte-identical to pinned sources",
+      "pass": true
+    },
+    {
+      "name": "Changes limited to new prototype path; no game/save imports",
+      "pass": true
+    }
+  ],
+  "cases": 336,
+  "assets": [
+    {
+      "file": "C1-C2-comparison.jpg",
+      "bytes": 389259,
+      "sha256": "acac441bb5632a8b15a5b3b6f6e223a1415e8341cdde37b79240ee03618be1a0"
+    },
+    {
+      "file": "clock-reference.png",
+      "bytes": 1981912,
+      "sha256": "abc3d81db67db24496ee209eb84745cbce4228b59e41f005171ea0d2b64bff0c"
+    },
+    {
+      "file": "clock-reference.svg",
+      "bytes": 15608,
+      "sha256": "376684e0104c4d7acfe274ea899afa6a50186b9f357fe31c89b9e82058f3e9d1"
+    },
+    {
+      "file": "dial-art-v4.png",
+      "bytes": 2642804,
+      "sha256": "656315389e2c1f7e297fd843941167a9e7b3473f0bb2bd66814064093197d073"
+    },
+    {
+      "file": "end-detail.png",
+      "bytes": 934501,
+      "sha256": "b7d99a099da2242d4a6d773ae08f449c018e804ad3f8270035d1fbfa7290e117"
+    },
+    {
+      "file": "end-detail.svg",
+      "bytes": 24024,
+      "sha256": "1b71e52447dc1930d19e8ef2a79a09808ba2b8d10df5feac19708f7d9d687678"
+    },
+    {
+      "file": "game-C1.png",
+      "bytes": 1993018,
+      "sha256": "319a95eeb5fc6504c8235d17e6002c6ea088538851807a42603cbb38a9bcf522"
+    },
+    {
+      "file": "game-C1.svg",
+      "bytes": 24022,
+      "sha256": "6308aec8d2d1d457651f8201381fb9eb920d0af24754cadb94a81db74e7af3c0"
+    },
+    {
+      "file": "game-C2.png",
+      "bytes": 1998785,
+      "sha256": "db2381a88ac26ea08b6276c9a612230432d24ee41f4435c5fb2c9ca0f091a978"
+    },
+    {
+      "file": "game-C2.svg",
+      "bytes": 24022,
+      "sha256": "6c8198d0eb2d3b4075b009c76712499a9bc11eac2de3eaf57f9eb513af896728"
+    },
+    {
+      "file": "growth-detail.png",
+      "bytes": 724383,
+      "sha256": "6aa82cf5939ed262714a72cfe108521b01da98e602e6c75b44a65ba2dafb79f3"
+    },
+    {
+      "file": "growth-detail.svg",
+      "bytes": 24322,
+      "sha256": "6a460815038f40ecf6093b7dbeaf6dbcfa1680cbcf72e6b4713e9ee19cea7f36"
+    },
+    {
+      "file": "hand-comparison.jpg",
+      "bytes": 387462,
+      "sha256": "fef4ee6df73bcfa6cb36e526dd48c19c3d8ccfae2db6d65d1a9cf984842776fd"
+    },
+    {
+      "file": "hands-classic.png",
+      "bytes": 1998928,
+      "sha256": "5997c70ee19f9c6686366e791240d46ecc72f5a242fa19d67d32920a0bf45f3c"
+    },
+    {
+      "file": "hands-classic.svg",
+      "bytes": 24022,
+      "sha256": "b63da98f50f17ef6363e7513d88aa2b977ad5e702a17a045d775bcb246823145"
+    },
+    {
+      "file": "hands-light.png",
+      "bytes": 2002287,
+      "sha256": "87f2390d9ebf35b1b8b3e1f8fccb0a5e0bf4fcc0428db8cb08365ec31afde20b"
+    },
+    {
+      "file": "hands-light.svg",
+      "bytes": 24040,
+      "sha256": "2de09e8a1d2172ec4d93125089f94cf6a246bd25749805f658444f5151575b0a"
+    },
+    {
+      "file": "markers-reference.png",
+      "bytes": 1991936,
+      "sha256": "24d09897124ecbc15a5be65770946e40f7821fb9d1b9087ddd1c9da3a89c4748"
+    },
+    {
+      "file": "markers-reference.svg",
+      "bytes": 24390,
+      "sha256": "e2d10ba459de9932ac8bf916abffc0f56d5ba1a7bd4af6aa146f08bd3629b0f5"
+    },
+    {
+      "file": "official-card-back.png",
+      "bytes": 2600292,
+      "sha256": "028114e02034a5c5d84a0ace2c97babb92363e19eed6249f87cc591897189872"
+    },
+    {
+      "file": "overlap-all.png",
+      "bytes": 1998928,
+      "sha256": "5997c70ee19f9c6686366e791240d46ecc72f5a242fa19d67d32920a0bf45f3c"
+    },
+    {
+      "file": "overlap-all.svg",
+      "bytes": 24022,
+      "sha256": "b63da98f50f17ef6363e7513d88aa2b977ad5e702a17a045d775bcb246823145"
+    },
+    {
+      "file": "overlap-crossing.png",
+      "bytes": 1995903,
+      "sha256": "0c954c5f723feef68179ff1d55c2535981ddf7f985d70d0b956d921b5ed41f7f"
+    },
+    {
+      "file": "overlap-crossing.svg",
+      "bytes": 24020,
+      "sha256": "6c6b8559c682d99b1f5e6d40d940d309e9ede2cca7cf2ba4e17c3f54cfddcef0"
+    },
+    {
+      "file": "overlap-gold-green.png",
+      "bytes": 1991237,
+      "sha256": "f3734b2f996b365bbd6fb5eabeb62a49836d1958765721a902f4c1d2b71739ad"
+    },
+    {
+      "file": "overlap-gold-green.svg",
+      "bytes": 24020,
+      "sha256": "2c0164aa80570f5f9c3ee95e88adcaac74f58a349e84024fa22db3dafc7c2f98"
+    },
+    {
+      "file": "overlap-gold-red.png",
+      "bytes": 1998690,
+      "sha256": "27ef403a22330958f5cfa68588c7c571baaa713c63ebb6c64889800ffa563e0d"
+    },
+    {
+      "file": "overlap-gold-red.svg",
+      "bytes": 24020,
+      "sha256": "67e238beafeb511339593b8ac0c391f76a90282944d11f7668b599c9a65e0dfc"
+    },
+    {
+      "file": "overlap-red-green.png",
+      "bytes": 1993370,
+      "sha256": "0b6aeda33f4eeb1c59a3cccc8cf3245038eb337a73005255faf9e5d19afdbecb"
+    },
+    {
+      "file": "overlap-red-green.svg",
+      "bytes": 24020,
+      "sha256": "4d82cb546fe19b1ebb8c6d067bf5ef2b8753e5675d1177e362d1d8186b83f885"
+    },
+    {
+      "file": "overlap-separate.png",
+      "bytes": 1993018,
+      "sha256": "319a95eeb5fc6504c8235d17e6002c6ea088538851807a42603cbb38a9bcf522"
+    },
+    {
+      "file": "overlap-separate.svg",
+      "bytes": 24022,
+      "sha256": "6308aec8d2d1d457651f8201381fb9eb920d0af24754cadb94a81db74e7af3c0"
+    },
+    {
+      "file": "reference-AB.png",
+      "bytes": 2550084,
+      "sha256": "6e882394ace89ea2dd8b7ab7459b019426dfc1a6a4ea4c793503a211463584dd"
+    },
+    {
+      "file": "reference-v3-B.png",
+      "bytes": 2088427,
+      "sha256": "f7670d9650b9b51e565c93e9308cafc380adfb9f61cd7ccf7f52656bd3872817"
+    }
+  ],
+  "failed": 0
+}
