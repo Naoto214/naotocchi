@@ -1,0 +1,102 @@
+[
+  {
+    "stage": 11,
+    "states": 7,
+    "edges": 10,
+    "clearStates": 1,
+    "maxActors": 1,
+    "deadStates": 0,
+    "deadExample": [],
+    "allClearStatesMeetRequired": true
+  },
+  {
+    "stage": 12,
+    "states": 15,
+    "edges": 39,
+    "clearStates": 1,
+    "maxActors": 1,
+    "deadStates": 0,
+    "deadExample": [],
+    "allClearStatesMeetRequired": true
+  },
+  {
+    "stage": 13,
+    "states": 27,
+    "edges": 72,
+    "clearStates": 1,
+    "maxActors": 1,
+    "deadStates": 0,
+    "deadExample": [],
+    "allClearStatesMeetRequired": true
+  },
+  {
+    "stage": 14,
+    "states": 14,
+    "edges": 34,
+    "clearStates": 1,
+    "maxActors": 2,
+    "deadStates": 0,
+    "deadExample": [],
+    "allClearStatesMeetRequired": true
+  },
+  {
+    "stage": 15,
+    "states": 55,
+    "edges": 210,
+    "clearStates": 1,
+    "maxActors": 3,
+    "deadStates": 0,
+    "deadExample": [],
+    "allClearStatesMeetRequired": true
+  },
+  {
+    "stage": 16,
+    "states": 95,
+    "edges": 394,
+    "clearStates": 1,
+    "maxActors": 4,
+    "deadStates": 0,
+    "deadExample": [],
+    "allClearStatesMeetRequired": true
+  },
+  {
+    "stage": 17,
+    "states": 25,
+    "edges": 79,
+    "clearStates": 1,
+    "maxActors": 4,
+    "deadStates": 0,
+    "deadExample": [],
+    "allClearStatesMeetRequired": true
+  },
+  {
+    "stage": 18,
+    "states": 98,
+    "edges": 507,
+    "clearStates": 1,
+    "maxActors": 3,
+    "deadStates": 0,
+    "deadExample": [],
+    "allClearStatesMeetRequired": true
+  },
+  {
+    "stage": 19,
+    "states": 101,
+    "edges": 519,
+    "clearStates": 1,
+    "maxActors": 3,
+    "deadStates": 0,
+    "deadExample": [],
+    "allClearStatesMeetRequired": true
+  },
+  {
+    "stage": 20,
+    "states": 27,
+    "edges": 82,
+    "clearStates": 1,
+    "maxActors": 4,
+    "deadStates": 0,
+    "deadExample": [],
+    "allClearStatesMeetRequired": true
+  }
+]

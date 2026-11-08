@@ -1,0 +1,4 @@
+@import url('../naopoyo-time-hand-chapter1/style.css');
+header .brand small{font-size:9px}header{gap:5px}header a{font-size:10px;white-space:nowrap}.intro #title{font-size:20px}.scene[data-scene=moss]{box-shadow:0 0 36px #70996b33}
+
+header #details-open{flex:0 0 44px;white-space:nowrap;font-size:12px;padding:4px}header .game-home-link{padding:6px;min-width:0}header .game-home-link::before{content:none}header .brand{min-width:0;font-size:22px}header .brand small{white-space:nowrap;font-size:8px;letter-spacing:0}
