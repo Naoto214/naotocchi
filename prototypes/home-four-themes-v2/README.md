@@ -27,3 +27,7 @@ node prototypes/home-four-themes-v2/tools/build.cjs /absolute/external/output
 ```
 
 サンプルWAVは固定URLからハッシュ検証して復元できます。既存PRやV1サイトへ上書きしないでください。本番ゲームへの統合は今回含めません。
+
+## 配信容量
+
+Sitesの展開後256MiB上限に合わせ、FLAC原盤はGitHubに保持し、試聴ページから保存済みコミットの原盤へリンクします。AAC・正式ホーム・52背景は本人限定サイトに同梱します（約250.4MiB）。音源の再圧縮・背景の縮小はしていません。
