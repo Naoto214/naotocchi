@@ -1,0 +1,4 @@
+samples/**/*.wav
+audio/*.wav
+
+audio/.*
