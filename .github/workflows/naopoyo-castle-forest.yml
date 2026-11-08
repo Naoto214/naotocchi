@@ -1,9 +1,10 @@
-name: Naopoyo Castle Forest V1
+name: Naopoyo Castle Forest V2
 on:
   pull_request:
     paths:
       - 'prototypes/naopoyo-castle-forest/**'
       - 'docs/naopoyo-castle-forest-v1/**'
+      - 'docs/naopoyo-castle-forest-v2/**'
       - '.github/workflows/naopoyo-castle-forest.yml'
   workflow_dispatch:
 jobs:

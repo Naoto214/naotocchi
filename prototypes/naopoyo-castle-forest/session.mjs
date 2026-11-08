@@ -3,9 +3,9 @@ export const sequential=typeof location!=='undefined'&&new URLSearchParams(locat
 import {clone,createState,move,mass,totals} from '../naopoyo-time-hand-chapter1/engine.mjs';
 import {timeHandTrace} from '../naopoyo-time-hand-chapter1/priorities.mjs';
 import {stages} from './stages.mjs';
-export const STORAGE_KEY='naopoyo.castle-forest.20261108.v1.'+(sequential?'sequential':'free');
+export const STORAGE_KEY='naopoyo.castle-forest.20261108.v2.'+(sequential?'sequential':'free');
 // Includes stage layout and all explicit rule options; rejected before replay.
-export const stageSignature=index=>JSON.stringify(['castle-forest-v1',stages[index].board]);
+export const stageSignature=index=>JSON.stringify(['castle-forest-v2',stages[index].board]);
 export class ChapterSession {
  constructor(index=0){if(!stages[index])throw new RangeError('stage');this.index=index;this.stage=stages[index];this.reset();}
  reset(){this.state=createCastleState(this.stage.board);this.actions=[];this.groups=[];this.records=[];this.gesture=null;return this;}

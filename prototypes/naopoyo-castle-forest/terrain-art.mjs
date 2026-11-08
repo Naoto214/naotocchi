@@ -44,6 +44,8 @@ export function drawTerrain(c,s){
  for(const e of s.exits){const glow=c.createRadialGradient(e.x+.5,e.y+.35,.1,e.x+.5,e.y+.35,2.6);glow.addColorStop(0,'#ffe3a45c');glow.addColorStop(1,'#ffe3a400');c.fillStyle=glow;c.fillRect(0,0,s.w,s.h);}
  drawGravity(c,s);
  for(const[x,y]of s.walls){
+  const nearFloor=Array.from({length:9},(_,i)=>[x+i%3-1,y+Math.floor(i/3)-1]).some(([nx,ny])=>nx>=0&&ny>=0&&nx<s.w&&ny<s.h&&!s.baseWalls?.some(([wx,wy])=>wx===nx&&wy===ny));
+  if(!nearFloor){c.fillStyle=p.edge;c.fillRect(x,y,1,1);if((x+2*y)%5===0){if(theme==='forest')crystal(c,x,y);else lantern(c,x,y);}continue;}
   block(c,x,y,p);
   if(theme==='prison'){
    if((x+y)%3===0)barred(c,x,y);
