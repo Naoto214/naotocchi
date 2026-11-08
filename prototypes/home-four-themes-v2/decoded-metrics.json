@@ -1,0 +1,146 @@
+[
+  {
+    "id": "soyokaze-A",
+    "format": "flac",
+    "decodedSeconds": 83.47825,
+    "comparisonSeconds": 83.47825,
+    "lufs": -22.879283424482434,
+    "peak": 0.4517822265625,
+    "joinJump": 0.00018310546875
+  },
+  {
+    "id": "soyokaze-A",
+    "format": "m4a",
+    "decodedSeconds": 83.488,
+    "comparisonSeconds": 83.47825,
+    "lufs": -22.887339151513594,
+    "peak": 0.45460230112075806,
+    "joinJump": 0.00025090633425861597
+  },
+  {
+    "id": "soyokaze-B",
+    "format": "flac",
+    "decodedSeconds": 83.47825,
+    "comparisonSeconds": 83.47825,
+    "lufs": -22.94588484017925,
+    "peak": 0.199310302734375,
+    "joinJump": 0.000823974609375
+  },
+  {
+    "id": "soyokaze-B",
+    "format": "m4a",
+    "decodedSeconds": 83.488,
+    "comparisonSeconds": 83.47825,
+    "lufs": -22.952117116151175,
+    "peak": 0.19933989644050598,
+    "joinJump": 0.0008197380593628623
+  },
+  {
+    "id": "current-A",
+    "format": "flac",
+    "decodedSeconds": 60,
+    "comparisonSeconds": 60,
+    "lufs": -22.918470511355878,
+    "peak": 0.29217529296875,
+    "joinJump": 0.00335693359375
+  },
+  {
+    "id": "current-A",
+    "format": "m4a",
+    "decodedSeconds": 60,
+    "comparisonSeconds": 60,
+    "lufs": -22.92294776486686,
+    "peak": 0.30587321519851685,
+    "joinJump": 0.0014705974608659744
+  },
+  {
+    "id": "current-B",
+    "format": "flac",
+    "decodedSeconds": 60,
+    "comparisonSeconds": 60,
+    "lufs": -22.910906300474654,
+    "peak": 0.32269287109375,
+    "joinJump": 0.005462646484375
+  },
+  {
+    "id": "current-B",
+    "format": "m4a",
+    "decodedSeconds": 60,
+    "comparisonSeconds": 60,
+    "lufs": -22.920163174911448,
+    "peak": 0.32759279012680054,
+    "joinJump": 0.006276072934269905
+  },
+  {
+    "id": "starlake-B",
+    "format": "flac",
+    "decodedSeconds": 65.45453125,
+    "comparisonSeconds": 65.45453125,
+    "lufs": -22.90254036511131,
+    "peak": 0.467254638671875,
+    "joinJump": 0.000152587890625
+  },
+  {
+    "id": "starlake-B",
+    "format": "m4a",
+    "decodedSeconds": 65.472,
+    "comparisonSeconds": 65.45453125,
+    "lufs": -22.914969211954183,
+    "peak": 0.46820610761642456,
+    "joinJump": 0.006123817525804043
+  },
+  {
+    "id": "hoshizora-A",
+    "format": "flac",
+    "decodedSeconds": 50.5263125,
+    "comparisonSeconds": 50.5263125,
+    "lufs": -22.845767398110215,
+    "peak": 0.410491943359375,
+    "joinJump": 0.000396728515625
+  },
+  {
+    "id": "hoshizora-A",
+    "format": "m4a",
+    "decodedSeconds": 50.528,
+    "comparisonSeconds": 50.5263125,
+    "lufs": -22.85370300575076,
+    "peak": 0.40996530652046204,
+    "joinJump": 0.004683030769228935
+  },
+  {
+    "id": "hoshizora-B",
+    "format": "flac",
+    "decodedSeconds": 50.5263125,
+    "comparisonSeconds": 50.5263125,
+    "lufs": -22.836720561580012,
+    "peak": 0.422119140625,
+    "joinJump": 0.000152587890625
+  },
+  {
+    "id": "hoshizora-B",
+    "format": "m4a",
+    "decodedSeconds": 50.528,
+    "comparisonSeconds": 50.5263125,
+    "lufs": -22.848100256724912,
+    "peak": 0.4220760464668274,
+    "joinJump": 0.002053246833384037
+  },
+  {
+    "id": "starlake-A",
+    "format": "flac",
+    "decodedSeconds": 65.45453125,
+    "comparisonSeconds": 65.45453125,
+    "lufs": -22.90385358803162,
+    "peak": 0.414337158203125,
+    "joinJump": 0.0032958984375
+  },
+  {
+    "id": "starlake-A",
+    "format": "m4a",
+    "decodedSeconds": 65.472,
+    "comparisonSeconds": 65.45453125,
+    "lufs": -22.916945009948986,
+    "peak": 0.414249062538147,
+    "joinJump": 0.017756832763552666
+  }
+]

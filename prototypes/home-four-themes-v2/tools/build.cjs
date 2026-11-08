@@ -1,0 +1,6 @@
+const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process');
+const self=path.resolve(__dirname,'..'),root=path.resolve(self,'../..'),out=path.resolve(process.argv[2]||'');if(!process.argv[2]||out.startsWith(root+'/'))throw Error('Use external output');
+cp.execFileSync(process.execPath,[path.join(root,'prototypes/home-four-themes-v1/tools/build.cjs'),out],{stdio:'inherit'});
+function copy(dir,rel=''){for(const ent of fs.readdirSync(dir,{withFileTypes:true})){const r=path.join(rel,ent.name);if(r.startsWith('samples')||r.startsWith('tools')||ent.name.startsWith('.'))continue;const from=path.join(dir,ent.name),to=path.join(out,'prototypes/home-four-themes-v2',r);if(ent.isDirectory())copy(from,r);else if(!ent.name.endsWith('.wav')){fs.mkdirSync(path.dirname(to),{recursive:true});fs.copyFileSync(from,to);}}}copy(self);
+fs.writeFileSync(path.join(out,'index.html'),'<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=prototypes/home-four-themes-v2/"><title>なおとっち 音色の比較</title><a href="prototypes/home-four-themes-v2/">試聴室を開く</a></html>');
+console.log('V2 build complete');
