@@ -20,12 +20,13 @@
     function trait(a,key){return clamp(Number(a.temperament?.[key])||3,1,5);}
     const actor=key=>actors.find(a=>a.key===key);
     function tagsAt(a){return (scene.tags||[]).filter(t=>Math.hypot(a.x-t.x,a.y-t.y)<66).map(t=>t.tag);}
-    function emit(type,a,source='ambient'){
+    function emit(type,a,source='ambient',listener=null){
       const key=a.key+':'+type,delay=source==='ambient'?6:.65;
       if(clock-(cooldown.get(key)??-Infinity)<delay)return;
       cooldown.set(key,clock);
       const near=actors.filter(b=>b!==a&&Math.hypot(a.x-b.x,a.y-b.y)<100).map(b=>Object.freeze({key:b.key,id:b.id,kind:b.kind,relationship:b.kind==='pet'?'self':b.kind}));
       onEvent(Object.freeze({version:1,type,source,actor:Object.freeze({key:a.key,id:a.id,kind:a.kind}),region:scene.region,
+        listener:listener&&Object.freeze({key:listener.key,id:listener.id,kind:listener.kind}),
         environmentTags:Object.freeze(tagsAt(a)),nearby:Object.freeze(near),relationship:a.kind==='pet'?'self':a.kind,silent:true}));
     }
     function visible(a,p){return !scene.visible||scene.visible(p,a);}
@@ -44,6 +45,10 @@
     function sync(list,next){
       const changed=next.region!==scene.region||next.width!==scene.width||next.height!==scene.height||next.navigation!==scene.navigation;
       const previousScene=scene,previousActors=actors;
+      const exitPolicyChanged=!!next.fiveResidentExit!==!!scene.fiveResidentExit;
+      // Returning from the preview's reserved lane uses the regular terrain
+      // seats again. Ordinary syncs keep residents where the player left them.
+      const restoreSeats=exitPolicyChanged&&!next.fiveResidentExit&&list.length===5;
       const retained=new Set(next.region===scene.region?actors.map(a=>a.key):[]);
       scene={...next,tags:(next.tags||[]).map(t=>({...t}))};
       // Centre first seating in the actually walkable band (water/roads may cut
@@ -57,7 +62,7 @@
       }
       actors=list.filter(a=>['pet','companion','partner'].includes(a.kind)&&Number.isFinite(a.x+a.y+a.w+a.h)).map((a,index)=>{
         const reflow=list.length>5&&(next.width!==previousScene.width||next.height!==previousScene.height||list.length!==previousActors.length||list.some(a=>previousActors.find(b=>b.key===a.key)?.w!==a.w));
-        const initial=scene.navigation?.initialPoint&&(!previousScene.navigation||previousScene.region!==scene.region||(list.length>5&&list.length!==previousActors.length)||!previousActors.some(b=>b.key===a.key));
+        const initial=scene.navigation?.initialPoint&&(restoreSeats||!previousScene.navigation||previousScene.region!==scene.region||(list.length>5&&list.length!==previousActors.length)||!previousActors.some(b=>b.key===a.key));
         const seed=initial?(a.kind==='pet'&&scene.newbornPoint&&(!previousScene.navigation||!previousActors.some(b=>b.key===a.key))?scene.newbornPoint:scene.navigation.initialPoint(index,list.length)):null;
         const old=!initial&&!changed&&!reflow&&actor(a.key),previous=!initial&&previousScene.region===scene.region?previousActors.find(b=>b.key===a.key):null,worldPoint=previous&&previousScene.navigation?.unproject(previous),preserved=worldPoint&&scene.navigation?scene.navigation.project(worldPoint):previous,limited=limit(a,old||preserved||seed||(a.kind==='pet'&&terrainCentre)||a,scene),p=scene.navigation?.nearest(limited,bounds(a,scene))||limited;
         return {...a,...p,route:old?.route?.map(p=>({...p}))||[],temperament:{...a.temperament},target:old&&old.w===a.w&&old.h===a.h&&old.target?limit(a,old.target,scene):null,activity:old?.activity||'rest',direction:old?.direction||1,source:old?.source||'ambient',manualUntil:previousActors.find(b=>b.key===a.key)?.manualUntil??0,nextAt:old?.nextAt??clock+1+random()*3,lastWalk:old?.lastWalk??clock-12,recent:old?.recent||[],after:old?.after||'observe',faceKey:old?.faceKey||null,visualReaction:old?.visualReaction,visualTarget:old?.visualTarget,nextVisualAt:old?.nextVisualAt||0};
@@ -68,8 +73,8 @@
       // residents merely to recreate this initial corridor.
       let exit=[];
       const lead=actors.find(a=>a.kind==='pet');
-      const arrange=changed||actors.length!==previousActors.length||actors.some(a=>{const b=previousActors.find(b=>b.key===a.key);return !b||a.w!==b.w||a.h!==b.h;});
-      if(lead&&actors.length>5&&arrange&&scene.navigation?.segmentSafe){
+      const arrange=changed||exitPolicyChanged||actors.length!==previousActors.length||actors.some(a=>{const b=previousActors.find(b=>b.key===a.key);return !b||a.w!==b.w||a.h!==b.h;});
+      if(lead&&(actors.length>5||scene.fiveResidentExit)&&arrange&&scene.navigation?.segmentSafe){
         const length=Math.max(40,lead.w*1.2),options=[];
         for(let i=0;i<8;i++){
           const end=limit(lead,{x:lead.x+Math.cos(i*Math.PI/4)*length,y:lead.y+Math.sin(i*Math.PI/4)*length},scene);
@@ -166,7 +171,25 @@
         if(flags.reducedMotion&&a.source==='ambient'){a.target=null;a.route=[];}
         if(!a.target)continue;
         const dx=a.target.x-a.x,dy=a.target.y-a.y,dist=Math.hypot(dx,dy),speed=(flags.reducedMotion?28:42)*(scene.time==='night'?.75:1),step=Math.min(dist,speed*dt);
-        if(dist<.5){if(a.route?.length){a.target=a.route.shift();continue;}a.target=null;activity(a,a.source==='ambient'?a.after:'rest');if(a.source==='ambient'&&a.visualTarget)a.direction=a.visualTarget.x<a.x?-1:1;defer(a,3+random()*5);if(a.faceKey){const b=actor(a.faceKey);if(b){a.direction=b.x<a.x?-1:1;if(!b.target&&b.source==='ambient'&&clock>=b.manualUntil&&b.key!==flags.heldActor){b.direction=-a.direction;activity(b,'together');defer(b,4);}}}emit('arrive',a,a.source);if(tagsAt(a).length)emit('environment',a);if(actors.some(b=>b!==a&&Math.hypot(a.x-b.x,a.y-b.y)<100))emit('proximity',a);continue;}
+        if(dist<.5){
+          if(a.route?.length){a.target=a.route.shift();continue;}
+          a.target=null;activity(a,a.source==='ambient'?a.after:'rest');
+          if(a.source==='ambient'&&a.visualTarget)a.direction=a.visualTarget.x<a.x?-1:1;
+          defer(a,3+random()*5);
+          const b=actor(a.faceKey);
+          if(b){
+            a.direction=b.x<a.x?-1:1;
+            if(!b.target&&b.source==='ambient'&&clock>=b.manualUntil&&b.key!==flags.heldActor){
+              b.direction=-a.direction;activity(b,'together');defer(b,4);
+              // The target of this completed approach is the other participant.
+              // A bystander inside the proximity radius did not take part.
+              if(a.source==='ambient'&&['approach','together'].includes(a.after)&&Math.hypot(a.x-b.x,a.y-b.y)<100)emit('social',a,'ambient',b);
+            }
+          }
+          emit('arrive',a,a.source);if(tagsAt(a).length)emit('environment',a);
+          if(actors.some(b=>b!==a&&Math.hypot(a.x-b.x,a.y-b.y)<100))emit('proximity',a);
+          continue;
+        }
         const p=limit(a,{x:a.x+dx/dist*step,y:a.y+dy/dist*step},scene);
         // If a very crowded/short viewport cannot seat everyone, permit escape only
         // when every existing overlap shrinks; never enter a new overlap.

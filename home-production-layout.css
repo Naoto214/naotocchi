@@ -62,7 +62,7 @@ body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .stor
 body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji{grid-column:1;grid-row:1 / span 2;display:flex;align-items:center;justify-content:center;min-width:0;max-width:24px;width:24px;height:24px;line-height:1;align-self:start;animation:none}
 body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji:empty{display:none}
 body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji::after{content:none!important}
-body[data-home-production="true"][data-home-terrain="true"] #storyFlashName{grid-column:2;grid-row:1;min-width:0;font:11px/1.4 system-ui;text-align:left;white-space:normal;overflow-wrap:anywhere;color:#315247}
+body[data-home-production="true"][data-home-terrain="true"] #storyFlashName{grid-column:2;grid-row:1;min-width:0;font:11px/1.4 system-ui,var(--ui-font);text-align:left;white-space:normal;overflow-wrap:anywhere;color:#315247}
 body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .story-flash-text{grid-column:2;grid-row:2;width:100%;min-width:0;max-width:100%;text-align:left;text-wrap:wrap;white-space:pre-wrap;overflow-wrap:anywhere;line-break:strict}
 body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .story-flash:has(#storyFlashEmoji:empty) .story-flash-text{grid-column:1 / -1}
 body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .notice-phrase{display:inline-block;max-width:100%;vertical-align:top;white-space:pre-wrap;overflow-wrap:anywhere;word-break:normal;text-wrap:wrap}
@@ -92,7 +92,7 @@ body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCom
 body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock :is(#speechBubble,#homeChoiceResult,#homeActionComment,#storyFlash).hidden{display:none}
 body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock :is(#speechSpeaker,#homeChoiceSpeaker,#homeActionSpeaker,#storyFlashEmoji){
  display:flex;flex-direction:row;justify-content:flex-start;align-items:center;gap:4px;min-width:0;max-width:100%;width:auto;height:auto;
- flex:0 0 auto;align-self:stretch;max-height:none;overflow:visible;font:11px/1.4 system-ui;white-space:normal;text-wrap:wrap;animation:none;
+ flex:0 0 auto;align-self:stretch;max-height:none;overflow:visible;font:11px/1.4 system-ui,var(--ui-font);white-space:normal;text-wrap:wrap;animation:none;
 }
 body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock :is(#speechSpeaker,#homeChoiceSpeaker,#homeActionSpeaker,#storyFlashEmoji)::after{content:none}
 body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock .lane-speaker-name{min-width:0;overflow-wrap:anywhere}
@@ -319,3 +319,6 @@ body[data-home-production="true"]:is([data-home-display-version="15"],:is([data-
  body[data-home-display-version="18"][data-home-viewport-v8="true"][data-home-compact-v18="true"] .home-meters .bars .bar-line{grid-template-rows:11px 3px;gap:1px 2px}
  body[data-home-display-version="18"][data-home-viewport-v8="true"][data-home-compact-v18="true"] .home-meters :is(.bar-label,.bar-value){font-size:9px;line-height:11px}
  body[data-home-display-version="18"][data-home-viewport-v8="true"][data-home-compact-v18="true"] .home-meters .bar{height:3px}
+
+/* The fixed home lanes can sit outside the inert home screen in either orientation. */
+body[data-home-panel-open="true"] :is(#speechSlot,#homeEventSlot){display:none!important}

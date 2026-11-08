@@ -31,7 +31,35 @@ jobs:
           python tools/pages/package.py
           --out "${{ runner.temp }}/pages-runtime"
           --report "${{ runner.temp }}/pages-reports/package-report.json"
-          --tar "${{ runner.temp }}/pages-runtime.tar"
+      # Match the GNU tar layout used by the last successful Pages deployment.
+      # The staged directory contains only verified allowlist files and .nojekyll.
+      - name: Archive and verify Pages deployment payload
+        env:
+          PAGES_RUNTIME: ${{ runner.temp }}/pages-runtime
+          PAGES_REPORT: ${{ runner.temp }}/pages-reports/package-report.json
+          PAGES_TAR: ${{ runner.temp }}/artifact.tar
+        run: |
+          tar --dereference --hard-dereference --directory "$PAGES_RUNTIME" -cf "$PAGES_TAR" .
+          python - <<'PY'
+          import hashlib, json, os, pathlib, tarfile
+          report_path = pathlib.Path(os.environ["PAGES_REPORT"])
+          archive_path = pathlib.Path(os.environ["PAGES_TAR"])
+          report = json.loads(report_path.read_text())
+          with tarfile.open(archive_path) as archive:
+              members = archive.getmembers()
+              assert all(m.isfile() or m.isdir() for m in members), "Unexpected archive entry"
+              files = [m for m in members if m.isfile()]
+              names = [m.name.removeprefix("./") for m in files]
+              assert len(names) == len(set(names)), "Duplicate archive path"
+              assert set(names) == set(report["sha256"]), "Archive file set mismatch"
+              for member, name in zip(files, names):
+                  assert hashlib.sha256(archive.extractfile(member).read()).hexdigest() == report["sha256"][name], name
+          assert archive_path.stat().st_size <= report["max_bytes"], "Archive exceeds budget"
+          with archive_path.open("rb") as stream:
+              report["tar"] = {"bytes": archive_path.stat().st_size, "sha256": hashlib.file_digest(stream, "sha256").hexdigest()}
+          report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
+          print(f"Verified {len(files)} archive files; all SHA-256 hashes match")
+          PY
       - name: Verify every HTTP file, entry point and card image
         run: >-
           python tools/pages/verify.py
@@ -42,9 +70,13 @@ jobs:
         with:
           name: pages-capacity-reports
           path: ${{ runner.temp }}/pages-reports/
-      - uses: actions/upload-pages-artifact@v4
+      # Publish the verified tar verbatim, including its allowlisted .nojekyll.
+      - uses: actions/upload-artifact@v4
         with:
-          path: ${{ runner.temp }}/pages-runtime
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          if-no-files-found: error
+          retention-days: 1
 
   deploy:
     # PRs (including the stacked capacity fix) can never deploy.

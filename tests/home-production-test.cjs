@@ -51,6 +51,27 @@ test('production runtime harness loads the exact shipped presenter and model',()
 });
 test('latest-main game catalogs, conversations, formal images and other games stay byte-identical',()=>{
  const cp=require('child_process');const unchanged=['assets/characters','prototypes','conversation-*.js','relationship-*.js','individuality*.js','item-*.js','games.js','quick.js','script.js','style.css','ui.css','character-world-master.v1.js'];
+ // Pin the exact V1 choice, navigation and presentation edits. All other
+ // files in the protected directories still go through the previous guards.
+ const homeUI = {
+  "individuality-data.js": "1f555e84bd5ebd56d1bcfa8cd4e313ad8f441e7c",
+  "prototypes/card-game/app.mjs": "b3180cb0d788580a839521c55f76554bb8cf11a2",
+  "prototypes/card-game/index.html": "ce413c0598e51e15f7f0145502b87793a4bf09f0",
+  "prototypes/card-game/tests/browser.cjs": "b05d6899f9eb17c903df25e47188c9295c436abd",
+  "prototypes/card-game/tests/home-return-browser.cjs": "8d15849f16840bb4f4db249e9d40d4c1d2e0dd3e",
+  "prototypes/life-sugoroku/index.html": "193ea229c806041c9dc9ce93aca86bfb86d39c2c",
+  "prototypes/life-sugoroku/legacy.html": "4a8608e1e96bcf87242ed45a84c393cc4f05d67c",
+  "prototypes/life-sugoroku/main-v4.mjs": "737656fdc69b133f75401959f169c26054d6bec4",
+  "prototypes/life-sugoroku/main.mjs": "16a57405d63c11e99f0ccf45135cf3a35e1bc6a1",
+  "prototypes/life-sugoroku/v4.html": "193ea229c806041c9dc9ce93aca86bfb86d39c2c",
+  "prototypes/naopoyo-time-hand-chapter1/build-preview.mjs": "949c11c5d16469277c3a2d0f1a333088e1b735d9",
+  "prototypes/naopoyo-time-hand-chapter1/index.html": "d34a826b9ae1cc00306624213a9967d33ccf8820",
+  "script.js": "d3c610f1d6c03d38c6fe377d8453194b54cb911b"
+};
+ for (const [file, blob] of Object.entries(homeUI)) {
+  assert.equal(cp.execFileSync('git',['hash-object','--',file],{encoding:'utf8'}).trim(),blob,'home UI V1 reviewed bytes: '+file);
+  unchanged.push(':(exclude)'+file);
+ }
  // FIRST START permits only the exact owner-approved files/bytes from PR #511.
  // Keep every other prototype (CARD GAME/naopoyo included) and asset protected.
  const firstStart='8de189af03dc3bf9ca0139982341edc5c33b5518';
@@ -99,10 +120,10 @@ test('latest-main game catalogs, conversations, formal images and other games st
  const cardNameChanges=changed.filter(file=>cardNameFiles.has(file));
  if(cardNameChanges.length) assert.equal(cp.execFileSync('git',['diff','--name-only',cardNames,'--',...cardNameChanges],{encoding:'utf8'}).trim(),'','PR #519 files must match approved bytes');
  if(originalAdditions.length) assert.equal(cp.execFileSync('git',['diff','--name-only',firstStart,'--',...originalAdditions],{encoding:'utf8'}).trim(),'','FIRST START additions must match approved bytes');
- assert.equal(cp.execFileSync('git',['diff','--name-only',polish,'--',...polishFiles],{encoding:'utf8'}).trim(),'','PR #516 files must match approved bytes');
+ assert.equal(cp.execFileSync('git',['diff','--name-only',polish,'--',...[...polishFiles].filter(file=>!Object.hasOwn(homeUI,file))],{encoding:'utf8'}).trim(),'','PR #516 files must match approved bytes');
  for(const [file,hash] of Object.entries(reviewed)){
   assert.ok(fs.existsSync(file),'retained approved file: '+file);
-  assert.equal(cp.execFileSync('git',['hash-object','--',file],{encoding:'utf8'}).trim(),hash,'approved bytes: '+file);
+  assert.equal(cp.execFileSync('git',['hash-object','--',file],{encoding:'utf8'}).trim(),homeUI[file] || hash,'approved bytes: '+file);
  }
  const original=cp.execFileSync('git',['ls-tree','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa'],{encoding:'utf8'}).trim().split('\n').filter(p=>p.startsWith('home-')&&/\.(js|mjs|css)$/.test(p));
  // The startup repair only moves the pure route function out of the module

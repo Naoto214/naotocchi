@@ -109,7 +109,7 @@ function exchangeHome() {
   h.get('playWithBtn').focus();
   return h;
 }
-test('screenshot exchange opens a compact Home popup and shows its existing narrative exactly once',()=>{
+test('screenshot exchange opens a compact Home popup and shows a scene-specific narrative exactly once',()=>{
   const h=exchangeHome(),s=h.api.state();
   assert.equal(h.api.maybeIndividualExchange(),true);
   const dialog=h.get('individualityDialog');
@@ -128,7 +128,7 @@ test('screenshot exchange opens a compact Home popup and shows its existing narr
   assert.equal(dialog.classList.contains('home-choice-popup'),false);
   assert.equal(h.document.activeElement.id,'playWithBtn');
   const result=h.get('homeChoiceResult');
-  assert.equal(h.get('homeChoiceText').textContent,'言葉がなくても、気持ちよさが伝わった。');
+  assert.ok(h.api.INDIVIDUALITY.data.exchanges.find(e=>e.id==='shiba-breeze').reactions?.includes(h.get('homeChoiceText').textContent));
   assert.equal(result.classList.contains('hidden'),false);
   assert.equal(result.role,'status');
   h.advance(4201);
@@ -158,8 +158,10 @@ test('age choices reuse Home presentation with unchanged effects; non-Home remai
     assert.equal(s.individuality.events[3].status,'chosen');
     assert.equal(button.onclick(),false);
     assert.equal(dialog.classList.contains('home-choice-popup'),false);
-    if(home)assert.equal(h.get('homeChoiceText').textContent,'その気持ちを、思い出にしまった。');
-    else assert.ok(h.get('homeChoiceResult').classList.contains('hidden'));
+    const text=home?h.get('homeChoiceText').textContent:h.api.getMessage();
+    const chosen=h.api.INDIVIDUALITY.data.events[0].choices[0];
+    assert.ok(chosen.reactions?.includes(text), 'the selected age choice supplies the notice');
+    if(!home)assert.ok(h.get('homeChoiceResult').classList.contains('hidden'));
   }
 });
 test('Home choice keeps fixed cast and care presentation across renders while gameplay stays paused',()=>{

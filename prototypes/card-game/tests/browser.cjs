@@ -24,9 +24,9 @@ const resultText=await page.locator('#result').innerText();await page.screenshot
 assert.equal(await page.locator('#result [data-home]').innerText(),'カードゲームトップへもどる');
 await page.locator('#result [data-home]').click();assert.ok(await page.locator('#welcome').isVisible());assert.equal(await page.locator('#match-mode').inputValue(),'hotseat');assert.equal(await page.evaluate(()=>document.activeElement.id),'solo-open');assert.ok(await page.evaluate(()=>scrollY)<=1);
 await page.locator('#hotseat-open').click();await page.locator('#restore').click();await page.locator('#result').waitFor();
-await page.locator('#game [data-menu]').click();assert.deepEqual(await page.locator('#menu-leave button:visible').allInnerTexts(),['カードゲームトップへもどる','なおとっちへもどる'],'終了後は「対戦をつづける」を出さない');
+await page.locator('#game [data-menu]').click();assert.deepEqual(await page.locator('#menu-leave button:visible').allInnerTexts(),['カードゲームトップへもどる','ホームにもどる'],'終了後は「対戦をつづける」を出さない');
 await page.locator('#menu-top').click();assert.equal(await page.locator('#menu-home-confirm').isVisible(),false);assert.ok(await page.locator('#welcome').isVisible());assert.ok(await page.evaluate(()=>scrollY)<=1);
 assert.equal(await page.evaluate(()=>localStorage.getItem('naotocchi-hotseat-v1')),resultSave,'終了した対戦の保存は変わらない');assert.deepEqual(errors,[]);
-// ☰ の「なおとっちへもどる」も確認なしで本編へ。
+// ☰ の「ホームにもどる」も確認なしで本編へ。
 await page.locator('#hotseat-open').click();await page.locator('#restore').click();await page.locator('#result').waitFor();await page.locator('#game [data-menu]').click();await page.locator('#menu-home').click();await page.waitForURL(u=>u.pathname==='/'||u.pathname==='/index.html');
 console.log(JSON.stringify({expanded:Boolean(process.env.EXPANDED),full452:Boolean(process.env.FULL452),browser:process.env.BROWSER||'chromium',viewport:'390x844',touch:true,commands:count,handoffs,seats:[...seats],saveReload:reloaded,result:resultText,kinds:[...kinds],pageErrors:errors,doubleClickSingleCommit:savedAfterDouble===1,mainStatsVisible:true}));await browser.close();})().catch(e=>{console.error(e);process.exit(1);});

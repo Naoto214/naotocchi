@@ -37,7 +37,7 @@ async function inspect(page){return page.evaluate(()=>{
 async function target(page,kind,skip=0){return page.evaluate(({kind,skip})=>{
  const q=HomeReleaseQA.detail(),v=NaotocchiHomeViewport.residentPresentation(),s=NaotocchiHomeViewport.presentationRect(document.getElementById('castStage'));
  const frame=document.querySelector('.screen-frame').getBoundingClientRect();
- const matches=[];
+ const seen=new Set();let matched=0;
  for(const a of q.actors.filter(a=>a.kind===kind)){
   const node=document.querySelector('[data-diorama-actor="'+a.key+'"]');
   const x=v.x+(s.left+a.x-v.x)*v.scaleX,y=v.y+(s.top+a.y-v.y)*v.scaleY;
@@ -45,13 +45,13 @@ async function target(page,kind,skip=0){return page.evaluate(({kind,skip})=>{
   const probes=[.45,.65,.25,.85,.95,.05].flatMap(dy=>[0,-.3,.3,-.45,.45].map(dx=>({dx,dy})));
   for(let dy=.975;dy>=.025;dy-=.025)for(let dx=-.475;dx<=.475;dx+=.025)probes.push({dx,dy});
   for(const {dx,dy} of probes){
-   const p={x:x+dx*a.w*v.bodyScale,y:y-dy*a.h*v.bodyScale};
+   const p={x:Math.floor(x+dx*a.w*v.bodyScale),y:Math.floor(y-dy*a.h*v.bodyScale)};
+   const pixel=p.x+','+p.y;if(seen.has(a.key+pixel))continue;seen.add(a.key+pixel);
    if(p.x<=frame.left||p.x>=frame.right||p.y<=frame.top||p.y>=frame.bottom)continue;
    const hit=document.elementFromPoint(p.x,p.y);
-   if(hit?.closest('[data-diorama-actor]')===node)matches.push({...p,key:a.key,name:node.getAttribute('aria-label').replace(/をえらぶ$/,'')});
+   if(hit?.closest('[data-diorama-actor]')===node&&matched++===skip)return {...p,key:a.key,name:node.getAttribute('aria-label').replace(/をえらぶ$/,'')};
   }
  }
- if(matches[skip])return matches[skip];
  throw Error('No exposed touch target for '+kind+' '+JSON.stringify({presentation:v,stage:s,frame:frame.toJSON(),actors:q.actors.map(a=>({key:a.key,x:a.x,y:a.y,w:a.w,h:a.h,rect:document.querySelector('[data-diorama-actor="'+a.key+'"]').getBoundingClientRect().toJSON()}))}));
 },{kind,skip});}
 function verifyPaint(state,expected){
@@ -62,30 +62,35 @@ function verifyPaint(state,expected){
  for(const lane of [state.notice,state.comment])assert.ok(a.right<=lane.left||a.left>=lane.right||a.bottom<=lane.top||a.top>=lane.bottom,'name must not overlap notification/comment');
  assert.equal(state.notice.height,42);assert.equal(state.comment.height,76);
 }
+// Reading the browser clock and pausing it are two protocol requests. On a busy
+// runner the first timestamp can already be in the past by the second request.
+async function pauseForInput(page){
+ for(const lead of [1000,3000,10000]){
+  try{await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+lead));return;}
+  catch(error){if(!String(error).includes('Cannot fast-forward to the past')||lead===10000)throw error;}
+ }
+}
 async function tap(page,kind,single=false){
  // Keep the real touchscreen hit test atomic with the exposed-pixel lookup.
  // Otherwise WebKit can run an autonomous-walk frame between these two awaits
  // and move another resident under the already verified point.
- await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+1000));
+ await pauseForInput(page);
  try{
- // A visitor can be fully covered after a walk/rotation; wait for the existing
- // autonomous movement to expose it, without changing positions or selection.
+ // A rotated camera can put the dog in front of an entire visitor. Move it
+ // through the real drag handler and advance actual animation frames until
+ // the visitor is reachable. Waiting on wall time cannot move a paused page.
  let p;
- for(let attempt=0;attempt<100;attempt++){
+ for(let walk=0;walk<=3&&!p;walk++){
   try{p=await target(page,kind);break;}catch(error){
-   if(!error.message.includes('No exposed touch target')||attempt===99)throw error;
-   // The deterministic QA clock does not run autonomous walking. If another
-   // resident fully covers this one, move the protagonist through the shipped
-   // drag handler, then keep requiring a real exposed-pixel touch below.
-   if(attempt===9&&kind!=='pet'){
-    const move=await page.evaluate(pointerTarget,'drag');
-    await page.mouse.move(move.from.x,move.from.y);await page.mouse.down();
-    await page.mouse.move(move.to.x,move.to.y,{steps:8});await page.mouse.up();
-    // Finish that real routed walk while the clock remains deterministic;
-    // ordinary wall time cannot advance page timers under a paused clock.
-    await page.clock.runFor(2000);
-   }
-   await page.waitForTimeout(200);
+   if(kind==='pet'||walk===3||!error.message.includes('No exposed touch target'))throw error;
+  }
+  const move=await page.evaluate(pointerTarget,{kind:'drag',expose:kind});
+  await page.mouse.move(move.from.x,move.from.y);await page.mouse.down();
+  await page.mouse.move(move.to.x,move.to.y,{steps:8});await page.mouse.up();
+  for(let frame=0;frame<24&&!p;frame++){
+   await page.clock.runFor(500);
+   try{p=await target(page,kind);}catch(error){if(!error.message.includes('No exposed touch target'))throw error;}
+   if(!await page.evaluate(()=>HomeReleaseQA.detail().actors[0].target))break;
   }
  }
  let state;
@@ -112,10 +117,12 @@ async function tap(page,kind,single=false){
  const rec={engine,kind,checks:[]};records.push(rec);page.on('pageerror',e=>errors.push(e.message));
  try{
  await page.addInitScript(seed=>{if(!localStorage.getItem('naotocchi-home-release-qa-v1'))localStorage.setItem('naotocchi-home-release-qa-v1',JSON.stringify(seed));window.AudioContext=undefined;window.webkitAudioContext=undefined;},JSON.parse(fs.readFileSync(path.join(out,'release-qa-seed.json'))));
+ // Install before boot so the existing animation loop and later synthetic
+ // time advances share one requestAnimationFrame clock.
+ await page.clock.install();
  await page.goto(`http://127.0.0.1:${server.address().port}/release-qa.html`);
  await page.waitForFunction(()=>window.HomeReleaseQA);await page.evaluate(k=>HomeReleaseQA.setup(k),kind);
  await page.waitForFunction(()=>HomeReleaseQA.detail().world?.loaded);await page.waitForTimeout(1700);
- await page.clock.install();
  assert.equal((await inspect(page)).count,{single:1,companion:2,partner:2,all:3,crowd:28}[kind]);
  const kinds=kind==='single'?['pet']:kind==='companion'?['pet','companion','pet']:kind==='partner'?['pet','partner','pet']:['pet','companion','partner','pet'];
  for(const actor of kinds)rec.checks.push(await tap(page,actor,kind==='single'));
@@ -124,14 +131,25 @@ async function tap(page,kind,single=false){
   assert.equal(await page.locator('#message').isVisible(),true);assert.equal(await page.locator('#speechBubble').isVisible(),true);
   await page.evaluate(()=>HomeReleaseQA.resetDisplay());
  }
- const p=await target(page,'pet');await page.mouse.move(p.x,p.y);await page.mouse.down();await page.mouse.move(p.x+28,p.y+30,{steps:8});await page.mouse.up();
+ // A fixed diagonal from an exposed head pixel can land on a prop or another
+ // resident. Use the real navigation model to choose a reachable drag endpoint.
+ await pauseForInput(page);
+ const dragTarget=await page.evaluate(pointerTarget,'drag');await page.mouse.move(dragTarget.from.x,dragTarget.from.y);await page.mouse.down();await page.mouse.move(dragTarget.to.x,dragTarget.to.y,{steps:8});await page.mouse.up();
  const drag=await page.evaluate(()=>HomeReleaseInputTrace.filter(t=>t.type==='move'&&t.args[2]==='drag'));
  assert.ok(drag.length,'drag reaches the existing move handler');assert.equal(drag.at(-1).result,true,'drag keeps a valid walking route');rec.checks.push({drag:true});
  if(kind!=='single')verifyPaint(await inspect(page),'大人のいぬ');
- // Hold only input sampling and delivery still; the live collision-aware
- // helper chooses reachable ground without moving or removing residents.
- await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+1000));
- const ground=await page.evaluate(pointerTarget,'tap');
+
+ // A packed scene can hide every reachable ground pixel while the dog is
+ // still covering the start of its drag route. Advance that real walk and
+ // re-sample the live board; the assertion still requires an accepted tap.
+ let ground;
+ for(let i=0;!ground;i++){
+  try{ground=await page.evaluate(pointerTarget,'tap');}
+  catch(error){
+   if(i===24||!error.message.includes('No visible grounded destination'))throw error;
+   await page.clock.runFor(500);
+  }
+ }
  const groundTraceStart=await page.evaluate(()=>HomeReleaseInputTrace.length);
  await page.touchscreen.tap(ground.to.x,ground.to.y);
  assert.ok(await page.evaluate(start=>HomeReleaseInputTrace.slice(start).some(t=>t.type==='move'&&t.args[2]==='ground'&&t.result),groundTraceStart),'ground tap retains movement');

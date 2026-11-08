@@ -83,3 +83,21 @@ test('each heart reaches exactly 60 through ten adapter experiences and five leg
 test('next life keeps permanent achievements and full prior choices but starts hearts and choices anew',()=>{
  const h=born(),s=h.api.state(),old=s.individuality.lifeId;s.ageTicks=60;h.api.onAgeChanged(2);h.api.chooseIndividualityEvent(3,'kindness',old);s.achievementsUnlocked.push('heart-kindness-5');h.dispatch(h.get('resetBtn'),'click');h.api.hatchEgg();const next=h.api.state();assert.notEqual(next.individuality.lifeId,old);assert.equal(I.points(next.individuality,'kindness'),0);assert.equal(Object.keys(next.individuality.events).length,0);assert.equal(next.lifetime.pastLives.at(-1).individuality.events[3].heart,'kindness');assert.ok(next.achievementsUnlocked.includes('heart-kindness-5'));
 });
+
+test('each life choice has ten or more unique narrations exclusive to its action',()=>{
+ const all=new Set();
+ for(const {age,choices} of [...I.data.events,{age:'交流',choices:I.data.exchanges}])for(const {label,reactions=[]} of choices){
+   assert.ok(new Set(reactions).size>=10,age+'：'+label);
+   for(const line of reactions){assert.ok(typeof line==='string'&&line.trim()&&!all.has(line),line);all.add(line);}
+ }
+});
+test('replaying a life choice cannot repeat the last notice even with identical randomness',()=>{
+ const h=born(),s=h.api.state(),choice=I.data.events[0].choices[0];let previous=null;
+ h.api.setRandom(()=>0);
+ for(let i=0;i<4;i++){
+   s.individuality.events[3]={status:'pending'};
+   assert.ok(h.api.chooseIndividualityEvent(3,choice.heart,s.individuality.lifeId));
+   const message=h.api.getMessage();
+   assert.notEqual(message,previous);previous=message;
+ }
+});
