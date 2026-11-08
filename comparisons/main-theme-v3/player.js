@@ -1,6 +1,7 @@
 'use strict';
 const songs=THEME_V3.SONGS,$=id=>document.getElementById(id);
-let context,master,source,current=null,started=0,duration=0,generation=0;
+const media=$('media');
+let current=null,loadedSong=null,mediaURL=null,generation=0;
 const cache=new Map();
 for(const [index,s] of songs.entries()){
   const card=document.createElement('article');card.className='card'+(index<2?' ref':'');card.id='card-'+s.id;
@@ -8,25 +9,43 @@ for(const [index,s] of songs.entries()){
   $(index<2?'references':'candidates').append(card);
 }
 function rendered(s){const bpm=$('tempo').value==='native'?s.bpm:96, full=$('mode').value==='full',key=[s.id,bpm,full].join(':');if(!cache.has(key)){if(cache.size>=3)cache.delete(cache.keys().next().value);cache.set(key,THEME_AUDIO.render(s,full,bpm));}return cache.get(key);}
-function stop(){generation++;if(source){source.onended=null;source.stop();source.disconnect();source=null;}current=null;for(const c of document.querySelectorAll('.card'))c.classList.remove('active');for(const b of document.querySelectorAll('[data-play]')){b.textContent='▶ 再生';b.setAttribute('aria-pressed','false');}$('progress').value=0;$('status').textContent='停止中';}
+function resetCards(){for(const c of document.querySelectorAll('.card'))c.classList.remove('active');for(const b of document.querySelectorAll('[data-play]')){b.textContent='▶ 再生';b.setAttribute('aria-pressed','false');}}
+function stop(){generation++;media.pause();try{media.currentTime=0;}catch{}current=null;resetCards();$('progress').value=0;$('status').textContent='停止中';}
+function showPlaying(){
+  if(!loadedSong||media.paused)return;
+  current=loadedSong;resetCards();$('card-'+current.id).classList.add('active');
+  const b=document.querySelector(`[data-play="${current.id}"]`);b.textContent='↺ 最初から';b.setAttribute('aria-pressed','true');
+  $('status').textContent=`再生中：${current.title} / ${$('mode').selectedOptions[0].textContent} / ♩${$('tempo').value==='native'?current.bpm:96}`;
+}
 async function play(s){
   stop();const ticket=generation;$('status').textContent=s.title+' — 準備中…';
   try{
-    if(!context){context=new(window.AudioContext||window.webkitAudioContext)();master=context.createGain();master.connect(context.destination);}
-    await context.resume();if(ticket!==generation)return;
-    const r=rendered(s);if(ticket!==generation)return;
-    const buffer=context.createBuffer(1,r.samples.length,r.sampleRate);buffer.copyToChannel(r.samples,0);
-    source=context.createBufferSource();source.buffer=buffer;source.loop=$('loop').checked;source.connect(master);master.gain.value=Number($('volume').value)/100;
-    current=s;duration=r.duration;started=context.currentTime;source.onended=()=>{if(ticket===generation)stop();};source.start();
-    $('card-'+s.id).classList.add('active');const b=document.querySelector(`[data-play="${s.id}"]`);b.textContent='↺ 最初から';b.setAttribute('aria-pressed','true');
-    $('status').textContent=`再生中：${s.title} / ${$('mode').selectedOptions[0].textContent} / ♩${$('tempo').value==='native'?s.bpm:96}`;
-  }catch(e){stop();$('status').textContent='音声を開始できませんでした。もう一度「再生」を押してください。';console.error(e);}
+    // Everything up to play() stays in the user's tap. No AudioContext resume,
+    // fetch or awaited rendering can consume Safari's transient activation.
+    const nextURL=URL.createObjectURL(new Blob([THEME_AUDIO.wav(rendered(s))],{type:'audio/wav'}));
+    const previousURL=mediaURL;mediaURL=nextURL;loadedSong=s;current=s;
+    media.src=nextURL;media.loop=$('loop').checked;media.volume=Number($('volume').value)/100;media.load();
+    if(previousURL)URL.revokeObjectURL(previousURL);
+    const promise=media.play();
+    if(promise)await promise;
+    // 'playing' and 'timeupdate', not a successful start request, drive the UI.
+    if(ticket!==generation)return;
+  }catch(e){
+    if(ticket!==generation)return;
+    $('status').textContent='標準プレーヤーの ▶ を押してください。音量は端末の音量ボタンでも調整できます。';
+    console.error(e);
+  }
 }
+media.addEventListener('playing',showPlaying);
+media.addEventListener('timeupdate',()=>{if(Number.isFinite(media.duration)&&media.duration>0)$('progress').value=media.currentTime/media.duration;});
+media.addEventListener('pause',()=>{if(media.paused&&current){resetCards();$('status').textContent='一時停止：'+current.title;}});
+media.addEventListener('waiting',()=>{if(current&&!media.paused)$('status').textContent='音声を読み込み中：'+current.title;});
+media.addEventListener('ended',stop);
+media.addEventListener('error',()=>{$('status').textContent='音声を読み込めませんでした。曲の「再生」をもう一度押してください。';});
 document.addEventListener('click',e=>{const p=e.target.closest('[data-play]'),w=e.target.closest('[data-wav]');if(p)play(songs.find(s=>s.id===p.dataset.play));if(w){const s=songs.find(s=>s.id===w.dataset.wav),blob=new Blob([THEME_AUDIO.wav(rendered(s))],{type:'audio/wav'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=s.id+'-'+$('mode').value+'-'+$('tempo').value+'.wav';a.click();setTimeout(()=>URL.revokeObjectURL(url),10000);}});
 $('stop').onclick=stop;
-for(const name of ['mode','tempo'])$(name).onchange=()=>{if(current)play(current);};
-$('loop').onchange=()=>{if(source)source.loop=$('loop').checked;};
-$('volume').oninput=()=>{if(master)master.gain.setTargetAtTime(Number($('volume').value)/100,context.currentTime,.02);};
+for(const name of ['mode','tempo'])$(name).onchange=()=>{if(current)play(current);else{media.pause();media.removeAttribute('src');media.load();loadedSong=null;if(mediaURL){URL.revokeObjectURL(mediaURL);mediaURL=null;}}};
+$('loop').onchange=()=>{media.loop=$('loop').checked;};
+$('volume').oninput=()=>{media.volume=Number($('volume').value)/100;};
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
 window.addEventListener('pagehide',stop);
-setInterval(()=>{if(current)$('progress').value=((context.currentTime-started)%duration)/duration;},150);
