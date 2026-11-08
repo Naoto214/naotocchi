@@ -10,6 +10,10 @@ import {CONFIGS} from '../lib/decks-life.mjs';
 const HERE=path.dirname(fileURLToPath(import.meta.url)),CG=path.resolve(HERE,'../..'),REPO=path.resolve(CG,'../..');
 const OUT=path.resolve(process.argv[2]??'');if(!process.argv[2]||OUT.startsWith(REPO+path.sep))throw Error('出力先はリポジトリの外を指定してください');
 const largeOnly=process.argv.includes('--large-only'),artifact=process.argv.includes('--artifact'),stageOnly=process.argv.includes('--stage-only');
+// VERSION 9：--art <dir>＝integration/integrate-art.mjs の出力（Astra の正式候補画像の WebP と card-art-v9.json）。指定した時だけ、
+// 候補7枚の画像を試遊版の写しの CARD_ART に足す（試遊版の中のカードIDは実験用の X-*）。指定しなければ今までどおり仮表示。
+const ART_DIR=process.argv.includes('--art')?path.resolve(process.argv[process.argv.indexOf('--art')+1]):null;
+const ART=ART_DIR?JSON.parse(fs.readFileSync(path.join(ART_DIR,'card-art-v9.json'),'utf8')):null;
 const ESBUILD=process.env.ESBUILD??'esbuild',PREFIX='naotocchi-time-trial:';
 const sha=t=>createHash('sha256').update(t).digest('hex');
 const officialSha=()=>Object.fromEntries(fs.readdirSync(CG).filter(f=>/\.(mjs|html|css)$/.test(f)).sort().map(f=>[f,sha(fs.readFileSync(path.join(CG,f)))]));
@@ -61,6 +65,8 @@ apply('cpu-decks.mjs',[['cpu-deck-trial',"export function cpuDeckVersion(id,card
 apply('life-clock-view.mjs',[['clock-end',"const state=clockState(view)","const state=clockState(view,{endRound:view.life?.final??10})"]]);
 const clockSrc=fs.readFileSync(path.join(CG,'life-clock/clock.mjs'),'utf8'),clockPatched=patch(clockSrc,"if(![10,11,12].includes(s.end))throw Error('end')","if(![9,10,11,12].includes(s.end))throw Error('end')",'clock-accept-9');
 // 新カードの画像は後日（本人方針）。カード面は既存の「画像なし」表示になる。
+if(ART){const {unmapId}=await import('../integration/candidate-cards.mjs');const add=Object.fromEntries(Object.entries(ART).map(([id,a])=>[unmapId(id),{small:a.small,large:a.large}]));
+ src['ui-art.mjs']=patch(src['ui-art.mjs'],'export const CARD_ART = Object.freeze(','const __CARD_ART_452 = (',"ui-art-v9")+`;\nexport const CARD_ART = Object.freeze({...__CARD_ART_452,...${JSON.stringify(add)}});\n`;}
 apply('ui-presentation.mjs',[
  ['trial-round',"<small>ROUND ${v.round}/10","<small>ROUND ${v.round}/${v.life?.final??10}${(v.life?.final??10)!==10?`<span class=\"life-badge life-r${v.life.final}\">${v.life.final>10?'延長':'短縮'}</span>`:''}"],
  ['trial-result',"<p>${h(v.result.reason)} · A ${v.result.growth.A} / B ${v.result.growth.B}</p>","<p>${h(v.result.reason)} · A ${v.result.growth.A} / B ${v.result.growth.B}</p>${v.life?.r10?`<p class=\"life-r10\">R10終了時点 · A ${v.life.r10.A} / B ${v.life.r10.B}（延長でR${v.life.final}まで）</p>`:''}"],
@@ -114,6 +120,8 @@ if(largeOnly){
 }
 fs.writeFileSync(path.join(OUT,'trial-bundle.js'),bundle);
 for(const f of copied){const to=path.join(OUT,f);fs.mkdirSync(path.dirname(to),{recursive:true});fs.copyFileSync(path.join(CG,f),to);}
+if(ART)for(const a of Object.values(ART))for(const size of (largeOnly?['large']:['small','large'])){const to=path.join(OUT,a[size]);fs.mkdirSync(path.dirname(to),{recursive:true});fs.copyFileSync(path.join(ART_DIR,a[size]),to);
+ if(largeOnly){const b=fs.readFileSync(path.join(OUT,'trial-bundle.js'),'utf8');if(!b.includes(JSON.stringify(a.small)))throw Error('画像パスが見つかりません: '+a.small);fs.writeFileSync(path.join(OUT,'trial-bundle.js'),b.split(JSON.stringify(a.small)).join(JSON.stringify(a.large)));}}
 
 // 4) CSS と HTML。
 for(const f of ['style.css','collection.css','learning.css','records.css','life-clock.css'])fs.copyFileSync(path.join(CG,f),path.join(OUT,f));
