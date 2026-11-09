@@ -20,8 +20,9 @@ def copy(rel):
 for src in HERE.iterdir():
     if src.suffix in ('.mjs','.json','.html','.css') and src.name!='build-stages.mjs':copy(src.relative_to(ROOT))
 copy('docs/naopoyo-gimmick-atlas-v2/catalog.json')
-for src in (ROOT/'docs/naopoyo-100-v1').iterdir():
-    if src.is_file():copy(src.relative_to(ROOT))
+for folder in ['docs/naopoyo-100-v1','docs/naopoyo-100-v2']:
+    for src in (ROOT/folder).iterdir():
+        if src.is_file():copy(src.relative_to(ROOT))
 sprite=(ROOT/'prototypes/naopoyo-rescue/sprite-data.mjs').read_text()
 for asset in re.findall(r'"path":"([^"]+)"',sprite):
     if 'owl-' not in asset:copy(asset)

@@ -16,7 +16,7 @@ const scenes = [
 export const tutorialPages = scenes.map(([number, title, text]) => {
   const { board: source, goal, hint } = formal[number - 1];
   const board = { ...source, id: `picture-book-${number}`, title, tiles: source.gravity
-    ? [{ catalogId: 'sign.gravity', x: 0, y: 0, params: {} }]
+    ? [{ catalogId: 'sign.gravity', x: 0, y: 7, params: {} }]
     : [] };
   const state = createGameState(board);
   const solution = solutions[number - 1].map(([id, dx, dy]) => {

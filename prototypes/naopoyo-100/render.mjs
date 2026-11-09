@@ -1,3 +1,7 @@
+import {drawBoard as drawFormalBoard} from '../naopoyo-time-hand-chapter1/draw.mjs';
+import {drawActors} from '../naopoyo-chapter1/render.mjs';
+import {drawExit,drawCondition} from '../naopoyo-rescue/fixtures.mjs';
+import {drawGate} from '../naopoyo-chapter2/gate-art.mjs';
 import {paintTile} from '../../docs/naopoyo-gimmick-atlas-v2/tile-art.mjs';
 import {drawTerrain} from '../naopoyo-rescue/themes.mjs';
 import {loadSprites,drawSprite,spriteSpec,speciesNames} from '../naopoyo-rescue/sprites.mjs';
@@ -17,7 +21,9 @@ const colors=['#efd087','#b1e4d8','#c2b8ef','#f1b5bc','#bade8b','#96cbe9'];
 function tint(id){let h=0;for(const c of String(id))h=(h*31+c.charCodeAt(0))>>>0;return colors[h%colors.length]}
 export function tile(c,id,p={},mask=0){
  c.save();
- if(terrain[id])c.drawImage(terrain[id],0,0,1,1);
+ if(id==='fixture.exit'){drawExit(c,{...p,x:0,y:0});drawCondition(c,{...p,x:0,y:0});}
+ else if(id==='fixture.gate')drawGate(c,{...p,x:0,y:0});
+ else if(terrain[id])c.drawImage(terrain[id],0,0,1,1);
  else if(id==='fixture.spike'){
   c.fillStyle='#ba879e';c.fillRect(.09,.73,.82,.11);const count=p.power||1;for(let n=0;n<count;n++){const x=.5+(n-(count-1)/2)*.25;c.fillStyle='#f2b7ce';c.beginPath();c.moveTo(x-.13,.75);c.lineTo(x,.28);c.lineTo(x+.13,.75);c.fill()}
  }else{
@@ -26,7 +32,7 @@ export function tile(c,id,p={},mask=0){
   paintTile(c,id,{phase:id==='fixture.crumble'?p.active===false?1:0:p.active?1:id==='fixture.exit'?1:0,time:0,mask,images:art});
  }
  c.restore();
- if(['fixture.gate','fixture.exit','fixture.plate.weight'].includes(id)){
+ if(id==='fixture.plate.weight'){
   // Replace atlas example numerals with this instance's actual condition.
   const txt=label(p)||'★',y=id==='fixture.gate'?.22:.77;
   c.fillStyle='#f3e8c5';c.beginPath();c.roundRect(.25,y-.12,.5,.24,.04);c.fill();c.fillStyle='#294b4a';c.font='bold .18px system-ui';c.textAlign='center';c.textBaseline='middle';c.fillText(txt,.5,y);
@@ -50,12 +56,23 @@ export function tile(c,id,p={},mask=0){
  }
 }
 function cellText(c,text,x,y){c.save();c.translate(x,y);c.scale(.01,.01);c.font='700 17px system-ui';c.textAlign='center';c.textBaseline='middle';c.lineWidth=5;c.strokeStyle='#263d50';c.strokeText(text,0,0);c.fillStyle='#fff8db';c.fillText(text,0,0);c.restore()}
-export function renderBoard(canvas,state,{selected=null,highlight=null}={}){
- const width=canvas.getBoundingClientRect().width||360,dpr=Math.min(devicePixelRatio||1,2),unit=width/8;canvas.width=Math.round(width*dpr);canvas.height=Math.round(width*dpr);const c=canvas.getContext('2d');c.setTransform(dpr*unit,0,0,dpr*unit,0,0);c.fillStyle='#617a83';c.fillRect(0,0,8,8);
- const tiles=describeTiles(state);
- for(const t of tiles){let mask=0;[[0,-1,1],[1,0,2],[0,1,4],[-1,0,8]].forEach(([dx,dy,bit])=>{if(tiles.some(n=>n.catalogId===t.catalogId&&n.x===t.x+dx&&n.y===t.y+dy))mask|=bit});c.save();c.translate(t.x,t.y);tile(c,t.catalogId,t.params||{},mask);c.restore()}
- if(highlight){c.strokeStyle='#f7e4a5';c.lineWidth=.06;c.strokeRect(highlight.x+.07,highlight.y+.07,.86,.86)}
- for(const a of state.actors){c.fillStyle='#18333d44';c.beginPath();c.ellipse(a.x+.5,a.y+.81,.28,.09,0,0,7);c.fill();const held=a.id===selected;if(held){c.strokeStyle='#ffe6a5';c.lineWidth=.035;c.beginPath();c.ellipse(a.x+.5,a.y+.81,.35,.13,0,0,7);c.stroke()}drawSprite(c,a.species,a.level,{x:a.x+.12,y:a.y+.03,w:.76,h:.76});cellText(c,String(a.level),a.x+.5,a.y+.84)}
+// Ordinary boards delegate the entire paint to the approved chapter renderer.
+// Extended boards add atlas mechanics between the canonical terrain and actors.
+const standard=new Set(['terrain.floor','terrain.wall','fixture.spike','fixture.gate','fixture.exit','sign.gravity']);
+export const gravitySignImage=()=>art.gravity;
+export function renderBoard(canvas,state,{selected=null,effects=[],stateEffects=[],gates=state.gates,now=performance.now(),reduced=false}={}){
+ const options={selected,effects,stateEffects,gates,now,reduced,gravitySign:art.gravity};
+ const extra=describeTiles(state).filter(t=>!standard.has(t.catalogId));
+ if(!extra.length){drawFormalBoard(canvas,state,options);return;}
+ drawFormalBoard(canvas,{...state,walls:state.baseWalls||state.walls,actors:[]},{...options,effects:[],stateEffects:[]});
+ const width=canvas.getBoundingClientRect().width||320,dpr=Math.min(globalThis.devicePixelRatio||1,2),unit=width/8,c=canvas.getContext('2d');
+ c.setTransform(dpr*unit,0,0,dpr*unit,0,0);
+ for(const t of extra){let mask=0;[[0,-1,1],[1,0,2],[0,1,4],[-1,0,8]].forEach(([dx,dy,bit])=>{if(extra.some(n=>n.catalogId===t.catalogId&&n.x===t.x+dx&&n.y===t.y+dy))mask|=bit});c.save();c.translate(t.x,t.y);tile(c,t.catalogId,t.params||{},mask);c.restore()}
+ // Same public actor painter and geometry, including held lift and numbers.
+ const active=selected?{id:state.actors.find(a=>a.x===selected[0]&&a.y===selected[1])?.id}:null;
+ c.save();c.setTransform(dpr,0,0,dpr,0,0);drawActors(c,state,active,unit,width,stateEffects,now,reduced,false,true);c.restore();
+ for(const e of effects){c.save();c.globalAlpha=Math.max(0,1-e.progress);c.strokeStyle='#bc8c3a';c.lineWidth=2/unit;c.beginPath();c.arc(e.x+.5,e.y+.5,.15+e.progress*.38,0,Math.PI*2);c.stroke();c.restore()}
 }
+
 export function paintSwatch(canvas,id,p={}){canvas.width=canvas.height=144;const c=canvas.getContext('2d');c.scale(144,144);tile(c,'terrain.floor');tile(c,id,p)}
 export function renderHero(canvas){const c=canvas.getContext('2d');c.clearRect(0,0,canvas.width,canvas.height);c.save();c.translate(48,135);c.scale(78,78);for(let i=0;i<7;i++){c.save();c.translate(i,0);c.globalAlpha=.35;tile(c,'terrain.floor');c.restore()}c.restore();for(const [species,level,x] of [['dog',2,96],['frog',1,270],['penguin',2,422]]){c.fillStyle='#49685220';c.beginPath();c.ellipse(x+35,181,30,7,0,0,7);c.fill();drawSprite(c,species,level,{x,y:99,w:76,h:79})}c.save();c.translate(538,112);c.scale(87,87);tile(c,'fixture.exit',{active:true});c.restore();c.fillStyle='#bc9955';for(const[x,y,r]of [[215,89,3],[372,65,4],[505,94,2]]){c.beginPath();c.arc(x,y,r,0,7);c.fill()}}

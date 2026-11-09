@@ -3,8 +3,13 @@ on:
   pull_request:
     paths:
       - 'prototypes/naopoyo-100/**'
+      - 'prototypes/naopoyo-time-hand-chapter1/**'
+      - 'prototypes/naopoyo-chapter1/**'
+      - 'prototypes/naopoyo-chapter2/**'
+      - 'prototypes/naopoyo-rescue/**'
       - 'tests/puzzle-*.test.mjs'
       - 'docs/naopoyo-100-v1/**'
+      - 'docs/naopoyo-100-v2/**'
       - '.github/workflows/naopoyo-hundred-prototype.yml'
 permissions:
   contents: read

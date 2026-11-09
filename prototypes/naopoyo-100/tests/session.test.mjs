@@ -28,3 +28,17 @@ test('resume accepts only a legally replayable action history, never injected st
  assert.equal(replayActions({},[{x:7,y:1,dx:1,dy:0}],create,move),null);
  assert.equal(replayActions({},[{x:1,y:1,dx:7,dy:0}],create,move),null);
 });
+
+test('V2 save preserves a multi-step gesture boundary and leaves V1 data untouched',()=>{
+ const legacy='naopoyo.hundred.owner-prototype.v1';const data=new Map([[legacy,'legacy-record']]);
+ const storage={getItem:k=>data.get(k),setItem:(k,v)=>data.set(k,v)};
+ const actions=[{x:1,y:1,dx:1,dy:0},{x:2,y:1,dx:1,dy:0},{x:3,y:1,dx:1,dy:0}];
+ const p=cleanProgress({last:{id:'01',actions,groups:[0,2],definition:'board-v2'}});
+ writeProgress(storage,p);assert.deepEqual(readProgress(storage).last,p.last);assert.equal(data.get(legacy),'legacy-record');
+ assert.deepEqual(importProgress(exportProgress(p)).last.groups,[0,2]);
+ for(const groups of [[1],[0,0],[0,3],[2,0],[-1],[]])assert.deepEqual(cleanProgress({last:{actions,groups}}).last.groups,[0,1,2]);
+});
+test('V1 import keeps reviews but cannot claim a compatible resumable board',()=>{
+ const p=importProgress(JSON.stringify({version:1,last:{id:'02',actions:[{x:1,y:1,dx:1,dy:0}]},reviews:{'02':{note:'残す'}}}));
+ assert.equal(p.reviews['02'].note,'残す');assert.equal(p.last.definition,'');assert.deepEqual(p.last.groups,[0]);
+});
