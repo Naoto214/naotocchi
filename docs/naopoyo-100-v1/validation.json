@@ -1,0 +1,3912 @@
+{
+  "version": "naopoyo-100-v1",
+  "counts": {
+    "stages": 100,
+    "replayed": 100,
+    "shortest": 97,
+    "weightedWitnesses": 2,
+    "authoredWitnesses": 1,
+    "ablations": 75
+  },
+  "limits": {
+    "breadthFirst": {
+      "nodes": 12000,
+      "depth": 90
+    },
+    "weighted": {
+      "nodes": 30000,
+      "depth": 120
+    },
+    "ablation": {
+      "nodes": 2500,
+      "depth": 90
+    }
+  },
+  "materialAppearances": {
+    "terrain.wall": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34",
+      "35",
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "44",
+      "45",
+      "46",
+      "47",
+      "48",
+      "49",
+      "50",
+      "51",
+      "52",
+      "53",
+      "54",
+      "55",
+      "56",
+      "57",
+      "58",
+      "59",
+      "60",
+      "61",
+      "62",
+      "63",
+      "64",
+      "65",
+      "66",
+      "67",
+      "68",
+      "69",
+      "70",
+      "71",
+      "72",
+      "73",
+      "74",
+      "75",
+      "76",
+      "77",
+      "78",
+      "79",
+      "80",
+      "81",
+      "82",
+      "83",
+      "84",
+      "85",
+      "86",
+      "87",
+      "88",
+      "89",
+      "90",
+      "91",
+      "92",
+      "93",
+      "94",
+      "95",
+      "96",
+      "97",
+      "98",
+      "99",
+      "100"
+    ],
+    "terrain.floor": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34",
+      "35",
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "44",
+      "45",
+      "46",
+      "47",
+      "48",
+      "49",
+      "50",
+      "51",
+      "52",
+      "53",
+      "54",
+      "55",
+      "56",
+      "57",
+      "58",
+      "59",
+      "60",
+      "61",
+      "62",
+      "63",
+      "64",
+      "65",
+      "66",
+      "67",
+      "68",
+      "69",
+      "70",
+      "71",
+      "72",
+      "73",
+      "74",
+      "75",
+      "76",
+      "77",
+      "78",
+      "79",
+      "80",
+      "81",
+      "82",
+      "83",
+      "84",
+      "85",
+      "86",
+      "87",
+      "88",
+      "89",
+      "90",
+      "91",
+      "92",
+      "93",
+      "94",
+      "95",
+      "96",
+      "97",
+      "98",
+      "99",
+      "100"
+    ],
+    "fixture.exit": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34",
+      "35",
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "44",
+      "45",
+      "46",
+      "47",
+      "48",
+      "49",
+      "50",
+      "51",
+      "52",
+      "53",
+      "54",
+      "55",
+      "56",
+      "57",
+      "58",
+      "59",
+      "60",
+      "61",
+      "62",
+      "63",
+      "64",
+      "65",
+      "66",
+      "67",
+      "68",
+      "69",
+      "70",
+      "71",
+      "72",
+      "73",
+      "74",
+      "75",
+      "76",
+      "77",
+      "78",
+      "79",
+      "80",
+      "81",
+      "82",
+      "83",
+      "84",
+      "85",
+      "86",
+      "87",
+      "88",
+      "89",
+      "90",
+      "91",
+      "92",
+      "93",
+      "94",
+      "95",
+      "96",
+      "97",
+      "98",
+      "99",
+      "100"
+    ],
+    "fixture.plate.hold": [
+      "02",
+      "60",
+      "78",
+      "80"
+    ],
+    "fixture.door": [
+      "02",
+      "28",
+      "30",
+      "41",
+      "42",
+      "43",
+      "51",
+      "57",
+      "60",
+      "72",
+      "73",
+      "75",
+      "76",
+      "78",
+      "79",
+      "80",
+      "81",
+      "83",
+      "86",
+      "88",
+      "89",
+      "91",
+      "92",
+      "93",
+      "94",
+      "96",
+      "97",
+      "98",
+      "99",
+      "100"
+    ],
+    "fixture.gate": [
+      "04",
+      "06",
+      "07",
+      "09",
+      "33",
+      "68",
+      "77",
+      "79",
+      "85",
+      "90"
+    ],
+    "sign.gravity": [
+      "05",
+      "27",
+      "29",
+      "33",
+      "34",
+      "45",
+      "49",
+      "53",
+      "55",
+      "56",
+      "58",
+      "61",
+      "69",
+      "74",
+      "78",
+      "82",
+      "84",
+      "87"
+    ],
+    "fixture.spike": [
+      "07",
+      "08",
+      "48",
+      "55",
+      "59",
+      "62",
+      "65",
+      "68",
+      "69",
+      "70",
+      "71",
+      "74",
+      "77",
+      "82",
+      "83",
+      "85",
+      "87",
+      "88",
+      "89",
+      "90",
+      "91",
+      "93",
+      "95",
+      "96",
+      "97",
+      "98",
+      "99",
+      "100"
+    ],
+    "terrain.ice": [
+      "10",
+      "15",
+      "18",
+      "20",
+      "29",
+      "46",
+      "48",
+      "64",
+      "68",
+      "88",
+      "93",
+      "95"
+    ],
+    "field.wind": [
+      "11",
+      "16",
+      "25",
+      "35",
+      "40",
+      "89"
+    ],
+    "fixture.warp": [
+      "12",
+      "24",
+      "26",
+      "38",
+      "47",
+      "63",
+      "85",
+      "87",
+      "91",
+      "95",
+      "99"
+    ],
+    "terrain.water": [
+      "13",
+      "14",
+      "32",
+      "36",
+      "37",
+      "49",
+      "50",
+      "54",
+      "63",
+      "69",
+      "77",
+      "87",
+      "90",
+      "96",
+      "98"
+    ],
+    "field.current": [
+      "14",
+      "32",
+      "37",
+      "54",
+      "77",
+      "96",
+      "98"
+    ],
+    "object.crate": [
+      "17",
+      "18",
+      "23",
+      "25",
+      "26",
+      "43",
+      "51",
+      "65",
+      "71",
+      "76",
+      "94"
+    ],
+    "fixture.oneway": [
+      "19",
+      "52",
+      "64",
+      "66",
+      "67"
+    ],
+    "fixture.phase": [
+      "21",
+      "44",
+      "67",
+      "70",
+      "81",
+      "98",
+      "100"
+    ],
+    "fixture.burrow": [
+      "22",
+      "59",
+      "85",
+      "95"
+    ],
+    "terrain.tunnel": [
+      "22",
+      "85",
+      "95"
+    ],
+    "fixture.latch": [
+      "28",
+      "57",
+      "75",
+      "79",
+      "80",
+      "83",
+      "88",
+      "89",
+      "91",
+      "92",
+      "93",
+      "94",
+      "96",
+      "98",
+      "99",
+      "100"
+    ],
+    "fixture.toggle": [
+      "30",
+      "42",
+      "75",
+      "93"
+    ],
+    "field.updraft": [
+      "34",
+      "45",
+      "74"
+    ],
+    "field.wave": [
+      "36",
+      "54",
+      "98"
+    ],
+    "scenery.lamp": [
+      "38"
+    ],
+    "fixture.sequence": [
+      "41",
+      "72",
+      "86",
+      "97"
+    ],
+    "fixture.plate.weight": [
+      "43",
+      "51",
+      "76",
+      "92",
+      "94"
+    ],
+    "field.bubble": [
+      "49",
+      "69",
+      "87"
+    ],
+    "fixture.crumble": [
+      "53",
+      "78"
+    ],
+    "npc.owl": [
+      "73",
+      "81",
+      "100"
+    ],
+    "fixture.signalLamp": [
+      "79"
+    ]
+  },
+  "stages": {
+    "10": {
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 10,
+        "discovered": 11,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "eventCounts": {
+        "terrain.ice": 1,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "terrain.ice",
+        "status": "shortest",
+        "expanded": 10,
+        "discovered": 11,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 5.81
+    },
+    "11": {
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 7,
+        "discovered": 9,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5
+      },
+      "weightedSearch": null,
+      "touched": [
+        "field.wind",
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "field.wind": 2,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "field.wind",
+        "status": "shortest",
+        "expanded": 8,
+        "discovered": 11,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 5.6
+    },
+    "12": {
+      "proof": "shortest",
+      "commands": 4,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 4,
+        "discovered": 5,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 4
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.warp",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "fixture.warp": 1,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "fixture.warp",
+        "status": "exhausted",
+        "expanded": 3,
+        "discovered": 3,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 2,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 4.74
+    },
+    "13": {
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 55,
+        "discovered": 62,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 7
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "eventCounts": {
+        "rescue": 2
+      },
+      "ablation": null,
+      "designScore": 9.26
+    },
+    "14": {
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 5,
+        "discovered": 6,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5
+      },
+      "weightedSearch": null,
+      "touched": [
+        "field.current",
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "eventCounts": {
+        "field.current": 3,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "field.current",
+        "status": "shortest",
+        "expanded": 8,
+        "discovered": 9,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 6.91
+    },
+    "15": {
+      "proof": "shortest",
+      "commands": 3,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 7,
+        "discovered": 12,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 3
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "eventCounts": {
+        "terrain.ice": 3,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "terrain.ice",
+        "status": "shortest",
+        "expanded": 10,
+        "discovered": 13,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 4.5
+    },
+    "16": {
+      "proof": "shortest",
+      "commands": 4,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 6,
+        "discovered": 11,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 4
+      },
+      "weightedSearch": null,
+      "touched": [
+        "field.wind",
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "field.wind": 1,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "field.wind",
+        "status": "shortest",
+        "expanded": 9,
+        "discovered": 13,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 4.96
+    },
+    "17": {
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 8,
+        "discovered": 11,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "object.crate",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "push": 2,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "object.crate",
+        "status": "shortest",
+        "expanded": 6,
+        "discovered": 8,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "finding": "same-shortest-length-after-removal"
+      },
+      "designScore": 5.68
+    },
+    "18": {
+      "proof": "shortest",
+      "commands": 2,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 2,
+        "discovered": 3,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 2
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "eventCounts": {
+        "terrain.ice": 2,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "terrain.ice",
+        "status": "shortest",
+        "expanded": 3,
+        "discovered": 5,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 3,
+        "solutionLength": 3,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 4.81
+    },
+    "19": {
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 9,
+        "discovered": 12,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.oneway",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "fixture.oneway",
+        "status": "shortest",
+        "expanded": 9,
+        "discovered": 12,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "finding": "same-shortest-length-after-removal"
+      },
+      "designScore": 5.74
+    },
+    "20": {
+      "proof": "shortest",
+      "commands": 3,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 8,
+        "discovered": 19,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 3
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "eventCounts": {
+        "terrain.ice": 3,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "terrain.ice",
+        "status": "shortest",
+        "expanded": 52,
+        "discovered": 66,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 5.88
+    },
+    "21": {
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 14,
+        "discovered": 15,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.phase",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "fixture.phase",
+        "status": "shortest",
+        "expanded": 6,
+        "discovered": 7,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 4,
+        "solutionLength": 4,
+        "finding": "removal-shortens-shortest"
+      },
+      "designScore": 6.01
+    },
+    "22": {
+      "proof": "shortest",
+      "commands": 4,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 4,
+        "discovered": 5,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 4
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.burrow",
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.tunnel"
+      ],
+      "eventCounts": {
+        "fixture.burrow": 1,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "fixture.burrow",
+        "status": "exhausted",
+        "expanded": 3,
+        "discovered": 3,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 2,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 6.24
+    },
+    "23": {
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 9,
+        "discovered": 11,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "object.crate",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "push": 1,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "object.crate",
+        "status": "shortest",
+        "expanded": 8,
+        "discovered": 9,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "finding": "removal-shortens-shortest"
+      },
+      "designScore": 6.29
+    },
+    "24": {
+      "proof": "shortest",
+      "commands": 4,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 15,
+        "discovered": 31,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 4
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.warp",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "fixture.warp": 1,
+        "merge": 1,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "fixture.warp",
+        "status": "exhausted",
+        "expanded": 20,
+        "discovered": 20,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 3,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 6.8
+    },
+    "25": {
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 5,
+        "discovered": 9,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5
+      },
+      "weightedSearch": null,
+      "touched": [
+        "field.wind",
+        "fixture.exit",
+        "object.crate",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "field.wind": 1,
+        "push": 2,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "field.wind",
+        "status": "shortest",
+        "expanded": 6,
+        "discovered": 10,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 6.91
+    },
+    "26": {
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 5,
+        "discovered": 9,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.warp",
+        "object.crate",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "fixture.warp": 1,
+        "push": 2,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "fixture.warp",
+        "status": "exhausted",
+        "expanded": 3,
+        "discovered": 3,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 2,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 6.91
+    },
+    "27": {
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 5,
+        "discovered": 6,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "rescue": 1
+      },
+      "ablation": null,
+      "designScore": 7.01
+    },
+    "28": {
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 6,
+        "discovered": 7,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "mechanism": 1,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "fixture.latch",
+        "status": "exhausted",
+        "expanded": 4,
+        "discovered": 4,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 3,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 7.01
+    },
+    "29": {
+      "proof": "shortest",
+      "commands": 3,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 3,
+        "discovered": 4,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 3
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "eventCounts": {
+        "terrain.ice": 2,
+        "fall": 2,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "terrain.ice",
+        "status": "shortest",
+        "expanded": 5,
+        "discovered": 6,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 7.15
+    },
+    "30": {
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 9,
+        "discovered": 12,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.toggle",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "mechanism": 1,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "fixture.toggle",
+        "status": "exhausted",
+        "expanded": 5,
+        "discovered": 5,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 3,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 7.24
+    },
+    "31": {
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 115,
+        "discovered": 134,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "rescue": 2
+      },
+      "ablation": null,
+      "designScore": 7.69
+    },
+    "32": {
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 8,
+        "discovered": 9,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "rescue": 1
+      },
+      "ablation": null,
+      "designScore": 7.73
+    },
+    "33": {
+      "proof": "shortest",
+      "commands": 4,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 4,
+        "discovered": 6,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 4
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "rescue": 1
+      },
+      "ablation": null,
+      "designScore": 7.84
+    },
+    "34": {
+      "proof": "shortest",
+      "commands": 4,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 4,
+        "discovered": 5,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 4
+      },
+      "weightedSearch": null,
+      "touched": [
+        "field.updraft",
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "field.updraft": 3,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "field.updraft",
+        "status": "exhausted",
+        "expanded": 3,
+        "discovered": 3,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 2,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 7.84
+    },
+    "35": {
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 47,
+        "discovered": 60,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5
+      },
+      "weightedSearch": null,
+      "touched": [
+        "field.wind",
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "field.wind": 1,
+        "merge": 1,
+        "rescue": 1
+      },
+      "ablation": null,
+      "designScore": 8.06
+    },
+    "36": {
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 19,
+        "discovered": 22,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6
+      },
+      "weightedSearch": null,
+      "touched": [
+        "field.wave",
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "eventCounts": {
+        "field.wave": 1,
+        "rescue": 1
+      },
+      "ablation": null,
+      "designScore": 8.24
+    },
+    "37": {
+      "proof": "shortest",
+      "commands": 4,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 15,
+        "discovered": 24,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 4
+      },
+      "weightedSearch": null,
+      "touched": [
+        "field.current",
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "eventCounts": {
+        "field.current": 2,
+        "merge": 1,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "field.current",
+        "status": "shortest",
+        "expanded": 29,
+        "discovered": 41,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 8.3
+    },
+    "38": {
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 35,
+        "discovered": 51,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.warp",
+        "scenery.lamp",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "fixture.warp": 1,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "fixture.warp",
+        "status": "exhausted",
+        "expanded": 15,
+        "discovered": 15,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 4,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 8.43
+    },
+    "39": {
+      "proof": "shortest",
+      "commands": 8,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 96,
+        "discovered": 110,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 8
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "merge": 1,
+        "rescue": 2
+      },
+      "ablation": null,
+      "designScore": 8.67
+    },
+    "40": {
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 51,
+        "discovered": 61,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6
+      },
+      "weightedSearch": null,
+      "touched": [
+        "field.wind",
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "field.wind": 3,
+        "merge": 1,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "field.wind",
+        "status": "shortest",
+        "expanded": 146,
+        "discovered": 195,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 7,
+        "solutionLength": 7,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 8.67
+    },
+    "41": {
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 19,
+        "discovered": 24,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 7
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.sequence",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "mechanism": 1,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "fixture.sequence",
+        "status": "exhausted",
+        "expanded": 10,
+        "discovered": 10,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 4,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 8.79
+    },
+    "42": {
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 22,
+        "discovered": 25,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 7
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.toggle",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "mechanism": 2,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "fixture.toggle",
+        "status": "exhausted",
+        "expanded": 9,
+        "discovered": 9,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 3,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 8.89
+    },
+    "43": {
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 14,
+        "discovered": 20,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "object.crate",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "push": 1,
+        "mechanism": 1,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "object.crate",
+        "status": "exhausted",
+        "expanded": 7,
+        "discovered": 7,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 3,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 9.01
+    },
+    "44": {
+      "proof": "shortest",
+      "commands": 9,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 51,
+        "discovered": 54,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 9
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.phase",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "fixture.phase",
+        "status": "shortest",
+        "expanded": 11,
+        "discovered": 12,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 7,
+        "solutionLength": 7,
+        "finding": "removal-shortens-shortest"
+      },
+      "designScore": 9.02
+    },
+    "45": {
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 6,
+        "discovered": 7,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6
+      },
+      "weightedSearch": null,
+      "touched": [
+        "field.updraft",
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "field.updraft": 4,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "field.updraft",
+        "status": "exhausted",
+        "expanded": 3,
+        "discovered": 3,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 2,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 9.16
+    },
+    "46": {
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 112,
+        "discovered": 192,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "eventCounts": {
+        "terrain.ice": 6,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "terrain.ice",
+        "status": "shortest",
+        "expanded": 283,
+        "discovered": 302,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 12,
+        "solutionLength": 12,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 9.17
+    },
+    "47": {
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 141,
+        "discovered": 180,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.warp",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "fixture.warp": 2,
+        "merge": 1,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "fixture.warp",
+        "status": "exhausted",
+        "expanded": 36,
+        "discovered": 36,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 4,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 9.32
+    },
+    "48": {
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 37,
+        "discovered": 85,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.spike",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "eventCounts": {
+        "terrain.ice": 3,
+        "split": 1,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "terrain.ice",
+        "status": "shortest",
+        "expanded": 48,
+        "discovered": 90,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 8,
+        "solutionLength": 8,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 9.31
+    },
+    "49": {
+      "proof": "shortest",
+      "commands": 4,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 4,
+        "discovered": 5,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 4
+      },
+      "weightedSearch": null,
+      "touched": [
+        "field.bubble",
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "eventCounts": {
+        "field.bubble": 3,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "field.bubble",
+        "status": "shortest",
+        "expanded": 7,
+        "discovered": 8,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 7,
+        "solutionLength": 7,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 9.34
+    },
+    "50": {
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 71,
+        "discovered": 88,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 7
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "eventCounts": {
+        "rescue": 2
+      },
+      "ablation": null,
+      "designScore": 9.43
+    },
+    "51": {
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 34,
+        "discovered": 80,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "object.crate",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "push": 3,
+        "mechanism": 1,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "object.crate",
+        "status": "shortest",
+        "expanded": 15,
+        "discovered": 16,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 9.56
+    },
+    "52": {
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 101,
+        "discovered": 132,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 7
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.oneway",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "merge": 1,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "fixture.oneway",
+        "status": "shortest",
+        "expanded": 97,
+        "discovered": 132,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6,
+        "finding": "removal-shortens-shortest"
+      },
+      "designScore": 9.65
+    },
+    "53": {
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 9,
+        "discovered": 10,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 7
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.crumble",
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "crumble": 1,
+        "fall": 2,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "fixture.crumble",
+        "status": "shortest",
+        "expanded": 5,
+        "discovered": 6,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "finding": "removal-shortens-shortest"
+      },
+      "designScore": 9.94
+    },
+    "54": {
+      "proof": "shortest",
+      "commands": 4,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 19,
+        "discovered": 50,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 4
+      },
+      "weightedSearch": null,
+      "touched": [
+        "field.current",
+        "field.wave",
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "eventCounts": {
+        "field.current": 1,
+        "field.wave": 1,
+        "merge": 1,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "field.wave",
+        "status": "shortest",
+        "expanded": 35,
+        "discovered": 60,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 9.94
+    },
+    "55": {
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 8,
+        "discovered": 10,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "split": 1,
+        "fall": 6,
+        "rescue": 2
+      },
+      "ablation": null,
+      "designScore": 9.98
+    },
+    "56": {
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 27,
+        "discovered": 31,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 7
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "fall": 3,
+        "merge": 1,
+        "rescue": 1
+      },
+      "ablation": null,
+      "designScore": 10.41
+    },
+    "57": {
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 91,
+        "discovered": 92,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "mechanism": 1,
+        "merge": 1,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "fixture.latch",
+        "status": "exhausted",
+        "expanded": 81,
+        "discovered": 81,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 4,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 10.54
+    },
+    "58": {
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 33,
+        "discovered": 42,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 7
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "fall": 1,
+        "rescue": 2
+      },
+      "ablation": null,
+      "designScore": 10.54
+    },
+    "59": {
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 186,
+        "discovered": 239,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.burrow",
+        "fixture.exit",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "split": 1,
+        "rescue": 2,
+        "fixture.burrow": 1
+      },
+      "ablation": {
+        "removed": "fixture.burrow",
+        "status": "exhausted",
+        "expanded": 165,
+        "discovered": 165,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 10.9
+    },
+    "60": {
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 85,
+        "discovered": 98,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 7
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.plate.hold",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "mechanism": 2,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "fixture.plate.hold",
+        "status": "exhausted",
+        "expanded": 30,
+        "discovered": 30,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 4,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 11.04
+    },
+    "61": {
+      "proof": "shortest",
+      "commands": 8,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 40,
+        "discovered": 48,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 8
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "rescue": 2,
+        "fall": 1
+      },
+      "ablation": null,
+      "designScore": 11.21
+    },
+    "62": {
+      "proof": "shortest",
+      "commands": 8,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 599,
+        "discovered": 720,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 8
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "split": 1,
+        "rescue": 2,
+        "merge": 1
+      },
+      "ablation": null,
+      "designScore": 11.25
+    },
+    "63": {
+      "proof": "shortest",
+      "commands": 8,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 74,
+        "discovered": 85,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 8
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.warp",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "eventCounts": {
+        "fixture.warp": 2,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "fixture.warp",
+        "status": "exhausted",
+        "expanded": 20,
+        "discovered": 20,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 4,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 11.5
+    },
+    "64": {
+      "proof": "shortest",
+      "commands": 9,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 66,
+        "discovered": 88,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 9
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.oneway",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "eventCounts": {
+        "terrain.ice": 2,
+        "merge": 1,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "terrain.ice",
+        "status": "shortest",
+        "expanded": 85,
+        "discovered": 104,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 11,
+        "solutionLength": 11,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 11.98
+    },
+    "65": {
+      "proof": "shortest",
+      "commands": 9,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 83,
+        "discovered": 201,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 9
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.spike",
+        "object.crate",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "push": 2,
+        "split": 1,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "object.crate",
+        "status": "shortest",
+        "expanded": 95,
+        "discovered": 183,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 8,
+        "solutionLength": 8,
+        "finding": "removal-shortens-shortest"
+      },
+      "designScore": 12.03
+    },
+    "66": {
+      "proof": "shortest",
+      "commands": 11,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 238,
+        "discovered": 261,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 11
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.oneway",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "rescue": 2
+      },
+      "ablation": null,
+      "designScore": 12.41
+    },
+    "67": {
+      "proof": "shortest",
+      "commands": 9,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 128,
+        "discovered": 145,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 9
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.oneway",
+        "fixture.phase",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "fixture.phase",
+        "status": "shortest",
+        "expanded": 46,
+        "discovered": 53,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 8,
+        "solutionLength": 8,
+        "finding": "removal-shortens-shortest"
+      },
+      "designScore": 12.41
+    },
+    "68": {
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 42,
+        "discovered": 60,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.spike",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "eventCounts": {
+        "terrain.ice": 2,
+        "merge": 1,
+        "split": 1,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "terrain.ice",
+        "status": "shortest",
+        "expanded": 42,
+        "discovered": 60,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 7,
+        "solutionLength": 7,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 12.74
+    },
+    "69": {
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 14,
+        "discovered": 24,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5
+      },
+      "weightedSearch": null,
+      "touched": [
+        "field.bubble",
+        "fixture.exit",
+        "fixture.spike",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "eventCounts": {
+        "split": 1,
+        "field.bubble": 2,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "field.bubble",
+        "status": "shortest",
+        "expanded": 90,
+        "discovered": 136,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 7,
+        "solutionLength": 7,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 13.31
+    },
+    "70": {
+      "proof": "shortest",
+      "commands": 10,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 260,
+        "discovered": 355,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 10
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.phase",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "split": 1,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "fixture.phase",
+        "status": "shortest",
+        "expanded": 152,
+        "discovered": 182,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 10,
+        "solutionLength": 10,
+        "finding": "same-shortest-length-after-removal"
+      },
+      "designScore": 13.31
+    },
+    "71": {
+      "proof": "shortest",
+      "commands": 10,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 59,
+        "discovered": 68,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 10
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.spike",
+        "object.crate",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "merge": 1,
+        "push": 2,
+        "split": 1,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "object.crate",
+        "status": "shortest",
+        "expanded": 130,
+        "discovered": 176,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 9,
+        "solutionLength": 9,
+        "finding": "removal-shortens-shortest"
+      },
+      "designScore": 13.66
+    },
+    "72": {
+      "proof": "shortest",
+      "commands": 10,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 390,
+        "discovered": 443,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 10
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.sequence",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "mechanism": 1,
+        "merge": 1,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "fixture.sequence",
+        "status": "exhausted",
+        "expanded": 144,
+        "discovered": 144,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 7,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 13.67
+    },
+    "73": {
+      "proof": "shortest",
+      "commands": 11,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 203,
+        "discovered": 219,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 11
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "npc.owl",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "npc.owl": 1,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "npc.owl",
+        "status": "exhausted",
+        "expanded": 42,
+        "discovered": 42,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 4,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 13.8
+    },
+    "74": {
+      "proof": "shortest",
+      "commands": 9,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 28,
+        "discovered": 30,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 9
+      },
+      "weightedSearch": null,
+      "touched": [
+        "field.updraft",
+        "fixture.exit",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "split": 1,
+        "field.updraft": 2,
+        "rescue": 2,
+        "fall": 2
+      },
+      "ablation": {
+        "removed": "field.updraft",
+        "status": "exhausted",
+        "expanded": 20,
+        "discovered": 20,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 8,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 14.44
+    },
+    "75": {
+      "proof": "shortest",
+      "commands": 9,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 102,
+        "discovered": 129,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 9
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.toggle",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "mechanism": 3,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "fixture.latch",
+        "status": "shortest",
+        "expanded": 85,
+        "discovered": 91,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 11,
+        "solutionLength": 11,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 14.56
+    },
+    "76": {
+      "proof": "shortest",
+      "commands": 10,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 215,
+        "discovered": 217,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 10
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "object.crate",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "push": 1,
+        "mechanism": 1,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "object.crate",
+        "status": "exhausted",
+        "expanded": 110,
+        "discovered": 110,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 14.79
+    },
+    "77": {
+      "proof": "shortest",
+      "commands": 8,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 183,
+        "discovered": 226,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 8
+      },
+      "weightedSearch": null,
+      "touched": [
+        "field.current",
+        "fixture.exit",
+        "fixture.spike",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "eventCounts": {
+        "split": 1,
+        "field.current": 2,
+        "phase": 1,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "field.current",
+        "status": "shortest",
+        "expanded": 302,
+        "discovered": 319,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 9,
+        "solutionLength": 9,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 14.99
+    },
+    "78": {
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 45,
+        "discovered": 57,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 7
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.plate.hold",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "fall": 1,
+        "mechanism": 2,
+        "crumble": 1,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "fixture.plate.hold",
+        "status": "shortest",
+        "expanded": 48,
+        "discovered": 59,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 7,
+        "solutionLength": 7,
+        "finding": "same-shortest-length-after-removal"
+      },
+      "designScore": 15.24
+    },
+    "79": {
+      "proof": "shortest",
+      "commands": 9,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 312,
+        "discovered": 328,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 9
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.gate",
+        "fixture.latch",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "merge": 1,
+        "phase": 1,
+        "mechanism": 1,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "fixture.latch",
+        "status": "exhausted",
+        "expanded": 212,
+        "discovered": 212,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 10,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 15.98
+    },
+    "80": {
+      "proof": "shortest",
+      "commands": 11,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 133,
+        "discovered": 163,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 11
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.plate.hold",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "mechanism": 3,
+        "swap": 1,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "fixture.plate.hold",
+        "status": "exhausted",
+        "expanded": 42,
+        "discovered": 42,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 15.83
+    },
+    "81": {
+      "proof": "shortest",
+      "commands": 11,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 685,
+        "discovered": 791,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 11
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.phase",
+        "npc.owl",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "npc.owl": 1,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "npc.owl",
+        "status": "exhausted",
+        "expanded": 330,
+        "discovered": 330,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 9,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 16.09
+    },
+    "82": {
+      "proof": "shortest",
+      "commands": 13,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 152,
+        "discovered": 155,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 13
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "split": 3,
+        "fall": 7,
+        "merge": 1,
+        "rescue": 3
+      },
+      "ablation": null,
+      "designScore": 16.22
+    },
+    "83": {
+      "proof": "shortest",
+      "commands": 11,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 1505,
+        "discovered": 2067,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 11
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "split": 1,
+        "mechanism": 1,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "fixture.latch",
+        "status": "shortest",
+        "expanded": 1073,
+        "discovered": 1078,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 13,
+        "solutionLength": 13,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 16.5
+    },
+    "84": {
+      "proof": "shortest",
+      "commands": 12,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 838,
+        "discovered": 900,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 12
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "rescue": 3
+      },
+      "ablation": null,
+      "designScore": 16.67
+    },
+    "85": {
+      "proof": "shortest",
+      "commands": 9,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 153,
+        "discovered": 212,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 9
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.burrow",
+        "fixture.exit",
+        "fixture.spike",
+        "fixture.warp",
+        "terrain.floor",
+        "terrain.tunnel"
+      ],
+      "eventCounts": {
+        "split": 1,
+        "fixture.warp": 1,
+        "rescue": 2,
+        "fixture.burrow": 1
+      },
+      "ablation": {
+        "removed": "fixture.burrow",
+        "status": "exhausted",
+        "expanded": 59,
+        "discovered": 59,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 7,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 16.92
+    },
+    "86": {
+      "proof": "shortest",
+      "commands": 16,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 410,
+        "discovered": 442,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 16
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.sequence",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "mechanism": 1,
+        "merge": 1,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "fixture.sequence",
+        "status": "exhausted",
+        "expanded": 121,
+        "discovered": 121,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 7,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 17.01
+    },
+    "87": {
+      "proof": "shortest",
+      "commands": 8,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 39,
+        "discovered": 44,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 8
+      },
+      "weightedSearch": null,
+      "touched": [
+        "field.bubble",
+        "fixture.exit",
+        "fixture.spike",
+        "fixture.warp",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "eventCounts": {
+        "split": 1,
+        "field.bubble": 3,
+        "fixture.warp": 1,
+        "rescue": 2,
+        "fall": 1
+      },
+      "ablation": {
+        "removed": "field.bubble",
+        "status": "shortest",
+        "expanded": 476,
+        "discovered": 643,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 10,
+        "solutionLength": 10,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 17.09
+    },
+    "88": {
+      "proof": "shortest",
+      "commands": 10,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 1024,
+        "discovered": 1162,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 10
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.spike",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "eventCounts": {
+        "terrain.ice": 2,
+        "split": 2,
+        "mechanism": 1,
+        "rescue": 3
+      },
+      "ablation": {
+        "removed": "terrain.ice",
+        "status": "shortest",
+        "expanded": 1313,
+        "discovered": 1556,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 12,
+        "solutionLength": 12,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 17.2
+    },
+    "89": {
+      "proof": "shortest",
+      "commands": 11,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 1033,
+        "discovered": 1687,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 11
+      },
+      "weightedSearch": null,
+      "touched": [
+        "field.wind",
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "split": 1,
+        "field.wind": 2,
+        "mechanism": 1,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "field.wind",
+        "status": "shortest",
+        "expanded": 1501,
+        "discovered": 2163,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 12,
+        "solutionLength": 12,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 17.76
+    },
+    "90": {
+      "proof": "shortest",
+      "commands": 12,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 641,
+        "discovered": 663,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 12
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.gate",
+        "fixture.spike",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "eventCounts": {
+        "split": 1,
+        "phase": 3,
+        "merge": 1,
+        "rescue": 2
+      },
+      "ablation": null,
+      "designScore": 17.8
+    },
+    "91": {
+      "proof": "shortest",
+      "commands": 13,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 642,
+        "discovered": 710,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 13
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.spike",
+        "fixture.warp",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "split": 1,
+        "fixture.warp": 2,
+        "mechanism": 1,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "fixture.warp",
+        "status": "exhausted",
+        "expanded": 292,
+        "discovered": 292,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 11,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 18.55
+    },
+    "92": {
+      "proof": "shortest",
+      "commands": 13,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 1322,
+        "discovered": 1360,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 13
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.plate.weight",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "mechanism": 5,
+        "rescue": 3
+      },
+      "ablation": {
+        "removed": "fixture.plate.weight",
+        "status": "exhausted",
+        "expanded": 224,
+        "discovered": 224,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 19.72
+    },
+    "93": {
+      "proof": "shortest",
+      "commands": 12,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 1111,
+        "discovered": 1395,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 12
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.spike",
+        "fixture.toggle",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "eventCounts": {
+        "split": 1,
+        "mechanism": 1,
+        "terrain.ice": 4,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "fixture.toggle",
+        "status": "shortest",
+        "expanded": 802,
+        "discovered": 906,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 17,
+        "solutionLength": 17,
+        "finding": "removal-lengthens-shortest"
+      },
+      "designScore": 19.85
+    },
+    "94": {
+      "proof": "shortest",
+      "commands": 14,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 3889,
+        "discovered": 4234,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 14
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "object.crate",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "swap": 1,
+        "mechanism": 2,
+        "merge": 1,
+        "push": 1,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "object.crate",
+        "status": "limit",
+        "expanded": 2500,
+        "discovered": 3028,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 9,
+        "solutionLength": null,
+        "finding": "unknown-after-removal"
+      },
+      "designScore": 21.67
+    },
+    "95": {
+      "proof": "shortest",
+      "commands": 13,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 10360,
+        "discovered": 12027,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 13
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.burrow",
+        "fixture.exit",
+        "fixture.spike",
+        "fixture.warp",
+        "terrain.floor",
+        "terrain.ice",
+        "terrain.tunnel"
+      ],
+      "eventCounts": {
+        "split": 1,
+        "fixture.warp": 1,
+        "rescue": 3,
+        "terrain.ice": 2,
+        "fixture.burrow": 2
+      },
+      "ablation": {
+        "removed": "fixture.burrow",
+        "status": "exhausted",
+        "expanded": 1466,
+        "discovered": 1466,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 10,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 21.85
+    },
+    "96": {
+      "proof": "shortest",
+      "commands": 15,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 2403,
+        "discovered": 2597,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 15
+      },
+      "weightedSearch": null,
+      "touched": [
+        "field.current",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.spike",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "eventCounts": {
+        "split": 2,
+        "mechanism": 1,
+        "merge": 1,
+        "field.current": 2,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "field.current",
+        "status": "limit",
+        "expanded": 2500,
+        "discovered": 2726,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 15,
+        "solutionLength": null,
+        "finding": "unknown-after-removal"
+      },
+      "designScore": 22
+    },
+    "97": {
+      "proof": "bounded-witness",
+      "commands": 18,
+      "breadthFirst": {
+        "status": "limit",
+        "expanded": 12000,
+        "discovered": 17207,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 10
+      },
+      "weightedSearch": {
+        "status": "witness",
+        "expanded": 3026,
+        "discovered": 3171,
+        "limit": 30000,
+        "maxDepth": 120,
+        "deepest": 21
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.sequence",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "split": 1,
+        "mechanism": 1,
+        "merge": 1,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "fixture.sequence",
+        "status": "limit",
+        "expanded": 2500,
+        "discovered": 3968,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 8,
+        "solutionLength": null,
+        "finding": "unknown-after-removal"
+      },
+      "designScore": 23.7
+    },
+    "98": {
+      "proof": "shortest",
+      "commands": 13,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 8079,
+        "discovered": 11143,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 13
+      },
+      "weightedSearch": null,
+      "touched": [
+        "field.current",
+        "field.wave",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.phase",
+        "fixture.spike",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "eventCounts": {
+        "split": 1,
+        "mechanism": 1,
+        "field.current": 1,
+        "field.wave": 1,
+        "rescue": 2
+      },
+      "ablation": {
+        "removed": "field.wave",
+        "status": "limit",
+        "expanded": 2500,
+        "discovered": 3736,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 10,
+        "solutionLength": null,
+        "finding": "unknown-after-removal"
+      },
+      "designScore": 24.69
+    },
+    "99": {
+      "proof": "bounded-witness",
+      "commands": 24,
+      "breadthFirst": {
+        "status": "limit",
+        "expanded": 12000,
+        "discovered": 26436,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 8
+      },
+      "weightedSearch": {
+        "status": "witness",
+        "expanded": 5674,
+        "discovered": 6141,
+        "limit": 30000,
+        "maxDepth": 120,
+        "deepest": 24
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.spike",
+        "fixture.warp",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "fixture.warp": 4,
+        "rescue": 4,
+        "split": 2,
+        "merge": 1,
+        "mechanism": 1
+      },
+      "ablation": {
+        "removed": "fixture.warp",
+        "status": "limit",
+        "expanded": 2500,
+        "discovered": 6297,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": null,
+        "finding": "unknown-after-removal"
+      },
+      "designScore": 29.8
+    },
+    "100": {
+      "proof": "authored-witness",
+      "commands": 28,
+      "breadthFirst": {
+        "status": "limit",
+        "expanded": 12000,
+        "discovered": 30441,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 8
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.phase",
+        "fixture.spike",
+        "npc.owl",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "split": 1,
+        "mechanism": 1,
+        "npc.owl": 1,
+        "rescue": 3,
+        "merge": 1
+      },
+      "ablation": {
+        "removed": "npc.owl",
+        "status": "limit",
+        "expanded": 2500,
+        "discovered": 7890,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": null,
+        "finding": "unknown-after-removal"
+      },
+      "designScore": 33.5
+    },
+    "01": {
+      "proof": "shortest",
+      "commands": 2,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 2,
+        "discovered": 3,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 2
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "rescue": 1
+      },
+      "ablation": null,
+      "designScore": 1.81
+    },
+    "02": {
+      "proof": "shortest",
+      "commands": 3,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 3,
+        "discovered": 4,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 3
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.plate.hold",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "mechanism": 2,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "fixture.plate.hold",
+        "status": "exhausted",
+        "expanded": 2,
+        "discovered": 2,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 1,
+        "solutionLength": null,
+        "finding": "no-solution-after-removal"
+      },
+      "designScore": 5.55
+    },
+    "03": {
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 15,
+        "discovered": 17,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "rescue": 2
+      },
+      "ablation": null,
+      "designScore": 5.85
+    },
+    "04": {
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 18,
+        "discovered": 21,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.gate",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "phase": 1,
+        "rescue": 1
+      },
+      "ablation": {
+        "removed": "fixture.gate",
+        "status": "shortest",
+        "expanded": 15,
+        "discovered": 19,
+        "limit": 2500,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "finding": "removal-shortens-shortest"
+      },
+      "designScore": 6.71
+    },
+    "05": {
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 5,
+        "discovered": 6,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "fall": 2,
+        "rescue": 1
+      },
+      "ablation": null,
+      "designScore": 7.01
+    },
+    "06": {
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 27,
+        "discovered": 29,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.gate",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "merge": 1,
+        "phase": 1,
+        "rescue": 1
+      },
+      "ablation": null,
+      "designScore": 7.71
+    },
+    "07": {
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 18,
+        "discovered": 19,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 7
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.gate",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "split": 1,
+        "phase": 2,
+        "rescue": 2
+      },
+      "ablation": null,
+      "designScore": 9.96
+    },
+    "08": {
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 63,
+        "discovered": 133,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 7
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "split": 1,
+        "rescue": 2
+      },
+      "ablation": null,
+      "designScore": 9.25
+    },
+    "09": {
+      "proof": "shortest",
+      "commands": 10,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 90,
+        "discovered": 98,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 10
+      },
+      "weightedSearch": null,
+      "touched": [
+        "fixture.exit",
+        "fixture.gate",
+        "terrain.floor"
+      ],
+      "eventCounts": {
+        "phase": 2,
+        "merge": 1,
+        "rescue": 1
+      },
+      "ablation": null,
+      "designScore": 11.23
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "base": "fce9067b41ed4c6b6640791ec13bd610c5b6bde3",
+  "chapter2": "9ebcda6d40d57634fe94dc7e80b5e7b66be65a18",
+  "sha256": {
+    "prototypes/naopoyo-time-hand-chapter1/engine.mjs": "f78db7940c32f85f1afb3e13910b1661eb610b25eab34b57e94f5b6aedfae7ad",
+    "prototypes/naopoyo-time-hand-chapter1/stages.mjs": "14352c86aa48ac0f41b71f99dc172504ce7e29d05235d1b85d785dd177a3b0c0",
+    "prototypes/naopoyo-time-hand-chapter1/solutions.mjs": "c87ef5b9924f65034101e1fce5fd742033c5f60b876733499ecadbea5f4eac79",
+    "prototypes/naopoyo-time-hand-chapter1/input.mjs": "87bcdf53238ece7fb5ca4058d12a5cab4192ffb9cac74437d15322cdebbfe48c",
+    "prototypes/naopoyo-time-hand-chapter1/draw.mjs": "4984b05de784113121df60359bffc57aca46cd25403f94c32d06984e179c20fe",
+    "prototypes/naopoyo-time-hand-chapter1/priorities.mjs": "ae08693f260cdd8c42770cf5601bc1c2f83d601d87337d9c0cf24f644838cbaf",
+    "prototypes/naopoyo-time-hand-chapter1/abc-priorities.mjs": "c94559954f7053e3108ede1cfff863b08a8830a3ac5e70462dcd95d5ad367fa0",
+    "prototypes/naopoyo-time-hand-chapter1/session.mjs": "412840da8be066d1be773a58111c2196b1704ad1f4a5cc2c7b87e9fd0c1c38a9",
+    "prototypes/naopoyo-time-hand-chapter1/progress.mjs": "9ed17304dcc1b0ec70220317fef76fd9a93f6ce52de82178341de34ca6276716",
+    "docs/naopoyo-gimmick-atlas-v2/source/mechanism-art.mjs": "1036ad535d009cfa67d330a9f45a819a8af1aa0b67e27284a39ccef51da0102d",
+    "docs/naopoyo-gimmick-atlas-v2/source/runtime.mjs": "adae06e97f10ef71998bf97f1f3629774205756f4302fdd58669a0fe9920b9e8",
+    "docs/naopoyo-gimmick-atlas-v2/source/stages.mjs": "165cf590e5792b3bff12afc25131a4ed95937b5e0e10d7626a77f9c50a789bdb",
+    "docs/naopoyo-gimmick-atlas-v2/source/draw.mjs": "0e881c770dd1ec7ef58906c644a242a1b07e0a883984a4c2f1b1c3c98579bbb3",
+    "docs/naopoyo-gimmick-atlas-v2/source/terrain-art.mjs": "82c4e2ff05100cee2bbfbfc7648cfa45e25e08ef3bb2bdde883359387372522a",
+    "docs/naopoyo-gimmick-atlas-v2/catalog.json": "9f9091adfa70b8090374f42fe6f1a4f6dfdafe581f3866a8e3ad4182c569e098",
+    "docs/naopoyo-gimmick-atlas-v2/tile-art.mjs": "2168320f2a92b3a7dcdb35f686dd4e5e3ba0f53adf35583df3a9e2200e7dab5c"
+  }
+}
