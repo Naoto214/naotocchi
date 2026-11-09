@@ -176,7 +176,8 @@
   const ach = row('図鑑・実績の 達成');
   Object.assign(ach, { scene: '図鑑・実績の 達成（お知らせ）', songs: ['jingle-achieve'], status: '採用', arrangement: 'ジングル「やったね」（8秒）' });
   TABLE.splice(TABLE.indexOf(ach) + 1, 0, R({ game: 'ホーム', scene: 'GAME CLEAR 画面（図鑑・すべての 実績）に とどまる 間', songs: ['jingle-achieve', 'event-1'], status: '採用', arrangement: 'クリア表示で「やったね」（8秒）→ 画面に とどまる 間は「おめでとうのひ」を ループ', start: 'クリア表示', stop: '画面を 閉じる', notes: '一生の クリアは お別れの 曲（farewell）' }));
-  adopt('たまごが かえる', ['ohayo'], { arrangement: '「おはようのひかり」の 冒頭だけ（2小節 約6秒 か 4小節 約12秒。試聴ページの「実際の 場面で 聴く」で 長さを 決める）。誕生日の お知らせも 同じ', loop: 'なし（冒頭だけ）', start: '演出の 開始（たまご 2.8秒・誕生日 1.2秒）', stop: '冒頭が 終わったら ホーム曲へ もどる' });
+  const hatch = adopt('たまごが かえる', ['ohayo'], { scene: 'たまごが かえる しゅんかん', arrangement: '「おはようのひかり」の 冒頭だけ（2小節 約6秒 か 4小節 約12秒。試聴ページの「実際の 場面で 聴く」で 長さを 決める）', loop: 'なし（冒頭だけ）', start: 'かえる 演出の 開始（2.8秒の 演出）', stop: '冒頭が 終わったら ホーム曲へ もどる', notes: '一生に 1回だけの 場面なので 音楽を 鳴らす（2026-11-09 本人の 判断）' });
+  TABLE.splice(TABLE.indexOf(hatch) + 1, 0, R({ game: 'ホーム', scene: '誕生日（年齢が 上がる お知らせ）', songs: [], status: '採用（BGM は 変えず 効果音だけ）', arrangement: 'ジングルなし。既存の 効果音「ピコン」（audio.js の notify、約 0.3秒）を 鳴らす', start: 'お知らせ 表示（1.2秒）', stop: '—', loop: '—', volume: '効果音は いまの まま。ホーム曲は 下げない', fade: 'なし', sfx: 'notify（ピコン）。いまの 誕生日の お知らせは 音が 鳴らない ので、実装時に 1行 足す', notes: '遊んだ 60秒ごとに 1さい 上がる ため、毎回 音楽を 鳴らすと うるさい。ホーム曲を 止めない（2026-11-09 本人の 判断）' }));
   Object.assign(row('飛行・海'), { songs: ['var-flight'], status: '採用', arrangement: '「そらとうみのさんぽ」テンポ 120 版（本人メモ「煌びやかに、もう少しテンポ早くして」）。きらめきは 編曲で ベル・グロッケン・ハープを 足す' });
   adopt('勝利', ['var-card-win']);
   adopt('第1章クリア', ['var-poyo-chapter']);
