@@ -1,0 +1,3155 @@
+{
+  "schemaVersion": 2,
+  "catalogVersion": "2.0.0-draft",
+  "boardDefault": [
+    8,
+    8
+  ],
+  "entries": [
+    {
+      "id": "terrain.floor",
+      "catalogId": "terrain.floor",
+      "name": "床",
+      "category": "基本素材",
+      "candidates": [
+        "59"
+      ],
+      "designClass": "A",
+      "implementation": "既存あり",
+      "kind": "logic",
+      "layer": "ground",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "なし",
+        "mask": null,
+        "ports": []
+      },
+      "actionRange": "このマス",
+      "trigger": "静的配置。壁と床は同じ基底レイヤーに重ねない。",
+      "states": [
+        "静止"
+      ],
+      "links": [
+        "59"
+      ],
+      "image": {
+        "renderer": "original",
+        "current": "terrain",
+        "v1": null,
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "terrain",
+      "firstAppearance": 1,
+      "firstAppearanceStatus": "正式",
+      "description": "床の上を歩けます。",
+      "ports": [],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "ground",
+      "parameterContract": {}
+    },
+    {
+      "id": "terrain.wall",
+      "catalogId": "terrain.wall",
+      "name": "壁・固定ブロック",
+      "category": "基本素材",
+      "candidates": [
+        "19",
+        "54",
+        "59",
+        "61",
+        "62"
+      ],
+      "designClass": "A",
+      "implementation": "既存あり",
+      "kind": "logic",
+      "layer": "solid",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "なし",
+        "mask": null,
+        "ports": []
+      },
+      "actionRange": "このマス",
+      "trigger": "熊の救出後に自動。",
+      "states": [
+        "静止"
+      ],
+      "links": [
+        "19",
+        "54",
+        "59",
+        "61",
+        "62"
+      ],
+      "image": {
+        "renderer": "original",
+        "current": "terrain",
+        "v1": "19",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "terrain",
+      "firstAppearance": 1,
+      "firstAppearanceStatus": "正式",
+      "description": "ここは通れません。飛んでいても同じです。",
+      "ports": [],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "solid",
+      "parameterContract": {}
+    },
+    {
+      "id": "scenery.lamp",
+      "catalogId": "scenery.lamp",
+      "name": "灯り",
+      "category": "装飾",
+      "candidates": [
+        "57"
+      ],
+      "designClass": "A",
+      "implementation": "既存あり",
+      "kind": "decoration",
+      "layer": "decoration",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "なし",
+        "mask": null,
+        "ports": []
+      },
+      "actionRange": "このマス",
+      "trigger": "表示のみ",
+      "states": [
+        "点灯"
+      ],
+      "links": [
+        "57"
+      ],
+      "image": {
+        "renderer": "original",
+        "current": "terrainLamp",
+        "v1": null,
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "terrainLamp",
+      "firstAppearance": 1,
+      "firstAppearanceStatus": "正式",
+      "description": "道を照らす灯りです。仕掛けの条件にはなりません。",
+      "ports": [],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "decoration",
+      "parameterContract": {}
+    },
+    {
+      "id": "scenery.tree",
+      "catalogId": "scenery.tree",
+      "name": "木",
+      "category": "装飾",
+      "candidates": [
+        "60"
+      ],
+      "designClass": "A",
+      "implementation": "既存あり",
+      "kind": "decoration",
+      "layer": "decoration",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "なし",
+        "mask": null,
+        "ports": []
+      },
+      "actionRange": "このマス",
+      "trigger": "表示のみ",
+      "states": [
+        "静止"
+      ],
+      "links": [
+        "60"
+      ],
+      "image": {
+        "renderer": "original",
+        "current": "terrainTree",
+        "v1": null,
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "terrainTree",
+      "firstAppearance": 18,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "景色の木です。通れない場所は壁として示されます。",
+      "ports": [],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "decoration",
+      "parameterContract": {}
+    },
+    {
+      "id": "scenery.grass",
+      "catalogId": "scenery.grass",
+      "name": "草",
+      "category": "装飾",
+      "candidates": [
+        "60"
+      ],
+      "designClass": "C",
+      "implementation": "候補",
+      "kind": "decoration",
+      "layer": "decoration",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "なし",
+        "mask": null,
+        "ports": []
+      },
+      "actionRange": "このマス",
+      "trigger": "表示のみ",
+      "states": [
+        "静止"
+      ],
+      "links": [
+        "60"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "none",
+        "v1": null,
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "none",
+      "firstAppearance": null,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "足元の草。道をふさぎません。",
+      "ports": [],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "decoration",
+      "parameterContract": {}
+    },
+    {
+      "id": "sign.gravity",
+      "catalogId": "sign.gravity",
+      "name": "重力の看板",
+      "category": "案内",
+      "candidates": [
+        "05"
+      ],
+      "designClass": "A",
+      "implementation": "既存あり",
+      "kind": "decoration",
+      "layer": "decoration",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "なし",
+        "mask": null,
+        "ports": []
+      },
+      "actionRange": "このマス",
+      "trigger": "表示のみ",
+      "states": [
+        "静止"
+      ],
+      "links": [
+        "05"
+      ],
+      "image": {
+        "renderer": "original",
+        "current": "gravity",
+        "v1": "05",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "gravity",
+      "firstAppearance": 6,
+      "firstAppearanceStatus": "正式",
+      "description": "足元に支えがないと下へ落ちます。",
+      "ports": [],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "decoration",
+      "parameterContract": {}
+    },
+    {
+      "id": "fixture.spike",
+      "catalogId": "fixture.spike",
+      "name": "時の針",
+      "category": "分裂",
+      "candidates": [
+        "01",
+        "48"
+      ],
+      "designClass": "A",
+      "implementation": "既存あり",
+      "kind": "logic",
+      "layer": "fixture",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "なし",
+        "mask": null,
+        "ports": []
+      },
+      "actionRange": "このマス",
+      "trigger": "主人公をトゲへドラッグ。空きと分裂可能量が必要。",
+      "states": [
+        "待機",
+        "接触"
+      ],
+      "links": [
+        "01",
+        "48"
+      ],
+      "image": {
+        "renderer": "original",
+        "current": "spike",
+        "v1": "01",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "spike",
+      "firstAppearance": 2,
+      "firstAppearanceStatus": "正式",
+      "description": "触れる向きと空き場所で、分かれる向きが変わります。",
+      "ports": [],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "fixture",
+      "parameterContract": {}
+    },
+    {
+      "id": "fixture.gate",
+      "catalogId": "fixture.gate",
+      "name": "条件の門",
+      "category": "扉・条件",
+      "candidates": [
+        "03",
+        "47"
+      ],
+      "designClass": "B",
+      "implementation": "既存あり",
+      "kind": "logic",
+      "layer": "fixture",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "なし",
+        "mask": null,
+        "ports": []
+      },
+      "actionRange": "このマス",
+      "trigger": "ドラッグ進入時に個体段階を検査。",
+      "states": [
+        "通行不可",
+        "通行可"
+      ],
+      "links": [
+        "03",
+        "47"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "gate",
+        "v1": "03",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "gate",
+      "firstAppearance": 12,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "札の条件に合う個体が通れます。",
+      "ports": [],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "fixture",
+      "parameterContract": {
+        "exact": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8
+        },
+        "min": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8
+        },
+        "max": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8
+        }
+      }
+    },
+    {
+      "id": "fixture.exit",
+      "catalogId": "fixture.exit",
+      "name": "星の出口",
+      "category": "扉・条件",
+      "candidates": [
+        "18"
+      ],
+      "designClass": "B",
+      "implementation": "既存あり",
+      "kind": "logic",
+      "layer": "fixture",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "なし",
+        "mask": null,
+        "ports": []
+      },
+      "actionRange": "このマス",
+      "trigger": "正式complete判定を維持。",
+      "states": [
+        "未達",
+        "達成"
+      ],
+      "links": [
+        "18"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "exit",
+        "v1": "18",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "exit",
+      "firstAppearance": 1,
+      "firstAppearanceStatus": "正式",
+      "description": "星が帰り道。条件があるときだけ札が付きます。",
+      "ports": [],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "fixture",
+      "parameterContract": {
+        "exact": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8
+        },
+        "min": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8
+        },
+        "max": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8
+        }
+      }
+    },
+    {
+      "id": "fixture.plate.hold",
+      "catalogId": "fixture.plate.hold",
+      "name": "床スイッチ",
+      "category": "スイッチ",
+      "candidates": [
+        "12"
+      ],
+      "designClass": "B",
+      "implementation": "既存あり",
+      "kind": "logic",
+      "layer": "fixture",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "signal",
+        "mask": null,
+        "ports": [
+          {
+            "id": "signal",
+            "direction": "out",
+            "type": "boolean"
+          }
+        ]
+      },
+      "actionRange": "リンク先",
+      "trigger": "個体の占有。",
+      "states": [
+        "離れている",
+        "押されている"
+      ],
+      "links": [
+        "12"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "plate",
+        "v1": "12",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "plate",
+      "firstAppearance": 11,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "乗っている間だけ、つながる仕掛けを動かします。",
+      "ports": [
+        {
+          "id": "signal",
+          "direction": "out",
+          "type": "boolean"
+        }
+      ],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "fixture",
+      "parameterContract": {}
+    },
+    {
+      "id": "fixture.plate.weight",
+      "catalogId": "fixture.plate.weight",
+      "name": "重量スイッチ",
+      "category": "スイッチ",
+      "candidates": [
+        "13"
+      ],
+      "designClass": "B",
+      "implementation": "既存あり",
+      "kind": "logic",
+      "layer": "fixture",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "signal",
+        "mask": null,
+        "ports": [
+          {
+            "id": "signal",
+            "direction": "out",
+            "type": "boolean"
+          }
+        ]
+      },
+      "actionRange": "リンク先",
+      "trigger": "条件一致中だけ信号、記憶式なら別留め具を表示。",
+      "states": [
+        "不足",
+        "一致"
+      ],
+      "links": [
+        "13"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "weight",
+        "v1": "13",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "weight",
+      "firstAppearance": 17,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "個体の重さが札に合うと作動します。",
+      "ports": [
+        {
+          "id": "signal",
+          "direction": "out",
+          "type": "boolean"
+        }
+      ],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "fixture",
+      "parameterContract": {
+        "exact": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8
+        },
+        "min": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8
+        },
+        "max": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8
+        }
+      }
+    },
+    {
+      "id": "fixture.latch",
+      "catalogId": "fixture.latch",
+      "name": "記憶の留め具",
+      "category": "スイッチ",
+      "candidates": [
+        "14"
+      ],
+      "designClass": "B",
+      "implementation": "既存あり",
+      "kind": "logic",
+      "layer": "fixture",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "signal",
+        "mask": null,
+        "ports": [
+          {
+            "id": "signal",
+            "direction": "out",
+            "type": "boolean"
+          }
+        ]
+      },
+      "actionRange": "リンク先",
+      "trigger": "入場または個体条件。自動発動。",
+      "states": [
+        "未解除",
+        "固定"
+      ],
+      "links": [
+        "14"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "latch",
+        "v1": "14",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "latch",
+      "firstAppearance": 11,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "一度外すと、解除した状態を覚えます。",
+      "ports": [
+        {
+          "id": "signal",
+          "direction": "out",
+          "type": "boolean"
+        }
+      ],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "fixture",
+      "parameterContract": {}
+    },
+    {
+      "id": "fixture.sequence",
+      "catalogId": "fixture.sequence",
+      "name": "順序の留め具",
+      "category": "スイッチ",
+      "candidates": [
+        "15"
+      ],
+      "designClass": "C",
+      "implementation": "既存あり",
+      "kind": "logic",
+      "layer": "fixture",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "signal",
+        "mask": null,
+        "ports": [
+          {
+            "id": "signal",
+            "direction": "out",
+            "type": "boolean"
+          }
+        ]
+      },
+      "actionRange": "リンク先",
+      "trigger": "順番に条件を成立させる。",
+      "states": [
+        "未着手",
+        "前段",
+        "完了"
+      ],
+      "links": [
+        "15"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "sequence",
+        "v1": "15",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "sequence",
+      "firstAppearance": 13,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "前の仕掛けが整ってから、次の仕掛けが働きます。",
+      "ports": [
+        {
+          "id": "signal",
+          "direction": "out",
+          "type": "boolean"
+        }
+      ],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "fixture",
+      "parameterContract": {}
+    },
+    {
+      "id": "fixture.door",
+      "catalogId": "fixture.door",
+      "name": "連動扉",
+      "category": "扉・条件",
+      "candidates": [
+        "12",
+        "16"
+      ],
+      "designClass": "B",
+      "implementation": "既存あり",
+      "kind": "logic",
+      "layer": "fixture",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "signal",
+        "mask": null,
+        "ports": [
+          {
+            "id": "enable",
+            "direction": "in",
+            "type": "boolean"
+          }
+        ]
+      },
+      "actionRange": "リンク先",
+      "trigger": "個体の占有。",
+      "states": [
+        "閉",
+        "開"
+      ],
+      "links": [
+        "12",
+        "16"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "door",
+        "v1": "12",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "door",
+      "firstAppearance": 11,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "つながった仕掛けに合わせて格子が動きます。",
+      "ports": [
+        {
+          "id": "enable",
+          "direction": "in",
+          "type": "boolean"
+        }
+      ],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "fixture",
+      "parameterContract": {}
+    },
+    {
+      "id": "fixture.platform",
+      "catalogId": "fixture.platform",
+      "name": "動く足場",
+      "category": "足場",
+      "candidates": [
+        "07"
+      ],
+      "designClass": "B",
+      "implementation": "既存あり",
+      "kind": "logic",
+      "layer": "fixture",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "rail",
+        "mask": null,
+        "ports": [
+          {
+            "id": "enable",
+            "direction": "in",
+            "type": "boolean"
+          }
+        ]
+      },
+      "actionRange": "設定された経路・領域",
+      "trigger": "独立した作動条件を満たす。V2は乗員条件付き一度の上昇。",
+      "states": [
+        "下端",
+        "移動中",
+        "上端"
+      ],
+      "links": [
+        "07"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "platform",
+        "v1": "07",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "platform",
+      "firstAppearance": 14,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "決まった道を進み、乗った個体を運びます。",
+      "ports": [
+        {
+          "id": "enable",
+          "direction": "in",
+          "type": "boolean"
+        }
+      ],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "explicit-group-id",
+      "requiresTerrain": null,
+      "exclusiveSlot": "fixture",
+      "parameterContract": {}
+    },
+    {
+      "id": "fixture.crumble",
+      "catalogId": "fixture.crumble",
+      "name": "崩れる床",
+      "category": "足場",
+      "candidates": [
+        "06"
+      ],
+      "designClass": "B",
+      "implementation": "既存あり",
+      "kind": "logic",
+      "layer": "fixture",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "なし",
+        "mask": null,
+        "ports": []
+      },
+      "actionRange": "このマス",
+      "trigger": "床からの退出。消失前に亀裂と揺れを表示。",
+      "states": [
+        "無傷",
+        "踏まれた",
+        "崩壊"
+      ],
+      "links": [
+        "06"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "crumble",
+        "v1": "06",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "crumble",
+      "firstAppearance": 15,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "離れると崩れる床です。戻る道を見ておきましょう。",
+      "ports": [],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "fixture",
+      "parameterContract": {}
+    },
+    {
+      "id": "object.boulder",
+      "catalogId": "object.boulder",
+      "name": "重い岩",
+      "category": "障害物",
+      "candidates": [
+        "19",
+        "41"
+      ],
+      "designClass": "B",
+      "implementation": "既存あり",
+      "kind": "logic",
+      "layer": "object",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "なし",
+        "mask": null,
+        "ports": []
+      },
+      "actionRange": "このマス",
+      "trigger": "熊の救出後に自動。",
+      "states": [
+        "元位置",
+        "退避位置"
+      ],
+      "links": [
+        "19",
+        "41"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "boulder",
+        "v1": "19",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "boulder",
+      "firstAppearance": 19,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "主人公には動かせません。クマさんが力を貸します。",
+      "ports": [],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "object",
+      "parameterContract": {}
+    },
+    {
+      "id": "object.crate",
+      "catalogId": "object.crate",
+      "name": "押せる箱",
+      "category": "障害物",
+      "candidates": [
+        "20"
+      ],
+      "designClass": "C",
+      "implementation": "候補",
+      "kind": "logic",
+      "layer": "object",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "なし",
+        "mask": null,
+        "ports": []
+      },
+      "actionRange": "このマス",
+      "trigger": "主人公のドラッグ進入。",
+      "states": [
+        "静止",
+        "押される"
+      ],
+      "links": [
+        "20"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "none",
+        "v1": "20",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "none",
+      "firstAppearance": 21,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "押せますが、引けません。行き先には空間が必要です。",
+      "ports": [],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "object",
+      "parameterContract": {}
+    },
+    {
+      "id": "fixture.oneway",
+      "catalogId": "fixture.oneway",
+      "name": "片開き通路",
+      "category": "移動",
+      "candidates": [
+        "09"
+      ],
+      "designClass": "C",
+      "implementation": "候補",
+      "kind": "logic",
+      "layer": "fixture",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "なし",
+        "mask": null,
+        "ports": []
+      },
+      "actionRange": "このマス",
+      "trigger": "通過時に方向検査。",
+      "states": [
+        "許可方向",
+        "閉方向"
+      ],
+      "links": [
+        "09"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "none",
+        "v1": "09",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "none",
+      "firstAppearance": 23,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "羽根の開く方向にだけ通れます。",
+      "ports": [],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "fixture",
+      "parameterContract": {
+        "orientation": {
+          "enum": [
+            "N",
+            "E",
+            "S",
+            "W"
+          ]
+        }
+      }
+    },
+    {
+      "id": "terrain.water",
+      "catalogId": "terrain.water",
+      "name": "水",
+      "category": "水・波",
+      "candidates": [
+        "23",
+        "52"
+      ],
+      "designClass": "C",
+      "implementation": "候補",
+      "kind": "logic",
+      "layer": "medium",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "water",
+        "mask": "NESW",
+        "ports": []
+      },
+      "actionRange": "設定された経路・領域",
+      "trigger": "既存ドラッグ。潜水ボタンなし。",
+      "states": [
+        "水面端",
+        "水中"
+      ],
+      "links": [
+        "23",
+        "52"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "worldWater",
+        "v1": "23",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "worldWater",
+      "firstAppearance": 31,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "水に入れる種族のための道です。",
+      "ports": [],
+      "visualConnectionKey": "terrain.water",
+      "effectGroupPolicy": "explicit-group-id",
+      "requiresTerrain": null,
+      "exclusiveSlot": "medium",
+      "parameterContract": {}
+    },
+    {
+      "id": "field.current",
+      "catalogId": "field.current",
+      "name": "水流",
+      "category": "水・波",
+      "candidates": [
+        "24"
+      ],
+      "designClass": "C",
+      "implementation": "候補",
+      "kind": "logic",
+      "layer": "field",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "water",
+        "mask": "NESW",
+        "ports": []
+      },
+      "actionRange": "設定された経路・領域",
+      "trigger": "入場による自動作用。",
+      "states": [
+        "待機",
+        "外力"
+      ],
+      "links": [
+        "24"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "none",
+        "v1": "24",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "none",
+      "firstAppearance": 32,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "流れの向きに運ばれます。岩は通り抜けません。",
+      "ports": [],
+      "visualConnectionKey": "field.current",
+      "effectGroupPolicy": "explicit-group-id",
+      "requiresTerrain": "terrain.water",
+      "exclusiveSlot": "field",
+      "parameterContract": {
+        "orientation": {
+          "enum": [
+            "N",
+            "E",
+            "S",
+            "W"
+          ]
+        }
+      }
+    },
+    {
+      "id": "field.wave",
+      "catalogId": "field.wave",
+      "name": "波",
+      "category": "水・波",
+      "candidates": [
+        "25"
+      ],
+      "designClass": "C",
+      "implementation": "候補",
+      "kind": "logic",
+      "layer": "field",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "water",
+        "mask": "NESW",
+        "ports": []
+      },
+      "actionRange": "設定された経路・領域",
+      "trigger": "既存移動、待つ専用ボタンは追加しない。",
+      "states": [
+        "休止",
+        "予告",
+        "前線"
+      ],
+      "links": [
+        "25"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "worldWave",
+        "v1": "25",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "worldWave",
+      "firstAppearance": 36,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "水の上を前線が伝わります。次に届く場所を見ましょう。",
+      "ports": [],
+      "visualConnectionKey": "field.wave",
+      "effectGroupPolicy": "explicit-group-id",
+      "requiresTerrain": "terrain.water",
+      "exclusiveSlot": "field",
+      "parameterContract": {}
+    },
+    {
+      "id": "field.bubble",
+      "catalogId": "field.bubble",
+      "name": "泡の浮力",
+      "category": "水・波",
+      "candidates": [
+        "26"
+      ],
+      "designClass": "C",
+      "implementation": "候補",
+      "kind": "logic",
+      "layer": "field",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "water",
+        "mask": "NESW",
+        "ports": []
+      },
+      "actionRange": "設定された経路・領域",
+      "trigger": "水族の進入、能力条件検査。",
+      "states": [
+        "待機",
+        "浮上"
+      ],
+      "links": [
+        "26"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "none",
+        "v1": "26",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "none",
+      "firstAppearance": 33,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "泡の柱が上へ運びます。",
+      "ports": [],
+      "visualConnectionKey": "field.bubble",
+      "effectGroupPolicy": "explicit-group-id",
+      "requiresTerrain": "terrain.water",
+      "exclusiveSlot": "field",
+      "parameterContract": {}
+    },
+    {
+      "id": "field.waterlevel",
+      "catalogId": "field.waterlevel",
+      "name": "水位の変化",
+      "category": "水・波",
+      "candidates": [
+        "27"
+      ],
+      "designClass": "C",
+      "implementation": "保留",
+      "kind": "logic",
+      "layer": "field",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "water",
+        "mask": "NESW",
+        "ports": []
+      },
+      "actionRange": "設定された経路・領域",
+      "trigger": "未定。",
+      "states": [
+        "低",
+        "高"
+      ],
+      "links": [
+        "27"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "none",
+        "v1": "27",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": false,
+        "availability": "future-only",
+        "reason": "保留／非操作NPCはシナリオテンプレート限定"
+      },
+      "codeMapping": "none",
+      "firstAppearance": null,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "保留中。水が引いた後の動作を検討しています。",
+      "ports": [],
+      "visualConnectionKey": "field.waterlevel",
+      "effectGroupPolicy": "explicit-group-id",
+      "requiresTerrain": null,
+      "exclusiveSlot": "field",
+      "parameterContract": {}
+    },
+    {
+      "id": "terrain.ice",
+      "catalogId": "terrain.ice",
+      "name": "氷",
+      "category": "自然",
+      "candidates": [
+        "29"
+      ],
+      "designClass": "C",
+      "implementation": "候補",
+      "kind": "logic",
+      "layer": "ground",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "ice",
+        "mask": "NESW",
+        "ports": []
+      },
+      "actionRange": "このマス",
+      "trigger": "ドラッグ進入。",
+      "states": [
+        "静止",
+        "滑走"
+      ],
+      "links": [
+        "29"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "none",
+        "v1": "29",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "none",
+      "firstAppearance": 41,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "進んだ方向に滑ります。止まる場所を見つけましょう。",
+      "ports": [],
+      "visualConnectionKey": "terrain.ice",
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "ground",
+      "parameterContract": {}
+    },
+    {
+      "id": "field.wind",
+      "catalogId": "field.wind",
+      "name": "風",
+      "category": "飛行・空中",
+      "candidates": [
+        "28"
+      ],
+      "designClass": "C",
+      "implementation": "候補",
+      "kind": "logic",
+      "layer": "field",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "air",
+        "mask": "NESW",
+        "ports": []
+      },
+      "actionRange": "設定された経路・領域",
+      "trigger": "移動結果の外力、1操作1回。",
+      "states": [
+        "弱",
+        "作用"
+      ],
+      "links": [
+        "28"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "none",
+        "v1": "28",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "none",
+      "firstAppearance": 53,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "飛べる個体に力を加えます。",
+      "ports": [],
+      "visualConnectionKey": "field.wind",
+      "effectGroupPolicy": "explicit-group-id",
+      "requiresTerrain": null,
+      "exclusiveSlot": "field",
+      "parameterContract": {
+        "orientation": {
+          "enum": [
+            "N",
+            "E",
+            "S",
+            "W"
+          ]
+        }
+      }
+    },
+    {
+      "id": "field.updraft",
+      "catalogId": "field.updraft",
+      "name": "上昇気流",
+      "category": "飛行・空中",
+      "candidates": [
+        "51"
+      ],
+      "designClass": "C",
+      "implementation": "候補",
+      "kind": "logic",
+      "layer": "field",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "air",
+        "mask": "NESW",
+        "ports": []
+      },
+      "actionRange": "設定された経路・領域",
+      "trigger": "飛行体が気流域へ入り、上の行先が空いている。1操作につき同一装置1回。",
+      "states": [
+        "弱",
+        "作用"
+      ],
+      "links": [
+        "51"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "none",
+        "v1": null,
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "none",
+      "firstAppearance": 55,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "飛べる個体を上へ運ぶ風です。",
+      "ports": [],
+      "visualConnectionKey": "field.updraft",
+      "effectGroupPolicy": "explicit-group-id",
+      "requiresTerrain": null,
+      "exclusiveSlot": "field",
+      "parameterContract": {}
+    },
+    {
+      "id": "fixture.warp",
+      "catalogId": "fixture.warp",
+      "name": "対のワープ",
+      "category": "移動",
+      "candidates": [
+        "32"
+      ],
+      "designClass": "C",
+      "implementation": "候補",
+      "kind": "logic",
+      "layer": "fixture",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "pair",
+        "mask": null,
+        "ports": []
+      },
+      "actionRange": "リンク先",
+      "trigger": "ドラッグ進入。向きは保持する案。",
+      "states": [
+        "空き",
+        "占有"
+      ],
+      "links": [
+        "32"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "none",
+        "v1": "32",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "none",
+      "firstAppearance": 61,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "対の出口に空きがあれば移動できます。",
+      "ports": [],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "fixture",
+      "parameterContract": {}
+    },
+    {
+      "id": "fixture.phase",
+      "catalogId": "fixture.phase",
+      "name": "手番周期装置",
+      "category": "時間",
+      "candidates": [
+        "35"
+      ],
+      "designClass": "C",
+      "implementation": "候補",
+      "kind": "logic",
+      "layer": "fixture",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "signal",
+        "mask": null,
+        "ports": [
+          {
+            "id": "signal",
+            "direction": "out",
+            "type": "boolean"
+          },
+          {
+            "id": "phase",
+            "direction": "out",
+            "type": "phase"
+          }
+        ]
+      },
+      "actionRange": "リンク先",
+      "trigger": "既存移動のみ。待機なしでも解ける盤面に限定。",
+      "states": [
+        "予告",
+        "発動",
+        "休止"
+      ],
+      "links": [
+        "35"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "none",
+        "v1": "35",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "none",
+      "firstAppearance": 36,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "成功した移動で周期が進む設計案です。",
+      "ports": [
+        {
+          "id": "signal",
+          "direction": "out",
+          "type": "boolean"
+        },
+        {
+          "id": "phase",
+          "direction": "out",
+          "type": "phase"
+        }
+      ],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "fixture",
+      "parameterContract": {}
+    },
+    {
+      "id": "fixture.toggle",
+      "catalogId": "fixture.toggle",
+      "name": "切替レバー",
+      "category": "時間",
+      "candidates": [
+        "36"
+      ],
+      "designClass": "C",
+      "implementation": "候補",
+      "kind": "logic",
+      "layer": "fixture",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "signal",
+        "mask": null,
+        "ports": [
+          {
+            "id": "signal",
+            "direction": "out",
+            "type": "boolean"
+          }
+        ]
+      },
+      "actionRange": "リンク先",
+      "trigger": "同じ地点への再進入で切替、退出中は連打不可。",
+      "states": [
+        "左",
+        "右"
+      ],
+      "links": [
+        "36"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "none",
+        "v1": "36",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "none",
+      "firstAppearance": 71,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "片方を開くと、もう片方が閉じます。",
+      "ports": [
+        {
+          "id": "signal",
+          "direction": "out",
+          "type": "boolean"
+        }
+      ],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "fixture",
+      "parameterContract": {}
+    },
+    {
+      "id": "fixture.signalLamp",
+      "catalogId": "fixture.signalLamp",
+      "name": "合図の灯り",
+      "category": "時間",
+      "candidates": [
+        "58"
+      ],
+      "designClass": "C",
+      "implementation": "候補",
+      "kind": "logic",
+      "layer": "fixture",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "signal",
+        "mask": null,
+        "ports": [
+          {
+            "id": "enable",
+            "direction": "in",
+            "type": "boolean"
+          }
+        ]
+      },
+      "actionRange": "リンク先",
+      "trigger": "既存装置の信号を参照。入力ポート1、出力なし。",
+      "states": [
+        "消灯",
+        "予約",
+        "点灯"
+      ],
+      "links": [
+        "58"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "none",
+        "v1": null,
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": true,
+        "availability": "future-only",
+        "reason": "将来の検証済みパレット候補。今回配置UIなし"
+      },
+      "codeMapping": "none",
+      "firstAppearance": 72,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "仕掛けの状態を伝える灯りです。自分では解除しません。",
+      "ports": [
+        {
+          "id": "enable",
+          "direction": "in",
+          "type": "boolean"
+        }
+      ],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "fixture",
+      "parameterContract": {}
+    },
+    {
+      "id": "terrain.soil",
+      "catalogId": "terrain.soil",
+      "name": "掘れる土",
+      "category": "地中",
+      "candidates": [
+        "53"
+      ],
+      "designClass": "C",
+      "implementation": "保留",
+      "kind": "logic",
+      "layer": "solid",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "earth",
+        "mask": "NESW",
+        "ports": []
+      },
+      "actionRange": "このマス",
+      "trigger": "種族・段階・消費・掘削方向が未承認。",
+      "states": [
+        "未掘削",
+        "掘削後"
+      ],
+      "links": [
+        "53"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "none",
+        "v1": null,
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": false,
+        "availability": "future-only",
+        "reason": "保留／非操作NPCはシナリオテンプレート限定"
+      },
+      "codeMapping": "none",
+      "firstAppearance": null,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "保留中。掘る能力の条件を先に決めます。",
+      "ports": [],
+      "visualConnectionKey": "terrain.soil",
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "solid",
+      "parameterContract": {}
+    },
+    {
+      "id": "terrain.tunnel",
+      "catalogId": "terrain.tunnel",
+      "name": "地下通路",
+      "category": "地中",
+      "candidates": [
+        "55"
+      ],
+      "designClass": "C",
+      "implementation": "保留",
+      "kind": "logic",
+      "layer": "ground",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "earth",
+        "mask": "NESW",
+        "ports": []
+      },
+      "actionRange": "このマス",
+      "trigger": "層間接続と出生・接触の扱いを先に定義する必要。",
+      "states": [
+        "地上",
+        "地下"
+      ],
+      "links": [
+        "55"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "none",
+        "v1": null,
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": false,
+        "availability": "future-only",
+        "reason": "保留／非操作NPCはシナリオテンプレート限定"
+      },
+      "codeMapping": "none",
+      "firstAppearance": null,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "保留中。地上と地下を見分ける必要があります。",
+      "ports": [],
+      "visualConnectionKey": "terrain.tunnel",
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "ground",
+      "parameterContract": {}
+    },
+    {
+      "id": "fixture.burrow",
+      "catalogId": "fixture.burrow",
+      "name": "地中への入口",
+      "category": "地中",
+      "candidates": [
+        "30",
+        "55"
+      ],
+      "designClass": "C",
+      "implementation": "保留",
+      "kind": "logic",
+      "layer": "fixture",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "pair",
+        "mask": null,
+        "ports": []
+      },
+      "actionRange": "リンク先",
+      "trigger": "専用切替UIなしで成立するか先に実験。",
+      "states": [
+        "入口",
+        "出口"
+      ],
+      "links": [
+        "30",
+        "55"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "none",
+        "v1": "30",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": false,
+        "availability": "future-only",
+        "reason": "保留／非操作NPCはシナリオテンプレート限定"
+      },
+      "codeMapping": "none",
+      "firstAppearance": null,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "保留中。地下通路へつながる入口です。",
+      "ports": [],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "fixture",
+      "parameterContract": {}
+    },
+    {
+      "id": "field.cavein",
+      "catalogId": "field.cavein",
+      "name": "落盤",
+      "category": "地中",
+      "candidates": [
+        "56"
+      ],
+      "designClass": "C",
+      "implementation": "保留",
+      "kind": "logic",
+      "layer": "field",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "earth",
+        "mask": "NESW",
+        "ports": []
+      },
+      "actionRange": "このマス",
+      "trigger": "予告・退避可能性・接触時の解決順が必要。",
+      "states": [
+        "予告",
+        "落下",
+        "停止"
+      ],
+      "links": [
+        "56"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "none",
+        "v1": null,
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": false,
+        "availability": "future-only",
+        "reason": "保留／非操作NPCはシナリオテンプレート限定"
+      },
+      "codeMapping": "none",
+      "firstAppearance": null,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "保留中。上からの変化を予測できる設計が必要です。",
+      "ports": [],
+      "visualConnectionKey": "field.cavein",
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "field",
+      "parameterContract": {}
+    },
+    {
+      "id": "fixture.rotor",
+      "catalogId": "fixture.rotor",
+      "name": "回転床",
+      "category": "足場",
+      "candidates": [
+        "10"
+      ],
+      "designClass": "C",
+      "implementation": "保留",
+      "kind": "logic",
+      "layer": "fixture",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "なし",
+        "mask": null,
+        "ports": []
+      },
+      "actionRange": "このマス",
+      "trigger": "専用UIを増やさず発動できる案が必要。",
+      "states": [
+        "0度",
+        "90度"
+      ],
+      "links": [
+        "10"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "none",
+        "v1": "10",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": false,
+        "availability": "future-only",
+        "reason": "保留／非操作NPCはシナリオテンプレート限定"
+      },
+      "codeMapping": "none",
+      "firstAppearance": null,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "保留中。回転後の接触と落下を検討しています。",
+      "ports": [],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "fixture",
+      "parameterContract": {}
+    },
+    {
+      "id": "fixture.beam",
+      "catalogId": "fixture.beam",
+      "name": "光の装置",
+      "category": "光",
+      "candidates": [
+        "37"
+      ],
+      "designClass": "C",
+      "implementation": "保留",
+      "kind": "logic",
+      "layer": "fixture",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "signal",
+        "mask": null,
+        "ports": []
+      },
+      "actionRange": "リンク先",
+      "trigger": "旧実時間照射。",
+      "states": [
+        "休止",
+        "予告",
+        "照射"
+      ],
+      "links": [
+        "37"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "worldBeam",
+        "v1": "37",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": false,
+        "availability": "future-only",
+        "reason": "保留／非操作NPCはシナリオテンプレート限定"
+      },
+      "codeMapping": "worldBeam",
+      "firstAppearance": null,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "旧試作にあります。正式な時の針への対応は未確定です。",
+      "ports": [],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "fixture",
+      "parameterContract": {}
+    },
+    {
+      "id": "fixture.mirror",
+      "catalogId": "fixture.mirror",
+      "name": "鏡",
+      "category": "光",
+      "candidates": [
+        "38"
+      ],
+      "designClass": "C",
+      "implementation": "保留",
+      "kind": "logic",
+      "layer": "fixture",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "なし",
+        "mask": null,
+        "ports": []
+      },
+      "actionRange": "このマス",
+      "trigger": "未定。",
+      "states": [
+        "向き"
+      ],
+      "links": [
+        "38"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "none",
+        "v1": "38",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": false,
+        "availability": "future-only",
+        "reason": "保留／非操作NPCはシナリオテンプレート限定"
+      },
+      "codeMapping": "none",
+      "firstAppearance": null,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "保留中。反射経路の意味から検討します。",
+      "ports": [],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "fixture",
+      "parameterContract": {}
+    },
+    {
+      "id": "vehicle.boat",
+      "catalogId": "vehicle.boat",
+      "name": "運搬船",
+      "category": "乗り物",
+      "candidates": [
+        "33",
+        "63"
+      ],
+      "designClass": "C",
+      "implementation": "保留",
+      "kind": "logic",
+      "layer": "object",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "water",
+        "mask": "NESW",
+        "ports": []
+      },
+      "actionRange": "設定された経路・領域",
+      "trigger": "直接操縦UIは今回未検討。",
+      "states": [
+        "停泊",
+        "移動"
+      ],
+      "links": [
+        "33",
+        "63"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "none",
+        "v1": "33",
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": false,
+        "availability": "future-only",
+        "reason": "保留／非操作NPCはシナリオテンプレート限定"
+      },
+      "codeMapping": "none",
+      "firstAppearance": null,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "保留中。足場と異なる運搬問題になるか検討します。",
+      "ports": [],
+      "visualConnectionKey": "vehicle.boat",
+      "effectGroupPolicy": "explicit-group-id",
+      "requiresTerrain": null,
+      "exclusiveSlot": "object",
+      "parameterContract": {}
+    },
+    {
+      "id": "vehicle.cart",
+      "catalogId": "vehicle.cart",
+      "name": "運搬車",
+      "category": "乗り物",
+      "candidates": [
+        "64"
+      ],
+      "designClass": "C",
+      "implementation": "保留",
+      "kind": "logic",
+      "layer": "object",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "connectivity": {
+        "family": "rail",
+        "mask": null,
+        "ports": []
+      },
+      "actionRange": "設定された経路・領域",
+      "trigger": "積載と戻り道が解法を変える必要。",
+      "states": [
+        "空",
+        "積載",
+        "移動"
+      ],
+      "links": [
+        "64"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "none",
+        "v1": null,
+        "animation": "展示用状態補間・ゲーム処理なし"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": false,
+        "availability": "future-only",
+        "reason": "保留／非操作NPCはシナリオテンプレート限定"
+      },
+      "codeMapping": "none",
+      "firstAppearance": null,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "保留中。操縦ゲームではなく荷物の運搬候補です。",
+      "ports": [],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "explicit-group-id",
+      "requiresTerrain": null,
+      "exclusiveSlot": "object",
+      "parameterContract": {}
+    },
+    {
+      "id": "npc.owl",
+      "catalogId": "npc.owl",
+      "name": "ふくろうの協力",
+      "category": "仲間",
+      "candidates": [
+        "40"
+      ],
+      "designClass": "B",
+      "implementation": "既存あり",
+      "kind": "npc",
+      "layer": "npc",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.82
+      ],
+      "connectivity": {
+        "family": "event",
+        "mask": null,
+        "ports": [
+          {
+            "id": "ready",
+            "direction": "in",
+            "type": "boolean"
+          },
+          {
+            "id": "helped",
+            "direction": "out",
+            "type": "event"
+          }
+        ]
+      },
+      "actionRange": "リンク先",
+      "trigger": "能力条件成立後に自動",
+      "states": [
+        "待機",
+        "協力済み"
+      ],
+      "links": [
+        "40"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "owl",
+        "v1": "40",
+        "animation": "既存モーション保持"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": false,
+        "availability": "future-only",
+        "reason": "保留／非操作NPCはシナリオテンプレート限定"
+      },
+      "codeMapping": "owl",
+      "firstAppearance": 18,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "主人公には届かない場所で、道をつないでくれます。",
+      "ports": [
+        {
+          "id": "ready",
+          "direction": "in",
+          "type": "boolean"
+        },
+        {
+          "id": "helped",
+          "direction": "out",
+          "type": "event"
+        }
+      ],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "npc",
+      "parameterContract": {}
+    },
+    {
+      "id": "npc.bear",
+      "catalogId": "npc.bear",
+      "name": "クマさんの救出",
+      "category": "仲間",
+      "candidates": [
+        "41"
+      ],
+      "designClass": "B",
+      "implementation": "既存あり",
+      "kind": "npc",
+      "layer": "npc",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.82
+      ],
+      "connectivity": {
+        "family": "event",
+        "mask": null,
+        "ports": [
+          {
+            "id": "ready",
+            "direction": "in",
+            "type": "boolean"
+          },
+          {
+            "id": "helped",
+            "direction": "out",
+            "type": "event"
+          }
+        ]
+      },
+      "actionRange": "リンク先",
+      "trigger": "能力条件成立後に自動",
+      "states": [
+        "救出前",
+        "救出後",
+        "協力済み"
+      ],
+      "links": [
+        "41"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "bear",
+        "v1": "41",
+        "animation": "既存モーション保持"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": false,
+        "availability": "future-only",
+        "reason": "保留／非操作NPCはシナリオテンプレート限定"
+      },
+      "codeMapping": "bear",
+      "firstAppearance": 19,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "救出すると、大岩を動かしてくれます。",
+      "ports": [
+        {
+          "id": "ready",
+          "direction": "in",
+          "type": "boolean"
+        },
+        {
+          "id": "helped",
+          "direction": "out",
+          "type": "event"
+        }
+      ],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "npc",
+      "parameterContract": {}
+    },
+    {
+      "id": "npc.otter",
+      "catalogId": "npc.otter",
+      "name": "カワウソの運搬",
+      "category": "仲間",
+      "candidates": [
+        "42"
+      ],
+      "designClass": "C",
+      "implementation": "原画像のみ既存・能力未実装",
+      "kind": "npc",
+      "layer": "npc",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.82
+      ],
+      "connectivity": {
+        "family": "event",
+        "mask": null,
+        "ports": [
+          {
+            "id": "ready",
+            "direction": "in",
+            "type": "boolean"
+          },
+          {
+            "id": "helped",
+            "direction": "out",
+            "type": "event"
+          }
+        ]
+      },
+      "actionRange": "リンク先",
+      "trigger": "能力条件成立後に自動",
+      "states": [
+        "待機",
+        "協力済み"
+      ],
+      "links": [
+        "42"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "otter",
+        "v1": "42",
+        "animation": "既存モーション保持"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": false,
+        "availability": "future-only",
+        "reason": "保留／非操作NPCはシナリオテンプレート限定"
+      },
+      "codeMapping": "otter",
+      "firstAppearance": 34,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "新しい能力案。対岸へ荷物を運ぶ役です。",
+      "ports": [
+        {
+          "id": "ready",
+          "direction": "in",
+          "type": "boolean"
+        },
+        {
+          "id": "helped",
+          "direction": "out",
+          "type": "event"
+        }
+      ],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "npc",
+      "parameterContract": {}
+    },
+    {
+      "id": "npc.squirrel",
+      "catalogId": "npc.squirrel",
+      "name": "リスの綱",
+      "category": "仲間",
+      "candidates": [
+        "43"
+      ],
+      "designClass": "C",
+      "implementation": "原画像のみ既存・能力未実装",
+      "kind": "npc",
+      "layer": "npc",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.82
+      ],
+      "connectivity": {
+        "family": "event",
+        "mask": null,
+        "ports": [
+          {
+            "id": "ready",
+            "direction": "in",
+            "type": "boolean"
+          },
+          {
+            "id": "helped",
+            "direction": "out",
+            "type": "event"
+          }
+        ]
+      },
+      "actionRange": "リンク先",
+      "trigger": "能力条件成立後に自動",
+      "states": [
+        "待機",
+        "協力済み"
+      ],
+      "links": [
+        "43"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "squirrel",
+        "v1": "43",
+        "animation": "既存モーション保持"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": false,
+        "availability": "future-only",
+        "reason": "保留／非操作NPCはシナリオテンプレート限定"
+      },
+      "codeMapping": "squirrel",
+      "firstAppearance": 26,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "新しい能力案。高い場所から綱を下ろします。",
+      "ports": [
+        {
+          "id": "ready",
+          "direction": "in",
+          "type": "boolean"
+        },
+        {
+          "id": "helped",
+          "direction": "out",
+          "type": "event"
+        }
+      ],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "npc",
+      "parameterContract": {}
+    },
+    {
+      "id": "npc.penguin",
+      "catalogId": "npc.penguin",
+      "name": "ペンギンの氷止め",
+      "category": "仲間",
+      "candidates": [
+        "44"
+      ],
+      "designClass": "C",
+      "implementation": "原画像のみ既存・能力未実装",
+      "kind": "npc",
+      "layer": "npc",
+      "footprint": [
+        1,
+        1
+      ],
+      "anchor": [
+        0.5,
+        0.82
+      ],
+      "connectivity": {
+        "family": "event",
+        "mask": null,
+        "ports": [
+          {
+            "id": "ready",
+            "direction": "in",
+            "type": "boolean"
+          },
+          {
+            "id": "helped",
+            "direction": "out",
+            "type": "event"
+          }
+        ]
+      },
+      "actionRange": "リンク先",
+      "trigger": "能力条件成立後に自動",
+      "states": [
+        "待機",
+        "協力済み"
+      ],
+      "links": [
+        "44"
+      ],
+      "image": {
+        "renderer": "tile-v2",
+        "current": "penguin_friend",
+        "v1": "44",
+        "animation": "既存モーション保持"
+      },
+      "discovery": {
+        "event": "visible-in-play",
+        "dedupe": "catalogId",
+        "firstStage": "最初に見た面IDを1回記録",
+        "variantsCountAsNew": false
+      },
+      "editor": {
+        "eligible": false,
+        "availability": "future-only",
+        "reason": "保留／非操作NPCはシナリオテンプレート限定"
+      },
+      "codeMapping": "penguin_friend",
+      "firstAppearance": 44,
+      "firstAppearanceStatus": "計画（実装確認は現行比較欄）",
+      "description": "新しい能力案。氷の停止場所を作ります。",
+      "ports": [
+        {
+          "id": "ready",
+          "direction": "in",
+          "type": "boolean"
+        },
+        {
+          "id": "helped",
+          "direction": "out",
+          "type": "event"
+        }
+      ],
+      "visualConnectionKey": null,
+      "effectGroupPolicy": "none",
+      "requiresTerrain": null,
+      "exclusiveSlot": "npc",
+      "parameterContract": {}
+    }
+  ],
+  "abilities": [
+    {
+      "id": "ability.flight",
+      "name": "飛行",
+      "kind": "derived-ability",
+      "placeable": false,
+      "ruleset": "未承認・旧比較室候補",
+      "conditions": {
+        "butterfly": 6,
+        "cicada": 6,
+        "beetle": 5,
+        "stagbeetle": 5
+      },
+      "note": "これより上の段階は旧比較室の候補範囲。追加の飛行レベル・飛行強度は導入しない。分裂で条件を失えば正式重力で落下。キャラ設定と正式導入承認を別々に確認する。"
+    },
+    {
+      "id": "ability.aquatic",
+      "name": "水中移動・潜水",
+      "kind": "derived-ability",
+      "placeable": false,
+      "ruleset": "旧World魚限定・正式未導入",
+      "conditions": {
+        "fish": "既存旧試作の対象"
+      },
+      "note": "水面と水中は同じ水域の表示。水中へ入る専用ボタンを設けない。他水族の範囲は未承認。"
+    }
+  ]
+}
