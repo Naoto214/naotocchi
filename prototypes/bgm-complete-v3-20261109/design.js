@@ -134,10 +134,12 @@
     { use: 'legend', song: 'kisetsu' }, { use: 'naokoro-album', song: 'var-koro-album' }, { use: 'naopoyo-chapter', song: 'var-poyo-chapter' },
     // 2026-11-09 3回目（最後の 1か所）
     { use: 'clear', song: 'event-1' },
+    // 2026-11-09 たまごが かえる しゅんかん（ファンファーレの 長さ）
+    { use: 'hatch', song: 'var-ohayo-hatch2' },
   ];
   const REJECTED_BY_RATING = [{ use: 'puzzle', song: 'bgm-puzzle' }];
   const HOLD_BY_RATING = [{ use: 'birth', song: 'ohayo' }, { use: 'farewell', song: 'kisetsu' }, { use: 'naokoro-end', song: 'kisetsu' }];
-  const USE_LABEL = { puzzle: 'パズル', board: 'ボード・テーブル', sports: 'スポーツ', fishing: '釣り', race: 'レース・シューティング', flight: '3D 飛行・海', quick: 'クイックモード', sleep: '睡眠', farewell: 'お別れ', achieve: '達成', 'naopoyo-end': 'なおぽよ。ステージクリア', 'naokoro-end': 'なおころ。ゴール', 'card-end': 'CARD GAME 終盤・敗北', date: 'デート・映画', birth: '誕生・誕生日', 'card-win': 'CARD GAME 勝利', legend: 'でんせつの であい', 'naokoro-album': 'なおころ。人生アルバム', 'naopoyo-chapter': 'なおぽよ。第1章クリア', clear: 'GAME CLEAR 画面' };
+  const USE_LABEL = { puzzle: 'パズル', board: 'ボード・テーブル', sports: 'スポーツ', fishing: '釣り', race: 'レース・シューティング', flight: '3D 飛行・海', quick: 'クイックモード', sleep: '睡眠', farewell: 'お別れ', achieve: '達成', 'naopoyo-end': 'なおぽよ。ステージクリア', 'naokoro-end': 'なおころ。ゴール', 'card-end': 'CARD GAME 終盤・敗北', date: 'デート・映画', birth: '誕生・誕生日', 'card-win': 'CARD GAME 勝利', legend: 'でんせつの であい', 'naokoro-album': 'なおころ。人生アルバム', 'naopoyo-chapter': 'なおぽよ。第1章クリア', clear: 'GAME CLEAR 画面', hatch: 'たまごが かえる しゅんかん（ファンファーレ 2小節）' };
   for (const d of DECISIONS) {
     const prev = ST[d.song]; const where = USE_LABEL[d.use];
     if (prev && prev.status === 'adopted') { prev.note += `／${where}にも 採用（2026-11-09）`; continue; }
@@ -155,7 +157,8 @@
   ];
   USES.length = 0; // 2026-11-09: すべての 場面の 曲が 決まった ため、比較する 用途は ない
   for (const id of ['var-ohayo-birth2', 'var-ohayo-birth4']) ST[id] = { status: 'variant', note: 'おはようのひかり の 長さの 案（ピアノの まま）。たまごが かえる ときは ファンファーレ編曲に した ため、いまは 使わない（保存）' };
-  for (const id of ['var-ohayo-hatch2', 'var-ohayo-hatch4']) ST[id] = { status: 'variant', note: `たまごが かえる しゅんかんの ファンファーレ（旋律は 元の まま）。${VR.VARIANTS.find((v) => v.id === id).arrangement}。派手な 音は「実際の 場面で 聴く」の たまごが かえる で 鳴る（曲の 一覧の ▶ は ふつうの 音色）` };
+  ST['var-ohayo-hatch2'].note += '。派手な 音は「実際の 場面で 聴く」の たまごが かえる で 鳴る（曲の 一覧の ▶ は ふつうの 音色）';
+  ST['var-ohayo-hatch4'] = { status: 'variant', note: `たまごが かえる ファンファーレの 4小節版（約 10.8秒）。本人が 2小節版を 選んだ ため 使わない（保存）` };
 
   // 最終配置表に 反映
   const row = (pre) => { const r = TABLE.find((x) => x.scene.startsWith(pre)); if (!r) throw new Error('no row ' + pre); return r; };
@@ -178,7 +181,7 @@
   Object.assign(ach, { scene: '図鑑・実績の 達成（お知らせ）', songs: ['jingle-achieve'], status: '採用', arrangement: 'ジングル「やったね」（8秒）' });
   TABLE.splice(TABLE.indexOf(ach) + 1, 0, R({ game: 'ホーム', scene: 'GAME CLEAR 画面（図鑑・すべての 実績）に とどまる 間', songs: ['jingle-achieve', 'event-1'], status: '採用', arrangement: 'クリア表示で「やったね」（8秒）→ 画面に とどまる 間は「おめでとうのひ」を ループ', start: 'クリア表示', stop: '画面を 閉じる', notes: '一生の クリアは お別れの 曲（farewell）' }));
   const hatch = row('たまごが かえる');
-  Object.assign(hatch, { scene: 'たまごが かえる しゅんかん', songs: ['ohayo'], status: '採用', arrangement: '「おはようのひかり」の 冒頭を ファンファーレ編曲で（テンポ 80 → 120、旋律は 同じ）。はじまりの「パカッ」、金管風の 旋律 ＋ ベル、和音の きざみ、ティンパニ、グロッケン、最後に 主和音 E♭ と シンバル。長さは 2小節（約 6.8秒）か 4小節（約 10.8秒）。編曲は fanfare.js', loop: 'なし（1回）', start: 'かえる 演出の 開始（2.8秒の 演出）と 同時', stop: '最後の 主和音の 余韻（約 2.4秒）が 消えたら ホーム曲の 音量を もどす', volume: 'ファンファーレは ホーム曲より 約 +4 dB（はっきり 聞こえる 大きさ）。ホーム曲は −14 dB に 下げる', fade: 'ホーム曲を 0.2秒で 下げ、1秒で もどす', sfx: 'いまの 効果音 hatch と 同時に 鳴らす（効果音は 変えない）。ファンファーレにも 殻が われる「パカッ」が 入って いる', notes: '一生に 1回の 場面なので、短い 効果音より 派手に 祝う（2026-11-09 本人の 判断「さっきの メロディーを もう少し 派手に アレンジ」）。実装時は 音源ファイル（wav/ogg）に 書きだすか、fanfare.js の 合成を audio.js に 移す', gameIds: hatch.gameIds });
+  Object.assign(hatch, { scene: 'たまごが かえる しゅんかん', songs: ['var-ohayo-hatch2'], status: '採用', arrangement: '「おはようのひかり」の 冒頭 2小節を ファンファーレ編曲で（テンポ 80 → 120、旋律は 同じ、約 6.8秒）。はじまりの「パカッ」、金管風の 旋律 ＋ ベル、和音の きざみ、ティンパニ、グロッケン、最後に 主和音 E♭ と シンバル。編曲は fanfare.js', loop: 'なし（1回）', start: 'かえる 演出の 開始（2.8秒の 演出）と 同時', stop: '最後の 主和音の 余韻（約 2.4秒）が 消えたら ホーム曲の 音量を もどす', volume: 'ファンファーレは ホーム曲より 約 +4 dB（はっきり 聞こえる 大きさ）。ホーム曲は −14 dB に 下げる', fade: 'ホーム曲を 0.2秒で 下げ、1秒で もどす', sfx: 'いまの 効果音 hatch と 同時に 鳴らす（効果音は 変えない）。ファンファーレにも 殻が われる「パカッ」が 入って いる', notes: '一生に 1回の 場面なので、短い 効果音より 派手に 祝う（2026-11-09 本人の 判断「さっきの メロディーを もう少し 派手に アレンジ」）。実装時は 音源ファイル（wav/ogg）に 書きだすか、fanfare.js の 合成を audio.js に 移す', gameIds: hatch.gameIds });
   TABLE.splice(TABLE.indexOf(hatch) + 1, 0, R({ game: 'ホーム', scene: '誕生日（年齢が 上がる お知らせ）', songs: [], status: '採用（BGM は 変えず 効果音だけ）', arrangement: 'ジングルなし。既存の 効果音「ピコン」（audio.js の notify、約 0.3秒）を 鳴らす', start: 'お知らせ 表示（1.2秒）', stop: '—', loop: '—', volume: '効果音は いまの まま。ホーム曲は 下げない', fade: 'なし', sfx: 'notify（ピコン）。いまの 誕生日の お知らせは 音が 鳴らない ので、実装時に 1行 足す', notes: '遊んだ 60秒ごとに 1さい 上がる ため、毎回 音楽を 鳴らすと うるさい。ホーム曲を 止めない（2026-11-09 本人の 判断）' }));
   Object.assign(row('飛行・海'), { songs: ['var-flight'], status: '採用', arrangement: '「そらとうみのさんぽ」テンポ 120 版（本人メモ「煌びやかに、もう少しテンポ早くして」）。きらめきは 編曲で ベル・グロッケン・ハープを 足す' });
   adopt('勝利', ['var-card-win']);

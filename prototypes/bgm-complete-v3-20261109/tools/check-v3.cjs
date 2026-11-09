@@ -63,7 +63,7 @@ for (const v of VR.VARIANTS) {
 // (3) 採用 10曲
 const ADOPTED = ['home-morning', 'home-day', 'home-evening', 'home-night', 'poyo-1', 'koro-1', 'card-2', 'game-1', 'explore-1', 'event-2'];
 // 2026-11-09 の 試聴で 本人が 採用を 押した 曲（db の ratings/latest から 読み取った もの）
-const ADOPTED_LATER = ['poyo-2', 'board-b', 'game-2', 'fishing-a', 'bgm-race', 'explore-2', 'bgm-game', 'lullaby-a', 'bgm-farewell', 'jingle-achieve', 'var-poyo-clear', 'var-koro-goal', 'var-card-late', 'jingle-card-lose', 'ohayo', 'var-card-win', 'var-flight', 'kisetsu', 'var-koro-album', 'var-poyo-chapter', 'event-1'];
+const ADOPTED_LATER = ['poyo-2', 'board-b', 'game-2', 'fishing-a', 'bgm-race', 'explore-2', 'bgm-game', 'lullaby-a', 'bgm-farewell', 'jingle-achieve', 'var-poyo-clear', 'var-koro-goal', 'var-card-late', 'jingle-card-lose', 'ohayo', 'var-card-win', 'var-flight', 'kisetsu', 'var-koro-album', 'var-poyo-chapter', 'event-1', 'var-ohayo-hatch2'];
 const expectAdopted = [...ADOPTED, ...ADOPTED_LATER].sort();
 if (JSON.stringify([...D.ADOPTED].sort()) !== JSON.stringify(expectAdopted)) fail('adopted set must be exactly the owner-confirmed songs: ' + D.ADOPTED.join(','));
 const F = require(path.join(repo, 'prototypes/main-theme-favorites-20261108/favorites.js'));

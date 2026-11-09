@@ -200,7 +200,7 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
   </section>
 
   <section class="group" aria-labelledby="adTitle">
-    <div class="group-head"><h2 id="adTitle">採用済みの 曲（31）</h2><p>選び直しは 不要です。聴いて 確かめる だけ（ホーム4曲は 原曲の 旋律。アレンジA は PR #530 で）。</p></div>
+    <div class="group-head"><h2 id="adTitle">採用済みの 曲（32）</h2><p>選び直しは 不要です。聴いて 確かめる だけ（ホーム4曲は 原曲の 旋律。アレンジA は PR #530 で）。</p></div>
     <div class="adopted-grid" id="adopted"></div>
   </section>
 
@@ -508,7 +508,7 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
   const FAN = window.NAOTOCCHI_BGM_V3_FANFARE;
   const passOf = (id) => (/^var-ohayo-hatch/.test(id) ? FAN.duration(song(id).song) : passSec(song(id).song) * song(id).song.repeats);
   const SCENES = [
-    { id: 'hatch', title: 'たまごが かえる', bg: 'home-morning', pre: 4, event: 2.8, fanfare: true, jingles: [['var-ohayo-hatch2', 'ファンファーレ 2小節'], ['var-ohayo-hatch4', 'ファンファーレ 4小節']], note: 'かえる 演出（2.8秒）の はじめに、いまの 効果音 hatch と 同時に「おはようのひかり」の ファンファーレ編曲（旋律は 同じ・テンポ 120）。その 間 ホーム曲は −14 dB に 下げる。' },
+    { id: 'hatch', title: 'たまごが かえる', bg: 'home-morning', pre: 4, event: 2.8, fanfare: true, jingles: [['var-ohayo-hatch2', 'ファンファーレ 2小節（採用）'], ['var-ohayo-hatch4', '4小節（保存）']], note: 'かえる 演出（2.8秒）の はじめに、いまの 効果音 hatch と 同時に「おはようのひかり」の ファンファーレ編曲（旋律は 同じ・テンポ 120）。その 間 ホーム曲は −14 dB に 下げる。' },
     { id: 'birthday', title: '誕生日', bg: 'home-day', pre: 4, event: 1.2, sfx: 'notify', sfxName: '「ピコン」（notify）', after: 6, jingles: [], note: '年齢が 上がる お知らせ（1.2秒・遊んだ 60秒ごとに 1さい）。ホーム曲は 止めず、効果音「ピコン」だけ。' },
     { id: 'achieve', title: '図鑑・実績の 達成', bg: 'home-day', pre: 4, jingles: [['jingle-achieve', 'やったね']], note: '達成の お知らせで「やったね」（8秒）。' },
     { id: 'clear', title: 'GAME CLEAR 画面', bg: 'home-evening', pre: 3, jingles: [['jingle-achieve', 'やったね']], then: 'event-1', note: 'クリア表示で「やったね」、その あと 画面に とどまる 間は「おめでとうのひ」が ループ（ここでは 20秒で 止める）。' },
