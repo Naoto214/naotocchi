@@ -159,7 +159,7 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
   <header class="top">
     <div class="eyebrow">NAOTOCCHI · BGM 完全設計 VERSION 3 · 2026-11-09</div>
     <h1>なおとっち BGM 完全設計</h1>
-    <p class="lede">なおとっち全作品の 音楽の 完成形を 聴いて 確かめる ページです。上から、採用済みの 10曲、まだ 決まっていない 用途ごとの 新曲・変奏・未確定曲の 比較、全場面の 最終配置表の 順に ならんでいます。新曲と 変奏は どれも 候補で、採用は あなたが 決めます。評価と メモは この ブラウザの 中だけに 保存されます。</p>
+    <p class="lede">なおとっち全作品の 音楽の 完成形を 聴いて 確かめる ページです。上から、採用済みの 10曲、まだ 決まっていない 用途ごとの 新曲・変奏・未確定曲の 比較、全場面の 最終配置表の 順に ならんでいます。新曲と 変奏は どれも 候補で、採用は あなたが 決めます。評価と メモは この ブラウザに 保存され、claude.ai で 開いて いる ときは Claude と 共有されます。</p>
   </header>
 
   <div class="controls" role="group" aria-label="再生の 設定">
@@ -201,6 +201,7 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
 
   <section class="split" aria-labelledby="sumTitle">
     <h2 id="sumTitle">あなたの 評価の まとめ</h2>
+    <p class="status" id="syncNote" aria-live="polite"></p>
     <div class="tablebox"><table id="summary"></table></div>
   </section>
 
@@ -272,7 +273,36 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
   const use = (id) => D.USES.find((u) => u.id === id);
   const saved = (() => { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (err) { return {}; } })();
   const st = { mode: saved.mode || 'piano', vol: saved.vol ?? 80, level: saved.level ?? true, use: use(saved.use) ? saved.use : D.USES[0].id, game: saved.game || 'all', loop: false, ratings: saved.ratings || {}, playing: null, queue: false, sel: null, ctx: 'use' };
-  const save = () => { try { localStorage.setItem(KEY, JSON.stringify({ mode: st.mode, vol: st.vol, level: st.level, use: st.use, game: st.game, ratings: st.ratings })); } catch (err) {} };
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify({ mode: st.mode, vol: st.vol, level: st.level, use: st.use, game: st.game, ratings: st.ratings })); } catch (err) {} scheduleSync(); };
+  // ---- 評価を Claude と 共有する（claude.ai で 開いた ときだけ。artifact の db に 保存） ----
+  // ブラウザの localStorage だけだと Claude から 読めない ため、評価と メモを db の ratings/latest に 書く。
+  // 以前に この ブラウザで つけた 評価も、ページを 開いた ときに 1回 送る（db と ちがう ときだけ）。
+  let db = null, synced = '', syncTimer = null, writing = false;
+  const syncNote = (t) => { const el = document.getElementById('syncNote'); if (el) el.textContent = t; };
+  function scheduleSync() { if (!db) return; clearTimeout(syncTimer); syncTimer = setTimeout(pushRatings, 800); }
+  async function pushRatings() {
+    if (!db || writing) { if (db) scheduleSync(); return; }
+    const body = JSON.stringify(st.ratings);
+    if (body === synced || body === '{}') return;
+    writing = true;
+    try { await db.doc('ratings/latest').set({ ratings: st.ratings, updatedAt: new Date().toISOString(), page: 'bgm-complete-v3' }); synced = body; syncNote('評価と メモは Claude と 共有されています（最終送信 ' + new Date().toLocaleTimeString() + '）'); }
+    catch (err) { syncNote('評価の 共有に 失敗しました（' + (err && err.code || 'error') + '）。この ブラウザには 保存されています'); }
+    finally { writing = false; }
+  }
+  (async () => {
+    try {
+      if (!window.claude || typeof window.claude.use !== 'function') { syncNote('評価と メモは この ブラウザの 中だけに 保存されます'); return; }
+      db = await window.claude.use('db');
+      if (!db) { syncNote('評価と メモは この ブラウザの 中だけに 保存されます（共有できない 表示です）'); return; }
+      const timer = setTimeout(() => syncNote('評価の 共有先に つながりません。この ブラウザには 保存されています'), 10000);
+      const snap = await db.doc('ratings/latest').get();
+      clearTimeout(timer);
+      const remote = snap && snap.exists ? snap.data() : null;
+      synced = remote ? JSON.stringify(remote.ratings || {}) : '';
+      if (JSON.stringify(st.ratings) !== '{}' && JSON.stringify(st.ratings) !== synced) await pushRatings();
+      else syncNote(remote ? '評価と メモは Claude と 共有されています' : '評価を つけると Claude と 共有されます');
+    } catch (err) { syncNote('評価の 共有に 失敗しました。この ブラウザには 保存されています'); }
+  })();
   const rkey = (u, s) => `${u}:${s}`;
   const fmt = (sec) => `${Math.floor(sec / 60)}:${String(Math.round(sec % 60)).padStart(2, '0')}`;
   const passSec = (s) => D.flatten(s).beats * 60 / s.bpm;
