@@ -129,10 +129,13 @@
     { use: 'quick', song: 'bgm-game' }, { use: 'sleep', song: 'lullaby-a' }, { use: 'farewell', song: 'bgm-farewell' },
     { use: 'achieve', song: 'jingle-achieve' }, { use: 'naopoyo-end', song: 'var-poyo-clear' }, { use: 'naokoro-end', song: 'var-koro-goal' },
     { use: 'card-end', song: 'var-card-late' }, { use: 'card-end', song: 'jingle-card-lose' }, { use: 'date', song: 'event-2' },
+    // 2026-11-09 2回目の 試聴（のこり 6か所）
+    { use: 'birth', song: 'ohayo' }, { use: 'card-win', song: 'var-card-win' }, { use: 'flight', song: 'var-flight' },
+    { use: 'legend', song: 'kisetsu' }, { use: 'naokoro-album', song: 'var-koro-album' }, { use: 'naopoyo-chapter', song: 'var-poyo-chapter' },
   ];
   const REJECTED_BY_RATING = [{ use: 'puzzle', song: 'bgm-puzzle' }];
   const HOLD_BY_RATING = [{ use: 'birth', song: 'ohayo' }, { use: 'farewell', song: 'kisetsu' }, { use: 'naokoro-end', song: 'kisetsu' }];
-  const USE_LABEL = { puzzle: 'パズル', board: 'ボード・テーブル', sports: 'スポーツ', fishing: '釣り', race: 'レース・シューティング', flight: '3D 飛行・海', quick: 'クイックモード', sleep: '睡眠', farewell: 'お別れ', achieve: '達成', 'naopoyo-end': 'なおぽよ。ステージクリア', 'naokoro-end': 'なおころ。ゴール', 'card-end': 'CARD GAME 終盤・敗北', date: 'デート・映画' };
+  const USE_LABEL = { puzzle: 'パズル', board: 'ボード・テーブル', sports: 'スポーツ', fishing: '釣り', race: 'レース・シューティング', flight: '3D 飛行・海', quick: 'クイックモード', sleep: '睡眠', farewell: 'お別れ', achieve: '達成', 'naopoyo-end': 'なおぽよ。ステージクリア', 'naokoro-end': 'なおころ。ゴール', 'card-end': 'CARD GAME 終盤・敗北', date: 'デート・映画', birth: '誕生・誕生日', 'card-win': 'CARD GAME 勝利', legend: 'でんせつの であい', 'naokoro-album': 'なおころ。人生アルバム', 'naopoyo-chapter': 'なおぽよ。第1章クリア' };
   for (const d of DECISIONS) {
     const prev = ST[d.song]; const where = USE_LABEL[d.use];
     if (prev && prev.status === 'adopted') { prev.note += `／${where}にも 採用（2026-11-09）`; continue; }
@@ -141,17 +144,12 @@
   for (const id of ['puzzle-a', 'puzzle-b', 'board-a', 'race-a', 'race-b', 'farewell-a', 'farewell-b', 'sports-1', 'sports-2', 'var-sleep'])
     if (ST[id].status !== 'adopted') ST[id] = { status: 'unpicked', note: '今回の 試聴では 選ばれなかった（不採用の 印は ない）。削除せず 候補として 保存' };
   STATUS_LABEL.unpicked = '選ばれなかった 候補（保存）';
-  ST['var-flight'] = { status: 'variant', note: '本人メモ「煌びやかに、もう少しテンポ早くして」に 合わせた 変奏（テンポ 120）。未試聴' };
+  if (ST['jingle-birth'].status !== 'adopted') ST['jingle-birth'] = { status: 'unpicked', note: '誕生・誕生日では おはようのひかり が 採用された。削除せず 候補として 保存' };
   ADOPTED.length = 0; for (const id of Object.keys(ST)) if (ST[id].status === 'adopted') ADOPTED.push(id);
 
   // 比較する 用途は、まだ 決まっていない ものだけに しぼる
   const OPEN_USES = [
-    U('birth', '誕生・誕生日', 'たまごが かえる（2.8秒）・誕生日（1.2秒）。いま home。達成の ジングル「やったね」は 採用済み。', 'ジングル「うまれたよ」は まだ 評価が ない。おはようのひかり は 保留、おめでとうのひ も 保留。演出が 短い ので ジングルなし（ホーム曲の まま）も 選べる。', ['jingle-birth', 'ohayo', 'event-1'], { ohayo: '保留', 'event-1': '保留' }),
-    U('flight-check', '3D 飛行・海（メモの 反映を 確認）', '採用した「そらとうみのさんぽ」を、メモ「煌びやかに、もう少しテンポ早くして」に 合わせて テンポ 120 に した 変奏。', '旋律は 同じ。煌びやかさ（ベル・グロッケン・ハープ）は 採用後の 編曲で 足す 前提。この 速さで よいかを 聴いて ください。', ['var-flight', 'explore-2'], { 'explore-2': '採用（もとの 速さ 108）' }),
-    U('card-win', 'CARD GAME の 勝利', '勝利の 結果画面。終盤（テンポ 156 の 変奏）と 敗北の ジングルは 採用済み。', '勝利の 変奏は 評価が 取り消された まま。達成の ジングル「やったね」を 使う 案も。', ['var-card-win', 'jingle-achieve'], { 'jingle-achieve': '採用曲の 流用' }),
-    U('naopoyo-chapter', 'なおぽよ。第1章クリア', '章クリア「第1章 クリア！」の 画面。ステージクリアの 変奏は 採用済み。', '章の おわりを ゆっくり 聴かせる 変奏（テンポ 80）と、別案「みんなでかえろう」（パズルで 採用済み）。', ['var-poyo-chapter', 'poyo-2'], { 'poyo-2': '採用曲（パズル）の 流用' }),
-    U('naokoro-album', 'なおころ。人生アルバム', '「こんな人生に、なりました。」と 過去の アルバム。ゴールの 変奏は 採用済み。', 'ゆっくり版の 変奏・別案「いつかのゴール」・保留「きせつのきおく」。', ['var-koro-album', 'koro-2', 'kisetsu'], { kisetsu: '保留' }),
-    U('legend', 'でんせつの であい', '一生に 1度の 伝説の 出会いの 映画。いま movie（不採用）。', '採用曲「ほしふるみずうみ」「ふたりのきねんび」の 配置か、保留「きせつのきおく」。', ['home-evening', 'event-2', 'kisetsu'], { 'home-evening': '採用曲の 配置案', 'event-2': '採用曲の 配置案', kisetsu: '保留' }),
+    U('clear', 'GAME CLEAR 画面', '図鑑 コンプリート・すべての 実績で 出る GAME CLEAR 画面に とどまる 間。いまは home。達成の お知らせは ジングル「やったね」で 確定。一生の クリアは お別れ（farewell）。', 'のこる 最後の 1か所。保留の「おめでとうのひ」、誕生で 採用した「おはようのひかり」、でんせつの であいで 採用した「きせつのきおく」、または ホーム曲に もどす（例: 昼「いつものにわ」）。', ['event-1', 'ohayo', 'kisetsu', 'home-day'], { 'event-1': '保留', ohayo: '採用曲の 流用（誕生）', kisetsu: '採用曲の 流用（でんせつ）', 'home-day': 'ホーム曲に もどす 案' }),
   ];
   USES.length = 0; OPEN_USES.forEach((u) => USES.push(u));
 
@@ -171,12 +169,16 @@
   adopt('スポーツ', ['game-2'], { arrangement: '「ぴょこぴょこステップ」（ミニゲーム汎用の 別案）' });
   adopt('釣り', ['fishing-a'], { arrangement: '新曲「みずべのうたたね」' });
   adopt('レース・シューティング', ['bgm-race'], { arrangement: '既存 audio.js「race」（そのまま）' });
-  Object.assign(row('飛行・海'), { songs: ['explore-2', 'var-flight'], status: '採用（メモの 変奏を 確認中）', arrangement: '「そらとうみのさんぽ」。本人メモ「煌びやかに、もう少しテンポ早くして」→ テンポ 120 の 変奏＋ベル・グロッケン・ハープで きらめきを 足す 編曲' });
   adopt('クイックゲーム', ['bgm-game'], { arrangement: '既存 audio.js「game」（そのまま）' });
   const ach = row('図鑑・実績の 達成');
   Object.assign(ach, { scene: '図鑑・実績の 達成（お知らせ）', songs: ['jingle-achieve'], status: '採用', arrangement: 'ジングル「やったね」（8秒）' });
-  TABLE.splice(TABLE.indexOf(ach) + 1, 0, R({ game: 'ホーム', scene: 'GAME CLEAR 画面（図鑑・すべての 実績）に とどまる 間', songs: ['event-1', 'jingle-achieve'], status: '候補比較中', arrangement: 'クリア表示で「やったね」→ その後の 曲は 未定（保留の「おめでとうのひ」か、ホーム曲に もどる）', start: 'クリア表示', stop: '画面を 閉じる', notes: '一生の クリアは お別れの 曲（farewell）' }));
-  Object.assign(row('たまごが かえる'), { songs: ['jingle-birth', 'ohayo', 'event-1'], status: '候補比較中' });
+  TABLE.splice(TABLE.indexOf(ach) + 1, 0, R({ game: 'ホーム', scene: 'GAME CLEAR 画面（図鑑・すべての 実績）に とどまる 間', songs: ['event-1', 'ohayo', 'kisetsu', 'home-day'], status: '候補比較中', arrangement: 'クリア表示で「やったね」（採用済み）→ その後 画面に とどまる 間の 曲が 未定（保留の おめでとうのひ／採用曲の 流用／ホーム曲に もどす）', start: 'クリア表示', stop: '画面を 閉じる', notes: '一生の クリアは お別れの 曲（farewell）' }));
+  adopt('たまごが かえる', ['ohayo'], { arrangement: '「おはようのひかり」。演出が 1〜3秒と 短い ため、たまごが かえる しゅんかんは 冒頭 2小節を ジングルに 切りだし（実装時）、誕生日の お知らせも 同じ', loop: 'なし（冒頭だけ）' });
+  Object.assign(row('飛行・海'), { songs: ['var-flight'], status: '採用', arrangement: '「そらとうみのさんぽ」テンポ 120 版（本人メモ「煌びやかに、もう少しテンポ早くして」）。きらめきは 編曲で ベル・グロッケン・ハープを 足す' });
+  adopt('勝利', ['var-card-win']);
+  adopt('第1章クリア', ['var-poyo-chapter']);
+  adopt('人生アルバム', ['var-koro-album']);
+  adopt('でんせつの であい', ['kisetsu'], { arrangement: '「きせつのきおく」（原曲）', loop: 'なし（映画の 長さで フェード）' });
 
   const api = { SONGS, STATUS: ST, STATUS_LABEL, ADOPTED, USES, TABLE, DECISIONS, flatten: C.flatten, solfege: C.solfege };
   if (isNode) module.exports = api;

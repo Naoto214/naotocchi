@@ -193,7 +193,7 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
   </section>
 
   <section class="group" aria-labelledby="useTitle">
-    <div class="group-head"><h2 id="useTitle">まだ 決まっていない 用途</h2><p>2026-11-09 の 試聴で 採用が 決まった 用途は ここから 外し、最終配置表に 反映しました。のこりの 用途だけを 聴きくらべます。評価は 用途ごとに 別々に 保存されます。</p></div>
+    <div class="group-head"><h2 id="useTitle">まだ 決まっていない 用途</h2><p>2026-11-09 の 2回の 試聴で 採用が 決まった 用途は ここから 外し、最終配置表に 反映しました。のこりは GAME CLEAR 画面の 1か所だけです。</p></div>
     <div class="tabs" id="tabs" role="group" aria-label="用途"></div>
     <div class="note" id="useInfo"></div>
     <div class="group" id="list"></div>
@@ -422,7 +422,7 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
 
   // ---- 評価の まとめ ----
   // 評価の まとめ: いま 表示中の 用途だけで なく、これまでに つけた すべての 評価（以前の 用途を ふくむ）を 出す
-  const OLD_USE_LABEL = { puzzle: 'パズル', board: 'ボード・テーブル', sports: 'スポーツ', fishing: '釣り', race: 'レース・シューティング', flight: '3D 飛行・海', quick: 'クイックモード', sleep: '睡眠', farewell: 'お別れ', birth: '誕生・誕生日・達成', 'naopoyo-end': 'なおぽよ。クリア・章の おわり', 'naokoro-end': 'なおころ。ゴール・アルバム', 'card-end': 'CARD GAME 終盤・勝敗', date: 'デート・映画' };
+  const OLD_USE_LABEL = { puzzle: 'パズル', board: 'ボード・テーブル', sports: 'スポーツ', fishing: '釣り', race: 'レース・シューティング', flight: '3D 飛行・海', quick: 'クイックモード', sleep: '睡眠', farewell: 'お別れ', birth: '誕生・誕生日・達成', 'naopoyo-end': 'なおぽよ。クリア・章の おわり', 'naokoro-end': 'なおころ。ゴール・アルバム', 'card-end': 'CARD GAME 終盤・勝敗', date: 'デート・映画', 'flight-check': '3D 飛行・海（テンポ 120 版）', 'card-win': 'CARD GAME 勝利', 'naopoyo-chapter': 'なおぽよ。第1章クリア', 'naokoro-album': 'なおころ。人生アルバム', legend: 'でんせつの であい', clear: 'GAME CLEAR 画面' };
   const useLabel = (id) => (use(id) || {}).label || OLD_USE_LABEL[id] || id;
   function renderSummary() {
     const groups = {};
