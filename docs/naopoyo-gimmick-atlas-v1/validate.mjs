@@ -1,0 +1,22 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import {fileURLToPath} from 'node:url';
+const here=path.dirname(fileURLToPath(import.meta.url));
+const d=JSON.parse(fs.readFileSync(path.join(here,'atlas.json')));
+assert.equal(d.items.length,50);assert.equal(d.stages.length,100);
+assert.equal(new Set(d.items.map(x=>x.id)).size,50);
+for(const [kind,n] of [['推奨',32],['保留',11],['不採用',7]])assert.equal(d.items.filter(x=>x.decision===kind).length,n);
+const ids=new Map(d.items.map(x=>[x.id,x]));
+for(const s of d.stages){assert.equal(s.number,d.stages.indexOf(s)+1);assert.equal(s.chapter,Math.ceil(s.number/10));for(const id of s.dependencies){assert.ok(ids.has(id));assert.equal(ids.get(id).decision,'推奨')}for(const k of ['title','learn','insight','difference','difficulty','event','status'])assert.ok(s[k]);assert.ok(new Set(s.dependencies).size===s.dependencies.length)}
+assert.equal(d.stages.filter(x=>x.event==='救出＋協力').length,12);
+assert.equal(d.stages.filter(x=>x.event==='協力のみ').length,5);
+assert.deepEqual(d.stages.slice(10,20).filter(x=>x.event==='救出＋協力').map(x=>x.number),[19]);
+assert.deepEqual(d.stages.slice(10,20).filter(x=>x.event==='協力のみ').map(x=>x.number),[18]);
+for(const x of d.items.filter(x=>x.decision==='推奨'))for(const style of ['a','b'])for(const state of [0,1])assert.ok(fs.existsSync(path.join(here,'art',`${x.id}-${style}-${state}.svg`)));
+const ch=await import('../../prototypes/naopoyo-time-hand-chapter1/stages.mjs');
+const official=ch.stages||ch.STAGES||ch.default;
+assert.ok(Array.isArray(official),'official stages export');
+assert.deepEqual(d.stages.slice(0,10).map(x=>x.title),official.map(x=>x.title));
+assert.ok(!/localStorage|sessionStorage|indexedDB/.test(fs.readFileSync(path.join(here,'app.js'),'utf8')));
+console.log('PASS: 50 candidates, 100 rows, 32/11/7, dependency references, 12 rescues/5 cooperations, chapter2 event limits, 128 comparison SVGs, exact chapter1 titles, no storage access');
