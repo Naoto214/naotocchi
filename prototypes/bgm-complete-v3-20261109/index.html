@@ -153,6 +153,10 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
 .adopted-grid b { font-family: var(--font-display); font-size: 15px; }
 #final td { min-width: 110px; }
 #final td:nth-child(1) { min-width: 130px; }
+.scene-steps { margin: 0; padding-left: 1.4em; display: grid; gap: 6px; }
+.scene-steps li { padding: 6px 10px; border-radius: 10px; background: var(--soft); }
+.scene-steps li[data-now="true"] { outline: 2px solid var(--accent); }
+.scene-steps li[data-done="true"] { opacity: .6; }
 </style></head>
 <body>
 <div class="wrap">
@@ -187,8 +191,16 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
     <p class="status" id="status" aria-live="polite"></p>
   </section>
 
+  <section class="group" aria-labelledby="sceneTitle">
+    <div class="group-head"><h2 id="sceneTitle">実際の 場面で 聴く</h2><p>ホーム曲が 流れている ところで 演出が 起き、ホーム曲を 小さく して ジングルを 鳴らし、終わったら もどる 流れを、ゲームと 同じ 長さで 再現します。</p></div>
+    <div class="tabs" id="sceneTabs" role="group" aria-label="場面"></div>
+    <div class="note" id="sceneInfo"></div>
+    <div class="row-tools"><button type="button" class="play" id="sceneBtn" style="--tc: var(--accent)">▶ この 場面を 再生</button><span class="status" id="sceneClock" aria-live="polite"></span></div>
+    <ol class="scene-steps" id="sceneSteps"></ol>
+  </section>
+
   <section class="group" aria-labelledby="adTitle">
-    <div class="group-head"><h2 id="adTitle">採用済みの 曲</h2><p>選び直しは 不要です。聴いて 確かめる だけ（ホーム4曲は 原曲の 旋律。アレンジA は PR #530 で）。</p></div>
+    <div class="group-head"><h2 id="adTitle">採用済みの 曲（31）</h2><p>選び直しは 不要です。聴いて 確かめる だけ（ホーム4曲は 原曲の 旋律。アレンジA は PR #530 で）。</p></div>
     <div class="adopted-grid" id="adopted"></div>
   </section>
 
@@ -272,7 +284,7 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
   const song = (id) => D.SONGS[id];
   const use = (id) => D.USES.find((u) => u.id === id);
   const saved = (() => { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (err) { return {}; } })();
-  const st = { mode: saved.mode || 'piano', vol: saved.vol ?? 80, level: saved.level ?? true, use: use(saved.use) ? saved.use : D.USES[0].id, game: saved.game || 'all', loop: false, ratings: saved.ratings || {}, playing: null, queue: false, sel: null, ctx: 'use' };
+  const st = { mode: saved.mode || 'piano', vol: saved.vol ?? 80, level: saved.level ?? true, use: use(saved.use) ? saved.use : (D.USES[0] || {}).id, game: saved.game || 'all', loop: false, ratings: saved.ratings || {}, playing: null, queue: false, sel: null, ctx: 'use' };
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify({ mode: st.mode, vol: st.vol, level: st.level, use: st.use, game: st.game, ratings: st.ratings })); } catch (err) {} scheduleSync(); };
   // ---- 評価を Claude と 共有する（claude.ai で 開いた ときだけ。artifact の db に 保存） ----
   // ブラウザの localStorage だけだと Claude から 読めない ため、評価と メモを db の ratings/latest に 書く。
@@ -330,6 +342,7 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
   const listEl = document.getElementById('list');
   function renderUse() {
     const u = use(st.use);
+    if (!u) { document.getElementById('useInfo').innerHTML = '<h3>すべての 場面の 曲が 決まりました</h3><p>比べる 用途は もう ありません。下の 最終配置表で 全場面の 採用曲を 確かめられます。</p>'; listEl.innerHTML = ''; tabs.innerHTML = ''; return; }
     tabs.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.use === st.use)));
     document.getElementById('useInfo').innerHTML = `<h3>${esc(u.label)}</h3><p>${esc(u.scope)}</p><p class="meta">${esc(u.note)}</p>`;
     listEl.innerHTML = u.candidates.map((id, i) => {
@@ -361,8 +374,9 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
   listEl.addEventListener('input', (ev) => { const t = ev.target.closest('[data-memo]'); if (!t) return; const k = rkey(st.use, t.dataset.memo); st.ratings[k] = Object.assign({}, st.ratings[k], { memo: t.value }); save(); renderSummary(); });
 
   // ---- 再生 ----
-  const ctxList = () => (st.ctx === 'adopted' ? D.ADOPTED : use(st.use).candidates);
+  const ctxList = () => (st.ctx === 'adopted' || !use(st.use) ? D.ADOPTED : use(st.use).candidates);
   function start(id, mode) {
+    if (sc.run) stopScene();
     st.playing = { id, mode }; applyVolume();
     try { player.play(song(id).song, mode, { loop: !st.queue && st.loop, onend: onEnd }); }
     catch (err) { st.playing = null; setStatus('この ブラウザでは 音を 出せませんでした（Web Audio に 未対応）'); return; }
@@ -387,7 +401,7 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
   function refresh() {
     const p = st.playing && song(st.playing.id), list = ctxList();
     document.getElementById('nowLabel').textContent = p ? `${st.queue ? '連続再生' : '再生中'}${list.includes(st.playing.id) ? ` · ${list.indexOf(st.playing.id) + 1} / ${list.length} 曲目` : ''} · ${st.playing.mode === 'game' ? 'ゲームの 音' : ({ melody: 'メロディのみ', piano: 'ピアノ', band: '軽い伴奏' })[st.playing.mode]}` : '再生していません';
-    document.getElementById('nowTitle').textContent = p ? `${p.title}（${st.ctx === 'adopted' ? '採用済み' : use(st.use).label}）` : '—';
+    document.getElementById('nowTitle').textContent = p ? `${p.title}（${st.ctx === 'adopted' || !use(st.use) ? '採用済み' : use(st.use).label}）` : '—';
     document.getElementById('allBtn').textContent = st.queue ? '■ 連続再生を とめる' : (st.ctx === 'adopted' ? '▶ 採用済みを 連続再生' : '▶ この 用途を 連続再生');
     document.querySelectorAll('[data-play]').forEach((b) => { b.textContent = st.playing && st.playing.id === b.dataset.play && st.playing.mode !== 'game' && !st.queue && st.ctx === 'use' ? '■ とめる' : '▶ 再生'; });
     document.querySelectorAll('[data-game]').forEach((b) => { b.textContent = st.playing && st.playing.id === b.dataset.game && st.playing.mode === 'game' && !st.queue ? '■ とめる' : 'ゲームの 音で'; });
@@ -486,6 +500,56 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
   // ---- 曲の 一覧 ----
   const order = ['adopted', 'candidate', 'variant', 'hold', 'undecided', 'alt', 'migrating', 'rejected'];
   document.getElementById('songTable').innerHTML = `<thead><tr><th>状況</th><th>曲</th><th>出どころ</th><th>メモ</th></tr></thead><tbody>${Object.entries(D.STATUS).sort((a, b) => order.indexOf(a[1].status) - order.indexOf(b[1].status)).map(([id, s]) => `<tr><td>${stChip(id)}</td><td><b>${esc(song(id).title)}</b></td><td>${esc(song(id).source)}</td><td>${esc(s.note)}</td></tr>`).join('')}</tbody>`;
+
+  // ---- 実際の 場面で 聴く ----
+  // 2台の プレーヤーで、ホーム曲（背景）と ジングルを 重ねる。ジングルの 間は ホーム曲を −10 dB に 下げ、終わったら もどす。
+  const bgPlayer = E.createPlayer(), fgPlayer = E.createPlayer();
+  const passOf = (id) => passSec(song(id).song) * song(id).song.repeats;
+  const SCENES = [
+    { id: 'hatch', title: 'たまごが かえる', bg: 'home-morning', pre: 4, event: 2.8, jingles: [['var-ohayo-birth2', '冒頭 2小節'], ['var-ohayo-birth4', '冒頭 4小節']], note: 'ゲームの 演出は 2.8秒。ジングルは 演出の 開始と 同時に 鳴らす 想定。' },
+    { id: 'birthday', title: '誕生日', bg: 'home-day', pre: 4, event: 1.2, jingles: [['var-ohayo-birth2', '冒頭 2小節'], ['var-ohayo-birth4', '冒頭 4小節']], note: 'ゲームの お知らせは 1.2秒（遊んだ 60秒ごとに 1さい）。' },
+    { id: 'achieve', title: '図鑑・実績の 達成', bg: 'home-day', pre: 4, jingles: [['jingle-achieve', 'やったね']], note: '達成の お知らせで「やったね」（8秒）。' },
+    { id: 'clear', title: 'GAME CLEAR 画面', bg: 'home-evening', pre: 3, jingles: [['jingle-achieve', 'やったね']], then: 'event-1', note: 'クリア表示で「やったね」、その あと 画面に とどまる 間は「おめでとうのひ」が ループ（ここでは 20秒で 止める）。' },
+  ];
+  const sc = { id: 'hatch', j: 0, run: null };
+  const sceneTabs = document.getElementById('sceneTabs');
+  function renderScene() {
+    const S = SCENES.find((x) => x.id === sc.id);
+    sceneTabs.innerHTML = SCENES.map((x) => `<button type="button" id="scene-${x.id}" data-scene="${x.id}" aria-pressed="${x.id === sc.id}">${x.title}</button>`).join('');
+    const jl = S.jingles.length > 1 ? `<span class="seg" id="sceneLen">${S.jingles.map(([id, l], i) => `<button type="button" id="scene-len-${i}" data-j="${i}" aria-pressed="${i === sc.j}">${l}（${passOf(id).toFixed(1)}秒）</button>`).join('')}</span>` : '';
+    document.getElementById('sceneInfo').innerHTML = `<h3>${S.title}</h3><p class="meta">${S.note}</p>${jl}`;
+    const [jid] = S.jingles[Math.min(sc.j, S.jingles.length - 1)];
+    const steps = [`ホーム曲「${song(S.bg).title}」が 流れている（${S.pre}秒）`, `${S.event ? `演出（${S.event}秒）と 同時に ` : ''}ホーム曲を 小さく して「${song(jid).title}」（${passOf(jid).toFixed(1)}秒）`, S.then ? `「${song(S.then).title}」に 切りかえて ループ` : 'ホーム曲の 音量を もどす（1秒）'];
+    document.getElementById('sceneSteps').innerHTML = steps.map((t, i) => `<li data-i="${i}">${esc(t)}</li>`).join('');
+  }
+  sceneTabs.addEventListener('click', (ev) => { const b = ev.target.closest('[data-scene]'); if (!b) return; stopScene(); sc.id = b.dataset.scene; sc.j = 0; renderScene(); });
+  document.getElementById('sceneInfo').addEventListener('click', (ev) => { const b = ev.target.closest('[data-j]'); if (!b) return; stopScene(); sc.j = Number(b.dataset.j); renderScene(); });
+  const markStep = (i) => document.querySelectorAll('#sceneSteps li').forEach((li) => { const k = Number(li.dataset.i); li.dataset.now = String(k === i); li.dataset.done = String(k < i); });
+  function stopScene() { if (sc.run) { sc.run.timers.forEach(clearTimeout); clearInterval(sc.run.clock); sc.run = null; } bgPlayer.stop(); fgPlayer.stop(); markStep(-1); document.getElementById('sceneBtn').textContent = '▶ この 場面を 再生'; document.getElementById('sceneClock').textContent = ''; }
+  function playScene() {
+    stop(); stopScene();
+    const S = SCENES.find((x) => x.id === sc.id), [jid] = S.jingles[Math.min(sc.j, S.jingles.length - 1)];
+    const base = st.vol / 100, g = (id, m) => (st.level ? Math.pow(10, gainDb(id, m) / 20) : 1);
+    const jlen = passOf(jid), total = S.pre + jlen + (S.then ? 20 : 4);
+    const run = { timers: [], t0: performance.now(), clock: null }; sc.run = run;
+    bgPlayer.setVolume(Math.min(1, base * g(S.bg, st.mode))); bgPlayer.play(song(S.bg).song, st.mode, { loop: true });
+    markStep(0);
+    run.timers.push(setTimeout(() => {
+      bgPlayer.setVolume(Math.min(1, base * g(S.bg, st.mode) * 0.316)); // −10 dB
+      fgPlayer.setVolume(Math.min(1, base * g(jid, st.mode))); fgPlayer.play(song(jid).song, st.mode, { repeats: 1 });
+      markStep(1);
+    }, S.pre * 1000));
+    run.timers.push(setTimeout(() => {
+      if (S.then) { bgPlayer.stop(); fgPlayer.setVolume(Math.min(1, base * g(S.then, st.mode))); fgPlayer.play(song(S.then).song, st.mode, { loop: true }); }
+      else { bgPlayer.setVolume(Math.min(1, base * g(S.bg, st.mode))); }
+      markStep(2);
+    }, (S.pre + jlen) * 1000));
+    run.timers.push(setTimeout(stopScene, total * 1000));
+    run.clock = setInterval(() => { document.getElementById('sceneClock').textContent = `${((performance.now() - run.t0) / 1000).toFixed(1)} / ${total.toFixed(1)} 秒`; }, 100);
+    document.getElementById('sceneBtn').textContent = '■ とめる';
+  }
+  document.getElementById('sceneBtn').addEventListener('click', () => { if (sc.run) stopScene(); else playScene(); });
+  renderScene();
 
   renderUse(); renderSummary(); renderFinal(); refresh();
 })();
