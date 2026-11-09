@@ -1,0 +1,34 @@
+{
+  "title": "なおころ。(人生すごろく)",
+  "entry": "prototypes/life-sugoroku/index.html (title 'なおころ。｜人生すごろく'); linked from main game index.html:500 (naokoroDialog index.html:496, script.js:20412). Loads ../../audio.js then main-v4.mjs.",
+  "allowlist": "Not in allowlist 'entrypoints' but its HTML (index.html, legacy.html, v4.html) and 48 runtime files are in allowlist 'files' (tools/pages/allowlist.json).",
+  "audio": {
+    "bgm": "OFF (forced). main-v4.mjs:16 audioSettings = {lifetime:{soundSfx:true, soundBgm:false, quickVoice:'tts'}}; installNaotocchiAudio is called with isGameActive:()=>true, getActiveMinigame:()=>null (main-v4.mjs:17). Because bgmOn() is false the scheduler never starts a track. Inference: if soundBgm were flipped on, currentScene() would always return 'game' (isGameActive true, genre fallback 'action').",
+    "sfx": "Only from embedded official minigames: official-runtime S.sfx(name) -> onSound -> officialAudio.play(name) (official-runtime-v4.mjs:38; main-v4.mjs:126). Played only for human seats or when CPU speed is 'normal'. Board/dice/event phases do not call audio.",
+    "voice": "Quick-minigame instruction voice (e.g. 'たべろ！') via officialAudio.voice -> TTS default (main-v4.mjs:127; audio.js voice()).",
+    "toggle": "#sound button toggles soundSfx '音 ON/OFF' (main-v4.mjs:135).",
+    "legacy": "legacy.html + main.mjs (V2/V3 saves) do not load audio.js: no sound at all."
+  },
+  "screens": [
+    {"id": "title", "desc": "NAOKORO · VERSION 6, 'めぐる・日本編', tagline 'おおきくなって。ちいさくなって。あの日とは、ちがう道へ。'; settings: 対戦人数, 人間/CPU数, ターン数 (15 標準), 難易度 初級/中級; buttons new / resume / past albums / 対戦コード読込", "source": "main-v4.mjs:60-61"},
+    {"id": "character select", "desc": "pick なおとっち species per seat, filter by group / search, can import pet", "source": "main-v4.mjs:62 selection(); screen='select'"},
+    {"id": "board play", "desc": "SVG board of 48 tiles with camera/zoom; phases turn -> dice (サイコロ, reroll) -> moving -> branch (fork choice) -> tile resolution", "source": "main-v4.mjs:66-93 board()/game(); engine-v4.mjs phases; tiles-v4.mjs BOARD (48)"},
+    {"id": "tile: shop (お店)", "count_on_board": 4, "desc": "buy items; leave-shop", "phase": "shop", "source": "tiles-v4.mjs; main-v4.mjs:94"},
+    {"id": "tile: event (できごと)", "count_on_board": 7, "desc": "LIFE EVENT / TIME & DESTINY speech panel with choices. 46 events: daily 12, friend 8, romance 6, work 6 (job-like), adventure 10, fate 4", "phase": "event", "source": "events-v4.mjs EVENTS; main-v4.mjs:87"},
+    {"id": "tile: friend (なかま) / friend-farewell (なかまとわかれ)", "count_on_board": "3 / 1", "desc": "choose 1 of 3 companions (max 3) / a companion departs", "source": "tiles-v4.mjs"},
+    {"id": "tile: partner (こいびと) -> marriage (結婚)", "count_on_board": 3, "desc": "choose a lover from 3; if already have a lover -> marriage ('結婚した。「これからも、…」' rules-v4.mjs)", "source": "tiles-v4.mjs partner; rules-v4.mjs"},
+    {"id": "tile: partner-farewell (こいびととわかれ)", "count_on_board": 1, "desc": "breakup, そだち−5 (−10 if married)", "source": "tiles-v4.mjs"},
+    {"id": "tile: time (とき) -> evolution modal", "count_on_board": 3, "desc": "evolve or rewind 1-2 stages; modal 'A NEW CHAPTER あたらしい自分に、こんにちは。' or 'TURN BACK TIME もう一度、小さな自分へ。'", "source": "tiles-v4.mjs; main-v4.mjs:102 evolutionModal()"},
+    {"id": "tile: transform (へんしん)", "count_on_board": 2, "desc": "choose a different growth line among 3", "source": "tiles-v4.mjs"},
+    {"id": "tile: item (アイテム)", "count_on_board": 3, "desc": "gain 1 item", "source": "tiles-v4.mjs"},
+    {"id": "tiles: growth±/money±", "count_on_board": "5+3 / 4+3", "desc": "numeric changes (moment)", "source": "tiles-v4.mjs"},
+    {"id": "embedded minigame: quick (クイック)", "count_on_board": 4, "desc": "all players play an official quick minigame in an isolated iframe; ranking gives money +15/10/5/0. Pool of 45 quick ids (eat, dodge, catch, mash, clean, ... weather)", "phase": "official -> official-result", "source": "tiles-v4.mjs quick; tournament-v4.mjs quick list; official-host-v4.js; main-v4.mjs:119-140"},
+    {"id": "embedded minigame: game (ゲーム)", "count_on_board": 2, "desc": "all players play an official normal minigame; ranking gives そだち +15/10/5/0. Pool of 15: lights-out, takoyaki-grill + 13 NORMAL_ADDITIONS_V6 (stack-themed, stack-snowman, stack-harvest, stack-acorn, stack-sakura, stack-leaves, fruit-slice, sushi-belt, line-trace, memory-cards, air-hockey, breakout-classic, snake-classic)", "phase": "official -> official-result", "source": "tournament-v4.mjs game list; official-catalog-v6.mjs"},
+    {"id": "pause menu", "desc": "'ここで、ひとやすみ。' 人生にもどる / 対戦コードを書き出す / タイトルへ", "source": "main-v4.mjs:105"},
+    {"id": "match code modal", "desc": "対戦コード export/import", "source": "main-v4.mjs:106"},
+    {"id": "result / ending (YOUR LIFE ALBUM)", "desc": "'こんな人生に、なりました。' ranking by そだち then お金, per-player album details", "phase": "done", "source": "main-v4.mjs:93,107 results()"},
+    {"id": "past albums (人生アルバム)", "desc": "PAST JOURNEYS list of finished lives from localStorage", "source": "main-v4.mjs:108 pastAlbums()"}
+  ],
+  "game_length": "rounds selectable, default 15 turns (main-v4.mjs:22 rounds=15)",
+  "seats": "up to 4, humans + CPU (main-v4.mjs:22)"
+}

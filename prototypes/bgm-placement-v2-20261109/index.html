@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>なおとっち BGM 配置表</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* 1段組み: 操作と 再生中表示 → 用途の タブと 候補(評価・メモ) → 評価の まとめ → 譜面 → 全場面の 配置表 → 曲の 採用状況 */
+:root {
+  --bg: #f2f1ec; --surface: #ffffff; --ink: #1c2633; --muted: #566273; --line: #d4dbe4; --accent: #34558b; --accent-ink: #ffffff; --soft: #e4e9f0; --on-c: #ffffff; --star: #c8921b; --r-must: #c2412d; --r-hold: #c98a1c; --r-good: #3a7d5c; --r-no: #6b7280;
+  --c-home: #c9952f; --c-sports: #2f8fb0; --k-A: #3a7d5c; --k-B: #6b7a52; --k-C: #2f78aa; --k-D: #c98a1c; --k-E: #c2412d; --k-mute: #6b7280; --s-adopted: #3a7d5c; --s-hold: #c98a1c; --s-undecided: #b0588f; --s-pending: #6b7280; --s-new: #2f78aa; --s-migrating: #6b7a52; --s-rejected: #8a5a5a; --c-existing: #7a8796; --c-naopoyo: #4f9a5c; --c-naokoro: #d0763c; --c-card: #5f64c4; --c-minigame: #c2412d; --c-event: #b0588f; --c-blind: #6b7280;
+  --font-display: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', 'Yu Gothic', sans-serif;
+  --font-body: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11151d; --surface: #191f2a; --ink: #e6ebf2; --muted: #9eaabb; --line: #2a3342; --accent: #8fb1e8; --accent-ink: #0e1622; --soft: #202838; --on-c: #10151d; --star: #f0c04a; --r-must: #f08a74; --r-hold: #f0c04a; --r-good: #7fcfa4; --r-no: #a3acb9;
+  --c-home: #ecc274; --c-sports: #6fc3e0; --k-A: #7fcfa4; --k-B: #b5c48f; --k-C: #6fb3e3; --k-D: #f0c04a; --k-E: #f08a74; --k-mute: #a3acb9; --s-adopted: #7fcfa4; --s-hold: #f0c04a; --s-undecided: #e08cc4; --s-pending: #a3acb9; --s-new: #6fb3e3; --s-migrating: #b5c48f; --s-rejected: #d39a9a; --c-existing: #a3acb9; --c-naopoyo: #84cf90; --c-naokoro: #f0a064; --c-card: #9197ef; --c-minigame: #f08a74; --c-event: #e08cc4; --c-blind: #a3acb9; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #11151d; --surface: #191f2a; --ink: #e6ebf2; --muted: #9eaabb; --line: #2a3342; --accent: #8fb1e8; --accent-ink: #0e1622; --soft: #202838; --on-c: #10151d; --star: #f0c04a; --r-must: #f08a74; --r-hold: #f0c04a; --r-good: #7fcfa4; --r-no: #a3acb9;
+  --c-home: #ecc274; --c-sports: #6fc3e0; --k-A: #7fcfa4; --k-B: #b5c48f; --k-C: #6fb3e3; --k-D: #f0c04a; --k-E: #f08a74; --k-mute: #a3acb9; --s-adopted: #7fcfa4; --s-hold: #f0c04a; --s-undecided: #e08cc4; --s-pending: #a3acb9; --s-new: #6fb3e3; --s-migrating: #b5c48f; --s-rejected: #d39a9a; --c-existing: #a3acb9; --c-naopoyo: #84cf90; --c-naokoro: #f0a064; --c-card: #9197ef; --c-minigame: #f08a74; --c-event: #e08cc4; --c-blind: #a3acb9; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.7; -webkit-text-size-adjust: 100%; }
+.wrap { max-width: 980px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 28px 64px; display: grid; gap: 28px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; text-wrap: balance; margin: 0; line-height: 1.35; }
+h1 { font-size: clamp(26px, 5vw, 38px); }
+h2 { font-size: 21px; }
+h3 { font-size: 17px; }
+p { margin: 0; }
+.lede { color: var(--muted); max-width: 64ch; }
+header.top { display: grid; gap: 10px; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; color: var(--muted); }
+.controls { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-block: 10px; display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; border-bottom: 1px solid var(--line); }
+@media (max-width: 560px) { .controls { position: static; } }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--surface); }
+.seg button { border: 0; background: transparent; color: var(--ink); font: 500 13px var(--font-body); padding: 8px 13px; cursor: pointer; min-height: 36px; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ctl-label { font-size: 12px; color: var(--muted); margin-right: 6px; }
+.ctl { display: inline-flex; align-items: center; gap: 6px; }
+.chk { display: inline-flex; gap: 6px; align-items: center; font-size: 13px; }
+.btn { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 7px 14px; font: 500 13px var(--font-body); cursor: pointer; min-height: 36px; }
+input[type="range"] { width: 120px; accent-color: var(--accent); }
+.vol-num { font-family: var(--font-mono); font-size: 12px; color: var(--muted); min-width: 3ch; font-variant-numeric: tabular-nums; }
+.group { display: grid; gap: 12px; }
+.group-head { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; }
+.group-head p { color: var(--muted); font-size: 13px; }
+.track { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: grid; grid-template-columns: auto 1fr auto; gap: 6px 14px; align-items: center; }
+.track[data-active="true"] { border-color: var(--tc); box-shadow: 0 0 0 1px var(--tc) inset; }
+.chip { font-family: var(--font-display); font-weight: 700; font-size: 14px; color: var(--on-c); background: var(--tc); border-radius: 10px; min-width: 52px; text-align: center; padding: 6px 8px; line-height: 1.3; }
+.tinfo { min-width: 0; }
+.tinfo h3 { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+.tinfo .sub { font-family: var(--font-body); font-weight: 500; font-size: 13px; color: var(--muted); }
+.meta { font-family: var(--font-mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.tbtns { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+.play { border: 0; background: var(--tc); color: var(--on-c); border-radius: 999px; padding: 9px 18px; font: 700 14px var(--font-body); cursor: pointer; min-width: 96px; min-height: 40px; }
+.play.alt { background: transparent; color: var(--ink); border: 1px solid var(--line); font-weight: 500; font-size: 12px; padding: 5px 10px; min-width: 0; min-height: 32px; }
+.track .desc { grid-column: 2 / 4; font-size: 14px; }
+.track .hook { grid-column: 2 / 4; font-size: 13px; color: var(--muted); }
+.prog { grid-column: 1 / 4; height: 3px; background: var(--soft); border-radius: 2px; overflow: hidden; }
+.prog i { display: block; height: 100%; width: 0; background: var(--tc); }
+@media (max-width: 560px) { .track { grid-template-columns: auto 1fr; } .tbtns { grid-column: 1 / 3; flex-direction: row; justify-content: flex-start; } .track .desc, .track .hook, .prog { grid-column: 1 / 3; } }
+.score { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 12px; }
+.score-head { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; justify-content: space-between; }
+.rollbox { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+canvas#roll { display: block; width: 100%; min-width: 760px; height: 200px; }
+.solf { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.solf div { background: var(--soft); border-radius: 8px; padding: 6px 8px; font-size: 13px; min-width: 0; }
+.solf b { font-family: var(--font-mono); font-weight: 500; font-size: 11px; color: var(--muted); display: block; }
+.solf .cn { font-family: var(--font-mono); font-size: 11px; color: var(--accent); overflow-wrap: anywhere; }
+.solf div.on { outline: 2px solid var(--stc); }
+@media (max-width: 640px) { .solf { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.tablebox { overflow-x: auto; -webkit-overflow-scrolling: touch; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 13px; }
+th, td { padding: 9px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { font-weight: 700; font-size: 12px; color: var(--muted); }
+td.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bar { display: inline-block; height: 6px; border-radius: 3px; background: var(--tc); vertical-align: middle; margin-left: 6px; }
+.tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+.stars { display: inline-flex; gap: 2px; }
+.stars button { border: 0; background: transparent; font-size: 20px; line-height: 1; color: var(--line); cursor: pointer; padding: 4px 2px; min-height: 32px; }
+.stars button[data-on="true"] { color: var(--star); }
+textarea { width: 100%; min-width: 180px; font: 13px var(--font-body); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; resize: vertical; }
+.split { display: grid; gap: 12px; }
+.notes { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.note { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: grid; gap: 6px; min-width: 0; }
+.note ul { margin: 0; padding-left: 1.2em; }
+code { font-family: var(--font-mono); font-size: 12px; background: var(--soft); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+.status { font-size: 12px; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+/* 一日の 通し試聴 */
+.day { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 12px; }
+.day-row { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+.timeline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.slot { border-radius: 10px; padding: 8px 10px; background: var(--soft); border: 2px solid transparent; min-width: 0; display: grid; gap: 2px; }
+.slot .when { font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
+.slot .what { font-family: var(--font-display); font-weight: 700; font-size: 14px; overflow-wrap: anywhere; }
+.slot .bar2 { height: 3px; background: var(--line); border-radius: 2px; overflow: hidden; }
+.slot .bar2 i { display: block; height: 100%; width: 0; background: var(--tc); }
+.slot[data-now="true"] { border-color: var(--tc); }
+@media (max-width: 560px) { .timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* 再生中 */
+.now { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: grid; gap: 8px; }
+.now-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(20px, 4vw, 26px); }
+.now-sub { font-size: 13px; color: var(--muted); }
+.now .prog { height: 4px; }
+.row-tools { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
+/* 曲リスト */
+.fav { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; display: grid; grid-template-columns: auto auto 1fr auto; gap: 8px 12px; align-items: center; }
+.fav[data-active="true"] { border-color: var(--tc); box-shadow: 0 0 0 1px var(--tc) inset; }
+.ord { font-family: var(--font-mono); font-size: 12px; color: var(--muted); width: 2ch; text-align: right; }
+.move { display: flex; flex-direction: column; gap: 4px; }
+.move button { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 8px; width: 34px; height: 30px; cursor: pointer; font-size: 13px; }
+.move button:disabled { opacity: .35; cursor: default; }
+.fav .rate { grid-column: 3 / 5; display: flex; flex-wrap: wrap; gap: 6px; }
+.fav .memo { grid-column: 3 / 5; }
+.rate button { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 6px 12px; font: 500 12px var(--font-body); cursor: pointer; min-height: 34px; }
+.rate button[aria-pressed="true"][data-r="must"] { background: var(--r-must); border-color: var(--r-must); color: var(--on-c); }
+.rate button[aria-pressed="true"][data-r="hold"] { background: var(--r-hold); border-color: var(--r-hold); color: var(--on-c); }
+.rate button[aria-pressed="true"][data-r="good"] { background: var(--r-good); border-color: var(--r-good); color: var(--on-c); }
+.rate button[aria-pressed="true"][data-r="no"] { background: var(--r-no); border-color: var(--r-no); color: var(--on-c); }
+.blindchip { font-family: var(--font-display); font-weight: 700; font-size: 22px; color: var(--on-c); background: var(--tc); border-radius: 12px; width: 52px; height: 52px; display: grid; place-items: center; }
+@media (max-width: 560px) { .fav { grid-template-columns: auto auto 1fr; } .fav .tbtns { grid-column: 1 / 4; flex-direction: row; justify-content: flex-start; } .fav .rate, .fav .memo { grid-column: 1 / 4; } }
+.summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.summary div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 8px 10px; min-width: 0; }
+.summary b { font-family: var(--font-mono); font-size: 20px; display: block; }
+.summary span { font-size: 12px; color: var(--muted); }
+@media (max-width: 560px) { .summary { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* 用途タブ */
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.tabs button { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 7px 13px; font: 500 13px var(--font-body); cursor: pointer; min-height: 36px; }
+.tabs button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.tag2 { display: inline-block; font-size: 11px; font-weight: 700; padding: 1px 8px; border-radius: 999px; background: var(--tc); color: var(--on-c); }
+details.survey { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px; }
+details.survey summary { cursor: pointer; font-family: var(--font-display); font-weight: 700; font-size: 16px; }
+details.survey .tablebox { margin-top: 10px; border: 0; }
+.fav .desc { grid-column: 3 / 5; font-size: 14px; }
+.fav .hook { grid-column: 3 / 5; font-size: 13px; color: var(--muted); }
+@media (max-width: 560px) { .fav .desc, .fav .hook { grid-column: 1 / 4; } }
+.now > * { grid-column: 1 / -1; }
+.split > *, .group > * { min-width: 0; }
+#useInfo { display: grid; gap: 4px; }
+#placement td { min-width: 90px; }
+#placement td:nth-child(2) { min-width: 150px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">NAOTOCCHI · BGM 配置 VERSION 2 · 2026-11-09</div>
+    <h1>なおとっち BGM 配置表と 比較試聴</h1>
+    <p class="lede">なおとっち全体の 場面ごとに、いま 流れている 曲・候補・採用状況を まとめた 配置表と、まだ 決まっていない 用途だけを 聴きくらべる 試聴版です。採用が 確定した 曲は 選び直さなくて よい よう、比較には 出していません。評価と メモは この ブラウザの 中だけに 保存されます。</p>
+  </header>
+
+  <div class="controls" role="group" aria-label="再生の 設定">
+    <span class="ctl"><span class="ctl-label">音色</span>
+      <span class="seg" id="modeSeg">
+        <button type="button" id="mode-melody" data-mode="melody" aria-pressed="false">メロディのみ</button>
+        <button type="button" id="mode-piano" data-mode="piano" aria-pressed="true">ピアノ</button>
+        <button type="button" id="mode-band" data-mode="band" aria-pressed="false">軽い伴奏</button>
+      </span></span>
+    <label class="ctl" for="volRange"><span class="ctl-label">音量</span><input type="range" id="volRange" min="0" max="100" step="1" value="80"><span class="vol-num" id="volNum">80</span></label>
+    <label class="chk" for="loopChk"><input type="checkbox" id="loopChk"> ループ</label>
+    <label class="chk" for="levelChk"><input type="checkbox" id="levelChk" checked> 曲間の 音量を そろえる</label>
+  </div>
+
+  <section class="now" aria-label="再生中">
+    <div class="now-sub" id="nowLabel">再生していません</div>
+    <div class="now-title" id="nowTitle">—</div>
+    <div class="prog" aria-hidden="true"><i id="nowProg"></i></div>
+    <div class="row-tools">
+      <button type="button" class="btn" id="prevBtn">◀ 前の 曲</button>
+      <button type="button" class="play" id="allBtn" style="--tc: var(--accent)">▶ この 用途を 連続再生</button>
+      <button type="button" class="btn" id="stopBtn">■ とめる</button>
+      <button type="button" class="btn" id="nextBtn">次の 曲 ▶</button>
+    </div>
+    <p class="status" id="status" aria-live="polite"></p>
+  </section>
+
+  <section class="group" aria-labelledby="useTitle">
+    <div class="group-head"><h2 id="useTitle">用途ごとの 比較</h2><p>用途を 選ぶと、いまの 曲と 候補が ならびます。評価は 用途ごとに 別々に 保存されます（同じ 曲を 別の 用途で 評価できます）。</p></div>
+    <div class="tabs" id="tabs" role="group" aria-label="用途"></div>
+    <div class="note" id="useInfo"></div>
+    <div class="group" id="list"></div>
+  </section>
+
+  <section class="split" aria-labelledby="sumTitle">
+    <h2 id="sumTitle">あなたの 評価の まとめ</h2>
+    <div class="tablebox"><table id="summary"></table></div>
+  </section>
+
+  <section class="score" id="score" aria-label="譜面">
+    <div class="score-head"><h2 id="scoreTitle">譜面</h2><span class="meta" id="scoreMeta"></span></div>
+    <div class="rollbox"><canvas id="roll" aria-label="メロディの ピアノロール"></canvas></div>
+    <div class="solf" id="solf"></div>
+    <p class="meta">ピアノロールは メロディ 1周ぶん。階名は 移動ド（長調は 主音を ド、短調は 主音を ラ）。「ー」は 付点4分以上、「・」は 休符、「₃」は 3連符。</p>
+  </section>
+
+  <section class="split" aria-labelledby="tableTitle">
+    <h2 id="tableTitle">全場面の BGM 配置表</h2>
+    <p class="lede">A 確定 ・ B 既存曲で 対応可能 ・ C 採用済み曲の 流用で 対応可能 ・ D 未確定（比較して 決める） ・ E 不足（追加作曲） ・ 無音（意図して 音楽なし）。</p>
+    <div class="tabs" id="clsTabs" role="group" aria-label="分類で しぼる"></div>
+    <div class="tablebox"><table id="placement"></table></div>
+  </section>
+
+  <section class="split" aria-labelledby="statusTitle">
+    <h2 id="statusTitle">曲の 採用状況</h2>
+    <p class="lede">「採用」「保留」「不採用」「未確定」は あなたが 明示した ものだけです。あなたの 評価が まだ 届いていない 曲は「評価待ち」と して、勝手に 採用・不採用に していません。</p>
+    <div class="tablebox"><table id="songStatus"></table></div>
+  </section>
+
+  <section class="notes" aria-label="制約と 記録">
+    <div class="note"><h3>公平に 比べる ために</h3>
+      <ul>
+        <li>全曲を 同じ 合成ピアノ・同じ 伴奏型・そろえた 音量で 鳴らします。既存曲は「ゲームの 音で」（いま 実際に 鳴っている 音）も 聴けます。</li>
+        <li>ホーム4曲は 原曲の 旋律です。採用済みの アレンジA は PR #530 の 試聴ページで 聴けます。</li>
+        <li>流用候補は 原曲の まま 鳴らしています。実際に 使う ときは 場面に 合わせた 編曲（テンポ・音色）を 前提に 聴いて ください。</li>
+      </ul></div>
+    <div class="note"><h3>iPhone Safari で 聴くとき</h3>
+      <ul>
+        <li>最初は「▶」を タップして ください。</li>
+        <li>消音スイッチが オンでも 鳴る ように「メディア再生」として 鳴らしています。鳴らない ときは 消音を 切って ください。</li>
+        <li>画面を 消すと 止まります。もどったら もう一度 ▶ を。</li>
+      </ul></div>
+    <div class="note"><h3>記録</h3>
+      <ul>
+        <li>配置表・分類・制作履歴: <code>docs/bgm-placement-v2-20261109/README.md</code></li>
+        <li>配置データ: <code>placement.js</code>、追加曲: <code>songs-add.js</code>、MIDI: <code>midi/</code></li>
+        <li>点検: <code>tools/check-v2.cjs</code></li>
+      </ul></div>
+  </section>
+</div>
+
+<script src="../main-theme-20261108/songs.js"></script>
+<script src="../main-theme-v2-20261108/songs-v2.js"></script>
+<script src="../main-theme-v3-morning-20261108/songs-v3.js"></script>
+<script src="../main-theme-favorites-20261108/favorites.js"></script>
+<script src="../bgm-survey-20261108/existing-bgm.js"></script>
+<script src="../bgm-survey-20261108/songs-bgm.js"></script>
+<script src="../bgm-survey-20261108/catalog.js"></script>
+<script src="songs-add.js"></script>
+<script src="placement-songs.js"></script>
+<script src="inventory.js"></script>
+<script src="placement.js"></script>
+<script src="loudness-v2.js"></script>
+<script src="../bgm-survey-20261108/engine-bgm.js"></script>
+<script>
+(() => {
+  'use strict';
+  const PL = window.NAOTOCCHI_BGM_PLACEMENT, E = window.NAOTOCCHI_BGM_ENGINE;
+  const LOUD = window.NAOTOCCHI_BGM_LOUDNESS_V2 || { gain: {} };
+  const player = E.createPlayer();
+  const KEY = 'naotocchi-bgm-placement-v2';
+  const RATINGS = [{ r: 'adopt', label: '採用' }, { r: 'hold', label: '保留' }, { r: 'reject', label: '不採用' }];
+  const STATUS_LABEL = PL.STATUS_LABEL;
+  const song = (id) => PL.SONGS[id];
+  const use = (id) => PL.USES.find((u) => u.id === id);
+  const saved = (() => { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (err) { return {}; } })();
+  const st = { mode: saved.mode || 'piano', vol: saved.vol ?? 80, level: saved.level ?? true, use: use(saved.use) ? saved.use : PL.USES[0].id, cls: saved.cls || 'all', loop: false, ratings: saved.ratings || {}, playing: null, queue: false, sel: null };
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify({ mode: st.mode, vol: st.vol, level: st.level, use: st.use, cls: st.cls, ratings: st.ratings })); } catch (err) {} };
+  const rkey = (u, s) => `${u}:${s}`;
+  const fmt = (sec) => `${Math.floor(sec / 60)}:${String(Math.round(sec % 60)).padStart(2, '0')}`;
+  const passSec = (s) => PL.flatten(s).beats * 60 / s.bpm;
+  const keyName = (s) => s.tonicName || `${s.key.replace('b', '♭')} major`;
+  const gainDb = (id, mode) => (((LOUD.gain || {})[mode] || {})[id] || 0);
+  const applyVolume = () => { const p = st.playing; const g = st.level && p ? Math.pow(10, gainDb(p.id, p.mode) / 20) : 1; player.setVolume(Math.min(1, st.vol / 100 * g)); };
+  const esc = (t) => String(t ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const clsChip = (c) => `<span class="tag2" style="--tc:var(--k-${c === '無音' ? 'mute' : c})">${c === '無音' ? '無音' : c + ' ' + PL.CLASS_INFO[c].short}</span>`;
+  const stChip = (id) => { const s = PL.SONG_STATUS[id]; return `<span class="tag2" style="--tc:var(--s-${s.status})">${STATUS_LABEL[s.status]}</span>`; };
+
+  // ---- 用途タブ ----
+  const tabs = document.getElementById('tabs');
+  tabs.innerHTML = PL.USES.map((u) => `<button type="button" id="use-${u.id}" data-use="${u.id}" aria-pressed="false">${u.label}<span class="meta"> ${u.cls}</span></button>`).join('');
+  tabs.addEventListener('click', (ev) => { const b = ev.target.closest('button'); if (!b) return; st.use = b.dataset.use; save(); renderUse(); });
+
+  const listEl = document.getElementById('list');
+  function renderUse() {
+    const u = use(st.use);
+    tabs.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.use === st.use)));
+    document.getElementById('useInfo').innerHTML = `<h3>${clsChip(u.cls)} ${u.label}</h3><p>${u.scope}</p><p class="meta">${u.note}</p>`;
+    listEl.innerHTML = u.candidates.map((id, i) => {
+      const x = song(id), s = x.song, r = st.ratings[rkey(u.id, id)] || {}, role = (u.roles || {})[id] || '';
+      return `<article class="fav" id="row-${id}" data-id="${id}" style="--tc:var(--c-${x.color})" data-active="${!!(st.playing && st.playing.id === id)}">
+        <span class="ord">${i + 1}</span><span class="move"></span>
+        <div class="tinfo"><h3>${esc(x.title)}<span class="sub">${stChip(id)} ${role ? esc(role) + ' · ' : ''}${esc(x.source)}</span></h3><div class="meta">${keyName(s)} · ${s.meter}/4 · ♩=${s.bpm} · ${s.bars.length}小節 × ${s.repeats}回 · ${fmt(passSec(s) * s.repeats)}</div></div>
+        <div class="tbtns"><button type="button" class="play" id="play-${id}" data-play="${id}">▶ 再生</button>${x.gameSound ? `<button type="button" class="play alt" id="game-${id}" data-game="${id}">ゲームの 音で</button>` : ''}</div>
+        ${x.character ? `<p class="desc">${esc(x.character)}</p>` : ''}
+        ${x.hook ? `<p class="hook">聴きどころ: ${esc(x.hook)}</p>` : ''}
+        <div class="rate" role="group" aria-label="${esc(u.label)} での ${esc(x.title)} の 評価">${RATINGS.map((y) => `<button type="button" id="rate-${id}-${y.r}" data-rate="${id}" data-r="${y.r}" aria-pressed="${r.r === y.r}">${y.label}</button>`).join('')}</div>
+        <div class="memo"><textarea id="memo-${id}" data-memo="${id}" rows="2" placeholder="メモ（例: スポーツには 速すぎる、釣りなら 合う）">${esc(r.memo || '')}</textarea></div>
+      </article>`;
+    }).join('');
+    refresh(); if (!st.playing) select(u.candidates[0]);
+  }
+  listEl.addEventListener('click', (ev) => {
+    const b = ev.target.closest('button');
+    if (!b) { const card = ev.target.closest('.fav'); if (card && !ev.target.closest('textarea')) select(card.dataset.id); return; }
+    if (b.dataset.play || b.dataset.game) {
+      const id = b.dataset.play || b.dataset.game, mode = b.dataset.game ? 'game' : st.mode;
+      if (st.playing && st.playing.id === id && st.playing.mode === mode && !st.queue) stop(); else { st.queue = false; start(id, mode); }
+    } else if (b.dataset.rate) {
+      const k = rkey(st.use, b.dataset.rate), cur = st.ratings[k] || {};
+      st.ratings[k] = Object.assign({}, cur, { r: cur.r === b.dataset.r ? null : b.dataset.r }); save();
+      b.parentElement.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.r === st.ratings[k].r)));
+      renderSummary();
+    }
+  });
+  listEl.addEventListener('input', (ev) => { const t = ev.target.closest('[data-memo]'); if (!t) return; const k = rkey(st.use, t.dataset.memo); st.ratings[k] = Object.assign({}, st.ratings[k], { memo: t.value }); save(); renderSummary(); });
+
+  // ---- 再生 ----
+  function start(id, mode) {
+    st.playing = { id, mode }; applyVolume();
+    try { player.play(song(id).song, mode, { loop: !st.queue && st.loop, onend: onEnd }); }
+    catch (err) { st.playing = null; setStatus('この ブラウザでは 音を 出せませんでした（Web Audio に 未対応）'); return; }
+    select(id); refresh(); requestAnimationFrame(frame);
+    setTimeout(() => { if (st.playing && player.state !== 'running') setStatus('音が 出ない ときは、もう一度 ▶ を タップして ください'); }, 900);
+  }
+  function onEnd() {
+    if (st.queue && st.playing) {
+      const list = use(st.use).candidates, i = list.indexOf(st.playing.id) + 1;
+      if (i < list.length || st.loop) { const next = list[i % list.length]; st.playing = null; refresh(); setTimeout(() => { if (st.queue) start(next, st.mode); }, 800); return; }
+      st.queue = false; st.playing = null; refresh(); setStatus('連続再生が 終わりました'); return;
+    }
+    st.playing = null; refresh();
+  }
+  function stop() { st.queue = false; player.stop(); st.playing = null; refresh(); drawRoll(null); setStatus(''); }
+  function step(dir) {
+    const list = use(st.use).candidates, cur = st.playing ? st.playing.id : (st.sel || list[0]), i = Math.max(0, list.indexOf(cur));
+    const next = list[(i + dir + list.length) % list.length];
+    if (st.playing) start(next, st.playing.mode === 'game' && song(next).gameSound ? 'game' : st.mode); else select(next);
+  }
+  function setStatus(t) { document.getElementById('status').textContent = t; }
+  function refresh() {
+    const p = st.playing && song(st.playing.id), list = use(st.use).candidates;
+    document.getElementById('nowLabel').textContent = p ? `${st.queue ? '連続再生' : '再生中'}${list.includes(st.playing.id) ? ` · ${list.indexOf(st.playing.id) + 1} / ${list.length} 曲目` : ''} · ${st.playing.mode === 'game' ? 'ゲームの 音' : ({ melody: 'メロディのみ', piano: 'ピアノ', band: '軽い伴奏' })[st.playing.mode]}` : '再生していません';
+    document.getElementById('nowTitle').textContent = p ? `${p.title}（${use(st.use).label}）` : '—';
+    document.getElementById('allBtn').textContent = st.queue ? '■ 連続再生を とめる' : '▶ この 用途を 連続再生';
+    document.querySelectorAll('[data-play]').forEach((b) => { b.textContent = st.playing && st.playing.id === b.dataset.play && st.playing.mode !== 'game' && !st.queue ? '■ とめる' : '▶ 再生'; });
+    document.querySelectorAll('[data-game]').forEach((b) => { b.textContent = st.playing && st.playing.id === b.dataset.game && st.playing.mode === 'game' && !st.queue ? '■ とめる' : 'ゲームの 音で'; });
+    document.querySelectorAll('.fav').forEach((c) => { c.dataset.active = String(!!(st.playing && st.playing.id === c.dataset.id)); });
+    if (!st.playing) document.getElementById('nowProg').style.width = '0';
+    if (p) setStatus('');
+  }
+  function frame() {
+    if (!st.playing) return;
+    const pos = player.position();
+    if (pos && pos.duration) document.getElementById('nowProg').style.width = `${Math.min(100, pos.seconds / pos.duration * 100)}%`;
+    if (pos && st.sel === st.playing.id) drawRoll(pos);
+    requestAnimationFrame(frame);
+  }
+
+  // ---- 設定 ----
+  const modeSeg = document.getElementById('modeSeg');
+  const syncMode = () => modeSeg.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.mode === st.mode)));
+  modeSeg.addEventListener('click', (ev) => { const b = ev.target.closest('button'); if (!b) return; st.mode = b.dataset.mode; syncMode(); save(); if (st.playing && st.playing.mode !== 'game') start(st.playing.id, st.mode); });
+  syncMode();
+  const vol = document.getElementById('volRange'), volNum = document.getElementById('volNum');
+  vol.value = st.vol; volNum.textContent = st.vol;
+  vol.addEventListener('input', () => { st.vol = Number(vol.value); volNum.textContent = st.vol; applyVolume(); save(); });
+  const levelChk = document.getElementById('levelChk'); levelChk.checked = st.level;
+  levelChk.addEventListener('change', () => { st.level = levelChk.checked; applyVolume(); save(); });
+  document.getElementById('loopChk').addEventListener('change', (ev) => { st.loop = ev.target.checked; if (st.playing && !st.queue) start(st.playing.id, st.playing.mode); });
+  document.getElementById('stopBtn').addEventListener('click', stop);
+  document.getElementById('allBtn').addEventListener('click', () => { if (st.queue) stop(); else { st.queue = true; start(use(st.use).candidates[0], st.mode); } });
+  document.getElementById('prevBtn').addEventListener('click', () => step(-1));
+  document.getElementById('nextBtn').addEventListener('click', () => step(1));
+
+  // ---- 評価の まとめ ----
+  function renderSummary() {
+    const rows = PL.USES.map((u) => {
+      const pick = (r) => u.candidates.filter((id) => (st.ratings[rkey(u.id, id)] || {}).r === r).map((id) => esc(song(id).title)).join('、') || '—';
+      return `<tr><td><b>${esc(u.label)}</b><br>${clsChip(u.cls)}</td><td>${pick('adopt')}</td><td>${pick('hold')}</td><td>${pick('reject')}</td></tr>`;
+    }).join('');
+    document.getElementById('summary').innerHTML = `<thead><tr><th>用途</th><th>採用</th><th>保留</th><th>不採用</th></tr></thead><tbody>${rows}</tbody>`;
+  }
+
+  // ---- 譜面 ----
+  const canvas = document.getElementById('roll'), solfEl = document.getElementById('solf');
+  function select(id) {
+    st.sel = id; const x = song(id), s = x.song;
+    document.getElementById('scoreTitle').textContent = x.title;
+    document.getElementById('scoreMeta').textContent = `${keyName(s)} · ${s.meter}/4 · ♩=${s.bpm}`;
+    document.getElementById('score').style.setProperty('--stc', `var(--c-${x.color})`);
+    solfEl.innerHTML = s.bars.map((bar, i) => `<div data-bar="${i}"><b>${i + 1}</b><span class="cn">${bar.ch.map((c) => c[0]).join(' | ')}</span><br>${bar.m.map(([n, d]) => (n === 'r' ? '・' : PL.solfege(n, s.key) + (d >= 1.5 ? 'ー' : '') + (Math.abs(d - 1 / 3) < 1e-6 ? '₃' : ''))).join(' ')}</div>`).join('');
+    drawRoll(null);
+  }
+  function drawRoll(pos) {
+    if (!st.sel) return;
+    const x = song(st.sel), s = x.song, flat = PL.flatten(s);
+    const dpr = window.devicePixelRatio || 1, w = canvas.clientWidth, h = canvas.clientHeight; if (!w || !h) return;
+    if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) { canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr); }
+    const g = canvas.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, w, h);
+    const cs = getComputedStyle(document.documentElement), ink = cs.getPropertyValue('--muted').trim(), line = cs.getPropertyValue('--line').trim(), col = cs.getPropertyValue('--c-' + x.color).trim();
+    const mids = flat.notes.map((n) => n.midi), lo = Math.min(...mids) - 2, hi = Math.max(...mids) + 2;
+    const top = 22, padL = 4, W = w - padL * 2, H = h - top - 6, X = (b) => padL + b / flat.beats * W, Y = (m) => top + (hi - m) / (hi - lo) * H;
+    g.font = `11px ${cs.getPropertyValue('--font-mono')}`; g.textBaseline = 'top';
+    for (let bar = 0; bar <= s.bars.length; bar++) { g.fillStyle = line; g.fillRect(Math.round(X(bar * s.meter)), top - 4, 1, H + 8); }
+    for (const c of flat.chords) { g.fillStyle = ink; g.fillText(c.chord.name, X(c.beat) + 3, 4); }
+    const pass = pos && st.playing && st.playing.mode === 'game' ? null : pos;
+    const cur = pass ? pass.beat : -1, rh = Math.max(4, H / (hi - lo) * 0.9);
+    for (const n of flat.notes) {
+      const on = cur >= n.beat && cur < n.beat + n.dur;
+      g.fillStyle = col; g.globalAlpha = on ? 1 : (pass ? 0.5 : 0.85);
+      const nx = X(n.beat), nw = Math.max(3, X(n.beat + n.dur) - nx - 2), ny = Y(n.midi) - rh / 2;
+      g.beginPath(); if (g.roundRect) g.roundRect(nx, ny, nw, rh, 3); else g.rect(nx, ny, nw, rh); g.fill();
+    }
+    g.globalAlpha = 1;
+    if (pass) { g.fillStyle = cs.getPropertyValue('--ink').trim(); g.fillRect(Math.round(X(cur)), top - 4, 2, H + 8); }
+    const barNow = pass ? Math.floor(cur / s.meter) : -1;
+    solfEl.querySelectorAll('div').forEach((d) => d.classList.toggle('on', Number(d.dataset.bar) === barNow));
+  }
+  window.addEventListener('resize', () => drawRoll(st.playing ? player.position() : null));
+  try { window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => drawRoll(null)); } catch (err) {}
+
+  // ---- 配置表 ----
+  const clsTabs = document.getElementById('clsTabs');
+  const CLS = ['all', 'A', 'B', 'C', 'D', 'E', '無音'];
+  clsTabs.innerHTML = CLS.map((c) => `<button type="button" id="cls-${c}" data-cls="${c}" aria-pressed="false">${c === 'all' ? 'すべて' : c === '無音' ? '無音' : c + ' ' + PL.CLASS_INFO[c].short}<span class="meta"> ${c === 'all' ? PL.SCENES.length : PL.SCENES.filter((r) => r.cls === c).length}</span></button>`).join('');
+  clsTabs.addEventListener('click', (ev) => { const b = ev.target.closest('button'); if (!b) return; st.cls = b.dataset.cls; save(); renderPlacement(); });
+  const cand = (r) => (r.candidates || []).map((id) => `${esc(song(id).title)} ${stChip(id)}`).join('<br>') || '—';
+  function renderPlacement() {
+    clsTabs.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.cls === st.cls)));
+    const rows = PL.SCENES.filter((r) => st.cls === 'all' || r.cls === st.cls);
+    document.getElementById('placement').innerHTML = `<thead><tr><th>分類</th><th>場面</th><th>1 いまの BGM</th><th>2 候補（採用状況）</th><th>3 既存曲を 残せるか</th><th>4 流用</th><th>5 新曲</th><th>6 長さ・ループ</th><th>7 時間帯</th><th>8 状況</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${clsChip(r.cls)}</td><td><b>${esc(r.area)}</b><br>${esc(r.scene)}</td><td>${esc(r.current)}</td><td>${cand(r)}</td><td>${esc(r.keepExisting)}</td><td>${esc(r.reuse)}</td><td>${esc(r.needNew)}</td><td>${esc(r.length)}</td><td>${esc(r.timeOfDay)}</td><td>${esc(r.status)}</td></tr>`).join('')}</tbody>`;
+  }
+
+  // ---- 曲の 採用状況 ----
+  const order = ['adopted', 'hold', 'undecided', 'pending', 'new', 'migrating', 'rejected'];
+  document.getElementById('songStatus').innerHTML = `<thead><tr><th>状況</th><th>曲</th><th>出どころ</th><th>メモ</th></tr></thead><tbody>${Object.entries(PL.SONG_STATUS).sort((a, b) => order.indexOf(a[1].status) - order.indexOf(b[1].status)).map(([id, s]) => `<tr><td>${stChip(id)}</td><td><b>${esc(song(id).title)}</b></td><td>${esc(song(id).source)}</td><td>${esc(s.note)}</td></tr>`).join('')}</tbody>`;
+
+  renderUse(); renderSummary(); renderPlacement(); refresh();
+})();
+</script>
+</body>
+</html>
