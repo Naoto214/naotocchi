@@ -19,7 +19,7 @@
   for (const [id, f] of [['kisetsu', fav('kisetsu')], ['ohayo', fav('ohayo')]]) SONGS[id] = { song: f.song, title: f.title, source: `${f.origin}（PR #529 で 保留）`, color: 'home', gameSound: false, character: f.song.character, hook: f.song.hook };
   for (const s of AD.ADD_SONGS) SONGS[s.id] = { song: s, title: s.title, source: 'VERSION 2 追加作曲（スポーツ）', color: 'sports', gameSound: false, character: s.character, hook: s.hook };
 
-  const STATUS_LABEL = { adopted: '採用', hold: '保留', undecided: '未確定', pending: '評価待ち', new: '新曲（未評価）', migrating: '移行予定', rejected: '不採用（保護）' };
+  const STATUS_LABEL = { adopted: '採用', confirm: '採用決定・曲名確認待ち', hold: '保留', undecided: '未確定', pending: '評価待ち', new: '新曲（未評価）', migrating: '移行予定', rejected: '不採用（保護）' };
   const S = (status, note) => ({ status, note });
   const SONG_STATUS = {
     'home-morning': S('adopted', '朝 05:00〜09:59。アレンジA 採用。原曲・アレンジB は #528・#530 に 保存'),
@@ -39,26 +39,34 @@
     'bgm-puzzle': S('rejected', '同上'),
     'bgm-sports': S('rejected', '同上'),
   };
-  for (const id of ['poyo-1', 'poyo-2', 'koro-1', 'koro-2', 'card-1', 'card-2', 'game-1', 'game-2', 'explore-1', 'explore-2']) SONG_STATUS[id] = S('pending', '本人の 明示的な 評価が まだ 届いていない（#531 の 試聴ページの 評価は 本人の ブラウザ内だけに ある）');
+  // 2026-11-09 本人の 判断:「なおぽよ。・なおころ。・CARD GAME・ミニゲーム汎用・3D の 気に入った 新曲は 採用」。
+  // ただし どの 曲を 気に入ったかは #531 の 試聴ページ（本人の ブラウザ内）にしか なく、こちらからは 見えない。
+  // 推測で 採用確定に しない ため、各用途の 2曲を「採用決定・曲名確認待ち」と する（気に入った 方が 採用、両方なら 両方 採用）。
+  const CONFIRM_USE = { 'poyo-1': 'なおぽよ。', 'poyo-2': 'なおぽよ。', 'koro-1': 'なおころ。', 'koro-2': 'なおころ。', 'card-1': 'CARD GAME', 'card-2': 'CARD GAME', 'game-1': 'ミニゲーム汎用', 'game-2': 'ミニゲーム汎用', 'explore-1': '3D ゲーム', 'explore-2': '3D ゲーム' };
+  for (const [id, u] of Object.entries(CONFIRM_USE)) SONG_STATUS[id] = S('confirm', `${u}で「気に入った 新曲は 採用」と 決定済み。この 曲が 気に入った 曲か どうかの 確認だけ 必要（推測では 確定しない）`);
   for (const s of AD.ADD_SONGS) SONG_STATUS[s.id] = S('new', 'VERSION 2 で 追加作曲');
 
   const CLASS_INFO = { A: { short: '確定' }, B: { short: '既存曲で 対応' }, C: { short: '流用で 対応' }, D: { short: '未確定' }, E: { short: '不足' }, '無音': { short: '無音' } };
 
-  // 比較する 用途 (確定 A の 用途は 選び直し 不要なので 出さない)
+  // 試聴ページの 用途。mode: 'confirm' = 採用は 決定、どの 曲かを 確かめるだけ / 'compare' = まだ 決まっていない
+  // 採用確定（A）の 曲は 選び直さない ので ここには 出さない。split は 両方 採用だった ときの 使い分け案。
   const USES = [
-    { id: 'minigame', label: 'ミニゲーム汎用', cls: 'D', scope: 'アクション 32本・ストラテジー 2本・クイックモード（50種）。いま game 曲。', note: '既存 game（未確定）と #531 の ゲーム1・2 を 比較。', candidates: ['bgm-game', 'game-1', 'game-2'], roles: { 'bgm-game': 'いまの 曲' } },
-    { id: 'race', label: 'レース・シューティング 3D', cls: 'D', scope: 'ハイウェイ3D・カーレース3D・グランプリ・リズムハイウェイ・スペースガンナー（5本）。いま race 曲。', note: '既存 race（未確定）を 残すか。速い 流用候補として ゲーム1。', candidates: ['bgm-race', 'game-1'], roles: { 'bgm-race': 'いまの 曲', 'game-1': '流用候補' } },
-    { id: 'explore', label: '3D 探検・飛行・海', cls: 'D', scope: 'おばけやしき・ダンジョン・たまころがし迷路・ボクセルマイニング（探検 4本）と、うちゅう・リング・なつのうみフライト・サブマリン・ハンググライダー・ひこうき着陸・ルナランダー（飛行・海 7本）。いま race 曲（152）。', note: '既存 race（未確定）と #531 の たんけん1（探検）・たんけん2（飛行・海）を 比較。', candidates: ['bgm-race', 'explore-1', 'explore-2'], roles: { 'bgm-race': 'いまの 曲' } },
-    { id: 'sports', label: 'スポーツ', cls: 'E', scope: 'ボウリング・アーチェリー・ミニゴルフ・バスケ・卓球・フリーキック・やきゅう・スキージャンプ・エアホッケー・テニス・ダーツ・りくじょう・カーリング 2・ビーチバレー・岩場のぼり・ゲレンデ（17本）。いま sports 曲（不採用）。', note: '代わりに 使える 採用曲・候補が ない ため、追加作曲 2案。流用候補として ゲーム2 も。', candidates: ['bgm-sports', 'sports-1', 'sports-2', 'game-2'], roles: { 'bgm-sports': '不採用（参考）', 'game-2': '流用候補' } },
-    { id: 'fishing', label: '釣り', cls: 'D', scope: 'ほんかくさかなつり・うみ・しんかい・みずべ（4本）。いま sports 曲（不採用）。待つ 時間が 長い。', note: '水辺の ゆったりした 流用候補 たんけん2 と、落ち着いた スポーツ2。', candidates: ['bgm-sports', 'explore-2', 'sports-2'], roles: { 'bgm-sports': '不採用（参考）', 'explore-2': '流用候補', 'sports-2': '流用候補' } },
-    { id: 'puzzle', label: 'パズル・ボード', cls: 'D', scope: 'パズル 17本と ボード・テーブル 12本。いま puzzle 曲（不採用）。', note: '新曲を 作る 前に 流用を 検討: 考える 間の ある ぽよ1（パズル向き）、知的な カード1（ボード・テーブル向き）。どちらも 評価待ち。両方 合わなければ 追加作曲（E）。', candidates: ['bgm-puzzle', 'poyo-1', 'card-1'], roles: { 'bgm-puzzle': '不採用（参考）', 'poyo-1': '流用候補（パズル）', 'card-1': '流用候補（ボード）' } },
-    { id: 'sleep', label: '睡眠', cls: 'C', scope: 'ペットが 眠っている 間。いま night 曲（不採用）。', note: '採用済みの 夜「ほしぞらのやくそく」を 静かな 編曲（メロディのみ・オルゴール風）で 流用する 案。新曲は 作らない。', candidates: ['bgm-night', 'home-night'], roles: { 'bgm-night': '不採用（参考）', 'home-night': '採用曲の 流用（静かな 編曲 前提）' } },
-    { id: 'date', label: 'デート・映画', cls: 'C', scope: 'デートを 選ぶ 画面と デートの 映画。いま movie 曲（不採用）。記念日の 映画は ふたりのきねんび で 確定、でんせつの であい の 映画は 配置表で 別に 検討。', note: '採用済みの「ふたりのきねんび」（恋と 記念日の ワルツ）を 流用する 案。夕の「ほしふるみずうみ」も 参考に。新曲は 作らない。', candidates: ['bgm-movie', 'event-2', 'home-evening'], roles: { 'bgm-movie': '不採用（参考）', 'event-2': '採用曲の 流用', 'home-evening': '採用曲の 流用（別案）' } },
-    { id: 'farewell', label: 'お別れ・一生カード', cls: 'D', scope: '死亡・旅立ち・100さいの さいごの じかん・一生カード。いま farewell 曲（未確定）。', note: '既存 farewell（未確定）と、保留中の「きせつのきおく」（懐かしさと 切なさ）を 比較。夜の「ほしぞらのやくそく」も 参考。', candidates: ['bgm-farewell', 'kisetsu', 'home-night'], roles: { 'bgm-farewell': 'いまの 曲', kisetsu: '保留曲の 流用', 'home-night': '採用曲の 流用（別案）' } },
-    { id: 'birth', label: '誕生・誕生日・たまご', cls: 'D', scope: 'たまご・たまごが かえる・誕生日・図鑑や 実績の ゲームクリア（おいわいの 場面）。いま home 曲。', note: '保留中の「おめでとうのひ」と、目ざめの 曲で 保留中の「おはようのひかり」（たまごが かえる 場面向き）を 比較。', candidates: ['event-1', 'ohayo'], roles: { 'event-1': '保留曲', ohayo: '保留曲の 流用' } },
-    { id: 'naopoyo', label: 'なおぽよ。', cls: 'D', scope: 'なおぽよ。の 全ステージ（いまは 音楽なし）。公開入口は 時の手 第1章「地下牢」10ステージ。旧ページの こもれびの森・洞窟も URL で 公開中。', note: '#531 の ぽよ1・ぽよ2（評価待ち）。地下・洞窟の 雰囲気に「ふしぎのちか」（評価待ち）も 流用候補。1曲を 全ステージ共通に する 案。', candidates: ['poyo-1', 'poyo-2', 'explore-1'], roles: { 'explore-1': '流用候補（地下・洞窟）' } },
-    { id: 'naokoro', label: 'なおころ。', cls: 'D', scope: 'なおころ。の すごろく盤面（いまは BGM オフ）。', note: '#531 の ころ1・ころ2（評価待ち）。', candidates: ['koro-1', 'koro-2'] },
-    { id: 'card', label: 'CARD GAME', cls: 'D', scope: 'CARD GAME の 対戦（いまは 音楽なし）。', note: '#531 の カード1（ふだんの 対戦）・カード2（勝負どころ）。2曲を 場面で 使い分ける 案も。', candidates: ['card-1', 'card-2'], roles: { 'card-1': 'ふだんの 対戦', 'card-2': '勝負どころ' } },
+    { id: 'naopoyo', mode: 'confirm', label: 'なおぽよ。', cls: 'D', scope: 'なおぽよ。の 全ステージ（公開入口: 時の手 第1章「地下牢」10ステージ。旧ページの こもれびの森・洞窟も URL で 公開中）。', note: '採用は 決定。気に入った 方（両方でも）を えらんで ください。', candidates: ['poyo-1', 'poyo-2'], split: '両方なら: ステージを 遊ぶ 間は「ぽよぽよこもれび」（考える 間の ある 動機）、ステージ選択・クリア・旧ページの こもれびの森は「みんなでかえろう」（3拍子の 帰り道）。' },
+    { id: 'naokoro', mode: 'confirm', label: 'なおころ。', cls: 'D', scope: 'なおころ。の タイトル・キャラクター選択・すごろく盤。', note: '採用は 決定。気に入った 方（両方でも）を えらんで ください。', candidates: ['koro-1', 'koro-2'], split: '両方なら: すごろく盤は「ころころじんせい」（サイコロの 3連符）、タイトル・キャラクター選択・ひとやすみは「いつかのゴール」（人生の ワルツ）。' },
+    { id: 'card', mode: 'confirm', label: 'CARD GAME', cls: 'D', scope: 'CARD GAME の メニュー・デッキ・対戦・結果。', note: '採用は 決定。気に入った 方（両方でも）を えらんで ください。', candidates: ['card-1', 'card-2'], split: '両方なら: メニュー・デッキ・ふだんの 対戦は「カードをひらいて」、9〜10ラウンドや そだち100 目前の 勝負どころは「デュエル・スタート」（終盤を 判定する 画面は コードに ない ので 実装時に 追加。提案）。' },
+    { id: 'minigame', mode: 'confirm', label: 'ミニゲーム汎用', cls: 'D', scope: 'アクション 32本・ストラテジー 2本・なおころ。の 埋めこみゲーム。', note: '採用は 決定。気に入った 方（両方でも）を えらんで ください。クイックモードは 別の タブ（既存 game を 残すかの 比較）。', candidates: ['game-1', 'game-2'], split: '両方なら: 速い 動きの アクション（ラン・シューター・ジャンプ）は「あそびのはじまり」、つみあげ・ジェンガ・たこやき など 間の ある ゲームと ストラテジーは「ぴょこぴょこステップ」。または 毎回 交互に。' },
+    { id: 'explore', mode: 'confirm', label: '3D ゲーム', cls: 'D', scope: '3D の 探検 4本（おばけやしき・ダンジョン・たまころがし迷路・ボクセルマイニング）と 飛行・海 7本（うちゅう・リング・なつのうみフライト・サブマリン・ハンググライダー・ひこうき着陸・ルナランダー）。', note: '採用は 決定。気に入った 方（両方でも）を えらんで ください。', candidates: ['explore-1', 'explore-2'], split: '両方なら（もともとの ねらい）: 探検 4本は「ふしぎのちか」、飛行・海 7本は「そらとうみのさんぽ」。' },
+    { id: 'sports', mode: 'compare', label: 'スポーツ', cls: 'E', scope: 'ボウリング・アーチェリー・ミニゴルフ・バスケ・卓球・フリーキック・やきゅう・スキージャンプ・エアホッケー・テニス・ダーツ・りくじょう・カーリング 2・ビーチバレー・岩場のぼり・ゲレンデ（17本）。いま sports 曲（不採用）。', note: '追加作曲 2案（VERSION 2）。ミニゲーム汎用で 採用する 曲が 決まれば、その 流用も 候補。', candidates: ['bgm-sports', 'sports-1', 'sports-2'], roles: { 'bgm-sports': '不採用（参考）' } },
+    { id: 'fishing', mode: 'compare', label: '釣り', cls: 'D', scope: 'ほんかくさかなつり・うみ・しんかい・みずべ（4本）。いま sports 曲（不採用）。待つ 時間が 長い。', note: '3D で「そらとうみのさんぽ」が 採用なら その 流用が 自然。スポーツ2 も 候補。', candidates: ['bgm-sports', 'explore-2', 'sports-2'], roles: { 'bgm-sports': '不採用（参考）', 'explore-2': '流用候補（3D 曲・確認待ち）', 'sports-2': '流用候補' } },
+    { id: 'puzzle', mode: 'compare', label: 'パズル・ボード', cls: 'D', scope: 'パズル 17本と ボード・テーブル 12本。いま puzzle 曲（不採用）。', note: 'なおぽよ。・CARD GAME で 採用する 曲の 流用を 検討（パズル←ぽよぽよこもれび、ボード←カードをひらいて）。ただし 独立ゲームの 曲を 本編でも 流すと 独立ゲームの 個性が うすれる。流用しない なら 追加作曲（E）。', candidates: ['bgm-puzzle', 'poyo-1', 'card-1'], roles: { 'bgm-puzzle': '不採用（参考）', 'poyo-1': '流用候補（パズル）', 'card-1': '流用候補（ボード）' } },
+    { id: 'race', mode: 'compare', label: 'レース・シューティング 3D', cls: 'D', scope: 'ハイウェイ3D・カーレース3D・グランプリ・リズムハイウェイ・スペースガンナー（5本）。いま race 曲（未確定）。', note: '本物の レースには 既存 race の 疾走感が 合う。残すか、ミニゲーム汎用の 採用曲に そろえるか。', candidates: ['bgm-race', 'game-1', 'game-2'], roles: { 'bgm-race': 'いまの 曲（未確定）', 'game-1': '流用候補（ミニゲーム汎用）', 'game-2': '流用候補（ミニゲーム汎用）' } },
+    { id: 'quick', mode: 'compare', label: 'クイックモード', cls: 'D', scope: 'クイックゲーム 50種（3〜6秒の 課題が つぎつぎ 続く 1ゲーム）。いま game 曲（未確定）。', note: 'せわしない クイックには 既存 game（1秒に 4.3音）の 速さが 合う 可能性。残すか、ミニゲーム汎用の 採用曲に そろえるか。', candidates: ['bgm-game', 'game-1', 'game-2'], roles: { 'bgm-game': 'いまの 曲（未確定）', 'game-1': '流用候補（ミニゲーム汎用）', 'game-2': '流用候補（ミニゲーム汎用）' } },
+    { id: 'farewell', mode: 'compare', label: 'お別れ・一生カード', cls: 'D', scope: '死亡（てんごく）・100さいの さいごの じかん・一生カード・一生の ゲームクリア。いま farewell 曲（未確定）。', note: '既存 farewell と、保留中の「きせつのきおく」、採用済みの「ほしぞらのやくそく」の 流用を 比較。', candidates: ['bgm-farewell', 'kisetsu', 'home-night'], roles: { 'bgm-farewell': 'いまの 曲（未確定）', kisetsu: '保留曲の 流用', 'home-night': '採用曲の 流用' } },
+    { id: 'birth', mode: 'compare', label: '誕生・誕生日・たまご', cls: 'D', scope: 'たまご・たまごが かえる・誕生日・図鑑や 実績の ゲームクリア。いま home 曲。', note: '保留中の「おめでとうのひ」と「おはようのひかり」（たまごの 目ざめ）。演出が 短い ので、ホーム曲の まま 効果音だけでも よい。', candidates: ['event-1', 'ohayo'], roles: { 'event-1': '保留', ohayo: '保留曲の 流用' } },
+    { id: 'legend', mode: 'compare', label: 'でんせつの であい', cls: 'D', scope: '一生に 1度の 伝説の 出会いの 映画。いま movie 曲（不採用）。', note: '採用済み「ほしふるみずうみ」の 流用、保留中の「きせつのきおく」、採用済み「ふたりのきねんび」。', candidates: ['home-evening', 'kisetsu', 'event-2'], roles: { 'home-evening': '採用曲の 流用', kisetsu: '保留曲の 流用', 'event-2': '採用曲の 流用' } },
+    { id: 'naokoro-result', mode: 'compare', label: 'なおころ。の 人生アルバム', cls: 'D', scope: '結果「こんな人生に、なりました。」と 過去の アルバム。', note: 'なおころ。で 採用する 曲（いつかのゴール なら 合う）か、「きせつのきおく」（保留）・「ふたりのきねんび」（採用）の 流用。', candidates: ['koro-2', 'kisetsu', 'event-2'], roles: { 'koro-2': 'なおころ。曲（確認待ち）', kisetsu: '保留曲の 流用', 'event-2': '採用曲の 流用' } },
+    { id: 'sleep', mode: 'compare', label: '睡眠（流用案の 確認）', cls: 'C', scope: 'ペットが 眠っている 間。いま night 曲（不採用）。', note: '採用済み 夜「ほしぞらのやくそく」を 静かな 編曲で 流用する 案で よいかの 確認。', candidates: ['bgm-night', 'home-night'], roles: { 'bgm-night': '不採用（参考）', 'home-night': '採用曲の 流用（静かな 編曲 前提）' } },
+    { id: 'date', mode: 'compare', label: 'デート・映画（流用案の 確認）', cls: 'C', scope: 'デートを 選ぶ 画面と デートの 映画。いま movie 曲（不採用）。', note: '採用済み「ふたりのきねんび」の 流用で よいかの 確認。夕の「ほしふるみずうみ」も 別案。', candidates: ['bgm-movie', 'event-2', 'home-evening'], roles: { 'bgm-movie': '不採用（参考）', 'event-2': '採用曲の 流用', 'home-evening': '採用曲の 流用（別案）' } },
   ];
 
   const api = { SONGS, SONG_STATUS, STATUS_LABEL, CLASS_INFO, USES, flatten: C.flatten, solfege: C.solfege };

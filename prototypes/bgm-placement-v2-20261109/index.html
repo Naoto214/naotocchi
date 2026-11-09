@@ -12,17 +12,17 @@
 /* 1段組み: 操作と 再生中表示 → 用途の タブと 候補(評価・メモ) → 評価の まとめ → 譜面 → 全場面の 配置表 → 曲の 採用状況 */
 :root {
   --bg: #f2f1ec; --surface: #ffffff; --ink: #1c2633; --muted: #566273; --line: #d4dbe4; --accent: #34558b; --accent-ink: #ffffff; --soft: #e4e9f0; --on-c: #ffffff; --star: #c8921b; --r-must: #c2412d; --r-hold: #c98a1c; --r-good: #3a7d5c; --r-no: #6b7280;
-  --c-home: #c9952f; --c-sports: #2f8fb0; --k-A: #3a7d5c; --k-B: #6b7a52; --k-C: #2f78aa; --k-D: #c98a1c; --k-E: #c2412d; --k-mute: #6b7280; --s-adopted: #3a7d5c; --s-hold: #c98a1c; --s-undecided: #b0588f; --s-pending: #6b7280; --s-new: #2f78aa; --s-migrating: #6b7a52; --s-rejected: #8a5a5a; --c-existing: #7a8796; --c-naopoyo: #4f9a5c; --c-naokoro: #d0763c; --c-card: #5f64c4; --c-minigame: #c2412d; --c-event: #b0588f; --c-blind: #6b7280;
+  --c-home: #c9952f; --c-sports: #2f8fb0; --k-A: #3a7d5c; --k-B: #6b7a52; --k-C: #2f78aa; --k-D: #c98a1c; --k-E: #c2412d; --k-mute: #6b7280; --s-adopted: #3a7d5c; --s-hold: #c98a1c; --s-undecided: #b0588f; --s-pending: #6b7280; --s-confirm: #3a8fa0; --s-new: #2f78aa; --s-migrating: #6b7a52; --s-rejected: #8a5a5a; --c-existing: #7a8796; --c-naopoyo: #4f9a5c; --c-naokoro: #d0763c; --c-card: #5f64c4; --c-minigame: #c2412d; --c-event: #b0588f; --c-blind: #6b7280;
   --font-display: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', 'Yu Gothic', sans-serif;
   --font-body: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --bg: #11151d; --surface: #191f2a; --ink: #e6ebf2; --muted: #9eaabb; --line: #2a3342; --accent: #8fb1e8; --accent-ink: #0e1622; --soft: #202838; --on-c: #10151d; --star: #f0c04a; --r-must: #f08a74; --r-hold: #f0c04a; --r-good: #7fcfa4; --r-no: #a3acb9;
-  --c-home: #ecc274; --c-sports: #6fc3e0; --k-A: #7fcfa4; --k-B: #b5c48f; --k-C: #6fb3e3; --k-D: #f0c04a; --k-E: #f08a74; --k-mute: #a3acb9; --s-adopted: #7fcfa4; --s-hold: #f0c04a; --s-undecided: #e08cc4; --s-pending: #a3acb9; --s-new: #6fb3e3; --s-migrating: #b5c48f; --s-rejected: #d39a9a; --c-existing: #a3acb9; --c-naopoyo: #84cf90; --c-naokoro: #f0a064; --c-card: #9197ef; --c-minigame: #f08a74; --c-event: #e08cc4; --c-blind: #a3acb9; color-scheme: dark; } }
+  --c-home: #ecc274; --c-sports: #6fc3e0; --k-A: #7fcfa4; --k-B: #b5c48f; --k-C: #6fb3e3; --k-D: #f0c04a; --k-E: #f08a74; --k-mute: #a3acb9; --s-adopted: #7fcfa4; --s-hold: #f0c04a; --s-undecided: #e08cc4; --s-pending: #a3acb9; --s-confirm: #7cc6d4; --s-new: #6fb3e3; --s-migrating: #b5c48f; --s-rejected: #d39a9a; --c-existing: #a3acb9; --c-naopoyo: #84cf90; --c-naokoro: #f0a064; --c-card: #9197ef; --c-minigame: #f08a74; --c-event: #e08cc4; --c-blind: #a3acb9; color-scheme: dark; } }
 :root[data-theme="dark"] {
   --bg: #11151d; --surface: #191f2a; --ink: #e6ebf2; --muted: #9eaabb; --line: #2a3342; --accent: #8fb1e8; --accent-ink: #0e1622; --soft: #202838; --on-c: #10151d; --star: #f0c04a; --r-must: #f08a74; --r-hold: #f0c04a; --r-good: #7fcfa4; --r-no: #a3acb9;
-  --c-home: #ecc274; --c-sports: #6fc3e0; --k-A: #7fcfa4; --k-B: #b5c48f; --k-C: #6fb3e3; --k-D: #f0c04a; --k-E: #f08a74; --k-mute: #a3acb9; --s-adopted: #7fcfa4; --s-hold: #f0c04a; --s-undecided: #e08cc4; --s-pending: #a3acb9; --s-new: #6fb3e3; --s-migrating: #b5c48f; --s-rejected: #d39a9a; --c-existing: #a3acb9; --c-naopoyo: #84cf90; --c-naokoro: #f0a064; --c-card: #9197ef; --c-minigame: #f08a74; --c-event: #e08cc4; --c-blind: #a3acb9; color-scheme: dark; }
+  --c-home: #ecc274; --c-sports: #6fc3e0; --k-A: #7fcfa4; --k-B: #b5c48f; --k-C: #6fb3e3; --k-D: #f0c04a; --k-E: #f08a74; --k-mute: #a3acb9; --s-adopted: #7fcfa4; --s-hold: #f0c04a; --s-undecided: #e08cc4; --s-pending: #a3acb9; --s-confirm: #7cc6d4; --s-new: #6fb3e3; --s-migrating: #b5c48f; --s-rejected: #d39a9a; --c-existing: #a3acb9; --c-naopoyo: #84cf90; --c-naokoro: #f0a064; --c-card: #9197ef; --c-minigame: #f08a74; --c-event: #e08cc4; --c-blind: #a3acb9; color-scheme: dark; }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.7; -webkit-text-size-adjust: 100%; }
 .wrap { max-width: 980px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 28px 64px; display: grid; gap: 28px; }
@@ -183,7 +183,7 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
   </section>
 
   <section class="group" aria-labelledby="useTitle">
-    <div class="group-head"><h2 id="useTitle">用途ごとの 比較</h2><p>用途を 選ぶと、いまの 曲と 候補が ならびます。評価は 用途ごとに 別々に 保存されます（同じ 曲を 別の 用途で 評価できます）。</p></div>
+    <div class="group-head"><h2 id="useTitle">用途ごとの 確認と 比較</h2><p>① は 採用が 決まっている 用途で、気に入った 曲を えらぶ だけ（両方でも 可）。② は まだ 決まっていない 用途で、いまの 曲と 候補を 聴きくらべます。評価は 用途ごとに 別々に 保存されます。</p></div>
     <div class="tabs" id="tabs" role="group" aria-label="用途"></div>
     <div class="note" id="useInfo"></div>
     <div class="group" id="list"></div>
@@ -203,14 +203,14 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
 
   <section class="split" aria-labelledby="tableTitle">
     <h2 id="tableTitle">全場面の BGM 配置表</h2>
-    <p class="lede">A 確定 ・ B 既存曲で 対応可能 ・ C 採用済み曲の 流用で 対応可能 ・ D 未確定（比較して 決める） ・ E 不足（追加作曲） ・ 無音（意図して 音楽なし）。</p>
+    <p class="lede">A 確定 ・ B 既存曲で 対応可能 ・ C 採用済み曲の 流用で 対応可能 ・ D 未確定（「曲名確認待ち」は 採用が 決まっていて、どの 曲かを 確かめれば A に なる もの） ・ E 不足（追加作曲） ・ 無音（意図して 音楽なし）。</p>
     <div class="tabs" id="clsTabs" role="group" aria-label="分類で しぼる"></div>
     <div class="tablebox"><table id="placement"></table></div>
   </section>
 
   <section class="split" aria-labelledby="statusTitle">
     <h2 id="statusTitle">曲の 採用状況</h2>
-    <p class="lede">「採用」「保留」「不採用」「未確定」は あなたが 明示した ものだけです。あなたの 評価が まだ 届いていない 曲は「評価待ち」と して、勝手に 採用・不採用に していません。</p>
+    <p class="lede">「採用」「保留」「不採用」「未確定」は あなたが 明示した ものだけです。「気に入った 新曲は 採用」と 決まった 用途の 曲は、どれを 気に入ったかが こちらから 見えない ため「採用決定・曲名確認待ち」と しています（推測で 確定していません）。</p>
     <div class="tablebox"><table id="songStatus"></table></div>
   </section>
 
@@ -257,6 +257,8 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
   const player = E.createPlayer();
   const KEY = 'naotocchi-bgm-placement-v2';
   const RATINGS = [{ r: 'adopt', label: '採用' }, { r: 'hold', label: '保留' }, { r: 'reject', label: '不採用' }];
+  const CONFIRM_RATINGS = [{ r: 'adopt', label: '気に入った曲（採用）' }, { r: 'reject', label: 'これでは ない' }];
+  const ratingsFor = (u) => (u.mode === 'confirm' ? CONFIRM_RATINGS : RATINGS);
   const STATUS_LABEL = PL.STATUS_LABEL;
   const song = (id) => PL.SONGS[id];
   const use = (id) => PL.USES.find((u) => u.id === id);
@@ -275,14 +277,14 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
 
   // ---- 用途タブ ----
   const tabs = document.getElementById('tabs');
-  tabs.innerHTML = PL.USES.map((u) => `<button type="button" id="use-${u.id}" data-use="${u.id}" aria-pressed="false">${u.label}<span class="meta"> ${u.cls}</span></button>`).join('');
+  tabs.innerHTML = ['confirm', 'compare'].map((m) => `<span class="ctl-label" style="flex-basis:100%">${m === 'confirm' ? '① 採用は 決定・どの 曲かの 確認だけ' : '② まだ 決まっていない 用途'}</span>` + PL.USES.filter((u) => u.mode === m).map((u) => `<button type="button" id="use-${u.id}" data-use="${u.id}" aria-pressed="false">${u.label}<span class="meta"> ${m === 'confirm' ? '確認' : u.cls}</span></button>`).join('')).join('');
   tabs.addEventListener('click', (ev) => { const b = ev.target.closest('button'); if (!b) return; st.use = b.dataset.use; save(); renderUse(); });
 
   const listEl = document.getElementById('list');
   function renderUse() {
     const u = use(st.use);
     tabs.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.use === st.use)));
-    document.getElementById('useInfo').innerHTML = `<h3>${clsChip(u.cls)} ${u.label}</h3><p>${u.scope}</p><p class="meta">${u.note}</p>`;
+    document.getElementById('useInfo').innerHTML = `<h3>${u.mode === 'confirm' ? '<span class="tag2" style="--tc:var(--s-confirm)">採用決定・曲名確認待ち</span>' : clsChip(u.cls)} ${u.label}</h3><p>${u.scope}</p><p class="meta">${u.note}</p>${u.split ? `<p class="meta">${u.split}</p>` : ''}`;
     listEl.innerHTML = u.candidates.map((id, i) => {
       const x = song(id), s = x.song, r = st.ratings[rkey(u.id, id)] || {}, role = (u.roles || {})[id] || '';
       return `<article class="fav" id="row-${id}" data-id="${id}" style="--tc:var(--c-${x.color})" data-active="${!!(st.playing && st.playing.id === id)}">
@@ -291,7 +293,7 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
         <div class="tbtns"><button type="button" class="play" id="play-${id}" data-play="${id}">▶ 再生</button>${x.gameSound ? `<button type="button" class="play alt" id="game-${id}" data-game="${id}">ゲームの 音で</button>` : ''}</div>
         ${x.character ? `<p class="desc">${esc(x.character)}</p>` : ''}
         ${x.hook ? `<p class="hook">聴きどころ: ${esc(x.hook)}</p>` : ''}
-        <div class="rate" role="group" aria-label="${esc(u.label)} での ${esc(x.title)} の 評価">${RATINGS.map((y) => `<button type="button" id="rate-${id}-${y.r}" data-rate="${id}" data-r="${y.r}" aria-pressed="${r.r === y.r}">${y.label}</button>`).join('')}</div>
+        <div class="rate" role="group" aria-label="${esc(u.label)} での ${esc(x.title)} の 評価">${ratingsFor(u).map((y) => `<button type="button" id="rate-${id}-${y.r}" data-rate="${id}" data-r="${y.r}" aria-pressed="${r.r === y.r}">${y.label}</button>`).join('')}</div>
         <div class="memo"><textarea id="memo-${id}" data-memo="${id}" rows="2" placeholder="メモ（例: スポーツには 速すぎる、釣りなら 合う）">${esc(r.memo || '')}</textarea></div>
       </article>`;
     }).join('');
@@ -374,9 +376,9 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
   function renderSummary() {
     const rows = PL.USES.map((u) => {
       const pick = (r) => u.candidates.filter((id) => (st.ratings[rkey(u.id, id)] || {}).r === r).map((id) => esc(song(id).title)).join('、') || '—';
-      return `<tr><td><b>${esc(u.label)}</b><br>${clsChip(u.cls)}</td><td>${pick('adopt')}</td><td>${pick('hold')}</td><td>${pick('reject')}</td></tr>`;
+      return `<tr><td><b>${esc(u.label)}</b><br>${u.mode === 'confirm' ? '確認' : clsChip(u.cls)}</td><td>${pick('adopt')}</td><td>${u.mode === 'confirm' ? '—' : pick('hold')}</td><td>${pick('reject')}</td></tr>`;
     }).join('');
-    document.getElementById('summary').innerHTML = `<thead><tr><th>用途</th><th>採用</th><th>保留</th><th>不採用</th></tr></thead><tbody>${rows}</tbody>`;
+    document.getElementById('summary').innerHTML = `<thead><tr><th>用途</th><th>採用（気に入った 曲）</th><th>保留</th><th>不採用（これでは ない）</th></tr></thead><tbody>${rows}</tbody>`;
   }
 
   // ---- 譜面 ----
@@ -419,18 +421,19 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
 
   // ---- 配置表 ----
   const clsTabs = document.getElementById('clsTabs');
-  const CLS = ['all', 'A', 'B', 'C', 'D', 'E', '無音'];
-  clsTabs.innerHTML = CLS.map((c) => `<button type="button" id="cls-${c}" data-cls="${c}" aria-pressed="false">${c === 'all' ? 'すべて' : c === '無音' ? '無音' : c + ' ' + PL.CLASS_INFO[c].short}<span class="meta"> ${c === 'all' ? PL.SCENES.length : PL.SCENES.filter((r) => r.cls === c).length}</span></button>`).join('');
+  const CLS = ['all', 'A', 'B', 'C', 'Dc', 'D', 'E', '無音'];
+  const inCls = (r, c) => c === 'all' || (c === 'Dc' ? r.cls === 'D' && r.confirm : c === 'D' ? r.cls === 'D' && !r.confirm : r.cls === c);
+  clsTabs.innerHTML = CLS.map((c) => `<button type="button" id="cls-${c}" data-cls="${c}" aria-pressed="false">${c === 'all' ? 'すべて' : c === '無音' ? '無音' : c === 'Dc' ? 'D 曲名確認待ち' : c + ' ' + PL.CLASS_INFO[c].short}<span class="meta"> ${PL.SCENES.filter((r) => inCls(r, c)).length}</span></button>`).join('');
   clsTabs.addEventListener('click', (ev) => { const b = ev.target.closest('button'); if (!b) return; st.cls = b.dataset.cls; save(); renderPlacement(); });
   const cand = (r) => (r.candidates || []).map((id) => `${esc(song(id).title)} ${stChip(id)}`).join('<br>') || '—';
   function renderPlacement() {
     clsTabs.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.cls === st.cls)));
-    const rows = PL.SCENES.filter((r) => st.cls === 'all' || r.cls === st.cls);
-    document.getElementById('placement').innerHTML = `<thead><tr><th>分類</th><th>場面</th><th>1 いまの BGM</th><th>2 候補（採用状況）</th><th>3 既存曲を 残せるか</th><th>4 流用</th><th>5 新曲</th><th>6 長さ・ループ</th><th>7 時間帯</th><th>8 状況</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${clsChip(r.cls)}</td><td><b>${esc(r.area)}</b><br>${esc(r.scene)}</td><td>${esc(r.current)}</td><td>${cand(r)}</td><td>${esc(r.keepExisting)}</td><td>${esc(r.reuse)}</td><td>${esc(r.needNew)}</td><td>${esc(r.length)}</td><td>${esc(r.timeOfDay)}</td><td>${esc(r.status)}</td></tr>`).join('')}</tbody>`;
+    const rows = PL.SCENES.filter((r) => inCls(r, st.cls));
+    document.getElementById('placement').innerHTML = `<thead><tr><th>分類</th><th>場面</th><th>1 いまの BGM</th><th>2 候補（採用状況）</th><th>3 既存曲を 残せるか</th><th>4 流用</th><th>5 新曲</th><th>6 長さ・ループ</th><th>7 時間帯</th><th>8 状況</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${clsChip(r.cls)}${r.confirm ? '<br><span class="tag2" style="--tc:var(--s-confirm)">曲名確認待ち</span>' : ''}</td><td><b>${esc(r.area)}</b><br>${esc(r.scene)}</td><td>${esc(r.current)}</td><td>${cand(r)}</td><td>${esc(r.keepExisting)}</td><td>${esc(r.reuse)}</td><td>${esc(r.needNew)}</td><td>${esc(r.length)}</td><td>${esc(r.timeOfDay)}</td><td>${esc(r.status)}</td></tr>`).join('')}</tbody>`;
   }
 
   // ---- 曲の 採用状況 ----
-  const order = ['adopted', 'hold', 'undecided', 'pending', 'new', 'migrating', 'rejected'];
+  const order = ['adopted', 'confirm', 'hold', 'undecided', 'pending', 'new', 'migrating', 'rejected'];
   document.getElementById('songStatus').innerHTML = `<thead><tr><th>状況</th><th>曲</th><th>出どころ</th><th>メモ</th></tr></thead><tbody>${Object.entries(PL.SONG_STATUS).sort((a, b) => order.indexOf(a[1].status) - order.indexOf(b[1].status)).map(([id, s]) => `<tr><td>${stChip(id)}</td><td><b>${esc(song(id).title)}</b></td><td>${esc(song(id).source)}</td><td>${esc(s.note)}</td></tr>`).join('')}</tbody>`;
 
   renderUse(); renderSummary(); renderPlacement(); refresh();

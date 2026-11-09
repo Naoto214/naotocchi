@@ -138,18 +138,18 @@
    ],
    "timeOfDay": "不要",
    "cls": "D",
+   "confirm": true,
    "area": "ミニゲーム アクション",
    "current": "game（未確定）",
    "candidates": [
-    "bgm-game",
     "game-1",
     "game-2"
    ],
-   "keepExisting": "未確定（比較して 決める）",
+   "keepExisting": "既存 game は 不採用では ない（クイックモードで 残すかを 比較）",
    "reuse": "—",
-   "needNew": "不要（候補 2曲）",
-   "length": "ゲーム中 ループ（1回 30〜90秒）。いまの game は 1周 14秒",
-   "status": "未確定"
+   "needNew": "不要",
+   "length": "ゲーム中 ループ（1回 30〜90秒）。新曲は 16小節（約 27〜30秒）",
+   "status": "採用決定・曲名確認待ち（気に入った 方を 採用、両方なら 両方）。両方なら 速い アクション＝あそびのはじまり、間の ある ゲーム＝ぴょこぴょこステップ"
   },
   {
    "id": "mg-strategy",
@@ -161,18 +161,18 @@
    ],
    "timeOfDay": "不要",
    "cls": "D",
+   "confirm": true,
    "area": "ミニゲーム ストラテジー",
    "current": "game（未確定）",
    "candidates": [
-    "bgm-game",
     "game-1",
-    "card-1"
+    "game-2"
    ],
-   "keepExisting": "未確定",
-   "reuse": "考える 時間が 長いので「カードを ひらいて」（評価待ち）も 候補",
+   "keepExisting": "同上",
+   "reuse": "ミニゲーム汎用の 採用曲",
    "needNew": "不要",
    "length": "ゲーム中 ループ（数分）",
-   "status": "未確定（ミニゲーム汎用と 同じ 曲で よいか）"
+   "status": "採用決定・曲名確認待ち（気に入った 方を 採用、両方なら 両方）（ミニゲーム汎用と 同じ 曲）"
   },
   {
    "id": "mg-puzzle",
@@ -206,10 +206,10 @@
     "card-1"
    ],
    "keepExisting": "不可（不採用。統合までは 保護）",
-   "reuse": "「ぽよぽよこもれび」（評価待ち）を 流用",
-   "needNew": "流用が 合わなければ 追加作曲（E に 変わる）",
+   "reuse": "なおぽよ。の 採用曲の 流用（独立ゲームの 個性が うすれる 点に 注意）",
+   "needNew": "流用しない なら 追加作曲（E に 変わる）",
    "length": "ゲーム中 ループ（数分）",
-   "status": "未確定（流用候補の 評価待ち）"
+   "status": "未確定（流用するか 判断が 必要）"
   },
   {
    "id": "mg-board",
@@ -238,10 +238,10 @@
     "poyo-1"
    ],
    "keepExisting": "不可（不採用。統合までは 保護）",
-   "reuse": "「カードを ひらいて」（評価待ち）を 流用",
-   "needNew": "流用が 合わなければ 追加作曲（E に 変わる）",
+   "reuse": "CARD GAME の 採用曲の 流用（同上の 注意）",
+   "needNew": "流用しない なら 追加作曲（E に 変わる）",
    "length": "ゲーム中 ループ（数分）",
-   "status": "未確定（流用候補の 評価待ち）"
+   "status": "未確定（流用するか 判断が 必要）"
   },
   {
    "id": "mg-sports",
@@ -272,14 +272,13 @@
    "current": "sports（不採用）",
    "candidates": [
     "sports-1",
-    "sports-2",
-    "game-2"
+    "sports-2"
    ],
    "keepExisting": "不可（不採用。統合までは 保護）",
-   "reuse": "「ぴょこぴょこステップ」（評価待ち）",
-   "needNew": "必要 → 追加作曲 2案（はれのひグラウンド・かぜをきって）",
+   "reuse": "ミニゲーム汎用の 採用曲も 候補に できる",
+   "needNew": "必要 → 追加作曲 2案（はれのひグラウンド・かぜをきって）の 評価待ち",
    "length": "ゲーム中 ループ（30〜90秒）",
-   "status": "不足 → 追加作曲"
+   "status": "不足 → 追加作曲済み、評価待ち"
   },
   {
    "id": "mg-fishing",
@@ -300,10 +299,10 @@
     "sports-2"
    ],
    "keepExisting": "不可（不採用。統合までは 保護）",
-   "reuse": "「そらとうみのさんぽ」（評価待ち）を 水辺に",
+   "reuse": "3D の「そらとうみのさんぽ」が 採用なら その 流用",
    "needNew": "不要（流用候補あり）",
    "length": "待つ 時間が 長い。ゆっくり ループ",
-   "status": "未確定（流用候補の 評価待ち）"
+   "status": "未確定"
   },
   {
    "id": "mg-race",
@@ -322,13 +321,14 @@
    "current": "race（未確定）",
    "candidates": [
     "bgm-race",
-    "game-1"
+    "game-1",
+    "game-2"
    ],
    "keepExisting": "未確定（疾走感は 合う）",
-   "reuse": "「あそびのはじまり」（評価待ち）",
+   "reuse": "ミニゲーム汎用の 採用曲",
    "needNew": "不要",
    "length": "ゲーム中 ループ。いまの race は 1周 13秒",
-   "status": "未確定"
+   "status": "未確定（既存 race を 残すか）"
   },
   {
    "id": "mg-explore",
@@ -342,17 +342,18 @@
    ],
    "timeOfDay": "不要",
    "cls": "D",
+   "confirm": true,
    "area": "ミニゲーム 3D 探検",
    "current": "race（未確定。探検には 速すぎる）",
    "candidates": [
-    "bgm-race",
-    "explore-1"
+    "explore-1",
+    "explore-2"
    ],
-   "keepExisting": "未確定",
+   "keepExisting": "既存 race は レースで 比較",
    "reuse": "—",
-   "needNew": "不要（候補 たんけん1）",
+   "needNew": "不要",
    "length": "ゲーム中 ループ",
-   "status": "未確定"
+   "status": "採用決定・曲名確認待ち（気に入った 方を 採用、両方なら 両方）。両方なら ここは ふしぎのちか"
   },
   {
    "id": "mg-flight",
@@ -369,17 +370,18 @@
    ],
    "timeOfDay": "不要",
    "cls": "D",
+   "confirm": true,
    "area": "ミニゲーム 3D 飛行・海",
    "current": "race（未確定。飛行には 速すぎる）",
    "candidates": [
-    "bgm-race",
-    "explore-2"
+    "explore-2",
+    "explore-1"
    ],
-   "keepExisting": "未確定",
+   "keepExisting": "既存 race は レースで 比較",
    "reuse": "—",
-   "needNew": "不要（候補 たんけん2）",
+   "needNew": "不要",
    "length": "ゲーム中 ループ",
-   "status": "未確定"
+   "status": "採用決定・曲名確認待ち（気に入った 方を 採用、両方なら 両方）。両方なら ここは そらとうみのさんぽ"
   }
  ],
  "INDEPENDENT_ROWS": [
@@ -391,15 +393,15 @@
    "current": "なし（音そのものが ない）",
    "candidates": [
     "poyo-1",
-    "poyo-2",
-    "explore-1"
+    "poyo-2"
    ],
    "keepExisting": "—（既存曲なし）",
-   "reuse": "地下の 雰囲気に「ふしぎのちか」（評価待ち）も 流用候補",
-   "needNew": "不要（候補 3曲）",
+   "reuse": "—",
+   "needNew": "不要",
    "length": "ゲーム中（ステージを 遊ぶ 間）ループ（1ステージ 数分）",
    "timeOfDay": "不要（地下・ステージの 雰囲気で）",
-   "status": "未確定（候補は 評価待ち）"
+   "status": "採用決定・曲名確認待ち（気に入った 方を 採用、両方なら 両方）。両方なら 遊ぶ 間＝ぽよぽよこもれび、選択・クリア・森＝みんなでかえろう",
+   "confirm": true
   },
   {
    "id": "naopoyo-clear",
@@ -412,11 +414,12 @@
     "poyo-2"
    ],
    "keepExisting": "—",
-   "reuse": "採用した なおぽよ。曲の 動機を 短い ジングルに",
-   "needNew": "不要（本体曲が 決まってから 短く 編曲）",
+   "reuse": "—",
+   "needNew": "不要",
    "length": "数秒の ジングル",
    "timeOfDay": "不要",
-   "status": "未確定（本体曲 待ち）"
+   "status": "採用決定・曲名確認待ち（気に入った 方を 採用、両方なら 両方）。決まった 曲の 動機を 短い ジングルに",
+   "confirm": true
   },
   {
    "id": "naopoyo-old",
@@ -426,15 +429,15 @@
    "current": "なし",
    "candidates": [
     "poyo-1",
-    "poyo-2",
-    "explore-1"
+    "poyo-2"
    ],
    "keepExisting": "—",
-   "reuse": "森は「ぽよぽよこもれび」、洞窟は「ふしぎのちか」",
+   "reuse": "—",
    "needNew": "不要",
    "length": "ゲーム中（ステージを 遊ぶ 間）ループ",
    "timeOfDay": "不要",
-   "status": "未確定（新しい 入口と 同じ 曲で よいか）"
+   "status": "採用決定・曲名確認待ち（気に入った 方を 採用、両方なら 両方）。両方なら 遊ぶ 間＝ぽよぽよこもれび、選択・クリア・森＝みんなでかえろう",
+   "confirm": true
   },
   {
    "id": "naokoro-title",
@@ -451,7 +454,8 @@
    "needNew": "不要",
    "length": "メニューの 間 ループ",
    "timeOfDay": "不要",
-   "status": "未確定（候補は 評価待ち）"
+   "status": "採用決定・曲名確認待ち（気に入った 方を 採用、両方なら 両方）。両方なら 盤＝ころころじんせい、タイトル・選択＝いつかのゴール",
+   "confirm": true
   },
   {
    "id": "naokoro-board",
@@ -468,7 +472,8 @@
    "needNew": "不要（候補 2曲）",
    "length": "1人生 15ラウンド前後を ループ（数分〜十数分）",
    "timeOfDay": "不要",
-   "status": "未確定（候補は 評価待ち）"
+   "status": "採用決定・曲名確認待ち（気に入った 方を 採用、両方なら 両方）。両方なら 盤＝ころころじんせい、タイトル・選択＝いつかのゴール",
+   "confirm": true
   },
   {
    "id": "naokoro-minigames",
@@ -477,16 +482,16 @@
    "scene": "盤の クイック 4マス（45種）・ゲーム 2マス（通常 15本）",
    "current": "なし（本編と 同じ ミニゲームを 埋めこみ。BGM オフ）",
    "candidates": [
-    "bgm-game",
     "game-1",
     "game-2"
    ],
-   "keepExisting": "未確定（本編と 同じ 判断）",
+   "keepExisting": "クイック 4マスは 本編の クイックモードの 判断に そろえる",
    "reuse": "本編の ミニゲーム汎用と 同じ 曲",
    "needNew": "不要",
    "length": "1ゲーム 数十秒",
    "timeOfDay": "不要",
-   "status": "未確定（ミニゲーム汎用と セット）"
+   "status": "採用決定・曲名確認待ち（気に入った 方を 採用、両方なら 両方）（本編の ミニゲーム汎用と 同じ）",
+   "confirm": true
   },
   {
    "id": "naokoro-result",
@@ -495,11 +500,12 @@
    "scene": "結果「こんな人生に、なりました。」（人生アルバム）・過去の アルバム",
    "current": "なし",
    "candidates": [
+    "koro-2",
     "kisetsu",
     "event-2"
    ],
    "keepExisting": "—",
-   "reuse": "「きせつのきおく」（保留）・「ふたりのきねんび」（採用）を 人生の ふりかえりに",
+   "reuse": "なおころ。の 採用曲（いつかのゴール なら 合う）・きせつのきおく（保留）・ふたりのきねんび（採用）",
    "needNew": "不要",
    "length": "アルバムを 見る 間 ループ",
    "timeOfDay": "不要",
@@ -520,7 +526,8 @@
    "needNew": "不要",
    "length": "メニューの 間 ループ",
    "timeOfDay": "不要",
-   "status": "未確定（候補は 評価待ち）"
+   "status": "採用決定・曲名確認待ち（気に入った 方を 採用、両方なら 両方）。両方なら メニュー・デッキ＝カードをひらいて",
+   "confirm": true
   },
   {
    "id": "card-battle",
@@ -537,7 +544,8 @@
    "needNew": "不要（候補 2曲）",
    "length": "1対戦 数分〜十数分を ループ",
    "timeOfDay": "不要",
-   "status": "未確定（候補は 評価待ち）"
+   "status": "採用決定・曲名確認待ち（気に入った 方を 採用、両方なら 両方）。両方なら ふだん＝カードをひらいて、勝負どころ＝デュエル・スタート",
+   "confirm": true
   },
   {
    "id": "card-result",
@@ -554,7 +562,8 @@
    "needNew": "不要",
    "length": "数秒",
    "timeOfDay": "不要",
-   "status": "未確定（本体曲 待ち）"
+   "status": "採用決定・曲名確認待ち（気に入った 方を 採用、両方なら 両方）。決まった 曲の 動機を 短い ジングルに",
+   "confirm": true
   }
  ]
 };

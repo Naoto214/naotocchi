@@ -4,7 +4,8 @@
 //   node prototypes/bgm-placement-v2-20261109/tools/check-v2.cjs --midi   … midi/ に 追加曲の .mid を 書き出す
 // (1) 追加曲: 拍数・長さ 45〜90秒・強拍の 和音外音・これまでの 全曲との 旋律の 一致 (8音 以上で 失敗)
 // (2) 配置表: 全場面の 分類が A〜E/無音、候補の 曲 id が すべて 実在、ミニゲーム 100本・クイック 50種が もれなく 入る
-// (3) 曲の 採用状況: 本人が 明示した ものだけが 採用・保留・不採用に なっている (それ以外は 評価待ち)
+// (3) 曲の 採用状況: 本人が 明示した ものだけが 採用・保留・不採用に なっている。「気に入った 新曲は 採用」の 用途の 曲は
+//     曲名が わかるまで「採用決定・曲名確認待ち」(confirm) の まま (推測で adopted に しない)
 // (4) 元の 音源・譜面・MIDI と ゲーム本体が 変わっていない (PR #531 の ブランチと git で くらべる)
 'use strict';
 const fs = require('node:fs');
@@ -63,10 +64,13 @@ if (dup.length) fail('minigames in two rows: ' + dup.join(','));
 for (const u of PL.USES) for (const c of u.candidates) if (!songIds.has(c)) fail(`use ${u.id}: unknown ${c}`);
 const explicit = { 'home-morning': 'adopted', 'home-day': 'adopted', 'home-evening': 'adopted', 'home-night': 'adopted', 'event-2': 'adopted', 'event-1': 'hold', 'bgm-night': 'rejected', 'bgm-movie': 'rejected', 'bgm-puzzle': 'rejected', 'bgm-sports': 'rejected', 'bgm-game': 'undecided', 'bgm-race': 'undecided', 'bgm-farewell': 'undecided', 'bgm-home': 'migrating' };
 for (const [id, st] of Object.entries(explicit)) if ((PL.SONG_STATUS[id] || {}).status !== st) fail(`status ${id} should be ${st}`);
-for (const s of NB.NEW_SONGS) if (!explicit[s.id] && PL.SONG_STATUS[s.id].status !== 'pending') fail(`#531 ${s.id} must stay pending (no explicit owner rating)`);
+const CONFIRM = ['poyo-1', 'poyo-2', 'koro-1', 'koro-2', 'card-1', 'card-2', 'game-1', 'game-2', 'explore-1', 'explore-2'];
+for (const s of NB.NEW_SONGS) if (!explicit[s.id]) { const want = CONFIRM.includes(s.id) ? 'confirm' : 'pending'; if (PL.SONG_STATUS[s.id].status !== want) fail(`#531 ${s.id} must be ${want} (song names of the owner's favourites are not known)`); }
+for (const r of PL.SCENES) if (r.confirm && (r.cls !== 'D' || !(r.candidates || []).every((c) => CONFIRM.includes(c)))) fail(`scene ${r.id}: confirm rows must be class D with only confirm-pending songs`);
+for (const u of PL.USES) if (u.mode === 'confirm' && !u.candidates.every((c) => CONFIRM.includes(c))) fail(`use ${u.id}: confirm use with a non-confirm song`);
 const byStatus = {}; for (const [id, v] of Object.entries(PL.SONG_STATUS)) (byStatus[v.status] = byStatus[v.status] || []).push(id);
 console.log('song status:', Object.entries(byStatus).map(([k, v]) => `${k}=${v.length}`).join(' '));
-const byClass = {}; for (const r of PL.SCENES) byClass[r.cls] = (byClass[r.cls] || 0) + 1;
+const byClass = {}; for (const r of PL.SCENES) { const k = r.cls === 'D' && r.confirm ? 'D(確認待ち)' : r.cls; byClass[k] = (byClass[k] || 0) + 1; }
 console.log('scene classes:', JSON.stringify(byClass));
 
 // (4) 元の ファイル
