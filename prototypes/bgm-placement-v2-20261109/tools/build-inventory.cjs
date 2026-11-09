@@ -23,17 +23,16 @@ const groupOf = (g) => {
   if (g.genre === 'drive3d') return RACE.includes(g.id) ? 'race' : EXPLORE.includes(g.id) ? 'explore' : 'flight';
   throw new Error('unknown genre ' + g.genre);
 };
-const CONF = '採用決定・曲名確認待ち（気に入った 方を 採用、両方なら 両方）';
 const DEF = {
-  action: { cls: 'D', confirm: true, area: 'ミニゲーム アクション', current: 'game（未確定）', candidates: ['game-1', 'game-2'], keepExisting: '既存 game は 不採用では ない（クイックモードで 残すかを 比較）', reuse: '—', needNew: '不要', length: 'ゲーム中 ループ（1回 30〜90秒）。新曲は 16小節（約 27〜30秒）', status: CONF + '。両方なら 速い アクション＝あそびのはじまり、間の ある ゲーム＝ぴょこぴょこステップ' },
-  strategy: { cls: 'D', confirm: true, area: 'ミニゲーム ストラテジー', current: 'game（未確定）', candidates: ['game-1', 'game-2'], keepExisting: '同上', reuse: 'ミニゲーム汎用の 採用曲', needNew: '不要', length: 'ゲーム中 ループ（数分）', status: CONF + '（ミニゲーム汎用と 同じ 曲）' },
-  puzzle: { cls: 'D', area: 'ミニゲーム パズル', current: 'puzzle（不採用）', candidates: ['poyo-1', 'card-1'], keepExisting: '不可（不採用。統合までは 保護）', reuse: 'なおぽよ。の 採用曲の 流用（独立ゲームの 個性が うすれる 点に 注意）', needNew: '流用しない なら 追加作曲（E に 変わる）', length: 'ゲーム中 ループ（数分）', status: '未確定（流用するか 判断が 必要）' },
-  board: { cls: 'D', area: 'ミニゲーム ボード・テーブル', current: 'puzzle（不採用）', candidates: ['card-1', 'poyo-1'], keepExisting: '不可（不採用。統合までは 保護）', reuse: 'CARD GAME の 採用曲の 流用（同上の 注意）', needNew: '流用しない なら 追加作曲（E に 変わる）', length: 'ゲーム中 ループ（数分）', status: '未確定（流用するか 判断が 必要）' },
-  sports: { cls: 'E', area: 'ミニゲーム スポーツ', current: 'sports（不採用）', candidates: ['sports-1', 'sports-2'], keepExisting: '不可（不採用。統合までは 保護）', reuse: 'ミニゲーム汎用の 採用曲も 候補に できる', needNew: '必要 → 追加作曲 2案（はれのひグラウンド・かぜをきって）の 評価待ち', length: 'ゲーム中 ループ（30〜90秒）', status: '不足 → 追加作曲済み、評価待ち' },
-  fishing: { cls: 'D', area: 'ミニゲーム 釣り', current: 'sports（不採用）', candidates: ['explore-2', 'sports-2'], keepExisting: '不可（不採用。統合までは 保護）', reuse: '3D の「そらとうみのさんぽ」が 採用なら その 流用', needNew: '不要（流用候補あり）', length: '待つ 時間が 長い。ゆっくり ループ', status: '未確定' },
-  race: { cls: 'D', area: 'ミニゲーム 3D レース・シューティング', current: 'race（未確定）', candidates: ['bgm-race', 'game-1', 'game-2'], keepExisting: '未確定（疾走感は 合う）', reuse: 'ミニゲーム汎用の 採用曲', needNew: '不要', length: 'ゲーム中 ループ。いまの race は 1周 13秒', status: '未確定（既存 race を 残すか）' },
-  explore: { cls: 'D', confirm: true, area: 'ミニゲーム 3D 探検', current: 'race（未確定。探検には 速すぎる）', candidates: ['explore-1', 'explore-2'], keepExisting: '既存 race は レースで 比較', reuse: '—', needNew: '不要', length: 'ゲーム中 ループ', status: CONF + '。両方なら ここは ふしぎのちか' },
-  flight: { cls: 'D', confirm: true, area: 'ミニゲーム 3D 飛行・海', current: 'race（未確定。飛行には 速すぎる）', candidates: ['explore-2', 'explore-1'], keepExisting: '既存 race は レースで 比較', reuse: '—', needNew: '不要', length: 'ゲーム中 ループ', status: CONF + '。両方なら ここは そらとうみのさんぽ' },
+  action: { cls: 'A', area: 'ミニゲーム アクション', current: 'game（未確定）', candidates: ['game-1'], keepExisting: '既存 game は 不採用では ない（クイックモードで 残すか 検討）', reuse: '—', needNew: '不要', length: 'ゲーム中 ループ（1回 30〜90秒）。あそびのはじまり は 16小節 約27秒', status: '確定（あそびのはじまり）。別案 ぴょこぴょこステップ は 保存' },
+  strategy: { cls: 'A', area: 'ミニゲーム ストラテジー', current: 'game（未確定）', candidates: ['game-1'], keepExisting: '同上', reuse: 'ミニゲーム汎用の 採用曲', needNew: '不要', length: 'ゲーム中 ループ（数分）', status: '確定（ミニゲーム汎用 あそびのはじまり）' },
+  puzzle: { cls: 'D', area: 'ミニゲーム パズル', current: 'puzzle（不採用）', candidates: ['poyo-1', 'poyo-2'], keepExisting: '不可（不採用。統合までは 保護）', reuse: '採用曲 ぽよぽよこもれび で カバー できる（なおぽよ。の 個性が うすれる 点に 注意）', needNew: '分けたい なら 追加作曲', length: 'ゲーム中 ループ（数分）', status: '未確定（カバー案で よいか、追加作曲か）' },
+  board: { cls: 'D', area: 'ミニゲーム ボード・テーブル', current: 'puzzle（不採用）', candidates: ['card-1', 'poyo-1', 'card-2'], keepExisting: '不可（不採用。統合までは 保護）', reuse: '別案 カードをひらいて の 流用、または パズルと 同じ 曲（採用曲 デュエル・スタート は 勝負の 曲で にぎやか すぎる 可能性）', needNew: 'どれも 合わなければ 追加作曲', length: 'ゲーム中 ループ（数分）', status: '未確定' },
+  sports: { cls: 'D', area: 'ミニゲーム スポーツ', current: 'sports（不採用）', candidates: ['game-1', 'sports-1', 'sports-2'], keepExisting: '不可（不採用。統合までは 保護）', reuse: '採用曲 あそびのはじまり で カバー できる', needNew: 'スポーツ専用に するなら 追加作曲 2案（はれのひグラウンド・かぜをきって）の 評価', length: 'ゲーム中 ループ（30〜90秒）', status: '未確定（カバー案か、追加作曲 2案か）' },
+  fishing: { cls: 'D', area: 'ミニゲーム 釣り', current: 'sports（不採用）', candidates: ['explore-2', 'sports-2', 'explore-1'], keepExisting: '不可（不採用。統合までは 保護）', reuse: '別案 そらとうみのさんぽ（水辺）の 流用。採用曲 ふしぎのちか は 地下の 曲で 合いにくい', needNew: '不要（流用候補あり）', length: '待つ 時間が 長い。ゆっくり ループ', status: '未確定' },
+  race: { cls: 'D', area: 'ミニゲーム 3D レース・シューティング', current: 'race（未確定）', candidates: ['bgm-race', 'game-1'], keepExisting: '未確定（疾走感は 合う）', reuse: '採用曲 あそびのはじまり で カバー できる', needNew: '不要', length: 'ゲーム中 ループ。いまの race は 1周 13秒', status: '未確定（既存 race を 残すか）' },
+  explore: { cls: 'A', area: 'ミニゲーム 3D 探検', current: 'race（未確定。探検には 速すぎる）', candidates: ['explore-1'], keepExisting: '—', reuse: '—', needNew: '不要', length: 'ゲーム中 ループ。ふしぎのちか は 16小節 40秒', status: '確定（ふしぎのちか）' },
+  flight: { cls: 'C', area: 'ミニゲーム 3D 飛行・海', current: 'race（未確定。飛行には 速すぎる）', candidates: ['explore-1', 'explore-2'], keepExisting: '既存 race は レースで 検討', reuse: '「3D ゲーム」の 採用曲 ふしぎのちか で カバー。ただし 地下の 曲なので 空・海には 雰囲気が ちがう 可能性 → 別案 そらとうみのさんぽ（この 7本の ために 作った 曲）も 保存', needNew: '不要', length: 'ゲーム中 ループ', status: '採用曲で カバー（雰囲気の 確認を おすすめ）' },
 };
 const groups = {};
 for (const g of mg) (groups[groupOf(g)] = groups[groupOf(g)] || []).push(g);
