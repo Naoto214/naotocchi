@@ -1,0 +1,29 @@
+{
+  "title": "なおとっち CARD GAME",
+  "entry": "prototypes/card-game/index.html (allowlist entrypoint); linked from main menu index.html:492. Script: app.mjs (module).",
+  "audio": "none. No AudioContext / Audio / speechSynthesis / audio.js / vibrate in prototypes/card-game/*.mjs or index.html.",
+  "rules_relevant_to_pacing": {
+    "length": "10 rounds; start そだち20; highest そだち after round 10 wins; draw on tie (rulebook-content.mjs chapter 2 'ゲームの目的・勝利条件').",
+    "early_victory": "R1-R9: reaching そだち100 and holding it through the end of the opponent's next turn = 早期勝利. R10 has no early victory (rulebook-content.mjs).",
+    "round_display": "turn indicator shows 'ROUND n/10' (ui-presentation.mjs turn indicator).",
+    "late_game_note": "There is no distinct 'late phase' screen. Candidates for a late/finisher cue (inference): ROUND 9-10, or a player at そだち100 holding for early victory. late-conditions.mjs is card-condition logic, not a screen."
+  },
+  "screens": [
+    {"id": "welcome (title/menu)", "desc": "<section id=welcome>: ひとりであそぶ / ふたりであそぶ / 戦績 / マイデッキ / カードコレクション / あそびかたを覚える / ルールブック; home-return link", "source": "index.html #welcome, #solo-open, #hotseat-open, #records-open, #my-decks-open, #collection-open, #tutorial-open, #rulebook-open"},
+    {"id": "learning invitation", "desc": "first-time prompt 練習をはじめる / あとで", "source": "index.html #learning-invitation"},
+    {"id": "match setup (対戦の準備)", "desc": "mode CPU or hotseat, seat A先攻/B後攻, CPU level 中級/初級, CPU deck mode, deck A/B selection, new / restore", "source": "index.html #match-setup"},
+    {"id": "deck building (マイデッキ / deck editor)", "desc": "40-card deck editor with search/filters, catalog list, import/export", "source": "index.html #deck-editor; my-decks-ui.mjs"},
+    {"id": "battle (normal)", "desc": "<div id=game>: board with セカイ/メイン/こいびと/なかま①-③/準備①-③ slots, hand, phase label (カードを使う / 効果を使う / 応答を選ぶ / 必須選択)", "source": "index.html #game; ui-presentation.mjs phaseLabel/turnStatus; ui-render.mjs"},
+    {"id": "hotseat handoff curtain", "desc": "'HANDOFF 前のプレイヤーは画面から目を離してください' 準備OK (2-player same device)", "source": "index.html #curtain"},
+    {"id": "card detail / action confirm dialogs", "desc": "card-dialog, confirm-dialog", "source": "index.html"},
+    {"id": "life clock (人生の時計)", "desc": "dialog visualising the round/turn clock (V23)", "source": "index.html #life-clock-dialog; life-clock-view.mjs"},
+    {"id": "in-battle milestone notices", "desc": "result-notice cards: 対戦終了！⚑ / けっこん！♥ / おわかれ♡ / 結婚の能力！♥ / たんじょう！✦ / 成長！↑ (ときおくり) / そだちが変化！✦ (|Δ|>=10). Short moment notices.", "source": "ui-presentation.mjs:273-285 importantResult()"},
+    {"id": "battle menu (対戦メニュー)", "desc": "menu-dialog: continue, top, home, rulebook, tutorial, collection, hide, export/import", "source": "index.html #menu-dialog"},
+    {"id": "result win/lose/draw", "desc": "<section id=result> inside game view: '<A|B> の勝利' or '引き分け', reason, A/B growth, CPU deck name. In CPU mode the human is A or B, so win vs lose is derivable (no separate lose screen).", "source": "ui-presentation.mjs (v.result ? section#result)"},
+    {"id": "records (戦績)", "desc": "総合戦績, CPU対戦 · 自分の戦績, CPUの強さ別, 相手の戦略デッキ別, マイデッキ別, hotseat, 最近の対戦履歴", "source": "records-ui.mjs"},
+    {"id": "collection (カードコレクション)", "desc": "card collection browser with detail", "source": "collection-ui.mjs"},
+    {"id": "tutorial (あそびかたを覚える)", "desc": "step-based practice (STEPクリア, 練習を一時停止しました, 練習の処理履歴)", "source": "learning-ui.mjs; tutorial.mjs"},
+    {"id": "rulebook (ルールブック)", "desc": "rules text with search", "source": "learning-ui.mjs; rulebook-content.mjs"}
+  ],
+  "catalog_size": "452 cards (README.md)"
+}

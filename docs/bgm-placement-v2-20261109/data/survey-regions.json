@@ -1,0 +1,47 @@
+{
+  "source_note": "Verified on branch claude/bgm-placement-v2-20261109 (read-only).",
+  "regions_total": 13,
+  "regions": [
+    {"id": "home", "label": "おうち", "kind": "base (拠点)", "source": "character-world-master.v1.js:125; script.js:9311-9324 (REGIONS[0])"},
+    {"id": "city", "label": "とかい", "kind": "normal", "source": "character-world-master.v1.js:127"},
+    {"id": "countryside", "label": "いなか", "kind": "normal", "source": "character-world-master.v1.js:128"},
+    {"id": "forest", "label": "もり", "kind": "normal", "source": "character-world-master.v1.js:129"},
+    {"id": "mountain", "label": "やま", "kind": "normal", "source": "character-world-master.v1.js:130"},
+    {"id": "snow", "label": "ゆきぐに", "kind": "normal", "source": "character-world-master.v1.js:131"},
+    {"id": "sea", "label": "うみ", "kind": "normal", "source": "character-world-master.v1.js:132"},
+    {"id": "deepsea", "label": "しんかい", "kind": "normal", "source": "character-world-master.v1.js:133"},
+    {"id": "river_lake", "label": "みずべ", "kind": "normal", "source": "character-world-master.v1.js:134"},
+    {"id": "jungle", "label": "ジャングル", "kind": "normal", "source": "character-world-master.v1.js:135"},
+    {"id": "desert", "label": "さばく", "kind": "normal", "source": "character-world-master.v1.js:136"},
+    {"id": "star_stop", "label": "ほしぞらのていりゅうじょ", "kind": "special (SPECIAL_REGIONS, unlocked at そだち70「たびだち」)", "source": "script.js:9334-9361"},
+    {"id": "memory_lake", "label": "きおくのみずうみ", "kind": "special (SPECIAL_REGIONS, unlocked at そだち70)", "source": "script.js:9362-9386"}
+  ],
+  "region_structure_notes": [
+    "REGIONS = home + WORLD_MASTER.regions.normal (11 entries); SPECIAL_REGIONS (2) kept separate so region-all/partner-all conditions are not affected (script.js:9311-9333).",
+    "findRegion() looks up both lists (script.js:9391-9394); unknown ids fall back to 'home' (script.js:9401).",
+    "Special regions require hasPerk(70) to travel (script.js:19118).",
+    "home-dayparts.mjs DAYPARTS has an image set for all 13 regions x 4 dayparts (morning/day/evening/night) (home-dayparts.mjs:1-66); home-dayparts-qa.mjs:4 enumerates the same 13 ids."
+  ],
+  "dayparts": {
+    "exists": true,
+    "ids": ["morning", "day", "evening", "night"],
+    "labels_ja": {"morning": "あさ", "day": "ひる", "evening": "ゆう", "night": "よる"},
+    "labels_source": "script.js:14734 TIME_CHOICES = {auto:げんざい, morning:あさ, day:ひる, evening:ゆう, night:よる}",
+    "decision": "currentEnvironment time = NaotocchiEnvironment.timeOfDay(state.lifetime.timeMode) (script.js:14820-14821, 15468-15469). timeMode defaults to 'auto' (script.js:1566); the player can force a daypart in the せかい screen (timeModeGrid, script.js:19013-19015).",
+    "auto_hour_boundaries_local_device_clock": {
+      "morning": "05:00-09:59 (hour 5..9)",
+      "day": "10:00-15:59 (hour 10..15)",
+      "evening": "16:00-18:59 (hour 16..18)",
+      "night": "19:00-04:59 (all other hours)",
+      "source": "world-environment.js:13-20 timeOfDay()"
+    },
+    "home_render": "home-production-world.mjs:16 calls dayparts.select(e.region, e.time) to crossfade the background image (home-dayparts.mjs createDayparts, presentation only).",
+    "other_effects": "Daypart also changes meguru.js lighting (e.g. meguru.js:646, 4860, 5430) and env modifiers (script.js:14737 comment: weather/time/season/region status modifiers)."
+  },
+  "music_varies_by_region_or_daypart": {
+    "answer": "no",
+    "evidence": "audio.js:263-277 currentScene() reads only state.stage (DEAD/FAREWELL), lifeCardOverlay visibility, gameActive + minigame genre, dateMovie/dateOpen, and state.isSleeping. It never reads regionId, timeOfDay, weather or season.",
+    "night_track_note": "The 'night' track is chosen only when state.isSleeping is true (audio.js:274), which is toggled solely by the ねる/おきる button (script.js:18617-18619). It is NOT tied to the 'night' daypart (19:00-04:59).",
+    "bgm_setting": "state.lifetime.soundBgm (default true, script.js:1579), toggled in the せかい screen (script.js:19043, bgmModeGrid script.js:15513)."
+  }
+}

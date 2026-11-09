@@ -1,0 +1,20 @@
+{
+  "source": "tools/pages/allowlist.json (version 1). 'entrypoints' has 7 paths; 'files' contains 11 .html files. Root index.html is in 'files' (packager tools/pages/package.py).",
+  "allowlist_entrypoints": [
+    {"path": "prototypes/card-game/index.html", "covered_in": "card.json", "audio": "none"},
+    {"path": "prototypes/madoromi-white-reader-20261027/dist/index.html", "covered_in": "caller context (ものがたり, <title>微睡みの箱庭)", "audio": "none (no AudioContext/Audio/speechSynthesis/audio.js in dist html)"},
+    {"path": "prototypes/naopoyo-chapter1/index.html", "covered_in": "naopoyo.json (legacy ch1 ひかりの牢屋, 10 stages)", "audio": "none"},
+    {"path": "prototypes/naopoyo-chapter2/index.html", "covered_in": "naopoyo.json (ch2 こもれびの森, stages 11-20)", "audio": "none"},
+    {"path": "prototypes/naopoyo-rescue/index.html", "covered_in": "naopoyo.json (12 stages prison/cavern/castle)", "audio": "none"},
+    {"path": "prototypes/naopoyo/index.html", "covered_in": "naopoyo.json (redirect)", "audio": "none"},
+    {"path": "prototypes/naopoyo-time-hand-chapter1/index.html", "covered_in": "naopoyo.json (published 第1章 地下牢, 10 stages)", "audio": "none"}
+  ],
+  "html_in_files_but_not_entrypoints": [
+    {"path": "index.html", "note": "main game", "audio": "audio.js (8 BGM tracks + SFX + voice)"},
+    {"path": "prototypes/life-sugoroku/index.html", "note": "なおころ。 V4 (main-v4.mjs)", "audio": "audio.js loaded; SFX + quick voice only, BGM forced off"},
+    {"path": "prototypes/life-sugoroku/v4.html", "note": "same V4 runtime (main-v4.mjs)", "audio": "same as index.html (loads audio.js)"},
+    {"path": "prototypes/life-sugoroku/legacy.html", "note": "V2/V3 save compatibility (main.mjs); title() redirects old saves here", "audio": "none (does not load audio.js)"}
+  ],
+  "other_prototype_dirs_with_files_in_allowlist": "prototypes/naopoyo-world (3 files) and prototypes/naopoyo-v2 (2 files) appear in 'files' only as supporting modules/assets, no HTML entrypoint.",
+  "conclusion": "No additional published game/entrypoint beyond main game, なおぽよ。(+3 legacy chapter pages), なおころ。(+v4/legacy pages), CARD GAME and ものがたり. Only the main game has BGM."
+}
