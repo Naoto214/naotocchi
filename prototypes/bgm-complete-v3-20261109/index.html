@@ -270,6 +270,7 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
 <script src="../bgm-placement-v2-20261109/inventory.js"></script>
 <script src="songs-v3.js"></script>
 <script src="variants.js"></script>
+<script src="fanfare.js"></script>
 <script src="design.js"></script>
 <script src="loudness-v3.js"></script>
 <script src="../bgm-survey-20261108/engine-bgm.js"></script>
@@ -504,9 +505,10 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
   // ---- 実際の 場面で 聴く ----
   // 2台の プレーヤーで、ホーム曲（背景）と ジングルを 重ねる。ジングルの 間は ホーム曲を −10 dB に 下げ、終わったら もどす。
   const bgPlayer = E.createPlayer(), fgPlayer = E.createPlayer();
-  const passOf = (id) => passSec(song(id).song) * song(id).song.repeats;
+  const FAN = window.NAOTOCCHI_BGM_V3_FANFARE;
+  const passOf = (id) => (/^var-ohayo-hatch/.test(id) ? FAN.duration(song(id).song) : passSec(song(id).song) * song(id).song.repeats);
   const SCENES = [
-    { id: 'hatch', title: 'たまごが かえる', bg: 'home-morning', pre: 4, event: 2.8, sfx: 'hatch', sfxName: '「ポンッ」と 上がる 3音（hatch）', after: 6, jingles: [], note: 'かえる 演出（2.8秒）の はじめに、いまの ゲームと 同じ 効果音 hatch。ホーム曲は 止めない。' },
+    { id: 'hatch', title: 'たまごが かえる', bg: 'home-morning', pre: 4, event: 2.8, fanfare: true, jingles: [['var-ohayo-hatch2', 'ファンファーレ 2小節'], ['var-ohayo-hatch4', 'ファンファーレ 4小節']], note: 'かえる 演出（2.8秒）の はじめに、いまの 効果音 hatch と 同時に「おはようのひかり」の ファンファーレ編曲（旋律は 同じ・テンポ 120）。その 間 ホーム曲は −14 dB に 下げる。' },
     { id: 'birthday', title: '誕生日', bg: 'home-day', pre: 4, event: 1.2, sfx: 'notify', sfxName: '「ピコン」（notify）', after: 6, jingles: [], note: '年齢が 上がる お知らせ（1.2秒・遊んだ 60秒ごとに 1さい）。ホーム曲は 止めず、効果音「ピコン」だけ。' },
     { id: 'achieve', title: '図鑑・実績の 達成', bg: 'home-day', pre: 4, jingles: [['jingle-achieve', 'やったね']], note: '達成の お知らせで「やったね」（8秒）。' },
     { id: 'clear', title: 'GAME CLEAR 画面', bg: 'home-evening', pre: 3, jingles: [['jingle-achieve', 'やったね']], then: 'event-1', note: 'クリア表示で「やったね」、その あと 画面に とどまる 間は「おめでとうのひ」が ループ（ここでは 20秒で 止める）。' },
@@ -534,13 +536,13 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
     document.getElementById('sceneInfo').innerHTML = `<h3>${S.title}</h3><p class="meta">${S.note}</p>${jl}`;
     if (S.sfx) { document.getElementById('sceneSteps').innerHTML = [`ホーム曲「${song(S.bg).title}」が 流れている（${S.pre}秒）`, `演出（${S.event}秒）の はじめに 効果音 ${S.sfxName}。ホーム曲は そのまま`, 'ホーム曲が 続く'].map((t, i) => `<li data-i="${i}">${esc(t)}</li>`).join(''); return; }
     const [jid] = S.jingles[Math.min(sc.j, S.jingles.length - 1)];
-    const steps = [`ホーム曲「${song(S.bg).title}」が 流れている（${S.pre}秒）`, `${S.event ? `演出（${S.event}秒）と 同時に ` : ''}ホーム曲を 小さく して「${song(jid).title}」（${passOf(jid).toFixed(1)}秒）`, S.then ? `「${song(S.then).title}」に 切りかえて ループ` : 'ホーム曲の 音量を もどす（1秒）'];
+    const steps = [`ホーム曲「${song(S.bg).title}」が 流れている（${S.pre}秒）`, `${S.event ? `演出（${S.event}秒）と 同時に ` : ''}${S.fanfare ? '効果音 hatch と いっしょに、' : ''}ホーム曲を 小さく して「${song(jid).title}」（${passOf(jid).toFixed(1)}秒）`, S.then ? `「${song(S.then).title}」に 切りかえて ループ` : 'ホーム曲の 音量を もどす（1秒）'];
     document.getElementById('sceneSteps').innerHTML = steps.map((t, i) => `<li data-i="${i}">${esc(t)}</li>`).join('');
   }
   sceneTabs.addEventListener('click', (ev) => { const b = ev.target.closest('[data-scene]'); if (!b) return; stopScene(); sc.id = b.dataset.scene; sc.j = 0; renderScene(); });
   document.getElementById('sceneInfo').addEventListener('click', (ev) => { const b = ev.target.closest('[data-j]'); if (!b) return; stopScene(); sc.j = Number(b.dataset.j); renderScene(); });
   const markStep = (i) => document.querySelectorAll('#sceneSteps li').forEach((li) => { const k = Number(li.dataset.i); li.dataset.now = String(k === i); li.dataset.done = String(k < i); });
-  function stopScene() { if (sc.run) { sc.run.timers.forEach(clearTimeout); clearInterval(sc.run.clock); sc.run = null; } bgPlayer.stop(); fgPlayer.stop(); markStep(-1); document.getElementById('sceneBtn').textContent = '▶ この 場面を 再生'; document.getElementById('sceneClock').textContent = ''; }
+  function stopScene() { if (sc.run) { sc.run.timers.forEach(clearTimeout); clearInterval(sc.run.clock); if (sc.run.fan) sc.run.fan.stop(); sc.run = null; } bgPlayer.stop(); fgPlayer.stop(); markStep(-1); document.getElementById('sceneBtn').textContent = '▶ この 場面を 再生'; document.getElementById('sceneClock').textContent = ''; }
   function playScene() {
     stop(); stopScene();
     const S = SCENES.find((x) => x.id === sc.id);
@@ -560,9 +562,16 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
     const run = { timers: [], t0: performance.now(), clock: null }; sc.run = run;
     bgPlayer.setVolume(Math.min(1, base * g(S.bg, st.mode))); bgPlayer.play(song(S.bg).song, st.mode, { loop: true });
     markStep(0);
+    if (S.fanfare) sfxUnlock();
     run.timers.push(setTimeout(() => {
-      bgPlayer.setVolume(Math.min(1, base * g(S.bg, st.mode) * 0.316)); // −10 dB
-      fgPlayer.setVolume(Math.min(1, base * g(jid, st.mode))); fgPlayer.play(song(jid).song, st.mode, { repeats: 1 });
+      if (S.fanfare) {
+        bgPlayer.setVolume(Math.min(1, base * g(S.bg, st.mode) * 0.2)); // −14 dB
+        playSfx('hatch', base);
+        try { run.fan = FAN.schedule(sfxCtx, sfxCtx.destination, song(jid).song, { gain: base * 0.9 }); } catch (err) {}
+      } else {
+        bgPlayer.setVolume(Math.min(1, base * g(S.bg, st.mode) * 0.316)); // −10 dB
+        fgPlayer.setVolume(Math.min(1, base * g(jid, st.mode))); fgPlayer.play(song(jid).song, st.mode, { repeats: 1 });
+      }
       markStep(1);
     }, S.pre * 1000));
     run.timers.push(setTimeout(() => {

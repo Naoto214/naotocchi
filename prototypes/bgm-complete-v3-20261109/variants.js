@@ -35,6 +35,10 @@
       arrangement: '冒頭 1〜2小節だけ 1回（テンポ 80 で 約 6秒）', character: 'たまごが かえる・誕生日の 演出用。「ミ ミ ソー｜ファ ミ レー」の まばたきの 動機だけを 鳴らす。' }),
     variant(fav('ohayo'), { id: 'var-ohayo-birth4', baseId: 'ohayo', use: 'birth', kind: 'jingle', title: 'おはようのひかり（誕生・冒頭 4小節）', range: [1, 4],
       arrangement: '冒頭 1〜4小節だけ 1回（テンポ 80 で 約 12秒）', character: '2小節版より 長く、句の 区切り（4小節め）まで 鳴らす 案。' }),
+    variant(fav('ohayo'), { id: 'var-ohayo-hatch2', baseId: 'ohayo', use: 'birth', kind: 'jingle', title: 'おはようのひかり（たまごが かえる・ファンファーレ 2小節）', bpm: 120, range: [1, 2],
+      arrangement: 'テンポ 80 → 120、冒頭 1〜2小節を 1回。ファンファーレ編曲（fanfare.js）: はじまりの「パカッ」、金管風の 旋律 ＋ ベルの オクターブ重ね、和音の 8分きざみ、ティンパニ、グロッケン、最後に 主和音 E♭ と シンバル。約 6.8秒', character: '本人の 希望「さっきの メロディーを もう少し 派手に アレンジ」。一生に 1回の たまごが かえる しゅんかんを はっきり 聞こえる 音で 祝う。旋律は 同じ。' }),
+    variant(fav('ohayo'), { id: 'var-ohayo-hatch4', baseId: 'ohayo', use: 'birth', kind: 'jingle', title: 'おはようのひかり（たまごが かえる・ファンファーレ 4小節）', bpm: 120, range: [1, 4],
+      arrangement: 'テンポ 80 → 120、冒頭 1〜4小節を 1回。ファンファーレ編曲は 2小節版と 同じ（B♭7 → E♭ で 終わる）。約 10.8秒', character: '2小節版より 長く、句の 区切り（4小節め）まで 鳴らす 案。' }),
   ];
   const api = { VARIANTS };
   if (isNode) module.exports = api;
