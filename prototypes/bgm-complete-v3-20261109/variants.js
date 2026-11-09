@@ -29,6 +29,8 @@
       arrangement: 'テンポ 138 → 156（同じ 旋律を 速く）', character: '9〜10ラウンド目や そだち100 目前の 勝負どころ用。同じ 曲の まま テンポだけ 上げて 逆転の 緊張を 出す（終盤を 判定する 画面は いまの コードに ない ので 実装時に 追加）。' }),
     variant(nb('card-2'), { id: 'var-card-win', baseId: 'card-2', use: 'card-end', kind: 'jingle', title: 'デュエル・スタート（勝利）', range: [13, 16],
       arrangement: '13〜16小節（ト長調側で 動機が 高く もどる 句と 終止）だけを 1回', character: '勝利の 結果画面で 鳴らす 約 7秒。' }),
+    variant(nb('explore-2'), { id: 'var-flight', baseId: 'explore-2', use: 'flight', kind: 'loop', title: 'そらとうみのさんぽ（きらめき・はやめ）', bpm: 120, repeats: 2,
+      arrangement: 'テンポ 108 → 120（本人の メモ「煌びやかに、もう少し テンポ 早く」）。煌びやかさは 編曲で（高音の ベル・グロッケンの 分散和音・ハープの グリッサンドを 想定）', character: '3D 飛行・海で 採用した「そらとうみのさんぽ」を、本人の メモに 合わせて 速く した 変奏。旋律は 同じ。きらめく 音色は 採用後の 編曲で 足す。' }),
   ];
   const api = { VARIANTS };
   if (isNode) module.exports = api;

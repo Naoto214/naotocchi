@@ -121,7 +121,64 @@
     R({ game: '共通', scene: '起動直後（最初の タップまで）・BGM オフ設定', songs: [], status: '無音', arrangement: '—', start: '—', stop: '—', loop: '—', volume: '—', fade: '—', sfx: '—', notes: 'ブラウザの 決まり・本人の 設定どおり' }),
   ];
 
-  const api = { SONGS, STATUS: ST, STATUS_LABEL, ADOPTED, USES, TABLE, flatten: C.flatten, solfege: C.solfege };
+  // ===== 2026-11-09 本人の 試聴結果（試聴ページの 評価を db で 共有して 読み取り） =====
+  // 「採用」は 本人が その 用途で 採用を 押した もの。押していない 曲は 不採用に せず 候補として 保存。
+  const DECISIONS = [
+    { use: 'puzzle', song: 'poyo-2' }, { use: 'board', song: 'board-b' }, { use: 'sports', song: 'game-2' },
+    { use: 'fishing', song: 'fishing-a' }, { use: 'race', song: 'bgm-race' }, { use: 'flight', song: 'explore-2', memo: '煌びやかに、もう少しテンポ早くして' },
+    { use: 'quick', song: 'bgm-game' }, { use: 'sleep', song: 'lullaby-a' }, { use: 'farewell', song: 'bgm-farewell' },
+    { use: 'achieve', song: 'jingle-achieve' }, { use: 'naopoyo-end', song: 'var-poyo-clear' }, { use: 'naokoro-end', song: 'var-koro-goal' },
+    { use: 'card-end', song: 'var-card-late' }, { use: 'card-end', song: 'jingle-card-lose' }, { use: 'date', song: 'event-2' },
+  ];
+  const REJECTED_BY_RATING = [{ use: 'puzzle', song: 'bgm-puzzle' }];
+  const HOLD_BY_RATING = [{ use: 'birth', song: 'ohayo' }, { use: 'farewell', song: 'kisetsu' }, { use: 'naokoro-end', song: 'kisetsu' }];
+  const USE_LABEL = { puzzle: 'パズル', board: 'ボード・テーブル', sports: 'スポーツ', fishing: '釣り', race: 'レース・シューティング', flight: '3D 飛行・海', quick: 'クイックモード', sleep: '睡眠', farewell: 'お別れ', achieve: '達成', 'naopoyo-end': 'なおぽよ。ステージクリア', 'naokoro-end': 'なおころ。ゴール', 'card-end': 'CARD GAME 終盤・敗北', date: 'デート・映画' };
+  for (const d of DECISIONS) {
+    const prev = ST[d.song]; const where = USE_LABEL[d.use];
+    if (prev && prev.status === 'adopted') { prev.note += `／${where}にも 採用（2026-11-09）`; continue; }
+    ST[d.song] = { status: 'adopted', note: `${where}で 採用（2026-11-09 本人の 試聴）${d.memo ? `。本人メモ「${d.memo}」→ 変奏「そらとうみのさんぽ（きらめき・はやめ）」を 用意` : ''}` };
+  }
+  for (const id of ['puzzle-a', 'puzzle-b', 'board-a', 'race-a', 'race-b', 'farewell-a', 'farewell-b', 'sports-1', 'sports-2', 'var-sleep'])
+    if (ST[id].status !== 'adopted') ST[id] = { status: 'unpicked', note: '今回の 試聴では 選ばれなかった（不採用の 印は ない）。削除せず 候補として 保存' };
+  STATUS_LABEL.unpicked = '選ばれなかった 候補（保存）';
+  ST['var-flight'] = { status: 'variant', note: '本人メモ「煌びやかに、もう少しテンポ早くして」に 合わせた 変奏（テンポ 120）。未試聴' };
+  ADOPTED.length = 0; for (const id of Object.keys(ST)) if (ST[id].status === 'adopted') ADOPTED.push(id);
+
+  // 比較する 用途は、まだ 決まっていない ものだけに しぼる
+  const OPEN_USES = [
+    U('birth', '誕生・誕生日', 'たまごが かえる（2.8秒）・誕生日（1.2秒）。いま home。達成の ジングル「やったね」は 採用済み。', 'ジングル「うまれたよ」は まだ 評価が ない。おはようのひかり は 保留、おめでとうのひ も 保留。演出が 短い ので ジングルなし（ホーム曲の まま）も 選べる。', ['jingle-birth', 'ohayo', 'event-1'], { ohayo: '保留', 'event-1': '保留' }),
+    U('flight-check', '3D 飛行・海（メモの 反映を 確認）', '採用した「そらとうみのさんぽ」を、メモ「煌びやかに、もう少しテンポ早くして」に 合わせて テンポ 120 に した 変奏。', '旋律は 同じ。煌びやかさ（ベル・グロッケン・ハープ）は 採用後の 編曲で 足す 前提。この 速さで よいかを 聴いて ください。', ['var-flight', 'explore-2'], { 'explore-2': '採用（もとの 速さ 108）' }),
+    U('card-win', 'CARD GAME の 勝利', '勝利の 結果画面。終盤（テンポ 156 の 変奏）と 敗北の ジングルは 採用済み。', '勝利の 変奏は 評価が 取り消された まま。達成の ジングル「やったね」を 使う 案も。', ['var-card-win', 'jingle-achieve'], { 'jingle-achieve': '採用曲の 流用' }),
+    U('naopoyo-chapter', 'なおぽよ。第1章クリア', '章クリア「第1章 クリア！」の 画面。ステージクリアの 変奏は 採用済み。', '章の おわりを ゆっくり 聴かせる 変奏（テンポ 80）と、別案「みんなでかえろう」（パズルで 採用済み）。', ['var-poyo-chapter', 'poyo-2'], { 'poyo-2': '採用曲（パズル）の 流用' }),
+    U('naokoro-album', 'なおころ。人生アルバム', '「こんな人生に、なりました。」と 過去の アルバム。ゴールの 変奏は 採用済み。', 'ゆっくり版の 変奏・別案「いつかのゴール」・保留「きせつのきおく」。', ['var-koro-album', 'koro-2', 'kisetsu'], { kisetsu: '保留' }),
+    U('legend', 'でんせつの であい', '一生に 1度の 伝説の 出会いの 映画。いま movie（不採用）。', '採用曲「ほしふるみずうみ」「ふたりのきねんび」の 配置か、保留「きせつのきおく」。', ['home-evening', 'event-2', 'kisetsu'], { 'home-evening': '採用曲の 配置案', 'event-2': '採用曲の 配置案', kisetsu: '保留' }),
+  ];
+  USES.length = 0; OPEN_USES.forEach((u) => USES.push(u));
+
+  // 最終配置表に 反映
+  const row = (pre) => { const r = TABLE.find((x) => x.scene.startsWith(pre)); if (!r) throw new Error('no row ' + pre); return r; };
+  const adopt = (pre, songs, extra = {}) => Object.assign(row(pre), { songs, status: '採用' }, extra);
+  adopt('睡眠', ['lullaby-a'], { arrangement: '新曲「ねむりのほし」（オルゴール風の 編曲を 想定）' });
+  adopt('デートを 選ぶ', ['event-2'], { arrangement: 'ふたりのきねんび（原曲）' });
+  adopt('お別れ', ['bgm-farewell'], { arrangement: '既存 audio.js「farewell」（そのまま。新しい 音色への 編曲は 実装時に 検討）' });
+  adopt('ステージクリア', ['var-poyo-clear']);
+  adopt('最終ターンの ゴール', ['var-koro-goal']);
+  adopt('盤の クイック', ['bgm-game'], { arrangement: '既存 audio.js「game」（本編の クイックモードと 同じ）' });
+  adopt('終盤の 逆転', ['var-card-late']);
+  adopt('敗北・引き分け', ['jingle-card-lose']);
+  adopt('パズル', ['poyo-2'], { arrangement: '「みんなでかえろう」（なおぽよ。の 別案。3拍子）' });
+  adopt('ボード・テーブル', ['board-b'], { arrangement: '新曲「きしとおしろ」' });
+  adopt('スポーツ', ['game-2'], { arrangement: '「ぴょこぴょこステップ」（ミニゲーム汎用の 別案）' });
+  adopt('釣り', ['fishing-a'], { arrangement: '新曲「みずべのうたたね」' });
+  adopt('レース・シューティング', ['bgm-race'], { arrangement: '既存 audio.js「race」（そのまま）' });
+  Object.assign(row('飛行・海'), { songs: ['explore-2', 'var-flight'], status: '採用（メモの 変奏を 確認中）', arrangement: '「そらとうみのさんぽ」。本人メモ「煌びやかに、もう少しテンポ早くして」→ テンポ 120 の 変奏＋ベル・グロッケン・ハープで きらめきを 足す 編曲' });
+  adopt('クイックゲーム', ['bgm-game'], { arrangement: '既存 audio.js「game」（そのまま）' });
+  const ach = row('図鑑・実績の 達成');
+  Object.assign(ach, { scene: '図鑑・実績の 達成（お知らせ）', songs: ['jingle-achieve'], status: '採用', arrangement: 'ジングル「やったね」（8秒）' });
+  TABLE.splice(TABLE.indexOf(ach) + 1, 0, R({ game: 'ホーム', scene: 'GAME CLEAR 画面（図鑑・すべての 実績）に とどまる 間', songs: ['event-1', 'jingle-achieve'], status: '候補比較中', arrangement: 'クリア表示で「やったね」→ その後の 曲は 未定（保留の「おめでとうのひ」か、ホーム曲に もどる）', start: 'クリア表示', stop: '画面を 閉じる', notes: '一生の クリアは お別れの 曲（farewell）' }));
+  Object.assign(row('たまごが かえる'), { songs: ['jingle-birth', 'ohayo', 'event-1'], status: '候補比較中' });
+
+  const api = { SONGS, STATUS: ST, STATUS_LABEL, ADOPTED, USES, TABLE, DECISIONS, flatten: C.flatten, solfege: C.solfege };
   if (isNode) module.exports = api;
   root.NAOTOCCHI_BGM_V3 = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

@@ -62,15 +62,17 @@ for (const v of VR.VARIANTS) {
 
 // (3) 採用 10曲
 const ADOPTED = ['home-morning', 'home-day', 'home-evening', 'home-night', 'poyo-1', 'koro-1', 'card-2', 'game-1', 'explore-1', 'event-2'];
-if (JSON.stringify([...D.ADOPTED].sort()) !== JSON.stringify([...ADOPTED].sort())) fail('adopted set must be exactly the 10 owner-confirmed songs: ' + D.ADOPTED.join(','));
+// 2026-11-09 の 試聴で 本人が 採用を 押した 曲（db の ratings/latest から 読み取った もの）
+const ADOPTED_LATER = ['poyo-2', 'board-b', 'game-2', 'fishing-a', 'bgm-race', 'explore-2', 'bgm-game', 'lullaby-a', 'bgm-farewell', 'jingle-achieve', 'var-poyo-clear', 'var-koro-goal', 'var-card-late', 'jingle-card-lose'];
+const expectAdopted = [...ADOPTED, ...ADOPTED_LATER].sort();
+if (JSON.stringify([...D.ADOPTED].sort()) !== JSON.stringify(expectAdopted)) fail('adopted set must be exactly the owner-confirmed songs: ' + D.ADOPTED.join(','));
 const F = require(path.join(repo, 'prototypes/main-theme-favorites-20261108/favorites.js'));
 const src = { 'home-morning': F.FAVORITES.find((f) => f.id === 'soyokaze').song, 'home-day': F.FAVORITES.find((f) => f.id === 'current').song, 'home-evening': F.FAVORITES.find((f) => f.id === 'starlake').song, 'home-night': F.FAVORITES.find((f) => f.id === 'hoshizora').song };
 for (const id of ['poyo-1', 'koro-1', 'card-2', 'game-1', 'explore-1', 'event-2']) src[id] = NB.NEW_SONGS.find((s) => s.id === id);
 for (const id of ADOPTED) if (melodyOf(D.SONGS[id].song.bars) !== melodyOf(src[id].bars) || D.SONGS[id].song.bpm !== src[id].bpm) fail(`${id}: adopted song data differs from the original`);
-for (const s of N3.SONGS) if (D.STATUS[s.id].status !== 'candidate') fail(`${s.id}: new song must stay a candidate`);
-for (const v of VR.VARIANTS) if (D.STATUS[v.id].status !== 'variant') fail(`${v.id}: variant must stay a candidate`);
-for (const id of ['poyo-2', 'koro-2', 'card-1', 'game-2', 'explore-2']) if (D.STATUS[id].status !== 'alt' || !D.SONGS[id]) fail(`${id}: alternative must be kept`);
-for (const u of D.USES) if (u.candidates.filter((c) => D.STATUS[c].status === 'adopted').length && u.id !== 'date') fail(`use ${u.id}: adopted songs are not re-selected`);
+for (const s of [...N3.SONGS, ...VR.VARIANTS]) if (!expectAdopted.includes(s.id) && D.STATUS[s.id].status === 'adopted') fail(`${s.id}: adopted without an owner decision`);
+for (const id of ['poyo-2', 'koro-2', 'card-1', 'game-2', 'explore-2']) if (!D.SONGS[id]) fail(`${id}: alternative must be kept`);
+for (const u of D.USES) if (u.candidates.every((c) => D.STATUS[c].status === 'adopted')) fail(`use ${u.id}: nothing left to choose`);
 const byStatus = {}; for (const [id, v] of Object.entries(D.STATUS)) (byStatus[v.status] = byStatus[v.status] || []).push(id);
 console.log('song status:', Object.entries(byStatus).map(([k, v]) => `${k}=${v.length}`).join(' '));
 

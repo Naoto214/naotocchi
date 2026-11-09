@@ -188,19 +188,19 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
   </section>
 
   <section class="group" aria-labelledby="adTitle">
-    <div class="group-head"><h2 id="adTitle">採用済みの 10曲</h2><p>選び直しは 不要です。聴いて 確かめる だけ（ホーム4曲は 原曲の 旋律。アレンジA は PR #530 で）。</p></div>
+    <div class="group-head"><h2 id="adTitle">採用済みの 曲</h2><p>選び直しは 不要です。聴いて 確かめる だけ（ホーム4曲は 原曲の 旋律。アレンジA は PR #530 で）。</p></div>
     <div class="adopted-grid" id="adopted"></div>
   </section>
 
   <section class="group" aria-labelledby="useTitle">
-    <div class="group-head"><h2 id="useTitle">まだ 決まっていない 用途</h2><p>新曲・変奏・未確定の 既存曲・保留曲・別案を 同じ 条件で 聴きくらべます。評価は 用途ごとに 別々に 保存されます。</p></div>
+    <div class="group-head"><h2 id="useTitle">まだ 決まっていない 用途</h2><p>2026-11-09 の 試聴で 採用が 決まった 用途は ここから 外し、最終配置表に 反映しました。のこりの 用途だけを 聴きくらべます。評価は 用途ごとに 別々に 保存されます。</p></div>
     <div class="tabs" id="tabs" role="group" aria-label="用途"></div>
     <div class="note" id="useInfo"></div>
     <div class="group" id="list"></div>
   </section>
 
   <section class="split" aria-labelledby="sumTitle">
-    <h2 id="sumTitle">あなたの 評価の まとめ</h2>
+    <h2 id="sumTitle">あなたの 評価の まとめ（これまでの すべて）</h2>
     <p class="status" id="syncNote" aria-live="polite"></p>
     <div class="tablebox"><table id="summary"></table></div>
   </section>
@@ -299,6 +299,11 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
       clearTimeout(timer);
       const remote = snap && snap.exists ? snap.data() : null;
       synced = remote ? JSON.stringify(remote.ratings || {}) : '';
+      // 共有先の 評価を この ページにも 読みこむ（別の 端末で つけた 評価も 一覧に 出る）。同じ 項目は この ブラウザの 評価を 優先
+      if (remote && remote.ratings) {
+        const merged = Object.assign({}, remote.ratings, st.ratings);
+        if (JSON.stringify(merged) !== JSON.stringify(st.ratings)) { st.ratings = merged; try { localStorage.setItem(KEY, JSON.stringify({ mode: st.mode, vol: st.vol, level: st.level, use: st.use, game: st.game, ratings: st.ratings })); } catch (err) {} renderUse(); renderSummary(); }
+      }
       if (JSON.stringify(st.ratings) !== '{}' && JSON.stringify(st.ratings) !== synced) await pushRatings();
       else syncNote(remote ? '評価と メモは Claude と 共有されています' : '評価を つけると Claude と 共有されます');
     } catch (err) { syncNote('評価の 共有に 失敗しました。この ブラウザには 保存されています'); }
@@ -416,12 +421,16 @@ details.survey .tablebox { margin-top: 10px; border: 0; }
   document.getElementById('nextBtn').addEventListener('click', () => step(1));
 
   // ---- 評価の まとめ ----
+  // 評価の まとめ: いま 表示中の 用途だけで なく、これまでに つけた すべての 評価（以前の 用途を ふくむ）を 出す
+  const OLD_USE_LABEL = { puzzle: 'パズル', board: 'ボード・テーブル', sports: 'スポーツ', fishing: '釣り', race: 'レース・シューティング', flight: '3D 飛行・海', quick: 'クイックモード', sleep: '睡眠', farewell: 'お別れ', birth: '誕生・誕生日・達成', 'naopoyo-end': 'なおぽよ。クリア・章の おわり', 'naokoro-end': 'なおころ。ゴール・アルバム', 'card-end': 'CARD GAME 終盤・勝敗', date: 'デート・映画' };
+  const useLabel = (id) => (use(id) || {}).label || OLD_USE_LABEL[id] || id;
   function renderSummary() {
-    const rows = D.USES.map((u) => {
-      const pick = (r) => u.candidates.filter((id) => (st.ratings[rkey(u.id, id)] || {}).r === r).map((id) => esc(song(id).title)).join('、') || '—';
-      return `<tr><td><b>${esc(u.label)}</b></td><td>${pick('adopt')}</td><td>${pick('hold')}</td><td>${pick('reject')}</td></tr>`;
-    }).join('');
-    document.getElementById('summary').innerHTML = `<thead><tr><th>用途</th><th>採用</th><th>保留</th><th>不採用</th></tr></thead><tbody>${rows}</tbody>`;
+    const groups = {};
+    for (const [k, v] of Object.entries(st.ratings)) { const i = k.indexOf(':'), u = k.slice(0, i), id = k.slice(i + 1); if (!song(id) || !v) continue; (groups[u] = groups[u] || []).push([id, v]); }
+    const ids = Object.keys(groups);
+    const pick = (list, r) => list.filter(([, v]) => v.r === r).map(([id, v]) => esc(song(id).title) + (v.memo ? `<br><span class="meta">メモ: ${esc(v.memo)}</span>` : '')).join('<br>') || '—';
+    const rows = ids.map((u) => `<tr><td><b>${esc(useLabel(u))}</b></td><td>${pick(groups[u], 'adopt')}</td><td>${pick(groups[u], 'hold')}</td><td>${pick(groups[u], 'reject')}</td></tr>`).join('');
+    document.getElementById('summary').innerHTML = `<thead><tr><th>用途</th><th>採用</th><th>保留</th><th>不採用</th></tr></thead><tbody>${rows || '<tr><td colspan="4">まだ 評価が ありません。上の 用途で「採用・保留・不採用」を 押すと ここに 出ます。</td></tr>'}</tbody>`;
   }
 
   // ---- 譜面 ----
