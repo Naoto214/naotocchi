@@ -1,3 +1,4 @@
+import {paintGate} from './ref/prototypes/naopoyo-shared/gate-design.mjs';
 import {paintTile} from './tile-art.mjs';
 import {drawBoard as drawFormal} from './ref/prototypes/naopoyo-time-hand-chapter1/draw.mjs';
 import {drawBoard as drawCastle} from './ref/prototypes/naopoyo-castle-forest/draw.mjs';
@@ -62,6 +63,7 @@ function renderSource(){
 }
 function paint(canvas,e=active,unknown=false){const size=canvas.id==='size36'?72:canvas.id==='size48'?96:256;canvas.width=size;canvas.height=size;let c=canvas.getContext('2d');c.clearRect(0,0,size,size);
  if(unknown){c.fillStyle='#ced9d0';c.beginPath();c.roundRect(size*.2,size*.2,size*.6,size*.6,size*.15);c.fill();c.fillStyle='#71867c';c.font=`${size*.15}px sans-serif`;c.textAlign='center';c.fillText('???',size/2,size*.56);return;}
+ if(canvas.dataset.book&&e.id==='fixture.gate'){c.scale(size,size);paintGate(c,{x:0,y:0,exact:2});return;}
  if(e.id===active.id&&e.designClass==='A'&&reference){c.drawImage(crop,0,0,size,size);return;}
  c.fillStyle='#627c80';c.fillRect(0,0,size,size);c.scale(size,size);paintTile(c,e.id,{phase:Number($('#state').value),time:tick,images,mask:0});}
 function drawBoards(){const before=$('#before-board'),after=$('#after-board');before.width=after.width=768;before.height=after.height=768;before.getContext('2d').drawImage(base,0,0,768,768);let c=after.getContext('2d');c.drawImage(base,0,0,768,768);

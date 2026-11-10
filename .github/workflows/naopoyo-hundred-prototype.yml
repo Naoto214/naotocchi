@@ -3,6 +3,8 @@ on:
   pull_request:
     paths:
       - 'prototypes/naopoyo-100/**'
+      - 'prototypes/naopoyo-shared/**'
+      - 'docs/naopoyo-gimmick-atlas-v2/**'
       - 'prototypes/naopoyo-time-hand-chapter1/**'
       - 'prototypes/naopoyo-chapter1/**'
       - 'prototypes/naopoyo-chapter2/**'
