@@ -6,7 +6,7 @@
 <div class="section-title"><div><p class="eyebrow">100 PUZZLES</p><h2>冒険をえらぶ</h2></div><span id="progress" class="progress-pill">0 / 100 クリア</span></div>
 <div class="filters"><label>表示<select id="filter"><option value="all">すべての面</option><option value="uncleared">まだクリアしていない面</option><option value="star">あとでもう一度</option><option value="review">評価をつけた面</option></select></label><button id="open-atlas">ひとマス図鑑</button><button id="open-records">記録の保存・読込</button></div>
 <p class="fine">番号は目標難易度です。実際の難しさや面白さは、試遊の評価をもとに調整します。</p><div id="stage-list"></div><p id="no-stages" hidden>この条件のステージはまだありません。</p>
-<footer><a href="../../atlas/gates.html">数値の門の比較・選択</a><a href="reports.html">設計・検証記録</a><a href="compare.html">正式版との比較</a><a href="../../atlas/index.html">図鑑V2の比較原本</a><span id="save-status">この端末に試遊記録を保存します</span></footer></section>
+<footer><a href="../../atlas/gate-animation.html">採用A案の開閉</a><a href="reports.html">設計・検証記録</a><a href="compare.html">正式版との比較</a><a href="../../atlas/index.html">図鑑V2の比較原本</a><span id="save-status">この端末に試遊記録を保存します</span></footer></section>
 
 <section id="play" class="view" hidden>
 <div class="play-heading"><div><p class="eyebrow" id="stage-eyebrow"></p><h1 id="stage-title"></h1></div><button id="star" class="icon-button" aria-pressed="false">☆ あとで</button></div>
@@ -22,7 +22,7 @@
 <div class="secondary-tools"><button id="review-open" class="quiet">感想</button><button id="leave" class="quiet">一覧へ</button></div>
 </div></div></section>
 
-<section id="atlas" class="view" hidden><p class="eyebrow">LITTLE TILE BOOK</p><h1>ひとマス図鑑</h1><p><a href="../../atlas/gates.html">数値の門：A・Bを比較して選ぶ →</a></p><p>冒険で出会った素材が、少しずつ集まります。</p><p id="atlas-count" class="fine"></p><div id="atlas-grid" class="atlas-grid"></div><button class="primary back-home">ステージ一覧へ</button></section>
+<section id="atlas" class="view" hidden><p class="eyebrow">LITTLE TILE BOOK</p><h1>ひとマス図鑑</h1><p><a href="../../atlas/gate-animation.html">数値の門：A・Bを比較して選ぶ →</a></p><p>冒険で出会った素材が、少しずつ集まります。</p><p id="atlas-count" class="fine"></p><div id="atlas-grid" class="atlas-grid"></div><button class="primary back-home">ステージ一覧へ</button></section>
 </main>
 <dialog id="review-dialog"><form method="dialog"><button class="close" aria-label="閉じる">×</button></form><p class="eyebrow" id="review-stage"></p><h2>ひらめきの記録</h2><label>遊んだ感想<select id="rating"><option value="">未評価</option><option value="good">面白かった</option><option value="ok">ふつう</option><option value="review">見直したい</option></select></label><label>この番号の難易度として<select id="difficulty"><option value="">未評価</option><option value="easy">簡単すぎる</option><option value="right">ちょうどよい</option><option value="hard">難しすぎる</option></select></label><label>メモ<textarea id="note" maxlength="2000" rows="4" placeholder="気づいたこと、迷ったところ、好きな仕掛け…"></textarea></label><button id="save-review" class="primary">感想を保存</button><p class="fine">この端末に保存されます。記録から書き出せます。</p></dialog>
 <dialog id="materials-dialog"><form method="dialog"><button class="close" aria-label="閉じる">×</button></form><h2>この冒険の素材</h2><div id="stage-materials"></div><p class="fine">図鑑と盤面は同じ素材・同じルールを使います。</p></dialog>

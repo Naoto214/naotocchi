@@ -1,3 +1,5 @@
+import {adoptedCatalog} from './ref/prototypes/naopoyo-shared/gate-catalog.mjs';
+import {GateTransitions} from './ref/prototypes/naopoyo-shared/gate-animation.mjs';
 import {paintGate} from './ref/prototypes/naopoyo-shared/gate-design.mjs';
 import {paintTile} from './tile-art.mjs';
 import {drawBoard as drawFormal} from './ref/prototypes/naopoyo-time-hand-chapter1/draw.mjs';
@@ -13,8 +15,11 @@ import {WorldSession} from './ref/prototypes/naopoyo-world/session.mjs';
 import {render as drawWorld} from './ref/prototypes/naopoyo-world/render.mjs';
 const $=s=>document.querySelector(s), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const [registry,data,v1]=await Promise.all(['catalog.json','candidates.json','v1/atlas.json'].map(x=>fetch(x).then(r=>{if(!r.ok)throw Error(x);return r.json()})));
-const entries=registry.entries, images={}, crop=document.createElement('canvas'), base=document.createElement('canvas');
+const entries=adoptedCatalog(registry).entries, images={}, crop=document.createElement('canvas'), base=document.createElement('canvas');
+let currentView='compare';
 let active=entries[0],running=false,tick=0,discovered=false,reference=null,lastFrame=0;
+const gateAnimation=new GateTransitions();let frameRequest=null;
+function gateFrame(){const target=running?Math.floor(performance.now()/1100)%2===1:Boolean(Number($('#state').value));const f=gateAnimation.sample('atlas',target,performance.now(),reduced);if(gateAnimation.active&&!frameRequest)frameRequest=requestAnimationFrame(frame);return f}
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const imgPaths={gravity:'./ref/prototypes/naopoyo-time-hand-chapter1/assets/gravity-wood-approved.webp',owl:'./ref/assets/characters/companions/owl.png',forest_bear:'./ref/assets/characters/partners/forest_bear.png',otter:'./ref/assets/characters/companions/otter.png',squirrel:'./ref/assets/characters/companions/squirrel.png',penguin_friend:'./ref/assets/characters/companions/penguin_friend.png'};
 const failures=[];
@@ -63,18 +68,18 @@ function renderSource(){
 }
 function paint(canvas,e=active,unknown=false){const size=canvas.id==='size36'?72:canvas.id==='size48'?96:256;canvas.width=size;canvas.height=size;let c=canvas.getContext('2d');c.clearRect(0,0,size,size);
  if(unknown){c.fillStyle='#ced9d0';c.beginPath();c.roundRect(size*.2,size*.2,size*.6,size*.6,size*.15);c.fill();c.fillStyle='#71867c';c.font=`${size*.15}px sans-serif`;c.textAlign='center';c.fillText('???',size/2,size*.56);return;}
- if(canvas.dataset.book&&e.id==='fixture.gate'){c.scale(size,size);paintGate(c,{x:0,y:0,exact:2});return;}
+ if(e.id==='fixture.gate'){c.scale(size,size);paintGate(c,{x:0,y:0,exact:2},gateFrame());return;}
  if(e.id===active.id&&e.designClass==='A'&&reference){c.drawImage(crop,0,0,size,size);return;}
  c.fillStyle='#627c80';c.fillRect(0,0,size,size);c.scale(size,size);paintTile(c,e.id,{phase:Number($('#state').value),time:tick,images,mask:0});}
 function drawBoards(){const before=$('#before-board'),after=$('#after-board');before.width=after.width=768;before.height=after.height=768;before.getContext('2d').drawImage(base,0,0,768,768);let c=after.getContext('2d');c.drawImage(base,0,0,768,768);
  if(reference?.asset){$('#board-caption').textContent='原画像比較。現行のパズル能力は存在しないため、右は展示用8×8に配置。';c.fillStyle='#627c80';c.fillRect(0,0,768,768);}
  let cells=reference?.xy?[reference.xy]:[[3,3]];
  if(['water','air','ice'].includes(active.connectivity.family)&&!reference?.xy)cells=Array.from({length:6},(_,i)=>[i+1,4]);
- if(!reference||active.designClass!=='A')for(const [x,y]of cells){c.save();c.translate(x*96,y*96);c.scale(96,96);if(active.layer!=='medium')paintTile(c,'terrain.floor');paintTile(c,active.id,{phase:Number($('#state').value),time:tick,images,mask:10});c.restore();}
+ if(!reference||active.designClass!=='A'||active.id==='fixture.gate')for(const [x,y]of cells){c.save();c.translate(x*96,y*96);c.scale(96,96);if(active.layer!=='medium')paintTile(c,'terrain.floor');if(active.id==='fixture.gate'){c.fillStyle='#627c80';c.fillRect(0,0,1,1);paintGate(c,{x:0,y:0,exact:2},gateFrame());}else paintTile(c,active.id,{phase:Number($('#state').value),time:tick,images,mask:10});c.restore();}
  c.strokeStyle='#f4de9a';c.lineWidth=2;for(const[x,y]of cells)c.strokeRect(x*96+2,y*96+2,92,92);
 }
-function repaint(){paint($('#proposal'));paint($('#size36'));paint($('#size48'));drawBoards();}
-function selectTile(){active=entries.find(x=>x.id===$('#tile').value);reference=pickReference(active);renderSource();let c=$('#original');c.width=256;c.height=256;let ctx=c.getContext('2d');ctx.clearRect(0,0,256,256);if(reference)ctx.drawImage(crop,0,0,256,256);else{ctx.fillStyle='#64776d';ctx.font='19px sans-serif';ctx.textAlign='center';ctx.fillText('現行未実装',128,135);}
+function repaint(){if(currentView==='book'){if(discovered)for(const c of document.querySelectorAll('[data-book="fixture.gate"]'))paint(c,entries.find(e=>e.id==='fixture.gate'));return;}paint($('#proposal'));paint($('#size36'));paint($('#size48'));drawBoards();}
+function selectTile(){gateAnimation.clear();active=entries.find(x=>x.id===$('#tile').value);reference=pickReference(active);renderSource();let c=$('#original');c.width=256;c.height=256;let ctx=c.getContext('2d');ctx.clearRect(0,0,256,256);if(reference)ctx.drawImage(crop,0,0,256,256);else{ctx.fillStyle='#64776d';ctx.font='19px sans-serif';ctx.textAlign='center';ctx.fillText('現行未実装',128,135);}
  $('#current-caption').textContent=reference?.label||'現行の画像を捏造せず、未実装として扱います。';
  const vid=active.image.v1,v=v1.items.find(x=>x.id===vid&&x.decision==='推奨');$('#v1-art').hidden=!v;if(v)$('#v1-art').src=`v1/art/${vid}-a-${$('#state').value}.svg`;$('#v1-caption').textContent=v?'V1のSVG原本（木と石案）':'V1に独立した図案なし';
  $('#proposal-caption').textContent=active.designClass==='A'?'現行維持。現行の同じ描画を再利用。':'余計な枠を加えず、輪郭・陰影・状態差を調整した案。';
@@ -83,14 +88,14 @@ function selectTile(){active=entries.find(x=>x.id===$('#tile').value);reference=
  $('#status').textContent=failures.length?`画像読込失敗 ${failures.length}件`:'本編の保存データは読み書きしません';
  $('#details').innerHTML='<dl>'+Object.entries({ID:active.id,表示単位:'1×1',レイヤー:active.layer,連結:JSON.stringify(active.connectivity),動作範囲:active.actionRange,作動:active.trigger,状態:active.states.join('／'),発見条件:JSON.stringify(active.discovery),将来配置:active.editor.eligible?'検証後の候補（今回は未実装）':active.editor.reason,初登場:active.firstAppearance?`${active.firstAppearance}面 · ${active.firstAppearanceStatus}`:'保留・未割当',現行対応:reference?.label||'なし'}).map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')+'</dl>';repaint();}
 function category(){const xs=entries.filter(e=>e.category===$('#category').value);$('#tile').innerHTML=xs.map(e=>`<option value="${e.id}">${esc(e.name)}</option>`).join('');selectTile();}
-function book(){const xs=entries.filter(e=>e.implementation!=='保留');$('#book-grid').innerHTML=xs.map(e=>`<article><canvas data-book="${e.id}" aria-label="${discovered?esc(e.name):'未発見の見本'}"></canvas><h3>${discovered?esc(e.name):'？？？'}</h3><p>${discovered?esc(e.description):'出会うと名前と説明が見られます。'}</p><p class="dim">${discovered?'初遭遇：'+(e.firstAppearance?`${e.firstAppearance}面（表示例）`:'未定'):'未発見'}</p></article>`).join('');const keep=active;document.querySelectorAll('[data-book]').forEach(c=>{const e=entries.find(e=>e.id===c.dataset.book);if(discovered&&e.designClass==='A'){active=e;reference=pickReference(e);renderSource();}paint(c,e,!discovered);});active=keep;reference=pickReference(active);renderSource();}
+function book(){gateAnimation.clear();const xs=entries.filter(e=>e.implementation!=='保留');$('#book-grid').innerHTML=xs.map(e=>`<article><canvas data-book="${e.id}" aria-label="${discovered?esc(e.name):'未発見の見本'}"></canvas><h3>${discovered?esc(e.name):'？？？'}</h3><p>${discovered?esc(e.description):'出会うと名前と説明が見られます。'}</p><p class="dim">${discovered?'初遭遇：'+(e.firstAppearance?`${e.firstAppearance}面（表示例）`:'未定'):'未発見'}</p></article>`).join('');const keep=active;document.querySelectorAll('[data-book]').forEach(c=>{const e=entries.find(e=>e.id===c.dataset.book);if(discovered&&e.designClass==='A'){active=e;reference=pickReference(e);renderSource();}paint(c,e,!discovered);});active=keep;reference=pickReference(active);renderSource();}
 function plan(){const ch=Number($('#chapter').value),names=Object.fromEntries(data.items.map(g=>[g.id,g.name]));$('#stages').innerHTML=data.stages.filter(s=>s.chapter===ch).map(s=>`<article><span class="number">${String(s.number).padStart(2,'0')}</span><h3>${esc(s.title)}</h3><span class="badge">${esc(s.status)}</span><dl><dt>主／補助</dt><dd>${esc(names[s.main])} ／ ${s.support.map(x=>esc(names[x])).join('・')}</dd><dt>学ぶこと・発想</dt><dd>${esc(s.learn)}。${esc(s.insight)}</dd><dt>解法の違い</dt><dd>${esc(s.difference)}</dd><dt>難度・イベント</dt><dd>${esc(s.difficulty)} ／ ${esc(s.event)}</dd><dt>V2変更</dt><dd>${esc(s.changeV2)}</dd></dl></article>`).join('');}
 function candidates(){const xs=data.items.filter(g=>($('#decision').value==='すべて'||g.decision===$('#decision').value)&&($('#review').value==='すべて'||g.designClass===$('#review').value));$('#candidate-count').textContent=`${xs.length}件表示 ／ 推奨41・保留16・不採用7 ／ A8・B11・C45`;
  $('#candidates').innerHTML=xs.map(g=>`<article><span class="badge">${g.decision} · ${g.designClass}</span><h3>${esc(g.name)}</h3><p>${esc(g.rule)}</p><p>${esc(g.designReason)}</p><details><summary>操作・独自性・実装状況</summary><p>${esc(g.input)}</p><p>${esc(g.relations)}</p><p>${esc(g.implementation)}</p></details></article>`).join('');}
 $('#category').onchange=category;$('#tile').onchange=selectTile;$('#state').onchange=selectTile;$('#chapter').onchange=plan;$('#decision').onchange=candidates;$('#review').onchange=candidates;
-$('#animate').onclick=()=>{running=!running;$('#animate').setAttribute('aria-pressed',String(running));$('#animate').textContent=running?'動きを止める':'動きを見る';if(running)requestAnimationFrame(frame)};
-function frame(now){if(!running)return;if(now-lastFrame>80){tick=now/900;repaint();lastFrame=now}requestAnimationFrame(frame)}
+$('#animate').onclick=()=>{running=!running;$('#animate').setAttribute('aria-pressed',String(running));$('#animate').textContent=running?'動きを止める':'動きを見る';if(running&&!frameRequest)frameRequest=requestAnimationFrame(frame)};
+function frame(now){frameRequest=null;if(!running&&!gateAnimation.active)return;tick=now/900;repaint();if((running||gateAnimation.active)&&!frameRequest)frameRequest=requestAnimationFrame(frame)}
 if(reduced){$('#animate').textContent='動きを見る（任意）';}
 $('#reveal').onclick=()=>{discovered=!discovered;$('#reveal').setAttribute('aria-pressed',String(discovered));$('#reveal').textContent=discovered?'未発見の見本に戻す':'発見済みの見本に切り替える';book();};
-document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('active',x===b));for(const id of ['compare','book','plan','design'])$('#'+id).hidden=id!==b.dataset.view;if(b.dataset.view==='book')book();});
+document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{gateAnimation.clear();currentView=b.dataset.view;document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('active',x===b));for(const id of ['compare','book','plan','design'])$('#'+id).hidden=id!==b.dataset.view;if(b.dataset.view==='book')book();else if(b.dataset.view==='compare')repaint();});
 category();plan();candidates();

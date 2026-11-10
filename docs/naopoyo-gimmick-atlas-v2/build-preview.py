@@ -15,13 +15,13 @@ def cp(rel):
  seen.add(rel);src=HERE/'source'/Path(rel).name if rel.startswith('prototypes/naopoyo-castle-forest/') else ROOT/rel
  if not src.exists():raise FileNotFoundError(str(src))
  dest=REF/rel;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(src,dest)
- source_ref = 'PR #535 gate comparison; content identified by sha256' if rel.startswith('prototypes/naopoyo-shared/') else '8f64cf0e2f5915671c7931ec54ac1842214d877f' if rel.startswith(('prototypes/naopoyo-100/','docs/naopoyo-gimmick-atlas-v2/')) else '9ebcda6d40d57634fe94dc7e80b5e7b66be65a18' if 'castle-forest' in rel else 'e0120c58f36394c9acff6507d72ceb3a1f48e1e2'
+ source_ref = 'PR #535 approved gate A animation 2026-11-10; optional painter, content identified by sha256' if rel=='prototypes/naopoyo-chapter2/gate-art.mjs' else 'PR #535 approved gate A animation 2026-11-10; content identified by sha256' if rel.startswith('prototypes/naopoyo-shared/') else '8f64cf0e2f5915671c7931ec54ac1842214d877f' if rel.startswith(('prototypes/naopoyo-100/','docs/naopoyo-gimmick-atlas-v2/')) else '9ebcda6d40d57634fe94dc7e80b5e7b66be65a18' if 'castle-forest' in rel else 'e0120c58f36394c9acff6507d72ceb3a1f48e1e2'
  manifest[rel]={'sha256':hashlib.sha256(src.read_bytes()).hexdigest(),'source':source_ref}
  if src.suffix=='.mjs':
   text=src.read_text()
   for dep in re.findall(r'(?:from\s*|import\s*)[\'\"](\.[^\'\"]+)[\'\"]',text):
    destrel=(ROOT/rel).parent/dep;cp(destrel.resolve().relative_to(ROOT))
-seeds += ['prototypes/naopoyo-shared/gate-design.mjs','prototypes/naopoyo-shared/gate-choice.mjs','prototypes/naopoyo-100/stages.mjs']
+seeds += ['prototypes/naopoyo-shared/gate-catalog.mjs','prototypes/naopoyo-shared/gate-animation.mjs','prototypes/naopoyo-shared/gate-approval.json','prototypes/naopoyo-shared/gate-design.mjs','prototypes/naopoyo-shared/gate-choice.mjs','prototypes/naopoyo-100/stages.mjs']
 for seed in seeds:cp(seed)
 sprite=(ROOT/'prototypes/naopoyo-rescue/sprite-data.mjs').read_text()
 for asset in re.findall(r'"path":"([^"]+)"',sprite):

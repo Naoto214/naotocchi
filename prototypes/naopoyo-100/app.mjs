@@ -1,3 +1,4 @@
+import {adoptedCatalog} from '../naopoyo-shared/gate-catalog.mjs';
 import {stages} from './stages.mjs';
 import {tutorialPages} from './tutorial.mjs';
 import {createGameState,gameMove,isComplete,describeTiles,materialRules} from './engine.mjs';
@@ -9,7 +10,7 @@ import {loadArt,renderBoard,paintSwatch,renderHero,spriteUrl,speciesNames} from 
 import {readProgress,writeProgress,exportProgress,importProgress,replayActions,boardSignature} from './session.mjs';
 
 const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const registry=await fetch('../../docs/naopoyo-gimmick-atlas-v2/catalog.json').then(r=>{if(!r.ok)throw Error('図鑑を読み込めません');return r.json()});
+const registry=await fetch('../../docs/naopoyo-gimmick-atlas-v2/catalog.json').then(r=>{if(!r.ok)throw Error('図鑑を読み込めません');return r.json()}).then(adoptedCatalog);
 const names=Object.fromEntries(registry.entries.map(e=>[e.id,e.name]));
 const usedMaterials=new Set([...stages.flatMap(s=>s.materials),...tutorialPages.flatMap(s=>describeTiles(s.board).map(t=>t.catalogId))]);
 let storage;try{storage=localStorage}catch{storage=null}
@@ -22,7 +23,7 @@ let auto=null;
 function stopAuto(){if(auto!==null)clearInterval(auto);auto=null}
 function resetPresentation(){stopAuto();touch.cancel();presentation.reset(state);if(frameRequest)cancelAnimationFrame(frameRequest);frameRequest=null;gravityHelpOpen=false}
 function animate(before,result,id,dx,dy){presentation.queue(before,state,result,id,dx,dy,reduced());if(!frameRequest){lastFrame=performance.now();frameRequest=requestAnimationFrame(tick)}}
-function tick(now){frameRequest=null;if(view!=='play')return;if(document.hidden||document.querySelector('dialog[open]')){lastFrame=now;frameRequest=requestAnimationFrame(tick);return}presentation.advance(Math.min(100,Math.max(0,now-lastFrame)),reduced());lastFrame=now;draw();if(presentation.motion.length||presentation.gateEffects.pulses.size||presentation.frame(now,reduced()).stateEffects.length)frameRequest=requestAnimationFrame(tick);else render()}
+function tick(now){frameRequest=null;if(view!=='play')return;if(document.hidden||document.querySelector('dialog[open]')){lastFrame=now;frameRequest=requestAnimationFrame(tick);return}presentation.advance(Math.min(100,Math.max(0,now-lastFrame)),reduced());lastFrame=now;draw();if(presentation.motion.length||presentation.gateTransitions.active||presentation.gateEffects.pulses.size||presentation.frame(now,reduced()).stateEffects.length){if(!frameRequest)frameRequest=requestAnimationFrame(tick)}else render()}
 const labels={wall:'そこには壁があります',corner:'閉じた角は通れません',gate:'門の条件を確かめてみよう',terrain:'この仕掛けの条件を確かめてみよう',foothold:'登るには、出発側と着地側に支えが必要です',step:'キャラクターを選んで1マスずつ動かそう','gravity-cycle':'この動きは落下を繰り返すため戻しました','field-cycle':'流れが循環するため、この動きは戻しました',crate:'箱の先や、押す力を確かめてみよう'};
 const chapters=['小さなひらめき','かたちを変えて','ふたつの仕掛け','順番の向こうへ','世界の力を借りて','見方を変えよう','役割を分けて','先を見つめて','星へつながる道','100番目の星'];
 function save(){if(!writeProgress(storage,progress))$('#save-status').textContent='端末保存が使えません。記録を書き出して残してください。'}
@@ -53,7 +54,7 @@ function takeStep(id,dx,dy){
  }else $('#message').textContent=labels[result.reason]||'この方向へは進めません。使う素材でルールを確認できます。';
  return result;
 }
-function draw(){if(view!=='play'||!state)return;presentation.sync(state);const f=presentation.frame(performance.now(),reduced()),held=input.down?f.state.actors.find(a=>a.id===input.gestureActor):null;renderBoard($('#board'),f.state,{...f,selected:held?[held.x,held.y]:null});$('#gravity-help').hidden=!state.gravity||!gravityHelpOpen||!!demo;}
+function draw(){if(view!=='play'||!state)return;presentation.sync(state);presentation.focus=input.selected;const f=presentation.frame(performance.now(),reduced()),held=input.down?f.state.actors.find(a=>a.id===input.gestureActor):null;renderBoard($('#board'),f.state,{...f,selected:held?[held.x,held.y]:null});$('#gravity-help').hidden=!state.gravity||!gravityHelpOpen||!!demo;if(presentation.gateTransitions.active&&!frameRequest){lastFrame=performance.now();frameRequest=requestAnimationFrame(tick)}}
 
 function render(){
  if(!state)return;

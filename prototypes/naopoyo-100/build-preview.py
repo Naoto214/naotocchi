@@ -20,6 +20,7 @@ def copy(rel):
 for src in HERE.iterdir():
     if src.suffix in ('.mjs','.json','.html','.css') and src.name!='build-stages.mjs':copy(src.relative_to(ROOT))
 copy('docs/naopoyo-gimmick-atlas-v2/catalog.json')
+copy('prototypes/naopoyo-shared/gate-approval.json')
 for folder in ['docs/naopoyo-100-v1','docs/naopoyo-100-v2']:
     for src in (ROOT/folder).iterdir():
         if src.is_file():copy(src.relative_to(ROOT))

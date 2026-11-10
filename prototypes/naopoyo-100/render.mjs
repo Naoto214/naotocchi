@@ -1,7 +1,7 @@
 import {drawBoard as drawFormalBoard} from '../naopoyo-time-hand-chapter1/draw.mjs';
 import {drawActors} from '../naopoyo-chapter1/render.mjs';
 import {drawExit,drawCondition} from '../naopoyo-rescue/fixtures.mjs';
-import {drawGate} from '../naopoyo-chapter2/gate-art.mjs';
+import {paintGate,gateVisual} from '../naopoyo-shared/gate-design.mjs';
 import {paintTile} from '../../docs/naopoyo-gimmick-atlas-v2/tile-art.mjs';
 import {drawTerrain} from '../naopoyo-rescue/themes.mjs';
 import {loadSprites,drawSprite,spriteSpec,speciesNames} from '../naopoyo-rescue/sprites.mjs';
@@ -22,7 +22,7 @@ function tint(id){let h=0;for(const c of String(id))h=(h*31+c.charCodeAt(0))>>>0
 export function tile(c,id,p={},mask=0){
  c.save();
  if(id==='fixture.exit'){drawExit(c,{...p,x:0,y:0});drawCondition(c,{...p,x:0,y:0});}
- else if(id==='fixture.gate')drawGate(c,{...p,x:0,y:0});
+ else if(id==='fixture.gate')paintGate(c,{...p,x:0,y:0},{opening:p.opening??0,glow:p.glow??0});
  else if(terrain[id])c.drawImage(terrain[id],0,0,1,1);
  else if(id==='fixture.spike'){
   c.fillStyle='#ba879e';c.fillRect(.09,.73,.82,.11);const count=p.power||1;for(let n=0;n<count;n++){const x=.5+(n-(count-1)/2)*.25;c.fillStyle='#f2b7ce';c.beginPath();c.moveTo(x-.13,.75);c.lineTo(x,.28);c.lineTo(x+.13,.75);c.fill()}
@@ -61,7 +61,7 @@ function cellText(c,text,x,y){c.save();c.translate(x,y);c.scale(.01,.01);c.font=
 const standard=new Set(['terrain.floor','terrain.wall','fixture.spike','fixture.gate','fixture.exit','sign.gravity']);
 export const gravitySignImage=()=>art.gravity;
 export function renderBoard(canvas,state,{selected=null,effects=[],stateEffects=[],gates=state.gates,now=performance.now(),reduced=false}={}){
- const options={selected,effects,stateEffects,gates,now,reduced,gravitySign:art.gravity};
+ const options={selected,effects,stateEffects,gates:gates.map(gateVisual),now,reduced,gravitySign:art.gravity};
  const extra=describeTiles(state).filter(t=>!standard.has(t.catalogId));
  if(!extra.length){drawFormalBoard(canvas,state,options);return;}
  drawFormalBoard(canvas,{...state,walls:state.baseWalls||state.walls,actors:[]},{...options,effects:[],stateEffects:[]});
