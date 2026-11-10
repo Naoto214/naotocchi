@@ -46,3 +46,31 @@ body[data-view=play] main{width:100%;max-width:1080px;flex:1;min-height:0;paddin
 
 .quick-controls{grid-template-columns:repeat(5,minmax(0,1fr))}.quick-controls button{padding:8px 3px;font-size:12px}.demo-controls{display:grid;grid-template-columns:repeat(2,1fr);gap:5px}.demo-controls button{margin:0}
 .hint-panel.demo-mode .demo-controls button{width:100%;margin:0}
+
+/* Width-first play layout: messages never compete with the board for height.
+   As in the formal chapter, pointer coordinates use the rendered canvas rect. */
+/* Keep the play width stable when messages add vertical scrolling. */
+html:has(body[data-view=play]){scrollbar-width:none}
+html:has(body[data-view=play])::-webkit-scrollbar{width:0}
+body[data-view=play]{height:auto;min-height:100svh;overflow:visible;display:block}
+body[data-view=play] main{padding:8px max(6px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(6px,env(safe-area-inset-left))!important}
+#play{height:auto;min-height:0}
+.play-layout{flex:none;grid-template-rows:auto auto;align-items:start}
+.board-column{height:auto;min-height:0;min-width:0;align-self:start;justify-self:center;justify-content:flex-start;margin:0}
+.board-shell{border-width:2px;max-width:100%}
+.board-caption{max-width:100%;min-height:16px}
+.controls{overflow:visible;min-width:0;align-self:start}
+.play-heading,.book-copy{padding-left:4px;padding-right:4px}
+.play-heading>div{min-width:0}
+.quick-controls button{font-size:11px;padding:8px 1px}
+.hint-panel.demo-mode{max-height:none}
+@media(orientation:portrait),(min-height:551px) and (max-width:700px){
+ .play-layout{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto;gap:8px}
+ .board-column{width:100%}
+ .controls:has(.hint-panel.demo-mode:not([hidden])){max-height:none;overflow:visible}
+}
+@media(orientation:landscape) and (max-height:550px){
+ body[data-view=play] main{padding:6px max(8px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left))!important}
+ .play-layout{grid-template-columns:minmax(0,1fr) minmax(230px,1fr);grid-template-rows:auto auto;gap:7px 12px}
+ .board-column{width:min(100%,calc(100svh - 106px));position:sticky;top:8px}
+}

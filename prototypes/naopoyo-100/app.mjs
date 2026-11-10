@@ -1,3 +1,4 @@
+import {boardSize} from './board-layout.mjs';
 import {adoptedCatalog} from '../naopoyo-shared/gate-catalog.mjs';
 import {stages} from './stages.mjs';
 import {tutorialPages} from './tutorial.mjs';
@@ -69,7 +70,7 @@ function render(){
  $('#hint-panel').hidden=hintLevel===0&&!demo;$('#hint-panel').classList.toggle('demo-mode',!!demo);
  if(demo){$('#hint-panel').innerHTML=`<strong>解法の見本 ${demo.index} / ${current.solution.length}手</strong><div class="demo-controls"><button id="demo-prev" ${demo.index===0?'disabled':''}>前の1手</button><button id="demo-step" ${demo.index>=current.solution.length?'disabled':''}>次の1手</button><button id="demo-auto" ${demo.index>=current.solution.length?'disabled':''}>${auto===null?'自動再生':'一時停止'}</button><button id="demo-reset">最初から</button></div><button id="demo-back">自分の盤面に戻る</button>`}
  else if(hintLevel){$('#hint-panel').innerHTML=`<button id="hint-close" class="close" aria-label="ヒントを閉じる">×</button><strong>小さなヒント</strong><p>${esc(hintLevel===1?(current.idea||current.hint):(current.hint||current.idea))}</p>${hintLevel===1?'<button id="hint-more">もう少しヒント</button>':'<button id="demo-start">最初から解法の見本を見る</button>'}`}
- draw();
+ sizeBoard();
 }
 function next(){if(bookIndex!==null){if(bookIndex<tutorialPages.length-1)startBook(bookIndex+1);else show('home')}else if(current.number<100)startStage(stages[current.number].id);else show('home')}
 function renderAtlas(){
@@ -108,7 +109,7 @@ $('#export').onclick=()=>{const url=URL.createObjectURL(new Blob([exportProgress
 $('#import').onchange=async e=>{try{const file=e.target.files[0];if(!file)return;if(file.size>1000000)throw Error('記録ファイルが大きすぎます');const incoming=importProgress(await file.text());progress=incoming;save();$('#record-message').textContent='記録を読み込みました。';renderList()}catch(error){$('#record-message').textContent='読み込めませんでした：'+error.message}finally{e.target.value=''}};
 $('#board').addEventListener('keydown',e=>{const dir={ArrowUp:[0,-1],ArrowRight:[1,0],ArrowDown:[0,1],ArrowLeft:[-1,0],Home:[-1,-1],PageUp:[1,-1],End:[-1,1],PageDown:[1,1]}[e.key];if(dir&&!demo){e.preventDefault();touch.cancel();takeStep(input.selected,...dir)}});
 window.addEventListener('resize',()=>{if(state)touch.end()});document.addEventListener('visibilitychange',()=>{lastFrame=performance.now();if(document.hidden&&state)touch.end()});
-function sizeBoard(){if(view!=='play')return;const r=$('.board-column').getBoundingClientRect(),caption=24;document.documentElement.style.setProperty('--board-size',Math.max(60,Math.floor(Math.min(r.width,r.height-caption-8)))+'px');draw()}
+function sizeBoard(){if(view!=='play')return;const width=boardSize($('.board-column').getBoundingClientRect().width);document.documentElement.style.setProperty('--board-size',width+'px');draw()}
 new ResizeObserver(sizeBoard).observe($('.board-column'));window.visualViewport?.addEventListener('resize',sizeBoard);window.addEventListener('pagehide',updateResume);
 const failures=await loadArt();if(failures.length)throw Error(`画像の読込失敗：${failures.join(', ')}`);renderHero($('#hero-art'));renderList();draw();save();
 const requested=new URLSearchParams(location.search);if(requested.has('book'))startBook(Number(requested.get('book'))||0);else if(requested.has('stage'))startStage(String(Number(requested.get('stage'))).padStart(2,'0'),true);
