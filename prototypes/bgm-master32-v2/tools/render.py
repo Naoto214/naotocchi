@@ -8,12 +8,22 @@ from scipy.signal import resample_poly,butter,sosfilt,lfilter
 from scipy.io import wavfile
 R=pathlib.Path(__file__).resolve().parents[1];V1=R.parent/'bgm-master32-v1';SR=44100
 spec=importlib.util.spec_from_file_location('v1_renderer',V1/'tools/render.py');old=importlib.util.module_from_spec(spec);spec.loader.exec_module(old)
+# Load stronger piano dynamics into a separate bank; soft pieces keep dyn1.
+strong=[]
+for entry in json.loads((R/'samples/piano-manifest.json').read_text()):
+ path=R/'samples'/entry['path'];assert hashlib.sha256(path.read_bytes()).hexdigest()==entry['sha256']
+ rate,x=wavfile.read(path);dtype=x.dtype;x=x.astype(np.float64)/(np.iinfo(dtype).max if np.issubdtype(dtype,np.integer) else 1)
+ if x.ndim>1:x=x.mean(axis=1)
+ x=sosfilt(butter(2,65,fs=rate,btype='highpass',output='sos'),x)
+ ix=np.flatnonzero(abs(x)>np.max(abs(x))*.008);x=x[max(0,int(ix[0])-int(rate*.003)):]
+ x=resample_poly(x,SR,rate).astype(np.float32);x*=.65/max(float(np.max(abs(x))),1e-8)
+ strong.append((old.root_note(path,'piano'),x))
 cache={}
 def voice(inst,midi,dur,soft):
  key=inst,midi,round(dur,6),soft
  if key in cache:return cache[key]
  if inst=='shell':return old.voice(inst,midi,dur)
- root,src=min(old.samples[inst],key=lambda s:abs(midi-s[0]));ratio=1 if inst in old.PERC else 2**((midi-root)/12);frac=Fraction(1/ratio).limit_denominator(2048)
+ root,src=min(strong if inst=='piano' and not soft else old.samples[inst],key=lambda s:abs(midi-s[0]));ratio=1 if inst in old.PERC else 2**((midi-root)/12);frac=Fraction(1/ratio).limit_denominator(2048)
  x=resample_poly(src,frac.numerator,frac.denominator)
  release={'piano':.23,'flute':.14,'strings':.36,'harp':.48,'bell':.68,'marimba':.18,'cello':.28,'pizz':.22,'trumpet':.18,'timpani':.42}.get(inst,.17)
  if soft:release*=1.15
@@ -38,24 +48,29 @@ def loud(p):
  s=subprocess.run(['ffmpeg','-hide_banner','-i',str(p),'-af','loudnorm=I=-23:TP=-2:LRA=11:print_format=json','-f','null','-'],capture_output=True,text=True,check=True).stderr
  return json.JSONDecoder().raw_decode(s[s.rfind('{'):])[0]
 def render(s,p):
- cache.clear();n=round(s['duration']*SR);stems={}
- for e in s['events']:
-  key=(e['instrument'],e['role']);out=stems.setdefault(key,np.zeros((n,2),np.float64));v=voice(e['instrument'],e['midi'],e['dur'],p['soft'])*e['vel'];off=round(e['t']*SR)
-  pan=e.get('pan',0);st=np.array([math.cos((pan+1)*math.pi/4),math.sin((pan+1)*math.pi/4)]);x=v[:,None]*st
-  if s['loop']:
-   off%=n;pos=0
-   while pos<len(x):
-    k=min(n-off,len(x)-pos);out[off:off+k]+=x[pos:pos+k];pos+=k;off=0
-  elif off<n:
-   k=min(len(x),n-off);out[off:off+k]+=x[:k]
- out=np.zeros((n,2),np.float64);send=out.copy()
- for (inst,role),stem in stems.items():
+ cache.clear();n=round(s['duration']*SR)
+ out=np.zeros((n,2),np.float64);send=np.zeros_like(out)
+ groups=sorted(set((e['instrument'],e['role']) for e in s['events']))
+ for inst,role in groups:
+  stem=np.zeros_like(out)
+  for e in s['events']:
+   if (e['instrument'],e['role'])!=(inst,role):continue
+   v=voice(inst,e['midi'],e['dur'],p['soft'])*e['vel'];off=round(e['t']*SR)
+   pan=e.get('pan',0);st=np.array([math.cos((pan+1)*math.pi/4),math.sin((pan+1)*math.pi/4)]);x=v[:,None]*st
+   if s['loop']:
+    off%=n;pos=0
+    while pos<len(x):
+     k=min(n-off,len(x)-pos);stem[off:off+k]+=x[pos:pos+k];pos+=k;off=0
+   elif off<n:
+    k=min(len(x),n-off);stem[off:off+k]+=x[:k]
+  cache.clear()
   if role!='melody':
    hp=40 if inst in ['pizz','cello','kick','timpani'] else 105 if inst in ['piano','harp','marimba'] else 170
    stem=filt(stem,butter(2,hp,fs=SR,btype='highpass',output='sos'),s['loop'])
    if inst not in ['kick','pizz','cello','timpani']:stem=eq(stem,p['cutHz'],p['accompanimentCutDb'],s['loop'])
   out+=stem
   if inst not in ['kick','pizz','timpani']:send+=stem*(.60 if role=='melody' else 1)
+  del stem
  send=filt(send,butter(2,[240,p['roomLowpassHz']],fs=SR,btype='bandpass',output='sos'),s['loop'])
  for delay,gain in [(.019,.58),(.037,.40),(.063,.27),(.097,.19),(.151,.12),(.223,.07),(.313,.035)]:
   shift=round(delay*SR)
