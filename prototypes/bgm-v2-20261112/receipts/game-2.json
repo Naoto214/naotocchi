@@ -1,0 +1,81 @@
+{
+ "id": "game-2",
+ "title": "ぴょこぴょこ ステップ",
+ "family": "sports",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2646000,
+ "seconds": 60.0,
+ "flacFrames": 2646000,
+ "aacDecodedFrames": 2646016,
+ "integratedLUFS": -24.0,
+ "targetLUFS": -24,
+ "truePeakDbtp": -10.45,
+ "samplePeakDbfs": -10.45,
+ "clippedSamples": 0,
+ "monoLossDb": -1.16,
+ "sideToMidDb": -5.1,
+ "aacFlacCorrelation": 0.9994,
+ "loopJoinJump": 0.01084,
+ "loopJoinTypicalStep999": 0.05234,
+ "bands": {
+  "centroidHz": 798,
+  "low40_250": -6.4,
+  "lowmid250_800": -4.7,
+  "mid800_3k": -3.9,
+  "pres3k_6k": -19.0,
+  "air6k_12k": -23.0,
+  "top12k_20k": -31.6
+ },
+ "roleGainsDb": {
+  "bass": 3.7,
+  "accompaniment": 9.1,
+  "pad": 24.7,
+  "percussion": 27.2,
+  "sparkle": 17.8,
+  "doubling": 5.3
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   -3.3,
+   0.7
+  ],
+  [
+   "highshelf",
+   8000,
+   -1.7,
+   0.7
+  ],
+  [
+   "peak",
+   3800,
+   -0.6,
+   0.7
+  ],
+  [
+   "highshelf",
+   8000,
+   -1.5,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 946,
+  "low40_250": -6.9,
+  "lowmid250_800": -4.9,
+  "mid800_3k": -3.6,
+  "pres3k_6k": -15.7,
+  "air6k_12k": -20.3,
+  "top12k_20k": -28.8
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 10.9,
+ "flacSha256": "677eae54a7e0996110194b03ad18624d34b85b258a4eb86e0c1e91352a2931c3",
+ "flacBytes": 9633712,
+ "aacSha256": "cc03015090325bf870508130a3e9cf867f478ed37c567a70c02d2da4f45dff82",
+ "aacBytes": 1477575,
+ "midiSha256": "06272f87b3a532289c630ffe9ef107348a426f8efec6e67f3b40d63cfa7ea2fd",
+ "problems": []
+}
