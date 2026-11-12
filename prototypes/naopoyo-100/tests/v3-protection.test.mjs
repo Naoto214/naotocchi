@@ -26,3 +26,7 @@ test('critical role proofs belong to the shipped boards and fully exhaust their 
  assert.equal(rows.filter(r=>r.id==='100').length,3);
  for(const r of rows){const s=stages.find(s=>s.id===r.id);assert.equal(r.number,s.number);assert.equal(r.boardHash,createHash('sha256').update(JSON.stringify(s.board)).digest('hex'));assert.equal(r.status,'exhausted');assert.ok(r.expanded<r.limit);}
 });
+
+test('necessity audit does not mistake an idle fish already in water for a new entry',async()=>{
+ const {mainRequirement}=await import('../v3/search.mjs');const stage=stages.find(s=>s.id==='13'),before=createGameState(stage.board),after=structuredClone(before);const dog=after.actors.find(a=>a.species==='dog'),action={x:dog.x,y:dog.y,dx:0,dy:1};const r=gameMove(after,dog.id,0,1);assert.ok(r.ok);assert.equal(mainRequirement(stage).forbid(before,after,r.events,action),false);
+});

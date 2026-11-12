@@ -31,7 +31,7 @@ export function mainRequirement(stage){
  }
  if(['terrain.water','terrain.tunnel','fixture.oneway','fixture.phase'].includes(id)){
   const ts=b.tiles.filter(t=>t.catalogId===id),hit=(x,y)=>ts.some(t=>t.x===x&&t.y===y);
-  return{label:id+'のマス進入を禁止',forbid:(_s,n,e,a)=>hit(a.x+a.dx,a.y+a.dy)||n.actors.some(v=>hit(v.x,v.y))||e.some(v=>hit(v.x,v.y)||v.to&&typeof v.to==='object'&&hit(v.to.x,v.to.y))};
+  return{label:id+'の新規マス進入を禁止',forbid:(s,n,e,a)=>hit(a.x+a.dx,a.y+a.dy)||n.actors.some(v=>hit(v.x,v.y)&&!s.actors.some(before=>before.id===v.id&&before.x===v.x&&before.y===v.y))||e.some(v=>hit(v.x,v.y)||v.to&&typeof v.to==='object'&&hit(v.to.x,v.to.y))};
  }
  return{label:id+'の効果を禁止',forbid:(_s,_n,e)=>e.some(v=>v.catalogId===id)};
 }

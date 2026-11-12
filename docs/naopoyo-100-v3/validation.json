@@ -733,10 +733,10 @@
       },
       "boardHash": "c46eb48ab7378bc7b1f83c4f4a3d12cfb32e9fe171caab3401f2bd14af7bb40a",
       "primaryRequirement": {
-        "label": "terrain.waterのマス進入を禁止",
+        "label": "terrain.waterの新規マス進入を禁止",
         "status": "exhausted",
-        "expanded": 1,
-        "discovered": 1,
+        "expanded": 5,
+        "discovered": 5,
         "limit": 12000,
         "maxDepth": 90,
         "solutionLength": null,
@@ -959,7 +959,7 @@
       },
       "boardHash": "f103054514213545966e965ba5746a3158ec49ff60ebbc61f63d26d69f814dca",
       "primaryRequirement": {
-        "label": "fixture.onewayのマス進入を禁止",
+        "label": "fixture.onewayの新規マス進入を禁止",
         "status": "exhausted",
         "expanded": 6,
         "discovered": 6,
@@ -1036,7 +1036,7 @@
       },
       "boardHash": "fa3f743db47795f56d9115c078c5f3852942ba11a3f80bfe97720d0108195010",
       "primaryRequirement": {
-        "label": "fixture.phaseのマス進入を禁止",
+        "label": "fixture.phaseの新規マス進入を禁止",
         "status": "exhausted",
         "expanded": 12,
         "discovered": 12,
@@ -1893,7 +1893,7 @@
       },
       "boardHash": "2872230a2d82213f782836afd710b887978fdccba9284b9fa5a86a88af933939",
       "primaryRequirement": {
-        "label": "fixture.phaseのマス進入を禁止",
+        "label": "fixture.phaseの新規マス進入を禁止",
         "status": "exhausted",
         "expanded": 24,
         "discovered": 24,
@@ -2123,7 +2123,7 @@
       },
       "boardHash": "4c8c176bf407bfa53e4db9895f7eb0fe5004b38be5c5fdeebd950d256c8342b4",
       "primaryRequirement": {
-        "label": "terrain.waterのマス進入を禁止",
+        "label": "terrain.waterの新規マス進入を禁止",
         "status": "exhausted",
         "expanded": 1,
         "discovered": 1,
@@ -2199,7 +2199,7 @@
       },
       "boardHash": "263cc0e94537c693c0c0fd6b5b4af746a1733271c28a23eb4f37b4083b16f18a",
       "primaryRequirement": {
-        "label": "fixture.onewayのマス進入を禁止",
+        "label": "fixture.onewayの新規マス進入を禁止",
         "status": "exhausted",
         "expanded": 25,
         "discovered": 25,
@@ -2747,7 +2747,7 @@
       },
       "boardHash": "dfee87bc2a5bfcc8654baa161036f794cbb8d9cfcfef8f4b065bf221b1fc3e82",
       "primaryRequirement": {
-        "label": "fixture.onewayのマス進入を禁止",
+        "label": "fixture.onewayの新規マス進入を禁止",
         "status": "exhausted",
         "expanded": 54,
         "discovered": 54,
@@ -2784,7 +2784,7 @@
       },
       "boardHash": "c5386850d6249f56da6dc2530f85134328c0394b045d1f8eb0bfe8cc806484ae",
       "primaryRequirement": {
-        "label": "fixture.phaseのマス進入を禁止",
+        "label": "fixture.phaseの新規マス進入を禁止",
         "status": "exhausted",
         "expanded": 36,
         "discovered": 36,
@@ -2903,7 +2903,7 @@
       },
       "boardHash": "08b9f389e2a60088e326eb0643ae6a80b91c46995553808cb476d94bd1736849",
       "primaryRequirement": {
-        "label": "fixture.phaseのマス進入を禁止",
+        "label": "fixture.phaseの新規マス進入を禁止",
         "status": "exhausted",
         "expanded": 116,
         "discovered": 116,
@@ -3715,7 +3715,7 @@
       },
       "boardHash": "37d6d54cc6d65686938fb6acdf33e7c1f10be0e2b15d16a1c2ffdba79f95d326",
       "primaryRequirement": {
-        "label": "terrain.waterのマス進入を禁止",
+        "label": "terrain.waterの新規マス進入を禁止",
         "status": "exhausted",
         "expanded": 119,
         "discovered": 119,
