@@ -1,0 +1,75 @@
+{
+ "id": "game-1",
+ "title": "あそびの はじまり",
+ "family": "action",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2352000,
+ "seconds": 53.333333,
+ "flacFrames": 2352000,
+ "aacDecodedFrames": 2352128,
+ "integratedLUFS": -24.0,
+ "targetLUFS": -24,
+ "truePeakDbtp": -10.27,
+ "samplePeakDbfs": -10.28,
+ "clippedSamples": 0,
+ "monoLossDb": -1.16,
+ "sideToMidDb": -5.2,
+ "aacFlacCorrelation": 0.9993,
+ "loopJoinJump": 0.00543,
+ "loopJoinTypicalStep999": 0.04833,
+ "bands": {
+  "centroidHz": 855,
+  "low40_250": -6.9,
+  "lowmid250_800": -5.4,
+  "mid800_3k": -3.2,
+  "pres3k_6k": -17.9,
+  "air6k_12k": -22.7,
+  "top12k_20k": -31.4
+ },
+ "roleGainsDb": {
+  "bass": 6.8,
+  "accompaniment": 9.2,
+  "pad": 24.9,
+  "percussion": 27.7,
+  "sparkle": 23.2,
+  "doubling": 5.3
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   -5.9,
+   0.7
+  ],
+  [
+   "highshelf",
+   8000,
+   -1.2,
+   0.7
+  ],
+  [
+   "highshelf",
+   8000,
+   -2.4,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 1118,
+  "low40_250": -7.7,
+  "lowmid250_800": -6.0,
+  "mid800_3k": -2.9,
+  "pres3k_6k": -13.1,
+  "air6k_12k": -19.3,
+  "top12k_20k": -28.6
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 9.9,
+ "flacSha256": "d9845bf1e624c214385c0d88d791a1e004e081f0789e237823f46d5e3b23a6b6",
+ "flacBytes": 8817406,
+ "aacSha256": "4781675fe7f29f21e68ac5d54015f4e890775c635da1fccca5eb7ce39ed6a40f",
+ "aacBytes": 1315755,
+ "midiSha256": "a5ddbcca2a7ee07972d385432fd8c4c8f6cb7e3b0b72118b5721d5c03715af56",
+ "problems": []
+}
