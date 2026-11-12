@@ -1,0 +1,1227 @@
+{
+ "version": 2,
+ "basedOn": "PR #536 catalog.json（曲ID・曲名・用途・配置行は 変更なし）",
+ "tracks": [
+  {
+   "number": 1,
+   "id": "home-morning",
+   "title": "そよかぜの まど",
+   "usage": "ホーム・朝 05:00〜09:59",
+   "category": "ホーム",
+   "bpm": 92,
+   "meter": 4,
+   "bars": 16,
+   "repeats": 2,
+   "loop": true,
+   "placementRows": [
+    "scene-01",
+    "scene-02",
+    "scene-03",
+    "scene-04",
+    "scene-05",
+    "scene-06",
+    "scene-17",
+    "scene-48"
+   ],
+   "featured": 1,
+   "tone": "採用アレンジA の 楽譜と 楽器（ピアノ＋ハープ／マリンバ）は そのまま。音源の 質・ステレオ・残響・帯域だけ 改善",
+   "targetLUFS": -23,
+   "v1": {
+    "audio": "home-morning.m4a",
+    "duration": 83.47825,
+    "lufs": -23
+   },
+   "v2": {
+    "audio": "home-morning.m4a",
+    "master": "home-morning.flac",
+    "midi": "home-morning.mid",
+    "duration": 83.47825396825397,
+    "frames": 3681391,
+    "sampleRate": 44100,
+    "lufs": -23.0,
+    "truePeak": -2.65,
+    "aacSha256": "3522ae20a84d73f6bf6576ac005568e7ff5e5a316fd0555dafef3e62fc29847c",
+    "flacSha256": "4967c934725e4f7ca61b86587ede4397f92e3501aa63fb5814f7ad4cb7d2f05f"
+   },
+   "loopStart": 0,
+   "loopEnd": 83.47825396825397
+  },
+  {
+   "number": 2,
+   "id": "home-day",
+   "title": "いつもの にわ",
+   "usage": "ホーム・昼 10:00〜15:59",
+   "category": "ホーム",
+   "bpm": 96,
+   "meter": 4,
+   "bars": 8,
+   "repeats": 3,
+   "loop": true,
+   "placementRows": [
+    "scene-01",
+    "scene-02",
+    "scene-03",
+    "scene-04",
+    "scene-05",
+    "scene-06",
+    "scene-17",
+    "scene-48"
+   ],
+   "featured": 0,
+   "tone": "採用アレンジA の 楽譜と 楽器（ピアノ＋ハープ／マリンバ）は そのまま。音源の 質・ステレオ・残響・帯域だけ 改善",
+   "targetLUFS": -23,
+   "v1": {
+    "audio": "home-day.m4a",
+    "duration": 60,
+    "lufs": -23
+   },
+   "v2": {
+    "audio": "home-day.m4a",
+    "master": "home-day.flac",
+    "midi": "home-day.mid",
+    "duration": 60.0,
+    "frames": 2646000,
+    "sampleRate": 44100,
+    "lufs": -23.01,
+    "truePeak": -6.72,
+    "aacSha256": "99c1f819602ba3dac93453941aef56eed3d70129ef67b474dabcf1a3a93e0138",
+    "flacSha256": "6b6e0f5e446ee9c4cb4de45f5b0033de4bd5114278687f3411a308ee34c8225f"
+   },
+   "loopStart": 0,
+   "loopEnd": 60.0
+  },
+  {
+   "number": 3,
+   "id": "home-evening",
+   "title": "ほしふる みずうみ",
+   "usage": "ホーム・夕 16:00〜18:59",
+   "category": "ホーム",
+   "bpm": 88,
+   "meter": 3,
+   "bars": 16,
+   "repeats": 2,
+   "loop": true,
+   "placementRows": [
+    "scene-01",
+    "scene-02",
+    "scene-03",
+    "scene-04",
+    "scene-05",
+    "scene-06",
+    "scene-17",
+    "scene-48"
+   ],
+   "featured": 0,
+   "tone": "採用アレンジA の 楽譜と 楽器（ピアノ＋ハープ／マリンバ）は そのまま。音源の 質・ステレオ・残響・帯域だけ 改善",
+   "targetLUFS": -23,
+   "v1": {
+    "audio": "home-evening.m4a",
+    "duration": 65.45453125,
+    "lufs": -23
+   },
+   "v2": {
+    "audio": "home-evening.m4a",
+    "master": "home-evening.flac",
+    "midi": "home-evening.mid",
+    "duration": 65.45453514739229,
+    "frames": 2886545,
+    "sampleRate": 44100,
+    "lufs": -23.0,
+    "truePeak": -4.15,
+    "aacSha256": "458a24e45a3d9de10832e95e632409e7b89f5b092f88940c614a1a8469c023eb",
+    "flacSha256": "8802b0509f525aeeeba84c7b061c49992ed3416efdf14aeb7626aa9a9e5aed4f"
+   },
+   "loopStart": 0,
+   "loopEnd": 65.45453514739229
+  },
+  {
+   "number": 4,
+   "id": "home-night",
+   "title": "ほしぞらの やくそく",
+   "usage": "ホーム・夜 19:00〜04:59",
+   "category": "ホーム",
+   "bpm": 76,
+   "meter": 4,
+   "bars": 16,
+   "repeats": 1,
+   "loop": true,
+   "placementRows": [
+    "scene-01",
+    "scene-02",
+    "scene-03",
+    "scene-04",
+    "scene-05",
+    "scene-06",
+    "scene-17",
+    "scene-48"
+   ],
+   "featured": 0,
+   "tone": "採用アレンジA の 楽譜と 楽器（ピアノ＋ハープ／マリンバ）は そのまま。音源の 質・ステレオ・残響・帯域だけ 改善",
+   "targetLUFS": -23,
+   "v1": {
+    "audio": "home-night.m4a",
+    "duration": 50.5263125,
+    "lufs": -23
+   },
+   "v2": {
+    "audio": "home-night.m4a",
+    "master": "home-night.flac",
+    "midi": "home-night.mid",
+    "duration": 50.526326530612245,
+    "frames": 2228211,
+    "sampleRate": 44100,
+    "lufs": -23.0,
+    "truePeak": -3.55,
+    "aacSha256": "7c3927e90dc8ea086c243a07b889870f16c3b34c1b8df34452581dcabe92ca8c",
+    "flacSha256": "6f0704f7fef8b9ed47399aea6da3effb8cb0a11745c0cd59a5fc3a97b8943d57"
+   },
+   "loopStart": 0,
+   "loopEnd": 50.526326530612245
+  },
+  {
+   "number": 5,
+   "id": "poyo-1",
+   "title": "ぽよぽよ こもれび",
+   "usage": "なおぽよ。 / 遊ぶ 画面・ステージ選択・おてほん・説明・なおぽよ。 / 地下牢・苔・冷たい広間・夜明け",
+   "category": "なおぽよ。",
+   "bpm": 100,
+   "meter": 4,
+   "bars": 16,
+   "repeats": 2,
+   "loop": true,
+   "placementRows": [
+    "scene-18",
+    "scene-19",
+    "scene-20",
+    "scene-24"
+   ],
+   "featured": 0,
+   "tone": "やわらかい マリンバと ハープ、2周目は フルートが 小さく 寄りそう（少し 不思議で 考えごとを じゃましない）",
+   "targetLUFS": -26,
+   "v1": {
+    "audio": "poyo-1.m4a",
+    "duration": 76.8,
+    "lufs": -26
+   },
+   "v2": {
+    "audio": "poyo-1.m4a",
+    "master": "poyo-1.flac",
+    "midi": "poyo-1.mid",
+    "duration": 76.8,
+    "frames": 3386880,
+    "sampleRate": 44100,
+    "lufs": -26.0,
+    "truePeak": -11.76,
+    "aacSha256": "e3a95852853d202a0e679726f7ac05e45ea13cf0ba23eaee03258b84e64b64c0",
+    "flacSha256": "d9d68cf4a2ee7a42773d9213b8ea59b567aac26808699a242793b779affcee1b"
+   },
+   "loopStart": 0,
+   "loopEnd": 76.8
+  },
+  {
+   "number": 6,
+   "id": "koro-1",
+   "title": "ころころ じんせい",
+   "usage": "なおころ。 / タイトル・キャラクター選択・ひとやすみ・対戦コード・なおころ。 / すごろく盤",
+   "category": "なおころ。",
+   "bpm": 112,
+   "meter": 4,
+   "bars": 16,
+   "repeats": 2,
+   "loop": true,
+   "placementRows": [
+    "scene-25",
+    "scene-26",
+    "scene-30"
+   ],
+   "featured": 2,
+   "tone": "ピアノの 旋律に ナイロンギターの 分散和音と ウッドベース。2周目は クラリネットが 旋律に 寄りそう（明るく 軽やか）",
+   "targetLUFS": -23,
+   "v1": {
+    "audio": "koro-1.m4a",
+    "duration": 68.57142857142857,
+    "lufs": -23
+   },
+   "v2": {
+    "audio": "koro-1.m4a",
+    "master": "koro-1.flac",
+    "midi": "koro-1.mid",
+    "duration": 68.57142857142857,
+    "frames": 3024000,
+    "sampleRate": 44100,
+    "lufs": -23.0,
+    "truePeak": -6.83,
+    "aacSha256": "a94750c3d328fc1b6cdd9f36df508436d90b8099ad29f21cdb40acf1dc002a4e",
+    "flacSha256": "8050c017ba28d99b10eb1638a677c83537b3a1a80c62cd11ce94604a69e4a32b"
+   },
+   "loopStart": 0,
+   "loopEnd": 68.57142857142857
+  },
+  {
+   "number": 7,
+   "id": "card-2",
+   "title": "デュエル・スタート",
+   "usage": "CARD GAME / はじめの メニュー・対戦の 準備・マイデッキ・コレクション・戦績・あそびかた・ルールブック・CARD GAME / 通常の 対戦",
+   "category": "CARD GAME",
+   "bpm": 138,
+   "meter": 4,
+   "bars": 16,
+   "repeats": 3,
+   "loop": true,
+   "placementRows": [
+    "scene-32",
+    "scene-33",
+    "scene-37"
+   ],
+   "featured": 3,
+   "tone": "ピアノと マリンバに 弦の ピチカートの きざみ。2周目は 木琴が 重なり 少し 緊張感が 増す",
+   "targetLUFS": -24,
+   "v1": {
+    "audio": "card-2.m4a",
+    "duration": 83.47826086956522,
+    "lufs": -24
+   },
+   "v2": {
+    "audio": "card-2.m4a",
+    "master": "card-2.flac",
+    "midi": "card-2.mid",
+    "duration": 83.47825396825397,
+    "frames": 3681391,
+    "sampleRate": 44100,
+    "lufs": -24.0,
+    "truePeak": -8.59,
+    "aacSha256": "fad806abe1bca33527f13a12ece6a534cfcd378c2589c21ed6fa354c02aecbca",
+    "flacSha256": "12b7dcabd6220d506d5883bee59aff2994eec307c7d5070c8b0cbf3db11c6b95"
+   },
+   "loopStart": 0,
+   "loopEnd": 83.47825396825397
+  },
+  {
+   "number": 8,
+   "id": "game-1",
+   "title": "あそびの はじまり",
+   "usage": "なおころ。 / 盤の ゲーム 2マス・通常ミニゲーム / アクション 32本",
+   "category": "ミニゲーム・クイック",
+   "bpm": 144,
+   "meter": 4,
+   "bars": 16,
+   "repeats": 2,
+   "loop": true,
+   "placementRows": [
+    "scene-27",
+    "scene-38",
+    "scene-39"
+   ],
+   "featured": 0,
+   "tone": "マリンバと 木琴の 旋律、ギターと ウッドベース、軽い 打楽器",
+   "targetLUFS": -24,
+   "v1": {
+    "audio": "game-1.m4a",
+    "duration": 53.333333333333336,
+    "lufs": -24
+   },
+   "v2": {
+    "audio": "game-1.m4a",
+    "master": "game-1.flac",
+    "midi": "game-1.mid",
+    "duration": 53.333333333333336,
+    "frames": 2352000,
+    "sampleRate": 44100,
+    "lufs": -24.0,
+    "truePeak": -10.05,
+    "aacSha256": "e5a75fbc60b2e00e1ce1cdff55061efa3d83df12ca97ef1960c8aa1a6e5eb32c",
+    "flacSha256": "9e7e2ed5399e6adc8849286ef62d3a28e3b453602c332388ea3720baecbe0799"
+   },
+   "loopStart": 0,
+   "loopEnd": 53.333333333333336
+  },
+  {
+   "number": 9,
+   "id": "explore-1",
+   "title": "ふしぎの ちか",
+   "usage": "3D ゲーム / 探検・ダンジョン 4本",
+   "category": "3D・冒険",
+   "bpm": 96,
+   "meter": 4,
+   "bars": 16,
+   "repeats": 2,
+   "loop": true,
+   "placementRows": [
+    "scene-45"
+   ],
+   "featured": 0,
+   "tone": "フルートの 旋律、ハープの 分散和音、弦の 持続音。2周目は クラリネットが 1オクターブ下で 支える（神秘と 冒険）",
+   "targetLUFS": -25,
+   "v1": {
+    "audio": "explore-1.m4a",
+    "duration": 80,
+    "lufs": -25
+   },
+   "v2": {
+    "audio": "explore-1.m4a",
+    "master": "explore-1.flac",
+    "midi": "explore-1.mid",
+    "duration": 80.0,
+    "frames": 3528000,
+    "sampleRate": 44100,
+    "lufs": -25.0,
+    "truePeak": -12.55,
+    "aacSha256": "325ea8ea24f783beaaa2ad6ba450a91a7c53524cd2591364aa2459def44db23d",
+    "flacSha256": "4c3d8739585b226dc2e2d82c1b15ac4e06dbf3a9f118df00e883f761051e6bea"
+   },
+   "loopStart": 0,
+   "loopEnd": 80.0
+  },
+  {
+   "number": 10,
+   "id": "event-2",
+   "title": "ふたりの きねんび",
+   "usage": "デートを 選ぶ 画面・デートの 映画・結婚記念日の 映画",
+   "category": "人生・特別な場面",
+   "bpm": 92,
+   "meter": 3,
+   "bars": 16,
+   "repeats": 2,
+   "loop": true,
+   "placementRows": [
+    "scene-08",
+    "scene-09",
+    "scene-10"
+   ],
+   "featured": 0,
+   "tone": "ピアノと ハープ、チェロと 弦の やわらかい 持続音（感情を 押しつけない）",
+   "targetLUFS": -24,
+   "v1": {
+    "audio": "event-2.m4a",
+    "duration": 62.608695652173914,
+    "lufs": -24
+   },
+   "v2": {
+    "audio": "event-2.m4a",
+    "master": "event-2.flac",
+    "midi": "event-2.mid",
+    "duration": 62.60868480725624,
+    "frames": 2761043,
+    "sampleRate": 44100,
+    "lufs": -24.0,
+    "truePeak": -5.96,
+    "aacSha256": "5fba0e5560a058c0c7bb1463b40969dda24c13d9a404cd34e5a67dcfb2f53e3b",
+    "flacSha256": "5d773315a4aa3208d316bfe0984da95a82d249861d1508cfc69bf7b7c915ee28"
+   },
+   "loopStart": 0,
+   "loopEnd": 62.60868480725624
+  },
+  {
+   "number": 11,
+   "id": "event-1",
+   "title": "おめでとうの ひ",
+   "usage": "GAME CLEAR 画面",
+   "category": "人生・特別な場面",
+   "bpm": 116,
+   "meter": 4,
+   "bars": 16,
+   "repeats": 2,
+   "loop": true,
+   "placementRows": [
+    "scene-16"
+   ],
+   "featured": 5,
+   "tone": "ピアノと フルートの 旋律、ハープと ギターの 和音、グロッケンの きらめき",
+   "targetLUFS": -23,
+   "v1": {
+    "audio": "event-1.m4a",
+    "duration": 66.20689655172414,
+    "lufs": -23
+   },
+   "v2": {
+    "audio": "event-1.m4a",
+    "master": "event-1.flac",
+    "midi": "event-1.mid",
+    "duration": 66.20689342403628,
+    "frames": 2919724,
+    "sampleRate": 44100,
+    "lufs": -23.0,
+    "truePeak": -5.67,
+    "aacSha256": "70f43e930b6c14f7d20a0ac0e819f0e0672fe2957572a51c74f03ca2ac902ec8",
+    "flacSha256": "c36cc816fc1d870e6190d1326e64ef9b43a42064bb8840e864c4c51fda70acee"
+   },
+   "loopStart": 0,
+   "loopEnd": 66.20689342403628
+  },
+  {
+   "number": 12,
+   "id": "kisetsu",
+   "title": "きせつの きおく",
+   "usage": "でんせつの であい",
+   "category": "人生・特別な場面",
+   "bpm": 86,
+   "meter": 4,
+   "bars": 16,
+   "repeats": 2,
+   "loop": true,
+   "placementRows": [
+    "scene-11"
+   ],
+   "featured": 0,
+   "tone": "ピアノと ハープ、2周目は クラリネットが 旋律を なぞる（思い出）",
+   "targetLUFS": -24,
+   "v1": {
+    "audio": "kisetsu.m4a",
+    "duration": 89.30232558139535,
+    "lufs": -24
+   },
+   "v2": {
+    "audio": "kisetsu.m4a",
+    "master": "kisetsu.flac",
+    "midi": "kisetsu.mid",
+    "duration": 89.30233560090703,
+    "frames": 3938233,
+    "sampleRate": 44100,
+    "lufs": -24.0,
+    "truePeak": -7.34,
+    "aacSha256": "bdf5fe2e225dd85ca4852f631b7866484e06bb3e80eaee536593401976e3eb99",
+    "flacSha256": "f8373a92f466b5a078db914cf901f0a3f6b54c8dd175be301547ec8082e7081e"
+   },
+   "loopStart": 0,
+   "loopEnd": 89.30233560090703
+  },
+  {
+   "number": 13,
+   "id": "ohayo",
+   "title": "おはようの ひかり",
+   "usage": "孵化ファンファーレの原曲（採用一覧に保存）",
+   "category": "人生・特別な場面",
+   "bpm": 80,
+   "meter": 4,
+   "bars": 16,
+   "repeats": 1,
+   "loop": true,
+   "placementRows": [],
+   "featured": 0,
+   "tone": "ピアノと フルートの 旋律、ハープと ギターの 和音、グロッケンの きらめき",
+   "targetLUFS": -23,
+   "v1": {
+    "audio": "ohayo.m4a",
+    "duration": 48,
+    "lufs": -23
+   },
+   "v2": {
+    "audio": "ohayo.m4a",
+    "master": "ohayo.flac",
+    "midi": "ohayo.mid",
+    "duration": 48.0,
+    "frames": 2116800,
+    "sampleRate": 44100,
+    "lufs": -23.0,
+    "truePeak": -5.83,
+    "aacSha256": "268ac3fe3f4f0475660363a81fb934124e113e9c79ba61d763d244ed3bed1960",
+    "flacSha256": "3125f59d0ba2ca4ff47ae842dfc6d7b80e36ce135fc941b0bdfe48c5b52fec6e"
+   },
+   "loopStart": 0,
+   "loopEnd": 48.0
+  },
+  {
+   "number": 14,
+   "id": "bgm-game",
+   "title": "game（ミニゲーム・汎用）",
+   "usage": "なおころ。 / 盤の クイック 4マス・クイックモード / クイックゲーム 50種",
+   "category": "ミニゲーム・クイック",
+   "bpm": 138,
+   "meter": 4,
+   "bars": 8,
+   "repeats": 4,
+   "loop": true,
+   "placementRows": [
+    "scene-28",
+    "scene-47"
+   ],
+   "featured": 0,
+   "tone": "マリンバと 木琴、ギター、ウッドベース、軽い 打楽器（テンポよく）",
+   "targetLUFS": -24,
+   "v1": {
+    "audio": "bgm-game.m4a",
+    "duration": 55.65217391304348,
+    "lufs": -24
+   },
+   "v2": {
+    "audio": "bgm-game.m4a",
+    "master": "bgm-game.flac",
+    "midi": "bgm-game.mid",
+    "duration": 55.6521768707483,
+    "frames": 2454261,
+    "sampleRate": 44100,
+    "lufs": -24.0,
+    "truePeak": -11.07,
+    "aacSha256": "fdcd5a360f2f8419910dc1ae057c80b4e43bdf47d73597ac617fa1400494cdca",
+    "flacSha256": "e34a040d9c5c615c33223c8c1e199a09f8b6041d1a4385ff7cf56f2b9309050b"
+   },
+   "loopStart": 0,
+   "loopEnd": 55.6521768707483
+  },
+  {
+   "number": 15,
+   "id": "bgm-race",
+   "title": "race（3D・のりもの）",
+   "usage": "3D ゲーム / レース・シューティング 5本",
+   "category": "ミニゲーム・クイック",
+   "bpm": 152,
+   "meter": 4,
+   "bars": 8,
+   "repeats": 4,
+   "loop": true,
+   "placementRows": [
+    "scene-44"
+   ],
+   "featured": 0,
+   "tone": "ピアノと 木琴の 旋律、マリンバ、ギターの きざみ、ウッドベースと 打楽器",
+   "targetLUFS": -24,
+   "v1": {
+    "audio": "bgm-race.m4a",
+    "duration": 50.526315789473685,
+    "lufs": -24
+   },
+   "v2": {
+    "audio": "bgm-race.m4a",
+    "master": "bgm-race.flac",
+    "midi": "bgm-race.mid",
+    "duration": 50.526326530612245,
+    "frames": 2228211,
+    "sampleRate": 44100,
+    "lufs": -24.0,
+    "truePeak": -10.4,
+    "aacSha256": "9d97990b09bf20326a0c4656b587b5b69492b50add1a9f47288526b20b7f4afd",
+    "flacSha256": "2f37132ff13ddeb4effa5e303fd749819eba3e1343a45f003f36719803baa736"
+   },
+   "loopStart": 0,
+   "loopEnd": 50.526326530612245
+  },
+  {
+   "number": 16,
+   "id": "bgm-farewell",
+   "title": "farewell（おわかれ）",
+   "usage": "お別れ",
+   "category": "人生・特別な場面",
+   "bpm": 60,
+   "meter": 4,
+   "bars": 8,
+   "repeats": 2,
+   "loop": true,
+   "placementRows": [
+    "scene-12"
+   ],
+   "featured": 6,
+   "tone": "静かな ピアノと ハープ、チェロ（音数を 増やさない）",
+   "targetLUFS": -25,
+   "v1": {
+    "audio": "bgm-farewell.m4a",
+    "duration": 64,
+    "lufs": -25
+   },
+   "v2": {
+    "audio": "bgm-farewell.m4a",
+    "master": "bgm-farewell.flac",
+    "midi": "bgm-farewell.mid",
+    "duration": 64.0,
+    "frames": 2822400,
+    "sampleRate": 44100,
+    "lufs": -25.0,
+    "truePeak": -9.31,
+    "aacSha256": "bf00c5d48e587b711ab3bb54c6c0b9fb798e62630d6740c6ece295274d3bc854",
+    "flacSha256": "66ecc286266a2116c0f81ee42c9eecb2191a9ea7f12a7eb35a4ab11a7a3c0771"
+   },
+   "loopStart": 0,
+   "loopEnd": 64.0
+  },
+  {
+   "number": 17,
+   "id": "poyo-2",
+   "title": "みんなで かえろう",
+   "usage": "通常ミニゲーム / パズル 17本",
+   "category": "ミニゲーム・クイック",
+   "bpm": 104,
+   "meter": 3,
+   "bars": 16,
+   "repeats": 3,
+   "loop": true,
+   "placementRows": [
+    "scene-40"
+   ],
+   "featured": 0,
+   "tone": "クラリネットの あたたかい 旋律と ハープ（思考を じゃましない）",
+   "targetLUFS": -27,
+   "v1": {
+    "audio": "poyo-2.m4a",
+    "duration": 83.07692307692307,
+    "lufs": -27
+   },
+   "v2": {
+    "audio": "poyo-2.m4a",
+    "master": "poyo-2.flac",
+    "midi": "poyo-2.mid",
+    "duration": 83.07691609977324,
+    "frames": 3663692,
+    "sampleRate": 44100,
+    "lufs": -27.0,
+    "truePeak": -12.79,
+    "aacSha256": "b08f97dea41434dc7959bfe291b7b439997f25f96dd1e1f67d63b4373d0dcdf2",
+    "flacSha256": "2671841c13e358522213bd7a1f731a5e55275051f2fac2aac5d09e2fe103a3b1"
+   },
+   "loopStart": 0,
+   "loopEnd": 83.07691609977324
+  },
+  {
+   "number": 18,
+   "id": "game-2",
+   "title": "ぴょこぴょこ ステップ",
+   "usage": "通常ミニゲーム / スポーツ 17本",
+   "category": "ミニゲーム・クイック",
+   "bpm": 128,
+   "meter": 4,
+   "bars": 16,
+   "repeats": 2,
+   "loop": true,
+   "placementRows": [
+    "scene-42"
+   ],
+   "featured": 0,
+   "tone": "マリンバと 木琴、ギター、ウッドベース、軽い 打楽器",
+   "targetLUFS": -24,
+   "v1": {
+    "audio": "game-2.m4a",
+    "duration": 60,
+    "lufs": -24
+   },
+   "v2": {
+    "audio": "game-2.m4a",
+    "master": "game-2.flac",
+    "midi": "game-2.mid",
+    "duration": 60.0,
+    "frames": 2646000,
+    "sampleRate": 44100,
+    "lufs": -24.0,
+    "truePeak": -10.45,
+    "aacSha256": "cc03015090325bf870508130a3e9cf867f478ed37c567a70c02d2da4f45dff82",
+    "flacSha256": "677eae54a7e0996110194b03ad18624d34b85b258a4eb86e0c1e91352a2931c3"
+   },
+   "loopStart": 0,
+   "loopEnd": 60.0
+  },
+  {
+   "number": 19,
+   "id": "explore-2",
+   "title": "そらと うみの さんぽ",
+   "usage": "飛行・海の原曲108版（配置は120版）",
+   "category": "3D・冒険",
+   "bpm": 108,
+   "meter": 4,
+   "bars": 16,
+   "repeats": 2,
+   "loop": true,
+   "placementRows": [],
+   "featured": 0,
+   "tone": "フルートの 旋律に 1オクターブ上の グロッケン、ハープの きらめきと 広い 空間（煌びやかで 透明）",
+   "targetLUFS": -24,
+   "v1": {
+    "audio": "explore-2.m4a",
+    "duration": 71.11111111111111,
+    "lufs": -24
+   },
+   "v2": {
+    "audio": "explore-2.m4a",
+    "master": "explore-2.flac",
+    "midi": "explore-2.mid",
+    "duration": 71.11111111111111,
+    "frames": 3136000,
+    "sampleRate": 44100,
+    "lufs": -24.01,
+    "truePeak": -11.95,
+    "aacSha256": "66725244c9c34b9aa4dc977e4465a1ecbe64a22a343b863af89a8b063af98bbe",
+    "flacSha256": "1ac3dcbb385e72a548f9e8744ab09c63c66f43a95611bf7ee2ee732584dcbb08"
+   },
+   "loopStart": 0,
+   "loopEnd": 71.11111111111111
+  },
+  {
+   "number": 20,
+   "id": "board-b",
+   "title": "きしと おしろ",
+   "usage": "通常ミニゲーム / ボード・テーブル 12本",
+   "category": "ミニゲーム・クイック",
+   "bpm": 108,
+   "meter": 3,
+   "bars": 16,
+   "repeats": 3,
+   "loop": true,
+   "placementRows": [
+    "scene-41"
+   ],
+   "featured": 0,
+   "tone": "ピアノと ギター、ウッドベース（落ちついて 考えられる）",
+   "targetLUFS": -27,
+   "v1": {
+    "audio": "board-b.m4a",
+    "duration": 80,
+    "lufs": -27
+   },
+   "v2": {
+    "audio": "board-b.m4a",
+    "master": "board-b.flac",
+    "midi": "board-b.mid",
+    "duration": 80.0,
+    "frames": 3528000,
+    "sampleRate": 44100,
+    "lufs": -27.0,
+    "truePeak": -10.95,
+    "aacSha256": "56ae58fa2ac00f9ca7e878b3dc723ce820ea220857a50e0cdb65ed4820d47fc9",
+    "flacSha256": "2e8b0d1f8cfb278cbdf70ea618a008faa219dbe1fcebd7588087b94b5bdc55c2"
+   },
+   "loopStart": 0,
+   "loopEnd": 80.0
+  },
+  {
+   "number": 21,
+   "id": "fishing-a",
+   "title": "みずべの うたたね",
+   "usage": "通常ミニゲーム / 釣り 4本",
+   "category": "ミニゲーム・クイック",
+   "bpm": 84,
+   "meter": 4,
+   "bars": 16,
+   "repeats": 1,
+   "loop": true,
+   "placementRows": [
+    "scene-43"
+   ],
+   "featured": 0,
+   "tone": "ピアノと ナイロンギター、チェロ（水辺の うたたね）",
+   "targetLUFS": -27,
+   "v1": {
+    "audio": "fishing-a.m4a",
+    "duration": 45.714285714285715,
+    "lufs": -27
+   },
+   "v2": {
+    "audio": "fishing-a.m4a",
+    "master": "fishing-a.flac",
+    "midi": "fishing-a.mid",
+    "duration": 45.714285714285715,
+    "frames": 2016000,
+    "sampleRate": 44100,
+    "lufs": -27.0,
+    "truePeak": -7.1,
+    "aacSha256": "d124fc66735ad7f5d438cdb6f6e0db4a4f3dcb73fe2053aab9163421306cafb9",
+    "flacSha256": "a98c9564dcfc1893efd354f915321cdc2ef09847b4e22e8208b073400d9f0321"
+   },
+   "loopStart": 0,
+   "loopEnd": 45.714285714285715
+  },
+  {
+   "number": 22,
+   "id": "lullaby-a",
+   "title": "ねむりの ほし",
+   "usage": "睡眠",
+   "category": "人生・特別な場面",
+   "bpm": 63,
+   "meter": 3,
+   "bars": 16,
+   "repeats": 1,
+   "loop": true,
+   "placementRows": [
+    "scene-07"
+   ],
+   "featured": 0,
+   "tone": "ハープの 旋律と 弱い ピアノ、ごく 小さい 弦（眠りを じゃましない）",
+   "targetLUFS": -31,
+   "v1": {
+    "audio": "lullaby-a.m4a",
+    "duration": 45.71428571428571,
+    "lufs": -31
+   },
+   "v2": {
+    "audio": "lullaby-a.m4a",
+    "master": "lullaby-a.flac",
+    "midi": "lullaby-a.mid",
+    "duration": 45.714285714285715,
+    "frames": 2016000,
+    "sampleRate": 44100,
+    "lufs": -31.01,
+    "truePeak": -13.31,
+    "aacSha256": "d167f9996b4f50d5886c5cb6a252d1e6a7c58287cdc3d984f6c5ff927c998411",
+    "flacSha256": "b05b2e0c94f93e18f0903f6796b378a9c8c9f794c1159f60221093c0323b6643"
+   },
+   "loopStart": 0,
+   "loopEnd": 45.714285714285715
+  },
+  {
+   "number": 23,
+   "id": "jingle-achieve",
+   "title": "やったね",
+   "usage": "図鑑・実績の 達成・GAME CLEAR 画面",
+   "category": "人生・特別な場面",
+   "bpm": 120,
+   "meter": 4,
+   "bars": 4,
+   "repeats": 1,
+   "loop": false,
+   "placementRows": [
+    "scene-15",
+    "scene-16"
+   ],
+   "featured": 0,
+   "tone": "ピアノと フルートの 旋律、ハープと ギターの 和音、グロッケンの きらめき",
+   "targetLUFS": -23,
+   "v1": {
+    "audio": "jingle-achieve.m4a",
+    "duration": 9.2,
+    "lufs": -23
+   },
+   "v2": {
+    "audio": "jingle-achieve.m4a",
+    "master": "jingle-achieve.flac",
+    "midi": "jingle-achieve.mid",
+    "duration": 9.2,
+    "frames": 405720,
+    "sampleRate": 44100,
+    "lufs": -22.99,
+    "truePeak": -4.98,
+    "aacSha256": "e4dfaa0a7add622a93be9943b9f996af713598b0b008b07797b0a25a6760ffad",
+    "flacSha256": "e02e02cb1495c5b55ccc3dcf205b4b03ce234f7325d5c04fe7d73f4fc177d7df"
+   },
+   "loopStart": 0,
+   "loopEnd": null
+  },
+  {
+   "number": 24,
+   "id": "jingle-card-lose",
+   "title": "つぎは かつぞ",
+   "usage": "CARD GAME / 敗北・引き分け",
+   "category": "CARD GAME",
+   "bpm": 96,
+   "meter": 4,
+   "bars": 2,
+   "repeats": 1,
+   "loop": false,
+   "placementRows": [
+    "scene-36"
+   ],
+   "featured": 0,
+   "tone": "ピアノと マリンバに 弦の ピチカートの きざみ。2周目は 木琴が 重なり 少し 緊張感が 増す",
+   "targetLUFS": -24,
+   "v1": {
+    "audio": "jingle-card-lose.m4a",
+    "duration": 6.2,
+    "lufs": -24
+   },
+   "v2": {
+    "audio": "jingle-card-lose.m4a",
+    "master": "jingle-card-lose.flac",
+    "midi": "jingle-card-lose.mid",
+    "duration": 6.2,
+    "frames": 273420,
+    "sampleRate": 44100,
+    "lufs": -23.99,
+    "truePeak": -6.64,
+    "aacSha256": "b692b796380847bc109ecdd3bf583b3d11442551bf262e27cf63db0ef307e0a6",
+    "flacSha256": "06535a6fd0c30d97250e365aa077c75c1009710680900d7207310ed8746ca021"
+   },
+   "loopStart": 0,
+   "loopEnd": null
+  },
+  {
+   "number": 25,
+   "id": "var-poyo-clear",
+   "title": "ぽよぽよこもれび（ステージクリア）",
+   "usage": "なおぽよ。 / ステージクリア「みんな、おかえり。」",
+   "category": "なおぽよ。",
+   "bpm": 100,
+   "meter": 4,
+   "bars": 4,
+   "repeats": 1,
+   "loop": false,
+   "placementRows": [
+    "scene-21"
+   ],
+   "featured": 0,
+   "tone": "やわらかい マリンバと ハープ、2周目は フルートが 小さく 寄りそう（少し 不思議で 考えごとを じゃましない）",
+   "targetLUFS": -26,
+   "v1": {
+    "audio": "var-poyo-clear.m4a",
+    "duration": 10.799999999999999,
+    "lufs": -26
+   },
+   "v2": {
+    "audio": "var-poyo-clear.m4a",
+    "master": "var-poyo-clear.flac",
+    "midi": "var-poyo-clear.mid",
+    "duration": 10.8,
+    "frames": 476280,
+    "sampleRate": 44100,
+    "lufs": -26.01,
+    "truePeak": -11.38,
+    "aacSha256": "cf523515036b513066979405b2ca0a7ee0bf78002813c781f87ed985bab9a39f",
+    "flacSha256": "2ee55d84ffced9bd3505788a5dbc285c43b66dd221a0fab02042f404a0b0f5c5"
+   },
+   "loopStart": 0,
+   "loopEnd": null
+  },
+  {
+   "number": 26,
+   "id": "var-poyo-chapter",
+   "title": "ぽよぽよこもれび（章の おわり）",
+   "usage": "なおぽよ。 / 第1章クリア",
+   "category": "なおぽよ。",
+   "bpm": 80,
+   "meter": 4,
+   "bars": 16,
+   "repeats": 1,
+   "loop": true,
+   "placementRows": [
+    "scene-22"
+   ],
+   "featured": 0,
+   "tone": "やわらかい マリンバと ハープ、2周目は フルートが 小さく 寄りそう（少し 不思議で 考えごとを じゃましない）",
+   "targetLUFS": -25,
+   "v1": {
+    "audio": "var-poyo-chapter.m4a",
+    "duration": 48,
+    "lufs": -25
+   },
+   "v2": {
+    "audio": "var-poyo-chapter.m4a",
+    "master": "var-poyo-chapter.flac",
+    "midi": "var-poyo-chapter.mid",
+    "duration": 48.0,
+    "frames": 2116800,
+    "sampleRate": 44100,
+    "lufs": -25.0,
+    "truePeak": -10.34,
+    "aacSha256": "63a8044d7e31cb3fb329dc894039c354874723c20cee7ce72003950fcdbab411",
+    "flacSha256": "31211eae80bb61f7b7d4b4ce79f57ba6b9a58cdcfe1822c75107f7b3bfebb365"
+   },
+   "loopStart": 0,
+   "loopEnd": 48.0
+  },
+  {
+   "number": 27,
+   "id": "var-koro-goal",
+   "title": "ころころじんせい（ゴール）",
+   "usage": "なおころ。 / 最終ターンの ゴール",
+   "category": "なおころ。",
+   "bpm": 112,
+   "meter": 4,
+   "bars": 4,
+   "repeats": 1,
+   "loop": false,
+   "placementRows": [
+    "scene-29"
+   ],
+   "featured": 0,
+   "tone": "ピアノの 旋律に ナイロンギターの 分散和音と ウッドベース。2周目は クラリネットが 旋律に 寄りそう（明るく 軽やか）",
+   "targetLUFS": -23,
+   "v1": {
+    "audio": "var-koro-goal.m4a",
+    "duration": 9.77142857142857,
+    "lufs": -23
+   },
+   "v2": {
+    "audio": "var-koro-goal.m4a",
+    "master": "var-koro-goal.flac",
+    "midi": "var-koro-goal.mid",
+    "duration": 9.771428571428572,
+    "frames": 430920,
+    "sampleRate": 44100,
+    "lufs": -23.01,
+    "truePeak": -7.56,
+    "aacSha256": "1859703adac93fa73c36cfb1252e0d0e3631b05595c67a193c4fac06426064eb",
+    "flacSha256": "ba3491b2c86a9aa0fea1f5563b47eea263cbdddbb966f4fb047305a1b2bbd537"
+   },
+   "loopStart": 0,
+   "loopEnd": null
+  },
+  {
+   "number": 28,
+   "id": "var-koro-album",
+   "title": "ころころじんせい（人生アルバム）",
+   "usage": "なおころ。 / 人生アルバム「こんな人生に、なりました。」・過去の アルバム",
+   "category": "なおころ。",
+   "bpm": 84,
+   "meter": 4,
+   "bars": 16,
+   "repeats": 1,
+   "loop": true,
+   "placementRows": [
+    "scene-31"
+   ],
+   "featured": 0,
+   "tone": "ピアノの 旋律に ナイロンギターの 分散和音と ウッドベース。2周目は クラリネットが 旋律に 寄りそう（明るく 軽やか）",
+   "targetLUFS": -25,
+   "v1": {
+    "audio": "var-koro-album.m4a",
+    "duration": 45.714285714285715,
+    "lufs": -25
+   },
+   "v2": {
+    "audio": "var-koro-album.m4a",
+    "master": "var-koro-album.flac",
+    "midi": "var-koro-album.mid",
+    "duration": 45.714285714285715,
+    "frames": 2016000,
+    "sampleRate": 44100,
+    "lufs": -25.01,
+    "truePeak": -7.59,
+    "aacSha256": "87c93073915b86007da5956862927bd41cfb30169e8b4ce7e091f37374a6fc67",
+    "flacSha256": "dee00bdf976c8b770f3ee38b74cc2c936d31eb93a8985407279127995bce16a4"
+   },
+   "loopStart": 0,
+   "loopEnd": 45.714285714285715
+  },
+  {
+   "number": 29,
+   "id": "var-card-late",
+   "title": "デュエル・スタート（終盤）",
+   "usage": "CARD GAME / 終盤の 逆転",
+   "category": "CARD GAME",
+   "bpm": 156,
+   "meter": 4,
+   "bars": 16,
+   "repeats": 3,
+   "loop": true,
+   "placementRows": [
+    "scene-34"
+   ],
+   "featured": 0,
+   "tone": "ピアノと マリンバに 弦の ピチカートの きざみ。2周目は 木琴が 重なり 少し 緊張感が 増す",
+   "targetLUFS": -24,
+   "v1": {
+    "audio": "var-card-late.m4a",
+    "duration": 73.84615384615385,
+    "lufs": -24
+   },
+   "v2": {
+    "audio": "var-card-late.m4a",
+    "master": "var-card-late.flac",
+    "midi": "var-card-late.mid",
+    "duration": 73.84614512471656,
+    "frames": 3256615,
+    "sampleRate": 44100,
+    "lufs": -24.0,
+    "truePeak": -8.26,
+    "aacSha256": "c6bd773c67cb15241c3d0fdc3b993671a6acbe729c06f8ca9fb47bafbb27a084",
+    "flacSha256": "e6b3e4184dad831e434df8f96eece4ac71200fc331cb582e72b0cfdc65a117ce"
+   },
+   "loopStart": 0,
+   "loopEnd": 73.84614512471656
+  },
+  {
+   "number": 30,
+   "id": "var-card-win",
+   "title": "デュエル・スタート（勝利）",
+   "usage": "CARD GAME / 勝利",
+   "category": "CARD GAME",
+   "bpm": 138,
+   "meter": 4,
+   "bars": 4,
+   "repeats": 1,
+   "loop": false,
+   "placementRows": [
+    "scene-35"
+   ],
+   "featured": 0,
+   "tone": "ピアノと マリンバに 弦の ピチカートの きざみ。2周目は 木琴が 重なり 少し 緊張感が 増す",
+   "targetLUFS": -24,
+   "v1": {
+    "audio": "var-card-win.m4a",
+    "duration": 8.156521739130435,
+    "lufs": -24
+   },
+   "v2": {
+    "audio": "var-card-win.m4a",
+    "master": "var-card-win.flac",
+    "midi": "var-card-win.mid",
+    "duration": 8.156530612244898,
+    "frames": 359703,
+    "sampleRate": 44100,
+    "lufs": -24.01,
+    "truePeak": -10.68,
+    "aacSha256": "160fb48b4f0c5590b2bcb11d6250bd28411bc5e2f853265715b54eced9e91ac6",
+    "flacSha256": "266b2c148c098b6c8e943843bc42ce335b6fb134a29377475ff6138ef310da83"
+   },
+   "loopStart": 0,
+   "loopEnd": null
+  },
+  {
+   "number": 31,
+   "id": "var-flight",
+   "title": "そらとうみのさんぽ（きらめき・はやめ）",
+   "usage": "3D ゲーム / 飛行・海 7本",
+   "category": "3D・冒険",
+   "bpm": 120,
+   "meter": 4,
+   "bars": 16,
+   "repeats": 2,
+   "loop": true,
+   "placementRows": [
+    "scene-46"
+   ],
+   "featured": 4,
+   "tone": "フルートの 旋律に 1オクターブ上の グロッケン、ハープの きらめきと 広い 空間（煌びやかで 透明）",
+   "targetLUFS": -24,
+   "v1": {
+    "audio": "var-flight.m4a",
+    "duration": 64,
+    "lufs": -24
+   },
+   "v2": {
+    "audio": "var-flight.m4a",
+    "master": "var-flight.flac",
+    "midi": "var-flight.mid",
+    "duration": 64.0,
+    "frames": 2822400,
+    "sampleRate": 44100,
+    "lufs": -24.0,
+    "truePeak": -13.41,
+    "aacSha256": "4396cae79ceef235b83acbc0a40d0c3ba0aa259a04af8d6c4b3433b2acab8675",
+    "flacSha256": "127a1d553c2808b52a10334d341208834b7d3f0c3322dbe0d0f9fbef4617dc5b"
+   },
+   "loopStart": 0,
+   "loopEnd": 64.0
+  },
+  {
+   "number": 32,
+   "id": "var-ohayo-hatch2",
+   "title": "おはようのひかり（たまごが かえる・ファンファーレ 2小節）",
+   "usage": "たまごが かえる しゅんかん",
+   "category": "人生・特別な場面",
+   "bpm": 120,
+   "meter": 4,
+   "bars": 2,
+   "repeats": 1,
+   "loop": false,
+   "placementRows": [
+    "scene-13"
+   ],
+   "featured": 0,
+   "tone": "トランペットの ファンファーレに グロッケン、ティンパニ、シンバル、最後の E♭ 和音",
+   "targetLUFS": -19,
+   "v1": {
+    "audio": "var-ohayo-hatch2.m4a",
+    "duration": 6.75,
+    "lufs": -19
+   },
+   "v2": {
+    "audio": "var-ohayo-hatch2.m4a",
+    "master": "var-ohayo-hatch2.flac",
+    "midi": "var-ohayo-hatch2.mid",
+    "duration": 6.75,
+    "frames": 297675,
+    "sampleRate": 44100,
+    "lufs": -18.99,
+    "truePeak": -5.42,
+    "aacSha256": "9c614d6db04d69b91676ebde41de76fcf265a38f927eecddda359697dbfd51a5",
+    "flacSha256": "aa6ec5a565e54083d688910ca96d0d9f419f07d8411b60d022a2a27d58128351"
+   },
+   "loopStart": 0,
+   "loopEnd": null
+  }
+ ]
+}
