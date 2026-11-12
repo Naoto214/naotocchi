@@ -12,6 +12,8 @@ on:
       - 'tests/puzzle-*.test.mjs'
       - 'docs/naopoyo-100-v1/**'
       - 'docs/naopoyo-100-v2/**'
+      - 'docs/naopoyo-100-v3/**'
+      - 'docs/naopoyo-100-v3/**'
       - '.github/workflows/naopoyo-hundred-prototype.yml'
 permissions:
   contents: read

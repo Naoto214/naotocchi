@@ -1,3 +1,4 @@
+import {stageByNumber} from './stage-order.mjs';
 import {boardSize} from './board-layout.mjs';
 import {adoptedCatalog} from '../naopoyo-shared/gate-catalog.mjs';
 import {stages} from './stages.mjs';
@@ -112,6 +113,6 @@ window.addEventListener('resize',()=>{if(state)touch.end()});document.addEventLi
 function sizeBoard(){if(view!=='play')return;const width=boardSize($('.board-column').getBoundingClientRect().width);document.documentElement.style.setProperty('--board-size',width+'px');draw()}
 new ResizeObserver(sizeBoard).observe($('.board-column'));window.visualViewport?.addEventListener('resize',sizeBoard);window.addEventListener('pagehide',updateResume);
 const failures=await loadArt();if(failures.length)throw Error(`画像の読込失敗：${failures.join(', ')}`);renderHero($('#hero-art'));renderList();draw();save();
-const requested=new URLSearchParams(location.search);if(requested.has('book'))startBook(Number(requested.get('book'))||0);else if(requested.has('stage'))startStage(String(Number(requested.get('stage'))).padStart(2,'0'),true);
+const requested=new URLSearchParams(location.search);if(requested.has('book'))startBook(Number(requested.get('book'))||0);else if(requested.has('stage'))startStage(stageByNumber(stages,requested.get('stage')).id,true);
 
 document.documentElement.dataset.ready='true';

@@ -59,8 +59,8 @@ test('the interactive picture book is separate and fully playable', () => {
 test('the catalog exchange and solve reports match every shipped stage', () => {
   const read = path => JSON.parse(readFileSync(new URL(path, import.meta.url), 'utf8'));
   const data = read('../prototypes/naopoyo-100/stage-data.json');
-  const report = read('../docs/naopoyo-100-v1/validation.json');
-  const solutions = read('../docs/naopoyo-100-v1/solutions.json');
+  const report = read('../docs/naopoyo-100-v3/validation.json');
+  const solutions = read('../docs/naopoyo-100-v3/solutions.json');
   const catalog = new Set(read('../docs/naopoyo-gimmick-atlas-v2/catalog.json').entries.map(e => e.catalogId));
   assert.equal(data.stages.length, 100);
   assert.equal(report.counts.replayed, 100);
