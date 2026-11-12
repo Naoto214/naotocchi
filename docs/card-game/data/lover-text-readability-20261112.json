@@ -1,0 +1,66 @@
+{
+ "schema_version": 1,
+ "document": "481-lover-text-readability.md",
+ "research": "PR #517 (VERSION 5 trial text candidates, lover-marriage-v5-20261104/lib/v5-patches.mjs @ 414e344c), doc 476, doc 480",
+ "base_main": "e0120c58",
+ "changed_cards": [
+  {
+   "id": "P-rock_octopus",
+   "name": "いわばのタコさん",
+   "before": "1ターンに1回。自分のターンに、自分になかまがあり、準備枠にカードが2枚以上ある場合、時1を払い、自分の準備枠でみにつけられているカード1枚と、それを適正にみにつけられる、今の装備先とは別の自分のキャラクター1枚を対象として発動できる。その装備を後者へつけ替える。",
+   "after": "1ターンに1回。自分のターンに、自分になかまがいて、準備枠にカードが2枚以上ある場合、時1を払い、自分の装備カード1枚と、それを適正にみにつけられる、今の装備先とは別の自分のキャラクター1枚を対象として発動できる。その装備をそのキャラクターへつけ替える。",
+   "unchanged": [
+    "once_per_turn",
+    "own_turn_only",
+    "companion_required",
+    "prepared_2_or_more",
+    "time_cost_1",
+    "two_targets_fixed_on_activation",
+    "face_down_traps_not_movable",
+    "destination_must_fit",
+    "destination_not_current_holder",
+    "married_ability",
+    "program"
+   ],
+   "changed": [
+    "wording_companion_verb",
+    "wording_equipment_card",
+    "wording_destination_reference"
+   ],
+   "ruling_source": "74-partner-18-card-text-draft.md#P-rock_octopus — いわばのタコさん, 476",
+   "before_chars": 132,
+   "after_chars": 127
+  },
+  {
+   "id": "P-snowman",
+   "name": "とけないゆきだるま",
+   "before": "このカードが相手の効果でこいびと枠から手札または捨て札に移動し、このカードとの交際または結婚が終了した時、自分のメインがたまごでない場合、その移動先で発動できる。山札上2枚を見て、その中から1枚を手札に加え、残りを山札の一番下に置く。",
+   "after": "このカードが相手の効果でこいびと枠を離れて（手札か捨て札へ）、関係が終わった時、自分のメインがたまごでなければ、その移動先で発動できる。山札上2枚を見て、その中から1枚を手札に加え、残りを山札の一番下に置く。",
+   "unchanged": [
+    "opponent_effect_only",
+    "destination_hand_or_discard",
+    "relationship_end_dating_or_married",
+    "non_egg_condition",
+    "activates_from_destination",
+    "look_2_take_1_rest_bottom",
+    "breakup_penalty",
+    "married_ability",
+    "program"
+   ],
+   "changed": [
+    "wording_departure_and_relationship_end"
+   ],
+   "ruling_source": "74-partner-18-card-text-draft.md#P-snowman — とけないゆきだるま, 96, 01-core-rules.md（こいびとが枠を離れて関係が終わる）",
+   "before_chars": 117,
+   "after_chars": 104
+  }
+ ],
+ "save_compatibility": {
+  "rule_version": "hotseat-8",
+  "new_rule_version": null,
+  "note": "Wording only. Saves hold version/seed/decks/commands and no card text; the programs in rules.mjs/equipment-rules.mjs/remaining-rules.mjs are unchanged, so every existing save replays identically. No new version is added."
+ },
+ "validation": {
+  "catalog_records_sha256": "dad50a65b78d8a1cffa4e7bb73c525de58c7884d3e9092cfc1f3ce2c568b25ce"
+ }
+}

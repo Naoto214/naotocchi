@@ -50,7 +50,7 @@ test('95/96 current revisions and canonical names survive export', () => {
   assert.ok(CATALOG['M-stagbeetle-06'].text.includes('このメイン以外'));
   assert.ok(CATALOG['M-penguin-07'].text.includes('次の自分のターン開始時まで'));
   assert.ok(CATALOG['M-dandelion-04'].text.includes('手札または捨て札'));
-  assert.ok(CATALOG['P-snowman'].text.includes('手札または捨て札'));
+  assert.ok(CATALOG['P-snowman'].text.includes('（手札か捨て札へ）')); // 96 の移動先を 481 で言い換え
   assert.ok(CATALOG['G-p3-drive'].text.includes('捨て札'));
   assert.equal(CATALOG['M-antlion-01'].name, 'アリジゴク①');
 });
