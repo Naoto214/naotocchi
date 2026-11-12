@@ -189,7 +189,7 @@ def guitar(midi, dur, vel, seed=None):
     t60 = 3.2 * (110 / f) ** .35; g = 10 ** (-3 / (t60 * f))
     # 励振: 指で はじく 柔らかい ノイズ（強さで 明るさが 変わる）＋ はじく 位置の くし形フィルター
     exc = rng.uniform(-1, 1, N + 1)
-    bright = .22 + .25 * min(1, vel / .08)  # ナイロン弦: 指の 腹で はじく やわらかい 音
+    bright = .12 + .14 * min(1, vel / .08)  # ナイロン弦: 指の 腹で はじく やわらかい 音
     exc = lfilter([bright], [1, -(1 - bright)], exc)
     pp = max(1, int(N * .14)); exc[pp:] -= exc[:-pp] * .9
     x = np.zeros(n); x[:len(exc)] = exc
@@ -202,7 +202,10 @@ def guitar(midi, dur, vel, seed=None):
     st = int(min(ring, dur + .12) * SR)
     if st < n: y[st:] *= np.exp(-np.linspace(0, 9, n - st))
     y = np.convolve(y, body_ir())[:n]
-    y = sosfilt(butter(2, [70, 5200], fs=SR, btype='bandpass', output='sos'), y)
+    # ナイロン弦の 倍音は 3 kHz 付近から 急に 弱く なる。高い 倍音ほど 早く 消える 性質は ループの 平均フィルターで、
+    # 全体の 丸みは 出口の ローパスで つくる
+    y = sosfilt(butter(2, [70, 2600], fs=SR, btype='bandpass', output='sos'), y)
+    y = y + .8 * sosfilt(butter(2, [90, 320], fs=SR, btype='bandpass', output='sos'), y)  # 胴鳴り（低い 共鳴）
     # サンプル楽器（較正後の ハープ）と 同じ 尺度: 最初の 0.35 秒の RMS を そろえる
     y /= max(1e-9, float(np.sqrt((y[: int(SR * .35)] ** 2).mean())))
     y *= .09 * vel
