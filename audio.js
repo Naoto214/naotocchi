@@ -6,6 +6,11 @@
   'use strict';
   globalThis.installNaotocchiAudio = function (S) {
     const { nativeSetTimeout, getState, STAGE, el, isGameActive, getActiveMinigame, minigameGenreId, isDateOpen } = S;
+    // BGM VERSION 2（採用32曲の 音源ファイル）。bgm-v2.js・assets/bgm/catalog.js・placement.js が 読みこまれて いれば 使う。
+    // 読みこみに 失敗したら fileFailed に して、下の 合成BGM（以前の 音）に もどす。
+    const BGM2 = globalThis.NAOTOCCHI_BGM2, PLACE = globalThis.NAOTOCCHI_BGM_PLACEMENT;
+    let fileBgm = null, fileBus = null, fileFailed = !BGM2 || !globalThis.NAOTOCCHI_BGM_CATALOG, moment = null, momentUntil = 0;
+    const FILE_LEVEL = 0.4; // 音源BGM の 音量。ホームで 合成BGM（以前の 音）と 出力の RMS が そろう 値を 実測して 決めた（0.5 で +2 dB だった）
     const rawSetTimeout = typeof nativeSetTimeout === 'function' ? nativeSetTimeout : (typeof window.setTimeout === 'function' ? window.setTimeout.bind(window) : (fn, ms) => setTimeout(fn, ms));
     let ctx = null, master = null, sfxBus = null, bgmBus = null, unlocked = false, noiseBuf = null;
     let scene = null, track = null, nextNoteTime = 0, step = 0, schedTimer = null, sceneGain = null;
@@ -19,6 +24,11 @@
       master = ctx.createGain(); master.gain.value = 0.9; master.connect(ctx.destination);
       sfxBus = ctx.createGain(); sfxBus.gain.value = 0.9; sfxBus.connect(master);
       bgmBus = ctx.createGain(); bgmBus.gain.value = 0.28; bgmBus.connect(master);
+      if (!fileFailed) {
+        // bgmBus の 下に つなぐ（よみあげ中の ダッキングが そのまま 効く）。0.28 で 割って 実際の 音量を FILE_LEVEL に する
+        fileBus = ctx.createGain(); fileBus.gain.value = FILE_LEVEL / 0.28; fileBus.connect(bgmBus);
+        try { fileBgm = BGM2.create({ context: ctx, output: fileBus, base: S.bgmBase || 'assets/bgm/', enabled: bgmOn, onError: () => { fileFailed = true; try { fileBgm.stop(); } catch (err) {} } }); } catch (err) { fileFailed = true; }
+      }
       const len = Math.floor(ctx.sampleRate * 0.5); noiseBuf = ctx.createBuffer(1, len, ctx.sampleRate);
       const d = noiseBuf.getChannelData(0); for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
       return ctx;
@@ -27,6 +37,7 @@
       const c = ensure(); if (!c) return;
       if (c.state === 'suspended') { try { c.resume(); } catch (err) {} }
       unlocked = true;
+      if (fileBgm) fileBgm.unlock();
       startScheduler();
       voiceUnlock();
     }
@@ -238,6 +249,14 @@
     function scheduler() {
       schedTimer = null;
       if (!ctx || !unlocked) return;
+      if (fileBgm && !fileFailed) {
+        // 音源BGM: 配置表の 曲を 鳴らす（合成BGMは 止めて おく）
+        if (scene) switchScene(null);
+        watchJingles();
+        fileBgm.setSong(bgmOn() ? currentSong() : null);
+        schedTimer = rawSetTimeout(scheduler, 250);
+        return;
+      }
       const wanted = bgmOn() ? currentScene() : null;
       if (wanted !== scene) switchScene(wanted);
       if (track && sceneGain) {
@@ -276,9 +295,54 @@
         return 'home';
       } catch (err) { return 'home'; }
     }
+    // 配置表（PR #534 の 50行）に したがって、いまの 場面の 曲を 決める（音源BGM 用）
+    const QUICK_IDS = new Set(['quick-run', 'quick-solo']);
+    const D3 = { explore: ['perspective3d', 'firstPersonDungeon', 'hauntedHouse', 'voxelMine', 'tiltMaze'], flight: ['ringFlight', 'hangGlider', 'planeLanding', 'lunarLander', 'submarine'] };
+    function homeSong(state) {
+      // 時間帯は ホームの 背景と 同じ 判定（world-environment.js の timeOfDay。設定の 時間モードも 反映）
+      let t = null;
+      try { t = globalThis.NaotocchiEnvironment && globalThis.NaotocchiEnvironment.timeOfDay(state && state.lifetime && state.lifetime.timeMode || 'auto'); } catch (err) { t = null; }
+      return { morning: 'home-morning', day: 'home-day', evening: 'home-evening', night: 'home-night' }[t] || (BGM2 ? BGM2.homeSong() : 'home-day');
+    }
+    function currentSong() {
+      try {
+        const state = getState(); if (!state) return homeSong(state);
+        if (moment && Date.now() < momentUntil) return moment;  // 結婚の お知らせ など、少しの 間だけ 鳴らす 曲
+        moment = null;
+        if (state.stage === STAGE.DEAD || state.stage === STAGE.FAREWELL || (el.lifeCardOverlay && !el.lifeCardOverlay.classList.contains('hidden'))) return 'bgm-farewell'; // scene-12
+        if (el.gameClearOverlay && !el.gameClearOverlay.classList.contains('hidden')) return 'event-1'; // scene-16（入った ときに やったね の ジングル）
+        if (isGameActive()) {
+          const g = getActiveMinigame(), id = g && g.id;
+          if (QUICK_IDS.has(id)) return 'bgm-game'; // scene-47
+          if (id && PLACE && PLACE.GAME_SONG[id]) return PLACE.GAME_SONG[id]; // scene-38〜46（配置表の ゲームID）
+          const cat = g && typeof S.getMinigameCategory === 'function' ? S.getMinigameCategory(g) : null;
+          if (D3.explore.includes(cat)) return 'explore-1';
+          if (D3.flight.includes(cat)) return 'var-flight';
+          const genre = g && typeof minigameGenreId === 'function' ? minigameGenreId(g) : 'action';
+          return genre === 'drive3d' ? 'bgm-race' : genre === 'puzzle' ? 'poyo-2' : genre === 'board' ? 'board-b' : genre === 'sports' ? 'game-2' : 'game-1';
+        }
+        const movie = document.getElementById('dateMovie'), movieOn = movie && !movie.classList.contains('hidden');
+        const kind = movieOn && document.getElementById('dateMovieScene') ? document.getElementById('dateMovieScene').dataset.kind : null;
+        if (movieOn && kind === 'legend') return 'kisetsu'; // scene-11
+        if (movieOn || isDateOpen()) return 'event-2'; // scene-08・09
+        if (state.isSleeping) return 'lullaby-a'; // scene-07
+        return homeSong(state); // scene-01〜06・17・48（ミニゲームの 結果も ホーム曲）
+      } catch (err) { return homeSong(null); }
+    }
+    let clearShown = false;
+    function watchJingles() {
+      // GAME CLEAR 画面に 入った しゅんかんに「やったね」→ そのあと おめでとうのひ（scene-16）
+      const on = !!(el.gameClearOverlay && !el.gameClearOverlay.classList.contains('hidden'));
+      if (on && !clearShown && fileBgm && !fileFailed && bgmOn()) fileBgm.jingle('jingle-achieve', { then: 'event-1' });
+      clearShown = on;
+    }
+    // 一度だけの 曲（たまごが かえる・達成・結婚）。音源BGM が ない ときは 何も しない
+    function bgmJingle(id, o = {}) { if (!fileBgm || fileFailed || !unlocked || !bgmOn()) return false; fileBgm.jingle(id, o); return true; }
+    function bgmMoment(id, ms) { if (!fileBgm || fileFailed) return; moment = id; momentUntil = Date.now() + ms; startScheduler(); }
     function settingsChanged() {
       if (!ctx) return;
       if (!bgmOn() && scene) switchScene(null);
+      if (fileBgm && !bgmOn()) fileBgm.setSong(null);
       startScheduler();
     }
     // さいしょの そうさで かいじょう。タブが かくれたら いったん とめる
@@ -386,6 +450,6 @@
       if (mode === 'tts') return tts(text, o);
       return pico(text);
     }
-    return { play, voice, voiceMode, _shapeCue: shapeCue, settingsChanged, currentScene, get unlocked() { return unlocked; }, _debug: () => ({ ctx, master, scene, track, step }), _tracks: TRACKS };
+    return { play, voice, voiceMode, _shapeCue: shapeCue, settingsChanged, currentScene, currentSong, bgmJingle, bgmMoment, get unlocked() { return unlocked; }, _debug: () => ({ ctx, master, scene, track, step, fileSong: fileBgm && fileBgm.song, fileFailed }), _tracks: TRACKS };
   };
 })();
