@@ -10617,6 +10617,7 @@
     if (state.stage !== STAGE.EGG || state.infinite) return;
     clearPetExpression();
     audio.play('hatch');
+    if (audio.bgmJingle) audio.bgmJingle('var-ohayo-hatch2', { duckDb: -14 }); // BGM V2: たまごが かえる しゅんかんの ファンファーレ（配置表 scene-13）
     const reservedLine = pickDreamLine();
     state.speciesLine = reservedLine || pickRandomLine();
     state.stage = STAGE.GROWING;
@@ -11535,6 +11536,7 @@
     homeBirthdayCurrent=text;
     setCommentText(el.birthdayToast, text, true);
     el.birthdayToast.classList.remove('hidden');
+    audio.play('notify'); // 誕生日は 曲を 変えず 既存の 効果音「ピコン」だけ（配置表 scene-14）
     clearTimeout(birthdayToastTimer);
     birthdayToastTimer = setTimeout(() => {
       el.birthdayToast.classList.add('hidden');birthdayToastTimer=null;homeBirthdayCurrent=null;drainHomeNotices();
@@ -11662,6 +11664,7 @@
     invalidateCareAfterglow();
     clearPetExpression();
     audio.play('notify');
+    if (event && event.achievement && audio.bgmJingle) audio.bgmJingle('jingle-achieve', { delay: .35 }); // BGM V2: 達成の お知らせ（配置表 scene-15）
     const inlineVisual = event.character ? commentActorVisual({...event.character,kind:'partner'})
       : event.environmentMoment ? commentAnimalVisual(event.emoji) || {emoji:event.emoji,illustrationContext:'environment'} : null;
     if (event.author) el.storyFlashEmoji.innerHTML = authorVisualHTML('thumb');
@@ -18365,6 +18368,7 @@
     getActiveMinigame: () => activeMinigame,
     minigameGenreId: (game) => minigameGenreId(game),
     isDateOpen: () => dateOpen,
+    getMinigameCategory: (game) => { try { return minigameCategoryOf.get(game) || null; } catch (err) { return null; } },
   });
   function audioSettingsChanged() { audio.settingsChanged(); }
 
@@ -18852,6 +18856,7 @@
       // こいびとから 夫婦に しんてんする(すでに 夫婦なら なにも おきない)
       const justMarried = reinforceRelationship();
       if (justMarried) {
+        if (audio.bgmMoment) audio.bgmMoment('event-2', 20000); // BGM V2: 結婚した お知らせ（配置表 scene-10）
         applyGrowth(30); applyDecline(-20);
         pushLifeLog('💍', `${state.partner.label}とけっこんした`);
         if (state.partner.id !== 'guest' && !state.lifetime.partnersMarried.includes(state.partner.id)) {
