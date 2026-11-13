@@ -1,0 +1,72 @@
+{
+ "id": "var-card-win",
+ "title": "デュエル・スタート（勝利）",
+ "family": "card",
+ "loop": false,
+ "sampleRate": 44100,
+ "frames": 359703,
+ "seconds": 8.156531,
+ "flacFrames": 359703,
+ "aacDecodedFrames": 360448,
+ "integratedLUFS": -24.01,
+ "targetLUFS": -24,
+ "truePeakDbtp": -9.78,
+ "samplePeakDbfs": -9.78,
+ "clippedSamples": 0,
+ "monoLossDb": -1.26,
+ "sideToMidDb": -4.7,
+ "aacFlacCorrelation": 0.9998,
+ "loopJoinJump": 0.0006,
+ "loopJoinTypicalStep999": 0.0383,
+ "bands": {
+  "centroidHz": 691,
+  "low40_250": -7.1,
+  "lowmid250_800": -2.6,
+  "mid800_3k": -6.1,
+  "pres3k_6k": -21.2,
+  "air6k_12k": -37.9,
+  "top12k_20k": -58.4
+ },
+ "roleGainsDb": {
+  "bass": -17.9,
+  "accompaniment": -10.2,
+  "pad": -4.7,
+  "percussion": 11.1
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ],
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 644,
+  "low40_250": -7.7,
+  "lowmid250_800": -2.0,
+  "mid800_3k": -7.0,
+  "pres3k_6k": -22.7,
+  "air6k_12k": -39.4,
+  "top12k_20k": -59.9
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 1.0,
+ "flacSha256": "cba9bae1e78011ff2404aff45b3ce9d1840047d6733c632abe7ea7400ed0f9a0",
+ "flacBytes": 1127440,
+ "aacSha256": "5131126535eac185a7deb933292533d303ee7d4b4e2bf42495153fd34ca6e6d9",
+ "aacBytes": 195681,
+ "midiSha256": "b3f0ee24a7404e504b9a3b24ecc39216284e40572c2d20530a0dc3f6b3d69be4",
+ "problems": [],
+ "version": 4,
+ "pianoAttackSoftenDb": 0.0,
+ "sideScale": 0.968,
+ "removedNotes": 11,
+ "pedalNotes": 0
+}
