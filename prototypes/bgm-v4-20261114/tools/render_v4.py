@@ -34,6 +34,9 @@ R.FAMILY_BALANCE.update({
  'poyo': {'doubling': -11, 'accompaniment': -8},
 })
 NIGHT = {'accompaniment': -7.5, 'bass': -9.5}
+# 伴奏を 下げた ぶん、左右に 広い 持続音・残響の 割合が 増え、モノラル（iPhone の スピーカー 1つ）で 小さく なりやすい。広がりを 少し 狭める
+for role, w in (('pad', .8), ('accompaniment', .7), ('sparkle', .75), ('doubling', .5)):
+    R.BUS[role] = (R.BUS[role][0], R.BUS[role][1], w)
 
 # ピアノの 打鍵の 山を やわらげる（音源の エンベロープ調整）。録音の アップライトピアノは 打鍵後 0.5 秒で −15〜−20 dB と 急に 減衰し、
 # ペダルで 伸ばしても 一音ずつ 叩く ように 聞こえる（ぶつ切り）。立ち上がりの 山だけを A dB 下げ、時定数 τ で 元に もどす
@@ -52,7 +55,16 @@ def note(self, inst, midi, dur, vel, layer):
 L.Library.note = note
 
 _tc = V3.tonal_correction
+def mono_safe(x):
+    """左右の 差（side）が 中央（mid）に 対して −5 dB より 大きい 曲だけ、side を 少し 下げる（モノラル再生で 小さく ならない ように）。"""
+    m = (x[:, 0] + x[:, 1]) * .5; s = (x[:, 0] - x[:, 1]) * .5
+    sd = 10 * np.log10((s ** 2).mean() / ((m ** 2).mean() + 1e-20) + 1e-20)
+    k = min(1.0, 10 ** ((-5.0 - sd) / 20)); _soft['sideScale'] = round(k, 3)
+    if k >= 1: return x
+    s = s * k
+    return np.stack([m + s, m - s], 1)
 def tonal_correction(x, loop, family, used=(0.0, 0.0)):
+    if used == (0.0, 0.0): x = mono_safe(x)
     return _tc(x, loop, 'home3' if family == 'home4' else family, used)
 R.tonal_correction = tonal_correction
 
@@ -77,7 +89,7 @@ if __name__ == '__main__':
         if s['id'] not in want: continue
         if not force and R.receipt_ok(s['id']):
             print(f"skip {s['id']} (receipt と ハッシュが 一致)", flush=True); continue
-        _soft['db'] = SOFTEN.get(s['id'], SOFTEN_FAMILY.get(s['family'], 0.0))
+        _soft['db'] = SOFTEN.get(s['id'], SOFTEN_FAMILY.get(s['family'], 0.0)); _soft['sideScale'] = 1.0
         saved = dict(R.FAMILY_BALANCE['home4'])
         if s['id'] == 'home-night': R.FAMILY_BALANCE['home4'].update(NIGHT)
         try:
@@ -86,7 +98,7 @@ if __name__ == '__main__':
             R.FAMILY_BALANCE['home4'] = saved
         # MIDI は 譜面の 長さ（dur）で 書く（ペダルで 伸ばした 長さで 書くと 同じ 高さの 連続音が 1音に つながって しまう）
         (R.MIDI / f"{s['id']}.mid").write_bytes(R.midi_bytes(s)); r['midiSha256'] = R.sha(R.MIDI / f"{s['id']}.mid")
-        r['version'] = 4; r['pianoAttackSoftenDb'] = _soft['db']; r['removedNotes'] = len(s.get('removed', [])); r['pedalNotes'] = sum(1 for e in s['events'] if 'hold' in e)
+        r['version'] = 4; r['pianoAttackSoftenDb'] = _soft['db']; r['sideScale'] = _soft.get('sideScale', 1.0); r['removedNotes'] = len(s.get('removed', [])); r['pedalNotes'] = sum(1 for e in s['events'] if 'hold' in e)
         (R.REC / f"{s['id']}.json").write_text(json.dumps(r, ensure_ascii=False, indent=1) + '\n')
         b = r['bands']
         print(f"{s['id']:18s} {r['seconds']:7.2f}s LUFS {r['integratedLUFS']:6.1f} TP {r['truePeakDbtp']:5.1f} mono {r['monoLossDb']:5.2f} side {r['sideToMidDb']:5.1f} corr {r['aacFlacCorrelation']:.3f} cent {b['centroidHz']:5d} pres {b['pres3k_6k']:6.1f} air {b['air6k_12k']:6.1f} eq {r['tonalCorrection']} gains {r['roleGainsDb']} {r['renderSeconds']}s {'NG ' + ','.join(r['problems']) if r['problems'] else 'OK'}", flush=True)
