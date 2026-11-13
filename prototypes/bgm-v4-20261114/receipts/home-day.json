@@ -1,0 +1,70 @@
+{
+ "id": "home-day",
+ "title": "いつもの にわ",
+ "family": "home4",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2646000,
+ "seconds": 60.0,
+ "flacFrames": 2646000,
+ "aacDecodedFrames": 2646016,
+ "integratedLUFS": -23.0,
+ "targetLUFS": -23,
+ "truePeakDbtp": -7.88,
+ "samplePeakDbfs": -7.89,
+ "clippedSamples": 0,
+ "monoLossDb": -0.48,
+ "sideToMidDb": -9.3,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00303,
+ "loopJoinTypicalStep999": 0.03528,
+ "bands": {
+  "centroidHz": 594,
+  "low40_250": -11.2,
+  "lowmid250_800": -1.1,
+  "mid800_3k": -8.4,
+  "pres3k_6k": -25.0,
+  "air6k_12k": -49.0,
+  "top12k_20k": -59.5
+ },
+ "roleGainsDb": {
+  "bass": -3.4,
+  "accompaniment": 4.0,
+  "doubling": -3.6
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   3.4,
+   0.7
+  ],
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 543,
+  "low40_250": -11.6,
+  "lowmid250_800": -0.8,
+  "mid800_3k": -9.8,
+  "pres3k_6k": -28.9,
+  "air6k_12k": -51.4,
+  "top12k_20k": -60.6
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 10.4,
+ "flacSha256": "367af964311fc4c4ee4f154d60686b265c37e49e7c15c187ff8bc9bb4cbb8ba6",
+ "flacBytes": 9065388,
+ "aacSha256": "d121f8fb89ca5efca8af7ff993a7f41144e8c3c6d947abc56b7f99d115d65d76",
+ "aacBytes": 1456955,
+ "midiSha256": "2810e9f2895cec724078ce2862bd387211bc23942c9c638523314d0d66856c6c",
+ "problems": [],
+ "version": 4,
+ "pianoAttackSoftenDb": 4.0,
+ "removedNotes": 24,
+ "pedalNotes": 330
+}
