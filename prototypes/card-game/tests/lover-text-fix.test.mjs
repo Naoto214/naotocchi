@@ -105,7 +105,7 @@ test('旧保存は修正前の分岐を実際に通っている',()=>{
 test('クモ・サソリ・タコの本文',()=>{
  assert.equal(CATALOG['P-knitting_spider'].text,'1ラウンドに1回。自分の交際段階が進んだ時、発動できる。このラウンド、自分が次に「みにつける」か「しかける」でアクションカードをプレイするための時を1少なくする。');
  assert.equal(CATALOG['P-desert_scorpion'].text,'1ターンに1回。自分のターン終了時、このターン自分が「あそび」と「あいてむ」のカードをそれぞれ1枚以上表向きでプレイしていた場合、発動できる。1枚引く。');
- assert.equal(CATALOG['P-rock_octopus'].text,'1ターンに1回。自分のターンに、自分になかまがあり、準備枠にカードが2枚以上ある場合、時1を払い、自分の準備枠でみにつけられているカード1枚と、それを適正にみにつけられる、今の装備先とは別の自分のキャラクター1枚を対象として発動できる。その装備を後者へつけ替える。');
+ assert.equal(CATALOG['P-rock_octopus'].text,'1ターンに1回。自分のターンに、自分になかまがいて、準備枠にカードが2枚以上ある場合、時1を払い、自分の装備カード1枚と、それを適正にみにつけられる、今の装備先とは別の自分のキャラクター1枚を対象として発動できる。その装備をそのキャラクターへつけ替える。'); // 481 で言い換え（「今の装備先とは別の」は476のまま）
 });
 
 function playOut(s,limit=3000){for(let i=0;i<limit&&!s.finished;i++){assert.equal(s.automationStop,null);if(s.cpuPending)s.stepCpu(s.projection.revision);else{const o=s.decisionInput(),a=chooseCpuAction(o,{seed:4460,step:o.revision});s.commit(a.id,o.revision,o.seat);}}return s;}

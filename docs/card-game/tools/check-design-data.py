@@ -1342,6 +1342,36 @@ revision_96_expected = {
     "G-p3-drive": "自分のメイン1枚を対象として発動できる。このターン、そのメインが相手の効果で捨て札に置かれるなら、1回だけ、代わりに場に残す。このターン、自分が次に手札からセカイを通常の方法で変更するための時を1少なくする。",
 }
 revision_96_catalog = {r["id"]: r for group in current_catalog_groups.values() for r in group}
+# 481 only rewords the octopus and snowman lover bodies for readability; their
+# processing is unchanged.  Older pins (96/97, 476, 477, 478) reverse this wording.
+revision_481_expected = {
+    "P-rock_octopus": (
+        "1ターンに1回。自分のターンに、自分になかまがあり、準備枠にカードが2枚以上ある場合、時1を払い、自分の準備枠でみにつけられているカード1枚と、それを適正にみにつけられる、今の装備先とは別の自分のキャラクター1枚を対象として発動できる。その装備を後者へつけ替える。",
+        "1ターンに1回。自分のターンに、自分になかまがいて、準備枠にカードが2枚以上ある場合、時1を払い、自分の装備カード1枚と、それを適正にみにつけられる、今の装備先とは別の自分のキャラクター1枚を対象として発動できる。その装備をそのキャラクターへつけ替える。"),
+    "P-snowman": (
+        "このカードが相手の効果でこいびと枠から手札または捨て札に移動し、このカードとの交際または結婚が終了した時、自分のメインがたまごでない場合、その移動先で発動できる。山札上2枚を見て、その中から1枚を手札に加え、残りを山札の一番下に置く。",
+        "このカードが相手の効果でこいびと枠を離れて（手札か捨て札へ）、関係が終わった時、自分のメインがたまごでなければ、その移動先で発動できる。山札上2枚を見て、その中から1枚を手札に加え、残りを山札の一番下に置く。"),
+}
+for card_id, (_before_text, after_text) in revision_481_expected.items():
+    check(revision_96_catalog.get(card_id, {}).get("text") == after_text,
+          f"481 lover text rewording mismatch: {card_id}")
+revision_481_doc = DOCS / "481-lover-text-readability.md"
+revision_481_data_path = DOCS / "data/lover-text-readability-20261112.json"
+check(revision_481_doc.exists(), "481 revision document missing")
+check(revision_481_data_path.exists(), "481 revision evidence missing")
+if revision_481_data_path.exists():
+    revision_481_data = json.loads(revision_481_data_path.read_text())
+    check({r["id"]: (r.get("before"), r.get("after")) for r in revision_481_data.get("changed_cards", [])}
+          == revision_481_expected, "481 changed card before/after")
+    revision_481_hash = hashlib.sha256(json.dumps(
+        normalize_provisional_terminology(sorted(revision_96_catalog.values(), key=lambda r: r["id"])),
+        ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+    check(revision_481_data.get("validation", {}).get("catalog_records_sha256") == revision_481_hash,
+          "481 current catalog hash")
+# Catalog as it stood before 481, used by the older pins below.
+revision_pre481_catalog = {k: dict(v) for k, v in revision_96_catalog.items()}
+for card_id, (before_text, _after_text) in revision_481_expected.items():
+    revision_pre481_catalog[card_id]["text"] = before_text
 # 478 (PR #459/#460 follow-up) only clarifies wording of two play cards; their
 # processing is unchanged.  Older pins (96/97, 476, 477) reverse this wording.
 revision_478_expected = {
@@ -1359,7 +1389,7 @@ revision_476_expected = {
         "1ターンに1回。自分のターンに、自分になかまがあり、準備枠にカードが2枚以上ある場合、時1を払い、自分の準備枠でみにつけられているカード1枚と、それを適正にみにつけられる、今の装備先とは別の自分のキャラクター1枚を対象として発動できる。その装備を後者へつけ替える。"),
 }
 for card_id, (_before_text, after_text) in revision_476_expected.items():
-    check(revision_96_catalog.get(card_id, {}).get("text") == after_text,
+    check(revision_pre481_catalog.get(card_id, {}).get("text") == after_text,
           f"476 lover text revision mismatch: {card_id}")
 revision_476_doc = DOCS / "476-lover-text-implementation-alignment.md"
 revision_476_data_path = DOCS / "data/lover-text-implementation-alignment-20261027.json"
@@ -1370,7 +1400,7 @@ if revision_476_data_path.exists():
     check({r["id"]: (r.get("before"), r.get("after")) for r in revision_476_data.get("changed_cards", [])}
           == revision_476_expected, "476 changed card before/after")
     # 476's pin predates 477 and 478, so its check reverses their wording (477 is defined just below).
-    revision_476_era = {k: dict(v) for k, v in revision_96_catalog.items()}
+    revision_476_era = {k: dict(v) for k, v in revision_pre481_catalog.items()}
     revision_476_era["G-doodle-jump"]["text"] = "このターン、自分が次にときおくりを行った時に1枚引き、その次にときおくりを行った時に自分のそだち+5。"
     for card_id, (before_text, _after_text) in revision_478_expected.items():
         revision_476_era[card_id]["text"] = before_text
@@ -1397,7 +1427,7 @@ if revision_477_data_path.exists():
     check({r["id"]: (r.get("before"), r.get("after")) for r in revision_477_data.get("changed_cards", [])}
           == revision_477_expected, "477 changed card before/after")
     # 477's pin predates 478, so its check reverses the 478 wording.
-    revision_477_era = {k: dict(v) for k, v in revision_96_catalog.items()}
+    revision_477_era = {k: dict(v) for k, v in revision_pre481_catalog.items()}
     for card_id, (before_text, _after_text) in revision_478_expected.items():
         revision_477_era[card_id]["text"] = before_text
     revision_477_hash = hashlib.sha256(json.dumps(
@@ -1417,12 +1447,12 @@ if revision_478_data_path.exists():
     check({r["id"]: (r.get("before"), r.get("after")) for r in revision_478_data.get("changed_cards", [])}
           == revision_478_expected, "478 changed card before/after")
     revision_478_hash = hashlib.sha256(json.dumps(
-        normalize_provisional_terminology(sorted(revision_96_catalog.values(), key=lambda r: r["id"])),
+        normalize_provisional_terminology(sorted(revision_pre481_catalog.values(), key=lambda r: r["id"])),
         ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
     check(revision_478_data.get("validation", {}).get("catalog_records_sha256") == revision_478_hash,
           "478 current catalog hash")
 for card_id, expected_text in revision_96_expected.items():
-    check(revision_96_catalog.get(card_id, {}).get("text") == expected_text,
+    check(revision_pre481_catalog.get(card_id, {}).get("text") == expected_text,
           f"96 removal/defense revision mismatch: {card_id}")
 revision_96_doc = DOCS / "96-removal-defense-deadline-revisions.md"
 revision_96_data_path = DOCS / "data/removal-defense-deadline-revisions-20260917.json"
@@ -1438,9 +1468,9 @@ if revision_96_data_path.exists():
     revision_96_cases = revision_96_data.get("manual_cases", [])
     check(len(revision_96_cases) == len({r.get("id") for r in revision_96_cases}) == 28,
           "96 manual case count/IDs")
-    # 96/97 hashes are historical pins.  Later approved wording changes (476, 477, 478)
+    # 96/97 hashes are historical pins.  Later approved wording changes (476, 477, 478, 481)
     # are reversed here so the 96/97 evidence still verifies byte-for-byte.
-    revision_96_era = {k: dict(v) for k, v in revision_96_catalog.items()}
+    revision_96_era = {k: dict(v) for k, v in revision_pre481_catalog.items()}
     for card_id, (before_text, _after_text) in {**revision_476_expected, **revision_477_expected,
                                                  **revision_478_expected}.items():
         revision_96_era[card_id]["text"] = before_text

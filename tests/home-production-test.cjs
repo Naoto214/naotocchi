@@ -72,6 +72,20 @@ test('latest-main game catalogs, conversations, formal images and other games st
   assert.equal(cp.execFileSync('git',['hash-object','--',file],{encoding:'utf8'}).trim(),blob,'home UI V1 reviewed bytes: '+file);
   unchanged.push(':(exclude)'+file);
  }
+ // Owner-requested CARD GAME lover text rewording (doc 481, PR #538, 2026-11-12): text only,
+ // no rule/CPU/art/save change. Permit only these exact bytes, not later CARD GAME edits.
+ const loverText481 = {
+  "prototypes/card-game/full-catalog.mjs": "a4d85838327a6206a7a2320a45d0462c40844213",
+  "prototypes/card-game/tests/catalog.test.mjs": "41a3610307e7d3969c67c8218699c8934ff2acbc",
+  "prototypes/card-game/tests/doodle-jump.test.mjs": "1163a0ccddb243a381ddb54233f0429d7abd8c3a",
+  "prototypes/card-game/tests/lover-text-fix.test.mjs": "1b87d73b42899d78e07428d9c4331f8af3200c39",
+  "prototypes/card-game/tests/lover-text-readability.test.mjs": "0e2c3775ab12e606434769d49f350c2640e2092d",
+  "prototypes/card-game/tests/tier1-direct.test.mjs": "69d64fde257ba498d3fe451d3757653c7ae0a53e"
+};
+ for (const [file, blob] of Object.entries(loverText481)) {
+  assert.equal(cp.execFileSync('git',['hash-object','--',file],{encoding:'utf8'}).trim(),blob,'doc 481 reviewed bytes: '+file);
+  unchanged.push(':(exclude)'+file);
+ }
  // FIRST START permits only the exact owner-approved files/bytes from PR #511.
  // Keep every other prototype (CARD GAME/naopoyo included) and asset protected.
  const firstStart='8de189af03dc3bf9ca0139982341edc5c33b5518';
