@@ -1,0 +1,71 @@
+{
+ "id": "fishing-a",
+ "title": "みずべの うたたね",
+ "family": "fishing",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2016000,
+ "seconds": 45.714286,
+ "flacFrames": 2016000,
+ "aacDecodedFrames": 2016256,
+ "integratedLUFS": -27.0,
+ "targetLUFS": -27,
+ "truePeakDbtp": -9.79,
+ "samplePeakDbfs": -9.79,
+ "clippedSamples": 0,
+ "monoLossDb": -1.17,
+ "sideToMidDb": -5.1,
+ "aacFlacCorrelation": 0.9998,
+ "loopJoinJump": 0.00117,
+ "loopJoinTypicalStep999": 0.02622,
+ "bands": {
+  "centroidHz": 700,
+  "low40_250": -8.2,
+  "lowmid250_800": -2.2,
+  "mid800_3k": -6.3,
+  "pres3k_6k": -24.3,
+  "air6k_12k": -45.1,
+  "top12k_20k": -58.3
+ },
+ "roleGainsDb": {
+  "bass": -8.7,
+  "accompaniment": 12.6,
+  "pad": -7.4
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   3.7,
+   0.7
+  ],
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 639,
+  "low40_250": -8.2,
+  "lowmid250_800": -1.8,
+  "mid800_3k": -7.2,
+  "pres3k_6k": -28.2,
+  "air6k_12k": -47.2,
+  "top12k_20k": -59.0
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 12.9,
+ "flacSha256": "afb7c9c3df6adacfcf43506cbd242329d0ab211017e69b51b64ea4cb4a45c95f",
+ "flacBytes": 6693950,
+ "aacSha256": "c7396d239c461812c5fdef6b7685419ddc08cb24834397c61bcd7d180ef5a816",
+ "aacBytes": 1111882,
+ "midiSha256": "3b0b55f8f0119b0383bea0a0dd7c8414000da0a718340383cf5f32927d403dbe",
+ "problems": [],
+ "version": 4,
+ "pianoAttackSoftenDb": 3.0,
+ "sideScale": 1.0,
+ "removedNotes": 10,
+ "pedalNotes": 76
+}

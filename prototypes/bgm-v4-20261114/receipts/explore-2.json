@@ -1,0 +1,79 @@
+{
+ "id": "explore-2",
+ "title": "そらと うみの さんぽ",
+ "family": "flight",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 3136000,
+ "seconds": 71.111111,
+ "flacFrames": 3136000,
+ "aacDecodedFrames": 3136512,
+ "integratedLUFS": -24.0,
+ "targetLUFS": -24,
+ "truePeakDbtp": -14.07,
+ "samplePeakDbfs": -14.07,
+ "clippedSamples": 0,
+ "monoLossDb": -0.6,
+ "sideToMidDb": -8.3,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00126,
+ "loopJoinTypicalStep999": 0.03279,
+ "bands": {
+  "centroidHz": 753,
+  "low40_250": -7.9,
+  "lowmid250_800": -3.6,
+  "mid800_3k": -4.2,
+  "pres3k_6k": -19.2,
+  "air6k_12k": -25.1,
+  "top12k_20k": -55.9
+ },
+ "roleGainsDb": {
+  "doubling": 5.3,
+  "bass": 7.2,
+  "accompaniment": 0.9,
+  "pad": 10.4,
+  "sparkle": -3.3
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   -0.5,
+   0.7
+  ],
+  [
+   "highshelf",
+   8000,
+   -3.1,
+   0.7
+  ],
+  [
+   "highshelf",
+   8000,
+   -1.6,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 780,
+  "low40_250": -7.9,
+  "lowmid250_800": -3.6,
+  "mid800_3k": -4.2,
+  "pres3k_6k": -18.5,
+  "air6k_12k": -22.9,
+  "top12k_20k": -51.4
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 15.1,
+ "flacSha256": "b63e5a4f270d4876fde6fa8e5207ee28b56b1c00eccd4d41a46d2deb381e9501",
+ "flacBytes": 10641993,
+ "aacSha256": "0b7c6e6c2ebdb356482d3f76b1b5105cd635fd561a3ec702cea0b9480af239a1",
+ "aacBytes": 1747023,
+ "midiSha256": "1e344e902792ef6215d8f5e2835a5c736b604d0ba20d9d625de19281e8e301dc",
+ "problems": [],
+ "version": 4,
+ "pianoAttackSoftenDb": 0.0,
+ "sideScale": 1.0,
+ "removedNotes": 20,
+ "pedalNotes": 176
+}
