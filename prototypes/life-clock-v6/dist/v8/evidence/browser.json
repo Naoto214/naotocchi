@@ -1,0 +1,36 @@
+{
+  "browser": "Cloud Chrome",
+  "widths": [
+    {
+      "width": 320,
+      "overflow": 0,
+      "buttonMinHeight": 44,
+      "svgCount": 22,
+      "switchAllVariants": true
+    },
+    {
+      "width": 375,
+      "overflow": 0,
+      "buttonMinHeight": 44,
+      "svgCount": 22,
+      "switchAllVariants": true
+    },
+    {
+      "width": 390,
+      "overflow": 0,
+      "buttonMinHeight": 44,
+      "svgCount": 22,
+      "switchAllVariants": true
+    },
+    {
+      "width": 430,
+      "overflow": 0,
+      "buttonMinHeight": 44,
+      "svgCount": 22,
+      "switchAllVariants": true
+    }
+  ],
+  "endpoints": "0 / 100 checked",
+  "end": "XII checked",
+  "iphoneSafari": "not tested"
+}

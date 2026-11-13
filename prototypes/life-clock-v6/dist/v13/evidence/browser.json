@@ -1,0 +1,75 @@
+{
+  "browser": "Managed Chrome, not iPhone Safari",
+  "viewports": [
+    {
+      "width": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320
+    },
+    {
+      "width": 375,
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    {
+      "width": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390
+    },
+    {
+      "width": 430,
+      "clientWidth": 430,
+      "scrollWidth": 430
+    },
+    {
+      "width": 568,
+      "clientWidth": 568,
+      "scrollWidth": 568
+    },
+    {
+      "width": 667,
+      "clientWidth": 667,
+      "scrollWidth": 667
+    },
+    {
+      "width": 844,
+      "clientWidth": 844,
+      "scrollWidth": 844
+    },
+    {
+      "width": 932,
+      "clientWidth": 932,
+      "scrollWidth": 932
+    }
+  ],
+  "svgEarlierScrollbarWidths": {
+    "mainNumbers": 12,
+    "hands": 6,
+    "all8": true
+  },
+  "controls320": {
+    "round": 12,
+    "firstTime": 0,
+    "secondTime": 6,
+    "firstGrowth": 100,
+    "secondGrowth": 0,
+    "end": 12,
+    "anglesByHandOrder": [
+      360,
+      0,
+      0,
+      180,
+      0,
+      360
+    ]
+  },
+  "switches": [
+    "A-ten",
+    "B-ten",
+    "stand-A"
+  ],
+  "limitations": [
+    "Real Safari font/pixel audit pending",
+    "Real device rotation/touch not tested"
+  ]
+}

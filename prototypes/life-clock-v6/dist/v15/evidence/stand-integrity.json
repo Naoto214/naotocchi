@@ -1,0 +1,28 @@
+{
+  "sha256": "57c5b8291e672331636299789cc4e552877e02c9b4ec035b9c18b05deb4564cc",
+  "frontSource": "evidence/D-full.jpg",
+  "embeddedBytesIdentical": true,
+  "scale": 0.23391812865497075,
+  "frontImageWidth": 250.76023391812865,
+  "frontImageHeight": 250.76023391812865,
+  "bodyDiameter": 240,
+  "bodyThickness": 24,
+  "tilt": 12,
+  "centers": [
+    [
+      155,
+      190
+    ],
+    [
+      430,
+      190
+    ],
+    [
+      750,
+      190
+    ]
+  ],
+  "front": "normal orthographic face; not projected tilted ellipse",
+  "ringCorrection": "NOT IMPLEMENTED; D face equals V14 C",
+  "physicalTest": false
+}

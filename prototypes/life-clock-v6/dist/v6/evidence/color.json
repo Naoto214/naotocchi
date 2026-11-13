@@ -1,0 +1,127 @@
+{
+  "method": "25x25 patches at normalized coordinates; median of blue pixels B-R>18 and B>G; Euclidean sRGB distance (not perceptual Delta E). Different images have different composition; indicative material comparison only.",
+  "rows": [
+    {
+      "name": "center",
+      "normalizedPoint": [
+        0.5,
+        0.25
+      ],
+      "card": [
+        95,
+        142,
+        175
+      ],
+      "v5": [
+        80,
+        140,
+        190
+      ],
+      "v6": [
+        97,
+        146,
+        182
+      ],
+      "rgbDistanceV5": 21.307275752662516,
+      "rgbDistanceV6": 8.306623862918075
+    },
+    {
+      "name": "left",
+      "normalizedPoint": [
+        0.12,
+        0.5
+      ],
+      "card": [
+        52,
+        100,
+        138
+      ],
+      "v5": [
+        59,
+        120,
+        173
+      ],
+      "v6": [
+        71,
+        120,
+        159
+      ],
+      "rgbDistanceV5": 40.91454509095757,
+      "rgbDistanceV6": 34.669871646719436
+    },
+    {
+      "name": "right",
+      "normalizedPoint": [
+        0.88,
+        0.5
+      ],
+      "card": [
+        56,
+        104,
+        142
+      ],
+      "v5": [
+        59,
+        119,
+        171
+      ],
+      "v6": [
+        71,
+        119,
+        157
+      ],
+      "rgbDistanceV5": 32.78719262151,
+      "rgbDistanceV6": 25.980762113533157
+    },
+    {
+      "name": "top",
+      "normalizedPoint": [
+        0.4,
+        0.12
+      ],
+      "card": [
+        84,
+        136,
+        174
+      ],
+      "v5": [
+        63,
+        127,
+        184
+      ],
+      "v6": [
+        83,
+        134,
+        175
+      ],
+      "rgbDistanceV5": 24.93992782667985,
+      "rgbDistanceV6": 2.449489742783178
+    },
+    {
+      "name": "bottom",
+      "normalizedPoint": [
+        0.4,
+        0.87
+      ],
+      "card": [
+        68,
+        119,
+        158
+      ],
+      "v5": [
+        63,
+        121,
+        174
+      ],
+      "v6": [
+        81,
+        127,
+        163
+      ],
+      "rgbDistanceV5": 16.881943016134134,
+      "rgbDistanceV6": 16.062378404209014
+    }
+  ],
+  "meanV5": 27.366176861588816,
+  "meanV6": 17.49382515403257
+}

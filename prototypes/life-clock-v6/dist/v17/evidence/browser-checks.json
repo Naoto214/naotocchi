@@ -1,0 +1,41 @@
+{
+  "browser": "Chrome cloud; not Safari",
+  "BWidths": [
+    320,
+    375,
+    390,
+    430,
+    568,
+    667,
+    844,
+    932
+  ],
+  "allEightImagesLoaded": true,
+  "horizontalOverflow": false,
+  "liveABCInkCenterMaxError": 5.684341886080803e-14,
+  "inputValues": [
+    12,
+    0,
+    6,
+    100,
+    0,
+    12
+  ],
+  "handIds": [
+    3,
+    4,
+    5,
+    2,
+    1,
+    0
+  ],
+  "handAngles": [
+    360,
+    0,
+    0,
+    180,
+    0,
+    360
+  ],
+  "allVariantsAllWidths": "additional sweep interrupted by tool timeout; not claimed complete"
+}
