@@ -1,0 +1,298 @@
+<title>こいびと結婚能力 V3</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: CARD GAME table felt (deep green) with cream card-copy panels; a sticky view bar, a tile grid, and a full-screen card sheet. */
+:root{
+  --felt:#132d2c; --felt-2:#1b3b33; --panel:#203d34; --line:#57736b;
+  --fg:#f6f0dc; --muted:#bdd0c1; --gold:#d7bc76; --gold-strong:#ead69e;
+  --cream:#fff4d9; --cream-2:#f8edcc; --ink:#352a20; --ink-soft:#5b4a37;
+  --rose:#c04479; --rose-soft:#e88fb3; --warn:#f0b35a; --ok:#8ed4ac;
+  --display:"Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;
+  --body:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--felt)}
+body{margin:0;background:radial-gradient(ellipse at 50% 0%,#2d4e41,var(--felt) 60%) fixed,var(--felt);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--felt)}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{text-wrap:balance}
+button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}
+button:focus-visible,a:focus-visible,textarea:focus-visible{outline:3px solid var(--gold-strong);outline-offset:2px}
+.wrap{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+header.top{padding-top:18px;display:flex;flex-direction:column;gap:8px}
+.eyebrow{font-size:11px;letter-spacing:.18em;color:var(--muted)}
+h1{font-family:var(--display);font-size:clamp(22px,6vw,32px);line-height:1.25;color:var(--gold-strong);font-weight:600}
+h1 .heart{color:var(--rose-soft)}
+.notice{font-size:12px;color:var(--fg);border-left:3px solid var(--gold);padding:6px 10px;background:#d7bc7614;border-radius:4px}
+.rules{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.rule{background:var(--felt-2);border:1px solid var(--line);border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.rule small{font-size:11px;color:var(--muted)}
+.rule b{font-family:var(--display);font-size:20px;font-variant-numeric:tabular-nums;color:var(--fg)}
+.rule b.minus{color:var(--rose-soft)} .rule b.plus{color:var(--gold-strong)}
+.rule span{font-size:11px;line-height:1.4}
+.rules-cap{font-size:11px;color:var(--muted)}
+@media (max-width:520px){.rules{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:8px max(16px,env(safe-area-inset-left,0px));background:#132d2cf2;border-bottom:1px solid #57736b88;display:flex;flex-direction:column;gap:6px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.seg{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.seg button{flex:1 0 auto;min-height:40px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--panel);font-size:13px;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--gold-strong);color:#24392c;border-color:var(--gold-strong);font-weight:700}
+.plan-switch{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+.plan-switch .seg{flex:1}
+.plan-switch .seg button{min-height:36px;font-size:13px}
+.plan-switch .seg button[aria-pressed="true"]{background:var(--rose);border-color:var(--rose);color:#fff}
+
+/* grid of 18 */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.tile{display:flex;flex-direction:column;text-align:left;padding:0;border:1px solid #a28538;border-radius:12px;overflow:hidden;background:var(--cream);color:var(--ink);box-shadow:inset 0 0 0 2px #fff5c5,0 3px 8px #0004;min-width:0}
+.tile img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;background:#e9c6d4}
+.tile .tbody{padding:8px 9px 10px;display:flex;flex-direction:column;gap:5px;min-width:0}
+.tile .tname{font-family:var(--display);font-size:14px;line-height:1.3;font-weight:600}
+.tile .tline{font-size:11.5px;line-height:1.45;color:var(--ink-soft);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{font-size:10.5px;line-height:1.2;padding:3px 7px;border-radius:999px;border:1px solid #b49b54;background:#fffdf0;color:var(--ink);white-space:nowrap}
+.chip.plan{background:var(--rose);border-color:var(--rose);color:#fff}
+.chip.picked{background:#2f6a4f;border-color:#2f6a4f;color:#fff}
+.chip.unpicked{background:transparent;color:var(--ink-soft);border-style:dashed}
+.chip.long{background:#fbe2b8;border-color:#d79a3a}
+
+/* summary view */
+.sum{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.copycard{background:linear-gradient(115deg,var(--cream),#fffef3 50%,var(--cream-2));color:var(--ink);border:1px solid #ad9048;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.copycard h3{font-family:var(--display);font-size:16px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.copycard h3 small{font-family:var(--body);font-size:11px;color:var(--ink-soft);font-weight:400;font-variant-numeric:tabular-nums;white-space:nowrap}
+.blk{display:flex;flex-direction:column;gap:2px}
+.blk-label{font-size:11px;font-weight:700;letter-spacing:.06em;color:#6e5a36}
+.blk.married{border-top:1px dashed #b79a51;padding-top:6px}
+.blk.married .blk-label{color:var(--rose)}
+.blk p{font-size:13.5px;line-height:1.65}
+.empty-plan{color:var(--ink-soft);font-style:normal}
+
+/* picks */
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.picklist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.picklist li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 10px;padding:8px 0;border-bottom:1px solid #57736b66;align-items:center}
+.picklist li button{grid-row:span 2;min-height:40px;padding:4px 12px;border-radius:8px;border:1px solid var(--line);background:var(--felt-2);font-size:12px}
+.picklist .pname{font-weight:700;font-size:14px}
+.picklist .ptext{font-size:12px;color:var(--muted);line-height:1.5}
+.progress{font-size:13px;color:var(--gold-strong)}
+.actions{display:flex;flex-wrap:wrap;gap:8px}
+.btn{min-height:44px;padding:8px 16px;border-radius:9px;border:1px solid #738a75;background:#24483d;color:var(--fg);font-size:14px}
+.btn.primary{background:var(--gold-strong);border-color:var(--gold-strong);color:#24392c;font-weight:700}
+textarea{width:100%;min-height:220px;font:12px/1.6 ui-monospace,Menlo,monospace;color:var(--fg);background:#0f2522;border:1px solid var(--line);border-radius:8px;padding:10px;resize:vertical}
+.status{font-size:12px;color:var(--ok);min-height:18px}
+
+/* balance */
+.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--felt-2)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:12.5px}
+th,td{padding:8px 10px;border-bottom:1px solid #57736b66;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:11.5px;background:#18352f}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;font-size:10.5px;padding:2px 7px;border-radius:999px;font-weight:700}
+.tag.fact{background:#2f6a4f;color:#fff}.tag.est{background:#7a5c22;color:#fff}
+.section{display:flex;flex-direction:column;gap:10px}
+.section h2{font-family:var(--display);font-size:19px;color:var(--gold-strong)}
+.section p,.section li{font-size:13.5px;max-width:68ch}
+.section ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+
+/* detail sheet */
+dialog.sheet{padding:0;border:1px solid #c8ac6b;border-radius:16px;background:var(--felt-2);color:var(--fg);
+  width:min(100vw - 16px,760px);max-width:none;max-height:calc(100dvh - 16px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));margin:auto;box-shadow:0 16px 60px #0009;overflow:hidden}
+dialog.sheet[open]{display:flex;flex-direction:column}
+dialog.sheet::backdrop{background:#071c18dc}
+.sheet-head{display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid #57736b88;flex:none}
+.sheet-head h2{flex:1;min-width:0;font-family:var(--display);font-size:17px;line-height:1.25;overflow-wrap:anywhere}
+.iconbtn{min-width:44px;min-height:44px;border-radius:10px;border:1px solid var(--line);background:var(--panel);font-size:15px;padding:0 10px}
+.sheet-body{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:12px;display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+.sheet-art{border:1px solid #aa8b40;border-radius:12px;overflow:hidden;background:#e9c6d4;box-shadow:0 0 0 1px #fff5cc}
+.sheet-art img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
+.theme{font-size:12px;color:var(--muted)}
+.copy{background:linear-gradient(115deg,var(--cream),#fffef3 50%,var(--cream-2));color:var(--ink);border:1px solid #ad9048;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.plantabs{display:flex;gap:6px}
+.plantabs button{flex:1;min-height:44px;border-radius:10px;border:1px solid var(--line);background:var(--panel);font-size:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2;padding:4px}
+.plantabs button small{font-size:10.5px;color:var(--muted)}
+.plantabs button[aria-pressed="true"]{background:var(--rose);border-color:var(--rose);color:#fff}
+.plantabs button[aria-pressed="true"] small{color:#ffe3ee}
+.plantabs button .mine{font-size:10px;color:var(--ok)}
+.facts{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 10px;font-size:13px;margin:0}
+.facts dt{color:var(--muted);font-size:12px;white-space:nowrap}
+.facts dd{margin:0;min-width:0}
+.pick{display:flex;flex-wrap:wrap;gap:6px}
+.pick button{min-height:44px;padding:6px 14px;border-radius:10px;border:1px solid var(--line);background:var(--panel);font-size:13px}
+.pick button[aria-pressed="true"]{background:#2f6a4f;border-color:#8ed4ac;color:#fff;font-weight:700}
+.navrow{display:flex;justify-content:space-between;gap:8px}
+@media (min-width:700px){.sheet-body{grid-template-columns:minmax(0,300px) minmax(0,1fr);align-items:start}.sheet-left{position:sticky;top:0}}
+@media (orientation:landscape) and (max-height:500px){
+  .sheet-body{grid-template-columns:minmax(0,220px) minmax(0,1fr);align-items:start}
+  dialog.sheet{width:calc(100vw - 16px - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px))}
+  header.top{padding-top:10px}
+}
+@media (prefers-reduced-motion:no-preference){.tile{transition:transform .15s}.tile:active{transform:scale(.98)}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <span class="eyebrow">なおとっち CARD GAME ・ こいびと18種類</span>
+    <h1><span class="heart">♥</span> 結婚したら能力　VERSION 3</h1>
+    <p class="notice">本人確認用の比較ページです。下の4つの共通ルールは2026-11-04に正式決定しました（PR #515）。「♥ 結婚したら」の追加能力はまだ案で、ここで選んでもゲーム本体には入りません。正式カードの本文と画像はそのまま使っています。</p>
+    <div class="rules" aria-label="共通ルール（C案）">
+      <div class="rule"><small>恋人になる</small><b>±0</b><span>恋人の能力が使える</span></div>
+      <div class="rule"><small>結婚前に別れる</small><b class="minus">−5</b><span>恋人の能力を失う</span></div>
+      <div class="rule"><small>結婚する</small><b class="plus">+10</b><span>（案）「♥ 結婚したら」が加わる</span></div>
+      <div class="rule"><small>結婚後に別れる</small><b class="minus">−10</b><span>両方の能力を失う</span></div>
+    </div>
+    <p class="rules-cap">正式ルール（2026-11-04）。結婚前の別れは −10 から −5 に変わりました。「♥ 結婚したら」の能力だけが、まだ選択待ちです。</p>
+  </header>
+
+  <nav class="bar" aria-label="表示の切り替え">
+    <div class="seg" role="group" aria-label="画面">
+      <button type="button" id="v-list" data-view="list" aria-pressed="true">一覧</button>
+      <button type="button" id="v-text" data-view="text" aria-pressed="false">本文まとめ</button>
+      <button type="button" id="v-picks" data-view="picks" aria-pressed="false">選んだ案</button>
+      <button type="button" id="v-balance" data-view="balance" aria-pressed="false">バランス</button>
+    </div>
+    <div class="plan-switch" id="planSwitch">
+      <span>表示する案</span>
+      <div class="seg" role="group" aria-label="表示する案">
+        <button type="button" id="p-A" data-plan="A" aria-pressed="false">A案</button>
+        <button type="button" id="p-B" data-plan="B" aria-pressed="false">B案</button>
+        <button type="button" id="p-C" data-plan="C" aria-pressed="false">C案</button>
+        <button type="button" id="p-N" data-plan="N" aria-pressed="false">V3新案</button>
+        <button type="button" id="p-rec" data-plan="rec" aria-pressed="false">推奨</button>
+        <button type="button" id="p-mine" data-plan="mine" aria-pressed="false">選んだ案</button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section id="view-list" class="section" aria-label="一覧">
+      <p id="listCap" style="font-size:12px;color:var(--muted)"></p>
+      <div class="grid" id="grid"></div>
+    </section>
+    <section id="view-text" class="section" hidden aria-label="本文まとめ">
+      <p style="font-size:12px;color:var(--muted)">カードに表示する形です。上が正式な恋人の能力（変更しません）、下が「♥ 結婚したら」の案。字数は2つを合わせた数で、140字を超えるとカード面では文字が小さくなります（拡大表示では全文）。</p>
+      <div class="sum" id="sum"></div>
+    </section>
+    <section id="view-picks" class="section" hidden aria-label="選んだ案">
+      <div class="panel">
+        <p class="progress" id="progress"></p>
+        <ul class="picklist" id="picklist"></ul>
+      </div>
+      <div class="panel">
+        <h2 style="font-family:var(--display);font-size:17px;color:var(--gold-strong)">一覧をコピー</h2>
+        <p style="font-size:12px;color:var(--muted)">選んだ内容はこの端末のブラウザにだけ保存されます。返信に貼り付けて送ってください。</p>
+        <textarea id="out" readonly aria-label="コピーする一覧"></textarea>
+        <div class="actions">
+          <button type="button" class="btn primary" id="copyBtn">コピーする</button>
+          <button type="button" class="btn" id="clearBtn">選択をすべて消す</button>
+        </div>
+        <p class="status" id="copyStatus" role="status"></p>
+      </div>
+    </section>
+    <section id="view-balance" class="section" hidden aria-label="バランス"></section>
+  </main>
+</div>
+
+<dialog class="sheet" id="sheet" aria-labelledby="sheetTitle">
+  <div class="sheet-head">
+    <button type="button" class="iconbtn" id="prevBtn" aria-label="前の恋人">‹</button>
+    <h2 id="sheetTitle"></h2>
+    <button type="button" class="iconbtn" id="nextBtn" aria-label="次の恋人">›</button>
+    <button type="button" class="iconbtn" id="closeBtn">閉じる</button>
+  </div>
+  <div class="sheet-body" id="sheetBody"></div>
+</dialog>
+
+<script>
+const DATA={"cards":[{"id":"P-anglerfish","theme":"暗いところでは大胆","plans":[{"key":"A","text":"相手からちょうせんされた時にも、上の能力を発動できる。","strength":"中","feature":"攻めの+2を守りにも使える。1ターンに1回は上の能力と共通","origin":"V2"},{"key":"B","text":"自分のセカイが「しんかい」でなくても、上の能力を発動できる。その場合は、ちから+1にする。","strength":"中〜強","feature":"しんかい以外のデッキでも使える恋人になる","origin":"V2"},{"key":"N","origin":"V3","text":"このこいびとと結婚した時、山札上4枚を見て、その中から「しんかい」1枚を公開して手札に加えてもよい。残りは山札の一番下に置く。","strength":"小〜中","feature":"結婚した時、ふたりの場所「しんかい」を探しにいく。上の能力の条件を満たしやすくする"}],"total":"中〜強（しんかいデッキ専用）","synergy":"しんかい（セカイ）。攻めと守りの両方で+2になり、ちからで受けるちょうせんに強くなる","caution":"しんかいを使わないデッキでは、A案でも結婚後の価値がない。B案はデッキを選ばなくなる分、強め","change":"変更なし（前回のA・代替をそのままA・Bに）","recommend":"N","reason":"条件緩和ではなく、結婚の瞬間に1回だけ働く。しんかいを引けていないデッキでも上の能力が生きる。継続して強くならない","name":"ひかるチョウチンアンコウ","text":"1ターンに1回。自分のメインが自分からちょうせんする時、自分のセカイが「しんかい」である場合、発動できる。このちょうせんの間、そのメインのちから+2。","img":"img/P-anglerfish.webp","artSource":"art-delivery/small/P-anglerfish-d2df521c3875.webp"},{"id":"P-cat_ceo","theme":"デートのために仕事をさぼる","plans":[{"key":"A","text":"1ターンに1回。自分のターン終了時、このターン自分がちょうせんしていない場合、手札1枚を山札の一番下に置いて発動できる。1枚引く。","strength":"小〜中","feature":"上の能力と同じ入れ替えを、結婚後は毎ターン使える。枚数は増えない","origin":"V2"},{"key":"B","text":"1ターンに1回。自分が「あそび」カードをプレイするための時を1少なくしてもよい。","strength":"中〜強","feature":"あそびが毎ターン安くなる（前回の推奨案）","origin":"V2"},{"key":"C","text":"1ターンに1回。自分が「あそび」カードを表向きでプレイした時、山札上1枚を見て、山札の一番上か一番下に置く。","strength":"小","feature":"あそびをした時の小さな見返り","origin":"V2"},{"key":"N","origin":"V3","text":"このこいびとと結婚した時、1枚引く。このターン、自分が次に「あそび」カードをプレイするための時を1少なくする。","strength":"小〜中","feature":"結婚した日は仕事を休んで遊ぶ。1回だけ"}],"total":"中","synergy":"上の能力（交際開始時の入れ替え）を結婚後も続ける形。ちょうせんしないターンに働くので、「仕事より家庭」を表す","caution":"B案はコネクトフォー（時2・そだち+10、公式の恋人デッキに2枚）を時1にする。毎ターンあそびを安くすると、そだち系のあそびと重なって強くなりやすいので、推奨をAに変えた","change":"推奨を「あそび−1」から「ちょうせんしないターンの入れ替え」へ。コネクトフォーとの重なりを避けるため","recommend":"N","reason":"V2のB案（毎ターンあそび−1）の楽しさを、結婚した日の1回にしぼった。コネクトフォーが安くなるのも1回だけ","name":"ビルのねこ社長","text":"このこいびとと交際を始めた時、発動する。手札1枚を山札の一番下に置く。そうしたなら、1枚引く。","img":"img/P-cat_ceo.webp","artSource":"art-delivery/small/P-cat_ceo-63384c5d746d.webp"},{"id":"P-cliff_goat","theme":"どこに行ってもついてくる","plans":[{"key":"A","text":"上の能力は、時を1少なくする代わりに「1枚引く」にしてもよい。","strength":"中","feature":"結婚後に役に立たなくなる上の能力を、ドローに変えて生かす","origin":"V2"},{"key":"B","text":"1ターンに1回。自分が名前の異なるセカイへ変更した時、山札上1枚を見て、山札の一番上か一番下に置く。","strength":"小","feature":"上の能力とは別に、小さな山札操作を足す","origin":"V2"},{"key":"N","origin":"V3","text":"このこいびとと結婚した時、山札上4枚を見て、その中からセカイ1枚を公開して手札に加えてもよい。残りは山札の一番下に置く。","strength":"小〜中","feature":"新婚旅行の行き先を探す。上の能力（セカイ変更）につながる"}],"total":"中","synergy":"セカイを変えるたびに働く。とかい・うみ等の安いセカイを入れ替えるデッキで生きる","caution":"セカイ変更（時2前後）が必要なので、毎ターンは使いにくい。結婚前は時−1、結婚後は1枚、と役割がはっきりしている","change":"変更なし","recommend":"A","reason":"V2のA案は、結婚後に使えなくなる上の能力を「1枚引く」に変えて生かせる。新提案（N）は1回だけで、上の能力とのつながりはAより弱い","name":"がけのヤギさん","text":"1ターンに1回。自分が名前の異なるセカイへ変更した時、発動できる。このターン、自分が次にこのこいびととの交際を進めるための時を1少なくする。","img":"img/P-cliff_goat.webp","artSource":"art-delivery/small/P-cliff_goat-c4a44c62e826.webp"},{"id":"P-desert_scorpion","theme":"言葉より行動","plans":[{"key":"A","text":"「あそび」か「あいてむ」の片方だけでも、上の能力を発動できる。その場合は、1枚引いた後、手札1枚を山札の一番下に置く。","strength":"中","feature":"両方なら今までどおり1枚。片方だけなら入れ替えだけ（枚数は増えない）","origin":"V2"},{"key":"B","text":"上の能力は、「あそび」か「あいてむ」のどちらか1枚をプレイしていれば発動できる。","strength":"中〜強","feature":"前回の推奨案。片方だけでも1枚引ける","origin":"V2"},{"key":"C","text":"上の能力で1枚引いた後、山札上1枚を見て、山札の一番上か一番下に置く。","strength":"小","feature":"条件は変えず、引いた後に山札を整える","origin":"V2"},{"key":"N","origin":"V3","text":"このこいびとと結婚した時、自分の捨て札の「あそび」か「あいてむ」1枚を手札に戻す。","strength":"小","feature":"結婚の日に、ふたりの思い出の行動を取り戻す。次のターンに上の能力の条件を満たしやすい"}],"total":"中","synergy":"あそび・あいてむを多く使うデッキほど働く。アイテム・じゅんびデッキと相性がよい","caution":"実測（B案、恋人デッキでワシ3枚をサソリ3枚に替えた120対）では得点率+0.4ポイント（−0.4〜+1.2）で、強すぎなかった。ただし公式の恋人デッキはあそび・あいてむが少ない。あそび・あいてむの多いデッキではほぼ毎ターン1枚になるので、推奨はAにした","change":"推奨を「片方で1枚」から「片方なら入れ替え」へ弱めた。デッキによってはほぼ毎ターン1枚になるため","recommend":"N","reason":"あそび・あいてむの多いデッキでも、増えるのは1回だけ。継続ドローにならないので、強くなりすぎない","name":"さばくのサソリさん","text":"1ターンに1回。自分のターン終了時、このターン自分が「あそび」と「あいてむ」のカードをそれぞれ1枚以上表向きでプレイしていた場合、発動できる。1枚引く。","img":"img/P-desert_scorpion.webp","artSource":"art-delivery/small/P-desert_scorpion-f4e0518eb274.webp"},{"id":"P-field_cow","theme":"何年経っても草をくれる","plans":[{"key":"A","text":"見たカードを手札に加え、手札1枚を山札の一番下に置いてもよい。","strength":"小〜中","feature":"見た1枚を、手札の要らない1枚と交換できる","origin":"V2"},{"key":"B","text":"上の能力は、山札上2枚を見て、好きな順で山札の一番上か一番下に置く、にしてもよい。","strength":"小","feature":"見る枚数を増やす","origin":"V2"},{"key":"N","origin":"V3","text":"このこいびとと結婚したターンの終了時にも、上の能力を発動できる。その場合は、見たカードを手札に加えてもよい。","strength":"小","feature":"結婚した日にも草をくれる（ふだんは交際を進めたターンには働かない）"}],"total":"中","synergy":"結婚後は交際が進まないので、上の能力を毎ターン使える。結婚と一番相性のよい既存能力","caution":"枚数は増えないので強すぎない。文章を短くして、合計を139字にした（140字以内）","change":"本文を短縮（43字→30字）。意味は同じ（「見たカード」は上の能力で見たカード）","recommend":"A","reason":"V2のA案（毎ターン入れ替え）が、上の能力と一番自然につながる。新提案（N）は結婚した日の1回だけ","name":"のはらのうしさん","text":"1ターンに1回。自分のターン終了時、このカードがこのターン開始時からこいびと枠にあり続け、このターン自分の交際段階が進むことも結婚が成立することもなかった場合、発動できる。山札上1枚を見て、山札の一番上か一番下に置く。","img":"img/P-field_cow.webp","artSource":"art-delivery/small/P-field_cow-61ab463af518.webp"},{"id":"P-forest_bear","theme":"大きく守る","plans":[{"key":"A","text":"上の能力は、みにつけられたカードの代わりに、手札1枚を捨て札に置いても使える。","strength":"中","feature":"装備がなくてもメインを守れる","origin":"V2"},{"key":"B","text":"1ターンに1回。自分のメインが相手の効果で捨て札に置かれた時、1枚引く。","strength":"小","feature":"守れなかった時の補い","origin":"V2"},{"key":"N","origin":"V3","text":"1ラウンドに1回。このカードが相手の効果で手札に戻るなら、このカードにみにつけられたカード1枚を捨て札に置くことで、その移動を防いでもよい。","strength":"中","feature":"大きな体で結婚を守る。上の能力（メインを守る）と同じ形で、こいびと自身も守る"}],"total":"中","synergy":"上の能力（1ラウンドに1回）の支払いを広げる。らぶれたー等をクマに付けていなくても使える","caution":"相手がメインを除去する（りゅう⑥など）時だけ働く。手札で払う形は新しい支払い方なので、実装時に確認が必要","change":"変更なし","recommend":"N","reason":"メインだけでなく結婚そのものを守る、ほかにない守り方。上の能力とは別の回数として数える","name":"もりのクマさん","text":"1ラウンドに1回。自分のメインが相手の効果で捨て札に置かれるなら、このカードにみにつけられたカード1枚を捨て札に置くことで、代わりにそのメインをメイン枠に残してもよい。","img":"img/P-forest_bear.webp","artSource":"art-delivery/small/P-forest_bear-972ee60df4dd.webp"},{"id":"P-gentle_gorilla","theme":"力はあるけど、使い方を選ぶ","plans":[{"key":"A","text":"上の能力は、手札を山札の一番下に置かずに発動できる。","strength":"中","feature":"支払いがなくなる","origin":"V2"},{"key":"B","text":"上の能力は、ちえでちょうせんする時にも使える。その場合は、ちえ+2。","strength":"中","feature":"ちから以外のちょうせんにも使える","origin":"V2"},{"key":"N","origin":"V3","text":"このこいびとと結婚した時、このターン、自分のメインのちから+2。","strength":"小","feature":"結婚した日に力を出す"}],"total":"中","synergy":"「相手より低い時だけ」の条件は残るので、強いメインで押す時には働かない。弱いメインで挑むデッキの支え","caution":"1ターンに1回・自分からのちょうせんだけ。ちょうせんの勝ちは+5なので、毎ターン勝てると大きいが、条件が狭い","change":"変更なし","recommend":"A","reason":"V2のA案（支払いなし）は結婚後ずっと使え、条件も残る。新提案（N）は結婚した日にちょうせんする時だけ","name":"やさしいゴリラ","text":"1ターンに1回。自分のメインが自分からちからでちょうせんする時、そのメインのちからが相手の参加メインのちからより低い場合、手札1枚を山札の一番下に置いて発動できる。このちょうせんの間、その自分のメインのちから+2。","img":"img/P-gentle_gorilla.webp","artSource":"art-delivery/small/P-gentle_gorilla-bf3ca25d90d5.webp"},{"id":"P-grove_deer","theme":"ゆっくり近づく","plans":[{"key":"A","text":"このこいびとと結婚した時にも、上の能力を発動できる。その場合は、山札上3枚を見る。","strength":"小","feature":"交際2・3・結婚と、近づくほど見る枚数が増える","origin":"V2"},{"key":"B","text":"自分のターン開始時、手札が2枚以下の場合にも、上の能力を発動できる。","strength":"中","feature":"結婚後も上の能力を続けて使える（手札が少ない時だけ）","origin":"V2"},{"key":"N","origin":"V3","text":"このこいびとと結婚した時にも、上の能力を発動できる（山札上3枚を見る）。結婚している間、自分のターン開始時に手札が1枚以下なら、上の能力を発動できる。","strength":"中","feature":"結婚の瞬間に一番近づき、その後も困った時に支える"}],"total":"中","synergy":"上の能力をそのまま使い、結婚の瞬間に一番大きくなる。けっこんきねんびの前の手札作りにもなる","caution":"公式の恋人デッキに3枚ある。実測（A案とワシA案を同時に入れた120対）で得点率+3.3ポイント（−1.7〜+8.3、有意差なし）。B案は毎ターン使えて強めになるので、公式デッキへの影響を見てから","change":"同じ効果を「上の能力を結婚時にも」の形に書き直し、既存能力を生かす案にした。B案（継続型）を追加","recommend":"N","reason":"実測（V3：シカN＋ワシN）で現行より+4.6ポイント（+0.6〜+8.6）、V2のA案との差は+1.3（−1.9〜+4.4、有意差なし）。手札1枚以下の時の発動は、CPU対戦ではほとんど起きなかった","name":"こだちのシカ","text":"1ターンに1回。このカードとの交際段階が2か3へ進んだ時、発動できる。山札上2枚を見て、その中から1枚を手札に加え、残りを山札の一番下に置く。","img":"img/P-grove_deer.webp","artSource":"art-delivery/small/P-grove_deer-dccfaa12d96f.webp"},{"id":"P-high_eagle","theme":"長く一緒にいるほど心を開く","plans":[{"key":"A","text":"このこいびとと結婚した時、発動できる。山札上2枚を見て、好きな順で山札の一番上に戻す。","strength":"小","feature":"結婚した次のターンから引くカードを整える","origin":"V2"},{"key":"B","text":"（追加しない）","strength":"−","feature":"既存能力がすでに結婚後専用で、毎ターン1枚引ける","origin":"V2"},{"key":"N","origin":"V3","text":"このこいびとと結婚した時、1枚引く。","strength":"小","feature":"結婚した瞬間に心を開く。次のターンからは上の能力（毎ターン1枚）"}],"total":"強（結婚後）","synergy":"上の能力（結婚中、ターン開始時に1枚）の最初のドローを良くする。恋人のうちは何もしないが、結婚後は18種類で一番強い、という個性","caution":"代理実験で、全恋人に「毎ターン1枚」を付けると+7.5ポイントだった。ワシはそれを1種類で持っている。公式の恋人デッキに3枚。追加は小さいままにした。恋人のうちに能力がないことは、カードの個性として残す案","change":"変更なし（A案）。B案「追加しない」も比較用に残す","recommend":"N","reason":"変化がすぐ分かる。上の能力がすでに強いので、追加は1枚だけ","name":"たかねのワシ","text":"1ターンに1回。自分のターン開始時、このカードと結婚している場合、発動できる。1枚引く。","img":"img/P-high_eagle.webp","artSource":"art-delivery/small/P-high_eagle-49040776fb3e.webp"},{"id":"P-knitting_spider","theme":"巣と糸でいろいろ作る","plans":[{"key":"A","text":"自分のターン開始時、自分の準備枠にカードが1枚以下の場合にも、上の能力を発動できる。","strength":"中","feature":"準備枠が空いている時だけ、結婚後も時−1が続く","origin":"V2"},{"key":"B","text":"自分のターン開始時にも、上の能力を発動できる。","strength":"中〜強","feature":"前回の推奨案。毎ラウンド時−1","origin":"V2"},{"key":"N","origin":"V3","text":"このこいびとと結婚した時、自分の捨て札の「みにつける」のカード1枚を手札に戻す。","strength":"小","feature":"結婚の日に、編んだものを贈る"}],"total":"中","synergy":"上の能力（1ラウンドに1回）をそのまま使う。装備・しかけを並べ直す時の助けになる","caution":"アイテム・じゅんびデッキ（7デッキで上位）は、おうち等で装備の時をさらに下げるので、B案では毎ラウンド安い装備が並ぶ。A案は準備枠が1枚以下の時だけにして、並べきった後は働かないようにした","change":"推奨に「準備枠1枚以下」の条件を加えた。アイテム系デッキとの重なりを避けるため","recommend":"N","reason":"アイテム系デッキでも1回だけなので、継続の軽減（V2）より安全","name":"あみものがすきなクモさん","text":"1ラウンドに1回。自分の交際段階が進んだ時、発動できる。このラウンド、自分が次に「みにつける」か「しかける」でアクションカードをプレイするための時を1少なくする。","img":"img/P-knitting_spider.webp","artSource":"art-delivery/small/P-knitting_spider-05bb4e46cf6a.webp"},{"id":"P-oasis_cactus","theme":"近づきたいけど距離も大事","plans":[{"key":"A","text":"このカードにカードがみにつけられていない間、自分のメインのちから+1。","strength":"中","feature":"装備を付けずに距離を保つと強い","origin":"V2"},{"key":"B","text":"このカードにカードがみにつけられていない間、自分のメインのちえ+1。","strength":"中","feature":"ちえで競うデッキ向け","origin":"V2"},{"key":"N","origin":"V3","text":"このカードにカードがみにつけられていても、上の能力を使える。","strength":"中","feature":"結婚して、やっと抱きしめられる（装備を付けても守れる）"}],"total":"中","synergy":"上の能力も「装備なしの間」なので、二つの能力の条件が同じになる。らぶれたーを付けるか付けないかの選択に意味が出る","caution":"常に+1は小さくない（参考：全恋人に+1/+1で+6.2ポイント）。ただし片方の能力値だけで、装備を付けると失う","change":"変更なし","recommend":"A","reason":"V2のA案（装備なしでちから+1）は「距離を保つ」個性が続く。新提案（N）は個性が変わるので、好みで選ぶ","name":"オアシスのサボテンさん","text":"1ラウンドに1回。このカードにカードがみにつけられていない間、このカードが相手の効果で手札に戻るなら、その移動を防いでもよい。","img":"img/P-oasis_cactus.webp","artSource":"art-delivery/small/P-oasis_cactus-0c1aae259c9b.webp"},{"id":"P-robot_neighbor","theme":"感情を少しずつ覚える","plans":[{"key":"A","text":"自分のメインのちえ+1も得る。","strength":"中〜強","feature":"結婚後は ちから+1・ちえ+1","origin":"V2"},{"key":"B","text":"1ターンに1回。自分のメインが自分からちょうせんする時、このちょうせんの間、使う能力値+1。","strength":"中","feature":"自分から挑む時だけ+1（守りでは働かない）","origin":"V2"},{"key":"N","origin":"V3","text":"結婚している間、自分のターンには、自分のメインのちえ+1も得る。","strength":"中","feature":"感情を覚えて、自分から動く時に賢くなる（守る時はちから+1だけ）"}],"total":"中〜強","synergy":"交際1・2のちえ、交際3以降のちからを、結婚で両方そろえる。カードの成長物語がそのまま能力になる","caution":"実測（A案、ワシ3枚をロボット3枚に替えた120対）で得点率+4.2ポイント（+0.8〜+7.6、有意）。替えたデッキは元が0.429と弱く、A案で0.471。公式デッキ（0.458）と同じくらいなので、突出はしない。より抑えるならB案","change":"変更なし（A案）。抑えた代替としてB案を追加","recommend":"N","reason":"実測：現行より+3.3ポイント（+0.3〜+6.3）、常時の+1/+1（V2のA案）との差は−0.8（−2.5〜+0.8）。強さはほぼ同じで、相手のターンの守りに効かない分だけ控えめ","name":"となりまちのロボット","text":"このカードとの交際段階が1か2である間、自分のメインのちえ+1。交際段階が3、またはこのカードと結婚している間は、代わりにちから+1。","img":"img/P-robot_neighbor.webp","artSource":"art-delivery/small/P-robot_neighbor-b12b9ea7a9c5.webp"},{"id":"P-rock_octopus","theme":"8本腕の世話焼き","plans":[{"key":"A","text":"上の能力は、時1を払わずに発動できる。","strength":"小","feature":"付け替えが時0になる","origin":"V2"},{"key":"B","text":"上の能力は、自分になかまがいなくても発動できる。","strength":"小","feature":"条件をひとつ外す","origin":"V2"},{"key":"N","origin":"V3","text":"上の能力は、時1を払わず、自分になかまがいなくても発動できる。","strength":"小〜中","feature":"結婚後はいつでも世話を焼く"}],"total":"小","synergy":"なかま・装備を多く使うデッキで、守り（らぶれたー等）を付け直しやすくなる","caution":"上の能力の条件が狭いので、強さの心配は小さい。既存本文が132字で、A案を足すと151字になる（表示は§表示方法）","change":"変更なし","recommend":"N","reason":"V2のA・B案をまとめた。上の能力の条件が狭すぎる問題を減らす","readable":"1ターンに1回。自分のターンに、自分になかまがいて、準備枠にカードが2枚以上あるなら、時1を払って発動できる。自分の装備カード1枚と、それをみにつけられる、今の装備先とは別の自分のキャラクター1枚を対象にする。その装備を、そのキャラクターへつけ替える。","name":"いわばのタコさん","text":"1ターンに1回。自分のターンに、自分になかまがあり、準備枠にカードが2枚以上ある場合、時1を払い、自分の準備枠でみにつけられているカード1枚と、それを適正にみにつけられる、今の装備先とは別の自分のキャラクター1枚を対象として発動できる。その装備を後者へつけ替える。","img":"img/P-rock_octopus.webp","artSource":"art-delivery/small/P-rock_octopus-9937d692bde5.webp"},{"id":"P-sea_mermaid","theme":"陸の世界を知っていく","plans":[{"key":"A","text":"1ターンに1回。自分がセカイを出すための時を1少なくしてもよい。","strength":"中","feature":"上の能力で取り戻したセカイを安く出せる","origin":"V2"},{"key":"B","text":"自分にセカイがある間、自分のメインのちえ+1。","strength":"中","feature":"セカイと一緒にいると賢くなる","origin":"V2"},{"key":"N","origin":"V3","text":"このこいびとと結婚した時、このターン、自分が次にセカイを出すための時を2少なくする。","strength":"小〜中","feature":"新しい世界で暮らし始める。上の能力で戻したセカイをすぐ出せる"}],"total":"中","synergy":"結婚した時にセカイを手札に戻し、結婚後に安く出す、という流れになる。ヤギ・パイプつなぎ等とも合う","caution":"毎ターン時−1だが、セカイは1枚しか置けないので、何度も替えるデッキでだけ大きい。世界樹②（交際の時−1）と同じ文の形","change":"変更なし","recommend":"A","reason":"V2のA案（毎ターン時−1）はセカイを替えるデッキで長く働く。新提案（N）は結婚した日の1回で、上の能力とすぐにつながる","name":"うみのにんぎょ","text":"このこいびとと結婚した時、自分の捨て札のセカイカード1枚を対象として発動できる。そのカードを手札に戻す。","img":"img/P-sea_mermaid.webp","artSource":"art-delivery/small/P-sea_mermaid-f96b4223934b.webp"},{"id":"P-snow_spirit","theme":"最後まで変わらずそばにいる","plans":[{"key":"A","text":"自分のターン終了時、現在のラウンドがR10の場合、発動する。自分のそだち+5。","strength":"小〜中","feature":"人生の最後に1回だけ、そだち+5","origin":"V2"},{"key":"B","text":"自分のメインが⑦か⑧である間、そのメインのちえ+1。","strength":"小〜中","feature":"年をとったメインを支える","origin":"V2"},{"key":"N","origin":"V3","text":"このこいびとと結婚した時、自分の捨て札のメイン1枚を手札に戻す。","strength":"小","feature":"結婚の日に、昔の自分を思い出す"}],"total":"小〜中","synergy":"上の能力（⑦⑧のときおくり）と同じく人生の終盤に働く。R10まで結婚を続けることがごほうびになる","caution":"18種類で唯一、そだちを得る案。実測では「結婚時に1回だけ+5」は得点率をほとんど変えなかった（−0.4ポイント）ので、強すぎない。終局の比べ合いでは決め手になり得る","change":"変更なし","recommend":"A","reason":"V2のA案（R10にそだち+5）は「最後までそばにいる」がそのまま能力になる。結婚が遅くても働く","name":"ゆきのせいれい","text":"1ターンに1回。自分のメインがときおくりで⑦か⑧になった時、このカードがこのターン開始時からこいびと枠にあり続けている場合、自分の捨て札のメイン1枚を対象として発動できる。そのカードを手札に戻す。","img":"img/P-snow_spirit.webp","artSource":"art-delivery/small/P-snow_spirit-b8a47f288077.webp"},{"id":"P-snowman","theme":"とけない（終わっても次へ）","plans":[{"key":"A","text":"結婚中に離れて上の能力が発動した時は、山札上4枚を見て、その中から2枚を手札に加える。","strength":"小","feature":"離婚した時だけ、2枚を手に入れる。そだちの減り方は変えない","origin":"V2"},{"key":"B","text":"結婚中に離れて上の能力が発動した時は、山札上3枚を見る。","strength":"小","feature":"見る枚数だけ増やす","origin":"V2"},{"key":"C","text":"このカードが相手の効果でこいびと枠を離れて離婚する場合、そだちは−10ではなく−5になる。","strength":"小","feature":"前回の推奨案。共通ルールの数値に例外を作る","origin":"V2"},{"key":"N","origin":"V3","text":"結婚中に離れて上の能力が発動した時は、さらに1枚引く。","strength":"小","feature":"とけない思い出で、次へ進む"}],"total":"小","synergy":"上の能力（相手に離された時の立て直し）を、結婚していた時ほど大きくする。−10と結婚能力を失う代わりに2枚","caution":"離婚の−10に例外を作らず、個性を出す案をAにした。残りのカードは上の能力どおり山札の一番下へ。C案は比較用に残すが、推奨しない","change":"推奨を「離婚−5」から「離婚した時は2枚」へ。共通ルールの例外をなくすため","recommend":"N","reason":"V2のA案（4枚見て2枚）と手に入る枚数は同じで、本文が短い（合計140字以内にはならないが短くなる）","readable":"このカードが相手の効果でこいびと枠を離れて（手札か捨て札へ）、関係が終わった時、自分のメインがたまごでなければ、移動先で発動できる。山札上2枚を見て、1枚を手札に加え、残りを山札の一番下に置く。","name":"とけないゆきだるま","text":"このカードが相手の効果でこいびと枠から手札または捨て札に移動し、このカードとの交際または結婚が終了した時、自分のメインがたまごでない場合、その移動先で発動できる。山札上2枚を見て、その中から1枚を手札に加え、残りを山札の一番下に置く。","img":"img/P-snowman.webp","artSource":"art-delivery/small/P-snowman-c53525fec296.webp"},{"id":"P-sunflower_partner","theme":"いつもあなたの方を向く","plans":[{"key":"A","text":"自分のメインがときおくりでメイン枠に置かれた時にも、上の能力を発動できる。","strength":"小〜中","feature":"へんしんだけでなく、ときおくりでも+1","origin":"V2"},{"key":"B","text":"上の能力では、ちえ+1の代わりに、ちから+1を選んでもよい。","strength":"小","feature":"ちからで競うデッキでも使える","origin":"V2"},{"key":"N","origin":"V3","text":"このこいびとと結婚した時、このターン、自分のメインのちから+1・ちえ+1。","strength":"小","feature":"結婚した日に、いちばん明るく向き合う"}],"total":"小〜中","synergy":"メインがどんな成長をしても、そのたびに支える。ときおくりの多いデッキほど働く","caution":"このターンだけの+1で、1ターンに1回は上の能力と共通","change":"変更なし。代替を「ちからも選べる」に変更（前回は代替なし）","recommend":"A","reason":"V2のA案（ときおくりでも）は結婚後ずっと働く","name":"はたけのひまわりさん","text":"1ターンに1回。自分のメインがへんしんでメイン枠に置かれた時、そのメインを対象として発動できる。このターン、そのメインのちえ+1。","img":"img/P-sunflower_partner.webp","artSource":"art-delivery/small/P-sunflower_partner-16761dd844fe.webp"},{"id":"P-swamp_croc","theme":"強そうなのに一歩ひく","plans":[{"key":"A","text":"相手から受けたちょうせんで引き分けた時にも、上の能力を発動できる。","strength":"小","feature":"引き分けでも1枚","origin":"V2"},{"key":"B","text":"上の能力は、1枚ではなく2枚引く。","strength":"中","feature":"負けた時の補いを大きくする","origin":"V2"},{"key":"N","origin":"V3","text":"このこいびとと結婚した時、次の相手のターン終了時まで、自分のメインのちから+1。","strength":"小","feature":"照れながらも、結婚した日は守ってくれる"}],"total":"小〜中","synergy":"相手のちょうせんを受ける側に回るデッキで働く。負けても引き分けても、次の手札になる","caution":"相手がちょうせんしてこないと働かない。B案は、わざと負ける理由になりにくい（負けると相手+5）ので、強さは中にとどまる","change":"変更なし","recommend":"A","reason":"V2のA案（引き分けでも1枚）は結婚後ずっと働く。新提案（N）は次の相手ターンだけ","name":"ぬまのワニさん","text":"1ターンに1回。自分のメインが相手から受けたちょうせんに負けた時、発動できる。1枚引く。","img":"img/P-swamp_croc.webp","artSource":"art-delivery/small/P-swamp_croc-106b8c629a04.webp"}],"balanceHtml":"\n\u003ch2>共通ルール（正式・PR #515）\u003c/h2>\n\u003cul>\n\u003cli>こいびとを出す：そだちは変わらない。結婚前（交際0〜3）の別れ：−5。結婚：+10。結婚後の別れ（離婚）：−10。\u003c/li>\n\u003cli>減少はエンジンの共通処理1か所で決まり、すれちがい・タンポポ⑧など、どの経路でも同じ数値。旧保存（hotseat-2〜6）は−10のまま再生。\u003c/li>\n\u003c/ul>\n\n\u003ch2>バランス比較\u003c/h2>\n\u003cp>\u003cspan class=\"tag fact\">実測\u003c/span> は対戦記録の数値、\u003cspan class=\"tag est\">推定\u003c/span> は数値やカード本文からの判断（対戦で未確認）。得点率は勝ち1・引き分け0.5、かっこ内は95%の信頼区間。\u003c/p>\n\u003cdiv class=\"tablebox\">\u003ctable>\n\u003cthead>\u003ctr>\u003cth>何を比べたか\u003c/th>\u003cth>対戦数\u003c/th>\u003cth>現行との差\u003c/th>\u003cth>読み方\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\n\u003ctr>\u003ctd>\u003cspan class=\"tag fact\">実測\u003c/span> 別れ−5と−10（相手がすれちがい2枚入り、PR #481）\u003c/td>\u003ctd class=\"num\">2,960戦の一部\u003c/td>\u003ctd class=\"num\">恋人側 +4.1（+0.8〜+7.3）\u003c/td>\u003ctd>正式採用。公式CPUデッキにすれちがいはないので、CPU戦ではほぼ差が出ない\u003c/td>\u003c/tr>\n\u003ctr>\u003ctd>\u003cspan class=\"tag fact\">実測\u003c/span> 全恋人に「結婚中、毎ターン1枚」\u003c/td>\u003ctd class=\"num\">120対\u003c/td>\u003ctd class=\"num\">+7.5（+2.5〜+12.5）\u003c/td>\u003ctd>継続ドローは強い\u003c/td>\u003c/tr>\n\u003ctr>\u003ctd>\u003cspan class=\"tag fact\">実測\u003c/span> 全恋人に「結婚中、ちから・ちえ+1」\u003c/td>\u003ctd class=\"num\">120対\u003c/td>\u003ctd class=\"num\">+6.2（+1.3〜+11.2）\u003c/td>\u003ctd>常時の能力値も強い\u003c/td>\u003c/tr>\n\u003ctr>\u003ctd>\u003cspan class=\"tag fact\">実測\u003c/span> 全恋人に「結婚時さらに+5」\u003c/td>\u003ctd class=\"num\">120対\u003c/td>\u003ctd class=\"num\">−0.4（−2.2〜+1.4）\u003c/td>\u003ctd>1回だけのそだちは勝敗をほぼ変えない\u003c/td>\u003c/tr>\n\u003ctr>\u003ctd>\u003cspan class=\"tag fact\">実測\u003c/span> V2：シカA＋ワシA\u003c/td>\u003ctd class=\"num\">120対\u003c/td>\u003ctd class=\"num\">+3.3（−1.7〜+8.3）\u003c/td>\u003ctd>有意差なし\u003c/td>\u003c/tr>\n\u003ctr>\u003ctd>\u003cspan class=\"tag fact\">実測\u003c/span> \u003cb>V3：シカ新案＋ワシ新案\u003c/b>\u003c/td>\u003ctd class=\"num\">120対\u003c/td>\u003ctd class=\"num\">+4.6（+0.6〜+8.6）\u003c/td>\u003ctd>V2との差 +1.3（−1.9〜+4.4、有意差なし）。結婚時に1枚引くワシは、変化が分かりやすい\u003c/td>\u003c/tr>\n\u003ctr>\u003ctd>\u003cspan class=\"tag fact\">実測\u003c/span> V2：サソリB案（ワシ3→サソリ3）\u003c/td>\u003ctd class=\"num\">120対\u003c/td>\u003ctd class=\"num\">+0.4（−0.4〜+1.2）\u003c/td>\u003ctd>このデッキでは弱い。V3は1回型にした\u003c/td>\u003c/tr>\n\u003ctr>\u003ctd>\u003cspan class=\"tag fact\">実測\u003c/span> V2：ロボットA（常時+1/+1、ワシ3→ロボット3）\u003c/td>\u003ctd class=\"num\">120対\u003c/td>\u003ctd class=\"num\">+4.2（+0.8〜+7.6）\u003c/td>\u003ctd>有意に強くなる\u003c/td>\u003c/tr>\n\u003ctr>\u003ctd>\u003cspan class=\"tag fact\">実測\u003c/span> \u003cb>V3：ロボット新案（自分のターンだけちえ+1）\u003c/b>\u003c/td>\u003ctd class=\"num\">120対\u003c/td>\u003ctd class=\"num\">+3.3（+0.3〜+6.3）\u003c/td>\u003ctd>常時との差 −0.8（−2.5〜+0.8）。少し控えめで、強さはほぼ同じ\u003c/td>\u003c/tr>\n\u003c/tbody>\u003c/table>\u003c/div>\n\u003cp style=\"font-size:12px;color:var(--muted)\">中級CPU同士、公式の恋人デッキ（または恋人だけ入れ替えたもの）と他の公式6デッキ、10グループ×先後入替。再生一致は全試合。CPUは結婚後の能力を判断に使っていません。代理実験は共通ルール改定前の版（hotseat-6、別れ−10）で、相手デッキにすれちがいがないので別れは起きず、改定の影響を受けません。\u003c/p>\n\n\u003ch2>VERSION 3 の考え方\u003c/h2>\n\u003cul>\n\u003cli>\u003cspan class=\"tag est\">推定\u003c/span> 「結婚した時、〜」の1回型を増やした（アンコウ・ねこ社長・サソリ・ワシ・クモ）。結婚の瞬間に変化が分かり、結婚が遅くても意味がある。勝敗への影響は小さく、強すぎない。\u003c/li>\n\u003cli>\u003cspan class=\"tag est\">推定\u003c/span> V2の推奨では「上の能力は〜にも使える」という条件緩和が10種類あった。V3の推奨では、ゴリラ・タコ・ひまわり・ワニ・シカ（一部）の5種類に減らした。\u003c/li>\n\u003cli>\u003cspan class=\"tag est\">推定\u003c/span> 毎ターン強くなる継続型は、うし（入れ替え）・サボテン（+1）・ロボット（自分のターンの+1）・にんぎょ（セカイ−1）・クマ（守り）に限った。\u003c/li>\n\u003cli>\u003cspan class=\"tag est\">推定\u003c/span> 無限ループの心配：結婚は自分のターン4回かけないと起きず、1回型が使えるのは1試合で最大2回（再婚した時）。手札に戻す・引く効果は、どれも出し直しの手順を増やさない。\u003c/li>\n\u003c/ul>\n\n\u003ch2>注意が必要な組み合わせ\u003c/h2>\n\u003cul>\n\u003cli>\u003cspan class=\"tag est\">推定\u003c/span> ワシ：上の能力（結婚中、毎ターン1枚）が18種類で一番強い。追加は1枚だけにした。\u003c/li>\n\u003cli>\u003cspan class=\"tag est\">推定\u003c/span> ロボット：新案でも、現行より+3.3ポイント（実測）。\u003c/li>\n\u003cli>\u003cspan class=\"tag est\">推定\u003c/span> シカ：新案は公式デッキに3枚入っている恋人で、実測+4.6（ワシ新案と合わせて）。恋人デッキの総当たり（0.560）が0.60を超えないか、実装後に確認したい。\u003c/li>\n\u003cli>\u003cspan class=\"tag est\">推定\u003c/span> ねこ社長の新案：コネクトフォー（時2・そだち+10）が1回だけ時1になる。毎ターンではない。\u003c/li>\n\u003cli>\u003cspan class=\"tag est\">推定\u003c/span> クマの新案：らぶれたーと同じ「手札に戻るのを防ぐ」働き。らぶれたーと重ねると、すれちがいを2回まで防げる。\u003c/li>\n\u003c/ul>\n\n\u003ch2>140字を超えるカード\u003c/h2>\n\u003cul>\n\u003cli>推奨案で140字を超えるのは、クマ（154）・シカ（146）・タコ（163）・ゆきだるま（144）。カード面は既存の縮小表示、拡大表示では全文。\u003c/li>\n\u003cli>タコ・ゆきだるまは、意味を変えずに読みやすくした本文案を詳細画面に表示した（タコ 132→126字、ゆきだるま 117→97字）。正式本文を書き換える場合は、本人の承認と、文書74・カタログの更新が必要。\u003c/li>\n\u003c/ul>\n\n\u003ch2>CPUに必要な変更（実装は承認後）\u003c/h2>\n\u003cul>\n\u003cli>1回型は「結婚の価値」に足すだけでよい。継続型は、結婚後に残るターン数で重み付けする。\u003c/li>\n\u003cli>すれちがいは、結婚している恋人を優先して狙う（−10）。結婚前は−5になったので、序盤に使う価値は下がった。\u003c/li>\n\u003cli>クマ新案・らぶれたーがある時は、すれちがいの価値を下げる。\u003c/li>\n\u003c/ul>"};
+const KEY='lover-marriage-v3-picks';
+let picks={};try{picks=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){picks={}}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(picks))}catch(e){}};
+let view='list',plan='rec',openIdx=-1,sheetPlan='A';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const len=s=>[...s].length;
+const planOf=(c,key)=>c.plans.find(p=>p.key===key);
+const NAME=k=>k==='N'?'V3新案':k+'案';
+function shownPlan(c){if(plan==='rec')return planOf(c,c.recommend);if(plan==='mine'){const k=picks[c.id];return k&&k!=='hold'?planOf(c,k):null;}return planOf(c,plan)||null;}
+function pickLabel(c){const k=picks[c.id];return !k?'未選択':k==='hold'?'保留':NAME(k);}
+
+function renderList(){
+  $('#listCap').textContent=plan==='rec'?'VERSION 3 の推奨案を表示しています。カードをタップすると、V2のA・B案、V3新案と比べて選べます。':plan==='N'?'V3新案：結婚した時の特別感を強めた案です。':plan==='mine'?'選んだ案を表示しています。未選択・保留の恋人は案を表示しません。':plan==='C'?'C案は、必要な恋人（ねこ社長・サソリ・ゆきだるま）だけにあります。ほかはC案なしと表示します。':'カードをタップすると、くわしい比較と案の選択ができます。';
+  $('#grid').innerHTML=DATA.cards.map((c,i)=>{const p=shownPlan(c);const k=picks[c.id];
+    return `<button type="button" class="tile" data-open="${i}" aria-label="${esc(c.name)}の詳細">
+      <img src="${esc(c.img)}" alt="${esc(c.name)}" loading="lazy" width="384" height="256">
+      <span class="tbody"><span class="tname">${esc(c.name)}</span>
+      <span class="tline">${p?'♥ '+esc(p.text):plan==='mine'?'（まだ選んでいません）':'（'+NAME(plan)+'はありません）'}</span>
+      <span class="chips">${p?`<span class="chip plan">${NAME(p.key)}・${esc(p.strength)}</span>${p.key===c.recommend?'<span class="chip">推奨</span>':''}`:''}<span class="chip ${k&&k!=='hold'?'picked':'unpicked'}">${pickLabel(c)}</span>${p&&len(c.text)+len(p.text)>140?'<span class="chip long">140字超</span>':''}</span></span></button>`;}).join('');
+}
+function renderText(){
+  $('#sum').innerHTML=DATA.cards.map((c,i)=>{const p=shownPlan(c);const n=len(c.text)+(p?len(p.text):0);
+    return `<article class="copycard"><h3>${esc(c.name)}<small>${p?NAME(p.key)+'・':''}${n}字${n>140?'（140字超）':''}</small></h3>
+    <div class="blk"><span class="blk-label">こいびとのとき</span><p>${esc(c.text)}</p></div>
+    <div class="blk married"><span class="blk-label">♥ 結婚したら</span><p>${p?esc(p.text):`<span class="empty-plan">${plan==='mine'?'まだ選んでいません':NAME(plan)+'はありません'}</span>`}</p></div></article>`;}).join('');
+}
+function renderPicks(){
+  const chosen=DATA.cards.filter(c=>picks[c.id]&&picks[c.id]!=='hold').length,held=DATA.cards.filter(c=>picks[c.id]==='hold').length;
+  $('#progress').textContent=`選んだ：${chosen} / 18　保留：${held}`;
+  $('#picklist').innerHTML=DATA.cards.map((c,i)=>{const k=picks[c.id],p=k&&k!=='hold'?planOf(c,k):null;
+    return `<li><span class="pname">${esc(c.name)}：${pickLabel(c)}</span><button type="button" data-open="${i}">選ぶ</button><span class="ptext">${p?esc(p.text):'—'}</span></li>`;}).join('');
+  const lines=['なおとっち CARD GAME こいびと結婚能力 VERSION 3 の選択',`選んだ：${chosen}/18　保留：${held}`,''];
+  DATA.cards.forEach((c,i)=>{const k=picks[c.id],p=k&&k!=='hold'?planOf(c,k):null;lines.push(`${i+1}. ${c.name}：${pickLabel(c)}${k&&k!=='hold'&&k===c.recommend?'（推奨どおり）':''}`+(p?`\n   ♥ 結婚したら：${p.text}`:''));});
+  $('#out').value=lines.join('\n');
+}
+function renderBalance(){$('#view-balance').innerHTML=DATA.balanceHtml;}
+function render(){
+  for(const v of ['list','text','picks','balance']){$('#view-'+v).hidden=view!==v;$('#v-'+v).setAttribute('aria-pressed',String(view===v));}
+  $('#planSwitch').hidden=!(view==='list'||view==='text');
+  for(const k of ['A','B','C','N','rec','mine'])$('#p-'+k).setAttribute('aria-pressed',String(plan===k));
+  if(view==='list')renderList();if(view==='text')renderText();if(view==='picks')renderPicks();if(view==='balance')renderBalance();
+}
+function renderSheet(){
+  const c=DATA.cards[openIdx];const p=planOf(c,sheetPlan)||c.plans[0];sheetPlan=p.key;const n=len(c.text)+len(p.text),k=picks[c.id];
+  $('#sheetTitle').textContent=`${openIdx+1}/18　${c.name}`;
+  $('#sheetBody').innerHTML=`<div class="sheet-left" style="display:flex;flex-direction:column;gap:8px">
+      <div class="sheet-art"><img src="${esc(c.img)}" alt="${esc(c.name)}の正式カード画像" width="384" height="256"></div>
+      <p class="theme">テーマ：${esc(c.theme)}</p>
+      <div class="copy"><div class="blk"><span class="blk-label">こいびとのとき（正式本文）</span><p>${esc(c.text)}</p></div>${c.readable?`<div class="blk married"><span class="blk-label" style="color:#2f6a4f">読みやすくした本文案（意味は同じ・${len(c.readable)}字）</span><p>${esc(c.readable)}</p></div>`:''}</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+      <div class="plantabs" role="group" aria-label="案の切り替え">${c.plans.map(q=>`<button type="button" data-sheetplan="${q.key}" aria-pressed="${q.key===p.key}">${NAME(q.key)}${q.key===c.recommend?'★':''}<small>${q.origin==='V3'?'新提案':'V2'}・${esc(q.strength)}</small>${k===q.key?'<span class="mine">✓ 選択中</span>':''}</button>`).join('')}</div>
+      <div class="copy"><div class="blk married" style="border-top:0;padding-top:0"><span class="blk-label">♥ 結婚したら（${NAME(p.key)}${p.key===c.recommend?'・推奨':''}）</span><p>${esc(p.text)}</p></div></div>
+      <dl class="facts">
+        <dt>強さ（追加分）</dt><dd>${esc(p.strength)}</dd>
+        <dt>特徴</dt><dd>${esc(p.feature)}</dd>
+        <dt>字数</dt><dd>${len(c.text)}＋${len(p.text)}＝${n}字${n>140?'（140字超：カード面は小さい文字）':''}</dd>
+        <dt>V3の推奨</dt><dd>★ ${NAME(c.recommend)}：${esc(c.reason)}</dd>
+        <dt>合計の強さ</dt><dd>${esc(c.total)}（V2推奨案と既存能力の合計）</dd>
+        <dt>相乗効果</dt><dd>${esc(c.synergy)}</dd>
+        <dt>注意点</dt><dd>${esc(c.caution)}</dd>
+        <dt>V2での変更</dt><dd>${esc(c.change)}</dd>
+      </dl>
+      <div><p style="font-size:12px;color:var(--muted);margin-bottom:6px">この恋人の採用候補</p>
+      <div class="pick" role="group" aria-label="採用候補を選ぶ">${c.plans.map(q=>`<button type="button" data-pick="${q.key}" aria-pressed="${k===q.key}">${NAME(q.key)}にする</button>`).join('')}<button type="button" data-pick="hold" aria-pressed="${k==='hold'}">保留</button></div></div>
+      <div class="navrow"><button type="button" class="btn" data-step="-1">‹ 前の恋人</button><button type="button" class="btn" data-step="1">次の恋人 ›</button></div>
+    </div>`;
+}
+function openSheet(i){openIdx=i;const c=DATA.cards[i];sheetPlan=(picks[c.id]&&picks[c.id]!=='hold')?picks[c.id]:(planOf(c,plan)?plan:c.recommend);renderSheet();const d=$('#sheet');if(!d.open){d.showModal?d.showModal():d.setAttribute('open','');}$('#sheetBody').scrollTop=0;}
+function step(n){openSheet((openIdx+n+18)%18);}
+document.addEventListener('click',e=>{
+  const t=e.target.closest('button');if(!t)return;
+  if(t.dataset.view){view=t.dataset.view;render();window.scrollTo({top:0});}
+  else if(t.dataset.plan){plan=t.dataset.plan;render();}
+  else if(t.dataset.open){openSheet(Number(t.dataset.open));}
+  else if(t.dataset.sheetplan){sheetPlan=t.dataset.sheetplan;renderSheet();}
+  else if(t.dataset.pick){const c=DATA.cards[openIdx];if(picks[c.id]===t.dataset.pick)delete picks[c.id];else picks[c.id]=t.dataset.pick;if(t.dataset.pick!=='hold')sheetPlan=t.dataset.pick;save();renderSheet();render();}
+  else if(t.dataset.step){step(Number(t.dataset.step));}
+});
+$('#prevBtn').onclick=()=>step(-1);$('#nextBtn').onclick=()=>step(1);
+$('#closeBtn').onclick=()=>{const d=$('#sheet');d.close?d.close():d.removeAttribute('open');};
+$('#sheet').addEventListener('click',e=>{if(e.target===e.currentTarget)e.currentTarget.close();});
+$('#copyBtn').onclick=()=>{const ta=$('#out'),done=m=>$('#copyStatus').textContent=m;
+  const fallback=()=>{ta.focus();ta.select();ta.setSelectionRange(0,ta.value.length);done('文字を選択しました。長押しして「コピー」を選んでください。');};
+  try{navigator.clipboard.writeText(ta.value).then(()=>done('コピーしました。'),fallback);}catch(e){fallback();}};
+$('#clearBtn').onclick=()=>{if($('#clearBtn').dataset.armed){picks={};save();delete $('#clearBtn').dataset.armed;$('#clearBtn').textContent='選択をすべて消す';$('#copyStatus').textContent='選択を消しました。';render();}else{$('#clearBtn').dataset.armed='1';$('#clearBtn').textContent='もう一度押すと消えます';}};
+render();
+</script>
