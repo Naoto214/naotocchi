@@ -1,0 +1,290 @@
+[
+  {
+    "id": "current",
+    "bpm": 96,
+    "mode": "solo",
+    "duration": 60,
+    "rmsDb": -20,
+    "peak": 0.25427273151672686,
+    "boundaryJump": 0.008283305418444797
+  },
+  {
+    "id": "current",
+    "bpm": 96,
+    "mode": "accompanied",
+    "duration": 60,
+    "rmsDb": -20,
+    "peak": 0.3050266311735689,
+    "boundaryJump": 0.007936494599562138
+  },
+  {
+    "id": "current",
+    "bpm": 96,
+    "mode": "solo",
+    "duration": 60,
+    "rmsDb": -20,
+    "peak": 0.25427273151672686,
+    "boundaryJump": 0.008283305418444797
+  },
+  {
+    "id": "current",
+    "bpm": 96,
+    "mode": "accompanied",
+    "duration": 60,
+    "rmsDb": -20,
+    "peak": 0.3050266311735689,
+    "boundaryJump": 0.007936494599562138
+  },
+  {
+    "id": "claude-d",
+    "bpm": 88,
+    "mode": "solo",
+    "duration": 65.45455782312925,
+    "rmsDb": -20,
+    "peak": 0.31439350355680895,
+    "boundaryJump": 0
+  },
+  {
+    "id": "claude-d",
+    "bpm": 88,
+    "mode": "accompanied",
+    "duration": 65.45455782312925,
+    "rmsDb": -20,
+    "peak": 0.3979036548050674,
+    "boundaryJump": 0
+  },
+  {
+    "id": "claude-d",
+    "bpm": 96,
+    "mode": "solo",
+    "duration": 60,
+    "rmsDb": -20,
+    "peak": 0.3142216261335157,
+    "boundaryJump": 0
+  },
+  {
+    "id": "claude-d",
+    "bpm": 96,
+    "mode": "accompanied",
+    "duration": 60,
+    "rmsDb": -20,
+    "peak": 0.3894160071225849,
+    "boundaryJump": 0
+  },
+  {
+    "id": "A",
+    "bpm": 84,
+    "mode": "solo",
+    "duration": 45.714285714285715,
+    "rmsDb": -20,
+    "peak": 0.3015694732084389,
+    "boundaryJump": 0
+  },
+  {
+    "id": "A",
+    "bpm": 84,
+    "mode": "accompanied",
+    "duration": 45.714285714285715,
+    "rmsDb": -20,
+    "peak": 0.38390188329265934,
+    "boundaryJump": 0
+  },
+  {
+    "id": "A",
+    "bpm": 96,
+    "mode": "solo",
+    "duration": 40,
+    "rmsDb": -20,
+    "peak": 0.3018813546844981,
+    "boundaryJump": 0
+  },
+  {
+    "id": "A",
+    "bpm": 96,
+    "mode": "accompanied",
+    "duration": 40,
+    "rmsDb": -20,
+    "peak": 0.3563838086335957,
+    "boundaryJump": 0
+  },
+  {
+    "id": "B",
+    "bpm": 84,
+    "mode": "solo",
+    "duration": 51.42857142857143,
+    "rmsDb": -20,
+    "peak": 0.31749270531169366,
+    "boundaryJump": 0
+  },
+  {
+    "id": "B",
+    "bpm": 84,
+    "mode": "accompanied",
+    "duration": 51.42857142857143,
+    "rmsDb": -20,
+    "peak": 0.37715229257402344,
+    "boundaryJump": 0
+  },
+  {
+    "id": "B",
+    "bpm": 96,
+    "mode": "solo",
+    "duration": 45,
+    "rmsDb": -20,
+    "peak": 0.31370021611370535,
+    "boundaryJump": 0
+  },
+  {
+    "id": "B",
+    "bpm": 96,
+    "mode": "accompanied",
+    "duration": 45,
+    "rmsDb": -20,
+    "peak": 0.3599563750202194,
+    "boundaryJump": 0
+  },
+  {
+    "id": "C",
+    "bpm": 80,
+    "mode": "solo",
+    "duration": 48,
+    "rmsDb": -20,
+    "peak": 0.3011985179565632,
+    "boundaryJump": 0
+  },
+  {
+    "id": "C",
+    "bpm": 80,
+    "mode": "accompanied",
+    "duration": 48,
+    "rmsDb": -20,
+    "peak": 0.3589061277953019,
+    "boundaryJump": 0
+  },
+  {
+    "id": "C",
+    "bpm": 96,
+    "mode": "solo",
+    "duration": 40,
+    "rmsDb": -20,
+    "peak": 0.3009865182747041,
+    "boundaryJump": 0
+  },
+  {
+    "id": "C",
+    "bpm": 96,
+    "mode": "accompanied",
+    "duration": 40,
+    "rmsDb": -20,
+    "peak": 0.3421687290836783,
+    "boundaryJump": 0
+  },
+  {
+    "id": "D",
+    "bpm": 76,
+    "mode": "solo",
+    "duration": 50.52630385487528,
+    "rmsDb": -20,
+    "peak": 0.31730408922148945,
+    "boundaryJump": 0
+  },
+  {
+    "id": "D",
+    "bpm": 76,
+    "mode": "accompanied",
+    "duration": 50.52630385487528,
+    "rmsDb": -20,
+    "peak": 0.3812182092770868,
+    "boundaryJump": 0
+  },
+  {
+    "id": "D",
+    "bpm": 96,
+    "mode": "solo",
+    "duration": 40,
+    "rmsDb": -20,
+    "peak": 0.315045579160929,
+    "boundaryJump": 0
+  },
+  {
+    "id": "D",
+    "bpm": 96,
+    "mode": "accompanied",
+    "duration": 40,
+    "rmsDb": -20,
+    "peak": 0.373667692407726,
+    "boundaryJump": 0
+  },
+  {
+    "id": "E",
+    "bpm": 84,
+    "mode": "solo",
+    "duration": 45.714285714285715,
+    "rmsDb": -20,
+    "peak": 0.272037199004404,
+    "boundaryJump": 0
+  },
+  {
+    "id": "E",
+    "bpm": 84,
+    "mode": "accompanied",
+    "duration": 45.714285714285715,
+    "rmsDb": -19.999999999999996,
+    "peak": 0.3863130760866213,
+    "boundaryJump": 0
+  },
+  {
+    "id": "E",
+    "bpm": 96,
+    "mode": "solo",
+    "duration": 40,
+    "rmsDb": -19.999999999999996,
+    "peak": 0.2640389455970476,
+    "boundaryJump": 0
+  },
+  {
+    "id": "E",
+    "bpm": 96,
+    "mode": "accompanied",
+    "duration": 40,
+    "rmsDb": -20,
+    "peak": 0.36804926971218443,
+    "boundaryJump": 0
+  },
+  {
+    "id": "F",
+    "bpm": 90,
+    "mode": "solo",
+    "duration": 48,
+    "rmsDb": -20,
+    "peak": 0.2873748682628137,
+    "boundaryJump": 0
+  },
+  {
+    "id": "F",
+    "bpm": 90,
+    "mode": "accompanied",
+    "duration": 48,
+    "rmsDb": -20,
+    "peak": 0.3698691032365604,
+    "boundaryJump": 0
+  },
+  {
+    "id": "F",
+    "bpm": 96,
+    "mode": "solo",
+    "duration": 45,
+    "rmsDb": -20,
+    "peak": 0.287004327283673,
+    "boundaryJump": 0
+  },
+  {
+    "id": "F",
+    "bpm": 96,
+    "mode": "accompanied",
+    "duration": 45,
+    "rmsDb": -19.999999999999996,
+    "peak": 0.37547089415207713,
+    "boundaryJump": 0
+  }
+]
