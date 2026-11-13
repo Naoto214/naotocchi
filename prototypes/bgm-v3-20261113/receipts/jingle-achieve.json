@@ -1,0 +1,64 @@
+{
+ "id": "jingle-achieve",
+ "title": "やったね",
+ "family": "celebrate",
+ "loop": false,
+ "sampleRate": 44100,
+ "frames": 405720,
+ "seconds": 9.2,
+ "flacFrames": 405720,
+ "aacDecodedFrames": 406528,
+ "integratedLUFS": -23.0,
+ "targetLUFS": -23,
+ "truePeakDbtp": -8.41,
+ "samplePeakDbfs": -8.41,
+ "clippedSamples": 0,
+ "monoLossDb": -1.46,
+ "sideToMidDb": -4.0,
+ "aacFlacCorrelation": 0.9993,
+ "loopJoinJump": 0.00057,
+ "loopJoinTypicalStep999": 0.04564,
+ "bands": {
+  "centroidHz": 741,
+  "low40_250": -4.6,
+  "lowmid250_800": -6.1,
+  "mid800_3k": -4.0,
+  "pres3k_6k": -19.0,
+  "air6k_12k": -25.1,
+  "top12k_20k": -35.7
+ },
+ "roleGainsDb": {
+  "doubling": -8.7,
+  "bass": -14.4,
+  "accompaniment": -11.9,
+  "pad": -4.5,
+  "percussion": 9.4
+ },
+ "tonalCorrection": [
+  [
+   "highshelf",
+   8000,
+   -1.7,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 750,
+  "low40_250": -4.6,
+  "lowmid250_800": -6.1,
+  "mid800_3k": -4.0,
+  "pres3k_6k": -19.0,
+  "air6k_12k": -24.3,
+  "top12k_20k": -34.0
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 3.0,
+ "flacSha256": "49ff88e2db5257b7bd8ac50e16fc9cfa0e60e9945934ab192a4c5c1842b1b843",
+ "flacBytes": 1436751,
+ "aacSha256": "e40f45d4fa66620ba1e25ada8d065e5c0cb8b781e011563e046eeb84b2d2ecb4",
+ "aacBytes": 222023,
+ "midiSha256": "ed2c9a19e9c7e4774e4c6ce77eed7e7b8d03273bac240ad757082f31ede64342",
+ "problems": [],
+ "version": 3,
+ "removedNotes": 3
+}

@@ -1,0 +1,70 @@
+{
+ "id": "koro-1",
+ "title": "ころころ じんせい",
+ "family": "koro",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 3024000,
+ "seconds": 68.571429,
+ "flacFrames": 3024000,
+ "aacDecodedFrames": 3024896,
+ "integratedLUFS": -23.0,
+ "targetLUFS": -23,
+ "truePeakDbtp": -6.82,
+ "samplePeakDbfs": -6.83,
+ "clippedSamples": 0,
+ "monoLossDb": -0.8,
+ "sideToMidDb": -6.9,
+ "aacFlacCorrelation": 0.9997,
+ "loopJoinJump": 0.00418,
+ "loopJoinTypicalStep999": 0.04702,
+ "bands": {
+  "centroidHz": 718,
+  "low40_250": -6.3,
+  "lowmid250_800": -3.0,
+  "mid800_3k": -5.9,
+  "pres3k_6k": -20.0,
+  "air6k_12k": -25.9,
+  "top12k_20k": -37.9
+ },
+ "roleGainsDb": {
+  "bass": -14.4,
+  "accompaniment": -8.9,
+  "pad": 2.1,
+  "percussion": 13.3,
+  "doubling": -14.7
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   -1.4,
+   0.7
+  ],
+  [
+   "highshelf",
+   8000,
+   -5.0,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 774,
+  "low40_250": -6.5,
+  "lowmid250_800": -3.1,
+  "mid800_3k": -5.8,
+  "pres3k_6k": -18.6,
+  "air6k_12k": -23.3,
+  "top12k_20k": -33.1
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 23.4,
+ "flacSha256": "3502b27cdb9a86ccf95825357d667b8a017e4f40531887f3019bb2dd26c0d76b",
+ "flacBytes": 10675347,
+ "aacSha256": "ba197a2f5d8e463c1289f21d81ac8e6097ae2e23e06fbe0bf58114c0ef26049b",
+ "aacBytes": 1682868,
+ "midiSha256": "f58e38a3b46a8972edba0972f4cd0bb33342c92e98abac719ee22d112abdaf85",
+ "problems": [],
+ "version": 3,
+ "removedNotes": 20
+}

@@ -1,0 +1,69 @@
+{
+ "id": "event-2",
+ "title": "ふたりの きねんび",
+ "family": "love",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2761043,
+ "seconds": 62.608685,
+ "flacFrames": 2761043,
+ "aacDecodedFrames": 2761728,
+ "integratedLUFS": -24.0,
+ "targetLUFS": -24,
+ "truePeakDbtp": -7.51,
+ "samplePeakDbfs": -7.51,
+ "clippedSamples": 0,
+ "monoLossDb": -1.24,
+ "sideToMidDb": -4.8,
+ "aacFlacCorrelation": 0.9998,
+ "loopJoinJump": 0.00131,
+ "loopJoinTypicalStep999": 0.03315,
+ "bands": {
+  "centroidHz": 607,
+  "low40_250": -5.5,
+  "lowmid250_800": -3.5,
+  "mid800_3k": -5.8,
+  "pres3k_6k": -24.6,
+  "air6k_12k": -45.6,
+  "top12k_20k": -61.5
+ },
+ "roleGainsDb": {
+  "bass": -5.7,
+  "accompaniment": -9.7,
+  "pad": -2.0,
+  "doubling": -6.4
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   3.4,
+   0.7
+  ],
+  [
+   "peak",
+   3800,
+   0.4,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 565,
+  "low40_250": -5.2,
+  "lowmid250_800": -3.4,
+  "mid800_3k": -6.3,
+  "pres3k_6k": -27.9,
+  "air6k_12k": -47.0,
+  "top12k_20k": -61.5
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 10.3,
+ "flacSha256": "999288b62bb26f82054876a884a0be1579de3cb0614705d163ed71b6f38e49a9",
+ "flacBytes": 9182678,
+ "aacSha256": "59f53fc1ff3660f9791d831871719b975de81fe8241b3ec25e32a1a47048bce7",
+ "aacBytes": 1524294,
+ "midiSha256": "0571e56a2358807b53e5bd4eab5a87de35e7fd8c4794ebcadfbc35a1ede5485d",
+ "problems": [],
+ "version": 3,
+ "removedNotes": 20
+}

@@ -1,0 +1,70 @@
+{
+ "id": "card-2",
+ "title": "デュエル・スタート",
+ "family": "card",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 3681391,
+ "seconds": 83.478254,
+ "flacFrames": 3681391,
+ "aacDecodedFrames": 3682304,
+ "integratedLUFS": -24.0,
+ "targetLUFS": -24,
+ "truePeakDbtp": -8.65,
+ "samplePeakDbfs": -8.67,
+ "clippedSamples": 0,
+ "monoLossDb": -1.16,
+ "sideToMidDb": -5.1,
+ "aacFlacCorrelation": 0.9996,
+ "loopJoinJump": 0.00657,
+ "loopJoinTypicalStep999": 0.04119,
+ "bands": {
+  "centroidHz": 651,
+  "low40_250": -5.2,
+  "lowmid250_800": -3.0,
+  "mid800_3k": -7.5,
+  "pres3k_6k": -20.0,
+  "air6k_12k": -24.8,
+  "top12k_20k": -36.8
+ },
+ "roleGainsDb": {
+  "bass": -13.4,
+  "accompaniment": -7.6,
+  "pad": -1.9,
+  "percussion": 13.0,
+  "doubling": -12.8
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   -1.5,
+   0.7
+  ],
+  [
+   "highshelf",
+   8000,
+   -5.0,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 716,
+  "low40_250": -5.3,
+  "lowmid250_800": -3.1,
+  "mid800_3k": -7.2,
+  "pres3k_6k": -18.5,
+  "air6k_12k": -22.2,
+  "top12k_20k": -31.9
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 16.1,
+ "flacSha256": "ddb447bf16a4c27872f6fc95174685a5ab7e01e03613a8cd021e9b490727551a",
+ "flacBytes": 13071432,
+ "aacSha256": "e00cffa3ae641f348940a5a9b1e19456907a81422fae6ac7310285092c3eba26",
+ "aacBytes": 2055750,
+ "midiSha256": "abbbe9c1f56a69f067b1234749f6dbf4cc6678a162f9024fcdaaa154cdb61ba7",
+ "problems": [],
+ "version": 3,
+ "removedNotes": 30
+}
