@@ -286,5 +286,117 @@
    "hiOverMidDb": -5.8,
    "airPeakDb": -17.7
   }
+ },
+ "explore-2": {
+  "v2": {
+   "spikes": 102,
+   "maxJumpDb": 40.9,
+   "p999JumpDb": 37.8,
+   "hiOverMidDb": -5.2,
+   "airPeakDb": -9.9
+  },
+  "v3": {
+   "spikes": 96,
+   "maxJumpDb": 38.2,
+   "p999JumpDb": 36.9,
+   "hiOverMidDb": -8.6,
+   "airPeakDb": -13.2
+  }
+ },
+ "board-b": {
+  "v2": {
+   "spikes": 151,
+   "maxJumpDb": 34.7,
+   "p999JumpDb": 31.1,
+   "hiOverMidDb": -7.2,
+   "airPeakDb": -22.4
+  },
+  "v3": {
+   "spikes": 174,
+   "maxJumpDb": 37.3,
+   "p999JumpDb": 35.6,
+   "hiOverMidDb": -23.9,
+   "airPeakDb": -31.1
+  }
+ },
+ "fishing-a": {
+  "v2": {
+   "spikes": 33,
+   "maxJumpDb": 37.1,
+   "p999JumpDb": 34.4,
+   "hiOverMidDb": -14.8,
+   "airPeakDb": -18.0
+  },
+  "v3": {
+   "spikes": 53,
+   "maxJumpDb": 34.6,
+   "p999JumpDb": 33.1,
+   "hiOverMidDb": -24.4,
+   "airPeakDb": -30.3
+  }
+ },
+ "lullaby-a": {
+  "v2": {
+   "spikes": 33,
+   "maxJumpDb": 39.4,
+   "p999JumpDb": 35.3,
+   "hiOverMidDb": -18.1,
+   "airPeakDb": -21.6
+  },
+  "v3": {
+   "spikes": 33,
+   "maxJumpDb": 34.0,
+   "p999JumpDb": 31.7,
+   "hiOverMidDb": -20.5,
+   "airPeakDb": -27.7
+  }
+ },
+ "jingle-achieve": {
+  "v2": {
+   "spikes": 20,
+   "maxJumpDb": 42.1,
+   "p999JumpDb": 40.5,
+   "hiOverMidDb": -2.7,
+   "airPeakDb": -17.7
+  },
+  "v3": {
+   "spikes": 20,
+   "maxJumpDb": 42.2,
+   "p999JumpDb": 39.8,
+   "hiOverMidDb": -4.1,
+   "airPeakDb": -18.1
+  }
+ },
+ "jingle-card-lose": {
+  "v2": {
+   "spikes": 5,
+   "maxJumpDb": 37.1,
+   "p999JumpDb": 36.3,
+   "hiOverMidDb": -0.7,
+   "airPeakDb": -20.3
+  },
+  "v3": {
+   "spikes": 7,
+   "maxJumpDb": 28.4,
+   "p999JumpDb": 27.6,
+   "hiOverMidDb": -29.4,
+   "airPeakDb": -33.3
+  }
+ },
+ "var-poyo-clear": {
+  "v2": {
+   "spikes": 16,
+   "maxJumpDb": 33.5,
+   "p999JumpDb": 29.8,
+   "hiOverMidDb": -16.4,
+   "airPeakDb": -29.2
+  },
+  "v3": {
+   "spikes": 16,
+   "maxJumpDb": 31.8,
+   "p999JumpDb": 29.4,
+   "hiOverMidDb": -23.2,
+   "airPeakDb": -33.5
+  }
  }
 }
