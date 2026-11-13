@@ -41,7 +41,7 @@ def attribute(sid, adir, scores):
 if __name__ == '__main__':
     adir, scores = sys.argv[1], {s['id']: s for s in json.load(open(sys.argv[2]))}
     res = {}
-    for sid in sys.argv[3:]:
+    for sid in [a for a in sys.argv[3:] if not a.startswith('--')]:
         c, ex = attribute(sid, adir, scores); res[sid] = dict(c)
         print(f'{sid:18s}', dict(c.most_common()), flush=True)
     if '--json' in sys.argv: print(json.dumps(res, ensure_ascii=False))
