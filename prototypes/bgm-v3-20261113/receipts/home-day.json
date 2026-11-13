@@ -1,0 +1,74 @@
+{
+ "id": "home-day",
+ "title": "いつもの にわ",
+ "family": "home3",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2646000,
+ "seconds": 60.0,
+ "flacFrames": 2646000,
+ "aacDecodedFrames": 2646016,
+ "integratedLUFS": -23.0,
+ "targetLUFS": -23,
+ "truePeakDbtp": -5.34,
+ "samplePeakDbfs": -5.35,
+ "clippedSamples": 0,
+ "monoLossDb": -0.35,
+ "sideToMidDb": -10.7,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00181,
+ "loopJoinTypicalStep999": 0.04405,
+ "bands": {
+  "centroidHz": 680,
+  "low40_250": -9.1,
+  "lowmid250_800": -2.0,
+  "mid800_3k": -6.3,
+  "pres3k_6k": -21.5,
+  "air6k_12k": -41.2,
+  "top12k_20k": -59.0
+ },
+ "roleGainsDb": {
+  "bass": -13.1,
+  "accompaniment": -12.1,
+  "doubling": -0.8
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ],
+  [
+   "peak",
+   3800,
+   -0.8,
+   0.7
+  ],
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 631,
+  "low40_250": -10.3,
+  "lowmid250_800": -1.4,
+  "mid800_3k": -7.5,
+  "pres3k_6k": -22.6,
+  "air6k_12k": -42.7,
+  "top12k_20k": -60.8
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 17.8,
+ "flacSha256": "18cd00cbb6506e8c0d05d172f7a0e4fc28f5211c1330a90e6c4428d92f06494c",
+ "flacBytes": 8355040,
+ "aacSha256": "dd7513624f17e35aa32fb3e12593e06b86e3d4a3e90cacb560e1f50a052de98c",
+ "aacBytes": 1466093,
+ "midiSha256": "c76895dc7f9a3cd30b9e3eca3f6d5aea6b327d72d3facb5a5adb26aced113927",
+ "problems": [],
+ "version": 3,
+ "removedNotes": 24
+}

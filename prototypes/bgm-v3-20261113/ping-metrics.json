@@ -1,0 +1,66 @@
+{
+ "home-morning": {
+  "v2": {
+   "spikes": 130,
+   "maxJumpDb": 44.1,
+   "p999JumpDb": 39.2,
+   "hiOverMidDb": -20.6,
+   "airPeakDb": -25.9
+  },
+  "v3": {
+   "spikes": 139,
+   "maxJumpDb": 46.0,
+   "p999JumpDb": 43.9,
+   "hiOverMidDb": -24.3,
+   "airPeakDb": -29.6
+  }
+ },
+ "home-day": {
+  "v2": {
+   "spikes": 156,
+   "maxJumpDb": 37.5,
+   "p999JumpDb": 33.3,
+   "hiOverMidDb": -24.0,
+   "airPeakDb": -34.6
+  },
+  "v3": {
+   "spikes": 123,
+   "maxJumpDb": 38.5,
+   "p999JumpDb": 36.9,
+   "hiOverMidDb": -24.1,
+   "airPeakDb": -28.8
+  }
+ },
+ "home-evening": {
+  "v2": {
+   "spikes": 82,
+   "maxJumpDb": 40.7,
+   "p999JumpDb": 39.6,
+   "hiOverMidDb": -22.2,
+   "airPeakDb": -26.4
+  },
+  "v3": {
+   "spikes": 89,
+   "maxJumpDb": 37.2,
+   "p999JumpDb": 34.6,
+   "hiOverMidDb": -24.3,
+   "airPeakDb": -28.6
+  }
+ },
+ "home-night": {
+  "v2": {
+   "spikes": 50,
+   "maxJumpDb": 42.5,
+   "p999JumpDb": 38.3,
+   "hiOverMidDb": -22.9,
+   "airPeakDb": -28.6
+  },
+  "v3": {
+   "spikes": 47,
+   "maxJumpDb": 31.5,
+   "p999JumpDb": 29.4,
+   "hiOverMidDb": -28.6,
+   "airPeakDb": -35.7
+  }
+ }
+}
