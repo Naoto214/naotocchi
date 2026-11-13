@@ -43,7 +43,7 @@ for role, w in (('pad', .8), ('accompaniment', .7), ('sparkle', .75), ('doubling
 # （0.5 秒で 約 1/5、1 秒で ほぼ 0）。響きの 部分が 相対的に 長く 歌う。音量は 最後に ラウドネスで そろえる。
 import numpy as np
 SOFTEN = {'home-night': 7.0}
-SOFTEN_FAMILY = {'home4': 4.0, 'sleep': 3.0, 'farewell': 3.0, 'love': 3.0, 'memory': 3.0, 'fishing': 3.0, 'board': 3.0, 'koro': 2.0, 'celebrate': 2.0}
+SOFTEN_FAMILY = {'home4': 4.0, 'sleep': 5.0, 'farewell': 5.0, 'love': 3.0, 'memory': 3.0, 'fishing': 3.0, 'board': 3.0, 'koro': 2.0, 'celebrate': 2.0}
 _soft = {'db': 0.0}
 _note = L.Library.note
 def note(self, inst, midi, dur, vel, layer):

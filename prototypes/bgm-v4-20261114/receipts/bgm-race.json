@@ -1,0 +1,73 @@
+{
+ "id": "bgm-race",
+ "title": "race（3D・のりもの）",
+ "family": "race",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2228211,
+ "seconds": 50.526327,
+ "flacFrames": 2228211,
+ "aacDecodedFrames": 2228224,
+ "integratedLUFS": -24.0,
+ "targetLUFS": -24,
+ "truePeakDbtp": -10.36,
+ "samplePeakDbfs": -10.37,
+ "clippedSamples": 0,
+ "monoLossDb": -1.06,
+ "sideToMidDb": -5.6,
+ "aacFlacCorrelation": 0.9998,
+ "loopJoinJump": 0.00412,
+ "loopJoinTypicalStep999": 0.03855,
+ "bands": {
+  "centroidHz": 677,
+  "low40_250": -7.2,
+  "lowmid250_800": -2.4,
+  "mid800_3k": -6.5,
+  "pres3k_6k": -19.9,
+  "air6k_12k": -34.7,
+  "top12k_20k": -54.0
+ },
+ "roleGainsDb": {
+  "doubling": -16.7,
+  "bass": -14.8,
+  "accompaniment": -6.4,
+  "pad": -0.1,
+  "percussion": 14.4
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ],
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 638,
+  "low40_250": -8.0,
+  "lowmid250_800": -1.9,
+  "mid800_3k": -7.4,
+  "pres3k_6k": -21.3,
+  "air6k_12k": -36.1,
+  "top12k_20k": -55.5
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 6.7,
+ "flacSha256": "eb3b4f6c7d126d188093f1eac984ef44c68159ae8f6156326f9a4aca16ffd10f",
+ "flacBytes": 7480112,
+ "aacSha256": "f686236616c36bdff95ae7356d0b54ecef26aaa2fcf162264c1191d8b9fa39a8",
+ "aacBytes": 1245139,
+ "midiSha256": "48e9dcb1620b3101751d1fee50d55e4c6957db346e86eca915766897077ff99c",
+ "problems": [],
+ "version": 4,
+ "pianoAttackSoftenDb": 0.0,
+ "sideScale": 1.0,
+ "removedNotes": 336,
+ "pedalNotes": 0
+}
