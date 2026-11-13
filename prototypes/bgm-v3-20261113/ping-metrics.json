@@ -398,5 +398,117 @@
    "hiOverMidDb": -23.2,
    "airPeakDb": -33.5
   }
+ },
+ "var-poyo-chapter": {
+  "v2": {
+   "spikes": 69,
+   "maxJumpDb": 37.0,
+   "p999JumpDb": 33.5,
+   "hiOverMidDb": -13.4,
+   "airPeakDb": -25.5
+  },
+  "v3": {
+   "spikes": 68,
+   "maxJumpDb": 36.1,
+   "p999JumpDb": 30.6,
+   "hiOverMidDb": -20.4,
+   "airPeakDb": -32.4
+  }
+ },
+ "var-koro-goal": {
+  "v2": {
+   "spikes": 18,
+   "maxJumpDb": 44.4,
+   "p999JumpDb": 42.6,
+   "hiOverMidDb": -0.7,
+   "airPeakDb": -18.5
+  },
+  "v3": {
+   "spikes": 18,
+   "maxJumpDb": 42.4,
+   "p999JumpDb": 40.1,
+   "hiOverMidDb": -4.7,
+   "airPeakDb": -21.3
+  }
+ },
+ "var-koro-album": {
+  "v2": {
+   "spikes": 67,
+   "maxJumpDb": 39.6,
+   "p999JumpDb": 35.3,
+   "hiOverMidDb": -4.1,
+   "airPeakDb": -19.2
+  },
+  "v3": {
+   "spikes": 79,
+   "maxJumpDb": 39.0,
+   "p999JumpDb": 35.8,
+   "hiOverMidDb": -23.6,
+   "airPeakDb": -29.9
+  }
+ },
+ "var-card-late": {
+  "v2": {
+   "spikes": 218,
+   "maxJumpDb": 34.9,
+   "p999JumpDb": 33.7,
+   "hiOverMidDb": -3.0,
+   "airPeakDb": -17.8
+  },
+  "v3": {
+   "spikes": 211,
+   "maxJumpDb": 36.1,
+   "p999JumpDb": 34.8,
+   "hiOverMidDb": -4.1,
+   "airPeakDb": -19.4
+  }
+ },
+ "var-card-win": {
+  "v2": {
+   "spikes": 19,
+   "maxJumpDb": 42.7,
+   "p999JumpDb": 40.7,
+   "hiOverMidDb": -2.7,
+   "airPeakDb": -17.5
+  },
+  "v3": {
+   "spikes": 21,
+   "maxJumpDb": 41.8,
+   "p999JumpDb": 39.5,
+   "hiOverMidDb": -5.4,
+   "airPeakDb": -19.2
+  }
+ },
+ "var-flight": {
+  "v2": {
+   "spikes": 93,
+   "maxJumpDb": 39.5,
+   "p999JumpDb": 37.1,
+   "hiOverMidDb": -5.3,
+   "airPeakDb": -10.3
+  },
+  "v3": {
+   "spikes": 91,
+   "maxJumpDb": 37.3,
+   "p999JumpDb": 35.7,
+   "hiOverMidDb": -8.6,
+   "airPeakDb": -13.5
+  }
+ },
+ "var-ohayo-hatch2": {
+  "v2": {
+   "spikes": 10,
+   "maxJumpDb": 41.9,
+   "p999JumpDb": 40.2,
+   "hiOverMidDb": -6.5,
+   "airPeakDb": -11.9
+  },
+  "v3": {
+   "spikes": 9,
+   "maxJumpDb": 41.8,
+   "p999JumpDb": 40.2,
+   "hiOverMidDb": -9.8,
+   "airPeakDb": -15.8
+  }
  }
 }
