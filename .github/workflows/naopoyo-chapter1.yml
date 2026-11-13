@@ -35,7 +35,8 @@ jobs:
       - run: node --test --test-concurrency=2 prototypes/card-game/tests/*.test.mjs
 
   chapter-browser:
-    runs-on: ubuntu-latest
+    # Playwright 1.51.1 cannot install Chromium on ubuntu-latest (26.04); pin the previous image.
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
