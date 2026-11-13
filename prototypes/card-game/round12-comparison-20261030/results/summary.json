@@ -1,0 +1,2129 @@
+{
+ "R10": {
+  "matches": 1680,
+  "completed": 1680,
+  "abnormal": 0,
+  "replayMatch": 1680,
+  "final": 10,
+  "endReason": {
+   "R10最終比較": 1630,
+   "100維持": 50
+  },
+  "earlyWinRate": 0.03,
+  "endRound": {
+   "8": 15,
+   "9": 35,
+   "10": 1630
+  },
+  "drawRate": 0.103,
+  "firstSeatScore": 0.524,
+  "deckVsDeck": {
+   "main": {
+    "main": 0.5,
+    "companion": 0.508,
+    "partner": 0.75,
+    "challenge": 0.525,
+    "growth": 0.55,
+    "item": 0.392,
+    "balance": 0.542
+   },
+   "companion": {
+    "main": 0.492,
+    "companion": 0.5,
+    "partner": 0.375,
+    "challenge": 0.45,
+    "growth": 0.475,
+    "item": 0.2,
+    "balance": 0.583
+   },
+   "partner": {
+    "main": 0.25,
+    "companion": 0.625,
+    "partner": 0.5,
+    "challenge": 0.383,
+    "growth": 0.692,
+    "item": 0.6,
+    "balance": 0.575
+   },
+   "challenge": {
+    "main": 0.475,
+    "companion": 0.55,
+    "partner": 0.617,
+    "challenge": 0.5,
+    "growth": 0.517,
+    "item": 0.417,
+    "balance": 0.525
+   },
+   "growth": {
+    "main": 0.45,
+    "companion": 0.525,
+    "partner": 0.308,
+    "challenge": 0.483,
+    "growth": 0.5,
+    "item": 0.275,
+    "balance": 0.458
+   },
+   "item": {
+    "main": 0.608,
+    "companion": 0.8,
+    "partner": 0.4,
+    "challenge": 0.583,
+    "growth": 0.725,
+    "item": 0.5,
+    "balance": 0.683
+   },
+   "balance": {
+    "main": 0.458,
+    "companion": 0.417,
+    "partner": 0.425,
+    "challenge": 0.475,
+    "growth": 0.542,
+    "item": 0.317,
+    "balance": 0.5
+   }
+  },
+  "deckScore": {
+   "main": 0.544,
+   "companion": 0.429,
+   "partner": 0.521,
+   "challenge": 0.517,
+   "growth": 0.417,
+   "item": 0.633,
+   "balance": 0.439
+  },
+  "deckScoreSpread": {
+   "max-min": 0.216,
+   "sd": 0.072
+  },
+  "deckFirstSeat": {
+   "main": 0.558,
+   "companion": 0.45,
+   "partner": 0.544,
+   "challenge": 0.535,
+   "growth": 0.425,
+   "item": 0.644,
+   "balance": 0.512
+  },
+  "growth": {
+   "mean": 69.62,
+   "median": 70.0,
+   "at100": 0.05,
+   "hist10": {
+    "20": 13,
+    "30": 86,
+    "40": 254,
+    "50": 380,
+    "60": 717,
+    "70": 845,
+    "80": 620,
+    "90": 277,
+    "100": 168
+   }
+  },
+  "growthByDeck": {
+   "main": 65.2,
+   "companion": 69.8,
+   "partner": 67.2,
+   "challenge": 65.1,
+   "growth": 75.5,
+   "item": 73.3,
+   "balance": 71.2
+  },
+  "margin": {
+   "mean": 18.08,
+   "within10": 0.419,
+   "both100": 0.002
+  },
+  "maxStage": {
+   "1": 4,
+   "2": 19,
+   "3": 128,
+   "4": 954,
+   "5": 1653,
+   "6": 382,
+   "7": 220
+  },
+  "reach8Rate": 0.0,
+  "reach8ByDeck": {
+   "main": 0.0,
+   "companion": 0.0,
+   "partner": 0.0,
+   "challenge": 0.0,
+   "growth": 0.0,
+   "item": 0.0,
+   "balance": 0.0
+  },
+  "reach8Round": {},
+  "stageAtEnd": 4.86,
+  "eggWait": {
+   "meanFirstBirthRound": 1.88,
+   "neverBorn": 0.0,
+   "dist": {
+    "1": 1485,
+    "2": 1095,
+    "3": 550,
+    "4": 176,
+    "5": 50,
+    "6": 3,
+    "7": 1
+   }
+  },
+  "perSeatPerGame": {
+   "timeSkips": 1.7,
+   "transforms": 0.22,
+   "challenges": 5.09,
+   "relAdvance": 3.4,
+   "trapSet": 0.61,
+   "trapFire": 0.42,
+   "companionAbil": 9.23,
+   "partnerAbil": 1.69,
+   "companionPlace": 2.9,
+   "worldPlace": 0.9,
+   "actionPlays": 4.41,
+   "nonPass": 56.1,
+   "decisions": 104.42
+  },
+  "births": 1.0,
+  "love": {
+   "partnerPlacedRate": 0.891,
+   "placementsPerSeat": 0.89,
+   "maxRel": {
+    "-1": 367,
+    "1": 67,
+    "2": 112,
+    "3": 128,
+    "4": 2686
+   },
+   "marriageRate": 0.799,
+   "marriageRound": {
+    "5": 367,
+    "6": 911,
+    "7": 690,
+    "8": 366,
+    "9": 200,
+    "10": 152
+   },
+   "breakupsPerSeat": 0.0,
+   "divorcesPerSeat": 0.0,
+   "breakupGamesRate": 0.0,
+   "divorceGamesRate": 0.0
+  },
+  "loveByDeck": {
+   "main": {
+    "marriage": 0.71,
+    "placed": 0.844
+   },
+   "companion": {
+    "marriage": 0.771,
+    "placed": 0.904
+   },
+   "partner": {
+    "marriage": 0.992,
+    "placed": 1.0
+   },
+   "challenge": {
+    "marriage": 0.765,
+    "placed": 0.821
+   },
+   "growth": {
+    "marriage": 0.729,
+    "placed": 0.815
+   },
+   "item": {
+    "marriage": 0.694,
+    "placed": 0.856
+   },
+   "balance": {
+    "marriage": 0.935,
+    "placed": 0.996
+   }
+  },
+  "comeback": {
+   "behindAtR8": 0.065,
+   "behindAtFinalMinus2": 0.065,
+   "behindAtFinalMinus1": 0.023,
+   "behindAtR6": 0.196,
+   "nR8": 1492
+  },
+  "lockRound": {
+   "mean": 5.59,
+   "meanRelative": 0.559,
+   "lockedByR8": 0.835,
+   "lockedInLast2": 0.165,
+   "dist": {
+    "1": 87,
+    "2": 168,
+    "3": 142,
+    "4": 172,
+    "5": 153,
+    "6": 180,
+    "7": 166,
+    "8": 190,
+    "9": 133,
+    "10": 116
+   }
+  },
+  "leadChanges": {
+   "all": 0.715,
+   "fromR8": 0.22
+  },
+  "time": {
+   "granted": 54.09,
+   "spentOwnTurn": 18.87,
+   "spentOppTurn": 0.23,
+   "expired": 35.5,
+   "expiredShare": 0.656,
+   "oppTurnShareOfSpent": 0.012,
+   "payEvents": 13.27,
+   "ownTurns": 9.96,
+   "maxSingleRoundTime": 10
+  },
+  "byRound": {
+   "1": {
+    "turns": 3360,
+    "nonPassPerTurn": 1.46,
+    "passOnlyRate": 0.07,
+    "optionsAtStart": 2.88,
+    "noOptionRate": 0.053,
+    "hand": 6.0,
+    "deck": 33.96,
+    "emptyDeck": 0.0,
+    "growthDelta": 0.62,
+    "oppDelta": 0.33,
+    "stage": 0.0,
+    "at8Rate": 0.0,
+    "timeAtStart": 0.96,
+    "spent": 0.72,
+    "expired": 0.27,
+    "timeSkips": 0.0,
+    "transforms": 0.0,
+    "challenges": 0.046,
+    "relAdvance": 0.0,
+    "trapSet": 0.027,
+    "trapFire": 0.0,
+    "companionAbil": 0.111,
+    "partnerAbil": 0.0,
+    "actionPlays": 0.254,
+    "births": 0.442
+   },
+   "2": {
+    "turns": 3360,
+    "nonPassPerTurn": 1.99,
+    "passOnlyRate": 0.032,
+    "optionsAtStart": 4.34,
+    "noOptionRate": 0.004,
+    "hand": 5.67,
+    "deck": 32.72,
+    "emptyDeck": 0.0,
+    "growthDelta": 1.57,
+    "oppDelta": 0.51,
+    "stage": 0.44,
+    "at8Rate": 0.0,
+    "timeAtStart": 1.94,
+    "spent": 1.74,
+    "expired": 0.25,
+    "timeSkips": 0.21,
+    "transforms": 0.013,
+    "challenges": 0.282,
+    "relAdvance": 0.198,
+    "trapSet": 0.035,
+    "trapFire": 0.006,
+    "companionAbil": 0.369,
+    "partnerAbil": 0.045,
+    "actionPlays": 0.29,
+    "births": 0.326
+   },
+   "3": {
+    "turns": 3360,
+    "nonPassPerTurn": 2.47,
+    "passOnlyRate": 0.018,
+    "optionsAtStart": 5.58,
+    "noOptionRate": 0.001,
+    "hand": 5.3,
+    "deck": 31.55,
+    "emptyDeck": 0.0,
+    "growthDelta": 2.99,
+    "oppDelta": 0.58,
+    "stage": 1.32,
+    "at8Rate": 0.0,
+    "timeAtStart": 2.98,
+    "spent": 2.59,
+    "expired": 0.41,
+    "timeSkips": 0.505,
+    "transforms": 0.027,
+    "challenges": 0.542,
+    "relAdvance": 0.335,
+    "trapSet": 0.051,
+    "trapFire": 0.026,
+    "companionAbil": 0.635,
+    "partnerAbil": 0.089,
+    "actionPlays": 0.357,
+    "births": 0.164
+   },
+   "4": {
+    "turns": 3360,
+    "nonPassPerTurn": 2.51,
+    "passOnlyRate": 0.032,
+    "optionsAtStart": 5.49,
+    "noOptionRate": 0.003,
+    "hand": 4.72,
+    "deck": 30.08,
+    "emptyDeck": 0.0,
+    "growthDelta": 4.05,
+    "oppDelta": 0.89,
+    "stage": 2.8,
+    "at8Rate": 0.0,
+    "timeAtStart": 3.54,
+    "spent": 3.01,
+    "expired": 0.98,
+    "timeSkips": 0.342,
+    "transforms": 0.028,
+    "challenges": 0.619,
+    "relAdvance": 0.551,
+    "trapSet": 0.065,
+    "trapFire": 0.051,
+    "companionAbil": 0.822,
+    "partnerAbil": 0.191,
+    "actionPlays": 0.784,
+    "births": 0.052
+   },
+   "5": {
+    "turns": 3360,
+    "nonPassPerTurn": 2.46,
+    "passOnlyRate": 0.03,
+    "optionsAtStart": 5.55,
+    "noOptionRate": 0.0,
+    "hand": 4.5,
+    "deck": 28.64,
+    "emptyDeck": 0.0,
+    "growthDelta": 5.39,
+    "oppDelta": 0.79,
+    "stage": 3.67,
+    "at8Rate": 0.0,
+    "timeAtStart": 4.71,
+    "spent": 2.77,
+    "expired": 2.24,
+    "timeSkips": 0.195,
+    "transforms": 0.029,
+    "challenges": 0.626,
+    "relAdvance": 0.686,
+    "trapSet": 0.097,
+    "trapFire": 0.056,
+    "companionAbil": 0.954,
+    "partnerAbil": 0.242,
+    "actionPlays": 0.586,
+    "births": 0.015
+   },
+   "6": {
+    "turns": 3360,
+    "nonPassPerTurn": 2.14,
+    "passOnlyRate": 0.048,
+    "optionsAtStart": 5.5,
+    "noOptionRate": 0.0,
+    "hand": 4.59,
+    "deck": 27.17,
+    "emptyDeck": 0.0,
+    "growthDelta": 7.18,
+    "oppDelta": 0.54,
+    "stage": 4.1,
+    "at8Rate": 0.0,
+    "timeAtStart": 5.81,
+    "spent": 2.15,
+    "expired": 3.85,
+    "timeSkips": 0.126,
+    "transforms": 0.021,
+    "challenges": 0.621,
+    "relAdvance": 0.645,
+    "trapSet": 0.068,
+    "trapFire": 0.069,
+    "companionAbil": 1.09,
+    "partnerAbil": 0.196,
+    "actionPlays": 0.47,
+    "births": 0.001
+   },
+   "7": {
+    "turns": 3360,
+    "nonPassPerTurn": 1.8,
+    "passOnlyRate": 0.096,
+    "optionsAtStart": 5.56,
+    "noOptionRate": 0.0,
+    "hand": 5.0,
+    "deck": 25.7,
+    "emptyDeck": 0.0,
+    "growthDelta": 6.55,
+    "oppDelta": 0.6,
+    "stage": 4.33,
+    "at8Rate": 0.0,
+    "timeAtStart": 6.82,
+    "spent": 1.81,
+    "expired": 5.19,
+    "timeSkips": 0.102,
+    "transforms": 0.034,
+    "challenges": 0.601,
+    "relAdvance": 0.421,
+    "trapSet": 0.062,
+    "trapFire": 0.054,
+    "companionAbil": 1.185,
+    "partnerAbil": 0.201,
+    "actionPlays": 0.416,
+    "births": 0.0
+   },
+   "8": {
+    "turns": 3357,
+    "nonPassPerTurn": 1.53,
+    "passOnlyRate": 0.134,
+    "optionsAtStart": 5.68,
+    "noOptionRate": 0.0,
+    "hand": 5.44,
+    "deck": 24.18,
+    "emptyDeck": 0.0,
+    "growthDelta": 5.95,
+    "oppDelta": 0.72,
+    "stage": 4.52,
+    "at8Rate": 0.0,
+    "timeAtStart": 7.61,
+    "spent": 1.69,
+    "expired": 6.29,
+    "timeSkips": 0.094,
+    "transforms": 0.033,
+    "challenges": 0.609,
+    "relAdvance": 0.252,
+    "trapSet": 0.066,
+    "trapFire": 0.051,
+    "companionAbil": 1.267,
+    "partnerAbil": 0.232,
+    "actionPlays": 0.511,
+    "births": 0.0
+   },
+   "9": {
+    "turns": 3320,
+    "nonPassPerTurn": 1.38,
+    "passOnlyRate": 0.162,
+    "optionsAtStart": 6.09,
+    "noOptionRate": 0.0,
+    "hand": 5.98,
+    "deck": 22.75,
+    "emptyDeck": 0.0,
+    "growthDelta": 5.06,
+    "oppDelta": 0.67,
+    "stage": 4.69,
+    "at8Rate": 0.0,
+    "timeAtStart": 8.69,
+    "spent": 1.41,
+    "expired": 7.58,
+    "timeSkips": 0.076,
+    "transforms": 0.02,
+    "challenges": 0.587,
+    "relAdvance": 0.178,
+    "trapSet": 0.076,
+    "trapFire": 0.047,
+    "companionAbil": 1.377,
+    "partnerAbil": 0.252,
+    "actionPlays": 0.419,
+    "births": 0.0
+   },
+   "10": {
+    "turns": 3260,
+    "nonPassPerTurn": 1.26,
+    "passOnlyRate": 0.194,
+    "optionsAtStart": 6.55,
+    "noOptionRate": 0.0,
+    "hand": 6.62,
+    "deck": 21.34,
+    "emptyDeck": 0.0,
+    "growthDelta": 4.57,
+    "oppDelta": 0.29,
+    "stage": 4.8,
+    "at8Rate": 0.0,
+    "timeAtStart": 9.76,
+    "spent": 1.24,
+    "expired": 8.76,
+    "timeSkips": 0.056,
+    "transforms": 0.017,
+    "challenges": 0.58,
+    "relAdvance": 0.139,
+    "trapSet": 0.066,
+    "trapFire": 0.064,
+    "companionAbil": 1.483,
+    "partnerAbil": 0.248,
+    "actionPlays": 0.338,
+    "births": 0.0
+   }
+  },
+  "after8": {
+   "seats": 0,
+   "turnsAfter8": null,
+   "passOnlyShare": 0.0,
+   "actsPerTurnAfter8": 0.0
+  },
+  "tempo": {
+   "decisionsPerGame": 208.8,
+   "nonPassPerGame": 112.2,
+   "turnsPerGame": 19.91,
+   "estMinutes": 28.9,
+   "cpuMsPerGame": 1817.0
+  },
+  "roundCards": {
+   "E-midlife-50th": {
+    "plays": 154,
+    "byRound": {
+     "5": 154
+    }
+   }
+  }
+ },
+ "R12": {
+  "matches": 1680,
+  "completed": 1680,
+  "abnormal": 0,
+  "replayMatch": 1680,
+  "final": 12,
+  "endReason": {
+   "R12最終比較": 1404,
+   "100維持": 276
+  },
+  "earlyWinRate": 0.164,
+  "endRound": {
+   "8": 15,
+   "9": 35,
+   "10": 75,
+   "11": 151,
+   "12": 1404
+  },
+  "drawRate": 0.09,
+  "firstSeatScore": 0.516,
+  "deckVsDeck": {
+   "main": {
+    "main": 0.5,
+    "companion": 0.467,
+    "partner": 0.75,
+    "challenge": 0.567,
+    "growth": 0.567,
+    "item": 0.45,
+    "balance": 0.542
+   },
+   "companion": {
+    "main": 0.533,
+    "companion": 0.5,
+    "partner": 0.333,
+    "challenge": 0.475,
+    "growth": 0.525,
+    "item": 0.117,
+    "balance": 0.508
+   },
+   "partner": {
+    "main": 0.25,
+    "companion": 0.667,
+    "partner": 0.5,
+    "challenge": 0.408,
+    "growth": 0.783,
+    "item": 0.6,
+    "balance": 0.625
+   },
+   "challenge": {
+    "main": 0.433,
+    "companion": 0.525,
+    "partner": 0.592,
+    "challenge": 0.5,
+    "growth": 0.525,
+    "item": 0.358,
+    "balance": 0.517
+   },
+   "growth": {
+    "main": 0.433,
+    "companion": 0.475,
+    "partner": 0.217,
+    "challenge": 0.475,
+    "growth": 0.5,
+    "item": 0.175,
+    "balance": 0.408
+   },
+   "item": {
+    "main": 0.55,
+    "companion": 0.883,
+    "partner": 0.4,
+    "challenge": 0.642,
+    "growth": 0.825,
+    "item": 0.5,
+    "balance": 0.733
+   },
+   "balance": {
+    "main": 0.458,
+    "companion": 0.492,
+    "partner": 0.375,
+    "challenge": 0.483,
+    "growth": 0.592,
+    "item": 0.267,
+    "balance": 0.5
+   }
+  },
+  "deckScore": {
+   "main": 0.557,
+   "companion": 0.415,
+   "partner": 0.556,
+   "challenge": 0.492,
+   "growth": 0.364,
+   "item": 0.672,
+   "balance": 0.444
+  },
+  "deckScoreSpread": {
+   "max-min": 0.308,
+   "sd": 0.096
+  },
+  "deckFirstSeat": {
+   "main": 0.567,
+   "companion": 0.429,
+   "partner": 0.552,
+   "challenge": 0.512,
+   "growth": 0.371,
+   "item": 0.671,
+   "balance": 0.508
+  },
+  "growth": {
+   "mean": 78.69,
+   "median": 80.0,
+   "at100": 0.185,
+   "hist10": {
+    "10": 1,
+    "20": 5,
+    "30": 59,
+    "40": 161,
+    "50": 250,
+    "60": 351,
+    "70": 562,
+    "80": 770,
+    "90": 580,
+    "100": 621
+   }
+  },
+  "growthByDeck": {
+   "main": 75.2,
+   "companion": 79.4,
+   "partner": 75.8,
+   "challenge": 73.2,
+   "growth": 84.1,
+   "item": 83.0,
+   "balance": 80.2
+  },
+  "margin": {
+   "mean": 19.64,
+   "within10": 0.39,
+   "both100": 0.016
+  },
+  "maxStage": {
+   "1": 2,
+   "2": 9,
+   "3": 81,
+   "4": 861,
+   "5": 1735,
+   "6": 386,
+   "7": 286
+  },
+  "reach8Rate": 0.0,
+  "reach8ByDeck": {
+   "main": 0.0,
+   "companion": 0.0,
+   "partner": 0.0,
+   "challenge": 0.0,
+   "growth": 0.0,
+   "item": 0.0,
+   "balance": 0.0
+  },
+  "reach8Round": {},
+  "stageAtEnd": 4.96,
+  "eggWait": {
+   "meanFirstBirthRound": 1.88,
+   "neverBorn": 0.0,
+   "dist": {
+    "1": 1485,
+    "2": 1095,
+    "3": 550,
+    "4": 176,
+    "5": 50,
+    "6": 3,
+    "7": 1
+   }
+  },
+  "perSeatPerGame": {
+   "timeSkips": 1.77,
+   "transforms": 0.25,
+   "challenges": 6.04,
+   "relAdvance": 3.58,
+   "trapSet": 0.75,
+   "trapFire": 0.53,
+   "companionAbil": 11.94,
+   "partnerAbil": 2.1,
+   "companionPlace": 3.28,
+   "worldPlace": 0.96,
+   "actionPlays": 5.16,
+   "nonPass": 66.59,
+   "decisions": 127.98
+  },
+  "births": 1.0,
+  "love": {
+   "partnerPlacedRate": 0.922,
+   "placementsPerSeat": 0.92,
+   "maxRel": {
+    "-1": 261,
+    "1": 54,
+    "2": 70,
+    "3": 75,
+    "4": 2900
+   },
+   "marriageRate": 0.863,
+   "marriageRound": {
+    "5": 367,
+    "6": 911,
+    "7": 690,
+    "8": 366,
+    "9": 200,
+    "10": 149,
+    "11": 117,
+    "12": 100
+   },
+   "breakupsPerSeat": 0.0,
+   "divorcesPerSeat": 0.0,
+   "breakupGamesRate": 0.0,
+   "divorceGamesRate": 0.0
+  },
+  "loveByDeck": {
+   "main": {
+    "marriage": 0.804,
+    "placed": 0.892
+   },
+   "companion": {
+    "marriage": 0.86,
+    "placed": 0.929
+   },
+   "partner": {
+    "marriage": 1.0,
+    "placed": 1.0
+   },
+   "challenge": {
+    "marriage": 0.815,
+    "placed": 0.86
+   },
+   "growth": {
+    "marriage": 0.777,
+    "placed": 0.858
+   },
+   "item": {
+    "marriage": 0.812,
+    "placed": 0.919
+   },
+   "balance": {
+    "marriage": 0.973,
+    "placed": 0.998
+   }
+  },
+  "comeback": {
+   "behindAtR8": 0.133,
+   "behindAtFinalMinus2": 0.056,
+   "behindAtFinalMinus1": 0.021,
+   "behindAtR6": 0.238,
+   "nR8": 1514
+  },
+  "lockRound": {
+   "mean": 6.34,
+   "meanRelative": 0.528,
+   "lockedByR8": 0.729,
+   "lockedInLast2": 0.137,
+   "dist": {
+    "1": 79,
+    "2": 150,
+    "3": 122,
+    "4": 155,
+    "5": 139,
+    "6": 159,
+    "7": 147,
+    "8": 163,
+    "9": 113,
+    "10": 92,
+    "11": 108,
+    "12": 102
+   }
+  },
+  "leadChanges": {
+   "all": 0.815,
+   "fromR8": 0.32
+  },
+  "time": {
+   "granted": 74.1,
+   "spentOwnTurn": 21.06,
+   "spentOppTurn": 0.25,
+   "expired": 53.28,
+   "expiredShare": 0.719,
+   "oppTurnShareOfSpent": 0.012,
+   "payEvents": 14.75,
+   "ownTurns": 11.7,
+   "maxSingleRoundTime": 12
+  },
+  "byRound": {
+   "1": {
+    "turns": 3360,
+    "nonPassPerTurn": 1.46,
+    "passOnlyRate": 0.07,
+    "optionsAtStart": 2.88,
+    "noOptionRate": 0.053,
+    "hand": 6.0,
+    "deck": 33.96,
+    "emptyDeck": 0.0,
+    "growthDelta": 0.62,
+    "oppDelta": 0.33,
+    "stage": 0.0,
+    "at8Rate": 0.0,
+    "timeAtStart": 0.96,
+    "spent": 0.72,
+    "expired": 0.27,
+    "timeSkips": 0.0,
+    "transforms": 0.0,
+    "challenges": 0.046,
+    "relAdvance": 0.0,
+    "trapSet": 0.027,
+    "trapFire": 0.0,
+    "companionAbil": 0.111,
+    "partnerAbil": 0.0,
+    "actionPlays": 0.254,
+    "births": 0.442
+   },
+   "2": {
+    "turns": 3360,
+    "nonPassPerTurn": 1.99,
+    "passOnlyRate": 0.032,
+    "optionsAtStart": 4.34,
+    "noOptionRate": 0.004,
+    "hand": 5.67,
+    "deck": 32.72,
+    "emptyDeck": 0.0,
+    "growthDelta": 1.57,
+    "oppDelta": 0.51,
+    "stage": 0.44,
+    "at8Rate": 0.0,
+    "timeAtStart": 1.94,
+    "spent": 1.74,
+    "expired": 0.25,
+    "timeSkips": 0.21,
+    "transforms": 0.013,
+    "challenges": 0.282,
+    "relAdvance": 0.198,
+    "trapSet": 0.035,
+    "trapFire": 0.006,
+    "companionAbil": 0.369,
+    "partnerAbil": 0.045,
+    "actionPlays": 0.29,
+    "births": 0.326
+   },
+   "3": {
+    "turns": 3360,
+    "nonPassPerTurn": 2.47,
+    "passOnlyRate": 0.018,
+    "optionsAtStart": 5.58,
+    "noOptionRate": 0.001,
+    "hand": 5.3,
+    "deck": 31.55,
+    "emptyDeck": 0.0,
+    "growthDelta": 2.99,
+    "oppDelta": 0.58,
+    "stage": 1.32,
+    "at8Rate": 0.0,
+    "timeAtStart": 2.98,
+    "spent": 2.59,
+    "expired": 0.41,
+    "timeSkips": 0.505,
+    "transforms": 0.027,
+    "challenges": 0.542,
+    "relAdvance": 0.335,
+    "trapSet": 0.051,
+    "trapFire": 0.026,
+    "companionAbil": 0.635,
+    "partnerAbil": 0.089,
+    "actionPlays": 0.357,
+    "births": 0.164
+   },
+   "4": {
+    "turns": 3360,
+    "nonPassPerTurn": 2.51,
+    "passOnlyRate": 0.032,
+    "optionsAtStart": 5.49,
+    "noOptionRate": 0.003,
+    "hand": 4.72,
+    "deck": 30.08,
+    "emptyDeck": 0.0,
+    "growthDelta": 4.05,
+    "oppDelta": 0.89,
+    "stage": 2.8,
+    "at8Rate": 0.0,
+    "timeAtStart": 3.54,
+    "spent": 3.01,
+    "expired": 0.98,
+    "timeSkips": 0.342,
+    "transforms": 0.028,
+    "challenges": 0.619,
+    "relAdvance": 0.551,
+    "trapSet": 0.065,
+    "trapFire": 0.051,
+    "companionAbil": 0.822,
+    "partnerAbil": 0.191,
+    "actionPlays": 0.784,
+    "births": 0.052
+   },
+   "5": {
+    "turns": 3360,
+    "nonPassPerTurn": 2.46,
+    "passOnlyRate": 0.03,
+    "optionsAtStart": 5.55,
+    "noOptionRate": 0.0,
+    "hand": 4.5,
+    "deck": 28.64,
+    "emptyDeck": 0.0,
+    "growthDelta": 5.39,
+    "oppDelta": 0.79,
+    "stage": 3.67,
+    "at8Rate": 0.0,
+    "timeAtStart": 4.71,
+    "spent": 2.77,
+    "expired": 2.24,
+    "timeSkips": 0.195,
+    "transforms": 0.029,
+    "challenges": 0.626,
+    "relAdvance": 0.686,
+    "trapSet": 0.097,
+    "trapFire": 0.056,
+    "companionAbil": 0.954,
+    "partnerAbil": 0.242,
+    "actionPlays": 0.586,
+    "births": 0.015
+   },
+   "6": {
+    "turns": 3360,
+    "nonPassPerTurn": 2.14,
+    "passOnlyRate": 0.048,
+    "optionsAtStart": 5.5,
+    "noOptionRate": 0.0,
+    "hand": 4.59,
+    "deck": 27.17,
+    "emptyDeck": 0.0,
+    "growthDelta": 7.18,
+    "oppDelta": 0.54,
+    "stage": 4.1,
+    "at8Rate": 0.0,
+    "timeAtStart": 5.81,
+    "spent": 2.15,
+    "expired": 3.85,
+    "timeSkips": 0.126,
+    "transforms": 0.021,
+    "challenges": 0.621,
+    "relAdvance": 0.645,
+    "trapSet": 0.068,
+    "trapFire": 0.069,
+    "companionAbil": 1.09,
+    "partnerAbil": 0.196,
+    "actionPlays": 0.47,
+    "births": 0.001
+   },
+   "7": {
+    "turns": 3360,
+    "nonPassPerTurn": 1.8,
+    "passOnlyRate": 0.096,
+    "optionsAtStart": 5.56,
+    "noOptionRate": 0.0,
+    "hand": 5.0,
+    "deck": 25.7,
+    "emptyDeck": 0.0,
+    "growthDelta": 6.55,
+    "oppDelta": 0.6,
+    "stage": 4.33,
+    "at8Rate": 0.0,
+    "timeAtStart": 6.82,
+    "spent": 1.81,
+    "expired": 5.19,
+    "timeSkips": 0.102,
+    "transforms": 0.034,
+    "challenges": 0.601,
+    "relAdvance": 0.421,
+    "trapSet": 0.062,
+    "trapFire": 0.054,
+    "companionAbil": 1.185,
+    "partnerAbil": 0.201,
+    "actionPlays": 0.416,
+    "births": 0.0
+   },
+   "8": {
+    "turns": 3357,
+    "nonPassPerTurn": 1.53,
+    "passOnlyRate": 0.134,
+    "optionsAtStart": 5.68,
+    "noOptionRate": 0.0,
+    "hand": 5.44,
+    "deck": 24.18,
+    "emptyDeck": 0.0,
+    "growthDelta": 5.95,
+    "oppDelta": 0.72,
+    "stage": 4.52,
+    "at8Rate": 0.0,
+    "timeAtStart": 7.61,
+    "spent": 1.69,
+    "expired": 6.29,
+    "timeSkips": 0.094,
+    "transforms": 0.033,
+    "challenges": 0.609,
+    "relAdvance": 0.252,
+    "trapSet": 0.066,
+    "trapFire": 0.051,
+    "companionAbil": 1.267,
+    "partnerAbil": 0.232,
+    "actionPlays": 0.511,
+    "births": 0.0
+   },
+   "9": {
+    "turns": 3320,
+    "nonPassPerTurn": 1.38,
+    "passOnlyRate": 0.162,
+    "optionsAtStart": 6.09,
+    "noOptionRate": 0.0,
+    "hand": 5.98,
+    "deck": 22.75,
+    "emptyDeck": 0.0,
+    "growthDelta": 5.06,
+    "oppDelta": 0.67,
+    "stage": 4.69,
+    "at8Rate": 0.0,
+    "timeAtStart": 8.69,
+    "spent": 1.41,
+    "expired": 7.54,
+    "timeSkips": 0.076,
+    "transforms": 0.02,
+    "challenges": 0.587,
+    "relAdvance": 0.178,
+    "trapSet": 0.076,
+    "trapFire": 0.047,
+    "companionAbil": 1.377,
+    "partnerAbil": 0.252,
+    "actionPlays": 0.419,
+    "births": 0.0
+   },
+   "10": {
+    "turns": 3236,
+    "nonPassPerTurn": 1.27,
+    "passOnlyRate": 0.193,
+    "optionsAtStart": 6.57,
+    "noOptionRate": 0.0,
+    "hand": 6.64,
+    "deck": 21.35,
+    "emptyDeck": 0.0,
+    "growthDelta": 4.59,
+    "oppDelta": 0.51,
+    "stage": 4.8,
+    "at8Rate": 0.0,
+    "timeAtStart": 9.76,
+    "spent": 1.23,
+    "expired": 8.63,
+    "timeSkips": 0.055,
+    "transforms": 0.017,
+    "challenges": 0.58,
+    "relAdvance": 0.137,
+    "trapSet": 0.066,
+    "trapFire": 0.063,
+    "companionAbil": 1.474,
+    "partnerAbil": 0.247,
+    "actionPlays": 0.337,
+    "births": 0.0
+   },
+   "11": {
+    "turns": 3072,
+    "nonPassPerTurn": 1.24,
+    "passOnlyRate": 0.201,
+    "optionsAtStart": 7.09,
+    "noOptionRate": 0.0,
+    "hand": 7.32,
+    "deck": 19.99,
+    "emptyDeck": 0.0,
+    "growthDelta": 4.68,
+    "oppDelta": 0.78,
+    "stage": 4.89,
+    "at8Rate": 0.0,
+    "timeAtStart": 10.69,
+    "spent": 1.29,
+    "expired": 9.69,
+    "timeSkips": 0.037,
+    "transforms": 0.018,
+    "challenges": 0.555,
+    "relAdvance": 0.11,
+    "trapSet": 0.075,
+    "trapFire": 0.052,
+    "companionAbil": 1.501,
+    "partnerAbil": 0.24,
+    "actionPlays": 0.455,
+    "births": 0.0
+   },
+   "12": {
+    "turns": 2808,
+    "nonPassPerTurn": 1.15,
+    "passOnlyRate": 0.23,
+    "optionsAtStart": 7.72,
+    "noOptionRate": 0.0,
+    "hand": 8.09,
+    "deck": 18.57,
+    "emptyDeck": 0.0,
+    "growthDelta": 4.3,
+    "oppDelta": 0.35,
+    "stage": 4.97,
+    "at8Rate": 0.0,
+    "timeAtStart": 11.68,
+    "spent": 1.25,
+    "expired": 10.76,
+    "timeSkips": 0.045,
+    "transforms": 0.015,
+    "challenges": 0.525,
+    "relAdvance": 0.093,
+    "trapSet": 0.078,
+    "trapFire": 0.068,
+    "companionAbil": 1.579,
+    "partnerAbil": 0.231,
+    "actionPlays": 0.394,
+    "births": 0.0
+   }
+  },
+  "after8": {
+   "seats": 0,
+   "turnsAfter8": null,
+   "passOnlyShare": 0.0,
+   "actsPerTurnAfter8": 0.0
+  },
+  "tempo": {
+   "decisionsPerGame": 256.0,
+   "nonPassPerGame": 133.2,
+   "turnsPerGame": 23.4,
+   "estMinutes": 34.7,
+   "cpuMsPerGame": 2283.0
+  },
+  "roundCards": {
+   "E-midlife-50th": {
+    "plays": 154,
+    "byRound": {
+     "5": 154
+    }
+   }
+  }
+ },
+ "R12h": {
+  "matches": 560,
+  "completed": 560,
+  "abnormal": 0,
+  "replayMatch": 560,
+  "final": 12,
+  "endReason": {
+   "R12最終比較": 455,
+   "100維持": 105
+  },
+  "earlyWinRate": 0.188,
+  "endRound": {
+   "8": 7,
+   "9": 14,
+   "10": 37,
+   "11": 47,
+   "12": 455
+  },
+  "drawRate": 0.096,
+  "firstSeatScore": 0.514,
+  "deckVsDeck": {
+   "main": {
+    "main": 0.5,
+    "companion": 0.475,
+    "partner": 0.775,
+    "challenge": 0.55,
+    "growth": 0.75,
+    "item": 0.625,
+    "balance": 0.675
+   },
+   "companion": {
+    "main": 0.525,
+    "companion": 0.5,
+    "partner": 0.125,
+    "challenge": 0.375,
+    "growth": 0.475,
+    "item": 0.025,
+    "balance": 0.575
+   },
+   "partner": {
+    "main": 0.225,
+    "companion": 0.875,
+    "partner": 0.5,
+    "challenge": 0.375,
+    "growth": 0.6,
+    "item": 0.525,
+    "balance": 0.425
+   },
+   "challenge": {
+    "main": 0.45,
+    "companion": 0.625,
+    "partner": 0.625,
+    "challenge": 0.5,
+    "growth": 0.675,
+    "item": 0.2,
+    "balance": 0.6
+   },
+   "growth": {
+    "main": 0.25,
+    "companion": 0.525,
+    "partner": 0.4,
+    "challenge": 0.325,
+    "growth": 0.5,
+    "item": 0.25,
+    "balance": 0.425
+   },
+   "item": {
+    "main": 0.375,
+    "companion": 0.975,
+    "partner": 0.475,
+    "challenge": 0.8,
+    "growth": 0.75,
+    "item": 0.5,
+    "balance": 0.8
+   },
+   "balance": {
+    "main": 0.325,
+    "companion": 0.425,
+    "partner": 0.575,
+    "challenge": 0.4,
+    "growth": 0.575,
+    "item": 0.2,
+    "balance": 0.5
+   }
+  },
+  "deckScore": {
+   "main": 0.642,
+   "companion": 0.35,
+   "partner": 0.504,
+   "challenge": 0.529,
+   "growth": 0.362,
+   "item": 0.696,
+   "balance": 0.417
+  },
+  "deckScoreSpread": {
+   "max-min": 0.346,
+   "sd": 0.124
+  },
+  "deckFirstSeat": {
+   "main": 0.631,
+   "companion": 0.381,
+   "partner": 0.519,
+   "challenge": 0.531,
+   "growth": 0.4,
+   "item": 0.681,
+   "balance": 0.456
+  },
+  "growth": {
+   "mean": 78.76,
+   "median": 80.0,
+   "at100": 0.192,
+   "hist10": {
+    "20": 1,
+    "30": 18,
+    "40": 56,
+    "50": 81,
+    "60": 128,
+    "70": 175,
+    "80": 256,
+    "90": 190,
+    "100": 215
+   }
+  },
+  "growthByDeck": {
+   "main": 77.3,
+   "companion": 77.9,
+   "partner": 75.6,
+   "challenge": 72.0,
+   "growth": 84.1,
+   "item": 84.7,
+   "balance": 79.8
+  },
+  "margin": {
+   "mean": 19.5,
+   "within10": 0.37,
+   "both100": 0.02
+  },
+  "maxStage": {
+   "1": 2,
+   "2": 5,
+   "3": 35,
+   "4": 303,
+   "5": 548,
+   "6": 122,
+   "7": 105
+  },
+  "reach8Rate": 0.0,
+  "reach8ByDeck": {
+   "main": 0.0,
+   "companion": 0.0,
+   "partner": 0.0,
+   "challenge": 0.0,
+   "growth": 0.0,
+   "item": 0.0,
+   "balance": 0.0
+  },
+  "reach8Round": {},
+  "stageAtEnd": 4.94,
+  "eggWait": {
+   "meanFirstBirthRound": 1.84,
+   "neverBorn": 0.0,
+   "dist": {
+    "1": 508,
+    "2": 377,
+    "3": 159,
+    "4": 60,
+    "5": 13,
+    "6": 2,
+    "7": 1
+   }
+  },
+  "perSeatPerGame": {
+   "timeSkips": 1.77,
+   "transforms": 0.24,
+   "challenges": 6.03,
+   "relAdvance": 3.67,
+   "trapSet": 0.73,
+   "trapFire": 0.5,
+   "companionAbil": 11.76,
+   "partnerAbil": 2.05,
+   "companionPlace": 3.28,
+   "worldPlace": 0.95,
+   "actionPlays": 5.04,
+   "nonPass": 65.19,
+   "decisions": 128.08
+  },
+  "births": 1.0,
+  "love": {
+   "partnerPlacedRate": 0.941,
+   "placementsPerSeat": 0.94,
+   "maxRel": {
+    "-1": 66,
+    "1": 13,
+    "2": 23,
+    "3": 24,
+    "4": 994
+   },
+   "marriageRate": 0.887,
+   "marriageRound": {
+    "5": 127,
+    "6": 344,
+    "7": 194,
+    "8": 114,
+    "9": 70,
+    "10": 59,
+    "11": 58,
+    "12": 28
+   },
+   "breakupsPerSeat": 0.0,
+   "divorcesPerSeat": 0.0,
+   "breakupGamesRate": 0.0,
+   "divorceGamesRate": 0.0
+  },
+  "loveByDeck": {
+   "main": {
+    "marriage": 0.9,
+    "placed": 0.975
+   },
+   "companion": {
+    "marriage": 0.844,
+    "placed": 0.931
+   },
+   "partner": {
+    "marriage": 1.0,
+    "placed": 1.0
+   },
+   "challenge": {
+    "marriage": 0.831,
+    "placed": 0.844
+   },
+   "growth": {
+    "marriage": 0.85,
+    "placed": 0.906
+   },
+   "item": {
+    "marriage": 0.806,
+    "placed": 0.931
+   },
+   "balance": {
+    "marriage": 0.981,
+    "placed": 1.0
+   }
+  },
+  "comeback": {
+   "behindAtR8": 0.144,
+   "behindAtFinalMinus2": 0.056,
+   "behindAtFinalMinus1": 0.03,
+   "behindAtR6": 0.257,
+   "nR8": 499
+  },
+  "lockRound": {
+   "mean": 6.41,
+   "meanRelative": 0.534,
+   "lockedByR8": 0.696,
+   "lockedInLast2": 0.125,
+   "dist": {
+    "1": 22,
+    "2": 55,
+    "3": 37,
+    "4": 50,
+    "5": 46,
+    "6": 50,
+    "7": 52,
+    "8": 40,
+    "9": 46,
+    "10": 45,
+    "11": 34,
+    "12": 29
+   }
+  },
+  "leadChanges": {
+   "all": 0.871,
+   "fromR8": 0.336
+  },
+  "time": {
+   "granted": 73.31,
+   "spentOwnTurn": 20.94,
+   "spentOppTurn": 0.26,
+   "expired": 52.61,
+   "expiredShare": 0.718,
+   "oppTurnShareOfSpent": 0.012,
+   "payEvents": 14.66,
+   "ownTurns": 11.63,
+   "maxSingleRoundTime": 12
+  },
+  "byRound": {
+   "1": {
+    "turns": 1120,
+    "nonPassPerTurn": 1.46,
+    "passOnlyRate": 0.061,
+    "optionsAtStart": 2.9,
+    "noOptionRate": 0.048,
+    "hand": 6.0,
+    "deck": 33.96,
+    "emptyDeck": 0.0,
+    "growthDelta": 0.56,
+    "oppDelta": 0.31,
+    "stage": 0.0,
+    "at8Rate": 0.0,
+    "timeAtStart": 0.96,
+    "spent": 0.71,
+    "expired": 0.28,
+    "timeSkips": 0.0,
+    "transforms": 0.0,
+    "challenges": 0.043,
+    "relAdvance": 0.0,
+    "trapSet": 0.023,
+    "trapFire": 0.0,
+    "companionAbil": 0.103,
+    "partnerAbil": 0.0,
+    "actionPlays": 0.236,
+    "births": 0.454
+   },
+   "2": {
+    "turns": 1120,
+    "nonPassPerTurn": 2.03,
+    "passOnlyRate": 0.031,
+    "optionsAtStart": 4.45,
+    "noOptionRate": 0.003,
+    "hand": 5.67,
+    "deck": 32.74,
+    "emptyDeck": 0.0,
+    "growthDelta": 1.67,
+    "oppDelta": 0.49,
+    "stage": 0.45,
+    "at8Rate": 0.0,
+    "timeAtStart": 1.95,
+    "spent": 1.73,
+    "expired": 0.26,
+    "timeSkips": 0.218,
+    "transforms": 0.01,
+    "challenges": 0.301,
+    "relAdvance": 0.222,
+    "trapSet": 0.036,
+    "trapFire": 0.006,
+    "companionAbil": 0.366,
+    "partnerAbil": 0.046,
+    "actionPlays": 0.274,
+    "births": 0.337
+   },
+   "3": {
+    "turns": 1120,
+    "nonPassPerTurn": 2.51,
+    "passOnlyRate": 0.015,
+    "optionsAtStart": 5.67,
+    "noOptionRate": 0.0,
+    "hand": 5.29,
+    "deck": 31.57,
+    "emptyDeck": 0.0,
+    "growthDelta": 3.03,
+    "oppDelta": 0.54,
+    "stage": 1.34,
+    "at8Rate": 0.0,
+    "timeAtStart": 2.98,
+    "spent": 2.59,
+    "expired": 0.41,
+    "timeSkips": 0.525,
+    "transforms": 0.026,
+    "challenges": 0.548,
+    "relAdvance": 0.354,
+    "trapSet": 0.06,
+    "trapFire": 0.024,
+    "companionAbil": 0.632,
+    "partnerAbil": 0.096,
+    "actionPlays": 0.36,
+    "births": 0.142
+   },
+   "4": {
+    "turns": 1120,
+    "nonPassPerTurn": 2.51,
+    "passOnlyRate": 0.029,
+    "optionsAtStart": 5.53,
+    "noOptionRate": 0.0,
+    "hand": 4.72,
+    "deck": 30.07,
+    "emptyDeck": 0.0,
+    "growthDelta": 4.09,
+    "oppDelta": 0.93,
+    "stage": 2.79,
+    "at8Rate": 0.0,
+    "timeAtStart": 3.55,
+    "spent": 2.97,
+    "expired": 1.03,
+    "timeSkips": 0.321,
+    "transforms": 0.023,
+    "challenges": 0.624,
+    "relAdvance": 0.556,
+    "trapSet": 0.07,
+    "trapFire": 0.064,
+    "companionAbil": 0.82,
+    "partnerAbil": 0.2,
+    "actionPlays": 0.773,
+    "births": 0.054
+   },
+   "5": {
+    "turns": 1120,
+    "nonPassPerTurn": 2.44,
+    "passOnlyRate": 0.027,
+    "optionsAtStart": 5.65,
+    "noOptionRate": 0.0,
+    "hand": 4.52,
+    "deck": 28.64,
+    "emptyDeck": 0.0,
+    "growthDelta": 5.41,
+    "oppDelta": 0.8,
+    "stage": 3.63,
+    "at8Rate": 0.0,
+    "timeAtStart": 4.72,
+    "spent": 2.8,
+    "expired": 2.21,
+    "timeSkips": 0.175,
+    "transforms": 0.025,
+    "challenges": 0.621,
+    "relAdvance": 0.691,
+    "trapSet": 0.104,
+    "trapFire": 0.046,
+    "companionAbil": 0.934,
+    "partnerAbil": 0.246,
+    "actionPlays": 0.623,
+    "births": 0.012
+   },
+   "6": {
+    "turns": 1120,
+    "nonPassPerTurn": 2.18,
+    "passOnlyRate": 0.049,
+    "optionsAtStart": 5.64,
+    "noOptionRate": 0.0,
+    "hand": 4.63,
+    "deck": 27.16,
+    "emptyDeck": 0.0,
+    "growthDelta": 7.55,
+    "oppDelta": 0.54,
+    "stage": 4.01,
+    "at8Rate": 0.0,
+    "timeAtStart": 5.81,
+    "spent": 2.15,
+    "expired": 3.85,
+    "timeSkips": 0.128,
+    "transforms": 0.021,
+    "challenges": 0.632,
+    "relAdvance": 0.645,
+    "trapSet": 0.069,
+    "trapFire": 0.071,
+    "companionAbil": 1.085,
+    "partnerAbil": 0.179,
+    "actionPlays": 0.436,
+    "births": 0.002
+   },
+   "7": {
+    "turns": 1120,
+    "nonPassPerTurn": 1.83,
+    "passOnlyRate": 0.105,
+    "optionsAtStart": 5.72,
+    "noOptionRate": 0.0,
+    "hand": 5.03,
+    "deck": 25.69,
+    "emptyDeck": 0.0,
+    "growthDelta": 6.29,
+    "oppDelta": 0.49,
+    "stage": 4.26,
+    "at8Rate": 0.0,
+    "timeAtStart": 6.83,
+    "spent": 1.86,
+    "expired": 5.13,
+    "timeSkips": 0.119,
+    "transforms": 0.041,
+    "challenges": 0.617,
+    "relAdvance": 0.394,
+    "trapSet": 0.06,
+    "trapFire": 0.051,
+    "companionAbil": 1.178,
+    "partnerAbil": 0.206,
+    "actionPlays": 0.405,
+    "births": 0.001
+   },
+   "8": {
+    "turns": 1119,
+    "nonPassPerTurn": 1.66,
+    "passOnlyRate": 0.122,
+    "optionsAtStart": 5.88,
+    "noOptionRate": 0.0,
+    "hand": 5.52,
+    "deck": 24.25,
+    "emptyDeck": 0.0,
+    "growthDelta": 5.76,
+    "oppDelta": 0.5,
+    "stage": 4.5,
+    "at8Rate": 0.0,
+    "timeAtStart": 7.82,
+    "spent": 1.74,
+    "expired": 6.23,
+    "timeSkips": 0.083,
+    "transforms": 0.04,
+    "challenges": 0.604,
+    "relAdvance": 0.275,
+    "trapSet": 0.064,
+    "trapFire": 0.049,
+    "companionAbil": 1.275,
+    "partnerAbil": 0.229,
+    "actionPlays": 0.459,
+    "births": 0.0
+   },
+   "9": {
+    "turns": 1100,
+    "nonPassPerTurn": 1.45,
+    "passOnlyRate": 0.135,
+    "optionsAtStart": 6.3,
+    "noOptionRate": 0.0,
+    "hand": 6.07,
+    "deck": 22.77,
+    "emptyDeck": 0.0,
+    "growthDelta": 5.25,
+    "oppDelta": 0.55,
+    "stage": 4.67,
+    "at8Rate": 0.0,
+    "timeAtStart": 8.8,
+    "spent": 1.36,
+    "expired": 7.55,
+    "timeSkips": 0.078,
+    "transforms": 0.014,
+    "challenges": 0.585,
+    "relAdvance": 0.204,
+    "trapSet": 0.072,
+    "trapFire": 0.046,
+    "companionAbil": 1.372,
+    "partnerAbil": 0.242,
+    "actionPlays": 0.414,
+    "births": 0.0
+   },
+   "10": {
+    "turns": 1066,
+    "nonPassPerTurn": 1.32,
+    "passOnlyRate": 0.169,
+    "optionsAtStart": 6.62,
+    "noOptionRate": 0.0,
+    "hand": 6.61,
+    "deck": 21.35,
+    "emptyDeck": 0.0,
+    "growthDelta": 5.41,
+    "oppDelta": 0.46,
+    "stage": 4.78,
+    "at8Rate": 0.0,
+    "timeAtStart": 9.65,
+    "spent": 1.43,
+    "expired": 8.41,
+    "timeSkips": 0.06,
+    "transforms": 0.02,
+    "challenges": 0.581,
+    "relAdvance": 0.16,
+    "trapSet": 0.056,
+    "trapFire": 0.055,
+    "companionAbil": 1.434,
+    "partnerAbil": 0.236,
+    "actionPlays": 0.497,
+    "births": 0.0
+   },
+   "11": {
+    "turns": 989,
+    "nonPassPerTurn": 1.18,
+    "passOnlyRate": 0.196,
+    "optionsAtStart": 7.14,
+    "noOptionRate": 0.0,
+    "hand": 7.28,
+    "deck": 20.04,
+    "emptyDeck": 0.0,
+    "growthDelta": 4.88,
+    "oppDelta": 0.72,
+    "stage": 4.9,
+    "at8Rate": 0.0,
+    "timeAtStart": 10.73,
+    "spent": 1.19,
+    "expired": 9.77,
+    "timeSkips": 0.035,
+    "transforms": 0.012,
+    "challenges": 0.533,
+    "relAdvance": 0.124,
+    "trapSet": 0.069,
+    "trapFire": 0.046,
+    "companionAbil": 1.492,
+    "partnerAbil": 0.222,
+    "actionPlays": 0.38,
+    "births": 0.0
+   },
+   "12": {
+    "turns": 910,
+    "nonPassPerTurn": 1.07,
+    "passOnlyRate": 0.251,
+    "optionsAtStart": 7.73,
+    "noOptionRate": 0.0,
+    "hand": 8.07,
+    "deck": 18.69,
+    "emptyDeck": 0.0,
+    "growthDelta": 3.99,
+    "oppDelta": 0.41,
+    "stage": 4.99,
+    "at8Rate": 0.0,
+    "timeAtStart": 11.75,
+    "spent": 1.06,
+    "expired": 10.95,
+    "timeSkips": 0.049,
+    "transforms": 0.011,
+    "challenges": 0.519,
+    "relAdvance": 0.079,
+    "trapSet": 0.073,
+    "trapFire": 0.065,
+    "companionAbil": 1.599,
+    "partnerAbil": 0.226,
+    "actionPlays": 0.299,
+    "births": 0.0
+   }
+  },
+  "after8": {
+   "seats": 0,
+   "turnsAfter8": null,
+   "passOnlyShare": 0.0,
+   "actsPerTurnAfter8": 0.0
+  },
+  "tempo": {
+   "decisionsPerGame": 256.2,
+   "nonPassPerGame": 130.4,
+   "turnsPerGame": 23.26,
+   "estMinutes": 34.3,
+   "cpuMsPerGame": 2896.0
+  },
+  "roundCards": {
+   "E-midlife-50th": {
+    "plays": 41,
+    "byRound": {
+     "5": 41
+    }
+   }
+  }
+ },
+ "paired": {
+  "R12-R10": {
+   "groups": 840,
+   "growthMean": {
+    "diff": 9.07,
+    "ci95": [
+     8.738,
+     9.396
+    ]
+   },
+   "firstSeatScore": {
+    "diff": -0.008,
+    "ci95": [
+     -0.02,
+     0.003
+    ]
+   },
+   "earlyWin": {
+    "diff": 0.135,
+    "ci95": [
+     0.117,
+     0.151
+    ]
+   },
+   "draw": {
+    "diff": -0.013,
+    "ci95": [
+     -0.031,
+     0.004
+    ]
+   },
+   "reach8": {
+    "diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "marriage": {
+    "diff": 0.064,
+    "ci95": [
+     0.053,
+     0.075
+    ]
+   },
+   "comebackR8": {
+    "diff": 0.068,
+    "ci95": [
+     0.053,
+     0.082
+    ]
+   },
+   "comebackFinalMinus2": {
+    "diff": -0.009,
+    "ci95": [
+     -0.026,
+     0.008
+    ]
+   },
+   "leadChangesFromR8": {
+    "diff": 0.1,
+    "ci95": [
+     0.084,
+     0.116
+    ]
+   },
+   "decisions": {
+    "diff": 47.12,
+    "ci95": [
+     45.589,
+     48.797
+    ]
+   },
+   "nonPass": {
+    "diff": 20.975,
+    "ci95": [
+     20.242,
+     21.74
+    ]
+   },
+   "margin": {
+    "diff": 1.557,
+    "ci95": [
+     1.086,
+     2.039
+    ]
+   },
+   "expiredShare": {
+    "diff": 0.058,
+    "ci95": [
+     0.056,
+     0.06
+    ]
+   },
+   "sameWinnerRate": 0.831
+  },
+  "R12h-R10": {
+   "groups": 280,
+   "growthMean": {
+    "diff": 8.732,
+    "ci95": [
+     8.138,
+     9.33
+    ]
+   },
+   "firstSeatScore": {
+    "diff": -0.004,
+    "ci95": [
+     -0.024,
+     0.016
+    ]
+   },
+   "earlyWin": {
+    "diff": 0.152,
+    "ci95": [
+     0.12,
+     0.186
+    ]
+   },
+   "draw": {
+    "diff": -0.007,
+    "ci95": [
+     -0.038,
+     0.023
+    ]
+   },
+   "reach8": {
+    "diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "marriage": {
+    "diff": 0.075,
+    "ci95": [
+     0.054,
+     0.098
+    ]
+   },
+   "comebackR8": {
+    "diff": 0.09,
+    "ci95": [
+     0.061,
+     0.122
+    ]
+   },
+   "comebackFinalMinus2": {
+    "diff": 0.001,
+    "ci95": [
+     -0.03,
+     0.031
+    ]
+   },
+   "leadChangesFromR8": {
+    "diff": 0.105,
+    "ci95": [
+     0.073,
+     0.137
+    ]
+   },
+   "decisions": {
+    "diff": 45.821,
+    "ci95": [
+     43.038,
+     48.693
+    ]
+   },
+   "nonPass": {
+    "diff": 19.579,
+    "ci95": [
+     18.343,
+     20.9
+    ]
+   },
+   "margin": {
+    "diff": 1.518,
+    "ci95": [
+     0.688,
+     2.348
+    ]
+   },
+   "expiredShare": {
+    "diff": 0.059,
+    "ci95": [
+     0.056,
+     0.063
+    ]
+   },
+   "sameWinnerRate": 0.829
+  },
+  "R12h-R12": {
+   "groups": 280,
+   "growthMean": {
+    "diff": -0.107,
+    "ci95": [
+     -0.304,
+     0.08
+    ]
+   },
+   "firstSeatScore": {
+    "diff": -0.008,
+    "ci95": [
+     -0.02,
+     0.004
+    ]
+   },
+   "earlyWin": {
+    "diff": -0.004,
+    "ci95": [
+     -0.014,
+     0.005
+    ]
+   },
+   "draw": {
+    "diff": 0.009,
+    "ci95": [
+     -0.005,
+     0.023
+    ]
+   },
+   "reach8": {
+    "diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "marriage": {
+    "diff": 0.001,
+    "ci95": [
+     0.0,
+     0.003
+    ]
+   },
+   "comebackR8": {
+    "diff": 0.021,
+    "ci95": [
+     -0.001,
+     0.044
+    ]
+   },
+   "comebackFinalMinus2": {
+    "diff": 0.005,
+    "ci95": [
+     -0.008,
+     0.019
+    ]
+   },
+   "leadChangesFromR8": {
+    "diff": 0.011,
+    "ci95": [
+     -0.013,
+     0.034
+    ]
+   },
+   "decisions": {
+    "diff": 0.727,
+    "ci95": [
+     0.195,
+     1.22
+    ]
+   },
+   "nonPass": {
+    "diff": -0.145,
+    "ci95": [
+     -0.4,
+     0.102
+    ]
+   },
+   "margin": {
+    "diff": -0.357,
+    "ci95": [
+     -0.67,
+     -0.045
+    ]
+   },
+   "expiredShare": {
+    "diff": 0.001,
+    "ci95": [
+     -0.0,
+     0.002
+    ]
+   },
+   "sameWinnerRate": 0.959
+  }
+ }
+}

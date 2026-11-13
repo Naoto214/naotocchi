@@ -1,0 +1,376 @@
+{
+ "E8": {
+  "R10": {
+   "games": 840,
+   "abnormal": 0,
+   "replayMatch": 840,
+   "focusScore": 0.561,
+   "focusGrowth": 74.15,
+   "otherGrowth": 70.79,
+   "earlyWin": 0.029,
+   "earlyWinByFocus": 0.012,
+   "draw": 0.069,
+   "endRound": {
+    "8": 4,
+    "9": 20,
+    "10": 816
+   },
+   "firstSeatScore": 0.529,
+   "resultChangedInLast2Rounds": 0.183,
+   "leaderOvertakenInLast2Rounds": 0.061,
+   "decisionsPerGame": 223.6,
+   "estMinutes": 31.7,
+   "timeExpiredShare": 0.645,
+   "reach8Rate": 0.73,
+   "reach8RateByDeck": {
+    "main+8": 0.598,
+    "balance+8": 0.862
+   },
+   "reach8ByR10End": 0.73,
+   "reach8Round": {
+    "4": 58,
+    "5": 147,
+    "6": 100,
+    "7": 67,
+    "8": 95,
+    "9": 83,
+    "10": 63
+   },
+   "reach8InR11R12": 0.0,
+   "maxStage": {
+    "3": 5,
+    "4": 2,
+    "5": 14,
+    "6": 34,
+    "7": 172,
+    "8": 613
+   },
+   "turnsAfter8PerReacher": 2.9,
+   "actsPerTurnAfter8": 9.15,
+   "passOnlyShareAfter8": 0.015,
+   "growthPerTurnAfter8": 8.01,
+   "main8AbilPerReacher": 0.21,
+   "scoreIfReached8": 0.572,
+   "scoreIfNot8": 0.531,
+   "growthIfReached8": 76.1,
+   "timeSkipsPerSeat": 2.74,
+   "transformsPerSeat": 0.69,
+   "scoreVsOpponent": {
+    "main": 0.533,
+    "companion": 0.654,
+    "partner": 0.579,
+    "challenge": 0.729,
+    "growth": 0.504,
+    "item": 0.358,
+    "balance": 0.567
+   }
+  },
+  "R12": {
+   "games": 840,
+   "abnormal": 0,
+   "replayMatch": 840,
+   "focusScore": 0.586,
+   "focusGrowth": 85.37,
+   "otherGrowth": 80.39,
+   "earlyWin": 0.179,
+   "earlyWinByFocus": 0.112,
+   "draw": 0.088,
+   "endRound": {
+    "8": 4,
+    "9": 20,
+    "10": 39,
+    "11": 87,
+    "12": 690
+   },
+   "firstSeatScore": 0.533,
+   "resultChangedInLast2Rounds": 0.174,
+   "leaderOvertakenInLast2Rounds": 0.048,
+   "decisionsPerGame": 276.5,
+   "estMinutes": 38.3,
+   "timeExpiredShare": 0.711,
+   "reach8Rate": 0.802,
+   "reach8RateByDeck": {
+    "main+8": 0.693,
+    "balance+8": 0.912
+   },
+   "reach8ByR10End": 0.727,
+   "reach8Round": {
+    "4": 58,
+    "5": 147,
+    "6": 100,
+    "7": 67,
+    "8": 95,
+    "9": 83,
+    "10": 61,
+    "11": 28,
+    "12": 35
+   },
+   "reach8InR11R12": 0.075,
+   "maxStage": {
+    "3": 1,
+    "4": 1,
+    "5": 10,
+    "6": 15,
+    "7": 139,
+    "8": 674
+   },
+   "turnsAfter8PerReacher": 3.89,
+   "actsPerTurnAfter8": 9.14,
+   "passOnlyShareAfter8": 0.028,
+   "growthPerTurnAfter8": 7.64,
+   "main8AbilPerReacher": 0.31,
+   "scoreIfReached8": 0.605,
+   "scoreIfNot8": 0.506,
+   "growthIfReached8": 87.0,
+   "timeSkipsPerSeat": 2.88,
+   "transformsPerSeat": 0.81,
+   "scoreVsOpponent": {
+    "main": 0.571,
+    "companion": 0.692,
+    "partner": 0.613,
+    "challenge": 0.767,
+    "growth": 0.546,
+    "item": 0.338,
+    "balance": 0.575
+   }
+  },
+  "R10vsR12sameGame": {
+   "games": 816,
+   "same": 681,
+   "drawToWin": 41,
+   "winToDraw": 57,
+   "flipped": 37,
+   "changedShare": 0.165
+  },
+  "prefixIdentical": 840,
+  "paired": {
+   "focusScore": {
+    "diff": 0.025,
+    "ci95": [
+     0.005,
+     0.045
+    ]
+   },
+   "earlyWin": {
+    "diff": 0.15,
+    "ci95": [
+     0.124,
+     0.177
+    ]
+   },
+   "estMinutes": {
+    "diff": 6.565,
+    "ci95": [
+     6.289,
+     6.837
+    ]
+   },
+   "reach8": {
+    "diff": 0.073,
+    "ci95": [
+     0.054,
+     0.095
+    ]
+   },
+   "turnsAfter8": {
+    "diff": 0.99,
+    "ci95": [
+     0.859,
+     1.111
+    ]
+   }
+  }
+ },
+ "EL": {
+  "R10": {
+   "games": 480,
+   "abnormal": 0,
+   "replayMatch": 480,
+   "focusScore": 0.436,
+   "focusGrowth": 62.75,
+   "otherGrowth": 70.49,
+   "earlyWin": 0.033,
+   "earlyWinByFocus": 0.002,
+   "draw": 0.085,
+   "endRound": {
+    "8": 1,
+    "9": 15,
+    "10": 464
+   },
+   "firstSeatScore": 0.541,
+   "resultChangedInLast2Rounds": 0.203,
+   "leaderOvertakenInLast2Rounds": 0.084,
+   "decisionsPerGame": 221.7,
+   "estMinutes": 30.1,
+   "timeExpiredShare": 0.625,
+   "placedRate": 0.994,
+   "marriageRate": 0.898,
+   "marriedAtEnd": 0.783,
+   "marriageRound": {
+    "5": 37,
+    "6": 103,
+    "7": 137,
+    "8": 96,
+    "9": 36,
+    "10": 22
+   },
+   "breakupsPerSeat": 0.458,
+   "breakupRate": 0.41,
+   "divorcesPerSeat": 0.142,
+   "divorceRate": 0.142,
+   "leaveRound": {
+    "2": 10,
+    "3": 14,
+    "4": 88,
+    "5": 28,
+    "6": 32,
+    "7": 35,
+    "8": 27,
+    "9": 31,
+    "10": 23
+   },
+   "leaveInR11R12": 0.0,
+   "byOpponentShare": 1.0,
+   "replacedAfterLeave": 0.96,
+   "remarriedAfterLeave": 0.62,
+   "misunderstandingPlays": 0.729,
+   "reconciliationPlays": 0.0,
+   "scoreIfLeft": 0.358,
+   "scoreIfNoLeave": 0.522,
+   "scoreVsOpponent": {
+    "challenge+S": 0.438,
+    "growth+S": 0.5,
+    "item+S": 0.45,
+    "partner+S": 0.358
+   }
+  },
+  "R12": {
+   "games": 480,
+   "abnormal": 0,
+   "replayMatch": 480,
+   "focusScore": 0.434,
+   "focusGrowth": 71.58,
+   "otherGrowth": 79.23,
+   "earlyWin": 0.179,
+   "earlyWinByFocus": 0.056,
+   "draw": 0.073,
+   "endRound": {
+    "8": 1,
+    "9": 15,
+    "10": 22,
+    "11": 48,
+    "12": 394
+   },
+   "firstSeatScore": 0.549,
+   "resultChangedInLast2Rounds": 0.199,
+   "leaderOvertakenInLast2Rounds": 0.066,
+   "decisionsPerGame": 273.5,
+   "estMinutes": 36.4,
+   "timeExpiredShare": 0.69,
+   "placedRate": 1.0,
+   "marriageRate": 0.95,
+   "marriedAtEnd": 0.827,
+   "marriageRound": {
+    "5": 37,
+    "6": 103,
+    "7": 137,
+    "8": 96,
+    "9": 36,
+    "10": 22,
+    "11": 20,
+    "12": 5
+   },
+   "breakupsPerSeat": 0.473,
+   "breakupRate": 0.425,
+   "divorcesPerSeat": 0.2,
+   "divorceRate": 0.2,
+   "leaveRound": {
+    "2": 10,
+    "3": 14,
+    "4": 88,
+    "5": 28,
+    "6": 32,
+    "7": 35,
+    "8": 27,
+    "9": 31,
+    "10": 23,
+    "11": 18,
+    "12": 17
+   },
+   "leaveInR11R12": 0.073,
+   "byOpponentShare": 1.0,
+   "replacedAfterLeave": 0.978,
+   "remarriedAfterLeave": 0.699,
+   "misunderstandingPlays": 0.846,
+   "reconciliationPlays": 0.0,
+   "scoreIfLeft": 0.392,
+   "scoreIfNoLeave": 0.488,
+   "scoreVsOpponent": {
+    "challenge+S": 0.379,
+    "growth+S": 0.604,
+    "item+S": 0.421,
+    "partner+S": 0.333
+   }
+  },
+  "R10vsR12sameGame": {
+   "games": 464,
+   "same": 375,
+   "flipped": 29,
+   "drawToWin": 33,
+   "winToDraw": 27,
+   "changedShare": 0.192
+  },
+  "prefixIdentical": 480,
+  "paired": {
+   "focusScore": {
+    "diff": -0.002,
+    "ci95": [
+     -0.032,
+     0.026
+    ]
+   },
+   "earlyWin": {
+    "diff": 0.146,
+    "ci95": [
+     0.11,
+     0.181
+    ]
+   },
+   "estMinutes": {
+    "diff": 6.294,
+    "ci95": [
+     5.953,
+     6.614
+    ]
+   },
+   "marriage": {
+    "diff": 0.052,
+    "ci95": [
+     0.029,
+     0.079
+    ]
+   },
+   "marriedAtEnd": {
+    "diff": 0.044,
+    "ci95": [
+     0.0,
+     0.088
+    ]
+   },
+   "breakups": {
+    "diff": 0.015,
+    "ci95": [
+     0.002,
+     0.031
+    ]
+   },
+   "divorces": {
+    "diff": 0.058,
+    "ci95": [
+     0.035,
+     0.085
+    ]
+   }
+  }
+ }
+}
