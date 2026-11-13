@@ -1,0 +1,2406 @@
+{
+  "baseline": "e0120c58f36394c9acff6507d72ceb3a1f48e1e2",
+  "trackedFiles": 35336,
+  "normal": [
+    {
+      "id": "road-themed",
+      "name": "ロードラン",
+      "category": "road",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "stack-themed",
+      "name": "つみあげタワー",
+      "category": "stack",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "stack-snowman",
+      "name": "ゆきだるまタワー",
+      "category": "stack",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "falling-block-puzzle",
+      "name": "ブロックパズル",
+      "category": "fallingBlock",
+      "genre": "puzzle",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-puzzle"
+    },
+    {
+      "id": "crane-game-3d",
+      "name": "クレーンゲーム",
+      "category": "craneGame",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "pinball-physics",
+      "name": "ピンボール",
+      "category": "pinball",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "haunted-house-3d",
+      "name": "おばけやしき3D",
+      "category": "hauntedHouse",
+      "genre": "drive3d",
+      "pool": "general",
+      "currentBgm": "race",
+      "proposed": "mini-drive3d"
+    },
+    {
+      "id": "bowling-3d",
+      "name": "ボウリング",
+      "category": "swipeThrow",
+      "genre": "sports",
+      "pool": "general",
+      "currentBgm": "sports",
+      "proposed": "mini-sports"
+    },
+    {
+      "id": "archery-3d",
+      "name": "アーチェリー",
+      "category": "swipeThrow",
+      "genre": "sports",
+      "pool": "general",
+      "currentBgm": "sports",
+      "proposed": "mini-sports"
+    },
+    {
+      "id": "breakout-classic",
+      "name": "ブロックくずし",
+      "category": "breakout",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "dragDecorate-cake",
+      "name": "ケーキデコレーション",
+      "category": "dragDecorate",
+      "genre": "puzzle",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-puzzle"
+    },
+    {
+      "id": "dragDecorate-bento",
+      "name": "おべんとうづくり",
+      "category": "dragDecorate",
+      "genre": "puzzle",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-puzzle"
+    },
+    {
+      "id": "p3-space",
+      "name": "うちゅうフライト3D",
+      "category": "perspective3d",
+      "genre": "drive3d",
+      "pool": "general",
+      "currentBgm": "race",
+      "proposed": "mini-drive3d"
+    },
+    {
+      "id": "p3-drive",
+      "name": "ハイウェイ3D",
+      "category": "perspective3d",
+      "genre": "drive3d",
+      "pool": "general",
+      "currentBgm": "race",
+      "proposed": "mini-drive3d"
+    },
+    {
+      "id": "fp-dungeon",
+      "name": "ダンジョン3D",
+      "category": "firstPersonDungeon",
+      "genre": "drive3d",
+      "pool": "general",
+      "currentBgm": "race",
+      "proposed": "mini-drive3d"
+    },
+    {
+      "id": "race-3d",
+      "name": "カーレース3D",
+      "category": "roadRace",
+      "genre": "drive3d",
+      "pool": "general",
+      "currentBgm": "race",
+      "proposed": "mini-drive3d"
+    },
+    {
+      "id": "rhythm-highway-3d",
+      "name": "リズムハイウェイ",
+      "category": "rhythmHighway",
+      "genre": "drive3d",
+      "pool": "general",
+      "currentBgm": "race",
+      "proposed": "mini-drive3d"
+    },
+    {
+      "id": "tilt-maze-3d",
+      "name": "たまころがし迷路",
+      "category": "tiltMaze",
+      "genre": "drive3d",
+      "pool": "general",
+      "currentBgm": "race",
+      "proposed": "mini-drive3d"
+    },
+    {
+      "id": "space-gunner-3d",
+      "name": "スペースガンナー",
+      "category": "spaceGunner",
+      "genre": "drive3d",
+      "pool": "general",
+      "currentBgm": "race",
+      "proposed": "mini-drive3d"
+    },
+    {
+      "id": "mini-golf-physics",
+      "name": "ミニゴルフ",
+      "category": "miniGolf",
+      "genre": "sports",
+      "pool": "general",
+      "currentBgm": "sports",
+      "proposed": "mini-sports"
+    },
+    {
+      "id": "real-fishing",
+      "name": "ほんかくさかなつり",
+      "category": "realFishing",
+      "genre": "sports",
+      "pool": "general",
+      "currentBgm": "sports",
+      "proposed": "mini-sports"
+    },
+    {
+      "id": "basketball-3d",
+      "name": "バスケ3D",
+      "category": "basketball",
+      "genre": "sports",
+      "pool": "general",
+      "currentBgm": "sports",
+      "proposed": "mini-sports"
+    },
+    {
+      "id": "pingpong-3d",
+      "name": "卓球3D",
+      "category": "pingPong",
+      "genre": "sports",
+      "pool": "general",
+      "currentBgm": "sports",
+      "proposed": "mini-sports"
+    },
+    {
+      "id": "chain-puzzle",
+      "name": "れんさパズル",
+      "category": "chainPuzzle",
+      "genre": "puzzle",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-puzzle"
+    },
+    {
+      "id": "street-fight",
+      "name": "かくとうバトル",
+      "category": "streetFight",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "free-kick-3d",
+      "name": "フリーキック",
+      "category": "freeKick",
+      "genre": "sports",
+      "pool": "general",
+      "currentBgm": "sports",
+      "proposed": "mini-sports"
+    },
+    {
+      "id": "tower-defense",
+      "name": "タワーディフェンス",
+      "category": "towerDefense",
+      "genre": "strategy",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-strategy"
+    },
+    {
+      "id": "roguelike-dungeon",
+      "name": "ローグライク",
+      "category": "roguelike",
+      "genre": "strategy",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-strategy"
+    },
+    {
+      "id": "grand-prix-3d",
+      "name": "グランプリ",
+      "category": "grandPrix",
+      "genre": "drive3d",
+      "pool": "general",
+      "currentBgm": "race",
+      "proposed": "mini-drive3d"
+    },
+    {
+      "id": "sky-shooter",
+      "name": "スカイシューター",
+      "category": "skyShooter",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "jump-quest",
+      "name": "ジャンプクエスト",
+      "category": "jumpQuest",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "push-puzzle",
+      "name": "そうこばん",
+      "category": "pushPuzzle",
+      "genre": "puzzle",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-puzzle"
+    },
+    {
+      "id": "reversi-6",
+      "name": "オセロ",
+      "category": "reversi",
+      "genre": "board",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-board"
+    },
+    {
+      "id": "billiards-6",
+      "name": "ビリヤード",
+      "category": "billiards",
+      "genre": "board",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-board"
+    },
+    {
+      "id": "animal-shogi",
+      "name": "どうぶつしょうぎ",
+      "category": "animalShogi",
+      "genre": "board",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-board"
+    },
+    {
+      "id": "minesweeper-8",
+      "name": "マインスイーパー",
+      "category": "minesweeper",
+      "genre": "puzzle",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-puzzle"
+    },
+    {
+      "id": "snake-classic",
+      "name": "スネーク",
+      "category": "snake",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "baseball-batting",
+      "name": "やきゅう",
+      "category": "baseball",
+      "genre": "sports",
+      "pool": "general",
+      "currentBgm": "sports",
+      "proposed": "mini-sports"
+    },
+    {
+      "id": "ring-flight-3d",
+      "name": "リングフライト3D",
+      "category": "ringFlight",
+      "genre": "drive3d",
+      "pool": "general",
+      "currentBgm": "race",
+      "proposed": "mini-drive3d"
+    },
+    {
+      "id": "bubble-shooter",
+      "name": "バブルシューター",
+      "category": "bubbleShooter",
+      "genre": "puzzle",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-puzzle"
+    },
+    {
+      "id": "catapult-castle",
+      "name": "カタパルト",
+      "category": "catapult",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "connect-four",
+      "name": "コネクトフォー",
+      "category": "connectFour",
+      "genre": "board",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-board"
+    },
+    {
+      "id": "puzzle-2048",
+      "name": "2048",
+      "category": "twenty48",
+      "genre": "puzzle",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-puzzle"
+    },
+    {
+      "id": "frogger-road",
+      "name": "かえるのおうちがえり",
+      "category": "frogger",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "ski-jump",
+      "name": "スキージャンプ",
+      "category": "skiJump",
+      "genre": "sports",
+      "pool": "general",
+      "currentBgm": "sports",
+      "proposed": "mini-sports"
+    },
+    {
+      "id": "air-hockey",
+      "name": "エアホッケー",
+      "category": "airHockey",
+      "genre": "sports",
+      "pool": "general",
+      "currentBgm": "sports",
+      "proposed": "mini-sports"
+    },
+    {
+      "id": "submarine-3d",
+      "name": "サブマリン3D",
+      "category": "submarine",
+      "genre": "drive3d",
+      "pool": "general",
+      "currentBgm": "race",
+      "proposed": "mini-drive3d"
+    },
+    {
+      "id": "match-3",
+      "name": "フルーツマッチ3",
+      "category": "matchThree",
+      "genre": "puzzle",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-puzzle"
+    },
+    {
+      "id": "gomoku-9",
+      "name": "五目ならべ",
+      "category": "gomoku",
+      "genre": "board",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-board"
+    },
+    {
+      "id": "tank-battle",
+      "name": "タンクバトル",
+      "category": "tankBattle",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "tennis-rally",
+      "name": "テニス",
+      "category": "tennis",
+      "genre": "sports",
+      "pool": "general",
+      "currentBgm": "sports",
+      "proposed": "mini-sports"
+    },
+    {
+      "id": "picross-5",
+      "name": "ピクロス",
+      "category": "picross",
+      "genre": "puzzle",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-puzzle"
+    },
+    {
+      "id": "darts-board",
+      "name": "ダーツ",
+      "category": "darts",
+      "genre": "sports",
+      "pool": "general",
+      "currentBgm": "sports",
+      "proposed": "mini-sports"
+    },
+    {
+      "id": "hang-glider-3d",
+      "name": "ハンググライダー3D",
+      "category": "hangGlider",
+      "genre": "drive3d",
+      "pool": "general",
+      "currentBgm": "race",
+      "proposed": "mini-drive3d"
+    },
+    {
+      "id": "bomber-maze",
+      "name": "ボンバー",
+      "category": "bomber",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "blackjack-21",
+      "name": "ブラックジャック",
+      "category": "blackjack",
+      "genre": "board",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-board"
+    },
+    {
+      "id": "pipe-connect",
+      "name": "パイプつなぎ",
+      "category": "pipeConnect",
+      "genre": "puzzle",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-puzzle"
+    },
+    {
+      "id": "fruit-slice",
+      "name": "フルーツ斬り",
+      "category": "fruitSlice",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "track-field",
+      "name": "りくじょう",
+      "category": "trackField",
+      "genre": "sports",
+      "pool": "general",
+      "currentBgm": "sports",
+      "proposed": "mini-sports"
+    },
+    {
+      "id": "voxel-mine",
+      "name": "ボクセルマイニング",
+      "category": "voxelMine",
+      "genre": "drive3d",
+      "pool": "general",
+      "currentBgm": "race",
+      "proposed": "mini-drive3d"
+    },
+    {
+      "id": "sushi-belt",
+      "name": "かいてんずし",
+      "category": "sushiBelt",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "asteroids-classic",
+      "name": "アステロイド",
+      "category": "asteroids",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "yacht-dice",
+      "name": "ヨット",
+      "category": "yachtDice",
+      "genre": "board",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-board"
+    },
+    {
+      "id": "lights-out",
+      "name": "ライツアウト",
+      "category": "lightsOut",
+      "genre": "puzzle",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-puzzle"
+    },
+    {
+      "id": "doodle-jump",
+      "name": "ぴょんぴょんジャンプ",
+      "category": "doodleJump",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "curling-ice",
+      "name": "カーリング",
+      "category": "curling",
+      "genre": "sports",
+      "pool": "general",
+      "currentBgm": "sports",
+      "proposed": "mini-sports"
+    },
+    {
+      "id": "jenga-tower",
+      "name": "ジェンガ",
+      "category": "jenga",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "line-trace",
+      "name": "せんなぞり",
+      "category": "lineTrace",
+      "genre": "puzzle",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-puzzle"
+    },
+    {
+      "id": "checkers-6",
+      "name": "チェッカー",
+      "category": "checkers",
+      "genre": "board",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-board"
+    },
+    {
+      "id": "memory-cards",
+      "name": "しんけいすいじゃく",
+      "category": "memoryCards",
+      "genre": "puzzle",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-puzzle"
+    },
+    {
+      "id": "halfpipe-skate",
+      "name": "ハーフパイプ",
+      "category": "halfpipe",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "domino-run",
+      "name": "ドミノたおし",
+      "category": "dominoRun",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "sudoku-mini",
+      "name": "ナンプレ",
+      "category": "sudoku",
+      "genre": "puzzle",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-puzzle"
+    },
+    {
+      "id": "mancala-kalah",
+      "name": "マンカラ",
+      "category": "mancala",
+      "genre": "board",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-board"
+    },
+    {
+      "id": "plane-landing",
+      "name": "ひこうき着陸",
+      "category": "planeLanding",
+      "genre": "drive3d",
+      "pool": "general",
+      "currentBgm": "race",
+      "proposed": "mini-drive3d"
+    },
+    {
+      "id": "dot-eater",
+      "name": "ドットイーター",
+      "category": "dotEater",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "missile-command",
+      "name": "ミサイルコマンド",
+      "category": "missileCommand",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "area-claim",
+      "name": "じんとり",
+      "category": "areaClaim",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "solitaire-klondike",
+      "name": "ソリティア",
+      "category": "solitaire",
+      "genre": "board",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-board"
+    },
+    {
+      "id": "hit-blow",
+      "name": "ヒット&ブロー",
+      "category": "hitBlow",
+      "genre": "puzzle",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-puzzle"
+    },
+    {
+      "id": "lunar-lander",
+      "name": "ルナランダー",
+      "category": "lunarLander",
+      "genre": "drive3d",
+      "pool": "general",
+      "currentBgm": "race",
+      "proposed": "mini-drive3d"
+    },
+    {
+      "id": "shanghai-tiles",
+      "name": "上海",
+      "category": "shanghai",
+      "genre": "board",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-board"
+    },
+    {
+      "id": "beach-volley",
+      "name": "ビーチバレー",
+      "category": "beachVolley",
+      "genre": "sports",
+      "pool": "general",
+      "currentBgm": "sports",
+      "proposed": "mini-sports"
+    },
+    {
+      "id": "slide-puzzle",
+      "name": "スライドパズル",
+      "category": "slidePuzzle",
+      "genre": "puzzle",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-puzzle"
+    },
+    {
+      "id": "sugoroku-race",
+      "name": "すごろく",
+      "category": "sugoroku",
+      "genre": "board",
+      "pool": "general",
+      "currentBgm": "puzzle",
+      "proposed": "mini-board"
+    },
+    {
+      "id": "takoyaki-grill",
+      "name": "たこやきやさん",
+      "category": "takoyaki",
+      "genre": "action",
+      "pool": "general",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "road-city",
+      "name": "とかいラン",
+      "category": "road",
+      "genre": "action",
+      "pool": "region:city",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "stack-harvest",
+      "name": "しゅうかくタワー",
+      "category": "stack",
+      "genre": "action",
+      "pool": "region:countryside",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "stack-acorn",
+      "name": "きのみタワー",
+      "category": "stack",
+      "genre": "action",
+      "pool": "region:forest",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "downhill-mountain",
+      "name": "やまの岩場のぼり",
+      "category": "climbing",
+      "genre": "sports",
+      "pool": "region:mountain",
+      "currentBgm": "sports",
+      "proposed": "mini-sports"
+    },
+    {
+      "id": "downhill-snow",
+      "name": "ゆきのゲレンデ",
+      "category": "downhill",
+      "genre": "sports",
+      "pool": "region:snow",
+      "currentBgm": "sports",
+      "proposed": "mini-sports"
+    },
+    {
+      "id": "fishing-sea",
+      "name": "うみのさかなつり",
+      "category": "fishing",
+      "genre": "sports",
+      "pool": "region:sea",
+      "currentBgm": "sports",
+      "proposed": "mini-sports"
+    },
+    {
+      "id": "fishing-deepsea",
+      "name": "しんかいフィッシング",
+      "category": "fishing",
+      "genre": "sports",
+      "pool": "region:deepsea",
+      "currentBgm": "sports",
+      "proposed": "mini-sports"
+    },
+    {
+      "id": "fishing-river",
+      "name": "みずべのさかなつり",
+      "category": "fishing",
+      "genre": "sports",
+      "pool": "region:river_lake",
+      "currentBgm": "sports",
+      "proposed": "mini-sports"
+    },
+    {
+      "id": "road-jungle",
+      "name": "ジャングルラン",
+      "category": "road",
+      "genre": "action",
+      "pool": "region:jungle",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "road-desert",
+      "name": "さばくラン",
+      "category": "road",
+      "genre": "action",
+      "pool": "region:desert",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "stack-sakura",
+      "name": "さくらタワー",
+      "category": "stack",
+      "genre": "action",
+      "pool": "season:spring",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "ring-flight-summer",
+      "name": "なつのうみフライト",
+      "category": "ringFlight",
+      "genre": "drive3d",
+      "pool": "season:summer",
+      "currentBgm": "race",
+      "proposed": "mini-drive3d"
+    },
+    {
+      "id": "stack-leaves",
+      "name": "おちばタワー",
+      "category": "stack",
+      "genre": "action",
+      "pool": "season:autumn",
+      "currentBgm": "game",
+      "proposed": "mini-action"
+    },
+    {
+      "id": "curling-winter",
+      "name": "ふゆのカーリング大会",
+      "category": "curling",
+      "genre": "sports",
+      "pool": "season:winter",
+      "currentBgm": "sports",
+      "proposed": "mini-sports"
+    }
+  ],
+  "quick": [
+    {
+      "id": "eat",
+      "name": "たべろ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "dodge",
+      "name": "よけろ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "catch",
+      "name": "つかまえろ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "mash",
+      "name": "れんだ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "clean",
+      "name": "そうじしろ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "stop",
+      "name": "とめろ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "swipe",
+      "name": "スワイプ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "medicine",
+      "name": "くすりをのませろ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "find",
+      "name": "さがせ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-think",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "charge",
+      "name": "ためて…はなせ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "partner",
+      "name": "こいびとは？",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-think",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "season",
+      "name": "きせつは？",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "jump",
+      "name": "とべ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "pull",
+      "name": "ひっぱれ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "pet",
+      "name": "なでろ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "button",
+      "name": "みどりでおせ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "flames",
+      "name": "けせ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "coins",
+      "name": "あつめろ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "cliff",
+      "name": "とまれ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "throw",
+      "name": "なげろ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "knock",
+      "name": "たたけ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "wait",
+      "name": "まて！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "flee",
+      "name": "にげろ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "mole",
+      "name": "でたらたたけ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "slice",
+      "name": "きれ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "guard",
+      "name": "まもれ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "bento",
+      "name": "つめろ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "spin",
+      "name": "まわせ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "lift",
+      "name": "もちあげろ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "tickle",
+      "name": "くすぐれ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "balance",
+      "name": "バランス！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "color",
+      "name": "いろは？",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-think",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "count",
+      "name": "いくつ？",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-think",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "bigger",
+      "name": "おおきいほう！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "odd",
+      "name": "ちがうの！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "order",
+      "name": "じゅんばんに！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-think",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "holdlid",
+      "name": "おさえろ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "umbrella",
+      "name": "あめがきたらかさ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "shutter",
+      "name": "とれ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "sort",
+      "name": "ごはんはひだり！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-think",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "rhythm",
+      "name": "リズム！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "trace",
+      "name": "なぞれ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "pushbox",
+      "name": "おしだせ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "fish",
+      "name": "ひいたら つれ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "stack",
+      "name": "つめ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "pair",
+      "name": "おなじの！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "doors",
+      "name": "どっち？",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "sneak",
+      "name": "そっとはこべ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "feather",
+      "name": "ふけ！",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    },
+    {
+      "id": "weather",
+      "name": "てんきは？",
+      "currentBgm": "game (quick run level)",
+      "proposed": "quick-play",
+      "policy": "連続モードはラウンド境界でのみ切替。各3秒ゲームで再起動しない"
+    }
+  ],
+  "routes": [
+    {
+      "path": "character-3d/compare.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "character-3d/full-gallery.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "character-3d/gallery.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "character-3d/wave-review.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "comparisons/dayparts-20261103/index.html",
+      "served": false,
+      "scope": "comparison",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "comparisons/dayparts-20261103/v2.html",
+      "served": false,
+      "scope": "comparison",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "comparisons/dayparts-20261103/v3.html",
+      "served": false,
+      "scope": "comparison",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "comparisons/dayparts-20261103/v4.html",
+      "served": false,
+      "scope": "comparison",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "comparisons/dayparts-20261103/v5.html",
+      "served": false,
+      "scope": "comparison",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "comparisons/dayparts-20261103/v6.html",
+      "served": false,
+      "scope": "comparison",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/home-living-world-20261023/comparison.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/home-living-world-20261023/contacts.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/naopoyo-gate-v7-20261026/qa/gate-fixtures.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/naopoyo-gate-v7-20261026/qa/gate-qa.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/naopoyo-magic-rock-20261025/design-comparison.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/naopoyo-rescue-design-20261021/comparison.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/naopoyo-rescue-design-20261021/index.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/naopoyo-time-hand-chapter1-20261102/v10/viewport-qa.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/naopoyo-time-hand-chapter1-20261102/v5/viewport-qa.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/naopoyo-time-hand-chapter1-20261102/v6/viewport-qa.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/naopoyo-time-hand-chapter1-20261102/v8/compare.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/naopoyo-time-hand-chapter1-20261102/v8/viewport-qa.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/naopoyo-time-hand-chapter1-20261102/v9/viewport-qa.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/naopoyo-time-hand-chapter1-20261102/wood-full-cell/viewport-qa.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/naopoyo-v10-20261028/browser-qa.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/naopoyo-v12-quality/browser-harness.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/naopoyo-v12-quality/moves-browser-harness.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/naopoyo-v12-quality/no-pause-browser-harness.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/antlion08-bilateral-eyes-20260929/comparison.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/antlion08-character-left-eye-20260929/comparison.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/antlion08-eye-happy-audit-20260929/comparison.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/antlion08-followup-20260928/comparison.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/antlion08-human-review-20260928/comparison.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/antlion08-limited-candidates-20260928/comparison.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/antlion08-method-d-20260928/comparison.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/antlion08-method-d-20260928/state-composite.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/comparison.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/state-composite.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/antlion08-method-d2-20260928/comparison.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/antlion08-method-d3-20260928/comparison.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/antlion08-method-d4-20260928/comparison.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/antlion08-reconstruction-20260928/comparison.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/antlion08-size-density-20260928/comparison.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/antlion08-structure-20260928/comparison.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/antlion08-wantsplay-left-eye-candidate-20260929/comparison.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/antlion08-wpcl2-highlight-20260929/comparison.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/antlion08-wpcl2-highlight-20260929/runtime-fixture.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/premerge-20261012/iphone.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/character-3d-quality-2026-10-02/index.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/character-3d-quality2-2026-10-03/index.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/character-3d-quality3-2026-10-03/index.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/final-cross-audit-20260923-site.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/growth-hunger-final-248-20260926.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/home-25d-release/v8-investigation/layout-diagnostic.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/home-25d-release/v8-landscape-spike/probe.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/home-25d-release/v8-structure/probe.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/home-v12/gallery.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/hunger-mark-position-review-20260926.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/hunger-position-appetite-review-20260926.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/hunger-position-nine-comparison-20260926.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/hunger-two-category-comparison-20260926.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/madoromi-signature-20261028/browser-harness.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/madoromi-work-info-20261029/browser-harness.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/meguru-3d-art-direction-v1/compare.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/meguru-3d-foundation-v2/compare.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/meguru-3d-geometry-audit-v1/compare.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/meguru-3d-geometry-terrain-v1/compare.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/meguru-3d-visual-quality-v1/compare.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/meguru-3d-visual-quality-v2/compare.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/relationship-expression-full-review-20260930.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/relationship-expression-pilot-review-20260930.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/starfish-baseline-candidates-20260925/index.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/starfish-growth-design-20260925.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "docs/qa/starfish08-coordinate-20260928/comparison.html",
+      "served": false,
+      "scope": "documentation/QA",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "index.html",
+      "served": true,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/color-study/index.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/index.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/symbols/index.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/card-game/design-adoption/preview.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/card-game/doodle-jump-impl-20261027/qa/qa-panel.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/card-game/egg-design/comparison.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/card-game/egg-design/frame-unification/common-template.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/card-game/egg-design/frame-unification/index.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/card-game/egg-design/refinement/index.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/card-game/egg-design/signature-final/index.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/card-game/index.html",
+      "served": true,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "prototypes/card-game/learning-evidence/final-alignment/cards.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/card-game/learning-evidence/rarity-alignment/cards.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/card-game/learning-evidence/rarity-alignment/toggle.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/card-game/learning-evidence/ui-polish/card-comparison.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/card-game/life-clock/v23/compare.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/card-game/life-clock/v24/compare.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/growth-chain/growth-chain-standalone.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/growth-chain/index.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/growth-chain/naopoyo-player-standalone.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/growth-chain/player.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/growth-clear/index.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/growth-clear/player.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/life-sugoroku/index.html",
+      "served": true,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "prototypes/life-sugoroku/legacy.html",
+      "served": true,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "prototypes/life-sugoroku/v4.html",
+      "served": true,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "prototypes/madoromi-white-reader-20261027/dist/compare-v18.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/madoromi-white-reader-20261027/dist/index.html",
+      "served": true,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "prototypes/madoromi-white-reader-20261027/dist/qa-v19.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/madoromi-white-reader-20261027/dist/qa-white-position.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/madoromi-white-reader-20261027/dist/qa-white.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/madoromi-white-reader-20261027/dist/reader-pure-white.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/madoromi-white-reader-20261027/dist/reader-v17.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/madoromi-white-reader-20261027/dist/reader-v18.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/madoromi-white-reader-20261027/dist/screenshots-v18.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/naopoyo-chapter1/ability.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/naopoyo-chapter1/index.html",
+      "served": true,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "prototypes/naopoyo-chapter1/qa.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/contact-comparison/index.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/index.html",
+      "served": true,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/qa.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/naopoyo-insight/index.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/naopoyo-insight/qa.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/art-check.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/icon-comparison.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/index.html",
+      "served": true,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/visual-qa.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/world-qa.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand-chapter1/archive/v4/index.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand-chapter1/archive/v5/index.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/naopoyo-time-hand-chapter1/index.html",
+      "served": true,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "prototypes/naopoyo-v2/index.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/naopoyo-v2/qa.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/naopoyo-world/index.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/naopoyo-world/qa-r2.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/naopoyo-world/qa.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/naopoyo/index.html",
+      "served": true,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "prototypes/naopoyo/legacy.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/slide08/index.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "prototypes/slide08/player.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "historical source not fetched; no playback claim"
+    },
+    {
+      "path": "tools/home-ab-gallery.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-art-gallery.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-art-report.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-c-comparison.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-cast-size-panel.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-diorama-cast-qa.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-household-qa/index.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-household-qa/legacy253/index.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-japan-gallery.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-japan-report.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-layout-qa.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-production-notice-local.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-recovered-gallery.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-v17-qa.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-v18-qa.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-v19-qa.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-v20-qa.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-v21-qa.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-v22-qa.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-v6-gallery.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-v7-gallery.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-v8-diagnose.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-v8-gallery.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-v8-qa.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-v9-gallery.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/home-v9-qa.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/life-sugoroku/qa-v2.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/life-sugoroku/qa-v3.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/life-sugoroku/qa-v4.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/life-sugoroku/qa-v5-games.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/life-sugoroku/qa-v5.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/life-sugoroku/qa-v6-games.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/life-sugoroku/qa-v6.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/life-sugoroku/qa.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/life-sugoroku/visual-v2.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/menu-viewport-qa.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/menu12-viewport-qa.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    },
+    {
+      "path": "tools/relationship-home-qa/page.html",
+      "served": false,
+      "scope": "runtime/prototype",
+      "audit": "source available"
+    }
+  ],
+  "audioFiles": [],
+  "evidence": [
+    {
+      "path": "audio.js",
+      "line": 1,
+      "text": "// なおとっち: おと(効果音 と BGM)。script.js から installNaotocchiAudio(S) で"
+    },
+    {
+      "path": "audio.js",
+      "line": 7,
+      "text": "  globalThis.installNaotocchiAudio = function (S) {"
+    },
+    {
+      "path": "audio.js",
+      "line": 13,
+      "text": "    const bgmOn = () => { const state = getState(); return !state || !state.lifetime || state.lifetime.soundBgm !== false; };"
+    },
+    {
+      "path": "audio.js",
+      "line": 16,
+      "text": "      const AC = window.AudioContext || window.webkitAudioContext;"
+    },
+    {
+      "path": "meguru-3d.mjs",
+      "line": 423,
+      "text": "    if (R.hill) h += R.hill * (n1(x / (R.wave || 900), z / (R.wave || 900)) * 0.75 + n2(x / ((R.wave || 900) * 0.45), z / ((R.wave || 900) * 0.45)) * 0.25) * open;"
+    },
+    {
+      "path": "prototypes/life-sugoroku/main-v4.mjs",
+      "line": 16,
+      "text": "const audioSettings={stage:'alive',lifetime:{soundSfx:true,soundBgm:false,quickVoice:'tts'}};"
+    },
+    {
+      "path": "prototypes/life-sugoroku/main-v4.mjs",
+      "line": 17,
+      "text": "const officialAudio=window.installNaotocchiAudio?.({nativeSetTimeout:setTimeout,getState:()=>audioSettings,STAGE:{DEAD:'dead',FAREWELL:'farewell'},el:{},isGameActive:()=>true,getActiveMinigame:()=>null,isDateOpen:()=>false});"
+    },
+    {
+      "path": "prototypes/naopoyo-chapter1/app.mjs",
+      "line": 136,
+      "text": "          ? q.stage.gates.some(g => g.waveOnly)"
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/app.mjs",
+      "line": 151,
+      "text": "          ? q.stage.gates.some(g => g.waveOnly)"
+    },
+    {
+      "path": "prototypes/naopoyo-world/render.mjs",
+      "line": 7,
+      "text": "  return (showSpecies && condition.species ? names[condition.species] + \" \" : \"\") + (condition.waveOnly ? \"波\" : \"\") + conditionLabel(condition);"
+    },
+    {
+      "path": "prototypes/naopoyo-world/render.mjs",
+      "line": 355,
+      "text": "    const motion = q.waveMotion?.[a.id],"
+    },
+    {
+      "path": "prototypes/naopoyo-world/session.mjs",
+      "line": 35,
+      "text": "    this.waveMotion = {};"
+    },
+    {
+      "path": "prototypes/naopoyo-world/session.mjs",
+      "line": 42,
+      "text": "          !s.gates.some((g) => g.waveOnly && g.x === x && g.y === y)) &&"
+    },
+    {
+      "path": "prototypes/naopoyo-world/session.mjs",
+      "line": 57,
+      "text": "    this.waveMotion = {};"
+    },
+    {
+      "path": "prototypes/naopoyo-world/session.mjs",
+      "line": 165,
+      "text": "        delete this.waveMotion[d.id];"
+    },
+    {
+      "path": "prototypes/naopoyo-world/session.mjs",
+      "line": 300,
+      "text": "              this.waveMotion[old.id] = {"
+    },
+    {
+      "path": "script.js",
+      "line": 1579,
+      "text": "        soundBgm: true,"
+    },
+    {
+      "path": "script.js",
+      "line": 15513,
+      "text": "      if (el.bgmModeGrid) renderEnvironmentChoices(el.bgmModeGrid, BGM_CHOICES, state.lifetime.soundBgm === false ? 'off' : 'on');"
+    },
+    {
+      "path": "script.js",
+      "line": 18356,
+      "text": "  // せっていは state.lifetime.soundSfx / soundBgm(せかい がめん)"
+    },
+    {
+      "path": "script.js",
+      "line": 18359,
+      "text": "  const audio = installNaotocchiAudio({"
+    },
+    {
+      "path": "script.js",
+      "line": 19043,
+      "text": "      state.lifetime.soundBgm = btn.dataset.id === 'on'; saveState(); renderEnvironment();"
+    }
+  ]
+}
