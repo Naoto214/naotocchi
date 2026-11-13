@@ -1,0 +1,34 @@
+✔ model supplies resettable same-board experiment (1.130441ms)
+✔ A official state and events equivalence stage 11 (5.111011ms)
+✔ A official state and events equivalence stage 12 (1.241037ms)
+✔ A official state and events equivalence stage 13 (2.025808ms)
+✔ A official state and events equivalence stage 14 (0.881016ms)
+✔ A official state and events equivalence stage 15 (5.659632ms)
+✔ A official state and events equivalence stage 16 (4.464888ms)
+✔ A official state and events equivalence stage 17 (3.266024ms)
+✔ A official state and events equivalence stage 18 (4.33949ms)
+✔ A official state and events equivalence stage 19 (8.274731ms)
+✔ A official state and events equivalence stage 20 (11.315748ms)
+✔ A flat 7 children, initial/spawn/final snapshots and mass (1.806348ms)
+✔ A gravity 7 children, initial/spawn/final snapshots and mass (0.920876ms)
+✔ B flat 7 children, initial/spawn/final snapshots and mass (0.418409ms)
+✔ B gravity 7 children, initial/spawn/final snapshots and mass (0.464839ms)
+✔ C flat 7 children, initial/spawn/final snapshots and mass (1.413847ms)
+✔ C gravity 7 children, initial/spawn/final snapshots and mass (0.63767ms)
+✔ fixtures contain all ten required scenarios and edit supports removal without persistent data (0.396516ms)
+✔ independent candidate API (1.100015ms)
+✔ A all headings bounded unique legal routes (3.720909ms)
+✔ B all headings bounded unique legal routes (0.882538ms)
+✔ C all headings bounded unique legal routes (2.893094ms)
+✔ B uses each ray near then far; blocked intermediate prevents jump (1.2565ms)
+✔ C retains fixed ranks and accepts alternate legal two-edge route (0.53188ms)
+✔ A trace matches actual official candidates over deterministic randomized obstructions (111.693792ms)
+✔ all policies reject two-rock diagonal corner and special destinations (0.963941ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 226.826253
