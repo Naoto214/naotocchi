@@ -1,0 +1,71 @@
+{
+ "id": "bgm-farewell",
+ "title": "farewell（おわかれ）",
+ "family": "farewell",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2822400,
+ "seconds": 64.0,
+ "flacFrames": 2822400,
+ "aacDecodedFrames": 2823168,
+ "integratedLUFS": -25.0,
+ "targetLUFS": -25,
+ "truePeakDbtp": -7.87,
+ "samplePeakDbfs": -7.87,
+ "clippedSamples": 0,
+ "monoLossDb": -0.43,
+ "sideToMidDb": -9.8,
+ "aacFlacCorrelation": 0.9997,
+ "loopJoinJump": 0.00051,
+ "loopJoinTypicalStep999": 0.03703,
+ "bands": {
+  "centroidHz": 605,
+  "low40_250": -9.9,
+  "lowmid250_800": -1.5,
+  "mid800_3k": -7.4,
+  "pres3k_6k": -23.9,
+  "air6k_12k": -51.0,
+  "top12k_20k": -66.1
+ },
+ "roleGainsDb": {
+  "bass": -4.6,
+  "accompaniment": -4.2,
+  "pad": -3.6
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   3.6,
+   0.7
+  ],
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 535,
+  "low40_250": -10.2,
+  "lowmid250_800": -1.1,
+  "mid800_3k": -8.9,
+  "pres3k_6k": -28.1,
+  "air6k_12k": -53.6,
+  "top12k_20k": -67.1
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 14.6,
+ "flacSha256": "a0dade785265267bedb0ac552782995f7ba69f2983a6fb0b2049dd8782d045b9",
+ "flacBytes": 9068988,
+ "aacSha256": "f425875538481868499747b0e80ced125ff6f781f0ec073ea86b83834dd8f4fe",
+ "aacBytes": 1554965,
+ "midiSha256": "e34f9dff3dd16c845d8ccf7b720acd37e2c75b7fdcee255f6457d4c35256102c",
+ "problems": [],
+ "version": 4,
+ "pianoAttackSoftenDb": 5.0,
+ "sideScale": 1.0,
+ "removedNotes": 0,
+ "pedalNotes": 76
+}

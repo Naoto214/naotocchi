@@ -1,0 +1,73 @@
+{
+ "id": "bgm-game",
+ "title": "game（ミニゲーム・汎用）",
+ "family": "quick",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2454261,
+ "seconds": 55.652177,
+ "flacFrames": 2454261,
+ "aacDecodedFrames": 2454528,
+ "integratedLUFS": -24.0,
+ "targetLUFS": -24,
+ "truePeakDbtp": -11.56,
+ "samplePeakDbfs": -11.57,
+ "clippedSamples": 0,
+ "monoLossDb": -1.16,
+ "sideToMidDb": -5.2,
+ "aacFlacCorrelation": 0.9998,
+ "loopJoinJump": 0.005,
+ "loopJoinTypicalStep999": 0.03697,
+ "bands": {
+  "centroidHz": 753,
+  "low40_250": -8.5,
+  "lowmid250_800": -2.4,
+  "mid800_3k": -5.6,
+  "pres3k_6k": -20.6,
+  "air6k_12k": -36.8,
+  "top12k_20k": -58.3
+ },
+ "roleGainsDb": {
+  "bass": 2.2,
+  "accompaniment": 27.8,
+  "pad": 24.6,
+  "percussion": 35.0,
+  "doubling": 3.5
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ],
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 711,
+  "low40_250": -9.3,
+  "lowmid250_800": -1.9,
+  "mid800_3k": -6.3,
+  "pres3k_6k": -21.8,
+  "air6k_12k": -38.2,
+  "top12k_20k": -59.6
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 8.3,
+ "flacSha256": "a765e4c86a79d62288f1455c0d876ebd5fbf8493cb74b8552506bf98bfcdf5f0",
+ "flacBytes": 8240504,
+ "aacSha256": "094d3d25910cb9104fbc7093af2fd1933780ca7b3d5eca451f4bd80332273d3c",
+ "aacBytes": 1386462,
+ "midiSha256": "65876e6fb2de3778095b74e84451a4e11450ca8697a52568f473224ef10e2288",
+ "problems": [],
+ "version": 4,
+ "pianoAttackSoftenDb": 0.0,
+ "sideScale": 1.0,
+ "removedNotes": 80,
+ "pedalNotes": 0
+}

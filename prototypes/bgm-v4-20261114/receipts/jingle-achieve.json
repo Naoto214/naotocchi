@@ -1,0 +1,72 @@
+{
+ "id": "jingle-achieve",
+ "title": "やったね",
+ "family": "celebrate",
+ "loop": false,
+ "sampleRate": 44100,
+ "frames": 405720,
+ "seconds": 9.2,
+ "flacFrames": 405720,
+ "aacDecodedFrames": 406528,
+ "integratedLUFS": -23.0,
+ "targetLUFS": -23,
+ "truePeakDbtp": -7.44,
+ "samplePeakDbfs": -7.44,
+ "clippedSamples": 0,
+ "monoLossDb": -1.22,
+ "sideToMidDb": -4.9,
+ "aacFlacCorrelation": 0.9997,
+ "loopJoinJump": 0.00105,
+ "loopJoinTypicalStep999": 0.03923,
+ "bands": {
+  "centroidHz": 803,
+  "low40_250": -6.2,
+  "lowmid250_800": -5.7,
+  "mid800_3k": -3.2,
+  "pres3k_6k": -22.1,
+  "air6k_12k": -42.8,
+  "top12k_20k": -58.1
+ },
+ "roleGainsDb": {
+  "doubling": -10.6,
+  "bass": -19.0,
+  "accompaniment": -14.6,
+  "pad": -7.7
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   3.5,
+   0.7
+  ],
+  [
+   "peak",
+   3800,
+   0.5,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 739,
+  "low40_250": -5.7,
+  "lowmid250_800": -5.5,
+  "mid800_3k": -3.5,
+  "pres3k_6k": -25.5,
+  "air6k_12k": -44.0,
+  "top12k_20k": -57.9
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 2.4,
+ "flacSha256": "ff3d4394ebb66e520b5e5f7e38269ef5cff5c0fe33b38e368fbc03f5f5834ab3",
+ "flacBytes": 1363449,
+ "aacSha256": "2a3e32bdf544bdf31990b420f9582b9e98bcb94ff277c8340d7e71ad0762ba65",
+ "aacBytes": 222478,
+ "midiSha256": "6db6862a9265ac188f4fa363a9974eb8e46c98d75c9e15180a430c4af1796c93",
+ "problems": [],
+ "version": 4,
+ "pianoAttackSoftenDb": 2.0,
+ "sideScale": 0.776,
+ "removedNotes": 52,
+ "pedalNotes": 32
+}
