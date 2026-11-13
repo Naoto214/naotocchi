@@ -6,7 +6,7 @@
   python prototypes/bgm-v3-20261113/tools/render_v3.py home-day …       # 指定した 曲だけ
 
 V2 から 変えた 点（「チン」「キン」と 耳に 刺さる 高音を 生まない ため）:
-  * 仕上げの 帯域補正で 高域を 持ち上げない（8 kHz 以上は 下げる 方向だけ、3〜6 kHz の 補いは 最大 +2.5 dB）。
+  * 仕上げの 帯域補正で 高域を 持ち上げない（8 kHz 以上は 下げる 方向だけ、3〜6 kHz の 補いは 最大 +5 dB）。
   * ピアノの 補正 EQ を やわらかく（V2: 3.4 kHz +4 dB・9 kHz 以上 +3 dB → V3: 2.6 kHz +1.5 dB のみ）。
   * ハープ・マリンバ・グロッケン・打楽器の 6〜7 kHz 以上を 少し 丸める（撥音の 金属的な 角を とる）。
   * ホーム4曲にも 役割の 音量バランスを 使う（ギター・ウッドベース・木管が 加わった ため）。
@@ -44,7 +44,7 @@ R.FAMILY_BALANCE.update({
 NIGHT = {'accompaniment': -4.5, 'bass': -7}
 
 def tonal_correction(x, loop, family, used=(0.0, 0.0)):
-    """V3: 明瞭さ（3〜6 kHz）は 足りない 分を 最大 +2.5 dB まで。空気感（8 kHz 以上）は 多すぎる ときに 下げる だけ。"""
+    """V3: 明瞭さ（3〜6 kHz）は 足りない 分を 最大 +5 dB まで（なめらかな 山形。単発の 高音は 消して あるので 刺さらない）。空気感（8 kHz 以上）は 多すぎる ときに 下げる だけ。"""
     b = R.band_levels(x); bands = []
     if family == 'home3': tp = -24.0
     elif family in ('sleep', 'farewell', 'puzzle', 'fishing', 'love', 'memory'): tp = -23.0
@@ -52,7 +52,7 @@ def tonal_correction(x, loop, family, used=(0.0, 0.0)):
     else: tp = -21.5
     air_max = -26.0 if family in ('flight', 'celebrate', 'hatch') else -29.0
     d1 = tp - b['pres3k_6k']; d1 = 0 if abs(d1) <= 1.5 else d1 - math.copysign(1.5, d1)
-    g1 = float(np.clip(d1, -6 - used[0], 2.5 - used[0]))
+    g1 = float(np.clip(d1, -6 - used[0], 5.0 - used[0]))
     d2 = air_max - b['air6k_12k'] - .6 * max(g1, 0)
     g2 = float(np.clip(d2, -5 - used[1], 0.0)) if d2 < -1 else 0.0
     if abs(g1) > .3: bands.append(('peak', 3800, round(g1, 1), .7))

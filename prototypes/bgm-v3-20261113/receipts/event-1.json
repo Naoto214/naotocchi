@@ -1,0 +1,76 @@
+{
+ "id": "event-1",
+ "title": "おめでとうの ひ",
+ "family": "celebrate",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2919724,
+ "seconds": 66.206893,
+ "flacFrames": 2919724,
+ "aacDecodedFrames": 2920448,
+ "integratedLUFS": -23.0,
+ "targetLUFS": -23,
+ "truePeakDbtp": -4.0,
+ "samplePeakDbfs": -4.0,
+ "clippedSamples": 0,
+ "monoLossDb": -0.96,
+ "sideToMidDb": -6.1,
+ "aacFlacCorrelation": 0.9995,
+ "loopJoinJump": 0.01971,
+ "loopJoinTypicalStep999": 0.05094,
+ "bands": {
+  "centroidHz": 645,
+  "low40_250": -5.0,
+  "lowmid250_800": -3.7,
+  "mid800_3k": -6.2,
+  "pres3k_6k": -19.2,
+  "air6k_12k": -25.0,
+  "top12k_20k": -37.3
+ },
+ "roleGainsDb": {
+  "doubling": -5.6,
+  "bass": -12.5,
+  "accompaniment": -10.3,
+  "pad": -3.2,
+  "percussion": 14.5
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   -0.6,
+   0.7
+  ],
+  [
+   "highshelf",
+   8000,
+   -3.1,
+   0.7
+  ],
+  [
+   "highshelf",
+   8000,
+   -1.6,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 683,
+  "low40_250": -5.0,
+  "lowmid250_800": -3.7,
+  "mid800_3k": -6.1,
+  "pres3k_6k": -18.4,
+  "air6k_12k": -22.9,
+  "top12k_20k": -32.7
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 20.6,
+ "flacSha256": "01b2d62a71d4d0bc10348e57e5f4b3d60c8a175feada8eb80df0a692e7bb6431",
+ "flacBytes": 10573563,
+ "aacSha256": "8d116fa8d9050fdb61afe2de1dc9d0f2d3ae37dd9b68425b9cc1038b1e0d4fa8",
+ "aacBytes": 1626218,
+ "midiSha256": "59565a59003ee07ec5c739ffd3236632bf9e19546e810afc9fea0b44e35355ab",
+ "problems": [],
+ "version": 3,
+ "removedNotes": 20
+}

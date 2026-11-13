@@ -90,8 +90,12 @@ def other(s):
         i, r = e['instrument'], e['role']
         if i == 'glock' and r == 'sparkle' and fam != 'hatch':
             removed.append({**e, 'reason': '単発の グロッケン（V1 の ベル）＝ 旋律と 関係の ない「チン」'}); continue
+        if i == 'shaker':
+            e = {**e, 'vel': e['vel'] * .6}                                    # シェイカーは 控えめに（刻みの シャカシャカが 前に 出すぎない）
         if i == 'xylo':
             e = {**e, 'instrument': 'marimba', 'vel': e['vel'] * 1.15}       # 木琴の 重ね → あたたかい マリンバ
+        if r == 'melody' and i == 'piano':
+            e = {**e, 'layer': 3}                                              # 旋律の ピアノは 澄んだ 強い 打鍵の 録音（明瞭さを 高域の 持ち上げで なく 録音で 得る）
         if i == 'glock' and r == 'doubling' and fam == 'flight':
             e = {**e, 'vel': e['vel'] * .75}                                   # 飛行・海の 煌めき（旋律の 1オクターブ上）は 残し、少し 控えめに
         out.append(dict(e))

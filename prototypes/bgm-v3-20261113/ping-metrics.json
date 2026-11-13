@@ -62,5 +62,117 @@
    "hiOverMidDb": -28.6,
    "airPeakDb": -35.7
   }
+ },
+ "poyo-1": {
+  "v2": {
+   "spikes": 140,
+   "maxJumpDb": 36.4,
+   "p999JumpDb": 32.5,
+   "hiOverMidDb": -14.8,
+   "airPeakDb": -25.1
+  },
+  "v3": {
+   "spikes": 139,
+   "maxJumpDb": 35.1,
+   "p999JumpDb": 30.0,
+   "hiOverMidDb": -22.5,
+   "airPeakDb": -32.3
+  }
+ },
+ "koro-1": {
+  "v2": {
+   "spikes": 147,
+   "maxJumpDb": 38.1,
+   "p999JumpDb": 36.4,
+   "hiOverMidDb": -2.1,
+   "airPeakDb": -17.7
+  },
+  "v3": {
+   "spikes": 148,
+   "maxJumpDb": 39.6,
+   "p999JumpDb": 37.2,
+   "hiOverMidDb": -4.5,
+   "airPeakDb": -19.2
+  }
+ },
+ "card-2": {
+  "v2": {
+   "spikes": 225,
+   "maxJumpDb": 36.7,
+   "p999JumpDb": 35.4,
+   "hiOverMidDb": -2.4,
+   "airPeakDb": -17.3
+  },
+  "v3": {
+   "spikes": 229,
+   "maxJumpDb": 38.5,
+   "p999JumpDb": 37.2,
+   "hiOverMidDb": -3.7,
+   "airPeakDb": -19.0
+  }
+ },
+ "game-1": {
+  "v2": {
+   "spikes": 151,
+   "maxJumpDb": 34.3,
+   "p999JumpDb": 32.3,
+   "hiOverMidDb": -4.8,
+   "airPeakDb": -16.8
+  },
+  "v3": {
+   "spikes": 150,
+   "maxJumpDb": 36.9,
+   "p999JumpDb": 36.2,
+   "hiOverMidDb": -7.5,
+   "airPeakDb": -18.4
+  }
+ },
+ "explore-1": {
+  "v2": {
+   "spikes": 28,
+   "maxJumpDb": 27.2,
+   "p999JumpDb": 23.8,
+   "hiOverMidDb": -20.2,
+   "airPeakDb": -27.8
+  },
+  "v3": {
+   "spikes": 4,
+   "maxJumpDb": 24.0,
+   "p999JumpDb": 13.2,
+   "hiOverMidDb": -35.6,
+   "airPeakDb": -43.6
+  }
+ },
+ "event-2": {
+  "v2": {
+   "spikes": 49,
+   "maxJumpDb": 36.1,
+   "p999JumpDb": 33.2,
+   "hiOverMidDb": -10.5,
+   "airPeakDb": -19.8
+  },
+  "v3": {
+   "spikes": 81,
+   "maxJumpDb": 32.1,
+   "p999JumpDb": 28.2,
+   "hiOverMidDb": -27.3,
+   "airPeakDb": -30.9
+  }
+ },
+ "event-1": {
+  "v2": {
+   "spikes": 154,
+   "maxJumpDb": 36.2,
+   "p999JumpDb": 34.7,
+   "hiOverMidDb": -2.3,
+   "airPeakDb": -17.1
+  },
+  "v3": {
+   "spikes": 147,
+   "maxJumpDb": 37.5,
+   "p999JumpDb": 36.3,
+   "hiOverMidDb": -6.4,
+   "airPeakDb": -18.5
+  }
  }
 }
