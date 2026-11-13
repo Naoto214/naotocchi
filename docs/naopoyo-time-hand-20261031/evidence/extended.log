@@ -1,0 +1,42 @@
+✔ D exposes a traceable continuous route (9.070314ms)
+✔ opposite first step 0,-1 (10.40717ms)
+✔ opposite first step 1,-1 (0.586052ms)
+✔ opposite first step 1,0 (1.647319ms)
+✔ opposite first step 1,1 (0.300693ms)
+✔ opposite first step 0,1 (0.262294ms)
+✔ opposite first step -1,1 (0.275244ms)
+✔ opposite first step -1,0 (3.318926ms)
+✔ opposite first step -1,-1 (0.310857ms)
+✔ blocked up turns right and retains direction (4.193343ms)
+✔ two blocked directions rotate twice (6.400495ms)
+✔ diagonal rotates by 90 not 45 (0.255915ms)
+✔ closed path produces only available prefix (0.197867ms)
+✔ route does not mutate input and respects 2/3 limits (0.293972ms)
+✔ power sets actual birth count 1/3/7 (6.690371ms)
+✔ gravity rejoins vertical family with no exception (6.169987ms)
+✔ all ABC modes retain complete results (85.075458ms)
+✔ occupied and special cells are never generated on (4.526484ms)
+✔ diagonal double-wall corner blocks route (0.3326ms)
+✔ generated children obstruct self closure (1.68133ms)
+✔ reset heading and retained heading differ after a bend (0.463007ms)
+✔ pass-through variant is bounded and never duplicates births (2.315535ms)
+✔ JSON save and Undo snapshot reproduce identical simulation (1.113146ms)
+✔ 896 shared cases: conservation, settled support, one successful split per spike (239.346735ms)
+✔ power/level minima and exactly three legal cells (10.303049ms)
+✔ entry policy rejects a route destination without jumping it (0.938172ms)
+✔ same-species 4+8 keeps official overflow (0.994907ms)
+✔ same-species 8+8 keeps official overflow (0.467834ms)
+✔ same-species 1+7 keeps official overflow (0.747415ms)
+✔ different species swaps unchanged (0.808066ms)
+✔ seeded obstacles preserve continuous prefix and bound all loop variants (22.818198ms)
+✔ D/power/variants/Undo controls exist (5.478937ms)
+✔ preview never uses production persistence (0.29267ms)
+✔ eight tutorial steps and four-way comparison are wired (0.12637ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 614.426675

@@ -1,0 +1,40 @@
+{
+  "browserControl": {
+    "status": "unverified",
+    "error": "cua_repl failed to start node_repl backend: Connection closed"
+  },
+  "hostingScreenshot": {
+    "file": "deployed-desktop-1200x750.png",
+    "width": 1200,
+    "height": 750,
+    "observed": "initial header, ABCD controls, D default rule and settings rendered",
+    "limitations": "board below screenshot crop; no interaction or mobile viewport verification"
+  },
+  "staticDiagrams": {
+    "generated": 80,
+    "contactSheetInspected": 8,
+    "engineDerived": true
+  },
+  "domUnitTests": {
+    "widths": [
+      320,
+      375,
+      390,
+      430
+    ],
+    "notBrowserQA": true
+  },
+  "iphoneSafari": {
+    "status": "unverified",
+    "rotation": "unverified",
+    "touch": "unverified"
+  },
+  "delivery": {
+    "matched": 54,
+    "total": 54,
+    "anonymousModuleStatus": 403,
+    "ownerCount": 1,
+    "externalCount": 0,
+    "groupCount": 0
+  }
+}

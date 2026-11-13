@@ -1,0 +1,38 @@
+name: Naopoyo Time Hand Experiment
+on:
+  pull_request:
+    paths:
+      - 'prototypes/naopoyo-time-hand/**'
+      - 'docs/naopoyo-time-hand-20261031/**'
+      - '.github/workflows/naopoyo-time-hand.yml'
+jobs:
+  time-hand:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node prototypes/naopoyo-time-hand/sync-engine.mjs --check
+      - run: node prototypes/naopoyo-time-hand/sync-session.mjs --check
+      - run: node --test prototypes/naopoyo-time-hand/tests/*.test.mjs prototypes/naopoyo-split-priority/tests/*.test.mjs
+      - run: node prototypes/naopoyo-time-hand/audit.mjs --no-search
+      - run: node prototypes/naopoyo-time-hand/diagrams.mjs
+      - run: node prototypes/naopoyo-time-hand/build-preview.mjs /tmp/time-hand-preview
+      - run: python -m unittest discover -s tests/pages
+  puzzle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test --test-concurrency=2 prototypes/naopoyo-chapter2/tests/*.test.mjs prototypes/naopoyo-chapter1/tests/*.test.mjs prototypes/naopoyo-insight/tests/*.test.mjs prototypes/naopoyo-world/tests/*.test.mjs prototypes/naopoyo-v2/tests/*.test.mjs prototypes/naopoyo-rescue/tests/*.test.mjs
+  card:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test --test-concurrency=2 prototypes/card-game/tests/*.test.mjs

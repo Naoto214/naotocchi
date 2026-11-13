@@ -1,0 +1,22 @@
+replay 1 A:solved B:solved C:solved D:solved
+replay 2 A:solved B:solved C:solved D:solved
+replay 3 A:solved B:solved C:solved D:solved
+replay 4 A:solved B:solved C:solved D:solved
+replay 5 A:solved B:solved C:solved D:solved
+replay 6 A:solved B:solved C:solved D:solved
+replay 7 A:solved B:incompatible@15 C:solved D:incompatible@15
+replay 8 A:solved B:solved C:solved D:incompatible@9
+replay 9 A:solved B:incompatible@12 C:solved D:incompatible@12
+replay 10 A:solved B:incompatible@19 C:solved D:incompatible@19
+replay 11 A:solved B:solved C:solved D:solved
+replay 12 A:solved B:solved C:solved D:solved
+replay 13 A:solved B:solved C:solved D:solved
+replay 14 A:solved B:solved C:solved D:solved
+replay 15 A:solved B:solved C:solved D:incompatible@8
+replay 16 A:solved B:incompatible@18 C:solved D:incompatible@18
+replay 17 A:solved B:incompatible@3 C:solved D:incompatible@3
+replay 18 A:solved B:incompatible@9 C:incompatible@10 D:incompatible@7
+replay 19 A:solved B:incompatible@8 C:solved D:incompatible@7
+replay 20 A:solved B:incompatible@15 C:incompatible@36 D:incompatible@15
+scenarios 960
+variants 1440

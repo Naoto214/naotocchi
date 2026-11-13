@@ -1,0 +1,86 @@
+[
+  {
+    "number": 16,
+    "status": "not-found-within-budget",
+    "shortestProven": false,
+    "attempts": [
+      {
+        "kind": "bridge",
+        "status": "solved",
+        "visited": 2106,
+        "expanded": 706,
+        "edges": 7883,
+        "depth": 5,
+        "shortestProven": false,
+        "elapsedMs": 168,
+        "method": "bfs"
+      },
+      {
+        "kind": "identity-preserving",
+        "status": "limit",
+        "visited": 40001,
+        "expanded": 28891,
+        "edges": 125032,
+        "shortestProven": false,
+        "elapsedMs": 1635,
+        "method": "greedy"
+      }
+    ]
+  },
+  {
+    "number": 19,
+    "status": "not-found-within-budget",
+    "shortestProven": false,
+    "attempts": [
+      {
+        "kind": "bridge",
+        "status": "solved",
+        "visited": 10,
+        "expanded": 3,
+        "edges": 10,
+        "depth": 1,
+        "shortestProven": false,
+        "elapsedMs": 0,
+        "method": "bfs"
+      },
+      {
+        "kind": "identity-preserving",
+        "status": "limit",
+        "visited": 40000,
+        "expanded": 22113,
+        "edges": 118917,
+        "shortestProven": false,
+        "elapsedMs": 1770,
+        "method": "greedy"
+      }
+    ]
+  },
+  {
+    "number": 20,
+    "status": "not-found-within-budget",
+    "shortestProven": false,
+    "attempts": [
+      {
+        "kind": "bridge",
+        "status": "solved",
+        "visited": 30,
+        "expanded": 20,
+        "edges": 103,
+        "depth": 4,
+        "shortestProven": false,
+        "elapsedMs": 3,
+        "method": "bfs"
+      },
+      {
+        "kind": "identity-preserving",
+        "status": "limit",
+        "visited": 40003,
+        "expanded": 32506,
+        "edges": 149061,
+        "shortestProven": false,
+        "elapsedMs": 1742,
+        "method": "greedy"
+      }
+    ]
+  }
+]

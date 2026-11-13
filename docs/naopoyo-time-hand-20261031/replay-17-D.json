@@ -1,0 +1,473 @@
+{
+  "status": "incompatible",
+  "failure": {
+    "step": 3,
+    "reason": "actor-or-level"
+  },
+  "metrics": {
+    "steps": 2,
+    "splits": 1,
+    "children": 3,
+    "merges": 3,
+    "familyMerges": 0,
+    "overflow": 1,
+    "falls": 5
+  },
+  "rescued": 0,
+  "mass": 11,
+  "final": {
+    "id": "komorebi-relay-foothold",
+    "w": 8,
+    "h": 8,
+    "gravity": true,
+    "walls": [
+      [
+        2,
+        7
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        7,
+        5
+      ],
+      [
+        7,
+        6
+      ]
+    ],
+    "gates": [],
+    "exits": [
+      {
+        "x": 5,
+        "y": 4,
+        "exact": 3
+      },
+      {
+        "x": 7,
+        "y": 7,
+        "exact": 8
+      }
+    ],
+    "spikes": [
+      {
+        "x": 2,
+        "y": 6,
+        "power": 3
+      }
+    ],
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 2,
+        "y": 6,
+        "level": 5,
+        "species": "dog"
+      },
+      {
+        "id": "child2",
+        "species": "dog",
+        "level": 1,
+        "x": 0,
+        "y": 7
+      },
+      {
+        "id": "child3",
+        "species": "dog",
+        "level": 5,
+        "x": 1,
+        "y": 7
+      }
+    ],
+    "number": 17,
+    "title": "17 支える役を交代",
+    "revision": 6,
+    "theme": "forest",
+    "showSpecies": false,
+    "difficulty": 5,
+    "discovery": "二段上の星へ3を届けるため、分裂後の仲間を再配置して段階的に支える。",
+    "lesson": "同じ足場に、ずっと頼ることはできない。",
+    "story": "見上げた先に、もう一段高い枝があった。",
+    "ending": "進む役と支える役が、静かに入れ替わった。",
+    "hints": [
+      "3の星は、これまでより一段高い。",
+      "トゲを越えただけでは届かない。途中の岩の高さと、支える8の場所を考えよう。",
+      "左の8を右上へ。上下に分かれてからトゲへ入り、右側に運ぶ仲間と残す仲間を選ぼう。"
+    ],
+    "hint": "3の星は、これまでより一段高い。",
+    "gravityRules": "supported-v1",
+    "movementRules": "contact-v2",
+    "terrainRules": "magic-gate-v2",
+    "splitRules": "recombine-once-v1",
+    "splitPriority": "D",
+    "rescued": 0,
+    "rescuedBySpecies": {},
+    "nextId": 4,
+    "moves": 2
+  },
+  "snapshots": [
+    {
+      "id": "komorebi-relay-foothold",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          2,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 5,
+          "y": 4,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [
+        {
+          "x": 2,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 1,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 6,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "number": 17,
+      "title": "17 支える役を交代",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 5,
+      "discovery": "二段上の星へ3を届けるため、分裂後の仲間を再配置して段階的に支える。",
+      "lesson": "同じ足場に、ずっと頼ることはできない。",
+      "story": "見上げた先に、もう一段高い枝があった。",
+      "ending": "進む役と支える役が、静かに入れ替わった。",
+      "hints": [
+        "3の星は、これまでより一段高い。",
+        "トゲを越えただけでは届かない。途中の岩の高さと、支える8の場所を考えよう。",
+        "左の8を右上へ。上下に分かれてからトゲへ入り、右側に運ぶ仲間と残す仲間を選ぼう。"
+      ],
+      "hint": "3の星は、これまでより一段高い。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 1
+    },
+    {
+      "id": "komorebi-relay-foothold",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          2,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 5,
+          "y": 4,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [
+        {
+          "x": 2,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 6,
+          "level": 5,
+          "species": "dog"
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 7
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 5,
+          "x": 1,
+          "y": 7
+        }
+      ],
+      "number": 17,
+      "title": "17 支える役を交代",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 5,
+      "discovery": "二段上の星へ3を届けるため、分裂後の仲間を再配置して段階的に支える。",
+      "lesson": "同じ足場に、ずっと頼ることはできない。",
+      "story": "見上げた先に、もう一段高い枝があった。",
+      "ending": "進む役と支える役が、静かに入れ替わった。",
+      "hints": [
+        "3の星は、これまでより一段高い。",
+        "トゲを越えただけでは届かない。途中の岩の高さと、支える8の場所を考えよう。",
+        "左の8を右上へ。上下に分かれてからトゲへ入り、右側に運ぶ仲間と残す仲間を選ぼう。"
+      ],
+      "hint": "3の星は、これまでより一段高い。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 4,
+      "moves": 2
+    }
+  ],
+  "splitLog": [
+    {
+      "step": 2,
+      "state": {
+        "id": "komorebi-relay-foothold",
+        "w": 8,
+        "h": 8,
+        "gravity": true,
+        "walls": [
+          [
+            2,
+            7
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            7,
+            5
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        "gates": [],
+        "exits": [
+          {
+            "x": 5,
+            "y": 4,
+            "exact": 3
+          },
+          {
+            "x": 7,
+            "y": 7,
+            "exact": 8
+          }
+        ],
+        "spikes": [
+          {
+            "x": 2,
+            "y": 6,
+            "power": 3
+          }
+        ],
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 2,
+            "y": 6,
+            "level": 5,
+            "species": "dog"
+          },
+          {
+            "id": "b",
+            "x": 1,
+            "y": 6,
+            "level": 3,
+            "species": "dog"
+          },
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 1,
+            "y": 7
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 0,
+            "y": 6
+          },
+          {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 1,
+            "y": 5
+          }
+        ],
+        "number": 17,
+        "title": "17 支える役を交代",
+        "revision": 6,
+        "theme": "forest",
+        "showSpecies": false,
+        "difficulty": 5,
+        "discovery": "二段上の星へ3を届けるため、分裂後の仲間を再配置して段階的に支える。",
+        "lesson": "同じ足場に、ずっと頼ることはできない。",
+        "story": "見上げた先に、もう一段高い枝があった。",
+        "ending": "進む役と支える役が、静かに入れ替わった。",
+        "hints": [
+          "3の星は、これまでより一段高い。",
+          "トゲを越えただけでは届かない。途中の岩の高さと、支える8の場所を考えよう。",
+          "左の8を右上へ。上下に分かれてからトゲへ入り、右側に運ぶ仲間と残す仲間を選ぼう。"
+        ],
+        "hint": "3の星は、これまでより一段高い。",
+        "gravityRules": "supported-v1",
+        "movementRules": "contact-v2",
+        "terrainRules": "magic-gate-v2",
+        "splitRules": "recombine-once-v1",
+        "splitPriority": "D",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 4,
+        "moves": 1
+      },
+      "parentId": "a",
+      "direction": [
+        1,
+        -1
+      ],
+      "children": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 7
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 5
+        }
+      ],
+      "family": 1
+    }
+  ]
+}

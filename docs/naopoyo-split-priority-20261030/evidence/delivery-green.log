@@ -1,0 +1,47 @@
+✔ standalone builder and atlas exist (1.661339ms)
+✔ exact search key retains identity and next child counter (2.632991ms)
+✔ A obstacle boards rotate 90 degrees including gates (6.187759ms)
+✔ B obstacle boards rotate 90 degrees including gates (3.650621ms)
+✔ C obstacle boards rotate 90 degrees including gates (5.49725ms)
+✔ C ring frame shifts two perimeter slots per 45 degree heading (0.402926ms)
+✔ A 160 scenarios preserve mass and one successful split per spike (82.169165ms)
+✔ B 160 scenarios preserve mass and one successful split per spike (105.134014ms)
+✔ C 160 scenarios preserve mass and one successful split per spike (45.351607ms)
+✔ A all remaining levels and no-space behavior (2.568825ms)
+✔ B all remaining levels and no-space behavior (1.562991ms)
+✔ C all remaining levels and no-space behavior (3.292734ms)
+✔ all experimental witnesses replay through engine (19.414472ms)
+✔ model supplies resettable same-board experiment (1.517403ms)
+✔ A official state and events equivalence stage 11 (5.562468ms)
+✔ A official state and events equivalence stage 12 (3.479245ms)
+✔ A official state and events equivalence stage 13 (1.888561ms)
+✔ A official state and events equivalence stage 14 (0.962638ms)
+✔ A official state and events equivalence stage 15 (8.42832ms)
+✔ A official state and events equivalence stage 16 (5.019461ms)
+✔ A official state and events equivalence stage 17 (2.350365ms)
+✔ A official state and events equivalence stage 18 (6.119947ms)
+✔ A official state and events equivalence stage 19 (9.626151ms)
+✔ A official state and events equivalence stage 20 (17.440528ms)
+✔ A flat 7 children, initial/spawn/final snapshots and mass (6.071364ms)
+✔ A gravity 7 children, initial/spawn/final snapshots and mass (1.137461ms)
+✔ B flat 7 children, initial/spawn/final snapshots and mass (0.594805ms)
+✔ B gravity 7 children, initial/spawn/final snapshots and mass (0.781035ms)
+✔ C flat 7 children, initial/spawn/final snapshots and mass (3.707207ms)
+✔ C gravity 7 children, initial/spawn/final snapshots and mass (0.985212ms)
+✔ fixtures contain all ten required scenarios and edit supports removal without persistent data (0.365851ms)
+✔ independent candidate API (1.008266ms)
+✔ A all headings bounded unique legal routes (5.925815ms)
+✔ B all headings bounded unique legal routes (1.230421ms)
+✔ C all headings bounded unique legal routes (2.97773ms)
+✔ B uses each ray near then far; blocked intermediate prevents jump (3.614107ms)
+✔ C retains fixed ranks and accepts alternate legal two-edge route (0.547073ms)
+✔ A trace matches actual official candidates over deterministic randomized obstructions (226.088767ms)
+✔ all policies reject two-rock diagonal corner and special destinations (0.768677ms)
+ℹ tests 39
+ℹ suites 0
+ℹ pass 39
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 475.510636

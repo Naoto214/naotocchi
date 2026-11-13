@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {stages} from '../../naopoyo-chapter1/stages.mjs';
+const m=await import('../session.mjs').catch(()=>({}));
+test('isolated real session saves, restores, Undo and retry after D split',()=>{assert.equal(typeof m.WorldSession,'function');const stage={...structuredClone(stages[3]),splitPriority:'D'},q=new m.WorldSession(stage),initial=q.snapshot();assert(q.begin('a',{x:1.5,y:4.5}));q.travel({x:3.5,y:4.5});q.end();assert.equal(q.state.actors.length,2);const saved=q.serialize(),restored=new m.WorldSession(stage,saved);assert(restored.restored);assert.deepEqual(restored.snapshot(),q.snapshot());assert(q.undo());assert.deepEqual(q.snapshot(),initial);q.retry();assert.deepEqual(q.snapshot(),initial);});
