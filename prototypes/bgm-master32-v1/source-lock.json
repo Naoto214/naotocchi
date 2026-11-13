@@ -1,0 +1,210 @@
+{
+  "pr534": "3060388f624deb7787d0f23006595493caecbfdc",
+  "pr530": "12411ea5df21d357678749335773571c13252688",
+  "files": [
+    {
+      "path": "docs/bgm-complete-v3-20261109/README.md",
+      "sha256": "64d30de25a798f9ca4242bbdea72bc7ad14342f379944c6f4ea54a1d6e529c26"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/design.js",
+      "sha256": "01f3cf73e90058076b675f6fad19360b675ebce6d2b7331cf2cbe974c88283d4"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-board-a.mid",
+      "sha256": "e102048b8e1ad63b746480c57171bebe7b33b104da6eda40f4f19c33aac6bfec"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-board-b.mid",
+      "sha256": "9dfa18197021b395cb87f54e99a6061aea92413dc62747615a1a2092842704c4"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-farewell-a.mid",
+      "sha256": "28165bd5dcaed00e206d7999f3f4d314f75a4c2f41724d39346edb4d10cf9178"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-farewell-b.mid",
+      "sha256": "1c13dbe904d06c99d75e654f1b5ce658fb9ff5b150a3d3eedbb6630119acd868"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-fishing-a.mid",
+      "sha256": "ce6b9081c82214d1313277297bf5fabe2c0bcc4142699a418ae15e6b617642e1"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-jingle-achieve.mid",
+      "sha256": "c8408e9d8afd2fcf4badb5431c85f09def7393014fac9b7b9205903820366738"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-jingle-birth.mid",
+      "sha256": "112d362e1dcb9dedf2d40f4354938489085b66bf28bef7dd7f3598a0a23d4023"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-jingle-card-lose.mid",
+      "sha256": "dea44278aaa6767b1d047586d4d02d183fc0175510b07932e1f50816d1e19768"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-lullaby-a.mid",
+      "sha256": "c608a1f28cd7d9ed2442c13da0e9fa7b7937a5049b773864283c26c76787bf6f"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-puzzle-a.mid",
+      "sha256": "9a530ecd7cb8ce55c5383847f78620e5209b5c8db76b1de5588269aa11a10839"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-puzzle-b.mid",
+      "sha256": "2dd0cb2e6fbc9ecf115d60e574a6b05ddf800f8fbfa8c4e0d7dba19c4a562491"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-race-a.mid",
+      "sha256": "29d98ee1a5357d2874f6461fb74450755e02f69a82149d9f8ac3ebc6b6887c9a"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-race-b.mid",
+      "sha256": "a37fad097ad206990a3cc986a7505ce0fe7de013320db383f4624caca521c94b"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-var-card-late.mid",
+      "sha256": "0bdc009b143407008dd31918f4f00fa4a7709bf05f13c307026821192a28388c"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-var-card-win.mid",
+      "sha256": "225ebdd066192de138bb5e0f631668b10c1ec48adafa499888aab3a9fb4babfe"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-var-flight.mid",
+      "sha256": "5e211f613abf88d9b088704360d3a4e3e1dcdb922e361da4c22942ce6681f61f"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-var-koro-album.mid",
+      "sha256": "4d5e87fe97ee2771b8cbcafad686b72270d15e3ed4ac53bf4110d86d428e9bb1"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-var-koro-goal.mid",
+      "sha256": "6826b6b2e28ea4a557b26fcd46f1b25cd4391aab26a9cd4b42fb0ef1f2892933"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-var-ohayo-birth2.mid",
+      "sha256": "7695b7dcedaebb80e528a69f15b645b43a5bdb0e694e79330731f463e8336bc1"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-var-ohayo-birth4.mid",
+      "sha256": "7752218c467d9089ae10cf2687e444a675bbd193a13b56bf9ee29f9566cae21d"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-var-ohayo-hatch2.mid",
+      "sha256": "81833d267e3cd2602986e1e2e6112aa1b879175fcf140a48c400fdebdef3604b"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-var-ohayo-hatch4.mid",
+      "sha256": "a3396d907f2181e297907d4404d8ee1f5352cbae704dc5f1f124dfba5fe07d90"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-var-poyo-chapter.mid",
+      "sha256": "282ef04d806dd9e1d530dbbc207e1869d45c80df726ac3b84d89dfae6622fc2e"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-var-poyo-clear.mid",
+      "sha256": "b4b157fb15b39b75a440b887ca7c65fd545cd7780904745402fe720af2b7d3e5"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/midi/naotocchi-bgm-v3-var-sleep.mid",
+      "sha256": "1d12e2c52848d10cb261195698a219a50257bd9964725e15f8c753ce7a5a8e7a"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/songs-v3.js",
+      "sha256": "22bd2249ecf3118dd85011a082caa84cac5e31ee121086f4af67636d32e0b222"
+    },
+    {
+      "path": "prototypes/bgm-complete-v3-20261109/variants.js",
+      "sha256": "2e236747c75bb9e203f3002686ebc7eb257b68076ea5494da869c2a5335411a6"
+    },
+    {
+      "path": "prototypes/bgm-placement-v2-20261109/inventory.js",
+      "sha256": "eaf5b4313be33f993bc5879daee12555ca3d5b10523ba3fc52409c9702072e18"
+    },
+    {
+      "path": "prototypes/bgm-placement-v2-20261109/songs-add.js",
+      "sha256": "482d2f3643776e9c543e61ecfbc7d9704e843bd5964a1c3bc6ff394af8306c06"
+    },
+    {
+      "path": "prototypes/bgm-survey-20261108/catalog.js",
+      "sha256": "ab29f1cb5fe63be36a41ea2c53d01b52ee93a36d593053f44534006ee31dccbd"
+    },
+    {
+      "path": "prototypes/bgm-survey-20261108/existing-bgm.js",
+      "sha256": "0837bb5e2bb149dfef9f9744351460451b71c0b6e7ec1dae71d2d2db039f02e7"
+    },
+    {
+      "path": "prototypes/bgm-survey-20261108/midi/naotocchi-bgm-card-1.mid",
+      "sha256": "d67f18ae6160356468bb9a2ab37ddeb779635b6efc396311ecd6294d2ead65ab"
+    },
+    {
+      "path": "prototypes/bgm-survey-20261108/midi/naotocchi-bgm-card-2.mid",
+      "sha256": "de133132d29c777640829d68567bf59ecbcb6fbefd6a6532d4597e7a77505f81"
+    },
+    {
+      "path": "prototypes/bgm-survey-20261108/midi/naotocchi-bgm-event-1.mid",
+      "sha256": "de12f2156b456ebe20a96e173814c37e8348bbd16173b43ee7a0337d15890815"
+    },
+    {
+      "path": "prototypes/bgm-survey-20261108/midi/naotocchi-bgm-event-2.mid",
+      "sha256": "9969a69e38ce86420523da62f748af99cdde2949641a88d2026e0fc4ca6765b5"
+    },
+    {
+      "path": "prototypes/bgm-survey-20261108/midi/naotocchi-bgm-explore-1.mid",
+      "sha256": "ed72da8c26fa8eb92f7f9e54b952fd10964317439857be52aea19e68ed2c43d6"
+    },
+    {
+      "path": "prototypes/bgm-survey-20261108/midi/naotocchi-bgm-explore-2.mid",
+      "sha256": "ff6c680149009d7ce40ce9d5a54aade1690901b37e373db028113c2db479ed7b"
+    },
+    {
+      "path": "prototypes/bgm-survey-20261108/midi/naotocchi-bgm-game-1.mid",
+      "sha256": "47d684c5d8a98398644b6aeed8fa368f0ddd40e8dde553ad9cae0b5862e0cfd4"
+    },
+    {
+      "path": "prototypes/bgm-survey-20261108/midi/naotocchi-bgm-game-2.mid",
+      "sha256": "10600e0dea584adbeb542560c2d2bb7b6f53243c011f27afd93420a19cccc70c"
+    },
+    {
+      "path": "prototypes/bgm-survey-20261108/midi/naotocchi-bgm-koro-1.mid",
+      "sha256": "88a325f0c01d0bb0f0864c5ce0ec7804885932bb39db1b2917200050ac0957c4"
+    },
+    {
+      "path": "prototypes/bgm-survey-20261108/midi/naotocchi-bgm-koro-2.mid",
+      "sha256": "af8d199749e90b003d0cef91bb5390d2abd5de50ad2ad50b0244f2767563178b"
+    },
+    {
+      "path": "prototypes/bgm-survey-20261108/midi/naotocchi-bgm-poyo-1.mid",
+      "sha256": "a1472985ba6a127b8867c427b92bf99dda9b46c4edf45c223846591b6e33635c"
+    },
+    {
+      "path": "prototypes/bgm-survey-20261108/midi/naotocchi-bgm-poyo-2.mid",
+      "sha256": "fbd8d3496cdd6d762694af0a03605f47d5ec04bade16e8c05b7f8017fe4a0a77"
+    },
+    {
+      "path": "prototypes/bgm-survey-20261108/songs-bgm.js",
+      "sha256": "cf216c9d62a0d4c9ec5d8031f514245ff227405a090452cf9e501ad6a45678c5"
+    },
+    {
+      "path": "prototypes/main-theme-20261108/songs.js",
+      "sha256": "e0deb4482a438bf13cee9a93b1e931a4376f734df00479badc9f5c96464d31ff"
+    },
+    {
+      "path": "prototypes/main-theme-favorites-20261108/favorites.js",
+      "sha256": "08b5fa052cc05470f8c717bcbf1573f3e85c90fc6bc631f6a3a2cd6ffa0a0341"
+    },
+    {
+      "path": "prototypes/main-theme-v2-20261108/engine-v2.js",
+      "sha256": "0fab1f9b0e1b2933a015cede557ccfd4b9ccfe1eebaa1e7cbe6490fdd705e6fd"
+    },
+    {
+      "path": "prototypes/main-theme-v2-20261108/songs-v2.js",
+      "sha256": "a1d0911c2973636f8ac0047f1d12bd6641e8edf452815eeacd01cf23a0481591"
+    },
+    {
+      "path": "prototypes/main-theme-v3-morning-20261108/songs-v3.js",
+      "sha256": "22a8e6b5f6d66957a8b21ab083064db140b4bedaef6bf3c24095431c29e706b4"
+    }
+  ]
+}

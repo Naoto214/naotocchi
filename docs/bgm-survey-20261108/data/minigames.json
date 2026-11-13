@@ -1,0 +1,929 @@
+{
+  "generatedFrom": "tests/helpers/runtime-harness.cjs boot of script.js (+games.js, audio.js); bgm = audio.currentScene() with gameActive=true, activeMinigame=game",
+  "bgmRule": "audio.js:268-272 — gameActive → minigameGenreId(activeMinigame) (script.js:16425-16427, category→genre table script.js:16191-16203, unknown→action): drive3d→race, puzzle|board→puzzle, sports→sports, else (action, strategy)→game",
+  "availabilityNote": "region:/season: tags come from REGION_MINIGAMES / SEASONAL_MINIGAMES (games.js:10527, 10586). They are NOT gates: buildMinigamePool (script.js:17242-17248) always includes every regional/seasonal game; the current region/season only raises its draw weight.",
+  "harnessNote": "In the harness DOM stub #lifeCardOverlay and #dateMovie start without the hidden class (index.html:250 and :452 have it), so the dump script added hidden before probing; otherwise currentScene() returns farewell.",
+  "total": 100,
+  "byAvailabilityKind": {
+    "always": 86,
+    "region": 10,
+    "season": 4
+  },
+  "countsByBgm": {
+    "game": 34,
+    "puzzle": 29,
+    "race": 16,
+    "sports": 21
+  },
+  "countsByGenre": {
+    "action": 32,
+    "puzzle": 17,
+    "drive3d": 16,
+    "sports": 21,
+    "strategy": 2,
+    "board": 12
+  },
+  "duplicateIds": [],
+  "games": [
+    {
+      "id": "road-themed",
+      "name": "ロードラン",
+      "emoji": "🏃",
+      "category": "road",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "stack-themed",
+      "name": "つみあげタワー",
+      "emoji": "🏗️",
+      "category": "stack",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "stack-snowman",
+      "name": "ゆきだるまタワー",
+      "emoji": "⛄",
+      "category": "stack",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "falling-block-puzzle",
+      "name": "ブロックパズル",
+      "emoji": "🟦",
+      "category": "fallingBlock",
+      "genre": "puzzle",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "crane-game-3d",
+      "name": "クレーンゲーム",
+      "emoji": "🕹️",
+      "category": "craneGame",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "pinball-physics",
+      "name": "ピンボール",
+      "emoji": "🎯",
+      "category": "pinball",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "haunted-house-3d",
+      "name": "おばけやしき3D",
+      "emoji": "👻",
+      "category": "hauntedHouse",
+      "genre": "drive3d",
+      "bgm": "race",
+      "availability": "always"
+    },
+    {
+      "id": "bowling-3d",
+      "name": "ボウリング",
+      "emoji": "🎳",
+      "category": "swipeThrow",
+      "genre": "sports",
+      "bgm": "sports",
+      "availability": "always"
+    },
+    {
+      "id": "archery-3d",
+      "name": "アーチェリー",
+      "emoji": "🏹",
+      "category": "swipeThrow",
+      "genre": "sports",
+      "bgm": "sports",
+      "availability": "always"
+    },
+    {
+      "id": "breakout-classic",
+      "name": "ブロックくずし",
+      "emoji": "🧱",
+      "category": "breakout",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "dragDecorate-cake",
+      "name": "ケーキデコレーション",
+      "emoji": "🎂",
+      "category": "dragDecorate",
+      "genre": "puzzle",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "dragDecorate-bento",
+      "name": "おべんとうづくり",
+      "emoji": "🍱",
+      "category": "dragDecorate",
+      "genre": "puzzle",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "p3-space",
+      "name": "うちゅうフライト3D",
+      "emoji": "🛸",
+      "category": "perspective3d",
+      "genre": "drive3d",
+      "bgm": "race",
+      "availability": "always"
+    },
+    {
+      "id": "p3-drive",
+      "name": "ハイウェイ3D",
+      "emoji": "🛣️",
+      "category": "perspective3d",
+      "genre": "drive3d",
+      "bgm": "race",
+      "availability": "always"
+    },
+    {
+      "id": "fp-dungeon",
+      "name": "ダンジョン3D",
+      "emoji": "🗝️",
+      "category": "firstPersonDungeon",
+      "genre": "drive3d",
+      "bgm": "race",
+      "availability": "always"
+    },
+    {
+      "id": "race-3d",
+      "name": "カーレース3D",
+      "emoji": "🏎️",
+      "category": "roadRace",
+      "genre": "drive3d",
+      "bgm": "race",
+      "availability": "always"
+    },
+    {
+      "id": "rhythm-highway-3d",
+      "name": "リズムハイウェイ",
+      "emoji": "🎵",
+      "category": "rhythmHighway",
+      "genre": "drive3d",
+      "bgm": "race",
+      "availability": "always"
+    },
+    {
+      "id": "tilt-maze-3d",
+      "name": "たまころがし迷路",
+      "emoji": "🪀",
+      "category": "tiltMaze",
+      "genre": "drive3d",
+      "bgm": "race",
+      "availability": "always"
+    },
+    {
+      "id": "space-gunner-3d",
+      "name": "スペースガンナー",
+      "emoji": "🔫",
+      "category": "spaceGunner",
+      "genre": "drive3d",
+      "bgm": "race",
+      "availability": "always"
+    },
+    {
+      "id": "mini-golf-physics",
+      "name": "ミニゴルフ",
+      "emoji": "⛳",
+      "category": "miniGolf",
+      "genre": "sports",
+      "bgm": "sports",
+      "availability": "always"
+    },
+    {
+      "id": "real-fishing",
+      "name": "ほんかくさかなつり",
+      "emoji": "🎣",
+      "category": "realFishing",
+      "genre": "sports",
+      "bgm": "sports",
+      "availability": "always"
+    },
+    {
+      "id": "basketball-3d",
+      "name": "バスケ3D",
+      "emoji": "🏀",
+      "category": "basketball",
+      "genre": "sports",
+      "bgm": "sports",
+      "availability": "always"
+    },
+    {
+      "id": "pingpong-3d",
+      "name": "卓球3D",
+      "emoji": "🏓",
+      "category": "pingPong",
+      "genre": "sports",
+      "bgm": "sports",
+      "availability": "always"
+    },
+    {
+      "id": "chain-puzzle",
+      "name": "れんさパズル",
+      "emoji": "🔮",
+      "category": "chainPuzzle",
+      "genre": "puzzle",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "street-fight",
+      "name": "かくとうバトル",
+      "emoji": "🥊",
+      "category": "streetFight",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "free-kick-3d",
+      "name": "フリーキック",
+      "emoji": "⚽",
+      "category": "freeKick",
+      "genre": "sports",
+      "bgm": "sports",
+      "availability": "always"
+    },
+    {
+      "id": "tower-defense",
+      "name": "タワーディフェンス",
+      "emoji": "🏰",
+      "category": "towerDefense",
+      "genre": "strategy",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "roguelike-dungeon",
+      "name": "ローグライク",
+      "emoji": "⚔️",
+      "category": "roguelike",
+      "genre": "strategy",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "grand-prix-3d",
+      "name": "グランプリ",
+      "emoji": "🏁",
+      "category": "grandPrix",
+      "genre": "drive3d",
+      "bgm": "race",
+      "availability": "always"
+    },
+    {
+      "id": "sky-shooter",
+      "name": "スカイシューター",
+      "emoji": "✈️",
+      "category": "skyShooter",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "jump-quest",
+      "name": "ジャンプクエスト",
+      "emoji": "🍄",
+      "category": "jumpQuest",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "push-puzzle",
+      "name": "そうこばん",
+      "emoji": "📦",
+      "category": "pushPuzzle",
+      "genre": "puzzle",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "reversi-6",
+      "name": "オセロ",
+      "emoji": "⚫",
+      "category": "reversi",
+      "genre": "board",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "billiards-6",
+      "name": "ビリヤード",
+      "emoji": "🎱",
+      "category": "billiards",
+      "genre": "board",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "animal-shogi",
+      "name": "どうぶつしょうぎ",
+      "emoji": "🦁",
+      "category": "animalShogi",
+      "genre": "board",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "minesweeper-8",
+      "name": "マインスイーパー",
+      "emoji": "💣",
+      "category": "minesweeper",
+      "genre": "puzzle",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "snake-classic",
+      "name": "スネーク",
+      "emoji": "🐍",
+      "category": "snake",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "baseball-batting",
+      "name": "やきゅう",
+      "emoji": "⚾",
+      "category": "baseball",
+      "genre": "sports",
+      "bgm": "sports",
+      "availability": "always"
+    },
+    {
+      "id": "ring-flight-3d",
+      "name": "リングフライト3D",
+      "emoji": "🛩️",
+      "category": "ringFlight",
+      "genre": "drive3d",
+      "bgm": "race",
+      "availability": "always"
+    },
+    {
+      "id": "bubble-shooter",
+      "name": "バブルシューター",
+      "emoji": "🫧",
+      "category": "bubbleShooter",
+      "genre": "puzzle",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "catapult-castle",
+      "name": "カタパルト",
+      "emoji": "🏯",
+      "category": "catapult",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "connect-four",
+      "name": "コネクトフォー",
+      "emoji": "🔴",
+      "category": "connectFour",
+      "genre": "board",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "puzzle-2048",
+      "name": "2048",
+      "emoji": "🔢",
+      "category": "twenty48",
+      "genre": "puzzle",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "frogger-road",
+      "name": "かえるのおうちがえり",
+      "emoji": "🐸",
+      "category": "frogger",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "ski-jump",
+      "name": "スキージャンプ",
+      "emoji": "⛷️",
+      "category": "skiJump",
+      "genre": "sports",
+      "bgm": "sports",
+      "availability": "always"
+    },
+    {
+      "id": "air-hockey",
+      "name": "エアホッケー",
+      "emoji": "🏒",
+      "category": "airHockey",
+      "genre": "sports",
+      "bgm": "sports",
+      "availability": "always"
+    },
+    {
+      "id": "submarine-3d",
+      "name": "サブマリン3D",
+      "emoji": "🐙",
+      "category": "submarine",
+      "genre": "drive3d",
+      "bgm": "race",
+      "availability": "always"
+    },
+    {
+      "id": "match-3",
+      "name": "フルーツマッチ3",
+      "emoji": "🍓",
+      "category": "matchThree",
+      "genre": "puzzle",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "gomoku-9",
+      "name": "五目ならべ",
+      "emoji": "⚪",
+      "category": "gomoku",
+      "genre": "board",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "tank-battle",
+      "name": "タンクバトル",
+      "emoji": "🪖",
+      "category": "tankBattle",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "tennis-rally",
+      "name": "テニス",
+      "emoji": "🎾",
+      "category": "tennis",
+      "genre": "sports",
+      "bgm": "sports",
+      "availability": "always"
+    },
+    {
+      "id": "picross-5",
+      "name": "ピクロス",
+      "emoji": "🖼️",
+      "category": "picross",
+      "genre": "puzzle",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "darts-board",
+      "name": "ダーツ",
+      "emoji": "🎯",
+      "category": "darts",
+      "genre": "sports",
+      "bgm": "sports",
+      "availability": "always"
+    },
+    {
+      "id": "hang-glider-3d",
+      "name": "ハンググライダー3D",
+      "emoji": "🪂",
+      "category": "hangGlider",
+      "genre": "drive3d",
+      "bgm": "race",
+      "availability": "always"
+    },
+    {
+      "id": "bomber-maze",
+      "name": "ボンバー",
+      "emoji": "💥",
+      "category": "bomber",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "blackjack-21",
+      "name": "ブラックジャック",
+      "emoji": "🃏",
+      "category": "blackjack",
+      "genre": "board",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "pipe-connect",
+      "name": "パイプつなぎ",
+      "emoji": "🔧",
+      "category": "pipeConnect",
+      "genre": "puzzle",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "fruit-slice",
+      "name": "フルーツ斬り",
+      "emoji": "🍉",
+      "category": "fruitSlice",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "track-field",
+      "name": "りくじょう",
+      "emoji": "🏃‍♀️",
+      "category": "trackField",
+      "genre": "sports",
+      "bgm": "sports",
+      "availability": "always"
+    },
+    {
+      "id": "voxel-mine",
+      "name": "ボクセルマイニング",
+      "emoji": "⛏️",
+      "category": "voxelMine",
+      "genre": "drive3d",
+      "bgm": "race",
+      "availability": "always"
+    },
+    {
+      "id": "sushi-belt",
+      "name": "かいてんずし",
+      "emoji": "🍣",
+      "category": "sushiBelt",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "asteroids-classic",
+      "name": "アステロイド",
+      "emoji": "☄️",
+      "category": "asteroids",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "yacht-dice",
+      "name": "ヨット",
+      "emoji": "🎲",
+      "category": "yachtDice",
+      "genre": "board",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "lights-out",
+      "name": "ライツアウト",
+      "emoji": "💡",
+      "category": "lightsOut",
+      "genre": "puzzle",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "doodle-jump",
+      "name": "ぴょんぴょんジャンプ",
+      "emoji": "🐰",
+      "category": "doodleJump",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "curling-ice",
+      "name": "カーリング",
+      "emoji": "🥌",
+      "category": "curling",
+      "genre": "sports",
+      "bgm": "sports",
+      "availability": "always"
+    },
+    {
+      "id": "jenga-tower",
+      "name": "ジェンガ",
+      "emoji": "🪵",
+      "category": "jenga",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "line-trace",
+      "name": "せんなぞり",
+      "emoji": "✏️",
+      "category": "lineTrace",
+      "genre": "puzzle",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "checkers-6",
+      "name": "チェッカー",
+      "emoji": "🔘",
+      "category": "checkers",
+      "genre": "board",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "memory-cards",
+      "name": "しんけいすいじゃく",
+      "emoji": "🃏",
+      "category": "memoryCards",
+      "genre": "puzzle",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "halfpipe-skate",
+      "name": "ハーフパイプ",
+      "emoji": "🛹",
+      "category": "halfpipe",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "domino-run",
+      "name": "ドミノたおし",
+      "emoji": "🁢",
+      "category": "dominoRun",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "sudoku-mini",
+      "name": "ナンプレ",
+      "emoji": "🔢",
+      "category": "sudoku",
+      "genre": "puzzle",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "mancala-kalah",
+      "name": "マンカラ",
+      "emoji": "🫘",
+      "category": "mancala",
+      "genre": "board",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "plane-landing",
+      "name": "ひこうき着陸",
+      "emoji": "🛬",
+      "category": "planeLanding",
+      "genre": "drive3d",
+      "bgm": "race",
+      "availability": "always"
+    },
+    {
+      "id": "dot-eater",
+      "name": "ドットイーター",
+      "emoji": "👻",
+      "category": "dotEater",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "missile-command",
+      "name": "ミサイルコマンド",
+      "emoji": "🚀",
+      "category": "missileCommand",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "area-claim",
+      "name": "じんとり",
+      "emoji": "🟪",
+      "category": "areaClaim",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "solitaire-klondike",
+      "name": "ソリティア",
+      "emoji": "🃏",
+      "category": "solitaire",
+      "genre": "board",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "hit-blow",
+      "name": "ヒット&ブロー",
+      "emoji": "🎯",
+      "category": "hitBlow",
+      "genre": "puzzle",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "lunar-lander",
+      "name": "ルナランダー",
+      "emoji": "🌙",
+      "category": "lunarLander",
+      "genre": "drive3d",
+      "bgm": "race",
+      "availability": "always"
+    },
+    {
+      "id": "shanghai-tiles",
+      "name": "上海",
+      "emoji": "🀄",
+      "category": "shanghai",
+      "genre": "board",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "beach-volley",
+      "name": "ビーチバレー",
+      "emoji": "🏐",
+      "category": "beachVolley",
+      "genre": "sports",
+      "bgm": "sports",
+      "availability": "always"
+    },
+    {
+      "id": "slide-puzzle",
+      "name": "スライドパズル",
+      "emoji": "🧩",
+      "category": "slidePuzzle",
+      "genre": "puzzle",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "sugoroku-race",
+      "name": "すごろく",
+      "emoji": "🎲",
+      "category": "sugoroku",
+      "genre": "board",
+      "bgm": "puzzle",
+      "availability": "always"
+    },
+    {
+      "id": "takoyaki-grill",
+      "name": "たこやきやさん",
+      "emoji": "🐙",
+      "category": "takoyaki",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "always"
+    },
+    {
+      "id": "road-city",
+      "name": "とかいラン",
+      "emoji": "🏙️",
+      "category": "road",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "region:city"
+    },
+    {
+      "id": "stack-harvest",
+      "name": "しゅうかくタワー",
+      "emoji": "🌾",
+      "category": "stack",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "region:countryside"
+    },
+    {
+      "id": "stack-acorn",
+      "name": "きのみタワー",
+      "emoji": "🌰",
+      "category": "stack",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "region:forest"
+    },
+    {
+      "id": "downhill-mountain",
+      "name": "やまの岩場のぼり",
+      "emoji": "⛰️",
+      "category": "climbing",
+      "genre": "sports",
+      "bgm": "sports",
+      "availability": "region:mountain"
+    },
+    {
+      "id": "downhill-snow",
+      "name": "ゆきのゲレンデ",
+      "emoji": "🎿",
+      "category": "downhill",
+      "genre": "sports",
+      "bgm": "sports",
+      "availability": "region:snow"
+    },
+    {
+      "id": "fishing-sea",
+      "name": "うみのさかなつり",
+      "emoji": "🐟",
+      "category": "fishing",
+      "genre": "sports",
+      "bgm": "sports",
+      "availability": "region:sea"
+    },
+    {
+      "id": "fishing-deepsea",
+      "name": "しんかいフィッシング",
+      "emoji": "🦑",
+      "category": "fishing",
+      "genre": "sports",
+      "bgm": "sports",
+      "availability": "region:deepsea"
+    },
+    {
+      "id": "fishing-river",
+      "name": "みずべのさかなつり",
+      "emoji": "🐠",
+      "category": "fishing",
+      "genre": "sports",
+      "bgm": "sports",
+      "availability": "region:river_lake"
+    },
+    {
+      "id": "road-jungle",
+      "name": "ジャングルラン",
+      "emoji": "🌴",
+      "category": "road",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "region:jungle"
+    },
+    {
+      "id": "road-desert",
+      "name": "さばくラン",
+      "emoji": "🏜️",
+      "category": "road",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "region:desert"
+    },
+    {
+      "id": "stack-sakura",
+      "name": "さくらタワー",
+      "emoji": "🌸",
+      "category": "stack",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "season:spring"
+    },
+    {
+      "id": "ring-flight-summer",
+      "name": "なつのうみフライト",
+      "emoji": "🌅",
+      "category": "ringFlight",
+      "genre": "drive3d",
+      "bgm": "race",
+      "availability": "season:summer"
+    },
+    {
+      "id": "stack-leaves",
+      "name": "おちばタワー",
+      "emoji": "🍂",
+      "category": "stack",
+      "genre": "action",
+      "bgm": "game",
+      "availability": "season:autumn"
+    },
+    {
+      "id": "curling-winter",
+      "name": "ふゆのカーリング大会",
+      "emoji": "🥌",
+      "category": "curling",
+      "genre": "sports",
+      "bgm": "sports",
+      "availability": "season:winter"
+    }
+  ]
+}

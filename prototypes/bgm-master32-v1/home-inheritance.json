@@ -1,0 +1,74 @@
+[
+  {
+    "id": "home-morning",
+    "source": "prototypes/home-four-themes-v2/audio/soyokaze-A.m4a",
+    "output": "audio/home-morning.m4a",
+    "sha256": "a4b0d8c6ab792f3ca0f0f775396b817639da8d998163da8e638e5f539610191a"
+  },
+  {
+    "id": "home-morning",
+    "source": "prototypes/home-four-themes-v2/audio/soyokaze-A.flac",
+    "output": "audio/home-morning.flac",
+    "sha256": "7ebb7ae1ec15476def24b2a6a3536e81a042c1d6fbc811402bd9f63706826caa"
+  },
+  {
+    "id": "home-morning",
+    "source": "prototypes/home-four-themes-v2/midi/soyokaze-A.mid",
+    "output": "midi/home-morning.mid",
+    "sha256": "dc1924f41401bf8a742786492e67268c5793de1945befb8af47e5b5118ed7cf2"
+  },
+  {
+    "id": "home-day",
+    "source": "prototypes/home-four-themes-v2/audio/current-A.m4a",
+    "output": "audio/home-day.m4a",
+    "sha256": "eb04c1c8eeb91e5a5334cd64862d49f1d500d973e10bd470b3c2e88fe5de9978"
+  },
+  {
+    "id": "home-day",
+    "source": "prototypes/home-four-themes-v2/audio/current-A.flac",
+    "output": "audio/home-day.flac",
+    "sha256": "ce9280cdfa8f51a4961330f3e35301f136e81f818826efef3c2baf340b82015c"
+  },
+  {
+    "id": "home-day",
+    "source": "prototypes/home-four-themes-v2/midi/current-A.mid",
+    "output": "midi/home-day.mid",
+    "sha256": "945e4549d7d347086f431e6619dfa3a95cbccd216a9bd7396d87db156479454c"
+  },
+  {
+    "id": "home-evening",
+    "source": "prototypes/home-four-themes-v2/audio/starlake-A.m4a",
+    "output": "audio/home-evening.m4a",
+    "sha256": "064e3fa199e3986971f471fd7dd703a9bd81d2e30129ab8e957a994fdd9dd3e8"
+  },
+  {
+    "id": "home-evening",
+    "source": "prototypes/home-four-themes-v2/audio/starlake-A.flac",
+    "output": "audio/home-evening.flac",
+    "sha256": "a0df0b30ad75bd094381e51c6914466746f6e8204cc1c8c544202a1627b96ace"
+  },
+  {
+    "id": "home-evening",
+    "source": "prototypes/home-four-themes-v2/midi/starlake-A.mid",
+    "output": "midi/home-evening.mid",
+    "sha256": "24ffd9012daf0e950e94d08490bf43e27dc3b846d67d0bf545fb41907aa2c96f"
+  },
+  {
+    "id": "home-night",
+    "source": "prototypes/home-four-themes-v2/audio/hoshizora-A.m4a",
+    "output": "audio/home-night.m4a",
+    "sha256": "fce1a02c8814a177455f3356a45ce05a4b87e06f6442b7f8fe02b9e27a31f015"
+  },
+  {
+    "id": "home-night",
+    "source": "prototypes/home-four-themes-v2/audio/hoshizora-A.flac",
+    "output": "audio/home-night.flac",
+    "sha256": "6057e65bf47327d034dbe298ffd4cfe2e05fca390513cc4746bded8058dc69fa"
+  },
+  {
+    "id": "home-night",
+    "source": "prototypes/home-four-themes-v2/midi/hoshizora-A.mid",
+    "output": "midi/home-night.mid",
+    "sha256": "94c18fe474cf4a5f233740eb2a1767518320802680455ab0b85a8a6e02a11160"
+  }
+]

@@ -1,0 +1,73 @@
+{
+ "id": "var-koro-album",
+ "title": "ころころじんせい（人生アルバム）",
+ "family": "koro",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2016000,
+ "seconds": 45.714286,
+ "flacFrames": 2016000,
+ "aacDecodedFrames": 2016256,
+ "integratedLUFS": -25.01,
+ "targetLUFS": -25,
+ "truePeakDbtp": -7.59,
+ "samplePeakDbfs": -7.59,
+ "clippedSamples": 0,
+ "monoLossDb": -0.55,
+ "sideToMidDb": -8.7,
+ "aacFlacCorrelation": 0.9997,
+ "loopJoinJump": 0.00144,
+ "loopJoinTypicalStep999": 0.0342,
+ "bands": {
+  "centroidHz": 654,
+  "low40_250": -5.9,
+  "lowmid250_800": -2.6,
+  "mid800_3k": -7.4,
+  "pres3k_6k": -19.0,
+  "air6k_12k": -32.9,
+  "top12k_20k": -55.1
+ },
+ "roleGainsDb": {
+  "bass": -15.9,
+  "accompaniment": -10.3,
+  "pad": -1.8,
+  "sparkle": -4.2
+ },
+ "tonalCorrection": [
+  [
+   "highshelf",
+   8000,
+   5.0,
+   0.7
+  ],
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ],
+  [
+   "peak",
+   3800,
+   -0.4,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 639,
+  "low40_250": -6.3,
+  "lowmid250_800": -2.3,
+  "mid800_3k": -7.8,
+  "pres3k_6k": -19.5,
+  "air6k_12k": -35.3,
+  "top12k_20k": -60.6
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 8.3,
+ "flacSha256": "dee00bdf976c8b770f3ee38b74cc2c936d31eb93a8985407279127995bce16a4",
+ "flacBytes": 6957753,
+ "aacSha256": "87c93073915b86007da5956862927bd41cfb30169e8b4ce7e091f37374a6fc67",
+ "aacBytes": 1119710,
+ "midiSha256": "efabe09abf0dab90195f7e2b6a3c89d16033efabbfc0c82521f2a7fd2aa908ab",
+ "problems": []
+}
