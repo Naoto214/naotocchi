@@ -1,0 +1,64 @@
+{
+ "id": "ohayo",
+ "title": "おはようの ひかり",
+ "family": "celebrate",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2116800,
+ "seconds": 48.0,
+ "flacFrames": 2116800,
+ "aacDecodedFrames": 2117632,
+ "integratedLUFS": -23.0,
+ "targetLUFS": -23,
+ "truePeakDbtp": -3.98,
+ "samplePeakDbfs": -3.98,
+ "clippedSamples": 0,
+ "monoLossDb": -0.68,
+ "sideToMidDb": -7.7,
+ "aacFlacCorrelation": 0.9996,
+ "loopJoinJump": 0.00271,
+ "loopJoinTypicalStep999": 0.05795,
+ "bands": {
+  "centroidHz": 589,
+  "low40_250": -5.9,
+  "lowmid250_800": -2.5,
+  "mid800_3k": -7.9,
+  "pres3k_6k": -19.9,
+  "air6k_12k": -25.2,
+  "top12k_20k": -35.8
+ },
+ "roleGainsDb": {
+  "doubling": -1.0,
+  "bass": -9.7,
+  "accompaniment": -5.4,
+  "pad": -3.6,
+  "percussion": 17.6
+ },
+ "tonalCorrection": [
+  [
+   "highshelf",
+   8000,
+   -1.4,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 595,
+  "low40_250": -5.9,
+  "lowmid250_800": -2.5,
+  "mid800_3k": -7.9,
+  "pres3k_6k": -19.9,
+  "air6k_12k": -24.6,
+  "top12k_20k": -34.4
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 14.4,
+ "flacSha256": "335ac8bc7aa07af8af3ee07edbf451410887326c549d42c047656e7e174a1764",
+ "flacBytes": 7482585,
+ "aacSha256": "de94277c2293d5e5a8ab6d60ec261c9496c2cdfca6cd49775f4a7384b2d9acd4",
+ "aacBytes": 1175581,
+ "midiSha256": "1bbbd35683108a9f73cf000e38d5c6219b79fdf923a1ac15b81e261932e61f24",
+ "problems": [],
+ "version": 3,
+ "removedNotes": 9
+}

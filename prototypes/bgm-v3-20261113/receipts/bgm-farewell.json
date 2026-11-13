@@ -1,0 +1,68 @@
+{
+ "id": "bgm-farewell",
+ "title": "farewell（おわかれ）",
+ "family": "farewell",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2822400,
+ "seconds": 64.0,
+ "flacFrames": 2822400,
+ "aacDecodedFrames": 2823168,
+ "integratedLUFS": -25.0,
+ "targetLUFS": -25,
+ "truePeakDbtp": -7.46,
+ "samplePeakDbfs": -7.48,
+ "clippedSamples": 0,
+ "monoLossDb": -0.54,
+ "sideToMidDb": -8.8,
+ "aacFlacCorrelation": 0.9998,
+ "loopJoinJump": 0.00312,
+ "loopJoinTypicalStep999": 0.03714,
+ "bands": {
+  "centroidHz": 544,
+  "low40_250": -6.6,
+  "lowmid250_800": -2.1,
+  "mid800_3k": -8.0,
+  "pres3k_6k": -23.9,
+  "air6k_12k": -49.6,
+  "top12k_20k": -65.1
+ },
+ "roleGainsDb": {
+  "bass": 3.9,
+  "accompaniment": 3.9,
+  "pad": 4.3
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   3.3,
+   0.7
+  ],
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 485,
+  "low40_250": -6.8,
+  "lowmid250_800": -1.7,
+  "mid800_3k": -9.5,
+  "pres3k_6k": -27.8,
+  "air6k_12k": -52.1,
+  "top12k_20k": -66.1
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 9.5,
+ "flacSha256": "63049a58d611f853e1306e97476f0234775bb43bb74a506287ac5cb499d78dd0",
+ "flacBytes": 9205338,
+ "aacSha256": "31fcdcc57e4908cb515fdd8ca170f44af0b43eba91d97f63d58c802e4a1e7039",
+ "aacBytes": 1553974,
+ "midiSha256": "e34f9dff3dd16c845d8ccf7b720acd37e2c75b7fdcee255f6457d4c35256102c",
+ "problems": [],
+ "version": 3,
+ "removedNotes": 0
+}
