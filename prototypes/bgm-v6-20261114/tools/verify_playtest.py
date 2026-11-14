@@ -2,6 +2,7 @@
 import pathlib,sys,json,hashlib,re,subprocess
 ROOT=pathlib.Path(__file__).resolve().parents[1];p=pathlib.Path(sys.argv[1]);base='f891b81478eb8f4425ac3dab11077d2df0e17540'
 sha=lambda f:hashlib.sha256(f.read_bytes()).hexdigest()
+assert len(list((ROOT/'receipts').glob('*.json')))==32
 assert (p/'bgm-v6/index.html').exists(),'V6 comparison must be present'
 for r in (ROOT/'receipts').glob('*.json'):
  d=json.loads(r.read_text());sid=r.stem;old=json.loads((ROOT.parent/'bgm-v5-20261115/receipts'/r.name).read_text())
@@ -17,6 +18,6 @@ for f in files:
  if f.startswith(('assets/bgm/','audio/v5/','audio/v6/','bgm-v6/')) or f=='bgm-v5/index.html':continue
  assert f.endswith('.html'),f
  old=subprocess.check_output(['git','show',base+':'+f],cwd=p,text=True);new=(p/f).read_text()
- norm=lambda t:re.sub(r'(assets/bgm/catalog\.js\?v=)[a-f0-9]+',r'\1HASH',t)
+ norm=lambda t:re.sub(r'(assets/bgm/catalog\.js)(?:\?v=[a-f0-9]+)?',r'\1',t)
  assert norm(old)==norm(new),'non-BGM change '+f
 print('PASS: 32 V6 runtime files, 32 V5 archive files, 32 V6 comparison files; game behavior/catalog fields unchanged')

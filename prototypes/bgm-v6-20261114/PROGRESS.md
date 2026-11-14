@@ -32,3 +32,18 @@ Plan: docs/superpowers/plans/2026-11-14-bgm-v6.md.
 ## Group 5 checkpoint
 - var-poyo-chapter, var-koro-goal, var-koro-album, var-card-late, var-card-win, var-flight, var-ohayo-hatch2 rendered and verified (7/7).
 - All 32 audio pairs measured. Publication pending final player/provenance review fixes and WebKit checks.
+
+## Final review and fixes
+- Independent read-only reviewer: no critical issue; baseline files unchanged, saved scores reproduce arrange_v6 output, role normalization retains phrase contrasts, async load tokens are sound.
+- Fixed loop-off-after-wrap reset: browser regression RED -> fix captures position using previous loop state -> rerun pending.
+- Fixed sample provenance gap with canonical run_v6.py -> check_samples.py before cache/render. Altered-sample rejection test RED -> GREEN; 386 actual hashes match. Cached home quartet skipped without needless regeneration.
+- Ruling: retain verified V5 renderer/sample behavior; do not change inherited shifted-sample cache during this music pass. Cost: standalone vs batch rerenders can differ in retained sample tails. Existing verified masters and hashes are authoritative.
+- Deferred minor (inherited): V2 Library.shifted cache key omits maxlen. Documented in README; no change to protected V2 code.
+- Review limits: subjective beauty, listening and physical iPhone behavior are not inferred from automated tests.
+
+## Ready for playtest publication
+- All 32 receipts checked: max true peak -4.04 dBTP, clips 0, mono loss at worst -1.31 dB, LUFS target error <=0.01 LU, AAC/FLAC correlation >=0.9995, limiter gain reduction 0 dB.
+- Loop-off regression: browser RED -> GREEN in Chromium and WebKit. Five Python tests GREEN. All 64 V5/V6 AAC files decoded in both engines.
+- Sample wrapper verified all 386 actual files and skipped four valid home caches. No unnecessary rerenders.
+- Playtest prepared and scope-verified: V5 archive + fixed V6 comparison audio, 32 runtime replacements, catalog cache references (including subapps), V5 comparison points at preserved V5.
+- Final review Important items resolved. Physical iPhone and subjective listening remain unverified; see BROWSER.md.

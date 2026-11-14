@@ -1,0 +1,5 @@
+PASS: 386 actual sample SHA-256 values match pinned manifest
+skip home-morning (receipt と ハッシュが 一致)
+skip home-day (receipt と ハッシュが 一致)
+skip home-evening (receipt と ハッシュが 一致)
+skip home-night (receipt と ハッシュが 一致)
