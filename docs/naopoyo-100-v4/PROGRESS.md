@@ -1,0 +1,25 @@
+# VERSION 4 比較試作・進捗
+
+開始HEAD: 25ffea1ff038def49bf1178a6dd0676d6265cfa6。PR #535はDraft、baseはdesign/naopoyo-gimmick-atlas-v1-20261109 (fce9067b41ed4c6b6640791ec13bd610c5b6bde3)。開始時に基準以後の変更なし。main/base/既存履歴を変更しない。
+
+## 実施方針
+ユーザー指定の独立比較試作。prototypes/naopoyo-100/v4/に表示とデータ、docs/naopoyo-100-v4/に検証を追加する。V3の100面、絵本8ページ、解法、正式入力・物理・保存・画像は変更しない。既存TouchController、Presentation、GestureHistory、gameMove、探索器を直接利用する。採用前の箱デザインは比較画面だけで切替。各段階で検証後commit/pushする。
+
+## 第1段階 調査
+- 履歴: 100面V1 → 正式操作復元V2 → 通路Aと280ms演出 → 盤面幅固定 → V3 22面再設計・並べ替え → 水域進入監査修正。
+- 31系統×8成長段階: character-world-master.v1.js。成長名・描画モーションは能力仕様ではない。
+- PR532 SPEC.mdは蝶06/蝉06/甲虫05からの飛行を候補と明記。掘削と地中二層は未定義・保留。飛行強度は追加しない。
+- 正式chapter1 engineのcanAscendは足場を検査し、自由飛行を持たない。100面adapterはfish/penguinの水域移動、配置条件付きの風・上昇気流・地下転送・地中通路を実装。31系統の飛行・掘削を正式能力として実装したとは扱えない。
+- 箱: params条件に合う個体が縦横へ1マス押す。weight(既定2)は床判定に使い、押す段階とは独立。引けない。出口/針/門/水/他の箱/仲間へ押せない。風・水流・重力は箱を運ばない。箱は針・重力の支えを止める。
+- ワープ: 操作個体のみ、空いた対へ1手1回。対が占有されていれば発動しない。
+- 原素材: rescue/sprite-data.mjs、charactersの原PNG、木製看板webp、正式出口/通路描画を利用する。6環境は既存Canvas方式で形状を描き分ける比較素材とする。
+- 既存検証: V3 validation.json/solutions.json/critical.json、v3/search.mjs。100面合法解と絵本8ページを再生し、探索上限を必須性証明と混同しない。
+- 本人限定Sites: appgprj_6af1a5042c5c8191be1e9c356976ef6f、所有者のみ、外部閲覧者0。既存V3入口を保持し、v4への独立URLを追加する。
+
+## 実装上の限界
+自由飛行・掘削は正式エンジン無変更条件と両立しないため、実装済みとはしない。能力比較は既存の水域・条件付き気流・地中通路で検証し、未承認能力の正式化は別途判断対象とする。iPhone Safari実機評価は本人確認が必要。
+
+## 再開
+各段階のコミットとこの文書を参照。push前にoriginのHEADを再確認し、非fast-forward時は停止して差分を確認。V3を一括更新しない。mainマージ・本番Pages公開は禁止。
+
+第1段階検証: Node回帰214/214成功（100面と絵本の再生を含む）。初回の1失敗はsparse checkoutに検証資料が不足したENOENTで、資料取得後成功。保護対象のSHA-256をprotected-sha256.jsonへ保存。
