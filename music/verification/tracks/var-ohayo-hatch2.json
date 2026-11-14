@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "fingerprint": "6b1bb2925397ada3c121a3267a4103a8f200fa14b76dc563c3b1ad3600373619",
+  "analysis": {
+    "basis": "Imported passed PR549/550 measurements with exact pinned Git blob and SHA256 match; no new rendering or measurement claim",
+    "aac": {
+      "integratedLUFS": -18.4,
+      "truePeakDbtp": -6.4,
+      "lraLU": 2.9,
+      "momentaryMax": -16.2,
+      "shortTermMax": -17.1
+    },
+    "originalReceipt": "music/provenance/receipts/var-ohayo-hatch2.json"
+  },
+  "checkedAt": "2026-11-14"
+}

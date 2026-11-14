@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "fingerprint": "1c168617d6fe6ddac1753167857808ba134a006d62a536f6f2a7b5c4b8282ee7",
+  "analysis": {
+    "basis": "Imported passed PR549/550 measurements with exact pinned Git blob and SHA256 match; no new rendering or measurement claim",
+    "aac": {
+      "integratedLUFS": -24.8,
+      "truePeakDbtp": -6.6,
+      "lraLU": 3.6,
+      "momentaryMax": -19.7,
+      "shortTermMax": -22.1
+    },
+    "originalReceipt": "music/provenance/receipts/var-koro-album.json"
+  },
+  "checkedAt": "2026-11-14"
+}

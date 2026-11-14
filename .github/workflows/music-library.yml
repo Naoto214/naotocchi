@@ -1,0 +1,28 @@
+name: Music library and protected BGM
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: pip install -r tools/music/requirements.txt
+      - run: python tools/music/library.py verify
+      - run: python tools/music/library.py build --check
+      - run: python tools/music/sync_pages.py
+      - run: python -m unittest discover -s tests/music -v
+        env:
+          OPENBLAS_NUM_THREADS: '1'
+      - run: node --test tests/bgm-production-test.cjs tests/bgm-v2-integration-test.cjs tests/bgm-scope-test.cjs tests/audio-regression-test.cjs

@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "fingerprint": "10d0c2209f59f451cddd922249c0fa352a21b281865548dddfeba14ef33fef70",
+  "analysis": {
+    "basis": "Imported passed PR549/550 measurements with exact pinned Git blob and SHA256 match; no new rendering or measurement claim",
+    "aac": {
+      "integratedLUFS": -23.9,
+      "truePeakDbtp": -9.5,
+      "lraLU": 2.3,
+      "momentaryMax": -21.2,
+      "shortTermMax": -22.2
+    },
+    "originalReceipt": "music/provenance/receipts/bgm-race.json"
+  },
+  "checkedAt": "2026-11-14"
+}

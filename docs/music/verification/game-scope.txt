@@ -1,0 +1,17 @@
+✔ only exact BGM hooks differ from latest approved game bytes (10.610854ms)
+✔ unrelated script, UI and game changes cannot pass the BGM scope exception (11.638985ms)
+✔ production entry activates approved art and egg presentation without preview save keys (4.585672ms)
+✔ all thirteen default scenes use approved source images and valid navigation (2.149951ms)
+✔ production distribution retains every existing main file and includes only approved home art (14.6413ms)
+✔ QA measures the fixed notification slot rather than the optional message contents (0.214063ms)
+✔ QA measures the visible comment region for historical and current layouts (19.741619ms)
+✔ production runtime harness loads the exact shipped presenter and model (134.255012ms)
+✔ latest-main game catalogs, conversations, formal images and other games stay byte-identical (3372.871494ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3633.248423

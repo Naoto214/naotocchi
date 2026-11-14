@@ -1,0 +1,26 @@
+{
+  "vsco": {
+    "name": "VSCO 2 Community Edition",
+    "commit": "440300901dfe9275fd84e0b7763af1f8443ae62e",
+    "license": "CC0-1.0",
+    "reviewed": true,
+    "reference": "https://versilian-studios.com/vsco-community/",
+    "licenseFile": "music/provenance/LICENSE-VSCO-CC0.txt",
+    "licenseSha256": "36ffd9dc085d529a7e60e1276d73ae5a030b020313e6c5408593a6ae2af39673",
+    "sampleManifest": "music/provenance/samples.json",
+    "sampleManifestSha256": "68b89bbe89aad16d4a1bf97e2cd7843eb1c5522135e22fbd1d6cd5a3c69db121",
+    "adoptionReference": "PR549 approved by user for production2026-11-14"
+  },
+  "karoryfer": {
+    "name": "Karoryfer x bigcat Cello — Kamila Borowiak",
+    "commit": "6fd75fbfc1dbb3109bf26220ba1adea46188a18b",
+    "license": "CC0-1.0",
+    "reviewed": true,
+    "reference": "https://github.com/sfzinstruments/karoryfer-bigcat.cello/tree/6fd75fbfc1dbb3109bf26220ba1adea46188a18b",
+    "licenseFile": "music/provenance/LICENSE-KARORYFER-CC0.txt",
+    "licenseSha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+    "sampleManifest": "music/provenance/samples.json",
+    "sampleManifestSha256": "68b89bbe89aad16d4a1bf97e2cd7843eb1c5522135e22fbd1d6cd5a3c69db121",
+    "adoptionReference": "PR549 approved by user for production2026-11-14"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "fingerprint": "3277611e775a9ba833f4a657f20bc385c24090daaaea31d22767ceef348742bd",
+  "analysis": {
+    "basis": "Imported passed PR549/550 measurements with exact pinned Git blob and SHA256 match; no new rendering or measurement claim",
+    "aac": {
+      "integratedLUFS": -22.8,
+      "truePeakDbtp": -5.2,
+      "lraLU": 5.5,
+      "momentaryMax": -15.7,
+      "shortTermMax": -19.2
+    },
+    "originalReceipt": "music/provenance/receipts/home-night.json"
+  },
+  "checkedAt": "2026-11-14"
+}

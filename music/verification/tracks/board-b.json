@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "fingerprint": "799d7269006ac9e409a6395760f4af2147b36b19fcfc8014f61568844c469285",
+  "analysis": {
+    "basis": "Imported passed PR549/550 measurements with exact pinned Git blob and SHA256 match; no new rendering or measurement claim",
+    "aac": {
+      "integratedLUFS": -26.9,
+      "truePeakDbtp": -10.4,
+      "lraLU": 3.3,
+      "momentaryMax": -21.7,
+      "shortTermMax": -24.8
+    },
+    "originalReceipt": "music/provenance/receipts/board-b.json"
+  },
+  "checkedAt": "2026-11-14"
+}

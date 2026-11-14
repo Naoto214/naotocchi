@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "fingerprint": "57a0df4a046d85f8962351831f8a923f99be93e5589d96b4eaefa49aa3acbcc8",
+  "analysis": {
+    "basis": "Imported passed PR549/550 measurements with exact pinned Git blob and SHA256 match; no new rendering or measurement claim",
+    "aac": {
+      "integratedLUFS": -22.4,
+      "truePeakDbtp": -6.7,
+      "lraLU": 6.0,
+      "momentaryMax": -18.4,
+      "shortTermMax": -20.4
+    },
+    "originalReceipt": "music/provenance/receipts/var-koro-goal.json"
+  },
+  "checkedAt": "2026-11-14"
+}
