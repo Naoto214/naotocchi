@@ -1,0 +1,129 @@
+{
+ "id": "var-koro-album",
+ "title": "ころころじんせい（人生アルバム）",
+ "family": "koro",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2016000,
+ "seconds": 45.714286,
+ "flacFrames": 2016000,
+ "aacDecodedFrames": 2016256,
+ "integratedLUFS": -25.0,
+ "targetLUFS": -25,
+ "truePeakDbtp": -7.74,
+ "samplePeakDbfs": -7.75,
+ "clippedSamples": 0,
+ "monoLossDb": -1.21,
+ "sideToMidDb": -4.9,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.0015,
+ "loopJoinTypicalStep999": 0.03738,
+ "bands": {
+  "centroidHz": 739,
+  "low40_250": -6.8,
+  "lowmid250_800": -3.6,
+  "mid800_3k": -4.6,
+  "pres3k_6k": -23.1,
+  "air6k_12k": -44.6,
+  "top12k_20k": -60.1
+ },
+ "roleGainsDb": {
+  "bass": -20.6,
+  "accompaniment": -13.3,
+  "pad": -2.6
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   1.9,
+   0.7
+  ],
+  [
+   "peak",
+   3800,
+   0.3,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 708,
+  "low40_250": -6.6,
+  "lowmid250_800": -3.5,
+  "mid800_3k": -4.8,
+  "pres3k_6k": -24.9,
+  "air6k_12k": -45.5,
+  "top12k_20k": -60.1
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 3.0,
+ "flacSha256": "7572d9e752253e52410cd542a57d59f1c9d463bb963ea1835b64015d94e34e27",
+ "flacBytes": 6396910,
+ "aacSha256": "e756619d0f8d6c6c8aa3c4a5a17bf231eff365525fae8bd16280fccf6a726f57",
+ "aacBytes": 1113923,
+ "midiSha256": "3858f80cdafd99233a28bd43a887273a136a9b661982691e6f8e61e2d48abe40",
+ "problems": [],
+ "version": 6,
+ "sourceFingerprint": "77b9f903273f82b07ebcb72d8bac33f825d9e816879fc00167a37b55cf343dff",
+ "v6": {
+  "method": "explicit phrase curves and existing voice windows",
+  "profile": {
+   "loop": true,
+   "arc": [
+    [
+     0,
+     -0.8
+    ],
+    [
+     4,
+     -0.1
+    ],
+    [
+     7,
+     -0.45
+    ],
+    [
+     10,
+     0.45
+    ],
+    [
+     12.8,
+     1.1
+    ],
+    [
+     15,
+     -0.15
+    ],
+    [
+     16,
+     -0.8
+    ]
+   ],
+   "voiceWindows": [],
+   "change": "13小節後半の思い出を頂点に、アルバムをそっと閉じる。",
+   "analysis": [
+    "旋律: 67音、最高音MIDI 86。発音順・音高・時刻・長さは保存。",
+    "頂点・強弱: 13小節後半の思い出を頂点に、アルバムをそっと閉じる。",
+    "和声: 弦の厚みを後半に置きハープの透明感を残す。音高の再生成は行わない。",
+    "バランス: V5の音域別補正を保持。伴奏の強弱は旋律の約半分、低音はさらに小さく。",
+    "対旋律: 新設しない。既存旋律と和声で十分なため。",
+    "掛け合い: ピアノ旋律を一貫して主役に。",
+    "反復: 既存の1周構成を保持。",
+    "長時間の心地よさ: 用途別LUFSを保持し、強い圧縮や高域の追加で盛り上げない。聴感は試聴で評価。",
+    "ループ: 曲末の表情を冒頭へ戻す。V5の残響折返しを保持し、実音源の接続を測定。"
+   ]
+  },
+  "newNotes": 0,
+  "baseline": "0cf8100d3ad85888f5e32f670a56631ecb4e82ce"
+ },
+ "pianoAttackSoftenDb": 2.0,
+ "sideScale": 0.723,
+ "removedNotes": 10,
+ "pedalNotes": 131,
+ "v5": {
+  "melodyLevelSdBefore": 3.64,
+  "melodyLevelSdAfter": 0.85,
+  "melodyLevelRangeBefore": 13.4,
+  "melodyLevelRangeAfter": 3.9
+ }
+}

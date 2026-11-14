@@ -28,3 +28,7 @@ Plan: docs/superpowers/plans/2026-11-14-bgm-v6.md.
 ## Group 4 checkpoint
 - explore-2, board-b, fishing-a, lullaby-a, jingle-achieve, jingle-card-lose, var-poyo-clear rendered and verified (7/7).
 - System WebKit libraries are unavailable; required Debian packages extracted to task-local work/ only for browser validation.
+
+## Group 5 checkpoint
+- var-poyo-chapter, var-koro-goal, var-koro-album, var-card-late, var-card-win, var-flight, var-ohayo-hatch2 rendered and verified (7/7).
+- All 32 audio pairs measured. Publication pending final player/provenance review fixes and WebKit checks.
