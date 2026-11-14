@@ -47,3 +47,4 @@ Plan: docs/superpowers/plans/2026-11-14-bgm-v6.md.
 - Sample wrapper verified all 386 actual files and skipped four valid home caches. No unnecessary rerenders.
 - Playtest prepared and scope-verified: V5 archive + fixed V6 comparison audio, 32 runtime replacements, catalog cache references (including subapps), V5 comparison points at preserved V5.
 - Final review Important items resolved. Physical iPhone and subjective listening remain unverified; see BROWSER.md.
+- Publication metadata check found catalog sha256 still pointed to V5 although playback URL already used V6. Added failing hash assertion, updated all catalog SHA-256 fields, verified GREEN; runtime fields remain unchanged. Follow-up playtest commit before final live verification.

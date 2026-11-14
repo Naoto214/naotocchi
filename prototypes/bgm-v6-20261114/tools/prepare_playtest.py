@@ -19,7 +19,7 @@ shutil.copytree(ROOT/'compare',p/'bgm-v6',dirs_exist_ok=True)
 f=p/'bgm-v5/index.html';t=f.read_text();t=t.replace("5: '../assets/bgm/'","5: '../audio/v5/'");assert "5: '../audio/v5/'" in t;f.write_text(t)
 f=p/'assets/bgm/catalog.js';t=f.read_text().replace('VERSION 5','VERSION 6')
 for r in receipts:
- sid=r.stem;d=json.loads(r.read_text());t=re.sub(re.escape(sid)+r'\.m4a\?v=[a-f0-9]+',sid+'.m4a?v='+d['aacSha256'][:12],t)
+ sid=r.stem;d=json.loads(r.read_text());old=json.loads((ROOT.parent/'bgm-v5-20261115/receipts'/r.name).read_text());t=t.replace(old['aacSha256'],d['aacSha256']);t=re.sub(re.escape(sid)+r'\.m4a\?v=[a-f0-9]+',sid+'.m4a?v='+d['aacSha256'][:12],t)
 f.write_text(t);h=sha(f)[:12]
 for f in p.rglob('*.html'):
  if '.git' in f.parts:continue

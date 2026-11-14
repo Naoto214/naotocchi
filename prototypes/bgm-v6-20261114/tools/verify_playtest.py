@@ -9,8 +9,11 @@ for r in (ROOT/'receipts').glob('*.json'):
  assert sha(p/'audio/v5'/f'{sid}.m4a')==old['aacSha256']
  assert sha(p/'audio/v6'/f'{sid}.m4a')==d['aacSha256']
  assert sha(p/'assets/bgm'/f'{sid}.m4a')==d['aacSha256']
-cat=(p/'assets/bgm/catalog.js').read_text();oldcat=subprocess.check_output(['git','show',base+':assets/bgm/catalog.js'],cwd=p,text=True)
-normalize=lambda t:re.sub(r'\.m4a\?v=[a-f0-9]+','.m4a',t).replace('VERSION 6','VERSION 5')
+cat=(p/'assets/bgm/catalog.js').read_text();
+for r in (ROOT/'receipts').glob('*.json'):
+ d=json.loads(r.read_text());assert d['aacSha256'] in cat,'catalog SHA must match audio: '+r.stem
+oldcat=subprocess.check_output(['git','show',base+':assets/bgm/catalog.js'],cwd=p,text=True)
+normalize=lambda t:re.sub(r'"sha256": "[a-f0-9]+"','"sha256": "HASH"',re.sub(r'\.m4a\?v=[a-f0-9]+','.m4a',t)).replace('VERSION 6','VERSION 5')
 assert normalize(cat)==normalize(oldcat),'catalog fields changed beyond audio cache key'
 assert "5: '../audio/v5/'" in (p/'bgm-v5/index.html').read_text(),'V5 comparison must remain V5'
 files=subprocess.check_output(['git','diff','--name-only',base],cwd=p,text=True).splitlines()
