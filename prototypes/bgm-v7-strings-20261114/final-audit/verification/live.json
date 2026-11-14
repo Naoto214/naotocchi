@@ -1,0 +1,162 @@
+{
+ "checkedAtUTC": "2026-11-14T06:31:48.176143+00:00",
+ "tlsValidation": true,
+ "files": [
+  {
+   "path": "bgm-v7-final/tracks.js",
+   "status": 200,
+   "sha256": "b7bdecc16b3a64a6dd3c761a3c123373a66e346dd5950ffba91debd0ee6117ae",
+   "bytes": 1343
+  },
+  {
+   "path": "bgm-v7-final/output-check.html",
+   "status": 200,
+   "sha256": "058d59853df0ac95508139781219f130433d39f042af2c509616c9de75998329",
+   "bytes": 2536
+  },
+  {
+   "path": "bgm-v7-final/output-check.js",
+   "status": 200,
+   "sha256": "58d420a867f489f65d6d851d90c334081222505a1ab69675163910c36dcad8ea",
+   "bytes": 3478
+  },
+  {
+   "path": "bgm-v7-final/index.html",
+   "status": 200,
+   "sha256": "c84e2fbf47f82446fd7c6f5242c63b10f7b0f23d2eb4842e433a0b6c121b884b",
+   "bytes": 7051
+  },
+  {
+   "path": "bgm-v7-final/sources.html",
+   "status": 200,
+   "sha256": "2247d8ca519f4c3fc92a25b1dbd80b249befc244333bb876cd76d6e34f12567a",
+   "bytes": 2401
+  },
+  {
+   "path": "bgm-v7-final/player.js",
+   "status": 200,
+   "sha256": "fe1f9aab5e0d5787a21dab0117201ba79591ae1514dfbbd410dd9c039cdfd34b",
+   "bytes": 9913
+  },
+  {
+   "path": "audio/v7-final/home-morning.m4a",
+   "status": 200,
+   "sha256": "a3c94016ab15fe8020536f00808539f2943a8c1d51b5bb06afe21de7724411ba",
+   "bytes": 2038294
+  },
+  {
+   "path": "audio/v7-final/home-night.m4a",
+   "status": 200,
+   "sha256": "e2c494316c04e22fc449c2c3866aca36658fa34dd9d57d4e943caa94d84b7e5a",
+   "bytes": 1230262
+  },
+  {
+   "path": "audio/v7-final/home-evening.m4a",
+   "status": 200,
+   "sha256": "b3b1a668f16e15ef83f7152d8ab29abdf598cd8c93d217cb1d7e3fa604d82e3b",
+   "bytes": 1597712
+  },
+  {
+   "path": "audio/v7-final/home-day.m4a",
+   "status": 200,
+   "sha256": "6535b366a0d766ffd6cb8439446a41b4f65137ea4f91ed8cd78efea9115a6cfa",
+   "bytes": 1462461
+  },
+  {
+   "path": "audio/v7-strings/b2/home-morning.m4a",
+   "status": 200,
+   "sha256": "be43822a1c03f0af1796d8f5b7979ac2da4da3e69de8e7c673629883df1eb11f",
+   "bytes": 2033228
+  },
+  {
+   "path": "audio/v7-strings/b2/home-night.m4a",
+   "status": 200,
+   "sha256": "cd796805ff1fe54202b9a95af5e7ab8a3936c676874354a5acf82ea02971a411",
+   "bytes": 1230206
+  },
+  {
+   "path": "audio/v7-strings/b2/home-evening.m4a",
+   "status": 200,
+   "sha256": "4c1aa4fba92e22ccd3e67e1ede2d7d1246945ecfd2fe2e5676b82126467d6935",
+   "bytes": 1595867
+  },
+  {
+   "path": "audio/v7-strings/b2/home-day.m4a",
+   "status": 200,
+   "sha256": "bf9512e182f75b62fb026ee78921a1b98ff874992e8fef03220a35929c4141d2",
+   "bytes": 1463996
+  },
+  {
+   "path": "bgm-v7-strings/tracks.js",
+   "status": 200,
+   "sha256": "ef15daffd843d65ca9f5a53890bf347e6b34a677a8210135fe1f534f42f41c3d",
+   "bytes": 1402
+  },
+  {
+   "path": "bgm-v7-strings/dry-output-check.js",
+   "status": 200,
+   "sha256": "74dabcd8b901819ea530a909e144508b8b10d82734797e0277b14d81d08c3d0a",
+   "bytes": 3522
+  },
+  {
+   "path": "bgm-v7-strings/dry-tracks.js",
+   "status": 200,
+   "sha256": "5587045bca60f0cb4fe52d07d7818b3ad62e7a11283bf2f62de517a30e51da88",
+   "bytes": 1119
+  },
+  {
+   "path": "bgm-v7-strings/output-check.html",
+   "status": 200,
+   "sha256": "db1185626f58121dc6aaa2705f91d4377becb6b54baa8e7ecc52f150b295c1be",
+   "bytes": 2586
+  },
+  {
+   "path": "bgm-v7-strings/output-check.js",
+   "status": 200,
+   "sha256": "d1ae76c7ee86ecd55346216a36933e4b07647600b899476374697d27c54dd72a",
+   "bytes": 3502
+  },
+  {
+   "path": "bgm-v7-strings/dry.html",
+   "status": 200,
+   "sha256": "0c939284e377a80500efc54a2c0e33b6e16d340a836bde9556be83774bfc05c0",
+   "bytes": 7148
+  },
+  {
+   "path": "bgm-v7-strings/index.html",
+   "status": 200,
+   "sha256": "cbfc7243f18f7a9f0aad8243c0d4a3894f8060ee0c14d7c41f3730d05340b5a8",
+   "bytes": 6992
+  },
+  {
+   "path": "bgm-v7-strings/dry-player.js",
+   "status": 200,
+   "sha256": "a46bdfde096d769944362d602c7e9acc625452a5cf7f75ec98ef90639ceab3ce",
+   "bytes": 9959
+  },
+  {
+   "path": "bgm-v7-strings/sources.html",
+   "status": 200,
+   "sha256": "4687f8531b7ab41759d94280889553a40a2d46ca187d7c784badf57a15a4dcd4",
+   "bytes": 2209
+  },
+  {
+   "path": "bgm-v7-strings/player.js",
+   "status": 200,
+   "sha256": "e66d1a6edc71b845015794456ea716c0381348b20e7eb783c47160b51785a29a",
+   "bytes": 9936
+  },
+  {
+   "path": "bgm-v7-strings/dry-output-check.html",
+   "status": 200,
+   "sha256": "ab1ea908930242c629bac831f3d86183e9dd888118edfa990be5434ee8dacf2c",
+   "bytes": 2600
+  },
+  {
+   "path": "bgm-v7-final/",
+   "status": 200,
+   "sha256": "c84e2fbf47f82446fd7c6f5242c63b10f7b0f23d2eb4842e433a0b6c121b884b",
+   "bytes": 7051
+  }
+ ]
+}

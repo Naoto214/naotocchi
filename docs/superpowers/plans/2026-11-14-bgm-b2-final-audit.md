@@ -15,5 +15,5 @@ No original/master/score edits; no production or other28 render. No new dynamics
 - [x] Review alternative source licenses and representative raw piano recordings.
 - [x] Red short-then-long regression; isolated full-source piano cache; green fresh-note equality, unchanged short notes and release.
 - [x] Reconstruct old piano and freeze mix parameters; measure correction and decide whether comparison is warranted.
-- [ ] If justified: home4 only, output verification, additive B2/B2+ page, browser regression and independent review.
-- [ ] Save report, GitHub checks and candidate status; wait for final approval.
+- [x] If justified: home4 only, output verification, additive B2/B2+ page, browser regression and independent review.
+- [x] Save report, GitHub checks and candidate status; wait for final approval.

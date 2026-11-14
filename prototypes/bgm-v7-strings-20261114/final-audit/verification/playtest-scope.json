@@ -1,0 +1,17 @@
+{
+ "before": "1f221c3d012c229ff29e37feb7d2b9de3f63776f",
+ "after": "e01d84bcb891847c8918daa263b96f01ebef069b",
+ "changes": [
+  "A\taudio/v7-final/home-day.m4a",
+  "A\taudio/v7-final/home-evening.m4a",
+  "A\taudio/v7-final/home-morning.m4a",
+  "A\taudio/v7-final/home-night.m4a",
+  "A\tbgm-v7-final/index.html",
+  "A\tbgm-v7-final/output-check.html",
+  "A\tbgm-v7-final/output-check.js",
+  "A\tbgm-v7-final/player.js",
+  "A\tbgm-v7-final/sources.html",
+  "A\tbgm-v7-final/tracks.js"
+ ],
+ "existingPathsChanged": 0
+}
