@@ -15,3 +15,5 @@ Baseline: 146383829818fc986926c05700986705d7241858 / PR #546.
 - Independent read-only review: no blocking findings. Ready for Draft checkpoint and additive playtest publication.
 - Saved all8 variants to independent Draft PR #547, baseV6, headcodex/bgm-v7-chamber. Initial source/audio checkpoints646a72a +1e64c2a.
 - Published additive-only playtest commit c6bfd8e984f7d51f483967c238aff54dabbef97c (12new paths). Existing file changes0, checked via git objects despite sparse checkout. Pages run43552522268 awaiting deployment completion.
+- Pages run43552522268 completed successfully. Public HTTP200/SHA256 checks16/16 passed with TLS verification. Fixed URL https://naoto214.github.io/naotocchi-playtest/bgm-v7/ .
+- STOP: user A/B selection pending. Remaining28, V7 game integration, production main, protected old PRs/masters untouched.

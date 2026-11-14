@@ -5,7 +5,7 @@ V6のピアノと自然な強弱を保持し、ホーム4曲の音源・室内�
 基準: [Draft PR #546](https://github.com/Naoto214/naotocchi/pull/546)、`146383829818fc986926c05700986705d7241858`。
 [独立Draft PR #547](https://github.com/Naoto214/naotocchi/pull/547)。
 作業ブランチ: `codex/bgm-v7-chamber`（V6ブランチをbaseとする独立Draft）。
-試聴予定固定URL: https://naoto214.github.io/naotocchi-playtest/bgm-v7/
+公開済み固定URL: https://naoto214.github.io/naotocchi-playtest/bgm-v7/
 
 ## 4曲の方向性
 
@@ -49,7 +49,7 @@ V6は新しい音符を追加しておらず、V5の楽器を表情付けで前�
 
 比較ページはスマートフォン幅のChromium・Linux WebKitで4行・12AACの復号、停止中/再生中の3案切替、共通ゲイン、シーク、連続切替、34秒ジャンプ、ループ切替、曲変更、横はみ出しを検証済み。実機iPhone Safariは未確認。WebKit実行に必要な共有ライブラリを別ディレクトリへ用意し、ldconfigに依存する事前検査だけを省略して実ブラウザーを起動した。TLS検証は無効化していない。
 
-公開時は試遊版の `bgm-v7/` と `audio/v7/` に追加するだけ。ゲームの音源・再生コード・セーブデータ・V6/V5のアーカイブを変更しない。配信後のHTTP/SHA-256照合と変更範囲を `verification/` に記録する。
+試遊版の `bgm-v7/` と `audio/v7/` に追加済み。ゲームの音源・再生コード・セーブデータ・V6/V5のアーカイブを変更しない。配信後のHTTP/SHA-256照合と変更範囲を `verification/` に記録する。
 
 独立した読み取り専用レビューで、保護対象、音域・和声、音源キャッシュ、夜の一致、比較操作を確認し、阻害事項なし。レビュー担当は録音の聴感と実機iPhoneを確認していない。
 
@@ -71,3 +71,9 @@ python prototypes/bgm-v7-20261114/tools/verify_v7.py
 以後は `run_v7.py`（`--prepare-piano`なし）。実サンプルとピアノ中間ファイルを検証してから、楽譜・音響コード・出典・完成音源が一致する曲をスキップする。夜Aは原盤をコピーし、再エンコードしない。各案の `scores-*.json` は保護照合のため32曲を含むが、今回書き出すのはホーム4曲だけ。
 
 ブラウザーテストは `tools/test_compare.cjs`。`COMPARE_URL` でローカルまたは公開URLを指定できる。ローカルでは `bgm-v7/` に `compare/`、`audio/v6/` と `audio/v7/` に各音源ディレクトリを配信する。
+
+## 公開確認
+
+Pages [run43552522268](https://github.com/Naoto214/naotocchi-playtest/actions/runs/43552522268)成功。公開commit `c6bfd8e984f7d51f483967c238aff54dabbef97c`。固定URLから比較4ファイル・A/B8音源・V6ホーム4音源をTLS有効のHTTPで取得し、全16件のSHA-256一致を確認。`verification/live-published.json` に記録。既存ファイル変更0は `verification/playtest-scope.json`。
+
+**現在の状態: ホーム4曲のA/B選択待ち。残り28曲の制作・V7ゲーム統合は未着手。**

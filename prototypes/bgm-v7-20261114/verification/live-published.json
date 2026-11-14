@@ -1,0 +1,119 @@
+{
+ "checkedAtUtc": "2026-11-14T03:38:37.512712+00:00",
+ "fixedUrl": "https://naoto214.github.io/naotocchi-playtest/bgm-v7/",
+ "tlsVerified": true,
+ "files": [
+  {
+   "url": "https://naoto214.github.io/naotocchi-playtest/bgm-v7/tracks.js",
+   "status": 200,
+   "bytes": 1625,
+   "sha256": "a2f77480c60be24cd42a17c1a7106b42f4bfd014e0c32c40bc090e7b2fe510fe",
+   "contentType": "application/javascript; charset=utf-8"
+  },
+  {
+   "url": "https://naoto214.github.io/naotocchi-playtest/bgm-v7/index.html",
+   "status": 200,
+   "bytes": 5690,
+   "sha256": "822c84859cb0268b425fe48acade66328ec423ab271e0b3a337868e41f2a59ee",
+   "contentType": "text/html; charset=utf-8"
+  },
+  {
+   "url": "https://naoto214.github.io/naotocchi-playtest/bgm-v7/sources.html",
+   "status": 200,
+   "bytes": 1958,
+   "sha256": "2d95da6f3a921eca623eddc1403663b0310b02208dc5bbdbd50ccf2e53fe0ebc",
+   "contentType": "text/html; charset=utf-8"
+  },
+  {
+   "url": "https://naoto214.github.io/naotocchi-playtest/bgm-v7/player.js",
+   "status": 200,
+   "bytes": 5778,
+   "sha256": "fc56e2361bd6098f7870cf02d463a0d3b6180e256eaebe11d160354f75de27e0",
+   "contentType": "application/javascript; charset=utf-8"
+  },
+  {
+   "url": "https://naoto214.github.io/naotocchi-playtest/audio/v7/a/home-morning.m4a",
+   "status": 200,
+   "bytes": 2034700,
+   "sha256": "1f270c9371693afdbc35a9b25eb6e55ae805cb6e1916562403f137c0a5f5176c",
+   "contentType": "audio/mp4"
+  },
+  {
+   "url": "https://naoto214.github.io/naotocchi-playtest/audio/v7/a/home-night.m4a",
+   "status": 200,
+   "bytes": 1229486,
+   "sha256": "dad57b4946fbfb8f4c11557ffbb092771efb7605363a3811113fba9a41806f35",
+   "contentType": "audio/mp4"
+  },
+  {
+   "url": "https://naoto214.github.io/naotocchi-playtest/audio/v7/a/home-evening.m4a",
+   "status": 200,
+   "bytes": 1601266,
+   "sha256": "af08b801f234b6972c25e212e03b420a0807b3bf11ce34ecf48bee14ce7d39b2",
+   "contentType": "audio/mp4"
+  },
+  {
+   "url": "https://naoto214.github.io/naotocchi-playtest/audio/v7/a/home-day.m4a",
+   "status": 200,
+   "bytes": 1458632,
+   "sha256": "f92bf512387c72287b5b0a03901c9728a9ce49b112ab7e36ee17fd627a8edf7f",
+   "contentType": "audio/mp4"
+  },
+  {
+   "url": "https://naoto214.github.io/naotocchi-playtest/audio/v7/b/home-morning.m4a",
+   "status": 200,
+   "bytes": 2035295,
+   "sha256": "6607d7d56875d9fe4feabffed161f5218303970a83a595b407723f677cc50b6b",
+   "contentType": "audio/mp4"
+  },
+  {
+   "url": "https://naoto214.github.io/naotocchi-playtest/audio/v7/b/home-night.m4a",
+   "status": 200,
+   "bytes": 1231025,
+   "sha256": "65d42d62b6b7bfa246d892969e72dba4a2c9f94719f0eacff43ac64c1dfcbcd9",
+   "contentType": "audio/mp4"
+  },
+  {
+   "url": "https://naoto214.github.io/naotocchi-playtest/audio/v7/b/home-evening.m4a",
+   "status": 200,
+   "bytes": 1598111,
+   "sha256": "2af575a7dbe3f1767f382addf70c1363f60f9a954d4e86ea581d73fcec646051",
+   "contentType": "audio/mp4"
+  },
+  {
+   "url": "https://naoto214.github.io/naotocchi-playtest/audio/v7/b/home-day.m4a",
+   "status": 200,
+   "bytes": 1461614,
+   "sha256": "fca8cb5f87ba5a366d275479bbb5d9c2b214709493f2d9b4f7299b7184ed1a74",
+   "contentType": "audio/mp4"
+  },
+  {
+   "url": "https://naoto214.github.io/naotocchi-playtest/audio/v6/home-morning.m4a",
+   "status": 200,
+   "bytes": 2033332,
+   "sha256": "22830bed238b556029f520adf6ac168e4af0b1967d51aaf01b4cd417cc167a05",
+   "contentType": "audio/mp4"
+  },
+  {
+   "url": "https://naoto214.github.io/naotocchi-playtest/audio/v6/home-day.m4a",
+   "status": 200,
+   "bytes": 1459519,
+   "sha256": "b071685c4abd272924b5bd0046d497e7fdad9c9afd2d70de4deda8a38674419f",
+   "contentType": "audio/mp4"
+  },
+  {
+   "url": "https://naoto214.github.io/naotocchi-playtest/audio/v6/home-evening.m4a",
+   "status": 200,
+   "bytes": 1594260,
+   "sha256": "99a8b22167a4431bc1f959c7851b097c8199074f6b6758814ef47256d18e1aef",
+   "contentType": "audio/mp4"
+  },
+  {
+   "url": "https://naoto214.github.io/naotocchi-playtest/audio/v6/home-night.m4a",
+   "status": 200,
+   "bytes": 1229486,
+   "sha256": "dad57b4946fbfb8f4c11557ffbb092771efb7605363a3811113fba9a41806f35",
+   "contentType": "audio/mp4"
+  }
+ ]
+}
