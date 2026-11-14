@@ -1,0 +1,77 @@
+{
+ "id": "var-koro-goal",
+ "title": "ころころじんせい（ゴール）",
+ "family": "koro",
+ "loop": false,
+ "sampleRate": 44100,
+ "frames": 430920,
+ "seconds": 9.771429,
+ "flacFrames": 430920,
+ "aacDecodedFrames": 431104,
+ "integratedLUFS": -23.0,
+ "targetLUFS": -23,
+ "truePeakDbtp": -6.8,
+ "samplePeakDbfs": -6.8,
+ "clippedSamples": 0,
+ "monoLossDb": -1.22,
+ "sideToMidDb": -4.9,
+ "aacFlacCorrelation": 0.9998,
+ "loopJoinJump": 0.00025,
+ "loopJoinTypicalStep999": 0.04792,
+ "bands": {
+  "centroidHz": 710,
+  "low40_250": -6.4,
+  "lowmid250_800": -3.5,
+  "mid800_3k": -4.9,
+  "pres3k_6k": -23.0,
+  "air6k_12k": -44.6,
+  "top12k_20k": -59.9
+ },
+ "roleGainsDb": {
+  "bass": -18.8,
+  "accompaniment": -11.6,
+  "pad": -0.4
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   2.1,
+   0.7
+  ],
+  [
+   "peak",
+   3800,
+   0.3,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 676,
+  "low40_250": -6.2,
+  "lowmid250_800": -3.4,
+  "mid800_3k": -5.2,
+  "pres3k_6k": -25.1,
+  "air6k_12k": -45.6,
+  "top12k_20k": -59.9
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 4.8,
+ "flacSha256": "49a89f0866addd0dd1223d24fe2e7a24adc81a151f970b392f96403c1cca6539",
+ "flacBytes": 1397997,
+ "aacSha256": "8543bb885c9225278e4f93ffa761c1a09322d02fa94c46a632a035d690508b92",
+ "aacBytes": 235882,
+ "midiSha256": "4ad3086b2776714dd87b6d1077d25b3d35fe4d31f2b873c81b4cfdd7ad2f8cef",
+ "problems": [],
+ "version": 5,
+ "pianoAttackSoftenDb": 2.0,
+ "sideScale": 0.761,
+ "removedNotes": 27,
+ "pedalNotes": 31,
+ "v5": {
+  "melodyLevelSdBefore": 4.15,
+  "melodyLevelSdAfter": 0.96,
+  "melodyLevelRangeBefore": 13.3,
+  "melodyLevelRangeAfter": 3.6
+ }
+}
