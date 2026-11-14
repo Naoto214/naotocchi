@@ -6,7 +6,7 @@ import fs from 'node:fs';import vm from 'node:vm';
 test('every admitted quick ID exists in the original registry; legacy typo is resume-only',()=>{
  const realm=vm.createContext({});vm.runInContext(fs.readFileSync(new URL('../../prototypes/life-sugoroku/official/quick.js',import.meta.url),'utf8'),realm);
  const ids=Array.from(realm.installNaotocchiQuick({}).QUICK_GAMES,g=>g.id);
- assert.equal(ids.length,50);assert.equal(POOLS.quick.length,45);
+ assert.equal(ids.length,50);assert.equal(POOLS.quick.length,50);
  for(const id of POOLS.quick)assert.ok(ids.includes(id),id);
  assert.equal(POOLS.quick.includes('defend'),false);
  const s=E.createGame({seed:3,rounds:15,players:['dog','cat','frog','penguin'].map(id=>({character:{id},human:true}))});

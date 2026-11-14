@@ -1,0 +1,964 @@
+{
+  "baselineMain": "408c72e6ebef71da3eab33cfb268c7494117aaaa",
+  "source": "V6 classification retained; formal games bytes updated by merged #516. Candidate duration/controls must be rechecked before admission.",
+  "normalSupported": 15,
+  "normalRemaining": 85,
+  "rows": [
+    {
+      "id": "road-themed",
+      "name": "ロードラン",
+      "family": "方向移動・回避",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "controls": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "falling-block-puzzle",
+      "name": "ブロックパズル",
+      "family": "パズル",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "controls": "したのパッドを左右になぞって移動、下になぞると速く下がる。タップで回転。⏬で一気に落とそう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "crane-game-3d",
+      "name": "クレーンゲーム",
+      "family": "物理・軌道",
+      "baseSeconds": [
+        45
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "controls": "ボタンをおしている間、アームが動く。景品の真ん中ではなそう。落ちても、左手前の落とし口に入ればゲット!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "pinball-physics",
+      "name": "ピンボール",
+      "family": "物理・軌道",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "controls": "「はっしゃ」を長おしでためて、はなす。フリッパーはおしっぱなしで上がる。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "haunted-house-3d",
+      "name": "おばけやしき3D",
+      "family": "方向移動・回避",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "controls": "したのパッドを左右になぞって向きを変え、上になぞって進む。かぎを取ると、ゆうれいが追いかけてくる!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "bowling-3d",
+      "name": "ボウリング",
+      "family": "物理・軌道",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "controls": "ボールから上へスワイプ!速くはらうほど強く、ななめにはらうとねらいが変わる。したのパッドを左右になぞって立ち位置を変えよう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "archery-3d",
+      "name": "アーチェリー",
+      "family": "物理・軌道",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "controls": "画面をおさえて後ろへ引っぱり、はなすと発射。○が当たるところ（風の分も入っている）。まっすぐ下へ、いっぱいに引くとよく当たる。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "dragDecorate-cake",
+      "name": "ケーキデコレーション",
+      "family": "ドラッグ・なぞり",
+      "baseSeconds": [
+        16
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "共通ドラッグは再利用可能。対象の配置条件・重なり判定・DOM操作の記録を未検証",
+      "controls": "下のトッピングを指でドラッグして、点線の場所に置く。ヒントに合ったトッピングを選ぼう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "dragDecorate-bento",
+      "name": "おべんとうづくり",
+      "family": "ドラッグ・なぞり",
+      "baseSeconds": [
+        11
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "共通ドラッグは再利用可能。対象の配置条件・重なり判定・DOM操作の記録を未検証",
+      "controls": "見本を覚えてね!見本が消えたら、同じ場所に具をドラッグしてもどそう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "p3-space",
+      "name": "うちゅうフライト3D",
+      "family": "方向移動・回避",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "controls": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "p3-drive",
+      "name": "ハイウェイ3D",
+      "family": "レース",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "道路投影・曲率・速度制御の共通観測と操作が未実装",
+      "controls": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "fp-dungeon",
+      "name": "ダンジョン3D",
+      "family": "方向移動・回避",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "controls": "したのパッドを左右になぞって向きを変え、上になぞって進む（下でさがる）。画面をドラッグしても見まわせる。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "race-3d",
+      "name": "カーレース3D",
+      "family": "レース",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "道路投影・曲率・速度制御の共通観測と操作が未実装",
+      "controls": "アクセルをおしっぱなしで加速。カーブでは外にふられるので、したのパッドを左右になぞっておさえよう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "rhythm-highway-3d",
+      "name": "リズムハイウェイ",
+      "family": "リズム",
+      "baseSeconds": [
+        22
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "レーン/拍の可視観測と入力時刻の評価が未実装",
+      "controls": "ノーツが手前のラインに重なった瞬間に、そのレーンのボタンをタップ!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "tilt-maze-3d",
+      "name": "たまころがし迷路",
+      "family": "物理・軌道",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "controls": "盤か したのパッドをなぞってかたむける。穴に落ちないようにゴールへ進もう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "space-gunner-3d",
+      "name": "スペースガンナー",
+      "family": "シューティング",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "照準・弾道・回避・アクションボタンを組み合わせる判断が未実装",
+      "controls": "したのパッドか画面をなぞってねらいを合わせ、画面をタップするか「うつ!」で発射。赤くなった敵は攻撃直前!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "mini-golf-physics",
+      "name": "ミニゴルフ",
+      "family": "物理・軌道",
+      "baseSeconds": [
+        40
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "controls": "ボールから後ろへ引っぱって、はなすとパット。引っぱる長さで強さが決まる。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "real-fishing",
+      "name": "ほんかくさかなつり",
+      "family": "物理・軌道",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "controls": "ボタンを長おしでためて、はなすとキャスト。うきがしずんだら「あわせる」!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "basketball-3d",
+      "name": "バスケ3D",
+      "family": "物理・軌道",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "controls": "ボールを上へはらってシュート。はらっている間に出る白い輪が、ボールの落ちる場所。緑になったらリングの真上!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "pingpong-3d",
+      "name": "卓球3D",
+      "family": "反射・球技",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "共通追跡ドラッグは再利用可能。球軌道・返球タイミング・相手側ルールの専用判断が未実装",
+      "controls": "画面をなぞってラケットを動かす。ボールが来た場所にラケットを置くと返せる。先に4点取ろう!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "chain-puzzle",
+      "name": "れんさパズル",
+      "family": "パズル",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "controls": "したのパッドを左右になぞって動かし、タップで回転、下になぞると速く落ちる。同じ色を4こつなげると消える。消えたあとに落ちてつながれば、れんさ!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "street-fight",
+      "name": "かくとうバトル",
+      "family": "連打・複合操作",
+      "baseSeconds": [
+        25
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "連打だけではルールを満たさない。資源・対象・アクションボタンの判断が未実装",
+      "controls": "したのパッドを左右になぞって動く。パンチは速い。キックは強くて、相手をふき飛ばす。相手が光ったらガード（長おし）!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "free-kick-3d",
+      "name": "フリーキック",
+      "family": "物理・軌道",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "controls": "ボールから上へはらってシュート。速くはらうほど強く、ななめにはらうとねらいが変わる。途中で曲げるとカーブ!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "tower-defense",
+      "name": "タワーディフェンス",
+      "family": "連打・複合操作",
+      "baseSeconds": [
+        90
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。連打だけではルールを満たさない。資源・対象・アクションボタンの判断が未実装",
+      "controls": "茶色い道の外にタワーを建てよう。タワーを選び、もう一度タップすると強化。敵が来る前にそなえて!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "roguelike-dungeon",
+      "name": "ローグライク",
+      "family": "方向移動・回避",
+      "baseSeconds": [
+        90
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "controls": "したのパッドをなぞって1マス動くと敵も動く。敵にぶつかって攻撃。🧪は回復、⚔️は攻撃力アップ、🪜で次の階へ。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "grand-prix-3d",
+      "name": "グランプリ",
+      "family": "レース",
+      "baseSeconds": [
+        30
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "道路投影・曲率・速度制御の共通観測と操作が未実装",
+      "controls": "アクセルを長おし、したのパッドを左右になぞってハンドル操作。青いパッドでブースト、オイルはすべる。ライバルをぬいて1位をめざせ!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "sky-shooter",
+      "name": "スカイシューター",
+      "family": "シューティング",
+      "baseSeconds": [
+        27
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "照準・弾道・回避・アクションボタンを組み合わせる判断が未実装",
+      "controls": "したのパッドか画面をなぞって機体を動かそう。弾は自動で出るよ。Pを取るとパワーアップ。ピンチではボム!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "jump-quest",
+      "name": "ジャンプクエスト",
+      "family": "方向移動・回避",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "controls": "したのパッドを左右になぞって走り、ジャンプは長おしで高く。敵は上からふみ、とげは飛びこえて、🚩まで!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "push-puzzle",
+      "name": "そうこばん",
+      "family": "パズル",
+      "baseSeconds": [
+        60
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "controls": "したのパッドをなぞって1マスずつ動く。箱（📦）をおして★のマスへ。引っぱれないので、おす向きを考えよう。↩で1手もどせる。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "reversi-6",
+      "name": "オセロ",
+      "family": "盤上・カード",
+      "baseSeconds": [
+        60
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。合法手生成・相手手番・勝敗比較・60秒内の正式終了が未検証",
+      "controls": "光っているマスをタップ。相手の石をはさむと、全部自分の色に変わる。角を取ると強い!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "billiards-6",
+      "name": "ビリヤード",
+      "family": "物理・軌道",
+      "baseSeconds": [
+        40
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "controls": "白いボールから後ろへ引っぱって、はなすとショット。引っぱる長さで強さが変わる。ガイド線を見てねらおう!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "animal-shogi",
+      "name": "どうぶつしょうぎ",
+      "family": "盤上・カード",
+      "baseSeconds": [
+        60
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。合法手生成・相手手番・勝敗比較・60秒内の正式終了が未検証",
+      "controls": "こまをタップして、光ったマスへ。🦁を取るか、自分の🦁が一番奥まで行けば勝ち。取ったこまは、下の手持ちから打てる。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "minesweeper-8",
+      "name": "マインスイーパー",
+      "family": "パズル",
+      "baseSeconds": [
+        60
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "controls": "マスをタップで開く。数字は、まわり8マスにあるばくだんの数。あやしいマスは🚩モードか長おしで、旗を立てよう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "baseball-batting",
+      "name": "やきゅう",
+      "family": "タイミング",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "既存の可視目標・反応遅延基盤は再利用可能。ゲーム固有の発射/投球判断と正式終了を未検証",
+      "controls": "したのパッドか画面を横になぞって、バットを球のコースへ。球がホームベースに来る瞬間にスイング!真ん中で当てるとホームラン。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "ring-flight-3d",
+      "name": "リングフライト3D",
+      "family": "方向移動・回避",
+      "baseSeconds": [
+        25
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "controls": "したのパッドか画面をなぞって飛行機を動かす。リングの真ん中をくぐると○。雲に当たるとスピードダウン。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "bubble-shooter",
+      "name": "バブルシューター",
+      "family": "パズル",
+      "baseSeconds": [
+        32
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "controls": "画面をおさえてねらいを決め、はなすと発射。同じ色が3こつながると消える。かべではね返して、裏からねらうのもアリ。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "catapult-castle",
+      "name": "カタパルト",
+      "family": "物理・軌道",
+      "baseSeconds": [
+        30
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "controls": "ボールをおさえて後ろへ引っぱり、はなすと発射。ブロックをくずして👻をたおそう。高い場所から落としてもOK。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "connect-four",
+      "name": "コネクトフォー",
+      "family": "盤上・カード",
+      "baseSeconds": [
+        60
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。合法手生成・相手手番・勝敗比較・60秒内の正式終了が未検証",
+      "controls": "落としたい列をタップ。たて・横・ななめに4つならべたら勝ち。相手（🟡）の3つならびはふさごう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "puzzle-2048",
+      "name": "2048",
+      "family": "パズル",
+      "baseSeconds": [
+        45
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "controls": "したのパッドか画面をスワイプすると、全部のタイルがすべる。同じ数がぶつかると、足されて1つに。大きい数を角にためるのがコツ。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "frogger-road",
+      "name": "かえるのおうちがえり",
+      "family": "方向移動・回避",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "controls": "したのパッドか画面をスワイプして1マス飛ぶ（パッドのタップで前へ）。車に当たらないように道路をわたろう。川は🪵の上だけ安全。空いている🏠へ!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "ski-jump",
+      "name": "スキージャンプ",
+      "family": "タイミング",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "既存の可視目標・反応遅延基盤は再利用可能。ゲーム固有の発射/投球判断と正式終了を未検証",
+      "controls": "ボタンでスタート。台のはし（赤い線）でタップして飛び出す!空中では長おしで前かがみになり、風の目印（▽）に重ねよう。着地直前にタップでテレマーク。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "submarine-3d",
+      "name": "サブマリン3D",
+      "family": "方向移動・回避",
+      "baseSeconds": [
+        25
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "controls": "したのパッドか画面をなぞって潜水艦を動かす。💎を取り、岩やクラゲはよける。酸素メーターが減ったら🫧を取ろう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "match-3",
+      "name": "フルーツマッチ3",
+      "family": "パズル",
+      "baseSeconds": [
+        32
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "controls": "となり合うフルーツを、スワイプか2回のタップで入れかえる。たて・横に3つ以上そろうと消える。4つ・5つや、れんさで大きくかせごう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "gomoku-9",
+      "name": "五目ならべ",
+      "family": "盤上・カード",
+      "baseSeconds": [
+        60
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。合法手生成・相手手番・勝敗比較・60秒内の正式終了が未検証",
+      "controls": "マスをタップすると仮置き。同じ場所をもう一度タップで決定。たて・横・ななめに5つならべたら勝ち。相手の3つ・4つならびはふさごう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "tank-battle",
+      "name": "タンクバトル",
+      "family": "シューティング",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "照準・弾道・回避・アクションボタンを組み合わせる判断が未実装",
+      "controls": "したのパッドをなぞった向きに動き、🔥で発射（画面タップでもOK）。向いている方へ弾が飛ぶ。レンガのかべは、こわして道を作れる。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "tennis-rally",
+      "name": "テニス",
+      "family": "反射・球技",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "共通追跡ドラッグは再利用可能。球軌道・返球タイミング・相手側ルールの専用判断が未実装",
+      "controls": "したのパッドを左右になぞって動き、ボールが近づいたらスイング（画面タップでもOK）!低い場所で打つと速いドライブ、高い場所で打つとロブ。相手のコートに落とそう。3ポイント先取り。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "picross-5",
+      "name": "ピクロス",
+      "family": "パズル",
+      "baseSeconds": [
+        75
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "controls": "数字は、その列で続けてぬるマスの数。「2 1」なら2つぬって、間を空けて1つぬる。タップでぬる。✕モードか長おしで、ぬらない印をつけよう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "darts-board",
+      "name": "ダーツ",
+      "family": "タイミング",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "既存の可視目標・反応遅延基盤は再利用可能。ゲーム固有の発射/投球判断と正式終了を未検証",
+      "controls": "画面をおさえてねらいを動かし、はなすと投げる。おさえている間は手がゆれるので、早めにはなすのがコツ。真ん中のブルは50点!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "hang-glider-3d",
+      "name": "ハンググライダー3D",
+      "family": "方向移動・回避",
+      "baseSeconds": [
+        25
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "controls": "したのパッドか画面をなぞって左右に動き、上下で機首を上げ下げ。下げると速く進むけど、高さが減る。🌀の上昇気流で高さをかせぎ、🎈を集めよう。地面につくと終わり。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "bomber-maze",
+      "name": "ボンバー",
+      "family": "方向移動・回避",
+      "baseSeconds": [
+        30
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "controls": "したのパッドをなぞった向きに動き、💣（画面タップでもOK）でばくだんを置く。2秒で十字に爆発!自分もまきこまれるので、はなれよう。レンガからあいてむが出る。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "blackjack-21",
+      "name": "ブラックジャック",
+      "family": "盤上・カード",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "合法手生成・相手手番・勝敗比較・60秒内の正式終了が未検証",
+      "controls": "カードの合計を21に近づける。21をこえたら負け。Aは1か11、絵札は10。ヒットで1枚引き、スタンドで勝負。ディーラーは17以上で止まる。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "pipe-connect",
+      "name": "パイプつなぎ",
+      "family": "パズル",
+      "baseSeconds": [
+        50
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "controls": "パイプをタップすると90°回る。左の🚰から右の🌻まで、水が通る道を作ろう。少ないタップでつなぐと高得点。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "track-field",
+      "name": "りくじょう",
+      "family": "連打・複合操作",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "連打だけではルールを満たさない。資源・対象・アクションボタンの判断が未実装",
+      "controls": "◀と▶を交互に素早くタップして走る!100mのあとは幅とび。白いラインの手前でジャンプボタンをおして、はなすと飛ぶ。長くおすと高く飛べる。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "voxel-mine",
+      "name": "ボクセルマイニング",
+      "family": "連打・複合操作",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "連打だけではルールを満たさない。資源・対象・アクションボタンの判断が未実装",
+      "controls": "したのパッドをなぞった向きに1マスほる（ゆびをおさえたままだとほり続ける）。石は時間がかかる。⚫石炭→⛓鉄→🟡金→💎ダイヤは、深いほど多い。🔥マグマにさわるとダメージ!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "asteroids-classic",
+      "name": "アステロイド",
+      "family": "シューティング",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "照準・弾道・回避・アクションボタンを組み合わせる判断が未実装",
+      "controls": "したのパッドを左右になぞって回り、上になぞると進む。🔥か画面のタップで打つ。岩をわると、小さく速くなる。画面のはしはつながっている。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "yacht-dice",
+      "name": "ヨット",
+      "family": "盤上・カード",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "合法手生成・相手手番・勝敗比較・60秒内の正式終了が未検証",
+      "controls": "「ふる」は1ターンに全部で3回。サイコロをタップでキープし、残りだけふり直す。役をタップして記録。同じ役は1回だけ。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "doodle-jump",
+      "name": "ぴょんぴょんジャンプ",
+      "family": "方向移動・回避",
+      "baseSeconds": [
+        25
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "controls": "したのパッドか画面を横になぞって動き、台に降りよう。ジャンプは自動。緑はふつう、青は動く、茶色は1回でこわれる。🔴バネは大ジャンプ。左右のはしはつながっていて、1回だけ落ちても助かるよ。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "curling-ice",
+      "name": "カーリング",
+      "family": "物理・軌道",
+      "baseSeconds": [
+        45
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "controls": "🔴を上へスワイプ。なぞった長さの先にある●が、石の止まる場所の目安。投げたあとは連打でのばせる。真ん中に一番近い石のチームが得点。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "jenga-tower",
+      "name": "ジェンガ",
+      "family": "物理・軌道",
+      "baseSeconds": [
+        45
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "controls": "タップしたブロックをぬいて、上につみ直すよ。真ん中を残すと安定し、はしだけだとくずれやすい。安定度（%）を見ながら選ぼう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "checkers-6",
+      "name": "チェッカー",
+      "family": "盤上・カード",
+      "baseSeconds": [
+        60
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。合法手生成・相手手番・勝敗比較・60秒内の正式終了が未検証",
+      "controls": "こまをタップして、光ったマスへ。ななめ前に1マス進める。相手のこまを飛びこすと取れる（続けて飛べる）。奥まで行くと👑キングになり、後ろにも進める。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "halfpipe-skate",
+      "name": "ハーフパイプ",
+      "family": "物理・軌道",
+      "baseSeconds": [
+        26
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "controls": "下り坂で「ポンプ」を長おしすると加速。勢いがつくと、ふちから飛び出す。空中で「トリック」をおすと1回転（何度もおせる）。着地までに回りきらないと転倒!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "domino-run",
+      "name": "ドミノたおし",
+      "family": "物理・軌道",
+      "baseSeconds": [
+        45
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "controls": "道の途中でドミノが欠けている（点線）。手持ちのドミノを、欠けた場所にタップして置こう。全部つながったら「おす!」。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "sudoku-mini",
+      "name": "ナンプレ",
+      "family": "パズル",
+      "baseSeconds": [
+        90
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "controls": "難易度により4×4（1〜4）か6×6（1〜6）。たて・横・太いわくの中に、それぞれの数字を1つずつ入れる。マスをタップで選び、下の数字ボタンで入れよう。まちがうと赤く光る。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "mancala-kalah",
+      "name": "マンカラ",
+      "family": "盤上・カード",
+      "baseSeconds": [
+        60
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。合法手生成・相手手番・勝敗比較・60秒内の正式終了が未検証",
+      "controls": "下にある自分の穴をタップ。たねを1つずつ、自分のストアの方向へまく。最後のたねが右の自分のストアに入ると、もう1回。空の自分の穴に落ちると、向かいのたねももらえる。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "plane-landing",
+      "name": "ひこうき着陸",
+      "family": "物理・軌道",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "controls": "緑の線にのせて飛べば▲に着陸できる。接地の直前に機首を上げるとふわっと浮いて◎までのびる（これが高得点）。風で流されるので線にのせ直そう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "dot-eater",
+      "name": "ドットイーター",
+      "family": "方向移動・回避",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "controls": "したのパッドか画面をスワイプして進む。ドットを全部食べよう。⭐を食べると、6秒間はおばけを食べ返せる!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "missile-command",
+      "name": "ミサイルコマンド",
+      "family": "シューティング",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "照準・弾道・回避・アクションボタンを組み合わせる判断が未実装",
+      "controls": "空をタップすると、一番近い基地から迎撃ミサイルが飛ぶ。爆発の輪に敵のミサイルをまきこんで、町を守れ!基地の弾はウェーブごとに補給される。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "area-claim",
+      "name": "じんとり",
+      "family": "方向移動・回避",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "controls": "したのパッドをなぞった向きにふちを動き、中へ線を引いてかこもう。60%取ればクリア。✨が線にふれると1ミス。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "solitaire-klondike",
+      "name": "ソリティア",
+      "family": "盤上・カード",
+      "baseSeconds": [
+        90
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。合法手生成・相手手番・勝敗比較・60秒内の正式終了が未検証",
+      "controls": "カードをタップで選び、置きたい列か右上の台をタップ。選んだカードをもう1回タップすると台へ。山札はタップでめくる。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "hit-blow",
+      "name": "ヒット&ブロー",
+      "family": "パズル",
+      "baseSeconds": [
+        50
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "controls": "答えは6色のうち4色（同じ色は2つない）。色を4つ選んで「けってい」。🎯ヒット＝色も場所も当たり。💨ブロー＝色はあるけど場所がちがう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "lunar-lander",
+      "name": "ルナランダー",
+      "family": "物理・軌道",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "controls": "したのパッドを左右になぞってかたむけ、🔥で逆噴射。平らなパッド（×2/×3）に、まっすぐ、ゆっくり降りよう。速すぎたり、ななめだとクラッシュ。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "shanghai-tiles",
+      "name": "上海",
+      "family": "パズル",
+      "baseSeconds": [
+        75
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "原本の設定が60秒以上（終了演出もある）。時間/ルールを変更せず正式終了する条件の確認が必要。盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "controls": "上に牌がなく、左か右が空いている牌だけ取れる。同じ絵の2枚をタップして消そう。必ず解ききれるならびになっている。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "beach-volley",
+      "name": "ビーチバレー",
+      "family": "反射・球技",
+      "baseSeconds": [
+        28
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "共通追跡ドラッグは再利用可能。球軌道・返球タイミング・相手側ルールの専用判断が未実装",
+      "controls": "すなの○がボールの落ちる場所。したのパッドを左右になぞって、そこへ走ろう。ふれると高く上がる（うけ）。🏐アタックをおしながらふれるとスパイク!先に4点取ろう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "slide-puzzle",
+      "name": "スライドパズル",
+      "family": "パズル",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "盤面の可視観測と合法手探索が未実装。ブロック/パイプ/マッチ群から次段階で検証",
+      "controls": "空いたマスのとなりのピースを、タップかスワイプですべらせる。左上から順番にならべて、絵を完成させよう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "sugoroku-race",
+      "name": "すごろく",
+      "family": "盤上・カード",
+      "baseSeconds": [
+        50
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "合法手生成・相手手番・勝敗比較・60秒内の正式終了が未検証",
+      "controls": "「🎲とめる」をおすと、回っているサイコロが止まる。ねらって止めよう!➕は進む、➖はもどる、⭐はコイン、💤は1回休み。先にゴールへ!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "road-city",
+      "name": "とかいラン",
+      "family": "方向移動・回避",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "controls": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "downhill-mountain",
+      "name": "やまの岩場のぼり",
+      "family": "方向移動・回避",
+      "baseSeconds": [
+        24
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "controls": "◀▶か画面のタップで岩をえらぼう。針が緑のわくに入ったら「つかむ」!明るい岩はつかみやすい。3段ごとの休憩で、にぎる力がもどる。12段の山頂をめざそう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "downhill-snow",
+      "name": "ゆきのゲレンデ",
+      "family": "方向移動・回避",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "controls": "したのパッドを左右になぞるか、画面のドラッグでハンドル操作。🚩🚩の間を通り、🪵はジャンプでこえよう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "fishing-sea",
+      "name": "うみのさかなつり",
+      "family": "物理・軌道",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "controls": "ボタンを長おしでためて、はなすとキャスト。うきがしずんだら「あわせる」!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "fishing-deepsea",
+      "name": "しんかいフィッシング",
+      "family": "物理・軌道",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "controls": "ボタンを長おしでためて、はなすとキャスト。うきがしずんだら「あわせる」!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "fishing-river",
+      "name": "みずべのさかなつり",
+      "family": "物理・軌道",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "controls": "ボタンを長おしでためて、はなすとキャスト。うきがしずんだら「あわせる」!",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "road-jungle",
+      "name": "ジャングルラン",
+      "family": "方向移動・回避",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "controls": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "road-desert",
+      "name": "さばくラン",
+      "family": "方向移動・回避",
+      "baseSeconds": [],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "controls": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "ring-flight-summer",
+      "name": "なつのうみフライト",
+      "family": "方向移動・回避",
+      "baseSeconds": [
+        25
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "方向入力は共通化済み。障害物の可視観測、移動速度、アクションボタンの専用判断が未実装",
+      "controls": "したのパッドか画面をなぞって飛行機を動かす。リングの真ん中をくぐると○。雲に当たるとスピードダウン。",
+      "status": "not implemented; not in draw pool"
+    },
+    {
+      "id": "curling-winter",
+      "name": "ふゆのカーリング大会",
+      "family": "物理・軌道",
+      "baseSeconds": [
+        45
+      ],
+      "durationNote": "ソースのmgDuration引数。総所要時間は未測定。空配列は可変／手番／別関数で要追加確認",
+      "reason": "力・角度・姿勢・3D投影または釣りの張力判断が未実装。無作為入力では採用しない",
+      "controls": "🔴を上へスワイプ。なぞった長さの先にある●が、石の止まる場所の目安。投げたあとは連打でのばせる。真ん中に一番近い石のチームが得点。",
+      "status": "not implemented; not in draw pool"
+    }
+  ]
+}
