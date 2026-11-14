@@ -17,3 +17,9 @@ Baseline: 146383829818fc986926c05700986705d7241858 / PR #546.
 - Published additive-only playtest commit c6bfd8e984f7d51f483967c238aff54dabbef97c (12new paths). Existing file changes0, checked via git objects despite sparse checkout. Pages run43552522268 awaiting deployment completion.
 - Pages run43552522268 completed successfully. Public HTTP200/SHA256 checks16/16 passed with TLS verification. Fixed URL https://naoto214.github.io/naotocchi-playtest/bgm-v7/ .
 - STOP: user A/B selection pending. Remaining28, V7 game integration, production main, protected old PRs/masters untouched.
+
+## 追加調査: 本体スピーカー無音
+
+- ユーザー報告: イヤホンを外すと無音だがバー進行。消音OFF、YouTube正常。
+- speaker-check-1候補: playbackセッション、context/session中断管理、同位置/ゲインのcontext再生成、直接AACの標準プレーヤー診断。詳細OUTPUT-INVESTIGATION.md。
+- Chromium/WebKit制御テストと既存比較の回帰は合格。実機iPhone本体出音は未確認。**不具合は未完了・実機結果待ち。** 音源・編曲・ゲームは変更なし。

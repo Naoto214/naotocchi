@@ -1,0 +1,12 @@
+AssertionError [ERR_ASSERTION]: suspended output must not keep reporting playback
+
+true !== false
+
+    at /workspace/work/bgm-v7/prototypes/bgm-v7-20261114/tools/test_output.cjs:13:11 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: true,
+  expected: false,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
