@@ -1,0 +1,121 @@
+{
+ "baseline": "146383829818fc986926c05700986705d7241858",
+ "homeVariants": 8,
+ "unchangedOtherTracks": 28,
+ "mainMelodyNotes": 3158,
+ "placements": 50,
+ "nightAExactV6": true,
+ "syntheticLoops": 0,
+ "nativeStringNotes": 147,
+ "maximumTransposeSemitones": 2,
+ "audio": [
+  {
+   "variant": "a",
+   "id": "home-morning",
+   "integratedLUFS": -23.0,
+   "truePeakDbtp": -4.62,
+   "monoLossDb": -1.25,
+   "clippedSamples": 0,
+   "loopJoinJump": 0.00016,
+   "loopJoinTypicalStep999": 0.04638,
+   "aacFlacCorrelation": 0.9999,
+   "pianoGlobalGain": 1.0185913880541169,
+   "aacTruePeakDbtp": -4.76
+  },
+  {
+   "variant": "a",
+   "id": "home-day",
+   "integratedLUFS": -23.0,
+   "truePeakDbtp": -5.41,
+   "monoLossDb": -1.19,
+   "clippedSamples": 0,
+   "loopJoinJump": 0.00201,
+   "loopJoinTypicalStep999": 0.04313,
+   "aacFlacCorrelation": 0.9999,
+   "pianoGlobalGain": 1.0221155606000725,
+   "aacTruePeakDbtp": -5.36
+  },
+  {
+   "variant": "a",
+   "id": "home-evening",
+   "integratedLUFS": -23.0,
+   "truePeakDbtp": -3.78,
+   "monoLossDb": -1.35,
+   "clippedSamples": 0,
+   "loopJoinJump": 0.00349,
+   "loopJoinTypicalStep999": 0.05465,
+   "aacFlacCorrelation": 1.0,
+   "pianoGlobalGain": 1.0483347935810015,
+   "aacTruePeakDbtp": -3.79
+  },
+  {
+   "variant": "a",
+   "id": "home-night",
+   "integratedLUFS": -23.0,
+   "truePeakDbtp": -5.4,
+   "monoLossDb": -1.31,
+   "clippedSamples": 0,
+   "loopJoinJump": 0.00018,
+   "loopJoinTypicalStep999": 0.05119,
+   "aacFlacCorrelation": 1.0,
+   "pianoGlobalGain": 1.0,
+   "aacTruePeakDbtp": -5.61
+  },
+  {
+   "variant": "b",
+   "id": "home-morning",
+   "integratedLUFS": -23.0,
+   "truePeakDbtp": -4.81,
+   "monoLossDb": -1.24,
+   "clippedSamples": 0,
+   "loopJoinJump": 0.00016,
+   "loopJoinTypicalStep999": 0.04621,
+   "aacFlacCorrelation": 0.9999,
+   "pianoGlobalGain": 1.0150793665726912,
+   "aacTruePeakDbtp": -4.81
+  },
+  {
+   "variant": "b",
+   "id": "home-day",
+   "integratedLUFS": -23.0,
+   "truePeakDbtp": -5.63,
+   "monoLossDb": -1.18,
+   "clippedSamples": 0,
+   "loopJoinJump": 0.002,
+   "loopJoinTypicalStep999": 0.04297,
+   "aacFlacCorrelation": 0.9999,
+   "pianoGlobalGain": 1.0150793665726912,
+   "aacTruePeakDbtp": -5.85
+  },
+  {
+   "variant": "b",
+   "id": "home-evening",
+   "integratedLUFS": -23.0,
+   "truePeakDbtp": -4.21,
+   "monoLossDb": -1.33,
+   "clippedSamples": 0,
+   "loopJoinJump": 0.00346,
+   "loopJoinTypicalStep999": 0.05422,
+   "aacFlacCorrelation": 0.9999,
+   "pianoGlobalGain": 1.0387236024226216,
+   "aacTruePeakDbtp": -4.22
+  },
+  {
+   "variant": "b",
+   "id": "home-night",
+   "integratedLUFS": -23.0,
+   "truePeakDbtp": -5.4,
+   "monoLossDb": -1.31,
+   "clippedSamples": 0,
+   "loopJoinJump": 0.00018,
+   "loopJoinTypicalStep999": 0.05117,
+   "aacFlacCorrelation": 1.0,
+   "pianoGlobalGain": 1.0,
+   "aacTruePeakDbtp": -5.46
+  }
+ ],
+ "limitations": [
+  "Subjective timbral quality and emotional effect need user audition.",
+  "Linux WebKit is not physical iPhone Safari."
+ ]
+}

@@ -1,0 +1,12 @@
+AssertionError [ERR_ASSERTION]: interruption during decode must cancel autoplay
+
+true !== false
+
+    at /workspace/work/race_output.cjs:1:854 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: true,
+  expected: false,
+  operator: 'strictEqual',
+  diff: 'simple'
+}

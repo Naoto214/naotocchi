@@ -1,0 +1,41 @@
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const root=path.resolve(__dirname,'../compare');
+assert.ok(fs.existsSync(path.join(root,'index.html')),'comparison page required');
+const {chromium,webkit}=require('playwright');
+(async()=>{
+ for(const [name,browserType] of [['chromium',chromium],['webkit',webkit]]){
+  const browser=await browserType.launch({headless:true,...(name==='chromium'?{executablePath:'/usr/bin/chromium'}:{})});
+  const page=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
+  const errors=[];page.on('pageerror',e=>errors.push(String(e)));
+  await page.goto(process.env.COMPARE_URL||'http://127.0.0.1:8767/bgm-v7/');
+  assert.equal(await page.locator('.track').count(),4);
+  await page.locator('.track').first().click();
+  await page.waitForFunction(()=>window.BGM_COMPARE?.state().playing,{timeout:60000});
+  await page.locator('#pause').click();
+  await page.locator('#seek').fill('17000');await page.locator('#seek').dispatchEvent('change');
+  await page.locator('[data-version="7"]').click();
+  await page.waitForFunction(()=>window.BGM_COMPARE.state().version===7&&!window.BGM_COMPARE.state().loading);
+  let s=await page.evaluate(()=>window.BGM_COMPARE.state());assert.ok(Math.abs(s.position-17)<.1);assert.equal(s.playing,false);
+  await page.locator('#volume').fill('0.35');await page.locator('#volume').dispatchEvent('input');
+  await page.locator('#pause').click();
+  for(const version of [8,7,6,8,7,6])await page.locator(`[data-version="${version}"]`).click();
+  s=await page.evaluate(()=>window.BGM_COMPARE.state());assert.ok(s.position>=17&&s.position<21);assert.equal(s.volume,.35);assert.equal(s.version,6);assert.equal(s.playing,true);
+  await page.locator('#jump36').click();await page.waitForFunction(()=>window.BGM_COMPARE.state().id==='home-day'&&window.BGM_COMPARE.state().playing&&!window.BGM_COMPARE.state().loading);
+  s=await page.evaluate(()=>window.BGM_COMPARE.state());assert.ok(s.position>=34&&s.position<38);
+  await page.locator('#loop').check();await page.locator('#seek').fill('59900');await page.locator('#seek').dispatchEvent('change');
+  await page.waitForFunction(()=>window.BGM_COMPARE.state().position>1&&window.BGM_COMPARE.state().position<2);
+  const beforeLoopOff=await page.evaluate(()=>window.BGM_COMPARE.state().position);
+  await page.locator('#loop').uncheck();
+  const afterLoopOff=await page.evaluate(()=>window.BGM_COMPARE.state().position);
+  assert.ok(Math.abs(afterLoopOff-beforeLoopOff)<.3,'disabling loop must preserve current position');
+  await page.locator('.track').nth(3).click();await page.waitForFunction(()=>window.BGM_COMPARE.state().id==='home-night'&&!window.BGM_COMPARE.state().loading);
+  assert.equal(await page.locator('#status').getAttribute('role'),'status');assert.equal(errors.length,0,errors.join('\n'));
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'no horizontal overflow');
+  const decoded=await page.evaluate(async()=>{const ctx=new (window.AudioContext||window.webkitAudioContext)();let n=0;for(const t of window.BGM_COMPARE.tracks)for(const base of ['../audio/v6/','../audio/v7/a/','../audio/v7/b/']){const data=await (await fetch(base+t.id+'.m4a')).arrayBuffer();const b=await new Promise((res,rej)=>ctx.decodeAudioData(data,res,rej));if(Math.abs(b.duration-t.duration)>.05)throw Error('AAC duration');n++}await ctx.close();return n});assert.equal(decoded,12);
+  await page.screenshot({path:path.resolve(__dirname,'../verification/'+name+'-mobile.png'),fullPage:true});
+  console.log(name+': PASS 4 rows, all 12 AAC decodes, seek, paused/live 3-way switching, common gain, rapid switches, 34s jump, loop off position, track change, mobile layout');
+  await browser.close();
+ }
+})().catch(e=>{console.error(e);process.exit(1)});

@@ -1,0 +1,26 @@
+{
+  "home-morning": {
+    "relativeErrorDb": -117.48,
+    "linearGain": 30.578799764341678,
+    "v6MasterSha256": "6fc94f4b15b023e6816cea97fcece046dbc930469a0073014964ed9102189e9b",
+    "stemSha256": "00c6a38f254c5d9f5f8e6b4f423dec525f3d63e9212c3f5f209a7748ae604b2f"
+  },
+  "home-day": {
+    "relativeErrorDb": -117.73,
+    "linearGain": 17.14893437755002,
+    "v6MasterSha256": "e9f902d98dd7b4baddfba6199651324ec31495d6e5cff173886e10535f362493",
+    "stemSha256": "10456fde70895e8699b5f731303a5feee928e4f61d3ef679d36e2ad33fdfc251"
+  },
+  "home-evening": {
+    "relativeErrorDb": -117.65,
+    "linearGain": 33.74467462492288,
+    "v6MasterSha256": "f8a92c75d3506e2ca867c74eb51e5cb4df93fcd4d252f008a055221fe293cd75",
+    "stemSha256": "6a5687e9fd4ef164d017cb13d56006196674f2008e9c5abc5a4cff177263f24b"
+  },
+  "home-night": {
+    "relativeErrorDb": -117.56,
+    "linearGain": 42.26148097886679,
+    "v6MasterSha256": "da453d6e72824eb10af57f1d0cab20cdabe85d21fce172addf4dc3969798b370",
+    "stemSha256": "b9db162fd381930e0bd9cb3f5e42e98aa1bac51f758286b7289c8991ba155cb5"
+  }
+}

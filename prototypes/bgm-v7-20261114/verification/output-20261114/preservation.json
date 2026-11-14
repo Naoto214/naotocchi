@@ -1,0 +1,103 @@
+{
+ "baseline": "8ad0ef13ea83b804d8ece6215f9d9efd784aa859",
+ "files": [
+  {
+   "path": "prototypes/bgm-v7-20261114/audio/a/home-day.flac",
+   "sha256": "9ffd48b3592efd093e0e41566cff495c6723ebdc789f99826b9d9d8a9f1827b2"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/audio/a/home-day.m4a",
+   "sha256": "f92bf512387c72287b5b0a03901c9728a9ce49b112ab7e36ee17fd627a8edf7f"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/audio/a/home-evening.flac",
+   "sha256": "6b74dafb659715d76e704621364ff90a727965f16632e2831cf9036ee7bc73e0"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/audio/a/home-evening.m4a",
+   "sha256": "af08b801f234b6972c25e212e03b420a0807b3bf11ce34ecf48bee14ce7d39b2"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/audio/a/home-morning.flac",
+   "sha256": "9b45162fb0ee04365339afdf1d4cbeafc33d55da37b5f702e1a1325ef51b976e"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/audio/a/home-morning.m4a",
+   "sha256": "1f270c9371693afdbc35a9b25eb6e55ae805cb6e1916562403f137c0a5f5176c"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/audio/a/home-night.flac",
+   "sha256": "da453d6e72824eb10af57f1d0cab20cdabe85d21fce172addf4dc3969798b370"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/audio/a/home-night.m4a",
+   "sha256": "dad57b4946fbfb8f4c11557ffbb092771efb7605363a3811113fba9a41806f35"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/audio/b/home-day.flac",
+   "sha256": "fd62ab69f76756a82b2d17b9f47c6112b6b0bcfccefd7d65bd451eb4ff713d8b"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/audio/b/home-day.m4a",
+   "sha256": "fca8cb5f87ba5a366d275479bbb5d9c2b214709493f2d9b4f7299b7184ed1a74"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/audio/b/home-evening.flac",
+   "sha256": "863622f23335d8613e7d9aa9154e71ac9f9f98959dde34e7624bdfa9d99f4e95"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/audio/b/home-evening.m4a",
+   "sha256": "2af575a7dbe3f1767f382addf70c1363f60f9a954d4e86ea581d73fcec646051"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/audio/b/home-morning.flac",
+   "sha256": "2249c72be521b973c497cec8121e3466315179aaeed0ab7ad23f5aa42903d625"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/audio/b/home-morning.m4a",
+   "sha256": "6607d7d56875d9fe4feabffed161f5218303970a83a595b407723f677cc50b6b"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/audio/b/home-night.flac",
+   "sha256": "801d06d91403cb80c116a9233e2693e7b1f030f268eb1193091b31c9c062b1c9"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/audio/b/home-night.m4a",
+   "sha256": "65d42d62b6b7bfa246d892969e72dba4a2c9f94719f0eacff43ac64c1dfcbcd9"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/midi/a/home-day.mid",
+   "sha256": "40b1ed18d1521fdd67575c895af7e798c6466a358e021deef1451cb73cff5745"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/midi/a/home-evening.mid",
+   "sha256": "7667666c1443ead71a6be0ba9e371ce677f5fe740377bc6a800b445c04bd9a70"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/midi/a/home-morning.mid",
+   "sha256": "517063bc76a93da38b2b80569912417e61d19359912a01e39c98697bb2bcfcde"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/midi/a/home-night.mid",
+   "sha256": "4e901e77bd527a1156c974682bf026a19dff4e3196d2d13a533cb743af730136"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/midi/b/home-day.mid",
+   "sha256": "b813e540bdaebad834b5ffee82a0acd95f3e20b9a698a2b40c919b8e19824ac4"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/midi/b/home-evening.mid",
+   "sha256": "4d22847e90a4eb7741548d51eeef992e97bdd61a37d3d199b3abc5464e175498"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/midi/b/home-morning.mid",
+   "sha256": "3f34a030b91ded3285a5554ceb711453e61330e4e79116ef4a1d3fd5fe67c636"
+  },
+  {
+   "path": "prototypes/bgm-v7-20261114/midi/b/home-night.mid",
+   "sha256": "b569f9c57f968175b8a83a0a35e35329199db775c3fa27c49934ba3ecbaf07b9"
+  }
+ ],
+ "scoresAndSampleManifestUnchanged": true,
+ "physicalIPhoneSpeakerVerified": false
+}

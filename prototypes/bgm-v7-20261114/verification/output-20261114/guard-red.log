@@ -1,0 +1,12 @@
+AssertionError [ERR_ASSERTION]: completed load must enable retry even with an interrupted session
+
+true !== false
+
+    at /workspace/work/bgm-v7/prototypes/bgm-v7-20261114/tools/test_output_loading.cjs:19:10 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: true,
+  expected: false,
+  operator: 'strictEqual',
+  diff: 'simple'
+}

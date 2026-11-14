@@ -1,0 +1,29 @@
+{
+  "reportedDate": "2026-11-14",
+  "timezone": "Asia/Tokyo",
+  "evidenceSource": "user report in this conversation; physical iPhone, not automated browser inference",
+  "page": "https://naoto214.github.io/naotocchi-playtest/bgm-v7/?output=speaker-check-1",
+  "revision": "speaker-check-1",
+  "playtestCommit": "37c0c6b000297eef51e1509720ca7ca84cad5b44",
+  "conditions": {
+    "headphonesConnected": false,
+    "silentModeOn": false,
+    "builtInSpeakerAudible": true,
+    "pageType": "V7 comparison page"
+  },
+  "userStatement": "V7の修正候補の比較ページで、iPhone本体スピーカーから正常に音が鳴ることを確認しました。イヤホンなし・消音モードOFFで再生できています。",
+  "decision": "audio output fix accepted by explicit user instruction",
+  "notIndividuallyReported": [
+    "iPhone model and iOS version",
+    "each V6/A/B variant separately",
+    "headphone connect/disconnect cycle",
+    "return from background"
+  ],
+  "preservation": [
+    "audio",
+    "arrangements",
+    "V6/A/B comparison functionality"
+  ],
+  "productionMainMergeAuthorized": false,
+  "musicABSelection": "still pending"
+}

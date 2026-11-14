@@ -1,0 +1,129 @@
+{
+ "checkedAtUtc": "2026-11-14T05:30:02.529056+00:00",
+ "playtestPrevious": "c6bfd8e984f7d51f483967c238aff54dabbef97c",
+ "playtestCommit": "37c0c6b000297eef51e1509720ca7ca84cad5b44",
+ "changes": [
+  "M\tbgm-v7/index.html",
+  "A\tbgm-v7/output-check.html",
+  "A\tbgm-v7/output-check.js",
+  "M\tbgm-v7/player.js"
+ ],
+ "unchangedAudioAndGameTree": true,
+ "files": [
+  {
+   "path": "bgm-v7/tracks.js",
+   "httpStatus": 200,
+   "bytes": 1625,
+   "sha256": "a2f77480c60be24cd42a17c1a7106b42f4bfd014e0c32c40bc090e7b2fe510fe"
+  },
+  {
+   "path": "bgm-v7/output-check.html",
+   "httpStatus": 200,
+   "bytes": 2519,
+   "sha256": "21786d94ff13c78c0947ce4a18567e2c28520f14bab7abbab648626e4f64067f"
+  },
+  {
+   "path": "bgm-v7/output-check.js",
+   "httpStatus": 200,
+   "bytes": 3482,
+   "sha256": "0cac51c5e15be75324809e4122507a2384520f358ded68db06905b03d0dbdc5c"
+  },
+  {
+   "path": "bgm-v7/index.html",
+   "httpStatus": 200,
+   "bytes": 6528,
+   "sha256": "a9b52012a3e8cc4c91689f115819a39784e7ceb973bec05f0f94fbc7a88f866a"
+  },
+  {
+   "path": "bgm-v7/sources.html",
+   "httpStatus": 200,
+   "bytes": 1958,
+   "sha256": "2d95da6f3a921eca623eddc1403663b0310b02208dc5bbdbd50ccf2e53fe0ebc"
+  },
+  {
+   "path": "bgm-v7/player.js",
+   "httpStatus": 200,
+   "bytes": 9751,
+   "sha256": "7488b7757a60150557293f2bb99978434c082aff98f676efaf154315e3240f57"
+  },
+  {
+   "path": "audio/v7/a/home-morning.m4a",
+   "httpStatus": 200,
+   "bytes": 2034700,
+   "sha256": "1f270c9371693afdbc35a9b25eb6e55ae805cb6e1916562403f137c0a5f5176c"
+  },
+  {
+   "path": "audio/v7/a/home-night.m4a",
+   "httpStatus": 200,
+   "bytes": 1229486,
+   "sha256": "dad57b4946fbfb8f4c11557ffbb092771efb7605363a3811113fba9a41806f35"
+  },
+  {
+   "path": "audio/v7/a/home-evening.m4a",
+   "httpStatus": 200,
+   "bytes": 1601266,
+   "sha256": "af08b801f234b6972c25e212e03b420a0807b3bf11ce34ecf48bee14ce7d39b2"
+  },
+  {
+   "path": "audio/v7/a/home-day.m4a",
+   "httpStatus": 200,
+   "bytes": 1458632,
+   "sha256": "f92bf512387c72287b5b0a03901c9728a9ce49b112ab7e36ee17fd627a8edf7f"
+  },
+  {
+   "path": "audio/v7/b/home-morning.m4a",
+   "httpStatus": 200,
+   "bytes": 2035295,
+   "sha256": "6607d7d56875d9fe4feabffed161f5218303970a83a595b407723f677cc50b6b"
+  },
+  {
+   "path": "audio/v7/b/home-night.m4a",
+   "httpStatus": 200,
+   "bytes": 1231025,
+   "sha256": "65d42d62b6b7bfa246d892969e72dba4a2c9f94719f0eacff43ac64c1dfcbcd9"
+  },
+  {
+   "path": "audio/v7/b/home-evening.m4a",
+   "httpStatus": 200,
+   "bytes": 1598111,
+   "sha256": "2af575a7dbe3f1767f382addf70c1363f60f9a954d4e86ea581d73fcec646051"
+  },
+  {
+   "path": "audio/v7/b/home-day.m4a",
+   "httpStatus": 200,
+   "bytes": 1461614,
+   "sha256": "fca8cb5f87ba5a366d275479bbb5d9c2b214709493f2d9b4f7299b7184ed1a74"
+  },
+  {
+   "path": "audio/v6/home-morning.m4a",
+   "httpStatus": 200,
+   "bytes": 2033332,
+   "sha256": "22830bed238b556029f520adf6ac168e4af0b1967d51aaf01b4cd417cc167a05"
+  },
+  {
+   "path": "audio/v6/home-day.m4a",
+   "httpStatus": 200,
+   "bytes": 1459519,
+   "sha256": "b071685c4abd272924b5bd0046d497e7fdad9c9afd2d70de4deda8a38674419f"
+  },
+  {
+   "path": "audio/v6/home-evening.m4a",
+   "httpStatus": 200,
+   "bytes": 1594260,
+   "sha256": "99a8b22167a4431bc1f959c7851b097c8199074f6b6758814ef47256d18e1aef"
+  },
+  {
+   "path": "audio/v6/home-night.m4a",
+   "httpStatus": 200,
+   "bytes": 1229486,
+   "sha256": "dad57b4946fbfb8f4c11557ffbb092771efb7605363a3811113fba9a41806f35"
+  }
+ ],
+ "range": {
+  "status": 206,
+  "contentRange": "bytes 0-99/2035295",
+  "bytes": 100
+ },
+ "physicalIPhoneSpeakerVerified": false,
+ "status": "candidate published; physical speaker confirmation pending"
+}

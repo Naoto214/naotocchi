@@ -1,0 +1,5 @@
+chromium: PASS context suspension, graph signal (NOT speaker proof), same-position/gain reconnection, old context closed, synthetic sink interruption, independent native AAC, user-only audibility report
+chromium: PASS simulated AudioSession playback declaration and interruption
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+webkit: PASS context suspension, graph signal (NOT speaker proof), same-position/gain reconnection, old context closed, synthetic sink interruption, independent native AAC, user-only audibility report
+webkit: PASS simulated AudioSession playback declaration and interruption

@@ -1,0 +1,256 @@
+{
+ "id": "home-morning",
+ "title": "そよかぜの まど",
+ "family": "home4",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 3681391,
+ "seconds": 83.478254,
+ "flacFrames": 3681391,
+ "aacDecodedFrames": 3682304,
+ "integratedLUFS": -23.0,
+ "targetLUFS": -23,
+ "truePeakDbtp": -4.81,
+ "samplePeakDbfs": -4.84,
+ "clippedSamples": 0,
+ "monoLossDb": -1.24,
+ "sideToMidDb": -4.8,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00016,
+ "loopJoinTypicalStep999": 0.04621,
+ "bands": {
+  "centroidHz": 699,
+  "low40_250": -7.6,
+  "lowmid250_800": -2.8,
+  "mid800_3k": -5.2,
+  "pres3k_6k": -25.0,
+  "air6k_12k": -45.2,
+  "top12k_20k": -58.8
+ },
+ "version": 7,
+ "variant": "b",
+ "sourceFingerprint": "dd5d07dba4a9187c8b9872566ae18bc8658fa59e53116c83e3342104caa671d7",
+ "syntheticLoops": 0,
+ "samplesUsed": [
+  {
+   "instrument": "violin_solo",
+   "midi": 66,
+   "rootMidi": 67,
+   "transpose": -1,
+   "seconds": 2.086957,
+   "nativeSeconds": 15.5731,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G4_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 64,
+   "rootMidi": 64,
+   "transpose": 0,
+   "seconds": 2.086957,
+   "nativeSeconds": 14.74,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_E4_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 66,
+   "rootMidi": 67,
+   "transpose": -1,
+   "seconds": 2.086957,
+   "nativeSeconds": 15.5731,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G4_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 67,
+   "rootMidi": 67,
+   "transpose": 0,
+   "seconds": 1.695652,
+   "nativeSeconds": 14.699,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G4_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 66,
+   "rootMidi": 67,
+   "transpose": -1,
+   "seconds": 1.956522,
+   "nativeSeconds": 15.5731,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G4_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 64,
+   "rootMidi": 64,
+   "transpose": 0,
+   "seconds": 1.565217,
+   "nativeSeconds": 14.74,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_E4_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 71,
+   "rootMidi": 72,
+   "transpose": -1,
+   "seconds": 2.119565,
+   "nativeSeconds": 15.0076,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_C5_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 69,
+   "rootMidi": 69,
+   "transpose": 0,
+   "seconds": 2.119565,
+   "nativeSeconds": 14.8077,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_A4_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 66,
+   "rootMidi": 67,
+   "transpose": -1,
+   "seconds": 2.119565,
+   "nativeSeconds": 15.5731,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G4_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 67,
+   "rootMidi": 67,
+   "transpose": 0,
+   "seconds": 2.086957,
+   "nativeSeconds": 14.699,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G4_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 69,
+   "rootMidi": 69,
+   "transpose": 0,
+   "seconds": 2.119565,
+   "nativeSeconds": 14.8077,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_A4_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 71,
+   "rootMidi": 72,
+   "transpose": -1,
+   "seconds": 2.086957,
+   "nativeSeconds": 15.0076,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_C5_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 67,
+   "rootMidi": 67,
+   "transpose": 0,
+   "seconds": 1.434783,
+   "nativeSeconds": 14.699,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G4_p.wav"
+  },
+  {
+   "instrument": "cello_chamber",
+   "midi": 54,
+   "rootMidi": 53,
+   "transpose": 1,
+   "seconds": 2.021739,
+   "nativeSeconds": 7.7977,
+   "sample": "Strings/Cello Section/susvib/susvib_F2_v1_1.wav"
+  },
+  {
+   "instrument": "cello_chamber",
+   "midi": 55,
+   "rootMidi": 53,
+   "transpose": 2,
+   "seconds": 2.021739,
+   "nativeSeconds": 7.36,
+   "sample": "Strings/Cello Section/susvib/susvib_F2_v1_1.wav"
+  },
+  {
+   "instrument": "cello_chamber",
+   "midi": 52,
+   "rootMidi": 53,
+   "transpose": -1,
+   "seconds": 2.021739,
+   "nativeSeconds": 8.7527,
+   "sample": "Strings/Cello Section/susvib/susvib_F2_v1_1.wav"
+  },
+  {
+   "instrument": "cello_chamber",
+   "midi": 50,
+   "rootMidi": 50,
+   "transpose": 0,
+   "seconds": 1.826087,
+   "nativeSeconds": 9.6341,
+   "sample": "Strings/Cello Section/susvib/susvib_D2_v1_1.wav"
+  },
+  {
+   "instrument": "cello_chamber",
+   "midi": 54,
+   "rootMidi": 53,
+   "transpose": 1,
+   "seconds": 2.021739,
+   "nativeSeconds": 7.7977,
+   "sample": "Strings/Cello Section/susvib/susvib_F2_v1_1.wav"
+  },
+  {
+   "instrument": "cello_chamber",
+   "midi": 55,
+   "rootMidi": 53,
+   "transpose": 2,
+   "seconds": 2.021739,
+   "nativeSeconds": 7.36,
+   "sample": "Strings/Cello Section/susvib/susvib_F2_v1_1.wav"
+  },
+  {
+   "instrument": "cello_chamber",
+   "midi": 52,
+   "rootMidi": 53,
+   "transpose": -1,
+   "seconds": 2.021739,
+   "nativeSeconds": 8.7527,
+   "sample": "Strings/Cello Section/susvib/susvib_F2_v1_1.wav"
+  },
+  {
+   "instrument": "cello_chamber",
+   "midi": 50,
+   "rootMidi": 50,
+   "transpose": 0,
+   "seconds": 1.630435,
+   "nativeSeconds": 9.6341,
+   "sample": "Strings/Cello Section/susvib/susvib_D2_v1_1.wav"
+  }
+ ],
+ "stringGains": {
+  "violin_solo": {
+   "relativeActiveRmsDb": -17,
+   "linearGain": 1.0740025186201434
+  },
+  "cello_chamber": {
+   "relativeActiveRmsDb": -20,
+   "linearGain": 0.4639216413255978
+  }
+ },
+ "pianoGlobalGain": 1.0150793665726912,
+ "limiterMaxGainReductionDb": 0,
+ "pianoReconstruction": {
+  "relativeErrorDb": -117.48,
+  "linearGain": 30.578799764341678,
+  "v6MasterSha256": "6fc94f4b15b023e6816cea97fcece046dbc930469a0073014964ed9102189e9b",
+  "stemSha256": "00c6a38f254c5d9f5f8e6b4f423dec525f3d63e9212c3f5f209a7748ae604b2f"
+ },
+ "v7": {
+  "variant": "b",
+  "description": "チェロが中盤を温かく支え、後半のバイオリンへ受け渡す。13小節の山を二人で囲む。",
+  "removedAuxiliaryNotes": 80,
+  "syntheticLoops": false,
+  "nightReusesV6Piano": false
+ },
+ "flacSha256": "2249c72be521b973c497cec8121e3466315179aaeed0ab7ad23f5aa42903d625",
+ "flacBytes": 12338256,
+ "aacSha256": "6607d7d56875d9fe4feabffed161f5218303970a83a595b407723f677cc50b6b",
+ "aacBytes": 2035295,
+ "midiSha256": "3f34a030b91ded3285a5554ceb711453e61330e4e79116ef4a1d3fd5fe67c636",
+ "problems": []
+}
