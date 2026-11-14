@@ -1,0 +1,41 @@
+{
+  "base_head": "df8312d67f636910bff695550c8f8977ba2478f3",
+  "zip_sha256": "de12250c65cbcef856c2544292f15bf680c12c1538a693aaa6d6c03c7d1e65f1",
+  "originals": 7,
+  "derivatives": 14,
+  "originals_pass": 7,
+  "existing_card_art_unchanged": 452,
+  "trial_card_art_count": 459,
+  "non_art_staged_modules_byte_identical": true,
+  "candidate_and_clock_tests": {
+    "pass": 18,
+    "fail": 0
+  },
+  "browser_qa": "not_run: browser-control tool unavailable",
+  "pages_guard": {
+    "allowlist_has_no_experiment_path": "pass",
+    "full_runtime_package": "not_run: sparse checkout omits unrelated production assets"
+  },
+  "independent_review": {
+    "important_findings": 0,
+    "checks": [
+      "seven PNG hashes and headers",
+      "no transparency chunks",
+      "fourteen WebP hashes",
+      "seven trial ID mappings",
+      "452 existing entries unchanged",
+      "non-art staged root modules unchanged"
+    ]
+  },
+  "converter": {
+    "sharp": "0.35.4",
+    "vips": "8.18.6",
+    "webp": "1.6.0",
+    "official_C_bat_byte_identical": true
+  },
+  "official_card_tests": {
+    "pass": 654,
+    "fail": 0,
+    "command": "node --test prototypes/card-game/tests/*.test.mjs"
+  }
+}
