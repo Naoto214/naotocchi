@@ -1,2 +1,2 @@
-import{solve}from '../../solver.mjs';
-self.onmessage=({data})=>{try{self.postMessage({signature:data.signature,result:solve(data.board,{limit:3000,maxDepth:60})})}catch(e){self.postMessage({signature:data.signature,error:e.message})}};
+import{verifyStage}from'./validation.mjs';
+self.onmessage=({data})=>{try{self.postMessage({token:data.token,signature:data.signature,result:verifyStage(data.draft,{limit:data.limit??12000,maxDepth:90,probe:data.probe||null})})}catch(e){self.postMessage({token:data.token,signature:data.signature,error:e.message})}};
