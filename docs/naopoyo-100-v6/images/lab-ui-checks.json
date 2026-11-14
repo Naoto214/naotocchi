@@ -1,0 +1,29 @@
+{
+  "environment": "Synthetic DOM, not browser",
+  "results": [
+    {
+      "variant": "F1",
+      "result": "現在位置から移動・掘削操作の最短10手（変身テストは除外）",
+      "replayed": 10,
+      "undoRestore": true
+    },
+    {
+      "variant": "F2",
+      "result": "現在位置から移動・掘削操作の最短7手（変身テストは除外）",
+      "replayed": 7,
+      "undoRestore": true
+    },
+    {
+      "variant": "D1",
+      "result": "現在位置から移動・掘削操作の最短17手（変身テストは除外）",
+      "replayed": 17,
+      "undoRestore": true
+    },
+    {
+      "variant": "D2",
+      "result": "現在位置から移動・掘削操作の最短17手（変身テストは除外）",
+      "replayed": 17,
+      "undoRestore": true
+    }
+  ]
+}

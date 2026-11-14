@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import{createHash}from'node:crypto';
+const root=new URL('../../../../../',import.meta.url);
+test('all accepted V5 sources stay byte-identical, including geometry/input/catalog',()=>{const hashes=JSON.parse(fs.readFileSync(new URL('docs/naopoyo-100-v6/v5-protected.json',root)));for(const [path,sha]of Object.entries(hashes))assert.equal(createHash('sha256').update(fs.readFileSync(new URL(path,root))).digest('hex'),sha,path)});
+test('V6 stays outside public Pages and uses accepted V5 stylesheet',()=>{const allow=JSON.parse(fs.readFileSync(new URL('tools/pages/allowlist.json',root)));assert.ok(!allow.files.some(p=>p.includes('naopoyo-100/v4/v6/')||p.includes('naopoyo-100-v6')));const html=fs.readFileSync(new URL('../editor.html',import.meta.url),'utf8');assert.match(html,/href="..\/v5\/style.css"/)});
