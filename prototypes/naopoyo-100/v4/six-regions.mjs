@@ -35,4 +35,21 @@ function sky(c,cells){
  for(const t of platforms.filter(t=>t.wall)){if(!t.s){c.fillStyle='#789498';c.fillRect(t.x,t.y+.84,1,.16);c.fillStyle='#9db6a6';c.fillRect(t.x,t.y+.8,1,.055)}if(!t.e){c.fillStyle='#a5ab93';c.fillRect(t.x+.9,t.y,.1,1)}}
  c.restore();edges(c,platforms,'#fff3ce','#4c718d',.12,.055);
 }
-export const regionPainters={forest,sky};
+function earth(c,cells){
+ // The lit cross-section of the tunnel remains brighter than solid earth.
+ c.fillStyle=gradient(c,'#d6b785','#b7976c');c.fillRect(0,0,8,8);c.save();floorClip(c,cells);grid(c,'#694a3e60');c.restore();
+ wallPath(c,cells,.12);c.fillStyle='#593b32';c.fill();c.save();wallPath(c,cells,.12);c.clip();
+ c.fillStyle=gradient(c,'#966340','#624734');c.fillRect(0,0,8,8);
+ for(const[y,a,b,h]of [[.4,1.1,-.1,.4],[2.4,1.7,3.1,.3],[4.6,5.3,4,.45],[7.1,6.2,7.7,.25]]){
+  c.beginPath();c.moveTo(-1,y);c.bezierCurveTo(2,a,5,b,9,y+.2);c.strokeStyle='#c08d5b77';c.lineWidth=h;c.stroke();c.strokeStyle='#4b342d66';c.lineWidth=.04;c.stroke();
+ }
+ // Roots branch from above into the soil, confined to fixed wall terrain.
+ for(const[x,y,angle]of [[1.3,0,-.3],[5.2,.1,.25],[7.3,4.6,-.5]]){c.save();c.translate(x,y);c.rotate(angle);c.strokeStyle='#43382b';c.lineWidth=.085;c.beginPath();c.moveTo(0,-.5);c.bezierCurveTo(.25,.2,-.2,.9,.2,1.6);c.moveTo(.02,.5);c.lineTo(.5,.8);c.lineTo(.65,1.2);c.moveTo(.03,1);c.lineTo(-.5,1.3);c.stroke();c.strokeStyle='#c49b6a66';c.lineWidth=.025;c.beginPath();c.moveTo(.04,0);c.lineTo(.08,.6);c.stroke();c.restore()}
+ // Grey bedrock patches contrast with crumbly brown soil; both remain impassable.
+ for(const[x,y,w,h]of [[4.8,.7,2.4,.8],[.2,4.8,1.7,1.2],[3.5,6.3,2.6,1.1]]){
+  c.fillStyle='#5c6662';c.beginPath();c.moveTo(x,y+h*.35);c.lineTo(x+w*.25,y);c.lineTo(x+w*.85,y+.1);c.lineTo(x+w,y+h*.6);c.lineTo(x+w*.7,y+h);c.lineTo(x+.1,y+h*.9);c.closePath();c.fill();c.strokeStyle='#9c9d80';c.lineWidth=.05;c.beginPath();c.moveTo(x+.15,y+h*.3);c.lineTo(x+w*.3,y+.1);c.lineTo(x+w*.75,y+.2);c.stroke();c.strokeStyle='#353f3e';c.lineWidth=.03;c.beginPath();c.moveTo(x+w*.55,y+.18);c.lineTo(x+w*.4,y+h*.5);c.lineTo(x+w*.5,y+h*.9);c.stroke();
+ }
+ for(let k=0;k<65;k++){const x=((k*43+9)%79)/10,y=((k*23+4)%79)/10;ellipse(c,x,y,.025+k%3*.012,.02,k%3?'#d0a16c70':'#362c2866')}
+ grid(c,'#241d1928');c.restore();edges(c,cells,'#c99c64','#392c29',.12,.085);
+}
+export const regionPainters={forest,sky,earth};
