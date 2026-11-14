@@ -77,3 +77,7 @@ python prototypes/bgm-v7-20261114/tools/verify_v7.py
 Pages [run43552522268](https://github.com/Naoto214/naotocchi-playtest/actions/runs/43552522268)成功。公開commit `c6bfd8e984f7d51f483967c238aff54dabbef97c`。固定URLから比較4ファイル・A/B8音源・V6ホーム4音源をTLS有効のHTTPで取得し、全16件のSHA-256一致を確認。`verification/live-published.json` に記録。既存ファイル変更0は `verification/playtest-scope.json`。
 
 **現在の状態: ホーム4曲のA/B選択待ち。残り28曲の制作・V7ゲーム統合は未着手。**
+
+## 音声出力修正の採用（2026年11月14日・日本時間）
+
+利用者がV7比較ページで「イヤホンなし・消音モードOFF」のiPhone本体スピーカーから正常に音が鳴ることを確認し、speaker-check-1の採用を指示。実機結果は [OUTPUT-INVESTIGATION.md](OUTPUT-INVESTIGATION.md) と `verification/output-20261114/user-acceptance.json` に記録。上記の初回自動検証時の実機未確認とは区別する。音源・編曲・V6/A/B比較機能は維持。Draft PR #547を本番mainへマージしない。
