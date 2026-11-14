@@ -1,0 +1,230 @@
+{
+ "id": "kisetsu",
+ "title": "きせつの きおく",
+ "family": "memory",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 3938233,
+ "seconds": 89.302336,
+ "flacFrames": 3938233,
+ "aacDecodedFrames": 3938304,
+ "integratedLUFS": -24.0,
+ "targetLUFS": -24,
+ "truePeakDbtp": -6.27,
+ "samplePeakDbfs": -6.27,
+ "clippedSamples": 0,
+ "monoLossDb": -1.21,
+ "sideToMidDb": -4.9,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00087,
+ "loopJoinTypicalStep999": 0.03972,
+ "bands": {
+  "centroidHz": 709,
+  "low40_250": -7.7,
+  "lowmid250_800": -2.6,
+  "mid800_3k": -5.6,
+  "pres3k_6k": -24.5,
+  "air6k_12k": -45.5,
+  "top12k_20k": -60.7
+ },
+ "roleGainsDb": {
+  "bass": -8.7,
+  "accompaniment": -13.8,
+  "pad": -6.9,
+  "doubling": -6.7,
+  "counter": -1.7,
+  "response": -11.1
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   1.6,
+   0.7
+  ],
+  [
+   "peak",
+   3800,
+   0.3,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 687,
+  "low40_250": -7.5,
+  "lowmid250_800": -2.5,
+  "mid800_3k": -5.8,
+  "pres3k_6k": -26.1,
+  "air6k_12k": -46.2,
+  "top12k_20k": -60.6
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 11.6,
+ "flacSha256": "f6d793457131e05a75bf24dbc1d4334a0a1043867a29e2cc6fb254a45a5a217c",
+ "flacBytes": 12654897,
+ "aacSha256": "40c9cf05a04023ee13c1fd563fe44ffb89c3acfbb951283a06ec656c76b67b8f",
+ "aacBytes": 2174076,
+ "midiSha256": "ff0413563629e37b8fd00fc8c871a385139ddb6a683190db9a41b1b2d033479c",
+ "problems": [],
+ "version": 6,
+ "sourceFingerprint": "5105a9e8b633d03f8754159006034f2c06a09518560a9ab5027fbdd6b2980cda",
+ "v6": {
+  "method": "explicit phrase curves and existing voice windows",
+  "profile": {
+   "loop": true,
+   "arc": [
+    [
+     0,
+     -0.8
+    ],
+    [
+     4,
+     -0.4
+    ],
+    [
+     6.75,
+     0.25
+    ],
+    [
+     8,
+     -0.75
+    ],
+    [
+     9.5,
+     0.4
+    ],
+    [
+     12,
+     0.95
+    ],
+    [
+     15,
+     -0.25
+    ],
+    [
+     16,
+     -0.8
+    ],
+    [
+     20,
+     0.35
+    ],
+    [
+     22.75,
+     1.0
+    ],
+    [
+     24,
+     0.0
+    ],
+    [
+     25.5,
+     1.15
+    ],
+    [
+     28,
+     1.7
+    ],
+    [
+     31,
+     0.125
+    ],
+    [
+     32,
+     -0.8
+    ]
+   ],
+   "voiceWindows": [
+    [
+     4,
+     7.5
+    ],
+    [
+     10,
+     14
+    ]
+   ],
+   "change": "季節の回想を8・11・13小節へ異なる大きさの波でつなぐ。",
+   "analysis": [
+    "旋律: 128音、最高音MIDI 84。発音順・音高・時刻・長さは保存。",
+    "頂点・強弱: 季節の回想を8・11・13小節へ異なる大きさの波でつなぐ。",
+    "和声: ビオラ内声と弦の和音が重なる場所を控えめに。音高の再生成は行わない。",
+    "バランス: V5の音域別補正を保持。伴奏の強弱は旋律の約半分、低音はさらに小さく。",
+    "対旋律: V5の内声の音は保持し、指定した窓の外を控えて語尾に余白。",
+    "掛け合い: 単発の応答を増やさず既存の短い返答を残す。",
+    "反復: 2周の音数は維持し、周ごとの表情と声部の前後で変化。",
+    "長時間の心地よさ: 用途別LUFSを保持し、強い圧縮や高域の追加で盛り上げない。聴感は試聴で評価。",
+    "ループ: 曲末の表情を冒頭へ戻す。V5の残響折返しを保持し、実音源の接続を測定。"
+   ]
+  },
+  "newNotes": 0,
+  "baseline": "0cf8100d3ad85888f5e32f670a56631ecb4e82ce"
+ },
+ "pianoAttackSoftenDb": 3.0,
+ "sideScale": 0.806,
+ "removedNotes": 18,
+ "pedalNotes": 256,
+ "v5": {
+  "doublingDropped": [
+   {
+    "t": 58.25581395348837,
+    "midi": 83,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 58.6046511627907,
+    "midi": 83,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 63.48837209302326,
+    "midi": 84,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 64.18604651162791,
+    "midi": 83,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 68.37209302325581,
+    "midi": 83,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 71.16279069767442,
+    "midi": 84,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 72.55813953488372,
+    "midi": 83,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 77.44186046511628,
+    "midi": 83,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 78.13953488372093,
+    "midi": 84,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 79.18604651162791,
+    "midi": 83,
+    "instrument": "clarinet"
+   }
+  ],
+  "added": {
+   "counter": 19,
+   "response": 1,
+   "bassWalk": 0
+  },
+  "melodyLevelSdBefore": 4.03,
+  "melodyLevelSdAfter": 0.76,
+  "melodyLevelRangeBefore": 18.9,
+  "melodyLevelRangeAfter": 3.4
+ }
+}

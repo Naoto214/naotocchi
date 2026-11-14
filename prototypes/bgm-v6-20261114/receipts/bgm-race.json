@@ -1,0 +1,195 @@
+{
+ "id": "bgm-race",
+ "title": "race（3D・のりもの）",
+ "family": "race",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2228211,
+ "seconds": 50.526327,
+ "flacFrames": 2228211,
+ "aacDecodedFrames": 2228224,
+ "integratedLUFS": -24.0,
+ "targetLUFS": -24,
+ "truePeakDbtp": -9.41,
+ "samplePeakDbfs": -9.41,
+ "clippedSamples": 0,
+ "monoLossDb": -1.19,
+ "sideToMidDb": -5.0,
+ "aacFlacCorrelation": 0.9998,
+ "loopJoinJump": 0.0033,
+ "loopJoinTypicalStep999": 0.03609,
+ "bands": {
+  "centroidHz": 709,
+  "low40_250": -7.1,
+  "lowmid250_800": -3.1,
+  "mid800_3k": -5.1,
+  "pres3k_6k": -20.2,
+  "air6k_12k": -35.3,
+  "top12k_20k": -54.5
+ },
+ "roleGainsDb": {
+  "doubling": -14.6,
+  "bass": -14.3,
+  "accompaniment": -6.0,
+  "pad": 1.1,
+  "percussion": 14.9
+ },
+ "tonalCorrection": [],
+ "bandsBeforeCorrection": {
+  "centroidHz": 709,
+  "low40_250": -7.1,
+  "lowmid250_800": -3.1,
+  "mid800_3k": -5.1,
+  "pres3k_6k": -20.2,
+  "air6k_12k": -35.3,
+  "top12k_20k": -54.5
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 3.5,
+ "flacSha256": "3fa85cf469c04e3111975520bb1a437c8d89caead4a9cc168da982f5f9f233dc",
+ "flacBytes": 7343566,
+ "aacSha256": "7feaffd48d8a87bf774431995cd605bd83db2a635858e1e9f4a9c8786afcf1e2",
+ "aacBytes": 1244294,
+ "midiSha256": "ab2c03bd74f816563ef9ca4a65e3bca0fac9a8b1eaf0ca49c0cd20e768c422d1",
+ "problems": [],
+ "version": 6,
+ "sourceFingerprint": "990187492cf33372d092107e3606a9b3b83ce40bc52f21cac6a158dfd56ffed9",
+ "v6": {
+  "method": "explicit phrase curves and existing voice windows",
+  "profile": {
+   "loop": true,
+   "arc": [
+    [
+     0,
+     -0.3
+    ],
+    [
+     2,
+     -0.05
+    ],
+    [
+     3,
+     -0.6
+    ],
+    [
+     3.9,
+     0.95
+    ],
+    [
+     5.5,
+     0.2
+    ],
+    [
+     7,
+     -0.25
+    ],
+    [
+     8,
+     -0.3
+    ],
+    [
+     10,
+     0.35
+    ],
+    [
+     11,
+     -0.2
+    ],
+    [
+     11.9,
+     1.35
+    ],
+    [
+     13.5,
+     0.6
+    ],
+    [
+     15,
+     -0.05
+    ],
+    [
+     16,
+     -0.3
+    ],
+    [
+     18,
+     0.65
+    ],
+    [
+     19,
+     0.1
+    ],
+    [
+     19.9,
+     1.65
+    ],
+    [
+     21.5,
+     0.9
+    ],
+    [
+     23,
+     0.1
+    ],
+    [
+     24,
+     -0.3
+    ],
+    [
+     26,
+     0.2
+    ],
+    [
+     27,
+     -0.35
+    ],
+    [
+     27.9,
+     1.2
+    ],
+    [
+     29.5,
+     0.45
+    ],
+    [
+     31,
+     -0.125
+    ],
+    [
+     32,
+     -0.3
+    ]
+   ],
+   "voiceWindows": [
+    [
+     2.5,
+     5.5
+    ]
+   ],
+   "change": "5小節直前の上昇を軸に加速感を作り、4周目は出発点へ戻す。",
+   "analysis": [
+    "旋律: 244音、最高音MIDI 86。発音順・音高・時刻・長さは保存。",
+    "頂点・強弱: 5小節直前の上昇を軸に加速感を作り、4周目は出発点へ戻す。",
+    "和声: 低音と打楽器の推進力を残す。音高の再生成は行わない。",
+    "バランス: V5の音域別補正を保持。伴奏の強弱は旋律の約半分、低音はさらに小さく。",
+    "対旋律: 新設しない。既存旋律と和声で十分なため。",
+    "掛け合い: ピアノとマリンバの重ねを頂点付近で明確に。",
+    "反復: 4周の音数は維持し、周ごとの表情と声部の前後で変化。",
+    "長時間の心地よさ: 用途別LUFSを保持し、強い圧縮や高域の追加で盛り上げない。聴感は試聴で評価。",
+    "ループ: 曲末の表情を冒頭へ戻す。V5の残響折返しを保持し、実音源の接続を測定。"
+   ]
+  },
+  "newNotes": 0,
+  "baseline": "0cf8100d3ad85888f5e32f670a56631ecb4e82ce"
+ },
+ "pianoAttackSoftenDb": 0.0,
+ "sideScale": 1.0,
+ "removedNotes": 336,
+ "pedalNotes": 0,
+ "v5": {
+  "melodyLevelSdBefore": 3.19,
+  "melodyLevelSdAfter": 0.7,
+  "melodyLevelRangeBefore": 13.1,
+  "melodyLevelRangeAfter": 3.3
+ }
+}

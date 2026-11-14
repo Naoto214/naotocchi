@@ -6,7 +6,7 @@ assert.ok(fs.existsSync(path.join(root,'index.html')),'comparison page required'
 const {chromium,webkit}=require('playwright');
 (async()=>{
  for(const [name,browserType] of [['chromium',chromium],['webkit',webkit]]){
-  const browser=await browserType.launch({headless:true});
+  const browser=await browserType.launch({headless:true,...(name==='chromium'?{executablePath:'/usr/bin/chromium'}:{})});
   const page=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
   const errors=[];page.on('pageerror',e=>errors.push(String(e)));
   await page.goto(process.env.COMPARE_URL||'http://127.0.0.1:8765/bgm-v6/');

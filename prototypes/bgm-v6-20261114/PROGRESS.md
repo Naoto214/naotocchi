@@ -19,3 +19,8 @@ Plan: docs/superpowers/plans/2026-11-14-bgm-v6.md.
 - poyo-1, koro-1, card-2, game-1, explore-1, event-2, event-1 rendered and verified (7/7).
 - Home-night V5→V6 continuity: median dip 12.2→12.1 dB, 90th percentile 20.1→20.0 dB; no measured regression.
 - Comparison page initial implementation saved; browser checks in progress.
+
+## Group 3 checkpoint
+- kisetsu, ohayo, bgm-game, bgm-race, bgm-farewell, poyo-2, game-2 rendered and verified (7/7).
+- V5 original 64 audio hashes verified. Chromium mobile viewport player tests passed; WebKit dependencies being installed.
+- 32-track nine-aspect score analysis exported to ANALYSIS.md; 18 rendered-pair measurements in VALIDATION.md/measurements.json.

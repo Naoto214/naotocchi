@@ -1,0 +1,135 @@
+{
+ "id": "ohayo",
+ "title": "おはようの ひかり",
+ "family": "celebrate",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2116800,
+ "seconds": 48.0,
+ "flacFrames": 2116800,
+ "aacDecodedFrames": 2117632,
+ "integratedLUFS": -23.01,
+ "targetLUFS": -23,
+ "truePeakDbtp": -4.54,
+ "samplePeakDbfs": -4.54,
+ "clippedSamples": 0,
+ "monoLossDb": -1.08,
+ "sideToMidDb": -5.5,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.0005,
+ "loopJoinTypicalStep999": 0.05213,
+ "bands": {
+  "centroidHz": 696,
+  "low40_250": -7.4,
+  "lowmid250_800": -2.5,
+  "mid800_3k": -5.9,
+  "pres3k_6k": -22.8,
+  "air6k_12k": -44.7,
+  "top12k_20k": -62.0
+ },
+ "roleGainsDb": {
+  "doubling": -2.3,
+  "bass": -15.7,
+  "accompaniment": -10.0,
+  "pad": -6.1
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   5.0,
+   0.7
+  ],
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 611,
+  "low40_250": -7.3,
+  "lowmid250_800": -2.1,
+  "mid800_3k": -7.1,
+  "pres3k_6k": -27.9,
+  "air6k_12k": -47.4,
+  "top12k_20k": -62.7
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 3.4,
+ "flacSha256": "63de304a2f99474e983b4b3584fd3604c6b5412ca6d0a9885e60ed0886ff0335",
+ "flacBytes": 7071488,
+ "aacSha256": "1dcb99fd796c9093324f778b7eebd22afcfd750a4e3c5c18e2099de88203e383",
+ "aacBytes": 1168749,
+ "midiSha256": "75d64af9cbf9e68bc4d953d8a07ec264a93a449ed2341c4cb0d32483c28a865f",
+ "problems": [],
+ "version": 6,
+ "sourceFingerprint": "90ced4ba349c44f5d39982483ca1aa22bf60daa68bbf1ce1d2e869491b974ae3",
+ "v6": {
+  "method": "explicit phrase curves and existing voice windows",
+  "profile": {
+   "loop": true,
+   "arc": [
+    [
+     0,
+     -0.6
+    ],
+    [
+     4,
+     0.1
+    ],
+    [
+     7,
+     -0.4
+    ],
+    [
+     10,
+     0.6
+    ],
+    [
+     12.5,
+     1.2
+    ],
+    [
+     15,
+     0.1
+    ],
+    [
+     16,
+     -0.6
+    ]
+   ],
+   "voiceWindows": [
+    [
+     8,
+     14
+    ]
+   ],
+   "change": "孵化原曲の11・14小節へ光が広がる形。",
+   "analysis": [
+    "旋律: 50音、最高音MIDI 82。発音順・音高・時刻・長さは保存。",
+    "頂点・強弱: 孵化原曲の11・14小節へ光が広がる形。",
+    "和声: 低音とハープの安定を保ち後半の弦を開く。音高の再生成は行わない。",
+    "バランス: V5の音域別補正を保持。伴奏の強弱は旋律の約半分、低音はさらに小さく。",
+    "対旋律: 新設しない。既存旋律と和声で十分なため。",
+    "掛け合い: フルートは前半を控え後半の祝福を支える。",
+    "反復: 既存の1周構成を保持。",
+    "長時間の心地よさ: 用途別LUFSを保持し、強い圧縮や高域の追加で盛り上げない。聴感は試聴で評価。",
+    "ループ: 曲末の表情を冒頭へ戻す。V5の残響折返しを保持し、実音源の接続を測定。"
+   ]
+  },
+  "newNotes": 0,
+  "baseline": "0cf8100d3ad85888f5e32f670a56631ecb4e82ce"
+ },
+ "pianoAttackSoftenDb": 2.0,
+ "sideScale": 1.0,
+ "removedNotes": 224,
+ "pedalNotes": 114,
+ "v5": {
+  "melodyLevelSdBefore": 5.25,
+  "melodyLevelSdAfter": 0.87,
+  "melodyLevelRangeBefore": 15.5,
+  "melodyLevelRangeAfter": 3.8
+ }
+}

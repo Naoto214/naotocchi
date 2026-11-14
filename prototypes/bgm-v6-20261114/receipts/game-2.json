@@ -1,0 +1,158 @@
+{
+ "id": "game-2",
+ "title": "ぴょこぴょこ ステップ",
+ "family": "sports",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2646000,
+ "seconds": 60.0,
+ "flacFrames": 2646000,
+ "aacDecodedFrames": 2646016,
+ "integratedLUFS": -24.0,
+ "targetLUFS": -24,
+ "truePeakDbtp": -10.17,
+ "samplePeakDbfs": -10.18,
+ "clippedSamples": 0,
+ "monoLossDb": -1.19,
+ "sideToMidDb": -5.0,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.0019,
+ "loopJoinTypicalStep999": 0.04114,
+ "bands": {
+  "centroidHz": 759,
+  "low40_250": -7.8,
+  "lowmid250_800": -4.5,
+  "mid800_3k": -3.3,
+  "pres3k_6k": -20.0,
+  "air6k_12k": -35.8,
+  "top12k_20k": -57.5
+ },
+ "roleGainsDb": {
+  "bass": 2.1,
+  "accompaniment": 27.9,
+  "pad": 25.6,
+  "percussion": 36.3,
+  "doubling": 6.8
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   -0.5,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 768,
+  "low40_250": -7.8,
+  "lowmid250_800": -4.6,
+  "mid800_3k": -3.2,
+  "pres3k_6k": -19.5,
+  "air6k_12k": -35.7,
+  "top12k_20k": -57.5
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 4.0,
+ "flacSha256": "2f65152a8f1e25296daac03be072474906b98c4ccbee67060d138e7bbb13ed7e",
+ "flacBytes": 8675987,
+ "aacSha256": "58ded98432f5f268061951ba36eed3c3218ab59c139a1a27100f216735b4a43e",
+ "aacBytes": 1500894,
+ "midiSha256": "a3bfe63a04900f9a555a85fa05b92e4087a232930076ec245430a9748d23fcb6",
+ "problems": [],
+ "version": 6,
+ "sourceFingerprint": "f2a7c77474a9676054d2f712855b7ea9bf30721acd4e6b71b0619239fc89a0b4",
+ "v6": {
+  "method": "explicit phrase curves and existing voice windows",
+  "profile": {
+   "loop": true,
+   "arc": [
+    [
+     0,
+     -0.35
+    ],
+    [
+     4,
+     0.25
+    ],
+    [
+     8,
+     -0.6
+    ],
+    [
+     10.25,
+     0.4
+    ],
+    [
+     12.75,
+     0.85
+    ],
+    [
+     15,
+     -0.1
+    ],
+    [
+     16,
+     -0.35
+    ],
+    [
+     20,
+     0.85
+    ],
+    [
+     24,
+     0.0
+    ],
+    [
+     26.25,
+     1.0
+    ],
+    [
+     28.75,
+     1.45
+    ],
+    [
+     31,
+     0.2
+    ],
+    [
+     32,
+     -0.35
+    ]
+   ],
+   "voiceWindows": [
+    [
+     5,
+     8
+    ],
+    [
+     10,
+     14
+    ]
+   ],
+   "change": "跳ねるリズムの8・11・14小節に大小の山を作る。",
+   "analysis": [
+    "旋律: 152音、最高音MIDI 86。発音順・音高・時刻・長さは保存。",
+    "頂点・強弱: 跳ねるリズムの8・11・14小節に大小の山を作る。",
+    "和声: 低音は安定させ弦に大きめの出入りを付ける。音高の再生成は行わない。",
+    "バランス: V5の音域別補正を保持。伴奏の強弱は旋律の約半分、低音はさらに小さく。",
+    "対旋律: 新設しない。既存旋律と和声で十分なため。",
+    "掛け合い: 重ねを応援のように後半へ集める。",
+    "反復: 2周の音数は維持し、周ごとの表情と声部の前後で変化。",
+    "長時間の心地よさ: 用途別LUFSを保持し、強い圧縮や高域の追加で盛り上げない。聴感は試聴で評価。",
+    "ループ: 曲末の表情を冒頭へ戻す。V5の残響折返しを保持し、実音源の接続を測定。"
+   ]
+  },
+  "newNotes": 0,
+  "baseline": "0cf8100d3ad85888f5e32f670a56631ecb4e82ce"
+ },
+ "pianoAttackSoftenDb": 0.0,
+ "sideScale": 0.792,
+ "removedNotes": 84,
+ "pedalNotes": 0,
+ "v5": {
+  "melodyLevelSdBefore": 1.25,
+  "melodyLevelSdAfter": 0.84,
+  "melodyLevelRangeBefore": 6.6,
+  "melodyLevelRangeAfter": 3.6
+ }
+}
