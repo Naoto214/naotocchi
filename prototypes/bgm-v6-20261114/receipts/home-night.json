@@ -1,0 +1,136 @@
+{
+ "id": "home-night",
+ "title": "ほしぞらの やくそく",
+ "family": "home4",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2228211,
+ "seconds": 50.526327,
+ "flacFrames": 2228211,
+ "aacDecodedFrames": 2228224,
+ "integratedLUFS": -23.0,
+ "targetLUFS": -23,
+ "truePeakDbtp": -5.4,
+ "samplePeakDbfs": -5.4,
+ "clippedSamples": 0,
+ "monoLossDb": -1.31,
+ "sideToMidDb": -4.5,
+ "aacFlacCorrelation": 1.0,
+ "loopJoinJump": 0.00018,
+ "loopJoinTypicalStep999": 0.05119,
+ "bands": {
+  "centroidHz": 688,
+  "low40_250": -8.3,
+  "lowmid250_800": -2.6,
+  "mid800_3k": -5.3,
+  "pres3k_6k": -25.1,
+  "air6k_12k": -46.8,
+  "top12k_20k": -58.6
+ },
+ "roleGainsDb": {
+  "bass": -8.9,
+  "accompaniment": -2.8
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   3.2,
+   0.7
+  ],
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 632,
+  "low40_250": -8.3,
+  "lowmid250_800": -2.2,
+  "mid800_3k": -6.1,
+  "pres3k_6k": -28.7,
+  "air6k_12k": -48.8,
+  "top12k_20k": -59.3
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 3.2,
+ "flacSha256": "da453d6e72824eb10af57f1d0cab20cdabe85d21fce172addf4dc3969798b370",
+ "flacBytes": 7561936,
+ "aacSha256": "dad57b4946fbfb8f4c11557ffbb092771efb7605363a3811113fba9a41806f35",
+ "aacBytes": 1229486,
+ "midiSha256": "4e901e77bd527a1156c974682bf026a19dff4e3196d2d13a533cb743af730136",
+ "problems": [],
+ "version": 6,
+ "sourceFingerprint": "53b3e802fe1af56fe40a59907dd24c1451e81999def38d2e5580c5dccaaf11d7",
+ "v6": {
+  "method": "explicit phrase curves and existing voice windows",
+  "profile": {
+   "loop": true,
+   "arc": [
+    [
+     0,
+     -0.5
+    ],
+    [
+     3,
+     0.1
+    ],
+    [
+     4,
+     0.55
+    ],
+    [
+     7,
+     -0.6
+    ],
+    [
+     8,
+     0.75
+    ],
+    [
+     11,
+     -0.2
+    ],
+    [
+     12,
+     0.85
+    ],
+    [
+     14,
+     0.0
+    ],
+    [
+     16,
+     -0.5
+    ]
+   ],
+   "voiceWindows": [],
+   "change": "9・13小節を小さく歌わせ、終止で脱力。ピアノの響きとペダルは維持。",
+   "analysis": [
+    "旋律: 47音、最高音MIDI 85。発音順・音高・時刻・長さは保存。",
+    "頂点・強弱: 9・13小節を小さく歌わせ、終止で脱力。ピアノの響きとペダルは維持。",
+    "和声: 伴奏は旋律より小さい強弱幅で安定した響きを保つ。音高の再生成は行わない。",
+    "バランス: V5の音域別補正を保持。伴奏の強弱は旋律の約半分、低音はさらに小さく。",
+    "対旋律: 新設しない。既存旋律と和声で十分なため。",
+    "掛け合い: 独奏を保持し、追加対旋律は置かない。",
+    "反復: 既存の1周構成を保持。",
+    "長時間の心地よさ: 用途別LUFSを保持し、強い圧縮や高域の追加で盛り上げない。聴感は試聴で評価。",
+    "ループ: 曲末の表情を冒頭へ戻す。V5の残響折返しを保持し、実音源の接続を測定。"
+   ]
+  },
+  "newNotes": 0,
+  "baseline": "0cf8100d3ad85888f5e32f670a56631ecb4e82ce"
+ },
+ "pianoAttackSoftenDb": 7.0,
+ "sideScale": 0.966,
+ "removedNotes": 11,
+ "pedalNotes": 191,
+ "v5": {
+  "melodyLevelSdBefore": 4.2,
+  "melodyLevelSdAfter": 0.62,
+  "melodyLevelRangeBefore": 16.1,
+  "melodyLevelRangeAfter": 2.8
+ }
+}
