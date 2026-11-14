@@ -4,6 +4,7 @@ on:
     paths:
       - 'prototypes/naopoyo-100/v4/**'
       - 'docs/naopoyo-100-v4/**'
+      - 'docs/naopoyo-100-v5/**'
       - '.github/workflows/naopoyo-v4-comparison.yml'
 permissions:
   contents: read
@@ -26,10 +27,11 @@ jobs:
             docs/naopoyo-100-v2
             docs/naopoyo-100-v3
             docs/naopoyo-100-v4
+            docs/naopoyo-100-v5
             docs/naopoyo-time-hand-chapter1-20261102
             docs/naopoyo-gimmick-atlas-v2
             tests
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - run: node --test tests/puzzle-*.test.mjs prototypes/naopoyo-100/tests/*.test.mjs prototypes/naopoyo-time-hand-chapter1/tests/*.test.mjs prototypes/naopoyo-100/v4/tests/*.test.mjs
+      - run: node --test tests/puzzle-*.test.mjs prototypes/naopoyo-100/tests/*.test.mjs prototypes/naopoyo-time-hand-chapter1/tests/*.test.mjs prototypes/naopoyo-100/v4/tests/*.test.mjs prototypes/naopoyo-100/v4/v5/tests/*.test.mjs
