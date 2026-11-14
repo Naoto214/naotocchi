@@ -19,6 +19,6 @@ export function edges(c,cells,light,dark,r=.18,width=.065){
  }
 }
 export function debugTerrain(c,s){
- c.save();for(const t of terrainTopology(s)){c.strokeStyle=t.wall?'#ff9b8e':'#c8ffba';c.lineWidth=.035;c.strokeRect(t.x+.055,t.y+.055,.89,.89);if(t.wall){c.beginPath();c.moveTo(t.x+.12,t.y+.12);c.lineTo(t.x+.26,t.y+.26);c.moveTo(t.x+.26,t.y+.12);c.lineTo(t.x+.12,t.y+.26);c.stroke()}}
+ c.save();for(const t of terrainTopology(s)){c.strokeStyle=t.wall?'#ff9b8e':'#c8ffba';c.lineWidth=.035;c.beginPath();for(const[ox,oy,dx,dy]of [[.055,.055,1,1],[.945,.055,-1,1],[.055,.945,1,-1],[.945,.945,-1,-1]]){c.moveTo(t.x+ox+dx*.18,t.y+oy);c.lineTo(t.x+ox,t.y+oy);c.lineTo(t.x+ox,t.y+oy+dy*.18)}c.stroke();if(t.wall){c.beginPath();c.moveTo(t.x+.12,t.y+.12);c.lineTo(t.x+.26,t.y+.26);c.moveTo(t.x+.26,t.y+.12);c.lineTo(t.x+.12,t.y+.26);c.stroke()}}
  c.restore();
 }

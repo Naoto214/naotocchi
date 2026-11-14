@@ -1,3 +1,4 @@
+import{debugTerrain}from './six-geometry.mjs';
 import{sixTerrain}from './six-terrain.mjs';
 import{natureTerrain}from './nature-terrain.mjs';
 import{stoneTerrain}from './stone-terrain.mjs';
@@ -16,6 +17,7 @@ export function renderWorld(canvas,s,options={},world='forest',crateDesign=null,
  const layer=id=>id.startsWith('terrain.')?0:id.startsWith('scenery.')?1:id.startsWith('field.')?2:id==='object.crate'?4:3;
  const tiles=describeTiles(s).filter(t=>!['terrain.floor','terrain.wall','sign.gravity'].includes(t.catalogId)).sort((a,b)=>layer(a.catalogId)-layer(b.catalogId));
  for(const t of tiles){let p=t.params;if(t.catalogId==='fixture.gate'){const g=(options.gates||s.gates).find(g=>g.x===t.x&&g.y===t.y);p={...p,...gateVisual(g)}}let mask=0;[[0,-1,1],[1,0,2],[0,1,4],[-1,0,8]].forEach(([dx,dy,b])=>{if(tiles.some(n=>n.catalogId===t.catalogId&&n.x===t.x+dx&&n.y===t.y+dy))mask|=b});c.save();c.translate(t.x,t.y);if(t.catalogId==='object.crate'&&crateDesign)crateArt(c,p,crateDesign);else tile(c,t.catalogId,p,mask);c.restore()}
+ if(terrainStyle==='six-debug')debugTerrain(c,s);
  const active=options.selected?{id:s.actors.find(a=>a.x===options.selected[0]&&a.y===options.selected[1])?.id}:null;
  c.save();c.setTransform(dpr,0,0,dpr,0,0);drawActors(c,s,active,unit,width,options.stateEffects||[],options.now||performance.now(),options.reduced||false,false,true);c.restore();
  for(const e of options.effects||[]){c.save();c.globalAlpha=Math.max(0,1-e.progress);c.strokeStyle='#bc8c3a';c.lineWidth=2/unit;c.beginPath();c.arc(e.x+.5,e.y+.5,.15+e.progress*.38,0,7);c.stroke();c.restore()}
