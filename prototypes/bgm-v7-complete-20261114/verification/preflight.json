@@ -1,0 +1,198 @@
+[
+ {
+  "id": "poyo-1",
+  "notes": 548,
+  "maxTranspose": 3,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "koro-1",
+  "notes": 529,
+  "maxTranspose": 2,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "card-2",
+  "notes": 1554,
+  "maxTranspose": 3,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "game-1",
+  "notes": 674,
+  "maxTranspose": 3,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "explore-1",
+  "notes": 513,
+  "maxTranspose": 2,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "event-2",
+  "notes": 401,
+  "maxTranspose": 2,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "event-1",
+  "notes": 544,
+  "maxTranspose": 2,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "kisetsu",
+  "notes": 496,
+  "maxTranspose": 2,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "ohayo",
+  "notes": 256,
+  "maxTranspose": 2,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "bgm-game",
+  "notes": 776,
+  "maxTranspose": 3,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "bgm-race",
+  "notes": 904,
+  "maxTranspose": 3,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "bgm-farewell",
+  "notes": 145,
+  "maxTranspose": 2,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "poyo-2",
+  "notes": 526,
+  "maxTranspose": 2,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "game-2",
+  "notes": 668,
+  "maxTranspose": 3,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "explore-2",
+  "notes": 560,
+  "maxTranspose": 3,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "board-b",
+  "notes": 546,
+  "maxTranspose": 2,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "fishing-a",
+  "notes": 152,
+  "maxTranspose": 2,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "lullaby-a",
+  "notes": 133,
+  "maxTranspose": 2,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "jingle-achieve",
+  "notes": 77,
+  "maxTranspose": 2,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "jingle-card-lose",
+  "notes": 53,
+  "maxTranspose": 2,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "var-poyo-clear",
+  "notes": 55,
+  "maxTranspose": 3,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "var-poyo-chapter",
+  "notes": 227,
+  "maxTranspose": 3,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "var-koro-goal",
+  "notes": 57,
+  "maxTranspose": 2,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "var-koro-album",
+  "notes": 229,
+  "maxTranspose": 2,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "var-card-late",
+  "notes": 1554,
+  "maxTranspose": 3,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "var-card-win",
+  "notes": 124,
+  "maxTranspose": 3,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "var-flight",
+  "notes": 560,
+  "maxTranspose": 3,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ },
+ {
+  "id": "var-ohayo-hatch2",
+  "notes": 131,
+  "maxTranspose": 2,
+  "nativeBoundsPass": true,
+  "syntheticLoops": 0
+ }
+]

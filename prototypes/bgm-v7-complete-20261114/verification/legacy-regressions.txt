@@ -1,0 +1,22 @@
+FF.
+======================================================================
+FAIL: test_cached_piano_long_note_keeps_tail (__main__.NativeTests.test_cached_piano_long_note_keeps_tail)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/bgm-v7-strings/prototypes/bgm-v7-complete-20261114/tools/test_native.py", line 12, in test_cached_piano_long_note_keeps_tail
+    self.assertEqual(len(x),round(3.7979*V.L.SR))
+AssertionError: 61300 != 167487
+
+======================================================================
+FAIL: test_flute_uses_nearby_register (__main__.NativeTests.test_flute_uses_nearby_register)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/bgm-v7-strings/prototypes/bgm-v7-complete-20261114/tools/test_native.py", line 9, in test_flute_uses_nearby_register
+    lib=Library();lib.load('flute');root,_,_,_=lib.pick('flute',71,2);self.assertLessEqual(abs(root-71),2)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 13 not less than or equal to 2
+
+----------------------------------------------------------------------
+Ran 3 tests in 5.772s
+
+FAILED (failures=2)
