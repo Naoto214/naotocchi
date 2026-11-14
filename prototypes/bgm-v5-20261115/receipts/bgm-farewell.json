@@ -1,0 +1,83 @@
+{
+ "id": "bgm-farewell",
+ "title": "farewell（おわかれ）",
+ "family": "farewell",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2822400,
+ "seconds": 64.0,
+ "flacFrames": 2822400,
+ "aacDecodedFrames": 2823168,
+ "integratedLUFS": -25.0,
+ "targetLUFS": -25,
+ "truePeakDbtp": -8.52,
+ "samplePeakDbfs": -8.53,
+ "clippedSamples": 0,
+ "monoLossDb": -0.43,
+ "sideToMidDb": -9.9,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00066,
+ "loopJoinTypicalStep999": 0.03126,
+ "bands": {
+  "centroidHz": 614,
+  "low40_250": -9.8,
+  "lowmid250_800": -1.3,
+  "mid800_3k": -8.0,
+  "pres3k_6k": -24.1,
+  "air6k_12k": -49.4,
+  "top12k_20k": -65.9
+ },
+ "roleGainsDb": {
+  "bass": -2.7,
+  "accompaniment": -3.2,
+  "pad": -1.6,
+  "counter": -1.5
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   4.8,
+   0.7
+  ],
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 543,
+  "low40_250": -10.0,
+  "lowmid250_800": -1.0,
+  "mid800_3k": -9.8,
+  "pres3k_6k": -29.3,
+  "air6k_12k": -52.4,
+  "top12k_20k": -66.9
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 9.2,
+ "flacSha256": "88cc42bcf43844a1676d043779232bdc1a0d643cd42b664f82189e4504db4f78",
+ "flacBytes": 8989898,
+ "aacSha256": "c43d07c363b34659c73ef42c3d4ae0d326e23fb5a915e5bc9a82b15d9f418f17",
+ "aacBytes": 1553145,
+ "midiSha256": "38c25ba54290a937ace4489fedaba845e54a2f05adf065e5497d08bad96c03ae",
+ "problems": [],
+ "version": 5,
+ "pianoAttackSoftenDb": 5.0,
+ "sideScale": 1.0,
+ "removedNotes": 0,
+ "pedalNotes": 76,
+ "v5": {
+  "added": {
+   "counter": 5,
+   "response": 0,
+   "bassWalk": 0
+  },
+  "melodyLevelSdBefore": 3.3,
+  "melodyLevelSdAfter": 0.66,
+  "melodyLevelRangeBefore": 11.1,
+  "melodyLevelRangeAfter": 2.2
+ }
+}

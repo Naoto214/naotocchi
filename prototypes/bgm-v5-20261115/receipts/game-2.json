@@ -1,0 +1,73 @@
+{
+ "id": "game-2",
+ "title": "ぴょこぴょこ ステップ",
+ "family": "sports",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2646000,
+ "seconds": 60.0,
+ "flacFrames": 2646000,
+ "aacDecodedFrames": 2646016,
+ "integratedLUFS": -24.0,
+ "targetLUFS": -24,
+ "truePeakDbtp": -10.73,
+ "samplePeakDbfs": -10.73,
+ "clippedSamples": 0,
+ "monoLossDb": -1.19,
+ "sideToMidDb": -5.0,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00204,
+ "loopJoinTypicalStep999": 0.0407,
+ "bands": {
+  "centroidHz": 758,
+  "low40_250": -7.8,
+  "lowmid250_800": -4.4,
+  "mid800_3k": -3.3,
+  "pres3k_6k": -19.9,
+  "air6k_12k": -35.9,
+  "top12k_20k": -57.6
+ },
+ "roleGainsDb": {
+  "bass": 1.9,
+  "accompaniment": 27.7,
+  "pad": 24.3,
+  "percussion": 36.0,
+  "doubling": 4.7
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   -0.4,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 765,
+  "low40_250": -7.8,
+  "lowmid250_800": -4.4,
+  "mid800_3k": -3.3,
+  "pres3k_6k": -19.6,
+  "air6k_12k": -35.7,
+  "top12k_20k": -57.6
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 9.0,
+ "flacSha256": "e1120a2c29291aa7332069c81809dcbbe9671cc3bb6fe89de148a6fa4bf57a88",
+ "flacBytes": 8681157,
+ "aacSha256": "d9fa47e90f83844e6654fb56e00f9d5c727e54fb2fa34131b020637aa462a93e",
+ "aacBytes": 1499248,
+ "midiSha256": "377c59a173b1945cffed2a598038593041b049d02199dfed3e3bf079eee63f54",
+ "problems": [],
+ "version": 5,
+ "pianoAttackSoftenDb": 0.0,
+ "sideScale": 0.794,
+ "removedNotes": 84,
+ "pedalNotes": 0,
+ "v5": {
+  "melodyLevelSdBefore": 1.25,
+  "melodyLevelSdAfter": 0.84,
+  "melodyLevelRangeBefore": 6.6,
+  "melodyLevelRangeAfter": 3.6
+ }
+}

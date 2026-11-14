@@ -1,0 +1,80 @@
+{
+ "id": "var-ohayo-hatch2",
+ "title": "おはようのひかり（たまごが かえる・ファンファーレ 2小節）",
+ "family": "hatch",
+ "loop": false,
+ "sampleRate": 44100,
+ "frames": 297675,
+ "seconds": 6.75,
+ "flacFrames": 297675,
+ "aacDecodedFrames": 297984,
+ "integratedLUFS": -19.01,
+ "targetLUFS": -19,
+ "truePeakDbtp": -6.62,
+ "samplePeakDbfs": -6.67,
+ "clippedSamples": 0,
+ "monoLossDb": -0.32,
+ "sideToMidDb": -11.2,
+ "aacFlacCorrelation": 0.9998,
+ "loopJoinJump": 0.01049,
+ "loopJoinTypicalStep999": 0.06629,
+ "bands": {
+  "centroidHz": 844,
+  "low40_250": -8.9,
+  "lowmid250_800": -3.1,
+  "mid800_3k": -4.4,
+  "pres3k_6k": -17.8,
+  "air6k_12k": -27.2,
+  "top12k_20k": -57.4
+ },
+ "roleGainsDb": {
+  "percussion": -16.7,
+  "doubling": 1.7,
+  "bass": 5.1,
+  "accompaniment": 12.2,
+  "pad": 9.9,
+  "cadence": 2.6
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   -6.0,
+   0.7
+  ],
+  [
+   "highshelf",
+   8000,
+   -1.2,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 1067,
+  "low40_250": -9.8,
+  "lowmid250_800": -3.7,
+  "mid800_3k": -3.8,
+  "pres3k_6k": -13.0,
+  "air6k_12k": -24.8,
+  "top12k_20k": -56.7
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 2.5,
+ "flacSha256": "301229232c52be4b4bdd054c729c5152c30613b726923a598491c4c78c6b2852",
+ "flacBytes": 1045233,
+ "aacSha256": "ce9b978742178e9cf7e15cb1dea1893173438a4eee7f67db8db30e883a3253d4",
+ "aacBytes": 163819,
+ "midiSha256": "03240278892cd9668ea38bf6ac88604ce283d5373a00f9fb723f09f04f2053a3",
+ "problems": [],
+ "version": 5,
+ "pianoAttackSoftenDb": 0.0,
+ "sideScale": 1.0,
+ "removedNotes": 22,
+ "pedalNotes": 0,
+ "v5": {
+  "melodyLevelSdBefore": 1.11,
+  "melodyLevelSdAfter": 0.56,
+  "melodyLevelRangeBefore": 3.6,
+  "melodyLevelRangeAfter": 1.6
+ }
+}
