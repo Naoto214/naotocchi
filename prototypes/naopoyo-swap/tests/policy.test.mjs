@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {chooseAction} from '../policy.mjs';import {createGame} from '../state.mjs';import {applySwap} from '../engine.mjs';
+test('goal policy takes immediate08 win and is deterministic',()=>{const s=createGame(7);s.board=Array(36).fill(0);s.board[30]=8;s.board[32]=8;const a=chooseAction(s,'goal');assert.ok(a);assert.equal(applySwap(s,a).state.status,'clear');assert.deepEqual(chooseAction(s,'goal'),a);});
+test('all policies return a legal exchange without mutating state',()=>{for(const name of ['random','evolve','goal','focus']){const s=createGame(9),raw=JSON.stringify(s),a=chooseAction(s,name);assert.ok(a);assert.equal(applySwap(s,a).accepted,true);assert.equal(JSON.stringify(s),raw);}});
