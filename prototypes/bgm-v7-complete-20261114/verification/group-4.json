@@ -1,0 +1,101 @@
+{
+ "passed": true,
+ "tracks": 7,
+ "melodyNotes": 3158,
+ "placements": 50,
+ "homeLockFiles": 16,
+ "scope": "preview only; production unchanged",
+ "results": [
+  {
+   "id": "var-poyo-chapter",
+   "title": "ぽよぽよこもれび（章の おわり）",
+   "integratedLUFS": -25.0,
+   "truePeakDbtp": -9.82,
+   "monoLossDb": -1.22,
+   "aacFlacCorrelation": 0.9999,
+   "loopJoinJump": 0.00019,
+   "loopJoinTypicalStep999": 0.03805,
+   "clippedSamples": 0,
+   "aacSha256": "e0101ea87248920b33c60bcf00a7425db5d7ca9d54198cdebed9fd678b90dddc",
+   "flacSha256": "b71b4bb19fa0dcce3ca211d65649704227c4f8c62a74e09d90f8f3a8c6be7b8c"
+  },
+  {
+   "id": "var-koro-goal",
+   "title": "ころころじんせい（ゴール）",
+   "integratedLUFS": -22.99,
+   "truePeakDbtp": -6.6,
+   "monoLossDb": -1.22,
+   "aacFlacCorrelation": 0.9998,
+   "loopJoinJump": 0.00024,
+   "loopJoinTypicalStep999": 0.04878,
+   "clippedSamples": 0,
+   "aacSha256": "f85bcb3f61674e244a4bef7c6f054d4815d4d6f41de33ed43bf071ae83c9eb79",
+   "flacSha256": "83dd4d6ab2f68ab0f4bf0b86818b80a4f3a119da3f7272c37cd8e20adae71273"
+  },
+  {
+   "id": "var-koro-album",
+   "title": "ころころじんせい（人生アルバム）",
+   "integratedLUFS": -24.99,
+   "truePeakDbtp": -6.58,
+   "monoLossDb": -1.21,
+   "aacFlacCorrelation": 0.9999,
+   "loopJoinJump": 0.00052,
+   "loopJoinTypicalStep999": 0.03751,
+   "clippedSamples": 0,
+   "aacSha256": "01b1bc329e68d8a564ee9fcf7dd92b8efe6f7372209fde82c8acc417fdde25c7",
+   "flacSha256": "d09617f050b93e3d19d29e638e7dee70985418e8e8659a0405ccd63b6d409ffe"
+  },
+  {
+   "id": "var-card-late",
+   "title": "デュエル・スタート（終盤）",
+   "integratedLUFS": -24.0,
+   "truePeakDbtp": -5.68,
+   "monoLossDb": -1.19,
+   "aacFlacCorrelation": 0.9999,
+   "loopJoinJump": 0.00218,
+   "loopJoinTypicalStep999": 0.04092,
+   "clippedSamples": 0,
+   "aacSha256": "17bddddc581488ca3bd7d533acff5ef9dceb3d7f7b5b8c7319843904c700a23d",
+   "flacSha256": "b4f8457d9e3a8b52f2e3c30d9f7db6cf296f74992a480eef864e374bd3c49d1f"
+  },
+  {
+   "id": "var-card-win",
+   "title": "デュエル・スタート（勝利）",
+   "integratedLUFS": -24.0,
+   "truePeakDbtp": -9.04,
+   "monoLossDb": -1.19,
+   "aacFlacCorrelation": 0.9994,
+   "loopJoinJump": 0.00022,
+   "loopJoinTypicalStep999": 0.04359,
+   "clippedSamples": 0,
+   "aacSha256": "c15031fe1eac17707546d0ec191b725cbde5cb52f24478e6209219906285c51f",
+   "flacSha256": "73e01fee46d847ec23188ab3bfd30c35905d95515e135987c15dcc7b67c7f372"
+  },
+  {
+   "id": "var-flight",
+   "title": "そらとうみのさんぽ（きらめき・はやめ）",
+   "integratedLUFS": -24.0,
+   "truePeakDbtp": -12.67,
+   "monoLossDb": -1.2,
+   "aacFlacCorrelation": 1.0,
+   "loopJoinJump": 0.00272,
+   "loopJoinTypicalStep999": 0.03393,
+   "clippedSamples": 0,
+   "aacSha256": "8cd4d8f1c62e4a68bdee8c25bd55a68d685e4d2c43ea8eee57d376833ce34eda",
+   "flacSha256": "5f3cf1d9970d456fbb2d9016f6d1b3c0d3f3b3d591e65070cbe83106883cd480"
+  },
+  {
+   "id": "var-ohayo-hatch2",
+   "title": "おはようのひかり（たまごが かえる・ファンファーレ 2小節）",
+   "integratedLUFS": -18.99,
+   "truePeakDbtp": -6.48,
+   "monoLossDb": -0.32,
+   "aacFlacCorrelation": 0.9998,
+   "loopJoinJump": 0.01062,
+   "loopJoinTypicalStep999": 0.06345,
+   "clippedSamples": 0,
+   "aacSha256": "1d95d59a0a235be39ab12386f7cb3e5ac5fb2722f317f5810903d68d711586be",
+   "flacSha256": "0a1673f71d58df06ba34c65b969a0a25c5952647f30623c55640a2da214d6bf4"
+  }
+ ]
+}
