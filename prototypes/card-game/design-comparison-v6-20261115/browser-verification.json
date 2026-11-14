@@ -1,0 +1,318 @@
+{
+  "browser": "Cloud Chrome / Chromium, DOM CSS px and rendered screenshot inspection",
+  "physicalIPhoneSafari": false,
+  "webkit": false,
+  "circleMethod": "360 samples around outer cost circle including outline width+offset against inner rounded gold frame signed distance. Positive means fully inside. Baseline may protrude; candidate must clear.",
+  "allCards": [
+    {
+      "width": 320,
+      "cards": 459,
+      "uniqueIds": 459,
+      "mainCards": 248,
+      "additional": 7,
+      "threeColumns": true,
+      "overflowAndOverlapCount": 0,
+      "minCircleClearancePx": 0.9770499999999628,
+      "minimumTitleFontPx": 5.50569,
+      "maxCircleRightVariationPx": 0.0,
+      "allDigitsAligned": true
+    },
+    {
+      "width": 375,
+      "cards": 459,
+      "uniqueIds": 459,
+      "mainCards": 248,
+      "additional": 7,
+      "threeColumns": true,
+      "overflowAndOverlapCount": 0,
+      "minCircleClearancePx": 1.5711249999999382,
+      "minimumTitleFontPx": 6.61974,
+      "maxCircleRightVariationPx": 0.0,
+      "allDigitsAligned": true
+    },
+    {
+      "width": 390,
+      "cards": 459,
+      "uniqueIds": 459,
+      "mainCards": 248,
+      "additional": 7,
+      "threeColumns": true,
+      "overflowAndOverlapCount": 0,
+      "minCircleClearancePx": 1.737374999999929,
+      "minimumTitleFontPx": 6.9234,
+      "maxCircleRightVariationPx": 0.0,
+      "allDigitsAligned": true
+    },
+    {
+      "width": 430,
+      "cards": 459,
+      "uniqueIds": 459,
+      "mainCards": 248,
+      "additional": 7,
+      "threeColumns": true,
+      "overflowAndOverlapCount": 0,
+      "minCircleClearancePx": 2.180464999999913,
+      "minimumTitleFontPx": 7.73378,
+      "maxCircleRightVariationPx": 0.0,
+      "allDigitsAligned": true
+    }
+  ],
+  "auxLabelRubyConditions": 16,
+  "auxLabelRubyCards": 224,
+  "variantFailures": 0,
+  "cost0to8": [
+    {
+      "width": 320,
+      "design": "current",
+      "digits": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "minimumClearancePx": -3.897950000000002,
+      "rightVariationPx": 0.0,
+      "circle": {
+        "height": 11.328125,
+        "right": 2.1875,
+        "top": 5.53125,
+        "width": 11.328125
+      }
+    },
+    {
+      "width": 320,
+      "design": "refined",
+      "digits": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "minimumClearancePx": 0.9770499999999628,
+      "rightVariationPx": 0.0,
+      "circle": {
+        "height": 11.328125,
+        "right": 6.4375,
+        "top": 6.0625,
+        "width": 11.328125
+      }
+    },
+    {
+      "width": 375,
+      "design": "current",
+      "digits": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "minimumClearancePx": -3.678875000000005,
+      "rightVariationPx": 0.0,
+      "circle": {
+        "height": 13.625,
+        "right": 2.828125,
+        "top": 6.4375,
+        "width": 13.625
+      }
+    },
+    {
+      "width": 375,
+      "design": "refined",
+      "digits": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "minimumClearancePx": 1.5711249999999382,
+      "rightVariationPx": 0.0,
+      "circle": {
+        "height": 13.625,
+        "right": 7.515625,
+        "top": 7.078125,
+        "width": 13.625
+      }
+    },
+    {
+      "width": 390,
+      "design": "current",
+      "digits": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "minimumClearancePx": -3.606375000000014,
+      "rightVariationPx": 0.0,
+      "circle": {
+        "height": 14.25,
+        "right": 3.015625,
+        "top": 6.6875,
+        "width": 14.25
+      }
+    },
+    {
+      "width": 390,
+      "design": "refined",
+      "digits": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "minimumClearancePx": 1.7373750000000427,
+      "rightVariationPx": 0.0,
+      "circle": {
+        "height": 14.25,
+        "right": 7.8125,
+        "top": 7.359375,
+        "width": 14.25
+      }
+    },
+    {
+      "width": 430,
+      "design": "current",
+      "digits": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "minimumClearancePx": -3.4445349999999735,
+      "rightVariationPx": 0.0,
+      "circle": {
+        "height": 15.90625,
+        "right": 3.484375,
+        "top": 7.359375,
+        "width": 15.90625
+      }
+    },
+    {
+      "width": 430,
+      "design": "refined",
+      "digits": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "minimumClearancePx": 2.180464999999913,
+      "rightVariationPx": 0.0,
+      "circle": {
+        "height": 15.90625,
+        "right": 8.625,
+        "top": 8.109375,
+        "width": 15.90625
+      }
+    }
+  ],
+  "interactions": [
+    {
+      "width": 320,
+      "hidden": 0,
+      "retained": 0,
+      "flipped": 1,
+      "returned": "false",
+      "label": "メイン · ひと",
+      "labelKept": "メイン · ひと",
+      "ruby": 2,
+      "battle": 3,
+      "canonicalNoteFont": "11px",
+      "effectFont": "16px"
+    },
+    {
+      "width": 375,
+      "hidden": 0,
+      "retained": 0,
+      "flipped": 1,
+      "returned": "false",
+      "label": "メイン · ひと",
+      "labelKept": "メイン · ひと",
+      "ruby": 2,
+      "battle": 3,
+      "canonicalNoteFont": "11px",
+      "effectFont": "16px"
+    },
+    {
+      "width": 390,
+      "hidden": 0,
+      "retained": 0,
+      "flipped": 1,
+      "returned": "false",
+      "label": "メイン · ひと",
+      "labelKept": "メイン · ひと",
+      "ruby": 2,
+      "battle": 3,
+      "canonicalNoteFont": "11px",
+      "effectFont": "16px"
+    },
+    {
+      "width": 430,
+      "hidden": 0,
+      "retained": 0,
+      "flipped": 1,
+      "returned": "false",
+      "label": "メイン · ひと",
+      "labelKept": "メイン · ひと",
+      "ruby": 2,
+      "battle": 3,
+      "canonicalNoteFont": "11px",
+      "effectFont": "16px"
+    }
+  ],
+  "additionalCardIds": [
+    "W-time-ix",
+    "W-time-x",
+    "W-time-xi",
+    "W-time-xii",
+    "E-hayajimai",
+    "E-nagaiki",
+    "E-omoide-photo"
+  ],
+  "independentCodeReview": "No actionable findings; review_card_v6",
+  "limitations": [
+    "320px three-column longest title 5.51px; compact gallery identifies cards, full detail effect text 16px.",
+    "Auxiliary text at 3cqw is deliberately small; hide option reduces information in tiny grids.",
+    "Optical balance remains subjective; physical iPhone font rendering not certified."
+  ]
+}

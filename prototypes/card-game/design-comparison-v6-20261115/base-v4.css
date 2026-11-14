@@ -1,0 +1,16 @@
+/* Only the new candidate changes. V3 B3-A remains governed by byte-identical base styles. */
+.design-stage{grid-template-columns:repeat(2,minmax(0,310px));justify-content:center;gap:54px}
+.design-letter{min-width:36px;width:36px}.design-panel .card-shell{max-width:310px}
+.ruby-toggle{display:flex;gap:8px;align-items:center;line-height:1.6}.ruby-toggle input{min-height:0;width:17px;height:17px;accent-color:#315952}
+.face-v4 .card-title{top:13.5cqw;width:var(--title-width);padding:0;min-height:9cqw;line-height:1.1;letter-spacing:0;font-weight:700}
+.face-v4 .species{top:23cqw;line-height:1.15;margin-top:0}
+.face-v4 .art-window{top:33cqw}
+.face-v4.effects-refined .rules{top:97.5cqw;bottom:10.5cqw;padding:3.2cqw;font-size:4cqw;line-height:1.52}
+.face-v4.effects-refined .rules.long{font-size:3.8cqw;line-height:1.48;padding:2.6cqw}
+.face-v4.effects-refined.has-stats .rules{top:105cqw;font-size:3.7cqw;padding:2.6cqw;line-height:1.5}
+.face-v4.effects-refined.has-stats .rules.long{font-size:3.5cqw;line-height:1.48}
+.face-v4.effects-refined .rules p:last-child{margin-bottom:0}
+.face-v4.effects-refined .rules strong{line-height:1.4;margin-bottom:1.2cqw}
+.detail-copy{font-size:16px;line-height:1.85}.detail-copy h3{font-size:24px}.detail-copy rt{font-size:10px}
+.grid-title{font-size:13px;line-height:1.5}.grid-readmore{display:block;font-size:10px;line-height:1.6;margin-top:5px;color:#596d62}.hide-labels .grid-readmore{display:none}
+@media(max-width:720px){.design-stage{gap:20px;justify-content:start;padding-inline:20px}.pair-stage{justify-content:center;padding-inline:16px;gap:14px}.design-panel .card-shell{max-width:296px}.secondary-controls{display:block}.secondary-controls>label{margin-bottom:10px;font-size:11px}.secondary-controls select{margin-left:6px}.controls .wide{grid-column:1/-1}.control-group:not(.design-control):not(.wide){grid-column:1/-1}.grid-title{font-size:12px}.grid-readmore{font-size:9px}.detail-copy{font-size:16px}.masthead nav{gap:6px;font-size:8px}.brand span{font-size:17px}.private-badge{font-size:8px;padding:5px}.view-tabs button{font-size:10px}}
