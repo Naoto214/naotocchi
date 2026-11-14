@@ -1,0 +1,11 @@
+const {test}=require('node:test'),assert=require('node:assert/strict');
+let Player;try{Player=require('../player.js')}catch{}
+class Param{value=1;cancelScheduledValues(){}setValueAtTime(v){this.value=v}linearRampToValueAtTime(v){this.value=v}}
+class Node{gain=new Param();connect(){}disconnect(){}start(){this.started=true}stop(){this.stopped=true;this.onended?.()}}
+class Context{state='running';currentTime=0;destination={};sources=[];createGain(){return new Node}createBufferSource(){const n=new Node;this.sources.push(n);return n}resume(){this.state='running';return Promise.resolve()}}
+const deferred=()=>{let resolve;const promise=new Promise(r=>resolve=r);return {promise,resolve}};
+test('stop during rendering never starts late audio',async()=>{const d=deferred(),ctx=new Context;const p=new Player({context:ctx,render:()=>d.promise});const play=p.play({id:'a'},'piano');p.stop();d.resolve({duration:10});await play;assert.equal(ctx.sources.length,0);assert.equal(p.playing,false)});
+test('rapid selection renders only latest request',async()=>{const a=deferred(),b=deferred(),ctx=new Context;const p=new Player({context:ctx,render:s=>s.id==='a'?a.promise:b.promise});const first=p.play({id:'a'},'piano'),second=p.play({id:'b'},'piano');b.resolve({duration:12});await second;a.resolve({duration:10});await first;assert.equal(ctx.sources.length,1);assert.equal(p.current.theme.id,'b')});
+test('fade keeps old source briefly but stop silences all and cancels callbacks',async()=>{const ctx=new Context;let ended=0;const p=new Player({context:ctx,render:async()=>({duration:12}),onend:()=>ended++});await p.play({id:'a'},'piano');await p.play({id:'b'},'piano');assert.equal(p.active.size,2);p.setVolume(.25);assert.equal(p.master.gain.value,.25);p.stop();assert.ok(ctx.sources.every(n=>n.stopped));assert.equal(p.active.size,0);assert.equal(ended,0)});
+
+test('old ending while next renders cannot cancel or advance the new request',async()=>{const ctx=new Context,d=deferred();let ended=0;const p=new Player({context:ctx,render:s=>s.id==='b'?d.promise:Promise.resolve({duration:12}),onend:()=>ended++});await p.play({id:'a'},'piano');const next=p.play({id:'b'},'piano');ctx.sources[0].onended();assert.equal(ended,0);d.resolve({duration:14});await next;assert.equal(p.current.theme.id,'b');});
