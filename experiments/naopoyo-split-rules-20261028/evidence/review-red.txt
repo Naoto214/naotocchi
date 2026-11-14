@@ -1,0 +1,65 @@
+✔ A retains same-split upper child; B recombines it (14.552526ms)
+✔ C prioritizes left then right independently of entry (3.040942ms)
+✔ C postpones the direct-above cell even behind reachable distance-two side cells (0.820658ms)
+✔ instrumented A equals the untouched V9 on stage20 reproduction (9.324108ms)
+✔ B reports and atomically rolls back a real recurrent split/merge (9.329482ms)
+✔ one successful activation per spike terminates the same recurrence (8.583426ms)
+✔ C cannot avoid an upper child when the well has no side exit (6.826573ms)
+✔ next engine move discards family protection and allows merging (2.033671ms)
+✔ A: rock and magic gate roofs support all 8 levels (1.972554ms)
+✔ A: spikes and mismatching exits do not support (1.737942ms)
+✔ A: different species and lower level8 support, lower5 normally merges (1.439581ms)
+✔ A: diagonal corner and closed gate remain blocked; exchanges remain symmetric (1.488564ms)
+✔ A: special/occupied/wall cells are never births, inaccessible ring2 is excluded (1.282465ms)
+✔ A: overflow and multiple spike cascades conserve mass (4.34854ms)
+✔ B: rock and magic gate roofs support all 8 levels (1.048385ms)
+✔ B: spikes and mismatching exits do not support (0.764828ms)
+✔ B: different species and lower level8 support, lower5 normally merges (0.259247ms)
+✔ B: diagonal corner and closed gate remain blocked; exchanges remain symmetric (1.005462ms)
+✔ B: special/occupied/wall cells are never births, inaccessible ring2 is excluded (0.209631ms)
+✔ B: overflow and multiple spike cascades conserve mass (2.302328ms)
+✔ C: rock and magic gate roofs support all 8 levels (0.958435ms)
+✔ C: spikes and mismatching exits do not support (0.706044ms)
+✔ C: different species and lower level8 support, lower5 normally merges (0.299588ms)
+✔ C: diagonal corner and closed gate remain blocked; exchanges remain symmetric (1.459434ms)
+✔ C: special/occupied/wall cells are never births, inaccessible ring2 is excluded (0.402571ms)
+✔ C: overflow and multiple spike cascades conserve mass (2.136888ms)
+✔ Once: rock and magic gate roofs support all 8 levels (1.467087ms)
+✔ Once: spikes and mismatching exits do not support (1.596739ms)
+✔ Once: different species and lower level8 support, lower5 normally merges (0.392872ms)
+✔ Once: diagonal corner and closed gate remain blocked; exchanges remain symmetric (2.115821ms)
+✔ Once: special/occupied/wall cells are never births, inaccessible ring2 is excluded (0.442879ms)
+✔ Once: overflow and multiple spike cascades conserve mass (2.159444ms)
+✔ one activation guard does not consume a spike on a minimum-level no-op (1.995905ms)
+✖ B-once distinguishes a repeated arrangement with a newly spent spike (4.463684ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 33
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 341.75036
+
+✖ failing tests:
+
+test at experiments/naopoyo-split-rules-20261028/compare.test.mjs:46:1
+✖ B-once distinguishes a repeated arrangement with a newly spent spike (4.463684ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  false !== true
+
+      at TestContext.<anonymous> (file:///workspace/scratch/ca3e8eb68f0d/naotocchi/experiments/naopoyo-split-rules-20261028/compare.test.mjs:48:66)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
