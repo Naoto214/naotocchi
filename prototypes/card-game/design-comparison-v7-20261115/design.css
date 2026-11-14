@@ -1,0 +1,24 @@
+/* V7 comparison only. Cost, art, colour and official assets remain inherited. */
+.face-v7.aux-refined .card-title{min-height:0}
+.face-v7.aux-refined .species{top:calc(13.5cqw + var(--title-size)*1.1 + .45cqw);font-size:2.8cqw;color:#536151;line-height:1.2}
+.face-v7.stats-refined .stats{top:94.6cqw;height:8cqw;display:grid;grid-template-columns:1fr 1fr;align-items:stretch;padding:0}
+.face-v7 .stat-cell{position:relative;min-width:0;display:grid;place-items:center}
+.face-v7 .stat-label{position:absolute;left:2.2cqw;font-size:3cqw;line-height:1.2}
+.face-v7 .stat-value{position:absolute;inset:0;display:grid;place-items:center;font:600 5.5cqw/1 Georgia,"Noto Serif",serif}
+.face-v7 .stat-number{display:block;line-height:1;transform:translate(var(--stat-x,0px),var(--stat-y,.04em))}
+.face-v7 .stat-glyph{font:inherit}.stat-baseline{display:inline-block;width:0;height:0;vertical-align:baseline}
+.face-v7.effects-refined.copy-refined .rules{overflow:hidden;bottom:9.8cqw;padding:2.4cqw;line-height:1.5}
+.face-v7.effects-refined.copy-refined.has-stats .rules{top:104.5cqw;padding:2.1cqw;line-height:1.5}
+.face-v7.copy-refined .rules.long{font-size:3.8cqw;line-height:1.48}
+.face-v7.copy-refined.has-stats .rules.long{font-size:3.5cqw;line-height:1.48}
+.rules-content{display:flow-root}.rules-notice{position:absolute;bottom:1.2cqw;left:2.1cqw;right:2.1cqw;font-size:2.6cqw;line-height:1.4;text-align:right;color:#536151;white-space:nowrap;cursor:pointer}
+.rules-notice[hidden]{display:none}.face-v7.copy-refined .rules p{overflow-wrap:anywhere}
+.design-stage.three{grid-template-columns:repeat(3,minmax(0,290px));gap:24px}
+.comparison-settings{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:18px}.comparison-settings label{font-size:11px}.comparison-settings select{display:block;width:100%;margin-top:6px}
+.audit-note{font-size:12px;line-height:1.8;max-width:800px}.audit-note a{color:#315952}.detail-copy .full-effect{font-size:16px;white-space:pre-wrap}
+@media(max-width:720px){.comparison-settings{grid-template-columns:1fr 1fr;gap:12px}.comparison-settings select{font-size:11px}.design-stage.three{grid-template-columns:repeat(3,minmax(240px,1fr));gap:20px}.view-tabs{gap:4px 12px}.view-tabs button{font-size:10px}.brand span{font-size:14px}.masthead nav{max-width:140px}.rules-notice{font-size:2.6cqw}}
+
+.face-v7.copy-refined .rules-content p:last-child{margin-bottom:0}
+/* The hand uses its own available width, not viewport units. */
+.battle-line>.grid-open{flex:0 1 110px;min-width:0;width:110px}
+.battle-line>.grid-open .card-shell{width:100%}

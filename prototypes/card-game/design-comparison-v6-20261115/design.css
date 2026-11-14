@@ -1,0 +1,6 @@
+/* V6: preserve V5 typography, illustration, effect region and digit centering. */
+.face-v6.cost-stable .cost{left:auto;right:1cqw;top:.6cqw;outline-offset:0}
+.face-v6 .species{background:none;border:0;border-radius:0;box-shadow:none;padding:0;color:#34483f;font-size:3cqw;font-weight:400}
+.secondary-controls{gap:12px 22px;flex-wrap:wrap}.secondary-controls select{max-width:100%}
+.view-tabs{flex-wrap:wrap;gap:10px 24px}.view-tabs button{min-height:44px}
+@media(max-width:720px){.view-tabs{gap:4px 14px}.view-tabs button{font-size:11px}.secondary-controls>label{font-size:11px}.masthead nav{flex-wrap:wrap;justify-content:flex-end;max-width:170px}.design-control .segmented button{font-size:12px}}

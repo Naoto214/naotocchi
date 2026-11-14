@@ -1,0 +1,103 @@
+{
+  "method": "WCAG relative luminance formula applied to the opaque computed background hex and #28392f body ink; not whole-card accessibility conformance.",
+  "rows": [
+    {
+      "id": "M-man-05",
+      "color": "#F17D9D",
+      "tint": "#fde8e3",
+      "creamRatio": 11.904550352989636,
+      "tintRatio": 10.386345657793836
+    },
+    {
+      "id": "M-cat-05",
+      "color": "#95603C",
+      "tint": "#eee3d3",
+      "creamRatio": 11.904550352989636,
+      "tintRatio": 9.649569313044848
+    },
+    {
+      "id": "M-frog-05",
+      "color": "#27D3C5",
+      "tint": "#dcf5e9",
+      "creamRatio": 11.904550352989636,
+      "tintRatio": 10.649870270293713
+    },
+    {
+      "id": "M-clownfish-05",
+      "color": "#2878E8",
+      "tint": "#dde7ef",
+      "creamRatio": 11.904550352989636,
+      "tintRatio": 9.758803411433375
+    },
+    {
+      "id": "M-antlion-05",
+      "color": "#F2D12E",
+      "tint": "#fdf5d1",
+      "creamRatio": 11.904550352989636,
+      "tintRatio": 11.161050618329073
+    },
+    {
+      "id": "M-dandelion-05",
+      "color": "#269451",
+      "tint": "#dcebd7",
+      "creamRatio": 11.904550352989636,
+      "tintRatio": 9.84999098290212
+    },
+    {
+      "id": "M-dragon-05",
+      "color": "#B58BE3",
+      "tint": "#f3eaee",
+      "creamRatio": 11.904550352989636,
+      "tintRatio": 10.378358199727803
+    },
+    {
+      "id": "M-plush-05",
+      "color": "#35316E",
+      "tint": "#dfdcdb",
+      "creamRatio": 11.904550352989636,
+      "tintRatio": 8.970333506083444
+    },
+    {
+      "id": "C-box",
+      "color": "#C68A32",
+      "tint": "#f6ead2",
+      "creamRatio": 11.904550352989636,
+      "tintRatio": 10.263968771253174
+    },
+    {
+      "id": "P-anglerfish",
+      "color": "#C04479",
+      "tint": "#f5dfdd",
+      "creamRatio": 11.904550352989636,
+      "tintRatio": 9.601778030472868
+    },
+    {
+      "id": "W-memory_lake",
+      "color": "#568A9D",
+      "tint": "#e4eae3",
+      "creamRatio": 11.904550352989636,
+      "tintRatio": 10.006944080359412
+    },
+    {
+      "id": "G-air-hockey",
+      "color": "#EF9860",
+      "tint": "#fcecd9",
+      "creamRatio": 11.904550352989636,
+      "tintRatio": 10.567430828020383
+    },
+    {
+      "id": "I-naoto_lantern",
+      "color": "#B7A48C",
+      "tint": "#f3eee0",
+      "creamRatio": 11.904550352989636,
+      "tintRatio": 10.554552441440801
+    },
+    {
+      "id": "E-big-illness",
+      "color": "#9298A5",
+      "tint": "#eeece4",
+      "creamRatio": 11.904550352989636,
+      "tintRatio": 10.342951049962613
+    }
+  ]
+}

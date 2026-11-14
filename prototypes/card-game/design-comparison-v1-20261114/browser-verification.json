@@ -1,0 +1,118 @@
+{
+  "engine": "Chrome",
+  "physical_iPhone_Safari_tested": false,
+  "viewport_checks": [
+    {
+      "width": 320,
+      "design": "A",
+      "gallery_cards": 36,
+      "page_overflow": false,
+      "title_overflow": []
+    },
+    {
+      "width": 320,
+      "design": "B",
+      "gallery_cards": 36,
+      "page_overflow": false,
+      "title_overflow": []
+    },
+    {
+      "width": 320,
+      "design": "C",
+      "gallery_cards": 36,
+      "page_overflow": false,
+      "title_overflow": []
+    },
+    {
+      "width": 375,
+      "design": "A",
+      "gallery_cards": 36,
+      "page_overflow": false,
+      "title_overflow": []
+    },
+    {
+      "width": 375,
+      "design": "B",
+      "gallery_cards": 36,
+      "page_overflow": false,
+      "title_overflow": []
+    },
+    {
+      "width": 375,
+      "design": "C",
+      "gallery_cards": 36,
+      "page_overflow": false,
+      "title_overflow": []
+    },
+    {
+      "width": 390,
+      "design": "A",
+      "gallery_cards": 36,
+      "page_overflow": false,
+      "title_overflow": []
+    },
+    {
+      "width": 390,
+      "design": "B",
+      "gallery_cards": 36,
+      "page_overflow": false,
+      "title_overflow": []
+    },
+    {
+      "width": 390,
+      "design": "C",
+      "gallery_cards": 36,
+      "page_overflow": false,
+      "title_overflow": []
+    },
+    {
+      "width": 430,
+      "design": "A",
+      "gallery_cards": 36,
+      "page_overflow": false,
+      "title_overflow": []
+    },
+    {
+      "width": 430,
+      "design": "B",
+      "gallery_cards": 36,
+      "page_overflow": false,
+      "title_overflow": []
+    },
+    {
+      "width": 430,
+      "design": "C",
+      "gallery_cards": 36,
+      "page_overflow": false,
+      "title_overflow": []
+    }
+  ],
+  "all_cards_check": {
+    "width": 390,
+    "design": "C",
+    "count": 459,
+    "pages": 13,
+    "title_overflow": 0
+  },
+  "interactions": [
+    "pagination forward/back",
+    "additional seven images loaded",
+    "modal open/close",
+    "modal design switch",
+    "flip",
+    "pair",
+    "ruby",
+    "battle-size"
+  ],
+  "tests": {
+    "card_game": {
+      "pass": 658,
+      "fail": 0
+    },
+    "title": {
+      "pass": 3,
+      "fail": 0
+    },
+    "whole_repository": "interrupted during unrelated long-running 3D world tests; not claimed passed"
+  }
+}

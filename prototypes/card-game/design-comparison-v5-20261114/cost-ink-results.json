@@ -1,0 +1,230 @@
+{
+  "method": "Independent JPEG dark-ink bounding-box sampling inside 50px circles; green ink threshold and 1px raster tolerance. Chrome fonts only; not physical iPhone or subjective optical certification.",
+  "rows": [
+    {
+      "digit": "0",
+      "height": 50,
+      "variant": "current",
+      "width": 50,
+      "x": 39,
+      "y": 76,
+      "inkOffset": {
+        "x": 0.5,
+        "y": 1.0
+      }
+    },
+    {
+      "digit": "1",
+      "height": 50,
+      "variant": "current",
+      "width": 50,
+      "x": 139,
+      "y": 76,
+      "inkOffset": {
+        "x": -1.0,
+        "y": 1.5
+      }
+    },
+    {
+      "digit": "2",
+      "height": 50,
+      "variant": "current",
+      "width": 50,
+      "x": 239,
+      "y": 76,
+      "inkOffset": {
+        "x": 0.0,
+        "y": 1.5
+      }
+    },
+    {
+      "digit": "3",
+      "height": 50,
+      "variant": "current",
+      "width": 50,
+      "x": 339,
+      "y": 76,
+      "inkOffset": {
+        "x": 0.0,
+        "y": 1.5
+      }
+    },
+    {
+      "digit": "4",
+      "height": 50,
+      "variant": "current",
+      "width": 50,
+      "x": 439,
+      "y": 76,
+      "inkOffset": {
+        "x": 3.0,
+        "y": 1.5
+      }
+    },
+    {
+      "digit": "5",
+      "height": 50,
+      "variant": "current",
+      "width": 50,
+      "x": 539,
+      "y": 76,
+      "inkOffset": {
+        "x": -0.5,
+        "y": 1.5
+      }
+    },
+    {
+      "digit": "6",
+      "height": 50,
+      "variant": "current",
+      "width": 50,
+      "x": 639,
+      "y": 76,
+      "inkOffset": {
+        "x": 0.0,
+        "y": 1.0
+      }
+    },
+    {
+      "digit": "7",
+      "height": 50,
+      "variant": "current",
+      "width": 50,
+      "x": 739,
+      "y": 76,
+      "inkOffset": {
+        "x": 0.0,
+        "y": 1.5
+      }
+    },
+    {
+      "digit": "8",
+      "height": 50,
+      "variant": "current",
+      "width": 50,
+      "x": 839,
+      "y": 76,
+      "inkOffset": {
+        "x": 0.0,
+        "y": 1.0
+      }
+    },
+    {
+      "adjust": "--digit-x: 0.016px; --digit-y: -0.5px;",
+      "digit": "0",
+      "height": 50,
+      "variant": "refined",
+      "width": 50,
+      "x": 39,
+      "y": 228,
+      "inkOffset": {
+        "x": 0.0,
+        "y": 0.5
+      }
+    },
+    {
+      "adjust": "--digit-x: 0.8660000000000001px; --digit-y: -0.5px;",
+      "digit": "1",
+      "height": 50,
+      "variant": "refined",
+      "width": 50,
+      "x": 139,
+      "y": 228,
+      "inkOffset": {
+        "x": -1.0,
+        "y": 0.5
+      }
+    },
+    {
+      "adjust": "--digit-x: 0.016px; --digit-y: -0.5px;",
+      "digit": "2",
+      "height": 50,
+      "variant": "refined",
+      "width": 50,
+      "x": 239,
+      "y": 228,
+      "inkOffset": {
+        "x": 0.0,
+        "y": 0.5
+      }
+    },
+    {
+      "adjust": "--digit-x: 0.516px; --digit-y: -0.5px;",
+      "digit": "3",
+      "height": 50,
+      "variant": "refined",
+      "width": 50,
+      "x": 339,
+      "y": 228,
+      "inkOffset": {
+        "x": 0.0,
+        "y": 0.5
+      }
+    },
+    {
+      "adjust": "--digit-x: 0.016px; --digit-y: -0.5px;",
+      "digit": "4",
+      "height": 50,
+      "variant": "refined",
+      "width": 50,
+      "x": 439,
+      "y": 228,
+      "inkOffset": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "adjust": "--digit-x: 0.016px; --digit-y: -0.5px;",
+      "digit": "5",
+      "height": 50,
+      "variant": "refined",
+      "width": 50,
+      "x": 539,
+      "y": 228,
+      "inkOffset": {
+        "x": 0.0,
+        "y": 0.5
+      }
+    },
+    {
+      "adjust": "--digit-x: 0.016px; --digit-y: -0.5px;",
+      "digit": "6",
+      "height": 50,
+      "variant": "refined",
+      "width": 50,
+      "x": 639,
+      "y": 228,
+      "inkOffset": {
+        "x": 0.0,
+        "y": 0.5
+      }
+    },
+    {
+      "adjust": "--digit-x: 0.016px; --digit-y: -0.5px;",
+      "digit": "7",
+      "height": 50,
+      "variant": "refined",
+      "width": 50,
+      "x": 739,
+      "y": 228,
+      "inkOffset": {
+        "x": 0.0,
+        "y": 0.5
+      }
+    },
+    {
+      "adjust": "--digit-x: 0.016px; --digit-y: -0.5px;",
+      "digit": "8",
+      "height": 50,
+      "variant": "refined",
+      "width": 50,
+      "x": 839,
+      "y": 228,
+      "inkOffset": {
+        "x": 0.0,
+        "y": 0.5
+      }
+    }
+  ]
+}
