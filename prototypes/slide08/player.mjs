@@ -387,7 +387,7 @@ async function act(a) {
     if (!reduced) {
       if (a.type === "slide") {
         render(visualFrames[0].board);
-        const duration = Number($("slideSpeed")?.value) || 240;
+        const duration = Number($("slideSpeed")?.value) || 280;
         const cells = [...$("board").children];
         const size = before.config.size;
         const gridStyle = getComputedStyle($("board"));

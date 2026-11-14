@@ -1,0 +1,13 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import * as base from '../engine.mjs';
+import * as lab from './engine.mjs';
+const sparse=(profile)=>{let s=lab.create(1,profile);s.board.fill(0);s.board[2]=1;return s};
+test('A supplies exactly one after valid slide, reproducible and no immediate chain',()=>{let s=sparse('A');let r=lab.step(s,{type:'slide',dir:'left'});assert.equal(r.state.board.filter(Boolean).length,2);assert.equal(r.spawns.length,1);assert.deepEqual(r,lab.step(s,{type:'slide',dir:'left'}));assert.equal(r.state.lab.cursor,1);assert.equal(r.waves.length,0)});
+test('B supplies at opposite edge',()=>{let r=lab.step(sparse('B'),{type:'slide',dir:'left'});assert.equal(r.spawns[0].index%6,5)});
+test('invalid moves consume no supply',()=>{let s=sparse('A');s.board.fill(0);s.board[0]=1;let r=lab.step(s,{type:'slide',dir:'left'});assert.equal(r.valid,false);assert.equal(r.state,s)});
+test('C density fills to target only when threshold reached',()=>{let r=lab.step(sparse('C12-16'),{type:'slide',dir:'left'});assert.equal(r.state.board.filter(Boolean).length,16)});
+test('E exactly matches original transition excluding lab metadata',()=>{let s=lab.create(7,'E');const {lab:meta,...core}=s;const a={type:'slide',dir:'up'};const r=lab.step(s,a);const {lab:m,...actual}=r.state;assert.deepEqual(actual,base.step(core,a).state)});
+test('D earned eggs automatically hatch, preserving initial manual inventory',()=>{let s=sparse('D0');s.board[1]=3;s.board[2]=3;s.board[0]=0;let r=lab.step(s,{type:'slide',dir:'left'});assert.equal(r.spawns.length,1);assert.equal(r.spawns[0].rank,0);assert.deepEqual(r.state.eggs,s.eggs);assert.deepEqual(r.state.lab.queue,[0,0,0,0])});
+test('victory stops supply',()=>{let s=sparse('A');s.board[1]=8;s.board[2]=8;let r=lab.step(s,{type:'slide',dir:'left'});assert.equal(r.state.won,true);assert.equal(r.spawns.length,0)});
+test('configuration and supply corruption rejected',()=>{assert.throws(()=>lab.create(1,'bogus'));let s=sparse('A');s.lab.cursor=-1;assert.throws(()=>lab.validate(s))});
+test('slide-only gauge stops transformation reward farming',()=>{let s=lab.create(1,'E','slide-only');s.board.fill(0);s.board[0]=3;s.board[1]=11;const r=lab.step(s,{type:'single',index:1,kind:0});assert.equal(r.state.gauge,2)});
+test('cooldown blocks consecutive bulk uses until 3 slides',()=>{let s=lab.create(3,'E','cooldown');s.gauge=24;let r=lab.step(s,{type:'bulk',from:0,kind:1});assert.equal(r.valid,true);assert.equal(lab.step(r.state,{type:'bulk',from:1,kind:2}).valid,false)});
