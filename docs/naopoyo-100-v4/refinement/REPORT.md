@@ -10,10 +10,12 @@
 - Node回帰225/225成功。V3保護ハッシュ・100面合法解の回帰を含む。
 - 新規:ワープの即時座標更新、間の座標を描かない、単一個体描画、不発時非消失、reduced-motion/reset、連続ワープ、途中のアーチが誤反応しないこと。
 - Chromium/Playwrightで320/375/390/430px、36/48px全組合せ。比較canvasは288/384px実寸、ページ横はみ出し0、JSエラー0。大きな見本はカード内スクロール。
-- 操作盤面幅304/359/374/414pxを維持。全幅でワープ11手の見本クリア。390pxではtouchscreen.tapによる実入力でクリア、Undo、retryを確認。
+- 操作盤面幅304/359/374/414pxを維持。全幅でワープ11手の見本クリア。390pxではtouchStart/move/endによるドラッグ入力でクリア、Undo、retryを確認。
 - スクリーンショットsea-snow-36.png/48.pngを目視確認。記号反復を抑え、通路と岩盤の境界、キャラと数字を確認。
 - iPhone Safari/WebKit実機は未検証。Chromiumの画面幅再現をSafari成功と扱わない。
 
 再実行: リポジトリrootでpython -m http.server 8765、playwright導入済み環境からnode prototypes/naopoyo-100/v4/tests/refinement-browser.cjsおよびrefinement-touch.cjs。CHROMIUM_PATH指定可能。
 
 物理・V3盤面・正式素材・保存形式を変更せず、比較室のみ更新。mainマージ・本番Pages公開なし。
+
+タップだけの初回検証では合体先の仲間を選択してしまい10手で停止した。正式仕様どおり仲間への接触はドラッグで再検証し、入力仕様は変更しなかった。
