@@ -28,3 +28,6 @@ Full npm test completed successfully (exit0); all Node test groups and standalon
 
 ## Resume PR #552: deterministic input fixture
 Latest8c7a CI WebKit crowd fails while Chromium passes. Reproduced nondeterministic ambient movement leaving no endpoint satisfying unchanged test distance. Fixed test clock and seeded only disposable presentation model; kept all16 original assertion lines and actual touchscreen/mouse/save reload. No production/UI/hitbox/audio/master edit. Full local browser matrix and delayed images verified; see home-input-resume. Clock setup scheduling race reviewed and fixed with pre-boot one-day lead; 1.5s delayed protocol test passes both engines. New-head whole CI remains the merge gate.
+
+## Paused renderer readiness follow-up
+7b6702a Home selected name passes both CI engines; music library/runtime browser CI passes. Separate Production2.5D desert fails at question setup. Exact original full test with1s dynamic renderer import delay reproduces loaded=false/28 actors/unblocked under paused clock. Minimal test-only frame progression preserves predicate/deadline and all input/block/save assertions. Normal and delayed full desert tests pass24 matrix cases each across both engines,10 physical cases each. Independent incremental review: no findings. See paused-renderer-resume. New-head whole CI required before merge.

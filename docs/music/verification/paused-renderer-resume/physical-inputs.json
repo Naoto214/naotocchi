@@ -1,0 +1,149 @@
+{
+  "desert-fixed": [
+    {
+      "engine": "chromium",
+      "region": "desert",
+      "count": 6,
+      "kind": "tap",
+      "status": "passed"
+    },
+    {
+      "engine": "chromium",
+      "region": "desert",
+      "count": 6,
+      "kind": "drag",
+      "status": "passed"
+    },
+    {
+      "engine": "chromium",
+      "region": "desert",
+      "count": 28,
+      "kind": "tap",
+      "status": "passed"
+    },
+    {
+      "engine": "chromium",
+      "region": "desert",
+      "count": 28,
+      "kind": "drag",
+      "status": "passed"
+    },
+    {
+      "engine": "chromium",
+      "region": "home",
+      "count": 28,
+      "kind": "question-blocks-drag",
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "region": "desert",
+      "count": 6,
+      "kind": "tap",
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "region": "desert",
+      "count": 6,
+      "kind": "drag",
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "region": "desert",
+      "count": 28,
+      "kind": "tap",
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "region": "desert",
+      "count": 28,
+      "kind": "drag",
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "region": "home",
+      "count": 28,
+      "kind": "question-blocks-drag",
+      "status": "passed"
+    }
+  ],
+  "desert-fixed-slow": [
+    {
+      "engine": "chromium",
+      "region": "desert",
+      "count": 6,
+      "kind": "tap",
+      "status": "passed"
+    },
+    {
+      "engine": "chromium",
+      "region": "desert",
+      "count": 6,
+      "kind": "drag",
+      "status": "passed"
+    },
+    {
+      "engine": "chromium",
+      "region": "desert",
+      "count": 28,
+      "kind": "tap",
+      "status": "passed"
+    },
+    {
+      "engine": "chromium",
+      "region": "desert",
+      "count": 28,
+      "kind": "drag",
+      "status": "passed"
+    },
+    {
+      "engine": "chromium",
+      "region": "home",
+      "count": 28,
+      "kind": "question-blocks-drag",
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "region": "desert",
+      "count": 6,
+      "kind": "tap",
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "region": "desert",
+      "count": 6,
+      "kind": "drag",
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "region": "desert",
+      "count": 28,
+      "kind": "tap",
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "region": "desert",
+      "count": 28,
+      "kind": "drag",
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "region": "home",
+      "count": 28,
+      "kind": "question-blocks-drag",
+      "status": "passed"
+    }
+  ],
+  "retainedOriginalAssertionLines": 20,
+  "moduleDelayMs": 1000,
+  "productionChanges": false
+}

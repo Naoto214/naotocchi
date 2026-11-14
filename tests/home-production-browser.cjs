@@ -105,7 +105,15 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  await page.reload();await page.waitForFunction(()=>window.HomeReleaseQA);
  await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+10000));
  await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[stopInput.region,28]);
- await page.waitForFunction(r=>{const d=HomeReleaseQA.detail();return d.world?.loaded&&d.world.region===r&&d.actors.length===28&&!d.blocked&&d.paused==='false';},stopInput.region,{polling:100,timeout:15000});
+ // The renderer is imported asynchronously. A paused rAF cannot publish a
+ // decoded daypart; advance real frames just as the physical-input setup does.
+ const stopReadyDeadline=Date.now()+15000;let stopReady=false;
+ do {
+  await page.clock.runFor(16);
+  stopReady=await page.evaluate(r=>{const d=HomeReleaseQA.detail();return d.world?.loaded&&d.world.region===r&&d.actors.length===28&&!d.blocked&&d.paused==='false';},stopInput.region);
+  if(!stopReady)await new Promise(resolve=>setTimeout(resolve,50));
+ } while(!stopReady&&Date.now()<stopReadyDeadline);
+ assert.ok(stopReady,'decoded home and unblocked cast ready before question');
  await page.clock.runFor(50);
  const questionStarted=await page.evaluate(()=>HomeReleaseQA.question());assert.ok(questionStarted,'existing conversation accepts prepared healthy fixture: '+JSON.stringify(await page.evaluate(()=>HomeReleaseQA.conversationStatus())));
  await page.clock.runFor(50);
@@ -122,7 +130,7 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  assert.equal(blockedAfter.detail.actors[0].x,blockedBefore.detail.actors[0].x,'question blocks drag x');assert.equal(blockedAfter.detail.actors[0].y,blockedBefore.detail.actors[0].y,'question blocks drag y');
  assert.ok(!blockedAfter.trace.some(t=>t.type==='move'&&t.result),'question must not accept a route');
  await page.locator('#speechChoices [data-choice]').first().click();await page.waitForFunction(()=>document.getElementById('speechChoices').classList.contains('hidden'));stopInput.status='passed';
- }catch(error){stopInput.status='failed';stopInput.error=error.message;throw error;}
+ }catch(error){stopInput.status='failed';stopInput.error=error.message;stopInput.detail=await page.evaluate(()=>HomeReleaseQA.detail()).catch(()=>null);await page.screenshot({path:path.join(dest,`${engineName}-home-question-failure.png`)}).catch(()=>{});throw error;}
  finally{stopInput.trace=await page.evaluate(()=>window.HomeReleaseInputTrace).catch(()=>null);saveInputs();await page.clock.resume();}
  await page.setViewportSize({width:390,height:844});
  await page.locator('#menuBtn').click();await page.locator('#menuOverlay').waitFor({state:'visible'});assert.equal(await page.locator('#menuOverlay .menu-grid > :is(button,a)').count(),12);await page.locator('#menuCloseBtn').click();
