@@ -45,3 +45,19 @@ test('rhythm anticipates visible motion before reaction delay consumes its hit w
  }
  assert.ok(scores.some(score=>score>0));
 });
+test('pointercancel never supplies a final drag to the official sneak handler',async()=>{
+ const run=async type=>{const r=await createNodeOfficialRuntime();r.start({gameId:'sneak',seed:3});r.step(30);r.input({type:'pointerdown',x:57.6,y:165});r.step(30);r.input({type,x:262.4,y:165});return r.step(1800);};
+ const cancelled=await run('pointercancel'),released=await run('pointerup');
+ assert.equal(cancelled.score,0);assert.equal(released.score,33);
+ const restored=await createNodeOfficialRuntime();restored.start(cancelled);assert.equal(restored.snapshot().score,0);
+});
+test('drag CPU releases the previous gesture before a new trial press',async()=>{
+ for(const gameId of ['spin','sneak']){
+  const r=await createNodeOfficialRuntime();r.start({gameId,seed:3,cpuSeed:101,cpu:true});const done=r.step(1800);let held=false;
+  for(const input of done.inputs){
+   if(input.type==='pointerdown'){assert.equal(held,false,gameId+' duplicate down at '+input.frame);held=true;}
+   if(input.type==='pointermove')assert.equal(held,true);
+   if(['pointerup','pointercancel'].includes(input.type))held=false;
+  }
+ }
+});

@@ -28,12 +28,12 @@
 
 Files: new `official-quick-cpu-v7.mjs`; runtime/host integration; `tests/life-sugoroku/expansion-v7.test.mjs`; score/audit tools and docs.
 Interface: `createQuickCpuV7(gameId,difficulty,random)` consumes `{frame,current,visible,send}`; only public trial identity and rendered data. Runtime retains old CPU branches for existing IDs.
-- [ ] Add failing tests: actual official completion, both levels, mid-drag/replay, four seats, exact once rewards, input-free wait100.
-- [ ] Run `node --test tests/life-sugoroku/expansion-v7.test.mjs`; expected unsupported new IDs before integration.
-- [ ] Implement count stop, circular drag, slow transport and rhythm prediction; wait consciously waits.
-- [ ] Verify 16 seeded trials per level, <=30s, idle/human replay and no formal-source changes.
-- [ ] Add isolated QA selector, human/CPU controls, pause/restore, four-seat results and widths320/375/390/430.
-- [ ] Run dedicated regression/browser QA; register only evidenced games; commit/push and Draft PR.
+- [x] Add failing tests: actual official completion, both levels, mid-drag/replay, four seats, exact once rewards, input-free wait100.
+- [x] Run `node --test tests/life-sugoroku/expansion-v7.test.mjs`; expected unsupported new IDs before integration.
+- [x] Implement count stop, circular drag, slow transport and rhythm prediction; wait consciously waits.
+- [x] Verify 16 seeded trials per level, <=30s, idle/human replay and no formal-source changes.
+- [x] Add isolated QA selector, human/CPU controls, pause/restore, four-seat results and widths320/375/390/430.
+- [x] Run dedicated regression/browser QA; register only evidenced games; commit/push and Draft PR.
 
 ## Task 2: Normal groups, independently admitted
 
@@ -42,3 +42,14 @@ Use V6 audit's complete100 list; classify official controls/visible geometry/end
 ## Task 3: Private preview and handoff
 
 New owner-private Site, separate source/URL/storage origin. QA only in development package, never production allowlist. Report precise registration counts vs outstanding hardware/manual validation, score distributions, CI for actual HEAD, remaining IDs/reasons, and commands to resume. Persist all work to independent Draft, do not merge.
+
+## Execution ledger
+
+- Task1: implementation complete, final validation/publish in progress. Dedicated325/325 before final gesture lifecycle assertion; new14-test suite includes both cancellation and gesture sequencing regressions. Full strict Chromium suite passed before final gesture release; rerunning after final change.
+- Ruling: wait intentionally remains100 and tied; formal abstention is success, no score synthesis.
+- Ruling: new quick CPU reads Canvas instead of legacy target helpers; current.startedAt is used only to reset per-trial reaction state.
+- Ruling: user explicitly requested staged delivery and handoff; this checkpoint delivers quick5. Normal85 remain unimplemented and excluded, next stage puzzle group.
+- Review: independent reviewer found cross-engine float coordinates, inadequate save-key sentinel, QA4-seat restore loss, incomplete held-pointer coverage, Node cancel event.type mismatch. All addressed with checks; final gesture lifecycle fix follows failing duplicate-down regression.
+- Hosted helper scripts are absent from this workspace. Used native Sites registration, ordinary Git with credential in memory/stdin only, and standard static tar packaging. New Site identity retained.
+
+- Task1: software validation complete. Final326/326 Node tests;160 CPU trials; strict Chromium10 CPU,5 native-human,4 widths,5 four-seat matches with restore all pass after final pointerup change. Official scores/end frames unchanged. Hardware Safari and manual difficulty calibration remain unverified.

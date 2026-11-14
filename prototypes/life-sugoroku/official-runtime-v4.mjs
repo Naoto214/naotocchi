@@ -49,7 +49,7 @@ export function createOfficialRuntime({realm,container,context,onSound,onVoice,a
  const logicalHeight=e.target==='pad'?92:canvas.height;
  const ownRect=Object.getOwnPropertyDescriptor(receiver,'getBoundingClientRect');
  Object.defineProperty(receiver,'getBoundingClientRect',{configurable:true,value:()=>({left:0,top:0,width:320,height:logicalHeight,right:320,bottom:logicalHeight})});
- const data={pointerId:1,clientX:e.x,clientY:e.y,preventDefault(){}};
+ const data={type:e.type,pointerId:1,clientX:e.x,clientY:e.y,preventDefault(){}};
  try{if(typeof receiver.dispatchPointer==='function')receiver.dispatchPointer(e.type,data);else receiver.dispatchEvent(new realm.PointerEvent(e.type,{...data,bubbles:true,cancelable:true}));}
  finally{if(ownRect)Object.defineProperty(receiver,'getBoundingClientRect',ownRect);else delete receiver.getBoundingClientRect;}
  }

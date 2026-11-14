@@ -1,0 +1,60 @@
+{
+  "baselineMain": "408c72e6ebef71da3eab33cfb268c7494117aaaa",
+  "scope": "Stage1 quick5 only; not completion of all150",
+  "softwareVerifiedCounts": {
+    "quick": 50,
+    "normal": 15
+  },
+  "unimplementedNormal": 85,
+  "addedQuick": [
+    "knock",
+    "wait",
+    "spin",
+    "sneak",
+    "rhythm"
+  ],
+  "node": {
+    "command": "node --test tests/life-sugoroku/*.test.mjs",
+    "passed": 326,
+    "failed": 0
+  },
+  "scores": {
+    "games": 5,
+    "levels": 2,
+    "seeds": 16,
+    "matches": 160,
+    "file": "V7-CPU-SCORES.json"
+  },
+  "browser": {
+    "command": "CHROMIUM_PATH=/usr/bin/chromium node tests/life-sugoroku/expansion-v7-browser.cjs",
+    "engine": "Chromium156, headless, Linux",
+    "cpuCases": 10,
+    "nativeHumanCases": 5,
+    "fourSeatTournaments": 5,
+    "widths": [
+      320,
+      375,
+      390,
+      430
+    ],
+    "errors": 0,
+    "report": "qa/v7/results.json",
+    "heldPointerRestore": true,
+    "cpuSkip": true,
+    "mainLocalStorageUnchanged": true
+  },
+  "hardwareSafari": "not tested",
+  "manualHumanCalibration": "not tested",
+  "landscapeAllGames": "not tested",
+  "officialSourcesUnchanged": true,
+  "saveSchemaUnchanged": true,
+  "githubCI": "See PR latest HEAD; queued/pending is not success",
+  "sha256": {
+    "prototypes/life-sugoroku/official-quick-cpu-v7.mjs": "5cdcc1371dfd93af75e04672382dd593d70078d07757eed0af98e554397da57e",
+    "prototypes/life-sugoroku/official-runtime-v4.mjs": "41ffd33568d9c20d4c62ad459909f9bb94251e1f6097bf8dd1a9908e53b3fe9a",
+    "prototypes/life-sugoroku/official-host-v4.js": "064ff6e4c9f5ce0606a3b17ed7d9fa861682979fe2b2a4a02c04c61f3fcdd8de",
+    "prototypes/life-sugoroku/tournament-v4.mjs": "9e967aea843d71bda892578660b58d7951a0e2cd96a7629523107d67ea665883",
+    "tools/life-sugoroku/qa-v7-games.mjs": "9f2f50b94258ef6dc4bc7b8382bcc9ef53eb11e5646fbd62c9fecd7dac48fe0f",
+    "tests/life-sugoroku/expansion-v7-browser.cjs": "182d82ccc0937dfe422a4775d490c4fdead95639f2f45f172aafb6d080805435"
+  }
+}

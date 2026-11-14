@@ -6,9 +6,11 @@ export function createQuickCpuV7(gameId,difficulty,random){
  let trial=null,next=0,held=false,angle=0,point=null,rate=0,previous=new Map(),fired=new Set(),delay=0;
  return ({frame,current,visible=[],send})=>{
   if(!current)return;
-  const emit=(type,x,y)=>send({type,x,y});
+  // Stabilize transcendental rounding across JS engines for journal portability.
+  const emit=(type,x,y)=>send({type,x:Math.round(x*1e6)/1e6,y:Math.round(y*1e6)/1e6});
   const tap=(x,y)=>{emit('pointerdown',x,y);emit('pointerup',x,y);};
   if(trial!==current.startedAt){
+   if(held&&point)emit('pointerup',point.x,point.y);
    trial=current.startedAt;next=frame+(easy?28:15)+Math.floor(random()*(easy?24:12));
    held=false;angle=0;point=null;previous=new Map();fired=new Set();
    rate=gameId==='spin'?(easy?.022+random()*.035:.045+random()*.035):(.38+random()*(easy?.85:.55));

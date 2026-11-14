@@ -1,0 +1,207 @@
+{
+  "cpu": [
+    {
+      "gameId": "knock",
+      "difficulty": "easy",
+      "frame": 862,
+      "score": 100,
+      "inputs": 14,
+      "restoreFrame": 65
+    },
+    {
+      "gameId": "knock",
+      "difficulty": "normal",
+      "frame": 862,
+      "score": 100,
+      "inputs": 14,
+      "restoreFrame": 67
+    },
+    {
+      "gameId": "wait",
+      "difficulty": "easy",
+      "frame": 827,
+      "score": 100,
+      "inputs": 0,
+      "restoreFrame": 63
+    },
+    {
+      "gameId": "wait",
+      "difficulty": "normal",
+      "frame": 827,
+      "score": 100,
+      "inputs": 0,
+      "restoreFrame": 63
+    },
+    {
+      "gameId": "spin",
+      "difficulty": "easy",
+      "frame": 798,
+      "score": 67,
+      "inputs": 569,
+      "restoreFrame": 63
+    },
+    {
+      "gameId": "spin",
+      "difficulty": "normal",
+      "frame": 606,
+      "score": 100,
+      "inputs": 423,
+      "restoreFrame": 63
+    },
+    {
+      "gameId": "sneak",
+      "difficulty": "easy",
+      "frame": 371,
+      "score": 67,
+      "inputs": 110,
+      "restoreFrame": 67
+    },
+    {
+      "gameId": "sneak",
+      "difficulty": "normal",
+      "frame": 339,
+      "score": 100,
+      "inputs": 156,
+      "restoreFrame": 62
+    },
+    {
+      "gameId": "rhythm",
+      "difficulty": "easy",
+      "frame": 496,
+      "score": 100,
+      "inputs": 12,
+      "restoreFrame": 63
+    },
+    {
+      "gameId": "rhythm",
+      "difficulty": "normal",
+      "frame": 490,
+      "score": 100,
+      "inputs": 12,
+      "restoreFrame": 63
+    }
+  ],
+  "human": [
+    {
+      "gameId": "knock",
+      "frame": 862,
+      "score": 0,
+      "inputs": 3
+    },
+    {
+      "gameId": "wait",
+      "frame": 827,
+      "score": 100,
+      "inputs": 0
+    },
+    {
+      "gameId": "spin",
+      "frame": 933,
+      "score": 0,
+      "inputs": 21
+    },
+    {
+      "gameId": "sneak",
+      "frame": 1003,
+      "score": 0,
+      "inputs": 21
+    },
+    {
+      "gameId": "rhythm",
+      "frame": 378,
+      "score": 0,
+      "inputs": 3
+    }
+  ],
+  "widths": [
+    {
+      "width": 320,
+      "bounds": {
+        "x": 20,
+        "y": 566.734375,
+        "width": 280,
+        "height": 262.5
+      },
+      "inputs": 3
+    },
+    {
+      "width": 375,
+      "bounds": {
+        "x": 27.5,
+        "y": 514.734375,
+        "width": 320,
+        "height": 300
+      },
+      "inputs": 3
+    },
+    {
+      "width": 390,
+      "bounds": {
+        "x": 32,
+        "y": 514.734375,
+        "width": 320,
+        "height": 300
+      },
+      "inputs": 3
+    },
+    {
+      "width": 430,
+      "bounds": {
+        "x": 32,
+        "y": 514.734375,
+        "width": 320,
+        "height": 300
+      },
+      "inputs": 3
+    }
+  ],
+  "errors": [],
+  "hardwareSafari": "not tested",
+  "fourSeats": [
+    {
+      "gameId": "knock",
+      "scores": [
+        100,
+        100,
+        100,
+        100
+      ]
+    },
+    {
+      "gameId": "wait",
+      "scores": [
+        100,
+        100,
+        100,
+        100
+      ]
+    },
+    {
+      "gameId": "spin",
+      "scores": [
+        100,
+        100,
+        100,
+        100
+      ]
+    },
+    {
+      "gameId": "sneak",
+      "scores": [
+        100,
+        100,
+        100,
+        100
+      ]
+    },
+    {
+      "gameId": "rhythm",
+      "scores": [
+        100,
+        100,
+        100,
+        100
+      ]
+    }
+  ]
+}
