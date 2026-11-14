@@ -18,4 +18,21 @@ function forest(c,cells){
  for(let i=0;i<15;i++){const x=((i*37)%75)/10,y=((i*19+8)%77)/10;ellipse(c,x,y,.055,.025,i%3?'#a5b56a99':'#c5a16c99')}
  grid(c,'#193c3020');c.restore();edges(c,cells,'#8da766','#1e4537',.23,.07);
 }
-export const regionPainters={forest};
+function sky(c,cells){
+ c.fillStyle=gradient(c,'#73b8dd','#c8e6ec');c.fillRect(0,0,8,8);
+ // Cloud sea and cloud walls are blocked; all playable floor is an edged platform.
+ c.save();wallPath(c,cells,.26);c.clip();
+ for(const[x,y,rx,ry]of [[.4,.4,2,.75],[4.3,.4,2.7,.85],[7.4,1.8,1.5,.9],[1.1,5.6,2.5,.7],[5.4,6.7,3,.8],[2,8,2.8,.9]]){
+  ellipse(c,x,y+.23,rx*1.05,ry,'#6ca5c066');
+  for(let k=0;k<4;k++)ellipse(c,x+(k-1.5)*rx*.37,y-Math.sin(k*1.4)*.15,rx*.43,ry*(.7+k%2*.2),k%2?'#eef6f2':'#dbeef0');
+ }
+ c.strokeStyle='#f3fbf5aa';c.lineWidth=.035;for(const[y,a,b]of [[2.3,1.6,2.8],[4.9,5.4,4.5],[7.5,7.8,7]]){c.beginPath();c.moveTo(-.5,y);c.bezierCurveTo(2,a,5,b,8.5,y-.2);c.stroke()}
+ grid(c,'#306e9423');c.restore();
+ const platforms=cells.map(t=>({...t,wall:!t.wall,n:!t.n,e:!t.e,s:!t.s,w:!t.w}));
+ // One connected floating shelf, with a visible side face inside each exposed edge.
+ wallPath(c,platforms,.12);c.fillStyle='#577a9c';c.fill();c.save();wallPath(c,platforms,.12);c.clip();
+ c.fillStyle=gradient(c,'#eee0b5','#d4c399');c.fillRect(0,0,8,8);grid(c,'#927d5955');
+ for(const t of platforms.filter(t=>t.wall)){if(!t.s){c.fillStyle='#789498';c.fillRect(t.x,t.y+.84,1,.16);c.fillStyle='#9db6a6';c.fillRect(t.x,t.y+.8,1,.055)}if(!t.e){c.fillStyle='#a5ab93';c.fillRect(t.x+.9,t.y,.1,1)}}
+ c.restore();edges(c,platforms,'#fff3ce','#4c718d',.12,.055);
+}
+export const regionPainters={forest,sky};
