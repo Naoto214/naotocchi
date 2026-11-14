@@ -43,3 +43,7 @@ HOMEをrender対象に含めると処理を拒否。既存receiptの入力不一
 verification/group-1..4.jsonにグループ単位の音量・ピーク・mono・loop・hash、full32.jsonに全曲保護チェック、encoded-audio.jsonに全AACの独立照合を保存。explore-2の旧測定器の周期位置誤判定はaac-alignment-diagnosis.mdに記録。音源再生成なしで検査記録のみ訂正しました。
 
 試遊版への準備/検証はtools/prepare_playtest.pyとverify_playtest.py。許容変更は完成版AAC32本、固定比較アーカイブ、比較ページ、catalogの音源hash/キャッシュ参照だけ。ゲーム条件・セーブ処理・本番mainは変更しません。本番へのマージ/公開は利用者の最終承認待ちです。
+
+## 公開記録
+
+7曲単位の保存: group1 `25ddc1b`、group2 `d96b3d6`、group3 `e63429b`、group4 `70b8a3a`。試遊版更新 `0433a39d2b75a3a7931d095dd18127958b0bb89a`、Pages run43570397180成功。公開HTTPS103ファイルのハッシュ一致（ゲーム32・完成版比較32・V6比較28・ホームB2＋原盤4・ページ6・catalog1）。本番mainは105dba5のまま、PR546/547/548も元のheadを維持。最終試聴・承認待ちです。

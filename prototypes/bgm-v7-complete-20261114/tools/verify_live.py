@@ -7,6 +7,8 @@ for r in (ROOT/'receipts').glob('*.json'):
  d=json.loads(r.read_text());sid=r.stem
  for folder in ('audio/v7-complete','assets/bgm'):jobs.append((folder+'/'+sid+'.m4a?v='+d['aacSha256'][:12],d['aacSha256']))
  if sid.startswith('home-'):jobs.append(('audio/v7-final/'+sid+'.m4a',d['aacSha256']))
+ else:
+  old=json.loads((ROOT.parent/'bgm-v6-20261114/receipts'/(sid+'.json')).read_text());jobs.append(('audio/v6/'+sid+'.m4a',old['aacSha256']))
 for p in (ROOT/'compare').iterdir():jobs.append(('bgm-v7-complete/'+p.name,sha(p)))
 jobs.append(('assets/bgm/catalog.js?v=655704994b32',sha(pathlib.Path('/workspace/work/playtest/assets/bgm/catalog.js'))))
 def verify(job):
@@ -16,4 +18,4 @@ def verify(job):
   return {'path':rel,'status':res.status,'bytes':len(data),'sha256':actual,'contentType':res.headers.get('Content-Type')}
 with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:results=list(pool.map(verify,jobs))
 (ROOT/'verification/live-hashes.json').write_text(json.dumps({'url':HOST+'bgm-v7-complete/','passed':True,'files':results},indent=1)+'\n')
-print('PASS',len(results),'published HTTPS files match saved hashes, including32 runtime +32 comparison +4 approved home archives')
+print('PASS',len(results),'published HTTPS files match saved hashes, including32 runtime +32 comparison +28 V6 comparisons +4 approved home archives')

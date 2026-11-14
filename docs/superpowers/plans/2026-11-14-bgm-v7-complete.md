@@ -18,4 +18,4 @@ No home regeneration (hard failure). No melody/vel/metadata/placement changes. N
 - [x] Render/verify/push group3 (7 tracks).
 - [x] Render/verify/push group4 (7 tracks); full32 preservation and sound checks.
 - [x] Playlist32 + V6 comparison for28; audio output and next-track/end/loop tests; prepare preview runtime32/catalog only.
-- [ ] Independent final review, publish preview, live hashes and scope audit, save finalDraft records.
+- [x] Independent final review, publish preview, live hashes and scope audit, save finalDraft records.
