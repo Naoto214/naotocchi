@@ -1,0 +1,24 @@
+chromium single passed 
+chromium companion passed 
+chromium partner failed page.evaluate: Error: No exposed touch target for partner {"presentation":{"x":26,"y":0,"scale":0.5433824249746922,"scaleX":0.5433824249746922,"scaleY":0.5433824249746922,"bodyScale":1,"bodyScaleLimit":1,"landscape":true,"safeTop":45,"safeBottom":311,"safeLeft":78,"safeRight":332,"world":{"left":116.17590144230769,"top":0,"width":478.484375,"height":838.66296875},"scrollTop":0},"stage":{"left":116.17187180106455,"top":294.6562413325676,"width":478.484,"height":380,"right":594.6562468010645,"bottom":674.6562405127745},"frame":{"x":26,"y":0,"width":383.9930725097656,"height":381.9978332519531,"top":0,"right":409.9930725097656,"bottom":381.9978332519531,"left":26},"actors":[{"key":"pet:dog","x":167.14153390715276,"y":246.39916732127853,"w":123.42,"h":143.99,"rect":{"x":91.14165496826172,"y":144.64627075195312,"width":149.34091186523438,"height":149.34091186523438,"top":144.64627075195312,"right":240.4825668334961,"bottom":293.9871826171875,"left":91.14165496826172}},{"key":"partner:forest_bear","x":198.1514537476132,"y":120.15178921021106,"w":72.1875,"h":74.25,"rect":{"x":146.47988891601562,"y":157.02391052246094,"width":72.92878723144531,"height":72.92880249023438,"top":157.02391052246094,"right":219.40867614746094,"bottom":229.9527130126953,"left":146.47988891601562}}]}
+    at eval (eval at evaluate (:311:30), <anonymous>:19:8)
+    at UtilityScript.evaluate (<anonymous>:313:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at target (/workspace/work/bgm-v7-strings/tests/home-selected-name-browser.cjs:37:53)
+    at tap (/workspace/work/bgm-v7-strings/tests/home-selected-name-browser.cjs:84:15)
+    at async /workspace/work/bgm-v7-strings/tests/home-selected-name-browser.cjs:158:54
+chromium all passed 
+chromium crowd failed page.evaluate: Error: No visible grounded destination for pointer: {"candidates":0,"selectionMs":0,"pet":{"key":"pet:dog","kind":"pet","id":"dog","x":180.7596996390396,"y":278.3856805235429,"w":42.27142857142857,"h":49.31666666666667,"extent":{"left":21.135714285714286,"right":21.135714285714286,"top":61.31666666666667,"bottom":0},"temperament":{"curiosity":3,"boldness":3,"sociability":3,"persistence":3},"route":[],"target":null,"activity":"rest","direction":-1,"source":"drag","manualUntil":21.259999999999984,"nextAt":14.273906750835462,"lastWalk":9.259999999999982,"recent":["walk","rest"],"after":"observe","faceKey":null,"visualTarget":null,"nextVisualAt":0,"safe":true,"ground":{"x":0.5007193895818272,"z":0.752346593764622,"y":0}},"frame":{"top":143.59375,"bottom":447.991943359375}}
+    at eval (eval at evaluate (:311:30), <anonymous>:80:8)
+    at UtilityScript.evaluate (<anonymous>:313:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at /workspace/work/bgm-v7-strings/tests/home-selected-name-browser.cjs:147:25
+AssertionError [ERR_ASSERTION]: see /workspace/work/bgm-v7-strings/.work-output/selected-name/results.json
+    at /workspace/work/bgm-v7-strings/tests/home-selected-name-browser.cjs:172:37 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

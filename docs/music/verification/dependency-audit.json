@@ -743,6 +743,12 @@
       "number": 298,
       "title": "docs: なおとっち世界の地理 — 設計案 A / B / C（＋統合案 D）",
       "overlap": []
+    },
+    {
+      "number": 551,
+      "title": "CARD GAME デザイン比較 V1（未採用）",
+      "overlap": [],
+      "note": "13 files under prototypes/card-game/design-comparison-v1-20261114 only; preserved"
     }
   ],
   "decision": "Selective integration on latest main. No historical PR merged or deleted. PR540 supplies reviewed runtime integration; PR549 supplies immutable32; PR550 supplies0.36 standalone gain. Existing latest game engines/UI/save bytes protected."

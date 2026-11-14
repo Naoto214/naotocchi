@@ -1,4 +1,5 @@
 test_add33_resume_approval_deployment_and_original32_unchanged (test_adoption.AdoptionTests.test_add33_resume_approval_deployment_and_original32_unchanged) ... ok
+test_home4_assets_match_original_b2plus_lock (test_adoption.AdoptionTests.test_home4_assets_match_original_b2plus_lock) ... ok
 test_original32_identity_melody_assets_and50_rows (test_adoption.AdoptionTests.test_original32_identity_melody_assets_and50_rows) ... ok
 test_bad_loop_missing_file_and_empty_title_are_rejected (test_library.MusicLibraryTests.test_bad_loop_missing_file_and_empty_title_are_rejected) ... ok
 test_candidate_requires_revision_bound_approval_and_excluded_from_payload (test_library.MusicLibraryTests.test_candidate_requires_revision_bound_approval_and_excluded_from_payload) ... ok
@@ -13,6 +14,6 @@ test_unknown_license_and_path_escape_rejected_before_registration (test_library.
 test_wrong_aac_content_is_not_accepted_as_matching_flac (test_library.MusicLibraryTests.test_wrong_aac_content_is_not_accepted_as_matching_flac) ... ok
 
 ----------------------------------------------------------------------
-Ran 13 tests in 18.406s
+Ran 14 tests in 10.951s
 
 OK

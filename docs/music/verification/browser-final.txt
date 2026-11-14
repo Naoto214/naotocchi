@@ -1,0 +1,12 @@
+chromium: all32 AAC decode/nonzero/unclipped;50 placements;clock boundaries PASS
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+webkit: all32 AAC decode/nonzero/unclipped;50 placements;clock boundaries PASS
+chromium: PASS actual home +3 game documents: one BGM, effective gain0.36, repeated selection no duplicate
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+webkit: PASS actual home +3 game documents: one BGM, effective gain0.36, repeated selection no duplicate
+chromium: PASS actual audio.js selection/scheduler,4 dayparts, games/quick/puzzle/sleep/event/return, hatch duck/fades, speech/SFX paths, BGM toggle, rapid final selection, untouched explicit level/save sentinel
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+webkit: PASS actual audio.js selection/scheduler,4 dayparts, games/quick/puzzle/sleep/event/return, hatch duck/fades, speech/SFX paths, BGM toggle, rapid final selection, untouched explicit level/save sentinel
+chromium: PASS existing subapp observers: card late/win/lose; poyo clear→normal/chapter; koro game/quick/goal→album; no persistent duplicate BGM
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+webkit: PASS existing subapp observers: card late/win/lose; poyo clear→normal/chapter; koro game/quick/goal→album; no persistent duplicate BGM

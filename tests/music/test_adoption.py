@@ -8,6 +8,11 @@ class AdoptionTests(unittest.TestCase):
   scores={s['id']:s for s in read_json(L.music/'provenance/scores-v7.json')}
   for t in original:
    notes=[e for e in scores[t['id']]['events'] if e['role']=='melody'];self.assertEqual(digest([[e['t'],e['midi'],e['dur']] for e in notes]),t['melody']['sha256']);self.assertEqual(t['individualGainDb'],0)
+ def test_home4_assets_match_original_b2plus_lock(self):
+  lock=read_json(ROOT/'music/provenance/HOME-LOCK.json')['files']
+  for t in Library(ROOT).read()['tracks']:
+   if t['id'] not in ['home-morning','home-day','home-evening','home-night']:continue
+   for kind,ext,folder in [('aac','m4a','audio'),('flac','flac','audio'),('midi','mid','midi')]:self.assertEqual(sha(ROOT/t['assets'][kind]['path']),lock[folder+'/'+t['id']+'.'+ext]['sha256'])
  def test_add33_resume_approval_deployment_and_original32_unchanged(self):
   initial=len(Library(ROOT).read()['tracks']);approved=sum(t['status']=='approved' for t in Library(ROOT).read()['tracks'])
   with tempfile.TemporaryDirectory() as tmp:

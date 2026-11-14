@@ -23,3 +23,5 @@ All five regressions RED→GREEN. No reviewer minor findings deferred. Review di
 Browser validation uses actual packaged runtime and real AudioContext graphs in Chromium/WebKit. All32 AAC decode; home clock boundaries;home+3 subapps .36;scene transitions,voice/SFX duck,toggles,rapid changes and result jingles verified. A separate temporary33-track library is routed through actual audio.js and the native A/B preview; no test song enters official library.
 
 Release gate still pending: GitHub Home selected name test fails in crowded scene. Pinned-main control comparison is running. No production merge or publish while any relevant failure remains.
+
+Full npm test completed successfully (exit0); all Node test groups and standalone smoke/dialogue/visual checks passed. See full-game-suite.json. The separate Home selected name browser failure remains an explicit release blocker; main-control Chromium passed once, so cause is not conclusively assigned. No game/UI/save logic changed to bypass it.
