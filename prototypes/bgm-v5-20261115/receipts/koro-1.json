@@ -1,0 +1,172 @@
+{
+ "id": "koro-1",
+ "title": "ころころ じんせい",
+ "family": "koro",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 3024000,
+ "seconds": 68.571429,
+ "flacFrames": 3024000,
+ "aacDecodedFrames": 3024896,
+ "integratedLUFS": -22.99,
+ "targetLUFS": -23,
+ "truePeakDbtp": -7.14,
+ "samplePeakDbfs": -7.15,
+ "clippedSamples": 0,
+ "monoLossDb": -1.21,
+ "sideToMidDb": -4.9,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00081,
+ "loopJoinTypicalStep999": 0.04147,
+ "bands": {
+  "centroidHz": 740,
+  "low40_250": -6.8,
+  "lowmid250_800": -3.5,
+  "mid800_3k": -4.7,
+  "pres3k_6k": -23.1,
+  "air6k_12k": -44.5,
+  "top12k_20k": -59.4
+ },
+ "roleGainsDb": {
+  "bass": -19.9,
+  "accompaniment": -13.4,
+  "pad": -1.2,
+  "doubling": -10.3,
+  "counter": -0.8,
+  "response": -8.6
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   2.1,
+   0.7
+  ],
+  [
+   "peak",
+   3800,
+   0.3,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 705,
+  "low40_250": -6.5,
+  "lowmid250_800": -3.4,
+  "mid800_3k": -5.0,
+  "pres3k_6k": -25.1,
+  "air6k_12k": -45.4,
+  "top12k_20k": -59.3
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 16.3,
+ "flacSha256": "9fe3b3b02074a707aa9519299d2ef8923e0bf354cab8a2eed452e86a66d1e0a2",
+ "flacBytes": 10001415,
+ "aacSha256": "66c0112afdf13e03bb19d4de665b36ffcb6b1057d0434d9f7d47e9db4f12dfbf",
+ "aacBytes": 1668271,
+ "midiSha256": "212e330422ccf527cf38e1630176f506a3939cce714d1812c64252975b555c61",
+ "problems": [],
+ "version": 5,
+ "pianoAttackSoftenDb": 2.0,
+ "sideScale": 0.744,
+ "removedNotes": 212,
+ "pedalNotes": 262,
+ "v5": {
+  "doublingDropped": [
+   {
+    "t": 35.357142857142854,
+    "midi": 83,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 37.5,
+    "midi": 84,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 43.92857142857143,
+    "midi": 83,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 45.535714285714285,
+    "midi": 84,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 46.339285714285715,
+    "midi": 83,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 47.14285714285714,
+    "midi": 83,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 48.75,
+    "midi": 83,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 49.285714285714285,
+    "midi": 84,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 50.089285714285715,
+    "midi": 83,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 52.5,
+    "midi": 83,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 53.57142857142857,
+    "midi": 84,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 54.107142857142854,
+    "midi": 83,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 56.785714285714285,
+    "midi": 84,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 61.07142857142857,
+    "midi": 83,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 61.607142857142854,
+    "midi": 86,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 62.14285714285714,
+    "midi": 84,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 62.94642857142857,
+    "midi": 83,
+    "instrument": "clarinet"
+   }
+  ],
+  "added": {
+   "counter": 18,
+   "response": 3,
+   "bassWalk": 0
+  },
+  "melodyLevelSdBefore": 3.64,
+  "melodyLevelSdAfter": 0.85,
+  "melodyLevelRangeBefore": 13.7,
+  "melodyLevelRangeAfter": 3.9
+ }
+}
