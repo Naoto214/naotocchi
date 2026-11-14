@@ -1,0 +1,48 @@
+{
+  "count": 459,
+  "exceptions": [
+    {
+      "id": "E-boss",
+      "title": "あやまりにきただいおういか",
+      "size_cqw": 5.797101449275363,
+      "kanji": "謝りにきた大王イカ"
+    },
+    {
+      "id": "E-stairs",
+      "title": "どこにもつながらないかいだん",
+      "size_cqw": 5.383022774327123,
+      "kanji": "どこにもつながらない階段"
+    }
+  ],
+  "candidateSources": [
+    {
+      "id": "W-time-ix",
+      "source_sha256": "d4bb2d7a07192632bc25f06d1857af57fb311c976bd396bca6ce6cf979f3583b"
+    },
+    {
+      "id": "W-time-x",
+      "source_sha256": "d4bb2d7a07192632bc25f06d1857af57fb311c976bd396bca6ce6cf979f3583b"
+    },
+    {
+      "id": "W-time-xi",
+      "source_sha256": "d4bb2d7a07192632bc25f06d1857af57fb311c976bd396bca6ce6cf979f3583b"
+    },
+    {
+      "id": "W-time-xii",
+      "source_sha256": "d4bb2d7a07192632bc25f06d1857af57fb311c976bd396bca6ce6cf979f3583b"
+    },
+    {
+      "id": "E-hayajimai",
+      "source_sha256": "d4bb2d7a07192632bc25f06d1857af57fb311c976bd396bca6ce6cf979f3583b"
+    },
+    {
+      "id": "E-nagaiki",
+      "source_sha256": "d4bb2d7a07192632bc25f06d1857af57fb311c976bd396bca6ce6cf979f3583b"
+    },
+    {
+      "id": "E-omoide-photo",
+      "source_sha256": "d4bb2d7a07192632bc25f06d1857af57fb311c976bd396bca6ce6cf979f3583b"
+    }
+  ],
+  "minimumTitleCqw": 5.383022774327123
+}
