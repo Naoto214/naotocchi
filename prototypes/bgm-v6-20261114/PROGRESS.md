@@ -14,3 +14,8 @@ Plan: docs/superpowers/plans/2026-11-14-bgm-v6.md.
 - FFmpeg 7 emits progress after loudnorm JSON. V6-only raw JSON decoder added; V2–V5 sources unchanged.
 - Home render/verify: 4/4 OK, -23.00/-23.01 LUFS, TP -5.40..-4.04 dBTP; clipping 0; mono loss -1.31..-1.17 dB. Main melody matches V1 and V5 MIDI.
 - Pending: independent night continuity comparison, remaining 7×4 renders, browser comparison/playtest publication, final review.
+
+## Group 2 checkpoint
+- poyo-1, koro-1, card-2, game-1, explore-1, event-2, event-1 rendered and verified (7/7).
+- Home-night V5→V6 continuity: median dip 12.2→12.1 dB, 90th percentile 20.1→20.0 dB; no measured regression.
+- Comparison page initial implementation saved; browser checks in progress.

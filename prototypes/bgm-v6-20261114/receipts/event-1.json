@@ -1,0 +1,163 @@
+{
+ "id": "event-1",
+ "title": "おめでとうの ひ",
+ "family": "celebrate",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2919724,
+ "seconds": 66.206893,
+ "flacFrames": 2919724,
+ "aacDecodedFrames": 2920448,
+ "integratedLUFS": -23.0,
+ "targetLUFS": -23,
+ "truePeakDbtp": -5.61,
+ "samplePeakDbfs": -5.63,
+ "clippedSamples": 0,
+ "monoLossDb": -1.22,
+ "sideToMidDb": -4.9,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00122,
+ "loopJoinTypicalStep999": 0.0445,
+ "bands": {
+  "centroidHz": 765,
+  "low40_250": -6.1,
+  "lowmid250_800": -5.1,
+  "mid800_3k": -3.6,
+  "pres3k_6k": -22.0,
+  "air6k_12k": -42.3,
+  "top12k_20k": -58.3
+ },
+ "roleGainsDb": {
+  "doubling": -9.3,
+  "bass": -18.9,
+  "accompaniment": -15.9,
+  "pad": -6.8
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   2.2,
+   0.7
+  ],
+  [
+   "peak",
+   3800,
+   0.4,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 723,
+  "low40_250": -5.8,
+  "lowmid250_800": -4.9,
+  "mid800_3k": -3.9,
+  "pres3k_6k": -24.2,
+  "air6k_12k": -43.1,
+  "top12k_20k": -58.2
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 4.6,
+ "flacSha256": "49970a59cfc8f201e0f7967a27a8dc8307d07cb580786a3c2a54819a87ee1b43",
+ "flacBytes": 9785660,
+ "aacSha256": "992160acbc5d6e4f65e47083e56394abc1830d1e4d4ab85215f31d71af61e941",
+ "aacBytes": 1613158,
+ "midiSha256": "802442741110ba8013db907724678ad082fb6a2bb92e5e37c0e5f51dccf9d137",
+ "problems": [],
+ "version": 6,
+ "sourceFingerprint": "0910b6cc36eb04ad8397a5c4a0ba1e63af852a7385acb518b023239650766587",
+ "v6": {
+  "method": "explicit phrase curves and existing voice windows",
+  "profile": {
+   "loop": true,
+   "arc": [
+    [
+     0,
+     -0.4
+    ],
+    [
+     4,
+     0.3
+    ],
+    [
+     7,
+     -0.45
+    ],
+    [
+     10,
+     0.5
+    ],
+    [
+     13,
+     1.1
+    ],
+    [
+     15,
+     0.325
+    ],
+    [
+     16,
+     -0.4
+    ],
+    [
+     20,
+     0.9
+    ],
+    [
+     23,
+     0.15
+    ],
+    [
+     26,
+     1.1
+    ],
+    [
+     29,
+     1.7
+    ],
+    [
+     31,
+     0.625
+    ],
+    [
+     32,
+     -0.4
+    ]
+   ],
+   "voiceWindows": [
+    [
+     2,
+     6
+    ],
+    [
+     9,
+     15
+    ]
+   ],
+   "change": "祝福を最初から全開にせず、後半に豊かな響きを集める。",
+   "analysis": [
+    "旋律: 116音、最高音MIDI 86。発音順・音高・時刻・長さは保存。",
+    "頂点・強弱: 祝福を最初から全開にせず、後半に豊かな響きを集める。",
+    "和声: 高音が多い旋律を弦の中低域で受け止める。音高の再生成は行わない。",
+    "バランス: V5の音域別補正を保持。伴奏の強弱は旋律の約半分、低音はさらに小さく。",
+    "対旋律: 新設しない。既存旋律と和声で十分なため。",
+    "掛け合い: フルートの常時重ねを音量配置で区切る。",
+    "反復: 2周の音数は維持し、周ごとの表情と声部の前後で変化。",
+    "長時間の心地よさ: 用途別LUFSを保持し、強い圧縮や高域の追加で盛り上げない。聴感は試聴で評価。",
+    "ループ: 曲末の表情を冒頭へ戻す。V5の残響折返しを保持し、実音源の接続を測定。"
+   ]
+  },
+  "newNotes": 0,
+  "baseline": "0cf8100d3ad85888f5e32f670a56631ecb4e82ce"
+ },
+ "pianoAttackSoftenDb": 2.0,
+ "sideScale": 0.702,
+ "removedNotes": 440,
+ "pedalNotes": 244,
+ "v5": {
+  "melodyLevelSdBefore": 4.38,
+  "melodyLevelSdAfter": 0.94,
+  "melodyLevelRangeBefore": 18.2,
+  "melodyLevelRangeAfter": 4.5
+ }
+}
