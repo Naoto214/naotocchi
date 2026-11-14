@@ -63,6 +63,8 @@ I/M/SはLUFS、LRAはLU、TPはdBTP。M/Sは最大値。monoは同一チャン�
 | var-flight — そらとうみのさんぽ（きらめき・はやめ） | 64.00 | -23.9 | -20.3 | -22.1 | 2.7 | -12.7 | -1.2 | 変更なし |
 | var-ohayo-hatch2 — おはようのひかり（たまごが かえる・ファンファーレ 2小節） | 6.75 | -18.4 | -16.2 | -17.1 | 2.9 | -6.4 | -0.3 | 変更なし |
 
+AAC原盤の最大True Peakは−4.1dBTP、AAC/FLACのI差は最大0.1LU。モノラルI差は−1.5〜−0.3LU。測定した29遷移の補正後混合ピークは最大−14.3dBTPで、今回のゲイン変更によるデジタルクリップはない。睡眠の約−30.9LUFS、ホームの約−23LUFS、孵化ファンファーレの−18.4LUFSなどの差は既存の用途・演出として維持する。共通ゲイン修正以外に、定数ゲインで解消すべき客観的な不整合は確認されなかった。
+
 ## 音色・マスキングと小型スピーカー感度分析
 
 機種固有の実測資料は使用していない。以下はiPhone測定曲線ではなく、低域再生能力の異なる仮定の感度分析。共通条件はモノラル合成、2次Butterworth HPとLPの直列、因果フィルター、中域基準、正規化/音量補償/歪みなし。生成物は解析用メモリだけで、原盤・配信音源へ適用しない。
@@ -125,3 +127,7 @@ I/M/SはLUFS、LRAはLU、TPはdBTP。M/Sは最大値。monoは同一チャン�
 - 実機でのみ判定できるもの: 特定iPhone本体の音圧・音質・音割れ、出力先切替後の実際の可聴性。今回の共通ゲイン整合はこれらの追加試聴を条件にせず、線形経路の自動検証で完了させる。
 
 成果ファイル: analysis/detailed32.json、analysis/loudness32.csv、analysis/transitions.json、verification/、reference/、preview/bgm-subapps.js。
+
+## 保存と試遊版反映
+
+[Draft PR #550](https://github.com/Naoto214/naotocchi/pull/550) / [試遊版](https://naoto214.github.io/naotocchi-playtest/) / [32曲試聴](https://naoto214.github.io/naotocchi-playtest/bgm-v7-complete/)。試遊版コミットcaa8335、[Pagesデプロイ成功](https://github.com/Naoto214/naotocchi-playtest/actions/runs/43580198692)。公開HTTPSの照合はverification/live-https.json、本番mainと既存Draftの保護確認はverification/protected-refs.json。

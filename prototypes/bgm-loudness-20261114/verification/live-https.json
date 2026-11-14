@@ -1,0 +1,404 @@
+{
+ "passed": true,
+ "previewCommit": "caa8335fefd0f2b66c4ea736e057804f1515c6d4",
+ "url": "https://naoto214.github.io/naotocchi-playtest/",
+ "tlsCertificateValidation": true,
+ "files": [
+  {
+   "path": "bgm-subapps.js",
+   "status": 200,
+   "sha256": "6b4d8536bc193f033c96c8bc0083b38d0cf7dc15a2033f7ac021c6c33f8d7d67"
+  },
+  {
+   "path": "audio.js",
+   "status": 200,
+   "sha256": "4b1bb3a4bd39f4f2c89c202c4700149b96c93e1c722591b66be4e52f709a063c"
+  },
+  {
+   "path": "bgm-v2.js",
+   "status": 200,
+   "sha256": "3bd85ade0969b05293bf06c9bb58d3b6ae30d6338833a177893f7793adf1c0f1"
+  },
+  {
+   "path": "index.html",
+   "status": 200,
+   "sha256": "0d0a8e9456da8ccc9c50dca519afe03aada57a9fbedcd05d303d4f0f07356438"
+  },
+  {
+   "path": "assets/bgm/catalog.js",
+   "status": 200,
+   "sha256": "655704994b325d1b2e26c4916d0a9f804b8fc4ee3d244127541deab35d1295bc"
+  },
+  {
+   "path": "assets/bgm/placement.js",
+   "status": 200,
+   "sha256": "61f2363f04dceb9a4e177a680d06c305d67a985bb7eb0093ee61131153bc7217"
+  },
+  {
+   "path": "prototypes/card-game/index.html",
+   "status": 200,
+   "sha256": "ba04dc045f507fc77379d4bd92df4d09ffd7e499d622a6e7cab24eb58fa74417"
+  },
+  {
+   "path": "prototypes/life-sugoroku/index.html",
+   "status": 200,
+   "sha256": "530637e1df19dd05df0b444e511a0171facddaa4eead7fa3c35ac75c9af57b26"
+  },
+  {
+   "path": "prototypes/naopoyo-time-hand-chapter1/index.html",
+   "status": 200,
+   "sha256": "0310af6d1adc6cb4e3236822e04ac82f5546a16a669176130b83d3406b8f82c7"
+  },
+  {
+   "path": "bgm-v7-complete/tracks.js",
+   "status": 200,
+   "sha256": "5b5cc680e2e294b8afe771220c531862b2b1a1d6301351d07c06912b60102d4d"
+  },
+  {
+   "path": "bgm-v7-complete/output-check.html",
+   "status": 200,
+   "sha256": "f12e0d4e27b06fbd5d257edd97085dcf86f886f57fed10c7b369290873dc55f1"
+  },
+  {
+   "path": "bgm-v7-complete/output-check.js",
+   "status": 200,
+   "sha256": "3941e508b372be3aed2eac5b122ca11087ad166fb85592908ce2c4ee1376f857"
+  },
+  {
+   "path": "bgm-v7-complete/index.html",
+   "status": 200,
+   "sha256": "2fd1e9fd7d2447e5e87770129db770a218d49686f096770264e44b312caf3bea"
+  },
+  {
+   "path": "bgm-v7-complete/sources.html",
+   "status": 200,
+   "sha256": "882e68f546c34d325432e628646cd96e1367583ca2df1e51b5c712d2ab7494c2"
+  },
+  {
+   "path": "bgm-v7-complete/player.js",
+   "status": 200,
+   "sha256": "f41ba04e7dafd980e8f42f0d23626dfc2983dd5942ad27562eabbfb0dfc4ceb4"
+  },
+  {
+   "path": "assets/bgm/home-morning.m4a",
+   "status": 200,
+   "sha256": "a3c94016ab15fe8020536f00808539f2943a8c1d51b5bb06afe21de7724411ba"
+  },
+  {
+   "path": "assets/bgm/home-day.m4a",
+   "status": 200,
+   "sha256": "6535b366a0d766ffd6cb8439446a41b4f65137ea4f91ed8cd78efea9115a6cfa"
+  },
+  {
+   "path": "assets/bgm/home-evening.m4a",
+   "status": 200,
+   "sha256": "b3b1a668f16e15ef83f7152d8ab29abdf598cd8c93d217cb1d7e3fa604d82e3b"
+  },
+  {
+   "path": "assets/bgm/home-night.m4a",
+   "status": 200,
+   "sha256": "e2c494316c04e22fc449c2c3866aca36658fa34dd9d57d4e943caa94d84b7e5a"
+  },
+  {
+   "path": "assets/bgm/poyo-1.m4a",
+   "status": 200,
+   "sha256": "8d091d62399c72bd5cb0766e5bb572e5267d1380f3e3200ee31d6f8743235a22"
+  },
+  {
+   "path": "assets/bgm/koro-1.m4a",
+   "status": 200,
+   "sha256": "20451449c8762749e7b7d39f19223f83a135605b824ef34354b54eae4632d7d0"
+  },
+  {
+   "path": "assets/bgm/card-2.m4a",
+   "status": 200,
+   "sha256": "ce0c0716221e8e10616647b58a446a1185869f50e23eef5c347226d4042ade6c"
+  },
+  {
+   "path": "assets/bgm/game-1.m4a",
+   "status": 200,
+   "sha256": "915880056e9044f65750b3bb925ba9f6bd6acda5e72f46a3659a94a3cd509ea6"
+  },
+  {
+   "path": "assets/bgm/explore-1.m4a",
+   "status": 200,
+   "sha256": "cd2ba12bfd539d1486aa4744f2cf956b360a49219f2097af4f510d31598fd101"
+  },
+  {
+   "path": "assets/bgm/event-2.m4a",
+   "status": 200,
+   "sha256": "e1147aeb4d1cf707277059cd2e39faee11f7bf44f88b1efb5e4a89be22ab3598"
+  },
+  {
+   "path": "assets/bgm/event-1.m4a",
+   "status": 200,
+   "sha256": "2360ab9acea6948693f2575b3f8aae7c91ab295d426690c47fadd98d70025cf3"
+  },
+  {
+   "path": "assets/bgm/kisetsu.m4a",
+   "status": 200,
+   "sha256": "f4158db2ed8ae1a0eeb069dce113c64186031d387df2dcb3d2f777976258a825"
+  },
+  {
+   "path": "assets/bgm/ohayo.m4a",
+   "status": 200,
+   "sha256": "55f3725cc2fae86655556bf910261f29a2facb87e153ae495c43ebb08a6fc9e3"
+  },
+  {
+   "path": "assets/bgm/bgm-game.m4a",
+   "status": 200,
+   "sha256": "c7b8f2c6682c0f61c5515b30466362730d82673de00d2eba8fb27063d032a67d"
+  },
+  {
+   "path": "assets/bgm/bgm-race.m4a",
+   "status": 200,
+   "sha256": "81000f11daa3f31be0e48b8247235b66790f26e757abb7979e547907a4c96f6e"
+  },
+  {
+   "path": "assets/bgm/bgm-farewell.m4a",
+   "status": 200,
+   "sha256": "c35d64ca46b7e7027f0a157fd44cb197f2417c7dfd14eb27bb4d027e2f0faae8"
+  },
+  {
+   "path": "assets/bgm/poyo-2.m4a",
+   "status": 200,
+   "sha256": "fa15803575d6aeca816ecd4268ff15ff7ec1c4bce4c164d1b51a7a5ee970b724"
+  },
+  {
+   "path": "assets/bgm/game-2.m4a",
+   "status": 200,
+   "sha256": "3804a95cf53abff9fddf8b184927af9232c5be1662e728b5b26a69a580c489be"
+  },
+  {
+   "path": "assets/bgm/explore-2.m4a",
+   "status": 200,
+   "sha256": "68fbba6f6219501d40636619b463f74a310d4e132525aa00ca6ab2f3ed5c5c8e"
+  },
+  {
+   "path": "assets/bgm/board-b.m4a",
+   "status": 200,
+   "sha256": "cbc0d7655f96a666495d0258fbc6f8491c937398220b0db3822de44385e04aa5"
+  },
+  {
+   "path": "assets/bgm/fishing-a.m4a",
+   "status": 200,
+   "sha256": "f44f755a734607244f6ec6a23d5ac4c0cdcb6e08e2a478a0f6471bfc6d45ca80"
+  },
+  {
+   "path": "assets/bgm/lullaby-a.m4a",
+   "status": 200,
+   "sha256": "b2585f3df90e43530303089b33a3308f004152d7cdda13f44375bb8eccadc7bc"
+  },
+  {
+   "path": "assets/bgm/jingle-achieve.m4a",
+   "status": 200,
+   "sha256": "e3919a741b1af2b2ca536a7a81dfe3c01939b1aed53f1f28da2f15a6fe7e8e41"
+  },
+  {
+   "path": "assets/bgm/jingle-card-lose.m4a",
+   "status": 200,
+   "sha256": "7047f7d1b8d4b13b4567003deef2ad9710eceac125eb568629f1bc23cdea0665"
+  },
+  {
+   "path": "assets/bgm/var-poyo-clear.m4a",
+   "status": 200,
+   "sha256": "29663aed80bf78fec5590f03e13e8b7af9f16bfea31590cb722c25dbba4ffae9"
+  },
+  {
+   "path": "assets/bgm/var-poyo-chapter.m4a",
+   "status": 200,
+   "sha256": "e0101ea87248920b33c60bcf00a7425db5d7ca9d54198cdebed9fd678b90dddc"
+  },
+  {
+   "path": "assets/bgm/var-koro-goal.m4a",
+   "status": 200,
+   "sha256": "f85bcb3f61674e244a4bef7c6f054d4815d4d6f41de33ed43bf071ae83c9eb79"
+  },
+  {
+   "path": "assets/bgm/var-koro-album.m4a",
+   "status": 200,
+   "sha256": "01b1bc329e68d8a564ee9fcf7dd92b8efe6f7372209fde82c8acc417fdde25c7"
+  },
+  {
+   "path": "assets/bgm/var-card-late.m4a",
+   "status": 200,
+   "sha256": "17bddddc581488ca3bd7d533acff5ef9dceb3d7f7b5b8c7319843904c700a23d"
+  },
+  {
+   "path": "assets/bgm/var-card-win.m4a",
+   "status": 200,
+   "sha256": "c15031fe1eac17707546d0ec191b725cbde5cb52f24478e6209219906285c51f"
+  },
+  {
+   "path": "assets/bgm/var-flight.m4a",
+   "status": 200,
+   "sha256": "8cd4d8f1c62e4a68bdee8c25bd55a68d685e4d2c43ea8eee57d376833ce34eda"
+  },
+  {
+   "path": "assets/bgm/var-ohayo-hatch2.m4a",
+   "status": 200,
+   "sha256": "1d95d59a0a235be39ab12386f7cb3e5ac5fb2722f317f5810903d68d711586be"
+  },
+  {
+   "path": "audio/v7-complete/home-morning.m4a",
+   "status": 200,
+   "sha256": "a3c94016ab15fe8020536f00808539f2943a8c1d51b5bb06afe21de7724411ba"
+  },
+  {
+   "path": "audio/v7-complete/home-day.m4a",
+   "status": 200,
+   "sha256": "6535b366a0d766ffd6cb8439446a41b4f65137ea4f91ed8cd78efea9115a6cfa"
+  },
+  {
+   "path": "audio/v7-complete/home-evening.m4a",
+   "status": 200,
+   "sha256": "b3b1a668f16e15ef83f7152d8ab29abdf598cd8c93d217cb1d7e3fa604d82e3b"
+  },
+  {
+   "path": "audio/v7-complete/home-night.m4a",
+   "status": 200,
+   "sha256": "e2c494316c04e22fc449c2c3866aca36658fa34dd9d57d4e943caa94d84b7e5a"
+  },
+  {
+   "path": "audio/v7-complete/poyo-1.m4a",
+   "status": 200,
+   "sha256": "8d091d62399c72bd5cb0766e5bb572e5267d1380f3e3200ee31d6f8743235a22"
+  },
+  {
+   "path": "audio/v7-complete/koro-1.m4a",
+   "status": 200,
+   "sha256": "20451449c8762749e7b7d39f19223f83a135605b824ef34354b54eae4632d7d0"
+  },
+  {
+   "path": "audio/v7-complete/card-2.m4a",
+   "status": 200,
+   "sha256": "ce0c0716221e8e10616647b58a446a1185869f50e23eef5c347226d4042ade6c"
+  },
+  {
+   "path": "audio/v7-complete/game-1.m4a",
+   "status": 200,
+   "sha256": "915880056e9044f65750b3bb925ba9f6bd6acda5e72f46a3659a94a3cd509ea6"
+  },
+  {
+   "path": "audio/v7-complete/explore-1.m4a",
+   "status": 200,
+   "sha256": "cd2ba12bfd539d1486aa4744f2cf956b360a49219f2097af4f510d31598fd101"
+  },
+  {
+   "path": "audio/v7-complete/event-2.m4a",
+   "status": 200,
+   "sha256": "e1147aeb4d1cf707277059cd2e39faee11f7bf44f88b1efb5e4a89be22ab3598"
+  },
+  {
+   "path": "audio/v7-complete/event-1.m4a",
+   "status": 200,
+   "sha256": "2360ab9acea6948693f2575b3f8aae7c91ab295d426690c47fadd98d70025cf3"
+  },
+  {
+   "path": "audio/v7-complete/kisetsu.m4a",
+   "status": 200,
+   "sha256": "f4158db2ed8ae1a0eeb069dce113c64186031d387df2dcb3d2f777976258a825"
+  },
+  {
+   "path": "audio/v7-complete/ohayo.m4a",
+   "status": 200,
+   "sha256": "55f3725cc2fae86655556bf910261f29a2facb87e153ae495c43ebb08a6fc9e3"
+  },
+  {
+   "path": "audio/v7-complete/bgm-game.m4a",
+   "status": 200,
+   "sha256": "c7b8f2c6682c0f61c5515b30466362730d82673de00d2eba8fb27063d032a67d"
+  },
+  {
+   "path": "audio/v7-complete/bgm-race.m4a",
+   "status": 200,
+   "sha256": "81000f11daa3f31be0e48b8247235b66790f26e757abb7979e547907a4c96f6e"
+  },
+  {
+   "path": "audio/v7-complete/bgm-farewell.m4a",
+   "status": 200,
+   "sha256": "c35d64ca46b7e7027f0a157fd44cb197f2417c7dfd14eb27bb4d027e2f0faae8"
+  },
+  {
+   "path": "audio/v7-complete/poyo-2.m4a",
+   "status": 200,
+   "sha256": "fa15803575d6aeca816ecd4268ff15ff7ec1c4bce4c164d1b51a7a5ee970b724"
+  },
+  {
+   "path": "audio/v7-complete/game-2.m4a",
+   "status": 200,
+   "sha256": "3804a95cf53abff9fddf8b184927af9232c5be1662e728b5b26a69a580c489be"
+  },
+  {
+   "path": "audio/v7-complete/explore-2.m4a",
+   "status": 200,
+   "sha256": "68fbba6f6219501d40636619b463f74a310d4e132525aa00ca6ab2f3ed5c5c8e"
+  },
+  {
+   "path": "audio/v7-complete/board-b.m4a",
+   "status": 200,
+   "sha256": "cbc0d7655f96a666495d0258fbc6f8491c937398220b0db3822de44385e04aa5"
+  },
+  {
+   "path": "audio/v7-complete/fishing-a.m4a",
+   "status": 200,
+   "sha256": "f44f755a734607244f6ec6a23d5ac4c0cdcb6e08e2a478a0f6471bfc6d45ca80"
+  },
+  {
+   "path": "audio/v7-complete/lullaby-a.m4a",
+   "status": 200,
+   "sha256": "b2585f3df90e43530303089b33a3308f004152d7cdda13f44375bb8eccadc7bc"
+  },
+  {
+   "path": "audio/v7-complete/jingle-achieve.m4a",
+   "status": 200,
+   "sha256": "e3919a741b1af2b2ca536a7a81dfe3c01939b1aed53f1f28da2f15a6fe7e8e41"
+  },
+  {
+   "path": "audio/v7-complete/jingle-card-lose.m4a",
+   "status": 200,
+   "sha256": "7047f7d1b8d4b13b4567003deef2ad9710eceac125eb568629f1bc23cdea0665"
+  },
+  {
+   "path": "audio/v7-complete/var-poyo-clear.m4a",
+   "status": 200,
+   "sha256": "29663aed80bf78fec5590f03e13e8b7af9f16bfea31590cb722c25dbba4ffae9"
+  },
+  {
+   "path": "audio/v7-complete/var-poyo-chapter.m4a",
+   "status": 200,
+   "sha256": "e0101ea87248920b33c60bcf00a7425db5d7ca9d54198cdebed9fd678b90dddc"
+  },
+  {
+   "path": "audio/v7-complete/var-koro-goal.m4a",
+   "status": 200,
+   "sha256": "f85bcb3f61674e244a4bef7c6f054d4815d4d6f41de33ed43bf071ae83c9eb79"
+  },
+  {
+   "path": "audio/v7-complete/var-koro-album.m4a",
+   "status": 200,
+   "sha256": "01b1bc329e68d8a564ee9fcf7dd92b8efe6f7372209fde82c8acc417fdde25c7"
+  },
+  {
+   "path": "audio/v7-complete/var-card-late.m4a",
+   "status": 200,
+   "sha256": "17bddddc581488ca3bd7d533acff5ef9dceb3d7f7b5b8c7319843904c700a23d"
+  },
+  {
+   "path": "audio/v7-complete/var-card-win.m4a",
+   "status": 200,
+   "sha256": "c15031fe1eac17707546d0ec191b725cbde5cb52f24478e6209219906285c51f"
+  },
+  {
+   "path": "audio/v7-complete/var-flight.m4a",
+   "status": 200,
+   "sha256": "8cd4d8f1c62e4a68bdee8c25bd55a68d685e4d2c43ea8eee57d376833ce34eda"
+  },
+  {
+   "path": "audio/v7-complete/var-ohayo-hatch2.m4a",
+   "status": 200,
+   "sha256": "1d95d59a0a235be39ab12386f7cb3e5ac5fb2722f317f5810903d68d711586be"
+  }
+ ],
+ "physicalSpeakerAudibility": "not measured"
+}
