@@ -1,0 +1,369 @@
+{
+ "sources": [
+  {
+   "name": "VSCO2CE",
+   "commit": "440300901dfe9275fd84e0b7763af1f8443ae62e",
+   "license": "CC0-1.0"
+  },
+  {
+   "name": "Karoryfer x bigcat cello",
+   "commit": "6fd75fbfc1dbb3109bf26220ba1adea46188a18b",
+   "license": "CC0-1.0",
+   "performer": "Kamila Borowiak"
+  }
+ ],
+ "files": [
+  {
+   "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_A3_p.wav",
+   "gitBlobSha1": "7122b440f4dbd148a81319fca1d04a550710cef3",
+   "sha256": "8daa4ca0eba8a834814435047e36b47826e730a7796c325966323f53debc9e46",
+   "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Violin/Arco%20Vib/LLVln_ArcoVib_A3_p.wav",
+   "bytes": 2911130,
+   "instrument": "violin_solo",
+   "rootMidi": 57,
+   "library": "vsco",
+   "startSeconds": 0.65,
+   "variants": [
+    "b1",
+    "b2"
+   ],
+   "measuredMedianCents": 2.709,
+   "tuningCorrectionCents": -2.709
+  },
+  {
+   "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_A4_p.wav",
+   "gitBlobSha1": "e8667671328e1cfcd769a7624c26fac133ad7b0f",
+   "sha256": "0d05607b46b78690893006d5aa7923ac304c7fb497df1e96536dc88ac5ac487f",
+   "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Violin/Arco%20Vib/LLVln_ArcoVib_A4_p.wav",
+   "bytes": 2612122,
+   "instrument": "violin_solo",
+   "rootMidi": 69,
+   "library": "vsco",
+   "startSeconds": 0.65,
+   "variants": [
+    "b1",
+    "b2"
+   ],
+   "measuredMedianCents": 1.727,
+   "tuningCorrectionCents": -1.727
+  },
+  {
+   "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_C4_p.wav",
+   "gitBlobSha1": "9f876cafa572a8719e2e93fc994c5303992b8e62",
+   "sha256": "592ebf4404ccafc7164c13cc543911ba9a2fe5f5e70dbb200807e2ae37b25035",
+   "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Violin/Arco%20Vib/LLVln_ArcoVib_C4_p.wav",
+   "bytes": 3096650,
+   "instrument": "violin_solo",
+   "rootMidi": 60,
+   "library": "vsco",
+   "startSeconds": 0.92,
+   "variants": [
+    "b1",
+    "b2"
+   ],
+   "measuredMedianCents": 21.772,
+   "tuningCorrectionCents": -21.772
+  },
+  {
+   "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_C5_p.wav",
+   "gitBlobSha1": "71f0671d77cf8b79ce1a18ba20d9661e24f086fc",
+   "sha256": "77a2133b5f97e1ec0edb759c0c552fc3efa7caf4ce1e0a4aa22625cf4c9da130",
+   "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Violin/Arco%20Vib/LLVln_ArcoVib_C5_p.wav",
+   "bytes": 2498790,
+   "instrument": "violin_solo",
+   "rootMidi": 72,
+   "library": "vsco",
+   "startSeconds": 0.65,
+   "variants": [
+    "b1",
+    "b2"
+   ],
+   "measuredMedianCents": -1.954,
+   "tuningCorrectionCents": 1.954
+  },
+  {
+   "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_E4_p.wav",
+   "gitBlobSha1": "99279ebc21258ab48aae6eb63d1eb7538f28d306",
+   "sha256": "57c5aec0678a5d582d87ab33cd2f8954fea26ffd04c932eb6753d6a78e08736b",
+   "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Violin/Arco%20Vib/LLVln_ArcoVib_E4_p.wav",
+   "bytes": 2600174,
+   "instrument": "violin_solo",
+   "rootMidi": 64,
+   "library": "vsco",
+   "startSeconds": 0.72,
+   "variants": [
+    "b1",
+    "b2"
+   ],
+   "measuredMedianCents": 2.979,
+   "tuningCorrectionCents": -2.979
+  },
+  {
+   "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_E5_p.wav",
+   "gitBlobSha1": "670865e19772aceab538850ea7a0d1a86024d955",
+   "sha256": "c60c3bcfc64ea00ebf8d97b16f2876c892393839a017a945c5e557359b6369a4",
+   "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Violin/Arco%20Vib/LLVln_ArcoVib_E5_p.wav",
+   "bytes": 2517094,
+   "instrument": "violin_solo",
+   "rootMidi": 76,
+   "library": "vsco",
+   "startSeconds": 0.9,
+   "variants": [
+    "b1",
+    "b2"
+   ],
+   "measuredMedianCents": 6.324,
+   "tuningCorrectionCents": -6.324
+  },
+  {
+   "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G3_p.wav",
+   "gitBlobSha1": "bc5f7d33610abbc3000f432562f36063f1d3d725",
+   "sha256": "c52d8ef3e2882984c09da1b7c7ef40b82e997bc78cfdd380fe167bbcb94b03de",
+   "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Violin/Arco%20Vib/LLVln_ArcoVib_G3_p.wav",
+   "bytes": 2788822,
+   "instrument": "violin_solo",
+   "rootMidi": 55,
+   "library": "vsco",
+   "startSeconds": 0.7,
+   "variants": [
+    "b1",
+    "b2"
+   ],
+   "measuredMedianCents": -3.254,
+   "tuningCorrectionCents": 3.254
+  },
+  {
+   "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G4_p.wav",
+   "gitBlobSha1": "7324564c663bf239802020287c217b27c76b8142",
+   "sha256": "ad1ba8442a6b40919093c9c831a8171c7030f7e651fbe075ab87764665deef88",
+   "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Violin/Arco%20Vib/LLVln_ArcoVib_G4_p.wav",
+   "bytes": 2594066,
+   "instrument": "violin_solo",
+   "rootMidi": 67,
+   "library": "vsco",
+   "startSeconds": 0.85,
+   "variants": [
+    "b1",
+    "b2"
+   ],
+   "measuredMedianCents": -3.1,
+   "tuningCorrectionCents": 3.1
+  },
+  {
+   "path": "Strings/Cello Section/susvib/susvib_A2_v1_1.wav",
+   "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Cello%20Section/susvib/susvib_A2_v1_1.wav",
+   "sha256": "c97a003184fdcb153d6b6c0bae8d82a90592a1b04b06bd7caaeda8b9776d5284",
+   "bytes": 2336738,
+   "instrument": "cello_chamber",
+   "rootMidi": 57,
+   "library": "vsco",
+   "startSeconds": 0.65,
+   "variants": [
+    "b1"
+   ],
+   "measuredMedianCents": -0.47,
+   "tuningCorrectionCents": 0.47
+  },
+  {
+   "path": "Strings/Cello Section/susvib/susvib_B1_v1_1.wav",
+   "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Cello%20Section/susvib/susvib_B1_v1_1.wav",
+   "sha256": "4f95c087c4b8d87ee591e9d39c3c9caf085c6f1b9125eac3ca9e4e637da628ee",
+   "bytes": 2372492,
+   "instrument": "cello_chamber",
+   "rootMidi": 47,
+   "library": "vsco",
+   "startSeconds": 0.7,
+   "variants": [
+    "b1"
+   ],
+   "measuredMedianCents": 0.296,
+   "tuningCorrectionCents": -0.296
+  },
+  {
+   "path": "Strings/Cello Section/susvib/susvib_C1_v1_1.wav",
+   "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Cello%20Section/susvib/susvib_C1_v1_1.wav",
+   "sha256": "abdcea431f384e135c469b0f3e4ac2a437f282f521dc5bcbe22abc221536e8de",
+   "bytes": 2347376,
+   "instrument": "cello_chamber",
+   "rootMidi": 36,
+   "library": "vsco",
+   "startSeconds": 0.95,
+   "variants": [
+    "b1"
+   ],
+   "measuredMedianCents": -0.183,
+   "tuningCorrectionCents": 0.183
+  },
+  {
+   "path": "Strings/Cello Section/susvib/susvib_C3_v1_1.wav",
+   "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Cello%20Section/susvib/susvib_C3_v1_1.wav",
+   "sha256": "a614ee7ca821b44660236e47b89620cf914ec6ad27a99bc0d9764f47dbe512e1",
+   "bytes": 2444174,
+   "instrument": "cello_chamber",
+   "rootMidi": 60,
+   "library": "vsco",
+   "startSeconds": 0.65,
+   "variants": [
+    "b1"
+   ],
+   "measuredMedianCents": 0.19,
+   "tuningCorrectionCents": -0.19
+  },
+  {
+   "path": "Strings/Cello Section/susvib/susvib_D2_v1_1.wav",
+   "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Cello%20Section/susvib/susvib_D2_v1_1.wav",
+   "sha256": "e8640dec9febc6e39fcf06b19d2c95a85d5ff8c38f13c9879e69f551eaf38ab8",
+   "bytes": 2550956,
+   "instrument": "cello_chamber",
+   "rootMidi": 50,
+   "library": "vsco",
+   "startSeconds": 0.65,
+   "variants": [
+    "b1"
+   ],
+   "measuredMedianCents": 1.043,
+   "tuningCorrectionCents": -1.043
+  },
+  {
+   "path": "Strings/Cello Section/susvib/susvib_E1_v1_1.wav",
+   "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Cello%20Section/susvib/susvib_E1_v1_1.wav",
+   "sha256": "de31a61b02d4e1d5a79b8bc432b0f35fe2e434290ad34402cc0f2dd7dc278cde",
+   "bytes": 2468348,
+   "instrument": "cello_chamber",
+   "rootMidi": 40,
+   "library": "vsco",
+   "startSeconds": 0.65,
+   "variants": [
+    "b1"
+   ],
+   "measuredMedianCents": -3.413,
+   "tuningCorrectionCents": 3.413
+  },
+  {
+   "path": "Strings/Cello Section/susvib/susvib_F2_v1_1.wav",
+   "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Cello%20Section/susvib/susvib_F2_v1_1.wav",
+   "sha256": "162054eab4ba118924f8f8986cf1b17ccfd65211d1945743ffbae30b4953f901",
+   "bytes": 2186012,
+   "instrument": "cello_chamber",
+   "rootMidi": 53,
+   "library": "vsco",
+   "startSeconds": 0.65,
+   "variants": [
+    "b1"
+   ],
+   "measuredMedianCents": 0.128,
+   "tuningCorrectionCents": -0.128
+  },
+  {
+   "path": "Strings/Cello Section/susvib/susvib_G1_v1_1.wav",
+   "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Cello%20Section/susvib/susvib_G1_v1_1.wav",
+   "sha256": "9e5d24e8e28d6c7f650f9bb2b33d43c13e341a8bd33124c64e23881378b181ba",
+   "bytes": 2161700,
+   "instrument": "cello_chamber",
+   "rootMidi": 43,
+   "library": "vsco",
+   "startSeconds": 0.7,
+   "variants": [
+    "b1"
+   ],
+   "measuredMedianCents": -0.297,
+   "tuningCorrectionCents": 0.297
+  },
+  {
+   "path": "Samples/sus/A1_p_g.wav",
+   "blob": "7d5d83fd0d91f7fca87561c20957b0de210afdfa",
+   "bytes": 718540,
+   "sha256": "7c5d37a2c0e73f7d115809e571ec26b2958d5b826a69d272b03ccb89ee19ba19",
+   "url": "https://raw.githubusercontent.com/sfzinstruments/karoryfer-bigcat.cello/6fd75fbfc1dbb3109bf26220ba1adea46188a18b/Samples/sus/A1_p_g.wav",
+   "instrument": "cello_chamber",
+   "rootMidi": 45,
+   "library": "karoryfer",
+   "startSeconds": 0.4,
+   "variants": [
+    "b2"
+   ],
+   "measuredMedianCents": -1.975,
+   "tuningCorrectionCents": 1.975
+  },
+  {
+   "path": "Samples/sus/C2_p_g.wav",
+   "blob": "6570cb73b2670c5a257e2fd3043e91ebc4f124ed",
+   "bytes": 823702,
+   "sha256": "53b4dcdcfdedb7a4d953909ed44d30ac56964b6d961b98166590732702c46ca3",
+   "url": "https://raw.githubusercontent.com/sfzinstruments/karoryfer-bigcat.cello/6fd75fbfc1dbb3109bf26220ba1adea46188a18b/Samples/sus/C2_p_g.wav",
+   "instrument": "cello_chamber",
+   "rootMidi": 48,
+   "library": "karoryfer",
+   "startSeconds": 0.4,
+   "variants": [
+    "b2"
+   ],
+   "measuredMedianCents": 0.073,
+   "tuningCorrectionCents": -0.073
+  },
+  {
+   "path": "Samples/sus/Eb1_p_g.wav",
+   "blob": "b50e8059fec3b854cd29f43b311c818edc7d89da",
+   "bytes": 879438,
+   "sha256": "434ec950df605f145079f6688ba0f205df84e71d7d66b3082b3607fc6c7f9d18",
+   "url": "https://raw.githubusercontent.com/sfzinstruments/karoryfer-bigcat.cello/6fd75fbfc1dbb3109bf26220ba1adea46188a18b/Samples/sus/Eb1_p_g.wav",
+   "instrument": "cello_chamber",
+   "rootMidi": 39,
+   "library": "karoryfer",
+   "startSeconds": 0.4,
+   "variants": [
+    "b2"
+   ],
+   "measuredMedianCents": -0.031,
+   "tuningCorrectionCents": 0.031
+  },
+  {
+   "path": "Samples/sus/Eb2_p_g.wav",
+   "blob": "77021bf45c490c3c49af94c1dda10e7fb1399508",
+   "bytes": 748912,
+   "sha256": "57c6e6f1d8759417dd0b05f794b36091cd968692c7131fa9f04f5b8119c48070",
+   "url": "https://raw.githubusercontent.com/sfzinstruments/karoryfer-bigcat.cello/6fd75fbfc1dbb3109bf26220ba1adea46188a18b/Samples/sus/Eb2_p_g.wav",
+   "instrument": "cello_chamber",
+   "rootMidi": 51,
+   "library": "karoryfer",
+   "startSeconds": 0.4,
+   "variants": [
+    "b2"
+   ],
+   "measuredMedianCents": -1.084,
+   "tuningCorrectionCents": 1.084
+  },
+  {
+   "path": "Samples/sus/Gb1_p_g.wav",
+   "blob": "0aceb5d34f1b9de1b2081c26cc68d1945b270f2e",
+   "bytes": 706294,
+   "sha256": "d846025ddb4b45cae5107ac074ecb1a8ecf3d91f43f1dd1591578fc418915863",
+   "url": "https://raw.githubusercontent.com/sfzinstruments/karoryfer-bigcat.cello/6fd75fbfc1dbb3109bf26220ba1adea46188a18b/Samples/sus/Gb1_p_g.wav",
+   "instrument": "cello_chamber",
+   "rootMidi": 42,
+   "library": "karoryfer",
+   "startSeconds": 0.4,
+   "variants": [
+    "b2"
+   ],
+   "measuredMedianCents": -2.217,
+   "tuningCorrectionCents": 2.217
+  },
+  {
+   "path": "Samples/sus/Gb2_p_g.wav",
+   "blob": "71a8e76e0170792dfdc26e8c481777695974618b",
+   "bytes": 739710,
+   "sha256": "cee09fc63b5291a5191fd02b952aefd9fa686dfef64df0db44a7c740231b333a",
+   "url": "https://raw.githubusercontent.com/sfzinstruments/karoryfer-bigcat.cello/6fd75fbfc1dbb3109bf26220ba1adea46188a18b/Samples/sus/Gb2_p_g.wav",
+   "instrument": "cello_chamber",
+   "rootMidi": 54,
+   "library": "karoryfer",
+   "startSeconds": 0.4,
+   "variants": [
+    "b2"
+   ],
+   "measuredMedianCents": 3.98,
+   "tuningCorrectionCents": -3.98
+  }
+ ]
+}

@@ -1,0 +1,138 @@
+{
+ "baselineCommit": "25c69a0a78e7f72351ffad1836ec4932760f0552",
+ "scoresBsha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+ "melodyNotes": 3158,
+ "homeStringNotes": 104,
+ "variants": [
+  {
+   "id": "home-morning",
+   "variant": "b1",
+   "integratedLUFS": -22.99,
+   "truePeakDbtp": -4.61,
+   "clippedSamples": 0,
+   "monoLossDb": -1.24,
+   "loopJoinJump": 0.00016,
+   "pianoGlobalGain": 1.0139113857366795,
+   "joins": 16,
+   "medianJoinDipOldDb": -154.49,
+   "medianJoinDipNewDb": -7.23,
+   "firstHalfPianoResidualDb": null
+  },
+  {
+   "id": "home-morning",
+   "variant": "b2",
+   "integratedLUFS": -23.0,
+   "truePeakDbtp": -4.62,
+   "clippedSamples": 0,
+   "monoLossDb": -1.23,
+   "loopJoinJump": 0.00016,
+   "pianoGlobalGain": 1.012744748814531,
+   "joins": 16,
+   "medianJoinDipOldDb": -154.49,
+   "medianJoinDipNewDb": -6.06,
+   "firstHalfPianoResidualDb": null
+  },
+  {
+   "id": "home-day",
+   "variant": "b1",
+   "integratedLUFS": -23.0,
+   "truePeakDbtp": -5.33,
+   "clippedSamples": 0,
+   "monoLossDb": -1.17,
+   "loopJoinJump": 0.00207,
+   "pianoGlobalGain": 1.0115794542598986,
+   "joins": 16,
+   "medianJoinDipOldDb": -152.12,
+   "medianJoinDipNewDb": -5.79,
+   "firstHalfPianoResidualDb": null
+  },
+  {
+   "id": "home-day",
+   "variant": "b2",
+   "integratedLUFS": -23.0,
+   "truePeakDbtp": -5.33,
+   "clippedSamples": 0,
+   "monoLossDb": -1.17,
+   "loopJoinJump": 0.00207,
+   "pianoGlobalGain": 1.0115794542598986,
+   "joins": 16,
+   "medianJoinDipOldDb": -152.12,
+   "medianJoinDipNewDb": -5.2,
+   "firstHalfPianoResidualDb": null
+  },
+  {
+   "id": "home-evening",
+   "variant": "b1",
+   "integratedLUFS": -23.0,
+   "truePeakDbtp": -4.13,
+   "clippedSamples": 0,
+   "monoLossDb": -1.31,
+   "loopJoinJump": 0.00351,
+   "pianoGlobalGain": 1.031573079439511,
+   "joins": 45,
+   "medianJoinDipOldDb": -12.12,
+   "medianJoinDipNewDb": -6.23,
+   "firstHalfPianoResidualDb": null
+  },
+  {
+   "id": "home-evening",
+   "variant": "b2",
+   "integratedLUFS": -23.0,
+   "truePeakDbtp": -4.0,
+   "clippedSamples": 0,
+   "monoLossDb": -1.31,
+   "loopJoinJump": 0.0034,
+   "pianoGlobalGain": 1.0303861204416163,
+   "joins": 45,
+   "medianJoinDipOldDb": -12.12,
+   "medianJoinDipNewDb": -4.25,
+   "firstHalfPianoResidualDb": null
+  },
+  {
+   "id": "home-night",
+   "variant": "b1",
+   "integratedLUFS": -23.0,
+   "truePeakDbtp": -5.42,
+   "clippedSamples": 0,
+   "monoLossDb": -1.31,
+   "loopJoinJump": 0.00018,
+   "pianoGlobalGain": 1.0,
+   "joins": 6,
+   "medianJoinDipOldDb": -138.32,
+   "medianJoinDipNewDb": -6.78,
+   "firstHalfPianoResidualDb": -299.99999538080664
+  },
+  {
+   "id": "home-night",
+   "variant": "b2",
+   "integratedLUFS": -23.0,
+   "truePeakDbtp": -5.36,
+   "clippedSamples": 0,
+   "monoLossDb": -1.31,
+   "loopJoinJump": 0.00018,
+   "pianoGlobalGain": 1.0,
+   "joins": 6,
+   "medianJoinDipOldDb": -138.32,
+   "medianJoinDipNewDb": -4.66,
+   "firstHalfPianoResidualDb": -299.99999463768864
+  }
+ ],
+ "originals": {
+  "home-morning": {
+   "m4a": "6607d7d56875d9fe4feabffed161f5218303970a83a595b407723f677cc50b6b",
+   "flac": "2249c72be521b973c497cec8121e3466315179aaeed0ab7ad23f5aa42903d625"
+  },
+  "home-day": {
+   "m4a": "fca8cb5f87ba5a366d275479bbb5d9c2b214709493f2d9b4f7299b7184ed1a74",
+   "flac": "fd62ab69f76756a82b2d17b9f47c6112b6b0bcfccefd7d65bd451eb4ff713d8b"
+  },
+  "home-evening": {
+   "m4a": "2af575a7dbe3f1767f382addf70c1363f60f9a954d4e86ea581d73fcec646051",
+   "flac": "863622f23335d8613e7d9aa9154e71ac9f9f98959dde34e7624bdfa9d99f4e95"
+  },
+  "home-night": {
+   "m4a": "65d42d62b6b7bfa246d892969e72dba4a2c9f94719f0eacff43ac64c1dfcbcd9",
+   "flac": "801d06d91403cb80c116a9233e2693e7b1f030f268eb1193091b31c9c062b1c9"
+  }
+ }
+}

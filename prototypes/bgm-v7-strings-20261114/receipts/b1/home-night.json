@@ -1,0 +1,306 @@
+{
+ "id": "home-night",
+ "title": "ほしぞらの やくそく",
+ "family": "home4",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2228211,
+ "seconds": 50.526327,
+ "flacFrames": 2228211,
+ "aacDecodedFrames": 2228224,
+ "integratedLUFS": -23.0,
+ "targetLUFS": -23,
+ "truePeakDbtp": -5.42,
+ "samplePeakDbfs": -5.43,
+ "clippedSamples": 0,
+ "monoLossDb": -1.31,
+ "sideToMidDb": -4.5,
+ "aacFlacCorrelation": 1.0,
+ "loopJoinJump": 0.00018,
+ "loopJoinTypicalStep999": 0.05122,
+ "bands": {
+  "centroidHz": 688,
+  "low40_250": -8.3,
+  "lowmid250_800": -2.6,
+  "mid800_3k": -5.3,
+  "pres3k_6k": -25.1,
+  "air6k_12k": -46.7,
+  "top12k_20k": -58.6
+ },
+ "variant": "b1",
+ "sourceFingerprint": "d4d4266569441a05eeb31abc88bb3597399949dce2bdd6c869811bf1d227286f",
+ "pianoGlobalGain": 1.0,
+ "pianoStemSha256": "b9db162fd381930e0bd9cb3f5e42e98aa1bac51f758286b7289c8991ba155cb5",
+ "limiterMaxGainReductionDb": 0,
+ "samplesUsed": [
+  {
+   "instrument": "violin_solo",
+   "midi": 69,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_A4_p.wav",
+   "library": "vsco",
+   "rootMidi": 69,
+   "transpose": 0,
+   "intonationCorrectionCents": -1.727,
+   "nativeFrames": 624978,
+   "usedEndFrame": 144555,
+   "sourceOffset": 0.0,
+   "t": 25.736842,
+   "syntheticLoops": 0
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 68,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G4_p.wav",
+   "library": "vsco",
+   "rootMidi": 67,
+   "transpose": 1,
+   "intonationCorrectionCents": 3.1,
+   "nativeFrames": 575695,
+   "usedEndFrame": 144555,
+   "sourceOffset": 0.0,
+   "t": 28.894737,
+   "syntheticLoops": 0
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 69,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_A4_p.wav",
+   "library": "vsco",
+   "rootMidi": 69,
+   "transpose": 0,
+   "intonationCorrectionCents": -1.727,
+   "nativeFrames": 624978,
+   "usedEndFrame": 103473,
+   "sourceOffset": 0.0,
+   "t": 32.052632,
+   "syntheticLoops": 0
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 64,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_E4_p.wav",
+   "library": "vsco",
+   "rootMidi": 64,
+   "transpose": 0,
+   "intonationCorrectionCents": -2.979,
+   "nativeFrames": 619345,
+   "usedEndFrame": 144555,
+   "sourceOffset": 0.0,
+   "t": 38.368421,
+   "syntheticLoops": 0
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 66,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G4_p.wav",
+   "library": "vsco",
+   "rootMidi": 67,
+   "transpose": -1,
+   "intonationCorrectionCents": 3.1,
+   "nativeFrames": 646195,
+   "usedEndFrame": 103473,
+   "sourceOffset": 0.0,
+   "t": 41.526316,
+   "syntheticLoops": 0
+  },
+  {
+   "instrument": "cello_chamber",
+   "midi": 50,
+   "sample": "Strings/Cello Section/susvib/susvib_D2_v1_1.wav",
+   "library": "vsco",
+   "rootMidi": 50,
+   "transpose": 0,
+   "intonationCorrectionCents": -1.043,
+   "nativeFrames": 396726,
+   "usedEndFrame": 145437,
+   "sourceOffset": 0.0,
+   "t": 25.578947,
+   "syntheticLoops": 0
+  },
+  {
+   "instrument": "cello_chamber",
+   "midi": 49,
+   "sample": "Strings/Cello Section/susvib/susvib_D2_v1_1.wav",
+   "library": "vsco",
+   "rootMidi": 50,
+   "transpose": -1,
+   "intonationCorrectionCents": -1.043,
+   "nativeFrames": 420317,
+   "usedEndFrame": 145437,
+   "sourceOffset": 0.0,
+   "t": 28.736842,
+   "syntheticLoops": 0
+  },
+  {
+   "instrument": "cello_chamber",
+   "midi": 54,
+   "sample": "Strings/Cello Section/susvib/susvib_F2_v1_1.wav",
+   "library": "vsco",
+   "rootMidi": 53,
+   "transpose": 1,
+   "intonationCorrectionCents": -0.128,
+   "nativeFrames": 316848,
+   "usedEndFrame": 115588,
+   "sourceOffset": 0.0,
+   "t": 31.894737,
+   "syntheticLoops": 0
+  },
+  {
+   "instrument": "cello_chamber",
+   "midi": 49,
+   "sample": "Strings/Cello Section/susvib/susvib_D2_v1_1.wav",
+   "library": "vsco",
+   "rootMidi": 50,
+   "transpose": -1,
+   "intonationCorrectionCents": -1.043,
+   "nativeFrames": 420317,
+   "usedEndFrame": 145437,
+   "sourceOffset": 0.0,
+   "t": 38.210526,
+   "syntheticLoops": 0
+  },
+  {
+   "instrument": "cello_chamber",
+   "midi": 50,
+   "sample": "Strings/Cello Section/susvib/susvib_D2_v1_1.wav",
+   "library": "vsco",
+   "rootMidi": 50,
+   "transpose": 0,
+   "intonationCorrectionCents": -1.043,
+   "nativeFrames": 396726,
+   "usedEndFrame": 115588,
+   "sourceOffset": 0.0,
+   "t": 41.368421,
+   "syntheticLoops": 0
+  }
+ ],
+ "calibration": {
+  "violin_solo": {
+   "oldLinearGain": 0.24367687884783518,
+   "newLinearGain": 0.1021605030221754,
+   "anchorRule": "median per-note 55%-80% of original written duration, before expression",
+   "oldAnchorRms": 0.009967530146241188,
+   "newAnchorRms": 0.02377490885555744
+  },
+  "cello_chamber": {
+   "oldLinearGain": 0.11437388740591684,
+   "newLinearGain": 0.08512073411726662,
+   "anchorRule": "median per-note 55%-80% of original written duration, before expression",
+   "oldAnchorRms": 0.015919722616672516,
+   "newAnchorRms": 0.021390799432992935
+  }
+ },
+ "joins": [
+  {
+   "instrument": "violin_solo",
+   "at": 28.894737,
+   "old": {
+    "minRms": 1e-10,
+    "maxRms": 0.0006613325227422924,
+    "samplePeak": 0.002049001675822962
+   },
+   "new": {
+    "minRms": 0.0009686519963847349,
+    "maxRms": 0.002770622207553395,
+    "samplePeak": 0.007584438547500801
+   }
+  },
+  {
+   "instrument": "violin_solo",
+   "at": 32.052632,
+   "old": {
+    "minRms": 1e-10,
+    "maxRms": 0.0011746934575601075,
+    "samplePeak": 0.00259036281605427
+   },
+   "new": {
+    "minRms": 0.001168949672906327,
+    "maxRms": 0.00245884527658914,
+    "samplePeak": 0.00726580278118464
+   }
+  },
+  {
+   "instrument": "violin_solo",
+   "at": 41.526316,
+   "old": {
+    "minRms": 1e-10,
+    "maxRms": 0.0006742366905788447,
+    "samplePeak": 0.002032110369482384
+   },
+   "new": {
+    "minRms": 0.0010490862899252044,
+    "maxRms": 0.002374134539569444,
+    "samplePeak": 0.006197392356612086
+   }
+  },
+  {
+   "instrument": "cello_chamber",
+   "at": 28.736842,
+   "old": {
+    "minRms": 1e-10,
+    "maxRms": 0.0008399304630704258,
+    "samplePeak": 0.00195306559684949
+   },
+   "new": {
+    "minRms": 0.0012409231787271955,
+    "maxRms": 0.002361055429962434,
+    "samplePeak": 0.005820613930440462
+   }
+  },
+  {
+   "instrument": "cello_chamber",
+   "at": 31.894737,
+   "old": {
+    "minRms": 1e-10,
+    "maxRms": 0.001006459947272405,
+    "samplePeak": 0.002252623172919192
+   },
+   "new": {
+    "minRms": 0.0016695093260079054,
+    "maxRms": 0.0022470853695633706,
+    "samplePeak": 0.006214765663266339
+   }
+  },
+  {
+   "instrument": "cello_chamber",
+   "at": 41.368421,
+   "old": {
+    "minRms": 1e-10,
+    "maxRms": 0.0008093290267922964,
+    "samplePeak": 0.001926412918909809
+   },
+   "new": {
+    "minRms": 0.0010361891950936687,
+    "maxRms": 0.002360541385252617,
+    "samplePeak": 0.006487317280865195
+   }
+  }
+ ],
+ "flacSha256": "16f7f4a5c0ed61e83ae8fc9b219b93ba829303f8a7210f253b47ddb887ef72a7",
+ "flacBytes": 7571977,
+ "aacSha256": "9b078f8a6426aa21fb454e9c97e398d4f6781bb01f5deb85ecbdf12d37723a53",
+ "aacBytes": 1230521,
+ "midiSha256": "b569f9c57f968175b8a83a0a35e35329199db775c3fa27c49934ba3ecbaf07b9",
+ "problems": [],
+ "dryExcerpt": {
+  "from": 25.0,
+  "to": 35.5,
+  "targetLUFS": -26,
+  "linearGain": 13.708817661648537
+ },
+ "diagnosticFiles": [
+  {
+   "path": "diagnostics/b1/home-night.m4a",
+   "sha256": "75b9b3537601cefc8a2715c3c8116135a34df1c6712e0376ea784ca650e9afdd",
+   "integratedLUFS": -26.02,
+   "truePeakDbtp": -16.43
+  },
+  {
+   "path": "diagnostics/a/home-night.m4a",
+   "sha256": "f40817d19ec05c225c65cdedcbe06750e950c23c74d942018cc61dafc29b97f7",
+   "integratedLUFS": -26.07,
+   "truePeakDbtp": -14.89
+  }
+ ],
+ "firstHalfPianoResidualDb": -299.99999538080664
+}
