@@ -1,0 +1,3 @@
+chromium: PASS 4 rows, all 8 AAC decodes, seek, paused/live 2-way switching, common gain, rapid switches, 34s jump, 4 piano-tail jumps, loop off position, track change, mobile layout
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+webkit: PASS 4 rows, all 8 AAC decodes, seek, paused/live 2-way switching, common gain, rapid switches, 34s jump, 4 piano-tail jumps, loop off position, track change, mobile layout

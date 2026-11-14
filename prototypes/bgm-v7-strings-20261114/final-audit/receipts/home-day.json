@@ -1,0 +1,501 @@
+{
+ "id": "home-day",
+ "title": "いつもの にわ",
+ "family": "home4",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2646000,
+ "seconds": 60.0,
+ "flacFrames": 2646000,
+ "aacDecodedFrames": 2646016,
+ "integratedLUFS": -23.0,
+ "targetLUFS": -23,
+ "truePeakDbtp": -5.36,
+ "samplePeakDbfs": -5.36,
+ "clippedSamples": 0,
+ "monoLossDb": -1.18,
+ "sideToMidDb": -5.1,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00223,
+ "loopJoinTypicalStep999": 0.04259,
+ "bands": {
+  "centroidHz": 664,
+  "low40_250": -9.9,
+  "lowmid250_800": -1.5,
+  "mid800_3k": -7.3,
+  "pres3k_6k": -24.4,
+  "air6k_12k": -45.5,
+  "top12k_20k": -59.1
+ },
+ "baselinePianoReconstructionErrorDb": -151.93848440147065,
+ "frozenRoleGains": {
+  "bass": 0.6168890514244344,
+  "accompaniment": 1.6334969360091827,
+  "doubling": 1.059187025017098,
+  "counter": 0.6946789703705368
+ },
+ "frozenSideScale": 1.0,
+ "frozenEq": [
+  [
+   "peak",
+   3800,
+   3.3,
+   0.7
+  ],
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ]
+ ],
+ "frozenV6Gain": 17.14893437755002,
+ "repairedNotes": [
+  {
+   "event": 4,
+   "role": "accompaniment",
+   "t": 0.05,
+   "midi": 64,
+   "oldSeconds": 2.112902494331066,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -23.421260833740234
+  },
+  {
+   "event": 15,
+   "role": "bass",
+   "t": 2.55,
+   "midi": 45,
+   "oldSeconds": 1.994421768707483,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -6.705977916717529
+  },
+  {
+   "event": 16,
+   "role": "accompaniment",
+   "t": 2.55,
+   "midi": 57,
+   "oldSeconds": 1.994421768707483,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -7.271000862121582
+  },
+  {
+   "event": 18,
+   "role": "accompaniment",
+   "t": 2.55,
+   "midi": 64,
+   "oldSeconds": 2.112902494331066,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -23.421260833740234
+  },
+  {
+   "event": 30,
+   "role": "accompaniment",
+   "t": 5.05,
+   "midi": 57,
+   "oldSeconds": 1.994421768707483,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -7.271000862121582
+  },
+  {
+   "event": 42,
+   "role": "melody",
+   "t": 7.55,
+   "midi": 74,
+   "oldSeconds": 2.6465079365079367,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -22.52828598022461
+  },
+  {
+   "event": 48,
+   "role": "melody",
+   "t": 8.175,
+   "midi": 67,
+   "oldSeconds": 1.476077097505669,
+   "correctSeconds": 2.5150113378684806,
+   "tailRelativeToNoteDb": -11.82921028137207
+  },
+  {
+   "event": 59,
+   "role": "accompaniment",
+   "t": 10.05,
+   "midi": 64,
+   "oldSeconds": 2.112902494331066,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -23.4212589263916
+  },
+  {
+   "event": 69,
+   "role": "bass",
+   "t": 12.55,
+   "midi": 40,
+   "oldSeconds": 2.112902494331066,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -2.7226033210754395
+  },
+  {
+   "event": 72,
+   "role": "accompaniment",
+   "t": 12.55,
+   "midi": 64,
+   "oldSeconds": 2.112902494331066,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -23.421260833740234
+  },
+  {
+   "event": 73,
+   "role": "melody",
+   "t": 13.01875,
+   "midi": 83,
+   "oldSeconds": 2.2385714285714284,
+   "correctSeconds": 2.671201814058957,
+   "tailRelativeToNoteDb": -17.307973861694336
+  },
+  {
+   "event": 81,
+   "role": "melody",
+   "t": 15.05,
+   "midi": 77,
+   "oldSeconds": 1.9400226757369614,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -16.12586784362793
+  },
+  {
+   "event": 83,
+   "role": "accompaniment",
+   "t": 15.05,
+   "midi": 57,
+   "oldSeconds": 1.994421768707483,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -7.270999431610107
+  },
+  {
+   "event": 87,
+   "role": "melody",
+   "t": 15.675,
+   "midi": 77,
+   "oldSeconds": 1.9400226757369614,
+   "correctSeconds": 2.5150113378684806,
+   "tailRelativeToNoteDb": -15.857633590698242
+  },
+  {
+   "event": 88,
+   "role": "melody",
+   "t": 15.9875,
+   "midi": 81,
+   "oldSeconds": 1.3922222222222222,
+   "correctSeconds": 2.2024943310657594,
+   "tailRelativeToNoteDb": -9.304607391357422
+  },
+  {
+   "event": 101,
+   "role": "melody",
+   "t": 18.175,
+   "midi": 77,
+   "oldSeconds": 1.9400226757369614,
+   "correctSeconds": 2.5150113378684806,
+   "tailRelativeToNoteDb": -15.857633590698242
+  },
+  {
+   "event": 115,
+   "role": "accompaniment",
+   "t": 20.05,
+   "midi": 64,
+   "oldSeconds": 2.112902494331066,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -23.4212589263916
+  },
+  {
+   "event": 135,
+   "role": "bass",
+   "t": 22.55,
+   "midi": 45,
+   "oldSeconds": 1.994421768707483,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -6.705976486206055
+  },
+  {
+   "event": 136,
+   "role": "accompaniment",
+   "t": 22.55,
+   "midi": 57,
+   "oldSeconds": 1.994421768707483,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -7.271000862121582
+  },
+  {
+   "event": 138,
+   "role": "accompaniment",
+   "t": 22.55,
+   "midi": 64,
+   "oldSeconds": 2.112902494331066,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -23.4212589263916
+  },
+  {
+   "event": 159,
+   "role": "accompaniment",
+   "t": 25.05,
+   "midi": 57,
+   "oldSeconds": 1.994421768707483,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -7.270999908447266
+  },
+  {
+   "event": 179,
+   "role": "melody",
+   "t": 27.55,
+   "midi": 74,
+   "oldSeconds": 2.6465079365079367,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -22.52828598022461
+  },
+  {
+   "event": 187,
+   "role": "melody",
+   "t": 28.175,
+   "midi": 67,
+   "oldSeconds": 1.476077097505669,
+   "correctSeconds": 2.5150113378684806,
+   "tailRelativeToNoteDb": -11.82921028137207
+  },
+  {
+   "event": 204,
+   "role": "accompaniment",
+   "t": 30.05,
+   "midi": 64,
+   "oldSeconds": 2.112902494331066,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -23.4212589263916
+  },
+  {
+   "event": 222,
+   "role": "bass",
+   "t": 32.55,
+   "midi": 40,
+   "oldSeconds": 2.112902494331066,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -2.7226033210754395
+  },
+  {
+   "event": 225,
+   "role": "accompaniment",
+   "t": 32.55,
+   "midi": 64,
+   "oldSeconds": 2.112902494331066,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -23.4212589263916
+  },
+  {
+   "event": 227,
+   "role": "melody",
+   "t": 33.01875,
+   "midi": 83,
+   "oldSeconds": 2.2385714285714284,
+   "correctSeconds": 2.671201814058957,
+   "tailRelativeToNoteDb": -17.30797576904297
+  },
+  {
+   "event": 240,
+   "role": "melody",
+   "t": 35.05,
+   "midi": 77,
+   "oldSeconds": 1.9400226757369614,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -16.12586784362793
+  },
+  {
+   "event": 243,
+   "role": "accompaniment",
+   "t": 35.05,
+   "midi": 57,
+   "oldSeconds": 1.994421768707483,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -7.271000862121582
+  },
+  {
+   "event": 249,
+   "role": "melody",
+   "t": 35.675,
+   "midi": 77,
+   "oldSeconds": 1.9400226757369614,
+   "correctSeconds": 2.5150113378684806,
+   "tailRelativeToNoteDb": -15.857634544372559
+  },
+  {
+   "event": 251,
+   "role": "melody",
+   "t": 35.9875,
+   "midi": 81,
+   "oldSeconds": 1.3922222222222222,
+   "correctSeconds": 2.2024943310657594,
+   "tailRelativeToNoteDb": -9.304607391357422
+  },
+  {
+   "event": 269,
+   "role": "melody",
+   "t": 38.175,
+   "midi": 77,
+   "oldSeconds": 1.9400226757369614,
+   "correctSeconds": 2.5150113378684806,
+   "tailRelativeToNoteDb": -15.857633590698242
+  },
+  {
+   "event": 289,
+   "role": "accompaniment",
+   "t": 40.05,
+   "midi": 64,
+   "oldSeconds": 2.112902494331066,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -23.421260833740234
+  },
+  {
+   "event": 309,
+   "role": "bass",
+   "t": 42.55,
+   "midi": 45,
+   "oldSeconds": 1.994421768707483,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -6.705976486206055
+  },
+  {
+   "event": 310,
+   "role": "accompaniment",
+   "t": 42.55,
+   "midi": 57,
+   "oldSeconds": 1.994421768707483,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -7.270999908447266
+  },
+  {
+   "event": 312,
+   "role": "accompaniment",
+   "t": 42.55,
+   "midi": 64,
+   "oldSeconds": 2.112902494331066,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -23.421260833740234
+  },
+  {
+   "event": 333,
+   "role": "accompaniment",
+   "t": 45.05,
+   "midi": 57,
+   "oldSeconds": 1.994421768707483,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -7.270999908447266
+  },
+  {
+   "event": 353,
+   "role": "melody",
+   "t": 47.55,
+   "midi": 74,
+   "oldSeconds": 2.6465079365079367,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -22.52828598022461
+  },
+  {
+   "event": 361,
+   "role": "melody",
+   "t": 48.175,
+   "midi": 67,
+   "oldSeconds": 1.476077097505669,
+   "correctSeconds": 2.5150113378684806,
+   "tailRelativeToNoteDb": -11.82921028137207
+  },
+  {
+   "event": 378,
+   "role": "accompaniment",
+   "t": 50.05,
+   "midi": 64,
+   "oldSeconds": 2.112902494331066,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -23.421260833740234
+  },
+  {
+   "event": 396,
+   "role": "bass",
+   "t": 52.55,
+   "midi": 40,
+   "oldSeconds": 2.112902494331066,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -2.722602367401123
+  },
+  {
+   "event": 399,
+   "role": "accompaniment",
+   "t": 52.55,
+   "midi": 64,
+   "oldSeconds": 2.112902494331066,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -23.421260833740234
+  },
+  {
+   "event": 401,
+   "role": "melody",
+   "t": 53.01875,
+   "midi": 83,
+   "oldSeconds": 2.2385714285714284,
+   "correctSeconds": 2.671201814058957,
+   "tailRelativeToNoteDb": -17.30797576904297
+  },
+  {
+   "event": 415,
+   "role": "melody",
+   "t": 55.05,
+   "midi": 77,
+   "oldSeconds": 1.9400226757369614,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -16.12586784362793
+  },
+  {
+   "event": 418,
+   "role": "accompaniment",
+   "t": 55.05,
+   "midi": 57,
+   "oldSeconds": 1.994421768707483,
+   "correctSeconds": 3.14,
+   "tailRelativeToNoteDb": -7.270999908447266
+  },
+  {
+   "event": 424,
+   "role": "melody",
+   "t": 55.675,
+   "midi": 77,
+   "oldSeconds": 1.9400226757369614,
+   "correctSeconds": 2.5150113378684806,
+   "tailRelativeToNoteDb": -15.857634544372559
+  },
+  {
+   "event": 426,
+   "role": "melody",
+   "t": 55.9875,
+   "midi": 81,
+   "oldSeconds": 1.3922222222222222,
+   "correctSeconds": 2.2024943310657594,
+   "tailRelativeToNoteDb": -9.304606437683105
+  },
+  {
+   "event": 445,
+   "role": "melody",
+   "t": 58.175,
+   "midi": 77,
+   "oldSeconds": 1.9400226757369614,
+   "correctSeconds": 2.5150113378684806,
+   "tailRelativeToNoteDb": -15.857634544372559
+  }
+ ],
+ "deltaToPianoRmsDb": -20.38156229296802,
+ "sourceFingerprint": "2386bc7f8959b0f361057d692f78f02a2400e477541f51f5d9f6451f327961cc",
+ "variant": "B2plus-piano-native-tail",
+ "originalB2Sha256": "ea9a49a1617aa74379ccb6dc145ccff0ed21a1bf9d78febe9dd1cb50b3a074c8",
+ "finalConstantGain": 0.9965520801347683,
+ "limiterMaxGainReductionDb": 0,
+ "reverbChanged": false,
+ "stringRegeneration": false,
+ "flacSha256": "b51a8fa1054fe66043fffc27dba520f31f3a9f511e91c48bbacb3decd36a5a15",
+ "flacBytes": 9101311,
+ "aacSha256": "6535b366a0d766ffd6cb8439446a41b4f65137ea4f91ed8cd78efea9115a6cfa",
+ "aacBytes": 1462461,
+ "midiSha256": "b813e540bdaebad834b5ffee82a0acd95f3e20b9a698a2b40c919b8e19824ac4",
+ "problems": []
+}

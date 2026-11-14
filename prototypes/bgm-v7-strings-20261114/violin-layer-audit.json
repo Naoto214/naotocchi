@@ -1,0 +1,98 @@
+[
+ {
+  "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_A3_f.wav",
+  "seconds": 16.2383,
+  "rootMidi": 57,
+  "onsetToHalfSustainSeconds": 0.0,
+  "sustainRmsRangeP95P05Db": 4.03,
+  "pitchMedianCents": -4.7,
+  "pitchP95P05Cents": 8.63,
+  "nonHarmonicEnergyDb": -10.66,
+  "clippedSamples": 0,
+  "peakDbfs": -15.61
+ },
+ {
+  "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_A4_f.wav",
+  "seconds": 14.107,
+  "rootMidi": 69,
+  "onsetToHalfSustainSeconds": 0.04,
+  "sustainRmsRangeP95P05Db": 7.29,
+  "pitchMedianCents": 3.93,
+  "pitchP95P05Cents": 17.4,
+  "nonHarmonicEnergyDb": -11.77,
+  "clippedSamples": 0,
+  "peakDbfs": -10.32
+ },
+ {
+  "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_C4_f.wav",
+  "seconds": 13.232,
+  "rootMidi": 60,
+  "onsetToHalfSustainSeconds": 0.04,
+  "sustainRmsRangeP95P05Db": 4.42,
+  "pitchMedianCents": 5.78,
+  "pitchP95P05Cents": 19.47,
+  "nonHarmonicEnergyDb": -16.03,
+  "clippedSamples": 0,
+  "peakDbfs": -8.85
+ },
+ {
+  "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_C5_f.wav",
+  "seconds": 14.1607,
+  "rootMidi": 72,
+  "onsetToHalfSustainSeconds": 0.04,
+  "sustainRmsRangeP95P05Db": 4.15,
+  "pitchMedianCents": 5.78,
+  "pitchP95P05Cents": 0.0,
+  "nonHarmonicEnergyDb": -28.03,
+  "clippedSamples": 0,
+  "peakDbfs": -9.34
+ },
+ {
+  "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_E4_f.wav",
+  "seconds": 13.6991,
+  "rootMidi": 64,
+  "onsetToHalfSustainSeconds": 0.02,
+  "sustainRmsRangeP95P05Db": 5.34,
+  "pitchMedianCents": -2.75,
+  "pitchP95P05Cents": 11.67,
+  "nonHarmonicEnergyDb": -11.56,
+  "clippedSamples": 0,
+  "peakDbfs": -9.5
+ },
+ {
+  "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_E5_f.wav",
+  "seconds": 13.4078,
+  "rootMidi": 76,
+  "onsetToHalfSustainSeconds": 0.02,
+  "sustainRmsRangeP95P05Db": 5.2,
+  "pitchMedianCents": 23.28,
+  "pitchP95P05Cents": 26.03,
+  "nonHarmonicEnergyDb": -8.72,
+  "clippedSamples": 0,
+  "peakDbfs": -11.95
+ },
+ {
+  "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G3_f.wav",
+  "seconds": 16.6488,
+  "rootMidi": 55,
+  "onsetToHalfSustainSeconds": 0.0,
+  "sustainRmsRangeP95P05Db": 4.59,
+  "pitchMedianCents": 0.02,
+  "pitchP95P05Cents": 7.68,
+  "nonHarmonicEnergyDb": -21.49,
+  "clippedSamples": 0,
+  "peakDbfs": -12.54
+ },
+ {
+  "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G4_f.wav",
+  "seconds": 13.4127,
+  "rootMidi": 67,
+  "onsetToHalfSustainSeconds": 0.08,
+  "sustainRmsRangeP95P05Db": 4.15,
+  "pitchMedianCents": 7.73,
+  "pitchP95P05Cents": 15.39,
+  "nonHarmonicEnergyDb": -8.51,
+  "clippedSamples": 0,
+  "peakDbfs": -15.13
+ }
+]
