@@ -1,0 +1,65 @@
+{
+ "W-time-ix": {
+  "source_sha256": "22ce850de58275e9826730e56ca67ee24efe6d2af5d9be034094b5877797ae52",
+  "small": "art-delivery/small/W-time-ix-d92309a35440.webp",
+  "small_sha256": "d92309a354406c802005e90efeda46a96104d2cf8f620dd362ee9b33929cba1d",
+  "small_bytes": 42918,
+  "large": "art-delivery/large/W-time-ix-816e94692e5d.webp",
+  "large_sha256": "816e94692e5d2fea279871a92916e35896d1b63967312430dd80baf9b77566dd",
+  "large_bytes": 332874
+ },
+ "W-time-x": {
+  "source_sha256": "49c41e8ed93006d29c431dac5a5088b7592b8067ca2808c8c0be67ee455ee2ed",
+  "small": "art-delivery/small/W-time-x-01a1e0863471.webp",
+  "small_sha256": "01a1e086347116af5bebec9f7d6e6c26c640b4e59c3277df08492fc57b773169",
+  "small_bytes": 39832,
+  "large": "art-delivery/large/W-time-x-31089be76a35.webp",
+  "large_sha256": "31089be76a35ce07310de3b4141b4f9dcdad2b96331ecd075623369c6a2dbeb0",
+  "large_bytes": 315684
+ },
+ "W-time-xi": {
+  "source_sha256": "0767d333d57274796d76d7dd5be1f221427a4ddc18622f1bc5990ba26bc832e6",
+  "small": "art-delivery/small/W-time-xi-92ebfefa3bd4.webp",
+  "small_sha256": "92ebfefa3bd496a741c0ad55d632b7fcacc97557b0f6a83d7ca1aba3670e0cda",
+  "small_bytes": 34246,
+  "large": "art-delivery/large/W-time-xi-bf941f5652cf.webp",
+  "large_sha256": "bf941f5652cfbe127349757ee70c90ac73a6f31ce57270a86a38f1f0632ec875",
+  "large_bytes": 292358
+ },
+ "W-time-xii": {
+  "source_sha256": "a7288da3b853b1d86b34b699fda9b63328caf37524ff0cdd289a4085b8a23c1d",
+  "small": "art-delivery/small/W-time-xii-ab939cb57c27.webp",
+  "small_sha256": "ab939cb57c278047654a725754f31e0b1ac3cda1dbdd85b7f96ee37e31ed3550",
+  "small_bytes": 30692,
+  "large": "art-delivery/large/W-time-xii-68ab1da0d455.webp",
+  "large_sha256": "68ab1da0d45536abf3f91fe45df231e3c78f9e6ab6e63c9a6a0116edfb4c40e7",
+  "large_bytes": 253412
+ },
+ "E-hayajimai": {
+  "source_sha256": "654b96e76d975a2cc5727b7c839b5b705dfe184ea84b8e6a8a2e4d6ca4683fe6",
+  "small": "art-delivery/small/E-hayajimai-c6654b4e04ee.webp",
+  "small_sha256": "c6654b4e04eec72f8336f30430dbffd5254185b99fe01f34183e327288d68acb",
+  "small_bytes": 41218,
+  "large": "art-delivery/large/E-hayajimai-e218b4236826.webp",
+  "large_sha256": "e218b4236826fa5412ddfe663e2e9f8ac66fb129ec6d32817d16998acf862555",
+  "large_bytes": 375108
+ },
+ "E-nagaiki": {
+  "source_sha256": "9eb4a8d125aa9f42ee2d08db4ff6e98e840341eca4f85e87d4e57a0a9669c239",
+  "small": "art-delivery/small/E-nagaiki-df181cbf6844.webp",
+  "small_sha256": "df181cbf68449dcd5f0a4cc1200420573e1353a38bb3d846560f1cfce88bd7ec",
+  "small_bytes": 47494,
+  "large": "art-delivery/large/E-nagaiki-630e05ecf2ee.webp",
+  "large_sha256": "630e05ecf2eeecc4321a457f19f35203e8ec66c156f2e622d0ea5e4edfbb78f2",
+  "large_bytes": 413296
+ },
+ "E-omoide-photo": {
+  "source_sha256": "63eea753e9b34d76d4f8af4173c8771edde26b91fadc559dde1c16bf4f3162bd",
+  "small": "art-delivery/small/E-omoide-photo-4d04892dd9af.webp",
+  "small_sha256": "4d04892dd9af1bd872ab2887bdd617ed3d78ab37d9bfb33e95979a7653c620ce",
+  "small_bytes": 26342,
+  "large": "art-delivery/large/E-omoide-photo-7cef5605a0cc.webp",
+  "large_sha256": "7cef5605a0cc27581e2e83137084c20219422aa458cf5cd30a1c477ab827c923",
+  "large_bytes": 204766
+ }
+}

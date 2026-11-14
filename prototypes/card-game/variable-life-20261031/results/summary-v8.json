@@ -1,0 +1,67 @@
+{
+ "version": 8,
+ "date": "2026-11-06",
+ "decision": "本人決定：CPU の標準構成は P3（RECP3 は採用しない）。CPU の判断は状況型（VERSION 6）を採用候補とする。",
+ "recommended": {
+  "main": "P3",
+  "companion": "P3",
+  "partner": "P3",
+  "challenge": "P3",
+  "growth": "P3",
+  "item": "P3",
+  "balance": "P3"
+ },
+ "notAdopted": {
+  "RECP3": {
+   "main": "N0P3",
+   "companion": "N0P3",
+   "partner": "L2P3",
+   "challenge": "N0P3",
+   "growth": "N0P3",
+   "item": "N0P3",
+   "balance": "L2P3"
+  }
+ },
+ "p3": {
+  "firstSeatScore": 0.491,
+  "close": 0.479,
+  "holdWin": 0.066,
+  "deckSpread": 0.337
+ },
+ "p3VsA0": {
+  "behindR8": {
+   "n": 560,
+   "diff": 0.099,
+   "ci95": [
+    0.05,
+    0.146
+   ]
+  },
+  "close": {
+   "n": 560,
+   "diff": 0.07,
+   "ci95": [
+    0.02,
+    0.123
+   ]
+  },
+  "firstSeat": {
+   "n": 560,
+   "diff": -0.023,
+   "ci95": [
+    -0.048,
+    -0.001
+   ]
+  },
+  "holdWin": {
+   "n": 560,
+   "diff": 0.025,
+   "ci95": [
+    -0.002,
+    0.054
+   ]
+  }
+ },
+ "firstSeatWatch": "integration/first-seat-check.py（P3 0.491 を基準。推定値が 0.461 未満、または95%CI全体が 0.491 未満なら「要確認」）",
+ "source": "results/summary-v7.json"
+}
