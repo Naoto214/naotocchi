@@ -52,4 +52,24 @@ function earth(c,cells){
  for(let k=0;k<65;k++){const x=((k*43+9)%79)/10,y=((k*23+4)%79)/10;ellipse(c,x,y,.025+k%3*.012,.02,k%3?'#d0a16c70':'#362c2866')}
  grid(c,'#241d1928');c.restore();edges(c,cells,'#c99c64','#392c29',.12,.085);
 }
-export const regionPainters={forest,sky,earth};
+function cave(c,cells){
+ c.fillStyle=gradient(c,'#8ca0ab','#687e8d');c.fillRect(0,0,8,8);
+ c.save();floorClip(c,cells);
+ for(const[x,y,r]of [[1.5,2.5,1.8],[6.8,3.5,1.9]]){const g=c.createRadialGradient(x,y,.1,x,y,r);g.addColorStop(0,'#c2d4c566');g.addColorStop(1,'#c2d4c500');c.fillStyle=g;c.fillRect(x-r,y-r,r*2,r*2)}
+ grid(c,'#263b5455');c.restore();
+ wallPath(c,cells,.10);c.fillStyle='#293b50';c.fill();c.save();wallPath(c,cells,.10);c.clip();
+ c.fillStyle=gradient(c,'#485265','#2d3a4d');c.fillRect(0,0,8,8);
+ // Large angular rock faces, not repeated per-cell stone blocks.
+ for(const[x,y,w,h]of [[-.2,.1,3.1,1.2],[4.1,.1,3.5,1.7],[.2,4.7,2.2,2.6],[3.4,5.6,4.6,1.8]]){
+  c.fillStyle='#65708066';c.beginPath();c.moveTo(x,y+h*.35);c.lineTo(x+w*.32,y);c.lineTo(x+w*.82,y+.18);c.lineTo(x+w,y+h*.75);c.lineTo(x+w*.55,y+h);c.lineTo(x,y+h*.8);c.closePath();c.fill();c.strokeStyle='#89929b55';c.lineWidth=.035;c.beginPath();c.moveTo(x+.15,y+h*.35);c.lineTo(x+w*.34,y+.1);c.lineTo(x+w*.75,y+.25);c.stroke();c.strokeStyle='#202e4088';c.lineWidth=.04;c.beginPath();c.moveTo(x+w*.47,y+.25);c.lineTo(x+w*.38,y+h*.55);c.lineTo(x+w*.6,y+h*.8);c.stroke()
+ }
+ // A few shallow stalactite silhouettes, wholly inside blocked rock.
+ for(const[x,y,h]of [[.4,.4,.8],[2.1,.1,.55],[6.5,.4,1],[7.3,5.1,.75]]){c.fillStyle='#80909b66';c.beginPath();c.moveTo(x-.17,y);c.lineTo(x+.22,y+.05);c.lineTo(x+.04,y+h);c.closePath();c.fill()}
+ for(const[x,y,scale,color]of [[.5,6.6,.7,'#99c5c4'],[6.2,.65,.8,'#a4b6db'],[5.9,6.7,.5,'#baa8cc']]){
+  const g=c.createRadialGradient(x,y,0,x,y,.65);g.addColorStop(0,'#8ab7ca33');g.addColorStop(1,'#8ab7ca00');c.fillStyle=g;c.fillRect(x-.65,y-.65,1.3,1.3);
+  c.save();c.translate(x,y);c.scale(scale,scale);c.fillStyle=color;c.beginPath();c.moveTo(-.15,.25);c.lineTo(-.24,-.13);c.lineTo(-.05,-.38);c.lineTo(.07,-.12);c.lineTo(.28,-.24);c.lineTo(.31,.18);c.closePath();c.fill();c.strokeStyle='#e2eaf077';c.lineWidth=.03;c.beginPath();c.moveTo(-.05,-.3);c.lineTo(0,.2);c.moveTo(.23,-.15);c.lineTo(.21,.16);c.stroke();c.restore()
+ }
+ // Subtle groundwater sheen on blocked ledges is decorative, never a new water tile.
+ c.strokeStyle='#6aa4bb77';c.lineWidth=.035;c.beginPath();c.moveTo(4.6,7.5);c.quadraticCurveTo(5.4,7.3,6.1,7.5);c.stroke();grid(c,'#cad9dd12');c.restore();edges(c,cells,'#8b98a6','#172f43',.10,.08);
+}
+export const regionPainters={forest,sky,earth,cave};

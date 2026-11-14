@@ -1,5 +1,6 @@
 import{natureTerrain}from './nature-terrain.mjs';import{ground}from './worlds.mjs';import{terrainTopology,debugTerrain}from './six-geometry.mjs';import{regionPainters}from './six-regions.mjs';
 export const sixWorlds={
+ cave:{name:'洞窟',subtitle:'岩の折り重なりと、ひそかな結晶の光',legend:'明るさを残した青灰の通路／暗い岩壁',rules:'結晶・鍾乳石・光・地下水の光沢は装飾で、触れても効果はありません。暗所や照明で変化する通行ルールは未実装候補。'},
  earth:{name:'地中',subtitle:'地層と根のあいだ、明るい地下通路',legend:'明るい地下の空洞／茶色い土と灰色の岩盤',rules:'粒のある茶土＝掘れる土の素材候補、灰色の塊＝掘れない岩盤の素材候補。現時点では両方とも固定壁で、掘削はできません。地下通路の転送は既存ルール。'},
  sky:{name:'空',subtitle:'雲海の上をつなぐ、浮遊する足場',legend:'縁のある薄金色の足場／雲海・空白域（現状は通行不可）',rules:'今の盤面に自由飛行や新しい落下領域はありません。風・上昇気流は既存ギミックのみ。空白や飛行専用空間は別図の未実装候補。'},
  sea:{name:'海',subtitle:'砂底の水路と、昆布の岩礁',legend:'平らな水路／厚みのある岩礁',rules:'水中移動・水流・浮力は既存ルール。背景の水そのものは装飾。'},
