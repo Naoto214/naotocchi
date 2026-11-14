@@ -1,0 +1,27 @@
+name: Naokoro minigame expansion
+on:
+  pull_request:
+    paths: ['prototypes/life-sugoroku/**', 'tests/life-sugoroku/**', 'tools/life-sugoroku/**', '.github/workflows/naokoro-minigames.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  quick-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/life-sugoroku/*.test.mjs
+      - run: node tools/life-sugoroku/scores-v7.mjs
+      - run: git diff --exit-code -- docs/life-sugoroku/V7-CPU-SCORES.json
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tests/life-sugoroku/expansion-v7-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: naokoro-minigames-v7
+          path: test-results/naokoro-v7/

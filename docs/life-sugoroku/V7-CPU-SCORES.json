@@ -1,0 +1,1253 @@
+{
+  "method": "Official callback, 60Hz, 16 game seeds, independent CPU seeds101..116, same fixed official difficulty0.5; wait abstains as required by formal rules",
+  "rows": [
+    {
+      "gameId": "knock",
+      "difficulty": "easy",
+      "mean": 100,
+      "min": 100,
+      "max": 100,
+      "histogram": {
+        "100": 16
+      },
+      "samples": [
+        {
+          "seed": 1,
+          "cpuSeed": 101,
+          "score": 100,
+          "frame": 862,
+          "inputs": 16
+        },
+        {
+          "seed": 2,
+          "cpuSeed": 102,
+          "score": 100,
+          "frame": 862,
+          "inputs": 14
+        },
+        {
+          "seed": 3,
+          "cpuSeed": 103,
+          "score": 100,
+          "frame": 862,
+          "inputs": 14
+        },
+        {
+          "seed": 4,
+          "cpuSeed": 104,
+          "score": 100,
+          "frame": 862,
+          "inputs": 14
+        },
+        {
+          "seed": 5,
+          "cpuSeed": 105,
+          "score": 100,
+          "frame": 862,
+          "inputs": 16
+        },
+        {
+          "seed": 6,
+          "cpuSeed": 106,
+          "score": 100,
+          "frame": 862,
+          "inputs": 16
+        },
+        {
+          "seed": 7,
+          "cpuSeed": 107,
+          "score": 100,
+          "frame": 862,
+          "inputs": 14
+        },
+        {
+          "seed": 8,
+          "cpuSeed": 108,
+          "score": 100,
+          "frame": 862,
+          "inputs": 14
+        },
+        {
+          "seed": 9,
+          "cpuSeed": 109,
+          "score": 100,
+          "frame": 862,
+          "inputs": 14
+        },
+        {
+          "seed": 10,
+          "cpuSeed": 110,
+          "score": 100,
+          "frame": 862,
+          "inputs": 18
+        },
+        {
+          "seed": 11,
+          "cpuSeed": 111,
+          "score": 100,
+          "frame": 862,
+          "inputs": 18
+        },
+        {
+          "seed": 12,
+          "cpuSeed": 112,
+          "score": 100,
+          "frame": 862,
+          "inputs": 14
+        },
+        {
+          "seed": 13,
+          "cpuSeed": 113,
+          "score": 100,
+          "frame": 862,
+          "inputs": 14
+        },
+        {
+          "seed": 14,
+          "cpuSeed": 114,
+          "score": 100,
+          "frame": 862,
+          "inputs": 14
+        },
+        {
+          "seed": 15,
+          "cpuSeed": 115,
+          "score": 100,
+          "frame": 862,
+          "inputs": 12
+        },
+        {
+          "seed": 16,
+          "cpuSeed": 116,
+          "score": 100,
+          "frame": 862,
+          "inputs": 16
+        }
+      ]
+    },
+    {
+      "gameId": "knock",
+      "difficulty": "normal",
+      "mean": 100,
+      "min": 100,
+      "max": 100,
+      "histogram": {
+        "100": 16
+      },
+      "samples": [
+        {
+          "seed": 1,
+          "cpuSeed": 101,
+          "score": 100,
+          "frame": 862,
+          "inputs": 16
+        },
+        {
+          "seed": 2,
+          "cpuSeed": 102,
+          "score": 100,
+          "frame": 862,
+          "inputs": 14
+        },
+        {
+          "seed": 3,
+          "cpuSeed": 103,
+          "score": 100,
+          "frame": 862,
+          "inputs": 14
+        },
+        {
+          "seed": 4,
+          "cpuSeed": 104,
+          "score": 100,
+          "frame": 862,
+          "inputs": 14
+        },
+        {
+          "seed": 5,
+          "cpuSeed": 105,
+          "score": 100,
+          "frame": 862,
+          "inputs": 16
+        },
+        {
+          "seed": 6,
+          "cpuSeed": 106,
+          "score": 100,
+          "frame": 862,
+          "inputs": 16
+        },
+        {
+          "seed": 7,
+          "cpuSeed": 107,
+          "score": 100,
+          "frame": 862,
+          "inputs": 14
+        },
+        {
+          "seed": 8,
+          "cpuSeed": 108,
+          "score": 100,
+          "frame": 862,
+          "inputs": 14
+        },
+        {
+          "seed": 9,
+          "cpuSeed": 109,
+          "score": 100,
+          "frame": 862,
+          "inputs": 14
+        },
+        {
+          "seed": 10,
+          "cpuSeed": 110,
+          "score": 100,
+          "frame": 862,
+          "inputs": 18
+        },
+        {
+          "seed": 11,
+          "cpuSeed": 111,
+          "score": 100,
+          "frame": 862,
+          "inputs": 18
+        },
+        {
+          "seed": 12,
+          "cpuSeed": 112,
+          "score": 100,
+          "frame": 862,
+          "inputs": 14
+        },
+        {
+          "seed": 13,
+          "cpuSeed": 113,
+          "score": 100,
+          "frame": 862,
+          "inputs": 14
+        },
+        {
+          "seed": 14,
+          "cpuSeed": 114,
+          "score": 100,
+          "frame": 862,
+          "inputs": 14
+        },
+        {
+          "seed": 15,
+          "cpuSeed": 115,
+          "score": 100,
+          "frame": 862,
+          "inputs": 12
+        },
+        {
+          "seed": 16,
+          "cpuSeed": 116,
+          "score": 100,
+          "frame": 862,
+          "inputs": 16
+        }
+      ]
+    },
+    {
+      "gameId": "wait",
+      "difficulty": "easy",
+      "mean": 100,
+      "min": 100,
+      "max": 100,
+      "histogram": {
+        "100": 16
+      },
+      "samples": [
+        {
+          "seed": 1,
+          "cpuSeed": 101,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 2,
+          "cpuSeed": 102,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 3,
+          "cpuSeed": 103,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 4,
+          "cpuSeed": 104,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 5,
+          "cpuSeed": 105,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 6,
+          "cpuSeed": 106,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 7,
+          "cpuSeed": 107,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 8,
+          "cpuSeed": 108,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 9,
+          "cpuSeed": 109,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 10,
+          "cpuSeed": 110,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 11,
+          "cpuSeed": 111,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 12,
+          "cpuSeed": 112,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 13,
+          "cpuSeed": 113,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 14,
+          "cpuSeed": 114,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 15,
+          "cpuSeed": 115,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 16,
+          "cpuSeed": 116,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        }
+      ]
+    },
+    {
+      "gameId": "wait",
+      "difficulty": "normal",
+      "mean": 100,
+      "min": 100,
+      "max": 100,
+      "histogram": {
+        "100": 16
+      },
+      "samples": [
+        {
+          "seed": 1,
+          "cpuSeed": 101,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 2,
+          "cpuSeed": 102,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 3,
+          "cpuSeed": 103,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 4,
+          "cpuSeed": 104,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 5,
+          "cpuSeed": 105,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 6,
+          "cpuSeed": 106,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 7,
+          "cpuSeed": 107,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 8,
+          "cpuSeed": 108,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 9,
+          "cpuSeed": 109,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 10,
+          "cpuSeed": 110,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 11,
+          "cpuSeed": 111,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 12,
+          "cpuSeed": 112,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 13,
+          "cpuSeed": 113,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 14,
+          "cpuSeed": 114,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 15,
+          "cpuSeed": 115,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        },
+        {
+          "seed": 16,
+          "cpuSeed": 116,
+          "score": 100,
+          "frame": 827,
+          "inputs": 0
+        }
+      ]
+    },
+    {
+      "gameId": "spin",
+      "difficulty": "easy",
+      "mean": 66.6875,
+      "min": 0,
+      "max": 100,
+      "histogram": {
+        "0": 1,
+        "33": 4,
+        "67": 5,
+        "100": 6
+      },
+      "samples": [
+        {
+          "seed": 1,
+          "cpuSeed": 101,
+          "score": 67,
+          "frame": 798,
+          "inputs": 567
+        },
+        {
+          "seed": 2,
+          "cpuSeed": 102,
+          "score": 67,
+          "frame": 822,
+          "inputs": 575
+        },
+        {
+          "seed": 3,
+          "cpuSeed": 103,
+          "score": 33,
+          "frame": 852,
+          "inputs": 603
+        },
+        {
+          "seed": 4,
+          "cpuSeed": 104,
+          "score": 100,
+          "frame": 727,
+          "inputs": 460
+        },
+        {
+          "seed": 5,
+          "cpuSeed": 105,
+          "score": 100,
+          "frame": 804,
+          "inputs": 572
+        },
+        {
+          "seed": 6,
+          "cpuSeed": 106,
+          "score": 100,
+          "frame": 829,
+          "inputs": 558
+        },
+        {
+          "seed": 7,
+          "cpuSeed": 107,
+          "score": 100,
+          "frame": 837,
+          "inputs": 582
+        },
+        {
+          "seed": 8,
+          "cpuSeed": 108,
+          "score": 33,
+          "frame": 923,
+          "inputs": 687
+        },
+        {
+          "seed": 9,
+          "cpuSeed": 109,
+          "score": 100,
+          "frame": 792,
+          "inputs": 524
+        },
+        {
+          "seed": 10,
+          "cpuSeed": 110,
+          "score": 67,
+          "frame": 815,
+          "inputs": 566
+        },
+        {
+          "seed": 11,
+          "cpuSeed": 111,
+          "score": 67,
+          "frame": 799,
+          "inputs": 563
+        },
+        {
+          "seed": 12,
+          "cpuSeed": 112,
+          "score": 0,
+          "frame": 933,
+          "inputs": 668
+        },
+        {
+          "seed": 13,
+          "cpuSeed": 113,
+          "score": 67,
+          "frame": 871,
+          "inputs": 607
+        },
+        {
+          "seed": 14,
+          "cpuSeed": 114,
+          "score": 33,
+          "frame": 870,
+          "inputs": 629
+        },
+        {
+          "seed": 15,
+          "cpuSeed": 115,
+          "score": 100,
+          "frame": 798,
+          "inputs": 542
+        },
+        {
+          "seed": 16,
+          "cpuSeed": 116,
+          "score": 33,
+          "frame": 879,
+          "inputs": 624
+        }
+      ]
+    },
+    {
+      "gameId": "spin",
+      "difficulty": "normal",
+      "mean": 100,
+      "min": 100,
+      "max": 100,
+      "histogram": {
+        "100": 16
+      },
+      "samples": [
+        {
+          "seed": 1,
+          "cpuSeed": 101,
+          "score": 100,
+          "frame": 606,
+          "inputs": 421
+        },
+        {
+          "seed": 2,
+          "cpuSeed": 102,
+          "score": 100,
+          "frame": 594,
+          "inputs": 402
+        },
+        {
+          "seed": 3,
+          "cpuSeed": 103,
+          "score": 100,
+          "frame": 618,
+          "inputs": 425
+        },
+        {
+          "seed": 4,
+          "cpuSeed": 104,
+          "score": 100,
+          "frame": 552,
+          "inputs": 350
+        },
+        {
+          "seed": 5,
+          "cpuSeed": 105,
+          "score": 100,
+          "frame": 583,
+          "inputs": 398
+        },
+        {
+          "seed": 6,
+          "cpuSeed": 106,
+          "score": 100,
+          "frame": 597,
+          "inputs": 393
+        },
+        {
+          "seed": 7,
+          "cpuSeed": 107,
+          "score": 100,
+          "frame": 600,
+          "inputs": 404
+        },
+        {
+          "seed": 8,
+          "cpuSeed": 108,
+          "score": 100,
+          "frame": 662,
+          "inputs": 475
+        },
+        {
+          "seed": 9,
+          "cpuSeed": 109,
+          "score": 100,
+          "frame": 582,
+          "inputs": 379
+        },
+        {
+          "seed": 10,
+          "cpuSeed": 110,
+          "score": 100,
+          "frame": 591,
+          "inputs": 398
+        },
+        {
+          "seed": 11,
+          "cpuSeed": 111,
+          "score": 100,
+          "frame": 580,
+          "inputs": 393
+        },
+        {
+          "seed": 12,
+          "cpuSeed": 112,
+          "score": 100,
+          "frame": 671,
+          "inputs": 470
+        },
+        {
+          "seed": 13,
+          "cpuSeed": 113,
+          "score": 100,
+          "frame": 619,
+          "inputs": 419
+        },
+        {
+          "seed": 14,
+          "cpuSeed": 114,
+          "score": 100,
+          "frame": 619,
+          "inputs": 430
+        },
+        {
+          "seed": 15,
+          "cpuSeed": 115,
+          "score": 100,
+          "frame": 584,
+          "inputs": 387
+        },
+        {
+          "seed": 16,
+          "cpuSeed": 116,
+          "score": 100,
+          "frame": 636,
+          "inputs": 440
+        }
+      ]
+    },
+    {
+      "gameId": "sneak",
+      "difficulty": "easy",
+      "mean": 81.375,
+      "min": 33,
+      "max": 100,
+      "histogram": {
+        "33": 1,
+        "67": 7,
+        "100": 8
+      },
+      "samples": [
+        {
+          "seed": 1,
+          "cpuSeed": 101,
+          "score": 67,
+          "frame": 371,
+          "inputs": 109
+        },
+        {
+          "seed": 2,
+          "cpuSeed": 102,
+          "score": 100,
+          "frame": 387,
+          "inputs": 109
+        },
+        {
+          "seed": 3,
+          "cpuSeed": 103,
+          "score": 67,
+          "frame": 388,
+          "inputs": 139
+        },
+        {
+          "seed": 4,
+          "cpuSeed": 104,
+          "score": 33,
+          "frame": 379,
+          "inputs": 81
+        },
+        {
+          "seed": 5,
+          "cpuSeed": 105,
+          "score": 67,
+          "frame": 362,
+          "inputs": 130
+        },
+        {
+          "seed": 6,
+          "cpuSeed": 106,
+          "score": 100,
+          "frame": 409,
+          "inputs": 76
+        },
+        {
+          "seed": 7,
+          "cpuSeed": 107,
+          "score": 100,
+          "frame": 394,
+          "inputs": 108
+        },
+        {
+          "seed": 8,
+          "cpuSeed": 108,
+          "score": 100,
+          "frame": 398,
+          "inputs": 162
+        },
+        {
+          "seed": 9,
+          "cpuSeed": 109,
+          "score": 67,
+          "frame": 393,
+          "inputs": 94
+        },
+        {
+          "seed": 10,
+          "cpuSeed": 110,
+          "score": 67,
+          "frame": 380,
+          "inputs": 100
+        },
+        {
+          "seed": 11,
+          "cpuSeed": 111,
+          "score": 67,
+          "frame": 365,
+          "inputs": 129
+        },
+        {
+          "seed": 12,
+          "cpuSeed": 112,
+          "score": 100,
+          "frame": 425,
+          "inputs": 160
+        },
+        {
+          "seed": 13,
+          "cpuSeed": 113,
+          "score": 100,
+          "frame": 408,
+          "inputs": 113
+        },
+        {
+          "seed": 14,
+          "cpuSeed": 114,
+          "score": 100,
+          "frame": 388,
+          "inputs": 147
+        },
+        {
+          "seed": 15,
+          "cpuSeed": 115,
+          "score": 100,
+          "frame": 391,
+          "inputs": 104
+        },
+        {
+          "seed": 16,
+          "cpuSeed": 116,
+          "score": 67,
+          "frame": 398,
+          "inputs": 143
+        }
+      ]
+    },
+    {
+      "gameId": "sneak",
+      "difficulty": "normal",
+      "mean": 100,
+      "min": 100,
+      "max": 100,
+      "histogram": {
+        "100": 16
+      },
+      "samples": [
+        {
+          "seed": 1,
+          "cpuSeed": 101,
+          "score": 100,
+          "frame": 339,
+          "inputs": 154
+        },
+        {
+          "seed": 2,
+          "cpuSeed": 102,
+          "score": 100,
+          "frame": 340,
+          "inputs": 148
+        },
+        {
+          "seed": 3,
+          "cpuSeed": 103,
+          "score": 100,
+          "frame": 348,
+          "inputs": 124
+        },
+        {
+          "seed": 4,
+          "cpuSeed": 104,
+          "score": 100,
+          "frame": 339,
+          "inputs": 75
+        },
+        {
+          "seed": 5,
+          "cpuSeed": 105,
+          "score": 100,
+          "frame": 332,
+          "inputs": 147
+        },
+        {
+          "seed": 6,
+          "cpuSeed": 106,
+          "score": 100,
+          "frame": 349,
+          "inputs": 145
+        },
+        {
+          "seed": 7,
+          "cpuSeed": 107,
+          "score": 100,
+          "frame": 344,
+          "inputs": 117
+        },
+        {
+          "seed": 8,
+          "cpuSeed": 108,
+          "score": 100,
+          "frame": 355,
+          "inputs": 168
+        },
+        {
+          "seed": 9,
+          "cpuSeed": 109,
+          "score": 100,
+          "frame": 345,
+          "inputs": 142
+        },
+        {
+          "seed": 10,
+          "cpuSeed": 110,
+          "score": 100,
+          "frame": 341,
+          "inputs": 117
+        },
+        {
+          "seed": 11,
+          "cpuSeed": 111,
+          "score": 100,
+          "frame": 333,
+          "inputs": 146
+        },
+        {
+          "seed": 12,
+          "cpuSeed": 112,
+          "score": 100,
+          "frame": 367,
+          "inputs": 166
+        },
+        {
+          "seed": 13,
+          "cpuSeed": 113,
+          "score": 100,
+          "frame": 351,
+          "inputs": 151
+        },
+        {
+          "seed": 14,
+          "cpuSeed": 114,
+          "score": 100,
+          "frame": 344,
+          "inputs": 155
+        },
+        {
+          "seed": 15,
+          "cpuSeed": 115,
+          "score": 100,
+          "frame": 341,
+          "inputs": 113
+        },
+        {
+          "seed": 16,
+          "cpuSeed": 116,
+          "score": 100,
+          "frame": 354,
+          "inputs": 158
+        }
+      ]
+    },
+    {
+      "gameId": "rhythm",
+      "difficulty": "easy",
+      "mean": 41.5625,
+      "min": 0,
+      "max": 100,
+      "histogram": {
+        "0": 2,
+        "33": 9,
+        "67": 4,
+        "100": 1
+      },
+      "samples": [
+        {
+          "seed": 1,
+          "cpuSeed": 101,
+          "score": 100,
+          "frame": 496,
+          "inputs": 12
+        },
+        {
+          "seed": 2,
+          "cpuSeed": 102,
+          "score": 67,
+          "frame": 459,
+          "inputs": 10
+        },
+        {
+          "seed": 3,
+          "cpuSeed": 103,
+          "score": 33,
+          "frame": 423,
+          "inputs": 8
+        },
+        {
+          "seed": 4,
+          "cpuSeed": 104,
+          "score": 33,
+          "frame": 419,
+          "inputs": 6
+        },
+        {
+          "seed": 5,
+          "cpuSeed": 105,
+          "score": 33,
+          "frame": 417,
+          "inputs": 8
+        },
+        {
+          "seed": 6,
+          "cpuSeed": 106,
+          "score": 0,
+          "frame": 378,
+          "inputs": 6
+        },
+        {
+          "seed": 7,
+          "cpuSeed": 107,
+          "score": 67,
+          "frame": 453,
+          "inputs": 10
+        },
+        {
+          "seed": 8,
+          "cpuSeed": 108,
+          "score": 67,
+          "frame": 458,
+          "inputs": 10
+        },
+        {
+          "seed": 9,
+          "cpuSeed": 109,
+          "score": 33,
+          "frame": 419,
+          "inputs": 8
+        },
+        {
+          "seed": 10,
+          "cpuSeed": 110,
+          "score": 33,
+          "frame": 422,
+          "inputs": 8
+        },
+        {
+          "seed": 11,
+          "cpuSeed": 111,
+          "score": 67,
+          "frame": 460,
+          "inputs": 10
+        },
+        {
+          "seed": 12,
+          "cpuSeed": 112,
+          "score": 0,
+          "frame": 378,
+          "inputs": 6
+        },
+        {
+          "seed": 13,
+          "cpuSeed": 113,
+          "score": 33,
+          "frame": 421,
+          "inputs": 6
+        },
+        {
+          "seed": 14,
+          "cpuSeed": 114,
+          "score": 33,
+          "frame": 416,
+          "inputs": 8
+        },
+        {
+          "seed": 15,
+          "cpuSeed": 115,
+          "score": 33,
+          "frame": 420,
+          "inputs": 8
+        },
+        {
+          "seed": 16,
+          "cpuSeed": 116,
+          "score": 33,
+          "frame": 417,
+          "inputs": 8
+        }
+      ]
+    },
+    {
+      "gameId": "rhythm",
+      "difficulty": "normal",
+      "mean": 100,
+      "min": 100,
+      "max": 100,
+      "histogram": {
+        "100": 16
+      },
+      "samples": [
+        {
+          "seed": 1,
+          "cpuSeed": 101,
+          "score": 100,
+          "frame": 490,
+          "inputs": 12
+        },
+        {
+          "seed": 2,
+          "cpuSeed": 102,
+          "score": 100,
+          "frame": 493,
+          "inputs": 12
+        },
+        {
+          "seed": 3,
+          "cpuSeed": 103,
+          "score": 100,
+          "frame": 495,
+          "inputs": 12
+        },
+        {
+          "seed": 4,
+          "cpuSeed": 104,
+          "score": 100,
+          "frame": 494,
+          "inputs": 12
+        },
+        {
+          "seed": 5,
+          "cpuSeed": 105,
+          "score": 100,
+          "frame": 492,
+          "inputs": 12
+        },
+        {
+          "seed": 6,
+          "cpuSeed": 106,
+          "score": 100,
+          "frame": 493,
+          "inputs": 12
+        },
+        {
+          "seed": 7,
+          "cpuSeed": 107,
+          "score": 100,
+          "frame": 489,
+          "inputs": 12
+        },
+        {
+          "seed": 8,
+          "cpuSeed": 108,
+          "score": 100,
+          "frame": 491,
+          "inputs": 12
+        },
+        {
+          "seed": 9,
+          "cpuSeed": 109,
+          "score": 100,
+          "frame": 495,
+          "inputs": 12
+        },
+        {
+          "seed": 10,
+          "cpuSeed": 110,
+          "score": 100,
+          "frame": 497,
+          "inputs": 12
+        },
+        {
+          "seed": 11,
+          "cpuSeed": 111,
+          "score": 100,
+          "frame": 494,
+          "inputs": 12
+        },
+        {
+          "seed": 12,
+          "cpuSeed": 112,
+          "score": 100,
+          "frame": 495,
+          "inputs": 12
+        },
+        {
+          "seed": 13,
+          "cpuSeed": 113,
+          "score": 100,
+          "frame": 495,
+          "inputs": 12
+        },
+        {
+          "seed": 14,
+          "cpuSeed": 114,
+          "score": 100,
+          "frame": 492,
+          "inputs": 12
+        },
+        {
+          "seed": 15,
+          "cpuSeed": 115,
+          "score": 100,
+          "frame": 495,
+          "inputs": 12
+        },
+        {
+          "seed": 16,
+          "cpuSeed": 116,
+          "score": 100,
+          "frame": 489,
+          "inputs": 12
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>なおころ。ミニゲーム試遊</title>
+<style>*{box-sizing:border-box}body{margin:0;padding:12px;background:#faf5e9;color:#3f493e;font:16px sans-serif}main{max-width:760px;margin:auto}h1{font-size:22px}label{display:block;margin:12px 0}select,button{font:inherit;min-height:44px;max-width:100%;padding:8px;border-radius:9px;border:1px solid #baa98c;background:#fff}button{cursor:pointer}button:disabled{opacity:.5}nav{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}#host{max-width:360px}iframe{display:block}pre{font-size:12px;max-height:180px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere}table{border-collapse:collapse;width:100%}td,th{text-align:left;padding:7px;border-bottom:1px solid #d7ccb7}#status{min-height:2em}</style>
+<main><h1>なおころ。ミニゲーム試遊</h1><p>開発中の本人用QAです。本編の育成・記録には反映しません。</p>
+<label>ゲーム <select id="game"></select></label><label>CPUの強さ <select id="difficulty"><option value="normal">中級</option><option value="easy">初級</option></select></label>
+<nav><button id="human">自分で遊ぶ</button><button id="cpu">CPUを見る</button><button id="four">CPU4人で比較</button></nav>
+<nav><button id="pause" disabled>一時停止・保存</button><button id="resume" disabled>再開</button><button id="restore" disabled>保存から復帰</button><button id="skip" disabled>CPUを早送り</button></nav>
+<p id="status" role="status">ゲームを選んで開始してください。</p><div id="host"></div><table id="results" hidden><thead><tr><th>席</th><th>正式得点</th><th>順位</th><th>報酬</th></tr></thead><tbody></tbody></table><details><summary>検証用の入力・結果</summary><pre id="report"></pre></details>
+<p><a href="../../prototypes/life-sugoroku/">なおころ。盤面で試す</a></p></main><script type="module" src="qa-v7-games.mjs"></script></html>

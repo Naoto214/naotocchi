@@ -1,12 +1,12 @@
 let artworkSourcesPromise;
 // Parent-side adapter: fetches source bytes and builds an opaque-origin iframe.
 export async function mountOfficialFrame(parent,{onSnapshot=()=>{},onError=()=>{},onSound,onVoice}={}) {
- const files=['official/quick.js','official/games.js','official-cpu-v4.mjs','official-runtime-v4.mjs','official/host.css','official-catalog-v6.mjs','official-observer-v6.mjs','official-normal-cpu-v6.mjs','official/controls.js','official/controls.css','official/art-v6.js','official/canvas-illustrations.js'];
+ const files=['official/quick.js','official/games.js','official-cpu-v4.mjs','official-runtime-v4.mjs','official/host.css','official-catalog-v6.mjs','official-observer-v6.mjs','official-normal-cpu-v6.mjs','official/controls.js','official/controls.css','official/art-v6.js','official/canvas-illustrations.js','official-quick-cpu-v7.mjs'];
  const texts=await Promise.all(files.map(async path=>{const r=await fetch(new URL(path,import.meta.url));if(!r.ok)throw Error('Official source load failed: '+path);return r.text();}));
  if(!artworkSourcesPromise)artworkSourcesPromise=(async()=>{const r=await fetch(new URL('official/art-assets-v6.json',import.meta.url)),paths=await r.json();return Object.fromEntries(await Promise.all(paths.map(async path=>{const response=await fetch(new URL('../../'+path,import.meta.url));if(!response.ok)throw Error('Missing official image '+path);const blob=await response.blob();const data=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(blob);});return[path,data];})));})();
  const assetSources=await artworkSourcesPromise;
  const frame=document.createElement('iframe');frame.setAttribute('sandbox','allow-scripts');frame.title='公式ミニゲーム';frame.style.cssText='width:100%;max-width:360px;height:540px;border:0';
- const code=texts.slice(10).join('\n')+'\n'+texts.slice(5,9).join('\n').replace(/export /g,'')+'\n'+texts[0]+'\n'+texts[1]+'\n'+texts[2].replace(/export /g,'')+'\n'+texts[3].replace(/^import .*;\n/gm,'').replace(/export /g,'');
+ const code=texts.slice(10).join('\n').replace(/export /g,'')+'\n'+texts.slice(5,9).join('\n').replace(/export /g,'')+'\n'+texts[0]+'\n'+texts[1]+'\n'+texts[2].replace(/export /g,'')+'\n'+texts[3].replace(/^import .*;\n/gm,'').replace(/export /g,'');
  const driver=`const artData=NAOKORO_ART_V6,atlases={};
  const assetSources=${JSON.stringify(assetSources)};
  for(const [key,path]of Object.entries(artData.atlases)){const image=document.createElement('img');atlases[key]=image;image.src=assetSources[path];}
