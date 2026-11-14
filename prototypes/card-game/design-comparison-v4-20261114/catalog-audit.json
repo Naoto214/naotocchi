@@ -1,0 +1,254 @@
+{
+  "count": 459,
+  "longNames": [
+    {
+      "id": "E-stairs",
+      "name": "どこにもつながらないかいだん",
+      "length": 14,
+      "oldCqw": 5.383022774327123,
+      "newCqw": 6.0731538992408565,
+      "oldPx320": 4.880609109730849,
+      "newPx320": 5.50632822636301,
+      "newPx390": 6.923395445134576,
+      "kanji": "どこにもつながらない階段"
+    },
+    {
+      "id": "E-boss",
+      "name": "あやまりにきただいおういか",
+      "length": 13,
+      "oldCqw": 5.797101449275363,
+      "newCqw": 6.540319583797846,
+      "oldPx320": 5.256040579710146,
+      "newPx320": 5.929891936083242,
+      "newPx390": 7.455964325529544,
+      "kanji": "謝りにきた大王イカ"
+    },
+    {
+      "id": "C-sekizou",
+      "name": "むひょうじょうのせきぞう",
+      "length": 12,
+      "oldCqw": 6.280193236714977,
+      "newCqw": 7.085346215781,
+      "oldPx320": 5.694043961352659,
+      "newPx320": 6.424049597423512,
+      "newPx390": 8.077294685990339,
+      "kanji": "無表情の石像"
+    },
+    {
+      "id": "E-special-trip-memory",
+      "name": "とくべつなたびのおもいで",
+      "length": 12,
+      "oldCqw": 6.280193236714977,
+      "newCqw": 7.085346215781,
+      "oldPx320": 5.694043961352659,
+      "newPx320": 6.424049597423512,
+      "newPx390": 8.077294685990339,
+      "kanji": "特別な旅の思い出"
+    },
+    {
+      "id": "P-anglerfish",
+      "name": "ひかるチョウチンアンコウ",
+      "length": 12,
+      "oldCqw": 6.280193236714977,
+      "newCqw": 7.085346215781,
+      "oldPx320": 5.694043961352659,
+      "newPx320": 6.424049597423512,
+      "newPx390": 8.077294685990339,
+      "kanji": "ひかるチョウチンアンコウ"
+    },
+    {
+      "id": "P-knitting_spider",
+      "name": "あみものがすきなクモさん",
+      "length": 12,
+      "oldCqw": 6.280193236714977,
+      "newCqw": 7.085346215781,
+      "oldPx320": 5.694043961352659,
+      "newPx320": 6.424049597423512,
+      "newPx390": 8.077294685990339,
+      "kanji": "編み物が好きなクモさん"
+    },
+    {
+      "id": "W-star_stop",
+      "name": "ほしぞらのていりゅうじょ",
+      "length": 12,
+      "oldCqw": 6.280193236714977,
+      "newCqw": 7.085346215781,
+      "oldPx320": 5.694043961352659,
+      "newPx320": 6.424049597423512,
+      "newPx390": 8.077294685990339,
+      "kanji": "星空の停留所"
+    }
+  ],
+  "minimum": {
+    "id": "E-stairs",
+    "name": "どこにもつながらないかいだん",
+    "length": 14,
+    "oldCqw": 5.383022774327123,
+    "newCqw": 6.0731538992408565,
+    "oldPx320": 4.880609109730849,
+    "newPx320": 5.50632822636301,
+    "newPx390": 6.923395445134576,
+    "kanji": "どこにもつながらない階段"
+  },
+  "longestEffects": [
+    {
+      "id": "P-rock_octopus",
+      "name": "いわばのタコさん",
+      "length": 166
+    },
+    {
+      "id": "P-snow_spirit",
+      "name": "ゆきのせいれい",
+      "length": 157
+    },
+    {
+      "id": "P-forest_bear",
+      "name": "もりのクマさん",
+      "length": 154
+    },
+    {
+      "id": "P-field_cow",
+      "name": "のはらのうしさん",
+      "length": 153
+    },
+    {
+      "id": "M-world_tree-08",
+      "name": "世界樹",
+      "length": 148
+    },
+    {
+      "id": "C-monkey",
+      "name": "まねっこサル",
+      "length": 146
+    },
+    {
+      "id": "M-venus_flytrap-06",
+      "name": "大きな口の葉",
+      "length": 145
+    },
+    {
+      "id": "M-sakura-06",
+      "name": "サクラの花",
+      "length": 144
+    },
+    {
+      "id": "W-city",
+      "name": "とかい",
+      "length": 141
+    },
+    {
+      "id": "P-gentle_gorilla",
+      "name": "やさしいゴリラ",
+      "length": 139
+    },
+    {
+      "id": "P-snowman",
+      "name": "とけないゆきだるま",
+      "length": 139
+    },
+    {
+      "id": "P-anglerfish",
+      "name": "ひかるチョウチンアンコウ",
+      "length": 138
+    }
+  ],
+  "shortestEffects": [
+    {
+      "id": "M-cat-03",
+      "name": "こねこ",
+      "length": 5
+    },
+    {
+      "id": "M-star-04",
+      "name": "若い星",
+      "length": 5
+    },
+    {
+      "id": "M-starfish-01",
+      "name": "丸いあかちゃん",
+      "length": 5
+    },
+    {
+      "id": "M-turtle-01",
+      "name": "うまれたてのかめ",
+      "length": 5
+    },
+    {
+      "id": "M-unknown-06",
+      "name": "でっかい？",
+      "length": 5
+    }
+  ],
+  "displayProposals": [
+    {
+      "id": "C-clock",
+      "canonical": "じかんにルーズなとけい",
+      "proposal": "時間にルーズな時計"
+    },
+    {
+      "id": "C-sekizou",
+      "canonical": "むひょうじょうのせきぞう",
+      "proposal": "無表情の石像"
+    },
+    {
+      "id": "E-big-illness",
+      "canonical": "おおきなびょうき",
+      "proposal": "大きな病気"
+    },
+    {
+      "id": "E-boss",
+      "canonical": "あやまりにきただいおういか",
+      "proposal": "謝りにきた大王イカ"
+    },
+    {
+      "id": "E-fateful-transform",
+      "canonical": "うんめいのへんしん",
+      "proposal": "運命の変身"
+    },
+    {
+      "id": "E-special-trip-memory",
+      "canonical": "とくべつなたびのおもいで",
+      "proposal": "特別な旅の思い出"
+    },
+    {
+      "id": "E-stairs",
+      "canonical": "どこにもつながらないかいだん",
+      "proposal": "どこにもつながらない階段"
+    },
+    {
+      "id": "I-scarf",
+      "canonical": "きゅうきゅうばこ",
+      "proposal": "救急箱"
+    },
+    {
+      "id": "P-knitting_spider",
+      "canonical": "あみものがすきなクモさん",
+      "proposal": "編み物が好きなクモさん"
+    },
+    {
+      "id": "W-memory_lake",
+      "canonical": "きおくのみずうみ",
+      "proposal": "記憶の湖"
+    },
+    {
+      "id": "W-star_stop",
+      "canonical": "ほしぞらのていりゅうじょ",
+      "proposal": "星空の停留所"
+    },
+    {
+      "id": "E-hayajimai",
+      "canonical": "はやじまい",
+      "proposal": "早じまい"
+    },
+    {
+      "id": "E-nagaiki",
+      "canonical": "ながいきのひけつ",
+      "proposal": "長生きの秘訣"
+    },
+    {
+      "id": "E-omoide-photo",
+      "canonical": "おもいでのしゃしん",
+      "proposal": "思い出の写真"
+    }
+  ]
+}

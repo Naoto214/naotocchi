@@ -1,0 +1,201 @@
+{
+  "method": "Chrome screenshot of identical CSS card background with text hidden; entire title and signature boxes sampled at 140 CSS px. Gold botanical strokes excluded; JPEG quantization applies. Not a WCAG conformance claim or physical iPhone test.",
+  "rows": [
+    {
+      "id": "M-man-05",
+      "variant": "V3",
+      "color": "#F17D9D",
+      "titleMin": 10.1,
+      "brandMin": 7.73
+    },
+    {
+      "id": "M-cat-05",
+      "variant": "V3",
+      "color": "#95603C",
+      "titleMin": 7.09,
+      "brandMin": 6.45
+    },
+    {
+      "id": "M-frog-05",
+      "variant": "V3",
+      "color": "#27D3C5",
+      "titleMin": 11.79,
+      "brandMin": 8.34
+    },
+    {
+      "id": "M-clownfish-05",
+      "variant": "V3",
+      "color": "#2878E8",
+      "titleMin": 7.66,
+      "brandMin": 6.65
+    },
+    {
+      "id": "M-antlion-05",
+      "variant": "V3",
+      "color": "#F2D12E",
+      "titleMin": 13.7,
+      "brandMin": 9.43
+    },
+    {
+      "id": "M-dandelion-05",
+      "variant": "V3",
+      "color": "#269451",
+      "titleMin": 8.31,
+      "brandMin": 6.84
+    },
+    {
+      "id": "M-dragon-05",
+      "variant": "V3",
+      "color": "#B58BE3",
+      "titleMin": 10.07,
+      "brandMin": 7.76
+    },
+    {
+      "id": "M-plush-05",
+      "variant": "V3",
+      "color": "#35316E",
+      "titleMin": 4.86,
+      "brandMin": 5.37
+    },
+    {
+      "id": "C-box",
+      "variant": "V3",
+      "color": "#C68A32",
+      "titleMin": 9.33,
+      "brandMin": 7.6
+    },
+    {
+      "id": "P-anglerfish",
+      "variant": "V3",
+      "color": "#C04479",
+      "titleMin": 7.14,
+      "brandMin": 6.5
+    },
+    {
+      "id": "W-memory_lake",
+      "variant": "V3",
+      "color": "#568A9D",
+      "titleMin": 8.17,
+      "brandMin": 7.11
+    },
+    {
+      "id": "G-air-hockey",
+      "variant": "V3",
+      "color": "#EF9860",
+      "titleMin": 11.01,
+      "brandMin": 8.29
+    },
+    {
+      "id": "I-naoto_lantern",
+      "variant": "V3",
+      "color": "#B7A48C",
+      "titleMin": 10.69,
+      "brandMin": 8.22
+    },
+    {
+      "id": "E-big-illness",
+      "variant": "V3",
+      "color": "#9298A5",
+      "titleMin": 9.78,
+      "brandMin": 7.71
+    },
+    {
+      "id": "M-man-05",
+      "variant": "V4",
+      "color": "#F17D9D",
+      "titleMin": 10.07,
+      "brandMin": 7.88
+    },
+    {
+      "id": "M-cat-05",
+      "variant": "V4",
+      "color": "#95603C",
+      "titleMin": 7.52,
+      "brandMin": 6.55
+    },
+    {
+      "id": "M-frog-05",
+      "variant": "V4",
+      "color": "#27D3C5",
+      "titleMin": 11.68,
+      "brandMin": 8.53
+    },
+    {
+      "id": "M-clownfish-05",
+      "variant": "V4",
+      "color": "#2878E8",
+      "titleMin": 7.86,
+      "brandMin": 6.8
+    },
+    {
+      "id": "M-antlion-05",
+      "variant": "V4",
+      "color": "#F2D12E",
+      "titleMin": 13.65,
+      "brandMin": 9.43
+    },
+    {
+      "id": "M-dandelion-05",
+      "variant": "V4",
+      "color": "#269451",
+      "titleMin": 8.42,
+      "brandMin": 7.0
+    },
+    {
+      "id": "M-dragon-05",
+      "variant": "V4",
+      "color": "#B58BE3",
+      "titleMin": 9.97,
+      "brandMin": 7.87
+    },
+    {
+      "id": "M-plush-05",
+      "variant": "V4",
+      "color": "#35316E",
+      "titleMin": 5.09,
+      "brandMin": 5.33
+    },
+    {
+      "id": "C-box",
+      "variant": "V4",
+      "color": "#C68A32",
+      "titleMin": 9.68,
+      "brandMin": 7.6
+    },
+    {
+      "id": "P-anglerfish",
+      "variant": "V4",
+      "color": "#C04479",
+      "titleMin": 7.32,
+      "brandMin": 6.49
+    },
+    {
+      "id": "W-memory_lake",
+      "variant": "V4",
+      "color": "#568A9D",
+      "titleMin": 8.59,
+      "brandMin": 7.11
+    },
+    {
+      "id": "G-air-hockey",
+      "variant": "V4",
+      "color": "#EF9860",
+      "titleMin": 11.06,
+      "brandMin": 8.29
+    },
+    {
+      "id": "I-naoto_lantern",
+      "variant": "V4",
+      "color": "#B7A48C",
+      "titleMin": 10.69,
+      "brandMin": 8.22
+    },
+    {
+      "id": "E-big-illness",
+      "variant": "V4",
+      "color": "#9298A5",
+      "titleMin": 9.92,
+      "brandMin": 7.76
+    }
+  ]
+}

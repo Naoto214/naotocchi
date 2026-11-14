@@ -1,0 +1,858 @@
+{
+  "engine": "Chrome via CUA; iframe CSS viewport; pagination via Enter with expected counter waits",
+  "physicalIphone": false,
+  "webkit": false,
+  "widths": [
+    {
+      "requested": 320,
+      "design": "current",
+      "columns": "90.6562px 90.6719px 90.6562px",
+      "count": 14,
+      "issues": [],
+      "scroll": 320,
+      "width": 320
+    },
+    {
+      "requested": 320,
+      "design": "refined",
+      "columns": "90.6562px 90.6719px 90.6562px",
+      "count": 14,
+      "issues": [],
+      "scroll": 320,
+      "width": 320
+    },
+    {
+      "requested": 375,
+      "design": "current",
+      "columns": "109px 109px 109px",
+      "count": 14,
+      "issues": [],
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "requested": 375,
+      "design": "refined",
+      "columns": "109px 109px 109px",
+      "count": 14,
+      "issues": [],
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "requested": 390,
+      "design": "current",
+      "columns": "114px 114px 114px",
+      "count": 14,
+      "issues": [],
+      "scroll": 390,
+      "width": 390
+    },
+    {
+      "requested": 390,
+      "design": "refined",
+      "columns": "114px 114px 114px",
+      "count": 14,
+      "issues": [],
+      "scroll": 390,
+      "width": 390
+    },
+    {
+      "requested": 430,
+      "design": "current",
+      "columns": "127.328px 127.328px 127.344px",
+      "count": 14,
+      "issues": [],
+      "scroll": 430,
+      "width": 430
+    },
+    {
+      "requested": 430,
+      "design": "refined",
+      "columns": "127.328px 127.328px 127.344px",
+      "count": 14,
+      "issues": [],
+      "scroll": 430,
+      "width": 430
+    }
+  ],
+  "allCards": [
+    {
+      "w": 320,
+      "page": 0,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 320,
+      "page": 1,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 320,
+      "page": 2,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 320,
+      "page": 3,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 320,
+      "page": 4,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 320,
+      "page": 5,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 320,
+      "page": 6,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 320,
+      "page": 7,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 320,
+      "page": 8,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 320,
+      "page": 9,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 320,
+      "page": 10,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 320,
+      "page": 11,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 320,
+      "page": 12,
+      "count": 27,
+      "issues": []
+    },
+    {
+      "w": 375,
+      "page": 0,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 375,
+      "page": 1,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 375,
+      "page": 2,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 375,
+      "page": 3,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 375,
+      "page": 4,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 375,
+      "page": 5,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 375,
+      "page": 6,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 375,
+      "page": 7,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 375,
+      "page": 8,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 375,
+      "page": 9,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 375,
+      "page": 10,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 375,
+      "page": 11,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 375,
+      "page": 12,
+      "count": 27,
+      "issues": []
+    },
+    {
+      "w": 390,
+      "page": 0,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 390,
+      "page": 1,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 390,
+      "page": 2,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 390,
+      "page": 3,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 390,
+      "page": 4,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 390,
+      "page": 5,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 390,
+      "page": 6,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 390,
+      "page": 7,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 390,
+      "page": 8,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 390,
+      "page": 9,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 390,
+      "page": 10,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 390,
+      "page": 11,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 390,
+      "page": 12,
+      "count": 27,
+      "issues": []
+    },
+    {
+      "w": 430,
+      "page": 0,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 430,
+      "page": 1,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 430,
+      "page": 2,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 430,
+      "page": 3,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 430,
+      "page": 4,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 430,
+      "page": 5,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 430,
+      "page": 6,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 430,
+      "page": 7,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 430,
+      "page": 8,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 430,
+      "page": 9,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 430,
+      "page": 10,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 430,
+      "page": 11,
+      "count": 36,
+      "issues": []
+    },
+    {
+      "w": 430,
+      "page": 12,
+      "count": 27,
+      "issues": []
+    }
+  ],
+  "longNames": [
+    {
+      "w": 320,
+      "d": "current",
+      "m": "original",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 320,
+      "d": "current",
+      "m": "kanji",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 320,
+      "d": "current",
+      "m": "ruby",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 320,
+      "d": "refined",
+      "m": "original",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 320,
+      "d": "refined",
+      "m": "kanji",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 320,
+      "d": "refined",
+      "m": "ruby",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 375,
+      "d": "current",
+      "m": "original",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 375,
+      "d": "current",
+      "m": "kanji",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 375,
+      "d": "current",
+      "m": "ruby",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 375,
+      "d": "refined",
+      "m": "original",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 375,
+      "d": "refined",
+      "m": "kanji",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 375,
+      "d": "refined",
+      "m": "ruby",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 390,
+      "d": "current",
+      "m": "original",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 390,
+      "d": "current",
+      "m": "kanji",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 390,
+      "d": "current",
+      "m": "ruby",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 390,
+      "d": "refined",
+      "m": "original",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 390,
+      "d": "refined",
+      "m": "kanji",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 390,
+      "d": "refined",
+      "m": "ruby",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 430,
+      "d": "current",
+      "m": "original",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 430,
+      "d": "current",
+      "m": "kanji",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 430,
+      "d": "current",
+      "m": "ruby",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 430,
+      "d": "refined",
+      "m": "original",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 430,
+      "d": "refined",
+      "m": "kanji",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "w": 430,
+      "d": "refined",
+      "m": "ruby",
+      "count": 7,
+      "issues": []
+    }
+  ],
+  "views": [
+    {
+      "w": 320,
+      "view": "pair",
+      "cards": [
+        137,
+        137
+      ],
+      "names": [
+        {
+          "overflow": 0
+        },
+        {
+          "overflow": 0
+        }
+      ],
+      "scroll": 320,
+      "width": 320
+    },
+    {
+      "w": 320,
+      "view": "battle",
+      "cards": [
+        84,
+        84,
+        84
+      ],
+      "names": [
+        {
+          "overflow": 0
+        },
+        {
+          "overflow": 0
+        },
+        {
+          "overflow": 0
+        }
+      ],
+      "scroll": 320,
+      "width": 320
+    },
+    {
+      "w": 320,
+      "view": "effects",
+      "cards": [
+        261.296875,
+        261.296875
+      ],
+      "names": [
+        {
+          "overflow": 0
+        },
+        {
+          "overflow": 0
+        }
+      ],
+      "scroll": 320,
+      "width": 320
+    },
+    {
+      "w": 375,
+      "view": "pair",
+      "cards": [
+        164.5,
+        164.5
+      ],
+      "names": [
+        {
+          "overflow": 0
+        },
+        {
+          "overflow": 0
+        }
+      ],
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "w": 375,
+      "view": "battle",
+      "cards": [
+        102.34375,
+        102.328125,
+        102.328125
+      ],
+      "names": [
+        {
+          "overflow": 0
+        },
+        {
+          "overflow": 0
+        },
+        {
+          "overflow": 0
+        }
+      ],
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "w": 375,
+      "view": "effects",
+      "cards": [
+        296,
+        296
+      ],
+      "names": [
+        {
+          "overflow": 0
+        },
+        {
+          "overflow": 0
+        }
+      ],
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "w": 390,
+      "view": "pair",
+      "cards": [
+        172,
+        172
+      ],
+      "names": [
+        {
+          "overflow": 0
+        },
+        {
+          "overflow": 0
+        }
+      ],
+      "scroll": 390,
+      "width": 390
+    },
+    {
+      "w": 390,
+      "view": "battle",
+      "cards": [
+        107.34375,
+        107.328125,
+        107.328125
+      ],
+      "names": [
+        {
+          "overflow": 0
+        },
+        {
+          "overflow": 0
+        },
+        {
+          "overflow": 0
+        }
+      ],
+      "scroll": 390,
+      "width": 390
+    },
+    {
+      "w": 390,
+      "view": "effects",
+      "cards": [
+        296,
+        296
+      ],
+      "names": [
+        {
+          "overflow": 0
+        },
+        {
+          "overflow": 0
+        }
+      ],
+      "scroll": 390,
+      "width": 390
+    },
+    {
+      "w": 430,
+      "view": "pair",
+      "cards": [
+        192,
+        192
+      ],
+      "names": [
+        {
+          "overflow": 0
+        },
+        {
+          "overflow": 0
+        }
+      ],
+      "scroll": 430,
+      "width": 430
+    },
+    {
+      "w": 430,
+      "view": "battle",
+      "cards": [
+        110,
+        110,
+        110
+      ],
+      "names": [
+        {
+          "overflow": 0
+        },
+        {
+          "overflow": 0
+        },
+        {
+          "overflow": 0
+        }
+      ],
+      "scroll": 430,
+      "width": 430
+    },
+    {
+      "w": 430,
+      "view": "effects",
+      "cards": [
+        296,
+        296
+      ],
+      "names": [
+        {
+          "overflow": 0
+        },
+        {
+          "overflow": 0
+        }
+      ],
+      "scroll": 430,
+      "width": 430
+    }
+  ],
+  "interactions": {
+    "additional": {
+      "count": 7,
+      "loaded": [
+        {
+          "loaded": true,
+          "src": "assets/W-time-ix-d92309a35440.webp"
+        },
+        {
+          "loaded": true,
+          "src": "assets/W-time-x-01a1e0863471.webp"
+        },
+        {
+          "loaded": true,
+          "src": "assets/W-time-xi-92ebfefa3bd4.webp"
+        },
+        {
+          "loaded": true,
+          "src": "assets/W-time-xii-ab939cb57c27.webp"
+        },
+        {
+          "loaded": true,
+          "src": "assets/E-hayajimai-c6654b4e04ee.webp"
+        },
+        {
+          "loaded": true,
+          "src": "assets/E-nagaiki-df181cbf6844.webp"
+        },
+        {
+          "loaded": true,
+          "src": "assets/E-omoide-photo-4d04892dd9af.webp"
+        }
+      ]
+    },
+    "timeModal": {
+      "copy": "XII効果【時のカード】終了ラウンドを12にする。セカイ · 通常時コスト 2通常 · 同名3枚までW-time-xiiこのカードの変更前後を比較",
+      "id": "W-time-xii",
+      "open": true
+    },
+    "flipOn": "card-shell is-flipped",
+    "flipOff": "card-shell",
+    "searchOriginal": "1枚 · 1–1 · B3-A 改善",
+    "compactRuby": {
+      "mode": "ruby",
+      "rubyCount": 0,
+      "title": "救急箱"
+    },
+    "rescueModal": {
+      "mode": "ruby",
+      "rubyCount": 1,
+      "title": "救急箱きゅうきゅうばこ"
+    },
+    "rubyRetained": "ruby",
+    "effectModal": {
+      "effect": "いわばのタコさんこいびとのとき1ターンに1回。自分のターンに、自分になかまがいて、準備枠にカードが2枚以上ある場合、時1を払い、自分の装備カード1枚と、それを適正にみにつけられる、今の装備先とは別の自分のキャラクター1枚を対象として発動できる。その装備をそのキャラクターへつけ替える。♥ 結婚したら「こいびとのとき」の能力は、時1を払わず、自分になかまがいなくても発動できる。こいびと · 通常時コスト 0通常 · 同名3枚までP-rock_octopusこのカードの変更前後を比較",
+      "font": "16px",
+      "id": "P-rock_octopus",
+      "spacing": "face face-B face-B3 face-B3-A v3-candidate face-v4 effects-refined field-auto"
+    },
+    "spacingRetained": "face face-B face-B3 face-B3-A v3-candidate face-v4 effects-reference field-auto"
+  }
+}
