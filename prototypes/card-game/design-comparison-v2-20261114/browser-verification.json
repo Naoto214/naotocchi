@@ -1,0 +1,279 @@
+{
+  "engine": "Chrome",
+  "physicalIPhoneSafari": false,
+  "webkit": false,
+  "widthChecks": [
+    {
+      "w": 320,
+      "d": "0",
+      "count": 9,
+      "overlap": 0,
+      "page": 320,
+      "titleOverflow": 0,
+      "viewport": 320
+    },
+    {
+      "w": 320,
+      "d": "B1",
+      "count": 9,
+      "overlap": 0,
+      "page": 320,
+      "titleOverflow": 0,
+      "viewport": 320
+    },
+    {
+      "w": 320,
+      "d": "B2",
+      "count": 9,
+      "overlap": 0,
+      "page": 320,
+      "titleOverflow": 0,
+      "viewport": 320
+    },
+    {
+      "w": 320,
+      "d": "B3",
+      "count": 9,
+      "overlap": 0,
+      "page": 320,
+      "titleOverflow": 0,
+      "viewport": 320
+    },
+    {
+      "w": 375,
+      "d": "0",
+      "count": 9,
+      "overlap": 0,
+      "page": 375,
+      "titleOverflow": 0,
+      "viewport": 375
+    },
+    {
+      "w": 375,
+      "d": "B1",
+      "count": 9,
+      "overlap": 0,
+      "page": 375,
+      "titleOverflow": 0,
+      "viewport": 375
+    },
+    {
+      "w": 375,
+      "d": "B2",
+      "count": 9,
+      "overlap": 0,
+      "page": 375,
+      "titleOverflow": 0,
+      "viewport": 375
+    },
+    {
+      "w": 375,
+      "d": "B3",
+      "count": 9,
+      "overlap": 0,
+      "page": 375,
+      "titleOverflow": 0,
+      "viewport": 375
+    },
+    {
+      "w": 390,
+      "d": "0",
+      "count": 9,
+      "overlap": 0,
+      "page": 390,
+      "titleOverflow": 0,
+      "viewport": 390
+    },
+    {
+      "w": 390,
+      "d": "B1",
+      "count": 9,
+      "overlap": 0,
+      "page": 390,
+      "titleOverflow": 0,
+      "viewport": 390
+    },
+    {
+      "w": 390,
+      "d": "B2",
+      "count": 9,
+      "overlap": 0,
+      "page": 390,
+      "titleOverflow": 0,
+      "viewport": 390
+    },
+    {
+      "w": 390,
+      "d": "B3",
+      "count": 9,
+      "overlap": 0,
+      "page": 390,
+      "titleOverflow": 0,
+      "viewport": 390
+    },
+    {
+      "w": 430,
+      "d": "0",
+      "count": 9,
+      "overlap": 0,
+      "page": 430,
+      "titleOverflow": 0,
+      "viewport": 430
+    },
+    {
+      "w": 430,
+      "d": "B1",
+      "count": 9,
+      "overlap": 0,
+      "page": 430,
+      "titleOverflow": 0,
+      "viewport": 430
+    },
+    {
+      "w": 430,
+      "d": "B2",
+      "count": 9,
+      "overlap": 0,
+      "page": 430,
+      "titleOverflow": 0,
+      "viewport": 430
+    },
+    {
+      "w": 430,
+      "d": "B3",
+      "count": 9,
+      "overlap": 0,
+      "page": 430,
+      "titleOverflow": 0,
+      "viewport": 430
+    }
+  ],
+  "titleChecksScope": "candidate faces only; baseline preserves production wrapping",
+  "all459TitleCheck": {
+    "width": 320,
+    "design": "B1",
+    "pages": [
+      {
+        "count": 36,
+        "overflow": []
+      },
+      {
+        "count": 36,
+        "overflow": []
+      },
+      {
+        "count": 36,
+        "overflow": []
+      },
+      {
+        "count": 36,
+        "overflow": []
+      },
+      {
+        "count": 36,
+        "overflow": []
+      },
+      {
+        "count": 36,
+        "overflow": []
+      },
+      {
+        "count": 36,
+        "overflow": []
+      },
+      {
+        "count": 36,
+        "overflow": []
+      },
+      {
+        "count": 36,
+        "overflow": []
+      },
+      {
+        "count": 36,
+        "overflow": []
+      },
+      {
+        "count": 36,
+        "overflow": []
+      },
+      {
+        "count": 36,
+        "overflow": []
+      },
+      {
+        "count": 27,
+        "overflow": []
+      }
+    ]
+  },
+  "fieldChecks": [
+    {
+      "class": "face face-B face-B1 field-panel has-stats",
+      "signature": 1,
+      "titleOverflow": false,
+      "visibleID": false
+    },
+    {
+      "class": "face face-B face-B1 field-glow has-stats",
+      "signature": 1,
+      "titleOverflow": false,
+      "visibleID": false
+    },
+    {
+      "class": "face face-B face-B1 field-line has-stats",
+      "signature": 1,
+      "titleOverflow": false,
+      "visibleID": false
+    },
+    {
+      "class": "face face-B face-B2 field-panel has-stats",
+      "signature": 1,
+      "titleOverflow": false,
+      "visibleID": false
+    },
+    {
+      "class": "face face-B face-B2 field-glow has-stats",
+      "signature": 1,
+      "titleOverflow": false,
+      "visibleID": false
+    },
+    {
+      "class": "face face-B face-B2 field-line has-stats",
+      "signature": 1,
+      "titleOverflow": false,
+      "visibleID": false
+    },
+    {
+      "class": "face face-B face-B3 field-panel has-stats",
+      "signature": 1,
+      "titleOverflow": false,
+      "visibleID": false
+    },
+    {
+      "class": "face face-B face-B3 field-glow has-stats",
+      "signature": 1,
+      "titleOverflow": false,
+      "visibleID": false
+    },
+    {
+      "class": "face face-B face-B3 field-line has-stats",
+      "signature": 1,
+      "titleOverflow": false,
+      "visibleID": false
+    }
+  ],
+  "interactions": [
+    "nine-card selection",
+    "labels hidden",
+    "all459 pagination",
+    "long-title ruby",
+    "ruby modal retains mode across design change",
+    "modal flip and back",
+    "attribute filter",
+    "additional7 baseline art",
+    "long-copy marriage text",
+    "short-copy"
+  ],
+  "screenshot": "nine-b1-390.jpg"
+}
