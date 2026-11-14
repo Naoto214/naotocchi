@@ -1,0 +1,6009 @@
+{
+ "method": {
+  "meter": "FFmpeg7.1.5 ebur128 / EBU R128 / BS.1770 K-weighted stereo energy",
+  "integratedGate": "400ms blocks,100ms step, absolute -70LUFS and relative -10LU; implementation ffmpeg ebur128",
+  "momentary": "400ms,100ms reporting; no loudness gating on displayed M",
+  "shortTerm": "3s,100ms reporting; first incomplete windows excluded; P10/P90 uses values >= max(-70,I-20) (descriptive selection, not Integrated gating)",
+  "lra": "EBU LRA:3s short-term distribution; absolute -70 and relative -20LU gate;10th–95th percentiles; short jingles indicative only",
+  "truePeak": "FFmpeg ebur128 peak=true resampling; analysis rounding0.1dB, not hardware voltage",
+  "spectrum": "Welch Hann8192 samples at44100Hz,50% overlap; band fraction of20Hz–20kHz unweighted energy; stereo mean power",
+  "mono": "arithmetic(L+R)/2 copied to two channels for equal channel-count loudness comparison; not a measured device downmix",
+  "speakerModels": {
+   "wide_120_12k": [
+    120,
+    12000
+   ],
+   "small_250_8k": [
+    250,
+    8000
+   ],
+   "limited_400_6k": [
+    400,
+    6000
+   ]
+  },
+  "speakerFilter": "mono + cascaded2nd-order Butterworth HP and LP, forward causal linear filter, no level normalization; generic hypotheses, NOT iPhone-specific curves or measured outputs",
+  "sections": "intro/end=min(8s,duration/3); normal middle; climax=max3s short-term window (numerical loudest window, not an authored emotional climax)",
+  "sourcePreservation": "64 SHA256 verified; no source writes; AAC padding trimmed only in analysis to playback catalog period",
+  "maskingLimit": "mixed-master spectra cannot isolate instruments or solve perceptual masking; no inferred per-instrument correction"
+ },
+ "tracks": [
+  {
+   "id": "home-morning",
+   "extension": "m4a",
+   "title": "そよかぜの まど",
+   "family": "home4",
+   "seconds": 83.47825396825397,
+   "loop": true,
+   "sha256": "a3c94016ab15fe8020536f00808539f2943a8c1d51b5bb06afe21de7724411ba",
+   "integratedLUFS": -22.9,
+   "truePeakDbtp": -4.8,
+   "lraLU": 5.5,
+   "shortTermMin": -29.6,
+   "shortTermP10": -25.8,
+   "shortTermMedian": -23.5,
+   "shortTermP90": -20.9,
+   "shortTermMax": -19.3,
+   "momentaryMax": -16.7,
+   "thirdsShortTermMedian": [
+    -24.7,
+    -23.7,
+    -22.1
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -23,
+   "previousLoudnormIntegrated": -22.99,
+   "placements": [
+    {
+     "rowId": "scene-01",
+     "scene": "2.5D ホーム 朝昼夕夜（おうち）",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-02",
+     "scene": "13地域（とかい〜きおくのみずうみ）",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-03",
+     "scene": "メニュー・お店・アイテム・図鑑・実績・アルバム・シール・設定・旅行・つうしん",
+     "game": "ホーム",
+     "plannedVolume": "0 dB"
+    },
+    {
+     "rowId": "scene-04",
+     "scene": "めぐる（世界を 歩く）",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-05",
+     "scene": "成長・変身・そだち・中年の できごと",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-06",
+     "scene": "仲間の さそい・恋人に なった",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-17",
+     "scene": "たまご（かえるまで）・むげんモード・個性の 選択",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-48",
+     "scene": "ミニゲームの 結果",
+     "game": "通常ミニゲーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -22.9,
+    "truePeakDbtp": -4.8,
+    "lraLU": 5.5
+   },
+   "flacMeter": {
+    "integratedLUFS": -22.9,
+    "truePeakDbtp": -4.7,
+    "lraLU": 5.5
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.172,
+     "monoLossDb": -0.096
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 13.282,
+     "monoLossDb": -0.192
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 68.642,
+     "monoLossDb": -1.213
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 17.868,
+     "monoLossDb": -2.299
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.036,
+     "monoLossDb": -0.706
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.0,
+     "monoLossDb": -0.867
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -24.3,
+    "truePeakDbtp": -7.5,
+    "lraLU": 3.9,
+    "integratedDeltaLU": -1.4,
+    "rmsDeltaDb": -1.229,
+    "channelCorrelation": 0.5163
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -24.5,
+     "truePeakDbtp": -7.2,
+     "lraLU": 4.0,
+     "deltaVsOriginalLU": -1.6
+    },
+    "small_250_8k": {
+     "integratedLUFS": -24.9,
+     "truePeakDbtp": -8.3,
+     "lraLU": 4.4,
+     "deltaVsOriginalLU": -2.0
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -25.4,
+     "truePeakDbtp": -9.9,
+     "lraLU": 4.9,
+     "deltaVsOriginalLU": -2.5
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -25.3,
+     "momentaryMax": -21.2,
+     "shortTermMedian": -25.3,
+     "shortTermMax": -23.9
+    },
+    "normal": {
+     "start": 8,
+     "end": 75.478,
+     "momentaryMedian": -23.7,
+     "momentaryMax": -16.7,
+     "shortTermMedian": -23.4,
+     "shortTermMax": -20.0
+    },
+    "climax": {
+     "start": 73.1,
+     "end": 76.101,
+     "momentaryMedian": -19.1,
+     "momentaryMax": -16.7,
+     "shortTermMedian": -21.9,
+     "shortTermMax": -19.3
+    },
+    "ending": {
+     "start": 75.478,
+     "end": 83.488,
+     "momentaryMedian": -23.7,
+     "momentaryMax": -17.7,
+     "shortTermMedian": -22.3,
+     "shortTermMax": -19.3
+    }
+   },
+   "crestDb": 21.161,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "piano"
+    ],
+    "bass": [
+     "piano"
+    ],
+    "melody": [
+     "piano"
+    ],
+    "string_cello": [
+     "cello_chamber"
+    ],
+    "string_violin": [
+     "violin_solo"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "home-day",
+   "extension": "m4a",
+   "title": "いつもの にわ",
+   "family": "home4",
+   "seconds": 60.0,
+   "loop": true,
+   "sha256": "6535b366a0d766ffd6cb8439446a41b4f65137ea4f91ed8cd78efea9115a6cfa",
+   "integratedLUFS": -23.0,
+   "truePeakDbtp": -5.1,
+   "lraLU": 4.7,
+   "shortTermMin": -26.2,
+   "shortTermP10": -25.0,
+   "shortTermMedian": -23.9,
+   "shortTermP90": -20.7,
+   "shortTermMax": -19.8,
+   "momentaryMax": -16.5,
+   "thirdsShortTermMedian": [
+    -24.7,
+    -24.1,
+    -23.45
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -23,
+   "previousLoudnormIntegrated": -23.0,
+   "placements": [
+    {
+     "rowId": "scene-01",
+     "scene": "2.5D ホーム 朝昼夕夜（おうち）",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-02",
+     "scene": "13地域（とかい〜きおくのみずうみ）",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-03",
+     "scene": "メニュー・お店・アイテム・図鑑・実績・アルバム・シール・設定・旅行・つうしん",
+     "game": "ホーム",
+     "plannedVolume": "0 dB"
+    },
+    {
+     "rowId": "scene-04",
+     "scene": "めぐる（世界を 歩く）",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-05",
+     "scene": "成長・変身・そだち・中年の できごと",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-06",
+     "scene": "仲間の さそい・恋人に なった",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-17",
+     "scene": "たまご（かえるまで）・むげんモード・個性の 選択",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-48",
+     "scene": "ミニゲームの 結果",
+     "game": "通常ミニゲーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -23.0,
+    "truePeakDbtp": -5.1,
+    "lraLU": 4.7
+   },
+   "flacMeter": {
+    "integratedLUFS": -23.0,
+    "truePeakDbtp": -5.4,
+    "lraLU": 4.7
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.13,
+     "monoLossDb": -0.137
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 8.001,
+     "monoLossDb": -0.25
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 75.925,
+     "monoLossDb": -1.101
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 15.908,
+     "monoLossDb": -2.161
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.036,
+     "monoLossDb": -0.95
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.0,
+     "monoLossDb": -1.356
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -24.2,
+    "truePeakDbtp": -8.2,
+    "lraLU": 3.3,
+    "integratedDeltaLU": -1.2,
+    "rmsDeltaDb": -1.174,
+    "channelCorrelation": 0.5281
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -24.4,
+     "truePeakDbtp": -7.9,
+     "lraLU": 3.4,
+     "deltaVsOriginalLU": -1.4
+    },
+    "small_250_8k": {
+     "integratedLUFS": -24.8,
+     "truePeakDbtp": -8.5,
+     "lraLU": 3.6,
+     "deltaVsOriginalLU": -1.8
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -25.6,
+     "truePeakDbtp": -8.8,
+     "lraLU": 4.0,
+     "deltaVsOriginalLU": -2.6
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -24.6,
+     "momentaryMax": -22.6,
+     "shortTermMedian": -24.9,
+     "shortTermMax": -24.5
+    },
+    "normal": {
+     "start": 8,
+     "end": 52.0,
+     "momentaryMedian": -23.8,
+     "momentaryMax": -16.9,
+     "shortTermMedian": -24.0,
+     "shortTermMax": -20.3
+    },
+    "climax": {
+     "start": 55.0,
+     "end": 58.001,
+     "momentaryMedian": -20.5,
+     "momentaryMax": -16.5,
+     "shortTermMedian": -20.2,
+     "shortTermMax": -19.8
+    },
+    "ending": {
+     "start": 52.0,
+     "end": 60.01,
+     "momentaryMedian": -20.9,
+     "momentaryMax": -16.5,
+     "shortTermMedian": -20.75,
+     "shortTermMax": -19.8
+    }
+   },
+   "crestDb": 20.602,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "piano"
+    ],
+    "bass": [
+     "piano"
+    ],
+    "melody": [
+     "piano"
+    ],
+    "string_cello": [
+     "cello_chamber"
+    ],
+    "string_violin": [
+     "violin_solo"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "home-evening",
+   "extension": "m4a",
+   "title": "ほしふる みずうみ",
+   "family": "home4",
+   "seconds": 65.45453514739229,
+   "loop": true,
+   "sha256": "b3b1a668f16e15ef83f7152d8ab29abdf598cd8c93d217cb1d7e3fa604d82e3b",
+   "integratedLUFS": -22.9,
+   "truePeakDbtp": -4.1,
+   "lraLU": 6.2,
+   "shortTermMin": -27.3,
+   "shortTermP10": -25.7,
+   "shortTermMedian": -24.0,
+   "shortTermP90": -20.6,
+   "shortTermMax": -18.6,
+   "momentaryMax": -15.6,
+   "thirdsShortTermMedian": [
+    -24.3,
+    -24.3,
+    -22.05
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -23,
+   "previousLoudnormIntegrated": -23.0,
+   "placements": [
+    {
+     "rowId": "scene-01",
+     "scene": "2.5D ホーム 朝昼夕夜（おうち）",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-02",
+     "scene": "13地域（とかい〜きおくのみずうみ）",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-03",
+     "scene": "メニュー・お店・アイテム・図鑑・実績・アルバム・シール・設定・旅行・つうしん",
+     "game": "ホーム",
+     "plannedVolume": "0 dB"
+    },
+    {
+     "rowId": "scene-04",
+     "scene": "めぐる（世界を 歩く）",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-05",
+     "scene": "成長・変身・そだち・中年の できごと",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-06",
+     "scene": "仲間の さそい・恋人に なった",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-17",
+     "scene": "たまご（かえるまで）・むげんモード・個性の 選択",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-48",
+     "scene": "ミニゲームの 結果",
+     "game": "通常ミニゲーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -22.9,
+    "truePeakDbtp": -4.1,
+    "lraLU": 6.2
+   },
+   "flacMeter": {
+    "integratedLUFS": -22.9,
+    "truePeakDbtp": -4.0,
+    "lraLU": 6.2
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.207,
+     "monoLossDb": -0.076
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 9.08,
+     "monoLossDb": -0.246
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 64.575,
+     "monoLossDb": -1.1
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 26.095,
+     "monoLossDb": -2.399
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.043,
+     "monoLossDb": -0.595
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.0,
+     "monoLossDb": -0.686
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -24.3,
+    "truePeakDbtp": -6.2,
+    "lraLU": 4.7,
+    "integratedDeltaLU": -1.4,
+    "rmsDeltaDb": -1.31,
+    "channelCorrelation": 0.489
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -24.4,
+     "truePeakDbtp": -6.5,
+     "lraLU": 4.7,
+     "deltaVsOriginalLU": -1.5
+    },
+    "small_250_8k": {
+     "integratedLUFS": -24.8,
+     "truePeakDbtp": -8.2,
+     "lraLU": 4.8,
+     "deltaVsOriginalLU": -1.9
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -25.4,
+     "truePeakDbtp": -8.5,
+     "lraLU": 5.0,
+     "deltaVsOriginalLU": -2.5
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -24.9,
+     "momentaryMax": -20.5,
+     "shortTermMedian": -24.5,
+     "shortTermMax": -23.7
+    },
+    "normal": {
+     "start": 8,
+     "end": 57.455,
+     "momentaryMedian": -24.4,
+     "momentaryMax": -16.1,
+     "shortTermMedian": -24.15,
+     "shortTermMax": -19.2
+    },
+    "climax": {
+     "start": 60.0,
+     "end": 63.001,
+     "momentaryMedian": -19.8,
+     "momentaryMax": -15.6,
+     "shortTermMedian": -19.3,
+     "shortTermMax": -18.6
+    },
+    "ending": {
+     "start": 57.455,
+     "end": 65.465,
+     "momentaryMedian": -21.95,
+     "momentaryMax": -15.6,
+     "shortTermMedian": -21.55,
+     "shortTermMax": -18.6
+    }
+   },
+   "crestDb": 21.788,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "piano"
+    ],
+    "melody": [
+     "piano"
+    ],
+    "string_cello": [
+     "cello_chamber"
+    ],
+    "string_violin": [
+     "violin_solo"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "home-night",
+   "extension": "m4a",
+   "title": "ほしぞらの やくそく",
+   "family": "home4",
+   "seconds": 50.526326530612245,
+   "loop": true,
+   "sha256": "e2c494316c04e22fc449c2c3866aca36658fa34dd9d57d4e943caa94d84b7e5a",
+   "integratedLUFS": -22.8,
+   "truePeakDbtp": -5.2,
+   "lraLU": 5.5,
+   "shortTermMin": -28.5,
+   "shortTermP10": -25.6,
+   "shortTermMedian": -23.6,
+   "shortTermP90": -20.5,
+   "shortTermMax": -19.2,
+   "momentaryMax": -15.7,
+   "thirdsShortTermMedian": [
+    -24.2,
+    -23.35,
+    -22.7
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -23,
+   "previousLoudnormIntegrated": -23.01,
+   "placements": [
+    {
+     "rowId": "scene-01",
+     "scene": "2.5D ホーム 朝昼夕夜（おうち）",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-02",
+     "scene": "13地域（とかい〜きおくのみずうみ）",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-03",
+     "scene": "メニュー・お店・アイテム・図鑑・実績・アルバム・シール・設定・旅行・つうしん",
+     "game": "ホーム",
+     "plannedVolume": "0 dB"
+    },
+    {
+     "rowId": "scene-04",
+     "scene": "めぐる（世界を 歩く）",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-05",
+     "scene": "成長・変身・そだち・中年の できごと",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-06",
+     "scene": "仲間の さそい・恋人に なった",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-17",
+     "scene": "たまご（かえるまで）・むげんモード・個性の 選択",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-48",
+     "scene": "ミニゲームの 結果",
+     "game": "通常ミニゲーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -22.8,
+    "truePeakDbtp": -5.2,
+    "lraLU": 5.5
+   },
+   "flacMeter": {
+    "integratedLUFS": -22.8,
+    "truePeakDbtp": -5.2,
+    "lraLU": 5.5
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.134,
+     "monoLossDb": -0.146
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 11.572,
+     "monoLossDb": -0.38
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 70.73,
+     "monoLossDb": -1.252
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 17.539,
+     "monoLossDb": -2.499
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.025,
+     "monoLossDb": -1.055
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.0,
+     "monoLossDb": -1.306
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -24.3,
+    "truePeakDbtp": -8.1,
+    "lraLU": 3.6,
+    "integratedDeltaLU": -1.5,
+    "rmsDeltaDb": -1.321,
+    "channelCorrelation": 0.4827
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -24.4,
+     "truePeakDbtp": -7.9,
+     "lraLU": 3.7,
+     "deltaVsOriginalLU": -1.6
+    },
+    "small_250_8k": {
+     "integratedLUFS": -24.7,
+     "truePeakDbtp": -8.7,
+     "lraLU": 3.8,
+     "deltaVsOriginalLU": -1.9
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -25.4,
+     "truePeakDbtp": -9.4,
+     "lraLU": 4.2,
+     "deltaVsOriginalLU": -2.6
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -26.5,
+     "momentaryMax": -21.0,
+     "shortTermMedian": -25.3,
+     "shortTermMax": -24.5
+    },
+    "normal": {
+     "start": 8,
+     "end": 42.526,
+     "momentaryMedian": -23.5,
+     "momentaryMax": -15.7,
+     "shortTermMedian": -23.4,
+     "shortTermMax": -19.4
+    },
+    "climax": {
+     "start": 40.1,
+     "end": 43.101,
+     "momentaryMedian": -19.1,
+     "momentaryMax": -15.7,
+     "shortTermMedian": -20.2,
+     "shortTermMax": -19.2
+    },
+    "ending": {
+     "start": 42.526,
+     "end": 50.536,
+     "momentaryMedian": -24.15,
+     "momentaryMax": -18.4,
+     "shortTermMedian": -23.0,
+     "shortTermMax": -19.2
+    }
+   },
+   "crestDb": 20.664,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "piano"
+    ],
+    "bass": [
+     "piano"
+    ],
+    "melody": [
+     "piano"
+    ],
+    "string_cello": [
+     "cello_chamber"
+    ],
+    "string_violin": [
+     "violin_solo"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "poyo-1",
+   "extension": "m4a",
+   "title": "ぽよぽよ こもれび",
+   "family": "poyo",
+   "seconds": 76.8,
+   "loop": true,
+   "sha256": "8d091d62399c72bd5cb0766e5bb572e5267d1380f3e3200ee31d6f8743235a22",
+   "integratedLUFS": -25.9,
+   "truePeakDbtp": -11.6,
+   "lraLU": 4.6,
+   "shortTermMin": -31.1,
+   "shortTermP10": -28.42,
+   "shortTermMedian": -25.7,
+   "shortTermP90": -24.28,
+   "shortTermMax": -23.4,
+   "momentaryMax": -19.9,
+   "thirdsShortTermMedian": [
+    -26.3,
+    -25.9,
+    -25.1
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -26,
+   "previousLoudnormIntegrated": -26.0,
+   "placements": [
+    {
+     "rowId": "scene-18",
+     "scene": "遊ぶ 画面・ステージ選択・おてほん・説明（第1章 地下牢 10ステージ）",
+     "game": "なおぽよ。",
+     "plannedVolume": "−3 dB（考える 時間を じゃましない）"
+    },
+    {
+     "rowId": "scene-19",
+     "scene": "地下牢・苔・冷たい広間・夜明け（ステージの 雰囲気）・重力の ステージ",
+     "game": "なおぽよ。",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-20",
+     "scene": "旧ページ（ひかりの牢屋・こもれびの森・rescue の 洞窟/古城）",
+     "game": "なおぽよ。",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-24",
+     "scene": "第2章以降（地底洞窟・古城・光の森 … 時の塔）",
+     "game": "なおぽよ。",
+     "plannedVolume": "0 dB（ホーム基準）"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -25.9,
+    "truePeakDbtp": -11.6,
+    "lraLU": 4.6
+   },
+   "flacMeter": {
+    "integratedLUFS": -25.8,
+    "truePeakDbtp": -11.7,
+    "lraLU": 4.6
+   },
+   "aacFlacIntegratedDelta": -0.1,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.192,
+     "monoLossDb": -0.048
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 17.655,
+     "monoLossDb": -0.23
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 54.616,
+     "monoLossDb": -1.501
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 27.481,
+     "monoLossDb": -1.392
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.056,
+     "monoLossDb": -1.063
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.0,
+     "monoLossDb": -2.121
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -27.1,
+    "truePeakDbtp": -12.8,
+    "lraLU": 4.2,
+    "integratedDeltaLU": -1.2,
+    "rmsDeltaDb": -1.217,
+    "channelCorrelation": 0.538
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -27.4,
+     "truePeakDbtp": -14.1,
+     "lraLU": 4.4,
+     "deltaVsOriginalLU": -1.5
+    },
+    "small_250_8k": {
+     "integratedLUFS": -27.7,
+     "truePeakDbtp": -14.3,
+     "lraLU": 4.7,
+     "deltaVsOriginalLU": -1.8
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -27.7,
+     "truePeakDbtp": -14.7,
+     "lraLU": 5.0,
+     "deltaVsOriginalLU": -1.8
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -25.8,
+     "momentaryMax": -21.8,
+     "shortTermMedian": -25.7,
+     "shortTermMax": -25.1
+    },
+    "normal": {
+     "start": 8,
+     "end": 68.8,
+     "momentaryMedian": -26.6,
+     "momentaryMax": -20.3,
+     "shortTermMedian": -25.9,
+     "shortTermMax": -23.6
+    },
+    "climax": {
+     "start": 68.4,
+     "end": 71.401,
+     "momentaryMedian": -23.4,
+     "momentaryMax": -19.9,
+     "shortTermMedian": -25.1,
+     "shortTermMax": -23.4
+    },
+    "ending": {
+     "start": 68.8,
+     "end": 76.81,
+     "momentaryMedian": -26.95,
+     "momentaryMax": -19.9,
+     "shortTermMedian": -24.95,
+     "shortTermMax": -23.4
+    }
+   },
+   "crestDb": 17.06,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "harp"
+    ],
+    "bass": [
+     "woodbass"
+    ],
+    "counter": [
+     "clarinet"
+    ],
+    "doubling": [
+     "flute"
+    ],
+    "melody": [
+     "marimba"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "koro-1",
+   "extension": "m4a",
+   "title": "ころころ じんせい",
+   "family": "koro",
+   "seconds": 68.57142857142857,
+   "loop": true,
+   "sha256": "20451449c8762749e7b7d39f19223f83a135605b824ef34354b54eae4632d7d0",
+   "integratedLUFS": -22.9,
+   "truePeakDbtp": -6.1,
+   "lraLU": 3.6,
+   "shortTermMin": -26.5,
+   "shortTermP10": -24.7,
+   "shortTermMedian": -22.9,
+   "shortTermP90": -21.45,
+   "shortTermMax": -20.2,
+   "momentaryMax": -18.4,
+   "thirdsShortTermMedian": [
+    -23.4,
+    -23.3,
+    -22.4
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -23,
+   "previousLoudnormIntegrated": -23.0,
+   "placements": [
+    {
+     "rowId": "scene-25",
+     "scene": "タイトル・キャラクター選択・ひとやすみ・対戦コード",
+     "game": "なおころ。",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-26",
+     "scene": "すごろく盤（できごと・仲間・恋人・結婚・とき・へんしん・お店）",
+     "game": "なおころ。",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-30",
+     "scene": "終盤（のこり 3ターン など）",
+     "game": "なおころ。",
+     "plannedVolume": "0 dB（ホーム基準）"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -22.9,
+    "truePeakDbtp": -6.1,
+    "lraLU": 3.6
+   },
+   "flacMeter": {
+    "integratedLUFS": -22.9,
+    "truePeakDbtp": -6.1,
+    "lraLU": 3.5
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.366,
+     "monoLossDb": -0.049
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 16.669,
+     "monoLossDb": -0.219
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 59.723,
+     "monoLossDb": -1.237
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 23.19,
+     "monoLossDb": -2.073
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.053,
+     "monoLossDb": -0.698
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.0,
+     "monoLossDb": -0.742
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -24.2,
+    "truePeakDbtp": -8.5,
+    "lraLU": 3.0,
+    "integratedDeltaLU": -1.3,
+    "rmsDeltaDb": -1.213,
+    "channelCorrelation": 0.5276
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -24.4,
+     "truePeakDbtp": -8.9,
+     "lraLU": 3.1,
+     "deltaVsOriginalLU": -1.5
+    },
+    "small_250_8k": {
+     "integratedLUFS": -24.9,
+     "truePeakDbtp": -9.5,
+     "lraLU": 3.4,
+     "deltaVsOriginalLU": -2.0
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -25.4,
+     "truePeakDbtp": -10.4,
+     "lraLU": 3.5,
+     "deltaVsOriginalLU": -2.5
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -23.6,
+     "momentaryMax": -20.2,
+     "shortTermMedian": -23.0,
+     "shortTermMax": -22.3
+    },
+    "normal": {
+     "start": 8,
+     "end": 60.571,
+     "momentaryMedian": -23.2,
+     "momentaryMax": -19.0,
+     "shortTermMedian": -23.0,
+     "shortTermMax": -21.0
+    },
+    "climax": {
+     "start": 60.4,
+     "end": 63.401,
+     "momentaryMedian": -20.4,
+     "momentaryMax": -18.4,
+     "shortTermMedian": -21.2,
+     "shortTermMax": -20.2
+    },
+    "ending": {
+     "start": 60.571,
+     "end": 68.581,
+     "momentaryMedian": -22.5,
+     "momentaryMax": -18.4,
+     "shortTermMedian": -22.0,
+     "shortTermMax": -20.2
+    }
+   },
+   "crestDb": 19.645,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "harp"
+    ],
+    "bass": [
+     "woodbass"
+    ],
+    "counter": [
+     "violas"
+    ],
+    "doubling": [
+     "clarinet"
+    ],
+    "melody": [
+     "piano"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ],
+    "response": [
+     "flute"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "card-2",
+   "extension": "m4a",
+   "title": "デュエル・スタート",
+   "family": "card",
+   "seconds": 83.47825396825397,
+   "loop": true,
+   "sha256": "ce0c0716221e8e10616647b58a446a1185869f50e23eef5c347226d4042ade6c",
+   "integratedLUFS": -23.9,
+   "truePeakDbtp": -6.8,
+   "lraLU": 3.8,
+   "shortTermMin": -27.2,
+   "shortTermP10": -25.7,
+   "shortTermMedian": -24.1,
+   "shortTermP90": -22.34,
+   "shortTermMax": -21.3,
+   "momentaryMax": -19.3,
+   "thirdsShortTermMedian": [
+    -24.2,
+    -24.3,
+    -23.9
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -24,
+   "previousLoudnormIntegrated": -24.0,
+   "placements": [
+    {
+     "rowId": "scene-32",
+     "scene": "はじめの メニュー・対戦の 準備・マイデッキ・コレクション・戦績・あそびかた・ルールブック",
+     "game": "CARD GAME",
+     "plannedVolume": "−4 dB（考える 画面なので 小さめ）"
+    },
+    {
+     "rowId": "scene-33",
+     "scene": "通常の 対戦（ラウンド 1〜8）",
+     "game": "CARD GAME",
+     "plannedVolume": "−2 dB"
+    },
+    {
+     "rowId": "scene-37",
+     "scene": "特別な カード演出（けっこん・おわかれ・たんじょう・成長の お知らせ）",
+     "game": "CARD GAME",
+     "plannedVolume": "0 dB（ホーム基準）"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -23.9,
+    "truePeakDbtp": -6.8,
+    "lraLU": 3.8
+   },
+   "flacMeter": {
+    "integratedLUFS": -23.9,
+    "truePeakDbtp": -6.7,
+    "lraLU": 3.8
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.907,
+     "monoLossDb": -0.026
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 18.988,
+     "monoLossDb": -0.294
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 55.062,
+     "monoLossDb": -1.237
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 24.858,
+     "monoLossDb": -1.99
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.184,
+     "monoLossDb": -0.345
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.001,
+     "monoLossDb": -0.66
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -25.2,
+    "truePeakDbtp": -9.0,
+    "lraLU": 3.1,
+    "integratedDeltaLU": -1.3,
+    "rmsDeltaDb": -1.193,
+    "channelCorrelation": 0.5356
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -25.5,
+     "truePeakDbtp": -8.5,
+     "lraLU": 3.2,
+     "deltaVsOriginalLU": -1.6
+    },
+    "small_250_8k": {
+     "integratedLUFS": -26.1,
+     "truePeakDbtp": -9.3,
+     "lraLU": 3.3,
+     "deltaVsOriginalLU": -2.2
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -26.6,
+     "truePeakDbtp": -10.3,
+     "lraLU": 3.4,
+     "deltaVsOriginalLU": -2.7
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -24.7,
+     "momentaryMax": -21.5,
+     "shortTermMedian": -24.5,
+     "shortTermMax": -24.0
+    },
+    "normal": {
+     "start": 8,
+     "end": 75.478,
+     "momentaryMedian": -24.2,
+     "momentaryMax": -19.3,
+     "shortTermMedian": -24.2,
+     "shortTermMax": -21.3
+    },
+    "climax": {
+     "start": 47.8,
+     "end": 50.801,
+     "momentaryMedian": -21.8,
+     "momentaryMax": -19.3,
+     "shortTermMedian": -22.5,
+     "shortTermMax": -21.3
+    },
+    "ending": {
+     "start": 75.478,
+     "end": 83.488,
+     "momentaryMedian": -22.7,
+     "momentaryMax": -19.5,
+     "shortTermMedian": -22.6,
+     "shortTermMax": -21.4
+    }
+   },
+   "crestDb": 20.036,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "cellopizz",
+     "marimba",
+     "piano"
+    ],
+    "bass": [
+     "woodbass"
+    ],
+    "doubling": [
+     "marimba"
+    ],
+    "melody": [
+     "piano"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ],
+    "percussion": [
+     "kick",
+     "snare"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "game-1",
+   "extension": "m4a",
+   "title": "あそびの はじまり",
+   "family": "action",
+   "seconds": 53.333333333333336,
+   "loop": true,
+   "sha256": "915880056e9044f65750b3bb925ba9f6bd6acda5e72f46a3659a94a3cd509ea6",
+   "integratedLUFS": -23.9,
+   "truePeakDbtp": -9.7,
+   "lraLU": 5.0,
+   "shortTermMin": -27.7,
+   "shortTermP10": -26.2,
+   "shortTermMedian": -24.1,
+   "shortTermP90": -21.6,
+   "shortTermMax": -20.8,
+   "momentaryMax": -19.0,
+   "thirdsShortTermMedian": [
+    -24.75,
+    -24.15,
+    -23.1
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -24,
+   "previousLoudnormIntegrated": -24.0,
+   "placements": [
+    {
+     "rowId": "scene-27",
+     "scene": "盤の ゲーム 2マス（通常ミニゲーム 15本）",
+     "game": "なおころ。",
+     "plannedVolume": "−2 dB"
+    },
+    {
+     "rowId": "scene-38",
+     "scene": "アクション 32本",
+     "game": "通常ミニゲーム",
+     "plannedVolume": "−2 dB（効果音が 多い）"
+    },
+    {
+     "rowId": "scene-39",
+     "scene": "ストラテジー 2本",
+     "game": "通常ミニゲーム",
+     "plannedVolume": "−2 dB"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -23.9,
+    "truePeakDbtp": -9.7,
+    "lraLU": 5.0
+   },
+   "flacMeter": {
+    "integratedLUFS": -23.9,
+    "truePeakDbtp": -9.7,
+    "lraLU": 5.0
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.816,
+     "monoLossDb": -0.023
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 11.766,
+     "monoLossDb": -0.308
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 71.545,
+     "monoLossDb": -1.318
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 15.668,
+     "monoLossDb": -1.49
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.204,
+     "monoLossDb": -0.336
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.001,
+     "monoLossDb": -0.581
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -25.2,
+    "truePeakDbtp": -11.8,
+    "lraLU": 4.4,
+    "integratedDeltaLU": -1.3,
+    "rmsDeltaDb": -1.19,
+    "channelCorrelation": 0.5412
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -25.4,
+     "truePeakDbtp": -11.7,
+     "lraLU": 4.6,
+     "deltaVsOriginalLU": -1.5
+    },
+    "small_250_8k": {
+     "integratedLUFS": -25.7,
+     "truePeakDbtp": -12.4,
+     "lraLU": 5.2,
+     "deltaVsOriginalLU": -1.8
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -26.1,
+     "truePeakDbtp": -13.0,
+     "lraLU": 5.5,
+     "deltaVsOriginalLU": -2.2
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -24.6,
+     "momentaryMax": -22.1,
+     "shortTermMedian": -24.5,
+     "shortTermMax": -24.1
+    },
+    "normal": {
+     "start": 8,
+     "end": 45.333,
+     "momentaryMedian": -24.4,
+     "momentaryMax": -19.5,
+     "shortTermMedian": -24.4,
+     "shortTermMax": -21.1
+    },
+    "climax": {
+     "start": 47.1,
+     "end": 50.101,
+     "momentaryMedian": -21.0,
+     "momentaryMax": -19.0,
+     "shortTermMedian": -22.6,
+     "shortTermMax": -20.8
+    },
+    "ending": {
+     "start": 45.333,
+     "end": 53.343,
+     "momentaryMedian": -23.0,
+     "momentaryMax": -19.0,
+     "shortTermMedian": -22.85,
+     "shortTermMax": -20.8
+    }
+   },
+   "crestDb": 16.974,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "piano"
+    ],
+    "bass": [
+     "woodbass"
+    ],
+    "doubling": [
+     "marimba"
+    ],
+    "melody": [
+     "marimba"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ],
+    "percussion": [
+     "kick",
+     "snare"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "explore-1",
+   "extension": "m4a",
+   "title": "ふしぎの ちか",
+   "family": "explore",
+   "seconds": 80.0,
+   "loop": true,
+   "sha256": "cd2ba12bfd539d1486aa4744f2cf956b360a49219f2097af4f510d31598fd101",
+   "integratedLUFS": -24.9,
+   "truePeakDbtp": -13.2,
+   "lraLU": 4.4,
+   "shortTermMin": -30.1,
+   "shortTermP10": -27.1,
+   "shortTermMedian": -25.1,
+   "shortTermP90": -23.2,
+   "shortTermMax": -22.0,
+   "momentaryMax": -21.3,
+   "thirdsShortTermMedian": [
+    -25.5,
+    -25.0,
+    -24.1
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -25,
+   "previousLoudnormIntegrated": -25.0,
+   "placements": [
+    {
+     "rowId": "scene-45",
+     "scene": "探検・ダンジョン 4本",
+     "game": "3D ゲーム",
+     "plannedVolume": "−2 dB"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -24.9,
+    "truePeakDbtp": -13.2,
+    "lraLU": 4.4
+   },
+   "flacMeter": {
+    "integratedLUFS": -24.9,
+    "truePeakDbtp": -13.1,
+    "lraLU": 4.4
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.021,
+     "monoLossDb": -0.005
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 16.101,
+     "monoLossDb": -0.431
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 69.032,
+     "monoLossDb": -1.558
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 14.794,
+     "monoLossDb": -0.553
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.051,
+     "monoLossDb": -1.266
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.0,
+     "monoLossDb": -2.108
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -26.1,
+    "truePeakDbtp": -14.9,
+    "lraLU": 4.9,
+    "integratedDeltaLU": -1.2,
+    "rmsDeltaDb": -1.197,
+    "channelCorrelation": 0.5522
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -26.3,
+     "truePeakDbtp": -15.2,
+     "lraLU": 5.0,
+     "deltaVsOriginalLU": -1.4
+    },
+    "small_250_8k": {
+     "integratedLUFS": -26.8,
+     "truePeakDbtp": -14.9,
+     "lraLU": 5.5,
+     "deltaVsOriginalLU": -1.9
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -27.3,
+     "truePeakDbtp": -16.9,
+     "lraLU": 6.1,
+     "deltaVsOriginalLU": -2.4
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -25.6,
+     "momentaryMax": -23.8,
+     "shortTermMedian": -25.3,
+     "shortTermMax": -25.1
+    },
+    "normal": {
+     "start": 8,
+     "end": 72.0,
+     "momentaryMedian": -25.0,
+     "momentaryMax": -21.4,
+     "shortTermMedian": -25.1,
+     "shortTermMax": -22.6
+    },
+    "climax": {
+     "start": 72.0,
+     "end": 75.001,
+     "momentaryMedian": -22.0,
+     "momentaryMax": -21.3,
+     "shortTermMedian": -22.6,
+     "shortTermMax": -22.0
+    },
+    "ending": {
+     "start": 72.0,
+     "end": 80.01,
+     "momentaryMedian": -24.55,
+     "momentaryMax": -21.3,
+     "shortTermMedian": -23.2,
+     "shortTermMax": -22.0
+    }
+   },
+   "crestDb": 14.424,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "harp"
+    ],
+    "bass": [
+     "cellopizz"
+    ],
+    "counter": [
+     "violas"
+    ],
+    "doubling": [
+     "clarinet"
+    ],
+    "melody": [
+     "flute"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "event-2",
+   "extension": "m4a",
+   "title": "ふたりの きねんび",
+   "family": "love",
+   "seconds": 62.60868480725624,
+   "loop": true,
+   "sha256": "e1147aeb4d1cf707277059cd2e39faee11f7bf44f88b1efb5e4a89be22ab3598",
+   "integratedLUFS": -24.0,
+   "truePeakDbtp": -6.0,
+   "lraLU": 4.8,
+   "shortTermMin": -27.5,
+   "shortTermP10": -25.9,
+   "shortTermMedian": -24.6,
+   "shortTermP90": -21.8,
+   "shortTermMax": -20.0,
+   "momentaryMax": -18.2,
+   "thirdsShortTermMedian": [
+    -25.3,
+    -24.6,
+    -23.4
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -24,
+   "previousLoudnormIntegrated": -24.0,
+   "placements": [
+    {
+     "rowId": "scene-08",
+     "scene": "デートを 選ぶ 画面・デートの 映画",
+     "game": "ホーム",
+     "plannedVolume": "0 dB"
+    },
+    {
+     "rowId": "scene-09",
+     "scene": "結婚記念日の 映画（1・10・25・50年）",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-10",
+     "scene": "結婚した（お知らせ）",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -24.0,
+    "truePeakDbtp": -6.0,
+    "lraLU": 4.8
+   },
+   "flacMeter": {
+    "integratedLUFS": -24.0,
+    "truePeakDbtp": -5.9,
+    "lraLU": 4.8
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.22,
+     "monoLossDb": -0.064
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 14.7,
+     "monoLossDb": -0.333
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 54.536,
+     "monoLossDb": -0.94
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 30.507,
+     "monoLossDb": -2.268
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.036,
+     "monoLossDb": -0.671
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.0,
+     "monoLossDb": -1.019
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -25.2,
+    "truePeakDbtp": -8.2,
+    "lraLU": 4.3,
+    "integratedDeltaLU": -1.2,
+    "rmsDeltaDb": -1.198,
+    "channelCorrelation": 0.5444
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -25.4,
+     "truePeakDbtp": -8.1,
+     "lraLU": 4.3,
+     "deltaVsOriginalLU": -1.4
+    },
+    "small_250_8k": {
+     "integratedLUFS": -25.9,
+     "truePeakDbtp": -8.8,
+     "lraLU": 4.4,
+     "deltaVsOriginalLU": -1.9
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -26.4,
+     "truePeakDbtp": -9.5,
+     "lraLU": 4.8,
+     "deltaVsOriginalLU": -2.4
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -26.1,
+     "momentaryMax": -21.5,
+     "shortTermMedian": -25.1,
+     "shortTermMax": -24.5
+    },
+    "normal": {
+     "start": 8,
+     "end": 54.609,
+     "momentaryMedian": -24.9,
+     "momentaryMax": -19.2,
+     "shortTermMedian": -24.7,
+     "shortTermMax": -21.3
+    },
+    "climax": {
+     "start": 55.8,
+     "end": 58.801,
+     "momentaryMedian": -20.5,
+     "momentaryMax": -18.3,
+     "shortTermMedian": -21.7,
+     "shortTermMax": -20.0
+    },
+    "ending": {
+     "start": 54.609,
+     "end": 62.619,
+     "momentaryMedian": -22.4,
+     "momentaryMax": -18.2,
+     "shortTermMedian": -21.7,
+     "shortTermMax": -20.0
+    }
+   },
+   "crestDb": 20.921,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "harp"
+    ],
+    "bass": [
+     "cellos"
+    ],
+    "counter": [
+     "clarinet"
+    ],
+    "doubling": [
+     "flute"
+    ],
+    "melody": [
+     "piano"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "event-1",
+   "extension": "m4a",
+   "title": "おめでとうの ひ",
+   "family": "celebrate",
+   "seconds": 66.20689342403628,
+   "loop": true,
+   "sha256": "2360ab9acea6948693f2575b3f8aae7c91ab295d426690c47fadd98d70025cf3",
+   "integratedLUFS": -23.0,
+   "truePeakDbtp": -6.4,
+   "lraLU": 3.2,
+   "shortTermMin": -27.3,
+   "shortTermP10": -24.68,
+   "shortTermMedian": -22.9,
+   "shortTermP90": -21.8,
+   "shortTermMax": -21.2,
+   "momentaryMax": -18.3,
+   "thirdsShortTermMedian": [
+    -23.4,
+    -22.8,
+    -22.5
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -23,
+   "previousLoudnormIntegrated": -23.0,
+   "placements": [
+    {
+     "rowId": "scene-16",
+     "scene": "GAME CLEAR 画面（図鑑・すべての 実績）に とどまる 間",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -23.0,
+    "truePeakDbtp": -6.4,
+    "lraLU": 3.2
+   },
+   "flacMeter": {
+    "integratedLUFS": -22.9,
+    "truePeakDbtp": -6.4,
+    "lraLU": 3.2
+   },
+   "aacFlacIntegratedDelta": -0.1,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.472,
+     "monoLossDb": -0.039
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 18.836,
+     "monoLossDb": -0.239
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 50.623,
+     "monoLossDb": -1.145
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 30.006,
+     "monoLossDb": -2.159
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.064,
+     "monoLossDb": -0.604
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.001,
+     "monoLossDb": -1.676
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -24.3,
+    "truePeakDbtp": -8.2,
+    "lraLU": 3.1,
+    "integratedDeltaLU": -1.3,
+    "rmsDeltaDb": -1.22,
+    "channelCorrelation": 0.5238
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -24.6,
+     "truePeakDbtp": -7.9,
+     "lraLU": 3.1,
+     "deltaVsOriginalLU": -1.6
+    },
+    "small_250_8k": {
+     "integratedLUFS": -25.0,
+     "truePeakDbtp": -9.8,
+     "lraLU": 3.4,
+     "deltaVsOriginalLU": -2.0
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -25.4,
+     "truePeakDbtp": -10.7,
+     "lraLU": 3.8,
+     "deltaVsOriginalLU": -2.4
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -23.9,
+     "momentaryMax": -18.8,
+     "shortTermMedian": -22.7,
+     "shortTermMax": -22.2
+    },
+    "normal": {
+     "start": 8,
+     "end": 58.207,
+     "momentaryMedian": -23.2,
+     "momentaryMax": -18.3,
+     "shortTermMedian": -23.0,
+     "shortTermMax": -21.3
+    },
+    "climax": {
+     "start": 58.7,
+     "end": 61.701,
+     "momentaryMedian": -21.2,
+     "momentaryMax": -19.1,
+     "shortTermMedian": -22.1,
+     "shortTermMax": -21.2
+    },
+    "ending": {
+     "start": 58.207,
+     "end": 66.217,
+     "momentaryMedian": -22.05,
+     "momentaryMax": -19.1,
+     "shortTermMedian": -22.1,
+     "shortTermMax": -21.2
+    }
+   },
+   "crestDb": 19.526,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "harp"
+    ],
+    "bass": [
+     "woodbass"
+    ],
+    "doubling": [
+     "flute"
+    ],
+    "melody": [
+     "piano"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "kisetsu",
+   "extension": "m4a",
+   "title": "きせつの きおく",
+   "family": "memory",
+   "seconds": 89.30233560090703,
+   "loop": true,
+   "sha256": "f4158db2ed8ae1a0eeb069dce113c64186031d387df2dcb3d2f777976258a825",
+   "integratedLUFS": -23.9,
+   "truePeakDbtp": -6.0,
+   "lraLU": 4.8,
+   "shortTermMin": -30.3,
+   "shortTermP10": -26.6,
+   "shortTermMedian": -23.95,
+   "shortTermP90": -22.1,
+   "shortTermMax": -21.1,
+   "momentaryMax": -18.7,
+   "thirdsShortTermMedian": [
+    -24.5,
+    -25.25,
+    -22.6
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -24,
+   "previousLoudnormIntegrated": -24.0,
+   "placements": [
+    {
+     "rowId": "scene-11",
+     "scene": "でんせつの であい（映画）",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -23.9,
+    "truePeakDbtp": -6.0,
+    "lraLU": 4.8
+   },
+   "flacMeter": {
+    "integratedLUFS": -23.9,
+    "truePeakDbtp": -5.9,
+    "lraLU": 4.9
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.189,
+     "monoLossDb": -0.086
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 11.133,
+     "monoLossDb": -0.385
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 69.676,
+     "monoLossDb": -1.283
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 18.96,
+     "monoLossDb": -1.875
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.041,
+     "monoLossDb": -0.813
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.0,
+     "monoLossDb": -0.631
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -25.2,
+    "truePeakDbtp": -8.9,
+    "lraLU": 3.3,
+    "integratedDeltaLU": -1.3,
+    "rmsDeltaDb": -1.273,
+    "channelCorrelation": 0.5023
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -25.3,
+     "truePeakDbtp": -8.8,
+     "lraLU": 3.3,
+     "deltaVsOriginalLU": -1.4
+    },
+    "small_250_8k": {
+     "integratedLUFS": -25.7,
+     "truePeakDbtp": -10.0,
+     "lraLU": 3.5,
+     "deltaVsOriginalLU": -1.8
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -26.3,
+     "truePeakDbtp": -11.1,
+     "lraLU": 3.9,
+     "deltaVsOriginalLU": -2.4
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -25.1,
+     "momentaryMax": -22.5,
+     "shortTermMedian": -25.9,
+     "shortTermMax": -24.9
+    },
+    "normal": {
+     "start": 8,
+     "end": 81.302,
+     "momentaryMedian": -24.4,
+     "momentaryMax": -18.7,
+     "shortTermMedian": -23.7,
+     "shortTermMax": -21.1
+    },
+    "climax": {
+     "start": 61.4,
+     "end": 64.401,
+     "momentaryMedian": -21.65,
+     "momentaryMax": -18.9,
+     "shortTermMedian": -22.7,
+     "shortTermMax": -21.1
+    },
+    "ending": {
+     "start": 81.302,
+     "end": 89.312,
+     "momentaryMedian": -25.5,
+     "momentaryMax": -22.1,
+     "shortTermMedian": -24.15,
+     "shortTermMax": -22.1
+    }
+   },
+   "crestDb": 20.83,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "harp"
+    ],
+    "bass": [
+     "cellos"
+    ],
+    "counter": [
+     "violas"
+    ],
+    "doubling": [
+     "clarinet"
+    ],
+    "melody": [
+     "piano"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ],
+    "response": [
+     "flute"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "ohayo",
+   "extension": "m4a",
+   "title": "おはようの ひかり",
+   "family": "celebrate",
+   "seconds": 48.0,
+   "loop": true,
+   "sha256": "55f3725cc2fae86655556bf910261f29a2facb87e153ae495c43ebb08a6fc9e3",
+   "integratedLUFS": -22.8,
+   "truePeakDbtp": -4.6,
+   "lraLU": 5.2,
+   "shortTermMin": -27.7,
+   "shortTermP10": -25.4,
+   "shortTermMedian": -23.3,
+   "shortTermP90": -20.3,
+   "shortTermMax": -19.8,
+   "momentaryMax": -15.5,
+   "thirdsShortTermMedian": [
+    -24.9,
+    -23.0,
+    -21.5
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -23,
+   "previousLoudnormIntegrated": -23.0,
+   "placements": [],
+   "playbackRegion": {
+    "integratedLUFS": -22.8,
+    "truePeakDbtp": -4.6,
+    "lraLU": 5.2
+   },
+   "flacMeter": {
+    "integratedLUFS": -22.8,
+    "truePeakDbtp": -4.6,
+    "lraLU": 5.2
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.242,
+     "monoLossDb": -0.097
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 15.274,
+     "monoLossDb": -0.443
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 71.904,
+     "monoLossDb": -1.244
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 12.517,
+     "monoLossDb": -0.804
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.063,
+     "monoLossDb": -1.501
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.0,
+     "monoLossDb": -1.657
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -23.9,
+    "truePeakDbtp": -7.3,
+    "lraLU": 4.1,
+    "integratedDeltaLU": -1.1,
+    "rmsDeltaDb": -1.056,
+    "channelCorrelation": 0.5727
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -24.1,
+     "truePeakDbtp": -7.1,
+     "lraLU": 4.1,
+     "deltaVsOriginalLU": -1.3
+    },
+    "small_250_8k": {
+     "integratedLUFS": -24.5,
+     "truePeakDbtp": -6.7,
+     "lraLU": 4.4,
+     "deltaVsOriginalLU": -1.7
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -25.1,
+     "truePeakDbtp": -7.4,
+     "lraLU": 5.4,
+     "deltaVsOriginalLU": -2.3
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -25.3,
+     "momentaryMax": -21.6,
+     "shortTermMedian": -25.0,
+     "shortTermMax": -24.8
+    },
+    "normal": {
+     "start": 8,
+     "end": 40.0,
+     "momentaryMedian": -23.7,
+     "momentaryMax": -15.5,
+     "shortTermMedian": -23.0,
+     "shortTermMax": -19.9
+    },
+    "climax": {
+     "start": 37.2,
+     "end": 40.201,
+     "momentaryMedian": -20.8,
+     "momentaryMax": -16.5,
+     "shortTermMedian": -20.2,
+     "shortTermMax": -19.8
+    },
+    "ending": {
+     "start": 40.0,
+     "end": 48.01,
+     "momentaryMedian": -25.05,
+     "momentaryMax": -17.5,
+     "shortTermMedian": -21.8,
+     "shortTermMax": -19.8
+    }
+   },
+   "crestDb": 20.939,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "harp"
+    ],
+    "bass": [
+     "woodbass"
+    ],
+    "doubling": [
+     "flute"
+    ],
+    "melody": [
+     "piano"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "bgm-game",
+   "extension": "m4a",
+   "title": "game（ミニゲーム・汎用）",
+   "family": "quick",
+   "seconds": 55.6521768707483,
+   "loop": true,
+   "sha256": "c7b8f2c6682c0f61c5515b30466362730d82673de00d2eba8fb27063d032a67d",
+   "integratedLUFS": -24.0,
+   "truePeakDbtp": -11.0,
+   "lraLU": 3.4,
+   "shortTermMin": -26.1,
+   "shortTermP10": -25.5,
+   "shortTermMedian": -24.3,
+   "shortTermP90": -22.3,
+   "shortTermMax": -21.9,
+   "momentaryMax": -19.4,
+   "thirdsShortTermMedian": [
+    -25.1,
+    -23.85,
+    -23.6
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -24,
+   "previousLoudnormIntegrated": -24.0,
+   "placements": [
+    {
+     "rowId": "scene-28",
+     "scene": "盤の クイック 4マス（45種）",
+     "game": "なおころ。",
+     "plannedVolume": "−2 dB"
+    },
+    {
+     "rowId": "scene-47",
+     "scene": "クイックゲーム 50種（1つの ゲームとして 続けて 遊ぶ）",
+     "game": "クイックモード",
+     "plannedVolume": "−2 dB"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -24.0,
+    "truePeakDbtp": -11.0,
+    "lraLU": 3.4
+   },
+   "flacMeter": {
+    "integratedLUFS": -24.0,
+    "truePeakDbtp": -11.0,
+    "lraLU": 3.4
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.518,
+     "monoLossDb": -0.021
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 9.731,
+     "monoLossDb": -0.3
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 76.633,
+     "monoLossDb": -1.361
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 12.956,
+     "monoLossDb": -1.03
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.161,
+     "monoLossDb": -0.576
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.0,
+     "monoLossDb": -0.995
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -25.2,
+    "truePeakDbtp": -13.1,
+    "lraLU": 3.0,
+    "integratedDeltaLU": -1.2,
+    "rmsDeltaDb": -1.193,
+    "channelCorrelation": 0.5338
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -25.5,
+     "truePeakDbtp": -13.9,
+     "lraLU": 3.0,
+     "deltaVsOriginalLU": -1.5
+    },
+    "small_250_8k": {
+     "integratedLUFS": -25.8,
+     "truePeakDbtp": -13.8,
+     "lraLU": 3.2,
+     "deltaVsOriginalLU": -1.8
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -26.3,
+     "truePeakDbtp": -14.1,
+     "lraLU": 3.5,
+     "deltaVsOriginalLU": -2.3
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -25.6,
+     "momentaryMax": -22.6,
+     "shortTermMedian": -25.2,
+     "shortTermMax": -24.6
+    },
+    "normal": {
+     "start": 8,
+     "end": 47.652,
+     "momentaryMedian": -24.5,
+     "momentaryMax": -19.4,
+     "shortTermMedian": -24.4,
+     "shortTermMax": -21.9
+    },
+    "climax": {
+     "start": 22.5,
+     "end": 25.501,
+     "momentaryMedian": -22.5,
+     "momentaryMax": -19.4,
+     "shortTermMedian": -23.6,
+     "shortTermMax": -21.9
+    },
+    "ending": {
+     "start": 47.652,
+     "end": 55.662,
+     "momentaryMedian": -23.4,
+     "momentaryMax": -19.4,
+     "shortTermMedian": -22.5,
+     "shortTermMax": -21.9
+    }
+   },
+   "crestDb": 15.817,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "piano"
+    ],
+    "bass": [
+     "woodbass"
+    ],
+    "doubling": [
+     "marimba"
+    ],
+    "melody": [
+     "marimba"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ],
+    "percussion": [
+     "kick",
+     "snare"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "bgm-race",
+   "extension": "m4a",
+   "title": "race（3D・のりもの）",
+   "family": "race",
+   "seconds": 50.526326530612245,
+   "loop": true,
+   "sha256": "81000f11daa3f31be0e48b8247235b66790f26e757abb7979e547907a4c96f6e",
+   "integratedLUFS": -23.9,
+   "truePeakDbtp": -9.5,
+   "lraLU": 2.3,
+   "shortTermMin": -25.2,
+   "shortTermP10": -24.9,
+   "shortTermMedian": -24.1,
+   "shortTermP90": -22.8,
+   "shortTermMax": -22.2,
+   "momentaryMax": -21.2,
+   "thirdsShortTermMedian": [
+    -24.4,
+    -23.8,
+    -23.9
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -24,
+   "previousLoudnormIntegrated": -24.0,
+   "placements": [
+    {
+     "rowId": "scene-44",
+     "scene": "レース・シューティング 5本",
+     "game": "3D ゲーム",
+     "plannedVolume": "−1 dB"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -23.9,
+    "truePeakDbtp": -9.5,
+    "lraLU": 2.3
+   },
+   "flacMeter": {
+    "integratedLUFS": -23.9,
+    "truePeakDbtp": -9.5,
+    "lraLU": 2.3
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.878,
+     "monoLossDb": -0.033
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 14.777,
+     "monoLossDb": -0.246
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 65.713,
+     "monoLossDb": -1.296
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 18.395,
+     "monoLossDb": -1.802
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.237,
+     "monoLossDb": -0.477
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.001,
+     "monoLossDb": -0.738
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -25.2,
+    "truePeakDbtp": -11.7,
+    "lraLU": 1.8,
+    "integratedDeltaLU": -1.3,
+    "rmsDeltaDb": -1.193,
+    "channelCorrelation": 0.5395
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -25.5,
+     "truePeakDbtp": -12.3,
+     "lraLU": 1.7,
+     "deltaVsOriginalLU": -1.6
+    },
+    "small_250_8k": {
+     "integratedLUFS": -26.0,
+     "truePeakDbtp": -13.5,
+     "lraLU": 1.8,
+     "deltaVsOriginalLU": -2.1
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -26.7,
+     "truePeakDbtp": -14.6,
+     "lraLU": 2.0,
+     "deltaVsOriginalLU": -2.8
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -24.5,
+     "momentaryMax": -21.8,
+     "shortTermMedian": -24.0,
+     "shortTermMax": -22.9
+    },
+    "normal": {
+     "start": 8,
+     "end": 42.526,
+     "momentaryMedian": -24.4,
+     "momentaryMax": -21.2,
+     "shortTermMedian": -24.2,
+     "shortTermMax": -22.2
+    },
+    "climax": {
+     "start": 29.6,
+     "end": 32.601,
+     "momentaryMedian": -22.35,
+     "momentaryMax": -21.2,
+     "shortTermMedian": -23.3,
+     "shortTermMax": -22.2
+    },
+    "ending": {
+     "start": 42.526,
+     "end": 50.536,
+     "momentaryMedian": -23.75,
+     "momentaryMax": -21.7,
+     "shortTermMedian": -23.7,
+     "shortTermMax": -22.7
+    }
+   },
+   "crestDb": 17.251,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "marimba"
+    ],
+    "bass": [
+     "woodbass"
+    ],
+    "doubling": [
+     "marimba"
+    ],
+    "melody": [
+     "piano"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ],
+    "percussion": [
+     "kick",
+     "snare"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "bgm-farewell",
+   "extension": "m4a",
+   "title": "farewell（おわかれ）",
+   "family": "farewell",
+   "seconds": 64.0,
+   "loop": true,
+   "sha256": "c35d64ca46b7e7027f0a157fd44cb197f2417c7dfd14eb27bb4d027e2f0faae8",
+   "integratedLUFS": -24.8,
+   "truePeakDbtp": -7.9,
+   "lraLU": 4.3,
+   "shortTermMin": -33.0,
+   "shortTermP10": -27.1,
+   "shortTermMedian": -24.9,
+   "shortTermP90": -23.1,
+   "shortTermMax": -21.9,
+   "momentaryMax": -17.6,
+   "thirdsShortTermMedian": [
+    -25.0,
+    -25.6,
+    -24.3
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -25,
+   "previousLoudnormIntegrated": -25.0,
+   "placements": [
+    {
+     "rowId": "scene-12",
+     "scene": "お別れ（死亡・100さいの さいごの じかん・一生カード）",
+     "game": "ホーム",
+     "plannedVolume": "−2 dB"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -24.8,
+    "truePeakDbtp": -7.9,
+    "lraLU": 4.3
+   },
+   "flacMeter": {
+    "integratedLUFS": -24.8,
+    "truePeakDbtp": -7.9,
+    "lraLU": 4.3
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.038,
+     "monoLossDb": -0.149
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 8.706,
+     "monoLossDb": -0.454
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 77.28,
+     "monoLossDb": -0.36
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 13.94,
+     "monoLossDb": -0.714
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.036,
+     "monoLossDb": -1.086
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.0,
+     "monoLossDb": -0.945
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -25.1,
+    "truePeakDbtp": -8.8,
+    "lraLU": 4.3,
+    "integratedDeltaLU": -0.3,
+    "rmsDeltaDb": -0.415,
+    "channelCorrelation": 0.822
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -25.2,
+     "truePeakDbtp": -9.2,
+     "lraLU": 4.5,
+     "deltaVsOriginalLU": -0.4
+    },
+    "small_250_8k": {
+     "integratedLUFS": -25.6,
+     "truePeakDbtp": -10.4,
+     "lraLU": 4.8,
+     "deltaVsOriginalLU": -0.8
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -26.7,
+     "truePeakDbtp": -11.1,
+     "lraLU": 5.1,
+     "deltaVsOriginalLU": -1.9
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -29.3,
+     "momentaryMax": -20.7,
+     "shortTermMedian": -25.9,
+     "shortTermMax": -24.4
+    },
+    "normal": {
+     "start": 8,
+     "end": 56.0,
+     "momentaryMedian": -27.65,
+     "momentaryMax": -17.9,
+     "shortTermMedian": -24.9,
+     "shortTermMax": -22.3
+    },
+    "climax": {
+     "start": 55.9,
+     "end": 58.901,
+     "momentaryMedian": -23.1,
+     "momentaryMax": -17.6,
+     "shortTermMedian": -24.3,
+     "shortTermMax": -21.9
+    },
+    "ending": {
+     "start": 56.0,
+     "end": 64.01,
+     "momentaryMedian": -28.15,
+     "momentaryMax": -17.6,
+     "shortTermMedian": -24.4,
+     "shortTermMax": -21.9
+    }
+   },
+   "crestDb": 19.739,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "harp"
+    ],
+    "bass": [
+     "cellos"
+    ],
+    "counter": [
+     "violas"
+    ],
+    "melody": [
+     "piano"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "poyo-2",
+   "extension": "m4a",
+   "title": "みんなで かえろう",
+   "family": "puzzle",
+   "seconds": 83.07691609977324,
+   "loop": true,
+   "sha256": "fa15803575d6aeca816ecd4268ff15ff7ec1c4bce4c164d1b51a7a5ee970b724",
+   "integratedLUFS": -27.0,
+   "truePeakDbtp": -16.5,
+   "lraLU": 2.3,
+   "shortTermMin": -28.9,
+   "shortTermP10": -28.1,
+   "shortTermMedian": -27.0,
+   "shortTermP90": -26.0,
+   "shortTermMax": -25.3,
+   "momentaryMax": -24.0,
+   "thirdsShortTermMedian": [
+    -27.3,
+    -26.9,
+    -26.8
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -27,
+   "previousLoudnormIntegrated": -27.0,
+   "placements": [
+    {
+     "rowId": "scene-40",
+     "scene": "パズル 17本",
+     "game": "通常ミニゲーム",
+     "plannedVolume": "−4 dB"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -27.0,
+    "truePeakDbtp": -16.5,
+    "lraLU": 2.3
+   },
+   "flacMeter": {
+    "integratedLUFS": -27.0,
+    "truePeakDbtp": -16.5,
+    "lraLU": 2.3
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.112,
+     "monoLossDb": -0.06
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 15.757,
+     "monoLossDb": -0.466
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 48.249,
+     "monoLossDb": -0.429
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 35.787,
+     "monoLossDb": -0.567
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.094,
+     "monoLossDb": -2.582
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.001,
+     "monoLossDb": -0.966
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -27.5,
+    "truePeakDbtp": -17.5,
+    "lraLU": 2.2,
+    "integratedDeltaLU": -0.5,
+    "rmsDeltaDb": -0.485,
+    "channelCorrelation": 0.7931
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -27.7,
+     "truePeakDbtp": -19.0,
+     "lraLU": 2.2,
+     "deltaVsOriginalLU": -0.7
+    },
+    "small_250_8k": {
+     "integratedLUFS": -28.0,
+     "truePeakDbtp": -19.5,
+     "lraLU": 2.3,
+     "deltaVsOriginalLU": -1.0
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -28.4,
+     "truePeakDbtp": -19.8,
+     "lraLU": 2.4,
+     "deltaVsOriginalLU": -1.4
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -28.3,
+     "momentaryMax": -24.9,
+     "shortTermMedian": -27.9,
+     "shortTermMax": -27.0
+    },
+    "normal": {
+     "start": 8,
+     "end": 75.077,
+     "momentaryMedian": -27.3,
+     "momentaryMax": -24.0,
+     "shortTermMedian": -27.0,
+     "shortTermMax": -25.4
+    },
+    "climax": {
+     "start": 77.2,
+     "end": 80.201,
+     "momentaryMedian": -25.7,
+     "momentaryMax": -24.0,
+     "shortTermMedian": -25.7,
+     "shortTermMax": -25.3
+    },
+    "ending": {
+     "start": 75.077,
+     "end": 83.087,
+     "momentaryMedian": -26.1,
+     "momentaryMax": -24.0,
+     "shortTermMedian": -26.3,
+     "shortTermMax": -25.3
+    }
+   },
+   "crestDb": 13.567,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "harp"
+    ],
+    "bass": [
+     "woodbass"
+    ],
+    "counter": [
+     "cellos"
+    ],
+    "melody": [
+     "clarinet"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ],
+    "response": [
+     "flute"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "game-2",
+   "extension": "m4a",
+   "title": "ぴょこぴょこ ステップ",
+   "family": "sports",
+   "seconds": 60.0,
+   "loop": true,
+   "sha256": "3804a95cf53abff9fddf8b184927af9232c5be1662e728b5b26a69a580c489be",
+   "integratedLUFS": -23.9,
+   "truePeakDbtp": -9.8,
+   "lraLU": 4.4,
+   "shortTermMin": -27.5,
+   "shortTermP10": -25.9,
+   "shortTermMedian": -24.2,
+   "shortTermP90": -22.0,
+   "shortTermMax": -21.0,
+   "momentaryMax": -18.7,
+   "thirdsShortTermMedian": [
+    -25.1,
+    -24.2,
+    -22.3
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -24,
+   "previousLoudnormIntegrated": -24.0,
+   "placements": [
+    {
+     "rowId": "scene-42",
+     "scene": "スポーツ 17本",
+     "game": "通常ミニゲーム",
+     "plannedVolume": "−2 dB"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -23.9,
+    "truePeakDbtp": -9.8,
+    "lraLU": 4.4
+   },
+   "flacMeter": {
+    "integratedLUFS": -23.9,
+    "truePeakDbtp": -9.6,
+    "lraLU": 4.4
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.473,
+     "monoLossDb": -0.017
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 13.266,
+     "monoLossDb": -0.323
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 68.627,
+     "monoLossDb": -1.344
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 17.408,
+     "monoLossDb": -1.406
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.225,
+     "monoLossDb": -0.366
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.001,
+     "monoLossDb": -0.635
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -25.1,
+    "truePeakDbtp": -11.6,
+    "lraLU": 4.3,
+    "integratedDeltaLU": -1.2,
+    "rmsDeltaDb": -1.193,
+    "channelCorrelation": 0.5346
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -25.4,
+     "truePeakDbtp": -11.6,
+     "lraLU": 4.5,
+     "deltaVsOriginalLU": -1.5
+    },
+    "small_250_8k": {
+     "integratedLUFS": -25.7,
+     "truePeakDbtp": -11.9,
+     "lraLU": 4.8,
+     "deltaVsOriginalLU": -1.8
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -26.1,
+     "truePeakDbtp": -12.0,
+     "lraLU": 5.1,
+     "deltaVsOriginalLU": -2.2
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -25.3,
+     "momentaryMax": -22.6,
+     "shortTermMedian": -25.1,
+     "shortTermMax": -24.5
+    },
+    "normal": {
+     "start": 8,
+     "end": 52.0,
+     "momentaryMedian": -24.3,
+     "momentaryMax": -18.7,
+     "shortTermMedian": -24.2,
+     "shortTermMax": -21.0
+    },
+    "climax": {
+     "start": 47.8,
+     "end": 50.801,
+     "momentaryMedian": -21.3,
+     "momentaryMax": -18.7,
+     "shortTermMedian": -21.9,
+     "shortTermMax": -21.0
+    },
+    "ending": {
+     "start": 52.0,
+     "end": 60.01,
+     "momentaryMedian": -23.1,
+     "momentaryMax": -18.8,
+     "shortTermMedian": -22.3,
+     "shortTermMax": -21.1
+    }
+   },
+   "crestDb": 16.933,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "piano"
+    ],
+    "bass": [
+     "woodbass"
+    ],
+    "doubling": [
+     "marimba"
+    ],
+    "melody": [
+     "marimba"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ],
+    "percussion": [
+     "kick",
+     "snare"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "explore-2",
+   "extension": "m4a",
+   "title": "そらと うみの さんぽ",
+   "family": "flight",
+   "seconds": 71.11111111111111,
+   "loop": true,
+   "sha256": "68fbba6f6219501d40636619b463f74a310d4e132525aa00ca6ab2f3ed5c5c8e",
+   "integratedLUFS": -23.9,
+   "truePeakDbtp": -12.5,
+   "lraLU": 3.0,
+   "shortTermMin": -27.5,
+   "shortTermP10": -25.3,
+   "shortTermMedian": -23.9,
+   "shortTermP90": -22.5,
+   "shortTermMax": -21.9,
+   "momentaryMax": -20.1,
+   "thirdsShortTermMedian": [
+    -24.4,
+    -24.2,
+    -23.2
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -24,
+   "previousLoudnormIntegrated": -24.0,
+   "placements": [],
+   "playbackRegion": {
+    "integratedLUFS": -23.9,
+    "truePeakDbtp": -12.5,
+    "lraLU": 3.0
+   },
+   "flacMeter": {
+    "integratedLUFS": -23.9,
+    "truePeakDbtp": -12.5,
+    "lraLU": 3.0
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.001,
+     "monoLossDb": -0.408
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 18.383,
+     "monoLossDb": -0.596
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 66.157,
+     "monoLossDb": -1.609
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 14.534,
+     "monoLossDb": -0.41
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.917,
+     "monoLossDb": -0.145
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.008,
+     "monoLossDb": -0.184
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -25.1,
+    "truePeakDbtp": -14.4,
+    "lraLU": 3.5,
+    "integratedDeltaLU": -1.2,
+    "rmsDeltaDb": -1.202,
+    "channelCorrelation": 0.5468
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -25.3,
+     "truePeakDbtp": -15.5,
+     "lraLU": 3.6,
+     "deltaVsOriginalLU": -1.4
+    },
+    "small_250_8k": {
+     "integratedLUFS": -25.9,
+     "truePeakDbtp": -15.6,
+     "lraLU": 4.0,
+     "deltaVsOriginalLU": -2.0
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -26.4,
+     "truePeakDbtp": -17.4,
+     "lraLU": 4.6,
+     "deltaVsOriginalLU": -2.5
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -25.1,
+     "momentaryMax": -22.3,
+     "shortTermMedian": -24.5,
+     "shortTermMax": -23.9
+    },
+    "normal": {
+     "start": 8,
+     "end": 63.111,
+     "momentaryMedian": -24.0,
+     "momentaryMax": -20.6,
+     "shortTermMedian": -23.9,
+     "shortTermMax": -22.2
+    },
+    "climax": {
+     "start": 63.5,
+     "end": 66.501,
+     "momentaryMedian": -22.5,
+     "momentaryMax": -20.1,
+     "shortTermMedian": -22.7,
+     "shortTermMax": -21.9
+    },
+    "ending": {
+     "start": 63.111,
+     "end": 71.121,
+     "momentaryMedian": -23.5,
+     "momentaryMax": -20.1,
+     "shortTermMedian": -22.9,
+     "shortTermMax": -21.9
+    }
+   },
+   "crestDb": 14.118,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "harp"
+    ],
+    "bass": [
+     "cellos"
+    ],
+    "doubling": [
+     "glock"
+    ],
+    "melody": [
+     "flute"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ],
+    "sparkle": [
+     "harp"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "board-b",
+   "extension": "m4a",
+   "title": "きしと おしろ",
+   "family": "board",
+   "seconds": 80.0,
+   "loop": true,
+   "sha256": "cbc0d7655f96a666495d0258fbc6f8491c937398220b0db3822de44385e04aa5",
+   "integratedLUFS": -26.9,
+   "truePeakDbtp": -10.4,
+   "lraLU": 3.3,
+   "shortTermMin": -30.7,
+   "shortTermP10": -28.7,
+   "shortTermMedian": -26.9,
+   "shortTermP90": -25.6,
+   "shortTermMax": -24.8,
+   "momentaryMax": -21.7,
+   "thirdsShortTermMedian": [
+    -27.1,
+    -26.9,
+    -26.8
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -27,
+   "previousLoudnormIntegrated": -26.99,
+   "placements": [
+    {
+     "rowId": "scene-41",
+     "scene": "ボード・テーブル 12本",
+     "game": "通常ミニゲーム",
+     "plannedVolume": "−4 dB"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -26.9,
+    "truePeakDbtp": -10.4,
+    "lraLU": 3.3
+   },
+   "flacMeter": {
+    "integratedLUFS": -26.9,
+    "truePeakDbtp": -10.4,
+    "lraLU": 3.3
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.447,
+     "monoLossDb": -0.055
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 13.703,
+     "monoLossDb": -0.391
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 68.214,
+     "monoLossDb": -1.26
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 17.59,
+     "monoLossDb": -1.855
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.046,
+     "monoLossDb": -0.86
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.0,
+     "monoLossDb": -0.837
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -28.2,
+    "truePeakDbtp": -12.8,
+    "lraLU": 2.9,
+    "integratedDeltaLU": -1.3,
+    "rmsDeltaDb": -1.217,
+    "channelCorrelation": 0.5351
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -28.4,
+     "truePeakDbtp": -12.6,
+     "lraLU": 3.2,
+     "deltaVsOriginalLU": -1.5
+    },
+    "small_250_8k": {
+     "integratedLUFS": -28.8,
+     "truePeakDbtp": -14.6,
+     "lraLU": 3.5,
+     "deltaVsOriginalLU": -1.9
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -29.3,
+     "truePeakDbtp": -15.3,
+     "lraLU": 3.5,
+     "deltaVsOriginalLU": -2.4
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -27.6,
+     "momentaryMax": -22.0,
+     "shortTermMedian": -26.2,
+     "shortTermMax": -25.3
+    },
+    "normal": {
+     "start": 8,
+     "end": 72.0,
+     "momentaryMedian": -27.1,
+     "momentaryMax": -21.7,
+     "shortTermMedian": -27.1,
+     "shortTermMax": -24.8
+    },
+    "climax": {
+     "start": 55.5,
+     "end": 58.501,
+     "momentaryMedian": -25.8,
+     "momentaryMax": -21.7,
+     "shortTermMedian": -26.6,
+     "shortTermMax": -24.8
+    },
+    "ending": {
+     "start": 72.0,
+     "end": 80.01,
+     "momentaryMedian": -27.25,
+     "momentaryMax": -22.1,
+     "shortTermMedian": -26.4,
+     "shortTermMax": -25.0
+    }
+   },
+   "crestDb": 19.326,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "piano"
+    ],
+    "bass": [
+     "woodbass"
+    ],
+    "counter": [
+     "clarinet"
+    ],
+    "melody": [
+     "piano"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ],
+    "response": [
+     "flute"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "fishing-a",
+   "extension": "m4a",
+   "title": "みずべの うたたね",
+   "family": "fishing",
+   "seconds": 45.714285714285715,
+   "loop": true,
+   "sha256": "f44f755a734607244f6ec6a23d5ac4c0cdcb6e08e2a478a0f6471bfc6d45ca80",
+   "integratedLUFS": -26.9,
+   "truePeakDbtp": -8.3,
+   "lraLU": 5.5,
+   "shortTermMin": -34.4,
+   "shortTermP10": -29.8,
+   "shortTermMedian": -26.8,
+   "shortTermP90": -25.0,
+   "shortTermMax": -23.6,
+   "momentaryMax": -20.8,
+   "thirdsShortTermMedian": [
+    -26.3,
+    -29.35,
+    -26.8
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -27,
+   "previousLoudnormIntegrated": -27.0,
+   "placements": [
+    {
+     "rowId": "scene-43",
+     "scene": "釣り 4本",
+     "game": "通常ミニゲーム",
+     "plannedVolume": "−4 dB"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -26.9,
+    "truePeakDbtp": -8.3,
+    "lraLU": 5.5
+   },
+   "flacMeter": {
+    "integratedLUFS": -26.8,
+    "truePeakDbtp": -8.5,
+    "lraLU": 5.4
+   },
+   "aacFlacIntegratedDelta": -0.1,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.201,
+     "monoLossDb": -0.067
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 12.882,
+     "monoLossDb": -0.527
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 58.169,
+     "monoLossDb": -0.859
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 28.71,
+     "monoLossDb": -2.418
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.037,
+     "monoLossDb": -0.786
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.0,
+     "monoLossDb": -0.914
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -28.1,
+    "truePeakDbtp": -10.1,
+    "lraLU": 4.4,
+    "integratedDeltaLU": -1.2,
+    "rmsDeltaDb": -1.2,
+    "channelCorrelation": 0.5408
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -28.3,
+     "truePeakDbtp": -10.6,
+     "lraLU": 4.4,
+     "deltaVsOriginalLU": -1.4
+    },
+    "small_250_8k": {
+     "integratedLUFS": -28.7,
+     "truePeakDbtp": -11.3,
+     "lraLU": 4.7,
+     "deltaVsOriginalLU": -1.8
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -29.2,
+     "truePeakDbtp": -11.9,
+     "lraLU": 5.1,
+     "deltaVsOriginalLU": -2.3
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -26.7,
+     "momentaryMax": -21.4,
+     "shortTermMedian": -25.5,
+     "shortTermMax": -24.9
+    },
+    "normal": {
+     "start": 8,
+     "end": 37.714,
+     "momentaryMedian": -28.8,
+     "momentaryMax": -20.8,
+     "shortTermMedian": -27.9,
+     "shortTermMax": -24.7
+    },
+    "climax": {
+     "start": 37.1,
+     "end": 40.101,
+     "momentaryMedian": -24.7,
+     "momentaryMax": -20.8,
+     "shortTermMedian": -24.4,
+     "shortTermMax": -23.6
+    },
+    "ending": {
+     "start": 37.714,
+     "end": 45.724,
+     "momentaryMedian": -27.5,
+     "momentaryMax": -21.5,
+     "shortTermMedian": -25.5,
+     "shortTermMax": -23.6
+    }
+   },
+   "crestDb": 21.544,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "piano"
+    ],
+    "bass": [
+     "cellos"
+    ],
+    "melody": [
+     "piano"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "lullaby-a",
+   "extension": "m4a",
+   "title": "ねむりの ほし",
+   "family": "sleep",
+   "seconds": 45.714285714285715,
+   "loop": true,
+   "sha256": "b2585f3df90e43530303089b33a3308f004152d7cdda13f44375bb8eccadc7bc",
+   "integratedLUFS": -30.9,
+   "truePeakDbtp": -11.0,
+   "lraLU": 3.2,
+   "shortTermMin": -35.3,
+   "shortTermP10": -32.0,
+   "shortTermMedian": -31.0,
+   "shortTermP90": -29.37,
+   "shortTermMax": -27.8,
+   "momentaryMax": -23.9,
+   "thirdsShortTermMedian": [
+    -31.1,
+    -30.75,
+    -31.0
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -31,
+   "previousLoudnormIntegrated": -31.0,
+   "placements": [
+    {
+     "rowId": "scene-07",
+     "scene": "睡眠（ねる〜おきる）",
+     "game": "ホーム",
+     "plannedVolume": "−8 dB"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -30.9,
+    "truePeakDbtp": -11.0,
+    "lraLU": 3.2
+   },
+   "flacMeter": {
+    "integratedLUFS": -30.9,
+    "truePeakDbtp": -11.0,
+    "lraLU": 3.2
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.001,
+     "monoLossDb": -0.292
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 9.527,
+     "monoLossDb": -1.133
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 81.756,
+     "monoLossDb": -1.124
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 8.491,
+     "monoLossDb": -0.581
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.224,
+     "monoLossDb": -0.306
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.001,
+     "monoLossDb": -0.796
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -31.9,
+    "truePeakDbtp": -14.1,
+    "lraLU": 3.1,
+    "integratedDeltaLU": -1.0,
+    "rmsDeltaDb": -1.072,
+    "channelCorrelation": 0.6073
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -32.0,
+     "truePeakDbtp": -14.2,
+     "lraLU": 3.2,
+     "deltaVsOriginalLU": -1.1
+    },
+    "small_250_8k": {
+     "integratedLUFS": -32.2,
+     "truePeakDbtp": -13.8,
+     "lraLU": 3.5,
+     "deltaVsOriginalLU": -1.3
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -32.6,
+     "truePeakDbtp": -14.1,
+     "lraLU": 4.1,
+     "deltaVsOriginalLU": -1.7
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -33.2,
+     "momentaryMax": -26.5,
+     "shortTermMedian": -31.3,
+     "shortTermMax": -30.5
+    },
+    "normal": {
+     "start": 8,
+     "end": 37.714,
+     "momentaryMedian": -32.7,
+     "momentaryMax": -24.4,
+     "shortTermMedian": -31.1,
+     "shortTermMax": -28.9
+    },
+    "climax": {
+     "start": 37.2,
+     "end": 40.201,
+     "momentaryMedian": -29.3,
+     "momentaryMax": -24.7,
+     "shortTermMedian": -29.4,
+     "shortTermMax": -27.8
+    },
+    "ending": {
+     "start": 37.714,
+     "end": 45.724,
+     "momentaryMedian": -34.75,
+     "momentaryMax": -23.9,
+     "shortTermMedian": -29.5,
+     "shortTermMax": -27.8
+    }
+   },
+   "crestDb": 22.548,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "piano"
+    ],
+    "bass": [
+     "cellos"
+    ],
+    "melody": [
+     "harp"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "jingle-achieve",
+   "extension": "m4a",
+   "title": "やったね",
+   "family": "celebrate",
+   "seconds": 9.2,
+   "loop": false,
+   "sha256": "e3919a741b1af2b2ca536a7a81dfe3c01939b1aed53f1f28da2f15a6fe7e8e41",
+   "integratedLUFS": -22.7,
+   "truePeakDbtp": -5.4,
+   "lraLU": 3.1,
+   "shortTermMin": -26.1,
+   "shortTermP10": -24.36,
+   "shortTermMedian": -22.3,
+   "shortTermP90": -21.7,
+   "shortTermMax": -21.5,
+   "momentaryMax": -19.5,
+   "thirdsShortTermMedian": [
+    -23.0,
+    -21.9,
+    -22.9
+   ],
+   "lraCaution": true,
+   "masteringTargetLUFS": -23,
+   "previousLoudnormIntegrated": -23.01,
+   "placements": [
+    {
+     "rowId": "scene-15",
+     "scene": "図鑑・実績の 達成（お知らせ）",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    },
+    {
+     "rowId": "scene-16",
+     "scene": "GAME CLEAR 画面（図鑑・すべての 実績）に とどまる 間",
+     "game": "ホーム",
+     "plannedVolume": "0 dB（ホーム基準）"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -22.7,
+    "truePeakDbtp": -5.4,
+    "lraLU": 3.1
+   },
+   "flacMeter": {
+    "integratedLUFS": -22.6,
+    "truePeakDbtp": -5.4,
+    "lraLU": 3.1
+   },
+   "aacFlacIntegratedDelta": -0.1,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.528,
+     "monoLossDb": -0.044
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 21.849,
+     "monoLossDb": -0.214
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 39.846,
+     "monoLossDb": -1.058
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 37.714,
+     "monoLossDb": -2.192
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.063,
+     "monoLossDb": -0.633
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.001,
+     "monoLossDb": -1.773
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -24.0,
+    "truePeakDbtp": -7.1,
+    "lraLU": 2.8,
+    "integratedDeltaLU": -1.3,
+    "rmsDeltaDb": -1.217,
+    "channelCorrelation": 0.5319
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -24.3,
+     "truePeakDbtp": -9.1,
+     "lraLU": 3.0,
+     "deltaVsOriginalLU": -1.6
+    },
+    "small_250_8k": {
+     "integratedLUFS": -24.8,
+     "truePeakDbtp": -11.1,
+     "lraLU": 3.3,
+     "deltaVsOriginalLU": -2.1
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -25.2,
+     "truePeakDbtp": -11.9,
+     "lraLU": 3.4,
+     "deltaVsOriginalLU": -2.5
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 3.067,
+     "momentaryMedian": -22.7,
+     "momentaryMax": -19.9,
+     "shortTermMedian": -23.0,
+     "shortTermMax": -23.0
+    },
+    "normal": {
+     "start": 3.067,
+     "end": 6.133,
+     "momentaryMedian": -22.0,
+     "momentaryMax": -19.5,
+     "shortTermMedian": -21.9,
+     "shortTermMax": -21.5
+    },
+    "climax": {
+     "start": 1.9,
+     "end": 4.901,
+     "momentaryMedian": -21.7,
+     "momentaryMax": -19.5,
+     "shortTermMedian": -22.45,
+     "shortTermMax": -21.5
+    },
+    "ending": {
+     "start": 6.133,
+     "end": 9.21,
+     "momentaryMedian": -25.8,
+     "momentaryMax": -22.0,
+     "shortTermMedian": -22.9,
+     "shortTermMax": -21.7
+    }
+   },
+   "crestDb": 20.683,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "harp"
+    ],
+    "bass": [
+     "woodbass"
+    ],
+    "doubling": [
+     "flute"
+    ],
+    "melody": [
+     "piano"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "jingle-card-lose",
+   "extension": "m4a",
+   "title": "つぎは かつぞ",
+   "family": "card",
+   "seconds": 6.2,
+   "loop": false,
+   "sha256": "7047f7d1b8d4b13b4567003deef2ad9710eceac125eb568629f1bc23cdea0665",
+   "integratedLUFS": -23.2,
+   "truePeakDbtp": -6.4,
+   "lraLU": 5.6,
+   "shortTermMin": -28.7,
+   "shortTermP10": -27.68,
+   "shortTermMedian": -24.0,
+   "shortTermP90": -22.22,
+   "shortTermMax": -21.4,
+   "momentaryMax": -18.5,
+   "thirdsShortTermMedian": [
+    null,
+    -22.3,
+    -25.0
+   ],
+   "lraCaution": true,
+   "masteringTargetLUFS": -24,
+   "previousLoudnormIntegrated": -24.01,
+   "placements": [
+    {
+     "rowId": "scene-36",
+     "scene": "敗北・引き分け",
+     "game": "CARD GAME",
+     "plannedVolume": "0 dB（ホーム基準）"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -23.2,
+    "truePeakDbtp": -6.4,
+    "lraLU": 5.6
+   },
+   "flacMeter": {
+    "integratedLUFS": -23.2,
+    "truePeakDbtp": -6.4,
+    "lraLU": 5.6
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.704,
+     "monoLossDb": -0.083
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 21.235,
+     "monoLossDb": -0.246
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 56.838,
+     "monoLossDb": -1.268
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 21.189,
+     "monoLossDb": -1.985
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.033,
+     "monoLossDb": -0.71
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.0,
+     "monoLossDb": -0.942
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -24.4,
+    "truePeakDbtp": -8.4,
+    "lraLU": 4.9,
+    "integratedDeltaLU": -1.2,
+    "rmsDeltaDb": -1.188,
+    "channelCorrelation": 0.5371
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -24.6,
+     "truePeakDbtp": -8.6,
+     "lraLU": 4.9,
+     "deltaVsOriginalLU": -1.4
+    },
+    "small_250_8k": {
+     "integratedLUFS": -25.2,
+     "truePeakDbtp": -8.8,
+     "lraLU": 5.0,
+     "deltaVsOriginalLU": -2.0
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -25.9,
+     "truePeakDbtp": -10.1,
+     "lraLU": 5.7,
+     "deltaVsOriginalLU": -2.7
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 2.067,
+     "momentaryMedian": -22.3,
+     "momentaryMax": -18.5,
+     "shortTermMedian": null,
+     "shortTermMax": null
+    },
+    "normal": {
+     "start": 2.067,
+     "end": 4.133,
+     "momentaryMedian": -23.6,
+     "momentaryMax": -19.9,
+     "shortTermMedian": -22.3,
+     "shortTermMax": -21.4
+    },
+    "climax": {
+     "start": 0,
+     "end": 3.001,
+     "momentaryMedian": -22.2,
+     "momentaryMax": -18.5,
+     "shortTermMedian": -21.4,
+     "shortTermMax": -21.4
+    },
+    "ending": {
+     "start": 4.133,
+     "end": 6.21,
+     "momentaryMedian": -33.1,
+     "momentaryMax": -24.3,
+     "shortTermMedian": -25.0,
+     "shortTermMax": -23.0
+    }
+   },
+   "crestDb": 20.098,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "cellopizz",
+     "marimba",
+     "piano"
+    ],
+    "bass": [
+     "woodbass"
+    ],
+    "melody": [
+     "piano"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "var-poyo-clear",
+   "extension": "m4a",
+   "title": "ぽよぽよこもれび（ステージクリア）",
+   "family": "poyo",
+   "seconds": 10.8,
+   "loop": false,
+   "sha256": "29663aed80bf78fec5590f03e13e8b7af9f16bfea31590cb722c25dbba4ffae9",
+   "integratedLUFS": -25.3,
+   "truePeakDbtp": -11.1,
+   "lraLU": 7.8,
+   "shortTermMin": -33.3,
+   "shortTermP10": -30.92,
+   "shortTermMedian": -24.8,
+   "shortTermP90": -23.3,
+   "shortTermMax": -23.1,
+   "momentaryMax": -19.2,
+   "thirdsShortTermMedian": [
+    -25.1,
+    -23.6,
+    -28.55
+   ],
+   "lraCaution": true,
+   "masteringTargetLUFS": -26,
+   "previousLoudnormIntegrated": -26.0,
+   "placements": [
+    {
+     "rowId": "scene-21",
+     "scene": "ステージクリア「みんな、おかえり。」",
+     "game": "なおぽよ。",
+     "plannedVolume": "0 dB（ホーム基準）"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -25.3,
+    "truePeakDbtp": -11.1,
+    "lraLU": 7.8
+   },
+   "flacMeter": {
+    "integratedLUFS": -25.3,
+    "truePeakDbtp": -11.1,
+    "lraLU": 7.8
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.28,
+     "monoLossDb": -0.079
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 20.148,
+     "monoLossDb": -0.284
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 58.364,
+     "monoLossDb": -1.533
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 21.145,
+     "monoLossDb": -1.298
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.063,
+     "monoLossDb": -1.392
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.0,
+     "monoLossDb": -1.514
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -26.6,
+    "truePeakDbtp": -12.8,
+    "lraLU": 6.7,
+    "integratedDeltaLU": -1.3,
+    "rmsDeltaDb": -1.23,
+    "channelCorrelation": 0.5263
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -26.9,
+     "truePeakDbtp": -13.9,
+     "lraLU": 6.9,
+     "deltaVsOriginalLU": -1.6
+    },
+    "small_250_8k": {
+     "integratedLUFS": -27.3,
+     "truePeakDbtp": -14.4,
+     "lraLU": 8.0,
+     "deltaVsOriginalLU": -2.0
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -27.3,
+     "truePeakDbtp": -14.9,
+     "lraLU": 9.2,
+     "deltaVsOriginalLU": -2.0
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 3.6,
+     "momentaryMedian": -26.0,
+     "momentaryMax": -20.8,
+     "shortTermMedian": -25.1,
+     "shortTermMax": -24.6
+    },
+    "normal": {
+     "start": 3.6,
+     "end": 7.2,
+     "momentaryMedian": -24.0,
+     "momentaryMax": -19.2,
+     "shortTermMedian": -23.6,
+     "shortTermMax": -23.1
+    },
+    "climax": {
+     "start": 3.5,
+     "end": 6.501,
+     "momentaryMedian": -23.15,
+     "momentaryMax": -19.2,
+     "shortTermMedian": -23.6,
+     "shortTermMax": -23.1
+    },
+    "ending": {
+     "start": 7.2,
+     "end": 10.81,
+     "momentaryMedian": -32.1,
+     "momentaryMax": -26.5,
+     "shortTermMedian": -28.55,
+     "shortTermMax": -24.7
+    }
+   },
+   "crestDb": 17.313,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "harp"
+    ],
+    "bass": [
+     "woodbass"
+    ],
+    "melody": [
+     "marimba"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "var-poyo-chapter",
+   "extension": "m4a",
+   "title": "ぽよぽよこもれび（章の おわり）",
+   "family": "poyo",
+   "seconds": 48.0,
+   "loop": true,
+   "sha256": "e0101ea87248920b33c60bcf00a7425db5d7ca9d54198cdebed9fd678b90dddc",
+   "integratedLUFS": -24.8,
+   "truePeakDbtp": -9.9,
+   "lraLU": 4.0,
+   "shortTermMin": -30.5,
+   "shortTermP10": -27.1,
+   "shortTermMedian": -24.5,
+   "shortTermP90": -23.5,
+   "shortTermMax": -22.6,
+   "momentaryMax": -19.2,
+   "thirdsShortTermMedian": [
+    -24.5,
+    -24.5,
+    -24.3
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -25,
+   "previousLoudnormIntegrated": -25.0,
+   "placements": [
+    {
+     "rowId": "scene-22",
+     "scene": "第1章クリア（地下牢を ぬけて 光へ）",
+     "game": "なおぽよ。",
+     "plannedVolume": "0 dB（ホーム基準）"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -24.8,
+    "truePeakDbtp": -9.9,
+    "lraLU": 4.0
+   },
+   "flacMeter": {
+    "integratedLUFS": -24.8,
+    "truePeakDbtp": -9.8,
+    "lraLU": 4.0
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.214,
+     "monoLossDb": -0.044
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 19.946,
+     "monoLossDb": -0.231
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 53.672,
+     "monoLossDb": -1.506
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 26.107,
+     "monoLossDb": -1.489
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.061,
+     "monoLossDb": -1.076
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.0,
+     "monoLossDb": -0.928
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -26.1,
+    "truePeakDbtp": -11.1,
+    "lraLU": 3.5,
+    "integratedDeltaLU": -1.3,
+    "rmsDeltaDb": -1.218,
+    "channelCorrelation": 0.5332
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -26.4,
+     "truePeakDbtp": -12.3,
+     "lraLU": 3.6,
+     "deltaVsOriginalLU": -1.6
+    },
+    "small_250_8k": {
+     "integratedLUFS": -26.5,
+     "truePeakDbtp": -13.0,
+     "lraLU": 3.9,
+     "deltaVsOriginalLU": -1.7
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -26.4,
+     "truePeakDbtp": -12.7,
+     "lraLU": 4.1,
+     "deltaVsOriginalLU": -1.6
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -25.2,
+     "momentaryMax": -20.1,
+     "shortTermMedian": -24.5,
+     "shortTermMax": -24.1
+    },
+    "normal": {
+     "start": 8,
+     "end": 40.0,
+     "momentaryMedian": -25.45,
+     "momentaryMax": -19.7,
+     "shortTermMedian": -24.5,
+     "shortTermMax": -23.1
+    },
+    "climax": {
+     "start": 40.5,
+     "end": 43.501,
+     "momentaryMedian": -22.6,
+     "momentaryMax": -19.2,
+     "shortTermMedian": -23.1,
+     "shortTermMax": -22.6
+    },
+    "ending": {
+     "start": 40.0,
+     "end": 48.01,
+     "momentaryMedian": -28.5,
+     "momentaryMax": -19.2,
+     "shortTermMedian": -24.2,
+     "shortTermMax": -22.6
+    }
+   },
+   "crestDb": 17.715,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "harp"
+    ],
+    "bass": [
+     "woodbass"
+    ],
+    "melody": [
+     "marimba"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "var-koro-goal",
+   "extension": "m4a",
+   "title": "ころころじんせい（ゴール）",
+   "family": "koro",
+   "seconds": 9.771428571428572,
+   "loop": false,
+   "sha256": "f85bcb3f61674e244a4bef7c6f054d4815d4d6f41de33ed43bf071ae83c9eb79",
+   "integratedLUFS": -22.4,
+   "truePeakDbtp": -6.7,
+   "lraLU": 6.0,
+   "shortTermMin": -30.3,
+   "shortTermP10": -26.22,
+   "shortTermMedian": -22.6,
+   "shortTermP90": -20.6,
+   "shortTermMax": -20.4,
+   "momentaryMax": -18.4,
+   "thirdsShortTermMedian": [
+    -20.8,
+    -21.3,
+    -24.2
+   ],
+   "lraCaution": true,
+   "masteringTargetLUFS": -23,
+   "previousLoudnormIntegrated": -22.99,
+   "placements": [
+    {
+     "rowId": "scene-29",
+     "scene": "最終ターンの ゴール",
+     "game": "なおころ。",
+     "plannedVolume": "0 dB（ホーム基準）"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -22.4,
+    "truePeakDbtp": -6.7,
+    "lraLU": 6.0
+   },
+   "flacMeter": {
+    "integratedLUFS": -22.3,
+    "truePeakDbtp": -6.6,
+    "lraLU": 6.0
+   },
+   "aacFlacIntegratedDelta": -0.1,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.314,
+     "monoLossDb": -0.049
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 18.242,
+     "monoLossDb": -0.223
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 56.286,
+     "monoLossDb": -1.151
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 25.101,
+     "monoLossDb": -2.369
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.057,
+     "monoLossDb": -0.766
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.0,
+     "monoLossDb": -2.16
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -23.7,
+    "truePeakDbtp": -8.6,
+    "lraLU": 4.9,
+    "integratedDeltaLU": -1.3,
+    "rmsDeltaDb": -1.218,
+    "channelCorrelation": 0.5252
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -24.0,
+     "truePeakDbtp": -8.8,
+     "lraLU": 5.6,
+     "deltaVsOriginalLU": -1.6
+    },
+    "small_250_8k": {
+     "integratedLUFS": -24.6,
+     "truePeakDbtp": -9.9,
+     "lraLU": 6.5,
+     "deltaVsOriginalLU": -2.2
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -25.1,
+     "truePeakDbtp": -10.9,
+     "lraLU": 7.2,
+     "deltaVsOriginalLU": -2.7
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 3.257,
+     "momentaryMedian": -20.8,
+     "momentaryMax": -18.4,
+     "shortTermMedian": -20.8,
+     "shortTermMax": -20.8
+    },
+    "normal": {
+     "start": 3.257,
+     "end": 6.514,
+     "momentaryMedian": -22.7,
+     "momentaryMax": -18.6,
+     "shortTermMedian": -21.3,
+     "shortTermMax": -20.4
+    },
+    "climax": {
+     "start": 0.4,
+     "end": 3.401,
+     "momentaryMedian": -20.7,
+     "momentaryMax": -18.4,
+     "shortTermMedian": -20.8,
+     "shortTermMax": -20.4
+    },
+    "ending": {
+     "start": 6.514,
+     "end": 9.781,
+     "momentaryMedian": -29.1,
+     "momentaryMax": -20.6,
+     "shortTermMedian": -24.2,
+     "shortTermMax": -22.6
+    }
+   },
+   "crestDb": 19.06,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "harp"
+    ],
+    "bass": [
+     "woodbass"
+    ],
+    "melody": [
+     "piano"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "var-koro-album",
+   "extension": "m4a",
+   "title": "ころころじんせい（人生アルバム）",
+   "family": "koro",
+   "seconds": 45.714285714285715,
+   "loop": true,
+   "sha256": "01b1bc329e68d8a564ee9fcf7dd92b8efe6f7372209fde82c8acc417fdde25c7",
+   "integratedLUFS": -24.8,
+   "truePeakDbtp": -6.6,
+   "lraLU": 3.6,
+   "shortTermMin": -28.8,
+   "shortTermP10": -26.43,
+   "shortTermMedian": -24.8,
+   "shortTermP90": -23.4,
+   "shortTermMax": -22.1,
+   "momentaryMax": -19.7,
+   "thirdsShortTermMedian": [
+    -25.3,
+    -24.3,
+    -25.0
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -25,
+   "previousLoudnormIntegrated": -24.99,
+   "placements": [
+    {
+     "rowId": "scene-31",
+     "scene": "人生アルバム「こんな人生に、なりました。」・過去の アルバム",
+     "game": "なおころ。",
+     "plannedVolume": "0 dB（ホーム基準）"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -24.8,
+    "truePeakDbtp": -6.6,
+    "lraLU": 3.6
+   },
+   "flacMeter": {
+    "integratedLUFS": -24.8,
+    "truePeakDbtp": -6.6,
+    "lraLU": 3.6
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.36,
+     "monoLossDb": -0.048
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 16.477,
+     "monoLossDb": -0.22
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 60.473,
+     "monoLossDb": -1.226
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 22.639,
+     "monoLossDb": -2.099
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.051,
+     "monoLossDb": -0.671
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.0,
+     "monoLossDb": -0.76
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -26.1,
+    "truePeakDbtp": -8.8,
+    "lraLU": 2.6,
+    "integratedDeltaLU": -1.3,
+    "rmsDeltaDb": -1.211,
+    "channelCorrelation": 0.5302
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -26.3,
+     "truePeakDbtp": -9.8,
+     "lraLU": 2.7,
+     "deltaVsOriginalLU": -1.5
+    },
+    "small_250_8k": {
+     "integratedLUFS": -26.8,
+     "truePeakDbtp": -11.2,
+     "lraLU": 3.0,
+     "deltaVsOriginalLU": -2.0
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -27.3,
+     "truePeakDbtp": -11.9,
+     "lraLU": 3.2,
+     "deltaVsOriginalLU": -2.5
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -24.7,
+     "momentaryMax": -21.4,
+     "shortTermMedian": -24.6,
+     "shortTermMax": -23.6
+    },
+    "normal": {
+     "start": 8,
+     "end": 37.714,
+     "momentaryMedian": -25.2,
+     "momentaryMax": -19.7,
+     "shortTermMedian": -24.9,
+     "shortTermMax": -22.4
+    },
+    "climax": {
+     "start": 35.7,
+     "end": 38.701,
+     "momentaryMedian": -22.0,
+     "momentaryMax": -19.7,
+     "shortTermMedian": -23.2,
+     "shortTermMax": -22.1
+    },
+    "ending": {
+     "start": 37.714,
+     "end": 45.724,
+     "momentaryMedian": -26.8,
+     "momentaryMax": -20.9,
+     "shortTermMedian": -25.25,
+     "shortTermMax": -22.1
+    }
+   },
+   "crestDb": 21.13,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "harp"
+    ],
+    "bass": [
+     "woodbass"
+    ],
+    "melody": [
+     "piano"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "var-card-late",
+   "extension": "m4a",
+   "title": "デュエル・スタート（終盤）",
+   "family": "card",
+   "seconds": 73.84614512471656,
+   "loop": true,
+   "sha256": "17bddddc581488ca3bd7d533acff5ef9dceb3d7f7b5b8c7319843904c700a23d",
+   "integratedLUFS": -24.0,
+   "truePeakDbtp": -5.6,
+   "lraLU": 3.8,
+   "shortTermMin": -26.6,
+   "shortTermP10": -25.6,
+   "shortTermMedian": -24.4,
+   "shortTermP90": -22.1,
+   "shortTermMax": -21.2,
+   "momentaryMax": -18.4,
+   "thirdsShortTermMedian": [
+    -24.2,
+    -24.5,
+    -24.3
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -24,
+   "previousLoudnormIntegrated": -24.0,
+   "placements": [
+    {
+     "rowId": "scene-34",
+     "scene": "終盤の 逆転（ラウンド 9〜10・そだち100 目前）",
+     "game": "CARD GAME",
+     "plannedVolume": "0 dB（ホーム基準）"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -24.0,
+    "truePeakDbtp": -5.6,
+    "lraLU": 3.8
+   },
+   "flacMeter": {
+    "integratedLUFS": -23.9,
+    "truePeakDbtp": -5.7,
+    "lraLU": 3.8
+   },
+   "aacFlacIntegratedDelta": -0.1,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.946,
+     "monoLossDb": -0.026
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 19.544,
+     "monoLossDb": -0.283
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 53.591,
+     "monoLossDb": -1.214
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 25.72,
+     "monoLossDb": -2.068
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.199,
+     "monoLossDb": -0.345
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.001,
+     "monoLossDb": -0.74
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -25.2,
+    "truePeakDbtp": -7.6,
+    "lraLU": 3.1,
+    "integratedDeltaLU": -1.2,
+    "rmsDeltaDb": -1.193,
+    "channelCorrelation": 0.5328
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -25.6,
+     "truePeakDbtp": -8.1,
+     "lraLU": 3.2,
+     "deltaVsOriginalLU": -1.6
+    },
+    "small_250_8k": {
+     "integratedLUFS": -26.2,
+     "truePeakDbtp": -9.7,
+     "lraLU": 3.3,
+     "deltaVsOriginalLU": -2.2
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -26.7,
+     "truePeakDbtp": -10.8,
+     "lraLU": 3.4,
+     "deltaVsOriginalLU": -2.7
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -24.7,
+     "momentaryMax": -21.8,
+     "shortTermMedian": -25.0,
+     "shortTermMax": -24.8
+    },
+    "normal": {
+     "start": 8,
+     "end": 65.846,
+     "momentaryMedian": -24.2,
+     "momentaryMax": -18.9,
+     "shortTermMedian": -24.45,
+     "shortTermMax": -21.2
+    },
+    "climax": {
+     "start": 41.9,
+     "end": 44.901,
+     "momentaryMedian": -21.6,
+     "momentaryMax": -18.9,
+     "shortTermMedian": -22.2,
+     "shortTermMax": -21.2
+    },
+    "ending": {
+     "start": 65.846,
+     "end": 73.856,
+     "momentaryMedian": -22.9,
+     "momentaryMax": -18.4,
+     "shortTermMedian": -22.4,
+     "shortTermMax": -21.3
+    }
+   },
+   "crestDb": 21.221,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "cellopizz",
+     "marimba",
+     "piano"
+    ],
+    "bass": [
+     "woodbass"
+    ],
+    "doubling": [
+     "marimba"
+    ],
+    "melody": [
+     "piano"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ],
+    "percussion": [
+     "kick",
+     "snare"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "var-card-win",
+   "extension": "m4a",
+   "title": "デュエル・スタート（勝利）",
+   "family": "card",
+   "seconds": 8.156530612244898,
+   "loop": false,
+   "sha256": "c15031fe1eac17707546d0ec191b725cbde5cb52f24478e6209219906285c51f",
+   "integratedLUFS": -23.3,
+   "truePeakDbtp": -9.5,
+   "lraLU": 5.1,
+   "shortTermMin": -28.6,
+   "shortTermP10": -26.99,
+   "shortTermMedian": -22.65,
+   "shortTermP90": -22.11,
+   "shortTermMax": -22.0,
+   "momentaryMax": -19.8,
+   "thirdsShortTermMedian": [
+    null,
+    -22.3,
+    -24.2
+   ],
+   "lraCaution": true,
+   "masteringTargetLUFS": -24,
+   "previousLoudnormIntegrated": -24.0,
+   "placements": [
+    {
+     "rowId": "scene-35",
+     "scene": "勝利",
+     "game": "CARD GAME",
+     "plannedVolume": "0 dB（ホーム基準）"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -23.3,
+    "truePeakDbtp": -9.5,
+    "lraLU": 5.1
+   },
+   "flacMeter": {
+    "integratedLUFS": -23.3,
+    "truePeakDbtp": -9.0,
+    "lraLU": 5.1
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.698,
+     "monoLossDb": -0.032
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 18.823,
+     "monoLossDb": -0.203
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 52.892,
+     "monoLossDb": -1.158
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 27.436,
+     "monoLossDb": -2.121
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.15,
+     "monoLossDb": -0.32
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.0,
+     "monoLossDb": -1.551
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -24.6,
+    "truePeakDbtp": -10.8,
+    "lraLU": 4.2,
+    "integratedDeltaLU": -1.3,
+    "rmsDeltaDb": -1.192,
+    "channelCorrelation": 0.534
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -24.8,
+     "truePeakDbtp": -10.9,
+     "lraLU": 4.1,
+     "deltaVsOriginalLU": -1.5
+    },
+    "small_250_8k": {
+     "integratedLUFS": -25.4,
+     "truePeakDbtp": -10.5,
+     "lraLU": 4.2,
+     "deltaVsOriginalLU": -2.1
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -26.1,
+     "truePeakDbtp": -11.6,
+     "lraLU": 4.6,
+     "deltaVsOriginalLU": -2.8
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 2.719,
+     "momentaryMedian": -22.55,
+     "momentaryMax": -19.8,
+     "shortTermMedian": null,
+     "shortTermMax": null
+    },
+    "normal": {
+     "start": 2.719,
+     "end": 5.438,
+     "momentaryMedian": -21.7,
+     "momentaryMax": -20.0,
+     "shortTermMedian": -22.3,
+     "shortTermMax": -22.0
+    },
+    "climax": {
+     "start": 0,
+     "end": 3.001,
+     "momentaryMedian": -22.5,
+     "momentaryMax": -19.8,
+     "shortTermMedian": -22.0,
+     "shortTermMax": -22.0
+    },
+    "ending": {
+     "start": 5.438,
+     "end": 8.167,
+     "momentaryMedian": -28.6,
+     "momentaryMax": -24.4,
+     "shortTermMedian": -24.2,
+     "shortTermMax": -22.5
+    }
+   },
+   "crestDb": 17.051,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "cellopizz",
+     "marimba",
+     "piano"
+    ],
+    "bass": [
+     "woodbass"
+    ],
+    "melody": [
+     "piano"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ],
+    "percussion": [
+     "kick",
+     "snare"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "var-flight",
+   "extension": "m4a",
+   "title": "そらとうみのさんぽ（きらめき・はやめ）",
+   "family": "flight",
+   "seconds": 64.0,
+   "loop": true,
+   "sha256": "8cd4d8f1c62e4a68bdee8c25bd55a68d685e4d2c43ea8eee57d376833ce34eda",
+   "integratedLUFS": -23.9,
+   "truePeakDbtp": -12.7,
+   "lraLU": 2.7,
+   "shortTermMin": -27.1,
+   "shortTermP10": -25.1,
+   "shortTermMedian": -23.9,
+   "shortTermP90": -22.6,
+   "shortTermMax": -22.1,
+   "momentaryMax": -20.3,
+   "thirdsShortTermMedian": [
+    -24.4,
+    -24.2,
+    -23.2
+   ],
+   "lraCaution": false,
+   "masteringTargetLUFS": -24,
+   "previousLoudnormIntegrated": -24.0,
+   "placements": [
+    {
+     "rowId": "scene-46",
+     "scene": "飛行・海 7本",
+     "game": "3D ゲーム",
+     "plannedVolume": "−2 dB"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -23.9,
+    "truePeakDbtp": -12.7,
+    "lraLU": 2.7
+   },
+   "flacMeter": {
+    "integratedLUFS": -23.9,
+    "truePeakDbtp": -12.7,
+    "lraLU": 2.7
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.001,
+     "monoLossDb": -0.421
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 18.429,
+     "monoLossDb": -0.579
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 66.307,
+     "monoLossDb": -1.614
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 14.295,
+     "monoLossDb": -0.406
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 0.961,
+     "monoLossDb": -0.141
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.009,
+     "monoLossDb": -0.18
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -25.1,
+    "truePeakDbtp": -14.1,
+    "lraLU": 3.2,
+    "integratedDeltaLU": -1.2,
+    "rmsDeltaDb": -1.202,
+    "channelCorrelation": 0.5485
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -25.3,
+     "truePeakDbtp": -14.8,
+     "lraLU": 3.2,
+     "deltaVsOriginalLU": -1.4
+    },
+    "small_250_8k": {
+     "integratedLUFS": -25.9,
+     "truePeakDbtp": -16.5,
+     "lraLU": 3.6,
+     "deltaVsOriginalLU": -2.0
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -26.4,
+     "truePeakDbtp": -17.5,
+     "lraLU": 4.2,
+     "deltaVsOriginalLU": -2.5
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 8,
+     "momentaryMedian": -24.9,
+     "momentaryMax": -22.2,
+     "shortTermMedian": -24.5,
+     "shortTermMax": -24.1
+    },
+    "normal": {
+     "start": 8,
+     "end": 56.0,
+     "momentaryMedian": -24.0,
+     "momentaryMax": -20.5,
+     "shortTermMedian": -23.9,
+     "shortTermMax": -22.4
+    },
+    "climax": {
+     "start": 56.5,
+     "end": 59.501,
+     "momentaryMedian": -22.6,
+     "momentaryMax": -20.3,
+     "shortTermMedian": -23.0,
+     "shortTermMax": -22.1
+    },
+    "ending": {
+     "start": 56.0,
+     "end": 64.01,
+     "momentaryMedian": -23.5,
+     "momentaryMax": -20.3,
+     "shortTermMedian": -23.0,
+     "shortTermMax": -22.1
+    }
+   },
+   "crestDb": 13.956,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "harp"
+    ],
+    "bass": [
+     "cellos"
+    ],
+    "doubling": [
+     "glock"
+    ],
+    "melody": [
+     "flute"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ],
+    "sparkle": [
+     "harp"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  },
+  {
+   "id": "var-ohayo-hatch2",
+   "extension": "m4a",
+   "title": "おはようのひかり（たまごが かえる・ファンファーレ 2小節）",
+   "family": "hatch",
+   "seconds": 6.75,
+   "loop": false,
+   "sha256": "1d95d59a0a235be39ab12386f7cb3e5ac5fb2722f317f5810903d68d711586be",
+   "integratedLUFS": -18.4,
+   "truePeakDbtp": -6.4,
+   "lraLU": 2.9,
+   "shortTermMin": -20.9,
+   "shortTermP10": -19.86,
+   "shortTermMedian": -17.6,
+   "shortTermP90": -17.1,
+   "shortTermMax": -17.1,
+   "momentaryMax": -16.2,
+   "thirdsShortTermMedian": [
+    null,
+    -17.2,
+    -18.45
+   ],
+   "lraCaution": true,
+   "masteringTargetLUFS": -19,
+   "previousLoudnormIntegrated": -18.99,
+   "placements": [
+    {
+     "rowId": "scene-13",
+     "scene": "たまごが かえる しゅんかん",
+     "game": "ホーム",
+     "plannedVolume": "ファンファーレは ホーム曲より 約 +4 dB（はっきり 聞こえる 大きさ）。ホーム曲は −14 dB に 下げる"
+    }
+   ],
+   "playbackRegion": {
+    "integratedLUFS": -18.4,
+    "truePeakDbtp": -6.4,
+    "lraLU": 2.9
+   },
+   "flacMeter": {
+    "integratedLUFS": -18.4,
+    "truePeakDbtp": -6.5,
+    "lraLU": 3.0
+   },
+   "aacFlacIntegratedDelta": 0.0,
+   "bandEnergy": [
+    {
+     "hz": [
+      20,
+      80
+     ],
+     "stereoEnergyPct": 0.24,
+     "monoLossDb": -0.01
+    },
+    {
+     "hz": [
+      80,
+      250
+     ],
+     "stereoEnergyPct": 12.171,
+     "monoLossDb": -0.256
+    },
+    {
+     "hz": [
+      250,
+      1000
+     ],
+     "stereoEnergyPct": 60.314,
+     "monoLossDb": -0.38
+    },
+    {
+     "hz": [
+      1000,
+      4000
+     ],
+     "stereoEnergyPct": 26.052,
+     "monoLossDb": -0.232
+    },
+    {
+     "hz": [
+      4000,
+      10000
+     ],
+     "stereoEnergyPct": 1.219,
+     "monoLossDb": -0.354
+    },
+    {
+     "hz": [
+      10000,
+      20000
+     ],
+     "stereoEnergyPct": 0.004,
+     "monoLossDb": -0.494
+    }
+   ],
+   "mono": {
+    "integratedLUFS": -18.7,
+    "truePeakDbtp": -7.3,
+    "lraLU": 3.2,
+    "integratedDeltaLU": -0.3,
+    "rmsDeltaDb": -0.322,
+    "channelCorrelation": 0.8579
+   },
+   "speakerModels": {
+    "wide_120_12k": {
+     "integratedLUFS": -18.9,
+     "truePeakDbtp": -8.2,
+     "lraLU": 3.1,
+     "deltaVsOriginalLU": -0.5
+    },
+    "small_250_8k": {
+     "integratedLUFS": -19.3,
+     "truePeakDbtp": -10.1,
+     "lraLU": 3.1,
+     "deltaVsOriginalLU": -0.9
+    },
+    "limited_400_6k": {
+     "integratedLUFS": -19.9,
+     "truePeakDbtp": -9.8,
+     "lraLU": 3.3,
+     "deltaVsOriginalLU": -1.5
+    }
+   },
+   "sections": {
+    "intro": {
+     "start": 0,
+     "end": 2.25,
+     "momentaryMedian": -17.6,
+     "momentaryMax": -16.4,
+     "shortTermMedian": null,
+     "shortTermMax": null
+    },
+    "normal": {
+     "start": 2.25,
+     "end": 4.5,
+     "momentaryMedian": -17.2,
+     "momentaryMax": -16.2,
+     "shortTermMedian": -17.2,
+     "shortTermMax": -17.1
+    },
+    "climax": {
+     "start": 0.6,
+     "end": 3.601,
+     "momentaryMedian": -17.3,
+     "momentaryMax": -16.2,
+     "shortTermMedian": -17.3,
+     "shortTermMax": -17.1
+    },
+    "ending": {
+     "start": 4.5,
+     "end": 6.76,
+     "momentaryMedian": -23.05,
+     "momentaryMax": -18.9,
+     "shortTermMedian": -18.45,
+     "shortTermMax": -17.4
+    }
+   },
+   "crestDb": 15.408,
+   "individualGainDb": 0,
+   "scoreInstrumentRoles": {
+    "accompaniment": [
+     "piano",
+     "trumpet"
+    ],
+    "bass": [
+     "woodbass"
+    ],
+    "cadence": [
+     "harp",
+     "trumpet"
+    ],
+    "doubling": [
+     "glock"
+    ],
+    "melody": [
+     "trumpet"
+    ],
+    "pad": [
+     "violas",
+     "violins"
+    ],
+    "percussion": [
+     "kick",
+     "shell",
+     "snarehit",
+     "timpani"
+    ]
+   },
+   "polyphonyNote": "Score role/instrument labels only; no separated-stem masking estimate. Cellos bass in five lyrical tracks uses Karoryfer per receipt."
+  }
+ ]
+}
