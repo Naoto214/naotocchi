@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "fingerprint": "c445757c7da43ccaaa5546e8c1ce0b9eb5e19aefb3974cd7a9796d76873f460c",
+  "analysis": {
+    "basis": "Imported passed PR549/550 measurements with exact pinned Git blob and SHA256 match; no new rendering or measurement claim",
+    "aac": {
+      "integratedLUFS": -27.0,
+      "truePeakDbtp": -16.5,
+      "lraLU": 2.3,
+      "momentaryMax": -24.0,
+      "shortTermMax": -25.3
+    },
+    "originalReceipt": "music/provenance/receipts/poyo-2.json"
+  },
+  "checkedAt": "2026-11-14"
+}

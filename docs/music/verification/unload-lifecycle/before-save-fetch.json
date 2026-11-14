@@ -1,0 +1,27 @@
+[
+  {
+    "lifecycle": "beforeunload",
+    "url": "assets/bgm/jingle-achieve.m4a?v=e3919a741b1a",
+    "stack": "@web-inspector://bootstrap.js:686:468\nload@http://127.0.0.1:32807/bgm-v2.js:68:22\njingle@http://127.0.0.1:32807/bgm-v2.js:114:18\nbgmJingle@http://127.0.0.1:32807/audio.js:340:119\nshowStoryEvent@http://127.0.0.1:32807/release-qa-script.js:11666:71\nhomeV11DrainUpper@http://127.0.0.1:32807/release-qa-script.js:11470:36\nhomeV11Upper@http://127.0.0.1:32807/release-qa-script.js:11462:47\nshowStoryEvent@http://127.0.0.1:32807/release-qa-script.js:11653:22\ncheckAchievements@http://127.0.0.1:32807/release-qa-script.js:2440:38\nsaveState@http://127.0.0.1:32807/release-qa-script.js:2873:22\n@http://127.0.0.1:32807/release-qa-script.js:20385:14"
+  },
+  {
+    "lifecycle": "beforeunload",
+    "url": "assets/bgm/jingle-achieve.m4a?v=e3919a741b1a",
+    "stack": "@web-inspector://bootstrap.js:686:468\nload@http://127.0.0.1:32807/bgm-v2.js:68:22\njingle@http://127.0.0.1:32807/bgm-v2.js:114:18\nbgmJingle@http://127.0.0.1:32807/audio.js:340:119\nshowStoryEvent@http://127.0.0.1:32807/release-qa-script.js:11666:71\nhomeV11DrainUpper@http://127.0.0.1:32807/release-qa-script.js:11470:36\nhomeV11Upper@http://127.0.0.1:32807/release-qa-script.js:11462:47\nshowStoryEvent@http://127.0.0.1:32807/release-qa-script.js:11653:22\ncheckAchievements@http://127.0.0.1:32807/release-qa-script.js:2440:38\nsaveState@http://127.0.0.1:32807/release-qa-script.js:2873:22\n@http://127.0.0.1:32807/release-qa-script.js:20385:14"
+  },
+  {
+    "lifecycle": "beforeunload",
+    "url": "assets/bgm/jingle-achieve.m4a?v=e3919a741b1a",
+    "stack": "@web-inspector://bootstrap.js:686:468\nload@http://127.0.0.1:32807/bgm-v2.js:68:22\njingle@http://127.0.0.1:32807/bgm-v2.js:114:18\nbgmJingle@http://127.0.0.1:32807/audio.js:340:119\nshowStoryEvent@http://127.0.0.1:32807/release-qa-script.js:11666:71\nhomeV11DrainUpper@http://127.0.0.1:32807/release-qa-script.js:11470:36\nhomeV11Upper@http://127.0.0.1:32807/release-qa-script.js:11462:47\nshowStoryEvent@http://127.0.0.1:32807/release-qa-script.js:11653:22\ncheckAchievements@http://127.0.0.1:32807/release-qa-script.js:2440:38\nsaveState@http://127.0.0.1:32807/release-qa-script.js:2873:22\n@http://127.0.0.1:32807/release-qa-script.js:20385:14"
+  },
+  {
+    "lifecycle": "beforeunload",
+    "url": "assets/bgm/jingle-achieve.m4a?v=e3919a741b1a",
+    "stack": "@web-inspector://bootstrap.js:686:468\nload@http://127.0.0.1:32807/bgm-v2.js:68:22\njingle@http://127.0.0.1:32807/bgm-v2.js:114:18\nbgmJingle@http://127.0.0.1:32807/audio.js:340:119\nshowStoryEvent@http://127.0.0.1:32807/release-qa-script.js:11666:71\nhomeV11DrainUpper@http://127.0.0.1:32807/release-qa-script.js:11470:36\nhomeV11Upper@http://127.0.0.1:32807/release-qa-script.js:11462:47\nshowStoryEvent@http://127.0.0.1:32807/release-qa-script.js:11653:22\ncheckAchievements@http://127.0.0.1:32807/release-qa-script.js:2440:38\nsaveState@http://127.0.0.1:32807/release-qa-script.js:2873:22\n@http://127.0.0.1:32807/release-qa-script.js:20385:14"
+  },
+  {
+    "lifecycle": "beforeunload",
+    "url": "assets/bgm/jingle-achieve.m4a?v=e3919a741b1a",
+    "stack": "@web-inspector://bootstrap.js:686:468\nload@http://127.0.0.1:32807/bgm-v2.js:68:22\njingle@http://127.0.0.1:32807/bgm-v2.js:114:18\nbgmJingle@http://127.0.0.1:32807/audio.js:340:119\nshowStoryEvent@http://127.0.0.1:32807/release-qa-script.js:11666:71\nhomeV11DrainUpper@http://127.0.0.1:32807/release-qa-script.js:11470:36\nhomeV11Upper@http://127.0.0.1:32807/release-qa-script.js:11462:47\nshowStoryEvent@http://127.0.0.1:32807/release-qa-script.js:11653:22\ncheckAchievements@http://127.0.0.1:32807/release-qa-script.js:2440:38\nsaveState@http://127.0.0.1:32807/release-qa-script.js:2873:22\n@http://127.0.0.1:32807/release-qa-script.js:20385:14"
+  }
+]

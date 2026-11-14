@@ -1,0 +1,16 @@
+{
+  "version": "v7-adoption-1",
+  "sampleRate": 44100,
+  "maximumTruePeakDbtp": -1.0,
+  "maximumClippedSamples": 0,
+  "maximumDurationDeltaSeconds": 0.1,
+  "minimumCodecCorrelation": 0.98,
+  "maximumCodecRmsDeltaDb": 0.5,
+  "alignmentSearchSamples": 1024,
+  "loopJumpFloor": 0.08,
+  "loopJumpStepMultiplier": 2.0,
+  "commonPlaybackGain": 0.36,
+  "individualGainDb": 0,
+  "guidanceLUFS": {"home": [-24, -22], "sleep": [-32, -29], "lyrical": [-28, -23], "game": [-27, -23], "jingle": [-26, -18]},
+  "guidanceOnly": "Use duration, role and transitions; never normalize automatically. Preserve within-track dynamics. Approved32 measurements are imported with exact source hashes, not remastered."
+}

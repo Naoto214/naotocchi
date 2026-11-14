@@ -1,0 +1,12 @@
+AssertionError [ERR_ASSERTION]: native navigation must not start an achievement fetch
+
+1 !== 0
+
+    at /workspace/work/bgm-v7-strings/tests/music/test_navigation.cjs:26:12 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 1,
+  expected: 0,
+  operator: 'strictEqual',
+  diff: 'simple'
+}

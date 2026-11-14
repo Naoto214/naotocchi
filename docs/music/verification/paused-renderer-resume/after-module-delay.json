@@ -1,0 +1,534 @@
+{
+  "status": "passed",
+  "results": [
+    {
+      "engine": "chromium",
+      "width": 320,
+      "region": "desert",
+      "count": 1,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 58.15385055541992,
+          "y": 105.02766418457031,
+          "width": 273.6835021972656,
+          "height": 470.34088134765625,
+          "top": 105.02766418457031,
+          "right": 331.83735275268555,
+          "bottom": 575.3685455322266,
+          "left": 58.15385055541992
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 320,
+      "region": "desert",
+      "count": 6,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 70.75749206542969,
+          "y": 35.91301727294922,
+          "width": 150.5611572265625,
+          "height": 545.2175903320312,
+          "top": 35.91301727294922,
+          "right": 221.3186492919922,
+          "bottom": 581.1306076049805,
+          "left": 70.75749206542969
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 320,
+      "region": "desert",
+      "count": 28,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 26.464303970336914,
+          "y": -86.65969848632812,
+          "width": 267.04913330078125,
+          "height": 673.5711669921875,
+          "top": -86.65969848632812,
+          "right": 293.51343727111816,
+          "bottom": 586.9114685058594,
+          "left": 26.464303970336914
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "region": "desert",
+      "count": 1,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 56.941810607910156,
+          "y": 43.855010986328125,
+          "width": 261.11407470703125,
+          "height": 531.591552734375,
+          "top": 43.855010986328125,
+          "right": 318.0558853149414,
+          "bottom": 575.4465637207031,
+          "left": 56.941810607910156
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "region": "desert",
+      "count": 6,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 82.82274627685547,
+          "y": 87.34735107421875,
+          "width": 209.34677124023438,
+          "height": 485.76434326171875,
+          "top": 87.34735107421875,
+          "right": 292.16951751708984,
+          "bottom": 573.1116943359375,
+          "left": 82.82274627685547
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "region": "desert",
+      "count": 28,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 33.86077880859375,
+          "y": 4.896392822265625,
+          "width": 307.2726135253906,
+          "height": 572.88037109375,
+          "top": 4.896392822265625,
+          "right": 341.1333923339844,
+          "bottom": 577.7767639160156,
+          "left": 33.86077880859375
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "region": "desert",
+      "count": 1,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 58.15385055541992,
+          "y": 44.04234313964844,
+          "width": 273.6835021972656,
+          "height": 530.3426513671875,
+          "top": 44.04234313964844,
+          "right": 331.83735275268555,
+          "bottom": 574.3849945068359,
+          "left": 58.15385055541992
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "region": "desert",
+      "count": 6,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 86.11297607421875,
+          "y": 87.33792114257812,
+          "width": 217.76177978515625,
+          "height": 485.8457946777344,
+          "top": 87.33792114257812,
+          "right": 303.874755859375,
+          "bottom": 573.1837158203125,
+          "left": 86.11297607421875
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "region": "desert",
+      "count": 28,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 32.508087158203125,
+          "y": 18.75945281982422,
+          "width": 322.4495544433594,
+          "height": 558.0827026367188,
+          "top": 18.75945281982422,
+          "right": 354.9576416015625,
+          "bottom": 576.842155456543,
+          "left": 32.508087158203125
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 430,
+      "region": "desert",
+      "count": 1,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 55.37688064575195,
+          "y": 50.52696228027344,
+          "width": 319.2259216308594,
+          "height": 523.8750610351562,
+          "top": 50.52696228027344,
+          "right": 374.6028022766113,
+          "bottom": 574.4020233154297,
+          "left": 55.37688064575195
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 430,
+      "region": "desert",
+      "count": 6,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 94.88618469238281,
+          "y": 91.54224395751953,
+          "width": 240.21385192871094,
+          "height": 482.4285888671875,
+          "top": 91.54224395751953,
+          "right": 335.10003662109375,
+          "bottom": 573.970832824707,
+          "left": 94.88618469238281
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 430,
+      "region": "desert",
+      "count": 28,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 35.332523345947266,
+          "y": 81.2466049194336,
+          "width": 357.3570861816406,
+          "height": 493.5815124511719,
+          "top": 81.2466049194336,
+          "right": 392.6896095275879,
+          "bottom": 574.8281173706055,
+          "left": 35.332523345947266
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 320,
+      "region": "desert",
+      "count": 1,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 70.75749206542969,
+          "y": 37.347801208496094,
+          "width": 150.5611572265625,
+          "height": 545.2175903320312,
+          "top": 37.347801208496094,
+          "right": 221.3186492919922,
+          "bottom": 582.5653915405273,
+          "left": 70.75749206542969
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 320,
+      "region": "desert",
+      "count": 6,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 51.115692138671875,
+          "y": 15.119699478149414,
+          "width": 217.76675415039062,
+          "height": 567.2296142578125,
+          "top": 15.119699478149414,
+          "right": 268.8824462890625,
+          "bottom": 582.3493137359619,
+          "left": 51.115692138671875
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 320,
+      "region": "desert",
+      "count": 28,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 26.464303970336914,
+          "y": -86.65970611572266,
+          "width": 267.0491027832031,
+          "height": 673.5712280273438,
+          "top": -86.65970611572266,
+          "right": 293.51340675354004,
+          "bottom": 586.9115219116211,
+          "left": 26.464303970336914
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 375,
+      "region": "desert",
+      "count": 1,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 36.51332092285156,
+          "y": 26.619407653808594,
+          "width": 342.96148681640625,
+          "height": 550.0037231445312,
+          "top": 26.619407653808594,
+          "right": 379.4748077392578,
+          "bottom": 576.6231307983398,
+          "left": 36.51332092285156
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 375,
+      "region": "desert",
+      "count": 6,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 82.82274627685547,
+          "y": 88.62574005126953,
+          "width": 209.3468017578125,
+          "height": 485.7637939453125,
+          "top": 88.62574005126953,
+          "right": 292.16954803466797,
+          "bottom": 574.389533996582,
+          "left": 82.82274627685547
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 375,
+      "region": "desert",
+      "count": 28,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 33.860782623291016,
+          "y": 4.89639949798584,
+          "width": 307.27264404296875,
+          "height": 572.8803100585938,
+          "top": 4.89639949798584,
+          "right": 341.13342666625977,
+          "bottom": 577.7767095565796,
+          "left": 33.860782623291016
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "region": "desert",
+      "count": 1,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 58.15385437011719,
+          "y": 45.438011169433594,
+          "width": 273.6834716796875,
+          "height": 530.342529296875,
+          "top": 45.438011169433594,
+          "right": 331.8373260498047,
+          "bottom": 575.7805404663086,
+          "left": 58.15385437011719
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "region": "desert",
+      "count": 6,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 86.11297607421875,
+          "y": 88.6164779663086,
+          "width": 217.76177978515625,
+          "height": 485.8456726074219,
+          "top": 88.6164779663086,
+          "right": 303.874755859375,
+          "bottom": 574.4621505737305,
+          "left": 86.11297607421875
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "region": "desert",
+      "count": 28,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 32.508087158203125,
+          "y": 20.228097915649414,
+          "width": 322.4494934082031,
+          "height": 558.0827026367188,
+          "top": 20.228097915649414,
+          "right": 354.95758056640625,
+          "bottom": 578.3108005523682,
+          "left": 32.508087158203125
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 430,
+      "region": "desert",
+      "count": 1,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 44.155704498291016,
+          "y": 45.43789291381836,
+          "width": 379.8634033203125,
+          "height": 530.3433227539062,
+          "top": 45.43789291381836,
+          "right": 424.0191078186035,
+          "bottom": 575.7812156677246,
+          "left": 44.155704498291016
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 430,
+      "region": "desert",
+      "count": 6,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 94.88618469238281,
+          "y": 91.54241180419922,
+          "width": 240.21385192871094,
+          "height": 482.42706298828125,
+          "top": 91.54241180419922,
+          "right": 335.10003662109375,
+          "bottom": 573.9694747924805,
+          "left": 94.88618469238281
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 430,
+      "region": "desert",
+      "count": 28,
+      "candidate": "desert",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 35.33252716064453,
+          "y": 81.2466049194336,
+          "width": 357.35711669921875,
+          "height": 493.5815734863281,
+          "top": 81.2466049194336,
+          "right": 392.6896438598633,
+          "bottom": 574.8281784057617,
+          "left": 35.33252716064453
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    }
+  ],
+  "errors": []
+}

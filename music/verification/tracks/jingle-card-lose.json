@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "fingerprint": "96e5c361d31ce515f0fafea2e8b341838325026f0e7bd0e95e3914f0f618d81e",
+  "analysis": {
+    "basis": "Imported passed PR549/550 measurements with exact pinned Git blob and SHA256 match; no new rendering or measurement claim",
+    "aac": {
+      "integratedLUFS": -23.2,
+      "truePeakDbtp": -6.4,
+      "lraLU": 5.6,
+      "momentaryMax": -18.5,
+      "shortTermMax": -21.4
+    },
+    "originalReceipt": "music/provenance/receipts/jingle-card-lose.json"
+  },
+  "checkedAt": "2026-11-14"
+}

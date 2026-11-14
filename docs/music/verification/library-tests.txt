@@ -1,0 +1,19 @@
+test_add33_resume_approval_deployment_and_original32_unchanged (test_adoption.AdoptionTests.test_add33_resume_approval_deployment_and_original32_unchanged) ... ok
+test_home4_assets_match_original_b2plus_lock (test_adoption.AdoptionTests.test_home4_assets_match_original_b2plus_lock) ... ok
+test_original32_identity_melody_assets_and50_rows (test_adoption.AdoptionTests.test_original32_identity_melody_assets_and50_rows) ... ok
+test_bad_loop_missing_file_and_empty_title_are_rejected (test_library.MusicLibraryTests.test_bad_loop_missing_file_and_empty_title_are_rejected) ... ok
+test_candidate_requires_revision_bound_approval_and_excluded_from_payload (test_library.MusicLibraryTests.test_candidate_requires_revision_bound_approval_and_excluded_from_payload) ... ok
+test_candidate_revision_revalidates_without_overwriting_approved_music (test_library.MusicLibraryTests.test_candidate_revision_revalidates_without_overwriting_approved_music) ... ok
+test_changed_frozen_metadata_is_rejected (test_library.MusicLibraryTests.test_changed_frozen_metadata_is_rejected) ... ok
+test_duplicate_and_invalid_ids_cannot_overwrite_registry (test_library.MusicLibraryTests.test_duplicate_and_invalid_ids_cannot_overwrite_registry) ... ok
+test_export_check_detects_tampering_without_rewriting_it (test_library.MusicLibraryTests.test_export_check_detects_tampering_without_rewriting_it) ... ok
+test_incomplete_receipt_is_reanalyzed_and_cannot_be_published (test_library.MusicLibraryTests.test_incomplete_receipt_is_reanalyzed_and_cannot_be_published) ... ok
+test_midi_notes_must_match_declared_score (test_library.MusicLibraryTests.test_midi_notes_must_match_declared_score) ... ok
+test_successful_receipt_skips_analysis_and_corrupt_cache_rechecks (test_library.MusicLibraryTests.test_successful_receipt_skips_analysis_and_corrupt_cache_rechecks) ... ok
+test_unknown_license_and_path_escape_rejected_before_registration (test_library.MusicLibraryTests.test_unknown_license_and_path_escape_rejected_before_registration) ... ok
+test_wrong_aac_content_is_not_accepted_as_matching_flac (test_library.MusicLibraryTests.test_wrong_aac_content_is_not_accepted_as_matching_flac) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 10.951s
+
+OK

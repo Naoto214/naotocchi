@@ -1,0 +1,44 @@
+[
+  {
+    "engine": "chromium",
+    "mode": "leave",
+    "fetches": 0,
+    "savePreserved": true,
+    "errors": []
+  },
+  {
+    "engine": "chromium",
+    "mode": "cancel",
+    "fetches": 1,
+    "savePreserved": true,
+    "errors": []
+  },
+  {
+    "engine": "chromium",
+    "mode": "restore",
+    "fetches": 1,
+    "savePreserved": true,
+    "errors": []
+  },
+  {
+    "engine": "webkit",
+    "mode": "leave",
+    "fetches": 0,
+    "savePreserved": true,
+    "errors": []
+  },
+  {
+    "engine": "webkit",
+    "mode": "cancel",
+    "fetches": 1,
+    "savePreserved": true,
+    "errors": []
+  },
+  {
+    "engine": "webkit",
+    "mode": "restore",
+    "fetches": 1,
+    "savePreserved": true,
+    "errors": []
+  }
+]

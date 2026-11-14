@@ -1,0 +1,15 @@
+{
+  "errors": [
+    {
+      "message": "/127.0.0.1:45503/audio due to access control checks.",
+      "stack": "Fetch API cannot load http://127.0.0.1:45503/audio due to access control checks.\n    at unknown (web-inspector://bootstrap.js:686:50)"
+    },
+    {
+      "message": "/127.0.0.1:45503/audio due to access control checks.",
+      "stack": "Fetch API cannot load http://127.0.0.1:45503/audio due to access control checks.\n    at unknown (web-inspector://bootstrap.js:686:50)"
+    }
+  ],
+  "errorCount": 39,
+  "caughtCount": 20,
+  "note": "standalone handled fetch during document departure; no game code"
+}

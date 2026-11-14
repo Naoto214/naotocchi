@@ -1,0 +1,3225 @@
+{
+  "version": 1,
+  "initialRelease": "V7-complete-B2plus",
+  "tracks": [
+    {
+      "id": "home-morning",
+      "title": "そよかぜの まど",
+      "uses": [
+        "scene-01",
+        "scene-02",
+        "scene-03",
+        "scene-04",
+        "scene-05",
+        "scene-06",
+        "scene-17",
+        "scene-48"
+      ],
+      "kind": "bgm",
+      "bpm": 92,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "B minor",
+        "correlation": 0.8548,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 83.478254,
+      "frames": 3681391,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 83.47825396825397
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/home-morning.m4a",
+          "sha256": "a3c94016ab15fe8020536f00808539f2943a8c1d51b5bb06afe21de7724411ba",
+          "bytes": 2038294
+        },
+        "flac": {
+          "path": "music/masters/home-morning/home-morning.flac",
+          "sha256": "4c32ec19bfb0f4762af79d2aa65294c60955aa34d87fd21c50f493bbc23ae930",
+          "bytes": 12390665
+        },
+        "midi": {
+          "path": "music/masters/home-morning/home-morning.mid",
+          "sha256": "3f34a030b91ded3285a5554ceb711453e61330e4e79116ef4a1d3fd5fe67c636",
+          "bytes": 3947
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "home-morning"
+      },
+      "melody": {
+        "notes": 120,
+        "sha256": "830cf1a247340c38c70f6688cdce9e016fee783c0b662ea895e5f1e244a00c33"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "B2+ locked",
+        "receipt": "music/provenance/receipts/home-morning.json"
+      },
+      "instruments": [
+        "cello_chamber",
+        "piano",
+        "violin_solo"
+      ],
+      "sources": [
+        "vsco",
+        "karoryfer"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/home-morning.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -22.9,
+        "truePeakDbtp": -4.8,
+        "lraLU": 5.5,
+        "momentaryMax": -16.7,
+        "shortTermMax": -19.3
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "2e5283fef34c46aca997927fdb14b1a5eb6e73d9116ff586fc3fa37fa7f77eb7",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "home-day",
+      "title": "いつもの にわ",
+      "uses": [
+        "scene-01",
+        "scene-02",
+        "scene-03",
+        "scene-04",
+        "scene-05",
+        "scene-06",
+        "scene-17",
+        "scene-48"
+      ],
+      "kind": "bgm",
+      "bpm": 96,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "C major",
+        "correlation": 0.8991,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 60.0,
+      "frames": 2646000,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 60.0
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/home-day.m4a",
+          "sha256": "6535b366a0d766ffd6cb8439446a41b4f65137ea4f91ed8cd78efea9115a6cfa",
+          "bytes": 1462461
+        },
+        "flac": {
+          "path": "music/masters/home-day/home-day.flac",
+          "sha256": "b51a8fa1054fe66043fffc27dba520f31f3a9f511e91c48bbacb3decd36a5a15",
+          "bytes": 9101311
+        },
+        "midi": {
+          "path": "music/masters/home-day/home-day.mid",
+          "sha256": "b813e540bdaebad834b5ffee82a0acd95f3e20b9a698a2b40c919b8e19824ac4",
+          "bytes": 3447
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "home-day"
+      },
+      "melody": {
+        "notes": 156,
+        "sha256": "7baab37ac7e53b1371a07adb33095e888e63b84bbe00352afc39d974c0295a86"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "B2+ locked",
+        "receipt": "music/provenance/receipts/home-day.json"
+      },
+      "instruments": [
+        "cello_chamber",
+        "piano",
+        "violin_solo"
+      ],
+      "sources": [
+        "vsco",
+        "karoryfer"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/home-day.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -23.0,
+        "truePeakDbtp": -5.1,
+        "lraLU": 4.7,
+        "momentaryMax": -16.5,
+        "shortTermMax": -19.8
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "c5de1486ad06a51f1e6db88d1cd8f2d6b39afbd2fcba95c7e24042bf7d84fcf3",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "home-evening",
+      "title": "ほしふる みずうみ",
+      "uses": [
+        "scene-01",
+        "scene-02",
+        "scene-03",
+        "scene-04",
+        "scene-05",
+        "scene-06",
+        "scene-17",
+        "scene-48"
+      ],
+      "kind": "bgm",
+      "bpm": 88,
+      "meter": "3/4",
+      "key": {
+        "declared": null,
+        "estimate": "D major",
+        "correlation": 0.7322,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 65.454535,
+      "frames": 2886545,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 65.45453514739229
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/home-evening.m4a",
+          "sha256": "b3b1a668f16e15ef83f7152d8ab29abdf598cd8c93d217cb1d7e3fa604d82e3b",
+          "bytes": 1597712
+        },
+        "flac": {
+          "path": "music/masters/home-evening/home-evening.flac",
+          "sha256": "f32c38766d080cf16bc8e0f7d4ebb8cc256a2175929258b6fd9930fc29b0f699",
+          "bytes": 9670247
+        },
+        "midi": {
+          "path": "music/masters/home-evening/home-evening.mid",
+          "sha256": "4d22847e90a4eb7741548d51eeef992e97bdd61a37d3d199b3abc5464e175498",
+          "bytes": 3435
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "home-evening"
+      },
+      "melody": {
+        "notes": 78,
+        "sha256": "3330fcf80d624c12192fd98a202e7494abe1a28dafb8c5ee763b4e17b652081c"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "B2+ locked",
+        "receipt": "music/provenance/receipts/home-evening.json"
+      },
+      "instruments": [
+        "cello_chamber",
+        "piano",
+        "violin_solo"
+      ],
+      "sources": [
+        "vsco",
+        "karoryfer"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/home-evening.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -22.9,
+        "truePeakDbtp": -4.1,
+        "lraLU": 6.2,
+        "momentaryMax": -15.6,
+        "shortTermMax": -18.6
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "b9e8bc4c91f94bf8a125aaa3f1b2f1cd96466fe16c64d5125552705abcff613c",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "home-night",
+      "title": "ほしぞらの やくそく",
+      "uses": [
+        "scene-01",
+        "scene-02",
+        "scene-03",
+        "scene-04",
+        "scene-05",
+        "scene-06",
+        "scene-17",
+        "scene-48"
+      ],
+      "kind": "bgm",
+      "bpm": 76,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "A major",
+        "correlation": 0.8033,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 50.526327,
+      "frames": 2228211,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 50.526326530612245
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/home-night.m4a",
+          "sha256": "e2c494316c04e22fc449c2c3866aca36658fa34dd9d57d4e943caa94d84b7e5a",
+          "bytes": 1230262
+        },
+        "flac": {
+          "path": "music/masters/home-night/home-night.flac",
+          "sha256": "7de02785986a9b88a17be43b87926fbff708c94f60eae39c95fe4b74c809d7a0",
+          "bytes": 7641652
+        },
+        "midi": {
+          "path": "music/masters/home-night/home-night.mid",
+          "sha256": "b569f9c57f968175b8a83a0a35e35329199db775c3fa27c49934ba3ecbaf07b9",
+          "bytes": 1946
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "home-night"
+      },
+      "melody": {
+        "notes": 47,
+        "sha256": "2e0d60a8d55cb3bf3f31bcc55ecc289f8674e58bf1c38a5d4d1d96078c191e8f"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "B2+ locked",
+        "receipt": "music/provenance/receipts/home-night.json"
+      },
+      "instruments": [
+        "cello_chamber",
+        "piano",
+        "violin_solo"
+      ],
+      "sources": [
+        "vsco",
+        "karoryfer"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/home-night.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -22.8,
+        "truePeakDbtp": -5.2,
+        "lraLU": 5.5,
+        "momentaryMax": -15.7,
+        "shortTermMax": -19.2
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "3277611e775a9ba833f4a657f20bc385c24090daaaea31d22767ceef348742bd",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "poyo-1",
+      "title": "ぽよぽよ こもれび",
+      "uses": [
+        "scene-18",
+        "scene-19",
+        "scene-20",
+        "scene-24"
+      ],
+      "kind": "bgm",
+      "bpm": 100,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "F major",
+        "correlation": 0.8573,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 76.8,
+      "frames": 3386880,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 76.8
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/poyo-1.m4a",
+          "sha256": "8d091d62399c72bd5cb0766e5bb572e5267d1380f3e3200ee31d6f8743235a22",
+          "bytes": 1900744
+        },
+        "flac": {
+          "path": "music/masters/poyo-1/poyo-1.flac",
+          "sha256": "58ce7d069d7c9c4a1628826716fb6728eb499b4984b68067da3d13c956782d86",
+          "bytes": 10599563
+        },
+        "midi": {
+          "path": "music/masters/poyo-1/poyo-1.mid",
+          "sha256": "49e4dcb96e0f5929334268454f31d47e809a37ed9a858cd2a63a387c162c17ae",
+          "bytes": 5398
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "poyo-1"
+      },
+      "melody": {
+        "notes": 136,
+        "sha256": "c413836b73f25b2113ece6a46c0ce8b64abc4946a4f1197223f5e21c95de192b"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/poyo-1.json"
+      },
+      "instruments": [
+        "clarinet",
+        "flute",
+        "harp",
+        "marimba",
+        "violas",
+        "violins",
+        "woodbass"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/poyo-1.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -25.9,
+        "truePeakDbtp": -11.6,
+        "lraLU": 4.6,
+        "momentaryMax": -19.9,
+        "shortTermMax": -23.4
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "4d58abab11bb4f7ef65b0c2507396e17d7569a44737ac428fed7cb0fac8a7e32",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "koro-1",
+      "title": "ころころ じんせい",
+      "uses": [
+        "scene-25",
+        "scene-26",
+        "scene-30"
+      ],
+      "kind": "bgm",
+      "bpm": 112,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "G major",
+        "correlation": 0.8468,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 68.571429,
+      "frames": 3024000,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 68.57142857142857
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/koro-1.m4a",
+          "sha256": "20451449c8762749e7b7d39f19223f83a135605b824ef34354b54eae4632d7d0",
+          "bytes": 1668643
+        },
+        "flac": {
+          "path": "music/masters/koro-1/koro-1.flac",
+          "sha256": "7b1b2771546a038b0615c0c4a2d21ca5bc81438d4971ebd7cbeca3f201622ca2",
+          "bytes": 9991704
+        },
+        "midi": {
+          "path": "music/masters/koro-1/koro-1.mid",
+          "sha256": "29b9acac80c5435ae73ef2804b0f7cf7943d2e75ccedac1932c53e5c3cf46639",
+          "bytes": 5253
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "koro-1"
+      },
+      "melody": {
+        "notes": 134,
+        "sha256": "b41120cd5987a5244906222e1e9d9b5e8e0951353e0f3bd1df6a26c78e5a477c"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/koro-1.json"
+      },
+      "instruments": [
+        "clarinet",
+        "flute",
+        "harp",
+        "piano",
+        "violas",
+        "violins",
+        "woodbass"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/koro-1.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -22.9,
+        "truePeakDbtp": -6.1,
+        "lraLU": 3.6,
+        "momentaryMax": -18.4,
+        "shortTermMax": -20.2
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "ae9969ec8a720283d6ee2d711cc85203b11d2f8d929275c81a411a97d4742c32",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "card-2",
+      "title": "デュエル・スタート",
+      "uses": [
+        "scene-32",
+        "scene-33",
+        "scene-37"
+      ],
+      "kind": "bgm",
+      "bpm": 138,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "E minor",
+        "correlation": 0.7935,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 83.478254,
+      "frames": 3681391,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 83.47825396825397
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/card-2.m4a",
+          "sha256": "ce0c0716221e8e10616647b58a446a1185869f50e23eef5c347226d4042ade6c",
+          "bytes": 2061741
+        },
+        "flac": {
+          "path": "music/masters/card-2/card-2.flac",
+          "sha256": "74fab37913776d54d28f0ad6d793fa09db39ec0d9896f6f70f744fd4095a9819",
+          "bytes": 11953527
+        },
+        "midi": {
+          "path": "music/masters/card-2/card-2.mid",
+          "sha256": "5183cd7eafc399ae92ab1e189f55f69cdc2ea64821f8ccc8510afb12f0782b8d",
+          "bytes": 14463
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "card-2"
+      },
+      "melody": {
+        "notes": 198,
+        "sha256": "68a66ccdb0017bdf1eb47770d2af6add227d9672800d82667072f00544c2b41d"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/card-2.json"
+      },
+      "instruments": [
+        "cellopizz",
+        "kick",
+        "marimba",
+        "piano",
+        "snare",
+        "violas",
+        "violins",
+        "woodbass"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/card-2.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -23.9,
+        "truePeakDbtp": -6.8,
+        "lraLU": 3.8,
+        "momentaryMax": -19.3,
+        "shortTermMax": -21.3
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "902d988588173350205c731cd75348a7b2d3f06522b22aa2587a0a168cef7744",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "game-1",
+      "title": "あそびの はじまり",
+      "uses": [
+        "scene-27",
+        "scene-38",
+        "scene-39"
+      ],
+      "kind": "bgm",
+      "bpm": 144,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "A major",
+        "correlation": 0.7624,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 53.333333,
+      "frames": 2352000,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 53.333333333333336
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/game-1.m4a",
+          "sha256": "915880056e9044f65750b3bb925ba9f6bd6acda5e72f46a3659a94a3cd509ea6",
+          "bytes": 1334697
+        },
+        "flac": {
+          "path": "music/masters/game-1/game-1.flac",
+          "sha256": "4674591dbec35ffd559ea4fec8f99721a889487475453ba2281516bb8bbc00f8",
+          "bytes": 7739732
+        },
+        "midi": {
+          "path": "music/masters/game-1/game-1.mid",
+          "sha256": "45d36978315c549c95675ea3113a462fa8c9bd5c28f95c42f603ab832aacfd6e",
+          "bytes": 6575
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "game-1"
+      },
+      "melody": {
+        "notes": 152,
+        "sha256": "5f2d72038092215753aa0c039a0cfb66590a670b79184a1b7e141056db711315"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/game-1.json"
+      },
+      "instruments": [
+        "kick",
+        "marimba",
+        "piano",
+        "snare",
+        "violas",
+        "violins",
+        "woodbass"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/game-1.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -23.9,
+        "truePeakDbtp": -9.7,
+        "lraLU": 5.0,
+        "momentaryMax": -19.0,
+        "shortTermMax": -20.8
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "b5734ab91237aff685dc6d2538fdb5afd6794bd93d899b6f14aee8a13c29ad30",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "explore-1",
+      "title": "ふしぎの ちか",
+      "uses": [
+        "scene-45"
+      ],
+      "kind": "bgm",
+      "bpm": 96,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "D minor",
+        "correlation": 0.7974,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 80.0,
+      "frames": 3528000,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 80.0
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/explore-1.m4a",
+          "sha256": "cd2ba12bfd539d1486aa4744f2cf956b360a49219f2097af4f510d31598fd101",
+          "bytes": 1939481
+        },
+        "flac": {
+          "path": "music/masters/explore-1/explore-1.flac",
+          "sha256": "9fdb10dcb1079a32a719c651feea50a9662b5a1311b41eeb87bc97f624b6fd29",
+          "bytes": 11646154
+        },
+        "midi": {
+          "path": "music/masters/explore-1/explore-1.mid",
+          "sha256": "1e59e7704febb85bf1d6fe713b822257a089543c85cf806a122e82351bb3c483",
+          "bytes": 5110
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "explore-1"
+      },
+      "melody": {
+        "notes": 124,
+        "sha256": "922e0a850f97c4e30426c08ee4f4f562332312701efb99625e18d96b44a44fbe"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/explore-1.json"
+      },
+      "instruments": [
+        "cellopizz",
+        "clarinet",
+        "flute",
+        "harp",
+        "violas",
+        "violins"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/explore-1.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -24.9,
+        "truePeakDbtp": -13.2,
+        "lraLU": 4.4,
+        "momentaryMax": -21.3,
+        "shortTermMax": -22.0
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "bedecc6ac2439762208e55e551098941f1f8a37451242dcb15556e0cd2cfeee4",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "event-2",
+      "title": "ふたりの きねんび",
+      "uses": [
+        "scene-08",
+        "scene-09",
+        "scene-10"
+      ],
+      "kind": "bgm",
+      "bpm": 92,
+      "meter": "3/4",
+      "key": {
+        "declared": null,
+        "estimate": "Ab major",
+        "correlation": 0.8317,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 62.608685,
+      "frames": 2761043,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 62.60868480725624
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/event-2.m4a",
+          "sha256": "e1147aeb4d1cf707277059cd2e39faee11f7bf44f88b1efb5e4a89be22ab3598",
+          "bytes": 1527980
+        },
+        "flac": {
+          "path": "music/masters/event-2/event-2.flac",
+          "sha256": "8a44e16534f8fe336ec12492b952e73288583f093140023b0606f0daeb613e70",
+          "bytes": 9013488
+        },
+        "midi": {
+          "path": "music/masters/event-2/event-2.mid",
+          "sha256": "667013ea429aae8d4b21525ad6cae0b23339cbea4c95ce48c915b56914ec2627",
+          "bytes": 3994
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "event-2"
+      },
+      "melody": {
+        "notes": 80,
+        "sha256": "43609d182738cc212a74ae9f078fd97381ed73273dd5fca0f5ad6bad9f143c73"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/event-2.json"
+      },
+      "instruments": [
+        "cellos",
+        "clarinet",
+        "flute",
+        "harp",
+        "piano",
+        "violas",
+        "violins",
+        "cello_chamber"
+      ],
+      "sources": [
+        "vsco",
+        "karoryfer"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/event-2.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -24.0,
+        "truePeakDbtp": -6.0,
+        "lraLU": 4.8,
+        "momentaryMax": -18.2,
+        "shortTermMax": -20.0
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "4b5b37fb08b2bcbae062f4ef4635a3bb7b6ec3743a81f68ba4a277e938d79879",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "event-1",
+      "title": "おめでとうの ひ",
+      "uses": [
+        "scene-16"
+      ],
+      "kind": "bgm",
+      "bpm": 116,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "B minor",
+        "correlation": 0.8315,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 66.206893,
+      "frames": 2919724,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 66.20689342403628
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/event-1.m4a",
+          "sha256": "2360ab9acea6948693f2575b3f8aae7c91ab295d426690c47fadd98d70025cf3",
+          "bytes": 1615016
+        },
+        "flac": {
+          "path": "music/masters/event-1/event-1.flac",
+          "sha256": "cff5bf423410541ec92d5a34be092e5f5777ac29f756fae68cc73c54518e876d",
+          "bytes": 9846065
+        },
+        "midi": {
+          "path": "music/masters/event-1/event-1.mid",
+          "sha256": "802442741110ba8013db907724678ad082fb6a2bb92e5e37c0e5f51dccf9d137",
+          "bytes": 5325
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "event-1"
+      },
+      "melody": {
+        "notes": 116,
+        "sha256": "7b3b3fdf5d096ba27228189cfb811e775069e697f8459574c420c2a3c08e7ac8"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/event-1.json"
+      },
+      "instruments": [
+        "flute",
+        "harp",
+        "piano",
+        "violas",
+        "violins",
+        "woodbass"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/event-1.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -23.0,
+        "truePeakDbtp": -6.4,
+        "lraLU": 3.2,
+        "momentaryMax": -18.3,
+        "shortTermMax": -21.2
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "d08838932b085e61b0e860aa3b99cbcca29d2bf532d2c330fb588d1491a4b73f",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "kisetsu",
+      "title": "きせつの きおく",
+      "uses": [
+        "scene-11"
+      ],
+      "kind": "bgm",
+      "bpm": 86,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "E minor",
+        "correlation": 0.8774,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 89.302336,
+      "frames": 3938233,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 89.30233560090703
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/kisetsu.m4a",
+          "sha256": "f4158db2ed8ae1a0eeb069dce113c64186031d387df2dcb3d2f777976258a825",
+          "bytes": 2173784
+        },
+        "flac": {
+          "path": "music/masters/kisetsu/kisetsu.flac",
+          "sha256": "8608e9775e0948289faa4dcbea0edea97f0b1d119e3128df0362cb510199b6d9",
+          "bytes": 12855967
+        },
+        "midi": {
+          "path": "music/masters/kisetsu/kisetsu.mid",
+          "sha256": "ff0413563629e37b8fd00fc8c871a385139ddb6a683190db9a41b1b2d033479c",
+          "bytes": 4978
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "kisetsu"
+      },
+      "melody": {
+        "notes": 128,
+        "sha256": "8d3ccdff6296113105c13e979651b244f098d7c83afe36cd85d4857114d77186"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/kisetsu.json"
+      },
+      "instruments": [
+        "cellos",
+        "clarinet",
+        "flute",
+        "harp",
+        "piano",
+        "violas",
+        "violins",
+        "cello_chamber"
+      ],
+      "sources": [
+        "vsco",
+        "karoryfer"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/kisetsu.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -23.9,
+        "truePeakDbtp": -6.0,
+        "lraLU": 4.8,
+        "momentaryMax": -18.7,
+        "shortTermMax": -21.1
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "d45f1f5a8dca3e348110760decb91f1601f0e918b577a968bc875e22ef6ea74f",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "ohayo",
+      "title": "おはようの ひかり",
+      "uses": [],
+      "kind": "bgm",
+      "bpm": 80,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "Eb major",
+        "correlation": 0.8457,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 48.0,
+      "frames": 2116800,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 48.0
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/ohayo.m4a",
+          "sha256": "55f3725cc2fae86655556bf910261f29a2facb87e153ae495c43ebb08a6fc9e3",
+          "bytes": 1169537
+        },
+        "flac": {
+          "path": "music/masters/ohayo/ohayo.flac",
+          "sha256": "fc02f826bd12f35d2093b40a6643df0111eef5d882db6522adc753b2efcd34d7",
+          "bytes": 7066428
+        },
+        "midi": {
+          "path": "music/masters/ohayo/ohayo.mid",
+          "sha256": "75d64af9cbf9e68bc4d953d8a07ec264a93a449ed2341c4cb0d32483c28a865f",
+          "bytes": 2627
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "ohayo"
+      },
+      "melody": {
+        "notes": 50,
+        "sha256": "743efc2a0e237fdd7624af3c06aa93d89c07adfa3344097ecea766e30a59bc8e"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/ohayo.json"
+      },
+      "instruments": [
+        "flute",
+        "harp",
+        "piano",
+        "violas",
+        "violins",
+        "woodbass"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/ohayo.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -22.8,
+        "truePeakDbtp": -4.6,
+        "lraLU": 5.2,
+        "momentaryMax": -15.5,
+        "shortTermMax": -19.8
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "91d83917ffdcd5d88a75a4c9309a245ca0fa8488de306baa5cae4b7d1913efe5",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "bgm-game",
+      "title": "game（ミニゲーム・汎用）",
+      "uses": [
+        "scene-28",
+        "scene-47"
+      ],
+      "kind": "bgm",
+      "bpm": 138,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "G major",
+        "correlation": 0.8469,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 55.652177,
+      "frames": 2454261,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 55.6521768707483
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/bgm-game.m4a",
+          "sha256": "c7b8f2c6682c0f61c5515b30466362730d82673de00d2eba8fb27063d032a67d",
+          "bytes": 1384853
+        },
+        "flac": {
+          "path": "music/masters/bgm-game/bgm-game.flac",
+          "sha256": "9a2c8e312fb88231910c86d84313f3494c85792bb5ff577ea13c1ec9ff37fb7c",
+          "bytes": 8094266
+        },
+        "midi": {
+          "path": "music/masters/bgm-game/bgm-game.mid",
+          "sha256": "5aa1194989d1759ff03d034ab119d7d42f9e0a437cd319def0015cbfcd4a4c70",
+          "bytes": 7522
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "bgm-game"
+      },
+      "melody": {
+        "notes": 240,
+        "sha256": "e7c1a8ce99bac6db036630ea71cd71c39e0a9af4a392c0b29acf2e7f1a12f288"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/bgm-game.json"
+      },
+      "instruments": [
+        "kick",
+        "marimba",
+        "piano",
+        "snare",
+        "violas",
+        "violins",
+        "woodbass"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/bgm-game.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -24.0,
+        "truePeakDbtp": -11.0,
+        "lraLU": 3.4,
+        "momentaryMax": -19.4,
+        "shortTermMax": -21.9
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "d4bb7be08648ad21823f8192e16f6008ae0e25a7ff6318c879a705477e74f1f7",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "bgm-race",
+      "title": "race（3D・のりもの）",
+      "uses": [
+        "scene-44"
+      ],
+      "kind": "bgm",
+      "bpm": 152,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "E minor",
+        "correlation": 0.7641,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 50.526327,
+      "frames": 2228211,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 50.526326530612245
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/bgm-race.m4a",
+          "sha256": "81000f11daa3f31be0e48b8247235b66790f26e757abb7979e547907a4c96f6e",
+          "bytes": 1249928
+        },
+        "flac": {
+          "path": "music/masters/bgm-race/bgm-race.flac",
+          "sha256": "264d2b2bca2afa47cf3d8bfde446674195f7e21991e46e954a246286e05e459a",
+          "bytes": 7351368
+        },
+        "midi": {
+          "path": "music/masters/bgm-race/bgm-race.mid",
+          "sha256": "ab2c03bd74f816563ef9ca4a65e3bca0fac9a8b1eaf0ca49c0cd20e768c422d1",
+          "bytes": 8672
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "bgm-race"
+      },
+      "melody": {
+        "notes": 244,
+        "sha256": "48a70197c39a23671f3e167946fb8431111c0bbbffe19ec2c126fab32dec3b8a"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/bgm-race.json"
+      },
+      "instruments": [
+        "kick",
+        "marimba",
+        "piano",
+        "snare",
+        "violas",
+        "violins",
+        "woodbass"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/bgm-race.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -23.9,
+        "truePeakDbtp": -9.5,
+        "lraLU": 2.3,
+        "momentaryMax": -21.2,
+        "shortTermMax": -22.2
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "10d0c2209f59f451cddd922249c0fa352a21b281865548dddfeba14ef33fef70",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "bgm-farewell",
+      "title": "farewell（おわかれ）",
+      "uses": [
+        "scene-12"
+      ],
+      "kind": "bgm",
+      "bpm": 60,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "A minor",
+        "correlation": 0.9495,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 64.0,
+      "frames": 2822400,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 64.0
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/bgm-farewell.m4a",
+          "sha256": "c35d64ca46b7e7027f0a157fd44cb197f2417c7dfd14eb27bb4d027e2f0faae8",
+          "bytes": 1554401
+        },
+        "flac": {
+          "path": "music/masters/bgm-farewell/bgm-farewell.flac",
+          "sha256": "4d9c9a9b0624c44893352c4acd239e198442d6c7b1d7a2d5ce5a08e4731d3a2b",
+          "bytes": 9164227
+        },
+        "midi": {
+          "path": "music/masters/bgm-farewell/bgm-farewell.mid",
+          "sha256": "5484685e89e4aafbe455bbab1f25dfa3c4742fca3ae030635a10b8ed9767b40c",
+          "bytes": 1594
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "bgm-farewell"
+      },
+      "melody": {
+        "notes": 44,
+        "sha256": "e239a7b1eec742e8c574220fe2b0c1453a162056deab6c999f389ddba2f2079f"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/bgm-farewell.json"
+      },
+      "instruments": [
+        "cellos",
+        "harp",
+        "piano",
+        "violas",
+        "violins",
+        "cello_chamber"
+      ],
+      "sources": [
+        "vsco",
+        "karoryfer"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/bgm-farewell.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -24.8,
+        "truePeakDbtp": -7.9,
+        "lraLU": 4.3,
+        "momentaryMax": -17.6,
+        "shortTermMax": -21.9
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "92c581170504db9fb4dfb8142d850d9be382065ccebf9ceaacc35174e9673b68",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "poyo-2",
+      "title": "みんなで かえろう",
+      "uses": [
+        "scene-40"
+      ],
+      "kind": "bgm",
+      "bpm": 104,
+      "meter": "3/4",
+      "key": {
+        "declared": null,
+        "estimate": "C minor",
+        "correlation": 0.7452,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 83.076916,
+      "frames": 3663692,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 83.07691609977324
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/poyo-2.m4a",
+          "sha256": "fa15803575d6aeca816ecd4268ff15ff7ec1c4bce4c164d1b51a7a5ee970b724",
+          "bytes": 2021584
+        },
+        "flac": {
+          "path": "music/masters/poyo-2/poyo-2.flac",
+          "sha256": "6316eff9e73157814d995ad23c53f40f6a9938ee815f91f3530f3f51c873e57c",
+          "bytes": 12419324
+        },
+        "midi": {
+          "path": "music/masters/poyo-2/poyo-2.mid",
+          "sha256": "079756c6454ca23bf072ebe73bd27472ef75faba2843653e432905b0a3d57983",
+          "bytes": 5215
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "poyo-2"
+      },
+      "melody": {
+        "notes": 120,
+        "sha256": "d942a160a562c6e60441ea717e06e51ced568ac4dc0517abf576b3779916668b"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/poyo-2.json"
+      },
+      "instruments": [
+        "cellos",
+        "clarinet",
+        "flute",
+        "harp",
+        "violas",
+        "violins",
+        "woodbass"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/poyo-2.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -27.0,
+        "truePeakDbtp": -16.5,
+        "lraLU": 2.3,
+        "momentaryMax": -24.0,
+        "shortTermMax": -25.3
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "c445757c7da43ccaaa5546e8c1ce0b9eb5e19aefb3974cd7a9796d76873f460c",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "game-2",
+      "title": "ぴょこぴょこ ステップ",
+      "uses": [
+        "scene-42"
+      ],
+      "kind": "bgm",
+      "bpm": 128,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "Bb major",
+        "correlation": 0.8015,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 60.0,
+      "frames": 2646000,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 60.0
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/game-2.m4a",
+          "sha256": "3804a95cf53abff9fddf8b184927af9232c5be1662e728b5b26a69a580c489be",
+          "bytes": 1503661
+        },
+        "flac": {
+          "path": "music/masters/game-2/game-2.flac",
+          "sha256": "1b694aba8c2e54dd9693f85694a8e3ff2a1551a832752aae6ce73d343f9d52c4",
+          "bytes": 8661533
+        },
+        "midi": {
+          "path": "music/masters/game-2/game-2.mid",
+          "sha256": "a3bfe63a04900f9a555a85fa05b92e4087a232930076ec245430a9748d23fcb6",
+          "bytes": 6558
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "game-2"
+      },
+      "melody": {
+        "notes": 152,
+        "sha256": "9cd11c12df99021cb8765a6a44df1e0de76835fb950d3df314abd0c362ceedea"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/game-2.json"
+      },
+      "instruments": [
+        "kick",
+        "marimba",
+        "piano",
+        "snare",
+        "violas",
+        "violins",
+        "woodbass"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/game-2.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -23.9,
+        "truePeakDbtp": -9.8,
+        "lraLU": 4.4,
+        "momentaryMax": -18.7,
+        "shortTermMax": -21.0
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "8258997120f917669eb89f96aa593c7eb327d8e08e83e6e7c98c4db8e3f28ae9",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "explore-2",
+      "title": "そらと うみの さんぽ",
+      "uses": [],
+      "kind": "bgm",
+      "bpm": 108,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "E major",
+        "correlation": 0.8961,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 71.111111,
+      "frames": 3136000,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 71.11111111111111
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/explore-2.m4a",
+          "sha256": "68fbba6f6219501d40636619b463f74a310d4e132525aa00ca6ab2f3ed5c5c8e",
+          "bytes": 1749179
+        },
+        "flac": {
+          "path": "music/masters/explore-2/explore-2.flac",
+          "sha256": "bffe7a66591834b5df2bbf8db8fa4f70355084378572fb554f5875141ea3bf64",
+          "bytes": 10490458
+        },
+        "midi": {
+          "path": "music/masters/explore-2/explore-2.mid",
+          "sha256": "6a116176e160e935d9a99e3b54472d24cb27942e15550c130669bb0e9d80684c",
+          "bytes": 5512
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "explore-2"
+      },
+      "melody": {
+        "notes": 100,
+        "sha256": "672ebdaf1e5f2ed8e9a92a4adbe4fa4ea3370618bb803e6a7f36b00833448dde"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/explore-2.json"
+      },
+      "instruments": [
+        "cellos",
+        "flute",
+        "glock",
+        "harp",
+        "violas",
+        "violins"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/explore-2.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -23.9,
+        "truePeakDbtp": -12.5,
+        "lraLU": 3.0,
+        "momentaryMax": -20.1,
+        "shortTermMax": -21.9
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "ccb17562d9256a58b3867cd71d5e316c975f57ecaedef8d3f137cb6ea00d030e",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "board-b",
+      "title": "きしと おしろ",
+      "uses": [
+        "scene-41"
+      ],
+      "kind": "bgm",
+      "bpm": 108,
+      "meter": "3/4",
+      "key": {
+        "declared": null,
+        "estimate": "A major",
+        "correlation": 0.8207,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 80.0,
+      "frames": 3528000,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 80.0
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/board-b.m4a",
+          "sha256": "cbc0d7655f96a666495d0258fbc6f8491c937398220b0db3822de44385e04aa5",
+          "bytes": 1958310
+        },
+        "flac": {
+          "path": "music/masters/board-b/board-b.flac",
+          "sha256": "cc66a289e0a813a2014f5a781eb97774ad78462efb1c5dfacbe0f8f52dd25e00",
+          "bytes": 11340756
+        },
+        "midi": {
+          "path": "music/masters/board-b/board-b.mid",
+          "sha256": "59874c6f520591039bbad7af3a927f25d356ce04f4a9b1f28e1a9644712429ea",
+          "bytes": 5363
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "board-b"
+      },
+      "melody": {
+        "notes": 153,
+        "sha256": "075659e9af32e238e92dda8343bde7963a6768b38254d2cd76e1e0cca4d4eb77"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/board-b.json"
+      },
+      "instruments": [
+        "clarinet",
+        "flute",
+        "piano",
+        "violas",
+        "violins",
+        "woodbass"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/board-b.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -26.9,
+        "truePeakDbtp": -10.4,
+        "lraLU": 3.3,
+        "momentaryMax": -21.7,
+        "shortTermMax": -24.8
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "799d7269006ac9e409a6395760f4af2147b36b19fcfc8014f61568844c469285",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "fishing-a",
+      "title": "みずべの うたたね",
+      "uses": [
+        "scene-43"
+      ],
+      "kind": "bgm",
+      "bpm": 84,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "F minor",
+        "correlation": 0.8248,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 45.714286,
+      "frames": 2016000,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 45.714285714285715
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/fishing-a.m4a",
+          "sha256": "f44f755a734607244f6ec6a23d5ac4c0cdcb6e08e2a478a0f6471bfc6d45ca80",
+          "bytes": 1113963
+        },
+        "flac": {
+          "path": "music/masters/fishing-a/fishing-a.flac",
+          "sha256": "14d8f66ba3fdb0cd6180587103110b8d0bd3115e6d0e54fe72ff4a5e3522dd72",
+          "bytes": 6556835
+        },
+        "midi": {
+          "path": "music/masters/fishing-a/fishing-a.mid",
+          "sha256": "02b6810318b99b952d7a15ff5f98c64f937f359ec5e3042efe1dde2c5c4c7442",
+          "bytes": 1616
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "fishing-a"
+      },
+      "melody": {
+        "notes": 44,
+        "sha256": "a7028dd67f4bfdf20886243c937541061f1648788fd157bb3cfd34777a65323c"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/fishing-a.json"
+      },
+      "instruments": [
+        "cellos",
+        "piano",
+        "violas",
+        "violins",
+        "cello_chamber"
+      ],
+      "sources": [
+        "vsco",
+        "karoryfer"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/fishing-a.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -26.9,
+        "truePeakDbtp": -8.3,
+        "lraLU": 5.5,
+        "momentaryMax": -20.8,
+        "shortTermMax": -23.6
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "0d860f93a25d8e78aeead4d49273075a8250bcb4f21c9f578dec1b8f4c4feee7",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "lullaby-a",
+      "title": "ねむりの ほし",
+      "uses": [
+        "scene-07"
+      ],
+      "kind": "bgm",
+      "bpm": 63,
+      "meter": "3/4",
+      "key": {
+        "declared": null,
+        "estimate": "Ab major",
+        "correlation": 0.8892,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 45.714286,
+      "frames": 2016000,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 45.714285714285715
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/lullaby-a.m4a",
+          "sha256": "b2585f3df90e43530303089b33a3308f004152d7cdda13f44375bb8eccadc7bc",
+          "bytes": 1113934
+        },
+        "flac": {
+          "path": "music/masters/lullaby-a/lullaby-a.flac",
+          "sha256": "355d388e84fee00e071022cac3f2a95142cbe62972bb938410562af7318ba699",
+          "bytes": 6432749
+        },
+        "midi": {
+          "path": "music/masters/lullaby-a/lullaby-a.mid",
+          "sha256": "19d1bbe627eb21500cdd3f7e1fd6f86e3d690fa1be0cad4b7435633c6a0201fc",
+          "bytes": 1428
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "lullaby-a"
+      },
+      "melody": {
+        "notes": 33,
+        "sha256": "2a2eef064ef5fa5e98157700a54b23dd4df875340304284532276122a4436484"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/lullaby-a.json"
+      },
+      "instruments": [
+        "cellos",
+        "harp",
+        "piano",
+        "violas",
+        "violins",
+        "cello_chamber"
+      ],
+      "sources": [
+        "vsco",
+        "karoryfer"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/lullaby-a.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -30.9,
+        "truePeakDbtp": -11.0,
+        "lraLU": 3.2,
+        "momentaryMax": -23.9,
+        "shortTermMax": -27.8
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "202848c5357542900f4c83d900d4e48af10a49a1ac1ccebca6ec9cd9aa61c96b",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "jingle-achieve",
+      "title": "やったね",
+      "uses": [
+        "scene-15",
+        "scene-16"
+      ],
+      "kind": "jingle",
+      "bpm": 120,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "Bb major",
+        "correlation": 0.6942,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 9.2,
+      "frames": 405720,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": false,
+        "start": 0,
+        "end": 9.2
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/jingle-achieve.m4a",
+          "sha256": "e3919a741b1af2b2ca536a7a81dfe3c01939b1aed53f1f28da2f15a6fe7e8e41",
+          "bytes": 222395
+        },
+        "flac": {
+          "path": "music/masters/jingle-achieve/jingle-achieve.flac",
+          "sha256": "8fbdedc178ee729aa8f02a0de7c03bec674ca275e3c85742c2327553845d840b",
+          "bytes": 1348202
+        },
+        "midi": {
+          "path": "music/masters/jingle-achieve/jingle-achieve.mid",
+          "sha256": "c9a44412cb372794d558675d6c5dcbc7248a0c7567cf3280380e459e4d8fc036",
+          "bytes": 939
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "jingle-achieve"
+      },
+      "melody": {
+        "notes": 16,
+        "sha256": "8d5085f3cca6f49501e3ac533c52bc3ca489b6d8cd8719f13e44aaffb4d28c03"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/jingle-achieve.json"
+      },
+      "instruments": [
+        "flute",
+        "harp",
+        "piano",
+        "violas",
+        "violins",
+        "woodbass"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/jingle-achieve.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -22.7,
+        "truePeakDbtp": -5.4,
+        "lraLU": 3.1,
+        "momentaryMax": -19.5,
+        "shortTermMax": -21.5
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "03c45b4a5b2a3c42bb38e343bd935a4c5745cfacd9c1d8910dbdcf090bb8d5b4",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "jingle-card-lose",
+      "title": "つぎは かつぞ",
+      "uses": [
+        "scene-36"
+      ],
+      "kind": "jingle",
+      "bpm": 96,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "E minor",
+        "correlation": 0.8895,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 6.2,
+      "frames": 273420,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": false,
+        "start": 0,
+        "end": 6.2
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/jingle-card-lose.m4a",
+          "sha256": "7047f7d1b8d4b13b4567003deef2ad9710eceac125eb568629f1bc23cdea0665",
+          "bytes": 143349
+        },
+        "flac": {
+          "path": "music/masters/jingle-card-lose/jingle-card-lose.flac",
+          "sha256": "33b38ade088febbfa5916c5af574438a5c370cfea914d1fe349c191a8d35e209",
+          "bytes": 796133
+        },
+        "midi": {
+          "path": "music/masters/jingle-card-lose/jingle-card-lose.mid",
+          "sha256": "d2b04d8c4596f63bffa1d5cfbf8c97fbc1da65d5917e4994a6f669e756975c5d",
+          "bytes": 749
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "jingle-card-lose"
+      },
+      "melody": {
+        "notes": 6,
+        "sha256": "fec7681c1d29af2cfc1b9608c13a2d153aa54860fceee434707b8e4b91d3a44e"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/jingle-card-lose.json"
+      },
+      "instruments": [
+        "cellopizz",
+        "marimba",
+        "piano",
+        "violas",
+        "violins",
+        "woodbass"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/jingle-card-lose.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -23.2,
+        "truePeakDbtp": -6.4,
+        "lraLU": 5.6,
+        "momentaryMax": -18.5,
+        "shortTermMax": -21.4
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "96e5c361d31ce515f0fafea2e8b341838325026f0e7bd0e95e3914f0f618d81e",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "var-poyo-clear",
+      "title": "ぽよぽよこもれび（ステージクリア）",
+      "uses": [
+        "scene-21"
+      ],
+      "kind": "jingle",
+      "bpm": 100,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "F major",
+        "correlation": 0.7642,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 10.8,
+      "frames": 476280,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": false,
+        "start": 0,
+        "end": 10.8
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/var-poyo-clear.m4a",
+          "sha256": "29663aed80bf78fec5590f03e13e8b7af9f16bfea31590cb722c25dbba4ffae9",
+          "bytes": 261106
+        },
+        "flac": {
+          "path": "music/masters/var-poyo-clear/var-poyo-clear.flac",
+          "sha256": "0ff07e633a222c00259827be8638396ff631c0bf65155b80893bb0664f7f87a8",
+          "bytes": 1469344
+        },
+        "midi": {
+          "path": "music/masters/var-poyo-clear/var-poyo-clear.mid",
+          "sha256": "9856ac0c023e0ae642cf089c321ada55e3b3a3ff8ddc9d9b04219057900c1a68",
+          "bytes": 710
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "var-poyo-clear"
+      },
+      "melody": {
+        "notes": 16,
+        "sha256": "92e4c586f948ea14d6d590fe0881c017af11efa5d832cddf483c1f74adccd902"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/var-poyo-clear.json"
+      },
+      "instruments": [
+        "harp",
+        "marimba",
+        "violas",
+        "violins",
+        "woodbass"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/var-poyo-clear.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -25.3,
+        "truePeakDbtp": -11.1,
+        "lraLU": 7.8,
+        "momentaryMax": -19.2,
+        "shortTermMax": -23.1
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "2045af99f47a6fcb22c566ca91015681f32dcc7b23ad17945b4ae394c545466e",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "var-poyo-chapter",
+      "title": "ぽよぽよこもれび（章の おわり）",
+      "uses": [
+        "scene-22"
+      ],
+      "kind": "variation",
+      "bpm": 80,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "F major",
+        "correlation": 0.8573,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 48.0,
+      "frames": 2116800,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 48.0
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/var-poyo-chapter.m4a",
+          "sha256": "e0101ea87248920b33c60bcf00a7425db5d7ca9d54198cdebed9fd678b90dddc",
+          "bytes": 1182372
+        },
+        "flac": {
+          "path": "music/masters/var-poyo-chapter/var-poyo-chapter.flac",
+          "sha256": "b71b4bb19fa0dcce3ca211d65649704227c4f8c62a74e09d90f8f3a8c6be7b8c",
+          "bytes": 6674071
+        },
+        "midi": {
+          "path": "music/masters/var-poyo-chapter/var-poyo-chapter.mid",
+          "sha256": "2ffa7f91746d44f1d1fbc239349ccd82aa7709aa8b409394ac6624628f5aabd7",
+          "bytes": 2329
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "var-poyo-chapter"
+      },
+      "melody": {
+        "notes": 68,
+        "sha256": "5a68cf23b13fc00ca295e1585d04afee59b68497b2d4a1e84a75010aba9c9a1d"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/var-poyo-chapter.json"
+      },
+      "instruments": [
+        "harp",
+        "marimba",
+        "violas",
+        "violins",
+        "woodbass"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/var-poyo-chapter.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -24.8,
+        "truePeakDbtp": -9.9,
+        "lraLU": 4.0,
+        "momentaryMax": -19.2,
+        "shortTermMax": -22.6
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "0bff665ba2be8d28ee3671657916a7815fecad74d7a125cb5196a57b6f57c062",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "var-koro-goal",
+      "title": "ころころじんせい（ゴール）",
+      "uses": [
+        "scene-29"
+      ],
+      "kind": "jingle",
+      "bpm": 112,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "G major",
+        "correlation": 0.8719,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 9.771429,
+      "frames": 430920,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": false,
+        "start": 0,
+        "end": 9.771428571428572
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/var-koro-goal.m4a",
+          "sha256": "f85bcb3f61674e244a4bef7c6f054d4815d4d6f41de33ed43bf071ae83c9eb79",
+          "bytes": 235940
+        },
+        "flac": {
+          "path": "music/masters/var-koro-goal/var-koro-goal.flac",
+          "sha256": "83dd4d6ab2f68ab0f4bf0b86818b80a4f3a119da3f7272c37cd8e20adae71273",
+          "bytes": 1393845
+        },
+        "midi": {
+          "path": "music/masters/var-koro-goal/var-koro-goal.mid",
+          "sha256": "1e24e554f8d7d5ce56a7efc60033116ddd054c793acb8fc4f7b1dbef91a3a853",
+          "bytes": 725
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "var-koro-goal"
+      },
+      "melody": {
+        "notes": 15,
+        "sha256": "d3e4f838b9c283937ca33ad48a3edace8f9849ddc9c36ec21fdcb82fb7478ef8"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/var-koro-goal.json"
+      },
+      "instruments": [
+        "harp",
+        "piano",
+        "violas",
+        "violins",
+        "woodbass"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/var-koro-goal.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -22.4,
+        "truePeakDbtp": -6.7,
+        "lraLU": 6.0,
+        "momentaryMax": -18.4,
+        "shortTermMax": -20.4
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "57a0df4a046d85f8962351831f8a923f99be93e5589d96b4eaefa49aa3acbcc8",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "var-koro-album",
+      "title": "ころころじんせい（人生アルバム）",
+      "uses": [
+        "scene-31"
+      ],
+      "kind": "variation",
+      "bpm": 84,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "G major",
+        "correlation": 0.8468,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 45.714286,
+      "frames": 2016000,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 45.714285714285715
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/var-koro-album.m4a",
+          "sha256": "01b1bc329e68d8a564ee9fcf7dd92b8efe6f7372209fde82c8acc417fdde25c7",
+          "bytes": 1117947
+        },
+        "flac": {
+          "path": "music/masters/var-koro-album/var-koro-album.flac",
+          "sha256": "d09617f050b93e3d19d29e638e7dee70985418e8e8659a0405ccd63b6d409ffe",
+          "bytes": 6417273
+        },
+        "midi": {
+          "path": "music/masters/var-koro-album/var-koro-album.mid",
+          "sha256": "3858f80cdafd99233a28bd43a887273a136a9b661982691e6f8e61e2d48abe40",
+          "bytes": 2340
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "var-koro-album"
+      },
+      "melody": {
+        "notes": 67,
+        "sha256": "59b5de598f2c7b57637281ccd7b6c14dadae590b616e71b503ea0fb88d1ad0d9"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/var-koro-album.json"
+      },
+      "instruments": [
+        "harp",
+        "piano",
+        "violas",
+        "violins",
+        "woodbass"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/var-koro-album.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -24.8,
+        "truePeakDbtp": -6.6,
+        "lraLU": 3.6,
+        "momentaryMax": -19.7,
+        "shortTermMax": -22.1
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "1c168617d6fe6ddac1753167857808ba134a006d62a536f6f2a7b5c4b8282ee7",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "var-card-late",
+      "title": "デュエル・スタート（終盤）",
+      "uses": [
+        "scene-34"
+      ],
+      "kind": "variation",
+      "bpm": 156,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "E minor",
+        "correlation": 0.7935,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 73.846145,
+      "frames": 3256615,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 73.84614512471656
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/var-card-late.m4a",
+          "sha256": "17bddddc581488ca3bd7d533acff5ef9dceb3d7f7b5b8c7319843904c700a23d",
+          "bytes": 1824516
+        },
+        "flac": {
+          "path": "music/masters/var-card-late/var-card-late.flac",
+          "sha256": "b4f8457d9e3a8b52f2e3c30d9f7db6cf296f74992a480eef864e374bd3c49d1f",
+          "bytes": 10641268
+        },
+        "midi": {
+          "path": "music/masters/var-card-late/var-card-late.mid",
+          "sha256": "d7c5635845879f5ba5980dda7d0906e99e6d35e500eed67718eb025fc88f2c0d",
+          "bytes": 14463
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "var-card-late"
+      },
+      "melody": {
+        "notes": 198,
+        "sha256": "0fbf5a9a5bc753ecb9ab9176a0049220f39317d82975d4f7a3c14dc0180e294a"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/var-card-late.json"
+      },
+      "instruments": [
+        "cellopizz",
+        "kick",
+        "marimba",
+        "piano",
+        "snare",
+        "violas",
+        "violins",
+        "woodbass"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/var-card-late.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -24.0,
+        "truePeakDbtp": -5.6,
+        "lraLU": 3.8,
+        "momentaryMax": -18.4,
+        "shortTermMax": -21.2
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "d36374159345453ac50e66a665ee8e8310614cbd959bf2f5c86e0f2b9fa0959f",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "var-card-win",
+      "title": "デュエル・スタート（勝利）",
+      "uses": [
+        "scene-35"
+      ],
+      "kind": "jingle",
+      "bpm": 138,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "E minor",
+        "correlation": 0.8062,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 8.156531,
+      "frames": 359703,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": false,
+        "start": 0,
+        "end": 8.156530612244898
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/var-card-win.m4a",
+          "sha256": "c15031fe1eac17707546d0ec191b725cbde5cb52f24478e6209219906285c51f",
+          "bytes": 191975
+        },
+        "flac": {
+          "path": "music/masters/var-card-win/var-card-win.flac",
+          "sha256": "73e01fee46d847ec23188ab3bfd30c35905d95515e135987c15dcc7b67c7f372",
+          "bytes": 1106480
+        },
+        "midi": {
+          "path": "music/masters/var-card-win/var-card-win.mid",
+          "sha256": "fd5f8301456ee9d8dfa775389253be250ae0667c2ff1143512218e9ba9d8f5af",
+          "bytes": 1422
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "var-card-win"
+      },
+      "melody": {
+        "notes": 17,
+        "sha256": "d2eda6aa8f6c96b0f2d84843af2f9537707576ffa5bac3de34a97992eb7bdaf6"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/var-card-win.json"
+      },
+      "instruments": [
+        "cellopizz",
+        "kick",
+        "marimba",
+        "piano",
+        "snare",
+        "violas",
+        "violins",
+        "woodbass"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/var-card-win.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -23.3,
+        "truePeakDbtp": -9.5,
+        "lraLU": 5.1,
+        "momentaryMax": -19.8,
+        "shortTermMax": -22.0
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "0e59787de0f4274621e5038e4b9cd1a66ce6bda1d467f4323af9e95a4d6ea0b6",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "var-flight",
+      "title": "そらとうみのさんぽ（きらめき・はやめ）",
+      "uses": [
+        "scene-46"
+      ],
+      "kind": "variation",
+      "bpm": 120,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "E major",
+        "correlation": 0.8961,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 64.0,
+      "frames": 2822400,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": true,
+        "start": 0,
+        "end": 64.0
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/var-flight.m4a",
+          "sha256": "8cd4d8f1c62e4a68bdee8c25bd55a68d685e4d2c43ea8eee57d376833ce34eda",
+          "bytes": 1577869
+        },
+        "flac": {
+          "path": "music/masters/var-flight/var-flight.flac",
+          "sha256": "5f3cf1d9970d456fbb2d9016f6d1b3c0d3f3b3d591e65070cbe83106883cd480",
+          "bytes": 9491468
+        },
+        "midi": {
+          "path": "music/masters/var-flight/var-flight.mid",
+          "sha256": "f8fb983b05bec23bcaaf64982957b3fd586119fe2cad0dd4238ebb43632e370a",
+          "bytes": 5512
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "var-flight"
+      },
+      "melody": {
+        "notes": 100,
+        "sha256": "3a69bea2816b1f82b2d196dd9bfbefc8a8830b256603a3521d0630fa183dbeb5"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/var-flight.json"
+      },
+      "instruments": [
+        "cellos",
+        "flute",
+        "glock",
+        "harp",
+        "violas",
+        "violins"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/var-flight.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -23.9,
+        "truePeakDbtp": -12.7,
+        "lraLU": 2.7,
+        "momentaryMax": -20.3,
+        "shortTermMax": -22.1
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "5f2a131e4c3a0ccb9274274167fa769a3045668630a769622ef4c4d365d2c273",
+        "at": "2026-11-14"
+      }
+    },
+    {
+      "id": "var-ohayo-hatch2",
+      "title": "おはようのひかり（たまごが かえる・ファンファーレ 2小節）",
+      "uses": [
+        "scene-13"
+      ],
+      "kind": "jingle",
+      "bpm": 120,
+      "meter": "4/4",
+      "key": {
+        "declared": null,
+        "estimate": "G minor",
+        "correlation": 0.6627,
+        "basis": "Source score/MIDI has no declared key. Melody duration-weighted pitch-class Krumhansl major/minor profile estimate; not an authored tonal declaration."
+      },
+      "duration": 6.75,
+      "frames": 297675,
+      "sampleRate": 44100,
+      "loop": {
+        "enabled": false,
+        "start": 0,
+        "end": 6.75
+      },
+      "assets": {
+        "aac": {
+          "path": "assets/bgm/var-ohayo-hatch2.m4a",
+          "sha256": "1d95d59a0a235be39ab12386f7cb3e5ac5fb2722f317f5810903d68d711586be",
+          "bytes": 163275
+        },
+        "flac": {
+          "path": "music/masters/var-ohayo-hatch2/var-ohayo-hatch2.flac",
+          "sha256": "0a1673f71d58df06ba34c65b969a0a25c5952647f30623c55640a2da214d6bf4",
+          "bytes": 1044527
+        },
+        "midi": {
+          "path": "music/masters/var-ohayo-hatch2/var-ohayo-hatch2.mid",
+          "sha256": "41661fce84ff57e809ed024b559ac155d41c2a9fc4342c262c0d23e7aab7111b",
+          "bytes": 1315
+        }
+      },
+      "score": {
+        "path": "music/provenance/scores-v7.json",
+        "sha256": "c7dd81236bad2ccf044607e9d6919090cc6fc65c604ce60eadd7522e16501002",
+        "trackId": "var-ohayo-hatch2"
+      },
+      "melody": {
+        "notes": 6,
+        "sha256": "52772c00abb4b43347bcb5f8591081bc33ab46f8103dd9969d6c014cd8b4f714"
+      },
+      "arrangement": {
+        "reference": "https://github.com/Naoto214/naotocchi/blob/01a55914244b8cf74f3cd467ef9b83beb23f8e13/prototypes/bgm-v7-complete-20261114/scores-v7.json",
+        "version": "V7 complete",
+        "receipt": "music/provenance/receipts/var-ohayo-hatch2.json"
+      },
+      "instruments": [
+        "glock",
+        "harp",
+        "kick",
+        "piano",
+        "shell",
+        "snarehit",
+        "timpani",
+        "trumpet",
+        "violas",
+        "violins",
+        "woodbass"
+      ],
+      "sources": [
+        "vsco"
+      ],
+      "sampleUsage": {
+        "manifest": "music/provenance/samples.json",
+        "receiptNativeUses": "music/provenance/receipts/var-ohayo-hatch2.json",
+        "note": "Home B2+ source piano audit plus frozen B2 strings; remaining28 receipt.nativeSourceUses lists exact recorded sources. No samples re-rendered."
+      },
+      "individualGainDb": 0,
+      "measurements": {
+        "integratedLUFS": -18.4,
+        "truePeakDbtp": -6.4,
+        "lraLU": 2.9,
+        "momentaryMax": -16.2,
+        "shortTermMax": -17.1
+      },
+      "status": "approved",
+      "history": [
+        {
+          "at": "2026-11-14",
+          "action": "V7 complete approved without audio change",
+          "sourcePR": 549,
+          "sourceCommit": "01a55914244b8cf74f3cd467ef9b83beb23f8e13"
+        },
+        {
+          "at": "2026-11-14",
+          "action": "Production adoption; individual gain0dB; common gain0.36",
+          "sourcePR": 550,
+          "sourceCommit": "bea117b5e3bf763219d5ad226595d19dfed14f87"
+        }
+      ],
+      "approval": {
+        "reference": "User: V7 complete32 + PR550 formally adopted for production2026-11-14",
+        "fingerprint": "6b1bb2925397ada3c121a3267a4103a8f200fa14b76dc563c3b1ad3600373619",
+        "at": "2026-11-14"
+      }
+    }
+  ]
+}

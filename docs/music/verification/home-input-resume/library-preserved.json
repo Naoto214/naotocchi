@@ -1,0 +1,198 @@
+{
+  "analyzed": 0,
+  "skipped": 32,
+  "tracks": [
+    {
+      "id": "home-morning",
+      "skipped": true,
+      "fingerprint": "2e5283fef34c46aca997927fdb14b1a5eb6e73d9116ff586fc3fa37fa7f77eb7",
+      "success": true
+    },
+    {
+      "id": "home-day",
+      "skipped": true,
+      "fingerprint": "c5de1486ad06a51f1e6db88d1cd8f2d6b39afbd2fcba95c7e24042bf7d84fcf3",
+      "success": true
+    },
+    {
+      "id": "home-evening",
+      "skipped": true,
+      "fingerprint": "b9e8bc4c91f94bf8a125aaa3f1b2f1cd96466fe16c64d5125552705abcff613c",
+      "success": true
+    },
+    {
+      "id": "home-night",
+      "skipped": true,
+      "fingerprint": "3277611e775a9ba833f4a657f20bc385c24090daaaea31d22767ceef348742bd",
+      "success": true
+    },
+    {
+      "id": "poyo-1",
+      "skipped": true,
+      "fingerprint": "4d58abab11bb4f7ef65b0c2507396e17d7569a44737ac428fed7cb0fac8a7e32",
+      "success": true
+    },
+    {
+      "id": "koro-1",
+      "skipped": true,
+      "fingerprint": "ae9969ec8a720283d6ee2d711cc85203b11d2f8d929275c81a411a97d4742c32",
+      "success": true
+    },
+    {
+      "id": "card-2",
+      "skipped": true,
+      "fingerprint": "902d988588173350205c731cd75348a7b2d3f06522b22aa2587a0a168cef7744",
+      "success": true
+    },
+    {
+      "id": "game-1",
+      "skipped": true,
+      "fingerprint": "b5734ab91237aff685dc6d2538fdb5afd6794bd93d899b6f14aee8a13c29ad30",
+      "success": true
+    },
+    {
+      "id": "explore-1",
+      "skipped": true,
+      "fingerprint": "bedecc6ac2439762208e55e551098941f1f8a37451242dcb15556e0cd2cfeee4",
+      "success": true
+    },
+    {
+      "id": "event-2",
+      "skipped": true,
+      "fingerprint": "4b5b37fb08b2bcbae062f4ef4635a3bb7b6ec3743a81f68ba4a277e938d79879",
+      "success": true
+    },
+    {
+      "id": "event-1",
+      "skipped": true,
+      "fingerprint": "d08838932b085e61b0e860aa3b99cbcca29d2bf532d2c330fb588d1491a4b73f",
+      "success": true
+    },
+    {
+      "id": "kisetsu",
+      "skipped": true,
+      "fingerprint": "d45f1f5a8dca3e348110760decb91f1601f0e918b577a968bc875e22ef6ea74f",
+      "success": true
+    },
+    {
+      "id": "ohayo",
+      "skipped": true,
+      "fingerprint": "91d83917ffdcd5d88a75a4c9309a245ca0fa8488de306baa5cae4b7d1913efe5",
+      "success": true
+    },
+    {
+      "id": "bgm-game",
+      "skipped": true,
+      "fingerprint": "d4bb7be08648ad21823f8192e16f6008ae0e25a7ff6318c879a705477e74f1f7",
+      "success": true
+    },
+    {
+      "id": "bgm-race",
+      "skipped": true,
+      "fingerprint": "10d0c2209f59f451cddd922249c0fa352a21b281865548dddfeba14ef33fef70",
+      "success": true
+    },
+    {
+      "id": "bgm-farewell",
+      "skipped": true,
+      "fingerprint": "92c581170504db9fb4dfb8142d850d9be382065ccebf9ceaacc35174e9673b68",
+      "success": true
+    },
+    {
+      "id": "poyo-2",
+      "skipped": true,
+      "fingerprint": "c445757c7da43ccaaa5546e8c1ce0b9eb5e19aefb3974cd7a9796d76873f460c",
+      "success": true
+    },
+    {
+      "id": "game-2",
+      "skipped": true,
+      "fingerprint": "8258997120f917669eb89f96aa593c7eb327d8e08e83e6e7c98c4db8e3f28ae9",
+      "success": true
+    },
+    {
+      "id": "explore-2",
+      "skipped": true,
+      "fingerprint": "ccb17562d9256a58b3867cd71d5e316c975f57ecaedef8d3f137cb6ea00d030e",
+      "success": true
+    },
+    {
+      "id": "board-b",
+      "skipped": true,
+      "fingerprint": "799d7269006ac9e409a6395760f4af2147b36b19fcfc8014f61568844c469285",
+      "success": true
+    },
+    {
+      "id": "fishing-a",
+      "skipped": true,
+      "fingerprint": "0d860f93a25d8e78aeead4d49273075a8250bcb4f21c9f578dec1b8f4c4feee7",
+      "success": true
+    },
+    {
+      "id": "lullaby-a",
+      "skipped": true,
+      "fingerprint": "202848c5357542900f4c83d900d4e48af10a49a1ac1ccebca6ec9cd9aa61c96b",
+      "success": true
+    },
+    {
+      "id": "jingle-achieve",
+      "skipped": true,
+      "fingerprint": "03c45b4a5b2a3c42bb38e343bd935a4c5745cfacd9c1d8910dbdcf090bb8d5b4",
+      "success": true
+    },
+    {
+      "id": "jingle-card-lose",
+      "skipped": true,
+      "fingerprint": "96e5c361d31ce515f0fafea2e8b341838325026f0e7bd0e95e3914f0f618d81e",
+      "success": true
+    },
+    {
+      "id": "var-poyo-clear",
+      "skipped": true,
+      "fingerprint": "2045af99f47a6fcb22c566ca91015681f32dcc7b23ad17945b4ae394c545466e",
+      "success": true
+    },
+    {
+      "id": "var-poyo-chapter",
+      "skipped": true,
+      "fingerprint": "0bff665ba2be8d28ee3671657916a7815fecad74d7a125cb5196a57b6f57c062",
+      "success": true
+    },
+    {
+      "id": "var-koro-goal",
+      "skipped": true,
+      "fingerprint": "57a0df4a046d85f8962351831f8a923f99be93e5589d96b4eaefa49aa3acbcc8",
+      "success": true
+    },
+    {
+      "id": "var-koro-album",
+      "skipped": true,
+      "fingerprint": "1c168617d6fe6ddac1753167857808ba134a006d62a536f6f2a7b5c4b8282ee7",
+      "success": true
+    },
+    {
+      "id": "var-card-late",
+      "skipped": true,
+      "fingerprint": "d36374159345453ac50e66a665ee8e8310614cbd959bf2f5c86e0f2b9fa0959f",
+      "success": true
+    },
+    {
+      "id": "var-card-win",
+      "skipped": true,
+      "fingerprint": "0e59787de0f4274621e5038e4b9cd1a66ce6bda1d467f4323af9e95a4d6ea0b6",
+      "success": true
+    },
+    {
+      "id": "var-flight",
+      "skipped": true,
+      "fingerprint": "5f2a131e4c3a0ccb9274274167fa769a3045668630a769622ef4c4d365d2c273",
+      "success": true
+    },
+    {
+      "id": "var-ohayo-hatch2",
+      "skipped": true,
+      "fingerprint": "6b1bb2925397ada3c121a3267a4103a8f200fa14b76dc563c3b1ad3600373619",
+      "success": true
+    }
+  ]
+}

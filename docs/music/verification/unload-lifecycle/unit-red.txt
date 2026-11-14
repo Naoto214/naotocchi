@@ -1,0 +1,64 @@
+✔ shared gain is0.36 for standalone BGM and explicit custom level remains valid (7.750782ms)
+✔ stopped pending jingle cannot start after decoding finishes (10.789002ms)
+✔ latest jingle request wins even if older network request resolves last (2.505637ms)
+✔ BGM setting switched off during decoding prevents pending jingle (1.363956ms)
+✔ null song during held jingle immediately cancels it without follow-up (1.967155ms)
+✔ jingle completion follows source audio end, never an elapsed wall timer (1.813483ms)
+✔ catalog custom loop boundaries reach actual source node (1.730348ms)
+✔ stale failed loop request cannot disable newer valid music (1.750428ms)
+✔ AudioSession is configured for playback when supported (0.921519ms)
+✔ overlay replacing a held jingle releases its queued loop (2.522673ms)
+✔ shared context can resume on another gesture after interruption (0.932316ms)
+✔ visibility restoration restarts held-jingle followup without a second gesture (1.235252ms)
+✔ a result jingle still loading cannot override a newer selected scene (1.03553ms)
+✔ active jingle cleans up even while a later replacement is pending or fails (3.162647ms)
+✖ beforeunload save notifications do not fetch audio and cancelled navigation can play again (1.824661ms)
+✖ a jingle decoded during beforeunload stays silent and pageshow restores playback (4.407273ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 14
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 133.471786
+
+✖ failing tests:
+
+test at tests/bgm-production-test.cjs:28:1
+✖ beforeunload save notifications do not fetch audio and cancelled navigation can play again (1.824661ms)
+  AssertionError [ERR_ASSERTION]: leaving save must not start a network request
+  
+  true !== false
+  
+      at TestContext.<anonymous> (/workspace/work/bgm-v7-strings/tests/bgm-production-test.cjs:28:190)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/bgm-production-test.cjs:29:1
+✖ a jingle decoded during beforeunload stays silent and pageshow restores playback (4.407273ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (/workspace/work/bgm-v7-strings/tests/bgm-production-test.cjs:29:201)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

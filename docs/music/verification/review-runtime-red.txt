@@ -1,0 +1,57 @@
+✔ shared gain is0.36 for standalone BGM and explicit custom level remains valid (6.587861ms)
+✔ stopped pending jingle cannot start after decoding finishes (8.06021ms)
+✔ latest jingle request wins even if older network request resolves last (1.416836ms)
+✔ BGM setting switched off during decoding prevents pending jingle (1.626892ms)
+✔ null song during held jingle immediately cancels it without follow-up (1.285157ms)
+✔ jingle completion follows source audio end, never an elapsed wall timer (1.478909ms)
+✔ catalog custom loop boundaries reach actual source node (1.211015ms)
+✔ stale failed loop request cannot disable newer valid music (1.412239ms)
+✔ AudioSession is configured for playback when supported (0.857683ms)
+✔ overlay replacing a held jingle releases its queued loop (1.623568ms)
+✔ shared context can resume on another gesture after interruption (1.261902ms)
+✖ visibility restoration restarts held-jingle followup without a second gesture (1.310395ms)
+✖ a result jingle still loading cannot override a newer selected scene (2.82621ms)
+✖ active jingle cleans up even while a later replacement is pending or fails (2.373568ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 11
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 108.222376
+
+✖ failing tests:
+
+test at tests/bgm-production-test.cjs:24:1
+✖ visibility restoration restarts held-jingle followup without a second gesture (1.310395ms)
+  TypeError [Error]: Cannot read properties of undefined (reading 'resolve')
+      at Object.resolve (/workspace/work/bgm-v7-strings/tests/bgm-production-test.cjs:11:106)
+      at TestContext.<anonymous> (/workspace/work/bgm-v7-strings/tests/bgm-production-test.cjs:24:319)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at tests/bgm-production-test.cjs:25:1
+✖ a result jingle still loading cannot override a newer selected scene (2.82621ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (/workspace/work/bgm-v7-strings/tests/bgm-production-test.cjs:25:210)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/bgm-production-test.cjs:26:1
+✖ active jingle cleans up even while a later replacement is pending or fails (2.373568ms)
+  TypeError [Error]: Cannot read properties of undefined (reading 'resolve')
+      at Object.resolve (/workspace/work/bgm-v7-strings/tests/bgm-production-test.cjs:11:106)
+      at TestContext.<anonymous> (/workspace/work/bgm-v7-strings/tests/bgm-production-test.cjs:26:264)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)

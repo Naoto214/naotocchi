@@ -1,0 +1,14 @@
+{
+  "id": "{id}", "title": "", "uses": [], "kind": "bgm", "bpm": 90,
+  "meter": "4/4", "key": {"declared": null, "basis": "新曲の作者が記入。未確定なら未確定と明記"},
+  "duration": 0, "frames": 0, "sampleRate": 44100,
+  "loop": {"enabled": true, "start": 0, "end": 0},
+  "assets": {
+    "aac": {"path": "assets/bgm/{id}.m4a"},
+    "flac": {"path": "music/candidates/{id}/master.flac"},
+    "midi": {"path": "music/candidates/{id}/score.mid"}
+  },
+  "score": {"path": "music/candidates/{id}/score.json"},
+  "instruments": [], "sources": [], "individualGainDb": 0,
+  "status": "candidate", "history": []
+}

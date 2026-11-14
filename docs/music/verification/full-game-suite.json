@@ -1,0 +1,16 @@
+{
+  "command": "npm test",
+  "exitCode": 0,
+  "nodeTestGroups": [
+    19,
+    39,
+    43,
+    3293,
+    159,
+    238
+  ],
+  "nodeTestCount": 3791,
+  "failures": 0,
+  "additionalStandaloneSuites": "smoke-test.js,dialogue-test.js,visual-qa-test.cjs completed via npm && chain",
+  "note": "Full game suite completed on integration tree; runtime/music/browser suites recorded separately."
+}

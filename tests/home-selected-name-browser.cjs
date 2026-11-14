@@ -28,6 +28,9 @@ const server=http.createServer((req,res)=>{
  res.setHeader('Content-Type',mime[path.extname(p)]||'application/octet-stream');fs.createReadStream(p).pipe(res);
 });
 const records=[],errors=[];
+// Seed only the disposable presentation model via its existing random option.
+// Gameplay RNG, production files, hitboxes and saved entities are untouched.
+let qaDiorama=fs.readFileSync(path.join(out,'release-qa-diorama.js'),'utf8');assert.ok(qaDiorama.includes('modelAPI.createModel({onEvent:emit})'));qaDiorama=qaDiorama.replace('modelAPI.createModel({onEvent:emit})','modelAPI.createModel({onEvent:emit,random:(()=>{let seed=521;return ()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296)})()})');fs.writeFileSync(path.join(out,'release-qa-diorama.js'),qaDiorama);
 async function inspect(page){return page.evaluate(()=>{
  const r=e=>e.getBoundingClientRect().toJSON(),label=document.querySelector('.diorama-selected-label'),frame=document.querySelector('.screen-frame');
  return {text:label.textContent,hidden:label.hidden,display:getComputedStyle(label).display,label:r(label),frame:r(frame),selected:HomeReleaseQA.selected(),
@@ -62,14 +65,17 @@ function verifyPaint(state,expected){
  for(const lane of [state.notice,state.comment])assert.ok(a.right<=lane.left||a.left>=lane.right||a.bottom<=lane.top||a.top>=lane.bottom,'name must not overlap notification/comment');
  assert.equal(state.notice.height,42);assert.equal(state.comment.height,76);
 }
-// Reading the browser clock and pausing it are two protocol requests. On a busy
-// runner the first timestamp can already be in the past by the second request.
-async function pauseForInput(page){
- for(const lead of [1000,3000,10000]){
-  try{await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+lead));return;}
-  catch(error){if(!String(error).includes('Cannot fast-forward to the past')||lead===10000)throw error;}
- }
+// Keep a fixed clock for the entire case, including reload. Input lookup and
+// dispatch cannot age the cast; only explicit runFor calls advance real frames.
+async function pauseForInput(page){await page.clock.runFor(0);}
+async function ready(page){
+ // Wait for real image/font I/O with the virtual clock stopped. The final
+ // fixed frame advance paints the loaded daypart and completes camera sizing.
+ await page.waitForLoadState('networkidle');await page.evaluate(()=>document.fonts.ready);
+ await page.clock.runFor(550);
+ assert.equal(await page.evaluate(()=>!!HomeReleaseQA.detail().world?.loaded&&[...document.querySelectorAll('[data-diorama-actor] img')].every(i=>i.complete&&i.naturalWidth>0)),true,'world and resident images ready');
 }
+
 async function tap(page,kind,single=false){
  // Keep the real touchscreen hit test atomic with the exposed-pixel lookup.
  // Otherwise WebKit can run an autonomous-walk frame between these two awaits
@@ -106,7 +112,7 @@ async function tap(page,kind,single=false){
  if(single)assert.equal(state.display,'none');else verifyPaint(state,p.name);
  if(kind==='pet')assert.equal(state.text,'大人のいぬ');
  return {kind,key:p.key,text:state.text,label:state.label,frame:state.frame};
- }finally{await page.clock.resume();}
+ }finally{await page.clock.runFor(0);}
 }
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));
  try{for(const engine of (process.env.HOME_NAME_ENGINES||'chromium,webkit').split(',')){
@@ -114,15 +120,16 @@ async function tap(page,kind,single=false){
  const browser=await require('playwright')[engine].launch(options);
  try{for(const kind of (process.env.HOME_NAME_CASES||'single,companion,partner,all,crowd').split(',')){
  const page=await browser.newPage({viewport:{width:393,height:720},hasTouch:true});
- const rec={engine,kind,checks:[]};records.push(rec);page.on('pageerror',e=>errors.push(e.message));
+ const rec={engine,kind,checks:[],fixture:{clock:'2026-11-14T00:00:01Z',presentationSeed:521}};records.push(rec);page.on('pageerror',e=>errors.push(e.message));
  try{
  await page.addInitScript(seed=>{if(!localStorage.getItem('naotocchi-home-release-qa-v1'))localStorage.setItem('naotocchi-home-release-qa-v1',JSON.stringify(seed));window.AudioContext=undefined;window.webkitAudioContext=undefined;},JSON.parse(fs.readFileSync(path.join(out,'release-qa-seed.json'))));
  // Install before boot so the existing animation loop and later synthetic
  // time advances share one requestAnimationFrame clock.
- await page.clock.install();
+ // Pause before app boot with a full day of headroom for a busy CI runner.
+ await page.clock.install({time:new Date('2026-11-13T00:00:01Z')});await page.clock.pauseAt(new Date('2026-11-14T00:00:01Z'));
  await page.goto(`http://127.0.0.1:${server.address().port}/release-qa.html`);
  await page.waitForFunction(()=>window.HomeReleaseQA);await page.evaluate(k=>HomeReleaseQA.setup(k),kind);
- await page.waitForFunction(()=>HomeReleaseQA.detail().world?.loaded);await page.waitForTimeout(1700);
+ await ready(page);rec.fixture.ready=await page.evaluate(()=>({now:Date.now(),actors:HomeReleaseQA.detail().actors.map(a=>({key:a.key,x:a.x,y:a.y}))}));
  assert.equal((await inspect(page)).count,{single:1,companion:2,partner:2,all:3,crowd:28}[kind]);
  const kinds=kind==='single'?['pet']:kind==='companion'?['pet','companion','pet']:kind==='partner'?['pet','partner','pet']:['pet','companion','partner','pet'];
  for(const actor of kinds)rec.checks.push(await tap(page,actor,kind==='single'));
@@ -153,13 +160,13 @@ async function tap(page,kind,single=false){
  const groundTraceStart=await page.evaluate(()=>HomeReleaseInputTrace.length);
  await page.touchscreen.tap(ground.to.x,ground.to.y);
  assert.ok(await page.evaluate(start=>HomeReleaseInputTrace.slice(start).some(t=>t.type==='move'&&t.args[2]==='ground'&&t.result),groundTraceStart),'ground tap retains movement');
- await page.clock.resume();rec.checks.push({ground:true});
- await page.setViewportSize({width:844,height:390});await page.waitForTimeout(800);
+ await page.clock.runFor(0);rec.checks.push({ground:true});
+ await page.setViewportSize({width:844,height:390});await ready(page);
  for(const actor of kinds)rec.checks.push({landscape:await tap(page,actor,kind==='single')});
  if(kind!=='single'){await page.evaluate(()=>HomeReleaseQA.notices());rec.checks.push({landscapeNotices:await tap(page,'pet')});await page.evaluate(()=>HomeReleaseQA.resetDisplay());}
- await page.setViewportSize({width:393,height:720});await page.waitForTimeout(800);rec.checks.push({portraitAgain:await tap(page,'pet',kind==='single')});
+ await page.setViewportSize({width:393,height:720});await ready(page);rec.checks.push({portraitAgain:await tap(page,'pet',kind==='single')});
  await page.evaluate(()=>HomeReleaseQA.save());const saved=await page.evaluate(()=>localStorage.getItem('naotocchi-home-release-qa-v1'));
- await page.reload();await page.waitForFunction(()=>window.HomeReleaseQA&&HomeReleaseQA.detail().world?.loaded);await page.waitForTimeout(1700);
+ await page.reload();await page.waitForFunction(()=>window.HomeReleaseQA);await ready(page);
  assert.equal((await inspect(page)).count,{single:1,companion:2,partner:2,all:3,crowd:28}[kind]);
  rec.checks.push({restored:await tap(page,kinds[1]||'pet',kind==='single')});
  assert.ok(saved);await page.screenshot({path:path.join(out,engine+'-'+kind+'.png')});rec.status='passed';

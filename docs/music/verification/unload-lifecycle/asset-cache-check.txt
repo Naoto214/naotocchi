@@ -1,0 +1,42 @@
+✔ asset tokens validate exact file bytes in both supported formats for scripts, stylesheets and lazy modules (3.538503ms)
+✔ every static assets/… reference in HTML, CSS and JS exists with the exact case (347.724743ms)
+✔ every script, stylesheet and lazy module carries a supported token whose hash matches the file (68.133185ms)
+✔ dynamic paths: current species, unified items, egg frames and goal-art fallbacks exist (196.840957ms)
+✔ the checks catch a missing file, a case mismatch, a stale token, a missing token and a missing dynamic path (0.647786ms)
+✔ the real index.html and references turn red when a token goes stale, a token is dropped or a path changes case (107.005681ms)
+✔ npm run bump still rewrites only the ?v= tokens with YYYYMMDD-<assetHash>, and is idempotent (195.867429ms)
+✔ index.html asset references exist and carry cache tokens (7.427877ms)
+✔ the bump tool rewrites only cache tokens (0.41084ms)
+✔ shared gain is0.36 for standalone BGM and explicit custom level remains valid (9.269551ms)
+✔ stopped pending jingle cannot start after decoding finishes (17.875263ms)
+✔ latest jingle request wins even if older network request resolves last (26.208463ms)
+✔ BGM setting switched off during decoding prevents pending jingle (3.368658ms)
+✔ null song during held jingle immediately cancels it without follow-up (3.491633ms)
+✔ jingle completion follows source audio end, never an elapsed wall timer (1.819883ms)
+✔ catalog custom loop boundaries reach actual source node (2.978779ms)
+✔ stale failed loop request cannot disable newer valid music (2.889165ms)
+✔ AudioSession is configured for playback when supported (4.419361ms)
+✔ overlay replacing a held jingle releases its queued loop (2.075047ms)
+✔ shared context can resume on another gesture after interruption (2.090541ms)
+✔ visibility restoration restarts held-jingle followup without a second gesture (1.696077ms)
+✔ a result jingle still loading cannot override a newer selected scene (1.399269ms)
+✔ active jingle cleans up even while a later replacement is pending or fails (2.920992ms)
+✔ beforeunload save notifications do not fetch audio and cancelled navigation can play again (1.544758ms)
+✔ a jingle decoded during beforeunload stays silent and pageshow restores playback (1.192237ms)
+✔ only exact BGM hooks differ from latest approved game bytes (46.40205ms)
+✔ unrelated script, UI and game changes cannot pass the BGM scope exception (25.001454ms)
+✔ 配置表の 場面ごとに 採用曲が 選ばれる (25.919037ms)
+✔ 配置表の 曲は すべて 音源が ある（100本の ミニゲームID を 含む） (2.297533ms)
+✔ 音源の 曲目が ないときは 以前の 合成BGM に もどる (2.436042ms)
+✔ 音源BGM の ときは 合成BGM を 鳴らさない（二重に 鳴らない） (7.738795ms)
+✔ BGM オフ設定では 曲を 選ばない（ジングルも 鳴らさない） (1.996559ms)
+✔ サブアプリ3つと 本体が BGM の 部品を 読みこむ (0.95554ms)
+✔ every registered game ID resolves through the real main selector (150.550379ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1203.269916

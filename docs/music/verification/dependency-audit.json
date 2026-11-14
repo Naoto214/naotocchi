@@ -1,0 +1,755 @@
+{
+  "main": "105dba519890c2dc17e94a8c9d1b7679720fddf3",
+  "related": [
+    {
+      "number": 540,
+      "base": "main",
+      "head": "claude/jolly-cray-xeq38x-game",
+      "state": "open",
+      "draft": true,
+      "mergeable": false
+    },
+    {
+      "number": 549,
+      "base": "codex/bgm-v7-strings",
+      "head": "codex/bgm-v7-complete",
+      "state": "open",
+      "draft": true,
+      "mergeable": true
+    },
+    {
+      "number": 550,
+      "base": "codex/bgm-v7-complete",
+      "head": "codex/bgm-v7-loudness",
+      "state": "open",
+      "draft": true,
+      "mergeable": true
+    }
+  ],
+  "overlaps": [
+    {
+      "number": 545,
+      "title": "[Draft] Codex開発体制 VERSION 1：成果物保全・チェックポイント・安全な再開",
+      "overlap": []
+    },
+    {
+      "number": 535,
+      "title": "なおぽよ。VERSION 4 比較試作 — 6環境・戦略パズル・箱3案・100面評価（V3保護/Draft）",
+      "overlap": [
+        "tools/pages/allowlist.json"
+      ]
+    },
+    {
+      "number": 532,
+      "title": "なおぽよ。ギミック図鑑 VERSION 2 — ひとマス共通仕様・デザイン比較・100面計画",
+      "overlap": []
+    },
+    {
+      "number": 523,
+      "title": "[Draft・試遊限定] なおぽよ。第2章 VERSION 2／全10面のパズル・連動・仲間配置改善",
+      "overlap": []
+    },
+    {
+      "number": 517,
+      "title": "[試遊・マージしない] 恋人18種類の結婚後追加能力 VERSION 4・5（本人限定試遊版・最終検証）",
+      "overlap": [
+        "prototypes/card-game/lover-marriage-v4-20261104/README.md",
+        "prototypes/card-game/lover-marriage-v4-20261104/REPORT.md",
+        "prototypes/card-game/lover-marriage-v4-20261104/RULEBOOK-DIFF.md",
+        "prototypes/card-game/lover-marriage-v4-20261104/lib/build-stage.mjs",
+        "prototypes/card-game/lover-marriage-v4-20261104/lib/v4-patches.mjs",
+        "prototypes/card-game/lover-marriage-v4-20261104/sim/.gitignore",
+        "prototypes/card-game/lover-marriage-v4-20261104/sim/analyze.py",
+        "prototypes/card-game/lover-marriage-v4-20261104/sim/results/plan.json",
+        "prototypes/card-game/lover-marriage-v4-20261104/sim/results/results-rr-cpu0.jsonl.gz",
+        "prototypes/card-game/lover-marriage-v4-20261104/sim/results/results.jsonl.gz",
+        "prototypes/card-game/lover-marriage-v4-20261104/sim/results/summary.json",
+        "prototypes/card-game/lover-marriage-v4-20261104/sim/run.mjs",
+        "prototypes/card-game/lover-marriage-v4-20261104/tests/v4-abilities.test.mjs",
+        "prototypes/card-game/lover-marriage-v4-20261104/trial/build-trial.mjs",
+        "prototypes/card-game/lover-marriage-v4-20261104/trial/evidence/detail-landscape-P-grove_deer.png",
+        "prototypes/card-game/lover-marriage-v4-20261104/trial/evidence/detail-landscape-P-oasis_cactus.png",
+        "prototypes/card-game/lover-marriage-v4-20261104/trial/evidence/detail-landscape-P-rock_octopus.png",
+        "prototypes/card-game/lover-marriage-v4-20261104/trial/evidence/detail-portrait-P-grove_deer.png",
+        "prototypes/card-game/lover-marriage-v4-20261104/trial/evidence/detail-portrait-P-oasis_cactus.png",
+        "prototypes/card-game/lover-marriage-v4-20261104/trial/evidence/detail-portrait-P-rock_octopus.png",
+        "prototypes/card-game/lover-marriage-v4-20261104/trial/evidence/iphone-landscape-married-P-high_eagle.png",
+        "prototypes/card-game/lover-marriage-v4-20261104/trial/evidence/iphone-portrait-cpu.png",
+        "prototypes/card-game/lover-marriage-v4-20261104/trial/evidence/iphone-portrait-divorce.png",
+        "prototypes/card-game/lover-marriage-v4-20261104/trial/evidence/iphone-portrait-married-P-high_eagle.png",
+        "prototypes/card-game/lover-marriage-v4-20261104/trial/evidence/iphone-portrait-setup.png",
+        "prototypes/card-game/lover-marriage-v4-20261104/trial/evidence/qa-log.txt",
+        "prototypes/card-game/lover-marriage-v4-20261104/trial/evidence/unit-tests.txt",
+        "prototypes/card-game/lover-marriage-v4-20261104/trial/qa-detail.cjs",
+        "prototypes/card-game/lover-marriage-v4-20261104/trial/qa-trial.cjs",
+        "prototypes/card-game/lover-marriage-v4-20261104/trial/qa-v4.mjs",
+        "prototypes/card-game/lover-marriage-v5-20261104/FINAL-CHECK.md",
+        "prototypes/card-game/lover-marriage-v5-20261104/INTEGRATION.md",
+        "prototypes/card-game/lover-marriage-v5-20261104/README.md",
+        "prototypes/card-game/lover-marriage-v5-20261104/REPORT.md",
+        "prototypes/card-game/lover-marriage-v5-20261104/RULEBOOK-DIFF.md",
+        "prototypes/card-game/lover-marriage-v5-20261104/lib/build-stage.mjs",
+        "prototypes/card-game/lover-marriage-v5-20261104/lib/v5-patches.mjs",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/analyze.py",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/compare.py",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/final_check.py",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/abl.jsonl.gz",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/compare.json",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/diag.jsonl.gz",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/final-check-af.jsonl.gz",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/final-check-d2.jsonl.gz",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/final-check-dd.jsonl.gz",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/final-check-f5.jsonl.gz",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/final-check-fv.jsonl.gz",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/final-check-rc.jsonl.gz",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/final-check-rr.json",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/final-check-summary.json",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/final.jsonl.gz",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/k.jsonl.gz",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/plan-abl.json.gz",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/plan-diag.json.gz",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/plan-final-check-af.json.gz",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/plan-final-check-d2.json.gz",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/plan-final-check-dd.json.gz",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/plan-final-check-f5.json.gz",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/plan-final-check-fv.json.gz",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/plan-final-check-rc.json.gz",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/plan-final.json.gz",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/plan-k.json.gz",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/results/summary.json",
+        "prototypes/card-game/lover-marriage-v5-20261104/sim/run.mjs",
+        "prototypes/card-game/lover-marriage-v5-20261104/tests/v5-abilities.test.mjs",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/build-trial.mjs",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-landscape-cpu.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-landscape-detail-P-gentle_gorilla.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-landscape-detail-P-grove_deer.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-landscape-detail-P-knitting_spider.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-landscape-detail-P-oasis_cactus.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-landscape-detail-P-rock_octopus.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-landscape-detail-P-snow_spirit.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-landscape-detail-P-snowman.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-landscape-divorce.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-landscape-married-P-gentle_gorilla.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-landscape-married-P-high_eagle.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-landscape-setup.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-portrait-cpu.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-portrait-detail-P-gentle_gorilla.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-portrait-detail-P-grove_deer.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-portrait-detail-P-knitting_spider.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-portrait-detail-P-oasis_cactus.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-portrait-detail-P-rock_octopus.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-portrait-detail-P-snow_spirit.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-portrait-detail-P-snowman.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-portrait-divorce.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-portrait-married-P-gentle_gorilla.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-portrait-married-P-high_eagle.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/iphone-portrait-setup.png",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/qa-log.txt",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/evidence/unit-tests.txt",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/qa-trial.cjs",
+        "prototypes/card-game/lover-marriage-v5-20261104/trial/qa-v5.mjs"
+      ]
+    },
+    {
+      "number": 510,
+      "title": "[Draft] なおころ。V6 第1段階 — 共通CPU基盤と正式通常ゲーム15種類",
+      "overlap": [
+        "prototypes/life-sugoroku/main-v4.mjs",
+        "prototypes/life-sugoroku/official-catalog-v6.mjs",
+        "prototypes/life-sugoroku/official-host-v4.js",
+        "prototypes/life-sugoroku/official-normal-cpu-v6.mjs",
+        "prototypes/life-sugoroku/official-observer-v6.mjs",
+        "prototypes/life-sugoroku/official-runtime-v4.mjs",
+        "prototypes/life-sugoroku/official/art-assets-v6.json",
+        "prototypes/life-sugoroku/official/art-v6.js",
+        "prototypes/life-sugoroku/official/canvas-illustrations.js",
+        "prototypes/life-sugoroku/official/controls.css",
+        "prototypes/life-sugoroku/official/controls.js",
+        "prototypes/life-sugoroku/tournament-v4.mjs"
+      ]
+    },
+    {
+      "number": 503,
+      "title": "実験：なおぽよ。時の針・操作型チュートリアルT1〜T8",
+      "overlap": []
+    },
+    {
+      "number": 498,
+      "title": "【実験・マージ禁止】CARD GAME 時のカード IX〜XII ＋ 逆転カード VERSION 8（P3 決定・正式導入の直前までの準備）＋本人限定試遊版",
+      "overlap": [
+        "prototypes/card-game/variable-life-20261031/.gitignore",
+        "prototypes/card-game/variable-life-20261031/ARCHIVE.md",
+        "prototypes/card-game/variable-life-20261031/ASTRA-ART-SPEC.md",
+        "prototypes/card-game/variable-life-20261031/CARDS-V3.md",
+        "prototypes/card-game/variable-life-20261031/CARDS.md",
+        "prototypes/card-game/variable-life-20261031/CLOCK.md",
+        "prototypes/card-game/variable-life-20261031/OPEN-ITEMS.md",
+        "prototypes/card-game/variable-life-20261031/PLAN-NEXT.md",
+        "prototypes/card-game/variable-life-20261031/PLAN-TIME.md",
+        "prototypes/card-game/variable-life-20261031/PLAN-V2.md",
+        "prototypes/card-game/variable-life-20261031/PLAN-V4.md",
+        "prototypes/card-game/variable-life-20261031/PLAN-V5.md",
+        "prototypes/card-game/variable-life-20261031/PLAN-V6.md",
+        "prototypes/card-game/variable-life-20261031/PLAN-V7.md",
+        "prototypes/card-game/variable-life-20261031/PLAN-WORLD.md",
+        "prototypes/card-game/variable-life-20261031/PLAN.md",
+        "prototypes/card-game/variable-life-20261031/README.md",
+        "prototypes/card-game/variable-life-20261031/RECORDS-COMPAT.md",
+        "prototypes/card-game/variable-life-20261031/RECORDS-V2.md",
+        "prototypes/card-game/variable-life-20261031/REPORT.md",
+        "prototypes/card-game/variable-life-20261031/REPRODUCE.md",
+        "prototypes/card-game/variable-life-20261031/RULINGS.md",
+        "prototypes/card-game/variable-life-20261031/SAVE-COMPAT.md",
+        "prototypes/card-game/variable-life-20261031/TIME-V2.md",
+        "prototypes/card-game/variable-life-20261031/TIME.md",
+        "prototypes/card-game/variable-life-20261031/WORLD.md",
+        "prototypes/card-game/variable-life-20261031/analyze_life.py",
+        "prototypes/card-game/variable-life-20261031/analyze_v2.py",
+        "prototypes/card-game/variable-life-20261031/analyze_v4.py",
+        "prototypes/card-game/variable-life-20261031/analyze_v5.py",
+        "prototypes/card-game/variable-life-20261031/analyze_v6.py",
+        "prototypes/card-game/variable-life-20261031/analyze_v7.py",
+        "prototypes/card-game/variable-life-20261031/art-v1/README.md",
+        "prototypes/card-game/variable-life-20261031/art-v1/SHA256SUMS.txt",
+        "prototypes/card-game/variable-life-20261031/art-v1/delivery-report.json",
+        "prototypes/card-game/variable-life-20261031/art-v1/delivery/art-delivery/large/E-hayajimai-e218b4236826.webp",
+        "prototypes/card-game/variable-life-20261031/art-v1/delivery/art-delivery/large/E-nagaiki-630e05ecf2ee.webp",
+        "prototypes/card-game/variable-life-20261031/art-v1/delivery/art-delivery/large/E-omoide-photo-7cef5605a0cc.webp",
+        "prototypes/card-game/variable-life-20261031/art-v1/delivery/art-delivery/large/W-time-ix-816e94692e5d.webp",
+        "prototypes/card-game/variable-life-20261031/art-v1/delivery/art-delivery/large/W-time-x-31089be76a35.webp",
+        "prototypes/card-game/variable-life-20261031/art-v1/delivery/art-delivery/large/W-time-xi-bf941f5652cf.webp",
+        "prototypes/card-game/variable-life-20261031/art-v1/delivery/art-delivery/large/W-time-xii-68ab1da0d455.webp",
+        "prototypes/card-game/variable-life-20261031/art-v1/delivery/art-delivery/small/E-hayajimai-c6654b4e04ee.webp",
+        "prototypes/card-game/variable-life-20261031/art-v1/delivery/art-delivery/small/E-nagaiki-df181cbf6844.webp",
+        "prototypes/card-game/variable-life-20261031/art-v1/delivery/art-delivery/small/E-omoide-photo-4d04892dd9af.webp",
+        "prototypes/card-game/variable-life-20261031/art-v1/delivery/art-delivery/small/W-time-ix-d92309a35440.webp",
+        "prototypes/card-game/variable-life-20261031/art-v1/delivery/art-delivery/small/W-time-x-01a1e0863471.webp",
+        "prototypes/card-game/variable-life-20261031/art-v1/delivery/art-delivery/small/W-time-xi-92ebfefa3bd4.webp",
+        "prototypes/card-game/variable-life-20261031/art-v1/delivery/art-delivery/small/W-time-xii-ab939cb57c27.webp",
+        "prototypes/card-game/variable-life-20261031/art-v1/delivery/card-art-v9.json",
+        "prototypes/card-game/variable-life-20261031/art-v1/intake-report.json",
+        "prototypes/card-game/variable-life-20261031/art-v1/manifest.csv",
+        "prototypes/card-game/variable-life-20261031/art-v1/originals/E-hayajimai.png",
+        "prototypes/card-game/variable-life-20261031/art-v1/originals/E-nagaiki.png",
+        "prototypes/card-game/variable-life-20261031/art-v1/originals/E-omoide-photo.png",
+        "prototypes/card-game/variable-life-20261031/art-v1/originals/W-time-ix.png",
+        "prototypes/card-game/variable-life-20261031/art-v1/originals/W-time-x.png",
+        "prototypes/card-game/variable-life-20261031/art-v1/originals/W-time-xi.png",
+        "prototypes/card-game/variable-life-20261031/art-v1/originals/W-time-xii.png",
+        "prototypes/card-game/variable-life-20261031/art-v1/provenance/card-texts.json",
+        "prototypes/card-game/variable-life-20261031/art-v1/provenance/manifest.json",
+        "prototypes/card-game/variable-life-20261031/art-v1/provenance/time-generation-prompts.json",
+        "prototypes/card-game/variable-life-20261031/art-v1/verification.json",
+        "prototypes/card-game/variable-life-20261031/evidence-v7/home-production-probes.txt",
+        "prototypes/card-game/variable-life-20261031/evidence-v7/official-tests-on-candidate.txt",
+        "prototypes/card-game/variable-life-20261031/evidence-v7/smoke-hotseat8.txt",
+        "prototypes/card-game/variable-life-20261031/evidence-v7/smoke-time-hotseat8.txt",
+        "prototypes/card-game/variable-life-20261031/evidence-v7/smoke-v2-hotseat8.txt",
+        "prototypes/card-game/variable-life-20261031/evidence-v7/smoke-v4-hotseat8.txt",
+        "prototypes/card-game/variable-life-20261031/evidence-v7/smoke-v5-hotseat8.txt",
+        "prototypes/card-game/variable-life-20261031/evidence-v7/smoke-v6-hotseat8.txt",
+        "prototypes/card-game/variable-life-20261031/evidence-v7/smoke-world-hotseat8.txt",
+        "prototypes/card-game/variable-life-20261031/evidence-v7/test-candidate.txt",
+        "prototypes/card-game/variable-life-20261031/evidence-v8/first-seat-A0.json",
+        "prototypes/card-game/variable-life-20261031/evidence-v8/first-seat-P3.json",
+        "prototypes/card-game/variable-life-20261031/evidence-v8/test-candidate.txt",
+        "prototypes/card-game/variable-life-20261031/evidence-v8/test-clock-u8.txt",
+        "prototypes/card-game/variable-life-20261031/evidence/records-compat.txt",
+        "prototypes/card-game/variable-life-20261031/evidence/replay-check.txt",
+        "prototypes/card-game/variable-life-20261031/evidence/smoke-time.txt",
+        "prototypes/card-game/variable-life-20261031/evidence/smoke-v2.txt",
+        "prototypes/card-game/variable-life-20261031/evidence/smoke-v4.txt",
+        "prototypes/card-game/variable-life-20261031/evidence/smoke-v5.txt",
+        "prototypes/card-game/variable-life-20261031/evidence/smoke-v6.txt",
+        "prototypes/card-game/variable-life-20261031/evidence/smoke-world.txt",
+        "prototypes/card-game/variable-life-20261031/evidence/smoke.txt",
+        "prototypes/card-game/variable-life-20261031/integration/481-time-reversal-cards.md",
+        "prototypes/card-game/variable-life-20261031/integration/CANDIDATE-V7.md",
+        "prototypes/card-game/variable-life-20261031/integration/CANDIDATE-V8.md",
+        "prototypes/card-game/variable-life-20261031/integration/art-intake.mjs",
+        "prototypes/card-game/variable-life-20261031/integration/build-candidate.mjs",
+        "prototypes/card-game/variable-life-20261031/integration/candidate-cards.mjs",
+        "prototypes/card-game/variable-life-20261031/integration/cpu-decks-p3.json",
+        "prototypes/card-game/variable-life-20261031/integration/cpu-decks-p3.mjs",
+        "prototypes/card-game/variable-life-20261031/integration/first-seat-check.py",
+        "prototypes/card-game/variable-life-20261031/integration/integrate-art.mjs",
+        "prototypes/card-game/variable-life-20261031/integration/make-card-doc.mjs",
+        "prototypes/card-game/variable-life-20261031/integration/map-manifest.mjs",
+        "prototypes/card-game/variable-life-20261031/integration/records-v1-catalog.json",
+        "prototypes/card-game/variable-life-20261031/integration/records-v2.mjs",
+        "prototypes/card-game/variable-life-20261031/integration/run-v7.sh",
+        "prototypes/card-game/variable-life-20261031/integration/test-candidate.mjs",
+        "prototypes/card-game/variable-life-20261031/integration/test-clock-u8.mjs",
+        "prototypes/card-game/variable-life-20261031/lib/archive-bundle.py",
+        "prototypes/card-game/variable-life-20261031/lib/archive.py",
+        "prototypes/card-game/variable-life-20261031/lib/build-life.mjs",
+        "prototypes/card-game/variable-life-20261031/lib/decks-life.mjs",
+        "prototypes/card-game/variable-life-20261031/lib/extract-ref.py",
+        "prototypes/card-game/variable-life-20261031/lib/fork-all.sh",
+        "prototypes/card-game/variable-life-20261031/lib/fork.mjs",
+        "prototypes/card-game/variable-life-20261031/lib/life-patches.mjs",
+        "prototypes/card-game/variable-life-20261031/lib/make-manifest-life.mjs",
+        "prototypes/card-game/variable-life-20261031/lib/make-manifest-v2.mjs",
+        "prototypes/card-game/variable-life-20261031/lib/records-compat-proto.mjs",
+        "prototypes/card-game/variable-life-20261031/lib/records-compat-test.mjs",
+        "prototypes/card-game/variable-life-20261031/lib/restore-archive.sh",
+        "prototypes/card-game/variable-life-20261031/lib/run-all.sh",
+        "prototypes/card-game/variable-life-20261031/lib/run.mjs",
+        "prototypes/card-game/variable-life-20261031/lib/smoke-time.mjs",
+        "prototypes/card-game/variable-life-20261031/lib/smoke-v2.mjs",
+        "prototypes/card-game/variable-life-20261031/lib/smoke-v4.mjs",
+        "prototypes/card-game/variable-life-20261031/lib/smoke-v5.mjs",
+        "prototypes/card-game/variable-life-20261031/lib/smoke-v6.mjs",
+        "prototypes/card-game/variable-life-20261031/lib/smoke-world.mjs",
+        "prototypes/card-game/variable-life-20261031/lib/smoke.mjs",
+        "prototypes/card-game/variable-life-20261031/ref/ref-manifest.json",
+        "prototypes/card-game/variable-life-20261031/results/archive-index-v7.json",
+        "prototypes/card-game/variable-life-20261031/results/archive-index.json",
+        "prototypes/card-game/variable-life-20261031/results/build-manifest.json",
+        "prototypes/card-game/variable-life-20261031/results/summary-v2.json",
+        "prototypes/card-game/variable-life-20261031/results/summary-v4.json",
+        "prototypes/card-game/variable-life-20261031/results/summary-v5.json",
+        "prototypes/card-game/variable-life-20261031/results/summary-v6.json",
+        "prototypes/card-game/variable-life-20261031/results/summary-v7.json",
+        "prototypes/card-game/variable-life-20261031/results/summary-v8.json",
+        "prototypes/card-game/variable-life-20261031/results/summary.json",
+        "prototypes/card-game/variable-life-20261031/runs-v7/EQ_I7N0-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs-v7/EQ_I7P3-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs-v7/EQ_IX-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs-v7/EQ_LA0-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs-v7/EQ_OFF-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs-v7/M_B4-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs-v7/M_REC-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs-v7/M_RECP3-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/E8-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/EQ-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/NEXT-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/NEXTn1-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/SENS-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/SENST-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V2C-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V2H-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V2H8-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V2O-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V2R-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V4B-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V4F_C_chotto-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V4F_C_haya-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V4F_C_machi-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V4F_C_naga-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V4F_C_omiya-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V4F_C_photo-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V4F_C_tsuru-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V4F_MULTI-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V4F_N_chotto-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V4F_N_haya-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V4F_N_machi-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V4F_N_naga-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V4F_N_omiya-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V4F_N_photo-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V4F_N_tsuru-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V5F_FREE-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V5F_MULTI-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V5F_N_naga-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V5F_P3-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V5F_P4R-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V5F_PAIR_HN-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V5F_PAIR_HP-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V5F_PAIR_NP-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V5F_TR-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V5F_TS-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V5F_TV4-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V6A_P3-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V6A_naga-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V6E_P3-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V6E_naga-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V6_P3-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V6_PF-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V6_PHOTO-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/V6_PS-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/pilot-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/tpilot-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/v2pilot-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/v4eq-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/v5eq-manifest.json",
+        "prototypes/card-game/variable-life-20261031/runs/wpilot-manifest.json",
+        "prototypes/card-game/variable-life-20261031/trial-time/README.md",
+        "prototypes/card-game/variable-life-20261031/trial-time/build-trial.mjs",
+        "prototypes/card-game/variable-life-20261031/trial-time/evidence-v2/qa-log.txt",
+        "prototypes/card-game/variable-life-20261031/trial-time/evidence-v4/qa-log.txt",
+        "prototypes/card-game/variable-life-20261031/trial-time/evidence-v5/qa-log.txt",
+        "prototypes/card-game/variable-life-20261031/trial-time/evidence-v6/qa-log.txt",
+        "prototypes/card-game/variable-life-20261031/trial-time/evidence-v7/qa-log.txt",
+        "prototypes/card-game/variable-life-20261031/trial-time/evidence-v8/qa-log.txt",
+        "prototypes/card-game/variable-life-20261031/trial-time/evidence/qa-log.txt",
+        "prototypes/card-game/variable-life-20261031/trial-time/fixtures/r10-tsuru.json",
+        "prototypes/card-game/variable-life-20261031/trial-time/fixtures/r7-machi.json",
+        "prototypes/card-game/variable-life-20261031/trial-time/fixtures/r8-chain.json",
+        "prototypes/card-game/variable-life-20261031/trial-time/fixtures/r8-haya.json",
+        "prototypes/card-game/variable-life-20261031/trial-time/fixtures/r9-naga.json",
+        "prototypes/card-game/variable-life-20261031/trial-time/fixtures/u12-star.json",
+        "prototypes/card-game/variable-life-20261031/trial-time/make-save-v4.mjs",
+        "prototypes/card-game/variable-life-20261031/trial-time/make-save.mjs",
+        "prototypes/card-game/variable-life-20261031/trial-time/qa-time.cjs",
+        "prototypes/card-game/variable-life-20261031/trial-world/README.md",
+        "prototypes/card-game/variable-life-20261031/trial-world/build-trial.mjs",
+        "prototypes/card-game/variable-life-20261031/trial-world/evidence/qa-log.txt",
+        "prototypes/card-game/variable-life-20261031/trial-world/fixtures/r8-A.json",
+        "prototypes/card-game/variable-life-20261031/trial-world/fixtures/r8-B.json",
+        "prototypes/card-game/variable-life-20261031/trial-world/fixtures/r8-C.json",
+        "prototypes/card-game/variable-life-20261031/trial-world/make-save.mjs",
+        "prototypes/card-game/variable-life-20261031/trial-world/qa-world.cjs",
+        "prototypes/card-game/variable-life-20261031/trial-world/world-xi.svg",
+        "prototypes/card-game/variable-life-20261031/trial-world/world-xii.svg",
+        "prototypes/card-game/variable-life-20261031/trial/README.md",
+        "prototypes/card-game/variable-life-20261031/trial/build-trial.mjs",
+        "prototypes/card-game/variable-life-20261031/trial/evidence/qa-log.txt",
+        "prototypes/card-game/variable-life-20261031/trial/fixtures/r10-both-hold.json",
+        "prototypes/card-game/variable-life-20261031/trial/life-extend.svg",
+        "prototypes/card-game/variable-life-20261031/trial/make-save.mjs",
+        "prototypes/card-game/variable-life-20261031/trial/qa-trial.cjs"
+      ]
+    },
+    {
+      "number": 487,
+      "title": "テスト安定化：★・♡の判定をNodeのUnicodeデータに依存させない／CARD GAMEメニューのテストに「戦績」",
+      "overlap": [
+        "prototypes/card-game/tests/menu.dom.mjs"
+      ]
+    },
+    {
+      "number": 486,
+      "title": "CARD GAME 持ち主には自分の伏せ札の名前を出す（相手が同名の札を伏せていても）／表示だけ",
+      "overlap": [
+        "prototypes/card-game/engine.mjs",
+        "prototypes/card-game/facedown-label-fix-20261030/README.md",
+        "prototypes/card-game/facedown-label-fix-20261030/evidence/card-game-dom-tests.log",
+        "prototypes/card-game/facedown-label-fix-20261030/evidence/card-game-node-tests.log",
+        "prototypes/card-game/facedown-label-fix-20261030/evidence/red.log",
+        "prototypes/card-game/facedown-label-fix-20261030/evidence/ui-prefix.json",
+        "prototypes/card-game/facedown-label-fix-20261030/tools/find-mirror-prefix.mjs",
+        "prototypes/card-game/facedown-label-fix-20261030/tools/ui-qa.cjs",
+        "prototypes/card-game/facedown-label-fix-20261030/ui/after/1-owner-trigger.png",
+        "prototypes/card-game/facedown-label-fix-20261030/ui/after/2-owner-own-target.png",
+        "prototypes/card-game/facedown-label-fix-20261030/ui/after/3-owner-opponent-target.png",
+        "prototypes/card-game/facedown-label-fix-20261030/ui/after/4-handover.png",
+        "prototypes/card-game/facedown-label-fix-20261030/ui/after/5-opponent-view.png",
+        "prototypes/card-game/facedown-label-fix-20261030/ui/after/ui-qa.json",
+        "prototypes/card-game/facedown-label-fix-20261030/ui/before-main/1-owner-trigger.png",
+        "prototypes/card-game/facedown-label-fix-20261030/ui/before-main/2-owner-own-target.png",
+        "prototypes/card-game/facedown-label-fix-20261030/ui/before-main/3-owner-opponent-target.png",
+        "prototypes/card-game/facedown-label-fix-20261030/ui/before-main/4-handover.png",
+        "prototypes/card-game/facedown-label-fix-20261030/ui/before-main/5-opponent-view.png",
+        "prototypes/card-game/facedown-label-fix-20261030/ui/before-main/ui-qa.json",
+        "prototypes/card-game/tests/own-facedown-label.test.mjs",
+        "tools/pages/allowlist.json"
+      ]
+    },
+    {
+      "number": 485,
+      "title": "CARD GAME ボンバーは自分自身を自分側の対象にできない（84 P12）／旧保存は旧挙動で再生（hotseat-7）",
+      "overlap": [
+        "prototypes/card-game/auto-capabilities.mjs",
+        "prototypes/card-game/bomber-self-target-fix-20261030/README.md",
+        "prototypes/card-game/bomber-self-target-fix-20261030/evidence/card-game-dom-tests.log",
+        "prototypes/card-game/bomber-self-target-fix-20261030/evidence/card-game-node-tests.log",
+        "prototypes/card-game/bomber-self-target-fix-20261030/evidence/compat-replay-branch.json",
+        "prototypes/card-game/bomber-self-target-fix-20261030/evidence/compat-replay-main-e33ec25a.json",
+        "prototypes/card-game/bomber-self-target-fix-20261030/evidence/compat-summary.json",
+        "prototypes/card-game/bomber-self-target-fix-20261030/evidence/red.log",
+        "prototypes/card-game/bomber-self-target-fix-20261030/tools/compat-compare.py",
+        "prototypes/card-game/bomber-self-target-fix-20261030/tools/compat-replay.mjs",
+        "prototypes/card-game/bomber-self-target-fix-20261030/tools/make-hotseat6-saves.mjs",
+        "prototypes/card-game/engine.mjs",
+        "prototypes/card-game/remaining-rules.mjs",
+        "prototypes/card-game/selection.mjs",
+        "prototypes/card-game/tests/bomber-hotseat6-saves.json",
+        "prototypes/card-game/tests/bomber-self-target.test.mjs",
+        "tools/pages/allowlist.json"
+      ]
+    },
+    {
+      "number": 482,
+      "title": "なおぽよ。VERSION 12：解答短縮・再生位置保持・手数表示・停止UI撤去",
+      "overlap": []
+    },
+    {
+      "number": 472,
+      "title": "WIP: なおぽよ。V11 最終QA・main競合解消（#436統合前のCI検証）",
+      "overlap": [
+        "tools/pages/allowlist.json"
+      ]
+    },
+    {
+      "number": 92,
+      "title": "実機プレイで見つかった4件を修正",
+      "overlap": [
+        "index.html",
+        "script.js"
+      ]
+    },
+    {
+      "number": 539,
+      "title": "採用32曲 BGM 音質改善 VERSION 2（全32曲・V1/V2比較試聴）",
+      "overlap": []
+    },
+    {
+      "number": 537,
+      "title": "[Draft・制作中] 採用32曲 音色と透明感 VERSION 2／V1保護・比較試聴",
+      "overlap": []
+    },
+    {
+      "number": 536,
+      "title": "採用32曲・完成版BGM VERSION 1（原盤・試聴ページ／ゲーム未統合）",
+      "overlap": []
+    },
+    {
+      "number": 534,
+      "title": "全作品BGM完全設計・不足楽曲制作 VERSION 3（新曲13・変奏7・最終配置表）",
+      "overlap": []
+    },
+    {
+      "number": 533,
+      "title": "全BGM採用状況整理・配置表・不足曲の追加作曲 VERSION 2",
+      "overlap": []
+    },
+    {
+      "number": 531,
+      "title": "全ゲームBGM総点検・既存曲再評価・新規作曲 VERSION 1（調査＋新曲12案＋比較試聴）",
+      "overlap": []
+    },
+    {
+      "number": 530,
+      "title": "朝昼夕夜4大テーマ・音色と編曲 VERSION 2（8編曲／12パターン比較）",
+      "overlap": []
+    },
+    {
+      "number": 529,
+      "title": "朝昼夕夜4大テーマ・2.5Dホーム試聴 VERSION 1（本人限定）",
+      "overlap": []
+    },
+    {
+      "number": 528,
+      "title": "お気に入り6曲の統合比較試聴ページ（原曲のまま・ブラインド比較つき）",
+      "overlap": []
+    },
+    {
+      "number": 527,
+      "title": "朝専用メインテーマ VERSION 3（朝の新曲5案＋朝→昼→夕→夜の通し試聴）",
+      "overlap": []
+    },
+    {
+      "number": 525,
+      "title": "[試聴・マージ禁止] メインテーマ新規作曲 V3：独立6案＋現行/Claude D比較",
+      "overlap": []
+    },
+    {
+      "number": 524,
+      "title": "メインテーマ新規作曲・比較 VERSION 1（新規5案＋試聴ページ）",
+      "overlap": []
+    },
+    {
+      "number": 522,
+      "title": "[試聴・マージ禁止] 全音楽刷新V1：メインA/B/C＋代表7曲・既存8曲比較",
+      "overlap": []
+    },
+    {
+      "number": 509,
+      "title": "[調査・マージしない] 恋人18種類の結婚後追加能力 V1〜V3 比較資料（V4試遊版は別Draft）",
+      "overlap": []
+    },
+    {
+      "number": 502,
+      "title": "Draft: 森F3・ジャングルJ4 VERSION 2 — 新緑と湿地の本人限定比較",
+      "overlap": []
+    },
+    {
+      "number": 500,
+      "title": "[Draft] 人生の時計 VERSION 17：数字と目盛りの軸合わせ・有効径A/B/C比較",
+      "overlap": []
+    },
+    {
+      "number": 499,
+      "title": "[Draft] 人生の時計 VERSION 5：青銀・縦反射・小文字盤A/B/C比較（V4保護）",
+      "overlap": []
+    },
+    {
+      "number": 497,
+      "title": "[Draft] 人生の時計 VERSION 3：A＋B継承・トリコンパックスA/B比較",
+      "overlap": []
+    },
+    {
+      "number": 495,
+      "title": "CARD GAME 10/12ラウンド・そだち120比較（A〜D）・⑧CPUデッキ調査・物理版時カウンター検討（調査資料のみ）",
+      "overlap": []
+    },
+    {
+      "number": 494,
+      "title": "実験：なおぽよ。D「時の針」連続経路分裂・A/B/C/D比較",
+      "overlap": []
+    },
+    {
+      "number": 492,
+      "title": "実験：なおぽよ。分裂生成順位 A/B/C・8方向図・第2章互換性",
+      "overlap": []
+    },
+    {
+      "number": 491,
+      "title": "CARD GAME CPU判断の独立比較：B1 能力値選択・B2 最終ターン・B3 しかけ（隔離実験・正式CPU無変更）",
+      "overlap": []
+    },
+    {
+      "number": 489,
+      "title": "CARD GAME 調査：「時」の使い方・相手ターンの反応・すぐつかう／しかけるのCPU活用（読み取り専用）",
+      "overlap": []
+    },
+    {
+      "number": 488,
+      "title": "card-game: 「時」と相手ターンの反応、すぐつかう／しかけるのCPU活用度調査（資料・読み取り専用分析のみ）",
+      "overlap": []
+    },
+    {
+      "number": 483,
+      "title": "Draft: なおぽよ。同種族8＋8の合体・余剰分離とA/Bモーション比較",
+      "overlap": []
+    },
+    {
+      "number": 479,
+      "title": "『微睡みの箱庭』全文TXTの不自然な改行を修正",
+      "overlap": []
+    },
+    {
+      "number": 470,
+      "title": "CARD GAME：たこやきやさん（ほか2枚）が発動したしかけ自身を対象に選べる不一致のRED再現と修正案（本体未変更）",
+      "overlap": []
+    },
+    {
+      "number": 462,
+      "title": "feat(home): v9 翡翠の水辺G・海B2と全13地域の2.5D比較",
+      "overlap": []
+    },
+    {
+      "number": 457,
+      "title": "research(naopoyo): VERSION 9 分裂・重力・親子再合体の3方式比較",
+      "overlap": []
+    },
+    {
+      "number": 445,
+      "title": "[Design only] なおぽよ。数字ゲート5案・実盤面とiPhone相当寸法で比較",
+      "overlap": []
+    },
+    {
+      "number": 440,
+      "title": "[Draft・マージしない] CARD GAME こいびと18種類と交際・結婚・別れのルール調査（既存記録の分析のみ）",
+      "overlap": []
+    },
+    {
+      "number": 434,
+      "title": "[Draft] なおぽよ。第1章10面・順次開放・物語・独立飛行比較室",
+      "overlap": []
+    },
+    {
+      "number": 432,
+      "title": "[Draft] なおぽよ。8×8発想型7面Pilot・v2移行準備",
+      "overlap": []
+    },
+    {
+      "number": 430,
+      "title": "[Draft] なおぽよ。8×8 World Pilot：iPhone QA改善・波とドラッグ・ゲスト",
+      "overlap": []
+    },
+    {
+      "number": 427,
+      "title": "[Draft] なおぽよ。共通ルールv2・足し算合体と一筆書き独立試作",
+      "overlap": []
+    },
+    {
+      "number": 422,
+      "title": "[Draft] なおぽよ。共通ルールv1・高難度ステージ13〜24",
+      "overlap": [
+        "tools/pages/allowlist.json"
+      ]
+    },
+    {
+      "number": 409,
+      "title": "CARD GAME CPU: ちょうせん期待値評価・初級/中級の差別化・CPU戦略デッキ7種とデッキ選択（おまかせ/指定/固定）",
+      "overlap": [
+        "prototypes/card-game/index.html"
+      ]
+    },
+    {
+      "number": 407,
+      "title": "CARD GAME CPU: 時の機会費用・山札情報による探索/回収評価と3,080戦＋直接対戦による再検証",
+      "overlap": []
+    },
+    {
+      "number": 406,
+      "title": "CARD GAME CPU: 旧規則カード6種の評価欠陥修正と同条件3,080戦再検証",
+      "overlap": []
+    },
+    {
+      "number": 405,
+      "title": "なおぽよ入れ替え型：独立試遊版・裁定テスト・バランス検証（Draft）",
+      "overlap": []
+    },
+    {
+      "number": 397,
+      "title": "Draft: 14色の配色面積比較 — HTML試作・PNG/視覚QA未完了",
+      "overlap": []
+    },
+    {
+      "number": 393,
+      "title": "Draft: 全452枚カード専用アート完成・プレビュー／品質記録",
+      "overlap": []
+    },
+    {
+      "number": 391,
+      "title": "[Draft・マージ禁止] E/B/C iPhone比較試遊・280ms描画・方式別復帰",
+      "overlap": []
+    },
+    {
+      "number": 390,
+      "title": "[Draft・マージ禁止] スライド標準移動280ms",
+      "overlap": []
+    },
+    {
+      "number": 387,
+      "title": "[Draft・マージ禁止] なおぽよスライド補充A〜E比較・世界調査・Human QA準備",
+      "overlap": []
+    },
+    {
+      "number": 365,
+      "title": "tools: branch を iPhone で ためす preview URL(main に merge しない・Pages は さわらない)",
+      "overlap": []
+    },
+    {
+      "number": 302,
+      "title": "シールポイントを廃止し同じシールを9枚まで所持",
+      "overlap": [
+        "index.html",
+        "script.js"
+      ]
+    },
+    {
+      "number": 300,
+      "title": "docs: D2（南信州〜中部モチーフ）が既存13地域と両立するかの設計監査",
+      "overlap": [
+        "index.html",
+        "package.json",
+        "script.js"
+      ]
+    },
+    {
+      "number": 298,
+      "title": "docs: なおとっち世界の地理 — 設計案 A / B / C（＋統合案 D）",
+      "overlap": []
+    },
+    {
+      "number": 551,
+      "title": "CARD GAME デザイン比較 V1（未採用）",
+      "overlap": [],
+      "note": "13 files under prototypes/card-game/design-comparison-v1-20261114 only; preserved"
+    }
+  ],
+  "decision": "Selective integration on latest main. No historical PR merged or deleted. PR540 supplies reviewed runtime integration; PR549 supplies immutable32; PR550 supplies0.36 standalone gain. Existing latest game engines/UI/save bytes protected."
+}

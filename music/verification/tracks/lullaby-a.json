@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "fingerprint": "202848c5357542900f4c83d900d4e48af10a49a1ac1ccebca6ec9cd9aa61c96b",
+  "analysis": {
+    "basis": "Imported passed PR549/550 measurements with exact pinned Git blob and SHA256 match; no new rendering or measurement claim",
+    "aac": {
+      "integratedLUFS": -30.9,
+      "truePeakDbtp": -11.0,
+      "lraLU": 3.2,
+      "momentaryMax": -23.9,
+      "shortTermMax": -27.8
+    },
+    "originalReceipt": "music/provenance/receipts/lullaby-a.json"
+  },
+  "checkedAt": "2026-11-14"
+}

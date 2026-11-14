@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "fingerprint": "92c581170504db9fb4dfb8142d850d9be382065ccebf9ceaacc35174e9673b68",
+  "analysis": {
+    "basis": "Imported passed PR549/550 measurements with exact pinned Git blob and SHA256 match; no new rendering or measurement claim",
+    "aac": {
+      "integratedLUFS": -24.8,
+      "truePeakDbtp": -7.9,
+      "lraLU": 4.3,
+      "momentaryMax": -17.6,
+      "shortTermMax": -21.9
+    },
+    "originalReceipt": "music/provenance/receipts/bgm-farewell.json"
+  },
+  "checkedAt": "2026-11-14"
+}

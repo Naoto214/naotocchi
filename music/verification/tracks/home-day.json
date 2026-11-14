@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "fingerprint": "c5de1486ad06a51f1e6db88d1cd8f2d6b39afbd2fcba95c7e24042bf7d84fcf3",
+  "analysis": {
+    "basis": "Imported passed PR549/550 measurements with exact pinned Git blob and SHA256 match; no new rendering or measurement claim",
+    "aac": {
+      "integratedLUFS": -23.0,
+      "truePeakDbtp": -5.1,
+      "lraLU": 4.7,
+      "momentaryMax": -16.5,
+      "shortTermMax": -19.8
+    },
+    "originalReceipt": "music/provenance/receipts/home-day.json"
+  },
+  "checkedAt": "2026-11-14"
+}

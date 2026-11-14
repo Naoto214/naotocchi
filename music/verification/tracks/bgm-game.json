@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "fingerprint": "d4bb7be08648ad21823f8192e16f6008ae0e25a7ff6318c879a705477e74f1f7",
+  "analysis": {
+    "basis": "Imported passed PR549/550 measurements with exact pinned Git blob and SHA256 match; no new rendering or measurement claim",
+    "aac": {
+      "integratedLUFS": -24.0,
+      "truePeakDbtp": -11.0,
+      "lraLU": 3.4,
+      "momentaryMax": -19.4,
+      "shortTermMax": -21.9
+    },
+    "originalReceipt": "music/provenance/receipts/bgm-game.json"
+  },
+  "checkedAt": "2026-11-14"
+}

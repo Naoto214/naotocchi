@@ -1,0 +1,5 @@
+page.waitForFunction: Timeout 15000ms exceeded.
+    at /workspace/work/bgm-v7-strings/tests/.bgm-production-original-module.cjs:109:13 {
+  log: [],
+  name: 'TimeoutError'
+}

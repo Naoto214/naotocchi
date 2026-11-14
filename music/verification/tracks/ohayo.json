@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "fingerprint": "91d83917ffdcd5d88a75a4c9309a245ca0fa8488de306baa5cae4b7d1913efe5",
+  "analysis": {
+    "basis": "Imported passed PR549/550 measurements with exact pinned Git blob and SHA256 match; no new rendering or measurement claim",
+    "aac": {
+      "integratedLUFS": -22.8,
+      "truePeakDbtp": -4.6,
+      "lraLU": 5.2,
+      "momentaryMax": -15.5,
+      "shortTermMax": -19.8
+    },
+    "originalReceipt": "music/provenance/receipts/ohayo.json"
+  },
+  "checkedAt": "2026-11-14"
+}

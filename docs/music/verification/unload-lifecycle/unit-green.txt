@@ -1,0 +1,44 @@
+✔ all eight BGM scenes request valid waveforms and schedule two complete loops (73.407356ms)
+✔ Quick voice routes pico, browser reading and silence through the saved mode (5.691578ms)
+✔ the actual TTS controller ducks both buses and replaces the scheduled recovery (2.04986ms)
+✔ quick cues are shaped into short, punchy shouts: crisp stop, rising question, faster rate for longer words (1.010083ms)
+✔ shared gain is0.36 for standalone BGM and explicit custom level remains valid (16.643857ms)
+✔ stopped pending jingle cannot start after decoding finishes (23.533943ms)
+✔ latest jingle request wins even if older network request resolves last (1.877541ms)
+✔ BGM setting switched off during decoding prevents pending jingle (6.513277ms)
+✔ null song during held jingle immediately cancels it without follow-up (7.699636ms)
+✔ jingle completion follows source audio end, never an elapsed wall timer (1.809668ms)
+✔ catalog custom loop boundaries reach actual source node (6.094586ms)
+✔ stale failed loop request cannot disable newer valid music (1.824479ms)
+✔ AudioSession is configured for playback when supported (1.379279ms)
+✔ overlay replacing a held jingle releases its queued loop (6.603534ms)
+✔ shared context can resume on another gesture after interruption (1.725781ms)
+✔ visibility restoration restarts held-jingle followup without a second gesture (3.884695ms)
+✔ a result jingle still loading cannot override a newer selected scene (6.044291ms)
+✔ active jingle cleans up even while a later replacement is pending or fails (14.606347ms)
+✔ beforeunload save notifications do not fetch audio and cancelled navigation can play again (1.430056ms)
+✔ a jingle decoded during beforeunload stays silent and pageshow restores playback (1.297807ms)
+✔ only exact BGM hooks differ from latest approved game bytes (94.853385ms)
+✔ unrelated script, UI and game changes cannot pass the BGM scope exception (92.158794ms)
+✔ 配置表の 場面ごとに 採用曲が 選ばれる (44.584753ms)
+✔ 配置表の 曲は すべて 音源が ある（100本の ミニゲームID を 含む） (1.835076ms)
+✔ 音源の 曲目が ないときは 以前の 合成BGM に もどる (1.724469ms)
+✔ 音源BGM の ときは 合成BGM を 鳴らさない（二重に 鳴らない） (2.45408ms)
+✔ BGM オフ設定では 曲を 選ばない（ジングルも 鳴らさない） (3.377581ms)
+✔ サブアプリ3つと 本体が BGM の 部品を 読みこむ (0.774097ms)
+✔ every registered game ID resolves through the real main selector (107.658146ms)
+✔ production entry activates approved art and egg presentation without preview save keys (16.444182ms)
+✔ all thirteen default scenes use approved source images and valid navigation (14.732246ms)
+✔ production distribution retains every existing main file and includes only approved home art (23.959504ms)
+✔ QA measures the fixed notification slot rather than the optional message contents (0.328856ms)
+✔ QA measures the visible comment region for historical and current layouts (3.823102ms)
+✔ production runtime harness loads the exact shipped presenter and model (372.851858ms)
+✔ latest-main game catalogs, conversations, formal images and other games stay byte-identical (711.648125ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1614.770314

@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "results": [
+    {
+      "attempt": 0,
+      "region": "jungle",
+      "companions": 26,
+      "achievements": [
+        "age-10",
+        "age-25",
+        "companion-active-5"
+      ]
+    },
+    {
+      "attempt": 1,
+      "region": "jungle",
+      "companions": 26,
+      "achievements": [
+        "age-10",
+        "age-25",
+        "companion-active-5"
+      ]
+    },
+    {
+      "attempt": 2,
+      "region": "jungle",
+      "companions": 26,
+      "achievements": [
+        "age-10",
+        "age-25",
+        "companion-active-5"
+      ]
+    },
+    {
+      "attempt": 3,
+      "region": "jungle",
+      "companions": 26,
+      "achievements": [
+        "age-10",
+        "age-25",
+        "companion-active-5"
+      ]
+    },
+    {
+      "attempt": 4,
+      "region": "jungle",
+      "companions": 26,
+      "achievements": [
+        "age-10",
+        "age-25",
+        "companion-active-5"
+      ]
+    }
+  ],
+  "errors": [],
+  "duringDepartureFetches": [],
+  "activeFetches": 15
+}

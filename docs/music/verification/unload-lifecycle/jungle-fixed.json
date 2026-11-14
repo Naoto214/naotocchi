@@ -1,0 +1,534 @@
+{
+  "status": "passed",
+  "results": [
+    {
+      "engine": "chromium",
+      "width": 320,
+      "region": "jungle",
+      "count": 1,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 70.75749206542969,
+          "y": 25.927902221679688,
+          "width": 150.5611572265625,
+          "height": 570.4280395507812,
+          "top": 25.927902221679688,
+          "right": 221.3186492919922,
+          "bottom": 596.3559417724609,
+          "left": 70.75749206542969
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 320,
+      "region": "jungle",
+      "count": 6,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 32.56264877319336,
+          "y": 8.689559936523438,
+          "width": 238.93960571289062,
+          "height": 582.2755126953125,
+          "top": 8.689559936523438,
+          "right": 271.502254486084,
+          "bottom": 590.9650726318359,
+          "left": 32.56264877319336
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 320,
+      "region": "jungle",
+      "count": 28,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": -15.292943954467773,
+          "y": -83.98698425292969,
+          "width": 311.362060546875,
+          "height": 676.1815185546875,
+          "top": -83.98698425292969,
+          "right": 296.0691165924072,
+          "bottom": 592.1945343017578,
+          "left": -15.292943954467773
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "region": "jungle",
+      "count": 1,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 36.51325988769531,
+          "y": 17.060508728027344,
+          "width": 342.96038818359375,
+          "height": 570.1779174804688,
+          "top": 17.060508728027344,
+          "right": 379.47364807128906,
+          "bottom": 587.2384262084961,
+          "left": 36.51325988769531
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "region": "jungle",
+      "count": 6,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 61.547340393066406,
+          "y": 79.26332092285156,
+          "width": 233.28399658203125,
+          "height": 509.2825927734375,
+          "top": 79.26332092285156,
+          "right": 294.83133697509766,
+          "bottom": 588.5459136962891,
+          "left": 61.547340393066406
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "region": "jungle",
+      "count": 28,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": -17.75817108154297,
+          "y": -0.6615142822265625,
+          "width": 361.6687927246094,
+          "height": 589.4300537109375,
+          "top": -0.6615142822265625,
+          "right": 343.9106216430664,
+          "bottom": 588.7685394287109,
+          "left": -17.75817108154297
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "region": "jungle",
+      "count": 1,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 51.55917739868164,
+          "y": 38.678550720214844,
+          "width": 299.4236755371094,
+          "height": 546.9114990234375,
+          "top": 38.678550720214844,
+          "right": 350.982852935791,
+          "bottom": 585.5900497436523,
+          "left": 51.55917739868164
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "region": "jungle",
+      "count": 6,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 65.32521057128906,
+          "y": 82.9324722290039,
+          "width": 241.12208557128906,
+          "height": 501.1148986816406,
+          "top": 82.9324722290039,
+          "right": 306.4472961425781,
+          "bottom": 584.0473709106445,
+          "left": 65.32521057128906
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "region": "jungle",
+      "count": 28,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": -17.94702911376953,
+          "y": 30.98863983154297,
+          "width": 375.5646057128906,
+          "height": 555.7135009765625,
+          "top": 30.98863983154297,
+          "right": 357.6175765991211,
+          "bottom": 586.7021408081055,
+          "left": -17.94702911376953
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 430,
+      "region": "jungle",
+      "count": 1,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 44.155704498291016,
+          "y": 36.002777099609375,
+          "width": 379.8634033203125,
+          "height": 554.7427978515625,
+          "top": 36.002777099609375,
+          "right": 424.0191078186035,
+          "bottom": 590.7455749511719,
+          "left": 44.155704498291016
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 430,
+      "region": "jungle",
+      "count": 6,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 71.87535095214844,
+          "y": 85.04182434082031,
+          "width": 266.02935791015625,
+          "height": 505.67578125,
+          "top": 85.04182434082031,
+          "right": 337.9047088623047,
+          "bottom": 590.7176055908203,
+          "left": 71.87535095214844
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 430,
+      "region": "jungle",
+      "count": 28,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": -23.316524505615234,
+          "y": 76.10774230957031,
+          "width": 419.02532958984375,
+          "height": 512.8936767578125,
+          "top": 76.10774230957031,
+          "right": 395.7088050842285,
+          "bottom": 589.0014190673828,
+          "left": -23.316524505615234
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 320,
+      "region": "jungle",
+      "count": 1,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 58.15385437011719,
+          "y": 225.26620483398438,
+          "width": 273.6834716796875,
+          "height": 338.9081726074219,
+          "top": 225.26620483398438,
+          "right": 331.8373260498047,
+          "bottom": 564.1743774414062,
+          "left": 58.15385437011719
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 320,
+      "region": "jungle",
+      "count": 6,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 32.56270980834961,
+          "y": 8.689560890197754,
+          "width": 238.94021606445312,
+          "height": 582.2754516601562,
+          "top": 8.689560890197754,
+          "right": 271.50292587280273,
+          "bottom": 590.965012550354,
+          "left": 32.56270980834961
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 320,
+      "region": "jungle",
+      "count": 28,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": -15.292943000793457,
+          "y": -83.9869613647461,
+          "width": 311.362060546875,
+          "height": 676.1814575195312,
+          "top": -83.9869613647461,
+          "right": 296.06911754608154,
+          "bottom": 592.1944961547852,
+          "left": -15.292943000793457
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 375,
+      "region": "jungle",
+      "count": 1,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": -15.292943000793457,
+          "y": -83.9869613647461,
+          "width": 311.362060546875,
+          "height": 676.1814575195312,
+          "top": -83.9869613647461,
+          "right": 296.06911754608154,
+          "bottom": 592.1944961547852,
+          "left": -15.292943000793457
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 375,
+      "region": "jungle",
+      "count": 6,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 61.54734420776367,
+          "y": 80.6036148071289,
+          "width": 233.2840118408203,
+          "height": 509.2819519042969,
+          "top": 80.6036148071289,
+          "right": 294.831356048584,
+          "bottom": 589.8855667114258,
+          "left": 61.54734420776367
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 375,
+      "region": "jungle",
+      "count": 28,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": -17.75817108154297,
+          "y": -0.6615159511566162,
+          "width": 361.6688232421875,
+          "height": 589.4301147460938,
+          "top": -0.6615159511566162,
+          "right": 343.91065216064453,
+          "bottom": 588.7685987949371,
+          "left": -17.75817108154297
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "region": "jungle",
+      "count": 1,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 51.55924987792969,
+          "y": 38.678531646728516,
+          "width": 299.42431640625,
+          "height": 546.9115600585938,
+          "top": 38.678531646728516,
+          "right": 350.9835662841797,
+          "bottom": 585.5900917053223,
+          "left": 51.55924987792969
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "region": "jungle",
+      "count": 6,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 65.32521057128906,
+          "y": 84.25122833251953,
+          "width": 241.1221160888672,
+          "height": 501.1146240234375,
+          "top": 84.25122833251953,
+          "right": 306.44732666015625,
+          "bottom": 585.365852355957,
+          "left": 65.32521057128906
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "region": "jungle",
+      "count": 28,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": -17.947025299072266,
+          "y": 32.45104217529297,
+          "width": 375.5645751953125,
+          "height": 555.7135009765625,
+          "top": 32.45104217529297,
+          "right": 357.61754989624023,
+          "bottom": 588.1645431518555,
+          "left": -17.947025299072266
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 430,
+      "region": "jungle",
+      "count": 1,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 55.37687683105469,
+          "y": 31.79558753967285,
+          "width": 319.2259521484375,
+          "height": 571.857421875,
+          "top": 31.79558753967285,
+          "right": 374.6028289794922,
+          "bottom": 603.6530094146729,
+          "left": 55.37687683105469
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 430,
+      "region": "jungle",
+      "count": 6,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 71.87535095214844,
+          "y": 86.37254333496094,
+          "width": 266.02935791015625,
+          "height": 505.67578125,
+          "top": 86.37254333496094,
+          "right": 337.9047088623047,
+          "bottom": 592.0483245849609,
+          "left": 71.87535095214844
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "webkit",
+      "width": 430,
+      "region": "jungle",
+      "count": 28,
+      "candidate": "jungle",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": -23.316532135009766,
+          "y": 77.45745849609375,
+          "width": 419.025390625,
+          "height": 512.8936767578125,
+          "top": 77.45745849609375,
+          "right": 395.70885848999023,
+          "bottom": 590.3511352539062,
+          "left": -23.316532135009766
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    }
+  ],
+  "errors": []
+}

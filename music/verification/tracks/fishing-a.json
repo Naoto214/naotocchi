@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "fingerprint": "0d860f93a25d8e78aeead4d49273075a8250bcb4f21c9f578dec1b8f4c4feee7",
+  "analysis": {
+    "basis": "Imported passed PR549/550 measurements with exact pinned Git blob and SHA256 match; no new rendering or measurement claim",
+    "aac": {
+      "integratedLUFS": -26.9,
+      "truePeakDbtp": -8.3,
+      "lraLU": 5.5,
+      "momentaryMax": -20.8,
+      "shortTermMax": -23.6
+    },
+    "originalReceipt": "music/provenance/receipts/fishing-a.json"
+  },
+  "checkedAt": "2026-11-14"
+}

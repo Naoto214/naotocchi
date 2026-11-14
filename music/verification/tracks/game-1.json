@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "fingerprint": "b5734ab91237aff685dc6d2538fdb5afd6794bd93d899b6f14aee8a13c29ad30",
+  "analysis": {
+    "basis": "Imported passed PR549/550 measurements with exact pinned Git blob and SHA256 match; no new rendering or measurement claim",
+    "aac": {
+      "integratedLUFS": -23.9,
+      "truePeakDbtp": -9.7,
+      "lraLU": 5.0,
+      "momentaryMax": -19.0,
+      "shortTermMax": -20.8
+    },
+    "originalReceipt": "music/provenance/receipts/game-1.json"
+  },
+  "checkedAt": "2026-11-14"
+}

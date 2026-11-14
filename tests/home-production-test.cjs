@@ -53,6 +53,9 @@ test('latest-main game catalogs, conversations, formal images and other games st
  const cp=require('child_process');const unchanged=['assets/characters','prototypes','conversation-*.js','relationship-*.js','individuality*.js','item-*.js','games.js','quick.js','script.js','style.css','ui.css','character-world-master.v1.js'];
  // Pin the exact V1 choice, navigation and presentation edits. All other
  // files in the protected directories still go through the previous guards.
+ const bgmScope=require('./helpers/approved-bgm-scope.cjs'); bgmScope.verify();
+ for(const file of Object.keys(bgmScope.baseline))unchanged.push(':(exclude)'+file);
+ const checkedBlob=file=>Object.hasOwn(bgmScope.baseline,file)?bgmScope.restoredBlob(file):cp.execFileSync('git',['hash-object','--',file],{encoding:'utf8'}).trim();
  const homeUI = {
   "individuality-data.js": "1f555e84bd5ebd56d1bcfa8cd4e313ad8f441e7c",
   "prototypes/card-game/app.mjs": "b3180cb0d788580a839521c55f76554bb8cf11a2",
@@ -69,7 +72,7 @@ test('latest-main game catalogs, conversations, formal images and other games st
   "script.js": "d3c610f1d6c03d38c6fe377d8453194b54cb911b"
 };
  for (const [file, blob] of Object.entries(homeUI)) {
-  assert.equal(cp.execFileSync('git',['hash-object','--',file],{encoding:'utf8'}).trim(),blob,'home UI V1 reviewed bytes: '+file);
+  assert.equal(checkedBlob(file),blob,'home UI V1 reviewed bytes: '+file);
   unchanged.push(':(exclude)'+file);
  }
  // Owner-requested CARD GAME lover text rewording (doc 481, PR #538, 2026-11-12): text only,
@@ -137,7 +140,7 @@ test('latest-main game catalogs, conversations, formal images and other games st
  assert.equal(cp.execFileSync('git',['diff','--name-only',polish,'--',...[...polishFiles].filter(file=>!Object.hasOwn(homeUI,file))],{encoding:'utf8'}).trim(),'','PR #516 files must match approved bytes');
  for(const [file,hash] of Object.entries(reviewed)){
   assert.ok(fs.existsSync(file),'retained approved file: '+file);
-  assert.equal(cp.execFileSync('git',['hash-object','--',file],{encoding:'utf8'}).trim(),homeUI[file] || hash,'approved bytes: '+file);
+  assert.equal(checkedBlob(file),homeUI[file] || hash,'approved bytes: '+file);
  }
  const original=cp.execFileSync('git',['ls-tree','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa'],{encoding:'utf8'}).trim().split('\n').filter(p=>p.startsWith('home-')&&/\.(js|mjs|css)$/.test(p));
  // The startup repair only moves the pure route function out of the module

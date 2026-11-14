@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "fingerprint": "b9e8bc4c91f94bf8a125aaa3f1b2f1cd96466fe16c64d5125552705abcff613c",
+  "analysis": {
+    "basis": "Imported passed PR549/550 measurements with exact pinned Git blob and SHA256 match; no new rendering or measurement claim",
+    "aac": {
+      "integratedLUFS": -22.9,
+      "truePeakDbtp": -4.1,
+      "lraLU": 6.2,
+      "momentaryMax": -15.6,
+      "shortTermMax": -18.6
+    },
+    "originalReceipt": "music/provenance/receipts/home-evening.json"
+  },
+  "checkedAt": "2026-11-14"
+}

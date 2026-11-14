@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "fingerprint": "03c45b4a5b2a3c42bb38e343bd935a4c5745cfacd9c1d8910dbdcf090bb8d5b4",
+  "analysis": {
+    "basis": "Imported passed PR549/550 measurements with exact pinned Git blob and SHA256 match; no new rendering or measurement claim",
+    "aac": {
+      "integratedLUFS": -22.7,
+      "truePeakDbtp": -5.4,
+      "lraLU": 3.1,
+      "momentaryMax": -19.5,
+      "shortTermMax": -21.5
+    },
+    "originalReceipt": "music/provenance/receipts/jingle-achieve.json"
+  },
+  "checkedAt": "2026-11-14"
+}

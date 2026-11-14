@@ -1,0 +1,184 @@
+[
+  {
+    "engine": "chromium",
+    "app": "card-game",
+    "id": "card-2",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "chromium",
+    "app": "card-game",
+    "id": "var-card-late",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "chromium",
+    "app": "card-game",
+    "id": "var-card-win",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "chromium",
+    "app": "card-game",
+    "id": "jingle-card-lose",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "chromium",
+    "app": "naopoyo-time-hand-chapter1",
+    "id": "poyo-1",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "chromium",
+    "app": "naopoyo-time-hand-chapter1",
+    "id": "var-poyo-clear",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "chromium",
+    "app": "naopoyo-time-hand-chapter1",
+    "id": "poyo-1",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "chromium",
+    "app": "naopoyo-time-hand-chapter1",
+    "id": "var-poyo-chapter",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "chromium",
+    "app": "life-sugoroku",
+    "id": "koro-1",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "chromium",
+    "app": "life-sugoroku",
+    "id": "game-1",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "chromium",
+    "app": "life-sugoroku",
+    "id": "bgm-game",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "chromium",
+    "app": "life-sugoroku",
+    "id": "var-koro-goal",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "chromium",
+    "app": "life-sugoroku",
+    "id": "var-koro-album",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "webkit",
+    "app": "card-game",
+    "id": "card-2",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "webkit",
+    "app": "card-game",
+    "id": "var-card-late",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "webkit",
+    "app": "card-game",
+    "id": "var-card-win",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "webkit",
+    "app": "card-game",
+    "id": "jingle-card-lose",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "webkit",
+    "app": "naopoyo-time-hand-chapter1",
+    "id": "poyo-1",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "webkit",
+    "app": "naopoyo-time-hand-chapter1",
+    "id": "var-poyo-clear",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "webkit",
+    "app": "naopoyo-time-hand-chapter1",
+    "id": "poyo-1",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "webkit",
+    "app": "naopoyo-time-hand-chapter1",
+    "id": "var-poyo-chapter",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "webkit",
+    "app": "life-sugoroku",
+    "id": "koro-1",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "webkit",
+    "app": "life-sugoroku",
+    "id": "game-1",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "webkit",
+    "app": "life-sugoroku",
+    "id": "bgm-game",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "webkit",
+    "app": "life-sugoroku",
+    "id": "var-koro-goal",
+    "gain": 0.36,
+    "voices": 1
+  },
+  {
+    "engine": "webkit",
+    "app": "life-sugoroku",
+    "id": "var-koro-album",
+    "gain": 0.36,
+    "voices": 1
+  }
+]
