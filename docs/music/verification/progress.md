@@ -25,3 +25,6 @@ Browser validation uses actual packaged runtime and real AudioContext graphs in 
 Release gate still pending: GitHub Home selected name test fails in crowded scene. Pinned-main control comparison is running. No production merge or publish while any relevant failure remains.
 
 Full npm test completed successfully (exit0); all Node test groups and standalone smoke/dialogue/visual checks passed. See full-game-suite.json. The separate Home selected name browser failure remains an explicit release blocker; main-control Chromium passed once, so cause is not conclusively assigned. No game/UI/save logic changed to bypass it.
+
+## Resume PR #552: deterministic input fixture
+Latest8c7a CI WebKit crowd fails while Chromium passes. Reproduced nondeterministic ambient movement leaving no endpoint satisfying unchanged test distance. Fixed test clock and seeded only disposable presentation model; kept all16 original assertion lines and actual touchscreen/mouse/save reload. No production/UI/hitbox/audio/master edit. Full local browser matrix and delayed images verified; see home-input-resume. Clock setup scheduling race reviewed and fixed with pre-boot one-day lead; 1.5s delayed protocol test passes both engines. New-head whole CI remains the merge gate.

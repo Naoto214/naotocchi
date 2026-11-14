@@ -14,7 +14,7 @@
 - `new-track-browser.json`:一時33曲ライブラリを実audio.jsへ読み込み、模擬ゲームID→新曲→.36出力。nativeHTMLAudio A/B位置維持。正式一覧には未登録。
 - `package-http.json`/`pages-tests.txt`:承認AACのみのPagesパッケージ、全HTTPファイルhash、配信除外境界。
 
-## ホーム画面の未解決テスト
+## ホーム画面テストの旧HEAD失敗記録
 GitHub Home selected nameのChromium/WebKitで、密集した住民の間から操作対象/移動先を選ぶ試験が失敗。`home-ci-failure.txt`に記録。ローカル統合版でも別の横画面ケースで「No exposed touch target for partner」を確認（`home-local-failure.txt`）。このテストはAudioContextを無効化しており、AACの出力確認ではない。
 
 対照として、mainのindex/audio/scriptを固定コミットからそのまま復元し、変更のないゲーム資産と同じテストを共有した別ディレクトリでChromium全5ケースが通過（`home-main-control.txt`）。結果の揺れの原因を断定していない。通過回だけで失敗を無視しない。
@@ -25,3 +25,7 @@ GitHub Home selected nameのChromium/WebKitで、密集した住民の間から�
 ブラウザー検証はLinuxのChromium/WebKit上の実デジタル経路。iPhone実機の本体スピーカー可聴性やBluetoothルーティングを実測したという意味ではない。楽曲品質は正式採用版をそのまま保持し、客観値は同一原盤hashの#549/#550記録を使用。
 
 `full-game-suite.json`: `npm test`全工程exit0。単体群とsmoke/dialogue/visual QAがすべて完了。これは別ワークフローのHome selected name実ブラウザー失敗を解消したという意味ではありません。
+
+## PR #552 再開時の原因調査と修正
+
+[home-input-resume/README.md](home-input-resume/README.md)に失敗ログ・画像、時計/表示乱数の安定化、実入力と保存復元の維持、両エンジンの検証を記録。旧HEADでの未解決という記述は上の履歴を指す。新HEADの全CI成功を確認するまで公開ゲートは閉じる。

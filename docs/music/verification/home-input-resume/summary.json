@@ -1,0 +1,24 @@
+{
+  "baseline": "8c7a000a96e7975ed971b73c7983ab4397279b03",
+  "retained_original_assertion_lines": 16,
+  "production_code_changed": false,
+  "original_failure": {
+    "run": 43585310048,
+    "webkit_job": 132418419744,
+    "chromium_job": 132418419985,
+    "webkit": "failure",
+    "chromium": "success"
+  },
+  "slow_image_delay_ms": 800,
+  "slow_fast_fixture_equal": true,
+  "clock_initialization_delay_ms": 1500,
+  "clock_delay_browsers_passed": [
+    "chromium",
+    "webkit"
+  ],
+  "probe": {
+    "free_endpoints": 51,
+    "distance_at_least_12": 0,
+    "distance_at_least_3": 37
+  }
+}
