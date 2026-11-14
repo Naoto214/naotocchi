@@ -1,0 +1,10 @@
+// Test-only observability: wraps node construction/connect/start, changes no audio values.
+(()=>{const edges=new Map(),sources=[],gains=[],contexts=new Set();const proto=AudioNode.prototype,connect=proto.connect,disconnect=proto.disconnect;
+proto.connect=function(to,...args){const a=edges.get(this)||[];if(!a.includes(to))a.push(to);edges.set(this,a);return connect.call(this,to,...args)};
+proto.disconnect=function(...args){if(args.length){edges.set(this,(edges.get(this)||[]).filter(x=>x!==args[0]))}else edges.delete(this);return disconnect.apply(this,args)};
+const cp=BaseAudioContext.prototype,cg=cp.createGain,cs=cp.createBufferSource;
+cp.createGain=function(){contexts.add(this);const g=cg.call(this);gains.push(g);return g};
+cp.createBufferSource=function(){contexts.add(this);const s=cs.call(this),start=s.start.bind(s),stop=s.stop.bind(s);const r={node:s,started:false,ended:false,startAt:0,stopAt:Infinity};sources.push(r);s.start=(...args)=>{r.started=true;r.startAt=args[0]??s.context.currentTime;return start(...args)};s.stop=(...args)=>{r.stopAt=args[0]??s.context.currentTime;return stop(...args)};s.addEventListener('ended',()=>r.ended=true);return s};
+function paths(n,seen=new Set()){if(seen.has(n))return[];seen=new Set([...seen,n]);if(n===n.context?.destination)return[{gain:1,chain:['destination']}];const out=[];for(const next of edges.get(n)||[]){for(const p of paths(next,seen)){const g=n instanceof GainNode?n.gain.value:1;out.push({gain:g*p.gain,chain:[n.constructor.name+(n instanceof GainNode?':'+g:''),...p.chain]})}}return out}
+function idFor(b){for(const p of window.NAOTOCCHI_BGM2_INSTANCES||[])for(const [id,v]of p._cache)if(v===b)return id;return null}
+window.AUDIO_AUDIT={snapshot:()=>({sources:sources.filter(r=>r.started&&!r.ended&&r.stopAt>r.node.context.currentTime&&r.startAt<=r.node.context.currentTime&&r.node.context.state==='running').map(r=>({id:idFor(r.node.buffer),age:r.node.context.currentTime-r.startAt,loop:r.node.loop,duration:r.node.buffer?.duration,paths:paths(r.node)})),gains:gains.map(g=>({value:g.gain.value,paths:paths(g)})),contexts:[...contexts].map(c=>c.state)}),paths};})();

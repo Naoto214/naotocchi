@@ -1,0 +1,11 @@
+AssertionError [ERR_ASSERTION]: naopoyo: BGM gain 0.8999999761581421 differs from main 0.3600000005790163
+    at /workspace/work/bgm-v7-strings/prototypes/bgm-loudness-20261114/tools/test_gain.cjs:20:62
+    at runNextTicks (node:internal/process/task_queues:65:5)
+    at process.processImmediate (node:internal/timers:541:9) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

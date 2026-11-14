@@ -1,0 +1,16 @@
+{
+ "passed": true,
+ "previewBaseline": "0433a39d2b75a3a7931d095dd18127958b0bb89a",
+ "changedFiles": [
+  "bgm-subapps.js",
+  "prototypes/card-game/index.html",
+  "prototypes/life-sugoroku/index.html",
+  "prototypes/naopoyo-time-hand-chapter1/index.html"
+ ],
+ "audioChanged": false,
+ "SFXVoiceSaveCodeChanged": false,
+ "conditionFadeOutputCodeChanged": false,
+ "sourceGainBefore": 0.9,
+ "sourceGainAfter": 0.36,
+ "gainDb": -7.958800173440752
+}
