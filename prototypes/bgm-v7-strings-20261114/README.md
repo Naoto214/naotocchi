@@ -2,6 +2,8 @@
 
 基準は PR #547 / `25c69a0a78e7f72351ffad1836ec4932760f0552`。Bの編曲を保持したホーム4曲のみの試作。旧V7-A/BとV6の原盤・ゲーム本体は変更しない。
 
+保存: https://github.com/Naoto214/naotocchi/pull/548 （独立Draft）
+
 試聴: https://naoto214.github.io/naotocchi-playtest/bgm-v7-strings/
 
 - **A（現在のB案）**: `/audio/v7/b/` の原盤を直接参照。元のV7-Aとは別の呼び方。

@@ -17,5 +17,5 @@
 
 - [x] 1. Diagnose V7 used strings and VSCO viola; pin and measure alternative raw cello; save per-note and per-recording evidence.
 - [x] 2. Test phrase continuity/rest preservation/native-length failure, implement performance map and sampler, render only8 home variants; retain originalB by reference.
-- [ ] 3. Check artifacts/3158 notes/50placements/audio peaks/mono/loops/piano/phrase seams; document exact sources; save independentDraftPR.
-- [ ] 4. Build additive A/B1/B2 full+climax comparison inheriting speaker fix, run browser/byte/scope checks, independent review, publish URL and wait for user's quality selection.
+- [x] 3. Check artifacts/3158 notes/50placements/audio peaks/mono/loops/piano/phrase seams; document exact sources; save independentDraftPR.
+- [x] 4. Build additive A/B1/B2 full+climax comparison inheriting speaker fix, run browser/byte/scope checks, independent review, publish URL and wait for user's quality selection.
