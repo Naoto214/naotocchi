@@ -1,0 +1,22 @@
+{
+ "baseline": "9020b5f3e6763e4eb980db73c3450894a43f01d2",
+ "publishedCommit": "c6bfd8e984f7d51f483967c238aff54dabbef97c",
+ "changes": [
+  "A\taudio/v7/a/home-day.m4a",
+  "A\taudio/v7/a/home-evening.m4a",
+  "A\taudio/v7/a/home-morning.m4a",
+  "A\taudio/v7/a/home-night.m4a",
+  "A\taudio/v7/b/home-day.m4a",
+  "A\taudio/v7/b/home-evening.m4a",
+  "A\taudio/v7/b/home-morning.m4a",
+  "A\taudio/v7/b/home-night.m4a",
+  "A\tbgm-v7/index.html",
+  "A\tbgm-v7/player.js",
+  "A\tbgm-v7/sources.html",
+  "A\tbgm-v7/tracks.js"
+ ],
+ "allChangesAdditions": true,
+ "existingGameAndArchivesChanged": false,
+ "matchingNewFiles": 12,
+ "matchingV6HomeArchives": 4
+}

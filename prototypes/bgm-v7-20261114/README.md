@@ -3,6 +3,7 @@
 V6のピアノと自然な強弱を保持し、ホーム4曲の音源・室内楽アレンジを比較する試作。**ここで採用判断を待つ。残り28曲、ゲームBGM、本番mainは変更しない。**
 
 基準: [Draft PR #546](https://github.com/Naoto214/naotocchi/pull/546)、`146383829818fc986926c05700986705d7241858`。
+[独立Draft PR #547](https://github.com/Naoto214/naotocchi/pull/547)。
 作業ブランチ: `codex/bgm-v7-chamber`（V6ブランチをbaseとする独立Draft）。
 試聴予定固定URL: https://naoto214.github.io/naotocchi-playtest/bgm-v7/
 

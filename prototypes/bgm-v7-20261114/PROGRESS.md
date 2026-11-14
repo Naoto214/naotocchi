@@ -13,3 +13,5 @@ Baseline: 146383829818fc986926c05700986705d7241858 / PR #546.
 - Eight variants measured: -23LUFS, clipping0, no limiter, mono and loop pass. NightA exactV6; nightB first half sample-identical.147 native string notes, artificial loops0.
 - Chromium and WebKit:12 AACs and all3-way comparison controls passed. Screenshots saved. No physical iPhone test.
 - Independent read-only review: no blocking findings. Ready for Draft checkpoint and additive playtest publication.
+- Saved all8 variants to independent Draft PR #547, baseV6, headcodex/bgm-v7-chamber. Initial source/audio checkpoints646a72a +1e64c2a.
+- Published additive-only playtest commit c6bfd8e984f7d51f483967c238aff54dabbef97c (12new paths). Existing file changes0, checked via git objects despite sparse checkout. Pages run43552522268 awaiting deployment completion.
