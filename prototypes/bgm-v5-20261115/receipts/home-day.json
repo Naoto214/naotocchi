@@ -1,0 +1,95 @@
+{
+ "id": "home-day",
+ "title": "いつもの にわ",
+ "family": "home4",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2646000,
+ "seconds": 60.0,
+ "flacFrames": 2646000,
+ "aacDecodedFrames": 2646016,
+ "integratedLUFS": -23.01,
+ "targetLUFS": -23,
+ "truePeakDbtp": -6.9,
+ "samplePeakDbfs": -6.9,
+ "clippedSamples": 0,
+ "monoLossDb": -1.09,
+ "sideToMidDb": -5.4,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00196,
+ "loopJoinTypicalStep999": 0.03894,
+ "bands": {
+  "centroidHz": 657,
+  "low40_250": -10.1,
+  "lowmid250_800": -1.4,
+  "mid800_3k": -7.6,
+  "pres3k_6k": -25.1,
+  "air6k_12k": -46.8,
+  "top12k_20k": -58.8
+ },
+ "roleGainsDb": {
+  "bass": -4.4,
+  "accompaniment": 4.1,
+  "doubling": -1.0,
+  "counter": -5.5
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   3.6,
+   0.7
+  ],
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 603,
+  "low40_250": -10.3,
+  "lowmid250_800": -1.1,
+  "mid800_3k": -8.8,
+  "pres3k_6k": -29.1,
+  "air6k_12k": -49.1,
+  "top12k_20k": -59.6
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 11.6,
+ "flacSha256": "053252e19408d07f8573303c27634abe819810b76449ab71f189b6f782d8dda7",
+ "flacBytes": 9063611,
+ "aacSha256": "51d16e2999148e89bbe0286467fdcdf90892478df194c2365bc471594ed10d3f",
+ "aacBytes": 1457373,
+ "midiSha256": "befbd01c33cffbe909a1530f30747c1013557e403a45e98b554a841e4e7386e4",
+ "problems": [],
+ "version": 5,
+ "pianoAttackSoftenDb": 4.0,
+ "sideScale": 1.0,
+ "removedNotes": 24,
+ "pedalNotes": 330,
+ "v5": {
+  "doublingDropped": [
+   {
+    "t": 33.01875,
+    "midi": 83,
+    "instrument": "clarinet"
+   },
+   {
+    "t": 36.3,
+    "midi": 84,
+    "instrument": "clarinet"
+   }
+  ],
+  "added": {
+   "counter": 12,
+   "response": 0,
+   "bassWalk": 16
+  },
+  "melodyLevelSdBefore": 4.37,
+  "melodyLevelSdAfter": 0.75,
+  "melodyLevelRangeBefore": 17.5,
+  "melodyLevelRangeAfter": 4.3
+ }
+}
