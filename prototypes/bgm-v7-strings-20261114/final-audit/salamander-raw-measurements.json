@@ -1,0 +1,74 @@
+[
+ {
+  "path": "Samples/A3v3.flac",
+  "sampleRate": 48000,
+  "duration": 14.815854166666666,
+  "clipped": 0,
+  "rmsAt0.5sRelativeToAttackDb": -4.243994238739427,
+  "rmsAt1sRelativeToAttackDb": -7.700788108738058,
+  "rmsAt2sRelativeToAttackDb": -14.031722412062626,
+  "rmsAt3sRelativeToAttackDb": -18.024162730558185,
+  "rmsAt5sRelativeToAttackDb": -23.720716083558543,
+  "rmsAt8sRelativeToAttackDb": -28.435000950769187
+ },
+ {
+  "path": "Samples/A3v8.flac",
+  "sampleRate": 48000,
+  "duration": 15.6085,
+  "clipped": 0,
+  "rmsAt0.5sRelativeToAttackDb": -4.980944417810088,
+  "rmsAt1sRelativeToAttackDb": -8.721408240396766,
+  "rmsAt2sRelativeToAttackDb": -15.48762769197441,
+  "rmsAt3sRelativeToAttackDb": -19.59025874563666,
+  "rmsAt5sRelativeToAttackDb": -28.09135965099113,
+  "rmsAt8sRelativeToAttackDb": -33.40502708924407
+ },
+ {
+  "path": "Samples/C4v3.flac",
+  "sampleRate": 48000,
+  "duration": 15.8419375,
+  "clipped": 0,
+  "rmsAt0.5sRelativeToAttackDb": -9.20852733708776,
+  "rmsAt1sRelativeToAttackDb": -20.523465892659654,
+  "rmsAt2sRelativeToAttackDb": -21.794395136225017,
+  "rmsAt3sRelativeToAttackDb": -25.23768134825381,
+  "rmsAt5sRelativeToAttackDb": -30.390340741718358,
+  "rmsAt8sRelativeToAttackDb": -32.518816365588485
+ },
+ {
+  "path": "Samples/C4v8.flac",
+  "sampleRate": 48000,
+  "duration": 16.173958333333335,
+  "clipped": 0,
+  "rmsAt0.5sRelativeToAttackDb": -9.442346746056966,
+  "rmsAt1sRelativeToAttackDb": -21.876754292144547,
+  "rmsAt2sRelativeToAttackDb": -24.47010056817752,
+  "rmsAt3sRelativeToAttackDb": -27.46951968673427,
+  "rmsAt5sRelativeToAttackDb": -33.02894478220758,
+  "rmsAt8sRelativeToAttackDb": -35.93036905376694
+ },
+ {
+  "path": "Samples/C5v3.flac",
+  "sampleRate": 48000,
+  "duration": 14.470145833333333,
+  "clipped": 0,
+  "rmsAt0.5sRelativeToAttackDb": -15.400700995219081,
+  "rmsAt1sRelativeToAttackDb": -24.273294979959644,
+  "rmsAt2sRelativeToAttackDb": -25.87352098350617,
+  "rmsAt3sRelativeToAttackDb": -33.01025253092378,
+  "rmsAt5sRelativeToAttackDb": -35.70389805808883,
+  "rmsAt8sRelativeToAttackDb": -37.55209331313533
+ },
+ {
+  "path": "Samples/C5v8.flac",
+  "sampleRate": 48000,
+  "duration": 15.564166666666667,
+  "clipped": 0,
+  "rmsAt0.5sRelativeToAttackDb": -15.791236175868558,
+  "rmsAt1sRelativeToAttackDb": -24.377920523196657,
+  "rmsAt2sRelativeToAttackDb": -26.133109131579765,
+  "rmsAt3sRelativeToAttackDb": -33.82241434201327,
+  "rmsAt5sRelativeToAttackDb": -38.442514813646326,
+  "rmsAt8sRelativeToAttackDb": -39.08604253552066
+ }
+]

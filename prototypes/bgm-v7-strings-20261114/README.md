@@ -1,5 +1,7 @@
 # V7 B案 — 弦の音質・接続比較
 
+**現在：利用者がB2を正式な採用候補として選択。** 原盤はタグ `bgm-v7-b2-home4-candidate-20261114` と `B2-CANDIDATE.json` で保護しています。追加の全楽器調査と、ピアノの余韻処理だけを修正した未採用候補B2＋は [最終調査報告](final-audit/REPORT.md) を参照。本番公開は最終承認待ち。
+
 基準は PR #547 / `25c69a0a78e7f72351ffad1836ec4932760f0552`。Bの編曲を保持したホーム4曲のみの試作。旧V7-A/BとV6の原盤・ゲーム本体は変更しない。
 
 保存: https://github.com/Naoto214/naotocchi/pull/548 （独立Draft）

@@ -1,0 +1,404 @@
+{
+ "piano": {
+  "homeNotes": 1269,
+  "otherNotes": 2787,
+  "homeTracks": [
+   "home-day",
+   "home-evening",
+   "home-morning",
+   "home-night"
+  ],
+  "otherTracks": [
+   "bgm-farewell",
+   "bgm-game",
+   "bgm-race",
+   "board-b",
+   "card-2",
+   "event-1",
+   "event-2",
+   "fishing-a",
+   "game-1",
+   "game-2",
+   "jingle-achieve",
+   "jingle-card-lose",
+   "kisetsu",
+   "koro-1",
+   "lullaby-a",
+   "ohayo",
+   "var-card-late",
+   "var-card-win",
+   "var-koro-album",
+   "var-koro-goal",
+   "var-ohayo-hatch2"
+  ],
+  "midiRange": [
+   40,
+   86
+  ]
+ },
+ "cello_chamber": {
+  "homeNotes": 51,
+  "otherNotes": 0,
+  "homeTracks": [
+   "home-day",
+   "home-evening",
+   "home-morning",
+   "home-night"
+  ],
+  "otherTracks": [],
+  "midiRange": [
+   40,
+   55
+  ]
+ },
+ "violin_solo": {
+  "homeNotes": 53,
+  "otherNotes": 0,
+  "homeTracks": [
+   "home-day",
+   "home-evening",
+   "home-morning",
+   "home-night"
+  ],
+  "otherTracks": [],
+  "midiRange": [
+   59,
+   74
+  ]
+ },
+ "marimba": {
+  "homeNotes": 0,
+  "otherNotes": 1948,
+  "homeTracks": [],
+  "otherTracks": [
+   "bgm-game",
+   "bgm-race",
+   "card-2",
+   "game-1",
+   "game-2",
+   "jingle-card-lose",
+   "poyo-1",
+   "var-card-late",
+   "var-card-win",
+   "var-poyo-chapter",
+   "var-poyo-clear"
+  ],
+  "midiRange": [
+   52,
+   86
+  ]
+ },
+ "woodbass": {
+  "homeNotes": 0,
+  "otherNotes": 890,
+  "homeTracks": [],
+  "otherTracks": [
+   "bgm-game",
+   "bgm-race",
+   "board-b",
+   "card-2",
+   "event-1",
+   "game-1",
+   "game-2",
+   "jingle-achieve",
+   "jingle-card-lose",
+   "koro-1",
+   "ohayo",
+   "poyo-1",
+   "poyo-2",
+   "var-card-late",
+   "var-card-win",
+   "var-koro-album",
+   "var-koro-goal",
+   "var-ohayo-hatch2",
+   "var-poyo-chapter",
+   "var-poyo-clear"
+  ],
+  "midiRange": [
+   40,
+   51
+  ]
+ },
+ "harp": {
+  "homeNotes": 0,
+  "otherNotes": 1544,
+  "homeTracks": [],
+  "otherTracks": [
+   "bgm-farewell",
+   "event-1",
+   "event-2",
+   "explore-1",
+   "explore-2",
+   "jingle-achieve",
+   "kisetsu",
+   "koro-1",
+   "lullaby-a",
+   "ohayo",
+   "poyo-1",
+   "poyo-2",
+   "var-flight",
+   "var-koro-album",
+   "var-koro-goal",
+   "var-ohayo-hatch2",
+   "var-poyo-chapter",
+   "var-poyo-clear"
+  ],
+  "midiRange": [
+   52,
+   87
+  ]
+ },
+ "violas": {
+  "homeNotes": 0,
+  "otherNotes": 1824,
+  "homeTracks": [],
+  "otherTracks": [
+   "bgm-farewell",
+   "bgm-game",
+   "bgm-race",
+   "board-b",
+   "card-2",
+   "event-1",
+   "event-2",
+   "explore-1",
+   "explore-2",
+   "fishing-a",
+   "game-1",
+   "game-2",
+   "jingle-achieve",
+   "jingle-card-lose",
+   "kisetsu",
+   "koro-1",
+   "lullaby-a",
+   "ohayo",
+   "poyo-1",
+   "poyo-2",
+   "var-card-late",
+   "var-card-win",
+   "var-flight",
+   "var-koro-album",
+   "var-koro-goal",
+   "var-ohayo-hatch2",
+   "var-poyo-chapter",
+   "var-poyo-clear"
+  ],
+  "midiRange": [
+   52,
+   64
+  ]
+ },
+ "violins": {
+  "homeNotes": 0,
+  "otherNotes": 762,
+  "homeTracks": [],
+  "otherTracks": [
+   "bgm-farewell",
+   "bgm-game",
+   "bgm-race",
+   "board-b",
+   "card-2",
+   "event-1",
+   "event-2",
+   "explore-1",
+   "explore-2",
+   "fishing-a",
+   "game-1",
+   "game-2",
+   "jingle-achieve",
+   "jingle-card-lose",
+   "kisetsu",
+   "koro-1",
+   "lullaby-a",
+   "ohayo",
+   "poyo-1",
+   "poyo-2",
+   "var-card-late",
+   "var-card-win",
+   "var-flight",
+   "var-koro-album",
+   "var-koro-goal",
+   "var-ohayo-hatch2",
+   "var-poyo-chapter",
+   "var-poyo-clear"
+  ],
+  "midiRange": [
+   62,
+   69
+  ]
+ },
+ "flute": {
+  "homeNotes": 0,
+  "otherNotes": 634,
+  "homeTracks": [],
+  "otherTracks": [
+   "board-b",
+   "event-1",
+   "event-2",
+   "explore-1",
+   "explore-2",
+   "jingle-achieve",
+   "kisetsu",
+   "koro-1",
+   "ohayo",
+   "poyo-1",
+   "poyo-2",
+   "var-flight"
+  ],
+  "midiRange": [
+   65,
+   86
+  ]
+ },
+ "clarinet": {
+  "homeNotes": 0,
+  "otherNotes": 352,
+  "homeTracks": [],
+  "otherTracks": [
+   "board-b",
+   "event-2",
+   "explore-1",
+   "kisetsu",
+   "koro-1",
+   "poyo-1",
+   "poyo-2"
+  ],
+  "midiRange": [
+   55,
+   86
+  ]
+ },
+ "cellopizz": {
+  "homeNotes": 0,
+  "otherNotes": 733,
+  "homeTracks": [],
+  "otherTracks": [
+   "card-2",
+   "explore-1",
+   "jingle-card-lose",
+   "var-card-late",
+   "var-card-win"
+  ],
+  "midiRange": [
+   40,
+   67
+  ]
+ },
+ "kick": {
+  "homeNotes": 0,
+  "otherNotes": 460,
+  "homeTracks": [],
+  "otherTracks": [
+   "bgm-game",
+   "bgm-race",
+   "card-2",
+   "game-1",
+   "game-2",
+   "var-card-late",
+   "var-card-win",
+   "var-ohayo-hatch2"
+  ],
+  "midiRange": [
+   36,
+   36
+  ]
+ },
+ "snare": {
+  "homeNotes": 0,
+  "otherNotes": 456,
+  "homeTracks": [],
+  "otherTracks": [
+   "bgm-game",
+   "bgm-race",
+   "card-2",
+   "game-1",
+   "game-2",
+   "var-card-late",
+   "var-card-win"
+  ],
+  "midiRange": [
+   38,
+   38
+  ]
+ },
+ "cellos": {
+  "homeNotes": 0,
+  "otherNotes": 308,
+  "homeTracks": [],
+  "otherTracks": [
+   "bgm-farewell",
+   "event-2",
+   "explore-2",
+   "fishing-a",
+   "kisetsu",
+   "lullaby-a",
+   "poyo-2",
+   "var-flight"
+  ],
+  "midiRange": [
+   40,
+   63
+  ]
+ },
+ "glock": {
+  "homeNotes": 0,
+  "otherNotes": 206,
+  "homeTracks": [],
+  "otherTracks": [
+   "explore-2",
+   "var-flight",
+   "var-ohayo-hatch2"
+  ],
+  "midiRange": [
+   77,
+   97
+  ]
+ },
+ "shell": {
+  "homeNotes": 0,
+  "otherNotes": 1,
+  "homeTracks": [],
+  "otherTracks": [
+   "var-ohayo-hatch2"
+  ],
+  "midiRange": [
+   0,
+   0
+  ]
+ },
+ "trumpet": {
+  "homeNotes": 0,
+  "otherNotes": 82,
+  "homeTracks": [],
+  "otherTracks": [
+   "var-ohayo-hatch2"
+  ],
+  "midiRange": [
+   51,
+   75
+  ]
+ },
+ "timpani": {
+  "homeNotes": 0,
+  "otherNotes": 2,
+  "homeTracks": [],
+  "otherTracks": [
+   "var-ohayo-hatch2"
+  ],
+  "midiRange": [
+   39,
+   39
+  ]
+ },
+ "snarehit": {
+  "homeNotes": 0,
+  "otherNotes": 4,
+  "homeTracks": [],
+  "otherTracks": [
+   "var-ohayo-hatch2"
+  ],
+  "midiRange": [
+   38,
+   38
+  ]
+ }
+}

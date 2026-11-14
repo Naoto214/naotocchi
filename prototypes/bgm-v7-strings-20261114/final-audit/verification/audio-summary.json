@@ -1,0 +1,46 @@
+[
+ {
+  "id": "home-day",
+  "integratedLUFS": -23.0,
+  "truePeakDbtp": -5.36,
+  "clippedSamples": 0,
+  "monoLossDb": -1.18,
+  "loopJoinJump": 0.00223,
+  "finalConstantGain": 0.9965520801347683,
+  "baselinePianoReconstructionErrorDb": -151.93848440147065,
+  "deltaToPianoRmsDb": -20.38156229296802
+ },
+ {
+  "id": "home-evening",
+  "integratedLUFS": -23.0,
+  "truePeakDbtp": -4.01,
+  "clippedSamples": 0,
+  "monoLossDb": -1.31,
+  "loopJoinJump": 0.0034,
+  "finalConstantGain": 0.998849369936505,
+  "baselinePianoReconstructionErrorDb": -151.93379488129708,
+  "deltaToPianoRmsDb": -21.678235938775515
+ },
+ {
+  "id": "home-morning",
+  "integratedLUFS": -22.99,
+  "truePeakDbtp": -4.73,
+  "clippedSamples": 0,
+  "monoLossDb": -1.23,
+  "loopJoinJump": 8e-05,
+  "finalConstantGain": 1.0011519555381692,
+  "baselinePianoReconstructionErrorDb": -151.9444532148668,
+  "deltaToPianoRmsDb": -20.409061673744123
+ },
+ {
+  "id": "home-night",
+  "integratedLUFS": -23.01,
+  "truePeakDbtp": -5.16,
+  "clippedSamples": 0,
+  "monoLossDb": -1.32,
+  "loopJoinJump": 0.0001,
+  "finalConstantGain": 0.9942600739529566,
+  "baselinePianoReconstructionErrorDb": -117.5588376462191,
+  "deltaToPianoRmsDb": -16.430578243110673
+ }
+]

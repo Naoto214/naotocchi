@@ -1,0 +1,13 @@
+.F
+======================================================================
+FAIL: test_short_then_long_equals_fresh_long (__main__.PianoCache.test_short_then_long_equals_fresh_long)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/bgm-v7-strings/prototypes/bgm-v7-strings-20261114/final-audit/test_piano_cache.py", line 13, in test_short_then_long_equals_fresh_long
+    self.assertEqual(len(long),round((3.1979+.6)*L.SR))
+AssertionError: 61300 != 167487
+
+----------------------------------------------------------------------
+Ran 2 tests in 9.494s
+
+FAILED (failures=1)

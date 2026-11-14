@@ -1,0 +1,350 @@
+{
+ "piano": {
+  "sourceFilesInManifest": 69,
+  "sourceRoots": [
+   21,
+   108
+  ],
+  "layers": [
+   1,
+   2,
+   3
+  ],
+  "remaining28Notes": 2787,
+  "maxAbsoluteTranspose": 2,
+  "nativeShorterThanRequested": 0,
+  "examples": [],
+  "wideTransposeExamples": [],
+  "wideTransposeNotes": 0,
+  "lengthScreenScope": "sustain only, untrimmed raw source; excludes cache, attack trim, pedal and struck instruments"
+ },
+ "marimba": {
+  "sourceFilesInManifest": 10,
+  "sourceRoots": [
+   41,
+   96
+  ],
+  "layers": [
+   1
+  ],
+  "remaining28Notes": 1948,
+  "maxAbsoluteTranspose": 3,
+  "nativeShorterThanRequested": 0,
+  "examples": [],
+  "wideTransposeExamples": [],
+  "wideTransposeNotes": 0,
+  "lengthScreenScope": "sustain only, untrimmed raw source; excludes cache, attack trim, pedal and struck instruments"
+ },
+ "woodbass": {
+  "sourceFilesInManifest": 40,
+  "sourceRoots": [
+   28,
+   59
+  ],
+  "layers": [
+   1,
+   3
+  ],
+  "remaining28Notes": 890,
+  "maxAbsoluteTranspose": 2,
+  "nativeShorterThanRequested": 0,
+  "examples": [],
+  "wideTransposeExamples": [],
+  "wideTransposeNotes": 0,
+  "lengthScreenScope": "sustain only, untrimmed raw source; excludes cache, attack trim, pedal and struck instruments"
+ },
+ "harp": {
+  "sourceFilesInManifest": 23,
+  "sourceRoots": [
+   28,
+   101
+  ],
+  "layers": [
+   1
+  ],
+  "remaining28Notes": 1544,
+  "maxAbsoluteTranspose": 2,
+  "nativeShorterThanRequested": 0,
+  "examples": [],
+  "wideTransposeExamples": [],
+  "wideTransposeNotes": 0,
+  "lengthScreenScope": "sustain only, untrimmed raw source; excludes cache, attack trim, pedal and struck instruments"
+ },
+ "violas": {
+  "sourceFilesInManifest": 26,
+  "sourceRoots": [
+   48,
+   86
+  ],
+  "layers": [
+   1,
+   2
+  ],
+  "remaining28Notes": 1824,
+  "maxAbsoluteTranspose": 2,
+  "nativeShorterThanRequested": 0,
+  "examples": [],
+  "wideTransposeExamples": [],
+  "wideTransposeNotes": 0,
+  "lengthScreenScope": "sustain only, untrimmed raw source; excludes cache, attack trim, pedal and struck instruments"
+ },
+ "violins": {
+  "sourceFilesInManifest": 22,
+  "sourceRoots": [
+   55,
+   86
+  ],
+  "layers": [
+   1,
+   2
+  ],
+  "remaining28Notes": 762,
+  "maxAbsoluteTranspose": 2,
+  "nativeShorterThanRequested": 0,
+  "examples": [],
+  "wideTransposeExamples": [],
+  "wideTransposeNotes": 0,
+  "lengthScreenScope": "sustain only, untrimmed raw source; excludes cache, attack trim, pedal and struck instruments"
+ },
+ "flute": {
+  "sourceFilesInManifest": 19,
+  "sourceRoots": [
+   60,
+   96
+  ],
+  "layers": [
+   1,
+   2,
+   3
+  ],
+  "remaining28Notes": 634,
+  "maxAbsoluteTranspose": 15,
+  "nativeShorterThanRequested": 0,
+  "examples": [],
+  "wideTransposeExamples": [
+   {
+    "t": 0,
+    "midi": 74,
+    "layer": 2,
+    "rootMidi": 84,
+    "semitones": -10,
+    "source": "Woodwinds/Flute/susNV/LDFlute_susNV_C5_v2_1.wav"
+   },
+   {
+    "t": 0.3125,
+    "midi": 77,
+    "layer": 2,
+    "rootMidi": 84,
+    "semitones": -7,
+    "source": "Woodwinds/Flute/susNV/LDFlute_susNV_C5_v2_1.wav"
+   },
+   {
+    "t": 1.25,
+    "midi": 80,
+    "layer": 2,
+    "rootMidi": 84,
+    "semitones": -4,
+    "source": "Woodwinds/Flute/susNV/LDFlute_susNV_C5_v2_1.wav"
+   },
+   {
+    "t": 1.875,
+    "midi": 77,
+    "layer": 2,
+    "rootMidi": 84,
+    "semitones": -7,
+    "source": "Woodwinds/Flute/susNV/LDFlute_susNV_C5_v2_1.wav"
+   },
+   {
+    "t": 3.4375,
+    "midi": 77,
+    "layer": 2,
+    "rootMidi": 84,
+    "semitones": -7,
+    "source": "Woodwinds/Flute/susNV/LDFlute_susNV_C5_v2_1.wav"
+   },
+   {
+    "t": 3.75,
+    "midi": 74,
+    "layer": 2,
+    "rootMidi": 84,
+    "semitones": -10,
+    "source": "Woodwinds/Flute/susNV/LDFlute_susNV_C5_v2_1.wav"
+   }
+  ],
+  "wideTransposeNotes": 218,
+  "lengthScreenScope": "sustain only, untrimmed raw source; excludes cache, attack trim, pedal and struck instruments"
+ },
+ "clarinet": {
+  "sourceFilesInManifest": 33,
+  "sourceRoots": [
+   50,
+   90
+  ],
+  "layers": [
+   1,
+   2,
+   3
+  ],
+  "remaining28Notes": 352,
+  "maxAbsoluteTranspose": 2,
+  "nativeShorterThanRequested": 0,
+  "examples": [],
+  "wideTransposeExamples": [],
+  "wideTransposeNotes": 0,
+  "lengthScreenScope": "sustain only, untrimmed raw source; excludes cache, attack trim, pedal and struck instruments"
+ },
+ "cellopizz": {
+  "sourceFilesInManifest": 52,
+  "sourceRoots": [
+   36,
+   77
+  ],
+  "layers": [
+   1,
+   2
+  ],
+  "remaining28Notes": 733,
+  "maxAbsoluteTranspose": 2,
+  "nativeShorterThanRequested": 0,
+  "examples": [],
+  "wideTransposeExamples": [],
+  "wideTransposeNotes": 0,
+  "lengthScreenScope": "sustain only, untrimmed raw source; excludes cache, attack trim, pedal and struck instruments"
+ },
+ "kick": {
+  "sourceFilesInManifest": 14,
+  "sourceRoots": [
+   36,
+   36
+  ],
+  "layers": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "remaining28Notes": 460,
+  "maxAbsoluteTranspose": 0,
+  "nativeShorterThanRequested": 0,
+  "examples": [],
+  "wideTransposeExamples": [],
+  "wideTransposeNotes": 0,
+  "lengthScreenScope": "sustain only, untrimmed raw source; excludes cache, attack trim, pedal and struck instruments"
+ },
+ "snare": {
+  "sourceFilesInManifest": 8,
+  "sourceRoots": [
+   38,
+   38
+  ],
+  "layers": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "remaining28Notes": 456,
+  "maxAbsoluteTranspose": 0,
+  "nativeShorterThanRequested": 0,
+  "examples": [],
+  "wideTransposeExamples": [],
+  "wideTransposeNotes": 0,
+  "lengthScreenScope": "sustain only, untrimmed raw source; excludes cache, attack trim, pedal and struck instruments"
+ },
+ "cellos": {
+  "sourceFilesInManifest": 27,
+  "sourceRoots": [
+   36,
+   77
+  ],
+  "layers": [
+   1,
+   3
+  ],
+  "remaining28Notes": 308,
+  "maxAbsoluteTranspose": 2,
+  "nativeShorterThanRequested": 0,
+  "examples": [],
+  "wideTransposeExamples": [],
+  "wideTransposeNotes": 0,
+  "lengthScreenScope": "sustain only, untrimmed raw source; excludes cache, attack trim, pedal and struck instruments"
+ },
+ "glock": {
+  "sourceFilesInManifest": 6,
+  "sourceRoots": [
+   79,
+   108
+  ],
+  "layers": [
+   1
+  ],
+  "remaining28Notes": 206,
+  "maxAbsoluteTranspose": 3,
+  "nativeShorterThanRequested": 0,
+  "examples": [],
+  "wideTransposeExamples": [],
+  "wideTransposeNotes": 0,
+  "lengthScreenScope": "sustain only, untrimmed raw source; excludes cache, attack trim, pedal and struck instruments"
+ },
+ "trumpet": {
+  "sourceFilesInManifest": 20,
+  "sourceRoots": [
+   53,
+   84
+  ],
+  "layers": [
+   1,
+   3
+  ],
+  "remaining28Notes": 82,
+  "maxAbsoluteTranspose": 2,
+  "nativeShorterThanRequested": 0,
+  "examples": [],
+  "wideTransposeExamples": [],
+  "wideTransposeNotes": 0,
+  "lengthScreenScope": "sustain only, untrimmed raw source; excludes cache, attack trim, pedal and struck instruments"
+ },
+ "timpani": {
+  "sourceFilesInManifest": 6,
+  "sourceRoots": [
+   43,
+   43
+  ],
+  "layers": [
+   1,
+   3,
+   4
+  ],
+  "remaining28Notes": 2,
+  "maxAbsoluteTranspose": 0,
+  "nativeShorterThanRequested": 0,
+  "examples": [],
+  "wideTransposeExamples": [],
+  "wideTransposeNotes": 0,
+  "lengthScreenScope": "sustain only, untrimmed raw source; excludes cache, attack trim, pedal and struck instruments"
+ },
+ "snarehit": {
+  "sourceFilesInManifest": 10,
+  "sourceRoots": [
+   38,
+   38
+  ],
+  "layers": [
+   1,
+   3,
+   5,
+   7,
+   9
+  ],
+  "remaining28Notes": 4,
+  "maxAbsoluteTranspose": 0,
+  "nativeShorterThanRequested": 0,
+  "examples": [],
+  "wideTransposeExamples": [],
+  "wideTransposeNotes": 0,
+  "lengthScreenScope": "sustain only, untrimmed raw source; excludes cache, attack trim, pedal and struck instruments"
+ }
+}
