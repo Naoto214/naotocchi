@@ -17,22 +17,22 @@ const additions={
     "        if (audio.bgmMoment) audio.bgmMoment('event-2', 20000); // BGM V2: 結婚した お知らせ（配置表 scene-10）\n"
   ],
   "prototypes/card-game/index.html": [
-    "<script src=\"../../assets/bgm/catalog.js?v=20261114-0fdff208\"></script>\n<script src=\"../../bgm-v2.js?v=20261114-634f8097\"></script>\n<script src=\"../../bgm-subapps.js?v=20261114-f60de548\" data-app=\"card\"></script>\n"
+    "<script src=\"../../assets/bgm/catalog.js?v=20261114-0fdff208\"></script>\n<script src=\"../../bgm-v2.js?v=20261114-9fbf06fe\"></script>\n<script src=\"../../bgm-subapps.js?v=20261114-f60de548\" data-app=\"card\"></script>\n"
   ],
   "prototypes/life-sugoroku/index.html": [
-    "<script src=\"../../assets/bgm/catalog.js?v=20261114-0fdff208\"></script>\n<script src=\"../../bgm-v2.js?v=20261114-634f8097\"></script>\n<script src=\"../../bgm-subapps.js?v=20261114-f60de548\" data-app=\"naokoro\"></script>\n"
+    "<script src=\"../../assets/bgm/catalog.js?v=20261114-0fdff208\"></script>\n<script src=\"../../bgm-v2.js?v=20261114-9fbf06fe\"></script>\n<script src=\"../../bgm-subapps.js?v=20261114-f60de548\" data-app=\"naokoro\"></script>\n"
   ],
   "prototypes/naopoyo-time-hand-chapter1/index.html": [
-    "<script src=\"../../assets/bgm/catalog.js?v=20261114-0fdff208\"></script>\n<script src=\"../../bgm-v2.js?v=20261114-634f8097\"></script>\n<script src=\"../../bgm-subapps.js?v=20261114-f60de548\" data-app=\"naopoyo\"></script>\n"
+    "<script src=\"../../assets/bgm/catalog.js?v=20261114-0fdff208\"></script>\n<script src=\"../../bgm-v2.js?v=20261114-9fbf06fe\"></script>\n<script src=\"../../bgm-subapps.js?v=20261114-f60de548\" data-app=\"naopoyo\"></script>\n"
   ],
   "prototypes/naopoyo-chapter1/index.html": [
-    "<script src=\"../../assets/bgm/catalog.js?v=20261114-0fdff208\"></script>\n<script src=\"../../bgm-v2.js?v=20261114-634f8097\"></script>\n<script src=\"../../bgm-subapps.js?v=20261114-f60de548\" data-app=\"naopoyo\"></script>\n"
+    "<script src=\"../../assets/bgm/catalog.js?v=20261114-0fdff208\"></script>\n<script src=\"../../bgm-v2.js?v=20261114-9fbf06fe\"></script>\n<script src=\"../../bgm-subapps.js?v=20261114-f60de548\" data-app=\"naopoyo\"></script>\n"
   ],
   "prototypes/naopoyo-chapter2/index.html": [
-    "<script src=\"../../assets/bgm/catalog.js?v=20261114-0fdff208\"></script>\n<script src=\"../../bgm-v2.js?v=20261114-634f8097\"></script>\n<script src=\"../../bgm-subapps.js?v=20261114-f60de548\" data-app=\"naopoyo\"></script>\n"
+    "<script src=\"../../assets/bgm/catalog.js?v=20261114-0fdff208\"></script>\n<script src=\"../../bgm-v2.js?v=20261114-9fbf06fe\"></script>\n<script src=\"../../bgm-subapps.js?v=20261114-f60de548\" data-app=\"naopoyo\"></script>\n"
   ],
   "prototypes/naopoyo-rescue/index.html": [
-    "<script src=\"../../assets/bgm/catalog.js?v=20261114-0fdff208\"></script>\n<script src=\"../../bgm-v2.js?v=20261114-634f8097\"></script>\n<script src=\"../../bgm-subapps.js?v=20261114-f60de548\" data-app=\"naopoyo-legacy\"></script>\n"
+    "<script src=\"../../assets/bgm/catalog.js?v=20261114-0fdff208\"></script>\n<script src=\"../../bgm-v2.js?v=20261114-9fbf06fe\"></script>\n<script src=\"../../bgm-subapps.js?v=20261114-f60de548\" data-app=\"naopoyo-legacy\"></script>\n"
   ]
 };
 function restoredBlob(file,text=fs.readFileSync(file,'utf8')){

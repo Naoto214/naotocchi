@@ -64,6 +64,11 @@ class MusicLibraryTests(unittest.TestCase):
   self.L.register(self.candidate());self.L.approve('test-new-33','fixture approval');self.L.build();p=self.root/'assets/bgm/catalog.js';p.write_text('tampered')
   with self.assertRaisesRegex(ValueError,'generated|export'):self.L.build(check=True)
   self.assertEqual(p.read_text(),'tampered')
+ def test_incomplete_receipt_is_reanalyzed_and_cannot_be_published(self):
+  self.L.register(self.candidate());p=self.root/'music/verification/tracks/test-new-33.json';r=self.libmod.read_json(p);r['analysis']={};self.libmod.atomic(p,r)
+  self.assertEqual(self.L.verify()['analyzed'],1)
+  self.L.approve('test-new-33','fixture approval');r=self.libmod.read_json(p);del r['analysis'];self.libmod.atomic(p,r)
+  with self.assertRaisesRegex(ValueError,'receipt|incomplete'):self.L.build()
  def test_candidate_revision_revalidates_without_overwriting_approved_music(self):
   t=self.candidate();self.L.register(t);t['bpm']=121
   self.assertTrue(hasattr(self.L,'revise'),'candidate revisions need a validated update path')

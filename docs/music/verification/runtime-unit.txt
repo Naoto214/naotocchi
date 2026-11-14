@@ -1,29 +1,35 @@
-✔ all eight BGM scenes request valid waveforms and schedule two complete loops (240.363025ms)
-✔ Quick voice routes pico, browser reading and silence through the saved mode (12.440443ms)
-✔ the actual TTS controller ducks both buses and replaces the scheduled recovery (5.270325ms)
-✔ quick cues are shaped into short, punchy shouts: crisp stop, rising question, faster rate for longer words (2.501671ms)
-✔ shared gain is0.36 for standalone BGM and explicit custom level remains valid (2.907473ms)
-✔ stopped pending jingle cannot start after decoding finishes (12.574845ms)
-✔ latest jingle request wins even if older network request resolves last (19.774418ms)
-✔ BGM setting switched off during decoding prevents pending jingle (1.952413ms)
-✔ null song during held jingle immediately cancels it without follow-up (1.573632ms)
-✔ jingle completion follows source audio end, never an elapsed wall timer (1.649797ms)
-✔ catalog custom loop boundaries reach actual source node (2.639749ms)
-✔ stale failed loop request cannot disable newer valid music (1.522005ms)
-✔ AudioSession is configured for playback when supported (1.82407ms)
-✔ overlay replacing a held jingle releases its queued loop (2.179606ms)
-✔ shared context can resume on another gesture after interruption (1.603307ms)
-✔ 配置表の 場面ごとに 採用曲が 選ばれる (90.996358ms)
-✔ 配置表の 曲は すべて 音源が ある（100本の ミニゲームID を 含む） (0.541226ms)
-✔ 音源の 曲目が ないときは 以前の 合成BGM に もどる (2.483965ms)
-✔ 音源BGM の ときは 合成BGM を 鳴らさない（二重に 鳴らない） (1.965883ms)
-✔ BGM オフ設定では 曲を 選ばない（ジングルも 鳴らさない） (2.915795ms)
-✔ サブアプリ3つと 本体が BGM の 部品を 読みこむ (1.479901ms)
-ℹ tests 21
+✔ all eight BGM scenes request valid waveforms and schedule two complete loops (326.494635ms)
+✔ Quick voice routes pico, browser reading and silence through the saved mode (39.26365ms)
+✔ the actual TTS controller ducks both buses and replaces the scheduled recovery (6.175549ms)
+✔ quick cues are shaped into short, punchy shouts: crisp stop, rising question, faster rate for longer words (5.721555ms)
+✔ shared gain is0.36 for standalone BGM and explicit custom level remains valid (46.618396ms)
+✔ stopped pending jingle cannot start after decoding finishes (40.963452ms)
+✔ latest jingle request wins even if older network request resolves last (8.774678ms)
+✔ BGM setting switched off during decoding prevents pending jingle (8.698332ms)
+✔ null song during held jingle immediately cancels it without follow-up (25.763434ms)
+✔ jingle completion follows source audio end, never an elapsed wall timer (7.943464ms)
+✔ catalog custom loop boundaries reach actual source node (1.911431ms)
+✔ stale failed loop request cannot disable newer valid music (12.406563ms)
+✔ AudioSession is configured for playback when supported (9.933685ms)
+✔ overlay replacing a held jingle releases its queued loop (16.104738ms)
+✔ shared context can resume on another gesture after interruption (4.956862ms)
+✔ visibility restoration restarts held-jingle followup without a second gesture (11.478994ms)
+✔ a result jingle still loading cannot override a newer selected scene (6.838029ms)
+✔ active jingle cleans up even while a later replacement is pending or fails (35.329383ms)
+✔ only exact BGM hooks differ from latest approved game bytes (99.295607ms)
+✔ unrelated script, UI and game changes cannot pass the BGM scope exception (73.34057ms)
+✔ 配置表の 場面ごとに 採用曲が 選ばれる (58.720545ms)
+✔ 配置表の 曲は すべて 音源が ある（100本の ミニゲームID を 含む） (2.585798ms)
+✔ 音源の 曲目が ないときは 以前の 合成BGM に もどる (6.084643ms)
+✔ 音源BGM の ときは 合成BGM を 鳴らさない（二重に 鳴らない） (8.851073ms)
+✔ BGM オフ設定では 曲を 選ばない（ジングルも 鳴らさない） (2.656985ms)
+✔ サブアプリ3つと 本体が BGM の 部品を 読みこむ (0.873997ms)
+✔ every registered game ID resolves through the real main selector (289.932669ms)
+ℹ tests 27
 ℹ suites 0
-ℹ pass 21
+ℹ pass 27
 ℹ fail 0
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 392.963355
+ℹ duration_ms 953.792587

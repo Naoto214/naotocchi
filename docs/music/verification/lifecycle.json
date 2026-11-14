@@ -1,0 +1,174 @@
+[
+  {
+    "engine": "chromium",
+    "transition": "home→home-day",
+    "steadyGain": 0.36
+  },
+  {
+    "engine": "chromium",
+    "transition": "home→home-evening",
+    "steadyGain": 0.36
+  },
+  {
+    "engine": "chromium",
+    "transition": "home→home-night",
+    "steadyGain": 0.36
+  },
+  {
+    "engine": "chromium",
+    "transition": "main→game-1",
+    "steadyGain": 0.36
+  },
+  {
+    "engine": "chromium",
+    "transition": "main→bgm-game",
+    "steadyGain": 0.36
+  },
+  {
+    "engine": "chromium",
+    "transition": "main→poyo-2",
+    "steadyGain": 0.36
+  },
+  {
+    "engine": "chromium",
+    "transition": "main→home-night",
+    "steadyGain": 0.36
+  },
+  {
+    "engine": "chromium",
+    "hatchOverlay": [
+      {
+        "id": "home-night",
+        "age": 1.5296145124716567,
+        "loop": true,
+        "duration": 50.526326530612245,
+        "paths": [
+          {
+            "gain": 0.07182944488157357,
+            "chain": [
+              "AudioBufferSourceNode",
+              "GainNode:1",
+              "GainNode:0.19952623546123505",
+              "GainNode:1",
+              "GainNode:1.4285714626312256",
+              "GainNode:0.2800000011920929",
+              "GainNode:0.8999999761581421",
+              "destination"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "var-ohayo-hatch2",
+        "age": 0.20027210884353863,
+        "loop": false,
+        "duration": 6.75,
+        "paths": [
+          {
+            "gain": 0.3600000005790163,
+            "chain": [
+              "AudioBufferSourceNode",
+              "GainNode:1",
+              "GainNode:1",
+              "GainNode:1.4285714626312256",
+              "GainNode:0.2800000011920929",
+              "GainNode:0.8999999761581421",
+              "destination"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "engine": "chromium",
+    "speechBgmGain": 0.05142857142857143,
+    "speechSfxGain": 0.405
+  },
+  {
+    "engine": "webkit",
+    "transition": "home→home-day",
+    "steadyGain": 0.36
+  },
+  {
+    "engine": "webkit",
+    "transition": "home→home-evening",
+    "steadyGain": 0.36
+  },
+  {
+    "engine": "webkit",
+    "transition": "home→home-night",
+    "steadyGain": 0.36
+  },
+  {
+    "engine": "webkit",
+    "transition": "main→game-1",
+    "steadyGain": 0.36
+  },
+  {
+    "engine": "webkit",
+    "transition": "main→bgm-game",
+    "steadyGain": 0.36
+  },
+  {
+    "engine": "webkit",
+    "transition": "main→poyo-2",
+    "steadyGain": 0.36
+  },
+  {
+    "engine": "webkit",
+    "transition": "main→home-night",
+    "steadyGain": 0.36
+  },
+  {
+    "engine": "webkit",
+    "hatchOverlay": [
+      {
+        "id": "home-night",
+        "age": 1.6428117913832203,
+        "loop": true,
+        "duration": 50.50342403628118,
+        "paths": [
+          {
+            "gain": 0.07182944488157357,
+            "chain": [
+              "AudioBufferSourceNode",
+              "GainNode:1",
+              "GainNode:0.19952623546123505",
+              "GainNode:1",
+              "GainNode:1.4285714626312256",
+              "GainNode:0.2800000011920929",
+              "GainNode:0.8999999761581421",
+              "destination"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "var-ohayo-hatch2",
+        "age": 0.21188208616780102,
+        "loop": false,
+        "duration": 6.733809523809524,
+        "paths": [
+          {
+            "gain": 0.3600000005790163,
+            "chain": [
+              "AudioBufferSourceNode",
+              "GainNode:1",
+              "GainNode:1",
+              "GainNode:1.4285714626312256",
+              "GainNode:0.2800000011920929",
+              "GainNode:0.8999999761581421",
+              "destination"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "engine": "webkit",
+    "speechBgmGain": 0.05142857142857143,
+    "speechSfxGain": 0.405
+  }
+]

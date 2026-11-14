@@ -1,0 +1,22 @@
+✔ shared gain is0.36 for standalone BGM and explicit custom level remains valid (5.158426ms)
+✔ stopped pending jingle cannot start after decoding finishes (5.286599ms)
+✔ latest jingle request wins even if older network request resolves last (4.036383ms)
+✔ BGM setting switched off during decoding prevents pending jingle (1.412389ms)
+✔ null song during held jingle immediately cancels it without follow-up (1.431568ms)
+✔ jingle completion follows source audio end, never an elapsed wall timer (1.206789ms)
+✔ catalog custom loop boundaries reach actual source node (1.372138ms)
+✔ stale failed loop request cannot disable newer valid music (1.248953ms)
+✔ AudioSession is configured for playback when supported (0.893226ms)
+✔ overlay replacing a held jingle releases its queued loop (1.859964ms)
+✔ shared context can resume on another gesture after interruption (0.92238ms)
+✔ visibility restoration restarts held-jingle followup without a second gesture (6.008067ms)
+✔ a result jingle still loading cannot override a newer selected scene (1.149132ms)
+✔ active jingle cleans up even while a later replacement is pending or fails (2.157132ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 122.219516

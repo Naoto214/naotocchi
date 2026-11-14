@@ -85,11 +85,31 @@ class Library:
   meta={k:v for k,v in t.items() if k not in ['approval','status','history','measurements']}
   policy=read_json(self.music/'policy.json')
   return digest({'track':meta,'sources':rights,'policy':policy,'analyzer':VERSION})
+ def valid_receipt(self,t,r,fp):
+  if not isinstance(r,dict) or r.get('success') is not True or r.get('fingerprint')!=fp:return False
+  a=r.get('analysis')
+  if not isinstance(a,dict):return False
+  def finite(x):return isinstance(x,(int,float)) and not isinstance(x,bool) and math.isfinite(x)
+  def meter(m):return isinstance(m,dict) and all(finite(m.get(k)) for k in ['integratedLUFS','truePeakDbtp','lraLU']) and all(k in m and (m[k] is None or finite(m[k])) for k in ['momentaryMax','shortTermMax'])
+  if a.get('basis'):
+   lock=read_json(self.music/'approved32.lock.json')
+   return (t['id'] in lock['tracks'] and a.get('basis')=='Imported passed PR549/550 measurements with exact pinned Git blob and SHA256 match; no new rendering or measurement claim' and meter(a.get('aac')) and a['aac']==t.get('measurements') and a.get('originalReceipt')==t.get('arrangement',{}).get('receipt') and a['originalReceipt'] in lock['files'])
+  if not all(meter(a.get(k)) for k in ['aac','flac']):return False
+  if not all(finite(a.get(k)) for k in ['codecCorrelation','codecDelaySamples','codecRmsDeltaDb','clippedSamples','midiNoteOnCount']):return False
+  if a.get('toolVersion')!=VERSION or not a.get('method') or a['midiNoteOnCount']<=0:return False
+  policy=read_json(self.music/'policy.json')
+  if a['codecCorrelation']<policy['minimumCodecCorrelation'] or abs(a['codecRmsDeltaDb'])>policy['maximumCodecRmsDeltaDb'] or a['clippedSamples']>policy['maximumClippedSamples'] or max(a[k]['truePeakDbtp'] for k in ['aac','flac'])>policy['maximumTruePeakDbtp']:return False
+  loop=a.get('loop',{})
+  if loop.get('enabled') is not t['loop']['enabled']:return False
+  if loop['enabled']:
+   for k in ['aac','flac']:
+    if not isinstance(loop.get(k),dict) or not all(finite(loop[k].get(v)) for v in ['jump','typicalStep999','limit']) or loop[k]['jump']>loop[k]['limit']:return False
+  return True
  def receipt(self,t,fp,force=False):
   p=self.music/'verification/tracks'/(t['id']+'.json')
   try:old=read_json(p)
   except (OSError,ValueError):old={}
-  if not force and old.get('success') is True and old.get('fingerprint')==fp and isinstance(old.get('analysis'),dict):return old,True
+  if not force and self.valid_receipt(t,old,fp):return old,True
   result=analyze(self.root,t,read_json(self.music/'policy.json'))
   r={'success':True,'fingerprint':fp,'analysis':result,'checkedAt':stamp()};atomic(p,r);return r,False
  def verify(self,ids=None,force=False):
@@ -134,7 +154,7 @@ class Library:
      p=self.music/'verification/tracks'/(t['id']+'.json')
      try:r=read_json(p)
      except (ValueError,OSError):raise ValueError('missing verified receipt: '+t['id'])
-     if r.get('success') is not True or r.get('fingerprint')!=fp:raise ValueError('stale verified receipt: '+t['id'])
+     if not self.valid_receipt(t,r,fp):raise ValueError('incomplete/stale verified receipt: '+t['id'])
    return build(self,d,check)
  def preview(self,out):
   from export import preview

@@ -26,3 +26,35 @@ jobs:
         env:
           OPENBLAS_NUM_THREADS: '1'
       - run: node --test tests/bgm-production-test.cjs tests/bgm-v2-integration-test.cjs tests/bgm-scope-test.cjs tests/audio-regression-test.cjs
+  browser:
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: pip install -r tools/music/requirements.txt
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - run: python tools/pages/package.py --out /tmp/music-runtime --report /tmp/music-package.json
+      - name: Verify real browser audio routes and lifecycle
+        run: |
+          python -m http.server 8780 --bind 127.0.0.1 --directory /tmp/music-runtime >/tmp/music-http.log 2>&1 &
+          trap 'kill $!' EXIT
+          node tests/music/browser.cjs
+          node tests/music/test_routes.cjs
+          node tests/music/test_lifecycle.cjs
+          node tests/music/test_subapp_states.cjs
+          export MUSIC_FIXTURE="$(OPENBLAS_NUM_THREADS=1 python tests/music/prepare_browser_fixture.py)"
+          node tests/music/test_new_track.cjs
+          python -c 'import os,shutil; shutil.rmtree(os.environ["MUSIC_FIXTURE"])'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: music-browser-verification
+          path: docs/music/verification/*.json

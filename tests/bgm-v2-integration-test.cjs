@@ -46,11 +46,13 @@ test('配置表の 場面ごとに 採用曲が 選ばれる', () => {
 });
 
 test('配置表の 曲は すべて 音源が ある（100本の ミニゲームID を 含む）', () => {
-  assert.equal(PLACE.ROWS.length, 50);
-  assert.equal(Object.keys(PLACE.GAME_SONG).length, 100);
+  const originalRows=JSON.parse(fs.readFileSync('music/placements.json')),originalGames=JSON.parse(fs.readFileSync('music/game-songs.json')),extensions=JSON.parse(fs.readFileSync('music/extensions.json'));
+  assert.equal(originalRows.length,50);assert.equal(Object.keys(originalGames).length,100);
+  assert.deepEqual(JSON.parse(JSON.stringify(PLACE.ROWS)),originalRows.concat(extensions.rows));
+  assert.deepEqual({...PLACE.GAME_SONG},{...originalGames,...extensions.gameSongs});
   for (const r of PLACE.ROWS) for (const s of r.songs) assert.ok(CAT[s], s);
   for (const s of Object.values(PLACE.GAME_SONG)) assert.ok(CAT[s], s);
-  for (const [id, c] of Object.entries(CAT)) { assert.ok(fs.existsSync('assets/bgm/' + c.file.split('?')[0]), id); assert.ok(c.duration > 5, id); }
+  for (const [id, c] of Object.entries(CAT)) { assert.ok(fs.existsSync('assets/bgm/' + c.file.split('?')[0]), id); assert.ok(Number.isFinite(c.duration) && c.duration > 0, id); }
 });
 
 test('音源の 曲目が ないときは 以前の 合成BGM に もどる', () => {
@@ -79,4 +81,8 @@ test('サブアプリ3つと 本体が BGM の 部品を 読みこむ', () => {
   for (const f of ['assets/bgm/catalog.js', 'assets/bgm/placement.js', 'bgm-v2.js']) assert.ok(html.indexOf(f) > 0 && html.indexOf(f) < html.indexOf('audio.js?v='), f);
   for (const [p, app] of [['prototypes/naopoyo-time-hand-chapter1/index.html', 'naopoyo'], ['prototypes/card-game/index.html', 'card'], ['prototypes/life-sugoroku/index.html', 'naokoro']])
     assert.match(fs.readFileSync(p, 'utf8'), new RegExp(`bgm-subapps\\.js(?:\\?v=[^"]+)?" data-app="${app}"`));
+});
+
+test('every registered game ID resolves through the real main selector',()=>{
+ for(const [id,song]of Object.entries(PLACE.GAME_SONG))assert.equal(harness({game:{id}}).api.currentSong(),song,id);
 });
