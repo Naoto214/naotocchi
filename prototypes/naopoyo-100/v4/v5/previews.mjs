@@ -5,7 +5,7 @@ export function sampleDraft(id,span=1){const e=byId.get(id);if(!e)throw Error('U
  else if(id.startsWith('v5.deco.'))d=paintDecoration(d,1,1,id);
  else if(e.category==='world'){for(const[x,y]of cells)d.board.walls.push([x,y]);}
  else if(id==='terrain.floor'||id==='terrain.wall')for(const[x,y]of cells)d=paintTerrain(d,x,y,id);
- else if(e.placeable)for(const[x,y]of e.autotile?cells:[[1,1]])d=paintGimmick(d,x,y,id,defaults[id]||{});
+ else if(e.placeable){if(['field.current','field.bubble','field.wave'].includes(id))d=paintTerrain(d,1,1,'v5.terrain.seaWater');for(const[x,y]of e.autotile?cells:[[1,1]])d=paintGimmick(d,x,y,id,defaults[id]||{});if(['fixture.warp','fixture.burrow'].includes(id))d=paintGimmick(d,6,6,id,{...defaults[id],...(id==='fixture.burrow'?{role:'exit'}:{})})}
  else d.board.tiles.push({x:1,y:1,catalogId:id,params:{id:'candidate'}});
  return d;
 }
