@@ -1,0 +1,101 @@
+{
+ "passed": true,
+ "tracks": 7,
+ "melodyNotes": 3158,
+ "placements": 50,
+ "homeLockFiles": 16,
+ "scope": "preview only; production unchanged",
+ "results": [
+  {
+   "id": "explore-2",
+   "title": "そらと うみの さんぽ",
+   "integratedLUFS": -24.0,
+   "truePeakDbtp": -12.48,
+   "monoLossDb": -1.2,
+   "aacFlacCorrelation": 0.9999,
+   "loopJoinJump": 0.0009,
+   "loopJoinTypicalStep999": 0.03444,
+   "clippedSamples": 0,
+   "aacSha256": "68fbba6f6219501d40636619b463f74a310d4e132525aa00ca6ab2f3ed5c5c8e",
+   "flacSha256": "bffe7a66591834b5df2bbf8db8fa4f70355084378572fb554f5875141ea3bf64"
+  },
+  {
+   "id": "board-b",
+   "title": "きしと おしろ",
+   "integratedLUFS": -26.99,
+   "truePeakDbtp": -10.45,
+   "monoLossDb": -1.22,
+   "aacFlacCorrelation": 0.9999,
+   "loopJoinJump": 0.00047,
+   "loopJoinTypicalStep999": 0.02683,
+   "clippedSamples": 0,
+   "aacSha256": "cbc0d7655f96a666495d0258fbc6f8491c937398220b0db3822de44385e04aa5",
+   "flacSha256": "cc66a289e0a813a2014f5a781eb97774ad78462efb1c5dfacbe0f8f52dd25e00"
+  },
+  {
+   "id": "fishing-a",
+   "title": "みずべの うたたね",
+   "integratedLUFS": -27.0,
+   "truePeakDbtp": -8.51,
+   "monoLossDb": -1.2,
+   "aacFlacCorrelation": 0.9998,
+   "loopJoinJump": 0.00077,
+   "loopJoinTypicalStep999": 0.03347,
+   "clippedSamples": 0,
+   "aacSha256": "f44f755a734607244f6ec6a23d5ac4c0cdcb6e08e2a478a0f6471bfc6d45ca80",
+   "flacSha256": "14d8f66ba3fdb0cd6180587103110b8d0bd3115e6d0e54fe72ff4a5e3522dd72"
+  },
+  {
+   "id": "lullaby-a",
+   "title": "ねむりの ほし",
+   "integratedLUFS": -31.0,
+   "truePeakDbtp": -10.99,
+   "monoLossDb": -1.07,
+   "aacFlacCorrelation": 0.9999,
+   "loopJoinJump": 0.00029,
+   "loopJoinTypicalStep999": 0.02215,
+   "clippedSamples": 0,
+   "aacSha256": "b2585f3df90e43530303089b33a3308f004152d7cdda13f44375bb8eccadc7bc",
+   "flacSha256": "355d388e84fee00e071022cac3f2a95142cbe62972bb938410562af7318ba699"
+  },
+  {
+   "id": "jingle-achieve",
+   "title": "やったね",
+   "integratedLUFS": -23.01,
+   "truePeakDbtp": -5.36,
+   "monoLossDb": -1.22,
+   "aacFlacCorrelation": 0.9998,
+   "loopJoinJump": 0.00051,
+   "loopJoinTypicalStep999": 0.0426,
+   "clippedSamples": 0,
+   "aacSha256": "e3919a741b1af2b2ca536a7a81dfe3c01939b1aed53f1f28da2f15a6fe7e8e41",
+   "flacSha256": "8fbdedc178ee729aa8f02a0de7c03bec674ca275e3c85742c2327553845d840b"
+  },
+  {
+   "id": "jingle-card-lose",
+   "title": "つぎは かつぞ",
+   "integratedLUFS": -24.01,
+   "truePeakDbtp": -6.4,
+   "monoLossDb": -1.2,
+   "aacFlacCorrelation": 0.9992,
+   "loopJoinJump": 0.00032,
+   "loopJoinTypicalStep999": 0.04896,
+   "clippedSamples": 0,
+   "aacSha256": "7047f7d1b8d4b13b4567003deef2ad9710eceac125eb568629f1bc23cdea0665",
+   "flacSha256": "33b38ade088febbfa5916c5af574438a5c370cfea914d1fe349c191a8d35e209"
+  },
+  {
+   "id": "var-poyo-clear",
+   "title": "ぽよぽよこもれび（ステージクリア）",
+   "integratedLUFS": -26.0,
+   "truePeakDbtp": -11.14,
+   "monoLossDb": -1.23,
+   "aacFlacCorrelation": 0.9997,
+   "loopJoinJump": 0.00016,
+   "loopJoinTypicalStep999": 0.03569,
+   "clippedSamples": 0,
+   "aacSha256": "29663aed80bf78fec5590f03e13e8b7af9f16bfea31590cb722c25dbba4ffae9",
+   "flacSha256": "0ff07e633a222c00259827be8638396ff631c0bf65155b80893bb0664f7f87a8"
+  }
+ ]
+}
