@@ -1,0 +1,6405 @@
+{
+  "engine": "Chrome via CUA, same-origin iframe widths",
+  "physicalIphone": false,
+  "webkit": false,
+  "palette": [
+    {
+      "requested": 320,
+      "design": "current",
+      "body": "cream",
+      "cards": [
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "M-man-05",
+          "name": "若者",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "M-cat-05",
+          "name": "若いねこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "M-frog-05",
+          "name": "陸に上がったかえる",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "M-clownfish-05",
+          "name": "群れのクマノミ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "M-dandelion-05",
+          "name": "つぼみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "M-dragon-05",
+          "name": "つばさの育ったりゅう",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "M-plush-05",
+          "name": "ほつれたぬいぐるみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "C-box",
+          "name": "ただのはこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "P-anglerfish",
+          "name": "ひかるチョウチンアンコウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.42331px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "W-memory_lake",
+          "name": "きおくのみずうみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "G-air-hockey",
+          "name": "エアホッケー",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        }
+      ],
+      "columns": "90.6562px 90.6719px 90.6562px",
+      "count": "14枚 · 1–14 · B3-A 現行",
+      "scroll": 320,
+      "width": 320
+    },
+    {
+      "requested": 320,
+      "design": "current",
+      "body": "tint",
+      "cards": [
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 232, 227)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "M-man-05",
+          "name": "若者",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 227, 211)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "M-cat-05",
+          "name": "若いねこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(220, 245, 233)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "M-frog-05",
+          "name": "陸に上がったかえる",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(221, 231, 239)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "M-clownfish-05",
+          "name": "群れのクマノミ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(220, 235, 215)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "M-dandelion-05",
+          "name": "つぼみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 234, 238)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "M-dragon-05",
+          "name": "つばさの育ったりゅう",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(223, 220, 219)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "M-plush-05",
+          "name": "ほつれたぬいぐるみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(246, 234, 210)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "C-box",
+          "name": "ただのはこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(245, 223, 221)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "P-anglerfish",
+          "name": "ひかるチョウチンアンコウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.42331px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(228, 234, 227)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "W-memory_lake",
+          "name": "きおくのみずうみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(252, 236, 217)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "G-air-hockey",
+          "name": "エアホッケー",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 238, 224)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        }
+      ],
+      "columns": "90.6562px 90.6719px 90.6562px",
+      "count": "14枚 · 1–14 · B3-A 現行",
+      "scroll": 320,
+      "width": 320
+    },
+    {
+      "requested": 320,
+      "design": "refined",
+      "body": "cream",
+      "cards": [
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "M-man-05",
+          "name": "若者",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "M-cat-05",
+          "name": "若いねこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "M-frog-05",
+          "name": "陸に上がったかえる",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "M-clownfish-05",
+          "name": "群れのクマノミ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "M-dandelion-05",
+          "name": "つぼみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "M-dragon-05",
+          "name": "つばさの育ったりゅう",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "M-plush-05",
+          "name": "ほつれたぬいぐるみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.336px; --digit-y: 0.352px;",
+          "id": "C-box",
+          "name": "ただのはこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.336px; --digit-y: 0.352px;",
+          "id": "P-anglerfish",
+          "name": "ひかるチョウチンアンコウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.42331px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "W-memory_lake",
+          "name": "きおくのみずうみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.35664450000000003px; --digit-y: 0.352px;",
+          "id": "G-air-hockey",
+          "name": "エアホッケー",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.336px; --digit-y: 0.352px;",
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        }
+      ],
+      "columns": "90.6562px 90.6719px 90.6562px",
+      "count": "14枚 · 1–14 · B3-A 微調整",
+      "scroll": 320,
+      "width": 320
+    },
+    {
+      "requested": 320,
+      "design": "refined",
+      "body": "tint",
+      "cards": [
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 232, 227)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "M-man-05",
+          "name": "若者",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 227, 211)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "M-cat-05",
+          "name": "若いねこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(220, 245, 233)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "M-frog-05",
+          "name": "陸に上がったかえる",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(221, 231, 239)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "M-clownfish-05",
+          "name": "群れのクマノミ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(220, 235, 215)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "M-dandelion-05",
+          "name": "つぼみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 234, 238)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "M-dragon-05",
+          "name": "つばさの育ったりゅう",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(223, 220, 219)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "M-plush-05",
+          "name": "ほつれたぬいぐるみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(246, 234, 210)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.336px; --digit-y: 0.352px;",
+          "id": "C-box",
+          "name": "ただのはこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(245, 223, 221)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.336px; --digit-y: 0.352px;",
+          "id": "P-anglerfish",
+          "name": "ひかるチョウチンアンコウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.42331px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(228, 234, 227)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "W-memory_lake",
+          "name": "きおくのみずうみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(252, 236, 217)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.35664450000000003px; --digit-y: 0.352px;",
+          "id": "G-air-hockey",
+          "name": "エアホッケー",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 238, 224)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.336px; --digit-y: 0.352px;",
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        }
+      ],
+      "columns": "90.6562px 90.6719px 90.6562px",
+      "count": "14枚 · 1–14 · B3-A 微調整",
+      "scroll": 320,
+      "width": 320
+    },
+    {
+      "requested": 375,
+      "design": "current",
+      "body": "cream",
+      "cards": [
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "M-man-05",
+          "name": "若者",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "M-cat-05",
+          "name": "若いねこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "M-frog-05",
+          "name": "陸に上がったかえる",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "M-clownfish-05",
+          "name": "群れのクマノミ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "M-dandelion-05",
+          "name": "つぼみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "M-dragon-05",
+          "name": "つばさの育ったりゅう",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "M-plush-05",
+          "name": "ほつれたぬいぐるみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "C-box",
+          "name": "ただのはこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "P-anglerfish",
+          "name": "ひかるチョウチンアンコウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "7.72303px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "W-memory_lake",
+          "name": "きおくのみずうみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "G-air-hockey",
+          "name": "エアホッケー",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        }
+      ],
+      "columns": "109px 109px 109px",
+      "count": "14枚 · 1–14 · B3-A 現行",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "requested": 375,
+      "design": "current",
+      "body": "tint",
+      "cards": [
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 232, 227)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "M-man-05",
+          "name": "若者",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 227, 211)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "M-cat-05",
+          "name": "若いねこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(220, 245, 233)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "M-frog-05",
+          "name": "陸に上がったかえる",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(221, 231, 239)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "M-clownfish-05",
+          "name": "群れのクマノミ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(220, 235, 215)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "M-dandelion-05",
+          "name": "つぼみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 234, 238)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "M-dragon-05",
+          "name": "つばさの育ったりゅう",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(223, 220, 219)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "M-plush-05",
+          "name": "ほつれたぬいぐるみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(246, 234, 210)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "C-box",
+          "name": "ただのはこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(245, 223, 221)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "P-anglerfish",
+          "name": "ひかるチョウチンアンコウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "7.72303px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(228, 234, 227)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "W-memory_lake",
+          "name": "きおくのみずうみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(252, 236, 217)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "G-air-hockey",
+          "name": "エアホッケー",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 238, 224)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        }
+      ],
+      "columns": "109px 109px 109px",
+      "count": "14枚 · 1–14 · B3-A 現行",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "requested": 375,
+      "design": "refined",
+      "body": "cream",
+      "cards": [
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "M-man-05",
+          "name": "若者",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "M-cat-05",
+          "name": "若いねこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "M-frog-05",
+          "name": "陸に上がったかえる",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "M-clownfish-05",
+          "name": "群れのクマノミ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "M-dandelion-05",
+          "name": "つぼみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "M-dragon-05",
+          "name": "つばさの育ったりゅう",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "M-plush-05",
+          "name": "ほつれたぬいぐるみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "C-box",
+          "name": "ただのはこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "P-anglerfish",
+          "name": "ひかるチョウチンアンコウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "7.72303px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "W-memory_lake",
+          "name": "きおくのみずうみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.32562500000000005px; --digit-y: 0.141px;",
+          "id": "G-air-hockey",
+          "name": "エアホッケー",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        }
+      ],
+      "columns": "109px 109px 109px",
+      "count": "14枚 · 1–14 · B3-A 微調整",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "requested": 375,
+      "design": "refined",
+      "body": "tint",
+      "cards": [
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 232, 227)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "M-man-05",
+          "name": "若者",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 227, 211)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "M-cat-05",
+          "name": "若いねこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(220, 245, 233)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "M-frog-05",
+          "name": "陸に上がったかえる",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(221, 231, 239)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "M-clownfish-05",
+          "name": "群れのクマノミ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(220, 235, 215)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "M-dandelion-05",
+          "name": "つぼみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 234, 238)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "M-dragon-05",
+          "name": "つばさの育ったりゅう",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(223, 220, 219)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "M-plush-05",
+          "name": "ほつれたぬいぐるみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(246, 234, 210)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "C-box",
+          "name": "ただのはこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(245, 223, 221)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "P-anglerfish",
+          "name": "ひかるチョウチンアンコウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "7.72303px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(228, 234, 227)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "W-memory_lake",
+          "name": "きおくのみずうみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(252, 236, 217)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.32562500000000005px; --digit-y: 0.141px;",
+          "id": "G-air-hockey",
+          "name": "エアホッケー",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 238, 224)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        }
+      ],
+      "columns": "109px 109px 109px",
+      "count": "14枚 · 1–14 · B3-A 微調整",
+      "scroll": 375,
+      "width": 375
+    },
+    {
+      "requested": 390,
+      "design": "current",
+      "body": "cream",
+      "cards": [
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "M-man-05",
+          "name": "若者",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "M-cat-05",
+          "name": "若いねこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "M-frog-05",
+          "name": "陸に上がったかえる",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "M-clownfish-05",
+          "name": "群れのクマノミ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "M-dandelion-05",
+          "name": "つぼみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "M-dragon-05",
+          "name": "つばさの育ったりゅう",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "M-plush-05",
+          "name": "ほつれたぬいぐるみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "C-box",
+          "name": "ただのはこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "P-anglerfish",
+          "name": "ひかるチョウチンアンコウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.07729px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "W-memory_lake",
+          "name": "きおくのみずうみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "G-air-hockey",
+          "name": "エアホッケー",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        }
+      ],
+      "columns": "114px 114px 114px",
+      "count": "14枚 · 1–14 · B3-A 現行",
+      "scroll": 390,
+      "width": 390
+    },
+    {
+      "requested": 390,
+      "design": "current",
+      "body": "tint",
+      "cards": [
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 232, 227)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "M-man-05",
+          "name": "若者",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 227, 211)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "M-cat-05",
+          "name": "若いねこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(220, 245, 233)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "M-frog-05",
+          "name": "陸に上がったかえる",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(221, 231, 239)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "M-clownfish-05",
+          "name": "群れのクマノミ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(220, 235, 215)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "M-dandelion-05",
+          "name": "つぼみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 234, 238)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "M-dragon-05",
+          "name": "つばさの育ったりゅう",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(223, 220, 219)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "M-plush-05",
+          "name": "ほつれたぬいぐるみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(246, 234, 210)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "C-box",
+          "name": "ただのはこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(245, 223, 221)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "P-anglerfish",
+          "name": "ひかるチョウチンアンコウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.07729px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(228, 234, 227)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "W-memory_lake",
+          "name": "きおくのみずうみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(252, 236, 217)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "G-air-hockey",
+          "name": "エアホッケー",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 238, 224)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        }
+      ],
+      "columns": "114px 114px 114px",
+      "count": "14枚 · 1–14 · B3-A 現行",
+      "scroll": 390,
+      "width": 390
+    },
+    {
+      "requested": 390,
+      "design": "refined",
+      "body": "cream",
+      "cards": [
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "M-man-05",
+          "name": "若者",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "M-cat-05",
+          "name": "若いねこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "M-frog-05",
+          "name": "陸に上がったかえる",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "M-clownfish-05",
+          "name": "群れのクマノミ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "M-dandelion-05",
+          "name": "つぼみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "M-dragon-05",
+          "name": "つばさの育ったりゅう",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "M-plush-05",
+          "name": "ほつれたぬいぐるみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.281px; --digit-y: 0.344px;",
+          "id": "C-box",
+          "name": "ただのはこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.281px; --digit-y: 0.344px;",
+          "id": "P-anglerfish",
+          "name": "ひかるチョウチンアンコウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.07729px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "W-memory_lake",
+          "name": "きおくのみずうみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.46125px; --digit-y: 0.344px;",
+          "id": "G-air-hockey",
+          "name": "エアホッケー",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.281px; --digit-y: 0.344px;",
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        }
+      ],
+      "columns": "114px 114px 114px",
+      "count": "14枚 · 1–14 · B3-A 微調整",
+      "scroll": 390,
+      "width": 390
+    },
+    {
+      "requested": 390,
+      "design": "refined",
+      "body": "tint",
+      "cards": [
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 232, 227)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "M-man-05",
+          "name": "若者",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 227, 211)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "M-cat-05",
+          "name": "若いねこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(220, 245, 233)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "M-frog-05",
+          "name": "陸に上がったかえる",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(221, 231, 239)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "M-clownfish-05",
+          "name": "群れのクマノミ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(220, 235, 215)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "M-dandelion-05",
+          "name": "つぼみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 234, 238)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "M-dragon-05",
+          "name": "つばさの育ったりゅう",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(223, 220, 219)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "M-plush-05",
+          "name": "ほつれたぬいぐるみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(246, 234, 210)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.281px; --digit-y: 0.344px;",
+          "id": "C-box",
+          "name": "ただのはこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(245, 223, 221)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.281px; --digit-y: 0.344px;",
+          "id": "P-anglerfish",
+          "name": "ひかるチョウチンアンコウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.07729px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(228, 234, 227)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "W-memory_lake",
+          "name": "きおくのみずうみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(252, 236, 217)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.46125px; --digit-y: 0.344px;",
+          "id": "G-air-hockey",
+          "name": "エアホッケー",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 238, 224)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.281px; --digit-y: 0.344px;",
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        }
+      ],
+      "columns": "114px 114px 114px",
+      "count": "14枚 · 1–14 · B3-A 微調整",
+      "scroll": 390,
+      "width": 390
+    },
+    {
+      "requested": 430,
+      "design": "current",
+      "body": "cream",
+      "cards": [
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "M-man-05",
+          "name": "若者",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "M-cat-05",
+          "name": "若いねこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "M-frog-05",
+          "name": "陸に上がったかえる",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42344px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "M-clownfish-05",
+          "name": "群れのクマノミ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "M-dandelion-05",
+          "name": "つぼみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42344px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "M-dragon-05",
+          "name": "つばさの育ったりゅう",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "M-plush-05",
+          "name": "ほつれたぬいぐるみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "C-box",
+          "name": "ただのはこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42344px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "P-anglerfish",
+          "name": "ひかるチョウチンアンコウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.02164px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "W-memory_lake",
+          "name": "きおくのみずうみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "G-air-hockey",
+          "name": "エアホッケー",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42344px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        }
+      ],
+      "columns": "127.328px 127.328px 127.344px",
+      "count": "14枚 · 1–14 · B3-A 現行",
+      "scroll": 430,
+      "width": 430
+    },
+    {
+      "requested": 430,
+      "design": "current",
+      "body": "tint",
+      "cards": [
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 232, 227)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "M-man-05",
+          "name": "若者",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 227, 211)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "M-cat-05",
+          "name": "若いねこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(220, 245, 233)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "M-frog-05",
+          "name": "陸に上がったかえる",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42344px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(221, 231, 239)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "M-clownfish-05",
+          "name": "群れのクマノミ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(220, 235, 215)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "M-dandelion-05",
+          "name": "つぼみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42344px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 234, 238)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "M-dragon-05",
+          "name": "つばさの育ったりゅう",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(223, 220, 219)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "M-plush-05",
+          "name": "ほつれたぬいぐるみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(246, 234, 210)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "C-box",
+          "name": "ただのはこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42344px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(245, 223, 221)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "P-anglerfish",
+          "name": "ひかるチョウチンアンコウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.02164px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(228, 234, 227)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "W-memory_lake",
+          "name": "きおくのみずうみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(252, 236, 217)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "G-air-hockey",
+          "name": "エアホッケー",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42344px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 238, 224)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        }
+      ],
+      "columns": "127.328px 127.328px 127.344px",
+      "count": "14枚 · 1–14 · B3-A 現行",
+      "scroll": 430,
+      "width": 430
+    },
+    {
+      "requested": 430,
+      "design": "refined",
+      "body": "cream",
+      "cards": [
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "M-man-05",
+          "name": "若者",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "M-cat-05",
+          "name": "若いねこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "M-frog-05",
+          "name": "陸に上がったかえる",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42344px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "M-clownfish-05",
+          "name": "群れのクマノミ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "M-dandelion-05",
+          "name": "つぼみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42344px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "M-dragon-05",
+          "name": "つばさの育ったりゅう",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "M-plush-05",
+          "name": "ほつれたぬいぐるみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "C-box",
+          "name": "ただのはこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42344px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "P-anglerfish",
+          "name": "ひかるチョウチンアンコウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.02164px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "W-memory_lake",
+          "name": "きおくのみずうみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.301605px; --digit-y: 0.422px;",
+          "id": "G-air-hockey",
+          "name": "エアホッケー",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42344px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(255, 252, 240)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        }
+      ],
+      "columns": "127.328px 127.328px 127.344px",
+      "count": "14枚 · 1–14 · B3-A 微調整",
+      "scroll": 430,
+      "width": 430
+    },
+    {
+      "requested": 430,
+      "design": "refined",
+      "body": "tint",
+      "cards": [
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 232, 227)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "M-man-05",
+          "name": "若者",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 227, 211)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "M-cat-05",
+          "name": "若いねこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(220, 245, 233)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "M-frog-05",
+          "name": "陸に上がったかえる",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42344px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(221, 231, 239)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "M-clownfish-05",
+          "name": "群れのクマノミ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(220, 235, 215)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "M-dandelion-05",
+          "name": "つぼみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42344px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 234, 238)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "M-dragon-05",
+          "name": "つばさの育ったりゅう",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(223, 220, 219)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "M-plush-05",
+          "name": "ほつれたぬいぐるみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(246, 234, 210)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "C-box",
+          "name": "ただのはこ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42344px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(245, 223, 221)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "P-anglerfish",
+          "name": "ひかるチョウチンアンコウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.02164px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(228, 234, 227)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "W-memory_lake",
+          "name": "きおくのみずうみ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(252, 236, 217)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.301605px; --digit-y: 0.422px;",
+          "id": "G-air-hockey",
+          "name": "エアホッケー",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42344px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 238, 224)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        }
+      ],
+      "columns": "127.328px 127.328px 127.344px",
+      "count": "14枚 · 1–14 · B3-A 微調整",
+      "scroll": 430,
+      "width": 430
+    }
+  ],
+  "circleDiffs": [
+    {
+      "width": 320,
+      "max": 0
+    },
+    {
+      "width": 375,
+      "max": 0
+    },
+    {
+      "width": 390,
+      "max": 0
+    },
+    {
+      "width": 430,
+      "max": 0
+    }
+  ],
+  "allCards": [
+    {
+      "width": 320,
+      "page": 0,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 320,
+      "page": 1,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 320,
+      "page": 2,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 320,
+      "page": 3,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 320,
+      "page": 4,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 320,
+      "page": 5,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 320,
+      "page": 6,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 320,
+      "page": 7,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 320,
+      "page": 8,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 320,
+      "page": 9,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 320,
+      "page": 10,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 320,
+      "page": 11,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 320,
+      "page": 12,
+      "count": 27,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 375,
+      "page": 0,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 375,
+      "page": 1,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 375,
+      "page": 2,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 375,
+      "page": 3,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 375,
+      "page": 4,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 375,
+      "page": 5,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 375,
+      "page": 6,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 375,
+      "page": 7,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 375,
+      "page": 8,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 375,
+      "page": 9,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 375,
+      "page": 10,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 375,
+      "page": 11,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 375,
+      "page": 12,
+      "count": 27,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 390,
+      "page": 0,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 390,
+      "page": 1,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 390,
+      "page": 2,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 390,
+      "page": 3,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 390,
+      "page": 4,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 390,
+      "page": 5,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 390,
+      "page": 6,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 390,
+      "page": 7,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 390,
+      "page": 8,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 390,
+      "page": 9,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 390,
+      "page": 10,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 390,
+      "page": 11,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 390,
+      "page": 12,
+      "count": 27,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 430,
+      "page": 0,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 430,
+      "page": 1,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 430,
+      "page": 2,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 430,
+      "page": 3,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 430,
+      "page": 4,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 430,
+      "page": 5,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 430,
+      "page": 6,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 430,
+      "page": 7,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 430,
+      "page": 8,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 430,
+      "page": 9,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 430,
+      "page": 10,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 430,
+      "page": 11,
+      "count": 36,
+      "issues": [],
+      "unaligned": []
+    },
+    {
+      "width": 430,
+      "page": 12,
+      "count": 27,
+      "issues": [],
+      "unaligned": []
+    }
+  ],
+  "longNames": [
+    {
+      "width": 320,
+      "mode": "original",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "width": 320,
+      "mode": "kanji",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "width": 320,
+      "mode": "ruby",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "width": 375,
+      "mode": "original",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "width": 375,
+      "mode": "kanji",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "width": 375,
+      "mode": "ruby",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "width": 390,
+      "mode": "original",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "width": 390,
+      "mode": "kanji",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "width": 390,
+      "mode": "ruby",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "width": 430,
+      "mode": "original",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "width": 430,
+      "mode": "kanji",
+      "count": 7,
+      "issues": []
+    },
+    {
+      "width": 430,
+      "mode": "ruby",
+      "count": 7,
+      "issues": []
+    }
+  ],
+  "costWidths": [
+    {
+      "width": 320,
+      "design": "current",
+      "cards": [
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(246, 234, 210)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "C-bat",
+          "name": "よふかしコウモリ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "E-first-date",
+          "name": "はじめてのデート",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "E-boss",
+          "name": "あやまりにきただいおういか",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "5.92921px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 238, 224)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "M-antlion-06",
+          "name": "出たてのウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "M-antlion-07",
+          "name": "飛び回るウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "id": "M-antlion-08",
+          "name": "羽休めのウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        }
+      ],
+      "columns": "90.6562px 90.6719px 90.6562px",
+      "count": "9枚 · 1–9 · B3-A 現行",
+      "scroll": 320
+    },
+    {
+      "width": 320,
+      "design": "refined",
+      "cards": [
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(246, 234, 210)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.336px; --digit-y: 0.352px;",
+          "id": "C-bat",
+          "name": "よふかしコウモリ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.35667775px; --digit-y: 0.352px;",
+          "id": "E-first-date",
+          "name": "はじめてのデート",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "E-boss",
+          "name": "あやまりにきただいおういか",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "5.92921px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 238, 224)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.336px; --digit-y: 0.352px;",
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.164px; --digit-y: 0.352px;",
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.336px; --digit-y: 0.352px;",
+          "id": "M-antlion-06",
+          "name": "出たてのウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.15625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.336px; --digit-y: 0.352px;",
+          "id": "M-antlion-07",
+          "name": "飛び回るウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70972px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 11.328125,
+            "w": 11.328125,
+            "x": 77.140625,
+            "y": 5.53125
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.336px; --digit-y: 0.352px;",
+          "id": "M-antlion-08",
+          "name": "羽休めのウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "6.70856px"
+        }
+      ],
+      "columns": "90.6562px 90.6719px 90.6562px",
+      "count": "9枚 · 1–9 · B3-A 微調整",
+      "scroll": 320
+    },
+    {
+      "width": 375,
+      "design": "current",
+      "cards": [
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(246, 234, 210)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "C-bat",
+          "name": "よふかしコウモリ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "E-first-date",
+          "name": "はじめてのデート",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "E-boss",
+          "name": "あやまりにきただいおういか",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "7.12895px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 238, 224)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "M-antlion-06",
+          "name": "出たてのウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "M-antlion-07",
+          "name": "飛び回るウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "id": "M-antlion-08",
+          "name": "羽休めのウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        }
+      ],
+      "columns": "109px 109px 109px",
+      "count": "9枚 · 1–9 · B3-A 現行",
+      "scroll": 375
+    },
+    {
+      "width": 375,
+      "design": "refined",
+      "cards": [
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(246, 234, 210)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "C-bat",
+          "name": "よふかしコウモリ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.32562500000000005px; --digit-y: 0.141px;",
+          "id": "E-first-date",
+          "name": "はじめてのデート",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "E-boss",
+          "name": "あやまりにきただいおういか",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "7.12895px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 238, 224)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "M-antlion-06",
+          "name": "出たてのウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "M-antlion-07",
+          "name": "飛び回るウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 13.625,
+            "w": 13.625,
+            "x": 92.546875,
+            "y": 6.4375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.094px; --digit-y: 0.141px;",
+          "id": "M-antlion-08",
+          "name": "羽休めのウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.066px"
+        }
+      ],
+      "columns": "109px 109px 109px",
+      "count": "9枚 · 1–9 · B3-A 微調整",
+      "scroll": 375
+    },
+    {
+      "width": 390,
+      "design": "current",
+      "cards": [
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(246, 234, 210)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "C-bat",
+          "name": "よふかしコウモリ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "E-first-date",
+          "name": "はじめてのデート",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "E-boss",
+          "name": "あやまりにきただいおういか",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "7.45596px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 238, 224)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "M-antlion-06",
+          "name": "出たてのウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "M-antlion-07",
+          "name": "飛び回るウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "id": "M-antlion-08",
+          "name": "羽休めのウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        }
+      ],
+      "columns": "114px 114px 114px",
+      "count": "9枚 · 1–9 · B3-A 現行",
+      "scroll": 390
+    },
+    {
+      "width": 390,
+      "design": "refined",
+      "cards": [
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(246, 234, 210)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.281px; --digit-y: 0.344px;",
+          "id": "C-bat",
+          "name": "よふかしコウモリ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.46125px; --digit-y: 0.344px;",
+          "id": "E-first-date",
+          "name": "はじめてのデート",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "E-boss",
+          "name": "あやまりにきただいおういか",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "7.45596px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 238, 224)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.281px; --digit-y: 0.344px;",
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.219px; --digit-y: 0.344px;",
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.281px; --digit-y: 0.344px;",
+          "id": "M-antlion-06",
+          "name": "出たてのウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.281px; --digit-y: 0.344px;",
+          "id": "M-antlion-07",
+          "name": "飛び回るウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 14.25,
+            "w": 14.25,
+            "x": 96.734375,
+            "y": 6.6875
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: -0.281px; --digit-y: 0.344px;",
+          "id": "M-antlion-08",
+          "name": "羽休めのウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.436px"
+        }
+      ],
+      "columns": "114px 114px 114px",
+      "count": "9枚 · 1–9 · B3-A 微調整",
+      "scroll": 390
+    },
+    {
+      "width": 430,
+      "design": "current",
+      "cards": [
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(246, 234, 210)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "C-bat",
+          "name": "よふかしコウモリ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "E-first-date",
+          "name": "はじめてのデート",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "E-boss",
+          "name": "あやまりにきただいおういか",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.32869px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 238, 224)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42344px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "M-antlion-06",
+          "name": "出たてのウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "M-antlion-07",
+          "name": "飛び回るウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "id": "M-antlion-08",
+          "name": "羽休めのウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42344px"
+        }
+      ],
+      "columns": "127.328px 127.328px 127.344px",
+      "count": "9枚 · 1–9 · B3-A 現行",
+      "scroll": 430
+    },
+    {
+      "width": 430,
+      "design": "refined",
+      "cards": [
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(246, 234, 210)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "C-bat",
+          "name": "よふかしコウモリ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.3015725px; --digit-y: 0.422px;",
+          "id": "E-first-date",
+          "name": "はじめてのデート",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "E-boss",
+          "name": "あやまりにきただいおういか",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "8.32869px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(238, 236, 228)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "E-big-illness",
+          "name": "おおきなびょうき",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(243, 238, 224)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "I-naoto_lantern",
+          "name": "なおとのランタン",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "M-antlion-05",
+          "name": "まゆの中のさなぎ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42344px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "M-antlion-06",
+          "name": "出たてのウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.9375,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "M-antlion-07",
+          "name": "飛び回るウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42228px"
+        },
+        {
+          "aligned": "metrics",
+          "artOverlap": false,
+          "bodyBg": "rgb(253, 245, 209)",
+          "bodyInk": "rgb(40, 57, 47)",
+          "circle": {
+            "h": 15.90625,
+            "w": 15.90625,
+            "x": 107.953125,
+            "y": 7.359375
+          },
+          "costOverlap": false,
+          "glyph": "--digit-x: 0.031px; --digit-y: 0.422px;",
+          "id": "M-antlion-08",
+          "name": "羽休めのウスバカゲロウ",
+          "nameOverflow": false,
+          "tagOverlap": false,
+          "titleFont": "9.42344px"
+        }
+      ],
+      "columns": "127.328px 127.328px 127.344px",
+      "count": "9枚 · 1–9 · B3-A 微調整",
+      "scroll": 430
+    }
+  ],
+  "views": [
+    {
+      "width": 320,
+      "view": "pair",
+      "client": 320,
+      "faces": [
+        {
+          "body": "rgb(228, 234, 227)",
+          "nameOverflow": false,
+          "width": 137
+        },
+        {
+          "body": "rgb(228, 234, 227)",
+          "nameOverflow": false,
+          "width": 137
+        }
+      ],
+      "scroll": 320
+    },
+    {
+      "width": 320,
+      "view": "battle",
+      "client": 320,
+      "faces": [
+        {
+          "body": "rgb(228, 234, 227)",
+          "nameOverflow": false,
+          "width": 84
+        },
+        {
+          "body": "rgb(243, 238, 224)",
+          "nameOverflow": false,
+          "width": 84
+        },
+        {
+          "body": "rgb(228, 234, 227)",
+          "nameOverflow": false,
+          "width": 84
+        }
+      ],
+      "scroll": 320
+    },
+    {
+      "width": 320,
+      "view": "effects",
+      "client": 320,
+      "faces": [
+        {
+          "body": "rgb(255, 252, 240)",
+          "nameOverflow": false,
+          "width": 261.296875
+        },
+        {
+          "body": "rgb(228, 234, 227)",
+          "nameOverflow": false,
+          "width": 261.296875
+        }
+      ],
+      "scroll": 320
+    },
+    {
+      "width": 375,
+      "view": "pair",
+      "client": 375,
+      "faces": [
+        {
+          "body": "rgb(228, 234, 227)",
+          "nameOverflow": false,
+          "width": 164.5
+        },
+        {
+          "body": "rgb(228, 234, 227)",
+          "nameOverflow": false,
+          "width": 164.5
+        }
+      ],
+      "scroll": 375
+    },
+    {
+      "width": 375,
+      "view": "battle",
+      "client": 375,
+      "faces": [
+        {
+          "body": "rgb(228, 234, 227)",
+          "nameOverflow": false,
+          "width": 102.34375
+        },
+        {
+          "body": "rgb(243, 238, 224)",
+          "nameOverflow": false,
+          "width": 102.328125
+        },
+        {
+          "body": "rgb(228, 234, 227)",
+          "nameOverflow": false,
+          "width": 102.328125
+        }
+      ],
+      "scroll": 375
+    },
+    {
+      "width": 375,
+      "view": "effects",
+      "client": 375,
+      "faces": [
+        {
+          "body": "rgb(255, 252, 240)",
+          "nameOverflow": false,
+          "width": 296
+        },
+        {
+          "body": "rgb(228, 234, 227)",
+          "nameOverflow": false,
+          "width": 296
+        }
+      ],
+      "scroll": 375
+    },
+    {
+      "width": 390,
+      "view": "pair",
+      "client": 390,
+      "faces": [
+        {
+          "body": "rgb(228, 234, 227)",
+          "nameOverflow": false,
+          "width": 172
+        },
+        {
+          "body": "rgb(228, 234, 227)",
+          "nameOverflow": false,
+          "width": 172
+        }
+      ],
+      "scroll": 390
+    },
+    {
+      "width": 390,
+      "view": "battle",
+      "client": 390,
+      "faces": [
+        {
+          "body": "rgb(228, 234, 227)",
+          "nameOverflow": false,
+          "width": 107.34375
+        },
+        {
+          "body": "rgb(243, 238, 224)",
+          "nameOverflow": false,
+          "width": 107.328125
+        },
+        {
+          "body": "rgb(228, 234, 227)",
+          "nameOverflow": false,
+          "width": 107.328125
+        }
+      ],
+      "scroll": 390
+    },
+    {
+      "width": 390,
+      "view": "effects",
+      "client": 390,
+      "faces": [
+        {
+          "body": "rgb(255, 252, 240)",
+          "nameOverflow": false,
+          "width": 296
+        },
+        {
+          "body": "rgb(228, 234, 227)",
+          "nameOverflow": false,
+          "width": 296
+        }
+      ],
+      "scroll": 390
+    },
+    {
+      "width": 430,
+      "view": "pair",
+      "client": 430,
+      "faces": [
+        {
+          "body": "rgb(228, 234, 227)",
+          "nameOverflow": false,
+          "width": 192
+        },
+        {
+          "body": "rgb(228, 234, 227)",
+          "nameOverflow": false,
+          "width": 192
+        }
+      ],
+      "scroll": 430
+    },
+    {
+      "width": 430,
+      "view": "battle",
+      "client": 430,
+      "faces": [
+        {
+          "body": "rgb(228, 234, 227)",
+          "nameOverflow": false,
+          "width": 110
+        },
+        {
+          "body": "rgb(243, 238, 224)",
+          "nameOverflow": false,
+          "width": 110
+        },
+        {
+          "body": "rgb(228, 234, 227)",
+          "nameOverflow": false,
+          "width": 110
+        }
+      ],
+      "scroll": 430
+    },
+    {
+      "width": 430,
+      "view": "effects",
+      "client": 430,
+      "faces": [
+        {
+          "body": "rgb(255, 252, 240)",
+          "nameOverflow": false,
+          "width": 296
+        },
+        {
+          "body": "rgb(228, 234, 227)",
+          "nameOverflow": false,
+          "width": 296
+        }
+      ],
+      "scroll": 430
+    }
+  ],
+  "interactions": [
+    {
+      "width": 320,
+      "before": {
+        "body": "rgb(245, 223, 221)",
+        "cost": "--digit-x: -0.125px; --digit-y: 0.5px;",
+        "font": "16px",
+        "text": [
+          "1ターンに1回。自分のターンに、自分になかまがいて、準備枠にカードが2枚以上ある場合、時1を払い、自分の装備カード1枚と、それを適正にみにつけられる、今の装備先とは別の自分のキャラクター1枚を対象として発動できる。その装備をそのキャラクターへつけ替える。",
+          "「こいびとのとき」の能力は、時1を払わず、自分になかまがいなくても発動できる。",
+          "こいびと · 通常時コスト 0通常 · 同名3枚までP-rock_octopus"
+        ]
+      },
+      "retained": "face face-B face-B3 face-B3-A v3-candidate face-v4 effects-refined face-v5 field-auto body-tint",
+      "back": "card-shell is-flipped",
+      "backPanelReAligned": true
+    },
+    {
+      "width": 375,
+      "before": {
+        "body": "rgb(245, 223, 221)",
+        "cost": "--digit-x: 0.172px; --digit-y: -0.156px;",
+        "font": "16px",
+        "text": [
+          "1ターンに1回。自分のターンに、自分になかまがいて、準備枠にカードが2枚以上ある場合、時1を払い、自分の装備カード1枚と、それを適正にみにつけられる、今の装備先とは別の自分のキャラクター1枚を対象として発動できる。その装備をそのキャラクターへつけ替える。",
+          "「こいびとのとき」の能力は、時1を払わず、自分になかまがいなくても発動できる。",
+          "こいびと · 通常時コスト 0通常 · 同名3枚までP-rock_octopus"
+        ]
+      },
+      "retained": "face face-B face-B3 face-B3-A v3-candidate face-v4 effects-refined face-v5 field-auto body-tint",
+      "back": "card-shell is-flipped",
+      "backPanelReAligned": true
+    },
+    {
+      "width": 390,
+      "before": {
+        "body": "rgb(245, 223, 221)",
+        "cost": "--digit-x: 0.375px; --digit-y: 0.172px;",
+        "font": "16px",
+        "text": [
+          "1ターンに1回。自分のターンに、自分になかまがいて、準備枠にカードが2枚以上ある場合、時1を払い、自分の装備カード1枚と、それを適正にみにつけられる、今の装備先とは別の自分のキャラクター1枚を対象として発動できる。その装備をそのキャラクターへつけ替える。",
+          "「こいびとのとき」の能力は、時1を払わず、自分になかまがいなくても発動できる。",
+          "こいびと · 通常時コスト 0通常 · 同名3枚までP-rock_octopus"
+        ]
+      },
+      "retained": "face face-B face-B3 face-B3-A v3-candidate face-v4 effects-refined face-v5 field-auto body-tint",
+      "back": "card-shell is-flipped",
+      "backPanelReAligned": true
+    },
+    {
+      "width": 430,
+      "before": {
+        "body": "rgb(245, 223, 221)",
+        "cost": "--digit-x: 0.375px; --digit-y: 0.172px;",
+        "font": "16px",
+        "text": [
+          "1ターンに1回。自分のターンに、自分になかまがいて、準備枠にカードが2枚以上ある場合、時1を払い、自分の装備カード1枚と、それを適正にみにつけられる、今の装備先とは別の自分のキャラクター1枚を対象として発動できる。その装備をそのキャラクターへつけ替える。",
+          "「こいびとのとき」の能力は、時1を払わず、自分になかまがいなくても発動できる。",
+          "こいびと · 通常時コスト 0通常 · 同名3枚までP-rock_octopus"
+        ]
+      },
+      "retained": "face face-B face-B3 face-B3-A v3-candidate face-v4 effects-refined face-v5 field-auto body-tint",
+      "back": "card-shell is-flipped",
+      "backPanelReAligned": true
+    }
+  ],
+  "additional": [
+    {
+      "id": "W-time-ix",
+      "loaded": true
+    },
+    {
+      "id": "W-time-x",
+      "loaded": true
+    },
+    {
+      "id": "W-time-xi",
+      "loaded": true
+    },
+    {
+      "id": "W-time-xii",
+      "loaded": true
+    },
+    {
+      "id": "E-hayajimai",
+      "loaded": true
+    },
+    {
+      "id": "E-nagaiki",
+      "loaded": true
+    },
+    {
+      "id": "E-omoide-photo",
+      "loaded": true
+    }
+  ],
+  "ruby": {
+    "compact": {
+      "ruby": 0,
+      "title": "救急箱"
+    },
+    "large": {
+      "ruby": 1,
+      "title": "救急箱きゅうきゅうばこ"
+    }
+  },
+  "digitCircleDiffs": [
+    {
+      "width": 320,
+      "maxDelta": 0.0
+    },
+    {
+      "width": 375,
+      "maxDelta": 0.0
+    },
+    {
+      "width": 390,
+      "maxDelta": 0.0
+    },
+    {
+      "width": 430,
+      "maxDelta": 0.0
+    }
+  ]
+}
