@@ -10,7 +10,16 @@ function texture(c,e,seed){const key=e.key,world=e.worlds[0],solid=e.physicsId==
  if(['grass','path','earthpath'].includes(key)){c.strokeStyle='#f3e3a73b';c.lineWidth=.38;c.beginPath();c.moveTo(-1,2.5);c.bezierCurveTo(2,3.5,5,2.3,9,4);c.stroke()}
 }
 export function paintMaterials(c,d,{background=true,terrain=true,edges=true}={}){c.save();if(background){c.fillStyle='#c0ced0';c.fillRect(0,0,8,8)}if(!terrain){c.restore();return}const cells=topology(d);for(const id of new Set(cells.map(t=>t.id))){const e=byId.get(id),group=cells.filter(t=>t.id===id),colors=palette[e.key]||palette.grass;c.save();c.beginPath();group.forEach(t=>cellPath(c,t,e.physicsId==='terrain.wall'?.2:.08));c.clip('evenodd');const g=c.createLinearGradient(0,0,3,8);g.addColorStop(0,colors[0]);g.addColorStop(1,colors[1]);c.fillStyle=g;c.fillRect(0,0,8,8);texture(c,e,d.appearance.seed);c.restore()}
- if(edges)for(const t of cells){const e=byId.get(t.id),solid=e.physicsId==='terrain.wall';c.lineWidth=solid?.065:.025;c.lineCap='butt';for(const[bit,ax,ay,bx,by]of [[1,.15,.035,.85,.035],[2,.965,.15,.965,.85],[4,.15,.965,.85,.965],[8,.035,.15,.035,.85]]){c.strokeStyle=t.mask&bit?'#24475120':solid?'#203f4b99':'#33576360';c.beginPath();c.moveTo(t.x+ax,t.y+ay);c.lineTo(t.x+bx,t.y+by);c.stroke()}for(const[i,[ox,oy,a]]of [[0,0,0],[1,0,Math.PI/2],[1,1,Math.PI],[0,1,Math.PI*1.5]].entries())if(t.corners[i]==='inner'){c.strokeStyle='#28465177';c.lineWidth=.025;c.beginPath();c.arc(t.x+ox,t.y+oy,.085,a,a+Math.PI/2);c.stroke()}}
+ if(edges)for(const t of cells){
+  const solid=byId.get(t.id).physicsId==='terrain.wall',r=solid?.2:.08;
+  // Interior seams stay faint and thin; the collision perimeter joins across cells.
+  for(const[bit,horizontal,pos,before,after,light]of [[1,true,.025,8,2,true],[4,true,.975,8,2,false],[8,false,.025,1,4,true],[2,false,.975,1,4,false]]){
+   const joined=!!(t.mask&bit),start=joined?0:t.mask&before?0:r,end=joined?1:t.mask&after?1:1-r;
+   c.lineWidth=joined?.012:solid?.055:.022;c.strokeStyle=joined?'#24475120':light?'#e5f3dfb0':'#203f4b88';c.lineCap='butt';c.beginPath();
+   c.moveTo(t.x+(horizontal?start:pos),t.y+(horizontal?pos:start));c.lineTo(t.x+(horizontal?end:pos),t.y+(horizontal?pos:end));c.stroke();
+  }
+  for(const[i,[ox,oy,a]]of [[0,0,0],[1,0,Math.PI/2],[1,1,Math.PI],[0,1,Math.PI*1.5]].entries())if(t.corners[i]==='inner'){c.strokeStyle='#28465177';c.lineWidth=.025;c.beginPath();c.arc(t.x+ox,t.y+oy,.085,a,a+Math.PI/2);c.stroke()}
+ }
  c.restore()}
 export function paintDecorationGlyph(c,id,seed=214,x=0,y=0){if(id.startsWith('scenery.')){tile(c,id,{});return}const key=byId.get(id)?.key,r=seedValue(seed,id,x,y);c.save();c.translate(.1,.65);c.scale(.7,.7);c.lineCap='round';
  if(key==='kelp'){for(let i=0;i<3;i++){c.strokeStyle=['#719f69','#92bd7d','#518a70'][i];c.lineWidth=.06;c.beginPath();c.moveTo(.05+i*.1,.3);c.bezierCurveTo(-.05+i*.1,.1,.2+i*.1,-.1,.08+i*.1,-.35-r*.15);c.stroke()}}
