@@ -51,3 +51,12 @@ Linux WebKitの標準メディア経路は一時キャッシュ `/var/tmp/WebKit
 ## 保存した検証結果
 
 `verification/output-20261114/` に回帰の失敗→成功、従来比較の成功、24音源/MIDIファイル・楽譜の不変照合を保存。独立レビューの読み込み競合と、中断中の読み込み完了後に操作ボタンが無効のまま残る表示不整合を修正し、どちらも失敗するテストを確認してから成功させた。
+
+## 公開された修正候補
+
+試遊版commit `37c0c6b000297eef51e1509720ca7ca84cad5b44`、Pages run43561699285成功。変更は `bgm-v7/index.html`・`player.js` の更新と `output-check.html`・`output-check.js` の追加のみ。音源・ゲーム変更0。
+
+- 比較: https://naoto214.github.io/naotocchi-playtest/bgm-v7/?output=speaker-check-1
+- 直接AAC診断: https://naoto214.github.io/naotocchi-playtest/bgm-v7/output-check.html?output=speaker-check-1
+
+公開18ファイルのHTTP/SHA-256一致とAACの206部分応答を確認。記録は `verification/output-20261114/public-verification.json`。これは配信の検証であり、iPhone本体スピーカーの実音検証ではない。**引き続き実機結果待ち。**

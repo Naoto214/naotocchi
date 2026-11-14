@@ -23,3 +23,4 @@ Baseline: 146383829818fc986926c05700986705d7241858 / PR #546.
 - ユーザー報告: イヤホンを外すと無音だがバー進行。消音OFF、YouTube正常。
 - speaker-check-1候補: playbackセッション、context/session中断管理、同位置/ゲインのcontext再生成、直接AACの標準プレーヤー診断。詳細OUTPUT-INVESTIGATION.md。
 - Chromium/WebKit制御テストと既存比較の回帰は合格。実機iPhone本体出音は未確認。**不具合は未完了・実機結果待ち。** 音源・編曲・ゲームは変更なし。
+- speaker-check-1公開: playtest37c0c6b、Pages43561699285成功。公開18ファイルのハッシュ一致、AAC Range206。本番main/V6head不変。**通常比較のiPhone本体出音が確認されるまで未完了。**
