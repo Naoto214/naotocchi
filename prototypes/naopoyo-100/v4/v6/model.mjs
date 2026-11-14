@@ -1,14 +1,15 @@
 import * as v5 from '../v5/model.mjs';
 import{byId,worldIds}from'../v5/catalog.mjs';import{boardSignature}from'../../session.mjs';import{nativeKinds,checkParams,plain,safeId,cellSlot}from'./contracts.mjs';
-export const speciesIds=['dog','frog','fish','penguin'];
+import{speciesIds,rulesetId}from'./characters.mjs';export{speciesIds,rulesetId};
 export const FORMAT='naopoyo.editor.v6',STORAGE_KEY='naopoyo.editor.owner.v6';
 export const clone=structuredClone;
-export const rulesetId=d=>'formal-four-v1';
-export function createDraft(board){return{...v5.createDraft(board),format:FORMAT,schemaVersion:1,metadata:{title:board.title||'自分の世界'},rulesetId:'formal-four-v1'}}
+
+export function createDraft(board){return{...v5.createDraft(board),format:FORMAT,schemaVersion:1,metadata:{title:board.title||'自分の世界'},rulesetId:rulesetId({board})}}
 export const changeWorld=v5.changeWorld,paintTerrain=v5.paintTerrain,paintDecoration=v5.paintDecoration;
 export function revised(d,n){n.rulesetId=rulesetId(n);if(boardSignature(d.board)!==boardSignature(n.board))n.play={signature:boardSignature(n.board),actions:[],groups:[],cleared:false};return n}
-export function paintGimmick(d,x,y,id,p={}){checkParams(id,p,speciesIds);let n=v5.paintGimmick(d,x,y,id,p);if(id==='sign.gravity')n.board.tiles=n.board.tiles.filter(t=>t.catalogId!=='sign.gravity');return revised(d,n)}
-export const placeActor=v5.placeActor;
+export function paintGimmick(d,x,y,id,p={}){checkParams(id,p,speciesIds);let n=v5.paintGimmick(d,x,y,id,p);if(id==='sign.gravity')n.board.tiles=n.board.tiles.filter(t=>t.catalogId!=='sign.gravity');if(!['sign.gravity','fixture.exit','fixture.gate','fixture.spike'].includes(id)){const t=n.board.tiles.find(t=>t.x===x&&t.y===y&&t.catalogId===id);if(t){const prior=d.board.tiles.find(q=>q.x===x&&q.y===y&&q.catalogId===id);t.params.id=prior?.params.id||freshId(d,'tile')}}return checkedEdit(d,n)}
+function freshId(d,kind){const used=new Set([...d.board.actors.map(a=>a.id),...d.board.tiles.map(t=>t.params.id)]);let n=1;while(used.has(`v6-${kind}-${n}`))n++;return `v6-${kind}-${n}`}
+export function placeActor(d,x,y,species,level){if(!speciesIds.includes(species)||!Number.isInteger(level)||level<1||level>8)throw Error('31系統×8段階から選んでください');const n=clone(d),old=n.board.actors.find(a=>a.x===x&&a.y===y);n.board.actors=n.board.actors.filter(a=>a!==old);n.board.actors.push({id:old?.id||freshId(d,'actor'),x,y,species,level});return checkedEdit(d,n)}
 export function erase(d,x,y,layer){return revised(d,v5.erase(d,x,y,layer))}
 export const validPosition=t=>Number.isInteger(t.x)&&Number.isInteger(t.y)&&t.x>=0&&t.x<8&&t.y>=0&&t.y<8;
 const keys=(v,allowed)=>plain(v)&&Object.keys(v).every(k=>allowed.includes(k));
@@ -26,7 +27,12 @@ export function structuralErrors(d){try{
  const dc=new Set();for(const t of a.decorations){if(!keys(t,['id','x','y'])||!validPosition(t)||byId.get(t.id)?.category!=='decoration'||!byId.get(t.id)?.placeable||dc.has(`${t.x},${t.y}`))throw Error('装飾が不正です');dc.add(`${t.x},${t.y}`)}
  if(d.rulesetId!==rulesetId(d))throw Error('検証ルールの指定が一致しません');return[];
  }catch(e){return[e.message]}}
-export function validateDraft(d){const errors=structuralErrors(d);if(errors.length)return errors;return v5.validateDraft({...d,format:v5.FORMAT})}
+export function validateDraft(d){const errors=structuralErrors(d);if(errors.length)return errors;const b=d.board;
+ if(!b.actors.length)errors.push('キャラクターがありません');if(!b.exits.length)errors.push('出口がありません');
+ for(const type of ['fixture.warp','fixture.burrow']){const ts=b.tiles.filter(t=>t.catalogId===type);for(const name of new Set(ts.map(t=>t.params.pairId))){const pair=ts.filter(t=>t.params.pairId===name);if(!safeId(name)||pair.length!==2||type==='fixture.burrow'&&(pair.filter(t=>t.params.role==='entrance').length!==1||pair.filter(t=>t.params.role==='exit').length!==1))errors.push('接続 '+(name||'未設定')+' は有効な入口/出口の対が必要です')}}
+ const controlTypes=['fixture.plate.hold','fixture.plate.weight','fixture.latch','fixture.toggle','fixture.sequence','npc.owl'];const sources=new Set(b.tiles.filter(t=>controlTypes.includes(t.catalogId)).map(t=>t.params.id));const groups=new Set(b.tiles.filter(t=>t.catalogId==='fixture.sequence').map(t=>t.params.groupId));for(const group of groups){const steps=b.tiles.filter(t=>t.catalogId==='fixture.sequence'&&t.params.groupId===group).map(t=>t.params.step).sort((a,b)=>a-b);if(!safeId(group)||b.tiles.some(t=>t.params.id===group)||steps.some((n,i)=>n!==i+1))errors.push('順番スイッチの番号/グループが不正です');sources.add(group)}
+ for(const t of b.tiles){const p=t.params;if(!safeId(p.id))errors.push('配置IDがありません');for(const id of [...(p.needs||[]),...(p.any||[])])if(!sources.has(id))errors.push('連動入力 '+id+' がありません');if(t.catalogId==='fixture.door'&&!p.needs?.length&&!p.any?.length)errors.push('連動扉に入力を設定してください');if(t.catalogId==='fixture.signalLamp'&&!p.needs?.length)errors.push('合図灯に入力を設定してください');if(['fixture.phase','field.wave'].includes(t.catalogId)&&(p.period===undefined||p.phase===undefined))errors.push('周期/相が未設定です');if(['fixture.oneway','field.current','field.wind','field.wave'].includes(t.catalogId)&&!p.orientation)errors.push('向きが未設定です');if(t.catalogId==='fixture.burrow'&&!p.orientation)errors.push('地下通路の向きが未設定です');if(t.catalogId==='npc.owl'&&!p.partner)errors.push('ふくろうの相棒種族が未設定です');if(['field.current','field.bubble','field.wave'].includes(t.catalogId)&&!b.tiles.some(n=>n.catalogId==='terrain.water'&&n.x===t.x&&n.y===t.y))errors.push('水の効果には正式水域が必要です');if(t.catalogId==='terrain.water'&&b.actors.some(a=>a.x===t.x&&a.y===t.y&&!['fish','penguin'].includes(a.species)))errors.push('この種族は水域に配置できません')}
+ if(rulesetId(d)==='formal-four-v1')errors.push(...v5.validateDraft({...d,format:v5.FORMAT}));return [...new Set(errors)];}
 export function checkedEdit(d,n){n=revised(d,n);const errors=structuralErrors(n);if(errors.length)throw Error(errors.join('\n'));return n}
 export const encode=d=>{const errors=validateDraft(d);if(errors.length)throw Error(errors.join('\n'));return JSON.stringify(d)};
 export function decode(text){if(typeof text!=='string'||text.length>1000000)throw Error('JSONが大きすぎます');const d=JSON.parse(text),errors=validateDraft(d);if(errors.length)throw Error(errors.join('\n'));return d}

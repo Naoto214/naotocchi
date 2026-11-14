@@ -3,3 +3,5 @@ Spec PROPOSAL.md A approved, including F1/F2 and D1/D2 as experiments only. Work
 Decision: use unchanged V5 CSS/terrain/catalog and canonical gameMove for editor; candidate labs are isolated. No repeated approval requests within approved scope.
 
 Stage2 complete: explicit inspect/apply UI, material-specific typed parameters, stable instance identity on move/update, V5 CSS/render/input reused. Settings tests RED missing module → GREEN 2; full regression 252 passed. Experimental/species expansion follows in stage3.
+
+Stage3 complete: 31x8 canonical image/crop registry (four original species crops identical), actual species IDs passed to unchanged movement functions. Extended-ground ruleset clearly labelled; salmon does not inherit fish swimming. Typed actor editing, stable new IDs after moving old objects. 256 regression tests passed. Asset manifest prepared independently; no PNG edits.
