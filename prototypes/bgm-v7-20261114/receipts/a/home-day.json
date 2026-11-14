@@ -1,0 +1,121 @@
+{
+ "id": "home-day",
+ "title": "いつもの にわ",
+ "family": "home4",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2646000,
+ "seconds": 60.0,
+ "flacFrames": 2646000,
+ "aacDecodedFrames": 2646016,
+ "integratedLUFS": -23.0,
+ "targetLUFS": -23,
+ "truePeakDbtp": -5.41,
+ "samplePeakDbfs": -5.42,
+ "clippedSamples": 0,
+ "monoLossDb": -1.19,
+ "sideToMidDb": -5.0,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00201,
+ "loopJoinTypicalStep999": 0.04313,
+ "bands": {
+  "centroidHz": 662,
+  "low40_250": -10.0,
+  "lowmid250_800": -1.5,
+  "mid800_3k": -7.4,
+  "pres3k_6k": -24.9,
+  "air6k_12k": -46.6,
+  "top12k_20k": -59.5
+ },
+ "version": 7,
+ "variant": "a",
+ "sourceFingerprint": "16a07212ed63997ac76a62543b26fc693d7c28acd1bbd4321e3cc631b5636726",
+ "syntheticLoops": 0,
+ "samplesUsed": [
+  {
+   "instrument": "violin_solo",
+   "midi": 64,
+   "rootMidi": 64,
+   "transpose": 0,
+   "seconds": 1.875,
+   "nativeSeconds": 14.74,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_E4_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 67,
+   "rootMidi": 67,
+   "transpose": 0,
+   "seconds": 1.875,
+   "nativeSeconds": 14.699,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G4_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 69,
+   "rootMidi": 69,
+   "transpose": 0,
+   "seconds": 1.875,
+   "nativeSeconds": 14.8077,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_A4_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 67,
+   "rootMidi": 67,
+   "transpose": 0,
+   "seconds": 1.0625,
+   "nativeSeconds": 14.699,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G4_p.wav"
+  },
+  {
+   "instrument": "cello_chamber",
+   "midi": 53,
+   "rootMidi": 53,
+   "transpose": 0,
+   "seconds": 1.875,
+   "nativeSeconds": 8.2614,
+   "sample": "Strings/Cello Section/susvib/susvib_F2_v1_1.wav"
+  },
+  {
+   "instrument": "cello_chamber",
+   "midi": 50,
+   "rootMidi": 50,
+   "transpose": 0,
+   "seconds": 1.75,
+   "nativeSeconds": 9.6341,
+   "sample": "Strings/Cello Section/susvib/susvib_D2_v1_1.wav"
+  }
+ ],
+ "stringGains": {
+  "violin_solo": {
+   "relativeActiveRmsDb": -24,
+   "linearGain": 0.5368374684683946
+  },
+  "cello_chamber": {
+   "relativeActiveRmsDb": -25,
+   "linearGain": 0.28134445746822107
+  }
+ },
+ "pianoGlobalGain": 1.0221155606000725,
+ "limiterMaxGainReductionDb": 0,
+ "pianoReconstruction": {
+  "relativeErrorDb": -117.73,
+  "linearGain": 17.14893437755002,
+  "v6MasterSha256": "e9f902d98dd7b4baddfba6199651324ec31495d6e5cff173886e10535f362493",
+  "stemSha256": "10456fde70895e8699b5f731303a5feee928e4f61d3ef679d36e2ad33fdfc251"
+ },
+ "v7": {
+  "variant": "a",
+  "description": "2周目の短いチェロ、3周目の4小節だけバイオリン。軽やかな庭の余白を保つ。",
+  "removedAuxiliaryNotes": 114,
+  "syntheticLoops": false,
+  "nightReusesV6Piano": false
+ },
+ "flacSha256": "9ffd48b3592efd093e0e41566cff495c6723ebdc789f99826b9d9d8a9f1827b2",
+ "flacBytes": 9009789,
+ "aacSha256": "f92bf512387c72287b5b0a03901c9728a9ce49b112ab7e36ee17fd627a8edf7f",
+ "aacBytes": 1458632,
+ "midiSha256": "40b1ed18d1521fdd67575c895af7e798c6466a358e021deef1451cb73cff5745",
+ "problems": []
+}

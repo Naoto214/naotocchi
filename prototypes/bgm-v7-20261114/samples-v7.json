@@ -1,0 +1,143 @@
+{
+  "source": "VSCO 2 Community Edition",
+  "commit": "440300901dfe9275fd84e0b7763af1f8443ae62e",
+  "license": "CC0-1.0",
+  "files": [
+    {
+      "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_A3_p.wav",
+      "gitBlobSha1": "7122b440f4dbd148a81319fca1d04a550710cef3",
+      "sha256": "8daa4ca0eba8a834814435047e36b47826e730a7796c325966323f53debc9e46",
+      "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Violin/Arco%20Vib/LLVln_ArcoVib_A3_p.wav",
+      "bytes": 2911130,
+      "instrument": "violin_solo",
+      "rootMidi": 57
+    },
+    {
+      "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_A4_p.wav",
+      "gitBlobSha1": "e8667671328e1cfcd769a7624c26fac133ad7b0f",
+      "sha256": "0d05607b46b78690893006d5aa7923ac304c7fb497df1e96536dc88ac5ac487f",
+      "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Violin/Arco%20Vib/LLVln_ArcoVib_A4_p.wav",
+      "bytes": 2612122,
+      "instrument": "violin_solo",
+      "rootMidi": 69
+    },
+    {
+      "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_C4_p.wav",
+      "gitBlobSha1": "9f876cafa572a8719e2e93fc994c5303992b8e62",
+      "sha256": "592ebf4404ccafc7164c13cc543911ba9a2fe5f5e70dbb200807e2ae37b25035",
+      "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Violin/Arco%20Vib/LLVln_ArcoVib_C4_p.wav",
+      "bytes": 3096650,
+      "instrument": "violin_solo",
+      "rootMidi": 60
+    },
+    {
+      "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_C5_p.wav",
+      "gitBlobSha1": "71f0671d77cf8b79ce1a18ba20d9661e24f086fc",
+      "sha256": "77a2133b5f97e1ec0edb759c0c552fc3efa7caf4ce1e0a4aa22625cf4c9da130",
+      "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Violin/Arco%20Vib/LLVln_ArcoVib_C5_p.wav",
+      "bytes": 2498790,
+      "instrument": "violin_solo",
+      "rootMidi": 72
+    },
+    {
+      "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_E4_p.wav",
+      "gitBlobSha1": "99279ebc21258ab48aae6eb63d1eb7538f28d306",
+      "sha256": "57c5aec0678a5d582d87ab33cd2f8954fea26ffd04c932eb6753d6a78e08736b",
+      "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Violin/Arco%20Vib/LLVln_ArcoVib_E4_p.wav",
+      "bytes": 2600174,
+      "instrument": "violin_solo",
+      "rootMidi": 64
+    },
+    {
+      "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_E5_p.wav",
+      "gitBlobSha1": "670865e19772aceab538850ea7a0d1a86024d955",
+      "sha256": "c60c3bcfc64ea00ebf8d97b16f2876c892393839a017a945c5e557359b6369a4",
+      "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Violin/Arco%20Vib/LLVln_ArcoVib_E5_p.wav",
+      "bytes": 2517094,
+      "instrument": "violin_solo",
+      "rootMidi": 76
+    },
+    {
+      "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G3_p.wav",
+      "gitBlobSha1": "bc5f7d33610abbc3000f432562f36063f1d3d725",
+      "sha256": "c52d8ef3e2882984c09da1b7c7ef40b82e997bc78cfdd380fe167bbcb94b03de",
+      "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Violin/Arco%20Vib/LLVln_ArcoVib_G3_p.wav",
+      "bytes": 2788822,
+      "instrument": "violin_solo",
+      "rootMidi": 55
+    },
+    {
+      "path": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G4_p.wav",
+      "gitBlobSha1": "7324564c663bf239802020287c217b27c76b8142",
+      "sha256": "ad1ba8442a6b40919093c9c831a8171c7030f7e651fbe075ab87764665deef88",
+      "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Violin/Arco%20Vib/LLVln_ArcoVib_G4_p.wav",
+      "bytes": 2594066,
+      "instrument": "violin_solo",
+      "rootMidi": 67
+    },
+    {
+      "path": "Strings/Cello Section/susvib/susvib_A2_v1_1.wav",
+      "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Cello%20Section/susvib/susvib_A2_v1_1.wav",
+      "sha256": "c97a003184fdcb153d6b6c0bae8d82a90592a1b04b06bd7caaeda8b9776d5284",
+      "bytes": 2336738,
+      "instrument": "cello_chamber",
+      "rootMidi": 57
+    },
+    {
+      "path": "Strings/Cello Section/susvib/susvib_B1_v1_1.wav",
+      "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Cello%20Section/susvib/susvib_B1_v1_1.wav",
+      "sha256": "4f95c087c4b8d87ee591e9d39c3c9caf085c6f1b9125eac3ca9e4e637da628ee",
+      "bytes": 2372492,
+      "instrument": "cello_chamber",
+      "rootMidi": 47
+    },
+    {
+      "path": "Strings/Cello Section/susvib/susvib_C1_v1_1.wav",
+      "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Cello%20Section/susvib/susvib_C1_v1_1.wav",
+      "sha256": "abdcea431f384e135c469b0f3e4ac2a437f282f521dc5bcbe22abc221536e8de",
+      "bytes": 2347376,
+      "instrument": "cello_chamber",
+      "rootMidi": 36
+    },
+    {
+      "path": "Strings/Cello Section/susvib/susvib_C3_v1_1.wav",
+      "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Cello%20Section/susvib/susvib_C3_v1_1.wav",
+      "sha256": "a614ee7ca821b44660236e47b89620cf914ec6ad27a99bc0d9764f47dbe512e1",
+      "bytes": 2444174,
+      "instrument": "cello_chamber",
+      "rootMidi": 60
+    },
+    {
+      "path": "Strings/Cello Section/susvib/susvib_D2_v1_1.wav",
+      "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Cello%20Section/susvib/susvib_D2_v1_1.wav",
+      "sha256": "e8640dec9febc6e39fcf06b19d2c95a85d5ff8c38f13c9879e69f551eaf38ab8",
+      "bytes": 2550956,
+      "instrument": "cello_chamber",
+      "rootMidi": 50
+    },
+    {
+      "path": "Strings/Cello Section/susvib/susvib_E1_v1_1.wav",
+      "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Cello%20Section/susvib/susvib_E1_v1_1.wav",
+      "sha256": "de31a61b02d4e1d5a79b8bc432b0f35fe2e434290ad34402cc0f2dd7dc278cde",
+      "bytes": 2468348,
+      "instrument": "cello_chamber",
+      "rootMidi": 40
+    },
+    {
+      "path": "Strings/Cello Section/susvib/susvib_F2_v1_1.wav",
+      "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Cello%20Section/susvib/susvib_F2_v1_1.wav",
+      "sha256": "162054eab4ba118924f8f8986cf1b17ccfd65211d1945743ffbae30b4953f901",
+      "bytes": 2186012,
+      "instrument": "cello_chamber",
+      "rootMidi": 53
+    },
+    {
+      "path": "Strings/Cello Section/susvib/susvib_G1_v1_1.wav",
+      "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Cello%20Section/susvib/susvib_G1_v1_1.wav",
+      "sha256": "9e5d24e8e28d6c7f650f9bb2b33d43c13e341a8bd33124c64e23881378b181ba",
+      "bytes": 2161700,
+      "instrument": "cello_chamber",
+      "rootMidi": 43
+    }
+  ]
+}

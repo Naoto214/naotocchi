@@ -1,0 +1,99 @@
+{
+ "id": "home-morning",
+ "title": "そよかぜの まど",
+ "family": "home4",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 3681391,
+ "seconds": 83.478254,
+ "flacFrames": 3681391,
+ "aacDecodedFrames": 3682304,
+ "integratedLUFS": -23.0,
+ "targetLUFS": -23,
+ "truePeakDbtp": -4.62,
+ "samplePeakDbfs": -4.62,
+ "clippedSamples": 0,
+ "monoLossDb": -1.25,
+ "sideToMidDb": -4.8,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00016,
+ "loopJoinTypicalStep999": 0.04638,
+ "bands": {
+  "centroidHz": 696,
+  "low40_250": -7.6,
+  "lowmid250_800": -2.8,
+  "mid800_3k": -5.3,
+  "pres3k_6k": -25.5,
+  "air6k_12k": -46.1,
+  "top12k_20k": -58.8
+ },
+ "version": 7,
+ "variant": "a",
+ "sourceFingerprint": "90a5ca88da4dd3dc2fbfe066b52598d62d30b750b83a2068e2ad3579fdc34d72",
+ "syntheticLoops": 0,
+ "samplesUsed": [
+  {
+   "instrument": "violin_solo",
+   "midi": 71,
+   "rootMidi": 72,
+   "transpose": -1,
+   "seconds": 2.086957,
+   "nativeSeconds": 15.0076,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_C5_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 69,
+   "rootMidi": 69,
+   "transpose": 0,
+   "seconds": 2.021739,
+   "nativeSeconds": 14.8077,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_A4_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 66,
+   "rootMidi": 67,
+   "transpose": -1,
+   "seconds": 2.086957,
+   "nativeSeconds": 15.5731,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G4_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 67,
+   "rootMidi": 67,
+   "transpose": 0,
+   "seconds": 1.956522,
+   "nativeSeconds": 14.699,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G4_p.wav"
+  }
+ ],
+ "stringGains": {
+  "violin_solo": {
+   "relativeActiveRmsDb": -24,
+   "linearGain": 0.46736373781866514
+  }
+ },
+ "pianoGlobalGain": 1.0185913880541169,
+ "limiterMaxGainReductionDb": 0,
+ "pianoReconstruction": {
+  "relativeErrorDb": -117.48,
+  "linearGain": 30.578799764341678,
+  "v6MasterSha256": "6fc94f4b15b023e6816cea97fcece046dbc930469a0073014964ed9102189e9b",
+  "stemSha256": "00c6a38f254c5d9f5f8e6b4f423dec525f3d63e9212c3f5f209a7748ae604b2f"
+ },
+ "v7": {
+  "variant": "a",
+  "description": "ピアノを中心に、2周目の9〜10・13〜14小節だけ弱奏バイオリン。",
+  "removedAuxiliaryNotes": 80,
+  "syntheticLoops": false,
+  "nightReusesV6Piano": false
+ },
+ "flacSha256": "9b45162fb0ee04365339afdf1d4cbeafc33d55da37b5f702e1a1325ef51b976e",
+ "flacBytes": 12243462,
+ "aacSha256": "1f270c9371693afdbc35a9b25eb6e55ae805cb6e1916562403f137c0a5f5176c",
+ "aacBytes": 2034700,
+ "midiSha256": "517063bc76a93da38b2b80569912417e61d19359912a01e39c98697bb2bcfcde",
+ "problems": []
+}

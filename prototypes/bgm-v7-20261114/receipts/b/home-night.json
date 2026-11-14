@@ -1,0 +1,158 @@
+{
+ "id": "home-night",
+ "title": "ほしぞらの やくそく",
+ "family": "home4",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2228211,
+ "seconds": 50.526327,
+ "flacFrames": 2228211,
+ "aacDecodedFrames": 2228224,
+ "integratedLUFS": -23.0,
+ "targetLUFS": -23,
+ "truePeakDbtp": -5.4,
+ "samplePeakDbfs": -5.4,
+ "clippedSamples": 0,
+ "monoLossDb": -1.31,
+ "sideToMidDb": -4.5,
+ "aacFlacCorrelation": 1.0,
+ "loopJoinJump": 0.00018,
+ "loopJoinTypicalStep999": 0.05117,
+ "bands": {
+  "centroidHz": 688,
+  "low40_250": -8.3,
+  "lowmid250_800": -2.6,
+  "mid800_3k": -5.3,
+  "pres3k_6k": -25.1,
+  "air6k_12k": -46.8,
+  "top12k_20k": -58.6
+ },
+ "version": 7,
+ "variant": "b",
+ "sourceFingerprint": "a86a976647e04e50f29c0eb5cbc0a969eab09cfe01502a8b4c629e8a0faa6bcf",
+ "syntheticLoops": 0,
+ "samplesUsed": [
+  {
+   "instrument": "violin_solo",
+   "midi": 69,
+   "rootMidi": 69,
+   "transpose": 0,
+   "seconds": 2.210526,
+   "nativeSeconds": 14.8077,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_A4_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 68,
+   "rootMidi": 67,
+   "transpose": 1,
+   "seconds": 2.210526,
+   "nativeSeconds": 13.874,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G4_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 69,
+   "rootMidi": 69,
+   "transpose": 0,
+   "seconds": 1.815789,
+   "nativeSeconds": 14.8077,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_A4_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 64,
+   "rootMidi": 64,
+   "transpose": 0,
+   "seconds": 2.210526,
+   "nativeSeconds": 14.74,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_E4_p.wav"
+  },
+  {
+   "instrument": "violin_solo",
+   "midi": 66,
+   "rootMidi": 67,
+   "transpose": -1,
+   "seconds": 1.815789,
+   "nativeSeconds": 15.5731,
+   "sample": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G4_p.wav"
+  },
+  {
+   "instrument": "cello_chamber",
+   "midi": 50,
+   "rootMidi": 50,
+   "transpose": 0,
+   "seconds": 2.368421,
+   "nativeSeconds": 9.6341,
+   "sample": "Strings/Cello Section/susvib/susvib_D2_v1_1.wav"
+  },
+  {
+   "instrument": "cello_chamber",
+   "midi": 49,
+   "rootMidi": 50,
+   "transpose": -1,
+   "seconds": 2.368421,
+   "nativeSeconds": 10.207,
+   "sample": "Strings/Cello Section/susvib/susvib_D2_v1_1.wav"
+  },
+  {
+   "instrument": "cello_chamber",
+   "midi": 54,
+   "rootMidi": 53,
+   "transpose": 1,
+   "seconds": 2.052632,
+   "nativeSeconds": 7.7977,
+   "sample": "Strings/Cello Section/susvib/susvib_F2_v1_1.wav"
+  },
+  {
+   "instrument": "cello_chamber",
+   "midi": 49,
+   "rootMidi": 50,
+   "transpose": -1,
+   "seconds": 2.368421,
+   "nativeSeconds": 10.207,
+   "sample": "Strings/Cello Section/susvib/susvib_D2_v1_1.wav"
+  },
+  {
+   "instrument": "cello_chamber",
+   "midi": 50,
+   "rootMidi": 50,
+   "transpose": 0,
+   "seconds": 2.052632,
+   "nativeSeconds": 9.6341,
+   "sample": "Strings/Cello Section/susvib/susvib_D2_v1_1.wav"
+  }
+ ],
+ "stringGains": {
+  "violin_solo": {
+   "relativeActiveRmsDb": -30,
+   "linearGain": 0.24367687884783518
+  },
+  "cello_chamber": {
+   "relativeActiveRmsDb": -32,
+   "linearGain": 0.11437388740591684
+  }
+ },
+ "pianoGlobalGain": 1.0,
+ "limiterMaxGainReductionDb": 0,
+ "pianoReconstruction": {
+  "relativeErrorDb": -117.56,
+  "linearGain": 42.26148097886679,
+  "v6MasterSha256": "da453d6e72824eb10af57f1d0cab20cdabe85d21fce172addf4dc3969798b370",
+  "stemSha256": "b9db162fd381930e0bd9cb3f5e42e98aa1bac51f758286b7289c8991ba155cb5"
+ },
+ "v7": {
+  "variant": "b",
+  "description": "V6のピアノ原盤に、9〜11・13〜14小節だけごく静かな弦。余韻と前半の静けさを優先。",
+  "removedAuxiliaryNotes": 0,
+  "syntheticLoops": false,
+  "nightReusesV6Piano": true
+ },
+ "flacSha256": "801d06d91403cb80c116a9233e2693e7b1f030f268eb1193091b31c9c062b1c9",
+ "flacBytes": 7568693,
+ "aacSha256": "65d42d62b6b7bfa246d892969e72dba4a2c9f94719f0eacff43ac64c1dfcbcd9",
+ "aacBytes": 1231025,
+ "midiSha256": "b569f9c57f968175b8a83a0a35e35329199db775c3fa27c49934ba3ecbaf07b9",
+ "problems": [],
+ "firstHalfPianoRelativeErrorDb": -300.0
+}
