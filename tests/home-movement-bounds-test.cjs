@@ -23,3 +23,10 @@ test('drag and autonomous movement route into the expanded bounds through the sa
  const b=d.displayWalkingBounds(args),actor={key:'pet:test',kind:'pet',x:150,y:250,w:60,h:90};
  for(const source of ['drag','ambient']){const model=m.createModel({random:()=>.5});model.sync([actor],{region:'city',width:300,height:380,groundTop:24,actorBounds:()=>b});assert.equal(model.move(actor.key,{x:340,y:385},source),true);const a=model.snapshot()[0];assert.equal(a.target.x,340);assert.equal(a.target.y,385);}
 });
+test('idle autonomy actually visits reclaimed space without an explicit move command',()=>{
+ let seed=521;const random=()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296);
+ const b=d.displayWalkingBounds(args),model=m.createModel({random});
+ model.sync([{key:'pet:test',kind:'pet',x:150,y:250,w:30,h:45,temperament:{curiosity:5,boldness:5,sociability:3,persistence:3}}],{region:'city',width:400,height:400,groundTop:24,actorBounds:()=>b});
+ let outside=false;for(let i=0;i<24000;i++){model.step(.05);const a=model.snapshot()[0];if(a.x<base.left||a.x>base.right||a.y<base.top||a.y>base.bottom)outside=true;assert.ok(a.x>=b.left&&a.x<=b.right&&a.y>=b.top&&a.y<=b.bottom);}
+ assert.ok(outside,'seeded idle decisions use the expanded actorBounds');
+});

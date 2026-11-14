@@ -1,6 +1,6 @@
 // Disposable comparison: never loaded by the production entry or save namespace.
 const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process');
-const root=path.resolve(__dirname,'../..'),out=path.resolve(process.argv[2]||'/workspace/work/home-movement-site/dist'),baseline='408c72e6ebef71da3eab33cfb268c7494117aaaa';
+const root=path.resolve(__dirname,'../..'),out=path.resolve(process.argv[2]||path.join(root,'../home-movement-site/dist')),baseline='408c72e6ebef71da3eab33cfb268c7494117aaaa';
 fs.mkdirSync(out,{recursive:true});
 for(const name of fs.readdirSync(root))if(/\.(js|mjs|css|json|html)$/.test(name)&&fs.statSync(path.join(root,name)).isFile())fs.copyFileSync(path.join(root,name),path.join(out,name));
 for(const dir of ['assets/characters','assets/items','assets/ui','assets/fonts','vendor','character-3d'])if(fs.existsSync(path.join(root,dir)))fs.cpSync(path.join(root,dir),path.join(out,dir),{recursive:true});
@@ -23,5 +23,5 @@ for(const variant of ['a','b']){
  fs.writeFileSync(path.join(out,prefix+'.html'),html.replaceAll('naotocchi-home-release-qa-v1','naotocchi-movement-v1-'+variant).replace('release-qa-script.js',prefix+'-script.js').replace('release-qa-diorama.js',prefix+'-diorama.js').replace('</head>',`<script>window.MOVEMENT_VARIANT='${variant}';window.__movementPaused=new URLSearchParams(location.search).get('freeze')==='1';</script></head>`).replace('</body>','<script src="movement-debug.js"></script></body>'));
 }
 for(const [src,dest]of [['panel.html','index.html'],['debug.js','movement-debug.js']])fs.copyFileSync(path.join(__dirname,src),path.join(out,dest));
-fs.writeFileSync(path.join(out,'movement-build.json'),JSON.stringify({baseline,candidate:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),notice:'Candidate may include uncommitted local changes until final rebuild.'},null,2));
+fs.writeFileSync(path.join(out,'movement-build.json'),JSON.stringify({baseline,candidate:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),adapterSha256:require('node:crypto').createHash('sha256').update(fs.readFileSync(path.join(root,'home-production-diorama.js'))).digest('hex'),workingTreeDirty:!!cp.execFileSync('git',['status','--porcelain'],{cwd:root,encoding:'utf8'}).trim()},null,2));
 console.log(out);

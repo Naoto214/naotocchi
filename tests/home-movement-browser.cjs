@@ -1,7 +1,7 @@
 // Real shipped renderer in disposable comparison entries; local headless runner.
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),assert=require('node:assert/strict');
 const pw=require(process.env.PLAYWRIGHT_MODULE||'/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
-const root=path.resolve(process.env.MOVEMENT_DIST||'/workspace/work/home-movement-site/dist'),out=path.resolve(process.env.MOVEMENT_EVIDENCE||'/workspace/work/movement-evidence');fs.mkdirSync(out,{recursive:true});
+const root=path.resolve(process.env.MOVEMENT_DIST||path.join(__dirname,'../../home-movement-site/dist')),out=path.resolve(process.env.MOVEMENT_EVIDENCE||path.join(__dirname,'../../movement-evidence'));fs.mkdirSync(out,{recursive:true});
 const mime={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2'};
 const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+new URL(req.url,'http://localhost').pathname);if(!file.startsWith(root+'/')||!fs.existsSync(file)||!fs.statSync(file).isFile())return res.writeHead(404).end();res.setHeader('Content-Type',mime[path.extname(file)]||'application/octet-stream');fs.createReadStream(file).pipe(res);});
 const pointerTarget=require('./helpers/home-production-pointer-target.cjs');
@@ -25,10 +25,13 @@ async function run(browser,variant,config){const page=await browser.newPage({vie
  if(process.env.MOVEMENT_INPUT){
  data.input=[];
  for(const edge of ['bottom','left','right','top']){
+  // Different extrema can share a corner. Start the top gesture from bottom
+  // so the real controller receives a route, not its intentional <3px no-op.
+  if(edge==='top')await page.evaluate(()=>{const q=MovementQA;q.move('pet:hermit_crab',q.limits('pet:hermit_crab').edges.bottom.native,'drag');q.step(60);});
   const goal=await page.evaluate(edge=>MovementQA.limits('pet:hermit_crab').edges[edge],edge);assert.ok(goal);
   const from=await page.evaluate(pointerTarget,'tap');
   await page.mouse.move(from.from?.x??from.x,from.from?.y??from.y);await page.mouse.down();await page.mouse.move(goal.screen.x,goal.screen.y,{steps:8});await page.mouse.up();
-  const trace=await page.evaluate(()=>HomeReleaseInputTrace.filter(t=>t.type==='move'&&t.args[2]==='drag').at(-1));assert.ok(trace?.result,'real pointer routes to '+edge);
+  const trace=await page.evaluate(()=>HomeReleaseInputTrace.filter(t=>t.type==='move'&&t.args[2]==='drag').at(-1));assert.ok(trace?.result,'real pointer routes to '+edge+' '+JSON.stringify({variant,from,goal,trace,state:await page.evaluate(()=>MovementQA.detail())}));
   if(variant==='b')for(let frame=0;frame<5;frame++){await page.clock.runFor(100);const motion=await page.evaluate(()=>({detail:MovementQA.detail(),ink:MovementQA.inkRects()}));for(const r of motion.ink){const f=motion.detail.frame;assert.ok(r.left>=f.left-.5&&r.right<=f.right+.5&&r.top>=f.top-.5&&r.bottom<=f.bottom+.5,'walking ink '+edge+' '+JSON.stringify({r,f}));}}
   await page.evaluate(()=>MovementQA.step(60));
   const final=await page.evaluate(()=>({detail:MovementQA.detail(),ink:MovementQA.inkRects()}));
