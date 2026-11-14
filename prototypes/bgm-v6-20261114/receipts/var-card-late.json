@@ -1,0 +1,171 @@
+{
+ "id": "var-card-late",
+ "title": "デュエル・スタート（終盤）",
+ "family": "card",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 3256615,
+ "seconds": 73.846145,
+ "flacFrames": 3256615,
+ "aacDecodedFrames": 3257344,
+ "integratedLUFS": -24.0,
+ "targetLUFS": -24,
+ "truePeakDbtp": -7.21,
+ "samplePeakDbfs": -7.21,
+ "clippedSamples": 0,
+ "monoLossDb": -1.19,
+ "sideToMidDb": -5.0,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00218,
+ "loopJoinTypicalStep999": 0.04095,
+ "bands": {
+  "centroidHz": 738,
+  "low40_250": -5.9,
+  "lowmid250_800": -4.1,
+  "mid800_3k": -4.6,
+  "pres3k_6k": -20.2,
+  "air6k_12k": -36.6,
+  "top12k_20k": -57.7
+ },
+ "roleGainsDb": {
+  "bass": -15.0,
+  "accompaniment": -9.7,
+  "pad": -0.6,
+  "percussion": 14.6,
+  "doubling": -12.3
+ },
+ "tonalCorrection": [],
+ "bandsBeforeCorrection": {
+  "centroidHz": 738,
+  "low40_250": -5.9,
+  "lowmid250_800": -4.1,
+  "mid800_3k": -4.6,
+  "pres3k_6k": -20.2,
+  "air6k_12k": -36.6,
+  "top12k_20k": -57.7
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 5.6,
+ "flacSha256": "c79577351e052ab1972a6d7be3da86f0e1b51abf8517f3c3c9c24abf74313b1f",
+ "flacBytes": 10636931,
+ "aacSha256": "3914f69198672d7e7a942f221703a681ce3adcf14f010eabcced7220441b010f",
+ "aacBytes": 1823535,
+ "midiSha256": "d7c5635845879f5ba5980dda7d0906e99e6d35e500eed67718eb025fc88f2c0d",
+ "problems": [],
+ "version": 6,
+ "sourceFingerprint": "c5872d1b58290a7681e2979e9a2f6ae87a3adfa2664ee826288dd36a5c54a515",
+ "v6": {
+  "method": "explicit phrase curves and existing voice windows",
+  "profile": {
+   "loop": true,
+   "arc": [
+    [
+     0,
+     -0.3
+    ],
+    [
+     4,
+     0.25
+    ],
+    [
+     7.5,
+     -0.8
+    ],
+    [
+     9.5,
+     0.85
+    ],
+    [
+     12,
+     1.5
+    ],
+    [
+     14.5,
+     0.175
+    ],
+    [
+     16,
+     -0.3
+    ],
+    [
+     20,
+     0.55
+    ],
+    [
+     23.5,
+     -0.5
+    ],
+    [
+     25.5,
+     1.15
+    ],
+    [
+     28,
+     1.8
+    ],
+    [
+     30.5,
+     0.4
+    ],
+    [
+     32,
+     -0.3
+    ],
+    [
+     36,
+     0.9
+    ],
+    [
+     39.5,
+     -0.15
+    ],
+    [
+     41.5,
+     1.5
+    ],
+    [
+     44,
+     2.15
+    ],
+    [
+     46.5,
+     0.663
+    ],
+    [
+     48,
+     -0.3
+    ]
+   ],
+   "voiceWindows": [
+    [
+     8,
+     14.5
+    ]
+   ],
+   "change": "逆転前の抑制を深め、10・13小節で通常対戦より強い緊張へ。",
+   "analysis": [
+    "旋律: 198音、最高音MIDI 86。発音順・音高・時刻・長さは保存。",
+    "頂点・強弱: 逆転前の抑制を深め、10・13小節で通常対戦より強い緊張へ。",
+    "和声: リズムを増やさず弦と重ねの密度感を使う。音高の再生成は行わない。",
+    "バランス: V5の音域別補正を保持。伴奏の強弱は旋律の約半分、低音はさらに小さく。",
+    "対旋律: 新設しない。既存旋律と和声で十分なため。",
+    "掛け合い: マリンバは勝負のフレーズで前へ。",
+    "反復: 3周の音数は維持し、周ごとの表情と声部の前後で変化。",
+    "長時間の心地よさ: 用途別LUFSを保持し、強い圧縮や高域の追加で盛り上げない。聴感は試聴で評価。",
+    "ループ: 曲末の表情を冒頭へ戻す。V5の残響折返しを保持し、実音源の接続を測定。"
+   ]
+  },
+  "newNotes": 0,
+  "baseline": "0cf8100d3ad85888f5e32f670a56631ecb4e82ce"
+ },
+ "pianoAttackSoftenDb": 0.0,
+ "sideScale": 1.0,
+ "removedNotes": 126,
+ "pedalNotes": 0,
+ "v5": {
+  "melodyLevelSdBefore": 3.15,
+  "melodyLevelSdAfter": 0.82,
+  "melodyLevelRangeBefore": 12.8,
+  "melodyLevelRangeAfter": 5.1
+ }
+}

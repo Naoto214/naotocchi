@@ -1,0 +1,127 @@
+{
+ "id": "jingle-achieve",
+ "title": "やったね",
+ "family": "celebrate",
+ "loop": false,
+ "sampleRate": 44100,
+ "frames": 405720,
+ "seconds": 9.2,
+ "flacFrames": 405720,
+ "aacDecodedFrames": 406528,
+ "integratedLUFS": -23.0,
+ "targetLUFS": -23,
+ "truePeakDbtp": -6.5,
+ "samplePeakDbfs": -6.5,
+ "clippedSamples": 0,
+ "monoLossDb": -1.22,
+ "sideToMidDb": -4.9,
+ "aacFlacCorrelation": 0.9998,
+ "loopJoinJump": 0.00051,
+ "loopJoinTypicalStep999": 0.0434,
+ "bands": {
+  "centroidHz": 805,
+  "low40_250": -5.7,
+  "lowmid250_800": -7.1,
+  "mid800_3k": -2.8,
+  "pres3k_6k": -22.0,
+  "air6k_12k": -42.7,
+  "top12k_20k": -57.5
+ },
+ "roleGainsDb": {
+  "doubling": -9.0,
+  "bass": -17.6,
+  "accompaniment": -13.1,
+  "pad": -4.7
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   2.3,
+   0.7
+  ],
+  [
+   "peak",
+   3800,
+   0.4,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 759,
+  "low40_250": -5.4,
+  "lowmid250_800": -6.9,
+  "mid800_3k": -3.0,
+  "pres3k_6k": -24.3,
+  "air6k_12k": -43.6,
+  "top12k_20k": -57.4
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 0.8,
+ "flacSha256": "9f9f6ceeebf93ffa83e16fee827ced3169a0748683ea37e1017eade423d2ea70",
+ "flacBytes": 1351573,
+ "aacSha256": "9dd5e48da8af31269af8fd341b1e34d55c6db84f3558ec2bb4ca6835406c2a9a",
+ "aacBytes": 222396,
+ "midiSha256": "c9a44412cb372794d558675d6c5dcbc7248a0c7567cf3280380e459e4d8fc036",
+ "problems": [],
+ "version": 6,
+ "sourceFingerprint": "47009f17e15af2e43cb6fc12efb491044276935692a03f15a2c157b822fdbcad",
+ "v6": {
+  "method": "explicit phrase curves and existing voice windows",
+  "profile": {
+   "loop": false,
+   "arc": [
+    [
+     0,
+     -0.3
+    ],
+    [
+     1,
+     0.1
+    ],
+    [
+     2,
+     0.8
+    ],
+    [
+     3,
+     0.15
+    ],
+    [
+     4,
+     -0.45
+    ]
+   ],
+   "voiceWindows": [
+    [
+     1,
+     3.5
+    ]
+   ],
+   "change": "短い達成感を3小節で開き、最後を軽くほどく。",
+   "analysis": [
+    "旋律: 16音、最高音MIDI 86。発音順・音高・時刻・長さは保存。",
+    "頂点・強弱: 短い達成感を3小節で開き、最後を軽くほどく。",
+    "和声: 終止和音を残し過度に重くしない。音高の再生成は行わない。",
+    "バランス: V5の音域別補正を保持。伴奏の強弱は旋律の約半分、低音はさらに小さく。",
+    "対旋律: 新設しない。既存旋律と和声で十分なため。",
+    "掛け合い: フルートの祝福は中盤を中心に。",
+    "反復: 既存の1周構成を保持。",
+    "長時間の心地よさ: 用途別LUFSを保持し、強い圧縮や高域の追加で盛り上げない。聴感は試聴で評価。",
+    "ループ: 一度きりの終止。既存の残響長と末尾フェードを保持。"
+   ]
+  },
+  "newNotes": 0,
+  "baseline": "0cf8100d3ad85888f5e32f670a56631ecb4e82ce"
+ },
+ "pianoAttackSoftenDb": 2.0,
+ "sideScale": 0.689,
+ "removedNotes": 52,
+ "pedalNotes": 32,
+ "v5": {
+  "melodyLevelSdBefore": 1.82,
+  "melodyLevelSdAfter": 0.89,
+  "melodyLevelRangeBefore": 7.0,
+  "melodyLevelRangeAfter": 3.6
+ }
+}

@@ -1,0 +1,38 @@
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.158s
+
+OK
+home-morning OK -23.0 LUFS -4.83 dBTP -1.21 mono
+home-day OK -23.01 LUFS -5.29 dBTP -1.17 mono
+home-evening OK -23.0 LUFS -4.04 dBTP -1.2 mono
+home-night OK -23.0 LUFS -5.4 dBTP -1.31 mono
+poyo-1 OK -26.0 LUFS -11.4 dBTP -1.22 mono
+koro-1 OK -23.0 LUFS -5.91 dBTP -1.21 mono
+card-2 OK -24.0 LUFS -6.64 dBTP -1.19 mono
+game-1 OK -24.0 LUFS -9.6 dBTP -1.19 mono
+explore-1 OK -25.0 LUFS -14.36 dBTP -0.72 mono
+event-2 OK -24.0 LUFS -5.47 dBTP -1.2 mono
+event-1 OK -23.0 LUFS -5.61 dBTP -1.22 mono
+kisetsu OK -24.0 LUFS -6.27 dBTP -1.21 mono
+ohayo OK -23.01 LUFS -4.54 dBTP -1.08 mono
+bgm-game OK -24.0 LUFS -10.95 dBTP -1.19 mono
+bgm-race OK -24.0 LUFS -9.41 dBTP -1.19 mono
+bgm-farewell OK -24.99 LUFS -7.96 dBTP -0.43 mono
+poyo-2 OK -27.0 LUFS -16.4 dBTP -0.53 mono
+game-2 OK -24.0 LUFS -10.17 dBTP -1.19 mono
+explore-2 OK -24.0 LUFS -13.36 dBTP -0.59 mono
+board-b OK -27.0 LUFS -10.48 dBTP -1.22 mono
+fishing-a OK -27.0 LUFS -8.09 dBTP -1.2 mono
+lullaby-a OK -31.0 LUFS -11.14 dBTP -1.07 mono
+jingle-achieve OK -23.0 LUFS -6.5 dBTP -1.22 mono
+jingle-card-lose OK -24.0 LUFS -5.34 dBTP -1.2 mono
+var-poyo-clear OK -25.99 LUFS -10.95 dBTP -1.23 mono
+var-poyo-chapter OK -25.0 LUFS -9.48 dBTP -1.22 mono
+var-koro-goal OK -23.0 LUFS -6.52 dBTP -1.22 mono
+var-koro-album OK -25.0 LUFS -7.74 dBTP -1.21 mono
+var-card-late OK -24.0 LUFS -7.21 dBTP -1.19 mono
+var-card-win OK -24.01 LUFS -9.15 dBTP -1.19 mono
+var-flight OK -24.0 LUFS -12.81 dBTP -0.61 mono
+var-ohayo-hatch2 OK -18.99 LUFS -6.24 dBTP -0.32 mono
+PASS: 32 complete outputs; 32 IDs, 3158 V1 melody notes, 50 placements, old tracked files unchanged

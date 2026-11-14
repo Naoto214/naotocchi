@@ -1,0 +1,109 @@
+{
+ "id": "var-card-win",
+ "title": "デュエル・スタート（勝利）",
+ "family": "card",
+ "loop": false,
+ "sampleRate": 44100,
+ "frames": 359703,
+ "seconds": 8.156531,
+ "flacFrames": 359703,
+ "aacDecodedFrames": 360448,
+ "integratedLUFS": -24.01,
+ "targetLUFS": -24,
+ "truePeakDbtp": -9.15,
+ "samplePeakDbfs": -9.15,
+ "clippedSamples": 0,
+ "monoLossDb": -1.19,
+ "sideToMidDb": -5.0,
+ "aacFlacCorrelation": 0.9997,
+ "loopJoinJump": 0.00065,
+ "loopJoinTypicalStep999": 0.0435,
+ "bands": {
+  "centroidHz": 730,
+  "low40_250": -6.3,
+  "lowmid250_800": -4.3,
+  "mid800_3k": -4.2,
+  "pres3k_6k": -20.5,
+  "air6k_12k": -37.9,
+  "top12k_20k": -57.7
+ },
+ "roleGainsDb": {
+  "bass": -18.6,
+  "accompaniment": -10.8,
+  "pad": -4.3,
+  "percussion": 10.5
+ },
+ "tonalCorrection": [],
+ "bandsBeforeCorrection": {
+  "centroidHz": 730,
+  "low40_250": -6.3,
+  "lowmid250_800": -4.3,
+  "mid800_3k": -4.2,
+  "pres3k_6k": -20.5,
+  "air6k_12k": -37.9,
+  "top12k_20k": -57.7
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 0.7,
+ "flacSha256": "94251bb354ef122c00bd77af0f3d4fa58b891a2741d9c8f802be5cccb91f68ac",
+ "flacBytes": 1113491,
+ "aacSha256": "b26cd307e9e74685bf730c97a2f25e2143d364edb361848ab1cdcb38cd76bf53",
+ "aacBytes": 193989,
+ "midiSha256": "fd5f8301456ee9d8dfa775389253be250ae0667c2ff1143512218e9ba9d8f5af",
+ "problems": [],
+ "version": 6,
+ "sourceFingerprint": "8a5a4ee458a1ac7f46df0a50d7770d11ce9a9e84061680f325c493800125f17a",
+ "v6": {
+  "method": "explicit phrase curves and existing voice windows",
+  "profile": {
+   "loop": false,
+   "arc": [
+    [
+     0,
+     0.45
+    ],
+    [
+     0.8,
+     -0.2
+    ],
+    [
+     2,
+     0.8
+    ],
+    [
+     3,
+     0.1
+    ],
+    [
+     4,
+     -0.4
+    ]
+   ],
+   "voiceWindows": [],
+   "change": "冒頭の勝利宣言から3小節で和声を開いて着地。",
+   "analysis": [
+    "旋律: 17音、最高音MIDI 86。発音順・音高・時刻・長さは保存。",
+    "頂点・強弱: 冒頭の勝利宣言から3小節で和声を開いて着地。",
+    "和声: 短い終止和音を前に出す。音高の再生成は行わない。",
+    "バランス: V5の音域別補正を保持。伴奏の強弱は旋律の約半分、低音はさらに小さく。",
+    "対旋律: 新設しない。既存旋律と和声で十分なため。",
+    "掛け合い: 追加対旋律なしで決着を明確に。",
+    "反復: 既存の1周構成を保持。",
+    "長時間の心地よさ: 用途別LUFSを保持し、強い圧縮や高域の追加で盛り上げない。聴感は試聴で評価。",
+    "ループ: 一度きりの終止。既存の残響長と末尾フェードを保持。"
+   ]
+  },
+  "newNotes": 0,
+  "baseline": "0cf8100d3ad85888f5e32f670a56631ecb4e82ce"
+ },
+ "pianoAttackSoftenDb": 0.0,
+ "sideScale": 1.0,
+ "removedNotes": 11,
+ "pedalNotes": 0,
+ "v5": {
+  "melodyLevelSdBefore": 3.75,
+  "melodyLevelSdAfter": 1.12,
+  "melodyLevelRangeBefore": 12.2,
+  "melodyLevelRangeAfter": 4.8
+ }
+}

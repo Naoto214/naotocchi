@@ -1,0 +1,111 @@
+{
+ "id": "var-poyo-clear",
+ "title": "ぽよぽよこもれび（ステージクリア）",
+ "family": "poyo",
+ "loop": false,
+ "sampleRate": 44100,
+ "frames": 476280,
+ "seconds": 10.8,
+ "flacFrames": 476280,
+ "aacDecodedFrames": 477184,
+ "integratedLUFS": -25.99,
+ "targetLUFS": -26,
+ "truePeakDbtp": -10.95,
+ "samplePeakDbfs": -10.96,
+ "clippedSamples": 0,
+ "monoLossDb": -1.23,
+ "sideToMidDb": -4.8,
+ "aacFlacCorrelation": 0.9997,
+ "loopJoinJump": 0.00016,
+ "loopJoinTypicalStep999": 0.03605,
+ "bands": {
+  "centroidHz": 715,
+  "low40_250": -5.9,
+  "lowmid250_800": -4.9,
+  "mid800_3k": -3.8,
+  "pres3k_6k": -23.8,
+  "air6k_12k": -45.8,
+  "top12k_20k": -61.6
+ },
+ "roleGainsDb": {
+  "bass": 3.1,
+  "accompaniment": 8.6,
+  "pad": 21.4
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   5.0,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 663,
+  "low40_250": -5.5,
+  "lowmid250_800": -4.8,
+  "mid800_3k": -4.2,
+  "pres3k_6k": -28.1,
+  "air6k_12k": -47.9,
+  "top12k_20k": -61.5
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 0.8,
+ "flacSha256": "9593544de21e14d48fdcbf22e9e15d4eb493c9ac86d3a8883d91bec5e26102c8",
+ "flacBytes": 1476280,
+ "aacSha256": "ad476df983078a99401f2064269a917a0f6ea7f38b566bf8c31528df79d19700",
+ "aacBytes": 261094,
+ "midiSha256": "9856ac0c023e0ae642cf089c321ada55e3b3a3ff8ddc9d9b04219057900c1a68",
+ "problems": [],
+ "version": 6,
+ "sourceFingerprint": "c9f68ce103fa4e52ee685f20f05032d22f7a01a0a194efc50fc6e730b12cf904",
+ "v6": {
+  "method": "explicit phrase curves and existing voice windows",
+  "profile": {
+   "loop": false,
+   "arc": [
+    [
+     0,
+     -0.35
+    ],
+    [
+     1,
+     0.65
+    ],
+    [
+     2.5,
+     0.2
+    ],
+    [
+     4,
+     -0.5
+    ]
+   ],
+   "voiceWindows": [],
+   "change": "2小節の喜びを軽く弾ませ、帰還の余韻へ。",
+   "analysis": [
+    "旋律: 16音、最高音MIDI 86。発音順・音高・時刻・長さは保存。",
+    "頂点・強弱: 2小節の喜びを軽く弾ませ、帰還の余韻へ。",
+    "和声: 木の低音とハープを自然に解放。音高の再生成は行わない。",
+    "バランス: V5の音域別補正を保持。伴奏の強弱は旋律の約半分、低音はさらに小さく。",
+    "対旋律: 新設しない。既存旋律と和声で十分なため。",
+    "掛け合い: 追加声部なしで短い場面の明快さを保つ。",
+    "反復: 既存の1周構成を保持。",
+    "長時間の心地よさ: 用途別LUFSを保持し、強い圧縮や高域の追加で盛り上げない。聴感は試聴で評価。",
+    "ループ: 一度きりの終止。既存の残響長と末尾フェードを保持。"
+   ]
+  },
+  "newNotes": 0,
+  "baseline": "0cf8100d3ad85888f5e32f670a56631ecb4e82ce"
+ },
+ "pianoAttackSoftenDb": 0.0,
+ "sideScale": 0.939,
+ "removedNotes": 3,
+ "pedalNotes": 16,
+ "v5": {
+  "melodyLevelSdBefore": 1.98,
+  "melodyLevelSdAfter": 0.97,
+  "melodyLevelRangeBefore": 7.4,
+  "melodyLevelRangeAfter": 4.2
+ }
+}

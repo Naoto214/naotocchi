@@ -1,0 +1,123 @@
+{
+ "id": "fishing-a",
+ "title": "みずべの うたたね",
+ "family": "fishing",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2016000,
+ "seconds": 45.714286,
+ "flacFrames": 2016000,
+ "aacDecodedFrames": 2016256,
+ "integratedLUFS": -27.0,
+ "targetLUFS": -27,
+ "truePeakDbtp": -8.09,
+ "samplePeakDbfs": -8.11,
+ "clippedSamples": 0,
+ "monoLossDb": -1.2,
+ "sideToMidDb": -5.0,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00035,
+ "loopJoinTypicalStep999": 0.03363,
+ "bands": {
+  "centroidHz": 735,
+  "low40_250": -7.3,
+  "lowmid250_800": -3.7,
+  "mid800_3k": -4.1,
+  "pres3k_6k": -24.6,
+  "air6k_12k": -45.2,
+  "top12k_20k": -57.7
+ },
+ "roleGainsDb": {
+  "bass": -5.7,
+  "accompaniment": 14.7,
+  "pad": -3.5
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   1.0,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 721,
+  "low40_250": -7.2,
+  "lowmid250_800": -3.7,
+  "mid800_3k": -4.2,
+  "pres3k_6k": -25.5,
+  "air6k_12k": -45.5,
+  "top12k_20k": -57.6
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 2.9,
+ "flacSha256": "ed98cdc7664146066a5d3b40ae2b958b947fa0ffdc646725f58acfc6a947d15b",
+ "flacBytes": 6522488,
+ "aacSha256": "ab22f1d3eb3c5b863dc5a74c7c26e4e8c22545b3b6b20c251ac53b0ff7cdf330",
+ "aacBytes": 1114235,
+ "midiSha256": "02b6810318b99b952d7a15ff5f98c64f937f359ec5e3042efe1dde2c5c4c7442",
+ "problems": [],
+ "version": 6,
+ "sourceFingerprint": "91bb8eb180df29b8128d61e4958137d3918adcdc7d197dafb6a8d2f55a8b7c16",
+ "v6": {
+  "method": "explicit phrase curves and existing voice windows",
+  "profile": {
+   "loop": true,
+   "arc": [
+    [
+     0,
+     -0.5
+    ],
+    [
+     1.5,
+     0.35
+    ],
+    [
+     3,
+     -0.25
+    ],
+    [
+     5,
+     0.4
+    ],
+    [
+     9,
+     -0.35
+    ],
+    [
+     13,
+     0.6
+    ],
+    [
+     16,
+     -0.5
+    ]
+   ],
+   "voiceWindows": [],
+   "change": "水辺の小さな揺れを2・6・14小節へ。新しい音は加えない。",
+   "analysis": [
+    "旋律: 44音、最高音MIDI 85。発音順・音高・時刻・長さは保存。",
+    "頂点・強弱: 水辺の小さな揺れを2・6・14小節へ。新しい音は加えない。",
+    "和声: ピアノとチェロの静かな和声を保つ。音高の再生成は行わない。",
+    "バランス: V5の音域別補正を保持。伴奏の強弱は旋律の約半分、低音はさらに小さく。",
+    "対旋律: 新設しない。既存旋律と和声で十分なため。",
+    "掛け合い: 独奏旋律を弦が遠くから支える。",
+    "反復: 既存の1周構成を保持。",
+    "長時間の心地よさ: 用途別LUFSを保持し、強い圧縮や高域の追加で盛り上げない。聴感は試聴で評価。",
+    "ループ: 曲末の表情を冒頭へ戻す。V5の残響折返しを保持し、実音源の接続を測定。"
+   ]
+  },
+  "newNotes": 0,
+  "baseline": "0cf8100d3ad85888f5e32f670a56631ecb4e82ce"
+ },
+ "pianoAttackSoftenDb": 3.0,
+ "sideScale": 0.735,
+ "removedNotes": 10,
+ "pedalNotes": 76,
+ "v5": {
+  "melodyLevelSdBefore": 3.25,
+  "melodyLevelSdAfter": 0.78,
+  "melodyLevelRangeBefore": 12.7,
+  "melodyLevelRangeAfter": 2.9
+ }
+}

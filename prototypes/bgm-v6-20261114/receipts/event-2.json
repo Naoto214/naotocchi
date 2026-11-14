@@ -1,0 +1,163 @@
+{
+ "id": "event-2",
+ "title": "ふたりの きねんび",
+ "family": "love",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2761043,
+ "seconds": 62.608685,
+ "flacFrames": 2761043,
+ "aacDecodedFrames": 2761728,
+ "integratedLUFS": -24.0,
+ "targetLUFS": -24,
+ "truePeakDbtp": -5.47,
+ "samplePeakDbfs": -5.48,
+ "clippedSamples": 0,
+ "monoLossDb": -1.2,
+ "sideToMidDb": -5.0,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.002,
+ "loopJoinTypicalStep999": 0.04312,
+ "bands": {
+  "centroidHz": 742,
+  "low40_250": -6.9,
+  "lowmid250_800": -4.8,
+  "mid800_3k": -3.3,
+  "pres3k_6k": -24.6,
+  "air6k_12k": -45.2,
+  "top12k_20k": -59.4
+ },
+ "roleGainsDb": {
+  "bass": -11.3,
+  "accompaniment": -15.5,
+  "pad": -4.9,
+  "doubling": -7.8,
+  "counter": -14.7
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   0.6,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 733,
+  "low40_250": -6.8,
+  "lowmid250_800": -4.8,
+  "mid800_3k": -3.4,
+  "pres3k_6k": -25.1,
+  "air6k_12k": -45.4,
+  "top12k_20k": -59.4
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 4.6,
+ "flacSha256": "56b8f8d5be4be42c907535823a830dfb82a5df7fa13edacdb41a75133e095702",
+ "flacBytes": 8928027,
+ "aacSha256": "ae6a69be277fdc693beb60992a37c738abfb4c4e5cddccb7054c12d448d71980",
+ "aacBytes": 1530638,
+ "midiSha256": "667013ea429aae8d4b21525ad6cae0b23339cbea4c95ce48c915b56914ec2627",
+ "problems": [],
+ "version": 6,
+ "sourceFingerprint": "16168dcf74b8c10e05c8d3733fb8998c3e73856671ad3c29e0dfbe72fcb1c4a9",
+ "v6": {
+  "method": "explicit phrase curves and existing voice windows",
+  "profile": {
+   "loop": true,
+   "arc": [
+    [
+     0,
+     -1.0
+    ],
+    [
+     4,
+     -0.45
+    ],
+    [
+     8,
+     -0.8
+    ],
+    [
+     11,
+     0.1
+    ],
+    [
+     13.7,
+     1.25
+    ],
+    [
+     15,
+     -0.05
+    ],
+    [
+     16,
+     -1.0
+    ],
+    [
+     20,
+     0.3
+    ],
+    [
+     24,
+     -0.05
+    ],
+    [
+     27,
+     0.85
+    ],
+    [
+     29.7,
+     2.0
+    ],
+    [
+     31,
+     0.325
+    ],
+    [
+     32,
+     -1.0
+    ]
+   ],
+   "voiceWindows": [
+    [
+     4,
+     7
+    ],
+    [
+     11,
+     14.5
+    ]
+   ],
+   "change": "記念日の静けさから15小節の旋律へ感情を育てる。",
+   "analysis": [
+    "旋律: 80音、最高音MIDI 86。発音順・音高・時刻・長さは保存。",
+    "頂点・強弱: 記念日の静けさから15小節の旋律へ感情を育てる。",
+    "和声: ハープとチェロの和音を保持し弦の広がりを頂点へ。音高の再生成は行わない。",
+    "バランス: V5の音域別補正を保持。伴奏の強弱は旋律の約半分、低音はさらに小さく。",
+    "対旋律: V5の内声の音は保持し、指定した窓の外を控えて語尾に余白。",
+    "掛け合い: クラリネットは長い内声として必要な場所だけ前へ。",
+    "反復: 2周の音数は維持し、周ごとの表情と声部の前後で変化。",
+    "長時間の心地よさ: 用途別LUFSを保持し、強い圧縮や高域の追加で盛り上げない。聴感は試聴で評価。",
+    "ループ: 曲末の表情を冒頭へ戻す。V5の残響折返しを保持し、実音源の接続を測定。"
+   ]
+  },
+  "newNotes": 0,
+  "baseline": "0cf8100d3ad85888f5e32f670a56631ecb4e82ce"
+ },
+ "pianoAttackSoftenDb": 3.0,
+ "sideScale": 0.711,
+ "removedNotes": 20,
+ "pedalNotes": 176,
+ "v5": {
+  "added": {
+   "counter": 25,
+   "response": 0,
+   "bassWalk": 0
+  },
+  "melodyLevelSdBefore": 2.83,
+  "melodyLevelSdAfter": 0.79,
+  "melodyLevelRangeBefore": 13.2,
+  "melodyLevelRangeAfter": 3.1
+ }
+}

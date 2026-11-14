@@ -1,0 +1,169 @@
+{
+ "id": "poyo-1",
+ "title": "ぽよぽよ こもれび",
+ "family": "poyo",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 3386880,
+ "seconds": 76.8,
+ "flacFrames": 3386880,
+ "aacDecodedFrames": 3387392,
+ "integratedLUFS": -26.0,
+ "targetLUFS": -26,
+ "truePeakDbtp": -11.4,
+ "samplePeakDbfs": -11.4,
+ "clippedSamples": 0,
+ "monoLossDb": -1.22,
+ "sideToMidDb": -4.9,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00058,
+ "loopJoinTypicalStep999": 0.03114,
+ "bands": {
+  "centroidHz": 762,
+  "low40_250": -6.5,
+  "lowmid250_800": -6.1,
+  "mid800_3k": -2.8,
+  "pres3k_6k": -23.1,
+  "air6k_12k": -44.2,
+  "top12k_20k": -60.8
+ },
+ "roleGainsDb": {
+  "bass": 2.4,
+  "accompaniment": 8.0,
+  "pad": 21.0,
+  "doubling": 13.6,
+  "counter": 8.5
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   3.6,
+   0.7
+  ],
+  [
+   "peak",
+   3800,
+   0.5,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 718,
+  "low40_250": -6.1,
+  "lowmid250_800": -6.0,
+  "mid800_3k": -3.0,
+  "pres3k_6k": -26.6,
+  "air6k_12k": -45.6,
+  "top12k_20k": -60.7
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 15.3,
+ "flacSha256": "cbc16a064ebd5c6251f03238bc08f094b93745a76fb4c549d89480ac75d73d60",
+ "flacBytes": 10590816,
+ "aacSha256": "029d4220860ae1e4420b4ac7b3eec1f822beafc8a60e808f67b33181e56a4aa5",
+ "aacBytes": 1900276,
+ "midiSha256": "49e4dcb96e0f5929334268454f31d47e809a37ed9a858cd2a63a387c162c17ae",
+ "problems": [],
+ "version": 6,
+ "sourceFingerprint": "c9a63fd63fe191d7dcdddfef942f43e643a37e48808674f8692f9cff3c75e6a2",
+ "v6": {
+  "method": "explicit phrase curves and existing voice windows",
+  "profile": {
+   "loop": true,
+   "arc": [
+    [
+     0,
+     -0.6
+    ],
+    [
+     3,
+     0.05
+    ],
+    [
+     7,
+     -0.65
+    ],
+    [
+     10,
+     0.25
+    ],
+    [
+     13,
+     0.75
+    ],
+    [
+     15,
+     -0.125
+    ],
+    [
+     16,
+     -0.6
+    ],
+    [
+     19,
+     0.7
+    ],
+    [
+     23,
+     0.0
+    ],
+    [
+     26,
+     0.9
+    ],
+    [
+     29,
+     1.4
+    ],
+    [
+     31,
+     0.2
+    ],
+    [
+     32,
+     -0.6
+    ]
+   ],
+   "voiceWindows": [
+    [
+     4,
+     7
+    ],
+    [
+     10,
+     14
+    ]
+   ],
+   "change": "マリンバのかわいらしさを保ち、冒険の後半へ木管と弦が応える。",
+   "analysis": [
+    "旋律: 136音、最高音MIDI 86。発音順・音高・時刻・長さは保存。",
+    "頂点・強弱: マリンバのかわいらしさを保ち、冒険の後半へ木管と弦が応える。",
+    "和声: 弦の厚みは後半で開き、冒頭は木の響きを中心に。音高の再生成は行わない。",
+    "バランス: V5の音域別補正を保持。伴奏の強弱は旋律の約半分、低音はさらに小さく。",
+    "対旋律: V5の内声の音は保持し、指定した窓の外を控えて語尾に余白。",
+    "掛け合い: クラリネット内声を4〜7・10〜14小節付近で前へ。",
+    "反復: 2周の音数は維持し、周ごとの表情と声部の前後で変化。",
+    "長時間の心地よさ: 用途別LUFSを保持し、強い圧縮や高域の追加で盛り上げない。聴感は試聴で評価。",
+    "ループ: 曲末の表情を冒頭へ戻す。V5の残響折返しを保持し、実音源の接続を測定。"
+   ]
+  },
+  "newNotes": 0,
+  "baseline": "0cf8100d3ad85888f5e32f670a56631ecb4e82ce"
+ },
+ "pianoAttackSoftenDb": 0.0,
+ "sideScale": 0.838,
+ "removedNotes": 20,
+ "pedalNotes": 128,
+ "v5": {
+  "added": {
+   "counter": 26,
+   "response": 0,
+   "bassWalk": 0
+  },
+  "melodyLevelSdBefore": 1.39,
+  "melodyLevelSdAfter": 0.98,
+  "melodyLevelRangeBefore": 6.6,
+  "melodyLevelRangeAfter": 4.6
+ }
+}

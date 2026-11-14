@@ -1,0 +1,160 @@
+{
+ "id": "bgm-farewell",
+ "title": "farewell（おわかれ）",
+ "family": "farewell",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2822400,
+ "seconds": 64.0,
+ "flacFrames": 2822400,
+ "aacDecodedFrames": 2823168,
+ "integratedLUFS": -24.99,
+ "targetLUFS": -25,
+ "truePeakDbtp": -7.96,
+ "samplePeakDbfs": -7.97,
+ "clippedSamples": 0,
+ "monoLossDb": -0.43,
+ "sideToMidDb": -9.8,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00064,
+ "loopJoinTypicalStep999": 0.03149,
+ "bands": {
+  "centroidHz": 616,
+  "low40_250": -9.8,
+  "lowmid250_800": -1.3,
+  "mid800_3k": -8.0,
+  "pres3k_6k": -24.2,
+  "air6k_12k": -49.2,
+  "top12k_20k": -65.8
+ },
+ "roleGainsDb": {
+  "bass": -2.7,
+  "accompaniment": -3.2,
+  "pad": -0.6,
+  "counter": -0.7
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   4.9,
+   0.7
+  ],
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 545,
+  "low40_250": -9.9,
+  "lowmid250_800": -1.0,
+  "mid800_3k": -9.8,
+  "pres3k_6k": -29.4,
+  "air6k_12k": -52.3,
+  "top12k_20k": -66.8
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 4.1,
+ "flacSha256": "aa431c84c3884bfe72883124c64fc041a54657509a3cfc67b0208f4cb1f3733a",
+ "flacBytes": 8969229,
+ "aacSha256": "f1b272894d4dfd2c6a6e006b7511d48a8080eac8e3739ccb9916bd5597da21e1",
+ "aacBytes": 1553668,
+ "midiSha256": "5484685e89e4aafbe455bbab1f25dfa3c4742fca3ae030635a10b8ed9767b40c",
+ "problems": [],
+ "version": 6,
+ "sourceFingerprint": "910cf4e43525961578b15a78c9070d2aabc5310f90117aabd83f4dd0a477f2e7",
+ "v6": {
+  "method": "explicit phrase curves and existing voice windows",
+  "profile": {
+   "loop": true,
+   "arc": [
+    [
+     0,
+     -0.8
+    ],
+    [
+     2.5,
+     -0.4
+    ],
+    [
+     4,
+     0.5
+    ],
+    [
+     5.5,
+     -0.35
+    ],
+    [
+     6.5,
+     0.338
+    ],
+    [
+     8,
+     -0.8
+    ],
+    [
+     10.5,
+     -0.05
+    ],
+    [
+     12,
+     0.85
+    ],
+    [
+     13.5,
+     0.0
+    ],
+    [
+     14.5,
+     0.6
+    ],
+    [
+     16,
+     -0.8
+    ]
+   ],
+   "voiceWindows": [
+    [
+     3,
+     5
+    ],
+    [
+     6,
+     7
+    ]
+   ],
+   "change": "5小節の感情と7小節の別れを穏やかな二つの波へ。",
+   "analysis": [
+    "旋律: 44音、最高音MIDI 76。発音順・音高・時刻・長さは保存。",
+    "頂点・強弱: 5小節の感情と7小節の別れを穏やかな二つの波へ。",
+    "和声: 低い弦の支えを保ち終止の厚さを引く。音高の再生成は行わない。",
+    "バランス: V5の音域別補正を保持。伴奏の強弱は旋律の約半分、低音はさらに小さく。",
+    "対旋律: V5の内声の音は保持し、指定した窓の外を控えて語尾に余白。",
+    "掛け合い: ビオラ内声は語尾を覆わない。",
+    "反復: 2周の音数は維持し、周ごとの表情と声部の前後で変化。",
+    "長時間の心地よさ: 用途別LUFSを保持し、強い圧縮や高域の追加で盛り上げない。聴感は試聴で評価。",
+    "ループ: 曲末の表情を冒頭へ戻す。V5の残響折返しを保持し、実音源の接続を測定。"
+   ]
+  },
+  "newNotes": 0,
+  "baseline": "0cf8100d3ad85888f5e32f670a56631ecb4e82ce"
+ },
+ "pianoAttackSoftenDb": 5.0,
+ "sideScale": 1.0,
+ "removedNotes": 0,
+ "pedalNotes": 76,
+ "v5": {
+  "added": {
+   "counter": 5,
+   "response": 0,
+   "bassWalk": 0
+  },
+  "melodyLevelSdBefore": 3.3,
+  "melodyLevelSdAfter": 0.66,
+  "melodyLevelRangeBefore": 11.1,
+  "melodyLevelRangeAfter": 2.2
+ }
+}

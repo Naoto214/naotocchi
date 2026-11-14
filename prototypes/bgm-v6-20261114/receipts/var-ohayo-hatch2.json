@@ -1,0 +1,124 @@
+{
+ "id": "var-ohayo-hatch2",
+ "title": "おはようのひかり（たまごが かえる・ファンファーレ 2小節）",
+ "family": "hatch",
+ "loop": false,
+ "sampleRate": 44100,
+ "frames": 297675,
+ "seconds": 6.75,
+ "flacFrames": 297675,
+ "aacDecodedFrames": 297984,
+ "integratedLUFS": -18.99,
+ "targetLUFS": -19,
+ "truePeakDbtp": -6.24,
+ "samplePeakDbfs": -6.25,
+ "clippedSamples": 0,
+ "monoLossDb": -0.32,
+ "sideToMidDb": -11.2,
+ "aacFlacCorrelation": 0.9998,
+ "loopJoinJump": 0.01061,
+ "loopJoinTypicalStep999": 0.06764,
+ "bands": {
+  "centroidHz": 846,
+  "low40_250": -8.9,
+  "lowmid250_800": -3.1,
+  "mid800_3k": -4.3,
+  "pres3k_6k": -17.7,
+  "air6k_12k": -27.2,
+  "top12k_20k": -57.3
+ },
+ "roleGainsDb": {
+  "percussion": -16.4,
+  "doubling": 8.7,
+  "bass": 5.3,
+  "accompaniment": 12.3,
+  "pad": 10.6,
+  "cadence": 3.1
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   -6.0,
+   0.7
+  ],
+  [
+   "highshelf",
+   8000,
+   -1.1,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 1072,
+  "low40_250": -9.8,
+  "lowmid250_800": -3.8,
+  "mid800_3k": -3.8,
+  "pres3k_6k": -13.0,
+  "air6k_12k": -24.9,
+  "top12k_20k": -56.7
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 1.3,
+ "flacSha256": "cd2b47d2fe0021fad75e3867568a141a934e6d29b484daa0b8fdcb1c021d37a0",
+ "flacBytes": 1046473,
+ "aacSha256": "e51cf1a27df601746f7d34d79953e263bf7b421d37269dfd2a73cca8d236845b",
+ "aacBytes": 163702,
+ "midiSha256": "41661fce84ff57e809ed024b559ac155d41c2a9fc4342c262c0d23e7aab7111b",
+ "problems": [],
+ "version": 6,
+ "sourceFingerprint": "06c42504318962632e5a720e442d7724c04242ffb0d2efe78a7242333fbf7297",
+ "v6": {
+  "method": "explicit phrase curves and existing voice windows",
+  "profile": {
+   "loop": false,
+   "arc": [
+    [
+     0,
+     -0.35
+    ],
+    [
+     0.4,
+     0.15
+    ],
+    [
+     0.7,
+     0.85
+    ],
+    [
+     1.3,
+     0.2
+    ],
+    [
+     2,
+     -0.45
+    ]
+   ],
+   "voiceWindows": [],
+   "change": "孵化の短い上昇から和音の着地へ、祝福の余韻を残す。",
+   "analysis": [
+    "旋律: 6音、最高音MIDI 70。発音順・音高・時刻・長さは保存。",
+    "頂点・強弱: 孵化の短い上昇から和音の着地へ、祝福の余韻を残す。",
+    "和声: トランペットの和音を終止で柔らかく。音高の再生成は行わない。",
+    "バランス: V5の音域別補正を保持。伴奏の強弱は旋律の約半分、低音はさらに小さく。",
+    "対旋律: 新設しない。既存旋律と和声で十分なため。",
+    "掛け合い: ティンパニを含む既存編成だけで表現。",
+    "反復: 既存の1周構成を保持。",
+    "長時間の心地よさ: 用途別LUFSを保持し、強い圧縮や高域の追加で盛り上げない。聴感は試聴で評価。",
+    "ループ: 一度きりの終止。既存の残響長と末尾フェードを保持。"
+   ]
+  },
+  "newNotes": 0,
+  "baseline": "0cf8100d3ad85888f5e32f670a56631ecb4e82ce"
+ },
+ "pianoAttackSoftenDb": 0.0,
+ "sideScale": 1.0,
+ "removedNotes": 22,
+ "pedalNotes": 0,
+ "v5": {
+  "melodyLevelSdBefore": 1.11,
+  "melodyLevelSdAfter": 0.56,
+  "melodyLevelRangeBefore": 3.6,
+  "melodyLevelRangeAfter": 1.6
+ }
+}
