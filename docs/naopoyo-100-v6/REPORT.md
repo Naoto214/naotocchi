@@ -35,6 +35,10 @@
 - 配布後の不足依存を検査し、既存探索器 `v3/search.mjs` を本人限定パッケージに追加。既存ファイルは維持。旧比較盤面の暗黙IDは正式エンジンと同じ `tile-N` としてV6コピー側で明示し、保存解とV5コピーの途中履歴を維持。
 - 公開Pagesのallowlistは変更なし、V6非掲載を自動検証。Pages全体の補助テスト21件は15件成功、6件はローカルの過去素材・旧ページ未取得で実行完了できず（5エラー・1失敗）。この部分を成功とは報告しない。
 
+## 限定版とCI
+
+本人限定Site version 14の更新成功を確認。Site source `4cc57781cc6b0396aa4235c26daf062bbf224b5e`、実装コミット `7b2d82122be6c0817c1181ffe080c416f26723bc`。配布819ファイル。権限は本人1名のみ、グループ・外部閲覧者なし。最新CIと最終GitHub HEADは [PR #535](https://github.com/Naoto214/naotocchi/pull/535) に記録。V6を含む276件とCanvas/模擬DOM検証を既存比較CIへ追加。
+
 ## 比較資料と制約
 
 - 本人限定エディター： https://naopoyo-100-v1-20261109.kerzion214.chatgpt.site/prototypes/naopoyo-100/v4/v6/editor.html
