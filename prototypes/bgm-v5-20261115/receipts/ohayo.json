@@ -1,0 +1,78 @@
+{
+ "id": "ohayo",
+ "title": "おはようの ひかり",
+ "family": "celebrate",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2116800,
+ "seconds": 48.0,
+ "flacFrames": 2116800,
+ "aacDecodedFrames": 2117632,
+ "integratedLUFS": -23.01,
+ "targetLUFS": -23,
+ "truePeakDbtp": -4.75,
+ "samplePeakDbfs": -4.75,
+ "clippedSamples": 0,
+ "monoLossDb": -1.01,
+ "sideToMidDb": -5.8,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00052,
+ "loopJoinTypicalStep999": 0.05023,
+ "bands": {
+  "centroidHz": 679,
+  "low40_250": -7.4,
+  "lowmid250_800": -2.3,
+  "mid800_3k": -6.3,
+  "pres3k_6k": -22.9,
+  "air6k_12k": -44.9,
+  "top12k_20k": -62.4
+ },
+ "roleGainsDb": {
+  "doubling": -5.1,
+  "bass": -15.8,
+  "accompaniment": -10.2,
+  "pad": -7.9
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   5.0,
+   0.7
+  ],
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 594,
+  "low40_250": -7.4,
+  "lowmid250_800": -1.9,
+  "mid800_3k": -7.6,
+  "pres3k_6k": -28.0,
+  "air6k_12k": -47.6,
+  "top12k_20k": -63.2
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 7.5,
+ "flacSha256": "ad62329ec868b3dbe500e8b28339fde642f5f7a25e798b35fce1f9338dc0b90d",
+ "flacBytes": 7075857,
+ "aacSha256": "1293b3bb89cc204dee27c6c56a13206ef9601b189c2f9222c2eae911ca050915",
+ "aacBytes": 1169698,
+ "midiSha256": "d6c501d46d30c492a5d33e0b402f36f71dac3dd5704a6c9f0b61659e24717c4d",
+ "problems": [],
+ "version": 5,
+ "pianoAttackSoftenDb": 2.0,
+ "sideScale": 1.0,
+ "removedNotes": 224,
+ "pedalNotes": 114,
+ "v5": {
+  "melodyLevelSdBefore": 5.25,
+  "melodyLevelSdAfter": 0.87,
+  "melodyLevelRangeBefore": 15.5,
+  "melodyLevelRangeAfter": 3.8
+ }
+}
