@@ -20,19 +20,19 @@
 - Unknown or invalid geometry must fail conservatively.
 
 ### Task 1: Baseline and comparison harness
-- [ ] Build disposable A/B entries from pinned baseline 408c72e and branch runtime; isolate saves.
-- [ ] Add screenshot-inspired fixtures and boundary measurements in tools/home-movement-v1.
-- [ ] Record baseline geometry and test failures demonstrating unnecessary limits.
+- [x] Build disposable A/B entries from pinned baseline 408c72e and branch runtime; isolate saves.
+- [x] Add screenshot-inspired fixtures and boundary measurements in tools/home-movement-v1.
+- [x] Record baseline geometry and test failures demonstrating unnecessary limits.
 
 ### Task 2: Individual display boundaries
 Files: home-production-diorama.js, home-production-model.js only if required, tests/home-movement-bounds-test.cjs.
 Interface: pure displayWalkingBounds({base,ink,presentation,stage,safe,navigation}) returns safe bounds or original base on invalid/unsupported inputs.
-- [ ] Write failing tests for asymmetry, fixed body scale, vertical limits, missing geometry, and shared autonomous/drag use.
-- [ ] Run RED, implement minimal boundary calculation, run GREEN plus existing home regression.
-- [ ] Keep baseline presentation envelope inputs unchanged to avoid a fit/bounds feedback loop.
+- [x] Write failing tests for asymmetry, fixed body scale, vertical limits, missing geometry, and shared autonomous/drag use.
+- [x] Run RED, implement minimal boundary calculation, run GREEN plus existing home regression.
+- [x] Keep baseline presentation envelope inputs unchanged to avoid a fit/bounds feedback loop.
 
 ### Task 3: Full comparison and verification
-- [ ] Add controls, debug toggle, exact old/new bounds and measured viewport dimensions.
-- [ ] Sweep requested widths, characters, items, UI visibility, multiple actors and input modes; preserve numeric evidence.
-- [ ] Run project suite, diagnose failures against baseline, review whole diff.
-- [ ] Commit/push independent branch, create Draft PR, publish only new owner-private comparison and report results/limits.
+- [x] Add controls, debug toggle, exact old/new bounds and measured viewport dimensions.
+- [x] Sweep requested widths, characters, items, UI visibility, multiple actors and input modes; preserve numeric evidence.
+- [x] Run project suite, diagnose failures against baseline, review whole diff.
+- [x] Commit/push independent branch, create Draft PR, publish only new owner-private comparison and report results/limits.
