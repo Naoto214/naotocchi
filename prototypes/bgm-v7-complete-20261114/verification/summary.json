@@ -1,0 +1,31 @@
+{
+ "tracks": 32,
+ "melodyNotes": 3158,
+ "placements": 50,
+ "homeExactFiles": 16,
+ "remainingGroups": [
+  7,
+  7,
+  7,
+  7
+ ],
+ "lufsMaxTargetDeviation": 0.010000000000001563,
+ "highestFlacTruePeakDbtp": -4.01,
+ "highestAacTruePeakDbtp": -4.06,
+ "minimumMonoLossDb": -1.32,
+ "clippedSamples": 0,
+ "maxLimiterReductionDb": 0,
+ "minimumAacFullCorrelation": 0.9992418404974028,
+ "minimumAacChannelCorrelation": 0.9976808170138395,
+ "aacStartupLags": [
+  0
+ ],
+ "remaining28SyntheticLoops": 0,
+ "sustainedMaxTranspose": 2,
+ "productionMain": "105dba519890c2dc17e94a8c9d1b7679720fddf3",
+ "protectedPRHeads": {
+  "546": "146383829818fc986926c05700986705d7241858",
+  "547": "25c69a0a78e7f72351ffad1836ec4932760f0552",
+  "548": "c9c4b82b06b304ea19ca1b86f558fb0467daa3f8"
+ }
+}

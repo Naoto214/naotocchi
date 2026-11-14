@@ -1,0 +1,450 @@
+[
+ {
+  "id": "home-morning",
+  "aacFlacCorrelation": 0.9999430343939534,
+  "channelCorrelations": [
+   0.9999157055266502,
+   0.9999227833310926
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -4.78,
+  "aacIntegratedLUFS": -23.01,
+  "aacFrames": 3682304,
+  "flacFrames": 3681391,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "home-day",
+  "aacFlacCorrelation": 0.999935740815868,
+  "channelCorrelations": [
+   0.9999088031551546,
+   0.999907785711655
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -5.12,
+  "aacIntegratedLUFS": -23.01,
+  "aacFrames": 2646016,
+  "flacFrames": 2646000,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "home-evening",
+  "aacFlacCorrelation": 0.9998982536235549,
+  "channelCorrelations": [
+   0.9998760502881677,
+   0.9998449840041898
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -4.06,
+  "aacIntegratedLUFS": -23.01,
+  "aacFrames": 2886656,
+  "flacFrames": 2886545,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "home-night",
+  "aacFlacCorrelation": 0.999962711077096,
+  "channelCorrelations": [
+   0.999939282709755,
+   0.9999567859954219
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -5.17,
+  "aacIntegratedLUFS": -23.02,
+  "aacFrames": 2228224,
+  "flacFrames": 2228211,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "poyo-1",
+  "aacFlacCorrelation": 0.9998783355524803,
+  "channelCorrelations": [
+   0.9997895559600878,
+   0.9998920214756409
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -11.64,
+  "aacIntegratedLUFS": -26.01,
+  "aacFrames": 3387392,
+  "flacFrames": 3386880,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "koro-1",
+  "aacFlacCorrelation": 0.9998892998522104,
+  "channelCorrelations": [
+   0.9998270812306275,
+   0.999851884200262
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -6.13,
+  "aacIntegratedLUFS": -23.01,
+  "aacFrames": 3024896,
+  "flacFrames": 3024000,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "card-2",
+  "aacFlacCorrelation": 0.9998483415410673,
+  "channelCorrelations": [
+   0.9997416527437748,
+   0.9998206432017813
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -6.78,
+  "aacIntegratedLUFS": -24.02,
+  "aacFrames": 3682304,
+  "flacFrames": 3681391,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "game-1",
+  "aacFlacCorrelation": 0.9998622496134721,
+  "channelCorrelations": [
+   0.999768936134681,
+   0.9998677914198816
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -9.72,
+  "aacIntegratedLUFS": -24.02,
+  "aacFrames": 2352128,
+  "flacFrames": 2352000,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "explore-1",
+  "aacFlacCorrelation": 0.9999425705319749,
+  "channelCorrelations": [
+   0.9999329122293951,
+   0.9998887828801346
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -13.18,
+  "aacIntegratedLUFS": -25.01,
+  "aacFrames": 3528704,
+  "flacFrames": 3528000,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "event-2",
+  "aacFlacCorrelation": 0.9997986175765192,
+  "channelCorrelations": [
+   0.9997869580480863,
+   0.9996690573133657
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -5.95,
+  "aacIntegratedLUFS": -24.03,
+  "aacFrames": 2761728,
+  "flacFrames": 2761043,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "event-1",
+  "aacFlacCorrelation": 0.9998858927537241,
+  "channelCorrelations": [
+   0.9998050679421363,
+   0.9998629960818564
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -6.4,
+  "aacIntegratedLUFS": -23.02,
+  "aacFrames": 2920448,
+  "flacFrames": 2919724,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "kisetsu",
+  "aacFlacCorrelation": 0.9998904212863281,
+  "channelCorrelations": [
+   0.9998682495094132,
+   0.99983544127003
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -5.96,
+  "aacIntegratedLUFS": -24.02,
+  "aacFrames": 3938304,
+  "flacFrames": 3938233,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "ohayo",
+  "aacFlacCorrelation": 0.9998696562754439,
+  "channelCorrelations": [
+   0.9998133142831849,
+   0.9998155930570349
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -4.64,
+  "aacIntegratedLUFS": -23.02,
+  "aacFrames": 2117632,
+  "flacFrames": 2116800,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "bgm-game",
+  "aacFlacCorrelation": 0.9998757412529607,
+  "channelCorrelations": [
+   0.9998229172801772,
+   0.9998309712752881
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -10.95,
+  "aacIntegratedLUFS": -24.02,
+  "aacFrames": 2454528,
+  "flacFrames": 2454261,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "bgm-race",
+  "aacFlacCorrelation": 0.9998512995714615,
+  "channelCorrelations": [
+   0.9997584110175982,
+   0.999827844661228
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -9.47,
+  "aacIntegratedLUFS": -24.01,
+  "aacFrames": 2228224,
+  "flacFrames": 2228211,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "bgm-farewell",
+  "aacFlacCorrelation": 0.9999049984698513,
+  "channelCorrelations": [
+   0.9997889736842654,
+   0.9998962331043746
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -7.86,
+  "aacIntegratedLUFS": -25.01,
+  "aacFrames": 2823168,
+  "flacFrames": 2822400,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "poyo-2",
+  "aacFlacCorrelation": 0.9999537998754287,
+  "channelCorrelations": [
+   0.9999273593464939,
+   0.9999209719573408
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -16.53,
+  "aacIntegratedLUFS": -27.01,
+  "aacFrames": 3663872,
+  "flacFrames": 3663692,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "game-2",
+  "aacFlacCorrelation": 0.9998889714473359,
+  "channelCorrelations": [
+   0.9998473600913177,
+   0.9998541899436179
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -9.79,
+  "aacIntegratedLUFS": -24.01,
+  "aacFrames": 2646016,
+  "flacFrames": 2646000,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "explore-2",
+  "aacFlacCorrelation": 0.9999483375162596,
+  "channelCorrelations": [
+   0.9999448738073432,
+   0.9998985532807193
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -12.51,
+  "aacIntegratedLUFS": -24.01,
+  "aacFrames": 3136512,
+  "flacFrames": 3136000,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "board-b",
+  "aacFlacCorrelation": 0.9999069717922756,
+  "channelCorrelations": [
+   0.9998021955488414,
+   0.9999025600069846
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -10.45,
+  "aacIntegratedLUFS": -27.01,
+  "aacFrames": 3528704,
+  "flacFrames": 3528000,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "fishing-a",
+  "aacFlacCorrelation": 0.9998437285786201,
+  "channelCorrelations": [
+   0.9998487366362945,
+   0.9997224266478287
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -8.27,
+  "aacIntegratedLUFS": -27.01,
+  "aacFrames": 2016256,
+  "flacFrames": 2016000,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "lullaby-a",
+  "aacFlacCorrelation": 0.9999233907920728,
+  "channelCorrelations": [
+   0.9998954515884789,
+   0.9998753194946897
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -11.05,
+  "aacIntegratedLUFS": -31.01,
+  "aacFrames": 2016256,
+  "flacFrames": 2016000,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "jingle-achieve",
+  "aacFlacCorrelation": 0.9997631139570042,
+  "channelCorrelations": [
+   0.9995061799531628,
+   0.9997545100942461
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -5.44,
+  "aacIntegratedLUFS": -23.03,
+  "aacFrames": 406528,
+  "flacFrames": 405720,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "jingle-card-lose",
+  "aacFlacCorrelation": 0.9992418404974028,
+  "channelCorrelations": [
+   0.9976808170138395,
+   0.9995788478345828
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -6.39,
+  "aacIntegratedLUFS": -24.03,
+  "aacFrames": 274432,
+  "flacFrames": 273420,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "var-poyo-clear",
+  "aacFlacCorrelation": 0.9996776381370875,
+  "channelCorrelations": [
+   0.9995067245986312,
+   0.9995828013906342
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -11.12,
+  "aacIntegratedLUFS": -25.98,
+  "aacFrames": 477184,
+  "flacFrames": 476280,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "var-poyo-chapter",
+  "aacFlacCorrelation": 0.9999033399615839,
+  "channelCorrelations": [
+   0.9998537465563884,
+   0.9998794452105765
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -9.87,
+  "aacIntegratedLUFS": -25.01,
+  "aacFrames": 2117632,
+  "flacFrames": 2116800,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "var-koro-goal",
+  "aacFlacCorrelation": 0.9997841414293536,
+  "channelCorrelations": [
+   0.9996056761833966,
+   0.9997633467374372
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -6.68,
+  "aacIntegratedLUFS": -23.01,
+  "aacFrames": 431104,
+  "flacFrames": 430920,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "var-koro-album",
+  "aacFlacCorrelation": 0.9999083086340386,
+  "channelCorrelations": [
+   0.9998211729804073,
+   0.9999019475531925
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -6.56,
+  "aacIntegratedLUFS": -25.01,
+  "aacFrames": 2016256,
+  "flacFrames": 2016000,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "var-card-late",
+  "aacFlacCorrelation": 0.9998540053197524,
+  "channelCorrelations": [
+   0.9997869907821083,
+   0.9998086365429146
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -5.59,
+  "aacIntegratedLUFS": -24.02,
+  "aacFrames": 3257344,
+  "flacFrames": 3256615,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "var-card-win",
+  "aacFlacCorrelation": 0.9993912900635161,
+  "channelCorrelations": [
+   0.9983368956547595,
+   0.9996364376432796
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -9.5,
+  "aacIntegratedLUFS": -24.03,
+  "aacFrames": 360448,
+  "flacFrames": 359703,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "var-flight",
+  "aacFlacCorrelation": 0.9999522016433516,
+  "channelCorrelations": [
+   0.9999463731943157,
+   0.9999088227244503
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -12.68,
+  "aacIntegratedLUFS": -24.01,
+  "aacFrames": 2823168,
+  "flacFrames": 2822400,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ },
+ {
+  "id": "var-ohayo-hatch2",
+  "aacFlacCorrelation": 0.9998263344616787,
+  "channelCorrelations": [
+   0.9997516413009435,
+   0.9997126001207314
+  ],
+  "startupLagFrames": 0,
+  "aacTruePeakDbtp": -6.41,
+  "aacIntegratedLUFS": -19.03,
+  "aacFrames": 297984,
+  "flacFrames": 297675,
+  "method": "FFmpeg MP4 priming applied, full-length zero-lag correlation + four-second FFT timing"
+ }
+]
