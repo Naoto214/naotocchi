@@ -24,3 +24,7 @@ Plan: docs/superpowers/plans/2026-11-14-bgm-v6.md.
 - kisetsu, ohayo, bgm-game, bgm-race, bgm-farewell, poyo-2, game-2 rendered and verified (7/7).
 - V5 original 64 audio hashes verified. Chromium mobile viewport player tests passed; WebKit dependencies being installed.
 - 32-track nine-aspect score analysis exported to ANALYSIS.md; 18 rendered-pair measurements in VALIDATION.md/measurements.json.
+
+## Group 4 checkpoint
+- explore-2, board-b, fishing-a, lullaby-a, jingle-achieve, jingle-card-lose, var-poyo-clear rendered and verified (7/7).
+- System WebKit libraries are unavailable; required Debian packages extracted to task-local work/ only for browser validation.

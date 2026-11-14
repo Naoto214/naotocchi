@@ -1,0 +1,107 @@
+{
+ "id": "jingle-card-lose",
+ "title": "つぎは かつぞ",
+ "family": "card",
+ "loop": false,
+ "sampleRate": 44100,
+ "frames": 273420,
+ "seconds": 6.2,
+ "flacFrames": 273420,
+ "aacDecodedFrames": 274432,
+ "integratedLUFS": -24.0,
+ "targetLUFS": -24,
+ "truePeakDbtp": -5.34,
+ "samplePeakDbfs": -5.34,
+ "clippedSamples": 0,
+ "monoLossDb": -1.2,
+ "sideToMidDb": -5.0,
+ "aacFlacCorrelation": 0.9997,
+ "loopJoinJump": 0.00033,
+ "loopJoinTypicalStep999": 0.05013,
+ "bands": {
+  "centroidHz": 728,
+  "low40_250": -6.1,
+  "lowmid250_800": -3.7,
+  "mid800_3k": -5.0,
+  "pres3k_6k": -23.1,
+  "air6k_12k": -45.1,
+  "top12k_20k": -60.2
+ },
+ "roleGainsDb": {
+  "bass": -18.6,
+  "accompaniment": -9.7,
+  "pad": 1.7
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   0.4,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 722,
+  "low40_250": -6.0,
+  "lowmid250_800": -3.7,
+  "mid800_3k": -5.0,
+  "pres3k_6k": -23.4,
+  "air6k_12k": -45.2,
+  "top12k_20k": -60.1
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 1.0,
+ "flacSha256": "6284022a5984bc948f5e4ea446e6fe1e63ef42ce1b0848bd8a5f308363443399",
+ "flacBytes": 800076,
+ "aacSha256": "ae85bec5442170dabf3e13589ffc1dba2b0453a8edca489ec3739a44b3dd06da",
+ "aacBytes": 144714,
+ "midiSha256": "d2b04d8c4596f63bffa1d5cfbf8c97fbc1da65d5917e4994a6f669e756975c5d",
+ "problems": [],
+ "version": 6,
+ "sourceFingerprint": "a084bf9298710d7ec96c9ac0047e23439da4f6d643cb71bfdff642b15f90ff8b",
+ "v6": {
+  "method": "explicit phrase curves and existing voice windows",
+  "profile": {
+   "loop": false,
+   "arc": [
+    [
+     0,
+     0.25
+    ],
+    [
+     0.8,
+     -0.1
+    ],
+    [
+     2,
+     -0.6
+    ]
+   ],
+   "voiceWindows": [],
+   "change": "最初の悔しさから静かに落ち着く短い終止。",
+   "analysis": [
+    "旋律: 6音、最高音MIDI 84。発音順・音高・時刻・長さは保存。",
+    "頂点・強弱: 最初の悔しさから静かに落ち着く短い終止。",
+    "和声: 和声は変更せず語尾を柔らかく。音高の再生成は行わない。",
+    "バランス: V5の音域別補正を保持。伴奏の強弱は旋律の約半分、低音はさらに小さく。",
+    "対旋律: 新設しない。既存旋律と和声で十分なため。",
+    "掛け合い: 新しい対旋律は不要。",
+    "反復: 既存の1周構成を保持。",
+    "長時間の心地よさ: 用途別LUFSを保持し、強い圧縮や高域の追加で盛り上げない。聴感は試聴で評価。",
+    "ループ: 一度きりの終止。既存の残響長と末尾フェードを保持。"
+   ]
+  },
+  "newNotes": 0,
+  "baseline": "0cf8100d3ad85888f5e32f670a56631ecb4e82ce"
+ },
+ "pianoAttackSoftenDb": 0.0,
+ "sideScale": 0.723,
+ "removedNotes": 2,
+ "pedalNotes": 0,
+ "v5": {
+  "melodyLevelSdBefore": 2.45,
+  "melodyLevelSdAfter": 0.54,
+  "melodyLevelRangeBefore": 6.2,
+  "melodyLevelRangeAfter": 1.8
+ }
+}
