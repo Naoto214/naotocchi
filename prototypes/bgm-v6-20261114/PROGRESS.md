@@ -48,3 +48,10 @@ Plan: docs/superpowers/plans/2026-11-14-bgm-v6.md.
 - Playtest prepared and scope-verified: V5 archive + fixed V6 comparison audio, 32 runtime replacements, catalog cache references (including subapps), V5 comparison points at preserved V5.
 - Final review Important items resolved. Physical iPhone and subjective listening remain unverified; see BROWSER.md.
 - Publication metadata check found catalog sha256 still pointed to V5 although playback URL already used V6. Added failing hash assertion, updated all catalog SHA-256 fields, verified GREEN; runtime fields remain unchanged. Follow-up playtest commit before final live verification.
+
+## Completed / publication verified
+- Playtest commit: 9020b5f3e6763e4eb980db73c3450894a43f01d2; GitHub Pages run 43549142729 success.
+- Fixed URL https://naoto214.github.io/naotocchi-playtest/bgm-v6/ served expected bytes. All 96 published audio hashes + 3 comparison files verified; V5 comparison and catalog intact. Evidence: verification/live-published.json.
+- Direct live Playwright navigation blocked by this environment's CA trust; TLS checks retained. Equivalent local published bytes passed Chromium/WebKit controls and all 64 decodes. Physical iPhone remains untested.
+- Production main remains 105dba519890c2dc17e94a8c9d1b7679720fddf3; V5 remains 0cf8100d3ad85888f5e32f670a56631ecb4e82ce.
+- Draft PR #546 remains draft; no production merge performed. All authorized stages complete; listening approval remains with the owner.

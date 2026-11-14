@@ -24,3 +24,9 @@ python prototypes/bgm-v6-20261114/tools/verify_v6.py --home
 ## 継承した再生成上の注意
 
 V2のサンプル変換キャッシュは要求長をキーに含めず、同一プロセス内の先行音の長さに影響される場合がある。このため単曲生成・途中再開と、初回のグループ生成では余韻の一部がビット単位で一致しない可能性がある。今回の32原盤は指定グループで検証済みであり、保存された原盤とSHA-256を基準とする。保護対象V2の音づくりをこの作業で変更せず、将来の制作基盤改善として記録した。
+
+## 試聴・公開
+
+- [V5/V6固定比較](https://naoto214.github.io/naotocchi-playtest/bgm-v6/)
+- [独立Draft PR #546](https://github.com/Naoto214/naotocchi/pull/546)
+- 試遊版のみV6へ更新。本番mainへのマージなし。公開配信の照合記録は `verification/live-published.json`。
