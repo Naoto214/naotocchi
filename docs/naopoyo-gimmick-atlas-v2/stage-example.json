@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "registryVersion": "2.0.0-draft",
+  "rulesetVersion": "time-hand-D-supported-v1-contact-v2",
+  "board": {
+    "width": 8,
+    "height": 8,
+    "gravity": false
+  },
+  "metadata": {
+    "title": "データ契約の例・解法未検証",
+    "authorNote": "非公開の設計用fixture"
+  },
+  "instances": [
+    {
+      "instanceId": "floor-a",
+      "catalogId": "terrain.floor",
+      "x": 1,
+      "y": 1,
+      "layer": "ground",
+      "params": {}
+    },
+    {
+      "instanceId": "floor-b",
+      "catalogId": "terrain.floor",
+      "x": 2,
+      "y": 1,
+      "layer": "ground",
+      "params": {}
+    },
+    {
+      "instanceId": "exit-a",
+      "catalogId": "fixture.exit",
+      "x": 2,
+      "y": 1,
+      "layer": "fixture",
+      "params": {}
+    }
+  ],
+  "links": [],
+  "startActors": [
+    {
+      "id": "parent",
+      "x": 1,
+      "y": 1,
+      "species": "dog",
+      "level": 1
+    }
+  ],
+  "exits": [
+    "exit-a"
+  ],
+  "routes": [],
+  "effectGroups": [],
+  "logicNodes": []
+}

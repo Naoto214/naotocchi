@@ -1,0 +1,399 @@
+{
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "registryVersion": {
+      "const": "2.0.0-draft"
+    },
+    "rulesetVersion": {
+      "const": "time-hand-D-supported-v1-contact-v2"
+    },
+    "board": {
+      "type": "object",
+      "properties": {
+        "width": {
+          "const": 8
+        },
+        "height": {
+          "const": 8
+        },
+        "gravity": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "width",
+        "height",
+        "gravity"
+      ],
+      "additionalProperties": false
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "maxLength": 60
+        },
+        "authorNote": {
+          "type": "string",
+          "maxLength": 500
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "instances": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "instanceId": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "catalogId": {
+            "enum": [
+              "terrain.floor",
+              "terrain.wall",
+              "scenery.lamp",
+              "scenery.tree",
+              "scenery.grass",
+              "sign.gravity",
+              "fixture.spike",
+              "fixture.gate",
+              "fixture.exit",
+              "fixture.plate.hold",
+              "fixture.plate.weight",
+              "fixture.latch",
+              "fixture.sequence",
+              "fixture.door",
+              "fixture.platform",
+              "fixture.crumble",
+              "object.boulder",
+              "object.crate",
+              "fixture.oneway",
+              "terrain.water",
+              "field.current",
+              "field.wave",
+              "field.bubble",
+              "field.waterlevel",
+              "terrain.ice",
+              "field.wind",
+              "field.updraft",
+              "fixture.warp",
+              "fixture.phase",
+              "fixture.toggle",
+              "fixture.signalLamp",
+              "terrain.soil",
+              "terrain.tunnel",
+              "fixture.burrow",
+              "field.cavein",
+              "fixture.rotor",
+              "fixture.beam",
+              "fixture.mirror",
+              "vehicle.boat",
+              "vehicle.cart",
+              "npc.owl",
+              "npc.bear",
+              "npc.otter",
+              "npc.squirrel",
+              "npc.penguin"
+            ]
+          },
+          "x": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 7
+          },
+          "y": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 7
+          },
+          "layer": {
+            "enum": [
+              "ground",
+              "solid",
+              "medium",
+              "field",
+              "fixture",
+              "object",
+              "decoration",
+              "npc"
+            ]
+          },
+          "params": {
+            "type": "object",
+            "maxProperties": 8,
+            "propertyNames": {
+              "enum": [
+                "orientation",
+                "pairId",
+                "groupId",
+                "exact",
+                "min",
+                "max",
+                "phase",
+                "routeId"
+              ]
+            },
+            "additionalProperties": {
+              "type": [
+                "string",
+                "integer",
+                "boolean"
+              ]
+            }
+          }
+        },
+        "required": [
+          "instanceId",
+          "catalogId",
+          "x",
+          "y",
+          "layer",
+          "params"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 256,
+      "minItems": 0
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "from",
+          "fromPort",
+          "to",
+          "toPort",
+          "type"
+        ],
+        "properties": {
+          "from": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "fromPort": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "to": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "toPort": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "type": {
+            "enum": [
+              "boolean",
+              "event",
+              "phase"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "maxItems": 64,
+      "minItems": 0
+    },
+    "startActors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "x": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 7
+          },
+          "y": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 7
+          },
+          "species": {
+            "const": "dog"
+          },
+          "level": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 8
+          }
+        },
+        "required": [
+          "id",
+          "x",
+          "y",
+          "species",
+          "level"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 7,
+      "minItems": 1
+    },
+    "exits": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 80
+      },
+      "maxItems": 7,
+      "minItems": 1
+    },
+    "routes": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "cells",
+          "mode"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "cells": {
+            "type": "array",
+            "maxItems": 64,
+            "items": {
+              "type": "object",
+              "required": [
+                "x",
+                "y"
+              ],
+              "properties": {
+                "x": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 7
+                },
+                "y": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 7
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "mode": {
+            "enum": [
+              "one-shot",
+              "ping-pong"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "effectGroups": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "memberIds",
+          "routeId",
+          "phaseOffsets",
+          "periodTurns"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "memberIds": {
+            "type": "array",
+            "maxItems": 64,
+            "items": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          "routeId": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "phaseOffsets": {
+            "type": "array",
+            "maxItems": 64,
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 63
+            }
+          },
+          "periodTurns": {
+            "type": "integer",
+            "minimum": 2,
+            "maximum": 16
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "logicNodes": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "op",
+          "inputCount"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "op": {
+            "enum": [
+              "AND",
+              "OR",
+              "NOT"
+            ]
+          },
+          "inputCount": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "registryVersion",
+    "rulesetVersion",
+    "board",
+    "metadata",
+    "instances",
+    "links",
+    "startActors",
+    "exits",
+    "routes",
+    "effectGroups",
+    "logicNodes"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

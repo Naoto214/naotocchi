@@ -1,0 +1,28 @@
+✔ ten independent stages with all-actor escape (2.142109ms)
+✔ archived V4 partner starts in the rock room and retry restores the same ordinary board (2.54281ms)
+✔ undo groups a whole stroke and save replays safely (2.174035ms)
+✔ species mass remains equal regardless of rescue order (0.422693ms)
+✔ all genuine V2 witness save prefixes restore without dropping action or Undo history (80.033392ms)
+✔ non-split engine source is identical to official main implementation (0.456443ms)
+✔ V6 01: cannot finish without move (3.787375ms)
+✔ V6 02: cannot finish without rear (2.843873ms)
+✔ V6 03: cannot finish without line (0.902881ms)
+✔ V6 04: cannot finish without turn (1.32234ms)
+✔ V6 05: cannot finish without merge (115.389221ms)
+✔ V6 06: cannot finish without fall (0.747071ms)
+✔ V6 07: cannot finish without support (1.68917ms)
+✔ V6 08: cannot finish without diagonalSplit (0.471135ms)
+✔ V6 09: cannot finish without split (0.996119ms)
+✔ V6 09: cannot finish without fallMerge (0.560917ms)
+✔ V6 10: cannot finish without split (0.350447ms)
+✔ V6 10: cannot finish without turn (0.221857ms)
+✔ V6 10: cannot finish without merge (0.236759ms)
+✔ V6 10: cannot finish without fall (0.375454ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 300.553696
