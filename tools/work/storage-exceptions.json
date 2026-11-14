@@ -62,5 +62,21 @@
   "docs/life-sugoroku/qa/v3-region-sea.png": {
     "sha256": "79aae94833fc5d0643647a031426679b00dacd63617ca46f1f8a2c909ef44e56",
     "reason": "PR #461のV1〜V3で保存済みの盤面・表示検証証拠。V4仕様に従い過去成果を削除・移動せず原本のまま保持。新規V4の比較画像は本人限定QAファイルへ保存。"
+  },
+  "docs/life-sugoroku/qa/v7/knock-320.png": {
+    "sha256": "8c71f6fa68f0f7abbdcbbb159cb9fdf6388d9d3a544fe1f9341baea889d21cd4",
+    "reason": "本人依頼の正式150ゲーム移植、第1段階クイック50/50の恒久検証証跡。Chromium幅320pxの正式canvas表示・実入力確認。PR #553の段階報告と再開用に保存。"
+  },
+  "docs/life-sugoroku/qa/v7/knock-375.png": {
+    "sha256": "2e03fa964964e7b1d1fcc8283f5e028cf367ce975c3e514f895d92d706fa6e24",
+    "reason": "本人依頼の正式150ゲーム移植、第1段階クイック50/50の恒久検証証跡。Chromium幅375pxの正式canvas表示・実入力確認。PR #553の段階報告と再開用に保存。"
+  },
+  "docs/life-sugoroku/qa/v7/knock-390.png": {
+    "sha256": "9252baffc6280e3abe43711a7916ca8366064fa176cf3732e3129156ff7e2e5d",
+    "reason": "本人依頼の正式150ゲーム移植、第1段階クイック50/50の恒久検証証跡。Chromium幅390pxの正式canvas表示・実入力確認。PR #553の段階報告と再開用に保存。"
+  },
+  "docs/life-sugoroku/qa/v7/knock-430.png": {
+    "sha256": "e6f93654127ddb3f08a8c6496d3826c2080fb115cc366a6d8c9014f94954d99a",
+    "reason": "本人依頼の正式150ゲーム移植、第1段階クイック50/50の恒久検証証跡。Chromium幅430pxの正式canvas表示・実入力確認。PR #553の段階報告と再開用に保存。"
   }
 }

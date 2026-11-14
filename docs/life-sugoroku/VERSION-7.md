@@ -86,3 +86,7 @@ node tools/life-sugoroku/package-v7-qa.mjs /absolute/empty/development-output
 ```
 
 保存済みHEADはPRのhead_shaを参照。完成済み60種と本段階の5種は再実装しない。次段階も別commit、成績・保存・ブラウザー検証後にのみ登録する。mainマージ・本番Pages公開は禁止を継続する。
+
+## CIの保存証跡登録
+
+42a078eeのWork storage guardは、新規QAスクリーンショット4枚の恒久保存登録不足で失敗した。ゲーム動作の失敗ではない。既存例外を保持し、tools/work/storage-exceptions.jsonへ4パスの正確なSHA256と本人依頼の検証証跡としての保存理由を追加。ガード自体や本番allowlistは緩和していない。試遊版のゲームコード・テスト証跡は42a078eeと同一で、この追記は保存登録と資料のみ。
