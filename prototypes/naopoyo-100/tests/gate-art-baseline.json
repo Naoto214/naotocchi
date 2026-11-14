@@ -1,0 +1,28 @@
+[
+  {
+    "gate": {
+      "x": 0,
+      "y": 0,
+      "exact": 2
+    },
+    "hash": "c1b3e1e3058636bcbef1ec4b8d513190fc1c26bf0c8289b92cb1dc859ddb6a88"
+  },
+  {
+    "gate": {
+      "x": 2,
+      "y": 4,
+      "exact": 8,
+      "pulse": 0.5
+    },
+    "hash": "09f9d61b3d52a68d5e25821fdff3b833afcc89e42f7cf0d3254888fd1a911f3b"
+  },
+  {
+    "gate": {
+      "x": 1,
+      "y": 3,
+      "exact": 4,
+      "occupied": true
+    },
+    "hash": "dfd0cad923a7a920998e37e6d0303f1320212a5b3cb04b7c82e32f26fcf6f201"
+  }
+]

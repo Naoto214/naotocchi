@@ -1,0 +1,130 @@
+[
+  {
+    "variant": "F1",
+    "solution": {
+      "status": "shortest",
+      "solution": [
+        {
+          "type": "move",
+          "id": "f",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "type": "move",
+          "id": "g",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "type": "move",
+          "id": "f",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "type": "move",
+          "id": "f",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "type": "move",
+          "id": "f",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "type": "move",
+          "id": "f",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "type": "move",
+          "id": "g",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "type": "move",
+          "id": "g",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "type": "move",
+          "id": "g",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "type": "move",
+          "id": "g",
+          "dx": 1,
+          "dy": 0
+        }
+      ],
+      "expanded": 42
+    },
+    "groundSwitchBan": {
+      "status": "exhausted",
+      "expanded": 2
+    }
+  },
+  {
+    "variant": "F2",
+    "solution": {
+      "status": "shortest",
+      "solution": [
+        {
+          "type": "move",
+          "id": "g",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "type": "move",
+          "id": "f",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "type": "move",
+          "id": "f",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "type": "move",
+          "id": "g",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "type": "move",
+          "id": "g",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "type": "move",
+          "id": "g",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "type": "move",
+          "id": "g",
+          "dx": 1,
+          "dy": 0
+        }
+      ],
+      "expanded": 17
+    },
+    "groundSwitchBan": {
+      "status": "exhausted",
+      "expanded": 1
+    }
+  }
+]

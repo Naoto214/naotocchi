@@ -1,0 +1,52 @@
+name: Naopoyo V4 comparison
+on:
+  pull_request:
+    paths:
+      - 'prototypes/naopoyo-100/v4/**'
+      - 'docs/naopoyo-100-v4/**'
+      - 'docs/naopoyo-100-v5/**'
+      - 'docs/naopoyo-100-v6/**'
+      - '.github/workflows/naopoyo-v4-comparison.yml'
+permissions:
+  contents: read
+jobs:
+  comparison:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            prototypes/naopoyo-100
+            prototypes/naopoyo-v2
+            prototypes/naopoyo-rescue
+            prototypes/naopoyo-world
+            prototypes/naopoyo-chapter1
+            prototypes/naopoyo-chapter2
+            prototypes/naopoyo-shared
+            prototypes/naopoyo-time-hand-chapter1
+            docs/naopoyo-100-v1
+            docs/naopoyo-100-v2
+            docs/naopoyo-100-v3
+            docs/naopoyo-100-v4
+            tools/pages
+            docs/naopoyo-100-v6
+            docs/naopoyo-100-v5
+            docs/naopoyo-time-hand-chapter1-20261102
+            docs/naopoyo-gimmick-atlas-v2
+            tests
+            assets/characters
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: node --test tests/puzzle-*.test.mjs prototypes/naopoyo-100/tests/*.test.mjs prototypes/naopoyo-time-hand-chapter1/tests/*.test.mjs prototypes/naopoyo-100/v4/tests/*.test.mjs prototypes/naopoyo-100/v4/v5/tests/*.test.mjs prototypes/naopoyo-100/v4/v6/tests/*.test.mjs
+      - name: Install isolated native Canvas test dependency
+        run: npm install --prefix "$RUNNER_TEMP/v5-canvas" --no-save --package-lock=false --ignore-scripts @napi-rs/canvas@0.1.100 jsdom@26.1.0
+      - name: Check material previews and synthetic editor events
+        env:
+          NODE_PATH: ${{ runner.temp }}/v5-canvas/node_modules
+        run: |
+          node prototypes/naopoyo-100/v4/v5/tests/images.cjs
+          node prototypes/naopoyo-100/v4/v5/tests/ui-smoke.cjs
+          node prototypes/naopoyo-100/v4/v6/tests/images.cjs
+          node prototypes/naopoyo-100/v4/v6/tests/ui-smoke.cjs
+          node prototypes/naopoyo-100/v4/v6/tests/lab-ui-smoke.cjs

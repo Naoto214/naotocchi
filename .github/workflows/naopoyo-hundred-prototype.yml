@@ -1,0 +1,35 @@
+name: Naopoyo Hundred Prototype
+on:
+  pull_request:
+    paths:
+      - 'prototypes/naopoyo-100/**'
+      - 'prototypes/naopoyo-shared/**'
+      - 'docs/naopoyo-gimmick-atlas-v2/**'
+      - 'prototypes/naopoyo-time-hand-chapter1/**'
+      - 'prototypes/naopoyo-chapter1/**'
+      - 'prototypes/naopoyo-chapter2/**'
+      - 'prototypes/naopoyo-rescue/**'
+      - 'tests/puzzle-*.test.mjs'
+      - 'docs/naopoyo-100-v1/**'
+      - 'docs/naopoyo-100-v2/**'
+      - 'docs/naopoyo-100-v3/**'
+      - 'docs/naopoyo-100-v3/**'
+      - '.github/workflows/naopoyo-hundred-prototype.yml'
+permissions:
+  contents: read
+jobs:
+  prototype:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /prototypes/naopoyo*/
+            /tests/puzzle-*.test.mjs
+            /docs/naopoyo*/
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Replay all stages, picture book, regression and protection
+        run: node --test tests/puzzle-*.test.mjs prototypes/naopoyo-100/tests/*.test.mjs prototypes/naopoyo-time-hand-chapter1/tests/*.test.mjs

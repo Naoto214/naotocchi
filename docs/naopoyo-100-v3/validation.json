@@ -1,0 +1,4502 @@
+{
+  "version": "naopoyo-100-v3",
+  "counts": {
+    "stages": 100,
+    "replayed": 100,
+    "shortest": 100,
+    "weightedWitnesses": 0,
+    "authoredWitnesses": 0,
+    "changed": 22,
+    "reordered": 91
+  },
+  "limits": {
+    "necessity": {
+      "nodes": 12000,
+      "depth": 90
+    }
+  },
+  "materialAppearances": {
+    "terrain.wall": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34",
+      "35",
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "44",
+      "45",
+      "46",
+      "47",
+      "48",
+      "49",
+      "50",
+      "51",
+      "52",
+      "53",
+      "54",
+      "55",
+      "56",
+      "57",
+      "58",
+      "59",
+      "60",
+      "61",
+      "62",
+      "63",
+      "64",
+      "65",
+      "66",
+      "67",
+      "68",
+      "69",
+      "70",
+      "71",
+      "72",
+      "73",
+      "74",
+      "75",
+      "76",
+      "77",
+      "78",
+      "79",
+      "80",
+      "81",
+      "82",
+      "83",
+      "84",
+      "85",
+      "86",
+      "87",
+      "88",
+      "89",
+      "90",
+      "91",
+      "92",
+      "93",
+      "94",
+      "95",
+      "96",
+      "97",
+      "98",
+      "99",
+      "100"
+    ],
+    "terrain.floor": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34",
+      "35",
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "44",
+      "45",
+      "46",
+      "47",
+      "48",
+      "49",
+      "50",
+      "51",
+      "52",
+      "53",
+      "54",
+      "55",
+      "56",
+      "57",
+      "58",
+      "59",
+      "60",
+      "61",
+      "62",
+      "63",
+      "64",
+      "65",
+      "66",
+      "67",
+      "68",
+      "69",
+      "70",
+      "71",
+      "72",
+      "73",
+      "74",
+      "75",
+      "76",
+      "77",
+      "78",
+      "79",
+      "80",
+      "81",
+      "82",
+      "83",
+      "84",
+      "85",
+      "86",
+      "87",
+      "88",
+      "89",
+      "90",
+      "91",
+      "92",
+      "93",
+      "94",
+      "95",
+      "96",
+      "97",
+      "98",
+      "99",
+      "100"
+    ],
+    "fixture.exit": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34",
+      "35",
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "44",
+      "45",
+      "46",
+      "47",
+      "48",
+      "49",
+      "50",
+      "51",
+      "52",
+      "53",
+      "54",
+      "55",
+      "56",
+      "57",
+      "58",
+      "59",
+      "60",
+      "61",
+      "62",
+      "63",
+      "64",
+      "65",
+      "66",
+      "67",
+      "68",
+      "69",
+      "70",
+      "71",
+      "72",
+      "73",
+      "74",
+      "75",
+      "76",
+      "77",
+      "78",
+      "79",
+      "80",
+      "81",
+      "82",
+      "83",
+      "84",
+      "85",
+      "86",
+      "87",
+      "88",
+      "89",
+      "90",
+      "91",
+      "92",
+      "93",
+      "94",
+      "95",
+      "96",
+      "97",
+      "98",
+      "99",
+      "100"
+    ],
+    "sign.gravity": [
+      "02",
+      "21",
+      "23",
+      "26",
+      "31",
+      "32",
+      "45",
+      "56",
+      "57",
+      "60",
+      "61",
+      "62",
+      "73",
+      "74",
+      "75",
+      "84",
+      "86",
+      "91"
+    ],
+    "fixture.plate.hold": [
+      "03",
+      "63",
+      "81",
+      "84",
+      "94"
+    ],
+    "fixture.door": [
+      "03",
+      "07",
+      "18",
+      "38",
+      "46",
+      "48",
+      "55",
+      "59",
+      "63",
+      "67",
+      "68",
+      "69",
+      "77",
+      "78",
+      "79",
+      "80",
+      "81",
+      "84",
+      "85",
+      "87",
+      "88",
+      "89",
+      "90",
+      "92",
+      "93",
+      "94",
+      "95",
+      "97",
+      "98",
+      "99",
+      "100"
+    ],
+    "fixture.gate": [
+      "04",
+      "08",
+      "15",
+      "26",
+      "27",
+      "33",
+      "42",
+      "49",
+      "71",
+      "76",
+      "80",
+      "82",
+      "83"
+    ],
+    "fixture.warp": [
+      "05",
+      "20",
+      "37",
+      "41",
+      "50",
+      "52",
+      "74",
+      "82",
+      "89",
+      "96"
+    ],
+    "fixture.latch": [
+      "07",
+      "48",
+      "55",
+      "68",
+      "69",
+      "77",
+      "80",
+      "81",
+      "87",
+      "88",
+      "89",
+      "90",
+      "93",
+      "94",
+      "95",
+      "98",
+      "99"
+    ],
+    "terrain.ice": [
+      "10",
+      "13",
+      "28",
+      "31",
+      "33",
+      "47",
+      "51",
+      "64",
+      "71",
+      "87",
+      "94",
+      "96"
+    ],
+    "fixture.oneway": [
+      "11",
+      "33",
+      "43",
+      "53",
+      "64",
+      "65",
+      "66",
+      "88"
+    ],
+    "field.wind": [
+      "12",
+      "19",
+      "30",
+      "43",
+      "44",
+      "88"
+    ],
+    "fixture.burrow": [
+      "14",
+      "54",
+      "82",
+      "96",
+      "99",
+      "100"
+    ],
+    "terrain.tunnel": [
+      "14",
+      "82",
+      "96",
+      "100"
+    ],
+    "fixture.spike": [
+      "15",
+      "25",
+      "43",
+      "49",
+      "51",
+      "54",
+      "60",
+      "69",
+      "70",
+      "71",
+      "72",
+      "73",
+      "74",
+      "75",
+      "76",
+      "77",
+      "82",
+      "83",
+      "86",
+      "87",
+      "88",
+      "89",
+      "90",
+      "94",
+      "96",
+      "97",
+      "98"
+    ],
+    "terrain.water": [
+      "16",
+      "17",
+      "24",
+      "32",
+      "34",
+      "39",
+      "40",
+      "42",
+      "52",
+      "73",
+      "74",
+      "76",
+      "83",
+      "90",
+      "98"
+    ],
+    "field.current": [
+      "17",
+      "24",
+      "39",
+      "42",
+      "76",
+      "90",
+      "98"
+    ],
+    "fixture.toggle": [
+      "18",
+      "55",
+      "68"
+    ],
+    "field.updraft": [
+      "21",
+      "45",
+      "75"
+    ],
+    "object.crate": [
+      "22",
+      "28",
+      "30",
+      "35",
+      "37",
+      "46",
+      "59",
+      "70",
+      "72",
+      "79",
+      "95",
+      "100"
+    ],
+    "fixture.phase": [
+      "29",
+      "42",
+      "58",
+      "66",
+      "77",
+      "85",
+      "98"
+    ],
+    "field.bubble": [
+      "32",
+      "73",
+      "74"
+    ],
+    "field.wave": [
+      "34",
+      "42",
+      "98"
+    ],
+    "fixture.sequence": [
+      "38",
+      "78",
+      "92",
+      "97"
+    ],
+    "scenery.lamp": [
+      "41"
+    ],
+    "fixture.plate.weight": [
+      "46",
+      "59",
+      "79",
+      "93",
+      "95",
+      "100"
+    ],
+    "fixture.crumble": [
+      "56",
+      "84"
+    ],
+    "npc.owl": [
+      "67",
+      "85",
+      "100"
+    ],
+    "fixture.signalLamp": [
+      "80"
+    ]
+  },
+  "stages": {
+    "10": {
+      "number": 10,
+      "previousNumber": 10,
+      "title": "白い曲がり角",
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 8,
+        "discovered": 9,
+        "limit": 40000,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5
+      },
+      "boardHash": "16826492cc7aedb7ac0206f6016aaf0e03af7ab68bd447cd71842a5acb368f30",
+      "primaryRequirement": {
+        "label": "terrain.iceの効果を禁止",
+        "status": "exhausted",
+        "expanded": 3,
+        "discovered": 3,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "terrain.ice": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "fingerprint": "terrain.ice → rescue"
+    },
+    "11": {
+      "number": 12,
+      "previousNumber": 11,
+      "title": "壁まで届く風",
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 7,
+        "discovered": 9,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "73b971836eea657cd65965818d17171debcb11a049e8673ae60d44f19c96cdc0",
+      "primaryRequirement": {
+        "label": "field.windの効果を禁止",
+        "status": "exhausted",
+        "expanded": 4,
+        "discovered": 4,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "field.wind": 2,
+        "rescue": 1
+      },
+      "touched": [
+        "field.wind",
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "fingerprint": "field.wind → rescue"
+    },
+    "12": {
+      "number": 5,
+      "previousNumber": 12,
+      "title": "離れた石環",
+      "proof": "shortest",
+      "commands": 4,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 4,
+        "discovered": 5,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 4,
+        "solutionLength": 4,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "e56e19248879fc235b1b05d0447399b8d0d4fadb7ed0c88dbde462c13fa60743",
+      "primaryRequirement": {
+        "label": "fixture.warpの効果を禁止",
+        "status": "exhausted",
+        "expanded": 2,
+        "discovered": 2,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "fixture.warp": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.warp",
+        "terrain.floor"
+      ],
+      "fingerprint": "fixture.warp → rescue"
+    },
+    "13": {
+      "number": 16,
+      "previousNumber": 13,
+      "title": "青い道と石の道",
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 23,
+        "discovered": 31,
+        "limit": 40000,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6
+      },
+      "boardHash": "c46eb48ab7378bc7b1f83c4f4a3d12cfb32e9fe171caab3401f2bd14af7bb40a",
+      "primaryRequirement": {
+        "label": "terrain.waterの新規マス進入を禁止",
+        "status": "exhausted",
+        "expanded": 5,
+        "discovered": 5,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "fingerprint": "rescue"
+    },
+    "14": {
+      "number": 17,
+      "previousNumber": 14,
+      "title": "流れの終点",
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 5,
+        "discovered": 6,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "5608dc405f4e5804b0b9a16c941d75c77336f97508a5ab1e9da1a8430f2b6b60",
+      "primaryRequirement": {
+        "label": "field.currentの効果を禁止",
+        "status": "exhausted",
+        "expanded": 2,
+        "discovered": 2,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "field.current": 3,
+        "rescue": 1
+      },
+      "touched": [
+        "field.current",
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "fingerprint": "field.current → rescue"
+    },
+    "15": {
+      "number": 13,
+      "previousNumber": 15,
+      "title": "止まる場所はひとつ",
+      "proof": "shortest",
+      "commands": 3,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 4,
+        "discovered": 10,
+        "limit": 40000,
+        "maxDepth": 90,
+        "deepest": 3,
+        "solutionLength": 3
+      },
+      "boardHash": "9c86af62e0effb0e2f7dce3235dedea577c1a7413bace9a7e218beb088be4778",
+      "primaryRequirement": {
+        "label": "terrain.iceの効果を禁止",
+        "status": "exhausted",
+        "expanded": 2,
+        "discovered": 2,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "terrain.ice": 3,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "fingerprint": "terrain.ice → rescue"
+    },
+    "16": {
+      "number": 19,
+      "previousNumber": 16,
+      "title": "下から回り込む風",
+      "proof": "shortest",
+      "commands": 3,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 3,
+        "discovered": 4,
+        "limit": 40000,
+        "maxDepth": 90,
+        "deepest": 3,
+        "solutionLength": 3
+      },
+      "boardHash": "8fd5d675de4000b65645bffe406bea9b1c7082312b487c851a72eebb3cfea646",
+      "primaryRequirement": {
+        "label": "field.windの効果を禁止",
+        "status": "exhausted",
+        "expanded": 2,
+        "discovered": 2,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "field.wind": 4,
+        "rescue": 1
+      },
+      "touched": [
+        "field.wind",
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "fingerprint": "field.wind → rescue"
+    },
+    "17": {
+      "number": 22,
+      "previousNumber": 17,
+      "title": "箱の横顔",
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 8,
+        "discovered": 11,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "23de1d2a58cb3449ce24c7418dd4afd8738585eff2b64ebd269b07f95b7d1ba3",
+      "primaryRequirement": {
+        "label": "箱押しを禁止",
+        "status": "exhausted",
+        "expanded": 2,
+        "discovered": 2,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "push": 2,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "object.crate",
+        "terrain.floor"
+      ],
+      "fingerprint": "push → rescue"
+    },
+    "18": {
+      "number": 28,
+      "previousNumber": 18,
+      "title": "道を留める箱",
+      "proof": "shortest",
+      "commands": 2,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 2,
+        "discovered": 3,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 2,
+        "solutionLength": 2,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "34cb6933cd1af1077f09c9fa7a9480b618d40b3421091ec7b7f0521292d8b477",
+      "primaryRequirement": {
+        "label": "terrain.iceの効果を禁止",
+        "status": "exhausted",
+        "expanded": 1,
+        "discovered": 1,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "terrain.ice": 2,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "fingerprint": "terrain.ice → rescue"
+    },
+    "19": {
+      "number": 11,
+      "previousNumber": 19,
+      "title": "片方だけの横断",
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 9,
+        "discovered": 12,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "f103054514213545966e965ba5746a3158ec49ff60ebbc61f63d26d69f814dca",
+      "primaryRequirement": {
+        "label": "fixture.onewayの新規マス進入を禁止",
+        "status": "exhausted",
+        "expanded": 6,
+        "discovered": 6,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.oneway",
+        "terrain.floor"
+      ],
+      "fingerprint": "rescue"
+    },
+    "20": {
+      "number": 33,
+      "previousNumber": 20,
+      "title": "氷の受け手",
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 31,
+        "discovered": 40,
+        "limit": 40000,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6
+      },
+      "boardHash": "150480ace1dbd18da8c3d1c37543b6356f0a5cc3a15ba29c8f9c3eb9a3f49430",
+      "primaryRequirement": {
+        "label": "terrain.iceのマス進入を禁止",
+        "status": "exhausted",
+        "expanded": 1,
+        "discovered": 1,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "phase": 1,
+        "rescue": 2,
+        "terrain.ice": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.gate",
+        "fixture.oneway",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "fingerprint": "phase → rescue → terrain.ice → rescue"
+    },
+    "21": {
+      "number": 29,
+      "previousNumber": 21,
+      "title": "石戸が息をする",
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 14,
+        "discovered": 15,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "fa3f743db47795f56d9115c078c5f3852942ba11a3f80bfe97720d0108195010",
+      "primaryRequirement": {
+        "label": "fixture.phaseの新規マス進入を禁止",
+        "status": "exhausted",
+        "expanded": 12,
+        "discovered": 12,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.phase",
+        "terrain.floor"
+      ],
+      "fingerprint": "rescue"
+    },
+    "22": {
+      "number": 14,
+      "previousNumber": 22,
+      "title": "土の下は片道",
+      "proof": "shortest",
+      "commands": 4,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 4,
+        "discovered": 5,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 4,
+        "solutionLength": 4,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "9a9d0a563905c77d16d2aed5145ae24be4ceed241317cec01f9a289c9c8c0b55",
+      "primaryRequirement": {
+        "label": "fixture.burrowの効果を禁止",
+        "status": "exhausted",
+        "expanded": 2,
+        "discovered": 2,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "fixture.burrow": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.burrow",
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.tunnel"
+      ],
+      "fingerprint": "fixture.burrow → rescue"
+    },
+    "23": {
+      "number": 35,
+      "previousNumber": 23,
+      "title": "箱を置くくぼみ",
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 9,
+        "discovered": 11,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "41eb8f3feca1d8c142a5f56ee6163ca7cb80ac79878bb1e21df27b28964be46f",
+      "primaryRequirement": {
+        "label": "箱押しを禁止",
+        "status": "exhausted",
+        "expanded": 3,
+        "discovered": 3,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "push": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "object.crate",
+        "terrain.floor"
+      ],
+      "fingerprint": "push → rescue"
+    },
+    "24": {
+      "number": 20,
+      "previousNumber": 24,
+      "title": "輪の先に待つ時間",
+      "proof": "shortest",
+      "commands": 4,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 15,
+        "discovered": 31,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 4,
+        "solutionLength": 4,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "9708c165da88c92c1a5b4e9b020a7ca66b9dc7a6a7cb0263f2430f5eb4fc15ff",
+      "primaryRequirement": {
+        "label": "fixture.warpの効果を禁止",
+        "status": "exhausted",
+        "expanded": 12,
+        "discovered": 12,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "fixture.warp": 1,
+        "merge": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.warp",
+        "terrain.floor"
+      ],
+      "fingerprint": "fixture.warp → merge → rescue"
+    },
+    "25": {
+      "number": 30,
+      "previousNumber": 25,
+      "title": "押し風と横道",
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 5,
+        "discovered": 9,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "5742286757bf09e07da57ca813f1247e49e5f13e0cb41706065f7818afc309d4",
+      "primaryRequirement": {
+        "label": "field.windの効果を禁止",
+        "status": "exhausted",
+        "expanded": 2,
+        "discovered": 2,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "field.wind": 1,
+        "push": 2,
+        "rescue": 1
+      },
+      "touched": [
+        "field.wind",
+        "fixture.exit",
+        "object.crate",
+        "terrain.floor"
+      ],
+      "fingerprint": "field.wind → push → rescue"
+    },
+    "26": {
+      "number": 37,
+      "previousNumber": 26,
+      "title": "押し出された環",
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 5,
+        "discovered": 9,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "6b9b87dc737bdefb9647e9d493e1c3e3d09fcc91da15d74691564b6b264f7124",
+      "primaryRequirement": {
+        "label": "fixture.warpの効果を禁止",
+        "status": "exhausted",
+        "expanded": 2,
+        "discovered": 2,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "fixture.warp": 1,
+        "push": 2,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.warp",
+        "object.crate",
+        "terrain.floor"
+      ],
+      "fingerprint": "fixture.warp → push → rescue"
+    },
+    "27": {
+      "number": 23,
+      "previousNumber": 27,
+      "title": "飛び石の段差",
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 5,
+        "discovered": 6,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "9a0a1a1bf4080c3eb9f909094fad402296eb9d5264dd62f48051ce29bd338b7f",
+      "primaryRequirement": {
+        "label": "落下と上向き移動を禁止",
+        "status": "exhausted",
+        "expanded": 2,
+        "discovered": 2,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "fingerprint": "rescue"
+    },
+    "28": {
+      "number": 7,
+      "previousNumber": 28,
+      "title": "離れても灯る",
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 6,
+        "discovered": 7,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "666e2ff584fc1aa12168ee2f46e0889dd85828a24877ed289ac84bac1bcd8400",
+      "primaryRequirement": {
+        "label": "fixture.latchの作動を禁止",
+        "status": "exhausted",
+        "expanded": 1,
+        "discovered": 1,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "mechanism": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "terrain.floor"
+      ],
+      "fingerprint": "mechanism → rescue"
+    },
+    "29": {
+      "number": 31,
+      "previousNumber": 29,
+      "title": "白い階段、黒い穴",
+      "proof": "shortest",
+      "commands": 3,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 3,
+        "discovered": 4,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 3,
+        "solutionLength": 3,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "53e52ddde7c416fad24b287f036f5dd7568425956bfbd968cfa469382c515a98",
+      "primaryRequirement": {
+        "label": "terrain.iceの効果を禁止",
+        "status": "exhausted",
+        "expanded": 1,
+        "discovered": 1,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "terrain.ice": 2,
+        "fall": 2,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "fingerprint": "terrain.ice → fall → rescue"
+    },
+    "30": {
+      "number": 18,
+      "previousNumber": 30,
+      "title": "二度踏むと戻る",
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 9,
+        "discovered": 12,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "40a46ce4122ea52924d3d16a64948a77791ee8ff763abf14df61466fed533814",
+      "primaryRequirement": {
+        "label": "fixture.toggleの作動を禁止",
+        "status": "exhausted",
+        "expanded": 4,
+        "discovered": 4,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "mechanism": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.toggle",
+        "terrain.floor"
+      ],
+      "fingerprint": "mechanism → rescue"
+    },
+    "31": {
+      "number": 6,
+      "previousNumber": 31,
+      "title": "二つの名札",
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 115,
+        "discovered": 134,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "17eaa113a59686914f07bf16ae5fb1dd92abc35cf889c3afe8c0421051228283",
+      "primaryRequirement": null,
+      "eventCounts": {
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "fingerprint": "rescue"
+    },
+    "32": {
+      "number": 24,
+      "previousNumber": 32,
+      "title": "逆風の岸",
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 8,
+        "discovered": 9,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "56948a0528c57a150036f04410ff12481af4f72ea74bd11098be673df5aff70e",
+      "primaryRequirement": null,
+      "eventCounts": {
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "fingerprint": "rescue"
+    },
+    "33": {
+      "number": 26,
+      "previousNumber": 33,
+      "title": "門の屋根道",
+      "proof": "shortest",
+      "commands": 4,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 4,
+        "discovered": 6,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 4,
+        "solutionLength": 4,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "d969963dc4943c6096e86668efcc2c1040889c54ae58a711c7d4ce88124a1a3a",
+      "primaryRequirement": {
+        "label": "通路の屋根への進入・救出を禁止",
+        "status": "exhausted",
+        "expanded": 5,
+        "discovered": 5,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "fingerprint": "rescue"
+    },
+    "34": {
+      "number": 21,
+      "previousNumber": 34,
+      "title": "気流の階段",
+      "proof": "shortest",
+      "commands": 4,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 4,
+        "discovered": 5,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 4,
+        "solutionLength": 4,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "7a8b790f60c4d535448281cadf5b51cd18ab6f9475fae025f6f6c9cc5f628952",
+      "primaryRequirement": {
+        "label": "field.updraftの効果を禁止",
+        "status": "exhausted",
+        "expanded": 2,
+        "discovered": 2,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "field.updraft": 3,
+        "rescue": 1
+      },
+      "touched": [
+        "field.updraft",
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "fingerprint": "field.updraft → rescue"
+    },
+    "35": {
+      "number": 43,
+      "previousNumber": 35,
+      "title": "風を越すための三",
+      "proof": "shortest",
+      "commands": 9,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 36,
+        "discovered": 49,
+        "limit": 40000,
+        "maxDepth": 90,
+        "deepest": 9,
+        "solutionLength": 9
+      },
+      "boardHash": "97732939f412343f4bb1860453fe5cf72a3c0ae631129881a74e1a9b25ae9886",
+      "primaryRequirement": {
+        "label": "field.windのマス進入を禁止",
+        "status": "exhausted",
+        "expanded": 36,
+        "discovered": 36,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "merge": 1,
+        "split": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "field.wind",
+        "fixture.exit",
+        "fixture.oneway",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "fingerprint": "merge → split → rescue"
+    },
+    "36": {
+      "number": 34,
+      "previousNumber": 36,
+      "title": "波を待つ小湾",
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 19,
+        "discovered": 22,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "a7eb0954490049dcf3f322be971f698d6ffad5229e3525cb627e3f4af8f605e1",
+      "primaryRequirement": {
+        "label": "field.waveのマス進入を禁止",
+        "status": "exhausted",
+        "expanded": 15,
+        "discovered": 15,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "field.wave": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "field.wave",
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "fingerprint": "field.wave → rescue"
+    },
+    "37": {
+      "number": 39,
+      "previousNumber": 37,
+      "title": "流されて出会う",
+      "proof": "shortest",
+      "commands": 4,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 15,
+        "discovered": 24,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 4,
+        "solutionLength": 4,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "dfe15f53dfb12e757522ae9ebd9b66de6dc5d0107695e4626b19b802d94ccf35",
+      "primaryRequirement": {
+        "label": "field.currentの効果を禁止",
+        "status": "exhausted",
+        "expanded": 5,
+        "discovered": 5,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "field.current": 2,
+        "merge": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "field.current",
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "fingerprint": "field.current → merge → rescue"
+    },
+    "38": {
+      "number": 41,
+      "previousNumber": 38,
+      "title": "受け取り場所を空ける",
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 35,
+        "discovered": 51,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "92a43f04e036e6e91c209c48cb7e6ebd582c601a87fe9efbc949482dcfb43b2f",
+      "primaryRequirement": {
+        "label": "fixture.warpの効果を禁止",
+        "status": "exhausted",
+        "expanded": 15,
+        "discovered": 15,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "fixture.warp": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.warp",
+        "scenery.lamp",
+        "terrain.floor"
+      ],
+      "fingerprint": "fixture.warp → rescue"
+    },
+    "39": {
+      "number": 36,
+      "previousNumber": 39,
+      "title": "八と余りの二",
+      "proof": "shortest",
+      "commands": 8,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 96,
+        "discovered": 110,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 8,
+        "solutionLength": 8,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "ca0507a910f88358ca781f45de7c1a2a5e0622da04e33bbd23fa27b414dd820a",
+      "primaryRequirement": null,
+      "eventCounts": {
+        "merge": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "fingerprint": "merge → rescue"
+    },
+    "40": {
+      "number": 44,
+      "previousNumber": 40,
+      "title": "ふたつの風の棚",
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 51,
+        "discovered": 61,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "beef978e2284cca0aa52c54c3dcdea8ea8250d41c79aa0723ab67ad8612a0427",
+      "primaryRequirement": {
+        "label": "field.windの効果を禁止",
+        "status": "exhausted",
+        "expanded": 32,
+        "discovered": 32,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "field.wind": 3,
+        "merge": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "field.wind",
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "fingerprint": "field.wind → merge → rescue"
+    },
+    "41": {
+      "number": 38,
+      "previousNumber": 41,
+      "title": "二つの合図",
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 19,
+        "discovered": 24,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 7,
+        "solutionLength": 7,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "797fce8914f58af9b905b1f0e9d52d418c9b30cac806e1083f04b5bbdab135f1",
+      "primaryRequirement": {
+        "label": "fixture.sequenceの作動を禁止",
+        "status": "exhausted",
+        "expanded": 14,
+        "discovered": 14,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "mechanism": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.sequence",
+        "terrain.floor"
+      ],
+      "fingerprint": "mechanism → rescue"
+    },
+    "42": {
+      "number": 55,
+      "previousNumber": 42,
+      "title": "帰りは返事をしない",
+      "proof": "shortest",
+      "commands": 9,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 24,
+        "discovered": 27,
+        "limit": 40000,
+        "maxDepth": 90,
+        "deepest": 9,
+        "solutionLength": 9
+      },
+      "boardHash": "aff61df536e7889ec0d08216a10baee0c8e3be5025c7aea68639928066864a35",
+      "primaryRequirement": {
+        "label": "fixture.toggleの作動を禁止",
+        "status": "exhausted",
+        "expanded": 4,
+        "discovered": 4,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "mechanism": 2,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.toggle",
+        "terrain.floor"
+      ],
+      "fingerprint": "mechanism → rescue"
+    },
+    "43": {
+      "number": 46,
+      "previousNumber": 43,
+      "title": "板に残る重さ",
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 14,
+        "discovered": 20,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "a972420127c51ec4ffdd28f6385889d48d6123d4ddc14790ec7241d46fd0be80",
+      "primaryRequirement": {
+        "label": "箱押しを禁止",
+        "status": "exhausted",
+        "expanded": 6,
+        "discovered": 6,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "push": 1,
+        "mechanism": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "object.crate",
+        "terrain.floor"
+      ],
+      "fingerprint": "push → mechanism → rescue"
+    },
+    "44": {
+      "number": 58,
+      "previousNumber": 44,
+      "title": "二つの時計はずれる",
+      "proof": "shortest",
+      "commands": 9,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 51,
+        "discovered": 54,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 9,
+        "solutionLength": 9,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "2872230a2d82213f782836afd710b887978fdccba9284b9fa5a86a88af933939",
+      "primaryRequirement": {
+        "label": "fixture.phaseの新規マス進入を禁止",
+        "status": "exhausted",
+        "expanded": 24,
+        "discovered": 24,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.phase",
+        "terrain.floor"
+      ],
+      "fingerprint": "rescue"
+    },
+    "45": {
+      "number": 45,
+      "previousNumber": 45,
+      "title": "二段の吹き上げ",
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 6,
+        "discovered": 7,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "3582e98a17ff20119784d7b1dcf57499a6483d8bf1e009813eefdf96c79bc934",
+      "primaryRequirement": {
+        "label": "field.updraftの効果を禁止",
+        "status": "exhausted",
+        "expanded": 2,
+        "discovered": 2,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "field.updraft": 4,
+        "rescue": 1
+      },
+      "touched": [
+        "field.updraft",
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "fingerprint": "field.updraft → rescue"
+    },
+    "46": {
+      "number": 47,
+      "previousNumber": 46,
+      "title": "同じ氷、違う出口",
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 98,
+        "discovered": 159,
+        "limit": 40000,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6
+      },
+      "boardHash": "7972213e34d9f56dd8323f052808a3c27827a46475cf0e758e95fea26cbebf35",
+      "primaryRequirement": {
+        "label": "terrain.iceの効果を禁止",
+        "status": "exhausted",
+        "expanded": 42,
+        "discovered": 42,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "terrain.ice": 6,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "fingerprint": "terrain.ice → rescue → terrain.ice → rescue"
+    },
+    "47": {
+      "number": 50,
+      "previousNumber": 47,
+      "title": "同じ岸へ、別の環",
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 141,
+        "discovered": 180,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "95e5713a44c2072eca9e97542ab675c875e5d7aecd6ece51f90d4a6674413d4e",
+      "primaryRequirement": {
+        "label": "fixture.warpの効果を禁止",
+        "status": "exhausted",
+        "expanded": 27,
+        "discovered": 27,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "fixture.warp": 2,
+        "merge": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.warp",
+        "terrain.floor"
+      ],
+      "fingerprint": "fixture.warp → merge → rescue"
+    },
+    "48": {
+      "number": 51,
+      "previousNumber": 48,
+      "title": "終点で針が伸びる",
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 37,
+        "discovered": 85,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "422a204b5ef6ce5cf2b6d14740d18ac5f125cafec3db0284cf64bb5fc03aa0fb",
+      "primaryRequirement": {
+        "label": "terrain.iceの効果を禁止",
+        "status": "exhausted",
+        "expanded": 1,
+        "discovered": 1,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "terrain.ice": 3,
+        "split": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.spike",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "fingerprint": "terrain.ice → split → rescue"
+    },
+    "49": {
+      "number": 32,
+      "previousNumber": 49,
+      "title": "水の縦窓",
+      "proof": "shortest",
+      "commands": 4,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 4,
+        "discovered": 5,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 4,
+        "solutionLength": 4,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "47e088676cab5d9eaf5a6f4e45b4d81982b81c71758bf61d30256f47c0860bba",
+      "primaryRequirement": {
+        "label": "field.bubbleの効果を禁止",
+        "status": "exhausted",
+        "expanded": 2,
+        "discovered": 2,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "field.bubble": 3,
+        "rescue": 1
+      },
+      "touched": [
+        "field.bubble",
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "fingerprint": "field.bubble → rescue"
+    },
+    "50": {
+      "number": 40,
+      "previousNumber": 50,
+      "title": "ひとつの水門",
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 71,
+        "discovered": 88,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 7,
+        "solutionLength": 7,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "4c8c176bf407bfa53e4db9895f7eb0fe5004b38be5c5fdeebd950d256c8342b4",
+      "primaryRequirement": {
+        "label": "terrain.waterの新規マス進入を禁止",
+        "status": "exhausted",
+        "expanded": 1,
+        "discovered": 1,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "fingerprint": "rescue"
+    },
+    "51": {
+      "number": 59,
+      "previousNumber": 51,
+      "title": "重さの違う二つの席",
+      "proof": "shortest",
+      "commands": 8,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 111,
+        "discovered": 155,
+        "limit": 40000,
+        "maxDepth": 90,
+        "deepest": 8,
+        "solutionLength": 8
+      },
+      "boardHash": "2b378a0d9f549473af8653e64ca5dee249813b22b688a5b8cf0716ff33de2007",
+      "primaryRequirement": {
+        "label": "箱押しを禁止",
+        "status": "exhausted",
+        "expanded": 12,
+        "discovered": 12,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "push": 2,
+        "mechanism": 2,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "object.crate",
+        "terrain.floor"
+      ],
+      "fingerprint": "push → mechanism → push → mechanism → rescue"
+    },
+    "52": {
+      "number": 53,
+      "previousNumber": 52,
+      "title": "帰れない合流点",
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 101,
+        "discovered": 132,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 7,
+        "solutionLength": 7,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "263cc0e94537c693c0c0fd6b5b4af746a1733271c28a23eb4f37b4083b16f18a",
+      "primaryRequirement": {
+        "label": "fixture.onewayの新規マス進入を禁止",
+        "status": "exhausted",
+        "expanded": 25,
+        "discovered": 25,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "merge": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.oneway",
+        "terrain.floor"
+      ],
+      "fingerprint": "merge → rescue"
+    },
+    "53": {
+      "number": 56,
+      "previousNumber": 53,
+      "title": "一歩ぶんの橋",
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 9,
+        "discovered": 10,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 7,
+        "solutionLength": 7,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "0bb43915babf15d13b3e47d537db66640cfaae341eb9c5d4de884610b6c59e64",
+      "primaryRequirement": {
+        "label": "床の崩壊を禁止",
+        "status": "exhausted",
+        "expanded": 3,
+        "discovered": 3,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "crumble": 1,
+        "fall": 2,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.crumble",
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "fingerprint": "crumble → fall → rescue"
+    },
+    "54": {
+      "number": 42,
+      "previousNumber": 54,
+      "title": "同じ相を一息で",
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 10,
+        "discovered": 14,
+        "limit": 40000,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5
+      },
+      "boardHash": "225ba1c3575b7bb63b830be5963c507ebf556c629189762fec1cbe0006fad71d",
+      "primaryRequirement": {
+        "label": "field.waveの効果を禁止",
+        "status": "exhausted",
+        "expanded": 18,
+        "discovered": 18,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "field.current": 1,
+        "field.wave": 1,
+        "merge": 1,
+        "phase": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "field.current",
+        "field.wave",
+        "fixture.exit",
+        "fixture.gate",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "fingerprint": "field.current → field.wave → merge → phase → rescue"
+    },
+    "55": {
+      "number": 60,
+      "previousNumber": 55,
+      "title": "二つの着地点",
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 8,
+        "discovered": 10,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "3ad7da2c05145b44410059c4d630a5751d7fdb1954bcb2af1fb6a7f3591c87c2",
+      "primaryRequirement": {
+        "label": "分裂を禁止",
+        "status": "exhausted",
+        "expanded": 5,
+        "discovered": 5,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "split": 1,
+        "fall": 6,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "fingerprint": "split → fall → rescue → fall → rescue"
+    },
+    "56": {
+      "number": 57,
+      "previousNumber": 56,
+      "title": "落ちた順にひとつ",
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 27,
+        "discovered": 31,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 7,
+        "solutionLength": 7,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "b2d6637c2ffffad6307c46e192ae12fb23df4f5d66a781c1fb1ba35a0a1a3abe",
+      "primaryRequirement": {
+        "label": "落下と上向き移動を禁止",
+        "status": "exhausted",
+        "expanded": 12,
+        "discovered": 12,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "fall": 3,
+        "merge": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "fingerprint": "fall → merge → rescue"
+    },
+    "57": {
+      "number": 48,
+      "previousNumber": 57,
+      "title": "三の釣り合い",
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 91,
+        "discovered": 92,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "badd96fb352a6f8873801b8ec5321228fd4f16b1ef76cfd5f1ea3b50433d24df",
+      "primaryRequirement": {
+        "label": "fixture.latchの作動を禁止",
+        "status": "exhausted",
+        "expanded": 80,
+        "discovered": 80,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "mechanism": 1,
+        "merge": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "terrain.floor"
+      ],
+      "fingerprint": "mechanism → merge → rescue"
+    },
+    "58": {
+      "number": 61,
+      "previousNumber": 58,
+      "title": "背を貸して、返して",
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 33,
+        "discovered": 42,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 7,
+        "solutionLength": 7,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "23ff0e96f010ea143a475e927551d2f17f6eddeb413d3814912ba650c60506ac",
+      "primaryRequirement": {
+        "label": "落下と上向き移動を禁止",
+        "status": "exhausted",
+        "expanded": 26,
+        "discovered": 26,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "fall": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "fingerprint": "fall → rescue"
+    },
+    "59": {
+      "number": 54,
+      "previousNumber": 59,
+      "title": "土の入口へ回る",
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 186,
+        "discovered": 239,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "b07f8bca6bf31f1fc10f1a62027dafbd2cbe1d1fd8fca2af834eb6864a2c04d5",
+      "primaryRequirement": {
+        "label": "fixture.burrowの効果を禁止",
+        "status": "exhausted",
+        "expanded": 165,
+        "discovered": 165,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "split": 1,
+        "rescue": 2,
+        "fixture.burrow": 1
+      },
+      "touched": [
+        "fixture.burrow",
+        "fixture.exit",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "fingerprint": "split → rescue → fixture.burrow → rescue"
+    },
+    "60": {
+      "number": 63,
+      "previousNumber": 60,
+      "title": "先に通すのは誰",
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 85,
+        "discovered": 98,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 7,
+        "solutionLength": 7,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "9a574a999bfd10fdf64ca4b8bb2b32b10ef925995490a2438826c87011bd3a79",
+      "primaryRequirement": {
+        "label": "fixture.plate.holdの作動を禁止",
+        "status": "exhausted",
+        "expanded": 25,
+        "discovered": 25,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "mechanism": 2,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.plate.hold",
+        "terrain.floor"
+      ],
+      "fingerprint": "mechanism → rescue → mechanism → rescue"
+    },
+    "61": {
+      "number": 62,
+      "previousNumber": 61,
+      "title": "足場の受け渡し",
+      "proof": "shortest",
+      "commands": 8,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 40,
+        "discovered": 48,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 8,
+        "solutionLength": 8,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "052011ff8a6d4d3a8646d116b679779d16d107daf736027ce4b961dbd995555a",
+      "primaryRequirement": {
+        "label": "落下と上向き移動を禁止",
+        "status": "exhausted",
+        "expanded": 15,
+        "discovered": 15,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "rescue": 2,
+        "fall": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "fingerprint": "rescue → fall → rescue"
+    },
+    "62": {
+      "number": 49,
+      "previousNumber": 62,
+      "title": "針が上へ曲がる小窓",
+      "proof": "shortest",
+      "commands": 12,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 285,
+        "discovered": 286,
+        "limit": 40000,
+        "maxDepth": 90,
+        "deepest": 12,
+        "solutionLength": 12
+      },
+      "boardHash": "58f700e4bbc3bdf446e304aa87baaba0922b45df2b2eefa091f3030bc71e7671",
+      "primaryRequirement": {
+        "label": "分裂を禁止",
+        "status": "exhausted",
+        "expanded": 5,
+        "discovered": 5,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "split": 1,
+        "phase": 4,
+        "rescue": 4
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.gate",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "fingerprint": "split → phase → rescue → phase → rescue → phase → rescue → phase → rescue"
+    },
+    "63": {
+      "number": 52,
+      "previousNumber": 63,
+      "title": "水の環と石の環",
+      "proof": "shortest",
+      "commands": 8,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 74,
+        "discovered": 85,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 8,
+        "solutionLength": 8,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "6f15fbdfd54be02ebc1b73a304e4f7172e86b5348e29acf7d2f58850fc4647da",
+      "primaryRequirement": {
+        "label": "fixture.warpの効果を禁止",
+        "status": "exhausted",
+        "expanded": 16,
+        "discovered": 16,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "fixture.warp": 2,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.warp",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "fingerprint": "fixture.warp → rescue → fixture.warp → rescue"
+    },
+    "64": {
+      "number": 64,
+      "previousNumber": 64,
+      "title": "氷の片道券",
+      "proof": "shortest",
+      "commands": 9,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 66,
+        "discovered": 88,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 9,
+        "solutionLength": 9,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "01183c09def3942ebe72894c53e8518a5fe3477be5ef5e94fb189422b381b04c",
+      "primaryRequirement": {
+        "label": "terrain.iceの効果を禁止",
+        "status": "exhausted",
+        "expanded": 22,
+        "discovered": 22,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "terrain.ice": 2,
+        "merge": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.oneway",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "fingerprint": "terrain.ice → merge → rescue"
+    },
+    "65": {
+      "number": 70,
+      "previousNumber": 65,
+      "title": "箱は小さな壁",
+      "proof": "shortest",
+      "commands": 9,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 83,
+        "discovered": 201,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 9,
+        "solutionLength": 9,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "a34970110e3264bbf2fb7b6dc805ff455c987cd66810c9c456cb8c47bfa2f8a3",
+      "primaryRequirement": {
+        "label": "箱押しを禁止",
+        "status": "exhausted",
+        "expanded": 2,
+        "discovered": 2,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "push": 2,
+        "split": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.spike",
+        "object.crate",
+        "terrain.floor"
+      ],
+      "fingerprint": "push → split → rescue"
+    },
+    "66": {
+      "number": 65,
+      "previousNumber": 66,
+      "title": "右行きと左行き",
+      "proof": "shortest",
+      "commands": 11,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 238,
+        "discovered": 261,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 11,
+        "solutionLength": 11,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "dfee87bc2a5bfcc8654baa161036f794cbb8d9cfcfef8f4b065bf221b1fc3e82",
+      "primaryRequirement": {
+        "label": "fixture.onewayの新規マス進入を禁止",
+        "status": "exhausted",
+        "expanded": 54,
+        "discovered": 54,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.oneway",
+        "terrain.floor"
+      ],
+      "fingerprint": "rescue"
+    },
+    "67": {
+      "number": 66,
+      "previousNumber": 67,
+      "title": "時計係を残す",
+      "proof": "shortest",
+      "commands": 9,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 128,
+        "discovered": 145,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 9,
+        "solutionLength": 9,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "c5386850d6249f56da6dc2530f85134328c0394b045d1f8eb0bfe8cc806484ae",
+      "primaryRequirement": {
+        "label": "fixture.phaseの新規マス進入を禁止",
+        "status": "exhausted",
+        "expanded": 36,
+        "discovered": 36,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.oneway",
+        "fixture.phase",
+        "terrain.floor"
+      ],
+      "fingerprint": "rescue"
+    },
+    "68": {
+      "number": 71,
+      "previousNumber": 68,
+      "title": "滑りすぎた合体",
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 42,
+        "discovered": 60,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "cb7101fe620450b0dede114f2a78cc6b59fb49369c270a06f4c25083f9e4c9ac",
+      "primaryRequirement": {
+        "label": "terrain.iceの効果を禁止",
+        "status": "exhausted",
+        "expanded": 7,
+        "discovered": 7,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "terrain.ice": 2,
+        "merge": 1,
+        "split": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.spike",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "fingerprint": "terrain.ice → merge → split → rescue"
+    },
+    "69": {
+      "number": 73,
+      "previousNumber": 69,
+      "title": "泡に乗る荷の重さ",
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 14,
+        "discovered": 24,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "ac3234f061358b8b8ebf3a43a0762349a2266ceab5c8f04bbacd1aefcd9bf09f",
+      "primaryRequirement": {
+        "label": "field.bubbleの効果を禁止",
+        "status": "exhausted",
+        "expanded": 8,
+        "discovered": 8,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "split": 1,
+        "field.bubble": 2,
+        "rescue": 2
+      },
+      "touched": [
+        "field.bubble",
+        "fixture.exit",
+        "fixture.spike",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "fingerprint": "split → field.bubble → rescue"
+    },
+    "70": {
+      "number": 77,
+      "previousNumber": 70,
+      "title": "相棒が進める時計",
+      "proof": "shortest",
+      "commands": 11,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 413,
+        "discovered": 452,
+        "limit": 40000,
+        "maxDepth": 90,
+        "deepest": 11,
+        "solutionLength": 11
+      },
+      "boardHash": "08b9f389e2a60088e326eb0643ae6a80b91c46995553808cb476d94bd1736849",
+      "primaryRequirement": {
+        "label": "fixture.phaseの新規マス進入を禁止",
+        "status": "exhausted",
+        "expanded": 116,
+        "discovered": 116,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "split": 1,
+        "mechanism": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.phase",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "fingerprint": "split → mechanism → rescue"
+    },
+    "71": {
+      "number": 72,
+      "previousNumber": 71,
+      "title": "ちいさな押し手",
+      "proof": "shortest",
+      "commands": 10,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 59,
+        "discovered": 68,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 10,
+        "solutionLength": 10,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "176a5070eb39404c86b4478d066984d1393eefc6837d55e0c95ea96233bbbe52",
+      "primaryRequirement": {
+        "label": "箱押しを禁止",
+        "status": "exhausted",
+        "expanded": 36,
+        "discovered": 36,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "merge": 1,
+        "push": 2,
+        "split": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.spike",
+        "object.crate",
+        "terrain.floor"
+      ],
+      "fingerprint": "merge → push → split → rescue"
+    },
+    "72": {
+      "number": 78,
+      "previousNumber": 72,
+      "title": "順序と重量の違い",
+      "proof": "shortest",
+      "commands": 10,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 390,
+        "discovered": 443,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 10,
+        "solutionLength": 10,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "9bb187dac31177678acbeffbc0ff148bae7f51b7886d97e535bc6e699658d30d",
+      "primaryRequirement": {
+        "label": "fixture.sequenceの作動を禁止",
+        "status": "exhausted",
+        "expanded": 277,
+        "discovered": 277,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "mechanism": 1,
+        "merge": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.sequence",
+        "terrain.floor"
+      ],
+      "fingerprint": "mechanism → merge → rescue"
+    },
+    "73": {
+      "number": 67,
+      "previousNumber": 73,
+      "title": "谷の相棒",
+      "proof": "shortest",
+      "commands": 11,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 203,
+        "discovered": 219,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 11,
+        "solutionLength": 11,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "02acb5e700b1eff23eff1a113288e4284b206e4ee3c1524c2baa34b4158531a0",
+      "primaryRequirement": {
+        "label": "npc.owlの効果を禁止",
+        "status": "exhausted",
+        "expanded": 40,
+        "discovered": 40,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "npc.owl": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "npc.owl",
+        "terrain.floor"
+      ],
+      "fingerprint": "npc.owl → rescue"
+    },
+    "74": {
+      "number": 75,
+      "previousNumber": 74,
+      "title": "風が届かない重さ",
+      "proof": "shortest",
+      "commands": 9,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 28,
+        "discovered": 30,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 9,
+        "solutionLength": 9,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "1bae996c9b3208db2d2f15048286fe53e0d6d304268b6321728a47a1bb1c4615",
+      "primaryRequirement": {
+        "label": "field.updraftの効果を禁止",
+        "status": "exhausted",
+        "expanded": 6,
+        "discovered": 6,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "split": 1,
+        "field.updraft": 2,
+        "rescue": 2,
+        "fall": 2
+      },
+      "touched": [
+        "field.updraft",
+        "fixture.exit",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "fingerprint": "split → field.updraft → rescue → fall → rescue"
+    },
+    "75": {
+      "number": 68,
+      "previousNumber": 75,
+      "title": "戻さない留め具",
+      "proof": "shortest",
+      "commands": 9,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 102,
+        "discovered": 129,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 9,
+        "solutionLength": 9,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "23d96e1435613457b58c25ba0dc0d265bcb08e041dc7d431a3bd352a87aeba01",
+      "primaryRequirement": {
+        "label": "fixture.latchの作動を禁止",
+        "status": "exhausted",
+        "expanded": 52,
+        "discovered": 52,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "mechanism": 3,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.toggle",
+        "terrain.floor"
+      ],
+      "fingerprint": "mechanism → rescue → mechanism → rescue"
+    },
+    "76": {
+      "number": 79,
+      "previousNumber": 76,
+      "title": "橋番の代わり",
+      "proof": "shortest",
+      "commands": 10,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 215,
+        "discovered": 217,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 10,
+        "solutionLength": 10,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "a23f77ac097fdf8a143959f2f5b026ee3a35361538a1d7548f3cf4647bddb855",
+      "primaryRequirement": {
+        "label": "箱押しを禁止",
+        "status": "exhausted",
+        "expanded": 72,
+        "discovered": 72,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "push": 1,
+        "mechanism": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "object.crate",
+        "terrain.floor"
+      ],
+      "fingerprint": "push → mechanism → rescue"
+    },
+    "77": {
+      "number": 76,
+      "previousNumber": 77,
+      "title": "二つの水路、ひとつの星",
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 94,
+        "discovered": 162,
+        "limit": 40000,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6
+      },
+      "boardHash": "57260a3f3c2444e67c2650a98b679c3645eab5a0f2ab141a70d00f0d5ca341ae",
+      "primaryRequirement": {
+        "label": "field.currentの効果を禁止",
+        "status": "exhausted",
+        "expanded": 275,
+        "discovered": 275,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "field.current": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "field.current",
+        "fixture.exit",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "fingerprint": "field.current → rescue"
+    },
+    "78": {
+      "number": 84,
+      "previousNumber": 78,
+      "title": "橋を渡して床を開ける",
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 31,
+        "discovered": 38,
+        "limit": 40000,
+        "maxDepth": 90,
+        "deepest": 7,
+        "solutionLength": 7
+      },
+      "boardHash": "0a24f303ef4de7e18b30ab60ae5e6dcb2dbca59381a0eeee6dd1da96a81937b3",
+      "primaryRequirement": {
+        "label": "床の崩壊を禁止",
+        "status": "exhausted",
+        "expanded": 8,
+        "discovered": 8,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "mechanism": 2,
+        "crumble": 1,
+        "rescue": 2,
+        "fall": 1
+      },
+      "touched": [
+        "fixture.crumble",
+        "fixture.door",
+        "fixture.exit",
+        "fixture.plate.hold",
+        "terrain.floor"
+      ],
+      "fingerprint": "mechanism → crumble → mechanism → rescue → fall → rescue"
+    },
+    "79": {
+      "number": 80,
+      "previousNumber": 79,
+      "title": "八を先に通す",
+      "proof": "shortest",
+      "commands": 9,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 312,
+        "discovered": 328,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 9,
+        "solutionLength": 9,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "102c523b14cb7848d4023a3564bb0188d5d7581993ddcc6525c1f7a78e70be81",
+      "primaryRequirement": {
+        "label": "fixture.latchの作動を禁止",
+        "status": "exhausted",
+        "expanded": 201,
+        "discovered": 201,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "merge": 1,
+        "phase": 1,
+        "mechanism": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.gate",
+        "fixture.latch",
+        "terrain.floor"
+      ],
+      "fingerprint": "merge → phase → mechanism → rescue"
+    },
+    "80": {
+      "number": 81,
+      "previousNumber": 80,
+      "title": "合図を引き継ぐ",
+      "proof": "shortest",
+      "commands": 11,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 133,
+        "discovered": 163,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 11,
+        "solutionLength": 11,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "8a3fac190e887be251b2f77bc2e505e90ab64b79baf23aa059fd3ba64b23debd",
+      "primaryRequirement": {
+        "label": "fixture.plate.holdの作動を禁止",
+        "status": "exhausted",
+        "expanded": 36,
+        "discovered": 36,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "mechanism": 3,
+        "swap": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.plate.hold",
+        "terrain.floor"
+      ],
+      "fingerprint": "mechanism → swap → rescue"
+    },
+    "81": {
+      "number": 85,
+      "previousNumber": 81,
+      "title": "ふくろうの合図と星時計",
+      "proof": "shortest",
+      "commands": 11,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 685,
+        "discovered": 791,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 11,
+        "solutionLength": 11,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "bda9fcaa8c15e5dae98d4d8c3a2b6204a76916a6d003c7925194f019eeff1fee",
+      "primaryRequirement": {
+        "label": "npc.owlの効果を禁止",
+        "status": "exhausted",
+        "expanded": 324,
+        "discovered": 324,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "npc.owl": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.phase",
+        "npc.owl",
+        "terrain.floor"
+      ],
+      "fingerprint": "npc.owl → rescue"
+    },
+    "82": {
+      "number": 86,
+      "previousNumber": 82,
+      "title": "天井の針と床の針",
+      "proof": "shortest",
+      "commands": 13,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 152,
+        "discovered": 155,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 13,
+        "solutionLength": 13,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "6401ccb72b8ca0a33e2e15abcb3ca34a73365e1cb20b5c4eccb00cd4318e07a4",
+      "primaryRequirement": {
+        "label": "分裂を禁止",
+        "status": "exhausted",
+        "expanded": 1,
+        "discovered": 1,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "split": 3,
+        "fall": 7,
+        "merge": 1,
+        "rescue": 3
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "fingerprint": "split → fall → split → fall → merge → fall → split → rescue → fall → rescue"
+    },
+    "83": {
+      "number": 69,
+      "previousNumber": 83,
+      "title": "鍵役も門の向こうへ",
+      "proof": "shortest",
+      "commands": 14,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 2637,
+        "discovered": 3018,
+        "limit": 40000,
+        "maxDepth": 90,
+        "deepest": 14,
+        "solutionLength": 14
+      },
+      "boardHash": "dfd98e6d79829951ae45c1744aaceefa7781d6a2c8c466ab80be03ed66306fce",
+      "primaryRequirement": {
+        "label": "fixture.latchの作動を禁止",
+        "status": "exhausted",
+        "expanded": 780,
+        "discovered": 780,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "split": 1,
+        "mechanism": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "fingerprint": "split → mechanism → rescue"
+    },
+    "84": {
+      "number": 91,
+      "previousNumber": 84,
+      "title": "石屋根と二人の背",
+      "proof": "shortest",
+      "commands": 12,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 838,
+        "discovered": 900,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 12,
+        "solutionLength": 12,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "772489f96877a37b8d9b53f6fb5c6c824fad5e914318d276e9817022292919db",
+      "primaryRequirement": {
+        "label": "落下と上向き移動を禁止",
+        "status": "exhausted",
+        "expanded": 326,
+        "discovered": 326,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "rescue": 3
+      },
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "fingerprint": "rescue"
+    },
+    "85": {
+      "number": 82,
+      "previousNumber": 85,
+      "title": "足跡の帰らない森",
+      "proof": "shortest",
+      "commands": 9,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 153,
+        "discovered": 212,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 9,
+        "solutionLength": 9,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "403413cb4e95456df34336b9872dab15e6946c0c75f170540495dc41b83a8e2b",
+      "primaryRequirement": {
+        "label": "fixture.burrowの効果を禁止",
+        "status": "exhausted",
+        "expanded": 59,
+        "discovered": 59,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "split": 1,
+        "fixture.warp": 1,
+        "rescue": 2,
+        "fixture.burrow": 1
+      },
+      "touched": [
+        "fixture.burrow",
+        "fixture.exit",
+        "fixture.spike",
+        "fixture.warp",
+        "terrain.floor",
+        "terrain.tunnel"
+      ],
+      "fingerprint": "split → fixture.warp → rescue → fixture.burrow → rescue"
+    },
+    "86": {
+      "number": 92,
+      "previousNumber": 86,
+      "title": "一と三のあいだ",
+      "proof": "shortest",
+      "commands": 16,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 410,
+        "discovered": 442,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 16,
+        "solutionLength": 16,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "0c7e866371fd74aa95f3399b82ca9df1bada8df154cfd70af2f720b386380fa8",
+      "primaryRequirement": {
+        "label": "fixture.sequenceの作動を禁止",
+        "status": "exhausted",
+        "expanded": 269,
+        "discovered": 269,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "mechanism": 1,
+        "merge": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.sequence",
+        "terrain.floor"
+      ],
+      "fingerprint": "mechanism → merge → rescue"
+    },
+    "87": {
+      "number": 74,
+      "previousNumber": 87,
+      "title": "泡の上、石環の下",
+      "proof": "shortest",
+      "commands": 8,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 39,
+        "discovered": 44,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 8,
+        "solutionLength": 8,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "6577c34600ea6fd0a3679a25683abf5f327e9d87d0ffcd4efc68c1ffeedd710a",
+      "primaryRequirement": {
+        "label": "field.bubbleの効果を禁止",
+        "status": "exhausted",
+        "expanded": 10,
+        "discovered": 10,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "split": 1,
+        "field.bubble": 3,
+        "fixture.warp": 1,
+        "rescue": 2,
+        "fall": 1
+      },
+      "touched": [
+        "field.bubble",
+        "fixture.exit",
+        "fixture.spike",
+        "fixture.warp",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "fingerprint": "split → field.bubble → fixture.warp → rescue → fall → rescue"
+    },
+    "88": {
+      "number": 87,
+      "previousNumber": 88,
+      "title": "氷上の合鍵",
+      "proof": "shortest",
+      "commands": 10,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 1024,
+        "discovered": 1162,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 10,
+        "solutionLength": 10,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "f5c8e137cf361e0ac5764fb767ed5d8ee76357f423a5a881ffb6bdbd932c387a",
+      "primaryRequirement": {
+        "label": "terrain.iceの効果を禁止",
+        "status": "exhausted",
+        "expanded": 1,
+        "discovered": 1,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "terrain.ice": 2,
+        "split": 2,
+        "mechanism": 1,
+        "rescue": 3
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.spike",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "fingerprint": "terrain.ice → split → mechanism → split → rescue"
+    },
+    "89": {
+      "number": 88,
+      "previousNumber": 89,
+      "title": "小さい仲間の風の便",
+      "proof": "shortest",
+      "commands": 11,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 204,
+        "discovered": 279,
+        "limit": 40000,
+        "maxDepth": 90,
+        "deepest": 11,
+        "solutionLength": 11
+      },
+      "boardHash": "4f197c255118ca613ad33af2f396cba32c1bdfef51cbb91443093ac3cc995961",
+      "primaryRequirement": {
+        "label": "field.windの効果を禁止",
+        "status": "exhausted",
+        "expanded": 174,
+        "discovered": 174,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "split": 1,
+        "field.wind": 3,
+        "mechanism": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "field.wind",
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "fingerprint": "split → field.wind → mechanism → rescue"
+    },
+    "90": {
+      "number": 83,
+      "previousNumber": 90,
+      "title": "水に二つの数字",
+      "proof": "shortest",
+      "commands": 12,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 641,
+        "discovered": 663,
+        "limit": 40000,
+        "maxDepth": 90,
+        "deepest": 12,
+        "solutionLength": 12
+      },
+      "boardHash": "37d6d54cc6d65686938fb6acdf33e7c1f10be0e2b15d16a1c2ffdba79f95d326",
+      "primaryRequirement": {
+        "label": "terrain.waterの新規マス進入を禁止",
+        "status": "exhausted",
+        "expanded": 119,
+        "discovered": 119,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "split": 1,
+        "phase": 3,
+        "merge": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.gate",
+        "fixture.spike",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "fingerprint": "split → phase → merge → rescue → phase → rescue"
+    },
+    "91": {
+      "number": 89,
+      "previousNumber": 91,
+      "title": "逆向きの着地",
+      "proof": "shortest",
+      "commands": 13,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 642,
+        "discovered": 710,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 13,
+        "solutionLength": 13,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "9a8431b35b500f7cfaf03e9eec309fdc24423dd8208016a87dc606292780c17d",
+      "primaryRequirement": {
+        "label": "fixture.warpの効果を禁止",
+        "status": "exhausted",
+        "expanded": 210,
+        "discovered": 210,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "split": 1,
+        "fixture.warp": 2,
+        "mechanism": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.spike",
+        "fixture.warp",
+        "terrain.floor"
+      ],
+      "fingerprint": "split → fixture.warp → mechanism → rescue → fixture.warp → rescue"
+    },
+    "92": {
+      "number": 93,
+      "previousNumber": 92,
+      "title": "二人ぶんの合図",
+      "proof": "shortest",
+      "commands": 13,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 1322,
+        "discovered": 1360,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 13,
+        "solutionLength": 13,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "b1306a2543b3e6cfbbc691c5d64ed5ecc5ae0d8ab9a81adc1caedddf2943f8c3",
+      "primaryRequirement": {
+        "label": "fixture.plate.weightの作動を禁止",
+        "status": "exhausted",
+        "expanded": 146,
+        "discovered": 146,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "mechanism": 5,
+        "rescue": 3
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.plate.weight",
+        "terrain.floor"
+      ],
+      "fingerprint": "mechanism → rescue → mechanism → rescue"
+    },
+    "93": {
+      "number": 94,
+      "previousNumber": 93,
+      "title": "氷の先で受け継ぐ鍵",
+      "proof": "shortest",
+      "commands": 12,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 725,
+        "discovered": 883,
+        "limit": 30000,
+        "maxDepth": 90,
+        "deepest": 12,
+        "solutionLength": 12,
+        "algorithm": "official solver.mjs solve breadth-first"
+      },
+      "boardHash": "9d773ae6de8bf400794b74c88512b0c049e86123e90108b94bd02bce4cb853f7",
+      "primaryRequirement": {
+        "label": "fixture.plate.holdの作動を禁止",
+        "status": "exhausted",
+        "expanded": 90,
+        "discovered": 90,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "split": 1,
+        "mechanism": 3,
+        "terrain.ice": 4,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.plate.hold",
+        "fixture.spike",
+        "terrain.floor",
+        "terrain.ice"
+      ],
+      "fingerprint": "split → mechanism → terrain.ice → mechanism → rescue → mechanism → terrain.ice → rescue"
+    },
+    "94": {
+      "number": 95,
+      "previousNumber": 94,
+      "title": "二枚の板と借りた重さ",
+      "proof": "shortest",
+      "commands": 14,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 3889,
+        "discovered": 4234,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 14,
+        "solutionLength": 14,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "e4c405f330ca3d6917006e12e4cada20adf89a8723f7b519b21b7caa7f400ad1",
+      "primaryRequirement": {
+        "label": "箱押しを禁止",
+        "status": "exhausted",
+        "expanded": 3695,
+        "discovered": 3695,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "swap": 1,
+        "mechanism": 2,
+        "merge": 1,
+        "push": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "object.crate",
+        "terrain.floor"
+      ],
+      "fingerprint": "swap → mechanism → merge → push → mechanism → rescue"
+    },
+    "95": {
+      "number": 96,
+      "previousNumber": 95,
+      "title": "土と氷の二重底",
+      "proof": "shortest",
+      "commands": 13,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 10360,
+        "discovered": 12027,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 13,
+        "solutionLength": 13,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "9963768c7c7d247a4ca12c6a47d140f77897259c6c6b5f24cf64b742ee78157a",
+      "primaryRequirement": {
+        "label": "fixture.burrowの効果を禁止",
+        "status": "exhausted",
+        "expanded": 1466,
+        "discovered": 1466,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "split": 1,
+        "fixture.warp": 1,
+        "rescue": 3,
+        "terrain.ice": 2,
+        "fixture.burrow": 2
+      },
+      "touched": [
+        "fixture.burrow",
+        "fixture.exit",
+        "fixture.spike",
+        "fixture.warp",
+        "terrain.floor",
+        "terrain.ice",
+        "terrain.tunnel"
+      ],
+      "fingerprint": "split → fixture.warp → rescue → terrain.ice → fixture.burrow → rescue → terrain.ice → fixture.burrow → rescue"
+    },
+    "96": {
+      "number": 90,
+      "previousNumber": 96,
+      "title": "うずの外から",
+      "proof": "shortest",
+      "commands": 15,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 2403,
+        "discovered": 2597,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 15,
+        "solutionLength": 15,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "c639d749e8dcf68bb0d9fffa3b39ad2b607a6d857fefce6a2ad880d22d9b5dbb",
+      "primaryRequirement": {
+        "label": "field.currentの効果を禁止",
+        "status": "exhausted",
+        "expanded": 1837,
+        "discovered": 1837,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "split": 2,
+        "mechanism": 1,
+        "merge": 1,
+        "field.current": 2,
+        "rescue": 2
+      },
+      "touched": [
+        "field.current",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.spike",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "fingerprint": "split → mechanism → split → merge → field.current → rescue → field.current → rescue"
+    },
+    "97": {
+      "number": 97,
+      "previousNumber": 97,
+      "title": "星の合図は三つ",
+      "proof": "shortest",
+      "commands": 18,
+      "breadthFirst": {
+        "boardHash": "c83d91384489b343caaa4d1be7dcec4356141fa152622075b4dc82db3c9ac8b2",
+        "status": "shortest",
+        "expanded": 35589,
+        "discovered": 36948,
+        "limit": 150000,
+        "maxDepth": 18,
+        "deepest": 18,
+        "solutionLength": 18
+      },
+      "boardHash": "c83d91384489b343caaa4d1be7dcec4356141fa152622075b4dc82db3c9ac8b2",
+      "primaryRequirement": {
+        "label": "fixture.sequenceの作動を禁止",
+        "status": "limit",
+        "expanded": 12000,
+        "discovered": 15693,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "split": 1,
+        "mechanism": 1,
+        "merge": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.sequence",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "fingerprint": "split → mechanism → merge → rescue"
+    },
+    "98": {
+      "number": 98,
+      "previousNumber": 98,
+      "title": "三拍の波、二拍の出口",
+      "proof": "shortest",
+      "commands": 15,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 9672,
+        "discovered": 11424,
+        "limit": 30000,
+        "maxDepth": 90,
+        "deepest": 15,
+        "solutionLength": 15,
+        "algorithm": "official solver.mjs solve breadth-first"
+      },
+      "boardHash": "45ac4ead6c41a752d4e5e3a2beffa422f721863924625182354f104198d72525",
+      "primaryRequirement": {
+        "label": "field.waveの効果を禁止",
+        "status": "exhausted",
+        "expanded": 10986,
+        "discovered": 10986,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "split": 1,
+        "mechanism": 1,
+        "field.current": 2,
+        "field.wave": 2,
+        "rescue": 2
+      },
+      "touched": [
+        "field.current",
+        "field.wave",
+        "fixture.exit",
+        "fixture.latch",
+        "fixture.phase",
+        "fixture.spike",
+        "terrain.floor",
+        "terrain.water"
+      ],
+      "fingerprint": "split → mechanism → field.current → field.wave → rescue → field.current → field.wave → rescue"
+    },
+    "99": {
+      "number": 99,
+      "previousNumber": 99,
+      "title": "渡さないための相棒",
+      "proof": "shortest",
+      "commands": 13,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 363,
+        "discovered": 397,
+        "limit": 30000,
+        "maxDepth": 90,
+        "deepest": 13,
+        "solutionLength": 13,
+        "algorithm": "official solver.mjs solve breadth-first"
+      },
+      "boardHash": "4fd67a399f3d479a8b4cf2063a148df196d3de38c925bc6db50a74a119055b82",
+      "primaryRequirement": {
+        "label": "fixture.burrowの効果を禁止",
+        "status": "exhausted",
+        "expanded": 123,
+        "discovered": 123,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "mechanism": 1,
+        "fixture.burrow": 2,
+        "rescue": 2,
+        "merge": 1
+      },
+      "touched": [
+        "fixture.burrow",
+        "fixture.door",
+        "fixture.exit",
+        "fixture.latch",
+        "terrain.floor"
+      ],
+      "fingerprint": "mechanism → fixture.burrow → rescue → fixture.burrow → merge → rescue"
+    },
+    "100": {
+      "number": 100,
+      "previousNumber": 100,
+      "title": "最後の合体は二度待つ",
+      "proof": "shortest",
+      "commands": 21,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 90987,
+        "discovered": 94308,
+        "limit": 200000,
+        "maxDepth": 90,
+        "deepest": 21,
+        "solutionLength": 21,
+        "algorithm": "official solver.mjs solve breadth-first"
+      },
+      "boardHash": "6069cffbb096c7166797faee65a886b6d7b97be6d4aef5d782bf52a5eb790e3d",
+      "primaryRequirement": {
+        "label": "npc.owlの効果を禁止",
+        "status": "limit",
+        "expanded": 12000,
+        "discovered": 16004,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "npc.owl": 2,
+        "swap": 2,
+        "merge": 2,
+        "fixture.burrow": 1,
+        "push": 1,
+        "mechanism": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.burrow",
+        "fixture.door",
+        "fixture.exit",
+        "npc.owl",
+        "object.crate",
+        "terrain.floor",
+        "terrain.tunnel"
+      ],
+      "fingerprint": "npc.owl → swap → merge → fixture.burrow → push → mechanism → npc.owl → swap → merge → rescue"
+    },
+    "01": {
+      "number": 1,
+      "previousNumber": 1,
+      "title": "ひとすじの星",
+      "proof": "shortest",
+      "commands": 2,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 2,
+        "discovered": 3,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 2,
+        "solutionLength": 2,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "01c2e90174566487aac4bef65a79b9ab2d1e52513c2f4e83818d4f498ce17c74",
+      "primaryRequirement": null,
+      "eventCounts": {
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "fingerprint": "rescue"
+    },
+    "05": {
+      "number": 2,
+      "previousNumber": 5,
+      "title": "底で光る星",
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 5,
+        "discovered": 6,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "152e5630f38afde8afec543215434e003e46a26f850f04e64226336b9e1608ec",
+      "primaryRequirement": {
+        "label": "落下と上向き移動を禁止",
+        "status": "exhausted",
+        "expanded": 1,
+        "discovered": 1,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "fall": 2,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "fingerprint": "fall → rescue"
+    },
+    "02": {
+      "number": 3,
+      "previousNumber": 2,
+      "title": "石戸の向こう",
+      "proof": "shortest",
+      "commands": 3,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 3,
+        "discovered": 4,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 3,
+        "solutionLength": 3,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "38c8e708a43862a3b0b1fb538ebf972234c3bb927d6229dd2054c44e1483e0b8",
+      "primaryRequirement": {
+        "label": "fixture.plate.holdの作動を禁止",
+        "status": "exhausted",
+        "expanded": 1,
+        "discovered": 1,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "mechanism": 2,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.door",
+        "fixture.exit",
+        "fixture.plate.hold",
+        "terrain.floor"
+      ],
+      "fingerprint": "mechanism → rescue"
+    },
+    "04": {
+      "number": 4,
+      "previousNumber": 4,
+      "title": "ちいさな門番",
+      "proof": "shortest",
+      "commands": 6,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 18,
+        "discovered": 21,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 6,
+        "solutionLength": 6,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "9bfa4f2a48e9a91128e825e6f3da48fb59b5ec11f8a85014b8391f0078d805d0",
+      "primaryRequirement": {
+        "label": "条件通路の通過を禁止",
+        "status": "exhausted",
+        "expanded": 12,
+        "discovered": 12,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "phase": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.gate",
+        "terrain.floor"
+      ],
+      "fingerprint": "phase → rescue"
+    },
+    "06": {
+      "number": 8,
+      "previousNumber": 6,
+      "title": "反対側の大きさ",
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 27,
+        "discovered": 29,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "36959853ac804921fb43ecbc7dc9fcc52d255ca3b3e298f37b2f072c5da041bd",
+      "primaryRequirement": {
+        "label": "条件通路の通過を禁止",
+        "status": "exhausted",
+        "expanded": 25,
+        "discovered": 25,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "merge": 1,
+        "phase": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.gate",
+        "terrain.floor"
+      ],
+      "fingerprint": "merge → phase → rescue"
+    },
+    "03": {
+      "number": 9,
+      "previousNumber": 3,
+      "title": "すれ違う星",
+      "proof": "shortest",
+      "commands": 5,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 17,
+        "discovered": 21,
+        "limit": 40000,
+        "maxDepth": 90,
+        "deepest": 5,
+        "solutionLength": 5
+      },
+      "boardHash": "f32b8e9674feced569487ddd4bf892aaece64b4748002aefcdbf46f847e4d728",
+      "primaryRequirement": null,
+      "eventCounts": {
+        "swap": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.exit",
+        "terrain.floor"
+      ],
+      "fingerprint": "swap → rescue"
+    },
+    "07": {
+      "number": 15,
+      "previousNumber": 7,
+      "title": "二つにして通る",
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 18,
+        "discovered": 19,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 7,
+        "solutionLength": 7,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "e6c5de6081d7b6fea39cfc213f51b99a1a549d5efca9bd1aebe914435e38acbb",
+      "primaryRequirement": {
+        "label": "分裂を禁止",
+        "status": "exhausted",
+        "expanded": 3,
+        "discovered": 3,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "split": 1,
+        "phase": 2,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.gate",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "fingerprint": "split → phase → rescue → phase → rescue"
+    },
+    "08": {
+      "number": 25,
+      "previousNumber": 8,
+      "title": "わけ前は一つだけ",
+      "proof": "shortest",
+      "commands": 7,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 63,
+        "discovered": 133,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 7,
+        "solutionLength": 7,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "dff509ddaedee5b775c08a5cef3e0b2ec71b4fea706e835f18c713804cd085e1",
+      "primaryRequirement": {
+        "label": "分裂を禁止",
+        "status": "exhausted",
+        "expanded": 7,
+        "discovered": 7,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "split": 1,
+        "rescue": 2
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.spike",
+        "terrain.floor"
+      ],
+      "fingerprint": "split → rescue"
+    },
+    "09": {
+      "number": 27,
+      "previousNumber": 9,
+      "title": "門の向こうで会おう",
+      "proof": "shortest",
+      "commands": 10,
+      "breadthFirst": {
+        "status": "shortest",
+        "expanded": 90,
+        "discovered": 98,
+        "limit": 12000,
+        "maxDepth": 90,
+        "deepest": 10,
+        "solutionLength": 10,
+        "reusedFrom": "63af9f9a"
+      },
+      "boardHash": "d6aa2f5bc4cd45b620419ceb3d47c467f8a229988294ea66f6a6fdc2a4b9679c",
+      "primaryRequirement": {
+        "label": "条件通路の通過を禁止",
+        "status": "exhausted",
+        "expanded": 15,
+        "discovered": 15,
+        "limit": 12000,
+        "maxDepth": 90,
+        "solutionLength": null,
+        "bypass": null
+      },
+      "eventCounts": {
+        "phase": 2,
+        "merge": 1,
+        "rescue": 1
+      },
+      "touched": [
+        "fixture.exit",
+        "fixture.gate",
+        "terrain.floor"
+      ],
+      "fingerprint": "phase → merge → rescue"
+    }
+  }
+}

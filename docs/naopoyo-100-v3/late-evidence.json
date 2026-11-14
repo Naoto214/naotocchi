@@ -1,0 +1,200 @@
+{
+  "93": {
+    "legacyId": "93",
+    "boardSha256": "9d773ae6de8bf400794b74c88512b0c049e86123e90108b94bd02bce4cb853f7",
+    "boardHashSerialization": "JSON.stringify(stage.board)",
+    "solver": {
+      "status": "shortest",
+      "expanded": 725,
+      "discovered": 883,
+      "limit": 30000,
+      "maxDepth": 90,
+      "deepest": 12,
+      "solutionLength": 12,
+      "algorithm": "official solver.mjs solve breadth-first"
+    },
+    "replay": {
+      "complete": true,
+      "solutionLength": 12,
+      "engine": "shared engine.mjs gameMove via solver.mjs replay"
+    },
+    "probes": [
+      {
+        "forbidden": "mechanism:P:active",
+        "status": "exhausted",
+        "expanded": 764,
+        "discovered": 764,
+        "limit": 50000,
+        "maxDepth": null,
+        "depthLimited": false,
+        "algorithm": "breadth-first legal gameMove transitions excluding named event/condition"
+      }
+    ]
+  },
+  "98": {
+    "legacyId": "98",
+    "boardSha256": "45ac4ead6c41a752d4e5e3a2beffa422f721863924625182354f104198d72525",
+    "boardHashSerialization": "JSON.stringify(stage.board)",
+    "solver": {
+      "status": "shortest",
+      "expanded": 9672,
+      "discovered": 11424,
+      "limit": 30000,
+      "maxDepth": 90,
+      "deepest": 15,
+      "solutionLength": 15,
+      "algorithm": "official solver.mjs solve breadth-first"
+    },
+    "replay": {
+      "complete": true,
+      "solutionLength": 15,
+      "engine": "shared engine.mjs gameMove via solver.mjs replay"
+    },
+    "probes": [
+      {
+        "forbidden": "effect:field.wave",
+        "status": "exhausted",
+        "expanded": 10986,
+        "discovered": 10986,
+        "limit": 50000,
+        "maxDepth": null,
+        "depthLimited": false,
+        "algorithm": "breadth-first legal gameMove transitions excluding named event/condition"
+      },
+      {
+        "forbidden": "mechanism:T:active",
+        "status": "exhausted",
+        "expanded": 2226,
+        "discovered": 2226,
+        "limit": 50000,
+        "maxDepth": null,
+        "depthLimited": false,
+        "algorithm": "breadth-first legal gameMove transitions excluding named event/condition"
+      }
+    ]
+  },
+  "99": {
+    "legacyId": "99",
+    "boardSha256": "4fd67a399f3d479a8b4cf2063a148df196d3de38c925bc6db50a74a119055b82",
+    "boardHashSerialization": "JSON.stringify(stage.board)",
+    "solver": {
+      "status": "shortest",
+      "expanded": 363,
+      "discovered": 397,
+      "limit": 30000,
+      "maxDepth": 90,
+      "deepest": 13,
+      "solutionLength": 13,
+      "algorithm": "official solver.mjs solve breadth-first"
+    },
+    "replay": {
+      "complete": true,
+      "solutionLength": 13,
+      "engine": "shared engine.mjs gameMove via solver.mjs replay"
+    },
+    "probes": [
+      {
+        "forbidden": "mechanism:L:active",
+        "status": "exhausted",
+        "expanded": 66,
+        "discovered": 66,
+        "limit": 80000,
+        "maxDepth": null,
+        "depthLimited": false,
+        "algorithm": "breadth-first legal gameMove transitions excluding named event/condition"
+      },
+      {
+        "forbidden": "merge",
+        "status": "exhausted",
+        "expanded": 325,
+        "discovered": 325,
+        "limit": 80000,
+        "maxDepth": null,
+        "depthLimited": false,
+        "algorithm": "breadth-first legal gameMove transitions excluding named event/condition"
+      },
+      {
+        "forbidden": "east-entry-burrow-source(2,2)-while-target(5,2)-occupied",
+        "status": "exhausted",
+        "expanded": 51,
+        "discovered": 51,
+        "limit": 80000,
+        "maxDepth": null,
+        "depthLimited": false,
+        "algorithm": "breadth-first legal gameMove transitions excluding named event/condition"
+      }
+    ]
+  },
+  "100": {
+    "legacyId": "100",
+    "boardSha256": "6069cffbb096c7166797faee65a886b6d7b97be6d4aef5d782bf52a5eb790e3d",
+    "boardHashSerialization": "JSON.stringify(stage.board)",
+    "solver": {
+      "status": "shortest",
+      "expanded": 90987,
+      "discovered": 94308,
+      "limit": 200000,
+      "maxDepth": 90,
+      "deepest": 21,
+      "solutionLength": 21,
+      "algorithm": "official solver.mjs solve breadth-first"
+    },
+    "replay": {
+      "complete": true,
+      "solutionLength": 21,
+      "engine": "shared engine.mjs gameMove via solver.mjs replay"
+    },
+    "probes": [
+      {
+        "forbidden": "companion:O",
+        "status": "exhausted",
+        "expanded": 33112,
+        "discovered": 33112,
+        "limit": 80000,
+        "maxDepth": null,
+        "depthLimited": false,
+        "algorithm": "breadth-first legal gameMove transitions excluding named event/condition"
+      },
+      {
+        "forbidden": "companion:Q",
+        "status": "exhausted",
+        "expanded": 79418,
+        "discovered": 79418,
+        "limit": 80000,
+        "maxDepth": null,
+        "depthLimited": false,
+        "algorithm": "breadth-first legal gameMove transitions excluding named event/condition"
+      },
+      {
+        "forbidden": "push",
+        "status": "exhausted",
+        "expanded": 7984,
+        "discovered": 7984,
+        "limit": 80000,
+        "maxDepth": null,
+        "depthLimited": false,
+        "algorithm": "breadth-first legal gameMove transitions excluding named event/condition"
+      }
+    ],
+    "wrongChoices": [
+      {
+        "choice": "initial dog3 merges into dog2 -> dog5",
+        "status": "exhausted",
+        "expanded": 7912,
+        "discovered": 7912,
+        "limit": 30000,
+        "maxDepth": 90,
+        "deepest": 16
+      },
+      {
+        "choice": "initial dog3 right twice pushes crate right into dead corner",
+        "status": "exhausted",
+        "expanded": 22830,
+        "discovered": 22830,
+        "limit": 30000,
+        "maxDepth": 90,
+        "deepest": 24
+      }
+    ]
+  }
+}

@@ -1,0 +1,1277 @@
+[
+  {
+    "case": "book-320-initial",
+    "data": [
+      {
+        "width": 320,
+        "height": 812,
+        "board": 292,
+        "top": 275.38,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 56,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 56,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 56,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 56,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 56,
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 320,
+        "height": 812,
+        "board": 304,
+        "top": 181.27,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 57.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 57.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 57.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 57.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 57.59375,
+            "height": 44
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case": "book-320-clear",
+    "data": [
+      {
+        "width": 320,
+        "height": 812,
+        "board": 292,
+        "top": 227.38,
+        "clear": true,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 53,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 53,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 53,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 53,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 53,
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 320,
+        "height": 812,
+        "board": 304,
+        "top": 181.27,
+        "clear": true,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 57.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 57.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 57.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 57.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 57.59375,
+            "height": 44
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case": "book-375-clear",
+    "data": [
+      {
+        "width": 375,
+        "height": 812,
+        "board": 335,
+        "top": 216.19,
+        "clear": true,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 64.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 64.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 64.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 64.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 64.59375,
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 375,
+        "height": 812,
+        "board": 359,
+        "top": 181.27,
+        "clear": true,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 68.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 68.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 68.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 68.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 68.59375,
+            "height": 44
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case": "book-initial",
+    "data": [
+      {
+        "width": 390,
+        "height": 812,
+        "board": 350,
+        "top": 246.38,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 67.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 67.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 67.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 67.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 67.59375,
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 390,
+        "height": 812,
+        "board": 374,
+        "top": 181.27,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 71.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 71.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 71.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 71.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 71.59375,
+            "height": 44
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case": "book-390-clear",
+    "data": [
+      {
+        "width": 390,
+        "height": 812,
+        "board": 350,
+        "top": 208.69,
+        "clear": true,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 67.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 67.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 67.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 67.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 67.59375,
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 390,
+        "height": 812,
+        "board": 374,
+        "top": 181.27,
+        "clear": true,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 71.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 71.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 71.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 71.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 71.59375,
+            "height": 44
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case": "book-initial",
+    "data": [
+      {
+        "width": 430,
+        "height": 812,
+        "board": 390,
+        "top": 226.38,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 75.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 75.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 75.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 75.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 75.59375,
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 430,
+        "height": 812,
+        "board": 414,
+        "top": 162.08,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 79.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 79.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 79.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 79.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 79.59375,
+            "height": 44
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case": "book-430-clear",
+    "data": [
+      {
+        "width": 430,
+        "height": 812,
+        "board": 383,
+        "top": 192.19,
+        "clear": true,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 75.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 75.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 75.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 75.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 75.59375,
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 430,
+        "height": 812,
+        "board": 414,
+        "top": 162.08,
+        "clear": true,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 79.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 79.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 79.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 79.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 79.59375,
+            "height": 44
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case": "book-initial",
+    "data": [
+      {
+        "width": 320,
+        "height": 812,
+        "board": 292,
+        "top": 275.38,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 56,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 56,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 56,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 56,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 56,
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 320,
+        "height": 812,
+        "board": 304,
+        "top": 181.27,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 57.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 57.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 57.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 57.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 57.59375,
+            "height": 44
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case": "book-320-player-clear",
+    "data": [
+      {
+        "width": 320,
+        "height": 812,
+        "board": 292,
+        "top": 237.69,
+        "clear": true,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 56,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 56,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 56,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 56,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 56,
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 320,
+        "height": 812,
+        "board": 304,
+        "top": 181.27,
+        "clear": true,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 57.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 57.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 57.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 57.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 57.59375,
+            "height": 44
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case": "stage-320",
+    "data": [
+      {
+        "width": 320,
+        "height": 812,
+        "board": 292,
+        "top": 266.91,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 56,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 56,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 56,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 56,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 56,
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 320,
+        "height": 812,
+        "board": 304,
+        "top": 164.33,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 57.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 57.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 57.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 57.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 57.59375,
+            "height": 44
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case": "stage-375",
+    "data": [
+      {
+        "width": 375,
+        "height": 812,
+        "board": 335,
+        "top": 245.41,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 64.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 64.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 64.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 64.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 64.59375,
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 375,
+        "height": 812,
+        "board": 359,
+        "top": 164.33,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 68.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 68.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 68.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 68.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 68.59375,
+            "height": 44
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case": "stage-390",
+    "data": [
+      {
+        "width": 390,
+        "height": 812,
+        "board": 350,
+        "top": 237.91,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 67.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 67.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 67.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 67.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 67.59375,
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 390,
+        "height": 812,
+        "board": 374,
+        "top": 164.33,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 71.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 71.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 71.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 71.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 71.59375,
+            "height": 44
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case": "stage-430",
+    "data": [
+      {
+        "width": 430,
+        "height": 812,
+        "board": 390,
+        "top": 217.91,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 75.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 75.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 75.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 75.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 75.59375,
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 430,
+        "height": 812,
+        "board": 414,
+        "top": 164.33,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 79.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 79.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 79.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 79.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 79.59375,
+            "height": 44
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case": "landscape-568",
+    "data": [
+      {
+        "width": 568,
+        "height": 320,
+        "board": 174,
+        "top": 100.5,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 49,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 49,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 49,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 49,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 49,
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 568,
+        "height": 320,
+        "board": 210,
+        "top": 100,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 50,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 50,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 50,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 50,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 50,
+            "height": 44
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case": "landscape-844",
+    "data": [
+      {
+        "width": 844,
+        "height": 390,
+        "board": 244,
+        "top": 108,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 76.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 76.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 76.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 76.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 76.59375,
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 844,
+        "height": 390,
+        "board": 280,
+        "top": 100,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 77.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 77.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 77.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 77.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 77.59375,
+            "height": 44
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case": "small-320x568",
+    "data": [
+      {
+        "width": 320,
+        "height": 568,
+        "board": 214,
+        "top": 192.38,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 53.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 53.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 53.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 53.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 53.59375,
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 320,
+        "height": 568,
+        "board": 304,
+        "top": 181.27,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 57.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 57.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 57.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 57.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 57.59375,
+            "height": 44
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case": "small-320x568-hint-scrolled",
+    "data": [
+      {
+        "width": 320,
+        "height": 568,
+        "board": 214,
+        "top": 192.38,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 53.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 53.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 53.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 53.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 53.59375,
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 320,
+        "height": 568,
+        "board": 304,
+        "top": 103.27,
+        "clear": false,
+        "horizontalOverflow": false,
+        "controls": [
+          {
+            "label": "↶ 戻す",
+            "width": 57.59375,
+            "height": 44
+          },
+          {
+            "label": "やり直し",
+            "width": 57.59375,
+            "height": 44
+          },
+          {
+            "label": "ヒント",
+            "width": 57.609375,
+            "height": 44
+          },
+          {
+            "label": "おてほん",
+            "width": 57.59375,
+            "height": 44
+          },
+          {
+            "label": "使う素材",
+            "width": 57.59375,
+            "height": 44
+          }
+        ]
+      }
+    ]
+  }
+]

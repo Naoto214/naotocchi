@@ -1,0 +1,134 @@
+[
+  {
+    "id": "03",
+    "number": 9,
+    "label": "異種交換",
+    "boardHash": "f32b8e9674feced569487ddd4bf892aaece64b4748002aefcdbf46f847e4d728",
+    "status": "exhausted",
+    "expanded": 10,
+    "discovered": 10,
+    "limit": 120000,
+    "maxDepth": 120
+  },
+  {
+    "id": "20",
+    "number": 33,
+    "label": "犬の救出前の蛙の配置",
+    "boardHash": "150480ace1dbd18da8c3d1c37543b6356f0a5cc3a15ba29c8f9c3eb9a3f49430",
+    "status": "exhausted",
+    "expanded": 3,
+    "discovered": 3,
+    "limit": 120000,
+    "maxDepth": 120
+  },
+  {
+    "id": "51",
+    "number": 59,
+    "label": "箱A",
+    "boardHash": "2b378a0d9f549473af8653e64ca5dee249813b22b688a5b8cf0716ff33de2007",
+    "status": "exhausted",
+    "expanded": 60,
+    "discovered": 60,
+    "limit": 120000,
+    "maxDepth": 120
+  },
+  {
+    "id": "51",
+    "number": 59,
+    "label": "箱B",
+    "boardHash": "2b378a0d9f549473af8653e64ca5dee249813b22b688a5b8cf0716ff33de2007",
+    "status": "exhausted",
+    "expanded": 48,
+    "discovered": 48,
+    "limit": 120000,
+    "maxDepth": 120
+  },
+  {
+    "id": "78",
+    "number": 84,
+    "label": "崩落",
+    "boardHash": "0a24f303ef4de7e18b30ab60ae5e6dcb2dbca59381a0eeee6dd1da96a81937b3",
+    "status": "exhausted",
+    "expanded": 8,
+    "discovered": 8,
+    "limit": 120000,
+    "maxDepth": 120
+  },
+  {
+    "id": "78",
+    "number": 84,
+    "label": "押している間の鍵",
+    "boardHash": "0a24f303ef4de7e18b30ab60ae5e6dcb2dbca59381a0eeee6dd1da96a81937b3",
+    "status": "exhausted",
+    "expanded": 31,
+    "discovered": 31,
+    "limit": 120000,
+    "maxDepth": 120
+  },
+  {
+    "id": "73",
+    "number": 67,
+    "label": "フクロウ協力",
+    "boardHash": "02acb5e700b1eff23eff1a113288e4284b206e4ee3c1524c2baa34b4158531a0",
+    "status": "exhausted",
+    "expanded": 40,
+    "discovered": 40,
+    "limit": 120000,
+    "maxDepth": 120
+  },
+  {
+    "id": "81",
+    "number": 85,
+    "label": "フクロウ協力",
+    "boardHash": "bda9fcaa8c15e5dae98d4d8c3a2b6204a76916a6d003c7925194f019eeff1fee",
+    "status": "exhausted",
+    "expanded": 324,
+    "discovered": 324,
+    "limit": 120000,
+    "maxDepth": 120
+  },
+  {
+    "id": "99",
+    "number": 99,
+    "label": "転送先を塞いだ進入",
+    "boardHash": "4fd67a399f3d479a8b4cf2063a148df196d3de38c925bc6db50a74a119055b82",
+    "status": "exhausted",
+    "expanded": 51,
+    "discovered": 51,
+    "limit": 120000,
+    "maxDepth": 120
+  },
+  {
+    "id": "100",
+    "number": 100,
+    "label": "左のフクロウ",
+    "boardHash": "6069cffbb096c7166797faee65a886b6d7b97be6d4aef5d782bf52a5eb790e3d",
+    "status": "exhausted",
+    "expanded": 33112,
+    "discovered": 33112,
+    "limit": 120000,
+    "maxDepth": 120
+  },
+  {
+    "id": "100",
+    "number": 100,
+    "label": "右のフクロウ",
+    "boardHash": "6069cffbb096c7166797faee65a886b6d7b97be6d4aef5d782bf52a5eb790e3d",
+    "status": "exhausted",
+    "expanded": 79418,
+    "discovered": 79418,
+    "limit": 120000,
+    "maxDepth": 120
+  },
+  {
+    "id": "100",
+    "number": 100,
+    "label": "箱押し",
+    "boardHash": "6069cffbb096c7166797faee65a886b6d7b97be6d4aef5d782bf52a5eb790e3d",
+    "status": "exhausted",
+    "expanded": 7984,
+    "discovered": 7984,
+    "limit": 120000,
+    "maxDepth": 120
+  }
+]

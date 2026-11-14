@@ -34,6 +34,23 @@ class ExperimentNotServedTests(unittest.TestCase):
                 and 'variable-life-20261031' in (ROOT / f).read_text(errors='ignore')]
         self.assertEqual(hits, [])
 
+    def test_naopoyo_owner_trials_stay_out_of_the_real_package(self):
+        # The approved gate painter is already a formal runtime dependency.
+        # Its optional animation must not pull in the owner-only controller,
+        # 100-stage/book entrypoints, atlas or contact-comparison experiment.
+        prefixes = ('prototypes/naopoyo-100/', 'prototypes/naopoyo-shared/',
+                    'prototypes/naopoyo-chapter2/contact-comparison/',
+                    'docs/naopoyo-gimmick-atlas-v2/',
+                    'docs/naopoyo-100-v1/', 'docs/naopoyo-100-v2/')
+        result = self.package.validate(ROOT, self.manifest)
+        self.assertIn('prototypes/naopoyo-chapter2/gate-art.mjs', result['files'])
+        self.assertEqual([f for f in result['files'] if f.startswith(prefixes)], [])
+        tokens = ('naopoyo-100/', 'naopoyo-shared/', 'contact-comparison/',
+                  'naopoyo-gimmick-atlas-v2/', 'naopoyo-100-v1/', 'naopoyo-100-v2/')
+        self.assertEqual([f for f in result['files'] if f.endswith(TEXT)
+                          and any(token in (ROOT / f).read_text(errors='ignore')
+                                  for token in tokens)], [])
+
 
 if __name__ == '__main__':
     unittest.main()

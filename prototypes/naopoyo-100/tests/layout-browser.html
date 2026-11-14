@@ -1,0 +1,31 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><title>盤面サイズ比較</title><style>body{margin:12px;background:#e7eadd;color:#294b4a;font:14px system-ui}header{display:flex;gap:12px;align-items:center;height:42px}main{display:flex;gap:18px}h2{font-size:15px;margin:8px 0}iframe{border:1px solid #aaa;display:block;box-sizing:content-box}pre{white-space:pre-wrap}button,select{font:inherit;min-height:32px}</style><header><label>幅 <select id="width"><option>320</option><option selected>375</option><option>390</option><option>430</option><option>568</option><option>844</option></select></label><label>画面 <select id="mode"><option value="book=0">絵本1</option><option value="book=7">絵本8</option><option value="stage=7">通常07面</option></select></label><label>高さ <select id="height"><option>568</option><option>667</option><option selected>812</option></select></label><button id="clear">おてほんを最後まで再生</button><button id="measure">計測</button><button id="audit">全108盤面×4幅を検証</button><span id="status">準備中</span></header><main><section><h2>修正前 · 20487bf6</h2><iframe id="before"></iframe></section><section><h2>修正後</h2><iframe id="after"></iframe></section></main><pre id="results"></pre><script type="module">
+const $=s=>document.querySelector(s),wait=ms=>new Promise(r=>setTimeout(r,ms));
+const frames=[$('#before'),$('#after')];
+async function ready(f){for(let i=0;i<300;i++){if(f.contentDocument?.documentElement.dataset.ready==='true')return;await wait(20)}throw Error('load timeout')}
+async function load(f,url){await new Promise(resolve=>{f.onload=resolve;f.src=url});await ready(f)}
+function dimensions(){let w=+$('#width').value;$('main').style.flexDirection=w>500?'column':'row';for(const f of frames){f.width=w;f.height=w>500?(w===568?320:390):+$('#height').value}}
+async function open(){dimensions();let q=$('#mode').value;await Promise.all([load(frames[0],'__before/prototypes/naopoyo-100/?'+q),load(frames[1],'prototypes/naopoyo-100/?'+q)]);await wait(150);measure()}
+function metrics(f){const d=f.contentDocument,c=d.querySelector('#board'),r=c.getBoundingClientRect();return {width:+f.width,height:+f.height,board:+r.width.toFixed(2),top:+r.top.toFixed(2),clear:!d.querySelector('#clear-panel').hidden,horizontalOverflow:d.documentElement.scrollWidth>+f.width,controls:[...d.querySelectorAll('.quick-controls button')].map(b=>({label:b.textContent,width:b.getBoundingClientRect().width,height:b.getBoundingClientRect().height}))}}
+function measure(){$('#results').textContent=JSON.stringify(frames.map(metrics),null,2);$('#status').textContent='計測完了'}
+$('#height').onchange=open;$('#width').onchange=open;$('#mode').onchange=open;$('#measure').onclick=measure;
+$('#clear').onclick=async()=>{for(const f of frames){const d=f.contentDocument;d.querySelector('#example').click();while(!d.querySelector('#demo-step').disabled){d.querySelector('#demo-step').click();await wait(450)}}for(const f of frames){for(let i=0;i<200&&f.contentDocument.querySelector('#clear-panel').hidden;i++)await wait(25)}measure()};
+$('#audit').onclick=async()=>{
+ const rows=[],f=frames[1];$('#status').textContent='検証中';
+ try{for(const width of [320,375,390,430]){
+  f.width=width;f.height=812;await wait(80);
+  for(const q of [...Array.from({length:8},(_,i)=>'book='+i),...Array.from({length:100},(_,i)=>'stage='+(i+1))]){
+   const d=f.contentDocument;d.querySelector('#menu').click();
+   if(q.startsWith('book')){d.querySelector('#open-book').click();for(let i=0;i<+q.split('=')[1];i++)d.querySelector('#book-next').click()}
+   else d.querySelector('[data-stage="'+q.split('=')[1].padStart(2,'0')+'"]').click();
+   d.querySelector('#retry').click();await wait(30);
+   const before=metrics(f);d.querySelector('#hint').click();const hinted=metrics(f);d.querySelector('#hint-close').click();
+   d.querySelector('#example').click();const demo=metrics(f);d.querySelector('#demo-back').click();
+   rows.push({q,width,board:before.board,hintBoard:hinted.board,demoBoard:demo.board,overflow:before.horizontalOverflow,controlsOK:before.controls.every(b=>b.height>=44&&b.width>0),pass:before.board>=width-24&&before.board===hinted.board&&before.board===demo.board&&!before.horizontalOverflow});
+   $('#status').textContent=`検証 ${rows.length}/432`;
+  }
+ }
+ $('#results').textContent=JSON.stringify({count:rows.length,failed:rows.filter(r=>!r.pass||!r.controlsOK),rows});$('#status').textContent='全盤面検証完了';
+ }catch(e){$('#results').textContent=JSON.stringify({error:e.message,rows});$('#status').textContent='検証失敗'}
+};
+await open();
+</script></html>

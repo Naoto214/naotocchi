@@ -1,0 +1,3 @@
+import fs from 'node:fs';import baseline from './baseline.json' with {type:'json'};import {mainRequirement,search}from './search.mjs';import{replay}from'../solver.mjs';
+const file=new URL('../../../..//baseline-audit.json',import.meta.url);const out=fs.existsSync(file)?JSON.parse(fs.readFileSync(file)):{};
+for(const s of baseline){if(out[s.id])continue;const req=mainRequirement(s),r=req?search(s.board,{forbid:req.forbid,limit:4000,maxDepth:90}):null;const events=replay(s.board,s.solution).events;out[s.id]={requirement:req?.label??null,probe:r,events:events.map(e=>e.catalogId||e.type)};fs.writeFileSync(file,JSON.stringify(out,null,2));console.log(s.id,r?.status,r?.solution?.length??'',s.title)}

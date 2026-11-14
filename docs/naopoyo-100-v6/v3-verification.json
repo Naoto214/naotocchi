@@ -1,0 +1,907 @@
+{
+  "basis": "Unchanged canonical engine; freshly searched V3 boards, display-only worlds project to identical boards.",
+  "rows": [
+    {
+      "id": "01",
+      "number": 1,
+      "hash": "01c2e90174566487aac4bef65a79b9ab2d1e52513c2f4e83818d4f498ce17c74",
+      "status": "shortest",
+      "length": 2,
+      "expanded": 2,
+      "limit": 100000
+    },
+    {
+      "id": "05",
+      "number": 2,
+      "hash": "152e5630f38afde8afec543215434e003e46a26f850f04e64226336b9e1608ec",
+      "status": "shortest",
+      "length": 5,
+      "expanded": 5,
+      "limit": 100000
+    },
+    {
+      "id": "02",
+      "number": 3,
+      "hash": "38c8e708a43862a3b0b1fb538ebf972234c3bb927d6229dd2054c44e1483e0b8",
+      "status": "shortest",
+      "length": 3,
+      "expanded": 3,
+      "limit": 100000
+    },
+    {
+      "id": "04",
+      "number": 4,
+      "hash": "9bfa4f2a48e9a91128e825e6f3da48fb59b5ec11f8a85014b8391f0078d805d0",
+      "status": "shortest",
+      "length": 6,
+      "expanded": 18,
+      "limit": 100000
+    },
+    {
+      "id": "12",
+      "number": 5,
+      "hash": "e56e19248879fc235b1b05d0447399b8d0d4fadb7ed0c88dbde462c13fa60743",
+      "status": "shortest",
+      "length": 4,
+      "expanded": 4,
+      "limit": 100000
+    },
+    {
+      "id": "31",
+      "number": 6,
+      "hash": "17eaa113a59686914f07bf16ae5fb1dd92abc35cf889c3afe8c0421051228283",
+      "status": "shortest",
+      "length": 6,
+      "expanded": 115,
+      "limit": 100000
+    },
+    {
+      "id": "28",
+      "number": 7,
+      "hash": "666e2ff584fc1aa12168ee2f46e0889dd85828a24877ed289ac84bac1bcd8400",
+      "status": "shortest",
+      "length": 5,
+      "expanded": 6,
+      "limit": 100000
+    },
+    {
+      "id": "06",
+      "number": 8,
+      "hash": "36959853ac804921fb43ecbc7dc9fcc52d255ca3b3e298f37b2f072c5da041bd",
+      "status": "shortest",
+      "length": 5,
+      "expanded": 27,
+      "limit": 100000
+    },
+    {
+      "id": "03",
+      "number": 9,
+      "hash": "f32b8e9674feced569487ddd4bf892aaece64b4748002aefcdbf46f847e4d728",
+      "status": "shortest",
+      "length": 5,
+      "expanded": 17,
+      "limit": 100000
+    },
+    {
+      "id": "10",
+      "number": 10,
+      "hash": "16826492cc7aedb7ac0206f6016aaf0e03af7ab68bd447cd71842a5acb368f30",
+      "status": "shortest",
+      "length": 5,
+      "expanded": 8,
+      "limit": 100000
+    },
+    {
+      "id": "19",
+      "number": 11,
+      "hash": "f103054514213545966e965ba5746a3158ec49ff60ebbc61f63d26d69f814dca",
+      "status": "shortest",
+      "length": 5,
+      "expanded": 9,
+      "limit": 100000
+    },
+    {
+      "id": "11",
+      "number": 12,
+      "hash": "73b971836eea657cd65965818d17171debcb11a049e8673ae60d44f19c96cdc0",
+      "status": "shortest",
+      "length": 5,
+      "expanded": 7,
+      "limit": 100000
+    },
+    {
+      "id": "15",
+      "number": 13,
+      "hash": "9c86af62e0effb0e2f7dce3235dedea577c1a7413bace9a7e218beb088be4778",
+      "status": "shortest",
+      "length": 3,
+      "expanded": 4,
+      "limit": 100000
+    },
+    {
+      "id": "22",
+      "number": 14,
+      "hash": "9a9d0a563905c77d16d2aed5145ae24be4ceed241317cec01f9a289c9c8c0b55",
+      "status": "shortest",
+      "length": 4,
+      "expanded": 4,
+      "limit": 100000
+    },
+    {
+      "id": "07",
+      "number": 15,
+      "hash": "e6c5de6081d7b6fea39cfc213f51b99a1a549d5efca9bd1aebe914435e38acbb",
+      "status": "shortest",
+      "length": 7,
+      "expanded": 18,
+      "limit": 100000
+    },
+    {
+      "id": "13",
+      "number": 16,
+      "hash": "c46eb48ab7378bc7b1f83c4f4a3d12cfb32e9fe171caab3401f2bd14af7bb40a",
+      "status": "shortest",
+      "length": 6,
+      "expanded": 23,
+      "limit": 100000
+    },
+    {
+      "id": "14",
+      "number": 17,
+      "hash": "5608dc405f4e5804b0b9a16c941d75c77336f97508a5ab1e9da1a8430f2b6b60",
+      "status": "shortest",
+      "length": 5,
+      "expanded": 5,
+      "limit": 100000
+    },
+    {
+      "id": "30",
+      "number": 18,
+      "hash": "40a46ce4122ea52924d3d16a64948a77791ee8ff763abf14df61466fed533814",
+      "status": "shortest",
+      "length": 5,
+      "expanded": 9,
+      "limit": 100000
+    },
+    {
+      "id": "16",
+      "number": 19,
+      "hash": "8fd5d675de4000b65645bffe406bea9b1c7082312b487c851a72eebb3cfea646",
+      "status": "shortest",
+      "length": 3,
+      "expanded": 3,
+      "limit": 100000
+    },
+    {
+      "id": "24",
+      "number": 20,
+      "hash": "9708c165da88c92c1a5b4e9b020a7ca66b9dc7a6a7cb0263f2430f5eb4fc15ff",
+      "status": "shortest",
+      "length": 4,
+      "expanded": 15,
+      "limit": 100000
+    },
+    {
+      "id": "34",
+      "number": 21,
+      "hash": "7a8b790f60c4d535448281cadf5b51cd18ab6f9475fae025f6f6c9cc5f628952",
+      "status": "shortest",
+      "length": 4,
+      "expanded": 4,
+      "limit": 100000
+    },
+    {
+      "id": "17",
+      "number": 22,
+      "hash": "23de1d2a58cb3449ce24c7418dd4afd8738585eff2b64ebd269b07f95b7d1ba3",
+      "status": "shortest",
+      "length": 5,
+      "expanded": 8,
+      "limit": 100000
+    },
+    {
+      "id": "27",
+      "number": 23,
+      "hash": "9a0a1a1bf4080c3eb9f909094fad402296eb9d5264dd62f48051ce29bd338b7f",
+      "status": "shortest",
+      "length": 5,
+      "expanded": 5,
+      "limit": 100000
+    },
+    {
+      "id": "32",
+      "number": 24,
+      "hash": "56948a0528c57a150036f04410ff12481af4f72ea74bd11098be673df5aff70e",
+      "status": "shortest",
+      "length": 6,
+      "expanded": 8,
+      "limit": 100000
+    },
+    {
+      "id": "08",
+      "number": 25,
+      "hash": "dff509ddaedee5b775c08a5cef3e0b2ec71b4fea706e835f18c713804cd085e1",
+      "status": "shortest",
+      "length": 7,
+      "expanded": 63,
+      "limit": 100000
+    },
+    {
+      "id": "33",
+      "number": 26,
+      "hash": "d969963dc4943c6096e86668efcc2c1040889c54ae58a711c7d4ce88124a1a3a",
+      "status": "shortest",
+      "length": 4,
+      "expanded": 4,
+      "limit": 100000
+    },
+    {
+      "id": "09",
+      "number": 27,
+      "hash": "d6aa2f5bc4cd45b620419ceb3d47c467f8a229988294ea66f6a6fdc2a4b9679c",
+      "status": "shortest",
+      "length": 10,
+      "expanded": 90,
+      "limit": 100000
+    },
+    {
+      "id": "18",
+      "number": 28,
+      "hash": "34cb6933cd1af1077f09c9fa7a9480b618d40b3421091ec7b7f0521292d8b477",
+      "status": "shortest",
+      "length": 2,
+      "expanded": 2,
+      "limit": 100000
+    },
+    {
+      "id": "21",
+      "number": 29,
+      "hash": "fa3f743db47795f56d9115c078c5f3852942ba11a3f80bfe97720d0108195010",
+      "status": "shortest",
+      "length": 5,
+      "expanded": 14,
+      "limit": 100000
+    },
+    {
+      "id": "25",
+      "number": 30,
+      "hash": "5742286757bf09e07da57ca813f1247e49e5f13e0cb41706065f7818afc309d4",
+      "status": "shortest",
+      "length": 5,
+      "expanded": 5,
+      "limit": 100000
+    },
+    {
+      "id": "29",
+      "number": 31,
+      "hash": "53e52ddde7c416fad24b287f036f5dd7568425956bfbd968cfa469382c515a98",
+      "status": "shortest",
+      "length": 3,
+      "expanded": 3,
+      "limit": 100000
+    },
+    {
+      "id": "49",
+      "number": 32,
+      "hash": "47e088676cab5d9eaf5a6f4e45b4d81982b81c71758bf61d30256f47c0860bba",
+      "status": "shortest",
+      "length": 4,
+      "expanded": 4,
+      "limit": 100000
+    },
+    {
+      "id": "20",
+      "number": 33,
+      "hash": "150480ace1dbd18da8c3d1c37543b6356f0a5cc3a15ba29c8f9c3eb9a3f49430",
+      "status": "shortest",
+      "length": 6,
+      "expanded": 31,
+      "limit": 100000
+    },
+    {
+      "id": "36",
+      "number": 34,
+      "hash": "a7eb0954490049dcf3f322be971f698d6ffad5229e3525cb627e3f4af8f605e1",
+      "status": "shortest",
+      "length": 6,
+      "expanded": 19,
+      "limit": 100000
+    },
+    {
+      "id": "23",
+      "number": 35,
+      "hash": "41eb8f3feca1d8c142a5f56ee6163ca7cb80ac79878bb1e21df27b28964be46f",
+      "status": "shortest",
+      "length": 6,
+      "expanded": 9,
+      "limit": 100000
+    },
+    {
+      "id": "39",
+      "number": 36,
+      "hash": "ca0507a910f88358ca781f45de7c1a2a5e0622da04e33bbd23fa27b414dd820a",
+      "status": "shortest",
+      "length": 8,
+      "expanded": 96,
+      "limit": 100000
+    },
+    {
+      "id": "26",
+      "number": 37,
+      "hash": "6b9b87dc737bdefb9647e9d493e1c3e3d09fcc91da15d74691564b6b264f7124",
+      "status": "shortest",
+      "length": 5,
+      "expanded": 5,
+      "limit": 100000
+    },
+    {
+      "id": "41",
+      "number": 38,
+      "hash": "797fce8914f58af9b905b1f0e9d52d418c9b30cac806e1083f04b5bbdab135f1",
+      "status": "shortest",
+      "length": 7,
+      "expanded": 19,
+      "limit": 100000
+    },
+    {
+      "id": "37",
+      "number": 39,
+      "hash": "dfe15f53dfb12e757522ae9ebd9b66de6dc5d0107695e4626b19b802d94ccf35",
+      "status": "shortest",
+      "length": 4,
+      "expanded": 15,
+      "limit": 100000
+    },
+    {
+      "id": "50",
+      "number": 40,
+      "hash": "4c8c176bf407bfa53e4db9895f7eb0fe5004b38be5c5fdeebd950d256c8342b4",
+      "status": "shortest",
+      "length": 7,
+      "expanded": 71,
+      "limit": 100000
+    },
+    {
+      "id": "38",
+      "number": 41,
+      "hash": "92a43f04e036e6e91c209c48cb7e6ebd582c601a87fe9efbc949482dcfb43b2f",
+      "status": "shortest",
+      "length": 6,
+      "expanded": 35,
+      "limit": 100000
+    },
+    {
+      "id": "54",
+      "number": 42,
+      "hash": "225ba1c3575b7bb63b830be5963c507ebf556c629189762fec1cbe0006fad71d",
+      "status": "shortest",
+      "length": 5,
+      "expanded": 10,
+      "limit": 100000
+    },
+    {
+      "id": "35",
+      "number": 43,
+      "hash": "97732939f412343f4bb1860453fe5cf72a3c0ae631129881a74e1a9b25ae9886",
+      "status": "shortest",
+      "length": 9,
+      "expanded": 36,
+      "limit": 100000
+    },
+    {
+      "id": "40",
+      "number": 44,
+      "hash": "beef978e2284cca0aa52c54c3dcdea8ea8250d41c79aa0723ab67ad8612a0427",
+      "status": "shortest",
+      "length": 6,
+      "expanded": 51,
+      "limit": 100000
+    },
+    {
+      "id": "45",
+      "number": 45,
+      "hash": "3582e98a17ff20119784d7b1dcf57499a6483d8bf1e009813eefdf96c79bc934",
+      "status": "shortest",
+      "length": 6,
+      "expanded": 6,
+      "limit": 100000
+    },
+    {
+      "id": "43",
+      "number": 46,
+      "hash": "a972420127c51ec4ffdd28f6385889d48d6123d4ddc14790ec7241d46fd0be80",
+      "status": "shortest",
+      "length": 5,
+      "expanded": 14,
+      "limit": 100000
+    },
+    {
+      "id": "46",
+      "number": 47,
+      "hash": "7972213e34d9f56dd8323f052808a3c27827a46475cf0e758e95fea26cbebf35",
+      "status": "shortest",
+      "length": 6,
+      "expanded": 98,
+      "limit": 100000
+    },
+    {
+      "id": "57",
+      "number": 48,
+      "hash": "badd96fb352a6f8873801b8ec5321228fd4f16b1ef76cfd5f1ea3b50433d24df",
+      "status": "shortest",
+      "length": 6,
+      "expanded": 91,
+      "limit": 100000
+    },
+    {
+      "id": "62",
+      "number": 49,
+      "hash": "58f700e4bbc3bdf446e304aa87baaba0922b45df2b2eefa091f3030bc71e7671",
+      "status": "shortest",
+      "length": 12,
+      "expanded": 285,
+      "limit": 100000
+    },
+    {
+      "id": "47",
+      "number": 50,
+      "hash": "95e5713a44c2072eca9e97542ab675c875e5d7aecd6ece51f90d4a6674413d4e",
+      "status": "shortest",
+      "length": 6,
+      "expanded": 141,
+      "limit": 100000
+    },
+    {
+      "id": "48",
+      "number": 51,
+      "hash": "422a204b5ef6ce5cf2b6d14740d18ac5f125cafec3db0284cf64bb5fc03aa0fb",
+      "status": "shortest",
+      "length": 5,
+      "expanded": 37,
+      "limit": 100000
+    },
+    {
+      "id": "63",
+      "number": 52,
+      "hash": "6f15fbdfd54be02ebc1b73a304e4f7172e86b5348e29acf7d2f58850fc4647da",
+      "status": "shortest",
+      "length": 8,
+      "expanded": 74,
+      "limit": 100000
+    },
+    {
+      "id": "52",
+      "number": 53,
+      "hash": "263cc0e94537c693c0c0fd6b5b4af746a1733271c28a23eb4f37b4083b16f18a",
+      "status": "shortest",
+      "length": 7,
+      "expanded": 101,
+      "limit": 100000
+    },
+    {
+      "id": "59",
+      "number": 54,
+      "hash": "b07f8bca6bf31f1fc10f1a62027dafbd2cbe1d1fd8fca2af834eb6864a2c04d5",
+      "status": "shortest",
+      "length": 6,
+      "expanded": 186,
+      "limit": 100000
+    },
+    {
+      "id": "42",
+      "number": 55,
+      "hash": "aff61df536e7889ec0d08216a10baee0c8e3be5025c7aea68639928066864a35",
+      "status": "shortest",
+      "length": 9,
+      "expanded": 24,
+      "limit": 100000
+    },
+    {
+      "id": "53",
+      "number": 56,
+      "hash": "0bb43915babf15d13b3e47d537db66640cfaae341eb9c5d4de884610b6c59e64",
+      "status": "shortest",
+      "length": 7,
+      "expanded": 9,
+      "limit": 100000
+    },
+    {
+      "id": "56",
+      "number": 57,
+      "hash": "b2d6637c2ffffad6307c46e192ae12fb23df4f5d66a781c1fb1ba35a0a1a3abe",
+      "status": "shortest",
+      "length": 7,
+      "expanded": 27,
+      "limit": 100000
+    },
+    {
+      "id": "44",
+      "number": 58,
+      "hash": "2872230a2d82213f782836afd710b887978fdccba9284b9fa5a86a88af933939",
+      "status": "shortest",
+      "length": 9,
+      "expanded": 51,
+      "limit": 100000
+    },
+    {
+      "id": "51",
+      "number": 59,
+      "hash": "2b378a0d9f549473af8653e64ca5dee249813b22b688a5b8cf0716ff33de2007",
+      "status": "shortest",
+      "length": 8,
+      "expanded": 111,
+      "limit": 100000
+    },
+    {
+      "id": "55",
+      "number": 60,
+      "hash": "3ad7da2c05145b44410059c4d630a5751d7fdb1954bcb2af1fb6a7f3591c87c2",
+      "status": "shortest",
+      "length": 5,
+      "expanded": 8,
+      "limit": 100000
+    },
+    {
+      "id": "58",
+      "number": 61,
+      "hash": "23ff0e96f010ea143a475e927551d2f17f6eddeb413d3814912ba650c60506ac",
+      "status": "shortest",
+      "length": 7,
+      "expanded": 33,
+      "limit": 100000
+    },
+    {
+      "id": "61",
+      "number": 62,
+      "hash": "052011ff8a6d4d3a8646d116b679779d16d107daf736027ce4b961dbd995555a",
+      "status": "shortest",
+      "length": 8,
+      "expanded": 40,
+      "limit": 100000
+    },
+    {
+      "id": "60",
+      "number": 63,
+      "hash": "9a574a999bfd10fdf64ca4b8bb2b32b10ef925995490a2438826c87011bd3a79",
+      "status": "shortest",
+      "length": 7,
+      "expanded": 85,
+      "limit": 100000
+    },
+    {
+      "id": "64",
+      "number": 64,
+      "hash": "01183c09def3942ebe72894c53e8518a5fe3477be5ef5e94fb189422b381b04c",
+      "status": "shortest",
+      "length": 9,
+      "expanded": 66,
+      "limit": 100000
+    },
+    {
+      "id": "66",
+      "number": 65,
+      "hash": "dfee87bc2a5bfcc8654baa161036f794cbb8d9cfcfef8f4b065bf221b1fc3e82",
+      "status": "shortest",
+      "length": 11,
+      "expanded": 238,
+      "limit": 100000
+    },
+    {
+      "id": "67",
+      "number": 66,
+      "hash": "c5386850d6249f56da6dc2530f85134328c0394b045d1f8eb0bfe8cc806484ae",
+      "status": "shortest",
+      "length": 9,
+      "expanded": 128,
+      "limit": 100000
+    },
+    {
+      "id": "73",
+      "number": 67,
+      "hash": "02acb5e700b1eff23eff1a113288e4284b206e4ee3c1524c2baa34b4158531a0",
+      "status": "shortest",
+      "length": 11,
+      "expanded": 203,
+      "limit": 100000
+    },
+    {
+      "id": "75",
+      "number": 68,
+      "hash": "23d96e1435613457b58c25ba0dc0d265bcb08e041dc7d431a3bd352a87aeba01",
+      "status": "shortest",
+      "length": 9,
+      "expanded": 102,
+      "limit": 100000
+    },
+    {
+      "id": "83",
+      "number": 69,
+      "hash": "dfd98e6d79829951ae45c1744aaceefa7781d6a2c8c466ab80be03ed66306fce",
+      "status": "shortest",
+      "length": 14,
+      "expanded": 2637,
+      "limit": 100000
+    },
+    {
+      "id": "65",
+      "number": 70,
+      "hash": "a34970110e3264bbf2fb7b6dc805ff455c987cd66810c9c456cb8c47bfa2f8a3",
+      "status": "shortest",
+      "length": 9,
+      "expanded": 83,
+      "limit": 100000
+    },
+    {
+      "id": "68",
+      "number": 71,
+      "hash": "cb7101fe620450b0dede114f2a78cc6b59fb49369c270a06f4c25083f9e4c9ac",
+      "status": "shortest",
+      "length": 6,
+      "expanded": 42,
+      "limit": 100000
+    },
+    {
+      "id": "71",
+      "number": 72,
+      "hash": "176a5070eb39404c86b4478d066984d1393eefc6837d55e0c95ea96233bbbe52",
+      "status": "shortest",
+      "length": 10,
+      "expanded": 59,
+      "limit": 100000
+    },
+    {
+      "id": "69",
+      "number": 73,
+      "hash": "ac3234f061358b8b8ebf3a43a0762349a2266ceab5c8f04bbacd1aefcd9bf09f",
+      "status": "shortest",
+      "length": 5,
+      "expanded": 14,
+      "limit": 100000
+    },
+    {
+      "id": "87",
+      "number": 74,
+      "hash": "6577c34600ea6fd0a3679a25683abf5f327e9d87d0ffcd4efc68c1ffeedd710a",
+      "status": "shortest",
+      "length": 8,
+      "expanded": 39,
+      "limit": 100000
+    },
+    {
+      "id": "74",
+      "number": 75,
+      "hash": "1bae996c9b3208db2d2f15048286fe53e0d6d304268b6321728a47a1bb1c4615",
+      "status": "shortest",
+      "length": 9,
+      "expanded": 28,
+      "limit": 100000
+    },
+    {
+      "id": "77",
+      "number": 76,
+      "hash": "57260a3f3c2444e67c2650a98b679c3645eab5a0f2ab141a70d00f0d5ca341ae",
+      "status": "shortest",
+      "length": 6,
+      "expanded": 94,
+      "limit": 100000
+    },
+    {
+      "id": "70",
+      "number": 77,
+      "hash": "08b9f389e2a60088e326eb0643ae6a80b91c46995553808cb476d94bd1736849",
+      "status": "shortest",
+      "length": 11,
+      "expanded": 413,
+      "limit": 100000
+    },
+    {
+      "id": "72",
+      "number": 78,
+      "hash": "9bb187dac31177678acbeffbc0ff148bae7f51b7886d97e535bc6e699658d30d",
+      "status": "shortest",
+      "length": 10,
+      "expanded": 390,
+      "limit": 100000
+    },
+    {
+      "id": "76",
+      "number": 79,
+      "hash": "a23f77ac097fdf8a143959f2f5b026ee3a35361538a1d7548f3cf4647bddb855",
+      "status": "shortest",
+      "length": 10,
+      "expanded": 215,
+      "limit": 100000
+    },
+    {
+      "id": "79",
+      "number": 80,
+      "hash": "102c523b14cb7848d4023a3564bb0188d5d7581993ddcc6525c1f7a78e70be81",
+      "status": "shortest",
+      "length": 9,
+      "expanded": 312,
+      "limit": 100000
+    },
+    {
+      "id": "80",
+      "number": 81,
+      "hash": "8a3fac190e887be251b2f77bc2e505e90ab64b79baf23aa059fd3ba64b23debd",
+      "status": "shortest",
+      "length": 11,
+      "expanded": 133,
+      "limit": 100000
+    },
+    {
+      "id": "85",
+      "number": 82,
+      "hash": "403413cb4e95456df34336b9872dab15e6946c0c75f170540495dc41b83a8e2b",
+      "status": "shortest",
+      "length": 9,
+      "expanded": 153,
+      "limit": 100000
+    },
+    {
+      "id": "90",
+      "number": 83,
+      "hash": "37d6d54cc6d65686938fb6acdf33e7c1f10be0e2b15d16a1c2ffdba79f95d326",
+      "status": "shortest",
+      "length": 12,
+      "expanded": 641,
+      "limit": 100000
+    },
+    {
+      "id": "78",
+      "number": 84,
+      "hash": "0a24f303ef4de7e18b30ab60ae5e6dcb2dbca59381a0eeee6dd1da96a81937b3",
+      "status": "shortest",
+      "length": 7,
+      "expanded": 31,
+      "limit": 100000
+    },
+    {
+      "id": "81",
+      "number": 85,
+      "hash": "bda9fcaa8c15e5dae98d4d8c3a2b6204a76916a6d003c7925194f019eeff1fee",
+      "status": "shortest",
+      "length": 11,
+      "expanded": 685,
+      "limit": 100000
+    },
+    {
+      "id": "82",
+      "number": 86,
+      "hash": "6401ccb72b8ca0a33e2e15abcb3ca34a73365e1cb20b5c4eccb00cd4318e07a4",
+      "status": "shortest",
+      "length": 13,
+      "expanded": 152,
+      "limit": 100000
+    },
+    {
+      "id": "88",
+      "number": 87,
+      "hash": "f5c8e137cf361e0ac5764fb767ed5d8ee76357f423a5a881ffb6bdbd932c387a",
+      "status": "shortest",
+      "length": 10,
+      "expanded": 1024,
+      "limit": 100000
+    },
+    {
+      "id": "89",
+      "number": 88,
+      "hash": "4f197c255118ca613ad33af2f396cba32c1bdfef51cbb91443093ac3cc995961",
+      "status": "shortest",
+      "length": 11,
+      "expanded": 204,
+      "limit": 100000
+    },
+    {
+      "id": "91",
+      "number": 89,
+      "hash": "9a8431b35b500f7cfaf03e9eec309fdc24423dd8208016a87dc606292780c17d",
+      "status": "shortest",
+      "length": 13,
+      "expanded": 642,
+      "limit": 100000
+    },
+    {
+      "id": "96",
+      "number": 90,
+      "hash": "c639d749e8dcf68bb0d9fffa3b39ad2b607a6d857fefce6a2ad880d22d9b5dbb",
+      "status": "shortest",
+      "length": 15,
+      "expanded": 2403,
+      "limit": 100000
+    },
+    {
+      "id": "84",
+      "number": 91,
+      "hash": "772489f96877a37b8d9b53f6fb5c6c824fad5e914318d276e9817022292919db",
+      "status": "shortest",
+      "length": 12,
+      "expanded": 838,
+      "limit": 100000
+    },
+    {
+      "id": "86",
+      "number": 92,
+      "hash": "0c7e866371fd74aa95f3399b82ca9df1bada8df154cfd70af2f720b386380fa8",
+      "status": "shortest",
+      "length": 16,
+      "expanded": 410,
+      "limit": 100000
+    },
+    {
+      "id": "92",
+      "number": 93,
+      "hash": "b1306a2543b3e6cfbbc691c5d64ed5ecc5ae0d8ab9a81adc1caedddf2943f8c3",
+      "status": "shortest",
+      "length": 13,
+      "expanded": 1322,
+      "limit": 100000
+    },
+    {
+      "id": "93",
+      "number": 94,
+      "hash": "9d773ae6de8bf400794b74c88512b0c049e86123e90108b94bd02bce4cb853f7",
+      "status": "shortest",
+      "length": 12,
+      "expanded": 725,
+      "limit": 100000
+    },
+    {
+      "id": "94",
+      "number": 95,
+      "hash": "e4c405f330ca3d6917006e12e4cada20adf89a8723f7b519b21b7caa7f400ad1",
+      "status": "shortest",
+      "length": 14,
+      "expanded": 3889,
+      "limit": 100000
+    },
+    {
+      "id": "95",
+      "number": 96,
+      "hash": "9963768c7c7d247a4ca12c6a47d140f77897259c6c6b5f24cf64b742ee78157a",
+      "status": "shortest",
+      "length": 13,
+      "expanded": 10360,
+      "limit": 100000
+    },
+    {
+      "id": "97",
+      "number": 97,
+      "hash": "c83d91384489b343caaa4d1be7dcec4356141fa152622075b4dc82db3c9ac8b2",
+      "status": "shortest",
+      "length": 18,
+      "expanded": 35589,
+      "limit": 100000
+    },
+    {
+      "id": "98",
+      "number": 98,
+      "hash": "45ac4ead6c41a752d4e5e3a2beffa422f721863924625182354f104198d72525",
+      "status": "shortest",
+      "length": 15,
+      "expanded": 9672,
+      "limit": 100000
+    },
+    {
+      "id": "99",
+      "number": 99,
+      "hash": "4fd67a399f3d479a8b4cf2063a148df196d3de38c925bc6db50a74a119055b82",
+      "status": "shortest",
+      "length": 13,
+      "expanded": 363,
+      "limit": 100000
+    },
+    {
+      "id": "100",
+      "number": 100,
+      "hash": "6069cffbb096c7166797faee65a886b6d7b97be6d4aef5d782bf52a5eb790e3d",
+      "status": "shortest",
+      "length": 21,
+      "expanded": 90987,
+      "limit": 100000
+    }
+  ],
+  "pictureBook": 8,
+  "worldLegalReplays": 600
+}

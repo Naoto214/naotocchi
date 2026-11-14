@@ -13,6 +13,10 @@ function number(c,n,x=.50,y=.48,size=.46,col='#f3efd2'){
 function arch(c){
  c.beginPath();c.moveTo(.075,.92);c.lineTo(.075,.42);c.bezierCurveTo(.075,.14,.23,.055,.50,.055);c.bezierCurveTo(.77,.055,.925,.14,.925,.42);c.lineTo(.925,.92);c.lineTo(.72,.92);c.lineTo(.72,.44);c.bezierCurveTo(.72,.31,.64,.27,.50,.27);c.bezierCurveTo(.36,.27,.28,.31,.28,.44);c.lineTo(.28,.92);c.closePath();
 }
+function membrane(c){
+ const light=c.createLinearGradient(.3,.3,.7,.9);light.addColorStop(0,'#547d7670');light.addColorStop(1,'#9bc7a535');c.fillStyle=light;c.beginPath();c.roundRect(.29,.31,.42,.58,[.20,.20,.02,.02]);c.fill();
+ line(c,[[.31,.84],[.31,.43],[.36,.35]],'#c6e2cc',.022);
+}
 export function drawGate(c,g) {
  const {pulse=0,occupied=false}=g;
  c.save();c.translate(g.x,g.y);c.beginPath();c.rect(.015,.015,.97,.97);c.clip();
@@ -25,14 +29,20 @@ export function drawGate(c,g) {
   line(c,[[.25,.13],[.32,.30]],'#708569');line(c,[[.74,.14],[.67,.30]],'#708569');
   path(c,[[.40,.075],[.60,.075],[.575,.29],[.425,.29]],'#a9b798','#728871');
   moss(c,.23,.12,.8);moss(c,.84,.86,.6);
-  const light=c.createLinearGradient(.3,.3,.7,.9);light.addColorStop(0,'#547d7670');light.addColorStop(1,'#9bc7a535');c.fillStyle=light;c.beginPath();c.roundRect(.29,.31,.42,.58,[.20,.20,.02,.02]);c.fill();
-  line(c,[[.31,.84],[.31,.43],[.36,.35]],'#c6e2cc',.022);
+  // Optional presentation-only aperture; saved chapters omit this argument.
+  const opening=Math.max(0,Math.min(1,g.opening||0));
+  if(opening>0){
+   c.save();c.beginPath();c.roundRect(.29,.31,.42,.58,[.20,.20,.02,.02]);c.clip();
+   for(const side of [-1,1]){c.save();c.translate(side*.215*opening,0);c.beginPath();c.rect(side<0?.29:.5,.3,.21,.6);c.clip();membrane(c);c.restore();}
+   c.restore();
+  }else membrane(c);
 
   c.restore();
   if(pulse>0){
    c.save();c.globalAlpha*=pulse*.28;c.fillStyle='#efffe0';
    c.beginPath();c.roundRect(.285,.30,.43,.61,[.20,.20,.025,.025]);c.fill();c.restore();
   }
+  if(g.glow>0){c.save();c.globalAlpha*=Math.min(1,g.glow)*.22;arch(c);c.strokeStyle='#efffe0';c.lineWidth=.045;c.stroke();c.restore();}
   // Always behind the actor at exactly the same central position and size.
   number(c,g.exact,.50,.57,.49,'#fff2d0');
  c.restore();
