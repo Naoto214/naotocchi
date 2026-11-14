@@ -13,6 +13,13 @@
 (function (root) {
   'use strict';
   const COMMON_GAIN = 0.36; // 本体・別ページの最終実効ゲイン。個別補正は0dB。
+  // Saving on beforeunload can unlock an achievement. Its notification must
+  // not start a fetch in a departing document (WebKit rejects that request).
+  // This module loads before the game's save handlers. The next task permits
+  // a cancelled navigation; pageshow also clears a restored-page guard.
+  let unloadTurn = false;
+  root.addEventListener?.('beforeunload', () => { unloadTurn = true; setTimeout(() => { unloadTurn = false; }, 0); }, true);
+  root.addEventListener?.('pageshow', () => { unloadTurn = false; }, true);
   const CAT = () => root.NAOTOCCHI_BGM_CATALOG || {};
   function create(opt = {}) {
     const base = opt.base || 'assets/bgm/';
@@ -107,12 +114,12 @@
       try { duckGain.gain.cancelScheduledValues(t); duckGain.gain.setValueAtTime(duckGain.gain.value, t); duckGain.gain.linearRampToValueAtTime(level, t + sec); } catch (err) {}
     }
     function jingle(id, o = {}) {
-      if (!enabled()) return Promise.resolve(false);
+      if (unloadTurn || !enabled()) return Promise.resolve(false);
       const c = ensure(); if (!c || !running()) return Promise.resolve(false);
       const request = ++jingleEpoch, scene = sceneEpoch;
       const duck = Math.pow(10, (o.duckDb ?? -10) / 20);
       return load(id).then((buf) => {
-        if (request !== jingleEpoch || scene !== sceneEpoch || !enabled() || !running()) return false;
+        if (unloadTurn || request !== jingleEpoch || scene !== sceneEpoch || !enabled() || !running()) return false;
         const old = jingleNode, oldGain = jingleGain; jingleNode = null; jingleGain = null;
         try { old?.stop(); old?.disconnect(); oldGain?.disconnect(); } catch (err) {}
         if (o.then !== undefined) { if (cur) { fadeOutNode(cur.src, cur.gain, .25); cur = null; } wanted = null; holding = true; held = o.then; } else { if (holding) { const next = held; holding = false; held = undefined; setSong(next); } setDuck(duck, .2); }

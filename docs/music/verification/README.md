@@ -31,3 +31,5 @@ GitHub Home selected nameのChromium/WebKitで、密集した住民の間から�
 [home-input-resume/README.md](home-input-resume/README.md)に失敗ログ・画像、時計/表示乱数の安定化、実入力と保存復元の維持、両エンジンの検証を記録。旧HEADでの未解決という記述は上の履歴を指す。新HEADの全CI成功を確認するまで公開ゲートは閉じる。
 
 [paused-renderer-resume/README.md](paused-renderer-resume/README.md): Home selected name修正後のCIで見つかった、別の停止時計下の背景準備待ちを再現・修正。実ゲームの変更なし。新HEAD全CIを公開条件として維持。
+
+[unload-lifecycle/README.md](unload-lifecycle/README.md): 次のCIで操作検査をすべて通過した後に発生したWebKitの離脱中ジングル取得を調査。保存時の実績通知が原因と確認し、BGMモジュール内だけで離脱処理中の新規取得・開始を抑止。ゲーム操作・保存・音源は維持し、native離脱/キャンセルと通常音声経路を両エンジンで再検証。

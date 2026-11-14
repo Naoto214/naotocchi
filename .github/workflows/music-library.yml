@@ -48,6 +48,7 @@ jobs:
           trap 'kill $!' EXIT
           node tests/music/browser.cjs
           node tests/music/test_routes.cjs
+          node tests/music/test_navigation.cjs
           node tests/music/test_lifecycle.cjs
           node tests/music/test_subapp_states.cjs
           export MUSIC_FIXTURE="$(OPENBLAS_NUM_THREADS=1 python tests/music/prepare_browser_fixture.py)"

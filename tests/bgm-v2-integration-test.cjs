@@ -78,6 +78,8 @@ test('BGM オフ設定では 曲を 選ばない（ジングルも 鳴らさな�
 
 test('サブアプリ3つと 本体が BGM の 部品を 読みこむ', () => {
   const html = fs.readFileSync('index.html', 'utf8');
+  assert.match(html, /<script src="bgm-v2\.js\?v=[^"]+"><\/script>/, 'departure guard loads synchronously');
+  assert.ok(html.indexOf('bgm-v2.js') < html.indexOf('script.js?v='), 'BGM lifecycle handler registers before game saves');
   for (const f of ['assets/bgm/catalog.js', 'assets/bgm/placement.js', 'bgm-v2.js']) assert.ok(html.indexOf(f) > 0 && html.indexOf(f) < html.indexOf('audio.js?v='), f);
   for (const [p, app] of [['prototypes/naopoyo-time-hand-chapter1/index.html', 'naopoyo'], ['prototypes/card-game/index.html', 'card'], ['prototypes/life-sugoroku/index.html', 'naokoro']])
     assert.match(fs.readFileSync(p, 'utf8'), new RegExp(`bgm-subapps\\.js(?:\\?v=[^"]+)?" data-app="${app}"`));
