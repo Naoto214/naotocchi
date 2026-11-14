@@ -1,0 +1,207 @@
+{
+ "id": "home-evening",
+ "title": "ほしふる みずうみ",
+ "family": "home4",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2886545,
+ "seconds": 65.454535,
+ "flacFrames": 2886545,
+ "aacDecodedFrames": 2886656,
+ "integratedLUFS": -23.0,
+ "targetLUFS": -23,
+ "truePeakDbtp": -4.01,
+ "samplePeakDbfs": -4.01,
+ "clippedSamples": 0,
+ "monoLossDb": -1.31,
+ "sideToMidDb": -4.5,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.0034,
+ "loopJoinTypicalStep999": 0.05381,
+ "bands": {
+  "centroidHz": 759,
+  "low40_250": -9.1,
+  "lowmid250_800": -2.9,
+  "mid800_3k": -4.5,
+  "pres3k_6k": -24.6,
+  "air6k_12k": -44.2,
+  "top12k_20k": -58.6
+ },
+ "baselinePianoReconstructionErrorDb": -151.93379488129708,
+ "frozenRoleGains": {
+  "bass": 0.19684171146301377,
+  "accompaniment": 0.8249567306730098,
+  "counter": 0.8524013339537619,
+  "doubling": 0.4746556616562748
+ },
+ "frozenSideScale": 0.7650103975550306,
+ "frozenEq": [
+  [
+   "peak",
+   3800,
+   0.5,
+   0.7
+  ]
+ ],
+ "frozenV6Gain": 33.74467462492288,
+ "repairedNotes": [
+  {
+   "event": 2,
+   "role": "melody",
+   "t": 0.7318181818181818,
+   "midi": 78,
+   "oldSeconds": 1.3922222222222222,
+   "correctSeconds": 2.0036961451247164,
+   "tailRelativeToNoteDb": -13.464334487915039
+  },
+  {
+   "event": 12,
+   "role": "melody",
+   "t": 2.0954545454545452,
+   "midi": 81,
+   "oldSeconds": 1.3922222222222222,
+   "correctSeconds": 2.053605442176871,
+   "tailRelativeToNoteDb": -9.829854011535645
+  },
+  {
+   "event": 56,
+   "role": "melody",
+   "t": 10.277272727272727,
+   "midi": 78,
+   "oldSeconds": 1.3922222222222222,
+   "correctSeconds": 1.7126984126984126,
+   "tailRelativeToNoteDb": -13.335722923278809
+  },
+  {
+   "event": 62,
+   "role": "melody",
+   "t": 11.3,
+   "midi": 81,
+   "oldSeconds": 1.3922222222222222,
+   "correctSeconds": 1.6626984126984128,
+   "tailRelativeToNoteDb": -11.335667610168457
+  },
+  {
+   "event": 68,
+   "role": "melody",
+   "t": 12.322727272727272,
+   "midi": 83,
+   "oldSeconds": 2.2385714285714284,
+   "correctSeconds": 2.5636054421768706,
+   "tailRelativeToNoteDb": -16.898712158203125
+  },
+  {
+   "event": 90,
+   "role": "melody",
+   "t": 16.413636363636364,
+   "midi": 81,
+   "oldSeconds": 1.3922222222222222,
+   "correctSeconds": 2.053605442176871,
+   "tailRelativeToNoteDb": -9.829854011535645
+  },
+  {
+   "event": 101,
+   "role": "melody",
+   "t": 18.459090909090907,
+   "midi": 78,
+   "oldSeconds": 1.3922222222222222,
+   "correctSeconds": 2.053605442176871,
+   "tailRelativeToNoteDb": -13.391155242919922
+  },
+  {
+   "event": 135,
+   "role": "melody",
+   "t": 25.277272727272727,
+   "midi": 78,
+   "oldSeconds": 1.3922222222222222,
+   "correctSeconds": 2.0036054421768705,
+   "tailRelativeToNoteDb": -13.46446418762207
+  },
+  {
+   "event": 181,
+   "role": "melody",
+   "t": 33.459090909090904,
+   "midi": 78,
+   "oldSeconds": 1.3922222222222222,
+   "correctSeconds": 2.0036054421768705,
+   "tailRelativeToNoteDb": -13.464462280273438
+  },
+  {
+   "event": 192,
+   "role": "melody",
+   "t": 34.82272727272727,
+   "midi": 81,
+   "oldSeconds": 1.3922222222222222,
+   "correctSeconds": 2.053605442176871,
+   "tailRelativeToNoteDb": -9.829854011535645
+  },
+  {
+   "event": 252,
+   "role": "melody",
+   "t": 43.00454545454545,
+   "midi": 78,
+   "oldSeconds": 1.3922222222222222,
+   "correctSeconds": 1.7126984126984126,
+   "tailRelativeToNoteDb": -13.335723876953125
+  },
+  {
+   "event": 261,
+   "role": "melody",
+   "t": 44.027272727272724,
+   "midi": 81,
+   "oldSeconds": 1.3922222222222222,
+   "correctSeconds": 1.6626984126984128,
+   "tailRelativeToNoteDb": -11.335667610168457
+  },
+  {
+   "event": 268,
+   "role": "melody",
+   "t": 45.05,
+   "midi": 83,
+   "oldSeconds": 2.2385714285714284,
+   "correctSeconds": 2.5636054421768706,
+   "tailRelativeToNoteDb": -16.898712158203125
+  },
+  {
+   "event": 293,
+   "role": "melody",
+   "t": 49.14090909090908,
+   "midi": 81,
+   "oldSeconds": 1.3922222222222222,
+   "correctSeconds": 2.053605442176871,
+   "tailRelativeToNoteDb": -9.829853057861328
+  },
+  {
+   "event": 309,
+   "role": "melody",
+   "t": 51.18636363636363,
+   "midi": 78,
+   "oldSeconds": 1.3922222222222222,
+   "correctSeconds": 2.053605442176871,
+   "tailRelativeToNoteDb": -13.391153335571289
+  },
+  {
+   "event": 353,
+   "role": "melody",
+   "t": 58.00454545454545,
+   "midi": 78,
+   "oldSeconds": 1.3922222222222222,
+   "correctSeconds": 2.0036961451247164,
+   "tailRelativeToNoteDb": -13.464335441589355
+  }
+ ],
+ "deltaToPianoRmsDb": -21.678235938775515,
+ "sourceFingerprint": "2386bc7f8959b0f361057d692f78f02a2400e477541f51f5d9f6451f327961cc",
+ "variant": "B2plus-piano-native-tail",
+ "originalB2Sha256": "58846870611ec30e7c59e75e271252b3c841d07e945a9221f0966e2e178c81d1",
+ "finalConstantGain": 0.998849369936505,
+ "limiterMaxGainReductionDb": 0,
+ "reverbChanged": false,
+ "stringRegeneration": false,
+ "flacSha256": "f32c38766d080cf16bc8e0f7d4ebb8cc256a2175929258b6fd9930fc29b0f699",
+ "flacBytes": 9670247,
+ "aacSha256": "b3b1a668f16e15ef83f7152d8ab29abdf598cd8c93d217cb1d7e3fa604d82e3b",
+ "aacBytes": 1597712,
+ "midiSha256": "4d22847e90a4eb7741548d51eeef992e97bdd61a37d3d199b3abc5464e175498",
+ "problems": []
+}

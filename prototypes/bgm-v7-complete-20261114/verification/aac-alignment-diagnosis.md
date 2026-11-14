@@ -1,0 +1,3 @@
+# AAC alignment false alarm
+
+explore-2 legacy verification chose a1072-frame shift by unnormalised correlation of the first0.5s against1s, returning0.4604. Independent whole-file comparison at the MP4-decoded timeline origin gave0.9999483375; four-second FFT crosscorrelation found0-frame lag. The source/audio hashes did not change. Only the failed receipt correlation field was corrected using tools/verify_encoded.py, which requires unchanged file hashes, the sole alignment error, full-file correlation>=0.98 and startup lag<=1frame. Home receipts are immutable. All32 AAC files are independently checked after production, including encoded true peak/clipping. No re-encoding or regeneration to fix a measurement error.

@@ -1,0 +1,9 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>V7 音声出力の確認</title><style>body{max-width:720px;margin:30px auto;padding:0 20px;font:16px/1.8 system-ui;background:#f6f2e9;color:#303e3a}h1{font-size:26px}select,button{font:inherit;padding:9px;margin:5px 0;max-width:100%}audio,textarea{width:100%}textarea{height:220px}a{color:#315f50}.note{font-size:13px}#status{min-height:2em}</style></head><body>
+<h1>本体スピーカーの出力確認</h1><p>このページはWeb Audioを使わず、保存済みのAACをSafariの標準プレーヤーへ直接渡します。音源は比較ページと同じファイルです。</p>
+<p><label>曲 <select id="track"></select></label> <label>案 <select id="version"><option value="6">V6：比較用</option><option value="7">V7：完成版</option></select></label></p>
+<p><button id="nativePlay">標準プレーヤーで再生</button></p><audio id="nativeAudio" controls preload="metadata" playsinline></audio><p id="status" role="status">再生ボタンを押してください。</p>
+<p>イヤホンを外し、iPhone本体の音量ボタンで音量を調整して、上の再生ボタンを押してください。イヤホンを接続→切断した後も確認してください。切断で停止した場合は、再生を押した後に本体から聞こえるかを確認します。</p>
+<p class="note">ここは出力の診断用です。標準プレーヤーはiOSの本体音量を使うため、比較ページの共通音量つまみとは別です。V6/V7の音量比較は元の比較ページで行ってください。</p>
+<label>実際に本体スピーカーから聞こえましたか？ <select id="heard"><option value="unconfirmed">未確認</option><option value="audible">聞こえた</option><option value="silent">無音だった</option></select></label>
+<p><button id="report">状態と確認結果をまとめる</button></p><textarea id="result" readonly aria-label="確認結果"></textarea><p class="note">結果をコピーしてチャットへ貼り付けられます。自動送信・録音・マイクへのアクセスは行いません。内部状態が正常でも、聞こえたとは自動判定しません。</p><p><a href="./">32曲完成版ページへ戻る</a></p>
+<script src="tracks.js"></script><script src="output-check.js?output=speaker-check-1"></script></body></html>

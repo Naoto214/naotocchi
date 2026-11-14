@@ -1,0 +1,101 @@
+{
+ "passed": true,
+ "tracks": 7,
+ "melodyNotes": 3158,
+ "placements": 50,
+ "homeLockFiles": 16,
+ "scope": "preview only; production unchanged",
+ "results": [
+  {
+   "id": "kisetsu",
+   "title": "きせつの きおく",
+   "integratedLUFS": -24.0,
+   "truePeakDbtp": -5.95,
+   "monoLossDb": -1.27,
+   "aacFlacCorrelation": 0.9999,
+   "loopJoinJump": 0.00071,
+   "loopJoinTypicalStep999": 0.0411,
+   "clippedSamples": 0,
+   "aacSha256": "f4158db2ed8ae1a0eeb069dce113c64186031d387df2dcb3d2f777976258a825",
+   "flacSha256": "8608e9775e0948289faa4dcbea0edea97f0b1d119e3128df0362cb510199b6d9"
+  },
+  {
+   "id": "ohayo",
+   "title": "おはようの ひかり",
+   "integratedLUFS": -23.0,
+   "truePeakDbtp": -4.55,
+   "monoLossDb": -1.06,
+   "aacFlacCorrelation": 0.9999,
+   "loopJoinJump": 0.00046,
+   "loopJoinTypicalStep999": 0.05236,
+   "clippedSamples": 0,
+   "aacSha256": "55f3725cc2fae86655556bf910261f29a2facb87e153ae495c43ebb08a6fc9e3",
+   "flacSha256": "fc02f826bd12f35d2093b40a6643df0111eef5d882db6522adc753b2efcd34d7"
+  },
+  {
+   "id": "bgm-game",
+   "title": "game（ミニゲーム・汎用）",
+   "integratedLUFS": -24.0,
+   "truePeakDbtp": -10.96,
+   "monoLossDb": -1.19,
+   "aacFlacCorrelation": 0.9999,
+   "loopJoinJump": 0.0028,
+   "loopJoinTypicalStep999": 0.03285,
+   "clippedSamples": 0,
+   "aacSha256": "c7b8f2c6682c0f61c5515b30466362730d82673de00d2eba8fb27063d032a67d",
+   "flacSha256": "9a2c8e312fb88231910c86d84313f3494c85792bb5ff577ea13c1ec9ff37fb7c"
+  },
+  {
+   "id": "bgm-race",
+   "title": "race（3D・のりもの）",
+   "integratedLUFS": -24.0,
+   "truePeakDbtp": -9.51,
+   "monoLossDb": -1.19,
+   "aacFlacCorrelation": 0.9999,
+   "loopJoinJump": 0.00217,
+   "loopJoinTypicalStep999": 0.03595,
+   "clippedSamples": 0,
+   "aacSha256": "81000f11daa3f31be0e48b8247235b66790f26e757abb7979e547907a4c96f6e",
+   "flacSha256": "264d2b2bca2afa47cf3d8bfde446674195f7e21991e46e954a246286e05e459a"
+  },
+  {
+   "id": "bgm-farewell",
+   "title": "farewell（おわかれ）",
+   "integratedLUFS": -25.0,
+   "truePeakDbtp": -7.92,
+   "monoLossDb": -0.42,
+   "aacFlacCorrelation": 0.9999,
+   "loopJoinJump": 0.00142,
+   "loopJoinTypicalStep999": 0.03236,
+   "clippedSamples": 0,
+   "aacSha256": "c35d64ca46b7e7027f0a157fd44cb197f2417c7dfd14eb27bb4d027e2f0faae8",
+   "flacSha256": "4d9c9a9b0624c44893352c4acd239e198442d6c7b1d7a2d5ce5a08e4731d3a2b"
+  },
+  {
+   "id": "poyo-2",
+   "title": "みんなで かえろう",
+   "integratedLUFS": -27.0,
+   "truePeakDbtp": -16.52,
+   "monoLossDb": -0.49,
+   "aacFlacCorrelation": 1.0,
+   "loopJoinJump": 0.00208,
+   "loopJoinTypicalStep999": 0.01755,
+   "clippedSamples": 0,
+   "aacSha256": "fa15803575d6aeca816ecd4268ff15ff7ec1c4bce4c164d1b51a7a5ee970b724",
+   "flacSha256": "6316eff9e73157814d995ad23c53f40f6a9938ee815f91f3530f3f51c873e57c"
+  },
+  {
+   "id": "game-2",
+   "title": "ぴょこぴょこ ステップ",
+   "integratedLUFS": -24.0,
+   "truePeakDbtp": -9.61,
+   "monoLossDb": -1.19,
+   "aacFlacCorrelation": 0.9999,
+   "loopJoinJump": 0.0011,
+   "loopJoinTypicalStep999": 0.04122,
+   "clippedSamples": 0,
+   "aacSha256": "3804a95cf53abff9fddf8b184927af9232c5be1662e728b5b26a69a580c489be",
+   "flacSha256": "1b694aba8c2e54dd9693f85694a8e3ff2a1551a832752aae6ce73d343f9d52c4"
+  }
+ ]
+}

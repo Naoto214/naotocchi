@@ -1,0 +1,3 @@
+chromium: PASS 32 real-track sequential boundaries and final stop; home lock; V6/V7 same-position/gain; loop; opt-out; mobile layout
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+webkit: PASS 32 real-track sequential boundaries and final stop; home lock; V6/V7 same-position/gain; loop; opt-out; mobile layout

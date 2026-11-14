@@ -1,0 +1,1037 @@
+[
+  {
+    "rowId": "scene-01",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "時間帯（朝 05:00・昼 10:00・夕 16:00・夜 19:00、背景と 同じ 判定）で 4秒 クロスフェード",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "現行 audio.js は 時刻で 曲を 変えない。world-environment.js の timeOfDay() と 同じ 判定を 使う",
+    "game": "ホーム",
+    "scene": "2.5D ホーム 朝昼夕夜（おうち）",
+    "songs": [
+      "home-morning",
+      "home-day",
+      "home-evening",
+      "home-night"
+    ],
+    "status": "採用",
+    "arrangement": "アレンジA（#530）",
+    "start": "ホーム画面に いる 間",
+    "stop": "ほかの 場面へ 移る とき"
+  },
+  {
+    "rowId": "scene-02",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "時間帯（朝 05:00・昼 10:00・夕 16:00・夜 19:00、背景と 同じ 判定）で 4秒 クロスフェード",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "13地域ごとの 編曲（楽器の 色かえ）は 将来構想。旋律は 同じ ホーム4曲",
+    "game": "ホーム",
+    "scene": "13地域（とかい〜きおくのみずうみ）",
+    "songs": [
+      "home-morning",
+      "home-day",
+      "home-evening",
+      "home-night"
+    ],
+    "status": "採用",
+    "arrangement": "アレンジA（地域ごとの 音色の 変奏は 将来構想）",
+    "start": "地域に いる 間",
+    "stop": "同上"
+  },
+  {
+    "rowId": "scene-03",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "0 dB",
+    "fade": "なし（同じ 曲が 続く）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "画面を 開くたびに 曲を 変えない",
+    "game": "ホーム",
+    "scene": "メニュー・お店・アイテム・図鑑・実績・アルバム・シール・設定・旅行・つうしん",
+    "songs": [
+      "home-morning",
+      "home-day",
+      "home-evening",
+      "home-night"
+    ],
+    "status": "採用",
+    "arrangement": "ホーム曲を 止めずに 続ける",
+    "start": "—",
+    "stop": "—"
+  },
+  {
+    "rowId": "scene-04",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "時間帯（朝 05:00・昼 10:00・夕 16:00・夜 19:00、背景と 同じ 判定）で 4秒 クロスフェード",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "地域ごとの 変奏は 将来構想",
+    "game": "ホーム",
+    "scene": "めぐる（世界を 歩く）",
+    "songs": [
+      "home-morning",
+      "home-day",
+      "home-evening",
+      "home-night"
+    ],
+    "status": "採用",
+    "arrangement": "アレンジA",
+    "start": "めぐる 開始",
+    "stop": "終了"
+  },
+  {
+    "rowId": "scene-05",
+    "exists": "実在",
+    "loop": "—",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "なし",
+    "sfx": "既存の 効果音（levelup など）が 主役。BGM は 変えない",
+    "notes": "4.2秒の 演出。専用曲は 不要と 判断",
+    "game": "ホーム",
+    "scene": "成長・変身・そだち・中年の できごと",
+    "songs": [
+      "home-morning",
+      "home-day",
+      "home-evening",
+      "home-night"
+    ],
+    "status": "採用",
+    "arrangement": "ホーム曲の まま（専用 BGM なし）",
+    "start": "—",
+    "stop": "—"
+  },
+  {
+    "rowId": "scene-06",
+    "exists": "実在",
+    "loop": "—",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "なし",
+    "sfx": "既存の 効果音（love など）",
+    "notes": "一瞬の お知らせ。専用曲 不要",
+    "game": "ホーム",
+    "scene": "仲間の さそい・恋人に なった",
+    "songs": [
+      "home-morning",
+      "home-day",
+      "home-evening",
+      "home-night"
+    ],
+    "status": "採用",
+    "arrangement": "ホーム曲の まま",
+    "start": "—",
+    "stop": "—"
+  },
+  {
+    "rowId": "scene-07",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "−8 dB",
+    "fade": "入り 3秒・出 1.5秒",
+    "sfx": "効果音（sleep / wake）の あとに 入る",
+    "notes": "いまの night は 不採用。時刻とは 関係なく 眠りの 曲",
+    "game": "ホーム",
+    "scene": "睡眠（ねる〜おきる）",
+    "songs": [
+      "lullaby-a"
+    ],
+    "status": "採用",
+    "arrangement": "新曲「ねむりのほし」（オルゴール風の 編曲を 想定）",
+    "start": "「ねる」を 押した とき",
+    "stop": "「おきる」"
+  },
+  {
+    "rowId": "scene-08",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "0 dB",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "いまの movie は 不採用。新曲は 作らない",
+    "game": "ホーム",
+    "scene": "デートを 選ぶ 画面・デートの 映画",
+    "songs": [
+      "event-2"
+    ],
+    "status": "採用",
+    "arrangement": "ふたりのきねんび（原曲）",
+    "start": "デート選択を 開いた とき",
+    "stop": "映画の おわり"
+  },
+  {
+    "rowId": "scene-09",
+    "exists": "実在",
+    "loop": "なし（途中で フェード）",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "",
+    "game": "ホーム",
+    "scene": "結婚記念日の 映画（1・10・25・50年）",
+    "songs": [
+      "event-2"
+    ],
+    "status": "採用",
+    "arrangement": "ふたりのきねんび（原曲）",
+    "start": "映画の 開始",
+    "stop": "映画の おわり（約 20〜30秒）で 2秒 フェードアウト"
+  },
+  {
+    "rowId": "scene-10",
+    "exists": "実在",
+    "loop": "なし",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "ホーム曲を −10 dB に 下げて 重ねる",
+    "notes": "一瞬の 演出なので 頭だけ",
+    "game": "ホーム",
+    "scene": "結婚した（お知らせ）",
+    "songs": [
+      "event-2"
+    ],
+    "status": "採用",
+    "arrangement": "ふたりのきねんび の 頭 4小節（実装時に 切りだし）",
+    "start": "お知らせ 表示",
+    "stop": "数秒で フェード"
+  },
+  {
+    "rowId": "scene-11",
+    "exists": "実在",
+    "loop": "なし（映画の 長さで フェード）",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "一生に 1度。新曲は 作らない",
+    "game": "ホーム",
+    "scene": "でんせつの であい（映画）",
+    "songs": [
+      "kisetsu"
+    ],
+    "status": "採用",
+    "arrangement": "「きせつのきおく」（原曲）",
+    "start": "映画の 開始",
+    "stop": "映画の おわり"
+  },
+  {
+    "rowId": "scene-12",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "−2 dB",
+    "fade": "入り 2秒・出 3秒",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "いまの farewell は 未確定",
+    "game": "ホーム",
+    "scene": "お別れ（死亡・100さいの さいごの じかん・一生カード）",
+    "songs": [
+      "bgm-farewell"
+    ],
+    "status": "採用",
+    "arrangement": "既存 audio.js「farewell」（そのまま。新しい 音色への 編曲は 実装時に 検討）",
+    "start": "旅立ち・死亡の 画面",
+    "stop": "新しい たまごを 始める とき"
+  },
+  {
+    "rowId": "scene-13",
+    "exists": "実在",
+    "loop": "なし（1回）",
+    "volume": "ファンファーレは ホーム曲より 約 +4 dB（はっきり 聞こえる 大きさ）。ホーム曲は −14 dB に 下げる",
+    "fade": "ホーム曲を 0.2秒で 下げ、1秒で もどす",
+    "sfx": "いまの 効果音 hatch と 同時に 鳴らす（効果音は 変えない）。ファンファーレにも 殻が われる「パカッ」が 入って いる",
+    "notes": "一生に 1回の 場面なので、短い 効果音より 派手に 祝う（2026-11-09 本人の 判断「さっきの メロディーを もう少し 派手に アレンジ」）。実装時は 音源ファイル（wav/ogg）に 書きだすか、fanfare.js の 合成を audio.js に 移す",
+    "game": "ホーム",
+    "scene": "たまごが かえる しゅんかん",
+    "songs": [
+      "var-ohayo-hatch2"
+    ],
+    "status": "採用",
+    "arrangement": "「おはようのひかり」の 冒頭 2小節を ファンファーレ編曲で（テンポ 80 → 120、旋律は 同じ、約 6.8秒）。はじまりの「パカッ」、金管風の 旋律 ＋ ベル、和音の きざみ、ティンパニ、グロッケン、最後に 主和音 E♭ と シンバル。編曲は fanfare.js",
+    "start": "かえる 演出の 開始（2.8秒の 演出）と 同時",
+    "stop": "最後の 主和音の 余韻（約 2.4秒）が 消えたら ホーム曲の 音量を もどす"
+  },
+  {
+    "rowId": "scene-14",
+    "exists": "実在",
+    "loop": "—",
+    "volume": "効果音は いまの まま。ホーム曲は 下げない",
+    "fade": "なし",
+    "sfx": "notify（ピコン）。いまの 誕生日の お知らせは 音が 鳴らない ので、実装時に 1行 足す",
+    "notes": "遊んだ 60秒ごとに 1さい 上がる ため、毎回 音楽を 鳴らすと うるさい。ホーム曲を 止めない（2026-11-09 本人の 判断）",
+    "game": "ホーム",
+    "scene": "誕生日（年齢が 上がる お知らせ）",
+    "songs": [],
+    "status": "採用（BGM は 変えず 効果音だけ）",
+    "arrangement": "ジングルなし。既存の 効果音「ピコン」（audio.js の notify、約 0.3秒）を 鳴らす",
+    "start": "お知らせ 表示（1.2秒）",
+    "stop": "—"
+  },
+  {
+    "rowId": "scene-15",
+    "exists": "実在",
+    "loop": "ジングルは なし",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "いまは 図鑑・実績の クリアが home、一生の クリアが farewell と 分かれている。一生の クリアは お別れの 曲に そろえる",
+    "game": "ホーム",
+    "scene": "図鑑・実績の 達成（お知らせ）",
+    "songs": [
+      "jingle-achieve"
+    ],
+    "status": "採用",
+    "arrangement": "ジングル「やったね」（8秒）",
+    "start": "達成・クリア 表示",
+    "stop": "画面を 閉じる"
+  },
+  {
+    "rowId": "scene-16",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "一生の クリアは お別れの 曲（farewell）",
+    "game": "ホーム",
+    "scene": "GAME CLEAR 画面（図鑑・すべての 実績）に とどまる 間",
+    "songs": [
+      "jingle-achieve",
+      "event-1"
+    ],
+    "status": "採用",
+    "arrangement": "クリア表示で「やったね」（8秒）→ 画面に とどまる 間は「おめでとうのひ」を ループ",
+    "start": "クリア表示",
+    "stop": "画面を 閉じる"
+  },
+  {
+    "rowId": "scene-17",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "",
+    "game": "ホーム",
+    "scene": "たまご（かえるまで）・むげんモード・個性の 選択",
+    "songs": [
+      "home-morning",
+      "home-day",
+      "home-evening",
+      "home-night"
+    ],
+    "status": "採用",
+    "arrangement": "ホーム曲",
+    "start": "—",
+    "stop": "—"
+  },
+  {
+    "rowId": "scene-18",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "−3 dB（考える 時間を じゃましない）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "なおぽよ。は いま 音が まったく ない。audio.js とは 別に 小さな 再生しかけが 必要（実装時）。タイトル画面は ない（いきなり 遊ぶ 画面）",
+    "game": "なおぽよ。",
+    "scene": "遊ぶ 画面・ステージ選択・おてほん・説明（第1章 地下牢 10ステージ）",
+    "songs": [
+      "poyo-1"
+    ],
+    "status": "採用",
+    "arrangement": "原曲",
+    "start": "ページを 開いて 最初の タップ",
+    "stop": "ホームに もどる"
+  },
+  {
+    "rowId": "scene-19",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "特殊ギミック（重力）で 曲は 変えない。効果音で 伝える",
+    "game": "なおぽよ。",
+    "scene": "地下牢・苔・冷たい広間・夜明け（ステージの 雰囲気）・重力の ステージ",
+    "songs": [
+      "poyo-1"
+    ],
+    "status": "採用",
+    "arrangement": "原曲（雰囲気ごとの 音色かえは 将来構想）",
+    "start": "—",
+    "stop": "—"
+  },
+  {
+    "rowId": "scene-20",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "URL で 公開中の 旧ページも 同じ 曲で まとめる",
+    "game": "なおぽよ。",
+    "scene": "旧ページ（ひかりの牢屋・こもれびの森・rescue の 洞窟/古城）",
+    "songs": [
+      "poyo-1"
+    ],
+    "status": "採用",
+    "arrangement": "原曲",
+    "start": "—",
+    "stop": "—"
+  },
+  {
+    "rowId": "scene-21",
+    "exists": "実在",
+    "loop": "なし",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "本曲を 0.3秒で 下げて 入れかえ",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "",
+    "game": "なおぽよ。",
+    "scene": "ステージクリア「みんな、おかえり。」",
+    "songs": [
+      "var-poyo-clear"
+    ],
+    "status": "採用",
+    "arrangement": "変奏: 13〜16小節（約 10秒）",
+    "start": "クリア表示",
+    "stop": "1回で おわり、次の ステージで 本曲へ"
+  },
+  {
+    "rowId": "scene-22",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "",
+    "game": "なおぽよ。",
+    "scene": "第1章クリア（地下牢を ぬけて 光へ）",
+    "songs": [
+      "var-poyo-chapter"
+    ],
+    "status": "採用",
+    "arrangement": "変奏: テンポ 80（約 48秒）",
+    "start": "章クリア表示",
+    "stop": "画面を 閉じる"
+  },
+  {
+    "rowId": "scene-23",
+    "exists": "実在",
+    "loop": "—",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "いまの なおぽよ。には 失敗画面が ない（もどす・やりなおす）。曲は 止めない",
+    "game": "なおぽよ。",
+    "scene": "失敗・やりなおし",
+    "songs": [],
+    "status": "無音（BGM は 変えない）",
+    "arrangement": "—",
+    "start": "—",
+    "stop": "—"
+  },
+  {
+    "rowId": "scene-24",
+    "exists": "将来構想",
+    "loop": "あり",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "ロードマップに 10章。いまは 第1章だけ",
+    "game": "なおぽよ。",
+    "scene": "第2章以降（地底洞窟・古城・光の森 … 時の塔）",
+    "songs": [
+      "poyo-1"
+    ],
+    "status": "採用（将来は 章ごとの 変奏を 検討）",
+    "arrangement": "原曲／章ごとの 変奏",
+    "start": "—",
+    "stop": "—"
+  },
+  {
+    "rowId": "scene-25",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "いまは audio.js を 読むが BGM を オフに している（main-v4.mjs:16）。統合時に オンに する",
+    "game": "なおころ。",
+    "scene": "タイトル・キャラクター選択・ひとやすみ・対戦コード",
+    "songs": [
+      "koro-1"
+    ],
+    "status": "採用",
+    "arrangement": "原曲",
+    "start": "タイトル表示",
+    "stop": "ホームに もどる"
+  },
+  {
+    "rowId": "scene-26",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "マスの できごとは 効果音で。曲は 止めない",
+    "notes": "仲間・恋人・結婚の マスも 曲は 変えない（一瞬の 演出）",
+    "game": "なおころ。",
+    "scene": "すごろく盤（できごと・仲間・恋人・結婚・とき・へんしん・お店）",
+    "songs": [
+      "koro-1"
+    ],
+    "status": "採用",
+    "arrangement": "原曲",
+    "start": "盤の 開始",
+    "stop": "ゴール"
+  },
+  {
+    "rowId": "scene-27",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "−2 dB",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "",
+    "game": "なおころ。",
+    "scene": "盤の ゲーム 2マス（通常ミニゲーム 15本）",
+    "songs": [
+      "game-1"
+    ],
+    "status": "採用",
+    "arrangement": "原曲（本編の ミニゲームと 同じ）",
+    "start": "ミニゲーム 開始",
+    "stop": "終了で 盤の 曲へ"
+  },
+  {
+    "rowId": "scene-28",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "−2 dB",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "",
+    "game": "なおころ。",
+    "scene": "盤の クイック 4マス（45種）",
+    "songs": [
+      "bgm-game"
+    ],
+    "status": "採用",
+    "arrangement": "既存 audio.js「game」（本編の クイックモードと 同じ）",
+    "start": "クイック 開始",
+    "stop": "終了"
+  },
+  {
+    "rowId": "scene-29",
+    "exists": "実在",
+    "loop": "なし",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "",
+    "game": "なおころ。",
+    "scene": "最終ターンの ゴール",
+    "songs": [
+      "var-koro-goal"
+    ],
+    "status": "採用",
+    "arrangement": "変奏: 13〜16小節（約 9秒）",
+    "start": "ゴール",
+    "stop": "1回"
+  },
+  {
+    "rowId": "scene-30",
+    "exists": "将来構想",
+    "loop": "あり",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "終盤を 判定する 画面は いまの コードに ない",
+    "game": "なおころ。",
+    "scene": "終盤（のこり 3ターン など）",
+    "songs": [
+      "koro-1"
+    ],
+    "status": "採用（変奏は 将来構想）",
+    "arrangement": "同じ 曲の テンポを 少し 上げる 案",
+    "start": "—",
+    "stop": "—"
+  },
+  {
+    "rowId": "scene-31",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "",
+    "game": "なおころ。",
+    "scene": "人生アルバム「こんな人生に、なりました。」・過去の アルバム",
+    "songs": [
+      "var-koro-album"
+    ],
+    "status": "採用",
+    "arrangement": "変奏: テンポ 84／別案／保留曲",
+    "start": "結果表示",
+    "stop": "画面を 閉じる"
+  },
+  {
+    "rowId": "scene-32",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "−4 dB（考える 画面なので 小さめ）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "いまは 音が まったく ない。メニューで にぎやか すぎる と 感じたら、別案「カードをひらいて」を メニューだけに 使う 余地を 残す",
+    "game": "CARD GAME",
+    "scene": "はじめの メニュー・対戦の 準備・マイデッキ・コレクション・戦績・あそびかた・ルールブック",
+    "songs": [
+      "card-2"
+    ],
+    "status": "採用",
+    "arrangement": "原曲",
+    "start": "ページを 開いて 最初の タップ",
+    "stop": "ホームに もどる"
+  },
+  {
+    "rowId": "scene-33",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "−2 dB",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "",
+    "game": "CARD GAME",
+    "scene": "通常の 対戦（ラウンド 1〜8）",
+    "songs": [
+      "card-2"
+    ],
+    "status": "採用",
+    "arrangement": "原曲",
+    "start": "対戦 開始",
+    "stop": "終盤 または 結果"
+  },
+  {
+    "rowId": "scene-34",
+    "exists": "将来構想（判定は 実装時に 追加）",
+    "loop": "あり",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "同じ 曲の まま テンポを 切りかえ（拍の 頭で）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "いまの コードに 終盤の 画面は ない",
+    "game": "CARD GAME",
+    "scene": "終盤の 逆転（ラウンド 9〜10・そだち100 目前）",
+    "songs": [
+      "var-card-late"
+    ],
+    "status": "採用",
+    "arrangement": "変奏: テンポ 156",
+    "start": "終盤の 条件を 満たした とき",
+    "stop": "結果"
+  },
+  {
+    "rowId": "scene-35",
+    "exists": "実在",
+    "loop": "なし",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "最後の 弱起（シ シ）は 曲の 一部なので そのまま。気に なれば 実装時に フェード",
+    "game": "CARD GAME",
+    "scene": "勝利",
+    "songs": [
+      "var-card-win"
+    ],
+    "status": "採用",
+    "arrangement": "変奏: 13〜16小節（約 7秒）",
+    "start": "結果表示",
+    "stop": "1回"
+  },
+  {
+    "rowId": "scene-36",
+    "exists": "実在",
+    "loop": "なし",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "ふたりで 遊ぶ ときは 勝者側の ジングルだけ",
+    "game": "CARD GAME",
+    "scene": "敗北・引き分け",
+    "songs": [
+      "jingle-card-lose"
+    ],
+    "status": "採用",
+    "arrangement": "新ジングル（約 5秒）",
+    "start": "結果表示",
+    "stop": "1回"
+  },
+  {
+    "rowId": "scene-37",
+    "exists": "実在",
+    "loop": "—",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音で 伝える（今は 音が ないので 実装時に 追加）",
+    "notes": "短い お知らせ。専用曲は 不要",
+    "game": "CARD GAME",
+    "scene": "特別な カード演出（けっこん・おわかれ・たんじょう・成長の お知らせ）",
+    "songs": [
+      "card-2"
+    ],
+    "status": "採用",
+    "arrangement": "曲は 変えない",
+    "start": "—",
+    "stop": "—"
+  },
+  {
+    "rowId": "scene-38",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "−2 dB（効果音が 多い）",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "road-themed, stack-themed, stack-snowman, crane-game-3d, pinball-physics, breakout-classic, street-fight, sky-shooter, jump-quest, snake-classic, catapult-castle, frogger-road, tank-battle, bomber-maze, fruit-slice, sushi-belt, asteroids-classic, doodle-jump, jenga-tower, halfpipe-skate, domino-run, dot-eater, missile-command, area-claim, takoyaki-grill, road-city, stack-harvest, stack-acorn, road-jungle, road-desert, stack-sakura, stack-leaves",
+    "game": "通常ミニゲーム",
+    "scene": "アクション 32本",
+    "songs": [
+      "game-1"
+    ],
+    "status": "採用",
+    "arrangement": "原曲",
+    "start": "ゲーム開始",
+    "stop": "結果で ホーム曲へ",
+    "gameIds": [
+      "road-themed",
+      "stack-themed",
+      "stack-snowman",
+      "crane-game-3d",
+      "pinball-physics",
+      "breakout-classic",
+      "street-fight",
+      "sky-shooter",
+      "jump-quest",
+      "snake-classic",
+      "catapult-castle",
+      "frogger-road",
+      "tank-battle",
+      "bomber-maze",
+      "fruit-slice",
+      "sushi-belt",
+      "asteroids-classic",
+      "doodle-jump",
+      "jenga-tower",
+      "halfpipe-skate",
+      "domino-run",
+      "dot-eater",
+      "missile-command",
+      "area-claim",
+      "takoyaki-grill",
+      "road-city",
+      "stack-harvest",
+      "stack-acorn",
+      "road-jungle",
+      "road-desert",
+      "stack-sakura",
+      "stack-leaves"
+    ]
+  },
+  {
+    "rowId": "scene-39",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "−2 dB",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "tower-defense, roguelike-dungeon",
+    "game": "通常ミニゲーム",
+    "scene": "ストラテジー 2本",
+    "songs": [
+      "game-1"
+    ],
+    "status": "採用",
+    "arrangement": "原曲",
+    "start": "同上",
+    "stop": "同上",
+    "gameIds": [
+      "tower-defense",
+      "roguelike-dungeon"
+    ]
+  },
+  {
+    "rowId": "scene-40",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "−4 dB",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "falling-block-puzzle, dragDecorate-cake, dragDecorate-bento, chain-puzzle, push-puzzle, minesweeper-8, bubble-shooter, puzzle-2048, match-3, picross-5, pipe-connect, lights-out, line-trace, memory-cards, sudoku-mini, hit-blow, slide-puzzle",
+    "game": "通常ミニゲーム",
+    "scene": "パズル 17本",
+    "songs": [
+      "poyo-2"
+    ],
+    "status": "採用",
+    "arrangement": "「みんなでかえろう」（なおぽよ。の 別案。3拍子）",
+    "start": "同上",
+    "stop": "同上",
+    "gameIds": [
+      "falling-block-puzzle",
+      "dragDecorate-cake",
+      "dragDecorate-bento",
+      "chain-puzzle",
+      "push-puzzle",
+      "minesweeper-8",
+      "bubble-shooter",
+      "puzzle-2048",
+      "match-3",
+      "picross-5",
+      "pipe-connect",
+      "lights-out",
+      "line-trace",
+      "memory-cards",
+      "sudoku-mini",
+      "hit-blow",
+      "slide-puzzle"
+    ]
+  },
+  {
+    "rowId": "scene-41",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "−4 dB",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "reversi-6, billiards-6, animal-shogi, connect-four, gomoku-9, blackjack-21, yacht-dice, checkers-6, mancala-kalah, solitaire-klondike, shanghai-tiles, sugoroku-race",
+    "game": "通常ミニゲーム",
+    "scene": "ボード・テーブル 12本",
+    "songs": [
+      "board-b"
+    ],
+    "status": "採用",
+    "arrangement": "新曲「きしとおしろ」",
+    "start": "同上",
+    "stop": "同上",
+    "gameIds": [
+      "reversi-6",
+      "billiards-6",
+      "animal-shogi",
+      "connect-four",
+      "gomoku-9",
+      "blackjack-21",
+      "yacht-dice",
+      "checkers-6",
+      "mancala-kalah",
+      "solitaire-klondike",
+      "shanghai-tiles",
+      "sugoroku-race"
+    ]
+  },
+  {
+    "rowId": "scene-42",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "−2 dB",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "bowling-3d, archery-3d, mini-golf-physics, basketball-3d, pingpong-3d, free-kick-3d, baseball-batting, ski-jump, air-hockey, tennis-rally, darts-board, track-field, curling-ice, beach-volley, downhill-mountain, downhill-snow, curling-winter",
+    "game": "通常ミニゲーム",
+    "scene": "スポーツ 17本",
+    "songs": [
+      "game-2"
+    ],
+    "status": "採用",
+    "arrangement": "「ぴょこぴょこステップ」（ミニゲーム汎用の 別案）",
+    "start": "同上",
+    "stop": "同上",
+    "gameIds": [
+      "bowling-3d",
+      "archery-3d",
+      "mini-golf-physics",
+      "basketball-3d",
+      "pingpong-3d",
+      "free-kick-3d",
+      "baseball-batting",
+      "ski-jump",
+      "air-hockey",
+      "tennis-rally",
+      "darts-board",
+      "track-field",
+      "curling-ice",
+      "beach-volley",
+      "downhill-mountain",
+      "downhill-snow",
+      "curling-winter"
+    ]
+  },
+  {
+    "rowId": "scene-43",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "−4 dB",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "うき・あわせる の 効果音が 主役",
+    "notes": "real-fishing, fishing-sea, fishing-deepsea, fishing-river",
+    "game": "通常ミニゲーム",
+    "scene": "釣り 4本",
+    "songs": [
+      "fishing-a"
+    ],
+    "status": "採用",
+    "arrangement": "新曲「みずべのうたたね」",
+    "start": "同上",
+    "stop": "同上",
+    "gameIds": [
+      "real-fishing",
+      "fishing-sea",
+      "fishing-deepsea",
+      "fishing-river"
+    ]
+  },
+  {
+    "rowId": "scene-44",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "−1 dB",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "p3-drive, race-3d, rhythm-highway-3d, space-gunner-3d, grand-prix-3d",
+    "game": "3D ゲーム",
+    "scene": "レース・シューティング 5本",
+    "songs": [
+      "bgm-race"
+    ],
+    "status": "採用",
+    "arrangement": "既存 audio.js「race」（そのまま）",
+    "start": "同上",
+    "stop": "同上",
+    "gameIds": [
+      "p3-drive",
+      "race-3d",
+      "rhythm-highway-3d",
+      "space-gunner-3d",
+      "grand-prix-3d"
+    ]
+  },
+  {
+    "rowId": "scene-45",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "−2 dB",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "haunted-house-3d, fp-dungeon, tilt-maze-3d, voxel-mine",
+    "game": "3D ゲーム",
+    "scene": "探検・ダンジョン 4本",
+    "songs": [
+      "explore-1"
+    ],
+    "status": "採用",
+    "arrangement": "原曲",
+    "start": "同上",
+    "stop": "同上",
+    "gameIds": [
+      "haunted-house-3d",
+      "fp-dungeon",
+      "tilt-maze-3d",
+      "voxel-mine"
+    ]
+  },
+  {
+    "rowId": "scene-46",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "−2 dB",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "p3-space, ring-flight-3d, submarine-3d, hang-glider-3d, plane-landing, lunar-lander, ring-flight-summer。「3D ゲーム」の 採用曲 ふしぎのちか でも カバーは できる",
+    "game": "3D ゲーム",
+    "scene": "飛行・海 7本",
+    "songs": [
+      "var-flight"
+    ],
+    "status": "採用",
+    "arrangement": "「そらとうみのさんぽ」テンポ 120 版（本人メモ「煌びやかに、もう少しテンポ早くして」）。きらめきは 編曲で ベル・グロッケン・ハープを 足す",
+    "start": "同上",
+    "stop": "同上",
+    "gameIds": [
+      "p3-space",
+      "ring-flight-3d",
+      "submarine-3d",
+      "hang-glider-3d",
+      "plane-landing",
+      "lunar-lander",
+      "ring-flight-summer"
+    ]
+  },
+  {
+    "rowId": "scene-47",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "−2 dB",
+    "fade": "場面の 切りかえで 0.8秒 クロスフェード（いまの audio.js と 同じ）",
+    "sfx": "指示の 声（よみあげ）の 間は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "課題ごとに 曲は 変えない",
+    "game": "クイックモード",
+    "scene": "クイックゲーム 50種（1つの ゲームとして 続けて 遊ぶ）",
+    "songs": [
+      "bgm-game"
+    ],
+    "status": "採用",
+    "arrangement": "既存 audio.js「game」（そのまま）",
+    "start": "クイック 開始",
+    "stop": "結果で ホーム曲へ"
+  },
+  {
+    "rowId": "scene-48",
+    "exists": "実在",
+    "loop": "あり",
+    "volume": "0 dB（ホーム基準）",
+    "fade": "0.8秒 クロスフェード",
+    "sfx": "効果音は そのまま。声の よみあげ中は BGM を 下げる（いまの audio.js と 同じ）",
+    "notes": "",
+    "game": "通常ミニゲーム",
+    "scene": "ミニゲームの 結果",
+    "songs": [
+      "home-morning",
+      "home-day",
+      "home-evening",
+      "home-night"
+    ],
+    "status": "採用",
+    "arrangement": "ホーム曲に もどる",
+    "start": "結果表示",
+    "stop": "—"
+  },
+  {
+    "rowId": "scene-49",
+    "exists": "実在",
+    "loop": "—",
+    "volume": "—",
+    "fade": "—",
+    "sfx": "—",
+    "notes": "方針どおり 初期は 無音。将来、希望者だけ 静かな BGM を オンに する しくみは 将来構想",
+    "game": "ものがたり『微睡みの箱庭』",
+    "scene": "読む 画面すべて",
+    "songs": [],
+    "status": "無音",
+    "arrangement": "—",
+    "start": "—",
+    "stop": "—"
+  },
+  {
+    "rowId": "scene-50",
+    "exists": "実在",
+    "loop": "—",
+    "volume": "—",
+    "fade": "—",
+    "sfx": "—",
+    "notes": "ブラウザの 決まり・本人の 設定どおり",
+    "game": "共通",
+    "scene": "起動直後（最初の タップまで）・BGM オフ設定",
+    "songs": [],
+    "status": "無音",
+    "arrangement": "—",
+    "start": "—",
+    "stop": "—"
+  }
+]
