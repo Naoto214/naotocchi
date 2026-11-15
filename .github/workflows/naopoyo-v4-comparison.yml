@@ -50,3 +50,5 @@ jobs:
           node prototypes/naopoyo-100/v4/v6/tests/images.cjs
           node prototypes/naopoyo-100/v4/v6/tests/ui-smoke.cjs
           node prototypes/naopoyo-100/v4/v6/tests/lab-ui-smoke.cjs
+          node prototypes/naopoyo-100/v4/v6/tests/gimmick-images.cjs
+          node prototypes/naopoyo-100/v4/v6/tests/gimmick-ui-smoke.cjs

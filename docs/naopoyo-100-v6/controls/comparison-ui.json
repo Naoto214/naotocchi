@@ -1,0 +1,46 @@
+{
+  "environment": "Synthetic DOM; no browser layout",
+  "results": [
+    {
+      "scene": "crates",
+      "steps": 13,
+      "styleKeepsState": true
+    },
+    {
+      "scene": "air",
+      "steps": 14,
+      "styleKeepsState": true
+    },
+    {
+      "scene": "earth",
+      "steps": 6,
+      "styleKeepsState": true
+    },
+    {
+      "scene": "warp",
+      "steps": 11,
+      "styleKeepsState": true
+    },
+    {
+      "scene": "F1",
+      "steps": 10,
+      "styleKeepsState": true
+    },
+    {
+      "scene": "F2",
+      "steps": 7,
+      "styleKeepsState": true
+    },
+    {
+      "scene": "D1",
+      "steps": 17,
+      "styleKeepsState": true
+    },
+    {
+      "scene": "D2",
+      "steps": 17,
+      "styleKeepsState": true
+    }
+  ],
+  "actualD2Taps": true
+}

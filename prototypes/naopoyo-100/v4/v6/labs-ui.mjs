@@ -54,7 +54,7 @@ function start(variant) {
   invalidate(); updateVariant(); $('message').textContent = '仲間をタップして選び、隣をタップ／なぞって移動'; draw();
 }
 $('variant').onchange = () => start($('variant').value);
-$('actor').onchange = () => { touch.end(); touch.input.select($('actor').value || null); draw(); };
+$('actor').onchange = () => { const id = $('actor').value; touch.end(); touch.input.select(id || null); draw(); };
 $('retry').onclick = () => start(play.session.variant);
 $('undo').onclick = () => { touch.end(); play.undo(); touch.input.select(null); invalidate(); draw(); };
 $('species').innerHTML = speciesRegistry.map(s => `<option value="${s.id}">${s.label}</option>`).join('');
