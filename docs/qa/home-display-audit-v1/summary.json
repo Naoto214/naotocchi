@@ -1,0 +1,2602 @@
+{
+  "summary": [
+    {
+      "count": 1,
+      "trials": 4,
+      "progress": 4,
+      "unselectable": 0,
+      "bodyInputs": 4,
+      "selectedGround": 0,
+      "contactAssociatedFailures": 0,
+      "meanDistanceCss": 5207.19,
+      "meanStationaryPercent": 74.32,
+      "longestStationarySeconds": 22.9,
+      "plans": 38,
+      "rejectedPlans": 0,
+      "executionStops": 0,
+      "zeroDistanceActors": [],
+      "meanOverlappingBodyAABBPairs": 0,
+      "maxBodyAABBOverlapFraction": 0,
+      "camera": {
+        "x": 16,
+        "y": 123.59375,
+        "scale": 0.9020530168084092,
+        "scaleX": 0.9020530168084092,
+        "scaleY": 1.4942051562215721,
+        "bodyScale": 1,
+        "bodyScaleLimit": 1,
+        "landscape": false,
+        "world": {
+          "left": 44.423286824347585,
+          "top": -112.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 236
+      },
+      "roles": [
+        {
+          "kind": "pet",
+          "actors": 1,
+          "progress": 4,
+          "trials": 4,
+          "meanDistanceCss": 5207.19,
+          "meanStationaryPercent": 74.32,
+          "longestStationarySeconds": 22.9,
+          "localBlocked": 0,
+          "localProbes": 20
+        }
+      ]
+    },
+    {
+      "count": 4,
+      "trials": 16,
+      "progress": 16,
+      "unselectable": 0,
+      "bodyInputs": 16,
+      "selectedGround": 0,
+      "contactAssociatedFailures": 0,
+      "meanDistanceCss": 3202.94,
+      "meanStationaryPercent": 80.29,
+      "longestStationarySeconds": 36.1,
+      "plans": 204,
+      "rejectedPlans": 11,
+      "executionStops": 46,
+      "zeroDistanceActors": [],
+      "meanOverlappingBodyAABBPairs": 1.88,
+      "maxBodyAABBOverlapFraction": 0.45,
+      "camera": {
+        "x": 16,
+        "y": 143.59375,
+        "scale": 0.6342010144285222,
+        "scaleX": 0.6342010144285222,
+        "scaleY": 1.2814324050630237,
+        "bodyScale": 1,
+        "bodyScaleLimit": 1,
+        "landscape": false,
+        "world": {
+          "left": 119.24489700839837,
+          "top": -62.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 206
+      },
+      "roles": [
+        {
+          "kind": "pet",
+          "actors": 1,
+          "progress": 4,
+          "trials": 4,
+          "meanDistanceCss": 2644.11,
+          "meanStationaryPercent": 82.73,
+          "longestStationarySeconds": 29.1,
+          "localBlocked": 1,
+          "localProbes": 20
+        },
+        {
+          "kind": "partner",
+          "actors": 1,
+          "progress": 4,
+          "trials": 4,
+          "meanDistanceCss": 3914.42,
+          "meanStationaryPercent": 75.07,
+          "longestStationarySeconds": 27.1,
+          "localBlocked": 0,
+          "localProbes": 20
+        },
+        {
+          "kind": "companion",
+          "actors": 2,
+          "progress": 8,
+          "trials": 8,
+          "meanDistanceCss": 3126.62,
+          "meanStationaryPercent": 81.68,
+          "longestStationarySeconds": 36.1,
+          "localBlocked": 0,
+          "localProbes": 0
+        }
+      ]
+    },
+    {
+      "count": 10,
+      "trials": 40,
+      "progress": 39,
+      "unselectable": 0,
+      "bodyInputs": 40,
+      "selectedGround": 0,
+      "contactAssociatedFailures": 1,
+      "meanDistanceCss": 2315.65,
+      "meanStationaryPercent": 88.43,
+      "longestStationarySeconds": 91,
+      "plans": 460,
+      "rejectedPlans": 86,
+      "executionStops": 72,
+      "zeroDistanceActors": [],
+      "meanOverlappingBodyAABBPairs": 0.05,
+      "maxBodyAABBOverlapFraction": 0.01,
+      "camera": {
+        "x": 16,
+        "y": 143.59375,
+        "scale": 0.8645958762520365,
+        "scaleX": 0.8645958762520365,
+        "scaleY": 1.428704597166564,
+        "bodyScale": 0.9,
+        "bodyScaleLimit": 0.9,
+        "landscape": false,
+        "world": {
+          "left": 43.54779094594594,
+          "top": -92.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 236
+      },
+      "roles": [
+        {
+          "kind": "pet",
+          "actors": 1,
+          "progress": 4,
+          "trials": 4,
+          "meanDistanceCss": 1848.07,
+          "meanStationaryPercent": 89.9,
+          "longestStationarySeconds": 73,
+          "localBlocked": 1,
+          "localProbes": 20
+        },
+        {
+          "kind": "partner",
+          "actors": 1,
+          "progress": 4,
+          "trials": 4,
+          "meanDistanceCss": 2505.29,
+          "meanStationaryPercent": 87.53,
+          "longestStationarySeconds": 59.5,
+          "localBlocked": 4,
+          "localProbes": 20
+        },
+        {
+          "kind": "companion",
+          "actors": 8,
+          "progress": 31,
+          "trials": 32,
+          "meanDistanceCss": 2350.39,
+          "meanStationaryPercent": 88.35,
+          "longestStationarySeconds": 91,
+          "localBlocked": 0,
+          "localProbes": 0
+        }
+      ]
+    },
+    {
+      "count": 20,
+      "trials": 80,
+      "progress": 74,
+      "unselectable": 0,
+      "bodyInputs": 80,
+      "selectedGround": 0,
+      "contactAssociatedFailures": 6,
+      "meanDistanceCss": 662.79,
+      "meanStationaryPercent": 96.9,
+      "longestStationarySeconds": 229.8,
+      "plans": 556,
+      "rejectedPlans": 243,
+      "executionStops": 20,
+      "zeroDistanceActors": [],
+      "meanOverlappingBodyAABBPairs": 0,
+      "maxBodyAABBOverlapFraction": 0,
+      "camera": {
+        "x": 16,
+        "y": 143.59375,
+        "scale": 0.956347446688276,
+        "scaleX": 0.956347446688276,
+        "scaleY": 1.5467130311588773,
+        "bodyScale": 0.7,
+        "bodyScaleLimit": 0.7,
+        "landscape": false,
+        "world": {
+          "left": 22.459512214086967,
+          "top": -112.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 256
+      },
+      "roles": [
+        {
+          "kind": "pet",
+          "actors": 1,
+          "progress": 3,
+          "trials": 4,
+          "meanDistanceCss": 804.89,
+          "meanStationaryPercent": 96.28,
+          "longestStationarySeconds": 126,
+          "localBlocked": 5,
+          "localProbes": 20
+        },
+        {
+          "kind": "partner",
+          "actors": 1,
+          "progress": 4,
+          "trials": 4,
+          "meanDistanceCss": 244.93,
+          "meanStationaryPercent": 98.73,
+          "longestStationarySeconds": 229.8,
+          "localBlocked": 17,
+          "localProbes": 20
+        },
+        {
+          "kind": "companion",
+          "actors": 18,
+          "progress": 67,
+          "trials": 72,
+          "meanDistanceCss": 678.11,
+          "meanStationaryPercent": 96.84,
+          "longestStationarySeconds": 219.1,
+          "localBlocked": 0,
+          "localProbes": 0
+        }
+      ]
+    },
+    {
+      "count": 28,
+      "trials": 112,
+      "progress": 78,
+      "unselectable": 0,
+      "bodyInputs": 112,
+      "selectedGround": 0,
+      "contactAssociatedFailures": 32,
+      "meanDistanceCss": 492.31,
+      "meanStationaryPercent": 97.66,
+      "longestStationarySeconds": 430.2,
+      "plans": 759,
+      "rejectedPlans": 389,
+      "executionStops": 11,
+      "zeroDistanceActors": [],
+      "meanOverlappingBodyAABBPairs": 0,
+      "maxBodyAABBOverlapFraction": 0,
+      "camera": {
+        "x": 16,
+        "y": 143.59375,
+        "scale": 0.9551369021930816,
+        "scaleX": 0.9551369021930816,
+        "scaleY": 1.5821506825071725,
+        "bodyScale": 0.7,
+        "bodyScaleLimit": 0.7,
+        "landscape": false,
+        "world": {
+          "left": 18.450293277570836,
+          "top": -117.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 261
+      },
+      "roles": [
+        {
+          "kind": "pet",
+          "actors": 1,
+          "progress": 3,
+          "trials": 4,
+          "meanDistanceCss": 1135.23,
+          "meanStationaryPercent": 94.73,
+          "longestStationarySeconds": 140.3,
+          "localBlocked": 4,
+          "localProbes": 20
+        },
+        {
+          "kind": "partner",
+          "actors": 1,
+          "progress": 2,
+          "trials": 4,
+          "meanDistanceCss": 456.16,
+          "meanStationaryPercent": 97.72,
+          "longestStationarySeconds": 97.2,
+          "localBlocked": 10,
+          "localProbes": 20
+        },
+        {
+          "kind": "companion",
+          "actors": 26,
+          "progress": 73,
+          "trials": 104,
+          "meanDistanceCss": 468.97,
+          "meanStationaryPercent": 97.77,
+          "longestStationarySeconds": 430.2,
+          "localBlocked": 0,
+          "localProbes": 0
+        }
+      ]
+    }
+  ],
+  "all": [
+    {
+      "count": 1,
+      "key": "pet:hermit_crab",
+      "kind": "pet",
+      "progress": {
+        "left": 144.39,
+        "right": 25.3,
+        "top": 152.07,
+        "bottom": 98.02
+      },
+      "sampledFoot": {
+        "left": 110.38,
+        "right": 280.07,
+        "top": 285.04,
+        "bottom": 535.13
+      },
+      "nativeAlphaBody": {
+        "width": 137.56,
+        "height": 106.71
+      },
+      "depth": 0.93,
+      "distanceCss": 5207.190076426271,
+      "stationarySeconds": 445.9000000000329,
+      "longestStationarySeconds": 22.900000000000055,
+      "streak": 16.19999999999996,
+      "activeSeconds": 154.99999999999548,
+      "plans": 38,
+      "rejectedPlans": 0,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 20,
+      "minX": 68.27701495080954,
+      "maxX": 238.43509747594828,
+      "minY": 303.39174349745394,
+      "maxY": 532.8831867074175
+    },
+    {
+      "count": 4,
+      "key": "pet:hermit_crab",
+      "kind": "pet",
+      "progress": {
+        "left": 119.4,
+        "right": 48.75,
+        "top": 22.52,
+        "bottom": 84.21
+      },
+      "sampledFoot": {
+        "left": 111.92,
+        "right": 280.07,
+        "top": 428.39,
+        "bottom": 535.12
+      },
+      "nativeAlphaBody": {
+        "width": 137.56,
+        "height": 106.71
+      },
+      "depth": 0.93,
+      "distanceCss": 2644.107663288677,
+      "stationarySeconds": 496.4000000000444,
+      "longestStationarySeconds": 29.100000000000144,
+      "streak": 29.100000000000144,
+      "activeSeconds": 107.99999999999814,
+      "plans": 51,
+      "rejectedPlans": 4,
+      "executionStops": 10,
+      "localBlocked": 1,
+      "localProbes": 20,
+      "minX": 30.412140307243103,
+      "maxX": 198.6007247062911,
+      "minY": 250.19926457963874,
+      "maxY": 474.3110080880812
+    },
+    {
+      "count": 4,
+      "key": "partner:gentle_gorilla",
+      "kind": "partner",
+      "progress": {
+        "left": 13.91,
+        "right": 14.49,
+        "top": 23.16,
+        "bottom": 11.22
+      },
+      "sampledFoot": {
+        "left": 165.19,
+        "right": 193.59,
+        "top": 269.49,
+        "bottom": 303.88
+      },
+      "nativeAlphaBody": {
+        "width": 59.13,
+        "height": 74.25
+      },
+      "depth": 0.82,
+      "distanceCss": 3914.4180478981752,
+      "stationarySeconds": 450.4000000000339,
+      "longestStationarySeconds": 27.100000000000115,
+      "streak": 0,
+      "activeSeconds": 154.6999999999955,
+      "plans": 50,
+      "rejectedPlans": 2,
+      "executionStops": 13,
+      "localBlocked": 0,
+      "localProbes": 20,
+      "minX": 0.006674423153913039,
+      "maxX": 213.9865286751007,
+      "minY": 209.41990799951,
+      "maxY": 474.82284360540115
+    },
+    {
+      "count": 4,
+      "key": "companion:panda",
+      "kind": "companion",
+      "progress": {
+        "left": 31.66,
+        "right": 36.68,
+        "top": 53.25,
+        "bottom": 75.14
+      },
+      "sampledFoot": {
+        "left": 104.31,
+        "right": 172.64,
+        "top": 294.45,
+        "bottom": 422.84
+      },
+      "nativeAlphaBody": {
+        "width": 80.16,
+        "height": 83.19
+      },
+      "depth": 0.86,
+      "distanceCss": 3096.9616231738823,
+      "stationarySeconds": 489.0000000000427,
+      "longestStationarySeconds": 24.60000000000008,
+      "streak": 9.499999999999982,
+      "activeSeconds": 114.49999999999777,
+      "plans": 51,
+      "rejectedPlans": 1,
+      "executionStops": 10,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 19.49751415373104,
+      "maxX": 180.16461693012263,
+      "minY": 216.8023450316003,
+      "maxY": 465.4799086302267
+    },
+    {
+      "count": 4,
+      "key": "companion:seal",
+      "kind": "companion",
+      "progress": {
+        "left": 2.86,
+        "right": 48.19,
+        "top": 65.13,
+        "bottom": 10.25
+      },
+      "sampledFoot": {
+        "left": 224.22,
+        "right": 275.27,
+        "top": 275.01,
+        "bottom": 350.39
+      },
+      "nativeAlphaBody": {
+        "width": 83.19,
+        "height": 76.38
+      },
+      "depth": 0.85,
+      "distanceCss": 3156.279656352811,
+      "stationarySeconds": 491.10000000004317,
+      "longestStationarySeconds": 36.10000000000024,
+      "streak": 5.899999999999995,
+      "activeSeconds": 113.59999999999782,
+      "plans": 52,
+      "rejectedPlans": 4,
+      "executionStops": 13,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 28.8577625703834,
+      "maxX": 213.09821527113738,
+      "minY": 205.87983172732726,
+      "maxY": 456.75464025757435
+    },
+    {
+      "count": 10,
+      "key": "pet:hermit_crab",
+      "kind": "pet",
+      "progress": {
+        "left": 4.15,
+        "right": 82.58,
+        "top": 94.42,
+        "bottom": 92.86
+      },
+      "sampledFoot": {
+        "left": 239.95,
+        "right": 326.69,
+        "top": 348.95,
+        "bottom": 536.23
+      },
+      "nativeAlphaBody": {
+        "width": 70.95,
+        "height": 55.04
+      },
+      "depth": 0.93,
+      "distanceCss": 1848.0656452935837,
+      "stationarySeconds": 539.4000000000541,
+      "longestStationarySeconds": 73.00000000000013,
+      "streak": 37.50000000000026,
+      "activeSeconds": 65.40000000000056,
+      "plans": 45,
+      "rejectedPlans": 16,
+      "executionStops": 2,
+      "localBlocked": 1,
+      "localProbes": 20,
+      "minX": 21.934781864000506,
+      "maxX": 238.62925087784652,
+      "minY": 435.4982829208036,
+      "maxY": 524.652578998234
+    },
+    {
+      "count": 10,
+      "key": "partner:gentle_gorilla",
+      "kind": "partner",
+      "progress": {
+        "left": 41.2,
+        "right": 40.73,
+        "top": 3.05,
+        "bottom": 26.07
+      },
+      "sampledFoot": {
+        "left": 142.55,
+        "right": 224.47,
+        "top": 236.24,
+        "bottom": 265.36
+      },
+      "nativeAlphaBody": {
+        "width": 40.27,
+        "height": 50.57
+      },
+      "depth": 0.8,
+      "distanceCss": 2505.291260972988,
+      "stationarySeconds": 525.2000000000509,
+      "longestStationarySeconds": 59.500000000000576,
+      "streak": 3.2000000000000015,
+      "activeSeconds": 80.89999999999968,
+      "plans": 54,
+      "rejectedPlans": 15,
+      "executionStops": 7,
+      "localBlocked": 4,
+      "localProbes": 20,
+      "minX": 89.91876016249626,
+      "maxX": 280.1298529379443,
+      "minY": 231.42030131607095,
+      "maxY": 501.9947047181806
+    },
+    {
+      "count": 10,
+      "key": "companion:cat_friend",
+      "kind": "companion",
+      "progress": {
+        "left": 57.45,
+        "right": 19.23,
+        "top": 53.91,
+        "bottom": 3.11
+      },
+      "sampledFoot": {
+        "left": 67.48,
+        "right": 144.17,
+        "top": 246.75,
+        "bottom": 303.93
+      },
+      "nativeAlphaBody": {
+        "width": 50.57,
+        "height": 41.2
+      },
+      "depth": 0.84,
+      "distanceCss": 2003.588085248049,
+      "stationarySeconds": 537.5000000000537,
+      "longestStationarySeconds": 42.80000000000034,
+      "streak": 6.499999999999993,
+      "activeSeconds": 67.00000000000047,
+      "plans": 48,
+      "rejectedPlans": 2,
+      "executionStops": 10,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 69.16845913244738,
+      "maxX": 255.92116840288725,
+      "minY": 233.19684117625502,
+      "maxY": 524.652578998234
+    },
+    {
+      "count": 10,
+      "key": "companion:tanuki",
+      "kind": "companion",
+      "progress": {
+        "left": 34.95,
+        "right": 59.66,
+        "top": 29.01,
+        "bottom": 137.01
+      },
+      "sampledFoot": {
+        "left": 228.71,
+        "right": 323.32,
+        "top": 252.49,
+        "bottom": 418.51
+      },
+      "nativeAlphaBody": {
+        "width": 45.8,
+        "height": 49.54
+      },
+      "depth": 0.83,
+      "distanceCss": 3139.788837171839,
+      "stationarySeconds": 506.00000000004655,
+      "longestStationarySeconds": 43.40000000000035,
+      "streak": 12.79999999999997,
+      "activeSeconds": 97.79999999999872,
+      "plans": 46,
+      "rejectedPlans": 5,
+      "executionStops": 11,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 68.0955712136104,
+      "maxX": 287.04661994796055,
+      "minY": 233.19684117625502,
+      "maxY": 524.652578998234
+    },
+    {
+      "count": 10,
+      "key": "companion:owl",
+      "kind": "companion",
+      "progress": {
+        "left": 153.85,
+        "right": 88.4,
+        "top": 51.35,
+        "bottom": 37.55
+      },
+      "sampledFoot": {
+        "left": 36.19,
+        "right": 278.45,
+        "top": 447.32,
+        "bottom": 536.23
+      },
+      "nativeAlphaBody": {
+        "width": 35.52,
+        "height": 49.54
+      },
+      "depth": 0.96,
+      "distanceCss": 1537.4807511869299,
+      "stationarySeconds": 552.5000000000571,
+      "longestStationarySeconds": 90.9999999999991,
+      "streak": 6.799999999999992,
+      "activeSeconds": 50.60000000000045,
+      "plans": 49,
+      "rejectedPlans": 14,
+      "executionStops": 6,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 65.71007562743922,
+      "maxX": 191.2122308443904,
+      "minY": 233.19684117625502,
+      "maxY": 494.8342063698092
+    },
+    {
+      "count": 10,
+      "key": "companion:hamster",
+      "kind": "companion",
+      "progress": {
+        "left": 80.62,
+        "right": 36.96,
+        "top": 152.29,
+        "bottom": 51.43
+      },
+      "sampledFoot": {
+        "left": 230.03,
+        "right": 347.61,
+        "top": 332.5,
+        "bottom": 536.23
+      },
+      "nativeAlphaBody": {
+        "width": 46.54,
+        "height": 48.5
+      },
+      "depth": 0.95,
+      "distanceCss": 2457.464652912969,
+      "stationarySeconds": 524.4000000000507,
+      "longestStationarySeconds": 56.80000000000054,
+      "streak": 15.59999999999996,
+      "activeSeconds": 79.89999999999974,
+      "plans": 47,
+      "rejectedPlans": 7,
+      "executionStops": 4,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 28.915512690410768,
+      "maxX": 291.7526590710298,
+      "minY": 238.91165956492128,
+      "maxY": 476.9276476074785
+    },
+    {
+      "count": 10,
+      "key": "companion:rabbit_friend",
+      "kind": "companion",
+      "progress": {
+        "left": 64.46,
+        "right": 8.94,
+        "top": 19.29,
+        "bottom": 37.58
+      },
+      "sampledFoot": {
+        "left": 132.42,
+        "right": 205.82,
+        "top": 383.93,
+        "bottom": 440.81
+      },
+      "nativeAlphaBody": {
+        "width": 37.46,
+        "height": 50.57
+      },
+      "depth": 0.9,
+      "distanceCss": 3511.3244148295184,
+      "stationarySeconds": 504.0000000000461,
+      "longestStationarySeconds": 38.70000000000028,
+      "streak": 0.4,
+      "activeSeconds": 101.19999999999852,
+      "plans": 47,
+      "rejectedPlans": 5,
+      "executionStops": 12,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 55.32318046550722,
+      "maxX": 293.96338695797687,
+      "minY": 238.91165956492128,
+      "maxY": 525.018879026555
+    },
+    {
+      "count": 10,
+      "key": "companion:squirrel",
+      "kind": "companion",
+      "progress": {
+        "left": 40.78,
+        "right": 1.72,
+        "top": 0,
+        "bottom": 93.09
+      },
+      "sampledFoot": {
+        "left": 132.2,
+        "right": 174.69,
+        "top": 327.22,
+        "bottom": 420.31
+      },
+      "nativeAlphaBody": {
+        "width": 44.03,
+        "height": 49.54
+      },
+      "depth": 0.86,
+      "distanceCss": 2521.408521501458,
+      "stationarySeconds": 525.4000000000509,
+      "longestStationarySeconds": 51.60000000000046,
+      "streak": 12.79999999999997,
+      "activeSeconds": 78.89999999999979,
+      "plans": 42,
+      "rejectedPlans": 4,
+      "executionStops": 10,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 62.34111201885877,
+      "maxX": 290.6426361687192,
+      "minY": 233.19684117625502,
+      "maxY": 484.72456820552515
+    },
+    {
+      "count": 10,
+      "key": "companion:otter",
+      "kind": "companion",
+      "progress": {
+        "left": 20.96,
+        "right": 52.58,
+        "top": 56.78,
+        "bottom": 54.99
+      },
+      "sampledFoot": {
+        "left": 71.16,
+        "right": 151.4,
+        "top": 300.74,
+        "bottom": 412.51
+      },
+      "nativeAlphaBody": {
+        "width": 48.5,
+        "height": 46.74
+      },
+      "depth": 0.87,
+      "distanceCss": 1405.6528523265438,
+      "stationarySeconds": 555.4000000000577,
+      "longestStationarySeconds": 48.200000000000415,
+      "streak": 3.3000000000000016,
+      "activeSeconds": 47.500000000000405,
+      "plans": 46,
+      "rejectedPlans": 12,
+      "executionStops": 4,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 59.00525595246459,
+      "maxX": 258.03473400283383,
+      "minY": 238.91165956492128,
+      "maxY": 467.4661642399693
+    },
+    {
+      "count": 10,
+      "key": "companion:panda",
+      "kind": "companion",
+      "progress": {
+        "left": 1.24,
+        "right": 93.36,
+        "top": 4.5,
+        "bottom": 56.07
+      },
+      "sampledFoot": {
+        "left": 219.65,
+        "right": 314.25,
+        "top": 317.65,
+        "bottom": 378.22
+      },
+      "nativeAlphaBody": {
+        "width": 46.74,
+        "height": 48.5
+      },
+      "depth": 0.85,
+      "distanceCss": 2226.3981631033594,
+      "stationarySeconds": 535.8000000000533,
+      "longestStationarySeconds": 49.90000000000044,
+      "streak": 4.899999999999999,
+      "activeSeconds": 68.3000000000004,
+      "plans": 36,
+      "rejectedPlans": 6,
+      "executionStops": 6,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 56.577989365826234,
+      "maxX": 284.9012467258752,
+      "minY": 238.91165956492128,
+      "maxY": 524.652578998234
+    },
+    {
+      "count": 20,
+      "key": "pet:hermit_crab",
+      "kind": "pet",
+      "progress": {
+        "left": 76.77,
+        "right": 0,
+        "top": 27.2,
+        "bottom": 25.69
+      },
+      "sampledFoot": {
+        "left": 171.37,
+        "right": 248.14,
+        "top": 410,
+        "bottom": 462.89
+      },
+      "nativeAlphaBody": {
+        "width": 60.72,
+        "height": 47.1
+      },
+      "depth": 0.93,
+      "distanceCss": 804.8878588524716,
+      "stationarySeconds": 577.7000000000628,
+      "longestStationarySeconds": 125.99999999999712,
+      "streak": 9.699999999999982,
+      "activeSeconds": 24.500000000000078,
+      "plans": 29,
+      "rejectedPlans": 8,
+      "executionStops": 3,
+      "localBlocked": 5,
+      "localProbes": 20,
+      "minX": 170.16212782571,
+      "maxX": 292.57460100180936,
+      "minY": 430.93255222472425,
+      "maxY": 568.9042080313285
+    },
+    {
+      "count": 20,
+      "key": "partner:gentle_gorilla",
+      "kind": "partner",
+      "progress": {
+        "left": 41.44,
+        "right": 8.96,
+        "top": 2.68,
+        "bottom": 16.74
+      },
+      "sampledFoot": {
+        "left": 139.94,
+        "right": 190.42,
+        "top": 213.59,
+        "bottom": 233.01
+      },
+      "nativeAlphaBody": {
+        "width": 35.16,
+        "height": 44.16
+      },
+      "depth": 0.8,
+      "distanceCss": 244.9297515297226,
+      "stationarySeconds": 592.4000000000661,
+      "longestStationarySeconds": 229.79999999999123,
+      "streak": 37.80000000000027,
+      "activeSeconds": 8.799999999999985,
+      "plans": 30,
+      "rejectedPlans": 20,
+      "executionStops": 0,
+      "localBlocked": 17,
+      "localProbes": 20,
+      "minX": 87.99007442769528,
+      "maxX": 168.9302724854034,
+      "minY": 250.5455180559169,
+      "maxY": 339.96310010155247
+    },
+    {
+      "count": 20,
+      "key": "companion:cat_friend",
+      "kind": "companion",
+      "progress": {
+        "left": 4.78,
+        "right": 33.63,
+        "top": 35.94,
+        "bottom": 0
+      },
+      "sampledFoot": {
+        "left": 95.89,
+        "right": 134.3,
+        "top": 217.44,
+        "bottom": 253.38
+      },
+      "nativeAlphaBody": {
+        "width": 44.16,
+        "height": 35.98
+      },
+      "depth": 0.82,
+      "distanceCss": 864.5612904841042,
+      "stationarySeconds": 576.0000000000624,
+      "longestStationarySeconds": 145.799999999996,
+      "streak": 0.1,
+      "activeSeconds": 26.900000000000112,
+      "plans": 32,
+      "rejectedPlans": 6,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 34.43461741315182,
+      "maxX": 115.68707290512593,
+      "minY": 270.110559745577,
+      "maxY": 391.1276087391193
+    },
+    {
+      "count": 20,
+      "key": "companion:tanuki",
+      "kind": "companion",
+      "progress": {
+        "left": 0,
+        "right": 28.62,
+        "top": 12.3,
+        "bottom": 6.31
+      },
+      "sampledFoot": {
+        "left": 246.42,
+        "right": 275.04,
+        "top": 278.41,
+        "bottom": 297.33
+      },
+      "nativeAlphaBody": {
+        "width": 40.83,
+        "height": 44.16
+      },
+      "depth": 0.84,
+      "distanceCss": 309.48932510739246,
+      "stationarySeconds": 590.6000000000657,
+      "longestStationarySeconds": 174.39999999999438,
+      "streak": 4.799999999999999,
+      "activeSeconds": 10.699999999999978,
+      "plans": 27,
+      "rejectedPlans": 14,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 114.767802934967,
+      "maxX": 229.52949653756014,
+      "minY": 250.81498513272354,
+      "maxY": 328.9824290585195
+    },
+    {
+      "count": 20,
+      "key": "companion:owl",
+      "kind": "companion",
+      "progress": {
+        "left": 3.99,
+        "right": 19.71,
+        "top": 9.34,
+        "bottom": 33.97
+      },
+      "sampledFoot": {
+        "left": 281.67,
+        "right": 305.37,
+        "top": 490.43,
+        "bottom": 536.52
+      },
+      "nativeAlphaBody": {
+        "width": 31.03,
+        "height": 43.28
+      },
+      "depth": 0.96,
+      "distanceCss": 1315.7353771650787,
+      "stationarySeconds": 562.9000000000594,
+      "longestStationarySeconds": 85.39999999999942,
+      "streak": 1.3,
+      "activeSeconds": 41.200000000000315,
+      "plans": 28,
+      "rejectedPlans": 5,
+      "executionStops": 3,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 22.958448052892503,
+      "maxX": 283.42385210426073,
+      "minY": 385.55886153870904,
+      "maxY": 571.1644252777743
+    },
+    {
+      "count": 20,
+      "key": "companion:hamster",
+      "kind": "companion",
+      "progress": {
+        "left": 5.21,
+        "right": 17.97,
+        "top": 24.75,
+        "bottom": 63.21
+      },
+      "sampledFoot": {
+        "left": 323.73,
+        "right": 347.46,
+        "top": 450.27,
+        "bottom": 538.23
+      },
+      "nativeAlphaBody": {
+        "width": 41.53,
+        "height": 43.28
+      },
+      "depth": 0.95,
+      "distanceCss": 1759.9205800392704,
+      "stationarySeconds": 555.0000000000576,
+      "longestStationarySeconds": 75.39999999999999,
+      "streak": 41.100000000000314,
+      "activeSeconds": 49.20000000000043,
+      "plans": 27,
+      "rejectedPlans": 4,
+      "executionStops": 2,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 229.52949653756014,
+      "maxX": 317.6365839400867,
+      "minY": 332.91144214525605,
+      "maxY": 568.0118228814054
+    },
+    {
+      "count": 20,
+      "key": "companion:monkey",
+      "kind": "companion",
+      "progress": {
+        "left": 21.82,
+        "right": 4.14,
+        "top": 1.78,
+        "bottom": 8.19
+      },
+      "sampledFoot": {
+        "left": 236.4,
+        "right": 262.36,
+        "top": 360.5,
+        "bottom": 370.47
+      },
+      "nativeAlphaBody": {
+        "width": 37.64,
+        "height": 42.39
+      },
+      "depth": 0.88,
+      "distanceCss": 188.37467425723366,
+      "stationarySeconds": 594.2000000000666,
+      "longestStationarySeconds": 101.6999999999985,
+      "streak": 70.60000000000026,
+      "activeSeconds": 7.29999999999999,
+      "plans": 27,
+      "rejectedPlans": 13,
+      "executionStops": 2,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 209.65540534473544,
+      "maxX": 248.54007695538363,
+      "minY": 326.72459002062055,
+      "maxY": 400.96681551624664
+    },
+    {
+      "count": 20,
+      "key": "companion:sheep",
+      "kind": "companion",
+      "progress": {
+        "left": 9.1,
+        "right": 14.16,
+        "top": 15.78,
+        "bottom": 8.66
+      },
+      "sampledFoot": {
+        "left": 151.93,
+        "right": 175.19,
+        "top": 267.74,
+        "bottom": 292.45
+      },
+      "nativeAlphaBody": {
+        "width": 42.39,
+        "height": 39.65
+      },
+      "depth": 0.84,
+      "distanceCss": 221.77727584290366,
+      "stationarySeconds": 593.4000000000664,
+      "longestStationarySeconds": 218.29999999999188,
+      "streak": 2.600000000000001,
+      "activeSeconds": 7.39999999999999,
+      "plans": 30,
+      "rejectedPlans": 16,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 138.8578419458824,
+      "maxX": 188.78250375080307,
+      "minY": 247.80147036553123,
+      "maxY": 323.294916713118
+    },
+    {
+      "count": 20,
+      "key": "companion:bat",
+      "kind": "companion",
+      "progress": {
+        "left": 18.54,
+        "right": 5.36,
+        "top": 20.34,
+        "bottom": 55.87
+      },
+      "sampledFoot": {
+        "left": 52.78,
+        "right": 76.68,
+        "top": 280.07,
+        "bottom": 356.28
+      },
+      "nativeAlphaBody": {
+        "width": 30.8,
+        "height": 42.39
+      },
+      "depth": 0.85,
+      "distanceCss": 307.31730344771023,
+      "stationarySeconds": 591.0000000000658,
+      "longestStationarySeconds": 142.09999999999621,
+      "streak": 118.69999999999753,
+      "activeSeconds": 9.99999999999998,
+      "plans": 25,
+      "rejectedPlans": 17,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 45.91078677341113,
+      "maxX": 110.9424131482139,
+      "minY": 308.164033646714,
+      "maxY": 394.77996339161115
+    },
+    {
+      "count": 20,
+      "key": "companion:penguin_friend",
+      "kind": "companion",
+      "progress": {
+        "left": 8.37,
+        "right": 10.63,
+        "top": 13.12,
+        "bottom": 15.46
+      },
+      "sampledFoot": {
+        "left": 198.15,
+        "right": 217.15,
+        "top": 313.36,
+        "bottom": 341.94
+      },
+      "nativeAlphaBody": {
+        "width": 41.51,
+        "height": 19.25
+      },
+      "depth": 0.86,
+      "distanceCss": 114.91468046127287,
+      "stationarySeconds": 596.300000000067,
+      "longestStationarySeconds": 161.6999999999951,
+      "streak": 161.6999999999951,
+      "activeSeconds": 4.200000000000001,
+      "plans": 30,
+      "rejectedPlans": 22,
+      "executionStops": 1,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 183.86267364666742,
+      "maxX": 218.17031550827392,
+      "minY": 347.35405434653865,
+      "maxY": 370.78007314523245
+    },
+    {
+      "count": 20,
+      "key": "companion:shiba",
+      "kind": "companion",
+      "progress": {
+        "left": 27.49,
+        "right": 14.59,
+        "top": 94.06,
+        "bottom": 21.92
+      },
+      "sampledFoot": {
+        "left": 163.72,
+        "right": 205.8,
+        "top": 422.37,
+        "bottom": 538.35
+      },
+      "nativeAlphaBody": {
+        "width": 41.51,
+        "height": 38.05
+      },
+      "depth": 0.97,
+      "distanceCss": 180.47827398941078,
+      "stationarySeconds": 595.0000000000667,
+      "longestStationarySeconds": 217.39999999999193,
+      "streak": 217.39999999999193,
+      "activeSeconds": 5.899999999999995,
+      "plans": 28,
+      "rejectedPlans": 21,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 156.84709058925117,
+      "maxX": 200.28441476278564,
+      "minY": 413.1706444088464,
+      "maxY": 550.7081748635153
+    },
+    {
+      "count": 20,
+      "key": "companion:rabbit_friend",
+      "kind": "companion",
+      "progress": {
+        "left": 0,
+        "right": 42.48,
+        "top": 35.45,
+        "bottom": 1.67
+      },
+      "sampledFoot": {
+        "left": 301.77,
+        "right": 344.24,
+        "top": 379.06,
+        "bottom": 416.18
+      },
+      "nativeAlphaBody": {
+        "width": 32.71,
+        "height": 44.16
+      },
+      "depth": 0.91,
+      "distanceCss": 2068.0834319931055,
+      "stationarySeconds": 548.1000000000561,
+      "longestStationarySeconds": 84.69999999999946,
+      "streak": 26.600000000000108,
+      "activeSeconds": 55.900000000000524,
+      "plans": 31,
+      "rejectedPlans": 4,
+      "executionStops": 3,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 216.00697322724065,
+      "maxX": 314.60537735204764,
+      "minY": 264.85606877426545,
+      "maxY": 555.6381186321344
+    },
+    {
+      "count": 20,
+      "key": "companion:squirrel",
+      "kind": "companion",
+      "progress": {
+        "left": 12.24,
+        "right": 34.24,
+        "top": 36.98,
+        "bottom": 40.16
+      },
+      "sampledFoot": {
+        "left": 292.28,
+        "right": 339.68,
+        "top": 301.93,
+        "bottom": 379.06
+      },
+      "nativeAlphaBody": {
+        "width": 38.47,
+        "height": 43.28
+      },
+      "depth": 0.87,
+      "distanceCss": 760.1234921396253,
+      "stationarySeconds": 578.9000000000631,
+      "longestStationarySeconds": 56.20000000000053,
+      "streak": 1.8000000000000005,
+      "activeSeconds": 23.400000000000063,
+      "plans": 32,
+      "rejectedPlans": 5,
+      "executionStops": 1,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 193.62893890722108,
+      "maxX": 282.3489781934055,
+      "minY": 264.45316564791864,
+      "maxY": 373.1810126736484
+    },
+    {
+      "count": 20,
+      "key": "companion:otter",
+      "kind": "companion",
+      "progress": {
+        "left": 9.03,
+        "right": 6.01,
+        "top": 4.86,
+        "bottom": 2.56
+      },
+      "sampledFoot": {
+        "left": 228.93,
+        "right": 243.97,
+        "top": 220.25,
+        "bottom": 227.66
+      },
+      "nativeAlphaBody": {
+        "width": 43.28,
+        "height": 41.7
+      },
+      "depth": 0.81,
+      "distanceCss": 225.70213828964737,
+      "stationarySeconds": 592.8000000000662,
+      "longestStationarySeconds": 157.69999999999533,
+      "streak": 109.89999999999803,
+      "activeSeconds": 7.999999999999988,
+      "plans": 25,
+      "rejectedPlans": 16,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 76.51390506743596,
+      "maxX": 221.79905171988378,
+      "minY": 252.48236452499444,
+      "maxY": 308.3360640382908
+    },
+    {
+      "count": 20,
+      "key": "companion:panda",
+      "kind": "companion",
+      "progress": {
+        "left": 2.34,
+        "right": 5.31,
+        "top": 0,
+        "bottom": 10.77
+      },
+      "sampledFoot": {
+        "left": 113.99,
+        "right": 121.64,
+        "top": 312.61,
+        "bottom": 323.38
+      },
+      "nativeAlphaBody": {
+        "width": 41.7,
+        "height": 43.28
+      },
+      "depth": 0.86,
+      "distanceCss": 157.56683647463905,
+      "stationarySeconds": 595.4000000000668,
+      "longestStationarySeconds": 123.09999999999728,
+      "streak": 32.000000000000185,
+      "activeSeconds": 5.299999999999997,
+      "plans": 23,
+      "rejectedPlans": 14,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 94.15515532602903,
+      "maxX": 113.00309821943993,
+      "minY": 345.2851463945271,
+      "maxY": 431.9010761394242
+    },
+    {
+      "count": 20,
+      "key": "companion:parrot",
+      "kind": "companion",
+      "progress": {
+        "left": 15.05,
+        "right": 46.83,
+        "top": 14.16,
+        "bottom": 91.02
+      },
+      "sampledFoot": {
+        "left": 151.57,
+        "right": 213.45,
+        "top": 348.13,
+        "bottom": 453.3
+      },
+      "nativeAlphaBody": {
+        "width": 38.08,
+        "height": 42.39
+      },
+      "depth": 0.88,
+      "distanceCss": 143.55747218024146,
+      "stationarySeconds": 596.000000000067,
+      "longestStationarySeconds": 163.09999999999502,
+      "streak": 163.09999999999502,
+      "activeSeconds": 4.899999999999999,
+      "plans": 26,
+      "rejectedPlans": 13,
+      "executionStops": 1,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 144.44406021754054,
+      "maxX": 155.79090250714185,
+      "minY": 373.1658255238596,
+      "maxY": 401.96826466682273
+    },
+    {
+      "count": 20,
+      "key": "companion:seal",
+      "kind": "companion",
+      "progress": {
+        "left": 2.78,
+        "right": 0,
+        "top": 25.76,
+        "bottom": 9.74
+      },
+      "sampledFoot": {
+        "left": 240.22,
+        "right": 243,
+        "top": 502.8,
+        "bottom": 538.3
+      },
+      "nativeAlphaBody": {
+        "width": 42.39,
+        "height": 38.93
+      },
+      "depth": 0.98,
+      "distanceCss": 497.90587804686857,
+      "stationarySeconds": 584.0000000000642,
+      "longestStationarySeconds": 219.09999999999184,
+      "streak": 15.89999999999996,
+      "activeSeconds": 17.199999999999974,
+      "plans": 26,
+      "rejectedPlans": 16,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 18.98977564978377,
+      "maxX": 220.8284172084014,
+      "minY": 481.5983168623551,
+      "maxY": 562.8342941715712
+    },
+    {
+      "count": 20,
+      "key": "companion:chicken",
+      "kind": "companion",
+      "progress": {
+        "left": 111.07,
+        "right": 0.94,
+        "top": 38.26,
+        "bottom": 28.97
+      },
+      "sampledFoot": {
+        "left": 32.58,
+        "right": 144.59,
+        "top": 471.15,
+        "bottom": 538.38
+      },
+      "nativeAlphaBody": {
+        "width": 38.05,
+        "height": 41.51
+      },
+      "depth": 0.97,
+      "distanceCss": 1543.2139741458905,
+      "stationarySeconds": 553.1000000000572,
+      "longestStationarySeconds": 81.99999999999962,
+      "streak": 37.30000000000026,
+      "activeSeconds": 51.100000000000456,
+      "plans": 28,
+      "rejectedPlans": 9,
+      "executionStops": 3,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 30.609227626398713,
+      "maxX": 321.7959486842901,
+      "minY": 442.1600124349573,
+      "maxY": 568.0118228814054
+    },
+    {
+      "count": 20,
+      "key": "companion:hedgehog",
+      "kind": "companion",
+      "progress": {
+        "left": 77.08,
+        "right": 6.74,
+        "top": 5.98,
+        "bottom": 80.74
+      },
+      "sampledFoot": {
+        "left": 36.91,
+        "right": 120.73,
+        "top": 447.32,
+        "bottom": 534.04
+      },
+      "nativeAlphaBody": {
+        "width": 41.51,
+        "height": 41.09
+      },
+      "depth": 0.93,
+      "distanceCss": 1301.6079631234559,
+      "stationarySeconds": 563.2000000000595,
+      "longestStationarySeconds": 95.49999999999885,
+      "streak": 0,
+      "activeSeconds": 40.3000000000003,
+      "plans": 31,
+      "rejectedPlans": 8,
+      "executionStops": 1,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 30.478064119821767,
+      "maxX": 154.08806726206785,
+      "minY": 481.59855021129755,
+      "maxY": 568.0118228814054
+    },
+    {
+      "count": 20,
+      "key": "companion:snail",
+      "kind": "companion",
+      "progress": {
+        "left": 42.79,
+        "right": 16.95,
+        "top": 12.37,
+        "bottom": 85.2
+      },
+      "sampledFoot": {
+        "left": 71.91,
+        "right": 162.65,
+        "top": 354.31,
+        "bottom": 461.21
+      },
+      "nativeAlphaBody": {
+        "width": 41.51,
+        "height": 19.27
+      },
+      "depth": 0.89,
+      "distanceCss": 245.72835991816942,
+      "stationarySeconds": 592.4000000000661,
+      "longestStationarySeconds": 186.2999999999937,
+      "streak": 13.799999999999967,
+      "activeSeconds": 8.799999999999985,
+      "plans": 21,
+      "rejectedPlans": 12,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 92.52977098366854,
+      "maxX": 183.62481909652288,
+      "minY": 399.26609683719215,
+      "maxY": 481.3958931365083
+    },
+    {
+      "count": 28,
+      "key": "pet:hermit_crab",
+      "kind": "pet",
+      "progress": {
+        "left": 91.63,
+        "right": 0,
+        "top": 34.13,
+        "bottom": 29.16
+      },
+      "sampledFoot": {
+        "left": 152.37,
+        "right": 244,
+        "top": 401.89,
+        "bottom": 465.18
+      },
+      "nativeAlphaBody": {
+        "width": 48.77,
+        "height": 37.83
+      },
+      "depth": 0.93,
+      "distanceCss": 1135.2263482644241,
+      "stationarySeconds": 568.4000000000607,
+      "longestStationarySeconds": 140.29999999999632,
+      "streak": 14.299999999999965,
+      "activeSeconds": 34.30000000000022,
+      "plans": 26,
+      "rejectedPlans": 6,
+      "executionStops": 1,
+      "localBlocked": 4,
+      "localProbes": 20,
+      "minX": 174.57908799703583,
+      "maxX": 320.938218686644,
+      "minY": 388.98371059037413,
+      "maxY": 581.0544539676391
+    },
+    {
+      "count": 28,
+      "key": "partner:gentle_gorilla",
+      "kind": "partner",
+      "progress": {
+        "left": 5.91,
+        "right": 0,
+        "top": 0,
+        "bottom": 1.91
+      },
+      "sampledFoot": {
+        "left": 171.43,
+        "right": 177.33,
+        "top": 210.03,
+        "bottom": 211.95
+      },
+      "nativeAlphaBody": {
+        "width": 28.24,
+        "height": 35.47
+      },
+      "depth": 0.8,
+      "distanceCss": 456.1571466407531,
+      "stationarySeconds": 586.3000000000648,
+      "longestStationarySeconds": 97.19999999999875,
+      "streak": 54.80000000000051,
+      "activeSeconds": 15.69999999999996,
+      "plans": 31,
+      "rejectedPlans": 18,
+      "executionStops": 0,
+      "localBlocked": 10,
+      "localProbes": 20,
+      "minX": 94.53515110241746,
+      "maxX": 187.73041098395083,
+      "minY": 256.2982570989831,
+      "maxY": 329.2917963703345
+    },
+    {
+      "count": 28,
+      "key": "companion:cat_friend",
+      "kind": "companion",
+      "progress": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "sampledFoot": {
+        "left": 112.37,
+        "right": 112.37,
+        "top": 278,
+        "bottom": 278
+      },
+      "nativeAlphaBody": {
+        "width": 35.47,
+        "height": 28.9
+      },
+      "depth": 0.84,
+      "distanceCss": 576.6719645744645,
+      "stationarySeconds": 584.7000000000644,
+      "longestStationarySeconds": 184.29999999999382,
+      "streak": 13.699999999999967,
+      "activeSeconds": 17.099999999999973,
+      "plans": 31,
+      "rejectedPlans": 15,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 53.49988607258114,
+      "maxX": 108.42787061349233,
+      "minY": 264.6243174662046,
+      "maxY": 384.86776933674975
+    },
+    {
+      "count": 28,
+      "key": "companion:tanuki",
+      "kind": "companion",
+      "progress": {
+        "left": 0,
+        "right": 24.38,
+        "top": 65.15,
+        "bottom": 0
+      },
+      "sampledFoot": {
+        "left": 242.29,
+        "right": 266.68,
+        "top": 221.34,
+        "bottom": 286.49
+      },
+      "nativeAlphaBody": {
+        "width": 32.3,
+        "height": 34.93
+      },
+      "depth": 0.84,
+      "distanceCss": 608.364348647103,
+      "stationarySeconds": 584.1000000000643,
+      "longestStationarySeconds": 70.90000000000025,
+      "streak": 18.099999999999987,
+      "activeSeconds": 18.39999999999999,
+      "plans": 24,
+      "rejectedPlans": 5,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 220.0747545585689,
+      "maxX": 254.68319147752905,
+      "minY": 269.5232127807595,
+      "maxY": 332.7581344458719
+    },
+    {
+      "count": 28,
+      "key": "companion:owl",
+      "kind": "companion",
+      "progress": {
+        "left": 74.14,
+        "right": 3.33,
+        "top": 148.21,
+        "bottom": 13.59
+      },
+      "sampledFoot": {
+        "left": 143.36,
+        "right": 220.83,
+        "top": 376.58,
+        "bottom": 538.38
+      },
+      "nativeAlphaBody": {
+        "width": 25.05,
+        "height": 34.93
+      },
+      "depth": 0.97,
+      "distanceCss": 729.6836067399933,
+      "stationarySeconds": 577.3000000000627,
+      "longestStationarySeconds": 95.69999999999884,
+      "streak": 15.69999999999996,
+      "activeSeconds": 25.500000000000092,
+      "plans": 34,
+      "rejectedPlans": 17,
+      "executionStops": 2,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 34.39714802871951,
+      "maxX": 199.1683695762193,
+      "minY": 517.7684266673523,
+      "maxY": 571.0534116516809
+    },
+    {
+      "count": 28,
+      "key": "companion:hamster",
+      "kind": "companion",
+      "progress": {
+        "left": 5.86,
+        "right": 25.54,
+        "top": 10.12,
+        "bottom": 4.93
+      },
+      "sampledFoot": {
+        "left": 311.66,
+        "right": 343.05,
+        "top": 471.77,
+        "bottom": 490.46
+      },
+      "nativeAlphaBody": {
+        "width": 33.52,
+        "height": 34.93
+      },
+      "depth": 0.95,
+      "distanceCss": 419.6964776820742,
+      "stationarySeconds": 588.3000000000652,
+      "longestStationarySeconds": 165.79999999999487,
+      "streak": 17.899999999999984,
+      "activeSeconds": 13.09999999999997,
+      "plans": 27,
+      "rejectedPlans": 13,
+      "executionStops": 3,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 221.6039808585635,
+      "maxX": 318.3331791640368,
+      "minY": 434.8139841782117,
+      "maxY": 552.4239372523359
+    },
+    {
+      "count": 28,
+      "key": "companion:monkey",
+      "kind": "companion",
+      "progress": {
+        "left": 7.96,
+        "right": 0.64,
+        "top": 1.66,
+        "bottom": 20.57
+      },
+      "sampledFoot": {
+        "left": 227.44,
+        "right": 236.05,
+        "top": 352.01,
+        "bottom": 379.98
+      },
+      "nativeAlphaBody": {
+        "width": 30.54,
+        "height": 34.4
+      },
+      "depth": 0.88,
+      "distanceCss": 149.8908161801477,
+      "stationarySeconds": 595.4000000000668,
+      "longestStationarySeconds": 217.19999999999195,
+      "streak": 217.19999999999195,
+      "activeSeconds": 5.699999999999996,
+      "plans": 30,
+      "rejectedPlans": 19,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 171.22950506425516,
+      "maxX": 217.07549179617,
+      "minY": 378.53916660672104,
+      "maxY": 418.3248595233831
+    },
+    {
+      "count": 28,
+      "key": "companion:sheep",
+      "kind": "companion",
+      "progress": {
+        "left": 7.45,
+        "right": 10.33,
+        "top": 17.28,
+        "bottom": 9.08
+      },
+      "sampledFoot": {
+        "left": 122.83,
+        "right": 140.6,
+        "top": 212.03,
+        "bottom": 238.39
+      },
+      "nativeAlphaBody": {
+        "width": 34.4,
+        "height": 32.17
+      },
+      "depth": 0.81,
+      "distanceCss": 587.0168559164788,
+      "stationarySeconds": 582.4000000000639,
+      "longestStationarySeconds": 94.99999999999888,
+      "streak": 34.30000000000022,
+      "activeSeconds": 19.200000000000003,
+      "plans": 31,
+      "rejectedPlans": 10,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 64.96152889889812,
+      "maxX": 124.10658863670578,
+      "minY": 275.5677159643525,
+      "maxY": 346.8961529565776
+    },
+    {
+      "count": 28,
+      "key": "companion:bat",
+      "kind": "companion",
+      "progress": {
+        "left": 22.84,
+        "right": 7.18,
+        "top": 14.47,
+        "bottom": 29.83
+      },
+      "sampledFoot": {
+        "left": 49.46,
+        "right": 79.47,
+        "top": 250,
+        "bottom": 300.63
+      },
+      "nativeAlphaBody": {
+        "width": 24.99,
+        "height": 34.4
+      },
+      "depth": 0.84,
+      "distanceCss": 412.4874967675652,
+      "stationarySeconds": 588.3000000000652,
+      "longestStationarySeconds": 83.29999999999954,
+      "streak": 48.80000000000042,
+      "activeSeconds": 13.599999999999968,
+      "plans": 18,
+      "rejectedPlans": 5,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 34.39714802871951,
+      "maxX": 116.49903808985505,
+      "minY": 258.29571473617597,
+      "maxY": 411.09765327999236
+    },
+    {
+      "count": 28,
+      "key": "companion:penguin_friend",
+      "kind": "companion",
+      "progress": {
+        "left": 8.52,
+        "right": 6.76,
+        "top": 11.35,
+        "bottom": 3.94
+      },
+      "sampledFoot": {
+        "left": 197.91,
+        "right": 213.19,
+        "top": 305.82,
+        "bottom": 321.1
+      },
+      "nativeAlphaBody": {
+        "width": 33.87,
+        "height": 15.7
+      },
+      "depth": 0.86,
+      "distanceCss": 67.36266933444854,
+      "stationarySeconds": 597.5000000000673,
+      "longestStationarySeconds": 196.19999999999314,
+      "streak": 196.19999999999314,
+      "activeSeconds": 3.1000000000000014,
+      "plans": 24,
+      "rejectedPlans": 16,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 179.1248746794108,
+      "maxX": 206.3217904234742,
+      "minY": 346.8961529565776,
+      "maxY": 363.42883747632317
+    },
+    {
+      "count": 28,
+      "key": "companion:shiba",
+      "kind": "companion",
+      "progress": {
+        "left": 32.72,
+        "right": 23.24,
+        "top": 132.27,
+        "bottom": 19.74
+      },
+      "sampledFoot": {
+        "left": 143.14,
+        "right": 199.1,
+        "top": 386.37,
+        "bottom": 538.38
+      },
+      "nativeAlphaBody": {
+        "width": 33.87,
+        "height": 31.05
+      },
+      "depth": 0.97,
+      "distanceCss": 344.63072663129674,
+      "stationarySeconds": 589.7000000000655,
+      "longestStationarySeconds": 192.59999999999334,
+      "streak": 192.59999999999334,
+      "activeSeconds": 11.999999999999973,
+      "plans": 21,
+      "rejectedPlans": 9,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 64.96152889889812,
+      "maxX": 161.19384134044316,
+      "minY": 493.8564397427754,
+      "maxY": 564.9043730899235
+    },
+    {
+      "count": 28,
+      "key": "companion:punyu",
+      "kind": "companion",
+      "progress": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "sampledFoot": {
+        "left": 290.48,
+        "right": 290.48,
+        "top": 535.52,
+        "bottom": 535.52
+      },
+      "nativeAlphaBody": {
+        "width": 33.87,
+        "height": 25.72
+      },
+      "depth": 0.98,
+      "distanceCss": 1052.05499030344,
+      "stationarySeconds": 569.0000000000608,
+      "longestStationarySeconds": 85.49999999999942,
+      "streak": 5.1999999999999975,
+      "activeSeconds": 34.100000000000215,
+      "plans": 31,
+      "rejectedPlans": 7,
+      "executionStops": 1,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 165.26591906551243,
+      "maxX": 324.4634867398284,
+      "minY": 397.5249747968071,
+      "maxY": 581.7833434057769
+    },
+    {
+      "count": 28,
+      "key": "companion:chameleon",
+      "kind": "companion",
+      "progress": {
+        "left": 2.21,
+        "right": 0,
+        "top": 11.5,
+        "bottom": 0
+      },
+      "sampledFoot": {
+        "left": 293.48,
+        "right": 295.76,
+        "top": 422.63,
+        "bottom": 434.13
+      },
+      "nativeAlphaBody": {
+        "width": 33.34,
+        "height": 27.88
+      },
+      "depth": 0.92,
+      "distanceCss": 555.0290292925407,
+      "stationarySeconds": 586.1000000000647,
+      "longestStationarySeconds": 327.50000000000597,
+      "streak": 38.70000000000028,
+      "activeSeconds": 15.199999999999962,
+      "plans": 27,
+      "rejectedPlans": 16,
+      "executionStops": 1,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 230.16250754089236,
+      "maxX": 280.06431519527484,
+      "minY": 415.0606749234468,
+      "maxY": 530.1614544873496
+    },
+    {
+      "count": 28,
+      "key": "companion:unicorn",
+      "kind": "companion",
+      "progress": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "sampledFoot": {
+        "left": 174.31,
+        "right": 174.31,
+        "top": 269.12,
+        "bottom": 269.12
+      },
+      "nativeAlphaBody": {
+        "width": 30.61,
+        "height": 33.34
+      },
+      "depth": 0.83,
+      "distanceCss": 402.39086195050214,
+      "stationarySeconds": 588.2000000000652,
+      "longestStationarySeconds": 277.19999999999453,
+      "streak": 49.20000000000043,
+      "activeSeconds": 13.599999999999968,
+      "plans": 26,
+      "rejectedPlans": 17,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 110.80810020416604,
+      "maxX": 194.5176714220643,
+      "minY": 258.29571473617597,
+      "maxY": 315.3874315255529
+    },
+    {
+      "count": 28,
+      "key": "companion:watcher",
+      "kind": "companion",
+      "progress": {
+        "left": 6.46,
+        "right": 83.33,
+        "top": 0,
+        "bottom": 128.92
+      },
+      "sampledFoot": {
+        "left": 120.58,
+        "right": 210.37,
+        "top": 332.27,
+        "bottom": 461.32
+      },
+      "nativeAlphaBody": {
+        "width": 11.64,
+        "height": 33.34
+      },
+      "depth": 0.87,
+      "distanceCss": 817.2189639405237,
+      "stationarySeconds": 579.1000000000631,
+      "longestStationarySeconds": 107.99999999999814,
+      "streak": 4.200000000000001,
+      "activeSeconds": 23.30000000000006,
+      "plans": 25,
+      "rejectedPlans": 10,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 37.6278566347903,
+      "maxX": 108.71307789198083,
+      "minY": 288.6428066846453,
+      "maxY": 416.64145119719547
+    },
+    {
+      "count": 28,
+      "key": "companion:rabbit_friend",
+      "kind": "companion",
+      "progress": {
+        "left": 0,
+        "right": 15.28,
+        "top": 28.81,
+        "bottom": 0
+      },
+      "sampledFoot": {
+        "left": 271.57,
+        "right": 286.85,
+        "top": 294.3,
+        "bottom": 323.12
+      },
+      "nativeAlphaBody": {
+        "width": 26.27,
+        "height": 35.47
+      },
+      "depth": 0.86,
+      "distanceCss": 1095.3878660010523,
+      "stationarySeconds": 570.5000000000612,
+      "longestStationarySeconds": 107.99999999999814,
+      "streak": 0,
+      "activeSeconds": 32.40000000000019,
+      "plans": 25,
+      "rejectedPlans": 4,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 216.53017418987247,
+      "maxX": 317.1176710778717,
+      "minY": 369.38238542134553,
+      "maxY": 555.7400430475244
+    },
+    {
+      "count": 28,
+      "key": "companion:squirrel",
+      "kind": "companion",
+      "progress": {
+        "left": 107.48,
+        "right": 61.98,
+        "top": 101.98,
+        "bottom": 6.64
+      },
+      "sampledFoot": {
+        "left": 33.78,
+        "right": 203.23,
+        "top": 376.56,
+        "bottom": 490.47
+      },
+      "nativeAlphaBody": {
+        "width": 31.05,
+        "height": 34.93
+      },
+      "depth": 0.95,
+      "distanceCss": 64.12084936647484,
+      "stationarySeconds": 598.0000000000674,
+      "longestStationarySeconds": 430.2000000000293,
+      "streak": 430.2000000000293,
+      "activeSeconds": 2.3000000000000007,
+      "plans": 31,
+      "rejectedPlans": 27,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 122.92536012262804,
+      "maxX": 156.15782835451319,
+      "minY": 482.5721619119087,
+      "maxY": 524.8076692150273
+    },
+    {
+      "count": 28,
+      "key": "companion:otter",
+      "kind": "companion",
+      "progress": {
+        "left": 3.52,
+        "right": 4.12,
+        "top": 12.21,
+        "bottom": 13.11
+      },
+      "sampledFoot": {
+        "left": 331.63,
+        "right": 339.27,
+        "top": 401.89,
+        "bottom": 427.2
+      },
+      "nativeAlphaBody": {
+        "width": 34.93,
+        "height": 33.66
+      },
+      "depth": 0.91,
+      "distanceCss": 407.38819722502376,
+      "stationarySeconds": 589.3000000000654,
+      "longestStationarySeconds": 150.29999999999575,
+      "streak": 24.400000000000077,
+      "activeSeconds": 12.69999999999997,
+      "plans": 28,
+      "rejectedPlans": 10,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 274.81519712749133,
+      "maxX": 317.1176710778717,
+      "minY": 345.40689484438,
+      "maxY": 460.36210850983514
+    },
+    {
+      "count": 28,
+      "key": "companion:panda",
+      "kind": "companion",
+      "progress": {
+        "left": 2.6,
+        "right": 20.13,
+        "top": 16.88,
+        "bottom": 0
+      },
+      "sampledFoot": {
+        "left": 251.39,
+        "right": 274.12,
+        "top": 484.33,
+        "bottom": 501.21
+      },
+      "nativeAlphaBody": {
+        "width": 33.66,
+        "height": 34.93
+      },
+      "depth": 0.96,
+      "distanceCss": 868.1385167591795,
+      "stationarySeconds": 572.2000000000616,
+      "longestStationarySeconds": 167.59999999999476,
+      "streak": 64.6000000000006,
+      "activeSeconds": 29.800000000000153,
+      "plans": 28,
+      "rejectedPlans": 15,
+      "executionStops": 1,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 15.287729560622259,
+      "maxX": 235.6614061036707,
+      "minY": 515.5289435951496,
+      "maxY": 581.0544539676391
+    },
+    {
+      "count": 28,
+      "key": "companion:parrot",
+      "kind": "companion",
+      "progress": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "sampledFoot": {
+        "left": 159.16,
+        "right": 159.16,
+        "top": 321.43,
+        "bottom": 321.43
+      },
+      "nativeAlphaBody": {
+        "width": 30.9,
+        "height": 34.4
+      },
+      "depth": 0.86,
+      "distanceCss": 138.03216532105256,
+      "stationarySeconds": 596.7000000000671,
+      "longestStationarySeconds": 283.2999999999959,
+      "streak": 208.69999999999243,
+      "activeSeconds": 3.700000000000002,
+      "plans": 28,
+      "rejectedPlans": 23,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 137.5048192753946,
+      "maxX": 154.3411577581767,
+      "minY": 317.70852632150127,
+      "maxY": 367.6989984386591
+    },
+    {
+      "count": 28,
+      "key": "companion:seal",
+      "kind": "companion",
+      "progress": {
+        "left": 31.89,
+        "right": 5.9,
+        "top": 5.31,
+        "bottom": 29.6
+      },
+      "sampledFoot": {
+        "left": 52.98,
+        "right": 94.34,
+        "top": 318.56,
+        "bottom": 353.47
+      },
+      "nativeAlphaBody": {
+        "width": 34.4,
+        "height": 31.59
+      },
+      "depth": 0.86,
+      "distanceCss": 151.18325758070222,
+      "stationarySeconds": 595.4000000000668,
+      "longestStationarySeconds": 347.20000000001045,
+      "streak": 66.60000000000049,
+      "activeSeconds": 5.399999999999997,
+      "plans": 26,
+      "rejectedPlans": 20,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 49.67933846380882,
+      "maxX": 104.65781157645505,
+      "minY": 370.13851892657306,
+      "maxY": 442.0386659946155
+    },
+    {
+      "count": 28,
+      "key": "companion:chicken",
+      "kind": "companion",
+      "progress": {
+        "left": 45.85,
+        "right": 15.09,
+        "top": 0,
+        "bottom": 105.77
+      },
+      "sampledFoot": {
+        "left": 144.18,
+        "right": 205.12,
+        "top": 359.41,
+        "bottom": 465.18
+      },
+      "nativeAlphaBody": {
+        "width": 31.54,
+        "height": 34.4
+      },
+      "depth": 0.88,
+      "distanceCss": 298.86568401823604,
+      "stationarySeconds": 591.4000000000659,
+      "longestStationarySeconds": 168.09999999999474,
+      "streak": 49.40000000000043,
+      "activeSeconds": 9.599999999999982,
+      "plans": 26,
+      "rejectedPlans": 14,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 129.91083824802766,
+      "maxX": 202.78282000219926,
+      "minY": 405.6701333864739,
+      "maxY": 510.9409069881269
+    },
+    {
+      "count": 28,
+      "key": "companion:hedgehog",
+      "kind": "companion",
+      "progress": {
+        "left": 98.88,
+        "right": 4.44,
+        "top": 86.9,
+        "bottom": 0
+      },
+      "sampledFoot": {
+        "left": 31.14,
+        "right": 134.46,
+        "top": 448.32,
+        "bottom": 535.22
+      },
+      "nativeAlphaBody": {
+        "width": 33.87,
+        "height": 33.53
+      },
+      "depth": 0.98,
+      "distanceCss": 635.3212584977553,
+      "stationarySeconds": 583.000000000064,
+      "longestStationarySeconds": 173.49999999999443,
+      "streak": 173.49999999999443,
+      "activeSeconds": 19.1,
+      "plans": 28,
+      "rejectedPlans": 15,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 68.78207650767045,
+      "maxX": 122.87921003590161,
+      "minY": 494.0068416646263,
+      "maxY": 581.4857785511059
+    },
+    {
+      "count": 28,
+      "key": "companion:snail",
+      "kind": "companion",
+      "progress": {
+        "left": 0,
+        "right": 11.79,
+        "top": 13.82,
+        "bottom": 6.01
+      },
+      "sampledFoot": {
+        "left": 332.63,
+        "right": 344.42,
+        "top": 518.55,
+        "bottom": 538.38
+      },
+      "nativeAlphaBody": {
+        "width": 33.87,
+        "height": 15.73
+      },
+      "depth": 0.98,
+      "distanceCss": 1114.4544333185488,
+      "stationarySeconds": 567.5000000000605,
+      "longestStationarySeconds": 88.19999999999926,
+      "streak": 3.900000000000002,
+      "activeSeconds": 35.80000000000024,
+      "plans": 29,
+      "rejectedPlans": 7,
+      "executionStops": 1,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 99.1806553198964,
+      "maxX": 325.0620261196561,
+      "minY": 436.7141496564598,
+      "maxY": 581.0544539676391
+    },
+    {
+      "count": 28,
+      "key": "companion:sekizou",
+      "kind": "companion",
+      "progress": {
+        "left": 0,
+        "right": 7.52,
+        "top": 0,
+        "bottom": 7.05
+      },
+      "sampledFoot": {
+        "left": 267.26,
+        "right": 274.78,
+        "top": 383.88,
+        "bottom": 390.93
+      },
+      "nativeAlphaBody": {
+        "width": 17.25,
+        "height": 33.87
+      },
+      "depth": 0.9,
+      "distanceCss": 134.67228565654415,
+      "stationarySeconds": 596.200000000067,
+      "longestStationarySeconds": 199.99999999999292,
+      "streak": 199.99999999999292,
+      "activeSeconds": 4.4,
+      "plans": 20,
+      "rejectedPlans": 12,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 206.3217904234742,
+      "maxX": 248.93106551489404,
+      "minY": 372.2105638766924,
+      "maxY": 430.14252986034046
+    },
+    {
+      "count": 28,
+      "key": "companion:clock",
+      "kind": "companion",
+      "progress": {
+        "left": 3.71,
+        "right": 47.26,
+        "top": 31.74,
+        "bottom": 0
+      },
+      "sampledFoot": {
+        "left": 209.37,
+        "right": 260.34,
+        "top": 212.07,
+        "bottom": 243.81
+      },
+      "nativeAlphaBody": {
+        "width": 31.8,
+        "height": 33.34
+      },
+      "depth": 0.82,
+      "distanceCss": 301.38291758177763,
+      "stationarySeconds": 590.7000000000658,
+      "longestStationarySeconds": 115.7999999999977,
+      "streak": 46.000000000000384,
+      "activeSeconds": 10.999999999999977,
+      "plans": 27,
+      "rejectedPlans": 14,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 176.76867228801606,
+      "maxX": 233.42552374322008,
+      "minY": 264.2948797429074,
+      "maxY": 306.2846586575499
+    },
+    {
+      "count": 28,
+      "key": "companion:many_tail_fox",
+      "kind": "companion",
+      "progress": {
+        "left": 4.45,
+        "right": 91.89,
+        "top": 0,
+        "bottom": 83.1
+      },
+      "sampledFoot": {
+        "left": 102.39,
+        "right": 198.73,
+        "top": 376.58,
+        "bottom": 465.18
+      },
+      "nativeAlphaBody": {
+        "width": 33.34,
+        "height": 32.73
+      },
+      "depth": 0.9,
+      "distanceCss": 100.28668473253195,
+      "stationarySeconds": 596.8000000000671,
+      "longestStationarySeconds": 317.9000000000038,
+      "streak": 230.2999999999912,
+      "activeSeconds": 3.600000000000002,
+      "plans": 29,
+      "rejectedPlans": 25,
+      "executionStops": 0,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 88.51294542706958,
+      "maxX": 144.96885253263417,
+      "minY": 416.5107829868932,
+      "maxY": 443.7314492382295
+    },
+    {
+      "count": 28,
+      "key": "companion:box",
+      "kind": "companion",
+      "progress": {
+        "left": 6.76,
+        "right": 27.08,
+        "top": 45.39,
+        "bottom": 13.09
+      },
+      "sampledFoot": {
+        "left": 298.74,
+        "right": 332.59,
+        "top": 311.77,
+        "bottom": 370.25
+      },
+      "nativeAlphaBody": {
+        "width": 33.34,
+        "height": 32.98
+      },
+      "depth": 0.88,
+      "distanceCss": 161.5930447395677,
+      "stationarySeconds": 594.6000000000666,
+      "longestStationarySeconds": 195.89999999999316,
+      "streak": 133.4999999999967,
+      "activeSeconds": 5.999999999999995,
+      "plans": 28,
+      "rejectedPlans": 20,
+      "executionStops": 1,
+      "localBlocked": 0,
+      "localProbes": 0,
+      "minX": 240.70671890242514,
+      "maxX": 310.6286960654534,
+      "minY": 372.2105638766924,
+      "maxY": 417.24894635539886
+    }
+  ]
+}
