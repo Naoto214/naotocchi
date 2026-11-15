@@ -41,7 +41,7 @@
       const old=yieldPending.get(a.key);
       if(old&&old.source===source&&Math.hypot(old.goal.x-p.x,old.goal.y-p.y)<1)return;
       // One attempted retreat per intention. Old retry callbacks do not restart it.
-      yieldPending.set(a.key,{goal:{x:p.x,y:p.y},source,created:clock,ready:clock+(source==='ambient'?2:.25),expires:clock+(source==='ambient'?10:14),attempted:false});
+      yieldPending.set(a.key,{goal:{x:p.x,y:p.y},source,created:clock,ready:clock+.25,blockedSince:null,expires:clock+(source==='ambient'?30:14),attempted:false});
       yieldCounters.requests++;
     }
     function inside(a,p){const b=bounds(a,scene);return p.x>=b.left&&p.x<=b.right&&p.y>=b.top&&p.y<=b.bottom&&visible(a,p)&&(!scene.navigation||scene.navigation.valid(p));}
@@ -119,7 +119,12 @@
       // Manual requests precede ambient requests; otherwise preserve request time,
       // never a role hierarchy. Only one request may start a retreat per step.
       const pending=[...yieldPending].sort(([,a],[,b])=>Number(a.source==='ambient')-Number(b.source==='ambient')||a.created-b.created);
-      for(const [key,r]of pending){const a=actor(key);if(!a||clock>r.expires||Math.hypot(a.x-r.goal.x,a.y-r.goal.y)<3){yieldPending.delete(key);continue;}if(r.attempted||clock<r.ready||a.target||a.key===heldKey||r.source==='ambient'&&flags.autonomy===false)continue;if(tryYield(a,r))break;}
+      for(const [key,r]of pending){
+        const a=actor(key);if(!a||clock>r.expires||Math.hypot(a.x-r.goal.x,a.y-r.goal.y)<3){yieldPending.delete(key);continue;}
+        if(a.target){r.blockedSince=null;continue;}
+        if(r.source==='ambient'&&r.blockedSince===null){r.blockedSince=clock;r.ready=clock+2;r.expires=clock+10;}
+        if(r.attempted||clock<r.ready||a.key===heldKey||r.source==='ambient'&&flags.autonomy===false)continue;if(tryYield(a,r))break;
+      }
     }
     function tagsAt(a){return (scene.tags||[]).filter(t=>Math.hypot(a.x-t.x,a.y-t.y)<66).map(t=>t.tag);}
     function emit(type,a,source='ambient',listener=null){
@@ -303,6 +308,8 @@
       if(!path.length||Math.hypot(q.x-a.x,q.y-a.y)<3)return false;
       const request=manualGoals.get(key);
       if(request?.floor&&['x','y'].some(axis=>(q[axis]-request.floor[axis])*request.direction[axis]<-1e-7))return false;
+      // Extra passage planning must not erase the original V5 fallback floor.
+      // Another moving actor can close that new route before it is reached.
       if(request){request.nextAt=Infinity;if(!yieldResuming)request.floor={...q};}
       a.route=path.slice(1);a.target=path[0];a.source=source;if(source!=='ambient'){a.faceKey=null;a.visualReaction=undefined;a.visualTarget=null;}activity(a,'walk');a.lastWalk=clock;stats.moves++;defer(a,4);idleAt=clock+4;emit('move',a,source);return true;
     }
