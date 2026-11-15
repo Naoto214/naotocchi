@@ -3,7 +3,12 @@ const cp=require('node:child_process'),fs=require('node:fs'),path=require('node:
 const root=path.resolve(__dirname,'../..'),out=path.resolve(process.argv[2]||'/tmp/v4-audit');
 if(fs.existsSync(out))throw Error('Use a new output directory: '+out);
 cp.execFileSync(process.execPath,['tools/home-movement-v3/build.cjs',out],{cwd:root});
-for(const v of ['a','b','c','d']){
+// Keep D pinned to V3 even while E tests this branch's limited prototype.
+fs.cpSync(path.join(out,'d'),path.join(out,'e'),{recursive:true,verbatimSymlinks:true});
+let pinned=cp.execFileSync('git',['show','23b19aaf551e5b57b3333911dd4d43c479ad186f:home-production-model.js'],{cwd:root,encoding:'utf8'});
+pinned=pinned.replace('return {metrics:()=>','return {auditRestore(list){actors=structuredClone(list);selected=null;paused=false;for(const a of actors){a.target=null;a.route=[];a.activity="rest";}globalThis.__reachTrace=null;},metrics:()=>').replace('let q=preferReference?reference.point:proposal;','let q=preferReference?reference.point:proposal;globalThis.__reachTrace={key,raw:p,clamped:limit(a,p,scene),destination:q,proposal,reference:reference?.point};');
+fs.writeFileSync(path.join(out,'d','home-production-model.js'),pinned);
+for(const v of ['a','b','c','d','e']){
  const modelPath=path.join(out,v,'home-production-model.js');let model=fs.readFileSync(modelPath,'utf8');
  model=model.replaceAll('globalThis.__reachTrace.path=path;', 'globalThis.__reachTrace.path=path.map(p=>({...p}));');
  // Capture an immutable accepted plan uniformly, including original/V1.
