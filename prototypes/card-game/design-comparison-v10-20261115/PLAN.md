@@ -12,7 +12,7 @@ Rulings: Existing formal collection and egg explanation panels remain, because r
 
 ## Completion ledger
 
-- Built actual formal UI; 89 files unchanged, 7 BGM dependencies unchanged. Renderer dispatch + entry asset paths only.
+- Built actual formal UI; 84 files unchanged; identical shared assets/data reused; BGM resolves existing published audio. Renderer dispatch + entry asset paths only.
 - RED: isolated build absent → GREEN: 459-card/full-text/hidden/projected/egg checks.
 - RED: legacy marriage leaked via catalog → GREEN: suppress when projected legacyRules is true.
 - Review fixes: missing BGM dependency assertion RED→GREEN; catalog-only unsupported deck/stats disabled, page bound derives from count; responsive detail minimum scales with card width.

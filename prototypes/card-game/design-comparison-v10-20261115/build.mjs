@@ -42,3 +42,13 @@ fs.writeFileSync(path.join(game,'ui-presentation.mjs'),sharedImages(fs.readFileS
 manifest.modified.find(f=>f.path==='ui-presentation.mjs').after=hash(fs.readFileSync(path.join(game,'ui-presentation.mjs')));
 fs.writeFileSync(path.join(cat,'collection-ui.mjs'),sharedImages(fs.readFileSync(path.join(cat,'collection-ui.mjs'),'utf8')));
 fs.writeFileSync(path.join(out,'preservation.json'),JSON.stringify(manifest,null,2));
+// Audio remains the formal published asset; no recompression or soundtrack edits.
+const audioBase='https://naoto214.github.io/naotocchi/assets/bgm/';
+manifest.externalAudio=manifest.runtime.filter(f=>f.path.endsWith('.m4a')).map(f=>({...f,url:audioBase+path.basename(f.path)}));
+for(const f of manifest.externalAudio)fs.unlinkSync(path.join(out,'runtime',f.path));
+manifest.runtime=manifest.runtime.filter(f=>!f.path.endsWith('.m4a'));
+const bgmPath=path.join(out,'runtime/bgm-subapps.js'),bgm=fs.readFileSync(bgmPath,'utf8');
+fs.writeFileSync(bgmPath,bgm.replace("new URL('assets/bgm/catalog.js', me.src).href.replace(/catalog\\.js$/, '')",JSON.stringify(audioBase)));
+manifest.runtime.find(f=>f.path==='bgm-subapps.js').originalSha256=hash(bgm);
+manifest.runtime.find(f=>f.path==='bgm-subapps.js').sha256=hash(fs.readFileSync(bgmPath));
+fs.writeFileSync(path.join(out,'preservation.json'),JSON.stringify(manifest,null,2));

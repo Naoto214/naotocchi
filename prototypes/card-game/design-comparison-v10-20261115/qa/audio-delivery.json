@@ -1,0 +1,12 @@
+{
+  "observed": "2026-11-15",
+  "httpStatus": 200,
+  "accessControlAllowOrigin": "*",
+  "matchesFormalSource": true,
+  "sha256": {
+    "card-2.m4a": "ce0c0716221e8e10616647b58a446a1185869f50e23eef5c347226d4042ade6c",
+    "var-card-late.m4a": "17bddddc581488ca3bd7d533acff5ef9dceb3d7f7b5b8c7319843904c700a23d",
+    "var-card-win.m4a": "c15031fe1eac17707546d0ec191b725cbde5cb52f24478e6209219906285c51f",
+    "jingle-card-lose.m4a": "7047f7d1b8d4b13b4567003deef2ad9710eceac125eb568629f1bc23cdea0665"
+  }
+}
