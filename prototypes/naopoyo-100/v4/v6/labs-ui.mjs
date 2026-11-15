@@ -84,8 +84,8 @@ $('save').onclick = () => {
   } catch (e) { $('message').textContent = e.message; }
 };
 function restore(text, metadata = null) {
-  touch.end(); play.restore(text, metadata); touch.input.select(null); invalidate(); updateVariant(); draw();
-  $('message').textContent = metadata ? '実験を復元しました' : '実験を復元しました。旧形式JSONのUndoは1手ずつです。';
+  touch.end(); const restoredStrokes = play.restore(text, metadata); touch.input.select(null); invalidate(); updateVariant(); draw();
+  $('message').textContent = restoredStrokes ? '実験を復元しました' : '実験を復元しました。ひと筆の区切りがないため、Undoは1手ずつです。';
 }
 $('restore').onclick = () => {
   try {

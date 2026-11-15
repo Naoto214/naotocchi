@@ -67,7 +67,9 @@ export class LabPlayback {
     const session = restoreLab(text, kind, kind === 'flight' ? createFlight : createDig, kind === 'flight' ? flightStep : digStep);
     this.load(session);
     const g = metadata?.groups;
-    if (metadata?.source === text && Array.isArray(g) && Boolean(g.length) === Boolean(session.actions.length)
-      && g.every((n, i) => Number.isInteger(n) && n >= 0 && n < session.actions.length && (i ? n > g[i - 1] : n === 0))) this.gestures.reset(g);
+    const restoredStrokes = metadata?.source === text && Array.isArray(g) && Boolean(g.length) === Boolean(session.actions.length)
+      && g.every((n, i) => Number.isInteger(n) && n >= 0 && n < session.actions.length && (i ? n > g[i - 1] : n === 0));
+    if (restoredStrokes) this.gestures.reset(g);
+    return restoredStrokes;
   }
 }
