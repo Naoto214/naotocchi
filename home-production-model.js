@@ -35,7 +35,7 @@
     function clearYield(){endYield('cancelled');yieldPending.clear();}
     function setYieldMode(mode){if(!['off','manual','all'].includes(mode))throw new TypeError('Unknown yield mode');if(mode!==yieldMode)clearYield();yieldMode=mode;}
     function resetYieldState(){clearYield();yieldNextAt=0;yieldPairs.clear();yieldActors.clear();for(const k of Object.keys(yieldCounters))yieldCounters[k]=0;yieldEvents.length=0;}
-    function yieldStatus(){return {mode:yieldMode,active:yieldActive?{...yieldActive,goal:{...yieldActive.goal},from:{...yieldActive.from},retreatTo:{...yieldActive.retreatTo}}:null,counters:{...yieldCounters},events:yieldEvents.map(e=>({...e})),moving:actors.filter(a=>a.target).length,autonomousMoving:ambientMoving(),budget:ambientBudget()};}
+    function yieldStatus(){return {mode:yieldMode,active:yieldActive?{...yieldActive,goal:{...yieldActive.goal},from:{...yieldActive.from},retreatTo:{...yieldActive.retreatTo},passTo:{...yieldActive.passTo}}:null,counters:{...yieldCounters},events:yieldEvents.map(e=>({...e})),moving:actors.filter(a=>a.target).length,autonomousMoving:ambientMoving(),budget:ambientBudget()};}
     function rememberYield(a,p,source){
       if(yieldResuming||yieldMode==='off'||source==='yield'||source==='ambient'&&yieldMode!=='all')return;
       const old=yieldPending.get(a.key);
@@ -63,38 +63,49 @@
       if(!goal||Math.hypot(goal.x-a.x,goal.y-a.y)<3)return false;
       // The existing move planner already tried its full detour. If that goal is
       // currently reachable, nobody needs to move on the requester's behalf.
-      const reaches=path=>path.length&&Math.hypot(path.at(-1).x-goal.x,path.at(-1).y-goal.y)<.5;
-      if(reaches(yieldRoute(a,goal,p=>actors.every(b=>b===a||separated(a,p,b)))))return false;
       const scale=nav?.intentScale||{},sx=scale.x||1,sy=scale.y||1;
+      const score=p=>Math.hypot((request.goal.x-p.x)*sx,(request.goal.y-p.y)*sy),before=score(a);
+      const floor=manualGoals.get(a.key)?.floor;
+      const direction=manualGoals.get(a.key)?.direction||{x:Math.sign(request.goal.x-a.x),y:Math.sign(request.goal.y-a.y)};
+      const improves=p=>before-score(p)>=8&&['x','y'].every(axis=>(p[axis]-a[axis])*direction[axis]>=-1e-7&&(!floor||(p[axis]-floor[axis])*direction[axis]>=-1e-7));
+      const passage=predicate=>{
+        const path=yieldRoute(a,goal,predicate);if(path.length&&improves(path.at(-1)))return path;
+        return nav?.reachable?.(a,goal,bounds(a,scene),p=>inside(a,p)&&predicate(p),improves)||[];
+      };
+      if(passage(p=>actors.every(b=>b===a||separated(a,p,b))).length)return false;
       const pairKey=b=>[a.key,b.key].sort().join('|');
-      const eligible=b=>b!==a&&!b.target&&b.key!==heldKey&&clock>=b.manualUntil&&clock>=(yieldPairs.get(pairKey(b))||0)&&clock>=(yieldActors.get(b.key)||0)&&(!yieldPending.has(b.key)||yieldPending.get(b.key).attempted)
+      const eligible=b=>b!==a&&!b.target&&b.key!==heldKey&&clock>=b.manualUntil&&clock>=(yieldPairs.get(pairKey(b))||0)&&clock>=(yieldActors.get(b.key)||0)&&(!yieldPending.has(b.key)||yieldPending.get(b.key).attempted||yieldPending.get(b.key).source==='ambient'&&(request.source!=='ambient'||yieldPending.get(b.key).created>=request.created))
         &&!(['rest','sit'].includes(b.activity)&&(b.recent||[]).includes(b.activity));
       // A blocker must be proven necessary: removing this one body alone opens
       // a path. Others stay in place during both the retreat and hypothetical pass.
       const blockers=actors.filter(eligible).sort((b,c)=>Math.hypot(b.x-a.x,b.y-a.y)-Math.hypot(c.x-a.x,c.y-a.y));
-      let chosen=null;
+      let chosen=null,partial=null;
       for(const b of blockers){
         const omit=p=>actors.every(c=>c===a||c===b||separated(a,p,c));
-        if(!reaches(yieldRoute(a,goal,omit)))continue;
+        if(!passage(omit).length)continue;
         const dx=goal.x-a.x,dy=goal.y-a.y,angle=Math.atan2(dy,dx);
         for(const distanceCss of [8,16,24,32,40,48]){
-          for(const offset of [Math.PI/2,-Math.PI/2,Math.PI/4,-Math.PI/4,3*Math.PI/4,-3*Math.PI/4,0,Math.PI]){
+          for(const offset of [Math.PI/2,-Math.PI/2,Math.PI/4,-Math.PI/4,3*Math.PI/4,-3*Math.PI/4]){
             const point={x:b.x+Math.cos(angle+offset)*distanceCss/sx,y:b.y+Math.sin(angle+offset)*distanceCss/sy};
             const freeRetreat=p=>inside(b,p)&&actors.every(c=>c===b||separated(b,p,c));
             if(!freeRetreat(point)||!lineSafe(b,point,freeRetreat))continue;
             const displaced={...b,...point};
-            const pass=yieldRoute(a,goal,p=>actors.every(c=>c===a||separated(a,p,c===b?displaced:c)));
-            if(!pass.length||Math.hypot(pass.at(-1).x-goal.x,pass.at(-1).y-goal.y)>.5)continue;
-            chosen={b,point};break;
+            const pass=passage(p=>actors.every(c=>c===a||separated(a,p,c===b?displaced:c)));
+            if(!pass.length||!improves(pass.at(-1)))continue;
+            const candidate={b,point,passTo:{...pass.at(-1)}};
+            if(Math.hypot(candidate.passTo.x-goal.x,candidate.passTo.y-goal.y)<.5){chosen=candidate;break;}
+            if(!partial||score(candidate.passTo)<score(partial.passTo))partial=candidate;
           }
           if(chosen)break;
         }
         if(chosen)break;
       }
+      chosen??=partial;
       if(!chosen){yieldCounters.rejected++;yieldEvent('reject',{requester:a.key,source:request.source,reason:'no_single_safe_retreat'});return false;}
-      const {b,point}=chosen,from={x:a.x,y:a.y};
-      yieldActive={requester:a.key,blocker:b.key,source:request.source,phase:'retreat',goal:{...request.goal},from,retreatTo:point,startedAt:clock,expires:clock+16};
+      const {b,point,passTo}=chosen,from={x:a.x,y:a.y};
+      yieldActive={requester:a.key,blocker:b.key,source:request.source,phase:'retreat',goal:{...request.goal},from,retreatTo:point,passTo,startedAt:clock,expires:clock+24};
       yieldNextAt=clock+6;yieldPairs.set(pairKey(b),clock+24);yieldActors.set(b.key,clock+14);yieldActors.set(a.key,clock+14);
+      yieldPending.delete(b.key);
       b.route=[];b.target=point;b.source='yield';b.faceKey=null;b.visualReaction=undefined;b.visualTarget=null;activity(b,'walk');defer(b,8);a.target=null;a.route=[];
       yieldCounters.started++;yieldEvent('start',{requester:a.key,blocker:b.key,source:request.source,from:{x:b.x,y:b.y},to:{...point}});return true;
     }
@@ -102,17 +113,22 @@
       heldKey=flags.heldActor||null;reduced=!!flags.reducedMotion;
       if(yieldActive){
         const active=yieldActive,a=actor(active.requester),b=actor(active.blocker);
-        if(!a||!b||reduced||heldKey===a.key||heldKey===b.key||clock>active.expires||active.source==='ambient'&&flags.autonomy===false){endYield('interrupted');return;}
+        if(!a||!b||reduced||heldKey===a.key||heldKey===b.key||clock>active.expires||active.source==='ambient'&&flags.autonomy===false){if(a&&heldKey===a.key){a.target=null;a.route=[];manualGoals.delete(a.key);yieldPending.delete(a.key);}endYield('interrupted');return;}
         if(active.phase==='retreat'&&!b.target){
           if(Math.hypot(b.x-active.retreatTo.x,b.y-active.retreatTo.y)>.75){endYield('retreat_blocked');return;}
           yieldCounters.completed++;yieldEvent('retreated',{requester:a.key,blocker:b.key,source:active.source});
           b.source='ambient';activity(b,'observe');defer(b,8);active.phase='passage';
-          yieldResuming=true;const previousRetry=retryingKey;retryingKey=a.key;let accepted=false;try{accepted=move(a.key,active.goal,active.source);}finally{yieldResuming=false;retryingKey=previousRetry;}
-          if(!accepted){endYield('passage_blocked');return;}
+          if(active.source==='ambient'&&ambientMoving()>=ambientBudget()){endYield('budget_full');return;}
+          const path=yieldRoute(a,active.passTo,p=>actors.every(c=>c===a||separated(a,p,c)));
+          if(!path.length||Math.hypot(path.at(-1).x-active.passTo.x,path.at(-1).y-active.passTo.y)>.5){endYield('passage_blocked');return;}
+          // Reuse the proven path, not a second nearest-destination choice that
+          // could select the old partial endpoint after the neighbour has moved.
+          a.route=path.slice(1);a.target=path[0];a.source=active.source;activity(a,'walk');a.lastWalk=clock;stats.moves++;defer(a,4);emit('move',a,active.source);
         }else if(active.phase==='passage'&&!a.target){
-          const old=Math.hypot(active.from.x-active.goal.x,active.from.y-active.goal.y),now=Math.hypot(a.x-active.goal.x,a.y-active.goal.y);
-          if(old-now>3){yieldCounters.passages++;yieldEvent('passed',{requester:a.key,blocker:b.key,source:active.source});yieldActive=null;}
-          else endYield('no_progress');
+          const scale=scene.navigation?.intentScale||{},sx=scale.x||1,sy=scale.y||1;
+          const old=Math.hypot((active.from.x-active.goal.x)*sx,(active.from.y-active.goal.y)*sy),now=Math.hypot((a.x-active.goal.x)*sx,(a.y-active.goal.y)*sy);
+          if(old-now>=7.5&&Math.hypot(a.x-active.passTo.x,a.y-active.passTo.y)<.75){const pending=manualGoals.get(a.key);if(pending)pending.floor={x:a.x,y:a.y};yieldCounters.passages++;yieldEvent('passed',{requester:a.key,blocker:b.key,source:active.source});yieldActive=null;}
+          else endYield('passage_incomplete');
         }
       }
       if(yieldActive||yieldMode==='off'||reduced)return;
