@@ -38,3 +38,17 @@
 - CI／本人限定配信の確定結果は配信記録へ追記。
 
 PR #535のDraft・baseを維持。正式エンジン・入力・V5/V6エディター・76素材ID・248画像・6地域・V3全100面・絵本8ページは変更しない。100面一括反映、GitHub mainマージ、本番Pages公開は実施しない。
+
+## 配信記録（2026-11-15 02:56 UTC）
+
+実装HEAD: `c4e74124e68af9822b97e81ff5dce20ae853afc6`。その後のコミットはこの配信記録のみ。
+
+本人限定Site **version 15** 更新成功。配信ソース `76de23969c07d0f75c5cf8d528d01dc6f9b13e4e`。本人1名・外部0・グループ0を確認し、権限変更なし。アーカイブ848ファイル、SHA-256 `f315b1bfdcdd3caa4fda2c356c871c98403c853c1997d6bad1e392fa93629b3f`。比較対象外616ファイルのバイト一致と全HTML/モジュール参照を検査。Site側の完了応答で配信を確認し、ブラウザ確認とは区別する。
+
+実装HEADのGitHub CIは確認時 **5件すべてqueued（ランナー待ち）**。成功とは報告しない。
+
+- [V6比較・回帰](https://github.com/Naoto214/naotocchi/actions/runs/43669906858)
+- [100面](https://github.com/Naoto214/naotocchi/actions/runs/43669906797)
+- [Contact](https://github.com/Naoto214/naotocchi/actions/runs/43669906851)
+- [Chapter 1](https://github.com/Naoto214/naotocchi/actions/runs/43669906790)
+- [Chapter 2](https://github.com/Naoto214/naotocchi/actions/runs/43669906809)
