@@ -12,7 +12,9 @@ const sourceBuild=JSON.parse(fs.readFileSync(path.join(source,'build.json'),'utf
 if(sourceBuild.hashes?.e?.['home-production-model.js']!==pinnedProductionModel)throw Error('A source production-model hash does not match pinned V5');
 const frozenSourceHashes=Object.fromEntries(['home-production-model.js','movement-b-diorama.js','movement-b-script.js','home-production-touch.js'].map(f=>[f,hash(fs.readFileSync(path.join(frozen,f)))]));
 fs.mkdirSync(game,{recursive:true});
-const excluded=new Set(['a','b','c','d','e','comparisons']);
+// `comparisons/dayparts-*` contains the shipped 52 background images, not old
+// comparison pages. It must be retained alongside the ordinary assets folder.
+const excluded=new Set(['a','b','c','d','e']);
 for(const entry of fs.readdirSync(base,{withFileTypes:true})){if(excluded.has(entry.name))continue;const from=path.join(base,entry.name),to=path.join(game,entry.name);if(fs.statSync(from).isDirectory()){if(!fs.existsSync(to)){if(process.env.YIELD_MATERIALIZE==='1')fs.cpSync(from,to,{recursive:true,dereference:true});else fs.symlinkSync(from,to,'dir');}}else fs.copyFileSync(from,to);}
 const seed=JSON.parse(fs.readFileSync(path.join(game,'release-qa-seed.json'),'utf8'));
 const current=fs.readFileSync(path.join(root,'home-production-model.js'),'utf8'),versions={};
