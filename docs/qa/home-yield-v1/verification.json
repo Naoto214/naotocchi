@@ -1,18 +1,13 @@
 {
   "basis": "7eccb1e51a0088b0e77cd484f15c1f355501d1ab",
-  "checkedCommit": "e9a618cbf2fae35b8aed34e944c864ae52ee4e02",
+  "checkedCommit": "f0a28535d9f8902a0023e0309aa3b423ae35255c",
   "changedGameFiles": [
     "home-production-model.js"
   ],
-  "modelSha256": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+  "modelSha256": "9481baaade3f91ba7dfd327276f970d251fd8e8c74d441d505983f2bee3aa6b9",
   "regressionRun": {
     "command": "node --test tests/home-yield-v1-test.cjs tests/home-yield-v1-contract-test.cjs tests/home-movement-v2-test.cjs tests/home-movement-v3-test.cjs tests/home-movement-v4-test.cjs tests/home-movement-v5-routing-test.cjs tests/home-movement-v5-ground-test.cjs tests/home-movement-v5-bounds-test.cjs tests/home-diorama-runtime-test.cjs",
-    "pass": 97,
+    "pass": 98,
     "fail": 0
-  },
-  "laterYieldTests": {
-    "pass": 39,
-    "fail": 0,
-    "reason": "One test strengthened to count real navigation queries; production model unchanged."
   }
 }
