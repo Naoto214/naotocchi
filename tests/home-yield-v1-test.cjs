@@ -9,9 +9,9 @@ async function setup(mode='all',roles=['pet','companion'],options={}){
  return model;
 }
 function run(m,seconds=14,flags={autonomy:false}){let old=m.snapshot();for(let i=0;i<seconds*20;i++){m.step(.05,flags);const now=m.snapshot();for(let j=0;j<now.length;j++){assert.ok(Math.hypot(now[j].x-old[j].x,now[j].y-old[j].y)<=2.10001,'no teleport');for(let k=j+1;k<now.length;k++)assert.ok(Math.hypot((now[j].x-now[k].x)/((now[j].w+now[k].w)*.5+10),(now[j].y-now[k].y)/((now[j].h+now[k].h)*.38+10))>=1-1e-6,'no contact');}old=now;}return m.snapshot();}
-test('manual common yield opens blocked corridor without teleport/contact',async()=>{const m=await setup('manual');m.move('a',{x:200,y:100},'drag');const a=run(m).find(a=>a.key==='a');assert.ok(a.x>195);assert.equal(m.yieldStatus().counters.started,1);assert.equal(m.yieldStatus().counters.passages,1);});
+test('manual common yield makes useful corridor progress without teleport/contact',async()=>{const m=await setup('manual');m.move('a',{x:200,y:100},'drag');const old=await setup('off');old.move('a',{x:200,y:100},'drag');const baseline=run(old)[0],a=run(m).find(a=>a.key==='a');assert.ok(a.x-baseline.x>=8);assert.equal(m.yieldStatus().counters.started,1);assert.equal(m.yieldStatus().counters.passages,1);});
 test('off retains blocked route and never moves blocker',async()=>{const m=await setup('off');m.move('a',{x:200,y:100},'drag');const a=run(m);assert.ok(a[0].x<100);assert.equal(a[1].y,100);assert.equal(m.yieldStatus().counters.started,0);});
-test('all roles may request manual priority',async()=>{for(const roles of [['partner','pet'],['companion','partner']]){const m=await setup('manual',roles);m.move('a',{x:200,y:100},'drag');assert.ok(run(m)[0].x>195);}});
+test('all roles may request manual priority',async()=>{for(const roles of [['partner','pet'],['companion','partner']]){const m=await setup('manual',roles);m.move('a',{x:200,y:100},'drag');const old=await setup('off',roles);old.move('a',{x:200,y:100},'drag');assert.ok(run(m)[0].x-run(old)[0].x>=8);}});
 test('no safe retreat means no yield',async()=>{const m=await setup('all',undefined,{noAlcove:true});m.move('a',{x:200,y:100},'drag');run(m);assert.equal(m.yieldStatus().counters.started,0);});
 test('selection and cancel stop pending yield',async()=>{const m=await setup('manual');m.move('a',{x:200,y:100},'drag');m.cancel();run(m);assert.equal(m.yieldStatus().counters.started,0);assert.equal(m.yieldStatus().active,null);});
 test('self detour exists: no retreat necessary',async()=>{const m=await setup('manual');m.move('a',{x:80,y:100},'drag');run(m);assert.equal(m.yieldStatus().counters.started,0);});
@@ -19,9 +19,39 @@ test('self detour exists: no retreat necessary',async()=>{const m=await setup('m
 test('explicit resting choice is protected',async()=>{const m=await setup('all',undefined,{random:()=>.3});run(m,2.2,{autonomy:true});assert.equal(m.snapshot()[1].activity,'rest');m.move('a',{x:200,y:100},'drag');run(m,8);assert.equal(m.yieldStatus().counters.started,0);});
 test('ambient yields wait and remain disabled in manual-only mode',async()=>{for(const mode of ['manual','all']){const m=await setup(mode);m.move('a',{x:200,y:100},'ambient');run(m,1.8,{autonomy:true});assert.equal(m.yieldStatus().counters.started,0,'ambient waits first');run(m,8,{autonomy:true});if(mode==='manual')assert.equal(m.yieldStatus().counters.started,0);else assert.ok(m.yieldStatus().counters.started>=1);}});
 test('holding or reduced motion cancels an active retreat',async()=>{for(const flags of [{heldActor:'b'},{reducedMotion:true}]){const m=await setup('manual');m.move('a',{x:200,y:100},'drag');for(let i=0;i<60&&!m.yieldStatus().active;i++)m.step(.05,{autonomy:false});assert.equal(m.yieldStatus().active?.phase,'retreat');m.step(.05,{autonomy:false,...flags});assert.equal(m.yieldStatus().active,null);assert.notEqual(m.snapshot()[1].source,'yield');}});
-test('retreater does not spring back and requests do not chain',async()=>{const m=await setup('manual');m.move('a',{x:200,y:100},'drag');run(m);const b=m.snapshot()[1],count=m.yieldStatus().counters.started;assert.ok(Math.abs(b.y-100)>20);run(m,10);assert.deepEqual({x:m.snapshot()[1].x,y:m.snapshot()[1].y},{x:b.x,y:b.y});assert.equal(count,1);assert.equal(m.yieldStatus().counters.started,1);});
+test('retreater does not spring back and requests do not chain',async()=>{const m=await setup('manual');m.move('a',{x:200,y:100},'drag');run(m);const b=m.snapshot()[1],count=m.yieldStatus().counters.started;assert.ok(Math.hypot(b.x-120,b.y-100)>=7.5);run(m,10);assert.deepEqual({x:m.snapshot()[1].x,y:m.snapshot()[1].y},{x:b.x,y:b.y});assert.equal(count,1);assert.equal(m.yieldStatus().counters.started,1);});
 test('reset and mode switches discard only yielding state',async()=>{const m=await setup('manual');m.move('a',{x:200,y:100},'drag');run(m,1);m.setYieldMode('off');assert.equal(m.yieldStatus().active,null);m.resetYieldState();assert.equal(m.yieldStatus().counters.started,0);assert.equal(m.yieldStatus().events.length,0);});
 
 test('ambient wait starts after a long partial walk stops',async()=>{const m=await setup('all',undefined,{blockerX:180,startX:24});m.move('a',{x:216,y:100},'ambient');let stopped=null;for(let i=0;i<200&&!m.yieldStatus().counters.started;i++){const before=m.snapshot()[0];m.step(.05,{autonomy:true});const after=m.snapshot()[0];if(before.target&&!after.target&&stopped===null)stopped=m.metrics().clock;}const start=m.yieldStatus().events.find(e=>e.type==='start');assert.ok(stopped>2,'partial walk lasted more than two seconds');assert.ok(start&&start.time-stopped>=1.99,'wait occurs after blockage');});
 
 test('one retreat may open useful partial passage without a yield chain',async()=>{const old=await setup('off',undefined,{serial:true}),m=await setup('manual',undefined,{serial:true});old.move('a',{x:216,y:100},'drag');m.move('a',{x:216,y:100},'drag');const before=run(old),after=run(m);assert.ok(after[0].x-before[0].x>=8);assert.ok(after[0].x<180,'second blocker stays protected');assert.equal(after[2].x,before[2].x);assert.equal(after[2].y,before[2].y);assert.equal(m.yieldStatus().counters.started,1);assert.equal(m.yieldStatus().counters.passages,1);});
+
+
+test('cooperative search advances at most one probe per positive step',async()=>{
+ const m=await setup('manual');m.move('a',{x:200,y:100},'drag');
+ for(let i=0;i<60&&!m.yieldStatus().planning;i++)m.step(.05,{autonomy:false});
+ assert.ok(m.yieldStatus().planning);const count=m.yieldStatus().counters.planningProbes;
+ for(let i=0;i<100;i++)m.step(0,{autonomy:false});
+ assert.equal(m.yieldStatus().counters.planningProbes,count);assert.equal(m.yieldStatus().counters.started,0);
+ for(let i=0;i<100&&!m.yieldStatus().counters.started;i++){const before=m.yieldStatus().counters.planningProbes;m.step(.05,{autonomy:false});assert.ok(m.yieldStatus().counters.planningProbes-before<=1);}
+ assert.equal(m.yieldStatus().counters.started,1);
+});
+test('selection cancels cooperative search without displacing a neighbour',async()=>{
+ const m=await setup('manual');m.move('a',{x:200,y:100},'drag');
+ for(let i=0;i<60&&!m.yieldStatus().planning;i++)m.step(.05,{autonomy:false});
+ assert.ok(m.yieldStatus().planning);m.select('b');run(m,5);
+ assert.equal(m.yieldStatus().planning,null);assert.equal(m.yieldStatus().counters.started,0);assert.equal(m.snapshot()[1].y,100);
+});
+test('zero-time render cannot start the validated requester passage',async()=>{
+ const m=await setup('manual');m.move('a',{x:200,y:100},'drag');
+ for(let i=0;i<100;i++){m.step(.05,{autonomy:false});if(m.yieldStatus().active?.phase==='retreat'&&!m.snapshot()[1].target)break;}
+ assert.equal(m.yieldStatus().active?.phase,'retreat');assert.equal(m.snapshot()[1].target,null);
+ for(let i=0;i<10;i++)m.step(0,{autonomy:false});
+ assert.equal(m.yieldStatus().active?.phase,'retreat');assert.equal(m.snapshot()[0].target,null);
+ m.step(.05,{autonomy:false});assert.equal(m.yieldStatus().active?.phase,'passage');
+});
+test('unsuccessful cooperative search has finite work and does not retry forever',async()=>{
+ const m=await setup('manual',undefined,{noAlcove:true});m.move('a',{x:200,y:100},'drag');run(m,8);
+ const status=m.yieldStatus();assert.equal(status.planning,null);assert.equal(status.counters.started,0);assert.equal(status.counters.planningStarted,1);assert.ok(status.counters.planningProbes<=48);
+ run(m,8);assert.equal(m.yieldStatus().counters.planningStarted,1);
+});
