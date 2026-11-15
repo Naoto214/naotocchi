@@ -29,3 +29,16 @@ let cu=fs.readFileSync(path.join(cat,'collection-ui.mjs'),'utf8').replaceAll('45
 const runtimeFiles=['bgm-v2.js','bgm-subapps.js','assets/bgm/catalog.js','assets/bgm/card-2.m4a','assets/bgm/var-card-late.m4a','assets/bgm/var-card-win.m4a','assets/bgm/jingle-card-lose.m4a'];manifest.runtime=[];for(const p of runtimeFiles){const b=read(p),dest=path.join(out,'runtime',p);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.writeFileSync(dest,b);manifest.runtime.push({path:p,sha256:hash(b)});}fs.writeFileSync(path.join(out,'preservation.json'),JSON.stringify(manifest,null,2));
 let coll=fs.readFileSync(path.join(cat,'collection-ui.mjs'),'utf8');coll=coll.replace("$('collection-add').disabled=!!c.viewOnly;","$('collection-add').disabled=!!c.viewOnly||!!c.additional;").replace("$('collection-stats').hidden=Boolean(c.viewOnly);","$('collection-stats').hidden=Boolean(c.viewOnly);$('collection-stats').disabled=!!c.additional;").replace("announce('',true);dialog.scrollTop=0;","announce(c.additional?'追加候補の表示比較です。正式デッキへの追加・戦績は対象外です。':'',true);dialog.scrollTop=0;");fs.writeFileSync(path.join(cat,'collection-ui.mjs'),coll);
 const cp=path.join(cat,'collection.mjs');fs.writeFileSync(cp,fs.readFileSync(cp,'utf8').replace('Math.min(50,v.page)','Math.min(Math.ceil(entries.length/9)-1,v.page)'));
+// Reuse byte-identical assets/data already deployed in V8; keep V1–9 untouched.
+manifest.shared=[];
+for(const [relative,target,kind] of [['ui-assets/card-back-approved.png','v8/assets/back.png','image'],['ui-assets/egg-card-large.webp','v8/assets/egg.webp','image'],['full-catalog.mjs','v8/runtime/full-catalog.mjs','module'],['rulebook-sources.mjs','v8/runtime/rulebook-sources.mjs','module']]){
+ const original=read(base+relative),shared=fs.readFileSync(path.join(site,'dist',target));if(hash(original)!==hash(shared))throw Error('Shared bytes differ: '+relative);
+ manifest.shared.push({path:relative,target:'/'+target,sha256:hash(original)});manifest.unchanged=manifest.unchanged.filter(f=>f.path!==relative);
+ if(kind==='module')fs.writeFileSync(path.join(game,relative),`export * from '../../${target}';\n`);else{fs.unlinkSync(path.join(game,relative));fs.unlinkSync(path.join(cat,relative));}
+}
+const sharedImages=s=>s.replaceAll('ui-assets/card-back-approved.png','/v8/assets/back.png').replaceAll('ui-assets/egg-card-large.webp','/v8/assets/egg.webp');
+patch('collection-ui.mjs',sharedImages,'Only byte-identical image URL reuse; UI markup and behavior unchanged');
+fs.writeFileSync(path.join(game,'ui-presentation.mjs'),sharedImages(fs.readFileSync(path.join(game,'ui-presentation.mjs'),'utf8')));
+manifest.modified.find(f=>f.path==='ui-presentation.mjs').after=hash(fs.readFileSync(path.join(game,'ui-presentation.mjs')));
+fs.writeFileSync(path.join(cat,'collection-ui.mjs'),sharedImages(fs.readFileSync(path.join(cat,'collection-ui.mjs'),'utf8')));
+fs.writeFileSync(path.join(out,'preservation.json'),JSON.stringify(manifest,null,2));
