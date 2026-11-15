@@ -6,6 +6,7 @@ on:
       - 'docs/naopoyo-100-v4/**'
       - 'docs/naopoyo-100-v5/**'
       - 'docs/naopoyo-100-v6/**'
+      - 'docs/naopoyo-gimmick-review/**'
       - '.github/workflows/naopoyo-v4-comparison.yml'
 permissions:
   contents: read
@@ -29,6 +30,7 @@ jobs:
             docs/naopoyo-100-v3
             docs/naopoyo-100-v4
             tools/pages
+            docs/naopoyo-gimmick-review
             docs/naopoyo-100-v6
             docs/naopoyo-100-v5
             docs/naopoyo-time-hand-chapter1-20261102
@@ -38,7 +40,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - run: node --test tests/puzzle-*.test.mjs prototypes/naopoyo-100/tests/*.test.mjs prototypes/naopoyo-time-hand-chapter1/tests/*.test.mjs prototypes/naopoyo-100/v4/tests/*.test.mjs prototypes/naopoyo-100/v4/v5/tests/*.test.mjs prototypes/naopoyo-100/v4/v6/tests/*.test.mjs
+      - run: node --test tests/puzzle-*.test.mjs prototypes/naopoyo-100/tests/*.test.mjs prototypes/naopoyo-time-hand-chapter1/tests/*.test.mjs prototypes/naopoyo-100/v4/tests/*.test.mjs prototypes/naopoyo-100/v4/v5/tests/*.test.mjs prototypes/naopoyo-100/v4/v6/tests/*.test.mjs prototypes/naopoyo-100/v4/atlas-review/tests/*.test.mjs
       - name: Install isolated native Canvas test dependency
         run: npm install --prefix "$RUNNER_TEMP/v5-canvas" --no-save --package-lock=false --ignore-scripts @napi-rs/canvas@0.1.100 jsdom@26.1.0
       - name: Check material previews and synthetic editor events
@@ -52,3 +54,5 @@ jobs:
           node prototypes/naopoyo-100/v4/v6/tests/lab-ui-smoke.cjs
           node prototypes/naopoyo-100/v4/v6/tests/gimmick-images.cjs
           node prototypes/naopoyo-100/v4/v6/tests/gimmick-ui-smoke.cjs
+          node prototypes/naopoyo-100/v4/atlas-review/tests/images.cjs
+          node prototypes/naopoyo-100/v4/atlas-review/tests/ui-smoke.cjs
