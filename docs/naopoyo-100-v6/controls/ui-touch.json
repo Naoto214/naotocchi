@@ -1,0 +1,118 @@
+{
+  "environment": "Synthetic DOM, Native Canvas; no browser/Safari",
+  "directionButtons": 0,
+  "touchResults": [
+    {
+      "viewport": 320,
+      "variant": "F1",
+      "dragSteps": 2,
+      "oneStrokeUndo": true,
+      "restoredStrokeUndo": true
+    },
+    {
+      "viewport": 320,
+      "variant": "F2",
+      "dragSteps": 2,
+      "oneStrokeUndo": true,
+      "restoredStrokeUndo": true
+    },
+    {
+      "viewport": 320,
+      "variant": "D1",
+      "dragSteps": 2,
+      "oneStrokeUndo": true,
+      "restoredStrokeUndo": true
+    },
+    {
+      "viewport": 320,
+      "variant": "D2",
+      "dragSteps": 2,
+      "oneStrokeUndo": true,
+      "restoredStrokeUndo": true
+    },
+    {
+      "viewport": 375,
+      "variant": "F1",
+      "dragSteps": 2,
+      "oneStrokeUndo": true,
+      "restoredStrokeUndo": true
+    },
+    {
+      "viewport": 375,
+      "variant": "F2",
+      "dragSteps": 2,
+      "oneStrokeUndo": true,
+      "restoredStrokeUndo": true
+    },
+    {
+      "viewport": 375,
+      "variant": "D1",
+      "dragSteps": 2,
+      "oneStrokeUndo": true,
+      "restoredStrokeUndo": true
+    },
+    {
+      "viewport": 375,
+      "variant": "D2",
+      "dragSteps": 2,
+      "oneStrokeUndo": true,
+      "restoredStrokeUndo": true
+    },
+    {
+      "viewport": 390,
+      "variant": "F1",
+      "dragSteps": 2,
+      "oneStrokeUndo": true,
+      "restoredStrokeUndo": true
+    },
+    {
+      "viewport": 390,
+      "variant": "F2",
+      "dragSteps": 2,
+      "oneStrokeUndo": true,
+      "restoredStrokeUndo": true
+    },
+    {
+      "viewport": 390,
+      "variant": "D1",
+      "dragSteps": 2,
+      "oneStrokeUndo": true,
+      "restoredStrokeUndo": true
+    },
+    {
+      "viewport": 390,
+      "variant": "D2",
+      "dragSteps": 2,
+      "oneStrokeUndo": true,
+      "restoredStrokeUndo": true
+    },
+    {
+      "viewport": 430,
+      "variant": "F1",
+      "dragSteps": 2,
+      "oneStrokeUndo": true,
+      "restoredStrokeUndo": true
+    },
+    {
+      "viewport": 430,
+      "variant": "F2",
+      "dragSteps": 2,
+      "oneStrokeUndo": true,
+      "restoredStrokeUndo": true
+    },
+    {
+      "viewport": 430,
+      "variant": "D1",
+      "dragSteps": 2,
+      "oneStrokeUndo": true,
+      "restoredStrokeUndo": true
+    },
+    {
+      "viewport": 430,
+      "variant": "D2",
+      "dragSteps": 2,
+      "oneStrokeUndo": true,
+      "restoredStrokeUndo": true
+    }
+  ]
+}
