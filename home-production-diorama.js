@@ -654,9 +654,18 @@
     function preference(){if(environment)update(environment,flags);}
     let lastSafePresentation='';
     function presentationChanged(){
+      // Painted-ground navigation captures the inverse presentation transform.
+      // Refresh it after camera/offset changes without rebuilding the world or
+      // its fixed camera-fit envelope. The world caches unchanged navigation.
+      let navigationChanged=false;
+      if(enabled&&scene&&world){
+        const navigation=world.navigation(displayRect(stage));
+        navigationChanged=navigation!==scene.navigation;
+        if(navigationChanged){scene.navigation=navigation;scene.visualPoints=world.observationPoints?.(navigation)||[];}
+      }
       const p=env.NaotocchiHomeViewport?.residentPresentation?.();
       const key=['17','18'].includes(doc.body?.dataset.homeDisplayVersion)?JSON.stringify([p?.landscape,p?.safeTop,p?.safeBottom,p?.scaleX,p?.scaleY,p?.bodyScale,p?.world,[...rows.values()].map(r=>[r.key,r.w,r.h,r.paintExtent])]):'';
-      if(key!==lastSafePresentation){lastSafePresentation=key;displayBoundsCache.clear();occlusionCache.clear();for(const row of rows.values()){row.maskKey='';row.paintStamp='';}sync();}else paint();
+      if(navigationChanged||key!==lastSafePresentation){lastSafePresentation=key;displayBoundsCache.clear();occlusionCache.clear();for(const row of rows.values()){row.maskKey='';row.paintStamp='';}sync();}else paint();
     }
     const listeners={'home-presentation':presentationChanged,pointerdown:down,pointermove:move,pointerup:up,pointercancel:clearGesture,lostpointercapture:clearGesture,keydown};
     for(const [name,fn]of Object.entries(listeners))stage.addEventListener(name,fn);
