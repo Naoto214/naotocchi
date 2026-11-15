@@ -1,0 +1,113 @@
+{
+  "rows": [
+    {
+      "width": 320,
+      "size": 36,
+      "overflow": false,
+      "canvases": [
+        288,
+        288,
+        288,
+        288
+      ]
+    },
+    {
+      "width": 320,
+      "size": 48,
+      "overflow": false,
+      "canvases": [
+        384,
+        384,
+        384,
+        384
+      ]
+    },
+    {
+      "width": 320,
+      "playWidth": 304,
+      "message": "みんな、星にとどいた！"
+    },
+    {
+      "width": 375,
+      "size": 36,
+      "overflow": false,
+      "canvases": [
+        288,
+        288,
+        288,
+        288
+      ]
+    },
+    {
+      "width": 375,
+      "size": 48,
+      "overflow": false,
+      "canvases": [
+        384,
+        384,
+        384,
+        384
+      ]
+    },
+    {
+      "width": 375,
+      "playWidth": 359,
+      "message": "みんな、星にとどいた！"
+    },
+    {
+      "width": 390,
+      "size": 36,
+      "overflow": false,
+      "canvases": [
+        288,
+        288,
+        288,
+        288
+      ]
+    },
+    {
+      "width": 390,
+      "size": 48,
+      "overflow": false,
+      "canvases": [
+        384,
+        384,
+        384,
+        384
+      ]
+    },
+    {
+      "width": 390,
+      "playWidth": 374,
+      "message": "みんな、星にとどいた！"
+    },
+    {
+      "width": 430,
+      "size": 36,
+      "overflow": false,
+      "canvases": [
+        288,
+        288,
+        288,
+        288
+      ]
+    },
+    {
+      "width": 430,
+      "size": 48,
+      "overflow": false,
+      "canvases": [
+        384,
+        384,
+        384,
+        384
+      ]
+    },
+    {
+      "width": 430,
+      "playWidth": 414,
+      "message": "みんな、星にとどいた！"
+    }
+  ],
+  "errors": []
+}

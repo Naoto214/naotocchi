@@ -1,0 +1,117 @@
+{
+  "environment": "Native Canvas; no Safari/browser layout verification",
+  "checks": [
+    {
+      "scene": "crates",
+      "px": 36,
+      "oldExact": true,
+      "unchangedState": true,
+      "protectedTiles": 1
+    },
+    {
+      "scene": "air",
+      "px": 36,
+      "oldExact": true,
+      "unchangedState": true,
+      "protectedTiles": 3
+    },
+    {
+      "scene": "earth",
+      "px": 36,
+      "oldExact": true,
+      "unchangedState": true,
+      "protectedTiles": 3
+    },
+    {
+      "scene": "warp",
+      "px": 36,
+      "oldExact": true,
+      "unchangedState": true,
+      "protectedTiles": 4
+    },
+    {
+      "scene": "F1",
+      "px": 36,
+      "oldExact": true,
+      "unchangedState": true,
+      "protectedTiles": 2
+    },
+    {
+      "scene": "F2",
+      "px": 36,
+      "oldExact": true,
+      "unchangedState": true,
+      "protectedTiles": 2
+    },
+    {
+      "scene": "D1",
+      "px": 36,
+      "oldExact": true,
+      "unchangedState": true,
+      "protectedTiles": 2
+    },
+    {
+      "scene": "D2",
+      "px": 36,
+      "oldExact": true,
+      "unchangedState": true,
+      "protectedTiles": 2
+    },
+    {
+      "scene": "crates",
+      "px": 48,
+      "oldExact": true,
+      "unchangedState": true,
+      "protectedTiles": 1
+    },
+    {
+      "scene": "air",
+      "px": 48,
+      "oldExact": true,
+      "unchangedState": true,
+      "protectedTiles": 3
+    },
+    {
+      "scene": "earth",
+      "px": 48,
+      "oldExact": true,
+      "unchangedState": true,
+      "protectedTiles": 3
+    },
+    {
+      "scene": "warp",
+      "px": 48,
+      "oldExact": true,
+      "unchangedState": true,
+      "protectedTiles": 4
+    },
+    {
+      "scene": "F1",
+      "px": 48,
+      "oldExact": true,
+      "unchangedState": true,
+      "protectedTiles": 2
+    },
+    {
+      "scene": "F2",
+      "px": 48,
+      "oldExact": true,
+      "unchangedState": true,
+      "protectedTiles": 2
+    },
+    {
+      "scene": "D1",
+      "px": 48,
+      "oldExact": true,
+      "unchangedState": true,
+      "protectedTiles": 2
+    },
+    {
+      "scene": "D2",
+      "px": 48,
+      "oldExact": true,
+      "unchangedState": true,
+      "protectedTiles": 2
+    }
+  ]
+}

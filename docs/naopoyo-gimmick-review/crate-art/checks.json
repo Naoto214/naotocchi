@@ -1,0 +1,21 @@
+{
+  "environment": "Native Canvas, not browser/Safari",
+  "checks": [
+    {
+      "px": 36,
+      "oldExact": true,
+      "onlyCrateCellsChanged": true,
+      "immutable": true
+    },
+    {
+      "px": 48,
+      "oldExact": true,
+      "onlyCrateCellsChanged": true,
+      "immutable": true
+    }
+  ],
+  "centralText": [
+    "2"
+  ],
+  "physicsChanged": false
+}

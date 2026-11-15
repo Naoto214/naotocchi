@@ -1,0 +1,26 @@
+{
+  "base": "fb921fa70b3d73a5e3ce6b4e4cded2df2034fb07",
+  "scope": "Every reachable move/dig transition; transformation excluded, separate tests cover ability re-evaluation",
+  "variants": {
+    "F1": {
+      "states": 49,
+      "transitions": 344,
+      "sha256": "de9487aedf2829918c8fbaab513f012dd7541d2a42d5ff9865a7532e69254e81"
+    },
+    "F2": {
+      "states": 18,
+      "transitions": 108,
+      "sha256": "1f933e0f0aaba4fb449482ebebc449e04bc4ddad57ea3c7a09e62de97854e612"
+    },
+    "D1": {
+      "states": 772,
+      "transitions": 5700,
+      "sha256": "f00185b794c1a4a86fe9e85c39847a5a0d60f7e320d3464f08f8bfda02a9308e"
+    },
+    "D2": {
+      "states": 772,
+      "transitions": 11400,
+      "sha256": "d73722b583194fb998e2fa726bd50470027f1345672e78d6a54322f753a84952"
+    }
+  }
+}

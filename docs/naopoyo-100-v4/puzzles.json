@@ -1,0 +1,783 @@
+[
+  {
+    "id": "air",
+    "boardHash": "445d6d051bddbbaa106de92da4824aaf77dcc210e49d1efb9cd7d07bc19c9f9c",
+    "legal": true,
+    "shortest": {
+      "status": "shortest",
+      "solution": [
+        {
+          "x": 1,
+          "y": 3,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 2,
+          "y": 3,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 3,
+          "y": 1,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 4,
+          "y": 1,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 5,
+          "y": 1,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 2,
+          "y": 3,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 3,
+          "y": 5,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 5,
+          "y": 5,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 1,
+          "y": 3,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 2,
+          "y": 3,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 3,
+          "y": 5,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 5,
+          "y": 5,
+          "dx": 1,
+          "dy": 0
+        }
+      ],
+      "expanded": 92,
+      "discovered": 94,
+      "limit": 100000,
+      "maxDepth": 70
+    },
+    "probes": [
+      {
+        "id": "field.updraft",
+        "status": "exhausted",
+        "expanded": 6,
+        "discovered": 6,
+        "limit": 100000,
+        "maxDepth": 70
+      }
+    ],
+    "events": [
+      {
+        "type": "split",
+        "id": "actor-1",
+        "x": 3,
+        "y": 3,
+        "count": 2,
+        "children": [
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 2,
+            "y": 3
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 1,
+            "y": 3
+          }
+        ]
+      },
+      {
+        "type": "effect",
+        "id": "actor-1",
+        "catalogId": "field.updraft",
+        "x": 3,
+        "y": 3,
+        "dx": 0,
+        "dy": -1
+      },
+      {
+        "type": "effect",
+        "id": "actor-1",
+        "catalogId": "field.updraft",
+        "x": 3,
+        "y": 2,
+        "dx": 0,
+        "dy": -1
+      },
+      {
+        "type": "rescue",
+        "id": "actor-1",
+        "x": 6,
+        "y": 1,
+        "level": 3
+      },
+      {
+        "type": "fall",
+        "id": "child1",
+        "from": 3,
+        "to": 4,
+        "x": 3
+      },
+      {
+        "type": "fall",
+        "id": "child1",
+        "from": 4,
+        "to": 5,
+        "x": 3
+      },
+      {
+        "type": "rescue",
+        "id": "child1",
+        "x": 6,
+        "y": 5,
+        "level": 1
+      },
+      {
+        "type": "fall",
+        "id": "child2",
+        "from": 3,
+        "to": 4,
+        "x": 3
+      },
+      {
+        "type": "fall",
+        "id": "child2",
+        "from": 4,
+        "to": 5,
+        "x": 3
+      },
+      {
+        "type": "rescue",
+        "id": "child2",
+        "x": 6,
+        "y": 5,
+        "level": 1
+      }
+    ]
+  },
+  {
+    "id": "water",
+    "boardHash": "cf517b0ffa5093350e236ee546744c19d3a91574244dfdac19217f08193402ce",
+    "legal": true,
+    "shortest": {
+      "status": "shortest",
+      "solution": [
+        {
+          "x": 1,
+          "y": 3,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 2,
+          "y": 3,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 3,
+          "y": 1,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 4,
+          "y": 1,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 5,
+          "y": 1,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 2,
+          "y": 3,
+          "dx": 1,
+          "dy": 1
+        },
+        {
+          "x": 3,
+          "y": 4,
+          "dx": 1,
+          "dy": 1
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 5,
+          "y": 5,
+          "dx": 1,
+          "dy": 0
+        }
+      ],
+      "expanded": 48,
+      "discovered": 53,
+      "limit": 100000,
+      "maxDepth": 70
+    },
+    "probes": [
+      {
+        "id": "field.bubble",
+        "status": "exhausted",
+        "expanded": 7,
+        "discovered": 7,
+        "limit": 100000,
+        "maxDepth": 70
+      },
+      {
+        "id": "terrain.water",
+        "status": "exhausted",
+        "expanded": 2,
+        "discovered": 2,
+        "limit": 100000,
+        "maxDepth": 70
+      }
+    ],
+    "events": [
+      {
+        "type": "split",
+        "id": "actor-1",
+        "x": 3,
+        "y": 3,
+        "count": 1,
+        "children": [
+          {
+            "id": "child1",
+            "species": "fish",
+            "level": 1,
+            "x": 2,
+            "y": 3
+          }
+        ]
+      },
+      {
+        "type": "effect",
+        "id": "actor-1",
+        "catalogId": "field.bubble",
+        "x": 3,
+        "y": 3,
+        "dx": 0,
+        "dy": -1
+      },
+      {
+        "type": "effect",
+        "id": "actor-1",
+        "catalogId": "field.bubble",
+        "x": 3,
+        "y": 2,
+        "dx": 0,
+        "dy": -1
+      },
+      {
+        "type": "rescue",
+        "id": "actor-1",
+        "x": 6,
+        "y": 1,
+        "level": 3
+      },
+      {
+        "type": "rescue",
+        "id": "child1",
+        "x": 6,
+        "y": 5,
+        "level": 1
+      }
+    ]
+  },
+  {
+    "id": "earth",
+    "boardHash": "323bf64e33f31ce54529253d7e0377b5e3724f6085c01c8ee76f850201a10d1d",
+    "legal": true,
+    "shortest": {
+      "status": "shortest",
+      "solution": [
+        {
+          "x": 0,
+          "y": 2,
+          "dx": 1,
+          "dy": 1
+        },
+        {
+          "x": 1,
+          "y": 3,
+          "dx": 1,
+          "dy": 1
+        },
+        {
+          "x": 0,
+          "y": 2,
+          "dx": 1,
+          "dy": 1
+        },
+        {
+          "x": 1,
+          "y": 3,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 4,
+          "y": 3,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 5,
+          "y": 3,
+          "dx": 1,
+          "dy": 0
+        }
+      ],
+      "expanded": 149,
+      "discovered": 188,
+      "limit": 100000,
+      "maxDepth": 70
+    },
+    "probes": [
+      {
+        "id": "fixture.burrow",
+        "status": "exhausted",
+        "expanded": 128,
+        "discovered": 128,
+        "limit": 100000,
+        "maxDepth": 70
+      },
+      {
+        "id": "terrain.tunnel",
+        "status": "exhausted",
+        "expanded": 164,
+        "discovered": 164,
+        "limit": 100000,
+        "maxDepth": 70
+      }
+    ],
+    "events": [
+      {
+        "type": "split",
+        "id": "actor-1",
+        "x": 1,
+        "y": 3,
+        "count": 1,
+        "children": [
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 0,
+            "y": 2
+          }
+        ]
+      },
+      {
+        "type": "rescue",
+        "id": "actor-1",
+        "x": 2,
+        "y": 4,
+        "level": 2
+      },
+      {
+        "type": "warp",
+        "catalogId": "fixture.burrow",
+        "id": "child1",
+        "pair": "A",
+        "from": {
+          "x": 2,
+          "y": 3
+        },
+        "to": {
+          "x": 4,
+          "y": 3
+        }
+      },
+      {
+        "type": "rescue",
+        "id": "child1",
+        "x": 6,
+        "y": 3,
+        "level": 1
+      }
+    ]
+  },
+  {
+    "id": "warp",
+    "boardHash": "1bd15dd5dbbf523ddf47cd98ddee8cd1137e3695238feef01daba8d79e02b73d",
+    "legal": true,
+    "shortest": {
+      "status": "shortest",
+      "solution": [
+        {
+          "x": 0,
+          "y": 2,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 1,
+          "y": 2,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 2,
+          "y": 2,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 5,
+          "y": 2,
+          "dx": 1,
+          "dy": 1
+        },
+        {
+          "x": 3,
+          "y": 2,
+          "dx": -1,
+          "dy": 0
+        },
+        {
+          "x": 6,
+          "y": 3,
+          "dx": 1,
+          "dy": 1
+        },
+        {
+          "x": 5,
+          "y": 2,
+          "dx": 1,
+          "dy": 1
+        },
+        {
+          "x": 0,
+          "y": 3,
+          "dx": 1,
+          "dy": -1
+        },
+        {
+          "x": 1,
+          "y": 2,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 5,
+          "y": 2,
+          "dx": 1,
+          "dy": 1
+        },
+        {
+          "x": 6,
+          "y": 3,
+          "dx": 1,
+          "dy": 0
+        }
+      ],
+      "expanded": 358,
+      "discovered": 397,
+      "limit": 100000,
+      "maxDepth": 70
+    },
+    "probes": [
+      {
+        "id": "fixture.warp",
+        "status": "exhausted",
+        "expanded": 123,
+        "discovered": 123,
+        "limit": 100000,
+        "maxDepth": 70
+      }
+    ],
+    "events": [
+      {
+        "type": "mechanism",
+        "key": "L",
+        "x": 3,
+        "y": 2,
+        "active": true
+      },
+      {
+        "type": "warp",
+        "catalogId": "fixture.warp",
+        "id": "actor-1",
+        "pair": "B",
+        "from": {
+          "x": 2,
+          "y": 2
+        },
+        "to": {
+          "x": 5,
+          "y": 2
+        }
+      },
+      {
+        "type": "rescue",
+        "id": "actor-2",
+        "x": 7,
+        "y": 4,
+        "level": 1
+      },
+      {
+        "type": "warp",
+        "catalogId": "fixture.warp",
+        "id": "actor-3",
+        "pair": "B",
+        "from": {
+          "x": 2,
+          "y": 2
+        },
+        "to": {
+          "x": 5,
+          "y": 2
+        }
+      },
+      {
+        "type": "merge",
+        "id": "actor-3",
+        "x": 6,
+        "y": 3,
+        "level": 2,
+        "overflow": 0,
+        "fall": false,
+        "absorbed": [
+          {
+            "x": 6,
+            "y": 3,
+            "level": 1,
+            "species": "dog",
+            "id": "actor-1"
+          }
+        ],
+        "contact": {
+          "incoming": {
+            "x": 5,
+            "y": 2,
+            "level": 1,
+            "species": "dog",
+            "id": "actor-3"
+          },
+          "target": {
+            "x": 6,
+            "y": 3,
+            "level": 1,
+            "species": "dog",
+            "id": "actor-1"
+          },
+          "remainderId": null,
+          "origin": {
+            "x": 5,
+            "y": 2
+          }
+        }
+      },
+      {
+        "type": "rescue",
+        "id": "actor-3",
+        "x": 7,
+        "y": 3,
+        "level": 2
+      }
+    ]
+  },
+  {
+    "id": "crates",
+    "boardHash": "6318b20ad86d86a8fc6f08da5b6290c01e4b1d4363eaea22108564b0e9b9c0df",
+    "legal": true,
+    "shortest": {
+      "status": "shortest",
+      "solution": [
+        {
+          "x": 1,
+          "y": 2,
+          "dx": 1,
+          "dy": 1
+        },
+        {
+          "x": 2,
+          "y": 3,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 3,
+          "y": 3,
+          "dx": 1,
+          "dy": -1
+        },
+        {
+          "x": 4,
+          "y": 2,
+          "dx": 0,
+          "dy": 1
+        },
+        {
+          "x": 4,
+          "y": 3,
+          "dx": -1,
+          "dy": 0
+        },
+        {
+          "x": 3,
+          "y": 3,
+          "dx": -1,
+          "dy": 0
+        },
+        {
+          "x": 2,
+          "y": 3,
+          "dx": -1,
+          "dy": -1
+        },
+        {
+          "x": 1,
+          "y": 2,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 2,
+          "y": 2,
+          "dx": 1,
+          "dy": 1
+        },
+        {
+          "x": 3,
+          "y": 3,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 4,
+          "y": 3,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 5,
+          "y": 3,
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "x": 6,
+          "y": 3,
+          "dx": 1,
+          "dy": 0
+        }
+      ],
+      "expanded": 96,
+      "discovered": 97,
+      "limit": 100000,
+      "maxDepth": 70
+    },
+    "probes": [
+      {
+        "id": "object.crate",
+        "status": "exhausted",
+        "expanded": 6,
+        "discovered": 6,
+        "limit": 100000,
+        "maxDepth": 70
+      }
+    ],
+    "events": [
+      {
+        "type": "push",
+        "id": "actor-1",
+        "crate": "B",
+        "from": {
+          "x": 4,
+          "y": 3
+        },
+        "to": {
+          "x": 4,
+          "y": 4
+        }
+      },
+      {
+        "type": "mechanism",
+        "key": "Q",
+        "x": 4,
+        "y": 4,
+        "active": true
+      },
+      {
+        "type": "push",
+        "id": "actor-1",
+        "crate": "A",
+        "from": {
+          "x": 2,
+          "y": 2
+        },
+        "to": {
+          "x": 3,
+          "y": 2
+        }
+      },
+      {
+        "type": "mechanism",
+        "key": "P",
+        "x": 3,
+        "y": 2,
+        "active": true
+      },
+      {
+        "type": "rescue",
+        "id": "actor-1",
+        "x": 7,
+        "y": 3,
+        "level": 2
+      }
+    ]
+  }
+]

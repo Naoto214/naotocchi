@@ -1,0 +1,8 @@
+import fs from 'node:fs';import {reviewEntries,history,symbolGuide} from './review.mjs';
+const clean=s=>String(s).replaceAll('|','／').replaceAll('\n',' ');
+let text='# ギミック図鑑・素材総合整理\n\n基準HEAD: 57376208835949840c81e018feb93375b6a71cac。PR532: fce9067b41ed4c6b6640791ec13bd610c5b6bde3。既存76素材IDを維持。過去64候補は履歴であり、新素材登録ではない。\n\n「正式物理で動く」と「デザイン正式採用」を区別。正式採用欄はV5表示基盤を含み、新しい能力の承認ではない。\n\n## 改善優先度\n\n|ID|名前|整理状態|優先度|実行範囲|\n|---|---|---|---|---|\n';
+for(const e of reviewEntries)text+=`|${e.id}|${e.name}|${e.decision}|${e.priority}|${e.runtime}|\n`;
+text+='\n## 数字・記号\n\n';for(const g of symbolGuide)text+=`- **${g.name}**：${g.meaning} 常時：${g.always}。詳細：${g.details}。\n`;
+for(const e of reviewEntries){text+=`\n## ${e.name} — ${e.id}\n\n- 整理状態：${e.decision}／優先度 ${e.priority}。${e.approvalNote}\n- 機能・条件：${e.meaning}\n- 種族・段階：${e.eligibility}\n- 常時見せる情報：${e.always}\n- タップ詳細：${e.details}\n- 存在意義（設計仮説）：${e.purpose}\n- 似た仕掛けとの違い：${e.difference}\n- 改善候補：${e.candidate}\n- 初見／応用の確認：${e.question}\n- リスク：${e.risk}\n- 過去の主効果禁止探索：対象${e.evidence.tested}面、全探索で解なし${e.evidence.necessary}、省略解あり${e.evidence.bypass}、上限等で未確定${e.evidence.unknown}、対象外${e.evidence.notApplicable}。${e.evidence.scope}\n- 過去案：${e.history.map(h=>h.id+' '+h.name+'（'+h.decision+'）').join('、')||'独立した新登録なし／V5素材'}\n`;}
+text+='\n## PR532の64候補・承認履歴（変更なし）\n\n|候補番号|名称|当時の判断|既存素材との対応|\n|---|---|---|---|\n';for(const h of history)text+=`|${h.id}|${clean(h.name)}|${h.decision}|${reviewEntries.filter(e=>e.history.some(p=>p.id===h.id)).map(e=>e.id).join('、')||'構成法・能力・保留案。素材を新規登録しない'}|\n`;
+fs.writeFileSync(new URL('../../../../docs/naopoyo-gimmick-review/INVENTORY.md',import.meta.url),text);

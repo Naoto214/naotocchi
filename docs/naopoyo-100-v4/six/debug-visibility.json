@@ -1,0 +1,14 @@
+[
+  {
+    "kind": "terrain.water",
+    "changedPixels": 228
+  },
+  {
+    "kind": "terrain.ice",
+    "changedPixels": 228
+  },
+  {
+    "kind": "terrain.tunnel",
+    "changedPixels": 228
+  }
+]

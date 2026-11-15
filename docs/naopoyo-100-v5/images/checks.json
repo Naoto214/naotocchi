@@ -1,0 +1,18 @@
+{
+  "previews": 152,
+  "checks": [
+    {
+      "px": 36,
+      "boardPixels": 288,
+      "editChangesPixels": true,
+      "undoRestoresExactPixels": true
+    },
+    {
+      "px": 48,
+      "boardPixels": 384,
+      "editChangesPixels": true,
+      "undoRestoresExactPixels": true
+    }
+  ],
+  "browser": false
+}

@@ -1,0 +1,2 @@
+import{renderWorld}from '../render.mjs';import{paintMaterials,paintDecorations}from './paint.mjs';
+export function renderDraft(canvas,d,state,options={},layers={}){renderWorld(canvas,state,{...options,showGimmicks:layers.gimmicks!==false,showActors:layers.actors!==false,terrainPainter:c=>paintMaterials(c,d,layers),decorationPainter:layers.decorations===false?null:(c,s)=>paintDecorations(c,d,s)},d.appearance.world)}

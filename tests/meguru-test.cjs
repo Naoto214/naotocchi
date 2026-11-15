@@ -123,7 +123,9 @@ test('げんざいち keeps the home world and only changes its flavour; sleepin
 });
 
 test('the simulation runs with no renderer or DOM: world coordinates, movement, obstacles, meeting and talking', () => {
-  const h = harness(); populated(h);
+  // Fix the date and random walk: another resident can otherwise wander closer
+  // than the mushroom during the movement checks before the talking assertion.
+  const h = harness({ deterministic: true }); populated(h);
   const M = h.api.meguruMod;
   const sim = M.createSimulation({ regionId: 'forest', env: { time: 'day', weather: 'sunny', season: 'spring', region: 'forest' } });
   assert.equal(sim.world.regionId, 'forest');

@@ -1,0 +1,3 @@
+// Adoption overlay preserves PR #532's source catalog and its B comparison.
+// Editors and current consumers use this resolved catalog, retaining fixture.gate.
+export function adoptedCatalog(catalog){return {...catalog,entries:catalog.entries.map(e=>e.id!=='fixture.gate'?e:{...e,designClass:'A',image:{...e.image,renderer:'shared-gate-A',animation:'共通GateTransitions・280ms。判定は即時。'},editor:{...e.editor,renderer:'prototypes/naopoyo-shared/gate-design.mjs#paintGate',animation:'prototypes/naopoyo-shared/gate-animation.mjs#GateTransitions'},adoption:{design:'A',date:'2026-11-10',comparisonOnly:['B']}})}}

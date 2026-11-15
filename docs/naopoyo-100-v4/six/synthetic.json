@@ -1,0 +1,130 @@
+{
+  "combinations": 162,
+  "solutionClears": 54,
+  "syntheticPointerDrags": 186,
+  "widthRows": [
+    {
+      "viewport": 320,
+      "allocatedBoardWidth": 304,
+      "world": "sea"
+    },
+    {
+      "viewport": 320,
+      "allocatedBoardWidth": 304,
+      "world": "snow"
+    },
+    {
+      "viewport": 320,
+      "allocatedBoardWidth": 304,
+      "world": "forest"
+    },
+    {
+      "viewport": 320,
+      "allocatedBoardWidth": 304,
+      "world": "sky"
+    },
+    {
+      "viewport": 320,
+      "allocatedBoardWidth": 304,
+      "world": "earth"
+    },
+    {
+      "viewport": 320,
+      "allocatedBoardWidth": 304,
+      "world": "cave"
+    },
+    {
+      "viewport": 375,
+      "allocatedBoardWidth": 359,
+      "world": "sea"
+    },
+    {
+      "viewport": 375,
+      "allocatedBoardWidth": 359,
+      "world": "snow"
+    },
+    {
+      "viewport": 375,
+      "allocatedBoardWidth": 359,
+      "world": "forest"
+    },
+    {
+      "viewport": 375,
+      "allocatedBoardWidth": 359,
+      "world": "sky"
+    },
+    {
+      "viewport": 375,
+      "allocatedBoardWidth": 359,
+      "world": "earth"
+    },
+    {
+      "viewport": 375,
+      "allocatedBoardWidth": 359,
+      "world": "cave"
+    },
+    {
+      "viewport": 390,
+      "allocatedBoardWidth": 374,
+      "world": "sea"
+    },
+    {
+      "viewport": 390,
+      "allocatedBoardWidth": 374,
+      "world": "snow"
+    },
+    {
+      "viewport": 390,
+      "allocatedBoardWidth": 374,
+      "world": "forest"
+    },
+    {
+      "viewport": 390,
+      "allocatedBoardWidth": 374,
+      "world": "sky"
+    },
+    {
+      "viewport": 390,
+      "allocatedBoardWidth": 374,
+      "world": "earth"
+    },
+    {
+      "viewport": 390,
+      "allocatedBoardWidth": 374,
+      "world": "cave"
+    },
+    {
+      "viewport": 430,
+      "allocatedBoardWidth": 414,
+      "world": "sea"
+    },
+    {
+      "viewport": 430,
+      "allocatedBoardWidth": 414,
+      "world": "snow"
+    },
+    {
+      "viewport": 430,
+      "allocatedBoardWidth": 414,
+      "world": "forest"
+    },
+    {
+      "viewport": 430,
+      "allocatedBoardWidth": 414,
+      "world": "sky"
+    },
+    {
+      "viewport": 430,
+      "allocatedBoardWidth": 414,
+      "world": "earth"
+    },
+    {
+      "viewport": 430,
+      "allocatedBoardWidth": 414,
+      "world": "cave"
+    }
+  ],
+  "browser": false,
+  "realTouch": false,
+  "reducedMotion": true
+}

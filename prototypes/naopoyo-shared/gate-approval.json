@@ -1,0 +1,1 @@
+{"materialId":"fixture.gate","adoptedDesign":"A","approvedDate":"2026-11-10","source":"User instruction in PR #535 task: A arch, shared open/close animation","comparisonOnly":["B"],"durationMs":280,"blockingAnimation":false,"renderer":"prototypes/naopoyo-shared/gate-design.mjs#paintGate","transition":"prototypes/naopoyo-shared/gate-animation.mjs#GateTransitions"}
