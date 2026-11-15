@@ -5,6 +5,7 @@ async function setup(mode='all',roles=['pet','companion'],options={}){
  const bx=options.blockerX||120;
  const valid=p=>p.x>=24&&p.x<=216&&(p.y>=95&&p.y<=105||!options.noAlcove&&p.x>=bx-15&&p.x<=bx+20&&p.y>=52&&p.y<=105);
  const nav=createTerrainNavigation({width:240,height:160,project:p=>p,unproject:p=>({...p,z:p.y}),walkable:valid,cell:8,gridOrigin:{x:0,y:0}});nav.intentAware=true;nav.intentScale={x:1,y:1};
+ if(options.onQuery)for(const key of ['nearest','route','reachable']){const query=nav[key];nav[key]=(...args)=>{options.onQuery(key);return query(...args);};}
  const model=createModel({random:options.random||(()=>.5)});model.setYieldMode(mode);model.sync([{key:'a',kind:roles[0],id:'a',x:options.startX||60,y:100,w:20,h:20},{key:'b',kind:roles[1],id:'b',x:bx,y:100,w:20,h:20},...(options.serial?[{key:'c',kind:'companion',id:'c',x:180,y:100,w:20,h:20}]:[])],{width:240,height:160,region:'city',time:'day',navigation:nav,actorBounds:()=>({left:24,right:216,top:52,bottom:105}),visible:p=>valid(p),tags:[]});
  return model;
 }
@@ -28,12 +29,12 @@ test('one retreat may open useful partial passage without a yield chain',async()
 
 
 test('cooperative search advances at most one probe per positive step',async()=>{
- const m=await setup('manual');m.move('a',{x:200,y:100},'drag');
+ let queries=0;const m=await setup('manual',undefined,{onQuery:()=>queries++});m.move('a',{x:200,y:100},'drag');
  for(let i=0;i<60&&!m.yieldStatus().planning;i++)m.step(.05,{autonomy:false});
  assert.ok(m.yieldStatus().planning);const count=m.yieldStatus().counters.planningProbes;
- for(let i=0;i<100;i++)m.step(0,{autonomy:false});
- assert.equal(m.yieldStatus().counters.planningProbes,count);assert.equal(m.yieldStatus().counters.started,0);
- for(let i=0;i<100&&!m.yieldStatus().counters.started;i++){const before=m.yieldStatus().counters.planningProbes;m.step(.05,{autonomy:false});assert.ok(m.yieldStatus().counters.planningProbes-before<=1);}
+ queries=0;for(let i=0;i<100;i++)m.step(0,{autonomy:false});
+ assert.equal(queries,0);assert.equal(m.yieldStatus().counters.planningProbes,count);assert.equal(m.yieldStatus().counters.started,0);
+ for(let i=0;i<100&&!m.yieldStatus().counters.started;i++){const before=m.yieldStatus().counters.planningProbes;queries=0;m.step(.05,{autonomy:false});assert.ok(queries<=1,'one complete navigation query per step');assert.ok(m.yieldStatus().counters.planningProbes-before<=1);}
  assert.equal(m.yieldStatus().counters.started,1);
 });
 test('selection cancels cooperative search without displacing a neighbour',async()=>{
