@@ -13,15 +13,20 @@ function advance(model,seconds){let maximum=0;for(let i=0;i<seconds*20;i++){mode
 
 for(const [count,budget]of [[5,5],[10,3],[28,2]])test(`yield shares the ${budget}-mover budget at ${count} residents`,async()=>{
  const {model}=await fixture(count),others=model.snapshot().slice(2),moving=Math.min(budget,others.length),chosen=others.slice(-moving);
- for(let i=0;i<chosen.length;i++){const a=chosen[i];assert.equal(model.move(a.key,{x:i===0?a.x+50:950,y:a.y},'ambient'),true);}
+ for(const a of chosen)assert.equal(model.move(a.key,{x:a.x+50,y:a.y},'ambient'),true);
  assert.equal(model.yieldStatus().budget,budget);
  model.move('requester',{x:200,y:100},'drag');advance(model,1);
  if(moving===budget)assert.equal(model.yieldStatus().counters.started,0,'full budget leaves the blocked request waiting');
- advance(model,5);assert.equal(model.yieldStatus().counters.started,1,'retreat can use the next available slot');
+ advance(model,2);assert.ok(chosen.every(a=>!model.snapshot().find(b=>a.key===b.key).target),'independent walkers have settled');
+ // Cooperative planning conservatively abandons a snapshot if another resident
+ // moves. A fresh gesture after the cast settles can request a safe retreat.
+ if(!model.yieldStatus().counters.started){model.select('requester');model.move('requester',{x:200,y:100},'drag');advance(model,3);}
+ assert.equal(model.yieldStatus().counters.started,1,'a settled cast permits a retreat within the available budget');
 });
 
-for(const change of ['item','size','region','time','navigation','roster'])test(`a queued retreat is invalidated or freshly replanned after ${change} changes`,async()=>{
+for(const phase of ['pending','planning'])for(const change of ['item','size','region','time','navigation','roster'])test(`a ${phase} retreat is invalidated or freshly replanned after ${change} changes`,async()=>{
  const {model,scene,actors}=await fixture();model.move('requester',{x:200,y:100},'drag');
+ if(phase==='planning'){for(let i=0;i<60&&!model.yieldStatus().planning;i++)advance(model,.05);assert.ok(model.yieldStatus().planning,'cooperative planning began');}
  const list=actors.map(a=>({...a,extent:a.extent&&{...a.extent}})),next={...scene};
  if(change==='item')list[0].extent.top=24;
  if(change==='size')list[0].w=21;
@@ -30,7 +35,7 @@ for(const change of ['item','size','region','time','navigation','roster'])test(`
  if(change==='navigation')next.navigation={...scene.navigation};
  if(change==='roster')list.pop();
  const requests=model.yieldStatus().counters.requests;model.sync(list,next);
- assert.equal(model.yieldStatus().active,null);
+ assert.equal(model.yieldStatus().active,null);assert.equal(model.yieldStatus().planning,null);
  advance(model,3);
  // V5 may preserve and retry its original manual intention. A fresh request
  // must be generated before it can ask for a newly checked retreat.
@@ -44,6 +49,20 @@ test('item change aborts a retreat already in motion without moving anyone insta
  model.sync(actors.map(a=>a.key==='requester'?{...a,extent:{...a.extent,top:24}}:a),scene);
  assert.equal(model.yieldStatus().active,null);const after=model.snapshot().find(a=>a.key==='blocker');
  assert.ok(Math.hypot(after.x-before.x,after.y-before.y)<.000001,'unchanged blocker remains at its current position');assert.notEqual(after.source,'yield');
+});
+
+for(const interrupt of ['blocked','held','reduced','off','cancel'])test(`${interrupt} interrupts cooperative planning before anyone retreats`,async()=>{
+ const {model}=await fixture();model.move('requester',{x:200,y:100},'drag');
+ for(let i=0;i<60&&!model.yieldStatus().planning;i++)advance(model,.05);
+ assert.ok(model.yieldStatus().planning,'planning is in progress');
+ const before=model.snapshot().find(a=>a.key==='blocker');
+ if(interrupt==='off')model.setYieldMode('off');
+ else if(interrupt==='cancel')model.cancel();
+ else model.step(.05,{autonomy:false,...(interrupt==='blocked'?{blocked:true}:interrupt==='held'?{heldActor:'blocker'}:{reducedMotion:true})});
+ assert.equal(model.yieldStatus().planning,null);assert.equal(model.yieldStatus().active,null);
+ advance(model,3);
+ assert.equal(model.yieldStatus().counters.started,0,'interrupted planning cannot activate later');
+ const after=model.snapshot().find(a=>a.key==='blocker');assert.deepEqual({x:after.x,y:after.y},{x:before.x,y:before.y});
 });
 
 test('yielding cannot discard the accepted V5 endpoint after two movers close its route',async()=>{
