@@ -1,17 +1,21 @@
 // Pure presentation routes, independent of the optional 3D renderer.
-export function createTerrainNavigation({width,height,project,unproject,walkable,cell=12}){
+export function createTerrainNavigation({width,height,project,unproject,walkable,cell=12,gridOrigin=null}){
  const valid=p=>{const q=unproject(p);return !!q&&Number.isFinite(q.x+q.y+q.z)&&walkable(q);};
  const segmentSafe=(a,b,predicate=()=>true)=>{const n=Math.max(1,Math.ceil(Math.hypot(a.x-b.x,a.y-b.y)/3));for(let i=0;i<=n;i++){const p={x:a.x+(b.x-a.x)*i/n,y:a.y+(b.y-a.y)*i/n};if(!predicate(p)||!valid(p))return false;}return true;};
+ const stable=!!gridOrigin&&Number.isFinite(gridOrigin.x+gridOrigin.y);
+ const reference=stable?createTerrainNavigation({width,height,project,unproject,walkable,cell}):null;
  const cache=new Map();
  function grid(bounds){const key=JSON.stringify(bounds);if(cache.has(key))return cache.get(key);const nodes=[];
-  for(let y=bounds.top;y<=bounds.bottom;y+=cell)for(let x=bounds.left;x<=bounds.right;x+=cell)if(valid({x,y}))nodes.push({x,y});
+  const ox=stable?gridOrigin.x:bounds.left,oy=stable?gridOrigin.y:bounds.top;
+  const firstX=ox+Math.ceil((bounds.left-ox)/cell)*cell,firstY=oy+Math.ceil((bounds.top-oy)/cell)*cell;
+  for(let y=firstY;y<=bounds.bottom;y+=cell)for(let x=firstX;x<=bounds.right;x+=cell)if(valid({x,y}))nodes.push({x,y});
   let edges;const buildEdges=()=>{if(edges)return edges;
-  const byKey=new Map(nodes.map((p,i)=>[Math.round((p.x-bounds.left)/cell)+','+Math.round((p.y-bounds.top)/cell),i]));
-  edges=nodes.map(p=>{const out=[],gx=Math.round((p.x-bounds.left)/cell),gy=Math.round((p.y-bounds.top)/cell);for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){if(!dx&&!dy)continue;const i=byKey.get((gx+dx)+','+(gy+dy));if(i!==undefined&&segmentSafe(p,nodes[i]))out.push(i);}return out;});
+  const byKey=new Map(nodes.map((p,i)=>[Math.round((p.x-ox)/cell)+','+Math.round((p.y-oy)/cell),i]));
+  edges=nodes.map(p=>{const out=[],gx=Math.round((p.x-ox)/cell),gy=Math.round((p.y-oy)/cell);for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){if(!dx&&!dy)continue;const i=byKey.get((gx+dx)+','+(gy+dy));if(i!==undefined&&segmentSafe(p,nodes[i]))out.push(i);}return out;});
   return edges;};
   const g={nodes,get edges(){return buildEdges();}};if(cache.size>16)cache.clear();cache.set(key,g);return g;
  }
- function nearest(p,bounds,predicate=()=>true){const q={x:Math.max(bounds.left,Math.min(bounds.right,p.x)),y:Math.max(bounds.top,Math.min(bounds.bottom,p.y))};if(valid(q)&&predicate(q))return q;let best=null,d=Infinity;for(const n of grid(bounds).nodes){const dist=Math.hypot(n.x-q.x,n.y-q.y);if(dist<d&&predicate(n)){best=n;d=dist;}}return best?{...best}:null;}
+ function nearest(p,bounds,predicate=()=>true){const q={x:Math.max(bounds.left,Math.min(bounds.right,p.x)),y:Math.max(bounds.top,Math.min(bounds.bottom,p.y))};if(valid(q)&&predicate(q))return q;let best=null,d=Infinity;for(const n of grid(bounds).nodes){const dist=Math.hypot(n.x-(stable?p.x:q.x),n.y-(stable?p.y:q.y));if(dist<d&&predicate(n)){best=n;d=dist;}}return best?{...best}:null;}
  function route(from,to,bounds,predicate=()=>true){
   if(!valid(from))return [];
   const safe=(a,b)=>segmentSafe(a,b,predicate);
@@ -30,5 +34,5 @@ export function createTerrainNavigation({width,height,project,unproject,walkable
   // Only remove a waypoint when the complete replacement segment is safe.
   const smooth=[];let a=from;for(let i=0;i<path.length;){let j=path.length-1;while(j>i&&!safe(a,path[j]))j--;smooth.push({...path[j]});a=path[j];i=j+1;}return smooth;
  }
- return {project,unproject,valid,segmentSafe,nearest,route,width,height};
+ return {referenceNearest:reference?.nearest,referenceRoute:reference?.route,rawDestination:stable,project,unproject,valid,segmentSafe,nearest,route,width,height};
 }
