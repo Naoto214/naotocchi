@@ -14,6 +14,7 @@
   function privateRandom(){const bytes=new Uint32Array(1);if(typeof crypto!=='undefined'&&crypto.getRandomValues)crypto.getRandomValues(bytes);let seed=bytes[0]||Date.now()>>>0||1;return ()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return (seed>>>0)/4294967296;};}
   function createModel({random=privateRandom(),onEvent=()=>{}}={}){
     let actors=[],scene={},selected=null,clock=0,idleAt=5,paused=false;
+    const manualGoals=new Map();let retryingKey=null;
     const cooldown=new Map(),stats={distance:0,moves:0,turns:0,activities:{}};
     function activity(a,name){a.activity=name;if(name!=='observe'&&name!=='rest'&&name!=='walk'){a.visualReaction=undefined;a.visualTarget=null;}stats.activities[name]=(stats.activities[name]||0)+1;a.recent=[...(a.recent||[]),name].slice(-2);}
     function defer(a,seconds){a.nextAt=clock+seconds;}
@@ -31,14 +32,14 @@
     }
     function visible(a,p){return !scene.visible||scene.visible(p,a);}
     function free(a,p){return visible(a,p)&&actors.every(b=>b===a||separated(a,p,b));}
-    function referenceDestination(a,p,b=scene.referenceBounds?.(a)){
-      const nav=scene.navigation;if(!b||!nav?.referenceNearest)return null;
+    function referenceDestination(a,p,b=scene.referenceBounds?.(a),nav=scene.navigation){
+      if(!b||!nav?.referenceNearest)return null;
       const point=nav.referenceNearest({x:clamp(p.x,b.left,b.right),y:clamp(p.y,b.top,b.bottom)},b,q=>free(a,q));
       const safe=bounds(a,scene);if(!point||point.x<safe.left||point.x>safe.right||point.y<safe.top||point.y>safe.bottom||!free(a,point))return null;
       return {point,bounds:b};
     }
-    function destination(a,p){
-      if(scene.navigation)return scene.navigation.nearest(scene.navigation.rawDestination?p:limit(a,p,scene),bounds(a,scene),q=>free(a,q));
+    function destination(a,p,nav=scene.navigation){
+      if(nav)return nav.nearest(nav.rawDestination?p:limit(a,p,scene),bounds(a,scene),q=>free(a,q));
       const q=limit(a,p,scene);if(free(a,q))return q;
       let best=null,dist=Infinity;
       for(let r=20;r<=120;r+=20)for(let i=0;i<16;i++){
@@ -47,7 +48,7 @@
       }
       return best;
     }
-    function cancel(){for(const a of actors){if(a.target)a.target=null;a.route=[];a.activity='rest';a.visualReaction=undefined;a.visualTarget=null;a.nextAt=Math.min(a.nextAt||clock+2,clock+2);}idleAt=clock+2;}
+    function cancel(){manualGoals.clear();for(const a of actors){if(a.target)a.target=null;a.route=[];a.activity='rest';a.visualReaction=undefined;a.visualTarget=null;a.nextAt=Math.min(a.nextAt||clock+2,clock+2);}idleAt=clock+2;}
     function sync(list,next){
       const changed=next.region!==scene.region||next.width!==scene.width||next.height!==scene.height||next.navigation!==scene.navigation;
       const previousScene=scene,previousActors=actors;
@@ -120,44 +121,79 @@
       if(!actor(selected))selected=null;
       if(changed){cancel();cooldown.clear();}
     }
-    function select(key){const a=actor(key);if(!a||paused)return false;selected=key;a.visualReaction=undefined;a.visualTarget=null;a.target=null;a.route=[];a.manualUntil=clock+12;defer(a,4);emit('tap',a,'tap');idleAt=clock+4;return true;}
+    function select(key){const a=actor(key);if(!a||paused)return false;manualGoals.delete(key);selected=key;a.visualReaction=undefined;a.visualTarget=null;a.target=null;a.route=[];a.manualUntil=clock+12;defer(a,4);emit('tap',a,'tap');idleAt=clock+4;return true;}
     function move(key,p,source='tap'){
       const a=actor(key);if(!a||paused||!Number.isFinite(p?.x+p?.y))return false;
       if(source==='ambient'&&(clock<a.manualUntil||a.target&&a.source!=='ambient'))return false;
-      if(source!=='ambient')a.manualUntil=clock+12;
+      if(source!=='ambient'&&retryingKey!==key)a.manualUntil=clock+12;
+      if(source!=='ambient'&&scene.navigation?.intentAware&&retryingKey!==key)manualGoals.set(key,{point:{x:p.x,y:p.y},direction:{x:Math.sign(p.x-a.x),y:Math.sign(p.y-a.y)},source,expires:clock+12,retries:0,nextAt:clock+1});
       if(source==='ambient'&&actors.filter(b=>b.target&&b.source==='ambient').length>=(actors.length>15?2:actors.length>5?3:5))return false;
-      const proposal=destination(a,p),originalReference=referenceDestination(a,p);
-      const expandedReference=scene.referenceBounds?.(a)?referenceDestination(a,p,bounds(a,scene)):null;
       const retreats=(q,r)=>['x','y'].some(axis=>(q[axis]-r[axis])*Math.sign(p[axis]-a[axis])< -1e-7);
-      // Keep V1's safe improvements as well, when they do not trade away an
-      // original requested component. The main planning grid stays world-fixed.
-      const reference=expandedReference&&(!originalReference||!retreats(expandedReference.point,originalReference.point))?expandedReference:originalReference;
-      if(!proposal&&!reference&&!scene.navigation?.reachable)return false;
-      const preferReference=reference&&(!proposal||Math.hypot(proposal.x-reference.point.x,proposal.y-reference.point.y)<1e-7||retreats(proposal,reference.point));
-      let q=preferReference?reference.point:proposal;
       // A cramped fallback seat may already overlap. Allow only escape that
       // does not worsen that overlap; step() still requires strict improvement.
       const routeFree=p=>visible(a,p)&&actors.every(b=>b===a||separated(a,p,b)||clearance(a,a,b)<1&&clearance(a,p,b)>=clearance(a,a,b)-1e-9);
       const safeBounds=bounds(a,scene),referenceFree=p=>p.x>=safeBounds.left&&p.x<=safeBounds.right&&p.y>=safeBounds.top&&p.y<=safeBounds.bottom&&routeFree(p);
-      const currentRoute=point=>scene.navigation?scene.navigation.route(a,point,safeBounds,routeFree):[point];
-      const oldRoute=()=>scene.navigation.referenceRoute(a,reference.point,reference.bounds,referenceFree);
-      // Prefer the existing safe endpoint without letting a sparse legacy grid
-      // conceal a valid new passage. Both planners retain the same predicates.
-      let path=preferReference?oldRoute():q?currentRoute(q):[];
-      if(!path.length&&preferReference)path=currentRoute(q);
-      if(!path.length&&preferReference&&proposal){q=proposal;path=currentRoute(q);}
-      if(!path.length&&!preferReference&&reference){q=reference.point;path=oldRoute();if(!path.length)path=currentRoute(q);}
-      if(!path.length&&originalReference&&originalReference!==reference){q=originalReference.point;path=scene.navigation.referenceRoute(a,q,originalReference.bounds,referenceFree);if(!path.length)path=currentRoute(q);}
-      // Preserve the complete V2 result. Only replace it with a reachable point
-      // that advances both requested components and is closer to the raw input.
-      // A supplemental endpoint must also pass the move acceptance distance.
-      // Otherwise it can discard a usable route and then reject the gesture.
-      if(scene.navigation?.reachable){
-        const prior=path.length?q:null,score=prior?Math.hypot(prior.x-p.x,prior.y-p.y):Infinity;
-        const better=score>1e-5?scene.navigation.reachable(a,p,safeBounds,referenceFree,point=>Math.hypot(point.x-a.x,point.y-a.y)>=3&&free(a,point)&&(!prior||!retreats(point,prior))&&Math.hypot(point.x-p.x,point.y-p.y)<score-1e-5):[];
-        if(better.length){path=better;q=better[better.length-1];}
+      const currentRoute=(point,nav=scene.navigation)=>nav?nav.route(a,point,safeBounds,routeFree):[point];
+      // Pure planning permits a complete V4 comparison, including its stable
+      // grid and supplemental route, without changing scene or actor state.
+      const plan=nav=>{
+        const proposal=destination(a,p,nav),originalReference=referenceDestination(a,p,undefined,nav);
+        const expandedReference=scene.referenceBounds?.(a)?referenceDestination(a,p,safeBounds,nav):null;
+        const reference=expandedReference&&(!originalReference||!retreats(expandedReference.point,originalReference.point))?expandedReference:originalReference;
+        const preferReference=reference&&(!proposal||Math.hypot(proposal.x-reference.point.x,proposal.y-reference.point.y)<1e-7||retreats(proposal,reference.point));
+        let q=preferReference?reference.point:proposal;
+        const oldRoute=()=>nav.referenceRoute(a,reference.point,reference.bounds,referenceFree);
+        let path=preferReference?oldRoute():q?currentRoute(q,nav):[];
+        if(!path.length&&preferReference)path=currentRoute(q,nav);
+        if(!path.length&&preferReference&&proposal){q=proposal;path=currentRoute(q,nav);}
+        if(!path.length&&!preferReference&&reference){q=reference.point;path=oldRoute();if(!path.length)path=currentRoute(q,nav);}
+        if(!path.length&&originalReference&&originalReference!==reference){q=originalReference.point;path=nav.referenceRoute(a,q,originalReference.bounds,referenceFree);if(!path.length)path=currentRoute(q,nav);}
+        if(nav?.reachable){
+          const prior=path.length?q:null,score=prior?Math.hypot(prior.x-p.x,prior.y-p.y):Infinity;
+          const better=score>1e-5?nav.reachable(a,p,safeBounds,referenceFree,point=>Math.hypot(point.x-a.x,point.y-a.y)>=3&&free(a,point)&&(!prior||!retreats(point,prior))&&Math.hypot(point.x-p.x,point.y-p.y)<score-1e-5):[];
+          if(better.length){path=better;q=better[better.length-1];}
+        }
+        return {point:q,path,originalReference,expandedReference};
+      };
+      const result=plan(scene.navigation),{originalReference,expandedReference}=result;
+      let q=result.point,path=result.path;
+      // Compare direction in actual screen units. A hard dominant-axis test
+      // rejects useful diagonal routes around the 45-degree dividing line.
+      const scale=scene.navigation?.intentScale||{},sx=scale.x||1,sy=scale.y||1;
+      const dx=(p.x-a.x)*sx,dy=(p.y-a.y)*sy;
+      const forward=point=>point&&((point.x-a.x)*sx*dx+(point.y-a.y)*sy*dy)>1e-7;
+      const legacy=scene.navigation?.layoutNavigation;
+      if(legacy&&legacy!==scene.navigation){
+        const prior=plan(legacy);
+        if(prior.path.length&&Math.hypot(prior.point.x-a.x,prior.point.y-a.y)>=3&&(!scene.navigation.intentAware||forward(prior.point))&&(!path.length||retreats(q,prior.point))){
+          q=prior.point;path=prior.path;
+          const score=Math.hypot(q.x-p.x,q.y-p.y),floor=q;
+          const better=scene.navigation.reachable?.(a,p,safeBounds,referenceFree,point=>Math.hypot(point.x-a.x,point.y-a.y)>=3&&free(a,point)&&!retreats(point,floor)&&Math.hypot(point.x-p.x,point.y-p.y)<score-1e-5)||[];
+          if(better.length){path=better;q=better.at(-1);}
+        }
+      }
+      if(scene.navigation?.intentAware){
+        if(!path.length||!forward(q)){
+          // A reachable fallback can otherwise send a downward drag upwards.
+          // Keep any safe legacy endpoint that follows the request, and compare
+          // it with the reachable forward component before deciding to stay put.
+          const eligible=point=>forward(point)&&Math.hypot(point.x-a.x,point.y-a.y)>=3&&referenceFree(point)&&free(a,point);
+          const options=[];
+          for(const candidate of [originalReference,expandedReference])if(candidate&&eligible(candidate.point)){
+            let route=scene.navigation.referenceRoute(a,candidate.point,candidate.bounds,referenceFree);
+            if(!route.length)route=currentRoute(candidate.point);
+            if(route.length)options.push(route);
+          }
+          const route=scene.navigation.reachable?.(a,p,safeBounds,referenceFree,eligible)||[];
+          if(route.length)options.push(route);
+          options.sort((u,v)=>{const cost=r=>Math.hypot((r.at(-1).x-p.x)*sx,(r.at(-1).y-p.y)*sy);return cost(u)-cost(v);});
+          path=options[0]||[];q=path.at(-1)||null;
+        }
       }
       if(!path.length||Math.hypot(q.x-a.x,q.y-a.y)<3)return false;
+      const request=manualGoals.get(key);
+      if(request?.floor&&['x','y'].some(axis=>(q[axis]-request.floor[axis])*request.direction[axis]<-1e-7))return false;
+      if(request){request.nextAt=Infinity;request.floor={...q};}
       a.route=path.slice(1);a.target=path[0];a.source=source;if(source!=='ambient'){a.faceKey=null;a.visualReaction=undefined;a.visualTarget=null;}activity(a,'walk');a.lastWalk=clock;stats.moves++;defer(a,4);idleAt=clock+4;emit('move',a,source);return true;
     }
     function idle(a){
@@ -198,6 +234,16 @@
       dt=Math.min(.1,dt);paused=!!flags.blocked;
       if(paused){cancel();return;}
       clock+=dt;
+      // A moving resident may close a route after planning. Retry the same
+      // manual intention briefly; every new route uses the unchanged predicates.
+      for(const [key,request] of manualGoals){
+        const a=actor(key);
+        if(!a||clock>request.expires||request.retries>=4){manualGoals.delete(key);continue;}
+        if(!a.target&&a.key!==flags.heldActor&&clock>=request.nextAt){
+          request.retries++;request.nextAt=clock+1;retryingKey=key;
+          try{move(key,request.point,request.source);}finally{retryingKey=null;}
+        }
+      }
       if(!flags.reducedMotion&&flags.autonomy!==false)for(const a of actors)if(!a.target&&a.key!==flags.heldActor&&clock>=a.nextAt&&clock>=a.manualUntil)idle(a);
       for(const a of actors){
         if(flags.reducedMotion&&a.source==='ambient'){a.target=null;a.route=[];}
@@ -206,6 +252,7 @@
         if(dist<.5){
           if(a.route?.length){a.target=a.route.shift();continue;}
           a.target=null;activity(a,a.source==='ambient'?a.after:'rest');
+          const request=manualGoals.get(a.key);if(request){if(Math.hypot(a.x-request.point.x,a.y-request.point.y)<3)manualGoals.delete(a.key);else request.nextAt=clock+1;}
           if(a.source==='ambient'&&a.visualTarget)a.direction=a.visualTarget.x<a.x?-1:1;
           defer(a,3+random()*5);
           const b=actor(a.faceKey);
@@ -227,7 +274,7 @@
         // when every existing overlap shrinks; never enter a new overlap.
         const distance=(q,b)=>clearance(a,q,b);
         const safe=visible(a,p)&&(!scene.navigation||scene.navigation.segmentSafe(a,p))&&actors.every(b=>b===a||separated(a,p,b)||distance(a,b)<1&&distance(p,b)>distance(a,b)+1e-6);
-        if(!safe){a.target=null;a.route=[];a.activity='look';defer(a,1+random()*2);continue;}
+        if(!safe){a.target=null;a.route=[];a.activity='look';const request=manualGoals.get(a.key);if(request)request.nextAt=clock+1;defer(a,1+random()*2);continue;}
         stats.distance+=Math.hypot(p.x-a.x,p.y-a.y);a.x=p.x;a.y=p.y;if(Math.abs(dx)>.3)a.direction=dx<0?-1:1;
       }
     }
