@@ -1,0 +1,51 @@
+{
+  "method": "Chromium native console.time/timeEnd around model.step; Playwright fake performance.now is paused. Two/three concurrent desktop jobs, not iPhone. A initial pointer model.move measured separately to avoid hiding baseline input cost.",
+  "baselineFirst16": {
+    "steps": {
+      "samples": 9600,
+      "maxMs": 119.696044921875,
+      "p95Ms": 0.0048828125,
+      "over16_7": 56,
+      "over50": 34
+    },
+    "initialInput": {
+      "samples": 16,
+      "maxMs": 167.75390625,
+      "p95Ms": 167.75390625,
+      "over16_7": 16,
+      "over50": 12
+    }
+  },
+  "unboundedFirst85": {
+    "b": {
+      "samples": 51000,
+      "maxMs": 1693.678955078125,
+      "p95Ms": 0.013916015625,
+      "over16_7": 357,
+      "over50": 199
+    },
+    "c": {
+      "samples": 51000,
+      "maxMs": 1918.410888671875,
+      "p95Ms": 0.01416015625,
+      "over16_7": 360,
+      "over50": 205
+    }
+  },
+  "unboundedMatchedFirst16": {
+    "b": {
+      "samples": 9600,
+      "maxMs": 1580.9580078125,
+      "p95Ms": 0.01220703125,
+      "over16_7": 71,
+      "over50": 45
+    },
+    "c": {
+      "samples": 9600,
+      "maxMs": 1617.89697265625,
+      "p95Ms": 0.01416015625,
+      "over16_7": 71,
+      "over50": 47
+    }
+  }
+}
