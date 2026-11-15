@@ -331,7 +331,7 @@
       "gains": {
         "left": 15.282190435089305,
         "right": 10.007351861149687,
-        "top": 1.1368683772161603e-13,
+        "top": 0,
         "bottom": 0
       },
       "localBlockers": {
@@ -403,7 +403,7 @@
       "gains": {
         "left": 21.588386800240784,
         "right": 0,
-        "top": 1.1368683772161603e-13,
+        "top": 0,
         "bottom": 0
       },
       "localBlockers": {
@@ -475,7 +475,7 @@
       "gains": {
         "left": 18.83747177240815,
         "right": 13.704521363598417,
-        "top": 1.1368683772161603e-13,
+        "top": 0,
         "bottom": 0
       },
       "localBlockers": {
@@ -836,7 +836,7 @@
       "gains": {
         "left": 15.282190435089298,
         "right": 10.007351861149687,
-        "top": 1.1368683772161603e-13,
+        "top": 0,
         "bottom": 0
       },
       "localBlockers": {
@@ -944,7 +944,7 @@
       "gains": {
         "left": 22.398250864273486,
         "right": 12.097520087385362,
-        "top": 1.1368683772161603e-13,
+        "top": 0,
         "bottom": 0
       },
       "localBlockers": {
@@ -1011,6 +1011,13 @@
       }
     }
   ],
+  "dense": {
+    "directions": 112,
+    "actualMovement": 74,
+    "blocked": 38,
+    "actualOutwardImprovements": 23,
+    "oldAwaySuppressedWithoutMovement": 7
+  },
   "cases": [
     {
       "config": {
@@ -1027,53 +1034,9 @@
         "notice": false
       },
       "mode": "isolated",
-      "actorDirectionRows": 28,
-      "trials": 944,
-      "dispatchedPointers": 944,
-      "unselectable": 0,
-      "inputMismatches": 17,
-      "regressions": 0
-    },
-    {
-      "config": {
-        "width": 390,
-        "height": 844,
-        "safeBottom": 34,
-        "count": 28,
-        "heroId": "hermit_crab",
-        "stage": 5,
-        "itemId": "poop1",
-        "region": "city",
-        "time": "night",
-        "speech": false,
-        "notice": false
-      },
-      "mode": "isolated",
-      "actorDirectionRows": 28,
-      "trials": 952,
-      "dispatchedPointers": 952,
-      "unselectable": 0,
-      "inputMismatches": 20,
-      "regressions": 0
-    },
-    {
-      "config": {
-        "width": 390,
-        "height": 844,
-        "safeBottom": 34,
-        "count": 28,
-        "heroId": "hermit_crab",
-        "stage": 5,
-        "itemId": "poop1",
-        "region": "city",
-        "time": "night",
-        "speech": false,
-        "notice": false
-      },
-      "mode": "isolated",
-      "actorDirectionRows": 28,
-      "trials": 952,
-      "dispatchedPointers": 952,
+      "actorDirectionRows": 112,
+      "trials": 3792,
+      "dispatchedPointers": 3792,
       "unselectable": 0,
       "inputMismatches": 0,
       "regressions": 0
@@ -1092,21 +1055,220 @@
         "speech": false,
         "notice": false
       },
-      "mode": "isolated",
-      "actorDirectionRows": 28,
-      "trials": 944,
-      "dispatchedPointers": 944,
+      "mode": "dense",
+      "actorDirectionRows": 112,
+      "trials": 448,
+      "dispatchedPointers": 448,
+      "unselectable": 0,
+      "inputMismatches": 0,
+      "regressions": 8
+    },
+    {
+      "config": {
+        "width": 390,
+        "height": 844,
+        "safeBottom": 34,
+        "count": 4,
+        "heroId": "hermit_crab",
+        "stage": 5,
+        "itemId": "poop1",
+        "region": "city",
+        "time": "night",
+        "speech": false,
+        "notice": false
+      },
+      "mode": "representative",
+      "actorDirectionRows": 12,
+      "trials": 312,
+      "dispatchedPointers": 312,
+      "unselectable": 0,
+      "inputMismatches": 0,
+      "regressions": 7
+    },
+    {
+      "config": {
+        "width": 320,
+        "height": 568,
+        "safeBottom": 0,
+        "count": 4,
+        "heroId": "hermit_crab",
+        "stage": 5,
+        "itemId": "poop1",
+        "region": "city",
+        "time": "night",
+        "speech": true,
+        "notice": true
+      },
+      "mode": "representative",
+      "actorDirectionRows": 12,
+      "trials": 232,
+      "dispatchedPointers": 152,
+      "unselectable": 80,
+      "inputMismatches": 0,
+      "regressions": 4
+    },
+    {
+      "config": {
+        "width": 375,
+        "height": 812,
+        "safeBottom": 34,
+        "count": 4,
+        "heroId": "hermit_crab",
+        "stage": 5,
+        "itemId": "poop1",
+        "region": "city",
+        "time": "night",
+        "speech": true,
+        "notice": true
+      },
+      "mode": "representative",
+      "actorDirectionRows": 12,
+      "trials": 288,
+      "dispatchedPointers": 288,
+      "unselectable": 0,
+      "inputMismatches": 0,
+      "regressions": 0
+    },
+    {
+      "config": {
+        "width": 430,
+        "height": 932,
+        "safeBottom": 34,
+        "count": 4,
+        "heroId": "hermit_crab",
+        "stage": 5,
+        "itemId": "poop1",
+        "region": "city",
+        "time": "night",
+        "speech": true,
+        "notice": true
+      },
+      "mode": "representative",
+      "actorDirectionRows": 12,
+      "trials": 360,
+      "dispatchedPointers": 360,
+      "unselectable": 0,
+      "inputMismatches": 0,
+      "regressions": 2
+    },
+    {
+      "config": {
+        "width": 320,
+        "height": 568,
+        "safeBottom": 0,
+        "count": 4,
+        "heroId": "hermit_crab",
+        "stage": 5,
+        "itemId": "poop1",
+        "region": "city",
+        "time": "night",
+        "speech": true,
+        "notice": true
+      },
+      "mode": "representative",
+      "actorDirectionRows": 4,
+      "trials": 80,
+      "dispatchedPointers": 80,
+      "unselectable": 0,
+      "inputMismatches": 0,
+      "regressions": 0
+    },
+    {
+      "config": {
+        "width": 390,
+        "height": 844,
+        "safeBottom": 34,
+        "count": 4,
+        "heroId": "hermit_crab",
+        "stage": 0,
+        "itemId": null,
+        "region": "city",
+        "time": "night",
+        "speech": false,
+        "notice": false
+      },
+      "mode": "representative",
+      "actorDirectionRows": 4,
+      "trials": 104,
+      "dispatchedPointers": 104,
+      "unselectable": 0,
+      "inputMismatches": 0,
+      "regressions": 0
+    },
+    {
+      "config": {
+        "width": 390,
+        "height": 844,
+        "safeBottom": 34,
+        "count": 1,
+        "heroId": "hermit_crab",
+        "stage": 7,
+        "itemId": null,
+        "region": "city",
+        "time": "night",
+        "speech": false,
+        "notice": false
+      },
+      "mode": "representative",
+      "actorDirectionRows": 4,
+      "trials": 104,
+      "dispatchedPointers": 104,
+      "unselectable": 0,
+      "inputMismatches": 0,
+      "regressions": 0
+    },
+    {
+      "config": {
+        "width": 390,
+        "height": 844,
+        "safeBottom": 34,
+        "count": 4,
+        "heroId": "world_tree",
+        "stage": 7,
+        "itemId": "star",
+        "region": "city",
+        "time": "night",
+        "speech": false,
+        "notice": false
+      },
+      "mode": "representative",
+      "actorDirectionRows": 4,
+      "trials": 24,
+      "dispatchedPointers": 24,
+      "unselectable": 0,
+      "inputMismatches": 0,
+      "regressions": 0
+    },
+    {
+      "config": {
+        "width": 390,
+        "height": 844,
+        "safeBottom": 34,
+        "count": 4,
+        "heroId": "hermit_crab",
+        "stage": 5,
+        "itemId": "poop1",
+        "region": "city",
+        "time": "night",
+        "speech": false,
+        "notice": false
+      },
+      "mode": "representative",
+      "actorDirectionRows": 1,
+      "trials": 8,
+      "dispatchedPointers": 8,
       "unselectable": 0,
       "inputMismatches": 0,
       "regressions": 0
     }
   ],
   "totals": {
-    "actorDirectionRows": 112,
-    "trials": 3792,
-    "unselectable": 0,
-    "regressions": 0,
-    "oldNetAwaySuppressed": 0,
+    "actorDirectionRows": 289,
+    "trials": 5752,
+    "dispatchedPointers": 5672,
+    "unselectable": 80,
+    "regressions": 21,
+    "oldNetAwaySuppressed": 21,
     "unresolvedRegressions": 0
   }
 }

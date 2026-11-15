@@ -1,0 +1,522 @@
+[
+  {
+    "region": "city",
+    "time": "morning",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 74.40560913085938,
+    "speechClearance": 12.896627274626098,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "city",
+    "time": "day",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 74.40560913085938,
+    "speechClearance": 12.896627274626098,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "city",
+    "time": "evening",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 74.40560913085938,
+    "speechClearance": 12.896627274626098,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "city",
+    "time": "night",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 74.40560913085938,
+    "speechClearance": 12.896627274626098,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "home",
+    "time": "morning",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 120.31268310546875,
+    "speechClearance": 12.959512041755374,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "home",
+    "time": "day",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 120.31268310546875,
+    "speechClearance": 12.959512041755374,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "home",
+    "time": "evening",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 120.31268310546875,
+    "speechClearance": 12.959512041755374,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "home",
+    "time": "night",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 120.31268310546875,
+    "speechClearance": 12.959512041755374,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "forest",
+    "time": "morning",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 23.028259093268872,
+    "speechClearance": 59.070994483923414,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "forest",
+    "time": "day",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 23.028259093268872,
+    "speechClearance": 59.070994483923414,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "forest",
+    "time": "evening",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 23.028259093268872,
+    "speechClearance": 59.070994483923414,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "forest",
+    "time": "night",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 23.028259093268872,
+    "speechClearance": 59.070994483923414,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "river_lake",
+    "time": "morning",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 67.61470031738281,
+    "speechClearance": 12.906531200070958,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "river_lake",
+    "time": "day",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 67.61470031738281,
+    "speechClearance": 12.906531200070958,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "river_lake",
+    "time": "evening",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 67.61470031738281,
+    "speechClearance": 12.906531200070958,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "river_lake",
+    "time": "night",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 67.61470031738281,
+    "speechClearance": 12.906531200070958,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "countryside",
+    "time": "morning",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 67.30087280273438,
+    "speechClearance": 12.908890004394152,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "countryside",
+    "time": "day",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 67.30087280273438,
+    "speechClearance": 12.908890004394152,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "countryside",
+    "time": "evening",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 67.30087280273438,
+    "speechClearance": 12.908890004394152,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "countryside",
+    "time": "night",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 67.30087280273438,
+    "speechClearance": 12.908890004394152,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "mountain",
+    "time": "morning",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 67.91055297851562,
+    "speechClearance": 12.890502577877783,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "mountain",
+    "time": "day",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 67.91055297851562,
+    "speechClearance": 12.890502577877783,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "mountain",
+    "time": "evening",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 67.91055297851562,
+    "speechClearance": 12.890502577877783,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "mountain",
+    "time": "night",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 67.91055297851562,
+    "speechClearance": 12.890502577877783,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "snow",
+    "time": "morning",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 55.5732421875,
+    "speechClearance": 12.897855549709789,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "snow",
+    "time": "day",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 55.5732421875,
+    "speechClearance": 12.897855549709789,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "snow",
+    "time": "evening",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 55.5732421875,
+    "speechClearance": 12.897855549709789,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "snow",
+    "time": "night",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 55.5732421875,
+    "speechClearance": 12.897855549709789,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "sea",
+    "time": "morning",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 132.50494384765625,
+    "speechClearance": 37.639029371865945,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "sea",
+    "time": "day",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 132.50494384765625,
+    "speechClearance": 37.639029371865945,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "sea",
+    "time": "evening",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 132.50494384765625,
+    "speechClearance": 37.639029371865945,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "sea",
+    "time": "night",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 132.50494384765625,
+    "speechClearance": 37.639029371865945,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "jungle",
+    "time": "morning",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 62.660400390625,
+    "speechClearance": 13.034902291856838,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "jungle",
+    "time": "day",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 62.660400390625,
+    "speechClearance": 13.034902291856838,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "jungle",
+    "time": "evening",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 62.660400390625,
+    "speechClearance": 13.034902291856838,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "jungle",
+    "time": "night",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 62.660400390625,
+    "speechClearance": 13.022145944200588,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "desert",
+    "time": "morning",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 59.21080017089844,
+    "speechClearance": 12.979965324810792,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "desert",
+    "time": "day",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 59.21080017089844,
+    "speechClearance": 12.979965324810792,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "desert",
+    "time": "evening",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 59.21080017089844,
+    "speechClearance": 12.979965324810792,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "desert",
+    "time": "night",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 59.21080017089844,
+    "speechClearance": 12.979965324810792,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "deepsea",
+    "time": "morning",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 67.66606140136719,
+    "speechClearance": 13.040627192713373,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "deepsea",
+    "time": "day",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 67.66606140136719,
+    "speechClearance": 13.040627192713373,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "deepsea",
+    "time": "evening",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 67.66606140136719,
+    "speechClearance": 13.040627192713373,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "deepsea",
+    "time": "night",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 67.66606140136719,
+    "speechClearance": 12.970156485675034,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "star_stop",
+    "time": "morning",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 48.04986572265625,
+    "speechClearance": 13.178523840540493,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "star_stop",
+    "time": "day",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 48.04986572265625,
+    "speechClearance": 13.178523840540493,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "star_stop",
+    "time": "evening",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 48.04986572265625,
+    "speechClearance": 13.178523840540493,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "star_stop",
+    "time": "night",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 48.04986572265625,
+    "speechClearance": 13.021480383509243,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "memory_lake",
+    "time": "morning",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 55.2237548828125,
+    "speechClearance": 12.914171013243504,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "memory_lake",
+    "time": "day",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 55.2237548828125,
+    "speechClearance": 12.914171013243504,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "memory_lake",
+    "time": "evening",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 55.2237548828125,
+    "speechClearance": 12.914171013243504,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  },
+  {
+    "region": "memory_lake",
+    "time": "night",
+    "accepted": true,
+    "overflow": 0,
+    "noticeClearance": 55.2237548828125,
+    "speechClearance": 13.14488223606179,
+    "speechHeight": 76,
+    "noticeHeight": 42
+  }
+]
