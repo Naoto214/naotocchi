@@ -1,3 +1,4 @@
+import {extendVisibleGroundNavigation} from './home-visible-ground-navigation.mjs';
 import {createDayparts,atmosphere} from './home-dayparts.mjs';
 import {ART_CANDIDATES,selectRecoveredScene} from './home-production-manifest.mjs';
 import {artTransform,paintBackdrop,backdropComposition} from './home-production-transform.mjs';
@@ -22,7 +23,21 @@ export function createHomeWorld(options){
   next.src=ART_CANDIDATES.find(a=>a.id===spec.candidate).src;onStatus(loaded?'art-25d':'art-25d-loading');
  }
 
- function navigation(rect){if(!spec)return null;const viewport=win.visualViewport,stableGrid=doc.body?.dataset?.homeDisplayVersion==='18'&&(viewport?.width||win.innerWidth)<=(viewport?.height||win.innerHeight);const {host}=geometry(),stage={left:rect.left-host.left,top:rect.top-host.top,width:rect.width,height:rect.height},key=JSON.stringify([env.region,host.width,host.height,stage,stableGrid]);if(key!==navKey){navKey=key;nav=createRecoveredNavigation(spec,host,stage,{stableGrid,expandCity:stableGrid});revision++;lastPaint='';}return nav;}
+ function navigation(rect){
+  if(!spec)return null;
+  const viewport=win.visualViewport,stableGrid=doc.body?.dataset?.homeDisplayVersion==='18'&&(viewport?.width||win.innerWidth)<=(viewport?.height||win.innerHeight);
+  const {host}=geometry(),stage={left:rect.left-host.left,top:rect.top-host.top,width:rect.width,height:rect.height};
+  const p=win.NaotocchiHomeViewport?.residentPresentation?.(),real=container.getBoundingClientRect();
+  const addVisible=stableGrid&&p&&!p.landscape&&doc.body.dataset.homeViewportVersion==='12'&&doc.body.dataset.homeTinyOverview==='true';
+  const width=Math.max(real.width,real.height/1.5),height=width*1.5,cover={left:real.left+(real.width-width)/2,top:real.top+(real.height-height)/2,width,height};
+  const key=JSON.stringify([env.region,host.width,host.height,stage,stableGrid,addVisible&&[p.x,p.y,p.scaleX,p.scaleY,cover]]);
+  if(key!==navKey){
+   navKey=key;const legacy=createRecoveredNavigation(spec,host,stage,{stableGrid,expandCity:stableGrid});
+   nav=addVisible?extendVisibleGroundNavigation(legacy,{spec,stage:rect,presentation:p,cover}):legacy;
+   revision++;lastPaint='';
+  }
+  return nav;
+ }
  function draw(dt,flags={}){if(dead||flags.paused)return;if(!spec)return;
   fade=dayparts.frame(dt,flags.reducedMotion);if(fade.image){img=fade.image;loaded=true;onStatus('art-25d');}error=fade.error;
   if(!flags.reducedMotion)time+=Math.max(0,Math.min(1,Number(dt)||0))*1000;

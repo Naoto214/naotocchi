@@ -431,6 +431,9 @@
     let residentEnvelopeKey='';
     function publishResidentEnvelope(){
       if(!['13','14','15','16','17','18'].includes(doc.body?.dataset.homeDisplayVersion))return;
+      // Walking ground may grow independently of the approved camera fit. Keep
+      // that fit on the original floor so adding a route cannot resize the cast.
+      const layoutNavigation=scene.navigation?.layoutNavigation||scene.navigation;
       const v15=['15','16','17','18'].includes(doc.body.dataset.homeDisplayVersion),depthAware=v15||doc.body.dataset.homeDisplayVersion==='14',vertical=new Map(),fitVertical=new Map();
       const key=JSON.stringify([doc.body.dataset.homeDisplayVersion==='18'?env.NaotocchiHomeViewport?.residentPresentation?.()?.landscape:null,scene.width,scene.height,world?.stats().projectionRevision,...[...rows.values()].map(r=>[r.key,r.asset,r.w,r.h,r.extent])]);
       if(key===residentEnvelopeKey)return;residentEnvelopeKey=key;
@@ -462,17 +465,17 @@
         const bodySide=Math.max(a.w/2,a.kind==='pet'?h*.55:0);
         row.paintExtent={...paint,side:wide,left:Math.max(bodySide,a.extent?.left||0),right:Math.max(bodySide,a.extent?.right||0)};
         let maxDepth=1;
-        // Read the existing navigation grid, without making a new walkable region.
+        // Camera reservation uses the original navigation grid, not added ground.
         for(let y=b.top;y<=b.bottom+.001;y+=Math.min(8,Math.max(1,b.bottom-y))) {
           for(let x=b.left;x<=b.right+.001;x+=Math.min(8,Math.max(1,b.right-x))){
-            if(!scene.navigation||scene.navigation.valid({x,y})){
+            if(!layoutNavigation||layoutNavigation.valid({x,y})){
               left=Math.min(left,x);right=Math.max(right,x);top=Math.min(top,y);bottom=Math.max(bottom,y);
-              const depth=scene.navigation?.depthScale?.({x,y})||1;
+              const depth=layoutNavigation?.depthScale?.({x,y})||1;
               maxDepth=Math.max(maxDepth,depth);
-              if(v15)for(const [sy,sup,sdown]of residentInkBand({x,y,top:b.top,bottom:b.bottom,up:paint.up,down:paint.down},scene.navigation)){
+              if(v15)for(const [sy,sup,sdown]of residentInkBand({x,y,top:b.top,bottom:b.bottom,up:paint.up,down:paint.down},layoutNavigation)){
                 const ink=fitVertical.get(sy)||[0,0];fitVertical.set(sy,[Math.max(ink[0],sup),Math.max(ink[1],sdown)]);
               }
-              if(depthAware)for(const [sy,sup,sdown]of residentInkBand({x,y,top:b.top,bottom:b.bottom,up,down},scene.navigation)){
+              if(depthAware)for(const [sy,sup,sdown]of residentInkBand({x,y,top:b.top,bottom:b.bottom,up,down},layoutNavigation)){
                 const ink=vertical.get(sy)||[0,0];vertical.set(sy,[Math.max(ink[0],sup),Math.max(ink[1],sdown)]);top=Math.min(top,sy);bottom=Math.max(bottom,sy);
               }
             }
@@ -491,6 +494,7 @@
     function publishPaintEnvelope(){
       publishResidentEnvelope();
       if(doc.body?.dataset.homeViewportVersion!=='12')return;
+      const layoutNavigation=scene.navigation?.layoutNavigation||scene.navigation;
       let top=Infinity,bottom=-Infinity;
       for(const a of model.snapshot()){
         const row=rows.get(a.key);if(!row)continue;
@@ -506,7 +510,7 @@
           below=Math.max(below,(46+dy)*frameHeight/104-foot);
         }
         for(const y of [b.top,(b.top+b.bottom)/2,b.bottom]){
-          const d=scene.navigation?.depthScale?.({x:(b.left+b.right)/2,y})||1;
+          const d=layoutNavigation?.depthScale?.({x:(b.left+b.right)/2,y})||1;
           top=Math.min(top,y-above*d-24);bottom=Math.max(bottom,y+below*d+24);
         }
       }
