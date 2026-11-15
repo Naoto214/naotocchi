@@ -1,0 +1,198 @@
+{
+  "note": "Original quantitative runtime lacked daypart background assets. Corrected assets loaded for this matched-pointer subset. Identical models/geometry and exact foot endpoints demonstrate these measured movement quantities are unchanged for this representative subset. Rendered body/item edges are NOT byte-identical: loading/animation phase differs up to 0.586 CSSpx in this sample; no claim of identical rendered pixels or all-background visual validation.",
+  "camera": "Both passes assert exact #559 presentation scale/translation and stage rectangle before every page measurement",
+  "beforeModel": {
+    "mode": "manual",
+    "modelHash": "b3cd01bbfe49d7b7ac2319b3b3550834ba9aee74857e68a85f6007f4862641c7",
+    "frozenProductionModel": false,
+    "sourceModelHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53"
+  },
+  "afterModel": {
+    "mode": "manual",
+    "modelHash": "b3cd01bbfe49d7b7ac2319b3b3550834ba9aee74857e68a85f6007f4862641c7",
+    "frozenProductionModel": false,
+    "sourceModelHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53"
+  },
+  "geometry": [
+    {
+      "file": "home-production-model.js",
+      "sha256": "b3cd01bbfe49d7b7ac2319b3b3550834ba9aee74857e68a85f6007f4862641c7"
+    },
+    {
+      "file": "home-production-world.mjs",
+      "sha256": "d824c818c676353898afb052b43f8e88db9a14a7add55c3986af0104dbdc9ca6"
+    },
+    {
+      "file": "home-art-navigation.mjs",
+      "sha256": "b08b767e0984c662aae5bd2e98dfc1463923950b7c41ded9af7ee4a26f8668be"
+    },
+    {
+      "file": "home-visible-ground-navigation.mjs",
+      "sha256": "47d394909efd22698dc697883efab1dc5f5142842d03615283d43d2f9490093b"
+    }
+  ],
+  "rows": [
+    {
+      "key": "pet:hermit_crab",
+      "edge": "left",
+      "variant": "a",
+      "footDeltaCss": 0,
+      "bodyEdgeDeltaCss": {
+        "left": -0.2726594454948028,
+        "right": -0.08754451104150007,
+        "top": -0.17857582387694038,
+        "bottom": 0.06268162811983302
+      },
+      "itemEdgeDeltaCss": {
+        "left": -0.2726594454948028,
+        "right": -0.3060958118627184,
+        "top": -0.18670654296875,
+        "bottom": 0.06268162811983302
+      }
+    },
+    {
+      "key": "pet:hermit_crab",
+      "edge": "left",
+      "variant": "b",
+      "footDeltaCss": 0,
+      "bodyEdgeDeltaCss": {
+        "left": -0.14557446677017083,
+        "right": -0.04675915339529979,
+        "top": -0.09533063114713514,
+        "bottom": 0.033481122675539154
+      },
+      "itemEdgeDeltaCss": {
+        "left": -0.14557446677017083,
+        "right": -0.16349060271400617,
+        "top": -0.099609375,
+        "bottom": 0.033481122675539154
+      }
+    },
+    {
+      "key": "pet:hermit_crab",
+      "edge": "left",
+      "variant": "c",
+      "footDeltaCss": 0,
+      "bodyEdgeDeltaCss": {
+        "left": -0.3998092304832639,
+        "right": -0.1283517906997531,
+        "top": -0.26193786796306995,
+        "bottom": 0.09182112504043971
+      },
+      "itemEdgeDeltaCss": {
+        "left": -0.3998092304832639,
+        "right": -0.4487437870715496,
+        "top": -0.2738037109375,
+        "bottom": 0.09182112504043971
+      }
+    },
+    {
+      "key": "partner:gentle_gorilla",
+      "edge": "right",
+      "variant": "a",
+      "footDeltaCss": 0,
+      "bodyEdgeDeltaCss": {
+        "left": -0.0001733021862833084,
+        "right": 0.11471052128504766,
+        "top": -0.08080860238572996,
+        "bottom": 0.011555052132223409
+      },
+      "itemEdgeDeltaCss": {
+        "left": -0.0001733021862833084,
+        "right": 0.0600738525390625,
+        "top": -0.0451812744140625,
+        "bottom": 0.011555052132223409
+      }
+    },
+    {
+      "key": "partner:gentle_gorilla",
+      "edge": "right",
+      "variant": "b",
+      "footDeltaCss": 0,
+      "bodyEdgeDeltaCss": {
+        "left": -0.00026677238147954085,
+        "right": 0.2126733148936637,
+        "top": -0.14976480271596415,
+        "bottom": 0.02138441878884123
+      },
+      "itemEdgeDeltaCss": {
+        "left": -0.00026677238147954085,
+        "right": 0.111419677734375,
+        "top": -0.083648681640625,
+        "bottom": 0.02138441878884123
+      }
+    },
+    {
+      "key": "partner:gentle_gorilla",
+      "edge": "right",
+      "variant": "c",
+      "footDeltaCss": 0,
+      "bodyEdgeDeltaCss": {
+        "left": -0.00026677238147954085,
+        "right": 0.2126733148936637,
+        "top": -0.14976480271596415,
+        "bottom": 0.02138441878884123
+      },
+      "itemEdgeDeltaCss": {
+        "left": -0.00026677238147954085,
+        "right": 0.111419677734375,
+        "top": -0.083648681640625,
+        "bottom": 0.02138441878884123
+      }
+    },
+    {
+      "key": "companion:seal",
+      "edge": "bottom",
+      "variant": "a",
+      "footDeltaCss": 0,
+      "bodyEdgeDeltaCss": {
+        "left": -0.5856037689162008,
+        "right": -0.11848094267440956,
+        "top": -0.350622226609687,
+        "bottom": 0.16361673098219853
+      },
+      "itemEdgeDeltaCss": {
+        "left": -0.5856037689162008,
+        "right": -0.11848094267440956,
+        "top": -0.350622226609687,
+        "bottom": 0.16361673098219853
+      }
+    },
+    {
+      "key": "companion:seal",
+      "edge": "bottom",
+      "variant": "b",
+      "footDeltaCss": 0,
+      "bodyEdgeDeltaCss": {
+        "left": -0.000032438478825724815,
+        "right": 0.061396175750417115,
+        "top": -0.0337470142611096,
+        "bottom": 0.03383098200947643
+      },
+      "itemEdgeDeltaCss": {
+        "left": -0.000032438478825724815,
+        "right": 0.061396175750417115,
+        "top": -0.0337470142611096,
+        "bottom": 0.03383098200947643
+      }
+    },
+    {
+      "key": "companion:seal",
+      "edge": "bottom",
+      "variant": "c",
+      "footDeltaCss": 0,
+      "bodyEdgeDeltaCss": {
+        "left": 0.000008752901948128056,
+        "right": 0.006476451282196649,
+        "top": -0.003568241599055,
+        "bottom": 0.0035469131623813155
+      },
+      "itemEdgeDeltaCss": {
+        "left": 0.000008752901948128056,
+        "right": 0.006476451282196649,
+        "top": -0.003568241599055,
+        "bottom": 0.0035469131623813155
+      }
+    }
+  ]
+}
