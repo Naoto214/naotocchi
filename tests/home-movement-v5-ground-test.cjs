@@ -37,3 +37,18 @@ test('terrain navigation accepts an optional exact segment guard without changin
  assert.equal(createTerrainNavigation(options).segmentSafe(start,end),true);
  assert.equal(createTerrainNavigation({...options,segmentWalkable:()=>false}).segmentSafe(start,end),false);
 });
+test('the measured 390px city watcher shortcut cannot cross the gap between ground projections',async()=>{
+ const {createRecoveredNavigation}=await import('../home-recovered-navigation.mjs'),{ART_SCENES}=await import('../home-production-manifest.mjs');
+ const {createTerrainNavigation}=await import('../home-route-navigation.mjs'),{extendVisibleGroundNavigation}=await import('../home-visible-ground-navigation.mjs');
+ const host={left:18.450293277570836,top:-117.40625,width:358,height:688};
+ const stage={left:18.43749977148755,top:23.593752463691388,width:358,height:380};
+ const legacy=createRecoveredNavigation(ART_SCENES.city,host,{...stage,left:stage.left-host.left,top:stage.top-host.top},{stableGrid:true,expandCity:true});
+ const next=extendVisibleGroundNavigation(legacy,{spec:ART_SCENES.city,stage,presentation:{x:16,y:143.59375,scaleX:.9551369021930816,scaleY:1.5821506825071725},cover:{left:-86.33333333333331,top:0,width:562.6666666666666,height:844}});
+ const sampled=createTerrainNavigation({width:358,height:380,project:p=>p,unproject:p=>({...p,z:p.y}),walkable:p=>legacy.valid(p)||next.visibleGround.valid(p)});
+ const start={x:152.01279350608328,y:311.25607768715486},end={x:124.01279350608328,y:315.25607768715486};
+ assert.equal(sampled.segmentSafe(start,end),true,'the previous 3px check skipped this actual gap');
+ assert.equal(next.segmentSafe(start,end),false);
+ const path=next.route(start,end,{left:5.412829535062876,right:364.52467434003154,top:138.25973327130018,bottom:369.5263404742343});
+ assert.ok(path.length>1);assert.deepEqual(path.at(-1),end);
+ let from=start;for(const to of path){assert.ok(next.segmentSafe(from,to));from=to;}
+});

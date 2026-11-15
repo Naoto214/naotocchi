@@ -1,6 +1,6 @@
-import {createTerrainNavigation} from './home-route-navigation.mjs';
-import {insidePolygon} from './home-art-navigation.mjs';
-import {VISIBLE_GROUND_RULES} from './home-ground-expansion.mjs';
+import {createTerrainNavigation} from './home-route-navigation.mjs?v=9459d7632eb7';
+import {insidePolygon} from './home-art-navigation.mjs?v=b08b767e0984';
+import {VISIBLE_GROUND_RULES} from './home-ground-expansion.mjs?v=886c97b278c4';
 
 // Polygon membership can change only at an edge intersection. Split the native
 // segment at those exact parameters, including collinear edge endpoints. This

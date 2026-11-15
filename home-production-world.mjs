@@ -1,8 +1,8 @@
-import {extendVisibleGroundNavigation} from './home-visible-ground-navigation.mjs';
+import {extendVisibleGroundNavigation} from './home-visible-ground-navigation.mjs?v=47d394909efd';
 import {createDayparts,atmosphere} from './home-dayparts.mjs';
 import {ART_CANDIDATES,selectRecoveredScene} from './home-production-manifest.mjs';
 import {artTransform,paintBackdrop,backdropComposition} from './home-production-transform.mjs';
-import {createRecoveredNavigation} from './home-recovered-navigation.mjs?v=2e441024418b';
+import {createRecoveredNavigation} from './home-recovered-navigation.mjs?v=9a7e25d9fbe9';
 export function createHomeWorld(options){
  const {container,document:doc,window:win=window,onStatus=()=>{}}=options;
  const painting=doc.createElement('canvas');let paintingKey='';
