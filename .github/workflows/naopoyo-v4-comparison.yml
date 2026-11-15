@@ -56,3 +56,5 @@ jobs:
           node prototypes/naopoyo-100/v4/v6/tests/gimmick-ui-smoke.cjs
           node prototypes/naopoyo-100/v4/atlas-review/tests/images.cjs
           node prototypes/naopoyo-100/v4/atlas-review/tests/ui-smoke.cjs
+          node prototypes/naopoyo-100/v4/atlas-review/tests/crate-art.cjs
+          node prototypes/naopoyo-100/v4/atlas-review/tests/crate-art-ui.cjs
