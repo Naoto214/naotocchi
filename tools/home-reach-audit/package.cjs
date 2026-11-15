@@ -1,0 +1,8 @@
+const fs=require('fs'),path=require('path');
+const out=path.resolve(process.argv[2]||path.join(__dirname,'../../../reach-site/build'));fs.mkdirSync(path.join(out,'images'),{recursive:true});
+const folders=process.argv.slice(3);if(folders.length!==3)throw Error('usage: node package.cjs out main-evidence other-cases probe-evidence');
+const compact=r=>r&&({actor:{foot:r.actor.foot,x:r.actor.x,y:r.actor.y,direction:r.actor.direction,bounds:r.actor.bounds},goal:r.goal,origin:r.origin,body:r.body,withItems:r.withItems,trace:r.trace,input:r.input,screenshot:r.screenshot,beyond:r.beyond});
+const cases=[];for(let i=0;i<6;i++){const dir=folders[i===0?0:1],raw=JSON.parse(fs.readFileSync(path.join(dir,'case-'+i+'.json')));for(const r of raw.records){for(const v of ['a','b']){fs.copyFileSync(path.join(dir,r.best[v].screenshot),path.join(out,'images',r.best[v].screenshot));r.best[v]=compact(r.best[v]);}for(const f of Object.keys(r.ablations))for(const v of ['a','b'])r.ablations[f][v]=compact(r.ablations[f][v]);delete r.samples;}cases.push({config:raw.config,records:raw.records});}
+const probe=JSON.parse(fs.readFileSync(path.join(folders[2],'probe.json'))).pairs[0];for(const v of ['a','b'])fs.copyFileSync(path.join(folders[2],probe[v].screenshot),path.join(out,'images',probe[v].screenshot));cases[0].probe={a:compact(probe.a),b:compact(probe.b),bToA:compact(probe.bToA)};
+fs.writeFileSync(path.join(out,'evidence.json'),JSON.stringify({baseline:'408c72e6ebef71da3eab33cfb268c7494117aaaa',version1:'6ab53fc23747fc1982089939206c1b6087643953',cases},null,2));
+for(const f of ['page.html','page.css','page.js'])fs.copyFileSync(path.join(__dirname,f),path.join(out,f==='page.html'?'index.html':f));

@@ -1,0 +1,99 @@
+{
+  "before": {
+    "key": "companion:seal",
+    "kind": "companion",
+    "id": "seal",
+    "x": 236.0105241445568,
+    "y": 171.24967808765015,
+    "w": 83.18750000000001,
+    "h": 76.38125000000001,
+    "extent": {
+      "left": 41.59375000000001,
+      "right": 41.59375000000001,
+      "top": 88.38125000000001,
+      "bottom": 0
+    },
+    "temperament": {},
+    "route": [],
+    "target": null,
+    "activity": "rest",
+    "direction": 1,
+    "source": "drag",
+    "manualUntil": 14.784000000000002,
+    "nextAt": 11.200240364639084,
+    "lastWalk": 2.7840000000000016,
+    "recent": [
+      "walk",
+      "rest"
+    ],
+    "after": "observe",
+    "faceKey": null,
+    "nextVisualAt": 0,
+    "foot": {
+      "x": 231.14945782242577,
+      "y": 279.74553077902453
+    },
+    "depth": 0.8098803898297547,
+    "bounds": {
+      "left": -30.91340575541797,
+      "right": 388.9290165156571,
+      "top": 126.63368388755615,
+      "bottom": 370.5406869136014
+    },
+    "ink": {
+      "up": 92.47425000000001,
+      "down": 8,
+      "side": 41.59375000000001,
+      "left": 41.59375000000001,
+      "right": 41.59375000000001
+    },
+    "visualTarget": null
+  },
+  "after": {
+    "key": "companion:seal",
+    "kind": "companion",
+    "id": "seal",
+    "x": 236.0105241445568,
+    "y": 171.24967808765018,
+    "w": 83.18750000000001,
+    "h": 76.38125000000001,
+    "extent": {
+      "left": 41.59375000000001,
+      "right": 41.59375000000001,
+      "top": 88.38125000000001,
+      "bottom": 0
+    },
+    "temperament": {},
+    "route": [],
+    "target": null,
+    "activity": "rest",
+    "direction": 1,
+    "source": "ambient",
+    "manualUntil": 14.784000000000002,
+    "nextAt": 34.705950923512034,
+    "lastWalk": 20.784000000000276,
+    "recent": [],
+    "after": "observe",
+    "faceKey": null,
+    "visualTarget": null,
+    "nextVisualAt": 0,
+    "foot": {
+      "x": 231.14945782242577,
+      "y": 279.7455307790246
+    },
+    "depth": 0.8098803898297547,
+    "bounds": {
+      "left": -30.91340575541797,
+      "right": 388.9290165156571,
+      "top": 126.63368388755615,
+      "bottom": 370.5406869136014
+    },
+    "ink": {
+      "up": 92.47425000000001,
+      "down": 8,
+      "side": 41.59375000000001,
+      "left": 41.59375000000001,
+      "right": 41.59375000000001
+    }
+  }
+}

@@ -1,0 +1,48 @@
+[
+  {
+    "count": 4,
+    "newGround": 2061,
+    "minimumClearance": 1.0000109609625507,
+    "newOverlaps": 0,
+    "metrics": {
+      "distance": 24410.613446641284,
+      "moves": 375,
+      "turns": 49,
+      "activities": {
+        "rest": 73,
+        "walk": 375,
+        "solitude": 61,
+        "look": 114,
+        "approach": 58,
+        "together": 147,
+        "turn": 22,
+        "sit": 73,
+        "observe": 44
+      },
+      "clock": 1203.3600000000013
+    }
+  },
+  {
+    "count": 28,
+    "newGround": 11716,
+    "minimumClearance": 1.0001316926494705,
+    "newOverlaps": 0,
+    "metrics": {
+      "distance": 40620.6673968435,
+      "moves": 1088,
+      "turns": 312,
+      "activities": {
+        "rest": 396,
+        "walk": 1088,
+        "solitude": 283,
+        "look": 1019,
+        "approach": 298,
+        "together": 627,
+        "turn": 152,
+        "sit": 375,
+        "observe": 262
+      },
+      "clock": 2403.98399999891
+    }
+  }
+]
