@@ -31,8 +31,14 @@
     }
     function visible(a,p){return !scene.visible||scene.visible(p,a);}
     function free(a,p){return visible(a,p)&&actors.every(b=>b===a||separated(a,p,b));}
+    function referenceDestination(a,p,b=scene.referenceBounds?.(a)){
+      const nav=scene.navigation;if(!b||!nav?.referenceNearest)return null;
+      const point=nav.referenceNearest({x:clamp(p.x,b.left,b.right),y:clamp(p.y,b.top,b.bottom)},b,q=>free(a,q));
+      const safe=bounds(a,scene);if(!point||point.x<safe.left||point.x>safe.right||point.y<safe.top||point.y>safe.bottom||!free(a,point))return null;
+      return {point,bounds:b};
+    }
     function destination(a,p){
-      if(scene.navigation)return scene.navigation.nearest(limit(a,p,scene),bounds(a,scene),q=>free(a,q));
+      if(scene.navigation)return scene.navigation.nearest(scene.navigation.rawDestination?p:limit(a,p,scene),bounds(a,scene),q=>free(a,q));
       const q=limit(a,p,scene);if(free(a,q))return q;
       let best=null,dist=Infinity;
       for(let r=20;r<=120;r+=20)for(let i=0;i<16;i++){
@@ -120,12 +126,29 @@
       if(source==='ambient'&&(clock<a.manualUntil||a.target&&a.source!=='ambient'))return false;
       if(source!=='ambient')a.manualUntil=clock+12;
       if(source==='ambient'&&actors.filter(b=>b.target&&b.source==='ambient').length>=(actors.length>15?2:actors.length>5?3:5))return false;
-      const q=destination(a,p);if(!q)return false;
-      if(Math.hypot(q.x-a.x,q.y-a.y)<3)return false;
+      const proposal=destination(a,p),originalReference=referenceDestination(a,p);
+      const expandedReference=scene.referenceBounds?.(a)?referenceDestination(a,p,bounds(a,scene)):null;
+      const retreats=(q,r)=>['x','y'].some(axis=>(q[axis]-r[axis])*Math.sign(p[axis]-a[axis])< -1e-7);
+      // Keep V1's safe improvements as well, when they do not trade away an
+      // original requested component. The main planning grid stays world-fixed.
+      const reference=expandedReference&&(!originalReference||!retreats(expandedReference.point,originalReference.point))?expandedReference:originalReference;
+      if(!proposal&&!reference)return false;
+      const preferReference=reference&&(!proposal||Math.hypot(proposal.x-reference.point.x,proposal.y-reference.point.y)<1e-7||retreats(proposal,reference.point));
+      let q=preferReference?reference.point:proposal;
       // A cramped fallback seat may already overlap. Allow only escape that
       // does not worsen that overlap; step() still requires strict improvement.
       const routeFree=p=>visible(a,p)&&actors.every(b=>b===a||separated(a,p,b)||clearance(a,a,b)<1&&clearance(a,p,b)>=clearance(a,a,b)-1e-9);
-      const path=scene.navigation?scene.navigation.route(a,q,bounds(a,scene),routeFree):[q];if(!path.length)return false;
+      const safeBounds=bounds(a,scene),referenceFree=p=>p.x>=safeBounds.left&&p.x<=safeBounds.right&&p.y>=safeBounds.top&&p.y<=safeBounds.bottom&&routeFree(p);
+      const currentRoute=point=>scene.navigation?scene.navigation.route(a,point,safeBounds,routeFree):[point];
+      const oldRoute=()=>scene.navigation.referenceRoute(a,reference.point,reference.bounds,referenceFree);
+      // Prefer the existing safe endpoint without letting a sparse legacy grid
+      // conceal a valid new passage. Both planners retain the same predicates.
+      let path=preferReference?oldRoute():currentRoute(q);
+      if(!path.length&&preferReference)path=currentRoute(q);
+      if(!path.length&&preferReference&&proposal){q=proposal;path=currentRoute(q);}
+      if(!path.length&&!preferReference&&reference){q=reference.point;path=oldRoute();if(!path.length)path=currentRoute(q);}
+      if(!path.length&&originalReference&&originalReference!==reference){q=originalReference.point;path=scene.navigation.referenceRoute(a,q,originalReference.bounds,referenceFree);if(!path.length)path=currentRoute(q);}
+      if(!path.length||Math.hypot(q.x-a.x,q.y-a.y)<3)return false;
       a.route=path.slice(1);a.target=path[0];a.source=source;if(source!=='ambient'){a.faceKey=null;a.visualReaction=undefined;a.visualTarget=null;}activity(a,'walk');a.lastWalk=clock;stats.moves++;defer(a,4);idleAt=clock+4;emit('move',a,source);return true;
     }
     function idle(a){

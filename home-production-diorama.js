@@ -305,7 +305,7 @@
     function ensureWorld(){
       const M=getMeguru();if(!M||worldLoading||world||!doc.body)return;
       worldLoading=true;const generation=++loadGeneration;worldHost=doc.createElement('div');worldHost.className='home-living-world';worldHost.setAttribute('aria-hidden','true');doc.body.appendChild(worldHost);
-      import('./home-production-world.mjs').then(mod=>{if(generation!==loadGeneration||dead||!enabled)return;
+      import('./home-production-world.mjs?v=8ec56a3ce470').then(mod=>{if(generation!==loadGeneration||dead||!enabled)return;
         world=mod.createHomeWorld({M,container:worldHost,document:doc,window:env,
           getGroundAnchor:()=>scene?displayRect(stage).top-displayRect(worldHost).top+scene.floor*.8:undefined,
           onStatus:(mode,error)=>{stage.dataset.worldRenderer=mode;if(error)stage.dataset.worldError=error;else delete stage.dataset.worldError;doc.body.dataset.livingHome=mode;}});
@@ -608,7 +608,10 @@
       art.hidden=false;overlay.hidden=false;showGuide();
       const r=displayRect(stage);scene=sceneFor(e,r.width,r.height,getProfile(e.region),getWorld(e.region));
       const key=JSON.stringify([e.region,r.width,r.height,f.tier]);if(key!==sceneKey){sceneKey=key;art.innerHTML='';clearGesture();}
-      ensureWorld();world?.setEnvironment(e);if(world){scene.navigation=world.navigation(displayRect(stage));scene.visualPoints=world.observationPoints?.(scene.navigation)||[];}scene.visible=visibleAt;scene.actorBounds=actorBounds;sync();stage.dataset.dioramaPaused=String(blocked());
+      ensureWorld();world?.setEnvironment(e);if(world){scene.navigation=world.navigation(displayRect(stage));scene.visualPoints=world.observationPoints?.(scene.navigation)||[];}scene.visible=visibleAt;scene.actorBounds=actorBounds;scene.referenceBounds=a=>{
+        const p=env.NaotocchiHomeViewport?.residentPresentation?.();
+        return doc.body?.dataset.homeDisplayVersion==='18'&&p&&!p.landscape?portraitWalkingBounds(modelAPI.bounds(a,{...scene,actorBounds:null}),scene,false):null;
+      };sync();stage.dataset.dioramaPaused=String(blocked());
       if(blocked()&&!wasBlocked){interrupt();wasBlocked=true;}
       if(!blocked()){wasBlocked=false;model.step(0,{blocked:false,reducedMotion:!!media?.matches,heldActor:gesture?(gesture.key||model.selected()):null});}resume();
     }
