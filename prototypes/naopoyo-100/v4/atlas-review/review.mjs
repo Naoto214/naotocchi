@@ -6,7 +6,7 @@ export function summarizeEvidence(rows){const r={tested:0,necessary:0,bypass:0,u
 const src=new Map(atlasHistory.map(e=>[e.id,e]));
 export const reviewEntries=catalog.map(e=>{
  const past=src.get(e.id),proposals=history.filter(h=>past?.candidates.includes(h.id)),t=topics[e.id];
- const visual=e.id.startsWith('v5.')||e.category==='decoration'||e.category==='world';
+ const visual=['terrain.floor','terrain.wall'].includes(e.id)||e.id.startsWith('v5.')||e.category==='decoration'||e.category==='world';
  const decision=e.status==='採用済み'||e.id.startsWith('v5.')?'正式採用':!e.placeable?(proposals.length&&proposals.every(p=>p.decision==='不採用')?'不採用':'保留'):'改善候補';
  const rows=auditRows.filter(r=>r.mainGimmick===e.id);
  return {...e,decision,approvalNote:e.id.startsWith('v5.')?'採用済みの表示・共通素材基盤。新しい能力の承認ではありません。':e.id==='fixture.warp'?'消失・出現演出は採用済み。対の転送ルールと表示候補の履歴は分けて扱います。':'採用状態は明示履歴を優先。「既存あり」「推奨」は正式採用と同義ではありません。',
@@ -18,7 +18,7 @@ export const reviewEntries=catalog.map(e=>{
  purpose:t?.[2]||(visual?'地形と仕掛けを読み取りやすくする。装飾自体で解法を増やすとは主張しない。':proposals[0]?.relations||'独自の選択や順序を生むか、実装前に検討する。'),
  difference:t?.[3]||(visual?'同じ物理IDの見た目の違い。別の仕掛けとして重複登録しない。':proposals[0]?.evaluation?.originality||'既存仕掛けの組み合わせで代替できるか検討する。'),
  candidate:t?.[4]||(visual?'採用済みの自然環境・形状を維持。説明だけ整理。':'未実装のため新しい動作・デザインは増やさず保留。過去図を展示。'),
- priority:priorityIds.has(e.id)?'高':!e.placeable?'保留':t&&!['fixture.spike','fixture.gate','fixture.exit','sign.gravity'].includes(e.id)?'中':'維持',
+ priority:priorityIds.has(e.id)?'高':!e.placeable?'保留':t&&!['terrain.floor','terrain.wall','fixture.spike','fixture.gate','fixture.exit','sign.gravity'].includes(e.id)?'中':'維持',
  inkCandidate:inkCandidates.has(e.id),history:proposals,oldDesign:proposals.map(p=>({proposal:p.id,text:p.currentDesign,decision:p.decision})),
  evidence:{...summarizeEvidence(rows),rows,scope:'V4時点のV3主効果禁止探索。全補助効果の証明・新規探索・面白さの実測ではありません。'},
  risk:!e.placeable?'未実装。動かない展示を遊べる仕掛けとして扱わない。':visual?'装飾が通路・キャラクター・条件を隠さないか。':'通過するだけで解ける配置や、別経路で省略できる配置では役割が弱くなる。',

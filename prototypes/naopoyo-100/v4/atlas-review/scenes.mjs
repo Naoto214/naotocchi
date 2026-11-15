@@ -4,7 +4,8 @@ import {puzzles} from '../puzzles.mjs';
 import {createGameState,describeTiles} from '../../engine.mjs';
 import {createDraft,changeWorld} from '../v6/model.mjs';
 import {sampleDraft} from '../v5/previews.mjs';
-import {byId} from '../v5/catalog.mjs';
+import {byId,worldNames} from '../v5/catalog.mjs';
+import {effectiveMaterial} from '../v5/model.mjs';
 import {LabPlayback,createLab} from '../v6/lab-playback.mjs';
 import {conditionLabel} from '../v6/gimmick-study.mjs';
 import {speciesLabel} from '../v6/characters.mjs';
@@ -24,6 +25,7 @@ export function sceneFor(id,variant='formal'){
  return{id,d,lab:null,playable:e.playable,witness:sample?.solution?structuredClone(sample.solution):null,source:sample?(puzzle?'V4比較面':'V3保存面')+' '+sample.number+'「'+sample.title+'」のコピー':e.playable?'既存素材の8×8配置展示（専用パズルではありません）':'PR532の過去図・未実装展示。動作や能力は追加しません。'};
 }
 export function targets(id,scene,state){
+ if(id==='sign.gravity'&&state.gravity)return[{x:0,y:7,catalogId:id,params:{}}];
  if(scene.lab&&['terrain.soil','v5.terrain.air','v5.terrain.platform'].includes(id)){
   const kind=id==='terrain.soil'?'soil':id==='v5.terrain.air'?'air':'floor';return scene.lab.session.state.cells.flatMap((v,i)=>v===kind?[{x:i%8,y:Math.floor(i/8),catalogId:id,params:{}}]:[]);
  }
@@ -33,10 +35,13 @@ export function targets(id,scene,state){
 }
 export function inspectCell(scene,state,x,y){
  if(!Number.isInteger(x)||!Number.isInteger(y)||x<0||y<0||x>=8||y>=8)return[];
- const lines=[`マス（${x+1}, ${y+1}）`];
+ const d=scene.lab?scene.lab.document.d:scene.d,material=effectiveMaterial(d,x,y);
+ const lines=[`マス（${x+1}, ${y+1}）`, '世界：'+worldNames[d.appearance.world], '見た目の地形：'+byId.get(material).name+' ['+material+']'];
+ for(const deco of d.appearance.decorations.filter(v=>v.x===x&&v.y===y))lines.push('装飾（物理効果なし）：'+byId.get(deco.id).name+' ['+deco.id+']');
+ if(state.gravity&&x===0&&y===7)lines.push('重力の看板 [sign.gravity]：部屋全体に重力が働く目印。看板自体を操作して重力を切り替えません。');
  for(const a of state.actors.filter(a=>a.x===x&&a.y===y))lines.push(`${speciesLabel(a.species)}：現在${a.level}段階`);
  if(scene.lab){const kind=scene.lab.session.state.cells[y*8+x];lines.push('独立試作の地形：'+({soil:'実験役が掘れる土',rock:'通れない岩',air:'飛行空間',floor:'足場／開いた通路'}[kind]||kind));}
- for(const t of describeTiles(state).filter(t=>t.x===x&&t.y===y)){
+ for(const t of describeTiles(state).filter(t=>t.x===x&&t.y===y&&t.catalogId!=='sign.gravity')){
   const p=t.params;lines.push((byId.get(t.catalogId)?.name||t.catalogId)+' ['+t.catalogId+']');
   if(t.catalogId==='object.crate')lines.push('箱の重さ：'+(p.weight??2)+' ／ 押す段階：'+conditionLabel(p));
   else if(['exact','min','max'].some(k=>p[k]!==undefined))lines.push((t.catalogId==='fixture.plate.weight'?'載る重さ（仲間は段階・箱は重量）':'対象の段階')+'：'+conditionLabel(p));
