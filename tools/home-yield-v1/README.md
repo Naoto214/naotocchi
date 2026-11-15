@@ -26,4 +26,4 @@ builderはAのモデルに `setYieldMode` が含まれる入力を拒否する�
 
 試遊入口は `index.html`。各方式の直接入口は `game/a/movement-b.html`、`game/b/movement-b.html`、`game/c/movement-b.html`。保存キーは `naotocchi-home-yield-v1-{a,b,c}` で本編・過去の比較から分離する。各iframe読み込み時に固定の比較seedを復元する。方式・人数・地域・時間帯・リセット操作は新しいiframe読み込みを使い、個体配置だけでなくモデルの乱数・時間・道譲り状態を初期化する。
 
-検証フックは `MovementQA` / `ReachAudit` を保持し、`YieldQA.setup(config)`、`mode('off'|'manual'|'all')`、`autonomy(bool)`、`status()`、`initial()`、`step(seconds,{autonomy})` を追加する。`setup` は描画待ちを含む非同期処理なので、偽時計を停止したブラウザ検証では既存の `MovementQA.setup` と時計進行を利用する。
+検証フックは `MovementQA` / `ReachAudit` を保持し、`YieldQA.setup(config)`、`mode('off'|'manual'|'all')`、`autonomy(bool)`、`status()`、`initial()`、`step(seconds,{autonomy})` を追加する。`setup` は背景の読み込み・人数変更直後の身体倍率予約の解消・5フレーム連続のカメラ／配置安定を待ってから初期状態を保存する。自律移動はその後に開始する。`YieldQA.ready` で準備完了を確認できる。偽時計を停止したブラウザ検証では既存の `MovementQA.setup` と時計進行を利用し、初期化完了後に状態を復元する。

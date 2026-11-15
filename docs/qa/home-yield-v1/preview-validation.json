@@ -1,0 +1,1856 @@
+{
+  "runtime": "/workspace/work/yield-preview-validation",
+  "browser": "Playwright Chromium repository regression harness (not managed Sites preview or real Safari)",
+  "widths": [
+    {
+      "width": 320,
+      "layout": {
+        "width": 320,
+        "documentWidth": 320,
+        "bodyWidth": 320,
+        "iframe": {
+          "x": 0,
+          "y": 606.75,
+          "width": 320,
+          "height": 568,
+          "top": 606.75,
+          "right": 320,
+          "bottom": 1174.75,
+          "left": 0
+        }
+      },
+      "inside": {
+        "width": 320,
+        "documentWidth": 320,
+        "status": "all",
+        "bodyScale": 0.7
+      },
+      "screenshot": "preview-320.png"
+    },
+    {
+      "width": 375,
+      "layout": {
+        "width": 375,
+        "documentWidth": 375,
+        "bodyWidth": 375,
+        "iframe": {
+          "x": 0,
+          "y": 897.75,
+          "width": 375,
+          "height": 812,
+          "top": 897.75,
+          "right": 375,
+          "bottom": 1709.75,
+          "left": 0
+        }
+      },
+      "inside": {
+        "width": 375,
+        "documentWidth": 375,
+        "status": "all",
+        "bodyScale": 0.7
+      },
+      "screenshot": "preview-375.png"
+    },
+    {
+      "width": 390,
+      "layout": {
+        "width": 390,
+        "documentWidth": 390,
+        "bodyWidth": 390,
+        "iframe": {
+          "x": 0,
+          "y": 897.75,
+          "width": 390,
+          "height": 844,
+          "top": 897.75,
+          "right": 390,
+          "bottom": 1741.75,
+          "left": 0
+        }
+      },
+      "inside": {
+        "width": 390,
+        "documentWidth": 390,
+        "status": "all",
+        "bodyScale": 0.7
+      },
+      "screenshot": "preview-390.png"
+    },
+    {
+      "width": 430,
+      "layout": {
+        "width": 430,
+        "documentWidth": 430,
+        "iframe": {
+          "x": 0,
+          "y": 875,
+          "width": 430,
+          "height": 932,
+          "top": 875,
+          "right": 430,
+          "bottom": 1807,
+          "left": 0
+        }
+      },
+      "screenshot": "preview-430.png"
+    }
+  ],
+  "controls": [
+    {
+      "kind": "variant",
+      "variant": "a",
+      "mode": "off",
+      "initialCount": 28,
+      "saveKeys": [
+        "naotocchi-home-yield-v1-c-snaps",
+        "naotocchi-home-yield-v1-a-backup",
+        "naotocchi-home-yield-v1-a:home-guide-v1",
+        "naotocchi-home-yield-v1-a-snaps",
+        "naotocchi-home-yield-v1-a",
+        "naotocchi-home-yield-v1-c:home-guide-v1",
+        "naotocchi-home-yield-v1-c",
+        "naotocchi-home-yield-v1-c-writer",
+        "naotocchi-home-yield-v1-a-writer",
+        "naotocchi-home-yield-v1-c-backup"
+      ]
+    },
+    {
+      "kind": "variant",
+      "variant": "b",
+      "mode": "manual",
+      "initialCount": 28,
+      "saveKeys": [
+        "naotocchi-home-yield-v1-a-backup",
+        "naotocchi-home-yield-v1-c:home-guide-v1",
+        "naotocchi-home-yield-v1-b-backup",
+        "naotocchi-home-yield-v1-c",
+        "naotocchi-home-yield-v1-b-snaps",
+        "naotocchi-home-yield-v1-c-writer",
+        "naotocchi-home-yield-v1-b",
+        "naotocchi-home-yield-v1-a-writer",
+        "naotocchi-home-yield-v1-c-backup",
+        "naotocchi-home-yield-v1-c-snaps",
+        "naotocchi-home-yield-v1-a:home-guide-v1",
+        "naotocchi-home-yield-v1-a-snaps",
+        "naotocchi-home-yield-v1-a",
+        "naotocchi-home-yield-v1-b:home-guide-v1",
+        "naotocchi-home-yield-v1-b-writer"
+      ]
+    },
+    {
+      "kind": "variant",
+      "variant": "c",
+      "mode": "all",
+      "initialCount": 28,
+      "saveKeys": [
+        "naotocchi-home-yield-v1-a-backup",
+        "naotocchi-home-yield-v1-c:home-guide-v1",
+        "naotocchi-home-yield-v1-b-backup",
+        "naotocchi-home-yield-v1-c",
+        "naotocchi-home-yield-v1-b-snaps",
+        "naotocchi-home-yield-v1-c-writer",
+        "naotocchi-home-yield-v1-b",
+        "naotocchi-home-yield-v1-a-writer",
+        "naotocchi-home-yield-v1-c-backup",
+        "naotocchi-home-yield-v1-c-snaps",
+        "naotocchi-home-yield-v1-a:home-guide-v1",
+        "naotocchi-home-yield-v1-a-snaps",
+        "naotocchi-home-yield-v1-a",
+        "naotocchi-home-yield-v1-b:home-guide-v1",
+        "naotocchi-home-yield-v1-b-writer"
+      ]
+    },
+    {
+      "kind": "toggles",
+      "yieldOffCancels": true,
+      "autonomy": true
+    },
+    {
+      "kind": "count",
+      "count": 1,
+      "actual": 1
+    },
+    {
+      "kind": "count",
+      "count": 4,
+      "actual": 4
+    },
+    {
+      "kind": "count",
+      "count": 10,
+      "actual": 10
+    },
+    {
+      "kind": "count",
+      "count": 20,
+      "actual": 20
+    },
+    {
+      "kind": "count",
+      "count": 28,
+      "actual": 28
+    },
+    {
+      "kind": "region",
+      "region": "forest"
+    },
+    {
+      "kind": "region",
+      "region": "home"
+    },
+    {
+      "kind": "region",
+      "region": "city"
+    },
+    {
+      "kind": "time",
+      "time": "morning"
+    },
+    {
+      "kind": "time",
+      "time": "day"
+    },
+    {
+      "kind": "time",
+      "time": "evening"
+    },
+    {
+      "kind": "time",
+      "time": "night"
+    },
+    {
+      "kind": "debug-ui",
+      "speech": 76,
+      "notice": 42,
+      "canvas": [
+        {
+          "width": 390,
+          "height": 844,
+          "pointerEvents": "none"
+        }
+      ]
+    },
+    {
+      "kind": "reset",
+      "samePositions": true
+    }
+  ],
+  "errors": [],
+  "scope": "UI controls/layout, initial-state reproduction and asset integrity only; movement outcome measured separately",
+  "initialCoordinates": {
+    "a": {
+      "presentation": {
+        "x": 16,
+        "y": 143.59375,
+        "scale": 0.9551369021930816,
+        "scaleX": 0.9551369021930816,
+        "scaleY": 1.7025799602901865,
+        "bodyScale": 0.7,
+        "bodyScaleLimit": 0.7,
+        "landscape": false,
+        "world": {
+          "left": 18.450293277570836,
+          "top": -120.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 264
+      },
+      "actors": [
+        {
+          "key": "pet:hermit_crab",
+          "x": 236.27590607805337,
+          "y": 304.82537327255505,
+          "w": 48.76666666666667,
+          "h": 37.82834890965733
+        },
+        {
+          "key": "partner:gentle_gorilla",
+          "x": 166.4708955454258,
+          "y": 161.99358249040944,
+          "w": 28.241975308641976,
+          "h": 35.46666666666667
+        },
+        {
+          "key": "companion:cat_friend",
+          "x": 98.45575707773749,
+          "y": 204.95051204894952,
+          "w": 35.46666666666667,
+          "h": 28.898765432098763
+        },
+        {
+          "key": "companion:tanuki",
+          "x": 234.4860340131142,
+          "y": 210.32012824376704,
+          "w": 32.29808805031446,
+          "h": 34.934666666666665
+        },
+        {
+          "key": "companion:owl",
+          "x": 290.2415645922257,
+          "y": 356.49311167128394,
+          "w": 25.04749685534591,
+          "h": 34.934666666666665
+        },
+        {
+          "key": "companion:hamster",
+          "x": 309.2919826195754,
+          "y": 324.49311167128394,
+          "w": 33.52316498316498,
+          "h": 34.934666666666665
+        },
+        {
+          "key": "companion:monkey",
+          "x": 220.2199248130261,
+          "y": 260.31813018737876,
+          "w": 30.544423676012464,
+          "h": 34.40266666666667
+        },
+        {
+          "key": "companion:sheep",
+          "x": 121.32218471414748,
+          "y": 169.34226028688943,
+          "w": 34.40266666666667,
+          "h": 32.17286419753086
+        },
+        {
+          "key": "companion:bat",
+          "x": 59.861785239313974,
+          "y": 218.8575392721831,
+          "w": 24.990616352201258,
+          "h": 34.40266666666667
+        },
+        {
+          "key": "companion:penguin_friend",
+          "x": 201.00873026247925,
+          "y": 230.12580463791767,
+          "w": 33.87066666666666,
+          "h": 15.703672727272723
+        },
+        {
+          "key": "companion:shiba",
+          "x": 165.4170495032596,
+          "y": 370.1454986363591,
+          "w": 33.870666666666665,
+          "h": 31.048111111111112
+        },
+        {
+          "key": "companion:punyu",
+          "x": 333.4170495032596,
+          "y": 369.46117910509724,
+          "w": 33.870666666666665,
+          "h": 25.716617283950615
+        },
+        {
+          "key": "companion:chameleon",
+          "x": 272.69573895946354,
+          "y": 278.41538975865643,
+          "w": 33.33866666666666,
+          "h": 27.88324848484848
+        },
+        {
+          "key": "companion:unicorn",
+          "x": 167.11834032520972,
+          "y": 202.13409039888154,
+          "w": 30.61095757575757,
+          "h": 33.33866666666666
+        },
+        {
+          "key": "companion:watcher",
+          "x": 100.10735569401675,
+          "y": 242.13177465561927,
+          "w": 11.637081761006291,
+          "h": 33.338666666666676
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "x": 260.5938130896663,
+          "y": 243.58052501612246,
+          "w": 26.271604938271604,
+          "h": 35.46666666666667
+        },
+        {
+          "key": "companion:squirrel",
+          "x": 124.40297626596443,
+          "y": 356.49311167128394,
+          "w": 31.053037037037036,
+          "h": 34.934666666666665
+        },
+        {
+          "key": "companion:otter",
+          "x": 333.7999862502102,
+          "y": 292.0752770525082,
+          "w": 34.934666666666665,
+          "h": 33.66431515151515
+        },
+        {
+          "key": "companion:panda",
+          "x": 168.89079697970013,
+          "y": 267.21694797521656,
+          "w": 33.66431515151515,
+          "h": 34.934666666666665
+        },
+        {
+          "key": "companion:parrot",
+          "x": 135.28722073901451,
+          "y": 226.8570761235306,
+          "w": 30.898691358024692,
+          "h": 34.40266666666667
+        },
+        {
+          "key": "companion:seal",
+          "x": 65.32542675471478,
+          "y": 256.93892189721566,
+          "w": 34.40266666666667,
+          "h": 31.587903030303032
+        },
+        {
+          "key": "companion:chicken",
+          "x": 207.65287743347466,
+          "y": 178.85985501544542,
+          "w": 31.535777777777778,
+          "h": 34.40266666666667
+        },
+        {
+          "key": "companion:hedgehog",
+          "x": 149.4170495032596,
+          "y": 324.0306184810265,
+          "w": 33.870666666666665,
+          "h": 33.52853872053872
+        },
+        {
+          "key": "companion:snail",
+          "x": 309.4170495032596,
+          "y": 262.17502954912374,
+          "w": 33.870666666666665,
+          "h": 15.725666666666667
+        },
+        {
+          "key": "companion:sekizou",
+          "x": 311.4348447356962,
+          "y": 228.14314868270003,
+          "w": 17.24895061728395,
+          "h": 33.870666666666665
+        },
+        {
+          "key": "companion:clock",
+          "x": 119.8085709220243,
+          "y": 274.1299220610094,
+          "w": 31.79520987654322,
+          "h": 33.338666666666676
+        },
+        {
+          "key": "companion:many_tail_fox",
+          "x": 80.01279350608328,
+          "y": 307.2560776871549,
+          "w": 33.33866666666666,
+          "h": 32.73250909090908
+        },
+        {
+          "key": "companion:box",
+          "x": 77.22558112978429,
+          "y": 347.85151283254,
+          "w": 33.33866666666667,
+          "h": 32.984
+        }
+      ]
+    },
+    "b": {
+      "presentation": {
+        "x": 16,
+        "y": 143.59375,
+        "scale": 0.9551369021930816,
+        "scaleX": 0.9551369021930816,
+        "scaleY": 1.7025799602901865,
+        "bodyScale": 0.7,
+        "bodyScaleLimit": 0.7,
+        "landscape": false,
+        "world": {
+          "left": 18.450293277570836,
+          "top": -120.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 264
+      },
+      "actors": [
+        {
+          "key": "pet:hermit_crab",
+          "x": 236.27590607805337,
+          "y": 304.82537327255505,
+          "w": 48.76666666666667,
+          "h": 37.82834890965733
+        },
+        {
+          "key": "partner:gentle_gorilla",
+          "x": 166.4708955454258,
+          "y": 161.99358249040944,
+          "w": 28.241975308641976,
+          "h": 35.46666666666667
+        },
+        {
+          "key": "companion:cat_friend",
+          "x": 98.45575707773749,
+          "y": 204.95051204894952,
+          "w": 35.46666666666667,
+          "h": 28.898765432098763
+        },
+        {
+          "key": "companion:tanuki",
+          "x": 234.4860340131142,
+          "y": 210.32012824376704,
+          "w": 32.29808805031446,
+          "h": 34.934666666666665
+        },
+        {
+          "key": "companion:owl",
+          "x": 290.2415645922257,
+          "y": 356.49311167128394,
+          "w": 25.04749685534591,
+          "h": 34.934666666666665
+        },
+        {
+          "key": "companion:hamster",
+          "x": 309.2919826195754,
+          "y": 324.49311167128394,
+          "w": 33.52316498316498,
+          "h": 34.934666666666665
+        },
+        {
+          "key": "companion:monkey",
+          "x": 220.2199248130261,
+          "y": 260.31813018737876,
+          "w": 30.544423676012464,
+          "h": 34.40266666666667
+        },
+        {
+          "key": "companion:sheep",
+          "x": 121.32218471414748,
+          "y": 169.34226028688943,
+          "w": 34.40266666666667,
+          "h": 32.17286419753086
+        },
+        {
+          "key": "companion:bat",
+          "x": 59.861785239313974,
+          "y": 218.8575392721831,
+          "w": 24.990616352201258,
+          "h": 34.40266666666667
+        },
+        {
+          "key": "companion:penguin_friend",
+          "x": 201.00873026247925,
+          "y": 230.12580463791767,
+          "w": 33.87066666666666,
+          "h": 15.703672727272723
+        },
+        {
+          "key": "companion:shiba",
+          "x": 165.4170495032596,
+          "y": 370.1454986363591,
+          "w": 33.870666666666665,
+          "h": 31.048111111111112
+        },
+        {
+          "key": "companion:punyu",
+          "x": 333.4170495032596,
+          "y": 369.46117910509724,
+          "w": 33.870666666666665,
+          "h": 25.716617283950615
+        },
+        {
+          "key": "companion:chameleon",
+          "x": 272.69573895946354,
+          "y": 278.41538975865643,
+          "w": 33.33866666666666,
+          "h": 27.88324848484848
+        },
+        {
+          "key": "companion:unicorn",
+          "x": 167.11834032520972,
+          "y": 202.13409039888154,
+          "w": 30.61095757575757,
+          "h": 33.33866666666666
+        },
+        {
+          "key": "companion:watcher",
+          "x": 100.10735569401675,
+          "y": 242.13177465561927,
+          "w": 11.637081761006291,
+          "h": 33.338666666666676
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "x": 260.5938130896663,
+          "y": 243.58052501612246,
+          "w": 26.271604938271604,
+          "h": 35.46666666666667
+        },
+        {
+          "key": "companion:squirrel",
+          "x": 124.40297626596443,
+          "y": 356.49311167128394,
+          "w": 31.053037037037036,
+          "h": 34.934666666666665
+        },
+        {
+          "key": "companion:otter",
+          "x": 333.7999862502102,
+          "y": 292.0752770525082,
+          "w": 34.934666666666665,
+          "h": 33.66431515151515
+        },
+        {
+          "key": "companion:panda",
+          "x": 168.89079697970013,
+          "y": 267.21694797521656,
+          "w": 33.66431515151515,
+          "h": 34.934666666666665
+        },
+        {
+          "key": "companion:parrot",
+          "x": 135.28722073901451,
+          "y": 226.8570761235306,
+          "w": 30.898691358024692,
+          "h": 34.40266666666667
+        },
+        {
+          "key": "companion:seal",
+          "x": 65.32542675471478,
+          "y": 256.93892189721566,
+          "w": 34.40266666666667,
+          "h": 31.587903030303032
+        },
+        {
+          "key": "companion:chicken",
+          "x": 207.65287743347466,
+          "y": 178.85985501544542,
+          "w": 31.535777777777778,
+          "h": 34.40266666666667
+        },
+        {
+          "key": "companion:hedgehog",
+          "x": 149.4170495032596,
+          "y": 324.0306184810265,
+          "w": 33.870666666666665,
+          "h": 33.52853872053872
+        },
+        {
+          "key": "companion:snail",
+          "x": 309.4170495032596,
+          "y": 262.17502954912374,
+          "w": 33.870666666666665,
+          "h": 15.725666666666667
+        },
+        {
+          "key": "companion:sekizou",
+          "x": 311.4348447356962,
+          "y": 228.14314868270003,
+          "w": 17.24895061728395,
+          "h": 33.870666666666665
+        },
+        {
+          "key": "companion:clock",
+          "x": 119.8085709220243,
+          "y": 274.1299220610094,
+          "w": 31.79520987654322,
+          "h": 33.338666666666676
+        },
+        {
+          "key": "companion:many_tail_fox",
+          "x": 80.01279350608328,
+          "y": 307.2560776871549,
+          "w": 33.33866666666666,
+          "h": 32.73250909090908
+        },
+        {
+          "key": "companion:box",
+          "x": 77.22558112978429,
+          "y": 347.85151283254,
+          "w": 33.33866666666667,
+          "h": 32.984
+        }
+      ]
+    },
+    "c": {
+      "presentation": {
+        "x": 16,
+        "y": 143.59375,
+        "scale": 0.9551369021930816,
+        "scaleX": 0.9551369021930816,
+        "scaleY": 1.7025799602901865,
+        "bodyScale": 0.7,
+        "bodyScaleLimit": 0.7,
+        "landscape": false,
+        "world": {
+          "left": 18.450293277570836,
+          "top": -120.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 264
+      },
+      "actors": [
+        {
+          "key": "pet:hermit_crab",
+          "x": 236.27590607805337,
+          "y": 304.82537327255505,
+          "w": 48.76666666666667,
+          "h": 37.82834890965733
+        },
+        {
+          "key": "partner:gentle_gorilla",
+          "x": 166.4708955454258,
+          "y": 161.99358249040944,
+          "w": 28.241975308641976,
+          "h": 35.46666666666667
+        },
+        {
+          "key": "companion:cat_friend",
+          "x": 98.45575707773749,
+          "y": 204.95051204894952,
+          "w": 35.46666666666667,
+          "h": 28.898765432098763
+        },
+        {
+          "key": "companion:tanuki",
+          "x": 234.4860340131142,
+          "y": 210.32012824376704,
+          "w": 32.29808805031446,
+          "h": 34.934666666666665
+        },
+        {
+          "key": "companion:owl",
+          "x": 290.2415645922257,
+          "y": 356.49311167128394,
+          "w": 25.04749685534591,
+          "h": 34.934666666666665
+        },
+        {
+          "key": "companion:hamster",
+          "x": 309.2919826195754,
+          "y": 324.49311167128394,
+          "w": 33.52316498316498,
+          "h": 34.934666666666665
+        },
+        {
+          "key": "companion:monkey",
+          "x": 220.2199248130261,
+          "y": 260.31813018737876,
+          "w": 30.544423676012464,
+          "h": 34.40266666666667
+        },
+        {
+          "key": "companion:sheep",
+          "x": 121.32218471414748,
+          "y": 169.34226028688943,
+          "w": 34.40266666666667,
+          "h": 32.17286419753086
+        },
+        {
+          "key": "companion:bat",
+          "x": 59.861785239313974,
+          "y": 218.8575392721831,
+          "w": 24.990616352201258,
+          "h": 34.40266666666667
+        },
+        {
+          "key": "companion:penguin_friend",
+          "x": 201.00873026247925,
+          "y": 230.12580463791767,
+          "w": 33.87066666666666,
+          "h": 15.703672727272723
+        },
+        {
+          "key": "companion:shiba",
+          "x": 165.4170495032596,
+          "y": 370.1454986363591,
+          "w": 33.870666666666665,
+          "h": 31.048111111111112
+        },
+        {
+          "key": "companion:punyu",
+          "x": 333.4170495032596,
+          "y": 369.46117910509724,
+          "w": 33.870666666666665,
+          "h": 25.716617283950615
+        },
+        {
+          "key": "companion:chameleon",
+          "x": 272.69573895946354,
+          "y": 278.41538975865643,
+          "w": 33.33866666666666,
+          "h": 27.88324848484848
+        },
+        {
+          "key": "companion:unicorn",
+          "x": 167.11834032520972,
+          "y": 202.13409039888154,
+          "w": 30.61095757575757,
+          "h": 33.33866666666666
+        },
+        {
+          "key": "companion:watcher",
+          "x": 100.10735569401675,
+          "y": 242.13177465561927,
+          "w": 11.637081761006291,
+          "h": 33.338666666666676
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "x": 260.5938130896663,
+          "y": 243.58052501612246,
+          "w": 26.271604938271604,
+          "h": 35.46666666666667
+        },
+        {
+          "key": "companion:squirrel",
+          "x": 124.40297626596443,
+          "y": 356.49311167128394,
+          "w": 31.053037037037036,
+          "h": 34.934666666666665
+        },
+        {
+          "key": "companion:otter",
+          "x": 333.7999862502102,
+          "y": 292.0752770525082,
+          "w": 34.934666666666665,
+          "h": 33.66431515151515
+        },
+        {
+          "key": "companion:panda",
+          "x": 168.89079697970013,
+          "y": 267.21694797521656,
+          "w": 33.66431515151515,
+          "h": 34.934666666666665
+        },
+        {
+          "key": "companion:parrot",
+          "x": 135.28722073901451,
+          "y": 226.8570761235306,
+          "w": 30.898691358024692,
+          "h": 34.40266666666667
+        },
+        {
+          "key": "companion:seal",
+          "x": 65.32542675471478,
+          "y": 256.93892189721566,
+          "w": 34.40266666666667,
+          "h": 31.587903030303032
+        },
+        {
+          "key": "companion:chicken",
+          "x": 207.65287743347466,
+          "y": 178.85985501544542,
+          "w": 31.535777777777778,
+          "h": 34.40266666666667
+        },
+        {
+          "key": "companion:hedgehog",
+          "x": 149.4170495032596,
+          "y": 324.0306184810265,
+          "w": 33.870666666666665,
+          "h": 33.52853872053872
+        },
+        {
+          "key": "companion:snail",
+          "x": 309.4170495032596,
+          "y": 262.17502954912374,
+          "w": 33.870666666666665,
+          "h": 15.725666666666667
+        },
+        {
+          "key": "companion:sekizou",
+          "x": 311.4348447356962,
+          "y": 228.14314868270003,
+          "w": 17.24895061728395,
+          "h": 33.870666666666665
+        },
+        {
+          "key": "companion:clock",
+          "x": 119.8085709220243,
+          "y": 274.1299220610094,
+          "w": 31.79520987654322,
+          "h": 33.338666666666676
+        },
+        {
+          "key": "companion:many_tail_fox",
+          "x": 80.01279350608328,
+          "y": 307.2560776871549,
+          "w": 33.33866666666666,
+          "h": 32.73250909090908
+        },
+        {
+          "key": "companion:box",
+          "x": 77.22558112978429,
+          "y": 347.85151283254,
+          "w": 33.33866666666667,
+          "h": 32.984
+        }
+      ]
+    }
+  },
+  "initialEquality": {
+    "actors": 28,
+    "variants": [
+      "a",
+      "b",
+      "c"
+    ],
+    "toleranceNativePx": 0.001,
+    "passed": true
+  },
+  "unchangedFiles": [
+    {
+      "file": "home-production-diorama.js",
+      "sha256": "cbc204d9b909d6024edba02fad14d36eb2b6541695fecfe0dfc2c773070a7c92"
+    },
+    {
+      "file": "home-production-touch.js",
+      "sha256": "df9353d84de426e6f71fdd3b9230d31eac2bc8107d801e13ed5eac7d398d8f42"
+    },
+    {
+      "file": "home-diorama.css",
+      "sha256": "9b96642319b3348a03bf011d04cab17f50c553dfb8c8b0d464b9de8660fafe60"
+    },
+    {
+      "file": "ui.css",
+      "sha256": "31c57b61de3f4d699acec902199527ca823ccd876a4663f2339f8924b8a550dd"
+    },
+    {
+      "file": "cast-bounds.js",
+      "sha256": "3844bd70323ca765ea9bc24b3486b2142c633d345b8156821d02167beefa0c1e"
+    },
+    {
+      "file": "cast-layout.js",
+      "sha256": "0ccb5535b52c90488b850b8a909ad71d8046925548ff47b14c713bc786eef8a0"
+    }
+  ],
+  "backgrounds": [
+    {
+      "file": "comparisons/dayparts-20261103/v2/home-morning.webp",
+      "sha256": "786f0f9a5e4bf1c24fa9bbeefe8c7aac3b899718999a2962b90dbef69f32e045"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v2/home-day.webp",
+      "sha256": "b2d8b35e7d7dc44cf44656a015403880430b591ee7ddded899ea3d702ed9026d"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/images/home-evening.webp",
+      "sha256": "88744af65f8fc18ff4656345fcf51c21bd5b3976ccfd8a5f8cf56a7a655f4288"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v6/home-night.webp",
+      "sha256": "26ccfa5be7497f7eee50bc5e8a0029d175f0c4b204afa97981e35dd531405e70"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v2/forest-morning.webp",
+      "sha256": "e2560a178b9ab16b13476978cc2501959c303514f13e286e57c64bb4df5731aa"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v2/forest-day.webp",
+      "sha256": "c8a761d93797f21d7f660dd374a3838123712c005e9668c982231df05b50c70d"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/images/forest-evening.webp",
+      "sha256": "bba2bd0fac41238055c850a6243808e3edb04c12246fde86aaba6ef396f20bef"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v6/forest-night.webp",
+      "sha256": "23ca6c6f1765ef79784a8ff1cbcabed686c6c9a4b64b9aba9b4ecc755395f466"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/river_lake-morning.webp",
+      "sha256": "5cc36470b1ec8f9a7d74492a0a855e5394d836a5866505e216e452e83c970894"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/river_lake-day.webp",
+      "sha256": "045e21d8524c8b1edfd944a3bcea37c0e2e9fc812da3a5985afbd92830913635"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/river_lake-evening.webp",
+      "sha256": "b4b93c471f64aa75793d8803bc05d03dd928a03752bb7e39b11141ae19f83e80"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v6/river_lake-night.webp",
+      "sha256": "6e32268779718f238b051365b9717bff685937430189af68f2555824917d08eb"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v2/city-morning.webp",
+      "sha256": "57dd4092e037cb2a2b26188b4cb5fd6b83e38f0fa7379e767ae5bd38549ee130"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v2/city-day.webp",
+      "sha256": "771de762d75322944c41ac027cdfb1713e962826fa0de17c1f8b3673c09e8c3b"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/images/city-evening.webp",
+      "sha256": "ba92d1667679edfa72e41dd9b3e96c9eabe005a1520541caa5e3b49801ca6e0b"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v6/city-night.webp",
+      "sha256": "bbcd63d7a81939807e8cd4141d7774def06bc889bc02610953daee89f216ff6a"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/countryside-morning.webp",
+      "sha256": "7a58b5dd9aeba735645f60a9f18ea7b8c552ea883bee82b39974e864ed118095"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/countryside-day.webp",
+      "sha256": "caeb0f960844a1afef1dd5ec5875da7f1811a9720d3d5be453b5cca17eef4d73"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/countryside-evening.webp",
+      "sha256": "3c367865521e90c1db7ad0412cfbaaee10480849d6ba80a2d802ccf440fab7d7"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v6/countryside-night.webp",
+      "sha256": "0373ceeaed95b77bdccbce673cc7092ddffa1f115cc5cc7c88b1628a3f6da7ef"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/mountain-morning.webp",
+      "sha256": "496bd589ca4f3d649cec45b5ea2b7e2f2ae5f0e4d47a617647071991ea0312a3"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/mountain-day.webp",
+      "sha256": "c03c45d4aaeac5b5695a636141b90f09dac3f7aaa8430e2ba84084b30f7aeaac"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/mountain-evening.webp",
+      "sha256": "0a24e8cb8c981404ac5bdec3968ed4aa3298adb0fe2dad95dba37eac02270efc"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v6/mountain-night.webp",
+      "sha256": "c2d7678013befc8da30f27c6ab8b8b62be8b55853238b6fd2d08007ee1f28543"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/snow-morning.webp",
+      "sha256": "dae81a105e048052ac3842567b99c65fb561b5ac6424c29e833324f8ac1517ec"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/snow-day.webp",
+      "sha256": "c503148d4862c2909b8635d6e62a25e76324cfd6474cca236ba55b72afcf1f13"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/snow-evening.webp",
+      "sha256": "02752db302839e130818560e034a201d05a9aa93f64851dcaad08b5e76a49c78"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v6/snow-night.webp",
+      "sha256": "691e8e3cd5eed3dcbf7b1ce969aea5da20c9c0ef09025af98f1082903997032d"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/sea-morning.webp",
+      "sha256": "63d0ea026502437c8964bc986297008085547a1d142c1ad30ce8009dad9bc0d4"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/sea-day.webp",
+      "sha256": "a52b8911635f96658e5853cf2f6c72490b573c0e6e4e5cdee44976601e2eb218"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/sea-evening.webp",
+      "sha256": "318a1e4cf003852fd297e9230288ee968510bd29b3c4c48165c740f41156e548"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v6/sea-night.webp",
+      "sha256": "c5d14fb484c57c6961129de98b0da5d63f4e686b403bc1e702d8271a7f0fba9c"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/jungle-morning.webp",
+      "sha256": "49509c85ffe2ac8629047bfccd3019c2ab8a232e95fec0e503d18138ec9b71e9"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/jungle-day.webp",
+      "sha256": "3b221a1f24e6422edb55d2bd5ad42335d4a7942918bfbb0b0c21df82b5c0d198"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/jungle-evening.webp",
+      "sha256": "eb22cb3390a272d20970359f3df98afe5fa42ae7a48d4960eaa392ecddf32b38"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v6/jungle-night.webp",
+      "sha256": "40c0126fcf3974d82881ed107d270c00bc9e7f17b72cc4a2046d171f1c8e85ba"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/desert-morning.webp",
+      "sha256": "f46e5dd7ac9f837db54f46bd10582d131f34dcf6a2144d0a73ba4d099b38aca3"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/desert-day.webp",
+      "sha256": "a5746b7b3cb8684a84d47f9c8a5549094d22167d212c44ee72c6a95aff81c9e0"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/desert-evening.webp",
+      "sha256": "4075e08861a761591f6676e1269dab9e0dce7b4e72e39c6fb01e0c9a6fc200c9"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v6/desert-night.webp",
+      "sha256": "14bc10154e4937675eb34f7ab499e243a8a7c86e2d9e70ddebfa92b8b7152b29"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/deepsea-morning.webp",
+      "sha256": "ebd03b9c5c13c41b1686b09b2c05f1e9d6651b983bd4e5df75ca4fbeab84d6ae"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/deepsea-day.webp",
+      "sha256": "fa40779aa87d4ab50937eea6ff728e6cdaec74d95a25517fa54c868b4dbfab21"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/deepsea-evening.webp",
+      "sha256": "ce9fde392982e4d2fadaf742d60306361165dea62fee597dc275a62d37dd70b1"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/deepsea-night.webp",
+      "sha256": "21b785f4b7104ab19304428cb92d07ee3d3259e4fd8a0bd2b7233e1d43362bae"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/star_stop-morning.webp",
+      "sha256": "de9513d22a22d35af67683721addfa3face40f5d05ea6c944d180574583a3cf0"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/star_stop-day.webp",
+      "sha256": "79dbbb85d7044468d63b7871458236b17a4d7c3e707df0740dc30516c79ee673"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/star_stop-evening.webp",
+      "sha256": "a8d9ee1a15a44ccab6f1ed0b273025966f7b521aebdeb2aec60d0ba404b82461"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v6/star_stop-night.webp",
+      "sha256": "4315990c7857cbf063a8b7dc09122e992bd1dda32b0c41d92c7fb3542807f145"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/memory_lake-morning.webp",
+      "sha256": "b9d465a1ede38bccfaa945e437d18ec4812e1f4255e8f114f56fb47acba13c5f"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/memory_lake-day.webp",
+      "sha256": "2863a0f949bcf983646cd6b945ed9efaddf495e39b43b751804dbbbfc5069bd8"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v4/memory_lake-evening.webp",
+      "sha256": "23d04bb84c21df0c21060aa9b745d42801648d054ce7d5cf1b3406d06ec59c6c"
+    },
+    {
+      "file": "comparisons/dayparts-20261103/v6/memory_lake-night.webp",
+      "sha256": "253c9e455168ad05a874c054cfaaa0c989268cd17a9b5c321640c3c48c057737"
+    }
+  ],
+  "modelHashes": {
+    "a": {
+      "mode": "off",
+      "modelHash": "d16df05dfa68180d0b9e1067c64168c8b072feb76f753c0decd2d89925bc3502",
+      "frozenProductionModel": true,
+      "sourceModelHash": null
+    },
+    "b": {
+      "mode": "manual",
+      "modelHash": "b3cd01bbfe49d7b7ac2319b3b3550834ba9aee74857e68a85f6007f4862641c7",
+      "frozenProductionModel": false,
+      "sourceModelHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53"
+    },
+    "c": {
+      "mode": "all",
+      "modelHash": "b3cd01bbfe49d7b7ac2319b3b3550834ba9aee74857e68a85f6007f4862641c7",
+      "frozenProductionModel": false,
+      "sourceModelHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53"
+    }
+  },
+  "passed": true,
+  "paintedBackgroundChecks": [
+    {
+      "time": "morning",
+      "requestedTime": "morning",
+      "drawnImage": "/game/comparisons/dayparts-20261103/v2/city-morning.webp",
+      "allDrawn": [
+        "/game/comparisons/dayparts-20261103/v2/city-morning.webp"
+      ],
+      "initialCamera": {
+        "x": 16,
+        "y": 143.59375,
+        "scale": 0.9551369021930816,
+        "scaleX": 0.9551369021930816,
+        "scaleY": 1.7025799602901865,
+        "bodyScale": 0.7,
+        "bodyScaleLimit": 0.7,
+        "landscape": false,
+        "world": {
+          "left": 18.450293277570836,
+          "top": -120.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 264
+      },
+      "initial": [
+        {
+          "key": "pet:hermit_crab",
+          "x": 236.27590607805337,
+          "y": 304.82537327255505
+        },
+        {
+          "key": "partner:gentle_gorilla",
+          "x": 166.4708955454258,
+          "y": 161.99358249040944
+        },
+        {
+          "key": "companion:cat_friend",
+          "x": 98.45575707773749,
+          "y": 204.95051204894952
+        },
+        {
+          "key": "companion:tanuki",
+          "x": 234.4860340131142,
+          "y": 210.32012824376704
+        },
+        {
+          "key": "companion:owl",
+          "x": 290.2415645922257,
+          "y": 356.49311167128394
+        },
+        {
+          "key": "companion:hamster",
+          "x": 309.2919826195754,
+          "y": 324.49311167128394
+        },
+        {
+          "key": "companion:monkey",
+          "x": 220.2199248130261,
+          "y": 260.31813018737876
+        },
+        {
+          "key": "companion:sheep",
+          "x": 121.32218471414748,
+          "y": 169.34226028688943
+        },
+        {
+          "key": "companion:bat",
+          "x": 59.861785239313974,
+          "y": 218.8575392721831
+        },
+        {
+          "key": "companion:penguin_friend",
+          "x": 201.00873026247925,
+          "y": 230.12580463791767
+        },
+        {
+          "key": "companion:shiba",
+          "x": 165.4170495032596,
+          "y": 370.1454986363591
+        },
+        {
+          "key": "companion:punyu",
+          "x": 333.4170495032596,
+          "y": 369.46117910509724
+        },
+        {
+          "key": "companion:chameleon",
+          "x": 272.69573895946354,
+          "y": 278.41538975865643
+        },
+        {
+          "key": "companion:unicorn",
+          "x": 167.11834032520972,
+          "y": 202.13409039888154
+        },
+        {
+          "key": "companion:watcher",
+          "x": 100.10735569401675,
+          "y": 242.13177465561927
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "x": 260.5938130896663,
+          "y": 243.58052501612246
+        },
+        {
+          "key": "companion:squirrel",
+          "x": 124.40297626596443,
+          "y": 356.49311167128394
+        },
+        {
+          "key": "companion:otter",
+          "x": 333.7999862502102,
+          "y": 292.0752770525082
+        },
+        {
+          "key": "companion:panda",
+          "x": 168.89079697970013,
+          "y": 267.21694797521656
+        },
+        {
+          "key": "companion:parrot",
+          "x": 135.28722073901451,
+          "y": 226.8570761235306
+        },
+        {
+          "key": "companion:seal",
+          "x": 65.32542675471478,
+          "y": 256.93892189721566
+        },
+        {
+          "key": "companion:chicken",
+          "x": 207.65287743347466,
+          "y": 178.85985501544542
+        },
+        {
+          "key": "companion:hedgehog",
+          "x": 149.4170495032596,
+          "y": 324.0306184810265
+        },
+        {
+          "key": "companion:snail",
+          "x": 309.4170495032596,
+          "y": 262.17502954912374
+        },
+        {
+          "key": "companion:sekizou",
+          "x": 311.4348447356962,
+          "y": 228.14314868270003
+        },
+        {
+          "key": "companion:clock",
+          "x": 119.8085709220243,
+          "y": 274.1299220610094
+        },
+        {
+          "key": "companion:many_tail_fox",
+          "x": 80.01279350608328,
+          "y": 307.2560776871549
+        },
+        {
+          "key": "companion:box",
+          "x": 77.22558112978429,
+          "y": 347.85151283254
+        }
+      ],
+      "backgroundLoads": [
+        {
+          "path": "/game/comparisons/dayparts-20261103/v2/city-morning.webp",
+          "decodedBodySize": 458668
+        }
+      ]
+    },
+    {
+      "time": "day",
+      "requestedTime": "day",
+      "drawnImage": "/game/comparisons/dayparts-20261103/v2/city-day.webp",
+      "allDrawn": [
+        "/game/comparisons/dayparts-20261103/v2/city-day.webp"
+      ],
+      "initialCamera": {
+        "x": 16,
+        "y": 143.59375,
+        "scale": 0.9551369021930816,
+        "scaleX": 0.9551369021930816,
+        "scaleY": 1.7025799602901865,
+        "bodyScale": 0.7,
+        "bodyScaleLimit": 0.7,
+        "landscape": false,
+        "world": {
+          "left": 18.450293277570836,
+          "top": -120.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 264
+      },
+      "initial": [
+        {
+          "key": "pet:hermit_crab",
+          "x": 236.27590607805337,
+          "y": 304.82537327255505
+        },
+        {
+          "key": "partner:gentle_gorilla",
+          "x": 166.4708955454258,
+          "y": 161.99358249040944
+        },
+        {
+          "key": "companion:cat_friend",
+          "x": 98.45575707773749,
+          "y": 204.95051204894952
+        },
+        {
+          "key": "companion:tanuki",
+          "x": 234.4860340131142,
+          "y": 210.32012824376704
+        },
+        {
+          "key": "companion:owl",
+          "x": 290.2415645922257,
+          "y": 356.49311167128394
+        },
+        {
+          "key": "companion:hamster",
+          "x": 309.2919826195754,
+          "y": 324.49311167128394
+        },
+        {
+          "key": "companion:monkey",
+          "x": 220.2199248130261,
+          "y": 260.31813018737876
+        },
+        {
+          "key": "companion:sheep",
+          "x": 121.32218471414748,
+          "y": 169.34226028688943
+        },
+        {
+          "key": "companion:bat",
+          "x": 59.861785239313974,
+          "y": 218.8575392721831
+        },
+        {
+          "key": "companion:penguin_friend",
+          "x": 201.00873026247925,
+          "y": 230.12580463791767
+        },
+        {
+          "key": "companion:shiba",
+          "x": 165.4170495032596,
+          "y": 370.1454986363591
+        },
+        {
+          "key": "companion:punyu",
+          "x": 333.4170495032596,
+          "y": 369.46117910509724
+        },
+        {
+          "key": "companion:chameleon",
+          "x": 272.69573895946354,
+          "y": 278.41538975865643
+        },
+        {
+          "key": "companion:unicorn",
+          "x": 167.11834032520972,
+          "y": 202.13409039888154
+        },
+        {
+          "key": "companion:watcher",
+          "x": 100.10735569401675,
+          "y": 242.13177465561927
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "x": 260.5938130896663,
+          "y": 243.58052501612246
+        },
+        {
+          "key": "companion:squirrel",
+          "x": 124.40297626596443,
+          "y": 356.49311167128394
+        },
+        {
+          "key": "companion:otter",
+          "x": 333.7999862502102,
+          "y": 292.0752770525082
+        },
+        {
+          "key": "companion:panda",
+          "x": 168.89079697970013,
+          "y": 267.21694797521656
+        },
+        {
+          "key": "companion:parrot",
+          "x": 135.28722073901451,
+          "y": 226.8570761235306
+        },
+        {
+          "key": "companion:seal",
+          "x": 65.32542675471478,
+          "y": 256.93892189721566
+        },
+        {
+          "key": "companion:chicken",
+          "x": 207.65287743347466,
+          "y": 178.85985501544542
+        },
+        {
+          "key": "companion:hedgehog",
+          "x": 149.4170495032596,
+          "y": 324.0306184810265
+        },
+        {
+          "key": "companion:snail",
+          "x": 309.4170495032596,
+          "y": 262.17502954912374
+        },
+        {
+          "key": "companion:sekizou",
+          "x": 311.4348447356962,
+          "y": 228.14314868270003
+        },
+        {
+          "key": "companion:clock",
+          "x": 119.8085709220243,
+          "y": 274.1299220610094
+        },
+        {
+          "key": "companion:many_tail_fox",
+          "x": 80.01279350608328,
+          "y": 307.2560776871549
+        },
+        {
+          "key": "companion:box",
+          "x": 77.22558112978429,
+          "y": 347.85151283254
+        }
+      ],
+      "backgroundLoads": [
+        {
+          "path": "/game/comparisons/dayparts-20261103/v2/city-day.webp",
+          "decodedBodySize": 530088
+        }
+      ]
+    },
+    {
+      "time": "evening",
+      "requestedTime": "evening",
+      "drawnImage": "/game/comparisons/dayparts-20261103/images/city-evening.webp",
+      "allDrawn": [
+        "/game/comparisons/dayparts-20261103/images/city-evening.webp"
+      ],
+      "initialCamera": {
+        "x": 16,
+        "y": 143.59375,
+        "scale": 0.9551369021930816,
+        "scaleX": 0.9551369021930816,
+        "scaleY": 1.7025799602901865,
+        "bodyScale": 0.7,
+        "bodyScaleLimit": 0.7,
+        "landscape": false,
+        "world": {
+          "left": 18.450293277570836,
+          "top": -120.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 264
+      },
+      "initial": [
+        {
+          "key": "pet:hermit_crab",
+          "x": 236.27590607805337,
+          "y": 304.82537327255505
+        },
+        {
+          "key": "partner:gentle_gorilla",
+          "x": 166.4708955454258,
+          "y": 161.99358249040944
+        },
+        {
+          "key": "companion:cat_friend",
+          "x": 98.45575707773749,
+          "y": 204.95051204894952
+        },
+        {
+          "key": "companion:tanuki",
+          "x": 234.4860340131142,
+          "y": 210.32012824376704
+        },
+        {
+          "key": "companion:owl",
+          "x": 290.2415645922257,
+          "y": 356.49311167128394
+        },
+        {
+          "key": "companion:hamster",
+          "x": 309.2919826195754,
+          "y": 324.49311167128394
+        },
+        {
+          "key": "companion:monkey",
+          "x": 220.2199248130261,
+          "y": 260.31813018737876
+        },
+        {
+          "key": "companion:sheep",
+          "x": 121.32218471414748,
+          "y": 169.34226028688943
+        },
+        {
+          "key": "companion:bat",
+          "x": 59.861785239313974,
+          "y": 218.8575392721831
+        },
+        {
+          "key": "companion:penguin_friend",
+          "x": 201.00873026247925,
+          "y": 230.12580463791767
+        },
+        {
+          "key": "companion:shiba",
+          "x": 165.4170495032596,
+          "y": 370.1454986363591
+        },
+        {
+          "key": "companion:punyu",
+          "x": 333.4170495032596,
+          "y": 369.46117910509724
+        },
+        {
+          "key": "companion:chameleon",
+          "x": 272.69573895946354,
+          "y": 278.41538975865643
+        },
+        {
+          "key": "companion:unicorn",
+          "x": 167.11834032520972,
+          "y": 202.13409039888154
+        },
+        {
+          "key": "companion:watcher",
+          "x": 100.10735569401675,
+          "y": 242.13177465561927
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "x": 260.5938130896663,
+          "y": 243.58052501612246
+        },
+        {
+          "key": "companion:squirrel",
+          "x": 124.40297626596443,
+          "y": 356.49311167128394
+        },
+        {
+          "key": "companion:otter",
+          "x": 333.7999862502102,
+          "y": 292.0752770525082
+        },
+        {
+          "key": "companion:panda",
+          "x": 168.89079697970013,
+          "y": 267.21694797521656
+        },
+        {
+          "key": "companion:parrot",
+          "x": 135.28722073901451,
+          "y": 226.8570761235306
+        },
+        {
+          "key": "companion:seal",
+          "x": 65.32542675471478,
+          "y": 256.93892189721566
+        },
+        {
+          "key": "companion:chicken",
+          "x": 207.65287743347466,
+          "y": 178.85985501544542
+        },
+        {
+          "key": "companion:hedgehog",
+          "x": 149.4170495032596,
+          "y": 324.0306184810265
+        },
+        {
+          "key": "companion:snail",
+          "x": 309.4170495032596,
+          "y": 262.17502954912374
+        },
+        {
+          "key": "companion:sekizou",
+          "x": 311.4348447356962,
+          "y": 228.14314868270003
+        },
+        {
+          "key": "companion:clock",
+          "x": 119.8085709220243,
+          "y": 274.1299220610094
+        },
+        {
+          "key": "companion:many_tail_fox",
+          "x": 80.01279350608328,
+          "y": 307.2560776871549
+        },
+        {
+          "key": "companion:box",
+          "x": 77.22558112978429,
+          "y": 347.85151283254
+        }
+      ],
+      "backgroundLoads": [
+        {
+          "path": "/game/comparisons/dayparts-20261103/images/city-evening.webp",
+          "decodedBodySize": 428974
+        }
+      ]
+    },
+    {
+      "time": "night",
+      "requestedTime": "night",
+      "drawnImage": "/game/comparisons/dayparts-20261103/v6/city-night.webp",
+      "allDrawn": [
+        "/game/comparisons/dayparts-20261103/v6/city-night.webp"
+      ],
+      "initialCamera": {
+        "x": 16,
+        "y": 143.59375,
+        "scale": 0.9551369021930816,
+        "scaleX": 0.9551369021930816,
+        "scaleY": 1.7025799602901865,
+        "bodyScale": 0.7,
+        "bodyScaleLimit": 0.7,
+        "landscape": false,
+        "world": {
+          "left": 18.450293277570836,
+          "top": -120.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 264
+      },
+      "initial": [
+        {
+          "key": "pet:hermit_crab",
+          "x": 236.27590607805337,
+          "y": 304.82537327255505
+        },
+        {
+          "key": "partner:gentle_gorilla",
+          "x": 166.4708955454258,
+          "y": 161.99358249040944
+        },
+        {
+          "key": "companion:cat_friend",
+          "x": 98.45575707773749,
+          "y": 204.95051204894952
+        },
+        {
+          "key": "companion:tanuki",
+          "x": 234.4860340131142,
+          "y": 210.32012824376704
+        },
+        {
+          "key": "companion:owl",
+          "x": 290.2415645922257,
+          "y": 356.49311167128394
+        },
+        {
+          "key": "companion:hamster",
+          "x": 309.2919826195754,
+          "y": 324.49311167128394
+        },
+        {
+          "key": "companion:monkey",
+          "x": 220.2199248130261,
+          "y": 260.31813018737876
+        },
+        {
+          "key": "companion:sheep",
+          "x": 121.32218471414748,
+          "y": 169.34226028688943
+        },
+        {
+          "key": "companion:bat",
+          "x": 59.861785239313974,
+          "y": 218.8575392721831
+        },
+        {
+          "key": "companion:penguin_friend",
+          "x": 201.00873026247925,
+          "y": 230.12580463791767
+        },
+        {
+          "key": "companion:shiba",
+          "x": 165.4170495032596,
+          "y": 370.1454986363591
+        },
+        {
+          "key": "companion:punyu",
+          "x": 333.4170495032596,
+          "y": 369.46117910509724
+        },
+        {
+          "key": "companion:chameleon",
+          "x": 272.69573895946354,
+          "y": 278.41538975865643
+        },
+        {
+          "key": "companion:unicorn",
+          "x": 167.11834032520972,
+          "y": 202.13409039888154
+        },
+        {
+          "key": "companion:watcher",
+          "x": 100.10735569401675,
+          "y": 242.13177465561927
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "x": 260.5938130896663,
+          "y": 243.58052501612246
+        },
+        {
+          "key": "companion:squirrel",
+          "x": 124.40297626596443,
+          "y": 356.49311167128394
+        },
+        {
+          "key": "companion:otter",
+          "x": 333.7999862502102,
+          "y": 292.0752770525082
+        },
+        {
+          "key": "companion:panda",
+          "x": 168.89079697970013,
+          "y": 267.21694797521656
+        },
+        {
+          "key": "companion:parrot",
+          "x": 135.28722073901451,
+          "y": 226.8570761235306
+        },
+        {
+          "key": "companion:seal",
+          "x": 65.32542675471478,
+          "y": 256.93892189721566
+        },
+        {
+          "key": "companion:chicken",
+          "x": 207.65287743347466,
+          "y": 178.85985501544542
+        },
+        {
+          "key": "companion:hedgehog",
+          "x": 149.4170495032596,
+          "y": 324.0306184810265
+        },
+        {
+          "key": "companion:snail",
+          "x": 309.4170495032596,
+          "y": 262.17502954912374
+        },
+        {
+          "key": "companion:sekizou",
+          "x": 311.4348447356962,
+          "y": 228.14314868270003
+        },
+        {
+          "key": "companion:clock",
+          "x": 119.8085709220243,
+          "y": 274.1299220610094
+        },
+        {
+          "key": "companion:many_tail_fox",
+          "x": 80.01279350608328,
+          "y": 307.2560776871549
+        },
+        {
+          "key": "companion:box",
+          "x": 77.22558112978429,
+          "y": 347.85151283254
+        }
+      ],
+      "backgroundLoads": [
+        {
+          "path": "/game/comparisons/dayparts-20261103/v6/city-night.webp",
+          "decodedBodySize": 182712
+        }
+      ]
+    }
+  ],
+  "backgroundVerification": "All52 assets SHA256-equal; city4time selections actually observed as source images of canvas.drawImage, including night"
+}
