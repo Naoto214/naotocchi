@@ -1,5 +1,9 @@
 # ホーム移動 VERSION 4：左右非対称の原因調査
 
+Draft PR: https://github.com/Naoto214/naotocchi/pull/557
+
+保存コミット: 調査 `5fae97ea`、受付修正 `2f020ab7`、比較・検証記録 `4a9690c0`。
+
 基準 Draft PR #556 (`23b19aaf`)。既存PR #554/#555/#556、main、本番サイト、既存比較サイトは変更しない独立ブランチ `codex/home-movement-v4-audit`。
 
 ## 原因分析
