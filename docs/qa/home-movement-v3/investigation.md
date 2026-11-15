@@ -11,3 +11,7 @@ Baseline: PR #555 / e7032c2862320296b88969a6125ddb52af3d228a. Baseline movement 
 - All52 images reviewed with unchanged ground/foreground overlays. Other regions retained: home furniture/window, forest roots/slope, river_lake shoreline, countryside field/verge, mountain slope/rocks, snow banks/houses, sea surf/rocks, jungle roots/water, desert dune perspective, deepsea rocks, star_stop platform edge, memory_lake shore/tree roots. Existing safe ground is retained; no uniform expansion.
 
 The 4px fixed-grid search is a bounded resolution improvement, not a proof of every continuous corridor. Temporary occupancy remains a real block; no moving other residents aside or crossing them. Scene changes recompute predicates on each request.
+
+## Follow-up: city diagonal boundary
+
+The left pavement wedge did not improve the seal endpoint. Inverting the actual seal endpoint places it on the upper-right diagonal rather than the horizontal z0.53 edge. Moving the existing vertex (0.70,0.57) to (0.70,0.55) adds a small triangle of visibly paved ground in all four dayparts; the raised planting and foreground remain outside. Prototype actual-pointer improvement was10.09 CSS px upward. Final implementation keeps the original V2 nearest/route functions and depth curve, exposing the new ground only to step safety and supplementary reachable-component search. Further measurements use this implementation.

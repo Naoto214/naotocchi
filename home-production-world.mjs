@@ -1,7 +1,7 @@
 import {createDayparts,atmosphere} from './home-dayparts.mjs';
 import {ART_CANDIDATES,selectRecoveredScene} from './home-production-manifest.mjs';
 import {artTransform,paintBackdrop,backdropComposition} from './home-production-transform.mjs';
-import {createRecoveredNavigation} from './home-recovered-navigation.mjs?v=252b4119b9b3';
+import {createRecoveredNavigation} from './home-recovered-navigation.mjs?v=2e441024418b';
 export function createHomeWorld(options){
  const {container,document:doc,window:win=window,onStatus=()=>{}}=options;
  const painting=doc.createElement('canvas');let paintingKey='';
@@ -22,7 +22,7 @@ export function createHomeWorld(options){
   next.src=ART_CANDIDATES.find(a=>a.id===spec.candidate).src;onStatus(loaded?'art-25d':'art-25d-loading');
  }
 
- function navigation(rect){if(!spec)return null;const viewport=win.visualViewport,stableGrid=doc.body?.dataset?.homeDisplayVersion==='18'&&(viewport?.width||win.innerWidth)<=(viewport?.height||win.innerHeight);const {host}=geometry(),stage={left:rect.left-host.left,top:rect.top-host.top,width:rect.width,height:rect.height},key=JSON.stringify([env.region,host.width,host.height,stage,stableGrid]);if(key!==navKey){navKey=key;nav=createRecoveredNavigation(spec,host,stage,{stableGrid});revision++;lastPaint='';}return nav;}
+ function navigation(rect){if(!spec)return null;const viewport=win.visualViewport,stableGrid=doc.body?.dataset?.homeDisplayVersion==='18'&&(viewport?.width||win.innerWidth)<=(viewport?.height||win.innerHeight);const {host}=geometry(),stage={left:rect.left-host.left,top:rect.top-host.top,width:rect.width,height:rect.height},key=JSON.stringify([env.region,host.width,host.height,stage,stableGrid]);if(key!==navKey){navKey=key;nav=createRecoveredNavigation(spec,host,stage,{stableGrid,expandCity:stableGrid});revision++;lastPaint='';}return nav;}
  function draw(dt,flags={}){if(dead||flags.paused)return;if(!spec)return;
   fade=dayparts.frame(dt,flags.reducedMotion);if(fade.image){img=fade.image;loaded=true;onStatus('art-25d');}error=fade.error;
   if(!flags.reducedMotion)time+=Math.max(0,Math.min(1,Number(dt)||0))*1000;

@@ -1,4 +1,4 @@
-import {createArtNavigation} from './home-art-navigation.mjs?v=1e906239b7aa';
+import {createArtNavigation} from './home-art-navigation.mjs?v=cfdde733541d';
 export function createRecoveredNavigation(spec,host,stage,options){
  const nav=createArtNavigation(spec,host,stage,options),[far,near,min,max]=spec.depth;
  return {...nav,depthScale:p=>Math.max(min,Math.min(max,min+(nav.unproject(p).z-far)/(near-far)*(max-min))),

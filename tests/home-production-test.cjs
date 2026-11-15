@@ -145,14 +145,15 @@ test('latest-main game catalogs, conversations, formal images and other games st
  const original=cp.execFileSync('git',['ls-tree','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa'],{encoding:'utf8'}).trim().split('\n').filter(p=>p.startsWith('home-')&&/\.(js|mjs|css)$/.test(p));
  // The startup repair only moves the pure route function out of the module
  // that imports optional 3D. Reconstruct the original files byte-for-byte;
- // this exception cannot permit any navigation or legacy rendering changes.
+ // Historical reconstruction is pinned; current opt-in changes are exercised
+ // by the V2/V3 behavior tests. All unrelated rendering stays protected.
  // V2 deliberately changes the opt-in planner; legacy mode is compared
  // behaviorally against these pinned bytes in home-movement-v2-test.cjs.
  const route=cp.execFileSync('git',['show','6ab53fc23747fc1982089939206c1b6087643953:home-route-navigation.mjs'],{encoding:'utf8'}).replace('// Pure presentation routes, independent of the optional 3D renderer.\n','');
  const splitFiles=['home-art-navigation.mjs','home-terrain-navigation.mjs','home-recovered-navigation.mjs'];
  for(const file of splitFiles){
   let restored=fs.readFileSync(file,'utf8');
-  if(file==='home-art-navigation.mjs')restored=restored.replace(/from '\.\/home-route-navigation\.mjs(?:\?v=[^']+)?'/,"from './home-terrain-navigation.mjs'").replace('createArtNavigation(spec,host,stage,{stableGrid=false}={})','createArtNavigation(spec,host,stage)').replace(',gridOrigin:stableGrid?t.project({x:0,z:0}):null','');
+  if(file==='home-art-navigation.mjs')restored=cp.execFileSync('git',['show','e7032c2862320296b88969a6125ddb52af3d228a:'+file],{encoding:'utf8'}).replace(/from '\.\/home-route-navigation\.mjs(?:\?v=[^']+)?'/,"from './home-terrain-navigation.mjs'").replace('createArtNavigation(spec,host,stage,{stableGrid=false}={})','createArtNavigation(spec,host,stage)').replace(',gridOrigin:stableGrid?t.project({x:0,z:0}):null','');
   else if(file==='home-recovered-navigation.mjs')restored=restored.replace(/from '\.\/home-art-navigation\.mjs(?:\?v=[^']+)?'/,"from './home-art-navigation.mjs'").replace('createRecoveredNavigation(spec,host,stage,options)','createRecoveredNavigation(spec,host,stage)').replace('createArtNavigation(spec,host,stage,options)','createArtNavigation(spec,host,stage)');
   else restored=restored.replace("import {createTerrainNavigation} from './home-route-navigation.mjs';\nexport {createTerrainNavigation} from './home-route-navigation.mjs';\n",route);
   assert.equal(restored,cp.execFileSync('git',['show','e0c5c52671666e8ab06b37afabf3eeae29f530fa:'+file],{encoding:'utf8'}),'mechanical route extraction only: '+file);

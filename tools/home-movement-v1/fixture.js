@@ -1,8 +1,8 @@
 // This hook lives only in generated comparison scripts, never in production.
 window.MovementQA={
  resetUI(){const p=homeV11Presentation();clearTimeout(p.upperTimer);clearTimeout(p.lowerTimer);p.upper=null;p.upperQueue=[];p.lowerQueue=[];p.lowerUntil=0;homeV11ClearUpper();delete document.body.dataset.homeUpper;conv2Abort('qa');clearConversationTimers();hideSpeechBubble();},
- setup({count=4,item=true,stage=5,region='city',speech=false,notice=false}={}){
- this.resetUI();HomeReleaseQA.scene(region,count,'night');const m=NAOTOCCHI_CHARACTER_WORLD_MASTER_V1;
+ setup({count=4,item=true,stage=5,region='city',speech=false,notice=false,time='night'}={}){
+ this.resetUI();HomeReleaseQA.scene(region,count,time);const m=NAOTOCCHI_CHARACTER_WORLD_MASTER_V1;
  Object.assign(state,{speciesLine:'hermit_crab',stageIndex:stage,ageTicks:(stage===6?62:59)*AGE_TICKS_PER_YEAR,growth:100,poopCount:0});state.lifetime.equippedItemId=item?'poop1':null;
  if(count===4)state.companions=['panda','seal'].map(id=>({id,bond:85}));
  if(count===2){state.partner=null;state.companions=[{id:'seal',bond:85}];}
