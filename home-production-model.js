@@ -70,7 +70,7 @@
         const reflow=list.length>5&&(next.width!==previousScene.width||next.height!==previousScene.height||list.length!==previousActors.length||list.some(a=>previousActors.find(b=>b.key===a.key)?.w!==a.w));
         const initial=scene.navigation?.initialPoint&&(restoreSeats||!previousScene.navigation||previousScene.region!==scene.region||(list.length>5&&list.length!==previousActors.length)||!previousActors.some(b=>b.key===a.key));
         const seed=initial?(a.kind==='pet'&&scene.newbornPoint&&(!previousScene.navigation||!previousActors.some(b=>b.key===a.key))?scene.newbornPoint:scene.navigation.initialPoint(index,list.length)):null;
-        const old=!initial&&!changed&&!reflow&&actor(a.key),previous=!initial&&previousScene.region===scene.region?previousActors.find(b=>b.key===a.key):null,worldPoint=previous&&previousScene.navigation?.unproject(previous),preserved=worldPoint&&scene.navigation?scene.navigation.project(worldPoint):previous,limited=limit(a,old||preserved||seed||(a.kind==='pet'&&terrainCentre)||a,scene),p=scene.navigation?.nearest(limited,bounds(a,scene))||limited;
+        const old=!initial&&!changed&&!reflow&&actor(a.key),previous=!initial&&previousScene.region===scene.region?previousActors.find(b=>b.key===a.key):null,worldPoint=previous&&previousScene.navigation?.unproject(previous),preserved=worldPoint&&scene.navigation?scene.navigation.project(worldPoint):previous,limited=limit(a,old||preserved||seed||(a.kind==='pet'&&terrainCentre)||a,scene),p=previous&&scene.navigation?.reachable&&scene.navigation.valid(limited)&&visible(a,limited)?limited:scene.navigation?.nearest(limited,bounds(a,scene))||limited;
         return {...a,...p,route:old?.route?.map(p=>({...p}))||[],temperament:{...a.temperament},target:old&&old.w===a.w&&old.h===a.h&&old.target?limit(a,old.target,scene):null,activity:old?.activity||'rest',direction:old?.direction||1,source:old?.source||'ambient',manualUntil:previousActors.find(b=>b.key===a.key)?.manualUntil??0,nextAt:old?.nextAt??clock+1+random()*3,lastWalk:old?.lastWalk??clock-12,recent:old?.recent||[],after:old?.after||'observe',faceKey:old?.faceKey||null,visualReaction:old?.visualReaction,visualTarget:old?.visualTarget,nextVisualAt:old?.nextVisualAt||0};
       });
       // At capacity, individually separated seats can still form a closed ring
@@ -132,7 +132,7 @@
       // Keep V1's safe improvements as well, when they do not trade away an
       // original requested component. The main planning grid stays world-fixed.
       const reference=expandedReference&&(!originalReference||!retreats(expandedReference.point,originalReference.point))?expandedReference:originalReference;
-      if(!proposal&&!reference)return false;
+      if(!proposal&&!reference&&!scene.navigation?.reachable)return false;
       const preferReference=reference&&(!proposal||Math.hypot(proposal.x-reference.point.x,proposal.y-reference.point.y)<1e-7||retreats(proposal,reference.point));
       let q=preferReference?reference.point:proposal;
       // A cramped fallback seat may already overlap. Allow only escape that
@@ -143,7 +143,7 @@
       const oldRoute=()=>scene.navigation.referenceRoute(a,reference.point,reference.bounds,referenceFree);
       // Prefer the existing safe endpoint without letting a sparse legacy grid
       // conceal a valid new passage. Both planners retain the same predicates.
-      let path=preferReference?oldRoute():currentRoute(q);
+      let path=preferReference?oldRoute():q?currentRoute(q):[];
       if(!path.length&&preferReference)path=currentRoute(q);
       if(!path.length&&preferReference&&proposal){q=proposal;path=currentRoute(q);}
       if(!path.length&&!preferReference&&reference){q=reference.point;path=oldRoute();if(!path.length)path=currentRoute(q);}

@@ -20,22 +20,26 @@ No changes to #554/#555, main, game production, 52 backgrounds, art sizes, UI, 7
 - Dense initial layouts and transient occupants must not cause overlap or unbounded retries.
 
 ## 1. Investigation (commit/push)
-- [ ] Read baseline and route/bounds code; run baseline tests.
-- [ ] Overlay existing geometry on all 52 backgrounds; compare city unchanged / small extension / shaped extension.
-- [ ] Record active lower/left/upper constraints from identical pointer fixtures.
+- [x] Read baseline and route/bounds code; run baseline tests.
+- [x] Overlay existing geometry on all 52 backgrounds; compare city unchanged / small extension / shaped extension.
+- [x] Record active lower/left/upper constraints from identical pointer fixtures.
 
 ## 2. Prototype (commit/push)
-- [ ] Add failing navigator tests for missed detours, unreachable nearest candidates, collision barriers and preserved V2 routes.
-- [ ] Add bounded route/candidate fallback in home-route-navigation.mjs and home-production-model.js; preserve old successful routes as fallback.
-- [ ] Prototype polygon choices only in QA until their naturalness is checked. Keep depth and display bounds unchanged if no safe extra margin is evidenced.
-- [ ] Run tests and record rejected proposals.
+- [x] Add failing navigator tests for missed detours, unreachable nearest candidates, collision barriers and preserved V2 routes.
+- [x] Add bounded route/candidate fallback in home-route-navigation.mjs and home-production-model.js; preserve old successful routes as fallback.
+- [x] Prototype polygon choices only in QA until their naturalness is checked. Keep depth and display bounds unchanged if no safe extra margin is evidenced.
+- [x] Run tests and record rejected proposals.
 
 ## 3. Verification (commit/push)
-- [ ] Pin A/B/C runtime revisions and D current source in tools/home-movement-v3.
-- [ ] Run same pointer trials at widths320/375/390/430; assert no V2 directional regression; record feet and ink.
-- [ ] Exercise autonomy, 28 residents, equipment/speech/notice toggles and all region/daypart transitions. Record limitations.
-- [ ] Refresh changed asset hashes and run relevant existing checks.
+- [x] Pin A/B/C runtime revisions and D current source in tools/home-movement-v3.
+- [x] Run same pointer trials at widths320/375/390/430; assert no V2 directional regression; record feet and ink.
+- [x] Exercise autonomy, 28 residents, equipment/speech/notice toggles and all region/daypart transitions. Record limitations.
+- [x] Refresh changed asset hashes and run relevant existing checks.
 
 ## 4. Comparison and delivery (commit/push)
-- [ ] Owner-only four-version overlay with polygon proposal comparison, foot/ink/bounds visibility and equipment/speech controls; include disposable playable fixture if feasible.
-- [ ] Independent Draft PR with numeric actual reach results, constraints and provenance.
+- [x] Owner-only four-version overlay with polygon proposal comparison, foot/ink/bounds visibility and equipment/speech controls; include disposable playable fixture if feasible.
+- [x] Independent Draft PR with numeric actual reach results, constraints and provenance.
+
+## Execution ledger
+
+Investigation saved401df137/1656a022; prototype bed6e96f and city triangle commit. Fixed-grid supplement passed real-pointer regression replay for all8cases. 52region/daypart cases passed. Important review fixes: retained new-ground sync RED→GREEN, missing legacy candidate fallback RED→GREEN. Review Minor: old polygon ablation cache unsupported, excluded from evidence. Publication and final Draft PR recorded in QA README.
