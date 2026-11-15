@@ -1,0 +1,18 @@
+(()=>{
+ const $=id=>document.getElementById(id),labels={a:'A：現状維持',b:'B：操作中だけ道譲り',c:'C：操作中＋自律移動'};
+ let ready=false,lastWidth=0,catalog,actorKeys='';
+ const config={heroId:'hermit_crab',stage:5,itemId:'poop1',partnerId:'gentle_gorilla',focusKey:'pet:hermit_crab',count:28,region:'city',time:'night',speech:false,notice:false};
+ const post=data=>$('play').contentWindow?.postMessage(data,location.origin);
+ const options=()=>Object.fromEntries(['debug','ground','bounds'].map(k=>[k,$(k).checked]));
+ function fill(id,rows,value){$(id).replaceChildren(...rows.map(r=>new Option(r.label,r.id)));if([...$(id).options].some(o=>o.value===value))$(id).value=value;}
+ function dimensions(){const available=document.querySelector('.play-area').clientWidth,limit=$('width').value==='auto'?430:+$('width').value,width=Math.floor(Math.min(available,limit)),height=({320:568,375:812,390:844,430:932})[width]||Math.round(width*844/390);$('play-wrap').style.width=width+'px';$('play').style.height=height+'px';$('dimensions').textContent=width+' × '+height+' px';return width;}
+ function load(){ready=false;const v=$('variant').value,p=new URLSearchParams(Object.entries(config).map(([k,x])=>[k,typeof x==='boolean'?Number(x):x]));p.set('autonomy',Number($('autonomy').checked));p.set('yield',Number($('yielding').checked));$('yielding').disabled=v==='a';$('play-label').textContent=labels[v];lastWidth=dimensions();$('status').textContent='同じ初期配置を準備しています。';$('movers').textContent='0';$('yield-count').textContent='0';$('play').src='game/'+v+'/movement-b.html?'+p;}
+ for(const key of ['count','region','time'])$(key).onchange=()=>{config[key]=key==='count'?+$(key).value:$(key).value;if(key==='count')config.focusKey='pet:hermit_crab';load();};
+ $('variant').onchange=()=>{$('yielding').checked=$('variant').value!=='a';load();};$('width').onchange=load;$('reset').onclick=load;
+ $('focus').onchange=()=>{config.focusKey=$('focus').value;post({type:'yield-focus',key:config.focusKey});};
+ $('autonomy').onchange=()=>post({type:'yield-autonomy',enabled:$('autonomy').checked});$('yielding').onchange=()=>post({type:'yield-mode',enabled:$('yielding').checked});
+ for(const key of ['speech','notice'])$(key).onchange=()=>{config[key]=$(key).checked;post({type:'yield-ui',speech:config.speech,notice:config.notice});};
+ for(const key of ['debug','ground','bounds'])$(key).onchange=()=>{post({type:'yield-options',options:options()});$('debug-details').hidden=!$('debug').checked;};
+ window.addEventListener('message',event=>{if(event.origin!==location.origin||event.source!==$('play').contentWindow)return;const m=event.data;if(m?.variant!==$('variant').value)return;if(m.type==='yield-ready'){ready=true;catalog=m.catalog;fill('region',catalog.regions,config.region);fill('time',catalog.times,config.time);post({type:'yield-options',options:options()});}if(m.type==='yield-ready'||m.type==='yield-state'){const keys=m.actors?.map(a=>a.key).join('|');if(keys&&keys!==actorKeys){actorKeys=keys;fill('focus',m.actors.map(a=>({id:a.key,label:a.label||a.id})),m.selected?.key||config.focusKey);}else if(m.selected&&document.activeElement!==$('focus'))$('focus').value=m.selected.key;$('movers').textContent=m.movingCount;$('yield-count').textContent=m.yielding?.counters?.started??0;$('selected').textContent=m.selected?`${m.selected.label||m.selected.id} · ${m.selected.activity==='walk'?'歩いています':'そばで見守っています'}`:'キャラクターをドラッグしてください。';$('status').textContent=m.count+'体で比較中。'+(m.autonomy?'自律移動ON。':'自律移動OFF。')+(m.mode==='off'?'道譲りOFF。':'道譲りON。');$('details').textContent=JSON.stringify(m.yielding,null,2);}});
+ let timer;window.addEventListener('resize',()=>{clearTimeout(timer);timer=setTimeout(()=>{const width=dimensions();if(width!==lastWidth)load();},250);});load();
+})();
