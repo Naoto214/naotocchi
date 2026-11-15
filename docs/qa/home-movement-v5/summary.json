@@ -1,0 +1,1112 @@
+{
+  "primaryActors": 28,
+  "primary": [
+    {
+      "key": "pet:hermit_crab",
+      "label": "主人公",
+      "gains": {
+        "left": 11.177973558960346,
+        "right": 3.615968074599323,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "描画/UI境界(right)"
+          ],
+          "distanceCss": 0.25
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 0.75
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "partner:gentle_gorilla",
+      "label": "やさしいゴリラ",
+      "gains": {
+        "left": 13.81942053174226,
+        "right": 2.2784101237442087,
+        "top": 4.67994158096684,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 0.25
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 0.75
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:cat_friend",
+      "label": "きまぐれなねこ",
+      "gains": {
+        "left": 14.981721819610868,
+        "right": 9.459015919349554,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "遮蔽・描画可視性"
+          ],
+          "distanceCss": 1
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 1.5
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:tanuki",
+      "label": "いたずらたぬき",
+      "gains": {
+        "left": 15.28219043508929,
+        "right": 10.596975044591375,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 2.25
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 1.75
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:owl",
+      "label": "ものしりふくろう",
+      "gains": {
+        "left": 20.87195810419518,
+        "right": 11.461642826316961,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 2
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 1.75
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:hamster",
+      "label": "ほおぶくろハムスター",
+      "gains": {
+        "left": 21.707777566468877,
+        "right": 12.812871415528093,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "遮蔽・描画可視性"
+          ],
+          "distanceCss": 0.5
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 1.75
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:monkey",
+      "label": "まねっこサル",
+      "gains": {
+        "left": 21.95316027037074,
+        "right": 13.801726748180329,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "遮蔽・描画可視性"
+          ],
+          "distanceCss": 0.25
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 1.25
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:sheep",
+      "label": "ふわふわヒツジ",
+      "gains": {
+        "left": 17.6178256828793,
+        "right": 11.203644293543562,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "遮蔽・描画可視性"
+          ],
+          "distanceCss": 1.75
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 3
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:bat",
+      "label": "よふかしコウモリ",
+      "gains": {
+        "left": 21.369302213440797,
+        "right": 15.309124357224164,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "遮蔽・描画可視性"
+          ],
+          "distanceCss": 0.25
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 1
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:penguin_friend",
+      "label": "すべりたがりペンギン",
+      "gains": {
+        "left": 15.282190435089305,
+        "right": 10.007351861149687,
+        "top": 1.1368683772161603e-13,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "遮蔽・描画可視性"
+          ],
+          "distanceCss": 0.5
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 5.5
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:shiba",
+      "label": "ひとなつっこいしばいぬ",
+      "gains": {
+        "left": 25.453017650652818,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 1
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 2.5
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:punyu",
+      "label": "とけかけのぷにゅ",
+      "gains": {
+        "left": 21.588386800240784,
+        "right": 0,
+        "top": 1.1368683772161603e-13,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 1
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 5.5
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:chameleon",
+      "label": "サングラスのカメレオン",
+      "gains": {
+        "left": 22.398250864273486,
+        "right": 10.19013050841636,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "遮蔽・描画可視性"
+          ],
+          "distanceCss": 1.5
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 3.25
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:unicorn",
+      "label": "まよいこんだユニコーン",
+      "gains": {
+        "left": 18.83747177240815,
+        "right": 13.704521363598417,
+        "top": 1.1368683772161603e-13,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "遮蔽・描画可視性"
+          ],
+          "distanceCss": 0.25
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 3.25
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:watcher",
+      "label": "みているなにか",
+      "gains": {
+        "left": 25.406607185728017,
+        "right": 10.980190277523604,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 0.25
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 4
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:rabbit_friend",
+      "label": "すばしっこいうさぎ",
+      "gains": {
+        "left": 20.378640362920073,
+        "right": 15.03976616019969,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "遮蔽・描画可視性"
+          ],
+          "distanceCss": 0.25
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 2.75
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:squirrel",
+      "label": "おっちょこちょいリス",
+      "gains": {
+        "left": 22.091977487564904,
+        "right": 11.35037036801748,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 2.25
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 1.75
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:otter",
+      "label": "あそびずきカワウソ",
+      "gains": {
+        "left": 21.222829505707374,
+        "right": 11.223713858572637,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "遮蔽・描画可視性"
+          ],
+          "distanceCss": 1.75
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 3.75
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:panda",
+      "label": "ぐうたらパンダ",
+      "gains": {
+        "left": 21.659282760392728,
+        "right": 11.801756440603128,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "遮蔽・描画可視性"
+          ],
+          "distanceCss": 0.5
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 1.75
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:parrot",
+      "label": "おしゃべりオウム",
+      "gains": {
+        "left": 18.788917437001615,
+        "right": 14.0289338690107,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "遮蔽・描画可視性"
+          ],
+          "distanceCss": 0.25
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 1
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:seal",
+      "label": "ごろごろアザラシ",
+      "gains": {
+        "left": 17.58506054420176,
+        "right": 11.461642826316961,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "遮蔽・描画可視性"
+          ],
+          "distanceCss": 1.5
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 3
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:chicken",
+      "label": "はやおきニワトリ",
+      "gains": {
+        "left": 22.38688784606356,
+        "right": 13.538263353793923,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "遮蔽・描画可視性"
+          ],
+          "distanceCss": 0.25
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 1
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:hedgehog",
+      "label": "びっくりハリネズミ",
+      "gains": {
+        "left": 17.76783919146846,
+        "right": 9.749722725654976,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "背景歩行領域",
+            "遮蔽・描画可視性"
+          ],
+          "distanceCss": 2.25
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 4.5
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:snail",
+      "label": "せっかちなカタツムリ",
+      "gains": {
+        "left": 15.282190435089298,
+        "right": 10.007351861149687,
+        "top": 1.1368683772161603e-13,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "遮蔽・描画可視性"
+          ],
+          "distanceCss": 0.5
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 5.5
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:sekizou",
+      "label": "むひょうじょうのせきぞう",
+      "gains": {
+        "left": 27.299091264070654,
+        "right": 17.416819875823307,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "遮蔽・描画可視性"
+          ],
+          "distanceCss": 0.25
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 0.25
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:clock",
+      "label": "じかんにルーズなとけい",
+      "gains": {
+        "left": 18.480901568459565,
+        "right": 13.391161721708784,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "遮蔽・描画可視性"
+          ],
+          "distanceCss": 0.25
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 4
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:many_tail_fox",
+      "label": "しっぽのおおいきつね",
+      "gains": {
+        "left": 22.398250864273486,
+        "right": 12.097520087385362,
+        "top": 1.1368683772161603e-13,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "遮蔽・描画可視性"
+          ],
+          "distanceCss": 0.25
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 5.5
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    },
+    {
+      "key": "companion:box",
+      "label": "ただのはこ",
+      "gains": {
+        "left": 17.95061783873517,
+        "right": 11.66442192100601,
+        "top": 0,
+        "bottom": 0
+      },
+      "localBlockers": {
+        "left": {
+          "reasons": [
+            "描画/UI境界(left)"
+          ],
+          "distanceCss": 0.25
+        },
+        "right": {
+          "reasons": [
+            "遮蔽・描画可視性"
+          ],
+          "distanceCss": 0.25
+        },
+        "top": {
+          "reasons": [
+            "背景歩行領域"
+          ],
+          "distanceCss": 3.75
+        },
+        "bottom": {
+          "reasons": [
+            "描画/UI境界(bottom)"
+          ],
+          "distanceCss": 0.25
+        }
+      }
+    }
+  ],
+  "cases": [
+    {
+      "config": {
+        "width": 390,
+        "height": 844,
+        "safeBottom": 34,
+        "count": 28,
+        "heroId": "hermit_crab",
+        "stage": 5,
+        "itemId": "poop1",
+        "region": "city",
+        "time": "night",
+        "speech": false,
+        "notice": false
+      },
+      "mode": "isolated",
+      "actorDirectionRows": 28,
+      "trials": 944,
+      "dispatchedPointers": 944,
+      "unselectable": 0,
+      "inputMismatches": 17,
+      "regressions": 0
+    },
+    {
+      "config": {
+        "width": 390,
+        "height": 844,
+        "safeBottom": 34,
+        "count": 28,
+        "heroId": "hermit_crab",
+        "stage": 5,
+        "itemId": "poop1",
+        "region": "city",
+        "time": "night",
+        "speech": false,
+        "notice": false
+      },
+      "mode": "isolated",
+      "actorDirectionRows": 28,
+      "trials": 952,
+      "dispatchedPointers": 952,
+      "unselectable": 0,
+      "inputMismatches": 20,
+      "regressions": 0
+    },
+    {
+      "config": {
+        "width": 390,
+        "height": 844,
+        "safeBottom": 34,
+        "count": 28,
+        "heroId": "hermit_crab",
+        "stage": 5,
+        "itemId": "poop1",
+        "region": "city",
+        "time": "night",
+        "speech": false,
+        "notice": false
+      },
+      "mode": "isolated",
+      "actorDirectionRows": 28,
+      "trials": 952,
+      "dispatchedPointers": 952,
+      "unselectable": 0,
+      "inputMismatches": 0,
+      "regressions": 0
+    },
+    {
+      "config": {
+        "width": 390,
+        "height": 844,
+        "safeBottom": 34,
+        "count": 28,
+        "heroId": "hermit_crab",
+        "stage": 5,
+        "itemId": "poop1",
+        "region": "city",
+        "time": "night",
+        "speech": false,
+        "notice": false
+      },
+      "mode": "isolated",
+      "actorDirectionRows": 28,
+      "trials": 944,
+      "dispatchedPointers": 944,
+      "unselectable": 0,
+      "inputMismatches": 0,
+      "regressions": 0
+    }
+  ],
+  "totals": {
+    "actorDirectionRows": 112,
+    "trials": 3792,
+    "unselectable": 0,
+    "regressions": 0,
+    "oldNetAwaySuppressed": 0,
+    "unresolvedRegressions": 0
+  }
+}
