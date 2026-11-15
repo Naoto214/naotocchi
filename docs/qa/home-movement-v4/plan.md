@@ -8,10 +8,10 @@
 
 - [x] 従来/V1/V2/V3を固定参照で同じ開始状態・操作から測定。装着あり/なし、4体/固定カメラ単独/他個体移動を分離。
 - [x] 足元・PNG alpha・接触楕円・実背景cover・論理歩行投影を比較。方向別診断と実行停止を区別。
-- [ ] `tests/home-movement-v4-test.cjs` に経路fallback後の後退と3native px未満への置換拒否を再現し、修正前FAILを確認。
-- [ ] `home-production-model.js` の目的地/経路の最終選択だけを修正。安全なoriginal経路がある場合に要求成分を後退させるfallbackを避け、受理不能な短すぎる補助候補を除外する。既存の接触・遮蔽・線分判定は維持。
-- [ ] 固定D=V3とE=試作を同一ポインターで比較。V2/V3と新規回帰テスト、既存移動試験を実施。後退条件は隠さず記録。
-- [ ] `tools/home-movement-v4-audit/` に診断・比較生成ツール、`docs/qa/home-movement-v4/` に報告・測定・重ね合わせを保存し独立Draft PRを作成。
+- [x] `tests/home-movement-v4-test.cjs` に経路fallback後の後退と3native px未満への置換拒否を再現し、修正前FAILを確認。
+- [x] `home-production-model.js` では受理不能な短すぎる補助候補だけを除外。original経路優先のfallback変更は、左成分の後退との交換条件を確認したため採用せず、証拠を `fallback-tradeoff.json` に保存。接触・遮蔽・線分判定を維持。
+- [x] 固定D=V3とE=試作を同一ポインターで比較。V2/V3と新規回帰テスト、既存移動試験を実施。後退条件は隠さず記録。
+- [x] `tools/home-movement-v4-audit/` に診断・比較生成ツール、`docs/qa/home-movement-v4/` に報告・測定・重ね合わせを保存し独立Draft PRを作成。
 
 背景投影の全面変更、衝突緩和、ポリゴンの追加拡張は今回行わない。同じ背景点が182～249 CSS px違う位置へ投影されるため、単純置換では既存到達点と下UI保護を維持できない。描画原点の約1.17pxのCSS競合も主要な実到達制約ではなく、切り分けの結果として記録する。
 
