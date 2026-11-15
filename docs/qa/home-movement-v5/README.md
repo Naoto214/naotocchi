@@ -89,3 +89,5 @@ V4で分離した問題は、背景の実際の `cover` 投影と歩行判定の
 - [スマートフォン向けの全28体実測一覧](https://naotocchi-movement-v5-20261115.kerzion214.chatgpt.site/report/)
 
 ゲーム本番への公開・mainへのマージは行っていない。比較Siteの閲覧者は本人だけに限定する。
+
+比較版は本人限定で公開成功を確認済み。Site version 1・公開元コミット・既存PR保護の確認値は [publication.json](publication.json) に保存した。
