@@ -1,0 +1,45 @@
+✔ 453 unique cards, egg first, 31 contiguous eight-stage families and 51 nine-pocket pages (2.411272ms)
+✔ filters compose for name/effect/type/attribute/species/stage/rarity/favorites (1.369121ms)
+✔ preferences persist independently, merge latest fields, preserve corrupt data and reject failed saves (1.260145ms)
+✔ deck additions share original schema, reject egg/full/normal4/rare2 and roll back quota/conflicts (3.130779ms)
+✔ deck creation works where secure-context randomUUID is unavailable (1.651627ms)
+✔ mandatory reductions and taxes sum before floor and consume at zero (3.574576ms)
+✔ optional beetle choice locks following time skip only when accepted (0.402262ms)
+✔ source generation and turn bind once usage (0.562234ms)
+✔ frog existing world and hermit exact attachment target (0.446034ms)
+✔ first action recognizes prior item/event/play but ignores worlds (0.54744ms)
+✔ all eight explicit descriptors and source-bound locks (0.342197ms)
+✔ travel and home are separate source choices even when costs floor equally (0.51118ms)
+✔ dynamic selectors respect methods, types, partners and start serial (0.636136ms)
+✔ CPU and human both seats complete ten rounds using real commands and hidden opponent hand (1934.518329ms)
+✔ save during CPU choice resumes identically without duplicate and preserves history (2586.741308ms)
+✔ hidden background session cannot execute and resume retains human viewpoint (1.375252ms)
+✔ old hotseat save loads as unchanged hotseat and bad CPU envelope is rejected (2.355091ms)
+✔ unknown policy command stops safely and persisted diagnostic does not restart on restore (2.455473ms)
+✔ scheduler cancels stale callbacks, pauses in background, and performs one committed step per tick (3.240662ms)
+✔ long-press hand gesture pauses CPU from pointerdown through release (2.728061ms)
+✔ repeated cancelled activation stops at a bounded safe boundary without silent pass (21.914366ms)
+✔ human game engine exists (1.003028ms)
+✔ 40 cards, private projection, stale commands and immutable transitions (4.905887ms)
+✔ save replay validates state, commands and restores exact decisions (16.42192ms)
+✔ both human command seats complete R10 with legal cards, choices and chains (228.763428ms)
+✔ projection preserves physical identity for hand selection (0.682522ms)
+✔ every catalog card renders current text; main-only fields never leak into other categories (24.132785ms)
+✔ hidden cards never look up or embed supplied private identity (0.414916ms)
+✔ board has nine ordered slots, shared preparation, management order and only the visible top state card (5.050156ms)
+✔ null viewer has no private hand or controls, and acting player is the large board (2.668517ms)
+✔ confirmation protects payment/target/final selection without interrupting pass or incremental choices (0.41251ms)
+✔ card names and text are escaped, never interpreted as markup (0.377669ms)
+✔ every official card keeps NAOTOCCHI and independent rarity in full, detail and compact views (59.676311ms)
+✔ normal→rare and rare→normal change only rarity UI; art, name, numbers and signature stay identical (10.393468ms)
+✔ hidden cards reveal no rarity or signature (0.300885ms)
+✔ handoff erases private projection on response actor change, and saved restore starts hidden (142.184544ms)
+✔ a queued second click and action from a hidden seat cannot mutate the saved game (1.323573ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 37
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5097.972143

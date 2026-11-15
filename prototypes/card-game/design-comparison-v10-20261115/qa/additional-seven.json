@@ -1,0 +1,42 @@
+{
+  "note": "Detail observations were taken immediately after selection; loaded:false means decoding had not completed at that instant, not a failed image. All seven small images subsequently completed; see additional-images.json.",
+  "details": [
+    {
+      "copy": "【時のカード】終了ラウンドを9にする。",
+      "loaded": true,
+      "name": "IX",
+      "overflow": "false"
+    },
+    {
+      "copy": "【時のカード】終了ラウンドを10にする。",
+      "loaded": true,
+      "name": "X",
+      "overflow": "false"
+    },
+    {
+      "copy": "【時のカード】終了ラウンドを11にする。",
+      "loaded": true,
+      "name": "XI"
+    },
+    {
+      "copy": "【時のカード】終了ラウンドを12にする。",
+      "loaded": false,
+      "name": "XII"
+    },
+    {
+      "copy": "負けていて、終了ラウンドが次のラウンドの時に使える。そだち+5（終了ラウンドが10なら+10、9なら+15）。1ターンに1回。",
+      "loaded": false,
+      "name": "はやじまい"
+    },
+    {
+      "copy": "そだち+5。効果を解決する直前に、終了ラウンドが11以上で負けているなら、さらに+10。",
+      "loaded": false,
+      "name": "ながいきのひけつ"
+    },
+    {
+      "copy": "終了ラウンドのラウンドに使える。自分のなかま・こいびと・セカイ（時のカードを除く）1枚につきそだち+5（最大+15）。1ターンに1回。",
+      "loaded": false,
+      "name": "おもいでのしゃしん"
+    }
+  ]
+}
