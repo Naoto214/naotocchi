@@ -1,0 +1,132 @@
+{
+  "auditTrials": 1760,
+  "auditDirectionalCases": 44,
+  "matchedOverlayPairs": 12,
+  "prototype": [
+    {
+      "config": {
+        "width": 390,
+        "height": 844,
+        "count": 4,
+        "item": true,
+        "stage": 5,
+        "safeBottom": 34
+      },
+      "trials": 220,
+      "comparisons": {
+        "a": {
+          "retreats": 4,
+          "acceptanceLost": 0
+        },
+        "c": {
+          "retreats": 0,
+          "acceptanceLost": 0
+        },
+        "d": {
+          "retreats": 0,
+          "acceptanceLost": 0
+        }
+      }
+    },
+    {
+      "config": {
+        "width": 390,
+        "height": 844,
+        "count": 4,
+        "item": false,
+        "stage": 5,
+        "safeBottom": 34
+      },
+      "trials": 220,
+      "comparisons": {
+        "a": {
+          "retreats": 0,
+          "acceptanceLost": 0
+        },
+        "c": {
+          "retreats": 0,
+          "acceptanceLost": 0
+        },
+        "d": {
+          "retreats": 0,
+          "acceptanceLost": 0
+        }
+      }
+    },
+    {
+      "config": {
+        "width": 375,
+        "height": 812,
+        "count": 4,
+        "item": true,
+        "stage": 6,
+        "safeBottom": 34
+      },
+      "trials": 135,
+      "comparisons": {
+        "a": {
+          "retreats": 0,
+          "acceptanceLost": 0
+        },
+        "c": {
+          "retreats": 0,
+          "acceptanceLost": 0
+        },
+        "d": {
+          "retreats": 0,
+          "acceptanceLost": 0
+        }
+      }
+    },
+    {
+      "config": {
+        "width": 430,
+        "height": 932,
+        "count": 4,
+        "item": true,
+        "stage": 5,
+        "safeBottom": 34
+      },
+      "trials": 126,
+      "comparisons": {
+        "a": {
+          "retreats": 0,
+          "acceptanceLost": 0
+        },
+        "c": {
+          "retreats": 0,
+          "acceptanceLost": 0
+        },
+        "d": {
+          "retreats": 0,
+          "acceptanceLost": 0
+        }
+      }
+    },
+    {
+      "config": {
+        "width": 320,
+        "height": 568,
+        "count": 4,
+        "item": true,
+        "stage": 5,
+        "safeBottom": 0
+      },
+      "trials": 34,
+      "comparisons": {
+        "a": {
+          "retreats": 0,
+          "acceptanceLost": 0
+        },
+        "c": {
+          "retreats": 0,
+          "acceptanceLost": 0
+        },
+        "d": {
+          "retreats": 0,
+          "acceptanceLost": 0
+        }
+      }
+    }
+  ]
+}

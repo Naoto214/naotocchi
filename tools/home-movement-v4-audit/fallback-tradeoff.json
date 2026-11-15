@@ -1,0 +1,39 @@
+{
+  "status": "Diagnostic evidence, not an approved endpoint-selection policy",
+  "condition": "390x844, city/night, stage5 hermit crab with item, original four-resident layout; move gentle_gorilla",
+  "pointerGoalCss": {"x": 2, "y": 545},
+  "rawNative": {"x": -125.3093927415934, "y": 378.2480871905709},
+  "startNative": {"x": 153.94147338023794, "y": 181.32168180045804},
+  "originalReference": {
+    "native": {"x": 157.53846153846155, "y": 183.1153846153846},
+    "measuredFootCss": {"x": 181.38239611334168, "y": 294.95063163263137},
+    "freeUnderV3Predicates": true,
+    "referenceRouteUnderV3Predicates": [{"x": 157.53846153846155, "y": 183.1153846153846}]
+  },
+  "expandedReference": {
+    "native": {"x": 129.00094136802483, "y": 285.0004106189207},
+    "referenceRoute": [],
+    "currentRoute": []
+  },
+  "v2AndV3Fallback": {
+    "native": {"x": 128.0105241445568, "y": 163.24967808765015},
+    "measuredFootCss": {"x": 162.71149522731034, "y": 269.5725730242125}
+  },
+  "interpretation": "The expanded reference has no route. The reachable proposal prevents the later original-reference fallback from running. Original priority would restore downwards reach but would sacrifice leftwards progress relative to V2/V3 for this diagonal gesture.",
+  "dominatingAlternativeSearch": {
+    "requiredNative": {"xMax": 128.0105241445568, "yMin": 183.1153846153846},
+    "pointScanStepNative": 0.5,
+    "safePointCountInScannedArea": 30,
+    "firstSafePoint": {"x": 127.50094136802483, "y": 284},
+    "v3ReachableRoute": [],
+    "limitation": "The existing V3 reachable search found no route satisfying both components. The point scan is not a proof of continuous-space disconnection. No collision checks or polygons were changed."
+  },
+  "policyFixture": {
+    "start": {"x": 70, "y": 70},
+    "request": {"x": 0, "y": 100},
+    "original": {"x": 74, "y": 72},
+    "unreachableExpanded": {"x": 60, "y": 92},
+    "reachableProposal": {"x": 50, "y": 50},
+    "note": "Requiring original priority in this fixture is a policy tradeoff, so it is not a production nonregression assertion."
+  }
+}
