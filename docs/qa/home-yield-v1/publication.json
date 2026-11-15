@@ -1,0 +1,15 @@
+{
+  "projectId": "appgprj_6af955664ed08191aa190fdd7af67694",
+  "deploymentId": "appgdep_6af963a7d26081919a67821fb17e62a8",
+  "versionId": "appgprj_6af955664ed08191aa190fdd7af67694~appgver_2b565a2fde94819195be827581de718c",
+  "url": "https://naotocchi-yield-v1-20261115.kerzion214.chatgpt.site",
+  "audience": "owner-private",
+  "status": "succeeded",
+  "siteSourceCommit": "db5fe2c35574b9491ab3bb38a698afe1079ac97a",
+  "gameBranch": "codex/home-yield-v1",
+  "previewCommit": "51d3ee7a",
+  "modelSha256": "9481baaade3f91ba7dfd327276f970d251fd8e8c74d441d505983f2bee3aa6b9",
+  "gameProductionChanged": false,
+  "previousDeploymentId": "appgdep_6af95f075b548191a591d6a5d6ef8451",
+  "runtimeCommit": "f0a28535d9f8902a0023e0309aa3b423ae35255c"
+}

@@ -1,0 +1,206 @@
+{
+  "finalModelHash": "9481baaade3f91ba7dfd327276f970d251fd8e8c74d441d505983f2bee3aa6b9",
+  "note": "Multiple-resident measurements use prior bb1 candidate. Final change is solely the single-resident early guard; single-resident manual B/C and ambient C were repeated on final hash. A uses frozen V5 regardless of listed B/C source. See each raw runtime manifest for exact artifacts.",
+  "datasets": [
+    {
+      "file": "autonomy-1-a.json.gz",
+      "coreSourceHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+      "seconds": 300,
+      "initialSeed": {
+        "calls": 290,
+        "state": 3334685763
+      },
+      "seedReferenceApplied": false
+    },
+    {
+      "file": "autonomy-1-b.json.gz",
+      "coreSourceHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+      "seconds": 300,
+      "initialSeed": {
+        "calls": 290,
+        "state": 3334685763
+      },
+      "seedReferenceApplied": false
+    },
+    {
+      "file": "autonomy-1-c.json.gz",
+      "coreSourceHash": "9481baaade3f91ba7dfd327276f970d251fd8e8c74d441d505983f2bee3aa6b9",
+      "seconds": 300,
+      "initialSeed": {
+        "state": 3334685763,
+        "calls": 290
+      },
+      "initialSeedBeforeReset": {
+        "calls": 290,
+        "state": 3334685763
+      },
+      "seedReferenceApplied": true
+    },
+    {
+      "file": "autonomy-10-a.json.gz",
+      "coreSourceHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+      "seconds": 300,
+      "initialSeed": {
+        "calls": 393,
+        "state": 3075104124
+      },
+      "seedReferenceApplied": false
+    },
+    {
+      "file": "autonomy-10-b.json.gz",
+      "coreSourceHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+      "seconds": 300,
+      "initialSeed": {
+        "calls": 393,
+        "state": 3075104124
+      },
+      "seedReferenceApplied": false
+    },
+    {
+      "file": "autonomy-10-c.json.gz",
+      "coreSourceHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+      "seconds": 300,
+      "initialSeed": {
+        "calls": 393,
+        "state": 3075104124
+      },
+      "seedReferenceApplied": false
+    },
+    {
+      "file": "autonomy-20-a.json.gz",
+      "coreSourceHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+      "seconds": 300,
+      "initialSeed": {
+        "calls": 475,
+        "state": 2989303582
+      },
+      "seedReferenceApplied": false
+    },
+    {
+      "file": "autonomy-20-b.json.gz",
+      "coreSourceHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+      "seconds": 300,
+      "initialSeed": {
+        "calls": 475,
+        "state": 2989303582
+      },
+      "seedReferenceApplied": false
+    },
+    {
+      "file": "autonomy-20-c.json.gz",
+      "coreSourceHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+      "seconds": 300,
+      "initialSeed": {
+        "state": 2989303582,
+        "calls": 475
+      },
+      "initialSeedBeforeReset": {
+        "calls": 475,
+        "state": 2989303582
+      },
+      "seedReferenceApplied": true
+    },
+    {
+      "file": "autonomy-28-a.json.gz",
+      "coreSourceHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+      "seconds": 300,
+      "initialSeed": {
+        "calls": 507,
+        "state": 1802191550
+      },
+      "seedReferenceApplied": false
+    },
+    {
+      "file": "autonomy-28-b.json.gz",
+      "coreSourceHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+      "seconds": 300,
+      "initialSeed": {
+        "calls": 507,
+        "state": 1802191550
+      },
+      "seedReferenceApplied": false
+    },
+    {
+      "file": "autonomy-28-c.json.gz",
+      "coreSourceHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+      "seconds": 300,
+      "initialSeed": {
+        "calls": 507,
+        "state": 1802191550
+      },
+      "seedReferenceApplied": false
+    },
+    {
+      "file": "autonomy-4-a.json.gz",
+      "coreSourceHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+      "seconds": 300,
+      "initialSeed": {
+        "calls": 310,
+        "state": 3581955127
+      },
+      "seedReferenceApplied": false
+    },
+    {
+      "file": "autonomy-4-b.json.gz",
+      "coreSourceHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+      "seconds": 300,
+      "initialSeed": {
+        "calls": 310,
+        "state": 3581955127
+      },
+      "seedReferenceApplied": false
+    },
+    {
+      "file": "autonomy-4-c.json.gz",
+      "coreSourceHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+      "seconds": 300,
+      "initialSeed": {
+        "calls": 310,
+        "state": 3581955127
+      },
+      "seedReferenceApplied": false
+    },
+    {
+      "file": "live-manual-28.json.gz",
+      "coreSourceHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+      "seconds": 8,
+      "seedReferenceApplied": false
+    },
+    {
+      "file": "live-manual-4.json.gz",
+      "coreSourceHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+      "seconds": 8,
+      "seedReferenceApplied": false
+    },
+    {
+      "file": "manual-1.json.gz",
+      "coreSourceHash": "9481baaade3f91ba7dfd327276f970d251fd8e8c74d441d505983f2bee3aa6b9",
+      "seconds": 30,
+      "seedReferenceApplied": false
+    },
+    {
+      "file": "manual-10.json.gz",
+      "coreSourceHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+      "seconds": 30,
+      "seedReferenceApplied": false
+    },
+    {
+      "file": "manual-20.json.gz",
+      "coreSourceHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+      "seconds": 30,
+      "seedReferenceApplied": false
+    },
+    {
+      "file": "manual-28.json.gz",
+      "coreSourceHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+      "seconds": 30,
+      "seedReferenceApplied": false
+    },
+    {
+      "file": "manual-4.json.gz",
+      "coreSourceHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+      "seconds": 30,
+      "seedReferenceApplied": false
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "note": "Completed unchanged V5 baseline only. Candidate final evaluation pending.",
+  "autonomy": [
+    {
+      "count": 1,
+      "seconds": 600,
+      "meanDistanceCss": 5102.288143778152,
+      "meanStationaryPercent": 75.96666666667252,
+      "contacts": 0,
+      "maxMoving": 1
+    },
+    {
+      "count": 4,
+      "seconds": 600,
+      "meanDistanceCss": 3053.8741688575674,
+      "meanStationaryPercent": 81.5666666666738,
+      "contacts": 0,
+      "maxMoving": 4
+    },
+    {
+      "count": 10,
+      "seconds": 600,
+      "meanDistanceCss": 2296.886254962521,
+      "meanStationaryPercent": 88.48833333334204,
+      "contacts": 0,
+      "maxMoving": 3
+    },
+    {
+      "count": 20,
+      "seconds": 600,
+      "meanDistanceCss": 645.6399672759699,
+      "meanStationaryPercent": 96.91583333334397,
+      "contacts": 0,
+      "maxMoving": 2
+    },
+    {
+      "count": 28,
+      "seconds": 600,
+      "meanDistanceCss": 570.1057259528335,
+      "meanStationaryPercent": 97.32976190477261,
+      "contacts": 0,
+      "maxMoving": 2
+    }
+  ]
+}

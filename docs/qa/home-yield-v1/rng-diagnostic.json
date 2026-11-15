@@ -1,0 +1,17 @@
+{
+  "note": "Independent reviewer reran original bounded runtime A/B for600s with response-only RNG instrumentation and exact10-second fullstate comparisons. No divergence reproduced; historical different600s aggregates have no confirmed cause and are excluded from final effectiveness comparison. Optional reproducible procedure is tools/home-yield-v1/rng-probe.cjs.",
+  "originalCandidateSourceModelHash": "bb1ba1395f680d2b8ce35288b448e24135b2b60b1632b2379f04ff5e5e396f53",
+  "initialRngCalls": 507,
+  "initialRngState": 1802191550,
+  "initialClock": 2.7840000000000016,
+  "seconds": 600,
+  "equalCheckpoints": 60,
+  "compared": [
+    "actors",
+    "metrics",
+    "RNG calls",
+    "RNG state",
+    "model clock"
+  ],
+  "modelChangeMade": false
+}

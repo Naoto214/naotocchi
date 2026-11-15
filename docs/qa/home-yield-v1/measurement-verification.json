@@ -1,0 +1,55 @@
+{
+  "checks": [
+    {
+      "count": 1,
+      "manualDirections": 4,
+      "manualNoBackwardDelta": true,
+      "autonomySeconds": 300,
+      "uniformSteps": 18000,
+      "matchingInitialRngAndClock": true,
+      "baselineAndManualOnlyAutonomyEqual": true,
+      "contactWorsening": 0
+    },
+    {
+      "count": 4,
+      "manualDirections": 16,
+      "manualNoBackwardDelta": true,
+      "autonomySeconds": 300,
+      "uniformSteps": 18000,
+      "matchingInitialRngAndClock": true,
+      "baselineAndManualOnlyAutonomyEqual": true,
+      "contactWorsening": 0
+    },
+    {
+      "count": 10,
+      "manualDirections": 40,
+      "manualNoBackwardDelta": true,
+      "autonomySeconds": 300,
+      "uniformSteps": 18000,
+      "matchingInitialRngAndClock": true,
+      "baselineAndManualOnlyAutonomyEqual": true,
+      "contactWorsening": 0
+    },
+    {
+      "count": 20,
+      "manualDirections": 80,
+      "manualNoBackwardDelta": true,
+      "autonomySeconds": 300,
+      "uniformSteps": 18000,
+      "matchingInitialRngAndClock": true,
+      "baselineAndManualOnlyAutonomyEqual": true,
+      "contactWorsening": 0
+    },
+    {
+      "count": 28,
+      "manualDirections": 112,
+      "manualNoBackwardDelta": true,
+      "autonomySeconds": 300,
+      "uniformSteps": 18000,
+      "matchingInitialRngAndClock": true,
+      "baselineAndManualOnlyAutonomyEqual": true,
+      "contactWorsening": 0
+    }
+  ],
+  "note": "Assertions executed by report.cjs with YIELD_REQUIRE_COMPLETE=1. This validates the sampled fixed-seed scenario, not all possible game states."
+}
