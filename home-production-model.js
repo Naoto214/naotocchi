@@ -165,6 +165,12 @@
       const legacy=scene.navigation?.layoutNavigation;
       if(legacy&&legacy!==scene.navigation){
         const prior=plan(legacy);
+        // A sampled legacy shortcut can cross a thin terrain gap. Preserve its
+        // endpoint through a current safe detour, never the unsafe old segment.
+        if(prior.path.length&&!prior.path.every((to,i)=>scene.navigation.segmentSafe(i?prior.path[i-1]:a,to,referenceFree))){
+          prior.path=currentRoute(prior.point);
+          if(prior.path.length&&Math.hypot(prior.path.at(-1).x-prior.point.x,prior.path.at(-1).y-prior.point.y)>1e-6)prior.path=[];
+        }
         if(prior.path.length&&Math.hypot(prior.point.x-a.x,prior.point.y-a.y)>=3&&(!scene.navigation.intentAware||forward(prior.point))&&(!path.length||retreats(q,prior.point))){
           q=prior.point;path=prior.path;
           const score=Math.hypot(q.x-p.x,q.y-p.y),floor=q;

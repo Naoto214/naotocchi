@@ -83,6 +83,13 @@ test('a new endpoint that improves both requested components still replaces the 
  const legacy=plainNav({x:30,y:60}),n={...plainNav({x:20,y:40}),layoutNavigation:legacy,intentAware:true,intentScale:{x:1,y:1},reachable:()=>[]},m=bareFixture(n);
  assert.ok(m.move('pet:x',{x:0,y:0},'drag'));assert.deepEqual(m.snapshot()[0].target,{x:20,y:40});
 });
+test('a retained V4 endpoint uses a new safe detour when its old shortcut crosses a terrain gap',()=>{
+ const goal={x:24,y:56},waypoint={x:65,y:20},legacy=plainNav(goal);
+ const n={...plainNav({x:28,y:40}),layoutNavigation:legacy,intentAware:true,intentScale:{x:1,y:1},reachable:()=>[],
+  segmentSafe:(a,b)=>!same(b,goal)||same(a,waypoint),route:(_a,p)=>same(p,goal)?[waypoint,goal]:[p]};
+ const m=bareFixture(n);assert.ok(m.move('pet:x',{x:0,y:0},'drag'));
+ assert.deepEqual(m.snapshot()[0].target,waypoint);assert.deepEqual(m.snapshot()[0].route,[goal]);
+});
 test('a forward diagonal endpoint is not rejected by a nearly tied primary-axis classification',()=>{
  const n={...plainNav({x:72,y:30}),intentAware:true,intentScale:{x:1,y:1},reachable:()=>[]},m=bareFixture(n);
  assert.ok(m.move('pet:x',{x:0,y:5},'drag'));assert.deepEqual(m.snapshot()[0].target,{x:72,y:30});
