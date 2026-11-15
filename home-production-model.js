@@ -148,6 +148,13 @@
       if(!path.length&&preferReference&&proposal){q=proposal;path=currentRoute(q);}
       if(!path.length&&!preferReference&&reference){q=reference.point;path=oldRoute();if(!path.length)path=currentRoute(q);}
       if(!path.length&&originalReference&&originalReference!==reference){q=originalReference.point;path=scene.navigation.referenceRoute(a,q,originalReference.bounds,referenceFree);if(!path.length)path=currentRoute(q);}
+      // Preserve the complete V2 result. Only replace it with a reachable point
+      // that advances both requested components and is closer to the raw input.
+      if(scene.navigation?.reachable){
+        const prior=path.length?q:null,score=prior?Math.hypot(prior.x-p.x,prior.y-p.y):Infinity;
+        const better=score>1e-5?scene.navigation.reachable(a,p,safeBounds,referenceFree,point=>free(a,point)&&(!prior||!retreats(point,prior))&&Math.hypot(point.x-p.x,point.y-p.y)<score-1e-5):[];
+        if(better.length){path=better;q=better[better.length-1];}
+      }
       if(!path.length||Math.hypot(q.x-a.x,q.y-a.y)<3)return false;
       a.route=path.slice(1);a.target=path[0];a.source=source;if(source!=='ambient'){a.faceKey=null;a.visualReaction=undefined;a.visualTarget=null;}activity(a,'walk');a.lastWalk=clock;stats.moves++;defer(a,4);idleAt=clock+4;emit('move',a,source);return true;
     }

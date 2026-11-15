@@ -14,7 +14,7 @@ if(fs.readFileSync(path.join(out,'home-production-model.js'),'utf8').includes('i
 edit('home-production-model.js','if(!safe){a.target=null;','if(!safe){globalThis.__reachTrace.stop={from:{x:a.x,y:a.y},next:p,visible:visible(a,p),polygon:!scene.navigation||scene.navigation.segmentSafe(a,p),contacts:actors.filter(b=>b!==a&&!separated(a,p,b)).map(b=>b.key)};a.target=null;');
 edit('home-production-model.js','return {metrics:()=>','return {auditRestore(list){actors=structuredClone(list);selected=null;paused=false;for(const a of actors){a.target=null;a.route=[];a.activity="rest";}globalThis.__reachTrace=null;},metrics:()=>');
 edit('home-route-navigation.mjs','&&walkable(q);','&&(globalThis.__reachAblation?.polygon||walkable(q));');
-edit('home-route-navigation.mjs','const key=JSON.stringify(bounds);','const key=JSON.stringify([bounds,globalThis.__reachAblation?.polygon]);');
+if(fs.readFileSync(path.join(out,'home-route-navigation.mjs'),'utf8').includes('const key=JSON.stringify(bounds);'))edit('home-route-navigation.mjs','const key=JSON.stringify(bounds);','const key=JSON.stringify([bounds,globalThis.__reachAblation?.polygon]);');
 for(const v of ['a','b']){
  edit('movement-'+v+'-diorama.js','function visibleAt(p,a){','function visibleAt(p,a){if(env.__reachAblation?.occlusion)return true;');
  edit('movement-'+v+'-script.js',"if(count===4)state.companions=", "if(count===3)state.companions=[{id:'panda',bond:85}];if(count===4)state.companions=");
