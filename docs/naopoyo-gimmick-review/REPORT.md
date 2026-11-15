@@ -42,3 +42,16 @@
 調査・一覧：`01a01a4` / `02c99c8`。比較ページ・回帰：`4b63164`。最終レビューで床／壁の説明、看板の表示座標、装飾の詳細を修正。3つの再現テストがRED→GREEN、全300件とNative Canvas／合成DOM検証が成功。配信記録は追記する。
 
 Draft/base維持。既存エディターの大規模改修、新しい正式物理、100面への一括反映、mainマージ、本番Pages公開は行っていない。
+
+## 本人限定版の更新結果
+
+2026-11-15 14:00 JST確認。Site **version 16** 更新成功。配信ソース `c801720c14a3c5d31a49162ba6281abcd74dda21`、実装HEAD `f39fe3f4cda92292b32348cd347a0097b652da80`。アーカイブ882ファイル、SHA-256 `0bba89ecc90e9faf1742ad46689882c0b5450da8747666d95902a215e54ff322`。本人1名・外部0・グループ0を確認し、権限変更なし。比較対象外616ファイルのバイト一致、HTML/モジュール参照検査成功。
+
+実装HEADのCI：
+- [図鑑を含む比較回帰](https://github.com/Naoto214/naotocchi/actions/runs/43679017468)：success
+- [100面](https://github.com/Naoto214/naotocchi/actions/runs/43679017503)：success
+- [Contact](https://github.com/Naoto214/naotocchi/actions/runs/43679017491)：success
+- [Chapter 1](https://github.com/Naoto214/naotocchi/actions/runs/43679017469)：in_progress
+- [Chapter 2](https://github.com/Naoto214/naotocchi/actions/runs/43679017511)：in_progress
+
+最後のコミットはこの配信記録のみ。最新HEADはgit/PRで確認できる。未完了のCIを成功とは扱わない。配信完了はSitesの応答で確認し、実ブラウザ確認とは区別する。
