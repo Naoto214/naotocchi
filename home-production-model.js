@@ -37,7 +37,7 @@
     function resetYieldState(){clearYield();yieldNextAt=0;yieldPairs.clear();yieldActors.clear();for(const k of Object.keys(yieldCounters))yieldCounters[k]=0;yieldEvents.length=0;}
     function yieldStatus(){return {mode:yieldMode,planning:yieldPlanning?{requester:yieldPlanning.requester,source:yieldPlanning.source,startedAt:yieldPlanning.startedAt,probes:yieldPlanning.probes}:null,active:yieldActive?{...yieldActive,goal:{...yieldActive.goal},from:{...yieldActive.from},retreatTo:{...yieldActive.retreatTo},passTo:{...yieldActive.passTo}}:null,counters:{...yieldCounters},events:yieldEvents.map(e=>({...e})),moving:actors.filter(a=>a.target).length,autonomousMoving:ambientMoving(),budget:ambientBudget()};}
     function rememberYield(a,p,source){
-      if(yieldResuming||yieldMode==='off'||source==='yield'||source==='ambient'&&yieldMode!=='all')return;
+      if(actors.length<2||yieldResuming||yieldMode==='off'||source==='yield'||source==='ambient'&&yieldMode!=='all')return;
       const old=yieldPending.get(a.key);
       if(old&&old.source===source&&Math.hypot(old.goal.x-p.x,old.goal.y-p.y)<1)return;
       // One attempted retreat per intention. Old retry callbacks do not restart it.

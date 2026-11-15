@@ -6,7 +6,7 @@ async function setup(mode='all',roles=['pet','companion'],options={}){
  const valid=p=>p.x>=24&&p.x<=216&&(p.y>=95&&p.y<=105||!options.noAlcove&&p.x>=bx-15&&p.x<=bx+20&&p.y>=52&&p.y<=105);
  const nav=createTerrainNavigation({width:240,height:160,project:p=>p,unproject:p=>({...p,z:p.y}),walkable:valid,cell:8,gridOrigin:{x:0,y:0}});nav.intentAware=true;nav.intentScale={x:1,y:1};
  if(options.onQuery)for(const key of ['nearest','route','reachable']){const query=nav[key];nav[key]=(...args)=>{options.onQuery(key);return query(...args);};}
- const model=createModel({random:options.random||(()=>.5)});model.setYieldMode(mode);model.sync([{key:'a',kind:roles[0],id:'a',x:options.startX||60,y:100,w:20,h:20},{key:'b',kind:roles[1],id:'b',x:bx,y:100,w:20,h:20},...(options.serial?[{key:'c',kind:'companion',id:'c',x:180,y:100,w:20,h:20}]:[])],{width:240,height:160,region:'city',time:'day',navigation:nav,actorBounds:()=>({left:24,right:216,top:52,bottom:105}),visible:p=>valid(p),tags:[]});
+ const model=createModel({random:options.random||(()=>.5)});model.setYieldMode(mode);model.sync([{key:'a',kind:roles[0],id:'a',x:options.startX||60,y:100,w:20,h:20},...(options.single?[]:[{key:'b',kind:roles[1],id:'b',x:bx,y:100,w:20,h:20}]),...(options.serial?[{key:'c',kind:'companion',id:'c',x:180,y:100,w:20,h:20}]:[])],{width:240,height:160,region:'city',time:'day',navigation:nav,actorBounds:()=>({left:24,right:216,top:52,bottom:105}),visible:p=>valid(p),tags:[]});
  return model;
 }
 function run(m,seconds=14,flags={autonomy:false}){let old=m.snapshot();for(let i=0;i<seconds*20;i++){m.step(.05,flags);const now=m.snapshot();for(let j=0;j<now.length;j++){assert.ok(Math.hypot(now[j].x-old[j].x,now[j].y-old[j].y)<=2.10001,'no teleport');for(let k=j+1;k<now.length;k++)assert.ok(Math.hypot((now[j].x-now[k].x)/((now[j].w+now[k].w)*.5+10),(now[j].y-now[k].y)/((now[j].h+now[k].h)*.38+10))>=1-1e-6,'no contact');}old=now;}return m.snapshot();}
@@ -55,4 +55,17 @@ test('unsuccessful cooperative search has finite work and does not retry forever
  const m=await setup('manual',undefined,{noAlcove:true});m.move('a',{x:200,y:100},'drag');run(m,8);
  const status=m.yieldStatus();assert.equal(status.planning,null);assert.equal(status.counters.started,0);assert.equal(status.counters.planningStarted,1);assert.ok(status.counters.planningProbes<=48);
  run(m,8);assert.equal(m.yieldStatus().counters.planningStarted,1);
+});
+
+
+test('a lone resident creates no yielding intent and preserves ordinary movement',async()=>{
+ const results=[];
+ for(const mode of ['off','manual','all']){
+  let queries=0;const model=await setup(mode,undefined,{single:true,onQuery:()=>queries++});
+  model.move('a',{x:200,y:100},'drag');run(model,8);
+  model.move('a',{x:24,y:100},'ambient');run(model,60,{autonomy:true});
+  const state=model.yieldStatus();assert.equal(state.counters.requests,0);assert.equal(state.counters.planningStarted,0);assert.equal(state.counters.planningProbes,0);assert.equal(state.counters.started,0);
+  results.push({actors:model.snapshot(),metrics:model.metrics(),queries});
+ }
+ assert.deepEqual(results[1],results[0]);assert.deepEqual(results[2],results[0]);
 });
