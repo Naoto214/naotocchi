@@ -1,0 +1,63 @@
+VERSION 5 unit verification (2026-11-15)
+
+Targeted movement/navigation verification
+  node --test tests/home-movement-v2-test.cjs tests/home-movement-v3-test.cjs
+    tests/home-movement-v4-test.cjs tests/home-movement-v5-ground-test.cjs
+    tests/home-movement-v5-routing-test.cjs
+  45/45 passed after the exact-segment fix; the additional measured city watcher
+  regression then passed in the 9/9 ground suite (46 tests across these files).
+  node --test tests/home-terrain-navigation-test.cjs
+  7/7 passed; existing Three.js MODULE_TYPELESS_PACKAGE_JSON warning only.
+
+New regressions verified RED before production changes, then GREEN:
+  - A 0.1 native-pixel exclusion skipped by legacy 3px segment samples.
+  - Legacy route/referenceRoute shortcuts replaced with a safe detour to the
+    same requested endpoint, without changing collision predicates.
+  - Optional exact terrain guard leaves all existing callers unchanged.
+  - Full V4 compatibility planning cannot reinstall an unsafe legacy shortcut.
+
+Additional concrete regression:
+  390px city, 28-actor camera, companion:watcher, left pointer (17,402).
+  The old route segment (152.012793506,311.256077687) ->
+  (124.012793506,315.256077687) passed 3px sampling but crossed a thin gap between
+  the legacy and painted ground projections. The exact segment guard rejects
+  that shortcut; navigation finds a safe detour to the same endpoint.
+
+Independent geometry review:
+  All 13 regions, 5,776 deterministic segments checked against 1,001-point
+  sampling: no unsafe acceptances or unexpected rejections (review agent).
+  Actual pointer replay and visual verification are documented separately;
+  geometry/unit results are not claimed as measurements of actual reach.
+
+Post-refresh asset and V5 verification (root integration run):
+  node --test tests/asset-integrity-test.cjs tests/asset-versions-test.cjs
+    tests/home-movement-v5-*-test.cjs
+  35/35 passed: 9 asset checks and 26 V5 checks.
+
+Remaining npm conversation/home chunks:
+  The package.json npm test script's final conversation chunk: 159/159 passed.
+  Its final home chunk, excluding the already-passed terrain file: 231/231 passed.
+  Home/terrain combined: 238/238 passed. Existing Three.js module warnings only.
+
+Broad npm test: PARTIAL, not a completed green npm test.
+  The first three Node chunks passed 19 + 39 + 43 = 101 tests. The smoke,
+  dialogue and visual-QA commands also exited successfully.
+  The large baseline group was deliberately interrupted after about 27 minutes
+  so unrelated long-running meguru checks did not block movement verification.
+  Its final runner summary: 1,481 passed, 2 failed, 59 cancelled, 0 skipped.
+  The cancelled/not-completed cases are listed in broad-suite-cancelled.txt.
+  Those cancellations are not counted as successful verification.
+
+The two observed assertion failures occurred before the asset-hash refresh:
+  tests/asset-integrity-test.cjs:
+    - every script, stylesheet and lazy module carries a supported token whose
+      hash matches the file
+    - the real index.html and references turn red when a token goes stale,
+      a token is dropped or a path changes case
+  Both are covered by the post-refresh green asset suite recorded above.
+  No other assertion failures were reported in the interrupted run.
+
+Full raw logs remained local during the run:
+  /tmp/naotocchi-v5-npm-test.log
+  /tmp/naotocchi-v5-remaining-npm-test.log
+  /tmp/v5-terrain-navigation-test.log

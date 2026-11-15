@@ -1,0 +1,64 @@
+[
+  {
+    "count": 4,
+    "seconds": 1200,
+    "newGroundFrames": 7325,
+    "visitors": [
+      "pet:hermit_crab",
+      "companion:seal",
+      "companion:panda"
+    ],
+    "minimumClearance": 1.0000000110091734,
+    "newOverlaps": 0,
+    "expandedGroundVisited": true,
+    "metrics": {
+      "distance": 29686.2875493928,
+      "moves": 372,
+      "turns": 46,
+      "activities": {
+        "walk": 372,
+        "solitude": 59,
+        "together": 131,
+        "sit": 78,
+        "rest": 76,
+        "look": 100,
+        "observe": 41,
+        "approach": 58,
+        "turn": 27
+      },
+      "clock": 1206.5759999999982
+    }
+  },
+  {
+    "count": 28,
+    "seconds": 1200,
+    "newGroundFrames": 27776,
+    "visitors": [
+      "companion:squirrel",
+      "companion:hedgehog",
+      "companion:shiba",
+      "companion:punyu",
+      "companion:penguin_friend"
+    ],
+    "minimumClearance": 1.000000021385464,
+    "newOverlaps": 0,
+    "expandedGroundVisited": true,
+    "metrics": {
+      "distance": 52856.59655435016,
+      "moves": 1074,
+      "turns": 430,
+      "activities": {
+        "walk": 1074,
+        "solitude": 285,
+        "together": 561,
+        "sit": 394,
+        "rest": 410,
+        "look": 1002,
+        "observe": 227,
+        "approach": 267,
+        "turn": 218
+      },
+      "clock": 2409.359999998907
+    }
+  }
+]

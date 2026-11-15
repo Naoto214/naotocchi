@@ -1,0 +1,175 @@
+{
+  "passed": true,
+  "createdAt": "2026-11-15T05:03:53.043Z",
+  "runtime": "/workspace/sites/naotocchi-movement-v5/dist",
+  "build": {
+    "revisions": {
+      "a": "408c72e6ebef71da3eab33cfb268c7494117aaaa",
+      "c": "e7032c2862320296b88969a6125ddb52af3d228a",
+      "d": "48d062aa55681061e72b593e5ec4012ed305270e",
+      "e": "16ee382ea2f0addc3f1b00b5b837b2b5f6fa8748"
+    },
+    "hashes": {
+      "a": {
+        "home-production-model.js": "bc7ee83bf681152f2ed54b97f98315ab483109f53fce57b10d8bf1713ac839a9",
+        "home-production-diorama.js": "435a6c4f24b370f0bf3c95a4cbdc5f661b2243fe5a0c7cfecb38de093846296c",
+        "home-production-world.mjs": "b625acfc0d637f5cf5057962c8fe41e7c53cd7f6247d8b33bd9ea6cd2613cd5a",
+        "home-art-navigation.mjs": "2cbab02b48f18b8ef5a35b4a9de79e5fdc6a4abfe310e27d0bb6eff202a8d6e4",
+        "home-recovered-navigation.mjs": "6f92d1c732dc23ba549b99e61a39531fc670e74d615f047149491fdcde4689c5",
+        "home-route-navigation.mjs": "3d926b356ee51ab9abccd740cd01e3182f5fd42f588de0d826284a920ad4e638"
+      },
+      "c": {
+        "home-production-model.js": "40a75b2742c6000708ea42a657fb9e967e05c6c844035baa4680da06d419e754",
+        "home-production-diorama.js": "162705f164bba19b8bf48a64255f01f48fbd859d884a1e2aa4d6018a7adc5f5e",
+        "home-production-world.mjs": "8ec56a3ce47047422dd77937877aed6be9435d3c6dc1efcfde62e1cc290b3e71",
+        "home-art-navigation.mjs": "1e906239b7aa1af647642607439d59165d1d29b5339c70e86869b54cbc5c1dfe",
+        "home-recovered-navigation.mjs": "252b4119b9b328f4ef15075ec2b1f766f8797667c2c290bc61f047c7b237345e",
+        "home-route-navigation.mjs": "0234d0c5bae79a314c07701647e24ccc9c2ea6c6be035aaf39c36f8c3c9053ff"
+      },
+      "d": {
+        "home-production-model.js": "f3449264779283092e600f6f8a35c456c31d6d1b5fbed7b7603d7ac5f7fa75c0",
+        "home-production-diorama.js": "7de72d0776d67e7f1499a30eef537e4e6937e441c969ae10e6bdc66544bda0aa",
+        "home-production-world.mjs": "c5fb8e8028e17ae9dde100e7edaf028d50879a2a75ac4e9e024d010462c59310",
+        "home-art-navigation.mjs": "cfdde733541d65ddc2a4000700730a736e3f8cfb3cc8df18257f4f91d6cb8c67",
+        "home-recovered-navigation.mjs": "2e441024418bb0ba4371ca3238de86e0c78018541dcb919511ef39920473dd1b",
+        "home-route-navigation.mjs": "61c6e963fb7c821125cb77da93378ecbad748fb40dc13b2b4e4d53a465952ae9"
+      },
+      "e": {
+        "home-production-model.js": "0df78b159cefa53535337db1064016c0ba2a81e66f3ec6e4d0b08bdd8caa85cc",
+        "home-production-diorama.js": "cbc204d9b909d6024edba02fad14d36eb2b6541695fecfe0dfc2c773070a7c92",
+        "home-production-world.mjs": "d824c818c676353898afb052b43f8e88db9a14a7add55c3986af0104dbdc9ca6",
+        "home-art-navigation.mjs": "b08b767e0984c662aae5bd2e98dfc1463923950b7c41ded9af7ee4a26f8668be",
+        "home-recovered-navigation.mjs": "9a7e25d9fbe9598f66f04139fc534b70cf847a289c53b908d5dc69e3eb62578d",
+        "home-route-navigation.mjs": "9459d7632eb786f8415839e102ddd422829804423f0b9e674bae44424eef678e",
+        "home-visible-ground-navigation.mjs": "47d394909efd22698dc697883efab1dc5f5142842d03615283d43d2f9490093b",
+        "home-ground-expansion.mjs": "886c97b278c4c2fee73455cbb130827a3e4b2e7828a9719d6cc6c88c7b3fe906"
+      }
+    },
+    "dirty": true
+  },
+  "method": "Four variants at 320/375/390/430px respectively. Viewport script delayed until the early diagnostic call, then normal readiness and one rapid reload.",
+  "records": [
+    {
+      "version": "a",
+      "width": 320,
+      "early": {
+        "viewportAPI": false,
+        "detail": {
+          "pending": true,
+          "presentation": null,
+          "actors": [],
+          "viewport": {
+            "width": 320,
+            "height": 568
+          }
+        }
+      },
+      "first": {
+        "pending": false,
+        "presentation": true,
+        "count": 4,
+        "width": 320,
+        "paused": true
+      },
+      "reloaded": {
+        "pending": false,
+        "presentation": true,
+        "count": 4,
+        "width": 320,
+        "paused": true
+      }
+    },
+    {
+      "version": "c",
+      "width": 375,
+      "early": {
+        "viewportAPI": false,
+        "detail": {
+          "pending": true,
+          "presentation": null,
+          "actors": [],
+          "viewport": {
+            "width": 375,
+            "height": 812
+          }
+        }
+      },
+      "first": {
+        "pending": false,
+        "presentation": true,
+        "count": 4,
+        "width": 375,
+        "paused": true
+      },
+      "reloaded": {
+        "pending": false,
+        "presentation": true,
+        "count": 4,
+        "width": 375,
+        "paused": true
+      }
+    },
+    {
+      "version": "d",
+      "width": 390,
+      "early": {
+        "viewportAPI": false,
+        "detail": {
+          "pending": true,
+          "presentation": null,
+          "actors": [],
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        }
+      },
+      "first": {
+        "pending": false,
+        "presentation": true,
+        "count": 4,
+        "width": 390,
+        "paused": true
+      },
+      "reloaded": {
+        "pending": false,
+        "presentation": true,
+        "count": 4,
+        "width": 390,
+        "paused": true
+      }
+    },
+    {
+      "version": "e",
+      "width": 430,
+      "early": {
+        "viewportAPI": false,
+        "detail": {
+          "pending": true,
+          "presentation": null,
+          "actors": [],
+          "viewport": {
+            "width": 430,
+            "height": 932
+          }
+        }
+      },
+      "first": {
+        "pending": false,
+        "presentation": true,
+        "count": 4,
+        "width": 430,
+        "paused": true
+      },
+      "reloaded": {
+        "pending": false,
+        "presentation": true,
+        "count": 4,
+        "width": 430,
+        "paused": true
+      }
+    }
+  ],
+  "errors": [],
+  "requests": []
+}

@@ -1,9 +1,9 @@
 // Pure presentation routes, independent of the optional 3D renderer.
-export function createTerrainNavigation({width,height,project,unproject,walkable,cell=12,gridOrigin=null}){
+export function createTerrainNavigation({width,height,project,unproject,walkable,segmentWalkable=null,cell=12,gridOrigin=null}){
  const valid=p=>{const q=unproject(p);return !!q&&Number.isFinite(q.x+q.y+q.z)&&walkable(q);};
- const segmentSafe=(a,b,predicate=()=>true)=>{const n=Math.max(1,Math.ceil(Math.hypot(a.x-b.x,a.y-b.y)/3));for(let i=0;i<=n;i++){const p={x:a.x+(b.x-a.x)*i/n,y:a.y+(b.y-a.y)*i/n};if(!predicate(p)||!valid(p))return false;}return true;};
+ const segmentSafe=(a,b,predicate=()=>true)=>{if(segmentWalkable&&!segmentWalkable(a,b))return false;const n=Math.max(1,Math.ceil(Math.hypot(a.x-b.x,a.y-b.y)/3));for(let i=0;i<=n;i++){const p={x:a.x+(b.x-a.x)*i/n,y:a.y+(b.y-a.y)*i/n};if(!predicate(p)||!valid(p))return false;}return true;};
  const stable=!!gridOrigin&&Number.isFinite(gridOrigin.x+gridOrigin.y);
- const reference=stable?createTerrainNavigation({width,height,project,unproject,walkable,cell}):null;
+ const reference=stable?createTerrainNavigation({width,height,project,unproject,walkable,segmentWalkable,cell}):null;
  const cache=new Map();
  function grid(bounds,spacing=cell){const key=JSON.stringify([bounds,spacing]);if(cache.has(key))return cache.get(key);const nodes=[];
   const ox=stable?gridOrigin.x:bounds.left,oy=stable?gridOrigin.y:bounds.top;

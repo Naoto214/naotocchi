@@ -1,0 +1,1924 @@
+{
+  "passed": false,
+  "createdAt": "2026-11-15T04:57:34.461Z",
+  "runtime": "/workspace/sites/naotocchi-movement-v5/dist",
+  "browser": "Chromium headless; mobile viewport and touch emulation, not iPhone Safari",
+  "build": {
+    "revisions": {
+      "a": "408c72e6ebef71da3eab33cfb268c7494117aaaa",
+      "c": "e7032c2862320296b88969a6125ddb52af3d228a",
+      "d": "48d062aa55681061e72b593e5ec4012ed305270e",
+      "e": "e43ddea0d05c781aeb8dbd870aa850e8761accc1"
+    },
+    "hashes": {
+      "a": {
+        "home-production-model.js": "bc7ee83bf681152f2ed54b97f98315ab483109f53fce57b10d8bf1713ac839a9",
+        "home-production-diorama.js": "435a6c4f24b370f0bf3c95a4cbdc5f661b2243fe5a0c7cfecb38de093846296c",
+        "home-production-world.mjs": "b625acfc0d637f5cf5057962c8fe41e7c53cd7f6247d8b33bd9ea6cd2613cd5a",
+        "home-art-navigation.mjs": "2cbab02b48f18b8ef5a35b4a9de79e5fdc6a4abfe310e27d0bb6eff202a8d6e4",
+        "home-recovered-navigation.mjs": "6f92d1c732dc23ba549b99e61a39531fc670e74d615f047149491fdcde4689c5",
+        "home-route-navigation.mjs": "3d926b356ee51ab9abccd740cd01e3182f5fd42f588de0d826284a920ad4e638"
+      },
+      "c": {
+        "home-production-model.js": "40a75b2742c6000708ea42a657fb9e967e05c6c844035baa4680da06d419e754",
+        "home-production-diorama.js": "162705f164bba19b8bf48a64255f01f48fbd859d884a1e2aa4d6018a7adc5f5e",
+        "home-production-world.mjs": "8ec56a3ce47047422dd77937877aed6be9435d3c6dc1efcfde62e1cc290b3e71",
+        "home-art-navigation.mjs": "1e906239b7aa1af647642607439d59165d1d29b5339c70e86869b54cbc5c1dfe",
+        "home-recovered-navigation.mjs": "252b4119b9b328f4ef15075ec2b1f766f8797667c2c290bc61f047c7b237345e",
+        "home-route-navigation.mjs": "0234d0c5bae79a314c07701647e24ccc9c2ea6c6be035aaf39c36f8c3c9053ff"
+      },
+      "d": {
+        "home-production-model.js": "f3449264779283092e600f6f8a35c456c31d6d1b5fbed7b7603d7ac5f7fa75c0",
+        "home-production-diorama.js": "7de72d0776d67e7f1499a30eef537e4e6937e441c969ae10e6bdc66544bda0aa",
+        "home-production-world.mjs": "c5fb8e8028e17ae9dde100e7edaf028d50879a2a75ac4e9e024d010462c59310",
+        "home-art-navigation.mjs": "cfdde733541d65ddc2a4000700730a736e3f8cfb3cc8df18257f4f91d6cb8c67",
+        "home-recovered-navigation.mjs": "2e441024418bb0ba4371ca3238de86e0c78018541dcb919511ef39920473dd1b",
+        "home-route-navigation.mjs": "61c6e963fb7c821125cb77da93378ecbad748fb40dc13b2b4e4d53a465952ae9"
+      },
+      "e": {
+        "home-production-model.js": "0df78b159cefa53535337db1064016c0ba2a81e66f3ec6e4d0b08bdd8caa85cc",
+        "home-production-diorama.js": "cbc204d9b909d6024edba02fad14d36eb2b6541695fecfe0dfc2c773070a7c92",
+        "home-production-world.mjs": "d824c818c676353898afb052b43f8e88db9a14a7add55c3986af0104dbdc9ca6",
+        "home-art-navigation.mjs": "b08b767e0984c662aae5bd2e98dfc1463923950b7c41ded9af7ee4a26f8668be",
+        "home-recovered-navigation.mjs": "9a7e25d9fbe9598f66f04139fc534b70cf847a289c53b908d5dc69e3eb62578d",
+        "home-route-navigation.mjs": "9459d7632eb786f8415839e102ddd422829804423f0b9e674bae44424eef678e",
+        "home-visible-ground-navigation.mjs": "47d394909efd22698dc697883efab1dc5f5142842d03615283d43d2f9490093b",
+        "home-ground-expansion.mjs": "886c97b278c4c2fee73455cbb130827a3e4b2e7828a9719d6cc6c88c7b3fe906"
+      }
+    },
+    "dirty": true
+  },
+  "records": [
+    {
+      "label": "initial 320",
+      "outerWidth": 320,
+      "scrollWidth": 320,
+      "iframeWidth": 320,
+      "iframeLeft": 0,
+      "iframeRight": 320,
+      "status": "4体・320×568px。ドラッグして移動できます。",
+      "innerWidth": 320,
+      "innerScrollWidth": 320,
+      "count": 4,
+      "presentation": {
+        "x": 9,
+        "y": 138,
+        "scale": 0.8910332522726119,
+        "scaleX": 0.8910332522726119,
+        "scaleY": 0.30004570452308243,
+        "bodyScale": 0.6648966720343633,
+        "bodyScaleLimit": 0.6648966720343633,
+        "landscape": false,
+        "world": {
+          "left": 27.466178299035583,
+          "top": 114,
+          "width": 302,
+          "height": 693
+        },
+        "scrollTop": 24
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-e-snaps"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/e/home-production-model.js?v=0df78b159cef",
+        "http://127.0.0.1:46239/game/e/home-production-world.mjs?v=d824c818c676"
+      ]
+    },
+    {
+      "label": "28 actors overlays 320",
+      "outerWidth": 320,
+      "scrollWidth": 320,
+      "iframeWidth": 320,
+      "iframeLeft": 0,
+      "iframeRight": 320,
+      "status": "28体・320×568px。ドラッグして移動できます。",
+      "innerWidth": 320,
+      "innerScrollWidth": 320,
+      "count": 28,
+      "presentation": {
+        "x": 9,
+        "y": 138,
+        "scale": 0.9428211531343583,
+        "scaleX": 0.9428211531343583,
+        "scaleY": 0.5969696277329799,
+        "bodyScale": 0.7,
+        "bodyScaleLimit": 0.7,
+        "landscape": false,
+        "world": {
+          "left": 13.806476542681306,
+          "top": -118,
+          "width": 302,
+          "height": 693
+        },
+        "scrollTop": 256
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-e-snaps",
+        "naotocchi-movement-v5-e-backup"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/e/home-production-model.js?v=0df78b159cef",
+        "http://127.0.0.1:46239/game/e/home-production-world.mjs?v=d824c818c676"
+      ]
+    },
+    {
+      "label": "requested 430 fits 320",
+      "outerWidth": 320,
+      "scrollWidth": 320,
+      "iframeWidth": 320,
+      "iframeLeft": 0,
+      "iframeRight": 320,
+      "status": "28体・320×568px。ドラッグして移動できます。",
+      "innerWidth": 320,
+      "innerScrollWidth": 320,
+      "count": 28,
+      "presentation": {
+        "x": 9,
+        "y": 138,
+        "scale": 0.9428211531343583,
+        "scaleX": 0.9428211531343583,
+        "scaleY": 0.5969696277329799,
+        "bodyScale": 0.7,
+        "bodyScaleLimit": 0.7,
+        "landscape": false,
+        "world": {
+          "left": 13.806476542681306,
+          "top": -118,
+          "width": 302,
+          "height": 693
+        },
+        "scrollTop": 256
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-e-snaps",
+        "naotocchi-movement-v5-e-backup"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/e/home-production-model.js?v=0df78b159cef",
+        "http://127.0.0.1:46239/game/e/home-production-world.mjs?v=d824c818c676"
+      ]
+    },
+    {
+      "label": "drag after viewport/count 320",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 168,
+        "y": 197
+      },
+      "target": {
+        "x": 68,
+        "y": 272
+      },
+      "before": {
+        "x": 219.17956393141105,
+        "y": 276.9437925137777
+      },
+      "after": {
+        "x": 81.1991813241741,
+        "y": 267.16661313857867
+      },
+      "accepted": true,
+      "attemptCount": 10,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "initial 375",
+      "outerWidth": 375,
+      "scrollWidth": 375,
+      "iframeWidth": 375,
+      "iframeLeft": 0,
+      "iframeRight": 375,
+      "status": "4体・375×812px。ドラッグして移動できます。",
+      "innerWidth": 375,
+      "innerScrollWidth": 375,
+      "count": 4,
+      "presentation": {
+        "x": 16,
+        "y": 143.59375,
+        "scale": 0.629463513745512,
+        "scaleX": 0.629463513745512,
+        "scaleY": 1.2925429284170895,
+        "bodyScale": 1,
+        "bodyScaleLimit": 1,
+        "landscape": false,
+        "world": {
+          "left": 116.95423484439851,
+          "top": -69.40625,
+          "width": 343,
+          "height": 688
+        },
+        "scrollTop": 213
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-e-snaps"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/e/home-production-model.js?v=0df78b159cef",
+        "http://127.0.0.1:46239/game/e/home-production-world.mjs?v=d824c818c676"
+      ]
+    },
+    {
+      "label": "28 actors overlays 375",
+      "outerWidth": 375,
+      "scrollWidth": 375,
+      "iframeWidth": 375,
+      "iframeLeft": 0,
+      "iframeRight": 375,
+      "status": "28体・375×812px。ドラッグして移動できます。",
+      "innerWidth": 375,
+      "innerScrollWidth": 375,
+      "count": 28,
+      "presentation": {
+        "x": 16,
+        "y": 143.59375,
+        "scale": 0.9537905803335153,
+        "scaleX": 0.9537905803335153,
+        "scaleY": 1.653545517888786,
+        "bodyScale": 0.7,
+        "bodyScaleLimit": 0.7,
+        "landscape": false,
+        "world": {
+          "left": 19.063910390111737,
+          "top": -132.40625,
+          "width": 343,
+          "height": 688
+        },
+        "scrollTop": 276
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-e-snaps",
+        "naotocchi-movement-v5-e-backup"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/e/home-production-model.js?v=0df78b159cef",
+        "http://127.0.0.1:46239/game/e/home-production-world.mjs?v=d824c818c676"
+      ]
+    },
+    {
+      "label": "requested 430 fits 375",
+      "outerWidth": 375,
+      "scrollWidth": 375,
+      "iframeWidth": 375,
+      "iframeLeft": 0,
+      "iframeRight": 375,
+      "status": "28体・375×812px。ドラッグして移動できます。",
+      "innerWidth": 375,
+      "innerScrollWidth": 375,
+      "count": 28,
+      "presentation": {
+        "x": 16,
+        "y": 143.59375,
+        "scale": 0.9537905803335153,
+        "scaleX": 0.9537905803335153,
+        "scaleY": 1.653545517888786,
+        "bodyScale": 0.7,
+        "bodyScaleLimit": 0.7,
+        "landscape": false,
+        "world": {
+          "left": 19.063910390111737,
+          "top": -132.40625,
+          "width": 343,
+          "height": 688
+        },
+        "scrollTop": 276
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-e-snaps",
+        "naotocchi-movement-v5-e-backup"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/e/home-production-model.js?v=0df78b159cef",
+        "http://127.0.0.1:46239/game/e/home-production-world.mjs?v=d824c818c676"
+      ]
+    },
+    {
+      "label": "drag after viewport/count 375",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 180,
+        "y": 337
+      },
+      "target": {
+        "x": 80,
+        "y": 412
+      },
+      "before": {
+        "x": 245.30964551120246,
+        "y": 439.58573499552205
+      },
+      "after": {
+        "x": 109.23878101742744,
+        "y": 382.20095240156957
+      },
+      "accepted": true,
+      "attemptCount": 10,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "initial 390",
+      "outerWidth": 390,
+      "scrollWidth": 390,
+      "iframeWidth": 390,
+      "iframeLeft": 0,
+      "iframeRight": 390,
+      "status": "4体・390×844px。ドラッグして移動できます。",
+      "innerWidth": 390,
+      "innerScrollWidth": 390,
+      "count": 4,
+      "presentation": {
+        "x": 16,
+        "y": 143.59375,
+        "scale": 0.6342010144285222,
+        "scaleX": 0.6342010144285222,
+        "scaleY": 1.4059030365766274,
+        "bodyScale": 1,
+        "bodyScaleLimit": 1,
+        "landscape": false,
+        "world": {
+          "left": 119.24489700839837,
+          "top": -70.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 214
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-e-snaps"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/e/home-production-model.js?v=0df78b159cef",
+        "http://127.0.0.1:46239/game/e/home-production-world.mjs?v=d824c818c676"
+      ]
+    },
+    {
+      "label": "28 actors overlays 390",
+      "outerWidth": 390,
+      "scrollWidth": 390,
+      "iframeWidth": 390,
+      "iframeLeft": 0,
+      "iframeRight": 390,
+      "status": "28体・390×844px。ドラッグして移動できます。",
+      "innerWidth": 390,
+      "innerScrollWidth": 390,
+      "count": 28,
+      "presentation": {
+        "x": 16,
+        "y": 143.59375,
+        "scale": 0.9551369021930816,
+        "scaleX": 0.9551369021930816,
+        "scaleY": 1.7025799602901865,
+        "bodyScale": 0.7,
+        "bodyScaleLimit": 0.7,
+        "landscape": false,
+        "world": {
+          "left": 18.450293277570836,
+          "top": -120.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 264
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-e-snaps",
+        "naotocchi-movement-v5-e-backup"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/e/home-production-model.js?v=0df78b159cef",
+        "http://127.0.0.1:46239/game/e/home-production-world.mjs?v=d824c818c676"
+      ]
+    },
+    {
+      "label": "all 28 focus selectors",
+      "keys": [
+        "pet:hermit_crab",
+        "companion:cat_friend",
+        "companion:rabbit_friend",
+        "companion:tanuki",
+        "companion:squirrel",
+        "companion:owl",
+        "companion:otter",
+        "companion:hamster",
+        "companion:panda",
+        "companion:monkey",
+        "companion:parrot",
+        "companion:sheep",
+        "companion:seal",
+        "companion:bat",
+        "companion:chicken",
+        "companion:penguin_friend",
+        "companion:hedgehog",
+        "companion:shiba",
+        "companion:snail",
+        "companion:punyu",
+        "companion:sekizou",
+        "companion:chameleon",
+        "companion:clock",
+        "companion:unicorn",
+        "companion:many_tail_fox",
+        "companion:watcher",
+        "companion:box",
+        "partner:gentle_gorilla"
+      ],
+      "count": 28
+    },
+    {
+      "label": "requested 430 fits 390",
+      "outerWidth": 390,
+      "scrollWidth": 390,
+      "iframeWidth": 390,
+      "iframeLeft": 0,
+      "iframeRight": 390,
+      "status": "28体・390×844px。ドラッグして移動できます。",
+      "innerWidth": 390,
+      "innerScrollWidth": 390,
+      "count": 28,
+      "presentation": {
+        "x": 16,
+        "y": 143.59375,
+        "scale": 0.9551369021930816,
+        "scaleX": 0.9551369021930816,
+        "scaleY": 1.7025799602901865,
+        "bodyScale": 0.7,
+        "bodyScaleLimit": 0.7,
+        "landscape": false,
+        "world": {
+          "left": 18.450293277570836,
+          "top": -120.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 264
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-e-snaps",
+        "naotocchi-movement-v5-e-backup"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/e/home-production-model.js?v=0df78b159cef",
+        "http://127.0.0.1:46239/game/e/home-production-world.mjs?v=d824c818c676"
+      ]
+    },
+    {
+      "label": "drag after viewport/count 390",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 187,
+        "y": 348
+      },
+      "target": {
+        "x": 87,
+        "y": 423
+      },
+      "before": {
+        "x": 254.7747180892218,
+        "y": 454.0033030263545
+      },
+      "after": {
+        "x": 110.19534090495253,
+        "y": 385.22201222105053
+      },
+      "accepted": true,
+      "attemptCount": 10,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "version a",
+      "outerWidth": 390,
+      "scrollWidth": 390,
+      "iframeWidth": 390,
+      "iframeLeft": 0,
+      "iframeRight": 390,
+      "status": "1体・390×844px。ドラッグして移動できます。",
+      "innerWidth": 390,
+      "innerScrollWidth": 390,
+      "count": 1,
+      "presentation": {
+        "x": 16,
+        "y": 123.59375,
+        "scale": 0.9020530168084092,
+        "scaleX": 0.9020530168084092,
+        "scaleY": 1.6535310380452524,
+        "bodyScale": 1,
+        "bodyScaleLimit": 1,
+        "landscape": false,
+        "world": {
+          "left": 44.423286824347585,
+          "top": -122.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 246
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-a-writer",
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-a:home-guide-v1",
+        "naotocchi-movement-v5-e-backup",
+        "naotocchi-movement-v5-a",
+        "naotocchi-movement-v5-a-snaps",
+        "naotocchi-movement-v5-e-snaps"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/a/home-production-model.js?v=bc7ee83bf681",
+        "http://127.0.0.1:46239/game/a/home-production-world.mjs"
+      ]
+    },
+    {
+      "label": "version a actual drag",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 187,
+        "y": 348
+      },
+      "target": {
+        "x": 87,
+        "y": 423
+      },
+      "before": {
+        "x": 254.7747180892218,
+        "y": 454.0033030263545
+      },
+      "after": {
+        "x": 121.72315114220774,
+        "y": 394.46272461121436
+      },
+      "accepted": true,
+      "attemptCount": 1,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "version a four-actor freeze",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 164,
+        "y": 364
+      },
+      "target": {
+        "x": 64,
+        "y": 439
+      },
+      "before": {
+        "x": 231.31822386790262,
+        "y": 469.51640748838315
+      },
+      "after": {
+        "x": 178.48867210337852,
+        "y": 461.94198166250834
+      },
+      "accepted": true,
+      "attemptCount": 1,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "version c",
+      "outerWidth": 390,
+      "scrollWidth": 390,
+      "iframeWidth": 390,
+      "iframeLeft": 0,
+      "iframeRight": 390,
+      "status": "1体・390×844px。ドラッグして移動できます。",
+      "innerWidth": 390,
+      "innerScrollWidth": 390,
+      "count": 1,
+      "presentation": {
+        "x": 16,
+        "y": 123.59375,
+        "scale": 0.9020530168084092,
+        "scaleX": 0.9020530168084092,
+        "scaleY": 1.468211275311176,
+        "bodyScale": 1,
+        "bodyScaleLimit": 1,
+        "landscape": false,
+        "world": {
+          "left": 44.423286824347585,
+          "top": -89.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 213
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-c",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-a-writer",
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-a:home-guide-v1",
+        "naotocchi-movement-v5-e-backup",
+        "naotocchi-movement-v5-a-backup",
+        "naotocchi-movement-v5-a",
+        "naotocchi-movement-v5-c-writer",
+        "naotocchi-movement-v5-c-snaps",
+        "naotocchi-movement-v5-a-snaps",
+        "naotocchi-movement-v5-c:home-guide-v1",
+        "naotocchi-movement-v5-e-snaps"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/c/home-production-model.js?v=40a75b2742c6",
+        "http://127.0.0.1:46239/game/c/home-production-world.mjs?v=8ec56a3ce470"
+      ]
+    },
+    {
+      "label": "version c actual drag",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 187,
+        "y": 348
+      },
+      "target": {
+        "x": 87,
+        "y": 423
+      },
+      "before": {
+        "x": 254.7747180892218,
+        "y": 454.0033030263545
+      },
+      "after": {
+        "x": 117.41478947596242,
+        "y": 390.94759340582993
+      },
+      "accepted": true,
+      "attemptCount": 1,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "version c four-actor freeze",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 164,
+        "y": 364
+      },
+      "target": {
+        "x": 64,
+        "y": 439
+      },
+      "before": {
+        "x": 231.31822386790262,
+        "y": 469.51640748838315
+      },
+      "after": {
+        "x": 175.83875256272623,
+        "y": 454.6403939332236
+      },
+      "accepted": true,
+      "attemptCount": 1,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "version d",
+      "outerWidth": 390,
+      "scrollWidth": 390,
+      "iframeWidth": 390,
+      "iframeLeft": 0,
+      "iframeRight": 390,
+      "status": "1体・390×844px。ドラッグして移動できます。",
+      "innerWidth": 390,
+      "innerScrollWidth": 390,
+      "count": 1,
+      "presentation": {
+        "x": 16,
+        "y": 123.59375,
+        "scale": 0.9020530168084092,
+        "scaleX": 0.9020530168084092,
+        "scaleY": 1.468211275311176,
+        "bodyScale": 1,
+        "bodyScaleLimit": 1,
+        "landscape": false,
+        "world": {
+          "left": 44.423286824347585,
+          "top": -89.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 213
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-d-writer",
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-d",
+        "naotocchi-movement-v5-a-writer",
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-a:home-guide-v1",
+        "naotocchi-movement-v5-a",
+        "naotocchi-movement-v5-c-snaps",
+        "naotocchi-movement-v5-a-snaps",
+        "naotocchi-movement-v5-e-snaps",
+        "naotocchi-movement-v5-d:home-guide-v1",
+        "naotocchi-movement-v5-c",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-e-backup",
+        "naotocchi-movement-v5-c-backup",
+        "naotocchi-movement-v5-a-backup",
+        "naotocchi-movement-v5-c-writer",
+        "naotocchi-movement-v5-d-snaps",
+        "naotocchi-movement-v5-c:home-guide-v1"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/d/home-production-model.js?v=5b4b3e79b72d",
+        "http://127.0.0.1:46239/game/d/home-production-world.mjs?v=c5fb8e8028e1"
+      ]
+    },
+    {
+      "label": "version d actual drag",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 187,
+        "y": 348
+      },
+      "target": {
+        "x": 87,
+        "y": 423
+      },
+      "before": {
+        "x": 254.7747180892218,
+        "y": 454.0033030263545
+      },
+      "after": {
+        "x": 110.38124783716373,
+        "y": 385.31045442502307
+      },
+      "accepted": true,
+      "attemptCount": 1,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "version d four-actor freeze",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 164,
+        "y": 364
+      },
+      "target": {
+        "x": 64,
+        "y": 439
+      },
+      "before": {
+        "x": 231.31822386790262,
+        "y": 469.51640748838315
+      },
+      "after": {
+        "x": 175.83875256272623,
+        "y": 454.6403939332236
+      },
+      "accepted": true,
+      "attemptCount": 1,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "version e",
+      "outerWidth": 390,
+      "scrollWidth": 390,
+      "iframeWidth": 390,
+      "iframeLeft": 0,
+      "iframeRight": 390,
+      "status": "1体・390×844px。ドラッグして移動できます。",
+      "innerWidth": 390,
+      "innerScrollWidth": 390,
+      "count": 1,
+      "presentation": {
+        "x": 16,
+        "y": 123.59375,
+        "scale": 0.9020530168084092,
+        "scaleX": 0.9020530168084092,
+        "scaleY": 1.6535310380452524,
+        "bodyScale": 1,
+        "bodyScaleLimit": 1,
+        "landscape": false,
+        "world": {
+          "left": 44.423286824347585,
+          "top": -122.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 246
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-d-writer",
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-d",
+        "naotocchi-movement-v5-a-writer",
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-a:home-guide-v1",
+        "naotocchi-movement-v5-a",
+        "naotocchi-movement-v5-c-snaps",
+        "naotocchi-movement-v5-a-snaps",
+        "naotocchi-movement-v5-e-snaps",
+        "naotocchi-movement-v5-d:home-guide-v1",
+        "naotocchi-movement-v5-c",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-e-backup",
+        "naotocchi-movement-v5-c-backup",
+        "naotocchi-movement-v5-a-backup",
+        "naotocchi-movement-v5-c-writer",
+        "naotocchi-movement-v5-d-snaps",
+        "naotocchi-movement-v5-c:home-guide-v1",
+        "naotocchi-movement-v5-d-backup"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/e/home-production-model.js?v=0df78b159cef",
+        "http://127.0.0.1:46239/game/e/home-production-world.mjs?v=d824c818c676"
+      ]
+    },
+    {
+      "label": "version e actual drag",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 187,
+        "y": 348
+      },
+      "target": {
+        "x": 87,
+        "y": 423
+      },
+      "before": {
+        "x": 254.7747180892218,
+        "y": 454.0033030263545
+      },
+      "after": {
+        "x": 110.3812478371637,
+        "y": 385.31045442502307
+      },
+      "accepted": true,
+      "attemptCount": 10,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "version e four-actor freeze",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 164,
+        "y": 364
+      },
+      "target": {
+        "x": 64,
+        "y": 439
+      },
+      "before": {
+        "x": 231.31822386790262,
+        "y": 469.51640748838315
+      },
+      "after": {
+        "x": 175.83875256272623,
+        "y": 454.6403939332236
+      },
+      "accepted": true,
+      "attemptCount": 10,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "state hero dog",
+      "species": "dog",
+      "stage": 5,
+      "region": "city",
+      "time": "night"
+    },
+    {
+      "label": "hero dog",
+      "outerWidth": 390,
+      "scrollWidth": 390,
+      "iframeWidth": 390,
+      "iframeLeft": 0,
+      "iframeRight": 390,
+      "status": "1体・390×844px。ドラッグして移動できます。",
+      "innerWidth": 390,
+      "innerScrollWidth": 390,
+      "count": 1,
+      "presentation": {
+        "x": 16,
+        "y": 123.59375,
+        "scale": 0.8432505369457,
+        "scaleX": 0.8432505369457,
+        "scaleY": 1.8067990398654514,
+        "bodyScale": 1,
+        "bodyScaleLimit": 1,
+        "landscape": false,
+        "world": {
+          "left": 59.109374176506805,
+          "top": -144.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 268
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-d-writer",
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-d",
+        "naotocchi-movement-v5-a-writer",
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-a:home-guide-v1",
+        "naotocchi-movement-v5-a",
+        "naotocchi-movement-v5-c-snaps",
+        "naotocchi-movement-v5-a-snaps",
+        "naotocchi-movement-v5-e-snaps",
+        "naotocchi-movement-v5-d:home-guide-v1",
+        "naotocchi-movement-v5-c",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-e-backup",
+        "naotocchi-movement-v5-c-backup",
+        "naotocchi-movement-v5-a-backup",
+        "naotocchi-movement-v5-c-writer",
+        "naotocchi-movement-v5-d-snaps",
+        "naotocchi-movement-v5-c:home-guide-v1",
+        "naotocchi-movement-v5-d-backup"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/e/home-production-model.js?v=0df78b159cef",
+        "http://127.0.0.1:46239/game/e/home-production-world.mjs?v=d824c818c676"
+      ]
+    },
+    {
+      "label": "hero dog actual drag",
+      "origin": {
+        "key": "pet:dog",
+        "x": 191,
+        "y": 302
+      },
+      "target": {
+        "x": 91,
+        "y": 377
+      },
+      "before": {
+        "x": 251.5952375056205,
+        "y": 444.87874917226225
+      },
+      "after": {
+        "x": 109.81680145924548,
+        "y": 361.29089934468004
+      },
+      "accepted": true,
+      "attemptCount": 10,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "state stage 0",
+      "species": "dog",
+      "stage": 0,
+      "region": "city",
+      "time": "night"
+    },
+    {
+      "label": "stage 0",
+      "outerWidth": 390,
+      "scrollWidth": 390,
+      "iframeWidth": 390,
+      "iframeLeft": 0,
+      "iframeRight": 390,
+      "status": "1体・390×844px。ドラッグして移動できます。",
+      "innerWidth": 390,
+      "innerScrollWidth": 390,
+      "count": 1,
+      "presentation": {
+        "x": 16,
+        "y": 123.59375,
+        "scale": 0.7186785714285714,
+        "scaleX": 0.7186785714285714,
+        "scaleY": 1.5136959866652895,
+        "bodyScale": 1,
+        "bodyScaleLimit": 1,
+        "landscape": false,
+        "world": {
+          "left": 98.64260538314369,
+          "top": -98.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 222
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-d-writer",
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-d",
+        "naotocchi-movement-v5-a-writer",
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-a:home-guide-v1",
+        "naotocchi-movement-v5-a",
+        "naotocchi-movement-v5-c-snaps",
+        "naotocchi-movement-v5-a-snaps",
+        "naotocchi-movement-v5-e-snaps",
+        "naotocchi-movement-v5-d:home-guide-v1",
+        "naotocchi-movement-v5-c",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-e-backup",
+        "naotocchi-movement-v5-c-backup",
+        "naotocchi-movement-v5-a-backup",
+        "naotocchi-movement-v5-c-writer",
+        "naotocchi-movement-v5-d-snaps",
+        "naotocchi-movement-v5-c:home-guide-v1",
+        "naotocchi-movement-v5-d-backup"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/e/home-production-model.js?v=0df78b159cef",
+        "http://127.0.0.1:46239/game/e/home-production-world.mjs?v=d824c818c676"
+      ]
+    },
+    {
+      "label": "stage 0 actual drag",
+      "origin": {
+        "key": "pet:dog",
+        "x": 204,
+        "y": 413
+      },
+      "target": {
+        "x": 104,
+        "y": 488
+      },
+      "before": {
+        "x": 245.20096076180246,
+        "y": 462.39044667848947
+      },
+      "after": {
+        "x": 109.915776955264,
+        "y": 487.99432223180526
+      },
+      "accepted": true,
+      "attemptCount": 10,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "state stage 7",
+      "species": "dog",
+      "stage": 7,
+      "region": "city",
+      "time": "night"
+    },
+    {
+      "label": "stage 7",
+      "outerWidth": 390,
+      "scrollWidth": 390,
+      "iframeWidth": 390,
+      "iframeLeft": 0,
+      "iframeRight": 390,
+      "status": "1体・390×844px。ドラッグして移動できます。",
+      "innerWidth": 390,
+      "innerScrollWidth": 390,
+      "count": 1,
+      "presentation": {
+        "x": 16,
+        "y": 123.59375,
+        "scale": 0.8749130434782607,
+        "scaleX": 0.8749130434782607,
+        "scaleY": 1.680078113903543,
+        "bodyScale": 1,
+        "bodyScaleLimit": 1,
+        "landscape": false,
+        "world": {
+          "left": 51.02488567186805,
+          "top": -140.40625,
+          "width": 358,
+          "height": 702
+        },
+        "scrollTop": 264
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-d-writer",
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-d",
+        "naotocchi-movement-v5-a-writer",
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-a:home-guide-v1",
+        "naotocchi-movement-v5-a",
+        "naotocchi-movement-v5-c-snaps",
+        "naotocchi-movement-v5-a-snaps",
+        "naotocchi-movement-v5-e-snaps",
+        "naotocchi-movement-v5-d:home-guide-v1",
+        "naotocchi-movement-v5-c",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-e-backup",
+        "naotocchi-movement-v5-c-backup",
+        "naotocchi-movement-v5-a-backup",
+        "naotocchi-movement-v5-c-writer",
+        "naotocchi-movement-v5-d-snaps",
+        "naotocchi-movement-v5-c:home-guide-v1",
+        "naotocchi-movement-v5-d-backup"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/e/home-production-model.js?v=0df78b159cef",
+        "http://127.0.0.1:46239/game/e/home-production-world.mjs?v=d824c818c676"
+      ]
+    },
+    {
+      "label": "stage 7 actual drag",
+      "origin": {
+        "key": "pet:dog",
+        "x": 189,
+        "y": 335
+      },
+      "target": {
+        "x": 89,
+        "y": 410
+      },
+      "before": {
+        "x": 253.35748915592305,
+        "y": 452.1731565345143
+      },
+      "after": {
+        "x": 113.13712062500001,
+        "y": 382.3192444958062
+      },
+      "accepted": true,
+      "attemptCount": 10,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "state hero hermit_crab",
+      "species": "hermit_crab",
+      "stage": 7,
+      "region": "city",
+      "time": "night"
+    },
+    {
+      "label": "hero hermit_crab",
+      "outerWidth": 390,
+      "scrollWidth": 390,
+      "iframeWidth": 390,
+      "iframeLeft": 0,
+      "iframeRight": 390,
+      "status": "1体・390×844px。ドラッグして移動できます。",
+      "innerWidth": 390,
+      "innerScrollWidth": 390,
+      "count": 1,
+      "presentation": {
+        "x": 16,
+        "y": 123.59375,
+        "scale": 0.9195409571426277,
+        "scaleX": 0.9195409571426277,
+        "scaleY": 1.7025925899130838,
+        "bodyScale": 1,
+        "bodyScaleLimit": 1,
+        "landscape": false,
+        "world": {
+          "left": 40.41799027375875,
+          "top": -144.40625,
+          "width": 358,
+          "height": 702
+        },
+        "scrollTop": 268
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-d-writer",
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-d",
+        "naotocchi-movement-v5-a-writer",
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-a:home-guide-v1",
+        "naotocchi-movement-v5-a",
+        "naotocchi-movement-v5-c-snaps",
+        "naotocchi-movement-v5-a-snaps",
+        "naotocchi-movement-v5-e-snaps",
+        "naotocchi-movement-v5-d:home-guide-v1",
+        "naotocchi-movement-v5-c",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-e-backup",
+        "naotocchi-movement-v5-c-backup",
+        "naotocchi-movement-v5-a-backup",
+        "naotocchi-movement-v5-c-writer",
+        "naotocchi-movement-v5-d-snaps",
+        "naotocchi-movement-v5-c:home-guide-v1",
+        "naotocchi-movement-v5-d-backup"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/e/home-production-model.js?v=0df78b159cef",
+        "http://127.0.0.1:46239/game/e/home-production-world.mjs?v=d824c818c676"
+      ]
+    },
+    {
+      "label": "hero hermit_crab actual drag",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 186,
+        "y": 327
+      },
+      "target": {
+        "x": 86,
+        "y": 402
+      },
+      "before": {
+        "x": 255.70822970107085,
+        "y": 449.76779954284586
+      },
+      "after": {
+        "x": 110.01522941260278,
+        "y": 378.49638631598907
+      },
+      "accepted": true,
+      "attemptCount": 10,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "state stage 5",
+      "species": "hermit_crab",
+      "stage": 5,
+      "region": "city",
+      "time": "night"
+    },
+    {
+      "label": "stage 5",
+      "outerWidth": 390,
+      "scrollWidth": 390,
+      "iframeWidth": 390,
+      "iframeLeft": 0,
+      "iframeRight": 390,
+      "status": "1体・390×844px。ドラッグして移動できます。",
+      "innerWidth": 390,
+      "innerScrollWidth": 390,
+      "count": 1,
+      "presentation": {
+        "x": 16,
+        "y": 123.59375,
+        "scale": 0.9020530168084092,
+        "scaleX": 0.9020530168084092,
+        "scaleY": 1.6535310380452524,
+        "bodyScale": 1,
+        "bodyScaleLimit": 1,
+        "landscape": false,
+        "world": {
+          "left": 44.423286824347585,
+          "top": -122.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 246
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-d-writer",
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-d",
+        "naotocchi-movement-v5-a-writer",
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-a:home-guide-v1",
+        "naotocchi-movement-v5-a",
+        "naotocchi-movement-v5-c-snaps",
+        "naotocchi-movement-v5-a-snaps",
+        "naotocchi-movement-v5-e-snaps",
+        "naotocchi-movement-v5-d:home-guide-v1",
+        "naotocchi-movement-v5-c",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-e-backup",
+        "naotocchi-movement-v5-c-backup",
+        "naotocchi-movement-v5-a-backup",
+        "naotocchi-movement-v5-c-writer",
+        "naotocchi-movement-v5-d-snaps",
+        "naotocchi-movement-v5-c:home-guide-v1",
+        "naotocchi-movement-v5-d-backup"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/e/home-production-model.js?v=0df78b159cef",
+        "http://127.0.0.1:46239/game/e/home-production-world.mjs?v=d824c818c676"
+      ]
+    },
+    {
+      "label": "stage 5 actual drag",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 187,
+        "y": 348
+      },
+      "target": {
+        "x": 87,
+        "y": 423
+      },
+      "before": {
+        "x": 254.7747180892218,
+        "y": 454.0033030263545
+      },
+      "after": {
+        "x": 110.19534090495253,
+        "y": 385.22201222105053
+      },
+      "accepted": true,
+      "attemptCount": 10,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "state region forest",
+      "species": "hermit_crab",
+      "stage": 5,
+      "region": "forest",
+      "time": "night"
+    },
+    {
+      "label": "region forest",
+      "outerWidth": 390,
+      "scrollWidth": 390,
+      "iframeWidth": 390,
+      "iframeLeft": 0,
+      "iframeRight": 390,
+      "status": "1体・390×844px。ドラッグして移動できます。",
+      "innerWidth": 390,
+      "innerScrollWidth": 390,
+      "count": 1,
+      "presentation": {
+        "x": 16,
+        "y": 123.59375,
+        "scale": 0.990890219166408,
+        "scaleX": 0.990890219166408,
+        "scaleY": 1.646827082196976,
+        "bodyScale": 1,
+        "bodyScaleLimit": 1,
+        "landscape": false,
+        "world": {
+          "left": 18.632698939837326,
+          "top": -121.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 245
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-d-writer",
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-d",
+        "naotocchi-movement-v5-a-writer",
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-a:home-guide-v1",
+        "naotocchi-movement-v5-a",
+        "naotocchi-movement-v5-c-snaps",
+        "naotocchi-movement-v5-a-snaps",
+        "naotocchi-movement-v5-e-snaps",
+        "naotocchi-movement-v5-d:home-guide-v1",
+        "naotocchi-movement-v5-c",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-e-backup",
+        "naotocchi-movement-v5-c-backup",
+        "naotocchi-movement-v5-a-backup",
+        "naotocchi-movement-v5-c-writer",
+        "naotocchi-movement-v5-d-snaps",
+        "naotocchi-movement-v5-c:home-guide-v1",
+        "naotocchi-movement-v5-d-backup"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/e/home-production-model.js?v=0df78b159cef",
+        "http://127.0.0.1:46239/game/e/home-production-world.mjs?v=d824c818c676"
+      ]
+    },
+    {
+      "label": "region forest actual drag",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 142,
+        "y": 313
+      },
+      "target": {
+        "x": 42,
+        "y": 388
+      },
+      "before": {
+        "x": 210.1593744946961,
+        "y": 418.94256183416
+      },
+      "after": {
+        "x": 114.21311184715978,
+        "y": 379.4471468574588
+      },
+      "accepted": true,
+      "attemptCount": 10,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "state time day",
+      "species": "hermit_crab",
+      "stage": 5,
+      "region": "forest",
+      "time": "day"
+    },
+    {
+      "label": "time day",
+      "outerWidth": 390,
+      "scrollWidth": 390,
+      "iframeWidth": 390,
+      "iframeLeft": 0,
+      "iframeRight": 390,
+      "status": "1体・390×844px。ドラッグして移動できます。",
+      "innerWidth": 390,
+      "innerScrollWidth": 390,
+      "count": 1,
+      "presentation": {
+        "x": 16,
+        "y": 123.59375,
+        "scale": 0.990890219166408,
+        "scaleX": 0.990890219166408,
+        "scaleY": 1.646827082196976,
+        "bodyScale": 1,
+        "bodyScaleLimit": 1,
+        "landscape": false,
+        "world": {
+          "left": 18.632698939837326,
+          "top": -121.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 245
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-d-writer",
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-d",
+        "naotocchi-movement-v5-a-writer",
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-a:home-guide-v1",
+        "naotocchi-movement-v5-a",
+        "naotocchi-movement-v5-c-snaps",
+        "naotocchi-movement-v5-a-snaps",
+        "naotocchi-movement-v5-e-snaps",
+        "naotocchi-movement-v5-d:home-guide-v1",
+        "naotocchi-movement-v5-c",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-e-backup",
+        "naotocchi-movement-v5-c-backup",
+        "naotocchi-movement-v5-a-backup",
+        "naotocchi-movement-v5-c-writer",
+        "naotocchi-movement-v5-d-snaps",
+        "naotocchi-movement-v5-c:home-guide-v1",
+        "naotocchi-movement-v5-d-backup"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/e/home-production-model.js?v=0df78b159cef",
+        "http://127.0.0.1:46239/game/e/home-production-world.mjs?v=d824c818c676"
+      ]
+    },
+    {
+      "label": "time day actual drag",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 142,
+        "y": 313
+      },
+      "target": {
+        "x": 42,
+        "y": 388
+      },
+      "before": {
+        "x": 210.1593744946961,
+        "y": 418.94256183416
+      },
+      "after": {
+        "x": 113.87781902581543,
+        "y": 379.3091265870253
+      },
+      "accepted": true,
+      "attemptCount": 10,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "state region city",
+      "species": "hermit_crab",
+      "stage": 5,
+      "region": "city",
+      "time": "day"
+    },
+    {
+      "label": "region city",
+      "outerWidth": 390,
+      "scrollWidth": 390,
+      "iframeWidth": 390,
+      "iframeLeft": 0,
+      "iframeRight": 390,
+      "status": "1体・390×844px。ドラッグして移動できます。",
+      "innerWidth": 390,
+      "innerScrollWidth": 390,
+      "count": 1,
+      "presentation": {
+        "x": 16,
+        "y": 123.59375,
+        "scale": 0.9020530168084092,
+        "scaleX": 0.9020530168084092,
+        "scaleY": 1.6535310380452524,
+        "bodyScale": 1,
+        "bodyScaleLimit": 1,
+        "landscape": false,
+        "world": {
+          "left": 44.423286824347585,
+          "top": -122.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 246
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-d-writer",
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-d",
+        "naotocchi-movement-v5-a-writer",
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-a:home-guide-v1",
+        "naotocchi-movement-v5-a",
+        "naotocchi-movement-v5-c-snaps",
+        "naotocchi-movement-v5-a-snaps",
+        "naotocchi-movement-v5-e-snaps",
+        "naotocchi-movement-v5-d:home-guide-v1",
+        "naotocchi-movement-v5-c",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-e-backup",
+        "naotocchi-movement-v5-c-backup",
+        "naotocchi-movement-v5-a-backup",
+        "naotocchi-movement-v5-c-writer",
+        "naotocchi-movement-v5-d-snaps",
+        "naotocchi-movement-v5-c:home-guide-v1",
+        "naotocchi-movement-v5-d-backup"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/e/home-production-model.js?v=0df78b159cef",
+        "http://127.0.0.1:46239/game/e/home-production-world.mjs?v=d824c818c676"
+      ]
+    },
+    {
+      "label": "region city actual drag",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 187,
+        "y": 348
+      },
+      "target": {
+        "x": 87,
+        "y": 423
+      },
+      "before": {
+        "x": 254.7747180892218,
+        "y": 454.0033030263545
+      },
+      "after": {
+        "x": 110.5389346745189,
+        "y": 385.3854713771467
+      },
+      "accepted": true,
+      "attemptCount": 10,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "state time night",
+      "species": "hermit_crab",
+      "stage": 5,
+      "region": "city",
+      "time": "night"
+    },
+    {
+      "label": "time night",
+      "outerWidth": 390,
+      "scrollWidth": 390,
+      "iframeWidth": 390,
+      "iframeLeft": 0,
+      "iframeRight": 390,
+      "status": "1体・390×844px。ドラッグして移動できます。",
+      "innerWidth": 390,
+      "innerScrollWidth": 390,
+      "count": 1,
+      "presentation": {
+        "x": 16,
+        "y": 123.59375,
+        "scale": 0.9020530168084092,
+        "scaleX": 0.9020530168084092,
+        "scaleY": 1.6535310380452524,
+        "bodyScale": 1,
+        "bodyScaleLimit": 1,
+        "landscape": false,
+        "world": {
+          "left": 44.423286824347585,
+          "top": -122.40625,
+          "width": 358,
+          "height": 688
+        },
+        "scrollTop": 246
+      },
+      "saveKeys": [
+        "naotocchi-movement-v5-d-writer",
+        "naotocchi-movement-v5-e",
+        "naotocchi-movement-v5-d",
+        "naotocchi-movement-v5-a-writer",
+        "naotocchi-movement-v5-e:home-guide-v1",
+        "naotocchi-movement-v5-a:home-guide-v1",
+        "naotocchi-movement-v5-a",
+        "naotocchi-movement-v5-c-snaps",
+        "naotocchi-movement-v5-a-snaps",
+        "naotocchi-movement-v5-e-snaps",
+        "naotocchi-movement-v5-d:home-guide-v1",
+        "naotocchi-movement-v5-c",
+        "naotocchi-movement-v5-e-writer",
+        "naotocchi-movement-v5-e-backup",
+        "naotocchi-movement-v5-c-backup",
+        "naotocchi-movement-v5-a-backup",
+        "naotocchi-movement-v5-c-writer",
+        "naotocchi-movement-v5-d-snaps",
+        "naotocchi-movement-v5-c:home-guide-v1",
+        "naotocchi-movement-v5-d-backup"
+      ],
+      "modules": [
+        "http://127.0.0.1:46239/game/e/home-production-model.js?v=0df78b159cef",
+        "http://127.0.0.1:46239/game/e/home-production-world.mjs?v=d824c818c676"
+      ]
+    },
+    {
+      "label": "time night actual drag",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 187,
+        "y": 348
+      },
+      "target": {
+        "x": 87,
+        "y": 423
+      },
+      "before": {
+        "x": 254.7747180892218,
+        "y": 454.0033030263545
+      },
+      "after": {
+        "x": 110.19534090495253,
+        "y": 385.22201222105053
+      },
+      "accepted": true,
+      "attemptCount": 10,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "no item drag",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 43,
+        "y": 298
+      },
+      "target": {
+        "x": 8,
+        "y": 373
+      },
+      "before": {
+        "x": 110.58500955024782,
+        "y": 403.39539569764577
+      },
+      "after": {
+        "x": 109.87832944383928,
+        "y": 373.14777300833816
+      },
+      "accepted": true,
+      "attemptCount": 20,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "paper item drag",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 42,
+        "y": 246
+      },
+      "target": {
+        "x": 8,
+        "y": 321
+      },
+      "before": {
+        "x": 109.85141022692211,
+        "y": 351.393319802997
+      },
+      "after": {
+        "x": 109.851404278994,
+        "y": 321
+      },
+      "accepted": true,
+      "attemptCount": 30,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "achievement item drag",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 42,
+        "y": 215
+      },
+      "target": {
+        "x": 8,
+        "y": 290
+      },
+      "before": {
+        "x": 109.851404278994,
+        "y": 321
+      },
+      "after": {
+        "x": 109.851404278994,
+        "y": 290
+      },
+      "accepted": true,
+      "attemptCount": 40,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "all item selectors",
+      "items": [
+        "",
+        "poop1",
+        "sleepboost1",
+        "bowtie",
+        "ribbon",
+        "scarf",
+        "travel1",
+        "partner1",
+        "bond1",
+        "gamepass1",
+        "star"
+      ]
+    },
+    {
+      "label": "speech and notice preserve positions",
+      "before": [
+        {
+          "key": "pet:hermit_crab",
+          "x": 75.6201357576706,
+          "y": 205.63690685758692
+        }
+      ],
+      "after": [
+        {
+          "key": "pet:hermit_crab",
+          "x": 75.6201357576706,
+          "y": 205.63690685758692
+        }
+      ]
+    },
+    {
+      "label": "speech/notice drag",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 42,
+        "y": 184
+      },
+      "target": {
+        "x": 8,
+        "y": 259
+      },
+      "before": {
+        "x": 109.85141022692211,
+        "y": 290
+      },
+      "after": {
+        "x": 109.851404278994,
+        "y": 284.96233289276876
+      },
+      "accepted": true,
+      "attemptCount": 50,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    },
+    {
+      "label": "autonomy toggle",
+      "passed": true
+    },
+    {
+      "label": "freeze after autonomy toggle off",
+      "origin": {
+        "key": "pet:hermit_crab",
+        "x": 55,
+        "y": 206
+      },
+      "target": {
+        "x": 8,
+        "y": 281
+      },
+      "before": {
+        "x": 122.40027784938214,
+        "y": 312.12012578872816
+      },
+      "after": {
+        "x": 109.851404278994,
+        "y": 284.96233289276876
+      },
+      "accepted": true,
+      "attemptCount": 62,
+      "freeze": {
+        "syncCalls": 2,
+        "unguardedSyncCalls": 0,
+        "ambientTargets": []
+      }
+    }
+  ],
+  "errors": [],
+  "requests": [],
+  "completedWidths": [
+    320,
+    375,
+    390
+  ],
+  "terminationReason": "Harness attempted to read the 430px iframe before its first navigation; no runtime page error or HTTP failure was recorded. The 430px scenario is rerun separately."
+}

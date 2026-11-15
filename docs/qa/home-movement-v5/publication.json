@@ -1,0 +1,24 @@
+{
+  "url": "https://naotocchi-movement-v5-20261115.kerzion214.chatgpt.site",
+  "ownerOnly": true,
+  "additionalViewers": 0,
+  "siteProject": "appgprj_6af931df18188191952df9c3569dd97a",
+  "siteVersion": 1,
+  "siteSourceCommit": "0d35fc447981ae0cfe8d80b948f41e3a4a65f807",
+  "siteVersionId": "appgprj_6af931df18188191952df9c3569dd97a~appgver_d7955a6e88fc8191a275cb2dbac47f19",
+  "deploymentId": "appgdep_6af93ecdf6d48191998fed2eae652a93",
+  "deploymentStatus": "succeeded",
+  "deployedAt": "2026-11-15T05:11:29.033330+00:00",
+  "testedRepositoryCommit": "3b4836e66fe017b2d7ec643c68b91d5c6c4681ba",
+  "draftPR": "https://github.com/Naoto214/naotocchi/pull/558",
+  "protectedRefs": {
+    "main": "408c72e6ebef71da3eab33cfb268c7494117aaaa",
+    "PR554": "6ab53fc23747fc1982089939206c1b6087643953",
+    "PR555": "e7032c2862320296b88969a6125ddb52af3d228a",
+    "PR556": "23b19aaf551e5b57b3333911dd4d43c479ad186f",
+    "PR557": "48d062aa55681061e72b593e5ec4012ed305270e"
+  },
+  "gameProductionPublished": false,
+  "merged": false,
+  "validationLimit": "Exact local artifact checked with Chromium. Physical iPhone Safari and hosted authenticated browser flow not exercised."
+}
