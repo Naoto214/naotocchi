@@ -19,3 +19,5 @@ for(const a of battle){assert.equal(a.legacy,0);for(const r of a.rows){assert(r.
 for(const a of read('palette-final.json')){assert.equal(a.labels.length,15);assert(a.labels.every(l=>l.labelGap>=0));assert(a.outside.every(l=>l.overflow<=.2));}
 assert(read('battle-checks.json').some(x=>x.check==='declaration-cancel-repeat-commit'));
 console.log(JSON.stringify({viewportCards:5520,largeCards:460,canonicalDetails:48,battleWidths:4,paletteAndEggHeaders:60,overlapFailures:0,normalBodyCount:0}));
+
+const delivery=read('image-delivery.json');assert.equal(delivery.length,460);assert.equal(delivery.filter(r=>r.src.startsWith('https://')).length,418);assert(delivery.every(r=>r.complete&&r.width>=890&&r.height>=680));console.log(JSON.stringify({largeImageLoads:460,officialPublishedLoads:418,failedImages:0}));

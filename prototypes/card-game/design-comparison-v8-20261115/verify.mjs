@@ -27,7 +27,7 @@ assert.equal(unchanged,452);
 assert(readFileSync(join(out,'official/style.css')).equals(readFileSync(join(game,'style.css'))));
 assert.equal(sha(readFileSync(join(out,'assets/back.png'))),'028114e02034a5c5d84a0ace2c97babb92363e19eed6249f87cc591897189872');
 const receipts=JSON.parse(readFileSync(join(here,'asset-verification.json'))).receipts;
-for(const r of receipts)assert.equal(sha(readFileSync(join(out,r.path))),r.sha256);
+for(const r of receipts){const file=r.delivery==='official-published'?join(game,r.source):join(out,r.path);assert.equal(sha(readFileSync(file)),r.sha256);if(r.delivery==='official-published')assert.equal(r.path,'https://naoto214.github.io/naotocchi/prototypes/card-game/'+r.source);}
 const files=execFileSync('git',['ls-tree','-r','--name-only','c04688e468d40c507c81352ce559e9a1282dee49','prototypes/card-game/design-comparison-v1-20261114','prototypes/card-game/design-comparison-v2-20261114','prototypes/card-game/design-comparison-v3-20261114','prototypes/card-game/design-comparison-v4-20261114','prototypes/card-game/design-comparison-v5-20261114','prototypes/card-game/design-comparison-v6-20261115','prototypes/card-game/design-comparison-v7-20261115'],{cwd:root,encoding:'utf8'}).trim().split('\n');
 for(const file of files)assert(readFileSync(join(root,file)).equals(execFileSync('git',['show',`c04688e468d40c507c81352ce559e9a1282dee49:${file}`],{cwd:root,maxBuffer:10*1024*1024})));
 assert.equal(data.palette.length,14);assert.equal(new Set(data.palette.map(id=>byId.get(id).color)).size,14);

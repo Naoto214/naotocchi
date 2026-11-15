@@ -1,5 +1,5 @@
 // Isolated read-only catalog exporter; writes only to an explicit output folder.
-import {readFileSync,writeFileSync,mkdirSync,copyFileSync} from 'node:fs';
+import {readFileSync,writeFileSync,mkdirSync,copyFileSync,existsSync,rmSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
 import {resolve,join,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -41,8 +41,13 @@ const records=Object.values(cards).map(c=>{
   const bytes=extra[c.id]?read498('art-v1/delivery/'+a[size]):readFileSync(join(game,a[size]));
   if(!a[size].includes(sha(bytes).slice(0,12)))throw Error('Official art filename hash mismatch: '+c.id);
   if(extra[c.id]&&sha(bytes)!==a[size+'_sha256'])throw Error('Hash mismatch: '+c.id);
-  const dst='assets/'+a[size].split('/').at(-1);writeFileSync(join(out,dst),bytes);
-  receipts.push({id:c.id,size,sha256:sha(bytes),path:dst,source:extra[c.id]?`${ref}:${base}art-v1/delivery/${a[size]}`:a[size]});
+  const name=a[size].split('/').at(-1),shared=join(out,'../v7/assets',name);
+  let dst,delivery;
+  if(existsSync(shared)){if(!readFileSync(shared).equals(bytes))throw Error('Shared image mismatch: '+c.id);dst='../v7/assets/'+name;delivery='preserved-v7';}
+  else {if(extra[c.id]||size!=='large')throw Error('Missing private shared image: '+c.id);dst='https://naoto214.github.io/naotocchi/prototypes/card-game/'+a[size];delivery='official-published';}
+  // Remove only V8's previously generated duplicate, never older-version assets.
+  rmSync(join(out,'assets',name),{force:true});
+  receipts.push({id:c.id,size,sha256:sha(bytes),path:dst,delivery,source:extra[c.id]?`${ref}:${base}art-v1/delivery/${a[size]}`:a[size]});
   if(size==='small')image=dst;else large=dst;
  }
  return {...c,married:marriedText(c.id),title:c.type==='main'?(c.form??c.name):c.name,...cardArtColors(c),mark:icon(c.type==='main'?c.attribute:c.type),image,large:large||image,additional:!!extra[c.id]};
