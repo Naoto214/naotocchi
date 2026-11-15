@@ -2,6 +2,12 @@
 
 基準は移動VERSION 5のPR #558（`02df2efc`）と、現行仕様調査PR #559（`7eccb1e5`）。独立ブランチ `codex/home-yield-v1`、Draft [PR #560](https://github.com/Naoto214/naotocchi/pull/560)で比較する。既存PR #554〜#559・main・ゲーム本番への統合は行わない。
 
+## 本人限定の試遊
+
+https://naotocchi-yield-v1-20261115.kerzion214.chatgpt.site
+
+所有者限定の新しいSitesプロジェクトへ公開した。ゲーム本番のURL・配信・保存領域とは分離している。A/B/C、1/4/10/20/28体、13地域・4時間帯、自律移動、道譲り、デバッグ表示を切り替えられる。320/375/390/430pxで横はみ出しなし、A/B/Cの初期座標一致、52背景の元ファイルとのSHA一致を確認した。詳細は [比較画面の検証](preview-validation.json) と [公開情報](publication.json) を参照。
+
 ## 比較の意味
 
 - **A：現状維持**。凍結したV5の実装をそのまま使用する。
