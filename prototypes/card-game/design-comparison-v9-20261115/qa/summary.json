@@ -1,0 +1,209 @@
+{
+  "instances": 11040,
+  "issues": 0,
+  "browser": "Chromium cloud",
+  "webkit": false,
+  "realIPhone": false,
+  "measurements": [
+    {
+      "bodyCount": 0,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 5.68929,
+      "mode": "collection",
+      "width": 320
+    },
+    {
+      "bodyCount": 0,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 2.46286,
+      "mode": "hand",
+      "width": 320
+    },
+    {
+      "bodyCount": 0,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 3.97067,
+      "mode": "board",
+      "width": 320
+    },
+    {
+      "bodyCount": 477,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 17.9628,
+      "mode": "detail",
+      "width": 320
+    },
+    {
+      "bodyCount": 0,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 6.83048,
+      "mode": "collection",
+      "width": 375
+    },
+    {
+      "bodyCount": 0,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 2.46286,
+      "mode": "hand",
+      "width": 375
+    },
+    {
+      "bodyCount": 0,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 3.97067,
+      "mode": "board",
+      "width": 375
+    },
+    {
+      "bodyCount": 477,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 21.3986,
+      "mode": "detail",
+      "width": 375
+    },
+    {
+      "bodyCount": 0,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 7.11097,
+      "mode": "collection",
+      "width": 390
+    },
+    {
+      "bodyCount": 0,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 2.46286,
+      "mode": "hand",
+      "width": 390
+    },
+    {
+      "bodyCount": 0,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 3.97067,
+      "mode": "board",
+      "width": 390
+    },
+    {
+      "bodyCount": 477,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 22.3277,
+      "mode": "detail",
+      "width": 390
+    },
+    {
+      "bodyCount": 0,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 7.97074,
+      "mode": "collection",
+      "width": 430
+    },
+    {
+      "bodyCount": 0,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 2.46286,
+      "mode": "hand",
+      "width": 430
+    },
+    {
+      "bodyCount": 0,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 3.97067,
+      "mode": "board",
+      "width": 430
+    },
+    {
+      "bodyCount": 477,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 24.8203,
+      "mode": "detail",
+      "width": 430
+    },
+    {
+      "bodyCount": 0,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 5.68929,
+      "mode": "collection",
+      "width": 320,
+      "names": "shared"
+    },
+    {
+      "bodyCount": 477,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 17.9628,
+      "mode": "detail",
+      "width": 320,
+      "names": "shared"
+    },
+    {
+      "bodyCount": 0,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 6.83048,
+      "mode": "collection",
+      "width": 375,
+      "names": "shared"
+    },
+    {
+      "bodyCount": 477,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 21.3986,
+      "mode": "detail",
+      "width": 375,
+      "names": "shared"
+    },
+    {
+      "bodyCount": 0,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 7.11097,
+      "mode": "collection",
+      "width": 390,
+      "names": "shared"
+    },
+    {
+      "bodyCount": 477,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 22.3277,
+      "mode": "detail",
+      "width": 390,
+      "names": "shared"
+    },
+    {
+      "bodyCount": 0,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 7.97074,
+      "mode": "collection",
+      "width": 430,
+      "names": "shared"
+    },
+    {
+      "bodyCount": 477,
+      "cards": 460,
+      "issues": [],
+      "minTitleFont": 24.8203,
+      "mode": "detail",
+      "width": 430,
+      "names": "shared"
+    }
+  ]
+}

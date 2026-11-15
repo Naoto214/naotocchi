@@ -1,0 +1,16 @@
+✔ every catalog card renders current text; main-only fields never leak into other categories (22.009183ms)
+✔ hidden cards never look up or embed supplied private identity (0.323817ms)
+✔ board has nine ordered slots, shared preparation, management order and only the visible top state card (5.307613ms)
+✔ null viewer has no private hand or controls, and acting player is the large board (2.832079ms)
+✔ confirmation protects payment/target/final selection without interrupting pass or incremental choices (0.532953ms)
+✔ card names and text are escaped, never interpreted as markup (0.677346ms)
+✔ handoff erases private projection on response actor change, and saved restore starts hidden (142.331494ms)
+✔ a queued second click and action from a hidden seat cannot mutate the saved game (1.894422ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 371.128882
