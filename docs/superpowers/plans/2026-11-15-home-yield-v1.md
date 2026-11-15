@@ -22,9 +22,9 @@
 
 ## Tasks
 
-- [ ] Confirm #558/#559 findings and save this plan on a new branch.
-- [ ] Model + focused regression tests: modeoff equivalence, successful retreat, blocked/no-space/rest, role equality, cooldown/budget, held/cancel/reduced-motion/reflow safety.
-- [ ] Build a disposable A/B/C runtime and Japanese mobile comparison controls; separate saves and deterministic reset. Preserve existing V5 comparison.
+- [x] Confirm #558/#559 findings and save this plan on a new branch.
+- [x] Model + focused regression tests: modeoff equivalence, successful retreat, blocked/no-space/rest, role equality, cooldown/budget, held/cancel/reduced-motion/reflow safety.
+- [x] Build a disposable A/B/C runtime and Japanese mobile comparison controls; separate saves and deterministic reset. Preserve existing V5 comparison.
 - [ ] Repeat 1/4/10/20/28 pointer matrix with identical starts and inputs, plus seeded autonomy distances/stops/yield/contact metrics. Diagnose any old endpoint loss.
 - [ ] Review model and evidence independently, resolve safety failures, record limitations and recommend A/B/C from results.
 - [ ] Save stages to GitHub, publish a new owner-private comparison only, create independent Draft PR; verify protected heads unchanged.
