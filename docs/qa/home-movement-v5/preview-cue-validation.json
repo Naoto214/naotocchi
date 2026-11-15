@@ -1,0 +1,198 @@
+{
+  "passed": true,
+  "runtime": "/workspace/work/v5-runtime-stage4",
+  "results": [
+    {
+      "version": "a",
+      "cues": [
+        {
+          "key": "partner:gentle_gorilla",
+          "kind": "dom-cue",
+          "src": "dom:relationship-heart",
+          "left": 173.51962280273438,
+          "right": 185.79867553710938,
+          "top": 215.99935913085938,
+          "bottom": 228.27842712402344
+        },
+        {
+          "key": "partner:gentle_gorilla",
+          "kind": "dom-cue",
+          "src": "dom:partner-ring",
+          "left": 207.14508056640625,
+          "right": 238.01161193847656,
+          "top": 257.900390625,
+          "bottom": 288.76690673828125
+        }
+      ],
+      "body": {
+        "left": 154.89640686486874,
+        "right": 203.29658469912283,
+        "top": 232.51264684113062,
+        "bottom": 292.68611501775155
+      },
+      "withItems": {
+        "left": 154.89640686486874,
+        "right": 238.01161193847656,
+        "top": 215.99935913085938,
+        "bottom": 292.68611501775155
+      },
+      "redrawAvailable": true,
+      "labels": [
+        "hermit_crab 231.3,450.9",
+        "gentle_gorilla 179.1,292.7",
+        "panda 136.0,347.7",
+        "seal 227.1,340.1"
+      ],
+      "expectedLabels": [
+        "hermit_crab 231.3,450.9",
+        "gentle_gorilla 179.1,292.7",
+        "panda 136.0,347.7",
+        "seal 227.1,340.1"
+      ]
+    },
+    {
+      "version": "c",
+      "cues": [
+        {
+          "key": "partner:gentle_gorilla",
+          "kind": "dom-cue",
+          "src": "dom:relationship-heart",
+          "left": 173.51962280273438,
+          "right": 185.79867553710938,
+          "top": 215.99935913085938,
+          "bottom": 228.27842712402344
+        },
+        {
+          "key": "partner:gentle_gorilla",
+          "kind": "dom-cue",
+          "src": "dom:partner-ring",
+          "left": 207.14508056640625,
+          "right": 238.01161193847656,
+          "top": 257.900390625,
+          "bottom": 288.76690673828125
+        }
+      ],
+      "body": {
+        "left": 154.89640686486874,
+        "right": 203.29658469912283,
+        "top": 232.51264684113062,
+        "bottom": 292.68611501775155
+      },
+      "withItems": {
+        "left": 154.89640686486874,
+        "right": 238.01161193847656,
+        "top": 215.99935913085938,
+        "bottom": 292.68611501775155
+      },
+      "redrawAvailable": true,
+      "labels": [
+        "hermit_crab 231.3,450.9",
+        "gentle_gorilla 179.1,292.7",
+        "panda 136.0,347.7",
+        "seal 227.1,340.1"
+      ],
+      "expectedLabels": [
+        "hermit_crab 231.3,450.9",
+        "gentle_gorilla 179.1,292.7",
+        "panda 136.0,347.7",
+        "seal 227.1,340.1"
+      ]
+    },
+    {
+      "version": "d",
+      "cues": [
+        {
+          "key": "partner:gentle_gorilla",
+          "kind": "dom-cue",
+          "src": "dom:relationship-heart",
+          "left": 173.51962280273438,
+          "right": 185.79867553710938,
+          "top": 215.99935913085938,
+          "bottom": 228.27842712402344
+        },
+        {
+          "key": "partner:gentle_gorilla",
+          "kind": "dom-cue",
+          "src": "dom:partner-ring",
+          "left": 207.14508056640625,
+          "right": 238.01161193847656,
+          "top": 257.900390625,
+          "bottom": 288.76690673828125
+        }
+      ],
+      "body": {
+        "left": 154.89640686486874,
+        "right": 203.29658469912283,
+        "top": 232.51264684113062,
+        "bottom": 292.68611501775155
+      },
+      "withItems": {
+        "left": 154.89640686486874,
+        "right": 238.01161193847656,
+        "top": 215.99935913085938,
+        "bottom": 292.68611501775155
+      },
+      "redrawAvailable": true,
+      "labels": [
+        "hermit_crab 231.3,450.9",
+        "gentle_gorilla 179.1,292.7",
+        "panda 136.0,347.7",
+        "seal 227.1,340.1"
+      ],
+      "expectedLabels": [
+        "hermit_crab 231.3,450.9",
+        "gentle_gorilla 179.1,292.7",
+        "panda 136.0,347.7",
+        "seal 227.1,340.1"
+      ]
+    },
+    {
+      "version": "e",
+      "cues": [
+        {
+          "key": "partner:gentle_gorilla",
+          "kind": "dom-cue",
+          "src": "dom:relationship-heart",
+          "left": 173.51962280273438,
+          "right": 185.79867553710938,
+          "top": 215.99935913085938,
+          "bottom": 228.27842712402344
+        },
+        {
+          "key": "partner:gentle_gorilla",
+          "kind": "dom-cue",
+          "src": "dom:partner-ring",
+          "left": 207.14508056640625,
+          "right": 238.01161193847656,
+          "top": 257.900390625,
+          "bottom": 288.76690673828125
+        }
+      ],
+      "body": {
+        "left": 154.89640686486874,
+        "right": 203.29658469912283,
+        "top": 232.51264684113062,
+        "bottom": 292.68611501775155
+      },
+      "withItems": {
+        "left": 154.89640686486874,
+        "right": 238.01161193847656,
+        "top": 215.99935913085938,
+        "bottom": 292.68611501775155
+      },
+      "redrawAvailable": true,
+      "labels": [
+        "hermit_crab 231.3,450.9",
+        "gentle_gorilla 179.1,292.7",
+        "panda 136.0,347.7",
+        "seal 227.1,340.1"
+      ],
+      "expectedLabels": [
+        "hermit_crab 231.3,450.9",
+        "gentle_gorilla 179.1,292.7",
+        "panda 136.0,347.7",
+        "seal 227.1,340.1"
+      ]
+    }
+  ]
+}

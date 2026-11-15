@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>なおとっち｜ホーム移動 VERSION 5 比較</title><link rel="stylesheet" href="page.css"></head>
+<body><main><header><p class="eyebrow">なおとっち · 本人限定の試遊</p><h1>歩ける場所を、操作して比べる。</h1><p>同じキャラクターと背景で、従来版・VERSION 2・VERSION 4・VERSION 5を切り替えられます。本編のセーブデータとは別の比較用データです。</p></header>
+<div class="layout"><aside class="controls">
+<label>比較する版<select id="version"><option value="e">VERSION 5</option><option value="d">VERSION 4</option><option value="c">VERSION 2</option><option value="a">従来版</option></select></label>
+<label>操作するキャラクター<select id="focus"><option value="pet:hermit_crab">主人公</option></select></label>
+<div class="twocol"><label>主人公の種類<select id="hero"><option value="hermit_crab">ヤドカリ</option></select></label><label>進化段階<select id="stage"></select></label></div>
+<label>主人公の装着アイテム<select id="item"><option value="poop1">トイレットペーパー</option><option value="">なし</option></select></label>
+<details><summary>恋人・達成アイテム</summary><label>恋人の種類<select id="partner"><option value="gentle_gorilla">やさしいゴリラ</option></select></label><div id="achievements" class="checks"></div></details>
+<div class="twocol"><label>地域<select id="region"><option value="city">とかい</option></select></label><label>時間帯<select id="time"><option value="night">夜</option></select></label></div>
+<div class="twocol"><label>表示人数<select id="count"></select></label><label>試遊画面の幅<select id="width"><option value="auto">この画面に合わせる</option><option value="320">320px</option><option value="375">375px</option><option value="390">390px</option><option value="430">430px</option></select></label></div>
+<fieldset><legend>動作・表示</legend><div class="checks">
+<label><input type="checkbox" id="autonomy">自律移動</label><label><input type="checkbox" id="speech">セリフ</label><label><input type="checkbox" id="notice">通知</label>
+<label><input type="checkbox" id="ground">歩行可能領域</label><label><input type="checkbox" id="bounds">選択個体の描画保護境界</label><label><input type="checkbox" id="feet" checked>足元座標</label><label><input type="checkbox" id="ink">本体・装着物の描画枠</label>
+</div></fieldset><button id="reset" type="button">同じ条件で配置をリセット</button>
+<p class="hint">キャラクターをドラッグしてください。重なって選びにくい場合は、上で個体を選んでから空いている地面をドラッグできます。</p><p id="status" role="status">比較画面を読み込んでいます。</p>
+</aside><section class="play-area" aria-label="操作できるホーム比較"><div class="play-title"><strong id="play-label">VERSION 5</strong><span id="dimensions"></span></div><div id="play-wrap"><iframe id="play" title="なおとっち ホーム移動比較" referrerpolicy="same-origin"></iframe></div>
+<div class="readout"><strong id="selected">選択中のキャラクター</strong><p id="coordinates">足元座標を表示します。</p><details><summary>直近の座標・描画端</summary><pre id="detail"></pre></details></div></section></div>
+<footer><p>画面幅が足りない場合は実際に収まる幅で表示します。キャラクター画像をCSSで縮小して合わせることはしません。人数やキャラクターによる既存のカメラ・深度処理は各版のままです。</p>
+<p>水色は歩行判定、黄色は選択個体の描画保護境界、桃色は本体・装着物の描画端です。歩行領域内でも他個体や遮蔽により到達できない場所があります。</p>
+<p><a href="report/README.md">検証報告</a> · <a href="report/all-residents.md">全28体の実到達一覧</a> · <a href="https://github.com/Naoto214/naotocchi/tree/codex/home-movement-v5">保存ブランチ</a></p></footer>
+</main><script src="page.js"></script></body></html>
