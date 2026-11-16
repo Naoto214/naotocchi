@@ -32,6 +32,28 @@
     }
     function visible(a,p){return !scene.visible||scene.visible(p,a);}
     function free(a,p){return visible(a,p)&&actors.every(b=>b===a||separated(a,p,b));}
+    function socialDestination(a,b,preferred){
+      // Arrival emits social only inside 100 native pixels. The old width-based
+      // approach could end outside that circle even on an unobstructed floor.
+      // Keep the same contact ellipse and let the normal planner/stepper walk
+      // there; never move the listener or substitute a nearby bystander.
+      const box=bounds(a,scene);
+      const fits=p=>Math.hypot(p.x-b.x,p.y-b.y)<100&&p.x>=box.left&&p.x<=box.right&&p.y>=box.top&&p.y<=box.bottom&&free(a,p)&&(!scene.navigation||scene.navigation.valid(p));
+      if(fits(preferred))return preferred;
+      const dx=preferred.x-b.x,dy=preferred.y-b.y,angle=Math.atan2(dy,dx),distance=Math.hypot(dx,dy);
+      for(let i=0;i<16;i++){
+        // Prefer the original side; a wide resident may only fit above/below.
+        const offset=i===0?0:Math.ceil(i/2)*(i%2?1:-1)*Math.PI/8;
+        const ux=Math.cos(angle+offset),uy=Math.sin(angle+offset);
+        const contact=1/clearance(a,{x:b.x+ux,y:b.y+uy},b);
+        if(contact+1>99)continue;
+        // One pixel of clearance at each boundary exceeds the stepper's 0.5px
+        // arrival tolerance without changing either collision or speech range.
+        const radius=clamp(distance,contact+1,99),p={x:b.x+ux*radius,y:b.y+uy*radius};
+        if(fits(p))return p;
+      }
+      return null;
+    }
     function referenceDestination(a,p,b=scene.referenceBounds?.(a),nav=scene.navigation){
       if(!b||!nav?.referenceNearest)return null;
       const point=nav.referenceNearest({x:clamp(p.x,b.left,b.right),y:clamp(p.y,b.top,b.bottom)},b,q=>free(a,q));
@@ -224,9 +246,9 @@
         // Choose a comfortable place near the pet; the usual route/collision code
         // still decides whether it is reachable. Other idle choices remain free.
         const angle=random()*Math.PI*2,space=1.2+random()*.65;
-        p={x:pet.x+Math.cos(angle)*((a.w+pet.w)*.5+10)*space,y:pet.y+Math.sin(angle)*((a.h+pet.h)*.38+10)*space};a.faceKey=pet.key;
+        p=socialDestination(a,pet,{x:pet.x+Math.cos(angle)*((a.w+pet.w)*.5+10)*space,y:pet.y+Math.sin(angle)*((a.h+pet.h)*.38+10)*space});a.faceKey=pet.key;
       }
-      else if(['approach','together'].includes(name)&&social.length){const b=social[Math.floor(random()*social.length)%social.length];p={x:b.x+(a.x<b.x?-1:1)*((a.w+b.w)*.55+14),y:b.y+(random()-.5)*32};a.faceKey=b.key;}
+      else if(['approach','together'].includes(name)&&social.length){const b=social[Math.floor(random()*social.length)%social.length];p=socialDestination(a,b,{x:b.x+(a.x<b.x?-1:1)*((a.w+b.w)*.55+14),y:b.y+(random()-.5)*32});a.faceKey=b.key;}
       else if(name==='observe'&&clock>=a.nextVisualAt&&(scene.visualPoints||[]).length&&random()<.35){
         const pool=scene.visualPoints;p=pool[Math.floor(random()*pool.length)];a.visualReaction=p.id;a.visualTarget=p.target;a.nextVisualAt=clock+35+random()*20;
       }

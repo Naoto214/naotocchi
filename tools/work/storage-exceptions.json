@@ -62,5 +62,73 @@
   "docs/life-sugoroku/qa/v3-region-sea.png": {
     "sha256": "79aae94833fc5d0643647a031426679b00dacd63617ca46f1f8a2c909ef44e56",
     "reason": "PR #461のV1〜V3で保存済みの盤面・表示検証証拠。V4仕様に従い過去成果を削除・移動せず原本のまま保持。新規V4の比較画像は本人限定QAファイルへ保存。"
+  },
+  "docs/qa/home-v5-production/chromium-320-1.png": {
+    "sha256": "f60e0565edecbd39fe8bc181b4b6ac908529765825e65645c0c286b3aabfa075",
+    "reason": "PR #561の統合前確認として本人が要求した4画面幅・Chromium/WebKit・1/28体とmain会話対照の固定証拠。配信対象外。"
+  },
+  "docs/qa/home-v5-production/chromium-320-28.png": {
+    "sha256": "2d1e77e62a83d470487ffe5857d542c00521099c5e8710750459b147b7656b1e",
+    "reason": "PR #561の統合前確認として本人が要求した4画面幅・Chromium/WebKit・1/28体とmain会話対照の固定証拠。配信対象外。"
+  },
+  "docs/qa/home-v5-production/chromium-375-1.png": {
+    "sha256": "ce967efa9c47441062d4af21a6b49982e7e264a5ebf0e6819340969eb555bb17",
+    "reason": "PR #561の統合前確認として本人が要求した4画面幅・Chromium/WebKit・1/28体とmain会話対照の固定証拠。配信対象外。"
+  },
+  "docs/qa/home-v5-production/chromium-375-28.png": {
+    "sha256": "d7124c86dc2ef25c5497429f91ae53b3683e6c2c2ba9f4a1581d24087bfa0d50",
+    "reason": "PR #561の統合前確認として本人が要求した4画面幅・Chromium/WebKit・1/28体とmain会話対照の固定証拠。配信対象外。"
+  },
+  "docs/qa/home-v5-production/chromium-390-1.png": {
+    "sha256": "d2009c13c3f0545af4b27aef6f73996e0586f4e2c00f66c9c211295f1b48bd27",
+    "reason": "PR #561の統合前確認として本人が要求した4画面幅・Chromium/WebKit・1/28体とmain会話対照の固定証拠。配信対象外。"
+  },
+  "docs/qa/home-v5-production/chromium-390-28.png": {
+    "sha256": "eccde901a0b52b6d5ee0950d88bc38c6e272a5e9a6639a58a666ac1a100e419f",
+    "reason": "PR #561の統合前確認として本人が要求した4画面幅・Chromium/WebKit・1/28体とmain会話対照の固定証拠。配信対象外。"
+  },
+  "docs/qa/home-v5-production/chromium-430-1.png": {
+    "sha256": "42e75829f6fa520dd53589e539e7a5687a67df46e26430e9243b73a0bf4818e2",
+    "reason": "PR #561の統合前確認として本人が要求した4画面幅・Chromium/WebKit・1/28体とmain会話対照の固定証拠。配信対象外。"
+  },
+  "docs/qa/home-v5-production/chromium-430-28.png": {
+    "sha256": "07164ad269d4f9a83130b911913bd6eb2eb47bc2498afdb9e6911962e4c5baeb",
+    "reason": "PR #561の統合前確認として本人が要求した4画面幅・Chromium/WebKit・1/28体とmain会話対照の固定証拠。配信対象外。"
+  },
+  "docs/qa/home-v5-production/meeting-main/chromium-390x844-autonomous-shiba.png": {
+    "sha256": "451f6b60ae5cfe3d7ef16e8d6b5861311472d8a3446216023693f2448aec8640",
+    "reason": "PR #561の統合前確認として本人が要求した4画面幅・Chromium/WebKit・1/28体とmain会話対照の固定証拠。配信対象外。"
+  },
+  "docs/qa/home-v5-production/webkit-320-1.png": {
+    "sha256": "9c788d8ec55a36a958cdc031ed3750e2520a382c3d06f72d4a5f5995eef6058e",
+    "reason": "PR #561の統合前確認として本人が要求した4画面幅・Chromium/WebKit・1/28体とmain会話対照の固定証拠。配信対象外。"
+  },
+  "docs/qa/home-v5-production/webkit-320-28.png": {
+    "sha256": "330ca11822c2f7b22f187525788e0a7a6ec6a7b0eb925aa6b303deb6f7e21e7e",
+    "reason": "PR #561の統合前確認として本人が要求した4画面幅・Chromium/WebKit・1/28体とmain会話対照の固定証拠。配信対象外。"
+  },
+  "docs/qa/home-v5-production/webkit-375-1.png": {
+    "sha256": "a1550f068a8a0c8f12f0c21e156ba920f117c5531dea91a029bf509f7ce45078",
+    "reason": "PR #561の統合前確認として本人が要求した4画面幅・Chromium/WebKit・1/28体とmain会話対照の固定証拠。配信対象外。"
+  },
+  "docs/qa/home-v5-production/webkit-375-28.png": {
+    "sha256": "f4ef6d05547a4932a7837f8712005c3e3f78284e5ecbb472138c7292209721e3",
+    "reason": "PR #561の統合前確認として本人が要求した4画面幅・Chromium/WebKit・1/28体とmain会話対照の固定証拠。配信対象外。"
+  },
+  "docs/qa/home-v5-production/webkit-390-1.png": {
+    "sha256": "7b9de622df0f7efa5af58510d593806b7672ffb86fb90268a11db8c8b36cf6e9",
+    "reason": "PR #561の統合前確認として本人が要求した4画面幅・Chromium/WebKit・1/28体とmain会話対照の固定証拠。配信対象外。"
+  },
+  "docs/qa/home-v5-production/webkit-390-28.png": {
+    "sha256": "36dc171394f8e0d5bd2f72685c79646f244cb6db4ac8bdd9fd6409751b8fa5c0",
+    "reason": "PR #561の統合前確認として本人が要求した4画面幅・Chromium/WebKit・1/28体とmain会話対照の固定証拠。配信対象外。"
+  },
+  "docs/qa/home-v5-production/webkit-430-1.png": {
+    "sha256": "f4b1c29f1e445b656b3df1ced816080a74127af436d43a74f72f64fa41531b60",
+    "reason": "PR #561の統合前確認として本人が要求した4画面幅・Chromium/WebKit・1/28体とmain会話対照の固定証拠。配信対象外。"
+  },
+  "docs/qa/home-v5-production/webkit-430-28.png": {
+    "sha256": "7953209d456b6bc13ed4f33666858157f101f2412d4805ce74b98b5f91974668",
+    "reason": "PR #561の統合前確認として本人が要求した4画面幅・Chromium/WebKit・1/28体とmain会話対照の固定証拠。配信対象外。"
   }
 }

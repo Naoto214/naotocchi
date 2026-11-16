@@ -1,0 +1,43 @@
+✖ observed dog and shiba can meet inside the unchanged conversation radius without contact (39.439534ms)
+✖ wide residents needing a non-lateral meeting can meet inside the unchanged conversation radius without contact (123.629318ms)
+✔ partner approach can meet inside the unchanged conversation radius without contact (34.351151ms)
+✔ no safe meeting position never relaxes collisions or fabricates social (25.236333ms)
+✔ a held or manually controlled listener is never forced into an autonomous exchange (8.03024ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 3
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 344.603064
+
+✖ failing tests:
+
+test at tests/.v5-before-social.cjs:22:3
+✖ observed dog and shiba can meet inside the unchanged conversation radius without contact (39.439534ms)
+  AssertionError [ERR_ASSERTION]: a completed real approach starts social
+      at TestContext.<anonymous> (/workspace/work/naotocchi-v5-production/tests/.v5-before-social.cjs:24:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/.v5-before-social.cjs:22:3
+✖ wide residents needing a non-lateral meeting can meet inside the unchanged conversation radius without contact (123.629318ms)
+  AssertionError [ERR_ASSERTION]: a completed real approach starts social
+      at TestContext.<anonymous> (/workspace/work/naotocchi-v5-production/tests/.v5-before-social.cjs:24:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
