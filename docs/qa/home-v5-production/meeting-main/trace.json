@@ -1,0 +1,348 @@
+[
+  {
+    "at": 1793966461264,
+    "actors": [
+      {
+        "key": "pet:dog",
+        "kind": "pet",
+        "id": "dog",
+        "x": 198.50000000000003,
+        "y": 263,
+        "w": 84.85125000000001,
+        "h": 50.139375,
+        "extent": {
+          "left": 42.425625000000004,
+          "right": 42.425625000000004,
+          "top": 62.139375,
+          "bottom": 0
+        },
+        "temperament": {
+          "curiosity": 3,
+          "boldness": 3,
+          "sociability": 3,
+          "persistence": 3
+        },
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 2,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0
+      },
+      {
+        "key": "companion:shiba",
+        "kind": "companion",
+        "id": "shiba",
+        "x": 155.6,
+        "y": 104.86875,
+        "w": 81.67500000000001,
+        "h": 74.86875,
+        "extent": {
+          "left": 40.837500000000006,
+          "right": 40.837500000000006,
+          "top": 86.86875,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 1.3389192344620824,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0
+      }
+    ],
+    "speech": ""
+  },
+  {
+    "at": 1793966461358,
+    "type": "move",
+    "source": "ambient",
+    "actor": "companion:shiba"
+  },
+  {
+    "at": 1793966462030,
+    "type": "move",
+    "source": "ambient",
+    "actor": "pet:dog"
+  },
+  {
+    "at": 1793966465006,
+    "type": "move",
+    "source": "ambient",
+    "actor": "pet:dog"
+  },
+  {
+    "at": 1793966465006,
+    "type": "move",
+    "source": "ambient",
+    "actor": "companion:shiba"
+  },
+  {
+    "at": 1793966467646,
+    "type": "move",
+    "source": "ambient",
+    "actor": "pet:dog"
+  },
+  {
+    "at": 1793966467982,
+    "type": "look",
+    "source": "ambient",
+    "actor": "companion:shiba"
+  },
+  {
+    "at": 1793966468318,
+    "type": "arrive",
+    "source": "ambient",
+    "actor": "pet:dog"
+  },
+  {
+    "at": 1793966468318,
+    "type": "environment",
+    "source": "ambient",
+    "actor": "pet:dog"
+  },
+  {
+    "at": 1793966469264,
+    "actors": [
+      {
+        "key": "pet:dog",
+        "kind": "pet",
+        "id": "dog",
+        "x": 222.28412838486562,
+        "y": 225.09814752047288,
+        "w": 84.85125000000001,
+        "h": 50.139375,
+        "extent": {
+          "left": 42.425625000000004,
+          "right": 42.425625000000004,
+          "top": 62.139375,
+          "bottom": 0
+        },
+        "temperament": {
+          "curiosity": 3,
+          "boldness": 3,
+          "sociability": 3,
+          "persistence": 3
+        },
+        "route": [],
+        "target": null,
+        "activity": "approach",
+        "direction": -1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 15.593915066910913,
+        "lastWalk": 7.632000000000006,
+        "recent": [
+          "walk",
+          "approach"
+        ],
+        "after": "approach",
+        "faceKey": "companion:shiba",
+        "visualTarget": null,
+        "nextVisualAt": 0
+      },
+      {
+        "key": "companion:shiba",
+        "kind": "companion",
+        "id": "shiba",
+        "x": 116.69469088486561,
+        "y": 226.3125519395374,
+        "w": 81.67500000000001,
+        "h": 74.86875,
+        "extent": {
+          "left": 40.837500000000006,
+          "right": 40.837500000000006,
+          "top": 86.86875,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "together",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 12.304000000000006,
+        "lastWalk": -6.047999999999996,
+        "recent": [
+          "look",
+          "together"
+        ],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0
+      }
+    ],
+    "speech": "小銭って増える音だけ聞きたいね"
+  },
+  {
+    "at": 1793966472350,
+    "type": "move",
+    "source": "ambient",
+    "actor": "companion:shiba"
+  },
+  {
+    "at": 1793966473262,
+    "type": "arrive",
+    "source": "ambient",
+    "actor": "companion:shiba"
+  },
+  {
+    "at": 1793966473262,
+    "type": "proximity",
+    "source": "ambient",
+    "actor": "companion:shiba"
+  },
+  {
+    "at": 1793966477264,
+    "actors": [
+      {
+        "key": "pet:dog",
+        "kind": "pet",
+        "id": "dog",
+        "x": 222.28412838486562,
+        "y": 225.09814752047288,
+        "w": 84.85125000000001,
+        "h": 50.139375,
+        "extent": {
+          "left": 42.425625000000004,
+          "right": 42.425625000000004,
+          "top": 62.139375,
+          "bottom": 0
+        },
+        "temperament": {
+          "curiosity": 3,
+          "boldness": 3,
+          "sociability": 3,
+          "persistence": 3
+        },
+        "route": [],
+        "target": null,
+        "activity": "sit",
+        "direction": -1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 20.364761655544875,
+        "lastWalk": 7.632000000000006,
+        "recent": [
+          "approach",
+          "sit"
+        ],
+        "after": "approach",
+        "faceKey": "companion:shiba",
+        "visualTarget": null,
+        "nextVisualAt": 0
+      },
+      {
+        "key": "companion:shiba",
+        "kind": "companion",
+        "id": "shiba",
+        "x": 140.8375,
+        "y": 256,
+        "w": 81.67500000000001,
+        "h": 74.86875,
+        "extent": {
+          "left": 40.837500000000006,
+          "right": 40.837500000000006,
+          "top": 86.86875,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "look",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 20.595612637793657,
+        "lastWalk": 12.33600000000001,
+        "recent": [
+          "walk",
+          "look"
+        ],
+        "after": "look",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0
+      }
+    ],
+    "speech": "こんにちは!"
+  },
+  {
+    "at": 1793966480414,
+    "type": "move",
+    "source": "ambient",
+    "actor": "pet:dog"
+  },
+  {
+    "at": 1793966480654,
+    "type": "move",
+    "source": "ambient",
+    "actor": "companion:shiba"
+  },
+  {
+    "at": 1793966481662,
+    "type": "social",
+    "source": "ambient",
+    "actor": "companion:shiba",
+    "listener": "pet:dog"
+  },
+  {
+    "at": 1793966481662,
+    "type": "arrive",
+    "source": "ambient",
+    "actor": "companion:shiba"
+  },
+  {
+    "at": 1793966481662,
+    "type": "environment",
+    "source": "ambient",
+    "actor": "companion:shiba"
+  },
+  {
+    "at": 1793966481662,
+    "type": "proximity",
+    "source": "ambient",
+    "actor": "companion:shiba"
+  },
+  {
+    "at": 1793966483822,
+    "type": "move",
+    "source": "ambient",
+    "actor": "pet:dog"
+  },
+  {
+    "at": 1793966484062,
+    "type": "move",
+    "source": "ambient",
+    "actor": "companion:shiba"
+  },
+  {
+    "at": 1793966484590,
+    "type": "arrive",
+    "source": "ambient",
+    "actor": "pet:dog"
+  },
+  {
+    "at": 1793966484734,
+    "type": "arrive",
+    "source": "ambient",
+    "actor": "companion:shiba"
+  }
+]

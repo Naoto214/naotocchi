@@ -1,0 +1,29 @@
+{
+  "node": {
+    "tests": 3853,
+    "pass": 3853,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "standalone_commands": 3,
+  "pages_unittests": 20,
+  "all_command_stages": 11,
+  "failed_command_stages": 0,
+  "browser_smoke_conditions": 16,
+  "runtime_matches_v5": true,
+  "runtime_files": [
+    "home-art-navigation.mjs",
+    "home-ground-expansion.mjs",
+    "home-production-diorama.js",
+    "home-production-model.js",
+    "home-production-world.mjs",
+    "home-recovered-navigation.mjs",
+    "home-route-navigation.mjs",
+    "home-visible-ground-navigation.mjs",
+    "index.html"
+  ],
+  "main": "408c72e6ebef71da3eab33cfb268c7494117aaaa",
+  "v5": "02df2efc39cd18543b9c66df281872ed1751b02c"
+}

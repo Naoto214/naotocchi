@@ -3151,6 +3151,7 @@
     "home-diorama-model.js",
     "home-diorama.css",
     "home-diorama.js",
+    "home-ground-expansion.mjs",
     "home-occlusion.mjs",
     "home-production-diorama.js",
     "home-production-egg.mjs",
@@ -3167,6 +3168,7 @@
     "home-touch.js",
     "home-v6-egg.mjs",
     "home-v8.css",
+    "home-visible-ground-navigation.mjs",
     "home-world.mjs",
     "illustration-catalog.js",
     "index.html",
@@ -4329,9 +4331,7 @@
     "world-life.mjs",
     "world-scene.css",
     "world-scene.js",
-    "world-software.mjs",
-    "home-ground-expansion.mjs",
-    "home-visible-ground-navigation.mjs"
+    "world-software.mjs"
   ],
   "dynamic_families": [
     "assets/characters/**/*.png",

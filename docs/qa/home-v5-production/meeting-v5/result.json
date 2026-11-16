@@ -1,0 +1,5 @@
+{
+  "records": [],
+  "errors": [],
+  "error": "AssertionError [ERR_ASSERTION]: chromium-390x844-autonomous no authored exchange after a real ambient meeting\n    at Module.autonomousExchange [as exports] (/workspace/work/naotocchi-v5-production/tests/helpers/home-resident-dialogue-browser.cjs:111:12)\n    at async /tmp/v5-meeting-probe.cjs:10:160"
+}
