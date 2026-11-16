@@ -1,0 +1,23 @@
+name: Approved home movement V5
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  approved-movement:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Fetch pinned legacy navigation for compatibility regression
+        run: git fetch --filter=blob:none --depth=1 origin 6ab53fc23747fc1982089939206c1b6087643953
+      - name: Verify approved algorithms, safe paths and production isolation
+        run: node --test --test-reporter=tap tests/home-movement*-test.cjs
