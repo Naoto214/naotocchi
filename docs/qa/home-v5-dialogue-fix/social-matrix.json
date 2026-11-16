@@ -1,0 +1,2331 @@
+[
+  {
+    "cfg": {
+      "count": 2,
+      "seed": 7,
+      "pet": "dog"
+    },
+    "start": 1793966460400,
+    "simulatedSeconds": 120,
+    "stats": {
+      "moves": 17,
+      "arrivals": 13,
+      "social": [
+        {
+          "at": 1793966504413,
+          "actor": {
+            "key": "pet:dog",
+            "id": "dog",
+            "kind": "pet"
+          },
+          "listener": {
+            "key": "companion:shiba",
+            "id": "shiba",
+            "kind": "companion"
+          },
+          "distance": 99,
+          "clearance": 1.0779375793004355,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966556061,
+          "actor": {
+            "key": "pet:dog",
+            "id": "dog",
+            "kind": "pet"
+          },
+          "listener": {
+            "key": "companion:shiba",
+            "id": "shiba",
+            "kind": "companion"
+          },
+          "distance": 99.00000000000001,
+          "clearance": 1.0171924598233817,
+          "listenerMoving": false
+        }
+      ],
+      "newContacts": 0,
+      "teleports": 0
+    },
+    "speech": [
+      {
+        "at": 1793966556400,
+        "pair": {
+          "at": 1793966556061,
+          "actor": {
+            "key": "pet:dog",
+            "id": "dog",
+            "kind": "pet"
+          },
+          "listener": {
+            "key": "companion:shiba",
+            "id": "shiba",
+            "kind": "companion"
+          },
+          "distance": 99.00000000000001,
+          "clearance": 1.0171924598233817,
+          "listenerMoving": false
+        },
+        "text": "ボール、どこに投げる?",
+        "kind": "companion",
+        "id": "shiba"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "cfg": {
+      "count": 2,
+      "seed": 42,
+      "pet": "cat",
+      "friend": "owl",
+      "item": "poop1"
+    },
+    "start": 1793966460500,
+    "simulatedSeconds": 120,
+    "stats": {
+      "moves": 19,
+      "arrivals": 18,
+      "social": [
+        {
+          "at": 1793966472584,
+          "actor": {
+            "key": "pet:cat",
+            "id": "cat",
+            "kind": "pet"
+          },
+          "listener": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "distance": 91.55194130107881,
+          "clearance": 1.1511638292419337,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966526296,
+          "actor": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "pet:cat",
+            "id": "cat",
+            "kind": "pet"
+          },
+          "distance": 98.98407981214301,
+          "clearance": 1.1823910250408134,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966542136,
+          "actor": {
+            "key": "pet:cat",
+            "id": "cat",
+            "kind": "pet"
+          },
+          "listener": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "distance": 99.51869442796648,
+          "clearance": 1.2067259505412475,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966549288,
+          "actor": {
+            "key": "pet:cat",
+            "id": "cat",
+            "kind": "pet"
+          },
+          "listener": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "distance": 90.21728651135408,
+          "clearance": 1.1032949853172411,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966563688,
+          "actor": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "pet:cat",
+            "id": "cat",
+            "kind": "pet"
+          },
+          "distance": 96.06255474820723,
+          "clearance": 1.1484555555297964,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966567912,
+          "actor": {
+            "key": "pet:cat",
+            "id": "cat",
+            "kind": "pet"
+          },
+          "listener": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "distance": 95.272280752361,
+          "clearance": 1.138003897482041,
+          "listenerMoving": false
+        }
+      ],
+      "newContacts": 0,
+      "teleports": 0
+    },
+    "speech": [
+      {
+        "at": 1793966473300,
+        "pair": {
+          "at": 1793966472584,
+          "actor": {
+            "key": "pet:cat",
+            "id": "cat",
+            "kind": "pet"
+          },
+          "listener": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "distance": 91.55194130107881,
+          "clearance": 1.1511638292419337,
+          "listenerMoving": false
+        },
+        "text": "何もしてないのに休みたくなる",
+        "kind": "pet",
+        "id": "cat"
+      },
+      {
+        "at": 1793966526900,
+        "pair": {
+          "at": 1793966526296,
+          "actor": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "pet:cat",
+            "id": "cat",
+            "kind": "pet"
+          },
+          "distance": 98.98407981214301,
+          "clearance": 1.1823910250408134,
+          "listenerMoving": false
+        },
+        "text": "夜ふかし?",
+        "kind": "pet",
+        "id": "cat"
+      },
+      {
+        "at": 1793966563700,
+        "pair": {
+          "at": 1793966563688,
+          "actor": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "pet:cat",
+            "id": "cat",
+            "kind": "pet"
+          },
+          "distance": 96.06255474820723,
+          "clearance": 1.1484555555297964,
+          "listenerMoving": false
+        },
+        "text": "首、どこまで回るの?",
+        "kind": "pet",
+        "id": "cat"
+      },
+      {
+        "at": 1793966564500,
+        "pair": {
+          "at": 1793966563688,
+          "actor": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "pet:cat",
+            "id": "cat",
+            "kind": "pet"
+          },
+          "distance": 96.06255474820723,
+          "clearance": 1.1484555555297964,
+          "listenerMoving": false
+        },
+        "text": "首、どこまで回るの?",
+        "kind": "pet",
+        "id": "cat"
+      },
+      {
+        "at": 1793966568500,
+        "pair": {
+          "at": 1793966567912,
+          "actor": {
+            "key": "pet:cat",
+            "id": "cat",
+            "kind": "pet"
+          },
+          "listener": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "distance": 95.272280752361,
+          "clearance": 1.138003897482041,
+          "listenerMoving": false
+        },
+        "text": "一周したら、きみが二回見えた",
+        "kind": "companion",
+        "id": "owl"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "cfg": {
+      "count": 4,
+      "seed": 7,
+      "pet": "hermit_crab",
+      "item": "poop1"
+    },
+    "start": 1793966460400,
+    "simulatedSeconds": 120,
+    "stats": {
+      "moves": 41,
+      "arrivals": 22,
+      "social": [
+        {
+          "at": 1793966487847,
+          "actor": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:cat_friend",
+            "id": "cat_friend",
+            "kind": "companion"
+          },
+          "distance": 92.9576523535275,
+          "clearance": 1.1510035791372457,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966496823,
+          "actor": {
+            "key": "pet:hermit_crab",
+            "id": "hermit_crab",
+            "kind": "pet"
+          },
+          "listener": {
+            "key": "companion:cat_friend",
+            "id": "cat_friend",
+            "kind": "companion"
+          },
+          "distance": 99,
+          "clearance": 1.2298925317714595,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966503351,
+          "actor": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "pet:hermit_crab",
+            "id": "hermit_crab",
+            "kind": "pet"
+          },
+          "distance": 94.43075300640808,
+          "clearance": 1.1692889066269254,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966515351,
+          "actor": {
+            "key": "pet:hermit_crab",
+            "id": "hermit_crab",
+            "kind": "pet"
+          },
+          "listener": {
+            "key": "companion:shiba",
+            "id": "shiba",
+            "kind": "companion"
+          },
+          "distance": 98.99999999999999,
+          "clearance": 1.0731827473681608,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966547751,
+          "actor": {
+            "key": "companion:shiba",
+            "id": "shiba",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "distance": 93.00268057636342,
+          "clearance": 1.2213863580585202,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966566903,
+          "actor": {
+            "key": "pet:hermit_crab",
+            "id": "hermit_crab",
+            "kind": "pet"
+          },
+          "listener": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "distance": 93.82145211775057,
+          "clearance": 1.1479238857545158,
+          "listenerMoving": false
+        }
+      ],
+      "newContacts": 0,
+      "teleports": 0
+    },
+    "speech": [
+      {
+        "at": 1793966488400,
+        "pair": {
+          "at": 1793966487847,
+          "actor": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:cat_friend",
+            "id": "cat_friend",
+            "kind": "companion"
+          },
+          "distance": 92.9576523535275,
+          "clearance": 1.1510035791372457,
+          "listenerMoving": false
+        },
+        "text": "先に行くね!ここで待ってる!",
+        "kind": "companion",
+        "id": "rabbit_friend"
+      },
+      {
+        "at": 1793966497200,
+        "pair": {
+          "at": 1793966496823,
+          "actor": {
+            "key": "pet:hermit_crab",
+            "id": "hermit_crab",
+            "kind": "pet"
+          },
+          "listener": {
+            "key": "companion:cat_friend",
+            "id": "cat_friend",
+            "kind": "companion"
+          },
+          "distance": 99,
+          "clearance": 1.2298925317714595,
+          "listenerMoving": false
+        },
+        "text": "안녕!",
+        "kind": "pet",
+        "id": "hermit_crab"
+      },
+      {
+        "at": 1793966548400,
+        "pair": {
+          "at": 1793966547751,
+          "actor": {
+            "key": "companion:shiba",
+            "id": "shiba",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "distance": 93.00268057636342,
+          "clearance": 1.2213863580585202,
+          "listenerMoving": false
+        },
+        "text": "となりを歩く係、やりたい!",
+        "kind": "companion",
+        "id": "shiba"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "cfg": {
+      "count": 4,
+      "seed": 1182,
+      "pet": "dog",
+      "item": null
+    },
+    "start": 1793966460500,
+    "simulatedSeconds": 120,
+    "stats": {
+      "moves": 41,
+      "arrivals": 25,
+      "social": [
+        {
+          "at": 1793966485925,
+          "actor": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "pet:dog",
+            "id": "dog",
+            "kind": "pet"
+          },
+          "distance": 94.19125993155141,
+          "clearance": 1.1419598702420026,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966491781,
+          "actor": {
+            "key": "companion:shiba",
+            "id": "shiba",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "pet:dog",
+            "id": "dog",
+            "kind": "pet"
+          },
+          "distance": 99.9181810627148,
+          "clearance": 1.6992164268146825,
+          "listenerMoving": false
+        }
+      ],
+      "newContacts": 0,
+      "teleports": 0
+    },
+    "speech": [],
+    "errors": []
+  },
+  {
+    "cfg": {
+      "count": 10,
+      "seed": 7,
+      "pet": "hermit_crab",
+      "item": "poop1"
+    },
+    "start": 1793966460400,
+    "simulatedSeconds": 120,
+    "stats": {
+      "moves": 66,
+      "arrivals": 36,
+      "social": [
+        {
+          "at": 1793966484579,
+          "actor": {
+            "key": "companion:squirrel",
+            "id": "squirrel",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:hamster",
+            "id": "hamster",
+            "kind": "companion"
+          },
+          "distance": 63.85731839471999,
+          "clearance": 1.351098676467077,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966485251,
+          "actor": {
+            "key": "companion:shiba",
+            "id": "shiba",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:squirrel",
+            "id": "squirrel",
+            "kind": "companion"
+          },
+          "distance": 67.02126806515611,
+          "clearance": 1.2541741852563209,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966489811,
+          "actor": {
+            "key": "companion:cat_friend",
+            "id": "cat_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "pet:hermit_crab",
+            "id": "hermit_crab",
+            "kind": "pet"
+          },
+          "distance": 81.06064344080421,
+          "clearance": 1.1527372967861953,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966502819,
+          "actor": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:squirrel",
+            "id": "squirrel",
+            "kind": "companion"
+          },
+          "distance": 60.077816330811665,
+          "clearance": 1.1863020725823583,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966508915,
+          "actor": {
+            "key": "companion:otter",
+            "id": "otter",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "distance": 62.848475001395485,
+          "clearance": 1.1907887786245575,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966518659,
+          "actor": {
+            "key": "companion:panda",
+            "id": "panda",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:cat_friend",
+            "id": "cat_friend",
+            "kind": "companion"
+          },
+          "distance": 67.52161001592614,
+          "clearance": 1.1512103761898838,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966555091,
+          "actor": {
+            "key": "companion:cat_friend",
+            "id": "cat_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "pet:hermit_crab",
+            "id": "hermit_crab",
+            "kind": "pet"
+          },
+          "distance": 81.74052512623695,
+          "clearance": 1.1724792198762317,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966568243,
+          "actor": {
+            "key": "companion:otter",
+            "id": "otter",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:hamster",
+            "id": "hamster",
+            "kind": "companion"
+          },
+          "distance": 66.40058677141504,
+          "clearance": 1.1543179436028985,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966573763,
+          "actor": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:panda",
+            "id": "panda",
+            "kind": "companion"
+          },
+          "distance": 98.64586579903764,
+          "clearance": 2.0521342013543102,
+          "listenerMoving": false
+        }
+      ],
+      "newContacts": 0,
+      "teleports": 0
+    },
+    "speech": [
+      {
+        "at": 1793966485200,
+        "pair": {
+          "at": 1793966484579,
+          "actor": {
+            "key": "companion:squirrel",
+            "id": "squirrel",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:hamster",
+            "id": "hamster",
+            "kind": "companion"
+          },
+          "distance": 63.85731839471999,
+          "clearance": 1.351098676467077,
+          "listenerMoving": false
+        },
+        "text": "落とした場所を覚えたはず…",
+        "kind": "companion",
+        "id": "squirrel"
+      },
+      {
+        "at": 1793966486000,
+        "pair": {
+          "at": 1793966485251,
+          "actor": {
+            "key": "companion:shiba",
+            "id": "shiba",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:squirrel",
+            "id": "squirrel",
+            "kind": "companion"
+          },
+          "distance": 67.02126806515611,
+          "clearance": 1.2541741852563209,
+          "listenerMoving": false
+        },
+        "text": "落とした場所を覚えたはず…",
+        "kind": "companion",
+        "id": "squirrel"
+      },
+      {
+        "at": 1793966509200,
+        "pair": {
+          "at": 1793966508915,
+          "actor": {
+            "key": "companion:otter",
+            "id": "otter",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "distance": 62.848475001395485,
+          "clearance": 1.1907887786245575,
+          "listenerMoving": false
+        },
+        "text": "転がすのにちょうどいい石ない?",
+        "kind": "companion",
+        "id": "otter"
+      },
+      {
+        "at": 1793966555600,
+        "pair": {
+          "at": 1793966555091,
+          "actor": {
+            "key": "companion:cat_friend",
+            "id": "cat_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "pet:hermit_crab",
+            "id": "hermit_crab",
+            "kind": "pet"
+          },
+          "distance": 81.74052512623695,
+          "clearance": 1.1724792198762317,
+          "listenerMoving": false
+        },
+        "text": "その箱、ちいさくない?",
+        "kind": "pet",
+        "id": "hermit_crab"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "cfg": {
+      "count": 10,
+      "seed": 1182,
+      "pet": "dog",
+      "item": null
+    },
+    "start": 1793966460500,
+    "simulatedSeconds": 120,
+    "stats": {
+      "moves": 64,
+      "arrivals": 52,
+      "social": [
+        {
+          "at": 1793966468738,
+          "actor": {
+            "key": "pet:dog",
+            "id": "dog",
+            "kind": "pet"
+          },
+          "listener": {
+            "key": "companion:cat_friend",
+            "id": "cat_friend",
+            "kind": "companion"
+          },
+          "distance": 81.01809952580868,
+          "clearance": 1.1498761110983957,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966469698,
+          "actor": {
+            "key": "companion:hamster",
+            "id": "hamster",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:tanuki",
+            "id": "tanuki",
+            "kind": "companion"
+          },
+          "distance": 65.39359193524538,
+          "clearance": 1.2489531318109723,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966473346,
+          "actor": {
+            "key": "companion:panda",
+            "id": "panda",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:shiba",
+            "id": "shiba",
+            "kind": "companion"
+          },
+          "distance": 69.0848394288206,
+          "clearance": 1.194148974191153,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966490386,
+          "actor": {
+            "key": "companion:cat_friend",
+            "id": "cat_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:squirrel",
+            "id": "squirrel",
+            "kind": "companion"
+          },
+          "distance": 67.32474001061155,
+          "clearance": 1.5020809557514512,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966496914,
+          "actor": {
+            "key": "companion:hamster",
+            "id": "hamster",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "pet:dog",
+            "id": "dog",
+            "kind": "pet"
+          },
+          "distance": 78.76550392712493,
+          "clearance": 1.1486503654072682,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966498114,
+          "actor": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:otter",
+            "id": "otter",
+            "kind": "companion"
+          },
+          "distance": 61.352478622938314,
+          "clearance": 1.1840059610555378,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966510066,
+          "actor": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "pet:dog",
+            "id": "dog",
+            "kind": "pet"
+          },
+          "distance": 72.58426764795297,
+          "clearance": 1.199303474332019,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966525138,
+          "actor": {
+            "key": "companion:panda",
+            "id": "panda",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "pet:dog",
+            "id": "dog",
+            "kind": "pet"
+          },
+          "distance": 74.24116238215568,
+          "clearance": 1.3213827414882724,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966532290,
+          "actor": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:otter",
+            "id": "otter",
+            "kind": "companion"
+          },
+          "distance": 60.34929251818351,
+          "clearance": 1.1612344466630635,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966534594,
+          "actor": {
+            "key": "companion:hamster",
+            "id": "hamster",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:panda",
+            "id": "panda",
+            "kind": "companion"
+          },
+          "distance": 55.672581056196194,
+          "clearance": 1.0277513143100359,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966541458,
+          "actor": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "distance": 56.51074936917054,
+          "clearance": 1.1913316342531433,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966545922,
+          "actor": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:hamster",
+            "id": "hamster",
+            "kind": "companion"
+          },
+          "distance": 60.793067874087306,
+          "clearance": 1.196631447059136,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966567762,
+          "actor": {
+            "key": "companion:panda",
+            "id": "panda",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:shiba",
+            "id": "shiba",
+            "kind": "companion"
+          },
+          "distance": 93.42246595317899,
+          "clearance": 1.9026064377913796,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966572898,
+          "actor": {
+            "key": "companion:cat_friend",
+            "id": "cat_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:shiba",
+            "id": "shiba",
+            "kind": "companion"
+          },
+          "distance": 69.62608842202381,
+          "clearance": 1.401052477735329,
+          "listenerMoving": false
+        }
+      ],
+      "newContacts": 0,
+      "teleports": 0
+    },
+    "speech": [
+      {
+        "at": 1793966470100,
+        "pair": {
+          "at": 1793966469698,
+          "actor": {
+            "key": "companion:hamster",
+            "id": "hamster",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:tanuki",
+            "id": "tanuki",
+            "kind": "companion"
+          },
+          "distance": 65.39359193524538,
+          "clearance": 1.2489531318109723,
+          "listenerMoving": false
+        },
+        "text": "ほっぺの中で迷子になった",
+        "kind": "companion",
+        "id": "hamster"
+      },
+      {
+        "at": 1793966497300,
+        "pair": {
+          "at": 1793966496914,
+          "actor": {
+            "key": "companion:hamster",
+            "id": "hamster",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "pet:dog",
+            "id": "dog",
+            "kind": "pet"
+          },
+          "distance": 78.76550392712493,
+          "clearance": 1.1486503654072682,
+          "listenerMoving": false
+        },
+        "text": "めんこいなぁ",
+        "kind": "pet",
+        "id": "dog"
+      },
+      {
+        "at": 1793966510900,
+        "pair": {
+          "at": 1793966510066,
+          "actor": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "pet:dog",
+            "id": "dog",
+            "kind": "pet"
+          },
+          "distance": 72.58426764795297,
+          "clearance": 1.199303474332019,
+          "listenerMoving": false
+        },
+        "text": "Howdy!",
+        "kind": "pet",
+        "id": "dog"
+      },
+      {
+        "at": 1793966525300,
+        "pair": {
+          "at": 1793966525138,
+          "actor": {
+            "key": "companion:panda",
+            "id": "panda",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "pet:dog",
+            "id": "dog",
+            "kind": "pet"
+          },
+          "distance": 74.24116238215568,
+          "clearance": 1.3213827414882724,
+          "listenerMoving": false
+        },
+        "text": "ささ、もう一本ある?",
+        "kind": "companion",
+        "id": "panda"
+      },
+      {
+        "at": 1793966573300,
+        "pair": {
+          "at": 1793966572898,
+          "actor": {
+            "key": "companion:cat_friend",
+            "id": "cat_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:shiba",
+            "id": "shiba",
+            "kind": "companion"
+          },
+          "distance": 69.62608842202381,
+          "clearance": 1.401052477735329,
+          "listenerMoving": false
+        },
+        "text": "そこ、座ろうと思ってた",
+        "kind": "companion",
+        "id": "cat_friend"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "cfg": {
+      "count": 20,
+      "seed": 7,
+      "pet": "hermit_crab",
+      "item": "poop1"
+    },
+    "start": 1793966460500,
+    "simulatedSeconds": 120,
+    "stats": {
+      "moves": 51,
+      "arrivals": 40,
+      "social": [
+        {
+          "at": 1793966468259,
+          "actor": {
+            "key": "companion:hedgehog",
+            "id": "hedgehog",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:snail",
+            "id": "snail",
+            "kind": "companion"
+          },
+          "distance": 60.93682560948603,
+          "clearance": 1.216378797426964,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966476419,
+          "actor": {
+            "key": "companion:punyu",
+            "id": "punyu",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:panda",
+            "id": "panda",
+            "kind": "companion"
+          },
+          "distance": 70.24506252072352,
+          "clearance": 1.6555677417496857,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966499795,
+          "actor": {
+            "key": "companion:sheep",
+            "id": "sheep",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:hamster",
+            "id": "hamster",
+            "kind": "companion"
+          },
+          "distance": 41.69381789683952,
+          "clearance": 1.0000016107484158,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966517891,
+          "actor": {
+            "key": "companion:monkey",
+            "id": "monkey",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:hedgehog",
+            "id": "hedgehog",
+            "kind": "companion"
+          },
+          "distance": 59.48823668801209,
+          "clearance": 1.4219475079641428,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966525235,
+          "actor": {
+            "key": "companion:tanuki",
+            "id": "tanuki",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:chicken",
+            "id": "chicken",
+            "kind": "companion"
+          },
+          "distance": 57.780242831155455,
+          "clearance": 1.1715098313922718,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966538963,
+          "actor": {
+            "key": "companion:cat_friend",
+            "id": "cat_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "distance": 79.19364355480688,
+          "clearance": 1.7027011194694248,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966549475,
+          "actor": {
+            "key": "companion:snail",
+            "id": "snail",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:bat",
+            "id": "bat",
+            "kind": "companion"
+          },
+          "distance": 89.96424089384105,
+          "clearance": 1.9962533039868766,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966564067,
+          "actor": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:sheep",
+            "id": "sheep",
+            "kind": "companion"
+          },
+          "distance": 55.4486500718297,
+          "clearance": 1.3058054760896072,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966572131,
+          "actor": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:sheep",
+            "id": "sheep",
+            "kind": "companion"
+          },
+          "distance": 55.33421909596507,
+          "clearance": 1.2968630110757056,
+          "listenerMoving": false
+        }
+      ],
+      "newContacts": 0,
+      "teleports": 0
+    },
+    "speech": [
+      {
+        "at": 1793966468500,
+        "pair": {
+          "at": 1793966468259,
+          "actor": {
+            "key": "companion:hedgehog",
+            "id": "hedgehog",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:snail",
+            "id": "snail",
+            "kind": "companion"
+          },
+          "distance": 60.93682560948603,
+          "clearance": 1.216378797426964,
+          "listenerMoving": false
+        },
+        "text": "近づくの、少しずつでいい?",
+        "kind": "companion",
+        "id": "hedgehog"
+      },
+      {
+        "at": 1793966500500,
+        "pair": {
+          "at": 1793966499795,
+          "actor": {
+            "key": "companion:sheep",
+            "id": "sheep",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:hamster",
+            "id": "hamster",
+            "kind": "companion"
+          },
+          "distance": 41.69381789683952,
+          "clearance": 1.0000016107484158,
+          "listenerMoving": false
+        },
+        "text": "ふわふわの中に何か入った?",
+        "kind": "companion",
+        "id": "sheep"
+      },
+      {
+        "at": 1793966539700,
+        "pair": {
+          "at": 1793966538963,
+          "actor": {
+            "key": "companion:cat_friend",
+            "id": "cat_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "distance": 79.19364355480688,
+          "clearance": 1.7027011194694248,
+          "listenerMoving": false
+        },
+        "text": "そこ、座ろうと思ってた",
+        "kind": "companion",
+        "id": "cat_friend"
+      },
+      {
+        "at": 1793966572500,
+        "pair": {
+          "at": 1793966572131,
+          "actor": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:sheep",
+            "id": "sheep",
+            "kind": "companion"
+          },
+          "distance": 55.33421909596507,
+          "clearance": 1.2968630110757056,
+          "listenerMoving": false
+        },
+        "text": "呼んだらすぐ振り返るよ",
+        "kind": "companion",
+        "id": "rabbit_friend"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "cfg": {
+      "count": 20,
+      "seed": 1182,
+      "pet": "dog",
+      "item": null
+    },
+    "start": 1793966460500,
+    "simulatedSeconds": 120,
+    "stats": {
+      "moves": 58,
+      "arrivals": 47,
+      "social": [
+        {
+          "at": 1793966466398,
+          "actor": {
+            "key": "companion:chicken",
+            "id": "chicken",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "distance": 52.129560206658795,
+          "clearance": 1.1707442499260017,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966470766,
+          "actor": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:hedgehog",
+            "id": "hedgehog",
+            "kind": "companion"
+          },
+          "distance": 94.98587479679435,
+          "clearance": 2.138897202648515,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966485214,
+          "actor": {
+            "key": "companion:bat",
+            "id": "bat",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "distance": 42.08375107938369,
+          "clearance": 1.005163239563806,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966516606,
+          "actor": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:monkey",
+            "id": "monkey",
+            "kind": "companion"
+          },
+          "distance": 97.36076916730373,
+          "clearance": 2.286681681851941,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966524286,
+          "actor": {
+            "key": "companion:squirrel",
+            "id": "squirrel",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:monkey",
+            "id": "monkey",
+            "kind": "companion"
+          },
+          "distance": 56.63385691710488,
+          "clearance": 1.2905543704725169,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966535902,
+          "actor": {
+            "key": "companion:monkey",
+            "id": "monkey",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:snail",
+            "id": "snail",
+            "kind": "companion"
+          },
+          "distance": 58.084803111954514,
+          "clearance": 1.1848820864814018,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966536766,
+          "actor": {
+            "key": "companion:hamster",
+            "id": "hamster",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:penguin_friend",
+            "id": "penguin_friend",
+            "kind": "companion"
+          },
+          "distance": 60.786844997894484,
+          "clearance": 1.2106789581230408,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966542286,
+          "actor": {
+            "key": "companion:punyu",
+            "id": "punyu",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:otter",
+            "id": "otter",
+            "kind": "companion"
+          },
+          "distance": 59.46427498927402,
+          "clearance": 1.3914406414425204,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966550398,
+          "actor": {
+            "key": "companion:sheep",
+            "id": "sheep",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:hamster",
+            "id": "hamster",
+            "kind": "companion"
+          },
+          "distance": 60.56884005020417,
+          "clearance": 1.170130467539671,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966554094,
+          "actor": {
+            "key": "companion:bat",
+            "id": "bat",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:panda",
+            "id": "panda",
+            "kind": "companion"
+          },
+          "distance": 86.372686663316,
+          "clearance": 1.886851545355123,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966572670,
+          "actor": {
+            "key": "companion:chicken",
+            "id": "chicken",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "distance": 53.217263696909185,
+          "clearance": 1.1735715330547662,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966578526,
+          "actor": {
+            "key": "companion:hamster",
+            "id": "hamster",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:penguin_friend",
+            "id": "penguin_friend",
+            "kind": "companion"
+          },
+          "distance": 61.47336481062038,
+          "clearance": 1.4457920860844922,
+          "listenerMoving": false
+        }
+      ],
+      "newContacts": 0,
+      "teleports": 0
+    },
+    "speech": [
+      {
+        "at": 1793966466900,
+        "pair": {
+          "at": 1793966466398,
+          "actor": {
+            "key": "companion:chicken",
+            "id": "chicken",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "distance": 52.129560206658795,
+          "clearance": 1.1707442499260017,
+          "listenerMoving": false
+        },
+        "text": "朝の練習、していい?",
+        "kind": "companion",
+        "id": "chicken"
+      },
+      {
+        "at": 1793966470900,
+        "pair": {
+          "at": 1793966470766,
+          "actor": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:hedgehog",
+            "id": "hedgehog",
+            "kind": "companion"
+          },
+          "distance": 94.98587479679435,
+          "clearance": 2.138897202648515,
+          "listenerMoving": false
+        },
+        "text": "見晴らしのいい所で考えてた",
+        "kind": "companion",
+        "id": "owl"
+      },
+      {
+        "at": 1793966536500,
+        "pair": {
+          "at": 1793966535902,
+          "actor": {
+            "key": "companion:monkey",
+            "id": "monkey",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:snail",
+            "id": "snail",
+            "kind": "companion"
+          },
+          "distance": 58.084803111954514,
+          "clearance": 1.1848820864814018,
+          "listenerMoving": false
+        },
+        "text": "今の顔、こう?",
+        "kind": "companion",
+        "id": "monkey"
+      },
+      {
+        "at": 1793966573300,
+        "pair": {
+          "at": 1793966572670,
+          "actor": {
+            "key": "companion:chicken",
+            "id": "chicken",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "distance": 53.217263696909185,
+          "clearance": 1.1735715330547662,
+          "listenerMoving": false
+        },
+        "text": "小声の鳴き方、練習中",
+        "kind": "companion",
+        "id": "chicken"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "cfg": {
+      "count": 28,
+      "seed": 7,
+      "pet": "hermit_crab",
+      "item": "poop1"
+    },
+    "start": 1793966460500,
+    "simulatedSeconds": 120,
+    "stats": {
+      "moves": 61,
+      "arrivals": 52,
+      "social": [
+        {
+          "at": 1793966471632,
+          "actor": {
+            "key": "companion:shiba",
+            "id": "shiba",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:unicorn",
+            "id": "unicorn",
+            "kind": "companion"
+          },
+          "distance": 50.35121680315694,
+          "clearance": 1.2091348527625725,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966478256,
+          "actor": {
+            "key": "companion:clock",
+            "id": "clock",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "distance": 46.9337653908269,
+          "clearance": 1.2364914021468287,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966481664,
+          "actor": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:snail",
+            "id": "snail",
+            "kind": "companion"
+          },
+          "distance": 48.15447126704466,
+          "clearance": 1.553099042132829,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966499280,
+          "actor": {
+            "key": "companion:punyu",
+            "id": "punyu",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:squirrel",
+            "id": "squirrel",
+            "kind": "companion"
+          },
+          "distance": 50.68489409821004,
+          "clearance": 1.2083083004841988,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966509360,
+          "actor": {
+            "key": "partner:gentle_gorilla",
+            "id": "gentle_gorilla",
+            "kind": "partner"
+          },
+          "listener": {
+            "key": "pet:hermit_crab",
+            "id": "hermit_crab",
+            "kind": "pet"
+          },
+          "distance": 96.08426830493349,
+          "clearance": 2.331032559226783,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966530096,
+          "actor": {
+            "key": "companion:squirrel",
+            "id": "squirrel",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "distance": 47.123277897413324,
+          "clearance": 1.2433107439246613,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966551024,
+          "actor": {
+            "key": "companion:unicorn",
+            "id": "unicorn",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:sheep",
+            "id": "sheep",
+            "kind": "companion"
+          },
+          "distance": 50.75991122028348,
+          "clearance": 1.445863775246404,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966557696,
+          "actor": {
+            "key": "companion:sekizou",
+            "id": "sekizou",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:hedgehog",
+            "id": "hedgehog",
+            "kind": "companion"
+          },
+          "distance": 42.41984292823467,
+          "clearance": 1.192890577653318,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966563264,
+          "actor": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "partner:gentle_gorilla",
+            "id": "gentle_gorilla",
+            "kind": "partner"
+          },
+          "distance": 39.058244671094194,
+          "clearance": 1.0554646748086394,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966566240,
+          "actor": {
+            "key": "companion:chameleon",
+            "id": "chameleon",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:snail",
+            "id": "snail",
+            "kind": "companion"
+          },
+          "distance": 77.6659513557904,
+          "clearance": 2.212758263723507,
+          "listenerMoving": false
+        }
+      ],
+      "newContacts": 0,
+      "teleports": 0
+    },
+    "speech": [
+      {
+        "at": 1793966471700,
+        "pair": {
+          "at": 1793966471632,
+          "actor": {
+            "key": "companion:shiba",
+            "id": "shiba",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:unicorn",
+            "id": "unicorn",
+            "kind": "companion"
+          },
+          "distance": 50.35121680315694,
+          "clearance": 1.2091348527625725,
+          "listenerMoving": false
+        },
+        "text": "となりを歩く係、やりたい!",
+        "kind": "companion",
+        "id": "shiba"
+      },
+      {
+        "at": 1793966472500,
+        "pair": {
+          "at": 1793966471632,
+          "actor": {
+            "key": "companion:shiba",
+            "id": "shiba",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:unicorn",
+            "id": "unicorn",
+            "kind": "companion"
+          },
+          "distance": 50.35121680315694,
+          "clearance": 1.2091348527625725,
+          "listenerMoving": false
+        },
+        "text": "となりを歩く係、やりたい!",
+        "kind": "companion",
+        "id": "shiba"
+      },
+      {
+        "at": 1793966499700,
+        "pair": {
+          "at": 1793966499280,
+          "actor": {
+            "key": "companion:punyu",
+            "id": "punyu",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:squirrel",
+            "id": "squirrel",
+            "kind": "companion"
+          },
+          "distance": 50.68489409821004,
+          "clearance": 1.2083083004841988,
+          "listenerMoving": false
+        },
+        "text": "座ると広がっちゃう",
+        "kind": "companion",
+        "id": "punyu"
+      },
+      {
+        "at": 1793966510100,
+        "pair": {
+          "at": 1793966509360,
+          "actor": {
+            "key": "partner:gentle_gorilla",
+            "id": "gentle_gorilla",
+            "kind": "partner"
+          },
+          "listener": {
+            "key": "pet:hermit_crab",
+            "id": "hermit_crab",
+            "kind": "pet"
+          },
+          "distance": 96.08426830493349,
+          "clearance": 2.331032559226783,
+          "listenerMoving": false
+        },
+        "text": "ひとりごときいてくれる?",
+        "kind": "pet",
+        "id": "hermit_crab"
+      },
+      {
+        "at": 1793966530100,
+        "pair": {
+          "at": 1793966530096,
+          "actor": {
+            "key": "companion:squirrel",
+            "id": "squirrel",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "distance": 47.123277897413324,
+          "clearance": 1.2433107439246613,
+          "listenerMoving": false
+        },
+        "text": "木の実の数がまた合わない",
+        "kind": "companion",
+        "id": "squirrel"
+      },
+      {
+        "at": 1793966530900,
+        "pair": {
+          "at": 1793966530096,
+          "actor": {
+            "key": "companion:squirrel",
+            "id": "squirrel",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "distance": 47.123277897413324,
+          "clearance": 1.2433107439246613,
+          "listenerMoving": false
+        },
+        "text": "木の実の数がまた合わない",
+        "kind": "companion",
+        "id": "squirrel"
+      },
+      {
+        "at": 1793966563700,
+        "pair": {
+          "at": 1793966563264,
+          "actor": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "partner:gentle_gorilla",
+            "id": "gentle_gorilla",
+            "kind": "partner"
+          },
+          "distance": 39.058244671094194,
+          "clearance": 1.0554646748086394,
+          "listenerMoving": false
+        },
+        "text": "走って戻るまでそこにいてね",
+        "kind": "companion",
+        "id": "rabbit_friend"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "cfg": {
+      "count": 28,
+      "seed": 1182,
+      "pet": "dog",
+      "item": null
+    },
+    "start": 1793966460400,
+    "simulatedSeconds": 120,
+    "stats": {
+      "moves": 70,
+      "arrivals": 59,
+      "social": [
+        {
+          "at": 1793966472734,
+          "actor": {
+            "key": "companion:seal",
+            "id": "seal",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:sheep",
+            "id": "sheep",
+            "kind": "companion"
+          },
+          "distance": 52.549527111320494,
+          "clearance": 1.5191616097450964,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966483198,
+          "actor": {
+            "key": "companion:watcher",
+            "id": "watcher",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:squirrel",
+            "id": "squirrel",
+            "kind": "companion"
+          },
+          "distance": 40.52951219974109,
+          "clearance": 1.1279252872463341,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966490830,
+          "actor": {
+            "key": "companion:punyu",
+            "id": "punyu",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:bat",
+            "id": "bat",
+            "kind": "companion"
+          },
+          "distance": 46.979305912191315,
+          "clearance": 1.4247002620145273,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966514302,
+          "actor": {
+            "key": "companion:monkey",
+            "id": "monkey",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:seal",
+            "id": "seal",
+            "kind": "companion"
+          },
+          "distance": 50.13319598644241,
+          "clearance": 1.1848380525620485,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966550254,
+          "actor": {
+            "key": "companion:chicken",
+            "id": "chicken",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "pet:dog",
+            "id": "dog",
+            "kind": "pet"
+          },
+          "distance": 91.75726508956026,
+          "clearance": 2.0611024908865776,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966554094,
+          "actor": {
+            "key": "companion:watcher",
+            "id": "watcher",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "partner:gentle_gorilla",
+            "id": "gentle_gorilla",
+            "kind": "partner"
+          },
+          "distance": 68.47346471958147,
+          "clearance": 1.9002675366238442,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966554670,
+          "actor": {
+            "key": "pet:dog",
+            "id": "dog",
+            "kind": "pet"
+          },
+          "listener": {
+            "key": "companion:panda",
+            "id": "panda",
+            "kind": "companion"
+          },
+          "distance": 56.38941486106616,
+          "clearance": 1.26037104824129,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966562110,
+          "actor": {
+            "key": "pet:dog",
+            "id": "dog",
+            "kind": "pet"
+          },
+          "listener": {
+            "key": "companion:bat",
+            "id": "bat",
+            "kind": "companion"
+          },
+          "distance": 52.34051963532825,
+          "clearance": 1.2411002063418206,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966564126,
+          "actor": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:penguin_friend",
+            "id": "penguin_friend",
+            "kind": "companion"
+          },
+          "distance": 47.13539360259742,
+          "clearance": 1.2116548033607477,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966568446,
+          "actor": {
+            "key": "companion:chicken",
+            "id": "chicken",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "distance": 36.75602143709471,
+          "clearance": 1.0000034787573922,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966570270,
+          "actor": {
+            "key": "companion:clock",
+            "id": "clock",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:seal",
+            "id": "seal",
+            "kind": "companion"
+          },
+          "distance": 50.56169105619494,
+          "clearance": 1.1750829852676126,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966575694,
+          "actor": {
+            "key": "companion:sekizou",
+            "id": "sekizou",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "distance": 36.25741430178556,
+          "clearance": 1.0120305372573597,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966576750,
+          "actor": {
+            "key": "companion:cat_friend",
+            "id": "cat_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "distance": 49.166196042555214,
+          "clearance": 1.3876424998091916,
+          "listenerMoving": false
+        }
+      ],
+      "newContacts": 0,
+      "teleports": 0
+    },
+    "speech": [
+      {
+        "at": 1793966473200,
+        "pair": {
+          "at": 1793966472734,
+          "actor": {
+            "key": "companion:seal",
+            "id": "seal",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:sheep",
+            "id": "sheep",
+            "kind": "companion"
+          },
+          "distance": 52.549527111320494,
+          "clearance": 1.5191616097450964,
+          "listenerMoving": false
+        },
+        "text": "止まる場所を先に決めたい",
+        "kind": "companion",
+        "id": "seal"
+      },
+      {
+        "at": 1793966514800,
+        "pair": {
+          "at": 1793966514302,
+          "actor": {
+            "key": "companion:monkey",
+            "id": "monkey",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:seal",
+            "id": "seal",
+            "kind": "companion"
+          },
+          "distance": 50.13319598644241,
+          "clearance": 1.1848380525620485,
+          "listenerMoving": false
+        },
+        "text": "まねする前から目があった!",
+        "kind": "companion",
+        "id": "monkey"
+      },
+      {
+        "at": 1793966564400,
+        "pair": {
+          "at": 1793966564126,
+          "actor": {
+            "key": "companion:owl",
+            "id": "owl",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:penguin_friend",
+            "id": "penguin_friend",
+            "kind": "companion"
+          },
+          "distance": 47.13539360259742,
+          "clearance": 1.2116548033607477,
+          "listenerMoving": false
+        },
+        "text": "月にも昼があるよ。夜だけの係じゃない",
+        "kind": "companion",
+        "id": "owl"
+      }
+    ],
+    "errors": []
+  }
+]

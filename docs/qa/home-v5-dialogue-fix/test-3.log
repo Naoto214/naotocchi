@@ -1,0 +1,60 @@
+✔ play reply comes from the actual positive representative, even without a visit (369.649996ms)
+✔ court reaches the existing partner and uses the partner pool without a visit (242.126389ms)
+✔ a rejected court candidate can reply without becoming a household partner (57.05027ms)
+✔ only the participants speak during play even when a partner is visiting (141.381967ms)
+✔ solo play does not invent a conversation partner (58.81131ms)
+✔ the captured partner cannot be replaced between two scheduled beats (353.515778ms)
+✔ each official companion and partner answers their own home action with their registered face and name (3804.032885ms)
+✔ home comments resolve the named actor, including aliased residents, without choosing another speaker (204.054081ms)
+✔ an explicit story character owns the portrait even when also marked as a pet reaction (75.587924ms)
+✔ observed dog and shiba can meet inside the unchanged conversation radius without contact (44.787736ms)
+✔ wide residents needing a non-lateral meeting can meet inside the unchanged conversation radius without contact (131.804808ms)
+✔ partner approach can meet inside the unchanged conversation radius without contact (6.940226ms)
+✔ no safe meeting position never relaxes collisions or fabricates social (19.653629ms)
+✔ a held or manually controlled listener is never forced into an autonomous exchange (2.635584ms)
+✔ autonomy reports the chosen social target; unrelated passers-by and manual arrivals do not start conversations (12.472908ms)
+✔ two residents can use a dedicated exchange before a relationship visit occurs (312.17313ms)
+✔ resident exchange never substitutes a bystander or pet for a participant who left (50.149574ms)
+✔ ordinary motion and busy speech never schedule a terrain conversation (48.726352ms)
+✔ a real meeting in a full 28-resident home presents both participants in order (93.448699ms)
+✔ a real visit from a partner with a legacy ID starts their canonical banter (221.656708ms)
+✔ a resident looking around speaks their own idle line, with a shared cooldown (35.863837ms)
+✔ a resident idle event yields to a real pair from the same frame; absent residents stay silent (173.782799ms)
+✔ an idle line cannot cover care or return after the care speech has finished (69.243269ms)
+✔ under reduced motion the idle greeting timer includes a visible co-resident without requiring a visit or movement (36.844979ms)
+✔ relationships are independent residents, not automatic followers; current IDs survive missing lifetime records (314.26268ms)
+✔ same actor voluntarily accompanies, expires, returns to life without modifying relationships (307.887008ms)
+✔ party cap, distant rejection, region departure and semantic events (483.970379ms)
+✔ Home has no permanent surrounding cast; a finite visit is visible and the relationship survives departure (71.084655ms)
+✔ manual activity controls permit choosing walk/date/adventure and ending without a forced dialog (119.432691ms)
+✔ hidden time does not advance Home encounter clock or trigger a visit on resume (53.280695ms)
+✔ responding to an invitation selects its actor even when another resident becomes nearest (160.625062ms)
+✔ Home relationship idle initiatives consume the common budget (46.550599ms)
+✔ relationship removal ends active accompaniment and reload starts free (171.960522ms)
+✔ explicit destination ends companionship, incidental places do not (72.510636ms)
+✔ session module exists (1.820795ms)
+✔ shared cooldown, rolling caps and random encounter interval (1.10203ms)
+✔ invitations are scarce and do not accumulate during inactivity (0.256275ms)
+✔ event subscribers are isolated, removable and payloads immutable (0.269193ms)
+✔ Home visits are finite, one at a time, and preserve relation input (2.210936ms)
+✔ listeners added during emission run only on the next emission (0.340933ms)
+✔ partner visits remain possible in a crowded relationship roster (0.570452ms)
+(node:22788) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/work/naotocchi-v5-production/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/work/naotocchi-v5-production/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ real session events target the player, expire to current relationship and preserve AI pose (6.453046ms)
+✔ actual date start and goodbye reach presentation without losing actor identity (424.113167ms)
+✔ presenter turns body and head only as presentation and reduced motion suppresses it (318.904337ms)
+✔ Home visit starts positive and interruption clears only its social overlay (54.914666ms)
+✔ explicit conversation publishes one semantic target and repeated annoyance does not become positive (113.459504ms)
+✔ attention ends and missing targets cannot retain gaze; suspension clears cues (0.678683ms)
+✔ conversation while accompanying retriggers after initial cue and preserves repeat-talk dislike (98.005817ms)
+ℹ tests 48
+ℹ suites 0
+ℹ pass 48
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5371.942278

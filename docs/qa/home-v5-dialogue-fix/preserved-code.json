@@ -1,0 +1,23 @@
+{
+  "bounds/contact": {
+    "unchanged": true,
+    "sha256": "57a58be1a4aca2b7cf4683bd6f17cc84c9997ac2f426fec1e9ee78a45b5a3fc4"
+  },
+  "planner/manual move": {
+    "unchanged": true,
+    "sha256": "223716d74d5f8904844393b1cd4f49f0dd4baccc0b6dbf6d969840a7df5e34e2"
+  },
+  "step/arrival/social guards": {
+    "unchanged": true,
+    "sha256": "ded2b95e35961bec9b79a46228e034fbe5c0deed78896ec931dc5546fd557db6"
+  },
+  "other_v5_runtime": {
+    "home-art-navigation.mjs": true,
+    "home-ground-expansion.mjs": true,
+    "home-production-diorama.js": true,
+    "home-production-world.mjs": true,
+    "home-recovered-navigation.mjs": true,
+    "home-route-navigation.mjs": true,
+    "home-visible-ground-navigation.mjs": true
+  }
+}

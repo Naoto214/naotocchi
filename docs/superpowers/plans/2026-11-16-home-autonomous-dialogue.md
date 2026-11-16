@@ -25,13 +25,15 @@
 - Crowding/equipment: valid conversation opportunities are needed, not a guarantee every pair can meet.
 
 ## Task 1: Reproduce and repair social destination selection
-- [ ] Add model regression using observed dog/shiba sizes, assert real social events after movement and unchanged ellipse separation throughout.
-- [ ] Add wide, impossible, manual/held-listener and V5 manual endpoint preservation cases; run to establish failures.
-- [ ] Implement a private social destination selector in home-production-model.js. Preserve valid original targets; otherwise search a bounded set of angles inside 100 with contact clearance. Use normal move/step unchanged.
-- [ ] Run new and existing movement/terrain tests; run unchanged seed1182 actual browser test in both engines.
+- [x] Add model regression using observed dog/shiba sizes, assert real social events after movement and unchanged ellipse separation throughout.
+- [x] Add wide, impossible, manual/held-listener and V5 manual endpoint preservation cases; run to establish failures.
+- [x] Implement a private social destination selector in home-production-model.js. Preserve valid original targets; otherwise search a bounded set of angles inside 100 with contact clearance. Use normal move/step unchanged.
+- [x] Run new and existing movement/terrain tests; run unchanged seed1182 actual browser test in both engines.
 
 ## Task 2: Verify and publish conditionally
-- [ ] Record real social/arrival/distance and results for multiple seeds, combinations, equipment and 4/10/20/28 casts. Do not synthesize events.
-- [ ] Compare manual movement endpoints to unmodified V5, rerun all npm test stages and Pages tests/build. Update only model/index cache hash and allowlist source pins.
-- [ ] Save code, tests and report to #561; inspect all CI failures including generated-output separately.
-- [ ] If important checks pass, merge exact reviewed head and confirm GitHub Pages deployment and live-site code/behavior. Otherwise preserve Draft and report blockers.
+- [x] Record real social/arrival/distance and results for multiple seeds, combinations, equipment and 4/10/20/28 casts. Do not synthesize events.
+- [x] Compare manual movement endpoints to unmodified V5, rerun all npm test stages and Pages tests/build. Update only model/index cache hash and allowlist source pins.
+- [x] Save code, tests and report to #561; inspect all CI failures including generated-output separately.
+- [x] If important checks pass, merge exact reviewed head and confirm GitHub Pages deployment and live-site code/behavior. Otherwise preserve Draft and report blockers.
+
+Release decision: hold. Autonomous dialogue passed in both engines; later WebKit birth and home-layout checks failed. No main merge or Pages deployment. See docs/qa/home-v5-dialogue-fix/README.md.
