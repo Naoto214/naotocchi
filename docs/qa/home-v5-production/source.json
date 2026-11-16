@@ -1,0 +1,27 @@
+{
+  "main": "408c72e6ebef71da3eab33cfb268c7494117aaaa",
+  "v5": "02df2efc39cd18543b9c66df281872ed1751b02c",
+  "selected": [
+    "home-art-navigation.mjs",
+    "home-ground-expansion.mjs",
+    "home-production-diorama.js",
+    "home-production-model.js",
+    "home-production-world.mjs",
+    "home-recovered-navigation.mjs",
+    "home-route-navigation.mjs",
+    "home-visible-ground-navigation.mjs",
+    "index.html",
+    "tests/home-movement-bounds-test.cjs",
+    "tests/home-movement-v2-test.cjs",
+    "tests/home-movement-v3-test.cjs",
+    "tests/home-movement-v4-test.cjs",
+    "tests/home-movement-v5-bounds-test.cjs",
+    "tests/home-movement-v5-ground-test.cjs",
+    "tests/home-movement-v5-routing-test.cjs",
+    "tests/home-production-test.cjs"
+  ],
+  "newRuntime": [
+    "home-ground-expansion.mjs",
+    "home-visible-ground-navigation.mjs"
+  ]
+}
