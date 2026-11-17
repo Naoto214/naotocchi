@@ -1,0 +1,3049 @@
+{
+  "results": [
+    {
+      "engine": "webkit",
+      "width": 320,
+      "height": 568,
+      "motion": "reduce",
+      "safe": false,
+      "egg": {
+        "stage": "egg",
+        "age": 0,
+        "asset": "assets/characters/egg/intact.png",
+        "box": [
+          22,
+          16,
+          106,
+          120
+        ],
+        "sprite": {
+          "x": 105.59375,
+          "y": 204.25,
+          "width": 108.796875,
+          "height": 108.796875,
+          "top": 204.25,
+          "right": 214.390625,
+          "bottom": 313.046875,
+          "left": 105.59375
+        },
+        "image": {
+          "x": 105.59375,
+          "y": 204.25,
+          "width": 108.796875,
+          "height": 108.796875,
+          "top": 204.25,
+          "right": 214.390625,
+          "bottom": 313.046875,
+          "left": 105.59375
+        },
+        "alpha": {
+          "x": 159.9921875,
+          "y": 262.04833984375,
+          "foot": 306.2470703125
+        },
+        "cast": {
+          "x": 9,
+          "y": 141.984375,
+          "width": 302,
+          "height": 240.140625,
+          "top": 141.984375,
+          "right": 311,
+          "bottom": 382.125,
+          "left": 9
+        },
+        "pane": {
+          "x": 9,
+          "y": 99.984375,
+          "width": 302,
+          "height": 343.015625,
+          "top": 99.984375,
+          "right": 311,
+          "bottom": 443,
+          "left": 9
+        },
+        "visible": {
+          "left": 9,
+          "right": 311,
+          "top": 141.984375,
+          "bottom": 382.125
+        },
+        "notice": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "speech": {
+          "x": 48,
+          "y": 327.984375,
+          "width": 224,
+          "height": 44,
+          "top": 327.984375,
+          "right": 272,
+          "bottom": 371.984375,
+          "left": 48
+        },
+        "comment": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "display": "18",
+        "buttons": [
+          {
+            "id": "feedBtn",
+            "x": 9,
+            "y": 452,
+            "width": 57.1875,
+            "height": 49,
+            "top": 452,
+            "right": 66.1875,
+            "bottom": 501,
+            "left": 9
+          },
+          {
+            "id": "cleanBtn",
+            "x": 70.1875,
+            "y": 452,
+            "width": 57.203125,
+            "height": 49,
+            "top": 452,
+            "right": 127.390625,
+            "bottom": 501,
+            "left": 70.1875
+          },
+          {
+            "id": "sleepBtn",
+            "x": 131.390625,
+            "y": 452,
+            "width": 57.203125,
+            "height": 49,
+            "top": 452,
+            "right": 188.59375,
+            "bottom": 501,
+            "left": 131.390625
+          },
+          {
+            "id": "medicineBtn",
+            "x": 192.59375,
+            "y": 452,
+            "width": 57.203125,
+            "height": 49,
+            "top": 452,
+            "right": 249.796875,
+            "bottom": 501,
+            "left": 192.59375
+          },
+          {
+            "id": "playBtn",
+            "x": 253.796875,
+            "y": 452,
+            "width": 57.203125,
+            "height": 49,
+            "top": 452,
+            "right": 311,
+            "bottom": 501,
+            "left": 253.796875
+          },
+          {
+            "id": "playWithBtn",
+            "x": 9,
+            "y": 506,
+            "width": 72.5,
+            "height": 49,
+            "top": 506,
+            "right": 81.5,
+            "bottom": 555,
+            "left": 9
+          },
+          {
+            "id": "courtBtn",
+            "x": 85.5,
+            "y": 506,
+            "width": 72.5,
+            "height": 49,
+            "top": 506,
+            "right": 158,
+            "bottom": 555,
+            "left": 85.5
+          },
+          {
+            "id": "travelBtn",
+            "x": 162,
+            "y": 506,
+            "width": 72.5,
+            "height": 49,
+            "top": 506,
+            "right": 234.5,
+            "bottom": 555,
+            "left": 162
+          },
+          {
+            "id": "menuBtn",
+            "x": 238.5,
+            "y": 506,
+            "width": 72.5,
+            "height": 49,
+            "top": 506,
+            "right": 311,
+            "bottom": 555,
+            "left": 238.5
+          }
+        ],
+        "save": {
+          "stage": "egg",
+          "speciesLine": null,
+          "stageIndex": 0,
+          "hunger": 90,
+          "happiness": 90,
+          "energy": 90,
+          "health": 100,
+          "ageTicks": 0,
+          "sodachi": 20,
+          "maxSodachi": 20,
+          "growth": 0,
+          "decline": 0,
+          "boostTicks": 0,
+          "recentActionTicks": 0,
+          "sleptTicks": 0,
+          "miracleGuard": false,
+          "dying": false,
+          "dyingTicks": 0,
+          "transformsThisLife": 0,
+          "declineBaseline": 0,
+          "transformStageDone": [],
+          "dateCooldownTicks": 0,
+          "datesThisLife": 0,
+          "marriageAge": null,
+          "marriageMilestonesSeen": [],
+          "legendMet": false,
+          "lifeLog": [],
+          "midlifeSeen": [],
+          "savedAt": 1794928103890,
+          "infinite": false,
+          "infiniteForm": null,
+          "infiniteReturn": null,
+          "schemaVersion": 5,
+          "romanceCompatibilityVersion": 2,
+          "pendingLegacyRelationshipResolution": null,
+          "poopCount": 0,
+          "isSick": false,
+          "sicknessType": null,
+          "totalSicknessCount": 0,
+          "sicknessCuredThisLife": 0,
+          "isSleeping": false,
+          "lowHealthStreak": 0,
+          "careSum": 0,
+          "careTicks": 0,
+          "affectionStreak": 0,
+          "travelStreak": 0,
+          "actionCounts": {
+            "feed": 0,
+            "play": 0,
+            "clean": 0,
+            "sleep": 0,
+            "medicine": 0,
+            "pet": 0,
+            "talk": 0
+          },
+          "individuality": null,
+          "minigameScoreSum": 0,
+          "minigameCount": 0,
+          "deathMeter": 0,
+          "transformMeter": 0,
+          "transformOptions": null,
+          "items": {
+            "c_egg_normal": 1
+          },
+          "oneTimeBoosts": {},
+          "partner": null,
+          "calledMatch": null,
+          "gender": null,
+          "orientationId": null,
+          "attractedTo": [],
+          "clownfishFemaleReached": false,
+          "pendingClownfishTransition": null,
+          "questioningEncounters": 0,
+          "guest": null,
+          "companions": [],
+          "regionId": "home",
+          "discoveredStages": [],
+          "lifetime": {
+            "evolutions": 0,
+            "devolutions": 0,
+            "transforms": 0,
+            "clears": 0,
+            "deaths": 0,
+            "minigamesPlayed": 0,
+            "sicknessCured": 0,
+            "maxAgeReached": 0,
+            "resets": 0,
+            "lifeClears": 0,
+            "bestSodachi": 0,
+            "bestLives": 0,
+            "flawlessLives": 0,
+            "dexCleared": false,
+            "perfectCleared": false,
+            "pastLives": [],
+            "dreamEggs": {},
+            "nextEggLine": "dog",
+            "nextEggKind": "normal",
+            "endingTiersReached": [],
+            "deviceThemeId": "default",
+            "screenThemeId": "default",
+            "seasonMode": "auto",
+            "timeMode": "day",
+            "weatherMode": "sunny",
+            "weatherSeen": [],
+            "timeSeen": [],
+            "envPlays": {},
+            "envMoments": 0,
+            "minigameDifficulty": "normal",
+            "minigameLength": "normal",
+            "soundSfx": true,
+            "soundBgm": true,
+            "quickVoice": "tts",
+            "currentLocationSelected": false,
+            "currentLocation": null,
+            "fontStyle": "rounded",
+            "textSize": "normal",
+            "buttonTransparency": 72,
+            "infoReadability": 50,
+            "devicePatternId": "none",
+            "screenPatternId": "none",
+            "companionsRecruited": [],
+            "rareCompanionsRecruited": [],
+            "companionFriendshipProgress": {},
+            "partnersRecorded": [],
+            "partnerEncounters": [],
+            "partnersMarried": [],
+            "money": 0,
+            "ownedShopItems": [],
+            "equippedItemId": null,
+            "itemMigrations": {
+              "consumablesV2": true,
+              "dreamEggsV2": true
+            },
+            "raisedSpecies": [],
+            "ownedNaotoItems": [],
+            "consumablesUsed": 0,
+            "ownedConsumableItems": [],
+            "bonusUnlockedThemeIds": [],
+            "regionsVisited": [
+              "home"
+            ],
+            "specialRegionsVisited": [],
+            "datesEnjoyed": 0,
+            "legendsMet": [],
+            "minigamePlayCounts": {},
+            "minigameRecords": {},
+            "quick": {
+              "runs": 0,
+              "bestCleared": 0,
+              "bestCombo": 0,
+              "totalCleared": 0,
+              "plays": {},
+              "clears": {},
+              "single": {}
+            },
+            "meguru": {
+              "visits": 0,
+              "talkCount": 0,
+              "met": {},
+              "talks": {},
+              "spots": {}
+            },
+            "dailyChallenge": null,
+            "dailyStreak": 0,
+            "dailyLastDate": null,
+            "stickers": {
+              "owned": {},
+              "pages": {
+                "page-1": []
+              },
+              "pageOrder": [
+                "page-1"
+              ],
+              "pageMeta": {
+                "page-1": {
+                  "background": "home"
+                }
+              },
+              "tasksDone": [],
+              "packsOpened": 0,
+              "seen": []
+            },
+            "duelTraits": {
+              "cautious": 0,
+              "active": 0,
+              "jealous": 0,
+              "romantic": 0,
+              "secretive": 0,
+              "spoiled": 0,
+              "myPace": 0,
+              "realist": 0
+            },
+            "duelMatchesPlayed": 0,
+            "duelWins": 0,
+            "duelLosses": 0,
+            "duelDraws": 0,
+            "duelLiesUsed": 0,
+            "duelLiesSucceeded": 0,
+            "duelLiesFacedAsGuesser": 0,
+            "duelLiesDetected": 0,
+            "duelHonestAnswersGiven": 0,
+            "duelHonestMisread": 0,
+            "duelLongestLieStreak": 0,
+            "duelRecentQuestionIds": [],
+            "duelStakes": {},
+            "duelSerial": 0,
+            "itemInventory": {
+              "c_egg_normal": 1
+            },
+            "funItemsRetiredVersion": 1,
+            "itemSystemVersion": 1,
+            "itemPurchases": {},
+            "itemProgress": {
+              "ticks": 0,
+              "readyAt": {},
+              "relationshipSerial": 0,
+              "sceneSerial": 0,
+              "guestSerial": 0
+            },
+            "itemMemories": {
+              "letters": [],
+              "specials": []
+            },
+            "saveRevision": 1
+          },
+          "achievementsUnlocked": [],
+          "duel": null,
+          "itemLife": {
+            "pendingItems": {}
+          }
+        }
+      },
+      "ready": {
+        "stage": "egg",
+        "age": 0,
+        "asset": "assets/characters/egg/ready.png",
+        "box": [
+          21,
+          16,
+          106,
+          120
+        ],
+        "sprite": {
+          "x": 106.015625,
+          "y": 204.25,
+          "width": 108.796875,
+          "height": 108.796875,
+          "top": 204.25,
+          "right": 214.8125,
+          "bottom": 313.046875,
+          "left": 106.015625
+        },
+        "image": {
+          "x": 106.015625,
+          "y": 204.25,
+          "width": 108.796875,
+          "height": 108.796875,
+          "top": 204.25,
+          "right": 214.8125,
+          "bottom": 313.046875,
+          "left": 106.015625
+        },
+        "alpha": {
+          "x": 159.98907470703125,
+          "y": 262.04833984375,
+          "foot": 306.2470703125
+        },
+        "cast": {
+          "x": 9,
+          "y": 141.984375,
+          "width": 302,
+          "height": 240.140625,
+          "top": 141.984375,
+          "right": 311,
+          "bottom": 382.125,
+          "left": 9
+        },
+        "pane": {
+          "x": 9,
+          "y": 99.984375,
+          "width": 302,
+          "height": 343.015625,
+          "top": 99.984375,
+          "right": 311,
+          "bottom": 443,
+          "left": 9
+        },
+        "visible": {
+          "left": 9,
+          "right": 311,
+          "top": 141.984375,
+          "bottom": 382.125
+        },
+        "notice": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "speech": {
+          "x": 48,
+          "y": 327.984375,
+          "width": 224,
+          "height": 44,
+          "top": 327.984375,
+          "right": 272,
+          "bottom": 371.984375,
+          "left": 48
+        },
+        "comment": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "display": "18",
+        "buttons": [
+          {
+            "id": "feedBtn",
+            "x": 9,
+            "y": 452,
+            "width": 57.1875,
+            "height": 49,
+            "top": 452,
+            "right": 66.1875,
+            "bottom": 501,
+            "left": 9
+          },
+          {
+            "id": "cleanBtn",
+            "x": 70.1875,
+            "y": 452,
+            "width": 57.203125,
+            "height": 49,
+            "top": 452,
+            "right": 127.390625,
+            "bottom": 501,
+            "left": 70.1875
+          },
+          {
+            "id": "sleepBtn",
+            "x": 131.390625,
+            "y": 452,
+            "width": 57.203125,
+            "height": 49,
+            "top": 452,
+            "right": 188.59375,
+            "bottom": 501,
+            "left": 131.390625
+          },
+          {
+            "id": "medicineBtn",
+            "x": 192.59375,
+            "y": 452,
+            "width": 57.203125,
+            "height": 49,
+            "top": 452,
+            "right": 249.796875,
+            "bottom": 501,
+            "left": 192.59375
+          },
+          {
+            "id": "playBtn",
+            "x": 253.796875,
+            "y": 452,
+            "width": 57.203125,
+            "height": 49,
+            "top": 452,
+            "right": 311,
+            "bottom": 501,
+            "left": 253.796875
+          },
+          {
+            "id": "playWithBtn",
+            "x": 9,
+            "y": 506,
+            "width": 72.5,
+            "height": 49,
+            "top": 506,
+            "right": 81.5,
+            "bottom": 555,
+            "left": 9
+          },
+          {
+            "id": "courtBtn",
+            "x": 85.5,
+            "y": 506,
+            "width": 72.5,
+            "height": 49,
+            "top": 506,
+            "right": 158,
+            "bottom": 555,
+            "left": 85.5
+          },
+          {
+            "id": "travelBtn",
+            "x": 162,
+            "y": 506,
+            "width": 72.5,
+            "height": 49,
+            "top": 506,
+            "right": 234.5,
+            "bottom": 555,
+            "left": 162
+          },
+          {
+            "id": "menuBtn",
+            "x": 238.5,
+            "y": 506,
+            "width": 72.5,
+            "height": 49,
+            "top": 506,
+            "right": 311,
+            "bottom": 555,
+            "left": 238.5
+          }
+        ],
+        "save": {
+          "stage": "egg",
+          "speciesLine": null,
+          "stageIndex": 0,
+          "hunger": 90,
+          "happiness": 90,
+          "energy": 90,
+          "health": 100,
+          "ageTicks": 0,
+          "sodachi": 20,
+          "maxSodachi": 20,
+          "growth": 16,
+          "decline": 0,
+          "boostTicks": 0,
+          "recentActionTicks": 20,
+          "sleptTicks": 0,
+          "miracleGuard": false,
+          "dying": false,
+          "dyingTicks": 0,
+          "transformsThisLife": 0,
+          "declineBaseline": 0,
+          "transformStageDone": [],
+          "dateCooldownTicks": 0,
+          "datesThisLife": 0,
+          "marriageAge": null,
+          "marriageMilestonesSeen": [],
+          "legendMet": false,
+          "lifeLog": [],
+          "midlifeSeen": [],
+          "savedAt": 1794928120289,
+          "infinite": false,
+          "infiniteForm": null,
+          "infiniteReturn": null,
+          "schemaVersion": 5,
+          "romanceCompatibilityVersion": 2,
+          "pendingLegacyRelationshipResolution": null,
+          "poopCount": 0,
+          "isSick": false,
+          "sicknessType": null,
+          "totalSicknessCount": 0,
+          "sicknessCuredThisLife": 0,
+          "isSleeping": false,
+          "lowHealthStreak": 0,
+          "careSum": 0,
+          "careTicks": 0,
+          "affectionStreak": 0,
+          "travelStreak": 0,
+          "actionCounts": {
+            "feed": 0,
+            "play": 0,
+            "clean": 0,
+            "sleep": 0,
+            "medicine": 0,
+            "pet": 0,
+            "talk": 0
+          },
+          "individuality": null,
+          "minigameScoreSum": 0,
+          "minigameCount": 0,
+          "deathMeter": 0,
+          "transformMeter": 0,
+          "transformOptions": null,
+          "items": {
+            "c_egg_normal": 1
+          },
+          "oneTimeBoosts": {},
+          "partner": null,
+          "calledMatch": null,
+          "gender": null,
+          "orientationId": null,
+          "attractedTo": [],
+          "clownfishFemaleReached": false,
+          "pendingClownfishTransition": null,
+          "questioningEncounters": 0,
+          "guest": null,
+          "companions": [],
+          "regionId": "home",
+          "discoveredStages": [],
+          "lifetime": {
+            "evolutions": 0,
+            "devolutions": 0,
+            "transforms": 0,
+            "clears": 0,
+            "deaths": 0,
+            "minigamesPlayed": 0,
+            "sicknessCured": 0,
+            "maxAgeReached": 0,
+            "resets": 0,
+            "lifeClears": 0,
+            "bestSodachi": 0,
+            "bestLives": 0,
+            "flawlessLives": 0,
+            "dexCleared": false,
+            "perfectCleared": false,
+            "pastLives": [],
+            "dreamEggs": {},
+            "nextEggLine": "dog",
+            "nextEggKind": "normal",
+            "endingTiersReached": [],
+            "deviceThemeId": "default",
+            "screenThemeId": "default",
+            "seasonMode": "auto",
+            "timeMode": "day",
+            "weatherMode": "sunny",
+            "weatherSeen": [],
+            "timeSeen": [],
+            "envPlays": {},
+            "envMoments": 0,
+            "minigameDifficulty": "normal",
+            "minigameLength": "normal",
+            "soundSfx": true,
+            "soundBgm": true,
+            "quickVoice": "tts",
+            "currentLocationSelected": false,
+            "currentLocation": null,
+            "fontStyle": "rounded",
+            "textSize": "normal",
+            "buttonTransparency": 72,
+            "infoReadability": 50,
+            "devicePatternId": "none",
+            "screenPatternId": "none",
+            "companionsRecruited": [],
+            "rareCompanionsRecruited": [],
+            "companionFriendshipProgress": {},
+            "partnersRecorded": [],
+            "partnerEncounters": [],
+            "partnersMarried": [],
+            "money": 0,
+            "ownedShopItems": [],
+            "equippedItemId": null,
+            "itemMigrations": {
+              "consumablesV2": true,
+              "dreamEggsV2": true
+            },
+            "raisedSpecies": [],
+            "ownedNaotoItems": [],
+            "consumablesUsed": 0,
+            "ownedConsumableItems": [],
+            "bonusUnlockedThemeIds": [],
+            "regionsVisited": [
+              "home"
+            ],
+            "specialRegionsVisited": [],
+            "datesEnjoyed": 0,
+            "legendsMet": [],
+            "minigamePlayCounts": {},
+            "minigameRecords": {},
+            "quick": {
+              "runs": 0,
+              "bestCleared": 0,
+              "bestCombo": 0,
+              "totalCleared": 0,
+              "plays": {},
+              "clears": {},
+              "single": {}
+            },
+            "meguru": {
+              "visits": 0,
+              "talkCount": 0,
+              "met": {},
+              "talks": {},
+              "spots": {}
+            },
+            "dailyChallenge": null,
+            "dailyStreak": 0,
+            "dailyLastDate": null,
+            "stickers": {
+              "owned": {},
+              "pages": {
+                "page-1": []
+              },
+              "pageOrder": [
+                "page-1"
+              ],
+              "pageMeta": {
+                "page-1": {
+                  "background": "home"
+                }
+              },
+              "tasksDone": [],
+              "packsOpened": 0,
+              "seen": []
+            },
+            "duelTraits": {
+              "cautious": 0,
+              "active": 0,
+              "jealous": 0,
+              "romantic": 0,
+              "secretive": 0,
+              "spoiled": 0,
+              "myPace": 0,
+              "realist": 0
+            },
+            "duelMatchesPlayed": 0,
+            "duelWins": 0,
+            "duelLosses": 0,
+            "duelDraws": 0,
+            "duelLiesUsed": 0,
+            "duelLiesSucceeded": 0,
+            "duelLiesFacedAsGuesser": 0,
+            "duelLiesDetected": 0,
+            "duelHonestAnswersGiven": 0,
+            "duelHonestMisread": 0,
+            "duelLongestLieStreak": 0,
+            "duelRecentQuestionIds": [],
+            "duelStakes": {},
+            "duelSerial": 0,
+            "itemInventory": {
+              "c_egg_normal": 1
+            },
+            "funItemsRetiredVersion": 1,
+            "itemSystemVersion": 1,
+            "itemPurchases": {},
+            "itemProgress": {
+              "ticks": 0,
+              "readyAt": {},
+              "relationshipSerial": 0,
+              "sceneSerial": 0,
+              "guestSerial": 0
+            },
+            "itemMemories": {
+              "letters": [],
+              "specials": []
+            },
+            "saveRevision": 5
+          },
+          "achievementsUnlocked": [],
+          "duel": null,
+          "itemLife": {
+            "pendingItems": {}
+          }
+        }
+      },
+      "celebration": {
+        "stage": "growing",
+        "age": 0,
+        "asset": "assets/characters/dog/01.png",
+        "box": [
+          31,
+          81,
+          97,
+          120
+        ],
+        "sprite": {
+          "x": 101.9385757446289,
+          "y": 101.42467498779297,
+          "width": 116.09423065185547,
+          "height": 116.09423065185547,
+          "top": 101.42467498779297,
+          "right": 218.03280639648438,
+          "bottom": 217.51890563964844,
+          "left": 101.9385757446289
+        },
+        "image": {
+          "x": 101.89971923828125,
+          "y": 108.67813873291016,
+          "width": 116.09422302246094,
+          "height": 116.0942153930664,
+          "top": 108.67813873291016,
+          "right": 217.9939422607422,
+          "bottom": 224.77235412597656,
+          "left": 101.89971923828125
+        },
+        "alpha": {
+          "x": 159.94683074951172,
+          "y": 199.83023753762245,
+          "foot": 217.5164656639099
+        },
+        "cast": {
+          "x": 63.17742156982422,
+          "y": 171.6187744140625,
+          "width": 193.628173828125,
+          "height": 121.73345947265625,
+          "top": 171.6187744140625,
+          "right": 256.8055953979492,
+          "bottom": 293.35223388671875,
+          "left": 63.17742156982422
+        },
+        "pane": {
+          "x": 9,
+          "y": 118,
+          "width": 301.9930419921875,
+          "height": 185.9989013671875,
+          "top": 118,
+          "right": 310.9930419921875,
+          "bottom": 303.9989013671875,
+          "left": 9
+        },
+        "visible": {
+          "left": 63.17742156982422,
+          "right": 256.8055953979492,
+          "top": 171.6187744140625,
+          "bottom": 293.35223388671875
+        },
+        "actor": {
+          "key": "pet:dog",
+          "kind": "pet",
+          "id": "dog",
+          "x": 151,
+          "y": 143.31233281781135,
+          "w": 72.2161275,
+          "h": 42.67316625,
+          "extent": {
+            "left": 36.10806375,
+            "right": 36.10806375,
+            "top": 54.67316625,
+            "bottom": 0
+          },
+          "temperament": {
+            "curiosity": 5,
+            "boldness": 3,
+            "sociability": 5,
+            "persistence": 3
+          },
+          "route": [],
+          "target": null,
+          "activity": "rest",
+          "direction": 1,
+          "source": "ambient",
+          "manualUntil": 0,
+          "nextAt": 2,
+          "lastWalk": -12,
+          "recent": [],
+          "after": "observe",
+          "faceKey": null,
+          "visualTarget": null,
+          "nextVisualAt": 0
+        },
+        "ground": {
+          "x": 0.5,
+          "z": 0.4469006933704403,
+          "y": 0
+        },
+        "safe": true,
+        "notice": {
+          "x": 9,
+          "y": 74,
+          "width": 302,
+          "height": 42,
+          "top": 74,
+          "right": 311,
+          "bottom": 116,
+          "left": 9
+        },
+        "speech": {
+          "x": 9,
+          "y": 568,
+          "width": 0,
+          "height": 0,
+          "top": 568,
+          "right": 9,
+          "bottom": 568,
+          "left": 9
+        },
+        "comment": {
+          "x": 9,
+          "y": 306,
+          "width": 302,
+          "height": 76,
+          "top": 306,
+          "right": 311,
+          "bottom": 382,
+          "left": 9
+        },
+        "display": "18",
+        "buttons": [
+          {
+            "id": "feedBtn",
+            "x": 9,
+            "y": 457,
+            "width": 57.1875,
+            "height": 49,
+            "top": 457,
+            "right": 66.1875,
+            "bottom": 506,
+            "left": 9
+          },
+          {
+            "id": "cleanBtn",
+            "x": 70.1875,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 127.390625,
+            "bottom": 506,
+            "left": 70.1875
+          },
+          {
+            "id": "sleepBtn",
+            "x": 131.390625,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 188.59375,
+            "bottom": 506,
+            "left": 131.390625
+          },
+          {
+            "id": "medicineBtn",
+            "x": 192.59375,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 249.796875,
+            "bottom": 506,
+            "left": 192.59375
+          },
+          {
+            "id": "playBtn",
+            "x": 253.796875,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 311,
+            "bottom": 506,
+            "left": 253.796875
+          },
+          {
+            "id": "playWithBtn",
+            "x": 9,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 81.5,
+            "bottom": 560,
+            "left": 9
+          },
+          {
+            "id": "courtBtn",
+            "x": 85.5,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 158,
+            "bottom": 560,
+            "left": 85.5
+          },
+          {
+            "id": "travelBtn",
+            "x": 162,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 234.5,
+            "bottom": 560,
+            "left": 162
+          },
+          {
+            "id": "menuBtn",
+            "x": 238.5,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 311,
+            "bottom": 560,
+            "left": 238.5
+          }
+        ],
+        "world": "art-25d",
+        "save": {
+          "stage": "growing",
+          "speciesLine": "dog",
+          "stageIndex": 0,
+          "hunger": 90,
+          "happiness": 90,
+          "energy": 90,
+          "health": 100,
+          "ageTicks": 0,
+          "sodachi": 20,
+          "maxSodachi": 20,
+          "growth": 0,
+          "decline": 0,
+          "boostTicks": 0,
+          "recentActionTicks": 20,
+          "sleptTicks": 0,
+          "miracleGuard": false,
+          "dying": false,
+          "dyingTicks": 0,
+          "transformsThisLife": 0,
+          "declineBaseline": 0,
+          "transformStageDone": [],
+          "dateCooldownTicks": 0,
+          "datesThisLife": 0,
+          "marriageAge": null,
+          "marriageMilestonesSeen": [],
+          "legendMet": false,
+          "lifeLog": [
+            {
+              "age": 0,
+              "icon": "🥚",
+              "text": "たまごからうまれた"
+            }
+          ],
+          "midlifeSeen": [],
+          "savedAt": 1794928124679,
+          "infinite": false,
+          "infiniteForm": null,
+          "infiniteReturn": null,
+          "schemaVersion": 5,
+          "romanceCompatibilityVersion": 2,
+          "pendingLegacyRelationshipResolution": null,
+          "poopCount": 0,
+          "isSick": false,
+          "sicknessType": null,
+          "totalSicknessCount": 0,
+          "sicknessCuredThisLife": 0,
+          "isSleeping": false,
+          "lowHealthStreak": 0,
+          "careSum": 0,
+          "careTicks": 0,
+          "affectionStreak": 0,
+          "travelStreak": 0,
+          "actionCounts": {
+            "feed": 0,
+            "play": 0,
+            "clean": 0,
+            "sleep": 0,
+            "medicine": 0,
+            "pet": 0,
+            "talk": 0
+          },
+          "individuality": {
+            "v": 1,
+            "lifeId": "life-mwktv0uf-wczpp2",
+            "temperament": {
+              "curiosity": 5,
+              "boldness": 3,
+              "sociability": 5,
+              "persistence": 3
+            },
+            "natural": {
+              "wonder": [
+                [],
+                [],
+                []
+              ],
+              "courage": [
+                [],
+                [],
+                []
+              ],
+              "kindness": [
+                [],
+                [],
+                []
+              ],
+              "perseverance": [
+                [],
+                [],
+                []
+              ]
+            },
+            "events": {},
+            "introducedAge": 0,
+            "preferences": {
+              "place": {
+                "scores": {
+                  "city": 2
+                },
+                "counts": {},
+                "seen": [],
+                "current": null,
+                "challenger": null,
+                "confirmations": 0,
+                "history": []
+              },
+              "game": {
+                "scores": {
+                  "drive3d": 2
+                },
+                "counts": {},
+                "seen": [],
+                "current": null,
+                "challenger": null,
+                "confirmations": 0,
+                "history": []
+              }
+            },
+            "lastCompanion": null,
+            "lastExchangeAge": -1
+          },
+          "minigameScoreSum": 0,
+          "minigameCount": 0,
+          "deathMeter": 0,
+          "transformMeter": 0,
+          "transformOptions": null,
+          "items": {},
+          "oneTimeBoosts": {},
+          "partner": null,
+          "calledMatch": null,
+          "gender": "female",
+          "orientationId": "bi",
+          "attractedTo": [
+            "male",
+            "nonbinary"
+          ],
+          "clownfishFemaleReached": false,
+          "pendingClownfishTransition": null,
+          "questioningEncounters": 0,
+          "guest": null,
+          "companions": [],
+          "regionId": "home",
+          "discoveredStages": [
+            "dog:0"
+          ],
+          "lifetime": {
+            "evolutions": 0,
+            "devolutions": 0,
+            "transforms": 0,
+            "clears": 0,
+            "deaths": 0,
+            "minigamesPlayed": 0,
+            "sicknessCured": 0,
+            "maxAgeReached": 0,
+            "resets": 0,
+            "lifeClears": 0,
+            "bestSodachi": 0,
+            "bestLives": 0,
+            "flawlessLives": 0,
+            "dexCleared": false,
+            "perfectCleared": false,
+            "pastLives": [],
+            "dreamEggs": {},
+            "nextEggLine": null,
+            "nextEggKind": null,
+            "endingTiersReached": [],
+            "deviceThemeId": "default",
+            "screenThemeId": "default",
+            "seasonMode": "auto",
+            "timeMode": "day",
+            "weatherMode": "sunny",
+            "weatherSeen": [],
+            "timeSeen": [],
+            "envPlays": {},
+            "envMoments": 0,
+            "minigameDifficulty": "normal",
+            "minigameLength": "normal",
+            "soundSfx": true,
+            "soundBgm": true,
+            "quickVoice": "tts",
+            "currentLocationSelected": false,
+            "currentLocation": null,
+            "fontStyle": "rounded",
+            "textSize": "normal",
+            "buttonTransparency": 72,
+            "infoReadability": 50,
+            "devicePatternId": "none",
+            "screenPatternId": "none",
+            "companionsRecruited": [],
+            "rareCompanionsRecruited": [],
+            "companionFriendshipProgress": {},
+            "partnersRecorded": [],
+            "partnerEncounters": [],
+            "partnersMarried": [],
+            "money": 0,
+            "ownedShopItems": [],
+            "equippedItemId": null,
+            "itemMigrations": {
+              "consumablesV2": true,
+              "dreamEggsV2": true
+            },
+            "raisedSpecies": [
+              "dog"
+            ],
+            "ownedNaotoItems": [],
+            "consumablesUsed": 1,
+            "ownedConsumableItems": [
+              "c_egg_normal"
+            ],
+            "bonusUnlockedThemeIds": [],
+            "regionsVisited": [
+              "home"
+            ],
+            "specialRegionsVisited": [],
+            "datesEnjoyed": 0,
+            "legendsMet": [],
+            "minigamePlayCounts": {},
+            "minigameRecords": {},
+            "quick": {
+              "runs": 0,
+              "bestCleared": 0,
+              "bestCombo": 0,
+              "totalCleared": 0,
+              "plays": {},
+              "clears": {},
+              "single": {}
+            },
+            "meguru": {
+              "visits": 0,
+              "talkCount": 0,
+              "met": {},
+              "talks": {},
+              "spots": {}
+            },
+            "dailyChallenge": null,
+            "dailyStreak": 0,
+            "dailyLastDate": null,
+            "stickers": {
+              "owned": {
+                "form:dog:0": 1
+              },
+              "pages": {
+                "page-1": []
+              },
+              "pageOrder": [
+                "page-1"
+              ],
+              "pageMeta": {
+                "page-1": {
+                  "background": "home"
+                }
+              },
+              "tasksDone": [],
+              "packsOpened": 0,
+              "seen": []
+            },
+            "duelTraits": {
+              "cautious": 0,
+              "active": 0,
+              "jealous": 0,
+              "romantic": 0,
+              "secretive": 0,
+              "spoiled": 0,
+              "myPace": 0,
+              "realist": 0
+            },
+            "duelMatchesPlayed": 0,
+            "duelWins": 0,
+            "duelLosses": 0,
+            "duelDraws": 0,
+            "duelLiesUsed": 0,
+            "duelLiesSucceeded": 0,
+            "duelLiesFacedAsGuesser": 0,
+            "duelLiesDetected": 0,
+            "duelHonestAnswersGiven": 0,
+            "duelHonestMisread": 0,
+            "duelLongestLieStreak": 0,
+            "duelRecentQuestionIds": [],
+            "duelStakes": {},
+            "duelSerial": 0,
+            "itemInventory": {},
+            "funItemsRetiredVersion": 1,
+            "itemSystemVersion": 1,
+            "itemPurchases": {},
+            "itemProgress": {
+              "ticks": 0,
+              "readyAt": {},
+              "relationshipSerial": 0,
+              "sceneSerial": 0,
+              "guestSerial": 0
+            },
+            "itemMemories": {
+              "letters": [],
+              "specials": []
+            },
+            "saveRevision": 6,
+            "achievementUnlockedAt": {
+              "consumable-1": 1794928124679
+            }
+          },
+          "achievementsUnlocked": [
+            "consumable-1"
+          ],
+          "duel": null,
+          "itemLife": {
+            "pendingItems": {}
+          }
+        }
+      },
+      "newborn": {
+        "stage": "growing",
+        "age": 0,
+        "asset": "assets/characters/dog/01.png",
+        "box": [
+          31,
+          81,
+          97,
+          120
+        ],
+        "sprite": {
+          "x": 101.9385757446289,
+          "y": 101.42467498779297,
+          "width": 116.09423065185547,
+          "height": 116.09423065185547,
+          "top": 101.42467498779297,
+          "right": 218.03280639648438,
+          "bottom": 217.51890563964844,
+          "left": 101.9385757446289
+        },
+        "image": {
+          "x": 101.89971923828125,
+          "y": 109.76615905761719,
+          "width": 116.09422302246094,
+          "height": 114.93327331542969,
+          "top": 109.76615905761719,
+          "right": 217.9939422607422,
+          "bottom": 224.69943237304688,
+          "left": 101.89971923828125
+        },
+        "alpha": {
+          "x": 159.94683074951172,
+          "y": 200.00673693418503,
+          "foot": 217.51610279083252
+        },
+        "cast": {
+          "x": 63.17742156982422,
+          "y": 171.6187744140625,
+          "width": 193.628173828125,
+          "height": 121.73345947265625,
+          "top": 171.6187744140625,
+          "right": 256.8055953979492,
+          "bottom": 293.35223388671875,
+          "left": 63.17742156982422
+        },
+        "pane": {
+          "x": 9,
+          "y": 118,
+          "width": 301.9930419921875,
+          "height": 185.9989013671875,
+          "top": 118,
+          "right": 310.9930419921875,
+          "bottom": 303.9989013671875,
+          "left": 9
+        },
+        "visible": {
+          "left": 63.17742156982422,
+          "right": 256.8055953979492,
+          "top": 171.6187744140625,
+          "bottom": 293.35223388671875
+        },
+        "actor": {
+          "key": "pet:dog",
+          "kind": "pet",
+          "id": "dog",
+          "x": 151,
+          "y": 143.31233281781135,
+          "w": 72.2161275,
+          "h": 42.67316625,
+          "extent": {
+            "left": 36.10806375,
+            "right": 36.10806375,
+            "top": 54.67316625,
+            "bottom": 0
+          },
+          "temperament": {
+            "curiosity": 5,
+            "boldness": 3,
+            "sociability": 5,
+            "persistence": 3
+          },
+          "route": [],
+          "target": null,
+          "activity": "rest",
+          "direction": 1,
+          "source": "ambient",
+          "manualUntil": 0,
+          "nextAt": 2,
+          "lastWalk": -12,
+          "recent": [],
+          "after": "observe",
+          "faceKey": null,
+          "visualTarget": null,
+          "nextVisualAt": 0
+        },
+        "ground": {
+          "x": 0.5,
+          "z": 0.4469006933704403,
+          "y": 0
+        },
+        "safe": true,
+        "notice": {
+          "x": 9,
+          "y": 74,
+          "width": 302,
+          "height": 42,
+          "top": 74,
+          "right": 311,
+          "bottom": 116,
+          "left": 9
+        },
+        "speech": {
+          "x": 9,
+          "y": 568,
+          "width": 0,
+          "height": 0,
+          "top": 568,
+          "right": 9,
+          "bottom": 568,
+          "left": 9
+        },
+        "comment": {
+          "x": 9,
+          "y": 306,
+          "width": 302,
+          "height": 76,
+          "top": 306,
+          "right": 311,
+          "bottom": 382,
+          "left": 9
+        },
+        "display": "18",
+        "buttons": [
+          {
+            "id": "feedBtn",
+            "x": 9,
+            "y": 457,
+            "width": 57.1875,
+            "height": 49,
+            "top": 457,
+            "right": 66.1875,
+            "bottom": 506,
+            "left": 9
+          },
+          {
+            "id": "cleanBtn",
+            "x": 70.1875,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 127.390625,
+            "bottom": 506,
+            "left": 70.1875
+          },
+          {
+            "id": "sleepBtn",
+            "x": 131.390625,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 188.59375,
+            "bottom": 506,
+            "left": 131.390625
+          },
+          {
+            "id": "medicineBtn",
+            "x": 192.59375,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 249.796875,
+            "bottom": 506,
+            "left": 192.59375
+          },
+          {
+            "id": "playBtn",
+            "x": 253.796875,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 311,
+            "bottom": 506,
+            "left": 253.796875
+          },
+          {
+            "id": "playWithBtn",
+            "x": 9,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 81.5,
+            "bottom": 560,
+            "left": 9
+          },
+          {
+            "id": "courtBtn",
+            "x": 85.5,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 158,
+            "bottom": 560,
+            "left": 85.5
+          },
+          {
+            "id": "travelBtn",
+            "x": 162,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 234.5,
+            "bottom": 560,
+            "left": 162
+          },
+          {
+            "id": "menuBtn",
+            "x": 238.5,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 311,
+            "bottom": 560,
+            "left": 238.5
+          }
+        ],
+        "world": "art-25d",
+        "save": {
+          "stage": "growing",
+          "speciesLine": "dog",
+          "stageIndex": 0,
+          "hunger": 90,
+          "happiness": 90,
+          "energy": 90,
+          "health": 100,
+          "ageTicks": 0,
+          "sodachi": 20,
+          "maxSodachi": 20,
+          "growth": 0,
+          "decline": 0,
+          "boostTicks": 0,
+          "recentActionTicks": 20,
+          "sleptTicks": 0,
+          "miracleGuard": false,
+          "dying": false,
+          "dyingTicks": 0,
+          "transformsThisLife": 0,
+          "declineBaseline": 0,
+          "transformStageDone": [],
+          "dateCooldownTicks": 0,
+          "datesThisLife": 0,
+          "marriageAge": null,
+          "marriageMilestonesSeen": [],
+          "legendMet": false,
+          "lifeLog": [
+            {
+              "age": 0,
+              "icon": "🥚",
+              "text": "たまごからうまれた"
+            }
+          ],
+          "midlifeSeen": [],
+          "savedAt": 1794928124679,
+          "infinite": false,
+          "infiniteForm": null,
+          "infiniteReturn": null,
+          "schemaVersion": 5,
+          "romanceCompatibilityVersion": 2,
+          "pendingLegacyRelationshipResolution": null,
+          "poopCount": 0,
+          "isSick": false,
+          "sicknessType": null,
+          "totalSicknessCount": 0,
+          "sicknessCuredThisLife": 0,
+          "isSleeping": false,
+          "lowHealthStreak": 0,
+          "careSum": 0,
+          "careTicks": 0,
+          "affectionStreak": 0,
+          "travelStreak": 0,
+          "actionCounts": {
+            "feed": 0,
+            "play": 0,
+            "clean": 0,
+            "sleep": 0,
+            "medicine": 0,
+            "pet": 0,
+            "talk": 0
+          },
+          "individuality": {
+            "v": 1,
+            "lifeId": "life-mwktv0uf-wczpp2",
+            "temperament": {
+              "curiosity": 5,
+              "boldness": 3,
+              "sociability": 5,
+              "persistence": 3
+            },
+            "natural": {
+              "wonder": [
+                [],
+                [],
+                []
+              ],
+              "courage": [
+                [],
+                [],
+                []
+              ],
+              "kindness": [
+                [],
+                [],
+                []
+              ],
+              "perseverance": [
+                [],
+                [],
+                []
+              ]
+            },
+            "events": {},
+            "introducedAge": 0,
+            "preferences": {
+              "place": {
+                "scores": {
+                  "city": 2
+                },
+                "counts": {},
+                "seen": [],
+                "current": null,
+                "challenger": null,
+                "confirmations": 0,
+                "history": []
+              },
+              "game": {
+                "scores": {
+                  "drive3d": 2
+                },
+                "counts": {},
+                "seen": [],
+                "current": null,
+                "challenger": null,
+                "confirmations": 0,
+                "history": []
+              }
+            },
+            "lastCompanion": null,
+            "lastExchangeAge": -1
+          },
+          "minigameScoreSum": 0,
+          "minigameCount": 0,
+          "deathMeter": 0,
+          "transformMeter": 0,
+          "transformOptions": null,
+          "items": {},
+          "oneTimeBoosts": {},
+          "partner": null,
+          "calledMatch": null,
+          "gender": "female",
+          "orientationId": "bi",
+          "attractedTo": [
+            "male",
+            "nonbinary"
+          ],
+          "clownfishFemaleReached": false,
+          "pendingClownfishTransition": null,
+          "questioningEncounters": 0,
+          "guest": null,
+          "companions": [],
+          "regionId": "home",
+          "discoveredStages": [
+            "dog:0"
+          ],
+          "lifetime": {
+            "evolutions": 0,
+            "devolutions": 0,
+            "transforms": 0,
+            "clears": 0,
+            "deaths": 0,
+            "minigamesPlayed": 0,
+            "sicknessCured": 0,
+            "maxAgeReached": 0,
+            "resets": 0,
+            "lifeClears": 0,
+            "bestSodachi": 0,
+            "bestLives": 0,
+            "flawlessLives": 0,
+            "dexCleared": false,
+            "perfectCleared": false,
+            "pastLives": [],
+            "dreamEggs": {},
+            "nextEggLine": null,
+            "nextEggKind": null,
+            "endingTiersReached": [],
+            "deviceThemeId": "default",
+            "screenThemeId": "default",
+            "seasonMode": "auto",
+            "timeMode": "day",
+            "weatherMode": "sunny",
+            "weatherSeen": [],
+            "timeSeen": [],
+            "envPlays": {},
+            "envMoments": 0,
+            "minigameDifficulty": "normal",
+            "minigameLength": "normal",
+            "soundSfx": true,
+            "soundBgm": true,
+            "quickVoice": "tts",
+            "currentLocationSelected": false,
+            "currentLocation": null,
+            "fontStyle": "rounded",
+            "textSize": "normal",
+            "buttonTransparency": 72,
+            "infoReadability": 50,
+            "devicePatternId": "none",
+            "screenPatternId": "none",
+            "companionsRecruited": [],
+            "rareCompanionsRecruited": [],
+            "companionFriendshipProgress": {},
+            "partnersRecorded": [],
+            "partnerEncounters": [],
+            "partnersMarried": [],
+            "money": 0,
+            "ownedShopItems": [],
+            "equippedItemId": null,
+            "itemMigrations": {
+              "consumablesV2": true,
+              "dreamEggsV2": true
+            },
+            "raisedSpecies": [
+              "dog"
+            ],
+            "ownedNaotoItems": [],
+            "consumablesUsed": 1,
+            "ownedConsumableItems": [
+              "c_egg_normal"
+            ],
+            "bonusUnlockedThemeIds": [],
+            "regionsVisited": [
+              "home"
+            ],
+            "specialRegionsVisited": [],
+            "datesEnjoyed": 0,
+            "legendsMet": [],
+            "minigamePlayCounts": {},
+            "minigameRecords": {},
+            "quick": {
+              "runs": 0,
+              "bestCleared": 0,
+              "bestCombo": 0,
+              "totalCleared": 0,
+              "plays": {},
+              "clears": {},
+              "single": {}
+            },
+            "meguru": {
+              "visits": 0,
+              "talkCount": 0,
+              "met": {},
+              "talks": {},
+              "spots": {}
+            },
+            "dailyChallenge": null,
+            "dailyStreak": 0,
+            "dailyLastDate": null,
+            "stickers": {
+              "owned": {
+                "form:dog:0": 1
+              },
+              "pages": {
+                "page-1": []
+              },
+              "pageOrder": [
+                "page-1"
+              ],
+              "pageMeta": {
+                "page-1": {
+                  "background": "home"
+                }
+              },
+              "tasksDone": [],
+              "packsOpened": 0,
+              "seen": []
+            },
+            "duelTraits": {
+              "cautious": 0,
+              "active": 0,
+              "jealous": 0,
+              "romantic": 0,
+              "secretive": 0,
+              "spoiled": 0,
+              "myPace": 0,
+              "realist": 0
+            },
+            "duelMatchesPlayed": 0,
+            "duelWins": 0,
+            "duelLosses": 0,
+            "duelDraws": 0,
+            "duelLiesUsed": 0,
+            "duelLiesSucceeded": 0,
+            "duelLiesFacedAsGuesser": 0,
+            "duelLiesDetected": 0,
+            "duelHonestAnswersGiven": 0,
+            "duelHonestMisread": 0,
+            "duelLongestLieStreak": 0,
+            "duelRecentQuestionIds": [],
+            "duelStakes": {},
+            "duelSerial": 0,
+            "itemInventory": {},
+            "funItemsRetiredVersion": 1,
+            "itemSystemVersion": 1,
+            "itemPurchases": {},
+            "itemProgress": {
+              "ticks": 0,
+              "readyAt": {},
+              "relationshipSerial": 0,
+              "sceneSerial": 0,
+              "guestSerial": 0
+            },
+            "itemMemories": {
+              "letters": [],
+              "specials": []
+            },
+            "saveRevision": 6,
+            "achievementUnlockedAt": {
+              "consumable-1": 1794928124679
+            }
+          },
+          "achievementsUnlocked": [
+            "consumable-1"
+          ],
+          "duel": null,
+          "itemLife": {
+            "pendingItems": {}
+          }
+        }
+      },
+      "afterBirthCare": 1,
+      "grown": {
+        "stage": "growing",
+        "age": 500,
+        "asset": "assets/characters/expressions/dog/06-happy.png",
+        "box": [
+          0,
+          0,
+          128,
+          128
+        ],
+        "sprite": {
+          "x": 110.93716430664062,
+          "y": 144.91798400878906,
+          "width": 98.08505249023438,
+          "height": 98.08506774902344,
+          "top": 144.91798400878906,
+          "right": 209.022216796875,
+          "bottom": 243.0030517578125,
+          "left": 110.93716430664062
+        },
+        "image": {
+          "x": 110.90432739257812,
+          "y": 151.04624938964844,
+          "width": 98.08506774902344,
+          "height": 98.08506774902344,
+          "top": 151.04624938964844,
+          "right": 208.98939514160156,
+          "bottom": 249.13131713867188,
+          "left": 110.90432739257812
+        },
+        "alpha": {
+          "x": 159.94686126708984,
+          "y": 200.08878326416016,
+          "foot": 249.13131713867188
+        },
+        "cast": {
+          "x": 22.578636169433594,
+          "y": 206.7602996826172,
+          "width": 274.81451416015625,
+          "height": 87.93589782714844,
+          "top": 206.7602996826172,
+          "right": 297.39315032958984,
+          "bottom": 294.6961975097656,
+          "left": 22.578636169433594
+        },
+        "pane": {
+          "x": 9,
+          "y": 118,
+          "width": 301.9859924316406,
+          "height": 185.9996337890625,
+          "top": 118,
+          "right": 310.9859924316406,
+          "bottom": 303.9996337890625,
+          "left": 9
+        },
+        "visible": {
+          "left": 22.578636169433594,
+          "right": 297.39315032958984,
+          "top": 206.7602996826172,
+          "bottom": 294.6961975097656
+        },
+        "actor": {
+          "key": "pet:dog",
+          "kind": "pet",
+          "id": "dog",
+          "x": 151,
+          "y": 156.6456015192582,
+          "w": 105.04164,
+          "h": 122.54858,
+          "extent": {
+            "left": 52.52082,
+            "right": 52.52082,
+            "top": 134.54858000000002,
+            "bottom": 0
+          },
+          "temperament": {
+            "curiosity": 5,
+            "boldness": 3,
+            "sociability": 5,
+            "persistence": 3
+          },
+          "route": [],
+          "target": null,
+          "activity": "rest",
+          "direction": 1,
+          "source": "ambient",
+          "manualUntil": 0,
+          "nextAt": 2.0700762135088446,
+          "lastWalk": -11.712,
+          "recent": [],
+          "after": "observe",
+          "faceKey": null,
+          "visualTarget": null,
+          "nextVisualAt": 0
+        },
+        "ground": {
+          "x": 0.5,
+          "z": 0.4469006933704403,
+          "y": 0
+        },
+        "safe": true,
+        "notice": {
+          "x": 9,
+          "y": 74,
+          "width": 302,
+          "height": 42,
+          "top": 74,
+          "right": 311,
+          "bottom": 116,
+          "left": 9
+        },
+        "speech": {
+          "x": 9,
+          "y": 568,
+          "width": 0,
+          "height": 0,
+          "top": 568,
+          "right": 9,
+          "bottom": 568,
+          "left": 9
+        },
+        "comment": {
+          "x": 9,
+          "y": 306,
+          "width": 302,
+          "height": 76,
+          "top": 306,
+          "right": 311,
+          "bottom": 382,
+          "left": 9
+        },
+        "display": "18",
+        "buttons": [
+          {
+            "id": "feedBtn",
+            "x": 9,
+            "y": 457,
+            "width": 57.1875,
+            "height": 49,
+            "top": 457,
+            "right": 66.1875,
+            "bottom": 506,
+            "left": 9
+          },
+          {
+            "id": "cleanBtn",
+            "x": 70.1875,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 127.390625,
+            "bottom": 506,
+            "left": 70.1875
+          },
+          {
+            "id": "sleepBtn",
+            "x": 131.390625,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 188.59375,
+            "bottom": 506,
+            "left": 131.390625
+          },
+          {
+            "id": "medicineBtn",
+            "x": 192.59375,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 249.796875,
+            "bottom": 506,
+            "left": 192.59375
+          },
+          {
+            "id": "playBtn",
+            "x": 253.796875,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 311,
+            "bottom": 506,
+            "left": 253.796875
+          },
+          {
+            "id": "playWithBtn",
+            "x": 9,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 81.5,
+            "bottom": 560,
+            "left": 9
+          },
+          {
+            "id": "courtBtn",
+            "x": 85.5,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 158,
+            "bottom": 560,
+            "left": 85.5
+          },
+          {
+            "id": "travelBtn",
+            "x": 162,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 234.5,
+            "bottom": 560,
+            "left": 162
+          },
+          {
+            "id": "menuBtn",
+            "x": 238.5,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 311,
+            "bottom": 560,
+            "left": 238.5
+          }
+        ],
+        "world": "art-25d",
+        "save": {
+          "stage": "growing",
+          "speciesLine": "dog",
+          "stageIndex": 3,
+          "hunger": 90,
+          "happiness": 95,
+          "energy": 90,
+          "health": 100,
+          "ageTicks": 500,
+          "sodachi": 20,
+          "maxSodachi": 20,
+          "growth": 1.5,
+          "decline": 0,
+          "boostTicks": 0,
+          "recentActionTicks": 20,
+          "sleptTicks": 0,
+          "miracleGuard": false,
+          "dying": false,
+          "dyingTicks": 0,
+          "transformsThisLife": 0,
+          "declineBaseline": 0,
+          "transformStageDone": [],
+          "dateCooldownTicks": 0,
+          "datesThisLife": 0,
+          "marriageAge": null,
+          "marriageMilestonesSeen": [],
+          "legendMet": false,
+          "lifeLog": [
+            {
+              "age": 0,
+              "icon": "🥚",
+              "text": "たまごからうまれた"
+            }
+          ],
+          "midlifeSeen": [],
+          "savedAt": 1794928127769,
+          "infinite": false,
+          "infiniteForm": null,
+          "infiniteReturn": null,
+          "schemaVersion": 5,
+          "romanceCompatibilityVersion": 2,
+          "pendingLegacyRelationshipResolution": null,
+          "poopCount": 0,
+          "isSick": false,
+          "sicknessType": null,
+          "totalSicknessCount": 0,
+          "sicknessCuredThisLife": 0,
+          "isSleeping": false,
+          "lowHealthStreak": 0,
+          "careSum": 0,
+          "careTicks": 0,
+          "affectionStreak": 1,
+          "travelStreak": 0,
+          "actionCounts": {
+            "feed": 0,
+            "play": 0,
+            "clean": 0,
+            "sleep": 0,
+            "medicine": 0,
+            "pet": 1,
+            "talk": 1
+          },
+          "individuality": {
+            "v": 1,
+            "lifeId": "life-mwktv0uf-wczpp2",
+            "temperament": {
+              "curiosity": 5,
+              "boldness": 3,
+              "sociability": 5,
+              "persistence": 3
+            },
+            "natural": {
+              "wonder": [
+                [],
+                [],
+                []
+              ],
+              "courage": [
+                [],
+                [],
+                []
+              ],
+              "kindness": [
+                [],
+                [],
+                []
+              ],
+              "perseverance": [
+                [],
+                [],
+                []
+              ]
+            },
+            "events": {},
+            "introducedAge": 0,
+            "preferences": {
+              "place": {
+                "scores": {
+                  "city": 2
+                },
+                "counts": {},
+                "seen": [],
+                "current": null,
+                "challenger": null,
+                "confirmations": 0,
+                "history": []
+              },
+              "game": {
+                "scores": {
+                  "drive3d": 2
+                },
+                "counts": {},
+                "seen": [],
+                "current": null,
+                "challenger": null,
+                "confirmations": 0,
+                "history": []
+              }
+            },
+            "lastCompanion": null,
+            "lastExchangeAge": -1
+          },
+          "minigameScoreSum": 0,
+          "minigameCount": 0,
+          "deathMeter": 0,
+          "transformMeter": 0,
+          "transformOptions": null,
+          "items": {},
+          "oneTimeBoosts": {},
+          "partner": null,
+          "calledMatch": null,
+          "gender": "female",
+          "orientationId": "bi",
+          "attractedTo": [
+            "male",
+            "nonbinary"
+          ],
+          "clownfishFemaleReached": false,
+          "pendingClownfishTransition": null,
+          "questioningEncounters": 0,
+          "guest": null,
+          "companions": [],
+          "regionId": "home",
+          "discoveredStages": [
+            "dog:0"
+          ],
+          "lifetime": {
+            "evolutions": 0,
+            "devolutions": 0,
+            "transforms": 0,
+            "clears": 0,
+            "deaths": 0,
+            "minigamesPlayed": 0,
+            "sicknessCured": 0,
+            "maxAgeReached": 0,
+            "resets": 0,
+            "lifeClears": 0,
+            "bestSodachi": 0,
+            "bestLives": 0,
+            "flawlessLives": 0,
+            "dexCleared": false,
+            "perfectCleared": false,
+            "pastLives": [],
+            "dreamEggs": {},
+            "nextEggLine": null,
+            "nextEggKind": null,
+            "endingTiersReached": [],
+            "deviceThemeId": "default",
+            "screenThemeId": "default",
+            "seasonMode": "auto",
+            "timeMode": "day",
+            "weatherMode": "sunny",
+            "weatherSeen": [],
+            "timeSeen": [],
+            "envPlays": {},
+            "envMoments": 0,
+            "minigameDifficulty": "normal",
+            "minigameLength": "normal",
+            "soundSfx": true,
+            "soundBgm": true,
+            "quickVoice": "tts",
+            "currentLocationSelected": false,
+            "currentLocation": null,
+            "fontStyle": "rounded",
+            "textSize": "normal",
+            "buttonTransparency": 72,
+            "infoReadability": 50,
+            "devicePatternId": "none",
+            "screenPatternId": "none",
+            "companionsRecruited": [],
+            "rareCompanionsRecruited": [],
+            "companionFriendshipProgress": {},
+            "partnersRecorded": [],
+            "partnerEncounters": [],
+            "partnersMarried": [],
+            "money": 0,
+            "ownedShopItems": [],
+            "equippedItemId": null,
+            "itemMigrations": {
+              "consumablesV2": true,
+              "dreamEggsV2": true
+            },
+            "raisedSpecies": [
+              "dog"
+            ],
+            "ownedNaotoItems": [],
+            "consumablesUsed": 1,
+            "ownedConsumableItems": [
+              "c_egg_normal"
+            ],
+            "bonusUnlockedThemeIds": [],
+            "regionsVisited": [
+              "home"
+            ],
+            "specialRegionsVisited": [],
+            "datesEnjoyed": 0,
+            "legendsMet": [],
+            "minigamePlayCounts": {},
+            "minigameRecords": {},
+            "quick": {
+              "runs": 0,
+              "bestCleared": 0,
+              "bestCombo": 0,
+              "totalCleared": 0,
+              "plays": {},
+              "clears": {},
+              "single": {}
+            },
+            "meguru": {
+              "visits": 0,
+              "talkCount": 0,
+              "met": {},
+              "talks": {},
+              "spots": {}
+            },
+            "dailyChallenge": null,
+            "dailyStreak": 0,
+            "dailyLastDate": null,
+            "stickers": {
+              "owned": {
+                "form:dog:0": 1
+              },
+              "pages": {
+                "page-1": []
+              },
+              "pageOrder": [
+                "page-1"
+              ],
+              "pageMeta": {
+                "page-1": {
+                  "background": "home"
+                }
+              },
+              "tasksDone": [],
+              "packsOpened": 0,
+              "seen": []
+            },
+            "duelTraits": {
+              "cautious": 0,
+              "active": 0,
+              "jealous": 0,
+              "romantic": 0,
+              "secretive": 0,
+              "spoiled": 0,
+              "myPace": 0,
+              "realist": 0
+            },
+            "duelMatchesPlayed": 0,
+            "duelWins": 0,
+            "duelLosses": 0,
+            "duelDraws": 0,
+            "duelLiesUsed": 0,
+            "duelLiesSucceeded": 0,
+            "duelLiesFacedAsGuesser": 0,
+            "duelLiesDetected": 0,
+            "duelHonestAnswersGiven": 0,
+            "duelHonestMisread": 0,
+            "duelLongestLieStreak": 0,
+            "duelRecentQuestionIds": [],
+            "duelStakes": {},
+            "duelSerial": 0,
+            "itemInventory": {},
+            "funItemsRetiredVersion": 1,
+            "itemSystemVersion": 1,
+            "itemPurchases": {},
+            "itemProgress": {
+              "ticks": 0,
+              "readyAt": {},
+              "relationshipSerial": 0,
+              "sceneSerial": 0,
+              "guestSerial": 0
+            },
+            "itemMemories": {
+              "letters": [],
+              "specials": []
+            },
+            "saveRevision": 7,
+            "achievementUnlockedAt": {
+              "consumable-1": 1794928124679
+            }
+          },
+          "achievementsUnlocked": [
+            "consumable-1"
+          ],
+          "duel": null,
+          "itemLife": {
+            "pendingItems": {}
+          }
+        }
+      },
+      "resumeMotion": "reduce",
+      "resumed": {
+        "stage": "growing",
+        "age": 500,
+        "asset": "assets/characters/dog/06.png",
+        "box": [
+          16,
+          8,
+          112,
+          120
+        ],
+        "sprite": {
+          "x": 119.71649169921875,
+          "y": 164.04391479492188,
+          "width": 109.64509582519531,
+          "height": 109.64511108398438,
+          "top": 164.04391479492188,
+          "right": 229.36158752441406,
+          "bottom": 273.68902587890625,
+          "left": 119.71649169921875
+        },
+        "image": {
+          "x": 119.67979431152344,
+          "y": 171.92202758789062,
+          "width": 109.64509582519531,
+          "height": 108.54864501953125,
+          "top": 171.92202758789062,
+          "right": 229.32489013671875,
+          "bottom": 280.4706726074219,
+          "left": 119.67979431152344
+        },
+        "alpha": {
+          "x": 174.5023422241211,
+          "y": 226.19635009765625,
+          "foot": 273.6863822937012
+        },
+        "cast": {
+          "x": 22.578636169433594,
+          "y": 211.73338317871094,
+          "width": 274.81451416015625,
+          "height": 82.90946960449219,
+          "top": 211.73338317871094,
+          "right": 297.39315032958984,
+          "bottom": 294.6428527832031,
+          "left": 22.578636169433594
+        },
+        "pane": {
+          "x": 9,
+          "y": 118,
+          "width": 301.9859924316406,
+          "height": 185.9974365234375,
+          "top": 118,
+          "right": 310.9859924316406,
+          "bottom": 303.9974365234375,
+          "left": 9
+        },
+        "visible": {
+          "left": 22.578636169433594,
+          "right": 297.39315032958984,
+          "top": 211.73338317871094,
+          "bottom": 294.6428527832031
+        },
+        "actor": {
+          "key": "pet:dog",
+          "kind": "pet",
+          "id": "dog",
+          "x": 167,
+          "y": 284,
+          "w": 105.04164,
+          "h": 122.54858,
+          "extent": {
+            "left": 52.52082,
+            "right": 52.52082,
+            "top": 134.54858000000002,
+            "bottom": 0
+          },
+          "temperament": {
+            "curiosity": 5,
+            "boldness": 3,
+            "sociability": 5,
+            "persistence": 3
+          },
+          "route": [],
+          "target": null,
+          "activity": "rest",
+          "direction": 1,
+          "source": "ambient",
+          "manualUntil": 0,
+          "nextAt": 2,
+          "lastWalk": -12,
+          "recent": [],
+          "after": "observe",
+          "faceKey": null,
+          "visualTarget": null,
+          "nextVisualAt": 0
+        },
+        "ground": {
+          "x": 0.55,
+          "z": 0.74,
+          "y": 0
+        },
+        "safe": true,
+        "notice": {
+          "x": 9,
+          "y": 74,
+          "width": 302,
+          "height": 42,
+          "top": 74,
+          "right": 311,
+          "bottom": 116,
+          "left": 9
+        },
+        "speech": {
+          "x": 9,
+          "y": 568,
+          "width": 0,
+          "height": 0,
+          "top": 568,
+          "right": 9,
+          "bottom": 568,
+          "left": 9
+        },
+        "comment": {
+          "x": 9,
+          "y": 306,
+          "width": 302,
+          "height": 76,
+          "top": 306,
+          "right": 311,
+          "bottom": 382,
+          "left": 9
+        },
+        "display": "18",
+        "buttons": [
+          {
+            "id": "feedBtn",
+            "x": 9,
+            "y": 457,
+            "width": 57.1875,
+            "height": 49,
+            "top": 457,
+            "right": 66.1875,
+            "bottom": 506,
+            "left": 9
+          },
+          {
+            "id": "cleanBtn",
+            "x": 70.1875,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 127.390625,
+            "bottom": 506,
+            "left": 70.1875
+          },
+          {
+            "id": "sleepBtn",
+            "x": 131.390625,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 188.59375,
+            "bottom": 506,
+            "left": 131.390625
+          },
+          {
+            "id": "medicineBtn",
+            "x": 192.59375,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 249.796875,
+            "bottom": 506,
+            "left": 192.59375
+          },
+          {
+            "id": "playBtn",
+            "x": 253.796875,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 311,
+            "bottom": 506,
+            "left": 253.796875
+          },
+          {
+            "id": "playWithBtn",
+            "x": 9,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 81.5,
+            "bottom": 560,
+            "left": 9
+          },
+          {
+            "id": "courtBtn",
+            "x": 85.5,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 158,
+            "bottom": 560,
+            "left": 85.5
+          },
+          {
+            "id": "travelBtn",
+            "x": 162,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 234.5,
+            "bottom": 560,
+            "left": 162
+          },
+          {
+            "id": "menuBtn",
+            "x": 238.5,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 311,
+            "bottom": 560,
+            "left": 238.5
+          }
+        ],
+        "world": "art-25d",
+        "save": {
+          "stage": "growing",
+          "speciesLine": "dog",
+          "stageIndex": 5,
+          "hunger": 90,
+          "happiness": 95,
+          "energy": 90,
+          "health": 100,
+          "ageTicks": 500,
+          "sodachi": 20,
+          "maxSodachi": 20,
+          "growth": 1.5,
+          "decline": 0,
+          "boostTicks": 0,
+          "recentActionTicks": 20,
+          "sleptTicks": 0,
+          "miracleGuard": false,
+          "dying": false,
+          "dyingTicks": 0,
+          "transformsThisLife": 0,
+          "declineBaseline": 0,
+          "transformStageDone": [],
+          "dateCooldownTicks": 0,
+          "datesThisLife": 0,
+          "marriageAge": null,
+          "marriageMilestonesSeen": [],
+          "legendMet": false,
+          "lifeLog": [
+            {
+              "age": 0,
+              "icon": "🥚",
+              "text": "たまごからうまれた"
+            }
+          ],
+          "midlifeSeen": [],
+          "savedAt": 1794928128278,
+          "infinite": false,
+          "infiniteForm": null,
+          "infiniteReturn": null,
+          "schemaVersion": 5,
+          "romanceCompatibilityVersion": 2,
+          "pendingLegacyRelationshipResolution": null,
+          "poopCount": 0,
+          "isSick": false,
+          "sicknessType": null,
+          "totalSicknessCount": 0,
+          "sicknessCuredThisLife": 0,
+          "isSleeping": false,
+          "lowHealthStreak": 0,
+          "careSum": 0,
+          "careTicks": 0,
+          "affectionStreak": 1,
+          "travelStreak": 0,
+          "actionCounts": {
+            "feed": 0,
+            "play": 0,
+            "clean": 0,
+            "sleep": 0,
+            "medicine": 0,
+            "pet": 1,
+            "talk": 1
+          },
+          "individuality": {
+            "v": 1,
+            "lifeId": "life-mwktv0uf-wczpp2",
+            "temperament": {
+              "curiosity": 5,
+              "boldness": 3,
+              "sociability": 5,
+              "persistence": 3
+            },
+            "natural": {
+              "wonder": [
+                [],
+                [],
+                []
+              ],
+              "courage": [
+                [],
+                [],
+                []
+              ],
+              "kindness": [
+                [],
+                [],
+                []
+              ],
+              "perseverance": [
+                [],
+                [],
+                []
+              ]
+            },
+            "events": {},
+            "introducedAge": 0,
+            "preferences": {
+              "place": {
+                "scores": {
+                  "city": 2
+                },
+                "counts": {},
+                "seen": [],
+                "current": null,
+                "challenger": null,
+                "confirmations": 0,
+                "history": []
+              },
+              "game": {
+                "scores": {
+                  "drive3d": 2
+                },
+                "counts": {},
+                "seen": [],
+                "current": null,
+                "challenger": null,
+                "confirmations": 0,
+                "history": []
+              }
+            },
+            "lastCompanion": null,
+            "lastExchangeAge": -1
+          },
+          "minigameScoreSum": 0,
+          "minigameCount": 0,
+          "deathMeter": 0,
+          "transformMeter": 0,
+          "transformOptions": null,
+          "items": {},
+          "oneTimeBoosts": {},
+          "partner": null,
+          "calledMatch": null,
+          "gender": "female",
+          "orientationId": "bi",
+          "attractedTo": [
+            "male",
+            "nonbinary"
+          ],
+          "clownfishFemaleReached": false,
+          "pendingClownfishTransition": null,
+          "questioningEncounters": 0,
+          "guest": null,
+          "companions": [],
+          "regionId": "home",
+          "discoveredStages": [
+            "dog:0",
+            "dog:5"
+          ],
+          "lifetime": {
+            "evolutions": 0,
+            "devolutions": 0,
+            "transforms": 0,
+            "clears": 0,
+            "deaths": 0,
+            "minigamesPlayed": 0,
+            "sicknessCured": 0,
+            "maxAgeReached": 25,
+            "resets": 0,
+            "lifeClears": 0,
+            "bestSodachi": 0,
+            "bestLives": 0,
+            "flawlessLives": 0,
+            "dexCleared": false,
+            "perfectCleared": false,
+            "pastLives": [],
+            "dreamEggs": {},
+            "nextEggLine": null,
+            "nextEggKind": null,
+            "endingTiersReached": [],
+            "deviceThemeId": "default",
+            "screenThemeId": "default",
+            "seasonMode": "auto",
+            "timeMode": "day",
+            "weatherMode": "sunny",
+            "weatherSeen": [],
+            "timeSeen": [],
+            "envPlays": {},
+            "envMoments": 0,
+            "minigameDifficulty": "normal",
+            "minigameLength": "normal",
+            "soundSfx": true,
+            "soundBgm": true,
+            "quickVoice": "tts",
+            "currentLocationSelected": false,
+            "currentLocation": null,
+            "fontStyle": "rounded",
+            "textSize": "normal",
+            "buttonTransparency": 72,
+            "infoReadability": 50,
+            "devicePatternId": "none",
+            "screenPatternId": "none",
+            "companionsRecruited": [],
+            "rareCompanionsRecruited": [],
+            "companionFriendshipProgress": {},
+            "partnersRecorded": [],
+            "partnerEncounters": [],
+            "partnersMarried": [],
+            "money": 0,
+            "ownedShopItems": [],
+            "equippedItemId": null,
+            "itemMigrations": {
+              "consumablesV2": true,
+              "dreamEggsV2": true,
+              "normalEquipmentV2": true
+            },
+            "raisedSpecies": [
+              "dog"
+            ],
+            "ownedNaotoItems": [],
+            "consumablesUsed": 1,
+            "ownedConsumableItems": [
+              "c_egg_normal"
+            ],
+            "bonusUnlockedThemeIds": [],
+            "regionsVisited": [
+              "home"
+            ],
+            "specialRegionsVisited": [],
+            "datesEnjoyed": 0,
+            "legendsMet": [],
+            "minigamePlayCounts": {},
+            "minigameRecords": {},
+            "quick": {
+              "runs": 0,
+              "bestCleared": 0,
+              "bestCombo": 0,
+              "totalCleared": 0,
+              "plays": {},
+              "clears": {},
+              "single": {}
+            },
+            "meguru": {
+              "visits": 0,
+              "talkCount": 0,
+              "met": {},
+              "talks": {},
+              "spots": {}
+            },
+            "dailyChallenge": null,
+            "dailyStreak": 0,
+            "dailyLastDate": null,
+            "stickers": {
+              "owned": {
+                "form:dog:0": 1,
+                "form:dog:5": 1
+              },
+              "pages": {
+                "page-1": []
+              },
+              "pageOrder": [
+                "page-1"
+              ],
+              "pageMeta": {
+                "page-1": {
+                  "background": "home"
+                }
+              },
+              "tasksDone": [],
+              "packsOpened": 0,
+              "seen": []
+            },
+            "duelTraits": {
+              "cautious": 0,
+              "active": 0,
+              "jealous": 0,
+              "romantic": 0,
+              "secretive": 0,
+              "spoiled": 0,
+              "myPace": 0,
+              "realist": 0
+            },
+            "duelMatchesPlayed": 0,
+            "duelWins": 0,
+            "duelLosses": 0,
+            "duelDraws": 0,
+            "duelLiesUsed": 0,
+            "duelLiesSucceeded": 0,
+            "duelLiesFacedAsGuesser": 0,
+            "duelLiesDetected": 0,
+            "duelHonestAnswersGiven": 0,
+            "duelHonestMisread": 0,
+            "duelLongestLieStreak": 0,
+            "duelRecentQuestionIds": [],
+            "duelStakes": {},
+            "duelSerial": 0,
+            "itemInventory": {},
+            "funItemsRetiredVersion": 1,
+            "itemSystemVersion": 1,
+            "itemPurchases": {},
+            "itemProgress": {
+              "ticks": 0,
+              "readyAt": {},
+              "relationshipSerial": 0,
+              "sceneSerial": 0,
+              "guestSerial": 0
+            },
+            "itemMemories": {
+              "letters": [],
+              "specials": []
+            },
+            "saveRevision": 11,
+            "achievementUnlockedAt": {
+              "consumable-1": 1794928124679,
+              "age-10": 1794928127839,
+              "age-25": 1794928127839
+            }
+          },
+          "achievementsUnlocked": [
+            "consumable-1",
+            "age-10",
+            "age-25"
+          ],
+          "duel": null,
+          "itemLife": {
+            "pendingItems": {}
+          }
+        }
+      }
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,525 @@
+{
+  "artifact": 14207473766,
+  "row": {
+    "width": 320,
+    "region": "forest",
+    "count": 1,
+    "initial": {
+      "region": "forest",
+      "actors": [
+        {
+          "key": "pet:dog",
+          "x": 151,
+          "y": 294.39996288656636,
+          "w": 101.460675,
+          "h": 91.51355,
+          "activity": "rest",
+          "ground": {
+            "x": 0,
+            "z": 550.0000906925495,
+            "y": 0
+          },
+          "safe": true
+        }
+      ],
+      "visualPoints": [
+        {
+          "id": "canopy",
+          "activity": "observe",
+          "x": 82.80616948239827,
+          "z": 900,
+          "target": {
+            "x": -10.223911191104783,
+            "y": 191.9236480700232
+          },
+          "label": "\u6728\u3092\u898b\u4e0a\u3052\u308b",
+          "y": 232.1784506624324
+        },
+        {
+          "id": "shade",
+          "activity": "rest",
+          "x": 272.9338255522331,
+          "z": 720,
+          "target": {
+            "x": 342.90441316173076,
+            "y": 154.75177622771048
+          },
+          "label": "\u6728\u9670\u3067\u4f11\u3080",
+          "y": 260.8439424558023
+        }
+      ],
+      "metrics": {},
+      "slots": {
+        "homeInformation": {
+          "x": 9,
+          "y": 53,
+          "width": 302,
+          "height": 65,
+          "top": 53,
+          "right": 311,
+          "bottom": 118,
+          "left": 9
+        },
+        "homeEventSlot": {
+          "x": 9,
+          "y": 123,
+          "width": 302,
+          "height": 42,
+          "top": 123,
+          "right": 311,
+          "bottom": 165,
+          "left": 9
+        },
+        "castStage": {
+          "x": 9,
+          "y": 170,
+          "width": 302,
+          "height": 380,
+          "top": 170,
+          "right": 311,
+          "bottom": 550,
+          "left": 9
+        },
+        "speechSlot": {
+          "x": 9,
+          "y": 550,
+          "width": 302,
+          "height": 76,
+          "top": 550,
+          "right": 311,
+          "bottom": 626,
+          "left": 9
+        },
+        "careMeters": {
+          "x": 14,
+          "y": 634,
+          "width": 292,
+          "height": 38,
+          "top": 634,
+          "right": 306,
+          "bottom": 672,
+          "left": 14
+        },
+        "lifeMeterRow": {
+          "x": 14,
+          "y": 676,
+          "width": 292,
+          "height": 38,
+          "top": 676,
+          "right": 306,
+          "bottom": 714,
+          "left": 14
+        },
+        "careActions": {
+          "x": 9,
+          "y": 726,
+          "width": 302,
+          "height": 105,
+          "top": 726,
+          "right": 311,
+          "bottom": 831,
+          "left": 9
+        }
+      }
+    },
+    "after": {
+      "region": "forest",
+      "actors": [
+        {
+          "key": "pet:dog",
+          "x": 151,
+          "y": 294.39996288656636,
+          "w": 101.460675,
+          "h": 91.51355,
+          "activity": "walk",
+          "ground": {
+            "x": 0,
+            "z": 550.0000906925495,
+            "y": 0
+          },
+          "safe": true
+        }
+      ],
+      "visualPoints": [
+        {
+          "id": "canopy",
+          "activity": "observe",
+          "x": 82.80616948239827,
+          "z": 900,
+          "target": {
+            "x": -10.223911191104783,
+            "y": 191.9236480700232
+          },
+          "label": "\u6728\u3092\u898b\u4e0a\u3052\u308b",
+          "y": 232.1784506624324
+        },
+        {
+          "id": "shade",
+          "activity": "rest",
+          "x": 272.9338255522331,
+          "z": 720,
+          "target": {
+            "x": 342.90441316173076,
+            "y": 154.75177622771048
+          },
+          "label": "\u6728\u9670\u3067\u4f11\u3080",
+          "y": 260.8439424558023
+        }
+      ],
+      "metrics": {
+        "frames": 15,
+        "seconds": 4,
+        "fps": 1.2852369120041127,
+        "heapBytes": null,
+        "cast": {
+          "distance": 0,
+          "moves": 0,
+          "turns": 0,
+          "activities": {},
+          "clock": 3.8850000000000016
+        },
+        "world": {
+          "animationTime": 3971,
+          "projectionRevision": 2,
+          "mode": "webgl",
+          "region": "forest",
+          "life": {
+            "clock": 3.9710000000000014,
+            "spawned": 2,
+            "distance": 400.5406795009095,
+            "active": 2,
+            "capacity": 8
+          },
+          "recoveryAttempts": 0,
+          "renderer": {
+            "mode": "webgl",
+            "calls": 18,
+            "triangles": 11066,
+            "textures": 4,
+            "geometries": 21,
+            "objects": 47,
+            "actors": 1,
+            "drawMsAvg": 126.2,
+            "drawMsP95": 1463,
+            "pixelRatio": 1,
+            "char3d": null,
+            "ghosts": {
+              "hiddenObjects": 0,
+              "owners": [],
+              "visible": 0,
+              "attached": 0,
+              "total": 0
+            },
+            "water": {
+              "kind": null,
+              "meshes": [],
+              "ponds": 0
+            },
+            "player": {
+              "mode": "dom",
+              "pixelVisibility": "DOM_QA_REQUIRED",
+              "applicable": false
+            },
+            "diag": {
+              "on": false,
+              "ray": {
+                "seen": 3,
+                "of": 3,
+                "blk": ""
+              },
+              "occlFrames": 0,
+              "rayChecks": 0,
+              "uploads": 0,
+              "longFrames": 12,
+              "dprSteps": []
+            }
+          }
+        }
+      },
+      "slots": {
+        "homeInformation": {
+          "x": 9,
+          "y": 53,
+          "width": 302,
+          "height": 65,
+          "top": 53,
+          "right": 311,
+          "bottom": 118,
+          "left": 9
+        },
+        "homeEventSlot": {
+          "x": 9,
+          "y": 123,
+          "width": 302,
+          "height": 42,
+          "top": 123,
+          "right": 311,
+          "bottom": 165,
+          "left": 9
+        },
+        "castStage": {
+          "x": 9,
+          "y": 170,
+          "width": 302,
+          "height": 380,
+          "top": 170,
+          "right": 311,
+          "bottom": 550,
+          "left": 9
+        },
+        "speechSlot": {
+          "x": 9,
+          "y": 550,
+          "width": 302,
+          "height": 76,
+          "top": 550,
+          "right": 311,
+          "bottom": 626,
+          "left": 9
+        },
+        "careMeters": {
+          "x": 14,
+          "y": 634,
+          "width": 292,
+          "height": 38,
+          "top": 634,
+          "right": 306,
+          "bottom": 672,
+          "left": 14
+        },
+        "lifeMeterRow": {
+          "x": 14,
+          "y": 676,
+          "width": 292,
+          "height": 38,
+          "top": 676,
+          "right": 306,
+          "bottom": 714,
+          "left": 14
+        },
+        "careActions": {
+          "x": 9,
+          "y": 726,
+          "width": 302,
+          "height": 105,
+          "top": 726,
+          "right": 311,
+          "bottom": 831,
+          "left": 9
+        }
+      }
+    },
+    "live": {
+      "region": "forest",
+      "actors": [
+        {
+          "key": "pet:dog",
+          "x": 215.07023743919802,
+          "y": 344.1930689403648,
+          "w": 101.460675,
+          "h": 91.51355,
+          "activity": "walk",
+          "ground": {
+            "x": 132.97870034926908,
+            "z": 329.76097775369,
+            "y": 0
+          },
+          "safe": true
+        }
+      ],
+      "visualPoints": [
+        {
+          "id": "canopy",
+          "activity": "observe",
+          "x": 82.80616948239827,
+          "z": 900,
+          "target": {
+            "x": -10.223911191104783,
+            "y": 191.9236480700232
+          },
+          "label": "\u6728\u3092\u898b\u4e0a\u3052\u308b",
+          "y": 232.1784506624324
+        },
+        {
+          "id": "shade",
+          "activity": "rest",
+          "x": 272.9338255522331,
+          "z": 720,
+          "target": {
+            "x": 342.90441316173076,
+            "y": 154.75177622771048
+          },
+          "label": "\u6728\u9670\u3067\u4f11\u3080",
+          "y": 260.8439424558023
+        }
+      ],
+      "metrics": {
+        "frames": 15,
+        "seconds": 4,
+        "fps": 1.2852369120041127,
+        "heapBytes": null,
+        "cast": {
+          "distance": 0,
+          "moves": 0,
+          "turns": 0,
+          "activities": {},
+          "clock": 3.8850000000000016
+        },
+        "world": {
+          "animationTime": 3971,
+          "projectionRevision": 2,
+          "mode": "webgl",
+          "region": "forest",
+          "life": {
+            "clock": 3.9710000000000014,
+            "spawned": 2,
+            "distance": 400.5406795009095,
+            "active": 2,
+            "capacity": 8
+          },
+          "recoveryAttempts": 0,
+          "renderer": {
+            "mode": "webgl",
+            "calls": 18,
+            "triangles": 11066,
+            "textures": 4,
+            "geometries": 21,
+            "objects": 47,
+            "actors": 1,
+            "drawMsAvg": 126.2,
+            "drawMsP95": 1463,
+            "pixelRatio": 1,
+            "char3d": null,
+            "ghosts": {
+              "hiddenObjects": 0,
+              "owners": [],
+              "visible": 0,
+              "attached": 0,
+              "total": 0
+            },
+            "water": {
+              "kind": null,
+              "meshes": [],
+              "ponds": 0
+            },
+            "player": {
+              "mode": "dom",
+              "pixelVisibility": "DOM_QA_REQUIRED",
+              "applicable": false
+            },
+            "diag": {
+              "on": false,
+              "ray": {
+                "seen": 3,
+                "of": 3,
+                "blk": ""
+              },
+              "occlFrames": 0,
+              "rayChecks": 0,
+              "uploads": 0,
+              "longFrames": 12,
+              "dprSteps": []
+            }
+          }
+        }
+      },
+      "slots": {
+        "homeInformation": {
+          "x": 9,
+          "y": 53,
+          "width": 302,
+          "height": 65,
+          "top": 53,
+          "right": 311,
+          "bottom": 118,
+          "left": 9
+        },
+        "homeEventSlot": {
+          "x": 9,
+          "y": 123,
+          "width": 302,
+          "height": 42,
+          "top": 123,
+          "right": 311,
+          "bottom": 165,
+          "left": 9
+        },
+        "castStage": {
+          "x": 9,
+          "y": 170,
+          "width": 302,
+          "height": 380,
+          "top": 170,
+          "right": 311,
+          "bottom": 550,
+          "left": 9
+        },
+        "speechSlot": {
+          "x": 9,
+          "y": 550,
+          "width": 302,
+          "height": 76,
+          "top": 550,
+          "right": 311,
+          "bottom": 626,
+          "left": 9
+        },
+        "careMeters": {
+          "x": 14,
+          "y": 634,
+          "width": 292,
+          "height": 38,
+          "top": 634,
+          "right": 306,
+          "bottom": 672,
+          "left": 14
+        },
+        "lifeMeterRow": {
+          "x": 14,
+          "y": 676,
+          "width": 292,
+          "height": 38,
+          "top": 676,
+          "right": 306,
+          "bottom": 714,
+          "left": 14
+        },
+        "careActions": {
+          "x": 9,
+          "y": 726,
+          "width": 302,
+          "height": 105,
+          "top": 726,
+          "right": 311,
+          "bottom": 831,
+          "left": 9
+        }
+      }
+    },
+    "moved": true,
+    "glyphs": [
+      {
+        "text": "\u3073\u3087\u3046\u304d\u3058\u3083\u306a\u3044\u3063\u3066\uff01",
+        "last": {
+          "char": "\uff01",
+          "x": 253.484375,
+          "y": 576.984375,
+          "right": 269.484375,
+          "bottom": 598.984375
+        },
+        "errors": []
+      },
+      {
+        "text": "\u3044\u307e\u306e\u307c\u304f\u3001\u3061\u3087\u3063\u3068\u3067\u304d\u308b\u5b50",
+        "last": {
+          "char": "\u5b50",
+          "x": 277.484375,
+          "y": 576.984375,
+          "right": 293.484375,
+          "bottom": 598.984375
+        },
+        "errors": []
+      }
+    ]
+  }
+}

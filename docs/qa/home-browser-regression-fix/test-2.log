@@ -1,0 +1,47 @@
+✔ explicit newborn placement takes priority over the right-side default seat (1.718343ms)
+✔ newborn placement cannot bypass legal bounds or move existing actors (0.663111ms)
+✔ ordinary saved/established entries keep original seating and companion placement (1.122803ms)
+✔ a stale newborn request does not recenter a retained pet during crowd reflow (17.332044ms)
+✔ egg visible body is centred independently of transparent PNG padding (3.817617ms)
+✔ hatching creates four traits, profile and new guest data (332.29639ms)
+✔ real minigame result grows C and B on first B; quick and repeats do not grow (95.467789ms)
+✔ real travel deduplicates natural experience (40.117845ms)
+✔ legacy personality removed from fresh save and registered achievements (55.467932ms)
+✔ twelve real age transitions queue one choice each, preserve midlife effects and 90 guard (89.288319ms)
+✔ pending choice reload and other-tab takeover reject stale choice (114.339256ms)
+✔ exchange handler supplies 10 experiences with four companions and 15 with five without romance (149.683818ms)
+✔ real completed B games supply natural-only perseverance, without A/S or permanent-best dependency (42.311675ms)
+✔ real travel, scenery and encounters reach natural-only wonder/courage without meguru (73.983461ms)
+✔ transform and infinity preserve individuality, ended life rejects all growth (24.063802ms)
+✔ old adult save keeps permanent progress and only future events (45.818299ms)
+✔ closing menus dismisses the choice dialog and permits later resumption (36.193471ms)
+✔ automatic dialog synchronizes modal inert before the next user action (28.955444ms)
+✔ all fifty quick solo wrappers and the mixed run complete without changing individuality (96.436951ms)
+✔ registered achievement total is 92 and removed IDs cannot fill new heart slots (22.918431ms)
+✔ each heart reaches exactly 60 through ten adapter experiences and five legal age choices (229.885828ms)
+✔ next life keeps permanent achievements and full prior choices but starts hearts and choices anew (25.52487ms)
+✔ each life choice has ten or more unique narrations exclusive to its action (0.958504ms)
+✔ replaying a life choice cannot repeat the last notice even with identical randomness (23.227991ms)
+✔ individuality exposes the life-scoped core (1.655752ms)
+✔ twelve fixed three-choice milestones supply 10/8/10/8 opportunities (3.810309ms)
+✔ experience derives capped points, duplicate and stale life rejection (1.030822ms)
+✔ choices persist beyond their cap and pending choices survive normalization (1.361445ms)
+✔ all hearts allow 10 natural plus 5 legal choices or 15 natural only (0.820616ms)
+✔ normalization retains valid temperament, ignores corrupt experience and does not backfill old milestones (0.44231ms)
+✔ preferences require three experiences and do not count duplicates (0.41056ms)
+✔ three draw distributions agree with their specified exact quantiles (43.323053ms)
+✔ preference switching requires two distinct confirmations; long play stays finite (5.31148ms)
+✔ menu retains existing destinations in the requested order and includes the prepared entry (2.356323ms)
+✔ prepared dialog keeps Escape from closing the underlying menu (1.19937ms)
+✔ browser Back dismisses the prepared dialog before the menu and keeps menu history (223.775099ms)
+✔ game entry opens the white cover without clearing any saved bookmark (3.800415ms)
+✔ reload and browser back preserve reader restoration state (5.656632ms)
+✔ direct reader entry stays unchanged and cannot accept arbitrary return destinations (2.986913ms)
+ℹ tests 39
+ℹ suites 0
+ℹ pass 39
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1717.620386

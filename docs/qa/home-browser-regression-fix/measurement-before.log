@@ -1,0 +1,33 @@
+✔ unchanged authored frame survives one native layout unit after camera scaling (1.147294ms)
+✔ untransformed UI still uses the original 1/64 CSS pixel criterion (1.298442ms)
+✔ a real authored frame change is rejected even when its native rounding is valid (0.67596ms)
+✔ unexplained rendered drift and invalid camera measurements are rejected (1.412371ms)
+✖ identical native layout cannot conceal a 0.017px painted shrink (0.489252ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 93.22089
+
+✖ failing tests:
+
+test at tests/home-frame-measurement-test.cjs:22:1
+✖ identical native layout cannot conceal a 0.017px painted shrink (0.489252ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (/workspace/work/naotocchi-v5-production/tests/home-frame-measurement-test.cjs:23:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'throws',
+    diff: 'simple'
+  }

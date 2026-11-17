@@ -1,0 +1,27 @@
+✔ V7 native wrapping preserves authored text without Japanese phrase spans (480.984021ms)
+✔ V7 character narration uses the lower lane without changing system milestone routing (173.934463ms)
+✔ V7 pet header has a separate small name, not a constrained pseudo label (100.316371ms)
+✔ V7 first encounter uses the candidate formal portrait before becoming a partner (44.781879ms)
+✔ V7 actual court friend reply is lower with the candidate portrait, without becoming partners (114.440077ms)
+✔ V7 existing notice queue preserves lower, system, lower event order and full durations (50.774179ms)
+✔ V7 feed preserves care afterglow, reduced motion false (69.231512ms)
+✔ V7 medicine preserves care afterglow, reduced motion false (58.100929ms)
+✔ V7 feed preserves care afterglow, reduced motion true (56.237883ms)
+✔ V7 medicine preserves care afterglow, reduced motion true (67.082631ms)
+✔ V7 companion farewell keeps the companion name and official portrait below (42.106469ms)
+✔ V7 guest candidate reply retains official personal portrait and name (37.075894ms)
+✔ V7 critical notice defers the companion identity and restores the original message lifetime (136.864056ms)
+✔ production event does not inherit persistent hungry care icon; care action remains recommended (547.534071ms)
+✔ Japanese notice groups preserve all characters and the reported word boundaries (58.818951ms)
+✔ shared notice renderer remains compatible with retained legacy comparison controllers (119.977085ms)
+✔ ordinary candidates mark only the undiscovered displayed form, without changing history (266.541908ms)
+✔ discovery through transformation removes NEW and persists after reload (107.712282ms)
+✔ transform ticket candidates use the same dex discovery keys (63.66095ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1735.617353
