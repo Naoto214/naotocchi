@@ -99,7 +99,8 @@ test('growth waits for the camera to consume its new envelope before correcting 
   assert.equal(controller.model.snapshot()[0].h,130,'a skipped zoom fit must not freeze later syncs');
   env.visualViewport.scale=1;stage.listeners['home-presentation']();
   a.h=120;a.extent.top=120;owner.style.height='120px';controller.sync();
-  controller.update({region:'unsupported'});controller.update({region:'city'});await Promise.resolve();await Promise.resolve();stage.listeners['home-presentation']();
-  assert.equal(controller.model.snapshot().length,1,'exit/reentry clears a pending presentation');
+  controller.update({region:'unsupported'});controller.update({region:'city'});
+  assert.equal(controller.model.snapshot().length,1,'exit/reentry clears a pending presentation before the next camera event');
+  await Promise.resolve();await Promise.resolve();stage.listeners['home-presentation']();
  }finally{controller.destroy();}
 });
