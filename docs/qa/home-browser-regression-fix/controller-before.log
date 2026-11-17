@@ -1,0 +1,33 @@
+✔ added walking ground does not refit the existing camera or body envelope (1 residents) (84.941923ms)
+✔ added walking ground does not refit the existing camera or body envelope (28 residents) (826.487279ms)
+✔ presentation changes refresh painted-ground navigation even when the presentation key is unchanged (26.800445ms)
+✖ growth waits for the camera to consume its new envelope before correcting a safe foot (49.995819ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1224.125893
+
+✖ failing tests:
+
+test at tests/home-movement-v5-bounds-test.cjs:71:1
+✖ growth waits for the camera to consume its new envelope before correcting a safe foot (49.995819ms)
+  AssertionError [ERR_ASSERTION]: do not commit a correction using new ink and the old camera
+  + actual - expected
+  
+  + 348.40000000596046
+  - 250
+  
+      at TestContext.<anonymous> (/workspace/work/naotocchi-v5-production/tests/home-movement-v5-bounds-test.cjs:87:10)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 348.40000000596046,
+    expected: 250,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

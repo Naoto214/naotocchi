@@ -1,0 +1,13 @@
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+PASS resident dialogue webkit 5
+AssertionError [ERR_ASSERTION]: webkit/430x932/28 text does not move frame: layout moved bottom: 659.9968872070312 -> 659.97998046875
+    at assertStableRect (/workspace/work/naotocchi-v5-production/tests/helpers/home-production-current-browser.cjs:10:10)
+    at currentProduction (/workspace/work/naotocchi-v5-production/tests/helpers/home-production-current-browser.cjs:56:62)
+    at async /workspace/work/naotocchi-v5-production/tests/home-production-comments-v7-browser.cjs:27:2 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

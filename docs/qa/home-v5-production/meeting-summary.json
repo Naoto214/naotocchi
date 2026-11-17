@@ -1,0 +1,35 @@
+{
+  "main": {
+    "event_counts": {
+      "move": 10,
+      "look": 1,
+      "arrive": 5,
+      "environment": 2,
+      "proximity": 2,
+      "social": 1
+    },
+    "snapshot_count": 3,
+    "social_events": [
+      {
+        "at": 1793966481662,
+        "type": "social",
+        "source": "ambient",
+        "actor": "companion:shiba",
+        "listener": "pet:dog"
+      }
+    ]
+  },
+  "v5": {
+    "event_counts": {
+      "move": 20,
+      "arrive": 20,
+      "environment": 3,
+      "look": 3,
+      "proximity": 1
+    },
+    "snapshot_count": 23,
+    "social_events": []
+  },
+  "approach_horizontal_offset_native_px": 105.58943750000002,
+  "social_distance_threshold_native_px": 100
+}

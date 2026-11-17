@@ -1,0 +1,48 @@
+✖ observed dog and shiba can meet inside the unchanged conversation radius without contact (42.956951ms)
+✖ wide residents needing a non-lateral meeting can meet inside the unchanged conversation radius without contact (16.056377ms)
+✔ partner approach can meet inside the unchanged conversation radius without contact (10.484751ms)
+✔ no safe meeting position never relaxes collisions or fabricates social (19.240246ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 2
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 205.820319
+
+✖ failing tests:
+
+test at tests/home-social-approach-test.cjs:21:3
+✖ observed dog and shiba can meet inside the unchanged conversation radius without contact (42.956951ms)
+  AssertionError [ERR_ASSERTION]: a completed real approach starts social
+      at TestContext.<anonymous> (/workspace/work/naotocchi-v5-production/tests/home-social-approach-test.cjs:23:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/home-social-approach-test.cjs:21:3
+✖ wide residents needing a non-lateral meeting can meet inside the unchanged conversation radius without contact (16.056377ms)
+  AssertionError [ERR_ASSERTION]: a completed real approach starts social
+      at TestContext.<anonymous> (/workspace/work/naotocchi-v5-production/tests/home-social-approach-test.cjs:23:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

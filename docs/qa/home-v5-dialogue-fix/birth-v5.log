@@ -1,0 +1,10 @@
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+AssertionError [ERR_ASSERTION]: growth preserves the hatch foot z (floating-point projection)
+    at /workspace/work/naotocchi-v5-production/tests/home-production-birth-browser.cjs:110:41 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

@@ -1,0 +1,33 @@
+{
+  "codeHead": "762971e65c2cc2f73efaf3ec1fb1edcdaed07eea",
+  "completedStages": 11,
+  "stageExits": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "node": {
+    "tests": 3858,
+    "pass": 3858,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "pythonPages": {
+    "completed": true,
+    "tests": 20
+  },
+  "standaloneCommands": 3,
+  "realPointerComparisons": 448,
+  "footEndpointMaxDeltaCssPx": 0,
+  "release": "blocked by important browser failures; not merged or deployed"
+}

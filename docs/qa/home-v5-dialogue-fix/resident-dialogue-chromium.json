@@ -1,0 +1,630 @@
+{
+  "records": [
+    {
+      "label": "chromium-390x844-play_with",
+      "first": {
+        "visible": true,
+        "kind": "pet",
+        "id": "dog",
+        "event": "play_with",
+        "text": "うおおおお!",
+        "name": "あかちゃんいぬ",
+        "portrait": "assets/characters/dog/01.png",
+        "bubble": {
+          "x": 135.5,
+          "y": 597.609375,
+          "width": 119,
+          "height": 52.390625,
+          "top": 597.609375,
+          "right": 254.5,
+          "bottom": 650,
+          "left": 135.5
+        },
+        "dock": {
+          "x": 16,
+          "y": 574,
+          "width": 358,
+          "height": 76,
+          "top": 574,
+          "right": 374,
+          "bottom": 650,
+          "left": 16
+        },
+        "notice": {
+          "x": 16,
+          "y": 79.59375,
+          "width": 358,
+          "height": 42,
+          "top": 79.59375,
+          "right": 374,
+          "bottom": 121.59375,
+          "left": 16
+        },
+        "controls": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "reply": {
+        "visible": true,
+        "kind": "companion",
+        "id": "shiba",
+        "event": "play_with",
+        "text": "投げるまで待てる。たぶん!",
+        "name": "ひとなつっこいしばいぬ",
+        "portrait": "assets/characters/companions/shiba.png",
+        "bubble": {
+          "x": 87.5,
+          "y": 597.609375,
+          "width": 215,
+          "height": 52.390625,
+          "top": 597.609375,
+          "right": 302.5,
+          "bottom": 650,
+          "left": 87.5
+        },
+        "dock": {
+          "x": 16,
+          "y": 574,
+          "width": 358,
+          "height": 76,
+          "top": 574,
+          "right": 374,
+          "bottom": 650,
+          "left": 16
+        },
+        "notice": {
+          "x": 16,
+          "y": 79.59375,
+          "width": 358,
+          "height": 42,
+          "top": 79.59375,
+          "right": 374,
+          "bottom": 121.59375,
+          "left": 16
+        },
+        "controls": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "chromium-390x844-court",
+      "first": {
+        "visible": true,
+        "kind": "pet",
+        "id": "dog",
+        "event": "court",
+        "text": "すきなんだけど!!!!",
+        "name": "あかちゃんいぬ",
+        "portrait": "assets/characters/dog/01.png",
+        "bubble": {
+          "x": 123,
+          "y": 597.609375,
+          "width": 144,
+          "height": 52.390625,
+          "top": 597.609375,
+          "right": 267,
+          "bottom": 650,
+          "left": 123
+        },
+        "dock": {
+          "x": 16,
+          "y": 574,
+          "width": 358,
+          "height": 76,
+          "top": 574,
+          "right": 374,
+          "bottom": 650,
+          "left": 16
+        },
+        "notice": {
+          "x": 16,
+          "y": 99.59375,
+          "width": 358,
+          "height": 42,
+          "top": 99.59375,
+          "right": 374,
+          "bottom": 141.59375,
+          "left": 16
+        },
+        "controls": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "reply": {
+        "visible": true,
+        "kind": "partner",
+        "id": "robot_neighbor",
+        "event": "court",
+        "text": "たのしい、をいま学習中",
+        "name": "となりまちのロボット",
+        "portrait": "assets/characters/partners/robot_neighbor.png",
+        "bubble": {
+          "x": 98,
+          "y": 597.609375,
+          "width": 194,
+          "height": 52.390625,
+          "top": 597.609375,
+          "right": 292,
+          "bottom": 650,
+          "left": 98
+        },
+        "dock": {
+          "x": 16,
+          "y": 574,
+          "width": 358,
+          "height": 76,
+          "top": 574,
+          "right": 374,
+          "bottom": 650,
+          "left": 16
+        },
+        "notice": {
+          "x": 16,
+          "y": 99.59375,
+          "width": 358,
+          "height": 42,
+          "top": 99.59375,
+          "right": 374,
+          "bottom": 141.59375,
+          "left": 16
+        },
+        "controls": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "chromium-844x390-play_with",
+      "first": {
+        "visible": true,
+        "kind": "pet",
+        "id": "dog",
+        "event": "play_with",
+        "text": "うおおおお!",
+        "name": "あかちゃんいぬ",
+        "portrait": "assets/characters/dog/01.png",
+        "bubble": {
+          "x": 156,
+          "y": 359,
+          "width": 98,
+          "height": 31,
+          "top": 359,
+          "right": 254,
+          "bottom": 390,
+          "left": 156
+        },
+        "dock": {
+          "x": 75,
+          "y": 314,
+          "width": 260,
+          "height": 76,
+          "top": 314,
+          "right": 335,
+          "bottom": 390,
+          "left": 75
+        },
+        "notice": {
+          "x": 75,
+          "y": 0,
+          "width": 260,
+          "height": 42,
+          "top": 0,
+          "right": 335,
+          "bottom": 42,
+          "left": 75
+        },
+        "controls": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "reply": {
+        "visible": true,
+        "kind": "companion",
+        "id": "shiba",
+        "event": "play_with",
+        "text": "投げるまで待てる。たぶん!",
+        "name": "ひとなつっこいしばいぬ",
+        "portrait": "assets/characters/companions/shiba.png",
+        "bubble": {
+          "x": 125,
+          "y": 359,
+          "width": 160,
+          "height": 31,
+          "top": 359,
+          "right": 285,
+          "bottom": 390,
+          "left": 125
+        },
+        "dock": {
+          "x": 75,
+          "y": 314,
+          "width": 260,
+          "height": 76,
+          "top": 314,
+          "right": 335,
+          "bottom": 390,
+          "left": 75
+        },
+        "notice": {
+          "x": 75,
+          "y": 0,
+          "width": 260,
+          "height": 42,
+          "top": 0,
+          "right": 335,
+          "bottom": 42,
+          "left": 75
+        },
+        "controls": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "chromium-844x390-court",
+      "first": {
+        "visible": true,
+        "kind": "pet",
+        "id": "dog",
+        "event": "court",
+        "text": "すきなんだけど!!!!",
+        "name": "あかちゃんいぬ",
+        "portrait": "assets/characters/dog/01.png",
+        "bubble": {
+          "x": 150.5,
+          "y": 359,
+          "width": 109,
+          "height": 31,
+          "top": 359,
+          "right": 259.5,
+          "bottom": 390,
+          "left": 150.5
+        },
+        "dock": {
+          "x": 75,
+          "y": 314,
+          "width": 260,
+          "height": 76,
+          "top": 314,
+          "right": 335,
+          "bottom": 390,
+          "left": 75
+        },
+        "notice": {
+          "x": 75,
+          "y": 0,
+          "width": 260,
+          "height": 42,
+          "top": 0,
+          "right": 335,
+          "bottom": 42,
+          "left": 75
+        },
+        "controls": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "reply": {
+        "visible": true,
+        "kind": "partner",
+        "id": "robot_neighbor",
+        "event": "court",
+        "text": "たのしい、をいま学習中",
+        "name": "となりまちのロボット",
+        "portrait": "assets/characters/partners/robot_neighbor.png",
+        "bubble": {
+          "x": 133,
+          "y": 359,
+          "width": 144,
+          "height": 31,
+          "top": 359,
+          "right": 277,
+          "bottom": 390,
+          "left": 133
+        },
+        "dock": {
+          "x": 75,
+          "y": 314,
+          "width": 260,
+          "height": 76,
+          "top": 314,
+          "right": 335,
+          "bottom": 390,
+          "left": 75
+        },
+        "notice": {
+          "x": 75,
+          "y": 0,
+          "width": 260,
+          "height": 42,
+          "top": 0,
+          "right": 335,
+          "bottom": 42,
+          "left": 75
+        },
+        "controls": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "label": "chromium-390x844-autonomous",
+      "pair": {
+        "at": 1793966490109,
+        "keys": [
+          "pet:dog",
+          "companion:shiba"
+        ]
+      },
+      "exchange": "b-shiba-close",
+      "beats": [
+        {
+          "visible": true,
+          "kind": "pet",
+          "id": "dog",
+          "event": "idle",
+          "text": "ちょっと、近いよ",
+          "name": "あかちゃんいぬ",
+          "portrait": "assets/characters/dog/01.png",
+          "bubble": {
+            "x": 122,
+            "y": 597.609375,
+            "width": 146,
+            "height": 52.390625,
+            "top": 597.609375,
+            "right": 268,
+            "bottom": 650,
+            "left": 122
+          },
+          "dock": {
+            "x": 16,
+            "y": 574,
+            "width": 358,
+            "height": 76,
+            "top": 574,
+            "right": 374,
+            "bottom": 650,
+            "left": 16
+          },
+          "notice": {
+            "x": 16,
+            "y": 79.59375,
+            "width": 358,
+            "height": 42,
+            "top": 79.59375,
+            "right": 374,
+            "bottom": 121.59375,
+            "left": 16
+          },
+          "controls": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "visible": true,
+          "kind": "companion",
+          "id": "shiba",
+          "event": "idle",
+          "text": "となりを歩く係だから",
+          "name": "ひとなつっこいしばいぬ",
+          "portrait": "assets/characters/companions/shiba.png",
+          "bubble": {
+            "x": 136,
+            "y": 359,
+            "width": 138,
+            "height": 31,
+            "top": 359,
+            "right": 274,
+            "bottom": 390,
+            "left": 136
+          },
+          "dock": {
+            "x": 75,
+            "y": 314,
+            "width": 260,
+            "height": 76,
+            "top": 314,
+            "right": 335,
+            "bottom": 390,
+            "left": 75
+          },
+          "notice": {
+            "x": 75,
+            "y": 0,
+            "width": 260,
+            "height": 42,
+            "top": 0,
+            "right": 335,
+            "bottom": 42,
+            "left": 75
+          },
+          "controls": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "visible": true,
+          "kind": "pet",
+          "id": "dog",
+          "event": "idle",
+          "text": "いま、すわってるよ",
+          "name": "あかちゃんいぬ",
+          "portrait": "assets/characters/dog/01.png",
+          "bubble": {
+            "x": 145,
+            "y": 359,
+            "width": 120,
+            "height": 31,
+            "top": 359,
+            "right": 265,
+            "bottom": 390,
+            "left": 145
+          },
+          "dock": {
+            "x": 75,
+            "y": 314,
+            "width": 260,
+            "height": 76,
+            "top": 314,
+            "right": 335,
+            "bottom": 390,
+            "left": 75
+          },
+          "notice": {
+            "x": 75,
+            "y": 0,
+            "width": 260,
+            "height": 42,
+            "top": 0,
+            "right": 335,
+            "bottom": 42,
+            "left": 75
+          },
+          "controls": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "visible": true,
+          "kind": "companion",
+          "id": "shiba",
+          "event": "idle",
+          "text": "となりにすわる係もやってる",
+          "name": "ひとなつっこいしばいぬ",
+          "portrait": "assets/characters/companions/shiba.png",
+          "bubble": {
+            "x": 121,
+            "y": 359,
+            "width": 168,
+            "height": 31,
+            "top": 359,
+            "right": 289,
+            "bottom": 390,
+            "left": 121
+          },
+          "dock": {
+            "x": 75,
+            "y": 314,
+            "width": 260,
+            "height": 76,
+            "top": 314,
+            "right": 335,
+            "bottom": 390,
+            "left": 75
+          },
+          "notice": {
+            "x": 75,
+            "y": 0,
+            "width": 260,
+            "height": 42,
+            "top": 0,
+            "right": 335,
+            "bottom": 42,
+            "left": 75
+          },
+          "controls": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

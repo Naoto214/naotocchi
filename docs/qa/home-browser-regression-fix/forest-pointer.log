@@ -1,0 +1,9 @@
+fatal: path 'home-ground-expansion.mjs' exists on disk, but not in '408c72e6'
+fatal: path 'home-visible-ground-navigation.mjs' exists on disk, but not in '408c72e6'
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+main 568 PASS
+main 844 PASS
+v5 568 PASS
+v5 844 PASS
+fixed 568 PASS
+fixed 844 PASS

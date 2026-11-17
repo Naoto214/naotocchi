@@ -1,0 +1,154 @@
+[
+  {
+    "cfg": {
+      "count": 4,
+      "seed": 42,
+      "pet": "hermit_crab",
+      "item": "poop1",
+      "ageTicks": 1180
+    },
+    "start": 1793966460500,
+    "simulatedSeconds": 120,
+    "stats": {
+      "moves": 35,
+      "arrivals": 25,
+      "social": [
+        {
+          "at": 1793966477672,
+          "actor": {
+            "key": "pet:hermit_crab",
+            "id": "hermit_crab",
+            "kind": "pet"
+          },
+          "listener": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "distance": 98.74374303950343,
+          "clearance": 1.093936437767724,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966483960,
+          "actor": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:cat_friend",
+            "id": "cat_friend",
+            "kind": "companion"
+          },
+          "distance": 93.30886210104865,
+          "clearance": 1.1574455680276614,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966543192,
+          "actor": {
+            "key": "companion:shiba",
+            "id": "shiba",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:cat_friend",
+            "id": "cat_friend",
+            "kind": "companion"
+          },
+          "distance": 99,
+          "clearance": 1.1124474789411027,
+          "listenerMoving": false
+        },
+        {
+          "at": 1793966576888,
+          "actor": {
+            "key": "pet:hermit_crab",
+            "id": "hermit_crab",
+            "kind": "pet"
+          },
+          "listener": {
+            "key": "companion:cat_friend",
+            "id": "cat_friend",
+            "kind": "companion"
+          },
+          "distance": 79.00085072865788,
+          "clearance": 1.0000012349139753,
+          "listenerMoving": false
+        }
+      ],
+      "newContacts": 0,
+      "teleports": 0
+    },
+    "speech": [
+      {
+        "at": 1793966478100,
+        "pair": {
+          "at": 1793966477672,
+          "actor": {
+            "key": "pet:hermit_crab",
+            "id": "hermit_crab",
+            "kind": "pet"
+          },
+          "listener": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "distance": 98.74374303950343,
+          "clearance": 1.093936437767724,
+          "listenerMoving": false
+        },
+        "text": "ただいま!",
+        "kind": "companion",
+        "id": "rabbit_friend"
+      },
+      {
+        "at": 1793966484500,
+        "pair": {
+          "at": 1793966483960,
+          "actor": {
+            "key": "companion:rabbit_friend",
+            "id": "rabbit_friend",
+            "kind": "companion"
+          },
+          "listener": {
+            "key": "companion:cat_friend",
+            "id": "cat_friend",
+            "kind": "companion"
+          },
+          "distance": 93.30886210104865,
+          "clearance": 1.1574455680276614,
+          "listenerMoving": false
+        },
+        "text": "一回、あっちまで行ってきた",
+        "kind": "companion",
+        "id": "rabbit_friend"
+      },
+      {
+        "at": 1793966577300,
+        "pair": {
+          "at": 1793966576888,
+          "actor": {
+            "key": "pet:hermit_crab",
+            "id": "hermit_crab",
+            "kind": "pet"
+          },
+          "listener": {
+            "key": "companion:cat_friend",
+            "id": "cat_friend",
+            "kind": "companion"
+          },
+          "distance": 79.00085072865788,
+          "clearance": 1.0000012349139753,
+          "listenerMoving": false
+        },
+        "text": "ねえ、ちょっと!",
+        "kind": "pet",
+        "id": "hermit_crab"
+      }
+    ],
+    "errors": []
+  }
+]

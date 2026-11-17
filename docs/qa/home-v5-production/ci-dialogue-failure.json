@@ -1,0 +1,52 @@
+[
+  {
+    "engine": "webkit",
+    "job": 133145557072,
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/43821558076/job/133145557072",
+    "excerpt": [
+      "2026-11-16T07:15:16.0071806Z AssertionError [ERR_ASSERTION]: webkit-390x844-autonomous no authored exchange after a real ambient meeting",
+      "2026-11-16T07:15:16.0073038Z     at autonomousExchange (/home/runner/work/naotocchi/naotocchi/tests/helpers/home-resident-dialogue-browser.cjs:111:12)",
+      "2026-11-16T07:15:16.0073831Z     at runNextTicks (node:internal/process/task_queues:64:5)",
+      "2026-11-16T07:15:16.0074315Z     at process.processImmediate (node:internal/timers:452:9)",
+      "2026-11-16T07:15:16.0074716Z     at process.callbackTrampoline (node:internal/async_hooks:130:17)",
+      "2026-11-16T07:15:16.0075323Z     at async module.exports (/home/runner/work/naotocchi/naotocchi/tests/helpers/home-resident-dialogue-browser.cjs:153:7)",
+      "2026-11-16T07:15:16.0076023Z     at async /home/runner/work/naotocchi/naotocchi/tests/home-production-comments-v7-browser.cjs:26:2 {",
+      "2026-11-16T07:15:16.0076480Z   generatedMessage: false,",
+      "2026-11-16T07:15:16.0076707Z   code: 'ERR_ASSERTION',",
+      "2026-11-16T07:15:16.0076919Z   actual: undefined,",
+      "2026-11-16T07:15:16.0077104Z   expected: true,",
+      "2026-11-16T07:15:16.0077294Z   operator: '==',",
+      "2026-11-16T07:15:16.0077477Z   diff: 'simple'",
+      "2026-11-16T07:15:16.0077650Z }",
+      "2026-11-16T07:15:16.0255467Z ##[error]Process completed with exit code 1.",
+      "2026-11-16T07:15:16.0359070Z ##[group]Run actions/upload-artifact@v4",
+      "2026-11-16T07:15:16.0359306Z with:",
+      "2026-11-16T07:15:16.0359480Z   name: fixed-home-controls-webkit"
+    ]
+  },
+  {
+    "engine": "chromium",
+    "job": 133145556968,
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/43821558076/job/133145556968",
+    "excerpt": [
+      "2026-11-16T07:12:18.8383284Z AssertionError [ERR_ASSERTION]: chromium-390x844-autonomous no authored exchange after a real ambient meeting",
+      "2026-11-16T07:12:18.8385224Z     at autonomousExchange (/home/runner/work/naotocchi/naotocchi/tests/helpers/home-resident-dialogue-browser.cjs:111:12)",
+      "2026-11-16T07:12:18.8386628Z     at async module.exports (/home/runner/work/naotocchi/naotocchi/tests/helpers/home-resident-dialogue-browser.cjs:153:7)",
+      "2026-11-16T07:12:18.8388044Z     at async /home/runner/work/naotocchi/naotocchi/tests/home-production-comments-v7-browser.cjs:26:2 {",
+      "2026-11-16T07:12:18.8388830Z   generatedMessage: false,",
+      "2026-11-16T07:12:18.8389331Z   code: 'ERR_ASSERTION',",
+      "2026-11-16T07:12:18.8389643Z   actual: undefined,",
+      "2026-11-16T07:12:18.8389952Z   expected: true,",
+      "2026-11-16T07:12:18.8390126Z   operator: '==',",
+      "2026-11-16T07:12:18.8390385Z   diff: 'simple'",
+      "2026-11-16T07:12:18.8390658Z }",
+      "2026-11-16T07:12:18.8589703Z ##[error]Process completed with exit code 1.",
+      "2026-11-16T07:12:18.8695251Z ##[group]Run actions/upload-artifact@v4",
+      "2026-11-16T07:12:18.8695506Z with:",
+      "2026-11-16T07:12:18.8695686Z   name: fixed-home-controls-chromium",
+      "2026-11-16T07:12:18.8696829Z   path: test-results/home-production-birth/",
+      "test-results/home-production-v3-baseline/",
+      "test-results/home-production-layout/"
+    ]
+  }
+]

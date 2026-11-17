@@ -1,0 +1,24 @@
+✔ asset tokens validate exact file bytes in both supported formats for scripts, stylesheets and lazy modules (4.216921ms)
+✔ every static assets/… reference in HTML, CSS and JS exists with the exact case (146.834471ms)
+✔ every script, stylesheet and lazy module carries a supported token whose hash matches the file (99.606322ms)
+✔ dynamic paths: current species, unified items, egg frames and goal-art fallbacks exist (285.750848ms)
+✔ the checks catch a missing file, a case mismatch, a stale token, a missing token and a missing dynamic path (1.111928ms)
+✔ the real index.html and references turn red when a token goes stale, a token is dropped or a path changes case (192.475381ms)
+✔ npm run bump still rewrites only the ?v= tokens with YYYYMMDD-<assetHash>, and is idempotent (426.613037ms)
+✔ unchanged authored frame survives one native layout unit after camera scaling (1.653852ms)
+✔ untransformed UI still uses the original 1/64 CSS pixel criterion (1.529134ms)
+✔ a real authored frame change is rejected even when its native rounding is valid (0.798058ms)
+✔ unexplained rendered drift and invalid camera measurements are rejected (5.629799ms)
+✔ identical native layout cannot conceal a 0.017px painted shrink (0.837379ms)
+✔ added walking ground does not refit the existing camera or body envelope (1 residents) (104.576424ms)
+✔ added walking ground does not refit the existing camera or body envelope (28 residents) (1116.724315ms)
+✔ presentation changes refresh painted-ground navigation even when the presentation key is unchanged (32.039058ms)
+✔ growth waits for the camera to consume its new envelope before correcting a safe foot (153.861149ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1617.681806

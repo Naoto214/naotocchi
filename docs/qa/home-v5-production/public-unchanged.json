@@ -1,0 +1,35 @@
+{
+  "url": "https://naoto214.github.io/naotocchi/",
+  "checks": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "sha256": "7f41b964124833f8cf6c165fea93acba196a5e0304b48eed193e34adb2881cbb",
+      "matches_preintegration_main": true
+    },
+    {
+      "path": "home-production-model.js",
+      "status": 200,
+      "sha256": "bc7ee83bf681152f2ed54b97f98315ab483109f53fce57b10d8bf1713ac839a9",
+      "matches_preintegration_main": true
+    },
+    {
+      "path": "home-production-diorama.js",
+      "status": 200,
+      "sha256": "435a6c4f24b370f0bf3c95a4cbdc5f661b2243fe5a0c7cfecb38de093846296c",
+      "matches_preintegration_main": true
+    },
+    {
+      "path": "home-ground-expansion.mjs",
+      "status": 404,
+      "sha256": null,
+      "matches_preintegration_main": false
+    },
+    {
+      "path": "home-visible-ground-navigation.mjs",
+      "status": 404,
+      "sha256": null,
+      "matches_preintegration_main": false
+    }
+  ]
+}

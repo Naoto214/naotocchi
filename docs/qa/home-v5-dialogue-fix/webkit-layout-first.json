@@ -1,0 +1,5660 @@
+{
+  "records": [
+    {
+      "label": "webkit/320x568/1",
+      "before": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 9,
+          "y": 74,
+          "width": 302,
+          "height": 42,
+          "top": 74,
+          "right": 311,
+          "bottom": 116,
+          "left": 9
+        },
+        "comment": {
+          "x": 9,
+          "y": 306,
+          "width": 302,
+          "height": 76,
+          "top": 306,
+          "right": 311,
+          "bottom": 382,
+          "left": 9
+        },
+        "speech": {
+          "x": 9,
+          "y": 568,
+          "width": 0,
+          "height": 0,
+          "top": 568,
+          "right": 9,
+          "bottom": 568,
+          "left": 9
+        },
+        "controls": {
+          "x": 9,
+          "y": 457,
+          "width": 302,
+          "height": 103,
+          "top": 457,
+          "right": 311,
+          "bottom": 560,
+          "left": 9
+        },
+        "frame": {
+          "x": 9,
+          "y": 118,
+          "width": 301.9859924316406,
+          "height": 185.9996337890625,
+          "top": 118,
+          "right": 310.9859924316406,
+          "bottom": 303.9996337890625,
+          "left": 9
+        },
+        "scroll": {
+          "width": 320,
+          "height": 568
+        },
+        "buttons": [
+          {
+            "x": 9,
+            "y": 457,
+            "width": 57.1875,
+            "height": 49,
+            "top": 457,
+            "right": 66.1875,
+            "bottom": 506,
+            "left": 9,
+            "hit": true
+          },
+          {
+            "x": 70.1875,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 127.390625,
+            "bottom": 506,
+            "left": 70.1875,
+            "hit": true
+          },
+          {
+            "x": 131.390625,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 188.59375,
+            "bottom": 506,
+            "left": 131.390625,
+            "hit": true
+          },
+          {
+            "x": 192.59375,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 249.796875,
+            "bottom": 506,
+            "left": 192.59375,
+            "hit": true
+          },
+          {
+            "x": 253.796875,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 311,
+            "bottom": 506,
+            "left": 253.796875,
+            "hit": true
+          },
+          {
+            "x": 9,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 81.5,
+            "bottom": 560,
+            "left": 9,
+            "hit": true
+          },
+          {
+            "x": 85.5,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 158,
+            "bottom": 560,
+            "left": 85.5,
+            "hit": true
+          },
+          {
+            "x": 162,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 234.5,
+            "bottom": 560,
+            "left": 162,
+            "hit": true
+          },
+          {
+            "x": 238.5,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 311,
+            "bottom": 560,
+            "left": 238.5,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 9,
+          "y": 118,
+          "scale": 0.9099818441097987,
+          "scaleX": 0.9099818441097987,
+          "scaleY": 0.2314102739896236,
+          "bodyScale": 0.8448746001915286,
+          "bodyScaleLimit": 0.8448746001915286,
+          "landscape": false,
+          "world": {
+            "left": 23.937376638231385,
+            "top": 118,
+            "width": 302,
+            "height": 927.565823974048
+          },
+          "scrollTop": 0
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 142.72324248450423,
+            "bottom": 282.5305460268154
+          }
+        ]
+      },
+      "returned": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 9,
+          "y": 74,
+          "width": 302,
+          "height": 42,
+          "top": 74,
+          "right": 311,
+          "bottom": 116,
+          "left": 9
+        },
+        "comment": {
+          "x": 9,
+          "y": 306,
+          "width": 302,
+          "height": 76,
+          "top": 306,
+          "right": 311,
+          "bottom": 382,
+          "left": 9
+        },
+        "speech": {
+          "x": 9,
+          "y": 568,
+          "width": 0,
+          "height": 0,
+          "top": 568,
+          "right": 9,
+          "bottom": 568,
+          "left": 9
+        },
+        "controls": {
+          "x": 9,
+          "y": 457,
+          "width": 302,
+          "height": 103,
+          "top": 457,
+          "right": 311,
+          "bottom": 560,
+          "left": 9
+        },
+        "frame": {
+          "x": 9,
+          "y": 118,
+          "width": 301.9859924316406,
+          "height": 185.9996337890625,
+          "top": 118,
+          "right": 310.9859924316406,
+          "bottom": 303.9996337890625,
+          "left": 9
+        },
+        "scroll": {
+          "width": 320,
+          "height": 568
+        },
+        "buttons": [
+          {
+            "x": 9,
+            "y": 457,
+            "width": 57.1875,
+            "height": 49,
+            "top": 457,
+            "right": 66.1875,
+            "bottom": 506,
+            "left": 9,
+            "hit": true
+          },
+          {
+            "x": 70.1875,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 127.390625,
+            "bottom": 506,
+            "left": 70.1875,
+            "hit": true
+          },
+          {
+            "x": 131.390625,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 188.59375,
+            "bottom": 506,
+            "left": 131.390625,
+            "hit": true
+          },
+          {
+            "x": 192.59375,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 249.796875,
+            "bottom": 506,
+            "left": 192.59375,
+            "hit": true
+          },
+          {
+            "x": 253.796875,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 311,
+            "bottom": 506,
+            "left": 253.796875,
+            "hit": true
+          },
+          {
+            "x": 9,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 81.5,
+            "bottom": 560,
+            "left": 9,
+            "hit": true
+          },
+          {
+            "x": 85.5,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 158,
+            "bottom": 560,
+            "left": 85.5,
+            "hit": true
+          },
+          {
+            "x": 162,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 234.5,
+            "bottom": 560,
+            "left": 162,
+            "hit": true
+          },
+          {
+            "x": 238.5,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 311,
+            "bottom": 560,
+            "left": 238.5,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 9,
+          "y": 118,
+          "scale": 0.9099818441097987,
+          "scaleX": 0.9099818441097987,
+          "scaleY": 0.2314102739896236,
+          "bodyScale": 0.8448746001915286,
+          "bodyScaleLimit": 0.8448746001915286,
+          "landscape": false,
+          "world": {
+            "left": 23.937376638231385,
+            "top": 118,
+            "width": 302,
+            "height": 927.565823974048
+          },
+          "scrollTop": 0
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 141.4649877218183,
+            "bottom": 280.25528532231596
+          }
+        ]
+      },
+      "status": "passed"
+    },
+    {
+      "label": "webkit/320x568/6",
+      "before": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 9,
+          "y": 94,
+          "width": 302,
+          "height": 42,
+          "top": 94,
+          "right": 311,
+          "bottom": 136,
+          "left": 9
+        },
+        "comment": {
+          "x": 9,
+          "y": 306,
+          "width": 302,
+          "height": 76,
+          "top": 306,
+          "right": 311,
+          "bottom": 382,
+          "left": 9
+        },
+        "speech": {
+          "x": 9,
+          "y": 568,
+          "width": 0,
+          "height": 0,
+          "top": 568,
+          "right": 9,
+          "bottom": 568,
+          "left": 9
+        },
+        "controls": {
+          "x": 9,
+          "y": 457,
+          "width": 302,
+          "height": 103,
+          "top": 457,
+          "right": 311,
+          "bottom": 560,
+          "left": 9
+        },
+        "frame": {
+          "x": 9,
+          "y": 138,
+          "width": 301.9925231933594,
+          "height": 165.99969482421875,
+          "top": 138,
+          "right": 310.9925231933594,
+          "bottom": 303.99969482421875,
+          "left": 9
+        },
+        "scroll": {
+          "width": 320,
+          "height": 568
+        },
+        "buttons": [
+          {
+            "x": 9,
+            "y": 457,
+            "width": 57.1875,
+            "height": 49,
+            "top": 457,
+            "right": 66.1875,
+            "bottom": 506,
+            "left": 9,
+            "hit": true
+          },
+          {
+            "x": 70.1875,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 127.390625,
+            "bottom": 506,
+            "left": 70.1875,
+            "hit": true
+          },
+          {
+            "x": 131.390625,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 188.59375,
+            "bottom": 506,
+            "left": 131.390625,
+            "hit": true
+          },
+          {
+            "x": 192.59375,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 249.796875,
+            "bottom": 506,
+            "left": 192.59375,
+            "hit": true
+          },
+          {
+            "x": 253.796875,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 311,
+            "bottom": 506,
+            "left": 253.796875,
+            "hit": true
+          },
+          {
+            "x": 9,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 81.5,
+            "bottom": 560,
+            "left": 9,
+            "hit": true
+          },
+          {
+            "x": 85.5,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 158,
+            "bottom": 560,
+            "left": 85.5,
+            "hit": true
+          },
+          {
+            "x": 162,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 234.5,
+            "bottom": 560,
+            "left": 162,
+            "hit": true
+          },
+          {
+            "x": 238.5,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 311,
+            "bottom": 560,
+            "left": 238.5,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 9,
+          "y": 138,
+          "scale": 0.867560886065285,
+          "scaleX": 0.867560886065285,
+          "scaleY": 0.16675791377763355,
+          "bodyScale": 0.7481419915115671,
+          "bodyScaleLimit": 0.7481419915115671,
+          "landscape": false,
+          "world": {
+            "left": 32.05118467804815,
+            "top": 138,
+            "width": 302,
+            "height": 945.5831834516484
+          },
+          "scrollTop": 0
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 160.46968393106374,
+            "bottom": 261.0171471754915
+          },
+          {
+            "key": "partner:forest_bear",
+            "valid": true,
+            "top": 144.37192863520568,
+            "bottom": 262.8056856884888
+          },
+          {
+            "key": "companion:cat_friend",
+            "valid": true,
+            "top": 186.76818131594825,
+            "bottom": 240.85824878864136
+          },
+          {
+            "key": "companion:tanuki",
+            "valid": true,
+            "top": 187.94299694715463,
+            "bottom": 251.71304022771454
+          },
+          {
+            "key": "companion:rabbit_friend",
+            "valid": true,
+            "top": 184.40939741981657,
+            "bottom": 248.10446634310875
+          },
+          {
+            "key": "companion:squirrel",
+            "valid": true,
+            "top": 203.77824604970405,
+            "bottom": 273.42262310586074
+          }
+        ]
+      },
+      "returned": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 9,
+          "y": 94,
+          "width": 302,
+          "height": 42,
+          "top": 94,
+          "right": 311,
+          "bottom": 136,
+          "left": 9
+        },
+        "comment": {
+          "x": 9,
+          "y": 306,
+          "width": 302,
+          "height": 76,
+          "top": 306,
+          "right": 311,
+          "bottom": 382,
+          "left": 9
+        },
+        "speech": {
+          "x": 9,
+          "y": 568,
+          "width": 0,
+          "height": 0,
+          "top": 568,
+          "right": 9,
+          "bottom": 568,
+          "left": 9
+        },
+        "controls": {
+          "x": 9,
+          "y": 457,
+          "width": 302,
+          "height": 103,
+          "top": 457,
+          "right": 311,
+          "bottom": 560,
+          "left": 9
+        },
+        "frame": {
+          "x": 9,
+          "y": 138,
+          "width": 301.9925231933594,
+          "height": 165.99969482421875,
+          "top": 138,
+          "right": 310.9925231933594,
+          "bottom": 303.99969482421875,
+          "left": 9
+        },
+        "scroll": {
+          "width": 320,
+          "height": 568
+        },
+        "buttons": [
+          {
+            "x": 9,
+            "y": 457,
+            "width": 57.1875,
+            "height": 49,
+            "top": 457,
+            "right": 66.1875,
+            "bottom": 506,
+            "left": 9,
+            "hit": true
+          },
+          {
+            "x": 70.1875,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 127.390625,
+            "bottom": 506,
+            "left": 70.1875,
+            "hit": true
+          },
+          {
+            "x": 131.390625,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 188.59375,
+            "bottom": 506,
+            "left": 131.390625,
+            "hit": true
+          },
+          {
+            "x": 192.59375,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 249.796875,
+            "bottom": 506,
+            "left": 192.59375,
+            "hit": true
+          },
+          {
+            "x": 253.796875,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 311,
+            "bottom": 506,
+            "left": 253.796875,
+            "hit": true
+          },
+          {
+            "x": 9,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 81.5,
+            "bottom": 560,
+            "left": 9,
+            "hit": true
+          },
+          {
+            "x": 85.5,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 158,
+            "bottom": 560,
+            "left": 85.5,
+            "hit": true
+          },
+          {
+            "x": 162,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 234.5,
+            "bottom": 560,
+            "left": 162,
+            "hit": true
+          },
+          {
+            "x": 238.5,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 311,
+            "bottom": 560,
+            "left": 238.5,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 9,
+          "y": 138,
+          "scale": 0.867560886065285,
+          "scaleX": 0.867560886065285,
+          "scaleY": 0.16675791377763355,
+          "bodyScale": 0.7481419915115671,
+          "bodyScaleLimit": 0.7481419915115671,
+          "landscape": false,
+          "world": {
+            "left": 32.05118467804815,
+            "top": 138,
+            "width": 302,
+            "height": 945.5831834516484
+          },
+          "scrollTop": 0
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 159.63556978523337,
+            "bottom": 259.53107453799936
+          },
+          {
+            "key": "partner:forest_bear",
+            "valid": true,
+            "top": 144.60078895683668,
+            "bottom": 263.2799100990002
+          },
+          {
+            "key": "companion:cat_friend",
+            "valid": true,
+            "top": 186.76818131594825,
+            "bottom": 240.85824878864136
+          },
+          {
+            "key": "companion:tanuki",
+            "valid": true,
+            "top": 184.8501609056146,
+            "bottom": 247.4163519497481
+          },
+          {
+            "key": "companion:rabbit_friend",
+            "valid": true,
+            "top": 173.63553745068916,
+            "bottom": 233.04032290409478
+          },
+          {
+            "key": "companion:squirrel",
+            "valid": true,
+            "top": 185.0061096754073,
+            "bottom": 247.3767030282605
+          }
+        ]
+      },
+      "status": "passed"
+    },
+    {
+      "label": "webkit/320x568/28",
+      "before": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 9,
+          "y": 94,
+          "width": 302,
+          "height": 42,
+          "top": 94,
+          "right": 311,
+          "bottom": 136,
+          "left": 9
+        },
+        "comment": {
+          "x": 9,
+          "y": 306,
+          "width": 302,
+          "height": 76,
+          "top": 306,
+          "right": 311,
+          "bottom": 382,
+          "left": 9
+        },
+        "speech": {
+          "x": 9,
+          "y": 568,
+          "width": 0,
+          "height": 0,
+          "top": 568,
+          "right": 9,
+          "bottom": 568,
+          "left": 9
+        },
+        "controls": {
+          "x": 9,
+          "y": 457,
+          "width": 302,
+          "height": 103,
+          "top": 457,
+          "right": 311,
+          "bottom": 560,
+          "left": 9
+        },
+        "frame": {
+          "x": 9,
+          "y": 138,
+          "width": 301.9907531738281,
+          "height": 165.99786376953125,
+          "top": 138,
+          "right": 310.9907531738281,
+          "bottom": 303.99786376953125,
+          "left": 9
+        },
+        "scroll": {
+          "width": 320,
+          "height": 568
+        },
+        "buttons": [
+          {
+            "x": 9,
+            "y": 457,
+            "width": 57.1875,
+            "height": 49,
+            "top": 457,
+            "right": 66.1875,
+            "bottom": 506,
+            "left": 9,
+            "hit": true
+          },
+          {
+            "x": 70.1875,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 127.390625,
+            "bottom": 506,
+            "left": 70.1875,
+            "hit": true
+          },
+          {
+            "x": 131.390625,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 188.59375,
+            "bottom": 506,
+            "left": 131.390625,
+            "hit": true
+          },
+          {
+            "x": 192.59375,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 249.796875,
+            "bottom": 506,
+            "left": 192.59375,
+            "hit": true
+          },
+          {
+            "x": 253.796875,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 311,
+            "bottom": 506,
+            "left": 253.796875,
+            "hit": true
+          },
+          {
+            "x": 9,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 81.5,
+            "bottom": 560,
+            "left": 9,
+            "hit": true
+          },
+          {
+            "x": 85.5,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 158,
+            "bottom": 560,
+            "left": 85.5,
+            "hit": true
+          },
+          {
+            "x": 162,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 234.5,
+            "bottom": 560,
+            "left": 162,
+            "hit": true
+          },
+          {
+            "x": 238.5,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 311,
+            "bottom": 560,
+            "left": 238.5,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 9,
+          "y": 138,
+          "scale": 0.9554307452446635,
+          "scaleX": 0.9554307452446635,
+          "scaleY": 0.3887964573068188,
+          "bodyScale": 0.7,
+          "bodyScaleLimit": 0.7,
+          "landscape": false,
+          "world": {
+            "left": 13.021061051741704,
+            "top": 7,
+            "width": 302,
+            "height": 679
+          },
+          "scrollTop": 131
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 210.230231557652,
+            "bottom": 259.3634871758983
+          },
+          {
+            "key": "partner:forest_bear",
+            "valid": true,
+            "top": 148.3709969567526,
+            "bottom": 207.7227190966703
+          },
+          {
+            "key": "companion:cat_friend",
+            "valid": true,
+            "top": 174.12348231205945,
+            "bottom": 206.67989120094833
+          },
+          {
+            "key": "companion:tanuki",
+            "valid": true,
+            "top": 194.07242823390516,
+            "bottom": 231.59780821612736
+          },
+          {
+            "key": "companion:owl",
+            "valid": true,
+            "top": 205.92512427038352,
+            "bottom": 244.05676672371686
+          },
+          {
+            "key": "companion:hamster",
+            "valid": true,
+            "top": 240.50159061981876,
+            "bottom": 281.4336422464854
+          },
+          {
+            "key": "companion:monkey",
+            "valid": true,
+            "top": 208.45909818658106,
+            "bottom": 246.77517388386173
+          },
+          {
+            "key": "companion:sheep",
+            "valid": true,
+            "top": 174.2786625071311,
+            "bottom": 208.8210888354914
+          },
+          {
+            "key": "companion:bat",
+            "valid": true,
+            "top": 179.1947508433057,
+            "bottom": 215.13345805485196
+          },
+          {
+            "key": "companion:penguin_friend",
+            "valid": true,
+            "top": 213.66262364387123,
+            "bottom": 240.71034409202048
+          },
+          {
+            "key": "companion:shiba",
+            "valid": true,
+            "top": 213.37699914778676,
+            "bottom": 250.00021729516016
+          },
+          {
+            "key": "companion:punyu",
+            "valid": true,
+            "top": 255.78393122239032,
+            "bottom": 291.44098024109405
+          },
+          {
+            "key": "companion:chameleon",
+            "valid": true,
+            "top": 226.9723153815346,
+            "bottom": 262.5396044578197
+          },
+          {
+            "key": "companion:unicorn",
+            "valid": true,
+            "top": 179.26998798749668,
+            "bottom": 214.72007895442542
+          },
+          {
+            "key": "companion:watcher",
+            "valid": true,
+            "top": 185.14009776822815,
+            "bottom": 221.0070842113558
+          },
+          {
+            "key": "companion:rabbit_friend",
+            "valid": true,
+            "top": 196.69038425178576,
+            "bottom": 234.40785291435907
+          },
+          {
+            "key": "companion:squirrel",
+            "valid": true,
+            "top": 220.11934003627582,
+            "bottom": 259.5558739420804
+          },
+          {
+            "key": "companion:otter",
+            "valid": true,
+            "top": 249.63471805251493,
+            "bottom": 290.3720842498372
+          },
+          {
+            "key": "companion:panda",
+            "valid": true,
+            "top": 218.03393917655515,
+            "bottom": 257.04691193847117
+          },
+          {
+            "key": "companion:parrot",
+            "valid": true,
+            "top": 179.1947508433057,
+            "bottom": 215.13345805485196
+          },
+          {
+            "key": "companion:seal",
+            "valid": true,
+            "top": 194.10995338993925,
+            "bottom": 229.68223576652878
+          },
+          {
+            "key": "companion:chicken",
+            "valid": true,
+            "top": 211.44495984215413,
+            "bottom": 249.7119869679688
+          },
+          {
+            "key": "companion:hedgehog",
+            "valid": true,
+            "top": 234.95508934631738,
+            "bottom": 274.6922902059106
+          },
+          {
+            "key": "companion:snail",
+            "valid": true,
+            "top": 255.68575034835874,
+            "bottom": 284.7300285324632
+          },
+          {
+            "key": "companion:sekizou",
+            "valid": true,
+            "top": 207.30576059970173,
+            "bottom": 244.74695347278814
+          },
+          {
+            "key": "companion:clock",
+            "valid": true,
+            "top": 167.49869105012715,
+            "bottom": 202.3527579849228
+          },
+          {
+            "key": "companion:many_tail_fox",
+            "valid": true,
+            "top": 194.00978150324653,
+            "bottom": 230.1432160811708
+          },
+          {
+            "key": "companion:box",
+            "valid": true,
+            "top": 193.98306504895686,
+            "bottom": 230.26535081396366
+          }
+        ]
+      },
+      "returned": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 9,
+          "y": 94,
+          "width": 302,
+          "height": 42,
+          "top": 94,
+          "right": 311,
+          "bottom": 136,
+          "left": 9
+        },
+        "comment": {
+          "x": 9,
+          "y": 306,
+          "width": 302,
+          "height": 76,
+          "top": 306,
+          "right": 311,
+          "bottom": 382,
+          "left": 9
+        },
+        "speech": {
+          "x": 9,
+          "y": 568,
+          "width": 0,
+          "height": 0,
+          "top": 568,
+          "right": 9,
+          "bottom": 568,
+          "left": 9
+        },
+        "controls": {
+          "x": 9,
+          "y": 457,
+          "width": 302,
+          "height": 103,
+          "top": 457,
+          "right": 311,
+          "bottom": 560,
+          "left": 9
+        },
+        "frame": {
+          "x": 9,
+          "y": 138,
+          "width": 301.9907531738281,
+          "height": 165.99786376953125,
+          "top": 138,
+          "right": 310.9907531738281,
+          "bottom": 303.99786376953125,
+          "left": 9
+        },
+        "scroll": {
+          "width": 320,
+          "height": 568
+        },
+        "buttons": [
+          {
+            "x": 9,
+            "y": 457,
+            "width": 57.1875,
+            "height": 49,
+            "top": 457,
+            "right": 66.1875,
+            "bottom": 506,
+            "left": 9,
+            "hit": true
+          },
+          {
+            "x": 70.1875,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 127.390625,
+            "bottom": 506,
+            "left": 70.1875,
+            "hit": true
+          },
+          {
+            "x": 131.390625,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 188.59375,
+            "bottom": 506,
+            "left": 131.390625,
+            "hit": true
+          },
+          {
+            "x": 192.59375,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 249.796875,
+            "bottom": 506,
+            "left": 192.59375,
+            "hit": true
+          },
+          {
+            "x": 253.796875,
+            "y": 457,
+            "width": 57.203125,
+            "height": 49,
+            "top": 457,
+            "right": 311,
+            "bottom": 506,
+            "left": 253.796875,
+            "hit": true
+          },
+          {
+            "x": 9,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 81.5,
+            "bottom": 560,
+            "left": 9,
+            "hit": true
+          },
+          {
+            "x": 85.5,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 158,
+            "bottom": 560,
+            "left": 85.5,
+            "hit": true
+          },
+          {
+            "x": 162,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 234.5,
+            "bottom": 560,
+            "left": 162,
+            "hit": true
+          },
+          {
+            "x": 238.5,
+            "y": 511,
+            "width": 72.5,
+            "height": 49,
+            "top": 511,
+            "right": 311,
+            "bottom": 560,
+            "left": 238.5,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 9,
+          "y": 138,
+          "scale": 0.9554307452446635,
+          "scaleX": 0.9554307452446635,
+          "scaleY": 0.3887964573068188,
+          "bodyScale": 0.7,
+          "bodyScaleLimit": 0.7,
+          "landscape": false,
+          "world": {
+            "left": 13.021061051741704,
+            "top": 7,
+            "width": 302,
+            "height": 679
+          },
+          "scrollTop": 131
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 208.13352489549789,
+            "bottom": 257.06451268937883
+          },
+          {
+            "key": "partner:forest_bear",
+            "valid": true,
+            "top": 148.3709969567526,
+            "bottom": 207.7227190966703
+          },
+          {
+            "key": "companion:cat_friend",
+            "valid": true,
+            "top": 174.12348231205945,
+            "bottom": 206.67989120094833
+          },
+          {
+            "key": "companion:tanuki",
+            "valid": true,
+            "top": 194.07242823390516,
+            "bottom": 231.59780821612736
+          },
+          {
+            "key": "companion:owl",
+            "valid": true,
+            "top": 205.92512427038352,
+            "bottom": 244.05676672371686
+          },
+          {
+            "key": "companion:hamster",
+            "valid": true,
+            "top": 211.3364164135432,
+            "bottom": 250.12851618951814
+          },
+          {
+            "key": "companion:monkey",
+            "valid": true,
+            "top": 205.5322315621147,
+            "bottom": 243.6352776371483
+          },
+          {
+            "key": "companion:sheep",
+            "valid": true,
+            "top": 174.2786625071311,
+            "bottom": 208.8210888354914
+          },
+          {
+            "key": "companion:bat",
+            "valid": true,
+            "top": 179.1947508433057,
+            "bottom": 215.13345805485196
+          },
+          {
+            "key": "companion:penguin_friend",
+            "valid": true,
+            "top": 213.66262364387123,
+            "bottom": 240.71034409202048
+          },
+          {
+            "key": "companion:shiba",
+            "valid": true,
+            "top": 200.0454088341912,
+            "bottom": 235.75846462192828
+          },
+          {
+            "key": "companion:punyu",
+            "valid": true,
+            "top": 209.73225227176837,
+            "bottom": 242.60322156449814
+          },
+          {
+            "key": "companion:chameleon",
+            "valid": true,
+            "top": 221.8267054915337,
+            "bottom": 257.06451268937883
+          },
+          {
+            "key": "companion:unicorn",
+            "valid": true,
+            "top": 179.26998798749668,
+            "bottom": 214.72007895442542
+          },
+          {
+            "key": "companion:watcher",
+            "valid": true,
+            "top": 185.1400977682281,
+            "bottom": 221.00708421135573
+          },
+          {
+            "key": "companion:rabbit_friend",
+            "valid": true,
+            "top": 193.2709724546245,
+            "bottom": 230.73754679536523
+          },
+          {
+            "key": "companion:squirrel",
+            "valid": true,
+            "top": 167.41021080281126,
+            "bottom": 202.97928971404804
+          },
+          {
+            "key": "companion:otter",
+            "valid": true,
+            "top": 218.5529438209613,
+            "bottom": 257.06451268937883
+          },
+          {
+            "key": "companion:panda",
+            "valid": true,
+            "top": 209.75486926438103,
+            "bottom": 248.1652566125292
+          },
+          {
+            "key": "companion:parrot",
+            "valid": true,
+            "top": 179.1947508433057,
+            "bottom": 215.13345805485196
+          },
+          {
+            "key": "companion:seal",
+            "valid": true,
+            "top": 197.0549722002682,
+            "bottom": 232.83010400468885
+          },
+          {
+            "key": "companion:chicken",
+            "valid": true,
+            "top": 196.16899212889086,
+            "bottom": 233.3331631511131
+          },
+          {
+            "key": "companion:hedgehog",
+            "valid": true,
+            "top": 176.2976861124051,
+            "bottom": 211.82807895863183
+          },
+          {
+            "key": "companion:snail",
+            "valid": true,
+            "top": 195.65420803026925,
+            "bottom": 221.86511202986813
+          },
+          {
+            "key": "companion:sekizou",
+            "valid": true,
+            "top": 187.99347155254284,
+            "bottom": 224.06310473772803
+          },
+          {
+            "key": "companion:clock",
+            "valid": true,
+            "top": 220.30308167260523,
+            "bottom": 258.938336405981
+          },
+          {
+            "key": "companion:many_tail_fox",
+            "valid": true,
+            "top": 223.38543602430835,
+            "bottom": 261.5805878160532
+          },
+          {
+            "key": "companion:box",
+            "valid": true,
+            "top": 208.6682575269983,
+            "bottom": 245.98630514246653
+          }
+        ]
+      },
+      "status": "passed"
+    },
+    {
+      "label": "webkit/375x667/1",
+      "before": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 16,
+          "y": 75.59375,
+          "width": 343,
+          "height": 42,
+          "top": 75.59375,
+          "right": 359,
+          "bottom": 117.59375,
+          "left": 16
+        },
+        "comment": {
+          "x": 16,
+          "y": 405,
+          "width": 343,
+          "height": 76,
+          "top": 405,
+          "right": 359,
+          "bottom": 481,
+          "left": 16
+        },
+        "speech": {
+          "x": 16,
+          "y": 667,
+          "width": 0,
+          "height": 0,
+          "top": 667,
+          "right": 16,
+          "bottom": 667,
+          "left": 16
+        },
+        "controls": {
+          "x": 16,
+          "y": 556,
+          "width": 343,
+          "height": 103,
+          "top": 556,
+          "right": 359,
+          "bottom": 659,
+          "left": 16
+        },
+        "frame": {
+          "x": 16,
+          "y": 119.59375,
+          "width": 342.99847412109375,
+          "height": 283.4021301269531,
+          "top": 119.59375,
+          "right": 358.99847412109375,
+          "bottom": 402.9958801269531,
+          "left": 16
+        },
+        "scroll": {
+          "width": 375,
+          "height": 667
+        },
+        "buttons": [
+          {
+            "x": 16,
+            "y": 556,
+            "width": 65.390625,
+            "height": 49,
+            "top": 556,
+            "right": 81.390625,
+            "bottom": 605,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 85.390625,
+            "y": 556,
+            "width": 65.40625,
+            "height": 49,
+            "top": 556,
+            "right": 150.796875,
+            "bottom": 605,
+            "left": 85.390625,
+            "hit": true
+          },
+          {
+            "x": 154.796875,
+            "y": 556,
+            "width": 65.390625,
+            "height": 49,
+            "top": 556,
+            "right": 220.1875,
+            "bottom": 605,
+            "left": 154.796875,
+            "hit": true
+          },
+          {
+            "x": 224.1875,
+            "y": 556,
+            "width": 65.40625,
+            "height": 49,
+            "top": 556,
+            "right": 289.59375,
+            "bottom": 605,
+            "left": 224.1875,
+            "hit": true
+          },
+          {
+            "x": 293.59375,
+            "y": 556,
+            "width": 65.390625,
+            "height": 49,
+            "top": 556,
+            "right": 358.984375,
+            "bottom": 605,
+            "left": 293.59375,
+            "hit": true
+          },
+          {
+            "x": 16,
+            "y": 610,
+            "width": 82.734375,
+            "height": 49,
+            "top": 610,
+            "right": 98.734375,
+            "bottom": 659,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 102.734375,
+            "y": 610,
+            "width": 82.75,
+            "height": 49,
+            "top": 610,
+            "right": 185.484375,
+            "bottom": 659,
+            "left": 102.734375,
+            "hit": true
+          },
+          {
+            "x": 189.484375,
+            "y": 610,
+            "width": 82.75,
+            "height": 49,
+            "top": 610,
+            "right": 272.234375,
+            "bottom": 659,
+            "left": 189.484375,
+            "hit": true
+          },
+          {
+            "x": 276.234375,
+            "y": 610,
+            "width": 82.75,
+            "height": 49,
+            "top": 610,
+            "right": 358.984375,
+            "bottom": 659,
+            "left": 276.234375,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 16,
+          "y": 119.59375,
+          "scale": 0.7612672632148968,
+          "scaleX": 0.7612672632148968,
+          "scaleY": 0.3998002078527604,
+          "bodyScale": 1,
+          "bodyScaleLimit": 1,
+          "landscape": false,
+          "world": {
+            "left": 69.78224749313512,
+            "top": 119.59375,
+            "width": 343,
+            "height": 847.0399559381888
+          },
+          "scrollTop": 0
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 176.09405463097744,
+            "bottom": 361.9439221809775
+          }
+        ]
+      },
+      "returned": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 16,
+          "y": 75.59375,
+          "width": 343,
+          "height": 42,
+          "top": 75.59375,
+          "right": 359,
+          "bottom": 117.59375,
+          "left": 16
+        },
+        "comment": {
+          "x": 16,
+          "y": 405,
+          "width": 343,
+          "height": 76,
+          "top": 405,
+          "right": 359,
+          "bottom": 481,
+          "left": 16
+        },
+        "speech": {
+          "x": 16,
+          "y": 667,
+          "width": 0,
+          "height": 0,
+          "top": 667,
+          "right": 16,
+          "bottom": 667,
+          "left": 16
+        },
+        "controls": {
+          "x": 16,
+          "y": 556,
+          "width": 343,
+          "height": 103,
+          "top": 556,
+          "right": 359,
+          "bottom": 659,
+          "left": 16
+        },
+        "frame": {
+          "x": 16,
+          "y": 119.59375,
+          "width": 342.99847412109375,
+          "height": 283.4021301269531,
+          "top": 119.59375,
+          "right": 358.99847412109375,
+          "bottom": 402.9958801269531,
+          "left": 16
+        },
+        "scroll": {
+          "width": 375,
+          "height": 667
+        },
+        "buttons": [
+          {
+            "x": 16,
+            "y": 556,
+            "width": 65.390625,
+            "height": 49,
+            "top": 556,
+            "right": 81.390625,
+            "bottom": 605,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 85.390625,
+            "y": 556,
+            "width": 65.40625,
+            "height": 49,
+            "top": 556,
+            "right": 150.796875,
+            "bottom": 605,
+            "left": 85.390625,
+            "hit": true
+          },
+          {
+            "x": 154.796875,
+            "y": 556,
+            "width": 65.390625,
+            "height": 49,
+            "top": 556,
+            "right": 220.1875,
+            "bottom": 605,
+            "left": 154.796875,
+            "hit": true
+          },
+          {
+            "x": 224.1875,
+            "y": 556,
+            "width": 65.40625,
+            "height": 49,
+            "top": 556,
+            "right": 289.59375,
+            "bottom": 605,
+            "left": 224.1875,
+            "hit": true
+          },
+          {
+            "x": 293.59375,
+            "y": 556,
+            "width": 65.390625,
+            "height": 49,
+            "top": 556,
+            "right": 358.984375,
+            "bottom": 605,
+            "left": 293.59375,
+            "hit": true
+          },
+          {
+            "x": 16,
+            "y": 610,
+            "width": 82.734375,
+            "height": 49,
+            "top": 610,
+            "right": 98.734375,
+            "bottom": 659,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 102.734375,
+            "y": 610,
+            "width": 82.75,
+            "height": 49,
+            "top": 610,
+            "right": 185.484375,
+            "bottom": 659,
+            "left": 102.734375,
+            "hit": true
+          },
+          {
+            "x": 189.484375,
+            "y": 610,
+            "width": 82.75,
+            "height": 49,
+            "top": 610,
+            "right": 272.234375,
+            "bottom": 659,
+            "left": 189.484375,
+            "hit": true
+          },
+          {
+            "x": 276.234375,
+            "y": 610,
+            "width": 82.75,
+            "height": 49,
+            "top": 610,
+            "right": 358.984375,
+            "bottom": 659,
+            "left": 276.234375,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 16,
+          "y": 119.59375,
+          "scale": 0.7612672632148968,
+          "scaleX": 0.7612672632148968,
+          "scaleY": 0.3998002078527604,
+          "bodyScale": 1,
+          "bodyScaleLimit": 1,
+          "landscape": false,
+          "world": {
+            "left": 69.78224749313512,
+            "top": 119.59375,
+            "width": 343,
+            "height": 847.0399559381888
+          },
+          "scrollTop": 0
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 176.09405463097733,
+            "bottom": 361.9439221809774
+          }
+        ]
+      },
+      "status": "passed"
+    },
+    {
+      "label": "webkit/375x667/6",
+      "before": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 16,
+          "y": 95.59375,
+          "width": 343,
+          "height": 42,
+          "top": 95.59375,
+          "right": 359,
+          "bottom": 137.59375,
+          "left": 16
+        },
+        "comment": {
+          "x": 16,
+          "y": 405,
+          "width": 343,
+          "height": 76,
+          "top": 405,
+          "right": 359,
+          "bottom": 481,
+          "left": 16
+        },
+        "speech": {
+          "x": 16,
+          "y": 667,
+          "width": 0,
+          "height": 0,
+          "top": 667,
+          "right": 16,
+          "bottom": 667,
+          "left": 16
+        },
+        "controls": {
+          "x": 16,
+          "y": 556,
+          "width": 343,
+          "height": 103,
+          "top": 556,
+          "right": 359,
+          "bottom": 659,
+          "left": 16
+        },
+        "frame": {
+          "x": 16,
+          "y": 139.59375,
+          "width": 342.9971618652344,
+          "height": 263.4032287597656,
+          "top": 139.59375,
+          "right": 358.9971618652344,
+          "bottom": 402.9969787597656,
+          "left": 16
+        },
+        "scroll": {
+          "width": 375,
+          "height": 667
+        },
+        "buttons": [
+          {
+            "x": 16,
+            "y": 556,
+            "width": 65.390625,
+            "height": 49,
+            "top": 556,
+            "right": 81.390625,
+            "bottom": 605,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 85.390625,
+            "y": 556,
+            "width": 65.40625,
+            "height": 49,
+            "top": 556,
+            "right": 150.796875,
+            "bottom": 605,
+            "left": 85.390625,
+            "hit": true
+          },
+          {
+            "x": 154.796875,
+            "y": 556,
+            "width": 65.390625,
+            "height": 49,
+            "top": 556,
+            "right": 220.1875,
+            "bottom": 605,
+            "left": 154.796875,
+            "hit": true
+          },
+          {
+            "x": 224.1875,
+            "y": 556,
+            "width": 65.40625,
+            "height": 49,
+            "top": 556,
+            "right": 289.59375,
+            "bottom": 605,
+            "left": 224.1875,
+            "hit": true
+          },
+          {
+            "x": 293.59375,
+            "y": 556,
+            "width": 65.390625,
+            "height": 49,
+            "top": 556,
+            "right": 358.984375,
+            "bottom": 605,
+            "left": 293.59375,
+            "hit": true
+          },
+          {
+            "x": 16,
+            "y": 610,
+            "width": 82.734375,
+            "height": 49,
+            "top": 610,
+            "right": 98.734375,
+            "bottom": 659,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 102.734375,
+            "y": 610,
+            "width": 82.75,
+            "height": 49,
+            "top": 610,
+            "right": 185.484375,
+            "bottom": 659,
+            "left": 102.734375,
+            "hit": true
+          },
+          {
+            "x": 189.484375,
+            "y": 610,
+            "width": 82.75,
+            "height": 49,
+            "top": 610,
+            "right": 272.234375,
+            "bottom": 659,
+            "left": 189.484375,
+            "hit": true
+          },
+          {
+            "x": 276.234375,
+            "y": 610,
+            "width": 82.75,
+            "height": 49,
+            "top": 610,
+            "right": 358.984375,
+            "bottom": 659,
+            "left": 276.234375,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 16,
+          "y": 139.59375,
+          "scale": 0.6756068438935413,
+          "scaleX": 0.6756068438935413,
+          "scaleY": 0.48038888697676485,
+          "bodyScale": 0.9,
+          "bodyScaleLimit": 0.9,
+          "landscape": false,
+          "world": {
+            "left": 98.34585954109147,
+            "top": 139.59375,
+            "width": 343,
+            "height": 688.6489765282425
+          },
+          "scrollTop": 0
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 224.1437739422189,
+            "bottom": 351.5658668452814
+          },
+          {
+            "key": "partner:forest_bear",
+            "valid": true,
+            "top": 180.07010394693123,
+            "bottom": 306.12511844732376
+          },
+          {
+            "key": "companion:cat_friend",
+            "valid": true,
+            "top": 216.78343437108236,
+            "bottom": 286.6810343710824
+          },
+          {
+            "key": "companion:tanuki",
+            "valid": true,
+            "top": 249.73857121391427,
+            "bottom": 331.337839385936
+          },
+          {
+            "key": "companion:rabbit_friend",
+            "valid": true,
+            "top": 236.33828191412502,
+            "bottom": 314.9861670986131
+          },
+          {
+            "key": "companion:squirrel",
+            "valid": true,
+            "top": 303.51646396171157,
+            "bottom": 391.49499452171153
+          }
+        ]
+      },
+      "returned": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 16,
+          "y": 95.59375,
+          "width": 343,
+          "height": 42,
+          "top": 95.59375,
+          "right": 359,
+          "bottom": 137.59375,
+          "left": 16
+        },
+        "comment": {
+          "x": 16,
+          "y": 405,
+          "width": 343,
+          "height": 76,
+          "top": 405,
+          "right": 359,
+          "bottom": 481,
+          "left": 16
+        },
+        "speech": {
+          "x": 16,
+          "y": 667,
+          "width": 0,
+          "height": 0,
+          "top": 667,
+          "right": 16,
+          "bottom": 667,
+          "left": 16
+        },
+        "controls": {
+          "x": 16,
+          "y": 556,
+          "width": 343,
+          "height": 103,
+          "top": 556,
+          "right": 359,
+          "bottom": 659,
+          "left": 16
+        },
+        "frame": {
+          "x": 16,
+          "y": 139.59375,
+          "width": 342.9971618652344,
+          "height": 263.4032287597656,
+          "top": 139.59375,
+          "right": 358.9971618652344,
+          "bottom": 402.9969787597656,
+          "left": 16
+        },
+        "scroll": {
+          "width": 375,
+          "height": 667
+        },
+        "buttons": [
+          {
+            "x": 16,
+            "y": 556,
+            "width": 65.390625,
+            "height": 49,
+            "top": 556,
+            "right": 81.390625,
+            "bottom": 605,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 85.390625,
+            "y": 556,
+            "width": 65.40625,
+            "height": 49,
+            "top": 556,
+            "right": 150.796875,
+            "bottom": 605,
+            "left": 85.390625,
+            "hit": true
+          },
+          {
+            "x": 154.796875,
+            "y": 556,
+            "width": 65.390625,
+            "height": 49,
+            "top": 556,
+            "right": 220.1875,
+            "bottom": 605,
+            "left": 154.796875,
+            "hit": true
+          },
+          {
+            "x": 224.1875,
+            "y": 556,
+            "width": 65.40625,
+            "height": 49,
+            "top": 556,
+            "right": 289.59375,
+            "bottom": 605,
+            "left": 224.1875,
+            "hit": true
+          },
+          {
+            "x": 293.59375,
+            "y": 556,
+            "width": 65.390625,
+            "height": 49,
+            "top": 556,
+            "right": 358.984375,
+            "bottom": 605,
+            "left": 293.59375,
+            "hit": true
+          },
+          {
+            "x": 16,
+            "y": 610,
+            "width": 82.734375,
+            "height": 49,
+            "top": 610,
+            "right": 98.734375,
+            "bottom": 659,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 102.734375,
+            "y": 610,
+            "width": 82.75,
+            "height": 49,
+            "top": 610,
+            "right": 185.484375,
+            "bottom": 659,
+            "left": 102.734375,
+            "hit": true
+          },
+          {
+            "x": 189.484375,
+            "y": 610,
+            "width": 82.75,
+            "height": 49,
+            "top": 610,
+            "right": 272.234375,
+            "bottom": 659,
+            "left": 189.484375,
+            "hit": true
+          },
+          {
+            "x": 276.234375,
+            "y": 610,
+            "width": 82.75,
+            "height": 49,
+            "top": 610,
+            "right": 358.984375,
+            "bottom": 659,
+            "left": 276.234375,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 16,
+          "y": 139.59375,
+          "scale": 0.6756068438935413,
+          "scaleX": 0.6756068438935413,
+          "scaleY": 0.48038888697676485,
+          "bodyScale": 0.9,
+          "bodyScaleLimit": 0.9,
+          "landscape": false,
+          "world": {
+            "left": 98.34585954109147,
+            "top": 139.59375,
+            "width": 343,
+            "height": 688.6489765282425
+          },
+          "scrollTop": 0
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 224.1437739422189,
+            "bottom": 351.5658668452814
+          },
+          {
+            "key": "partner:forest_bear",
+            "valid": true,
+            "top": 180.07010394693123,
+            "bottom": 306.12511844732376
+          },
+          {
+            "key": "companion:cat_friend",
+            "valid": true,
+            "top": 216.78343437108236,
+            "bottom": 286.6810343710824
+          },
+          {
+            "key": "companion:tanuki",
+            "valid": true,
+            "top": 231.10369893726468,
+            "bottom": 310.3889539289628
+          },
+          {
+            "key": "companion:rabbit_friend",
+            "valid": true,
+            "top": 236.33828191412502,
+            "bottom": 314.9861670986131
+          },
+          {
+            "key": "companion:squirrel",
+            "valid": true,
+            "top": 272.9802773314461,
+            "bottom": 357.1809004247794
+          }
+        ]
+      },
+      "status": "passed"
+    },
+    {
+      "label": "webkit/375x667/28",
+      "before": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 16,
+          "y": 95.59375,
+          "width": 343,
+          "height": 42,
+          "top": 95.59375,
+          "right": 359,
+          "bottom": 137.59375,
+          "left": 16
+        },
+        "comment": {
+          "x": 16,
+          "y": 405,
+          "width": 343,
+          "height": 76,
+          "top": 405,
+          "right": 359,
+          "bottom": 481,
+          "left": 16
+        },
+        "speech": {
+          "x": 16,
+          "y": 667,
+          "width": 0,
+          "height": 0,
+          "top": 667,
+          "right": 16,
+          "bottom": 667,
+          "left": 16
+        },
+        "controls": {
+          "x": 16,
+          "y": 556,
+          "width": 343,
+          "height": 103,
+          "top": 556,
+          "right": 359,
+          "bottom": 659,
+          "left": 16
+        },
+        "frame": {
+          "x": 16,
+          "y": 139.59375,
+          "width": 342.995849609375,
+          "height": 263.4056091308594,
+          "top": 139.59375,
+          "right": 358.995849609375,
+          "bottom": 402.9993591308594,
+          "left": 16
+        },
+        "scroll": {
+          "width": 375,
+          "height": 667
+        },
+        "buttons": [
+          {
+            "x": 16,
+            "y": 556,
+            "width": 65.390625,
+            "height": 49,
+            "top": 556,
+            "right": 81.390625,
+            "bottom": 605,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 85.390625,
+            "y": 556,
+            "width": 65.40625,
+            "height": 49,
+            "top": 556,
+            "right": 150.796875,
+            "bottom": 605,
+            "left": 85.390625,
+            "hit": true
+          },
+          {
+            "x": 154.796875,
+            "y": 556,
+            "width": 65.390625,
+            "height": 49,
+            "top": 556,
+            "right": 220.1875,
+            "bottom": 605,
+            "left": 154.796875,
+            "hit": true
+          },
+          {
+            "x": 224.1875,
+            "y": 556,
+            "width": 65.40625,
+            "height": 49,
+            "top": 556,
+            "right": 289.59375,
+            "bottom": 605,
+            "left": 224.1875,
+            "hit": true
+          },
+          {
+            "x": 293.59375,
+            "y": 556,
+            "width": 65.390625,
+            "height": 49,
+            "top": 556,
+            "right": 358.984375,
+            "bottom": 605,
+            "left": 293.59375,
+            "hit": true
+          },
+          {
+            "x": 16,
+            "y": 610,
+            "width": 82.734375,
+            "height": 49,
+            "top": 610,
+            "right": 98.734375,
+            "bottom": 659,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 102.734375,
+            "y": 610,
+            "width": 82.75,
+            "height": 49,
+            "top": 610,
+            "right": 185.484375,
+            "bottom": 659,
+            "left": 102.734375,
+            "hit": true
+          },
+          {
+            "x": 189.484375,
+            "y": 610,
+            "width": 82.75,
+            "height": 49,
+            "top": 610,
+            "right": 272.234375,
+            "bottom": 659,
+            "left": 189.484375,
+            "hit": true
+          },
+          {
+            "x": 276.234375,
+            "y": 610,
+            "width": 82.75,
+            "height": 49,
+            "top": 610,
+            "right": 358.984375,
+            "bottom": 659,
+            "left": 276.234375,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 16,
+          "y": 139.59375,
+          "scale": 0.9614459725120232,
+          "scaleX": 0.9614459725120232,
+          "scaleY": 0.6729455415056406,
+          "bodyScale": 0.7,
+          "bodyScaleLimit": 0.7,
+          "landscape": false,
+          "world": {
+            "left": 19.42484081913525,
+            "top": -7.40625,
+            "width": 343,
+            "height": 679
+          },
+          "scrollTop": 147
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 275.04885645430613,
+            "bottom": 325.2821426645145
+          },
+          {
+            "key": "partner:forest_bear",
+            "valid": true,
+            "top": 163.85197956903025,
+            "bottom": 224.5896712353056
+          },
+          {
+            "key": "companion:cat_friend",
+            "valid": true,
+            "top": 189.24996838002386,
+            "bottom": 222.24715949113497
+          },
+          {
+            "key": "companion:tanuki",
+            "valid": true,
+            "top": 232.95142189175738,
+            "bottom": 270.9799218028685
+          },
+          {
+            "key": "companion:owl",
+            "valid": true,
+            "top": 256.4527134920686,
+            "bottom": 295.3463029587353
+          },
+          {
+            "key": "companion:hamster",
+            "valid": true,
+            "top": 326.95658829300226,
+            "bottom": 368.4454464263356
+          },
+          {
+            "key": "companion:monkey",
+            "valid": true,
+            "top": 257.99456703279384,
+            "bottom": 296.6172961985504
+          },
+          {
+            "key": "companion:sheep",
+            "valid": true,
+            "top": 179.81467952422466,
+            "bottom": 214.33545546562007
+          },
+          {
+            "key": "companion:bat",
+            "valid": true,
+            "top": 190.1008987123356,
+            "bottom": 226.24899239156434
+          },
+          {
+            "key": "companion:penguin_friend",
+            "valid": true,
+            "top": 254.9063023883476,
+            "bottom": 282.0834300428829
+          },
+          {
+            "key": "companion:shiba",
+            "valid": true,
+            "top": 268.87297695865266,
+            "bottom": 305.80691755399204
+          },
+          {
+            "key": "companion:punyu",
+            "valid": true,
+            "top": 345.47017243330237,
+            "bottom": 381.45101836423817
+          },
+          {
+            "key": "companion:chameleon",
+            "valid": true,
+            "top": 295.49989857492415,
+            "bottom": 331.32790588441526
+          },
+          {
+            "key": "companion:unicorn",
+            "valid": true,
+            "top": 205.86311728580685,
+            "bottom": 241.96883812945256
+          },
+          {
+            "key": "companion:watcher",
+            "valid": true,
+            "top": 211.08935009004057,
+            "bottom": 247.38178457614373
+          },
+          {
+            "key": "companion:rabbit_friend",
+            "valid": true,
+            "top": 257.86299018757114,
+            "bottom": 297.13628982090063
+          },
+          {
+            "key": "companion:squirrel",
+            "valid": true,
+            "top": 278.8119395477094,
+            "bottom": 318.52857879649036
+          },
+          {
+            "key": "companion:otter",
+            "valid": true,
+            "top": 346.0850668608223,
+            "bottom": 387.42009361868736
+          },
+          {
+            "key": "companion:panda",
+            "valid": true,
+            "top": 273.5911711436196,
+            "bottom": 313.11563234979917
+          },
+          {
+            "key": "companion:parrot",
+            "valid": true,
+            "top": 200.54607845394455,
+            "bottom": 237.0748852849468
+          },
+          {
+            "key": "companion:seal",
+            "valid": true,
+            "top": 216.48146246167994,
+            "bottom": 251.94075059950111
+          },
+          {
+            "key": "companion:chicken",
+            "valid": true,
+            "top": 263.2171569035983,
+            "bottom": 302.0302426452416
+          },
+          {
+            "key": "companion:hedgehog",
+            "valid": true,
+            "top": 310.3579683235923,
+            "bottom": 350.32038207224997
+          },
+          {
+            "key": "companion:snail",
+            "valid": true,
+            "top": 334.20196415717385,
+            "bottom": 363.2883548588193
+          },
+          {
+            "key": "companion:sekizou",
+            "valid": true,
+            "top": 315.52861822407516,
+            "bottom": 355.9002103211435
+          },
+          {
+            "key": "companion:clock",
+            "valid": true,
+            "top": 174.50572046040415,
+            "bottom": 209.49115944930514
+          },
+          {
+            "key": "companion:many_tail_fox",
+            "valid": true,
+            "top": 232.05815307225424,
+            "bottom": 268.7379012660205
+          },
+          {
+            "key": "companion:box",
+            "valid": true,
+            "top": 232.031680594194,
+            "bottom": 268.8605724769875
+          }
+        ]
+      },
+      "returned": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 16,
+          "y": 95.59375,
+          "width": 343,
+          "height": 42,
+          "top": 95.59375,
+          "right": 359,
+          "bottom": 137.59375,
+          "left": 16
+        },
+        "comment": {
+          "x": 16,
+          "y": 405,
+          "width": 343,
+          "height": 76,
+          "top": 405,
+          "right": 359,
+          "bottom": 481,
+          "left": 16
+        },
+        "speech": {
+          "x": 16,
+          "y": 667,
+          "width": 0,
+          "height": 0,
+          "top": 667,
+          "right": 16,
+          "bottom": 667,
+          "left": 16
+        },
+        "controls": {
+          "x": 16,
+          "y": 556,
+          "width": 343,
+          "height": 103,
+          "top": 556,
+          "right": 359,
+          "bottom": 659,
+          "left": 16
+        },
+        "frame": {
+          "x": 16,
+          "y": 139.59375,
+          "width": 342.995849609375,
+          "height": 263.4056091308594,
+          "top": 139.59375,
+          "right": 358.995849609375,
+          "bottom": 402.9993591308594,
+          "left": 16
+        },
+        "scroll": {
+          "width": 375,
+          "height": 667
+        },
+        "buttons": [
+          {
+            "x": 16,
+            "y": 556,
+            "width": 65.390625,
+            "height": 49,
+            "top": 556,
+            "right": 81.390625,
+            "bottom": 605,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 85.390625,
+            "y": 556,
+            "width": 65.40625,
+            "height": 49,
+            "top": 556,
+            "right": 150.796875,
+            "bottom": 605,
+            "left": 85.390625,
+            "hit": true
+          },
+          {
+            "x": 154.796875,
+            "y": 556,
+            "width": 65.390625,
+            "height": 49,
+            "top": 556,
+            "right": 220.1875,
+            "bottom": 605,
+            "left": 154.796875,
+            "hit": true
+          },
+          {
+            "x": 224.1875,
+            "y": 556,
+            "width": 65.40625,
+            "height": 49,
+            "top": 556,
+            "right": 289.59375,
+            "bottom": 605,
+            "left": 224.1875,
+            "hit": true
+          },
+          {
+            "x": 293.59375,
+            "y": 556,
+            "width": 65.390625,
+            "height": 49,
+            "top": 556,
+            "right": 358.984375,
+            "bottom": 605,
+            "left": 293.59375,
+            "hit": true
+          },
+          {
+            "x": 16,
+            "y": 610,
+            "width": 82.734375,
+            "height": 49,
+            "top": 610,
+            "right": 98.734375,
+            "bottom": 659,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 102.734375,
+            "y": 610,
+            "width": 82.75,
+            "height": 49,
+            "top": 610,
+            "right": 185.484375,
+            "bottom": 659,
+            "left": 102.734375,
+            "hit": true
+          },
+          {
+            "x": 189.484375,
+            "y": 610,
+            "width": 82.75,
+            "height": 49,
+            "top": 610,
+            "right": 272.234375,
+            "bottom": 659,
+            "left": 189.484375,
+            "hit": true
+          },
+          {
+            "x": 276.234375,
+            "y": 610,
+            "width": 82.75,
+            "height": 49,
+            "top": 610,
+            "right": 358.984375,
+            "bottom": 659,
+            "left": 276.234375,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 16,
+          "y": 139.59375,
+          "scale": 0.9614459725120232,
+          "scaleX": 0.9614459725120232,
+          "scaleY": 0.6729455415056406,
+          "bodyScale": 0.7,
+          "bodyScaleLimit": 0.7,
+          "landscape": false,
+          "world": {
+            "left": 19.42484081913525,
+            "top": -7.40625,
+            "width": 343,
+            "height": 679
+          },
+          "scrollTop": 147
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 275.04885645430613,
+            "bottom": 325.2821426645145
+          },
+          {
+            "key": "partner:forest_bear",
+            "valid": true,
+            "top": 163.8519795690303,
+            "bottom": 224.58967123530564
+          },
+          {
+            "key": "companion:cat_friend",
+            "valid": true,
+            "top": 189.24996838002386,
+            "bottom": 222.24715949113497
+          },
+          {
+            "key": "companion:tanuki",
+            "valid": true,
+            "top": 232.95142189175738,
+            "bottom": 270.9799218028685
+          },
+          {
+            "key": "companion:owl",
+            "valid": true,
+            "top": 256.4527134920686,
+            "bottom": 295.3463029587353
+          },
+          {
+            "key": "companion:hamster",
+            "valid": true,
+            "top": 294.2786018773315,
+            "bottom": 334.5645735810352
+          },
+          {
+            "key": "companion:monkey",
+            "valid": true,
+            "top": 242.83050106712224,
+            "bottom": 280.90051984490003
+          },
+          {
+            "key": "companion:sheep",
+            "valid": true,
+            "top": 179.81467952422466,
+            "bottom": 214.33545546562007
+          },
+          {
+            "key": "companion:bat",
+            "valid": true,
+            "top": 190.10089871233555,
+            "bottom": 226.2489923915643
+          },
+          {
+            "key": "companion:penguin_friend",
+            "valid": true,
+            "top": 254.9063023883476,
+            "bottom": 282.0834300428829
+          },
+          {
+            "key": "companion:shiba",
+            "valid": true,
+            "top": 268.87297695865266,
+            "bottom": 305.80691755399204
+          },
+          {
+            "key": "companion:punyu",
+            "valid": true,
+            "top": 299.97497904879924,
+            "bottom": 334.5645735810352
+          },
+          {
+            "key": "companion:chameleon",
+            "valid": true,
+            "top": 288.09592446420555,
+            "bottom": 323.6867248507375
+          },
+          {
+            "key": "companion:unicorn",
+            "valid": true,
+            "top": 205.86311728580685,
+            "bottom": 241.96883812945256
+          },
+          {
+            "key": "companion:watcher",
+            "valid": true,
+            "top": 211.08935009004057,
+            "bottom": 247.38178457614373
+          },
+          {
+            "key": "companion:rabbit_friend",
+            "valid": true,
+            "top": 264.5834823213869,
+            "bottom": 304.10659713620174
+          },
+          {
+            "key": "companion:squirrel",
+            "valid": true,
+            "top": 270.49753299606414,
+            "bottom": 309.9081164590271
+          },
+          {
+            "key": "companion:otter",
+            "valid": true,
+            "top": 242.56168377516974,
+            "bottom": 280.1753299295469
+          },
+          {
+            "key": "companion:panda",
+            "valid": true,
+            "top": 287.28416985342926,
+            "bottom": 327.31267442750334
+          },
+          {
+            "key": "companion:parrot",
+            "valid": true,
+            "top": 203.64801617771462,
+            "bottom": 240.28988458512205
+          },
+          {
+            "key": "companion:seal",
+            "valid": true,
+            "top": 220.64110203534986,
+            "bottom": 256.24406272289195
+          },
+          {
+            "key": "companion:chicken",
+            "valid": true,
+            "top": 263.2171569035983,
+            "bottom": 302.0302426452416
+          },
+          {
+            "key": "companion:hedgehog",
+            "valid": true,
+            "top": 237.04021148158114,
+            "bottom": 274.3738106067214
+          },
+          {
+            "key": "companion:snail",
+            "valid": true,
+            "top": 306.14897754399817,
+            "bottom": 334.5645735810352
+          },
+          {
+            "key": "companion:sekizou",
+            "valid": true,
+            "top": 225.6429157851446,
+            "bottom": 262.7707719610705
+          },
+          {
+            "key": "companion:clock",
+            "valid": true,
+            "top": 169.93348839948297,
+            "bottom": 204.7555787328163
+          },
+          {
+            "key": "companion:many_tail_fox",
+            "valid": true,
+            "top": 209.48368558451347,
+            "bottom": 245.36621399259425
+          },
+          {
+            "key": "companion:box",
+            "valid": true,
+            "top": 203.7397598364355,
+            "bottom": 239.56469466976884
+          }
+        ]
+      },
+      "status": "passed"
+    },
+    {
+      "label": "webkit/390x844/1",
+      "before": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 16,
+          "y": 79.59375,
+          "width": 358,
+          "height": 42,
+          "top": 79.59375,
+          "right": 374,
+          "bottom": 121.59375,
+          "left": 16
+        },
+        "comment": {
+          "x": 16,
+          "y": 574,
+          "width": 358,
+          "height": 76,
+          "top": 574,
+          "right": 374,
+          "bottom": 650,
+          "left": 16
+        },
+        "speech": {
+          "x": 16,
+          "y": 844,
+          "width": 0,
+          "height": 0,
+          "top": 844,
+          "right": 16,
+          "bottom": 844,
+          "left": 16
+        },
+        "controls": {
+          "x": 16,
+          "y": 725,
+          "width": 358,
+          "height": 111,
+          "top": 725,
+          "right": 374,
+          "bottom": 836,
+          "left": 16
+        },
+        "frame": {
+          "x": 16,
+          "y": 123.59375,
+          "width": 357.9912109375,
+          "height": 448.39837646484375,
+          "top": 123.59375,
+          "right": 373.9912109375,
+          "bottom": 571.9921264648438,
+          "left": 16
+        },
+        "scroll": {
+          "width": 390,
+          "height": 844
+        },
+        "buttons": [
+          {
+            "x": 16,
+            "y": 725,
+            "width": 68.390625,
+            "height": 53,
+            "top": 725,
+            "right": 84.390625,
+            "bottom": 778,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 88.390625,
+            "y": 725,
+            "width": 68.40625,
+            "height": 53,
+            "top": 725,
+            "right": 156.796875,
+            "bottom": 778,
+            "left": 88.390625,
+            "hit": true
+          },
+          {
+            "x": 160.796875,
+            "y": 725,
+            "width": 68.390625,
+            "height": 53,
+            "top": 725,
+            "right": 229.1875,
+            "bottom": 778,
+            "left": 160.796875,
+            "hit": true
+          },
+          {
+            "x": 233.1875,
+            "y": 725,
+            "width": 68.40625,
+            "height": 53,
+            "top": 725,
+            "right": 301.59375,
+            "bottom": 778,
+            "left": 233.1875,
+            "hit": true
+          },
+          {
+            "x": 305.59375,
+            "y": 725,
+            "width": 68.390625,
+            "height": 53,
+            "top": 725,
+            "right": 373.984375,
+            "bottom": 778,
+            "left": 305.59375,
+            "hit": true
+          },
+          {
+            "x": 16,
+            "y": 783,
+            "width": 86.484375,
+            "height": 53,
+            "top": 783,
+            "right": 102.484375,
+            "bottom": 836,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 106.484375,
+            "y": 783,
+            "width": 86.5,
+            "height": 53,
+            "top": 783,
+            "right": 192.984375,
+            "bottom": 836,
+            "left": 106.484375,
+            "hit": true
+          },
+          {
+            "x": 196.984375,
+            "y": 783,
+            "width": 86.5,
+            "height": 53,
+            "top": 783,
+            "right": 283.484375,
+            "bottom": 836,
+            "left": 196.984375,
+            "hit": true
+          },
+          {
+            "x": 287.484375,
+            "y": 783,
+            "width": 86.5,
+            "height": 53,
+            "top": 783,
+            "right": 373.984375,
+            "bottom": 836,
+            "left": 287.484375,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 16,
+          "y": 123.59375,
+          "scale": 0.7644790578402506,
+          "scaleX": 0.7644790578402506,
+          "scaleY": 0.8918636133777518,
+          "bodyScale": 1,
+          "bodyScaleLimit": 1,
+          "landscape": false,
+          "world": {
+            "left": 71.1463747950107,
+            "top": 96.59375,
+            "width": 358,
+            "height": 688
+          },
+          "scrollTop": 27
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 287.0721184022523,
+            "bottom": 478.804635068919
+          }
+        ]
+      },
+      "returned": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 16,
+          "y": 79.59375,
+          "width": 358,
+          "height": 42,
+          "top": 79.59375,
+          "right": 374,
+          "bottom": 121.59375,
+          "left": 16
+        },
+        "comment": {
+          "x": 16,
+          "y": 574,
+          "width": 358,
+          "height": 76,
+          "top": 574,
+          "right": 374,
+          "bottom": 650,
+          "left": 16
+        },
+        "speech": {
+          "x": 16,
+          "y": 844,
+          "width": 0,
+          "height": 0,
+          "top": 844,
+          "right": 16,
+          "bottom": 844,
+          "left": 16
+        },
+        "controls": {
+          "x": 16,
+          "y": 725,
+          "width": 358,
+          "height": 111,
+          "top": 725,
+          "right": 374,
+          "bottom": 836,
+          "left": 16
+        },
+        "frame": {
+          "x": 16,
+          "y": 123.59375,
+          "width": 357.9912109375,
+          "height": 448.39837646484375,
+          "top": 123.59375,
+          "right": 373.9912109375,
+          "bottom": 571.9921264648438,
+          "left": 16
+        },
+        "scroll": {
+          "width": 390,
+          "height": 844
+        },
+        "buttons": [
+          {
+            "x": 16,
+            "y": 725,
+            "width": 68.390625,
+            "height": 53,
+            "top": 725,
+            "right": 84.390625,
+            "bottom": 778,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 88.390625,
+            "y": 725,
+            "width": 68.40625,
+            "height": 53,
+            "top": 725,
+            "right": 156.796875,
+            "bottom": 778,
+            "left": 88.390625,
+            "hit": true
+          },
+          {
+            "x": 160.796875,
+            "y": 725,
+            "width": 68.390625,
+            "height": 53,
+            "top": 725,
+            "right": 229.1875,
+            "bottom": 778,
+            "left": 160.796875,
+            "hit": true
+          },
+          {
+            "x": 233.1875,
+            "y": 725,
+            "width": 68.40625,
+            "height": 53,
+            "top": 725,
+            "right": 301.59375,
+            "bottom": 778,
+            "left": 233.1875,
+            "hit": true
+          },
+          {
+            "x": 305.59375,
+            "y": 725,
+            "width": 68.390625,
+            "height": 53,
+            "top": 725,
+            "right": 373.984375,
+            "bottom": 778,
+            "left": 305.59375,
+            "hit": true
+          },
+          {
+            "x": 16,
+            "y": 783,
+            "width": 86.484375,
+            "height": 53,
+            "top": 783,
+            "right": 102.484375,
+            "bottom": 836,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 106.484375,
+            "y": 783,
+            "width": 86.5,
+            "height": 53,
+            "top": 783,
+            "right": 192.984375,
+            "bottom": 836,
+            "left": 106.484375,
+            "hit": true
+          },
+          {
+            "x": 196.984375,
+            "y": 783,
+            "width": 86.5,
+            "height": 53,
+            "top": 783,
+            "right": 283.484375,
+            "bottom": 836,
+            "left": 196.984375,
+            "hit": true
+          },
+          {
+            "x": 287.484375,
+            "y": 783,
+            "width": 86.5,
+            "height": 53,
+            "top": 783,
+            "right": 373.984375,
+            "bottom": 836,
+            "left": 287.484375,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 16,
+          "y": 123.59375,
+          "scale": 0.7644790578402506,
+          "scaleX": 0.7644790578402506,
+          "scaleY": 0.8918636133777518,
+          "bodyScale": 1,
+          "bodyScaleLimit": 1,
+          "landscape": false,
+          "world": {
+            "left": 71.1463747950107,
+            "top": 96.59375,
+            "width": 358,
+            "height": 688
+          },
+          "scrollTop": 27
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 287.0721184022524,
+            "bottom": 478.8046350689191
+          }
+        ]
+      },
+      "status": "passed"
+    },
+    {
+      "label": "webkit/390x844/6",
+      "before": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 16,
+          "y": 99.59375,
+          "width": 358,
+          "height": 42,
+          "top": 99.59375,
+          "right": 374,
+          "bottom": 141.59375,
+          "left": 16
+        },
+        "comment": {
+          "x": 16,
+          "y": 574,
+          "width": 358,
+          "height": 76,
+          "top": 574,
+          "right": 374,
+          "bottom": 650,
+          "left": 16
+        },
+        "speech": {
+          "x": 16,
+          "y": 844,
+          "width": 0,
+          "height": 0,
+          "top": 844,
+          "right": 16,
+          "bottom": 844,
+          "left": 16
+        },
+        "controls": {
+          "x": 16,
+          "y": 725,
+          "width": 358,
+          "height": 111,
+          "top": 725,
+          "right": 374,
+          "bottom": 836,
+          "left": 16
+        },
+        "frame": {
+          "x": 16,
+          "y": 143.59375,
+          "width": 357.99365234375,
+          "height": 428.39312744140625,
+          "top": 143.59375,
+          "right": 373.99365234375,
+          "bottom": 571.9868774414062,
+          "left": 16
+        },
+        "scroll": {
+          "width": 390,
+          "height": 844
+        },
+        "buttons": [
+          {
+            "x": 16,
+            "y": 725,
+            "width": 68.390625,
+            "height": 53,
+            "top": 725,
+            "right": 84.390625,
+            "bottom": 778,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 88.390625,
+            "y": 725,
+            "width": 68.40625,
+            "height": 53,
+            "top": 725,
+            "right": 156.796875,
+            "bottom": 778,
+            "left": 88.390625,
+            "hit": true
+          },
+          {
+            "x": 160.796875,
+            "y": 725,
+            "width": 68.390625,
+            "height": 53,
+            "top": 725,
+            "right": 229.1875,
+            "bottom": 778,
+            "left": 160.796875,
+            "hit": true
+          },
+          {
+            "x": 233.1875,
+            "y": 725,
+            "width": 68.40625,
+            "height": 53,
+            "top": 725,
+            "right": 301.59375,
+            "bottom": 778,
+            "left": 233.1875,
+            "hit": true
+          },
+          {
+            "x": 305.59375,
+            "y": 725,
+            "width": 68.390625,
+            "height": 53,
+            "top": 725,
+            "right": 373.984375,
+            "bottom": 778,
+            "left": 305.59375,
+            "hit": true
+          },
+          {
+            "x": 16,
+            "y": 783,
+            "width": 86.484375,
+            "height": 53,
+            "top": 783,
+            "right": 102.484375,
+            "bottom": 836,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 106.484375,
+            "y": 783,
+            "width": 86.5,
+            "height": 53,
+            "top": 783,
+            "right": 192.984375,
+            "bottom": 836,
+            "left": 106.484375,
+            "hit": true
+          },
+          {
+            "x": 196.984375,
+            "y": 783,
+            "width": 86.5,
+            "height": 53,
+            "top": 783,
+            "right": 283.484375,
+            "bottom": 836,
+            "left": 196.984375,
+            "hit": true
+          },
+          {
+            "x": 287.484375,
+            "y": 783,
+            "width": 86.5,
+            "height": 53,
+            "top": 783,
+            "right": 373.984375,
+            "bottom": 836,
+            "left": 287.484375,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 16,
+          "y": 143.59375,
+          "scale": 0.6735930169000284,
+          "scaleX": 0.6735930169000284,
+          "scaleY": 0.9685647272437028,
+          "bodyScale": 0.9,
+          "bodyScaleLimit": 0.9,
+          "landscape": false,
+          "world": {
+            "left": 102.73909691609285,
+            "top": 55.59375,
+            "width": 358,
+            "height": 688
+          },
+          "scrollTop": 88
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 334.84967781353106,
+            "bottom": 468.33316329821855
+          },
+          {
+            "key": "partner:forest_bear",
+            "valid": true,
+            "top": 252.17656789118047,
+            "bottom": 384.8455580583253
+          },
+          {
+            "key": "companion:cat_friend",
+            "valid": true,
+            "top": 259.5601249857166,
+            "bottom": 332.4817249857166
+          },
+          {
+            "key": "companion:tanuki",
+            "valid": true,
+            "top": 308.4444541412186,
+            "bottom": 391.7769786315534
+          },
+          {
+            "key": "companion:rabbit_friend",
+            "valid": true,
+            "top": 315.5734520727756,
+            "bottom": 397.9488397641797
+          },
+          {
+            "key": "companion:squirrel",
+            "valid": true,
+            "top": 460.0201514536044,
+            "bottom": 551.9340484136044
+          }
+        ]
+      },
+      "returned": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 16,
+          "y": 99.59375,
+          "width": 358,
+          "height": 42,
+          "top": 99.59375,
+          "right": 374,
+          "bottom": 141.59375,
+          "left": 16
+        },
+        "comment": {
+          "x": 16,
+          "y": 574,
+          "width": 358,
+          "height": 76,
+          "top": 574,
+          "right": 374,
+          "bottom": 650,
+          "left": 16
+        },
+        "speech": {
+          "x": 16,
+          "y": 844,
+          "width": 0,
+          "height": 0,
+          "top": 844,
+          "right": 16,
+          "bottom": 844,
+          "left": 16
+        },
+        "controls": {
+          "x": 16,
+          "y": 725,
+          "width": 358,
+          "height": 111,
+          "top": 725,
+          "right": 374,
+          "bottom": 836,
+          "left": 16
+        },
+        "frame": {
+          "x": 16,
+          "y": 143.59375,
+          "width": 357.99365234375,
+          "height": 428.39312744140625,
+          "top": 143.59375,
+          "right": 373.99365234375,
+          "bottom": 571.9868774414062,
+          "left": 16
+        },
+        "scroll": {
+          "width": 390,
+          "height": 844
+        },
+        "buttons": [
+          {
+            "x": 16,
+            "y": 725,
+            "width": 68.390625,
+            "height": 53,
+            "top": 725,
+            "right": 84.390625,
+            "bottom": 778,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 88.390625,
+            "y": 725,
+            "width": 68.40625,
+            "height": 53,
+            "top": 725,
+            "right": 156.796875,
+            "bottom": 778,
+            "left": 88.390625,
+            "hit": true
+          },
+          {
+            "x": 160.796875,
+            "y": 725,
+            "width": 68.390625,
+            "height": 53,
+            "top": 725,
+            "right": 229.1875,
+            "bottom": 778,
+            "left": 160.796875,
+            "hit": true
+          },
+          {
+            "x": 233.1875,
+            "y": 725,
+            "width": 68.40625,
+            "height": 53,
+            "top": 725,
+            "right": 301.59375,
+            "bottom": 778,
+            "left": 233.1875,
+            "hit": true
+          },
+          {
+            "x": 305.59375,
+            "y": 725,
+            "width": 68.390625,
+            "height": 53,
+            "top": 725,
+            "right": 373.984375,
+            "bottom": 778,
+            "left": 305.59375,
+            "hit": true
+          },
+          {
+            "x": 16,
+            "y": 783,
+            "width": 86.484375,
+            "height": 53,
+            "top": 783,
+            "right": 102.484375,
+            "bottom": 836,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 106.484375,
+            "y": 783,
+            "width": 86.5,
+            "height": 53,
+            "top": 783,
+            "right": 192.984375,
+            "bottom": 836,
+            "left": 106.484375,
+            "hit": true
+          },
+          {
+            "x": 196.984375,
+            "y": 783,
+            "width": 86.5,
+            "height": 53,
+            "top": 783,
+            "right": 283.484375,
+            "bottom": 836,
+            "left": 196.984375,
+            "hit": true
+          },
+          {
+            "x": 287.484375,
+            "y": 783,
+            "width": 86.5,
+            "height": 53,
+            "top": 783,
+            "right": 373.984375,
+            "bottom": 836,
+            "left": 287.484375,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 16,
+          "y": 143.59375,
+          "scale": 0.6735930169000284,
+          "scaleX": 0.6735930169000284,
+          "scaleY": 0.9685647272437028,
+          "bodyScale": 0.9,
+          "bodyScaleLimit": 0.9,
+          "landscape": false,
+          "world": {
+            "left": 102.73909691609285,
+            "top": 55.59375,
+            "width": 358,
+            "height": 688
+          },
+          "scrollTop": 88
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 334.84967781353106,
+            "bottom": 468.33316329821855
+          },
+          {
+            "key": "partner:forest_bear",
+            "valid": true,
+            "top": 239.49375945141907,
+            "bottom": 370.88316781714207
+          },
+          {
+            "key": "companion:cat_friend",
+            "valid": true,
+            "top": 242.33107416511592,
+            "bottom": 314.34753610016367
+          },
+          {
+            "key": "companion:tanuki",
+            "valid": true,
+            "top": 372.4376172942059,
+            "bottom": 459.51815971150114
+          },
+          {
+            "key": "companion:rabbit_friend",
+            "valid": true,
+            "top": 293.972220498355,
+            "bottom": 375.1051644893174
+          },
+          {
+            "key": "companion:squirrel",
+            "valid": true,
+            "top": 279.2408882176361,
+            "bottom": 360.60361847999343
+          }
+        ]
+      },
+      "status": "passed"
+    },
+    {
+      "label": "webkit/390x844/28",
+      "before": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 16,
+          "y": 99.59375,
+          "width": 358,
+          "height": 42,
+          "top": 99.59375,
+          "right": 374,
+          "bottom": 141.59375,
+          "left": 16
+        },
+        "comment": {
+          "x": 16,
+          "y": 574,
+          "width": 358,
+          "height": 76,
+          "top": 574,
+          "right": 374,
+          "bottom": 650,
+          "left": 16
+        },
+        "speech": {
+          "x": 16,
+          "y": 844,
+          "width": 0,
+          "height": 0,
+          "top": 844,
+          "right": 16,
+          "bottom": 844,
+          "left": 16
+        },
+        "controls": {
+          "x": 16,
+          "y": 725,
+          "width": 358,
+          "height": 111,
+          "top": 725,
+          "right": 374,
+          "bottom": 836,
+          "left": 16
+        },
+        "frame": {
+          "x": 16,
+          "y": 143.59375,
+          "width": 357.98516845703125,
+          "height": 428.40008544921875,
+          "top": 143.59375,
+          "right": 373.98516845703125,
+          "bottom": 571.9938354492188,
+          "left": 16
+        },
+        "scroll": {
+          "width": 390,
+          "height": 844
+        },
+        "buttons": [
+          {
+            "x": 16,
+            "y": 725,
+            "width": 68.390625,
+            "height": 53,
+            "top": 725,
+            "right": 84.390625,
+            "bottom": 778,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 88.390625,
+            "y": 725,
+            "width": 68.40625,
+            "height": 53,
+            "top": 725,
+            "right": 156.796875,
+            "bottom": 778,
+            "left": 88.390625,
+            "hit": true
+          },
+          {
+            "x": 160.796875,
+            "y": 725,
+            "width": 68.390625,
+            "height": 53,
+            "top": 725,
+            "right": 229.1875,
+            "bottom": 778,
+            "left": 160.796875,
+            "hit": true
+          },
+          {
+            "x": 233.1875,
+            "y": 725,
+            "width": 68.40625,
+            "height": 53,
+            "top": 725,
+            "right": 301.59375,
+            "bottom": 778,
+            "left": 233.1875,
+            "hit": true
+          },
+          {
+            "x": 305.59375,
+            "y": 725,
+            "width": 68.390625,
+            "height": 53,
+            "top": 725,
+            "right": 373.984375,
+            "bottom": 778,
+            "left": 305.59375,
+            "hit": true
+          },
+          {
+            "x": 16,
+            "y": 783,
+            "width": 86.484375,
+            "height": 53,
+            "top": 783,
+            "right": 102.484375,
+            "bottom": 836,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 106.484375,
+            "y": 783,
+            "width": 86.5,
+            "height": 53,
+            "top": 783,
+            "right": 192.984375,
+            "bottom": 836,
+            "left": 106.484375,
+            "hit": true
+          },
+          {
+            "x": 196.984375,
+            "y": 783,
+            "width": 86.5,
+            "height": 53,
+            "top": 783,
+            "right": 283.484375,
+            "bottom": 836,
+            "left": 196.984375,
+            "hit": true
+          },
+          {
+            "x": 287.484375,
+            "y": 783,
+            "width": 86.5,
+            "height": 53,
+            "top": 783,
+            "right": 373.984375,
+            "bottom": 836,
+            "left": 287.484375,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 16,
+          "y": 143.59375,
+          "scale": 0.9588620798707138,
+          "scaleX": 0.9588620798707138,
+          "scaleY": 1.1591597637995625,
+          "bodyScale": 0.7,
+          "bodyScaleLimit": 0.7,
+          "landscape": false,
+          "world": {
+            "left": 20.020980129639582,
+            "top": -20.40625,
+            "width": 358,
+            "height": 688
+          },
+          "scrollTop": 164
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 387.62258957230745,
+            "bottom": 440.2130837119334
+          },
+          {
+            "key": "partner:forest_bear",
+            "valid": true,
+            "top": 205.79441214816055,
+            "bottom": 269.59454058022817
+          },
+          {
+            "key": "companion:cat_friend",
+            "valid": true,
+            "top": 221.47357440587535,
+            "bottom": 255.41529885031977
+          },
+          {
+            "key": "companion:tanuki",
+            "valid": true,
+            "top": 303.58499131069254,
+            "bottom": 342.819656555137
+          },
+          {
+            "key": "companion:owl",
+            "valid": true,
+            "top": 346.389903940879,
+            "bottom": 386.52183540754567
+          },
+          {
+            "key": "companion:hamster",
+            "valid": true,
+            "top": 474.8046418314382,
+            "bottom": 517.6283719647715
+          },
+          {
+            "key": "companion:monkey",
+            "valid": true,
+            "top": 358.50620403510754,
+            "bottom": 398.54824797859715
+          },
+          {
+            "key": "companion:sheep",
+            "valid": true,
+            "top": 194.60576605993165,
+            "bottom": 229.94857789715604
+          },
+          {
+            "key": "companion:bat",
+            "valid": true,
+            "top": 249.15636922583897,
+            "bottom": 286.92890694796165
+          },
+          {
+            "key": "companion:penguin_friend",
+            "valid": true,
+            "top": 333.1258891419157,
+            "bottom": 360.82633821305217
+          },
+          {
+            "key": "companion:shiba",
+            "valid": true,
+            "top": 368.02654440609496,
+            "bottom": 406.08869964664746
+          },
+          {
+            "key": "companion:punyu",
+            "valid": true,
+            "top": 505.8059087057462,
+            "bottom": 542.813812384078
+          },
+          {
+            "key": "companion:chameleon",
+            "valid": true,
+            "top": 414.0830384512162,
+            "bottom": 450.9351881375967
+          },
+          {
+            "key": "companion:unicorn",
+            "valid": true,
+            "top": 185.42482939508187,
+            "bottom": 221.25901883670312
+          },
+          {
+            "key": "companion:watcher",
+            "valid": true,
+            "top": 258.12132280679873,
+            "bottom": 295.4341862103568
+          },
+          {
+            "key": "companion:rabbit_friend",
+            "valid": true,
+            "top": 349.2708296773349,
+            "bottom": 389.8052420694321
+          },
+          {
+            "key": "companion:squirrel",
+            "valid": true,
+            "top": 394.8855131915113,
+            "bottom": 436.03399788613604
+          },
+          {
+            "key": "companion:otter",
+            "valid": true,
+            "top": 508.8039619186449,
+            "bottom": 551.4451515068479
+          },
+          {
+            "key": "companion:panda",
+            "valid": true,
+            "top": 394.8855131915113,
+            "bottom": 436.03399788613604
+          },
+          {
+            "key": "companion:parrot",
+            "valid": true,
+            "top": 249.15636922583897,
+            "bottom": 286.92890694796165
+          },
+          {
+            "key": "companion:seal",
+            "valid": true,
+            "top": 294.9830415927707,
+            "bottom": 331.95919934074396
+          },
+          {
+            "key": "companion:chicken",
+            "valid": true,
+            "top": 367.6186902692133,
+            "bottom": 407.8498597311501
+          },
+          {
+            "key": "companion:hedgehog",
+            "valid": true,
+            "top": 431.53406944020156,
+            "bottom": 472.5022200116877
+          },
+          {
+            "key": "companion:snail",
+            "valid": true,
+            "top": 521.1859121514458,
+            "bottom": 551.4451515068479
+          },
+          {
+            "key": "companion:sekizou",
+            "valid": true,
+            "top": 477.05569475373517,
+            "bottom": 519.1898978157246
+          },
+          {
+            "key": "companion:clock",
+            "valid": true,
+            "top": 266.48879155018074,
+            "bottom": 303.9718524086296
+          },
+          {
+            "key": "companion:many_tail_fox",
+            "valid": true,
+            "top": 285.7576722782489,
+            "bottom": 323.25851204611945
+          },
+          {
+            "key": "companion:box",
+            "valid": true,
+            "top": 316.5413874115102,
+            "bottom": 354.81934639680935
+          }
+        ]
+      },
+      "returned": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 16,
+          "y": 99.59375,
+          "width": 358,
+          "height": 42,
+          "top": 99.59375,
+          "right": 374,
+          "bottom": 141.59375,
+          "left": 16
+        },
+        "comment": {
+          "x": 16,
+          "y": 574,
+          "width": 358,
+          "height": 76,
+          "top": 574,
+          "right": 374,
+          "bottom": 650,
+          "left": 16
+        },
+        "speech": {
+          "x": 16,
+          "y": 844,
+          "width": 0,
+          "height": 0,
+          "top": 844,
+          "right": 16,
+          "bottom": 844,
+          "left": 16
+        },
+        "controls": {
+          "x": 16,
+          "y": 725,
+          "width": 358,
+          "height": 111,
+          "top": 725,
+          "right": 374,
+          "bottom": 836,
+          "left": 16
+        },
+        "frame": {
+          "x": 16,
+          "y": 143.59375,
+          "width": 357.98516845703125,
+          "height": 428.40008544921875,
+          "top": 143.59375,
+          "right": 373.98516845703125,
+          "bottom": 571.9938354492188,
+          "left": 16
+        },
+        "scroll": {
+          "width": 390,
+          "height": 844
+        },
+        "buttons": [
+          {
+            "x": 16,
+            "y": 725,
+            "width": 68.390625,
+            "height": 53,
+            "top": 725,
+            "right": 84.390625,
+            "bottom": 778,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 88.390625,
+            "y": 725,
+            "width": 68.40625,
+            "height": 53,
+            "top": 725,
+            "right": 156.796875,
+            "bottom": 778,
+            "left": 88.390625,
+            "hit": true
+          },
+          {
+            "x": 160.796875,
+            "y": 725,
+            "width": 68.390625,
+            "height": 53,
+            "top": 725,
+            "right": 229.1875,
+            "bottom": 778,
+            "left": 160.796875,
+            "hit": true
+          },
+          {
+            "x": 233.1875,
+            "y": 725,
+            "width": 68.40625,
+            "height": 53,
+            "top": 725,
+            "right": 301.59375,
+            "bottom": 778,
+            "left": 233.1875,
+            "hit": true
+          },
+          {
+            "x": 305.59375,
+            "y": 725,
+            "width": 68.390625,
+            "height": 53,
+            "top": 725,
+            "right": 373.984375,
+            "bottom": 778,
+            "left": 305.59375,
+            "hit": true
+          },
+          {
+            "x": 16,
+            "y": 783,
+            "width": 86.484375,
+            "height": 53,
+            "top": 783,
+            "right": 102.484375,
+            "bottom": 836,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 106.484375,
+            "y": 783,
+            "width": 86.5,
+            "height": 53,
+            "top": 783,
+            "right": 192.984375,
+            "bottom": 836,
+            "left": 106.484375,
+            "hit": true
+          },
+          {
+            "x": 196.984375,
+            "y": 783,
+            "width": 86.5,
+            "height": 53,
+            "top": 783,
+            "right": 283.484375,
+            "bottom": 836,
+            "left": 196.984375,
+            "hit": true
+          },
+          {
+            "x": 287.484375,
+            "y": 783,
+            "width": 86.5,
+            "height": 53,
+            "top": 783,
+            "right": 373.984375,
+            "bottom": 836,
+            "left": 287.484375,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 16,
+          "y": 143.59375,
+          "scale": 0.9588620798707138,
+          "scaleX": 0.9588620798707138,
+          "scaleY": 1.1591597637995625,
+          "bodyScale": 0.7,
+          "bodyScaleLimit": 0.7,
+          "landscape": false,
+          "world": {
+            "left": 20.020980129639582,
+            "top": -20.40625,
+            "width": 358,
+            "height": 688
+          },
+          "scrollTop": 164
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 387.62258957230745,
+            "bottom": 440.2130837119334
+          },
+          {
+            "key": "partner:forest_bear",
+            "valid": true,
+            "top": 205.79441214816055,
+            "bottom": 269.59454058022817
+          },
+          {
+            "key": "companion:cat_friend",
+            "valid": true,
+            "top": 221.47357440587535,
+            "bottom": 255.41529885031977
+          },
+          {
+            "key": "companion:tanuki",
+            "valid": true,
+            "top": 303.58499131069254,
+            "bottom": 342.819656555137
+          },
+          {
+            "key": "companion:owl",
+            "valid": true,
+            "top": 346.389903940879,
+            "bottom": 386.52183540754567
+          },
+          {
+            "key": "companion:hamster",
+            "valid": true,
+            "top": 381.39749561767405,
+            "bottom": 422.26324775124203
+          },
+          {
+            "key": "companion:monkey",
+            "valid": true,
+            "top": 354.4021687266806,
+            "bottom": 394.3590352788972
+          },
+          {
+            "key": "companion:sheep",
+            "valid": true,
+            "top": 189.83682137535592,
+            "bottom": 225.08479338849003
+          },
+          {
+            "key": "companion:bat",
+            "valid": true,
+            "top": 263.279340127284,
+            "bottom": 301.34499370441387
+          },
+          {
+            "key": "companion:penguin_friend",
+            "valid": true,
+            "top": 335.9883305306563,
+            "bottom": 363.7274924790687
+          },
+          {
+            "key": "companion:shiba",
+            "valid": true,
+            "top": 326.9429946726779,
+            "bottom": 364.20607911624666
+          },
+          {
+            "key": "companion:punyu",
+            "valid": true,
+            "top": 290.3399508090624,
+            "bottom": 323.6023608719435
+          },
+          {
+            "key": "companion:chameleon",
+            "valid": true,
+            "top": 262.88943124630214,
+            "bottom": 296.98651955499685
+          },
+          {
+            "key": "companion:unicorn",
+            "valid": true,
+            "top": 180.98889787761635,
+            "bottom": 216.73285880718734
+          },
+          {
+            "key": "companion:watcher",
+            "valid": true,
+            "top": 299.49665957083477,
+            "bottom": 337.65111285401537
+          },
+          {
+            "key": "companion:rabbit_friend",
+            "valid": true,
+            "top": 363.27923116164266,
+            "bottom": 404.11018815911615
+          },
+          {
+            "key": "companion:squirrel",
+            "valid": true,
+            "top": 253.8514272399053,
+            "bottom": 292.04358954696556
+          },
+          {
+            "key": "companion:otter",
+            "valid": true,
+            "top": 409.19696095771627,
+            "bottom": 449.7994839877157
+          },
+          {
+            "key": "companion:panda",
+            "valid": true,
+            "top": 426.9496628954487,
+            "bottom": 468.7702685384837
+          },
+          {
+            "key": "companion:parrot",
+            "valid": true,
+            "top": 226.8302086875255,
+            "bottom": 264.13937707462065
+          },
+          {
+            "key": "companion:seal",
+            "valid": true,
+            "top": 199.33630058511272,
+            "bottom": 234.43208102252353
+          },
+          {
+            "key": "companion:chicken",
+            "valid": true,
+            "top": 363.0738473698637,
+            "bottom": 403.2106906789243
+          },
+          {
+            "key": "companion:hedgehog",
+            "valid": true,
+            "top": 281.37718440815155,
+            "bottom": 319.2799932852744
+          },
+          {
+            "key": "companion:snail",
+            "valid": true,
+            "top": 409.2001809713284,
+            "bottom": 437.9439319669657
+          },
+          {
+            "key": "companion:sekizou",
+            "valid": true,
+            "top": 308.7267872401283,
+            "bottom": 347.4022657342344
+          },
+          {
+            "key": "companion:clock",
+            "valid": true,
+            "top": 436.23638460147157,
+            "bottom": 477.17217521574025
+          },
+          {
+            "key": "companion:many_tail_fox",
+            "valid": true,
+            "top": 290.3717736274144,
+            "bottom": 327.96537793537436
+          },
+          {
+            "key": "companion:box",
+            "valid": true,
+            "top": 463.6025666013079,
+            "bottom": 504.85151332312427
+          }
+        ]
+      },
+      "status": "passed"
+    },
+    {
+      "label": "webkit/430x932/1",
+      "before": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 16,
+          "y": 79.59375,
+          "width": 398,
+          "height": 42,
+          "top": 79.59375,
+          "right": 414,
+          "bottom": 121.59375,
+          "left": 16
+        },
+        "comment": {
+          "x": 16,
+          "y": 662,
+          "width": 398,
+          "height": 76,
+          "top": 662,
+          "right": 414,
+          "bottom": 738,
+          "left": 16
+        },
+        "speech": {
+          "x": 16,
+          "y": 932,
+          "width": 0,
+          "height": 0,
+          "top": 932,
+          "right": 16,
+          "bottom": 932,
+          "left": 16
+        },
+        "controls": {
+          "x": 16,
+          "y": 813,
+          "width": 398,
+          "height": 111,
+          "top": 813,
+          "right": 414,
+          "bottom": 924,
+          "left": 16
+        },
+        "frame": {
+          "x": 16,
+          "y": 123.59375,
+          "width": 397.9922180175781,
+          "height": 536.3927001953125,
+          "top": 123.59375,
+          "right": 413.9922180175781,
+          "bottom": 659.9864501953125,
+          "left": 16
+        },
+        "scroll": {
+          "width": 430,
+          "height": 932
+        },
+        "buttons": [
+          {
+            "x": 16,
+            "y": 813,
+            "width": 76.390625,
+            "height": 53,
+            "top": 813,
+            "right": 92.390625,
+            "bottom": 866,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 96.390625,
+            "y": 813,
+            "width": 76.40625,
+            "height": 53,
+            "top": 813,
+            "right": 172.796875,
+            "bottom": 866,
+            "left": 96.390625,
+            "hit": true
+          },
+          {
+            "x": 176.796875,
+            "y": 813,
+            "width": 76.390625,
+            "height": 53,
+            "top": 813,
+            "right": 253.1875,
+            "bottom": 866,
+            "left": 176.796875,
+            "hit": true
+          },
+          {
+            "x": 257.1875,
+            "y": 813,
+            "width": 76.40625,
+            "height": 53,
+            "top": 813,
+            "right": 333.59375,
+            "bottom": 866,
+            "left": 257.1875,
+            "hit": true
+          },
+          {
+            "x": 337.59375,
+            "y": 813,
+            "width": 76.40625,
+            "height": 53,
+            "top": 813,
+            "right": 414,
+            "bottom": 866,
+            "left": 337.59375,
+            "hit": true
+          },
+          {
+            "x": 16,
+            "y": 871,
+            "width": 96.5,
+            "height": 53,
+            "top": 871,
+            "right": 112.5,
+            "bottom": 924,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 116.5,
+            "y": 871,
+            "width": 96.5,
+            "height": 53,
+            "top": 871,
+            "right": 213,
+            "bottom": 924,
+            "left": 116.5,
+            "hit": true
+          },
+          {
+            "x": 217,
+            "y": 871,
+            "width": 96.5,
+            "height": 53,
+            "top": 871,
+            "right": 313.5,
+            "bottom": 924,
+            "left": 217,
+            "hit": true
+          },
+          {
+            "x": 317.5,
+            "y": 871,
+            "width": 96.5,
+            "height": 53,
+            "top": 871,
+            "right": 414,
+            "bottom": 924,
+            "left": 317.5,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 16,
+          "y": 123.59375,
+          "scale": 0.8020751855694787,
+          "scaleX": 0.8020751855694787,
+          "scaleY": 1.0171895832427302,
+          "bodyScale": 1,
+          "bodyScaleLimit": 1,
+          "landscape": false,
+          "world": {
+            "left": 65.10641643115872,
+            "top": 106.59375,
+            "width": 398,
+            "height": 688
+          },
+          "scrollTop": 17
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 333.49341943739125,
+            "bottom": 525.225936104058
+          }
+        ]
+      },
+      "returned": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 16,
+          "y": 79.59375,
+          "width": 398,
+          "height": 42,
+          "top": 79.59375,
+          "right": 414,
+          "bottom": 121.59375,
+          "left": 16
+        },
+        "comment": {
+          "x": 16,
+          "y": 662,
+          "width": 398,
+          "height": 76,
+          "top": 662,
+          "right": 414,
+          "bottom": 738,
+          "left": 16
+        },
+        "speech": {
+          "x": 16,
+          "y": 932,
+          "width": 0,
+          "height": 0,
+          "top": 932,
+          "right": 16,
+          "bottom": 932,
+          "left": 16
+        },
+        "controls": {
+          "x": 16,
+          "y": 813,
+          "width": 398,
+          "height": 111,
+          "top": 813,
+          "right": 414,
+          "bottom": 924,
+          "left": 16
+        },
+        "frame": {
+          "x": 16,
+          "y": 123.59375,
+          "width": 397.9922180175781,
+          "height": 536.3964233398438,
+          "top": 123.59375,
+          "right": 413.9922180175781,
+          "bottom": 659.9901733398438,
+          "left": 16
+        },
+        "scroll": {
+          "width": 430,
+          "height": 932
+        },
+        "buttons": [
+          {
+            "x": 16,
+            "y": 813,
+            "width": 76.390625,
+            "height": 53,
+            "top": 813,
+            "right": 92.390625,
+            "bottom": 866,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 96.390625,
+            "y": 813,
+            "width": 76.40625,
+            "height": 53,
+            "top": 813,
+            "right": 172.796875,
+            "bottom": 866,
+            "left": 96.390625,
+            "hit": true
+          },
+          {
+            "x": 176.796875,
+            "y": 813,
+            "width": 76.390625,
+            "height": 53,
+            "top": 813,
+            "right": 253.1875,
+            "bottom": 866,
+            "left": 176.796875,
+            "hit": true
+          },
+          {
+            "x": 257.1875,
+            "y": 813,
+            "width": 76.40625,
+            "height": 53,
+            "top": 813,
+            "right": 333.59375,
+            "bottom": 866,
+            "left": 257.1875,
+            "hit": true
+          },
+          {
+            "x": 337.59375,
+            "y": 813,
+            "width": 76.40625,
+            "height": 53,
+            "top": 813,
+            "right": 414,
+            "bottom": 866,
+            "left": 337.59375,
+            "hit": true
+          },
+          {
+            "x": 16,
+            "y": 871,
+            "width": 96.5,
+            "height": 53,
+            "top": 871,
+            "right": 112.5,
+            "bottom": 924,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 116.5,
+            "y": 871,
+            "width": 96.5,
+            "height": 53,
+            "top": 871,
+            "right": 213,
+            "bottom": 924,
+            "left": 116.5,
+            "hit": true
+          },
+          {
+            "x": 217,
+            "y": 871,
+            "width": 96.5,
+            "height": 53,
+            "top": 871,
+            "right": 313.5,
+            "bottom": 924,
+            "left": 217,
+            "hit": true
+          },
+          {
+            "x": 317.5,
+            "y": 871,
+            "width": 96.5,
+            "height": 53,
+            "top": 871,
+            "right": 414,
+            "bottom": 924,
+            "left": 317.5,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 16,
+          "y": 123.59375,
+          "scale": 0.8020751855694787,
+          "scaleX": 0.8020751855694787,
+          "scaleY": 1.0647077080341858,
+          "bodyScale": 1,
+          "bodyScaleLimit": 1,
+          "landscape": false,
+          "world": {
+            "left": 65.10641643115872,
+            "top": 99.59375,
+            "width": 398,
+            "height": 688
+          },
+          "scrollTop": 24
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 344.3162892317554,
+            "bottom": 536.0488058984221
+          }
+        ]
+      },
+      "status": "passed"
+    },
+    {
+      "label": "webkit/430x932/6",
+      "before": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 16,
+          "y": 99.59375,
+          "width": 398,
+          "height": 42,
+          "top": 99.59375,
+          "right": 414,
+          "bottom": 141.59375,
+          "left": 16
+        },
+        "comment": {
+          "x": 16,
+          "y": 662,
+          "width": 398,
+          "height": 76,
+          "top": 662,
+          "right": 414,
+          "bottom": 738,
+          "left": 16
+        },
+        "speech": {
+          "x": 16,
+          "y": 932,
+          "width": 0,
+          "height": 0,
+          "top": 932,
+          "right": 16,
+          "bottom": 932,
+          "left": 16
+        },
+        "controls": {
+          "x": 16,
+          "y": 813,
+          "width": 398,
+          "height": 111,
+          "top": 813,
+          "right": 414,
+          "bottom": 924,
+          "left": 16
+        },
+        "frame": {
+          "x": 16,
+          "y": 143.59375,
+          "width": 397.99957275390625,
+          "height": 516.39013671875,
+          "top": 143.59375,
+          "right": 413.99957275390625,
+          "bottom": 659.98388671875,
+          "left": 16
+        },
+        "scroll": {
+          "width": 430,
+          "height": 932
+        },
+        "buttons": [
+          {
+            "x": 16,
+            "y": 813,
+            "width": 76.390625,
+            "height": 53,
+            "top": 813,
+            "right": 92.390625,
+            "bottom": 866,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 96.390625,
+            "y": 813,
+            "width": 76.40625,
+            "height": 53,
+            "top": 813,
+            "right": 172.796875,
+            "bottom": 866,
+            "left": 96.390625,
+            "hit": true
+          },
+          {
+            "x": 176.796875,
+            "y": 813,
+            "width": 76.390625,
+            "height": 53,
+            "top": 813,
+            "right": 253.1875,
+            "bottom": 866,
+            "left": 176.796875,
+            "hit": true
+          },
+          {
+            "x": 257.1875,
+            "y": 813,
+            "width": 76.40625,
+            "height": 53,
+            "top": 813,
+            "right": 333.59375,
+            "bottom": 866,
+            "left": 257.1875,
+            "hit": true
+          },
+          {
+            "x": 337.59375,
+            "y": 813,
+            "width": 76.40625,
+            "height": 53,
+            "top": 813,
+            "right": 414,
+            "bottom": 866,
+            "left": 337.59375,
+            "hit": true
+          },
+          {
+            "x": 16,
+            "y": 871,
+            "width": 96.5,
+            "height": 53,
+            "top": 871,
+            "right": 112.5,
+            "bottom": 924,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 116.5,
+            "y": 871,
+            "width": 96.5,
+            "height": 53,
+            "top": 871,
+            "right": 213,
+            "bottom": 924,
+            "left": 116.5,
+            "hit": true
+          },
+          {
+            "x": 217,
+            "y": 871,
+            "width": 96.5,
+            "height": 53,
+            "top": 871,
+            "right": 313.5,
+            "bottom": 924,
+            "left": 217,
+            "hit": true
+          },
+          {
+            "x": 317.5,
+            "y": 871,
+            "width": 96.5,
+            "height": 53,
+            "top": 871,
+            "right": 414,
+            "bottom": 924,
+            "left": 317.5,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 16,
+          "y": 143.59375,
+          "scale": 0.668994665728494,
+          "scaleX": 0.668994665728494,
+          "scaleY": 1.046548984933627,
+          "bodyScale": 0.9,
+          "bodyScaleLimit": 0.9,
+          "landscape": false,
+          "world": {
+            "left": 114.46126567885449,
+            "top": 90.59375,
+            "width": 398,
+            "height": 688
+          },
+          "scrollTop": 53
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 368.1506398350301,
+            "bottom": 517.7978398350301
+          },
+          {
+            "key": "partner:forest_bear",
+            "valid": true,
+            "top": 258.15395810214596,
+            "bottom": 404.078409205739
+          },
+          {
+            "key": "companion:cat_friend",
+            "valid": true,
+            "top": 273.7495505438262,
+            "bottom": 354.73515054382625
+          },
+          {
+            "key": "companion:tanuki",
+            "valid": true,
+            "top": 372.85328462455334,
+            "bottom": 467.78970639981264
+          },
+          {
+            "key": "companion:rabbit_friend",
+            "valid": true,
+            "top": 333.3701491811765,
+            "bottom": 424.60280175555994
+          },
+          {
+            "key": "companion:squirrel",
+            "valid": true,
+            "top": 515.7359028080785,
+            "bottom": 618.1441101680786
+          }
+        ]
+      },
+      "returned": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 16,
+          "y": 99.59375,
+          "width": 398,
+          "height": 42,
+          "top": 99.59375,
+          "right": 414,
+          "bottom": 141.59375,
+          "left": 16
+        },
+        "comment": {
+          "x": 16,
+          "y": 662,
+          "width": 398,
+          "height": 76,
+          "top": 662,
+          "right": 414,
+          "bottom": 738,
+          "left": 16
+        },
+        "speech": {
+          "x": 16,
+          "y": 932,
+          "width": 0,
+          "height": 0,
+          "top": 932,
+          "right": 16,
+          "bottom": 932,
+          "left": 16
+        },
+        "controls": {
+          "x": 16,
+          "y": 813,
+          "width": 398,
+          "height": 111,
+          "top": 813,
+          "right": 414,
+          "bottom": 924,
+          "left": 16
+        },
+        "frame": {
+          "x": 16,
+          "y": 143.59375,
+          "width": 397.99957275390625,
+          "height": 516.3903198242188,
+          "top": 143.59375,
+          "right": 413.99957275390625,
+          "bottom": 659.9840698242188,
+          "left": 16
+        },
+        "scroll": {
+          "width": 430,
+          "height": 932
+        },
+        "buttons": [
+          {
+            "x": 16,
+            "y": 813,
+            "width": 76.390625,
+            "height": 53,
+            "top": 813,
+            "right": 92.390625,
+            "bottom": 866,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 96.390625,
+            "y": 813,
+            "width": 76.40625,
+            "height": 53,
+            "top": 813,
+            "right": 172.796875,
+            "bottom": 866,
+            "left": 96.390625,
+            "hit": true
+          },
+          {
+            "x": 176.796875,
+            "y": 813,
+            "width": 76.390625,
+            "height": 53,
+            "top": 813,
+            "right": 253.1875,
+            "bottom": 866,
+            "left": 176.796875,
+            "hit": true
+          },
+          {
+            "x": 257.1875,
+            "y": 813,
+            "width": 76.40625,
+            "height": 53,
+            "top": 813,
+            "right": 333.59375,
+            "bottom": 866,
+            "left": 257.1875,
+            "hit": true
+          },
+          {
+            "x": 337.59375,
+            "y": 813,
+            "width": 76.40625,
+            "height": 53,
+            "top": 813,
+            "right": 414,
+            "bottom": 866,
+            "left": 337.59375,
+            "hit": true
+          },
+          {
+            "x": 16,
+            "y": 871,
+            "width": 96.5,
+            "height": 53,
+            "top": 871,
+            "right": 112.5,
+            "bottom": 924,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 116.5,
+            "y": 871,
+            "width": 96.5,
+            "height": 53,
+            "top": 871,
+            "right": 213,
+            "bottom": 924,
+            "left": 116.5,
+            "hit": true
+          },
+          {
+            "x": 217,
+            "y": 871,
+            "width": 96.5,
+            "height": 53,
+            "top": 871,
+            "right": 313.5,
+            "bottom": 924,
+            "left": 217,
+            "hit": true
+          },
+          {
+            "x": 317.5,
+            "y": 871,
+            "width": 96.5,
+            "height": 53,
+            "top": 871,
+            "right": 414,
+            "bottom": 924,
+            "left": 317.5,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 16,
+          "y": 143.59375,
+          "scale": 0.6689946657284942,
+          "scaleX": 0.6689946657284942,
+          "scaleY": 1.0954978608802541,
+          "bodyScale": 0.9,
+          "bodyScaleLimit": 0.9,
+          "landscape": false,
+          "world": {
+            "left": 114.4612656788544,
+            "top": 85.59375,
+            "width": 398,
+            "height": 688
+          },
+          "scrollTop": 58
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 379.7369577825484,
+            "bottom": 529.3841577825484
+          },
+          {
+            "key": "partner:forest_bear",
+            "valid": true,
+            "top": 274.2133784234212,
+            "bottom": 421.01480756009283
+          },
+          {
+            "key": "companion:cat_friend",
+            "valid": true,
+            "top": 288.52586801811964,
+            "bottom": 370.01514561027676
+          },
+          {
+            "key": "companion:tanuki",
+            "valid": true,
+            "top": 395.53734809956313,
+            "bottom": 491.1730752094413
+          },
+          {
+            "key": "companion:rabbit_friend",
+            "valid": true,
+            "top": 303.8788930450803,
+            "bottom": 393.2328915092631
+          },
+          {
+            "key": "companion:squirrel",
+            "valid": true,
+            "top": 479.23162480125734,
+            "bottom": 578.9014412252087
+          }
+        ]
+      },
+      "status": "passed"
+    },
+    {
+      "label": "webkit/430x932/28",
+      "before": {
+        "viewport": "12",
+        "display": "18",
+        "notice": {
+          "x": 16,
+          "y": 99.59375,
+          "width": 398,
+          "height": 42,
+          "top": 99.59375,
+          "right": 414,
+          "bottom": 141.59375,
+          "left": 16
+        },
+        "comment": {
+          "x": 16,
+          "y": 662,
+          "width": 398,
+          "height": 76,
+          "top": 662,
+          "right": 414,
+          "bottom": 738,
+          "left": 16
+        },
+        "speech": {
+          "x": 16,
+          "y": 932,
+          "width": 0,
+          "height": 0,
+          "top": 932,
+          "right": 16,
+          "bottom": 932,
+          "left": 16
+        },
+        "controls": {
+          "x": 16,
+          "y": 813,
+          "width": 398,
+          "height": 111,
+          "top": 813,
+          "right": 414,
+          "bottom": 924,
+          "left": 16
+        },
+        "frame": {
+          "x": 16,
+          "y": 143.59375,
+          "width": 397.9974670410156,
+          "height": 516.4031372070312,
+          "top": 143.59375,
+          "right": 413.9974670410156,
+          "bottom": 659.9968872070312,
+          "left": 16
+        },
+        "scroll": {
+          "width": 430,
+          "height": 932
+        },
+        "buttons": [
+          {
+            "x": 16,
+            "y": 813,
+            "width": 76.390625,
+            "height": 53,
+            "top": 813,
+            "right": 92.390625,
+            "bottom": 866,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 96.390625,
+            "y": 813,
+            "width": 76.40625,
+            "height": 53,
+            "top": 813,
+            "right": 172.796875,
+            "bottom": 866,
+            "left": 96.390625,
+            "hit": true
+          },
+          {
+            "x": 176.796875,
+            "y": 813,
+            "width": 76.390625,
+            "height": 53,
+            "top": 813,
+            "right": 253.1875,
+            "bottom": 866,
+            "left": 176.796875,
+            "hit": true
+          },
+          {
+            "x": 257.1875,
+            "y": 813,
+            "width": 76.40625,
+            "height": 53,
+            "top": 813,
+            "right": 333.59375,
+            "bottom": 866,
+            "left": 257.1875,
+            "hit": true
+          },
+          {
+            "x": 337.59375,
+            "y": 813,
+            "width": 76.40625,
+            "height": 53,
+            "top": 813,
+            "right": 414,
+            "bottom": 866,
+            "left": 337.59375,
+            "hit": true
+          },
+          {
+            "x": 16,
+            "y": 871,
+            "width": 96.5,
+            "height": 53,
+            "top": 871,
+            "right": 112.5,
+            "bottom": 924,
+            "left": 16,
+            "hit": true
+          },
+          {
+            "x": 116.5,
+            "y": 871,
+            "width": 96.5,
+            "height": 53,
+            "top": 871,
+            "right": 213,
+            "bottom": 924,
+            "left": 116.5,
+            "hit": true
+          },
+          {
+            "x": 217,
+            "y": 871,
+            "width": 96.5,
+            "height": 53,
+            "top": 871,
+            "right": 313.5,
+            "bottom": 924,
+            "left": 217,
+            "hit": true
+          },
+          {
+            "x": 317.5,
+            "y": 871,
+            "width": 96.5,
+            "height": 53,
+            "top": 871,
+            "right": 414,
+            "bottom": 924,
+            "left": 317.5,
+            "hit": true
+          }
+        ],
+        "presentation": {
+          "x": 16,
+          "y": 143.59375,
+          "scale": 0.9607300945572905,
+          "scaleX": 0.9607300945572905,
+          "scaleY": 1.2288912030212176,
+          "bodyScale": 0.7,
+          "bodyScaleLimit": 0.7,
+          "landscape": false,
+          "world": {
+            "left": 18.904442416273113,
+            "top": 13.59375,
+            "width": 398,
+            "height": 688
+          },
+          "scrollTop": 130
+        },
+        "paint": [
+          {
+            "key": "pet:dog",
+            "valid": true,
+            "top": 425.46944754668414,
+            "bottom": 484.66012542946567
+          },
+          {
+            "key": "partner:forest_bear",
+            "valid": true,
+            "top": 203.49353347586262,
+            "bottom": 273.93501291917636
+          },
+          {
+            "key": "companion:cat_friend",
+            "valid": true,
+            "top": 230.3764296713806,
+            "bottom": 266.9628474491584
+          },
+          {
+            "key": "companion:tanuki",
+            "valid": true,
+            "top": 327.24041679251695,
+            "bottom": 369.9277762236281
+          },
+          {
+            "key": "companion:owl",
+            "valid": true,
+            "top": 378.0432821041962,
+            "bottom": 421.41024061086284
+          },
+          {
+            "key": "companion:hamster",
+            "valid": true,
+            "top": 552.5174135956738,
+            "bottom": 599.6189019256982
+          },
+          {
+            "key": "companion:monkey",
+            "valid": true,
+            "top": 378.56229042808417,
+            "bottom": 421.9393341599073
+          },
+          {
+            "key": "companion:sheep",
+            "valid": true,
+            "top": 233.6441493658317,
+            "bottom": 272.66542215235654
+          },
+          {
+            "key": "companion:bat",
+            "valid": true,
+            "top": 255.36152067918943,
+            "bottom": 296.0487484513013
+          },
+          {
+            "key": "companion:penguin_friend",
+            "valid": true,
+            "top": 380.4599297707581,
+            "bottom": 409.8865949652205
+          },
+          {
+            "key": "companion:shiba",
+            "valid": true,
+            "top": 398.2505511353749,
+            "bottom": 439.55805999490315
+          },
+          {
+            "key": "companion:punyu",
+            "valid": true,
+            "top": 573.4740498200258,
+            "bottom": 613.330321717363
+          },
+          {
+            "key": "companion:chameleon",
+            "valid": true,
+            "top": 447.0396288172623,
+            "bottom": 486.8598594299139
+          },
+          {
+            "key": "companion:unicorn",
+            "valid": true,
+            "top": 272.29055056527915,
+            "bottom": 312.70714743974594
+          },
+          {
+            "key": "companion:watcher",
+            "valid": true,
+            "top": 272.7437935331667,
+            "bottom": 313.16897687424046
+          },
+          {
+            "key": "companion:rabbit_friend",
+            "valid": true,
+            "top": 397.8526850716197,
+            "bottom": 441.9236374059199
+          },
+          {
+            "key": "companion:squirrel",
+            "valid": true,
+            "top": 426.85232166987987,
+            "bottom": 471.49149950337835
+          },
+          {
+            "key": "companion:otter",
+            "valid": true,
+            "top": 581.7417501394963,
+            "bottom": 628.3714747366465
+          },
+          {
+            "key": "companion:panda",
+            "valid": true,
+            "top": 446.23889571592906,
+            "bottom": 490.9310123873103
+          },
+          {
+            "key": "companion:parrot",
+            "valid": true,
+            "top": 281.9087082686695,
+            "bottom": 323.10748086887924
+          },
+          {
+            "key": "companion:seal",
+            "valid": true,
+            "top": 311.0979159690272,
+            "bottom": 351.13708203364274
+          },
+          {
+            "key": "companion:chicken",
+            "valid": true,
+            "top": 407.6138645548705,
+            "bottom": 451.2348832911991
+          },
+          {
+            "key": "companion:hedgehog",
+            "valid": true,
+            "top": 485.01927705617845,
+            "bottom": 529.8616082108906
+          },
+          {
+            "key": "companion:snail",
+            "valid": true,
+            "top": 541.2199919286663,
+            "bottom": 572.632387557696
+          },
+          {
+            "key": "companion:sekizou",
+            "valid": true,
+            "top": 388.3630619313788,
+            "bottom": 430.9785958295797
+          },
+          {
+            "key": "companion:clock",
+            "valid": true,
+            "top": 320.6206596900039,
+            "bottom": 362.25906623333003
+          },
+          {
+            "key": "companion:many_tail_fox",
+            "valid": true,
+            "top": 291.6770001088802,
+            "bottom": 332.0315915882574
+          },
+          {
+            "key": "companion:box",
+            "valid": true,
+            "top": 340.0299446979859,
+            "bottom": 381.47209784747287
+          }
+        ]
+      },
+      "status": "failed",
+      "error": "AssertionError [ERR_ASSERTION]: webkit/430x932/28 text does not move frame: layout moved bottom: 659.9968872070312 -> 659.97998046875\n    at assertStableRect (/workspace/work/naotocchi-v5-production/tests/helpers/home-production-current-browser.cjs:10:10)\n    at currentProduction (/workspace/work/naotocchi-v5-production/tests/helpers/home-production-current-browser.cjs:56:62)\n    at async /workspace/work/naotocchi-v5-production/tests/home-production-comments-v7-browser.cjs:27:2"
+    }
+  ],
+  "errors": []
+}

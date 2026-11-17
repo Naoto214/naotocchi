@@ -3,7 +3,27 @@
 // same production renderer; only state seeding and read-only evidence are QA.
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 
-function assertStableRect(actual,expected,label){
+function assertStableRect(actual,expected,label,frame){
+ if(frame){
+  // CSS sizes are quantized in native layout units BEFORE the frame camera
+  // transform. Compare the authored CSS-pixel rectangle at the original 1/64
+  // tolerance, and independently bound each painted size's rounding loss.
+  // Merely widening the painted-rectangle tolerance can conceal a real resize.
+  const authored=(rect,layout)=>{
+   assert.ok(['width','height','scaleX','scaleY'].every(k=>Number.isFinite(layout[k])&&layout[k]>0),label+' valid frame layout');
+   assert.ok(Object.values(rect).every(Number.isFinite),label+' finite painted frame');
+   const width=layout.width*layout.scaleX,height=layout.height*layout.scaleY;
+   for(const [axis,scale]of [['width',layout.scaleX],['height',layout.scaleY]]){
+    // Verify the specific native rounding phase, not an arbitrary loss within
+    // one layout unit. Identical native sizes must produce identical paint.
+    const painted=Math.floor(layout[axis]*64)/64*scale;
+    assert.ok(Math.abs(painted-rect[axis])<.001,label+' frame rounding '+axis+': '+(painted-rect[axis]));
+   }
+   assert.ok(Math.abs(rect.right-rect.left-rect.width)<.001&&Math.abs(rect.bottom-rect.top-rect.height)<.001,label+' consistent painted edges');
+   return {...rect,width,height,right:rect.left+width,bottom:rect.top+height};
+  };
+  return assertStableRect(authored(actual,frame.actual),authored(expected,frame.expected),label);
+ }
  // Chromium can differ by 0.00012 CSS px between identical layout samples.
  // Permit one 1/64 CSS-pixel layout unit; real shifts (even 0.1px) still fail.
  for(const key of ['x','y','top','right','bottom','left','width','height']){
@@ -16,9 +36,10 @@ module.exports=async function currentProduction(browser,engine,base,out){
  const records=[],errors=[];
  const inspect=()=>{
   const rect=id=>document.getElementById(id).getBoundingClientRect().toJSON();
-  const frame=document.querySelector('.screen-frame');
+  const frame=document.querySelector('.screen-frame'),p=NaotocchiHomeViewport.residentPresentation();
   return {viewport:document.body.dataset.homeViewportVersion,display:document.body.dataset.homeDisplayVersion,
    notice:rect('homeEventSlot'),comment:rect('homeCommentDock'),speech:rect('speechSlot'),controls:rect('careActions'),frame:frame.getBoundingClientRect().toJSON(),
+   frameLayout:{width:parseFloat(frame.style.width),height:parseFloat(frame.style.height),scaleX:p.scaleX,scaleY:p.scaleY},
    scroll:{width:document.documentElement.scrollWidth,height:document.documentElement.scrollHeight},
    buttons:[...document.querySelectorAll('#careActions>button')].map(e=>{const r=e.getBoundingClientRect(),hit=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return {...r.toJSON(),hit:hit===e||e.contains(hit)};}),
    ...HomeReleaseQA.currentPaint()};
@@ -53,7 +74,7 @@ module.exports=async function currentProduction(browser,engine,base,out){
     assert.equal(await page.locator('#speechBubble').isVisible(),true,label+' comment visible');
     await page.waitForFunction(()=>document.querySelector('#speechSpeaker img')?.naturalWidth>0);
     const after=await page.evaluate(inspect);geometry(after,width,height,count,label);
-    for(const key of ['notice','comment','controls','frame'])assertStableRect(after[key],before[key],label+' text does not move '+key);
+    for(const key of ['notice','comment','controls','frame'])assertStableRect(after[key],before[key],label+' text does not move '+key,key==='frame'?{actual:after.frameLayout,expected:before.frameLayout}:undefined);
     const textFit=await page.locator('#speechBubble').evaluate(e=>{
      e.scrollTop=e.scrollHeight;
      const text=document.getElementById('speechText'),walker=document.createTreeWalker(text,NodeFilter.SHOW_TEXT);let last,n;while(n=walker.nextNode())if(n.length)last=n;

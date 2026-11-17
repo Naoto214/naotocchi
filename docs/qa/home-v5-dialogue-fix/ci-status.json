@@ -1,0 +1,314 @@
+{
+  "observedAt": "2026-11-16T08:20:29.920603+00:00",
+  "codeHead": "762971e65c2cc2f73efaf3ec1fb1edcdaed07eea",
+  "counts": {
+    "in_progress": 6,
+    "success": 27,
+    "skipped": 1,
+    "queued": 7,
+    "failure": 2
+  },
+  "checks": [
+    {
+      "name": "browser (corridor)",
+      "id": 133168966225,
+      "status": "in_progress",
+      "conclusion": null,
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826389954/job/133168966225"
+    },
+    {
+      "name": "regression",
+      "id": 133168965881,
+      "status": "in_progress",
+      "conclusion": null,
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826389954/job/133168965881"
+    },
+    {
+      "name": "browser (visibility)",
+      "id": 133168965797,
+      "status": "in_progress",
+      "conclusion": null,
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826389954/job/133168965797"
+    },
+    {
+      "name": "browser (smoke)",
+      "id": 133168965743,
+      "status": "in_progress",
+      "conclusion": null,
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826389954/job/133168965743"
+    },
+    {
+      "name": "browser (captures)",
+      "id": 133168965738,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826389954/job/133168965738"
+    },
+    {
+      "name": "character-integration",
+      "id": 133168965430,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826389954/job/133168965430"
+    },
+    {
+      "name": "deploy",
+      "id": 133165133361,
+      "status": "completed",
+      "conclusion": "skipped",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390168/job/133165133361"
+    },
+    {
+      "name": "browser",
+      "id": 133162210161,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826389969/job/133162210161"
+    },
+    {
+      "name": "fixed-controls (chromium)",
+      "id": 133161232757,
+      "status": "queued",
+      "conclusion": null,
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390000/job/133161232757"
+    },
+    {
+      "name": "production (snow)",
+      "id": 133161232732,
+      "status": "queued",
+      "conclusion": null,
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390000/job/133161232732"
+    },
+    {
+      "name": "production (memory_lake)",
+      "id": 133161232708,
+      "status": "in_progress",
+      "conclusion": null,
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390000/job/133161232708"
+    },
+    {
+      "name": "production (desert)",
+      "id": 133161232628,
+      "status": "queued",
+      "conclusion": null,
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390000/job/133161232628"
+    },
+    {
+      "name": "production (star_stop)",
+      "id": 133161232593,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390000/job/133161232593"
+    },
+    {
+      "name": "production (river_lake)",
+      "id": 133161232561,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390000/job/133161232561"
+    },
+    {
+      "name": "viewport-v8 (chromium)",
+      "id": 133161232550,
+      "status": "queued",
+      "conclusion": null,
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390000/job/133161232550"
+    },
+    {
+      "name": "production (home)",
+      "id": 133161232535,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390000/job/133161232535"
+    },
+    {
+      "name": "production (sea)",
+      "id": 133161232525,
+      "status": "queued",
+      "conclusion": null,
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390000/job/133161232525"
+    },
+    {
+      "name": "production (jungle)",
+      "id": 133161232519,
+      "status": "queued",
+      "conclusion": null,
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390000/job/133161232519"
+    },
+    {
+      "name": "production (countryside)",
+      "id": 133161232491,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390000/job/133161232491"
+    },
+    {
+      "name": "production (mountain)",
+      "id": 133161232475,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390000/job/133161232475"
+    },
+    {
+      "name": "production-contracts",
+      "id": 133161232464,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390000/job/133161232464"
+    },
+    {
+      "name": "production (city)",
+      "id": 133161232379,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390000/job/133161232379"
+    },
+    {
+      "name": "viewport-v8 (webkit)",
+      "id": 133161232377,
+      "status": "queued",
+      "conclusion": null,
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390000/job/133161232377"
+    },
+    {
+      "name": "production (forest)",
+      "id": 133161232366,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390000/job/133161232366"
+    },
+    {
+      "name": "production (deepsea)",
+      "id": 133161232346,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390000/job/133161232346"
+    },
+    {
+      "name": "fixed-controls (webkit)",
+      "id": 133161231993,
+      "status": "completed",
+      "conclusion": "failure",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390000/job/133161231993"
+    },
+    {
+      "name": "naopoyo-official",
+      "id": 133161131746,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390230/job/133161131746"
+    },
+    {
+      "name": "build",
+      "id": 133161131692,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390168/job/133161131692"
+    },
+    {
+      "name": "touch-label (webkit)",
+      "id": 133161131520,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390012/job/133161131520"
+    },
+    {
+      "name": "home-v21",
+      "id": 133161131445,
+      "status": "in_progress",
+      "conclusion": null,
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826389950/job/133161131445"
+    },
+    {
+      "name": "chapter-browser",
+      "id": 133161131444,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826389946/job/133161131444"
+    },
+    {
+      "name": "generated-output",
+      "id": 133161131342,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390114/job/133161131342"
+    },
+    {
+      "name": "slide-series",
+      "id": 133161131317,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826389976/job/133161131317"
+    },
+    {
+      "name": "pad-size",
+      "id": 133161131284,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826389950/job/133161131284"
+    },
+    {
+      "name": "card-regression",
+      "id": 133161131269,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826389946/job/133161131269"
+    },
+    {
+      "name": "home-layout",
+      "id": 133161131254,
+      "status": "completed",
+      "conclusion": "failure",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826389950/job/133161131254"
+    },
+    {
+      "name": "touch-label (chromium)",
+      "id": 133161131208,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390012/job/133161131208"
+    },
+    {
+      "name": "home-v20",
+      "id": 133161131196,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826389950/job/133161131196"
+    },
+    {
+      "name": "naopoyo",
+      "id": 133161131141,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826389996/job/133161131141"
+    },
+    {
+      "name": "smoke-test",
+      "id": 133161131096,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826390045/job/133161131096"
+    },
+    {
+      "name": "chapter-replay",
+      "id": 133161130961,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826389946/job/133161130961"
+    },
+    {
+      "name": "home-core-layout",
+      "id": 133161130855,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826389950/job/133161130855"
+    },
+    {
+      "name": "verify",
+      "id": 133161130829,
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/Naoto214/naotocchi/actions/runs/43826389969/job/133161130829"
+    }
+  ]
+}

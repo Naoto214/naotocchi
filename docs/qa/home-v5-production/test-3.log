@@ -1,0 +1,55 @@
+✔ play reply comes from the actual positive representative, even without a visit (754.000887ms)
+✔ court reaches the existing partner and uses the partner pool without a visit (285.976072ms)
+✔ a rejected court candidate can reply without becoming a household partner (78.358807ms)
+✔ only the participants speak during play even when a partner is visiting (266.215805ms)
+✔ solo play does not invent a conversation partner (90.982915ms)
+✔ the captured partner cannot be replaced between two scheduled beats (491.487661ms)
+✔ each official companion and partner answers their own home action with their registered face and name (4327.022734ms)
+✔ home comments resolve the named actor, including aliased residents, without choosing another speaker (372.635179ms)
+✔ an explicit story character owns the portrait even when also marked as a pet reaction (150.715505ms)
+✔ autonomy reports the chosen social target; unrelated passers-by and manual arrivals do not start conversations (7.045679ms)
+✔ two residents can use a dedicated exchange before a relationship visit occurs (210.181365ms)
+✔ resident exchange never substitutes a bystander or pet for a participant who left (36.474305ms)
+✔ ordinary motion and busy speech never schedule a terrain conversation (122.504453ms)
+✔ a real meeting in a full 28-resident home presents both participants in order (91.627542ms)
+✔ a real visit from a partner with a legacy ID starts their canonical banter (444.474452ms)
+✔ a resident looking around speaks their own idle line, with a shared cooldown (118.126426ms)
+✔ a resident idle event yields to a real pair from the same frame; absent residents stay silent (307.999667ms)
+✔ an idle line cannot cover care or return after the care speech has finished (95.400002ms)
+✔ under reduced motion the idle greeting timer includes a visible co-resident without requiring a visit or movement (45.360397ms)
+✔ relationships are independent residents, not automatic followers; current IDs survive missing lifetime records (353.637065ms)
+✔ same actor voluntarily accompanies, expires, returns to life without modifying relationships (376.901978ms)
+✔ party cap, distant rejection, region departure and semantic events (531.730436ms)
+✔ Home has no permanent surrounding cast; a finite visit is visible and the relationship survives departure (79.461218ms)
+✔ manual activity controls permit choosing walk/date/adventure and ending without a forced dialog (109.619226ms)
+✔ hidden time does not advance Home encounter clock or trigger a visit on resume (70.131865ms)
+✔ responding to an invitation selects its actor even when another resident becomes nearest (118.736689ms)
+✔ Home relationship idle initiatives consume the common budget (35.232491ms)
+✔ relationship removal ends active accompaniment and reload starts free (116.801223ms)
+✔ explicit destination ends companionship, incidental places do not (53.971989ms)
+✔ session module exists (1.092776ms)
+✔ shared cooldown, rolling caps and random encounter interval (0.379808ms)
+✔ invitations are scarce and do not accumulate during inactivity (0.286145ms)
+✔ event subscribers are isolated, removable and payloads immutable (0.255553ms)
+✔ Home visits are finite, one at a time, and preserve relation input (12.208549ms)
+✔ listeners added during emission run only on the next emission (0.302395ms)
+✔ partner visits remain possible in a crowded relationship roster (0.256429ms)
+(node:1567) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/work/naotocchi-v5-production/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/work/naotocchi-v5-production/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ real session events target the player, expire to current relationship and preserve AI pose (9.27867ms)
+✔ actual date start and goodbye reach presentation without losing actor identity (200.528498ms)
+✔ presenter turns body and head only as presentation and reduced motion suppresses it (286.077318ms)
+✔ Home visit starts positive and interruption clears only its social overlay (58.731069ms)
+✔ explicit conversation publishes one semantic target and repeated annoyance does not become positive (98.416226ms)
+✔ attention ends and missing targets cannot retain gaze; suspension clears cues (0.845313ms)
+✔ conversation while accompanying retriggers after initial cue and preserves repeat-talk dislike (114.982355ms)
+ℹ tests 43
+ℹ suites 0
+ℹ pass 43
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6461.939892
