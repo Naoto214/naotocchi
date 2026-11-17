@@ -301,7 +301,7 @@
       if(env.CustomEvent)stage.dispatchEvent(new env.CustomEvent('naotocchi:home-reaction',{detail:event}));}
     const model=modelAPI.createModel({onEvent:emit});
     // One-shot presentation request from a real hatch, never inferred from save age.
-    let newbornPending=false;
+    let newbornPending=false,pendingResidentPresentation=false;
     function ensureWorld(){
       const M=getMeguru();if(!M||worldLoading||world||!doc.body)return;
       worldLoading=true;const generation=++loadGeneration;worldHost=doc.createElement('div');worldHost.className='home-living-world';worldHost.setAttribute('aria-hidden','true');doc.body.appendChild(worldHost);
@@ -312,9 +312,9 @@
         worldLoading=false;world.setEnvironment(environment);if(scene){scene.navigation=world.navigation(displayRect(stage));scene.visualPoints=world.observationPoints?.(scene.navigation)||[];scene.visible=visibleAt;sync();}
       }).catch(error=>{if(generation!==loadGeneration)return;worldLoading=false;stage.dataset.worldRenderer='unavailable';stage.dataset.worldError=String(error.message);});
     }
-    function clearWorld(){loadGeneration++;worldLoading=false;world?.destroy();world=null;worldHost?.remove();worldHost=null;if(doc.body)delete doc.body.dataset.livingHome;}
+    function clearWorld(){pendingResidentPresentation=false;loadGeneration++;worldLoading=false;world?.destroy();world=null;worldHost?.remove();worldHost=null;if(doc.body)delete doc.body.dataset.livingHome;}
 
-    const blocked=()=>!enabled||doc.visibilityState==='hidden'||!!flags.paused||isBlocked();
+    const blocked=()=>pendingResidentPresentation||!enabled||doc.visibilityState==='hidden'||!!flags.paused||isBlocked();
     function clearGesture(){if(gesture){try{stage.releasePointerCapture(gesture.pointerId);}catch(_){}gesture=null;}marker.hidden=true;}
     function interrupt(){clearGesture();model.cancel();paint();}
     function clearStage(){const poop=doc.getElementById?.('poopRow');if(poop){delete poop.dataset.groundKey;for(const n of [...poop.children]){n.style.left='';n.style.top='';n.style.visibility='';n.style.scale='';n.style.transformOrigin='';}}for(const k of Object.keys(stage.dataset))if(k.startsWith('diorama')||k.startsWith('world')||k==='livingMetrics')delete stage.dataset[k];}
@@ -393,7 +393,7 @@
       return [.22,.5,.8].every(f=>[-.3,0,.3].every(x=>!polys.some(poly=>inside(p.x+a.w*x+stageRect.left-host.left,p.y-a.h*f+stageRect.top-host.top,poly))));
     }
     function sync(){
-      if(!enabled||!scene)return;
+      if(!enabled||!scene||pendingResidentPresentation)return;
       const list=getActors(),next=new Map();
       for(const a of list){
         if(!a.owner?.isConnected)continue;
@@ -419,10 +419,15 @@
       scene.fiveResidentExit=next.size===5&&doc.body?.dataset.homePopulationProfile==='v1'&&!!env.NaotocchiHomeViewport?.residentPresentation?.()?.landscape;
       rows=next;view.hidden=!enabled||rows.size<=5;model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint});
       if(newbornPoint)newbornPending=false;
+      const previousEnvelope=stage.__homeResidentEnvelope;
       publishPaintEnvelope();
       // A newly rendered shape has no measured ink until the pass above. Seat
       // it against that ink before its first paint, not at the next UI update.
       const presentation=env.NaotocchiHomeViewport?.residentPresentation?.();
+      // The envelope event schedules the camera fit on the next frame. New ink
+      // with the old camera can falsely exclude an established foot (growth on
+      // 320px screens). Wait for that fit, then apply the same safety bounds.
+      if(presentation&&env.CustomEvent&&(!env.visualViewport||env.visualViewport.scale===1)&&previousEnvelope!==stage.__homeResidentEnvelope){pendingResidentPresentation=true;return;}
       if(presentation&&(doc.body?.dataset.homeDisplayVersion==='18'||doc.body?.dataset.homeDisplayVersion==='17'&&presentation.landscape)&&model.snapshot().some(a=>{const b=model.bounds(a);return a.x<b.left||a.x>b.right||a.y<b.top||a.y>b.bottom;})){
         model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint:null});
       }
@@ -524,7 +529,7 @@
     function paint(){
       // Care and visibility changes can interrupt before activation or after exit.
       // In those states the legacy Home owns the cast and poop presentation.
-      if(dead||!enabled||!scene)return;
+      if(dead||!enabled||!scene||pendingResidentPresentation)return;
       showGuide();
       const snapshot=model.snapshot(),chosen=snapshot.find(a=>a.key===model.selected()),isPaused=blocked(),revision=world?.stats().projectionRevision||0;
       selectedLabel.hidden=!chosen||!enabled;selectedLabel.textContent=chosen?(rows.get(chosen.key)?.label||chosen.id):'';
@@ -592,6 +597,10 @@
     }
     function stop(){if(raf)env.cancelAnimationFrame(raf);raf=0;last=0;}
     function frame(now){raf=0;if(dead||!enabled||doc.visibilityState==='hidden')return;
+      // Touch deliberately retains the current camera during pinch zoom, so
+      // no fit-completed event is forthcoming. Use its real, unchanged bounds.
+      if(pendingResidentPresentation&&env.visualViewport&&env.visualViewport.scale!==1){pendingResidentPresentation=false;sync();}
+      if(pendingResidentPresentation){last=now;raf=env.requestAnimationFrame(frame);return;}
       if(!last)last=now;const gap=now-last,interval=flags.tier>=2?66:33;
       if(gap>=interval){const dt=Math.min(1,gap/1000);activeTime+=dt;frames++;frameGaps.push(gap);if(frameGaps.length>300)frameGaps.shift();last=now;
         const busy=blocked();stage.dataset.dioramaPaused=String(busy);
@@ -654,6 +663,7 @@
     function preference(){if(environment)update(environment,flags);}
     let lastSafePresentation='';
     function presentationChanged(){
+      const pending=pendingResidentPresentation;pendingResidentPresentation=false;
       // Painted-ground navigation captures the inverse presentation transform.
       // Refresh it after camera/offset changes without rebuilding the world or
       // its fixed camera-fit envelope. The world caches unchanged navigation.
@@ -665,7 +675,7 @@
       }
       const p=env.NaotocchiHomeViewport?.residentPresentation?.();
       const key=['17','18'].includes(doc.body?.dataset.homeDisplayVersion)?JSON.stringify([p?.landscape,p?.safeTop,p?.safeBottom,p?.scaleX,p?.scaleY,p?.bodyScale,p?.world,[...rows.values()].map(r=>[r.key,r.w,r.h,r.paintExtent])]):'';
-      if(navigationChanged||key!==lastSafePresentation){lastSafePresentation=key;displayBoundsCache.clear();occlusionCache.clear();for(const row of rows.values()){row.maskKey='';row.paintStamp='';}sync();}else paint();
+      if(pending||navigationChanged||key!==lastSafePresentation){lastSafePresentation=key;displayBoundsCache.clear();occlusionCache.clear();for(const row of rows.values()){row.maskKey='';row.paintStamp='';}sync();}else paint();
     }
     const listeners={'home-presentation':presentationChanged,pointerdown:down,pointermove:move,pointerup:up,pointercancel:clearGesture,lostpointercapture:clearGesture,keydown};
     for(const [name,fn]of Object.entries(listeners))stage.addEventListener(name,fn);

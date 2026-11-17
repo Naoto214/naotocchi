@@ -1,0 +1,12 @@
+✔ added walking ground does not refit the existing camera or body envelope (1 residents) (121.801836ms)
+✔ added walking ground does not refit the existing camera or body envelope (28 residents) (1800.349115ms)
+✔ presentation changes refresh painted-ground navigation even when the presentation key is unchanged (58.370069ms)
+✔ growth waits for the camera to consume its new envelope before correcting a safe foot (146.928852ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2384.322216

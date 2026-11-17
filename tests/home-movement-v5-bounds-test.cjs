@@ -67,3 +67,39 @@ test('presentation changes refresh painted-ground navigation even when the prese
   assert.equal(JSON.stringify(stage.__homeResidentEnvelope),fixedEnvelope,'refreshing movement navigation does not refit the camera');
  }finally{controller.destroy();}
 });
+
+test('growth waits for the camera to consume its new envelope before correcting a safe foot',async()=>{
+ const stage=node(),doc=node(),owner=node(),frame=node();doc.body=node();doc.body.dataset={homeDisplayVersion:'18',homeViewportVersion:'12'};doc.visibilityState='visible';doc.createElement=()=>node();doc.getElementById=()=>null;
+ frame.getBoundingClientRect=()=>({left:0,right:350,top:0,bottom:400});stage.closest=()=>frame;
+ const presentation={landscape:false,x:0,y:0,scaleX:1,scaleY:.5,bodyScale:1,bodyScaleLimit:1};
+ const navigation={valid:()=>true,depthScale:()=>1,nearest:p=>p,unproject:p=>({x:p.x,z:p.y}),project:p=>({x:p.x,y:p.z})};
+ const testWorld={navigation:()=>navigation,stats:()=>({projectionRevision:1,renderer:{objects:0}}),occlusion:()=>[],setEnvironment(){},destroy(){}};
+ const module={exports:{}},source=fs.readFileSync('home-production-diorama.js','utf8').replace(/import\('\.\/home-production-world\.mjs\?[^']+'\)/,'Promise.resolve({createHomeWorld:()=>testWorld})');vm.runInNewContext(source,{module,testWorld});
+ let requested=0,nextFrame;stage.dispatchEvent=e=>{if(e.type==='home-paint-envelope')requested++;};
+ const env={NaotocchiHomeDioramaModel:model,CustomEvent:class{constructor(type){this.type=type;}},matchMedia:()=>({matches:false,addEventListener(){},removeEventListener(){}}),visualViewport:{scale:1},requestAnimationFrame:fn=>{nextFrame=fn;return 1;},cancelAnimationFrame(){},NaotocchiHomeViewport:{residentPresentation:()=>presentation}};
+ owner.style.height='50px';owner.style.top='200px';
+ const a={key:'companion:test',kind:'companion',id:'test',owner,node:owner,x:175,y:250,w:60,h:50,extent:{top:50,left:30,right:30}};
+ const controller=module.exports.createController({stage,document:doc,env,getActors:()=>[a],getMeguru:()=>({})});
+ try{
+  controller.update({region:'city'});await Promise.resolve();await Promise.resolve();stage.listeners['home-presentation']();
+  const before=controller.model.snapshot()[0];assert.equal(before.y,250);const requests=requested;
+  a.h=150;a.extent.top=150;owner.style.height='150px';owner.style.top='100px';controller.sync();assert.ok(requested>requests,'growth requests the existing camera fit update');
+  assert.equal(controller.model.snapshot()[0].y,before.y,'do not commit a correction using new ink and the old camera');
+  presentation.scaleY=1;stage.listeners['home-presentation']();
+  assert.equal(controller.model.snapshot()[0].y,before.y,'the same foot is legal under the settled camera');
+  assert.ok(controller.model.bounds(controller.model.snapshot()[0]).top<before.y);
+  // A genuinely unsafe final presentation must still apply the unchanged bounds.
+  presentation.scaleY=.5;stage.listeners['home-presentation']();
+  const after=controller.model.snapshot()[0];assert.ok(after.y>before.y);assert.equal(after.y,controller.model.bounds(after).top);
+  // Touch intentionally skips its camera fit while pinch-zoomed. That must
+  // not strand the resident if zoom begins after the envelope was requested.
+  a.h=140;a.extent.top=140;owner.style.height='140px';controller.sync();
+  env.visualViewport.scale=2;nextFrame(1000);
+  a.h=130;a.extent.top=130;owner.style.height='130px';controller.sync();
+  assert.equal(controller.model.snapshot()[0].h,130,'a skipped zoom fit must not freeze later syncs');
+  env.visualViewport.scale=1;stage.listeners['home-presentation']();
+  a.h=120;a.extent.top=120;owner.style.height='120px';controller.sync();
+  controller.update({region:'unsupported'});controller.update({region:'city'});await Promise.resolve();await Promise.resolve();stage.listeners['home-presentation']();
+  assert.equal(controller.model.snapshot().length,1,'exit/reentry clears a pending presentation');
+ }finally{controller.destroy();}
+});

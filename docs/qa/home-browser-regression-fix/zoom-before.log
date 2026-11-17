@@ -1,0 +1,31 @@
+✔ added walking ground does not refit the existing camera or body envelope (1 residents) (104.43154ms)
+✔ added walking ground does not refit the existing camera or body envelope (28 residents) (1636.884171ms)
+✔ presentation changes refresh painted-ground navigation even when the presentation key is unchanged (48.018491ms)
+✖ growth waits for the camera to consume its new envelope before correcting a safe foot (98.552636ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2111.135615
+
+✖ failing tests:
+
+test at tests/home-movement-v5-bounds-test.cjs:71:1
+✖ growth waits for the camera to consume its new envelope before correcting a safe foot (98.552636ms)
+  AssertionError [ERR_ASSERTION]: a skipped zoom fit must not freeze later syncs
+  
+  140 !== 130
+  
+      at TestContext.<anonymous> (/workspace/work/naotocchi-v5-production/tests/home-movement-v5-bounds-test.cjs:99:10)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 140,
+    expected: 130,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
