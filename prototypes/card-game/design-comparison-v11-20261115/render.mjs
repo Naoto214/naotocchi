@@ -3,7 +3,7 @@ export const EGG_PRINTED_TEXT='自分のターン開始時、通常ドローの�
 export function renderCard(card,options={}){
  const id=card?.cardId??card?.id;
  if(!options.egg&&!card?.hidden&&/^M-starfish-0[1-3]$/.test(id??'')){
-  const image=new URL(`./starfish/originals/${id}-current-design.png`,import.meta.url).href;
+  const image=new URL(`./starfish/originals/${id}-background-refined.png`,import.meta.url).href;
   card={...card,image,large:image};
   options={...options,art:'contain'};
  }
