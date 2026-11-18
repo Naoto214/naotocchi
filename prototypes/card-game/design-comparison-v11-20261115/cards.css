@@ -1,0 +1,16 @@
+@import url('../v10/cards.css');
+/* Card internals only. No host UI sizing, controls or layout changes. */
+.v11-card .v8-value{font-size:10.5cqw;font-weight:600}
+.v11-card .v8-stat-label{font-size:3cqw;left:1.6cqw}
+.v11-card .v8-stat{isolation:isolate}
+.v11-card .v8-stats{overflow:visible}
+.v11-card .v8-value,.v11-card .v8-cost{font-family:Georgia,"Noto Serif CJK JP",serif;font-kerning:none}
+.v11-card .v8-glyph{font-weight:600;font-kerning:none}
+.v11-card .v8-number{white-space:nowrap}
+/* Restore egg to the ordinary full-text face, using its actual printed effect. */
+.v11-card.v10-detail:has(.v8-egg) .v8-art{height:49cqw}
+.v11-card .v10-egg-copy{top:85cqw;font-size:3.7cqw;line-height:1.45;padding:2.4cqw 2.8cqw}
+/* Explicit V11 request: omit only duplicate egg explanations outside the card.
+   Keep existing toolbar, card canvas, navigation, action controls and dialogs. */
+html[data-candidate] #card-dialog:has(.v11-card .v8-egg) .detail-copy{display:none}
+html[data-candidate] #collection-detail:has(.v11-card .v8-egg) #collection-card-effect{display:none}

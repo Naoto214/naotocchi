@@ -1,0 +1,11 @@
+/* V4 geometry stays intact. These selectors affect only the V5 candidate. */
+.face-v5 .cost{font-family:Georgia,"Noto Serif",serif}
+.face-v5 .cost-number{display:block;white-space:nowrap;font:inherit;line-height:1;transform:translate(var(--digit-x,0px),var(--digit-y,.04em))}
+.face-v5 .cost-glyph{font:inherit}
+.face-v5 .cost-baseline{display:inline-block;width:0;height:0;vertical-align:baseline}
+.face-v5 .classification{gap:1.4cqw;padding-right:2.2cqw}
+.face-v5.effects-refined .rules:not(.long){padding-block:3.4cqw}
+.face-v5.effects-refined.has-stats .rules:not(.long){padding-block:2.8cqw}
+.face-B3-A.field-auto.body-tint .rules{background:var(--body-tint)}
+.secondary-controls{align-items:center}.secondary-controls>label{line-height:1.6}
+@media(max-width:720px){.view-tabs{gap:17px}.view-tabs button{font-size:10px}.baseline-note{font-size:10px}.brand span{font-size:15px}.masthead nav{gap:5px}.private-badge{font-size:7px;padding:4px}}

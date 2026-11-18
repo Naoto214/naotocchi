@@ -1,0 +1,618 @@
+{
+  "branch": "c04688e468d40c507c81352ce559e9a1282dee49",
+  "main": "408c72e6ebef71da3eab33cfb268c7494117aaaa",
+  "extra": "948026343099e34628f5655ae240d1083763ea9e",
+  "status": "unapproved; VERSION8 displays formal names only",
+  "candidates": [
+    {
+      "original": "きゅうきゅうばこ",
+      "proposed": "救急箱",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "救急箱",
+          "きゅうきゅうばこ"
+        ]
+      ],
+      "cardIDs": [
+        "I-scarf"
+      ],
+      "cardTypes": [
+        "item"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "item",
+          "id": "scarf",
+          "label": "きゅうきゅうばこ",
+          "source": "item-system.js"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "script.js",
+          "line": 2631,
+          "text": "{ id: 'scarf', label: 'きゅうきゅうばこ', emoji: '🧣' },"
+        },
+        {
+          "path": "item-system.js",
+          "line": 37,
+          "text": "\"label\": \"きゅうきゅうばこ\","
+        }
+      ],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/77-current-items-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。"
+    },
+    {
+      "original": "きおくのみずうみ",
+      "proposed": "記憶の湖",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "記憶",
+          "きおく"
+        ],
+        "の",
+        [
+          "湖",
+          "みずうみ"
+        ]
+      ],
+      "cardIDs": [
+        "W-memory_lake"
+      ],
+      "cardTypes": [
+        "world"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "region",
+          "id": "memory_lake",
+          "label": "きおくのみずうみ",
+          "source": "character-world-master.v1.js"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 140,
+          "text": "{ id: 'memory_lake', label: 'きおくのみずうみ' },"
+        },
+        {
+          "path": "script.js",
+          "line": 9362,
+          "text": "\"label\": \"きおくのみずうみ\","
+        }
+      ],
+      "cardTextReferences": [
+        "E-special-trip-memory"
+      ],
+      "primaryCardSources": [
+        "docs/card-game/89-world-13-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。"
+    },
+    {
+      "original": "おおきなびょうき",
+      "proposed": "大きな病気",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "大",
+          "おお"
+        ],
+        "きな",
+        [
+          "病気",
+          "びょうき"
+        ]
+      ],
+      "cardIDs": [
+        "E-big-illness"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [],
+      "matchStatus": "card-only-title-no-exact-main-entity-name-found",
+      "lexicalOccurrences": [],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/91-event-21-card-text-draft.md"
+      ],
+      "impact": "カード固有名。似た本編機能や語句への対応は未確認。自動統一しない。"
+    },
+    {
+      "original": "うんめいのへんしん",
+      "proposed": "運命の変身",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "運命",
+          "うんめい"
+        ],
+        "の",
+        [
+          "変身",
+          "へんしん"
+        ]
+      ],
+      "cardIDs": [
+        "E-fateful-transform"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [],
+      "matchStatus": "card-only-title-no-exact-main-entity-name-found",
+      "lexicalOccurrences": [],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/91-event-21-card-text-draft.md"
+      ],
+      "impact": "カード固有名。似た本編機能や語句への対応は未確認。自動統一しない。"
+    },
+    {
+      "original": "おもいでのしゃしん",
+      "proposed": "思い出の写真",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "思",
+          "おも"
+        ],
+        "い",
+        [
+          "出",
+          "で"
+        ],
+        "の",
+        [
+          "写真",
+          "しゃしん"
+        ]
+      ],
+      "cardIDs": [
+        "E-omoide-photo"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "PR498-candidate-only"
+      ],
+      "mainEntityMatches": [],
+      "matchStatus": "PR498-candidate-only-no-main-entity",
+      "lexicalOccurrences": [],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "prototypes/card-game/variable-life-20261031/integration/481-time-reversal-cards.md"
+      ],
+      "impact": "PR498の追加候補。現行452枚には未採用。本編の同名エンティティなし。候補ソースだけを別管理。"
+    },
+    {
+      "original": "ながいきのひけつ",
+      "proposed": "長生きの秘訣",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "長生",
+          "ながい"
+        ],
+        "きの",
+        [
+          "秘訣",
+          "ひけつ"
+        ]
+      ],
+      "cardIDs": [
+        "E-nagaiki"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "PR498-candidate-only"
+      ],
+      "mainEntityMatches": [],
+      "matchStatus": "PR498-candidate-only-no-main-entity",
+      "lexicalOccurrences": [],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "prototypes/card-game/variable-life-20261031/integration/481-time-reversal-cards.md"
+      ],
+      "impact": "PR498の追加候補。現行452枚には未採用。本編の同名エンティティなし。候補ソースだけを別管理。"
+    },
+    {
+      "original": "はやじまい",
+      "proposed": "早じまい",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "早",
+          "はや"
+        ],
+        "じまい"
+      ],
+      "cardIDs": [
+        "E-hayajimai"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "PR498-candidate-only"
+      ],
+      "mainEntityMatches": [],
+      "matchStatus": "PR498-candidate-only-no-main-entity",
+      "lexicalOccurrences": [],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "prototypes/card-game/variable-life-20261031/integration/481-time-reversal-cards.md"
+      ],
+      "impact": "PR498の追加候補。現行452枚には未採用。本編の同名エンティティなし。候補ソースだけを別管理。"
+    },
+    {
+      "original": "ほしぞらのていりゅうじょ",
+      "proposed": "星空の停留所",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "星空",
+          "ほしぞら"
+        ],
+        "の",
+        [
+          "停留所",
+          "ていりゅうじょ"
+        ]
+      ],
+      "cardIDs": [
+        "W-star_stop"
+      ],
+      "cardTypes": [
+        "world"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "region",
+          "id": "star_stop",
+          "label": "ほしぞらのていりゅうじょ",
+          "source": "character-world-master.v1.js"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 139,
+          "text": "{ id: 'star_stop', label: 'ほしぞらのていりゅうじょ' },"
+        },
+        {
+          "path": "script.js",
+          "line": 9337,
+          "text": "\"label\": \"ほしぞらのていりゅうじょ\","
+        }
+      ],
+      "cardTextReferences": [
+        "E-special-trip-memory"
+      ],
+      "primaryCardSources": [
+        "docs/card-game/89-world-13-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。"
+    },
+    {
+      "original": "どこにもつながらないかいだん",
+      "proposed": "どこにもつながらない階段",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        "どこにもつながらない",
+        [
+          "階段",
+          "かいだん"
+        ]
+      ],
+      "cardIDs": [
+        "E-stairs"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "legend-master-metadata",
+          "id": "stairs",
+          "label": "どこにもつながらないかいだん",
+          "source": "character-world-master.v1.js",
+          "actualRuntimeName": "たまごのないところ"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 169,
+          "text": "{ id: 'stairs', label: 'どこにもつながらないかいだん', keepCurrent: true, affinityRegions: ['desert'] },"
+        }
+      ],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/91-event-21-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。"
+    },
+    {
+      "original": "あやまりにきただいおういか",
+      "proposed": "謝りにきた大王イカ",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "謝",
+          "あやま"
+        ],
+        "りにきた",
+        [
+          "大王",
+          "だいおう"
+        ],
+        "イカ"
+      ],
+      "cardIDs": [
+        "E-boss"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "legend-master-metadata",
+          "id": "boss",
+          "label": "あやまりにきただいおういか",
+          "source": "character-world-master.v1.js",
+          "actualRuntimeName": "むかしのぼく"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 170,
+          "text": "{ id: 'boss', label: 'あやまりにきただいおういか', keepCurrent: true, affinityRegions: ['sea','deepsea'] },"
+        }
+      ],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/91-event-21-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。"
+    },
+    {
+      "original": "むひょうじょうのせきぞう",
+      "proposed": "無表情の石像",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "無表情",
+          "むひょうじょう"
+        ],
+        "の",
+        [
+          "石像",
+          "せきぞう"
+        ]
+      ],
+      "cardIDs": [
+        "C-sekizou"
+      ],
+      "cardTypes": [
+        "companion"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "companion",
+          "id": "sekizou",
+          "label": "むひょうじょうのせきぞう",
+          "source": "character-world-master.v1.js"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 114,
+          "text": "{ id: 'sekizou', label: 'むひょうじょうのせきぞう', asset: 'assets/characters/companions/sekizou.png' },"
+        }
+      ],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/72-companion-26-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。"
+    },
+    {
+      "original": "あみものがすきなクモさん",
+      "proposed": "編み物が好きなクモさん",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "編",
+          "あ"
+        ],
+        "み",
+        [
+          "物",
+          "もの"
+        ],
+        "が",
+        [
+          "好",
+          "す"
+        ],
+        "きなクモさん"
+      ],
+      "cardIDs": [
+        "P-knitting_spider"
+      ],
+      "cardTypes": [
+        "partner"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "partner",
+          "id": "knitting_spider",
+          "label": "あみものがすきなクモさん",
+          "source": "character-world-master.v1.js"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 162,
+          "text": "{ id: 'knitting_spider', label: 'あみものがすきなクモさん', firstRegion: 'jungle', hook: '巣と糸でいろいろ作る', asset: 'assets/characters/partners/knitting_spider.png' },"
+        }
+      ],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/74-partner-18-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。"
+    },
+    {
+      "original": "とくべつなたびのおもいで",
+      "proposed": "特別な旅の思い出",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "特別",
+          "とくべつ"
+        ],
+        "な",
+        [
+          "旅",
+          "たび"
+        ],
+        "の",
+        [
+          "思",
+          "おも"
+        ],
+        "い",
+        [
+          "出",
+          "で"
+        ]
+      ],
+      "cardIDs": [
+        "E-special-trip-memory"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [],
+      "matchStatus": "card-only-title-no-exact-main-entity-name-found",
+      "lexicalOccurrences": [],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/91-event-21-card-text-draft.md"
+      ],
+      "impact": "カード固有名。似た本編機能や語句への対応は未確認。自動統一しない。"
+    },
+    {
+      "original": "じかんにルーズなとけい",
+      "proposed": "時間にルーズな時計",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "時間",
+          "じかん"
+        ],
+        "にルーズな",
+        [
+          "時計",
+          "とけい"
+        ]
+      ],
+      "cardIDs": [
+        "C-clock"
+      ],
+      "cardTypes": [
+        "companion"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "companion",
+          "id": "clock",
+          "label": "じかんにルーズなとけい",
+          "source": "character-world-master.v1.js"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 116,
+          "text": "{ id: 'clock', label: 'じかんにルーズなとけい', behavior: '時刻は大まか。小さな出来事の音を覚えていて、誰かを待つ時間は気にしない', asset: 'assets/characters/companions/clock.png' },"
+        }
+      ],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/72-companion-26-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。"
+    }
+  ]
+}

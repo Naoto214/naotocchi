@@ -1,0 +1,21 @@
+@import url('../v8/cards.css');
+/* Only candidate card internals. Formal UI dimensions, scroll and controls are untouched. */
+.card-face.v10-card,.egg-card.v10-card{padding:0;border:0;background:none;box-shadow:none;border-radius:6%;overflow:visible;display:block;aspect-ratio:2/3}
+.v10-card .v8-face{width:100%;height:100%;margin:0;padding:0;container-type:normal;box-shadow:none}
+.v10-card .v8-header{background:none;border:0;padding:0;margin:0;display:block;min-height:0}
+.v10-card .v8-title{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK JP",serif}
+.v10-card .v8-art img{max-width:none;max-height:none;border-radius:0;object-fit:contain}
+.v10-card .v8-art.cropped img{object-fit:cover}
+.v10-card .v8-number{font:inherit}
+.v10-card .v8-stats .v8-stat-label{color:#35483c}
+.v10-detail .v8-art{top:33cqw;bottom:auto;height:49cqw}
+.v10-detail .v8-stats{top:85cqw;height:10cqw}
+.v10-copy{position:absolute;top:85cqw;bottom:12cqw;left:5cqw;right:5cqw;z-index:3;padding:2.4cqw 2.8cqw;background:#fff8e5;border:.3cqw solid #bba878;border-radius:2cqw;color:#26382d;font:400 3.7cqw/1.45 "Hiragino Kaku Gothic ProN","Noto Sans CJK JP",sans-serif;text-align:left;overflow:visible;overflow-wrap:anywhere}
+.v10-main .v10-copy,.v8-main .v10-copy{top:98cqw}
+.v10-copy p{margin:0 0 1.1cqw;font:inherit;line-height:inherit;white-space:pre-wrap;color:inherit}
+.v10-copy p:last-child{margin-bottom:0}.v10-copy strong{display:block;font-size:1em;line-height:1.35;margin:0 0 .6cqw;color:inherit}
+.v10-detail:has(.v8-egg) .v8-art{height:18cqw}
+.v10-egg-copy{top:54cqw;font-size:2.85cqw;line-height:1.35;padding:2cqw 2.5cqw}
+.v10-egg-copy h3{font:700 1em/1.25 sans-serif;margin:1cqw 0 .4cqw}.v10-egg-copy h3:first-child{margin-top:0}.v10-egg-copy ol{margin:0 0 1cqw;padding-left:1.4em}.v10-egg-copy li{margin:0;padding:0;font:inherit}
+/* Existing external labels keep their boxes and text, only fit typography. */
+html[data-candidate] .board-card-name,html[data-candidate] .collection-pocket-label>span,html[data-candidate] #collection-card-name{white-space:nowrap;text-overflow:clip;overflow:visible}

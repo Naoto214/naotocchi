@@ -1,0 +1,70 @@
+import assert from 'node:assert/strict';
+import {readFileSync,readdirSync} from 'node:fs';
+import {join,resolve,dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {createHash} from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+import {CATALOG} from '../full-catalog.mjs';
+import {cardMarkup,icon} from '../ui-presentation.mjs';
+import {cardArtColors} from '../art-pilot/approved-colors.mjs';
+import {marriedText} from '../lover-married.mjs';
+const here=dirname(fileURLToPath(import.meta.url)),root=resolve(here,'../../..'),game=resolve(here,'..');
+const out=resolve(process.argv[2]||'/workspace/sites/card-design-v8/.sites-checkout/dist/v8');
+const data=JSON.parse(readFileSync(join(out,'data.json'))),sha=b=>createHash('sha256').update(b).digest('hex');
+assert.equal(data.cards.length,459);assert.equal(data.nine.length,9);assert.equal(new Set(data.nine).size,9);
+const byId=new Map(data.cards.map(c=>[c.id,c]));assert.equal(new Set(data.nine.map(id=>byId.get(id).type)).size,7);
+let unchanged=0;
+const bind=(html,src)=>html.replace(/(<img class="dedicated-art" src=")[^"]+(")/,(_,a,b)=>a+src+b);
+for(const c of data.cards){
+ assert.equal(c.color,cardArtColors(c).color);assert.equal(c.mark,icon(c.type==='main'?c.attribute:c.type));assert.equal(c.married,marriedText(c.id));
+ if(CATALOG[c.id]){
+  for(const [k,v]of Object.entries(CATALOG[c.id]))assert.deepEqual(c[k],v,`${c.id} ${k}`);
+  assert.equal(c.officialFull,bind(cardMarkup(CATALOG[c.id],{detail:true}),c.large));
+  assert.equal(c.officialCompact,bind(cardMarkup(CATALOG[c.id],{compact:true}),c.image));unchanged++;
+ }else{assert(c.additional);assert.equal(c.source_sha256,'d4bb2d7a07192632bc25f06d1857af57fb311c976bd396bca6ce6cf979f3583b');assert(c.officialFull.includes(c.large));}
+}
+assert.equal(unchanged,452);
+assert(readFileSync(join(out,'official/style.css')).equals(readFileSync(join(game,'style.css'))));
+assert.equal(sha(readFileSync(join(out,'assets/back.png'))),'028114e02034a5c5d84a0ace2c97babb92363e19eed6249f87cc591897189872');
+const receipts=JSON.parse(readFileSync(join(here,'asset-verification.json'))).receipts;
+for(const r of receipts){const file=r.delivery==='official-published'?join(game,r.source):join(out,r.path);assert.equal(sha(readFileSync(file)),r.sha256);if(r.delivery==='official-published')assert.equal(r.path,'https://naoto214.github.io/naotocchi/prototypes/card-game/'+r.source);}
+const files=execFileSync('git',['ls-tree','-r','--name-only','c04688e468d40c507c81352ce559e9a1282dee49','prototypes/card-game/design-comparison-v1-20261114','prototypes/card-game/design-comparison-v2-20261114','prototypes/card-game/design-comparison-v3-20261114','prototypes/card-game/design-comparison-v4-20261114','prototypes/card-game/design-comparison-v5-20261114','prototypes/card-game/design-comparison-v6-20261115','prototypes/card-game/design-comparison-v7-20261115'],{cwd:root,encoding:'utf8'}).trim().split('\n');
+for(const file of files)assert(readFileSync(join(root,file)).equals(execFileSync('git',['show',`c04688e468d40c507c81352ce559e9a1282dee49:${file}`],{cwd:root,maxBuffer:10*1024*1024})));
+assert.equal(data.palette.length,14);assert.equal(new Set(data.palette.map(id=>byId.get(id).color)).size,14);
+assert(readFileSync(join(here,'base-v2.css')).equals(readFileSync(join(here,'../design-comparison-v2-20261114/design.css'))));
+assert(readFileSync(join(here,'base-v3.css')).equals(readFileSync(join(here,'../design-comparison-v3-20261114/design.css'))));
+assert(readFileSync(join(here,'base-title.mjs')).equals(readFileSync(join(here,'../design-comparison-v3-20261114/title.mjs'))));
+assert(readFileSync(join(here,'base-v4.css')).equals(readFileSync(join(here,'../design-comparison-v4-20261114/design.css'))));
+assert(readFileSync(join(here,'title.mjs')).equals(readFileSync(join(here,'../design-comparison-v4-20261114/title.mjs'))));
+const report={paletteColors:14,baselineCssUnchanged:true,cards:459,unchangedProductionRecordsAndMarkup:unchanged,nineCards:9,nineCardCategories:7,verifiedImages:receipts.length,productionCssUnchanged:true,backUnchanged:true,v1ThroughV7FilesUnchanged:files.length};
+console.log(JSON.stringify(report,null,2));
+
+assert(readFileSync(join(here,'base-v5.css')).equals(readFileSync(join(here,'../design-comparison-v5-20261114/design.css'))));
+assert(readFileSync(join(here,'cost-alignment.mjs')).equals(readFileSync(join(here,'../design-comparison-v5-20261114/cost-alignment.mjs'))));
+
+assert(readFileSync(join(here,'base-v6.css')).equals(readFileSync(join(here,'../design-comparison-v6-20261115/design.css'))));
+
+const {normalCard,detailCopy}=await import('./cards.mjs');
+const {escapeHTML:h}=await import('./title.mjs');
+const {currentPolicy,deckLimit,trialPolicy}=await import('./limits.mjs');
+const policy=currentPolicy(data.cards);
+for(const c of data.cards){
+ const html=normalCard(c),detail=detailCopy(c);
+ assert(!/class="(?:rules|card-copy|full-effect)|<ruby/.test(html),c.id);
+ assert(html.includes(h(c.title)),c.id);assert(detail.includes(h(c.text)),c.id);
+ if(c.married)assert(detail.includes(h(c.married)),c.id);
+ assert.equal((html.match(/class="v8-value"/g)||[]).length,c.type==='main'?2:0);
+ assert.equal(html.includes('class="v8-rare"'),c.rare);
+ assert.equal(deckLimit(c.id,data.cards,policy),c.rare?1:3);
+ for(const n of [1,2,3]){assert.equal(deckLimit(c.id,data.cards,trialPolicy(policy,c.id,n)),n);assert.equal(deckLimit(c.id,data.cards,policy),c.rare?1:3);}
+}
+const eggHTML=normalCard({...data.egg,type:'egg'},{egg:true});
+assert(!/v8-cost|v8-stats|v8-rare|full-effect/.test(eggHTML));
+assert(readFileSync(join(out,'assets/egg-art.png')).equals(readFileSync(join(game,'egg-design/frame-unification/preserved-art.png'))));
+assert.equal(data.egg.detailHTML,(await import('../ui-presentation.mjs')).eggDetailMarkup());
+assert.equal(data.icons.fist,icon('fist'));assert.equal(data.icons.brain,icon('brain'));
+const runtime=JSON.parse(readFileSync(join(here,'runtime-verification.json')));
+for(const r of runtime){assert.equal(sha(readFileSync(join(out,'runtime',r.path))),r.sha256);assert(readFileSync(join(out,'runtime',r.path)).equals(readFileSync(join(game,r.path))));}
+assert(readFileSync(join(out,'runtime/style.css')).equals(readFileSync(join(game,'style.css'))));
+assert.equal(execFileSync('git',['diff','--name-only','c314e5a9091e71864c2efe2003913e08325d9bb8','--','dist',':(exclude)dist/v8'],{cwd:resolve(out,'../..'),encoding:'utf8'}).trim(),'');
+console.log(JSON.stringify({normalNoEffects:459,fullEffectsPreserved:459,mainStats:248,rarity:76,deckPolicyEquivalence:459,isolatedOverrides:1377,eggOriginal:true,iconsPreserved:true,runtimeModulesExact:runtime.length,siteV1ThroughV7Unchanged:true}));

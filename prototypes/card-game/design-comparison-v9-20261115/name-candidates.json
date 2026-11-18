@@ -1,0 +1,154 @@
+[
+  {
+    "id": "M-starfish-01",
+    "current": "丸いあかちゃん",
+    "candidate": "浮遊幼生",
+    "kind": "individual",
+    "characterID": "starfish",
+    "stage": 1
+  },
+  {
+    "id": "M-starfish-02",
+    "current": "透けた小さな星",
+    "candidate": "後期浮遊幼生",
+    "kind": "individual",
+    "characterID": "starfish",
+    "stage": 2
+  },
+  {
+    "id": "M-starfish-03",
+    "current": "色づく小さな星",
+    "candidate": "着底・変態期",
+    "kind": "individual",
+    "characterID": "starfish",
+    "stage": 3
+  },
+  {
+    "id": "M-starfish-04",
+    "current": "ふっくらした星",
+    "candidate": "変態後の稚ヒトデ",
+    "kind": "individual",
+    "characterID": "starfish",
+    "stage": 4
+  },
+  {
+    "id": "M-starfish-05",
+    "current": "金色の子ヒトデ",
+    "candidate": "小型の稚ヒトデ",
+    "kind": "individual",
+    "characterID": "starfish",
+    "stage": 5
+  },
+  {
+    "id": "M-starfish-06",
+    "current": "ぶつぶつ子ヒトデ",
+    "candidate": "若いヒトデ",
+    "kind": "individual",
+    "characterID": "starfish",
+    "stage": 6
+  },
+  {
+    "id": "M-starfish-07",
+    "current": "大人のヒトデ",
+    "candidate": "成熟したヒトデ",
+    "kind": "individual",
+    "characterID": "starfish",
+    "stage": 7
+  },
+  {
+    "id": "M-starfish-08",
+    "current": "大きなヒトデ",
+    "candidate": "長生きしたヒトデ",
+    "kind": "individual",
+    "characterID": "starfish",
+    "stage": 8
+  },
+  {
+    "id": "M-sakura-01",
+    "current": "芽ぶきのたね",
+    "candidate": "芽ぶきのサクラ",
+    "kind": "shared",
+    "characterID": "sakura",
+    "stage": 1
+  },
+  {
+    "id": "M-world_tree-01",
+    "current": "光る芽",
+    "candidate": "光るたね",
+    "kind": "shared",
+    "characterID": "world_tree",
+    "stage": 1
+  },
+  {
+    "id": "M-world_tree-03",
+    "current": "小さな木",
+    "candidate": "若い木",
+    "kind": "shared",
+    "characterID": "world_tree",
+    "stage": 3
+  },
+  {
+    "id": "M-world_tree-07",
+    "current": "雲をこえる木",
+    "candidate": "天にのびる木",
+    "kind": "shared",
+    "characterID": "world_tree",
+    "stage": 7
+  },
+  {
+    "id": "M-unknown-02",
+    "current": "ぷる",
+    "candidate": "ぷるたま",
+    "kind": "individual",
+    "characterID": "unknown",
+    "stage": 2
+  },
+  {
+    "id": "M-unknown-03",
+    "current": "足？",
+    "candidate": "あしつきたま",
+    "kind": "individual",
+    "characterID": "unknown",
+    "stage": 3
+  },
+  {
+    "id": "M-unknown-04",
+    "current": "目？",
+    "candidate": "ふたつぶたま",
+    "kind": "individual",
+    "characterID": "unknown",
+    "stage": 4
+  },
+  {
+    "id": "M-unknown-05",
+    "current": "羽？",
+    "candidate": "はねつきたま",
+    "kind": "individual",
+    "characterID": "unknown",
+    "stage": 5
+  },
+  {
+    "id": "M-unknown-06",
+    "current": "でっかい？",
+    "candidate": "おおたま",
+    "kind": "individual",
+    "characterID": "unknown",
+    "stage": 6
+  },
+  {
+    "id": "M-unknown-07",
+    "current": "ちっちゃい？",
+    "candidate": "ちいさなたま",
+    "kind": "individual",
+    "characterID": "unknown",
+    "stage": 7
+  },
+  {
+    "id": "M-unknown-08",
+    "current": "点……？",
+    "candidate": "もどりの点",
+    "kind": "individual",
+    "characterID": "unknown",
+    "stage": 8
+  }
+]

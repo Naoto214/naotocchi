@@ -1,0 +1,12 @@
+/* V3 additions only. base-v2.css is byte-identical to the saved V2 stylesheet. */
+.design-stage{grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;padding-inline:26px}
+.pair-stage{grid-template-columns:repeat(2,minmax(0,296px));gap:40px}
+.design-letter{width:42px;min-width:42px;border-radius:18px;font-size:12px}
+.v3-candidate.field-auto .card-title{background:none;border:0;border-radius:0;box-shadow:none;color:#101a14;text-shadow:none}
+/* Light belongs to the card, not to a rectangular title element. */
+.face-B3-B{background:radial-gradient(ellipse 70cqw 29cqw at 42% 18%,#fff9e8c7 0%,#fff9e880 38%,#fff9e800 100%),radial-gradient(ellipse at 50% 48%,#fffcf0 24%,color-mix(in srgb,var(--card-color) 25%,#fff9e8) 60%,color-mix(in srgb,var(--card-color) 72%,#fff9e8) 88%,var(--card-color))}
+.v3-candidate .signature{background:none;border:0;border-radius:0;box-shadow:none;padding:0;color:#433923;letter-spacing:.2em;font-weight:500}
+.v3-candidate.field-auto .rules{background:#fffcf0;border:1px solid #b9a571;border-radius:2cqw;z-index:3}
+@media(max-width:720px){.design-stage{gap:20px;padding:24px 20px 14px}.pair-stage{gap:14px;padding:22px 16px 10px}.design-letter{width:40px;min-width:40px}.segmented button{font-size:14px;padding:0 5px}.segmented span{font-size:9px}.masthead nav{gap:7px}.section-heading{align-items:start}.section-heading h2{font-size:19px}.section-heading>span{padding-top:5px;font-size:8px}.v3-candidate .signature{padding:0}.notes-grid article{padding-left:48px}}
+/* The old centre diamond sat behind the plaque; leave the new bare wordmark clear. */
+.v3-candidate .leaf-corners>g>path:last-child{display:none}

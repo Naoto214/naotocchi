@@ -1,0 +1,130 @@
+[
+  {
+    "path": "engine.mjs",
+    "sha256": "7e220d2dc733df1f20b752a43ac3ba16dff29a85d220ffddcaf9d09c5fc9a261"
+  },
+  {
+    "path": "ability-copy.mjs",
+    "sha256": "5fe1aa24a6c53f4e61d5796eead1898776170478b6f893ada172dccb5abef831"
+  },
+  {
+    "path": "lover-married.mjs",
+    "sha256": "e11d68181b4207ea1e56552c8cc78085ed2f5c70531523baf03cb005a87465dc"
+  },
+  {
+    "path": "costs.mjs",
+    "sha256": "2fff31c2c2aecf75e47750374fde6b39e49e2baa5b0a4ff9c95ca46ba5b1e296"
+  },
+  {
+    "path": "full-catalog.mjs",
+    "sha256": "b9387a778cc7be99e9e2f7a291a15664d904fd1b8245c781d25fd525fcb0b171"
+  },
+  {
+    "path": "event-effects.mjs",
+    "sha256": "572ecff5958cf7f23da938abc699f9b42002b4b84e767b20997b20be30005f27"
+  },
+  {
+    "path": "cards.mjs",
+    "sha256": "d1cb610608860d83d69a8577ac624b9d9248f3cf1cf6b5535337a5d48276563a"
+  },
+  {
+    "path": "legacy-engine.mjs",
+    "sha256": "8d78d0d9936caeeaf4cd819802e881c62a9c23c4e023111b73f4d9342dbd32bf"
+  },
+  {
+    "path": "rules.mjs",
+    "sha256": "4ff7a4127e204bc77d607314335d8e06d42cd593a9f3bb07eaf1bfd388e3c7f6"
+  },
+  {
+    "path": "equipment-rules.mjs",
+    "sha256": "d81eb4bb47b72dc6a59ae19cc1161f62000876624828f32a5e553fa0093619af"
+  },
+  {
+    "path": "advanced-inspection.mjs",
+    "sha256": "5918ae6f58150294be9336ba64dc785f6e88181c84cf6957facc977f7000166a"
+  },
+  {
+    "path": "remaining-rules.mjs",
+    "sha256": "042d684b35f698574155d55e369f1607474e723ac052126f3346a1d364ba2da1"
+  },
+  {
+    "path": "main-rules.mjs",
+    "sha256": "fdea46657b7a7d537e67d0194ee6b860197e041c87d780bd551c45a3cd99a8f6"
+  },
+  {
+    "path": "effects.mjs",
+    "sha256": "9f19bda546338b5c3f997ba29085e5960644e22d9544c56d931ef09a9125b6d8"
+  },
+  {
+    "path": "advanced-equipment.mjs",
+    "sha256": "cedaf38d64c5f4c46b24551d6d385c95e30167b963151248548287c34036cf15"
+  },
+  {
+    "path": "advanced-effects.mjs",
+    "sha256": "b9b844ebae604993e5c93900a9ccc41a24af113b6a816e2a1367255e26f378a5"
+  },
+  {
+    "path": "late-conditions.mjs",
+    "sha256": "55ad139d6d76a04b17e2150e48d440e093c762a5cdc8e5d1eccf29174d7264cc"
+  },
+  {
+    "path": "selection.mjs",
+    "sha256": "a0b1a39293701945d114dae0461f0c5b0e3773ce9bbd6022e261040e6478430c"
+  },
+  {
+    "path": "replacements.mjs",
+    "sha256": "63b5313fa654c1a95c4e766dc3585ef88deb29ffd1ad91d71c7a0ebd27af75f6"
+  },
+  {
+    "path": "ui-session.mjs",
+    "sha256": "a8f7b03f63c581f74c5c2c8bbb7a34ab5bfb2d817700d88b4d7609453abd4369"
+  },
+  {
+    "path": "cpu-observation.mjs",
+    "sha256": "0d599bdabcff86aaf81352ed6bd34b16290e31f4cc57b789662cdc86d37935f1"
+  },
+  {
+    "path": "ui-context.mjs",
+    "sha256": "20283d10d3705daad77763d1f5a48d3c218442bd405e2236f807d6b07ea30ca2"
+  },
+  {
+    "path": "ui-results.mjs",
+    "sha256": "182c0467a48b878d2ee37b06d1987a64fef0123a34fc6319112487b8f5e89219"
+  },
+  {
+    "path": "auto-progress.mjs",
+    "sha256": "06d9dcd8c29a274c919546c966ef026c445e93d7e3da82f499136cb458dcbc17"
+  },
+  {
+    "path": "auto-capabilities.mjs",
+    "sha256": "ca806bedbe86e01cbede12829726084ac325ebdf07efbdbf53b17671df7fbaf3"
+  },
+  {
+    "path": "ui-presentation.mjs",
+    "sha256": "bcd11117e78fabef2d2f9e51a7f17216a0884a02ceeceff5d15151424f11d056"
+  },
+  {
+    "path": "rulebook-content.mjs",
+    "sha256": "8ca58afa1cf046de49e2b2bdc74cd6f1de58c4fc29e204ba1516c168dfede53d"
+  },
+  {
+    "path": "rulebook-sources.mjs",
+    "sha256": "064101f3e2f3e0f934374b4039762ecd4626dda23491c524dc56e66b2c24328f"
+  },
+  {
+    "path": "ui-art.mjs",
+    "sha256": "b6a9eac88bddfa41fe8732f6c94768f437f6e3acac78b380de616f344149cbfe"
+  },
+  {
+    "path": "art-pilot/approved-colors.mjs",
+    "sha256": "45ddaa3a75449f534052fbe17a3c73c233ff232b32d975db6652f953ace128be"
+  },
+  {
+    "path": "art-pilot/symbols/attributes.mjs",
+    "sha256": "9edcc355708f781f680afddf9851dab7e3c98de5a33d300da388c649517b0d1d"
+  },
+  {
+    "path": "card-title-lines.mjs",
+    "sha256": "84470804599c7ab02e8899fd6a671e0c87ee7ff63ab08fa07a8a123cd472c9b4"
+  }
+]

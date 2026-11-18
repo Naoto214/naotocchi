@@ -1,0 +1,6 @@
+import {readFileSync,writeFileSync} from 'node:fs';import {dirname,join} from 'node:path';import {fileURLToPath} from 'node:url';import {titleInfo} from './title.mjs';import {titleInfo as oldTitle} from './base-title.mjs';
+const here=dirname(fileURLToPath(import.meta.url));const data=JSON.parse(readFileSync(process.argv[2]||'/workspace/sites/card-design-v3/.sites-checkout/dist/v4/data.json'));
+const names=data.cards.map(c=>{const o=oldTitle(c),n=titleInfo(c);return{id:c.id,name:c.title,length:c.title.length,oldCqw:o.size,newCqw:n.size,oldPx320:o.size*.906667,newPx320:n.size*.906667,newPx390:n.size*1.14,kanji:titleInfo(c,'kanji').text}}).sort((a,b)=>a.newCqw-b.newCqw);
+const effects=data.cards.map(c=>({id:c.id,name:c.title,length:c.text.length+(c.married?.length||0)})).sort((a,b)=>b.length-a.length);
+const report={count:data.cards.length,longNames:names.filter(c=>c.length>=12),minimum:names[0],longestEffects:effects.slice(0,12),shortestEffects:effects.slice(-5),displayProposals:data.cards.filter(c=>titleInfo(c,'kanji').changed).map(c=>({id:c.id,canonical:c.title,proposal:titleInfo(c,'kanji').text}))};
+writeFileSync(join(here,'catalog-audit.json'),JSON.stringify(report,null,2));console.log(JSON.stringify({cards:report.count,longNames:report.longNames.length,minimum:report.minimum,longestEffect:effects[0],proposals:report.displayProposals.length}));

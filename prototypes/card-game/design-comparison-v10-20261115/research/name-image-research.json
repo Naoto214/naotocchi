@@ -1,0 +1,2760 @@
+{
+  "schemaVersion": 1,
+  "status": "research-only-no-formal-renames",
+  "sourceCommit": "d3eb6631d721cd92f0987c17842cf395e5136ae0",
+  "reviewedAt": "2026-11-15",
+  "method": "既存本編PNG・CARD原画PNG・runtime WebPを32段階すべて目視比較。絵文字や旧QA候補をキャラ画像の代用にしない。画像のリサイズは一時的な観察用contact sheetだけで原本変更なし。",
+  "counts": {
+    "species": 4,
+    "stages": 32,
+    "mainImages": 32,
+    "cardIllustrations": 32,
+    "runtimeLargeImages": 32,
+    "divergences": 19,
+    "kanjiCandidates": 14,
+    "sharedLiveKanjiEntities": 6
+  },
+  "stages": [
+    {
+      "species": "starfish",
+      "stage": 1,
+      "saveStageIndex": 0,
+      "dexKey": "starfish:0",
+      "cardID": "M-starfish-01",
+      "mainName": "浮遊幼生",
+      "cardName": "ヒトデ①",
+      "cardTitle": "丸いあかちゃん",
+      "divergent": true,
+      "mainImage": {
+        "path": "assets/characters/starfish/01.png",
+        "sha256": "bab2be337b112e256b5991bc3c90ce802f67e60638cb30f15a8436c5688eac39",
+        "gitBlob": "648c3608c5b5eae4110a863ef57ac25b4a41b6ae",
+        "width": 1254,
+        "height": 1254
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-starfish-01.png",
+        "sha256": "e72cce83bbaa527e9e60c9cd4513380cd6a700109bc051a75fbe2d84d812fabf",
+        "gitBlob": "b0cb08f5e61c83bd6dcdfc9e9a5fb9cd4fc810dc",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-starfish-01-1756bf33da8b.webp",
+        "sha256": "1756bf33da8bea23c31045da048b49e29018d9ce0800deb98ca2dde0cd220660",
+        "gitBlob": "287d045bf40a0ff60dcbfe868e4053e4858f6ade",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-starfish-01-f0ed938a996d.webp",
+        "sha256": "f0ed938a996d540bae903de77e360eb14dc94e254540134751112db910a5f027",
+        "gitBlob": "8f7dfa84a95a59ba7589537d28f2e529eebf04fc",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "青く透ける縦長の幼生。左右の小さな突起と丸い頭があるが球形ではない。",
+        "card": "透明な青い球形のあかちゃんが水中に浮く。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 67,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged",
+      "recommendation": {
+        "name": "浮かぶあかちゃん",
+        "basis": "new-friendly-bridge",
+        "reason": "CARDの親しみやすい「あかちゃん」を生かす。本編は縦長なので「丸い」は共通名に向かない。幼生という専門語を使わず、双方の浮遊感を表す。",
+        "tradeoff": "丸いあかちゃんはCARD単独なら合うが本編との共通化には形の差が残る。",
+        "status": "proposal-only-unapproved",
+        "confidence": "high"
+      }
+    },
+    {
+      "species": "starfish",
+      "stage": 2,
+      "saveStageIndex": 1,
+      "dexKey": "starfish:1",
+      "cardID": "M-starfish-02",
+      "mainName": "後期浮遊幼生",
+      "cardName": "ヒトデ②",
+      "cardTitle": "透けた小さな星",
+      "divergent": true,
+      "mainImage": {
+        "path": "assets/characters/starfish/02.png",
+        "sha256": "d2bea1405df2b329785fadbd13e12f69887c8701c0653894ba989b8d5bfa225d",
+        "gitBlob": "8454eda71ce2cc1d471f3386da86a718103f29ad",
+        "width": 1254,
+        "height": 1254
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-starfish-02.png",
+        "sha256": "a47c5dccc7413f842a84985b73a5e8aee0e4115a9ff88897d3da4fe5390ff393",
+        "gitBlob": "94bdbb72e8d65691d6ecb992a8008a56bb28dad0",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-starfish-02-85ac9ac01b8b.webp",
+        "sha256": "85ac9ac01b8b80688048e0cff4b3ad5f805d64f70ddf98ea616004d06d96f801",
+        "gitBlob": "727362559bbf3d1a3d17aa35cba26884dc85298d",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-starfish-02-ab3d4e6894bc.webp",
+        "sha256": "ab3d4e6894bc39085a451ea171dc096c040515fa16b2ab8d9b3d6825d1ebf076",
+        "gitBlob": "25155b13086adb8412c1e39ba5c59b3fca6a67bd",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "青い細長い幼生で突起が増える。五本腕の星形にはまだ見えない。",
+        "card": "透明な五本腕の星形が水中に浮く。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 67,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged",
+      "recommendation": {
+        "name": "透けたあかちゃん",
+        "basis": "new-friendly-bridge",
+        "reason": "双方が青く透明な幼い姿。本編はまだ星形ではないので「小さな星」と断定せず、③で初めて色づく星形になる順序を守る。",
+        "tradeoff": "透けた小さな星はCARD画像に合うが本編の五本腕がない姿には不一致。",
+        "status": "proposal-only-unapproved",
+        "confidence": "high"
+      }
+    },
+    {
+      "species": "starfish",
+      "stage": 3,
+      "saveStageIndex": 2,
+      "dexKey": "starfish:2",
+      "cardID": "M-starfish-03",
+      "mainName": "着底・変態期",
+      "cardName": "ヒトデ③",
+      "cardTitle": "色づく小さな星",
+      "divergent": true,
+      "mainImage": {
+        "path": "assets/characters/starfish/03.png",
+        "sha256": "220666ce63326a72b2125d4621bb587f3edbc01271faefe38671162947c06bb0",
+        "gitBlob": "9770cf8b70d844b07a773c363201c45018c44bb0",
+        "width": 1254,
+        "height": 1254
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-starfish-03.png",
+        "sha256": "76e0e9e568d08352d5c4ed61e0e628bfbdff19fbc4856e780aa45e08f89e347c",
+        "gitBlob": "9dfd9897cd56f4495db49ada8cd9cad9f563a8ee",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-starfish-03-b49e025d9a8d.webp",
+        "sha256": "b49e025d9a8dc05dcbf8cedca941d4117a75cc001a541d9eae0f67ef449f2596",
+        "gitBlob": "74631e59d6bab7908031c21eda452fb8d1d941cd",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-starfish-03-dbc018991274.webp",
+        "sha256": "dbc01899127416a7480ed27d02e2595121f48332f8510bd1132c9198e345f7d1",
+        "gitBlob": "47e81669af999b1da71f9b1ef5b72d51f105086c",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "青い幼生状の部分を残し、ピンクの小さな星形が現れる。",
+        "card": "淡い黄色〜ピンクの小さな星形が貝の上にいる。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 67,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged",
+      "recommendation": {
+        "name": "色づく小さな星",
+        "basis": "card",
+        "reason": "本編でピンクの星形が現れ、CARDも淡く色づく。①②の透明なあかちゃんから星へ変わる節目をやさしく伝える。",
+        "tradeoff": "着底・変態期は生物学的説明に適するが絵本の呼び名として硬い。",
+        "status": "proposal-only-unapproved",
+        "confidence": "high"
+      }
+    },
+    {
+      "species": "starfish",
+      "stage": 4,
+      "saveStageIndex": 3,
+      "dexKey": "starfish:3",
+      "cardID": "M-starfish-04",
+      "mainName": "変態後の稚ヒトデ",
+      "cardName": "ヒトデ④",
+      "cardTitle": "ふっくらした星",
+      "divergent": true,
+      "mainImage": {
+        "path": "assets/characters/starfish/04.png",
+        "sha256": "67cc700986fea3bf4584744a8f58a10978d1dce0eec173ea4666b73c82bc9863",
+        "gitBlob": "68fc30bf963714a577dec3d3889a2bc66b9e6bb9",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-starfish-04.png",
+        "sha256": "f9753c73316e678cc1f82da06b15ffb147cb172c058ecc348ed09f83a60c84b3",
+        "gitBlob": "a89aadf3705f4b57d381d16a914715db0fd57c1c",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-starfish-04-b5607d0561fe.webp",
+        "sha256": "b5607d0561fec00494234fbd8e7f6dcb1a9b4a1124e3ebf434c0b86adcc7cf3e",
+        "gitBlob": "33b5e6220a94d7e0beb639a59eb047b6e9ce170f",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-starfish-04-e80859541a13.webp",
+        "sha256": "e80859541a1372139857f576c065877f9b4b3d235ce17819ac1f3c0826faefa1",
+        "gitBlob": "94188a63ee93ced1e315ff0a27e484f822aa3fbc",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "ピンクの五本腕。厚みがあり丸みを帯びる。",
+        "card": "丸く厚みのあるピンクの星形。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 67,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged",
+      "recommendation": {
+        "name": "ふっくらした星",
+        "basis": "card",
+        "reason": "両方のピンクで丸みと厚みのある腕を素直に表す。③の小さな星から育つ順序も読める。",
+        "tradeoff": "変態後の稚ヒトデより見た目から覚えやすい。",
+        "status": "proposal-only-unapproved",
+        "confidence": "high"
+      }
+    },
+    {
+      "species": "starfish",
+      "stage": 5,
+      "saveStageIndex": 4,
+      "dexKey": "starfish:4",
+      "cardID": "M-starfish-05",
+      "mainName": "小型の稚ヒトデ",
+      "cardName": "ヒトデ⑤",
+      "cardTitle": "金色の子ヒトデ",
+      "divergent": true,
+      "mainImage": {
+        "path": "assets/characters/starfish/05.png",
+        "sha256": "5075539019147a587ab984f058edabdb3ea994ab91067108f48e4c3cb9afa462",
+        "gitBlob": "2dc900c69b34fc50724ebf0b6868c22fd2074e91",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-starfish-05.png",
+        "sha256": "296cf57f36fb2bc28fc74ad7fcf626f817aef83244426ca39cf49db274aedb59",
+        "gitBlob": "fdc3b4227b0b72813cbe17ddd5b4e788636b5345",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-starfish-05-8ec33e2c5135.webp",
+        "sha256": "8ec33e2c513565f64b42ba4e50d5f2493ec9fede6d84fe96310b6c72d16c16ad",
+        "gitBlob": "cb6032f83cedda84a553d335a57e6e755cc9a80c",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-starfish-05-6ea0d18b1353.webp",
+        "sha256": "6ea0d18b1353ae015b65653745ab63abee087dc58d9537519fa1a21729138f40",
+        "gitBlob": "c276cfc5214fbecdacaa04dba4c540c17bdd58e2",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "金色〜オレンジの五本腕。表面は比較的なめらか。",
+        "card": "小さな金色のヒトデ。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 67,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged",
+      "recommendation": {
+        "name": "金色の子ヒトデ",
+        "basis": "card",
+        "reason": "両方とも金色のなめらかな姿。色と成長段階が同時に伝わり、⑥のつぶつぶとも区別できる。",
+        "tradeoff": "小型の稚ヒトデはサイズ以外の視覚的特徴を伝えにくい。",
+        "status": "proposal-only-unapproved",
+        "confidence": "high"
+      }
+    },
+    {
+      "species": "starfish",
+      "stage": 6,
+      "saveStageIndex": 5,
+      "dexKey": "starfish:5",
+      "cardID": "M-starfish-06",
+      "mainName": "若いヒトデ",
+      "cardName": "ヒトデ⑥",
+      "cardTitle": "ぶつぶつ子ヒトデ",
+      "divergent": true,
+      "mainImage": {
+        "path": "assets/characters/starfish/06.png",
+        "sha256": "9530edaae3061ba58e55e460d1ee72f67dfc33c74841d0f1cc30eb05a8ed32d8",
+        "gitBlob": "0697fa923c0bb532e0f4031e248601699bce1f87",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-starfish-06.png",
+        "sha256": "a072c429eb946305b46dc799de469707eba483d14714992123d61bcdbcc86b45",
+        "gitBlob": "f99debd8061a96b7055741023b597e47210a41b9",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-starfish-06-ad32d738a58e.webp",
+        "sha256": "ad32d738a58e86568bb5373aa5180e4dfab3b2316fa37dab762f4ca4ea86b815",
+        "gitBlob": "2c73d5b78b8638dea9b67eaa2e9a4b59beea9fd6",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-starfish-06-109cb9294f88.webp",
+        "sha256": "109cb9294f880e90721d1e4fc1fa587adc24a640a8dbad228fd578b7ca1ae5f9",
+        "gitBlob": "4cfd7854f59fc5513cd585ed2dd53f9b5c8811b7",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "オレンジの腕に丸い突起が並ぶ。",
+        "card": "丸いつぶのあるオレンジのヒトデ。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 67,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged",
+      "recommendation": {
+        "name": "ぶつぶつ子ヒトデ",
+        "basis": "card",
+        "reason": "両方に目立つ丸い突起がある。⑤の金色、⑦の大人という流れの中で識別しやすい。",
+        "tradeoff": "柔らかな語感の「つぶつぶ子ヒトデ」も候補だが、今回は既存CARD案の支持を優先。",
+        "status": "proposal-only-unapproved",
+        "confidence": "high"
+      }
+    },
+    {
+      "species": "starfish",
+      "stage": 7,
+      "saveStageIndex": 6,
+      "dexKey": "starfish:6",
+      "cardID": "M-starfish-07",
+      "mainName": "成熟したヒトデ",
+      "cardName": "ヒトデ⑦",
+      "cardTitle": "大人のヒトデ",
+      "divergent": true,
+      "mainImage": {
+        "path": "assets/characters/starfish/07.png",
+        "sha256": "c806f9b9fb0d489db9c253f5caed5a1773c953cd6db756084feef49db6c9f6fa",
+        "gitBlob": "e25bda3a8cd8073ac83875c3cf6943a2c82eaa17",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-starfish-07.png",
+        "sha256": "45ea6bde6b399a7e9d0ea00fc0f1bdf1d35a33845126075dbb369fb5099d2b48",
+        "gitBlob": "65bad31ef05b2fd038486170766cae05d15b3ddc",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-starfish-07-95e2668a494c.webp",
+        "sha256": "95e2668a494cee32012b95e734c296fafe79df30baac14f1965a0c160b998561",
+        "gitBlob": "5f71989640e1f816d9480ca7c7e8b4179e5f055c",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-starfish-07-5551436c2a72.webp",
+        "sha256": "5551436c2a72be0457237f276714981d470b368194076e52d9bd1f4709253227",
+        "gitBlob": "dd732d4491e5cce990ea2f0df9f7c87abf635b0b",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "淡いピンクで腕が長く、落ち着いた顔。",
+        "card": "淡いピンクの長い腕、落ち着いた顔。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 67,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged",
+      "recommendation": {
+        "name": "大人のヒトデ",
+        "basis": "card",
+        "reason": "長めの腕と落ち着いた表情が成長を感じさせる。成熟したという専門寄りの言い回しを平易にする。",
+        "tradeoff": "画像だけで生物学的成熟は確定できないため、絵本上の段階名としての判断。",
+        "status": "proposal-only-unapproved",
+        "confidence": "high"
+      }
+    },
+    {
+      "species": "starfish",
+      "stage": 8,
+      "saveStageIndex": 7,
+      "dexKey": "starfish:7",
+      "cardID": "M-starfish-08",
+      "mainName": "長生きしたヒトデ",
+      "cardName": "ヒトデ⑧",
+      "cardTitle": "大きなヒトデ",
+      "divergent": true,
+      "mainImage": {
+        "path": "assets/characters/starfish/08.png",
+        "sha256": "36a836ac587a111176e781fc05b8cf05e2efc4271cbe1905dd5bb6360ee2b3b4",
+        "gitBlob": "465c567afb68c43a31bf7a7f426a64813ef80f24",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-starfish-08.png",
+        "sha256": "19553cc78747a64058b22842ebbd3ca4620050beaba3f56a887a9e3a1eb6e369",
+        "gitBlob": "02c79e6ab7abb86d6a9abb663445aa00727da17f",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-starfish-08-a3fc2414eeff.webp",
+        "sha256": "a3fc2414eeff020969ae71f47078bba1e89021da487c65b0a024039f87d11e49",
+        "gitBlob": "5ed661c6502d5e18754957ea23e0fb993ac3f8f5",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-starfish-08-509914bdb768.webp",
+        "sha256": "509914bdb7685e877c42b061a979439326931d3c06d2f19e3595e9b9ef4ea107",
+        "gitBlob": "89b84ee0a21264132c9ab8129caec6b20317e463",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "赤と金の大きな星形。点状の模様が密になり、落ち着いた表情。",
+        "card": "赤と金の幅広いヒトデ。点状の模様が密で画面を大きく占める。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 67,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged",
+      "recommendation": {
+        "name": "大きなヒトデ",
+        "basis": "card",
+        "reason": "赤と金の幅広い星形と密な点模様に合い、終段階の存在感を伝える。",
+        "tradeoff": "画像は正規化表示なので実寸を測れない。大きさは絵柄の存在感と段階の物語からの推奨で、長寿を外見だけで断定しない。",
+        "status": "proposal-only-unapproved",
+        "confidence": "medium"
+      }
+    },
+    {
+      "species": "sakura",
+      "stage": 1,
+      "saveStageIndex": 0,
+      "dexKey": "sakura:0",
+      "cardID": "M-sakura-01",
+      "mainName": "芽ぶきのサクラ",
+      "cardName": "サクラ①",
+      "cardTitle": "芽ぶきのたね",
+      "divergent": true,
+      "mainImage": {
+        "path": "assets/characters/sakura/01.png",
+        "sha256": "0294afc2b70765d9ff879ddc20f35648dd87fe7a7323103fe8b629250c3a3bb2",
+        "gitBlob": "28da49687b800ffb3bd56fa8f905f01db9e64cb7",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-sakura-01.png",
+        "sha256": "d54c212ef0164c27c77dc8e7cca08698bb582d4314fb224f2258f11c23bf3bed",
+        "gitBlob": "d01f1d9882ba80d6f462c5f0234980a8363ede2e",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-sakura-01-f4a7a8d755c8.webp",
+        "sha256": "f4a7a8d755c8616f759a7b027e2188c33e4acad769e119b7dcb526e135c3aa2b",
+        "gitBlob": "27d120b56811513d0c04f52748bb0e1bdf75cba5",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-sakura-01-93c94733368b.webp",
+        "sha256": "93c94733368b76e03f019e01cacfadec8767144142f8f912e81dee3d5b6d9c35",
+        "gitBlob": "ca54cf594c3daddd419f1eca1e6870727a6122cf",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "茶色い大きなたねから緑の芽が出ている。",
+        "card": "茶色いたねから緑の芽が出ている。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 70,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged",
+      "recommendation": {
+        "name": "芽ぶきのたね",
+        "basis": "card",
+        "reason": "両画像とも茶色いたねに緑の芽。②ふたば、③小さな木へ自然につながる。サクラの補助種族名で他種と区別できる。",
+        "tradeoff": "タンポポ①と表示名が重複するが別IDなので統合しない。現行「芽ぶきのサクラ」も誤りではない。",
+        "status": "proposal-only-unapproved",
+        "confidence": "high"
+      }
+    },
+    {
+      "species": "sakura",
+      "stage": 2,
+      "saveStageIndex": 1,
+      "dexKey": "sakura:1",
+      "cardID": "M-sakura-02",
+      "mainName": "ふたばのサクラ",
+      "cardName": "サクラ②",
+      "cardTitle": "ふたばのサクラ",
+      "divergent": false,
+      "mainImage": {
+        "path": "assets/characters/sakura/02.png",
+        "sha256": "2b1e25834e50ea61623eaf3a0095bc428a11a84a901f97af52f3e48f1ab70064",
+        "gitBlob": "6b8cd4e2e45207994c559a700074915eee12f81b",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-sakura-02.png",
+        "sha256": "cafdd215d9fd9f15dcb08b43dccc8ccef132cf9572bc5269f9a2f1ef4c70aacd",
+        "gitBlob": "9e924e30be3159a995a58d36c9555fda4304e455",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-sakura-02-a07cd7b43d8e.webp",
+        "sha256": "a07cd7b43d8e6272e4698f249911c460925c658e8e5581b9a86b2e1bf6caef62",
+        "gitBlob": "26536af6a32d6d4a457e1bbc8dcfd1014220c956",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-sakura-02-c9899d49d280.webp",
+        "sha256": "c9899d49d280ec26b3bff26a31aef905fdd50c0025815ca8b7dc50ca11ddc9c8",
+        "gitBlob": "399e4622a07beeafbad5e56f7add1104c568039d",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "丸い白い根元と大きなふたば。",
+        "card": "土の上のふたば。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 70,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged"
+    },
+    {
+      "species": "sakura",
+      "stage": 3,
+      "saveStageIndex": 2,
+      "dexKey": "sakura:2",
+      "cardID": "M-sakura-03",
+      "mainName": "小さなサクラ",
+      "cardName": "サクラ③",
+      "cardTitle": "小さなサクラ",
+      "divergent": false,
+      "mainImage": {
+        "path": "assets/characters/sakura/03.png",
+        "sha256": "a8d06928d78ab39202c84f3211b33016d0794ef58124b672ff94257c58127c22",
+        "gitBlob": "06c054cdf44bb5ae57d85fbcfdc2e9ca85a0cf46",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-sakura-03.png",
+        "sha256": "a14d545a1eed3cf6350e167bb1dcd84a6535dc385e26bdce5ccb733ba37ed716",
+        "gitBlob": "981471c08a520ef8b6c55bb74a6943246e8a0776",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-sakura-03-7f4763cd19fd.webp",
+        "sha256": "7f4763cd19fd04c44cbfa729b827ac05f114432d13b9b6b08147168622680ccb",
+        "gitBlob": "428de039c2078d82b3c894b241c10dfad7089c5d",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-sakura-03-bba13f5c9f80.webp",
+        "sha256": "bba13f5c9f80189ecc284bce5da5ddd6ccafc357307b024e3ec7a0afd89d6f7b",
+        "gitBlob": "dd9dd6e9383b2657fd1d51434ceafc3839009e74",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "枝に緑の葉を持つ小さな木。",
+        "card": "緑の葉を持つ若い木。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 70,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged"
+    },
+    {
+      "species": "sakura",
+      "stage": 4,
+      "saveStageIndex": 3,
+      "dexKey": "sakura:3",
+      "cardID": "M-sakura-04",
+      "mainName": "育ったサクラ",
+      "cardName": "サクラ④",
+      "cardTitle": "育ったサクラ",
+      "divergent": false,
+      "mainImage": {
+        "path": "assets/characters/sakura/04.png",
+        "sha256": "cb62c198767caf4d684a4655591d2caa3f8486382f9f6bea10071cd9909f9dea",
+        "gitBlob": "c37b2406b1807091427eecb191fe6a718e94c38b",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-sakura-04.png",
+        "sha256": "5ef2975d0ebcfc74b5fe1a9706ff049715484ddb621e65b04a48ef9b4d85dd94",
+        "gitBlob": "395bedeec40517c416661c095e0b291a957551f9",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-sakura-04-6ceeafaf83d9.webp",
+        "sha256": "6ceeafaf83d9d3c190c33d108fd66ea23e5835b95bcbccfe992f2ea0b0c6779f",
+        "gitBlob": "2f46741274e40a60b13bb6617cfd56df470750c7",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-sakura-04-fb53c4b828cc.webp",
+        "sha256": "fb53c4b828cc32cd41d225cd9dfb1ca35ced8c9e006f7465af503a8f6a48578b",
+        "gitBlob": "8ecd117f41e87a2df756057dd56f56ed47f73dce",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "ピンクの花が木全体に咲く。",
+        "card": "ピンクの花が咲く木。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 70,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged"
+    },
+    {
+      "species": "sakura",
+      "stage": 5,
+      "saveStageIndex": 4,
+      "dexKey": "sakura:4",
+      "cardID": "M-sakura-05",
+      "mainName": "サクラのつぼみ",
+      "cardName": "サクラ⑤",
+      "cardTitle": "サクラのつぼみ",
+      "divergent": false,
+      "mainImage": {
+        "path": "assets/characters/sakura/05.png",
+        "sha256": "74a84919fdb9f731959127f067f230ffff5724eb32de657d9333ccb27c3fce94",
+        "gitBlob": "61cd1c48b57b1b8083425feed421675144108c94",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-sakura-05.png",
+        "sha256": "1e3ae1c9761dcf8068f9025271d00307431a72b23f17b23f01234ce5c8150948",
+        "gitBlob": "116ce2e7b6e134f7e950974afcd24aaae6616fd5",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-sakura-05-f9c87ca6af6a.webp",
+        "sha256": "f9c87ca6af6a16b7a76868597fab1ebff75f892c76d8453b8ecfbfeb34ee0d36",
+        "gitBlob": "b447a0fc2c04adf74d16785b1eb72b2a1ba7a557",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-sakura-05-336a410f9fc3.webp",
+        "sha256": "336a410f9fc3b16a126df80303f9fa06d1244d54a95982787257045b96b43af8",
+        "gitBlob": "a6811ba870428e660fbb8c00bc53867285596fc7",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "いくつものピンクのつぼみ。",
+        "card": "ピンクのつぼみ。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 70,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged"
+    },
+    {
+      "species": "sakura",
+      "stage": 6,
+      "saveStageIndex": 5,
+      "dexKey": "sakura:5",
+      "cardID": "M-sakura-06",
+      "mainName": "サクラの花",
+      "cardName": "サクラ⑥",
+      "cardTitle": "サクラの花",
+      "divergent": false,
+      "mainImage": {
+        "path": "assets/characters/sakura/06.png",
+        "sha256": "26cc6e952826e00a379e6f13a19f1d078d10cd3bcd45838fc1266840d6676e9e",
+        "gitBlob": "21b7a0fd887ce105f5754b3cd922a25b4eab3d04",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-sakura-06.png",
+        "sha256": "f196269cb30217f6664caa2304a197ecf1de643a9a2a81d493cfc26607dacd05",
+        "gitBlob": "dcb223f7edfcc49de5ceb4fc9f3c4fd9c2fae173",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-sakura-06-d96e92e6ecc4.webp",
+        "sha256": "d96e92e6ecc49c7dd515ffa769b1d418e1d08fd379a0ab659e3e40932ea4baba",
+        "gitBlob": "9bea8485389f375a97778297786aacd044ac8b3d",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-sakura-06-b8ac1823df4a.webp",
+        "sha256": "b8ac1823df4a12005d36ff3f9f8c3911f6b576fa780e6fd9a5fef472c2abfa95",
+        "gitBlob": "2becb888c2e2de6ee4996eb9011a7eca322a216d",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "開いた花の集まり。",
+        "card": "開いたピンクの花。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 70,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged"
+    },
+    {
+      "species": "sakura",
+      "stage": 7,
+      "saveStageIndex": 6,
+      "dexKey": "sakura:6",
+      "cardID": "M-sakura-07",
+      "mainName": "サクラの実",
+      "cardName": "サクラ⑦",
+      "cardTitle": "サクラの実",
+      "divergent": false,
+      "mainImage": {
+        "path": "assets/characters/sakura/07.png",
+        "sha256": "fadf96db3cfd624edeb0794292cf3d2c2e56b691aff421cf540e29afeed089fc",
+        "gitBlob": "a006081c30790d41d221147c3b0c822aafdf7d15",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-sakura-07.png",
+        "sha256": "27f37a83eb5d4731200349ca4c5a2b285d609e89d5f1a117d39421ddbbc1f66c",
+        "gitBlob": "ced579ff2ea5a00da0d894254560220f2ec78a87",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-sakura-07-4cfbd26ae53b.webp",
+        "sha256": "4cfbd26ae53bfb6baea8e08fac51084e76e1d9974e467c9b0e7def1fca693820",
+        "gitBlob": "4982bdb33ec4abcd3b9398be3c21606d54f71c6a",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-sakura-07-4d766304455e.webp",
+        "sha256": "4d766304455e3b8ec826b35be410c8ed2e28c13e8a27505e3317b83ac5a16cbe",
+        "gitBlob": "44577aa2c5318079ffb565e31713f64744712ead",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "赤い実と緑の葉。",
+        "card": "枝にぶら下がる赤い実。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 70,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged"
+    },
+    {
+      "species": "sakura",
+      "stage": 8,
+      "saveStageIndex": 7,
+      "dexKey": "sakura:7",
+      "cardID": "M-sakura-08",
+      "mainName": "年を重ねたサクラ",
+      "cardName": "サクラ⑧",
+      "cardTitle": "年を重ねたサクラ",
+      "divergent": false,
+      "mainImage": {
+        "path": "assets/characters/sakura/08.png",
+        "sha256": "84946ab7139403f4c0dde3522c4592a59c08c3278b0ebe963c35a2999e6efe26",
+        "gitBlob": "8d8bc2fd57260bebf37fc253eb689a2594fa6c6b",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-sakura-08.png",
+        "sha256": "2bb78af8e6aadc7a4fb42f00b55b49b81023d91d567a77eddad57303bcbc9ec0",
+        "gitBlob": "4afcb0c7951a3d6a411ae6bd679b459eb5ccaf05",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-sakura-08-5c4c3ae465ee.webp",
+        "sha256": "5c4c3ae465eeae3a3b188eb9d816c8b2ba6013cc427451ecf40f6e80e928e7de",
+        "gitBlob": "500e10ebe8b1071acda7aa89e9a2c76a19f92edb",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-sakura-08-935e984cf874.webp",
+        "sha256": "935e984cf8743646a61b465fc6061a1b7f4735e0f574834ea6ef5701afcb02b1",
+        "gitBlob": "59bbcc4b76082de9aa44d7c4a90a9ccaed970f96",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "葉の少ない枝と太い幹、穏やかな顔。",
+        "card": "葉の少ない古木と夕景。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 70,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged"
+    },
+    {
+      "species": "world_tree",
+      "stage": 1,
+      "saveStageIndex": 0,
+      "dexKey": "world_tree:0",
+      "cardID": "M-world_tree-01",
+      "mainName": "光るたね",
+      "cardName": "世界樹①",
+      "cardTitle": "光る芽",
+      "divergent": true,
+      "mainImage": {
+        "path": "assets/characters/world_tree/01.png",
+        "sha256": "d2364b7eafcffe05acf4cc9de4be2ca44749e490520cd49c89fbb1170d88b581",
+        "gitBlob": "a5fa2560987cee999c204bc4d4f9d724038fcddd",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-world_tree-01.png",
+        "sha256": "67e6eca4ba1ea6eec430255debee0ee51fa88d9ec70960fd45a26b590ec9f81c",
+        "gitBlob": "eae7044e2b58a528a4c371c9652a3bfd8642d570",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-world_tree-01-09fe768d655f.webp",
+        "sha256": "09fe768d655f9b30f03f30d2aa304c4ecf6cc143cd9cf760abd9246d6d2b6f40",
+        "gitBlob": "935b0fc714ac967683b24ba5bc9923f69ee2885e",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-world_tree-01-65b4a739e7e4.webp",
+        "sha256": "65b4a739e7e4527deccf74c58b9f7643855da275eff6ddb1c3fa4ef257b22c84",
+        "gitBlob": "4bb1fd3a0d5c9aa3a2ae88ab2c1469be52b4a5b7",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "金色に光るしずく形のたね。茎やふたばはない。",
+        "card": "金色に光るたね。茎や葉は描かれていない。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 78,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged",
+      "recommendation": {
+        "name": "光るたね",
+        "basis": "main",
+        "reason": "両画像に葉や茎はなく、金色のたねが主役。②のふしぎな苗に初めてふたばが出る。",
+        "tradeoff": "CARDの「光る芽」は画像と段階差を弱める。",
+        "status": "proposal-only-unapproved",
+        "confidence": "high"
+      }
+    },
+    {
+      "species": "world_tree",
+      "stage": 2,
+      "saveStageIndex": 1,
+      "dexKey": "world_tree:1",
+      "cardID": "M-world_tree-02",
+      "mainName": "ふしぎな苗",
+      "cardName": "世界樹②",
+      "cardTitle": "ふしぎな苗",
+      "divergent": false,
+      "mainImage": {
+        "path": "assets/characters/world_tree/02.png",
+        "sha256": "caca741b7df24f3931a0b8866375fdec11faf130b6ca8b64c5775a4def41423b",
+        "gitBlob": "db6d38a2dd2b895328ab7749b9fece476af44d75",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-world_tree-02.png",
+        "sha256": "891d105da887c026fe36d73b53df206d685591e6247c6bc4ef5e6cfc8ce042e4",
+        "gitBlob": "bebd31aad8a9013c7a18cd4d1a032b97d8462b2e",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-world_tree-02-89af858c5b8c.webp",
+        "sha256": "89af858c5b8cd9e4a589d82d014efdd54bb031a761dd2773b10c857bdf26cdd6",
+        "gitBlob": "2aabde674e536450f6ae194e3c5c3e780263d69b",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-world_tree-02-ff540a8ff54e.webp",
+        "sha256": "ff540a8ff54ef201b6dcd4ec7c8a92ed29cefa5c4ecc4efd363d33b5eebdd5d4",
+        "gitBlob": "3fb366f9394f0bc6cecf342b781365d8082dce0a",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "根元からふたばが出た苗。",
+        "card": "光る葉の苗。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 78,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged"
+    },
+    {
+      "species": "world_tree",
+      "stage": 3,
+      "saveStageIndex": 2,
+      "dexKey": "world_tree:2",
+      "cardID": "M-world_tree-03",
+      "mainName": "若い木",
+      "cardName": "世界樹③",
+      "cardTitle": "小さな木",
+      "divergent": true,
+      "mainImage": {
+        "path": "assets/characters/world_tree/03.png",
+        "sha256": "cac5a51702240072299ce7aefb6384b7b3f45669a8d0f759123f2a73bd800716",
+        "gitBlob": "b31306bca468b6662b9a676ea734854aa2d16bd6",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-world_tree-03.png",
+        "sha256": "d5d79ee8877d61c631a5eb2fbd19931d9906264097be263f3623c3c6949713bb",
+        "gitBlob": "505e0394f07f0c912ceee3ed2255e98b60fc3d83",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-world_tree-03-5097a4d64dcb.webp",
+        "sha256": "5097a4d64dcb9e840ee25945e708db503ce5b73a5748bf237f1d8d8904823505",
+        "gitBlob": "9495eead61305e99c53f9c6c597bff2f339bc71e",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-world_tree-03-3cbfb720a54d.webp",
+        "sha256": "3cbfb720a54dc40285631d80edd46bab102a97a66f95e2ddf63b0fc52f63e76d",
+        "gitBlob": "687882615e87e4af7f83516ade03cab54ba0d06a",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "緑の葉が密についた小ぶりな木。",
+        "card": "水辺に立つ緑の木。後半より装飾が少ない。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 78,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged",
+      "recommendation": {
+        "name": "小さな木",
+        "basis": "card",
+        "reason": "苗から木へ育ち、精霊の木・大樹・巨大な木へ続く中で、装飾の少ない初期の木を平易に示す。",
+        "tradeoff": "絶対サイズは画像から測れず「若い木」も適合する。世界樹の段階列を読んだ相対的な命名。",
+        "status": "proposal-only-unapproved",
+        "confidence": "medium"
+      }
+    },
+    {
+      "species": "world_tree",
+      "stage": 4,
+      "saveStageIndex": 3,
+      "dexKey": "world_tree:3",
+      "cardID": "M-world_tree-04",
+      "mainName": "精霊の木",
+      "cardName": "世界樹④",
+      "cardTitle": "精霊の木",
+      "divergent": false,
+      "mainImage": {
+        "path": "assets/characters/world_tree/04.png",
+        "sha256": "7c236560db79ac1fb6fce10ab44af708337dea962f42d7ebd2a10d86f393da8e",
+        "gitBlob": "e100bfa4115b61be3054a7305ffcb9a40ee480b5",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-world_tree-04.png",
+        "sha256": "3b716fd883fcd9ce36189059a5f40f62001ecc2a70e0cf61c427146cc79e3883",
+        "gitBlob": "ca507aed2471bd8530a0a2af77095ed9551c9683",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-world_tree-04-c2337d7a0c49.webp",
+        "sha256": "c2337d7a0c49f6466207372fbcc4cc8cad9409d01f858efb9206b3c905d96655",
+        "gitBlob": "f5b213700dec67398ebfcdbac9e95b67cc0d79c4",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-world_tree-04-9da2a0417fca.webp",
+        "sha256": "9da2a0417fcac927ac30df479a6fadf69c406b2917dbf91483a14e0055a24494",
+        "gitBlob": "08b3676a9d191eadbe2b8f8685514877ce6f8510",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "細く伸びた幹、分かれた枝先の葉。",
+        "card": "細長い光る幹、空へ広がる枝。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 78,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged"
+    },
+    {
+      "species": "world_tree",
+      "stage": 5,
+      "saveStageIndex": 4,
+      "dexKey": "world_tree:4",
+      "cardID": "M-world_tree-05",
+      "mainName": "大樹",
+      "cardName": "世界樹⑤",
+      "cardTitle": "大樹",
+      "divergent": false,
+      "mainImage": {
+        "path": "assets/characters/world_tree/05.png",
+        "sha256": "1ca61e44054bd0543f153164747f5b324e89aaee5576626752e5017f17c4df61",
+        "gitBlob": "5e5c370bf8dbfa043953c7b1be9335c2c9ccaa01",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-world_tree-05.png",
+        "sha256": "8faa33f05107d3ede320bf72cbe1cc4a2228a8521ded8a6041b541d46bd2db9a",
+        "gitBlob": "476ade0302d2173c2fce530d5d7c1aef4d77020b",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-world_tree-05-15b92df61b93.webp",
+        "sha256": "15b92df61b93bf43f94e630055d1fef6d6d0d2dcd81e43f1f6dc77eaa0fc1e3f",
+        "gitBlob": "52f3b2d0d45d2182f3dd714ac4f356d64ffe8d2a",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-world_tree-05-af26e2ba4abd.webp",
+        "sha256": "af26e2ba4abd551fd1b390d44f025ebe21817899ece65b820c3eb9df80c53636",
+        "gitBlob": "a556ebc9d4aec94e7dc2cce4e236b84ef43476ad",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "太い幹と垂れ下がる青い光。",
+        "card": "青い光が下がる太い木。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 78,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged"
+    },
+    {
+      "species": "world_tree",
+      "stage": 6,
+      "saveStageIndex": 5,
+      "dexKey": "world_tree:5",
+      "cardID": "M-world_tree-06",
+      "mainName": "巨大な木",
+      "cardName": "世界樹⑥",
+      "cardTitle": "巨大な木",
+      "divergent": false,
+      "mainImage": {
+        "path": "assets/characters/world_tree/06.png",
+        "sha256": "307f78d38f16b24667dd11878984bf973a615e38accbb98a02561d353e982d13",
+        "gitBlob": "476a7506e8098c73dcaef228cf850f80e93d022f",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-world_tree-06.png",
+        "sha256": "be586b9972d7ad6d6afb86f67a9cc20dd5668caa14a2aa75663d28c240ede4e4",
+        "gitBlob": "44b2eeb5037091028d965c5540737f2eec32201c",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-world_tree-06-bf47fae971f8.webp",
+        "sha256": "bf47fae971f82e1d37945f2741048a4df66cb7e8b588f6f15ad08cfa05f46462",
+        "gitBlob": "4c0a9af5db8e08225cf856bcef3c225bc1bda33f",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-world_tree-06-bbcc7bcfcbc1.webp",
+        "sha256": "bbcc7bcfcbc1616fad9551bb48cb982006b5f89b7338f8580dd9cb1416b78b25",
+        "gitBlob": "798123c201a21afd1111f7e204fb4323e316c39d",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "横に広がった樹冠、青い宝石状の光。",
+        "card": "水辺に大きく広がる樹冠と青い光。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 78,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged"
+    },
+    {
+      "species": "world_tree",
+      "stage": 7,
+      "saveStageIndex": 6,
+      "dexKey": "world_tree:6",
+      "cardID": "M-world_tree-07",
+      "mainName": "天にのびる木",
+      "cardName": "世界樹⑦",
+      "cardTitle": "雲をこえる木",
+      "divergent": true,
+      "mainImage": {
+        "path": "assets/characters/world_tree/07.png",
+        "sha256": "aa4f2a0aa19f157f2aaae64ffc225514003deea460eda5affe076bff4725b65d",
+        "gitBlob": "eb5224c55b09b29cd2ff19f14608853c48ca0beb",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-world_tree-07.png",
+        "sha256": "9506bb39a94f51aef30eb4925b7d6694e133a4d05ee2926222383881c687a701",
+        "gitBlob": "b0889cee28c0feb970f16a238b8102e86a390231",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-world_tree-07-484f5083e6de.webp",
+        "sha256": "484f5083e6de71416ecd6bc5de1414672d1474f7c6459595b687e80f5e4c065d",
+        "gitBlob": "be3c0d36c47a7c4d2b430c80012c5376df75fc5b",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-world_tree-07-6fb336f2b1f2.webp",
+        "sha256": "6fb336f2b1f240c9cc37ee285036e4075c75f246b370ab87bdb5d85945d28d33",
+        "gitBlob": "f6a1ae8433f52afc99458cdebcfbff90eb67d66f",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "黄金の実や光が下がる大樹。スプライト単体に雲は描かれない。",
+        "card": "大きな根と黄金の光。周囲の山や雲を見渡す高所の大樹。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 78,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged",
+      "recommendation": {
+        "name": "雲をこえる木",
+        "basis": "card",
+        "reason": "CARDでは山や雲を見渡す高所に大樹があり、⑧の雲海と光輪の世界樹への直前として情景が伝わる。",
+        "tradeoff": "本編単体には雲がないため直接描写の確度は中。天にのびる木も有効だが、より具体的な絵本表現として推奨。",
+        "status": "proposal-only-unapproved",
+        "confidence": "medium"
+      }
+    },
+    {
+      "species": "world_tree",
+      "stage": 8,
+      "saveStageIndex": 7,
+      "dexKey": "world_tree:7",
+      "cardID": "M-world_tree-08",
+      "mainName": "世界樹",
+      "cardName": "世界樹⑧",
+      "cardTitle": "世界樹",
+      "divergent": false,
+      "mainImage": {
+        "path": "assets/characters/world_tree/08.png",
+        "sha256": "cf9e33dc0c3f5b9cf793098ab47cb17007891344f741d9ea63b133330b8baf4f",
+        "gitBlob": "a2b13879946a97f290f1b9b442f5f00d72ea7b7e",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-world_tree-08.png",
+        "sha256": "ab436e1d0c9b16c3277bb833a6c14eb2414cb9f05a8ee90ecef9e9562f23f01d",
+        "gitBlob": "7cb426190155dd39c3d75df7714033f7dac1e2ac",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-world_tree-08-0b2986d92865.webp",
+        "sha256": "0b2986d928656b2109d133590621c48a3006b5516243de9b066b3860fa66f168",
+        "gitBlob": "9fac8f20a88bbe0a39062708fee15df8e2e80403",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-world_tree-08-32218e830e14.webp",
+        "sha256": "32218e830e143e22f9c527904de89dc8df3281922a781cbe3a980bd23728344a",
+        "gitBlob": "f535c3123de1d0e871be7b56bec8b0d647b0a1b9",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "青い光の輪に包まれた世界樹。",
+        "card": "雲海に浮かぶ巨大な世界樹と光の輪。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 78,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged"
+    },
+    {
+      "species": "unknown",
+      "stage": 1,
+      "saveStageIndex": 0,
+      "dexKey": "unknown:0",
+      "cardID": "M-unknown-01",
+      "mainName": "点",
+      "cardName": "？？？①",
+      "cardTitle": "点",
+      "divergent": false,
+      "mainImage": {
+        "path": "assets/characters/unknown/01.png",
+        "sha256": "2a9469c6c20af6b85ca8d3dcf2dd3f587c07cee988438e79e4253c64103bda19",
+        "gitBlob": "2d7a682d9f1fdd8aa9400ca27e0742218fd916b1",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-unknown-01.png",
+        "sha256": "57fb084389a190ac8f8111f300eacdd70e169aa6e9bdc9e1277368f7a56506ef",
+        "gitBlob": "010caf94baa88e11c65aa9de1b864214b19271ad",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-unknown-01-5afffff37621.webp",
+        "sha256": "5afffff3762182bec11851120664e3d324dc1c35434c2d35475eb8e174af8935",
+        "gitBlob": "550601563b070b186eba3a34460d34a554320bea",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-unknown-01-9715906a6ce0.webp",
+        "sha256": "9715906a6ce074b9a695725d18805b80cba7d4312b6d6f95583259b4a7556525",
+        "gitBlob": "3f5bfca468b12cd09c39177cbdf238ab9505e289",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "小さな黒紫の点状の球。",
+        "card": "浮かぶ黒紫の小さな球。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 82,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged"
+    },
+    {
+      "species": "unknown",
+      "stage": 2,
+      "saveStageIndex": 1,
+      "dexKey": "unknown:1",
+      "cardID": "M-unknown-02",
+      "mainName": "ぷるたま",
+      "cardName": "？？？②",
+      "cardTitle": "ぷる",
+      "divergent": true,
+      "mainImage": {
+        "path": "assets/characters/unknown/02.png",
+        "sha256": "33958349e9004a749b39000b7644e5599b8b0791c645d6a6280841f447289d80",
+        "gitBlob": "552a894d53dae239e4613aa7f8703da4623134ad",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-unknown-02.png",
+        "sha256": "92a72605028478a8962463ed209a9737eed8a6bb7f9f375354236e0b6dc2f09f",
+        "gitBlob": "008b34cbaca6fb89c0c2c707601b1783bc0ec4d8",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-unknown-02-be07222de737.webp",
+        "sha256": "be07222de7371c8201b6b5e018a4f836056443a6f83e1302d985b9f2f6cddbfc",
+        "gitBlob": "b7bfd5bcd4e4a02a2618885f23c388db55295c39",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-unknown-02-3d08e33db929.webp",
+        "sha256": "3d08e33db929011241114f5db719d93dcb80fc0762e8e9bbae3b246577f19f9a",
+        "gitBlob": "c8527c1b4066635640286235b0bdca5419b59ccf",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "青く柔らかい、つぶれた丸形。",
+        "card": "水辺の青いゼリー状の丸形。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 82,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged",
+      "recommendation": {
+        "name": "ぷるたま",
+        "basis": "main",
+        "reason": "青いゼリー状の丸い体と、まだ正体がわからない響きが両立する。",
+        "tradeoff": "ぷるは音の余韻が強いが、呼び名としてはぷるたまのほうが覚えやすい。",
+        "status": "proposal-only-unapproved",
+        "confidence": "high"
+      }
+    },
+    {
+      "species": "unknown",
+      "stage": 3,
+      "saveStageIndex": 2,
+      "dexKey": "unknown:2",
+      "cardID": "M-unknown-03",
+      "mainName": "あしつきたま",
+      "cardName": "？？？③",
+      "cardTitle": "足？",
+      "divergent": true,
+      "mainImage": {
+        "path": "assets/characters/unknown/03.png",
+        "sha256": "fddc90308de042b2a0c5d12edb8c3c9ad090de171ca6a013bc016cbca85e51d6",
+        "gitBlob": "5b00ac6d136dcc79068fe2092de968cee2b28352",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-unknown-03.png",
+        "sha256": "34964504c6e7314c96442abd4010e1579ebaea56161616c20644fe6ca7986a22",
+        "gitBlob": "a63010e38fe9ea8117d450e6958b399b1d38fb3c",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-unknown-03-4f4318f164e4.webp",
+        "sha256": "4f4318f164e462df7e1362b595d6e1d4437fa62130b99c322874f011d26e4f0b",
+        "gitBlob": "9a7dc2cdeb843b71e1aa0283b8def76a3d516a71",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-unknown-03-468332a54311.webp",
+        "sha256": "468332a54311652ca3cb8ea62067130c54ae62dfaf37f1a51ca434584bd2e870",
+        "gitBlob": "a2a9b20f171340ba5ca51fc132371bdd6271e7f5",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "丸い青い体に左右の足状の突起。",
+        "card": "青い体に足状の部分がつく。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 82,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged",
+      "recommendation": {
+        "name": "あしつきたま",
+        "basis": "main",
+        "reason": "両画像で足状の突起が生まれ、②からの変化を説明できる。",
+        "tradeoff": "足？は観察者の驚きを表す短い副文として魅力的。正式名には既存のたま系の連続性を推奨。",
+        "status": "proposal-only-unapproved",
+        "confidence": "high"
+      }
+    },
+    {
+      "species": "unknown",
+      "stage": 4,
+      "saveStageIndex": 3,
+      "dexKey": "unknown:3",
+      "cardID": "M-unknown-04",
+      "mainName": "ふたつぶたま",
+      "cardName": "？？？④",
+      "cardTitle": "目？",
+      "divergent": true,
+      "mainImage": {
+        "path": "assets/characters/unknown/04.png",
+        "sha256": "ad0c9e9d9e5a8e4300c6e7402c5e8228a85a61e5a0f0d244a72e8344cd6ba455",
+        "gitBlob": "fca2b21e4dd336773a3ad09989017f2cff63c39e",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-unknown-04.png",
+        "sha256": "1fd79f249a15577162887b1b8fc2347e032e14b2bb32c7ccfac7ea854923589d",
+        "gitBlob": "683a86163fb7f5e1507bf8f145489ca54bbcb34c",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-unknown-04-248b2c6b0984.webp",
+        "sha256": "248b2c6b09849b3a7526cb33eca69291e6a1851de50a4f5de62b8097b7c4d75f",
+        "gitBlob": "287990570633079a394220c26c6ec9b766b27a18",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-unknown-04-24808bc814aa.webp",
+        "sha256": "24808bc814aa561f38e10e83ca2633b42f724680788e096c6205e3e1ddecece6",
+        "gitBlob": "de3a88cc4b801ae1ef705c053cf65cee5fed71ba",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "頭上に二つの丸いつぶを持つ触角状の突起。顔の目は別にある。",
+        "card": "二本の触角状の先に丸いつぶ。顔の目は別にある。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 82,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged",
+      "recommendation": {
+        "name": "ふたつぶたま",
+        "basis": "main",
+        "reason": "二つの丸いつぶが頭上に増える。顔の目は②③にもあるため「目？」だけでは今回の変化を正確に表しにくい。",
+        "tradeoff": "目？は謎めくが、触角先端を目だと断定しないふたつぶたまが画像に忠実。",
+        "status": "proposal-only-unapproved",
+        "confidence": "high"
+      }
+    },
+    {
+      "species": "unknown",
+      "stage": 5,
+      "saveStageIndex": 4,
+      "dexKey": "unknown:4",
+      "cardID": "M-unknown-05",
+      "mainName": "はねつきたま",
+      "cardName": "？？？⑤",
+      "cardTitle": "羽？",
+      "divergent": true,
+      "mainImage": {
+        "path": "assets/characters/unknown/05.png",
+        "sha256": "60d471b79a3b4a8b51f757c17df5389482eaab5aec3c72a3116b58ce89652a1f",
+        "gitBlob": "cc64255c3c7c38be2092e72a2821048f204099bd",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-unknown-05.png",
+        "sha256": "8cfbd8516c69e64c75d72fbce96f8b36e66d6312e2ccab55bce126b95cf72650",
+        "gitBlob": "b6682b4f09959a1471e7dbb3570d287565e640f0",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-unknown-05-f2c4d5c79178.webp",
+        "sha256": "f2c4d5c79178cd3e172c2dd34a1499b18b6009361cca9627517e2c001423f08a",
+        "gitBlob": "37c1044f7ce5e819d865f1468d75390be0800464",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-unknown-05-61eaa1953933.webp",
+        "sha256": "61eaa195393360bebb47d9a8b6b0189117c30b92445684ce945c1af732261cf2",
+        "gitBlob": "35ca6ebfb1c5aab04eae65819cf87cae116f4dad",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "丸い体に左右の淡い羽。",
+        "card": "青紫の丸い体と半透明の羽。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 82,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged",
+      "recommendation": {
+        "name": "はねつきたま",
+        "basis": "main",
+        "reason": "両画像に明確な羽が生まれる。丸い姿の同じ存在が変化していると伝わる。",
+        "tradeoff": "羽？は驚きの副文には合うが、羽が明確な絵では疑問符の必要性が弱い。",
+        "status": "proposal-only-unapproved",
+        "confidence": "high"
+      }
+    },
+    {
+      "species": "unknown",
+      "stage": 6,
+      "saveStageIndex": 5,
+      "dexKey": "unknown:5",
+      "cardID": "M-unknown-06",
+      "mainName": "おおたま",
+      "cardName": "？？？⑥",
+      "cardTitle": "でっかい？",
+      "divergent": true,
+      "mainImage": {
+        "path": "assets/characters/unknown/06.png",
+        "sha256": "0addb89db856ec2a936899bddf2e59042276dc47cdaf7fd11f1277fc9ec2b4f3",
+        "gitBlob": "8e1345ec25db6b8099c922bdb0248ad17c6e10f0",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-unknown-06.png",
+        "sha256": "bc68772f6bac216e84197d0ccdd99c666bf252b257507833cd97c616be932f53",
+        "gitBlob": "8714f1e40e4030df286eb8665f3b8adc57d601a8",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-unknown-06-901266a5a7c2.webp",
+        "sha256": "901266a5a7c273c61c7fc534b6ee59eec122945cc336bd374c4ed8145e89658b",
+        "gitBlob": "2e654e4fe7d301b1477aa2b33914dda623d26808",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-unknown-06-84fc5c5299a9.webp",
+        "sha256": "84fc5c5299a927cb5c431622cba2dac1bcb1894ac42909718711a82c5b4b672c",
+        "gitBlob": "253ea5a2b8f6b3a5ddd2fdeed1910de287a5577c",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "大きくふくらんだ青い体に星のような光。",
+        "card": "水辺を大きく占める星空のような体。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 82,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged",
+      "recommendation": {
+        "name": "おおたま",
+        "basis": "main",
+        "reason": "大きくふくらんだ丸い姿を短く親しみやすく呼べる。",
+        "tradeoff": "でっかい？は勢いがある観察文。たま系の固有呼称を保つと⑦の縮小も読みやすい。",
+        "status": "proposal-only-unapproved",
+        "confidence": "high"
+      }
+    },
+    {
+      "species": "unknown",
+      "stage": 7,
+      "saveStageIndex": 6,
+      "dexKey": "unknown:6",
+      "cardID": "M-unknown-07",
+      "mainName": "ちいさなたま",
+      "cardName": "？？？⑦",
+      "cardTitle": "ちっちゃい？",
+      "divergent": true,
+      "mainImage": {
+        "path": "assets/characters/unknown/07.png",
+        "sha256": "4a4e9057e7eeff1cb7d881025db87f90a03f631dd2e86c7608e53373df35720e",
+        "gitBlob": "167d4673c3251881cb19f7ddcd667ead55e5abb6",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-unknown-07.png",
+        "sha256": "4a15fbce7ffd887a61674ea623a4b2be07e0e2f658ce33e59c149e48fea768ce",
+        "gitBlob": "021d242ff76182ddb536f22f96fbb0649856499c",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-unknown-07-84a0684b9fc0.webp",
+        "sha256": "84a0684b9fc08142f5d12496a92577420f29ec552e6dd41aaf0e4e38a46d9276",
+        "gitBlob": "0564e5ba22bba782095c36fbbf95d98061979a67",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-unknown-07-eda24a844514.webp",
+        "sha256": "eda24a844514d3ddf32de35b044fa3379e731af8f3448744ff04c42f11409cb5",
+        "gitBlob": "5ec22671d1ed309a40180495d60b51f1e00f872d",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "ぐっと小さくなった青い丸。上に黄色い光。",
+        "card": "葉の近くにいる小さな青い丸。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 82,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged",
+      "recommendation": {
+        "name": "ちいさなたま",
+        "basis": "main",
+        "reason": "⑥から急に小さくなる両画像に合い、終わりへ向けて点に近づく流れがわかる。",
+        "tradeoff": "ちっちゃい？はかわいさと驚き重視。正式名と観察文を分ける場合の副文候補。",
+        "status": "proposal-only-unapproved",
+        "confidence": "high"
+      }
+    },
+    {
+      "species": "unknown",
+      "stage": 8,
+      "saveStageIndex": 7,
+      "dexKey": "unknown:7",
+      "cardID": "M-unknown-08",
+      "mainName": "もどりの点",
+      "cardName": "？？？⑧",
+      "cardTitle": "点……？",
+      "divergent": true,
+      "mainImage": {
+        "path": "assets/characters/unknown/08.png",
+        "sha256": "62dcf5edf3520c7c8bc40d87432c0f3b04638be9f52cbf608416f045d5cbc2e0",
+        "gitBlob": "18bc2521997c36e1fe92cddb40b1bed13531d0a2",
+        "width": 128,
+        "height": 128
+      },
+      "cardIllustration": {
+        "path": "prototypes/card-game/art-pilot/illustrations/M-unknown-08.png",
+        "sha256": "b4c085130cd6da97b8f06cee8bb8e7013fc304d3d40144ae09e81bcbe72d9071",
+        "gitBlob": "d06b876c7ed03b3f7af00d506f9c57afde4edfd7",
+        "width": 1536,
+        "height": 1024
+      },
+      "cardRuntimeLarge": {
+        "path": "prototypes/card-game/art-delivery/large/M-unknown-08-0dfff0643b01.webp",
+        "sha256": "0dfff0643b01888cff688379298bafc3a7766955ca138bf6194e7b14ca631b6f",
+        "gitBlob": "b0aabef9f4d2c57f9d00430ebfc119085bf248d9",
+        "width": 1152,
+        "height": 768
+      },
+      "cardRuntimeSmall": {
+        "path": "prototypes/card-game/art-delivery/small/M-unknown-08-d14dc3e1bbcf.webp",
+        "sha256": "d14dc3e1bbcfa236e695cc00eefbc5c4384da74a9750aa444571e9b0b3732a06",
+        "gitBlob": "52a9b46e413e69dfefcee1c5418bdf885affb798",
+        "width": 384,
+        "height": 256
+      },
+      "observation": {
+        "main": "小さな黒紫の点に戻る。細い尾のような突起。",
+        "card": "夕景に浮かぶ黒紫の小さな点。"
+      },
+      "sourceNameAuthority": {
+        "path": "character-world-master.v1.js",
+        "line": 82,
+        "commit": "408c72e6ebef71da3eab33cfb268c7494117aaaa"
+      },
+      "visualReview": "view_image: existing-image contact sheets reviewed; all32 main PNG + all32 illustration PNG + all32 runtime large WebP; originals unchanged",
+      "recommendation": {
+        "name": "もどりの点",
+        "basis": "main",
+        "reason": "①の小さな黒紫の点に戻った姿で、1〜8の循環が読める。",
+        "tradeoff": "点……？は余韻と謎を最も残す。正式名はもどりの点、物語や説明文に点……？を残す案が有力。",
+        "status": "proposal-only-unapproved",
+        "confidence": "high"
+      }
+    }
+  ],
+  "kanjiCandidates": [
+    {
+      "original": "きゅうきゅうばこ",
+      "proposed": "救急箱",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "救急箱",
+          "きゅうきゅうばこ"
+        ]
+      ],
+      "cardIDs": [
+        "I-scarf"
+      ],
+      "cardTypes": [
+        "item"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "item",
+          "id": "scarf",
+          "label": "きゅうきゅうばこ",
+          "source": "item-system.js"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "script.js",
+          "line": 2631,
+          "text": "{ id: 'scarf', label: 'きゅうきゅうばこ', emoji: '🧣' },"
+        },
+        {
+          "path": "item-system.js",
+          "line": 37,
+          "text": "\"label\": \"きゅうきゅうばこ\","
+        }
+      ],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/77-current-items-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "script.js",
+          "line": 2631,
+          "text": "{ id: 'scarf', label: 'きゅうきゅうばこ', emoji: '🧣' },"
+        },
+        {
+          "path": "item-system.js",
+          "line": 37,
+          "text": "\"label\": \"きゅうきゅうばこ\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 1838,
+          "text": "\"name\": \"きゅうきゅうばこ\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 1843,
+          "text": "\"source\": \"77-current-items-card-text-draft.md#I-scarf — きゅうきゅうばこ\","
+        }
+      ],
+      "sharedLiveEntity": true,
+      "changeBoundary": "本編のID対応表示・CARD・参照本文を同時精査",
+      "liveMainBehaviorEvidence": {
+        "path": "script.js",
+        "lines": [
+          11813,
+          11822
+        ],
+        "conclusion": "装備判定はscarf ID。ラベルの漢字化でIDを救急箱などに変えない。"
+      }
+    },
+    {
+      "original": "きおくのみずうみ",
+      "proposed": "記憶の湖",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "記憶",
+          "きおく"
+        ],
+        "の",
+        [
+          "湖",
+          "みずうみ"
+        ]
+      ],
+      "cardIDs": [
+        "W-memory_lake"
+      ],
+      "cardTypes": [
+        "world"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "region",
+          "id": "memory_lake",
+          "label": "きおくのみずうみ",
+          "source": "character-world-master.v1.js"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 140,
+          "text": "{ id: 'memory_lake', label: 'きおくのみずうみ' },"
+        },
+        {
+          "path": "script.js",
+          "line": 9362,
+          "text": "\"label\": \"きおくのみずうみ\","
+        }
+      ],
+      "cardTextReferences": [
+        "E-special-trip-memory"
+      ],
+      "primaryCardSources": [
+        "docs/card-game/89-world-13-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 140,
+          "text": "{ id: 'memory_lake', label: 'きおくのみずうみ' },"
+        },
+        {
+          "path": "script.js",
+          "line": 9362,
+          "text": "\"label\": \"きおくのみずうみ\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 456,
+          "text": "\"text\": \"自分のセカイが「ほしぞらのていりゅうじょ」か「きおくのみずうみ」で、このターンに手札から名前が異なるセカイに重ねて通常配置したカードである場合に発動できる。1枚引き、自分のそだち+5。\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 6100,
+          "text": "\"name\": \"きおくのみずうみ\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 6105,
+          "text": "\"source\": \"89-world-13-card-text-draft.md#W-memory_lake — きおくのみずうみ\","
+        }
+      ],
+      "sharedLiveEntity": true,
+      "changeBoundary": "本編のID対応表示・CARD・参照本文を同時精査"
+    },
+    {
+      "original": "おおきなびょうき",
+      "proposed": "大きな病気",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "大",
+          "おお"
+        ],
+        "きな",
+        [
+          "病気",
+          "びょうき"
+        ]
+      ],
+      "cardIDs": [
+        "E-big-illness"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [],
+      "matchStatus": "card-only-title-no-exact-main-entity-name-found",
+      "lexicalOccurrences": [],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/91-event-21-card-text-draft.md"
+      ],
+      "impact": "カード固有名。似た本編機能や語句への対応は未確認。自動統一しない。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 265,
+          "text": "\"name\": \"おおきなびょうき\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 270,
+          "text": "\"source\": \"91-event-21-card-text-draft.md#E-big-illness — おおきなびょうき\","
+        }
+      ],
+      "sharedLiveEntity": false,
+      "changeBoundary": "CARDとその参照文のみ。本編の類似機能・似た文章に置換を広げない",
+      "ruleEvidence": {
+        "path": "prototypes/card-game/rules.mjs",
+        "line": 64,
+        "text": "quick('E-big-illness',[stat(-2,-2)],{target:'opponentMain'});",
+        "conclusion": "CARD能力は相手メインの能力値変更として定義。本編isSick等の状態と同じentityとは扱わない。"
+      }
+    },
+    {
+      "original": "うんめいのへんしん",
+      "proposed": "運命の変身",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "運命",
+          "うんめい"
+        ],
+        "の",
+        [
+          "変身",
+          "へんしん"
+        ]
+      ],
+      "cardIDs": [
+        "E-fateful-transform"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [],
+      "matchStatus": "card-only-title-no-exact-main-entity-name-found",
+      "lexicalOccurrences": [],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/91-event-21-card-text-draft.md"
+      ],
+      "impact": "カード固有名。似た本編機能や語句への対応は未確認。自動統一しない。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 287,
+          "text": "\"name\": \"うんめいのへんしん\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 292,
+          "text": "\"source\": \"91-event-21-card-text-draft.md#E-fateful-transform — うんめいのへんしん\","
+        }
+      ],
+      "sharedLiveEntity": false,
+      "changeBoundary": "CARDとその参照文のみ。本編の類似機能・似た文章に置換を広げない"
+    },
+    {
+      "original": "おもいでのしゃしん",
+      "proposed": "思い出の写真",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "思",
+          "おも"
+        ],
+        "い",
+        [
+          "出",
+          "で"
+        ],
+        "の",
+        [
+          "写真",
+          "しゃしん"
+        ]
+      ],
+      "cardIDs": [
+        "E-omoide-photo"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "PR498-candidate-only"
+      ],
+      "mainEntityMatches": [],
+      "matchStatus": "PR498-candidate-only-no-main-entity",
+      "lexicalOccurrences": [],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "prototypes/card-game/variable-life-20261031/integration/481-time-reversal-cards.md"
+      ],
+      "impact": "PR498の追加候補。現行452枚には未採用。本編の同名エンティティなし。候補ソースだけを別管理。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "script.js",
+          "line": 2479,
+          "text": "artAlt: '思い出の写真が揺れる木の下で、白いパーカーのナオトと犬が寄り添う後ろ姿',"
+        }
+      ],
+      "sharedLiveEntity": false,
+      "changeBoundary": "CARDとその参照文のみ。本編の類似機能・似た文章に置換を広げない"
+    },
+    {
+      "original": "ながいきのひけつ",
+      "proposed": "長生きの秘訣",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "長生",
+          "ながい"
+        ],
+        "きの",
+        [
+          "秘訣",
+          "ひけつ"
+        ]
+      ],
+      "cardIDs": [
+        "E-nagaiki"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "PR498-candidate-only"
+      ],
+      "mainEntityMatches": [],
+      "matchStatus": "PR498-candidate-only-no-main-entity",
+      "lexicalOccurrences": [],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "prototypes/card-game/variable-life-20261031/integration/481-time-reversal-cards.md"
+      ],
+      "impact": "PR498の追加候補。現行452枚には未採用。本編の同名エンティティなし。候補ソースだけを別管理。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [],
+      "sharedLiveEntity": false,
+      "changeBoundary": "CARDとその参照文のみ。本編の類似機能・似た文章に置換を広げない"
+    },
+    {
+      "original": "はやじまい",
+      "proposed": "早じまい",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "早",
+          "はや"
+        ],
+        "じまい"
+      ],
+      "cardIDs": [
+        "E-hayajimai"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "PR498-candidate-only"
+      ],
+      "mainEntityMatches": [],
+      "matchStatus": "PR498-candidate-only-no-main-entity",
+      "lexicalOccurrences": [],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "prototypes/card-game/variable-life-20261031/integration/481-time-reversal-cards.md"
+      ],
+      "impact": "PR498の追加候補。現行452枚には未採用。本編の同名エンティティなし。候補ソースだけを別管理。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [],
+      "sharedLiveEntity": false,
+      "changeBoundary": "CARDとその参照文のみ。本編の類似機能・似た文章に置換を広げない"
+    },
+    {
+      "original": "ほしぞらのていりゅうじょ",
+      "proposed": "星空の停留所",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "星空",
+          "ほしぞら"
+        ],
+        "の",
+        [
+          "停留所",
+          "ていりゅうじょ"
+        ]
+      ],
+      "cardIDs": [
+        "W-star_stop"
+      ],
+      "cardTypes": [
+        "world"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "region",
+          "id": "star_stop",
+          "label": "ほしぞらのていりゅうじょ",
+          "source": "character-world-master.v1.js"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 139,
+          "text": "{ id: 'star_stop', label: 'ほしぞらのていりゅうじょ' },"
+        },
+        {
+          "path": "script.js",
+          "line": 9337,
+          "text": "\"label\": \"ほしぞらのていりゅうじょ\","
+        }
+      ],
+      "cardTextReferences": [
+        "E-special-trip-memory"
+      ],
+      "primaryCardSources": [
+        "docs/card-game/89-world-13-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 139,
+          "text": "{ id: 'star_stop', label: 'ほしぞらのていりゅうじょ' },"
+        },
+        {
+          "path": "script.js",
+          "line": 9337,
+          "text": "\"label\": \"ほしぞらのていりゅうじょ\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 456,
+          "text": "\"text\": \"自分のセカイが「ほしぞらのていりゅうじょ」か「きおくのみずうみ」で、このターンに手札から名前が異なるセカイに重ねて通常配置したカードである場合に発動できる。1枚引き、自分のそだち+5。\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 6150,
+          "text": "\"name\": \"ほしぞらのていりゅうじょ\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 6155,
+          "text": "\"source\": \"89-world-13-card-text-draft.md#W-star_stop — ほしぞらのていりゅうじょ\","
+        }
+      ],
+      "sharedLiveEntity": true,
+      "changeBoundary": "本編のID対応表示・CARD・参照本文を同時精査"
+    },
+    {
+      "original": "どこにもつながらないかいだん",
+      "proposed": "どこにもつながらない階段",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        "どこにもつながらない",
+        [
+          "階段",
+          "かいだん"
+        ]
+      ],
+      "cardIDs": [
+        "E-stairs"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "legend-master-metadata",
+          "id": "stairs",
+          "label": "どこにもつながらないかいだん",
+          "source": "character-world-master.v1.js",
+          "actualRuntimeName": "たまごのないところ"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 169,
+          "text": "{ id: 'stairs', label: 'どこにもつながらないかいだん', keepCurrent: true, affinityRegions: ['desert'] },"
+        }
+      ],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/91-event-21-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 169,
+          "text": "{ id: 'stairs', label: 'どこにもつながらないかいだん', keepCurrent: true, affinityRegions: ['desert'] },"
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 463,
+          "text": "\"name\": \"どこにもつながらないかいだん\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 468,
+          "text": "\"source\": \"91-event-21-card-text-draft.md#E-stairs — どこにもつながらないかいだん\","
+        }
+      ],
+      "sharedLiveEntity": false,
+      "changeBoundary": "旧masterメタデータとCARDに限る。本編runtimeの別イベント名は維持し、共有現行名と見なさない"
+    },
+    {
+      "original": "あやまりにきただいおういか",
+      "proposed": "謝りにきた大王イカ",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "謝",
+          "あやま"
+        ],
+        "りにきた",
+        [
+          "大王",
+          "だいおう"
+        ],
+        "イカ"
+      ],
+      "cardIDs": [
+        "E-boss"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "legend-master-metadata",
+          "id": "boss",
+          "label": "あやまりにきただいおういか",
+          "source": "character-world-master.v1.js",
+          "actualRuntimeName": "むかしのぼく"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 170,
+          "text": "{ id: 'boss', label: 'あやまりにきただいおういか', keepCurrent: true, affinityRegions: ['sea','deepsea'] },"
+        }
+      ],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/91-event-21-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 170,
+          "text": "{ id: 'boss', label: 'あやまりにきただいおういか', keepCurrent: true, affinityRegions: ['sea','deepsea'] },"
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 276,
+          "text": "\"name\": \"あやまりにきただいおういか\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 281,
+          "text": "\"source\": \"91-event-21-card-text-draft.md#E-boss — あやまりにきただいおういか\","
+        }
+      ],
+      "sharedLiveEntity": false,
+      "changeBoundary": "旧masterメタデータとCARDに限る。本編runtimeの別イベント名は維持し、共有現行名と見なさない"
+    },
+    {
+      "original": "むひょうじょうのせきぞう",
+      "proposed": "無表情の石像",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "無表情",
+          "むひょうじょう"
+        ],
+        "の",
+        [
+          "石像",
+          "せきぞう"
+        ]
+      ],
+      "cardIDs": [
+        "C-sekizou"
+      ],
+      "cardTypes": [
+        "companion"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "companion",
+          "id": "sekizou",
+          "label": "むひょうじょうのせきぞう",
+          "source": "character-world-master.v1.js"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 114,
+          "text": "{ id: 'sekizou', label: 'むひょうじょうのせきぞう', asset: 'assets/characters/companions/sekizou.png' },"
+        }
+      ],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/72-companion-26-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 114,
+          "text": "{ id: 'sekizou', label: 'むひょうじょうのせきぞう', asset: 'assets/characters/companions/sekizou.png' },"
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 185,
+          "text": "\"name\": \"むひょうじょうのせきぞう\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 190,
+          "text": "\"source\": \"72-companion-26-card-text-draft.md#C-sekizou — むひょうじょうのせきぞう\","
+        }
+      ],
+      "sharedLiveEntity": true,
+      "changeBoundary": "本編のID対応表示・CARD・参照本文を同時精査"
+    },
+    {
+      "original": "あみものがすきなクモさん",
+      "proposed": "編み物が好きなクモさん",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "編",
+          "あ"
+        ],
+        "み",
+        [
+          "物",
+          "もの"
+        ],
+        "が",
+        [
+          "好",
+          "す"
+        ],
+        "きなクモさん"
+      ],
+      "cardIDs": [
+        "P-knitting_spider"
+      ],
+      "cardTypes": [
+        "partner"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "partner",
+          "id": "knitting_spider",
+          "label": "あみものがすきなクモさん",
+          "source": "character-world-master.v1.js"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 162,
+          "text": "{ id: 'knitting_spider', label: 'あみものがすきなクモさん', firstRegion: 'jungle', hook: '巣と糸でいろいろ作る', asset: 'assets/characters/partners/knitting_spider.png' },"
+        }
+      ],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/74-partner-18-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 162,
+          "text": "{ id: 'knitting_spider', label: 'あみものがすきなクモさん', firstRegion: 'jungle', hook: '巣と糸でいろいろ作る', asset: 'assets/characters/partners/knitting_spider.png' },"
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 5940,
+          "text": "\"name\": \"あみものがすきなクモさん\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 5945,
+          "text": "\"source\": \"74-partner-18-card-text-draft.md#P-knitting_spider — あみものがすきなクモさん\","
+        }
+      ],
+      "sharedLiveEntity": true,
+      "changeBoundary": "本編のID対応表示・CARD・参照本文を同時精査"
+    },
+    {
+      "original": "とくべつなたびのおもいで",
+      "proposed": "特別な旅の思い出",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "特別",
+          "とくべつ"
+        ],
+        "な",
+        [
+          "旅",
+          "たび"
+        ],
+        "の",
+        [
+          "思",
+          "おも"
+        ],
+        "い",
+        [
+          "出",
+          "で"
+        ]
+      ],
+      "cardIDs": [
+        "E-special-trip-memory"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [],
+      "matchStatus": "card-only-title-no-exact-main-entity-name-found",
+      "lexicalOccurrences": [],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/91-event-21-card-text-draft.md"
+      ],
+      "impact": "カード固有名。似た本編機能や語句への対応は未確認。自動統一しない。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 452,
+          "text": "\"name\": \"とくべつなたびのおもいで\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 457,
+          "text": "\"source\": \"91-event-21-card-text-draft.md#E-special-trip-memory — とくべつなたびのおもいで\","
+        }
+      ],
+      "sharedLiveEntity": false,
+      "changeBoundary": "CARDとその参照文のみ。本編の類似機能・似た文章に置換を広げない"
+    },
+    {
+      "original": "じかんにルーズなとけい",
+      "proposed": "時間にルーズな時計",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "時間",
+          "じかん"
+        ],
+        "にルーズな",
+        [
+          "時計",
+          "とけい"
+        ]
+      ],
+      "cardIDs": [
+        "C-clock"
+      ],
+      "cardTypes": [
+        "companion"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "companion",
+          "id": "clock",
+          "label": "じかんにルーズなとけい",
+          "source": "character-world-master.v1.js"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 116,
+          "text": "{ id: 'clock', label: 'じかんにルーズなとけい', behavior: '時刻は大まか。小さな出来事の音を覚えていて、誰かを待つ時間は気にしない', asset: 'assets/characters/companions/clock.png' },"
+        }
+      ],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/72-companion-26-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 116,
+          "text": "{ id: 'clock', label: 'じかんにルーズなとけい', behavior: '時刻は大まか。小さな出来事の音を覚えていて、誰かを待つ時間は気にしない', asset: 'assets/characters/companions/clock.png' },"
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 55,
+          "text": "\"name\": \"じかんにルーズなとけい\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 60,
+          "text": "\"source\": \"72-companion-26-card-text-draft.md#C-clock — じかんにルーズなとけい\","
+        }
+      ],
+      "sharedLiveEntity": true,
+      "changeBoundary": "本編のID対応表示・CARD・参照本文を同時精査"
+    }
+  ],
+  "compatibilityRisks": [
+    {
+      "id": "stable-identity",
+      "evidence": [
+        "script.js:454",
+        "script.js:2197",
+        "script.js:14545",
+        "prototypes/card-game/engine.mjs:27",
+        "prototypes/card-game/engine.mjs:115",
+        "prototypes/card-game/engine.mjs:159",
+        "prototypes/card-game/effects.mjs:32"
+      ],
+      "finding": "本編の段階はspeciesLine＋0起算stageIndex、図鑑はspecies:stageIndex。CARDの同名枚数制限・onceNameはcardIdで判定。表示文字列をIDへ昇格させない。 「名前が異なるセカイ」のchangedNameもoldWorldとcardIdの比較で、文字列改名自体は条件を変更しない。",
+      "action": "ID、段階順序、save stageIndex、dex key、cardIdは一切変更しない。"
+    },
+    {
+      "id": "saved-history",
+      "evidence": [
+        "script.js:1830",
+        "script.js:4372",
+        "script.js:7735",
+        "script.js:10013",
+        "script.js:10458",
+        "script.js:10672",
+        "script.js:11262"
+      ],
+      "finding": "lifeLogはtextとして保存され、partner snapshotにもlabelがある。記憶の重複判定・会話には文字列処理がある。現行表示名を変えても過去ログは自動更新されず、過去の文字列を書換えると重複・記憶の意味が変わりうる。",
+      "action": "過去記録は当時の表示を保持。現行lookupとsaved snapshotを分け、必要な互換は明示alias／比較キーで限定対応。"
+    },
+    {
+      "id": "card-replay",
+      "evidence": [
+        "prototypes/card-game/engine.mjs:33",
+        "prototypes/card-game/engine.mjs:232",
+        "prototypes/card-game/engine.mjs:238",
+        "prototypes/card-game/engine.mjs:252"
+      ],
+      "finding": "CARD保存はseed/decks/commands/versionを復元し、ログ名は現在カタログから再生成する。privateLabelはtitle文字列のreplaceAllを用いる。",
+      "action": "ルールIDとコマンド順を固定し旧版replayを確認。表示改名後の再生ログが現在名になる方針を別途明示し、伏せ札の文字列マスキングを回帰確認。"
+    },
+    {
+      "id": "card-text-reference",
+      "evidence": [
+        "prototypes/card-game/full-catalog.mjs:456",
+        "prototypes/card-game/card-title-lines.mjs:1",
+        "prototypes/card-game/ui-presentation.mjs:112"
+      ],
+      "finding": "E-special-trip-memoryの本文が二つの地域名を文字列で参照。非メインの改行表は表示名キーで、main表題はform・補助名はnameの丸数字除去。",
+      "action": "地域名を採用する際は参照本文も同じentity IDから生成し、折返し／検索／accessibilityラベルを点検。formとnameを混同しない。"
+    },
+    {
+      "id": "frozen-design",
+      "evidence": [
+        "docs/card-game/data/design-source-20260917/README.md",
+        "docs/card-game/tools/check-design-data.py:755",
+        "prototypes/card-game/design-comparison-v8-20261115/NAME-AUDIT.md"
+      ],
+      "finding": "現行19差分は固定設計を保持した既存仕様。名称採用は誤字修正でなく設計変更となる。",
+      "action": "この研究は正式名変更なし。将来は元文書、生成カタログ、検証期待値をセットで別変更にする。"
+    },
+    {
+      "id": "asset-name-mismatch",
+      "evidence": [
+        "assets/characters/starfish/01.png",
+        "assets/characters/starfish/02.png",
+        "prototypes/card-game/art-pilot/illustrations/M-starfish-01.png",
+        "prototypes/card-game/art-pilot/illustrations/M-starfish-02.png"
+      ],
+      "finding": "本編starfish①②とCARD①②は形が異なる。名前をCARDへそのまま合わせても画像不整合は消えない。",
+      "action": "既存画像を維持する共通名には浮かぶ／透けたあかちゃんを提案。画像再生成・差替えはこの研究の範囲外。"
+    },
+    {
+      "id": "metadata-not-runtime",
+      "evidence": [
+        "character-world-master.v1.js:169",
+        "character-world-master.v1.js:170",
+        "script.js:10194",
+        "script.js:10199"
+      ],
+      "finding": "stairs/bossは旧masterラベルとCARD名が一致するが、現行本編イベント名はたまごのないところ／むかしのぼく。",
+      "action": "漢字化を現在の本編イベントへ誤って適用しない。"
+    }
+  ],
+  "sharedRegistryProposal": {
+    "status": "design-only-not-implemented",
+    "key": [
+      "kind",
+      "characterID",
+      "stage-or-null"
+    ],
+    "fields": {
+      "formalName": "決定済みの共通正式表示名。未決の19件はnullとしてproposalを別保持してよい",
+      "reading": "人が確認した全かな読み。未確認はnull",
+      "species": "stable species IDまたはnull",
+      "stage": "公開段階1..8、保存境界で0..7に変換",
+      "characterID": "既存entity IDを保持",
+      "cardID": "既存CARD IDを保持",
+      "displayContext": "mainGame/cardGame/historicalCardDesign",
+      "contextNames": "共通名採用前は本編とCARDの正確な現行文字列を保持",
+      "sourceRevision": "nameと画像の出典commit",
+      "aliases": "承認した検索・互換用だけ。履歴一括置換は禁止"
+    },
+    "responsibility": "本編、図鑑、CARDは同じentity registryから表示を導出。CARD専用イベントは本編entityへ無理に結びつけずcard entityとする。",
+    "unknownPolicy": "正式名はたま系の連続性を推奨し、足？／目？／羽？／点……？等は観察副文として比較する。種族？？？自体の謎は残す。"
+  },
+  "sourceFiles": [
+    {
+      "path": "character-world-master.v1.js",
+      "sha256": "f883f2b57ac6a4f9a4387bb2c8d81ef54f31a091981078f5496d817e31c76904"
+    },
+    {
+      "path": "script.js",
+      "sha256": "c76a10247e70dad9789b8c5b7577b1384bdd8c53c8375f4fe5652355471cb478"
+    },
+    {
+      "path": "item-system.js",
+      "sha256": "75cfbf0b3e004a51d9c0f4a140aa679b4cb0ee3aeb4b68153c9c13b6ea34d598"
+    },
+    {
+      "path": "prototypes/card-game/full-catalog.mjs",
+      "sha256": "b9387a778cc7be99e9e2f7a291a15664d904fd1b8245c781d25fd525fcb0b171"
+    },
+    {
+      "path": "prototypes/card-game/rules.mjs",
+      "sha256": "4ff7a4127e204bc77d607314335d8e06d42cd593a9f3bb07eaf1bfd388e3c7f6"
+    },
+    {
+      "path": "prototypes/card-game/effects.mjs",
+      "sha256": "9f19bda546338b5c3f997ba29085e5960644e22d9544c56d931ef09a9125b6d8"
+    },
+    {
+      "path": "prototypes/card-game/engine.mjs",
+      "sha256": "7e220d2dc733df1f20b752a43ac3ba16dff29a85d220ffddcaf9d09c5fc9a261"
+    },
+    {
+      "path": "prototypes/card-game/ui-presentation.mjs",
+      "sha256": "bcd11117e78fabef2d2f9e51a7f17216a0884a02ceeceff5d15151424f11d056"
+    },
+    {
+      "path": "prototypes/card-game/card-title-lines.mjs",
+      "sha256": "84470804599c7ab02e8899fd6a671e0c87ee7ff63ab08fa07a8a123cd472c9b4"
+    },
+    {
+      "path": "prototypes/card-game/lover-married.mjs",
+      "sha256": "e11d68181b4207ea1e56552c8cc78085ed2f5c70531523baf03cb005a87465dc"
+    }
+  ]
+}

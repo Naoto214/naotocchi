@@ -1,0 +1,8 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {titleInfo,escapeHTML} from './title.mjs';import {titleInfo as oldTitle} from './base-title.mjs';
+test('Canonical names and IDs are immutable across presentation modes',()=>{const c=Object.freeze({id:'I-scarf',title:'きゅうきゅうばこ',cost:2,text:'変えてはいけない効果。'});for(const m of ['original','kanji','ruby'])titleInfo(c,m);assert.equal(c.title,'きゅうきゅうばこ');assert.equal(c.id,'I-scarf');assert.equal(c.text,'変えてはいけない効果。');});
+test('Long title gains size without changing the name or wrapping',()=>{const c={title:'どこにもつながらないかいだん'};const t=titleInfo(c);assert.equal(t.text,c.title);assert.equal(t.lines,1);assert(t.size>oldTitle(c).size);assert(t.size>=6);assert(t.exception);});
+test('Short names are balanced and unmapped names remain untouched',()=>{assert.equal(titleInfo({title:'IX'},'ruby').text,'IX');assert.equal(titleInfo({title:'IX'}).size,7.4);assert.equal(titleInfo({title:'若者'},'ruby').width,88);});
+test('Selective readings preserve needed ruby, omit simple 大, and add 救急箱',()=>{const t=titleInfo({title:'おおきなびょうき'},'ruby');assert(!t.html.includes('<rt>おお</rt>'));assert(t.html.includes('<rt>びょうき</rt>'));assert.equal(titleInfo({title:'きゅうきゅうばこ'},'kanji').text,'救急箱');assert.match(titleInfo({title:'きゅうきゅうばこ'},'ruby').html,/<rt>きゅうきゅうばこ<\/rt>/);});
+test('Compact ruby suppression is display-only and reversible',()=>{const c={title:'きおくのみずうみ'};assert(!titleInfo(c,'ruby',{compact:true}).html.includes('<rt>'));assert(titleInfo(c,'ruby').html.includes('<rt>'));assert(titleInfo(c,'ruby',{compact:true,rubyPolicy:'all'}).html.includes('<rt>'));assert.equal(titleInfo(c,'ruby',{compact:true}).text,'記憶の湖');});
+test('Text remains escaped',()=>assert.equal(escapeHTML('<&'), '&lt;&amp;'));

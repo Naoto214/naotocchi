@@ -1,0 +1,89 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VERSION 8 検証結果</title><style>body{max-width:1000px;margin:30px auto;padding:0 18px;background:#f7f4eb;color:#263c35;font:15px/1.8 sans-serif}h1{font-size:26px}h2{font-size:20px;margin-top:36px}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #c6c8b7;padding:10px;text-align:left}a{color:#356b74}pre{overflow:auto;white-space:pre-wrap}code{overflow-wrap:anywhere}p{overflow-wrap:anywhere}img{max-width:100%;height:auto}</style><a href="./">← VERSION 8へ戻る</a><h1>カードデザイン VERSION 8 — 通常表示と詳細表示</h1>
+<p><strong>本人限定・未採用</strong>。<a href="https://naotocchi-card-design-v1-20261114.kerzion214.chatgpt.site/v8/">VERSION 8</a> ／ <a href="https://naotocchi-card-design-v1-20261114.kerzion214.chatgpt.site/v8/battle.html">対戦UI</a> ／ <a href="https://github.com/Naoto214/naotocchi/pull/551">Draft PR #551</a></p>
+<p>B3-A / V7改善版を継承。V1〜7の185ソースファイルと本人限定Siteの既存3592追跡ファイルを保持。main・本番GitHub Pages・PR #498は変更しない。</p>
+<h2>今回の結果</h2>
+<table>
+<tr><td>項目</td><td>VERSION 8</td></tr>
+<tr><td>通常表示</td><td>459枚＋状態表示のたまご、すべて本文・短縮文なし。空いた領域を大きなイラストへ。メインのみ能力値と補助名を残す。</td></tr>
+<tr><td>詳細表示</td><td>カード＋別の読みやすい本文欄。正式効果・能力名・発動条件・結婚時効果を省略せず表示。本文16px、行間1.85。</td></tr>
+<tr><td>カード名</td><td>正式form/nameを参照。背景枠・ルビなし、左寄せ・nowrap。実測して文字サイズを下げ、省略記号や途中切れを使わない。外側ラベルも同方式。</td></tr>
+<tr><td>補助名</td><td>正式系列名、段階数字なし、淡い小文字を主名の実測高さの直下へ。</td></tr>
+<tr><td>能力値</td><td>イラスト直下に等幅2領域。「ちから」「ちえ」＋数字。数字はV7の5.5cqwから7.5cqwへ約36%拡大。Canvasの実字形boundsで光学中心を補正。</td></tr>
+<tr><td>手・脳</td><td>初期表示は文字に統一。比較タブ・対戦UIでマークありを選択可能。正式SVG/コードは削除・変更しない。</td></tr>
+<tr><td>非メイン</td><td>能力値を追加せず、イラストを下まで広げる。菱形はrareのときだけ。</td></tr>
+<tr><td>たまご</td><td>既存のpreserved-art.pngを再利用。正式の淡青色グラデーションに共通金枠・植物装飾・NAOTOCCHI。コスト・能力値・レア・カードIDは作らない。UIキーeggは検索用の状態識別子でデッキIDではない。</td></tr>
+<tr><td>レア・上限</td><td>菱形を維持。独立したversion付きpolicyを試作。全459枚で初期上限は正式ルールと一致。検証値1/2/3を変えても正式編集上限・rareは不変。</td></tr>
+</table>
+<p>イラストは通常表示の広い枠を埋めるCSS coverが初期値。横長原画の左右が切れるため、同じページの「原画全体を表示」でcontainと比較できる。原画データは一切加工しない。正式な全体構図を重視するカードではcontainを選べる。全459枚に保存済みの大サイズ画像を用意する。 全small459件と代表large41件は変更していないV7の保存画像を共用し、残りlarge418件は正式GitHub Pagesに既に公開されたハッシュ付き画像URLを参照する。公開サービスの256MiB上限に収めるための重複排除であり、本番サイトは読取のみ。追加7枚は全画像を本人限定Site内で参照する。大画像418件には正式サイトへの通信が必要。Chromeで全460画像の読込完了・寸法を確認し、失敗0件。詳細も同じ表示選択に従う。</p>
+<h2>画面と操作</h2>
+<p>- V7の現行カード／V8、文字能力値／手・脳あり、旧たまご／統一たまご、正式裏面を同じカードで比較。</p>
+<p>- 全14色＋たまご、全459枚＋たまご、メイン248枚、追加7枚、長名・長文・レア・分類別の一覧。36枚ずつページ送り、3列固定。</p>
+<p>- コレクション、メモリ内デッキ編集、40px手札、64px盤面を切替。デッキは現在の1/3枚制限と40枚総数で操作できるが保存しない。</p>
+<p>- タップで詳細、全文、表裏反転、閉じる。正式名のみで検索。漢字候補はカードの表示切替から外し、名称監査資料へ移した。</p>
+<p>- 対戦UIは正式engine/ui-session/presentation等32モジュールをバイト一致で別出力へコピーし、投影済み情報からカード表示だけを置換。選択・確認・戻る・確定・必須返却・応答・宣言・受け渡し・履歴・終局を扱う。正式盤面の幅・配置を維持する。</p>
+<p>- この対戦UIはCPU・時計操作・保存・ルールブックの統合試験ではない。追加7枚はコレクションと詳細の比較対象で、正式452枚エンジンのデッキへ追加していない。対戦結果やデッキはブラウザの永続領域へ保存しない。</p>
+<h2>表示検証</h2>
+<p>Cloud Chrome実描画。320 / 375 / 390 / 430pxのiframe内容幅を確認。高さ844px。スクロールバー分15pxを外側に確保した検証ページを同梱。</p>
+<table>
+<tr><td>検証</td><td>結果</td></tr>
+<tr><td>全カード×4幅×3サイズ</td><td>(459＋たまご) ×4×3＝5,520件。名前のはみ出し・改行・ルビ・本文なし。コストとの縦重なり、補助名と絵の重なり0件。レア76枚、能力値248枚が原データと一致。</td></tr>
+<tr><td>全カードの拡大寸法</td><td>296pxで全459枚＋たまご460件。主名・補助名・コストの重なりや横はみ出し0件。</td></tr>
+<tr><td>全14色＋たまごのラベル</td><td>4幅×15＝60件。分類ラベルと主名の重なりなし。外側の名前ラベルも省略なし。</td></tr>
+<tr><td>詳細・全文</td><td>追加7枚×4幅、長いメイン名・最長メイン本文・長文こいびと・最長名・たまご×4幅の計48件。正式本文と一致。追加28件は表裏往復も検証。</td></tr>
+<tr><td>能力値</td><td>実値1〜10。左右幅差最大0.015625px、全測定で字形metrics補正が適用。これはDOM幾何とフォント実測であり、V8の独立画像画素測定ではない。</td></tr>
+<tr><td>対戦UI</td><td>4幅で配置済み盤面を測定。極小相手カードも含め名前・コスト・分類ラベルの重なりなし。本文なし。手・脳切替とたまご詳細・反転を確認。</td></tr>
+<tr><td>実操作</td><td>手札選択→たまご返却→応答パス→たんじょう、確認から戻る・再選択・確定。操作履歴の旧カード残り0。終局の引き分けと履歴表示。ヒット&amp;ブロー宣言→戻る→同じ宣言を再選択→確定を確認。</td></tr>
+<tr><td>上限試作</td><td>レア「ただのはこ」を独立3枚設定にしても菱形・rare・正式デッキ編集1枚上限が不変。</td></tr>
+</table>
+<p><strong>実機iPhone SafariとWebKitは未検証。</strong> この環境で許可されたブラウザはChromeのみ。特にSafariのフォントfallback・小型文字の見え方は本人の実機確認が必要。</p>
+<h3>小型表示の限界</h3>
+<p>320px・3列の最長名「どこにもつながらないかいだん」は約5.69px。40pxの手札では約2.46px、64px盤面では約3.97px。省略や改行はしないが、小さい名前の可読性は詳細タップを前提とする。対戦の相手側は既存レイアウト由来の約10.7pxサムネイルもあり、カード面の文字は読書用ではない。外側の名前と詳細閲覧を利用する。小型数字も拡大時と同等の読みやすさを主張しない。</p>
+<h3>検証で修正した箇所</h3>
+<p>- 40px以下では固定1px枠が最小2px寸法を作るため、比率に応じたinset線へ変更。円を押し広げず金色の印象を保持。</p>
+<p>- 分類タグをheaderの上端に固定し、対戦画面の本文line-heightによる下ずれを解消。</p>
+<p>- 拡大キャンバスの旧0.5625倍transformを解除。実寸296pxで表示。</p>
+<p>- 履歴・操作画面もV8のカードに統一。非公開情報は安全なprojectionからのみ参照。</p>
+<p>- 終局時viewer/handがない状態に対応。宣言を戻した後も同じ選択肢を再選択可能。</p>
+<h2>正式14色</h2>
+<table>
+<tr><td>属性／分類</td><td>正式色</td></tr>
+<tr><td>ひと</td><td>#F17D9D</td></tr>
+<tr><td>けもの</td><td>#95603C</td></tr>
+<tr><td>みずべ</td><td>#27D3C5</td></tr>
+<tr><td>うみ</td><td>#2878E8</td></tr>
+<tr><td>むし</td><td>#F2D12E</td></tr>
+<tr><td>くさ</td><td>#269451</td></tr>
+<tr><td>げんそう</td><td>#B58BE3</td></tr>
+<tr><td>ふしぎ</td><td>#35316E</td></tr>
+<tr><td>なかま</td><td>#C68A32</td></tr>
+<tr><td>こいびと</td><td>#C04479</td></tr>
+<tr><td>セカイ</td><td>#568A9D</td></tr>
+<tr><td>あそび</td><td>#EF9860</td></tr>
+<tr><td>あいてむ</td><td>#B7A48C</td></tr>
+<tr><td>できごと</td><td>#9298A5</td></tr>
+</table>
+<p>原色・属性マークはapproved-colors.mjs／正式iconから取得。濃色もB3-Aの中央が明るいグラデーションと暗い文字を維持。金色の二重枠・植物・角丸・ブランドは表裏の共通性を保つ。裏面のSHA-256は<code>028114e02034a5c5d84a0ace2c97babb92363e19eed6249f87cc591897189872</code>で不変。</p>
+<h2>名称の横断照合</h2>
+<p><a href="name-audit.html">NAME-AUDIT.md</a> ／ <a href="name-audit.json">全件JSON</a> ／ <a href="name-candidates.json">漢字候補JSON</a> ／ <a href="https://naotocchi-card-design-v1-20261114.kerzion214.chatgpt.site/v8/name-audit.html">本人限定の閲覧表</a></p>
+<p>31系列×8段階248枚のうち229名一致、19名差分（ヒトデ8・サクラ1・世界樹3・？？？7）。全19件を監査表に掲載。固定カード設計の保持という既存方針に由来し、自動修正していない。段階番号のずれ・ID未対応0。補助名31、なかま26、こいびと18は一致。「若者」は本編・図鑑・カードですでに漢字表記で一致。</p>
+<p>正式カード識別名の重複0。進化formの同名はカード側10グループ、本編9グループあり、系列・段階・安定IDで区別する。旧cards.mjsにウスバカゲロウ①／現行アリジゴク①の差分1件も記録。</p>
+<p>漢字候補14件（正式11・追加候補3）と本編への影響を掲載。正式名・読み仮名・系列・段階・キャラクターID・カードIDの共有registry案を提案。文字列をキーにせずIDを維持し、読みと検索aliasは表示名と別管理。正式改名・共通参照元への移行は承認後。本番変更は今回0件。</p>
+<h2>レアリティと投入制限</h2>
+<p><a href="rarity-design.html">RARITY-DESIGN.md</a>。現在はrare:booleanに1/3枚制限が結び付く。engine、デッキ編集・保存・インポート、CPUデッキ検証、UI説明を共通getDeckLimitへ集約する案。rare参照効果・CPU評価の意味は保持。保存はID配列のまま、将来超過時も黙ってデッキを変更しない。V8は独立policyの試作に限定。</p>
+<h2>再現と保護</h2>
+<pre>
+node prototypes/card-game/design-comparison-v8-20261115/build.mjs /absolute/site/dist/v8
+
+node prototypes/card-game/design-comparison-v8-20261115/verify.mjs /absolute/site/dist/v8
+
+node prototypes/card-game/design-comparison-v8-20261115/qa-verify.mjs /absolute/site/dist/v8/data.json
+
+node prototypes/card-game/design-comparison-v8-20261115/name-audit.mjs
+
+</pre>
+<p>PR551開始HEAD <code>c04688e468d40c507c81352ce559e9a1282dee49</code>、PR498読取HEAD <code>948026343099e34628f5655ae240d1083763ea9e</code>、本編名称監査main <code>408c72e6ebef71da3eab33cfb268c7494117aaaa</code>。正式452レコード・表示markup・CSS・918画像receipt・裏面・たまご原画・手/脳SVG・32 runtime modulesを照合。追加7枚は完成済み画像を再利用し再生成しない。正式色・効果・ルール・コスト・ID・能力値・CPU・時計・保存形式・正式投入制限の変更なし。</p>
+<p>出力先が/v8であることを固定し、保存済みV1〜7とのbyte差分0を検証。すべての変更はこのV8ディレクトリ内と本人限定Siteのdist/v8のみ。</p>
+<h2>比較画像</h2>
+<p><img alt="V7とV8" src="qa/comparison.jpg"></p>
+<p><img alt="たまご" src="qa/egg-comparison.jpg"></p>
+<p><img alt="390px・3列一覧" src="qa/palette-390.jpg"></p></html>

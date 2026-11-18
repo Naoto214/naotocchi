@@ -1,0 +1,1654 @@
+{
+  "collection": [
+    {
+      "design": "candidate",
+      "orientation": "portrait",
+      "width": "320",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".collection-toolbar",
+          "width": 275,
+          "x": 15,
+          "y": -30
+        },
+        {
+          "height": 66,
+          "selector": ".collection-search",
+          "width": 275,
+          "x": 15,
+          "y": 78
+        },
+        {
+          "height": 452,
+          "selector": ".binder-page",
+          "width": 275,
+          "x": 15,
+          "y": 224
+        },
+        {
+          "height": 434,
+          "selector": "#collection-grid",
+          "width": 246,
+          "x": 36,
+          "y": 233
+        },
+        {
+          "height": 140,
+          "selector": ".collection-pocket",
+          "width": 78.65625,
+          "x": 36,
+          "y": 233
+        },
+        {
+          "height": 105.984375,
+          "selector": ".collection-card-tap",
+          "width": 70.65625,
+          "x": 40,
+          "y": 238
+        },
+        {
+          "height": 44,
+          "selector": ".collection-pagination",
+          "width": 275,
+          "x": 15,
+          "y": 690
+        }
+      ]
+    },
+    {
+      "design": "candidate",
+      "orientation": "portrait",
+      "width": "375",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".collection-toolbar",
+          "width": 330,
+          "x": 15,
+          "y": -53
+        },
+        {
+          "height": 66,
+          "selector": ".collection-search",
+          "width": 330,
+          "x": 15,
+          "y": 55
+        },
+        {
+          "height": 474.5,
+          "selector": ".binder-page",
+          "width": 290,
+          "x": 35,
+          "y": 201
+        },
+        {
+          "height": 456.5,
+          "selector": "#collection-grid",
+          "width": 261,
+          "x": 56,
+          "y": 210
+        },
+        {
+          "height": 147.5,
+          "selector": ".collection-pocket",
+          "width": 83.65625,
+          "x": 56,
+          "y": 210
+        },
+        {
+          "height": 113.484375,
+          "selector": ".collection-card-tap",
+          "width": 75.65625,
+          "x": 60,
+          "y": 215
+        },
+        {
+          "height": 44,
+          "selector": ".collection-pagination",
+          "width": 330,
+          "x": 15,
+          "y": 689.5
+        }
+      ]
+    },
+    {
+      "design": "candidate",
+      "orientation": "portrait",
+      "width": "390",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".collection-toolbar",
+          "width": 345,
+          "x": 15,
+          "y": -53
+        },
+        {
+          "height": 66,
+          "selector": ".collection-search",
+          "width": 345,
+          "x": 15,
+          "y": 55
+        },
+        {
+          "height": 474.5,
+          "selector": ".binder-page",
+          "width": 290,
+          "x": 42.5,
+          "y": 201
+        },
+        {
+          "height": 456.5,
+          "selector": "#collection-grid",
+          "width": 261,
+          "x": 63.5,
+          "y": 210
+        },
+        {
+          "height": 147.5,
+          "selector": ".collection-pocket",
+          "width": 83.65625,
+          "x": 63.5,
+          "y": 210
+        },
+        {
+          "height": 113.484375,
+          "selector": ".collection-card-tap",
+          "width": 75.65625,
+          "x": 67.5,
+          "y": 215
+        },
+        {
+          "height": 44,
+          "selector": ".collection-pagination",
+          "width": 345,
+          "x": 15,
+          "y": 689.5
+        }
+      ]
+    },
+    {
+      "design": "candidate",
+      "orientation": "portrait",
+      "width": "430",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".collection-toolbar",
+          "width": 385,
+          "x": 15,
+          "y": -53
+        },
+        {
+          "height": 66,
+          "selector": ".collection-search",
+          "width": 385,
+          "x": 15,
+          "y": 55
+        },
+        {
+          "height": 474.5,
+          "selector": ".binder-page",
+          "width": 290,
+          "x": 62.5,
+          "y": 201
+        },
+        {
+          "height": 456.5,
+          "selector": "#collection-grid",
+          "width": 261,
+          "x": 83.5,
+          "y": 210
+        },
+        {
+          "height": 147.5,
+          "selector": ".collection-pocket",
+          "width": 83.65625,
+          "x": 83.5,
+          "y": 210
+        },
+        {
+          "height": 113.484375,
+          "selector": ".collection-card-tap",
+          "width": 75.65625,
+          "x": 87.5,
+          "y": 215
+        },
+        {
+          "height": 44,
+          "selector": ".collection-pagination",
+          "width": 385,
+          "x": 15,
+          "y": 689.5
+        }
+      ]
+    },
+    {
+      "design": "candidate",
+      "orientation": "landscape",
+      "width": "320",
+      "boxes": [
+        {
+          "height": 48,
+          "selector": ".collection-toolbar",
+          "width": 606.21875,
+          "x": 29.390625,
+          "y": -52
+        },
+        {
+          "height": 66,
+          "selector": ".collection-search",
+          "width": 606.21875,
+          "x": 29.390625,
+          "y": 60
+        },
+        {
+          "height": 663.546875,
+          "selector": ".binder-page",
+          "width": 420,
+          "x": 122.5,
+          "y": 206
+        },
+        {
+          "height": 637.546875,
+          "selector": "#collection-grid",
+          "width": 381,
+          "x": 148.5,
+          "y": 219
+        },
+        {
+          "height": 206.515625,
+          "selector": ".collection-pocket",
+          "width": 122.328125,
+          "x": 148.5,
+          "y": 219
+        },
+        {
+          "height": 168.484375,
+          "selector": ".collection-card-tap",
+          "width": 112.328125,
+          "x": 153.5,
+          "y": 225
+        },
+        {
+          "height": 44,
+          "selector": ".collection-pagination",
+          "width": 540,
+          "x": 62.5,
+          "y": 883.546875
+        }
+      ]
+    },
+    {
+      "design": "candidate",
+      "orientation": "landscape",
+      "width": "375",
+      "boxes": [
+        {
+          "height": 48,
+          "selector": ".collection-toolbar",
+          "width": 672,
+          "x": 31.5,
+          "y": -52
+        },
+        {
+          "height": 66,
+          "selector": ".collection-search",
+          "width": 672,
+          "x": 31.5,
+          "y": 60
+        },
+        {
+          "height": 663.546875,
+          "selector": ".binder-page",
+          "width": 420,
+          "x": 157.5,
+          "y": 206
+        },
+        {
+          "height": 637.546875,
+          "selector": "#collection-grid",
+          "width": 381,
+          "x": 183.5,
+          "y": 219
+        },
+        {
+          "height": 206.515625,
+          "selector": ".collection-pocket",
+          "width": 122.328125,
+          "x": 183.5,
+          "y": 219
+        },
+        {
+          "height": 168.484375,
+          "selector": ".collection-card-tap",
+          "width": 112.328125,
+          "x": 188.5,
+          "y": 225
+        },
+        {
+          "height": 44,
+          "selector": ".collection-pagination",
+          "width": 540,
+          "x": 97.5,
+          "y": 883.546875
+        }
+      ]
+    },
+    {
+      "design": "candidate",
+      "orientation": "landscape",
+      "width": "390",
+      "boxes": [
+        {
+          "height": 48,
+          "selector": ".collection-toolbar",
+          "width": 700.21875,
+          "x": 32.390625,
+          "y": -52
+        },
+        {
+          "height": 66,
+          "selector": ".collection-search",
+          "width": 700.21875,
+          "x": 32.390625,
+          "y": 60
+        },
+        {
+          "height": 663.546875,
+          "selector": ".binder-page",
+          "width": 420,
+          "x": 172.5,
+          "y": 206
+        },
+        {
+          "height": 637.546875,
+          "selector": "#collection-grid",
+          "width": 381,
+          "x": 198.5,
+          "y": 219
+        },
+        {
+          "height": 206.515625,
+          "selector": ".collection-pocket",
+          "width": 122.328125,
+          "x": 198.5,
+          "y": 219
+        },
+        {
+          "height": 168.484375,
+          "selector": ".collection-card-tap",
+          "width": 112.328125,
+          "x": 203.5,
+          "y": 225
+        },
+        {
+          "height": 44,
+          "selector": ".collection-pagination",
+          "width": 540,
+          "x": 112.5,
+          "y": 883.546875
+        }
+      ]
+    },
+    {
+      "design": "candidate",
+      "orientation": "landscape",
+      "width": "430",
+      "boxes": [
+        {
+          "height": 48,
+          "selector": ".collection-toolbar",
+          "width": 775.40625,
+          "x": 34.796875,
+          "y": -52
+        },
+        {
+          "height": 66,
+          "selector": ".collection-search",
+          "width": 775.40625,
+          "x": 34.796875,
+          "y": 60
+        },
+        {
+          "height": 663.546875,
+          "selector": ".binder-page",
+          "width": 420,
+          "x": 212.5,
+          "y": 206
+        },
+        {
+          "height": 637.546875,
+          "selector": "#collection-grid",
+          "width": 381,
+          "x": 238.5,
+          "y": 219
+        },
+        {
+          "height": 206.515625,
+          "selector": ".collection-pocket",
+          "width": 122.328125,
+          "x": 238.5,
+          "y": 219
+        },
+        {
+          "height": 168.484375,
+          "selector": ".collection-card-tap",
+          "width": 112.328125,
+          "x": 243.5,
+          "y": 225
+        },
+        {
+          "height": 44,
+          "selector": ".collection-pagination",
+          "width": 540,
+          "x": 152.5,
+          "y": 883.546875
+        }
+      ]
+    },
+    {
+      "design": "official",
+      "orientation": "portrait",
+      "width": "320",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".collection-toolbar",
+          "width": 275,
+          "x": 15,
+          "y": 21
+        },
+        {
+          "height": 66,
+          "selector": ".collection-search",
+          "width": 275,
+          "x": 15,
+          "y": 129
+        },
+        {
+          "height": 452,
+          "selector": ".binder-page",
+          "width": 275,
+          "x": 15,
+          "y": 275
+        },
+        {
+          "height": 434,
+          "selector": "#collection-grid",
+          "width": 246,
+          "x": 36,
+          "y": 284
+        },
+        {
+          "height": 140,
+          "selector": ".collection-pocket",
+          "width": 78.65625,
+          "x": 36,
+          "y": 284
+        },
+        {
+          "height": 105.984375,
+          "selector": ".collection-card-tap",
+          "width": 70.65625,
+          "x": 40,
+          "y": 289
+        },
+        {
+          "height": 44,
+          "selector": ".collection-pagination",
+          "width": 275,
+          "x": 15,
+          "y": 741
+        }
+      ]
+    },
+    {
+      "design": "official",
+      "orientation": "portrait",
+      "width": "375",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".collection-toolbar",
+          "width": 330,
+          "x": 15,
+          "y": 21
+        },
+        {
+          "height": 66,
+          "selector": ".collection-search",
+          "width": 330,
+          "x": 15,
+          "y": 129
+        },
+        {
+          "height": 474.5,
+          "selector": ".binder-page",
+          "width": 290,
+          "x": 35,
+          "y": 275
+        },
+        {
+          "height": 456.5,
+          "selector": "#collection-grid",
+          "width": 261,
+          "x": 56,
+          "y": 284
+        },
+        {
+          "height": 147.5,
+          "selector": ".collection-pocket",
+          "width": 83.65625,
+          "x": 56,
+          "y": 284
+        },
+        {
+          "height": 113.484375,
+          "selector": ".collection-card-tap",
+          "width": 75.65625,
+          "x": 60,
+          "y": 289
+        },
+        {
+          "height": 44,
+          "selector": ".collection-pagination",
+          "width": 330,
+          "x": 15,
+          "y": 763.5
+        }
+      ]
+    },
+    {
+      "design": "official",
+      "orientation": "portrait",
+      "width": "390",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".collection-toolbar",
+          "width": 345,
+          "x": 15,
+          "y": 21
+        },
+        {
+          "height": 66,
+          "selector": ".collection-search",
+          "width": 345,
+          "x": 15,
+          "y": 129
+        },
+        {
+          "height": 474.5,
+          "selector": ".binder-page",
+          "width": 290,
+          "x": 42.5,
+          "y": 275
+        },
+        {
+          "height": 456.5,
+          "selector": "#collection-grid",
+          "width": 261,
+          "x": 63.5,
+          "y": 284
+        },
+        {
+          "height": 147.5,
+          "selector": ".collection-pocket",
+          "width": 83.65625,
+          "x": 63.5,
+          "y": 284
+        },
+        {
+          "height": 113.484375,
+          "selector": ".collection-card-tap",
+          "width": 75.65625,
+          "x": 67.5,
+          "y": 289
+        },
+        {
+          "height": 44,
+          "selector": ".collection-pagination",
+          "width": 345,
+          "x": 15,
+          "y": 763.5
+        }
+      ]
+    },
+    {
+      "design": "official",
+      "orientation": "portrait",
+      "width": "430",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".collection-toolbar",
+          "width": 385,
+          "x": 15,
+          "y": 21
+        },
+        {
+          "height": 66,
+          "selector": ".collection-search",
+          "width": 385,
+          "x": 15,
+          "y": 129
+        },
+        {
+          "height": 474.5,
+          "selector": ".binder-page",
+          "width": 290,
+          "x": 62.5,
+          "y": 275
+        },
+        {
+          "height": 456.5,
+          "selector": "#collection-grid",
+          "width": 261,
+          "x": 83.5,
+          "y": 284
+        },
+        {
+          "height": 147.5,
+          "selector": ".collection-pocket",
+          "width": 83.65625,
+          "x": 83.5,
+          "y": 284
+        },
+        {
+          "height": 113.484375,
+          "selector": ".collection-card-tap",
+          "width": 75.65625,
+          "x": 87.5,
+          "y": 289
+        },
+        {
+          "height": 44,
+          "selector": ".collection-pagination",
+          "width": 385,
+          "x": 15,
+          "y": 763.5
+        }
+      ]
+    },
+    {
+      "design": "official",
+      "orientation": "landscape",
+      "width": "320",
+      "boxes": [
+        {
+          "height": 48,
+          "selector": ".collection-toolbar",
+          "width": 606.21875,
+          "x": 29.390625,
+          "y": 22
+        },
+        {
+          "height": 66,
+          "selector": ".collection-search",
+          "width": 606.21875,
+          "x": 29.390625,
+          "y": 134
+        },
+        {
+          "height": 663.546875,
+          "selector": ".binder-page",
+          "width": 420,
+          "x": 122.5,
+          "y": 280
+        },
+        {
+          "height": 637.546875,
+          "selector": "#collection-grid",
+          "width": 381,
+          "x": 148.5,
+          "y": 293
+        },
+        {
+          "height": 206.515625,
+          "selector": ".collection-pocket",
+          "width": 122.328125,
+          "x": 148.5,
+          "y": 293
+        },
+        {
+          "height": 168.484375,
+          "selector": ".collection-card-tap",
+          "width": 112.328125,
+          "x": 153.5,
+          "y": 299
+        },
+        {
+          "height": 44,
+          "selector": ".collection-pagination",
+          "width": 540,
+          "x": 62.5,
+          "y": 957.546875
+        }
+      ]
+    },
+    {
+      "design": "official",
+      "orientation": "landscape",
+      "width": "375",
+      "boxes": [
+        {
+          "height": 48,
+          "selector": ".collection-toolbar",
+          "width": 672,
+          "x": 31.5,
+          "y": 22
+        },
+        {
+          "height": 66,
+          "selector": ".collection-search",
+          "width": 672,
+          "x": 31.5,
+          "y": 134
+        },
+        {
+          "height": 663.546875,
+          "selector": ".binder-page",
+          "width": 420,
+          "x": 157.5,
+          "y": 280
+        },
+        {
+          "height": 637.546875,
+          "selector": "#collection-grid",
+          "width": 381,
+          "x": 183.5,
+          "y": 293
+        },
+        {
+          "height": 206.515625,
+          "selector": ".collection-pocket",
+          "width": 122.328125,
+          "x": 183.5,
+          "y": 293
+        },
+        {
+          "height": 168.484375,
+          "selector": ".collection-card-tap",
+          "width": 112.328125,
+          "x": 188.5,
+          "y": 299
+        },
+        {
+          "height": 44,
+          "selector": ".collection-pagination",
+          "width": 540,
+          "x": 97.5,
+          "y": 957.546875
+        }
+      ]
+    },
+    {
+      "design": "official",
+      "orientation": "landscape",
+      "width": "390",
+      "boxes": [
+        {
+          "height": 48,
+          "selector": ".collection-toolbar",
+          "width": 700.21875,
+          "x": 32.390625,
+          "y": 22
+        },
+        {
+          "height": 66,
+          "selector": ".collection-search",
+          "width": 700.21875,
+          "x": 32.390625,
+          "y": 134
+        },
+        {
+          "height": 663.546875,
+          "selector": ".binder-page",
+          "width": 420,
+          "x": 172.5,
+          "y": 280
+        },
+        {
+          "height": 637.546875,
+          "selector": "#collection-grid",
+          "width": 381,
+          "x": 198.5,
+          "y": 293
+        },
+        {
+          "height": 206.515625,
+          "selector": ".collection-pocket",
+          "width": 122.328125,
+          "x": 198.5,
+          "y": 293
+        },
+        {
+          "height": 168.484375,
+          "selector": ".collection-card-tap",
+          "width": 112.328125,
+          "x": 203.5,
+          "y": 299
+        },
+        {
+          "height": 44,
+          "selector": ".collection-pagination",
+          "width": 540,
+          "x": 112.5,
+          "y": 957.546875
+        }
+      ]
+    },
+    {
+      "design": "official",
+      "orientation": "landscape",
+      "width": "430",
+      "boxes": [
+        {
+          "height": 48,
+          "selector": ".collection-toolbar",
+          "width": 775.40625,
+          "x": 34.796875,
+          "y": 22
+        },
+        {
+          "height": 66,
+          "selector": ".collection-search",
+          "width": 775.40625,
+          "x": 34.796875,
+          "y": 134
+        },
+        {
+          "height": 663.546875,
+          "selector": ".binder-page",
+          "width": 420,
+          "x": 212.5,
+          "y": 280
+        },
+        {
+          "height": 637.546875,
+          "selector": "#collection-grid",
+          "width": 381,
+          "x": 238.5,
+          "y": 293
+        },
+        {
+          "height": 206.515625,
+          "selector": ".collection-pocket",
+          "width": 122.328125,
+          "x": 238.5,
+          "y": 293
+        },
+        {
+          "height": 168.484375,
+          "selector": ".collection-card-tap",
+          "width": 112.328125,
+          "x": 243.5,
+          "y": 299
+        },
+        {
+          "height": 44,
+          "selector": ".collection-pagination",
+          "width": 540,
+          "x": 152.5,
+          "y": 957.546875
+        }
+      ]
+    }
+  ],
+  "battle": [
+    {
+      "design": "candidate",
+      "orientation": "portrait",
+      "width": "320",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".table-top",
+          "width": 308
+        },
+        {
+          "height": 599,
+          "selector": ".battle-area",
+          "width": 308
+        },
+        {
+          "height": 395,
+          "selector": ".player-board.own",
+          "width": 304
+        },
+        {
+          "height": 132,
+          "selector": ".player-board.opponent",
+          "width": 308
+        },
+        {
+          "height": 115,
+          "selector": ".hand-panel",
+          "width": 308
+        },
+        {
+          "height": 72,
+          "selector": ".hand-card",
+          "width": 48
+        },
+        {
+          "height": 91.65625,
+          "selector": ".own .slot[data-slot=\"1\"] .card-tap",
+          "width": 61.09375
+        },
+        {
+          "height": 60,
+          "selector": "#operation-panel",
+          "width": 308
+        }
+      ]
+    },
+    {
+      "design": "candidate",
+      "orientation": "portrait",
+      "width": "375",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".table-top",
+          "width": 363
+        },
+        {
+          "height": 599,
+          "selector": ".battle-area",
+          "width": 363
+        },
+        {
+          "height": 395,
+          "selector": ".player-board.own",
+          "width": 359
+        },
+        {
+          "height": 132,
+          "selector": ".player-board.opponent",
+          "width": 363
+        },
+        {
+          "height": 115,
+          "selector": ".hand-panel",
+          "width": 363
+        },
+        {
+          "height": 72,
+          "selector": ".hand-card",
+          "width": 48
+        },
+        {
+          "height": 91.65625,
+          "selector": ".own .slot[data-slot=\"1\"] .card-tap",
+          "width": 61.09375
+        },
+        {
+          "height": 60,
+          "selector": "#operation-panel",
+          "width": 363
+        }
+      ]
+    },
+    {
+      "design": "candidate",
+      "orientation": "portrait",
+      "width": "390",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".table-top",
+          "width": 378
+        },
+        {
+          "height": 599,
+          "selector": ".battle-area",
+          "width": 378
+        },
+        {
+          "height": 395,
+          "selector": ".player-board.own",
+          "width": 374
+        },
+        {
+          "height": 132,
+          "selector": ".player-board.opponent",
+          "width": 378
+        },
+        {
+          "height": 115,
+          "selector": ".hand-panel",
+          "width": 378
+        },
+        {
+          "height": 72,
+          "selector": ".hand-card",
+          "width": 48
+        },
+        {
+          "height": 91.65625,
+          "selector": ".own .slot[data-slot=\"1\"] .card-tap",
+          "width": 61.09375
+        },
+        {
+          "height": 60,
+          "selector": "#operation-panel",
+          "width": 378
+        }
+      ]
+    },
+    {
+      "design": "candidate",
+      "orientation": "portrait",
+      "width": "430",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".table-top",
+          "width": 418
+        },
+        {
+          "height": 599,
+          "selector": ".battle-area",
+          "width": 418
+        },
+        {
+          "height": 395,
+          "selector": ".player-board.own",
+          "width": 414
+        },
+        {
+          "height": 132,
+          "selector": ".player-board.opponent",
+          "width": 418
+        },
+        {
+          "height": 115,
+          "selector": ".hand-panel",
+          "width": 418
+        },
+        {
+          "height": 72,
+          "selector": ".hand-card",
+          "width": 48
+        },
+        {
+          "height": 91.65625,
+          "selector": ".own .slot[data-slot=\"1\"] .card-tap",
+          "width": 61.09375
+        },
+        {
+          "height": 60,
+          "selector": "#operation-panel",
+          "width": 418
+        }
+      ]
+    },
+    {
+      "design": "candidate",
+      "orientation": "landscape",
+      "width": "320",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".table-top",
+          "width": 668
+        },
+        {
+          "height": 187,
+          "selector": ".battle-area",
+          "width": 668
+        },
+        {
+          "height": 183,
+          "selector": ".player-board.own",
+          "width": 218.375
+        },
+        {
+          "height": 183,
+          "selector": ".player-board.opponent",
+          "width": 173.890625
+        },
+        {
+          "height": 67,
+          "selector": ".hand-panel",
+          "width": 668
+        },
+        {
+          "height": 60,
+          "selector": ".hand-card",
+          "width": 40
+        },
+        {
+          "height": 27.65625,
+          "selector": ".own .slot[data-slot=\"1\"] .card-tap",
+          "width": 18.4375
+        },
+        {
+          "height": 60,
+          "selector": "#operation-panel",
+          "width": 255.734375
+        }
+      ]
+    },
+    {
+      "design": "candidate",
+      "orientation": "landscape",
+      "width": "375",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".table-top",
+          "width": 738
+        },
+        {
+          "height": 226,
+          "selector": ".battle-area",
+          "width": 738
+        },
+        {
+          "height": 222,
+          "selector": ".player-board.own",
+          "width": 242.09375
+        },
+        {
+          "height": 222,
+          "selector": ".player-board.opponent",
+          "width": 192.875
+        },
+        {
+          "height": 83,
+          "selector": ".hand-panel",
+          "width": 738
+        },
+        {
+          "height": 72,
+          "selector": ".hand-card",
+          "width": 48
+        },
+        {
+          "height": 40.65625,
+          "selector": ".own .slot[data-slot=\"1\"] .card-tap",
+          "width": 27.09375
+        },
+        {
+          "height": 60,
+          "selector": "#operation-panel",
+          "width": 283.03125
+        }
+      ]
+    },
+    {
+      "design": "candidate",
+      "orientation": "landscape",
+      "width": "390",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".table-top",
+          "width": 768
+        },
+        {
+          "height": 241,
+          "selector": ".battle-area",
+          "width": 768
+        },
+        {
+          "height": 237,
+          "selector": ".player-board.own",
+          "width": 252.265625
+        },
+        {
+          "height": 237,
+          "selector": ".player-board.opponent",
+          "width": 201.015625
+        },
+        {
+          "height": 83,
+          "selector": ".hand-panel",
+          "width": 768
+        },
+        {
+          "height": 72,
+          "selector": ".hand-card",
+          "width": 48
+        },
+        {
+          "height": 45.65625,
+          "selector": ".own .slot[data-slot=\"1\"] .card-tap",
+          "width": 30.4375
+        },
+        {
+          "height": 60,
+          "selector": "#operation-panel",
+          "width": 294.71875
+        }
+      ]
+    },
+    {
+      "design": "candidate",
+      "orientation": "landscape",
+      "width": "430",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".table-top",
+          "width": 848
+        },
+        {
+          "height": 281,
+          "selector": ".battle-area",
+          "width": 848
+        },
+        {
+          "height": 277,
+          "selector": ".player-board.own",
+          "width": 279.390625
+        },
+        {
+          "height": 277,
+          "selector": ".player-board.opponent",
+          "width": 222.703125
+        },
+        {
+          "height": 83,
+          "selector": ".hand-panel",
+          "width": 848
+        },
+        {
+          "height": 72,
+          "selector": ".hand-card",
+          "width": 48
+        },
+        {
+          "height": 59,
+          "selector": ".own .slot[data-slot=\"1\"] .card-tap",
+          "width": 39.328125
+        },
+        {
+          "height": 60,
+          "selector": "#operation-panel",
+          "width": 325.90625
+        }
+      ]
+    },
+    {
+      "design": "official",
+      "orientation": "portrait",
+      "width": "320",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".table-top",
+          "width": 308
+        },
+        {
+          "height": 599,
+          "selector": ".battle-area",
+          "width": 308
+        },
+        {
+          "height": 395,
+          "selector": ".player-board.own",
+          "width": 304
+        },
+        {
+          "height": 132,
+          "selector": ".player-board.opponent",
+          "width": 308
+        },
+        {
+          "height": 115,
+          "selector": ".hand-panel",
+          "width": 308
+        },
+        {
+          "height": 72,
+          "selector": ".hand-card",
+          "width": 48
+        },
+        {
+          "height": 91.65625,
+          "selector": ".own .slot[data-slot=\"1\"] .card-tap",
+          "width": 61.09375
+        },
+        {
+          "height": 60,
+          "selector": "#operation-panel",
+          "width": 308
+        }
+      ]
+    },
+    {
+      "design": "official",
+      "orientation": "portrait",
+      "width": "375",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".table-top",
+          "width": 363
+        },
+        {
+          "height": 599,
+          "selector": ".battle-area",
+          "width": 363
+        },
+        {
+          "height": 395,
+          "selector": ".player-board.own",
+          "width": 359
+        },
+        {
+          "height": 132,
+          "selector": ".player-board.opponent",
+          "width": 363
+        },
+        {
+          "height": 115,
+          "selector": ".hand-panel",
+          "width": 363
+        },
+        {
+          "height": 72,
+          "selector": ".hand-card",
+          "width": 48
+        },
+        {
+          "height": 91.65625,
+          "selector": ".own .slot[data-slot=\"1\"] .card-tap",
+          "width": 61.09375
+        },
+        {
+          "height": 60,
+          "selector": "#operation-panel",
+          "width": 363
+        }
+      ]
+    },
+    {
+      "design": "official",
+      "orientation": "portrait",
+      "width": "390",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".table-top",
+          "width": 378
+        },
+        {
+          "height": 599,
+          "selector": ".battle-area",
+          "width": 378
+        },
+        {
+          "height": 395,
+          "selector": ".player-board.own",
+          "width": 374
+        },
+        {
+          "height": 132,
+          "selector": ".player-board.opponent",
+          "width": 378
+        },
+        {
+          "height": 115,
+          "selector": ".hand-panel",
+          "width": 378
+        },
+        {
+          "height": 72,
+          "selector": ".hand-card",
+          "width": 48
+        },
+        {
+          "height": 91.65625,
+          "selector": ".own .slot[data-slot=\"1\"] .card-tap",
+          "width": 61.09375
+        },
+        {
+          "height": 60,
+          "selector": "#operation-panel",
+          "width": 378
+        }
+      ]
+    },
+    {
+      "design": "official",
+      "orientation": "portrait",
+      "width": "430",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".table-top",
+          "width": 418
+        },
+        {
+          "height": 599,
+          "selector": ".battle-area",
+          "width": 418
+        },
+        {
+          "height": 395,
+          "selector": ".player-board.own",
+          "width": 414
+        },
+        {
+          "height": 132,
+          "selector": ".player-board.opponent",
+          "width": 418
+        },
+        {
+          "height": 115,
+          "selector": ".hand-panel",
+          "width": 418
+        },
+        {
+          "height": 72,
+          "selector": ".hand-card",
+          "width": 48
+        },
+        {
+          "height": 91.65625,
+          "selector": ".own .slot[data-slot=\"1\"] .card-tap",
+          "width": 61.09375
+        },
+        {
+          "height": 60,
+          "selector": "#operation-panel",
+          "width": 418
+        }
+      ]
+    },
+    {
+      "design": "official",
+      "orientation": "landscape",
+      "width": "320",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".table-top",
+          "width": 668
+        },
+        {
+          "height": 187,
+          "selector": ".battle-area",
+          "width": 668
+        },
+        {
+          "height": 183,
+          "selector": ".player-board.own",
+          "width": 218.375
+        },
+        {
+          "height": 183,
+          "selector": ".player-board.opponent",
+          "width": 173.890625
+        },
+        {
+          "height": 67,
+          "selector": ".hand-panel",
+          "width": 668
+        },
+        {
+          "height": 60,
+          "selector": ".hand-card",
+          "width": 40
+        },
+        {
+          "height": 27.65625,
+          "selector": ".own .slot[data-slot=\"1\"] .card-tap",
+          "width": 18.4375
+        },
+        {
+          "height": 60,
+          "selector": "#operation-panel",
+          "width": 255.734375
+        }
+      ]
+    },
+    {
+      "design": "official",
+      "orientation": "landscape",
+      "width": "375",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".table-top",
+          "width": 738
+        },
+        {
+          "height": 226,
+          "selector": ".battle-area",
+          "width": 738
+        },
+        {
+          "height": 222,
+          "selector": ".player-board.own",
+          "width": 242.09375
+        },
+        {
+          "height": 222,
+          "selector": ".player-board.opponent",
+          "width": 192.875
+        },
+        {
+          "height": 83,
+          "selector": ".hand-panel",
+          "width": 738
+        },
+        {
+          "height": 72,
+          "selector": ".hand-card",
+          "width": 48
+        },
+        {
+          "height": 40.65625,
+          "selector": ".own .slot[data-slot=\"1\"] .card-tap",
+          "width": 27.09375
+        },
+        {
+          "height": 60,
+          "selector": "#operation-panel",
+          "width": 283.03125
+        }
+      ]
+    },
+    {
+      "design": "official",
+      "orientation": "landscape",
+      "width": "390",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".table-top",
+          "width": 768
+        },
+        {
+          "height": 241,
+          "selector": ".battle-area",
+          "width": 768
+        },
+        {
+          "height": 237,
+          "selector": ".player-board.own",
+          "width": 252.265625
+        },
+        {
+          "height": 237,
+          "selector": ".player-board.opponent",
+          "width": 201.015625
+        },
+        {
+          "height": 83,
+          "selector": ".hand-panel",
+          "width": 768
+        },
+        {
+          "height": 72,
+          "selector": ".hand-card",
+          "width": 48
+        },
+        {
+          "height": 45.65625,
+          "selector": ".own .slot[data-slot=\"1\"] .card-tap",
+          "width": 30.4375
+        },
+        {
+          "height": 60,
+          "selector": "#operation-panel",
+          "width": 294.71875
+        }
+      ]
+    },
+    {
+      "design": "official",
+      "orientation": "landscape",
+      "width": "430",
+      "boxes": [
+        {
+          "height": 44,
+          "selector": ".table-top",
+          "width": 848
+        },
+        {
+          "height": 281,
+          "selector": ".battle-area",
+          "width": 848
+        },
+        {
+          "height": 277,
+          "selector": ".player-board.own",
+          "width": 279.390625
+        },
+        {
+          "height": 277,
+          "selector": ".player-board.opponent",
+          "width": 222.703125
+        },
+        {
+          "height": 83,
+          "selector": ".hand-panel",
+          "width": 848
+        },
+        {
+          "height": 72,
+          "selector": ".hand-card",
+          "width": 48
+        },
+        {
+          "height": 59,
+          "selector": ".own .slot[data-slot=\"1\"] .card-tap",
+          "width": 39.328125
+        },
+        {
+          "height": 60,
+          "selector": "#operation-panel",
+          "width": 325.90625
+        }
+      ]
+    }
+  ]
+}
