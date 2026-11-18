@@ -1,0 +1,154 @@
+{
+  "basePRHead": "3eddb7c7918a3aa62f35eaebe1df221f990f6473",
+  "officialMainCommit": "408c72e6ebef71da3eab33cfb268c7494117aaaa",
+  "formalNamesChanged": false,
+  "browserVerified": false,
+  "stages": [
+    {
+      "id": "M-starfish-01",
+      "changed": true,
+      "currentCardName": "丸いあかちゃん",
+      "recommendedName": "浮遊幼生",
+      "nameStatus": "承認待ち・未採用",
+      "reason": "正しい縦長の青い幼生を維持し、旧画の透明感・泡・水面のきらめき・明るい砂地を復元。",
+      "officialRepositoryPath": "assets/characters/starfish/01.png",
+      "before": "before/01.webp",
+      "after": "originals/M-starfish-01-background-refined.png",
+      "official": "current/01.png",
+      "sha256": {
+        "before": "1756bf33da8bea23c31045da048b49e29018d9ce0800deb98ca2dde0cd220660",
+        "after": "0edbe53840584f4f5771351a83d870f95175eba06fa23acce038cd23d001df7e",
+        "official": "bab2be337b112e256b5991bc3c90ce802f67e60638cb30f15a8436c5688eac39",
+        "previous": "bb02b32435f42be510115871db9e6f31a0c641b831fd0b428c2635f523450af4"
+      },
+      "previous": "originals/M-starfish-01-current-design.png",
+      "referencePolicy": "旧画は背景・構図のみ。現行正式画像を本体形態の唯一の基準とする。"
+    },
+    {
+      "id": "M-starfish-02",
+      "changed": true,
+      "currentCardName": "透けた小さな星",
+      "recommendedName": "後期浮遊幼生",
+      "nameStatus": "承認待ち・未採用",
+      "reason": "上部3突起と長い尾を維持し、旧画の斜め構図・貝殻の多い斜面・動きを復元。",
+      "officialRepositoryPath": "assets/characters/starfish/02.png",
+      "before": "before/02.webp",
+      "after": "originals/M-starfish-02-background-refined.png",
+      "official": "current/02.png",
+      "sha256": {
+        "before": "85ac9ac01b8b80688048e0cff4b3ad5f805d64f70ddf98ea616004d06d96f801",
+        "after": "8ebb8cedc8e44044d06580e1628894db5123f872feffe73c784b29a4f69574b2",
+        "official": "d2bea1405df2b329785fadbd13e12f69887c8701c0653894ba989b8d5bfa225d",
+        "previous": "979601bb81c3e9e86045ac528c8cb7d25ccd7c8cb85d6b3a6dfd5a9a3cc8fed5"
+      },
+      "previous": "originals/M-starfish-02-current-design.png",
+      "referencePolicy": "旧画は背景・構図のみ。現行正式画像を本体形態の唯一の基準とする。"
+    },
+    {
+      "id": "M-starfish-03",
+      "changed": true,
+      "currentCardName": "色づく小さな星",
+      "recommendedName": "着底・変態期",
+      "nameStatus": "承認待ち・未採用",
+      "reason": "左上の青い幼生部分と星側だけの顔を維持し、旧画の大きな貝の上・浅瀬の光・暖色を復元。",
+      "officialRepositoryPath": "assets/characters/starfish/03.png",
+      "before": "before/03.webp",
+      "after": "originals/M-starfish-03-background-refined.png",
+      "official": "current/03.png",
+      "sha256": {
+        "before": "b49e025d9a8dc05dcbf8cedca941d4117a75cc001a541d9eae0f67ef449f2596",
+        "after": "1f0bf4c3c1dd8bb22e202ad2a8259c8c5a7165992e624b6c13255cdb5b19ade1",
+        "official": "220666ce63326a72b2125d4621bb587f3edbc01271faefe38671162947c06bb0",
+        "previous": "3f4528ebd11e66a3d52dc43ec594c535ba8ca9a510bc27460d24f02c45c3ac2c"
+      },
+      "previous": "originals/M-starfish-03-current-design.png",
+      "referencePolicy": "旧画は背景・構図のみ。現行正式画像を本体形態の唯一の基準とする。"
+    },
+    {
+      "id": "M-starfish-04",
+      "changed": false,
+      "currentCardName": "ふっくらした星",
+      "recommendedName": "変態後の稚ヒトデ",
+      "nameStatus": "承認待ち・未採用",
+      "reason": "桃色の5腕、左上の巻いた腕、ふっくらした輪郭が一致。再制作なし。",
+      "officialRepositoryPath": "assets/characters/starfish/04.png",
+      "before": "before/04.webp",
+      "after": "before/04.webp",
+      "official": "current/04.png",
+      "sha256": {
+        "before": "b5607d0561fec00494234fbd8e7f6dcb1a9b4a1124e3ebf434c0b86adcc7cf3e",
+        "after": "b5607d0561fec00494234fbd8e7f6dcb1a9b4a1124e3ebf434c0b86adcc7cf3e",
+        "official": "67cc700986fea3bf4584744a8f58a10978d1dce0eec173ea4666b73c82bc9863"
+      }
+    },
+    {
+      "id": "M-starfish-05",
+      "changed": false,
+      "currentCardName": "金色の子ヒトデ",
+      "recommendedName": "小型の稚ヒトデ",
+      "nameStatus": "承認待ち・未採用",
+      "reason": "金色の5腕とウインクが一致。再制作なし。",
+      "officialRepositoryPath": "assets/characters/starfish/05.png",
+      "before": "before/05.webp",
+      "after": "before/05.webp",
+      "official": "current/05.png",
+      "sha256": {
+        "before": "8ec33e2c513565f64b42ba4e50d5f2493ec9fede6d84fe96310b6c72d16c16ad",
+        "after": "8ec33e2c513565f64b42ba4e50d5f2493ec9fede6d84fe96310b6c72d16c16ad",
+        "official": "5075539019147a587ab984f058edabdb3ea994ab91067108f48e4c3cb9afa462"
+      }
+    },
+    {
+      "id": "M-starfish-06",
+      "changed": false,
+      "currentCardName": "ぶつぶつ子ヒトデ",
+      "recommendedName": "若いヒトデ",
+      "nameStatus": "承認待ち・未採用",
+      "reason": "橙色の5腕、丸い突起の列、開いた口が一致。再制作なし。",
+      "officialRepositoryPath": "assets/characters/starfish/06.png",
+      "before": "before/06.webp",
+      "after": "before/06.webp",
+      "official": "current/06.png",
+      "sha256": {
+        "before": "ad32d738a58e86568bb5373aa5180e4dfab3b2316fa37dab762f4ca4ea86b815",
+        "after": "ad32d738a58e86568bb5373aa5180e4dfab3b2316fa37dab762f4ca4ea86b815",
+        "official": "9530edaae3061ba58e55e460d1ee72f67dfc33c74841d0f1cc30eb05a8ed32d8"
+      }
+    },
+    {
+      "id": "M-starfish-07",
+      "changed": false,
+      "currentCardName": "大人のヒトデ",
+      "recommendedName": "成熟したヒトデ",
+      "nameStatus": "承認待ち・未採用",
+      "reason": "桃色の中心と細長い腕、上向きの左右の腕が一致。再制作なし。",
+      "officialRepositoryPath": "assets/characters/starfish/07.png",
+      "before": "before/07.webp",
+      "after": "before/07.webp",
+      "official": "current/07.png",
+      "sha256": {
+        "before": "95e2668a494cee32012b95e734c296fafe79df30baac14f1965a0c160b998561",
+        "after": "95e2668a494cee32012b95e734c296fafe79df30baac14f1965a0c160b998561",
+        "official": "c806f9b9fb0d489db9c253f5caed5a1773c953cd6db756084feef49db6c9f6fa"
+      }
+    },
+    {
+      "id": "M-starfish-08",
+      "changed": false,
+      "currentCardName": "大きなヒトデ",
+      "recommendedName": "長生きしたヒトデ",
+      "nameStatus": "承認待ち・未採用",
+      "reason": "赤い輪郭と金色の中心、密な丸い突起、周囲の泡が一致。再制作なし。",
+      "officialRepositoryPath": "assets/characters/starfish/08.png",
+      "before": "before/08.webp",
+      "after": "before/08.webp",
+      "official": "current/08.png",
+      "sha256": {
+        "before": "a3fc2414eeff020969ae71f47078bba1e89021da487c65b0a024039f87d11e49",
+        "after": "a3fc2414eeff020969ae71f47078bba1e89021da487c65b0a024039f87d11e49",
+        "official": "36a836ac587a111176e781fc05b8cf05e2efc4271cbe1905dd5bb6360ee2b3b4"
+      }
+    }
+  ],
+  "revision": "2026-11-17 background composition refinement"
+}

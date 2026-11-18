@@ -1,5 +1,5 @@
 {
-  "basePRHead": "3eddb7c7918a3aa62f35eaebe1df221f990f6473",
+  "basePRHead": "0e6c5bd4414a4d78d4758833605033d22b9d5ac7",
   "officialMainCommit": "408c72e6ebef71da3eab33cfb268c7494117aaaa",
   "formalNamesChanged": false,
   "browserVerified": false,
@@ -50,19 +50,21 @@
       "currentCardName": "色づく小さな星",
       "recommendedName": "着底・変態期",
       "nameStatus": "承認待ち・未採用",
-      "reason": "左上の青い幼生部分と星側だけの顔を維持し、旧画の大きな貝の上・浅瀬の光・暖色を復元。",
+      "reason": "本体の形態・接続と大きな貝殻の構図を維持し、上方の水面の屈折、光の筋、揺れる光、小さな泡を加えて、水中に着底している描写へ調整。",
       "officialRepositoryPath": "assets/characters/starfish/03.png",
       "before": "before/03.webp",
-      "after": "originals/M-starfish-03-background-refined.png",
+      "after": "originals/M-starfish-03-underwater.png",
       "official": "current/03.png",
       "sha256": {
         "before": "b49e025d9a8dc05dcbf8cedca941d4117a75cc001a541d9eae0f67ef449f2596",
-        "after": "1f0bf4c3c1dd8bb22e202ad2a8259c8c5a7165992e624b6c13255cdb5b19ade1",
+        "after": "fe5241d984ba09ea4b49a319f70cfc820413288e156bf079de38aa737ffefd5e",
         "official": "220666ce63326a72b2125d4621bb587f3edbc01271faefe38671162947c06bb0",
-        "previous": "3f4528ebd11e66a3d52dc43ec594c535ba8ca9a510bc27460d24f02c45c3ac2c"
+        "previous": "1f0bf4c3c1dd8bb22e202ad2a8259c8c5a7165992e624b6c13255cdb5b19ade1",
+        "earlierRevision": "3f4528ebd11e66a3d52dc43ec594c535ba8ca9a510bc27460d24f02c45c3ac2c"
       },
-      "previous": "originals/M-starfish-03-current-design.png",
-      "referencePolicy": "旧画は背景・構図のみ。現行正式画像を本体形態の唯一の基準とする。"
+      "previous": "originals/M-starfish-03-background-refined.png",
+      "referencePolicy": "前回再調整版のみを編集参照。本体は再設計せず、水中の光と環境描写を調整。",
+      "earlierRevision": "originals/M-starfish-03-current-design.png"
     },
     {
       "id": "M-starfish-04",
@@ -150,5 +152,5 @@
       }
     }
   ],
-  "revision": "2026-11-17 background composition refinement"
+  "revision": "2026-11-19 stage 3 underwater refinement"
 }
