@@ -1,0 +1,2372 @@
+{
+  "results": [
+    {
+      "engine": "webkit",
+      "scene": "forest-current",
+      "width": 320,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-waterfall",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 204,
+          "width": 792,
+          "height": 103,
+          "top": 204,
+          "right": 818,
+          "bottom": 307,
+          "left": 26
+        },
+        "height": 320
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-current",
+      "width": 320,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-waterfall",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 204,
+          "width": 792,
+          "height": 103,
+          "top": 204,
+          "right": 818,
+          "bottom": 307,
+          "left": 26
+        },
+        "height": 320
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-current",
+      "width": 320,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-waterfall",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 204,
+          "width": 792,
+          "height": 103,
+          "top": 204,
+          "right": 818,
+          "bottom": 307,
+          "left": 26
+        },
+        "height": 320
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-current",
+      "width": 375,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-waterfall",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 259,
+          "width": 792,
+          "height": 103,
+          "top": 259,
+          "right": 818,
+          "bottom": 362,
+          "left": 26
+        },
+        "height": 375
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-current",
+      "width": 375,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-waterfall",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 259,
+          "width": 792,
+          "height": 103,
+          "top": 259,
+          "right": 818,
+          "bottom": 362,
+          "left": 26
+        },
+        "height": 375
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-current",
+      "width": 375,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-waterfall",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 259,
+          "width": 792,
+          "height": 103,
+          "top": 259,
+          "right": 818,
+          "bottom": 362,
+          "left": 26
+        },
+        "height": 375
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-current",
+      "width": 390,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-waterfall",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 274,
+          "width": 792,
+          "height": 103,
+          "top": 274,
+          "right": 818,
+          "bottom": 377,
+          "left": 26
+        },
+        "height": 390
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-current",
+      "width": 390,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-waterfall",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 274,
+          "width": 792,
+          "height": 103,
+          "top": 274,
+          "right": 818,
+          "bottom": 377,
+          "left": 26
+        },
+        "height": 390
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-current",
+      "width": 390,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-waterfall",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 274,
+          "width": 792,
+          "height": 103,
+          "top": 274,
+          "right": 818,
+          "bottom": 377,
+          "left": 26
+        },
+        "height": 390
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-current",
+      "width": 430,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-waterfall",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 314,
+          "width": 792,
+          "height": 103,
+          "top": 314,
+          "right": 818,
+          "bottom": 417,
+          "left": 26
+        },
+        "height": 430
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-current",
+      "width": 430,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-waterfall",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 314,
+          "width": 792,
+          "height": 103,
+          "top": 314,
+          "right": 818,
+          "bottom": 417,
+          "left": 26
+        },
+        "height": 430
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-current",
+      "width": 430,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-waterfall",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 314,
+          "width": 792,
+          "height": 103,
+          "top": 314,
+          "right": 818,
+          "bottom": 417,
+          "left": 26
+        },
+        "height": 430
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f2",
+      "width": 320,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f2",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 204,
+          "width": 792,
+          "height": 103,
+          "top": 204,
+          "right": 818,
+          "bottom": 307,
+          "left": 26
+        },
+        "height": 320
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f2",
+      "width": 320,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f2",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 204,
+          "width": 792,
+          "height": 103,
+          "top": 204,
+          "right": 818,
+          "bottom": 307,
+          "left": 26
+        },
+        "height": 320
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f2",
+      "width": 320,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f2",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 204,
+          "width": 792,
+          "height": 103,
+          "top": 204,
+          "right": 818,
+          "bottom": 307,
+          "left": 26
+        },
+        "height": 320
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f2",
+      "width": 375,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f2",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 259,
+          "width": 792,
+          "height": 103,
+          "top": 259,
+          "right": 818,
+          "bottom": 362,
+          "left": 26
+        },
+        "height": 375
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f2",
+      "width": 375,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f2",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 259,
+          "width": 792,
+          "height": 103,
+          "top": 259,
+          "right": 818,
+          "bottom": 362,
+          "left": 26
+        },
+        "height": 375
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f2",
+      "width": 375,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f2",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 259,
+          "width": 792,
+          "height": 103,
+          "top": 259,
+          "right": 818,
+          "bottom": 362,
+          "left": 26
+        },
+        "height": 375
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f2",
+      "width": 390,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f2",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 274,
+          "width": 792,
+          "height": 103,
+          "top": 274,
+          "right": 818,
+          "bottom": 377,
+          "left": 26
+        },
+        "height": 390
+      },
+      "tap": true,
+      "drag": true,
+      "autonomy": {
+        "delta": 1091.1303744897198,
+        "metrics": {
+          "distance": 1267.5175699699114,
+          "moves": 12,
+          "turns": 3,
+          "activities": {
+            "walk": 12,
+            "rest": 1,
+            "turn": 2,
+            "look": 5,
+            "observe": 2,
+            "solitude": 3,
+            "sit": 2
+          },
+          "clock": 146.87199999999586
+        },
+        "safe": true
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f2",
+      "width": 390,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f2",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 274,
+          "width": 792,
+          "height": 103,
+          "top": 274,
+          "right": 818,
+          "bottom": 377,
+          "left": 26
+        },
+        "height": 390
+      },
+      "tap": true,
+      "drag": true,
+      "autonomy": {
+        "delta": 2342.9802050988355,
+        "metrics": {
+          "distance": 2502.4279204862223,
+          "moves": 35,
+          "turns": 11,
+          "activities": {
+            "walk": 35,
+            "rest": 10,
+            "look": 29,
+            "observe": 6,
+            "together": 30,
+            "solitude": 14,
+            "approach": 9,
+            "turn": 6,
+            "sit": 5
+          },
+          "clock": 146.95299999999585
+        },
+        "safe": true
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f2",
+      "width": 390,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f2",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 274,
+          "width": 792,
+          "height": 103,
+          "top": 274,
+          "right": 818,
+          "bottom": 377,
+          "left": 26
+        },
+        "height": 390
+      },
+      "tap": true,
+      "drag": true,
+      "autonomy": {
+        "delta": 1675.2363254521,
+        "metrics": {
+          "distance": 1707.8848371343283,
+          "moves": 52,
+          "turns": 29,
+          "activities": {
+            "walk": 52,
+            "rest": 22,
+            "solitude": 37,
+            "turn": 15,
+            "approach": 29,
+            "look": 81,
+            "observe": 25,
+            "sit": 21,
+            "together": 49
+          },
+          "clock": 147.16999999999584
+        },
+        "safe": true
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f2",
+      "width": 430,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f2",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 314,
+          "width": 792,
+          "height": 103,
+          "top": 314,
+          "right": 818,
+          "bottom": 417,
+          "left": 26
+        },
+        "height": 430
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f2",
+      "width": 430,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f2",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 314,
+          "width": 792,
+          "height": 103,
+          "top": 314,
+          "right": 818,
+          "bottom": 417,
+          "left": 26
+        },
+        "height": 430
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f2",
+      "width": 430,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f2",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 314,
+          "width": 792,
+          "height": 103,
+          "top": 314,
+          "right": 818,
+          "bottom": 417,
+          "left": 26
+        },
+        "height": 430
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f3",
+      "width": 320,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 204,
+          "width": 792,
+          "height": 103,
+          "top": 204,
+          "right": 818,
+          "bottom": 307,
+          "left": 26
+        },
+        "height": 320
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f3",
+      "width": 320,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 204,
+          "width": 792,
+          "height": 103,
+          "top": 204,
+          "right": 818,
+          "bottom": 307,
+          "left": 26
+        },
+        "height": 320
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f3",
+      "width": 320,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 204,
+          "width": 792,
+          "height": 103,
+          "top": 204,
+          "right": 818,
+          "bottom": 307,
+          "left": 26
+        },
+        "height": 320
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f3",
+      "width": 375,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 259,
+          "width": 792,
+          "height": 103,
+          "top": 259,
+          "right": 818,
+          "bottom": 362,
+          "left": 26
+        },
+        "height": 375
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f3",
+      "width": 375,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 259,
+          "width": 792,
+          "height": 103,
+          "top": 259,
+          "right": 818,
+          "bottom": 362,
+          "left": 26
+        },
+        "height": 375
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f3",
+      "width": 375,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 259,
+          "width": 792,
+          "height": 103,
+          "top": 259,
+          "right": 818,
+          "bottom": 362,
+          "left": 26
+        },
+        "height": 375
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f3",
+      "width": 390,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 274,
+          "width": 792,
+          "height": 103,
+          "top": 274,
+          "right": 818,
+          "bottom": 377,
+          "left": 26
+        },
+        "height": 390
+      },
+      "tap": true,
+      "drag": true,
+      "autonomy": {
+        "delta": 1338.094690178602,
+        "metrics": {
+          "distance": 1514.4818856587935,
+          "moves": 11,
+          "turns": 0,
+          "activities": {
+            "walk": 11,
+            "rest": 4,
+            "look": 3,
+            "solitude": 4,
+            "sit": 1,
+            "observe": 1
+          },
+          "clock": 146.89699999999587
+        },
+        "safe": true
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f3",
+      "width": 390,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 274,
+          "width": 792,
+          "height": 103,
+          "top": 274,
+          "right": 818,
+          "bottom": 377,
+          "left": 26
+        },
+        "height": 390
+      },
+      "tap": true,
+      "drag": true,
+      "autonomy": {
+        "delta": 3481.7208088554316,
+        "metrics": {
+          "distance": 3644.080643050032,
+          "moves": 47,
+          "turns": 7,
+          "activities": {
+            "walk": 47,
+            "rest": 11,
+            "look": 18,
+            "solitude": 13,
+            "approach": 11,
+            "together": 23,
+            "sit": 4,
+            "observe": 12,
+            "turn": 5
+          },
+          "clock": 146.97699999999585
+        },
+        "safe": true
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f3",
+      "width": 390,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 274,
+          "width": 792,
+          "height": 103,
+          "top": 274,
+          "right": 818,
+          "bottom": 377,
+          "left": 26
+        },
+        "height": 390
+      },
+      "tap": true,
+      "drag": true,
+      "autonomy": {
+        "delta": 810.4422786714504,
+        "metrics": {
+          "distance": 843.0907903536787,
+          "moves": 28,
+          "turns": 20,
+          "activities": {
+            "walk": 28,
+            "rest": 22,
+            "look": 99,
+            "solitude": 26,
+            "observe": 19,
+            "approach": 24,
+            "together": 36,
+            "turn": 8,
+            "sit": 11
+          },
+          "clock": 147.13599999999585
+        },
+        "safe": true
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f3",
+      "width": 430,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 314,
+          "width": 792,
+          "height": 103,
+          "top": 314,
+          "right": 818,
+          "bottom": 417,
+          "left": 26
+        },
+        "height": 430
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f3",
+      "width": 430,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 314,
+          "width": 792,
+          "height": 103,
+          "top": 314,
+          "right": 818,
+          "bottom": 417,
+          "left": 26
+        },
+        "height": 430
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "forest-f3",
+      "width": 430,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "forest-f3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 314,
+          "width": 792,
+          "height": 103,
+          "top": 314,
+          "right": 818,
+          "bottom": 417,
+          "left": 26
+        },
+        "height": 430
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-current",
+      "width": 320,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 204,
+          "width": 792,
+          "height": 103,
+          "top": 204,
+          "right": 818,
+          "bottom": 307,
+          "left": 26
+        },
+        "height": 320
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-current",
+      "width": 320,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 204,
+          "width": 792,
+          "height": 103,
+          "top": 204,
+          "right": 818,
+          "bottom": 307,
+          "left": 26
+        },
+        "height": 320
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-current",
+      "width": 320,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 204,
+          "width": 792,
+          "height": 103,
+          "top": 204,
+          "right": 818,
+          "bottom": 307,
+          "left": 26
+        },
+        "height": 320
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-current",
+      "width": 375,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 259,
+          "width": 792,
+          "height": 103,
+          "top": 259,
+          "right": 818,
+          "bottom": 362,
+          "left": 26
+        },
+        "height": 375
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-current",
+      "width": 375,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 259,
+          "width": 792,
+          "height": 103,
+          "top": 259,
+          "right": 818,
+          "bottom": 362,
+          "left": 26
+        },
+        "height": 375
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-current",
+      "width": 375,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 259,
+          "width": 792,
+          "height": 103,
+          "top": 259,
+          "right": 818,
+          "bottom": 362,
+          "left": 26
+        },
+        "height": 375
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-current",
+      "width": 390,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 274,
+          "width": 792,
+          "height": 103,
+          "top": 274,
+          "right": 818,
+          "bottom": 377,
+          "left": 26
+        },
+        "height": 390
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-current",
+      "width": 390,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 274,
+          "width": 792,
+          "height": 103,
+          "top": 274,
+          "right": 818,
+          "bottom": 377,
+          "left": 26
+        },
+        "height": 390
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-current",
+      "width": 390,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 274,
+          "width": 792,
+          "height": 103,
+          "top": 274,
+          "right": 818,
+          "bottom": 377,
+          "left": 26
+        },
+        "height": 390
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-current",
+      "width": 430,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 314,
+          "width": 792,
+          "height": 103,
+          "top": 314,
+          "right": 818,
+          "bottom": 417,
+          "left": 26
+        },
+        "height": 430
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-current",
+      "width": 430,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 314,
+          "width": 792,
+          "height": 103,
+          "top": 314,
+          "right": 818,
+          "bottom": 417,
+          "left": 26
+        },
+        "height": 430
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-current",
+      "width": 430,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 314,
+          "width": 792,
+          "height": 103,
+          "top": 314,
+          "right": 818,
+          "bottom": 417,
+          "left": 26
+        },
+        "height": 430
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j3",
+      "width": 320,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 204,
+          "width": 792,
+          "height": 103,
+          "top": 204,
+          "right": 818,
+          "bottom": 307,
+          "left": 26
+        },
+        "height": 320
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j3",
+      "width": 320,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 204,
+          "width": 792,
+          "height": 103,
+          "top": 204,
+          "right": 818,
+          "bottom": 307,
+          "left": 26
+        },
+        "height": 320
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j3",
+      "width": 320,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 204,
+          "width": 792,
+          "height": 103,
+          "top": 204,
+          "right": 818,
+          "bottom": 307,
+          "left": 26
+        },
+        "height": 320
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j3",
+      "width": 375,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 259,
+          "width": 792,
+          "height": 103,
+          "top": 259,
+          "right": 818,
+          "bottom": 362,
+          "left": 26
+        },
+        "height": 375
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j3",
+      "width": 375,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 259,
+          "width": 792,
+          "height": 103,
+          "top": 259,
+          "right": 818,
+          "bottom": 362,
+          "left": 26
+        },
+        "height": 375
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j3",
+      "width": 375,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 259,
+          "width": 792,
+          "height": 103,
+          "top": 259,
+          "right": 818,
+          "bottom": 362,
+          "left": 26
+        },
+        "height": 375
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j3",
+      "width": 390,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 274,
+          "width": 792,
+          "height": 103,
+          "top": 274,
+          "right": 818,
+          "bottom": 377,
+          "left": 26
+        },
+        "height": 390
+      },
+      "tap": true,
+      "drag": true,
+      "autonomy": {
+        "delta": 919.6565215032888,
+        "metrics": {
+          "distance": 1090.2796967900206,
+          "moves": 11,
+          "turns": 3,
+          "activities": {
+            "walk": 11,
+            "rest": 3,
+            "sit": 3,
+            "observe": 4,
+            "solitude": 2,
+            "look": 3,
+            "turn": 2
+          },
+          "clock": 146.91699999999585
+        },
+        "safe": true
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j3",
+      "width": 390,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 274,
+          "width": 792,
+          "height": 103,
+          "top": 274,
+          "right": 818,
+          "bottom": 377,
+          "left": 26
+        },
+        "height": 390
+      },
+      "tap": true,
+      "drag": true,
+      "autonomy": {
+        "delta": 2400.7069818139034,
+        "metrics": {
+          "distance": 2472.29787543973,
+          "moves": 55,
+          "turns": 11,
+          "activities": {
+            "walk": 55,
+            "rest": 5,
+            "look": 19,
+            "observe": 9,
+            "together": 36,
+            "solitude": 14,
+            "approach": 17,
+            "turn": 8,
+            "sit": 4
+          },
+          "clock": 146.98299999999585
+        },
+        "safe": true
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j3",
+      "width": 390,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 274,
+          "width": 792,
+          "height": 103,
+          "top": 274,
+          "right": 818,
+          "bottom": 377,
+          "left": 26
+        },
+        "height": 390
+      },
+      "tap": true,
+      "drag": true,
+      "autonomy": {
+        "delta": 960.9336501876629,
+        "metrics": {
+          "distance": 1028.9406703085415,
+          "moves": 52,
+          "turns": 33,
+          "activities": {
+            "walk": 52,
+            "rest": 23,
+            "together": 43,
+            "turn": 16,
+            "solitude": 32,
+            "look": 99,
+            "approach": 23,
+            "observe": 24,
+            "sit": 16
+          },
+          "clock": 147.13199999999586
+        },
+        "safe": true
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j3",
+      "width": 430,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 314,
+          "width": 792,
+          "height": 103,
+          "top": 314,
+          "right": 818,
+          "bottom": 417,
+          "left": 26
+        },
+        "height": 430
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j3",
+      "width": 430,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 314,
+          "width": 792,
+          "height": 103,
+          "top": 314,
+          "right": 818,
+          "bottom": 417,
+          "left": 26
+        },
+        "height": 430
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j3",
+      "width": 430,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j3",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 314,
+          "width": 792,
+          "height": 103,
+          "top": 314,
+          "right": 818,
+          "bottom": 417,
+          "left": 26
+        },
+        "height": 430
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j4",
+      "width": 320,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j4",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 204,
+          "width": 792,
+          "height": 103,
+          "top": 204,
+          "right": 818,
+          "bottom": 307,
+          "left": 26
+        },
+        "height": 320
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j4",
+      "width": 320,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j4",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 204,
+          "width": 792,
+          "height": 103,
+          "top": 204,
+          "right": 818,
+          "bottom": 307,
+          "left": 26
+        },
+        "height": 320
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j4",
+      "width": 320,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j4",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 204,
+          "width": 792,
+          "height": 103,
+          "top": 204,
+          "right": 818,
+          "bottom": 307,
+          "left": 26
+        },
+        "height": 320
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j4",
+      "width": 375,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j4",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 259,
+          "width": 792,
+          "height": 103,
+          "top": 259,
+          "right": 818,
+          "bottom": 362,
+          "left": 26
+        },
+        "height": 375
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j4",
+      "width": 375,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j4",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 259,
+          "width": 792,
+          "height": 103,
+          "top": 259,
+          "right": 818,
+          "bottom": 362,
+          "left": 26
+        },
+        "height": 375
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j4",
+      "width": 375,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j4",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 259,
+          "width": 792,
+          "height": 103,
+          "top": 259,
+          "right": 818,
+          "bottom": 362,
+          "left": 26
+        },
+        "height": 375
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j4",
+      "width": 390,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j4",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 274,
+          "width": 792,
+          "height": 103,
+          "top": 274,
+          "right": 818,
+          "bottom": 377,
+          "left": 26
+        },
+        "height": 390
+      },
+      "tap": true,
+      "drag": true,
+      "autonomy": {
+        "delta": 1263.9097015033135,
+        "metrics": {
+          "distance": 1429.2217015033136,
+          "moves": 12,
+          "turns": 2,
+          "activities": {
+            "walk": 12,
+            "rest": 3,
+            "sit": 2,
+            "observe": 4,
+            "solitude": 2,
+            "look": 3,
+            "turn": 1
+          },
+          "clock": 146.90399999999585
+        },
+        "safe": true
+      },
+      "wetland": {
+        "rejected": 84,
+        "feetDry": true
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j4",
+      "width": 390,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j4",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 274,
+          "width": 792,
+          "height": 103,
+          "top": 274,
+          "right": 818,
+          "bottom": 377,
+          "left": 26
+        },
+        "height": 390
+      },
+      "tap": true,
+      "drag": true,
+      "autonomy": {
+        "delta": 1109.7241522738273,
+        "metrics": {
+          "distance": 1188.236152273827,
+          "moves": 23,
+          "turns": 9,
+          "activities": {
+            "walk": 23,
+            "rest": 4,
+            "observe": 5,
+            "solitude": 8,
+            "look": 53,
+            "turn": 3,
+            "together": 16,
+            "approach": 5,
+            "sit": 2
+          },
+          "clock": 146.93999999999588
+        },
+        "safe": true
+      },
+      "wetland": {
+        "rejected": 84,
+        "feetDry": true
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j4",
+      "width": 390,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j4",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 274,
+          "width": 792,
+          "height": 103,
+          "top": 274,
+          "right": 818,
+          "bottom": 377,
+          "left": 26
+        },
+        "height": 390
+      },
+      "tap": true,
+      "drag": true,
+      "autonomy": {
+        "delta": 691.9307863865648,
+        "metrics": {
+          "distance": 744.275322818779,
+          "moves": 38,
+          "turns": 27,
+          "activities": {
+            "walk": 38,
+            "rest": 21,
+            "observe": 24,
+            "look": 105,
+            "approach": 29,
+            "sit": 15,
+            "turn": 8,
+            "solitude": 28,
+            "together": 37
+          },
+          "clock": 147.21499999999583
+        },
+        "safe": true
+      },
+      "wetland": {
+        "rejected": 84,
+        "feetDry": true
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j4",
+      "width": 430,
+      "count": 1,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j4",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 314,
+          "width": 792,
+          "height": 103,
+          "top": 314,
+          "right": 818,
+          "bottom": 417,
+          "left": 26
+        },
+        "height": 430
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j4",
+      "width": 430,
+      "count": 6,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j4",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 314,
+          "width": 792,
+          "height": 103,
+          "top": 314,
+          "right": 818,
+          "bottom": 417,
+          "left": 26
+        },
+        "height": 430
+      },
+      "status": "passed"
+    },
+    {
+      "engine": "webkit",
+      "scene": "jungle-j4",
+      "width": 430,
+      "count": 28,
+      "visibility": {
+        "visible": true,
+        "images": true
+      },
+      "ground": true,
+      "candidate": "jungle-j4",
+      "exit": true,
+      "rotation": {
+        "feet": true,
+        "visible": true,
+        "dock": {
+          "x": 26,
+          "y": 314,
+          "width": 792,
+          "height": 103,
+          "top": 314,
+          "right": 818,
+          "bottom": 417,
+          "left": 26
+        },
+        "height": 430
+      },
+      "status": "passed"
+    }
+  ],
+  "errors": []
+}
