@@ -33,7 +33,9 @@ LinuxのヘッドレスChromium 156、390×844 CSS px、DPR 2。比較と同じ�
 
 軽量化前の試作で、うみ・夕方・雨・B・28体を125秒連続動作。歩行85回、接近30回、着座26回、発話テキスト5種以上を記録。Canvasは各観測で2枚。JSヒープの観測範囲は19.3〜51.9 MiB、終了時22.2 MiB。短時間のGC変動を含み、メモリリークや端末発熱の否定には使えない。この試験後に、住民数に応じた背景更新頻度と足元表現を調整し、上表を再計測した。
 
-今回のWebKitはLinux版。実機Safariでの音声、縦横回転時のアドレスバー、指での入力から表示までの遅延、10分以上の熱・電池・メモリ、全進化・装備組合せの読解性は未確認。
+最終版でも同じうみ・夏・夕・雨、28体・B案を通常速度で10分間連続再生した。20秒ごとの全30観測で28体を維持。内部更新頻度は 22.4〜30.0 回/秒、rAFは 39.7〜59.5 回/秒。rAF間隔の95%点は 16.8〜33.4 ms、単発最長は 2199.9 ms。Canvasは全観測で 2 枚。DOM要素数は 1451〜1471、JSヒープは 19.4〜48.2 MiB、終了時 24.5 MiB。歩行 231 回、接近 61 回、発話テキストを 5 種類以上確認。ページ例外 0 件、HTTPエラー 0 件。長い停止を含むため、端末での瞬間的な引っ掛かりは引き続き比較したい。 [10分全観測の生データ](evidence/soak-final.json)
+
+今回のWebKitはLinux版。実機Safariでの音声、縦横回転時のアドレスバー、指での入力から表示までの遅延、実機10分以上の熱・電池・メモリ、全進化・装備組合せの読解性は未確認。
 
 ## 再測定
 
@@ -43,7 +45,7 @@ Playwright Pythonとブラウザーを用意し、READMEどおりに比較ペー
 python verify_browser.py http://127.0.0.1:8193 --suite load --out load.json
 python verify_browser.py http://127.0.0.1:8193 --engine webkit --suite ui --out webkit.json
 python verify_browser.py http://127.0.0.1:8193 --suite fade --out fade.json
-python verify_browser.py http://127.0.0.1:8193 --suite soak --soak 125 --out soak.json
+python verify_browser.py http://127.0.0.1:8193 --suite soak --soak 600 --out soak-final.json
 ```
 
 [描画負荷](evidence/load-final.json) ／ [WebKit操作](evidence/webkit.json) ／ [背景切替](evidence/fade.json) ／ [継続・入力](evidence/soak.json)
