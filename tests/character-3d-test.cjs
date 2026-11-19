@@ -434,6 +434,9 @@ test('30. 既存の 2D キャラ PNG・Expression PNG・表情 / 感情 runtime 
   const fx = require('./fixtures/character-3d-protected-hashes.json');
   const { current } = require('../tools/character-3d/protected-hashes.cjs');
   const now = current();
+  const master = fs.readFileSync(path.join(ROOT, 'character-world-master.v1.js'), 'utf8');
+  const restoredMaster = require('./helpers/approved-kanji-v17.cjs').restore('character-world-master.v1.js', master);
+  now['character-world-master.v1.js'].sha1 = crypto.createHash('sha1').update(restoredMaster).digest('hex');
   for (const [k, v] of Object.entries(fx.groups)) {
     const expected = k === 'meguru.js' ? require('./fixtures/world-character-protected-source.json')[k] : v;
     assert.deepEqual(now[k], expected, k);

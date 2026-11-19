@@ -29,10 +29,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Fetch the immutable card catalog regression baseline
+        run: git fetch --no-tags --depth=1 origin 38b4e9d0c8ed4cacdfc1cc6c072a7a9e62e5c053
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
       - run: node --test --test-concurrency=2 prototypes/card-game/tests/*.test.mjs
+      - run: node --test tests/kanji-scope-test.cjs tests/bgm-scope-test.cjs
 
   chapter-browser:
     # Playwright 1.51.1 cannot install Chromium on ubuntu-latest (26.04); pin the previous image.

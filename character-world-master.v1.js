@@ -111,9 +111,9 @@ const NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 = {
     ],
     rare: [
       { id: 'punyu', label: 'とけかけのぷにゅ', asset: 'assets/characters/companions/punyu.png' },
-      { id: 'sekizou', label: 'むひょうじょうのせきぞう', asset: 'assets/characters/companions/sekizou.png' },
+      { id: 'sekizou', label: '無表情の石像', asset: 'assets/characters/companions/sekizou.png' },
       { id: 'chameleon', label: 'サングラスのカメレオン', asset: 'assets/characters/companions/chameleon.png' },
-      { id: 'clock', label: 'じかんにルーズなとけい', behavior: '時刻は大まか。小さな出来事の音を覚えていて、誰かを待つ時間は気にしない', asset: 'assets/characters/companions/clock.png' },
+      { id: 'clock', label: '時間にルーズな時計', behavior: '時刻は大まか。小さな出来事の音を覚えていて、誰かを待つ時間は気にしない', asset: 'assets/characters/companions/clock.png' },
       { id: 'unicorn', label: 'まよいこんだユニコーン', asset: 'assets/characters/companions/unicorn.png' },
       { id: 'many_tail_fox', label: 'しっぽのおおいきつね', asset: 'assets/characters/companions/many_tail_fox.png' },
       { id: 'watcher', label: 'みているなにか', asset: 'assets/characters/companions/watcher.png' },
@@ -136,8 +136,8 @@ const NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 = {
       { id: 'desert', label: 'さばく' },
     ],
     special: [
-      { id: 'star_stop', label: 'ほしぞらのていりゅうじょ' },
-      { id: 'memory_lake', label: 'きおくのみずうみ' },
+      { id: 'star_stop', label: '星空の停留所' },
+      { id: 'memory_lake', label: '記憶の湖' },
     ],
   },
 
@@ -159,15 +159,15 @@ const NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 = {
     { id: 'anglerfish', label: 'ひかるチョウチンアンコウ', firstRegion: 'deepsea', hook: '暗所では積極的、明るい場所では照れる', asset: 'assets/characters/partners/anglerfish.png' },
     { id: 'swamp_croc', label: 'ぬまのワニさん', firstRegion: 'river_lake', hook: '強面なのに照れ屋', asset: 'assets/characters/partners/swamp_croc.png' },
     { id: 'gentle_gorilla', label: 'やさしいゴリラ', firstRegion: 'jungle', hook: '怪力なのに繊細', asset: 'assets/characters/partners/gentle_gorilla.png' },
-    { id: 'knitting_spider', label: 'あみものがすきなクモさん', firstRegion: 'jungle', hook: '巣と糸でいろいろ作る', asset: 'assets/characters/partners/knitting_spider.png' },
+    { id: 'knitting_spider', label: '編み物が好きなクモさん', firstRegion: 'jungle', hook: '巣と糸でいろいろ作る', asset: 'assets/characters/partners/knitting_spider.png' },
     { id: 'desert_scorpion', label: 'さばくのサソリさん', firstRegion: 'desert', hook: '無口だが行動で優しさを示す', asset: 'assets/characters/partners/desert_scorpion.png' },
     { id: 'oasis_cactus', label: 'オアシスのサボテンさん', firstRegion: 'desert', hook: '抱きしめたいが抱きしめづらい', asset: 'assets/characters/partners/oasis_cactus.png' },
   ],
 
   legends: [
     { id: 'gate', label: 'そらにうかぶとりい', keepCurrent: true, affinityRegions: ['countryside','star_stop'] },
-    { id: 'stairs', label: 'どこにもつながらないかいだん', keepCurrent: true, affinityRegions: ['desert'] },
-    { id: 'boss', label: 'あやまりにきただいおういか', keepCurrent: true, affinityRegions: ['sea','deepsea'] },
+    { id: 'stairs', label: 'どこにもつながらない階段', keepCurrent: true, affinityRegions: ['desert'] },
+    { id: 'boss', label: '謝りにきた大王イカ', keepCurrent: true, affinityRegions: ['sea','deepsea'] },
     { id: 'lamp', label: 'よなかのあかり', keepCurrent: true, affinityRegions: ['forest','countryside'] },
     { id: 'mirror', label: 'としをとったじぶん', keepCurrent: true, affinityRegions: ['river_lake','memory_lake'] },
   ],

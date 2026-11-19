@@ -19,7 +19,7 @@ const unescape=s=>s.replaceAll('&amp;','&');
 test('全452枚：正式カード名は変えず、改行文字を持たない。改行表は実在する名前だけ',()=>{
  assert.equal(Object.keys(CARDS).length,452);
  for(const c of Object.values(CARDS)){assert.equal(c.name,CATALOG[c.id].name,c.id);assert.doesNotMatch(c.name,/[\n|]/,c.id);}
- const names=new Set(nonMain.map(c=>c.name));
+ const names=new Set(nonMain.flatMap(c=>[c.name,...(c.searchAliases??[])]));
  for(const [name,lines] of TITLE_BREAKS){assert.ok(names.has(name),name);assert.equal(lines.length,2,name);assert.equal(lines.join(''),name);}
 });
 

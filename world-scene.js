@@ -19,8 +19,8 @@
     river_lake:{name:'みずべ',habitat:'shore',climate:'temperate',foliage:'dock',accent:'#376d94',base:'#46799b',asset:'river-lake-v2',scale:1.03,water:{x:76,y:30}},
     jungle:{name:'ジャングル',habitat:'land',climate:'tropical',foliage:'jungle',accent:'#257462',base:'#235544',asset:'jungle-v2',scale:1.12},
     desert:{name:'さばく',habitat:'land',climate:'arid',foliage:'none',accent:'#825a3d',base:'#bb8654'},
-    star_stop:{name:'ほしぞらのていりゅうじょ',habitat:'sky',climate:'cosmic',foliage:'none',accent:'#64527e',base:'#251e4e'},
-    memory_lake:{name:'きおくのみずうみ',habitat:'shore',climate:'temperate',foliage:'willow',accent:'#565786',base:'#53577a',scale:1.4,water:{x:78,y:27},seasonalAssets:{winter:'memory_lake_winter'}},
+    star_stop:{name:'星空の停留所',habitat:'sky',climate:'cosmic',foliage:'none',accent:'#64527e',base:'#251e4e'},
+    memory_lake:{name:'記憶の湖',habitat:'shore',climate:'temperate',foliage:'willow',accent:'#565786',base:'#53577a',scale:1.4,water:{x:78,y:27},seasonalAssets:{winter:'memory_lake_winter'}},
   };
   // Municipality profiles are presentation variants, never extra game regions.
   const LOCAL_SCENES = {

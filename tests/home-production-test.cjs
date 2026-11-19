@@ -55,7 +55,9 @@ test('latest-main game catalogs, conversations, formal images and other games st
  // files in the protected directories still go through the previous guards.
  const bgmScope=require('./helpers/approved-bgm-scope.cjs'); bgmScope.verify();
  for(const file of Object.keys(bgmScope.baseline))unchanged.push(':(exclude)'+file);
- const checkedBlob=file=>Object.hasOwn(bgmScope.baseline,file)?bgmScope.restoredBlob(file):cp.execFileSync('git',['hash-object','--',file],{encoding:'utf8'}).trim();
+ const kanjiScope=require('./helpers/approved-kanji-v17.cjs');kanjiScope.verify();
+ for(const file of Object.keys(kanjiScope.files))unchanged.push(':(exclude)'+file);
+ const checkedBlob=file=>Object.hasOwn(bgmScope.baseline,file)?bgmScope.restoredBlob(file):(kanjiScope.originalBlob(file)||cp.execFileSync('git',['hash-object','--',file],{encoding:'utf8'}).trim());
  const homeUI = {
   "individuality-data.js": "1f555e84bd5ebd56d1bcfa8cd4e313ad8f441e7c",
   "prototypes/card-game/app.mjs": "b3180cb0d788580a839521c55f76554bb8cf11a2",
@@ -86,7 +88,7 @@ test('latest-main game catalogs, conversations, formal images and other games st
   "prototypes/card-game/tests/tier1-direct.test.mjs": "69d64fde257ba498d3fe451d3757653c7ae0a53e"
 };
  for (const [file, blob] of Object.entries(loverText481)) {
-  assert.equal(cp.execFileSync('git',['hash-object','--',file],{encoding:'utf8'}).trim(),blob,'doc 481 reviewed bytes: '+file);
+  assert.equal(checkedBlob(file),blob,'doc 481 reviewed bytes: '+file);
   unchanged.push(':(exclude)'+file);
  }
  // FIRST START permits only the exact owner-approved files/bytes from PR #511.
@@ -158,5 +160,7 @@ test('latest-main game catalogs, conversations, formal images and other games st
   else restored=restored.replace("import {createTerrainNavigation} from './home-route-navigation.mjs';\nexport {createTerrainNavigation} from './home-route-navigation.mjs';\n",route);
   assert.equal(restored,cp.execFileSync('git',['show','e0c5c52671666e8ab06b37afabf3eeae29f530fa:'+file],{encoding:'utf8'}),'mechanical route extraction only: '+file);
  }
- assert.equal(cp.execFileSync('git',['diff','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa','--',...original.filter(file=>!splitFiles.includes(file))],{encoding:'utf8'}).trim(),'');
+ const namedHomeFiles=original.filter(file=>Object.hasOwn(kanjiScope.files,file));
+ for(const file of namedHomeFiles)assert.equal(kanjiScope.restore(file,fs.readFileSync(file,'utf8')),cp.execFileSync('git',['show','e0c5c52671666e8ab06b37afabf3eeae29f530fa:'+file],{encoding:'utf8'}),'only exact V17 home display name: '+file);
+ assert.equal(cp.execFileSync('git',['diff','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa','--',...original.filter(file=>!splitFiles.includes(file)&&!namedHomeFiles.includes(file))],{encoding:'utf8'}).trim(),'');
 });

@@ -44,6 +44,7 @@ def build():
     rarity = {s['id']: ('rare' if group == 'rare' else 'normal')
               for group in ('normal', 'rare', 'secret') for s in master['playerSpecies'][group]}
     attribute = {s: a for a, species in ATTRIBUTES.items() for s in species.split()}
+    kanji_names = json.loads((ROOT / "tools/kanji-display-names-v17-20261119.json").read_text())
     result = {}
     for group, (kind, count) in GROUPS.items():
         rows = audit[group]
@@ -79,6 +80,20 @@ def build():
                 entry.update(stage=row['stage'], species='M-' + row['species'],
                              power=row['power'], wisdom=row['wisdom'],
                              attribute=attribute[row['species']], form=row['form'])
+            # Approved display layer; frozen canonical sources remain historical evidence.
+            if key in kanji_names['cards']:
+                display = kanji_names['cards'][key]
+                require(kind != 'main' and entry['name'] in display['legacyNames'],
+                        f'kanji name/ID baseline differs: {key}')
+                entry.update(name=display['displayName'], reading=display['reading'],
+                             searchAliases=display['searchAliases'],
+                             displayNameVersion=kanji_names['version'])
+                if key == 'E-special-trip-memory':
+                    for region in ('W-memory_lake', 'W-star_stop'):
+                        region_name = kanji_names['cards'][region]
+                        old = region_name['legacyNames'][0]
+                        require(old in entry['text'], f'missing travel reference: {region}')
+                        entry['text'] = entry['text'].replace(old, region_name['displayName'])
             if kind in ('item', 'play', 'event'):
                 require(row.get('method') in ('すぐつかう', 'しかける', 'みにつける'), f'missing method: {key}')
                 entry['method'] = row['method']
