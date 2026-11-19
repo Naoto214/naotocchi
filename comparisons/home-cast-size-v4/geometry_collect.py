@@ -97,6 +97,11 @@ def shard(data):
                         for name in names:out['references'][name]=name.replace('optimized/','fixed/')
                         continue
                     candidates=[k.split('/')[1:] for k in names]
+                    # A hypothetical zero-gain repaint on these same optimized
+                    # seats isolates opening-only changes. Never label it as a
+                    # selectable candidate, whose current setting retains V2.
+                    if mode=='optimized' and ['linear','current'] not in candidates:
+                        candidates=[['linear','current'],*candidates]
                     for attempt in range(2):
                         try:
                             native=capture(browser,args,fixture,plan,candidates,names)
