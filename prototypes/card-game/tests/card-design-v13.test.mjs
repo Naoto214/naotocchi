@@ -37,9 +37,14 @@ test('approved starfish originals exact hashes and runtime delivered artifacts m
  const expected=['0edbe53840584f4f5771351a83d870f95175eba06fa23acce038cd23d001df7e','8ebb8cedc8e44044d06580e1628894db5123f872feffe73c784b29a4f69574b2','fe5241d984ba09ea4b49a319f70cfc820413288e156bf079de38aa737ffefd5e'];
  manifest.cards.forEach((c,i)=>{assert.equal(c.sha256,expected[i]);assert.equal(sha(readFileSync(new URL('art-pilot/approved-starfish-20261119/'+c.file,base))),expected[i]);const r=delivery.cards.find(r=>r.id===c.id);assert.equal(r.source_sha256,expected[i]);for(const size of ['small','large']){assert.equal(CARD_ART[c.id][size],r[size].path);assert.equal(sha(readFileSync(new URL(r[size].path,base))),r[size].sha256);}});
 });
-test('formal catalog and effects are byte-preserved from integration baseline; other 449 art mappings unchanged',()=>{
+test('catalog uses exact baseline or approved 19-name bytes; other 449 art mappings unchanged',()=>{
  const baseline='38b4e9d0';
- for(const file of ['full-catalog.mjs','lover-married.mjs','cards.mjs','art-pilot/approved-colors.mjs','art-pilot/symbols/attributes.mjs'])assert.equal(sha(readFileSync(new URL(file,base))),sha(execFileSync('git',['show',`${baseline}:prototypes/card-game/${file}`])));
+ for(const file of ['lover-married.mjs','cards.mjs','art-pilot/approved-colors.mjs','art-pilot/symbols/attributes.mjs'])assert.equal(sha(readFileSync(new URL(file,base))),sha(execFileSync('git',['show',`${baseline}:prototypes/card-game/${file}`])));
+ const catalog=readFileSync(new URL('full-catalog.mjs',base));
+ const approved=JSON.parse(readFileSync(new URL('../../tests/helpers/approved-card-integration-v16.json',base))).files['prototypes/card-game/full-catalog.mjs'];
+ const blob=bytes=>createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex');
+ assert.equal(approved.baseline,blob(execFileSync('git',['show',`${baseline}:prototypes/card-game/full-catalog.mjs`])));
+ assert.ok([approved.baseline,approved.names].includes(blob(catalog)),'only exact approved display-name changes may differ; all other catalog bytes remain protected');
  const old=execFileSync('git',['show',`${baseline}:prototypes/card-game/ui-art.mjs`],{encoding:'utf8'});const oldMap=JSON.parse(old.slice(old.indexOf('Object.freeze(')+14,old.lastIndexOf(');')));
  for(const [id,art] of Object.entries(CARD_ART))if(!/^M-starfish-0[1-3]$/.test(id))assert.deepEqual(art,oldMap[id]);
 });
