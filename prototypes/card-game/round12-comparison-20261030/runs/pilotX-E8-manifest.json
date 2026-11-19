@@ -1,0 +1,1839 @@
+{
+ "schema": "round12-comparison-manifest.v1",
+ "name": "pilotX",
+ "set": "E8",
+ "difficulty": "intermediate",
+ "groupsPerPair": 1,
+ "variants": [
+  "R10",
+  "R12"
+ ],
+ "pairs": [
+  [
+   "main+8",
+   "main"
+  ],
+  [
+   "main+8",
+   "companion"
+  ],
+  [
+   "main+8",
+   "partner"
+  ],
+  [
+   "main+8",
+   "challenge"
+  ],
+  [
+   "main+8",
+   "growth"
+  ],
+  [
+   "main+8",
+   "item"
+  ],
+  [
+   "main+8",
+   "balance"
+  ],
+  [
+   "balance+8",
+   "main"
+  ],
+  [
+   "balance+8",
+   "companion"
+  ],
+  [
+   "balance+8",
+   "partner"
+  ],
+  [
+   "balance+8",
+   "challenge"
+  ],
+  [
+   "balance+8",
+   "growth"
+  ],
+  [
+   "balance+8",
+   "item"
+  ],
+  [
+   "balance+8",
+   "balance"
+  ]
+ ],
+ "decks": {
+  "main+8": {
+   "label": "メイン成長＋⑧：すごろく2→いぬ⑦・いぬ⑧、庭に小さな花を植えた1→カブトムシ⑧",
+   "cards": [
+    "M-dog-01",
+    "M-dog-01",
+    "M-dog-01",
+    "M-dog-02",
+    "M-dog-02",
+    "M-dog-03",
+    "M-dog-03",
+    "M-dog-04",
+    "M-dog-04",
+    "M-dog-05",
+    "M-dog-05",
+    "M-dog-06",
+    "M-beetle-01",
+    "M-beetle-01",
+    "M-beetle-03",
+    "M-beetle-06",
+    "M-beetle-07",
+    "E-mirror",
+    "E-mirror",
+    "E-mirror",
+    "E-fateful-transform",
+    "E-fateful-transform",
+    "C-owl",
+    "C-owl",
+    "C-shiba",
+    "C-shiba",
+    "W-snow",
+    "W-snow",
+    "P-snow_spirit",
+    "P-snow_spirit",
+    "I-c_egg_normal",
+    "I-c_egg_normal",
+    "M-beetle-08",
+    "E-midlife-flower",
+    "M-dog-07",
+    "M-dog-08",
+    "G-race-3d",
+    "G-race-3d",
+    "C-rabbit_friend",
+    "C-rabbit_friend"
+   ],
+   "replaced": "G-sugoroku-race×2→M-dog-07,M-dog-08; E-midlife-flower×1→M-beetle-08",
+   "sha256": "08636d98517535a511edfb818e6ecfcd234e85d41fe9198f7bac4e8739e3cf50"
+  },
+  "main": {
+   "label": "メイン成長（公式CPU）",
+   "cards": [
+    "M-dog-01",
+    "M-dog-01",
+    "M-dog-01",
+    "M-dog-02",
+    "M-dog-02",
+    "M-dog-03",
+    "M-dog-03",
+    "M-dog-04",
+    "M-dog-04",
+    "M-dog-05",
+    "M-dog-05",
+    "M-dog-06",
+    "M-beetle-01",
+    "M-beetle-01",
+    "M-beetle-03",
+    "M-beetle-06",
+    "M-beetle-07",
+    "E-mirror",
+    "E-mirror",
+    "E-mirror",
+    "E-fateful-transform",
+    "E-fateful-transform",
+    "C-owl",
+    "C-owl",
+    "C-shiba",
+    "C-shiba",
+    "W-snow",
+    "W-snow",
+    "P-snow_spirit",
+    "P-snow_spirit",
+    "I-c_egg_normal",
+    "I-c_egg_normal",
+    "E-midlife-flower",
+    "E-midlife-flower",
+    "G-sugoroku-race",
+    "G-sugoroku-race",
+    "G-race-3d",
+    "G-race-3d",
+    "C-rabbit_friend",
+    "C-rabbit_friend"
+   ],
+   "sha256": "209032bd5046609b280e6d28c3c3db0edfe3b861a96949be8c01d2ec0fe21faa"
+  },
+  "companion": {
+   "label": "なかま（公式CPU）",
+   "cards": [
+    "M-mushroom-01",
+    "M-mushroom-01",
+    "M-mushroom-01",
+    "M-mushroom-02",
+    "M-mushroom-02",
+    "M-mushroom-03",
+    "M-mushroom-03",
+    "M-mushroom-04",
+    "M-mushroom-04",
+    "M-mushroom-05",
+    "C-owl",
+    "C-owl",
+    "C-owl",
+    "C-chicken",
+    "C-chicken",
+    "C-chicken",
+    "C-cat_friend",
+    "C-cat_friend",
+    "C-otter",
+    "C-otter",
+    "C-panda",
+    "C-panda",
+    "C-panda",
+    "W-forest",
+    "W-forest",
+    "W-forest",
+    "P-grove_deer",
+    "P-grove_deer",
+    "I-c_friend",
+    "I-c_friend",
+    "G-stack-acorn",
+    "G-stack-acorn",
+    "E-new-encounter",
+    "E-new-encounter",
+    "G-beach-volley",
+    "G-beach-volley",
+    "E-midlife-flower",
+    "E-midlife-flower",
+    "G-sugoroku-race",
+    "G-sugoroku-race"
+   ],
+   "sha256": "043c6c48ce13dbba8b3f99540f7e7bf9b5a91b2982f6c5c22897b81e0ea2fca0"
+  },
+  "partner": {
+   "label": "こいびと・交際（公式CPU）",
+   "cards": [
+    "M-cat-01",
+    "M-cat-01",
+    "M-cat-01",
+    "M-cat-02",
+    "M-cat-02",
+    "M-cat-03",
+    "M-cat-03",
+    "M-cat-04",
+    "M-cat-04",
+    "M-cat-05",
+    "P-grove_deer",
+    "P-grove_deer",
+    "P-grove_deer",
+    "P-high_eagle",
+    "P-high_eagle",
+    "P-high_eagle",
+    "E-first-date",
+    "E-first-date",
+    "E-first-date",
+    "E-wedding-anniversary",
+    "E-wedding-anniversary",
+    "E-wedding-anniversary",
+    "E-reconciliation",
+    "E-reconciliation",
+    "I-c_match",
+    "I-c_match",
+    "I-partner1",
+    "I-partner1",
+    "E-new-encounter",
+    "E-new-encounter",
+    "E-new-encounter",
+    "W-home",
+    "W-home",
+    "C-chicken",
+    "C-chicken",
+    "C-seal",
+    "C-seal",
+    "G-connect-four",
+    "G-connect-four",
+    "I-bowtie"
+   ],
+   "sha256": "6ca71bdbd49b390bd8cbc586f85cc42e5c8e550ca49345a863ea5b41b44baef2"
+  },
+  "challenge": {
+   "label": "ちょうせん（公式CPU）",
+   "cards": [
+    "M-sakura-01",
+    "M-sakura-01",
+    "M-sakura-01",
+    "M-sakura-02",
+    "M-sakura-02",
+    "M-sakura-03",
+    "M-sakura-03",
+    "M-sakura-04",
+    "M-sakura-04",
+    "M-sakura-05",
+    "M-sakura-06",
+    "M-dragon-01",
+    "M-dragon-02",
+    "C-rabbit_friend",
+    "C-rabbit_friend",
+    "C-rabbit_friend",
+    "C-otter",
+    "C-otter",
+    "P-gentle_gorilla",
+    "P-gentle_gorilla",
+    "P-gentle_gorilla",
+    "W-mountain",
+    "W-mountain",
+    "W-jungle",
+    "G-ski-jump",
+    "G-ski-jump",
+    "G-ski-jump",
+    "G-baseball-batting",
+    "G-baseball-batting",
+    "G-basketball-3d",
+    "G-basketball-3d",
+    "G-grand-prix-3d",
+    "G-grand-prix-3d",
+    "E-boss",
+    "E-mirror",
+    "E-mirror",
+    "G-street-fight",
+    "G-street-fight",
+    "G-race-3d",
+    "G-race-3d"
+   ],
+   "sha256": "be71eb423d9038046dafd1bd53d65506fe5a1f2760c489d2812d79df9eb43d83"
+  },
+  "growth": {
+   "label": "そだち獲得（公式CPU）",
+   "cards": [
+    "M-turtle-01",
+    "M-turtle-01",
+    "M-turtle-01",
+    "M-turtle-02",
+    "M-turtle-02",
+    "M-turtle-03",
+    "M-turtle-03",
+    "M-turtle-04",
+    "M-turtle-04",
+    "W-countryside",
+    "W-countryside",
+    "W-countryside",
+    "C-panda",
+    "C-panda",
+    "C-panda",
+    "P-field_cow",
+    "P-field_cow",
+    "G-connect-four",
+    "G-connect-four",
+    "I-c_coin2",
+    "I-c_coin2",
+    "I-c_coin2",
+    "G-sugoroku-race",
+    "G-sugoroku-race",
+    "G-sugoroku-race",
+    "G-lunar-lander",
+    "G-lunar-lander",
+    "G-plane-landing",
+    "G-plane-landing",
+    "E-midlife-flower",
+    "E-midlife-flower",
+    "E-midlife-flower",
+    "I-naoto_lantern",
+    "G-mini-golf-physics",
+    "G-mini-golf-physics",
+    "G-mini-golf-physics",
+    "E-midlife-50th",
+    "E-midlife-50th",
+    "G-area-claim",
+    "G-area-claim"
+   ],
+   "sha256": "d2be867a671ff4391e1dcaecca1785e2afa34eac78ea1296c0963e006e1820d7"
+  },
+  "item": {
+   "label": "アイテム・じゅんび（公式CPU）",
+   "cards": [
+    "M-venus_flytrap-01",
+    "M-venus_flytrap-01",
+    "M-venus_flytrap-01",
+    "M-venus_flytrap-02",
+    "M-venus_flytrap-02",
+    "M-venus_flytrap-03",
+    "M-venus_flytrap-03",
+    "M-venus_flytrap-04",
+    "M-venus_flytrap-04",
+    "M-venus_flytrap-05",
+    "W-home",
+    "W-home",
+    "I-bowtie",
+    "I-bowtie",
+    "I-bowtie",
+    "I-sleepboost1",
+    "I-sleepboost1",
+    "I-naoto_lantern",
+    "I-star",
+    "I-star",
+    "G-ski-jump",
+    "G-ski-jump",
+    "G-missile-command",
+    "G-missile-command",
+    "G-takoyaki-grill",
+    "G-takoyaki-grill",
+    "G-stack-themed",
+    "G-stack-themed",
+    "G-stack-themed",
+    "G-stack-leaves",
+    "G-stack-leaves",
+    "G-gomoku-9",
+    "G-gomoku-9",
+    "G-gomoku-9",
+    "G-connect-four",
+    "G-connect-four",
+    "P-knitting_spider",
+    "P-knitting_spider",
+    "C-owl",
+    "C-owl"
+   ],
+   "sha256": "0721278828b663a2fddfbe6f06dcf553d18111f0bce319a951d168386879cb80"
+  },
+  "balance": {
+   "label": "バランス（公式CPU）",
+   "cards": [
+    "M-salmon-01",
+    "M-salmon-01",
+    "M-salmon-01",
+    "M-salmon-02",
+    "M-salmon-02",
+    "M-salmon-03",
+    "M-salmon-03",
+    "M-salmon-04",
+    "M-salmon-04",
+    "M-salmon-05",
+    "C-owl",
+    "C-owl",
+    "C-chicken",
+    "C-chicken",
+    "P-grove_deer",
+    "P-grove_deer",
+    "P-high_eagle",
+    "W-countryside",
+    "W-countryside",
+    "E-first-date",
+    "E-first-date",
+    "E-new-encounter",
+    "E-new-encounter",
+    "E-mirror",
+    "E-mirror",
+    "I-c_coin2",
+    "I-c_coin2",
+    "I-sleepboost1",
+    "I-sleepboost1",
+    "I-bowtie",
+    "G-mini-golf-physics",
+    "G-mini-golf-physics",
+    "G-sugoroku-race",
+    "G-sugoroku-race",
+    "G-hit-blow",
+    "G-hit-blow",
+    "G-baseball-batting",
+    "G-baseball-batting",
+    "G-ski-jump",
+    "G-ski-jump"
+   ],
+   "sha256": "be012630df7abd9f6c847cca724d3c16db3a1624bbcdda3d6bcc540c652444c0"
+  },
+  "balance+8": {
+   "label": "バランス＋⑧：スキージャンプ2→さけ⑥・さけ⑦、やきゅう1→さけ⑧",
+   "cards": [
+    "M-salmon-01",
+    "M-salmon-01",
+    "M-salmon-01",
+    "M-salmon-02",
+    "M-salmon-02",
+    "M-salmon-03",
+    "M-salmon-03",
+    "M-salmon-04",
+    "M-salmon-04",
+    "M-salmon-05",
+    "C-owl",
+    "C-owl",
+    "C-chicken",
+    "C-chicken",
+    "P-grove_deer",
+    "P-grove_deer",
+    "P-high_eagle",
+    "W-countryside",
+    "W-countryside",
+    "E-first-date",
+    "E-first-date",
+    "E-new-encounter",
+    "E-new-encounter",
+    "E-mirror",
+    "E-mirror",
+    "I-c_coin2",
+    "I-c_coin2",
+    "I-sleepboost1",
+    "I-sleepboost1",
+    "I-bowtie",
+    "G-mini-golf-physics",
+    "G-mini-golf-physics",
+    "G-sugoroku-race",
+    "G-sugoroku-race",
+    "G-hit-blow",
+    "G-hit-blow",
+    "M-salmon-08",
+    "G-baseball-batting",
+    "M-salmon-06",
+    "M-salmon-07"
+   ],
+   "replaced": "G-ski-jump×2→M-salmon-06,M-salmon-07; G-baseball-batting×1→M-salmon-08",
+   "sha256": "45cea5465931ecd6dc3d720c769f986c1c091228968e5fb3be59df944a5a74bd"
+  }
+ },
+ "groups": [
+  {
+   "group": "R12C:pilotX:main+8:main:001:R10",
+   "base": "R12C:pilotX:main+8:main:001",
+   "variant": "R10",
+   "X": "main+8",
+   "Y": "main",
+   "orderSeed": 3550396815,
+   "orderSha": {
+    "X": "51be6926c76b8e85bffe7b1586a5ea1c7bac8111a05ba532fc8856d7448020e0",
+    "Y": "c4e1b78a7ea165376f8ab56e11dea4f5a3fd96632298ce49ebf54f8274277e9c"
+   }
+  },
+  {
+   "group": "R12C:pilotX:main+8:companion:001:R10",
+   "base": "R12C:pilotX:main+8:companion:001",
+   "variant": "R10",
+   "X": "main+8",
+   "Y": "companion",
+   "orderSeed": 2419641119,
+   "orderSha": {
+    "X": "dde590ec5180dfd943818f74e6ff2b629f936f0cfcaac31b59b827e353d672a3",
+    "Y": "764cee8783b6c8be88b8204dc915a284c0ce3893ba467f47fa397bd99733d683"
+   }
+  },
+  {
+   "group": "R12C:pilotX:main+8:partner:001:R10",
+   "base": "R12C:pilotX:main+8:partner:001",
+   "variant": "R10",
+   "X": "main+8",
+   "Y": "partner",
+   "orderSeed": 2225340840,
+   "orderSha": {
+    "X": "be7bd1a55ad80166ad0ec3287c188bd561543bcb034b730c8c4e5a609f74c97b",
+    "Y": "ff6a2c71949f1cca90bd2c7c60d8fc8daef516db73f954e64d7a278f9873b996"
+   }
+  },
+  {
+   "group": "R12C:pilotX:main+8:challenge:001:R10",
+   "base": "R12C:pilotX:main+8:challenge:001",
+   "variant": "R10",
+   "X": "main+8",
+   "Y": "challenge",
+   "orderSeed": 2629240952,
+   "orderSha": {
+    "X": "7bb9de02de0ab751dbade72b1b1b75fae51d9a5c5db250f5820dca9b87aa374b",
+    "Y": "d33cef4e30b119876c25c9f0aa4096e118325bd76b09193abb950075154f1810"
+   }
+  },
+  {
+   "group": "R12C:pilotX:main+8:growth:001:R10",
+   "base": "R12C:pilotX:main+8:growth:001",
+   "variant": "R10",
+   "X": "main+8",
+   "Y": "growth",
+   "orderSeed": 1952562335,
+   "orderSha": {
+    "X": "aeb3f31f578161ef1c7b23e48c776acbd7d3bb8ac7a00b9f9eca67d782cd283b",
+    "Y": "062513b201386c5fedf65b2b2487767a06d88b5594bdcb640cc4d85e0f99da5a"
+   }
+  },
+  {
+   "group": "R12C:pilotX:main+8:item:001:R10",
+   "base": "R12C:pilotX:main+8:item:001",
+   "variant": "R10",
+   "X": "main+8",
+   "Y": "item",
+   "orderSeed": 3487279001,
+   "orderSha": {
+    "X": "05ebbf204f9495360c0814423714561a5cba72415d2d9f960f3326f50d04a326",
+    "Y": "7f64342dff9067cae481d30d9c687d3e3e7c5cc547722e9fab47a58196878a1c"
+   }
+  },
+  {
+   "group": "R12C:pilotX:main+8:balance:001:R10",
+   "base": "R12C:pilotX:main+8:balance:001",
+   "variant": "R10",
+   "X": "main+8",
+   "Y": "balance",
+   "orderSeed": 652910085,
+   "orderSha": {
+    "X": "2b0564939b51e00a76ccf19cab8f71746d4e76b0fc0643c7204f8df33b5756cb",
+    "Y": "b4d6df60d710734a0845e057f1447e0cfa1db28d31a72a65f993ce6e7ad6921e"
+   }
+  },
+  {
+   "group": "R12C:pilotX:balance+8:main:001:R10",
+   "base": "R12C:pilotX:balance+8:main:001",
+   "variant": "R10",
+   "X": "balance+8",
+   "Y": "main",
+   "orderSeed": 3632111285,
+   "orderSha": {
+    "X": "5a9da4190490ec4853098b44714c34a6c0ab5432ed9dd2f76813dcc799fb7371",
+    "Y": "9409f64f8c0d00f88765f95de136fee38f81f82ab0338c72798f03c320e4eebe"
+   }
+  },
+  {
+   "group": "R12C:pilotX:balance+8:companion:001:R10",
+   "base": "R12C:pilotX:balance+8:companion:001",
+   "variant": "R10",
+   "X": "balance+8",
+   "Y": "companion",
+   "orderSeed": 3158168404,
+   "orderSha": {
+    "X": "3aaa0a3c3ebcf9c8911b0de3f15c8edb118c8e27bae799bc37aff674a84c7329",
+    "Y": "31b7312af3779123e172013a42aac1d16fc19d3347d6208c6e9080cd74b138ec"
+   }
+  },
+  {
+   "group": "R12C:pilotX:balance+8:partner:001:R10",
+   "base": "R12C:pilotX:balance+8:partner:001",
+   "variant": "R10",
+   "X": "balance+8",
+   "Y": "partner",
+   "orderSeed": 3713866617,
+   "orderSha": {
+    "X": "fa1c0bdcdb7bcba2d2c19b55f5f89ae2f9852dce365950e56763731771dbcfb9",
+    "Y": "e4ccc4c59891e09aef5fe0b136427095966043ad10a78cc5c1533d8472a3e460"
+   }
+  },
+  {
+   "group": "R12C:pilotX:balance+8:challenge:001:R10",
+   "base": "R12C:pilotX:balance+8:challenge:001",
+   "variant": "R10",
+   "X": "balance+8",
+   "Y": "challenge",
+   "orderSeed": 3814363837,
+   "orderSha": {
+    "X": "7cd400f1ab216921901972af30fac13e125e9eacb8cd443627ea4de53d5b9f0e",
+    "Y": "e97c991972bf9341dc52a8897ff416961d4edbac0073227b826f134d63271a99"
+   }
+  },
+  {
+   "group": "R12C:pilotX:balance+8:growth:001:R10",
+   "base": "R12C:pilotX:balance+8:growth:001",
+   "variant": "R10",
+   "X": "balance+8",
+   "Y": "growth",
+   "orderSeed": 4268299055,
+   "orderSha": {
+    "X": "d4491f2ba98057f9538e56f782516795df1e9771ea1c4891d869f5e36a4f9e07",
+    "Y": "ac50a82d85c8b183e7012728c27b3e9460d24a67f730091b47d4d5b7e37ca0c5"
+   }
+  },
+  {
+   "group": "R12C:pilotX:balance+8:item:001:R10",
+   "base": "R12C:pilotX:balance+8:item:001",
+   "variant": "R10",
+   "X": "balance+8",
+   "Y": "item",
+   "orderSeed": 4207274557,
+   "orderSha": {
+    "X": "81c20709a61dccc9d37f49de0a67105a5169aea802136d988ac3dc808f6efa52",
+    "Y": "98a3aee19095eb63940e7aa0a245f8e1ed00e5a9813ee9f24d651dd598367479"
+   }
+  },
+  {
+   "group": "R12C:pilotX:balance+8:balance:001:R10",
+   "base": "R12C:pilotX:balance+8:balance:001",
+   "variant": "R10",
+   "X": "balance+8",
+   "Y": "balance",
+   "orderSeed": 3174865099,
+   "orderSha": {
+    "X": "a7a60b2a61a40508ba241c7f4af2229d7e641b0e1fc3aa9a93533d2d0cb77e97",
+    "Y": "32b62e8a6e147c2eb4ef30a3dda9222a53c8e7dd742113e43752098ae3b5936a"
+   }
+  },
+  {
+   "group": "R12C:pilotX:main+8:main:001:R12",
+   "base": "R12C:pilotX:main+8:main:001",
+   "variant": "R12",
+   "X": "main+8",
+   "Y": "main",
+   "orderSeed": 3550396815,
+   "orderSha": {
+    "X": "51be6926c76b8e85bffe7b1586a5ea1c7bac8111a05ba532fc8856d7448020e0",
+    "Y": "c4e1b78a7ea165376f8ab56e11dea4f5a3fd96632298ce49ebf54f8274277e9c"
+   }
+  },
+  {
+   "group": "R12C:pilotX:main+8:companion:001:R12",
+   "base": "R12C:pilotX:main+8:companion:001",
+   "variant": "R12",
+   "X": "main+8",
+   "Y": "companion",
+   "orderSeed": 2419641119,
+   "orderSha": {
+    "X": "dde590ec5180dfd943818f74e6ff2b629f936f0cfcaac31b59b827e353d672a3",
+    "Y": "764cee8783b6c8be88b8204dc915a284c0ce3893ba467f47fa397bd99733d683"
+   }
+  },
+  {
+   "group": "R12C:pilotX:main+8:partner:001:R12",
+   "base": "R12C:pilotX:main+8:partner:001",
+   "variant": "R12",
+   "X": "main+8",
+   "Y": "partner",
+   "orderSeed": 2225340840,
+   "orderSha": {
+    "X": "be7bd1a55ad80166ad0ec3287c188bd561543bcb034b730c8c4e5a609f74c97b",
+    "Y": "ff6a2c71949f1cca90bd2c7c60d8fc8daef516db73f954e64d7a278f9873b996"
+   }
+  },
+  {
+   "group": "R12C:pilotX:main+8:challenge:001:R12",
+   "base": "R12C:pilotX:main+8:challenge:001",
+   "variant": "R12",
+   "X": "main+8",
+   "Y": "challenge",
+   "orderSeed": 2629240952,
+   "orderSha": {
+    "X": "7bb9de02de0ab751dbade72b1b1b75fae51d9a5c5db250f5820dca9b87aa374b",
+    "Y": "d33cef4e30b119876c25c9f0aa4096e118325bd76b09193abb950075154f1810"
+   }
+  },
+  {
+   "group": "R12C:pilotX:main+8:growth:001:R12",
+   "base": "R12C:pilotX:main+8:growth:001",
+   "variant": "R12",
+   "X": "main+8",
+   "Y": "growth",
+   "orderSeed": 1952562335,
+   "orderSha": {
+    "X": "aeb3f31f578161ef1c7b23e48c776acbd7d3bb8ac7a00b9f9eca67d782cd283b",
+    "Y": "062513b201386c5fedf65b2b2487767a06d88b5594bdcb640cc4d85e0f99da5a"
+   }
+  },
+  {
+   "group": "R12C:pilotX:main+8:item:001:R12",
+   "base": "R12C:pilotX:main+8:item:001",
+   "variant": "R12",
+   "X": "main+8",
+   "Y": "item",
+   "orderSeed": 3487279001,
+   "orderSha": {
+    "X": "05ebbf204f9495360c0814423714561a5cba72415d2d9f960f3326f50d04a326",
+    "Y": "7f64342dff9067cae481d30d9c687d3e3e7c5cc547722e9fab47a58196878a1c"
+   }
+  },
+  {
+   "group": "R12C:pilotX:main+8:balance:001:R12",
+   "base": "R12C:pilotX:main+8:balance:001",
+   "variant": "R12",
+   "X": "main+8",
+   "Y": "balance",
+   "orderSeed": 652910085,
+   "orderSha": {
+    "X": "2b0564939b51e00a76ccf19cab8f71746d4e76b0fc0643c7204f8df33b5756cb",
+    "Y": "b4d6df60d710734a0845e057f1447e0cfa1db28d31a72a65f993ce6e7ad6921e"
+   }
+  },
+  {
+   "group": "R12C:pilotX:balance+8:main:001:R12",
+   "base": "R12C:pilotX:balance+8:main:001",
+   "variant": "R12",
+   "X": "balance+8",
+   "Y": "main",
+   "orderSeed": 3632111285,
+   "orderSha": {
+    "X": "5a9da4190490ec4853098b44714c34a6c0ab5432ed9dd2f76813dcc799fb7371",
+    "Y": "9409f64f8c0d00f88765f95de136fee38f81f82ab0338c72798f03c320e4eebe"
+   }
+  },
+  {
+   "group": "R12C:pilotX:balance+8:companion:001:R12",
+   "base": "R12C:pilotX:balance+8:companion:001",
+   "variant": "R12",
+   "X": "balance+8",
+   "Y": "companion",
+   "orderSeed": 3158168404,
+   "orderSha": {
+    "X": "3aaa0a3c3ebcf9c8911b0de3f15c8edb118c8e27bae799bc37aff674a84c7329",
+    "Y": "31b7312af3779123e172013a42aac1d16fc19d3347d6208c6e9080cd74b138ec"
+   }
+  },
+  {
+   "group": "R12C:pilotX:balance+8:partner:001:R12",
+   "base": "R12C:pilotX:balance+8:partner:001",
+   "variant": "R12",
+   "X": "balance+8",
+   "Y": "partner",
+   "orderSeed": 3713866617,
+   "orderSha": {
+    "X": "fa1c0bdcdb7bcba2d2c19b55f5f89ae2f9852dce365950e56763731771dbcfb9",
+    "Y": "e4ccc4c59891e09aef5fe0b136427095966043ad10a78cc5c1533d8472a3e460"
+   }
+  },
+  {
+   "group": "R12C:pilotX:balance+8:challenge:001:R12",
+   "base": "R12C:pilotX:balance+8:challenge:001",
+   "variant": "R12",
+   "X": "balance+8",
+   "Y": "challenge",
+   "orderSeed": 3814363837,
+   "orderSha": {
+    "X": "7cd400f1ab216921901972af30fac13e125e9eacb8cd443627ea4de53d5b9f0e",
+    "Y": "e97c991972bf9341dc52a8897ff416961d4edbac0073227b826f134d63271a99"
+   }
+  },
+  {
+   "group": "R12C:pilotX:balance+8:growth:001:R12",
+   "base": "R12C:pilotX:balance+8:growth:001",
+   "variant": "R12",
+   "X": "balance+8",
+   "Y": "growth",
+   "orderSeed": 4268299055,
+   "orderSha": {
+    "X": "d4491f2ba98057f9538e56f782516795df1e9771ea1c4891d869f5e36a4f9e07",
+    "Y": "ac50a82d85c8b183e7012728c27b3e9460d24a67f730091b47d4d5b7e37ca0c5"
+   }
+  },
+  {
+   "group": "R12C:pilotX:balance+8:item:001:R12",
+   "base": "R12C:pilotX:balance+8:item:001",
+   "variant": "R12",
+   "X": "balance+8",
+   "Y": "item",
+   "orderSeed": 4207274557,
+   "orderSha": {
+    "X": "81c20709a61dccc9d37f49de0a67105a5169aea802136d988ac3dc808f6efa52",
+    "Y": "98a3aee19095eb63940e7aa0a245f8e1ed00e5a9813ee9f24d651dd598367479"
+   }
+  },
+  {
+   "group": "R12C:pilotX:balance+8:balance:001:R12",
+   "base": "R12C:pilotX:balance+8:balance:001",
+   "variant": "R12",
+   "X": "balance+8",
+   "Y": "balance",
+   "orderSeed": 3174865099,
+   "orderSha": {
+    "X": "a7a60b2a61a40508ba241c7f4af2229d7e641b0e1fc3aa9a93533d2d0cb77e97",
+    "Y": "32b62e8a6e147c2eb4ef30a3dda9222a53c8e7dd742113e43752098ae3b5936a"
+   }
+  }
+ ],
+ "matches": [
+  {
+   "match": "R12C:pilotX:main+8:main:001:R10:X-first",
+   "group": "R12C:pilotX:main+8:main:001:R10",
+   "base": "R12C:pilotX:main+8:main:001",
+   "variant": "R10",
+   "first": "X",
+   "deckA": "main+8",
+   "deckB": "main",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3567750206,
+    "B": 2860199317
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:main:001:R10:Y-first",
+   "group": "R12C:pilotX:main+8:main:001:R10",
+   "base": "R12C:pilotX:main+8:main:001",
+   "variant": "R10",
+   "first": "Y",
+   "deckA": "main",
+   "deckB": "main+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3919848438,
+    "B": 724280312
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:companion:001:R10:X-first",
+   "group": "R12C:pilotX:main+8:companion:001:R10",
+   "base": "R12C:pilotX:main+8:companion:001",
+   "variant": "R10",
+   "first": "X",
+   "deckA": "main+8",
+   "deckB": "companion",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1960506681,
+    "B": 2654366939
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:companion:001:R10:Y-first",
+   "group": "R12C:pilotX:main+8:companion:001:R10",
+   "base": "R12C:pilotX:main+8:companion:001",
+   "variant": "R10",
+   "first": "Y",
+   "deckA": "companion",
+   "deckB": "main+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 74779854,
+    "B": 2117469778
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:partner:001:R10:X-first",
+   "group": "R12C:pilotX:main+8:partner:001:R10",
+   "base": "R12C:pilotX:main+8:partner:001",
+   "variant": "R10",
+   "first": "X",
+   "deckA": "main+8",
+   "deckB": "partner",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1727538059,
+    "B": 1829583144
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:partner:001:R10:Y-first",
+   "group": "R12C:pilotX:main+8:partner:001:R10",
+   "base": "R12C:pilotX:main+8:partner:001",
+   "variant": "R10",
+   "first": "Y",
+   "deckA": "partner",
+   "deckB": "main+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 4048079632,
+    "B": 2521711824
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:challenge:001:R10:X-first",
+   "group": "R12C:pilotX:main+8:challenge:001:R10",
+   "base": "R12C:pilotX:main+8:challenge:001",
+   "variant": "R10",
+   "first": "X",
+   "deckA": "main+8",
+   "deckB": "challenge",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1287522181,
+    "B": 211987053
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:challenge:001:R10:Y-first",
+   "group": "R12C:pilotX:main+8:challenge:001:R10",
+   "base": "R12C:pilotX:main+8:challenge:001",
+   "variant": "R10",
+   "first": "Y",
+   "deckA": "challenge",
+   "deckB": "main+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3334312964,
+    "B": 51659613
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:growth:001:R10:X-first",
+   "group": "R12C:pilotX:main+8:growth:001:R10",
+   "base": "R12C:pilotX:main+8:growth:001",
+   "variant": "R10",
+   "first": "X",
+   "deckA": "main+8",
+   "deckB": "growth",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1158657520,
+    "B": 2114469148
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:growth:001:R10:Y-first",
+   "group": "R12C:pilotX:main+8:growth:001:R10",
+   "base": "R12C:pilotX:main+8:growth:001",
+   "variant": "R10",
+   "first": "Y",
+   "deckA": "growth",
+   "deckB": "main+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 799495859,
+    "B": 3585520838
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:item:001:R10:X-first",
+   "group": "R12C:pilotX:main+8:item:001:R10",
+   "base": "R12C:pilotX:main+8:item:001",
+   "variant": "R10",
+   "first": "X",
+   "deckA": "main+8",
+   "deckB": "item",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1527841999,
+    "B": 3113491190
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:item:001:R10:Y-first",
+   "group": "R12C:pilotX:main+8:item:001:R10",
+   "base": "R12C:pilotX:main+8:item:001",
+   "variant": "R10",
+   "first": "Y",
+   "deckA": "item",
+   "deckB": "main+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2318670853,
+    "B": 3693212997
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:balance:001:R10:X-first",
+   "group": "R12C:pilotX:main+8:balance:001:R10",
+   "base": "R12C:pilotX:main+8:balance:001",
+   "variant": "R10",
+   "first": "X",
+   "deckA": "main+8",
+   "deckB": "balance",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3178854292,
+    "B": 772150392
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:balance:001:R10:Y-first",
+   "group": "R12C:pilotX:main+8:balance:001:R10",
+   "base": "R12C:pilotX:main+8:balance:001",
+   "variant": "R10",
+   "first": "Y",
+   "deckA": "balance",
+   "deckB": "main+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 310645828,
+    "B": 217450065
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:main:001:R10:X-first",
+   "group": "R12C:pilotX:balance+8:main:001:R10",
+   "base": "R12C:pilotX:balance+8:main:001",
+   "variant": "R10",
+   "first": "X",
+   "deckA": "balance+8",
+   "deckB": "main",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1322010377,
+    "B": 4014878125
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:main:001:R10:Y-first",
+   "group": "R12C:pilotX:balance+8:main:001:R10",
+   "base": "R12C:pilotX:balance+8:main:001",
+   "variant": "R10",
+   "first": "Y",
+   "deckA": "main",
+   "deckB": "balance+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1487007111,
+    "B": 1668884461
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:companion:001:R10:X-first",
+   "group": "R12C:pilotX:balance+8:companion:001:R10",
+   "base": "R12C:pilotX:balance+8:companion:001",
+   "variant": "R10",
+   "first": "X",
+   "deckA": "balance+8",
+   "deckB": "companion",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2748242362,
+    "B": 2442063908
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:companion:001:R10:Y-first",
+   "group": "R12C:pilotX:balance+8:companion:001:R10",
+   "base": "R12C:pilotX:balance+8:companion:001",
+   "variant": "R10",
+   "first": "Y",
+   "deckA": "companion",
+   "deckB": "balance+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3427362368,
+    "B": 211151649
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:partner:001:R10:X-first",
+   "group": "R12C:pilotX:balance+8:partner:001:R10",
+   "base": "R12C:pilotX:balance+8:partner:001",
+   "variant": "R10",
+   "first": "X",
+   "deckA": "balance+8",
+   "deckB": "partner",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3191180381,
+    "B": 2151951329
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:partner:001:R10:Y-first",
+   "group": "R12C:pilotX:balance+8:partner:001:R10",
+   "base": "R12C:pilotX:balance+8:partner:001",
+   "variant": "R10",
+   "first": "Y",
+   "deckA": "partner",
+   "deckB": "balance+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 433711773,
+    "B": 1870556269
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:challenge:001:R10:X-first",
+   "group": "R12C:pilotX:balance+8:challenge:001:R10",
+   "base": "R12C:pilotX:balance+8:challenge:001",
+   "variant": "R10",
+   "first": "X",
+   "deckA": "balance+8",
+   "deckB": "challenge",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3663669900,
+    "B": 3862982841
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:challenge:001:R10:Y-first",
+   "group": "R12C:pilotX:balance+8:challenge:001:R10",
+   "base": "R12C:pilotX:balance+8:challenge:001",
+   "variant": "R10",
+   "first": "Y",
+   "deckA": "challenge",
+   "deckB": "balance+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2165236595,
+    "B": 449310610
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:growth:001:R10:X-first",
+   "group": "R12C:pilotX:balance+8:growth:001:R10",
+   "base": "R12C:pilotX:balance+8:growth:001",
+   "variant": "R10",
+   "first": "X",
+   "deckA": "balance+8",
+   "deckB": "growth",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1147834071,
+    "B": 1556710968
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:growth:001:R10:Y-first",
+   "group": "R12C:pilotX:balance+8:growth:001:R10",
+   "base": "R12C:pilotX:balance+8:growth:001",
+   "variant": "R10",
+   "first": "Y",
+   "deckA": "growth",
+   "deckB": "balance+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2156048247,
+    "B": 537071174
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:item:001:R10:X-first",
+   "group": "R12C:pilotX:balance+8:item:001:R10",
+   "base": "R12C:pilotX:balance+8:item:001",
+   "variant": "R10",
+   "first": "X",
+   "deckA": "balance+8",
+   "deckB": "item",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2215992701,
+    "B": 3776751138
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:item:001:R10:Y-first",
+   "group": "R12C:pilotX:balance+8:item:001:R10",
+   "base": "R12C:pilotX:balance+8:item:001",
+   "variant": "R10",
+   "first": "Y",
+   "deckA": "item",
+   "deckB": "balance+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3850426400,
+    "B": 2209162417
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:balance:001:R10:X-first",
+   "group": "R12C:pilotX:balance+8:balance:001:R10",
+   "base": "R12C:pilotX:balance+8:balance:001",
+   "variant": "R10",
+   "first": "X",
+   "deckA": "balance+8",
+   "deckB": "balance",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3381247640,
+    "B": 2876011191
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:balance:001:R10:Y-first",
+   "group": "R12C:pilotX:balance+8:balance:001:R10",
+   "base": "R12C:pilotX:balance+8:balance:001",
+   "variant": "R10",
+   "first": "Y",
+   "deckA": "balance",
+   "deckB": "balance+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3313585587,
+    "B": 3759603907
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:main:001:R12:X-first",
+   "group": "R12C:pilotX:main+8:main:001:R12",
+   "base": "R12C:pilotX:main+8:main:001",
+   "variant": "R12",
+   "first": "X",
+   "deckA": "main+8",
+   "deckB": "main",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3567750206,
+    "B": 2860199317
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:main:001:R12:Y-first",
+   "group": "R12C:pilotX:main+8:main:001:R12",
+   "base": "R12C:pilotX:main+8:main:001",
+   "variant": "R12",
+   "first": "Y",
+   "deckA": "main",
+   "deckB": "main+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3919848438,
+    "B": 724280312
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:companion:001:R12:X-first",
+   "group": "R12C:pilotX:main+8:companion:001:R12",
+   "base": "R12C:pilotX:main+8:companion:001",
+   "variant": "R12",
+   "first": "X",
+   "deckA": "main+8",
+   "deckB": "companion",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1960506681,
+    "B": 2654366939
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:companion:001:R12:Y-first",
+   "group": "R12C:pilotX:main+8:companion:001:R12",
+   "base": "R12C:pilotX:main+8:companion:001",
+   "variant": "R12",
+   "first": "Y",
+   "deckA": "companion",
+   "deckB": "main+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 74779854,
+    "B": 2117469778
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:partner:001:R12:X-first",
+   "group": "R12C:pilotX:main+8:partner:001:R12",
+   "base": "R12C:pilotX:main+8:partner:001",
+   "variant": "R12",
+   "first": "X",
+   "deckA": "main+8",
+   "deckB": "partner",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1727538059,
+    "B": 1829583144
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:partner:001:R12:Y-first",
+   "group": "R12C:pilotX:main+8:partner:001:R12",
+   "base": "R12C:pilotX:main+8:partner:001",
+   "variant": "R12",
+   "first": "Y",
+   "deckA": "partner",
+   "deckB": "main+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 4048079632,
+    "B": 2521711824
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:challenge:001:R12:X-first",
+   "group": "R12C:pilotX:main+8:challenge:001:R12",
+   "base": "R12C:pilotX:main+8:challenge:001",
+   "variant": "R12",
+   "first": "X",
+   "deckA": "main+8",
+   "deckB": "challenge",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1287522181,
+    "B": 211987053
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:challenge:001:R12:Y-first",
+   "group": "R12C:pilotX:main+8:challenge:001:R12",
+   "base": "R12C:pilotX:main+8:challenge:001",
+   "variant": "R12",
+   "first": "Y",
+   "deckA": "challenge",
+   "deckB": "main+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3334312964,
+    "B": 51659613
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:growth:001:R12:X-first",
+   "group": "R12C:pilotX:main+8:growth:001:R12",
+   "base": "R12C:pilotX:main+8:growth:001",
+   "variant": "R12",
+   "first": "X",
+   "deckA": "main+8",
+   "deckB": "growth",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1158657520,
+    "B": 2114469148
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:growth:001:R12:Y-first",
+   "group": "R12C:pilotX:main+8:growth:001:R12",
+   "base": "R12C:pilotX:main+8:growth:001",
+   "variant": "R12",
+   "first": "Y",
+   "deckA": "growth",
+   "deckB": "main+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 799495859,
+    "B": 3585520838
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:item:001:R12:X-first",
+   "group": "R12C:pilotX:main+8:item:001:R12",
+   "base": "R12C:pilotX:main+8:item:001",
+   "variant": "R12",
+   "first": "X",
+   "deckA": "main+8",
+   "deckB": "item",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1527841999,
+    "B": 3113491190
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:item:001:R12:Y-first",
+   "group": "R12C:pilotX:main+8:item:001:R12",
+   "base": "R12C:pilotX:main+8:item:001",
+   "variant": "R12",
+   "first": "Y",
+   "deckA": "item",
+   "deckB": "main+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2318670853,
+    "B": 3693212997
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:balance:001:R12:X-first",
+   "group": "R12C:pilotX:main+8:balance:001:R12",
+   "base": "R12C:pilotX:main+8:balance:001",
+   "variant": "R12",
+   "first": "X",
+   "deckA": "main+8",
+   "deckB": "balance",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3178854292,
+    "B": 772150392
+   }
+  },
+  {
+   "match": "R12C:pilotX:main+8:balance:001:R12:Y-first",
+   "group": "R12C:pilotX:main+8:balance:001:R12",
+   "base": "R12C:pilotX:main+8:balance:001",
+   "variant": "R12",
+   "first": "Y",
+   "deckA": "balance",
+   "deckB": "main+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 310645828,
+    "B": 217450065
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:main:001:R12:X-first",
+   "group": "R12C:pilotX:balance+8:main:001:R12",
+   "base": "R12C:pilotX:balance+8:main:001",
+   "variant": "R12",
+   "first": "X",
+   "deckA": "balance+8",
+   "deckB": "main",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1322010377,
+    "B": 4014878125
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:main:001:R12:Y-first",
+   "group": "R12C:pilotX:balance+8:main:001:R12",
+   "base": "R12C:pilotX:balance+8:main:001",
+   "variant": "R12",
+   "first": "Y",
+   "deckA": "main",
+   "deckB": "balance+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1487007111,
+    "B": 1668884461
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:companion:001:R12:X-first",
+   "group": "R12C:pilotX:balance+8:companion:001:R12",
+   "base": "R12C:pilotX:balance+8:companion:001",
+   "variant": "R12",
+   "first": "X",
+   "deckA": "balance+8",
+   "deckB": "companion",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2748242362,
+    "B": 2442063908
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:companion:001:R12:Y-first",
+   "group": "R12C:pilotX:balance+8:companion:001:R12",
+   "base": "R12C:pilotX:balance+8:companion:001",
+   "variant": "R12",
+   "first": "Y",
+   "deckA": "companion",
+   "deckB": "balance+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3427362368,
+    "B": 211151649
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:partner:001:R12:X-first",
+   "group": "R12C:pilotX:balance+8:partner:001:R12",
+   "base": "R12C:pilotX:balance+8:partner:001",
+   "variant": "R12",
+   "first": "X",
+   "deckA": "balance+8",
+   "deckB": "partner",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3191180381,
+    "B": 2151951329
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:partner:001:R12:Y-first",
+   "group": "R12C:pilotX:balance+8:partner:001:R12",
+   "base": "R12C:pilotX:balance+8:partner:001",
+   "variant": "R12",
+   "first": "Y",
+   "deckA": "partner",
+   "deckB": "balance+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 433711773,
+    "B": 1870556269
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:challenge:001:R12:X-first",
+   "group": "R12C:pilotX:balance+8:challenge:001:R12",
+   "base": "R12C:pilotX:balance+8:challenge:001",
+   "variant": "R12",
+   "first": "X",
+   "deckA": "balance+8",
+   "deckB": "challenge",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3663669900,
+    "B": 3862982841
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:challenge:001:R12:Y-first",
+   "group": "R12C:pilotX:balance+8:challenge:001:R12",
+   "base": "R12C:pilotX:balance+8:challenge:001",
+   "variant": "R12",
+   "first": "Y",
+   "deckA": "challenge",
+   "deckB": "balance+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2165236595,
+    "B": 449310610
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:growth:001:R12:X-first",
+   "group": "R12C:pilotX:balance+8:growth:001:R12",
+   "base": "R12C:pilotX:balance+8:growth:001",
+   "variant": "R12",
+   "first": "X",
+   "deckA": "balance+8",
+   "deckB": "growth",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1147834071,
+    "B": 1556710968
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:growth:001:R12:Y-first",
+   "group": "R12C:pilotX:balance+8:growth:001:R12",
+   "base": "R12C:pilotX:balance+8:growth:001",
+   "variant": "R12",
+   "first": "Y",
+   "deckA": "growth",
+   "deckB": "balance+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2156048247,
+    "B": 537071174
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:item:001:R12:X-first",
+   "group": "R12C:pilotX:balance+8:item:001:R12",
+   "base": "R12C:pilotX:balance+8:item:001",
+   "variant": "R12",
+   "first": "X",
+   "deckA": "balance+8",
+   "deckB": "item",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2215992701,
+    "B": 3776751138
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:item:001:R12:Y-first",
+   "group": "R12C:pilotX:balance+8:item:001:R12",
+   "base": "R12C:pilotX:balance+8:item:001",
+   "variant": "R12",
+   "first": "Y",
+   "deckA": "item",
+   "deckB": "balance+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3850426400,
+    "B": 2209162417
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:balance:001:R12:X-first",
+   "group": "R12C:pilotX:balance+8:balance:001:R12",
+   "base": "R12C:pilotX:balance+8:balance:001",
+   "variant": "R12",
+   "first": "X",
+   "deckA": "balance+8",
+   "deckB": "balance",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3381247640,
+    "B": 2876011191
+   }
+  },
+  {
+   "match": "R12C:pilotX:balance+8:balance:001:R12:Y-first",
+   "group": "R12C:pilotX:balance+8:balance:001:R12",
+   "base": "R12C:pilotX:balance+8:balance:001",
+   "variant": "R12",
+   "first": "Y",
+   "deckA": "balance",
+   "deckB": "balance+8",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3313585587,
+    "B": 3759603907
+   }
+  }
+ ],
+ "counts": {
+  "groups": 28,
+  "matches": 56
+ }
+}
