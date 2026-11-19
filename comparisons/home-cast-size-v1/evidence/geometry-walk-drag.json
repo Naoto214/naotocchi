@@ -1,0 +1,14 @@
+{
+  "region": "river_lake",
+  "count": 28,
+  "preset": "B",
+  "touch": "Chromium CDP",
+  "trials": [
+    {
+      "key": "companion:snail",
+      "marker": true,
+      "acceptedByModel": true,
+      "distance": 46.55
+    }
+  ]
+}

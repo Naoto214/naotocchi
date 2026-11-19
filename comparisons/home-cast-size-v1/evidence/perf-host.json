@@ -1,0 +1,19 @@
+{
+ "host": "Linux",
+ "arch": "x86_64",
+ "cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+ "cpuQuota": "400000 100000",
+ "timingAffinity": [
+  0,
+  1
+ ],
+ "testFixture": "ribbon, river_lake, day, autumn sunny, leaf B",
+ "graphicsDevice": false,
+ "startHashes": {
+  "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+  "home-production-diorama.js": "be4cd51b04691ac0520c3e4485c3605fa32e112c4283dcae812dfeb80265ec52",
+  "home-production-world.mjs": "be89698cdc8156c6f8739576b52f6b7156d56a9eb0d7d7277fad30e265d050c4",
+  "cast-trial.js": "95c4d8c2acae6d9730cead2bfa1b9cb2530dabfdea483cd00dab9508a0404b9b",
+  "beauty/fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a"
+ }
+}

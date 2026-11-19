@@ -1,0 +1,852 @@
+{
+ "viewport": [
+  390,
+  844
+ ],
+ "DPR": 2,
+ "engine": "chromium",
+ "suite": "live",
+ "affinity": [
+  0,
+  1
+ ],
+ "region": "river_lake",
+ "reference": false,
+ "rows": [
+  {
+   "seconds": 4.0077000000029805,
+   "callbacks": 147,
+   "rafHz": 36.67939217004533,
+   "p95": 38.69999999552965,
+   "max": 590.8000000044703,
+   "long": [
+    {
+     "start": 957,
+     "end": 1228.1000000014901,
+     "ms": 271.1000000014901,
+     "events": []
+    },
+    {
+     "start": 1971.6000000014901,
+     "end": 2385,
+     "ms": 413.3999999985099,
+     "events": [
+      [
+       "plan",
+       312.8
+      ],
+      [
+       "plan",
+       70.5
+      ],
+      [
+       "model",
+       383.7
+      ]
+     ]
+    },
+    {
+     "start": 2385,
+     "end": 2975.8000000044703,
+     "ms": 590.8000000044703,
+     "events": [
+      [
+       "plan",
+       365.1
+      ],
+      [
+       "plan",
+       192
+      ],
+      [
+       "model",
+       572.7
+      ]
+     ]
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 78,
+     "ms": 974.8000000193715,
+     "max": 572.7000000029802
+    },
+    "world": {
+     "calls": 78,
+     "ms": 40.599999994039536,
+     "max": 9.299999997019768
+    },
+    "actors": {
+     "calls": 78,
+     "ms": 183.89999996125698,
+     "max": 36.899999998509884
+    },
+    "nature": {
+     "calls": 24,
+     "ms": 9.5,
+     "max": 2
+    },
+    "plan": {
+     "calls": 4,
+     "ms": 940.4000000059605,
+     "max": 365.1000000014901
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 2,
+   "clock": 4.0166,
+   "distance": 57.919430638087974,
+   "moves": 2,
+   "rows": 28,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 29,
+    "RecalcStyleCount": 249,
+    "LayoutDuration": 0.01087400000000005,
+    "RecalcStyleDuration": 0.20054499999999997
+   },
+   "count": 28,
+   "preset": "current",
+   "trace": {
+    "window": "cast-window-0-start",
+    "seconds": 4.031765,
+    "phases": {
+     "RasterTask": {
+      "calls": 39,
+      "totalMs": 77.25399999999999,
+      "maxMs": 38.202
+     },
+     "Paint": {
+      "calls": 53,
+      "totalMs": 8.615,
+      "maxMs": 0.958
+     },
+     "Layout": {
+      "calls": 29,
+      "totalMs": 10.317,
+      "maxMs": 2.646
+     },
+     "UpdateLayoutTree": {
+      "calls": 251,
+      "totalMs": 190.008,
+      "maxMs": 14.43
+     },
+     "Layerize": {
+      "calls": 148,
+      "totalMs": 15.044,
+      "maxMs": 1.601
+     }
+    }
+   }
+  },
+  {
+   "seconds": 4.02759999999404,
+   "callbacks": 150,
+   "rafHz": 37.243023140386825,
+   "p95": 67.69999999552965,
+   "max": 509.29999999701977,
+   "long": [
+    {
+     "start": 26.399999998509884,
+     "end": 535.6999999955297,
+     "ms": 509.29999999701977,
+     "events": [
+      [
+       "plan",
+       429.2
+      ],
+      [
+       "plan",
+       59.6
+      ],
+      [
+       "model",
+       489.3
+      ]
+     ]
+    },
+    {
+     "start": 3643,
+     "end": 4027.5999999940395,
+     "ms": 384.59999999403954,
+     "events": [
+      [
+       "plan",
+       276
+      ],
+      [
+       "model",
+       328.6
+      ]
+     ]
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 81,
+     "ms": 958.1999999582767,
+     "max": 489.29999999701977
+    },
+    "world": {
+     "calls": 81,
+     "ms": 33,
+     "max": 2.7999999970197678
+    },
+    "actors": {
+     "calls": 81,
+     "ms": 189.00000004470348,
+     "max": 32.600000001490116
+    },
+    "plan": {
+     "calls": 6,
+     "ms": 936.2999999895692,
+     "max": 429.19999999552965
+    },
+    "nature": {
+     "calls": 25,
+     "ms": 11.600000001490116,
+     "max": 2.399999998509884
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 4,
+   "clock": 3.699799999999996,
+   "distance": 32.927238487713964,
+   "moves": 3,
+   "rows": 28,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 40,
+    "RecalcStyleCount": 320,
+    "LayoutDuration": 0.02515500000000004,
+    "RecalcStyleDuration": 0.3609810000000002
+   },
+   "count": 28,
+   "preset": "A",
+   "trace": {
+    "window": "cast-window-1-start",
+    "seconds": 4.061022,
+    "phases": {
+     "RasterTask": {
+      "calls": 59,
+      "totalMs": 57.538000000000004,
+      "maxMs": 9.983
+     },
+     "Paint": {
+      "calls": 62,
+      "totalMs": 11.426,
+      "maxMs": 1.273
+     },
+     "Layout": {
+      "calls": 41,
+      "totalMs": 20.398,
+      "maxMs": 2.826
+     },
+     "UpdateLayoutTree": {
+      "calls": 322,
+      "totalMs": 359.256,
+      "maxMs": 18.854
+     },
+     "Layerize": {
+      "calls": 151,
+      "totalMs": 60.128,
+      "maxMs": 17.848
+     }
+    }
+   }
+  },
+  {
+   "seconds": 4.1005,
+   "callbacks": 99,
+   "rafHz": 24.143397146689427,
+   "p95": 364,
+   "max": 572.8000000044703,
+   "long": [
+    {
+     "start": 689.1999999955297,
+     "end": 1262,
+     "ms": 572.8000000044703,
+     "events": [
+      [
+       "plan",
+       319.4
+      ],
+      [
+       "plan",
+       102.6
+      ],
+      [
+       "model",
+       552
+      ]
+     ]
+    },
+    {
+     "start": 1262,
+     "end": 1709.0999999940395,
+     "ms": 447.09999999403954,
+     "events": [
+      [
+       "plan",
+       285.6
+      ],
+      [
+       "plan",
+       81.1
+      ],
+      [
+       "model",
+       437.3
+      ]
+     ]
+    },
+    {
+     "start": 1709.0999999940395,
+     "end": 2073.0999999940395,
+     "ms": 364,
+     "events": [
+      [
+       "plan",
+       291.7
+      ],
+      [
+       "plan",
+       56.8
+      ],
+      [
+       "model",
+       350
+      ]
+     ]
+    },
+    {
+     "start": 3108.5,
+     "end": 3580.89999999851,
+     "ms": 472.3999999985099,
+     "events": [
+      [
+       "plan",
+       338.5
+      ],
+      [
+       "plan",
+       113.8
+      ],
+      [
+       "model",
+       452.8
+      ]
+     ]
+    },
+    {
+     "start": 3696.1999999955297,
+     "end": 4100.5,
+     "ms": 404.30000000447035,
+     "events": [
+      [
+       "plan",
+       291.6
+      ],
+      [
+       "plan",
+       82.9
+      ],
+      [
+       "model",
+       391.3
+      ]
+     ]
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 54,
+     "ms": 2224.60000000149,
+     "max": 552
+    },
+    "world": {
+     "calls": 54,
+     "ms": 19.500000044703484,
+     "max": 2.8000000044703484
+    },
+    "actors": {
+     "calls": 54,
+     "ms": 131.40000001341105,
+     "max": 36.899999998509884
+    },
+    "nature": {
+     "calls": 19,
+     "ms": 6.500000037252903,
+     "max": 1
+    },
+    "plan": {
+     "calls": 10,
+     "ms": 1964.0000000223517,
+     "max": 338.5
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 2,
+   "clock": 3.7165000000000212,
+   "distance": 28.694991582621924,
+   "moves": 3,
+   "rows": 28,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 17,
+    "RecalcStyleCount": 147,
+    "LayoutDuration": 0.015275000000000039,
+    "RecalcStyleDuration": 0.2366400000000004
+   },
+   "count": 28,
+   "preset": "B",
+   "trace": {
+    "window": "cast-window-2-start",
+    "seconds": 4.143533,
+    "phases": {
+     "RasterTask": {
+      "calls": 25,
+      "totalMs": 20.953,
+      "maxMs": 4.0
+     },
+     "Paint": {
+      "calls": 31,
+      "totalMs": 4.2139999999999995,
+      "maxMs": 0.993
+     },
+     "Layout": {
+      "calls": 18,
+      "totalMs": 14.491999999999999,
+      "maxMs": 5.986
+     },
+     "UpdateLayoutTree": {
+      "calls": 152,
+      "totalMs": 226.775,
+      "maxMs": 22.417
+     },
+     "Layerize": {
+      "calls": 100,
+      "totalMs": 18.862,
+      "maxMs": 4.06
+     }
+    }
+   }
+  },
+  {
+   "seconds": 4.00960000000149,
+   "callbacks": 155,
+   "rafHz": 38.657222665588186,
+   "p95": 47.099999994039536,
+   "max": 475.70000000298023,
+   "long": [
+    {
+     "start": 459.19999999552965,
+     "end": 834.5,
+     "ms": 375.30000000447035,
+     "events": [
+      [
+       "plan",
+       317.7
+      ],
+      [
+       "model",
+       367.6
+      ]
+     ]
+    },
+    {
+     "start": 834.5,
+     "end": 1166.1999999955297,
+     "ms": 331.69999999552965,
+     "events": [
+      [
+       "plan",
+       237.5
+      ],
+      [
+       "plan",
+       70.2
+      ],
+      [
+       "model",
+       311.3
+      ]
+     ]
+    },
+    {
+     "start": 3259.7999999970198,
+     "end": 3735.5,
+     "ms": 475.70000000298023,
+     "events": [
+      [
+       "plan",
+       311.6
+      ],
+      [
+       "plan",
+       84.4
+      ],
+      [
+       "model",
+       455.6
+      ]
+     ]
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 81,
+     "ms": 1206.0000000074506,
+     "max": 455.59999999403954
+    },
+    "world": {
+     "calls": 81,
+     "ms": 27.10000003129244,
+     "max": 1.5
+    },
+    "actors": {
+     "calls": 81,
+     "ms": 269.90000000596046,
+     "max": 64.5
+    },
+    "nature": {
+     "calls": 25,
+     "ms": 8,
+     "max": 0.8999999985098839
+    },
+    "plan": {
+     "calls": 6,
+     "ms": 1039.8999999985099,
+     "max": 317.69999999552965
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 5,
+   "clock": 4.01660000000005,
+   "distance": 154.57842649696892,
+   "moves": 2,
+   "rows": 28,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 204,
+    "RecalcStyleCount": 441,
+    "LayoutDuration": 0.06684000000000001,
+    "RecalcStyleDuration": 0.3124959999999999
+   },
+   "count": 28,
+   "preset": "B",
+   "trace": {
+    "window": "cast-window-3-start",
+    "seconds": 4.028915,
+    "phases": {
+     "RasterTask": {
+      "calls": 98,
+      "totalMs": 53.578,
+      "maxMs": 10.272
+     },
+     "Paint": {
+      "calls": 180,
+      "totalMs": 24.864,
+      "maxMs": 3.044
+     },
+     "Layout": {
+      "calls": 204,
+      "totalMs": 61.668,
+      "maxMs": 12.956
+     },
+     "UpdateLayoutTree": {
+      "calls": 441,
+      "totalMs": 311.679,
+      "maxMs": 24.56
+     },
+     "Layerize": {
+      "calls": 156,
+      "totalMs": 55.0,
+      "maxMs": 3.327
+     }
+    }
+   }
+  },
+  {
+   "seconds": 4.0135,
+   "callbacks": 123,
+   "rafHz": 30.646567833561733,
+   "p95": 77.79999999701977,
+   "max": 508.69999999552965,
+   "long": [
+    {
+     "start": 62.29999999701977,
+     "end": 450,
+     "ms": 387.70000000298023,
+     "events": [
+      [
+       "plan",
+       277.5
+      ],
+      [
+       "plan",
+       81.3
+      ],
+      [
+       "model",
+       359.2
+      ]
+     ]
+    },
+    {
+     "start": 450,
+     "end": 813.6999999955297,
+     "ms": 363.69999999552965,
+     "events": [
+      [
+       "plan",
+       259.2
+      ],
+      [
+       "plan",
+       79
+      ],
+      [
+       "model",
+       338.9
+      ]
+     ]
+    },
+    {
+     "start": 1173.8999999985099,
+     "end": 1588,
+     "ms": 414.1000000014901,
+     "events": [
+      [
+       "plan",
+       308.5
+      ],
+      [
+       "plan",
+       93.9
+      ],
+      [
+       "model",
+       403.8
+      ]
+     ]
+    },
+    {
+     "start": 1588,
+     "end": 2096.6999999955297,
+     "ms": 508.69999999552965,
+     "events": [
+      [
+       "plan",
+       274.8
+      ],
+      [
+       "model",
+       495.9
+      ]
+     ]
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 66,
+     "ms": 1628.4999999925494,
+     "max": 495.8999999985099
+    },
+    "world": {
+     "calls": 66,
+     "ms": 42.399999998509884,
+     "max": 6.5
+    },
+    "actors": {
+     "calls": 66,
+     "ms": 222.49999999254942,
+     "max": 22
+    },
+    "plan": {
+     "calls": 8,
+     "ms": 1412,
+     "max": 308.5
+    },
+    "nature": {
+     "calls": 23,
+     "ms": 13.500000014901161,
+     "max": 3.7999999970197678
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 3,
+   "clock": 4.01650000000004,
+   "distance": 149.55688641071276,
+   "moves": 4,
+   "rows": 28,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 54,
+    "RecalcStyleCount": 264,
+    "LayoutDuration": 0.013847999999999971,
+    "RecalcStyleDuration": 0.20426600000000006
+   },
+   "count": 28,
+   "preset": "A",
+   "trace": {
+    "window": "cast-window-4-start",
+    "seconds": 4.033326,
+    "phases": {
+     "RasterTask": {
+      "calls": 73,
+      "totalMs": 45.895,
+      "maxMs": 8.38
+     },
+     "Paint": {
+      "calls": 106,
+      "totalMs": 10.657,
+      "maxMs": 0.971
+     },
+     "Layout": {
+      "calls": 54,
+      "totalMs": 12.919,
+      "maxMs": 1.793
+     },
+     "UpdateLayoutTree": {
+      "calls": 264,
+      "totalMs": 206.523,
+      "maxMs": 14.339
+     },
+     "Layerize": {
+      "calls": 123,
+      "totalMs": 29.669,
+      "maxMs": 3.442
+     }
+    }
+   }
+  },
+  {
+   "seconds": 4.0185,
+   "callbacks": 159,
+   "rafHz": 39.56700261291526,
+   "p95": 61.5,
+   "max": 430,
+   "long": [
+    {
+     "start": 465.5,
+     "end": 809.5999999940395,
+     "ms": 344.09999999403954,
+     "events": [
+      [
+       "plan",
+       224.3
+      ],
+      [
+       "plan",
+       55.1
+      ],
+      [
+       "model",
+       325.1
+      ]
+     ]
+    },
+    {
+     "start": 1896.1999999955297,
+     "end": 2210.7999999970198,
+     "ms": 314.6000000014901,
+     "events": []
+    },
+    {
+     "start": 3516.1999999955297,
+     "end": 3946.1999999955297,
+     "ms": 430,
+     "events": [
+      [
+       "plan",
+       308.7
+      ],
+      [
+       "plan",
+       61.5
+      ],
+      [
+       "model",
+       411.4
+      ]
+     ]
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 85,
+     "ms": 882.1000000238419,
+     "max": 411.3999999985099
+    },
+    "world": {
+     "calls": 85,
+     "ms": 62.3999999538064,
+     "max": 25.700000002980232
+    },
+    "actors": {
+     "calls": 85,
+     "ms": 191.80000004172325,
+     "max": 8.700000002980232
+    },
+    "nature": {
+     "calls": 27,
+     "ms": 24.49999998509884,
+     "max": 15.5
+    },
+    "plan": {
+     "calls": 6,
+     "ms": 691.7999999970198,
+     "max": 308.69999999552965
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 5,
+   "clock": 3.9664000000000392,
+   "distance": 82.42492137741624,
+   "moves": 1,
+   "rows": 28,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 67,
+    "RecalcStyleCount": 365,
+    "LayoutDuration": 0.020728999999999997,
+    "RecalcStyleDuration": 0.2872980000000003
+   },
+   "count": 28,
+   "preset": "current",
+   "trace": {
+    "window": "cast-window-5-start",
+    "seconds": 4.142614,
+    "phases": {
+     "RasterTask": {
+      "calls": 95,
+      "totalMs": 35.689,
+      "maxMs": 6.059
+     },
+     "Paint": {
+      "calls": 126,
+      "totalMs": 25.228,
+      "maxMs": 3.426
+     },
+     "Layout": {
+      "calls": 76,
+      "totalMs": 23.255,
+      "maxMs": 2.279
+     },
+     "UpdateLayoutTree": {
+      "calls": 378,
+      "totalMs": 367.882,
+      "maxMs": 61.65
+     },
+     "Layerize": {
+      "calls": 160,
+      "totalMs": 79.454,
+      "maxMs": 9.185
+     }
+    }
+   }
+  }
+ ],
+ "browser": "156.0.8078.79"
+}
