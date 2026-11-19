@@ -1,0 +1,2123 @@
+{
+ "counts": {
+  "base": 896,
+  "E1": 896,
+  "E1b": 672,
+  "E2": 896,
+  "E2b": 672,
+  "E3": 896
+ },
+ "abnormal": {
+  "base": 0,
+  "E1": 0,
+  "E1b": 0,
+  "E2": 0,
+  "E2b": 0,
+  "E3": 0
+ },
+ "statAccuracy": {
+  "base/beginner": {
+   "all": {
+    "match": 117,
+    "mismatch": 127,
+    "rate": 0.48
+   },
+   "G-ski-jump": {
+    "match": 85,
+    "mismatch": 90,
+    "rate": 0.486
+   },
+   "G-street-fight": {
+    "match": 32,
+    "mismatch": 37,
+    "rate": 0.464
+   }
+  },
+  "base/intermediate": {
+   "all": {
+    "match": 177,
+    "mismatch": 178,
+    "rate": 0.499
+   },
+   "G-ski-jump": {
+    "match": 136,
+    "mismatch": 133,
+    "rate": 0.506
+   },
+   "G-street-fight": {
+    "match": 41,
+    "mismatch": 45,
+    "rate": 0.477
+   }
+  },
+  "E1/beginner": {
+   "all": {
+    "match": 116,
+    "mismatch": 128,
+    "rate": 0.475
+   },
+   "G-ski-jump": {
+    "match": 84,
+    "mismatch": 91,
+    "rate": 0.48
+   },
+   "G-street-fight": {
+    "match": 32,
+    "mismatch": 37,
+    "rate": 0.464
+   }
+  },
+  "E1/intermediate": {
+   "all": {
+    "match": 311,
+    "mismatch": 0,
+    "rate": 1.0
+   },
+   "G-ski-jump": {
+    "match": 267,
+    "mismatch": 0,
+    "rate": 1.0
+   },
+   "G-street-fight": {
+    "match": 44,
+    "mismatch": 0,
+    "rate": 1.0
+   }
+  },
+  "E1b/beginner": {
+   "all": {
+    "match": 232,
+    "mismatch": 0,
+    "rate": 1.0
+   },
+   "G-ski-jump": {
+    "match": 175,
+    "mismatch": 0,
+    "rate": 1.0
+   },
+   "G-street-fight": {
+    "match": 57,
+    "mismatch": 0,
+    "rate": 1.0
+   }
+  },
+  "E1b/intermediate": {
+   "all": {
+    "match": 93,
+    "mismatch": 89,
+    "rate": 0.511
+   },
+   "G-ski-jump": {
+    "match": 72,
+    "mismatch": 67,
+    "rate": 0.518
+   },
+   "G-street-fight": {
+    "match": 21,
+    "mismatch": 22,
+    "rate": 0.488
+   }
+  },
+  "E2/beginner": {
+   "all": {
+    "match": 117,
+    "mismatch": 127,
+    "rate": 0.48
+   },
+   "G-ski-jump": {
+    "match": 85,
+    "mismatch": 90,
+    "rate": 0.486
+   },
+   "G-street-fight": {
+    "match": 32,
+    "mismatch": 37,
+    "rate": 0.464
+   }
+  },
+  "E2/intermediate": {
+   "all": {
+    "match": 175,
+    "mismatch": 176,
+    "rate": 0.499
+   },
+   "G-ski-jump": {
+    "match": 134,
+    "mismatch": 135,
+    "rate": 0.498
+   },
+   "G-street-fight": {
+    "match": 41,
+    "mismatch": 41,
+    "rate": 0.5
+   }
+  },
+  "E2b/beginner": {
+   "all": {
+    "match": 116,
+    "mismatch": 132,
+    "rate": 0.468
+   },
+   "G-ski-jump": {
+    "match": 85,
+    "mismatch": 96,
+    "rate": 0.47
+   },
+   "G-street-fight": {
+    "match": 31,
+    "mismatch": 36,
+    "rate": 0.463
+   }
+  },
+  "E2b/intermediate": {
+   "all": {
+    "match": 93,
+    "mismatch": 89,
+    "rate": 0.511
+   },
+   "G-ski-jump": {
+    "match": 72,
+    "mismatch": 67,
+    "rate": 0.518
+   },
+   "G-street-fight": {
+    "match": 21,
+    "mismatch": 22,
+    "rate": 0.488
+   }
+  },
+  "E3/beginner": {
+   "all": {
+    "match": 117,
+    "mismatch": 127,
+    "rate": 0.48
+   },
+   "G-ski-jump": {
+    "match": 85,
+    "mismatch": 90,
+    "rate": 0.486
+   },
+   "G-street-fight": {
+    "match": 32,
+    "mismatch": 37,
+    "rate": 0.464
+   }
+  },
+  "E3/intermediate": {
+   "all": {
+    "match": 172,
+    "mismatch": 185,
+    "rate": 0.482
+   },
+   "G-ski-jump": {
+    "match": 130,
+    "mismatch": 141,
+    "rate": 0.48
+   },
+   "G-street-fight": {
+    "match": 42,
+    "mismatch": 44,
+    "rate": 0.488
+   }
+  }
+ },
+ "effect": {
+  "E1": {
+   "difficulty": "intermediate",
+   "seats": 896,
+   "growthDiff": [
+    0.301,
+    0.182,
+    896
+   ],
+   "pointsDiff": [
+    0.008,
+    0.007,
+    896
+   ],
+   "meanGrowth": {
+    "base": 69.74,
+    "arm": 70.04
+   },
+   "points": {
+    "base": 0.526,
+    "arm": 0.534
+   },
+   "challenge": {
+    "base": {
+     "declared": 4453,
+     "declaredWinRate": 0.979,
+     "defended": 4301,
+     "defendedWinRate": 0.002
+    },
+    "arm": {
+     "declared": 4466,
+     "declaredWinRate": 0.991,
+     "defended": 4318,
+     "defendedWinRate": 0.002
+    }
+   }
+  },
+  "E1b": {
+   "difficulty": "beginner",
+   "seats": 896,
+   "growthDiff": [
+    0.033,
+    0.088,
+    896
+   ],
+   "pointsDiff": [
+    -0.001,
+    0.004,
+    896
+   ],
+   "meanGrowth": {
+    "base": 66.71,
+    "arm": 66.74
+   },
+   "points": {
+    "base": 0.474,
+    "arm": 0.473
+   },
+   "challenge": {
+    "base": {
+     "declared": 4186,
+     "declaredWinRate": 0.989,
+     "defended": 4338,
+     "defendedWinRate": 0.001
+    },
+    "arm": {
+     "declared": 4187,
+     "declaredWinRate": 0.989,
+     "defended": 4341,
+     "defendedWinRate": 0.001
+    }
+   }
+  },
+  "E2": {
+   "difficulty": "intermediate",
+   "seats": 896,
+   "growthDiff": [
+    0.206,
+    0.136,
+    896
+   ],
+   "pointsDiff": [
+    0.002,
+    0.007,
+    896
+   ],
+   "meanGrowth": {
+    "base": 69.74,
+    "arm": 69.94
+   },
+   "points": {
+    "base": 0.526,
+    "arm": 0.528
+   },
+   "challenge": {
+    "base": {
+     "declared": 4453,
+     "declaredWinRate": 0.979,
+     "defended": 4301,
+     "defendedWinRate": 0.002
+    },
+    "arm": {
+     "declared": 4464,
+     "declaredWinRate": 0.979,
+     "defended": 4306,
+     "defendedWinRate": 0.002
+    }
+   }
+  },
+  "E2b": {
+   "difficulty": "beginner",
+   "seats": 896,
+   "growthDiff": [
+    0.491,
+    0.189,
+    896
+   ],
+   "pointsDiff": [
+    0.003,
+    0.008,
+    896
+   ],
+   "meanGrowth": {
+    "base": 66.71,
+    "arm": 67.2
+   },
+   "points": {
+    "base": 0.474,
+    "arm": 0.477
+   },
+   "challenge": {
+    "base": {
+     "declared": 4186,
+     "declaredWinRate": 0.989,
+     "defended": 4338,
+     "defendedWinRate": 0.001
+    },
+    "arm": {
+     "declared": 4205,
+     "declaredWinRate": 0.989,
+     "defended": 4348,
+     "defendedWinRate": 0.001
+    }
+   }
+  },
+  "E3": {
+   "difficulty": "intermediate",
+   "seats": 896,
+   "growthDiff": [
+    -0.056,
+    0.12,
+    896
+   ],
+   "pointsDiff": [
+    -0.001,
+    0.005,
+    896
+   ],
+   "meanGrowth": {
+    "base": 69.74,
+    "arm": 69.68
+   },
+   "points": {
+    "base": 0.526,
+    "arm": 0.526
+   },
+   "challenge": {
+    "base": {
+     "declared": 4453,
+     "declaredWinRate": 0.979,
+     "defended": 4301,
+     "defendedWinRate": 0.002
+    },
+    "arm": {
+     "declared": 4453,
+     "declaredWinRate": 0.977,
+     "defended": 4299,
+     "defendedWinRate": 0.002
+    }
+   }
+  }
+ },
+ "difficultyGap": {
+  "base": {
+   "games": 448,
+   "intermediatePoints": 0.552,
+   "intWin": 227,
+   "begWin": 180,
+   "draw": 41
+  },
+  "E1": {
+   "games": 448,
+   "intermediatePoints": 0.568,
+   "intWin": 233,
+   "begWin": 172,
+   "draw": 43
+  },
+  "E1b": {
+   "games": 448,
+   "intermediatePoints": 0.555,
+   "intWin": 228,
+   "begWin": 179,
+   "draw": 41
+  },
+  "E2": {
+   "games": 448,
+   "intermediatePoints": 0.557,
+   "intWin": 232,
+   "begWin": 181,
+   "draw": 35
+  },
+  "E2b": {
+   "games": 448,
+   "intermediatePoints": 0.547,
+   "intWin": 226,
+   "begWin": 184,
+   "draw": 38
+  },
+  "E3": {
+   "games": 448,
+   "intermediatePoints": 0.551,
+   "intWin": 226,
+   "begWin": 180,
+   "draw": 42
+  }
+ },
+ "firstSeat": {
+  "base/II": {
+   "games": 224,
+   "firstPoints": 0.527
+  },
+  "base/BB": {
+   "games": 224,
+   "firstPoints": 0.48
+  },
+  "E1/II": {
+   "games": 224,
+   "firstPoints": 0.525
+  },
+  "E1/BB": {
+   "games": 224,
+   "firstPoints": 0.48
+  },
+  "E1b/BB": {
+   "games": 224,
+   "firstPoints": 0.484
+  },
+  "E2/II": {
+   "games": 224,
+   "firstPoints": 0.511
+  },
+  "E2/BB": {
+   "games": 224,
+   "firstPoints": 0.48
+  },
+  "E2b/BB": {
+   "games": 224,
+   "firstPoints": 0.464
+  },
+  "E3/II": {
+   "games": 224,
+   "firstPoints": 0.529
+  },
+  "E3/BB": {
+   "games": 224,
+   "firstPoints": 0.48
+  }
+ },
+ "deckBalanceII": {
+  "base": {
+   "overall": {
+    "main": 0.656,
+    "companion": 0.344,
+    "partner": 0.542,
+    "challenge": 0.385,
+    "growth": 0.562,
+    "item": 0.615,
+    "balance": 0.396
+   },
+   "pairs": {
+    "balance>challenge": 0.0,
+    "balance>companion": 0.812,
+    "balance>growth": 0.438,
+    "balance>item": 0.5,
+    "balance>main": 0.438,
+    "balance>partner": 0.188,
+    "challenge>balance": 1.0,
+    "challenge>companion": 0.5,
+    "challenge>growth": 0.125,
+    "challenge>item": 0.312,
+    "challenge>main": 0.062,
+    "challenge>partner": 0.312,
+    "companion>balance": 0.188,
+    "companion>challenge": 0.5,
+    "companion>growth": 0.438,
+    "companion>item": 0.312,
+    "companion>main": 0.562,
+    "companion>partner": 0.062,
+    "growth>balance": 0.562,
+    "growth>challenge": 0.875,
+    "growth>companion": 0.562,
+    "growth>item": 0.5,
+    "growth>main": 0.125,
+    "growth>partner": 0.75,
+    "item>balance": 0.5,
+    "item>challenge": 0.688,
+    "item>companion": 0.688,
+    "item>growth": 0.5,
+    "item>main": 0.625,
+    "item>partner": 0.688,
+    "main>balance": 0.562,
+    "main>challenge": 0.938,
+    "main>companion": 0.438,
+    "main>growth": 0.875,
+    "main>item": 0.375,
+    "main>partner": 0.75,
+    "partner>balance": 0.812,
+    "partner>challenge": 0.688,
+    "partner>companion": 0.938,
+    "partner>growth": 0.25,
+    "partner>item": 0.312,
+    "partner>main": 0.25
+   }
+  },
+  "E1": {
+   "overall": {
+    "main": 0.656,
+    "companion": 0.354,
+    "partner": 0.542,
+    "challenge": 0.385,
+    "growth": 0.531,
+    "item": 0.615,
+    "balance": 0.417
+   },
+   "pairs": {
+    "balance>challenge": 0.125,
+    "balance>companion": 0.812,
+    "balance>growth": 0.438,
+    "balance>item": 0.5,
+    "balance>main": 0.438,
+    "balance>partner": 0.188,
+    "challenge>balance": 0.875,
+    "challenge>companion": 0.438,
+    "challenge>growth": 0.25,
+    "challenge>item": 0.375,
+    "challenge>main": 0.062,
+    "challenge>partner": 0.312,
+    "companion>balance": 0.188,
+    "companion>challenge": 0.562,
+    "companion>growth": 0.438,
+    "companion>item": 0.312,
+    "companion>main": 0.562,
+    "companion>partner": 0.062,
+    "growth>balance": 0.562,
+    "growth>challenge": 0.75,
+    "growth>companion": 0.562,
+    "growth>item": 0.438,
+    "growth>main": 0.125,
+    "growth>partner": 0.75,
+    "item>balance": 0.5,
+    "item>challenge": 0.625,
+    "item>companion": 0.688,
+    "item>growth": 0.562,
+    "item>main": 0.625,
+    "item>partner": 0.688,
+    "main>balance": 0.562,
+    "main>challenge": 0.938,
+    "main>companion": 0.438,
+    "main>growth": 0.875,
+    "main>item": 0.375,
+    "main>partner": 0.75,
+    "partner>balance": 0.812,
+    "partner>challenge": 0.688,
+    "partner>companion": 0.938,
+    "partner>growth": 0.25,
+    "partner>item": 0.312,
+    "partner>main": 0.25
+   },
+   "maxPairShift": [
+    "balance>challenge",
+    0.125
+   ],
+   "overallShift": {
+    "main": 0.0,
+    "companion": 0.01,
+    "partner": 0.0,
+    "challenge": 0.0,
+    "growth": -0.031,
+    "item": 0.0,
+    "balance": 0.021
+   }
+  },
+  "E2": {
+   "overall": {
+    "main": 0.667,
+    "companion": 0.333,
+    "partner": 0.562,
+    "challenge": 0.385,
+    "growth": 0.583,
+    "item": 0.594,
+    "balance": 0.375
+   },
+   "pairs": {
+    "balance>challenge": 0.0,
+    "balance>companion": 0.812,
+    "balance>growth": 0.375,
+    "balance>item": 0.5,
+    "balance>main": 0.375,
+    "balance>partner": 0.188,
+    "challenge>balance": 1.0,
+    "challenge>companion": 0.5,
+    "challenge>growth": 0.125,
+    "challenge>item": 0.312,
+    "challenge>main": 0.062,
+    "challenge>partner": 0.312,
+    "companion>balance": 0.188,
+    "companion>challenge": 0.5,
+    "companion>growth": 0.375,
+    "companion>item": 0.312,
+    "companion>main": 0.562,
+    "companion>partner": 0.062,
+    "growth>balance": 0.625,
+    "growth>challenge": 0.875,
+    "growth>companion": 0.625,
+    "growth>item": 0.5,
+    "growth>main": 0.125,
+    "growth>partner": 0.75,
+    "item>balance": 0.5,
+    "item>challenge": 0.688,
+    "item>companion": 0.688,
+    "item>growth": 0.5,
+    "item>main": 0.625,
+    "item>partner": 0.562,
+    "main>balance": 0.625,
+    "main>challenge": 0.938,
+    "main>companion": 0.438,
+    "main>growth": 0.875,
+    "main>item": 0.375,
+    "main>partner": 0.75,
+    "partner>balance": 0.812,
+    "partner>challenge": 0.688,
+    "partner>companion": 0.938,
+    "partner>growth": 0.25,
+    "partner>item": 0.438,
+    "partner>main": 0.25
+   },
+   "maxPairShift": [
+    "item>partner",
+    -0.126
+   ],
+   "overallShift": {
+    "main": 0.011,
+    "companion": -0.011,
+    "partner": 0.02,
+    "challenge": 0.0,
+    "growth": 0.021,
+    "item": -0.021,
+    "balance": -0.021
+   }
+  },
+  "E3": {
+   "overall": {
+    "main": 0.667,
+    "companion": 0.333,
+    "partner": 0.542,
+    "challenge": 0.385,
+    "growth": 0.552,
+    "item": 0.635,
+    "balance": 0.385
+   },
+   "pairs": {
+    "balance>challenge": 0.0,
+    "balance>companion": 0.812,
+    "balance>growth": 0.438,
+    "balance>item": 0.5,
+    "balance>main": 0.375,
+    "balance>partner": 0.188,
+    "challenge>balance": 1.0,
+    "challenge>companion": 0.5,
+    "challenge>growth": 0.125,
+    "challenge>item": 0.312,
+    "challenge>main": 0.062,
+    "challenge>partner": 0.312,
+    "companion>balance": 0.188,
+    "companion>challenge": 0.5,
+    "companion>growth": 0.438,
+    "companion>item": 0.25,
+    "companion>main": 0.562,
+    "companion>partner": 0.062,
+    "growth>balance": 0.562,
+    "growth>challenge": 0.875,
+    "growth>companion": 0.562,
+    "growth>item": 0.438,
+    "growth>main": 0.125,
+    "growth>partner": 0.75,
+    "item>balance": 0.5,
+    "item>challenge": 0.688,
+    "item>companion": 0.75,
+    "item>growth": 0.562,
+    "item>main": 0.625,
+    "item>partner": 0.688,
+    "main>balance": 0.625,
+    "main>challenge": 0.938,
+    "main>companion": 0.438,
+    "main>growth": 0.875,
+    "main>item": 0.375,
+    "main>partner": 0.75,
+    "partner>balance": 0.812,
+    "partner>challenge": 0.688,
+    "partner>companion": 0.938,
+    "partner>growth": 0.25,
+    "partner>item": 0.312,
+    "partner>main": 0.25
+   },
+   "maxPairShift": [
+    "balance>main",
+    -0.063
+   ],
+   "overallShift": {
+    "main": 0.011,
+    "companion": -0.011,
+    "partner": 0.0,
+    "challenge": 0.0,
+    "growth": -0.01,
+    "item": 0.02,
+    "balance": -0.011
+   }
+  }
+ },
+ "decisionTime": {
+  "base/beginner": {
+   "decisions": 96458,
+   "msPerDecision": 0.726
+  },
+  "base/intermediate": {
+   "decisions": 88804,
+   "msPerDecision": 0.725
+  },
+  "E1/beginner": {
+   "decisions": 96515,
+   "msPerDecision": 0.743
+  },
+  "E1/intermediate": {
+   "decisions": 88655,
+   "msPerDecision": 0.738
+  },
+  "E1b/beginner": {
+   "decisions": 96369,
+   "msPerDecision": 0.726
+  },
+  "E1b/intermediate": {
+   "decisions": 44306,
+   "msPerDecision": 0.73
+  },
+  "E2/beginner": {
+   "decisions": 96467,
+   "msPerDecision": 0.701
+  },
+  "E2/intermediate": {
+   "decisions": 88911,
+   "msPerDecision": 0.703
+  },
+  "E2b/beginner": {
+   "decisions": 96103,
+   "msPerDecision": 0.726
+  },
+  "E2b/intermediate": {
+   "decisions": 44332,
+   "msPerDecision": 0.735
+  },
+  "E3/beginner": {
+   "decisions": 96450,
+   "msPerDecision": 0.69
+  },
+  "E3/intermediate": {
+   "decisions": 88932,
+   "msPerDecision": 0.68
+  }
+ },
+ "trapsAndR10": {
+  "base/beginner": {
+   "seats": 896,
+   "set": {
+    "G-ski-jump": 300,
+    "G-takoyaki-grill": 135,
+    "G-missile-command": 80
+   },
+   "fired": {
+    "G-ski-jump": 175,
+    "G-takoyaki-grill": 115
+   },
+   "leftAtEnd": {
+    "G-ski-jump": 108,
+    "G-missile-command": 60,
+    "G-takoyaki-grill": 9
+   },
+   "firedShare": 0.563,
+   "meanRoundsToFire": 1.08,
+   "blockedFullPerGame": 0.121,
+   "r10PlaysPerGame": 0.26,
+   "r10TimePerGame": 0.317
+  },
+  "base/intermediate": {
+   "seats": 896,
+   "set": {
+    "G-ski-jump": 318,
+    "G-takoyaki-grill": 149,
+    "G-missile-command": 70
+   },
+   "fired": {
+    "G-ski-jump": 269,
+    "G-takoyaki-grill": 129
+   },
+   "leftAtEnd": {
+    "G-ski-jump": 38,
+    "G-missile-command": 51,
+    "G-takoyaki-grill": 14
+   },
+   "firedShare": 0.741,
+   "meanRoundsToFire": 0.95,
+   "blockedFullPerGame": 0.119,
+   "r10PlaysPerGame": 0.315,
+   "r10TimePerGame": 0.359
+  },
+  "E1/beginner": {
+   "seats": 896,
+   "set": {
+    "G-ski-jump": 301,
+    "G-takoyaki-grill": 135,
+    "G-missile-command": 79
+   },
+   "fired": {
+    "G-ski-jump": 175,
+    "G-takoyaki-grill": 115
+   },
+   "leftAtEnd": {
+    "G-ski-jump": 109,
+    "G-missile-command": 59,
+    "G-takoyaki-grill": 9
+   },
+   "firedShare": 0.563,
+   "meanRoundsToFire": 1.08,
+   "blockedFullPerGame": 0.121,
+   "r10PlaysPerGame": 0.258,
+   "r10TimePerGame": 0.315
+  },
+  "E1/intermediate": {
+   "seats": 896,
+   "set": {
+    "G-ski-jump": 323,
+    "G-takoyaki-grill": 149,
+    "G-missile-command": 69
+   },
+   "fired": {
+    "G-ski-jump": 267,
+    "G-takoyaki-grill": 128
+   },
+   "leftAtEnd": {
+    "G-ski-jump": 45,
+    "G-missile-command": 50,
+    "G-takoyaki-grill": 14
+   },
+   "firedShare": 0.73,
+   "meanRoundsToFire": 0.95,
+   "blockedFullPerGame": 0.119,
+   "r10PlaysPerGame": 0.319,
+   "r10TimePerGame": 0.363
+  },
+  "E1b/beginner": {
+   "seats": 896,
+   "set": {
+    "G-ski-jump": 302,
+    "G-takoyaki-grill": 135,
+    "G-missile-command": 79
+   },
+   "fired": {
+    "G-ski-jump": 175,
+    "G-takoyaki-grill": 115
+   },
+   "leftAtEnd": {
+    "G-ski-jump": 110,
+    "G-missile-command": 59,
+    "G-takoyaki-grill": 9
+   },
+   "firedShare": 0.562,
+   "meanRoundsToFire": 1.08,
+   "blockedFullPerGame": 0.121,
+   "r10PlaysPerGame": 0.265,
+   "r10TimePerGame": 0.321
+  },
+  "E1b/intermediate": {
+   "seats": 448,
+   "set": {
+    "G-ski-jump": 163,
+    "G-takoyaki-grill": 75,
+    "G-missile-command": 34
+   },
+   "fired": {
+    "G-ski-jump": 139,
+    "G-takoyaki-grill": 65
+   },
+   "leftAtEnd": {
+    "G-missile-command": 25,
+    "G-ski-jump": 18,
+    "G-takoyaki-grill": 7
+   },
+   "firedShare": 0.75,
+   "meanRoundsToFire": 0.95,
+   "blockedFullPerGame": 0.105,
+   "r10PlaysPerGame": 0.337,
+   "r10TimePerGame": 0.377
+  },
+  "E2/beginner": {
+   "seats": 896,
+   "set": {
+    "G-ski-jump": 300,
+    "G-takoyaki-grill": 135,
+    "G-missile-command": 80
+   },
+   "fired": {
+    "G-ski-jump": 175,
+    "G-takoyaki-grill": 115
+   },
+   "leftAtEnd": {
+    "G-ski-jump": 108,
+    "G-missile-command": 60,
+    "G-takoyaki-grill": 9
+   },
+   "firedShare": 0.563,
+   "meanRoundsToFire": 1.08,
+   "blockedFullPerGame": 0.121,
+   "r10PlaysPerGame": 0.258,
+   "r10TimePerGame": 0.315
+  },
+  "E2/intermediate": {
+   "seats": 896,
+   "set": {
+    "G-ski-jump": 316,
+    "G-takoyaki-grill": 149,
+    "G-missile-command": 70
+   },
+   "fired": {
+    "G-ski-jump": 269,
+    "G-takoyaki-grill": 129
+   },
+   "leftAtEnd": {
+    "G-ski-jump": 36,
+    "G-missile-command": 51,
+    "G-takoyaki-grill": 14
+   },
+   "firedShare": 0.744,
+   "meanRoundsToFire": 0.95,
+   "blockedFullPerGame": 0.119,
+   "r10PlaysPerGame": 0.632,
+   "r10TimePerGame": 0.74
+  },
+  "E2b/beginner": {
+   "seats": 896,
+   "set": {
+    "G-ski-jump": 298,
+    "G-takoyaki-grill": 136,
+    "G-missile-command": 77
+   },
+   "fired": {
+    "G-ski-jump": 181,
+    "G-takoyaki-grill": 116
+   },
+   "leftAtEnd": {
+    "G-ski-jump": 100,
+    "G-missile-command": 57,
+    "G-takoyaki-grill": 9
+   },
+   "firedShare": 0.581,
+   "meanRoundsToFire": 1.14,
+   "blockedFullPerGame": 0.122,
+   "r10PlaysPerGame": 0.873,
+   "r10TimePerGame": 1.136
+  },
+  "E2b/intermediate": {
+   "seats": 448,
+   "set": {
+    "G-ski-jump": 163,
+    "G-takoyaki-grill": 75,
+    "G-missile-command": 34
+   },
+   "fired": {
+    "G-ski-jump": 139,
+    "G-takoyaki-grill": 65
+   },
+   "leftAtEnd": {
+    "G-missile-command": 25,
+    "G-ski-jump": 18,
+    "G-takoyaki-grill": 7
+   },
+   "firedShare": 0.75,
+   "meanRoundsToFire": 0.95,
+   "blockedFullPerGame": 0.105,
+   "r10PlaysPerGame": 0.337,
+   "r10TimePerGame": 0.377
+  },
+  "E3/beginner": {
+   "seats": 896,
+   "set": {
+    "G-ski-jump": 300,
+    "G-takoyaki-grill": 135,
+    "G-missile-command": 80
+   },
+   "fired": {
+    "G-ski-jump": 175,
+    "G-takoyaki-grill": 115
+   },
+   "leftAtEnd": {
+    "G-ski-jump": 108,
+    "G-missile-command": 60,
+    "G-takoyaki-grill": 9
+   },
+   "firedShare": 0.563,
+   "meanRoundsToFire": 1.08,
+   "blockedFullPerGame": 0.121,
+   "r10PlaysPerGame": 0.259,
+   "r10TimePerGame": 0.316
+  },
+  "E3/intermediate": {
+   "seats": 896,
+   "set": {
+    "G-ski-jump": 300,
+    "G-takoyaki-grill": 153,
+    "G-missile-command": 66
+   },
+   "fired": {
+    "G-ski-jump": 271,
+    "G-takoyaki-grill": 131
+   },
+   "leftAtEnd": {
+    "G-missile-command": 52,
+    "G-ski-jump": 18,
+    "G-takoyaki-grill": 12
+   },
+   "firedShare": 0.775,
+   "meanRoundsToFire": 0.94,
+   "blockedFullPerGame": 0.108,
+   "r10PlaysPerGame": 0.315,
+   "r10TimePerGame": 0.359
+  }
+ },
+ "perDeck": {
+  "E1/main": {
+   "seats": 128,
+   "growthDiff": [
+    0.117,
+    0.171,
+    128
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    128
+   ],
+   "changedGames": 2
+  },
+  "E1/companion": {
+   "seats": 128,
+   "growthDiff": [
+    -0.039,
+    0.077,
+    128
+   ],
+   "pointsDiff": [
+    0.004,
+    0.008,
+    128
+   ],
+   "changedGames": 1
+  },
+  "E1/partner": {
+   "seats": 128,
+   "growthDiff": [
+    0.0,
+    0.0,
+    128
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    128
+   ],
+   "changedGames": 0
+  },
+  "E1/challenge": {
+   "seats": 128,
+   "growthDiff": [
+    0.625,
+    1.119,
+    128
+   ],
+   "pointsDiff": [
+    0.02,
+    0.037,
+    128
+   ],
+   "changedGames": 43
+  },
+  "E1/growth": {
+   "seats": 128,
+   "growthDiff": [
+    0.078,
+    0.153,
+    128
+   ],
+   "pointsDiff": [
+    -0.012,
+    0.017,
+    128
+   ],
+   "changedGames": 1
+  },
+  "E1/item": {
+   "seats": 128,
+   "growthDiff": [
+    0.664,
+    0.367,
+    128
+   ],
+   "pointsDiff": [
+    0.02,
+    0.023,
+    128
+   ],
+   "changedGames": 16
+  },
+  "E1/balance": {
+   "seats": 128,
+   "growthDiff": [
+    0.664,
+    0.412,
+    128
+   ],
+   "pointsDiff": [
+    0.023,
+    0.021,
+    128
+   ],
+   "changedGames": 22
+  },
+  "E1b/main": {
+   "seats": 128,
+   "growthDiff": [
+    0.039,
+    0.077,
+    128
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    128
+   ],
+   "changedGames": 1
+  },
+  "E1b/companion": {
+   "seats": 128,
+   "growthDiff": [
+    0.0,
+    0.0,
+    128
+   ],
+   "pointsDiff": [
+    0.008,
+    0.015,
+    128
+   ],
+   "changedGames": 0
+  },
+  "E1b/partner": {
+   "seats": 128,
+   "growthDiff": [
+    0.0,
+    0.0,
+    128
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    128
+   ],
+   "changedGames": 0
+  },
+  "E1b/challenge": {
+   "seats": 128,
+   "growthDiff": [
+    -0.117,
+    0.368,
+    128
+   ],
+   "pointsDiff": [
+    -0.016,
+    0.022,
+    128
+   ],
+   "changedGames": 8
+  },
+  "E1b/growth": {
+   "seats": 128,
+   "growthDiff": [
+    0.0,
+    0.0,
+    128
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    128
+   ],
+   "changedGames": 0
+  },
+  "E1b/item": {
+   "seats": 128,
+   "growthDiff": [
+    0.0,
+    0.0,
+    128
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    128
+   ],
+   "changedGames": 0
+  },
+  "E1b/balance": {
+   "seats": 128,
+   "growthDiff": [
+    0.312,
+    0.483,
+    128
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    128
+   ],
+   "changedGames": 2
+  },
+  "E2/main": {
+   "seats": 128,
+   "growthDiff": [
+    0.156,
+    0.151,
+    128
+   ],
+   "pointsDiff": [
+    0.004,
+    0.013,
+    128
+   ],
+   "changedGames": 4
+  },
+  "E2/companion": {
+   "seats": 128,
+   "growthDiff": [
+    0.234,
+    0.374,
+    128
+   ],
+   "pointsDiff": [
+    0.0,
+    0.022,
+    128
+   ],
+   "changedGames": 12
+  },
+  "E2/partner": {
+   "seats": 128,
+   "growthDiff": [
+    0.0,
+    0.575,
+    128
+   ],
+   "pointsDiff": [
+    0.008,
+    0.019,
+    128
+   ],
+   "changedGames": 18
+  },
+  "E2/challenge": {
+   "seats": 128,
+   "growthDiff": [
+    0.039,
+    0.133,
+    128
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    128
+   ],
+   "changedGames": 3
+  },
+  "E2/growth": {
+   "seats": 128,
+   "growthDiff": [
+    0.547,
+    0.38,
+    128
+   ],
+   "pointsDiff": [
+    0.016,
+    0.019,
+    128
+   ],
+   "changedGames": 17
+  },
+  "E2/item": {
+   "seats": 128,
+   "growthDiff": [
+    0.0,
+    0.0,
+    128
+   ],
+   "pointsDiff": [
+    -0.008,
+    0.015,
+    128
+   ],
+   "changedGames": 0
+  },
+  "E2/balance": {
+   "seats": 128,
+   "growthDiff": [
+    0.469,
+    0.503,
+    128
+   ],
+   "pointsDiff": [
+    -0.004,
+    0.025,
+    128
+   ],
+   "changedGames": 18
+  },
+  "E2b/main": {
+   "seats": 128,
+   "growthDiff": [
+    0.273,
+    0.226,
+    128
+   ],
+   "pointsDiff": [
+    0.012,
+    0.02,
+    128
+   ],
+   "changedGames": 9
+  },
+  "E2b/companion": {
+   "seats": 128,
+   "growthDiff": [
+    1.172,
+    0.504,
+    128
+   ],
+   "pointsDiff": [
+    0.02,
+    0.023,
+    128
+   ],
+   "changedGames": 29
+  },
+  "E2b/partner": {
+   "seats": 128,
+   "growthDiff": [
+    -0.195,
+    0.168,
+    128
+   ],
+   "pointsDiff": [
+    -0.016,
+    0.015,
+    128
+   ],
+   "changedGames": 5
+  },
+  "E2b/challenge": {
+   "seats": 128,
+   "growthDiff": [
+    0.938,
+    0.685,
+    128
+   ],
+   "pointsDiff": [
+    0.0,
+    0.011,
+    128
+   ],
+   "changedGames": 8
+  },
+  "E2b/growth": {
+   "seats": 128,
+   "growthDiff": [
+    -0.078,
+    0.595,
+    128
+   ],
+   "pointsDiff": [
+    -0.012,
+    0.032,
+    128
+   ],
+   "changedGames": 39
+  },
+  "E2b/item": {
+   "seats": 128,
+   "growthDiff": [
+    0.0,
+    0.0,
+    128
+   ],
+   "pointsDiff": [
+    0.004,
+    0.008,
+    128
+   ],
+   "changedGames": 0
+  },
+  "E2b/balance": {
+   "seats": 128,
+   "growthDiff": [
+    1.328,
+    0.725,
+    128
+   ],
+   "pointsDiff": [
+    0.012,
+    0.028,
+    128
+   ],
+   "changedGames": 35
+  },
+  "E3/main": {
+   "seats": 128,
+   "growthDiff": [
+    -0.078,
+    0.108,
+    128
+   ],
+   "pointsDiff": [
+    0.004,
+    0.008,
+    128
+   ],
+   "changedGames": 2
+  },
+  "E3/companion": {
+   "seats": 128,
+   "growthDiff": [
+    -0.039,
+    0.077,
+    128
+   ],
+   "pointsDiff": [
+    -0.004,
+    0.008,
+    128
+   ],
+   "changedGames": 1
+  },
+  "E3/partner": {
+   "seats": 128,
+   "growthDiff": [
+    0.0,
+    0.0,
+    128
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    128
+   ],
+   "changedGames": 0
+  },
+  "E3/challenge": {
+   "seats": 128,
+   "growthDiff": [
+    0.0,
+    0.0,
+    128
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    128
+   ],
+   "changedGames": 0
+  },
+  "E3/growth": {
+   "seats": 128,
+   "growthDiff": [
+    -0.039,
+    0.133,
+    128
+   ],
+   "pointsDiff": [
+    -0.004,
+    0.008,
+    128
+   ],
+   "changedGames": 3
+  },
+  "E3/item": {
+   "seats": 128,
+   "growthDiff": [
+    -0.156,
+    0.791,
+    128
+   ],
+   "pointsDiff": [
+    0.004,
+    0.033,
+    128
+   ],
+   "changedGames": 19
+  },
+  "E3/balance": {
+   "seats": 128,
+   "growthDiff": [
+    -0.078,
+    0.217,
+    128
+   ],
+   "pointsDiff": [
+    -0.004,
+    0.008,
+    128
+   ],
+   "changedGames": 8
+  }
+ },
+ "cleanEffect": {
+  "E1/main": {
+   "seats": 64,
+   "growthDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 0
+  },
+  "E1/companion": {
+   "seats": 64,
+   "growthDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 0
+  },
+  "E1/partner": {
+   "seats": 64,
+   "growthDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 0
+  },
+  "E1/challenge": {
+   "seats": 64,
+   "growthDiff": [
+    1.016,
+    1.636,
+    64
+   ],
+   "pointsDiff": [
+    0.039,
+    0.055,
+    64
+   ],
+   "changedGames": 19
+  },
+  "E1/growth": {
+   "seats": 64,
+   "growthDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 0
+  },
+  "E1/item": {
+   "seats": 64,
+   "growthDiff": [
+    0.547,
+    0.443,
+    64
+   ],
+   "pointsDiff": [
+    0.039,
+    0.04,
+    64
+   ],
+   "changedGames": 6
+  },
+  "E1/balance": {
+   "seats": 64,
+   "growthDiff": [
+    0.938,
+    0.482,
+    64
+   ],
+   "pointsDiff": [
+    0.031,
+    0.03,
+    64
+   ],
+   "changedGames": 12
+  },
+  "E1/all": {
+   "seats": 448,
+   "growthDiff": [
+    0.357,
+    0.253,
+    448
+   ],
+   "pointsDiff": [
+    0.016,
+    0.011,
+    448
+   ],
+   "changedGames": 37
+  },
+  "E1b/main": {
+   "seats": 64,
+   "growthDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 0
+  },
+  "E1b/companion": {
+   "seats": 64,
+   "growthDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 0
+  },
+  "E1b/partner": {
+   "seats": 64,
+   "growthDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 0
+  },
+  "E1b/challenge": {
+   "seats": 64,
+   "growthDiff": [
+    -0.234,
+    0.553,
+    64
+   ],
+   "pointsDiff": [
+    -0.016,
+    0.031,
+    64
+   ],
+   "changedGames": 4
+  },
+  "E1b/growth": {
+   "seats": 64,
+   "growthDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 0
+  },
+  "E1b/item": {
+   "seats": 64,
+   "growthDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 0
+  },
+  "E1b/balance": {
+   "seats": 64,
+   "growthDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 0
+  },
+  "E1b/all": {
+   "seats": 448,
+   "growthDiff": [
+    -0.033,
+    0.079,
+    448
+   ],
+   "pointsDiff": [
+    -0.002,
+    0.004,
+    448
+   ],
+   "changedGames": 4
+  },
+  "E2/main": {
+   "seats": 64,
+   "growthDiff": [
+    0.156,
+    0.215,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 2
+  },
+  "E2/companion": {
+   "seats": 64,
+   "growthDiff": [
+    0.156,
+    0.533,
+    64
+   ],
+   "pointsDiff": [
+    0.008,
+    0.027,
+    64
+   ],
+   "changedGames": 6
+  },
+  "E2/partner": {
+   "seats": 64,
+   "growthDiff": [
+    -0.078,
+    0.831,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.022,
+    64
+   ],
+   "changedGames": 10
+  },
+  "E2/challenge": {
+   "seats": 64,
+   "growthDiff": [
+    0.078,
+    0.153,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 1
+  },
+  "E2/growth": {
+   "seats": 64,
+   "growthDiff": [
+    0.547,
+    0.54,
+    64
+   ],
+   "pointsDiff": [
+    0.016,
+    0.021,
+    64
+   ],
+   "changedGames": 10
+  },
+  "E2/item": {
+   "seats": 64,
+   "growthDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 0
+  },
+  "E2/balance": {
+   "seats": 64,
+   "growthDiff": [
+    0.469,
+    0.715,
+    64
+   ],
+   "pointsDiff": [
+    0.008,
+    0.034,
+    64
+   ],
+   "changedGames": 8
+  },
+  "E2/all": {
+   "seats": 448,
+   "growthDiff": [
+    0.19,
+    0.194,
+    448
+   ],
+   "pointsDiff": [
+    0.004,
+    0.008,
+    448
+   ],
+   "changedGames": 37
+  },
+  "E2b/main": {
+   "seats": 64,
+   "growthDiff": [
+    0.234,
+    0.261,
+    64
+   ],
+   "pointsDiff": [
+    0.016,
+    0.021,
+    64
+   ],
+   "changedGames": 3
+  },
+  "E2b/companion": {
+   "seats": 64,
+   "growthDiff": [
+    1.172,
+    0.748,
+    64
+   ],
+   "pointsDiff": [
+    0.016,
+    0.031,
+    64
+   ],
+   "changedGames": 15
+  },
+  "E2b/partner": {
+   "seats": 64,
+   "growthDiff": [
+    -0.156,
+    0.215,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 2
+  },
+  "E2b/challenge": {
+   "seats": 64,
+   "growthDiff": [
+    0.703,
+    0.813,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 3
+  },
+  "E2b/growth": {
+   "seats": 64,
+   "growthDiff": [
+    0.0,
+    0.845,
+    64
+   ],
+   "pointsDiff": [
+    -0.008,
+    0.034,
+    64
+   ],
+   "changedGames": 18
+  },
+  "E2b/item": {
+   "seats": 64,
+   "growthDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 0
+  },
+  "E2b/balance": {
+   "seats": 64,
+   "growthDiff": [
+    1.328,
+    1.075,
+    64
+   ],
+   "pointsDiff": [
+    0.016,
+    0.043,
+    64
+   ],
+   "changedGames": 20
+  },
+  "E2b/all": {
+   "seats": 448,
+   "growthDiff": [
+    0.469,
+    0.259,
+    448
+   ],
+   "pointsDiff": [
+    0.006,
+    0.01,
+    448
+   ],
+   "changedGames": 61
+  },
+  "E3/main": {
+   "seats": 64,
+   "growthDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 0
+  },
+  "E3/companion": {
+   "seats": 64,
+   "growthDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 0
+  },
+  "E3/partner": {
+   "seats": 64,
+   "growthDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 0
+  },
+  "E3/challenge": {
+   "seats": 64,
+   "growthDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 0
+  },
+  "E3/growth": {
+   "seats": 64,
+   "growthDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 0
+  },
+  "E3/item": {
+   "seats": 64,
+   "growthDiff": [
+    -0.312,
+    0.948,
+    64
+   ],
+   "pointsDiff": [
+    -0.008,
+    0.046,
+    64
+   ],
+   "changedGames": 9
+  },
+  "E3/balance": {
+   "seats": 64,
+   "growthDiff": [
+    0.078,
+    0.267,
+    64
+   ],
+   "pointsDiff": [
+    0.0,
+    0.0,
+    64
+   ],
+   "changedGames": 3
+  },
+  "E3/all": {
+   "seats": 448,
+   "growthDiff": [
+    -0.033,
+    0.14,
+    448
+   ],
+   "pointsDiff": [
+    -0.001,
+    0.007,
+    448
+   ],
+   "changedGames": 12
+  }
+ }
+}

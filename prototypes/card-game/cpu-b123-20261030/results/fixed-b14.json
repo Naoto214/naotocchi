@@ -1,0 +1,578 @@
+{
+ "fight:wisdom:opp": {
+  "match": "T:challenge~challenge:4:II:X-first",
+  "seat": "B",
+  "round": 5,
+  "chain": 2,
+  "byProfile": {
+   "off": {
+    "parameter": "wisdom",
+    "time": 1,
+    "rows": [
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:1",
+      "variant": "パンチ",
+      "right": false,
+      "score": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:1",
+      "variant": "キック",
+      "right": false,
+      "score": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:1",
+      "variant": "ガード",
+      "right": true,
+      "score": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:2",
+      "variant": "パンチ",
+      "right": false,
+      "score": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:2",
+      "variant": "キック",
+      "right": false,
+      "score": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:2",
+      "variant": "ガード",
+      "right": true,
+      "score": 0
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "copy": null,
+      "variant": null,
+      "right": null,
+      "score": 0
+     }
+    ],
+    "dist": {
+     "パス": 30,
+     "正しい型": 73,
+     "種目違いの型": 97
+    }
+   },
+   "b1": {
+    "parameter": "wisdom",
+    "time": 1,
+    "rows": [
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:1",
+      "variant": "パンチ",
+      "right": false,
+      "score": -4.6
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:1",
+      "variant": "キック",
+      "right": false,
+      "score": -4.2
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:1",
+      "variant": "ガード",
+      "right": true,
+      "score": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:2",
+      "variant": "パンチ",
+      "right": false,
+      "score": -4.6
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:2",
+      "variant": "キック",
+      "right": false,
+      "score": -4.2
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:2",
+      "variant": "ガード",
+      "right": true,
+      "score": 0
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "copy": null,
+      "variant": null,
+      "right": null,
+      "score": 0
+     }
+    ],
+    "dist": {
+     "パス": 46,
+     "正しい型": 154
+    }
+   },
+   "b4": {
+    "parameter": "wisdom",
+    "time": 1,
+    "rows": [
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:1",
+      "variant": "パンチ",
+      "right": false,
+      "score": 3.48
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:1",
+      "variant": "キック",
+      "right": false,
+      "score": 3.48
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:1",
+      "variant": "ガード",
+      "right": true,
+      "score": 3.48
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:2",
+      "variant": "パンチ",
+      "right": false,
+      "score": 3.48
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:2",
+      "variant": "キック",
+      "right": false,
+      "score": 3.48
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:2",
+      "variant": "ガード",
+      "right": true,
+      "score": 3.48
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "copy": null,
+      "variant": null,
+      "right": null,
+      "score": 0
+     }
+    ],
+    "dist": {
+     "種目違いの型": 124,
+     "正しい型": 76
+    }
+   },
+   "b1b4": {
+    "parameter": "wisdom",
+    "time": 1,
+    "rows": [
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:1",
+      "variant": "パンチ",
+      "right": false,
+      "score": -4.6
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:1",
+      "variant": "キック",
+      "right": false,
+      "score": -4.2
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:1",
+      "variant": "ガード",
+      "right": true,
+      "score": 1.8
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:2",
+      "variant": "パンチ",
+      "right": false,
+      "score": -4.6
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:2",
+      "variant": "キック",
+      "right": false,
+      "score": -4.2
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "B:G-street-fight:2",
+      "variant": "ガード",
+      "right": true,
+      "score": 1.8
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "copy": null,
+      "variant": null,
+      "right": null,
+      "score": 0
+     }
+    ],
+    "dist": {
+     "正しい型": 200
+    }
+   }
+  }
+ },
+ "fight:power:opp": {
+  "match": "T:main~challenge:2:II:Y-first",
+  "seat": "A",
+  "round": 10,
+  "chain": 1,
+  "byProfile": {
+   "off": {
+    "parameter": "power",
+    "time": 1,
+    "rows": [
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "copy": "A:E-mirror:1",
+      "variant": null,
+      "right": null,
+      "score": -3.911
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:1",
+      "variant": "パンチ",
+      "right": true,
+      "score": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:1",
+      "variant": "キック",
+      "right": true,
+      "score": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:1",
+      "variant": "ガード",
+      "right": false,
+      "score": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:2",
+      "variant": "パンチ",
+      "right": true,
+      "score": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:2",
+      "variant": "キック",
+      "right": true,
+      "score": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:2",
+      "variant": "ガード",
+      "right": false,
+      "score": 0
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "copy": null,
+      "variant": null,
+      "right": null,
+      "score": 0
+     }
+    ],
+    "dist": {
+     "種目違いの型": 35,
+     "正しい型": 109,
+     "パス": 56
+    }
+   },
+   "b1": {
+    "parameter": "power",
+    "time": 1,
+    "rows": [
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "copy": "A:E-mirror:1",
+      "variant": null,
+      "right": null,
+      "score": -4.631
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:1",
+      "variant": "パンチ",
+      "right": true,
+      "score": -4.8
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:1",
+      "variant": "キック",
+      "right": true,
+      "score": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:1",
+      "variant": "ガード",
+      "right": false,
+      "score": -6.8
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:2",
+      "variant": "パンチ",
+      "right": true,
+      "score": -4.8
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:2",
+      "variant": "キック",
+      "right": true,
+      "score": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:2",
+      "variant": "ガード",
+      "right": false,
+      "score": -6.8
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "copy": null,
+      "variant": null,
+      "right": null,
+      "score": 0
+     }
+    ],
+    "dist": {
+     "正しい型": 119,
+     "パス": 81
+    }
+   },
+   "b4": {
+    "parameter": "power",
+    "time": 1,
+    "rows": [
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "copy": "A:E-mirror:1",
+      "variant": null,
+      "right": null,
+      "score": -3.911
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:1",
+      "variant": "パンチ",
+      "right": true,
+      "score": 3.48
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:1",
+      "variant": "キック",
+      "right": true,
+      "score": 3.48
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:1",
+      "variant": "ガード",
+      "right": false,
+      "score": 3.48
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:2",
+      "variant": "パンチ",
+      "right": true,
+      "score": 3.48
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:2",
+      "variant": "キック",
+      "right": true,
+      "score": 3.48
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:2",
+      "variant": "ガード",
+      "right": false,
+      "score": 3.48
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "copy": null,
+      "variant": null,
+      "right": null,
+      "score": 0
+     }
+    ],
+    "dist": {
+     "種目違いの型": 39,
+     "正しい型": 161
+    }
+   },
+   "b1b4": {
+    "parameter": "power",
+    "time": 1,
+    "rows": [
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "copy": "A:E-mirror:1",
+      "variant": null,
+      "right": null,
+      "score": -4.631
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:1",
+      "variant": "パンチ",
+      "right": true,
+      "score": -4.8
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:1",
+      "variant": "キック",
+      "right": true,
+      "score": 4.2
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:1",
+      "variant": "ガード",
+      "right": false,
+      "score": -6.8
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:2",
+      "variant": "パンチ",
+      "right": true,
+      "score": -4.8
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:2",
+      "variant": "キック",
+      "right": true,
+      "score": 4.2
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "copy": "A:G-street-fight:2",
+      "variant": "ガード",
+      "right": false,
+      "score": -6.8
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "copy": null,
+      "variant": null,
+      "right": null,
+      "score": 0
+     }
+    ],
+    "dist": {
+     "正しい型": 200
+    }
+   }
+  }
+ }
+}
