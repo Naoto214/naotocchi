@@ -30,8 +30,7 @@ function measure() {
   if (!ready || (compact.matches && !document.body.classList.contains('settings-open'))) return;
   const game = frame.contentWindow;
   const samples = new Map(roles.map(([role]) => [role, []]));
-  const individuals = byId('individual-sizes');
-  individuals.replaceChildren();
+  const detail = document.createElement('tbody');
   for (const actor of game.HomeCastTrial.inspect()) {
     const image = game.document.querySelector('[data-diorama-actor="' + CSS.escape(actor.key) + '"] img.character-asset');
     if (!image?.naturalWidth) continue;
@@ -43,13 +42,14 @@ function measure() {
     if (!box || !rect.width || !rect.height || !samples.has(actor.kind)) continue;
     const body = projectedBody(rect, box);
     samples.get(actor.kind).push(body);
-    if (actor.kind === 'companion') addRow(individuals, actor.label || image.alt || actor.id, [pair(...body)]);
+    if (actor.kind === 'companion') addRow(detail, actor.label || image.alt || actor.id, [pair(...body)]);
   }
   for (const [role, bodies] of samples) {
     const label = bodies.length ? pair(...[0,1].map(i => median(bodies.map(body => body[i])))) : '—';
     measurements.get(role).cells[2].textContent = label;
   }
-  byId('companion-detail').hidden = !individuals.rows.length;
+  byId('companion-detail').hidden = !detail.rows.length;
+  byId('individual-sizes').replaceChildren(...detail.children);
   byId('measurement-status').textContent = '測定 ' + new Date().toLocaleTimeString('ja-JP');
 }
 
@@ -67,8 +67,9 @@ function showControls() {
   byId('layout-note').textContent = scene.layout === 'fixed'
     ? '「固定」を押すと、同じ立ち位置で大きさを比べられます。'
     : '倍率を変えると、そのサイズ用の初期配置から始まります。';
+  const scales = rolePercentages(scene.extra);
   for (const [i, [role]] of roles.entries()) {
-    measurements.get(role).cells[1].textContent = percent.format(rolePercentages(scene.extra)[i]) + '%';
+    measurements.get(role).cells[1].textContent = percent.format(scales[i]) + '%';
   }
 }
 

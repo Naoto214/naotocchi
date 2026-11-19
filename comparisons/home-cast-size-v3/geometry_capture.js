@@ -11,7 +11,13 @@
         window.qaNative = model;
         const sync = model.sync;
         model.sync = (list, scene) => {
-          const result = sync(list,scene);
+          // QA step batches reuse measured scene geometry while the viewport is
+          // stationary. Native startup, real-pointer and timed RAF use originals.
+          const nativeScene={...scene};
+          if(scene.actorBounds)nativeScene.actorBounds=(a,b)=>window.qaStepGeometry?.bounds.get(a.key)||scene.actorBounds(a,b);
+          if(scene.referenceBounds)nativeScene.referenceBounds=a=>window.qaStepGeometry?.refs.get(a.key)||scene.referenceBounds(a);
+          if(scene.visible)nativeScene.visible=(p,a)=>window.qaStepGeometry?window.qaStepGeometry.visible(p,a):scene.visible(p,a);
+          const result = sync(list,nativeScene);
           if (!scene.navigation || !list.length) return result;
           const nav = scene.navigation;
           const points = list.map((a,i) => {

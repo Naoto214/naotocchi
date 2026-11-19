@@ -25,6 +25,7 @@ def collect(args):
                 anchor='function down(e){'
                 assert source.count(anchor)==1
                 probe="window.qaNativeHit=(x,y)=>{const el=doc.elementFromPoint(x,y);return el&&stage.contains(el)&&!el.closest('button,a,input,select,textarea')?hit(point({clientX:x,clientY:y}),el):null;};"
+                probe+="window.qaTerrainForSteps=()=>{const s=displayRect(stage),h=displayRect(worldHost),a=model.snapshot()[0],x=s.left-h.left,y=s.top-h.top;return polygonsAt(a).map(poly=>poly.map(p=>[p[0]-x,p[1]-y]));};"
                 route.fulfill(body=source.replace(anchor,probe+anchor),content_type='application/javascript')
             ctx.route('**/home-production-diorama-limit.js*',expose_hit)
             for count in args.counts:
