@@ -44,6 +44,7 @@ def build():
     rarity = {s['id']: ('rare' if group == 'rare' else 'normal')
               for group in ('normal', 'rare', 'secret') for s in master['playerSpecies'][group]}
     attribute = {s: a for a, species in ATTRIBUTES.items() for s in species.split()}
+    display_names = json.loads((ROOT / "tools/evolution-display-names-v13-20261119.json").read_text())
     result = {}
     for group, (kind, count) in GROUPS.items():
         rows = audit[group]
@@ -79,6 +80,16 @@ def build():
                 entry.update(stage=row['stage'], species='M-' + row['species'],
                              power=row['power'], wisdom=row['wisdom'],
                              attribute=attribute[row['species']], form=row['form'])
+            # Versioned display overlay: frozen design sources remain historical evidence.
+            if key in display_names['cards']:
+                require(kind == 'main', f'display override must be a main card: {key}')
+                display = display_names['cards'][key]
+                current = next(s for group in ('normal', 'rare', 'secret')
+                               for s in master['playerSpecies'][group] if s['id'] == row['species'])
+                require(current['stages'][row['stage'] - 1] == display['displayName'],
+                        f'current master/display name differs: {key}')
+                entry.update(form=display['displayName'], searchAliases=display['searchAliases'],
+                             displayNameVersion=display_names['version'])
             if kind in ('item', 'play', 'event'):
                 require(row.get('method') in ('すぐつかう', 'しかける', 'みにつける'), f'missing method: {key}')
                 entry['method'] = row['method']

@@ -58,7 +58,9 @@ test('カタログ：変わったのは2枚の本文と、設計正本83・85の
  const before={[LUNAR]:'自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。',[SUB]:'発動時に0・1・2から数を1つ選び、時コストをその数だけ増やす。山札の上から、3に選んだ数の2倍を足した枚数を見る。その中から1枚までを手札に加え、残りを好きな順で山札の一番下に置く。'};
  // 481（タコ・ゆきだるまの本文の言い換え、処理は不変）はこの固定hashより後なので、旧本文へ戻して照合する。
  Object.assign(before,{'P-rock_octopus':'1ターンに1回。自分のターンに、自分になかまがあり、準備枠にカードが2枚以上ある場合、時1を払い、自分の準備枠でみにつけられているカード1枚と、それを適正にみにつけられる、今の装備先とは別の自分のキャラクター1枚を対象として発動できる。その装備を後者へつけ替える。','P-snowman':'このカードが相手の効果でこいびと枠から手札または捨て札に移動し、このカードとの交際または結婚が終了した時、自分のメインがたまごでない場合、その移動先で発動できる。山札上2枚を見て、その中から1枚を手札に加え、残りを山札の一番下に置く。'});
- const norm=c=>{const x={...c};delete x.source_sha256;if(before[x.id])x.text=before[x.id];return x;};
+ // V13 display-only candidate is checked separately by evolution-names.test.mjs; preserve this historical digest.
+ const beforeV13={"M-starfish-01":"丸いあかちゃん","M-starfish-02":"透けた小さな星","M-starfish-03":"色づく小さな星","M-starfish-04":"ふっくらした星","M-starfish-05":"金色の子ヒトデ","M-starfish-06":"ぶつぶつ子ヒトデ","M-starfish-07":"大人のヒトデ","M-starfish-08":"大きなヒトデ","M-sakura-01":"芽ぶきのたね","M-world_tree-01":"光る芽","M-world_tree-03":"小さな木","M-world_tree-07":"雲をこえる木","M-unknown-02":"ぷる","M-unknown-03":"足？","M-unknown-04":"目？","M-unknown-05":"羽？","M-unknown-06":"でっかい？","M-unknown-07":"ちっちゃい？","M-unknown-08":"点……？"};
+ const norm=c=>{const x={...c};if(beforeV13[x.id]){x.form=beforeV13[x.id];delete x.searchAliases;delete x.displayNameVersion;}delete x.source_sha256;if(before[x.id])x.text=before[x.id];return x;};
  assert.equal(Object.keys(CATALOG).length,452);
  assert.equal(createHash('sha256').update(JSON.stringify(Object.keys(CATALOG).sort().map(k=>norm(CATALOG[k])))).digest('hex'),'c866d45849130a035f298c3caa1ec16d360dfa9f131876be5947cc1bf26322bd');
 });
