@@ -1,0 +1,24 @@
+name: Home beauty V5 private comparison
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'comparisons/home-beauty-v5/**'
+      - '.github/workflows/home-beauty-v5-comparison.yml'
+permissions:
+  contents: read
+jobs:
+  private-comparison:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify regional rendering, original assets, and private packaging
+        run: node --test comparisons/home-beauty-v5/*.test.*
+      - name: Build the comparison from the official Pages asset list
+        run: node comparisons/home-beauty-v5/build.cjs "$RUNNER_TEMP/beauty-v5" --fresh
+      - name: Verify the generated comparison can load all renderers
+        run: node --input-type=module -e 'import(process.argv[1])' "$RUNNER_TEMP/beauty-v5/game/beauty/paint.mjs"
