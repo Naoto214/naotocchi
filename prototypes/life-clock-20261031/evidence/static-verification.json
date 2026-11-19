@@ -1,0 +1,95 @@
+{
+  "base": "7c1f18c77b902d06159157899c36104e5d8c4a8d",
+  "checks": [
+    {
+      "name": "Original copy is byte-identical to production PNG",
+      "pass": true
+    },
+    {
+      "name": "Actual production hidden renderer shares one back for null, normal, rare and special hidden input",
+      "pass": true
+    },
+    {
+      "name": "All 15 design/palette combinations use exactly 12 ordered numbers, 60 ticks and 3 equal round markers",
+      "pass": true
+    },
+    {
+      "name": "AB markers sit outside numbers; original four retain their geometry",
+      "pass": true
+    },
+    {
+      "name": "Game example, coincidence and independent growth geometry",
+      "pass": true
+    },
+    {
+      "name": "Ordinary clock advances hour hand with minute and second",
+      "pass": true
+    },
+    {
+      "name": "No persistent game storage, external module or game engine import",
+      "pass": true
+    },
+    {
+      "name": "All existing tracked repository paths match baseline",
+      "pass": true
+    }
+  ],
+  "scope": "Isolated design prototype; no full game regression needed because existing files must be byte-identical.",
+  "assets": [
+    {
+      "file": "approved-reference.png",
+      "bytes": 3102795,
+      "sha256": "8b41de17d09f9ce872c699e2743713f1e5d14cdaa6ef4c6c650d6dc8b99f1205"
+    },
+    {
+      "file": "concept-A.png",
+      "bytes": 2865742,
+      "sha256": "423e2845f3ee1bbcb6451f21e09db9425d1acbc5c4532f4d0f69e437ce7b2033"
+    },
+    {
+      "file": "concept-AB.png",
+      "bytes": 2550084,
+      "sha256": "6e882394ace89ea2dd8b7ab7459b019426dfc1a6a4ea4c793503a211463584dd"
+    },
+    {
+      "file": "concept-B.png",
+      "bytes": 2772234,
+      "sha256": "6fc444a493272b1dd288410732ff2a49a1baab8366bd15bf0329a02d56f4f3b9"
+    },
+    {
+      "file": "concept-C.png",
+      "bytes": 2541553,
+      "sha256": "535bc33dc72c9593b3ef81270e9ea8f9b1f129dd7ca84bc16eb01ecaec6d6403"
+    },
+    {
+      "file": "concept-D.png",
+      "bytes": 2665253,
+      "sha256": "661001d5f11a06149ba839964372acb5f27db9e0ac8f0490a0352552f4d4d6d9"
+    },
+    {
+      "file": "four-designs.jpg",
+      "bytes": 122749,
+      "sha256": "4743e266d89c922d734eb6e13976e2c2fcec6e67eb226aa94bfb33d863f06e33"
+    },
+    {
+      "file": "game-use.jpg",
+      "bytes": 122049,
+      "sha256": "8745a8a1a5b578ddd4f3107e312189909c424acbf172c0f50f6fbc0701767489"
+    },
+    {
+      "file": "normal-interior.png",
+      "bytes": 2535153,
+      "sha256": "750187011559b9a35dc21e726642be4eb332ebbd1fea8986e8fca175f3c1e8d3"
+    },
+    {
+      "file": "official-card-back.png",
+      "bytes": 2600292,
+      "sha256": "028114e02034a5c5d84a0ace2c97babb92363e19eed6249f87cc591897189872"
+    },
+    {
+      "file": "originals-comparison.jpg",
+      "bytes": 168684,
+      "sha256": "d4bdf99ada7cc0e11845b6c70e50aa531c5f07a05f630f45d0e2f881d7bf2d85"
+    }
+  ]
+}
