@@ -45,5 +45,5 @@ export class DeckLibrary{
  }
 }
 export function filterCards({query='',type='',attribute='',species='',stage=''}={}){
- const q=query.trim().toLowerCase();return Object.values(CARDS).filter(c=>(!type||c.type===type)&&(!attribute||c.attribute===attribute)&&(!species||c.species===species)&&(!stage||String(c.stage)===stage)&&(!q||`${c.id} ${c.name} ${c.form??''} ${c.text}`.toLowerCase().includes(q)));
+ const q=query.trim().toLowerCase();return Object.values(CARDS).filter(c=>(!type||c.type===type)&&(!attribute||c.attribute===attribute)&&(!species||c.species===species)&&(!stage||String(c.stage)===stage)&&(!q||`${c.id} ${c.name} ${c.form??''} ${(c.searchAliases??[]).join(' ')} ${c.text}`.toLowerCase().includes(q)));
 }

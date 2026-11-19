@@ -1,0 +1,122 @@
+{
+  "version": "v13-20261119-draft",
+  "status": "candidate; owner approval pending, especially starfish stages 6/8",
+  "cards": {
+    "M-starfish-01": {
+      "displayName": "浮かぶあかちゃん",
+      "searchAliases": [
+        "丸いあかちゃん",
+        "浮遊幼生"
+      ]
+    },
+    "M-starfish-02": {
+      "displayName": "透けたあかちゃん",
+      "searchAliases": [
+        "透けた小さな星",
+        "後期浮遊幼生"
+      ]
+    },
+    "M-starfish-03": {
+      "displayName": "色づく小さな星",
+      "searchAliases": [
+        "着底・変態期"
+      ]
+    },
+    "M-starfish-04": {
+      "displayName": "ふっくらした星",
+      "searchAliases": [
+        "変態後の稚ヒトデ"
+      ]
+    },
+    "M-starfish-05": {
+      "displayName": "金色の子ヒトデ",
+      "searchAliases": [
+        "小型の稚ヒトデ"
+      ]
+    },
+    "M-starfish-06": {
+      "displayName": "若いヒトデ",
+      "searchAliases": [
+        "ぶつぶつ子ヒトデ"
+      ]
+    },
+    "M-starfish-07": {
+      "displayName": "大人のヒトデ",
+      "searchAliases": [
+        "成熟したヒトデ"
+      ]
+    },
+    "M-starfish-08": {
+      "displayName": "長生きしたヒトデ",
+      "searchAliases": [
+        "大きなヒトデ"
+      ]
+    },
+    "M-sakura-01": {
+      "displayName": "芽ぶきのたね",
+      "searchAliases": [
+        "芽ぶきのサクラ"
+      ]
+    },
+    "M-world_tree-01": {
+      "displayName": "光るたね",
+      "searchAliases": [
+        "光る芽"
+      ]
+    },
+    "M-world_tree-03": {
+      "displayName": "若い木",
+      "searchAliases": [
+        "小さな木"
+      ]
+    },
+    "M-world_tree-07": {
+      "displayName": "天にのびる木",
+      "searchAliases": [
+        "雲をこえる木"
+      ]
+    },
+    "M-unknown-02": {
+      "displayName": "ぷるたま",
+      "searchAliases": [
+        "ぷる"
+      ]
+    },
+    "M-unknown-03": {
+      "displayName": "あしつきたま",
+      "searchAliases": [
+        "足？"
+      ]
+    },
+    "M-unknown-04": {
+      "displayName": "ふたつぶたま",
+      "searchAliases": [
+        "目？"
+      ]
+    },
+    "M-unknown-05": {
+      "displayName": "はねつきたま",
+      "searchAliases": [
+        "羽？"
+      ]
+    },
+    "M-unknown-06": {
+      "displayName": "おおたま",
+      "searchAliases": [
+        "でっかい？"
+      ]
+    },
+    "M-unknown-07": {
+      "displayName": "ちいさなたま",
+      "searchAliases": [
+        "ちっちゃい？"
+      ]
+    },
+    "M-unknown-08": {
+      "displayName": "もどりの点",
+      "searchAliases": [
+        "点……？"
+      ]
+    }
+  }
+}

@@ -4579,7 +4579,11 @@ export const CATALOG = {
     "power": 1,
     "wisdom": 3,
     "attribute": "くさ",
-    "form": "芽ぶきのたね"
+    "form": "芽ぶきのたね",
+    "searchAliases": [
+      "芽ぶきのサクラ"
+    ],
+    "displayNameVersion": "v13-20261119-draft"
   },
   "M-sakura-02": {
     "id": "M-sakura-02",
@@ -5091,7 +5095,12 @@ export const CATALOG = {
     "power": 2,
     "wisdom": 2,
     "attribute": "うみ",
-    "form": "丸いあかちゃん"
+    "form": "浮かぶあかちゃん",
+    "searchAliases": [
+      "丸いあかちゃん",
+      "浮遊幼生"
+    ],
+    "displayNameVersion": "v13-20261119-draft"
   },
   "M-starfish-02": {
     "id": "M-starfish-02",
@@ -5107,7 +5116,12 @@ export const CATALOG = {
     "power": 3,
     "wisdom": 3,
     "attribute": "うみ",
-    "form": "透けた小さな星"
+    "form": "透けたあかちゃん",
+    "searchAliases": [
+      "透けた小さな星",
+      "後期浮遊幼生"
+    ],
+    "displayNameVersion": "v13-20261119-draft"
   },
   "M-starfish-03": {
     "id": "M-starfish-03",
@@ -5123,7 +5137,11 @@ export const CATALOG = {
     "power": 4,
     "wisdom": 4,
     "attribute": "うみ",
-    "form": "色づく小さな星"
+    "form": "色づく小さな星",
+    "searchAliases": [
+      "着底・変態期"
+    ],
+    "displayNameVersion": "v13-20261119-draft"
   },
   "M-starfish-04": {
     "id": "M-starfish-04",
@@ -5139,7 +5157,11 @@ export const CATALOG = {
     "power": 5,
     "wisdom": 4,
     "attribute": "うみ",
-    "form": "ふっくらした星"
+    "form": "ふっくらした星",
+    "searchAliases": [
+      "変態後の稚ヒトデ"
+    ],
+    "displayNameVersion": "v13-20261119-draft"
   },
   "M-starfish-05": {
     "id": "M-starfish-05",
@@ -5155,7 +5177,11 @@ export const CATALOG = {
     "power": 6,
     "wisdom": 5,
     "attribute": "うみ",
-    "form": "金色の子ヒトデ"
+    "form": "金色の子ヒトデ",
+    "searchAliases": [
+      "小型の稚ヒトデ"
+    ],
+    "displayNameVersion": "v13-20261119-draft"
   },
   "M-starfish-06": {
     "id": "M-starfish-06",
@@ -5171,7 +5197,11 @@ export const CATALOG = {
     "power": 6,
     "wisdom": 6,
     "attribute": "うみ",
-    "form": "ぶつぶつ子ヒトデ"
+    "form": "若いヒトデ",
+    "searchAliases": [
+      "ぶつぶつ子ヒトデ"
+    ],
+    "displayNameVersion": "v13-20261119-draft"
   },
   "M-starfish-07": {
     "id": "M-starfish-07",
@@ -5187,7 +5217,11 @@ export const CATALOG = {
     "power": 7,
     "wisdom": 6,
     "attribute": "うみ",
-    "form": "大人のヒトデ"
+    "form": "大人のヒトデ",
+    "searchAliases": [
+      "成熟したヒトデ"
+    ],
+    "displayNameVersion": "v13-20261119-draft"
   },
   "M-starfish-08": {
     "id": "M-starfish-08",
@@ -5203,7 +5237,11 @@ export const CATALOG = {
     "power": 6,
     "wisdom": 7,
     "attribute": "うみ",
-    "form": "大きなヒトデ"
+    "form": "長生きしたヒトデ",
+    "searchAliases": [
+      "大きなヒトデ"
+    ],
+    "displayNameVersion": "v13-20261119-draft"
   },
   "M-turtle-01": {
     "id": "M-turtle-01",
@@ -5363,7 +5401,11 @@ export const CATALOG = {
     "power": 4,
     "wisdom": 2,
     "attribute": "ふしぎ",
-    "form": "ぷる"
+    "form": "ぷるたま",
+    "searchAliases": [
+      "ぷる"
+    ],
+    "displayNameVersion": "v13-20261119-draft"
   },
   "M-unknown-03": {
     "id": "M-unknown-03",
@@ -5379,7 +5421,11 @@ export const CATALOG = {
     "power": 3,
     "wisdom": 6,
     "attribute": "ふしぎ",
-    "form": "足？"
+    "form": "あしつきたま",
+    "searchAliases": [
+      "足？"
+    ],
+    "displayNameVersion": "v13-20261119-draft"
   },
   "M-unknown-04": {
     "id": "M-unknown-04",
@@ -5395,7 +5441,11 @@ export const CATALOG = {
     "power": 2,
     "wisdom": 8,
     "attribute": "ふしぎ",
-    "form": "目？"
+    "form": "ふたつぶたま",
+    "searchAliases": [
+      "目？"
+    ],
+    "displayNameVersion": "v13-20261119-draft"
   },
   "M-unknown-05": {
     "id": "M-unknown-05",
@@ -5411,7 +5461,11 @@ export const CATALOG = {
     "power": 7,
     "wisdom": 4,
     "attribute": "ふしぎ",
-    "form": "羽？"
+    "form": "はねつきたま",
+    "searchAliases": [
+      "羽？"
+    ],
+    "displayNameVersion": "v13-20261119-draft"
   },
   "M-unknown-06": {
     "id": "M-unknown-06",
@@ -5427,7 +5481,11 @@ export const CATALOG = {
     "power": 10,
     "wisdom": 3,
     "attribute": "ふしぎ",
-    "form": "でっかい？"
+    "form": "おおたま",
+    "searchAliases": [
+      "でっかい？"
+    ],
+    "displayNameVersion": "v13-20261119-draft"
   },
   "M-unknown-07": {
     "id": "M-unknown-07",
@@ -5443,7 +5501,11 @@ export const CATALOG = {
     "power": 1,
     "wisdom": 10,
     "attribute": "ふしぎ",
-    "form": "ちっちゃい？"
+    "form": "ちいさなたま",
+    "searchAliases": [
+      "ちっちゃい？"
+    ],
+    "displayNameVersion": "v13-20261119-draft"
   },
   "M-unknown-08": {
     "id": "M-unknown-08",
@@ -5459,7 +5521,11 @@ export const CATALOG = {
     "power": 5,
     "wisdom": 5,
     "attribute": "ふしぎ",
-    "form": "点……？"
+    "form": "もどりの点",
+    "searchAliases": [
+      "点……？"
+    ],
+    "displayNameVersion": "v13-20261119-draft"
   },
   "M-venus_flytrap-01": {
     "id": "M-venus_flytrap-01",
@@ -5731,7 +5797,11 @@ export const CATALOG = {
     "power": 1,
     "wisdom": 4,
     "attribute": "くさ",
-    "form": "光る芽"
+    "form": "光るたね",
+    "searchAliases": [
+      "光る芽"
+    ],
+    "displayNameVersion": "v13-20261119-draft"
   },
   "M-world_tree-02": {
     "id": "M-world_tree-02",
@@ -5763,7 +5833,11 @@ export const CATALOG = {
     "power": 3,
     "wisdom": 6,
     "attribute": "くさ",
-    "form": "小さな木"
+    "form": "若い木",
+    "searchAliases": [
+      "小さな木"
+    ],
+    "displayNameVersion": "v13-20261119-draft"
   },
   "M-world_tree-04": {
     "id": "M-world_tree-04",
@@ -5827,7 +5901,11 @@ export const CATALOG = {
     "power": 6,
     "wisdom": 9,
     "attribute": "くさ",
-    "form": "雲をこえる木"
+    "form": "天にのびる木",
+    "searchAliases": [
+      "雲をこえる木"
+    ],
+    "displayNameVersion": "v13-20261119-draft"
   },
   "M-world_tree-08": {
     "id": "M-world_tree-08",

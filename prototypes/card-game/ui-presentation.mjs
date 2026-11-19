@@ -35,7 +35,7 @@ const ornament=`<svg class="botanical" viewBox="0 0 100 150" preserveAspectRatio
 
 // Presentation-only line breaks; canonical names, IDs and art stay untouched.
 // Seven full-width glyphs fit the shared main-title band. Longer names have reviewed breaks.
-const MAIN_TITLE_LINES = new Map(`丸い|あかちゃん
+const MAIN_TITLE_LINES = new Map(`浮かぶ|あかちゃん
 巣作り|アリジゴク
 大きな|アリジゴク
 まゆの中の|さなぎ
@@ -55,6 +55,7 @@ const MAIN_TITLE_LINES = new Map(`丸い|あかちゃん
 おとしよりの|ねこ
 ぬけがらをぬぐ|セミ
 透けた|あかちゃん
+長生きした|ヒトデ
 メスへ変わる|途中
 群れの|リーダーのメス
 小さな|サンゴの森
@@ -97,7 +98,6 @@ const MAIN_TITLE_LINES = new Map(`丸い|あかちゃん
 うまれたての|さけ
 出たての|クワガタ
 りっぱな|クワガタ
-ぶつぶつ|子ヒトデ
 うまれたての|かめ
 若葉の|ハエトリグサ
 花咲く|ハエトリグサ`.split('\n').map(row=>{const lines=row.split('|');return [lines.join(''),lines];}));

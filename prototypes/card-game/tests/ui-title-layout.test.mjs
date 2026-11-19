@@ -7,11 +7,11 @@ const title=(c,opts)=>{
  const html=cardMarkup(c,opts),markup=html.match(/<strong class="card-title">([\s\S]*?)<\/strong>/)[1];
  return {lines:[...markup.matchAll(/<span>([^<]*)<\/span>/g)].map(m=>m[1]),text:markup.replace(/<[^>]*>/g,''),font:html.match(/--title-size:([^";]+)/)[1]};
 };
-test('round baby uses the approved two semantic lines in every face size',()=>{
+test('floating baby candidate uses two semantic lines in every face size',()=>{
  for(const opts of [{},{compact:true},{detail:true}]){
   const t=title(CARDS['M-starfish-01'],opts);
-  assert.deepEqual(t.lines,['丸い','あかちゃん']);
-  assert.equal(t.text,'丸いあかちゃん');
+  assert.deepEqual(t.lines,['浮かぶ','あかちゃん']);
+  assert.equal(t.text,'浮かぶあかちゃん');
  }
 });
 test('all main titles retain exact text with one or two non-orphan lines and a uniform font token',()=>{
