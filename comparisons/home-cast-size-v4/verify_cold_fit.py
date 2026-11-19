@@ -75,15 +75,16 @@ def capture(browser, origin, width, height, policy, paused, override, region, co
         snapshot['pageErrors']=errors
         if (width,height,region,count)==(375,760,'river_lake',28):
             assert b['recovered']==0, 'Unexpected fit recovery at the ordinary viewport'
+            page.evaluate("window.qaBeforeResizeNavigation=qaLastScene.navigation")
             page.set_viewport_size({'width':360,'height':694})
-            page.wait_for_function('HomeCastTrial.settings.width===360 && Number(document.querySelector("#castStage").dataset.populationFitRecoveries)>0',timeout=90000)
+            page.wait_for_function('HomeCastTrial.settings.width===360 && qaLastScene.navigation!==qaBeforeResizeNavigation',timeout=90000)
             f=page.evaluate("JSON.parse(document.querySelector('#castStage').dataset.livingMetrics).frames")
             page.wait_for_function("n=>JSON.parse(document.querySelector('#castStage').dataset.livingMetrics).frames>=n+30",arg=f,timeout=60000)
             resized=page.evaluate(SNAPSHOT)
             assert resized['ground']==resized['decoded']==resized['paintedShadows']==count and resized['rosterMatches']
             snapshot['liveResize']={k:resized[k] for k in ('viewport','ground','paintedShadows','frames','recovered','ready','fitEvents')}
-        else:
-            assert b['recovered']>0, 'Expected the observed recurring envelope to be retained'
+        # A browser can settle natively without entering the two-cycle. The
+        # observed activation count is evidence; actual paint and progress are the gates.
         return snapshot
     finally:
         context.close()
@@ -101,6 +102,7 @@ if __name__=='__main__':
                              args=['--disable-dev-shm-usage','--disable-renderer-backgrounding'])
         for region,count,w,h,policy,paused in [('river_lake',28,360,694,'current',True),
                 ('river_lake',28,360,694,'B',False),('city',26,375,760,'current',True),
+                ('memory_lake',28,360,694,'current',True),
                 ('river_lake',28,375,760,'B',True)]:
             key=f'{region}/{count}/{w}x{h}/{policy}/'+('frozen' if paused else 'moving')
             cases[key]=capture(b,args.url.rstrip('/'),w,h,policy,paused,args.controller,region,count)

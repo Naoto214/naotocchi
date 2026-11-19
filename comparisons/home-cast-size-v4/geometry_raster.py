@@ -2,6 +2,7 @@
 import argparse
 from datetime import datetime,timezone
 import importlib.util
+import hashlib
 import json
 from pathlib import Path
 import os
@@ -22,12 +23,16 @@ def run(a):
         kw={'executable_path':os.getenv('CHROMIUM_PATH','/usr/bin/chromium'),'args':['--no-sandbox']} if a.engine=='chromium' else {}
         if a.engine=='webkit' and os.getenv('WEBKIT_PATH'):kw={'executable_path':os.environ['WEBKIT_PATH']}
         b=getattr(pw,a.engine).launch(**kw)
-        if out['cases'] and (out['engine']!=a.engine or out['browser']!=b.version):raise ValueError('Use separate files per browser version')
-        out.update(browser=b.version,engine=a.engine)
+        controller=(a.controller or a.game/'home-production-diorama-population.js').read_bytes()
+        source=hashlib.sha256(controller).hexdigest()
+        if out['cases'] and (out['engine']!=a.engine or out['browser']!=b.version or out.get('controllerSha256')!=source):
+            raise ValueError('Use a separate file per browser and runtime version')
+        out.update(browser=b.version,engine=a.engine,controllerSha256=source)
         for recipe in a.fixture:
             if all(recipe+'/'+p in out['cases'] for p in a.policies):continue
             w,reg,n,layout=recipe.split('/');w=int(w);n=int(n)
             ctx=b.new_context(viewport={'width':w,'height':HEIGHTS[w]-52},has_touch=True,is_mobile=True,device_scale_factor=2)
+            ctx.route('**/home-production-diorama-population.js*',lambda route:route.fulfill(body=controller,content_type='application/javascript'))
             ctx.add_init_script(path=V3/'geometry_capture.js')
             # Cancel the already scheduled game paints after its own ready gate.
             # Playwright screenshot can still schedule its own fresh RAF callbacks.
@@ -78,7 +83,7 @@ def run(a):
                       100*sc[1]/sc[3],nonzero(ordered['pet']),nonzero(ordered['partner'])]
                 result=[actual['hero'],actual['partner'],actual['companions'][1],actual['pairs'],actual['sharedPct'],actual['heroExposedPct'],actual['partnerExposedPct']]
                 k=recipe+'/'+policy;out['cases'][k]={'raster':result,'projected':[round(x,4) for x in proj],'frameDrift':delta,
-                      'settings':page.evaluate('HomeCastTrial.settings'),'nativeFeet':[p[1:3] for p in initial]}
+                      'settings':page.evaluate('HomeCastTrial.settings'),'fitRecoveries':page.evaluate("Number(document.querySelector('#castStage').dataset.populationFitRecoveries||0)"),'nativeFeet':[p[1:3] for p in initial]}
                 print(a.engine,k,result,flush=True)
                 out['columns']=['heroInkHeight','partnerInkHeight','compMedianInkHeight','pairs','overlapPct','heroVisiblePct','partnerVisiblePct']
                 a.out.parent.mkdir(parents=True,exist_ok=True);a.out.write_text(json.dumps(out,separators=(',',':'))+'\n')
@@ -87,5 +92,5 @@ def run(a):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('url');p.add_argument('game',type=Path);p.add_argument('out',type=Path)
-    p.add_argument('--engine',choices=['chromium','webkit'],default='chromium');p.add_argument('--fixture',nargs='+',default=['348/forest/19/fixed','375/home/28/optimized'])
+    p.add_argument('--controller',type=Path);p.add_argument('--engine',choices=['chromium','webkit'],default='chromium');p.add_argument('--fixture',nargs='+',default=['348/forest/19/fixed','375/home/28/optimized'])
     p.add_argument('--policies',nargs='+',choices=['current','A','B','C'],default=['B','C']);run(p.parse_args())

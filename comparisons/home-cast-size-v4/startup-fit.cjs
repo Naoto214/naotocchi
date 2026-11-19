@@ -5,9 +5,10 @@ function createOpeningFit(onRetain = () => {}) {
 
   function containsBands(outer, inner) {
     if (!outer || !inner) return outer === inner;
-    return outer.length === inner.length && inner.every(([y, up, down], index) => {
-      const row = outer[index];
-      return row[0] === y && row[1] >= up && row[2] >= down;
+    const rowsByHeight = new Map(outer.map(row => [row[0], row]));
+    return inner.every(([y, up, down]) => {
+      const row = rowsByHeight.get(y);
+      return row && row[1] >= up && row[2] >= down;
     });
   }
   function contains(outer, inner) {

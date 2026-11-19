@@ -10,7 +10,7 @@ from pathlib import Path
 from urllib.parse import urlencode
 
 from playwright.async_api import async_playwright
-from measure_performance import HEIGHT, POLICY, ROOT, expected_scale, save, v3
+from measure_performance import HEIGHT, POLICY, ROOT, PresentationTimeout, expected_scale, repeat_on_timeout, save, v3
 
 V3 = ROOT.parent / "home-cast-size-v3"
 spec=importlib.util.spec_from_file_location("v3_input_routes",V3/"verify_interact_routes.py")
@@ -44,7 +44,7 @@ AIM="""i=>{
  const residents=HomeCastTrial.inspect(), a=residents[i],owner=document.querySelector('[data-diorama-actor="'+CSS.escape(a.key)+'"]');
  const pts=qaTapPoints(owner),hits=pts.map(([x,y])=>v4Hit(x,y)),j=Math.max(0,hits.indexOf(a.key));
  const start=pts[j],right=a.foot.x<=innerWidth/2;
- return {key:a.key,role:a.kind,viewport:[innerWidth,innerHeight],settings:HomeCastTrial.settings,
+ return {key:a.key,role:a.kind,viewport:[innerWidth,innerHeight],fitRecoveries:Number(document.querySelector('#castStage').dataset.populationFitRecoveries||0),settings:HomeCastTrial.settings,
    origin:[a.x,a.y],foot:[a.foot.x,a.foot.y],start,hits,aimPoint:j,
    target:[a.foot.x+(right?12:-12),a.foot.y],projection:NaotocchiHomeViewport.residentPresentation().intentScale||null};
 }"""
@@ -116,7 +116,7 @@ async def exercise(browser,args,index,policy,layout,mode,hashes):
             await subject.wait_for_function("n=>window.HomeCastTrial?.ready && HomeCastTrial.inspect().length===n && typeof window.v4CanStart==='function' && HomeBeauty.paintRect?.width",arg=args.count,polling=250,timeout=args.startup_timeout)
         except Exception:
             status=await subject.evaluate("()=>({ready:window.HomeCastTrial?.ready,pop:window.HomeCastTrial?.inspect().length,hook:typeof window.v4CanStart,env:window.HomeBeauty?.paintRect,script:[...document.scripts].map(n=>n.src).filter(x=>x.includes('population'))})")
-            raise RuntimeError(f"Opening failed: {status}, errors={errors}, hash files={list(hashes)}")
+            raise PresentationTimeout(f"Opening failed: {status}, errors={errors}, hash files={list(hashes)}")
         await subject.evaluate("Promise.all([...document.querySelectorAll('#castStage img.character-asset')].map(img=>img.decode()))")
         await subject.evaluate(HIT)
         await subject.evaluate(STAMP)
@@ -165,6 +165,8 @@ async def run(args):
     data=json.loads(args.out.read_text()) if args.out.exists() else {
         "engine":args.engine,"width":args.width,"height":HEIGHT[args.width]-52,"count":args.count,
         "ownerShell":args.owner,"region":args.region,"curve":args.curve,"dpr":2,"rows":{},"sources":{}}
+    for row in data["rows"].values():
+        row.setdefault("sourceHashes",dict(data["sources"]))
     assert bool(data.get("ownerShell"))==args.owner, "Use separate files for the game and owner shell"
     for key in ("engine","width","count","region","curve"):
         assert data[key]==getattr(args,key),key
@@ -181,7 +183,10 @@ async def run(args):
                     key=f"{policy}/{layout}/{i}/{mode}"
                     if key in data["rows"]:continue
                     print("Opening",args.region,key,flush=True)
-                    row=await exercise(browser,args,i,policy,layout,mode,data["sources"])
+                    hashes={}
+                    row=await repeat_on_timeout(lambda: exercise(browser,args,i,policy,layout,mode,hashes))
+                    row["sourceHashes"]=hashes
+                    data["sources"]=hashes
                     data["rows"][key]=row
                     save(args.out,data)
                     print(args.region,key,row["key"],row["selectedIntended"],row["routeAcceptedOnRelease"],round(row["observed"]["displacement"],2),flush=True)

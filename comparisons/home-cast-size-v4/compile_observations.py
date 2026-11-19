@@ -75,7 +75,7 @@ def group_input(rows):
 
 def csv_write(path,rows):
     with path.open("w",newline="") as f:
-        writer=csv.DictWriter(f,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
+        writer=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator="\n");writer.writeheader();writer.writerows(rows)
 
 def detail(row):
     s=row["sample"];p=s["phases"]
@@ -183,13 +183,28 @@ def report_input(inputs):
             "同じ28体・B・390pxで、現行席の個別試験で狙った全員を、配置調整の地域試験からも同じ住民キーで抽出した。どちらも新規起動のゲームに同じ方式で指を入れた。固定は共有Linux Chromium、配置調整はCIのChromeで、時刻やレイテンシーには実行環境の差が含まれる。","",
             "| Bの配置 | 本人タップ | ドラッグ開始で本人 | 本人へ発行 | V5受理 | 着地点4px以内 | 移動 | 本人選択まで平均 / p95 ms |",
             "|---|---:|---:|---:|---:|---:|---:|---:|",same_role_row(fixed,"固定"),same_role_row(optimized,"配置調整"),""]
-    output+=["選択時間はポインターのイベント時刻からゲームが対象を選ぶまで。通信、OSのタッチセンサー、液晶の応答は計測外。各ドラッグでは指を入れる直前にV5と同じ経路計算を副作用なしでも照合した。経路が計算できることと、指で本人まで指示が届き、歩くことを別々に集計している。","",
-        "[地域・役別のCSV](evidence/input-regions.csv) ／ [各住民のポインターと経路の記録](https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/v4/performance-input-regions.tar.gz)"]
+    output+=["選択時間はポインターのイベント時刻からゲームが対象を選ぶまで。通信、OSのタッチセンサー、液晶の応答は計測外。各ドラッグでは指を入れる直前にV5と同じ経路計算を副作用なしでも照合した。経路が計算できることと、指で本人まで指示が届き、歩くことを別々に集計している。",""]
+    if inputs:
+        output.append("[地域・役別のCSV](evidence/input-regions.csv) ／ [各住民のポインターと経路の記録](https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/v4/performance-input-regions.tar.gz)")
     (ROOT/"INTERACTION.md").write_text("\n".join(output)+"\n")
 
 def report_performance(perf):
     out=["# 住民数と画面幅を変えたときの処理時間","",
          "実寸の縦画面から試遊バー52 CSS pxを引いたゲームをDPR 2で起動し、秋・晴れ・昼の同じ世帯で計測した。V5の住民更新、経路探索、住民・装備・影のDOM反映、背景Canvas描画の同期時間を測った。経路探索は住民更新の内数、自然演出は背景の内数。同期時間にはブラウザーが処理を再開するまでの待ちが入りうる。rAF Hzはブラウザーから返ったアニメーションコールバック頻度。実機iPhoneの液晶FPS、GPU完了時刻は今回の測定範囲外。",""]
+    quiet={}
+    for f in EVIDENCE.glob("perf-quiet-*.json"):
+        d=json.loads(f.read_text())
+        width_rows={r["scene"][3]:r for r in d["rows"].values() if r["scene"][:3]==["river_lake",375,28] and r["scene"][5]=="fixed"}
+        if set(width_rows)==set(("current","A","B","C")):quiet[d["engine"]]=width_rows
+    if quiet:
+        source_list=sorted({r["sourceHashes"]["home-production-diorama-population.js"][:12] for g in quiet.values() for r in g.values()})
+        out+=[f'この低負荷4候補比較は起動時のフィットを修正したコントローラー {", ".join(source_list)} で行った。地域試験のコントローラー識別子と後続の再試行は別途記録した。',""]
+        out+=["## みずべ・375px・28体の低負荷比較","",
+              "同じ初期位置から再生した。各セルは10秒以上の試行のrAF Hz / 最大間隔 ms。Chromiumはタイムラインの記録も有効。","","| Linuxブラウザー | 現行 | A +10% | B +15% | C +20% |","|---|---:|---:|---:|---:|"]
+        for name,group in sorted(quiet.items()):
+            cells=[f'{group[p]["sample"]["rafHz"]:.1f} / {group[p]["sample"]["max"]:.0f}' for p in ("current","A","B","C")]
+            out.append("| "+{"chromium":"Chromium","webkit":"WPE WebKit"}[name]+" | "+" | ".join(cells)+" |")
+        out+=["","経路探索を含む同期更新に時間がかかると、同じ人数・同じ倍率でも長い停止が出る。各倍率1試行の数値は実機でのフレームレート保証には使えない。",""]
     if perf:
         focused={p:[r for d in perf.values() for r in d["rows"].values() if r["scene"][1:6]==[390,28,p,"linear","fixed"]] for p in ("current","A","B","C")}
         if all(focused.values()):
@@ -221,6 +236,8 @@ def report_performance(perf):
                     dims=all(a[1:3]==b[1:3] for a,b in pairs)
                     delta=max(abs(a[i]-b[i]) for a,b in pairs for i in (3,4))
                     matches+=1;dim_exact+=dims;pose_exact+=delta<1e-6;max_diff=max(max_diff,delta)
+        ids=sorted({row["sourceHashes"]["home-production-diorama-population.js"][:12] for d in perf.values() for row in d["rows"].values()})
+        out+=[f'地域試験のコントローラーSHA-256先頭12桁は {", ".join(ids)}。',""]
         out+=[f'28体の固定配置で、同地域・同画面幅の現行とA/B/Cを{matches}組照合した。住民キーとモデル寸法は{dim_exact}/{matches}組、全員の初期足座標は{pose_exact}/{matches}組で一致。最大座標差は{max_diff:.4f}モデル単位だった。',""]
         out.extend(["## 13地域の28体・390px幅","",
                     "各セルはrAF Hz / 最大間隔 ms。GitHub Actionsの新規Chromeでそれぞれ4秒以上、表下のCSVには375・390・430pxの両配置、320×516・344×682・360×728 CSS px（ゲーム実寸）の固定配置、19〜27体各人数の現行・B段階・B線形と18体以下などの対照も収録した。4秒の短い窓で一度も経路探索が動かなかった場合がある。",
@@ -253,12 +270,12 @@ def report_performance(perf):
             plan=sum(ms for name,ms in events if name=="plan")
             out+=[f"地域試験の最大間隔は{JP[reg]}・{w}px・{n}体・{p}・{curve}・{l}で{hitch['ms']/1000:.2f}秒。重なった50ms以上の同期区間は住民更新{model:.0f}ms、そのうち経路計画{plan:.0f}msだった。端点をまたぐ計測区間があるので、これらはフレーム長の厳密な内訳ではない。",""]
     out+=["## 長めの実行と停止の内訳","",
-          "Linux共有ホストのChromiumとWPE WebKitで測定した。「共有」は視認性など他の試験も実行中で、4コア相当のホストに対して負荷平均35に達した。「低負荷」は開始前10秒のホスト全体のCPU使用量が1コア未満になってから単一ブラウザーを起動した。試行中の負荷は生データに収録。画面更新、OSの負荷、経路探索の発生は試行ごとに異なる。『歩行秒』は1体以上がそのステップで歩いたモデル時間。住民/表示/背景は各呼び出しの平均ms、経路は回数 / 1回平均ms。","","| 条件・地域・エンジン・ゲーム実寸・人数・候補・配置 | 実秒 | rAF Hz | p95 / 最大 ms | 250ms以上 | 住民更新 回/実秒 | 歩行秒 / モデル秒 | 住民 / 表示 / 背景 ms | 経路 回 / ms |","|---|---:|---:|---:|---:|---:|---:|---:|---:|"]
+          "Linux共有ホストのChromiumとWPE WebKitで測定した。「初期版・共有」は最終版の起動時フィット修正前に視認性など他の試験も実行中で、4コア相当のホストに対して負荷平均35に達した。「低負荷」は開始前10秒のホスト全体のCPU使用量が1コア未満になってから単一ブラウザーを起動した。低負荷試行では開始時と終了時のホスト負荷も保存した。画面更新、OSの負荷、経路探索の発生は試行ごとに異なる。『歩行秒』は1体以上がそのステップで歩いたモデル時間。住民/表示/背景は各呼び出しの平均ms、経路は回数 / 1回平均ms。","","| 条件・地域・エンジン・ゲーム実寸・人数・候補・配置 | 実秒 | rAF Hz | p95 / 最大 ms | 250ms以上 | 住民更新 回/実秒 | 歩行秒 / モデル秒 | 住民 / 表示 / 背景 ms | 経路 回 / ms |","|---|---:|---:|---:|---:|---:|---:|---:|---:|"]
     for f in sorted(EVIDENCE.glob("perf-*.json")):
         d=json.loads(f.read_text())
         for r in d["rows"].values():
             region,w,n,p,curve,l,_=r["scene"];s=r["sample"]
-            condition='低負荷' if 'quiet' in f.name else '共有'
+            condition='低負荷' if 'quiet' in f.name or '-final-' in f.name else '初期版・共有'
             out.append(f'| {condition} {JP[region]} {d["engine"]} {w}×{r.get("gameViewport",[w,HEIGHT[w]-52])[1]} {n}体 {p} {l} | {s["seconds"]:.1f} | {detail(r)} |')
     for f in sorted(EVIDENCE.glob("perf-social-*.json")):
         for r in json.loads(f.read_text())["rows"].values():
@@ -270,7 +287,8 @@ def report_performance(perf):
                 lines=[x for x in ss["lines"] if e["t"]-50<=x["t"]<=end]
                 pair=[next((x for x in lines if x["line"].split("\n")[0]==names.get(e[k])),None) for k in ("actor","listener")]
                 if all(pair) and pair[0]["t"]<pair[1]["t"]:matches.append(pair)
-            out+=["","## 暮らしと会話の継続","",
+            stage="最終版" if "-final-" in f.name else "起動時フィット修正前"
+            out+=["",f"## 暮らしと会話の継続（{stage}）","",
                   f'{JP[r["scene"][0]]}、{r["scene"][1]}px、{r["scene"][2]}体、{r["scene"][3]}固定を{ss["seconds"]:.1f}実秒観察。モデルは{ss["clock"]:.1f}秒進み、{sum(d>1 for _,d in ss["feet"])}/{len(ss["feet"])}体の足が1モデル単位以上移った。移動開始{ss["moves"]}、到着{events["arrive"]}、接近{events["proximity"]}、住民2体の交流{events["social"]}、異なる吹き出し表示{len(ss["lines"])}回だった。次の交流までの22秒以内に2人が順番に発言した組は{len(matches)}組。']
             if matches:
                 pair=matches[0];out+=["", " → ".join(x["line"].replace("\n","「",1)+"」" for x in pair)]
@@ -285,9 +303,10 @@ def report_performance(perf):
         for r,tr in trace_files:
             reg,w,n,p,*_=r["scene"]
             out.append(f"| {JP[reg]} {w}px {n}体 {p} | {tr['seconds']:.1f} | "+" | ".join(f"{tr['phases'][k]['totalMs']/tr['seconds']:.1f}" for k in ("Layout","Paint","RasterTask"))+" |")
-    out+=["", "各ローカル試行は同じネイティブ名簿、実寸、足元、スケール、ブラウザーのバージョン、ソースのSHA-256を保存した。固定配置は配席候補の編集前後を含む。配席表を使う配置調整は採用した表で実行する。各住民の足が1モデル単位以上動いたか、経路が発生した時刻と長いコールバック間隔が重なるかをJSONで追える。",""]
+    out+=["", "各ローカル試行は同じネイティブ名簿、実寸、足元、スケール、ブラウザーのバージョン、ソースのSHA-256を保存した。初期版の共有ホスト試行には配席候補の編集前後も含む。最終版の比較は地域試験と低負荷の試行を参照。配席表を使う配置調整は採用した表で実行する。各住民の足が1モデル単位以上動いたか、経路が発生した時刻と長いコールバック間隔が重なるかをJSONで追える。",""]
     for f in sorted(EVIDENCE.glob("perf-*.json")):
         out.append(f"- [{f.stem}](evidence/{f.name})")
+    out+=["","再計測の条件とコマンドは地域ごとのCI定義に含む。[測定ワークフロー](../../.github/workflows/home-cast-size-v4-matrix.yml) ／ [集計スクリプト](compile_observations.py)"]
     (ROOT/"PERFORMANCE.md").write_text("\n".join(out)+"\n")
 
 if __name__=="__main__":

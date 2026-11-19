@@ -60,3 +60,24 @@ test('different current camera measurements never qualify as an exact cycle', ()
     current=next;
   }
 });
+
+test('native outer samples may contain additional rows while covering every inner Y and ink extent', () => {
+  const inner=envelope(318), outer=envelope(321);
+  for (const key of ['fitVertical','vertical']) outer[key]=[[86,70,9],...outer[key],[360,90,11]];
+  function fits(candidate, required) {
+    const retain=createOpeningFit();
+    let current;
+    for (const next of [required,candidate,required,candidate]) {
+      assert.equal(retain(current,next,'lake',camera),false);
+      current=next;
+    }
+    return retain(current,required,'lake',camera);
+  }
+  assert.equal(fits(outer,inner),true);
+  for (const key of ['fitVertical','vertical']) {
+    const missing={...outer,[key]:outer[key].filter(([y])=>y!==90)};
+    const tooShort={...outer,[key]:outer[key].map(([y,up,down])=>[y,y===90?up-.001:up,down])};
+    assert.equal(fits(missing,inner),false);
+    assert.equal(fits(tooShort,inner),false);
+  }
+});

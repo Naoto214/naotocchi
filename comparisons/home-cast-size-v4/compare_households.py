@@ -73,7 +73,7 @@ def main():
         numbers.append(dict(width=width,region=region,layout=layout,policy=policy,**summarize(samples)))
     args.csv.parent.mkdir(parents=True,exist_ok=True)
     with args.csv.open('w',newline='') as out:
-        writer=csv.DictWriter(out,fieldnames=numbers[0]);writer.writeheader();writer.writerows(numbers)
+        writer=csv.DictWriter(out,fieldnames=numbers[0],lineterminator='\n');writer.writeheader();writer.writerows(numbers)
     print(f'{len(rows):,} observations verified; {len(numbers)} regional 28-resident comparisons')
     for policy in POLICIES:
         selected=[r for r in rows if r['count']=='28' and int(r['width'])>=375 and r['layout']=='optimized' and

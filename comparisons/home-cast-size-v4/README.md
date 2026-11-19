@@ -30,3 +30,5 @@ python -m http.server 8304 --bind 127.0.0.1 --directory /tmp/cast-v4
 ```
 
 [ブラウザー測定の手順と実行環境](../../.github/workflows/home-cast-size-v4-matrix.yml) ／ [既存資産と保存証拠の照合](PROTECTION.md)
+
+[5地域の比較画像](VISUAL.md) ／ [全52枚の時間帯確認](DAYPARTS.md) ／ [固定・再配置の判断](PLACEMENT.md)

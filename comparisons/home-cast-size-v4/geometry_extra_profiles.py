@@ -27,7 +27,7 @@ def summarize(args):
                 for sec,phase in zip((0,8,30),tr['phases'],strict=True):
                     gain=phase['settings'][curve+'/'+policy][0]
                     rows.append(dict(width=width,gameHeight=height,region=region,count=count,layout=layout,curve=curve,policy=policy,
-                        seconds=sec,extra=float(gain),**row(tr,phase,gain)))
+                        seconds=sec,extra=float(gain),controllerSha256=d['source']['home-production-diorama-population.js'],fitRecoveries=phase.get('populationFitRecoveries'),**row(tr,phase,gain)))
             if layout=='optimized':
                 for condition,reference in d['references'].items():
                     _,curve,policy=condition.split('/')
@@ -39,13 +39,13 @@ def summarize(args):
                 assert any(p is not None for p in tr['plan'])
                 for sec,phase in zip((0,8,30),tr['phases'],strict=True):
                     rows.append(dict(width=width,gameHeight=height,region=region,count=count,layout='optimized-at-zero-diagnostic',
-                        curve='linear',policy='current',seconds=sec,extra=0,**row(tr,phase,'0')))
+                        curve='linear',policy='current',seconds=sec,extra=0,controllerSha256=d['source']['home-production-diorama-population.js'],fitRecoveries=phase.get('populationFitRecoveries'),**row(tr,phase,'0')))
     with args.csv.open('w',newline='') as f:
-        writer=csv.DictWriter(f,fieldnames=rows[0],lineterminator='\n');writer.writeheader();writer.writerows(rows)
+        writer=csv.DictWriter(f,lineterminator="\n",fieldnames=rows[0]);writer.writeheader();writer.writerows(rows)
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('url');p.add_argument('game',type=Path);p.add_argument('root',type=Path)
-    p.add_argument('--csv',type=Path,required=True);p.add_argument('--report-only',action='store_true')
+    p.add_argument('--controller',type=Path,help='Pin a candidate controller for every profile');p.add_argument('--csv',type=Path,required=True);p.add_argument('--report-only',action='store_true')
     a=p.parse_args()
     if not a.report_only:capture(a)
     summarize(a)

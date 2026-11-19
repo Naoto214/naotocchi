@@ -10,7 +10,7 @@ import platform
 from pathlib import Path
 from urllib.parse import urlencode
 
-from playwright.async_api import async_playwright
+from playwright.async_api import TimeoutError as BrowserTimeout, async_playwright
 
 ROOT = Path(__file__).resolve().parent
 v3_path = ROOT.parent / "home-cast-size-v3" / "verify_performance.py"
@@ -48,7 +48,7 @@ SAMPLE = v3.v1.sub(SAMPLE, "distance:after.distance-before.distance,",
 SAMPLE = v3.v1.sub(SAMPLE, "const p=loadProbe,stage=", "v4Events.events.length=0;v4Events.lines.length=0;const p=loadProbe,stage=")
 
 SCENE_STATE = """()=>({
-  viewport:[innerWidth,innerHeight],layout:new URLSearchParams(location.search).get('layout'),settings:HomeCastTrial.settings,scales:['pet','partner','companion'].map(k=>HomeCastTrial.scale(k)),
+  viewport:[innerWidth,innerHeight],layout:new URLSearchParams(location.search).get('layout'),fitRecoveries:Number(document.querySelector('#castStage').dataset.populationFitRecoveries||0),settings:HomeCastTrial.settings,scales:['pet','partner','companion'].map(k=>HomeCastTrial.scale(k)),
   native:loadProbe.live.snapshot().map(a=>[a.key,a.w,a.h,a.x,a.y]),
   names:HomeCastTrial.inspect().map(a=>[a.key,a.label]),env:HomeBeauty.settings
 })"""
@@ -57,6 +57,21 @@ def host_load():
     path=Path("/sys/fs/cgroup/cpu.stat")
     cgroup={k:int(v) for k,v in (line.split() for line in path.read_text().splitlines())} if path.exists() else {}
     return {"loadAverage":os.getloadavg(),"cgroupCpu":cgroup}
+
+class PresentationTimeout(RuntimeError):
+    """The game viewport did not settle within its independent startup deadline."""
+
+async def repeat_on_timeout(operation):
+    failed=[]
+    for attempt in range(3):
+        try:
+            row=await operation()
+            row["priorTimeouts"]=failed
+            return row
+        except (PresentationTimeout,BrowserTimeout) as exc:
+            failed.append(str(exc))
+            if attempt==2:raise
+            print("Retrying fresh browser context after timeout:",failed[-1],flush=True)
 
 def key_for(scene):
     return "/".join(map(str,scene))
@@ -125,7 +140,7 @@ async def measure(browser,args,scene):
             await page.wait_for_function("n=>window.HomeCastTrial?.ready && !!loadProbe.live && HomeCastTrial.inspect().length===n && HomeBeauty.paintRect?.width",arg=n,polling=250,timeout=args.startup_timeout)
         except Exception:
             status=await page.evaluate("()=>({ready:window.HomeCastTrial?.ready,count:window.HomeCastTrial?.inspect().length,game:!!window.loadProbe?.live,paint:window.HomeBeauty?.paintRect?.width,clock:performance.now()})")
-            raise RuntimeError(f"Presentation never settled: {status}, errors={errors}, sources={list(hashes)}")
+            raise PresentationTimeout(f"Presentation never settled: {status}, errors={errors}, sources={list(hashes)}")
         await page.evaluate("Promise.all([...document.querySelectorAll('#castStage img.character-asset')].map(img=>img.decode()))")
         state=await page.evaluate(SCENE_STATE)
         assert state["viewport"]==[width,height] and state["settings"]["paused"],state
@@ -151,7 +166,7 @@ async def measure(browser,args,scene):
             assert len(trace)==1,trace
             sample["chromiumTrace"]=trace[0]
         assert sample["rows"]==n and sample["sameNodes"] and not errors,(scene,errors)
-        return {"scene":list(scene),"gameViewport":state["viewport"],"scales":state["scales"],"settings":state["settings"],"environment":state["env"],
+        return {"scene":list(scene),"gameViewport":state["viewport"],"openingFitRecoveries":state["fitRecoveries"],"scales":state["scales"],"settings":state["settings"],"environment":state["env"],
                 "opening":state["native"],"names":state["names"],"sourceHashes":hashes,"sample":sample,"errors":errors}
     finally:
         await ctx.close()
@@ -179,7 +194,7 @@ async def run(args):
             if args.trace:key+="+trace"
             if key in data["rows"]:continue
             print("Opening",key,flush=True)
-            row=await measure(browser,args,scene)
+            row=await repeat_on_timeout(lambda: measure(browser,args,scene))
             data["rows"][key]=row
             save(args.out,data)
             s=row["sample"]

@@ -72,7 +72,7 @@ def verify_source(repo, reference, head):
 
 V4_GAME_BEFORE_FIT = "5ba0ca7a051eefba377f54dd0bc05c1e7b90ca3f5cc00cea0ad26ef841bc71d3"
 CONTROLLER = "home-production-diorama-population.js"
-FIT_SHA256 = "d82c8381d48bda72192180e2da0fd76d171b00490027bfaca0d781869b03d4e0"
+FIT_SHA256 = "805d7bfdf0bb5c70109c1efd6def649cd1cdc7babc52735bfc832a2ae0abceaa"
 
 
 def reviewed_fit_insertion(controller):
