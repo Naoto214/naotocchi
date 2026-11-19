@@ -12,8 +12,8 @@ import {marriedText,LOVER_MARRIED} from '../lover-married.mjs';
 import {CHAPTERS,relatedChapter} from '../rulebook-content.mjs';
 
 const nonMain=Object.values(CARDS).filter(c=>c.type!=='main');
-const titleOf=html=>html.match(/<strong class="card-title">([\s\S]*?)<\/strong>/)[1];
-const segs=html=>[...titleOf(html).matchAll(/<span class="title-seg">([^<]*)<\/span>/g)].map(m=>m[1]);
+const titleOf=html=>html.match(/<h3 class="v8-title" data-fit>([\s\S]*?)<\/h3>/)[1];
+const segs=html=>[...titleOf(html).matchAll(/<span>([^<]*)<\/span>/g)].map(m=>m[1]);
 const unescape=s=>s.replaceAll('&amp;','&');
 
 test('全452枚：正式カード名は変えず、改行文字を持たない。改行表は実在する名前だけ',()=>{
@@ -23,10 +23,10 @@ test('全452枚：正式カード名は変えず、改行文字を持たない�
  for(const [name,lines] of TITLE_BREAKS){assert.ok(names.has(name),name);assert.equal(lines.length,2,name);assert.equal(lines.join(''),name);}
 });
 
-test('メイン以外の名前：表示の文字列は正式名のまま、区切りは最大1か所（最大2行）',()=>{
+test('メイン以外の名前：表示の文字列は正式名のまま、常に1行',()=>{
  for(const c of nonMain)for(const opts of [{},{compact:true},{detail:true}]){
   const html=cardMarkup(c,opts),s=segs(html).map(unescape);
-  assert.ok(s.length===1||s.length===2,c.id);
+  assert.equal(s.length,1,c.id);
   assert.equal(s.join(''),c.name,c.id);
   assert.equal(unescape(titleOf(html).replace(/<[^>]*>/g,'')),c.name,c.id);
   assert.equal((titleOf(html).match(/<wbr>/g)??[]).length,s.length-1,c.id);
@@ -57,7 +57,7 @@ test('実機で報告された名前：自然な位置で改行、オアシス�
 test('カードの画像・本文・時コストのマークアップは名前以外変わらない',()=>{
  for(const c of nonMain){const html=cardMarkup(c,{detail:true});
   assert.match(html,new RegExp(`aria-label="通常時コスト ${c.cost}"`),c.id);
-  if(!marriedText(c.id))assert.ok(html.includes(`<p>${c.text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;')}</p>`),c.id);
+  if(!marriedText(c.id))assert.ok(html.includes(`<p class="v10-effect">${c.text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;')}</p>`),c.id);
  }
 });
 

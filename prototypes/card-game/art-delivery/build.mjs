@@ -9,6 +9,8 @@ const require=createRequire(import.meta.url),sharp=require('sharp');
 const base=new URL('../art-pilot/',import.meta.url),out=new URL('./',import.meta.url);
 const sourceManifest=new URL('rollout/final-452-20261019/deck-manifest.json',base);
 const manifest=JSON.parse(await readFile(sourceManifest,'utf8'));
+const approved=JSON.parse(await readFile(new URL('approved-starfish-20261119/manifest.json',base),'utf8'));
+for(const card of manifest.cards){const replacement=approved.cards.find(row=>row.id===card.id);if(replacement){card.illustration='approved-starfish-20261119/'+replacement.file;card.sha256=replacement.sha256;}}
 const sha=b=>createHash('sha256').update(b).digest('hex');
 const ids=new Set(),hashes=new Set(),records=[];
 for(const size of ['small','large'])await mkdir(new URL(size+'/',out),{recursive:true});
@@ -17,12 +19,12 @@ for(const card of manifest.cards){
  ids.add(card.id);const original=await readFile(new URL(card.illustration,base)),hash=sha(original);
  if(hash!==card.sha256||hashes.has(hash))throw Error('Original hash mismatch/duplicate '+card.id);
  hashes.add(hash);const meta=await sharp(original).metadata();
- if(meta.width!==1536||meta.height!==1024||meta.format!=='png')throw Error('Unexpected original '+card.id);
+ if((!approved.cards.some(row=>row.id===card.id)&&(meta.width!==1536||meta.height!==1024))||meta.format!=='png')throw Error('Unexpected original '+card.id);
  const r={id:card.id,source:card.illustration,source_sha256:hash,original_bytes:original.length};
  for(const [size,width,quality] of [['small',384,86],['large',1152,90]]){
   const buffer=await sharp(original).resize({width,withoutEnlargement:true}).webp({quality,effort:5}).toBuffer();
   const file=`${size}/${card.id}-${sha(buffer).slice(0,12)}.webp`;
-  await writeFile(new URL(file,out),buffer);r[size]={path:`art-delivery/${file}`,width,height:width*2/3,bytes:buffer.length,sha256:sha(buffer)};
+  await writeFile(new URL(file,out),buffer);r[size]={path:`art-delivery/${file}`,width,height:Math.round(width*meta.height/meta.width),bytes:buffer.length,sha256:sha(buffer)};
  }
  records.push(r);if(records.length%50===0)console.log('Optimized',records.length,'/452');
 }

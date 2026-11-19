@@ -1,0 +1,96 @@
+/* V8-only renderer. Same approved B3-A hues, gold lines and botanical paths. */
+.v8-shell,.v8-shell *{box-sizing:border-box}.v8-shell{container-type:inline-size;position:relative;width:100%;aspect-ratio:2/3;isolation:isolate;min-width:0;color:#28392f;text-align:left}
+.v8-face{position:absolute;inset:0;overflow:hidden;border:1px solid #aa9567;border-radius:5cqw;background:radial-gradient(ellipse at 50% 48%,#fffcf0 24%,color-mix(in srgb,var(--card-color) 25%,#fff9e8) 60%,color-mix(in srgb,var(--card-color) 72%,#fff9e8) 88%,var(--card-color));box-shadow:0 2cqw 5cqw #1e3b3824}
+.v8-face:before{content:"";position:absolute;inset:2.3cqw;border:1px solid #b4a272;box-shadow:0 0 0 .7cqw #faf6e9,0 0 0 .95cqw #bba877;border-radius:4cqw;pointer-events:none;z-index:4}
+.v8-face:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(35deg,#b4ad8610 0 1px,transparent 1px 5px);opacity:.4;pointer-events:none;z-index:0}
+.v8-header{position:absolute;top:5cqw;left:5cqw;right:5cqw;height:24cqw;z-index:3}
+.v8-classification{display:inline-flex;align-items:center;gap:1.4cqw;border:1px solid #b8a77c;background:#fffae9e8;border-radius:6cqw;padding:.35cqw 1.6cqw .35cqw .5cqw;font:600 3.6cqw/1.3 sans-serif;color:#34483f;white-space:nowrap;max-width:70cqw}
+.v8-classification .icon{width:7cqw;height:7cqw;padding:1cqw;border:1px solid #a99461;background:var(--card-color);color:var(--mark-ink);border-radius:50%;flex:none}
+.v8-title{position:absolute;top:13.5cqw;left:0;width:88cqw;margin:0;padding:0;border:0;background:none;box-shadow:none;color:#101a14;font:700 7.4cqw/1.1 "Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK JP",serif;letter-spacing:0;white-space:nowrap;overflow:visible;text-overflow:clip;text-align:left}
+.v8-aux{position:absolute;top:22.1cqw;left:0;width:86cqw;margin:0;padding:0;font:400 2.8cqw/1.2 sans-serif;white-space:nowrap;color:#536151;background:none;border:0}
+.v8-cost{position:absolute;right:1cqw;top:.6cqw;width:12.5cqw;height:12.5cqw;display:grid;place-items:center;border:1px solid #bca66f;border-radius:50%;outline:1px solid #d5c9a1;outline-offset:0;background:radial-gradient(circle at 35% 25%,#fffdf3,#e9dfbd);box-shadow:inset 0 0 0 1px #fff9dd;color:#3a493c;font:600 8.5cqw/1 Georgia,"Noto Serif",serif}
+.v8-number{display:block;line-height:1;white-space:nowrap;transform:translate(var(--opt-x,0px),var(--opt-y,.04em))}.v8-glyph{font:inherit}.v8-baseline{display:inline-block;width:0;height:0;vertical-align:baseline}
+.v8-art{position:absolute;top:33cqw;left:4.7cqw;right:4.7cqw;bottom:11.5cqw;border:1px solid #b5a277;border-radius:7cqw 7cqw 2cqw 2cqw;box-shadow:0 0 0 .7cqw #f9f4df,0 0 0 1cqw #c0ae79;overflow:hidden;background:linear-gradient(150deg,color-mix(in srgb,var(--card-color) 28%,#fff9e8),#fffcf0);z-index:1}
+.v8-art img{display:block;width:100%;height:100%;object-fit:contain}.v8-art.cropped img{object-fit:cover}.v8-main .v8-art{bottom:25.5cqw}
+.v8-stats{position:absolute;top:127cqw;left:6cqw;right:6cqw;height:11cqw;border:1px solid #bba878;border-radius:2cqw;background:#fff9e5ed;display:grid;grid-template-columns:1fr 1fr;z-index:3}
+.v8-stat{position:relative;min-width:0;display:grid;place-items:center}.v8-stat-label{position:absolute;left:1.8cqw;display:flex;flex-direction:column;align-items:center;gap:.3cqw;font:500 3.4cqw/1.1 sans-serif;white-space:nowrap}.v8-stat-label .icon{width:3cqw;height:3cqw}.v8-value{position:absolute;inset:0;display:grid;place-items:center;font:600 7.5cqw/1 Georgia,"Noto Serif",serif;color:#28392f}
+.v8-foot{position:absolute;bottom:4.8cqw;left:5cqw;right:5cqw;height:3.4cqw;display:flex;align-items:center;justify-content:center;font:500 2.7cqw/1 sans-serif;letter-spacing:.2em;color:#433923;z-index:3}
+.v8-rare{position:absolute;right:6cqw;top:0;color:#715929;font-size:3.6cqw;background:#fff7dfce;border-radius:50%;width:4cqw;height:4cqw;text-align:center;line-height:4cqw;letter-spacing:0}
+.v8-leaves{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;color:#b2a171;z-index:2;opacity:.8}.v8-back{border-radius:5cqw;overflow:hidden;background:#356b8f}.v8-back img{width:100%;height:100%;object-fit:contain;display:block}.v8-egg{--card-color:#84a8c1;background:linear-gradient(140deg,#dbe8f0,#84a8c1)}
+.single-name{display:block;white-space:nowrap;overflow:visible;text-overflow:clip;min-width:0}.single-name>span{white-space:nowrap}
+/* At thumbnail widths, physical 1px borders exceed the circle/tag itself.
+   Fractional inset strokes retain the same gold without imposing a 2px minimum. */
+@container (max-width:40px){
+ .v8-face{border:0;box-shadow:inset 0 0 0 .34cqw #aa9567,0 2cqw 5cqw #1e3b3824}
+ .v8-face:before{border:0;box-shadow:inset 0 0 0 .34cqw #b4a272,0 0 0 .7cqw #faf6e9,0 0 0 .95cqw #bba877}
+ .v8-classification{border:0;box-shadow:inset 0 0 0 .34cqw #b8a77c}
+ .v8-classification .icon{border:0;box-shadow:inset 0 0 0 .34cqw #a99461}
+ .v8-cost{border:0;outline:0;box-shadow:inset 0 0 0 .34cqw #bca66f,0 0 0 .34cqw #d5c9a1}
+ .v8-art{border:0;box-shadow:inset 0 0 0 .34cqw #b5a277,0 0 0 .7cqw #f9f4df,0 0 0 1cqw #c0ae79}
+ .v8-stats{border:0;box-shadow:inset 0 0 0 .34cqw #bba878}
+}
+/* Anchor the information tag to the header, independent of surrounding page line-height. */
+.v8-classification{position:absolute;top:0;left:0}
+
+
+/* Only candidate card internals. Formal UI dimensions, scroll and controls are untouched. */
+.card-face.v10-card,.egg-card.v10-card{padding:0;border:0;background:none;box-shadow:none;border-radius:6%;overflow:visible;display:block;aspect-ratio:2/3}
+.v10-card .v8-face{width:100%;height:100%;margin:0;padding:0;container-type:normal;box-shadow:none}
+.v10-card .v8-header{background:none;border:0;padding:0;margin:0;display:block;min-height:0}
+.v10-card .v8-title{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK JP",serif}
+.v10-card .v8-art img{max-width:none;max-height:none;border-radius:0;object-fit:contain}
+.v10-card .v8-art.cropped img{object-fit:cover}
+.v10-card .v8-number{font:inherit}
+.v10-card .v8-stats .v8-stat-label{color:#35483c}
+.v10-detail .v8-art{top:33cqw;bottom:auto;height:49cqw}
+.v10-detail .v8-stats{top:85cqw;height:10cqw}
+.v10-copy{position:absolute;top:85cqw;bottom:12cqw;left:5cqw;right:5cqw;z-index:3;padding:2.4cqw 2.8cqw;background:#fff8e5;border:.3cqw solid #bba878;border-radius:2cqw;color:#26382d;font:400 3.7cqw/1.45 "Hiragino Kaku Gothic ProN","Noto Sans CJK JP",sans-serif;text-align:left;overflow:visible;overflow-wrap:anywhere}
+.v10-main .v10-copy,.v8-main .v10-copy{top:98cqw}
+.v10-copy p{margin:0 0 1.1cqw;font:inherit;line-height:inherit;white-space:pre-wrap;color:inherit}
+.v10-copy p:last-child{margin-bottom:0}.v10-copy strong{display:block;font-size:1em;line-height:1.35;margin:0 0 .6cqw;color:inherit}
+.v10-detail:has(.v8-egg) .v8-art{height:18cqw}
+.v10-egg-copy{top:54cqw;font-size:2.85cqw;line-height:1.35;padding:2cqw 2.5cqw}
+.v10-egg-copy h3{font:700 1em/1.25 sans-serif;margin:1cqw 0 .4cqw}.v10-egg-copy h3:first-child{margin-top:0}.v10-egg-copy ol{margin:0 0 1cqw;padding-left:1.4em}.v10-egg-copy li{margin:0;padding:0;font:inherit}
+/* Existing external labels keep their boxes and text, only fit typography. */
+.board-card-name,.collection-pocket-label>span,#collection-card-name{white-space:nowrap;text-overflow:clip;overflow:visible}
+
+
+/* Card internals only. No host UI sizing, controls or layout changes. */
+/* Reserve separate label/number columns, including two-digit values.
+   The normal strip ends before the footer; detail ends before the effect box.
+   fit.mjs retains equal ink height and optical centering for stats and cost. */
+.v11-card .v8-stats{top:126cqw;height:14cqw;border-width:.3cqw;overflow:visible}
+.v11-card .v8-stat{isolation:isolate}
+.v11-card .v8-stat+.v8-stat::before{content:"";position:absolute;left:0;top:20%;bottom:20%;border-left:.3cqw solid #bba878}
+.v11-card .v8-stat-label{top:50%;left:1.5cqw;width:10.2cqw;transform:translateY(-50%);font-size:3.4cqw;font-weight:600;line-height:1.1}
+.v11-card .v8-value{inset:0 1.5cqw 0 13cqw;font-size:16cqw;font-weight:600;line-height:1;letter-spacing:0}
+.v11-card.v10-detail .v8-stats{top:84cqw;height:12.5cqw}
+.v11-card.v10-detail .v8-value{font-size:14cqw}
+.v11-card .v8-value,.v11-card .v8-cost{font-family:Georgia,"Noto Serif CJK JP",serif;font-kerning:none}
+.v11-card .v8-glyph{font-weight:600;font-kerning:none}
+.v11-card .v8-number{white-space:nowrap}
+/* Restore egg to the ordinary full-text face, using its actual printed effect. */
+.v11-card.v10-detail:has(.v8-egg) .v8-art{height:49cqw}
+.v11-card .v10-egg-copy{top:85cqw;font-size:3.7cqw;line-height:1.45;padding:2.4cqw 2.8cqw}
+
+.v11-card .v8-art img{position:relative;z-index:1}.v11-card .v8-art img[hidden]{display:none}
+
+/* The inner face owns the approved frame; suppress inherited host ornaments. */
+.card-face.v11-card::before,.card-face.v11-card::after{content:none}
+
+/* V14: quick identification on normal faces; quieter figures on detail faces. */
+.v11-card:not(.v10-detail) .v8-cost{font-size:10.5cqw;font-weight:700}
+.v11-card:not(.v10-detail) .v8-cost .v8-glyph{font-weight:700}
+.v11-card:not(.v10-detail) .v8-title{top:15.5cqw;width:90cqw;font-size:8.5cqw}
+.v11-card:not(.v10-detail) .v8-aux{font-size:2.2cqw;line-height:1.1}
+.v11-card:not(.v10-detail) .v8-classification{font-size:4.6cqw;font-weight:700;line-height:1.2}
+.v11-card.v10-detail .v8-value{font-size:11.5cqw;font-weight:500}
+.v11-card.v10-detail .v8-value .v8-glyph{font-weight:500}
+/* Keep enlarged stats inside narrow hand/board cards without shrinking digits. */
+@container (min-width:40.01px) and (max-width:70px){
+ .v11-card:not(.v10-detail) .v8-stats{top:125cqw;height:15.5cqw;border:0;box-shadow:inset 0 0 0 .3cqw #bba878}
+}
+
+/* V15: cost digits only; preserve the circle and V14 stat typography. */
+.v11-card:not(.v10-detail) .v8-cost{font-size:11.7cqw}
+.v11-card.v10-detail .v8-cost{font-size:9.1cqw}

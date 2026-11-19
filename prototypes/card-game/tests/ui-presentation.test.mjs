@@ -6,13 +6,13 @@ import {cardMarkup,boardMarkup,gameMarkup,needsConfirmation} from '../ui-present
 test('every catalog card renders current text; main-only fields never leak into other categories',()=>{
  assert.equal(Object.keys(CARDS).length,452);
  for(const c of Object.values(CARDS)){
-  const html=cardMarkup(c);
+  const html=cardMarkup(c,{detail:true});
   assert.ok(html.includes(c.text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;')));
-  assert.equal((html.match(/class="card-cost"/g)||[]).length,1);
-  assert.equal(html.includes('class="card-stats"'),c.type==='main');
-  assert.equal(html.includes('class="card-attribute"'),c.type==='main');
+  assert.equal((html.match(/class="v8-cost"/g)||[]).length,1);
+  assert.equal(html.includes('class="v8-stats"'),c.type==='main');
+  assert.equal(html.includes('class="v8-aux"'),c.type==='main');
  }
- const pupa=cardMarkup(CARDS['M-beetle-04']);
+ const pupa=cardMarkup(CARDS['M-beetle-04'],{detail:true});
  assert.match(pupa,/さなぎ/);assert.match(pupa,/さなぎのじかん/);
  assert.match(pupa,/通常時コスト 4/);assert.doesNotMatch(pupa,/段階 4/);
  assert.doesNotMatch(pupa,/ときとばし/);
@@ -45,6 +45,6 @@ test('confirmation protects payment/target/final selection without interrupting 
  for(const label of ['パス','なかまをなかまへ','対象 1：カード','発動を取りやめる'])assert.equal(needsConfirmation({label,kind:'choose'}),false);
 });
 test('card names and text are escaped, never interpreted as markup',()=>{
- const html=cardMarkup({...CARDS['C-box'],name:'<img src=x onerror=alert(1)>',text:'<script>bad()</script>'});
+ const html=cardMarkup({...CARDS['C-box'],name:'<img src=x onerror=alert(1)>',text:'<script>bad()</script>'},{detail:true});
  assert.doesNotMatch(html,/<script>|<img src=x/);assert.match(html,/&lt;script&gt;/);
 });

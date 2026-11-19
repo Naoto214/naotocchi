@@ -47,7 +47,7 @@ test('all 452 faces preserve formal colors, marks, and unique dedicated art at b
  for(const c of Object.values(CATALOG)){
   const color=cardArtColors(c).color;colors.add(color);assert.ok(approved.includes(color));
   for(const compact of [false,true]){
-   const html=cardMarkup(c,{compact,detail:!compact});assert.ok(html.includes('class="card-face'));assert.ok(html.includes('--card-color:'+color));assert.ok(html.includes('class="botanical"'));assert.ok(html.includes('class="card-cost"'));assert.ok(!html.includes('data-study-variant'));
+   const html=cardMarkup(c,{compact,detail:!compact});assert.ok(html.includes('class="card-face'));assert.ok(html.includes('--card-color:'+color));assert.ok(html.includes('class="v8-leaves"'));assert.ok(html.includes('class="v8-cost"'));assert.ok(!html.includes('data-study-variant'));
   }
   for(const size of ['small','large']){
    const data=readFileSync(new URL('../'+CARD_ART[c.id][size],import.meta.url));const hash=createHash('sha256').update(data).digest('hex');assert.ok(!hashes[size].has(hash),c.id);hashes[size].add(hash);

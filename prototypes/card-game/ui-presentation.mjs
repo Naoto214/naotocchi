@@ -1,3 +1,4 @@
+import {renderCard} from './card-design/render.mjs';
 import {relatedChapter} from './rulebook-content.mjs';
 // Presentation only. Input is the engine's safe view/catalog, never raw state.
 import {visibleCards} from './ui-context.mjs';
@@ -106,22 +107,9 @@ const MAIN_TITLE_LINES = new Map(`浮かぶ|あかちゃん
 export function cardRarityLabel(c){return c.rare?'レア · 同名1枚まで':'通常 · 同名3枚まで';}
 
 export function cardMarkup(c,{compact=false,detail=false}={}){
- if(!c||c.hidden)return `<div class="card-back" role="img" aria-label="非公開のカード"><img src="ui-assets/card-back-approved.png" alt="" draggable="false"></div>`;
- const main=c.type==='main',id=c.cardId??c.id,married=c.legacyRules?null:marriedText(id),category=CATEGORIES[c.type]??['カード','#A5A7AE'];
- const {color,markInk}=cardArtColors(c),species=main?c.name.replace(/[①-⑧]/g,''):'';
- const title=main?(c.form??species):c.name,ability=c.source?.match(/「([^」]+)」/)?.[1];
- const asset=CARD_ART[id],src=asset?.[detail?'large':'small'];
- const fallback=`<div class="art-fallback" role="img" aria-label="${h(title)}・画像を表示できません">${icon(main?c.attribute:c.type)}<small>画像を表示できません</small></div>`;
- const art=fallback+(src?`<img class="dedicated-art" src="${h(src)}" alt="${h(title)}の専用イラスト" width="${detail?1152:384}" height="${detail?768:256}" loading="${detail?'eager':'lazy'}" decoding="async" draggable="false">`:'');
- return `<article class="card-face${main?' main-face':''}${compact?' compact':''}${(c.text?.length??0)+(married?.length??0)>(married?200:140)?' long-copy':''}${married?' lover-two':''}" style="--card-color:${color};--mark-ink:${markInk??'#353024'};${main?'--title-size:7.2cqw':((t=>`--title-size:${t.full.size}cqw;--title-size-compact:${t.compact.size}cqw`)(titleLayout(title)))}" aria-label="${h(c.name)}">
- ${ornament}<div class="card-heading"><small class="card-category">${category[0]}</small>
- ${main?`<div class="card-attribute">${icon(c.attribute)}<span>${h(c.attribute)}</span></div>`:''}
- <span class="card-cost" aria-label="通常時コスト ${main?c.stage:c.cost}">${main?c.stage:c.cost}</span>
- <strong class="card-title">${main?(MAIN_TITLE_LINES.get(title)??[title]).map(line=>`<span>${h(line)}</span>`).join(''):titleMarkup(title,h)}</strong>${main?`<span class="card-species">${h(species)}</span>`:''}</div>
- <div class="card-art">${art}</div>
- ${main?`<div class="card-stats"><span>${icon('fist')}${compact?'':'<small>ちから</small>'}<b>${c.power}</b></span><span>${icon('brain')}${compact?'':'<small>ちえ</small>'}<b>${c.wisdom}</b></span></div>`:''}
- ${!compact?`<div class="card-copy"${detail&&['M-cat-07','M-antlion-06','M-antlion-07'].includes(id)?' style="font-size:2.9cqw"':''}>${ability?`<strong>${h(ability)}</strong>`:''}${married?`<p class="lover-block"><b>こいびとのとき</b>${h(c.text)}</p><p class="lover-block lover-married"><b>♥ 結婚したら</b>${h(married)}</p>`:`<p>${h(c.text)}</p>`}</div>
- `:''}<small class="card-footer">NAOTOCCHI</small>${c.rare?`<span class="card-rarity" role="img" aria-label="${cardRarityLabel(c)}">◆</span>`:''}</article>`;
+ if(!c||c.hidden)return renderCard(c,{detail});
+ const id=c.cardId??c.id,asset=CARD_ART[id],colors=cardArtColors(c);
+ return renderCard({...c,...colors,mark:icon(c.type==='main'?c.attribute:c.type),image:asset?.small,large:asset?.large,married:marriedText(id)},{detail,art:/^M-starfish-0[1-3]$/.test(id)?'contain':'cover'});
 }
 export function canInspectCard(v,viewer,c){if(v?.mode==='cpu'&&viewer===v.humanSeat&&!c.hidden)return true;return !v||v.phase!=='response'||Boolean(viewer===v.actor&&!c.hidden&&v.actions.some(a=>a.kind!=='pass'&&a.source===c.id));}
 export function inspectButton(c,cls='card-tap',v=null,viewer=null){const restricted=v?.phase==='response',allowed=canInspectCard(v,viewer,c),eligible=cardActions(v,viewer,c).length>0;return `<button type="button"${allowed?'':' disabled aria-disabled="true"'} class="${cls}${restricted?(eligible?' is-eligible':' response-unavailable'):''}" data-inspect="${h(c.id)}" aria-label="${h(c.hidden?'しかけたカード':c.name)}を拡大">${cardMarkup(c,{compact:true})}</button>`;}
@@ -144,11 +132,12 @@ export function zoneMarkup(v,seat,zone){
 const egg='<img class="egg-image" src="../../assets/characters/egg/intact.png" alt="たまご" draggable="false">';
 // State display only: no catalog ID, card instance, command or saved stack.
 // Render the visible top layer; a future approved egg layer can be selected here.
+export const EGG_PRINTED_TEXT='自分のターン開始時、通常ドローの後にさらに1枚引き、手札1枚を山札の一番下に戻す。';
 export function eggCardMarkup({detail=false}={}){
- return `<article class="egg-card" aria-label="たまご・状態表示用"><img src="${detail?'ui-assets/egg-card-large.webp':'ui-assets/egg-card-small.webp'}" alt="たまご。メインがいない状態。通常ドロー後にさらに1枚引き、手札1枚を山札の下へ戻す。" draggable="false" decoding="async"></article>`;
+ return renderCard(null,{detail,egg:true,eggData:{title:'たまご',color:'#84a8c1',image:'card-design/assets/egg-art.png',rulesHTML:`<p class="v10-effect">${EGG_PRINTED_TEXT}</p>`}});
 }
 export function eggDetailMarkup(){
- return `<header class="detail-toolbar"><span>たまご · 状態の説明</span><button type="button" class="dialog-close" data-close>閉じる ×</button></header><div class="detail-layout"><div class="detail-image"><div class="detail-card-canvas">${eggCardMarkup({detail:true})}</div></div><div class="detail-copy"><header class="detail-summary"><h2>たまご</h2><p>メインがいない待機状態。デッキ外の状態表示用カードです。</p></header><section class="effect-scroll" tabindex="0" aria-label="たまごの正式ルール"><h3>自分のターン開始時</h3><ol><li>時を回復し、通常ドローで1枚引きます（先攻の最初のターンも同じ）。</li><li>通常ドロー後もたまごなら、追加ドローでさらに1枚引きます。</li><li>手札から1枚を選び、非公開で山札の一番下へ戻します。シャッフルしません。</li></ol><p>山札不足では引ける分だけ引きます。引けなくても、手札があれば1枚を戻します。この交換の途中にたんじょうや別の発動は挟めません。</p><h3>たんじょう</h3><p>自分の通常の行動機会に、手札の好きな段階のメインを、段階番号ぶんの通常時コストでたんじょうできます。①から始める必要はありません。個別の軽減・禁止等はカードの効果に従います。</p><p>たまごの上にメインを完全に重ねます。メインが離れてたまご状態に戻れば、下のたまごが再び見えます。へんしん・ときおくりでは新しいメインだけを表示します。</p><h3>たまごの間</h3><p>ちから・ちえを持たず、ちょうせんを行うことも受けることもありません。こいびとと交際・結婚状態は保持しますが、こいびとの能力と交際進行は停止します。</p><p>たまご自体はカード効果で除去・移動・奪取できず、山札・手札・捨て札には入りません。</p></section></div></div>`;
+ return `<header class="detail-toolbar"><span>たまご · 状態の説明</span><button type="button" class="dialog-close" data-close>閉じる ×</button></header><div class="detail-layout"><div class="detail-image"><div class="detail-card-canvas">${eggCardMarkup({detail:true})}</div></div></div>`;
 }
 export function boardMarkup(p,seat,viewer,chain=[],v=null,frontSeat=viewer){
  const b=p.board,own=seat===frontSeat,slots=[['セカイ',b.world],['メイン',b.main],['こいびと',b.partner],...[0,1,2].map(i=>['なかま'+['①','②','③'][i],b.companions[i]]),...[0,1,2].map(i=>['準備'+['①','②','③'][i],b.prepared[i]])];

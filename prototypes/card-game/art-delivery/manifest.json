@@ -15,9 +15,9 @@
     }
   },
   "totals": {
-    "original": 1287568992,
-    "small": 17128656,
-    "large": 120446468
+    "original": 1287805298,
+    "small": 17135402,
+    "large": 120519640
   },
   "cards": [
     {
@@ -7482,62 +7482,62 @@
     },
     {
       "id": "M-starfish-01",
-      "source": "illustrations/M-starfish-01.png",
-      "source_sha256": "e72cce83bbaa527e9e60c9cd4513380cd6a700109bc051a75fbe2d84d812fabf",
-      "original_bytes": 2491087,
+      "source": "approved-starfish-20261119/M-starfish-01-background-refined.png",
+      "source_sha256": "0edbe53840584f4f5771351a83d870f95175eba06fa23acce038cd23d001df7e",
+      "original_bytes": 2551157,
       "small": {
-        "path": "art-delivery/small/M-starfish-01-f0ed938a996d.webp",
+        "path": "art-delivery/small/M-starfish-01-548b54cde60a.webp",
         "width": 384,
         "height": 256,
-        "bytes": 34268,
-        "sha256": "f0ed938a996d540bae903de77e360eb14dc94e254540134751112db910a5f027"
+        "bytes": 35956,
+        "sha256": "548b54cde60a116d129482406eba13afb99a8a5ea18fb9cc6b6b1ac627cfc16f"
       },
       "large": {
-        "path": "art-delivery/large/M-starfish-01-1756bf33da8b.webp",
+        "path": "art-delivery/large/M-starfish-01-5e74b7b6a65f.webp",
         "width": 1152,
         "height": 768,
-        "bytes": 209936,
-        "sha256": "1756bf33da8bea23c31045da048b49e29018d9ce0800deb98ca2dde0cd220660"
+        "bytes": 223152,
+        "sha256": "5e74b7b6a65f9d266fc0f84d192d22a73271e3d1e8a14f9b6161711aa3c2528f"
       }
     },
     {
       "id": "M-starfish-02",
-      "source": "illustrations/M-starfish-02.png",
-      "source_sha256": "a47c5dccc7413f842a84985b73a5e8aee0e4115a9ff88897d3da4fe5390ff393",
-      "original_bytes": 2466242,
+      "source": "approved-starfish-20261119/M-starfish-02-background-refined.png",
+      "source_sha256": "8ebb8cedc8e44044d06580e1628894db5123f872feffe73c784b29a4f69574b2",
+      "original_bytes": 2519609,
       "small": {
-        "path": "art-delivery/small/M-starfish-02-ab3d4e6894bc.webp",
+        "path": "art-delivery/small/M-starfish-02-3c6e5d9e6058.webp",
         "width": 384,
         "height": 256,
-        "bytes": 30036,
-        "sha256": "ab3d4e6894bc39085a451ea171dc096c040515fa16b2ab8d9b3d6825d1ebf076"
+        "bytes": 31862,
+        "sha256": "3c6e5d9e60589192795df59cb5b6f580c7666b710a8024ecbf06d2853d2be9b3"
       },
       "large": {
-        "path": "art-delivery/large/M-starfish-02-85ac9ac01b8b.webp",
+        "path": "art-delivery/large/M-starfish-02-b76eacdb6dba.webp",
         "width": 1152,
         "height": 768,
-        "bytes": 198190,
-        "sha256": "85ac9ac01b8b80688048e0cff4b3ad5f805d64f70ddf98ea616004d06d96f801"
+        "bytes": 210912,
+        "sha256": "b76eacdb6dba802f49d1447d60fb8f9540672779e75305f886402d6833c8b4b2"
       }
     },
     {
       "id": "M-starfish-03",
-      "source": "illustrations/M-starfish-03.png",
-      "source_sha256": "76e0e9e568d08352d5c4ed61e0e628bfbdff19fbc4856e780aa45e08f89e347c",
-      "original_bytes": 2628712,
+      "source": "approved-starfish-20261119/M-starfish-03-underwater.png",
+      "source_sha256": "fe5241d984ba09ea4b49a319f70cfc820413288e156bf079de38aa737ffefd5e",
+      "original_bytes": 2751581,
       "small": {
-        "path": "art-delivery/small/M-starfish-03-dbc018991274.webp",
+        "path": "art-delivery/small/M-starfish-03-7a9b22d6b91e.webp",
         "width": 384,
         "height": 256,
-        "bytes": 33166,
-        "sha256": "dbc01899127416a7480ed27d02e2595121f48332f8510bd1132c9198e345f7d1"
+        "bytes": 36398,
+        "sha256": "7a9b22d6b91e7a053f70b7942f59eab5ab6f3ae4d41b62713f750ef238deadff"
       },
       "large": {
-        "path": "art-delivery/large/M-starfish-03-b49e025d9a8d.webp",
+        "path": "art-delivery/large/M-starfish-03-2532cccceae8.webp",
         "width": 1152,
         "height": 768,
-        "bytes": 212002,
-        "sha256": "b49e025d9a8dc05dcbf8cedca941d4117a75cc001a541d9eae0f67ef449f2596"
+        "bytes": 259236,
+        "sha256": "2532cccceae8241fda285bedb6dcebb027899b0fe684e06d3935f3246d96b5ed"
       }
     },
     {
