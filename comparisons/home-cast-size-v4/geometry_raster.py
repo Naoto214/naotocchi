@@ -25,14 +25,17 @@ def run(a):
         b=getattr(pw,a.engine).launch(**kw)
         controller=(a.controller or a.game/'home-production-diorama-population.js').read_bytes()
         source=hashlib.sha256(controller).hexdigest()
-        if out['cases'] and (out['engine']!=a.engine or out['browser']!=b.version or out.get('controllerSha256')!=source):
+        delivery='pinned-response' if a.controller else 'served-response'
+        if out['cases'] and (out['engine']!=a.engine or out['browser']!=b.version or out.get('controllerSha256')!=source
+                or out.get('controllerDelivery',delivery)!=delivery):
             raise ValueError('Use a separate file per browser and runtime version')
-        out.update(browser=b.version,engine=a.engine,controllerSha256=source)
+        out.update(browser=b.version,engine=a.engine,controllerSha256=source,controllerDelivery=delivery)
         for recipe in a.fixture:
             if all(recipe+'/'+p in out['cases'] for p in a.policies):continue
             w,reg,n,layout=recipe.split('/');w=int(w);n=int(n)
             ctx=b.new_context(viewport={'width':w,'height':HEIGHTS[w]-52},has_touch=True,is_mobile=True,device_scale_factor=2)
-            ctx.route('**/home-production-diorama-population.js*',lambda route:route.fulfill(body=controller,content_type='application/javascript'))
+            if a.controller:
+                ctx.route('**/home-production-diorama-population.js*',lambda route:route.fulfill(body=controller,content_type='application/javascript'))
             ctx.add_init_script(path=V3/'geometry_capture.js')
             # Cancel the already scheduled game paints after its own ready gate.
             # Playwright screenshot can still schedule its own fresh RAF callbacks.

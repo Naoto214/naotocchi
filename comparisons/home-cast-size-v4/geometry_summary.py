@@ -7,11 +7,13 @@ import hashlib
 import io
 from itertools import product
 import json
+import math
 from pathlib import Path
 from statistics import median
 import tarfile
 
 from geometry_collect import HEIGHTS,REGIONS,read
+import geometry_transitions
 
 BASE=Path(__file__).resolve().parent
 NAMES=dict(zip(REGIONS,['もり','みずべ','とかい','おうち','いなか','やま','ゆきぐに','うみ','ジャングル','さばく','しんかい','ほしぞらのていりゅうじょ','きおくのみずうみ']))
@@ -62,6 +64,42 @@ def row(trajectory,phase,gain):
         frameFootError=foot_error,chrome=trajectory['browser'],modelDistance=round(phase['modelStats']['distance'],4),
         modelMoves=phase['modelStats']['moves'])
 
+def individual_distributions(raws):
+    # Bin resident exposure to 0.01 percentage point and exposed area to 1 CSS pixel.
+    # Each companion at each phase has one vote, including fully hidden residents.
+    rankings=defaultdict(lambda:(Counter(),Counter()))
+    for (w,r,n,layout),d in raws.items():
+        if n<19:continue
+        for curve,policy in product(CURVES,POLICIES):
+            condition='/'.join((layout,curve,policy))
+            source=d
+            if condition in d['references']:
+                condition=d['references'][condition]
+                source=raws.get((w,r,n,'fixed'))
+            if not source:continue
+            tr=next((t for t in source['trajectories'] if condition in t['conditions']),None)
+            if not tr:continue
+            visibility=Counter();area=Counter()
+            for phase in tr['phases']:
+                gain=phase['settings'][curve+'/'+policy][0]
+                for a,v in zip(phase['actors'],phase['gains'][gain]['residents'],strict=True):
+                    if a['kind']!='companion':continue
+                    visibility[round(10000*v[3]/v[1]) if v[1] else 0]+=1
+                    area[v[3]]+=1
+            for group in ['all',str(w)]+(['375-430'] if w>=375 else []):
+                visible_hist,area_hist=rankings['/'.join((group,layout,curve,policy))]
+                visible_hist.update(visibility);area_hist.update(area)
+    def nearest(hist,q):
+        target=max(1,math.ceil(sum(hist.values())*q))
+        accum=0
+        for x,v in sorted(hist.items()):
+            accum+=v
+            if accum>=target:return x
+    return {k:{'companionPhaseObservations':sum(v.values()),
+               'visiblePercentP01P10P50P90':[nearest(v,q)/100 for q in (.01,.10,.50,.90)],
+               'exposedInkCssPx2P01P10P50P90':[nearest(a,q) for q in (.01,.10,.50,.90)]}
+            for k,(v,a) in rankings.items()}
+
 def reasons(ref,cur,n):
     # V3 shape/hit criteria, without its independent drag metric.
     fail=[]
@@ -73,6 +111,35 @@ def reasons(ref,cur,n):
         if lo(name,cur)<min(85,lo(name,ref)-5)-1e-5:fail.append(name)
     if sum(r['allHitPct'] for r in cur)/3 < sum(r['allHitPct'] for r in ref)/3-5-1e-5:fail.append('allHitPct')
     return fail
+
+def seating_effects(obs,diagnostics):
+    # Each diagnostic row is the extra 0% paint of a genuine optimized trajectory.
+    # The controls use the native fixed opening at the same region/count/size and phase.
+    bucket=defaultdict(list)
+    for d in diagnostics:
+        axes=(d['width'],d['region'],d['count'])
+        index=(0,8,30).index(d['seconds'])
+        for curve,policy in [('linear','current'),('linear','A'),('linear','B'),('linear','C'),('step','B'),('step','C')]:
+            fix=obs.get((*axes,'fixed',curve,policy))
+            live=obs.get((*axes,'optimized',curve,policy))
+            if not fix or not live:continue
+            base=fix[index];optimized=d if policy=='current' else live[index]
+            if base['chrome']!=optimized['chrome']:continue
+            hits=lambda r:3*r['compThreeHits']+2*r['compTwoHits']+r['compOneHit']
+            bucket[(curve,policy,d['seconds'])].append((optimized['compMinVisible']-base['compMinVisible'],
+                optimized['overlapPct']-base['overlapPct'],optimized['pairs']-base['pairs'],hits(optimized)-hits(base)))
+    output=[]
+    for (curve,policy,t),data in sorted(bucket.items()):
+        visible,overlap,pairs,hits=zip(*data)
+        output.append(dict(curve=curve,policy=policy,seconds=t,matchedChangedLayouts=len(data),
+            worstCompanionExposureImproved=sum(x>0 for x in visible),worstCompanionExposureUnchanged=sum(x==0 for x in visible),
+            worstCompanionExposureReduced=sum(x<0 for x in visible),worstCompanionExposureDeltaMedianPp=median(visible),
+            worstCompanionExposureDeltaMinPp=round(min(visible),4),worstCompanionExposureDeltaMaxPp=round(max(visible),4),
+            overlapDeltaMedianPp=median(overlap),overlapDeltaMinPp=round(min(overlap),4),overlapDeltaMaxPp=round(max(overlap),4),
+            fewerOverlappingPairs=sum(x<0 for x in pairs),equalOverlappingPairs=sum(x==0 for x in pairs),
+            moreOverlappingPairs=sum(x>0 for x in pairs),netCorrectCompanionHitPoints=sum(hits),
+            fewerCorrectCompanionHitPoints=sum(x<0 for x in hits),moreCorrectCompanionHitPoints=sum(x>0 for x in hits)))
+    return output
 
 def compact_json(path,data):
     path.write_text(json.dumps(data,ensure_ascii=False,separators=(',',':'))+'\n')
@@ -163,6 +230,8 @@ def main(a):
     supplemental={}
     if a.supplement:
         for p in a.supplement.rglob('*.json.gz'):
+            if a.controller_sha and read(p)['source']['home-production-diorama-population.js']!=a.controller_sha:
+                raise ValueError(f'Unexpected supplemental controller SHA for {p}')
             supplemental['extra/'+p.relative_to(a.supplement).as_posix()]=p
         if not a.partial and len(supplemental)!=10:raise ValueError('Expected five additional profiles in each layout')
     archive(dir/'geometry-fixtures.tar.gz',{**files,**supplemental})
@@ -197,10 +266,29 @@ def main(a):
         values=[r for r in rows if eligible(r)]
         return {k:max(values,key=lambda r:r[k]) if k.startswith(('compUnder','compZero','overlap','pairs','clipped','gearError','frameFoot','shadowsMissing','allHidden'))
             else min(values,key=lambda r:r[k]) for k in keys} if values else {}
-    summary={'sceneObservations':len(rows),'distinctNativeTrajectories':ntraj,'zeroDistanceAt30s':sum(x<=0 for x in moving),
+    summary={'workflowRun':a.run_url,'sceneObservations':len(rows),'distinctNativeTrajectories':ntraj,'zeroDistanceAt30s':sum(x<=0 for x in moving),
         'minimumNativeDistanceAt30s':min(moving),'nativeFitRecoveryCounts':camera_recoveries,'distinctBrowserVersions':dict(versions),'aliasConditions':equivalents,
         'missingConditionCount':len(missing),'missingConditions':missing,'chromePatchMismatch':layout_mismatch,
         'additionalProfileRawFiles':len(supplemental),'diagnosticZeroGainObservations':len(diagnostics),'rawFileCount':len(files),'fileOrigins':origins,'caseCount':len(obs),'aggregate':grouped,'pairedIndividualOutcomes':individuals,'relativeShapeAndHitReasons':issues}
+    summary['matchedOptimizedSeatEffects']=seating_effects(obs,diagnostics)
+    summary['fields']={
+        'phaseSeconds':'Simulated seconds since the frozen opening (0, 8, 30); same native V5 step as the live controller.',
+        'width/height':'Outer viewport CSS px. Native game height is outer height minus the 52 CSS px control strip.',
+        'extra and policy role scales':'Percent. Role scales include adopted bases of 120, 120, 105 percent for hero, partner and companions.',
+        'p.clip, foot, frame, shadow and baselineGear':'Viewport CSS px. Rectangles are [left, top, width, height]. The foot is [x, y].',
+        'native':'[x, y, w, h] in native game-stage pixels, as returned by the live resident model.',
+        'depth and z':'Native perspective scale (unitless) and actual CSS stacking index.',
+        'actualInitialPoints':'[x, z] after native navigation resolves each opening hint, in model world coordinates.',
+        'height':'Source-asset body height in CSS px, after foreground clipping and before other residents cover it.',
+        'ink, covered, exposed':'Area in CSS px² at source alpha ≥96/255. Ink equals covered plus exposed.',
+        'hit3 and hitTargets':'Number of correct official hits among 3 opaque sample points. Target values are zero-based resident indices, or −1 for no resident.',
+        'clipped':'One when any body pixel exceeds the clip by more than 1 CSS px, otherwise zero.',
+        'pairs':'Resident pairs sharing at least 4 CSS px².',
+        'hiddenPx2, distinctOverlapPx2, totalInkPx2':'Sum of resident ink hidden by other residents, number of distinct shared screen pixels, and summed body ink, all in CSS px².',
+        'maxGearError and maxFootProjectionError':'Maximum absolute difference between native paint bounds and projected bounds around the measured foot, in CSS px.',
+        'modelDistance and modelMoves':'Cumulative game-stage distance in native pixels and action count, from the V5 model metrics.',
+        'relativeShapeAndHitReasons':'V3 comparative shape and native hit criteria, evaluated only on matching Chrome builds.'
+    }
     summary['extremes']={p:extremes(['heroVisible','partnerVisible','compMinVisible','compHitPct','compUnder50','compZeroHits','overlapPct','pairs','clipped','allHidden','shadowsMissing','gearError','frameFootError'],
         lambda v: v['policy']==p and v['curve']=='linear' and v['layout']=='optimized' and v['count']>=19) for p in POLICIES}
     locks=[]
@@ -215,6 +303,10 @@ def main(a):
         assert all(row['extra']==0 for row in zero)
         locks.append([w,r,n])
     summary['lockedZeroDistinctFixtureCount']=len(locks)
+    transitions=geometry_transitions.compare(raws)
+    summary['adjacentResidentHeights']=transitions
+    summary['pooledCompanionDistributions']=individual_distributions(raws)
+    if a.transitions:geometry_transitions.write_csv(a.transitions,transitions)
     compact_json(dir/'geometry-summary.json',summary)
     if a.compact:
         a.compact.parent.mkdir(parents=True,exist_ok=True)
@@ -235,14 +327,22 @@ def report(path,summary,obs,rows):
     def table(header):return ['| '+' | '.join(header)+' |','|'+'|'.join(['---']*len(header))+'|']
     out=['# 住民数に応じた拡大と実際の見え方','',
       f'実際のホームで {summary["distinctNativeTrajectories"]:,} 種類の開始状態を測った。幅・地域・人数・配置・増やし方・候補の組み合わせは {summary["caseCount"]:,} 件、開始時・8秒後・30秒後を合わせて {summary["sceneObservations"]:,} 場面。欠測は {summary["missingConditionCount"]:,} 条件。'+
-      '主人公は成犬、恋人はもりのクマさん、時刻は昼、乱数シードは214。各住民の元画像・反転・描画順・実際の画像枠を各候補の倍率で取得した。','',
+      '主人公は成犬、恋人はもりのクマさん、昼の表示を指定し、端末時計を2026年10月15日03:00 UTC、乱数シードを214に固定した。各住民の元画像・反転・描画順・実際の画像枠を各候補の倍率で取得した。','',
       '全6端末幅は320×568、348×692、360×746、375×812、390×844、430×932 CSS px。下段操作欄の52pxを除いたホームの高さは516、640、694、760、792、880px。DPRは2。321～374pxの数式は単体試験で調べ、実際の描画はこの中間幅と末尾の追加プロファイルで標本測定した。18体は境界の対照、19～28体は10通りすべて実人数で読み込んだ。','',
       '同じ住民・同じ足元・同じ奥行きのまま実際の倍率を切り替え、各段階で座標と当たり判定寸法の一致を検査した。最適配置で開始位置の候補が変わる場合は独立にホームを開いた。全員の配置候補が同一の条件は同じネイティブ軌跡を共有する。解決後の初期座標・足元・装備・影・各人の試験結果は生記録に収録した。','',
       '本体はアルファ96/255以上で、前景と画面の切り取りを反映する。本体高は、住民同士を重ねる前の輪郭の上端から下端までを数えたCSS px。手前の住民による隠れ方は露出面積として別に計算した。2人の本体が4 CSS画素以上同じ位置を占める場合に1組と数えた。重なり率は隠れた住民画素の延べ面積／本体面積総和。見切れは1 CSS pxを超える本体のはみ出し。仲間の可視率は個々の本体のうち他の住民に覆われず残った面積。表の「最小」は最も隠れた1人で、平均ではない。','',
-      'タップは各人の不透明な3点（原画アルファ200/255以上）を画面へ投影し、その場のelementFromPointと正式なホームのhit関数で本人に解決した数。実際の指の操作、画面を見て狙う難しさ、および端末の発熱はこの測定の範囲外。','',
+      'タップは各人の不透明な3点（原画アルファ200/255以上）を画面へ投影し、その場のelementFromPointと正式なホームのhit関数で本人に解決した数。実機のiPhoneは使用していない。実際の指の操作、画面を見て狙う難しさ、および端末の発熱はこの測定の範囲外。','',
       '## 19～28体の全地域・全幅を合わせた値','',
       '高さは各場面のCSS pxの中央値。仲間の高さは先に場面内で中央値を取り、その後各場面の中央値を求めた。仲間タップは全仲間・全時点の比率。50%未満は同じ住民を別時点では別に数える。','',
       *table(['配置・増やし方・候補','主人公／恋人／仲間の高さ','仲間の可視面積中央値 （CSS px²）','最大重なり率','最低の恋人／仲間可視率','仲間タップ','50%未満の仲間／全仲間観測数'])]
+    groups=summary['pooledCompanionDistributions']
+    b=groups.get('375-430/optimized/linear/B');c=groups.get('375-430/optimized/linear/C')
+    tall28=[(obs.get((w,r,28,'optimized','linear','B')),obs.get((w,r,28,'optimized','linear','C'))) for w,r in product((375,390,430),REGIONS)]
+    paired=[(before,after) for bg,cg in tall28 if bg and cg for before,after in zip(bg,cg,strict=True)]
+    if b and c and paired:
+        bh=b['exposedInkCssPx2P01P10P50P90'][2];ch=c['exposedInkCssPx2P01P10P50P90'][2]
+        h='／'.join(f'{median(after[k]-before[k] for before,after in paired):+g}' for k in ('heroHeight','partnerHeight','compMedianHeight'))
+        out[2:2]=[f'375・390・430pxの線形・最適配置では、19～28体の仲間1体あたりの可視面積中央値はBが{bh} CSS px²、Cが{ch} CSS px²だった。28体の同じ姿勢を比較すると、Cで増えた本体高の中央値は主人公／恋人／仲間の順に{h} CSS px。幅320pxでは全候補の倍率と結果が一致した。','']
     for l in LAYOUTS:
         for c in CURVES:
             for p in POLICIES:
@@ -273,6 +373,12 @@ def report(path,summary,obs,rows):
         def pair(k,digits=1):
             return f'{b[k]:.{digits}f}／{c[k]:.{digits}f}'
         out += [f'| {w}×{HEIGHTS[w]} | {gains[0]:.2f}／{gains[1]:.2f}% | {pair("compHeight")} | {pair("compMedianExposedInk")} | {pair("compMinVisible")}% | {pair("compHitPct",2)}% | {pair("overlapMax",2)}% |']
+    distribution=summary['pooledCompanionDistributions']
+    out+=['','画面をまたいで仲間1体・1時点を1票として数えた分布。露出率は0.01ポイント、露出面積は1 CSS px²の粒度で集計し、順位が下から1・10・50・90%に達した観測値を示した。','',*table(['線形・最適','仲間の観測回数','露出率 P1／P10／P50／P90','露出面積 P1／P10／P50／P90（CSS px²）'])]
+    for group,name in [('320','320px'),('375-430','375・390・430px')]:
+        for policy in POLICIES:
+            d=distribution.get(f'{group}/optimized/linear/{policy}')
+            if d:out+=['| '+' | '.join([name+' '+policy,f'{d["companionPhaseObservations"]:,}','／'.join(f'{x:g}' for x in d['visiblePercentP01P10P50P90'])+'%','／'.join(map(str,d['exposedInkCssPx2P01P10P50P90']))])+' |']
     out+=['','## 固定配置の現行に対する変化','',
       '同じ人数・地域・端末幅の固定配置＋0%と、各条件の3時点で比較した。V3で使った相対目安のうち、この表は輪郭と本人タップだけを扱う。増えないほうがよい指標は見切れと完全消失。重なり面積の上限は基準＋3ポイント、組数は＋max(2,人数÷8の整数部)。主人公・恋人の露出は85%と「現行の最低−5ポイント」の低い方が下限。本人タップは3時点の平均で低下5ポイントまで、3点とも通らない住民は現行から1人増まで。','',
       *table(['条件（19～28体、全幅・全地域）','対象数','輪郭・タップの相対目安超過','見切れ／消失増','面積／組数超過','主人公／恋人の露出低下','本人タップ率低下／全滅人数増'])]
@@ -290,6 +396,18 @@ def report(path,summary,obs,rows):
         if stats:
             cells=['／'.join(f'{stats.get(k+tag,0):,}' for tag in ('New','Existing','Recovered')) for k in ('compHiddenKeys','compUnderHalfKeys','compNoHitKeys')]
             out+=['| '+' | '.join([p,f'{stats["actorObservations"]:,}',*cells])+' |']
+    choices=[v for v in summary['matchedOptimizedSeatEffects'] if v['curve']=='linear' and v['policy'] in ('current','B','C')]
+    if choices:
+        out+=['','## 実際に初期配置が変わった世帯','',
+            '同じ幅・地域・人数・倍率で、固定配置と最適配置を比較した。0%は最適配置の足元を保ったまま追加倍率だけを戻した診断。仲間の最低可視率は各世帯でいちばん隠れた仲間の値。変化幅は「最適−固定」の最小から最大、タップ差は全世帯・全仲間の正答点数の増減合計。','',
+            *table(['倍率','経過秒','世帯数','仲間の最低可視率 改善／同じ／低下','最低可視率の変化幅（ポイント）','重なり組数 減／同じ／増','仲間タップ正答の合計差'])]
+        for v in choices:
+            counts=lambda *keys:'／'.join(str(v[k]) for k in keys)
+            size='0%（診断）' if v['policy']=='current' else '線形 '+v['policy']
+            out+=['| '+' | '.join([size,str(v['seconds']),str(v['matchedChangedLayouts']),
+                counts('worstCompanionExposureImproved','worstCompanionExposureUnchanged','worstCompanionExposureReduced'),
+                f'{v["worstCompanionExposureDeltaMinPp"]:+.2f} ～ {v["worstCompanionExposureDeltaMaxPp"]:+.2f}',
+                counts('fewerOverlappingPairs','equalOverlappingPairs','moreOverlappingPairs'),f'{v["netCorrectCompanionHitPoints"]:+d}'])+' |']
     out+=['','## 人数による変化','',
       '375px・もり・固定配置・開始時。現行も合わせて読むと、1体増えたことによる元のカメラと奥行きの差と、表示中の同じ足元への倍率差を区別できる。各セルは主人公／恋人／仲間中央値の本体高（CSS px）。','',
       *table(['人数','現行','段階 B','線形 A','線形 B','線形 C','線形Bの倍率加算'])]
@@ -327,7 +445,9 @@ def report(path,summary,obs,rows):
         dn=dif('compMinVisible')
         out.append(f'| {n} | {len(pairs)} | {hs} | {median(dif("compMedianExposedInk")):+g} | {sum(x>0 for x in dn)}／{sum(x==0 for x in dn)}／{sum(x<0 for x in dn)} | {sum(x>0 for x in dif("compZeroHits"))} |')
     out+=['','場面ごとに最も隠れた仲間1体の露出割合を比較。同じ場面のBとCの間で、最も隠れる住民が入れ替わる場合もある。','',
-      '## 足元・装備・自律移動','']
+      ]
+    out+=geometry_transitions.report(summary['adjacentResidentHeights'])
+    out+=['## 足元・装備・自律移動','']
     measured=Counter((v['source'],v['controllerSha256'][:12]) for v in summary['fileOrigins'].values() if v['browsers'])
     out+=['ブラウザーを開いて取得したファイルの測定元とコントローラーのSHA-256先頭12桁。各生ファイルの完全なSHA-256と版は集計JSONに収録した。','',*table(['測定元','コントローラー','実測ファイル数'])]
     out += [f'| {label} | `{sha}` | {amount} |' for (label,sha),amount in sorted(measured.items())]
@@ -340,7 +460,7 @@ def report(path,summary,obs,rows):
     out += [f'全体計測のChromeは {versions}。固定と最適でChromeのパッチ版が異なる条件は{len(summary["chromePatchMismatch"])}件で、相対目安は同一ブラウザー版の組だけで集計した。','']
     if rows:
         distance=summary['minimumNativeDistanceAt30s']
-        out+=[f'全観測で影の欠落は最大{max(r["shadowsMissing"] for r in rows)}体。倍率を足元に掛けた場合の期待位置と実表示との差は、装備矩形が最大{max(r["gearError"] for r in rows):.4f}、本体の画像枠が最大{max(r["frameFootError"] for r in rows):.4f} CSS px。30秒までの移動距離は累計で最小{distance:.3f} native px、移動距離0の開始状態は{summary["zeroDistanceAt30s"]}件。各時点はV5の通常の自律ステップを0.1秒ずつ進めて測定した。実時間のフレーム間隔は性能測定を参照。','']
+        out+=[f'本体が画面外へ1 CSS pxを超えてはみ出した住民は1場面あたり最大{max(r["clipped"] for r in rows)}体、影の欠落は最大{max(r["shadowsMissing"] for r in rows)}体。倍率を足元に掛けた場合の期待位置と実表示との差は、装備矩形が最大{max(r["gearError"] for r in rows):.4f}、本体の画像枠が最大{max(r["frameFootError"] for r in rows):.4f} CSS px。30秒までの移動距離は累計で最小{distance:.3f} native px、移動距離0の開始状態は{summary["zeroDistanceAt30s"]}件。各時点はV5の通常の自律ステップを0.1秒ずつ進めて測定した。実時間のフレーム間隔は性能測定を参照。','']
     replay=BASE/'evidence/geometry-motion-replay.json'
     if replay.is_file():
         proof=json.loads(replay.read_text())
@@ -360,6 +480,25 @@ def report(path,summary,obs,rows):
         pairs=[abs(v['raster'][3]-v['projected'][3]) for v in cases]
         out.append(f'{label} {data["browser"]}の実画面を各住民の白い輪郭に分けて再測定した。{len(cases)}場面で、投影との最大差は本体高{max(heights):g} CSS px、重なり{max(pairs):g}組、隠れ面積{max(occlusion):.3f}ポイント。ブラウザーの端画素・前景マスクによる差を含む。 [実画面の数値](evidence/{filename})')
         out.append('')
+    repeats=BASE/'evidence/geometry-webkit-cold-starts.json'
+    if repeats.is_file():
+        groups=json.loads(repeats.read_text())['groups']
+        served=[s['raster']['partnerVisiblePct'] for s in groups['served-response']]
+        pinned=[s['raster']['partnerVisiblePct'] for s in groups['pinned-response']]
+        def percent_range(values):
+            lo,hi=(f'{v:.1f}' for v in (min(values),max(values)))
+            return lo+'%' if lo==hi else lo+'～'+hi+'%'
+        out += [f'320×568・もり・28体のLinux WebKitでは、同じ最終コントローラー、同じシード・時刻・倍率で起動を各3回繰り返した。ゲームを通常のHTTPで読み込んだ3回の恋人露出は{percent_range(served)}、同じJavaScriptの応答をブラウザー計測側で返した3回は{percent_range(pinned)}だった。読み込み方法ごとに同じ足元を再現し、方法間では初期位置が変わった。全条件の大規模集計は各倍率を同じ起動内で比較している。同じLinux WebKitでも、別の起動条件では初期露出が変わり得る。 [WebKitの起動6回](evidence/geometry-webkit-cold-starts.json)','']
+    normal_hits=BASE/'evidence/geometry-served-hits-webkit.json'
+    if normal_hits.is_file():
+        normal=json.loads(normal_hits.read_text())['cases']
+        def numbers(key,policy):
+            return [sum(x['correctOf3'] for x in t['residents']) for t in normal[key][policy]]
+        if '320/forest/28/fixed' in normal and '375/home/28/optimized' in normal:
+            b=numbers('320/forest/28/fixed','B');small='／'.join(map(str,b));wide='／'.join(map(str,numbers('375/home/28/optimized','B')))
+            out += [f'WebKitのネットワークを通常通りにしたローカルHTTP測定でも、同一のゲームが返す正式なヒット関数を使った。320×568・もり・28体では、主人公・恋人・全仲間の計84点のうち、表示直後／8秒／30秒で本人を選べたのは{small}点。375×812・おうち・28体の最適配置ではBが{wide}点、Cが'+ '／'.join(map(str,numbers('375/home/28/optimized','C')))+'点だった。 [WebKitの通常読み込みでの全住民タップ](evidence/geometry-served-hits-webkit.json)','']
+    if summary['workflowRun']:
+        out+=['最終版の全地域を同じジョブ内の固定・最適配置で測定した。 [13地域のネイティブ測定]('+summary['workflowRun']+')','']
     out+=['[全場面の集計CSV](evidence/geometry-scenes.csv.gz) ／ [個別の仲間・解決先・自律移動・足元を含むブラウザー記録](evidence/geometry-fixtures.tar.gz) ／ [地域・人数・幅別の数値とV3相対基準の該当理由](evidence/geometry-summary.json)','']
     if summary['diagnosticZeroGainObservations']:
         out += [f'最適配置に切り替えた足元を保ち、拡大だけを0に戻した診断を{summary["diagnosticZeroGainObservations"]:,}場面で追加した。正式な現行設定はV2配置に戻る。この診断と固定の現行設定を比較すると、配置だけの効果が分かる。 [配置だけ変えた診断](evidence/geometry-layout-only.csv.gz)','']
@@ -378,5 +517,5 @@ def report(path,summary,obs,rows):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('roots',nargs='+',type=Path);p.add_argument('--out',type=Path,required=True,help='Owner evidence directory for the complete native archives');p.add_argument('--report',type=Path,default=BASE/'GEOMETRY.md');p.add_argument('--controller-sha',help='Require this exact runtime SHA for every primary file');p.add_argument('--labels',nargs='+',help='Provenance label for each input root');p.add_argument('--supplement',type=Path,help='Five additional authored profiles to include in the private raw archive');p.add_argument('--compact',type=Path,help='Optional small, human-readable subgroup CSV for the repository');p.add_argument('--partial',action='store_true')
+    p.add_argument('roots',nargs='+',type=Path);p.add_argument('--out',type=Path,required=True,help='Owner evidence directory for the complete native archives');p.add_argument('--report',type=Path,default=BASE/'GEOMETRY.md');p.add_argument('--run-url',help='URL of the distributed native run');p.add_argument('--controller-sha',help='Require this exact runtime SHA for every primary file');p.add_argument('--labels',nargs='+',help='Provenance label for each input root');p.add_argument('--supplement',type=Path,help='Five additional authored profiles to include in the private raw archive');p.add_argument('--transitions',type=Path,help='Public per-key adjacent resident height statistics');p.add_argument('--compact',type=Path,help='Optional small, human-readable subgroup CSV for the repository');p.add_argument('--partial',action='store_true')
     main(p.parse_args())

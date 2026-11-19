@@ -10,7 +10,7 @@
     8
   ],
   "hashes": {
-    "home-production-diorama-population.js": "3bb2e3bf4055285df48535aa9756ff1edc04dd50233bef6140357e1bc434d197",
+    "home-production-diorama-population.js": "e9eaec1883695d97ebfffd33430a12a4bdb23d3d08c55eb17fff98f1128e27ab",
     "population-policy.js": "8773699e127261bf83369dfa38a4cc548cedfe72835f48007c5ac44c41ddfb34",
     "population-seating.js": "4e16f1b768e2a07cebd4064f805890e90da2be765829fbbb4509a47076e71e75"
   },
@@ -286,7 +286,8 @@
         "grass": 28
       },
       "computedLightFilters": {
-        "none": 28
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
+        "none": 27
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -314,7 +315,8 @@
         "grass": 28
       },
       "computedLightFilters": {
-        "none": 28
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
+        "none": 27
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -342,7 +344,8 @@
         "grass": 28
       },
       "computedLightFilters": {
-        "none": 28
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
+        "none": 27
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -372,8 +375,7 @@
         "water": 5
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -403,8 +405,7 @@
         "water": 5
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -434,8 +435,7 @@
         "water": 5
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -465,7 +465,8 @@
         "water": 5
       },
       "computedLightFilters": {
-        "none": 28
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
+        "none": 27
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -495,7 +496,8 @@
         "water": 5
       },
       "computedLightFilters": {
-        "none": 28
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
+        "none": 27
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -525,7 +527,8 @@
         "water": 5
       },
       "computedLightFilters": {
-        "none": 28
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
+        "none": 27
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -555,8 +558,7 @@
         "water": 5
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -586,8 +588,7 @@
         "water": 5
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -617,8 +618,7 @@
         "water": 5
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -736,8 +736,7 @@
         "none": 28
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -765,8 +764,7 @@
         "none": 28
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -794,8 +792,7 @@
         "none": 28
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -907,8 +904,7 @@
         "none": 28
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -936,8 +932,7 @@
         "none": 28
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -965,8 +960,7 @@
         "none": 28
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -994,7 +988,8 @@
         "none": 28
       },
       "computedLightFilters": {
-        "none": 28
+        "none": 27,
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -1022,7 +1017,8 @@
         "none": 28
       },
       "computedLightFilters": {
-        "none": 28
+        "none": 27,
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -1050,7 +1046,8 @@
         "none": 28
       },
       "computedLightFilters": {
-        "none": 28
+        "none": 27,
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -1078,8 +1075,7 @@
         "grass": 28
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -1107,8 +1103,7 @@
         "grass": 28
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -1136,8 +1131,7 @@
         "grass": 28
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -1249,8 +1243,7 @@
         "grass": 28
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -1278,8 +1271,7 @@
         "grass": 28
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -1307,8 +1299,7 @@
         "grass": 28
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -1336,8 +1327,7 @@
         "grass": 28
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -1365,8 +1355,7 @@
         "grass": 28
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -1394,8 +1383,7 @@
         "grass": 28
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -1612,8 +1600,8 @@
       "visibleGear": 2,
       "groundProps": 0,
       "maxFootShiftCssPx": 0,
-      "maxShadowCenterToFootCssPx": 0.0343,
-      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxShadowCenterToFootCssPx": 0.034,
+      "maxInlineShadowWidthErrorPx": 4e-05,
       "maxContactWidthScalingErrorCssPx": 0,
       "maxGearScalingErrorCssPx": 0
     },
@@ -1642,7 +1630,7 @@
       "visibleGear": 2,
       "groundProps": 0,
       "maxFootShiftCssPx": 0,
-      "maxShadowCenterToFootCssPx": 0.0343,
+      "maxShadowCenterToFootCssPx": 0.034,
       "maxInlineShadowWidthErrorPx": 5e-05,
       "maxContactWidthScalingErrorCssPx": 0.01314,
       "maxGearScalingErrorCssPx": 0.00393
@@ -1672,9 +1660,9 @@
       "visibleGear": 2,
       "groundProps": 0,
       "maxFootShiftCssPx": 0,
-      "maxShadowCenterToFootCssPx": 0.0343,
-      "maxInlineShadowWidthErrorPx": 4e-05,
-      "maxContactWidthScalingErrorCssPx": 0.01461,
+      "maxShadowCenterToFootCssPx": 0.034,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0.00878,
       "maxGearScalingErrorCssPx": 0.00526
     },
     {
@@ -1695,15 +1683,16 @@
         "none": 16
       },
       "computedLightFilters": {
-        "none": 28
+        "none": 27,
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
       "visibleGear": 2,
       "groundProps": 0,
       "maxFootShiftCssPx": 0,
-      "maxShadowCenterToFootCssPx": 0.0343,
-      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxShadowCenterToFootCssPx": 0.034,
+      "maxInlineShadowWidthErrorPx": 4e-05,
       "maxContactWidthScalingErrorCssPx": 0,
       "maxGearScalingErrorCssPx": 0
     },
@@ -1725,14 +1714,15 @@
         "none": 16
       },
       "computedLightFilters": {
-        "none": 28
+        "none": 27,
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
       "visibleGear": 2,
       "groundProps": 0,
       "maxFootShiftCssPx": 0,
-      "maxShadowCenterToFootCssPx": 0.0343,
+      "maxShadowCenterToFootCssPx": 0.034,
       "maxInlineShadowWidthErrorPx": 5e-05,
       "maxContactWidthScalingErrorCssPx": 0.01314,
       "maxGearScalingErrorCssPx": 0.00393
@@ -1755,16 +1745,17 @@
         "none": 16
       },
       "computedLightFilters": {
-        "none": 28
+        "none": 27,
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
       "visibleGear": 2,
       "groundProps": 0,
       "maxFootShiftCssPx": 0,
-      "maxShadowCenterToFootCssPx": 0.0343,
+      "maxShadowCenterToFootCssPx": 0.034,
       "maxInlineShadowWidthErrorPx": 5e-05,
-      "maxContactWidthScalingErrorCssPx": 0.01461,
+      "maxContactWidthScalingErrorCssPx": 0.00878,
       "maxGearScalingErrorCssPx": 0.00526
     },
     {
@@ -1783,8 +1774,7 @@
         "none": 28
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -1812,8 +1802,7 @@
         "none": 28
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -1841,8 +1830,7 @@
         "none": 28
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -1954,8 +1942,7 @@
         "none": 28
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -1983,8 +1970,7 @@
         "none": 28
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -2012,8 +1998,7 @@
         "none": 28
       },
       "computedLightFilters": {
-        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
-        "none": 27
+        "none": 28
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -2041,7 +2026,8 @@
         "none": 28
       },
       "computedLightFilters": {
-        "none": 28
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
+        "none": 27
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -2069,7 +2055,8 @@
         "none": 28
       },
       "computedLightFilters": {
-        "none": 28
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
+        "none": 27
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,
@@ -2097,7 +2084,8 @@
         "none": 28
       },
       "computedLightFilters": {
-        "none": 28
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
+        "none": 27
       },
       "shadowEdgeClips": 0,
       "gearEdgeClips": 0,

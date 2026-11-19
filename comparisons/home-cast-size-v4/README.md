@@ -1,5 +1,7 @@
 # 人数に応じた2.5Dホームのサイズ比較
 
+[最終比較と推奨案](RESULTS.md) ／ [28体の実測一覧](SIZE28.md)
+
 [本人限定の試遊](https://naotocchi-cast-size.kerzion214.chatgpt.site/v4/)では、28体のみずべから始まる。「停止」を押して現行・A・B・Cを切り替えると、同じ住民の表情、奥行き、足の位置を保って大きさを比較できる。「設定」からもり・おうちにも直接移れる。各住民の本体寸法を読み取りたい場合は「現在の実寸を測る」を押す。
 
 | 375px以上・28体 | 全員への追加 | 主人公・恋人 | 仲間 |
@@ -17,6 +19,8 @@
 - 人数は1〜28の整数で指定できる。1〜18体の追加は両方式とも0%。「段階的に拡大」では19体で目標の10分の1、その後1体につき10分の1ずつ増え、28体で目標に届く。「一度に拡大」では19体で目標に達する。
 - 幅はホームの実際のビューポートをCSS pxで測る。320px以下では追加0%、375px以上では目標の全量。中間では幅の進みを `t = (幅 − 320) / 55` として、`t²(3 − 2t)` を追加分に掛ける。両端は傾き0でつながる。サイズを決めるのは人数と幅で、地域切替自体では倍率を変えない。
 - 同じ28体をすぐに見比べられる。 [みずべ](https://naotocchi-cast-size.kerzion214.chatgpt.site/v4/?region=river_lake&count=28&time=day&variant=B&curve=linear&layout=fixed&paused=1) ／ [もり](https://naotocchi-cast-size.kerzion214.chatgpt.site/v4/?region=forest&count=28&time=day&variant=B&curve=linear&layout=fixed&paused=1) ／ [おうち](https://naotocchi-cast-size.kerzion214.chatgpt.site/v4/?region=home&count=28&time=day&variant=B&curve=linear&layout=fixed&paused=1)
+
+18体から19体に増えたときの見え方を、同じもり・昼で比較できる。 [18体の現行](https://naotocchi-cast-size.kerzion214.chatgpt.site/v4/?region=forest&count=18&time=day&variant=current&curve=linear&layout=fixed&paused=1) ／ [19体・B段階式](https://naotocchi-cast-size.kerzion214.chatgpt.site/v4/?region=forest&count=19&time=day&variant=B&curve=linear&layout=fixed&paused=1) ／ [19体・B一律](https://naotocchi-cast-size.kerzion214.chatgpt.site/v4/?region=forest&count=19&time=day&variant=B&curve=step&layout=fixed&paused=1)
 
 ## 再現
 

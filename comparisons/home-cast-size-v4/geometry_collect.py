@@ -38,7 +38,8 @@ def capture(browser,args,fixture,plan,policy_pairs,groups,source):
     try:
         ctx.add_init_script(path=V3/'geometry_capture.js')
         assert source.count(HIT_ANCHOR)==1
-        ctx.route('**/home-production-diorama-population.js*',lambda route:route.fulfill(body=source.replace(HIT_ANCHOR,PROBE+HIT_ANCHOR),content_type='application/javascript'))
+        if not getattr(args,'served_probe',False):
+            ctx.route('**/home-production-diorama-population.js*',lambda route:route.fulfill(body=source.replace(HIT_ANCHOR,PROBE+HIT_ANCHOR),content_type='application/javascript'))
         page=ctx.new_page()
         page_errors=[];failed_requests=[]
         page.on('pageerror',lambda error:page_errors.append(str(error)))

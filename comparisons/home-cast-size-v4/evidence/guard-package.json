@@ -1,0 +1,45 @@
+{
+  "source": {
+    "reference": "a6e257fef32ea2f0664b8c9fbed761f60ab63cb0",
+    "candidate": "537e95cfff6e75f3dd64890525a587efd9c088ea",
+    "preservedSourcePaths": 36004,
+    "addedSourcePaths": 63,
+    "evidenceSHA256": {
+      "comparisons/home-cast-size-v3/evidence/geometry-fixtures.tar.gz": "ffad2ba54a08e5c0363886af22a11e7641b7a9ac69a19b55f7f64345e5429b0b",
+      "comparisons/home-cast-size-v3/evidence/perf-grid-raw.tar.gz": "207083fec9444126166acf4406f667da9637917a8c2510337f85d67095ff610e"
+    }
+  },
+  "package": {
+    "identicalV3Files": 3909,
+    "v3SHA256": "c98b1de105f27b97fe5c2fd0e9f83b5ce1621d248e0c315c45c59c299c9ecc2c",
+    "nativeScriptsCompared": [
+      "population.html",
+      "population-beauty.js",
+      "home-production-world-population.mjs",
+      "home-production-diorama-population.js"
+    ],
+    "startupFit": {
+      "priorV4Commit": "e9cbfd3dc714179356ab81db838a52e209708689",
+      "reviewedFunctionSHA256": "805d7bfdf0bb5c70109c1efd6def649cd1cdc7babc52735bfc832a2ae0abceaa",
+      "restoredV4GameSHA256": "5ba0ca7a051eefba377f54dd0bc05c1e7b90ca3f5cc00cea0ad26ef841bc71d3",
+      "changedGameFile": "home-production-diorama-population.js",
+      "unchangedGameFiles": 3903,
+      "restoredControllerSHA256": "3bb2e3bf4055285df48535aa9756ff1edc04dd50233bef6140357e1bc434d197"
+    },
+    "v4Files": 3920,
+    "v4SHA256": "f9b927c65ea9f683dead97b906d569c2216f7334bad7e70e1ee915635c56f90a",
+    "addedSHA256": {
+      "game/cast-population.js": "4939348c99e24a849945f8b1cb64df2e0e119e0c2e7e2d5ed9881930cac79887",
+      "game/home-production-diorama-population.js": "e9eaec1883695d97ebfffd33430a12a4bdb23d3d08c55eb17fff98f1128e27ab",
+      "game/home-production-world-population.mjs": "8f5daf522cfb216f1d6f0146cd52c599456e73343388fc13c1a55074d70221f6",
+      "game/population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+      "game/population-policy.js": "8773699e127261bf83369dfa38a4cc548cedfe72835f48007c5ac44c41ddfb34",
+      "game/population-seating.js": "4e16f1b768e2a07cebd4064f805890e90da2be765829fbbb4509a47076e71e75",
+      "game/population.html": "80b4079fe8d7b3910da3504f9ca16694de5111b7226ff4420aee5b0b913f5168",
+      "v4/controls.mjs": "c8a15a81a5bb6e955cde2e3cf62755a440396d4836e4e3444b0a556b502d21ca",
+      "v4/index.html": "33bc67a499df3a750356a4f971b0db2d4711346d052609d463dea640b60de189",
+      "v4/shell-model.mjs": "72fcab57ae67ab6695c08d70f3f147bef490370bc083c31648db5625aed35aaf",
+      "v4/style.css": "1c319d95f85c7b8ee6b5c9f900dd8f9db3b8f8ecd98752253839369fc25166de"
+    }
+  }
+}
