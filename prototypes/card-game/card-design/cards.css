@@ -90,3 +90,7 @@
 @container (min-width:40.01px) and (max-width:70px){
  .v11-card:not(.v10-detail) .v8-stats{top:125cqw;height:15.5cqw;border:0;box-shadow:inset 0 0 0 .3cqw #bba878}
 }
+
+/* V15: cost digits only; preserve the circle and V14 stat typography. */
+.v11-card:not(.v10-detail) .v8-cost{font-size:11.7cqw}
+.v11-card.v10-detail .v8-cost{font-size:9.1cqw}

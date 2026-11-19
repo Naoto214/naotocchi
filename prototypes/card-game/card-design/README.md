@@ -37,3 +37,23 @@ https://naotocchi-card-integration-v13-20261119.kerzion214.chatgpt.site/v14-qa/r
 WebKit is unavailable (missing executable); physical iPhone Safari is untested.
 The existing BGM byte-protection failure for the earlier index.html integration
 is not bypassed. No names, IDs, values, images, host UI, or gameplay changed.
+
+### VERSION 15 cost digits (2026-11-19)
+
+Baseline V14: `ae522ea99dcbc5396537024623d1d0b3d11243c1`.
+Only cost typography changes: normal 10.5 → 11.7cqw (+11.43%), detail
+8.5 → 9.1cqw (+7.06%); weights remain 700/600. Circle geometry and all
+power/wisdom styles stay unchanged. Cost-only ink fitting preserves inner
+padding at tiny sizes and fits future two-digit values; it never fits stats.
+The indicated enlargement is the base size, with circle-fit limits where needed.
+
+Chromium 156: costs 0–99 in normal/detail, 320/375/390/430 × 844 and the
+corresponding landscape viewports, plus 32/40/48/64/80px card widths. No
+measured cost overflow/centering failures. Before/after circle dimensions and
+stat glyph sizes/weights match in all eight viewport conditions. 19 focused
+Node tests pass. Physical iPhone Safari/WebKit remain unverified.
+
+Owner-private before/after screenshots, candidate magnifications, measurements:
+https://naotocchi-card-integration-v13-20261119.kerzion214.chatgpt.site/v15-qa/report.html
+V14 comparison styling/fit modules are pinned to the baseline in that Site;
+its historical screenshot evidence is retained. No QA artifacts enter Pages.
