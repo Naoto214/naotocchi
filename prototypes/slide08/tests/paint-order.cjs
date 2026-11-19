@@ -80,9 +80,9 @@ const check = (ok, message) => { if (!ok) failures.push(message); };
         await page.addStyleTag({ content: css });
       }
       for (const [name, width, height, time] of [
-        ['start', 390, 844, 0], ['middle', 390, 844, 120],
-        ['rotated-middle', 844, 390, 120], ['small-middle', 667, 320, 120],
-        ['returned-middle', 390, 844, 120], ['end', 390, 844, 239.999],
+        ['start', 390, 844, 0], ['middle', 390, 844, 140],
+        ['rotated-middle', 844, 390, 140], ['small-middle', 667, 320, 140],
+        ['returned-middle', 390, 844, 140], ['end', 390, 844, 279.999],
       ]) {
         await page.setViewportSize({ width, height });
         const result = await page.evaluate(async ({ time, moves }) => {
@@ -137,7 +137,7 @@ const check = (ok, message) => { if (!ok) failures.push(message); };
         result.paintMatchesForeground = painted.equals(foreground);
         check(result.paintMatchesForeground, `${dir}/${name}: raster differs from unobscured foreground`);
         check(result.squares, `${dir}/${name}: nonsquare cell`);
-        check(result.durations.every(d => d === 240), `${dir}/${name}: duration`);
+        check(result.durations.every(d => d === 280), `${dir}/${name}: duration`);
         for (const o of result.observations) {
           check(o.visible, `${dir}/${name}: hidden ${o.from}->${o.to}`);
           check(o.positionError < 1, `${dir}/${name}: resize drift ${o.positionError}`);

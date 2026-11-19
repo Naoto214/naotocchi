@@ -60,8 +60,11 @@ export function evaluate(s, policy = 'cluster') {
     adjacent * 0.05
   );
 }
-export function search(initial, options = {}) {
-  validate(initial);
+export function search(initial, options = {}, adapter = {}) {
+  const transition = adapter.step || step, stateKey = adapter.key || key,
+    check = adapter.validate || validate, movesFor = adapter.candidates || candidates,
+    scoreState = adapter.evaluate || evaluate;
+  check(initial);
   const opts = {
     mode: 'beam',
     width: 24,
@@ -89,7 +92,7 @@ export function search(initial, options = {}) {
   )
     throw Error('Invalid search limits');
   const start = performance.now(),
-    seen = new Set([key(initial)]);
+    seen = new Set([stateKey(initial)]);
   let nodes = 0,
     expanded = 0,
     duplicates = 0,
@@ -97,7 +100,7 @@ export function search(initial, options = {}) {
     depth = 0,
     front = [{ s: initial, path: [] }];
   const value = (s) =>
-    evaluate(s, opts.policy) -
+    scoreState(s, opts.policy) -
     opts.itemPenalty * (s.used.egg + s.used.single + s.used.bulk);
   let best = { ...front[0], value: value(initial) };
   const finish = (status, node, reason) => ({
@@ -126,14 +129,14 @@ export function search(initial, options = {}) {
       const moves =
         opts.actionSet === 'slides'
           ? DIRS.map((dir) => ({ type: 'slide', dir }))
-          : candidates(node.s);
+          : movesFor(node.s);
       for (const a of moves) {
         if (nodes >= opts.maxNodes || performance.now() - start >= opts.maxMs)
           return finish('unproven', null, 'budget');
         nodes++;
-        const r = step(node.s, a);
+        const r = transition(node.s, a);
         if (!r.valid) continue;
-        const k = key(r.state);
+        const k = stateKey(r.state);
         if (seen.has(k)) {
           duplicates++;
           continue;
