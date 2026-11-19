@@ -94,7 +94,15 @@ group('conditions','season','季節',[['spring','春'],['summer','夏'],['autumn
 group('conditions','weather','天気',[['sunny','晴れ'],['cloudy','曇り'],['rain','雨'],['snow','雪']]);
 group('playback','count','住民',[['1','1体'],['4','4体'],['28','28体']]);
 group('playback','speed','再生速度',[['1','通常'],['0.25','スロー ×0.25']]);
-for (const [key,label] of Object.entries({motion:'自然物の動き',water:'水面・反射',particles:'季節の粒子',light:'環境光・照明',contact:'足元・接水'})) {
+const effectControls = [
+  ['water','水面・反射','effects'], ['particles','季節の粒子','effects'],
+  ['light','環境光・照明','effects'], ['contact','足元・接水','effects'],
+  ['motion','自然物の動き','full-effects'], ['magic','幻想の光','full-effects'],
+  ['canopy','枝葉の揺れ','forest-effects'], ['shafts','光の筋','forest-effects'],
+  ['depth','粒子の奥行き','forest-effects'], ['gusts','ひときわ強い風','forest-effects'],
+  ['ground','地面の木漏れ日','forest-effects'],
+];
+for (const [key,label,groupId] of effectControls) {
   const wrapper = document.createElement('label');
   const input = document.createElement('input');
   input.type = 'checkbox';
@@ -103,11 +111,16 @@ for (const [key,label] of Object.entries({motion:'自然物の動き',water:'水
   settings.effects[key] = params.get(key) !== '0';
   input.checked = settings.effects[key];
   wrapper.append(input,label);
-  get('effects').append(wrapper);
+  get(groupId).append(wrapper);
 }
 function updateEffects() {
-  slider.disabled = settings.variant === 'current';
-  for (const input of get('effects').querySelectorAll('input')) input.disabled = settings.variant === 'current';
+  const full = Object.hasOwn(shortNames,settings.variant);
+  slider.disabled = !full;
+  for (const [key,,groupId] of effectControls) {
+    const disabled = groupId === 'effects' ? settings.variant === 'current'
+      : !full || (groupId === 'forest-effects' && settings.region !== 'forest');
+    get('fx-'+key).disabled = disabled;
+  }
 }
 function send() {
   if (ready) frame.contentWindow.postMessage({type:'home-beauty-settings',settings},location.origin);
