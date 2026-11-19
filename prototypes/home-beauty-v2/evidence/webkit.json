@@ -1,0 +1,506 @@
+{
+  "engine": "webkit",
+  "results": [
+    {
+      "test": "320/pose",
+      "result": {
+        "before": {
+          "fx": [
+            -105.65625,
+            0,
+            531.328125,
+            797
+          ],
+          "paint": {
+            "left": -105.66666666666669,
+            "top": 0,
+            "width": 531.3333333333334,
+            "height": 797
+          },
+          "reduced": "true",
+          "actors": [
+            [
+              "companion:cat_friend",
+              "179.54px 84.59px",
+              "1.393544 0.37595"
+            ],
+            [
+              "partner:forest_bear",
+              "-174.41px 48.86px",
+              "1.397689 0.377068"
+            ],
+            [
+              "pet:dog",
+              "9.06px 112.12px",
+              "1.527927 0.412204"
+            ],
+            [
+              "companion:rabbit_friend",
+              "-143.56px 182.85px",
+              "1.590912 0.429196"
+            ]
+          ]
+        },
+        "after": {
+          "fx": [
+            -105.65625,
+            0,
+            531.328125,
+            797
+          ],
+          "paint": {
+            "left": -105.66666666666669,
+            "top": 0,
+            "width": 531.3333333333334,
+            "height": 797
+          },
+          "reduced": "true",
+          "actors": [
+            [
+              "companion:cat_friend",
+              "179.54px 84.59px",
+              "1.393544 0.37595"
+            ],
+            [
+              "partner:forest_bear",
+              "-174.41px 48.86px",
+              "1.397689 0.377068"
+            ],
+            [
+              "pet:dog",
+              "9.06px 112.12px",
+              "1.527927 0.412204"
+            ],
+            [
+              "companion:rabbit_friend",
+              "-143.56px 182.85px",
+              "1.590912 0.429196"
+            ]
+          ]
+        },
+        "identical": true
+      }
+    },
+    {
+      "test": "375/pose",
+      "result": {
+        "before": {
+          "fx": [
+            -78.15625,
+            0,
+            531.328125,
+            797
+          ],
+          "paint": {
+            "left": -78.16666666666669,
+            "top": 0,
+            "width": 531.3333333333334,
+            "height": 797
+          },
+          "reduced": "true",
+          "actors": [
+            [
+              "companion:cat_friend",
+              "205.4px 67.2px",
+              "1.383341 0.475132"
+            ],
+            [
+              "partner:forest_bear",
+              "-198.09px 34.7px",
+              "1.395167 0.479194"
+            ],
+            [
+              "pet:dog",
+              "10.29px 104.12px",
+              "1.52517 0.523845"
+            ],
+            [
+              "companion:rabbit_friend",
+              "-164.97px 175.69px",
+              "1.582637 0.543583"
+            ]
+          ]
+        },
+        "after": {
+          "fx": [
+            -78.15625,
+            0,
+            531.328125,
+            797
+          ],
+          "paint": {
+            "left": -78.16666666666669,
+            "top": 0,
+            "width": 531.3333333333334,
+            "height": 797
+          },
+          "reduced": "true",
+          "actors": [
+            [
+              "companion:cat_friend",
+              "205.4px 67.2px",
+              "1.383341 0.475132"
+            ],
+            [
+              "partner:forest_bear",
+              "-198.09px 34.7px",
+              "1.395167 0.479194"
+            ],
+            [
+              "pet:dog",
+              "10.29px 104.12px",
+              "1.52517 0.523845"
+            ],
+            [
+              "companion:rabbit_friend",
+              "-164.97px 175.69px",
+              "1.582637 0.543583"
+            ]
+          ]
+        },
+        "identical": true
+      }
+    },
+    {
+      "test": "390/pose",
+      "result": {
+        "before": {
+          "fx": [
+            -70.65625,
+            0,
+            531.328125,
+            797
+          ],
+          "paint": {
+            "left": -70.66666666666669,
+            "top": 0,
+            "width": 531.3333333333334,
+            "height": 797
+          },
+          "reduced": "true",
+          "actors": [
+            [
+              "companion:cat_friend",
+              "217.46px 74.87px",
+              "1.402739 0.539482"
+            ],
+            [
+              "partner:forest_bear",
+              "-206.75px 29.54px",
+              "1.383161 0.531952"
+            ],
+            [
+              "pet:dog",
+              "10.74px 101.2px",
+              "1.512045 0.58152"
+            ],
+            [
+              "companion:rabbit_friend",
+              "-169.12px 167.95px",
+              "1.555067 0.598066"
+            ]
+          ]
+        },
+        "after": {
+          "fx": [
+            -70.65625,
+            0,
+            531.328125,
+            797
+          ],
+          "paint": {
+            "left": -70.66666666666669,
+            "top": 0,
+            "width": 531.3333333333334,
+            "height": 797
+          },
+          "reduced": "true",
+          "actors": [
+            [
+              "companion:cat_friend",
+              "217.46px 74.87px",
+              "1.402739 0.539482"
+            ],
+            [
+              "partner:forest_bear",
+              "-206.75px 29.54px",
+              "1.383161 0.531952"
+            ],
+            [
+              "pet:dog",
+              "10.74px 101.2px",
+              "1.512045 0.58152"
+            ],
+            [
+              "companion:rabbit_friend",
+              "-169.12px 167.95px",
+              "1.555067 0.598066"
+            ]
+          ]
+        },
+        "identical": true
+      }
+    },
+    {
+      "test": "430/pose",
+      "result": {
+        "before": {
+          "fx": [
+            -50.65625,
+            0,
+            531.328125,
+            797
+          ],
+          "paint": {
+            "left": -50.666666666666686,
+            "top": 0,
+            "width": 531.3333333333334,
+            "height": 797
+          },
+          "reduced": "true",
+          "actors": [
+            [
+              "companion:cat_friend",
+              "222.09px 58.88px",
+              "1.281746 0.599194"
+            ],
+            [
+              "partner:forest_bear",
+              "-222.78px 15.74px",
+              "1.269913 0.593662"
+            ],
+            [
+              "pet:dog",
+              "11.94px 93.4px",
+              "1.388245 0.64898"
+            ],
+            [
+              "companion:rabbit_friend",
+              "-167.72px 159.8px",
+              "1.423078 0.665264"
+            ]
+          ]
+        },
+        "after": {
+          "fx": [
+            -50.65625,
+            0,
+            531.328125,
+            797
+          ],
+          "paint": {
+            "left": -50.666666666666686,
+            "top": 0,
+            "width": 531.3333333333334,
+            "height": 797
+          },
+          "reduced": "true",
+          "actors": [
+            [
+              "companion:cat_friend",
+              "222.09px 58.88px",
+              "1.281746 0.599194"
+            ],
+            [
+              "partner:forest_bear",
+              "-222.78px 15.74px",
+              "1.269913 0.593662"
+            ],
+            [
+              "pet:dog",
+              "11.94px 93.4px",
+              "1.388245 0.64898"
+            ],
+            [
+              "companion:rabbit_friend",
+              "-167.72px 159.8px",
+              "1.423078 0.665264"
+            ]
+          ]
+        },
+        "identical": true
+      }
+    },
+    {
+      "test": "controls/forest",
+      "result": {
+        "region": "forest",
+        "time": "night",
+        "season": "winter",
+        "weather": "snow",
+        "variant": "B",
+        "count": 1,
+        "speed": 1,
+        "water": "1",
+        "particles": "1",
+        "light": "1",
+        "contact": "1",
+        "effects": {
+          "water": true,
+          "particles": true,
+          "light": true,
+          "contact": true
+        }
+      }
+    },
+    {
+      "test": "controls/sea",
+      "result": {
+        "region": "sea",
+        "time": "night",
+        "season": "winter",
+        "weather": "snow",
+        "variant": "B",
+        "count": 1,
+        "speed": 1,
+        "water": "1",
+        "particles": "1",
+        "light": "1",
+        "contact": "1",
+        "effects": {
+          "water": true,
+          "particles": true,
+          "light": true,
+          "contact": true
+        }
+      }
+    },
+    {
+      "test": "controls/snow",
+      "result": {
+        "region": "snow",
+        "time": "night",
+        "season": "winter",
+        "weather": "snow",
+        "variant": "B",
+        "count": 1,
+        "speed": 1,
+        "water": "1",
+        "particles": "1",
+        "light": "1",
+        "contact": "1",
+        "effects": {
+          "water": true,
+          "particles": true,
+          "light": true,
+          "contact": true
+        }
+      }
+    },
+    {
+      "test": "controls/city",
+      "result": {
+        "region": "city",
+        "time": "night",
+        "season": "winter",
+        "weather": "snow",
+        "variant": "B",
+        "count": 1,
+        "speed": 1,
+        "water": "1",
+        "particles": "1",
+        "light": "1",
+        "contact": "1",
+        "effects": {
+          "water": true,
+          "particles": true,
+          "light": true,
+          "contact": true
+        }
+      }
+    },
+    {
+      "test": "controls/memory_lake",
+      "result": {
+        "region": "memory_lake",
+        "time": "night",
+        "season": "winter",
+        "weather": "snow",
+        "variant": "B",
+        "count": 1,
+        "speed": 1,
+        "water": "1",
+        "particles": "1",
+        "light": "1",
+        "contact": "1",
+        "effects": {
+          "water": true,
+          "particles": true,
+          "light": true,
+          "contact": true
+        }
+      }
+    },
+    {
+      "test": "slow",
+      "result": 0.25
+    },
+    {
+      "test": "water-pixels",
+      "result": [
+        {
+          "region": "sea",
+          "time": "morning",
+          "ink": 2765,
+          "outside": 0
+        },
+        {
+          "region": "sea",
+          "time": "day",
+          "ink": 2807,
+          "outside": 0
+        },
+        {
+          "region": "sea",
+          "time": "evening",
+          "ink": 2821,
+          "outside": 0
+        },
+        {
+          "region": "sea",
+          "time": "night",
+          "ink": 2804,
+          "outside": 0
+        },
+        {
+          "region": "memory_lake",
+          "time": "morning",
+          "ink": 1629,
+          "outside": 0
+        },
+        {
+          "region": "memory_lake",
+          "time": "day",
+          "ink": 1629,
+          "outside": 0
+        },
+        {
+          "region": "memory_lake",
+          "time": "evening",
+          "ink": 1619,
+          "outside": 0
+        },
+        {
+          "region": "memory_lake",
+          "time": "night",
+          "ink": 1629,
+          "outside": 0
+        }
+      ]
+    },
+    {
+      "test": "replay",
+      "result": 28
+    },
+    {
+      "test": "persistent-production-key",
+      "result": null
+    },
+    {
+      "test": "browser",
+      "result": "26.5"
+    }
+  ],
+  "errors": [],
+  "missing": []
+}
