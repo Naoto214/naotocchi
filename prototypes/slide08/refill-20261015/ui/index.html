@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <base href="../../">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#dceff2" />
+    <title>なおぽよ・スライド</title>
+    <link rel="stylesheet" href="../naopoyo/series.css" />
+    <link rel="stylesheet" href="refill-20261015/ui/player.css" />
+  </head>
+  <body>
+    <main id="app">
+      <section id="setup" class="panel">
+        <a class="back" href="../naopoyo/">← モード選択</a>
+        <h1 class="logo">なおぽよ <i>✦</i></h1>
+        <p class="subtitle">スライド</p>
+        <h2>補充ルール比較・未採用</h2>
+<label>方式 <select id="profile"></select></label>
+<label>ゲージ <select id="gaugePolicy"></select></label>
+<label>共通seed <input id="seedInput" type="number" min="0" max="4294967295" value="1"></label>
+<p id="ruleDescription" class="subtle"></p>
+<p>すべて試遊記録。AI探索と人間の達成率は別です。</p>
+        <p>うごかして、そだてる。<br />同じ種族・同じ段階をつなげよう。</p>
+        <div id="sets" class="row"></div>
+        <div id="choices" class="choices"></div>
+        <p id="count"></p>
+        <button id="start" class="primary" disabled>この3種族ではじめる</button
+        ><button id="restore" hidden>つづきから</button
+        ><a class="back" href="../naopoyo/?screen=favorites"
+          >お気に入り5種族を編集</a
+        >
+        <p class="subtle">新しいキャラは、本編で解放すると選べます。</p>
+        <label>移動の速さ <select id="slideSpeed"><option value="200">速め 0.20秒</option><option value="240" selected>標準 0.24秒</option><option value="280">ゆっくり 0.28秒</option></select></label>
+        <p id="boot" role="status">準備中…</p>
+      </section>
+      <section id="game" hidden>
+        <header>
+          <button id="back" aria-label="モード選択へ戻る">←</button>
+          <div><strong>なおぽよ</strong><small>スライド</small></div>
+          <button id="pause" aria-label="一時停止">Ⅱ</button>
+        </header>
+        <div class="hud">
+          <span>時間 <b id="time">0:00</b></span
+          ><span>盤面の08 <b id="eight">0</b></span
+          ><span>手数 <b id="moves">0</b></span>
+        </div>
+        <div id="arena">
+          <div id="top" class="edge horizontal"></div>
+          <div id="leftEdge" class="edge vertical"></div>
+          <div id="board" aria-label="6列6行の盤面"></div>
+          <div id="rightEdge" class="edge vertical"></div>
+          <div id="bottom" class="edge horizontal"></div>
+          <div id="effect" aria-hidden="true"></div>
+        </div>
+        <div id="controls">
+        <div class="under">
+          <button id="undo">↶ 1手戻す</button
+          ><label
+            >ゲージ <meter id="gaugeMeter" min="0" max="24"></meter
+            ><span id="gauge"></span
+          ></label>
+        </div>
+        <div id="tools">
+          <div id="eggs" class="row"></div>
+          <div class="row">
+            <button id="single">へんしん <small>消費2</small></button
+            ><button id="bulk">だいへんしん <small>消費6</small></button>
+          </div>
+        </div>
+        <section id="picker" hidden>
+          <div class="row">
+            <b id="toolTitle"></b><button id="cancel">やめる</button>
+          </div>
+          <div class="pick-columns">
+            <div>
+              <small id="sourceLabel"></small>
+              <div id="sources" class="choices"></div>
+            </div>
+            <div>
+              <small id="targetLabel"></small>
+              <div id="targets" class="choices"></div>
+            </div>
+          </div>
+        </section>
+        <p id="status" role="status">上下左右にスワイプ</p>
+        <small id="practice"></small><p id="nextSupply" class="subtle"></p>
+<button id="exportQA">記録JSONを出力</button><button id="markMistake">操作ミスを記録</button>
+<details><summary>今回の評価（任意）</summary><div id="ratingFields"></div>
+<label>難しさ <select id="difficulty"><option value="">未評価</option><option>簡単すぎる</option><option>ちょうどよい</option><option>難しすぎる</option></select></label>
+</details>
+        </div>
+      </section>
+      <dialog id="dialog">
+        <h2 id="dialogTitle"></h2>
+        <p id="dialogText"></p>
+        <div id="dialogChoices"></div>
+      </dialog>
+    </main>
+    <script type="module" src="refill-20261015/ui/player.mjs"></script>
+  </body>
+</html>
