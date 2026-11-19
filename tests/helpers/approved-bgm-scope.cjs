@@ -1,4 +1,4 @@
-// Only remove the exact adopted BGM hooks; all other baseline bytes remain protected.
+// Only remove exact adopted hooks; all original baseline hashes remain protected.
 const fs=require('node:fs'),crypto=require('node:crypto'),assert=require('node:assert/strict');
 const baseline={
   "script.js": "d3c610f1d6c03d38c6fe377d8453194b54cb911b",
@@ -37,6 +37,18 @@ const additions={
 };
 function restoredBlob(file,text=fs.readFileSync(file,'utf8')){
  for(const addition of additions[file]||[]){assert.equal(text.split(addition).length,2,'exact single BGM insertion: '+file);text=text.replace(addition,'');}
+ // PR #565's approved design adds only these two includes to this protected file.
+ // Accept the original page or the complete pair in their exact approved positions.
+ // Partial, moved, duplicated or modified tags must still fail the original hash.
+ if(file==='prototypes/card-game/index.html'){
+  const includes=[
+   ['<link rel="stylesheet" href="card-design/cards.css"></head>','</head>'],
+   ['<script type="module" src="app.mjs"></script><script type="module" src="card-design/bootstrap.mjs"></script><dialog id="life-clock-dialog"','<script type="module" src="app.mjs"></script><dialog id="life-clock-dialog"']
+  ];
+  if(includes.every(([approved])=>text.split(approved).length===2)){
+   for(const [approved,original] of includes)text=text.replace(approved,original);
+  }
+ }
  const bytes=Buffer.from(text);return crypto.createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex');
 }
 function verify(){for(const [file,hash] of Object.entries(baseline))assert.equal(restoredBlob(file),hash,'non-BGM bytes changed: '+file);}

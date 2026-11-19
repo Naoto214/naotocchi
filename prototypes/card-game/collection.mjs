@@ -6,7 +6,7 @@ const entries=[EGG,...Object.values(CARDS)].sort((a,b)=>order.indexOf(a.type)-or
 const ids=new Set(entries.map(c=>c.id));
 export function collectionCards({query='',type='',attribute='',species='',stage='',rarity='',favoritesOnly=false}={},favorites=[]){
  const q=query.trim().toLowerCase(),f=new Set(favorites);
- return entries.filter(c=>(!type||c.type===type)&&(!attribute||c.attribute===attribute)&&(!species||c.species===species)&&(!stage||String(c.stage)===String(stage))&&(!rarity||(rarity==='rare'?c.rare:!c.rare))&&(!favoritesOnly||f.has(c.id))&&(!q||`${c.name} ${c.form??''} ${c.id} ${c.text}`.toLowerCase().includes(q)));
+ return entries.filter(c=>(!type||c.type===type)&&(!attribute||c.attribute===attribute)&&(!species||c.species===species)&&(!stage||String(c.stage)===String(stage))&&(!rarity||(rarity==='rare'?c.rare:!c.rare))&&(!favoritesOnly||f.has(c.id))&&(!q||`${c.name} ${c.form??''} ${(c.searchAliases??[]).join(' ')} ${c.id} ${c.text}`.toLowerCase().includes(q)));
 }
 export function collectionPage(cards,page=0){const pages=Math.max(1,Math.ceil(cards.length/9)),p=Math.max(0,Math.min(pages-1,Math.trunc(Number(page)||0)));return {page:p,pages,cards:cards.slice(p*9,p*9+9)};}
 function parse(raw){

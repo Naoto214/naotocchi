@@ -1,0 +1,308 @@
+{
+  "approval": "User VERSION16 specification approval, 2026-11-19; no merge/publication permission",
+  "baseline": "38b4e9d0c8ed4cacdfc1cc6c072a7a9e62e5c053",
+  "designReference": "bc8b15f05f4b624ccdd2414205f542aac96c30f7",
+  "nameReference": "b0e067f18b2764e978113b4ae498e63b67b5e854",
+  "files": {
+    "character-world-master.v1.js": {
+      "baseline": "b4bb2cb6ad01f3d99535621d26ecb26f87dc859f",
+      "names": "93fa4d2d548dba753110d7ec847fc6f0793fc735",
+      "design": "b4bb2cb6ad01f3d99535621d26ecb26f87dc859f",
+      "combined": "93fa4d2d548dba753110d7ec847fc6f0793fc735"
+    },
+    "index.html": {
+      "baseline": "12d6d2a45c2f20bc4523e13a17bdd30130130020",
+      "names": "9576b8bde7676bd00b809c6f54af26870c150660",
+      "design": "12d6d2a45c2f20bc4523e13a17bdd30130130020",
+      "combined": "9576b8bde7676bd00b809c6f54af26870c150660"
+    },
+    "prototypes/card-game/art-delivery/build.mjs": {
+      "baseline": "51a8d364dcb01c6a2a65d349b8100c3408d20fdd",
+      "names": "51a8d364dcb01c6a2a65d349b8100c3408d20fdd",
+      "design": "2865f2032dbf301048a32d1a6ef6b677c675d5ce",
+      "combined": "2865f2032dbf301048a32d1a6ef6b677c675d5ce"
+    },
+    "prototypes/card-game/art-delivery/large/M-starfish-01-5e74b7b6a65f.webp": {
+      "baseline": null,
+      "names": null,
+      "design": "3e4a9ab2199eb315a56f9520000bca646542c8ec",
+      "combined": "3e4a9ab2199eb315a56f9520000bca646542c8ec"
+    },
+    "prototypes/card-game/art-delivery/large/M-starfish-02-b76eacdb6dba.webp": {
+      "baseline": null,
+      "names": null,
+      "design": "7094d74948e7ba7cecb56355cfee2989e9b17033",
+      "combined": "7094d74948e7ba7cecb56355cfee2989e9b17033"
+    },
+    "prototypes/card-game/art-delivery/large/M-starfish-03-2532cccceae8.webp": {
+      "baseline": null,
+      "names": null,
+      "design": "9910670e48af4dd02a139c88ef8a7f7f2d6d2e47",
+      "combined": "9910670e48af4dd02a139c88ef8a7f7f2d6d2e47"
+    },
+    "prototypes/card-game/art-delivery/manifest.json": {
+      "baseline": "87b3aa8bb1e3eeee4f474432acd429091e9a2115",
+      "names": "87b3aa8bb1e3eeee4f474432acd429091e9a2115",
+      "design": "42d7ee5f1a1fd3afa5a27b0eaf52623bf0a2c02b",
+      "combined": "42d7ee5f1a1fd3afa5a27b0eaf52623bf0a2c02b"
+    },
+    "prototypes/card-game/art-delivery/small/M-starfish-01-548b54cde60a.webp": {
+      "baseline": null,
+      "names": null,
+      "design": "290436d6fef7e149174aa6ce9a9588f931bd8447",
+      "combined": "290436d6fef7e149174aa6ce9a9588f931bd8447"
+    },
+    "prototypes/card-game/art-delivery/small/M-starfish-02-3c6e5d9e6058.webp": {
+      "baseline": null,
+      "names": null,
+      "design": "49fe0397a5c57c547b5b8b49b7b7c2fd0f0a0cab",
+      "combined": "49fe0397a5c57c547b5b8b49b7b7c2fd0f0a0cab"
+    },
+    "prototypes/card-game/art-delivery/small/M-starfish-03-7a9b22d6b91e.webp": {
+      "baseline": null,
+      "names": null,
+      "design": "301e91876e57a640fd26d0e332845dd987604c1c",
+      "combined": "301e91876e57a640fd26d0e332845dd987604c1c"
+    },
+    "prototypes/card-game/art-pilot/approved-starfish-20261119/M-starfish-01-background-refined.png": {
+      "baseline": null,
+      "names": null,
+      "design": "2c8002c121be0b79099550fdb02c718a9a108151",
+      "combined": "2c8002c121be0b79099550fdb02c718a9a108151"
+    },
+    "prototypes/card-game/art-pilot/approved-starfish-20261119/M-starfish-02-background-refined.png": {
+      "baseline": null,
+      "names": null,
+      "design": "0b8b3e986bdc8e05c49763efbc51328b950e3b4f",
+      "combined": "0b8b3e986bdc8e05c49763efbc51328b950e3b4f"
+    },
+    "prototypes/card-game/art-pilot/approved-starfish-20261119/M-starfish-03-underwater.png": {
+      "baseline": null,
+      "names": null,
+      "design": "7124719f4fcbc64a4aeff811fa5353c1eca047dc",
+      "combined": "7124719f4fcbc64a4aeff811fa5353c1eca047dc"
+    },
+    "prototypes/card-game/art-pilot/approved-starfish-20261119/manifest.json": {
+      "baseline": null,
+      "names": null,
+      "design": "f1babdf2d7700bd10240aa8f52d4cf60c4de8138",
+      "combined": "f1babdf2d7700bd10240aa8f52d4cf60c4de8138"
+    },
+    "prototypes/card-game/build_full_catalog.py": {
+      "baseline": "917f1043e5afc77aa2523659272f11141eebb43c",
+      "names": "4dc9a8f5f345c40813f682ca6dda790110157ff2",
+      "design": "917f1043e5afc77aa2523659272f11141eebb43c",
+      "combined": "4dc9a8f5f345c40813f682ca6dda790110157ff2"
+    },
+    "prototypes/card-game/card-design/README.md": {
+      "baseline": null,
+      "names": null,
+      "design": "d63e6188248dfcf214622736030b688cdbb06403",
+      "combined": "d63e6188248dfcf214622736030b688cdbb06403"
+    },
+    "prototypes/card-game/card-design/assets/egg-art.png": {
+      "baseline": null,
+      "names": null,
+      "design": "00daec39d4f6797e769459cc71c4f86b7a7dfa9f",
+      "combined": "00daec39d4f6797e769459cc71c4f86b7a7dfa9f"
+    },
+    "prototypes/card-game/card-design/bootstrap.mjs": {
+      "baseline": null,
+      "names": null,
+      "design": "414f9904ed51328ee0369d921ac5f38f84c0bb49",
+      "combined": "414f9904ed51328ee0369d921ac5f38f84c0bb49"
+    },
+    "prototypes/card-game/card-design/cards.css": {
+      "baseline": null,
+      "names": null,
+      "design": "d2f724937031c1477eb8e2486c31b6db8a1ad26b",
+      "combined": "d2f724937031c1477eb8e2486c31b6db8a1ad26b"
+    },
+    "prototypes/card-game/card-design/escape.mjs": {
+      "baseline": null,
+      "names": null,
+      "design": "d53472b5d3b42983ba556c6efd55604f2434c577",
+      "combined": "d53472b5d3b42983ba556c6efd55604f2434c577"
+    },
+    "prototypes/card-game/card-design/face.mjs": {
+      "baseline": null,
+      "names": null,
+      "design": "9e5c63868926064eaa4faadee62104571c69babd",
+      "combined": "9e5c63868926064eaa4faadee62104571c69babd"
+    },
+    "prototypes/card-game/card-design/fit-base.mjs": {
+      "baseline": null,
+      "names": null,
+      "design": "ff537e9aa9ca178a557f7f2b3592cc75d5720672",
+      "combined": "ff537e9aa9ca178a557f7f2b3592cc75d5720672"
+    },
+    "prototypes/card-game/card-design/fit.mjs": {
+      "baseline": null,
+      "names": null,
+      "design": "07704fe46d53710d02f68f71fb1f662f0b05ef54",
+      "combined": "07704fe46d53710d02f68f71fb1f662f0b05ef54"
+    },
+    "prototypes/card-game/card-design/labels.mjs": {
+      "baseline": null,
+      "names": null,
+      "design": "b0e6b7269bd695984982c1036d7b20456d0b8833",
+      "combined": "b0e6b7269bd695984982c1036d7b20456d0b8833"
+    },
+    "prototypes/card-game/card-design/render.mjs": {
+      "baseline": null,
+      "names": null,
+      "design": "c829fbfd75643342e09cb99bfa9621de33ab57d0",
+      "combined": "c829fbfd75643342e09cb99bfa9621de33ab57d0"
+    },
+    "prototypes/card-game/collection-ui.mjs": {
+      "baseline": "99a62a3d22ff2d67400193a73804cf2b67a55700",
+      "names": "99a62a3d22ff2d67400193a73804cf2b67a55700",
+      "design": "a9f3740e82ce4ed60b2426f95fdf2403c4efebae",
+      "combined": "a9f3740e82ce4ed60b2426f95fdf2403c4efebae"
+    },
+    "prototypes/card-game/collection.mjs": {
+      "baseline": "4e487a08e1c1cc290e7e53312aef0e4bfe303f3a",
+      "names": "0b84574f7e0228a669f7839d34ca5715ccca5f87",
+      "design": "4e487a08e1c1cc290e7e53312aef0e4bfe303f3a",
+      "combined": "0b84574f7e0228a669f7839d34ca5715ccca5f87"
+    },
+    "prototypes/card-game/evolution-names-v13-20261119.md": {
+      "baseline": null,
+      "names": "48f79d66395a2d1249ec91bc1fe867965d8d07ae",
+      "design": null,
+      "combined": "48f79d66395a2d1249ec91bc1fe867965d8d07ae"
+    },
+    "prototypes/card-game/full-catalog.mjs": {
+      "baseline": "a4d85838327a6206a7a2320a45d0462c40844213",
+      "names": "b22e585c34dc9b94239f39c2acb6402a3b59b660",
+      "design": "a4d85838327a6206a7a2320a45d0462c40844213",
+      "combined": "b22e585c34dc9b94239f39c2acb6402a3b59b660"
+    },
+    "prototypes/card-game/index.html": {
+      "baseline": "89f9df7e39baa6aae514e57cae2fe6843d67ad62",
+      "names": "89f9df7e39baa6aae514e57cae2fe6843d67ad62",
+      "design": "c82613584b65e50605f62df94b7734fb10175713",
+      "combined": "c82613584b65e50605f62df94b7734fb10175713"
+    },
+    "prototypes/card-game/my-decks.mjs": {
+      "baseline": "81385555a7c57abcfc9eb2095a09f97f7aabc6f3",
+      "names": "c3a24f65668c63d6f6e7b095897dd97491085e0d",
+      "design": "81385555a7c57abcfc9eb2095a09f97f7aabc6f3",
+      "combined": "c3a24f65668c63d6f6e7b095897dd97491085e0d"
+    },
+    "prototypes/card-game/tests/adopted-color-design.test.mjs": {
+      "baseline": "a3b272c5dc9805a1a891094781bbd06899f37e93",
+      "names": "a3b272c5dc9805a1a891094781bbd06899f37e93",
+      "design": "43f370a2065a56c715acad9c7b5009eda5562d08",
+      "combined": "43f370a2065a56c715acad9c7b5009eda5562d08"
+    },
+    "prototypes/card-game/tests/card-design-v13.test.mjs": {
+      "baseline": null,
+      "names": null,
+      "design": "056cb414fb0f0774c1612ad40092585a093b2358",
+      "combined": "056cb414fb0f0774c1612ad40092585a093b2358"
+    },
+    "prototypes/card-game/tests/card-name-display.test.mjs": {
+      "baseline": "711a565cb525a3eb8d62efba1d8670cc5327a8eb",
+      "names": "711a565cb525a3eb8d62efba1d8670cc5327a8eb",
+      "design": "057887ccc674c1d2d3a1a6e37b0303b1b47f2a12",
+      "combined": "057887ccc674c1d2d3a1a6e37b0303b1b47f2a12"
+    },
+    "prototypes/card-game/tests/doodle-jump.test.mjs": {
+      "baseline": "1163a0ccddb243a381ddb54233f0429d7abd8c3a",
+      "names": "46437e4abedcf9e88a259e2459d93c5d4134a90a",
+      "design": "1163a0ccddb243a381ddb54233f0429d7abd8c3a",
+      "combined": "46437e4abedcf9e88a259e2459d93c5d4134a90a"
+    },
+    "prototypes/card-game/tests/evolution-names.test.mjs": {
+      "baseline": null,
+      "names": "32ce641494ad5346c436ae0ffc1ce40da782b62f",
+      "design": null,
+      "combined": "32ce641494ad5346c436ae0ffc1ce40da782b62f"
+    },
+    "prototypes/card-game/tests/fixtures/evolution-names-baseline.json": {
+      "baseline": null,
+      "names": "e7dfd042d855135a6fc32bd9dc5eb1e0cbf0367e",
+      "design": null,
+      "combined": "e7dfd042d855135a6fc32bd9dc5eb1e0cbf0367e"
+    },
+    "prototypes/card-game/tests/fixtures/evolution-names-old-replays.json": {
+      "baseline": null,
+      "names": "20da407979371080cd9376dbeab6ffb4b68ee80c",
+      "design": null,
+      "combined": "20da407979371080cd9376dbeab6ffb4b68ee80c"
+    },
+    "prototypes/card-game/tests/lover-married.test.mjs": {
+      "baseline": "d8e91d62e12e329b5a04e23491de032acc198d36",
+      "names": "d8e91d62e12e329b5a04e23491de032acc198d36",
+      "design": "87153b5867dddb182b1f3ad96d5203f11bc88e05",
+      "combined": "87153b5867dddb182b1f3ad96d5203f11bc88e05"
+    },
+    "prototypes/card-game/tests/tier1-direct.test.mjs": {
+      "baseline": "69d64fde257ba498d3fe451d3757653c7ae0a53e",
+      "names": "104f4ff04b5fb0fe7ecc67c76421ff86cfbf2ff5",
+      "design": "69d64fde257ba498d3fe451d3757653c7ae0a53e",
+      "combined": "104f4ff04b5fb0fe7ecc67c76421ff86cfbf2ff5"
+    },
+    "prototypes/card-game/tests/ui-art-integration.test.mjs": {
+      "baseline": "bf9a5b245bb615c3648742e6cba72cd8a5cc38b6",
+      "names": "bf9a5b245bb615c3648742e6cba72cd8a5cc38b6",
+      "design": "ac3cbde3ebb51f73b9ee9664d5b9092f400cc639",
+      "combined": "ac3cbde3ebb51f73b9ee9664d5b9092f400cc639"
+    },
+    "prototypes/card-game/tests/ui-egg-stack.test.mjs": {
+      "baseline": "2c3e0e566ce9fb536067848579a0e53ad4ed69a6",
+      "names": "2c3e0e566ce9fb536067848579a0e53ad4ed69a6",
+      "design": "24da530312641b1c372cfca9b18cfa188d49ca24",
+      "combined": "24da530312641b1c372cfca9b18cfa188d49ca24"
+    },
+    "prototypes/card-game/tests/ui-intuitive-actions.test.mjs": {
+      "baseline": "950745dd9fffcfd67b4878eda8622d86ade99a3e",
+      "names": "950745dd9fffcfd67b4878eda8622d86ade99a3e",
+      "design": "35d2d7bec0559174963e5c5eabd4c039dab14a2a",
+      "combined": "35d2d7bec0559174963e5c5eabd4c039dab14a2a"
+    },
+    "prototypes/card-game/tests/ui-presentation.test.mjs": {
+      "baseline": "237a24f5d8c79597a5997a2259168858ab819b00",
+      "names": "237a24f5d8c79597a5997a2259168858ab819b00",
+      "design": "f66db3394eced8b44496e5211e9e7c402f35d2b0",
+      "combined": "f66db3394eced8b44496e5211e9e7c402f35d2b0"
+    },
+    "prototypes/card-game/tests/ui-qa9.test.mjs": {
+      "baseline": "81aecf6f951dc0de46c15ce9dc7e8fa1ad388bdb",
+      "names": "81aecf6f951dc0de46c15ce9dc7e8fa1ad388bdb",
+      "design": "ff5a62f56bd3a4787d623bfdea0ee5c889d7e4e3",
+      "combined": "ff5a62f56bd3a4787d623bfdea0ee5c889d7e4e3"
+    },
+    "prototypes/card-game/tests/ui-rarity.test.mjs": {
+      "baseline": "93f90835e37a40a84608368b3a185c408115c97e",
+      "names": "93f90835e37a40a84608368b3a185c408115c97e",
+      "design": "210674c9daf799e204ca323e6765b8321444272f",
+      "combined": "210674c9daf799e204ca323e6765b8321444272f"
+    },
+    "prototypes/card-game/tests/ui-title-layout.test.mjs": {
+      "baseline": "3e09c55e1997be14943fdb4828db64efd62e6bce",
+      "names": "144b48f031e961b146f4666a6072e56b4d47edc7",
+      "design": "144b48f031e961b146f4666a6072e56b4d47edc7",
+      "combined": "144b48f031e961b146f4666a6072e56b4d47edc7"
+    },
+    "prototypes/card-game/ui-art.mjs": {
+      "baseline": "514ef8cb586a033039a243d278a3393cef06c937",
+      "names": "514ef8cb586a033039a243d278a3393cef06c937",
+      "design": "52428e9ef2d31b591918bc1c8a7ed2997ad3232d",
+      "combined": "52428e9ef2d31b591918bc1c8a7ed2997ad3232d"
+    },
+    "prototypes/card-game/ui-presentation.mjs": {
+      "baseline": "61730e68f92e327865de9bd4ad549e6b5b088a08",
+      "names": "e258abf5b9c0da40dec2f50bb3aa1b9d630435de",
+      "design": "e233a37143d5e992bf47cd6c89c5642b2eae5154",
+      "combined": "98ddd2c433efef4bbc77132a99b1015d91d9fad7"
+    },
+    "prototypes/growth-chain/catalog.mjs": {
+      "baseline": "744f933afd030a32070ceb6b1251d8ffa25b4f7a",
+      "names": "26ebfe938ec0e891cf723f852ea55a3f26bf2c21",
+      "design": "744f933afd030a32070ceb6b1251d8ffa25b4f7a",
+      "combined": "26ebfe938ec0e891cf723f852ea55a3f26bf2c21"
+    }
+  }
+}

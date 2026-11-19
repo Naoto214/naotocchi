@@ -119,7 +119,8 @@ jobs:
 
   home-v21:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    # Cold Chromium/WebKit setup took 10m18s; keep all cases and their 60s limits.
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

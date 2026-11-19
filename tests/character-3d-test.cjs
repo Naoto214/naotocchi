@@ -430,14 +430,40 @@ test('29. asset integrity: 3D は コードで 組む(外部 3D asset なし)。
   assert.ok(!/\.(glb|gltf|fbx|obj)['"]/.test(all) && !/https?:\/\//.test(all.replace(/\/\/ .*$/gm, '')), '外部 model / URL を よまない');
   assert.match(all, /from '\.\.\/vendor\/three-0\.170\.0\/three\.module\.min\.js'/, 'three は repo の 固定 version');
 });
-test('30. 既存の 2D キャラ PNG・Expression PNG・表情 / 感情 runtime は 1 バイトも かわらない', () => {
+// VERSION16 permits only the approved starfish/sakura display strings. Keep the
+// original byte digest so changes outside these exact arrays still fail.
+function masterBeforeApprovedNames(source) {
+  const arrays = [
+    ["['浮かぶあかちゃん','透けたあかちゃん','色づく小さな星','ふっくらした星','金色の子ヒトデ','若いヒトデ','大人のヒトデ','長生きしたヒトデ']",
+     "['浮遊幼生','後期浮遊幼生','着底・変態期','変態後の稚ヒトデ','小型の稚ヒトデ','若いヒトデ','成熟したヒトデ','長生きしたヒトデ']"],
+    ["['芽ぶきのたね','ふたばのサクラ','小さなサクラ','育ったサクラ','サクラのつぼみ','サクラの花','サクラの実','年を重ねたサクラ']",
+     "['芽ぶきのサクラ','ふたばのサクラ','小さなサクラ','育ったサクラ','サクラのつぼみ','サクラの花','サクラの実','年を重ねたサクラ']"],
+  ];
+  for (const [approved, original] of arrays) {
+    assert.equal(source.split(approved).length, 2, 'exact approved stage array occurs once');
+    source = source.replace(approved, original);
+  }
+  return source;
+}
+test('30. 既存の 2D assets/runtime remain byte protected except exact approved evolution names', () => {
   const fx = require('./fixtures/character-3d-protected-hashes.json');
   const { current } = require('../tools/character-3d/protected-hashes.cjs');
   const now = current();
+  const master = fs.readFileSync(path.join(ROOT, 'character-world-master.v1.js'), 'utf8');
+  now['character-world-master.v1.js'].sha1 = crypto.createHash('sha1').update(masterBeforeApprovedNames(master)).digest('hex');
   for (const [k, v] of Object.entries(fx.groups)) {
     const expected = k === 'meguru.js' ? require('./fixtures/world-character-protected-source.json')[k] : v;
     assert.deepEqual(now[k], expected, k);
   }
+});
+test('approved name exception rejects changed names and preserves unrelated byte protection', () => {
+  const source = fs.readFileSync(path.join(ROOT, 'character-world-master.v1.js'), 'utf8');
+  const baseline = require('./fixtures/character-3d-protected-hashes.json').groups['character-world-master.v1.js'].sha1;
+  const hash = (s) => crypto.createHash('sha1').update(masterBeforeApprovedNames(s)).digest('hex');
+  assert.equal(hash(source), baseline);
+  assert.throws(() => hash(source.replace('若いヒトデ', '未承認ヒトデ')), /exact approved stage array/);
+  assert.notEqual(hash(source + '\n// unapproved change\n'), baseline);
+  assert.notEqual(hash(source.replace("id: 'starfish'", "id: 'changed_starfish'")), baseline);
 });
 test('31. save / schema は そのまま(schemaVersion 5・3D の ための キーなし)', () => {
   const s = SCRIPT();
