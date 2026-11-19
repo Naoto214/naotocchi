@@ -764,7 +764,7 @@ console.log('RARE CAST PNG TEST OK: 8 PNGs x 5 renderer sizes; invite/profile/ro
 // The new clock has its own encounter and dialogue; a collected mushroom stays itself.
 const clockCompanion = api.allCompanionsById('clock');
 assert.ok(clockCompanion);
-assert.equal(clockCompanion.name, 'じかんにルーズなとけい');
+assert.equal(clockCompanion.name, '時間にルーズな時計');
 assert.ok(api.RARE_COMPANIONS.some((c) => c.id === 'clock'));
 assert.ok(!api.RARE_COMPANIONS.some((c) => c.id === 'kinoko'));
 assert.equal(api.canonicalCompanionId('kinoko'), 'clock');
@@ -817,7 +817,7 @@ for (const [key, lines] of Object.entries(api.COMPANION_DAILY_REACTIONS.clock)) 
 // With every other current companion present, the actual scheduler offers the new clock.
 reset({ sodachi: 80, maxSodachi: 80, companions: [...normalCast, ...rareCast.filter((c) => c.id !== 'clock')].map((c) => ({ id: c.id, bond: 80 })) });
 api.scheduleCompanionEncounter(); advance(180000);
-assert.equal(getElement('companionInviteTitle').textContent, 'じかんにルーズなとけいとめがあった');
+assert.equal(getElement('companionInviteTitle').textContent, '時間にルーズな時計とめがあった');
 assert.ok(getElement('companionInviteOverlay').classList.contains('rare'));
 click('companionInviteLaterBtn');
 
