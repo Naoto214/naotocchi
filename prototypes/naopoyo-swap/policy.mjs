@@ -1,0 +1,27 @@
+import {planTarget,assignmentCost} from './planner.mjs';
+import {swaps,swapped,key,stage,species,hashString} from './board.mjs';import {resolveBoard} from './resolve.mjs';
+function quality(b,focus){let score=0;const positions=new Map();b.forEach((c,i)=>{if(!c)return;const rank=stage(c),weight=focus&&species(c)===0?2:1;score+=4**rank*weight;if(!positions.has(c))positions.set(c,[]);positions.get(c).push(i);});
+ for(const [c,pos] of positions){if(pos.length<2)continue;let distance=0;for(let i=0;i<pos.length;i++){let nearest=20;for(let j=0;j<pos.length;j++)if(i!==j)nearest=Math.min(nearest,Math.abs(pos[i]%6-pos[j]%6)+Math.abs(Math.floor(pos[i]/6)-Math.floor(pos[j]/6)));distance+=nearest;}
+ const w=4**stage(c)*(focus&&species(c)===0?2:1);score-=distance*w*(stage(c)===8?.2:.045);
+ // Reward alignment of matching pieces, not merely compact L shapes.
+ let best=0;for(let axis=0;axis<2;axis++)for(let lane=0;lane<6;lane++)for(let start=0;start<4;start++){let hits=0;for(let j=0;j<3;j++)if(b[axis?(start+j)*6+lane:lane*6+start+j]===c)hits++;best=Math.max(best,hits);}score+=best*w*.035;
+ }
+ return score;
+}
+export function chooseAction(s,policy='goal'){
+ const candidates=swaps(s.board).filter(([a,b])=>s.board[a]!==s.board[b]);if(!candidates.length)return null;
+ const noise=(a,b)=>hashString(s.seed+':'+s.moves+':'+a+':'+b)/4294967296;
+ if(policy==='random'){const [from,to]=candidates[Math.floor(noise(0,0)*candidates.length)];return {from,to};}
+ const target=policy==='goal'||policy==='focus'?planTarget(s.board):null;
+ let best=-Infinity,choice=null;
+ for(const [from,to] of candidates){const b=swapped(s.board,from,to),r=resolveBoard(b,{from,to});if(r.won)return {from,to};const ev=r.events.filter(e=>e.type==='evolve'),seen=s.seenBoards.includes(key(b));
+ let value=quality(r.board,policy==='focus');
+ if(target){const completed=ev.some(e=>e.from===stage(target.value)&&e.species===species(target.value)&&e.to>=target.to);if(completed)value+=target.benefit*.5;else{const cost=assignmentCost(r.board,target.value,target.slots);value-=Math.min(cost,30)*4**stage(target.value)*.2;}}
+ value+=r.events.filter(e=>e.type==='mixedClear'&&e.from<=3).reduce((n,e)=>n+e.cells.length*4**e.from*1.2,0);
+ if(policy==='evolve')value+=ev.reduce((n,e)=>n+4**e.to*.3,0);
+ if(seen)value-=Math.max(50,Math.abs(value)*.15);
+ value+=noise(from,to)*.01;
+ if(value>best){best=value;choice={from,to};}
+ }
+ return choice;
+}

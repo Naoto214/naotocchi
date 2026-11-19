@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {InputGate} from '../input.mjs';
+test('R28 fast repeated inputs are dropped not queued',async()=>{const g=new InputGate();let release,n=0;const work=()=>{n++;return new Promise(r=>release=r);};const first=g.run(work);assert.equal(n,1);assert.equal(await g.run(work),false);assert.equal(n,1);release();assert.equal(await first,true);assert.equal(await g.run(async()=>n++),true);assert.equal(n,2);});
