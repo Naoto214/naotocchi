@@ -64,9 +64,9 @@ test('image errors clear request attributes and preserve the existing card box',
  hideFailedArt({classList:{contains:()=>false},get parentElement(){throw Error('unrelated image changed');}});
 });
 
-test('approved long-copy exceptions apply only to full detail faces',()=>{
+test('all formerly long-copy exceptions keep full official text inside detail and use automatic fitting',()=>{
  for(const id of ['M-cat-07','M-antlion-06','M-antlion-07']){
-  assert.match(detailMarkup(CARDS[id],{catalog:true}),/class="card-copy" style="font-size:2.9cqw"/);
-  assert.doesNotMatch(cardMarkup(CARDS[id],{compact:true}),/font-size:2.9cqw/);
+  const detail=cardMarkup(CARDS[id],{detail:true});assert.match(detail,/class="v10-copy"/);assert.ok(detail.includes(CARDS[id].text));
+  assert.doesNotMatch(cardMarkup(CARDS[id],{compact:true}),/v10-copy|v10-effect/);
  }
 });

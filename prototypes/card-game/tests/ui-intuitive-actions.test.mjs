@@ -66,7 +66,7 @@ test('removed egg parking leaves both management columns aligned with the grid',
  assert.match(css,/\.opponent \.management\{padding-top:0;padding-bottom:0/);
 });
 test('cost badge uses bold high contrast numerals without changing any of 452 values',()=>{
- const css=readFileSync(new URL('../style.css',import.meta.url),'utf8');
- assert.match(css,/\.card-cost\{[^}]*font-weight:900/);
- for(const c of Object.values(e.CARDS))assert.ok(cardMarkup(c).includes(`aria-label="通常時コスト ${c.type==='main'?c.stage:c.cost}">${c.type==='main'?c.stage:c.cost}</span>`));
+ const css=readFileSync(new URL('../card-design/cards.css',import.meta.url),'utf8');
+ assert.match(css,/\.v8-cost\{[^}]*color:#3a493c[^}]*font:600/);
+ for(const c of Object.values(e.CARDS))assert.ok(cardMarkup(c).includes(`aria-label="通常時コスト ${c.type==='main'?c.stage:c.cost}"><span class="v8-number" data-optical><span class="v8-glyph">${c.type==='main'?c.stage:c.cost}</span>`));
 });

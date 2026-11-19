@@ -20,13 +20,13 @@ test('egg is a tappable state card only in the empty main slot, in both orientat
  }
  assert.equal(save(s),before);assert.equal(Object.keys(CARDS).length,452);
 });
-test('egg detail distinguishes normal draw, extra draw, mandatory return and birth without actions',()=>{
+test('egg detail shows printed normal draw, extra draw and mandatory return once without duplicate explanation or actions',()=>{
  assert.equal(typeof ui.eggDetailMarkup,'function');
  const html=ui.eggDetailMarkup();
- for(const text of ['通常ドロー','追加ドロー','山札の一番下','手札があれば','たんじょう','段階','ちょうせん'])assert.ok(html.includes(text),text);
+ for(const text of ['通常ドロー','さらに1枚引き','手札1枚','山札の一番下'])assert.ok(html.includes(text),text);
  assert.match(html,/data-close/);
- assert.doesNotMatch(html,/data-action=|data-inspect=|card-cost|card-stats/);
- assert.match(html,/detail-layout/);assert.match(html,/egg-card-large/);
+ assert.doesNotMatch(html,/data-action=|data-inspect=|v8-cost|v8-stats/);
+ assert.match(html,/detail-layout/);assert.match(html,/card-design\/assets\/egg-art.png/);assert.equal(html.split(ui.EGG_PRINTED_TEXT).length-1,1);assert.doesNotMatch(html,/effect-scroll|detail-copy/);
 });
 
 // Engine commands remain the only source of transitions; rendering cannot move cards.

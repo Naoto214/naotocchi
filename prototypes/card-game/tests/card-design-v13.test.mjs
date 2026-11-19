@@ -43,3 +43,9 @@ test('formal catalog and effects are byte-preserved from integration baseline; o
  const old=execFileSync('git',['show',`${baseline}:prototypes/card-game/ui-art.mjs`],{encoding:'utf8'});const oldMap=JSON.parse(old.slice(old.indexOf('Object.freeze(')+14,old.lastIndexOf(');')));
  for(const [id,art] of Object.entries(CARD_ART))if(!/^M-starfish-0[1-3]$/.test(id))assert.deepEqual(art,oldMap[id]);
 });
+
+test('only the inner face draws the frame, and failed art retains the existing fallback contract',()=>{
+ const css=readFileSync(new URL('card-design/cards.css',base),'utf8');
+ assert.match(css,/\.card-face\.v11-card::before,\.card-face\.v11-card::after\{content:none\}/);
+ for(const c of Object.values(CATALOG)){const html=cardMarkup(c);assert.match(html,/class="art-fallback"/);assert.match(html,/<img class="dedicated-art"/);}
+});

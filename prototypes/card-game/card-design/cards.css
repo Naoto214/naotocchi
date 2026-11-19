@@ -68,3 +68,6 @@
 .v11-card .v10-egg-copy{top:85cqw;font-size:3.7cqw;line-height:1.45;padding:2.4cqw 2.8cqw}
 
 .v11-card .v8-art img{position:relative;z-index:1}.v11-card .v8-art img[hidden]{display:none}
+
+/* The inner face owns the approved frame; suppress inherited host ornaments. */
+.card-face.v11-card::before,.card-face.v11-card::after{content:none}

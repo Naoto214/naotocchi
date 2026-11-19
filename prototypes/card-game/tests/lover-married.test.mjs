@@ -152,7 +152,7 @@ test('たまご中（メインなし）は結婚の能力も止まる',()=>{
 });
 
 test('表示：二段の本文、結婚の解放・発動・別れの通知',()=>{
- let {s,p}=lover('P-high_eagle');const html=ui.cardMarkup({...e.CARDS['P-high_eagle'],id:p,cardId:'P-high_eagle'});assert.match(html,/こいびとのとき/);assert.match(html,/♥ 結婚したら/);assert.match(html,/lover-two/);
+ let {s,p}=lover('P-high_eagle');const html=ui.cardMarkup({...e.CARDS['P-high_eagle'],id:p,cardId:'P-high_eagle'},{detail:true});assert.match(html,/こいびとのとき/);assert.match(html,/♥ 結婚したら/);assert.match(html,/v10-copy/);
  const before=s;const after=marry(s);const g=captureResult(before,after).public;assert.ok(g.rows.some(r=>r.kind==='marriage'&&/使えるようになった/.test(r.text)));assert.ok(g.rows.some(r=>r.kind==='loverMarried'&&/たかねのワシ/.test(r.text)));
  let x=after;x.turn='B';const mis=hand(x,'B','E-misunderstanding');const y=settle(doIt(x,acts(x).find(a=>a.source===mis&&['play','programPlay'].includes(a.kind))));
  const b=captureResult(x,y).public.rows.find(r=>r.kind==='breakup');assert.match(b.text,/結婚の能力を失った/);

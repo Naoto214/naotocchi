@@ -4,25 +4,24 @@ import {CARDS} from '../engine.mjs';
 import {cardMarkup} from '../ui-presentation.mjs';
 // These assertions inspect generated markup only; no optional DOM dependency.
 const title=(c,opts)=>{
- const html=cardMarkup(c,opts),markup=html.match(/<strong class="card-title">([\s\S]*?)<\/strong>/)[1];
- return {lines:[...markup.matchAll(/<span>([^<]*)<\/span>/g)].map(m=>m[1]),text:markup.replace(/<[^>]*>/g,''),font:html.match(/--title-size:([^";]+)/)[1]};
+ const html=cardMarkup(c,opts),markup=html.match(/<h3 class="v8-title" data-fit>([\s\S]*?)<\/h3>/)[1];
+ return {lines:[...markup.matchAll(/<span>([^<]*)<\/span>/g)].map(m=>m[1]),text:markup.replace(/<[^>]*>/g,''),fit:html.includes('class="v8-title" data-fit')};
 };
-test('round baby uses the approved two semantic lines in every face size',()=>{
+test('round baby uses the approved single line in every face size',()=>{
  for(const opts of [{},{compact:true},{detail:true}]){
   const t=title(CARDS['M-starfish-01'],opts);
-  assert.deepEqual(t.lines,['丸い','あかちゃん']);
+  assert.deepEqual(t.lines,['丸いあかちゃん']);
   assert.equal(t.text,'丸いあかちゃん');
  }
 });
-test('all main titles retain exact text with one or two non-orphan lines and a uniform font token',()=>{
+test('all main titles retain exact text with one line with fit enabled',()=>{
  const sizes=new Set();
  for(const c of Object.values(CARDS).filter(c=>c.type==='main')){
   const t=title(c),lines=t.lines;
-  assert.ok(lines.length>=1&&lines.length<=2,c.id);
+  assert.equal(lines.length,1,c.id);
   assert.equal(lines.join(''),c.form??c.name.replace(/[①-⑧]/g,''),c.id);
-  assert.ok(lines.every(s=>[...s].length<=7),c.id+' line too long');
-  if(lines.length===2)assert.ok(lines.every(s=>[...s].length>=2),c.id+' orphan');
-  sizes.add(t.font);
+  assert.equal(t.fit,true,c.id);
+  sizes.add(t.fit);
  }
  assert.equal(sizes.size,1);
  assert.equal(title(CARDS['M-turtle-03']).lines.length,1);
