@@ -1,3 +1,4 @@
+import {beforeKanjiLog} from './kanji-history-helper.mjs';
 // PR #446 follow-up: こいびと本文と実装の一致（クモ・サソリ）と、旧保存（hotseat-2）の再生互換。
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {createHash} from 'node:crypto';
 import * as e from '../engine.mjs';
@@ -81,7 +82,7 @@ test('新しい対戦は最新の版、保存しても版は保たれる。hotse
 });
 
 const saves=JSON.parse(readFileSync(new URL('./lover-fix-hotseat2-saves.json',import.meta.url)));
-const digest=s=>createHash('sha256').update(JSON.stringify({players:s.players,result:s.result,log:s.log})).digest('hex');
+const digest=s=>createHash('sha256').update(JSON.stringify({players:s.players,result:s.result,log:beforeKanjiLog(s.log)})).digest('hex');
 test('旧保存（hotseat-2）は修正前の動作のまま、最後まで同じ結果に復帰する',()=>{
  assert.equal(saves.rows.length,2);
  for(const r of saves.rows){assert.equal(r.save.version,'hotseat-2');const s=e.restore(JSON.stringify(r.save));
