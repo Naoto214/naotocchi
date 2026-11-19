@@ -1,0 +1,24 @@
+{
+  "environment": "Linux WPE WebKit 26.5, shared CPU under simultaneous geometry and performance runs, headless mobile emulation",
+  "url": "/v3/?region=forest&count=28&extra=0&layout=fixed&paused=1",
+  "nativeRunningThreshold": "Real cold render and fitted native camera, same bridge as V2",
+  "attempts": [
+    {
+      "server": "HTTP/1.0 on loopback",
+      "result": "Ready. Frozen exact-foot tests passed at 320, 375 and 390 CSS px. Playwright waited 30 seconds for a stable Settings button after a resize to 430 px."
+    },
+    {
+      "server": "HTTP/1.0 on loopback",
+      "result": "Cold-ready wait exceeded 150 seconds"
+    },
+    {
+      "server": "HTTP/1.0 on loopback",
+      "result": "Cold-ready wait exceeded 180 seconds"
+    },
+    {
+      "server": "HTTP/1.1 on loopback",
+      "result": "Passed full four-width, mode, daypart, population, play/pause and native touch sequence. During startup art-25d was set before the nature canvas produced its first rectangle."
+    }
+  ],
+  "physicalIPhone": false
+}

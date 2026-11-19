@@ -1,0 +1,547 @@
+{
+  "browser": "156.0.8078.79",
+  "cases": {
+    "optimized": {
+      "seed": "9f9b55e963e0fa5c",
+      "origin": [
+        "pet:dog",
+        226.3783429686466,
+        307.9721748536514
+      ],
+      "plan": {
+        "start": [
+          223.65059119462967,
+          298.8345068693161
+        ],
+        "dest": [
+          231.52069382454818,
+          412.8207882898985
+        ],
+        "expected": {
+          "x": 246.94248128982167,
+          "y": 307.9721748536514,
+          "waypoints": 1
+        }
+      },
+      "before": {
+        "atMs": 30458,
+        "pending": false,
+        "enabled": true,
+        "visibility": "visible",
+        "flagsPaused": false,
+        "actual": false,
+        "frozen": true,
+        "cached": "false",
+        "game": {
+          "blocked": false,
+          "passive": true,
+          "individuality": false,
+          "activeOverlay": null,
+          "duelOpen": false,
+          "dateOpen": false,
+          "companionInviteOpen": false,
+          "itemScene": false,
+          "grandGoal": false,
+          "dexDetail": false,
+          "birth": false,
+          "game": false,
+          "meguru": false,
+          "sleep": false,
+          "sick": false,
+          "dying": false,
+          "evolution": false,
+          "unit": null,
+          "lowerRemaining": 0,
+          "speech": false,
+          "speechText": null,
+          "lifeCard": false,
+          "story": false,
+          "movie": false,
+          "normalHidden": false,
+          "response": null,
+          "menu": false,
+          "idle": false,
+          "otherActors": [],
+          "overlays": []
+        }
+      },
+      "position": [
+        260.00517822297945,
+        284.38460258880207
+      ],
+      "routes": [
+        [
+          "pet:dog",
+          260.00517822297945,
+          284.38460258880207,
+          2
+        ]
+      ],
+      "pointerEvents": [
+        [
+          "pointerdown",
+          "touch",
+          "pet:dog",
+          false
+        ],
+        [
+          "pointermove",
+          "touch",
+          "castStage",
+          false
+        ],
+        [
+          "pointermove",
+          "touch",
+          "castStage",
+          false
+        ],
+        [
+          "pointermove",
+          "touch",
+          "castStage",
+          false
+        ],
+        [
+          "pointermove",
+          "touch",
+          "castStage",
+          false
+        ],
+        [
+          "pointermove",
+          "touch",
+          "castStage",
+          false
+        ],
+        [
+          "pointerup",
+          "touch",
+          "castStage",
+          false
+        ],
+        [
+          "lostpointercapture",
+          "touch",
+          "castStage",
+          false
+        ]
+      ],
+      "reactions": [
+        [
+          "move",
+          "ambient",
+          "companion:rabbit_friend",
+          null
+        ],
+        [
+          "move",
+          "ambient",
+          "pet:dog",
+          null
+        ],
+        [
+          "move",
+          "ambient",
+          "partner:forest_bear",
+          null
+        ],
+        [
+          "tap",
+          "tap",
+          "pet:dog",
+          null
+        ],
+        [
+          "arrive",
+          "ambient",
+          "companion:rabbit_friend",
+          null
+        ],
+        [
+          "environment",
+          "ambient",
+          "companion:rabbit_friend",
+          null
+        ],
+        [
+          "proximity",
+          "ambient",
+          "companion:rabbit_friend",
+          null
+        ],
+        [
+          "move",
+          "ambient",
+          "companion:cat_friend",
+          null
+        ],
+        [
+          "arrive",
+          "ambient",
+          "partner:forest_bear",
+          null
+        ],
+        [
+          "proximity",
+          "ambient",
+          "partner:forest_bear",
+          null
+        ],
+        [
+          "arrive",
+          "ambient",
+          "companion:cat_friend",
+          null
+        ],
+        [
+          "environment",
+          "ambient",
+          "companion:cat_friend",
+          null
+        ],
+        [
+          "proximity",
+          "ambient",
+          "companion:cat_friend",
+          null
+        ],
+        [
+          "move",
+          "drag",
+          "pet:dog",
+          null
+        ],
+        [
+          "arrive",
+          "drag",
+          "pet:dog",
+          null
+        ],
+        [
+          "proximity",
+          "ambient",
+          "pet:dog",
+          null
+        ]
+      ],
+      "gate": {
+        "atMs": 92306,
+        "pending": false,
+        "enabled": true,
+        "visibility": "visible",
+        "flagsPaused": false,
+        "actual": false,
+        "frozen": false,
+        "cached": "false",
+        "game": {
+          "blocked": false,
+          "passive": true,
+          "individuality": false,
+          "activeOverlay": null,
+          "duelOpen": false,
+          "dateOpen": false,
+          "companionInviteOpen": false,
+          "itemScene": false,
+          "grandGoal": false,
+          "dexDetail": false,
+          "birth": false,
+          "game": false,
+          "meguru": false,
+          "sleep": false,
+          "sick": false,
+          "dying": false,
+          "evolution": false,
+          "unit": null,
+          "lowerRemaining": 0,
+          "speech": false,
+          "speechText": null,
+          "lifeCard": false,
+          "story": false,
+          "movie": false,
+          "normalHidden": false,
+          "response": null,
+          "menu": false,
+          "idle": false,
+          "otherActors": [],
+          "overlays": []
+        }
+      },
+      "displacementNative": 41.07478076108906
+    },
+    "fixed": {
+      "seed": "v2",
+      "origin": [
+        "pet:dog",
+        226.3783429686466,
+        307.9721748536514
+      ],
+      "plan": {
+        "start": [
+          223.65059119462967,
+          298.8345068693161
+        ],
+        "dest": [
+          231.52069382454818,
+          412.8207882898985
+        ],
+        "expected": {
+          "x": 246.94248128982167,
+          "y": 307.9721748536514,
+          "waypoints": 1
+        }
+      },
+      "before": {
+        "atMs": 38659,
+        "pending": false,
+        "enabled": true,
+        "visibility": "visible",
+        "flagsPaused": false,
+        "actual": false,
+        "frozen": true,
+        "cached": "false",
+        "game": {
+          "blocked": false,
+          "passive": true,
+          "individuality": false,
+          "activeOverlay": null,
+          "duelOpen": false,
+          "dateOpen": false,
+          "companionInviteOpen": false,
+          "itemScene": false,
+          "grandGoal": false,
+          "dexDetail": false,
+          "birth": false,
+          "game": false,
+          "meguru": false,
+          "sleep": false,
+          "sick": false,
+          "dying": false,
+          "evolution": false,
+          "unit": null,
+          "lowerRemaining": 0,
+          "speech": false,
+          "speechText": null,
+          "lifeCard": false,
+          "story": false,
+          "movie": false,
+          "normalHidden": false,
+          "response": null,
+          "menu": false,
+          "idle": false,
+          "otherActors": [],
+          "overlays": []
+        }
+      },
+      "position": [
+        247.65113000000002,
+        318.2485515384616
+      ],
+      "routes": [
+        [
+          "pet:dog",
+          247.65113000000002,
+          318.2485515384616,
+          1
+        ]
+      ],
+      "pointerEvents": [
+        [
+          "pointerdown",
+          "touch",
+          "pet:dog",
+          false
+        ],
+        [
+          "pointermove",
+          "touch",
+          "castStage",
+          false
+        ],
+        [
+          "pointermove",
+          "touch",
+          "castStage",
+          false
+        ],
+        [
+          "pointermove",
+          "touch",
+          "castStage",
+          false
+        ],
+        [
+          "pointermove",
+          "touch",
+          "castStage",
+          false
+        ],
+        [
+          "pointermove",
+          "touch",
+          "castStage",
+          false
+        ],
+        [
+          "pointerup",
+          "touch",
+          "castStage",
+          false
+        ],
+        [
+          "lostpointercapture",
+          "touch",
+          "castStage",
+          false
+        ]
+      ],
+      "reactions": [
+        [
+          "move",
+          "ambient",
+          "companion:rabbit_friend",
+          null
+        ],
+        [
+          "move",
+          "ambient",
+          "pet:dog",
+          null
+        ],
+        [
+          "arrive",
+          "ambient",
+          "companion:rabbit_friend",
+          null
+        ],
+        [
+          "environment",
+          "ambient",
+          "companion:rabbit_friend",
+          null
+        ],
+        [
+          "arrive",
+          "ambient",
+          "pet:dog",
+          null
+        ],
+        [
+          "tap",
+          "tap",
+          "pet:dog",
+          null
+        ],
+        [
+          "move",
+          "ambient",
+          "companion:cat_friend",
+          null
+        ],
+        [
+          "arrive",
+          "ambient",
+          "companion:cat_friend",
+          null
+        ],
+        [
+          "environment",
+          "ambient",
+          "companion:cat_friend",
+          null
+        ],
+        [
+          "move",
+          "ambient",
+          "partner:forest_bear",
+          null
+        ],
+        [
+          "arrive",
+          "ambient",
+          "partner:forest_bear",
+          null
+        ],
+        [
+          "proximity",
+          "ambient",
+          "partner:forest_bear",
+          null
+        ],
+        [
+          "look",
+          "ambient",
+          "companion:rabbit_friend",
+          null
+        ],
+        [
+          "proximity",
+          "ambient",
+          "companion:cat_friend",
+          null
+        ],
+        [
+          "move",
+          "drag",
+          "pet:dog",
+          null
+        ],
+        [
+          "arrive",
+          "drag",
+          "pet:dog",
+          null
+        ],
+        [
+          "proximity",
+          "ambient",
+          "pet:dog",
+          null
+        ]
+      ],
+      "gate": {
+        "atMs": 96484,
+        "pending": false,
+        "enabled": true,
+        "visibility": "visible",
+        "flagsPaused": false,
+        "actual": false,
+        "frozen": false,
+        "cached": "false",
+        "game": {
+          "blocked": false,
+          "passive": true,
+          "individuality": false,
+          "activeOverlay": null,
+          "duelOpen": false,
+          "dateOpen": false,
+          "companionInviteOpen": false,
+          "itemScene": false,
+          "grandGoal": false,
+          "dexDetail": false,
+          "birth": false,
+          "game": false,
+          "meguru": false,
+          "sleep": false,
+          "sick": false,
+          "dying": false,
+          "evolution": false,
+          "unit": null,
+          "lowerRemaining": 0,
+          "speech": true,
+          "speechText": "大人のいぬ\n              ひとりごときいてくれる?",
+          "lifeCard": false,
+          "story": false,
+          "movie": false,
+          "normalHidden": false,
+          "response": null,
+          "menu": false,
+          "idle": true,
+          "otherActors": [],
+          "overlays": []
+        }
+      },
+      "displacementNative": 23.624889118246237
+    }
+  }
+}

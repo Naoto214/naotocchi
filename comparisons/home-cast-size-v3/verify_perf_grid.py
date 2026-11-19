@@ -60,6 +60,7 @@ def compact(sample):
 async def measure_fixture(browser, args, module, width, count):
     height=STANDARD_WIDTHS[width]-52
     groups=placements(module,args.region,width,height,count)
+    required={(n,layout) for n in args.extras for layout in args.layouts}
     context=await browser.new_context(viewport={'width':width,'height':height},
                                       device_scale_factor=2,has_touch=True,is_mobile=True)
     await context.add_init_script(PROFILE)
@@ -72,10 +73,13 @@ async def measure_fixture(browser, args, module, width, count):
     output={'region':args.region,'width':width,'height':height,'count':count,'engine':'Chromium',
             'version':browser.version,'host':os.environ.get('RUNNER_NAME','local'),
             'cpu':sorted(os.sched_getaffinity(0)),'targetSeconds':args.seconds,
-            'groups':[],'rows':[]}
+            'requestedCases':sorted(required),'groups':[],'rows':[]}
     expected_hash=hashlib.sha256(module.read_bytes()).hexdigest()
     try:
-        for hints,cases in groups.items():
+        for hints,equivalent in groups.items():
+            cases=[case for case in equivalent if case in required]
+            if not cases:
+                continue
             page=await context.new_page()
             errors=[]
             page.on('pageerror',lambda e:errors.append(str(e)))
@@ -108,13 +112,14 @@ async def measure_fixture(browser, args, module, width, count):
                     await page.evaluate('new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))')
                     sample=await page.evaluate(LIVE_SAMPLE,args.seconds)
                     assert sample['sameNodes'] and sample['rows']==count and sample['pausedSec']==0 and not errors,(count,errors)
+                    assert sample['phases'].get('actors',{}).get('calls',0)>0,(args.region,width,count,extra,layout)
                     output['rows'].append(dict(extra=extra,layout=layout,order=order,openingHints=hints,**compact(sample)))
             finally:
                 await page.close()
         output['sources']=hashes
     finally:
         await context.close()
-    assert len({(a['extra'],a['layout']) for a in output['rows']})==len(GAINS)*len(LAYOUTS)
+    assert {(a['extra'],a['layout']) for a in output['rows']}==required
     return output
 
 
@@ -132,7 +137,8 @@ async def main(args):
                 target=args.outdir/f'perf-{width}-{args.region}-{count}.json'
                 if args.resume and target.is_file():
                     prior=json.loads(target.read_text())
-                    if (len(prior['rows'])==10 and prior['targetSeconds']==args.seconds and
+                    if ({(row['extra'],row['layout']) for row in prior['rows']}=={(n,l) for n in args.extras for l in args.layouts}
+                        and prior['targetSeconds']==args.seconds and
                         prior['sources']['limit-seating.js']==hashlib.sha256(module.read_bytes()).hexdigest()):
                         continue
                 # A retry reloads only the affected fixture and discards partial rows.
@@ -157,6 +163,8 @@ if __name__=='__main__':
     p.add_argument('--region',choices=REGIONS,required=True)
     p.add_argument('--widths',type=int,choices=STANDARD_WIDTHS,nargs='+',default=list(STANDARD_WIDTHS))
     p.add_argument('--counts',type=int,choices=(1,4,10,20,28),nargs='+',default=[1,4,10,20,28])
+    p.add_argument('--extras',type=int,choices=GAINS,nargs='+',default=list(GAINS))
+    p.add_argument('--layouts',choices=LAYOUTS,nargs='+',default=list(LAYOUTS))
     p.add_argument('--seconds',type=float,default=.9)
     p.add_argument('--resume',action='store_true')
     p.add_argument('--retry',action='store_true')

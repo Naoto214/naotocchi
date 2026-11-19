@@ -18,6 +18,12 @@ def inventory(root):
     return {p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes()).digest()
             for p in root.rglob("*") if p.is_file()}
 
+def manifest_hash(files):
+    h = hashlib.sha256()
+    for name in sorted(files, key=lambda s:s.encode()):
+        h.update(name.encode() + b"\0" + files[name])
+    return h.hexdigest()
+
 
 class Viewport(HTMLParser):
     def __init__(self):
@@ -39,10 +45,7 @@ def viewport(html):
 
 def verify(base, trial):
     before, after = inventory(base), inventory(trial)
-    h = hashlib.sha256()
-    for name in sorted(before, key=lambda s:s.encode()):
-        h.update(name.encode() + b"\0" + before[name])
-    assert h.hexdigest() == V2 and len(before) == 3900, "Unexpected V2 baseline"
+    assert manifest_hash(before) == V2 and len(before) == 3900, "Unexpected V2 baseline"
     changed = [k for k in before if before[k] != after.get(k)]
     assert not changed, changed
     additions = set(after) - set(before)
@@ -73,7 +76,8 @@ def verify(base, trial):
     world = read("home-production-world-limit.mjs")
     assert world.count(extra) == 1
     assert world.replace(extra, "") == read("home-production-world-v2.mjs")
-    return {"reference":PIN, "baselineSHA256":V2, "identicalPublishedV2Files":len(before),
+    return {"reference":PIN, "baselineSHA256":V2, "trialSHA256":manifest_hash(after),
+            "trialFiles":len(after), "identicalPublishedV2Files":len(before),
             "additions":{name:after[name].hex() for name in sorted(additions)}, "nativeGameEntryOnlySwitchesTrialScripts":True,
             "nativeControllerOnlyDifferentWorldImport":True, "nativeWorldOnlyAddsOpeningSeats":True,
             "parentViewportMeta":viewport((trial / "v3/index.html").read_text()),

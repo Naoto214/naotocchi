@@ -1,0 +1,147 @@
+{
+  "engine": "webkit",
+  "fixed": {
+    "320": {
+      "minTargetWidth": 44.28125,
+      "toolbarHeight": 52,
+      "frozenFeetEqualAllSizes": true,
+      "actors": 28,
+      "rolePercentages": [
+        [
+          120,
+          120,
+          105
+        ],
+        [
+          126,
+          126,
+          110.25
+        ],
+        [
+          132,
+          132,
+          115.5
+        ],
+        [
+          138,
+          138,
+          120.75
+        ],
+        [
+          144,
+          144,
+          126
+        ]
+      ]
+    },
+    "375": {
+      "minTargetWidth": 52.140625,
+      "toolbarHeight": 52,
+      "frozenFeetEqualAllSizes": true,
+      "actors": 28,
+      "rolePercentages": [
+        [
+          120,
+          120,
+          105
+        ],
+        [
+          126,
+          126,
+          110.25
+        ],
+        [
+          132,
+          132,
+          115.5
+        ],
+        [
+          138,
+          138,
+          120.75
+        ],
+        [
+          144,
+          144,
+          126
+        ]
+      ]
+    },
+    "390": {
+      "minTargetWidth": 54.28125,
+      "toolbarHeight": 52,
+      "frozenFeetEqualAllSizes": true,
+      "actors": 28,
+      "rolePercentages": [
+        [
+          120,
+          120,
+          105
+        ],
+        [
+          126,
+          126,
+          110.25
+        ],
+        [
+          132,
+          132,
+          115.5
+        ],
+        [
+          138,
+          138,
+          120.75
+        ],
+        [
+          144,
+          144,
+          126
+        ]
+      ]
+    },
+    "430": {
+      "minTargetWidth": 60,
+      "toolbarHeight": 52,
+      "frozenFeetEqualAllSizes": true,
+      "actors": 28,
+      "rolePercentages": [
+        [
+          120,
+          120,
+          105
+        ],
+        [
+          126,
+          126,
+          110.25
+        ],
+        [
+          132,
+          132,
+          115.5
+        ],
+        [
+          138,
+          138,
+          120.75
+        ],
+        [
+          144,
+          144,
+          126
+        ]
+      ]
+    }
+  },
+  "pageErrors": [],
+  "version": "26.5",
+  "changedSettings": [
+    "optimized at +0",
+    "evening",
+    "city",
+    "four residents",
+    "play",
+    "pause"
+  ]
+}

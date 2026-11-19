@@ -1,0 +1,28 @@
+{
+  "engine": "chromium",
+  "pageErrors": [],
+  "version": "156.0.8078.79",
+  "optimizedForest28": [
+    {
+      "extra": 5,
+      "same28": true,
+      "reloadedFromOpening": true
+    },
+    {
+      "extra": 10,
+      "same28": true,
+      "reloadedFromOpening": true
+    },
+    {
+      "extra": 15,
+      "same28": true,
+      "reloadedFromOpening": true
+    },
+    {
+      "extra": 20,
+      "same28": true,
+      "reloadedFromOpening": true
+    }
+  ],
+  "fixedWhileMoving": true
+}

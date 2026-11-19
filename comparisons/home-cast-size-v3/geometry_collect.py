@@ -31,7 +31,9 @@ def collect(args):
             for count in args.counts:
                 for region in args.regions:
                     out=args.out/f'{w}-{region}-{count}.json'
-                    if out.is_file() and 'moved' in json.loads(out.read_text()):continue
+                    if out.is_file():
+                        existing=json.loads(out.read_text())
+                        if 'moved' in existing and (not getattr(args,'all_phases',False) or 'later' in existing):continue
                     page=ctx.new_page()
                     try:
                         page.clock.set_fixed_time(datetime(2026,10,15,3,tzinfo=timezone.utc))
@@ -75,13 +77,13 @@ def collect(args):
                           document.getAnimations().forEach(a=>{a.pause();a.currentTime=0});
                         };qaAdvance(80);true""")
                         fixture['moved']=page.evaluate('qaPhase()')
-                        if count==28 or fixture['moved']['modelStats']['distance']<1:
+                        if count==28 or getattr(args,'all_phases',False) or fixture['moved']['modelStats']['distance']<1:
                             page.evaluate('qaAdvance(220)')
                             fixture['later']=page.evaluate('qaPhase()')
                         if count==28:
                             fixture['perfSample']=page.evaluate((BASE/'geometry_perf_sample.js').read_text())
                         assert all(a['frame'][2]>0 for a in fixture['actors'])
-                        tmp=out.with_suffix('.tmp')
+                        tmp=out.with_suffix(f'.{os.getpid()}.tmp')
                         tmp.write_text(json.dumps(fixture,separators=(',',':'))+'\n')
                         tmp.replace(out)
                         print(w,region,count,len(fixture['passes']),fixture['p']['viewport'],flush=True)
@@ -96,6 +98,7 @@ if __name__=='__main__':
     cli=argparse.ArgumentParser(description=__doc__);cli.add_argument('url');cli.add_argument('out',type=Path)
     cli.add_argument('--widths',type=int,nargs='+',default=list(HEIGHTS));cli.add_argument('--counts',type=int,nargs='+',default=[28,20,10,4,1])
     cli.add_argument('--regions',nargs='+',default=REGIONS)
+    cli.add_argument('--all-phases',action='store_true',help='Also measure 30 native seconds for moving smaller households')
     cli.add_argument('--layout',choices=['fixed','optimized'],default='fixed')
     cli.add_argument('--extra',type=int,default=0)
     args=cli.parse_args();collect(args)

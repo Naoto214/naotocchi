@@ -1,0 +1,275 @@
+{
+  "engine": "chromium",
+  "cases": {
+    "320/forest/28/fixed/0": {
+      "taps": [
+        {
+          "target": "partner:forest_bear",
+          "point": [
+            181.01097226142883,
+            190.5849723815918
+          ],
+          "selected": "partner:forest_bear",
+          "events": [
+            "partner:forest_bear"
+          ]
+        },
+        {
+          "target": "companion:shiba",
+          "point": [
+            261.7136889100075,
+            183.98038005828857
+          ],
+          "selected": "companion:shiba",
+          "events": [
+            "companion:shiba"
+          ]
+        },
+        {
+          "target": "pet:dog",
+          "point": [
+            143.0126854777336,
+            195.7960131764412
+          ],
+          "selected": "companion:shiba",
+          "events": []
+        }
+      ],
+      "drags": [
+        {
+          "assisted": false,
+          "delivered": true,
+          "held": "pet:dog",
+          "marker": true,
+          "requestedDistanceCss": 23.87,
+          "moveAccepted": true,
+          "displacementNative": 4.34,
+          "predicted": true,
+          "nativeRoutes": [
+            {
+              "key": "pet:dog",
+              "x": 186.22039270791373,
+              "y": 287.34146487262126,
+              "waypoints": 2
+            }
+          ]
+        }
+      ],
+      "events": {
+        "move/ambient": 6,
+        "look/ambient": 15,
+        "arrive/ambient": 6,
+        "environment/ambient": 2,
+        "proximity/ambient": 7,
+        "tap/tap": 3,
+        "move/drag": 1,
+        "arrive/drag": 1
+      },
+      "speech": [
+        "大人のいぬ\nジャジャン!",
+        "大人のいぬ\nひまの予定、重なったね",
+        "大人のいぬ\nねえねえ!",
+        "大人のいぬ\n年齢だけすすむのはやくない?",
+        "大人のいぬ\nねえ、ちゃんとみてる?",
+        "大人のいぬ\nねえ、ちょっと!",
+        "大人のいぬ\nドキッとした?",
+        "びっくりハリネズミ\n丸くなる準備だけしてる",
+        "大人のいぬ\nなんくるないさ〜",
+        "大人のいぬ\nあそぼうよ!"
+      ],
+      "pageErrors": [],
+      "seed": "v2"
+    },
+    "320/forest/28/fixed/20": {
+      "taps": [
+        {
+          "target": "partner:forest_bear",
+          "point": [
+            181.01018822193146,
+            187.6615498661995
+          ],
+          "predictedKey": "partner:forest_bear",
+          "blocked": false,
+          "selected": "partner:forest_bear",
+          "events": [
+            "partner:forest_bear"
+          ]
+        },
+        {
+          "target": "companion:shiba",
+          "point": [
+            261.7855388522148,
+            181.83137774467468
+          ],
+          "predictedKey": "companion:shiba",
+          "blocked": false,
+          "selected": "companion:shiba",
+          "events": [
+            "companion:shiba"
+          ]
+        },
+        {
+          "target": "pet:dog",
+          "point": [
+            142.86363217234612,
+            191.67918062210083
+          ],
+          "predictedKey": "pet:dog",
+          "blocked": false,
+          "selected": "pet:dog",
+          "events": [
+            "pet:dog"
+          ]
+        }
+      ],
+      "drags": [
+        {
+          "assisted": false,
+          "delivered": true,
+          "held": "pet:dog",
+          "marker": false,
+          "requestedDistanceCss": 27.87,
+          "moveAccepted": false,
+          "displacementNative": 24.41,
+          "predicted": true,
+          "nativeRoutes": []
+        },
+        {
+          "assisted": true,
+          "delivered": true,
+          "held": "pet:dog",
+          "marker": true,
+          "requestedDistanceCss": 28.81,
+          "moveAccepted": true,
+          "displacementNative": 10.0,
+          "predicted": true,
+          "nativeRoutes": [
+            {
+              "key": "pet:dog",
+              "x": 170.98252237626377,
+              "y": 277.0563644970989,
+              "waypoints": 1
+            }
+          ]
+        }
+      ],
+      "events": {
+        "move/ambient": 9,
+        "look/ambient": 13,
+        "arrive/ambient": 8,
+        "environment/ambient": 3,
+        "proximity/ambient": 9,
+        "tap/tap": 5,
+        "social/ambient": 1,
+        "move/drag": 1,
+        "arrive/drag": 1
+      },
+      "speech": [
+        "大人のいぬ\n休憩中ならまぜて",
+        "大人のいぬ\nいまの声、宇宙まで届いた?",
+        "大人のいぬ\n年齢欄を書きなおしてくる",
+        "大人のいぬ\nなんしとーと？こっち来んね！",
+        "もりのクマさん\nドア、ちょっと小さいね",
+        "大人のいぬ\nごめんね",
+        "もりのクマさん\nううん。こっちが少し大きいだけ",
+        "大人のいぬ\n何か言う顔だけ先にできた"
+      ],
+      "pageErrors": [],
+      "seed": "v2"
+    },
+    "320/forest/28/optimized/20": {
+      "taps": [
+        {
+          "target": "partner:forest_bear",
+          "point": [
+            181.01018822193146,
+            191.79139125347137
+          ],
+          "predictedKey": "partner:forest_bear",
+          "blocked": false,
+          "selected": "partner:forest_bear",
+          "events": [
+            "partner:forest_bear"
+          ]
+        },
+        {
+          "target": "companion:shiba",
+          "point": [
+            36.543441608548164,
+            206.9393082857132
+          ],
+          "predictedKey": "companion:shiba",
+          "blocked": false,
+          "selected": "companion:shiba",
+          "events": [
+            "companion:shiba"
+          ]
+        },
+        {
+          "target": "pet:dog",
+          "point": [
+            137.50323316454887,
+            192.07424318790436
+          ],
+          "predictedKey": "pet:dog",
+          "blocked": false,
+          "selected": "pet:dog",
+          "events": [
+            "pet:dog"
+          ]
+        }
+      ],
+      "drags": [
+        {
+          "assisted": false,
+          "delivered": true,
+          "held": "pet:dog",
+          "marker": false,
+          "requestedDistanceCss": 27.82,
+          "moveAccepted": false,
+          "displacementNative": 0.0,
+          "predicted": true,
+          "nativeRoutes": []
+        },
+        {
+          "assisted": true,
+          "delivered": true,
+          "held": "pet:dog",
+          "marker": false,
+          "requestedDistanceCss": 38.09,
+          "moveAccepted": false,
+          "displacementNative": 0.0,
+          "predicted": true,
+          "nativeRoutes": []
+        }
+      ],
+      "events": {
+        "look/ambient": 19,
+        "move/ambient": 6,
+        "arrive/ambient": 6,
+        "proximity/ambient": 6,
+        "social/ambient": 1,
+        "tap/tap": 5,
+        "environment/ambient": 1
+      },
+      "speech": [
+        "大人のいぬ\nHowdy!",
+        "大人のいぬ\n呼ぶ前にこっち向いたね",
+        "大人のいぬ\nねえ、ちょっと!",
+        "大人のいぬ\n誕生日の顔ってどれ?",
+        "大人のいぬ\nあかんて!",
+        "ものしりふくろう\n見晴らしのいい所で考えてた",
+        "大人のいぬ\nたいくつだよ〜",
+        "大人のいぬ\nかまってかまって!",
+        "大人のいぬ\nねえねえ!",
+        "大人のいぬ\n27さいになった!",
+        "大人のいぬ\n話し出したら話題を忘れた",
+        "大人のいぬ\nShalom!",
+        "大人のいぬ\nAloha!"
+      ],
+      "pageErrors": [],
+      "seed": "1793b2e62a7283db"
+    }
+  },
+  "version": "156.0.8078.79"
+}
