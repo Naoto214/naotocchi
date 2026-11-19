@@ -4,7 +4,7 @@ export function layout(root=document){
   e.style.fontSize='';const span=e.querySelector('span');if(!span)continue;
   const base=Number.parseFloat(getComputedStyle(e).fontSize),available=e.getBoundingClientRect().width,actual=span.getBoundingClientRect().width;
   if(available&&actual>available)e.style.fontSize=base*(available-.2)/actual+'px';
-  if(e.classList.contains('v8-title')){const aux=e.parentElement.querySelector('.v8-aux');if(aux)aux.style.top=`calc(13.5cqw + ${Number.parseFloat(getComputedStyle(e).fontSize)*1.1}px + .45cqw)`;}
+  if(e.classList.contains('v8-title')){const aux=e.parentElement.querySelector('.v8-aux');if(aux)aux.style.top=`calc(${Number.parseFloat(getComputedStyle(e).top)+Number.parseFloat(getComputedStyle(e).fontSize)*1.1}px + .45cqw)`;}
  }
  for(const e of root.querySelectorAll('.v10-copy')){
   e.style.fontSize='';let size=Number.parseFloat(getComputedStyle(e).fontSize),min=(e.classList.contains('v10-egg-copy')?8:9.6)*e.closest('.v10-card').clientWidth/320;

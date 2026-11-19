@@ -15,3 +15,25 @@ Existing presentation tests have been updated to the authorized single-line name
 The initial broad run was 641/658: fifteen old presentation expectations (including a subsequently corrected egg image class), plus two sparse asset failures. Restoring the missing clock provenance images and documentation gzip/QA files from the baseline makes the unchanged catalog (4/4) and clock (10/10) suites pass. No frozen provenance or home test guards were changed.
 
 Static Pages reference traversal reports no unpublished references. The exact allowlist includes eight runtime modules/styles, the egg image, and six new delivery WebPs; approved originals/tests/this README remain repository-only. Full package assembly must hydrate the existing sparse binary assets. A focused rerun of the thirteen affected suites passed 72/72 tests. The final full command `node --test prototypes/card-game/tests/*.test.mjs` passed 664/664 with no failures, skips or cancellations. The isolated baseline comparison passed all 65 non-catalog tests and, after its fixture dependencies were hydrated, catalog 4/4; the initial failures were classified against the original tests rather than waived. No browser/WebKit/iPhone visual verification was possible in this environment; layout/overflow and glyph centering need review in the private candidate preview.
+
+### VERSION 14 typography (2026-11-19)
+
+Before: `76df0f1581aa4fb5f6e443e1dbfae7beadaedce9` (retained in history).
+Normal cards use 10.5cqw/700 cost digits (circle unchanged), 8.5cqw one-line
+name maximum with existing fit-to-width, and 4.6cqw/700 classification text.
+Normal stats remain 16cqw/600. Narrow 40–70px cards gain stat-strip room and
+fractional inset strokes without shrinking digits. Detail stats use 11.5cqw/500;
+detail cost/name/classification remain unchanged. Auxiliary name placement follows
+the actual title position, instead of assuming one shared top offset.
+
+Chromium 156 real rendering: 320/375/390/430 x 844 portrait and 844 x each width
+landscape; all 452 cards plus representative costs 0–8 and stats 1/5/10.
+Touch-emulated collection opening, three columns, detail, flip, hand selection;
+deck catalog and zoom also checked at all four portrait widths. 33 focused Node
+tests passed. Browser screenshots/measurements and exact before CSS/fit modules
+are retained only in the owner-private Site, not in the production Pages files:
+https://naotocchi-card-integration-v13-20261119.kerzion214.chatgpt.site/v14-qa/report.html
+
+WebKit is unavailable (missing executable); physical iPhone Safari is untested.
+The existing BGM byte-protection failure for the earlier index.html integration
+is not bypassed. No names, IDs, values, images, host UI, or gameplay changed.

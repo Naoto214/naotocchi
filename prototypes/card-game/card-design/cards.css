@@ -77,3 +77,16 @@
 
 /* The inner face owns the approved frame; suppress inherited host ornaments. */
 .card-face.v11-card::before,.card-face.v11-card::after{content:none}
+
+/* V14: quick identification on normal faces; quieter figures on detail faces. */
+.v11-card:not(.v10-detail) .v8-cost{font-size:10.5cqw;font-weight:700}
+.v11-card:not(.v10-detail) .v8-cost .v8-glyph{font-weight:700}
+.v11-card:not(.v10-detail) .v8-title{top:15.5cqw;width:90cqw;font-size:8.5cqw}
+.v11-card:not(.v10-detail) .v8-aux{font-size:2.2cqw;line-height:1.1}
+.v11-card:not(.v10-detail) .v8-classification{font-size:4.6cqw;font-weight:700;line-height:1.2}
+.v11-card.v10-detail .v8-value{font-size:11.5cqw;font-weight:500}
+.v11-card.v10-detail .v8-value .v8-glyph{font-weight:500}
+/* Keep enlarged stats inside narrow hand/board cards without shrinking digits. */
+@container (min-width:40.01px) and (max-width:70px){
+ .v11-card:not(.v10-detail) .v8-stats{top:125cqw;height:15.5cqw;border:0;box-shadow:inset 0 0 0 .3cqw #bba878}
+}
