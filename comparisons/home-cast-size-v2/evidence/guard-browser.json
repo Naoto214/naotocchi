@@ -1,0 +1,43 @@
+{
+  "chromium": "156.0.8078.79",
+  "viewport": [
+    390,
+    844
+  ],
+  "dpr": 2,
+  "reducedMotion": true,
+  "archive": {
+    "overviewNodes": 1,
+    "status": "original two-way toggle",
+    "heroPercentAttribute": 110,
+    "achievedRoleScales": {
+      "pet": 1,
+      "partner": 1,
+      "companion": 1
+    },
+    "measuredActors": 28,
+    "maxScaleDifference": 1e-06,
+    "residentAssetAndModelDimensions": "89892a5e4ed1c8a0d5114dfa5614a7e21c9d9d6d98e4be855bbd760a2a7956af",
+    "canvas": "2e42cb20b4b02bfa77a9fdd5a6b59255572b1c1044e714d415337ec53b383bcb",
+    "isolatedSaveKeys": 4,
+    "separateSession": true,
+    "pageErrors": []
+  },
+  "final": {
+    "overviewNodes": 0,
+    "status": "absent",
+    "heroPercentAttribute": 110,
+    "achievedRoleScales": {
+      "pet": 1.2,
+      "partner": 1.2,
+      "companion": 1.05
+    },
+    "measuredActors": 28,
+    "maxScaleDifference": 1e-06,
+    "residentAssetAndModelDimensions": "89892a5e4ed1c8a0d5114dfa5614a7e21c9d9d6d98e4be855bbd760a2a7956af",
+    "canvas": "2e42cb20b4b02bfa77a9fdd5a6b59255572b1c1044e714d415337ec53b383bcb",
+    "isolatedSaveKeys": 4,
+    "separateSession": true,
+    "pageErrors": []
+  }
+}

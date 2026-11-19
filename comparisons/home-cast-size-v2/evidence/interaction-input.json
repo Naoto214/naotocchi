@@ -1,0 +1,451 @@
+{
+  "engine": "chromium",
+  "version": "156.0.8078.79",
+  "mobileEmulation": true,
+  "dpr": 2,
+  "scenes": [
+    {
+      "region": "forest",
+      "width": 320,
+      "height": 568,
+      "count": 28,
+      "readyWithStablePose": true,
+      "reducedMotion": false,
+      "factors": [
+        1.2,
+        1.2,
+        1.05
+      ],
+      "originalHeroPercent": "110",
+      "overviewButtons": 0,
+      "gear": {
+        "shadowCount": 28,
+        "ribbon": 13.525436401367188,
+        "ring": 11.7559814453125,
+        "decoded": true
+      },
+      "taps": [
+        {
+          "requested": "partner:forest_bear",
+          "attempts": [
+            {
+              "selected": "partner:forest_bear",
+              "events": [
+                "partner:forest_bear"
+              ]
+            }
+          ],
+          "selected": true
+        },
+        {
+          "requested": "companion:shiba",
+          "attempts": [
+            {
+              "selected": "companion:shiba",
+              "events": [
+                "companion:shiba"
+              ]
+            }
+          ],
+          "selected": true
+        },
+        {
+          "requested": "pet:dog",
+          "attempts": [
+            {
+              "selected": "pet:dog",
+              "events": [
+                "pet:dog"
+              ]
+            }
+          ],
+          "selected": true
+        }
+      ],
+      "dragInput": "Chromium CDP touch",
+      "dragTrials": [
+        {
+          "actor": "pet:dog",
+          "heldActor": "pet:dog",
+          "target": "open ground",
+          "marker": true,
+          "accepted": false,
+          "distance": 0.0
+        },
+        {
+          "actor": "pet:dog",
+          "heldActor": "pet:dog",
+          "target": "open ground",
+          "marker": true,
+          "accepted": false,
+          "distance": 0.0
+        },
+        {
+          "actor": "pet:dog",
+          "heldActor": "pet:dog",
+          "target": "open ground",
+          "marker": true,
+          "accepted": false,
+          "distance": 0.0
+        },
+        {
+          "actor": "pet:dog",
+          "heldActor": "pet:dog",
+          "target": "open ground",
+          "marker": true,
+          "accepted": false,
+          "distance": 0.0
+        },
+        {
+          "actor": "pet:dog",
+          "heldActor": "pet:dog",
+          "target": "open ground",
+          "marker": true,
+          "accepted": false,
+          "distance": 0.0
+        },
+        {
+          "actor": "pet:dog",
+          "heldActor": "pet:dog",
+          "target": "open ground",
+          "marker": true,
+          "accepted": false,
+          "distance": 0.0
+        },
+        {
+          "actor": "pet:dog",
+          "heldActor": "pet:dog",
+          "target": "open ground",
+          "marker": true,
+          "accepted": false,
+          "distance": 0.0
+        }
+      ],
+      "events": {
+        "tap/tap": 10,
+        "move/ambient": 11,
+        "arrive/ambient": 10,
+        "environment/ambient": 5,
+        "proximity/ambient": 10,
+        "look/ambient": 15
+      },
+      "visibleDialogue": [
+        "大人のいぬ\nGuten Tag!",
+        "大人のいぬ\nG'day mate!",
+        "大人のいぬ\nひまになったがね",
+        "みているなにか\n目があうまでここにいる",
+        "大人のいぬ\n誕生日の顔ってどれ?",
+        "大人のいぬ\nかっこいいポーズ、受付中",
+        "大人のいぬ\nたいくつだよ〜",
+        "せっかちなカタツムリ\n雨のにおい!窓はないけどわかる",
+        "大人のいぬ\nHola!",
+        "大人のいぬ\n小銭って増える音だけ聞きたいね",
+        "まよいこんだユニコーン\nきらきらしててもひまはある",
+        "大人のいぬ\n好きな顔ってこういう顔?",
+        "大人のいぬ\nHej!",
+        "大人のいぬ\n27さい、まだ慣れてない"
+      ],
+      "stops": {
+        "resident": 2,
+        "terrainOrBounds": 0
+      },
+      "environmentSeconds": 89.78,
+      "additionalIdleObservationSeconds": 42,
+      "attachmentsAfterInputs": {
+        "ribbonTranslate": true,
+        "ribbonScale": true,
+        "ringActor": "partner:forest_bear",
+        "maximumShadowOriginDelta": 0.001
+      },
+      "saveBoundaryOnReentry": {
+        "realSaveSentinelsRetained": 3,
+        "tabRetained": true,
+        "frameWriteAbsentAfterReload": true,
+        "restoredFixtureKeys": 28,
+        "originalRibbon": true
+      },
+      "pageErrors": []
+    },
+    {
+      "region": "city",
+      "width": 375,
+      "height": 812,
+      "count": 28,
+      "readyWithStablePose": true,
+      "reducedMotion": false,
+      "factors": [
+        1.2,
+        1.2,
+        1.05
+      ],
+      "originalHeroPercent": "110",
+      "overviewButtons": 0,
+      "gear": {
+        "shadowCount": 28,
+        "ribbon": 14.144180297851562,
+        "ring": 12.982437133789062,
+        "decoded": true
+      },
+      "taps": [
+        {
+          "requested": "partner:forest_bear",
+          "attempts": [
+            {
+              "selected": "partner:forest_bear",
+              "events": [
+                "partner:forest_bear"
+              ]
+            }
+          ],
+          "selected": true
+        },
+        {
+          "requested": "companion:shiba",
+          "attempts": [
+            {
+              "selected": "companion:shiba",
+              "events": [
+                "companion:shiba"
+              ]
+            }
+          ],
+          "selected": true
+        },
+        {
+          "requested": "pet:dog",
+          "attempts": [
+            {
+              "selected": "pet:dog",
+              "events": [
+                "pet:dog"
+              ]
+            }
+          ],
+          "selected": true
+        }
+      ],
+      "dragInput": "Chromium CDP touch",
+      "dragTrials": [
+        {
+          "actor": "pet:dog",
+          "heldActor": "pet:dog",
+          "target": "open ground",
+          "marker": true,
+          "accepted": true,
+          "distance": 28.94
+        }
+      ],
+      "events": {
+        "tap/tap": 4,
+        "move/ambient": 4,
+        "look/ambient": 13,
+        "arrive/ambient": 4,
+        "proximity/ambient": 5,
+        "environment/ambient": 3,
+        "move/drag": 1,
+        "arrive/drag": 1
+      },
+      "visibleDialogue": [
+        "おっちょこちょいリス\n木の実の数がまた合わない",
+        "大人のいぬ\nShalom!"
+      ],
+      "stops": {},
+      "environmentSeconds": 5.62,
+      "additionalIdleObservationSeconds": 2,
+      "attachmentsAfterInputs": {
+        "ribbonTranslate": true,
+        "ribbonScale": true,
+        "ringActor": "partner:forest_bear",
+        "maximumShadowOriginDelta": 0.001
+      },
+      "pageErrors": []
+    },
+    {
+      "region": "river_lake",
+      "width": 390,
+      "height": 844,
+      "count": 28,
+      "readyWithStablePose": true,
+      "reducedMotion": false,
+      "factors": [
+        1.2,
+        1.2,
+        1.05
+      ],
+      "originalHeroPercent": "110",
+      "overviewButtons": 0,
+      "gear": {
+        "shadowCount": 28,
+        "ribbon": 14.994384765625,
+        "ring": 13.863250732421875,
+        "decoded": true
+      },
+      "taps": [
+        {
+          "requested": "partner:forest_bear",
+          "attempts": [
+            {
+              "selected": "partner:forest_bear",
+              "events": [
+                "partner:forest_bear"
+              ]
+            }
+          ],
+          "selected": true
+        },
+        {
+          "requested": "companion:shiba",
+          "attempts": [
+            {
+              "selected": "companion:shiba",
+              "events": [
+                "companion:shiba"
+              ]
+            }
+          ],
+          "selected": true
+        },
+        {
+          "requested": "pet:dog",
+          "attempts": [
+            {
+              "selected": "pet:dog",
+              "events": [
+                "pet:dog"
+              ]
+            }
+          ],
+          "selected": true
+        }
+      ],
+      "dragInput": "Chromium CDP touch",
+      "dragTrials": [
+        {
+          "actor": "pet:dog",
+          "heldActor": "pet:dog",
+          "target": "open ground",
+          "marker": true,
+          "accepted": true,
+          "distance": 24.57
+        }
+      ],
+      "events": {
+        "tap/tap": 4,
+        "move/ambient": 3,
+        "look/ambient": 13,
+        "arrive/ambient": 3,
+        "environment/ambient": 2,
+        "proximity/ambient": 4,
+        "move/drag": 1,
+        "arrive/drag": 1
+      },
+      "visibleDialogue": [
+        "ほおぶくろハムスター\nほっぺの中で迷子になった"
+      ],
+      "stops": {},
+      "environmentSeconds": 5.77,
+      "additionalIdleObservationSeconds": 2,
+      "attachmentsAfterInputs": {
+        "ribbonTranslate": true,
+        "ribbonScale": true,
+        "ringActor": "partner:forest_bear",
+        "maximumShadowOriginDelta": 0.001
+      },
+      "pageErrors": []
+    },
+    {
+      "region": "home",
+      "width": 430,
+      "height": 932,
+      "count": 28,
+      "readyWithStablePose": true,
+      "reducedMotion": false,
+      "factors": [
+        1.2,
+        1.2,
+        1.05
+      ],
+      "originalHeroPercent": "110",
+      "overviewButtons": 0,
+      "gear": {
+        "shadowCount": 28,
+        "ribbon": 16.999557495117188,
+        "ring": 15.57122802734375,
+        "decoded": true
+      },
+      "taps": [
+        {
+          "requested": "partner:forest_bear",
+          "attempts": [
+            {
+              "selected": "partner:forest_bear",
+              "events": [
+                "partner:forest_bear"
+              ]
+            }
+          ],
+          "selected": true
+        },
+        {
+          "requested": "companion:shiba",
+          "attempts": [
+            {
+              "selected": "companion:shiba",
+              "events": [
+                "companion:shiba"
+              ]
+            }
+          ],
+          "selected": true
+        },
+        {
+          "requested": "pet:dog",
+          "attempts": [
+            {
+              "selected": "pet:dog",
+              "events": [
+                "pet:dog"
+              ]
+            }
+          ],
+          "selected": true
+        }
+      ],
+      "dragInput": "Chromium CDP touch",
+      "dragTrials": [
+        {
+          "actor": "companion:owl",
+          "heldActor": "companion:owl",
+          "target": "native waypoint",
+          "marker": true,
+          "accepted": true,
+          "distance": 30.8
+        }
+      ],
+      "events": {
+        "tap/tap": 4,
+        "move/ambient": 3,
+        "arrive/ambient": 2,
+        "proximity/ambient": 2,
+        "look/ambient": 9,
+        "move/drag": 1
+      },
+      "visibleDialogue": [
+        "とけかけのぷにゅ\n今日はちょっと丸くいたい",
+        "大人のいぬ\nShalom!"
+      ],
+      "stops": {},
+      "environmentSeconds": 7.9,
+      "additionalIdleObservationSeconds": 2,
+      "attachmentsAfterInputs": {
+        "ribbonTranslate": true,
+        "ribbonScale": true,
+        "ringActor": "partner:forest_bear",
+        "maximumShadowOriginDelta": 0.001
+      },
+      "pageErrors": []
+    }
+  ],
+  "nativeModelSha256": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+  "layoutSha256": "b9d63b5e005b3f780af7522e84703f31dc328e7934457371158ea8576c88c54b"
+}

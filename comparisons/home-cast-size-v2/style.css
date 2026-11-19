@@ -1,0 +1,18 @@
+.sizes { margin-top: 1.6rem; }
+.sizes h3 { margin: 0; font-size: 1.05rem; color: var(--forest); }
+#size-note { margin: .5rem 0 .9rem; font-size: .875rem; line-height: 1.6; color: var(--muted); }
+.sizes table { width: 100%; border-collapse: collapse; font-size: .875rem; font-variant-numeric: tabular-nums; }
+.sizes td, .sizes th { border-bottom: 1px solid var(--edge); padding: .55rem .15rem; text-align: right; }
+.sizes th:first-child { text-align: left; }
+.sizes th { font-weight: 600; }
+.sizes thead th { color: var(--muted); font-size: .8rem; }
+#measure, .archive { display: inline-flex; align-items: center; min-height: 44px; margin-top: .7rem; color: var(--forest); font-size: .88rem; }
+#measure { border: 1px solid var(--edge); border-radius: 6px; padding: 0 .7rem; background: #fffdf8; font-weight: 600; }
+#measure:disabled { opacity: .58; }
+#measurement-status { margin-left: .5rem; font-size: .8rem; color: var(--muted); }
+.archive { text-underline-offset: .18rem; }
+@media (max-width:360px) { .tools { gap: 3px; } .tools button { padding-inline: 6px; } }
+#companion-detail { margin-top: .5rem; }
+#companion-detail summary { color: var(--forest); font-size: .875rem; cursor: pointer; min-height: 44px; align-content: center; }
+#companion-detail table th { overflow-wrap: anywhere; }
+#companion-detail table td { white-space: nowrap; }

@@ -1,0 +1,44 @@
+name: Home cast sizes and placement V2
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'comparisons/home-cast-size-v2/**'
+      - '.github/workflows/home-cast-size-v2.yml'
+permissions:
+  contents: read
+jobs:
+  verify-final-trial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-cast-size-v1
+            comparisons/home-cast-size-v2
+      - uses: actions/checkout@v4
+        with:
+          ref: 28628cf336a8ed92efe4e9e197ca03298b798a1e
+          path: .leaf-reference
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: e7d881b825622efddac61857075c2c1658da706f
+          path: .cast-reference
+          persist-credentials: false
+          sparse-checkout: comparisons/home-cast-size-v1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Rebuild the pinned V1 game and its approved leaf rendering
+        run: node .cast-reference/comparisons/home-cast-size-v1/build.cjs "$RUNNER_TEMP/cast-v1" --reference-checkout .leaf-reference
+      - name: Test the final trial
+        run: node --test comparisons/home-cast-size-v2/*.test.*
+      - name: Build the independent final game and legacy comparison
+        run: node comparisons/home-cast-size-v2/build.cjs "$RUNNER_TEMP/cast-v2" --baseline "$RUNNER_TEMP/cast-v1"
+      - name: Verify protected art, game and navigation against the original trial
+        run: |
+          python3 comparisons/home-cast-size-v2/verify_protection_package.py "$RUNNER_TEMP/cast-v1" "$RUNNER_TEMP/cast-v2" --out "$RUNNER_TEMP/cast-files.json"
+          node comparisons/home-cast-size-v2/verify_protection_navigation.mjs "$RUNNER_TEMP/cast-v2/game" "$RUNNER_TEMP/cast-navigation.json"

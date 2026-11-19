@@ -1,0 +1,118 @@
+{
+  "engine": "chromium",
+  "version": "156.0.8078.79",
+  "mobileEmulation": true,
+  "dpr": 2,
+  "scenes": [
+    {
+      "region": "forest",
+      "width": 320,
+      "height": 568,
+      "count": 28,
+      "readyWithStablePose": true,
+      "reducedMotion": false,
+      "factors": [
+        1.2,
+        1.2,
+        1.05
+      ],
+      "originalHeroPercent": "110",
+      "overviewButtons": 0,
+      "gear": {
+        "shadowCount": 28,
+        "ribbon": 13.520950317382812,
+        "ring": 11.7559814453125,
+        "decoded": true
+      },
+      "taps": [
+        {
+          "requested": "partner:forest_bear",
+          "attempts": [
+            {
+              "selected": "partner:forest_bear",
+              "events": [
+                "partner:forest_bear"
+              ]
+            }
+          ],
+          "selected": true
+        },
+        {
+          "requested": "companion:shiba",
+          "attempts": [
+            {
+              "selected": "companion:shiba",
+              "events": [
+                "companion:shiba"
+              ]
+            }
+          ],
+          "selected": true
+        },
+        {
+          "requested": "pet:dog",
+          "attempts": [
+            {
+              "selected": "pet:dog",
+              "events": [
+                "pet:dog"
+              ]
+            }
+          ],
+          "selected": true
+        }
+      ],
+      "dragInput": "Chromium CDP touch",
+      "dragTrials": [
+        {
+          "actor": "pet:dog",
+          "heldActor": "pet:dog",
+          "target": "reserved exit",
+          "marker": true,
+          "accepted": true,
+          "distance": 30.8,
+          "inputDistanceCss": 3.31,
+          "nativeRequest": {
+            "key": "pet:dog",
+            "x": 163.07999639852406,
+            "y": 252.4485188854996,
+            "actorX": 163.08,
+            "actorY": 298.46000000000004
+          },
+          "sourceAfter": "drag"
+        }
+      ],
+      "events": {
+        "tap/tap": 4,
+        "move/ambient": 1,
+        "arrive/ambient": 1,
+        "environment/ambient": 1,
+        "proximity/ambient": 2,
+        "move/drag": 1,
+        "arrive/drag": 1
+      },
+      "visibleDialogue": [
+        "大人のいぬ\n座る場所に先を越された"
+      ],
+      "stops": {},
+      "environmentSeconds": 8.05,
+      "additionalIdleObservationSeconds": 2,
+      "attachmentsAfterInputs": {
+        "ribbonTranslate": true,
+        "ribbonScale": true,
+        "ringActor": "partner:forest_bear",
+        "maximumShadowOriginDelta": 0.001
+      },
+      "saveBoundaryOnReentry": {
+        "realSaveSentinelsRetained": 3,
+        "tabRetained": true,
+        "frameWriteAbsentAfterReload": true,
+        "restoredFixtureKeys": 28,
+        "originalRibbon": true
+      },
+      "pageErrors": []
+    }
+  ],
+  "nativeModelSha256": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+  "layoutSha256": "b9d63b5e005b3f780af7522e84703f31dc328e7934457371158ea8576c88c54b"
+}

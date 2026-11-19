@@ -1,0 +1,264 @@
+{
+  "engine": "Linux WPE WebKit 26.5, one shared CPU (4) with concurrent browser QA",
+  "fixture": "320\u00d7568 / forest / 28 / paused / final, cold page",
+  "clock": "iframe performance.now(), milliseconds; first observation is an upper bound on the transition",
+  "openingSeatsSha256": "b9d63b5e005b3f780af7522e84703f31dc328e7934457371158ea8576c88c54b",
+  "priorRunOnSameCpu": {
+    "waitForReadyTimeoutMs": 120000,
+    "result": "timeout; subsequent cold run reached ready"
+  },
+  "observations": [
+    {
+      "atMs": 10368,
+      "ready": false,
+      "document": "loading",
+      "visible": "visible",
+      "worldRenderer": null,
+      "actors": 28,
+      "paintedWidth": null
+    },
+    {
+      "atMs": 12155,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": null,
+      "actors": 28,
+      "paintedWidth": null
+    },
+    {
+      "atMs": 16212,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": null
+    },
+    {
+      "atMs": 17745,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": null
+    },
+    {
+      "atMs": 19265,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": null
+    },
+    {
+      "atMs": 20824,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": null
+    },
+    {
+      "atMs": 22349,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": null
+    },
+    {
+      "atMs": 23958,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": null
+    },
+    {
+      "atMs": 28899,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": null
+    },
+    {
+      "atMs": 30447,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": null
+    },
+    {
+      "atMs": 31973,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": null
+    },
+    {
+      "atMs": 33571,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": null
+    },
+    {
+      "atMs": 35125,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": null
+    },
+    {
+      "atMs": 37603,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": null
+    },
+    {
+      "atMs": 40317,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": null
+    },
+    {
+      "atMs": 42524,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": null
+    },
+    {
+      "atMs": 44126,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": null
+    },
+    {
+      "atMs": 45713,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": null
+    },
+    {
+      "atMs": 47405,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": null
+    },
+    {
+      "atMs": 49430,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": null
+    },
+    {
+      "atMs": 66494,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": 320
+    },
+    {
+      "atMs": 68032,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": 320
+    },
+    {
+      "atMs": 69633,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": 320
+    },
+    {
+      "atMs": 71167,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": 320
+    },
+    {
+      "atMs": 74172,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": 320
+    },
+    {
+      "atMs": 76026,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": 320
+    },
+    {
+      "atMs": 77632,
+      "ready": false,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": 320
+    },
+    {
+      "atMs": 79262,
+      "ready": true,
+      "document": "complete",
+      "visible": "visible",
+      "worldRenderer": "art-25d",
+      "actors": 28,
+      "paintedWidth": 320
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "regions": 13,
+  "projections": 52,
+  "nativeReferences": 728,
+  "identicalNativeFunctions": [
+    "depthScale",
+    "nearest",
+    "project",
+    "reachable",
+    "referenceNearest",
+    "referenceRoute",
+    "route",
+    "segmentSafe",
+    "unproject",
+    "valid"
+  ],
+  "identicalOriginalSeedsBelow28": 1820,
+  "deterministicTrialsAt28": 1456,
+  "nativeOpeningsAt28": {
+    "otherNineCompactRegions": 252,
+    "tallPortraitExceptPartner": 1053,
+    "landscape": 364
+  },
+  "overviewRemoval": {
+    "checkedHouseholds": [
+      1,
+      4,
+      5,
+      6,
+      10,
+      20,
+      28
+    ],
+    "normalFrames": 74,
+    "legacyFlagScale": 0.84,
+    "finalFlagScale": 1
+  }
+}
