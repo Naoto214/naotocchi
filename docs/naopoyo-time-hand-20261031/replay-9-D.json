@@ -1,0 +1,1515 @@
+{
+  "status": "incompatible",
+  "failure": {
+    "step": 12,
+    "reason": "exit"
+  },
+  "metrics": {
+    "steps": 11,
+    "splits": 1,
+    "children": 3,
+    "merges": 1,
+    "familyMerges": 0,
+    "overflow": 0,
+    "falls": 0
+  },
+  "rescued": 2,
+  "mass": 5,
+  "final": {
+    "id": "light-knot",
+    "title": "09 星から考える",
+    "w": 8,
+    "h": 8,
+    "revision": 1,
+    "theme": "cave",
+    "showSpecies": false,
+    "walls": [
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ]
+    ],
+    "gates": [
+      {
+        "x": 3,
+        "y": 4,
+        "exact": 5,
+        "open": true
+      }
+    ],
+    "spikes": [
+      {
+        "x": 5,
+        "y": 4,
+        "power": 3
+      }
+    ],
+    "exits": [
+      {
+        "x": 7,
+        "y": 2,
+        "exact": 3
+      },
+      {
+        "x": 7,
+        "y": 6,
+        "exact": 2
+      }
+    ],
+    "gravity": false,
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [
+      {
+        "id": "child1",
+        "species": "dog",
+        "level": 1,
+        "x": 7,
+        "y": 3
+      },
+      {
+        "id": "child2",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 3
+      },
+      {
+        "id": "child3",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 2
+      }
+    ],
+    "difficulty": 3,
+    "lesson": "星は3と2。トゲで分かれたあと、どの光を結ぶ？",
+    "story": "ほどけた道が、また結び目になりました。ふくろうは急かさず、星を指さします。",
+    "ending": "帰りたい場所から考えると、結び目がほどけた。",
+    "hints": [
+      "門は5。通った先で、3と2を作ろう。",
+      "3連で5は2・1・1・1になる。",
+      "2を残し、3つの1を合わせて3にする方法があるよ。"
+    ],
+    "mechanics": [
+      "merge",
+      "split",
+      "gate"
+    ],
+    "hint": "門は5。通った先で、3と2を作ろう。",
+    "splitPriority": "D",
+    "rescued": 2,
+    "rescuedBySpecies": {
+      "dog": 2
+    },
+    "nextId": 4,
+    "moves": 11
+  },
+  "snapshots": [
+    {
+      "id": "light-knot",
+      "title": "09 星から考える",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 4,
+          "exact": 5
+        }
+      ],
+      "spikes": [
+        {
+          "x": 5,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 2,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 5,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 3,
+      "lesson": "星は3と2。トゲで分かれたあと、どの光を結ぶ？",
+      "story": "ほどけた道が、また結び目になりました。ふくろうは急かさず、星を指さします。",
+      "ending": "帰りたい場所から考えると、結び目がほどけた。",
+      "hints": [
+        "門は5。通った先で、3と2を作ろう。",
+        "3連で5は2・1・1・1になる。",
+        "2を残し、3つの1を合わせて3にする方法があるよ。"
+      ],
+      "mechanics": [
+        "merge",
+        "split",
+        "gate"
+      ],
+      "hint": "門は5。通った先で、3と2を作ろう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 1
+    },
+    {
+      "id": "light-knot",
+      "title": "09 星から考える",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 4,
+          "exact": 5,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 5,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 2,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 5,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 3,
+      "lesson": "星は3と2。トゲで分かれたあと、どの光を結ぶ？",
+      "story": "ほどけた道が、また結び目になりました。ふくろうは急かさず、星を指さします。",
+      "ending": "帰りたい場所から考えると、結び目がほどけた。",
+      "hints": [
+        "門は5。通った先で、3と2を作ろう。",
+        "3連で5は2・1・1・1になる。",
+        "2を残し、3つの1を合わせて3にする方法があるよ。"
+      ],
+      "mechanics": [
+        "merge",
+        "split",
+        "gate"
+      ],
+      "hint": "門は5。通った先で、3と2を作ろう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 2
+    },
+    {
+      "id": "light-knot",
+      "title": "09 星から考える",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 4,
+          "exact": 5,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 5,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 2,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 5,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 3,
+      "lesson": "星は3と2。トゲで分かれたあと、どの光を結ぶ？",
+      "story": "ほどけた道が、また結び目になりました。ふくろうは急かさず、星を指さします。",
+      "ending": "帰りたい場所から考えると、結び目がほどけた。",
+      "hints": [
+        "門は5。通った先で、3と2を作ろう。",
+        "3連で5は2・1・1・1になる。",
+        "2を残し、3つの1を合わせて3にする方法があるよ。"
+      ],
+      "mechanics": [
+        "merge",
+        "split",
+        "gate"
+      ],
+      "hint": "門は5。通った先で、3と2を作ろう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 3
+    },
+    {
+      "id": "light-knot",
+      "title": "09 星から考える",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 4,
+          "exact": 5,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 5,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 2,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 5,
+          "y": 4,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 4
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 2
+        }
+      ],
+      "difficulty": 3,
+      "lesson": "星は3と2。トゲで分かれたあと、どの光を結ぶ？",
+      "story": "ほどけた道が、また結び目になりました。ふくろうは急かさず、星を指さします。",
+      "ending": "帰りたい場所から考えると、結び目がほどけた。",
+      "hints": [
+        "門は5。通った先で、3と2を作ろう。",
+        "3連で5は2・1・1・1になる。",
+        "2を残し、3つの1を合わせて3にする方法があるよ。"
+      ],
+      "mechanics": [
+        "merge",
+        "split",
+        "gate"
+      ],
+      "hint": "門は5。通った先で、3と2を作ろう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 4,
+      "moves": 4
+    },
+    {
+      "id": "light-knot",
+      "title": "09 星から考える",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 4,
+          "exact": 5,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 5,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 2,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 6,
+          "y": 5,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 4
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 2
+        }
+      ],
+      "difficulty": 3,
+      "lesson": "星は3と2。トゲで分かれたあと、どの光を結ぶ？",
+      "story": "ほどけた道が、また結び目になりました。ふくろうは急かさず、星を指さします。",
+      "ending": "帰りたい場所から考えると、結び目がほどけた。",
+      "hints": [
+        "門は5。通った先で、3と2を作ろう。",
+        "3連で5は2・1・1・1になる。",
+        "2を残し、3つの1を合わせて3にする方法があるよ。"
+      ],
+      "mechanics": [
+        "merge",
+        "split",
+        "gate"
+      ],
+      "hint": "門は5。通った先で、3と2を作ろう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 4,
+      "moves": 5
+    },
+    {
+      "id": "light-knot",
+      "title": "09 星から考える",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 4,
+          "exact": 5,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 5,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 2,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 4
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 2
+        }
+      ],
+      "difficulty": 3,
+      "lesson": "星は3と2。トゲで分かれたあと、どの光を結ぶ？",
+      "story": "ほどけた道が、また結び目になりました。ふくろうは急かさず、星を指さします。",
+      "ending": "帰りたい場所から考えると、結び目がほどけた。",
+      "hints": [
+        "門は5。通った先で、3と2を作ろう。",
+        "3連で5は2・1・1・1になる。",
+        "2を残し、3つの1を合わせて3にする方法があるよ。"
+      ],
+      "mechanics": [
+        "merge",
+        "split",
+        "gate"
+      ],
+      "hint": "門は5。通った先で、3と2を作ろう。",
+      "splitPriority": "D",
+      "rescued": 2,
+      "rescuedBySpecies": {
+        "dog": 2
+      },
+      "nextId": 4,
+      "moves": 6
+    },
+    {
+      "id": "light-knot",
+      "title": "09 星から考える",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 4,
+          "exact": 5,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 5,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 2,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 5,
+          "y": 3
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 2
+        }
+      ],
+      "difficulty": 3,
+      "lesson": "星は3と2。トゲで分かれたあと、どの光を結ぶ？",
+      "story": "ほどけた道が、また結び目になりました。ふくろうは急かさず、星を指さします。",
+      "ending": "帰りたい場所から考えると、結び目がほどけた。",
+      "hints": [
+        "門は5。通った先で、3と2を作ろう。",
+        "3連で5は2・1・1・1になる。",
+        "2を残し、3つの1を合わせて3にする方法があるよ。"
+      ],
+      "mechanics": [
+        "merge",
+        "split",
+        "gate"
+      ],
+      "hint": "門は5。通った先で、3と2を作ろう。",
+      "splitPriority": "D",
+      "rescued": 2,
+      "rescuedBySpecies": {
+        "dog": 2
+      },
+      "nextId": 4,
+      "moves": 7
+    },
+    {
+      "id": "light-knot",
+      "title": "09 星から考える",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 4,
+          "exact": 5,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 5,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 2,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 4
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 2
+        }
+      ],
+      "difficulty": 3,
+      "lesson": "星は3と2。トゲで分かれたあと、どの光を結ぶ？",
+      "story": "ほどけた道が、また結び目になりました。ふくろうは急かさず、星を指さします。",
+      "ending": "帰りたい場所から考えると、結び目がほどけた。",
+      "hints": [
+        "門は5。通った先で、3と2を作ろう。",
+        "3連で5は2・1・1・1になる。",
+        "2を残し、3つの1を合わせて3にする方法があるよ。"
+      ],
+      "mechanics": [
+        "merge",
+        "split",
+        "gate"
+      ],
+      "hint": "門は5。通った先で、3と2を作ろう。",
+      "splitPriority": "D",
+      "rescued": 2,
+      "rescuedBySpecies": {
+        "dog": 2
+      },
+      "nextId": 4,
+      "moves": 8
+    },
+    {
+      "id": "light-knot",
+      "title": "09 星から考える",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 4,
+          "exact": 5,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 5,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 2,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 5,
+          "y": 5
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 2
+        }
+      ],
+      "difficulty": 3,
+      "lesson": "星は3と2。トゲで分かれたあと、どの光を結ぶ？",
+      "story": "ほどけた道が、また結び目になりました。ふくろうは急かさず、星を指さします。",
+      "ending": "帰りたい場所から考えると、結び目がほどけた。",
+      "hints": [
+        "門は5。通った先で、3と2を作ろう。",
+        "3連で5は2・1・1・1になる。",
+        "2を残し、3つの1を合わせて3にする方法があるよ。"
+      ],
+      "mechanics": [
+        "merge",
+        "split",
+        "gate"
+      ],
+      "hint": "門は5。通った先で、3と2を作ろう。",
+      "splitPriority": "D",
+      "rescued": 2,
+      "rescuedBySpecies": {
+        "dog": 2
+      },
+      "nextId": 4,
+      "moves": 9
+    },
+    {
+      "id": "light-knot",
+      "title": "09 星から考える",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 4,
+          "exact": 5,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 5,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 2,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 4
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 2
+        }
+      ],
+      "difficulty": 3,
+      "lesson": "星は3と2。トゲで分かれたあと、どの光を結ぶ？",
+      "story": "ほどけた道が、また結び目になりました。ふくろうは急かさず、星を指さします。",
+      "ending": "帰りたい場所から考えると、結び目がほどけた。",
+      "hints": [
+        "門は5。通った先で、3と2を作ろう。",
+        "3連で5は2・1・1・1になる。",
+        "2を残し、3つの1を合わせて3にする方法があるよ。"
+      ],
+      "mechanics": [
+        "merge",
+        "split",
+        "gate"
+      ],
+      "hint": "門は5。通った先で、3と2を作ろう。",
+      "splitPriority": "D",
+      "rescued": 2,
+      "rescuedBySpecies": {
+        "dog": 2
+      },
+      "nextId": 4,
+      "moves": 10
+    },
+    {
+      "id": "light-knot",
+      "title": "09 星から考える",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 4,
+          "exact": 5,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 5,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 2,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 7,
+          "y": 3
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 2
+        }
+      ],
+      "difficulty": 3,
+      "lesson": "星は3と2。トゲで分かれたあと、どの光を結ぶ？",
+      "story": "ほどけた道が、また結び目になりました。ふくろうは急かさず、星を指さします。",
+      "ending": "帰りたい場所から考えると、結び目がほどけた。",
+      "hints": [
+        "門は5。通った先で、3と2を作ろう。",
+        "3連で5は2・1・1・1になる。",
+        "2を残し、3つの1を合わせて3にする方法があるよ。"
+      ],
+      "mechanics": [
+        "merge",
+        "split",
+        "gate"
+      ],
+      "hint": "門は5。通った先で、3と2を作ろう。",
+      "splitPriority": "D",
+      "rescued": 2,
+      "rescuedBySpecies": {
+        "dog": 2
+      },
+      "nextId": 4,
+      "moves": 11
+    }
+  ],
+  "splitLog": [
+    {
+      "step": 4,
+      "state": {
+        "id": "light-knot",
+        "title": "09 星から考える",
+        "w": 8,
+        "h": 8,
+        "revision": 1,
+        "theme": "cave",
+        "showSpecies": false,
+        "walls": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            3,
+            7
+          ]
+        ],
+        "gates": [
+          {
+            "x": 3,
+            "y": 4,
+            "exact": 5,
+            "open": true
+          }
+        ],
+        "spikes": [
+          {
+            "x": 5,
+            "y": 4,
+            "power": 3
+          }
+        ],
+        "exits": [
+          {
+            "x": 7,
+            "y": 2,
+            "exact": 3
+          },
+          {
+            "x": 7,
+            "y": 6,
+            "exact": 2
+          }
+        ],
+        "gravity": false,
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 5,
+            "y": 4,
+            "level": 2,
+            "species": "dog"
+          },
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 4
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 3
+          },
+          {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 2
+          }
+        ],
+        "difficulty": 3,
+        "lesson": "星は3と2。トゲで分かれたあと、どの光を結ぶ？",
+        "story": "ほどけた道が、また結び目になりました。ふくろうは急かさず、星を指さします。",
+        "ending": "帰りたい場所から考えると、結び目がほどけた。",
+        "hints": [
+          "門は5。通った先で、3と2を作ろう。",
+          "3連で5は2・1・1・1になる。",
+          "2を残し、3つの1を合わせて3にする方法があるよ。"
+        ],
+        "mechanics": [
+          "merge",
+          "split",
+          "gate"
+        ],
+        "hint": "門は5。通った先で、3と2を作ろう。",
+        "splitPriority": "D",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 4,
+        "moves": 3
+      },
+      "parentId": "a",
+      "direction": [
+        1,
+        0
+      ],
+      "children": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 4
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 2
+        }
+      ],
+      "family": 1
+    }
+  ]
+}

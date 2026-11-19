@@ -1,0 +1,75 @@
+{
+  "stage": "light-threads",
+  "complete": true,
+  "mass": 7,
+  "commands": [
+    {
+      "id": "a",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "id": "a",
+      "dx": 1,
+      "dy": 1
+    },
+    {
+      "id": "a",
+      "dx": 1,
+      "dy": -1
+    },
+    {
+      "id": "a",
+      "dx": 1,
+      "dy": -1
+    },
+    {
+      "id": "a",
+      "dx": 1,
+      "dy": -1
+    },
+    {
+      "id": "child1",
+      "dx": -1,
+      "dy": -1
+    },
+    {
+      "id": "child1",
+      "dx": -1,
+      "dy": -1
+    },
+    {
+      "id": "child1",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "id": "child1",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "id": "child1",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "id": "child1",
+      "dx": 1,
+      "dy": 1
+    },
+    {
+      "id": "child1",
+      "dx": 1,
+      "dy": 1
+    },
+    {
+      "id": "child1",
+      "dx": 1,
+      "dy": 1
+    }
+  ],
+  "moves": 13,
+  "time": 0,
+  "shortestProven": false
+}

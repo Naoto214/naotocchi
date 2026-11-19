@@ -1,0 +1,66 @@
+✖ changing heading clears previous prediction feedback (19.252023ms)
+✖ seven-spike art stays inside its own cell (1.606951ms)
+✖ scaled glyph outline retains original board-space thickness (1.034322ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 0
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 146.937926
+
+✖ failing tests:
+
+test at prototypes/naopoyo-split-priority/tests/review.test.mjs:3:1
+✖ changing heading clears previous prediction feedback (19.252023ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!get('cell-info').textContent.includes('正解'))
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/19b24371acc5/repo/prototypes/naopoyo-split-priority/tests/review.test.mjs:8:111)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-split-priority/tests/review.test.mjs:11:1
+✖ seven-spike art stays inside its own cell (1.606951ms)
+  AssertionError [ERR_ASSERTION]: x=2.81
+      at TestContext.<anonymous> (file:///workspace/scratch/19b24371acc5/repo/prototypes/naopoyo-split-priority/tests/review.test.mjs:11:234)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-split-priority/tests/review.test.mjs:12:1
+✖ scaled glyph outline retains original board-space thickness (1.034322ms)
+  AssertionError [ERR_ASSERTION]: [0.00055]
+      at TestContext.<anonymous> (file:///workspace/scratch/19b24371acc5/repo/prototypes/naopoyo-split-priority/tests/review.test.mjs:12:226)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

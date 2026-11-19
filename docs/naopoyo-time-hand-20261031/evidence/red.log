@@ -1,0 +1,188 @@
+✖ D exposes a traceable continuous route (2.232551ms)
+✖ opposite first step 0,-1 (0.598712ms)
+✖ opposite first step 1,-1 (0.154733ms)
+✖ opposite first step 1,0 (0.151107ms)
+✖ opposite first step 1,1 (0.144257ms)
+✖ opposite first step 0,1 (0.167102ms)
+✖ opposite first step -1,1 (0.153341ms)
+✖ opposite first step -1,0 (0.150937ms)
+✖ opposite first step -1,-1 (0.190076ms)
+✖ blocked up turns right and retains direction (0.322966ms)
+✖ two blocked directions rotate twice (0.206921ms)
+✖ diagonal rotates by 90 not 45 (0.163456ms)
+✖ closed path produces only available prefix (0.249826ms)
+✖ route does not mutate input and respects 2/3 limits (0.240001ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 0
+ℹ fail 14
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 189.813011
+
+✖ failing tests:
+
+test at prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:6:1
+✖ D exposes a traceable continuous route (2.232551ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:6:58)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:7:78
+✖ opposite first step 0,-1 (0.598712ms)
+  TypeError [Error]: p.timeHandTrace is not a function
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:8:24)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:7:78
+✖ opposite first step 1,-1 (0.154733ms)
+  TypeError [Error]: p.timeHandTrace is not a function
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:8:24)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:7:78
+✖ opposite first step 1,0 (0.151107ms)
+  TypeError [Error]: p.timeHandTrace is not a function
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:8:24)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:7:78
+✖ opposite first step 1,1 (0.144257ms)
+  TypeError [Error]: p.timeHandTrace is not a function
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:8:24)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:7:78
+✖ opposite first step 0,1 (0.167102ms)
+  TypeError [Error]: p.timeHandTrace is not a function
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:8:24)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:7:78
+✖ opposite first step -1,1 (0.153341ms)
+  TypeError [Error]: p.timeHandTrace is not a function
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:8:24)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:7:78
+✖ opposite first step -1,0 (0.150937ms)
+  TypeError [Error]: p.timeHandTrace is not a function
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:8:24)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:7:78
+✖ opposite first step -1,-1 (0.190076ms)
+  TypeError [Error]: p.timeHandTrace is not a function
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:8:24)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:15:1
+✖ blocked up turns right and retains direction (0.322966ms)
+  TypeError [Error]: p.timeHandTrace is not a function
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:15:117)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:16:1
+✖ two blocked directions rotate twice (0.206921ms)
+  TypeError [Error]: p.timeHandTrace is not a function
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:16:99)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:17:1
+✖ diagonal rotates by 90 not 45 (0.163456ms)
+  TypeError [Error]: p.timeHandTrace is not a function
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:17:102)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:18:1
+✖ closed path produces only available prefix (0.249826ms)
+  TypeError [Error]: p.timeHandTrace is not a function
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:18:112)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:19:1
+✖ route does not mutate input and respects 2/3 limits (0.240001ms)
+  TypeError [Error]: p.timeHandTrace is not a function
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:19:152)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)

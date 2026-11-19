@@ -1,0 +1,841 @@
+{
+  "status": "incompatible",
+  "failure": {
+    "step": 7,
+    "reason": "actor-or-level"
+  },
+  "metrics": {
+    "steps": 6,
+    "splits": 1,
+    "children": 3,
+    "merges": 3,
+    "familyMerges": 3,
+    "overflow": 0,
+    "falls": 11
+  },
+  "rescued": 0,
+  "mass": 16,
+  "final": {
+    "id": "komorebi-reverse-stars",
+    "w": 8,
+    "h": 8,
+    "gravity": true,
+    "walls": [
+      [
+        2,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        7,
+        6
+      ]
+    ],
+    "gates": [
+      {
+        "x": 2,
+        "y": 7,
+        "exact": 8,
+        "open": true
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "exact": 8
+      }
+    ],
+    "exits": [
+      {
+        "x": 5,
+        "y": 5,
+        "exact": 3
+      },
+      {
+        "x": 7,
+        "y": 5,
+        "exact": 5
+      }
+    ],
+    "spikes": [
+      {
+        "x": 3,
+        "y": 6,
+        "power": 3
+      }
+    ],
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 3,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "b",
+        "x": 4,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      }
+    ],
+    "number": 19,
+    "title": "19 星から逆算",
+    "revision": 6,
+    "theme": "forest",
+    "showSpecies": false,
+    "difficulty": 7,
+    "discovery": "3と5の出口から必要な組み合わせを逆算し、8のゲートの内部通過と全段階を支える上面を使い分ける。",
+    "lesson": "行き止まりに見える場所が、支えになる。",
+    "story": "右の星は高い。足もとには、8しか通れない魔法岩があった。",
+    "ending": "帰り道を決めてから、支える場所を選んだ。",
+    "hints": [
+      "8のゲートは8だけ中を通れる。上には8も5も乗れるよ。",
+      "全員で16。3を二回、5を二回帰す形を考えよう。5を魔法岩の上へ上げる横の支えを残して。",
+      "二つの8を中央へ。トゲを右下側から使い、3の材料と5を分けて置こう。"
+    ],
+    "hint": "8のゲートは8だけ中を通れる。上には8も5も乗れるよ。",
+    "gravityRules": "supported-v1",
+    "movementRules": "contact-v2",
+    "terrainRules": "magic-gate-v2",
+    "splitRules": "recombine-once-v1",
+    "splitPriority": "D",
+    "rescued": 0,
+    "rescuedBySpecies": {},
+    "nextId": 4,
+    "moves": 6
+  },
+  "snapshots": [
+    {
+      "id": "komorebi-reverse-stars",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          2,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "gates": [
+        {
+          "x": 2,
+          "y": 7,
+          "exact": 8
+        },
+        {
+          "x": 6,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "exits": [
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 5
+        }
+      ],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 1,
+          "y": 6,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "number": 19,
+      "title": "19 星から逆算",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 7,
+      "discovery": "3と5の出口から必要な組み合わせを逆算し、8のゲートの内部通過と全段階を支える上面を使い分ける。",
+      "lesson": "行き止まりに見える場所が、支えになる。",
+      "story": "右の星は高い。足もとには、8しか通れない魔法岩があった。",
+      "ending": "帰り道を決めてから、支える場所を選んだ。",
+      "hints": [
+        "8のゲートは8だけ中を通れる。上には8も5も乗れるよ。",
+        "全員で16。3を二回、5を二回帰す形を考えよう。5を魔法岩の上へ上げる横の支えを残して。",
+        "二つの8を中央へ。トゲを右下側から使い、3の材料と5を分けて置こう。"
+      ],
+      "hint": "8のゲートは8だけ中を通れる。上には8も5も乗れるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 1
+    },
+    {
+      "id": "komorebi-reverse-stars",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          2,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "gates": [
+        {
+          "x": 2,
+          "y": 7,
+          "exact": 8
+        },
+        {
+          "x": 6,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "exits": [
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 5
+        }
+      ],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 5,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "number": 19,
+      "title": "19 星から逆算",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 7,
+      "discovery": "3と5の出口から必要な組み合わせを逆算し、8のゲートの内部通過と全段階を支える上面を使い分ける。",
+      "lesson": "行き止まりに見える場所が、支えになる。",
+      "story": "右の星は高い。足もとには、8しか通れない魔法岩があった。",
+      "ending": "帰り道を決めてから、支える場所を選んだ。",
+      "hints": [
+        "8のゲートは8だけ中を通れる。上には8も5も乗れるよ。",
+        "全員で16。3を二回、5を二回帰す形を考えよう。5を魔法岩の上へ上げる横の支えを残して。",
+        "二つの8を中央へ。トゲを右下側から使い、3の材料と5を分けて置こう。"
+      ],
+      "hint": "8のゲートは8だけ中を通れる。上には8も5も乗れるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 2
+    },
+    {
+      "id": "komorebi-reverse-stars",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          2,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "gates": [
+        {
+          "x": 2,
+          "y": 7,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 6,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "exits": [
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 5
+        }
+      ],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 5,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "number": 19,
+      "title": "19 星から逆算",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 7,
+      "discovery": "3と5の出口から必要な組み合わせを逆算し、8のゲートの内部通過と全段階を支える上面を使い分ける。",
+      "lesson": "行き止まりに見える場所が、支えになる。",
+      "story": "右の星は高い。足もとには、8しか通れない魔法岩があった。",
+      "ending": "帰り道を決めてから、支える場所を選んだ。",
+      "hints": [
+        "8のゲートは8だけ中を通れる。上には8も5も乗れるよ。",
+        "全員で16。3を二回、5を二回帰す形を考えよう。5を魔法岩の上へ上げる横の支えを残して。",
+        "二つの8を中央へ。トゲを右下側から使い、3の材料と5を分けて置こう。"
+      ],
+      "hint": "8のゲートは8だけ中を通れる。上には8も5も乗れるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 3
+    },
+    {
+      "id": "komorebi-reverse-stars",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          2,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "gates": [
+        {
+          "x": 2,
+          "y": 7,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 6,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "exits": [
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 5
+        }
+      ],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 5,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "number": 19,
+      "title": "19 星から逆算",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 7,
+      "discovery": "3と5の出口から必要な組み合わせを逆算し、8のゲートの内部通過と全段階を支える上面を使い分ける。",
+      "lesson": "行き止まりに見える場所が、支えになる。",
+      "story": "右の星は高い。足もとには、8しか通れない魔法岩があった。",
+      "ending": "帰り道を決めてから、支える場所を選んだ。",
+      "hints": [
+        "8のゲートは8だけ中を通れる。上には8も5も乗れるよ。",
+        "全員で16。3を二回、5を二回帰す形を考えよう。5を魔法岩の上へ上げる横の支えを残して。",
+        "二つの8を中央へ。トゲを右下側から使い、3の材料と5を分けて置こう。"
+      ],
+      "hint": "8のゲートは8だけ中を通れる。上には8も5も乗れるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 4
+    },
+    {
+      "id": "komorebi-reverse-stars",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          2,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "gates": [
+        {
+          "x": 2,
+          "y": 7,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 6,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "exits": [
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 5
+        }
+      ],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 5,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "number": 19,
+      "title": "19 星から逆算",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 7,
+      "discovery": "3と5の出口から必要な組み合わせを逆算し、8のゲートの内部通過と全段階を支える上面を使い分ける。",
+      "lesson": "行き止まりに見える場所が、支えになる。",
+      "story": "右の星は高い。足もとには、8しか通れない魔法岩があった。",
+      "ending": "帰り道を決めてから、支える場所を選んだ。",
+      "hints": [
+        "8のゲートは8だけ中を通れる。上には8も5も乗れるよ。",
+        "全員で16。3を二回、5を二回帰す形を考えよう。5を魔法岩の上へ上げる横の支えを残して。",
+        "二つの8を中央へ。トゲを右下側から使い、3の材料と5を分けて置こう。"
+      ],
+      "hint": "8のゲートは8だけ中を通れる。上には8も5も乗れるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 5
+    },
+    {
+      "id": "komorebi-reverse-stars",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          2,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "gates": [
+        {
+          "x": 2,
+          "y": 7,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 6,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "exits": [
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 5
+        }
+      ],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "number": 19,
+      "title": "19 星から逆算",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 7,
+      "discovery": "3と5の出口から必要な組み合わせを逆算し、8のゲートの内部通過と全段階を支える上面を使い分ける。",
+      "lesson": "行き止まりに見える場所が、支えになる。",
+      "story": "右の星は高い。足もとには、8しか通れない魔法岩があった。",
+      "ending": "帰り道を決めてから、支える場所を選んだ。",
+      "hints": [
+        "8のゲートは8だけ中を通れる。上には8も5も乗れるよ。",
+        "全員で16。3を二回、5を二回帰す形を考えよう。5を魔法岩の上へ上げる横の支えを残して。",
+        "二つの8を中央へ。トゲを右下側から使い、3の材料と5を分けて置こう。"
+      ],
+      "hint": "8のゲートは8だけ中を通れる。上には8も5も乗れるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 4,
+      "moves": 6
+    }
+  ],
+  "splitLog": [
+    {
+      "step": 6,
+      "state": {
+        "id": "komorebi-reverse-stars",
+        "w": 8,
+        "h": 8,
+        "gravity": true,
+        "walls": [
+          [
+            2,
+            6
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        "gates": [
+          {
+            "x": 2,
+            "y": 7,
+            "exact": 8,
+            "open": true
+          },
+          {
+            "x": 6,
+            "y": 7,
+            "exact": 8
+          }
+        ],
+        "exits": [
+          {
+            "x": 5,
+            "y": 5,
+            "exact": 3
+          },
+          {
+            "x": 7,
+            "y": 5,
+            "exact": 5
+          }
+        ],
+        "spikes": [
+          {
+            "x": 3,
+            "y": 6,
+            "power": 3
+          }
+        ],
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 3,
+            "y": 6,
+            "level": 5,
+            "species": "dog"
+          },
+          {
+            "id": "b",
+            "x": 4,
+            "y": 7,
+            "level": 8,
+            "species": "dog"
+          },
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 3,
+            "y": 5
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 3,
+            "y": 4
+          },
+          {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 3,
+            "y": 3
+          }
+        ],
+        "number": 19,
+        "title": "19 星から逆算",
+        "revision": 6,
+        "theme": "forest",
+        "showSpecies": false,
+        "difficulty": 7,
+        "discovery": "3と5の出口から必要な組み合わせを逆算し、8のゲートの内部通過と全段階を支える上面を使い分ける。",
+        "lesson": "行き止まりに見える場所が、支えになる。",
+        "story": "右の星は高い。足もとには、8しか通れない魔法岩があった。",
+        "ending": "帰り道を決めてから、支える場所を選んだ。",
+        "hints": [
+          "8のゲートは8だけ中を通れる。上には8も5も乗れるよ。",
+          "全員で16。3を二回、5を二回帰す形を考えよう。5を魔法岩の上へ上げる横の支えを残して。",
+          "二つの8を中央へ。トゲを右下側から使い、3の材料と5を分けて置こう。"
+        ],
+        "hint": "8のゲートは8だけ中を通れる。上には8も5も乗れるよ。",
+        "gravityRules": "supported-v1",
+        "movementRules": "contact-v2",
+        "terrainRules": "magic-gate-v2",
+        "splitRules": "recombine-once-v1",
+        "splitPriority": "D",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 4,
+        "moves": 6
+      },
+      "parentId": "a",
+      "direction": [
+        0,
+        1
+      ],
+      "children": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 3,
+          "y": 5
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 3,
+          "y": 4
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 3,
+          "y": 3
+        }
+      ],
+      "family": 1
+    }
+  ]
+}

@@ -1,0 +1,1402 @@
+[
+  {
+    "number": 1,
+    "id": "light-arrival",
+    "savedMoves": 3,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 3,
+          "splits": 0,
+          "children": 0,
+          "merges": 0,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 1,
+        "mass": 1
+      },
+      "B": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 3,
+          "splits": 0,
+          "children": 0,
+          "merges": 0,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 1,
+        "mass": 1
+      },
+      "C": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 3,
+          "splits": 0,
+          "children": 0,
+          "merges": 0,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 1,
+        "mass": 1
+      },
+      "D": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 3,
+          "splits": 0,
+          "children": 0,
+          "merges": 0,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 1,
+        "mass": 1
+      }
+    }
+  },
+  {
+    "number": 2,
+    "id": "light-together",
+    "savedMoves": 4,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 4,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 2,
+        "mass": 2
+      },
+      "B": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 4,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 2,
+        "mass": 2
+      },
+      "C": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 4,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 2,
+        "mass": 2
+      },
+      "D": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 4,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 2,
+        "mass": 2
+      }
+    }
+  },
+  {
+    "number": 3,
+    "id": "light-addition",
+    "savedMoves": 5,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 3,
+        "mass": 3
+      },
+      "B": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 3,
+        "mass": 3
+      },
+      "C": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 3,
+        "mass": 3
+      },
+      "D": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 3,
+        "mass": 3
+      }
+    }
+  },
+  {
+    "number": 4,
+    "id": "light-unravel",
+    "savedMoves": 9,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 9,
+          "splits": 1,
+          "children": 1,
+          "merges": 0,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 3,
+        "mass": 3
+      },
+      "B": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 9,
+          "splits": 1,
+          "children": 1,
+          "merges": 0,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 3,
+        "mass": 3
+      },
+      "C": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 9,
+          "splits": 1,
+          "children": 1,
+          "merges": 0,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 3,
+        "mass": 3
+      },
+      "D": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 9,
+          "splits": 1,
+          "children": 1,
+          "merges": 0,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 3,
+        "mass": 3
+      }
+    }
+  },
+  {
+    "number": 5,
+    "id": "light-key",
+    "savedMoves": 5,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 3,
+        "mass": 3
+      },
+      "B": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 3,
+        "mass": 3
+      },
+      "C": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 3,
+        "mass": 3
+      },
+      "D": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 3,
+        "mass": 3
+      }
+    }
+  },
+  {
+    "number": 6,
+    "id": "light-remainder",
+    "savedMoves": 10,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 10,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 1,
+          "falls": 0
+        },
+        "rescued": 11,
+        "mass": 11
+      },
+      "B": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 10,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 1,
+          "falls": 0
+        },
+        "rescued": 11,
+        "mass": 11
+      },
+      "C": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 10,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 1,
+          "falls": 0
+        },
+        "rescued": 11,
+        "mass": 11
+      },
+      "D": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 10,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 1,
+          "falls": 0
+        },
+        "rescued": 11,
+        "mass": 11
+      }
+    }
+  },
+  {
+    "number": 7,
+    "id": "light-threads",
+    "savedMoves": 15,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 15,
+          "splits": 1,
+          "children": 3,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 7,
+        "mass": 7
+      },
+      "B": {
+        "status": "incompatible",
+        "failure": {
+          "step": 15,
+          "reason": "exit"
+        },
+        "metrics": {
+          "steps": 14,
+          "splits": 1,
+          "children": 3,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 4,
+        "mass": 7
+      },
+      "C": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 15,
+          "splits": 1,
+          "children": 3,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 7,
+        "mass": 7
+      },
+      "D": {
+        "status": "incompatible",
+        "failure": {
+          "step": 15,
+          "reason": "exit"
+        },
+        "metrics": {
+          "steps": 14,
+          "splits": 1,
+          "children": 3,
+          "merges": 0,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 4,
+        "mass": 7
+      }
+    }
+  },
+  {
+    "number": 8,
+    "id": "light-order",
+    "savedMoves": 9,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 9,
+          "splits": 1,
+          "children": 2,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 4,
+        "mass": 4
+      },
+      "B": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 9,
+          "splits": 1,
+          "children": 2,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 4,
+        "mass": 4
+      },
+      "C": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 9,
+          "splits": 1,
+          "children": 2,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 4,
+        "mass": 4
+      },
+      "D": {
+        "status": "incompatible",
+        "failure": {
+          "step": 9,
+          "reason": "exit"
+        },
+        "metrics": {
+          "steps": 8,
+          "splits": 1,
+          "children": 2,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 2,
+        "mass": 4
+      }
+    }
+  },
+  {
+    "number": 9,
+    "id": "light-knot",
+    "savedMoves": 12,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 12,
+          "splits": 1,
+          "children": 3,
+          "merges": 3,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 5,
+        "mass": 5
+      },
+      "B": {
+        "status": "incompatible",
+        "failure": {
+          "step": 12,
+          "reason": "exit"
+        },
+        "metrics": {
+          "steps": 11,
+          "splits": 1,
+          "children": 3,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 2,
+        "mass": 5
+      },
+      "C": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 12,
+          "splits": 1,
+          "children": 3,
+          "merges": 3,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 5,
+        "mass": 5
+      },
+      "D": {
+        "status": "incompatible",
+        "failure": {
+          "step": 12,
+          "reason": "exit"
+        },
+        "metrics": {
+          "steps": 11,
+          "splits": 1,
+          "children": 3,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 0
+        },
+        "rescued": 2,
+        "mass": 5
+      }
+    }
+  },
+  {
+    "number": 10,
+    "id": "light-owl-trial",
+    "savedMoves": 19,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 19,
+          "splits": 1,
+          "children": 3,
+          "merges": 4,
+          "familyMerges": 0,
+          "overflow": 1,
+          "falls": 0
+        },
+        "rescued": 11,
+        "mass": 11
+      },
+      "B": {
+        "status": "incompatible",
+        "failure": {
+          "step": 19,
+          "reason": "exit"
+        },
+        "metrics": {
+          "steps": 18,
+          "splits": 1,
+          "children": 3,
+          "merges": 3,
+          "familyMerges": 0,
+          "overflow": 1,
+          "falls": 0
+        },
+        "rescued": 5,
+        "mass": 11
+      },
+      "C": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 19,
+          "splits": 1,
+          "children": 3,
+          "merges": 4,
+          "familyMerges": 0,
+          "overflow": 1,
+          "falls": 0
+        },
+        "rescued": 11,
+        "mass": 11
+      },
+      "D": {
+        "status": "incompatible",
+        "failure": {
+          "step": 19,
+          "reason": "exit"
+        },
+        "metrics": {
+          "steps": 18,
+          "splits": 1,
+          "children": 3,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 1,
+          "falls": 0
+        },
+        "rescued": 5,
+        "mass": 11
+      }
+    }
+  },
+  {
+    "number": 11,
+    "id": "komorebi-fall",
+    "savedMoves": 5,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 5
+        },
+        "rescued": 3,
+        "mass": 3
+      },
+      "B": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 5
+        },
+        "rescued": 3,
+        "mass": 3
+      },
+      "C": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 5
+        },
+        "rescued": 3,
+        "mass": 3
+      },
+      "D": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 5
+        },
+        "rescued": 3,
+        "mass": 3
+      }
+    }
+  },
+  {
+    "number": 12,
+    "id": "komorebi-support",
+    "savedMoves": 5,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 1,
+          "falls": 1
+        },
+        "rescued": 10,
+        "mass": 10
+      },
+      "B": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 1,
+          "falls": 1
+        },
+        "rescued": 10,
+        "mass": 10
+      },
+      "C": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 1,
+          "falls": 1
+        },
+        "rescued": 10,
+        "mass": 10
+      },
+      "D": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 1,
+          "falls": 1
+        },
+        "rescued": 10,
+        "mass": 10
+      }
+    }
+  },
+  {
+    "number": 13,
+    "id": "komorebi-last-friend",
+    "savedMoves": 10,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 10,
+          "splits": 0,
+          "children": 0,
+          "merges": 0,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 1
+        },
+        "rescued": 12,
+        "mass": 12
+      },
+      "B": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 10,
+          "splits": 0,
+          "children": 0,
+          "merges": 0,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 1
+        },
+        "rescued": 12,
+        "mass": 12
+      },
+      "C": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 10,
+          "splits": 0,
+          "children": 0,
+          "merges": 0,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 1
+        },
+        "rescued": 12,
+        "mass": 12
+      },
+      "D": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 10,
+          "splits": 0,
+          "children": 0,
+          "merges": 0,
+          "familyMerges": 0,
+          "overflow": 0,
+          "falls": 1
+        },
+        "rescued": 12,
+        "mass": 12
+      }
+    }
+  },
+  {
+    "number": 14,
+    "id": "komorebi-fall-order",
+    "savedMoves": 11,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 11,
+          "splits": 0,
+          "children": 0,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 1,
+          "falls": 4
+        },
+        "rescued": 12,
+        "mass": 12
+      },
+      "B": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 11,
+          "splits": 0,
+          "children": 0,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 1,
+          "falls": 4
+        },
+        "rescued": 12,
+        "mass": 12
+      },
+      "C": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 11,
+          "splits": 0,
+          "children": 0,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 1,
+          "falls": 4
+        },
+        "rescued": 12,
+        "mass": 12
+      },
+      "D": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 11,
+          "splits": 0,
+          "children": 0,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 1,
+          "falls": 4
+        },
+        "rescued": 12,
+        "mass": 12
+      }
+    }
+  },
+  {
+    "number": 15,
+    "id": "komorebi-thorn-ledge",
+    "savedMoves": 23,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 23,
+          "splits": 3,
+          "children": 5,
+          "merges": 7,
+          "familyMerges": 1,
+          "overflow": 2,
+          "falls": 10
+        },
+        "rescued": 12,
+        "mass": 12
+      },
+      "B": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 23,
+          "splits": 3,
+          "children": 5,
+          "merges": 7,
+          "familyMerges": 1,
+          "overflow": 2,
+          "falls": 10
+        },
+        "rescued": 12,
+        "mass": 12
+      },
+      "C": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 23,
+          "splits": 3,
+          "children": 5,
+          "merges": 7,
+          "familyMerges": 1,
+          "overflow": 2,
+          "falls": 10
+        },
+        "rescued": 12,
+        "mass": 12
+      },
+      "D": {
+        "status": "incompatible",
+        "failure": {
+          "step": 8,
+          "reason": "actor-or-level"
+        },
+        "metrics": {
+          "steps": 7,
+          "splits": 1,
+          "children": 2,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 1,
+          "falls": 4
+        },
+        "rescued": 0,
+        "mass": 12
+      }
+    }
+  },
+  {
+    "number": 16,
+    "id": "komorebi-woven-path",
+    "savedMoves": 38,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 38,
+          "splits": 5,
+          "children": 14,
+          "merges": 16,
+          "familyMerges": 4,
+          "overflow": 2,
+          "falls": 15
+        },
+        "rescued": 13,
+        "mass": 13
+      },
+      "B": {
+        "status": "incompatible",
+        "failure": {
+          "step": 18,
+          "reason": "actor-or-level"
+        },
+        "metrics": {
+          "steps": 17,
+          "splits": 1,
+          "children": 3,
+          "merges": 3,
+          "familyMerges": 1,
+          "overflow": 2,
+          "falls": 6
+        },
+        "rescued": 0,
+        "mass": 13
+      },
+      "C": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 38,
+          "splits": 5,
+          "children": 14,
+          "merges": 16,
+          "familyMerges": 4,
+          "overflow": 2,
+          "falls": 15
+        },
+        "rescued": 13,
+        "mass": 13
+      },
+      "D": {
+        "status": "incompatible",
+        "failure": {
+          "step": 18,
+          "reason": "actor-or-level"
+        },
+        "metrics": {
+          "steps": 17,
+          "splits": 1,
+          "children": 3,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 2,
+          "falls": 5
+        },
+        "rescued": 0,
+        "mass": 13
+      }
+    }
+  },
+  {
+    "number": 17,
+    "id": "komorebi-relay-foothold",
+    "savedMoves": 26,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 26,
+          "splits": 4,
+          "children": 9,
+          "merges": 11,
+          "familyMerges": 3,
+          "overflow": 2,
+          "falls": 15
+        },
+        "rescued": 11,
+        "mass": 11
+      },
+      "B": {
+        "status": "incompatible",
+        "failure": {
+          "step": 3,
+          "reason": "actor-or-level"
+        },
+        "metrics": {
+          "steps": 2,
+          "splits": 1,
+          "children": 3,
+          "merges": 3,
+          "familyMerges": 0,
+          "overflow": 1,
+          "falls": 7
+        },
+        "rescued": 0,
+        "mass": 11
+      },
+      "C": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 26,
+          "splits": 4,
+          "children": 9,
+          "merges": 11,
+          "familyMerges": 3,
+          "overflow": 2,
+          "falls": 15
+        },
+        "rescued": 11,
+        "mass": 11
+      },
+      "D": {
+        "status": "incompatible",
+        "failure": {
+          "step": 3,
+          "reason": "actor-or-level"
+        },
+        "metrics": {
+          "steps": 2,
+          "splits": 1,
+          "children": 3,
+          "merges": 3,
+          "familyMerges": 0,
+          "overflow": 1,
+          "falls": 5
+        },
+        "rescued": 0,
+        "mass": 11
+      }
+    }
+  },
+  {
+    "number": 18,
+    "id": "komorebi-remainder-lift",
+    "savedMoves": 19,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 19,
+          "splits": 5,
+          "children": 15,
+          "merges": 21,
+          "familyMerges": 6,
+          "overflow": 7,
+          "falls": 19
+        },
+        "rescued": 16,
+        "mass": 16
+      },
+      "B": {
+        "status": "incompatible",
+        "failure": {
+          "step": 9,
+          "reason": "actor-or-level"
+        },
+        "metrics": {
+          "steps": 8,
+          "splits": 2,
+          "children": 5,
+          "merges": 8,
+          "familyMerges": 2,
+          "overflow": 4,
+          "falls": 10
+        },
+        "rescued": 0,
+        "mass": 16
+      },
+      "C": {
+        "status": "incompatible",
+        "failure": {
+          "step": 10,
+          "reason": "actor-or-level"
+        },
+        "metrics": {
+          "steps": 9,
+          "splits": 2,
+          "children": 6,
+          "merges": 10,
+          "familyMerges": 3,
+          "overflow": 4,
+          "falls": 11
+        },
+        "rescued": 3,
+        "mass": 16
+      },
+      "D": {
+        "status": "incompatible",
+        "failure": {
+          "step": 7,
+          "reason": "actor-or-level"
+        },
+        "metrics": {
+          "steps": 6,
+          "splits": 1,
+          "children": 3,
+          "merges": 6,
+          "familyMerges": 3,
+          "overflow": 2,
+          "falls": 10
+        },
+        "rescued": 0,
+        "mass": 16
+      }
+    }
+  },
+  {
+    "number": 19,
+    "id": "komorebi-reverse-stars",
+    "savedMoves": 78,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 78,
+          "splits": 9,
+          "children": 23,
+          "merges": 27,
+          "familyMerges": 7,
+          "overflow": 6,
+          "falls": 52
+        },
+        "rescued": 16,
+        "mass": 16
+      },
+      "B": {
+        "status": "incompatible",
+        "failure": {
+          "step": 8,
+          "reason": "actor-or-level"
+        },
+        "metrics": {
+          "steps": 7,
+          "splits": 1,
+          "children": 3,
+          "merges": 3,
+          "familyMerges": 2,
+          "overflow": 0,
+          "falls": 9
+        },
+        "rescued": 0,
+        "mass": 16
+      },
+      "C": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 78,
+          "splits": 9,
+          "children": 23,
+          "merges": 27,
+          "familyMerges": 7,
+          "overflow": 6,
+          "falls": 52
+        },
+        "rescued": 16,
+        "mass": 16
+      },
+      "D": {
+        "status": "incompatible",
+        "failure": {
+          "step": 7,
+          "reason": "actor-or-level"
+        },
+        "metrics": {
+          "steps": 6,
+          "splits": 1,
+          "children": 3,
+          "merges": 3,
+          "familyMerges": 3,
+          "overflow": 0,
+          "falls": 11
+        },
+        "rescued": 0,
+        "mass": 16
+      }
+    }
+  },
+  {
+    "number": 20,
+    "id": "komorebi-forest-trial",
+    "savedMoves": 97,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "failure": null,
+        "metrics": {
+          "steps": 97,
+          "splits": 23,
+          "children": 56,
+          "merges": 64,
+          "familyMerges": 17,
+          "overflow": 9,
+          "falls": 67
+        },
+        "rescued": 16,
+        "mass": 16
+      },
+      "B": {
+        "status": "incompatible",
+        "failure": {
+          "step": 15,
+          "reason": "actor-or-level"
+        },
+        "metrics": {
+          "steps": 14,
+          "splits": 1,
+          "children": 1,
+          "merges": 3,
+          "familyMerges": 0,
+          "overflow": 2,
+          "falls": 2
+        },
+        "rescued": 0,
+        "mass": 16
+      },
+      "C": {
+        "status": "incompatible",
+        "failure": {
+          "step": 36,
+          "reason": "actor-or-level"
+        },
+        "metrics": {
+          "steps": 35,
+          "splits": 7,
+          "children": 14,
+          "merges": 20,
+          "familyMerges": 5,
+          "overflow": 7,
+          "falls": 19
+        },
+        "rescued": 0,
+        "mass": 16
+      },
+      "D": {
+        "status": "incompatible",
+        "failure": {
+          "step": 15,
+          "reason": "actor-or-level"
+        },
+        "metrics": {
+          "steps": 14,
+          "splits": 1,
+          "children": 1,
+          "merges": 3,
+          "familyMerges": 0,
+          "overflow": 2,
+          "falls": 2
+        },
+        "rescued": 0,
+        "mass": 16
+      }
+    }
+  }
+]

@@ -1,0 +1,237 @@
+[
+  {
+    "stage": 16,
+    "mode": "B",
+    "status": "solved",
+    "moves": 46,
+    "shortestProven": false,
+    "attempts": [
+      {
+        "kind": "bridge",
+        "status": "solved",
+        "visited": 188,
+        "expanded": 57,
+        "edges": 456,
+        "depth": 3,
+        "shortestProven": false,
+        "elapsedMs": 29,
+        "method": "bfs"
+      },
+      {
+        "kind": "full-greedy",
+        "status": "solved",
+        "visited": 13611,
+        "expanded": 9242,
+        "edges": 73027,
+        "depth": 46,
+        "shortestProven": false,
+        "elapsedMs": 1325,
+        "method": "greedy"
+      }
+    ]
+  },
+  {
+    "stage": 17,
+    "mode": "B",
+    "status": "solved",
+    "moves": 41,
+    "shortestProven": false,
+    "attempts": [
+      {
+        "kind": "bridge",
+        "status": "solved",
+        "visited": 84,
+        "expanded": 31,
+        "edges": 246,
+        "depth": 3,
+        "shortestProven": false,
+        "elapsedMs": 6,
+        "method": "bfs"
+      },
+      {
+        "kind": "full-greedy",
+        "status": "solved",
+        "visited": 662,
+        "expanded": 480,
+        "edges": 2863,
+        "depth": 41,
+        "shortestProven": false,
+        "elapsedMs": 59,
+        "method": "greedy"
+      }
+    ]
+  },
+  {
+    "stage": 18,
+    "mode": "B",
+    "status": "solved",
+    "moves": 31,
+    "shortestProven": false,
+    "attempts": [
+      {
+        "kind": "bridge",
+        "status": "solved",
+        "visited": 10,
+        "expanded": 3,
+        "edges": 16,
+        "depth": 1,
+        "shortestProven": false,
+        "elapsedMs": 0,
+        "method": "bfs"
+      },
+      {
+        "kind": "full-greedy",
+        "status": "solved",
+        "visited": 204,
+        "expanded": 127,
+        "edges": 697,
+        "depth": 31,
+        "shortestProven": false,
+        "elapsedMs": 32,
+        "method": "greedy"
+      }
+    ]
+  },
+  {
+    "stage": 18,
+    "mode": "C",
+    "status": "solved",
+    "moves": 32,
+    "shortestProven": false,
+    "attempts": [
+      {
+        "kind": "bridge",
+        "status": "solved",
+        "visited": 119,
+        "expanded": 49,
+        "edges": 385,
+        "depth": 3,
+        "shortestProven": false,
+        "elapsedMs": 37,
+        "method": "bfs"
+      },
+      {
+        "kind": "full-greedy",
+        "status": "solved",
+        "visited": 164,
+        "expanded": 99,
+        "edges": 574,
+        "depth": 32,
+        "shortestProven": false,
+        "elapsedMs": 17,
+        "method": "greedy"
+      }
+    ]
+  },
+  {
+    "stage": 19,
+    "mode": "B",
+    "status": "solved",
+    "moves": 71,
+    "shortestProven": false,
+    "attempts": [
+      {
+        "kind": "bridge",
+        "status": "solved",
+        "visited": 35,
+        "expanded": 11,
+        "edges": 60,
+        "depth": 2,
+        "shortestProven": false,
+        "elapsedMs": 1,
+        "method": "bfs"
+      },
+      {
+        "kind": "full-greedy",
+        "status": "solved",
+        "visited": 20133,
+        "expanded": 13852,
+        "edges": 118810,
+        "depth": 71,
+        "shortestProven": false,
+        "elapsedMs": 2361,
+        "method": "greedy"
+      }
+    ]
+  },
+  {
+    "stage": 20,
+    "mode": "B",
+    "status": "not-found-within-budget",
+    "moves": null,
+    "shortestProven": false,
+    "attempts": [
+      {
+        "kind": "bridge",
+        "status": "solved",
+        "visited": 23,
+        "expanded": 15,
+        "edges": 78,
+        "depth": 3,
+        "shortestProven": false,
+        "elapsedMs": 3,
+        "method": "bfs"
+      },
+      {
+        "kind": "full-greedy",
+        "status": "exhausted",
+        "visited": 1696,
+        "expanded": 1696,
+        "edges": 12846,
+        "shortestProven": false,
+        "elapsedMs": 312,
+        "method": "greedy"
+      },
+      {
+        "kind": "full-bfs",
+        "status": "exhausted",
+        "visited": 1696,
+        "expanded": 1696,
+        "edges": 12846,
+        "shortestProven": false,
+        "elapsedMs": 304,
+        "method": "bfs"
+      }
+    ]
+  },
+  {
+    "stage": 20,
+    "mode": "C",
+    "status": "not-found-within-budget",
+    "moves": null,
+    "shortestProven": false,
+    "attempts": [
+      {
+        "kind": "bridge",
+        "status": "solved",
+        "visited": 1018,
+        "expanded": 488,
+        "edges": 4412,
+        "depth": 5,
+        "shortestProven": false,
+        "elapsedMs": 156,
+        "method": "bfs"
+      },
+      {
+        "kind": "full-greedy",
+        "status": "exhausted",
+        "visited": 27677,
+        "expanded": 27677,
+        "edges": 285401,
+        "shortestProven": false,
+        "elapsedMs": 6962,
+        "method": "greedy"
+      },
+      {
+        "kind": "full-bfs",
+        "status": "exhausted",
+        "visited": 27677,
+        "expanded": 27677,
+        "edges": 285401,
+        "shortestProven": false,
+        "elapsedMs": 6437,
+        "method": "bfs"
+      }
+    ]
+  }
+]

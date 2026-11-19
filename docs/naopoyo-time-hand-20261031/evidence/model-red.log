@@ -1,0 +1,54 @@
+✔ D exposes a traceable continuous route (1.047853ms)
+✔ opposite first step 0,-1 (1.483535ms)
+✔ opposite first step 1,-1 (1.169502ms)
+✔ opposite first step 1,0 (0.247475ms)
+✔ opposite first step 1,1 (0.279021ms)
+✔ opposite first step 0,1 (0.325439ms)
+✔ opposite first step -1,1 (0.161358ms)
+✔ opposite first step -1,0 (0.133006ms)
+✔ opposite first step -1,-1 (0.145945ms)
+✔ blocked up turns right and retains direction (0.399929ms)
+✔ two blocked directions rotate twice (0.310978ms)
+✔ diagonal rotates by 90 not 45 (0.24469ms)
+✔ closed path produces only available prefix (0.160877ms)
+✔ route does not mutate input and respects 2/3 limits (0.253434ms)
+✖ power sets actual birth count 1/3/7 (2.136647ms)
+✔ gravity rejoins vertical family with no exception (1.906448ms)
+✔ all ABC modes retain complete results (35.278229ms)
+✔ occupied and special cells are never generated on (1.371535ms)
+✔ diagonal double-wall corner blocks route (0.304798ms)
+✔ generated children obstruct self closure (0.216546ms)
+✔ reset heading and retained heading differ after a bend (0.216586ms)
+✔ pass-through variant is bounded and never duplicates births (0.153782ms)
+✔ JSON save and Undo snapshot reproduce identical simulation (0.824371ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 22
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 158.666639
+
+✖ failing tests:
+
+test at prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:23:1
+✖ power sets actual birth count 1/3/7 (2.136647ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  7 !== 1
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:23:149)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 7,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

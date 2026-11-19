@@ -1,0 +1,286 @@
+{
+  "status": "solved",
+  "failure": null,
+  "metrics": {
+    "steps": 4,
+    "splits": 0,
+    "children": 0,
+    "merges": 1,
+    "familyMerges": 0,
+    "overflow": 0,
+    "falls": 0
+  },
+  "rescued": 2,
+  "mass": 2,
+  "final": {
+    "id": "light-together",
+    "title": "02 ふたりで、ひとつ",
+    "w": 8,
+    "h": 8,
+    "revision": 1,
+    "theme": "cave",
+    "showSpecies": false,
+    "walls": [],
+    "gates": [],
+    "spikes": [],
+    "exits": [
+      {
+        "x": 6,
+        "y": 4,
+        "exact": 2
+      }
+    ],
+    "gravity": false,
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [],
+    "difficulty": 1,
+    "narrator": {
+      "id": "owl",
+      "name": "ものしりふくろう",
+      "category": "companion",
+      "asset": "assets/characters/companions/owl.png"
+    },
+    "lesson": "同じいぬ同士を重ねると足し算。星の「2」に合わせよう。",
+    "story": "「ひとりでは届かない星も、いっしょなら」ふくろうは、二つの小さな光を見つめました。",
+    "ending": "1と1が、ひとつの2になった。",
+    "hints": [
+      "星の下には「2」。",
+      "1と1を合わせると2。",
+      "左のいぬを右のいぬへ、そのまま星まで。"
+    ],
+    "mechanics": [
+      "merge"
+    ],
+    "hint": "星の下には「2」。",
+    "splitPriority": "D",
+    "rescued": 2,
+    "rescuedBySpecies": {
+      "dog": 2
+    },
+    "nextId": 1,
+    "moves": 4
+  },
+  "snapshots": [
+    {
+      "id": "light-together",
+      "title": "02 ふたりで、ひとつ",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 4,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 2,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 1,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "同じいぬ同士を重ねると足し算。星の「2」に合わせよう。",
+      "story": "「ひとりでは届かない星も、いっしょなら」ふくろうは、二つの小さな光を見つめました。",
+      "ending": "1と1が、ひとつの2になった。",
+      "hints": [
+        "星の下には「2」。",
+        "1と1を合わせると2。",
+        "左のいぬを右のいぬへ、そのまま星まで。"
+      ],
+      "mechanics": [
+        "merge"
+      ],
+      "hint": "星の下には「2」。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 1
+    },
+    {
+      "id": "light-together",
+      "title": "02 ふたりで、ひとつ",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 4,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 2,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 1,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "同じいぬ同士を重ねると足し算。星の「2」に合わせよう。",
+      "story": "「ひとりでは届かない星も、いっしょなら」ふくろうは、二つの小さな光を見つめました。",
+      "ending": "1と1が、ひとつの2になった。",
+      "hints": [
+        "星の下には「2」。",
+        "1と1を合わせると2。",
+        "左のいぬを右のいぬへ、そのまま星まで。"
+      ],
+      "mechanics": [
+        "merge"
+      ],
+      "hint": "星の下には「2」。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 2
+    },
+    {
+      "id": "light-together",
+      "title": "02 ふたりで、ひとつ",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 4,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 5,
+          "y": 4,
+          "level": 2,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 1,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "同じいぬ同士を重ねると足し算。星の「2」に合わせよう。",
+      "story": "「ひとりでは届かない星も、いっしょなら」ふくろうは、二つの小さな光を見つめました。",
+      "ending": "1と1が、ひとつの2になった。",
+      "hints": [
+        "星の下には「2」。",
+        "1と1を合わせると2。",
+        "左のいぬを右のいぬへ、そのまま星まで。"
+      ],
+      "mechanics": [
+        "merge"
+      ],
+      "hint": "星の下には「2」。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 3
+    },
+    {
+      "id": "light-together",
+      "title": "02 ふたりで、ひとつ",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 4,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [],
+      "difficulty": 1,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "同じいぬ同士を重ねると足し算。星の「2」に合わせよう。",
+      "story": "「ひとりでは届かない星も、いっしょなら」ふくろうは、二つの小さな光を見つめました。",
+      "ending": "1と1が、ひとつの2になった。",
+      "hints": [
+        "星の下には「2」。",
+        "1と1を合わせると2。",
+        "左のいぬを右のいぬへ、そのまま星まで。"
+      ],
+      "mechanics": [
+        "merge"
+      ],
+      "hint": "星の下には「2」。",
+      "splitPriority": "D",
+      "rescued": 2,
+      "rescuedBySpecies": {
+        "dog": 2
+      },
+      "nextId": 1,
+      "moves": 4
+    }
+  ],
+  "splitLog": []
+}

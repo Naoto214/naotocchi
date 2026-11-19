@@ -1,0 +1,24 @@
+[
+  {
+    "stage": 20,
+    "mode": "B",
+    "status": "limit",
+    "visited": 60000,
+    "expanded": 48632,
+    "edges": 224561,
+    "shortestProven": false,
+    "elapsedMs": 2748,
+    "method": "greedy"
+  },
+  {
+    "stage": 20,
+    "mode": "C",
+    "status": "limit",
+    "visited": 60000,
+    "expanded": 46885,
+    "edges": 234614,
+    "shortestProven": false,
+    "elapsedMs": 3520,
+    "method": "greedy"
+  }
+]

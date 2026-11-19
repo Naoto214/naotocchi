@@ -1,0 +1,13 @@
+..F.............
+======================================================================
+FAIL: test_legacy_runtime_is_not_published_but_sources_are_retained (test_naopoyo_publication.NaopoyoPublicationTests.test_legacy_runtime_is_not_published_but_sources_are_retained)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/005f516236f2/naotocchi/tests/pages/test_naopoyo_publication.py", line 51, in test_legacy_runtime_is_not_published_but_sources_are_retained
+    self.assertTrue((ROOT / prefix / 'index.html').is_file())
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.060s
+
+FAILED (failures=1)

@@ -1,0 +1,59 @@
+✖ standalone builder and atlas exist (1.880056ms)
+✖ exact search key retains identity and next child counter (0.838855ms)
+✔ A obstacle boards rotate 90 degrees including gates (5.276759ms)
+✔ B obstacle boards rotate 90 degrees including gates (0.845656ms)
+✔ C obstacle boards rotate 90 degrees including gates (2.583206ms)
+✔ C ring frame shifts two perimeter slots per 45 degree heading (0.407906ms)
+✔ A 160 scenarios preserve mass and one successful split per spike (56.611749ms)
+✔ B 160 scenarios preserve mass and one successful split per spike (31.185428ms)
+✔ C 160 scenarios preserve mass and one successful split per spike (41.872367ms)
+✔ A all remaining levels and no-space behavior (7.112723ms)
+✔ B all remaining levels and no-space behavior (0.837193ms)
+✔ C all remaining levels and no-space behavior (3.535934ms)
+✔ all experimental witnesses replay through engine (17.255602ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 11
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 293.760939
+
+✖ failing tests:
+
+test at prototypes/naopoyo-split-priority/tests/delivery.test.mjs:10:1
+✖ standalone builder and atlas exist (1.880056ms)
+  AssertionError [ERR_ASSERTION]: build-preview.mjs
+      at TestContext.<anonymous> (file:///workspace/scratch/19b24371acc5/repo/prototypes/naopoyo-split-priority/tests/delivery.test.mjs:10:117)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-split-priority/tests/delivery.test.mjs:11:1
+✖ exact search key retains identity and next child counter (0.838855ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to:
+  
+  '27:8:dog#[]'
+      at TestContext.<anonymous> (file:///workspace/scratch/19b24371acc5/repo/prototypes/naopoyo-split-priority/tests/delivery.test.mjs:11:139)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '27:8:dog#[]',
+    expected: '27:8:dog#[]',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }

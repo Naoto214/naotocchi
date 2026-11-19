@@ -1,0 +1,964 @@
+{
+  "status": "incompatible",
+  "failure": {
+    "step": 7,
+    "reason": "actor-or-level"
+  },
+  "metrics": {
+    "steps": 6,
+    "splits": 1,
+    "children": 3,
+    "merges": 6,
+    "familyMerges": 3,
+    "overflow": 2,
+    "falls": 10
+  },
+  "rescued": 0,
+  "mass": 16,
+  "final": {
+    "id": "komorebi-remainder-lift",
+    "w": 8,
+    "h": 8,
+    "gravity": true,
+    "walls": [
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        3,
+        7
+      ]
+    ],
+    "gates": [
+      {
+        "x": 3,
+        "y": 6,
+        "exact": 8,
+        "open": true
+      }
+    ],
+    "exits": [
+      {
+        "x": 6,
+        "y": 5,
+        "exact": 3
+      },
+      {
+        "x": 7,
+        "y": 5,
+        "exact": 5
+      }
+    ],
+    "spikes": [
+      {
+        "x": 4,
+        "y": 6,
+        "power": 3
+      }
+    ],
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 6,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "b",
+        "x": 3,
+        "y": 6,
+        "level": 8,
+        "species": "dog"
+      }
+    ],
+    "number": 18,
+    "title": "18 あまりを上へ",
+    "revision": 6,
+    "theme": "forest",
+    "showSpecies": false,
+    "difficulty": 6,
+    "discovery": "6＋6の余剰を重力で回収して二つの8を作り、魔法岩の先で3と5へ組み直す。",
+    "lesson": "通るための大きさと、帰るための大きさ。",
+    "story": "魔法岩には8。けれど、森の向こうに8の星はなかった。",
+    "ending": "大きくなって渡り、小さく分かれて帰った。",
+    "hints": [
+      "全員で16。星は3と5だけ。",
+      "二つの8で魔法岩を越え、その先で5と3を二組作ろう。分裂で上下に散る1の回収も考えて。",
+      "二つの8を作ろう。下の岩へ登って8の魔法岩を渡り、右隣のトゲで分けよう。"
+    ],
+    "hint": "全員で16。星は3と5だけ。",
+    "gravityRules": "supported-v1",
+    "movementRules": "contact-v2",
+    "terrainRules": "magic-gate-v2",
+    "splitRules": "recombine-once-v1",
+    "splitPriority": "D",
+    "rescued": 0,
+    "rescuedBySpecies": {},
+    "nextId": 4,
+    "moves": 6
+  },
+  "snapshots": [
+    {
+      "id": "komorebi-remainder-lift",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 6,
+          "exact": 8
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 5
+        }
+      ],
+      "spikes": [
+        {
+          "x": 4,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 1,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 6,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "c",
+          "x": 2,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "number": 18,
+      "title": "18 あまりを上へ",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 6,
+      "discovery": "6＋6の余剰を重力で回収して二つの8を作り、魔法岩の先で3と5へ組み直す。",
+      "lesson": "通るための大きさと、帰るための大きさ。",
+      "story": "魔法岩には8。けれど、森の向こうに8の星はなかった。",
+      "ending": "大きくなって渡り、小さく分かれて帰った。",
+      "hints": [
+        "全員で16。星は3と5だけ。",
+        "二つの8で魔法岩を越え、その先で5と3を二組作ろう。分裂で上下に散る1の回収も考えて。",
+        "二つの8を作ろう。下の岩へ登って8の魔法岩を渡り、右隣のトゲで分けよう。"
+      ],
+      "hint": "全員で16。星は3と5だけ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 1
+    },
+    {
+      "id": "komorebi-remainder-lift",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 6,
+          "exact": 8
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 5
+        }
+      ],
+      "spikes": [
+        {
+          "x": 4,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "c",
+          "x": 2,
+          "y": 6,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "number": 18,
+      "title": "18 あまりを上へ",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 6,
+      "discovery": "6＋6の余剰を重力で回収して二つの8を作り、魔法岩の先で3と5へ組み直す。",
+      "lesson": "通るための大きさと、帰るための大きさ。",
+      "story": "魔法岩には8。けれど、森の向こうに8の星はなかった。",
+      "ending": "大きくなって渡り、小さく分かれて帰った。",
+      "hints": [
+        "全員で16。星は3と5だけ。",
+        "二つの8で魔法岩を越え、その先で5と3を二組作ろう。分裂で上下に散る1の回収も考えて。",
+        "二つの8を作ろう。下の岩へ登って8の魔法岩を渡り、右隣のトゲで分けよう。"
+      ],
+      "hint": "全員で16。星は3と5だけ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 2
+    },
+    {
+      "id": "komorebi-remainder-lift",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 6,
+          "exact": 8,
+          "open": true
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 5
+        }
+      ],
+      "spikes": [
+        {
+          "x": 4,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 6,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "c",
+          "x": 2,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "number": 18,
+      "title": "18 あまりを上へ",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 6,
+      "discovery": "6＋6の余剰を重力で回収して二つの8を作り、魔法岩の先で3と5へ組み直す。",
+      "lesson": "通るための大きさと、帰るための大きさ。",
+      "story": "魔法岩には8。けれど、森の向こうに8の星はなかった。",
+      "ending": "大きくなって渡り、小さく分かれて帰った。",
+      "hints": [
+        "全員で16。星は3と5だけ。",
+        "二つの8で魔法岩を越え、その先で5と3を二組作ろう。分裂で上下に散る1の回収も考えて。",
+        "二つの8を作ろう。下の岩へ登って8の魔法岩を渡り、右隣のトゲで分けよう。"
+      ],
+      "hint": "全員で16。星は3と5だけ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 3
+    },
+    {
+      "id": "komorebi-remainder-lift",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 6,
+          "exact": 8,
+          "open": true
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 5
+        }
+      ],
+      "spikes": [
+        {
+          "x": 4,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 6,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "c",
+          "x": 2,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "number": 18,
+      "title": "18 あまりを上へ",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 6,
+      "discovery": "6＋6の余剰を重力で回収して二つの8を作り、魔法岩の先で3と5へ組み直す。",
+      "lesson": "通るための大きさと、帰るための大きさ。",
+      "story": "魔法岩には8。けれど、森の向こうに8の星はなかった。",
+      "ending": "大きくなって渡り、小さく分かれて帰った。",
+      "hints": [
+        "全員で16。星は3と5だけ。",
+        "二つの8で魔法岩を越え、その先で5と3を二組作ろう。分裂で上下に散る1の回収も考えて。",
+        "二つの8を作ろう。下の岩へ登って8の魔法岩を渡り、右隣のトゲで分けよう。"
+      ],
+      "hint": "全員で16。星は3と5だけ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 4,
+      "moves": 4
+    },
+    {
+      "id": "komorebi-remainder-lift",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 6,
+          "exact": 8,
+          "open": true
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 5
+        }
+      ],
+      "spikes": [
+        {
+          "x": 4,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 6,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "number": 18,
+      "title": "18 あまりを上へ",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 6,
+      "discovery": "6＋6の余剰を重力で回収して二つの8を作り、魔法岩の先で3と5へ組み直す。",
+      "lesson": "通るための大きさと、帰るための大きさ。",
+      "story": "魔法岩には8。けれど、森の向こうに8の星はなかった。",
+      "ending": "大きくなって渡り、小さく分かれて帰った。",
+      "hints": [
+        "全員で16。星は3と5だけ。",
+        "二つの8で魔法岩を越え、その先で5と3を二組作ろう。分裂で上下に散る1の回収も考えて。",
+        "二つの8を作ろう。下の岩へ登って8の魔法岩を渡り、右隣のトゲで分けよう。"
+      ],
+      "hint": "全員で16。星は3と5だけ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 4,
+      "moves": 5
+    },
+    {
+      "id": "komorebi-remainder-lift",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 6,
+          "exact": 8,
+          "open": true
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 5
+        }
+      ],
+      "spikes": [
+        {
+          "x": 4,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 6,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 6,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "number": 18,
+      "title": "18 あまりを上へ",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 6,
+      "discovery": "6＋6の余剰を重力で回収して二つの8を作り、魔法岩の先で3と5へ組み直す。",
+      "lesson": "通るための大きさと、帰るための大きさ。",
+      "story": "魔法岩には8。けれど、森の向こうに8の星はなかった。",
+      "ending": "大きくなって渡り、小さく分かれて帰った。",
+      "hints": [
+        "全員で16。星は3と5だけ。",
+        "二つの8で魔法岩を越え、その先で5と3を二組作ろう。分裂で上下に散る1の回収も考えて。",
+        "二つの8を作ろう。下の岩へ登って8の魔法岩を渡り、右隣のトゲで分けよう。"
+      ],
+      "hint": "全員で16。星は3と5だけ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 4,
+      "moves": 6
+    }
+  ],
+  "splitLog": [
+    {
+      "step": 4,
+      "state": {
+        "id": "komorebi-remainder-lift",
+        "w": 8,
+        "h": 8,
+        "gravity": true,
+        "walls": [
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            3,
+            7
+          ]
+        ],
+        "gates": [
+          {
+            "x": 3,
+            "y": 6,
+            "exact": 8,
+            "open": true
+          }
+        ],
+        "exits": [
+          {
+            "x": 6,
+            "y": 5,
+            "exact": 3
+          },
+          {
+            "x": 7,
+            "y": 5,
+            "exact": 5
+          }
+        ],
+        "spikes": [
+          {
+            "x": 4,
+            "y": 6,
+            "power": 3
+          }
+        ],
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 4,
+            "y": 6,
+            "level": 5,
+            "species": "dog"
+          },
+          {
+            "id": "b",
+            "x": 1,
+            "y": 7,
+            "level": 4,
+            "species": "dog"
+          },
+          {
+            "id": "c",
+            "x": 2,
+            "y": 7,
+            "level": 4,
+            "species": "dog"
+          },
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 4
+          },
+          {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "number": 18,
+        "title": "18 あまりを上へ",
+        "revision": 6,
+        "theme": "forest",
+        "showSpecies": false,
+        "difficulty": 6,
+        "discovery": "6＋6の余剰を重力で回収して二つの8を作り、魔法岩の先で3と5へ組み直す。",
+        "lesson": "通るための大きさと、帰るための大きさ。",
+        "story": "魔法岩には8。けれど、森の向こうに8の星はなかった。",
+        "ending": "大きくなって渡り、小さく分かれて帰った。",
+        "hints": [
+          "全員で16。星は3と5だけ。",
+          "二つの8で魔法岩を越え、その先で5と3を二組作ろう。分裂で上下に散る1の回収も考えて。",
+          "二つの8を作ろう。下の岩へ登って8の魔法岩を渡り、右隣のトゲで分けよう。"
+        ],
+        "hint": "全員で16。星は3と5だけ。",
+        "gravityRules": "supported-v1",
+        "movementRules": "contact-v2",
+        "terrainRules": "magic-gate-v2",
+        "splitRules": "recombine-once-v1",
+        "splitPriority": "D",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 4,
+        "moves": 3
+      },
+      "parentId": "a",
+      "direction": [
+        1,
+        0
+      ],
+      "children": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 5
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 4
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 3
+        }
+      ],
+      "family": 1
+    }
+  ]
+}

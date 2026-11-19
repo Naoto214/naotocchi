@@ -1,0 +1,2514 @@
+{
+  "status": "incompatible",
+  "failure": {
+    "step": 19,
+    "reason": "exit"
+  },
+  "metrics": {
+    "steps": 18,
+    "splits": 1,
+    "children": 3,
+    "merges": 2,
+    "familyMerges": 0,
+    "overflow": 1,
+    "falls": 0
+  },
+  "rescued": 5,
+  "mass": 11,
+  "final": {
+    "id": "light-owl-trial",
+    "title": "10 ふくろうの試練",
+    "w": 8,
+    "h": 8,
+    "revision": 1,
+    "theme": "cave",
+    "showSpecies": false,
+    "walls": [
+      [
+        4,
+        0
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        7
+      ]
+    ],
+    "gates": [
+      {
+        "x": 4,
+        "y": 2,
+        "exact": 8,
+        "open": true
+      },
+      {
+        "x": 4,
+        "y": 5,
+        "exact": 3,
+        "open": true
+      }
+    ],
+    "spikes": [
+      {
+        "x": 6,
+        "y": 4,
+        "power": 3
+      }
+    ],
+    "exits": [
+      {
+        "x": 7,
+        "y": 1,
+        "exact": 5
+      },
+      {
+        "x": 7,
+        "y": 6,
+        "exact": 6
+      }
+    ],
+    "gravity": false,
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [
+      {
+        "id": "b",
+        "x": 6,
+        "y": 5,
+        "level": 4,
+        "species": "dog"
+      },
+      {
+        "id": "child2",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 2
+      },
+      {
+        "id": "child3",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 1
+      }
+    ],
+    "difficulty": 4,
+    "narrator": {
+      "id": "owl",
+      "name": "ものしりふくろう",
+      "category": "companion",
+      "asset": "assets/characters/companions/owl.png"
+    },
+    "lesson": "門は8と3。星は5と6。覚えたことをつないで、全員を帰そう。",
+    "story": "「最後は、きみたちだけで。ぼくはここで見ているよ」ふくろうの試練は、戦いではなく、帰り道を見つける知恵比べでした。",
+    "ending": "「よく帰ってきたね」牢屋の扉の向こうに、風の通る森が広がりました。次の星は、木々の上で揺れています。——第1章 おわり——",
+    "hints": [
+      "まず門の数字、次に星の数字を考えよう。",
+      "6＋5を8と3にして門へ。向こうで8を5と1と1と1に。",
+      "3に3つの1を集めて6へ。残した5とともに、二つの星へ。"
+    ],
+    "mechanics": [
+      "overflow",
+      "split",
+      "merge",
+      "gate"
+    ],
+    "hint": "まず門の数字、次に星の数字を考えよう。",
+    "splitPriority": "D",
+    "rescued": 5,
+    "rescuedBySpecies": {
+      "dog": 5
+    },
+    "nextId": 4,
+    "moves": 18
+  },
+  "snapshots": [
+    {
+      "id": "light-owl-trial",
+      "title": "10 ふくろうの試練",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "spikes": [
+        {
+          "x": 6,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 1,
+          "exact": 5
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 6
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 3,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 4,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門は8と3。星は5と6。覚えたことをつないで、全員を帰そう。",
+      "story": "「最後は、きみたちだけで。ぼくはここで見ているよ」ふくろうの試練は、戦いではなく、帰り道を見つける知恵比べでした。",
+      "ending": "「よく帰ってきたね」牢屋の扉の向こうに、風の通る森が広がりました。次の星は、木々の上で揺れています。——第1章 おわり——",
+      "hints": [
+        "まず門の数字、次に星の数字を考えよう。",
+        "6＋5を8と3にして門へ。向こうで8を5と1と1と1に。",
+        "3に3つの1を集めて6へ。残した5とともに、二つの星へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "split",
+        "merge",
+        "gate"
+      ],
+      "hint": "まず門の数字、次に星の数字を考えよう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 1
+    },
+    {
+      "id": "light-owl-trial",
+      "title": "10 ふくろうの試練",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "spikes": [
+        {
+          "x": 6,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 1,
+          "exact": 5
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 6
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 3,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 4,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門は8と3。星は5と6。覚えたことをつないで、全員を帰そう。",
+      "story": "「最後は、きみたちだけで。ぼくはここで見ているよ」ふくろうの試練は、戦いではなく、帰り道を見つける知恵比べでした。",
+      "ending": "「よく帰ってきたね」牢屋の扉の向こうに、風の通る森が広がりました。次の星は、木々の上で揺れています。——第1章 おわり——",
+      "hints": [
+        "まず門の数字、次に星の数字を考えよう。",
+        "6＋5を8と3にして門へ。向こうで8を5と1と1と1に。",
+        "3に3つの1を集めて6へ。残した5とともに、二つの星へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "split",
+        "merge",
+        "gate"
+      ],
+      "hint": "まず門の数字、次に星の数字を考えよう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 2
+    },
+    {
+      "id": "light-owl-trial",
+      "title": "10 ふくろうの試練",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "spikes": [
+        {
+          "x": 6,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 1,
+          "exact": 5
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 6
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 3,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 4,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門は8と3。星は5と6。覚えたことをつないで、全員を帰そう。",
+      "story": "「最後は、きみたちだけで。ぼくはここで見ているよ」ふくろうの試練は、戦いではなく、帰り道を見つける知恵比べでした。",
+      "ending": "「よく帰ってきたね」牢屋の扉の向こうに、風の通る森が広がりました。次の星は、木々の上で揺れています。——第1章 おわり——",
+      "hints": [
+        "まず門の数字、次に星の数字を考えよう。",
+        "6＋5を8と3にして門へ。向こうで8を5と1と1と1に。",
+        "3に3つの1を集めて6へ。残した5とともに、二つの星へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "split",
+        "merge",
+        "gate"
+      ],
+      "hint": "まず門の数字、次に星の数字を考えよう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 3
+    },
+    {
+      "id": "light-owl-trial",
+      "title": "10 ふくろうの試練",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "spikes": [
+        {
+          "x": 6,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 1,
+          "exact": 5
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 6
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 5,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 3,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 4,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門は8と3。星は5と6。覚えたことをつないで、全員を帰そう。",
+      "story": "「最後は、きみたちだけで。ぼくはここで見ているよ」ふくろうの試練は、戦いではなく、帰り道を見つける知恵比べでした。",
+      "ending": "「よく帰ってきたね」牢屋の扉の向こうに、風の通る森が広がりました。次の星は、木々の上で揺れています。——第1章 おわり——",
+      "hints": [
+        "まず門の数字、次に星の数字を考えよう。",
+        "6＋5を8と3にして門へ。向こうで8を5と1と1と1に。",
+        "3に3つの1を集めて6へ。残した5とともに、二つの星へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "split",
+        "merge",
+        "gate"
+      ],
+      "hint": "まず門の数字、次に星の数字を考えよう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 4
+    },
+    {
+      "id": "light-owl-trial",
+      "title": "10 ふくろうの試練",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "spikes": [
+        {
+          "x": 6,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 1,
+          "exact": 5
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 6
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 5,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 3,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 4,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門は8と3。星は5と6。覚えたことをつないで、全員を帰そう。",
+      "story": "「最後は、きみたちだけで。ぼくはここで見ているよ」ふくろうの試練は、戦いではなく、帰り道を見つける知恵比べでした。",
+      "ending": "「よく帰ってきたね」牢屋の扉の向こうに、風の通る森が広がりました。次の星は、木々の上で揺れています。——第1章 おわり——",
+      "hints": [
+        "まず門の数字、次に星の数字を考えよう。",
+        "6＋5を8と3にして門へ。向こうで8を5と1と1と1に。",
+        "3に3つの1を集めて6へ。残した5とともに、二つの星へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "split",
+        "merge",
+        "gate"
+      ],
+      "hint": "まず門の数字、次に星の数字を考えよう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 5
+    },
+    {
+      "id": "light-owl-trial",
+      "title": "10 ふくろうの試練",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "spikes": [
+        {
+          "x": 6,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 1,
+          "exact": 5
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 6
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 5,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 4,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門は8と3。星は5と6。覚えたことをつないで、全員を帰そう。",
+      "story": "「最後は、きみたちだけで。ぼくはここで見ているよ」ふくろうの試練は、戦いではなく、帰り道を見つける知恵比べでした。",
+      "ending": "「よく帰ってきたね」牢屋の扉の向こうに、風の通る森が広がりました。次の星は、木々の上で揺れています。——第1章 おわり——",
+      "hints": [
+        "まず門の数字、次に星の数字を考えよう。",
+        "6＋5を8と3にして門へ。向こうで8を5と1と1と1に。",
+        "3に3つの1を集めて6へ。残した5とともに、二つの星へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "split",
+        "merge",
+        "gate"
+      ],
+      "hint": "まず門の数字、次に星の数字を考えよう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 6
+    },
+    {
+      "id": "light-owl-trial",
+      "title": "10 ふくろうの試練",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 6,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 1,
+          "exact": 5
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 6
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 5,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 5,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 4,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門は8と3。星は5と6。覚えたことをつないで、全員を帰そう。",
+      "story": "「最後は、きみたちだけで。ぼくはここで見ているよ」ふくろうの試練は、戦いではなく、帰り道を見つける知恵比べでした。",
+      "ending": "「よく帰ってきたね」牢屋の扉の向こうに、風の通る森が広がりました。次の星は、木々の上で揺れています。——第1章 おわり——",
+      "hints": [
+        "まず門の数字、次に星の数字を考えよう。",
+        "6＋5を8と3にして門へ。向こうで8を5と1と1と1に。",
+        "3に3つの1を集めて6へ。残した5とともに、二つの星へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "split",
+        "merge",
+        "gate"
+      ],
+      "hint": "まず門の数字、次に星の数字を考えよう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 7
+    },
+    {
+      "id": "light-owl-trial",
+      "title": "10 ふくろうの試練",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 6,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 1,
+          "exact": 5
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 6
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 5,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 5,
+          "y": 6,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 4,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門は8と3。星は5と6。覚えたことをつないで、全員を帰そう。",
+      "story": "「最後は、きみたちだけで。ぼくはここで見ているよ」ふくろうの試練は、戦いではなく、帰り道を見つける知恵比べでした。",
+      "ending": "「よく帰ってきたね」牢屋の扉の向こうに、風の通る森が広がりました。次の星は、木々の上で揺れています。——第1章 おわり——",
+      "hints": [
+        "まず門の数字、次に星の数字を考えよう。",
+        "6＋5を8と3にして門へ。向こうで8を5と1と1と1に。",
+        "3に3つの1を集めて6へ。残した5とともに、二つの星へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "split",
+        "merge",
+        "gate"
+      ],
+      "hint": "まず門の数字、次に星の数字を考えよう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 8
+    },
+    {
+      "id": "light-owl-trial",
+      "title": "10 ふくろうの試練",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 6,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 1,
+          "exact": 5
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 6
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 6,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 5,
+          "y": 6,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 4,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門は8と3。星は5と6。覚えたことをつないで、全員を帰そう。",
+      "story": "「最後は、きみたちだけで。ぼくはここで見ているよ」ふくろうの試練は、戦いではなく、帰り道を見つける知恵比べでした。",
+      "ending": "「よく帰ってきたね」牢屋の扉の向こうに、風の通る森が広がりました。次の星は、木々の上で揺れています。——第1章 おわり——",
+      "hints": [
+        "まず門の数字、次に星の数字を考えよう。",
+        "6＋5を8と3にして門へ。向こうで8を5と1と1と1に。",
+        "3に3つの1を集めて6へ。残した5とともに、二つの星へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "split",
+        "merge",
+        "gate"
+      ],
+      "hint": "まず門の数字、次に星の数字を考えよう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 9
+    },
+    {
+      "id": "light-owl-trial",
+      "title": "10 ふくろうの試練",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 6,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 1,
+          "exact": 5
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 6
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 6,
+          "y": 4,
+          "level": 5,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 5,
+          "y": 6,
+          "level": 3,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 3
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 2
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 1
+        }
+      ],
+      "difficulty": 4,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門は8と3。星は5と6。覚えたことをつないで、全員を帰そう。",
+      "story": "「最後は、きみたちだけで。ぼくはここで見ているよ」ふくろうの試練は、戦いではなく、帰り道を見つける知恵比べでした。",
+      "ending": "「よく帰ってきたね」牢屋の扉の向こうに、風の通る森が広がりました。次の星は、木々の上で揺れています。——第1章 おわり——",
+      "hints": [
+        "まず門の数字、次に星の数字を考えよう。",
+        "6＋5を8と3にして門へ。向こうで8を5と1と1と1に。",
+        "3に3つの1を集めて6へ。残した5とともに、二つの星へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "split",
+        "merge",
+        "gate"
+      ],
+      "hint": "まず門の数字、次に星の数字を考えよう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 4,
+      "moves": 10
+    },
+    {
+      "id": "light-owl-trial",
+      "title": "10 ふくろうの試練",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 6,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 1,
+          "exact": 5
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 6
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 7,
+          "y": 3,
+          "level": 5,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 5,
+          "y": 6,
+          "level": 3,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 3
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 2
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 1
+        }
+      ],
+      "difficulty": 4,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門は8と3。星は5と6。覚えたことをつないで、全員を帰そう。",
+      "story": "「最後は、きみたちだけで。ぼくはここで見ているよ」ふくろうの試練は、戦いではなく、帰り道を見つける知恵比べでした。",
+      "ending": "「よく帰ってきたね」牢屋の扉の向こうに、風の通る森が広がりました。次の星は、木々の上で揺れています。——第1章 おわり——",
+      "hints": [
+        "まず門の数字、次に星の数字を考えよう。",
+        "6＋5を8と3にして門へ。向こうで8を5と1と1と1に。",
+        "3に3つの1を集めて6へ。残した5とともに、二つの星へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "split",
+        "merge",
+        "gate"
+      ],
+      "hint": "まず門の数字、次に星の数字を考えよう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 4,
+      "moves": 11
+    },
+    {
+      "id": "light-owl-trial",
+      "title": "10 ふくろうの試練",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 6,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 1,
+          "exact": 5
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 6
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 7,
+          "y": 2,
+          "level": 5,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 5,
+          "y": 6,
+          "level": 3,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 3
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 2
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 1
+        }
+      ],
+      "difficulty": 4,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門は8と3。星は5と6。覚えたことをつないで、全員を帰そう。",
+      "story": "「最後は、きみたちだけで。ぼくはここで見ているよ」ふくろうの試練は、戦いではなく、帰り道を見つける知恵比べでした。",
+      "ending": "「よく帰ってきたね」牢屋の扉の向こうに、風の通る森が広がりました。次の星は、木々の上で揺れています。——第1章 おわり——",
+      "hints": [
+        "まず門の数字、次に星の数字を考えよう。",
+        "6＋5を8と3にして門へ。向こうで8を5と1と1と1に。",
+        "3に3つの1を集めて6へ。残した5とともに、二つの星へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "split",
+        "merge",
+        "gate"
+      ],
+      "hint": "まず門の数字、次に星の数字を考えよう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 4,
+      "moves": 12
+    },
+    {
+      "id": "light-owl-trial",
+      "title": "10 ふくろうの試練",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 6,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 1,
+          "exact": 5
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 6
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "b",
+          "x": 5,
+          "y": 6,
+          "level": 3,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 3
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 2
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 1
+        }
+      ],
+      "difficulty": 4,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門は8と3。星は5と6。覚えたことをつないで、全員を帰そう。",
+      "story": "「最後は、きみたちだけで。ぼくはここで見ているよ」ふくろうの試練は、戦いではなく、帰り道を見つける知恵比べでした。",
+      "ending": "「よく帰ってきたね」牢屋の扉の向こうに、風の通る森が広がりました。次の星は、木々の上で揺れています。——第1章 おわり——",
+      "hints": [
+        "まず門の数字、次に星の数字を考えよう。",
+        "6＋5を8と3にして門へ。向こうで8を5と1と1と1に。",
+        "3に3つの1を集めて6へ。残した5とともに、二つの星へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "split",
+        "merge",
+        "gate"
+      ],
+      "hint": "まず門の数字、次に星の数字を考えよう。",
+      "splitPriority": "D",
+      "rescued": 5,
+      "rescuedBySpecies": {
+        "dog": 5
+      },
+      "nextId": 4,
+      "moves": 13
+    },
+    {
+      "id": "light-owl-trial",
+      "title": "10 ふくろうの試練",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 6,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 1,
+          "exact": 5
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 6
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "b",
+          "x": 6,
+          "y": 5,
+          "level": 3,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 3
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 2
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 1
+        }
+      ],
+      "difficulty": 4,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門は8と3。星は5と6。覚えたことをつないで、全員を帰そう。",
+      "story": "「最後は、きみたちだけで。ぼくはここで見ているよ」ふくろうの試練は、戦いではなく、帰り道を見つける知恵比べでした。",
+      "ending": "「よく帰ってきたね」牢屋の扉の向こうに、風の通る森が広がりました。次の星は、木々の上で揺れています。——第1章 おわり——",
+      "hints": [
+        "まず門の数字、次に星の数字を考えよう。",
+        "6＋5を8と3にして門へ。向こうで8を5と1と1と1に。",
+        "3に3つの1を集めて6へ。残した5とともに、二つの星へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "split",
+        "merge",
+        "gate"
+      ],
+      "hint": "まず門の数字、次に星の数字を考えよう。",
+      "splitPriority": "D",
+      "rescued": 5,
+      "rescuedBySpecies": {
+        "dog": 5
+      },
+      "nextId": 4,
+      "moves": 14
+    },
+    {
+      "id": "light-owl-trial",
+      "title": "10 ふくろうの試練",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 6,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 1,
+          "exact": 5
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 6
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "b",
+          "x": 7,
+          "y": 4,
+          "level": 3,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 3
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 2
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 1
+        }
+      ],
+      "difficulty": 4,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門は8と3。星は5と6。覚えたことをつないで、全員を帰そう。",
+      "story": "「最後は、きみたちだけで。ぼくはここで見ているよ」ふくろうの試練は、戦いではなく、帰り道を見つける知恵比べでした。",
+      "ending": "「よく帰ってきたね」牢屋の扉の向こうに、風の通る森が広がりました。次の星は、木々の上で揺れています。——第1章 おわり——",
+      "hints": [
+        "まず門の数字、次に星の数字を考えよう。",
+        "6＋5を8と3にして門へ。向こうで8を5と1と1と1に。",
+        "3に3つの1を集めて6へ。残した5とともに、二つの星へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "split",
+        "merge",
+        "gate"
+      ],
+      "hint": "まず門の数字、次に星の数字を考えよう。",
+      "splitPriority": "D",
+      "rescued": 5,
+      "rescuedBySpecies": {
+        "dog": 5
+      },
+      "nextId": 4,
+      "moves": 15
+    },
+    {
+      "id": "light-owl-trial",
+      "title": "10 ふくろうの試練",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 6,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 1,
+          "exact": 5
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 6
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "b",
+          "x": 6,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 2
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 1
+        }
+      ],
+      "difficulty": 4,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門は8と3。星は5と6。覚えたことをつないで、全員を帰そう。",
+      "story": "「最後は、きみたちだけで。ぼくはここで見ているよ」ふくろうの試練は、戦いではなく、帰り道を見つける知恵比べでした。",
+      "ending": "「よく帰ってきたね」牢屋の扉の向こうに、風の通る森が広がりました。次の星は、木々の上で揺れています。——第1章 おわり——",
+      "hints": [
+        "まず門の数字、次に星の数字を考えよう。",
+        "6＋5を8と3にして門へ。向こうで8を5と1と1と1に。",
+        "3に3つの1を集めて6へ。残した5とともに、二つの星へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "split",
+        "merge",
+        "gate"
+      ],
+      "hint": "まず門の数字、次に星の数字を考えよう。",
+      "splitPriority": "D",
+      "rescued": 5,
+      "rescuedBySpecies": {
+        "dog": 5
+      },
+      "nextId": 4,
+      "moves": 16
+    },
+    {
+      "id": "light-owl-trial",
+      "title": "10 ふくろうの試練",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 6,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 1,
+          "exact": 5
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 6
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "b",
+          "x": 5,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 2
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 1
+        }
+      ],
+      "difficulty": 4,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門は8と3。星は5と6。覚えたことをつないで、全員を帰そう。",
+      "story": "「最後は、きみたちだけで。ぼくはここで見ているよ」ふくろうの試練は、戦いではなく、帰り道を見つける知恵比べでした。",
+      "ending": "「よく帰ってきたね」牢屋の扉の向こうに、風の通る森が広がりました。次の星は、木々の上で揺れています。——第1章 おわり——",
+      "hints": [
+        "まず門の数字、次に星の数字を考えよう。",
+        "6＋5を8と3にして門へ。向こうで8を5と1と1と1に。",
+        "3に3つの1を集めて6へ。残した5とともに、二つの星へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "split",
+        "merge",
+        "gate"
+      ],
+      "hint": "まず門の数字、次に星の数字を考えよう。",
+      "splitPriority": "D",
+      "rescued": 5,
+      "rescuedBySpecies": {
+        "dog": 5
+      },
+      "nextId": 4,
+      "moves": 17
+    },
+    {
+      "id": "light-owl-trial",
+      "title": "10 ふくろうの試練",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 6,
+          "y": 4,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 1,
+          "exact": 5
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "exact": 6
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "b",
+          "x": 6,
+          "y": 5,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 2
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 1
+        }
+      ],
+      "difficulty": 4,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "門は8と3。星は5と6。覚えたことをつないで、全員を帰そう。",
+      "story": "「最後は、きみたちだけで。ぼくはここで見ているよ」ふくろうの試練は、戦いではなく、帰り道を見つける知恵比べでした。",
+      "ending": "「よく帰ってきたね」牢屋の扉の向こうに、風の通る森が広がりました。次の星は、木々の上で揺れています。——第1章 おわり——",
+      "hints": [
+        "まず門の数字、次に星の数字を考えよう。",
+        "6＋5を8と3にして門へ。向こうで8を5と1と1と1に。",
+        "3に3つの1を集めて6へ。残した5とともに、二つの星へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "split",
+        "merge",
+        "gate"
+      ],
+      "hint": "まず門の数字、次に星の数字を考えよう。",
+      "splitPriority": "D",
+      "rescued": 5,
+      "rescuedBySpecies": {
+        "dog": 5
+      },
+      "nextId": 4,
+      "moves": 18
+    }
+  ],
+  "splitLog": [
+    {
+      "step": 10,
+      "state": {
+        "id": "light-owl-trial",
+        "title": "10 ふくろうの試練",
+        "w": 8,
+        "h": 8,
+        "revision": 1,
+        "theme": "cave",
+        "showSpecies": false,
+        "walls": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            4,
+            7
+          ]
+        ],
+        "gates": [
+          {
+            "x": 4,
+            "y": 2,
+            "exact": 8,
+            "open": true
+          },
+          {
+            "x": 4,
+            "y": 5,
+            "exact": 3,
+            "open": true
+          }
+        ],
+        "spikes": [
+          {
+            "x": 6,
+            "y": 4,
+            "power": 3
+          }
+        ],
+        "exits": [
+          {
+            "x": 7,
+            "y": 1,
+            "exact": 5
+          },
+          {
+            "x": 7,
+            "y": 6,
+            "exact": 6
+          }
+        ],
+        "gravity": false,
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 6,
+            "y": 4,
+            "level": 5,
+            "species": "dog"
+          },
+          {
+            "id": "b",
+            "x": 5,
+            "y": 6,
+            "level": 3,
+            "species": "dog"
+          },
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 3
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 2
+          },
+          {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "difficulty": 4,
+        "narrator": {
+          "id": "owl",
+          "name": "ものしりふくろう",
+          "category": "companion",
+          "asset": "assets/characters/companions/owl.png"
+        },
+        "lesson": "門は8と3。星は5と6。覚えたことをつないで、全員を帰そう。",
+        "story": "「最後は、きみたちだけで。ぼくはここで見ているよ」ふくろうの試練は、戦いではなく、帰り道を見つける知恵比べでした。",
+        "ending": "「よく帰ってきたね」牢屋の扉の向こうに、風の通る森が広がりました。次の星は、木々の上で揺れています。——第1章 おわり——",
+        "hints": [
+          "まず門の数字、次に星の数字を考えよう。",
+          "6＋5を8と3にして門へ。向こうで8を5と1と1と1に。",
+          "3に3つの1を集めて6へ。残した5とともに、二つの星へ。"
+        ],
+        "mechanics": [
+          "overflow",
+          "split",
+          "merge",
+          "gate"
+        ],
+        "hint": "まず門の数字、次に星の数字を考えよう。",
+        "splitPriority": "D",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 4,
+        "moves": 9
+      },
+      "parentId": "a",
+      "direction": [
+        0,
+        1
+      ],
+      "children": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 3
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 2
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 1
+        }
+      ],
+      "family": 1
+    }
+  ]
+}

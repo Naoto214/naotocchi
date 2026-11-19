@@ -1,0 +1,218 @@
+{
+  "status": "solved",
+  "failure": null,
+  "metrics": {
+    "steps": 3,
+    "splits": 0,
+    "children": 0,
+    "merges": 0,
+    "familyMerges": 0,
+    "overflow": 0,
+    "falls": 0
+  },
+  "rescued": 1,
+  "mass": 1,
+  "final": {
+    "id": "light-arrival",
+    "title": "01 はじめての星",
+    "w": 8,
+    "h": 8,
+    "revision": 1,
+    "theme": "cave",
+    "showSpecies": false,
+    "walls": [],
+    "gates": [],
+    "spikes": [],
+    "exits": [
+      {
+        "x": 5,
+        "y": 3
+      }
+    ],
+    "gravity": false,
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [],
+    "difficulty": 1,
+    "narrator": {
+      "id": "owl",
+      "name": "ものしりふくろう",
+      "category": "companion",
+      "asset": "assets/characters/companions/owl.png"
+    },
+    "lesson": "いぬに触れたまま、星までなぞろう。斜めにも進めるよ。",
+    "story": "目をあけると、そこは光のさす不思議な牢屋。小さないぬの前に、ふくろうが舞い降りました。「あの星は、帰り道のしるしだよ」",
+    "ending": "星の向こうで、仲間の声が聞こえた。",
+    "hints": [
+      "光っている星を探そう。",
+      "いぬから指を離さず、星へ動かそう。",
+      "右上へ進み、そのまま右の星へ。"
+    ],
+    "mechanics": [],
+    "hint": "光っている星を探そう。",
+    "splitPriority": "D",
+    "rescued": 1,
+    "rescuedBySpecies": {
+      "dog": 1
+    },
+    "nextId": 1,
+    "moves": 3
+  },
+  "snapshots": [
+    {
+      "id": "light-arrival",
+      "title": "01 はじめての星",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 5,
+          "y": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 1,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 1,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "いぬに触れたまま、星までなぞろう。斜めにも進めるよ。",
+      "story": "目をあけると、そこは光のさす不思議な牢屋。小さないぬの前に、ふくろうが舞い降りました。「あの星は、帰り道のしるしだよ」",
+      "ending": "星の向こうで、仲間の声が聞こえた。",
+      "hints": [
+        "光っている星を探そう。",
+        "いぬから指を離さず、星へ動かそう。",
+        "右上へ進み、そのまま右の星へ。"
+      ],
+      "mechanics": [],
+      "hint": "光っている星を探そう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 1
+    },
+    {
+      "id": "light-arrival",
+      "title": "01 はじめての星",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 5,
+          "y": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 1,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 1,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "いぬに触れたまま、星までなぞろう。斜めにも進めるよ。",
+      "story": "目をあけると、そこは光のさす不思議な牢屋。小さないぬの前に、ふくろうが舞い降りました。「あの星は、帰り道のしるしだよ」",
+      "ending": "星の向こうで、仲間の声が聞こえた。",
+      "hints": [
+        "光っている星を探そう。",
+        "いぬから指を離さず、星へ動かそう。",
+        "右上へ進み、そのまま右の星へ。"
+      ],
+      "mechanics": [],
+      "hint": "光っている星を探そう。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 2
+    },
+    {
+      "id": "light-arrival",
+      "title": "01 はじめての星",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 5,
+          "y": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [],
+      "difficulty": 1,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "いぬに触れたまま、星までなぞろう。斜めにも進めるよ。",
+      "story": "目をあけると、そこは光のさす不思議な牢屋。小さないぬの前に、ふくろうが舞い降りました。「あの星は、帰り道のしるしだよ」",
+      "ending": "星の向こうで、仲間の声が聞こえた。",
+      "hints": [
+        "光っている星を探そう。",
+        "いぬから指を離さず、星へ動かそう。",
+        "右上へ進み、そのまま右の星へ。"
+      ],
+      "mechanics": [],
+      "hint": "光っている星を探そう。",
+      "splitPriority": "D",
+      "rescued": 1,
+      "rescuedBySpecies": {
+        "dog": 1
+      },
+      "nextId": 1,
+      "moves": 3
+    }
+  ],
+  "splitLog": []
+}

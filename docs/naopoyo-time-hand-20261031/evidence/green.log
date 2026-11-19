@@ -1,0 +1,66 @@
+✔ D exposes a traceable continuous route (3.444931ms)
+✔ opposite first step 0,-1 (2.131577ms)
+✔ opposite first step 1,-1 (0.453685ms)
+✔ opposite first step 1,0 (0.35787ms)
+✖ opposite first step 1,1 (3.070546ms)
+✔ opposite first step 0,1 (0.473375ms)
+✔ opposite first step -1,1 (0.164789ms)
+✔ opposite first step -1,0 (0.373313ms)
+✖ opposite first step -1,-1 (0.418381ms)
+✔ blocked up turns right and retains direction (0.500496ms)
+✔ two blocked directions rotate twice (0.390289ms)
+✔ diagonal rotates by 90 not 45 (0.173482ms)
+✔ closed path produces only available prefix (0.163006ms)
+✔ route does not mutate input and respects 2/3 limits (0.305261ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 12
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 182.805691
+
+✖ failing tests:
+
+test at prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:7:78
+✖ opposite first step 1,1 (3.070546ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  3 !== 7
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:10:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 3,
+    expected: 7,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:7:78
+✖ opposite first step -1,-1 (0.418381ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  4 !== 7
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/naopoyo-time-hand/tests/time-hand.test.mjs:10:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 4,
+    expected: 7,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

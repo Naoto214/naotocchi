@@ -1,0 +1,31 @@
+✔ D exposes a traceable continuous route (1.242318ms)
+✔ opposite first step 0,-1 (1.916972ms)
+✔ opposite first step 1,-1 (1.520046ms)
+✔ opposite first step 1,0 (0.264488ms)
+✔ opposite first step 1,1 (0.364428ms)
+✔ opposite first step 0,1 (0.263296ms)
+✔ opposite first step -1,1 (0.200552ms)
+✔ opposite first step -1,0 (0.188574ms)
+✔ opposite first step -1,-1 (0.269605ms)
+✔ blocked up turns right and retains direction (0.451178ms)
+✔ two blocked directions rotate twice (0.317888ms)
+✔ diagonal rotates by 90 not 45 (0.263907ms)
+✔ closed path produces only available prefix (0.184338ms)
+✔ route does not mutate input and respects 2/3 limits (0.355605ms)
+✔ power sets actual birth count 1/3/7 (2.285037ms)
+✔ gravity rejoins vertical family with no exception (2.985129ms)
+✔ all ABC modes retain complete results (37.74443ms)
+✔ occupied and special cells are never generated on (2.131836ms)
+✔ diagonal double-wall corner blocks route (0.395054ms)
+✔ generated children obstruct self closure (0.247812ms)
+✔ reset heading and retained heading differ after a bend (0.283426ms)
+✔ pass-through variant is bounded and never duplicates births (0.20667ms)
+✔ JSON save and Undo snapshot reproduce identical simulation (1.765626ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 165.071667

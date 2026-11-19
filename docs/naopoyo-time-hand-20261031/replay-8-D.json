@@ -1,0 +1,1064 @@
+{
+  "status": "incompatible",
+  "failure": {
+    "step": 9,
+    "reason": "exit"
+  },
+  "metrics": {
+    "steps": 8,
+    "splits": 1,
+    "children": 2,
+    "merges": 1,
+    "familyMerges": 0,
+    "overflow": 0,
+    "falls": 0
+  },
+  "rescued": 2,
+  "mass": 4,
+  "final": {
+    "id": "light-order",
+    "title": "08 門のむこうで",
+    "w": 8,
+    "h": 8,
+    "revision": 1,
+    "theme": "cave",
+    "showSpecies": false,
+    "walls": [
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ]
+    ],
+    "gates": [
+      {
+        "x": 3,
+        "y": 4,
+        "exact": 4,
+        "open": true
+      }
+    ],
+    "spikes": [
+      {
+        "x": 5,
+        "y": 4,
+        "power": 2
+      }
+    ],
+    "exits": [
+      {
+        "x": 7,
+        "y": 3,
+        "exact": 2
+      }
+    ],
+    "gravity": false,
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [
+      {
+        "id": "child1",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 3
+      },
+      {
+        "id": "child2",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 3
+      }
+    ],
+    "difficulty": 3,
+    "lesson": "門は4、星は2。みんなが同じ星へ帰れるよ。",
+    "story": "星を見つけた仲間たち。でも、星に合う数字では門を通れません。",
+    "ending": "集まるときと、分かれるとき。順番が道になった。",
+    "hints": [
+      "門と星では、必要な数字が違う。",
+      "4で門を通ってから、2と1と1に分かれよう。",
+      "2を星へ。残った1と1も2にして、同じ星へ。"
+    ],
+    "mechanics": [
+      "merge",
+      "split",
+      "gate"
+    ],
+    "hint": "門と星では、必要な数字が違う。",
+    "splitPriority": "D",
+    "rescued": 2,
+    "rescuedBySpecies": {
+      "dog": 2
+    },
+    "nextId": 3,
+    "moves": 8
+  },
+  "snapshots": [
+    {
+      "id": "light-order",
+      "title": "08 門のむこうで",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 4,
+          "exact": 4
+        }
+      ],
+      "spikes": [
+        {
+          "x": 5,
+          "y": 4,
+          "power": 2
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 3,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 3,
+      "lesson": "門は4、星は2。みんなが同じ星へ帰れるよ。",
+      "story": "星を見つけた仲間たち。でも、星に合う数字では門を通れません。",
+      "ending": "集まるときと、分かれるとき。順番が道になった。",
+      "hints": [
+        "門と星では、必要な数字が違う。",
+        "4で門を通ってから、2と1と1に分かれよう。",
+        "2を星へ。残った1と1も2にして、同じ星へ。"
+      ],
+      "mechanics": [
+        "merge",
+        "split",
+        "gate"
+      ],
+      "hint": "門と星では、必要な数字が違う。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 1
+    },
+    {
+      "id": "light-order",
+      "title": "08 門のむこうで",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 4,
+          "exact": 4,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 5,
+          "y": 4,
+          "power": 2
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 3,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 3,
+      "lesson": "門は4、星は2。みんなが同じ星へ帰れるよ。",
+      "story": "星を見つけた仲間たち。でも、星に合う数字では門を通れません。",
+      "ending": "集まるときと、分かれるとき。順番が道になった。",
+      "hints": [
+        "門と星では、必要な数字が違う。",
+        "4で門を通ってから、2と1と1に分かれよう。",
+        "2を星へ。残った1と1も2にして、同じ星へ。"
+      ],
+      "mechanics": [
+        "merge",
+        "split",
+        "gate"
+      ],
+      "hint": "門と星では、必要な数字が違う。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 2
+    },
+    {
+      "id": "light-order",
+      "title": "08 門のむこうで",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 4,
+          "exact": 4,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 5,
+          "y": 4,
+          "power": 2
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 3,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 3,
+      "lesson": "門は4、星は2。みんなが同じ星へ帰れるよ。",
+      "story": "星を見つけた仲間たち。でも、星に合う数字では門を通れません。",
+      "ending": "集まるときと、分かれるとき。順番が道になった。",
+      "hints": [
+        "門と星では、必要な数字が違う。",
+        "4で門を通ってから、2と1と1に分かれよう。",
+        "2を星へ。残った1と1も2にして、同じ星へ。"
+      ],
+      "mechanics": [
+        "merge",
+        "split",
+        "gate"
+      ],
+      "hint": "門と星では、必要な数字が違う。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 3
+    },
+    {
+      "id": "light-order",
+      "title": "08 門のむこうで",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 4,
+          "exact": 4,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 5,
+          "y": 4,
+          "power": 2
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 3,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 5,
+          "y": 4,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 4
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 3
+        }
+      ],
+      "difficulty": 3,
+      "lesson": "門は4、星は2。みんなが同じ星へ帰れるよ。",
+      "story": "星を見つけた仲間たち。でも、星に合う数字では門を通れません。",
+      "ending": "集まるときと、分かれるとき。順番が道になった。",
+      "hints": [
+        "門と星では、必要な数字が違う。",
+        "4で門を通ってから、2と1と1に分かれよう。",
+        "2を星へ。残った1と1も2にして、同じ星へ。"
+      ],
+      "mechanics": [
+        "merge",
+        "split",
+        "gate"
+      ],
+      "hint": "門と星では、必要な数字が違う。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 3,
+      "moves": 4
+    },
+    {
+      "id": "light-order",
+      "title": "08 門のむこうで",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 4,
+          "exact": 4,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 5,
+          "y": 4,
+          "power": 2
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 3,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 6,
+          "y": 4,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 4
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 3
+        }
+      ],
+      "difficulty": 3,
+      "lesson": "門は4、星は2。みんなが同じ星へ帰れるよ。",
+      "story": "星を見つけた仲間たち。でも、星に合う数字では門を通れません。",
+      "ending": "集まるときと、分かれるとき。順番が道になった。",
+      "hints": [
+        "門と星では、必要な数字が違う。",
+        "4で門を通ってから、2と1と1に分かれよう。",
+        "2を星へ。残った1と1も2にして、同じ星へ。"
+      ],
+      "mechanics": [
+        "merge",
+        "split",
+        "gate"
+      ],
+      "hint": "門と星では、必要な数字が違う。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 3,
+      "moves": 5
+    },
+    {
+      "id": "light-order",
+      "title": "08 門のむこうで",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 4,
+          "exact": 4,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 5,
+          "y": 4,
+          "power": 2
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 3,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 4
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 3
+        }
+      ],
+      "difficulty": 3,
+      "lesson": "門は4、星は2。みんなが同じ星へ帰れるよ。",
+      "story": "星を見つけた仲間たち。でも、星に合う数字では門を通れません。",
+      "ending": "集まるときと、分かれるとき。順番が道になった。",
+      "hints": [
+        "門と星では、必要な数字が違う。",
+        "4で門を通ってから、2と1と1に分かれよう。",
+        "2を星へ。残った1と1も2にして、同じ星へ。"
+      ],
+      "mechanics": [
+        "merge",
+        "split",
+        "gate"
+      ],
+      "hint": "門と星では、必要な数字が違う。",
+      "splitPriority": "D",
+      "rescued": 2,
+      "rescuedBySpecies": {
+        "dog": 2
+      },
+      "nextId": 3,
+      "moves": 6
+    },
+    {
+      "id": "light-order",
+      "title": "08 門のむこうで",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 4,
+          "exact": 4,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 5,
+          "y": 4,
+          "power": 2
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 3,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 5,
+          "y": 3
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 3
+        }
+      ],
+      "difficulty": 3,
+      "lesson": "門は4、星は2。みんなが同じ星へ帰れるよ。",
+      "story": "星を見つけた仲間たち。でも、星に合う数字では門を通れません。",
+      "ending": "集まるときと、分かれるとき。順番が道になった。",
+      "hints": [
+        "門と星では、必要な数字が違う。",
+        "4で門を通ってから、2と1と1に分かれよう。",
+        "2を星へ。残った1と1も2にして、同じ星へ。"
+      ],
+      "mechanics": [
+        "merge",
+        "split",
+        "gate"
+      ],
+      "hint": "門と星では、必要な数字が違う。",
+      "splitPriority": "D",
+      "rescued": 2,
+      "rescuedBySpecies": {
+        "dog": 2
+      },
+      "nextId": 3,
+      "moves": 7
+    },
+    {
+      "id": "light-order",
+      "title": "08 門のむこうで",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 4,
+          "exact": 4,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 5,
+          "y": 4,
+          "power": 2
+        }
+      ],
+      "exits": [
+        {
+          "x": 7,
+          "y": 3,
+          "exact": 2
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 3
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 3
+        }
+      ],
+      "difficulty": 3,
+      "lesson": "門は4、星は2。みんなが同じ星へ帰れるよ。",
+      "story": "星を見つけた仲間たち。でも、星に合う数字では門を通れません。",
+      "ending": "集まるときと、分かれるとき。順番が道になった。",
+      "hints": [
+        "門と星では、必要な数字が違う。",
+        "4で門を通ってから、2と1と1に分かれよう。",
+        "2を星へ。残った1と1も2にして、同じ星へ。"
+      ],
+      "mechanics": [
+        "merge",
+        "split",
+        "gate"
+      ],
+      "hint": "門と星では、必要な数字が違う。",
+      "splitPriority": "D",
+      "rescued": 2,
+      "rescuedBySpecies": {
+        "dog": 2
+      },
+      "nextId": 3,
+      "moves": 8
+    }
+  ],
+  "splitLog": [
+    {
+      "step": 4,
+      "state": {
+        "id": "light-order",
+        "title": "08 門のむこうで",
+        "w": 8,
+        "h": 8,
+        "revision": 1,
+        "theme": "cave",
+        "showSpecies": false,
+        "walls": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            3,
+            7
+          ]
+        ],
+        "gates": [
+          {
+            "x": 3,
+            "y": 4,
+            "exact": 4,
+            "open": true
+          }
+        ],
+        "spikes": [
+          {
+            "x": 5,
+            "y": 4,
+            "power": 2
+          }
+        ],
+        "exits": [
+          {
+            "x": 7,
+            "y": 3,
+            "exact": 2
+          }
+        ],
+        "gravity": false,
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 5,
+            "y": 4,
+            "level": 2,
+            "species": "dog"
+          },
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 4
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "difficulty": 3,
+        "lesson": "門は4、星は2。みんなが同じ星へ帰れるよ。",
+        "story": "星を見つけた仲間たち。でも、星に合う数字では門を通れません。",
+        "ending": "集まるときと、分かれるとき。順番が道になった。",
+        "hints": [
+          "門と星では、必要な数字が違う。",
+          "4で門を通ってから、2と1と1に分かれよう。",
+          "2を星へ。残った1と1も2にして、同じ星へ。"
+        ],
+        "mechanics": [
+          "merge",
+          "split",
+          "gate"
+        ],
+        "hint": "門と星では、必要な数字が違う。",
+        "splitPriority": "D",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 3,
+        "moves": 3
+      },
+      "parentId": "a",
+      "direction": [
+        1,
+        0
+      ],
+      "children": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 4
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 3
+        }
+      ],
+      "family": 1
+    }
+  ]
+}
