@@ -130,5 +130,13 @@
   "docs/qa/home-v5-production/webkit-430-28.png": {
     "sha256": "7953209d456b6bc13ed4f33666858157f101f2412d4805ce74b98b5f91974668",
     "reason": "PR #561の統合前確認として本人が要求した4画面幅・Chromium/WebKit・1/28体とmain会話対照の固定証拠。配信対象外。"
+  },
+  "comparisons/home-cast-size-v3/evidence/geometry-fixtures.tar.gz": {
+    "sha256": "ffad2ba54a08e5c0363886af22a11e7641b7a9ac69a19b55f7f64345e5429b0b",
+    "reason": "PR #570 V3の13地域・4画面幅における輪郭と入力の判定を再現するため、ブラウザーで採取した340件の数値記録を原本のまま保持。"
+  },
+  "comparisons/home-cast-size-v3/evidence/perf-grid-raw.tar.gz": {
+    "sha256": "207083fec9444126166acf4406f667da9637917a8c2510337f85d67095ff610e",
+    "reason": "PR #570 V3の2,600条件の処理時間を再集計するため、実測値と測定時の配席コードを原本のまま保持。"
   }
 }
