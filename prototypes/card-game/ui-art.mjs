@@ -1494,16 +1494,16 @@ export const CARD_ART = Object.freeze({
     "large": "art-delivery/large/M-star-08-4eb50e4e47a7.webp"
   },
   "M-starfish-01": {
-    "small": "art-delivery/small/M-starfish-01-f0ed938a996d.webp",
-    "large": "art-delivery/large/M-starfish-01-1756bf33da8b.webp"
+    "small": "art-delivery/small/M-starfish-01-548b54cde60a.webp",
+    "large": "art-delivery/large/M-starfish-01-5e74b7b6a65f.webp"
   },
   "M-starfish-02": {
-    "small": "art-delivery/small/M-starfish-02-ab3d4e6894bc.webp",
-    "large": "art-delivery/large/M-starfish-02-85ac9ac01b8b.webp"
+    "small": "art-delivery/small/M-starfish-02-3c6e5d9e6058.webp",
+    "large": "art-delivery/large/M-starfish-02-b76eacdb6dba.webp"
   },
   "M-starfish-03": {
-    "small": "art-delivery/small/M-starfish-03-dbc018991274.webp",
-    "large": "art-delivery/large/M-starfish-03-b49e025d9a8d.webp"
+    "small": "art-delivery/small/M-starfish-03-7a9b22d6b91e.webp",
+    "large": "art-delivery/large/M-starfish-03-2532cccceae8.webp"
   },
   "M-starfish-04": {
     "small": "art-delivery/small/M-starfish-04-e80859541a13.webp",

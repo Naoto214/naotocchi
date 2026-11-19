@@ -1,0 +1,20 @@
+{
+  "source_commit": "9b3f730e",
+  "cards": [
+    {
+      "id": "M-starfish-01",
+      "file": "M-starfish-01-background-refined.png",
+      "sha256": "0edbe53840584f4f5771351a83d870f95175eba06fa23acce038cd23d001df7e"
+    },
+    {
+      "id": "M-starfish-02",
+      "file": "M-starfish-02-background-refined.png",
+      "sha256": "8ebb8cedc8e44044d06580e1628894db5123f872feffe73c784b29a4f69574b2"
+    },
+    {
+      "id": "M-starfish-03",
+      "file": "M-starfish-03-underwater.png",
+      "sha256": "fe5241d984ba09ea4b49a319f70cfc820413288e156bf079de38aa737ffefd5e"
+    }
+  ]
+}
