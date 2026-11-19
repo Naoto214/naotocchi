@@ -1,0 +1,16 @@
+{
+ "os": "Linux",
+ "arch": "x86_64",
+ "cpu": "Intel Xeon Platinum 8573C",
+ "affinityForTiming": [
+  0,
+  1
+ ],
+ "visibleLogicalCpus": 5,
+ "cpuQuota": "400000 100000",
+ "directRenderDeviceExposed": false,
+ "chromiumVersion": "156.0.8078.79",
+ "chromiumCanvasFeatureStatus": "unavailable_software",
+ "chromiumGLRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver-5.0.0)",
+ "webKitBuild": "WPE 26.5"
+}

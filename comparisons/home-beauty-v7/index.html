@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>秋の落ち葉を見比べる｜なおとっち</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="bar">
+  <h1><span class="brand">なおとっち</span><span class="bar-title">秋の落ち葉を見比べる</span></h1>
+  <div class="tools">
+    <select id="quick-scene" aria-label="場面を切り替え"></select>
+    <select id="quick-variant" aria-label="落ち葉の比較案を切り替え"></select>
+    <button type="button" id="split-toggle" aria-label="分割表示" aria-pressed="true">分割</button>
+    <button type="button" id="clock-toggle" disabled><span class="clock-icon" aria-hidden="true"></span><span id="clock-label">背景演出を一時停止</span></button>
+    <button type="button" id="panel-toggle" aria-controls="panel" aria-expanded="false">設定</button>
+  </div>
+</header>
+<p class="motion-note">端末の「動きを減らす」設定が有効なため、落ち葉は降りません。</p>
+<main>
+  <section class="view" aria-label="ホームの落ち葉比較">
+    <div class="viewport"><iframe id="home" title="なおとっちのホーム" allow="autoplay"></iframe>
+      <div id="wipe" hidden>
+        <button type="button" id="wipe-handle" role="slider" aria-label="左右の比較境界" aria-valuemin="5" aria-valuemax="95" aria-valuenow="50">
+          <span id="wipe-previous">E3+</span><b aria-hidden="true">↔︎</b><span id="wipe-candidate">B</span>
+        </button>
+      </div>
+    </div>
+    <p id="status" role="status">ホームを読み込み中…</p>
+  </section>
+  <aside id="panel" aria-labelledby="panel-title">
+    <div class="panel-heading"><h2 id="panel-title">秋の落ち葉</h2><button type="button" id="panel-close">閉じる</button></div>
+    <form id="settings" autocomplete="off">
+      <fieldset class="scene-field"><legend>見比べる場面</legend><div id="scenes" class="scene-grid"></div></fieldset>
+      <fieldset class="variant"><legend>落ち葉の比較案</legend><div class="choices" id="variants"></div></fieldset>
+      <p id="mode-note" class="note" aria-live="polite"></p>
+      <fieldset class="fall-field" id="leaf-settings">
+        <legend>比較案の落ち葉を調整</legend>
+        <fieldset class="palette"><legend>葉の色</legend><div class="choices" id="leaf-colors"></div></fieldset>
+        <div id="fall-controls"></div>
+        <div class="reset-row"><button id="fall-reset" type="button">調整を標準に戻す</button></div>
+      </fieldset>
+      <details id="condition-detail"><summary>ほかの場面・季節・天気</summary><div id="other-scenes" class="scene-grid"></div><label class="region-field" for="region">地域<select id="region"></select></label><div id="conditions"></div></details>
+      <details id="effect-detail"><summary>環境演出</summary>
+        <div class="range-row"><label for="strength">全体の演出強度</label><output for="strength" id="strength-value">100%</output>
+          <input type="range" id="strength" min="0" max="2" step="0.05" value="1">
+        </div>
+        <div id="effects"></div>
+        <fieldset class="detail-group" id="sea-detail"><legend>うみの波と光</legend><div id="sea-effects"></div></fieldset>
+        <fieldset class="detail-group" id="forest-detail"><legend>もりの風と光</legend><div id="forest-effects"></div></fieldset>
+      </details>
+      <details id="playback-detail"><summary>住民・再生</summary>
+        <div class="playback" id="playback"></div>
+        <div class="restarts"><button type="button" id="clock-replay">背景演出を最初から</button><button type="button" id="replay">同じ配置から再生</button></div>
+      </details>
+    </form>
+  </aside>
+</main>
+<script type="module" src="./controls.mjs"></script>
+</body>
+</html>

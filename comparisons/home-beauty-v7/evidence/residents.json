@@ -1,0 +1,24 @@
+{
+  "referencePR": 568,
+  "chromium": "156.0.8078.79",
+  "iframeCSSPixels": [
+    390,
+    844
+  ],
+  "residents": 28,
+  "sameNodesAndOrderAcross": [
+    "A",
+    "B",
+    "C",
+    "E3plus"
+  ],
+  "exactResidentBoxesLayersImagesOcclusionAndLighting": true,
+  "reducedMotion": true,
+  "clockSeconds": 39,
+  "sceneCanvasSHA256": "d2cc6cfb85a2736bc81a2ff373a2b10326021d407bb8246bd4b5d910ee2d0484",
+  "frozenScreenPNGSHA256": "ba5a320a662636a1ff813e95134916079704a27c79f3b46662d2660410d335f8",
+  "poseSHA256": "8093398002b76172af5bf471c518ee0bbb6f8441e5703d97d26800296db75259",
+  "sceneCanvasUnchangedAcrossSwitches": true,
+  "ownerAndTrialSavesIsolated": true,
+  "errors": []
+}
