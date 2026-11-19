@@ -1,4 +1,5 @@
 # なおとっち　箱庭の光と季節 VERSION 2
+[VERSION 3「極上幻想・フルモーション」設計・比較](VERSION-3.md) ／ [V3の性能・長時間試験](QUALITY-V3.md)
 
 [本人限定の動作比較](https://naotocchi-home-beauty-v2-20261119.kerzion214.chatgpt.site/) ／ [基準main・移動V5](https://github.com/Naoto214/naotocchi/commit/38b4e9d0c8ed4cacdfc1cc6c072a7a9e62e5c053)
 
@@ -46,9 +47,9 @@
 基準コミットのチェックアウトにこのディレクトリを置く。配信許可リスト `tools/pages/allowlist.json` の `files` を外部の一時ディレクトリ `dist/game/` に同じ相対パスでコピーする。プロジェクトルートから以下を実行する。
 
 ```sh
-node prototypes/home-beauty-v2/build.cjs /absolute/path/to/dist
-cp prototypes/home-beauty-v2/{index.html,controls.mjs,style.css} /absolute/path/to/dist/
-node --test prototypes/home-beauty-v2/*.test.*
+node comparisons/home-beauty-v3/build.cjs /absolute/path/to/dist
+cp comparisons/home-beauty-v3/{index.html,controls.mjs,style.css} /absolute/path/to/dist/
+node --test comparisons/home-beauty-v3/*.test.*
 python -m http.server 8193 --bind 127.0.0.1 --directory /absolute/path/to/dist
 ```
 

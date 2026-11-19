@@ -70,3 +70,13 @@ summary { font-size: .9rem; }
   .bar-title { display: none; }
   #quick-variant { display: block; margin-inline: auto 6px; background: #2c5146; color: white; border: 1px solid #80978c; border-radius: 6px; min-height: 36px; max-width: 42vw; padding: 3px; font-size: .82rem; }
 }
+
+.full-motion .choices { grid-template-columns: 1fr; gap: 4px; }
+.full-motion .choice span { min-height: 36px; padding: 5px 11px; gap: 13px; }
+.full-motion .choice b { flex: 0 0 23px; }
+.full-motion legend { color: var(--accent); }
+.strength-control { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2px 8px; margin: 16px 0; }
+.strength-control label, #strength-value { font-size: .875rem; font-weight: 650; color: #526358; }
+#strength-value { font-variant-numeric: tabular-nums; }
+#strength { grid-column: 1 / -1; width: 100%; accent-color: var(--accent); min-height: 32px; margin: 0; cursor: pointer; }
+#strength:disabled { cursor: default; }

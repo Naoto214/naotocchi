@@ -4,13 +4,16 @@ const frame = get('home');
 const variants = [
   ['current','現行','そのまま'], ['A','A','自然で穏やか'],
   ['B','B','華やかで幻想的'], ['C','C','魔法のように豪華'],
+  ['D1','D1','自然の動きを最大限に強化'],
+  ['D2','D2','光と幻想表現を最大限に強化'],
+  ['D3','D3','自然の動きと幻想表現を両立'],
 ];
 const regions = [
   ['forest','もり'],['sea','うみ'],['snow','ゆきぐに'],
   ['city','とかい'],['memory_lake','きおくのみずうみ'],
 ];
 const settings = {region:'forest',time:'day',season:'summer',weather:'sunny',
-  variant:'B',count:1,speed:1,effects:{water:true,particles:true,light:true,contact:true}};
+  variant:'D3',count:1,speed:1,strength:1,effects:{water:true,particles:true,light:true,contact:true,motion:true}};
 const params = new URLSearchParams(location.search);
 const status = get('status');
 const quick = get('quick-variant');
@@ -57,11 +60,32 @@ function group(id,key,title,rows) {
   get(id).append(field);
 }
 selectInitial('variant',variants);
+const fullOptions = document.createElement('optgroup');
+fullOptions.label = 'D案・極上幻想';
+const earlierOptions = document.createElement('optgroup');
+earlierOptions.label = '現行・VERSION 2';
+quick.append(fullOptions,earlierOptions);
+const shortNames = {D1:'自然の動き',D2:'光と幻想',D3:'自然と幻想'};
 for (const [value,name,subtitle] of variants) {
-  choice(get('variants'),'variant',value,name,subtitle);
-  quick.add(new Option(value === 'current' ? '現行版' : name+'・'+subtitle,value));
+  const full = Object.hasOwn(shortNames,value);
+  choice(get(full ? 'full-variants':'variants'),'variant',value,name,subtitle);
+  const option = new Option(value === 'current' ? '現行版' : name+'・'+(shortNames[value] || subtitle),value);
+  (full ? fullOptions : earlierOptions).append(option);
 }
 quick.value = settings.variant;
+const slider = get('strength');
+const initialStrength = Number(params.get('strength'));
+if (params.get('strength')?.trim() && Number.isFinite(initialStrength)) {
+  slider.value = String(Math.max(0,Math.min(2,initialStrength)));
+}
+function readStrength() {
+  settings.strength = slider.valueAsNumber;
+  const percent = Math.round(settings.strength*100)+'%';
+  get('strength-value').value = percent;
+  slider.setAttribute('aria-valuetext',percent);
+}
+readStrength();
+slider.addEventListener('input',() => {readStrength();send();});
 selectInitial('region',regions);
 for (const [value,label] of regions) get('region').add(new Option(label,value));
 get('region').value = settings.region;
@@ -70,7 +94,7 @@ group('conditions','season','季節',[['spring','春'],['summer','夏'],['autumn
 group('conditions','weather','天気',[['sunny','晴れ'],['cloudy','曇り'],['rain','雨'],['snow','雪']]);
 group('playback','count','住民',[['1','1体'],['4','4体'],['28','28体']]);
 group('playback','speed','再生速度',[['1','通常'],['0.25','スロー ×0.25']]);
-for (const [key,label] of Object.entries({water:'水面・反射',particles:'季節の粒子',light:'環境光・照明',contact:'足元・接水'})) {
+for (const [key,label] of Object.entries({motion:'自然物の動き',water:'水面・反射',particles:'季節の粒子',light:'環境光・照明',contact:'足元・接水'})) {
   const wrapper = document.createElement('label');
   const input = document.createElement('input');
   input.type = 'checkbox';
@@ -82,6 +106,7 @@ for (const [key,label] of Object.entries({water:'水面・反射',particles:'季
   get('effects').append(wrapper);
 }
 function updateEffects() {
+  slider.disabled = settings.variant === 'current';
   for (const input of get('effects').querySelectorAll('input')) input.disabled = settings.variant === 'current';
 }
 function send() {
@@ -111,7 +136,8 @@ window.addEventListener('message',event => {
 });
 form.addEventListener('change',event => {
   const input = event.target;
-  if (input.dataset.effect) settings.effects[input.dataset.effect] = input.checked;
+  if (input === slider) readStrength();
+  else if (input.dataset.effect) settings.effects[input.dataset.effect] = input.checked;
   else {
     settings[input.name] = ['count','speed'].includes(input.name) ? Number(input.value) : input.value;
     quick.value = settings.variant;

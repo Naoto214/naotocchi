@@ -1,4 +1,7 @@
 /* Keep all production geometry, selection outlines, masks and hit targets. */
+/* The shipped #pet #petSprite reset has two IDs. Match its specificity only
+   in the D comparison, leaving archived A/B/C lighting intact. */
+html[data-beauty-variant^="D"][data-cast-lighting="on"][data-beauty-light="true"] #castStage :is(#petSprite,[data-beauty-lit])[data-beauty-lit],
 html[data-cast-lighting="on"]:not([data-beauty-variant="current"])[data-beauty-light="true"] #castStage [data-beauty-lit] {
   filter:brightness(var(--cast-ambient,1)) sepia(var(--cast-warmth,0));
   transition:filter 4s ease;
@@ -15,8 +18,9 @@ html:not([data-beauty-variant="current"])[data-beauty-contact="true"] #castStage
 
 #castStage .beauty-foot {
   position:absolute;pointer-events:none;transform:translate(-50%,-76%);
-  opacity:.82;
+  opacity:var(--beauty-foot-opacity,.82);
 }
+html[data-beauty-contact="false"] #castStage .beauty-foot,
 #castStage .beauty-foot[hidden]{display:none!important}
 #castStage .beauty-foot[data-material="grass"] {
   background:linear-gradient(to top,#5e742e 8%,#94a953 60%,#bdc97c);

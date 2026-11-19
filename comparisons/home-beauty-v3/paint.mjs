@@ -1,4 +1,5 @@
 import {drawNature,inContactWater} from './nature.mjs';
+import {drawFullMotion} from './full-motion.mjs';
 
 // Geometry and fade are supplied by the same call that paints the WebP.
 export function composeNature(ctx, rect, host, fade, seconds, reduced) {
@@ -14,7 +15,9 @@ export function composeNature(ctx, rect, host, fade, seconds, reduced) {
     ctx.save();
     ctx.translate(rect.left,rect.top);
     ctx.beginPath();ctx.rect(0,0,rect.width,rect.height);ctx.clip();
-    drawNature(ctx,{...s,region:parts[1],time:parts[2],width:rect.width,height:rect.height,seconds,reduced,opacity});
+    const state={...s,region:parts[1],time:parts[2],width:rect.width,height:rect.height,seconds,reduced,opacity};
+    if (s.variant.startsWith('D')) drawFullMotion(ctx,{...state,image});
+    else drawNature(ctx,state);
     ctx.restore();
   }
   if (s.variant==='current') return;

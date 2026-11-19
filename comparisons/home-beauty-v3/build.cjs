@@ -12,7 +12,7 @@ function replace(text,anchor,change){
   if(text.split(anchor).length!==2)throw Error('Missing or duplicate production anchor '+anchor);
   return text.replace(anchor,()=>change);
 }
-for(const file of ['nature.mjs','paint.mjs','cast.css','bridge.js','fixture.js'])fs.copyFileSync(path.join(__dirname,file),path.join(beauty,file));
+for(const file of ['nature.mjs','full-motion.mjs','other-regions.mjs','paint.mjs','cast.css','bridge.js','fixture.js'])fs.copyFileSync(path.join(__dirname,file),path.join(beauty,file));
 let html=read('index.html').replaceAll('naotocchi-save-v1','naotocchi-beauty-v2-fixture');
 const seed=JSON.parse(fs.readFileSync(path.join(__dirname,'fixture.json'),'utf8'));
 const marker='<script src="cast-bounds.js';
