@@ -1,0 +1,289 @@
+{
+ "V1": {
+  "matches": 1680,
+  "rows": {
+   "all|intermediate": {
+    "seats": 3360,
+    "responseDecisionsPerMatch": 44.1,
+    "responsesUsedPerMatch": 6.9,
+    "useRate": 0.1565,
+    "timeLeftAtOwnEndPerTurn": 3.72,
+    "unaffordableCardsAtOwnEndPerTurn": 1.14
+   },
+   "balance|intermediate": {
+    "seats": 480,
+    "responseDecisionsPerMatch": 79.0,
+    "responsesUsedPerMatch": 13.73,
+    "useRate": 0.1737,
+    "timeLeftAtOwnEndPerTurn": 3.44,
+    "unaffordableCardsAtOwnEndPerTurn": 1.27
+   },
+   "challenge|intermediate": {
+    "seats": 480,
+    "responseDecisionsPerMatch": 30.1,
+    "responsesUsedPerMatch": 2.16,
+    "useRate": 0.0718,
+    "timeLeftAtOwnEndPerTurn": 3.88,
+    "unaffordableCardsAtOwnEndPerTurn": 1.09
+   },
+   "companion|intermediate": {
+    "seats": 480,
+    "responseDecisionsPerMatch": 39.0,
+    "responsesUsedPerMatch": 8.52,
+    "useRate": 0.2187,
+    "timeLeftAtOwnEndPerTurn": 4.06,
+    "unaffordableCardsAtOwnEndPerTurn": 0.58
+   },
+   "growth|intermediate": {
+    "seats": 480,
+    "responseDecisionsPerMatch": 38.8,
+    "responsesUsedPerMatch": 4.74,
+    "useRate": 0.1221,
+    "timeLeftAtOwnEndPerTurn": 3.7,
+    "unaffordableCardsAtOwnEndPerTurn": 1.29
+   },
+   "item|intermediate": {
+    "seats": 480,
+    "responseDecisionsPerMatch": 15.6,
+    "responsesUsedPerMatch": 9.72,
+    "useRate": 0.6243,
+    "timeLeftAtOwnEndPerTurn": 3.2,
+    "unaffordableCardsAtOwnEndPerTurn": 1.6
+   },
+   "main|intermediate": {
+    "seats": 480,
+    "responseDecisionsPerMatch": 36.6,
+    "responsesUsedPerMatch": 7.3,
+    "useRate": 0.1993,
+    "timeLeftAtOwnEndPerTurn": 3.79,
+    "unaffordableCardsAtOwnEndPerTurn": 1.29
+   },
+   "partner|intermediate": {
+    "seats": 480,
+    "responseDecisionsPerMatch": 69.4,
+    "responsesUsedPerMatch": 2.11,
+    "useRate": 0.0304,
+    "timeLeftAtOwnEndPerTurn": 3.96,
+    "unaffordableCardsAtOwnEndPerTurn": 0.85
+   }
+  }
+ },
+ "V2": {
+  "matches": 840,
+  "rows": {
+   "all|beginner": {
+    "seats": 840,
+    "responseDecisionsPerMatch": 50.1,
+    "responsesUsedPerMatch": 7.95,
+    "useRate": 0.1586,
+    "timeLeftAtOwnEndPerTurn": 3.83,
+    "unaffordableCardsAtOwnEndPerTurn": 1.11
+   },
+   "all|intermediate": {
+    "seats": 840,
+    "responseDecisionsPerMatch": 40.8,
+    "responsesUsedPerMatch": 6.92,
+    "useRate": 0.1694,
+    "timeLeftAtOwnEndPerTurn": 3.71,
+    "unaffordableCardsAtOwnEndPerTurn": 1.13
+   },
+   "balance|beginner": {
+    "seats": 120,
+    "responseDecisionsPerMatch": 70.3,
+    "responsesUsedPerMatch": 15.03,
+    "useRate": 0.2136,
+    "timeLeftAtOwnEndPerTurn": 3.51,
+    "unaffordableCardsAtOwnEndPerTurn": 1.28
+   },
+   "balance|intermediate": {
+    "seats": 120,
+    "responseDecisionsPerMatch": 71.5,
+    "responsesUsedPerMatch": 13.64,
+    "useRate": 0.1908,
+    "timeLeftAtOwnEndPerTurn": 3.35,
+    "unaffordableCardsAtOwnEndPerTurn": 1.36
+   },
+   "challenge|beginner": {
+    "seats": 120,
+    "responseDecisionsPerMatch": 38.0,
+    "responsesUsedPerMatch": 2.73,
+    "useRate": 0.0717,
+    "timeLeftAtOwnEndPerTurn": 4.01,
+    "unaffordableCardsAtOwnEndPerTurn": 1.03
+   },
+   "challenge|intermediate": {
+    "seats": 120,
+    "responseDecisionsPerMatch": 29.5,
+    "responsesUsedPerMatch": 2.0,
+    "useRate": 0.0678,
+    "timeLeftAtOwnEndPerTurn": 3.98,
+    "unaffordableCardsAtOwnEndPerTurn": 1.02
+   },
+   "companion|beginner": {
+    "seats": 120,
+    "responseDecisionsPerMatch": 56.3,
+    "responsesUsedPerMatch": 8.88,
+    "useRate": 0.1576,
+    "timeLeftAtOwnEndPerTurn": 4.21,
+    "unaffordableCardsAtOwnEndPerTurn": 0.52
+   },
+   "companion|intermediate": {
+    "seats": 120,
+    "responseDecisionsPerMatch": 38.9,
+    "responsesUsedPerMatch": 8.03,
+    "useRate": 0.2065,
+    "timeLeftAtOwnEndPerTurn": 4.08,
+    "unaffordableCardsAtOwnEndPerTurn": 0.51
+   },
+   "growth|beginner": {
+    "seats": 120,
+    "responseDecisionsPerMatch": 50.5,
+    "responsesUsedPerMatch": 6.08,
+    "useRate": 0.1204,
+    "timeLeftAtOwnEndPerTurn": 3.85,
+    "unaffordableCardsAtOwnEndPerTurn": 1.22
+   },
+   "growth|intermediate": {
+    "seats": 120,
+    "responseDecisionsPerMatch": 31.2,
+    "responsesUsedPerMatch": 4.51,
+    "useRate": 0.1446,
+    "timeLeftAtOwnEndPerTurn": 3.7,
+    "unaffordableCardsAtOwnEndPerTurn": 1.23
+   },
+   "item|beginner": {
+    "seats": 120,
+    "responseDecisionsPerMatch": 34.3,
+    "responsesUsedPerMatch": 10.89,
+    "useRate": 0.3175,
+    "timeLeftAtOwnEndPerTurn": 3.07,
+    "unaffordableCardsAtOwnEndPerTurn": 1.69
+   },
+   "item|intermediate": {
+    "seats": 120,
+    "responseDecisionsPerMatch": 15.7,
+    "responsesUsedPerMatch": 10.28,
+    "useRate": 0.6555,
+    "timeLeftAtOwnEndPerTurn": 3.14,
+    "unaffordableCardsAtOwnEndPerTurn": 1.64
+   },
+   "main|beginner": {
+    "seats": 120,
+    "responseDecisionsPerMatch": 31.5,
+    "responsesUsedPerMatch": 9.37,
+    "useRate": 0.2974,
+    "timeLeftAtOwnEndPerTurn": 4.18,
+    "unaffordableCardsAtOwnEndPerTurn": 1.2
+   },
+   "main|intermediate": {
+    "seats": 120,
+    "responseDecisionsPerMatch": 32.5,
+    "responsesUsedPerMatch": 7.96,
+    "useRate": 0.2451,
+    "timeLeftAtOwnEndPerTurn": 3.77,
+    "unaffordableCardsAtOwnEndPerTurn": 1.3
+   },
+   "partner|beginner": {
+    "seats": 120,
+    "responseDecisionsPerMatch": 69.7,
+    "responsesUsedPerMatch": 2.67,
+    "useRate": 0.0383,
+    "timeLeftAtOwnEndPerTurn": 3.98,
+    "unaffordableCardsAtOwnEndPerTurn": 0.85
+   },
+   "partner|intermediate": {
+    "seats": 120,
+    "responseDecisionsPerMatch": 66.6,
+    "responsesUsedPerMatch": 2.02,
+    "useRate": 0.0303,
+    "timeLeftAtOwnEndPerTurn": 3.97,
+    "unaffordableCardsAtOwnEndPerTurn": 0.84
+   }
+  }
+ },
+ "X": {
+  "matches": 480,
+  "rows": {
+   "all|beginner": {
+    "seats": 120,
+    "responseDecisionsPerMatch": 71.5,
+    "responsesUsedPerMatch": 4.18,
+    "useRate": 0.0585,
+    "timeLeftAtOwnEndPerTurn": 3.66,
+    "unaffordableCardsAtOwnEndPerTurn": 1.18
+   },
+   "all|intermediate": {
+    "seats": 840,
+    "responseDecisionsPerMatch": 62.7,
+    "responsesUsedPerMatch": 5.02,
+    "useRate": 0.0801,
+    "timeLeftAtOwnEndPerTurn": 3.69,
+    "unaffordableCardsAtOwnEndPerTurn": 1.18
+   },
+   "balance|intermediate": {
+    "seats": 60,
+    "responseDecisionsPerMatch": 80.1,
+    "responsesUsedPerMatch": 14.78,
+    "useRate": 0.1845,
+    "timeLeftAtOwnEndPerTurn": 3.44,
+    "unaffordableCardsAtOwnEndPerTurn": 1.32
+   },
+   "challenge|intermediate": {
+    "seats": 60,
+    "responseDecisionsPerMatch": 34.0,
+    "responsesUsedPerMatch": 2.32,
+    "useRate": 0.0681,
+    "timeLeftAtOwnEndPerTurn": 3.81,
+    "unaffordableCardsAtOwnEndPerTurn": 1.14
+   },
+   "companion|intermediate": {
+    "seats": 60,
+    "responseDecisionsPerMatch": 42.6,
+    "responsesUsedPerMatch": 7.37,
+    "useRate": 0.1731,
+    "timeLeftAtOwnEndPerTurn": 4.11,
+    "unaffordableCardsAtOwnEndPerTurn": 0.59
+   },
+   "growth|intermediate": {
+    "seats": 60,
+    "responseDecisionsPerMatch": 43.8,
+    "responsesUsedPerMatch": 4.57,
+    "useRate": 0.1042,
+    "timeLeftAtOwnEndPerTurn": 3.77,
+    "unaffordableCardsAtOwnEndPerTurn": 1.18
+   },
+   "item|intermediate": {
+    "seats": 60,
+    "responseDecisionsPerMatch": 17.9,
+    "responsesUsedPerMatch": 10.6,
+    "useRate": 0.5938,
+    "timeLeftAtOwnEndPerTurn": 3.22,
+    "unaffordableCardsAtOwnEndPerTurn": 1.61
+   },
+   "main|intermediate": {
+    "seats": 60,
+    "responseDecisionsPerMatch": 40.7,
+    "responsesUsedPerMatch": 5.92,
+    "useRate": 0.1454,
+    "timeLeftAtOwnEndPerTurn": 3.81,
+    "unaffordableCardsAtOwnEndPerTurn": 1.37
+   },
+   "partner|beginner": {
+    "seats": 120,
+    "responseDecisionsPerMatch": 71.5,
+    "responsesUsedPerMatch": 4.18,
+    "useRate": 0.0585,
+    "timeLeftAtOwnEndPerTurn": 3.66,
+    "unaffordableCardsAtOwnEndPerTurn": 1.18
+   },
+   "partner|intermediate": {
+    "seats": 480,
+    "responseDecisionsPerMatch": 77.4,
+    "responsesUsedPerMatch": 3.09,
+    "useRate": 0.04,
+    "timeLeftAtOwnEndPerTurn": 3.69,
+    "unaffordableCardsAtOwnEndPerTurn": 1.16
+   }
+  }
+ }
+}

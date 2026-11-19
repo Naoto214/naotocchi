@@ -1,0 +1,1590 @@
+{
+ "engine": "hotseat-6",
+ "seeds": 200,
+ "scenarios": {
+  "S1a-egg-two-copies": {
+   "round": 1,
+   "turn": "A",
+   "phase": "normal",
+   "window": "start",
+   "time": 1,
+   "prepared": 0,
+   "hand": [
+    "M-dog-01",
+    "M-dog-01",
+    "W-snow"
+   ],
+   "candidates": [
+    "place:M-dog-01:main:birth",
+    "place:M-dog-01:main:birth",
+    "pass"
+   ],
+   "byDifficulty": {
+    "beginner": {
+     "choices": {
+      "place:M-dog-01:main:birth": 200
+     },
+     "scores": [
+      {
+       "action": "place:M-dog-01:main:birth",
+       "base": 42,
+       "official": 39.4,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "place:M-dog-01:main:birth",
+       "base": 42,
+       "official": 39.4,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      }
+     ]
+    },
+    "intermediate": {
+     "choices": {
+      "place:M-dog-01:main:birth": 127,
+      "pass": 73
+     },
+     "scores": [
+      {
+       "action": "place:M-dog-01:main:birth",
+       "base": 42,
+       "official": 0,
+       "sameNameCounterfactual": 42,
+       "strictlyBetterCounterfactual": 42
+      },
+      {
+       "action": "place:M-dog-01:main:birth",
+       "base": 42,
+       "official": 0,
+       "sameNameCounterfactual": 42,
+       "strictlyBetterCounterfactual": 42
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": 0,
+       "strictlyBetterCounterfactual": 0
+      }
+     ]
+    }
+   }
+  },
+  "S1b-egg-one-copy": {
+   "round": 1,
+   "turn": "A",
+   "phase": "normal",
+   "window": "start",
+   "time": 1,
+   "prepared": 0,
+   "hand": [
+    "M-dog-01",
+    "W-snow"
+   ],
+   "candidates": [
+    "place:M-dog-01:main:birth",
+    "pass"
+   ],
+   "byDifficulty": {
+    "beginner": {
+     "choices": {
+      "place:M-dog-01:main:birth": 200
+     },
+     "scores": [
+      {
+       "action": "place:M-dog-01:main:birth",
+       "base": 42,
+       "official": 39.4,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      }
+     ]
+    },
+    "intermediate": {
+     "choices": {
+      "place:M-dog-01:main:birth": 200
+     },
+     "scores": [
+      {
+       "action": "place:M-dog-01:main:birth",
+       "base": 42,
+       "official": 42,
+       "sameNameCounterfactual": 42,
+       "strictlyBetterCounterfactual": 42
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": 0,
+       "strictlyBetterCounterfactual": 0
+      }
+     ]
+    }
+   }
+  },
+  "S1c-egg-two-different-1s": {
+   "round": 1,
+   "turn": "A",
+   "phase": "normal",
+   "window": "start",
+   "time": 1,
+   "prepared": 0,
+   "hand": [
+    "M-dog-01",
+    "M-beetle-01",
+    "W-snow"
+   ],
+   "candidates": [
+    "place:M-dog-01:main:birth",
+    "place:M-beetle-01:main:birth",
+    "pass"
+   ],
+   "byDifficulty": {
+    "beginner": {
+     "choices": {
+      "place:M-beetle-01:main:birth": 116,
+      "place:M-dog-01:main:birth": 84
+     },
+     "scores": [
+      {
+       "action": "place:M-dog-01:main:birth",
+       "base": 42,
+       "official": 39.4,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "place:M-beetle-01:main:birth",
+       "base": 42,
+       "official": 39.4,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      }
+     ]
+    },
+    "intermediate": {
+     "choices": {
+      "place:M-beetle-01:main:birth": 72,
+      "pass": 73,
+      "place:M-dog-01:main:birth": 55
+     },
+     "scores": [
+      {
+       "action": "place:M-dog-01:main:birth",
+       "base": 42,
+       "official": 0,
+       "sameNameCounterfactual": 0,
+       "strictlyBetterCounterfactual": 42
+      },
+      {
+       "action": "place:M-beetle-01:main:birth",
+       "base": 42,
+       "official": 0,
+       "sameNameCounterfactual": 0,
+       "strictlyBetterCounterfactual": 42
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": 0,
+       "strictlyBetterCounterfactual": 0
+      }
+     ]
+    }
+   }
+  },
+  "S2a-own-two-sugoroku-time1": {
+   "round": 5,
+   "turn": "A",
+   "phase": "normal",
+   "window": "start",
+   "time": 1,
+   "prepared": 0,
+   "hand": [
+    "G-sugoroku-race",
+    "G-sugoroku-race"
+   ],
+   "candidates": [
+    "challenge:-",
+    "challenge:-",
+    "programPlay:G-sugoroku-race",
+    "programPlay:G-sugoroku-race",
+    "pass"
+   ],
+   "byDifficulty": {
+    "beginner": {
+     "choices": {
+      "programPlay:G-sugoroku-race": 200
+     },
+     "scores": [
+      {
+       "action": "challenge:-",
+       "base": -2,
+       "official": -2,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "challenge:-",
+       "base": -2,
+       "official": -2,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "programPlay:G-sugoroku-race",
+       "base": 2,
+       "official": 0.75,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "programPlay:G-sugoroku-race",
+       "base": 2,
+       "official": 0.75,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      }
+     ]
+    },
+    "intermediate": {
+     "choices": {
+      "programPlay:G-sugoroku-race": 136,
+      "pass": 64
+     },
+     "scores": [
+      {
+       "action": "challenge:-",
+       "base": -0.5,
+       "official": -0.5,
+       "sameNameCounterfactual": -0.5,
+       "strictlyBetterCounterfactual": -0.5
+      },
+      {
+       "action": "challenge:-",
+       "base": -0.5,
+       "official": -0.5,
+       "sameNameCounterfactual": -0.5,
+       "strictlyBetterCounterfactual": -0.5
+      },
+      {
+       "action": "programPlay:G-sugoroku-race",
+       "base": 2,
+       "official": 0,
+       "sameNameCounterfactual": 2,
+       "strictlyBetterCounterfactual": 2
+      },
+      {
+       "action": "programPlay:G-sugoroku-race",
+       "base": 2,
+       "official": 0,
+       "sameNameCounterfactual": 2,
+       "strictlyBetterCounterfactual": 2
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": 0,
+       "strictlyBetterCounterfactual": 0
+      }
+     ]
+    }
+   }
+  },
+  "S2b-own-one-sugoroku-time1": {
+   "round": 5,
+   "turn": "A",
+   "phase": "normal",
+   "window": "start",
+   "time": 1,
+   "prepared": 0,
+   "hand": [
+    "G-sugoroku-race"
+   ],
+   "candidates": [
+    "challenge:-",
+    "challenge:-",
+    "programPlay:G-sugoroku-race",
+    "pass"
+   ],
+   "byDifficulty": {
+    "beginner": {
+     "choices": {
+      "programPlay:G-sugoroku-race": 200
+     },
+     "scores": [
+      {
+       "action": "challenge:-",
+       "base": -2,
+       "official": -2,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "challenge:-",
+       "base": -2,
+       "official": -2,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "programPlay:G-sugoroku-race",
+       "base": 2,
+       "official": 0.75,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      }
+     ]
+    },
+    "intermediate": {
+     "choices": {
+      "programPlay:G-sugoroku-race": 200
+     },
+     "scores": [
+      {
+       "action": "challenge:-",
+       "base": -0.5,
+       "official": -0.5,
+       "sameNameCounterfactual": -0.5,
+       "strictlyBetterCounterfactual": -0.5
+      },
+      {
+       "action": "challenge:-",
+       "base": -0.5,
+       "official": -0.5,
+       "sameNameCounterfactual": -0.5,
+       "strictlyBetterCounterfactual": -0.5
+      },
+      {
+       "action": "programPlay:G-sugoroku-race",
+       "base": 2,
+       "official": 2,
+       "sameNameCounterfactual": 2,
+       "strictlyBetterCounterfactual": 2
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": 0,
+       "strictlyBetterCounterfactual": 0
+      }
+     ]
+    }
+   }
+  },
+  "S2c-own-two-sugoroku-time2": {
+   "round": 5,
+   "turn": "A",
+   "phase": "normal",
+   "window": "start",
+   "time": 2,
+   "prepared": 0,
+   "hand": [
+    "G-sugoroku-race",
+    "G-sugoroku-race"
+   ],
+   "candidates": [
+    "challenge:-",
+    "challenge:-",
+    "programPlay:G-sugoroku-race",
+    "programPlay:G-sugoroku-race",
+    "pass"
+   ],
+   "byDifficulty": {
+    "beginner": {
+     "choices": {
+      "programPlay:G-sugoroku-race": 200
+     },
+     "scores": [
+      {
+       "action": "challenge:-",
+       "base": -2,
+       "official": -2,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "challenge:-",
+       "base": -2,
+       "official": -2,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "programPlay:G-sugoroku-race",
+       "base": 2,
+       "official": 0.75,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "programPlay:G-sugoroku-race",
+       "base": 2,
+       "official": 0.75,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      }
+     ]
+    },
+    "intermediate": {
+     "choices": {
+      "programPlay:G-sugoroku-race": 200
+     },
+     "scores": [
+      {
+       "action": "challenge:-",
+       "base": -0.5,
+       "official": -0.5,
+       "sameNameCounterfactual": -0.5,
+       "strictlyBetterCounterfactual": -0.5
+      },
+      {
+       "action": "challenge:-",
+       "base": -0.5,
+       "official": -0.5,
+       "sameNameCounterfactual": -0.5,
+       "strictlyBetterCounterfactual": -0.5
+      },
+      {
+       "action": "programPlay:G-sugoroku-race",
+       "base": 2,
+       "official": 2,
+       "sameNameCounterfactual": 2,
+       "strictlyBetterCounterfactual": 2
+      },
+      {
+       "action": "programPlay:G-sugoroku-race",
+       "base": 2,
+       "official": 2,
+       "sameNameCounterfactual": 2,
+       "strictlyBetterCounterfactual": 2
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": 0,
+       "strictlyBetterCounterfactual": 0
+      }
+     ]
+    }
+   }
+  },
+  "S3a-opp-end-sugoroku-time2": {
+   "round": 5,
+   "turn": "B",
+   "phase": "response",
+   "window": "end_request",
+   "time": 2,
+   "prepared": 0,
+   "hand": [
+    "G-sugoroku-race"
+   ],
+   "candidates": [
+    "programPlay:G-sugoroku-race",
+    "pass"
+   ],
+   "byDifficulty": {
+    "beginner": {
+     "choices": {
+      "pass": 200
+     },
+     "scores": [
+      {
+       "action": "programPlay:G-sugoroku-race",
+       "base": 2,
+       "official": 0.75,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      }
+     ]
+    },
+    "intermediate": {
+     "choices": {
+      "programPlay:G-sugoroku-race": 200
+     },
+     "scores": [
+      {
+       "action": "programPlay:G-sugoroku-race",
+       "base": 2,
+       "official": 2,
+       "sameNameCounterfactual": 2,
+       "strictlyBetterCounterfactual": 2
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": 0,
+       "strictlyBetterCounterfactual": 0
+      }
+     ]
+    }
+   }
+  },
+  "S3b-opp-end-two-sugoroku-time1": {
+   "round": 5,
+   "turn": "B",
+   "phase": "response",
+   "window": "end_request",
+   "time": 1,
+   "prepared": 0,
+   "hand": [
+    "G-sugoroku-race",
+    "G-sugoroku-race"
+   ],
+   "candidates": [
+    "programPlay:G-sugoroku-race",
+    "programPlay:G-sugoroku-race",
+    "pass"
+   ],
+   "byDifficulty": {
+    "beginner": {
+     "choices": {
+      "pass": 200
+     },
+     "scores": [
+      {
+       "action": "programPlay:G-sugoroku-race",
+       "base": 2,
+       "official": 0.75,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "programPlay:G-sugoroku-race",
+       "base": 2,
+       "official": 0.75,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      }
+     ]
+    },
+    "intermediate": {
+     "choices": {
+      "programPlay:G-sugoroku-race": 127,
+      "pass": 73
+     },
+     "scores": [
+      {
+       "action": "programPlay:G-sugoroku-race",
+       "base": 2,
+       "official": 0,
+       "sameNameCounterfactual": 2,
+       "strictlyBetterCounterfactual": 2
+      },
+      {
+       "action": "programPlay:G-sugoroku-race",
+       "base": 2,
+       "official": 0,
+       "sameNameCounterfactual": 2,
+       "strictlyBetterCounterfactual": 2
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": 0,
+       "strictlyBetterCounterfactual": 0
+      }
+     ]
+    }
+   }
+  },
+  "S3c-opp-end-flower-time1": {
+   "round": 5,
+   "turn": "B",
+   "phase": "response",
+   "window": "end_request",
+   "time": 1,
+   "prepared": 0,
+   "hand": [
+    "E-midlife-flower"
+   ],
+   "candidates": [
+    "programPlay:E-midlife-flower",
+    "pass"
+   ],
+   "byDifficulty": {
+    "beginner": {
+     "choices": {
+      "pass": 200
+     },
+     "scores": [
+      {
+       "action": "programPlay:E-midlife-flower",
+       "base": 2.2,
+       "official": 0.95,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      }
+     ]
+    },
+    "intermediate": {
+     "choices": {
+      "programPlay:E-midlife-flower": 200
+     },
+     "scores": [
+      {
+       "action": "programPlay:E-midlife-flower",
+       "base": 2.2,
+       "official": 2.2,
+       "sameNameCounterfactual": 2.2,
+       "strictlyBetterCounterfactual": 2.2
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": 0,
+       "strictlyBetterCounterfactual": 0
+      }
+     ]
+    }
+   }
+  },
+  "S3d-opp-end-this-turn-card-time2": {
+   "round": 5,
+   "turn": "B",
+   "phase": "response",
+   "window": "end_request",
+   "time": 2,
+   "prepared": 0,
+   "hand": [
+    "E-fateful-transform",
+    "G-basketball-3d"
+   ],
+   "candidates": [
+    "programPlay:E-fateful-transform",
+    "programPlay:G-basketball-3d",
+    "pass"
+   ],
+   "byDifficulty": {
+    "beginner": {
+     "choices": {
+      "pass": 200
+     },
+     "scores": [
+      {
+       "action": "programPlay:E-fateful-transform",
+       "base": -2.5,
+       "official": -5,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "programPlay:G-basketball-3d",
+       "base": 0.6,
+       "official": -0.65,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      }
+     ]
+    },
+    "intermediate": {
+     "choices": {
+      "programPlay:G-basketball-3d": 200
+     },
+     "scores": [
+      {
+       "action": "programPlay:E-fateful-transform",
+       "base": -2.5,
+       "official": -3.1,
+       "sameNameCounterfactual": -3.1,
+       "strictlyBetterCounterfactual": -3.1
+      },
+      {
+       "action": "programPlay:G-basketball-3d",
+       "base": 0.6,
+       "official": 0.6,
+       "sameNameCounterfactual": 0.6,
+       "strictlyBetterCounterfactual": 0.6
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": 0,
+       "strictlyBetterCounterfactual": 0
+      }
+     ]
+    }
+   }
+  },
+  "S4-prepared-full": {
+   "round": 6,
+   "turn": "A",
+   "phase": "normal",
+   "window": "start",
+   "time": 4,
+   "prepared": 3,
+   "hand": [
+    "G-ski-jump",
+    "G-sugoroku-race",
+    "I-bowtie"
+   ],
+   "candidates": [
+    "challenge:-",
+    "challenge:-",
+    "programPlay:G-sugoroku-race",
+    "pass"
+   ],
+   "byDifficulty": {
+    "beginner": {
+     "choices": {
+      "programPlay:G-sugoroku-race": 200
+     },
+     "scores": [
+      {
+       "action": "challenge:-",
+       "base": -2,
+       "official": -2,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "challenge:-",
+       "base": -2,
+       "official": -2,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "programPlay:G-sugoroku-race",
+       "base": 2,
+       "official": 0.75,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      }
+     ]
+    },
+    "intermediate": {
+     "choices": {
+      "challenge:-": 200
+     },
+     "scores": [
+      {
+       "action": "challenge:-",
+       "base": 4.5,
+       "official": 4.5,
+       "sameNameCounterfactual": 4.5,
+       "strictlyBetterCounterfactual": 4.5
+      },
+      {
+       "action": "challenge:-",
+       "base": 4.5,
+       "official": 4.5,
+       "sameNameCounterfactual": 4.5,
+       "strictlyBetterCounterfactual": 4.5
+      },
+      {
+       "action": "programPlay:G-sugoroku-race",
+       "base": 2,
+       "official": 2,
+       "sameNameCounterfactual": 2,
+       "strictlyBetterCounterfactual": 2
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": 0,
+       "strictlyBetterCounterfactual": 0
+      }
+     ]
+    }
+   }
+  },
+  "S5a-set-ski-jump": {
+   "round": 6,
+   "turn": "A",
+   "phase": "normal",
+   "window": "start",
+   "time": 2,
+   "prepared": 0,
+   "hand": [
+    "G-ski-jump"
+   ],
+   "candidates": [
+    "place:G-ski-jump:prepared",
+    "challenge:-",
+    "challenge:-",
+    "pass"
+   ],
+   "byDifficulty": {
+    "beginner": {
+     "choices": {
+      "place:G-ski-jump:prepared": 200
+     },
+     "scores": [
+      {
+       "action": "place:G-ski-jump:prepared",
+       "base": 9,
+       "official": 6.5,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "challenge:-",
+       "base": -2,
+       "official": -2,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "challenge:-",
+       "base": -2,
+       "official": -2,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      }
+     ]
+    },
+    "intermediate": {
+     "choices": {
+      "place:G-ski-jump:prepared": 200
+     },
+     "scores": [
+      {
+       "action": "place:G-ski-jump:prepared",
+       "base": 9,
+       "official": 9,
+       "sameNameCounterfactual": 9,
+       "strictlyBetterCounterfactual": 9
+      },
+      {
+       "action": "challenge:-",
+       "base": -0.5,
+       "official": -0.5,
+       "sameNameCounterfactual": -0.5,
+       "strictlyBetterCounterfactual": -0.5
+      },
+      {
+       "action": "challenge:-",
+       "base": -0.5,
+       "official": -0.5,
+       "sameNameCounterfactual": -0.5,
+       "strictlyBetterCounterfactual": -0.5
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": 0,
+       "strictlyBetterCounterfactual": 0
+      }
+     ]
+    }
+   }
+  },
+  "S5b-set-missile": {
+   "round": 6,
+   "turn": "A",
+   "phase": "normal",
+   "window": "start",
+   "time": 2,
+   "prepared": 0,
+   "hand": [
+    "G-missile-command"
+   ],
+   "candidates": [
+    "place:G-missile-command:prepared",
+    "challenge:-",
+    "challenge:-",
+    "pass"
+   ],
+   "byDifficulty": {
+    "beginner": {
+     "choices": {
+      "place:G-missile-command:prepared": 200
+     },
+     "scores": [
+      {
+       "action": "place:G-missile-command:prepared",
+       "base": 9,
+       "official": 6.5,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "challenge:-",
+       "base": -2,
+       "official": -2,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "challenge:-",
+       "base": -2,
+       "official": -2,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      }
+     ]
+    },
+    "intermediate": {
+     "choices": {
+      "place:G-missile-command:prepared": 200
+     },
+     "scores": [
+      {
+       "action": "place:G-missile-command:prepared",
+       "base": 9,
+       "official": 9,
+       "sameNameCounterfactual": 9,
+       "strictlyBetterCounterfactual": 9
+      },
+      {
+       "action": "challenge:-",
+       "base": -0.5,
+       "official": -0.5,
+       "sameNameCounterfactual": -0.5,
+       "strictlyBetterCounterfactual": -0.5
+      },
+      {
+       "action": "challenge:-",
+       "base": -0.5,
+       "official": -0.5,
+       "sameNameCounterfactual": -0.5,
+       "strictlyBetterCounterfactual": -0.5
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": 0,
+       "strictlyBetterCounterfactual": 0
+      }
+     ]
+    }
+   }
+  },
+  "S5c-set-takoyaki": {
+   "round": 6,
+   "turn": "A",
+   "phase": "normal",
+   "window": "start",
+   "time": 2,
+   "prepared": 0,
+   "hand": [
+    "G-takoyaki-grill"
+   ],
+   "candidates": [
+    "place:G-takoyaki-grill:prepared",
+    "challenge:-",
+    "challenge:-",
+    "pass"
+   ],
+   "byDifficulty": {
+    "beginner": {
+     "choices": {
+      "place:G-takoyaki-grill:prepared": 200
+     },
+     "scores": [
+      {
+       "action": "place:G-takoyaki-grill:prepared",
+       "base": 9,
+       "official": 7.75,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "challenge:-",
+       "base": -2,
+       "official": -2,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "challenge:-",
+       "base": -2,
+       "official": -2,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      }
+     ]
+    },
+    "intermediate": {
+     "choices": {
+      "place:G-takoyaki-grill:prepared": 200
+     },
+     "scores": [
+      {
+       "action": "place:G-takoyaki-grill:prepared",
+       "base": 9,
+       "official": 9,
+       "sameNameCounterfactual": 9,
+       "strictlyBetterCounterfactual": 9
+      },
+      {
+       "action": "challenge:-",
+       "base": -0.5,
+       "official": -0.5,
+       "sameNameCounterfactual": -0.5,
+       "strictlyBetterCounterfactual": -0.5
+      },
+      {
+       "action": "challenge:-",
+       "base": -0.5,
+       "official": -0.5,
+       "sameNameCounterfactual": -0.5,
+       "strictlyBetterCounterfactual": -0.5
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": 0,
+       "strictlyBetterCounterfactual": 0
+      }
+     ]
+    }
+   }
+  },
+  "S5d-set-ski-vs-sugoroku": {
+   "round": 6,
+   "turn": "A",
+   "phase": "normal",
+   "window": "start",
+   "time": 2,
+   "prepared": 0,
+   "hand": [
+    "G-ski-jump",
+    "G-sugoroku-race"
+   ],
+   "candidates": [
+    "place:G-ski-jump:prepared",
+    "challenge:-",
+    "challenge:-",
+    "programPlay:G-sugoroku-race",
+    "pass"
+   ],
+   "byDifficulty": {
+    "beginner": {
+     "choices": {
+      "place:G-ski-jump:prepared": 200
+     },
+     "scores": [
+      {
+       "action": "place:G-ski-jump:prepared",
+       "base": 9,
+       "official": 6.5,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "challenge:-",
+       "base": -2,
+       "official": -2,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "challenge:-",
+       "base": -2,
+       "official": -2,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "programPlay:G-sugoroku-race",
+       "base": 2,
+       "official": 0.75,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      }
+     ]
+    },
+    "intermediate": {
+     "choices": {
+      "place:G-ski-jump:prepared": 200
+     },
+     "scores": [
+      {
+       "action": "place:G-ski-jump:prepared",
+       "base": 9,
+       "official": 7,
+       "sameNameCounterfactual": 7,
+       "strictlyBetterCounterfactual": 9
+      },
+      {
+       "action": "challenge:-",
+       "base": -0.5,
+       "official": -0.5,
+       "sameNameCounterfactual": -0.5,
+       "strictlyBetterCounterfactual": -0.5
+      },
+      {
+       "action": "challenge:-",
+       "base": -0.5,
+       "official": -0.5,
+       "sameNameCounterfactual": -0.5,
+       "strictlyBetterCounterfactual": -0.5
+      },
+      {
+       "action": "programPlay:G-sugoroku-race",
+       "base": 2,
+       "official": -7,
+       "sameNameCounterfactual": -7,
+       "strictlyBetterCounterfactual": -7
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": 0,
+       "strictlyBetterCounterfactual": 0
+      }
+     ]
+    }
+   }
+  },
+  "S6-own-challenge-power-ski-jump": {
+   "round": 6,
+   "turn": "A",
+   "phase": "trigger",
+   "window": "compare",
+   "time": 3,
+   "prepared": 1,
+   "hand": [],
+   "candidates": [
+    "trigger:G-ski-jump:power",
+    "trigger:G-ski-jump:wisdom",
+    "skip:G-ski-jump"
+   ],
+   "byDifficulty": {
+    "beginner": {
+     "choices": {
+      "trigger:G-ski-jump:wisdom": 116,
+      "trigger:G-ski-jump:power": 84
+     },
+     "scores": [
+      {
+       "action": "trigger:G-ski-jump:power",
+       "base": 6,
+       "official": 6,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "trigger:G-ski-jump:wisdom",
+       "base": 6,
+       "official": 6,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "skip:G-ski-jump",
+       "base": -0.1,
+       "official": -0.1,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      }
+     ]
+    },
+    "intermediate": {
+     "choices": {
+      "trigger:G-ski-jump:wisdom": 116,
+      "trigger:G-ski-jump:power": 84
+     },
+     "scores": [
+      {
+       "action": "trigger:G-ski-jump:power",
+       "base": 6,
+       "official": 6,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "trigger:G-ski-jump:wisdom",
+       "base": 6,
+       "official": 6,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "skip:G-ski-jump",
+       "base": -0.1,
+       "official": -0.1,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      }
+     ]
+    }
+   },
+   "variantChoices": {
+    "beginner": {
+     "trigger:wisdom": 116,
+     "trigger:power": 84
+    },
+    "intermediate": {
+     "trigger:wisdom": 116,
+     "trigger:power": 84
+    }
+   }
+  },
+  "S7-opp-challenge-power-street-fight": {
+   "round": 6,
+   "turn": "B",
+   "phase": "response",
+   "window": "compare",
+   "time": 3,
+   "prepared": 0,
+   "hand": [
+    "G-street-fight"
+   ],
+   "candidates": [
+    "programPlay:G-street-fight:パンチ",
+    "programPlay:G-street-fight:ガード",
+    "pass"
+   ],
+   "byDifficulty": {
+    "beginner": {
+     "choices": {
+      "pass": 200
+     },
+     "scores": [
+      {
+       "action": "programPlay:G-street-fight:パンチ",
+       "base": 3.48,
+       "official": 2.23,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "programPlay:G-street-fight:ガード",
+       "base": 3.48,
+       "official": 2.23,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      }
+     ]
+    },
+    "intermediate": {
+     "choices": {
+      "programPlay:G-street-fight:ガード": 116,
+      "programPlay:G-street-fight:パンチ": 84
+     },
+     "scores": [
+      {
+       "action": "programPlay:G-street-fight:パンチ",
+       "base": 3.48,
+       "official": 3.48,
+       "sameNameCounterfactual": 3.48,
+       "strictlyBetterCounterfactual": 3.48
+      },
+      {
+       "action": "programPlay:G-street-fight:ガード",
+       "base": 3.48,
+       "official": 3.48,
+       "sameNameCounterfactual": 3.48,
+       "strictlyBetterCounterfactual": 3.48
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": 0,
+       "strictlyBetterCounterfactual": 0
+      }
+     ]
+    }
+   },
+   "variantChoices": {
+    "beginner": {
+     "pass:-": 200
+    },
+    "intermediate": {
+     "programPlay:ガード": 116,
+     "programPlay:パンチ": 84
+    }
+   }
+  },
+  "S6-own-challenge-wisdom-ski-jump": {
+   "round": 6,
+   "turn": "A",
+   "phase": "trigger",
+   "window": "compare",
+   "time": 3,
+   "prepared": 1,
+   "hand": [],
+   "candidates": [
+    "trigger:G-ski-jump:power",
+    "trigger:G-ski-jump:wisdom",
+    "skip:G-ski-jump"
+   ],
+   "byDifficulty": {
+    "beginner": {
+     "choices": {
+      "trigger:G-ski-jump:wisdom": 116,
+      "trigger:G-ski-jump:power": 84
+     },
+     "scores": [
+      {
+       "action": "trigger:G-ski-jump:power",
+       "base": 6,
+       "official": 6,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "trigger:G-ski-jump:wisdom",
+       "base": 6,
+       "official": 6,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "skip:G-ski-jump",
+       "base": -0.1,
+       "official": -0.1,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      }
+     ]
+    },
+    "intermediate": {
+     "choices": {
+      "trigger:G-ski-jump:wisdom": 116,
+      "trigger:G-ski-jump:power": 84
+     },
+     "scores": [
+      {
+       "action": "trigger:G-ski-jump:power",
+       "base": 6,
+       "official": 6,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "trigger:G-ski-jump:wisdom",
+       "base": 6,
+       "official": 6,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "skip:G-ski-jump",
+       "base": -0.1,
+       "official": -0.1,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      }
+     ]
+    }
+   },
+   "variantChoices": {
+    "beginner": {
+     "trigger:wisdom": 116,
+     "trigger:power": 84
+    },
+    "intermediate": {
+     "trigger:wisdom": 116,
+     "trigger:power": 84
+    }
+   }
+  },
+  "S7-opp-challenge-wisdom-street-fight": {
+   "round": 6,
+   "turn": "B",
+   "phase": "response",
+   "window": "compare",
+   "time": 3,
+   "prepared": 0,
+   "hand": [
+    "G-street-fight"
+   ],
+   "candidates": [
+    "programPlay:G-street-fight:パンチ",
+    "programPlay:G-street-fight:ガード",
+    "pass"
+   ],
+   "byDifficulty": {
+    "beginner": {
+     "choices": {
+      "pass": 200
+     },
+     "scores": [
+      {
+       "action": "programPlay:G-street-fight:パンチ",
+       "base": 3.48,
+       "official": 2.23,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "programPlay:G-street-fight:ガード",
+       "base": 3.48,
+       "official": 2.23,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": null,
+       "strictlyBetterCounterfactual": null
+      }
+     ]
+    },
+    "intermediate": {
+     "choices": {
+      "programPlay:G-street-fight:ガード": 116,
+      "programPlay:G-street-fight:パンチ": 84
+     },
+     "scores": [
+      {
+       "action": "programPlay:G-street-fight:パンチ",
+       "base": 3.48,
+       "official": 3.48,
+       "sameNameCounterfactual": 3.48,
+       "strictlyBetterCounterfactual": 3.48
+      },
+      {
+       "action": "programPlay:G-street-fight:ガード",
+       "base": 3.48,
+       "official": 3.48,
+       "sameNameCounterfactual": 3.48,
+       "strictlyBetterCounterfactual": 3.48
+      },
+      {
+       "action": "pass",
+       "base": 0,
+       "official": 0,
+       "sameNameCounterfactual": 0,
+       "strictlyBetterCounterfactual": 0
+      }
+     ]
+    }
+   },
+   "variantChoices": {
+    "beginner": {
+     "pass:-": 200
+    },
+    "intermediate": {
+     "programPlay:ガード": 116,
+     "programPlay:パンチ": 84
+    }
+   }
+  }
+ }
+}
