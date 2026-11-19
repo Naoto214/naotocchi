@@ -1,0 +1,24 @@
+import {renderCard} from '../v11/render.mjs';
+import {layout} from '../v11/fit.mjs';
+import {chosenName,projectCard,matches} from './model.mjs';
+const $=id=>document.getElementById(id),h=s=>String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;');
+try{
+ const [data,catalog]=await Promise.all(['candidates.json','../v10/data.json'].map(async p=>{const r=await fetch(p);if(!r.ok)throw Error(p+'の取得に失敗しました');return r.json();}));
+ const cards=new Map(catalog.cards.map(c=>[c.id,c])),choices={};let query='',candidate=true;
+ const options=row=>row.options.map(n=>`<option value="${h(n)}" ${n===chosenName(row,choices)?'selected':''}>${h(n)}${n===row.recommended?'（推奨）':''}</option>`).join('');
+ function preview(row){const card=cards.get(row.id),next=projectCard(card,data,{candidate,choices});return `<div class="preview-grid"><div class="preview-panel"><p>現在のカード・詳細</p><div class="card-slot">${renderCard(card,{detail:true})}</div></div><div class="preview-panel"><p>${candidate?'候補':'現行'}・一覧（本文なし）</p><div class="card-slot">${renderCard(next)}</div></div><div class="preview-panel"><p>${candidate?'候補':'現行'}・詳細（効果全文）</p><div class="card-slot">${renderCard(next,{detail:true})}</div></div></div>`;}
+ function render(){const openRows=[...document.querySelectorAll('.review-row details[open]')].map(e=>e.closest('[data-row]').dataset.row);const names=data.names.filter(r=>matches(r,query)),kanji=data.kanji.filter(r=>matches(r,query));
+ $('count').textContent=`名称 ${names.length}/19件・漢字 ${kanji.length}/14件 — ${candidate?'未採用の候補表示':'現行表示'}`;
+ $('name-rows').innerHTML=names.map(r=>{const n=chosenName(r,choices);return `<article class="review-row" data-row="${h(r.id)}"><div class="row-heading"><h3>${h(r.cardName)}</h3><span class="review-id">${h(r.id)}</span><label>統一候補 <select class="candidate-select" data-choice="${h(r.id)}" aria-label="${h(r.cardName)}の名称候補">${options(r)}</select></label>${r.pendingChoice?'<span class="pending">⑥・⑧の最終選択は保留</span>':''}</div><table class="name-table"><thead><tr><th>表示先</th><th>現行</th><th>${candidate?'統一した場合（未採用）':'現行表示'}</th></tr></thead><tbody>${[['本編・進化',r.currentMain],['図鑑',r.currentDex],['カード主名',r.currentCard]].map(([context,old])=>`<tr><td>${context}</td><td>${h(old)}</td><td>${h(candidate?n:old)}${context==='本編・進化'?'になった!':''}</td></tr>`).join('')}</tbody></table><p class="recommendation">${h(r.reason)}</p><details><summary>正式画像とVERSION 11カード面で比較</summary><img class="official-sprite" src="${h(r.officialImage)}" alt="${h(r.cardName)}の現行本編・図鑑画像" loading="lazy">${preview(r)}</details></article>`;}).join('');
+ $('kanji-rows').innerHTML=kanji.map(r=>`<article class="review-row" data-row="${h(r.id)}"><div class="row-heading"><h3>${h(r.original)}</h3><label>表記候補 <select class="candidate-select" data-choice="${h(r.id)}" aria-label="${h(r.original)}の表記候補">${options(r)}</select></label></div><p>${h(r.changeBoundary)}</p><p>本編の対応：${r.mainEntityMatches.map(x=>h(x.id+'：'+x.label)).join('／')||'同一の現行entityなし（カード固有）'}${r.sharedLiveEntity?' — 共有する表示は同時に統一する':''}</p><p>読み候補：${h(r.readingCandidate)}（別データ・未確定）。${h(r.policy)}</p><details><summary>カード面で比較</summary>${preview(r)}</details></article>`).join('');
+ for(const row of document.querySelectorAll('[data-row]'))if(openRows.includes(row.dataset.row))row.querySelector('details').open=true;
+ requestAnimationFrame(()=>layout());
+ }
+ document.addEventListener('change',e=>{if(e.target.dataset.choice){choices[e.target.dataset.choice]=e.target.value;render();}});
+ document.addEventListener('toggle',e=>{if(e.target.tagName==='DETAILS'&&e.target.open)requestAnimationFrame(()=>layout(e.target));},true);
+ $('search').addEventListener('input',e=>{query=e.target.value;render();});$('mode').addEventListener('change',e=>{candidate=e.target.value==='candidate';render();});$('reset').onclick=()=>{for(const k of Object.keys(choices))delete choices[k];render();};
+ $('approved-art').innerHTML=data.approvedArt.map(r=>`<figure><a href="${h(r.url)}"><img src="${h(r.url)}" alt="${h(r.id)} 承認済み原画" loading="lazy"></a><figcaption>${h(r.id)} · 承認済み</figcaption></figure>`).join('');
+ $('design-samples').innerHTML=`<div><p>たまご・一覧</p><div class="card-slot">${renderCard(null,{egg:true,eggData:catalog.egg})}</div></div><div><p>たまご・詳細</p><div class="card-slot">${renderCard(null,{egg:true,detail:true,eggData:catalog.egg})}</div></div><div><p>既存の正式裏面</p><img class="back-image" src="/v8/assets/back.png" alt="正式カード裏面"></div>`;
+ $('impact-list').innerHTML=data.impact.map(r=>`<div class="impact-item"><p>${h(r.finding)}</p><p><strong>正式採用時：</strong>${h(r.action)}</p></div>`).join('');
+ let pending=false;const resize=()=>{if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;layout();});};new ResizeObserver(resize).observe(document.documentElement);document.fonts.ready.then(resize);render();
+}catch(e){$('error').textContent='比較ページを読み込めませんでした：'+e.message;}

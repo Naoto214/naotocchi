@@ -62,5 +62,85 @@
   "docs/life-sugoroku/qa/v3-region-sea.png": {
     "sha256": "79aae94833fc5d0643647a031426679b00dacd63617ca46f1f8a2c909ef44e56",
     "reason": "PR #461のV1〜V3で保存済みの盤面・表示検証証拠。V4仕様に従い過去成果を削除・移動せず原本のまま保持。新規V4の比較画像は本人限定QAファイルへ保存。"
+  },
+  "prototypes/card-game/design-comparison-v10-20261115/qa/cards-v10.jpg": {
+    "sha256": "7e9b7f5146f6384442ccf7aeb8e99423b2b291d434627d0b74dd7540679e5b09",
+    "reason": "PR #551 VERSION 7〜11の既存比較・検証証跡。VERSION 12の本人指示に従い成果を削除せず、原本の正確なハッシュを固定して保存。今後の通常QA出力は.work-outputへ置く。"
+  },
+  "prototypes/card-game/design-comparison-v10-20261115/qa/names.jpg": {
+    "sha256": "c89251a2d61cbaafc4725766e9ad476a1713bc33f7399106c8519f8b838af314",
+    "reason": "PR #551 VERSION 7〜11の既存比較・検証証跡。VERSION 12の本人指示に従い成果を削除せず、原本の正確なハッシュを固定して保存。今後の通常QA出力は.work-outputへ置く。"
+  },
+  "prototypes/card-game/design-comparison-v10-20261115/qa/ui-v10.jpg": {
+    "sha256": "a6f92764f9f88ab120e5ab4bcb2b889b052e3db6343503a3d37c73a761512f5f",
+    "reason": "PR #551 VERSION 7〜11の既存比較・検証証跡。VERSION 12の本人指示に従い成果を削除せず、原本の正確なハッシュを固定して保存。今後の通常QA出力は.work-outputへ置く。"
+  },
+  "prototypes/card-game/design-comparison-v11-20261115/qa/egg-detail.jpg": {
+    "sha256": "973b5893a3b673a3b2d3c996033031df8e1b7954dc313ed094541be8538545c2",
+    "reason": "PR #551 VERSION 7〜11の既存比較・検証証跡。VERSION 12の本人指示に従い成果を削除せず、原本の正確なハッシュを固定して保存。今後の通常QA出力は.work-outputへ置く。"
+  },
+  "prototypes/card-game/design-comparison-v11-20261115/qa/numbers-comparison.jpg": {
+    "sha256": "b1e6938fab21753d2073c09ccb708aa9b767aac6560cb29039260d876cfe80f1",
+    "reason": "PR #551 VERSION 7〜11の既存比較・検証証跡。VERSION 12の本人指示に従い成果を削除せず、原本の正確なハッシュを固定して保存。今後の通常QA出力は.work-outputへ置く。"
+  },
+  "prototypes/card-game/design-comparison-v7-20261115/qa/v7-audit.json.gz": {
+    "sha256": "62d6792bbbab0c04b7a078138eace2ec3243022d67019eec8186c38658ae8846",
+    "reason": "PR #551 VERSION 7〜11の既存比較・検証証跡。VERSION 12の本人指示に従い成果を削除せず、原本の正確なハッシュを固定して保存。今後の通常QA出力は.work-outputへ置く。"
+  },
+  "prototypes/card-game/design-comparison-v7-20261115/qa/v7-comparison.jpg": {
+    "sha256": "fdf336a4bf97f72f3212d3d5c4a8ca1e34eed2a8c0dd47c234fad03874d48818",
+    "reason": "PR #551 VERSION 7〜11の既存比較・検証証跡。VERSION 12の本人指示に従い成果を削除せず、原本の正確なハッシュを固定して保存。今後の通常QA出力は.work-outputへ置く。"
+  },
+  "prototypes/card-game/design-comparison-v7-20261115/qa/v7-cost-audit-320.json.gz": {
+    "sha256": "d4886409c2db30eaef57f2298fcac08d71c42f380bbfd68d48dfab189696852d",
+    "reason": "PR #551 VERSION 7〜11の既存比較・検証証跡。VERSION 12の本人指示に従い成果を削除せず、原本の正確なハッシュを固定して保存。今後の通常QA出力は.work-outputへ置く。"
+  },
+  "prototypes/card-game/design-comparison-v7-20261115/qa/v7-large-audit.json.gz": {
+    "sha256": "c6413814bdfabf2a330659eb84885c87458448cac45449ad4c589b00570c2d75",
+    "reason": "PR #551 VERSION 7〜11の既存比較・検証証跡。VERSION 12の本人指示に従い成果を削除せず、原本の正確なハッシュを固定して保存。今後の通常QA出力は.work-outputへ置く。"
+  },
+  "prototypes/card-game/design-comparison-v7-20261115/qa/v7-mobile-390.jpg": {
+    "sha256": "ae707e3a7dacc1dcc0e9e26c0798948566565523e25702d4e4c21f4dfc7ba54d",
+    "reason": "PR #551 VERSION 7〜11の既存比較・検証証跡。VERSION 12の本人指示に従い成果を削除せず、原本の正確なハッシュを固定して保存。今後の通常QA出力は.work-outputへ置く。"
+  },
+  "prototypes/card-game/design-comparison-v7-20261115/qa/v7-stats.jpg": {
+    "sha256": "4bce914f89dce0fb7a9abb9f30ba4c98d9451e8e51f3b12c7066db990d8f3f80",
+    "reason": "PR #551 VERSION 7〜11の既存比較・検証証跡。VERSION 12の本人指示に従い成果を削除せず、原本の正確なハッシュを固定して保存。今後の通常QA出力は.work-outputへ置く。"
+  },
+  "prototypes/card-game/design-comparison-v8-20261115/qa/card-audit.json.gz": {
+    "sha256": "6a4a52f0c0f863d0bfe1bcde6e3c48836f8c51b9e1c6a3bcd09cf2c8a89c8c96",
+    "reason": "PR #551 VERSION 7〜11の既存比較・検証証跡。VERSION 12の本人指示に従い成果を削除せず、原本の正確なハッシュを固定して保存。今後の通常QA出力は.work-outputへ置く。"
+  },
+  "prototypes/card-game/design-comparison-v8-20261115/qa/comparison.jpg": {
+    "sha256": "df464c2ee318c3ae45a952675e3e4a15aaf50a22689e00bcd373300fa25670fe",
+    "reason": "PR #551 VERSION 7〜11の既存比較・検証証跡。VERSION 12の本人指示に従い成果を削除せず、原本の正確なハッシュを固定して保存。今後の通常QA出力は.work-outputへ置く。"
+  },
+  "prototypes/card-game/design-comparison-v8-20261115/qa/egg-comparison.jpg": {
+    "sha256": "99790cfa7707128f52002df5bd1b4b02ce6044bdd4adb48bd0dd67f4fbb5d248",
+    "reason": "PR #551 VERSION 7〜11の既存比較・検証証跡。VERSION 12の本人指示に従い成果を削除せず、原本の正確なハッシュを固定して保存。今後の通常QA出力は.work-outputへ置く。"
+  },
+  "prototypes/card-game/design-comparison-v8-20261115/qa/large-audit.json.gz": {
+    "sha256": "fd0b340f4cc42d90549e241e713825f07a70a6e1bbe0d521dc56678e3fb50b6a",
+    "reason": "PR #551 VERSION 7〜11の既存比較・検証証跡。VERSION 12の本人指示に従い成果を削除せず、原本の正確なハッシュを固定して保存。今後の通常QA出力は.work-outputへ置く。"
+  },
+  "prototypes/card-game/design-comparison-v8-20261115/qa/palette-390.jpg": {
+    "sha256": "d4b0cc8e3b0e7bb7381a6bd187d3c41b87a3f0f7732c3a25a520c9d3d4b4322f",
+    "reason": "PR #551 VERSION 7〜11の既存比較・検証証跡。VERSION 12の本人指示に従い成果を削除せず、原本の正確なハッシュを固定して保存。今後の通常QA出力は.work-outputへ置く。"
+  },
+  "prototypes/card-game/design-comparison-v9-20261115/qa/all-cards.json.gz": {
+    "sha256": "0500a52936cc63f0b11af67e1efcb14afb99fb13c0b5682583c2abec16174d82",
+    "reason": "PR #551 VERSION 7〜11の既存比較・検証証跡。VERSION 12の本人指示に従い成果を削除せず、原本の正確なハッシュを固定して保存。今後の通常QA出力は.work-outputへ置く。"
+  },
+  "prototypes/card-game/design-comparison-v9-20261115/qa/battle-390.jpg": {
+    "sha256": "2d227f406b4b369007d1ae8280098704c5723352cf9f0b4ac6ea01c74e2cc65c",
+    "reason": "PR #551 VERSION 7〜11の既存比較・検証証跡。VERSION 12の本人指示に従い成果を削除せず、原本の正確なハッシュを固定して保存。今後の通常QA出力は.work-outputへ置く。"
+  },
+  "prototypes/card-game/design-comparison-v9-20261115/qa/collection-390.jpg": {
+    "sha256": "85571af7ee953f26c647a980dec6424b3628758999d1c65eda5a53d17c374a89",
+    "reason": "PR #551 VERSION 7〜11の既存比較・検証証跡。VERSION 12の本人指示に従い成果を削除せず、原本の正確なハッシュを固定して保存。今後の通常QA出力は.work-outputへ置く。"
+  },
+  "prototypes/card-game/design-comparison-v9-20261115/qa/detail-390.jpg": {
+    "sha256": "477b50a31cfea80298b9d85b11e9cab060980b40db9523dcdc1dae6506d690d3",
+    "reason": "PR #551 VERSION 7〜11の既存比較・検証証跡。VERSION 12の本人指示に従い成果を削除せず、原本の正確なハッシュを固定して保存。今後の通常QA出力は.work-outputへ置く。"
   }
 }

@@ -1,0 +1,12 @@
+{
+  "baseline": "9b3f730ef8c92e2ff01ba5122c16bc1886f70ae4",
+  "sha256": {
+    "character-world-master.v1.js": "f883f2b57ac6a4f9a4387bb2c8d81ef54f31a091981078f5496d817e31c76904",
+    "script.js": "c76a10247e70dad9789b8c5b7577b1384bdd8c53c8375f4fe5652355471cb478",
+    "prototypes/card-game/full-catalog.mjs": "b9387a778cc7be99e9e2f7a291a15664d904fd1b8245c781d25fd525fcb0b171",
+    "prototypes/card-game/engine.mjs": "7e220d2dc733df1f20b752a43ac3ba16dff29a85d220ffddcaf9d09c5fc9a261",
+    "prototypes/card-game/rules.mjs": "4ff7a4127e204bc77d607314335d8e06d42cd593a9f3bb07eaf1bfd388e3c7f6",
+    "prototypes/card-game/ui-presentation.mjs": "bcd11117e78fabef2d2f9e51a7f17216a0884a02ceeceff5d15151424f11d056",
+    "tests/home-production-test.cjs": "9370044806ad6b6719c2ce34ddaa124e06fd965fc18cb09cd31648133c788a10"
+  }
+}

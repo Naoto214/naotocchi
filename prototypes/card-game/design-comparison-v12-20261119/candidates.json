@@ -1,0 +1,1657 @@
+{
+  "status": "proposal-only-awaiting-owner-approval",
+  "basePRHead": "9b3f730ef8c92e2ff01ba5122c16bc1886f70ae4",
+  "verifiedMain": "38b4e9d0c8ed4cacdfc1cc6c072a7a9e62e5c053",
+  "names": [
+    {
+      "id": "M-starfish-01",
+      "species": "starfish",
+      "stage": 1,
+      "stageIndex": 0,
+      "dexKey": "starfish:0",
+      "currentMain": "浮遊幼生",
+      "currentDex": "浮遊幼生",
+      "currentCard": "丸いあかちゃん",
+      "cardName": "ヒトデ①",
+      "recommended": "浮かぶあかちゃん",
+      "reason": "承認済みの縦長の幼生は球形ではない。浮遊する幼い姿に合い、専門語より親しみやすい。",
+      "formalChangeApproved": false,
+      "reading": null,
+      "aliases": [
+        "浮遊幼生",
+        "丸いあかちゃん",
+        "浮かぶあかちゃん"
+      ],
+      "officialImage": "/v10/name-assets/starfish-1.png",
+      "options": [
+        "浮かぶあかちゃん",
+        "浮遊幼生",
+        "丸いあかちゃん"
+      ],
+      "pendingChoice": false
+    },
+    {
+      "id": "M-starfish-02",
+      "species": "starfish",
+      "stage": 2,
+      "stageIndex": 1,
+      "dexKey": "starfish:1",
+      "currentMain": "後期浮遊幼生",
+      "currentDex": "後期浮遊幼生",
+      "currentCard": "透けた小さな星",
+      "cardName": "ヒトデ②",
+      "recommended": "透けたあかちゃん",
+      "reason": "承認済みの透明な細長い幼生はまだ星型ではない。③への変化を明確にする。",
+      "formalChangeApproved": false,
+      "reading": null,
+      "aliases": [
+        "後期浮遊幼生",
+        "透けた小さな星",
+        "透けたあかちゃん"
+      ],
+      "officialImage": "/v10/name-assets/starfish-2.png",
+      "options": [
+        "透けたあかちゃん",
+        "後期浮遊幼生",
+        "透けた小さな星"
+      ],
+      "pendingChoice": false
+    },
+    {
+      "id": "M-starfish-03",
+      "species": "starfish",
+      "stage": 3,
+      "stageIndex": 2,
+      "dexKey": "starfish:2",
+      "currentMain": "着底・変態期",
+      "currentDex": "着底・変態期",
+      "currentCard": "色づく小さな星",
+      "cardName": "ヒトデ③",
+      "recommended": "色づく小さな星",
+      "reason": "承認済みの青い幼生部分を残した桃色〜金色の星と、水中に着底する姿に合う。",
+      "formalChangeApproved": false,
+      "reading": null,
+      "aliases": [
+        "着底・変態期",
+        "色づく小さな星"
+      ],
+      "officialImage": "/v10/name-assets/starfish-3.png",
+      "options": [
+        "色づく小さな星",
+        "着底・変態期"
+      ],
+      "pendingChoice": false
+    },
+    {
+      "id": "M-starfish-04",
+      "species": "starfish",
+      "stage": 4,
+      "stageIndex": 3,
+      "dexKey": "starfish:3",
+      "currentMain": "変態後の稚ヒトデ",
+      "currentDex": "変態後の稚ヒトデ",
+      "currentCard": "ふっくらした星",
+      "cardName": "ヒトデ④",
+      "recommended": "ふっくらした星",
+      "reason": "丸みのある桃色の腕を表し、段階の違いが見分けやすい。",
+      "formalChangeApproved": false,
+      "reading": null,
+      "aliases": [
+        "変態後の稚ヒトデ",
+        "ふっくらした星"
+      ],
+      "officialImage": "/v10/name-assets/starfish-4.png",
+      "options": [
+        "ふっくらした星",
+        "変態後の稚ヒトデ"
+      ],
+      "pendingChoice": false
+    },
+    {
+      "id": "M-starfish-05",
+      "species": "starfish",
+      "stage": 5,
+      "stageIndex": 4,
+      "dexKey": "starfish:4",
+      "currentMain": "小型の稚ヒトデ",
+      "currentDex": "小型の稚ヒトデ",
+      "currentCard": "金色の子ヒトデ",
+      "cardName": "ヒトデ⑤",
+      "recommended": "金色の子ヒトデ",
+      "reason": "金色の配色と幼い段階を素直に表す。",
+      "formalChangeApproved": false,
+      "reading": null,
+      "aliases": [
+        "小型の稚ヒトデ",
+        "金色の子ヒトデ"
+      ],
+      "officialImage": "/v10/name-assets/starfish-5.png",
+      "options": [
+        "金色の子ヒトデ",
+        "小型の稚ヒトデ"
+      ],
+      "pendingChoice": false
+    },
+    {
+      "id": "M-starfish-06",
+      "species": "starfish",
+      "stage": 6,
+      "stageIndex": 5,
+      "dexKey": "starfish:5",
+      "currentMain": "若いヒトデ",
+      "currentDex": "若いヒトデ",
+      "currentCard": "ぶつぶつ子ヒトデ",
+      "cardName": "ヒトデ⑥",
+      "recommended": "若いヒトデ",
+      "reason": "現行本編の成長段階名を優先。旧名は丸い突起をよく表すが、見た目だけで年齢を断定しない。両案を保留して比較する。",
+      "formalChangeApproved": false,
+      "reading": null,
+      "aliases": [
+        "若いヒトデ",
+        "ぶつぶつ子ヒトデ"
+      ],
+      "officialImage": "/v10/name-assets/starfish-6.png",
+      "options": [
+        "若いヒトデ",
+        "ぶつぶつ子ヒトデ"
+      ],
+      "pendingChoice": true
+    },
+    {
+      "id": "M-starfish-07",
+      "species": "starfish",
+      "stage": 7,
+      "stageIndex": 6,
+      "dexKey": "starfish:6",
+      "currentMain": "成熟したヒトデ",
+      "currentDex": "成熟したヒトデ",
+      "currentCard": "大人のヒトデ",
+      "cardName": "ヒトデ⑦",
+      "recommended": "大人のヒトデ",
+      "reason": "成熟した段階を平易な呼び方で示す。",
+      "formalChangeApproved": false,
+      "reading": null,
+      "aliases": [
+        "成熟したヒトデ",
+        "大人のヒトデ"
+      ],
+      "officialImage": "/v10/name-assets/starfish-7.png",
+      "options": [
+        "大人のヒトデ",
+        "成熟したヒトデ"
+      ],
+      "pendingChoice": false
+    },
+    {
+      "id": "M-starfish-08",
+      "species": "starfish",
+      "stage": 8,
+      "stageIndex": 7,
+      "dexKey": "starfish:7",
+      "currentMain": "長生きしたヒトデ",
+      "currentDex": "長生きしたヒトデ",
+      "currentCard": "大きなヒトデ",
+      "cardName": "ヒトデ⑧",
+      "recommended": "長生きしたヒトデ",
+      "reason": "現行採用名と最終段階の物語を優先。旧名は存在感を表すが、正規化された画像から実寸は比較できない。両案を保留して比較する。",
+      "formalChangeApproved": false,
+      "reading": null,
+      "aliases": [
+        "長生きしたヒトデ",
+        "大きなヒトデ"
+      ],
+      "officialImage": "/v10/name-assets/starfish-8.png",
+      "options": [
+        "長生きしたヒトデ",
+        "大きなヒトデ"
+      ],
+      "pendingChoice": true
+    },
+    {
+      "id": "M-sakura-01",
+      "species": "sakura",
+      "stage": 1,
+      "stageIndex": 0,
+      "dexKey": "sakura:0",
+      "currentMain": "芽ぶきのサクラ",
+      "currentDex": "芽ぶきのサクラ",
+      "currentCard": "芽ぶきのたね",
+      "cardName": "サクラ①",
+      "recommended": "芽ぶきのたね",
+      "reason": "芽を出した種の姿に一致。タンポポと同名になってもIDと系列補助名で区別する。",
+      "formalChangeApproved": false,
+      "reading": null,
+      "aliases": [
+        "芽ぶきのサクラ",
+        "芽ぶきのたね"
+      ],
+      "officialImage": "/v10/name-assets/sakura-1.png",
+      "options": [
+        "芽ぶきのたね",
+        "芽ぶきのサクラ"
+      ],
+      "pendingChoice": false
+    },
+    {
+      "id": "M-world_tree-01",
+      "species": "world_tree",
+      "stage": 1,
+      "stageIndex": 0,
+      "dexKey": "world_tree:0",
+      "currentMain": "光るたね",
+      "currentDex": "光るたね",
+      "currentCard": "光る芽",
+      "cardName": "世界樹①",
+      "recommended": "光るたね",
+      "reason": "葉や茎のない光る種に一致。②の苗との違いを保つ。",
+      "formalChangeApproved": false,
+      "reading": null,
+      "aliases": [
+        "光るたね",
+        "光る芽"
+      ],
+      "officialImage": "/v10/name-assets/world_tree-1.png",
+      "options": [
+        "光るたね",
+        "光る芽"
+      ],
+      "pendingChoice": false
+    },
+    {
+      "id": "M-world_tree-03",
+      "species": "world_tree",
+      "stage": 3,
+      "stageIndex": 2,
+      "dexKey": "world_tree:2",
+      "currentMain": "若い木",
+      "currentDex": "若い木",
+      "currentCard": "小さな木",
+      "cardName": "世界樹③",
+      "recommended": "若い木",
+      "reason": "現在の正式採用名を優先し、苗から木への成長を表す。",
+      "formalChangeApproved": false,
+      "reading": null,
+      "aliases": [
+        "若い木",
+        "小さな木"
+      ],
+      "officialImage": "/v10/name-assets/world_tree-3.png",
+      "options": [
+        "若い木",
+        "小さな木"
+      ],
+      "pendingChoice": false
+    },
+    {
+      "id": "M-world_tree-07",
+      "species": "world_tree",
+      "stage": 7,
+      "stageIndex": 6,
+      "dexKey": "world_tree:6",
+      "currentMain": "天にのびる木",
+      "currentDex": "天にのびる木",
+      "currentCard": "雲をこえる木",
+      "cardName": "世界樹⑦",
+      "recommended": "天にのびる木",
+      "reason": "正式採用履歴3474e220を尊重し、旧名「雲をこえる木」へ戻さない。",
+      "formalChangeApproved": false,
+      "reading": null,
+      "aliases": [
+        "天にのびる木",
+        "雲をこえる木"
+      ],
+      "officialImage": "/v10/name-assets/world_tree-7.png",
+      "options": [
+        "天にのびる木",
+        "雲をこえる木"
+      ],
+      "pendingChoice": false
+    },
+    {
+      "id": "M-unknown-02",
+      "species": "unknown",
+      "stage": 2,
+      "stageIndex": 1,
+      "dexKey": "unknown:1",
+      "currentMain": "ぷるたま",
+      "currentDex": "ぷるたま",
+      "currentCard": "ぷる",
+      "cardName": "？？？②",
+      "recommended": "ぷるたま",
+      "reason": "本編・図鑑の正式名を優先し、たま系の連続性を保つ。",
+      "formalChangeApproved": false,
+      "reading": null,
+      "aliases": [
+        "ぷるたま",
+        "ぷる"
+      ],
+      "officialImage": "/v10/name-assets/unknown-2.png",
+      "options": [
+        "ぷるたま",
+        "ぷる"
+      ],
+      "pendingChoice": false
+    },
+    {
+      "id": "M-unknown-03",
+      "species": "unknown",
+      "stage": 3,
+      "stageIndex": 2,
+      "dexKey": "unknown:2",
+      "currentMain": "あしつきたま",
+      "currentDex": "あしつきたま",
+      "currentCard": "足？",
+      "cardName": "？？？③",
+      "recommended": "あしつきたま",
+      "reason": "足状の突起が生じた段階を疑問符なしで識別できる。",
+      "formalChangeApproved": false,
+      "reading": null,
+      "aliases": [
+        "あしつきたま",
+        "足？"
+      ],
+      "officialImage": "/v10/name-assets/unknown-3.png",
+      "options": [
+        "あしつきたま",
+        "足？"
+      ],
+      "pendingChoice": false
+    },
+    {
+      "id": "M-unknown-04",
+      "species": "unknown",
+      "stage": 4,
+      "stageIndex": 3,
+      "dexKey": "unknown:3",
+      "currentMain": "ふたつぶたま",
+      "currentDex": "ふたつぶたま",
+      "currentCard": "目？",
+      "cardName": "？？？④",
+      "recommended": "ふたつぶたま",
+      "reason": "頭上の二つのつぶを示す。既にある顔の目と混同しない。",
+      "formalChangeApproved": false,
+      "reading": null,
+      "aliases": [
+        "ふたつぶたま",
+        "目？"
+      ],
+      "officialImage": "/v10/name-assets/unknown-4.png",
+      "options": [
+        "ふたつぶたま",
+        "目？"
+      ],
+      "pendingChoice": false
+    },
+    {
+      "id": "M-unknown-05",
+      "species": "unknown",
+      "stage": 5,
+      "stageIndex": 4,
+      "dexKey": "unknown:4",
+      "currentMain": "はねつきたま",
+      "currentDex": "はねつきたま",
+      "currentCard": "羽？",
+      "cardName": "？？？⑤",
+      "recommended": "はねつきたま",
+      "reason": "羽が生えた段階と、たま系の連続性を保つ。",
+      "formalChangeApproved": false,
+      "reading": null,
+      "aliases": [
+        "はねつきたま",
+        "羽？"
+      ],
+      "officialImage": "/v10/name-assets/unknown-5.png",
+      "options": [
+        "はねつきたま",
+        "羽？"
+      ],
+      "pendingChoice": false
+    },
+    {
+      "id": "M-unknown-06",
+      "species": "unknown",
+      "stage": 6,
+      "stageIndex": 5,
+      "dexKey": "unknown:5",
+      "currentMain": "おおたま",
+      "currentDex": "おおたま",
+      "currentCard": "でっかい？",
+      "cardName": "？？？⑥",
+      "recommended": "おおたま",
+      "reason": "大きくふくらむ段階を現行正式名で表す。",
+      "formalChangeApproved": false,
+      "reading": null,
+      "aliases": [
+        "おおたま",
+        "でっかい？"
+      ],
+      "officialImage": "/v10/name-assets/unknown-6.png",
+      "options": [
+        "おおたま",
+        "でっかい？"
+      ],
+      "pendingChoice": false
+    },
+    {
+      "id": "M-unknown-07",
+      "species": "unknown",
+      "stage": 7,
+      "stageIndex": 6,
+      "dexKey": "unknown:6",
+      "currentMain": "ちいさなたま",
+      "currentDex": "ちいさなたま",
+      "currentCard": "ちっちゃい？",
+      "cardName": "？？？⑦",
+      "recommended": "ちいさなたま",
+      "reason": "⑥から小さくなり点へ戻る流れを現行正式名で表す。",
+      "formalChangeApproved": false,
+      "reading": null,
+      "aliases": [
+        "ちいさなたま",
+        "ちっちゃい？"
+      ],
+      "officialImage": "/v10/name-assets/unknown-7.png",
+      "options": [
+        "ちいさなたま",
+        "ちっちゃい？"
+      ],
+      "pendingChoice": false
+    },
+    {
+      "id": "M-unknown-08",
+      "species": "unknown",
+      "stage": 8,
+      "stageIndex": 7,
+      "dexKey": "unknown:7",
+      "currentMain": "もどりの点",
+      "currentDex": "もどりの点",
+      "currentCard": "点……？",
+      "cardName": "？？？⑧",
+      "recommended": "もどりの点",
+      "reason": "①の点へ戻る循環と現行採用意図を保つ。",
+      "formalChangeApproved": false,
+      "reading": null,
+      "aliases": [
+        "もどりの点",
+        "点……？"
+      ],
+      "officialImage": "/v10/name-assets/unknown-8.png",
+      "options": [
+        "もどりの点",
+        "点……？"
+      ],
+      "pendingChoice": false
+    }
+  ],
+  "kanji": [
+    {
+      "original": "きゅうきゅうばこ",
+      "proposed": "救急箱",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "救急箱",
+          "きゅうきゅうばこ"
+        ]
+      ],
+      "cardIDs": [
+        "I-scarf"
+      ],
+      "cardTypes": [
+        "item"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "item",
+          "id": "scarf",
+          "label": "きゅうきゅうばこ",
+          "source": "item-system.js"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "script.js",
+          "line": 2631,
+          "text": "{ id: 'scarf', label: 'きゅうきゅうばこ', emoji: '🧣' },"
+        },
+        {
+          "path": "item-system.js",
+          "line": 37,
+          "text": "\"label\": \"きゅうきゅうばこ\","
+        }
+      ],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/77-current-items-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "script.js",
+          "line": 2631,
+          "text": "{ id: 'scarf', label: 'きゅうきゅうばこ', emoji: '🧣' },"
+        },
+        {
+          "path": "item-system.js",
+          "line": 37,
+          "text": "\"label\": \"きゅうきゅうばこ\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 1838,
+          "text": "\"name\": \"きゅうきゅうばこ\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 1843,
+          "text": "\"source\": \"77-current-items-card-text-draft.md#I-scarf — きゅうきゅうばこ\","
+        }
+      ],
+      "sharedLiveEntity": true,
+      "changeBoundary": "本編のID対応表示・CARD・参照本文を同時精査",
+      "liveMainBehaviorEvidence": {
+        "path": "script.js",
+        "lines": [
+          11813,
+          11822
+        ],
+        "conclusion": "装備判定はscarf ID。ラベルの漢字化でIDを救急箱などに変えない。"
+      },
+      "id": "I-scarf",
+      "recommended": "救急箱",
+      "reading": null,
+      "readingCandidate": "きゅうきゅうばこ",
+      "formalChangeApproved": false,
+      "aliases": [
+        "きゅうきゅうばこ",
+        "救急箱"
+      ],
+      "policy": "自然な部分漢字化。カード面にルビは付けない。共有する現行entityは本編・図鑑・CARDを同時に扱う。",
+      "options": [
+        "救急箱",
+        "きゅうきゅうばこ"
+      ]
+    },
+    {
+      "original": "きおくのみずうみ",
+      "proposed": "記憶の湖",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "記憶",
+          "きおく"
+        ],
+        "の",
+        [
+          "湖",
+          "みずうみ"
+        ]
+      ],
+      "cardIDs": [
+        "W-memory_lake"
+      ],
+      "cardTypes": [
+        "world"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "region",
+          "id": "memory_lake",
+          "label": "きおくのみずうみ",
+          "source": "character-world-master.v1.js"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 140,
+          "text": "{ id: 'memory_lake', label: 'きおくのみずうみ' },"
+        },
+        {
+          "path": "script.js",
+          "line": 9362,
+          "text": "\"label\": \"きおくのみずうみ\","
+        }
+      ],
+      "cardTextReferences": [
+        "E-special-trip-memory"
+      ],
+      "primaryCardSources": [
+        "docs/card-game/89-world-13-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 140,
+          "text": "{ id: 'memory_lake', label: 'きおくのみずうみ' },"
+        },
+        {
+          "path": "script.js",
+          "line": 9362,
+          "text": "\"label\": \"きおくのみずうみ\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 456,
+          "text": "\"text\": \"自分のセカイが「ほしぞらのていりゅうじょ」か「きおくのみずうみ」で、このターンに手札から名前が異なるセカイに重ねて通常配置したカードである場合に発動できる。1枚引き、自分のそだち+5。\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 6100,
+          "text": "\"name\": \"きおくのみずうみ\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 6105,
+          "text": "\"source\": \"89-world-13-card-text-draft.md#W-memory_lake — きおくのみずうみ\","
+        }
+      ],
+      "sharedLiveEntity": true,
+      "changeBoundary": "本編のID対応表示・CARD・参照本文を同時精査",
+      "id": "W-memory_lake",
+      "recommended": "記憶の湖",
+      "reading": null,
+      "readingCandidate": "きおくのみずうみ",
+      "formalChangeApproved": false,
+      "aliases": [
+        "きおくのみずうみ",
+        "記憶の湖"
+      ],
+      "policy": "自然な部分漢字化。カード面にルビは付けない。共有する現行entityは本編・図鑑・CARDを同時に扱う。",
+      "options": [
+        "記憶の湖",
+        "きおくのみずうみ"
+      ]
+    },
+    {
+      "original": "おおきなびょうき",
+      "proposed": "大きな病気",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "大",
+          "おお"
+        ],
+        "きな",
+        [
+          "病気",
+          "びょうき"
+        ]
+      ],
+      "cardIDs": [
+        "E-big-illness"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [],
+      "matchStatus": "card-only-title-no-exact-main-entity-name-found",
+      "lexicalOccurrences": [],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/91-event-21-card-text-draft.md"
+      ],
+      "impact": "カード固有名。似た本編機能や語句への対応は未確認。自動統一しない。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 265,
+          "text": "\"name\": \"おおきなびょうき\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 270,
+          "text": "\"source\": \"91-event-21-card-text-draft.md#E-big-illness — おおきなびょうき\","
+        }
+      ],
+      "sharedLiveEntity": false,
+      "changeBoundary": "CARDとその参照文のみ。本編の類似機能・似た文章に置換を広げない",
+      "ruleEvidence": {
+        "path": "prototypes/card-game/rules.mjs",
+        "line": 64,
+        "text": "quick('E-big-illness',[stat(-2,-2)],{target:'opponentMain'});",
+        "conclusion": "CARD能力は相手メインの能力値変更として定義。本編isSick等の状態と同じentityとは扱わない。"
+      },
+      "id": "E-big-illness",
+      "recommended": "大きな病気",
+      "reading": null,
+      "readingCandidate": "おおきなびょうき",
+      "formalChangeApproved": false,
+      "aliases": [
+        "おおきなびょうき",
+        "大きな病気"
+      ],
+      "policy": "自然な部分漢字化。カード面にルビは付けない。共有する現行entityは本編・図鑑・CARDを同時に扱う。",
+      "options": [
+        "大きな病気",
+        "おおきなびょうき"
+      ]
+    },
+    {
+      "original": "うんめいのへんしん",
+      "proposed": "運命の変身",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "運命",
+          "うんめい"
+        ],
+        "の",
+        [
+          "変身",
+          "へんしん"
+        ]
+      ],
+      "cardIDs": [
+        "E-fateful-transform"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [],
+      "matchStatus": "card-only-title-no-exact-main-entity-name-found",
+      "lexicalOccurrences": [],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/91-event-21-card-text-draft.md"
+      ],
+      "impact": "カード固有名。似た本編機能や語句への対応は未確認。自動統一しない。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 287,
+          "text": "\"name\": \"うんめいのへんしん\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 292,
+          "text": "\"source\": \"91-event-21-card-text-draft.md#E-fateful-transform — うんめいのへんしん\","
+        }
+      ],
+      "sharedLiveEntity": false,
+      "changeBoundary": "CARDとその参照文のみ。本編の類似機能・似た文章に置換を広げない",
+      "id": "E-fateful-transform",
+      "recommended": "運命の変身",
+      "reading": null,
+      "readingCandidate": "うんめいのへんしん",
+      "formalChangeApproved": false,
+      "aliases": [
+        "うんめいのへんしん",
+        "運命の変身"
+      ],
+      "policy": "自然な部分漢字化。カード面にルビは付けない。共有する現行entityは本編・図鑑・CARDを同時に扱う。",
+      "options": [
+        "運命の変身",
+        "うんめいのへんしん"
+      ]
+    },
+    {
+      "original": "おもいでのしゃしん",
+      "proposed": "思い出の写真",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "思",
+          "おも"
+        ],
+        "い",
+        [
+          "出",
+          "で"
+        ],
+        "の",
+        [
+          "写真",
+          "しゃしん"
+        ]
+      ],
+      "cardIDs": [
+        "E-omoide-photo"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "PR498-candidate-only"
+      ],
+      "mainEntityMatches": [],
+      "matchStatus": "PR498-candidate-only-no-main-entity",
+      "lexicalOccurrences": [],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "prototypes/card-game/variable-life-20261031/integration/481-time-reversal-cards.md"
+      ],
+      "impact": "PR498の追加候補。現行452枚には未採用。本編の同名エンティティなし。候補ソースだけを別管理。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "script.js",
+          "line": 2479,
+          "text": "artAlt: '思い出の写真が揺れる木の下で、白いパーカーのナオトと犬が寄り添う後ろ姿',"
+        }
+      ],
+      "sharedLiveEntity": false,
+      "changeBoundary": "CARDとその参照文のみ。本編の類似機能・似た文章に置換を広げない",
+      "id": "E-omoide-photo",
+      "recommended": "思い出の写真",
+      "reading": null,
+      "readingCandidate": "おもいでのしゃしん",
+      "formalChangeApproved": false,
+      "aliases": [
+        "おもいでのしゃしん",
+        "思い出の写真"
+      ],
+      "policy": "自然な部分漢字化。カード面にルビは付けない。共有する現行entityは本編・図鑑・CARDを同時に扱う。",
+      "options": [
+        "思い出の写真",
+        "おもいでのしゃしん"
+      ]
+    },
+    {
+      "original": "ながいきのひけつ",
+      "proposed": "長生きの秘訣",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "長生",
+          "ながい"
+        ],
+        "きの",
+        [
+          "秘訣",
+          "ひけつ"
+        ]
+      ],
+      "cardIDs": [
+        "E-nagaiki"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "PR498-candidate-only"
+      ],
+      "mainEntityMatches": [],
+      "matchStatus": "PR498-candidate-only-no-main-entity",
+      "lexicalOccurrences": [],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "prototypes/card-game/variable-life-20261031/integration/481-time-reversal-cards.md"
+      ],
+      "impact": "PR498の追加候補。現行452枚には未採用。本編の同名エンティティなし。候補ソースだけを別管理。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [],
+      "sharedLiveEntity": false,
+      "changeBoundary": "CARDとその参照文のみ。本編の類似機能・似た文章に置換を広げない",
+      "id": "E-nagaiki",
+      "recommended": "長生きの秘訣",
+      "reading": null,
+      "readingCandidate": "ながいきのひけつ",
+      "formalChangeApproved": false,
+      "aliases": [
+        "ながいきのひけつ",
+        "長生きの秘訣"
+      ],
+      "policy": "自然な部分漢字化。カード面にルビは付けない。共有する現行entityは本編・図鑑・CARDを同時に扱う。",
+      "options": [
+        "長生きの秘訣",
+        "ながいきのひけつ"
+      ]
+    },
+    {
+      "original": "はやじまい",
+      "proposed": "早じまい",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "早",
+          "はや"
+        ],
+        "じまい"
+      ],
+      "cardIDs": [
+        "E-hayajimai"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "PR498-candidate-only"
+      ],
+      "mainEntityMatches": [],
+      "matchStatus": "PR498-candidate-only-no-main-entity",
+      "lexicalOccurrences": [],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "prototypes/card-game/variable-life-20261031/integration/481-time-reversal-cards.md"
+      ],
+      "impact": "PR498の追加候補。現行452枚には未採用。本編の同名エンティティなし。候補ソースだけを別管理。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [],
+      "sharedLiveEntity": false,
+      "changeBoundary": "CARDとその参照文のみ。本編の類似機能・似た文章に置換を広げない",
+      "id": "E-hayajimai",
+      "recommended": "早じまい",
+      "reading": null,
+      "readingCandidate": "はやじまい",
+      "formalChangeApproved": false,
+      "aliases": [
+        "はやじまい",
+        "早じまい"
+      ],
+      "policy": "自然な部分漢字化。カード面にルビは付けない。共有する現行entityは本編・図鑑・CARDを同時に扱う。",
+      "options": [
+        "早じまい",
+        "はやじまい"
+      ]
+    },
+    {
+      "original": "ほしぞらのていりゅうじょ",
+      "proposed": "星空の停留所",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "星空",
+          "ほしぞら"
+        ],
+        "の",
+        [
+          "停留所",
+          "ていりゅうじょ"
+        ]
+      ],
+      "cardIDs": [
+        "W-star_stop"
+      ],
+      "cardTypes": [
+        "world"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "region",
+          "id": "star_stop",
+          "label": "ほしぞらのていりゅうじょ",
+          "source": "character-world-master.v1.js"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 139,
+          "text": "{ id: 'star_stop', label: 'ほしぞらのていりゅうじょ' },"
+        },
+        {
+          "path": "script.js",
+          "line": 9337,
+          "text": "\"label\": \"ほしぞらのていりゅうじょ\","
+        }
+      ],
+      "cardTextReferences": [
+        "E-special-trip-memory"
+      ],
+      "primaryCardSources": [
+        "docs/card-game/89-world-13-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 139,
+          "text": "{ id: 'star_stop', label: 'ほしぞらのていりゅうじょ' },"
+        },
+        {
+          "path": "script.js",
+          "line": 9337,
+          "text": "\"label\": \"ほしぞらのていりゅうじょ\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 456,
+          "text": "\"text\": \"自分のセカイが「ほしぞらのていりゅうじょ」か「きおくのみずうみ」で、このターンに手札から名前が異なるセカイに重ねて通常配置したカードである場合に発動できる。1枚引き、自分のそだち+5。\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 6150,
+          "text": "\"name\": \"ほしぞらのていりゅうじょ\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 6155,
+          "text": "\"source\": \"89-world-13-card-text-draft.md#W-star_stop — ほしぞらのていりゅうじょ\","
+        }
+      ],
+      "sharedLiveEntity": true,
+      "changeBoundary": "本編のID対応表示・CARD・参照本文を同時精査",
+      "id": "W-star_stop",
+      "recommended": "星空の停留所",
+      "reading": null,
+      "readingCandidate": "ほしぞらのていりゅうじょ",
+      "formalChangeApproved": false,
+      "aliases": [
+        "ほしぞらのていりゅうじょ",
+        "星空の停留所"
+      ],
+      "policy": "自然な部分漢字化。カード面にルビは付けない。共有する現行entityは本編・図鑑・CARDを同時に扱う。",
+      "options": [
+        "星空の停留所",
+        "ほしぞらのていりゅうじょ"
+      ]
+    },
+    {
+      "original": "どこにもつながらないかいだん",
+      "proposed": "どこにもつながらない階段",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        "どこにもつながらない",
+        [
+          "階段",
+          "かいだん"
+        ]
+      ],
+      "cardIDs": [
+        "E-stairs"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "legend-master-metadata",
+          "id": "stairs",
+          "label": "どこにもつながらないかいだん",
+          "source": "character-world-master.v1.js",
+          "actualRuntimeName": "たまごのないところ"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 169,
+          "text": "{ id: 'stairs', label: 'どこにもつながらないかいだん', keepCurrent: true, affinityRegions: ['desert'] },"
+        }
+      ],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/91-event-21-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 169,
+          "text": "{ id: 'stairs', label: 'どこにもつながらないかいだん', keepCurrent: true, affinityRegions: ['desert'] },"
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 463,
+          "text": "\"name\": \"どこにもつながらないかいだん\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 468,
+          "text": "\"source\": \"91-event-21-card-text-draft.md#E-stairs — どこにもつながらないかいだん\","
+        }
+      ],
+      "sharedLiveEntity": false,
+      "changeBoundary": "旧masterメタデータとCARDに限る。本編runtimeの別イベント名は維持し、共有現行名と見なさない",
+      "id": "E-stairs",
+      "recommended": "どこにもつながらない階段",
+      "reading": null,
+      "readingCandidate": "どこにもつながらないかいだん",
+      "formalChangeApproved": false,
+      "aliases": [
+        "どこにもつながらないかいだん",
+        "どこにもつながらない階段"
+      ],
+      "policy": "自然な部分漢字化。カード面にルビは付けない。共有する現行entityは本編・図鑑・CARDを同時に扱う。",
+      "options": [
+        "どこにもつながらない階段",
+        "どこにもつながらないかいだん"
+      ]
+    },
+    {
+      "original": "あやまりにきただいおういか",
+      "proposed": "謝りにきた大王イカ",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "謝",
+          "あやま"
+        ],
+        "りにきた",
+        [
+          "大王",
+          "だいおう"
+        ],
+        "イカ"
+      ],
+      "cardIDs": [
+        "E-boss"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "legend-master-metadata",
+          "id": "boss",
+          "label": "あやまりにきただいおういか",
+          "source": "character-world-master.v1.js",
+          "actualRuntimeName": "むかしのぼく"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 170,
+          "text": "{ id: 'boss', label: 'あやまりにきただいおういか', keepCurrent: true, affinityRegions: ['sea','deepsea'] },"
+        }
+      ],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/91-event-21-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 170,
+          "text": "{ id: 'boss', label: 'あやまりにきただいおういか', keepCurrent: true, affinityRegions: ['sea','deepsea'] },"
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 276,
+          "text": "\"name\": \"あやまりにきただいおういか\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 281,
+          "text": "\"source\": \"91-event-21-card-text-draft.md#E-boss — あやまりにきただいおういか\","
+        }
+      ],
+      "sharedLiveEntity": false,
+      "changeBoundary": "旧masterメタデータとCARDに限る。本編runtimeの別イベント名は維持し、共有現行名と見なさない",
+      "id": "E-boss",
+      "recommended": "謝りにきた大王イカ",
+      "reading": null,
+      "readingCandidate": "あやまりにきただいおういか",
+      "formalChangeApproved": false,
+      "aliases": [
+        "あやまりにきただいおういか",
+        "謝りにきた大王イカ"
+      ],
+      "policy": "自然な部分漢字化。カード面にルビは付けない。共有する現行entityは本編・図鑑・CARDを同時に扱う。",
+      "options": [
+        "謝りにきた大王イカ",
+        "あやまりにきただいおういか"
+      ]
+    },
+    {
+      "original": "むひょうじょうのせきぞう",
+      "proposed": "無表情の石像",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "無表情",
+          "むひょうじょう"
+        ],
+        "の",
+        [
+          "石像",
+          "せきぞう"
+        ]
+      ],
+      "cardIDs": [
+        "C-sekizou"
+      ],
+      "cardTypes": [
+        "companion"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "companion",
+          "id": "sekizou",
+          "label": "むひょうじょうのせきぞう",
+          "source": "character-world-master.v1.js"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 114,
+          "text": "{ id: 'sekizou', label: 'むひょうじょうのせきぞう', asset: 'assets/characters/companions/sekizou.png' },"
+        }
+      ],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/72-companion-26-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 114,
+          "text": "{ id: 'sekizou', label: 'むひょうじょうのせきぞう', asset: 'assets/characters/companions/sekizou.png' },"
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 185,
+          "text": "\"name\": \"むひょうじょうのせきぞう\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 190,
+          "text": "\"source\": \"72-companion-26-card-text-draft.md#C-sekizou — むひょうじょうのせきぞう\","
+        }
+      ],
+      "sharedLiveEntity": true,
+      "changeBoundary": "本編のID対応表示・CARD・参照本文を同時精査",
+      "id": "C-sekizou",
+      "recommended": "無表情の石像",
+      "reading": null,
+      "readingCandidate": "むひょうじょうのせきぞう",
+      "formalChangeApproved": false,
+      "aliases": [
+        "むひょうじょうのせきぞう",
+        "無表情の石像"
+      ],
+      "policy": "自然な部分漢字化。カード面にルビは付けない。共有する現行entityは本編・図鑑・CARDを同時に扱う。",
+      "options": [
+        "無表情の石像",
+        "むひょうじょうのせきぞう"
+      ]
+    },
+    {
+      "original": "あみものがすきなクモさん",
+      "proposed": "編み物が好きなクモさん",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "編",
+          "あ"
+        ],
+        "み",
+        [
+          "物",
+          "もの"
+        ],
+        "が",
+        [
+          "好",
+          "す"
+        ],
+        "きなクモさん"
+      ],
+      "cardIDs": [
+        "P-knitting_spider"
+      ],
+      "cardTypes": [
+        "partner"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "partner",
+          "id": "knitting_spider",
+          "label": "あみものがすきなクモさん",
+          "source": "character-world-master.v1.js"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 162,
+          "text": "{ id: 'knitting_spider', label: 'あみものがすきなクモさん', firstRegion: 'jungle', hook: '巣と糸でいろいろ作る', asset: 'assets/characters/partners/knitting_spider.png' },"
+        }
+      ],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/74-partner-18-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 162,
+          "text": "{ id: 'knitting_spider', label: 'あみものがすきなクモさん', firstRegion: 'jungle', hook: '巣と糸でいろいろ作る', asset: 'assets/characters/partners/knitting_spider.png' },"
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 5940,
+          "text": "\"name\": \"あみものがすきなクモさん\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 5945,
+          "text": "\"source\": \"74-partner-18-card-text-draft.md#P-knitting_spider — あみものがすきなクモさん\","
+        }
+      ],
+      "sharedLiveEntity": true,
+      "changeBoundary": "本編のID対応表示・CARD・参照本文を同時精査",
+      "id": "P-knitting_spider",
+      "recommended": "編み物が好きなクモさん",
+      "reading": null,
+      "readingCandidate": "あみものがすきなクモさん",
+      "formalChangeApproved": false,
+      "aliases": [
+        "あみものがすきなクモさん",
+        "編み物が好きなクモさん"
+      ],
+      "policy": "自然な部分漢字化。カード面にルビは付けない。共有する現行entityは本編・図鑑・CARDを同時に扱う。",
+      "options": [
+        "編み物が好きなクモさん",
+        "あみものがすきなクモさん"
+      ]
+    },
+    {
+      "original": "とくべつなたびのおもいで",
+      "proposed": "特別な旅の思い出",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "特別",
+          "とくべつ"
+        ],
+        "な",
+        [
+          "旅",
+          "たび"
+        ],
+        "の",
+        [
+          "思",
+          "おも"
+        ],
+        "い",
+        [
+          "出",
+          "で"
+        ]
+      ],
+      "cardIDs": [
+        "E-special-trip-memory"
+      ],
+      "cardTypes": [
+        "event"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [],
+      "matchStatus": "card-only-title-no-exact-main-entity-name-found",
+      "lexicalOccurrences": [],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/91-event-21-card-text-draft.md"
+      ],
+      "impact": "カード固有名。似た本編機能や語句への対応は未確認。自動統一しない。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 452,
+          "text": "\"name\": \"とくべつなたびのおもいで\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 457,
+          "text": "\"source\": \"91-event-21-card-text-draft.md#E-special-trip-memory — とくべつなたびのおもいで\","
+        }
+      ],
+      "sharedLiveEntity": false,
+      "changeBoundary": "CARDとその参照文のみ。本編の類似機能・似た文章に置換を広げない",
+      "id": "E-special-trip-memory",
+      "recommended": "特別な旅の思い出",
+      "reading": null,
+      "readingCandidate": "とくべつなたびのおもいで",
+      "formalChangeApproved": false,
+      "aliases": [
+        "とくべつなたびのおもいで",
+        "特別な旅の思い出"
+      ],
+      "policy": "自然な部分漢字化。カード面にルビは付けない。共有する現行entityは本編・図鑑・CARDを同時に扱う。",
+      "options": [
+        "特別な旅の思い出",
+        "とくべつなたびのおもいで"
+      ]
+    },
+    {
+      "original": "じかんにルーズなとけい",
+      "proposed": "時間にルーズな時計",
+      "status": "unapproved-review-only",
+      "readingStatus": "V7 proposed segment readings, not a validated formal reading registry",
+      "proposedReadingSegments": [
+        [
+          "時間",
+          "じかん"
+        ],
+        "にルーズな",
+        [
+          "時計",
+          "とけい"
+        ]
+      ],
+      "cardIDs": [
+        "C-clock"
+      ],
+      "cardTypes": [
+        "companion"
+      ],
+      "sourceScopes": [
+        "official452"
+      ],
+      "mainEntityMatches": [
+        {
+          "kind": "companion",
+          "id": "clock",
+          "label": "じかんにルーズなとけい",
+          "source": "character-world-master.v1.js"
+        }
+      ],
+      "matchStatus": "exact-text-plus-stable-ID-mapping",
+      "lexicalOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 116,
+          "text": "{ id: 'clock', label: 'じかんにルーズなとけい', behavior: '時刻は大まか。小さな出来事の音を覚えていて、誰かを待つ時間は気にしない', asset: 'assets/characters/companions/clock.png' },"
+        }
+      ],
+      "cardTextReferences": [],
+      "primaryCardSources": [
+        "docs/card-game/72-companion-26-card-text-draft.md"
+      ],
+      "impact": "共有名候補。正式名・本編表示・CARD表示・参照文を同じIDで精査。legend-master-metadataは現行イベント表示と別。",
+      "v10Status": "proposal-only-unapproved",
+      "currentOccurrences": [
+        {
+          "path": "character-world-master.v1.js",
+          "line": 116,
+          "text": "{ id: 'clock', label: 'じかんにルーズなとけい', behavior: '時刻は大まか。小さな出来事の音を覚えていて、誰かを待つ時間は気にしない', asset: 'assets/characters/companions/clock.png' },"
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 55,
+          "text": "\"name\": \"じかんにルーズなとけい\","
+        },
+        {
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line": 60,
+          "text": "\"source\": \"72-companion-26-card-text-draft.md#C-clock — じかんにルーズなとけい\","
+        }
+      ],
+      "sharedLiveEntity": true,
+      "changeBoundary": "本編のID対応表示・CARD・参照本文を同時精査",
+      "id": "C-clock",
+      "recommended": "時間にルーズな時計",
+      "reading": null,
+      "readingCandidate": "じかんにルーズなとけい",
+      "formalChangeApproved": false,
+      "aliases": [
+        "じかんにルーズなとけい",
+        "時間にルーズな時計"
+      ],
+      "policy": "自然な部分漢字化。カード面にルビは付けない。共有する現行entityは本編・図鑑・CARDを同時に扱う。",
+      "options": [
+        "時間にルーズな時計",
+        "じかんにルーズなとけい"
+      ]
+    }
+  ],
+  "approvedArt": [
+    {
+      "id": "M-starfish-01",
+      "url": "/v11/starfish/originals/M-starfish-01-background-refined.png",
+      "sha256": "0edbe53840584f4f5771351a83d870f95175eba06fa23acce038cd23d001df7e"
+    },
+    {
+      "id": "M-starfish-02",
+      "url": "/v11/starfish/originals/M-starfish-02-background-refined.png",
+      "sha256": "8ebb8cedc8e44044d06580e1628894db5123f872feffe73c784b29a4f69574b2"
+    },
+    {
+      "id": "M-starfish-03",
+      "url": "/v11/starfish/originals/M-starfish-03-underwater.png",
+      "sha256": "fe5241d984ba09ea4b49a319f70cfc820413288e156bf079de38aa737ffefd5e"
+    }
+  ],
+  "impact": [
+    {
+      "id": "stable-identity",
+      "evidence": [
+        "script.js:454",
+        "script.js:2197",
+        "script.js:14545",
+        "prototypes/card-game/engine.mjs:27",
+        "prototypes/card-game/engine.mjs:115",
+        "prototypes/card-game/engine.mjs:159",
+        "prototypes/card-game/effects.mjs:32"
+      ],
+      "finding": "本編の段階はspeciesLine＋0起算stageIndex、図鑑はspecies:stageIndex。CARDの同名枚数制限・onceNameはcardIdで判定。表示文字列をIDへ昇格させない。 「名前が異なるセカイ」のchangedNameもoldWorldとcardIdの比較で、文字列改名自体は条件を変更しない。",
+      "action": "ID、段階順序、save stageIndex、dex key、cardIdは一切変更しない。"
+    },
+    {
+      "id": "saved-history",
+      "evidence": [
+        "script.js:1830",
+        "script.js:4372",
+        "script.js:7735",
+        "script.js:10013",
+        "script.js:10458",
+        "script.js:10672",
+        "script.js:11262"
+      ],
+      "finding": "lifeLogはtextとして保存され、partner snapshotにもlabelがある。記憶の重複判定・会話には文字列処理がある。現行表示名を変えても過去ログは自動更新されず、過去の文字列を書換えると重複・記憶の意味が変わりうる。",
+      "action": "過去記録は当時の表示を保持。現行lookupとsaved snapshotを分け、必要な互換は明示alias／比較キーで限定対応。"
+    },
+    {
+      "id": "card-replay",
+      "evidence": [
+        "prototypes/card-game/engine.mjs:33",
+        "prototypes/card-game/engine.mjs:232",
+        "prototypes/card-game/engine.mjs:238",
+        "prototypes/card-game/engine.mjs:252"
+      ],
+      "finding": "CARD保存はseed/decks/commands/versionを復元し、ログ名は現在カタログから再生成する。privateLabelはtitle文字列のreplaceAllを用いる。",
+      "action": "ルールIDとコマンド順を固定し旧版replayを確認。表示改名後の再生ログが現在名になる方針を別途明示し、伏せ札の文字列マスキングを回帰確認。"
+    },
+    {
+      "id": "card-text-reference",
+      "evidence": [
+        "prototypes/card-game/full-catalog.mjs:456",
+        "prototypes/card-game/card-title-lines.mjs:1",
+        "prototypes/card-game/ui-presentation.mjs:112"
+      ],
+      "finding": "E-special-trip-memoryの本文が二つの地域名を文字列で参照。非メインの改行表は表示名キーで、main表題はform・補助名はnameの丸数字除去。",
+      "action": "地域名を採用する際は参照本文も同じentity IDから生成し、折返し／検索／accessibilityラベルを点検。formとnameを混同しない。"
+    },
+    {
+      "id": "frozen-design",
+      "evidence": [
+        "docs/card-game/data/design-source-20260917/README.md",
+        "docs/card-game/tools/check-design-data.py:755",
+        "prototypes/card-game/design-comparison-v8-20261115/NAME-AUDIT.md"
+      ],
+      "finding": "現行19差分は固定設計を保持した既存仕様。名称採用は誤字修正でなく設計変更となる。",
+      "action": "この研究は正式名変更なし。将来は元文書、生成カタログ、検証期待値をセットで別変更にする。"
+    },
+    {
+      "id": "asset-name-mismatch",
+      "evidence": [
+        "assets/characters/starfish/01.png",
+        "assets/characters/starfish/02.png",
+        "prototypes/card-game/art-pilot/illustrations/M-starfish-01.png",
+        "prototypes/card-game/art-pilot/illustrations/M-starfish-02.png"
+      ],
+      "finding": "ヒトデ①〜③は9b3f730eで本人承認済みの現行形態へ修正済み。旧V10資料の球形・旧星型との不一致は解消済みとして扱う。",
+      "action": "承認済み原画のハッシュを固定し、再生成しない。①②は星と呼ばず、③で星へ移る名称を比較する。"
+    },
+    {
+      "id": "metadata-not-runtime",
+      "evidence": [
+        "character-world-master.v1.js:169",
+        "character-world-master.v1.js:170",
+        "script.js:10194",
+        "script.js:10199"
+      ],
+      "finding": "stairs/bossは旧masterラベルとCARD名が一致するが、現行本編イベント名はたまごのないところ／むかしのぼく。",
+      "action": "漢字化を現在の本編イベントへ誤って適用しない。"
+    }
+  ],
+  "readingPolicy": "readingは未確認ならnull。読み候補と旧名は検索用別データ。カード面のふりがなはなし。"
+}
