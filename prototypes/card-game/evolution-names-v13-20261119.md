@@ -22,7 +22,11 @@ ID・段階・図鑑の開放条件・保存キー・保存スキーマを変更
 - 名前・生成・凍結原典・カード表示・検索・デッキ・戦績の集中テスト：52件成功。
 - 本体の save-compat / save-integrity / progress-counts / migration：76件成功。古い図鑑開放・過去の達成・未知IDを保持。
 - 452枚すべてのIDと表示以外の全フィールドを変更前mainのダイジェストで保護。過去のdoodle-jump／tier1固定ダイジェストは19件の旧formだけを明示的に復元して照合し、期待hashを変えず成功。
-- カード全体テストの初回は661件中657成功、4失敗。2件は上記旧表示名ダイジェストで修正後に再実行成功。残る2件は疎なcheckoutによる画像欠落（`adopted-color-design` の `art-delivery/small/C-bat-e2a6f384cd5f.webp`、`life-clock` の `assets/dial-art-v4.png`）。この候補で画像・検査条件は変更していません。
+- カード全体テストの初回は661件中657成功、4失敗。2件は上記旧表示名ダイジェストで修正後に再実行成功。残る2件は初回時点の疎なcheckoutによる画像欠落（`adopted-color-design` の `art-delivery/small/C-bat-e2a6f384cd5f.webp`、`life-clock` の `assets/dial-art-v4.png`）。この候補で画像・検査条件は変更していません。
 - `npm test` はsmoke-testで未取得 `assets/characters/author/naoto.png` により停止。それ以前の実行分は成功。全体成功とはしていません。
 - `build_full_catalog.py --check` と `git diff --check` 成功。設計監査に必要な既存gzipとQA文書だけをgitの同一bytesで補完し、原典の改変や検査の緩和はしていません。
 - 実ブラウザ／WebKit／実機iPhoneの文字収まりは未検証。Nodeで全248メインの文字保持・最大2行・行長・既存フォント値を検査。ブラウザ試行は完了せず中止し、結果を検証証拠に使っていません。
+
+## 統合準備の追加検証
+
+既存画像910件を元のバイトで取得し、上記画像欠落の2スイートを再実行して15件成功。Pagesの依存契約は新たなローダーがないことを確認し、変更済みの既存runtime5ファイルの正確なSHA-256だけを更新。検査自体や対象ファイル集合は変更しない。
