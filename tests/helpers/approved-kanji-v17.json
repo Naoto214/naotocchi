@@ -1,0 +1,206 @@
+{
+  "approval": "User VERSION17 name-only specification; no merge or publication permission",
+  "baseline": "c0f960ace83fe427e8231555f5708cfd7ee21c26",
+  "files": {
+    "character-world-master.v1.js": {
+      "baselineBlob": "93fa4d2d548dba753110d7ec847fc6f0793fc735",
+      "approvedBlob": "e97b63217ecdac185a01fc7a2d779ac4182dcc1c",
+      "replacements": [
+        {
+          "before": "    ],\n    rare: [\n      { id: 'punyu', label: 'とけかけのぷにゅ', asset: 'assets/characters/companions/punyu.png' },\n      { id: 'sekizou', label: 'むひょうじょうのせきぞう', asset: 'assets/characters/companions/sekizou.png' },\n      { id: 'chameleon', label: 'サングラスのカメレオン', asset: 'assets/characters/companions/chameleon.png' },\n      { id: 'clock', label: 'じかんにルーズなとけい', behavior: '時刻は大まか。小さな出来事の音を覚えていて、誰かを待つ時間は気にしない', asset: 'assets/characters/companions/clock.png' },\n      { id: 'unicorn', label: 'まよいこんだユニコーン', asset: 'assets/characters/companions/unicorn.png' },\n      { id: 'many_tail_fox', label: 'しっぽのおおいきつね', asset: 'assets/characters/companions/many_tail_fox.png' },\n      { id: 'watcher', label: 'みているなにか', asset: 'assets/characters/companions/watcher.png' },\n",
+          "after": "    ],\n    rare: [\n      { id: 'punyu', label: 'とけかけのぷにゅ', asset: 'assets/characters/companions/punyu.png' },\n      { id: 'sekizou', label: '無表情の石像', asset: 'assets/characters/companions/sekizou.png' },\n      { id: 'chameleon', label: 'サングラスのカメレオン', asset: 'assets/characters/companions/chameleon.png' },\n      { id: 'clock', label: '時間にルーズな時計', behavior: '時刻は大まか。小さな出来事の音を覚えていて、誰かを待つ時間は気にしない', asset: 'assets/characters/companions/clock.png' },\n      { id: 'unicorn', label: 'まよいこんだユニコーン', asset: 'assets/characters/companions/unicorn.png' },\n      { id: 'many_tail_fox', label: 'しっぽのおおいきつね', asset: 'assets/characters/companions/many_tail_fox.png' },\n      { id: 'watcher', label: 'みているなにか', asset: 'assets/characters/companions/watcher.png' },\n"
+        },
+        {
+          "before": "      { id: 'desert', label: 'さばく' },\n    ],\n    special: [\n      { id: 'star_stop', label: 'ほしぞらのていりゅうじょ' },\n      { id: 'memory_lake', label: 'きおくのみずうみ' },\n    ],\n  },\n\n",
+          "after": "      { id: 'desert', label: 'さばく' },\n    ],\n    special: [\n      { id: 'star_stop', label: '星空の停留所' },\n      { id: 'memory_lake', label: '記憶の湖' },\n    ],\n  },\n\n"
+        },
+        {
+          "before": "    { id: 'anglerfish', label: 'ひかるチョウチンアンコウ', firstRegion: 'deepsea', hook: '暗所では積極的、明るい場所では照れる', asset: 'assets/characters/partners/anglerfish.png' },\n    { id: 'swamp_croc', label: 'ぬまのワニさん', firstRegion: 'river_lake', hook: '強面なのに照れ屋', asset: 'assets/characters/partners/swamp_croc.png' },\n    { id: 'gentle_gorilla', label: 'やさしいゴリラ', firstRegion: 'jungle', hook: '怪力なのに繊細', asset: 'assets/characters/partners/gentle_gorilla.png' },\n    { id: 'knitting_spider', label: 'あみものがすきなクモさん', firstRegion: 'jungle', hook: '巣と糸でいろいろ作る', asset: 'assets/characters/partners/knitting_spider.png' },\n    { id: 'desert_scorpion', label: 'さばくのサソリさん', firstRegion: 'desert', hook: '無口だが行動で優しさを示す', asset: 'assets/characters/partners/desert_scorpion.png' },\n    { id: 'oasis_cactus', label: 'オアシスのサボテンさん', firstRegion: 'desert', hook: '抱きしめたいが抱きしめづらい', asset: 'assets/characters/partners/oasis_cactus.png' },\n  ],\n\n  legends: [\n    { id: 'gate', label: 'そらにうかぶとりい', keepCurrent: true, affinityRegions: ['countryside','star_stop'] },\n    { id: 'stairs', label: 'どこにもつながらないかいだん', keepCurrent: true, affinityRegions: ['desert'] },\n    { id: 'boss', label: 'あやまりにきただいおういか', keepCurrent: true, affinityRegions: ['sea','deepsea'] },\n    { id: 'lamp', label: 'よなかのあかり', keepCurrent: true, affinityRegions: ['forest','countryside'] },\n    { id: 'mirror', label: 'としをとったじぶん', keepCurrent: true, affinityRegions: ['river_lake','memory_lake'] },\n  ],\n",
+          "after": "    { id: 'anglerfish', label: 'ひかるチョウチンアンコウ', firstRegion: 'deepsea', hook: '暗所では積極的、明るい場所では照れる', asset: 'assets/characters/partners/anglerfish.png' },\n    { id: 'swamp_croc', label: 'ぬまのワニさん', firstRegion: 'river_lake', hook: '強面なのに照れ屋', asset: 'assets/characters/partners/swamp_croc.png' },\n    { id: 'gentle_gorilla', label: 'やさしいゴリラ', firstRegion: 'jungle', hook: '怪力なのに繊細', asset: 'assets/characters/partners/gentle_gorilla.png' },\n    { id: 'knitting_spider', label: '編み物が好きなクモさん', firstRegion: 'jungle', hook: '巣と糸でいろいろ作る', asset: 'assets/characters/partners/knitting_spider.png' },\n    { id: 'desert_scorpion', label: 'さばくのサソリさん', firstRegion: 'desert', hook: '無口だが行動で優しさを示す', asset: 'assets/characters/partners/desert_scorpion.png' },\n    { id: 'oasis_cactus', label: 'オアシスのサボテンさん', firstRegion: 'desert', hook: '抱きしめたいが抱きしめづらい', asset: 'assets/characters/partners/oasis_cactus.png' },\n  ],\n\n  legends: [\n    { id: 'gate', label: 'そらにうかぶとりい', keepCurrent: true, affinityRegions: ['countryside','star_stop'] },\n    { id: 'stairs', label: 'どこにもつながらない階段', keepCurrent: true, affinityRegions: ['desert'] },\n    { id: 'boss', label: '謝りにきた大王イカ', keepCurrent: true, affinityRegions: ['sea','deepsea'] },\n    { id: 'lamp', label: 'よなかのあかり', keepCurrent: true, affinityRegions: ['forest','countryside'] },\n    { id: 'mirror', label: 'としをとったじぶん', keepCurrent: true, affinityRegions: ['river_lake','memory_lake'] },\n  ],\n"
+        }
+      ]
+    },
+    "home-v6-manifest.mjs": {
+      "baselineBlob": "ce74a9d7e97b76a02b7db9cee6a4f2bc12866727",
+      "approvedBlob": "a2e7764cd5c2f18d81dbc570abb512ef45e56d59",
+      "replacements": [
+        {
+          "before": "for(const [id,name] of Object.entries({\"countryside\": \"いなか\", \"mountain\": \"やま\", \"snow\": \"ゆきぐに\", \"sea\": \"うみ\", \"jungle\": \"ジャングル\", \"desert\": \"さばく\", \"deepsea\": \"しんかい\"})){ART_CANDIDATES.push({id,region:id,name,src:'assets/home-v6-20261029/'+id+'.png',representativeTime:id==='snow'?'dawn':id==='desert'?'evening':id==='deepsea'?'abyss':'day',note:'新背景候補・本人実機QA待ち'});}\nfor(const c of ART_CANDIDATES){c.source=c.src;c.src='assets/home-v6-20261029/runtime/'+c.id+'.webp';}\nexport const WORLD_CANDIDATES=[...previousCandidates.filter(c=>!ART_CANDIDATES.some(n=>n.id===c.id)),...ART_CANDIDATES];\nexport const REGIONS=[['home','おうち'],['forest','もり'],['river_lake','みずべ'],['city','とかい'],['countryside','いなか'],['mountain','やま'],['snow','ゆきぐに'],['sea','うみ'],['jungle','ジャングル'],['desert','さばく'],['deepsea','しんかい'],['star_stop','ほしぞらのていりゅうじょ'],['memory_lake','きおくのみずうみ']];\nexport function selectRecoveredScene(region,candidate){const chosen=ART_SCENES[candidate]||previousScenes[candidate];if(chosen?.region===region)return chosen;return ART_SCENES[{home:'home-interior-c',forest:'forest-waterfall',river_lake:'water',city:'city'}[region]||region];}\n",
+          "after": "for(const [id,name] of Object.entries({\"countryside\": \"いなか\", \"mountain\": \"やま\", \"snow\": \"ゆきぐに\", \"sea\": \"うみ\", \"jungle\": \"ジャングル\", \"desert\": \"さばく\", \"deepsea\": \"しんかい\"})){ART_CANDIDATES.push({id,region:id,name,src:'assets/home-v6-20261029/'+id+'.png',representativeTime:id==='snow'?'dawn':id==='desert'?'evening':id==='deepsea'?'abyss':'day',note:'新背景候補・本人実機QA待ち'});}\nfor(const c of ART_CANDIDATES){c.source=c.src;c.src='assets/home-v6-20261029/runtime/'+c.id+'.webp';}\nexport const WORLD_CANDIDATES=[...previousCandidates.filter(c=>!ART_CANDIDATES.some(n=>n.id===c.id)),...ART_CANDIDATES];\nexport const REGIONS=[['home','おうち'],['forest','もり'],['river_lake','みずべ'],['city','とかい'],['countryside','いなか'],['mountain','やま'],['snow','ゆきぐに'],['sea','うみ'],['jungle','ジャングル'],['desert','さばく'],['deepsea','しんかい'],['star_stop','星空の停留所'],['memory_lake','記憶の湖']];\nexport function selectRecoveredScene(region,candidate){const chosen=ART_SCENES[candidate]||previousScenes[candidate];if(chosen?.region===region)return chosen;return ART_SCENES[{home:'home-interior-c',forest:'forest-waterfall',river_lake:'water',city:'city'}[region]||region];}\n"
+        }
+      ]
+    },
+    "index.html": {
+      "baselineBlob": "9576b8bde7676bd00b809c6f54af26870c150660",
+      "approvedBlob": "c814cba126ffbde1c0261e376d85f5943e73f7ab",
+      "replacements": [
+        {
+          "before": "  <div class=\"season-front-fx\" id=\"seasonFrontFx\"></div>\n  <div class=\"weather-fx\" id=\"weatherFx\"></div>\n\n  <script src=\"character-world-master.v1.js?v=3ed4f3bdd8ca\"></script>\n  <script src=\"cast-bounds.js?v=3844bd70323c\"></script>\n  <script src=\"cast-motion.js?v=1e8d37ab6841\"></script>\n  <script src=\"cast-layout.js?v=0ccb5535b52c\"></script>\n  <script src=\"local-scenery.js?v=92cd3ea0c093\"></script>\n  <script src=\"world-environment.js?v=1bd1b9931d99\"></script>\n  <script src=\"world-scene.js?v=a3c7451223d3\"></script>\n  <script src=\"prop-illustrations.js?v=e924f8be4ed5\"></script>\n  <script src=\"game-symbol-art.js?v=1cfbbe95b2b7\"></script>\n  <script src=\"ui-symbol-art.js?v=dbdce7f8a510\"></script>\n",
+          "after": "  <div class=\"season-front-fx\" id=\"seasonFrontFx\"></div>\n  <div class=\"weather-fx\" id=\"weatherFx\"></div>\n\n  <script src=\"character-world-master.v1.js?v=16d2d5f5e260\"></script>\n  <script src=\"cast-bounds.js?v=3844bd70323c\"></script>\n  <script src=\"cast-motion.js?v=1e8d37ab6841\"></script>\n  <script src=\"cast-layout.js?v=0ccb5535b52c\"></script>\n  <script src=\"local-scenery.js?v=92cd3ea0c093\"></script>\n  <script src=\"world-environment.js?v=1bd1b9931d99\"></script>\n  <script src=\"world-scene.js?v=14bfe8e11218\"></script>\n  <script src=\"prop-illustrations.js?v=e924f8be4ed5\"></script>\n  <script src=\"game-symbol-art.js?v=1cfbbe95b2b7\"></script>\n  <script src=\"ui-symbol-art.js?v=dbdce7f8a510\"></script>\n"
+        },
+        {
+          "before": "  <script src=\"resident-expression.js?v=57387bc14fff\"></script>\n  <script src=\"expression-presentation.js?v=ab8510eb808f\"></script>\n  <script src=\"item-memories.js?v=252a43fba4fc\"></script>\n  <script src=\"item-system.js?v=75cfbf0b3e00\"></script>\n  <script src=\"movie-dialogue.js?v=d02d262c0899\"></script>\n  <script src=\"conversation-director.js?v=2047b0df7bde\"></script>\n  <script src=\"conversation-banter.js?v=8421d4b21aae\"></script>\n",
+          "after": "  <script src=\"resident-expression.js?v=57387bc14fff\"></script>\n  <script src=\"expression-presentation.js?v=ab8510eb808f\"></script>\n  <script src=\"item-memories.js?v=252a43fba4fc\"></script>\n  <script src=\"item-system.js?v=fca72af54c23\"></script>\n  <script src=\"movie-dialogue.js?v=d02d262c0899\"></script>\n  <script src=\"conversation-director.js?v=2047b0df7bde\"></script>\n  <script src=\"conversation-banter.js?v=8421d4b21aae\"></script>\n"
+        },
+        {
+          "before": "  <script src=\"minigame-reactions.js?v=b610f680bcab\"></script>\n  <script src=\"home-production-model.js?v=812fad81ddc5\"></script>\n  <script src=\"home-production-diorama.js?v=ecac051a6f90\"></script>\n  <script src=\"script.js?v=20261114-ebb7bae6\"></script>\n  <script src=\"home-production-touch.js?v=df9353d84de4\"></script>\n<div id=\"individualityDialog\" class=\"individual-dialog hidden\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"individualityTitle\"><div class=\"individual-panel\"><span id=\"individualitySpeaker\" class=\"lane-speaker hidden\"></span><h2 id=\"individualityTitle\"></h2><p id=\"individualityText\"></p><div id=\"individualityChoices\"></div><button type=\"button\" id=\"individualityLater\">あとで</button></div></div>\n<script type=\"module\" src=\"home-dayparts-qa.mjs?v=e19726c2c045\"></script>\n",
+          "after": "  <script src=\"minigame-reactions.js?v=b610f680bcab\"></script>\n  <script src=\"home-production-model.js?v=812fad81ddc5\"></script>\n  <script src=\"home-production-diorama.js?v=ecac051a6f90\"></script>\n  <script src=\"script.js?v=39fb69542930\"></script>\n  <script src=\"home-production-touch.js?v=df9353d84de4\"></script>\n<div id=\"individualityDialog\" class=\"individual-dialog hidden\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"individualityTitle\"><div class=\"individual-panel\"><span id=\"individualitySpeaker\" class=\"lane-speaker hidden\"></span><h2 id=\"individualityTitle\"></h2><p id=\"individualityText\"></p><div id=\"individualityChoices\"></div><button type=\"button\" id=\"individualityLater\">あとで</button></div></div>\n<script type=\"module\" src=\"home-dayparts-qa.mjs?v=e19726c2c045\"></script>\n"
+        }
+      ]
+    },
+    "item-system.js": {
+      "baselineBlob": "b31254d37d2eb8a596fca890f412e4866082aef1",
+      "approvedBlob": "894517fd076c12d509471660b3764fa1f9e6f387",
+      "replacements": [
+        {
+          "before": "    \"guard\": \"ごきげん25以下で100。専用リアクションは維持し、手動のじゃれる回数・実績等を増やさない。\"\n  },\n  \"scarf\": {\n    \"label\": \"きゅうきゅうばこ\",\n    \"price\": 3000,\n    \"kind\": \"equipment\",\n    \"desc\": \"病気になると、自動で治してくれる。\",\n",
+          "after": "    \"guard\": \"ごきげん25以下で100。専用リアクションは維持し、手動のじゃれる回数・実績等を増やさない。\"\n  },\n  \"scarf\": {\n    \"label\": \"救急箱\",\n    \"price\": 3000,\n    \"kind\": \"equipment\",\n    \"desc\": \"病気になると、自動で治してくれる。\",\n"
+        }
+      ]
+    },
+    "prototypes/card-game/build_full_catalog.py": {
+      "baselineBlob": "4dc9a8f5f345c40813f682ca6dda790110157ff2",
+      "approvedBlob": "94a5dfd5c3686350495cc6beca4efef67a67a135",
+      "replacements": [
+        {
+          "before": "              for group in ('normal', 'rare', 'secret') for s in master['playerSpecies'][group]}\n    attribute = {s: a for a, species in ATTRIBUTES.items() for s in species.split()}\n    display_names = json.loads((ROOT / \"tools/evolution-display-names-v13-20261119.json\").read_text())\n    result = {}\n    for group, (kind, count) in GROUPS.items():\n        rows = audit[group]\n",
+          "after": "              for group in ('normal', 'rare', 'secret') for s in master['playerSpecies'][group]}\n    attribute = {s: a for a, species in ATTRIBUTES.items() for s in species.split()}\n    display_names = json.loads((ROOT / \"tools/evolution-display-names-v13-20261119.json\").read_text())\n    kanji_names = json.loads((ROOT / \"tools/kanji-display-names-v17-20261119.json\").read_text())\n    result = {}\n    for group, (kind, count) in GROUPS.items():\n        rows = audit[group]\n"
+        },
+        {
+          "before": "                        f'current master/display name differs: {key}')\n                entry.update(form=display['displayName'], searchAliases=display['searchAliases'],\n                             displayNameVersion=display_names['version'])\n            if kind in ('item', 'play', 'event'):\n                require(row.get('method') in ('すぐつかう', 'しかける', 'みにつける'), f'missing method: {key}')\n                entry['method'] = row['method']\n",
+          "after": "                        f'current master/display name differs: {key}')\n                entry.update(form=display['displayName'], searchAliases=display['searchAliases'],\n                             displayNameVersion=display_names['version'])\n            # Approved display layer; frozen canonical sources remain historical evidence.\n            if key in kanji_names['cards']:\n                display = kanji_names['cards'][key]\n                require(kind != 'main' and entry['name'] in display['legacyNames'],\n                        f'kanji name/ID baseline differs: {key}')\n                entry.update(name=display['displayName'], reading=display['reading'],\n                             searchAliases=display['searchAliases'],\n                             displayNameVersion=kanji_names['version'])\n                if key == 'E-special-trip-memory':\n                    for region in ('W-memory_lake', 'W-star_stop'):\n                        region_name = kanji_names['cards'][region]\n                        old = region_name['legacyNames'][0]\n                        require(old in entry['text'], f'missing travel reference: {region}')\n                        entry['text'] = entry['text'].replace(old, region_name['displayName'])\n            if kind in ('item', 'play', 'event'):\n                require(row.get('method') in ('すぐつかう', 'しかける', 'みにつける'), f'missing method: {key}')\n                entry['method'] = row['method']\n"
+        }
+      ]
+    },
+    "prototypes/card-game/full-catalog.mjs": {
+      "baselineBlob": "b22e585c34dc9b94239f39c2acb6402a3b59b660",
+      "approvedBlob": "306dbe4b1e34e8ab34206860d721075c3d9814be",
+      "replacements": [
+        {
+          "before": "  },\n  \"C-clock\": {\n    \"id\": \"C-clock\",\n    \"name\": \"じかんにルーズなとけい\",\n    \"type\": \"companion\",\n    \"cost\": 0,\n    \"rare\": true,\n    \"text\": \"1ターンに1回。自分のターン終了時、時1を払い、手札1枚を山札の一番下に置いて発動できる。次の自分のターン開始時に2枚引く。\",\n    \"source\": \"72-companion-26-card-text-draft.md#C-clock — じかんにルーズなとけい\",\n    \"source_sha256\": \"941d17e157d77badfaaab0e1f04539eb602c05b893241ff3024ecd7ae0c97117\"\n  },\n  \"C-hamster\": {\n    \"id\": \"C-hamster\",\n",
+          "after": "  },\n  \"C-clock\": {\n    \"id\": \"C-clock\",\n    \"name\": \"時間にルーズな時計\",\n    \"type\": \"companion\",\n    \"cost\": 0,\n    \"rare\": true,\n    \"text\": \"1ターンに1回。自分のターン終了時、時1を払い、手札1枚を山札の一番下に置いて発動できる。次の自分のターン開始時に2枚引く。\",\n    \"source\": \"72-companion-26-card-text-draft.md#C-clock — じかんにルーズなとけい\",\n    \"source_sha256\": \"941d17e157d77badfaaab0e1f04539eb602c05b893241ff3024ecd7ae0c97117\",\n    \"reading\": \"じかんにるーずなとけい\",\n    \"searchAliases\": [\n      \"じかんにルーズなとけい\"\n    ],\n    \"displayNameVersion\": \"kanji-v17\"\n  },\n  \"C-hamster\": {\n    \"id\": \"C-hamster\",\n"
+        },
+        {
+          "before": "  },\n  \"C-sekizou\": {\n    \"id\": \"C-sekizou\",\n    \"name\": \"むひょうじょうのせきぞう\",\n    \"type\": \"companion\",\n    \"cost\": 0,\n    \"rare\": true,\n    \"text\": \"1ラウンドに1回。このカードが相手の効果で手札または山札に移動するなら、代わりにこのカードをなかま枠に残してもよい。\",\n    \"source\": \"72-companion-26-card-text-draft.md#C-sekizou — むひょうじょうのせきぞう\",\n    \"source_sha256\": \"941d17e157d77badfaaab0e1f04539eb602c05b893241ff3024ecd7ae0c97117\"\n  },\n  \"C-sheep\": {\n    \"id\": \"C-sheep\",\n",
+          "after": "  },\n  \"C-sekizou\": {\n    \"id\": \"C-sekizou\",\n    \"name\": \"無表情の石像\",\n    \"type\": \"companion\",\n    \"cost\": 0,\n    \"rare\": true,\n    \"text\": \"1ラウンドに1回。このカードが相手の効果で手札または山札に移動するなら、代わりにこのカードをなかま枠に残してもよい。\",\n    \"source\": \"72-companion-26-card-text-draft.md#C-sekizou — むひょうじょうのせきぞう\",\n    \"source_sha256\": \"941d17e157d77badfaaab0e1f04539eb602c05b893241ff3024ecd7ae0c97117\",\n    \"reading\": \"むひょうじょうのせきぞう\",\n    \"searchAliases\": [\n      \"むひょうじょうのせきぞう\"\n    ],\n    \"displayNameVersion\": \"kanji-v17\"\n  },\n  \"C-sheep\": {\n    \"id\": \"C-sheep\",\n"
+        },
+        {
+          "before": "  },\n  \"E-big-illness\": {\n    \"id\": \"E-big-illness\",\n    \"name\": \"おおきなびょうき\",\n    \"type\": \"event\",\n    \"cost\": 3,\n    \"rare\": false,\n    \"text\": \"相手のメイン1枚を対象として発動できる。このターン終了まで、対象のちから・ちえをそれぞれ2少なくする。\",\n    \"source\": \"91-event-21-card-text-draft.md#E-big-illness — おおきなびょうき\",\n    \"source_sha256\": \"46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8\",\n    \"method\": \"すぐつかう\"\n  },\n  \"E-boss\": {\n    \"id\": \"E-boss\",\n    \"name\": \"あやまりにきただいおういか\",\n    \"type\": \"event\",\n    \"cost\": 2,\n    \"rare\": false,\n    \"text\": \"このターン、自分のメインが勝負に負けていた場合に発動できる。自分が1枚引き、相手が1枚引く。その後、自分のそだち+5。\",\n    \"source\": \"91-event-21-card-text-draft.md#E-boss — あやまりにきただいおういか\",\n    \"source_sha256\": \"46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8\",\n    \"method\": \"すぐつかう\"\n  },\n  \"E-fateful-transform\": {\n    \"id\": \"E-fateful-transform\",\n    \"name\": \"うんめいのへんしん\",\n    \"type\": \"event\",\n    \"cost\": 2,\n    \"rare\": false,\n    \"text\": \"自分のメインがいる場合に発動できる。このターン、自分が次にへんしんするための時を2少なくする。\",\n    \"source\": \"91-event-21-card-text-draft.md#E-fateful-transform — うんめいのへんしん\",\n    \"source_sha256\": \"46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8\",\n    \"method\": \"すぐつかう\"\n  },\n  \"E-final-time\": {\n",
+          "after": "  },\n  \"E-big-illness\": {\n    \"id\": \"E-big-illness\",\n    \"name\": \"大きな病気\",\n    \"type\": \"event\",\n    \"cost\": 3,\n    \"rare\": false,\n    \"text\": \"相手のメイン1枚を対象として発動できる。このターン終了まで、対象のちから・ちえをそれぞれ2少なくする。\",\n    \"source\": \"91-event-21-card-text-draft.md#E-big-illness — おおきなびょうき\",\n    \"source_sha256\": \"46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8\",\n    \"reading\": \"おおきなびょうき\",\n    \"searchAliases\": [\n      \"おおきなびょうき\"\n    ],\n    \"displayNameVersion\": \"kanji-v17\",\n    \"method\": \"すぐつかう\"\n  },\n  \"E-boss\": {\n    \"id\": \"E-boss\",\n    \"name\": \"謝りにきた大王イカ\",\n    \"type\": \"event\",\n    \"cost\": 2,\n    \"rare\": false,\n    \"text\": \"このターン、自分のメインが勝負に負けていた場合に発動できる。自分が1枚引き、相手が1枚引く。その後、自分のそだち+5。\",\n    \"source\": \"91-event-21-card-text-draft.md#E-boss — あやまりにきただいおういか\",\n    \"source_sha256\": \"46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8\",\n    \"reading\": \"あやまりにきただいおういか\",\n    \"searchAliases\": [\n      \"あやまりにきただいおういか\"\n    ],\n    \"displayNameVersion\": \"kanji-v17\",\n    \"method\": \"すぐつかう\"\n  },\n  \"E-fateful-transform\": {\n    \"id\": \"E-fateful-transform\",\n    \"name\": \"運命の変身\",\n    \"type\": \"event\",\n    \"cost\": 2,\n    \"rare\": false,\n    \"text\": \"自分のメインがいる場合に発動できる。このターン、自分が次にへんしんするための時を2少なくする。\",\n    \"source\": \"91-event-21-card-text-draft.md#E-fateful-transform — うんめいのへんしん\",\n    \"source_sha256\": \"46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8\",\n    \"reading\": \"うんめいのへんしん\",\n    \"searchAliases\": [\n      \"うんめいのへんしん\"\n    ],\n    \"displayNameVersion\": \"kanji-v17\",\n    \"method\": \"すぐつかう\"\n  },\n  \"E-final-time\": {\n"
+        },
+        {
+          "before": "  },\n  \"E-special-trip-memory\": {\n    \"id\": \"E-special-trip-memory\",\n    \"name\": \"とくべつなたびのおもいで\",\n    \"type\": \"event\",\n    \"cost\": 2,\n    \"rare\": false,\n    \"text\": \"自分のセカイが「ほしぞらのていりゅうじょ」か「きおくのみずうみ」で、このターンに手札から名前が異なるセカイに重ねて通常配置したカードである場合に発動できる。1枚引き、自分のそだち+5。\",\n    \"source\": \"91-event-21-card-text-draft.md#E-special-trip-memory — とくべつなたびのおもいで\",\n    \"source_sha256\": \"46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8\",\n    \"method\": \"すぐつかう\"\n  },\n  \"E-stairs\": {\n    \"id\": \"E-stairs\",\n    \"name\": \"どこにもつながらないかいだん\",\n    \"type\": \"event\",\n    \"cost\": 1,\n    \"rare\": false,\n    \"text\": \"山札上3枚を見て、好きな順で山札の一番下に置く。次の自分のターン開始時、1枚引く。\",\n    \"source\": \"91-event-21-card-text-draft.md#E-stairs — どこにもつながらないかいだん\",\n    \"source_sha256\": \"46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8\",\n    \"method\": \"すぐつかう\"\n  },\n  \"E-sudden-trip\": {\n",
+          "after": "  },\n  \"E-special-trip-memory\": {\n    \"id\": \"E-special-trip-memory\",\n    \"name\": \"特別な旅の思い出\",\n    \"type\": \"event\",\n    \"cost\": 2,\n    \"rare\": false,\n    \"text\": \"自分のセカイが「星空の停留所」か「記憶の湖」で、このターンに手札から名前が異なるセカイに重ねて通常配置したカードである場合に発動できる。1枚引き、自分のそだち+5。\",\n    \"source\": \"91-event-21-card-text-draft.md#E-special-trip-memory — とくべつなたびのおもいで\",\n    \"source_sha256\": \"46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8\",\n    \"reading\": \"とくべつなたびのおもいで\",\n    \"searchAliases\": [\n      \"とくべつなたびのおもいで\"\n    ],\n    \"displayNameVersion\": \"kanji-v17\",\n    \"method\": \"すぐつかう\"\n  },\n  \"E-stairs\": {\n    \"id\": \"E-stairs\",\n    \"name\": \"どこにもつながらない階段\",\n    \"type\": \"event\",\n    \"cost\": 1,\n    \"rare\": false,\n    \"text\": \"山札上3枚を見て、好きな順で山札の一番下に置く。次の自分のターン開始時、1枚引く。\",\n    \"source\": \"91-event-21-card-text-draft.md#E-stairs — どこにもつながらないかいだん\",\n    \"source_sha256\": \"46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8\",\n    \"reading\": \"どこにもつながらないかいだん\",\n    \"searchAliases\": [\n      \"どこにもつながらないかいだん\"\n    ],\n    \"displayNameVersion\": \"kanji-v17\",\n    \"method\": \"すぐつかう\"\n  },\n  \"E-sudden-trip\": {\n"
+        },
+        {
+          "before": "  },\n  \"I-scarf\": {\n    \"id\": \"I-scarf\",\n    \"name\": \"きゅうきゅうばこ\",\n    \"type\": \"item\",\n    \"cost\": 2,\n    \"rare\": false,\n    \"text\": \"メインにみにつける。1ラウンドに1回。このカードをみにつけているメインのちからかちえが相手の効果で下がった時、そのメインを対象として発動できる。このターン、対象のちからかちえを1つ選び+2する。\",\n    \"source\": \"77-current-items-card-text-draft.md#I-scarf — きゅうきゅうばこ\",\n    \"source_sha256\": \"ec0a630c5616f6a50ca97afcebaab22fe9de13fe5e3789552d4e7d7ee93a8a02\",\n    \"method\": \"みにつける\"\n  },\n  \"I-sleepboost1\": {\n",
+          "after": "  },\n  \"I-scarf\": {\n    \"id\": \"I-scarf\",\n    \"name\": \"救急箱\",\n    \"type\": \"item\",\n    \"cost\": 2,\n    \"rare\": false,\n    \"text\": \"メインにみにつける。1ラウンドに1回。このカードをみにつけているメインのちからかちえが相手の効果で下がった時、そのメインを対象として発動できる。このターン、対象のちからかちえを1つ選び+2する。\",\n    \"source\": \"77-current-items-card-text-draft.md#I-scarf — きゅうきゅうばこ\",\n    \"source_sha256\": \"ec0a630c5616f6a50ca97afcebaab22fe9de13fe5e3789552d4e7d7ee93a8a02\",\n    \"reading\": \"きゅうきゅうばこ\",\n    \"searchAliases\": [\n      \"きゅうきゅうばこ\"\n    ],\n    \"displayNameVersion\": \"kanji-v17\",\n    \"method\": \"みにつける\"\n  },\n  \"I-sleepboost1\": {\n"
+        },
+        {
+          "before": "  },\n  \"P-knitting_spider\": {\n    \"id\": \"P-knitting_spider\",\n    \"name\": \"あみものがすきなクモさん\",\n    \"type\": \"partner\",\n    \"cost\": 0,\n    \"rare\": false,\n    \"text\": \"1ラウンドに1回。自分の交際段階が進んだ時、発動できる。このラウンド、自分が次に「みにつける」か「しかける」でアクションカードをプレイするための時を1少なくする。\",\n    \"source\": \"74-partner-18-card-text-draft.md#P-knitting_spider — あみものがすきなクモさん\",\n    \"source_sha256\": \"75531bf3df58296b914d3e897e3c4bf550d17584c903a5b7a6390f1b4548341d\"\n  },\n  \"P-oasis_cactus\": {\n    \"id\": \"P-oasis_cactus\",\n",
+          "after": "  },\n  \"P-knitting_spider\": {\n    \"id\": \"P-knitting_spider\",\n    \"name\": \"編み物が好きなクモさん\",\n    \"type\": \"partner\",\n    \"cost\": 0,\n    \"rare\": false,\n    \"text\": \"1ラウンドに1回。自分の交際段階が進んだ時、発動できる。このラウンド、自分が次に「みにつける」か「しかける」でアクションカードをプレイするための時を1少なくする。\",\n    \"source\": \"74-partner-18-card-text-draft.md#P-knitting_spider — あみものがすきなクモさん\",\n    \"source_sha256\": \"75531bf3df58296b914d3e897e3c4bf550d17584c903a5b7a6390f1b4548341d\",\n    \"reading\": \"あみものがすきなくもさん\",\n    \"searchAliases\": [\n      \"あみものがすきなクモさん\"\n    ],\n    \"displayNameVersion\": \"kanji-v17\"\n  },\n  \"P-oasis_cactus\": {\n    \"id\": \"P-oasis_cactus\",\n"
+        },
+        {
+          "before": "  },\n  \"W-memory_lake\": {\n    \"id\": \"W-memory_lake\",\n    \"name\": \"きおくのみずうみ\",\n    \"type\": \"world\",\n    \"cost\": 3,\n    \"rare\": false,\n    \"text\": \"1ターンに1回。自分のターンに、自分の捨て札のメイン以外のカード1枚を対象として発動できる。そのカードを山札の一番下に置く。置いたなら、山札上1枚を見て、一番上か一番下に置く。\",\n    \"source\": \"89-world-13-card-text-draft.md#W-memory_lake — きおくのみずうみ\",\n    \"source_sha256\": \"19babfc75a43ed494a10d7be3a78f7586e1319ffc4314853689781ac74dc8269\"\n  },\n  \"W-mountain\": {\n    \"id\": \"W-mountain\",\n",
+          "after": "  },\n  \"W-memory_lake\": {\n    \"id\": \"W-memory_lake\",\n    \"name\": \"記憶の湖\",\n    \"type\": \"world\",\n    \"cost\": 3,\n    \"rare\": false,\n    \"text\": \"1ターンに1回。自分のターンに、自分の捨て札のメイン以外のカード1枚を対象として発動できる。そのカードを山札の一番下に置く。置いたなら、山札上1枚を見て、一番上か一番下に置く。\",\n    \"source\": \"89-world-13-card-text-draft.md#W-memory_lake — きおくのみずうみ\",\n    \"source_sha256\": \"19babfc75a43ed494a10d7be3a78f7586e1319ffc4314853689781ac74dc8269\",\n    \"reading\": \"きおくのみずうみ\",\n    \"searchAliases\": [\n      \"きおくのみずうみ\"\n    ],\n    \"displayNameVersion\": \"kanji-v17\"\n  },\n  \"W-mountain\": {\n    \"id\": \"W-mountain\",\n"
+        },
+        {
+          "before": "  },\n  \"W-star_stop\": {\n    \"id\": \"W-star_stop\",\n    \"name\": \"ほしぞらのていりゅうじょ\",\n    \"type\": \"world\",\n    \"cost\": 3,\n    \"rare\": false,\n    \"text\": \"1ターンに1回。自分のターン終了時、このターン自分がときおくりもへんしんもしていない場合、手札1枚を山札の一番下に置いて発動できる。次の自分ターン開始時、山札上3枚を見て、その中の2枚までを手札に加える。残りを好きな順で山札下へ置く。\",\n    \"source\": \"89-world-13-card-text-draft.md#W-star_stop — ほしぞらのていりゅうじょ\",\n    \"source_sha256\": \"19babfc75a43ed494a10d7be3a78f7586e1319ffc4314853689781ac74dc8269\"\n  }\n};\n",
+          "after": "  },\n  \"W-star_stop\": {\n    \"id\": \"W-star_stop\",\n    \"name\": \"星空の停留所\",\n    \"type\": \"world\",\n    \"cost\": 3,\n    \"rare\": false,\n    \"text\": \"1ターンに1回。自分のターン終了時、このターン自分がときおくりもへんしんもしていない場合、手札1枚を山札の一番下に置いて発動できる。次の自分ターン開始時、山札上3枚を見て、その中の2枚までを手札に加える。残りを好きな順で山札下へ置く。\",\n    \"source\": \"89-world-13-card-text-draft.md#W-star_stop — ほしぞらのていりゅうじょ\",\n    \"source_sha256\": \"19babfc75a43ed494a10d7be3a78f7586e1319ffc4314853689781ac74dc8269\",\n    \"reading\": \"ほしぞらのていりゅうじょ\",\n    \"searchAliases\": [\n      \"ほしぞらのていりゅうじょ\"\n    ],\n    \"displayNameVersion\": \"kanji-v17\"\n  }\n};\n"
+        }
+      ]
+    },
+    "prototypes/card-game/tests/catalog.test.mjs": {
+      "baselineBlob": "41a3610307e7d3969c67c8218699c8934ff2acbc",
+      "approvedBlob": "8cf2a976abf0d9cefb426352b928e221cab444d4",
+      "replacements": [
+        {
+          "before": "    const source = raw.toString();\n    assert.equal(createHash('sha256').update(raw).digest('hex'), card.source_sha256, card.id);\n    assert.ok(source.split('\\n').some(line => /^#{1,3} /.test(line) && line.replace(/^#{1,3} /, '') === anchor), card.id);\n    assert.ok(source.includes(card.text) || (card.text === '能力なし。' && source.includes('能力なし')), card.id);\n  }\n});\n\n",
+          "after": "    const source = raw.toString();\n    assert.equal(createHash('sha256').update(raw).digest('hex'), card.source_sha256, card.id);\n    assert.ok(source.split('\\n').some(line => /^#{1,3} /.test(line) && line.replace(/^#{1,3} /, '') === anchor), card.id);\n    // The approved travel wording changes only its two region display names.\n    const text = card.id === 'E-special-trip-memory' ? card.text.replace('記憶の湖', 'きおくのみずうみ').replace('星空の停留所', 'ほしぞらのていりゅうじょ') : card.text;\n    assert.ok(source.includes(text) || (text === '能力なし。' && source.includes('能力なし')), card.id);\n  }\n});\n\n"
+        }
+      ]
+    },
+    "script.js": {
+      "baselineBlob": "5d3a6367c162059e187e9e2af24866957a7d8a22",
+      "approvedBlob": "3f440d831360e43d89204379f3e12f70797d0e64",
+      "replacements": [
+        {
+          "before": "    { id: 'sleepboost1', label: 'ふかふかまくら', emoji: '🛏️' },\n    { id: 'bowtie', label: 'おべんとうばこ', emoji: '🎗️' },\n    { id: 'ribbon', label: 'おもちゃばこ', emoji: '🎀' },\n    { id: 'scarf', label: 'きゅうきゅうばこ', emoji: '🧣' },\n    { id: 'travel1', label: 'リュックサック', emoji: '🎒' },\n    { id: 'partner1', label: 'らぶれたー', emoji: '💌' },\n    { id: 'bond1', label: 'おともだちバッジ', emoji: '🐾' },\n",
+          "after": "    { id: 'sleepboost1', label: 'ふかふかまくら', emoji: '🛏️' },\n    { id: 'bowtie', label: 'おべんとうばこ', emoji: '🎗️' },\n    { id: 'ribbon', label: 'おもちゃばこ', emoji: '🎀' },\n    { id: 'scarf', label: '救急箱', emoji: '🧣' },\n    { id: 'travel1', label: 'リュックサック', emoji: '🎒' },\n    { id: 'partner1', label: 'らぶれたー', emoji: '💌' },\n    { id: 'bond1', label: 'おともだちバッジ', emoji: '🐾' },\n"
+        },
+        {
+          "before": "  const SPECIAL_REGIONS = [\n    {\n      \"id\": \"star_stop\",\n      \"label\": \"ほしぞらのていりゅうじょ\",\n      \"emoji\": \"🌌\",\n      \"special\": true,\n      \"decor\": [\n",
+          "after": "  const SPECIAL_REGIONS = [\n    {\n      \"id\": \"star_stop\",\n      \"label\": \"星空の停留所\",\n      \"emoji\": \"🌌\",\n      \"special\": true,\n      \"decor\": [\n"
+        },
+        {
+          "before": "    },\n    {\n      \"id\": \"memory_lake\",\n      \"label\": \"きおくのみずうみ\",\n      \"emoji\": \"🫧\",\n      \"special\": true,\n      \"decor\": [\n",
+          "after": "    },\n    {\n      \"id\": \"memory_lake\",\n      \"label\": \"記憶の湖\",\n      \"emoji\": \"🫧\",\n      \"special\": true,\n      \"decor\": [\n"
+        }
+      ]
+    },
+    "world-scene.js": {
+      "baselineBlob": "b286c663f06a089c5d9f8fbc1004012bc2da6095",
+      "approvedBlob": "bad1fbf333d2320a62c723a7f4b1600ec7dc8a2d",
+      "replacements": [
+        {
+          "before": "    river_lake:{name:'みずべ',habitat:'shore',climate:'temperate',foliage:'dock',accent:'#376d94',base:'#46799b',asset:'river-lake-v2',scale:1.03,water:{x:76,y:30}},\n    jungle:{name:'ジャングル',habitat:'land',climate:'tropical',foliage:'jungle',accent:'#257462',base:'#235544',asset:'jungle-v2',scale:1.12},\n    desert:{name:'さばく',habitat:'land',climate:'arid',foliage:'none',accent:'#825a3d',base:'#bb8654'},\n    star_stop:{name:'ほしぞらのていりゅうじょ',habitat:'sky',climate:'cosmic',foliage:'none',accent:'#64527e',base:'#251e4e'},\n    memory_lake:{name:'きおくのみずうみ',habitat:'shore',climate:'temperate',foliage:'willow',accent:'#565786',base:'#53577a',scale:1.4,water:{x:78,y:27},seasonalAssets:{winter:'memory_lake_winter'}},\n  };\n  // Municipality profiles are presentation variants, never extra game regions.\n  const LOCAL_SCENES = {\n",
+          "after": "    river_lake:{name:'みずべ',habitat:'shore',climate:'temperate',foliage:'dock',accent:'#376d94',base:'#46799b',asset:'river-lake-v2',scale:1.03,water:{x:76,y:30}},\n    jungle:{name:'ジャングル',habitat:'land',climate:'tropical',foliage:'jungle',accent:'#257462',base:'#235544',asset:'jungle-v2',scale:1.12},\n    desert:{name:'さばく',habitat:'land',climate:'arid',foliage:'none',accent:'#825a3d',base:'#bb8654'},\n    star_stop:{name:'星空の停留所',habitat:'sky',climate:'cosmic',foliage:'none',accent:'#64527e',base:'#251e4e'},\n    memory_lake:{name:'記憶の湖',habitat:'shore',climate:'temperate',foliage:'willow',accent:'#565786',base:'#53577a',scale:1.4,water:{x:78,y:27},seasonalAssets:{winter:'memory_lake_winter'}},\n  };\n  // Municipality profiles are presentation variants, never extra game regions.\n  const LOCAL_SCENES = {\n"
+        }
+      ]
+    },
+    "tools/kanji-display-names-v17-20261119.json": {
+      "baselineBlob": null,
+      "approvedBlob": "faf14eb4887dc564a8bfb00b2587c6663c551387",
+      "replacements": []
+    },
+    "prototypes/card-game/tests/kanji-names.test.mjs": {
+      "baselineBlob": null,
+      "approvedBlob": "63814da05b36a17258b8235b50658cf86a0b8cba",
+      "replacements": []
+    },
+    "prototypes/card-game/tests/fixtures/kanji-old-replays.json": {
+      "baselineBlob": null,
+      "approvedBlob": "20da407979371080cd9376dbeab6ffb4b68ee80c",
+      "replacements": []
+    },
+    "prototypes/card-game/tests/card-name-display.test.mjs": {
+      "baselineBlob": "057887ccc674c1d2d3a1a6e37b0303b1b47f2a12",
+      "approvedBlob": "490b10153b424f2b6cc2fa4a45786f2a3e2c76f1",
+      "replacements": [
+        {
+          "before": "test('全452枚：正式カード名は変えず、改行文字を持たない。改行表は実在する名前だけ',()=>{\n assert.equal(Object.keys(CARDS).length,452);\n for(const c of Object.values(CARDS)){assert.equal(c.name,CATALOG[c.id].name,c.id);assert.doesNotMatch(c.name,/[\\n|]/,c.id);}\n const names=new Set(nonMain.map(c=>c.name));\n for(const [name,lines] of TITLE_BREAKS){assert.ok(names.has(name),name);assert.equal(lines.length,2,name);assert.equal(lines.join(''),name);}\n});\n\n",
+          "after": "test('全452枚：正式カード名は変えず、改行文字を持たない。改行表は実在する名前だけ',()=>{\n assert.equal(Object.keys(CARDS).length,452);\n for(const c of Object.values(CARDS)){assert.equal(c.name,CATALOG[c.id].name,c.id);assert.doesNotMatch(c.name,/[\\n|]/,c.id);}\n const names=new Set(nonMain.flatMap(c=>[c.name,...(c.searchAliases??[])]));\n for(const [name,lines] of TITLE_BREAKS){assert.ok(names.has(name),name);assert.equal(lines.length,2,name);assert.equal(lines.join(''),name);}\n});\n\n"
+        }
+      ]
+    },
+    "prototypes/card-game/tests/evolution-names.test.mjs": {
+      "baselineBlob": "32ce641494ad5346c436ae0ffc1ce40da782b62f",
+      "approvedBlob": "5d76938bf8f9ea37cbc3d8d04775424a759d9f7b",
+      "replacements": [
+        {
+          "before": "});\ntest('452 IDs・能力・数値・原典・正式名を保持する',()=>{\n const baseline=JSON.parse(fs.readFileSync(new URL('./fixtures/evolution-names-baseline.json',import.meta.url)));\n const actual=Object.fromEntries(Object.entries(CATALOG).map(([id,card])=>{const c={...card};if(expected[id]){delete c.form;delete c.searchAliases;delete c.displayNameVersion;}return [id,c];}));\n assert.deepEqual(Object.keys(actual),baseline.ids);\n assert.equal(createHash('sha256').update(JSON.stringify(actual)).digest('hex'),baseline.sha256);\n});\n",
+          "after": "});\ntest('452 IDs・能力・数値・原典・正式名を保持する',()=>{\n const baseline=JSON.parse(fs.readFileSync(new URL('./fixtures/evolution-names-baseline.json',import.meta.url)));\n const kanji=JSON.parse(fs.readFileSync(new URL('../../../tools/kanji-display-names-v17-20261119.json',import.meta.url))).cards;\n const actual=Object.fromEntries(Object.entries(CATALOG).map(([id,card])=>{const c={...card};if(kanji[id]){assert.equal(c.name,kanji[id].displayName);c.name=kanji[id].legacyNames[0];delete c.reading;delete c.searchAliases;delete c.displayNameVersion;}if(id==='E-special-trip-memory')for(const region of ['W-memory_lake','W-star_stop'])c.text=c.text.replace(kanji[region].displayName,kanji[region].legacyNames[0]);if(expected[id]){delete c.form;delete c.searchAliases;delete c.displayNameVersion;}return [id,c];}));\n assert.deepEqual(Object.keys(actual),baseline.ids);\n assert.equal(createHash('sha256').update(JSON.stringify(actual)).digest('hex'),baseline.sha256);\n});\n"
+        }
+      ]
+    },
+    "prototypes/card-game/tests/card-design-v13.test.mjs": {
+      "baselineBlob": "056cb414fb0f0774c1612ad40092585a093b2358",
+      "approvedBlob": "cfe38b58ed409025ab6173ba9ea2167370ae2b00",
+      "replacements": [
+        {
+          "before": "import test from 'node:test';\nimport assert from 'node:assert/strict';\nimport {readFileSync} from 'node:fs';\n",
+          "after": "import {createRequire} from 'node:module';\nconst integrationRequire=createRequire(import.meta.url);\nimport test from 'node:test';\nimport assert from 'node:assert/strict';\nimport {readFileSync} from 'node:fs';\n"
+        },
+        {
+          "before": "test('catalog uses exact baseline or approved 19-name bytes; other 449 art mappings unchanged',()=>{\n const baseline='38b4e9d0';\n for(const file of ['lover-married.mjs','cards.mjs','art-pilot/approved-colors.mjs','art-pilot/symbols/attributes.mjs'])assert.equal(sha(readFileSync(new URL(file,base))),sha(execFileSync('git',['show',`${baseline}:prototypes/card-game/${file}`])));\n const catalog=readFileSync(new URL('full-catalog.mjs',base));\n const approved=JSON.parse(readFileSync(new URL('../../tests/helpers/approved-card-integration-v16.json',base))).files['prototypes/card-game/full-catalog.mjs'];\n const blob=bytes=>createHash('sha1').update('blob '+bytes.length+'\\0').update(bytes).digest('hex');\n assert.equal(approved.baseline,blob(execFileSync('git',['show',`${baseline}:prototypes/card-game/full-catalog.mjs`])));\n",
+          "after": "test('catalog uses exact baseline or approved 19-name bytes; other 449 art mappings unchanged',()=>{\n const baseline='38b4e9d0';\n for(const file of ['lover-married.mjs','cards.mjs','art-pilot/approved-colors.mjs','art-pilot/symbols/attributes.mjs'])assert.equal(sha(readFileSync(new URL(file,base))),sha(execFileSync('git',['show',`${baseline}:prototypes/card-game/${file}`])));\n const catalog=Buffer.from(integrationRequire('../../../tests/helpers/approved-kanji-v17.cjs').restore('prototypes/card-game/full-catalog.mjs',readFileSync(new URL('full-catalog.mjs',base),'utf8')));\n const approved=JSON.parse(readFileSync(new URL('../../tests/helpers/approved-card-integration-v16.json',base))).files['prototypes/card-game/full-catalog.mjs'];\n const blob=bytes=>createHash('sha1').update('blob '+bytes.length+'\\0').update(bytes).digest('hex');\n assert.equal(approved.baseline,blob(execFileSync('git',['show',`${baseline}:prototypes/card-game/full-catalog.mjs`])));\n"
+        }
+      ]
+    }
+  },
+  "integrationReview": {
+    "independentKanjiRef": "523780fa299a21327807bf648bba047e8e087bfa",
+    "approvedExistingPRHead": "c0f960ace83fe427e8231555f5708cfd7ee21c26",
+    "purpose": "Review-only composition; exact restoration to unchanged PR head and frozen V16 manifest; no publication or merge permission"
+  }
+}

@@ -3,7 +3,7 @@ const fs=require('node:fs'),crypto=require('node:crypto'),assert=require('node:a
 const manifest=require('./approved-card-integration-v16.json');
 const files=manifest.files;
 const blob=bytes=>crypto.createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex');
-const read=file=>fs.existsSync(file)?blob(fs.readFileSync(file)):null;
+const read=file=>{if(!fs.existsSync(file))return null;const kanji=require('./approved-kanji-v17.cjs'),bytes=fs.readFileSync(file);if(!Object.hasOwn(kanji.files,file))return blob(bytes);const original=kanji.restore(file,bytes.toString('utf8'));return original===null?null:blob(Buffer.from(original));};
 const signatures=['character-world-master.v1.js','prototypes/card-game/ui-presentation.mjs'];
 function verify(reader=read){
  const variants=['baseline','names','design','combined'].filter(mode=>signatures.every(file=>reader(file)===files[file][mode]));

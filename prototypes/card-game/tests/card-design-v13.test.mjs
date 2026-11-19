@@ -1,3 +1,5 @@
+import {createRequire} from 'node:module';
+const integrationRequire=createRequire(import.meta.url);
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -40,7 +42,7 @@ test('approved starfish originals exact hashes and runtime delivered artifacts m
 test('catalog uses exact baseline or approved 19-name bytes; other 449 art mappings unchanged',()=>{
  const baseline='38b4e9d0';
  for(const file of ['lover-married.mjs','cards.mjs','art-pilot/approved-colors.mjs','art-pilot/symbols/attributes.mjs'])assert.equal(sha(readFileSync(new URL(file,base))),sha(execFileSync('git',['show',`${baseline}:prototypes/card-game/${file}`])));
- const catalog=readFileSync(new URL('full-catalog.mjs',base));
+ const catalog=Buffer.from(integrationRequire('../../../tests/helpers/approved-kanji-v17.cjs').restore('prototypes/card-game/full-catalog.mjs',readFileSync(new URL('full-catalog.mjs',base),'utf8')));
  const approved=JSON.parse(readFileSync(new URL('../../tests/helpers/approved-card-integration-v16.json',base))).files['prototypes/card-game/full-catalog.mjs'];
  const blob=bytes=>createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex');
  assert.equal(approved.baseline,blob(execFileSync('git',['show',`${baseline}:prototypes/card-game/full-catalog.mjs`])));

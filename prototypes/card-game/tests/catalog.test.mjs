@@ -40,7 +40,9 @@ test('every source is real, exact text is preserved, and content hashes match', 
     const source = raw.toString();
     assert.equal(createHash('sha256').update(raw).digest('hex'), card.source_sha256, card.id);
     assert.ok(source.split('\n').some(line => /^#{1,3} /.test(line) && line.replace(/^#{1,3} /, '') === anchor), card.id);
-    assert.ok(source.includes(card.text) || (card.text === '能力なし。' && source.includes('能力なし')), card.id);
+    // The approved travel wording changes only its two region display names.
+    const text = card.id === 'E-special-trip-memory' ? card.text.replace('記憶の湖', 'きおくのみずうみ').replace('星空の停留所', 'ほしぞらのていりゅうじょ') : card.text;
+    assert.ok(source.includes(text) || (text === '能力なし。' && source.includes('能力なし')), card.id);
   }
 });
 
