@@ -1,0 +1,204 @@
+{
+  "canvas": [
+    400,
+    600
+  ],
+  "season": "summer",
+  "weather": "sunny",
+  "elapsed_seconds": [
+    4.7,
+    5.7
+  ],
+  "reduced_seconds": [
+    7,
+    23
+  ],
+  "rgb_sum_delta_threshold": 12,
+  "water_alpha_threshold": 30,
+  "limits": [
+    "sky y < 0.22",
+    "dry sand y > 0.653"
+  ],
+  "source_sha256": "832f1e0f1bf2155762605a4942cce0f7326c910697255a87bae34407639aeab9",
+  "key": "bounds = [water-only ink pixels in sky, water-only ink pixels on dry sand]; temporal/reduced = changed pixel counts",
+  "chromium": {
+    "morning": {
+      "D3": {
+        "temporal": 23015,
+        "reduced": 0
+      },
+      "E1": {
+        "temporal": 68990,
+        "reduced": 0
+      },
+      "E2": {
+        "temporal": 60538,
+        "reduced": 0
+      },
+      "E3": {
+        "temporal": 67395,
+        "reduced": 0
+      },
+      "bounds": [
+        0,
+        0
+      ]
+    },
+    "day": {
+      "D3": {
+        "temporal": 23768,
+        "reduced": 0
+      },
+      "E1": {
+        "temporal": 69991,
+        "reduced": 0
+      },
+      "E2": {
+        "temporal": 62218,
+        "reduced": 0
+      },
+      "E3": {
+        "temporal": 68591,
+        "reduced": 0
+      },
+      "bounds": [
+        0,
+        0
+      ]
+    },
+    "evening": {
+      "D3": {
+        "temporal": 23327,
+        "reduced": 0
+      },
+      "E1": {
+        "temporal": 70170,
+        "reduced": 0
+      },
+      "E2": {
+        "temporal": 62041,
+        "reduced": 0
+      },
+      "E3": {
+        "temporal": 68567,
+        "reduced": 0
+      },
+      "bounds": [
+        0,
+        0
+      ]
+    },
+    "night": {
+      "D3": {
+        "temporal": 19236,
+        "reduced": 0
+      },
+      "E1": {
+        "temporal": 56727,
+        "reduced": 0
+      },
+      "E2": {
+        "temporal": 48224,
+        "reduced": 0
+      },
+      "E3": {
+        "temporal": 55078,
+        "reduced": 0
+      },
+      "bounds": [
+        0,
+        0
+      ]
+    }
+  },
+  "webkit": {
+    "morning": {
+      "D3": {
+        "temporal": 23054,
+        "reduced": 0
+      },
+      "E1": {
+        "temporal": 68563,
+        "reduced": 0
+      },
+      "E2": {
+        "temporal": 59957,
+        "reduced": 0
+      },
+      "E3": {
+        "temporal": 67050,
+        "reduced": 0
+      },
+      "bounds": [
+        0,
+        0
+      ]
+    },
+    "day": {
+      "D3": {
+        "temporal": 23751,
+        "reduced": 0
+      },
+      "E1": {
+        "temporal": 69665,
+        "reduced": 0
+      },
+      "E2": {
+        "temporal": 61855,
+        "reduced": 0
+      },
+      "E3": {
+        "temporal": 68249,
+        "reduced": 0
+      },
+      "bounds": [
+        0,
+        0
+      ]
+    },
+    "evening": {
+      "D3": {
+        "temporal": 23423,
+        "reduced": 0
+      },
+      "E1": {
+        "temporal": 69694,
+        "reduced": 0
+      },
+      "E2": {
+        "temporal": 61482,
+        "reduced": 0
+      },
+      "E3": {
+        "temporal": 68280,
+        "reduced": 0
+      },
+      "bounds": [
+        0,
+        0
+      ]
+    },
+    "night": {
+      "D3": {
+        "temporal": 19370,
+        "reduced": 0
+      },
+      "E1": {
+        "temporal": 56952,
+        "reduced": 0
+      },
+      "E2": {
+        "temporal": 48000,
+        "reduced": 0
+      },
+      "E3": {
+        "temporal": 55108,
+        "reduced": 0
+      },
+      "bounds": [
+        0,
+        0
+      ]
+    }
+  }
+}

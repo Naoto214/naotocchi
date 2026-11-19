@@ -1,0 +1,386 @@
+{
+  "forest/morning/30": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 23,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 11,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "candidateChanged": true
+  },
+  "forest/morning/60": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 16,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 14,
+      "deltaOver3": 0,
+      "maxDelta": 2
+    },
+    "candidateChanged": true
+  },
+  "forest/morning/180": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 21,
+      "deltaOver3": 0,
+      "maxDelta": 2
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 7,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "candidateChanged": true
+  },
+  "forest/day/30": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 20,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 9,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "candidateChanged": true
+  },
+  "forest/day/60": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 16,
+      "deltaOver3": 0,
+      "maxDelta": 2
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 22,
+      "deltaOver3": 0,
+      "maxDelta": 2
+    },
+    "candidateChanged": true
+  },
+  "forest/day/180": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 20,
+      "deltaOver3": 0,
+      "maxDelta": 2
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 9,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "candidateChanged": true
+  },
+  "forest/evening/30": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 9,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 10,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "candidateChanged": true
+  },
+  "forest/evening/60": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 16,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 17,
+      "deltaOver3": 0,
+      "maxDelta": 2
+    },
+    "candidateChanged": true
+  },
+  "forest/evening/180": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 15,
+      "deltaOver3": 0,
+      "maxDelta": 2
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 5,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "candidateChanged": true
+  },
+  "forest/night/30": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 11,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 5,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "candidateChanged": true
+  },
+  "forest/night/60": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 15,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 13,
+      "deltaOver3": 0,
+      "maxDelta": 2
+    },
+    "candidateChanged": true
+  },
+  "forest/night/180": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 5,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 6,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "candidateChanged": true
+  },
+  "sea/morning/30": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 54,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 8,
+      "deltaOver3": 0,
+      "maxDelta": 2
+    },
+    "candidateChanged": true
+  },
+  "sea/morning/60": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 190,
+      "deltaOver3": 0,
+      "maxDelta": 3
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 3,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "candidateChanged": true
+  },
+  "sea/morning/180": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 150,
+      "deltaOver3": 0,
+      "maxDelta": 2
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 6,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "candidateChanged": true
+  },
+  "sea/day/30": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 43,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 5,
+      "deltaOver3": 0,
+      "maxDelta": 3
+    },
+    "candidateChanged": true
+  },
+  "sea/day/60": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 186,
+      "deltaOver3": 0,
+      "maxDelta": 3
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 5,
+      "deltaOver3": 0,
+      "maxDelta": 2
+    },
+    "candidateChanged": true
+  },
+  "sea/day/180": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 129,
+      "deltaOver3": 0,
+      "maxDelta": 2
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 5,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "candidateChanged": true
+  },
+  "sea/evening/30": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 44,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 5,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "candidateChanged": true
+  },
+  "sea/evening/60": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 171,
+      "deltaOver3": 0,
+      "maxDelta": 3
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 4,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "candidateChanged": true
+  },
+  "sea/evening/180": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 147,
+      "deltaOver3": 0,
+      "maxDelta": 2
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 5,
+      "deltaOver3": 0,
+      "maxDelta": 2
+    },
+    "candidateChanged": true
+  },
+  "sea/night/30": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 46,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 9,
+      "deltaOver3": 0,
+      "maxDelta": 2
+    },
+    "candidateChanged": true
+  },
+  "sea/night/60": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 159,
+      "deltaOver3": 1,
+      "maxDelta": 4
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 5,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "candidateChanged": true
+  },
+  "sea/night/180": {
+    "baselineMatches": true,
+    "wipeBaselineMatches": {
+      "pixels": 43200,
+      "anyDelta": 145,
+      "deltaOver3": 0,
+      "maxDelta": 2
+    },
+    "wipeCandidateMatches": {
+      "pixels": 43200,
+      "anyDelta": 3,
+      "deltaOver3": 0,
+      "maxDelta": 1
+    },
+    "candidateChanged": true
+  }
+}
