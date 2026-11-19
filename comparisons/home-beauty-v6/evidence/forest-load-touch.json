@@ -1,0 +1,491 @@
+{
+ "engine": "chromium",
+ "suite": "touch",
+ "at": "2026-11-19T10:08:29.207930+00:00",
+ "viewport": [
+  390,
+  844
+ ],
+ "dpr": 2,
+ "affinity": [
+  0,
+  1
+ ],
+ "url": "http://127.0.0.1:8196",
+ "conditions": {
+  "forest-leaves": [
+   "forest",
+   "day",
+   "autumn",
+   "sunny"
+  ],
+  "forest-petals": [
+   "forest",
+   "day",
+   "spring",
+   "sunny"
+  ],
+  "snow-day": [
+   "snow",
+   "day",
+   "winter",
+   "snow"
+  ],
+  "snow-night": [
+   "snow",
+   "night",
+   "winter",
+   "snow"
+  ],
+  "country-leaves": [
+   "countryside",
+   "evening",
+   "autumn",
+   "sunny"
+  ],
+  "sea-rain": [
+   "sea",
+   "day",
+   "summer",
+   "rain"
+  ]
+ },
+ "seconds": 10.0,
+ "rows": [
+  {
+   "elapsed": 10.01319999999553,
+   "frames": 559,
+   "rafHz": 55.8090312790152,
+   "p95": 16.799999999999272,
+   "max": 183.29999999999927,
+   "over250": 0,
+   "firstDelay": 2.399999998509884,
+   "stepHz": 28.362561418939677,
+   "natureHz": 17.576798625821773,
+   "clockDelta": 10.049500000000002,
+   "clockMarkers": [],
+   "pausedSec": 0,
+   "invitations": 0,
+   "cast": 1,
+   "moving": 1,
+   "visibility": "visible",
+   "phases": {
+    "model": {
+     "n": 284,
+     "total": 51.5,
+     "max": 5.600000001490116
+    },
+    "nature": {
+     "n": 176,
+     "total": 91.60000001639128,
+     "max": 3.5
+    },
+    "world": {
+     "n": 284,
+     "total": 183.20000002533197,
+     "max": 11.400000005960464
+    },
+    "actors": {
+     "n": 284,
+     "total": 166.60000003129244,
+     "max": 7
+    }
+   },
+   "slow": [],
+   "long": [],
+   "drag": {
+    "hit": true,
+    "marker": true,
+    "pointerToNextCallbackMs": [
+     42.600000001490116,
+     46.80000000447035,
+     33.400000005960464,
+     34.30000000447035,
+     32.70000000298023,
+     31.899999998509884,
+     36.400000005960464,
+     35.899999998509884,
+     31.80000000447035,
+     42.70000000298023
+    ]
+   },
+   "scene": "forest-leaves",
+   "mode": "E3",
+   "count": 1,
+   "errors": []
+  },
+  {
+   "elapsed": 10.0105,
+   "frames": 536,
+   "rafHz": 53.51330844032667,
+   "p95": 16.80000000000109,
+   "max": 283.3000000000011,
+   "over250": 1,
+   "firstDelay": 3.0999999940395355,
+   "stepHz": 27.67094550721742,
+   "natureHz": 17.082063832975376,
+   "clockDelta": 10.282899999999998,
+   "clockMarkers": [],
+   "pausedSec": 0,
+   "invitations": 0,
+   "cast": 1,
+   "moving": 1,
+   "visibility": "visible",
+   "phases": {
+    "model": {
+     "n": 277,
+     "total": 99.00000005215406,
+     "max": 53.100000001490116
+    },
+    "nature": {
+     "n": 171,
+     "total": 120.69999995082617,
+     "max": 18.399999998509884
+    },
+    "world": {
+     "n": 277,
+     "total": 199.89999996125698,
+     "max": 25.099999994039536
+    },
+    "actors": {
+     "n": 277,
+     "total": 193.59999999403954,
+     "max": 25.30000000447035
+    }
+   },
+   "slow": [],
+   "long": [
+    {
+     "start": 9175.99999999404,
+     "end": 9459.29999999404,
+     "ms": 283.3000000000011,
+     "paused": "false"
+    }
+   ],
+   "drag": {
+    "hit": true,
+    "marker": true,
+    "pointerToNextCallbackMs": [
+     51.399999998509884,
+     51.899999998509884,
+     39.29999999701977,
+     36.30000000447035,
+     31,
+     34.5,
+     38.29999999701977,
+     32.100000001490116,
+     35.5,
+     39
+    ]
+   },
+   "scene": "forest-leaves",
+   "mode": "E3plus",
+   "count": 1,
+   "errors": []
+  },
+  {
+   "elapsed": 10.009199999995529,
+   "frames": 531,
+   "rafHz": 53.1021240849634,
+   "p95": 33.29999999999927,
+   "max": 350,
+   "over250": 1,
+   "firstDelay": 9.899999998509884,
+   "stepHz": 27.874355592867026,
+   "natureHz": 8.192462934104286,
+   "clockDelta": 10.0995,
+   "clockMarkers": [],
+   "pausedSec": 0,
+   "invitations": 0,
+   "cast": 4,
+   "moving": 4,
+   "visibility": "visible",
+   "phases": {
+    "model": {
+     "n": 279,
+     "total": 541.1000000089407,
+     "max": 322.5
+    },
+    "nature": {
+     "n": 82,
+     "total": 75.49999995529652,
+     "max": 9.700000002980232
+    },
+    "world": {
+     "n": 279,
+     "total": 187.90000002086163,
+     "max": 16.700000002980232
+    },
+    "actors": {
+     "n": 279,
+     "total": 319.9999999627471,
+     "max": 43.600000001490116
+    }
+   },
+   "slow": [
+    {
+     "name": "model",
+     "start": 6391.29999999702,
+     "ms": 78
+    },
+    {
+     "name": "model",
+     "start": 7969,
+     "ms": 322.5
+    }
+   ],
+   "long": [
+    {
+     "start": 7957.099999997019,
+     "end": 8307.099999997019,
+     "ms": 350,
+     "paused": "false"
+    }
+   ],
+   "drag": {
+    "hit": true,
+    "marker": true,
+    "pointerToNextCallbackMs": [
+     49.899999998509884,
+     23.799999997019768,
+     43.79999999701977,
+     44.400000005960464,
+     50.099999994039536,
+     91,
+     49.19999999552965,
+     76.70000000298023,
+     48.899999998509884,
+     64.5
+    ]
+   },
+   "scene": "forest-leaves",
+   "mode": "E3plus",
+   "count": 4,
+   "errors": []
+  },
+  {
+   "elapsed": 10.00279999999702,
+   "frames": 562,
+   "rafHz": 56.20281014050703,
+   "p95": 16.80000000000109,
+   "max": 116.60000000000036,
+   "over250": 0,
+   "firstDelay": 4.799999997019768,
+   "stepHz": 28.6919662494587,
+   "natureHz": 8.397648658378158,
+   "clockDelta": 10.016300000000001,
+   "clockMarkers": [],
+   "pausedSec": 0,
+   "invitations": 0,
+   "cast": 4,
+   "moving": 4,
+   "visibility": "visible",
+   "phases": {
+    "model": {
+     "n": 287,
+     "total": 341.40000000596046,
+     "max": 118.29999999701977
+    },
+    "nature": {
+     "n": 84,
+     "total": 59.60000003129244,
+     "max": 6.5
+    },
+    "world": {
+     "n": 287,
+     "total": 167.60000009834766,
+     "max": 42.30000000447035
+    },
+    "actors": {
+     "n": 287,
+     "total": 200.4999998435378,
+     "max": 6.100000001490116
+    }
+   },
+   "slow": [
+    {
+     "name": "model",
+     "start": 4136,
+     "ms": 84.79999999701977
+    },
+    {
+     "name": "model",
+     "start": 7837.89999999851,
+     "ms": 118.29999999701977
+    }
+   ],
+   "long": [],
+   "drag": {
+    "hit": true,
+    "marker": true,
+    "pointerToNextCallbackMs": [
+     50.20000000298023,
+     45.100000001490116,
+     53,
+     44.599999994039536,
+     53.100000001490116,
+     35.900000005960464,
+     37.5,
+     38.20000000298023,
+     37,
+     34.899999998509884
+    ]
+   },
+   "scene": "forest-leaves",
+   "mode": "E3",
+   "count": 4,
+   "errors": []
+  },
+  {
+   "elapsed": 10.0055,
+   "frames": 564,
+   "rafHz": 56.40225609024361,
+   "p95": 16.799999999999272,
+   "max": 133.3000000000011,
+   "over250": 0,
+   "firstDelay": 5.399999998509884,
+   "stepHz": 28.784168707211034,
+   "natureHz": 8.395382539603219,
+   "clockDelta": 10.0662,
+   "clockMarkers": [],
+   "pausedSec": 0,
+   "invitations": 0,
+   "cast": 28,
+   "moving": 3,
+   "visibility": "visible",
+   "phases": {
+    "model": {
+     "n": 288,
+     "total": 317.19999996572733,
+     "max": 126.10000000149012
+    },
+    "world": {
+     "n": 288,
+     "total": 149.00000001490116,
+     "max": 28.100000001490116
+    },
+    "actors": {
+     "n": 288,
+     "total": 527.3999999910593,
+     "max": 18.80000000447035
+    },
+    "nature": {
+     "n": 84,
+     "total": 46.69999995827675,
+     "max": 2.2000000029802322
+    }
+   },
+   "slow": [
+    {
+     "name": "model",
+     "start": 9670.10000000149,
+     "ms": 126.10000000149012
+    }
+   ],
+   "long": [],
+   "drag": {
+    "hit": true,
+    "marker": true,
+    "pointerToNextCallbackMs": [
+     60,
+     45.70000000298023,
+     28.399999998509884,
+     186.79999999701977,
+     160.19999999552965,
+     32.899999998509884,
+     36.70000000298023,
+     38.899999998509884,
+     36.29999999701977,
+     43.100000001490116
+    ]
+   },
+   "scene": "forest-leaves",
+   "mode": "E3",
+   "count": 28,
+   "errors": []
+  },
+  {
+   "elapsed": 10.015099999994039,
+   "frames": 571,
+   "rafHz": 57.102855142757136,
+   "p95": 16.799999999999272,
+   "max": 133.3000000000011,
+   "over250": 0,
+   "firstDelay": 15.099999994039536,
+   "stepHz": 28.956276023222195,
+   "natureHz": 8.287485896301526,
+   "clockDelta": 10.099499999999999,
+   "clockMarkers": [],
+   "pausedSec": 0,
+   "invitations": 0,
+   "cast": 28,
+   "moving": 2,
+   "visibility": "visible",
+   "phases": {
+    "model": {
+     "n": 290,
+     "total": 182.80000000447035,
+     "max": 104.5
+    },
+    "world": {
+     "n": 290,
+     "total": 149.2000000104308,
+     "max": 9.399999998509884
+    },
+    "actors": {
+     "n": 290,
+     "total": 492.19999999552965,
+     "max": 6.100000001490116
+    },
+    "nature": {
+     "n": 83,
+     "total": 51.00000002235174,
+     "max": 2.899999998509884
+    }
+   },
+   "slow": [
+    {
+     "name": "model",
+     "start": 9629.19999999553,
+     "ms": 104.5
+    }
+   ],
+   "long": [],
+   "drag": {
+    "hit": true,
+    "marker": true,
+    "pointerToNextCallbackMs": [
+     26.099999994039536,
+     60.099999994039536,
+     36.20000000298023,
+     36.5,
+     39.899999998509884,
+     42.19999999552965,
+     37.20000000298023,
+     44.899999998509884,
+     45.80000000447035,
+     36.5
+    ]
+   },
+   "scene": "forest-leaves",
+   "mode": "E3plus",
+   "count": 28,
+   "errors": []
+  }
+ ],
+ "renderers": {
+  "deepsea-stars.mjs": "0aad4b0335ef47314a0d1e36493fb1f5fe7cdb55b9fd80ad3801f3a6e8698a7f",
+  "fall-motion.mjs": "3d3ddf1801223d4cc5a1cfaaf632d5968c08d36fc780b7b71a414b53f67bc726",
+  "forest-e.mjs": "0696967255d9e7dd3c9873bb0a4fc097595337f70d71dee89e636acf008db3da",
+  "full-motion.mjs": "c93fef1527c6629e728f6b7ab5b9f634531d3201ee1addcb0b864107b38e6039",
+  "mountain-jungle-desert.mjs": "0e676e9ec87c17824830d4e97fdc1ad7dd5b5d6684e98aee31f245acb865cb33",
+  "nature.mjs": "7d1cdd479413b6ecd98d5bde074af49e3dfb9247f9b1eca7d8b377058472456e",
+  "other-regions.mjs": "26132fd774b4a8e2d449697b98cb1d7b8cd6d7910214a2fe3e9310322bc4f398",
+  "paint.mjs": "ec6f8105fbac4b8f14754fa66473af7ae53b0f8e28579f85d3c9f6c6750756e4",
+  "regional-fall.mjs": "231b7798340c7713eb19dce5da760bee4d514a28f8e07bc9074a3302c131da4c",
+  "river-home-country.mjs": "c6a3787760865a0ebf165391b65b20b31816eed554ac220e9794a1f6fb0f8ca4",
+  "sea-e.mjs": "eb661a269a98c4b2991e8bdc3bdbd868fde2dbc7861f74c43efdaeda1ade2450",
+  "snow-city-lake.mjs": "881cb234be3aed0378c053a308e273a99849716dbbf2e5cb765eaf4713c3ef9c"
+ },
+ "browser": "156.0.8078.79"
+}
