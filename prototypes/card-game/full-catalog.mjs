@@ -52,13 +52,18 @@ export const CATALOG = {
   },
   "C-clock": {
     "id": "C-clock",
-    "name": "じかんにルーズなとけい",
+    "name": "時間にルーズな時計",
     "type": "companion",
     "cost": 0,
     "rare": true,
     "text": "1ターンに1回。自分のターン終了時、時1を払い、手札1枚を山札の一番下に置いて発動できる。次の自分のターン開始時に2枚引く。",
     "source": "72-companion-26-card-text-draft.md#C-clock — じかんにルーズなとけい",
-    "source_sha256": "941d17e157d77badfaaab0e1f04539eb602c05b893241ff3024ecd7ae0c97117"
+    "source_sha256": "941d17e157d77badfaaab0e1f04539eb602c05b893241ff3024ecd7ae0c97117",
+    "reading": "じかんにるーずなとけい",
+    "searchAliases": [
+      "じかんにルーズなとけい"
+    ],
+    "displayNameVersion": "kanji-v17"
   },
   "C-hamster": {
     "id": "C-hamster",
@@ -182,13 +187,18 @@ export const CATALOG = {
   },
   "C-sekizou": {
     "id": "C-sekizou",
-    "name": "むひょうじょうのせきぞう",
+    "name": "無表情の石像",
     "type": "companion",
     "cost": 0,
     "rare": true,
     "text": "1ラウンドに1回。このカードが相手の効果で手札または山札に移動するなら、代わりにこのカードをなかま枠に残してもよい。",
     "source": "72-companion-26-card-text-draft.md#C-sekizou — むひょうじょうのせきぞう",
-    "source_sha256": "941d17e157d77badfaaab0e1f04539eb602c05b893241ff3024ecd7ae0c97117"
+    "source_sha256": "941d17e157d77badfaaab0e1f04539eb602c05b893241ff3024ecd7ae0c97117",
+    "reading": "むひょうじょうのせきぞう",
+    "searchAliases": [
+      "むひょうじょうのせきぞう"
+    ],
+    "displayNameVersion": "kanji-v17"
   },
   "C-sheep": {
     "id": "C-sheep",
@@ -262,35 +272,50 @@ export const CATALOG = {
   },
   "E-big-illness": {
     "id": "E-big-illness",
-    "name": "おおきなびょうき",
+    "name": "大きな病気",
     "type": "event",
     "cost": 3,
     "rare": false,
     "text": "相手のメイン1枚を対象として発動できる。このターン終了まで、対象のちから・ちえをそれぞれ2少なくする。",
     "source": "91-event-21-card-text-draft.md#E-big-illness — おおきなびょうき",
     "source_sha256": "46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8",
+    "reading": "おおきなびょうき",
+    "searchAliases": [
+      "おおきなびょうき"
+    ],
+    "displayNameVersion": "kanji-v17",
     "method": "すぐつかう"
   },
   "E-boss": {
     "id": "E-boss",
-    "name": "あやまりにきただいおういか",
+    "name": "謝りにきた大王イカ",
     "type": "event",
     "cost": 2,
     "rare": false,
     "text": "このターン、自分のメインが勝負に負けていた場合に発動できる。自分が1枚引き、相手が1枚引く。その後、自分のそだち+5。",
     "source": "91-event-21-card-text-draft.md#E-boss — あやまりにきただいおういか",
     "source_sha256": "46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8",
+    "reading": "あやまりにきただいおういか",
+    "searchAliases": [
+      "あやまりにきただいおういか"
+    ],
+    "displayNameVersion": "kanji-v17",
     "method": "すぐつかう"
   },
   "E-fateful-transform": {
     "id": "E-fateful-transform",
-    "name": "うんめいのへんしん",
+    "name": "運命の変身",
     "type": "event",
     "cost": 2,
     "rare": false,
     "text": "自分のメインがいる場合に発動できる。このターン、自分が次にへんしんするための時を2少なくする。",
     "source": "91-event-21-card-text-draft.md#E-fateful-transform — うんめいのへんしん",
     "source_sha256": "46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8",
+    "reading": "うんめいのへんしん",
+    "searchAliases": [
+      "うんめいのへんしん"
+    ],
+    "displayNameVersion": "kanji-v17",
     "method": "すぐつかう"
   },
   "E-final-time": {
@@ -449,24 +474,34 @@ export const CATALOG = {
   },
   "E-special-trip-memory": {
     "id": "E-special-trip-memory",
-    "name": "とくべつなたびのおもいで",
+    "name": "特別な旅の思い出",
     "type": "event",
     "cost": 2,
     "rare": false,
-    "text": "自分のセカイが「ほしぞらのていりゅうじょ」か「きおくのみずうみ」で、このターンに手札から名前が異なるセカイに重ねて通常配置したカードである場合に発動できる。1枚引き、自分のそだち+5。",
+    "text": "自分のセカイが「星空の停留所」か「記憶の湖」で、このターンに手札から名前が異なるセカイに重ねて通常配置したカードである場合に発動できる。1枚引き、自分のそだち+5。",
     "source": "91-event-21-card-text-draft.md#E-special-trip-memory — とくべつなたびのおもいで",
     "source_sha256": "46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8",
+    "reading": "とくべつなたびのおもいで",
+    "searchAliases": [
+      "とくべつなたびのおもいで"
+    ],
+    "displayNameVersion": "kanji-v17",
     "method": "すぐつかう"
   },
   "E-stairs": {
     "id": "E-stairs",
-    "name": "どこにもつながらないかいだん",
+    "name": "どこにもつながらない階段",
     "type": "event",
     "cost": 1,
     "rare": false,
     "text": "山札上3枚を見て、好きな順で山札の一番下に置く。次の自分のターン開始時、1枚引く。",
     "source": "91-event-21-card-text-draft.md#E-stairs — どこにもつながらないかいだん",
     "source_sha256": "46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8",
+    "reading": "どこにもつながらないかいだん",
+    "searchAliases": [
+      "どこにもつながらないかいだん"
+    ],
+    "displayNameVersion": "kanji-v17",
     "method": "すぐつかう"
   },
   "E-sudden-trip": {
@@ -1835,13 +1870,18 @@ export const CATALOG = {
   },
   "I-scarf": {
     "id": "I-scarf",
-    "name": "きゅうきゅうばこ",
+    "name": "救急箱",
     "type": "item",
     "cost": 2,
     "rare": false,
     "text": "メインにみにつける。1ラウンドに1回。このカードをみにつけているメインのちからかちえが相手の効果で下がった時、そのメインを対象として発動できる。このターン、対象のちからかちえを1つ選び+2する。",
     "source": "77-current-items-card-text-draft.md#I-scarf — きゅうきゅうばこ",
     "source_sha256": "ec0a630c5616f6a50ca97afcebaab22fe9de13fe5e3789552d4e7d7ee93a8a02",
+    "reading": "きゅうきゅうばこ",
+    "searchAliases": [
+      "きゅうきゅうばこ"
+    ],
+    "displayNameVersion": "kanji-v17",
     "method": "みにつける"
   },
   "I-sleepboost1": {
@@ -6015,13 +6055,18 @@ export const CATALOG = {
   },
   "P-knitting_spider": {
     "id": "P-knitting_spider",
-    "name": "あみものがすきなクモさん",
+    "name": "編み物が好きなクモさん",
     "type": "partner",
     "cost": 0,
     "rare": false,
     "text": "1ラウンドに1回。自分の交際段階が進んだ時、発動できる。このラウンド、自分が次に「みにつける」か「しかける」でアクションカードをプレイするための時を1少なくする。",
     "source": "74-partner-18-card-text-draft.md#P-knitting_spider — あみものがすきなクモさん",
-    "source_sha256": "75531bf3df58296b914d3e897e3c4bf550d17584c903a5b7a6390f1b4548341d"
+    "source_sha256": "75531bf3df58296b914d3e897e3c4bf550d17584c903a5b7a6390f1b4548341d",
+    "reading": "あみものがすきなくもさん",
+    "searchAliases": [
+      "あみものがすきなクモさん"
+    ],
+    "displayNameVersion": "kanji-v17"
   },
   "P-oasis_cactus": {
     "id": "P-oasis_cactus",
@@ -6175,13 +6220,18 @@ export const CATALOG = {
   },
   "W-memory_lake": {
     "id": "W-memory_lake",
-    "name": "きおくのみずうみ",
+    "name": "記憶の湖",
     "type": "world",
     "cost": 3,
     "rare": false,
     "text": "1ターンに1回。自分のターンに、自分の捨て札のメイン以外のカード1枚を対象として発動できる。そのカードを山札の一番下に置く。置いたなら、山札上1枚を見て、一番上か一番下に置く。",
     "source": "89-world-13-card-text-draft.md#W-memory_lake — きおくのみずうみ",
-    "source_sha256": "19babfc75a43ed494a10d7be3a78f7586e1319ffc4314853689781ac74dc8269"
+    "source_sha256": "19babfc75a43ed494a10d7be3a78f7586e1319ffc4314853689781ac74dc8269",
+    "reading": "きおくのみずうみ",
+    "searchAliases": [
+      "きおくのみずうみ"
+    ],
+    "displayNameVersion": "kanji-v17"
   },
   "W-mountain": {
     "id": "W-mountain",
@@ -6225,12 +6275,17 @@ export const CATALOG = {
   },
   "W-star_stop": {
     "id": "W-star_stop",
-    "name": "ほしぞらのていりゅうじょ",
+    "name": "星空の停留所",
     "type": "world",
     "cost": 3,
     "rare": false,
     "text": "1ターンに1回。自分のターン終了時、このターン自分がときおくりもへんしんもしていない場合、手札1枚を山札の一番下に置いて発動できる。次の自分ターン開始時、山札上3枚を見て、その中の2枚までを手札に加える。残りを好きな順で山札下へ置く。",
     "source": "89-world-13-card-text-draft.md#W-star_stop — ほしぞらのていりゅうじょ",
-    "source_sha256": "19babfc75a43ed494a10d7be3a78f7586e1319ffc4314853689781ac74dc8269"
+    "source_sha256": "19babfc75a43ed494a10d7be3a78f7586e1319ffc4314853689781ac74dc8269",
+    "reading": "ほしぞらのていりゅうじょ",
+    "searchAliases": [
+      "ほしぞらのていりゅうじょ"
+    ],
+    "displayNameVersion": "kanji-v17"
   }
 };

@@ -1,0 +1,167 @@
+{
+  "version": "kanji-v17",
+  "status": "approved-specification-not-production",
+  "cards": {
+    "I-scarf": {
+      "displayName": "救急箱",
+      "reading": "きゅうきゅうばこ",
+      "legacyNames": [
+        "きゅうきゅうばこ"
+      ],
+      "searchAliases": [
+        "きゅうきゅうばこ"
+      ],
+      "mainEntityId": "scarf",
+      "scope": "shared"
+    },
+    "W-memory_lake": {
+      "displayName": "記憶の湖",
+      "reading": "きおくのみずうみ",
+      "legacyNames": [
+        "きおくのみずうみ"
+      ],
+      "searchAliases": [
+        "きおくのみずうみ"
+      ],
+      "mainEntityId": "memory_lake",
+      "scope": "shared"
+    },
+    "E-big-illness": {
+      "displayName": "大きな病気",
+      "reading": "おおきなびょうき",
+      "legacyNames": [
+        "おおきなびょうき"
+      ],
+      "searchAliases": [
+        "おおきなびょうき"
+      ],
+      "mainEntityId": null,
+      "scope": "card-only"
+    },
+    "E-fateful-transform": {
+      "displayName": "運命の変身",
+      "reading": "うんめいのへんしん",
+      "legacyNames": [
+        "うんめいのへんしん"
+      ],
+      "searchAliases": [
+        "うんめいのへんしん"
+      ],
+      "mainEntityId": null,
+      "scope": "card-only"
+    },
+    "W-star_stop": {
+      "displayName": "星空の停留所",
+      "reading": "ほしぞらのていりゅうじょ",
+      "legacyNames": [
+        "ほしぞらのていりゅうじょ"
+      ],
+      "searchAliases": [
+        "ほしぞらのていりゅうじょ"
+      ],
+      "mainEntityId": "star_stop",
+      "scope": "shared"
+    },
+    "E-stairs": {
+      "displayName": "どこにもつながらない階段",
+      "reading": "どこにもつながらないかいだん",
+      "legacyNames": [
+        "どこにもつながらないかいだん"
+      ],
+      "searchAliases": [
+        "どこにもつながらないかいだん"
+      ],
+      "mainEntityId": "stairs",
+      "scope": "legacy-metadata-only"
+    },
+    "E-boss": {
+      "displayName": "謝りにきた大王イカ",
+      "reading": "あやまりにきただいおういか",
+      "legacyNames": [
+        "あやまりにきただいおういか"
+      ],
+      "searchAliases": [
+        "あやまりにきただいおういか"
+      ],
+      "mainEntityId": "boss",
+      "scope": "legacy-metadata-only"
+    },
+    "C-sekizou": {
+      "displayName": "無表情の石像",
+      "reading": "むひょうじょうのせきぞう",
+      "legacyNames": [
+        "むひょうじょうのせきぞう"
+      ],
+      "searchAliases": [
+        "むひょうじょうのせきぞう"
+      ],
+      "mainEntityId": "sekizou",
+      "scope": "shared"
+    },
+    "P-knitting_spider": {
+      "displayName": "編み物が好きなクモさん",
+      "reading": "あみものがすきなくもさん",
+      "legacyNames": [
+        "あみものがすきなクモさん"
+      ],
+      "searchAliases": [
+        "あみものがすきなクモさん"
+      ],
+      "mainEntityId": "knitting_spider",
+      "scope": "shared"
+    },
+    "E-special-trip-memory": {
+      "displayName": "特別な旅の思い出",
+      "reading": "とくべつなたびのおもいで",
+      "legacyNames": [
+        "とくべつなたびのおもいで"
+      ],
+      "searchAliases": [
+        "とくべつなたびのおもいで"
+      ],
+      "mainEntityId": null,
+      "scope": "card-only"
+    },
+    "C-clock": {
+      "displayName": "時間にルーズな時計",
+      "reading": "じかんにるーずなとけい",
+      "legacyNames": [
+        "じかんにルーズなとけい"
+      ],
+      "searchAliases": [
+        "じかんにルーズなとけい"
+      ],
+      "mainEntityId": "clock",
+      "scope": "shared"
+    }
+  },
+  "deferredCards": {
+    "E-omoide-photo": {
+      "displayName": "思い出の写真",
+      "legacyNames": [
+        "おもいでのしゃしん"
+      ],
+      "status": "approved-deferred-until-pr498-integration",
+      "sourcePR": 498,
+      "sourceCommit": "948026343099e34628f5655ae240d1083763ea9e"
+    },
+    "E-nagaiki": {
+      "displayName": "長生きの秘訣",
+      "legacyNames": [
+        "ながいきのひけつ"
+      ],
+      "status": "approved-deferred-until-pr498-integration",
+      "sourcePR": 498,
+      "sourceCommit": "948026343099e34628f5655ae240d1083763ea9e"
+    },
+    "E-hayajimai": {
+      "displayName": "早じまい",
+      "legacyNames": [
+        "はやじまい"
+      ],
+      "status": "approved-deferred-until-pr498-integration",
+      "sourcePR": 498,
+      "sourceCommit": "948026343099e34628f5655ae240d1083763ea9e"
+    }
+  }
+}

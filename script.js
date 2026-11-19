@@ -2628,7 +2628,7 @@
     { id: 'sleepboost1', label: 'ふかふかまくら', emoji: '🛏️' },
     { id: 'bowtie', label: 'おべんとうばこ', emoji: '🎗️' },
     { id: 'ribbon', label: 'おもちゃばこ', emoji: '🎀' },
-    { id: 'scarf', label: 'きゅうきゅうばこ', emoji: '🧣' },
+    { id: 'scarf', label: '救急箱', emoji: '🧣' },
     { id: 'travel1', label: 'リュックサック', emoji: '🎒' },
     { id: 'partner1', label: 'らぶれたー', emoji: '💌' },
     { id: 'bond1', label: 'おともだちバッジ', emoji: '🐾' },
@@ -9334,7 +9334,7 @@
   const SPECIAL_REGIONS = [
     {
       "id": "star_stop",
-      "label": "ほしぞらのていりゅうじょ",
+      "label": "星空の停留所",
       "emoji": "🌌",
       "special": true,
       "decor": [
@@ -9359,7 +9359,7 @@
     },
     {
       "id": "memory_lake",
-      "label": "きおくのみずうみ",
+      "label": "記憶の湖",
       "emoji": "🫧",
       "special": true,
       "decor": [

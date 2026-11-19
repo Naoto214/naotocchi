@@ -8,7 +8,7 @@ test('the final ten shop items use their approved illustrations and labels in or
   const html=h.get('shopItemGrid').innerHTML;
   const ids=['poop1','sleepboost1','bowtie','ribbon','scarf','travel1','partner1','bond1','gamepass1','star'];
   const expectedLabels={poop1:'トイレットペーパー',sleepboost1:'ふかふかまくら',bowtie:'おべんとうばこ',
-    ribbon:'おもちゃばこ',scarf:'きゅうきゅうばこ',travel1:'リュックサック',partner1:'らぶれたー',
+    ribbon:'おもちゃばこ',scarf:'救急箱',travel1:'リュックサック',partner1:'らぶれたー',
     bond1:'おともだちバッジ',gamepass1:'ゲームパス',star:'スターバッジ'};
   const buttons=[...html.matchAll(/<button\b[^>]*data-id="([^"]+)"[^>]*>([\s\S]*?)<\/button>/g)];
   assert.deepEqual(Array.from(h.api.SHOP_ITEMS,item=>item.id),ids);
@@ -173,7 +173,7 @@ test('the scenery atlas can fail independently and keeps a visible fallback for 
 test('current mountain jungle and memory-lake IDs reach their existing art in world and travel views',()=>{
   const h=harness();
   h.api.state().sodachi=75;h.api.state().maxSodachi=75;
-  for(const [id,icon,label] of [['mountain','mountain','やま'],['jungle','palm','ジャングル'],['memory_lake','bubbles','きおくのみずうみ']]){
+  for(const [id,icon,label] of [['mountain','mountain','やま'],['jungle','palm','ジャングル'],['memory_lake','bubbles','記憶の湖']]){
     h.api.state().regionId=id;h.api.render();h.api.openExclusiveMenu('world');h.api.renderEnvironment();
     for(const html of [h.get('regionLabel').innerHTML,h.get('worldNowCard').innerHTML]){
       assert.match(html,new RegExp(`data-ui-icon="${icon}"`),id);

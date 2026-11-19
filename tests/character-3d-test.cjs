@@ -450,7 +450,8 @@ test('30. 既存の 2D assets/runtime remain byte protected except exact approve
   const { current } = require('../tools/character-3d/protected-hashes.cjs');
   const now = current();
   const master = fs.readFileSync(path.join(ROOT, 'character-world-master.v1.js'), 'utf8');
-  now['character-world-master.v1.js'].sha1 = crypto.createHash('sha1').update(masterBeforeApprovedNames(master)).digest('hex');
+  const restoredMaster = require('./helpers/approved-kanji-v17.cjs').restore('character-world-master.v1.js', master);
+  now['character-world-master.v1.js'].sha1 = crypto.createHash('sha1').update(masterBeforeApprovedNames(restoredMaster)).digest('hex');
   for (const [k, v] of Object.entries(fx.groups)) {
     const expected = k === 'meguru.js' ? require('./fixtures/world-character-protected-source.json')[k] : v;
     assert.deepEqual(now[k], expected, k);
@@ -459,7 +460,7 @@ test('30. 既存の 2D assets/runtime remain byte protected except exact approve
 test('approved name exception rejects changed names and preserves unrelated byte protection', () => {
   const source = fs.readFileSync(path.join(ROOT, 'character-world-master.v1.js'), 'utf8');
   const baseline = require('./fixtures/character-3d-protected-hashes.json').groups['character-world-master.v1.js'].sha1;
-  const hash = (s) => crypto.createHash('sha1').update(masterBeforeApprovedNames(s)).digest('hex');
+  const hash = (s) => crypto.createHash('sha1').update(masterBeforeApprovedNames(require('./helpers/approved-kanji-v17.cjs').restore('character-world-master.v1.js', s))).digest('hex');
   assert.equal(hash(source), baseline);
   assert.throws(() => hash(source.replace('若いヒトデ', '未承認ヒトデ')), /exact approved stage array/);
   assert.notEqual(hash(source + '\n// unapproved change\n'), baseline);

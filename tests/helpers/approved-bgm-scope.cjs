@@ -36,6 +36,7 @@ const additions={
   ]
 };
 function restoredBlob(file,text=fs.readFileSync(file,'utf8')){
+ text=require('./approved-kanji-v17.cjs').restore(file,text);
  for(const addition of additions[file]||[]){assert.equal(text.split(addition).length,2,'exact single BGM insertion: '+file);text=text.replace(addition,'');}
  // PR #565's approved design adds only these two includes to this protected file.
  // Accept the original page or the complete pair in their exact approved positions.
