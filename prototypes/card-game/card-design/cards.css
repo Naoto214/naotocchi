@@ -56,10 +56,16 @@
 
 
 /* Card internals only. No host UI sizing, controls or layout changes. */
-.v11-card .v8-value{font-size:10.5cqw;font-weight:600}
-.v11-card .v8-stat-label{font-size:3cqw;left:1.6cqw}
+/* Reserve separate label/number columns, including two-digit values.
+   The normal strip ends before the footer; detail ends before the effect box.
+   fit.mjs retains equal ink height and optical centering for stats and cost. */
+.v11-card .v8-stats{top:126cqw;height:14cqw;border-width:.3cqw;overflow:visible}
 .v11-card .v8-stat{isolation:isolate}
-.v11-card .v8-stats{overflow:visible}
+.v11-card .v8-stat+.v8-stat::before{content:"";position:absolute;left:0;top:20%;bottom:20%;border-left:.3cqw solid #bba878}
+.v11-card .v8-stat-label{top:50%;left:1.5cqw;width:10.2cqw;transform:translateY(-50%);font-size:3.4cqw;font-weight:600;line-height:1.1}
+.v11-card .v8-value{inset:0 1.5cqw 0 13cqw;font-size:16cqw;font-weight:600;line-height:1;letter-spacing:0}
+.v11-card.v10-detail .v8-stats{top:84cqw;height:12.5cqw}
+.v11-card.v10-detail .v8-value{font-size:14cqw}
 .v11-card .v8-value,.v11-card .v8-cost{font-family:Georgia,"Noto Serif CJK JP",serif;font-kerning:none}
 .v11-card .v8-glyph{font-weight:600;font-kerning:none}
 .v11-card .v8-number{white-space:nowrap}
