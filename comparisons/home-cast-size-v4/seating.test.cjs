@@ -58,3 +58,34 @@ test('positive curves share a given household opening and unmeasured viewports r
   for(const [w,h] of [[375,374],[1024,800],[376,760],[375,610]])
     assert.equal(withOpeningSeats(nav,{region},w,h,query(count)),nav);
 });
+
+test('every selected roster reproduces its measured hint list and the primary matrix coverage', () => {
+  const manifest=require('./evidence/placement-selection.json');
+  const sizes=new Set();
+  const regions=new Set();
+  let accepted=0;
+  for (const row of manifest.cases) {
+    const hints=openingFor(row.width,row.height,row.region,row.count) || [];
+    assert.deepEqual(hints,row.hints);
+    assert.ok(hints.length<=3);
+    assert.deepEqual(row.invalid,[[],[]]);
+    if (hints.length) {
+      accepted++;
+      sizes.add(row.count);
+      assert.ok(row.residentsMoved.length>0);
+      assert.equal(row.spread[1].zones,6);
+    }
+    regions.add(row.region);
+  }
+  assert.equal(accepted,22);
+  assert.deepEqual([...sizes].sort((a,b)=>a-b),[19,20,21,22,23,24,25,26,27,28]);
+  assert.equal(regions.size,13);
+  let entries=0, changed=0;
+  for (const [w,h] of [[320,516],[348,640],[360,694],[375,760],[390,792],[430,880]]) {
+    for (const region of regions) for (let n=18; n<=28; n++) {
+      entries++;
+      if (openingFor(w,h,region,n)?.length) changed++;
+    }
+  }
+  assert.deepEqual([entries,changed],[858,17]);
+});

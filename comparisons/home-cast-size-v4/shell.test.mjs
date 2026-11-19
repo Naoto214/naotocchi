@@ -54,3 +54,14 @@ test('fixed comparisons switch in place and size-specific openings reload when t
   }
   assert.equal(needsNewFrame(opening, {...opening, time:'morning', paused:true}), false);
 });
+
+test('an uncatalogued expression sprite is measured from its own opaque pixels', async () => {
+  const {alphaBounds} = await import('./shell-model.mjs');
+  assert.equal(typeof alphaBounds, 'function');
+  // A 4×2 decoded RGBA frame. Its drawing touches only (1,0) and (2,1).
+  const pixels = new Uint8ClampedArray(4 * 2 * 4);
+  pixels[(0 * 4 + 1) * 4 + 3] = 255;
+  pixels[(1 * 4 + 2) * 4 + 3] = 255;
+  assert.deepEqual(alphaBounds(pixels, 4, 2), [32, 0, 96, 128]);
+  assert.equal(alphaBounds(new Uint8ClampedArray(32), 4, 2), null);
+});

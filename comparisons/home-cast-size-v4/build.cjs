@@ -7,6 +7,7 @@ const {replaceScript} = require('../home-cast-size-v2/build.cjs');
 
 const referenceCommit = 'a6e257fef32ea2f0664b8c9fbed761f60ab63cb0';
 const referenceBundle = 'c98b1de105f27b97fe5c2fd0e9f83b5ce1621d248e0c315c45c59c299c9ecc2c';
+const {createOpeningFit} = require('./startup-fit.cjs');
 const shellFiles = ['index.html', 'style.css', 'controls.mjs', 'shell-model.mjs'];
 
 function populationBridge(source) {
@@ -61,6 +62,13 @@ function writeGame(game, baseline, seating) {
     'bod,roleScale,depthScale.toFixed(4),dx.toFixed(2)');
   controller = replaceOnce(controller, 'bod,depthScale.toFixed(4),cacheKey',
     'bod,roleScale,depthScale.toFixed(4),cacheKey');
+  controller = replaceOnce(controller, "    let residentEnvelopeKey='';",
+    "    const retainOpeningFit = (" + createOpeningFit.toString() + ")(() => { stage.dataset.populationFitRecoveries=String(Number(stage.dataset.populationFitRecoveries||0)+1); });\n    let residentEnvelopeKey='';");
+  controller = replaceOnce(controller,
+    'if(JSON.stringify(value)===JSON.stringify(stage.__homeResidentEnvelope))return;',
+    "if(retainOpeningFit(stage.__homeResidentEnvelope,value,[scene.region,env.innerWidth,env.innerHeight,...rows.keys()].join('/'),env.NaotocchiHomeViewport?.residentPresentation?.()))return;");
+  controller = replaceOnce(controller, "        const metrics=JSON.parse(stage.dataset.livingMetrics||'{}');",
+    "        if([...rows.values()].some(row=>!row.shadow.isConnected||!row.shadow.style.left||!row.shadow.style.top||!(parseFloat(row.shadow.style.width)>0)))return null;\n        const metrics=JSON.parse(stage.dataset.livingMetrics||'{}');");
   add('home-production-diorama-population.js', controller);
   let html = replaceScript(read('limit.html'), 'home-production-diorama-limit.js', 'home-production-diorama-population.js');
   html = replaceOnce(html, '<script src="beauty/bridge.js"></script>',

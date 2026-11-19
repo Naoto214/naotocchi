@@ -1,0 +1,60 @@
+{
+  "engine": "webkit",
+  "devices": [
+    {
+      "width": 320,
+      "height": 568,
+      "toolbarMinWidth": 50.16,
+      "toolbarMinHeight": 44,
+      "candidateGains": {
+        "current": 0,
+        "A": 0,
+        "B": 0,
+        "C": 0
+      },
+      "fixedFeet": 28,
+      "individualCompanions": 26,
+      "companionRange": "仲間26体の範囲　幅 7.0〜22.4 px ／ 高さ 9.3〜22.3 px"
+    },
+    {
+      "width": 348,
+      "height": 700,
+      "toolbarMinWidth": 54.83,
+      "toolbarMinHeight": 44,
+      "candidateGains": {
+        "current": 0,
+        "A": 5.1363,
+        "B": 7.7045,
+        "C": 10.2727
+      },
+      "fixedFeet": 28,
+      "individualCompanions": 26,
+      "companionRange": "仲間26体の範囲　幅 7.0〜22.4 px ／ 高さ 9.3〜22.3 px"
+    },
+    {
+      "width": 375,
+      "height": 812,
+      "toolbarMinWidth": 59.33,
+      "toolbarMinHeight": 44,
+      "candidateGains": {
+        "current": 0,
+        "A": 10,
+        "B": 15,
+        "C": 20
+      },
+      "fixedFeet": 28,
+      "individualCompanions": 26,
+      "companionRange": "仲間26体の範囲　幅 7.2〜22.9 px ／ 高さ 9.6〜22.9 px"
+    }
+  ],
+  "pageErrors": [],
+  "version": "26.5",
+  "coldDefault": {
+    "readySeconds": 138.89,
+    "count": 28,
+    "region": "river_lake",
+    "variant": "B",
+    "curve": "linear",
+    "moving": true
+  }
+}

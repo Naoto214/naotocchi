@@ -65,8 +65,48 @@ def verify_source(repo, reference, head):
         if (actual_hash != expected_hash or entry["sha256"] != expected_hash
                 or not isinstance(entry["reason"], str) or not entry["reason"].strip()):
             raise ValueError(f"Incorrect evidence declaration for {path}")
-    return {"reference": V3_COMMIT, "preservedSourcePaths": len(before),
+    return {"reference": V3_COMMIT, "candidate": git(repo, "rev-parse", "--verify", head).decode().strip(),
+            "preservedSourcePaths": len(before),
             "addedSourcePaths": len(additions), "evidenceSHA256": ARCHIVES}
+
+
+V4_GAME_BEFORE_FIT = "5ba0ca7a051eefba377f54dd0bc05c1e7b90ca3f5cc00cea0ad26ef841bc71d3"
+CONTROLLER = "home-production-diorama-population.js"
+FIT_SHA256 = "d82c8381d48bda72192180e2da0fd76d171b00490027bfaca0d781869b03d4e0"
+
+
+def reviewed_fit_insertion(controller):
+    prefix = "    const retainOpeningFit = ("
+    suffix = (")(() => { stage.dataset.populationFitRecoveries=String(Number(stage.dataset.populationFitRecoveries||0)+1); });\n"
+              "    let residentEnvelopeKey='';")
+    text = controller.read_text()
+    if text.count(prefix) != 1 or text.count(suffix) != 1:
+        raise ValueError("Expected exactly one startup-fit closure in the V4 controller")
+    body = text.split(prefix)[1].split(suffix)[0]
+    if hashlib.sha256(body.encode()).hexdigest() != FIT_SHA256:
+        raise ValueError("Unreviewed startup-fit closure")
+    return prefix + body + suffix
+
+
+def undo_reviewed(data, edits, filename):
+    for new, old in edits:
+        needle = new.encode()
+        if data.count(needle) != 1:
+            raise ValueError(f"Expected exactly one reviewed edit in {filename}")
+        data = data.replace(needle, old.encode())
+    return data
+
+
+def restore_controller_before_fit(controller):
+    edits = [
+        (reviewed_fit_insertion(controller), "    let residentEnvelopeKey='';"),
+        ("if(retainOpeningFit(stage.__homeResidentEnvelope,value,[scene.region,env.innerWidth,env.innerHeight,...rows.keys()].join('/'),env.NaotocchiHomeViewport?.residentPresentation?.()))return;",
+         "if(JSON.stringify(value)===JSON.stringify(stage.__homeResidentEnvelope))return;"),
+        ("        if([...rows.values()].some(row=>!row.shadow.isConnected||!row.shadow.style.left||!row.shadow.style.top||!(parseFloat(row.shadow.style.width)>0)))return null;\n"
+         "        const metrics=JSON.parse(stage.dataset.livingMetrics||'{}');",
+         "        const metrics=JSON.parse(stage.dataset.livingMetrics||'{}');"),
+    ]
+    return undo_reviewed(controller.read_bytes(), edits, controller.name)
 
 
 def verify_native(baseline, trial):
@@ -96,12 +136,9 @@ def verify_native(baseline, trial):
         ],
     }
     for (prior, sibling), edits in replacements.items():
-        data = (trial / sibling).read_bytes()
-        for new, old in edits:
-            token = new.encode()
-            if data.count(token) != 1:
-                raise ValueError(f"Unexpected script structure in {sibling}")
-            data = data.replace(token, old.encode())
+        file = trial / sibling
+        data = restore_controller_before_fit(file) if sibling == CONTROLLER else file.read_bytes()
+        data = undo_reviewed(data, edits, sibling)
         if data != (baseline / prior).read_bytes():
             raise ValueError(f"Unreviewed game changes in {sibling}")
     return [sibling for prior, sibling in replacements]
@@ -116,8 +153,19 @@ def verify_package(baseline, trial):
         raise ValueError("Unexpected symlink in the game package")
     candidate = inventory(trial)
     verify_paths(before_trace, candidate, PACKAGE_ADDITIONS)
+    # The seven V4 game files were present in the pre-repair build.
+    # Restore only the fit edit and compare the entire 3,904-file game directory.
+    game = {path.removeprefix("game/"): digest for path, digest in candidate.items() if path.startswith("game/")}
+    before_controller = restore_controller_before_fit(trial / "game" / CONTROLLER)
+    game[CONTROLLER] = hashlib.sha256(before_controller).digest()
+    if manifest_hash(game) != V4_GAME_BEFORE_FIT:
+        raise ValueError("Another game byte changed since the V4 startup baseline")
     return {"identicalV3Files": len(before_trace), "v3SHA256": before_sha,
             "nativeScriptsCompared": verify_native(baseline / "game", trial / "game"),
+            "startupFit": {"priorV4Commit": "e9cbfd3dc714179356ab81db838a52e209708689",
+                           "reviewedFunctionSHA256": FIT_SHA256, "restoredV4GameSHA256": V4_GAME_BEFORE_FIT,
+                           "changedGameFile": CONTROLLER, "unchangedGameFiles": len(game) - 1,
+                           "restoredControllerSHA256": game[CONTROLLER].hex()},
             "v4Files": len(candidate), "v4SHA256": manifest_hash(candidate),
             "addedSHA256": {path: candidate[path].hex() for path in sorted(PACKAGE_ADDITIONS)}}
 

@@ -9,7 +9,7 @@ permissions:
   contents: read
 jobs:
   measure:
-    if: contains(github.event.head_commit.message, '[v4-fixed]') || contains(github.event.head_commit.message, '[v4-layout]') || contains(github.event.head_commit.message, '[v4-timing]')
+    if: contains(github.event.head_commit.message, '[v4-final-geometry]') || contains(github.event.head_commit.message, '[v4-fixed]') || contains(github.event.head_commit.message, '[v4-layout]') || contains(github.event.head_commit.message, '[v4-timing]')
     runs-on: ubuntu-latest
     timeout-minutes: 145
     strategy:
@@ -19,7 +19,7 @@ jobs:
     env:
       REGION: ${{ matrix.region }}
       CHROMIUM_PATH: /usr/bin/google-chrome
-      LAYOUT: ${{ contains(github.event.head_commit.message, '[v4-layout]') && 'optimized' || 'fixed' }}
+      LAYOUT: ${{ contains(github.event.head_commit.message, '[v4-final-geometry]') && 'both' || contains(github.event.head_commit.message, '[v4-layout]') && 'optimized' || 'fixed' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -49,7 +49,7 @@ jobs:
           python -m pip install --disable-pip-version-check 'playwright==1.62.0' numpy pillow
           "$CHROMIUM_PATH" --version
       - name: Measure every population and portrait width in the native game
-        if: contains(github.event.head_commit.message, '[v4-fixed]') || contains(github.event.head_commit.message, '[v4-layout]')
+        if: contains(github.event.head_commit.message, '[v4-final-geometry]') || contains(github.event.head_commit.message, '[v4-fixed]') || contains(github.event.head_commit.message, '[v4-layout]')
         run: |
           python -m http.server 8304 --bind 127.0.0.1 --directory "$RUNNER_TEMP/cast-v4" > "$RUNNER_TEMP/geometry-http.log" 2>&1 &
           server=$!
@@ -63,8 +63,24 @@ jobs:
           path: ${{ runner.temp }}/geometry
           if-no-files-found: error
           retention-days: 7
+      - name: Store final fixed-position observations
+        if: always() && contains(github.event.head_commit.message, '[v4-final-geometry]')
+        uses: actions/upload-artifact@v4
+        with:
+          name: fixed-${{ matrix.region }}
+          path: ${{ runner.temp }}/geometry/fixed
+          if-no-files-found: error
+          retention-days: 7
+      - name: Store final optimized-position observations
+        if: always() && contains(github.event.head_commit.message, '[v4-final-geometry]')
+        uses: actions/upload-artifact@v4
+        with:
+          name: optimized-${{ matrix.region }}
+          path: ${{ runner.temp }}/geometry/optimized
+          if-no-files-found: error
+          retention-days: 7
       - name: Measure live resident, route and rendering workloads
-        if: contains(github.event.head_commit.message, '[v4-timing]')
+        if: ${{ !cancelled() && contains(github.event.head_commit.message, '[v4-timing]') }}
         run: |
           python -m http.server 8304 --bind 127.0.0.1 --directory "$RUNNER_TEMP/cast-v4" > "$RUNNER_TEMP/timing-http.log" 2>&1 &
           server=$!

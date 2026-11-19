@@ -75,7 +75,7 @@
     const nav=qaLastScene.navigation;
     return {p:{clip:rect(stage.closest('.screen-frame')),viewport:[innerWidth,innerHeight],
       region:HomeBeauty.settings.region,art:HomeBeauty.paintRect},actors,baselineGear,settings,gains,
-      modelStats:qaNative.metrics(),events:{...events},actualInitialPoints:actors.map((_,i)=>{
+      modelStats:qaNative.metrics(),events:{...events},populationFitRecoveries:Number(stage.dataset.populationFitRecoveries||0),actualInitialPoints:actors.map((_,i)=>{
         const q=nav.unproject(nav.initialPoint(i,actors.length));return [q.x,q.z];
       })};
   };

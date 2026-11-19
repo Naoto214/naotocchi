@@ -29,3 +29,18 @@ export function needsNewFrame(before, after) {
   return before.region !== after.region || before.count !== after.count || before.layout !== after.layout ||
     (after.layout === 'optimized' && (before.variant !== after.variant || before.curve !== after.curve));
 }
+
+// Return the half-open bounds on the same 128-unit grid as the game's cast catalog.
+export function alphaBounds(pixels, width, height) {
+  let left = width, right = 0, top = height, bottom = 0;
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      if (!pixels[(y * width + x) * 4 + 3]) continue;
+      left = Math.min(left, x);
+      right = Math.max(right, x + 1);
+      top = Math.min(top, y);
+      bottom = y + 1;
+    }
+  }
+  return right ? [128 * left / width, 128 * top / height, 128 * right / width, 128 * bottom / height] : null;
+}

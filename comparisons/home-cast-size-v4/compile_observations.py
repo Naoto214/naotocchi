@@ -3,6 +3,7 @@ import argparse
 import collections
 import csv
 import gzip
+import hashlib
 import io
 import json
 import math
@@ -11,7 +12,7 @@ import statistics
 import tarfile
 import zipfile
 
-from measure_performance import HEIGHT, POLICY, ROOT, v3
+from measure_performance import HEIGHT, ROOT, scenes
 
 EVIDENCE=ROOT/"evidence"
 JP={"forest":"もり","river_lake":"みずべ","city":"とかい","home":"おうち","sea":"うみ","countryside":"いなか",
@@ -19,12 +20,6 @@ JP={"forest":"もり","river_lake":"みずべ","city":"とかい","home":"おう
     "star_stop":"ほしぞらのていりゅうじょ","memory_lake":"きおくのみずうみ"}
 REGIONS=tuple(JP)
 ROLES={"pet":"主人公","partner":"恋人","companion":"仲間"}
-
-def num(x,d=1):
-    return f"{x:.{d}f}"
-
-def portion(success,total):
-    return f"{success}/{total}"
 
 def quantile(nums,q):
     values=sorted(x for x in nums if x is not None)
@@ -48,9 +43,10 @@ def compact_perf(r):
     def calls(k):
         return phases.get(k,{}).get("calls",0)
     events=collections.Counter(e["type"] for e in s["reactions"])
-    return dict(region=region,width=w,count=n,policy=policy,curve=curve,layout=layout,extra=r["settings"]["extra"],
+    return dict(region=region,width=w,gameHeight=r.get("gameViewport",[w,HEIGHT[w]-52])[1],count=n,policy=policy,curve=curve,layout=layout,extra=r["settings"]["extra"],
         requestedSec=requested,seconds=s["seconds"],rAFHz=s["rafHz"],gapP50ms=s["p50"],gapP95ms=s["p95"],maxGapMs=s["max"],
         stalls250ms=len(s["long"]),stalls1s=sum(h["ms"]>=1000 for h in s["long"]),modelCalls=calls("model"),
+        nativeUpdateHz=calls("model")/s["seconds"],residentPaintHz=calls("actors")/s["seconds"],worldDrawHz=calls("world")/s["seconds"],
         modelInclusiveMs=ms("model"),plannerCalls=calls("plan"),plannerMs=ms("plan"),modelWithoutPlannerMs=ms("model")-ms("plan"),
         residentPaintCalls=calls("actors"),residentPaintMs=ms("actors"),worldCalls=calls("world"),worldMs=ms("world"),natureMs=ms("nature"),
         walkModelSec=s["steps"]["walk"],modelSec=s["clock"],pausedWallSec=s["pausedSec"],feetMoved=sum(d>1 for _,d in s["feet"]),
@@ -60,13 +56,18 @@ def compact_perf(r):
 def group_input(rows):
     taps=[r for r in rows if r["mode"]=="tap"]; drags=[r for r in rows if r["mode"]=="drag"]
     reacted=lambda r: any(e[0]=="tap" and e[2]==r["key"] for e in r["observed"]["events"])
-    return dict(tapSelected=sum(r["selectedIntended"] for r in taps),tapReactions=sum(reacted(r) for r in taps),taps=len(taps),
+    return dict(tapWrongResident=sum(not r["selectedIntended"] and any(d["accepted"] for d in r["observed"]["down"]) for r in taps),
+                tapWithoutSelection=sum(not any(d["accepted"] for d in r["observed"]["down"]) for r in taps),
+                dragLostAfterSelection=sum(r["selectedIntended"] and not r["dragAttemptedForIntended"] for r in drags),
+                v5Rejected=sum(r["dragAttemptedForIntended"] and not r["routeAcceptedOnRelease"] for r in drags),
+                tapSelected=sum(r["selectedIntended"] for r in taps),tapReactions=sum(reacted(r) for r in taps),taps=len(taps),
                 dragSelected=sum(r["selectedIntended"] for r in drags),dragCommands=sum(r["dragAttemptedForIntended"] for r in drags),
                 dragAccepted=sum(r["routeAcceptedOnRelease"] for r in drags),
                 dragMoved=sum(r["routeAcceptedOnRelease"] and r["observed"]["displacement"]>1 for r in drags),
                 closeEndpoint=sum(r["routeAcceptedOnRelease"] and r["targetErrorCss"] is not None and r["targetErrorCss"]<=4 for r in drags),
                 planned=sum(bool((r.get("openingPlanner") or {}).get("choice")) for r in drags),
-                dryDirections=sum(r.get("openingPlanner") is not None for r in drags),drags=len(drags),
+                dryDirections=sum(r.get("openingPlanner") is not None for r in drags),
+                unpausedDryDirections=sum(r.get("openingPlanner") is not None and not r["openingPlanner"]["paused"] for r in drags),drags=len(drags),
                 blockedAtStart=sum(not r["readyForInput"] for r in taps+drags),
                 selectionMeanMs=statistics.fmean(times) if (times:=[d["at"]-d["ts"] for r in rows for d in r["observed"]["down"] if d["key"]==r["key"]]) else 0,
                 selectionP95ms=quantile(times,.95),releaseMeanMs=statistics.fmean(up) if (up:=[e["at"]-e["ts"] for r in drags for e in r["observed"]["up"] if e["key"]==r["key"]]) else 0,
@@ -80,7 +81,7 @@ def detail(row):
     s=row["sample"];p=s["phases"]
     avg=lambda k:p.get(k,{}).get("ms",0)/max(1,p.get(k,{}).get("calls",0))
     return (f'{s["rafHz"]:.1f} | {s["p95"]:.0f} / {s["max"]:.0f} | {len(s["long"])} | '
-            f'{s["steps"]["walk"]:.1f} / {s["clock"]:.1f} | {avg("model"):.1f} / {avg("actors"):.1f} / {avg("world"):.1f} | '
+            f'{p.get("model",{}).get("calls",0)/s["seconds"]:.1f} | {s["steps"]["walk"]:.1f} / {s["clock"]:.1f} | {avg("model"):.1f} / {avg("actors"):.1f} / {avg("world"):.1f} | '
             f'{p.get("plan",{}).get("calls",0)} / {avg("plan"):.1f}')
 
 def raw_archive(files,target):
@@ -100,9 +101,21 @@ def regional(folder,complete,archive):
         all_files[f"{region}/{name}"]=raw
         (perf if name=="region.json" else inputs)[region]=d
     if complete:
+        expected_seating=hashlib.sha256((ROOT/"seating.js").read_bytes()).hexdigest()
+        expected_policy=hashlib.sha256((ROOT/"policy.js").read_bytes()).hexdigest()
         assert set(perf)==set(inputs)==set(REGIONS),(list(perf),list(inputs))
+        controllers={r["sourceHashes"]["home-production-diorama-population.js"] for d in perf.values() for r in d["rows"].values()}
+        controllers.update(d["sources"]["home-production-diorama-population.js"] for d in inputs.values())
+        assert len(controllers)==1,("Mixed controller builds",controllers)
         for region in REGIONS:
-            assert len(perf[region]["rows"])==68,(region,len(perf[region]["rows"]))
+            expected={tuple(x) for x in scenes(argparse.Namespace(region=region,scene=None,suite="region"))}
+            actual={tuple(r["scene"]) for r in perf[region]["rows"].values()}
+            assert actual==expected,(region,expected-actual,actual-expected)
+            for document in [inputs[region]["sources"], *(r["sourceHashes"] for r in perf[region]["rows"].values())]:
+                assert document["population-seating.js"]==expected_seating and document["population-policy.js"]==expected_policy,(region,document)
+            for row in perf[region]["rows"].values():
+                n=row["scene"][2];assert row["sample"]["sameNodes"] and row["sample"]["rows"]==n and len({a[0] for a in row["opening"]})==n
+
             r=inputs[region]["rows"]
             assert len(r)==224
             for p in ("B","current","A","C"):
@@ -140,6 +153,36 @@ def report_input(inputs):
             for reg in REGIONS:
                 if reg in inputs:output.append(same_role_row([r for r in inputs[reg]["rows"].values() if r["policy"]==policy],JP[reg]))
             output.append("")
+            taps=[r for r in joined if r["mode"]=="tap"]
+            drags=[r for r in joined if r["mode"]=="drag"]
+            wrong=sum(not r["selectedIntended"] and any(d["accepted"] for d in r["observed"]["down"]) for r in taps)
+            noselect=sum(not any(d["accepted"] for d in r["observed"]["down"]) for r in taps)
+            lost=sum(r["selectedIntended"] and not r["dragAttemptedForIntended"] for r in drags)
+            refused=sum(r["dragAttemptedForIntended"] and not r["routeAcceptedOnRelease"] for r in drags)
+            sim=group_input(joined)
+            output.extend([f"全地域のタップで別人を選んだ試行が{wrong}回、選択が発生しなかった試行が{noselect}回。本人のドラッグ開始後、指を離しても本人への移動指示が届かなかった試行は{lost}回、本人への指示をV5が受理しなかった試行は{refused}回。入力前の独立した経路照合では{sim['planned']}/{sim['dryDirections']}方向に経路があり、照合した全方向のうち計測時のモデルが停止していた方向が{sim['dryDirections']-sim['unpausedDryDirections']}件あった。",""])
+    local=sorted(EVIDENCE.glob("input-owner-*.json"))+sorted(EVIDENCE.glob("input-focus-*.json"))
+    if local:
+        output+=["## 実際の入力経路の個別確認","",
+           "試遊画面の確認では再生ボタンをタッチし、iframeの実座標に補正してから住民を狙った。ゲーム直開きの確認と合わせ、本人の選択・経路の受理・実移動を画面ごとに記録した。","",
+           "| 試行 | 追加倍率・実際に狙った役 | タップ本人 | ドラッグ本人 | V5受理 | 受理後移動 |","|---|---|---:|---:|---:|---:|"]
+        for f in local:
+            d=json.loads(f.read_text());rows=list(d["rows"].values());ss=group_input(rows)
+            entry="試遊画面" if d.get("ownerShell") else "ゲーム直開き"
+            roles='・'.join(ROLES[k] for k in ROLES if any(r["role"]==k for r in rows))
+            gain=rows[0]["plan"]["settings"]["extra"]
+            output.append(f'| {entry} {JP[d["region"]]} {d["width"]}px {d["count"]}体 | +{gain:g}% {roles} | {ss["tapSelected"]}/{ss["taps"]} | {ss["dragSelected"]}/{ss["drags"]} | {ss["dragAccepted"]}/{ss["drags"]} | {ss["dragMoved"]}/{ss["drags"]} |')
+        output+=[""]+[f"- [{f.stem}](evidence/{f.name})" for f in local]+[""]
+    fixed_file=EVIDENCE/"input-focus-home-fixed.json"
+    if fixed_file.exists() and "home" in inputs:
+        fixed=list(json.loads(fixed_file.read_text())["rows"].values())
+        target={(r["key"],r["mode"]) for r in fixed}
+        optimized=[r for r in inputs["home"]["rows"].values() if r["policy"]=="B" and (r["key"],r["mode"]) in target]
+        assert {(r["key"],r["mode"]) for r in optimized}==target
+        output+=["## おうち390px・Bの同じ住民で配置を比較","",
+            "同じ28体・B・390pxで、現行席の個別試験で狙った全員を、配置調整の地域試験からも同じ住民キーで抽出した。どちらも新規起動のゲームに同じ方式で指を入れた。固定は共有Linux Chromium、配置調整はCIのChromeで、時刻やレイテンシーには実行環境の差が含まれる。","",
+            "| Bの配置 | 本人タップ | ドラッグ開始で本人 | 本人へ発行 | V5受理 | 着地点4px以内 | 移動 | 本人選択まで平均 / p95 ms |",
+            "|---|---:|---:|---:|---:|---:|---:|---:|",same_role_row(fixed,"固定"),same_role_row(optimized,"配置調整"),""]
     output+=["選択時間はポインターのイベント時刻からゲームが対象を選ぶまで。通信、OSのタッチセンサー、液晶の応答は計測外。各ドラッグでは指を入れる直前にV5と同じ経路計算を副作用なしでも照合した。経路が計算できることと、指で本人まで指示が届き、歩くことを別々に集計している。","",
         "[地域・役別のCSV](evidence/input-regions.csv) ／ [各住民のポインターと経路の記録](https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/v4/performance-input-regions.tar.gz)"]
     (ROOT/"INTERACTION.md").write_text("\n".join(output)+"\n")
@@ -148,8 +191,39 @@ def report_performance(perf):
     out=["# 住民数と画面幅を変えたときの処理時間","",
          "実寸の縦画面から試遊バー52 CSS pxを引いたゲームをDPR 2で起動し、秋・晴れ・昼の同じ世帯で計測した。V5の住民更新、経路探索、住民・装備・影のDOM反映、背景Canvas描画の同期時間を測った。経路探索は住民更新の内数、自然演出は背景の内数。同期時間にはブラウザーが処理を再開するまでの待ちが入りうる。rAF Hzはブラウザーから返ったアニメーションコールバック頻度。実機iPhoneの液晶FPS、GPU完了時刻は今回の測定範囲外。",""]
     if perf:
+        focused={p:[r for d in perf.values() for r in d["rows"].values() if r["scene"][1:6]==[390,28,p,"linear","fixed"]] for p in ("current","A","B","C")}
+        if all(focused.values()):
+            def fps(rows):
+                return sum(r["sample"]["callbacks"] for r in rows)/sum(r["sample"]["seconds"] for r in rows)
+            def paint(rows):
+                parts=[r["sample"]["phases"]["actors"] for r in rows];return sum(x["ms"] for x in parts)/sum(x["calls"] for x in parts)
+            base=focused["current"];b=focused["B"]
+            byregion={r["scene"][0]:r["sample"]["rafHz"] for r in base}
+            better=sum(r["sample"]["rafHz"]>byregion[r["scene"][0]] for r in b if r["scene"][0] in byregion)
+            out+=[f'390px・28体・固定配置の{len(base)}地域を合わせると、現行 / A / B / CのrAFは '+ " / ".join(f"{fps(focused[p]):.1f}" for p in ("current","A","B","C"))+
+                  f' Hz。Bが現行のrAFを上回った地域は{better}/{len(b)}。1回の住民表示更新は現行{paint(base):.2f}ms、B{paint(b):.2f}msだった。各試行の経路発生数と長い停止は下表およびCSVに含む。',""]
+        small=[r for d in perf.values() for r in d["rows"].values() if r["scene"][1:3]==[320,28]]
+        unchanged=sum(max(abs(v-ref) for v,ref in zip(r["scales"],[1.2,1.2,1.05]))<1e-7 and r["settings"]["extra"]==0 for r in small)
+        out+=[f'320×516 CSS pxのゲームでは28体・4候補の{unchanged}/{len(small)}試行で追加倍率が0%、実表示倍率が主人公120%・恋人120%・仲間105%だった。',""]
+        pose_exact=0;matches=0;max_diff=0;dim_exact=0
+        for d in perf.values():
+            groups=collections.defaultdict(list)
+            for r in d["rows"].values():
+                reg,w,n,p,curve,l,_=r["scene"]
+                if n==28 and w in (375,390,430) and l=="fixed":groups[w].append(r)
+            for group in groups.values():
+                reference=next((r for r in group if r["scene"][3]=="current"),None)
+                if not reference:continue
+                for r in group:
+                    if r is reference:continue
+                    pairs=list(zip(reference["opening"],r["opening"]))
+                    if any(a[0]!=b[0] for a,b in pairs):raise AssertionError("Household changed")
+                    dims=all(a[1:3]==b[1:3] for a,b in pairs)
+                    delta=max(abs(a[i]-b[i]) for a,b in pairs for i in (3,4))
+                    matches+=1;dim_exact+=dims;pose_exact+=delta<1e-6;max_diff=max(max_diff,delta)
+        out+=[f'28体の固定配置で、同地域・同画面幅の現行とA/B/Cを{matches}組照合した。住民キーとモデル寸法は{dim_exact}/{matches}組、全員の初期足座標は{pose_exact}/{matches}組で一致。最大座標差は{max_diff:.4f}モデル単位だった。',""]
         out.extend(["## 13地域の28体・390px幅","",
-                    "各セルはrAF Hz / 最大間隔 ms。GitHub Actionsの新規Chromeでそれぞれ4秒以上、表下のCSVには375・390・430pxの両配置、320・344・360pxの固定配置、19〜27体各人数の現行・B段階・B線形と18体以下などの対照も収録した。4秒の短い窓で一度も経路探索が動かなかった場合がある。",
+                    "各セルはrAF Hz / 最大間隔 ms。GitHub Actionsの新規Chromeでそれぞれ4秒以上、表下のCSVには375・390・430pxの両配置、320×516・344×682・360×728 CSS px（ゲーム実寸）の固定配置、19〜27体各人数の現行・B段階・B線形と18体以下などの対照も収録した。4秒の短い窓で一度も経路探索が動かなかった場合がある。",
                     "", "| 地域 | 現行固定 | A固定 | B固定 | C固定 | B配置調整 |","|---|---:|---:|---:|---:|---:|"])
         for reg in REGIONS:
             if reg not in perf:continue
@@ -179,12 +253,13 @@ def report_performance(perf):
             plan=sum(ms for name,ms in events if name=="plan")
             out+=[f"地域試験の最大間隔は{JP[reg]}・{w}px・{n}体・{p}・{curve}・{l}で{hitch['ms']/1000:.2f}秒。重なった50ms以上の同期区間は住民更新{model:.0f}ms、そのうち経路計画{plan:.0f}msだった。端点をまたぐ計測区間があるので、これらはフレーム長の厳密な内訳ではない。",""]
     out+=["## 長めの実行と停止の内訳","",
-          "Linux共有ホストのChromiumとWPE WebKitで測定した。画面更新、OSの負荷、経路探索の発生は試行ごとに異なる。『歩行秒』は1体以上がそのステップで歩いたモデル時間。住民/表示/背景は各呼び出しの平均ms、経路は回数 / 1回平均ms。","","| 地域・エンジン・幅・人数・候補・配置 | 実秒 | rAF Hz | p95 / 最大 ms | 250ms以上 | 歩行秒 / モデル秒 | 住民 / 表示 / 背景 ms | 経路 回 / ms |","|---|---:|---:|---:|---:|---:|---:|---:|"]
+          "Linux共有ホストのChromiumとWPE WebKitで測定した。「共有」は視認性など他の試験も実行中で、4コア相当のホストに対して負荷平均35に達した。「低負荷」は開始前10秒のホスト全体のCPU使用量が1コア未満になってから単一ブラウザーを起動した。試行中の負荷は生データに収録。画面更新、OSの負荷、経路探索の発生は試行ごとに異なる。『歩行秒』は1体以上がそのステップで歩いたモデル時間。住民/表示/背景は各呼び出しの平均ms、経路は回数 / 1回平均ms。","","| 条件・地域・エンジン・ゲーム実寸・人数・候補・配置 | 実秒 | rAF Hz | p95 / 最大 ms | 250ms以上 | 住民更新 回/実秒 | 歩行秒 / モデル秒 | 住民 / 表示 / 背景 ms | 経路 回 / ms |","|---|---:|---:|---:|---:|---:|---:|---:|---:|"]
     for f in sorted(EVIDENCE.glob("perf-*.json")):
         d=json.loads(f.read_text())
         for r in d["rows"].values():
             region,w,n,p,curve,l,_=r["scene"];s=r["sample"]
-            out.append(f'| {JP[region]} {d["engine"]} {w}px {n}体 {p} {l} | {s["seconds"]:.1f} | {detail(r)} |')
+            condition='低負荷' if 'quiet' in f.name else '共有'
+            out.append(f'| {condition} {JP[region]} {d["engine"]} {w}×{r.get("gameViewport",[w,HEIGHT[w]-52])[1]} {n}体 {p} {l} | {s["seconds"]:.1f} | {detail(r)} |')
     for f in sorted(EVIDENCE.glob("perf-social-*.json")):
         for r in json.loads(f.read_text())["rows"].values():
             ss=r["sample"];events=collections.Counter(e["type"] for e in ss["reactions"])
@@ -222,4 +297,4 @@ if __name__=="__main__":
     args=p.parse_args()
     perf,inputs=regional(args.regional,args.complete,args.archive) if args.regional else ({},{})
     report_performance(perf)
-    if inputs:report_input(inputs)
+    if inputs or list(EVIDENCE.glob("input-focus-*.json")):report_input(inputs)

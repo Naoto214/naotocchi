@@ -3,6 +3,7 @@ import argparse
 from collections import Counter,defaultdict
 import csv
 import gzip
+import hashlib
 import io
 from itertools import product
 import json
@@ -49,6 +50,9 @@ def row(trajectory,phase,gain):
         heroVisible=exp[hero],partnerVisible=exp[partner],compMinVisible=min(cexp),compP10Visible=quantile(cexp,.1),
         compMedianVisible=median(cexp),compUnder50=sum(v<50 for v in cexp),compUnder90=sum(v<90 for v in cexp),
         compFullyHidden=sum(v==0 for v in cexp),compWorstKey=aa[worst]['key'],
+        compHiddenKeys='|'.join(aa[i]['key'] for i in comp if not vals[i][3]),
+        compNoHitKeys='|'.join(aa[i]['key'] for i in comp if not vals[i][4]),
+        compUnderHalfKeys='|'.join(aa[i]['key'] for i in comp if exp[i]<50),
         compMedianExposedInk=median(vals[i][3] for i in comp),compTotalExposedInk=sum(vals[i][3] for i in comp),
         compTotalInk=sum(vals[i][1] for i in comp),compZeroHits=counts[0],compOneHit=counts[1],
         compTwoHits=counts[2],compThreeHits=counts[3],compHitPct=pct(c_hits,len(comp)*3),
@@ -95,15 +99,19 @@ def aggregate(sampled):
         compZeroHits=sum(r['compZeroHits'] for r in sampled),compObservations=sum(r['count']-2 for r in sampled))
 
 def main(a):
-    files={};raws={}
-    for root in a.roots:
+    files={};raws={};origins={}
+    if a.labels and len(a.labels)!=len(a.roots):raise ValueError('Need exactly one source label per input directory')
+    for root,label in zip(a.roots,a.labels or [p.name for p in a.roots],strict=True):
         for p in root.rglob('*.json.gz'):
-            if p.parent.name not in LAYOUTS:continue
+            if p.parent.name not in LAYOUTS or p.parent.parent.name=='errors':continue
             d=read(p);f=d['fixture'];key=(f['width'],f['region'],f['count'],p.parent.name)
             if key in raws and raws[key]!=d:raise ValueError(f'Conflicting duplicate fixture {key}')
-            raws[key]=d;files[p.parent.name+'/'+p.name]=p
-    rows=[];diagnostics=[];obs={};ntraj=0;moving=[];equivalents=0;versions=Counter();layout_mismatch=[]
-    fixed_inputs={}
+            rawname=p.parent.name+'/'+p.name
+            raws[key]=d;files[rawname]=p
+            origins[rawname]={'source':label,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),
+                'controllerSha256':d['source']['home-production-diorama-population.js'],
+                'browsers':sorted({t['browser'] for t in d['trajectories']})}
+    rows=[];diagnostics=[];camera_recoveries={};obs={};ntraj=0;moving=[];equivalents=0;versions=Counter();layout_mismatch=[]
     for (w,r,n,layout),d in sorted(raws.items()):
         if d['phaseSeconds']!=[0,8,30]:raise ValueError(f'Missing observation {w,r,n,layout}')
         for tr in d['trajectories']:
@@ -111,6 +119,8 @@ def main(a):
             versions[tr['browser']]+=1
             if len(tr['phases'])!=3:raise ValueError('Need 0, 8 and 30 seconds')
             moving.append(tr['phases'][-1]['modelStats']['distance'])
+            if 'populationFitRecoveries' in tr['phases'][0]:
+                camera_recoveries['/'.join(map(str,[w,r,n,layout]))]=max(p['populationFitRecoveries'] for p in tr['phases'])
             if layout=='optimized' and any(p is not None for p in tr['plan']):
                 for t,phase in zip((0,8,30),tr['phases'],strict=True):
                     if '0' not in phase['gains']:continue
@@ -147,13 +157,19 @@ def main(a):
     for k in sorted(obs):rows+=obs[k]
     dir=a.out;dir.mkdir(parents=True,exist_ok=True)
     save_csv(dir/'geometry-scenes.csv.gz',rows)
-    archive(dir/'geometry-fixtures.tar.gz',files)
+    supplemental={}
+    if a.supplement:
+        for p in a.supplement.rglob('*.json.gz'):
+            supplemental['extra/'+p.relative_to(a.supplement).as_posix()]=p
+        if not a.partial and len(supplemental)!=10:raise ValueError('Expected five additional profiles in each layout')
+    archive(dir/'geometry-fixtures.tar.gz',{**files,**supplemental})
     if diagnostics:
         save_csv(dir/'geometry-layout-only.csv.gz',diagnostics)
     issues={}
     for (w,r,n,l,c,p),values in obs.items():
         ref=obs.get((w,r,n,'fixed','linear','current'))
-        if ref:issues['/'.join(map(str,[w,r,n,l,c,p]))]=reasons(ref,values,n)
+        if ref and all(r['chrome']==v['chrome'] for r,v in zip(ref,values)):
+            issues['/'.join(map(str,[w,r,n,l,c,p]))]=reasons(ref,values,n)
     clusters=defaultdict(list)
     for v in rows:
         if v['count'] not in ALL_COUNT:continue
@@ -161,18 +177,28 @@ def main(a):
         for prefix in ('all',f'w{w}',f'n{n}',f'r-{r}',f'{w}/{r}',f'{w}/n{n}'):
             clusters[f'{prefix}/{l}/{c}/{p}'].append(v)
     grouped={k:aggregate(v) for k,v in clusters.items()}
-    def select(w,r,n,l,c,p,sec=0):
-        v=obs.get((w,r,n,l,c,p))
-        return v[{0:0,8:1,30:2}[sec]] if v else None
-    def arrays(name,keys,eligible):
+    individuals=defaultdict(Counter)
+    for (w,r,n,l,c,p),conditions in obs.items():
+        base=obs.get((w,r,n,'fixed','linear','current'))
+        if not base or n<19 or base[0]['chrome']!=conditions[0]['chrome']:continue
+        tally=individuals[f'{l}/{c}/{p}']
+        for baseline,candidate in zip(base,conditions):
+            tally['actorObservations']+=n-2
+            for k in ('compHiddenKeys','compNoHitKeys','compUnderHalfKeys'):
+                old=set(filter(None,baseline[k].split('|')))
+                new=set(filter(None,candidate[k].split('|')))
+                tally[k+'New']+=len(new-old)
+                tally[k+'Existing']+=len(new&old)
+                tally[k+'Recovered']+=len(old-new)
+    def extremes(keys,eligible):
         values=[r for r in rows if eligible(r)]
         return {k:max(values,key=lambda r:r[k]) if k.startswith(('compUnder','compZero','overlap','pairs','clipped','gearError','frameFoot','shadowsMissing','allHidden'))
             else min(values,key=lambda r:r[k]) for k in keys} if values else {}
     summary={'sceneObservations':len(rows),'distinctNativeTrajectories':ntraj,'zeroDistanceAt30s':sum(x<=0 for x in moving),
-        'minimumNativeDistanceAt30s':min(moving),'distinctBrowserVersions':dict(versions),'aliasConditions':equivalents,
+        'minimumNativeDistanceAt30s':min(moving),'nativeFitRecoveryCounts':camera_recoveries,'distinctBrowserVersions':dict(versions),'aliasConditions':equivalents,
         'missingConditionCount':len(missing),'missingConditions':missing,'chromePatchMismatch':layout_mismatch,
-        'diagnosticZeroGainObservations':len(diagnostics),'rawFileCount':len(files),'caseCount':len(obs),'aggregate':grouped,'relativeShapeAndHitReasons':issues}
-    summary['extremes']={p:arrays(p,['heroVisible','partnerVisible','compMinVisible','compHitPct','compUnder50','compZeroHits','overlapPct','pairs','clipped','allHidden','shadowsMissing','gearError','frameFootError'],
+        'additionalProfileRawFiles':len(supplemental),'diagnosticZeroGainObservations':len(diagnostics),'rawFileCount':len(files),'fileOrigins':origins,'caseCount':len(obs),'aggregate':grouped,'pairedIndividualOutcomes':individuals,'relativeShapeAndHitReasons':issues}
+    summary['extremes']={p:extremes(['heroVisible','partnerVisible','compMinVisible','compHitPct','compUnder50','compZeroHits','overlapPct','pairs','clipped','allHidden','shadowsMissing','gearError','frameFootError'],
         lambda v: v['policy']==p and v['curve']=='linear' and v['layout']=='optimized' and v['count']>=19) for p in POLICIES}
     compact_json(dir/'geometry-summary.json',summary)
     if a.compact:
@@ -231,6 +257,13 @@ def report(path,summary,obs,rows):
         totals=Counter(k for v in relevant for k in v)
         name=('固定' if l=='fixed' else '最適')+'・'+('線形' if c=='linear' else '段階')+'・'+p
         out.append(f'| {name} | {len(relevant)} | {sum(bool(x) for x in relevant)} | {totals["clipped"]}／{totals["allHidden"]} | {totals["overlapPct"]}／{totals["pairs"]} | {totals["heroVisible"]}／{totals["partnerVisible"]} | {totals["allHitPct"]}／{totals["allZeroHits"]} |')
+    out+=['','同じ地域・端末・人数・時点・個体を照合した結果。各セルは、固定の現行から新たに該当／現行でも候補でも該当／候補で回復した仲間の観測回数。50%は分布を示す区切りで、採用条件には加えていない。','',
+      *table(['線形・最適','判定した仲間観測数','本体完全消失 新／既／回復','露出50%未満 新／既／回復','本人タップ3点全滅 新／既／回復'])]
+    for p in POLICIES:
+        stats=summary['pairedIndividualOutcomes'].get('optimized/linear/'+p)
+        if stats:
+            cells=['／'.join(f'{stats.get(k+tag,0):,}' for tag in ('New','Existing','Recovered')) for k in ('compHiddenKeys','compUnderHalfKeys','compNoHitKeys')]
+            out+=['| '+' | '.join([p,f'{stats["actorObservations"]:,}',*cells])+' |']
     out+=['','## 人数による変化','',
       '375px・もり・固定配置・開始時。現行も合わせて読むと、1体増えたことによる元のカメラと奥行きの差と、表示中の同じ足元への倍率差を区別できる。各セルは主人公／恋人／仲間中央値の本体高（CSS px）。','',
       *table(['人数','現行','段階 B','線形 A','線形 B','線形 C','線形Bの倍率加算'])]
@@ -269,18 +302,39 @@ def report(path,summary,obs,rows):
         out.append(f'| {n} | {len(pairs)} | {hs} | {median(dif("compMedianExposedInk")):+g} | {sum(x>0 for x in dn)}／{sum(x==0 for x in dn)}／{sum(x<0 for x in dn)} | {sum(x>0 for x in dif("compZeroHits"))} |')
     out+=['','¹ 場面ごとに最も隠れた仲間1体の露出割合を比較。同じ場面のBとCの間で、最も隠れる住民が入れ替わる場合もある。','',
       '## 足元・装備・自律移動','']
+    measured=Counter((v['source'],v['controllerSha256'][:12]) for v in summary['fileOrigins'].values() if v['browsers'])
+    out+=['ブラウザーを開いて取得したファイルの測定元とコントローラーのSHA-256先頭12桁。各生ファイルの完全なSHA-256と版は集計JSONに収録した。','',*table(['測定元','コントローラー','実測ファイル数'])]
+    out += [f'| {label} | `{sha}` | {amount} |' for (label,sha),amount in sorted(measured.items())]
+    out.append('')
+    recoveries=summary['nativeFitRecoveryCounts']
+    if recoveries:
+        occurred=[f'{k}（{v}回）' for k,v in recoveries.items() if v]
+        out+=[f'ネイティブのカメラ調整を観察した{len(recoveries)}開始状態のうち、画面幅の当てはめが同じ2値を往復し、広いほうの外縁に確定したのは{len(occurred)}件。'+('対象は'+ '、'.join(occurred)+'。' if occurred else ''),'']
+    versions='、'.join(f'{k}（{v}開始状態）' for k,v in summary['distinctBrowserVersions'].items())
+    out += [f'全体計測のChromeは {versions}。固定と最適でChromeのパッチ版が異なる条件は{len(summary["chromePatchMismatch"])}件で、相対目安は同一ブラウザー版の組だけで集計した。','']
     if rows:
         distance=summary['minimumNativeDistanceAt30s']
         out+=[f'全観測で影の欠落は最大{max(r["shadowsMissing"] for r in rows)}体。倍率を足元に掛けた場合の期待位置と実表示との差は、装備矩形が最大{max(r["gearError"] for r in rows):.4f}、本体の画像枠が最大{max(r["frameFootError"] for r in rows):.4f} CSS px。30秒までの移動距離は累計で最小{distance:.3f} native px、移動距離0の開始状態は{summary["zeroDistanceAt30s"]}件。各時点はV5の通常の自律ステップを0.1秒ずつ進めて測定した。実時間のフレーム間隔は性能測定を参照。','']
+    for filename,label in [('geometry-raster-chromium.json','Chromium'),('geometry-raster-webkit.json','Linux WebKit')]:
+        calibrated=BASE/'evidence'/filename
+        if not calibrated.is_file():continue
+        data=json.loads(calibrated.read_text());cases=list(data['cases'].values())
+        heights=[abs(v['raster'][k]-v['projected'][k]) for v in cases for k in range(3)]
+        occlusion=[abs(v['raster'][4]-v['projected'][4]) for v in cases]
+        pairs=[abs(v['raster'][3]-v['projected'][3]) for v in cases]
+        out.append(f'{label} {data["browser"]}の実画面を各住民の白い輪郭に分けて再測定した。{len(cases)}場面で、投影との最大差は本体高{max(heights):g} CSS px、重なり{max(pairs):g}組、隠れ面積{max(occlusion):.3f}ポイント。ブラウザーの端画素・前景マスクによる差を含む。 [実画面の数値](evidence/{filename})')
+        out.append('')
     out+=['[全場面の集計CSV](evidence/geometry-scenes.csv.gz) ／ [個別の仲間・解決先・自律移動・足元を含むブラウザー記録](evidence/geometry-fixtures.tar.gz) ／ [地域・人数・幅別の数値とV3相対基準の該当理由](evidence/geometry-summary.json)','']
     if summary['diagnosticZeroGainObservations']:
         out += [f'最適配置に切り替えた足元を保ち、拡大だけを0に戻した診断を{summary["diagnosticZeroGainObservations"]:,}場面で追加した。正式な現行設定はV2配置に戻る。この診断と固定の現行設定を比較すると、配置だけの効果が分かる。 [配置だけ変えた診断](evidence/geometry-layout-only.csv.gz)','']
     content='\n'.join(out)
     for name in ('geometry-scenes.csv.gz','geometry-fixtures.tar.gz','geometry-summary.json','geometry-layout-only.csv.gz'):
         content=content.replace('](evidence/'+name+')','](https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/v4/'+name+')')
+    if (BASE/'evidence/geometry-extra-profiles.csv').is_file():
+        content+='\n350×701と360×745（ゲーム高さ649・693px）でのみ採用した5条件についても、固定・最適と、同じ最適配置で拡大を0に戻した診断を追加した。主表の360×746はゲーム高さ694pxで、上記とは異なる。 [追加の5配置プロファイル](evidence/geometry-extra-profiles.csv)\n'
     path.write_text(content)
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('roots',nargs='+',type=Path);p.add_argument('--out',type=Path,default=BASE/'evidence');p.add_argument('--report',type=Path,default=BASE/'GEOMETRY.md');p.add_argument('--compact',type=Path,help='Optional small, human-readable subgroup CSV for the repository');p.add_argument('--partial',action='store_true')
+    p.add_argument('roots',nargs='+',type=Path);p.add_argument('--out',type=Path,required=True,help='Owner evidence directory for the complete native archives');p.add_argument('--report',type=Path,default=BASE/'GEOMETRY.md');p.add_argument('--labels',nargs='+',help='Provenance label for each input root');p.add_argument('--supplement',type=Path,help='Five additional authored profiles to include in the private raw archive');p.add_argument('--compact',type=Path,help='Optional small, human-readable subgroup CSV for the repository');p.add_argument('--partial',action='store_true')
     main(p.parse_args())

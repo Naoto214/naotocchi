@@ -1,6 +1,6 @@
 import {regions, times, roles, median, readScene} from '../shell-model.mjs';
 import {projectedBody} from '../v3/shell-model.mjs';
-import {readPopulationScene, sceneQuery, populationFrameURL, needsNewFrame} from './shell-model.mjs';
+import {readPopulationScene, sceneQuery, populationFrameURL, needsNewFrame, alphaBounds} from './shell-model.mjs';
 
 const byId = id => document.getElementById(id);
 const compact = matchMedia('(max-width:739px), (max-height:500px) and (max-width:940px)');
@@ -26,6 +26,28 @@ const rows = new Map(roles.map(([kind, label]) => [kind, addRow(byId('measuremen
   kind === 'companion' ? '仲間（中央値）' : label, ['—','—'])]));
 const dimensions = (w, h) => decimal.format(w) + ' × ' + decimal.format(h);
 
+const poseBoxes = new Map();
+function spriteBox(image, asset, catalog) {
+  const known = catalog?.[asset]?.box;
+  if (known) return known;
+  const source = image.currentSrc || image.src;
+  if (!poseBoxes.has(source)) {
+    const canvas = document.createElement('canvas');
+    canvas.width = image.naturalWidth;
+    canvas.height = image.naturalHeight;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(image, 0, 0);
+    const bitmap = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    poseBoxes.set(source, alphaBounds(bitmap.data, bitmap.width, bitmap.height));
+  }
+  return poseBoxes.get(source);
+}
+
+function scheduleMeasure() {
+  cancelAnimationFrame(measureFrame);
+  measureFrame = requestAnimationFrame(measure);
+}
+
 function measure() {
   if (!ready || (compact.matches && !document.body.classList.contains('settings-open'))) return;
   const game = frame.contentWindow;
@@ -34,11 +56,14 @@ function measure() {
   const individualRows = document.createElement('tbody');
   for (const actor of cast) {
     const image = game.document.querySelector('[data-diorama-actor="' + CSS.escape(actor.key) + '"] img.character-asset');
-    if (!image?.naturalWidth) continue;
+    if (!image?.naturalWidth) {
+      if (image && !image.complete) image.addEventListener('load', scheduleMeasure, {once:true});
+      continue;
+    }
     const path = new URL(image.currentSrc || image.src, game.location.href).pathname;
     const start = path.indexOf('/assets/');
     const key = start < 0 ? actor.asset : decodeURIComponent(path.slice(start + 1));
-    const alphaBox = game.NaotocchiCastBounds?.[key]?.box;
+    const alphaBox = spriteBox(image, key, game.NaotocchiCastBounds);
     const rect = image.getBoundingClientRect();
     if (!alphaBox || !rect.width || !rect.height || !samples.has(actor.kind)) continue;
     const size = projectedBody(rect, alphaBox);
@@ -171,8 +196,7 @@ window.addEventListener('message', event => {
   byId('status').textContent = '';
   byId('gain-readout').textContent = state.count + '体・幅' + state.width + ' px・現行から +' + percent.format(state.extra) + '%';
   for (const [kind, row] of rows) row.cells[1].textContent = percent.format(state[roleFields[kind]]) + '%';
-  cancelAnimationFrame(measureFrame);
-  measureFrame = requestAnimationFrame(measure);
+  scheduleMeasure();
 });
 
 function setPanel(open, restoreFocus = false) {

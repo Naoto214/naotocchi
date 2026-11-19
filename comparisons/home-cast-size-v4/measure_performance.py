@@ -53,6 +53,11 @@ SCENE_STATE = """()=>({
   names:HomeCastTrial.inspect().map(a=>[a.key,a.label]),env:HomeBeauty.settings
 })"""
 
+def host_load():
+    path=Path("/sys/fs/cgroup/cpu.stat")
+    cgroup={k:int(v) for k,v in (line.split() for line in path.read_text().splitlines())} if path.exists() else {}
+    return {"loadAverage":os.getloadavg(),"cgroupCpu":cgroup}
+
 def key_for(scene):
     return "/".join(map(str,scene))
 
@@ -95,7 +100,7 @@ def expected_scale(width,n,policy,curve):
 
 async def measure(browser,args,scene):
     region,width,n,policy,curve,layout,seconds=scene
-    height=HEIGHT[width]-52
+    height=args.game_height or HEIGHT[width]-52
     ctx=await browser.new_context(viewport={"width":width,"height":height},device_scale_factor=2,has_touch=True,is_mobile=True)
     hashes={}
     await ctx.add_init_script(v3.PROFILE)
@@ -136,14 +141,17 @@ async def measure(browser,args,scene):
         if client:
             await client.send("Tracing.start",{"categories":"devtools.timeline,blink.user_timing,cc,benchmark,disabled-by-default-devtools.timeline","transferMode":"ReturnAsStream"})
             await page.evaluate("performance.mark('cast-window-0-start')")
+        host_before=host_load()
         sample=await page.evaluate(SAMPLE,seconds)
+        sample["hostAtStart"]=host_before
+        sample["hostAtEnd"]=host_load()
         if client:
             await page.evaluate("performance.mark('cast-window-0-end')")
             trace=await v3.v1.read_compositor_trace(client)
             assert len(trace)==1,trace
             sample["chromiumTrace"]=trace[0]
         assert sample["rows"]==n and sample["sameNodes"] and not errors,(scene,errors)
-        return {"scene":list(scene),"scales":state["scales"],"settings":state["settings"],"environment":state["env"],
+        return {"scene":list(scene),"gameViewport":state["viewport"],"scales":state["scales"],"settings":state["settings"],"environment":state["env"],
                 "opening":state["native"],"names":state["names"],"sourceHashes":hashes,"sample":sample,"errors":errors}
     finally:
         await ctx.close()
@@ -155,6 +163,7 @@ def save(path,data):
     temp.replace(path)
 
 async def run(args):
+    assert not args.game_height or args.scene, "Height overrides apply to explicit --scene measurements only"
     assert not args.trace or args.engine=="chromium", "Timeline trace requires Chromium"
     allowed=list(scenes(args))
     data=json.loads(args.out.read_text()) if args.out.exists() else {"engine":args.engine,"host":platform.system(),
@@ -166,6 +175,8 @@ async def run(args):
         data["version"]=browser.version
         for scene in allowed:
             key=key_for(scene)
+            if args.game_height:key+=f"@height{args.game_height}"
+            if args.trace:key+="+trace"
             if key in data["rows"]:continue
             print("Opening",key,flush=True)
             row=await measure(browser,args,scene)
@@ -181,6 +192,7 @@ if __name__=="__main__":
     p.add_argument("--url",default="http://127.0.0.1:8304")
     p.add_argument("--region",required=True,choices=v3.REGIONS);p.add_argument("--suite",choices=["region","focus"],default="focus")
     p.add_argument("--engine",default="chromium",choices=["chromium","webkit"]);p.add_argument("--seconds",type=float,default=12)
+    p.add_argument("--game-height",type=int,help="Override rendered game height for explicit --scene rows")
     p.add_argument("--trace",action="store_true",help="Include Chromium Paint, RasterTask and layout timings")
     p.add_argument("--scene",action="append",help="WIDTH,COUNT,POLICY,CURVE,LAYOUT,SECONDS");p.add_argument("--out",type=Path,required=True)
     asyncio.run(run(p.parse_args()))

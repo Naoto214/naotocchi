@@ -1,0 +1,398 @@
+{
+  "engine": "WPE WebKit 26.5",
+  "region": "river_lake",
+  "count": 28,
+  "layout": "fixed",
+  "paused": true,
+  "sizeControlTaps": 0,
+  "viewportBefore": [
+    375,
+    812
+  ],
+  "viewportAfter": [
+    390,
+    844
+  ],
+  "observations": [
+    {
+      "event": "cold",
+      "afterMs": 0,
+      "width": 375,
+      "policy": "B",
+      "extra": 15,
+      "feet": [
+        [
+          "companion:clock",
+          58.82109,
+          240.87808
+        ],
+        [
+          "companion:box",
+          115.35568,
+          370.27485
+        ]
+      ]
+    },
+    {
+      "event": "held",
+      "afterMs": 44,
+      "width": 390,
+      "policy": "B",
+      "extra": 15,
+      "feet": [
+        [
+          "companion:clock",
+          58.82109,
+          240.87808
+        ],
+        [
+          "companion:box",
+          115.35568,
+          370.27485
+        ]
+      ]
+    },
+    {
+      "event": "fit",
+      "afterMs": 2445,
+      "width": 390,
+      "policy": "B",
+      "extra": 15,
+      "feet": [
+        [
+          "companion:clock",
+          61.38957,
+          234.78925
+        ],
+        [
+          "companion:box",
+          120.39846,
+          369.84922
+        ]
+      ]
+    },
+    {
+      "event": "held",
+      "afterMs": 2799,
+      "width": 390,
+      "policy": "B",
+      "extra": 15,
+      "feet": [
+        [
+          "companion:clock",
+          61.38957,
+          234.78925
+        ],
+        [
+          "companion:box",
+          120.39846,
+          369.84922
+        ]
+      ]
+    },
+    {
+      "event": "held",
+      "afterMs": 3983,
+      "width": 390,
+      "policy": "B",
+      "extra": 15,
+      "feet": [
+        [
+          "companion:clock",
+          61.38957,
+          234.78925
+        ],
+        [
+          "companion:box",
+          120.39846,
+          369.84922
+        ]
+      ]
+    },
+    {
+      "event": "held",
+      "afterMs": 4962,
+      "width": 390,
+      "policy": "B",
+      "extra": 15,
+      "feet": [
+        [
+          "companion:clock",
+          61.38957,
+          234.78925
+        ],
+        [
+          "companion:box",
+          120.39846,
+          369.84922
+        ]
+      ]
+    },
+    {
+      "event": "fit",
+      "afterMs": 7367,
+      "width": 390,
+      "policy": "B",
+      "extra": 15,
+      "feet": [
+        [
+          "companion:clock",
+          61.39377,
+          234.79444
+        ],
+        [
+          "companion:box",
+          120.40055,
+          369.84958
+        ]
+      ]
+    },
+    {
+      "event": "held",
+      "afterMs": 7577,
+      "width": 390,
+      "policy": "B",
+      "extra": 15,
+      "feet": [
+        [
+          "companion:clock",
+          61.39377,
+          234.79444
+        ],
+        [
+          "companion:box",
+          120.40055,
+          369.84958
+        ]
+      ]
+    },
+    {
+      "event": "held",
+      "afterMs": 9243,
+      "width": 390,
+      "policy": "B",
+      "extra": 15,
+      "feet": [
+        [
+          "companion:clock",
+          61.39377,
+          234.79444
+        ],
+        [
+          "companion:box",
+          120.40055,
+          369.84958
+        ]
+      ]
+    },
+    {
+      "event": "fit",
+      "afterMs": 10578,
+      "width": 390,
+      "policy": "B",
+      "extra": 15,
+      "feet": [
+        [
+          "companion:clock",
+          61.39037,
+          234.79024
+        ],
+        [
+          "companion:box",
+          120.39886,
+          369.84929
+        ]
+      ]
+    },
+    {
+      "event": "held",
+      "afterMs": 10734,
+      "width": 390,
+      "policy": "B",
+      "extra": 15,
+      "feet": [
+        [
+          "companion:clock",
+          61.39037,
+          234.79024
+        ],
+        [
+          "companion:box",
+          120.39886,
+          369.84929
+        ]
+      ]
+    },
+    {
+      "event": "held",
+      "afterMs": 11672,
+      "width": 390,
+      "policy": "B",
+      "extra": 15,
+      "feet": [
+        [
+          "companion:clock",
+          61.39037,
+          234.79024
+        ],
+        [
+          "companion:box",
+          120.39886,
+          369.84929
+        ]
+      ]
+    },
+    {
+      "event": "fit",
+      "afterMs": 13274,
+      "width": 390,
+      "policy": "B",
+      "extra": 15,
+      "feet": [
+        [
+          "companion:clock",
+          61.39037,
+          234.79024
+        ],
+        [
+          "companion:box",
+          120.39886,
+          369.84929
+        ]
+      ]
+    },
+    {
+      "event": "held",
+      "afterMs": 13353,
+      "width": 390,
+      "policy": "B",
+      "extra": 15,
+      "feet": [
+        [
+          "companion:clock",
+          61.39037,
+          234.79024
+        ],
+        [
+          "companion:box",
+          120.39886,
+          369.84929
+        ]
+      ]
+    },
+    {
+      "event": "held",
+      "afterMs": 14332,
+      "width": 390,
+      "policy": "B",
+      "extra": 15,
+      "feet": [
+        [
+          "companion:clock",
+          61.39037,
+          234.79024
+        ],
+        [
+          "companion:box",
+          120.39886,
+          369.84929
+        ]
+      ]
+    },
+    {
+      "event": "fit",
+      "afterMs": 14799,
+      "width": 390,
+      "policy": "B",
+      "extra": 15,
+      "feet": [
+        [
+          "companion:clock",
+          61.39037,
+          234.79024
+        ],
+        [
+          "companion:box",
+          120.39886,
+          369.84929
+        ]
+      ]
+    },
+    {
+      "event": "held",
+      "afterMs": 15335,
+      "width": 390,
+      "policy": "B",
+      "extra": 15,
+      "feet": [
+        [
+          "companion:clock",
+          61.39037,
+          234.79024
+        ],
+        [
+          "companion:box",
+          120.39886,
+          369.84929
+        ]
+      ]
+    },
+    {
+      "event": "held",
+      "afterMs": 16464,
+      "width": 390,
+      "policy": "B",
+      "extra": 15,
+      "feet": [
+        [
+          "companion:clock",
+          61.39037,
+          234.79024
+        ],
+        [
+          "companion:box",
+          120.39886,
+          369.84929
+        ]
+      ]
+    },
+    {
+      "event": "held",
+      "afterMs": 17455,
+      "width": 390,
+      "policy": "B",
+      "extra": 15,
+      "feet": [
+        [
+          "companion:clock",
+          61.39037,
+          234.79024
+        ],
+        [
+          "companion:box",
+          120.39886,
+          369.84929
+        ]
+      ]
+    },
+    {
+      "event": "held",
+      "afterMs": 18467,
+      "width": 390,
+      "policy": "B",
+      "extra": 15,
+      "feet": [
+        [
+          "companion:clock",
+          61.39037,
+          234.79024
+        ],
+        [
+          "companion:box",
+          120.39886,
+          369.84929
+        ]
+      ]
+    }
+  ]
+}
