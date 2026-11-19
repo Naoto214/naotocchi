@@ -1,0 +1,89 @@
+{
+  "10": {
+    "nearest8": {
+      "r": 402.5,
+      "t": -21.0,
+      "gaps": {
+        "silver": 8.54,
+        "ticks": 8.06
+      },
+      "min": 8.06
+    },
+    "bestWithin4": {
+      "r": 370.0,
+      "t": -4.0,
+      "gaps": {
+        "silver": 0.0,
+        "ticks": 21.21
+      },
+      "min": 0.0
+    },
+    "bestWithin10": {
+      "r": 398.5,
+      "t": 10.0,
+      "gaps": {
+        "silver": 4.12,
+        "ticks": 3.61
+      },
+      "min": 3.61
+    }
+  },
+  "11": {
+    "nearest8": {
+      "r": 402.5,
+      "t": -5.5,
+      "gaps": {
+        "silver": 9.85,
+        "ticks": 8.06
+      },
+      "min": 8.06
+    },
+    "bestWithin4": {
+      "r": 407.5,
+      "t": -4.0,
+      "gaps": {
+        "silver": 14.76,
+        "ticks": 6.71
+      },
+      "min": 6.71
+    },
+    "bestWithin10": {
+      "r": 402.5,
+      "t": -9.0,
+      "gaps": {
+        "silver": 10.3,
+        "ticks": 10.63
+      },
+      "min": 10.3
+    }
+  },
+  "6": {
+    "nearest8": {
+      "r": 397.0,
+      "t": -12.0,
+      "gaps": {
+        "silver": 8.06,
+        "ticks": 8.54
+      },
+      "min": 8.06
+    },
+    "bestWithin4": {
+      "r": 397.5,
+      "t": -4.0,
+      "gaps": {
+        "silver": 5.0,
+        "ticks": 6.0
+      },
+      "min": 5.0
+    },
+    "bestWithin10": {
+      "r": 397.0,
+      "t": -10.0,
+      "gaps": {
+        "silver": 7.21,
+        "ticks": 7.62
+      },
+      "min": 7.21
+    }
+  }
+}

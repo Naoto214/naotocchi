@@ -1,0 +1,28 @@
+{
+  "sha256": "c646dce533b66382ec856dcc9d0f76ae0443be15717e4d03dcb7a9608f484380",
+  "frontSource": "evidence/D-full.jpg",
+  "embeddedBytesIdentical": true,
+  "scale": 0.23391812865497075,
+  "frontImageWidth": 250.76023391812865,
+  "frontImageHeight": 250.76023391812865,
+  "bodyDiameter": 240,
+  "bodyThickness": 24,
+  "tilt": 12,
+  "centers": [
+    [
+      155,
+      190
+    ],
+    [
+      430,
+      190
+    ],
+    [
+      750,
+      190
+    ]
+  ],
+  "front": "normal orthographic face; not projected tilted ellipse",
+  "ringCorrection": "Independent SVG circle r347 center512,500",
+  "physicalTest": false
+}

@@ -1,0 +1,10 @@
+import fs from'node:fs';import crypto from'node:crypto';import{createRequire}from'node:module';import{standSvg}from'../v12/stands.mjs';
+const sharp=createRequire(import.meta.url)(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES+'/sharp');
+const p=new URL('.',import.meta.url);const bytes=fs.readFileSync(new URL('../v14/evidence/C-full.jpg',p));fs.writeFileSync(new URL('evidence/D-full.jpg',p),bytes);const hash=crypto.createHash('sha256').update(bytes).digest('hex');
+let s=standSvg(0);const a=s.indexOf('<svg x='),b=s.indexOf('</svg>',a)+6;
+const scale=240/1026,w=1072*scale,x=155-536*scale,y=190-519*scale;
+s=s.slice(0,a)+`<image data-front-sha256="${hash}" href="data:image/jpeg;base64,${bytes.toString('base64')}" x="${x}" y="${y}" width="${w}" height="${w}" preserveAspectRatio="xMidYMid meet"/>`+s.slice(b);
+s=s.replace('<path d="M 395 310 L 445 75 L 468 80 L 418 315 Z"','<rect x="418" y="70" width="24" height="240" transform="rotate(12 430 190)"');
+s=s.replace('FRONT','FRONT / NORMAL VIEW').replace('CONCEPT ONLY','V15 STAND UPDATE / RING UNRESOLVED');
+fs.writeFileSync(new URL('stand-A.svg',p),s);await sharp(Buffer.from(s)).resize(1350,615).jpeg({quality:92}).toFile(new URL('evidence/stand-A.jpg',p).pathname);
+fs.writeFileSync(new URL('evidence/stand-integrity.json',p),JSON.stringify({sha256:hash,frontSource:'evidence/D-full.jpg',embeddedBytesIdentical:true,scale,frontImageWidth:w,frontImageHeight:w,bodyDiameter:240,bodyThickness:24,tilt:12,centers:[[155,190],[430,190],[750,190]],front:'normal orthographic face; not projected tilted ellipse',ringCorrection:'NOT IMPLEMENTED; D face equals V14 C',physicalTest:false},null,2));

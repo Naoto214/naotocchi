@@ -1,0 +1,18 @@
+import{render as prior,sample}from'../v16/clock-v16.mjs';import{metrics}from'./metrics.mjs';export * from'../v16/clock-v16.mjs';
+export const specs={V16:{scale:1,radius:null},A:{scale:1,radius:390},B:{scale:1.05,radius:402},C:{scale:1.10,radius:415}};
+export const boxes={full:'-64 -76 1152 1152',ten:'110 210 210 185',six:'440 845 145 165',eleven:'260 80 180 165'};
+const pt=(r,a)=>[512+r*Math.sin(a),500-r*Math.cos(a)];
+export function render(state=sample,{variant='B',crop='full',guides=false}={}){
+ const q=specs[variant];if(!q)throw Error('variant');let s=prior(state,{variant:'D'}).replaceAll('plate.webp','../v16/plate.webp').replaceAll('occlusion.png','../v16/occlusion.png');
+ if(variant!=='V16'){
+  const st=s.indexOf('<g data-bezel-width='),en=s.indexOf('<g data-main-ticks=',st);let bezel=s.slice(st,en);const inner=473*q.scale;
+  bezel=bezel.replace(/r="([\d.]+)"/g,(_,r)=>`r="${+r+inner-473}"`);
+  if(q.scale>1){const start=s.indexOf('<image href='),face=s.slice(start,st),f=q.scale,copy=face.replace(/v6-\d+|ring16-[a-z]+/g,m=>m+'-outer');const defs=`<defs><radialGradient id="v17-fade"><stop offset=".975" stop-color="white"/><stop offset="1" stop-color="black"/></radialGradient><mask id="v17-inner"><circle cx="512" cy="495" r="434" fill="url(#v17-fade)"/></mask><clipPath id="v17-bg"><circle cx="512" cy="495" r="${inner+41}"/></clipPath></defs>`;s=s.slice(0,start)+defs+`<g clip-path="url(#v17-bg)"><g transform="translate(512 495) scale(${f}) translate(-512 -495)">${copy}</g></g><g mask="url(#v17-inner)">${face}</g>`+s.slice(st);}
+  s=s.replace(/<g data-bezel-width="[\s\S]*?(?=<g data-main-ticks=)/,bezel);
+  s=s.replace(/<g data-main-ticks="60">[\s\S]*?<\/g>/,()=>`<g data-main-ticks="60">${Array.from({length:60},(_,i)=>{const a=i*Math.PI/30,[x1,y1]=pt(432*q.scale-(i%5?5:10),a),[x2,y2]=pt(432*q.scale,a);return `<line data-tick="${i}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#E4ECF0" stroke-width="${i%5?1:1.8}"/>`;}).join('')}</g>`);
+  s=s.replace(/<g data-main-number="(\d+)">[\s\S]*?<\/g>/g,(_,n)=>{const[x,y]=pt(variant==='A'?({6:397,10:386,11:390}[n]||q.radius):q.radius,n*Math.PI/6),m=metrics[n];return `<g data-main-number="${n}"><text data-axis-x="${x}" data-axis-y="${y}" x="${x}" y="${y}" dx="${m.dx}" dy="${m.dy}" fill="#EDF1F2" font-family="Georgia,serif" font-size="52" font-weight="400" text-anchor="middle" dominant-baseline="central">${n}</text></g>`;});
+ }
+ s=s.replace(/viewBox="[^"]+"/,`viewBox="${boxes[crop]||boxes.full}"`);
+ if(guides){const lines=Array.from({length:12},(_,i)=>{const[x,y]=pt(480,(i+1)*Math.PI/6);return `<line x1="512" y1="500" x2="${x}" y2="${y}" stroke="#f19b65" stroke-width="1"/>`;}).join('');s=s.replace('</svg>',`<g data-guides="true" opacity=".8">${lines}<circle cx="512" cy="500" r="347" fill="none" stroke="#f19b65" stroke-dasharray="5 5"/></g></svg>`);}return s;
+}
+export function alignNumerals(root){const canvas=document.createElement('canvas'),ctx=canvas.getContext('2d');ctx.font='400 52px Georgia,serif';ctx.textAlign='left';ctx.textBaseline='alphabetic';for(const t of root.querySelectorAll('text[data-axis-x]')){const m=ctx.measureText(t.textContent),x=+t.dataset.axisX+(m.actualBoundingBoxLeft-m.actualBoundingBoxRight)/2,y=+t.dataset.axisY+(m.actualBoundingBoxAscent-m.actualBoundingBoxDescent)/2;t.setAttribute('text-anchor','start');t.setAttribute('dominant-baseline','alphabetic');t.setAttribute('dx','0');t.setAttribute('dy','0');t.setAttribute('x',x);t.setAttribute('y',y);t.dataset.inkBounds=JSON.stringify([x-m.actualBoundingBoxLeft,y-m.actualBoundingBoxAscent,x+m.actualBoundingBoxRight,y+m.actualBoundingBoxDescent]);}}

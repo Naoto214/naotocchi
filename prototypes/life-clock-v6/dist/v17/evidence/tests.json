@@ -1,0 +1,52 @@
+{
+  "v17": {
+    "states": 648,
+    "pass": true,
+    "main52": true,
+    "numeralAndTickAxesCommon": true,
+    "ringRadius347": true,
+    "bezelWidth40": true,
+    "handsSubdialsUnchanged": true,
+    "standFrontBytesIdentical": true,
+    "BCclearanceAtLeast8": true
+  },
+  "regression": {
+    "8": {
+      "command": "node dist/v8/verify.mjs",
+      "exitCode": 0
+    },
+    "9": {
+      "command": "node dist/v9/verify.mjs",
+      "exitCode": 0
+    },
+    "10": {
+      "command": "node dist/v10/verify.mjs",
+      "exitCode": 0
+    },
+    "11": {
+      "command": "node dist/v11/verify.mjs",
+      "exitCode": 0
+    },
+    "12": {
+      "command": "node dist/v12/verify.mjs",
+      "exitCode": 0
+    },
+    "13": {
+      "command": "node dist/v13/verify.mjs",
+      "exitCode": 0
+    },
+    "14": {
+      "command": "node dist/v14/verify.mjs",
+      "exitCode": 0
+    },
+    "15": {
+      "command": "node dist/v15/verify.mjs",
+      "exitCode": 0
+    },
+    "16": {
+      "command": "node dist/v16/verify.mjs",
+      "exitCode": 0
+    }
+  },
+  "oldVersionsGitDiffEmpty": true
+}

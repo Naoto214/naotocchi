@@ -1,0 +1,13 @@
+import {render,sample} from './clock-v12.mjs';
+export const standNotes=[
+ {id:'A',name:'背面折りたたみ式',summary:'第一候補。後方へ開く幅広U字脚＋開き止め。背面の操作領域を囲む構造。収納時は脚を背面へ。',size:'仮：径240 × 本体厚24 mm、後傾12°、脚幅140、接地奥行130 mm。折畳時の総厚目標36〜42 mm（ノブを含む設計次第）。',trade:'ヒンジのがた・閉じ込み・開き止めの寿命試験が必要。'},
+ {id:'B',name:'背面固定式',summary:'曲げ金属の左右脚を背面の補強板へ固定。中央と小文字盤の背面ノブを避ける。',size:'仮：径240 × 本体厚24 mm、後傾12°、脚幅150、接地奥行140 mm。収納時も奥行を要する。',trade:'部品点数を抑えやすい。落下時の曲げと取付部の強度を検証。'},
+ {id:'C',name:'独立した卓上台座',summary:'円形本体を柔らかな受けに載せ、背面で脱落を防止。正面の下に台座が見える。',size:'仮：台座幅180 × 奥行150 × 高18 mm、後傾10〜15°。本体は取り外して収納。',trade:'本体の加工を抑えやすいが、台座からの浮き・回転・抜けを検証。'}
+];
+const t=(x,y,s,size=14)=>`<text x="${x}" y="${y}" font-family="sans-serif" font-size="${size}" fill="#294253">${s}</text>`;
+export function standSvg(i){const n=standNotes[i],front=render(sample,{growth:1.1,roman:1.1}).replace('<svg ','<svg x="20" y="60" width="270" height="270" ');const rear=i===0?'<path d="M 665 130 L 645 302 L 855 302 L 835 130" fill="none" stroke="#9eabb5" stroke-width="12"/><circle cx="665" cy="130" r="9"/><circle cx="835" cy="130" r="9"/><path d="M 645 302 L 855 302" stroke="#273a43" stroke-width="8"/>':i===1?'<path d="M 670 150 L 650 310 M 830 150 L 850 310" stroke="#9eabb5" stroke-width="15"/><path d="M 640 310 H 675 M 825 310 H 860" stroke="#273a43" stroke-width="8"/>':'<rect x="640" y="300" width="220" height="20" rx="8" fill="#9eabb5"/>';
+ const side=i===2?'<path d="M 355 312 H 550 V 330 H 355 Z M 405 310 L 420 280 L 445 310" fill="#9eabb5"/>':`<path d="M 440 150 L ${i===0?525:535} 318 L 405 318" fill="none" stroke="#9eabb5" stroke-width="12"/>${i===0?'<circle cx="440" cy="150" r="9" fill="#485867"/><path d="M 433 220 L 486 250" stroke="#485867" stroke-width="4"/>':''}<path d="M 395 322 H 418 M 515 322 H 540" stroke="#273a43" stroke-width="8"/>`;
+ return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 410"><rect width="900" height="410" fill="#f5f6f5"/>${t(20,28,n.id+' / CONCEPT ONLY — NOT PHYSICALLY TESTED',18)}${front}${i===2?'<rect x="55" y="315" width="200" height="16" rx="5" fill="#9eabb5"/>':''}${t(100,365,'FRONT')}
+ <path d="M 335 330 H 570" stroke="#b3c0c6"/>${side}<path d="M 395 310 L 445 75 L 468 80 L 418 315 Z" fill="#d4dce1" stroke="#526778" stroke-width="2"/>${t(360,355,'SIDE / 12° assumed')}${t(340,385,'D=240 mm / body=24 mm')}
+ <circle cx="750" cy="190" r="120" fill="#d4dce1" stroke="#526778" stroke-width="3"/>${rear}<circle cx="750" cy="190" r="25" fill="#8796a1"/><circle cx="750" cy="190" r="17" fill="#b7c0c8"/><circle cx="750" cy="190" r="9" fill="#e5e9eb"/>${[[-47,0],[47,0],[0,48]].map(([x,y])=>`<circle cx="${750+x}" cy="${190+y}" r="10" fill="#8796a1"/>`).join('')}${t(690,365,'BACK / knob zones')}${t(610,390,'Shaft layout and finger clearance: TBD')}</svg>`;
+}

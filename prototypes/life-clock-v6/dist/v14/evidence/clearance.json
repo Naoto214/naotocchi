@@ -1,0 +1,158 @@
+[
+  {
+    "size": 52,
+    "number": 1,
+    "radius": 392.5,
+    "dx": 0.5,
+    "dy": 1.5,
+    "clearance": {
+      "silver": 8.49,
+      "ticks": 13.04,
+      "bezel": 65.0
+    },
+    "status": "comfortable"
+  },
+  {
+    "size": 52,
+    "number": 2,
+    "radius": 392.0,
+    "dx": 0.5,
+    "dy": 1.5,
+    "clearance": {
+      "silver": 8.06,
+      "ticks": 15.13,
+      "bezel": 65.86
+    },
+    "status": "comfortable"
+  },
+  {
+    "size": 52,
+    "number": 3,
+    "radius": 382.0,
+    "dx": 0,
+    "dy": 1,
+    "clearance": {
+      "silver": 9.0,
+      "ticks": 28.44,
+      "bezel": 77.0
+    },
+    "status": "comfortable"
+  },
+  {
+    "size": 52,
+    "number": 4,
+    "radius": 382.0,
+    "dx": 0.5,
+    "dy": 1.5,
+    "clearance": {
+      "silver": 23.32,
+      "ticks": 22.0,
+      "bezel": 66.85
+    },
+    "status": "comfortable"
+  },
+  {
+    "size": 52,
+    "number": 5,
+    "radius": 382.0,
+    "dx": 0,
+    "dy": 0.5,
+    "clearance": {
+      "silver": 33.24,
+      "ticks": 21.63,
+      "bezel": 67.23
+    },
+    "status": "comfortable"
+  },
+  {
+    "size": 52,
+    "number": 6,
+    "radius": 397.5,
+    "dx": -0.5,
+    "dy": 1,
+    "clearance": {
+      "silver": 5.0,
+      "ticks": 6.0,
+      "bezel": 50.0
+    },
+    "status": "tight"
+  },
+  {
+    "size": 52,
+    "number": 7,
+    "radius": 382.0,
+    "dx": 0,
+    "dy": 1,
+    "clearance": {
+      "silver": 33.24,
+      "ticks": 20.62,
+      "bezel": 66.04
+    },
+    "status": "comfortable"
+  },
+  {
+    "size": 52,
+    "number": 8,
+    "radius": 382.0,
+    "dx": 0,
+    "dy": 1,
+    "clearance": {
+      "silver": 14.76,
+      "ticks": 22.8,
+      "bezel": 68.6
+    },
+    "status": "comfortable"
+  },
+  {
+    "size": 52,
+    "number": 9,
+    "radius": 383.5,
+    "dx": 0.5,
+    "dy": 1,
+    "clearance": {
+      "silver": 8.0,
+      "ticks": 25.5,
+      "bezel": 74.0
+    },
+    "status": "comfortable"
+  },
+  {
+    "size": 52,
+    "number": 10,
+    "radius": 390.5,
+    "dx": -1.5,
+    "dy": 1,
+    "clearance": {
+      "silver": 0.0,
+      "ticks": 1.0,
+      "bezel": 51.31
+    },
+    "status": "contact"
+  },
+  {
+    "size": 52,
+    "number": 11,
+    "radius": 396.0,
+    "dx": 0.5,
+    "dy": 1.5,
+    "clearance": {
+      "silver": 3.61,
+      "ticks": 4.12,
+      "bezel": 53.54
+    },
+    "status": "tight"
+  },
+  {
+    "size": 52,
+    "number": 12,
+    "radius": 388.0,
+    "dx": -0.5,
+    "dy": 1.5,
+    "clearance": {
+      "silver": 8.0,
+      "ticks": 16.28,
+      "bezel": 68.0
+    },
+    "status": "comfortable"
+  }
+]

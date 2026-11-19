@@ -1,0 +1,7 @@
+{
+ "verified": false,
+ "environment": "managed Sites preview + cloud Chrome",
+ "observed": "Existing v10 opens. New v11 route returns Cannot GET /v11/ despite files present in selected checkout and preview restart.",
+ "unverified": ["V11 320/375/390/430 portrait", "V11 landscape", "V11 live controls", "iPhone Safari font and safe area", "authenticated deployed page"],
+ "availableForUser": "qa.html contains eight sequential iframe viewport checks; not claimed as executed"
+}

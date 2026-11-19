@@ -1,0 +1,69 @@
+{
+  "browser": "Cloud Chrome",
+  "sizes": [
+    {
+      "width": 320,
+      "height": 850,
+      "overflow": 0,
+      "mainNumbers": 12,
+      "minButtonHeight": 44
+    },
+    {
+      "width": 375,
+      "height": 850,
+      "overflow": 0,
+      "mainNumbers": 12,
+      "minButtonHeight": 44
+    },
+    {
+      "width": 390,
+      "height": 850,
+      "overflow": 0,
+      "mainNumbers": 12,
+      "minButtonHeight": 44
+    },
+    {
+      "width": 430,
+      "height": 850,
+      "overflow": 0,
+      "mainNumbers": 12,
+      "minButtonHeight": 44
+    },
+    {
+      "width": 850,
+      "height": 320,
+      "overflow": 0,
+      "mainNumbers": 12,
+      "minButtonHeight": 44
+    },
+    {
+      "width": 850,
+      "height": 375,
+      "overflow": 0,
+      "mainNumbers": 12,
+      "minButtonHeight": 44
+    },
+    {
+      "width": 850,
+      "height": 390,
+      "overflow": 0,
+      "mainNumbers": 12,
+      "minButtonHeight": 44
+    },
+    {
+      "width": 850,
+      "height": 430,
+      "overflow": 0,
+      "mainNumbers": 12,
+      "minButtonHeight": 44
+    }
+  ],
+  "operations": [
+    "C switch: all numeral sizes46",
+    "end I:30deg",
+    "growth0/100 badge",
+    "all central hands300deg",
+    "320px B switch"
+  ],
+  "iphoneSafari": "not tested"
+}

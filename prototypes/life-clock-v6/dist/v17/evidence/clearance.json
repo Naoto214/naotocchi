@@ -1,0 +1,581 @@
+{
+  "method": "1200 raster / 1design px per pixel. alpha>24 bounding-box ink centers; V16 conservative silver mask +2px, shadow r347 +/-6; thick tick masks; font fallback, Safari not verified",
+  "rows": [
+    {
+      "variant": "V16",
+      "number": 1,
+      "inkCenter": [
+        707.5,
+        160.0
+      ],
+      "axisOffset": -0.692,
+      "silver": 18.79,
+      "ticks": 13.04,
+      "bezel": 65.0
+    },
+    {
+      "variant": "V16",
+      "number": 2,
+      "inkCenter": [
+        851.0,
+        304.0
+      ],
+      "axisOffset": -0.241,
+      "silver": 16.28,
+      "ticks": 15.13,
+      "bezel": 65.86
+    },
+    {
+      "variant": "V16",
+      "number": 3,
+      "inkCenter": [
+        893.5,
+        499.5
+      ],
+      "axisOffset": -0.5,
+      "silver": 17.0,
+      "ticks": 28.44,
+      "bezel": 77.0
+    },
+    {
+      "variant": "V16",
+      "number": 4,
+      "inkCenter": [
+        842.5,
+        691.0
+      ],
+      "axisOffset": 0.161,
+      "silver": 19.24,
+      "ticks": 21.0,
+      "bezel": 66.03
+    },
+    {
+      "variant": "V16",
+      "number": 5,
+      "inkCenter": [
+        703.5,
+        831.5
+      ],
+      "axisOffset": -0.094,
+      "silver": 8.06,
+      "ticks": 19.72,
+      "bezel": 65.37
+    },
+    {
+      "variant": "V16",
+      "number": 6,
+      "inkCenter": [
+        523.0,
+        896.5
+      ],
+      "axisOffset": -11.0,
+      "silver": 7.81,
+      "ticks": 8.06,
+      "bezel": 50.0
+    },
+    {
+      "variant": "V16",
+      "number": 7,
+      "inkCenter": [
+        320.0,
+        832.0
+      ],
+      "axisOffset": 0.277,
+      "silver": 8.49,
+      "ticks": 19.1,
+      "bezel": 64.35
+    },
+    {
+      "variant": "V16",
+      "number": 8,
+      "inkCenter": [
+        181.0,
+        690.5
+      ],
+      "axisOffset": 0.522,
+      "silver": 13.0,
+      "ticks": 23.09,
+      "bezel": 68.96
+    },
+    {
+      "variant": "V16",
+      "number": 9,
+      "inkCenter": [
+        128.0,
+        499.5
+      ],
+      "axisOffset": 0.5,
+      "silver": 19.0,
+      "ticks": 25.5,
+      "bezel": 74.0
+    },
+    {
+      "variant": "V16",
+      "number": 10,
+      "inkCenter": [
+        181.0,
+        293.5
+      ],
+      "axisOffset": 13.334,
+      "silver": 8.49,
+      "ticks": 8.06,
+      "bezel": 52.7
+    },
+    {
+      "variant": "V16",
+      "number": 11,
+      "inkCenter": [
+        305.5,
+        154.0
+      ],
+      "axisOffset": -5.834,
+      "silver": 20.59,
+      "ticks": 7.21,
+      "bezel": 46.65
+    },
+    {
+      "variant": "V16",
+      "number": 12,
+      "inkCenter": [
+        511.5,
+        112.0
+      ],
+      "axisOffset": -0.5,
+      "silver": 17.0,
+      "ticks": 16.49,
+      "bezel": 68.88
+    },
+    {
+      "variant": "A",
+      "number": 1,
+      "inkCenter": [
+        706.5,
+        162.5
+      ],
+      "axisOffset": -0.308,
+      "silver": 16.12,
+      "ticks": 15.0,
+      "bezel": 67.23
+    },
+    {
+      "variant": "A",
+      "number": 2,
+      "inkCenter": [
+        849.5,
+        305.0
+      ],
+      "axisOffset": -0.125,
+      "silver": 14.87,
+      "ticks": 16.49,
+      "bezel": 67.74
+    },
+    {
+      "variant": "A",
+      "number": 3,
+      "inkCenter": [
+        901.5,
+        500.5
+      ],
+      "axisOffset": 0.5,
+      "silver": 25.0,
+      "ticks": 20.88,
+      "bezel": 69.0
+    },
+    {
+      "variant": "A",
+      "number": 4,
+      "inkCenter": [
+        850.0,
+        695.0
+      ],
+      "axisOffset": -0.125,
+      "silver": 27.78,
+      "ticks": 13.93,
+      "bezel": 57.43
+    },
+    {
+      "variant": "A",
+      "number": 5,
+      "inkCenter": [
+        707.0,
+        838.0
+      ],
+      "axisOffset": 0.125,
+      "silver": 15.62,
+      "ticks": 12.81,
+      "bezel": 58.31
+    },
+    {
+      "variant": "A",
+      "number": 6,
+      "inkCenter": [
+        512.0,
+        896.5
+      ],
+      "axisOffset": 0.0,
+      "silver": 4.0,
+      "ticks": 6.0,
+      "bezel": 50.0
+    },
+    {
+      "variant": "A",
+      "number": 7,
+      "inkCenter": [
+        317.0,
+        838.0
+      ],
+      "axisOffset": -0.125,
+      "silver": 15.0,
+      "ticks": 12.04,
+      "bezel": 57.14
+    },
+    {
+      "variant": "A",
+      "number": 8,
+      "inkCenter": [
+        174.0,
+        694.5
+      ],
+      "axisOffset": 0.558,
+      "silver": 20.59,
+      "ticks": 15.52,
+      "bezel": 60.9
+    },
+    {
+      "variant": "A",
+      "number": 9,
+      "inkCenter": [
+        122.0,
+        500.5
+      ],
+      "axisOffset": -0.5,
+      "silver": 25.0,
+      "ticks": 19.42,
+      "bezel": 68.0
+    },
+    {
+      "variant": "A",
+      "number": 10,
+      "inkCenter": [
+        177.5,
+        307.5
+      ],
+      "axisOffset": -0.54,
+      "silver": 4.47,
+      "ticks": 5.66,
+      "bezel": 56.3
+    },
+    {
+      "variant": "A",
+      "number": 11,
+      "inkCenter": [
+        317.0,
+        162.5
+      ],
+      "axisOffset": -0.125,
+      "silver": 7.81,
+      "ticks": 9.0,
+      "bezel": 59.91
+    },
+    {
+      "variant": "A",
+      "number": 12,
+      "inkCenter": [
+        512.0,
+        110.0
+      ],
+      "axisOffset": 0.0,
+      "silver": 19.0,
+      "ticks": 15.23,
+      "bezel": 67.0
+    },
+    {
+      "variant": "B",
+      "number": 1,
+      "inkCenter": [
+        712.5,
+        152.0
+      ],
+      "axisOffset": -0.362,
+      "silver": 28.18,
+      "ticks": 24.76,
+      "bezel": 79.18
+    },
+    {
+      "variant": "B",
+      "number": 2,
+      "inkCenter": [
+        860.0,
+        299.0
+      ],
+      "axisOffset": -0.071,
+      "silver": 26.17,
+      "ticks": 25.63,
+      "bezel": 79.18
+    },
+    {
+      "variant": "B",
+      "number": 3,
+      "inkCenter": [
+        913.5,
+        500.5
+      ],
+      "axisOffset": 0.5,
+      "silver": 37.0,
+      "ticks": 29.61,
+      "bezel": 80.5
+    },
+    {
+      "variant": "B",
+      "number": 4,
+      "inkCenter": [
+        860.5,
+        701.0
+      ],
+      "axisOffset": -0.179,
+      "silver": 39.82,
+      "ticks": 22.09,
+      "bezel": 69.34
+    },
+    {
+      "variant": "B",
+      "number": 5,
+      "inkCenter": [
+        713.0,
+        848.0
+      ],
+      "axisOffset": -0.071,
+      "silver": 27.2,
+      "ticks": 22.2,
+      "bezel": 69.77
+    },
+    {
+      "variant": "B",
+      "number": 6,
+      "inkCenter": [
+        512.0,
+        901.5
+      ],
+      "axisOffset": 0.0,
+      "silver": 9.0,
+      "ticks": 22.0,
+      "bezel": 69.0
+    },
+    {
+      "variant": "B",
+      "number": 7,
+      "inkCenter": [
+        311.0,
+        848.0
+      ],
+      "axisOffset": 0.071,
+      "silver": 26.63,
+      "ticks": 22.63,
+      "bezel": 68.96
+    },
+    {
+      "variant": "B",
+      "number": 8,
+      "inkCenter": [
+        164.0,
+        700.5
+      ],
+      "axisOffset": 0.362,
+      "silver": 32.65,
+      "ticks": 24.7,
+      "bezel": 72.67
+    },
+    {
+      "variant": "B",
+      "number": 9,
+      "inkCenter": [
+        110.0,
+        500.5
+      ],
+      "axisOffset": -0.5,
+      "silver": 37.0,
+      "ticks": 29.27,
+      "bezel": 80.0
+    },
+    {
+      "variant": "B",
+      "number": 10,
+      "inkCenter": [
+        164.0,
+        299.5
+      ],
+      "axisOffset": -0.362,
+      "silver": 18.6,
+      "ticks": 11.31,
+      "bezel": 64.01
+    },
+    {
+      "variant": "B",
+      "number": 11,
+      "inkCenter": [
+        311.0,
+        152.0
+      ],
+      "axisOffset": -0.071,
+      "silver": 19.72,
+      "ticks": 17.46,
+      "bezel": 71.56
+    },
+    {
+      "variant": "B",
+      "number": 12,
+      "inkCenter": [
+        512.0,
+        98.0
+      ],
+      "axisOffset": 0.0,
+      "silver": 31.0,
+      "ticks": 24.74,
+      "bezel": 78.41
+    },
+    {
+      "variant": "C",
+      "number": 1,
+      "inkCenter": [
+        719.5,
+        140.5
+      ],
+      "axisOffset": -0.05,
+      "silver": 41.15,
+      "ticks": 31.89,
+      "bezel": 89.47
+    },
+    {
+      "variant": "C",
+      "number": 2,
+      "inkCenter": [
+        871.0,
+        292.5
+      ],
+      "axisOffset": -0.2,
+      "silver": 38.42,
+      "ticks": 33.84,
+      "bezel": 89.94
+    },
+    {
+      "variant": "C",
+      "number": 3,
+      "inkCenter": [
+        926.5,
+        500.5
+      ],
+      "axisOffset": 0.5,
+      "silver": 50.0,
+      "ticks": 38.47,
+      "bezel": 91.01
+    },
+    {
+      "variant": "C",
+      "number": 4,
+      "inkCenter": [
+        871.5,
+        707.5
+      ],
+      "axisOffset": -0.05,
+      "silver": 52.84,
+      "ticks": 29.43,
+      "bezel": 79.61
+    },
+    {
+      "variant": "C",
+      "number": 5,
+      "inkCenter": [
+        719.5,
+        859.5
+      ],
+      "axisOffset": 0.05,
+      "silver": 40.22,
+      "ticks": 30.02,
+      "bezel": 80.45
+    },
+    {
+      "variant": "C",
+      "number": 6,
+      "inkCenter": [
+        512.0,
+        914.5
+      ],
+      "axisOffset": 0.0,
+      "silver": 22.0,
+      "ticks": 31.0,
+      "bezel": 80.0
+    },
+    {
+      "variant": "C",
+      "number": 7,
+      "inkCenter": [
+        304.5,
+        859.5
+      ],
+      "axisOffset": -0.05,
+      "silver": 39.96,
+      "ticks": 30.61,
+      "bezel": 80.13
+    },
+    {
+      "variant": "C",
+      "number": 8,
+      "inkCenter": [
+        152.5,
+        707.5
+      ],
+      "axisOffset": 0.05,
+      "silver": 45.62,
+      "ticks": 32.89,
+      "bezel": 83.49
+    },
+    {
+      "variant": "C",
+      "number": 9,
+      "inkCenter": [
+        97.0,
+        500.5
+      ],
+      "axisOffset": -0.5,
+      "silver": 50.0,
+      "ticks": 38.21,
+      "bezel": 91.0
+    },
+    {
+      "variant": "C",
+      "number": 10,
+      "inkCenter": [
+        152.0,
+        292.5
+      ],
+      "axisOffset": -0.3,
+      "silver": 30.41,
+      "ticks": 18.6,
+      "bezel": 74.3
+    },
+    {
+      "variant": "C",
+      "number": 11,
+      "inkCenter": [
+        304.0,
+        140.5
+      ],
+      "axisOffset": -0.383,
+      "silver": 32.76,
+      "ticks": 25.3,
+      "bezel": 82.15
+    },
+    {
+      "variant": "C",
+      "number": 12,
+      "inkCenter": [
+        512.0,
+        85.0
+      ],
+      "axisOffset": 0.0,
+      "silver": 44.0,
+      "ticks": 33.53,
+      "bezel": 89.0
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+import fs from'node:fs';import{createRequire}from'node:module';import{render,sample}from'./clock-v14.mjs';
+const sharp=createRequire(import.meta.url)(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES+'/sharp');
+const art='data:image/png;base64,'+fs.readFileSync(new URL('../assets/dial-art-v4.png',import.meta.url)).toString('base64');
+for(const variant of ['A','B','C']){const s=render(sample,{variant}).replaceAll('../assets/dial-art-v4.png',art).replaceAll('../v13/face-v13.webp','data:image/png;base64,'+(await sharp(new URL('../v13/face-v13.webp',import.meta.url).pathname).png().toBuffer()).toString('base64'));
+ for(const crop of ['full','ten']){const svg=crop==='full'?s:s.replace(/viewBox="[^"]+"/,'viewBox="120 245 170 140"');await sharp(Buffer.from(svg)).resize(crop==='full'?800:680,crop==='full'?800:560).flatten({background:'#f4f5f4'}).jpeg({quality:88}).toFile(new URL(`evidence/${variant}-${crop}.jpg`,import.meta.url).pathname);}
+ for(const m of s.matchAll(/<g data-main-number="(\d+)"[\s\S]*?<\/g>/g))await sharp(Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">${m[0]}</svg>`)).png().toFile(new URL(`evidence/${variant}-${m[1]}.png`,import.meta.url).pathname);
+}

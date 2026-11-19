@@ -1,0 +1,10 @@
+import assert from'node:assert/strict';import fs from'node:fs';import{render,sample,overlapCases}from'./clock-v14.mjs';import{render as old}from'../v12/clock-v12.mjs';
+const norm=s=>s.replace(/v6-\d+/g,'ID');const groups=(s,type)=>[...s.matchAll(new RegExp(`<g data-${type}="[^"\\n]+"[\\s\\S]*?<\\/g>`,'g'))].map(m=>norm(m[0]));let count=0;
+for(let end=1;end<=12;end++)for(const c of overlapCases)for(const growth of [0,50,100]){const state={...sample,...c.state,end,firstGrowth:growth,secondGrowth:100-growth};const s=render(state),b=old(state,{main:52,growth:1,roman:1});assert.equal(norm(render(state,{variant:'A'})),norm(old(state,{main:52,growth:1.1,roman:1.1})));
+for(const type of ['hand','growth-number','end-number','growth-ticks'])assert.deepEqual(groups(s,type),groups(b,type),type+' unchanged');
+for(const m of s.matchAll(/data-main-number="(\d+)"><text([^>]*)>/g)){assert.equal(+m[2].match(/font-size="([^"]+)/)[1],52);assert.ok(m[2].includes("font-family='Georgia,serif'"));const x=+m[2].match(/ x="([^"]+)/)[1],y=+m[2].match(/ y="([^"]+)/)[1],angle=(Math.atan2(x-512,500-y)*180/Math.PI+360)%360;assert.ok(Math.abs(angle-(+m[1]*30%360))<1e-6);}const rings=x=>[...x.matchAll(/<circle data-color-ring="[^"\n]+"[^>]*\/>/g)].map(m=>norm(m[0]));assert.equal(rings(s).length,3);assert.deepEqual(rings(s),rings(b));count++;}
+console.log(JSON.stringify({pass:true,cases:count,referenceExact:true,subdialNumbersTicksHandsUnchanged:true,mainSize:52,interval:30}));
+const face=s=>norm(s.slice(s.indexOf('<image href="../assets/dial-art-v4.png"'),s.indexOf('<g data-bezel-width=')));
+assert.equal(face(render(sample)),face(old(sample,{main:52,growth:1,roman:1})));
+const data=JSON.parse(fs.readFileSync(new URL('evidence/final-clearance.json',import.meta.url)));for(const r of data.rows.filter(r=>r.variant==='C'))assert.ok(Math.min(r.silver,r.ticks,r.bezel)>0,JSON.stringify(r));
+console.log('Original face restored exactly; no displacement, no ring/leaf edit. All 12 raster glyphs non-contact; comfort target NOT met.');
