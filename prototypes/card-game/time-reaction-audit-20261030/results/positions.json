@@ -1,0 +1,9826 @@
+{
+ "P1": [
+  {
+   "match": "T:main~companion:1:II:X-first",
+   "seat": "B",
+   "deck": "companion",
+   "round": 9,
+   "revision": 346,
+   "time": 8,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "power",
+   "margin": -5,
+   "hand": [
+    "G-beach-volley"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 7,
+       "B": 2
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~companion:2:BB:X-first",
+   "seat": "B",
+   "deck": "companion",
+   "round": 4,
+   "revision": 104,
+   "time": 0,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "power",
+   "margin": -3,
+   "hand": [
+    "G-beach-volley"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "E-midlife-flower",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "E-midlife-flower",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "E-midlife-flower",
+      "variant": null,
+      "cost": 1
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 6,
+       "B": 3
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~challenge:2:II:X-first",
+   "seat": "B",
+   "deck": "challenge",
+   "round": 5,
+   "revision": 193,
+   "time": 1,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "power",
+   "margin": -5,
+   "hand": [
+    "G-baseball-batting"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 10,
+       "B": 4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~challenge:2:II:Y-first",
+   "seat": "A",
+   "deck": "challenge",
+   "round": 10,
+   "revision": 452,
+   "time": 8,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "ガード",
+     "cost": 1
+    }
+   },
+   "parameter": "power",
+   "margin": -2,
+   "hand": [
+    "G-street-fight"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1,
+      "raw": 2.23
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "キック",
+      "cost": 1,
+      "raw": 2.23
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "ガード",
+      "cost": 1,
+      "raw": 2.23
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": 0.75
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "パンチ",
+     "cost": 1
+    },
+    "score": 3.48,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1,
+      "raw": 3.48
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "キック",
+      "cost": 1,
+      "raw": 3.48
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "ガード",
+      "cost": 1,
+      "raw": 3.48
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.54
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "programPlay",
+     "card": "E-mirror",
+     "variant": null,
+     "cost": 1,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 8,
+       "B": 10
+      }
+     }
+    },
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "パンチ",
+     "cost": 1,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 8,
+       "B": 10
+      }
+     }
+    },
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "キック",
+     "cost": 1,
+     "result": {
+      "winner": null,
+      "values": {
+       "A": 10,
+       "B": 10
+      }
+     }
+    },
+    {
+     "kind": "programPlay",
+     "card": "G-street-fight",
+     "variant": "ガード",
+     "cost": 1,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 7,
+       "B": 10
+      }
+     }
+    },
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": null,
+      "values": {
+       "A": 10,
+       "B": 10
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~challenge:3:BB:X-first",
+   "seat": "B",
+   "deck": "challenge",
+   "round": 4,
+   "revision": 87,
+   "time": 0,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "power",
+   "margin": -2,
+   "hand": [
+    "G-baseball-batting"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 6,
+       "B": 4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~challenge:3:II:Y-first",
+   "seat": "A",
+   "deck": "challenge",
+   "round": 3,
+   "revision": 78,
+   "time": 0,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "power",
+   "margin": -2,
+   "hand": [
+    "G-baseball-batting"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 4,
+       "B": 6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~challenge:3:BB:Y-first",
+   "seat": "A",
+   "deck": "challenge",
+   "round": 3,
+   "revision": 78,
+   "time": 0,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "power",
+   "margin": -2,
+   "hand": [
+    "G-baseball-batting"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 4,
+       "B": 6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~challenge:4:II:X-first",
+   "seat": "B",
+   "deck": "challenge",
+   "round": 3,
+   "revision": 61,
+   "time": 0,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "power",
+   "margin": -1,
+   "hand": [
+    "G-street-fight"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 4,
+       "B": 2
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~challenge:4:BB:X-first",
+   "seat": "B",
+   "deck": "challenge",
+   "round": 3,
+   "revision": 61,
+   "time": 0,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "power",
+   "margin": -1,
+   "hand": [
+    "G-street-fight"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 4,
+       "B": 2
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~challenge:4:II:Y-first",
+   "seat": "A",
+   "deck": "challenge",
+   "round": 2,
+   "revision": 55,
+   "time": 0,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "power",
+   "margin": -1,
+   "hand": [
+    "G-street-fight"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "ガード",
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "ガード",
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "ガード",
+      "cost": 1
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 2,
+       "B": 4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~balance:1:II:X-first",
+   "seat": "B",
+   "deck": "balance",
+   "round": 3,
+   "revision": 63,
+   "time": 0,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "wisdom",
+   "margin": -3,
+   "hand": [
+    "G-baseball-batting"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 5,
+       "B": 2
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~balance:1:BB:X-first",
+   "seat": "B",
+   "deck": "balance",
+   "round": 3,
+   "revision": 57,
+   "time": 0,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "power",
+   "margin": -1,
+   "hand": [
+    "G-baseball-batting"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 3,
+       "B": 1
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~balance:1:II:Y-first",
+   "seat": "A",
+   "deck": "balance",
+   "round": 2,
+   "revision": 55,
+   "time": 0,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "power",
+   "margin": -2,
+   "hand": [
+    "G-baseball-batting"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "play",
+      "card": "I-c_coin2",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "play",
+      "card": "I-c_coin2",
+      "variant": null,
+      "cost": 1
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 1,
+       "B": 4
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~balance:1:BB:Y-first",
+   "seat": "A",
+   "deck": "balance",
+   "round": 2,
+   "revision": 55,
+   "time": 0,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "power",
+   "margin": -1,
+   "hand": [
+    "G-baseball-batting"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "play",
+      "card": "I-c_coin2",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "play",
+      "card": "I-c_coin2",
+      "variant": null,
+      "cost": 1
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 1,
+       "B": 3
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~balance:2:II:X-first",
+   "seat": "B",
+   "deck": "balance",
+   "round": 4,
+   "revision": 85,
+   "time": 0,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "power",
+   "margin": -3,
+   "hand": [
+    "G-baseball-batting"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 5,
+       "B": 2
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~balance:2:BB:X-first",
+   "seat": "B",
+   "deck": "balance",
+   "round": 4,
+   "revision": 89,
+   "time": 0,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "wisdom",
+   "margin": -2,
+   "hand": [
+    "G-baseball-batting"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 5,
+       "B": 3
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~balance:2:II:Y-first",
+   "seat": "A",
+   "deck": "balance",
+   "round": 3,
+   "revision": 77,
+   "time": 0,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "power",
+   "margin": -3,
+   "hand": [
+    "G-baseball-batting"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 2,
+       "B": 6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~balance:2:BB:Y-first",
+   "seat": "A",
+   "deck": "balance",
+   "round": 3,
+   "revision": 71,
+   "time": 0,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "power",
+   "margin": -3,
+   "hand": [
+    "G-baseball-batting"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 2,
+       "B": 6
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~balance:3:II:X-first",
+   "seat": "B",
+   "deck": "balance",
+   "round": 3,
+   "revision": 51,
+   "time": 0,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "power",
+   "margin": -3,
+   "hand": [
+    "G-baseball-batting"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 6,
+       "B": 2
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~balance:3:BB:X-first",
+   "seat": "B",
+   "deck": "balance",
+   "round": 3,
+   "revision": 47,
+   "time": 0,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "power",
+   "margin": -3,
+   "hand": [
+    "G-baseball-batting"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 5,
+       "B": 2
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~balance:3:II:Y-first",
+   "seat": "A",
+   "deck": "balance",
+   "round": 2,
+   "revision": 46,
+   "time": 0,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "power",
+   "margin": -3,
+   "hand": [
+    "G-baseball-batting"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 2,
+       "B": 5
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~balance:3:BB:Y-first",
+   "seat": "A",
+   "deck": "balance",
+   "round": 2,
+   "revision": 46,
+   "time": 0,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "power",
+   "margin": -3,
+   "hand": [
+    "G-baseball-batting"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "B",
+      "values": {
+       "A": 2,
+       "B": 5
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~balance:4:II:X-first",
+   "seat": "B",
+   "deck": "balance",
+   "round": 10,
+   "revision": 428,
+   "time": 4,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "wisdom",
+   "margin": -1,
+   "hand": [
+    "G-baseball-batting"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": 0.75
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": -3
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "programPlay",
+     "card": "E-mirror",
+     "variant": null,
+     "cost": 1,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 6,
+       "B": 5
+      }
+     }
+    },
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 6,
+       "B": 5
+      }
+     }
+    }
+   ]
+  },
+  {
+   "match": "T:main~balance:4:BB:X-first",
+   "seat": "B",
+   "deck": "balance",
+   "round": 7,
+   "revision": 237,
+   "time": 5,
+   "ownTurn": false,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "parameter": "wisdom",
+   "margin": -1,
+   "hand": [
+    "G-baseball-batting"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "0": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    }
+   },
+   "rollouts": [
+    {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0,
+     "result": {
+      "winner": "A",
+      "values": {
+       "A": 6,
+       "B": 5
+      }
+     }
+    }
+   ]
+  }
+ ],
+ "P2": [
+  {
+   "match": "T:main~main:1:II:X-first",
+   "seat": "B",
+   "deck": "main",
+   "round": 4,
+   "revision": 111,
+   "time": 1,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "E-mirror",
+     "variant": null,
+     "cost": 1
+    },
+    "score": 0.75,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": 0.75
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "place",
+      "card": "M-beetle-01",
+      "variant": "transform",
+      "cost": 0,
+      "raw": -15
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": -3
+     },
+     {
+      "kind": "place",
+      "card": "M-beetle-01",
+      "variant": "transform",
+      "cost": 0,
+      "raw": -15
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "4": {
+     "beginner": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~main:1:BB:X-first",
+   "seat": "B",
+   "deck": "main",
+   "round": 2,
+   "revision": 48,
+   "time": 1,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.6
+     },
+     {
+      "kind": "place",
+      "card": "M-beetle-01",
+      "variant": "transform",
+      "cost": 1,
+      "raw": -2.6
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -15
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -15
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "E-mirror",
+     "variant": null,
+     "cost": 1
+    },
+    "score": 1.7,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": 1.7
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "place",
+      "card": "M-beetle-01",
+      "variant": "transform",
+      "cost": 1,
+      "raw": -1.7
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -8.5
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -8.5
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "place",
+      "card": "M-dog-03",
+      "variant": "time_skip",
+      "cost": 2
+     },
+     "intermediate": {
+      "kind": "place",
+      "card": "M-dog-03",
+      "variant": "time_skip",
+      "cost": 2
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "place",
+      "card": "M-dog-03",
+      "variant": "time_skip",
+      "cost": 2
+     },
+     "intermediate": {
+      "kind": "place",
+      "card": "M-dog-03",
+      "variant": "time_skip",
+      "cost": 2
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~main:1:II:Y-first",
+   "seat": "A",
+   "deck": "main",
+   "round": 4,
+   "revision": 97,
+   "time": 1,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "E-mirror",
+     "variant": null,
+     "cost": 1
+    },
+    "score": 0.75,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": 0.75
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "place",
+      "card": "M-beetle-01",
+      "variant": "transform",
+      "cost": 0,
+      "raw": -15
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": -3
+     },
+     {
+      "kind": "place",
+      "card": "M-beetle-01",
+      "variant": "transform",
+      "cost": 0,
+      "raw": -15
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "4": {
+     "beginner": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~main:1:BB:Y-first",
+   "seat": "B",
+   "deck": "main",
+   "round": 3,
+   "revision": 74,
+   "time": 1,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-midlife-flower",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.4
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.6
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -15
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -15
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "E-midlife-flower",
+     "variant": null,
+     "cost": 1
+    },
+    "score": 0.2,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "E-midlife-flower",
+      "variant": null,
+      "cost": 1,
+      "raw": 0.2
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.2
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -8.5
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -8.5
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "E-midlife-flower",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "E-midlife-flower",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "E-midlife-flower",
+      "variant": null,
+      "cost": 1
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~main:2:II:X-first",
+   "seat": "B",
+   "deck": "main",
+   "round": 10,
+   "revision": 417,
+   "time": 10,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "E-mirror",
+     "variant": null,
+     "cost": 1
+    },
+    "score": 0.75,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": 0.75
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -2
+     },
+     {
+      "kind": "place",
+      "card": "M-dog-04",
+      "variant": "transform",
+      "cost": 4,
+      "raw": -14
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -15
+     },
+     {
+      "kind": "place",
+      "card": "M-dog-01",
+      "variant": "transform",
+      "cost": 1,
+      "raw": -23.25
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -2.15
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": -3
+     },
+     {
+      "kind": "place",
+      "card": "M-dog-04",
+      "variant": "transform",
+      "cost": 4,
+      "raw": -9
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -11.5
+     },
+     {
+      "kind": "place",
+      "card": "M-dog-01",
+      "variant": "transform",
+      "cost": 1,
+      "raw": -22
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "10": {
+     "beginner": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~main:2:BB:X-first",
+   "seat": "B",
+   "deck": "main",
+   "round": 1,
+   "revision": 35,
+   "time": 1,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "I-c_egg_normal",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.6
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "I-c_egg_normal",
+     "variant": null,
+     "cost": 1
+    },
+    "score": 1.4,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "I-c_egg_normal",
+      "variant": null,
+      "cost": 1,
+      "raw": 1.4
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "I-c_egg_normal",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "I-c_egg_normal",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "place",
+      "card": "M-dog-03",
+      "variant": "birth",
+      "cost": 3
+     },
+     "intermediate": {
+      "kind": "place",
+      "card": "M-dog-03",
+      "variant": "birth",
+      "cost": 3
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~main:2:II:Y-first",
+   "seat": "B",
+   "deck": "main",
+   "round": 1,
+   "revision": 38,
+   "time": 1,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "place",
+     "card": "M-beetle-01",
+     "variant": "birth",
+     "cost": 1
+    },
+    "score": 12,
+    "candidates": [
+     {
+      "kind": "place",
+      "card": "M-dog-01",
+      "variant": "birth",
+      "cost": 1,
+      "raw": 39.4
+     },
+     {
+      "kind": "place",
+      "card": "M-beetle-01",
+      "variant": "birth",
+      "cost": 1,
+      "raw": 39.4
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-midlife-flower",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.4
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "place",
+      "card": "M-dog-01",
+      "variant": "birth",
+      "cost": 1,
+      "raw": 0
+     },
+     {
+      "kind": "place",
+      "card": "M-beetle-01",
+      "variant": "birth",
+      "cost": 1,
+      "raw": 0
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-midlife-flower",
+      "variant": null,
+      "cost": 1,
+      "raw": -39.8
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "place",
+      "card": "M-beetle-01",
+      "variant": "birth",
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "place",
+      "card": "M-beetle-01",
+      "variant": "birth",
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "place",
+      "card": "M-beetle-01",
+      "variant": "birth",
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "place",
+      "card": "M-beetle-01",
+      "variant": "birth",
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "place",
+      "card": "M-beetle-01",
+      "variant": "birth",
+      "cost": 1
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~main:2:BB:Y-first",
+   "seat": "A",
+   "deck": "main",
+   "round": 1,
+   "revision": 12,
+   "time": 1,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "I-c_egg_normal",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.6
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "I-c_egg_normal",
+     "variant": null,
+     "cost": 1
+    },
+    "score": 1.4,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "I-c_egg_normal",
+      "variant": null,
+      "cost": 1,
+      "raw": 1.4
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "I-c_egg_normal",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "I-c_egg_normal",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "place",
+      "card": "M-dog-03",
+      "variant": "birth",
+      "cost": 3
+     },
+     "intermediate": {
+      "kind": "place",
+      "card": "M-dog-03",
+      "variant": "birth",
+      "cost": 3
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~main:3:BB:X-first",
+   "seat": "B",
+   "deck": "main",
+   "round": 2,
+   "revision": 47,
+   "time": 1,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.6
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "E-mirror",
+     "variant": null,
+     "cost": 1
+    },
+    "score": 1.72,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": 1.72
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~main:3:II:Y-first",
+   "seat": "B",
+   "deck": "main",
+   "round": 10,
+   "revision": 340,
+   "time": 10,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "E-mirror",
+     "variant": null,
+     "cost": 1
+    },
+    "score": 0.75,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": 0.75
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -2
+     },
+     {
+      "kind": "place",
+      "card": "M-beetle-06",
+      "variant": "transform",
+      "cost": 6,
+      "raw": -8.5
+     },
+     {
+      "kind": "place",
+      "card": "M-beetle-03",
+      "variant": "transform",
+      "cost": 3,
+      "raw": -13.75
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -15
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.53
+     },
+     {
+      "kind": "place",
+      "card": "M-beetle-06",
+      "variant": "transform",
+      "cost": 6,
+      "raw": -1
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -2.15
+     },
+     {
+      "kind": "place",
+      "card": "M-beetle-03",
+      "variant": "transform",
+      "cost": 3,
+      "raw": -10
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -11.5
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "10": {
+     "beginner": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~main:3:BB:Y-first",
+   "seat": "A",
+   "deck": "main",
+   "round": 2,
+   "revision": 46,
+   "time": 1,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.6
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "E-mirror",
+     "variant": null,
+     "cost": 1
+    },
+    "score": 1.72,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": 1.72
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~main:4:BB:X-first",
+   "seat": "A",
+   "deck": "main",
+   "round": 2,
+   "revision": 34,
+   "time": 2,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.6
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.6
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -2
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -2
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "G-sugoroku-race",
+     "variant": null,
+     "cost": 1
+    },
+    "score": 2,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1,
+      "raw": 2
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": 1.66
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -0.5
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -0.5
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~main:4:II:Y-first",
+   "seat": "A",
+   "deck": "main",
+   "round": 8,
+   "revision": 288,
+   "time": 7,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "E-mirror",
+     "variant": null,
+     "cost": 1
+    },
+    "score": 0.75,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": 0.75
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "place",
+      "card": "M-beetle-01",
+      "variant": "transform",
+      "cost": 1,
+      "raw": -19.25
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.98
+     },
+     {
+      "kind": "place",
+      "card": "M-beetle-01",
+      "variant": "transform",
+      "cost": 1,
+      "raw": -18
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "8": {
+     "beginner": {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~main:4:BB:Y-first",
+   "seat": "A",
+   "deck": "main",
+   "round": 6,
+   "revision": 202,
+   "time": 6,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-fateful-transform",
+      "variant": null,
+      "cost": 2,
+      "raw": -1.5
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "E-fateful-transform",
+     "variant": null,
+     "cost": 2
+    },
+    "score": 1,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "E-fateful-transform",
+      "variant": null,
+      "cost": 2,
+      "raw": 1
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "E-fateful-transform",
+      "variant": null,
+      "cost": 2
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "E-fateful-transform",
+      "variant": null,
+      "cost": 2
+     }
+    },
+    "6": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "E-fateful-transform",
+      "variant": null,
+      "cost": 2
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~companion:1:II:X-first",
+   "seat": "B",
+   "deck": "companion",
+   "round": 3,
+   "revision": 111,
+   "time": 2,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-new-encounter",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.6
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-new-encounter",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.01
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~companion:1:BB:X-first",
+   "seat": "A",
+   "deck": "main",
+   "round": 1,
+   "revision": 12,
+   "time": 1,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.6
+     },
+     {
+      "kind": "programPlay",
+      "card": "I-c_egg_normal",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.6
+     },
+     {
+      "kind": "programPlay",
+      "card": "I-c_egg_normal",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.6
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "G-sugoroku-race",
+     "variant": null,
+     "cost": 1
+    },
+    "score": 0.77,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1,
+      "raw": 0.77
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "I-c_egg_normal",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.77
+     },
+     {
+      "kind": "programPlay",
+      "card": "I-c_egg_normal",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.77
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "place",
+      "card": "W-snow",
+      "variant": null,
+      "cost": 2
+     },
+     "intermediate": {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "place",
+      "card": "W-snow",
+      "variant": null,
+      "cost": 2
+     },
+     "intermediate": {
+      "kind": "programPlay",
+      "card": "G-sugoroku-race",
+      "variant": null,
+      "cost": 1
+     }
+    }
+   }
+  }
+ ],
+ "P3": [
+  {
+   "match": "T:main~partner:1:II:X-first",
+   "seat": "B",
+   "deck": "partner",
+   "round": 7,
+   "revision": 264,
+   "time": 5,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "prepared": [
+    "I-partner1",
+    "I-partner1",
+    "I-bowtie"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-reconciliation",
+      "variant": null,
+      "cost": 1,
+      "raw": -1.85
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-reconciliation",
+      "variant": null,
+      "cost": 1,
+      "raw": -1.85
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-reconciliation",
+      "variant": null,
+      "cost": 1,
+      "raw": -1.85
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-reconciliation",
+      "variant": null,
+      "cost": 1,
+      "raw": -1.85
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~partner:1:II:Y-first",
+   "seat": "A",
+   "deck": "partner",
+   "round": 7,
+   "revision": 248,
+   "time": 5,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "prepared": [
+    "I-partner1",
+    "I-partner1",
+    "I-bowtie"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-reconciliation",
+      "variant": null,
+      "cost": 1,
+      "raw": -1.85
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-reconciliation",
+      "variant": null,
+      "cost": 1,
+      "raw": -1.85
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-reconciliation",
+      "variant": null,
+      "cost": 1,
+      "raw": -1.85
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-reconciliation",
+      "variant": null,
+      "cost": 1,
+      "raw": -1.85
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~item:1:II:X-first",
+   "seat": "B",
+   "deck": "item",
+   "round": 8,
+   "revision": 327,
+   "time": 8,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "programPlay",
+     "card": "G-connect-four",
+     "variant": null,
+     "cost": 2
+    }
+   },
+   "prepared": [
+    "G-missile-command",
+    "I-naoto_lantern",
+    "I-bowtie"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "G-connect-four",
+     "variant": null,
+     "cost": 2
+    },
+    "score": 12,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "G-connect-four",
+      "variant": null,
+      "cost": 2,
+      "raw": 16.5
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "G-connect-four",
+     "variant": null,
+     "cost": 2
+    },
+    "score": 16.5,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "G-connect-four",
+      "variant": null,
+      "cost": 2,
+      "raw": 16.5
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~item:1:BB:X-first",
+   "seat": "B",
+   "deck": "item",
+   "round": 7,
+   "revision": 248,
+   "time": 5,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "prepared": [
+    "G-missile-command",
+    "I-naoto_lantern",
+    "I-bowtie"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-stack-themed",
+      "variant": null,
+      "cost": 2,
+      "raw": -1.29
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-stack-themed",
+      "variant": null,
+      "cost": 2,
+      "raw": -1.29
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~item:1:BB:Y-first",
+   "seat": "A",
+   "deck": "item",
+   "round": 8,
+   "revision": 283,
+   "time": 8,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "programPlay",
+     "card": "G-stack-leaves",
+     "variant": null,
+     "cost": 2
+    }
+   },
+   "prepared": [
+    "G-missile-command",
+    "I-bowtie",
+    "I-naoto_lantern"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "G-stack-leaves",
+     "variant": null,
+     "cost": 2
+    },
+    "score": 12,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "G-stack-leaves",
+      "variant": null,
+      "cost": 2,
+      "raw": 13.5
+     },
+     {
+      "kind": "programAbility",
+      "card": "C-owl",
+      "variant": null,
+      "cost": 0,
+      "raw": 5
+     },
+     {
+      "kind": "programAbility",
+      "card": "C-owl",
+      "variant": null,
+      "cost": 0,
+      "raw": 5
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "G-stack-leaves",
+     "variant": null,
+     "cost": 2
+    },
+    "score": 13.5,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "G-stack-leaves",
+      "variant": null,
+      "cost": 2,
+      "raw": 13.5
+     },
+     {
+      "kind": "programAbility",
+      "card": "C-owl",
+      "variant": null,
+      "cost": 0,
+      "raw": 5
+     },
+     {
+      "kind": "programAbility",
+      "card": "C-owl",
+      "variant": null,
+      "cost": 0,
+      "raw": 5
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~item:2:BB:X-first",
+   "seat": "B",
+   "deck": "item",
+   "round": 7,
+   "revision": 219,
+   "time": 7,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "prepared": [
+    "I-sleepboost1",
+    "G-missile-command",
+    "I-naoto_lantern"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-stack-themed",
+      "variant": null,
+      "cost": 2,
+      "raw": -1.29
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-stack-themed",
+      "variant": null,
+      "cost": 2,
+      "raw": -1.29
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-stack-themed",
+      "variant": null,
+      "cost": 2,
+      "raw": -1.29
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-stack-themed",
+      "variant": null,
+      "cost": 2,
+      "raw": -1.29
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~item:4:II:X-first",
+   "seat": "B",
+   "deck": "item",
+   "round": 7,
+   "revision": 173,
+   "time": 7,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "prepared": [
+    "I-sleepboost1",
+    "G-ski-jump",
+    "I-bowtie"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-stack-themed",
+      "variant": null,
+      "cost": 2,
+      "raw": -1.29
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-stack-themed",
+      "variant": null,
+      "cost": 2,
+      "raw": -1.29
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~item:4:BB:X-first",
+   "seat": "B",
+   "deck": "item",
+   "round": 6,
+   "revision": 140,
+   "time": 2,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "prepared": [
+    "G-ski-jump",
+    "I-sleepboost1",
+    "I-bowtie"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-stack-themed",
+      "variant": null,
+      "cost": 2,
+      "raw": -1.29
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-stack-themed",
+      "variant": null,
+      "cost": 2,
+      "raw": -1.29
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-stack-themed",
+      "variant": null,
+      "cost": 2,
+      "raw": -1.29
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-stack-themed",
+      "variant": null,
+      "cost": 2,
+      "raw": -1.29
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~item:4:II:Y-first",
+   "seat": "A",
+   "deck": "item",
+   "round": 10,
+   "revision": 321,
+   "time": 10,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "programPlay",
+     "card": "G-gomoku-9",
+     "variant": "opponent",
+     "cost": 2
+    }
+   },
+   "prepared": [
+    "I-naoto_lantern",
+    "I-bowtie",
+    "I-sleepboost1"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "G-gomoku-9",
+     "variant": "self",
+     "cost": 2
+    },
+    "score": 5.5,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "G-gomoku-9",
+      "variant": "self",
+      "cost": 2,
+      "raw": 5.5
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-gomoku-9",
+      "variant": "opponent",
+      "cost": 2,
+      "raw": 5.5
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "programPlay",
+     "card": "G-gomoku-9",
+     "variant": "self",
+     "cost": 2
+    },
+    "score": 5.5,
+    "candidates": [
+     {
+      "kind": "programPlay",
+      "card": "G-gomoku-9",
+      "variant": "self",
+      "cost": 2,
+      "raw": 5.5
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-gomoku-9",
+      "variant": "opponent",
+      "cost": 2,
+      "raw": 5.5
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~balance:1:BB:X-first",
+   "seat": "B",
+   "deck": "balance",
+   "round": 8,
+   "revision": 298,
+   "time": 5,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "prepared": [
+    "I-sleepboost1",
+    "I-sleepboost1",
+    "G-ski-jump"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-mini-golf-physics",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.16
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-mini-golf-physics",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.16
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~balance:2:BB:X-first",
+   "seat": "B",
+   "deck": "balance",
+   "round": 10,
+   "revision": 384,
+   "time": 6,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "prepared": [
+    "I-sleepboost1",
+    "I-sleepboost1",
+    "I-bowtie"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-mini-golf-physics",
+      "variant": null,
+      "cost": 1,
+      "raw": -3.62
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-mini-golf-physics",
+      "variant": null,
+      "cost": 1,
+      "raw": -3.62
+     },
+     {
+      "kind": "play",
+      "card": "E-first-date",
+      "variant": null,
+      "cost": 1,
+      "raw": -4.25
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-mini-golf-physics",
+      "variant": null,
+      "cost": 1,
+      "raw": -3.62
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-mini-golf-physics",
+      "variant": null,
+      "cost": 1,
+      "raw": -3.62
+     },
+     {
+      "kind": "play",
+      "card": "E-first-date",
+      "variant": null,
+      "cost": 1,
+      "raw": -4.25
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~balance:3:II:Y-first",
+   "seat": "A",
+   "deck": "balance",
+   "round": 9,
+   "revision": 299,
+   "time": 7,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "prepared": [
+    "I-sleepboost1",
+    "I-bowtie",
+    "I-sleepboost1"
+   ],
+   "beginner": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "play",
+      "card": "E-first-date",
+      "variant": null,
+      "cost": 1,
+      "raw": -4.25
+     },
+     {
+      "kind": "play",
+      "card": "E-first-date",
+      "variant": null,
+      "cost": 1,
+      "raw": -4.25
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "pass",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 0,
+    "candidates": [
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "play",
+      "card": "E-first-date",
+      "variant": null,
+      "cost": 1,
+      "raw": -4.25
+     },
+     {
+      "kind": "play",
+      "card": "E-first-date",
+      "variant": null,
+      "cost": 1,
+      "raw": -4.25
+     }
+    ]
+   }
+  }
+ ],
+ "P4": [
+  {
+   "match": "T:main~challenge:2:BB:X-first",
+   "seat": "B",
+   "deck": "challenge",
+   "round": 4,
+   "revision": 165,
+   "time": 3,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    }
+   },
+   "prepared": 0,
+   "beginner": {
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    },
+    "score": 12,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 15.75
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 6.5
+     },
+     {
+      "kind": "place",
+      "card": "W-jungle",
+      "variant": null,
+      "cost": 2,
+      "raw": 0.5
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-basketball-3d",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.65
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -15
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    },
+    "score": 17,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 17
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 6
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-basketball-3d",
+      "variant": null,
+      "cost": 1,
+      "raw": 0.6
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "place",
+      "card": "W-jungle",
+      "variant": null,
+      "cost": 2,
+      "raw": -6
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -8.5
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "4": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~challenge:2:II:Y-first",
+   "seat": "A",
+   "deck": "challenge",
+   "round": 4,
+   "revision": 141,
+   "time": 4,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    }
+   },
+   "prepared": 0,
+   "beginner": {
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    },
+    "score": 12,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 15.75
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 6.5
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": 0.75
+     },
+     {
+      "kind": "place",
+      "card": "W-jungle",
+      "variant": null,
+      "cost": 2,
+      "raw": 0.5
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-basketball-3d",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.65
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    },
+    "score": 17,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 17
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 9
+     },
+     {
+      "kind": "place",
+      "card": "W-jungle",
+      "variant": null,
+      "cost": 2,
+      "raw": 3
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": 1.19
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-basketball-3d",
+      "variant": null,
+      "cost": 1,
+      "raw": 0.6
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "4": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~challenge:2:BB:Y-first",
+   "seat": "A",
+   "deck": "challenge",
+   "round": 4,
+   "revision": 141,
+   "time": 3,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    }
+   },
+   "prepared": 0,
+   "beginner": {
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    },
+    "score": 12,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 15.75
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 6.5
+     },
+     {
+      "kind": "place",
+      "card": "W-mountain",
+      "variant": null,
+      "cost": 2,
+      "raw": 0.5
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-basketball-3d",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.65
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -15
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    },
+    "score": 17,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 17
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 6
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-basketball-3d",
+      "variant": null,
+      "cost": 1,
+      "raw": 0.6
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "place",
+      "card": "W-mountain",
+      "variant": null,
+      "cost": 2,
+      "raw": -6
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -8.5
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "4": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~challenge:3:II:X-first",
+   "seat": "B",
+   "deck": "challenge",
+   "round": 5,
+   "revision": 154,
+   "time": 5,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    }
+   },
+   "prepared": 0,
+   "beginner": {
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    },
+    "score": 12,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 15.75
+     },
+     {
+      "kind": "place",
+      "card": "W-mountain",
+      "variant": null,
+      "cost": 2,
+      "raw": 6.5
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 6.5
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": 0.75
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -2
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    },
+    "score": 17,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 17
+     },
+     {
+      "kind": "place",
+      "card": "W-mountain",
+      "variant": null,
+      "cost": 2,
+      "raw": 9
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 9
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "E-mirror",
+      "variant": null,
+      "cost": 1,
+      "raw": -1.06
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -1.7
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "5": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~challenge:3:BB:X-first",
+   "seat": "B",
+   "deck": "challenge",
+   "round": 5,
+   "revision": 137,
+   "time": 5,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    }
+   },
+   "prepared": 0,
+   "beginner": {
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    },
+    "score": 12,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 15.75
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 14
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 14
+     },
+     {
+      "kind": "place",
+      "card": "W-mountain",
+      "variant": null,
+      "cost": 2,
+      "raw": 6.5
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 6.5
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    },
+    "score": 17,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 17
+     },
+     {
+      "kind": "place",
+      "card": "W-mountain",
+      "variant": null,
+      "cost": 2,
+      "raw": 9
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 9
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 6.86
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 6.3
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "5": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~challenge:3:II:Y-first",
+   "seat": "A",
+   "deck": "challenge",
+   "round": 5,
+   "revision": 128,
+   "time": 5,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    }
+   },
+   "prepared": 0,
+   "beginner": {
+    "choice": {
+     "kind": "challenge",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 12,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 15.75
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 14
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 14
+     },
+     {
+      "kind": "place",
+      "card": "W-mountain",
+      "variant": null,
+      "cost": 2,
+      "raw": 6.5
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 6.5
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    },
+    "score": 17,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 17
+     },
+     {
+      "kind": "place",
+      "card": "W-mountain",
+      "variant": null,
+      "cost": 2,
+      "raw": 9
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 9
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 6.86
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 6.3
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "5": {
+     "beginner": {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~challenge:3:BB:Y-first",
+   "seat": "A",
+   "deck": "challenge",
+   "round": 5,
+   "revision": 126,
+   "time": 5,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "challenge",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "prepared": 0,
+   "beginner": {
+    "choice": {
+     "kind": "challenge",
+     "card": null,
+     "variant": null,
+     "cost": 0
+    },
+    "score": 12,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 15.75
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 14
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 14
+     },
+     {
+      "kind": "place",
+      "card": "W-mountain",
+      "variant": null,
+      "cost": 2,
+      "raw": 6.5
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 6.5
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    },
+    "score": 17,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 17
+     },
+     {
+      "kind": "place",
+      "card": "W-mountain",
+      "variant": null,
+      "cost": 2,
+      "raw": 9
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 9
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 6.86
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 6.3
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "5": {
+     "beginner": {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~challenge:4:II:X-first",
+   "seat": "B",
+   "deck": "challenge",
+   "round": 6,
+   "revision": 188,
+   "time": 6,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    }
+   },
+   "prepared": 0,
+   "beginner": {
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    },
+    "score": 12,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 26.75
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 6.5
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "place",
+      "card": "M-dragon-01",
+      "variant": "transform",
+      "cost": 1,
+      "raw": -10.25
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -15
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -15
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    },
+    "score": 28,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 28
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 9
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -8.5
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -8.5
+     },
+     {
+      "kind": "place",
+      "card": "M-dragon-01",
+      "variant": "transform",
+      "cost": 1,
+      "raw": -9
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "6": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~challenge:4:BB:X-first",
+   "seat": "B",
+   "deck": "challenge",
+   "round": 6,
+   "revision": 180,
+   "time": 6,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    }
+   },
+   "prepared": 0,
+   "beginner": {
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    },
+    "score": 12,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 26.75
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 6.5
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-basketball-3d",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.65
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1,
+      "raw": -1.28
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "キック",
+      "cost": 1,
+      "raw": -1.28
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    },
+    "score": 28,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 28
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 9
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-basketball-3d",
+      "variant": null,
+      "cost": 1,
+      "raw": 0.6
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "パンチ",
+      "cost": 1,
+      "raw": -0.03
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-street-fight",
+      "variant": "キック",
+      "cost": 1,
+      "raw": -0.03
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "6": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~challenge:4:II:Y-first",
+   "seat": "A",
+   "deck": "challenge",
+   "round": 6,
+   "revision": 181,
+   "time": 6,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    }
+   },
+   "prepared": 0,
+   "beginner": {
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    },
+    "score": 12,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 26.75
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 6.5
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "place",
+      "card": "M-dragon-01",
+      "variant": "transform",
+      "cost": 1,
+      "raw": -10.25
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -15
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -15
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    },
+    "score": 28,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 28
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 9
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -8.5
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -8.5
+     },
+     {
+      "kind": "place",
+      "card": "M-dragon-01",
+      "variant": "transform",
+      "cost": 1,
+      "raw": -9
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "6": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~challenge:4:BB:Y-first",
+   "seat": "A",
+   "deck": "challenge",
+   "round": 6,
+   "revision": 160,
+   "time": 6,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    }
+   },
+   "prepared": 0,
+   "beginner": {
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    },
+    "score": 12,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 15.75
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 6.5
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-basketball-3d",
+      "variant": null,
+      "cost": 1,
+      "raw": -0.65
+     },
+     {
+      "kind": "place",
+      "card": "M-dragon-01",
+      "variant": "transform",
+      "cost": 1,
+      "raw": -10.25
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -15
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "relationship",
+     "card": null,
+     "variant": null,
+     "cost": 1
+    },
+    "score": 17,
+    "candidates": [
+     {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1,
+      "raw": 17
+     },
+     {
+      "kind": "place",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 2,
+      "trap": true,
+      "raw": 9
+     },
+     {
+      "kind": "programPlay",
+      "card": "G-basketball-3d",
+      "variant": null,
+      "cost": 1,
+      "raw": 0.6
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -8.5
+     },
+     {
+      "kind": "challenge",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": -8.5
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    },
+    "6": {
+     "beginner": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     },
+     "intermediate": {
+      "kind": "relationship",
+      "card": null,
+      "variant": null,
+      "cost": 1
+     }
+    }
+   }
+  },
+  {
+   "match": "T:main~item:1:II:X-first",
+   "seat": "B",
+   "deck": "item",
+   "round": 1,
+   "revision": 22,
+   "time": 1,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "place",
+     "card": "G-takoyaki-grill",
+     "variant": null,
+     "cost": 1,
+     "trap": true
+    }
+   },
+   "prepared": 0,
+   "beginner": {
+    "choice": {
+     "kind": "place",
+     "card": "G-takoyaki-grill",
+     "variant": null,
+     "cost": 1,
+     "trap": true
+    },
+    "score": 4.4,
+    "candidates": [
+     {
+      "kind": "place",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 1,
+      "trap": true,
+      "raw": 4.4
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "place",
+     "card": "G-takoyaki-grill",
+     "variant": null,
+     "cost": 1,
+     "trap": true
+    },
+    "score": 7,
+    "candidates": [
+     {
+      "kind": "place",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 1,
+      "trap": true,
+      "raw": 7
+     },
+     {
+      "kind": "pass",
+      "card": null,
+      "variant": null,
+      "cost": 0,
+      "raw": 0
+     }
+    ]
+   },
+   "timeVariants": {
+    "1": {
+     "beginner": {
+      "kind": "place",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 1,
+      "trap": true
+     },
+     "intermediate": {
+      "kind": "place",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 1,
+      "trap": true
+     }
+    },
+    "2": {
+     "beginner": {
+      "kind": "place",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 1,
+      "trap": true
+     },
+     "intermediate": {
+      "kind": "place",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 1,
+      "trap": true
+     }
+    },
+    "3": {
+     "beginner": {
+      "kind": "place",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 1,
+      "trap": true
+     },
+     "intermediate": {
+      "kind": "place",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 1,
+      "trap": true
+     }
+    }
+   }
+  }
+ ],
+ "P5": [
+  {
+   "match": "T:main~challenge:2:II:Y-first",
+   "seat": "A",
+   "deck": "challenge",
+   "round": 5,
+   "revision": 191,
+   "time": 4,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "trigger",
+     "card": "G-ski-jump",
+     "variant": "wisdom",
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-ski-jump",
+     "variant": "power",
+     "cost": 0
+    },
+    "score": 6,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "power",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "wisdom",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": 2.4
+     },
+     {
+      "kind": "trigger",
+      "card": "W-mountain",
+      "variant": null,
+      "cost": 0,
+      "raw": 2
+     },
+     {
+      "kind": "skip",
+      "card": "W-mountain",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     },
+     {
+      "kind": "skip",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-ski-jump",
+     "variant": "power",
+     "cost": 0
+    },
+    "score": 6,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "power",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "wisdom",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": 2.4
+     },
+     {
+      "kind": "trigger",
+      "card": "W-mountain",
+      "variant": null,
+      "cost": 0,
+      "raw": 2
+     },
+     {
+      "kind": "skip",
+      "card": "W-mountain",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     },
+     {
+      "kind": "skip",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~challenge:3:II:X-first",
+   "seat": "B",
+   "deck": "challenge",
+   "round": 6,
+   "revision": 187,
+   "time": 5,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "trigger",
+     "card": "G-ski-jump",
+     "variant": "power",
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-ski-jump",
+     "variant": "wisdom",
+     "cost": 0
+    },
+    "score": 6,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "power",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "wisdom",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": 2.4
+     },
+     {
+      "kind": "trigger",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": 2.4
+     },
+     {
+      "kind": "skip",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     },
+     {
+      "kind": "skip",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-ski-jump",
+     "variant": "wisdom",
+     "cost": 0
+    },
+    "score": 6,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "power",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "wisdom",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": 2.4
+     },
+     {
+      "kind": "trigger",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": 2.4
+     },
+     {
+      "kind": "skip",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     },
+     {
+      "kind": "skip",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~challenge:3:II:Y-first",
+   "seat": "A",
+   "deck": "challenge",
+   "round": 6,
+   "revision": 172,
+   "time": 5,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "trigger",
+     "card": "G-ski-jump",
+     "variant": "wisdom",
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-ski-jump",
+     "variant": "power",
+     "cost": 0
+    },
+    "score": 6,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "power",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "wisdom",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": 2.4
+     },
+     {
+      "kind": "trigger",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": 2.4
+     },
+     {
+      "kind": "skip",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     },
+     {
+      "kind": "skip",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-ski-jump",
+     "variant": "power",
+     "cost": 0
+    },
+    "score": 6,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "power",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "wisdom",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": 2.4
+     },
+     {
+      "kind": "trigger",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": 2.4
+     },
+     {
+      "kind": "skip",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     },
+     {
+      "kind": "skip",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~challenge:3:BB:Y-first",
+   "seat": "A",
+   "deck": "challenge",
+   "round": 6,
+   "revision": 166,
+   "time": 6,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "trigger",
+     "card": "G-ski-jump",
+     "variant": "wisdom",
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-ski-jump",
+     "variant": "power",
+     "cost": 0
+    },
+    "score": 6,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "power",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "wisdom",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": 2.4
+     },
+     {
+      "kind": "trigger",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": 2.4
+     },
+     {
+      "kind": "skip",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     },
+     {
+      "kind": "skip",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-ski-jump",
+     "variant": "power",
+     "cost": 0
+    },
+    "score": 6,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "power",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "wisdom",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": 2.4
+     },
+     {
+      "kind": "trigger",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": 2.4
+     },
+     {
+      "kind": "skip",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     },
+     {
+      "kind": "skip",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~challenge:4:II:X-first",
+   "seat": "B",
+   "deck": "challenge",
+   "round": 7,
+   "revision": 224,
+   "time": 7,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "trigger",
+     "card": "G-ski-jump",
+     "variant": "wisdom",
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-ski-jump",
+     "variant": "wisdom",
+     "cost": 0
+    },
+    "score": 6,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "power",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "wisdom",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": 2.4
+     },
+     {
+      "kind": "skip",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     },
+     {
+      "kind": "skip",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-ski-jump",
+     "variant": "wisdom",
+     "cost": 0
+    },
+    "score": 6,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "power",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "wisdom",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": 2.4
+     },
+     {
+      "kind": "skip",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     },
+     {
+      "kind": "skip",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~challenge:4:II:Y-first",
+   "seat": "A",
+   "deck": "challenge",
+   "round": 7,
+   "revision": 217,
+   "time": 7,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "trigger",
+     "card": "G-ski-jump",
+     "variant": "power",
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-ski-jump",
+     "variant": "power",
+     "cost": 0
+    },
+    "score": 6,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "power",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "wisdom",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": 2.4
+     },
+     {
+      "kind": "skip",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     },
+     {
+      "kind": "skip",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-ski-jump",
+     "variant": "power",
+     "cost": 0
+    },
+    "score": 6,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "power",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "G-ski-jump",
+      "variant": "wisdom",
+      "cost": 0,
+      "raw": 6
+     },
+     {
+      "kind": "trigger",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": 2.4
+     },
+     {
+      "kind": "skip",
+      "card": "C-rabbit_friend",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     },
+     {
+      "kind": "skip",
+      "card": "G-ski-jump",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~item:1:II:X-first",
+   "seat": "B",
+   "deck": "item",
+   "round": 3,
+   "revision": 96,
+   "time": 1,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "trigger",
+     "card": "G-takoyaki-grill",
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-takoyaki-grill",
+     "variant": null,
+     "cost": 0
+    },
+    "score": 3.22,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": 3.22
+     },
+     {
+      "kind": "skip",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-takoyaki-grill",
+     "variant": null,
+     "cost": 0
+    },
+    "score": 3.22,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": 3.22
+     },
+     {
+      "kind": "skip",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~item:1:BB:X-first",
+   "seat": "B",
+   "deck": "item",
+   "round": 3,
+   "revision": 83,
+   "time": 1,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "trigger",
+     "card": "G-takoyaki-grill",
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-takoyaki-grill",
+     "variant": null,
+     "cost": 0
+    },
+    "score": 3.22,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": 3.22
+     },
+     {
+      "kind": "skip",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-takoyaki-grill",
+     "variant": null,
+     "cost": 0
+    },
+    "score": 3.22,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": 3.22
+     },
+     {
+      "kind": "skip",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~item:1:II:Y-first",
+   "seat": "A",
+   "deck": "item",
+   "round": 3,
+   "revision": 68,
+   "time": 1,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "trigger",
+     "card": "G-takoyaki-grill",
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-takoyaki-grill",
+     "variant": null,
+     "cost": 0
+    },
+    "score": 3.22,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": 3.22
+     },
+     {
+      "kind": "skip",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-takoyaki-grill",
+     "variant": null,
+     "cost": 0
+    },
+    "score": 3.22,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": 3.22
+     },
+     {
+      "kind": "skip",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~item:1:BB:Y-first",
+   "seat": "A",
+   "deck": "item",
+   "round": 3,
+   "revision": 71,
+   "time": 1,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "trigger",
+     "card": "G-takoyaki-grill",
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-takoyaki-grill",
+     "variant": null,
+     "cost": 0
+    },
+    "score": 3.22,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": 3.22
+     },
+     {
+      "kind": "skip",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-takoyaki-grill",
+     "variant": null,
+     "cost": 0
+    },
+    "score": 3.22,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": 3.22
+     },
+     {
+      "kind": "skip",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~item:2:II:X-first",
+   "seat": "B",
+   "deck": "item",
+   "round": 3,
+   "revision": 90,
+   "time": 0,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "intermediate",
+    "choice": {
+     "kind": "trigger",
+     "card": "G-takoyaki-grill",
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-takoyaki-grill",
+     "variant": null,
+     "cost": 0
+    },
+    "score": 3.22,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": 3.22
+     },
+     {
+      "kind": "skip",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-takoyaki-grill",
+     "variant": null,
+     "cost": 0
+    },
+    "score": 3.22,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": 3.22
+     },
+     {
+      "kind": "skip",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   }
+  },
+  {
+   "match": "T:main~item:2:BB:X-first",
+   "seat": "B",
+   "deck": "item",
+   "round": 3,
+   "revision": 90,
+   "time": 0,
+   "ownTurn": true,
+   "natural": {
+    "difficulty": "beginner",
+    "choice": {
+     "kind": "trigger",
+     "card": "G-takoyaki-grill",
+     "variant": null,
+     "cost": 0
+    }
+   },
+   "beginner": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-takoyaki-grill",
+     "variant": null,
+     "cost": 0
+    },
+    "score": 3.22,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": 3.22
+     },
+     {
+      "kind": "skip",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   },
+   "intermediate": {
+    "choice": {
+     "kind": "trigger",
+     "card": "G-takoyaki-grill",
+     "variant": null,
+     "cost": 0
+    },
+    "score": 3.22,
+    "candidates": [
+     {
+      "kind": "trigger",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": 3.22
+     },
+     {
+      "kind": "skip",
+      "card": "G-takoyaki-grill",
+      "variant": null,
+      "cost": 0,
+      "raw": -0.1
+     }
+    ]
+   }
+  }
+ ]
+}
