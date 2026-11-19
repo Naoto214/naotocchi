@@ -1,0 +1,27 @@
+{
+ "browser": "26.5",
+ "results": {
+  "sea": {
+   "normalRate": 1.0104166666666667,
+   "slowRate": 0.25354019158683905,
+   "draggedBoundary": 0.73,
+   "switchedCounts": [
+    4,
+    28,
+    1
+   ]
+  },
+  "forest": {
+   "normalRate": 0.9970833333333333,
+   "slowRate": 0.25562500000000005,
+   "draggedBoundary": 0.73,
+   "switchedCounts": [
+    4,
+    28,
+    1
+   ]
+  }
+ },
+ "errors": [],
+ "httpErrors": []
+}

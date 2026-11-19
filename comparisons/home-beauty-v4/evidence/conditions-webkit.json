@@ -1,0 +1,327 @@
+{
+ "browser": "26.5",
+ "results": {
+  "forest/morning/D3": {
+   "conditions": 16,
+   "minPixelsFromArt": 3014,
+   "maxPixelsFromArt": 4728,
+   "maxWeatherDifference": 2134,
+   "maxSeasonDifference": 1715,
+   "zeroPixels": 0,
+   "doubleDifference": 4273,
+   "reducedTemporalDifference": 0
+  },
+  "forest/morning/E1": {
+   "conditions": 16,
+   "minPixelsFromArt": 3643,
+   "maxPixelsFromArt": 4768,
+   "maxWeatherDifference": 1805,
+   "maxSeasonDifference": 1400,
+   "zeroPixels": 0,
+   "doubleDifference": 4106,
+   "reducedTemporalDifference": 0
+  },
+  "forest/morning/E2": {
+   "conditions": 16,
+   "minPixelsFromArt": 4189,
+   "maxPixelsFromArt": 5526,
+   "maxWeatherDifference": 2908,
+   "maxSeasonDifference": 2341,
+   "zeroPixels": 0,
+   "doubleDifference": 4244,
+   "reducedTemporalDifference": 0
+  },
+  "forest/morning/E3": {
+   "conditions": 16,
+   "minPixelsFromArt": 4036,
+   "maxPixelsFromArt": 5279,
+   "maxWeatherDifference": 2444,
+   "maxSeasonDifference": 1929,
+   "zeroPixels": 0,
+   "doubleDifference": 5149,
+   "reducedTemporalDifference": 0
+  },
+  "forest/day/D3": {
+   "conditions": 16,
+   "minPixelsFromArt": 3702,
+   "maxPixelsFromArt": 5423,
+   "maxWeatherDifference": 2243,
+   "maxSeasonDifference": 1521,
+   "zeroPixels": 0,
+   "doubleDifference": 4812,
+   "reducedTemporalDifference": 0
+  },
+  "forest/day/E1": {
+   "conditions": 16,
+   "minPixelsFromArt": 4370,
+   "maxPixelsFromArt": 5475,
+   "maxWeatherDifference": 1916,
+   "maxSeasonDifference": 1325,
+   "zeroPixels": 0,
+   "doubleDifference": 4803,
+   "reducedTemporalDifference": 0
+  },
+  "forest/day/E2": {
+   "conditions": 16,
+   "minPixelsFromArt": 4868,
+   "maxPixelsFromArt": 6205,
+   "maxWeatherDifference": 3082,
+   "maxSeasonDifference": 2224,
+   "zeroPixels": 0,
+   "doubleDifference": 4935,
+   "reducedTemporalDifference": 0
+  },
+  "forest/day/E3": {
+   "conditions": 16,
+   "minPixelsFromArt": 4763,
+   "maxPixelsFromArt": 6025,
+   "maxWeatherDifference": 2597,
+   "maxSeasonDifference": 1851,
+   "zeroPixels": 0,
+   "doubleDifference": 5824,
+   "reducedTemporalDifference": 0
+  },
+  "forest/evening/D3": {
+   "conditions": 16,
+   "minPixelsFromArt": 2862,
+   "maxPixelsFromArt": 4734,
+   "maxWeatherDifference": 2247,
+   "maxSeasonDifference": 2039,
+   "zeroPixels": 0,
+   "doubleDifference": 4457,
+   "reducedTemporalDifference": 0
+  },
+  "forest/evening/E1": {
+   "conditions": 16,
+   "minPixelsFromArt": 3477,
+   "maxPixelsFromArt": 4843,
+   "maxWeatherDifference": 1806,
+   "maxSeasonDifference": 1662,
+   "zeroPixels": 0,
+   "doubleDifference": 3899,
+   "reducedTemporalDifference": 0
+  },
+  "forest/evening/E2": {
+   "conditions": 16,
+   "minPixelsFromArt": 3901,
+   "maxPixelsFromArt": 5592,
+   "maxWeatherDifference": 2904,
+   "maxSeasonDifference": 2894,
+   "zeroPixels": 0,
+   "doubleDifference": 4530,
+   "reducedTemporalDifference": 0
+  },
+  "forest/evening/E3": {
+   "conditions": 16,
+   "minPixelsFromArt": 3820,
+   "maxPixelsFromArt": 5410,
+   "maxWeatherDifference": 2411,
+   "maxSeasonDifference": 2353,
+   "zeroPixels": 0,
+   "doubleDifference": 5121,
+   "reducedTemporalDifference": 0
+  },
+  "forest/night/D3": {
+   "conditions": 16,
+   "minPixelsFromArt": 1843,
+   "maxPixelsFromArt": 3169,
+   "maxWeatherDifference": 1297,
+   "maxSeasonDifference": 124,
+   "zeroPixels": 0,
+   "doubleDifference": 3544,
+   "reducedTemporalDifference": 0
+  },
+  "forest/night/E1": {
+   "conditions": 16,
+   "minPixelsFromArt": 2487,
+   "maxPixelsFromArt": 3584,
+   "maxWeatherDifference": 1166,
+   "maxSeasonDifference": 101,
+   "zeroPixels": 0,
+   "doubleDifference": 2796,
+   "reducedTemporalDifference": 0
+  },
+  "forest/night/E2": {
+   "conditions": 16,
+   "minPixelsFromArt": 2560,
+   "maxPixelsFromArt": 4089,
+   "maxWeatherDifference": 2049,
+   "maxSeasonDifference": 276,
+   "zeroPixels": 0,
+   "doubleDifference": 3244,
+   "reducedTemporalDifference": 0
+  },
+  "forest/night/E3": {
+   "conditions": 16,
+   "minPixelsFromArt": 2590,
+   "maxPixelsFromArt": 3957,
+   "maxWeatherDifference": 1661,
+   "maxSeasonDifference": 184,
+   "zeroPixels": 0,
+   "doubleDifference": 3742,
+   "reducedTemporalDifference": 0
+  },
+  "sea/morning/D3": {
+   "conditions": 16,
+   "minPixelsFromArt": 4531,
+   "maxPixelsFromArt": 4565,
+   "maxWeatherDifference": 106,
+   "maxSeasonDifference": 0,
+   "zeroPixels": 0,
+   "doubleDifference": 4769,
+   "reducedTemporalDifference": 0
+  },
+  "sea/morning/E1": {
+   "conditions": 16,
+   "minPixelsFromArt": 12852,
+   "maxPixelsFromArt": 13279,
+   "maxWeatherDifference": 8156,
+   "maxSeasonDifference": 21,
+   "zeroPixels": 0,
+   "doubleDifference": 11343,
+   "reducedTemporalDifference": 0
+  },
+  "sea/morning/E2": {
+   "conditions": 16,
+   "minPixelsFromArt": 12125,
+   "maxPixelsFromArt": 12686,
+   "maxWeatherDifference": 6256,
+   "maxSeasonDifference": 100,
+   "zeroPixels": 0,
+   "doubleDifference": 9769,
+   "reducedTemporalDifference": 0
+  },
+  "sea/morning/E3": {
+   "conditions": 16,
+   "minPixelsFromArt": 12688,
+   "maxPixelsFromArt": 13195,
+   "maxWeatherDifference": 7700,
+   "maxSeasonDifference": 64,
+   "zeroPixels": 0,
+   "doubleDifference": 11103,
+   "reducedTemporalDifference": 0
+  },
+  "sea/day/D3": {
+   "conditions": 16,
+   "minPixelsFromArt": 4577,
+   "maxPixelsFromArt": 4602,
+   "maxWeatherDifference": 111,
+   "maxSeasonDifference": 0,
+   "zeroPixels": 0,
+   "doubleDifference": 4823,
+   "reducedTemporalDifference": 0
+  },
+  "sea/day/E1": {
+   "conditions": 16,
+   "minPixelsFromArt": 12999,
+   "maxPixelsFromArt": 13414,
+   "maxWeatherDifference": 8493,
+   "maxSeasonDifference": 30,
+   "zeroPixels": 0,
+   "doubleDifference": 11599,
+   "reducedTemporalDifference": 0
+  },
+  "sea/day/E2": {
+   "conditions": 16,
+   "minPixelsFromArt": 12258,
+   "maxPixelsFromArt": 12877,
+   "maxWeatherDifference": 6592,
+   "maxSeasonDifference": 105,
+   "zeroPixels": 0,
+   "doubleDifference": 10129,
+   "reducedTemporalDifference": 0
+  },
+  "sea/day/E3": {
+   "conditions": 16,
+   "minPixelsFromArt": 12891,
+   "maxPixelsFromArt": 13321,
+   "maxWeatherDifference": 8074,
+   "maxSeasonDifference": 81,
+   "zeroPixels": 0,
+   "doubleDifference": 11340,
+   "reducedTemporalDifference": 0
+  },
+  "sea/evening/D3": {
+   "conditions": 16,
+   "minPixelsFromArt": 4629,
+   "maxPixelsFromArt": 4667,
+   "maxWeatherDifference": 121,
+   "maxSeasonDifference": 0,
+   "zeroPixels": 0,
+   "doubleDifference": 4853,
+   "reducedTemporalDifference": 0
+  },
+  "sea/evening/E1": {
+   "conditions": 16,
+   "minPixelsFromArt": 12984,
+   "maxPixelsFromArt": 13432,
+   "maxWeatherDifference": 8492,
+   "maxSeasonDifference": 36,
+   "zeroPixels": 0,
+   "doubleDifference": 11552,
+   "reducedTemporalDifference": 0
+  },
+  "sea/evening/E2": {
+   "conditions": 16,
+   "minPixelsFromArt": 12259,
+   "maxPixelsFromArt": 12830,
+   "maxWeatherDifference": 6548,
+   "maxSeasonDifference": 124,
+   "zeroPixels": 0,
+   "doubleDifference": 10130,
+   "reducedTemporalDifference": 0
+  },
+  "sea/evening/E3": {
+   "conditions": 16,
+   "minPixelsFromArt": 12841,
+   "maxPixelsFromArt": 13304,
+   "maxWeatherDifference": 8051,
+   "maxSeasonDifference": 84,
+   "zeroPixels": 0,
+   "doubleDifference": 11371,
+   "reducedTemporalDifference": 0
+  },
+  "sea/night/D3": {
+   "conditions": 16,
+   "minPixelsFromArt": 4106,
+   "maxPixelsFromArt": 4143,
+   "maxWeatherDifference": 122,
+   "maxSeasonDifference": 0,
+   "zeroPixels": 0,
+   "doubleDifference": 4331,
+   "reducedTemporalDifference": 0
+  },
+  "sea/night/E1": {
+   "conditions": 16,
+   "minPixelsFromArt": 11107,
+   "maxPixelsFromArt": 11905,
+   "maxWeatherDifference": 6062,
+   "maxSeasonDifference": 47,
+   "zeroPixels": 0,
+   "doubleDifference": 9328,
+   "reducedTemporalDifference": 0
+  },
+  "sea/night/E2": {
+   "conditions": 16,
+   "minPixelsFromArt": 9845,
+   "maxPixelsFromArt": 10865,
+   "maxWeatherDifference": 4668,
+   "maxSeasonDifference": 147,
+   "zeroPixels": 0,
+   "doubleDifference": 7825,
+   "reducedTemporalDifference": 0
+  },
+  "sea/night/E3": {
+   "conditions": 16,
+   "minPixelsFromArt": 10840,
+   "maxPixelsFromArt": 11736,
+   "maxWeatherDifference": 5878,
+   "maxSeasonDifference": 105,
+   "zeroPixels": 0,
+   "doubleDifference": 9107,
+   "reducedTemporalDifference": 0
+  }
+ },
+ "errors": [],
+ "httpErrors": []
+}

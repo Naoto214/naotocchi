@@ -249,7 +249,8 @@ export function drawSeaE(ctx,state){
   const effects={water:true,waves:true,motion:true,foam:true,light:true,reflections:true,caustics:true,particles:true,magic:true,...state.effects};
   if(!effects.water&&!effects.light&&!effects.particles)return;
   const s={...state,effects,opacity:opacity*Math.min(strength,1),t:state.reduced?0:state.seconds,hour:hours[state.time]||hours.day};
-  const p={};for(const key of Object.keys(profile))p[key]=profile[key]*Math.min(1.5,strength);
+  const gain=strength<=1?strength:1+(strength-1)*.5;
+  const p={};for(const key of Object.keys(profile))p[key]=profile[key]*gain;
   ctx.save();ctx.scale(s.width/W,s.height/H);
   const clock=waveClock(s.t),storm=s.weather==='rain'?1.13:s.weather==='snow'?.79:1;
   if(effects.water){

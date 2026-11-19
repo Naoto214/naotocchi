@@ -1,0 +1,159 @@
+{
+ "browser": "156.0.8078.79",
+ "results": {
+  "sea/D3": {
+   "sample": {
+    "elapsed": 5.517900000002236,
+    "pairs": 272,
+    "firstDelay": 13.900000002235174,
+    "rafHz": 49.15781103159112,
+    "p95": 33.30000000000018,
+    "max": 333.3000000000002,
+    "cachedBackgroundHz": 20.66003370846768,
+    "internalHz": 21.227552570741526,
+    "count": 4,
+    "pausedSec": 0,
+    "modelSeconds": 5.166400000000011,
+    "moves": 2,
+    "approaches": null
+   },
+   "steps": 101,
+   "observedSeconds": 3.989
+  },
+  "sea/E1": {
+   "sample": {
+    "elapsed": 5.5133999999985095,
+    "pairs": 214,
+    "firstDelay": 17,
+    "rafHz": 38.79271277077858,
+    "p95": 50,
+    "max": 716.5999999999995,
+    "cachedBackgroundHz": 17.593499474013534,
+    "internalHz": 19.951584155781973,
+    "count": 4,
+    "pausedSec": 0,
+    "modelSeconds": 5.34980000000001,
+    "moves": 2,
+    "approaches": null
+   },
+   "steps": 83,
+   "observedSeconds": 3.9995
+  },
+  "sea/E2": {
+   "sample": {
+    "elapsed": 5.505199999999255,
+    "pairs": 226,
+    "firstDelay": 17,
+    "rafHz": 40.96874773402944,
+    "p95": 50,
+    "max": 450,
+    "cachedBackgroundHz": 19.799462326530325,
+    "internalHz": 23.078172848745034,
+    "count": 4,
+    "pausedSec": 0,
+    "modelSeconds": 5.433100000000003,
+    "moves": 2,
+    "approaches": null
+   },
+   "steps": 96,
+   "observedSeconds": 4.020900000002235
+  },
+  "sea/E3": {
+   "sample": {
+    "elapsed": 5.5068999999985095,
+    "pairs": 282,
+    "firstDelay": 0.5,
+    "rafHz": 51.12029584511638,
+    "p95": 33.20000000000073,
+    "max": 266.6999999999998,
+    "cachedBackgroundHz": 21.972434582075714,
+    "internalHz": 24.627968416496262,
+    "count": 4,
+    "pausedSec": 0,
+    "modelSeconds": 5.566400000000007,
+    "moves": 2,
+    "approaches": null
+   },
+   "steps": 108,
+   "observedSeconds": 3.978
+  },
+  "forest/D3": {
+   "sample": {
+    "elapsed": 5.502199999999255,
+    "pairs": 197,
+    "firstDelay": 2.699999999254942,
+    "rafHz": 35.71104867216532,
+    "p95": 33.400000000000546,
+    "max": 350,
+    "cachedBackgroundHz": 18.90153029697468,
+    "internalHz": 21.028878538319102,
+    "count": 4,
+    "pausedSec": 0,
+    "modelSeconds": 5.566400000000012,
+    "moves": 2,
+    "approaches": null
+   },
+   "steps": 92,
+   "observedSeconds": 4.01460000000149
+  },
+  "forest/E1": {
+   "sample": {
+    "elapsed": 5.502099999997765,
+    "pairs": 179,
+    "firstDelay": 0.6999999992549419,
+    "rafHz": 32.44811021481011,
+    "p95": 66.60000000000036,
+    "max": 433.39999999999964,
+    "cachedBackgroundHz": 17.811381109038333,
+    "internalHz": 20.10011345397372,
+    "count": 4,
+    "pausedSec": 0,
+    "modelSeconds": 5.249700000000005,
+    "moves": 2,
+    "approaches": null
+   },
+   "steps": 85,
+   "observedSeconds": 3.992
+  },
+  "forest/E2": {
+   "sample": {
+    "elapsed": 5.503199999999255,
+    "pairs": 195,
+    "firstDelay": 2.5,
+    "rafHz": 35.34914074396346,
+    "p95": 50.100000000000364,
+    "max": 316.6999999999998,
+    "cachedBackgroundHz": 17.807820904203602,
+    "internalHz": 21.775190992619663,
+    "count": 4,
+    "pausedSec": 0,
+    "modelSeconds": 5.283000000000006,
+    "moves": 2,
+    "approaches": null
+   },
+   "steps": 85,
+   "observedSeconds": 3.9893000000007452
+  },
+  "forest/E3": {
+   "sample": {
+    "elapsed": 5.506,
+    "pairs": 139,
+    "firstDelay": 92.19999999925494,
+    "rafHz": 25.350160490224688,
+    "p95": 100.09999999999991,
+    "max": 650,
+    "cachedBackgroundHz": 14.711224119142752,
+    "internalHz": 16.590369401165084,
+    "count": 4,
+    "pausedSec": 0,
+    "modelSeconds": 5.516400000000007,
+    "moves": 2,
+    "approaches": null
+   },
+   "steps": 71,
+   "observedSeconds": 4.047199999999255
+  }
+ },
+ "errors": [],
+ "httpErrors": []
+}

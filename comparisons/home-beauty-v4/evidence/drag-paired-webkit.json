@@ -1,0 +1,123 @@
+{
+ "browser": "26.5",
+ "results": {
+  "sea/4/E2": [
+   {
+    "marker": true,
+    "pointerToNextRAFms": [
+     279,
+     366,
+     351,
+     350,
+     349,
+     346,
+     345,
+     343,
+     342,
+     341
+    ],
+    "downs": [
+     {
+      "target": "petSprite",
+      "actor": "pet:dog",
+      "paused": "false",
+      "invite": false
+     }
+    ],
+    "cadence": {
+     "elapsed": 6.076,
+     "pairs": 155,
+     "firstDelay": 11,
+     "rafHz": 25.590226184579826,
+     "p95": 100,
+     "max": 336,
+     "cachedBackgroundHz": 7.570770243581304,
+     "internalHz": 9.075978909153774,
+     "count": 4,
+     "pausedSec": 0,
+     "modelSeconds": 5.6190000000000015,
+     "moves": 2,
+     "approaches": 1
+    }
+   },
+   {
+    "marker": true,
+    "pointerToNextRAFms": [
+     282,
+     256,
+     254,
+     251,
+     249,
+     248,
+     247,
+     246,
+     241,
+     240
+    ],
+    "downs": [
+     {
+      "target": "petSprite",
+      "actor": "pet:dog",
+      "paused": "false",
+      "invite": false
+     }
+    ],
+    "cadence": {
+     "elapsed": 6.039,
+     "pairs": 159,
+     "firstDelay": 43,
+     "rafHz": 26.49116961012996,
+     "p95": 87,
+     "max": 328,
+     "cachedBackgroundHz": 8.113926146713032,
+     "internalHz": 9.163902949903997,
+     "count": 4,
+     "pausedSec": 0,
+     "modelSeconds": 5.799999999999997,
+     "moves": 2,
+     "approaches": 1
+    }
+   },
+   {
+    "marker": true,
+    "pointerToNextRAFms": [
+     377,
+     360,
+     359,
+     358,
+     357,
+     352,
+     351,
+     350,
+     349,
+     348
+    ],
+    "downs": [
+     {
+      "target": "petSprite",
+      "actor": "pet:dog",
+      "paused": "false",
+      "invite": false
+     }
+    ],
+    "cadence": {
+     "elapsed": 6.077,
+     "pairs": 150,
+     "firstDelay": 8,
+     "rafHz": 24.736147757255935,
+     "p95": 85,
+     "max": 282,
+     "cachedBackgroundHz": 7.898634194503867,
+     "internalHz": 9.868421052631579,
+     "count": 4,
+     "pausedSec": 0,
+     "modelSeconds": 5.786000000000001,
+     "moves": 4,
+     "approaches": 1
+    }
+   }
+  ]
+ },
+ "errors": [],
+ "httpErrors": []
+}
