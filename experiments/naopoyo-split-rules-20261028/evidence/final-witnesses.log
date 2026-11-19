@@ -1,0 +1,99 @@
+40/40 final witnesses replayed; mass, validity, support and split preview assertions passed.
+[
+  {
+    mode: 'A',
+    number: 19,
+    depth: 71,
+    split: 8,
+    children: 21,
+    merge: 24,
+    fall: 46,
+    overflow: 5,
+    previewMatches: 8,
+    complete: true
+  },
+  {
+    mode: 'A',
+    number: 20,
+    depth: 71,
+    split: 19,
+    children: 45,
+    merge: 50,
+    fall: 49,
+    overflow: 6,
+    previewMatches: 19,
+    complete: true
+  },
+  {
+    mode: 'B',
+    number: 19,
+    depth: 91,
+    split: 9,
+    children: 23,
+    merge: 26,
+    fall: 55,
+    overflow: 5,
+    previewMatches: 9,
+    complete: true
+  },
+  {
+    mode: 'B',
+    number: 20,
+    depth: 131,
+    split: 28,
+    children: 59,
+    merge: 70,
+    fall: 78,
+    overflow: 12,
+    previewMatches: 28,
+    complete: true
+  },
+  {
+    mode: 'C',
+    number: 19,
+    depth: 59,
+    split: 18,
+    children: 47,
+    merge: 46,
+    fall: 40,
+    overflow: 1,
+    previewMatches: 18,
+    complete: true
+  },
+  {
+    mode: 'C',
+    number: 20,
+    depth: 71,
+    split: 19,
+    children: 44,
+    merge: 49,
+    fall: 48,
+    overflow: 6,
+    previewMatches: 19,
+    complete: true
+  },
+  {
+    mode: 'B-once',
+    number: 19,
+    depth: 91,
+    split: 9,
+    children: 23,
+    merge: 26,
+    fall: 55,
+    overflow: 5,
+    previewMatches: 9,
+    complete: true
+  },
+  {
+    mode: 'B-once',
+    number: 20,
+    depth: 156,
+    split: 30,
+    children: 66,
+    merge: 83,
+    fall: 89,
+    overflow: 18,
+    previewMatches: 30,
+    complete: true
+  }
+]

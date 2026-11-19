@@ -1,0 +1,649 @@
+{
+  "witnesses": [
+    {
+      "mode": "A",
+      "number": 11,
+      "depth": 5,
+      "split": 0,
+      "children": 0,
+      "merge": 1,
+      "fall": 5,
+      "overflow": 0,
+      "previewMatches": 0,
+      "complete": true
+    },
+    {
+      "mode": "A",
+      "number": 12,
+      "depth": 5,
+      "split": 0,
+      "children": 0,
+      "merge": 2,
+      "fall": 2,
+      "overflow": 1,
+      "previewMatches": 0,
+      "complete": true
+    },
+    {
+      "mode": "A",
+      "number": 13,
+      "depth": 10,
+      "split": 0,
+      "children": 0,
+      "merge": 0,
+      "fall": 1,
+      "overflow": 0,
+      "previewMatches": 0,
+      "complete": true
+    },
+    {
+      "mode": "A",
+      "number": 14,
+      "depth": 11,
+      "split": 0,
+      "children": 0,
+      "merge": 2,
+      "fall": 4,
+      "overflow": 1,
+      "previewMatches": 0,
+      "complete": true
+    },
+    {
+      "mode": "A",
+      "number": 15,
+      "depth": 23,
+      "split": 3,
+      "children": 5,
+      "merge": 7,
+      "fall": 10,
+      "overflow": 2,
+      "previewMatches": 3,
+      "complete": true
+    },
+    {
+      "mode": "A",
+      "number": 16,
+      "depth": 25,
+      "split": 1,
+      "children": 3,
+      "merge": 6,
+      "fall": 9,
+      "overflow": 3,
+      "previewMatches": 1,
+      "complete": true
+    },
+    {
+      "mode": "A",
+      "number": 17,
+      "depth": 26,
+      "split": 4,
+      "children": 9,
+      "merge": 11,
+      "fall": 16,
+      "overflow": 2,
+      "previewMatches": 4,
+      "complete": true
+    },
+    {
+      "mode": "A",
+      "number": 18,
+      "depth": 20,
+      "split": 6,
+      "children": 16,
+      "merge": 18,
+      "fall": 15,
+      "overflow": 3,
+      "previewMatches": 6,
+      "complete": true
+    },
+    {
+      "mode": "A",
+      "number": 19,
+      "depth": 71,
+      "split": 8,
+      "children": 21,
+      "merge": 24,
+      "fall": 46,
+      "overflow": 5,
+      "previewMatches": 8,
+      "complete": true
+    },
+    {
+      "mode": "A",
+      "number": 20,
+      "depth": 71,
+      "split": 19,
+      "children": 45,
+      "merge": 50,
+      "fall": 49,
+      "overflow": 6,
+      "previewMatches": 19,
+      "complete": true
+    },
+    {
+      "mode": "B",
+      "number": 11,
+      "depth": 5,
+      "split": 0,
+      "children": 0,
+      "merge": 1,
+      "fall": 5,
+      "overflow": 0,
+      "previewMatches": 0,
+      "complete": true
+    },
+    {
+      "mode": "B",
+      "number": 12,
+      "depth": 5,
+      "split": 0,
+      "children": 0,
+      "merge": 2,
+      "fall": 2,
+      "overflow": 1,
+      "previewMatches": 0,
+      "complete": true
+    },
+    {
+      "mode": "B",
+      "number": 13,
+      "depth": 10,
+      "split": 0,
+      "children": 0,
+      "merge": 0,
+      "fall": 1,
+      "overflow": 0,
+      "previewMatches": 0,
+      "complete": true
+    },
+    {
+      "mode": "B",
+      "number": 14,
+      "depth": 11,
+      "split": 0,
+      "children": 0,
+      "merge": 2,
+      "fall": 4,
+      "overflow": 1,
+      "previewMatches": 0,
+      "complete": true
+    },
+    {
+      "mode": "B",
+      "number": 15,
+      "depth": 23,
+      "split": 3,
+      "children": 5,
+      "merge": 7,
+      "fall": 10,
+      "overflow": 2,
+      "previewMatches": 3,
+      "complete": true
+    },
+    {
+      "mode": "B",
+      "number": 16,
+      "depth": 70,
+      "split": 14,
+      "children": 39,
+      "merge": 42,
+      "fall": 53,
+      "overflow": 3,
+      "previewMatches": 14,
+      "complete": true
+    },
+    {
+      "mode": "B",
+      "number": 17,
+      "depth": 26,
+      "split": 4,
+      "children": 9,
+      "merge": 11,
+      "fall": 16,
+      "overflow": 2,
+      "previewMatches": 4,
+      "complete": true
+    },
+    {
+      "mode": "B",
+      "number": 18,
+      "depth": 19,
+      "split": 5,
+      "children": 15,
+      "merge": 21,
+      "fall": 21,
+      "overflow": 7,
+      "previewMatches": 5,
+      "complete": true
+    },
+    {
+      "mode": "B",
+      "number": 19,
+      "depth": 91,
+      "split": 9,
+      "children": 23,
+      "merge": 26,
+      "fall": 55,
+      "overflow": 5,
+      "previewMatches": 9,
+      "complete": true
+    },
+    {
+      "mode": "B",
+      "number": 20,
+      "depth": 131,
+      "split": 28,
+      "children": 59,
+      "merge": 70,
+      "fall": 78,
+      "overflow": 12,
+      "previewMatches": 28,
+      "complete": true
+    },
+    {
+      "mode": "C",
+      "number": 11,
+      "depth": 5,
+      "split": 0,
+      "children": 0,
+      "merge": 1,
+      "fall": 5,
+      "overflow": 0,
+      "previewMatches": 0,
+      "complete": true
+    },
+    {
+      "mode": "C",
+      "number": 12,
+      "depth": 5,
+      "split": 0,
+      "children": 0,
+      "merge": 2,
+      "fall": 2,
+      "overflow": 1,
+      "previewMatches": 0,
+      "complete": true
+    },
+    {
+      "mode": "C",
+      "number": 13,
+      "depth": 10,
+      "split": 0,
+      "children": 0,
+      "merge": 0,
+      "fall": 1,
+      "overflow": 0,
+      "previewMatches": 0,
+      "complete": true
+    },
+    {
+      "mode": "C",
+      "number": 14,
+      "depth": 11,
+      "split": 0,
+      "children": 0,
+      "merge": 2,
+      "fall": 4,
+      "overflow": 1,
+      "previewMatches": 0,
+      "complete": true
+    },
+    {
+      "mode": "C",
+      "number": 15,
+      "depth": 15,
+      "split": 2,
+      "children": 4,
+      "merge": 5,
+      "fall": 7,
+      "overflow": 1,
+      "previewMatches": 2,
+      "complete": true
+    },
+    {
+      "mode": "C",
+      "number": 16,
+      "depth": 36,
+      "split": 7,
+      "children": 15,
+      "merge": 16,
+      "fall": 16,
+      "overflow": 1,
+      "previewMatches": 7,
+      "complete": true
+    },
+    {
+      "mode": "C",
+      "number": 17,
+      "depth": 20,
+      "split": 3,
+      "children": 8,
+      "merge": 11,
+      "fall": 14,
+      "overflow": 3,
+      "previewMatches": 3,
+      "complete": true
+    },
+    {
+      "mode": "C",
+      "number": 18,
+      "depth": 25,
+      "split": 4,
+      "children": 12,
+      "merge": 15,
+      "fall": 17,
+      "overflow": 4,
+      "previewMatches": 4,
+      "complete": true
+    },
+    {
+      "mode": "C",
+      "number": 19,
+      "depth": 59,
+      "split": 18,
+      "children": 47,
+      "merge": 46,
+      "fall": 40,
+      "overflow": 1,
+      "previewMatches": 18,
+      "complete": true
+    },
+    {
+      "mode": "C",
+      "number": 20,
+      "depth": 71,
+      "split": 19,
+      "children": 44,
+      "merge": 49,
+      "fall": 48,
+      "overflow": 6,
+      "previewMatches": 19,
+      "complete": true
+    },
+    {
+      "mode": "B-once",
+      "number": 11,
+      "depth": 5,
+      "split": 0,
+      "children": 0,
+      "merge": 1,
+      "fall": 5,
+      "overflow": 0,
+      "previewMatches": 0,
+      "complete": true
+    },
+    {
+      "mode": "B-once",
+      "number": 12,
+      "depth": 5,
+      "split": 0,
+      "children": 0,
+      "merge": 2,
+      "fall": 2,
+      "overflow": 1,
+      "previewMatches": 0,
+      "complete": true
+    },
+    {
+      "mode": "B-once",
+      "number": 13,
+      "depth": 10,
+      "split": 0,
+      "children": 0,
+      "merge": 0,
+      "fall": 1,
+      "overflow": 0,
+      "previewMatches": 0,
+      "complete": true
+    },
+    {
+      "mode": "B-once",
+      "number": 14,
+      "depth": 11,
+      "split": 0,
+      "children": 0,
+      "merge": 2,
+      "fall": 4,
+      "overflow": 1,
+      "previewMatches": 0,
+      "complete": true
+    },
+    {
+      "mode": "B-once",
+      "number": 15,
+      "depth": 23,
+      "split": 3,
+      "children": 5,
+      "merge": 7,
+      "fall": 10,
+      "overflow": 2,
+      "previewMatches": 3,
+      "complete": true
+    },
+    {
+      "mode": "B-once",
+      "number": 16,
+      "depth": 70,
+      "split": 14,
+      "children": 39,
+      "merge": 42,
+      "fall": 53,
+      "overflow": 3,
+      "previewMatches": 14,
+      "complete": true
+    },
+    {
+      "mode": "B-once",
+      "number": 17,
+      "depth": 26,
+      "split": 4,
+      "children": 9,
+      "merge": 11,
+      "fall": 16,
+      "overflow": 2,
+      "previewMatches": 4,
+      "complete": true
+    },
+    {
+      "mode": "B-once",
+      "number": 18,
+      "depth": 19,
+      "split": 5,
+      "children": 15,
+      "merge": 21,
+      "fall": 21,
+      "overflow": 7,
+      "previewMatches": 5,
+      "complete": true
+    },
+    {
+      "mode": "B-once",
+      "number": 19,
+      "depth": 91,
+      "split": 9,
+      "children": 23,
+      "merge": 26,
+      "fall": 55,
+      "overflow": 5,
+      "previewMatches": 9,
+      "complete": true
+    },
+    {
+      "mode": "B-once",
+      "number": 20,
+      "depth": 156,
+      "split": 30,
+      "children": 66,
+      "merge": 83,
+      "fall": 89,
+      "overflow": 18,
+      "previewMatches": 30,
+      "complete": true
+    }
+  ],
+  "crossReplay": [
+    {
+      "mode": "B",
+      "number": 11,
+      "AComplete": true
+    },
+    {
+      "mode": "B",
+      "number": 12,
+      "AComplete": true
+    },
+    {
+      "mode": "B",
+      "number": 13,
+      "AComplete": true
+    },
+    {
+      "mode": "B",
+      "number": 14,
+      "AComplete": true
+    },
+    {
+      "mode": "B",
+      "number": 15,
+      "AComplete": true
+    },
+    {
+      "mode": "B",
+      "number": 16,
+      "AComplete": false,
+      "reason": "witness actor 18"
+    },
+    {
+      "mode": "B",
+      "number": 17,
+      "AComplete": true
+    },
+    {
+      "mode": "B",
+      "number": 18,
+      "AComplete": false,
+      "reason": "witness actor 6"
+    },
+    {
+      "mode": "B",
+      "number": 19,
+      "AComplete": false,
+      "reason": "witness actor 19"
+    },
+    {
+      "mode": "B",
+      "number": 20,
+      "AComplete": false,
+      "reason": "witness actor 29"
+    },
+    {
+      "mode": "C",
+      "number": 11,
+      "AComplete": true
+    },
+    {
+      "mode": "C",
+      "number": 12,
+      "AComplete": true
+    },
+    {
+      "mode": "C",
+      "number": 13,
+      "AComplete": true
+    },
+    {
+      "mode": "C",
+      "number": 14,
+      "AComplete": true
+    },
+    {
+      "mode": "C",
+      "number": 15,
+      "AComplete": false,
+      "reason": "witness actor 3"
+    },
+    {
+      "mode": "C",
+      "number": 16,
+      "AComplete": false,
+      "reason": "witness actor 17"
+    },
+    {
+      "mode": "C",
+      "number": 17,
+      "AComplete": false,
+      "reason": "witness actor 2"
+    },
+    {
+      "mode": "C",
+      "number": 18,
+      "AComplete": false,
+      "reason": "witness actor 5"
+    },
+    {
+      "mode": "C",
+      "number": 19,
+      "AComplete": false,
+      "reason": "witness actor 8"
+    },
+    {
+      "mode": "C",
+      "number": 20,
+      "AComplete": true
+    },
+    {
+      "mode": "B-once",
+      "number": 11,
+      "AComplete": true
+    },
+    {
+      "mode": "B-once",
+      "number": 12,
+      "AComplete": true
+    },
+    {
+      "mode": "B-once",
+      "number": 13,
+      "AComplete": true
+    },
+    {
+      "mode": "B-once",
+      "number": 14,
+      "AComplete": true
+    },
+    {
+      "mode": "B-once",
+      "number": 15,
+      "AComplete": true
+    },
+    {
+      "mode": "B-once",
+      "number": 16,
+      "AComplete": false,
+      "reason": "witness actor 18"
+    },
+    {
+      "mode": "B-once",
+      "number": 17,
+      "AComplete": true
+    },
+    {
+      "mode": "B-once",
+      "number": 18,
+      "AComplete": false,
+      "reason": "witness actor 6"
+    },
+    {
+      "mode": "B-once",
+      "number": 19,
+      "AComplete": false,
+      "reason": "witness actor 19"
+    },
+    {
+      "mode": "B-once",
+      "number": 20,
+      "AComplete": false,
+      "reason": "witness actor 30"
+    }
+  ]
+}

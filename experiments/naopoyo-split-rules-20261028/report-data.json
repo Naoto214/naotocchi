@@ -1,0 +1,235 @@
+{
+  "repro": {
+    "before": {
+      "id": "komorebi-forest-trial",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 7,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 4
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3,
+          "exact": 7
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 3
+        }
+      ],
+      "spikes": [
+        {
+          "x": 4,
+          "y": 6,
+          "power": 3
+        },
+        {
+          "x": 6,
+          "y": 6,
+          "power": 2
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "number": 20,
+      "title": "20 森の結び目",
+      "revision": 5,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 8,
+      "discovery": "二つの8で魔法岩を越え、片方を足場にもう片方を分ける。上の作業場で7を組み、足場役も3ずつ回収する。",
+      "lesson": "支える場所も、分かれる順番も、きみたちで。",
+      "story": "ふくろうが、枝の上から静かに見ていた。「通れる大きさと、帰れる大きさは違うよ」",
+      "ending": "最後の光が星へ届くと、枝の向こうに水のきらめきが見えた。——第2章 おわり——",
+      "hints": [
+        "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+        "下の魔法岩の先では、もう一人を足場にしてトゲへ登ろう。7の材料と、支える仲間を同時に残したい。",
+        "3の魔法岩の向こうの作業場で7を作ろう。7は左上の岩を回って星へ。下に残った仲間は3ずつ帰そう。"
+      ],
+      "hint": "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v1",
+      "terrainRules": "magic-gate-v2",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 6
+    },
+    "action": {
+      "at": [
+        3,
+        7
+      ],
+      "level": 8,
+      "d": [
+        1,
+        -1
+      ]
+    }
+  },
+  "stages": [
+    {
+      "number": 11,
+      "A": 5,
+      "B": 5,
+      "C": 5,
+      "B-once": 5,
+      "oldB": true,
+      "oldC": true
+    },
+    {
+      "number": 12,
+      "A": 5,
+      "B": 5,
+      "C": 5,
+      "B-once": 5,
+      "oldB": true,
+      "oldC": true
+    },
+    {
+      "number": 13,
+      "A": 10,
+      "B": 10,
+      "C": 10,
+      "B-once": 10,
+      "oldB": true,
+      "oldC": true
+    },
+    {
+      "number": 14,
+      "A": 11,
+      "B": 11,
+      "C": 11,
+      "B-once": 11,
+      "oldB": true,
+      "oldC": true
+    },
+    {
+      "number": 15,
+      "A": 23,
+      "B": 23,
+      "C": 15,
+      "B-once": 23,
+      "oldB": true,
+      "oldC": false
+    },
+    {
+      "number": 16,
+      "A": 25,
+      "B": 70,
+      "C": 36,
+      "B-once": 70,
+      "oldB": false,
+      "oldC": false
+    },
+    {
+      "number": 17,
+      "A": 26,
+      "B": 26,
+      "C": 20,
+      "B-once": 26,
+      "oldB": true,
+      "oldC": false
+    },
+    {
+      "number": 18,
+      "A": 20,
+      "B": 19,
+      "C": 25,
+      "B-once": 19,
+      "oldB": false,
+      "oldC": false
+    },
+    {
+      "number": 19,
+      "A": 71,
+      "B": 91,
+      "C": 59,
+      "B-once": 91,
+      "oldB": false,
+      "oldC": false
+    },
+    {
+      "number": 20,
+      "A": 71,
+      "B": 131,
+      "C": 71,
+      "B-once": 156,
+      "oldB": false,
+      "oldC": true
+    }
+  ],
+  "attempts": 79691,
+  "previews": 2073,
+  "cyclesB": 89
+}

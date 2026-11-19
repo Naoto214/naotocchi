@@ -1,0 +1,64 @@
+{
+  A: {
+    'inactive-spike-cycle': { ok: true, reason: undefined, events: [Array], actors: [Array] },
+    'overflow-two-spikes': { ok: true, reason: undefined, events: [Array], actors: [Array] },
+    'multiple-spikes-same-step': { ok: true, reason: undefined, events: [Array], actors: [Array] },
+    'parent-child-immediate': { ok: true, reason: undefined, events: [Array], actors: [Array] },
+    'next-step-normal-merge': { ok: true, reason: undefined, events: [Array], actors: [Array] },
+    'consecutive-reentry-new-steps': {
+      ok: undefined,
+      reason: undefined,
+      events: undefined,
+      actors: [Array]
+    },
+    'no-space': { ok: true, reason: undefined, events: [], actors: [Array] },
+    'max-seven-children': { ok: true, reason: undefined, events: [Array], actors: [Array] }
+  },
+  B: {
+    'inactive-spike-cycle': {
+      ok: false,
+      reason: 'gravity-cycle',
+      events: undefined,
+      actors: [Array]
+    },
+    'overflow-two-spikes': { ok: true, reason: undefined, events: [Array], actors: [Array] },
+    'multiple-spikes-same-step': { ok: true, reason: undefined, events: [Array], actors: [Array] },
+    'parent-child-immediate': { ok: true, reason: undefined, events: [Array], actors: [Array] },
+    'consecutive-reentry-new-steps': {
+      ok: undefined,
+      reason: undefined,
+      events: undefined,
+      actors: [Array]
+    },
+    'no-space': { ok: true, reason: undefined, events: [], actors: [Array] },
+    'max-seven-children': { ok: true, reason: undefined, events: [Array], actors: [Array] }
+  },
+  C: {
+    'inactive-spike-cycle': { ok: true, reason: undefined, events: [Array], actors: [Array] },
+    'overflow-two-spikes': { ok: true, reason: undefined, events: [Array], actors: [Array] },
+    'multiple-spikes-same-step': { ok: true, reason: undefined, events: [Array], actors: [Array] },
+    'parent-child-immediate': { ok: true, reason: undefined, events: [Array], actors: [Array] },
+    'consecutive-reentry-new-steps': {
+      ok: undefined,
+      reason: undefined,
+      events: undefined,
+      actors: [Array]
+    },
+    'no-space': { ok: true, reason: undefined, events: [], actors: [Array] },
+    'max-seven-children': { ok: true, reason: undefined, events: [Array], actors: [Array] }
+  },
+  'B-once': {
+    'inactive-spike-cycle': { ok: true, reason: undefined, events: [Array], actors: [Array] },
+    'overflow-two-spikes': { ok: true, reason: undefined, events: [Array], actors: [Array] },
+    'multiple-spikes-same-step': { ok: true, reason: undefined, events: [Array], actors: [Array] },
+    'parent-child-immediate': { ok: true, reason: undefined, events: [Array], actors: [Array] },
+    'consecutive-reentry-new-steps': {
+      ok: undefined,
+      reason: undefined,
+      events: undefined,
+      actors: [Array]
+    },
+    'no-space': { ok: true, reason: undefined, events: [], actors: [Array] },
+    'max-seven-children': { ok: true, reason: undefined, events: [Array], actors: [Array] }
+  }
+}
