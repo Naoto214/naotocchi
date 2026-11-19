@@ -11,6 +11,8 @@
 .layout-options input:checked + span { color: #fff; background: var(--forest); border-color: var(--forest); }
 .layout-options input:focus-visible + span { outline: 3px solid #d38727; outline-offset: 1px; }
 #layout-note { margin: .55rem 0 1.15rem; line-height: 1.55; font-size: .85rem; color: var(--muted); }
+#hold-option { display: flex; align-items: center; gap: .5rem; min-height: 44px; margin-top: .25rem; font-size: .88rem; cursor: pointer; }
+#hold-opening { width: 1.1rem; height: 1.1rem; margin: 0; accent-color: var(--forest); }
 .archive { display: flex; width: fit-content; }
 
 @media (max-width: 739px), (max-height: 500px) and (max-width: 940px) {

@@ -64,9 +64,18 @@ function showControls() {
   byId('freeze').textContent = scene.paused ? '再生' : '固定';
   byId('freeze').setAttribute('aria-pressed', String(scene.paused));
   byId('freeze').setAttribute('aria-label', scene.paused ? '住民の動きを再生' : '配置を固定');
-  byId('layout-note').textContent = scene.layout === 'fixed'
-    ? '「固定」を押すと、同じ立ち位置で大きさを比べられます。'
-    : '倍率を変えると、そのサイズ用の初期配置から始まります。';
+  byId('hold-option').hidden = scene.layout !== 'optimized';
+  byId('hold-opening').checked = scene.seatExtra !== null;
+  let note = '「固定」を押すと、同じ立ち位置で大きさを比べられます。';
+  if (scene.layout === 'optimized') {
+    if (scene.seatExtra === null) {
+      note = '倍率を変えると、そのサイズ用の初期配置から始まります。';
+    } else {
+      const opening = scene.seatExtra ? '+' + scene.seatExtra + '%' : '現行サイズ';
+      note = opening + '用の初期配置を保持中です。倍率の変更はその場に反映します。';
+    }
+  }
+  byId('layout-note').textContent = note;
   const scales = rolePercentages(scene.extra);
   for (const [i, [role]] of roles.entries()) {
     measurements.get(role).cells[1].textContent = percent.format(scales[i]) + '%';
@@ -100,11 +109,15 @@ function load() {
 
 function change(patch) {
   const next = {...scene, ...patch};
+  if (next.layout === 'fixed') next.seatExtra = null;
   const reload = needsNewFrame(scene, next);
   scene = next;
   showControls();
   const url = new URL(location.href);
-  for (const [key, value] of Object.entries(scene)) url.searchParams.set(key, key === 'paused' ? Number(value) : value);
+  for (const [key, value] of Object.entries(scene)) {
+    if (value === null) url.searchParams.delete(key);
+    else url.searchParams.set(key, key === 'paused' ? Number(value) : value);
+  }
   history.replaceState(null, '', url);
   if (reload) load();
   else applyLive();
@@ -128,6 +141,9 @@ for (const count of counts) {
 for (const input of document.querySelectorAll('[name=layout]')) {
   input.addEventListener('change', () => change({layout:input.value}));
 }
+byId('hold-opening').addEventListener('change', event => {
+  change({seatExtra:event.target.checked ? scene.extra : null});
+});
 for (const button of document.querySelectorAll('[data-extra]')) {
   button.addEventListener('click', () => change({extra:Number(button.dataset.extra)}));
 }
