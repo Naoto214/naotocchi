@@ -153,11 +153,27 @@ def dataset(cells, out, large):
             'missingShadows':sum(p['missingShadow'] for p in pp),'extraShadows':sum(p['extraShadows'] for p in pp),
             'ribbonVisible':sum(p['visibleRibbon'] for p in pp),'ribbonSameScale':sum(p['sameRibbonScale'] for p in pp),'ribbonSameTranslation':sum(p['sameRibbonTranslation'] for p in pp),
             'maxRibbonAnchorErrorStageUnits':max((p['ribbonAnchorError'] for p in pp if p['ribbonAnchorError'] is not None),default=None)}
+    cells_by_id = {tuple(c[k] for k in COHORT):c for c in cells}
     changes = {}
     diffs = []
     for a in ('v6','v7'):
         changes[a], rows = v7.comparison(opening[a],opening['v8'])
-        diffs.extend({'comparedWith':a,**r} for r in rows)
+        for r in rows:
+            case = r['case']
+            cell = cells_by_id[tuple(r[k] for k in COHORT)]
+            evidence = {}
+            for name,arm in [('old',a),('v8','v8')]:
+                gesture = cell['arms'][arm]['rows'][case]
+                goals = gesture['plans']
+                evidence.update({
+                    name+'SelectedKey':gesture['selectedKey'], name+'BlockedClass':gesture['blockedClass'],
+                    name+'Retries':sum(p['retry'] for p in gesture['nativePlans']),
+                    name+'LastChosen':old.canonical(goals[-1]['chosen']) if goals else None,
+                    name+'EndFeet':old.canonical(gesture['end']), name+'EndFingerErrorCss':gesture['endFingerErrorCss'],
+                    name+'EndSource':gesture['demandAtEnd']['source'],
+                    name+'EndActivity':gesture['demandAtEnd']['activity'], name+'EndPending':gesture['demandAtEnd']['pending']})
+            diffs.append({'comparedWith':a,**r,
+                'initialGoalContacts':old.canonical(cell['arms'][a]['rows'][case]['goalClass']['contacts']),**evidence})
     sums = {a:v7.metrics(opening[a]) for a in ARMS}
     warm = {a:v7.metrics(aged[a]) for a in ARMS}
     populations = {a:household(residents[a]) for a in ARMS}

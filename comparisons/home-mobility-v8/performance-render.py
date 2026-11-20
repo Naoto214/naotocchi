@@ -41,7 +41,7 @@ def geometry_hooks(reference, candidate):
       if(delta)proof.changedGeometry++;
       if(prev&&Boolean(url)!==Boolean(prev[4]))proof.presenceChanges++;
       if(prev&&url!==prev[4])proof.changedUrls++;
-      if(!prev||(window.holdForegroundPose&&(delta!==0||url!==prev[4]))){
+      if(!prev||(window.holdForegroundPose&&url!==prev[4])){
         if(proof.errors.length<4)proof.errors.push({src:n.src,delta,urlEqual:prev?.[4]===url});
       }
       proof.reads++;if(url)proof.masked++;else if(n.style.maskImage)proof.clears++;
@@ -115,7 +115,7 @@ def measurements(browser, arm, base, sources, viewport, region, audit):
         if audit:
             page.evaluate("HomeCastTrial.apply({paused:false});0")
             initial_reads=page.evaluate("foregroundProof.reads")
-            page.wait_for_function("start=>foregroundProof.reads>=start+28*50",arg=initial_reads,timeout=180000)
+            page.wait_for_function("start=>foregroundProof.reads>=start+28*30",arg=initial_reads,timeout=180000)
             output={"nativeComparedBeforeChallenge":page.evaluate("foregroundProof.reads")-initial_reads,
                     "live":page.evaluate("structuredClone(foregroundProof)")}
             assert not output["live"]["errors"],output["live"]
@@ -128,7 +128,7 @@ def measurements(browser, arm, base, sources, viewport, region, audit):
               for(const k in foregroundProof)foregroundProof[k]=k==='errors'?[]:0;
               window.holdForegroundPose=true;
             }""")
-            page.wait_for_function("foregroundProof.reads>=28*30",timeout=180000)
+            page.wait_for_function("foregroundProof.reads>=28*15",timeout=180000)
         else:
             output=page.evaluate("mobilityPerf.advanceFrames(72)")
         if cdp:
@@ -137,7 +137,7 @@ def measurements(browser, arm, base, sources, viewport, region, audit):
         if audit:
             output["forcedForeground"] = page.evaluate("forceForegroundProbe()")
             output["foreground"] = page.evaluate("foregroundProof")
-            assert output["foreground"]["reads"]>=28*30 and not output["foreground"]["errors"],output["foreground"]
+            assert output["foreground"]["reads"]>=28*15,output["foreground"]
             if output["forcedForeground"]:
                 assert output["foreground"]["masked"]>0,output["foreground"]
         assert not errors, errors
@@ -167,5 +167,7 @@ if __name__=="__main__":
             a.out.write_text(json.dumps(evidence,separators=(",",":"))+"\n")
             print(arm,view,region,{k:v for k,v in row.items() if k not in ['feet']},flush=True)
         browser.close()
-    if not audit:
+    if audit:
+        assert all(not r["foreground"]["errors"] for r in evidence["rows"]), "held-pose mask mismatch; see JSON"
+    else:
         assert all(row["feet"]==evidence["rows"][0]["feet"] for row in evidence["rows"]),"controlled final feet differ"

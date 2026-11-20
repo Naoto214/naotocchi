@@ -48,7 +48,7 @@ def observe(origin, width, count, engine, executable):
             page.wait_for_function("()=>document.getElementById('clock-note').textContent.includes('ホームの進行')")
             options=[page.locator('#'+s+' option').count() for s in ('region','time','count')]
             assert options==[13,4,28] and baseline>0 and not errors
-            return {'engine':engine,'version':browser.version,'width':width,'count':count,'openingSHA256':hashlib.sha256(json.dumps(snap['opening'],sort_keys=True).encode()).hexdigest(),'paintSHA256':snap['paint'],'sameInV6V7V8AndRestart':True,'shadows':snap['shadows'],'ground':snap['ground'],'size':snap['size'],'toolbar':positions,'regionTimeCountOptions':options,'diagnosticResidents':count,'advancedModelSeconds':baseline,'errors':errors}
+            return {'engine':engine,'version':browser.version,'width':width,'count':count,'openingSHA256':hashlib.sha256(json.dumps(snap['opening'],sort_keys=True).encode()).hexdigest(),'paintSHA256':snap['paint'],'sameInV6V7V8AndRestart':True,'shadows':snap['shadows'],'ground':snap['ground'],'size':snap['size'],'loadedV8Scripts':f.evaluate("Array.from(document.scripts,s=>new URL(s.src || location.href).pathname.split('/').pop()+new URL(s.src || location.href).search).filter(s=>s.includes('-mobility-v8.js?'))"),'toolbar':positions,'regionTimeCountOptions':options,'diagnosticResidents':count,'advancedModelSeconds':baseline,'errors':errors}
         except Exception:
             frames=[(f.url,f.evaluate("document.readyState")) for f in page.frames]
             status=page.locator('#status').text_content(timeout=5000)

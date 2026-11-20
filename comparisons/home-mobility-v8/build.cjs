@@ -30,7 +30,7 @@ function prepare(base) {
       const owner=row(a.key),helper=row(b.key);
       if(stage===1)owner[stages===1?'ambientSingleOffers':'ambientSequentialOffers']++;
       owner.ambientYieldStages++;
-      helper._yieldHopPending=true;
+      owner.yieldsReceived++;helper.yieldsGiven++;helper._yieldHopPending=true;
       timeline(clock,'ambient-yield-offer',a.key,{peer:b.key,stages,stage});
     },`;
   const observed = replaceExact(replaceExact(observer,'yieldOffers:0,',counters+'yieldOffers:0,'),

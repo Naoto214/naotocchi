@@ -62,6 +62,38 @@ function differentFeet(before, now, scale, availability=true) {
   });
 }
 
+// A failed two-helper search depends on its origin, the possible helpers and
+// the feet that could intersect any helper's leg. Only run this scan for a
+// genuine overdue request, and at search start/end. Routine frames do not pay.
+function helpSnapshot(owner) {
+  const s=scene.navigation.intentScale;
+  function nearLeg(a,b,radius) {
+    return Math.abs(a.x-b.x)<=(a.w+b.w)*.5+10+radius/s.x &&
+           Math.abs(a.y-b.y)<=(a.h+b.h)*.38+10+radius/s.y;
+  }
+  const direct=actors.filter(b=>b!==owner&&nearLeg(owner,b,12));
+  const potential=actors.filter(b=>b!==owner&&
+    (direct.includes(b)||direct.some(c=>nearLeg(c,b,24))));
+  const relevant=actors.filter(b=>b===owner||potential.includes(b)||potential.some(c=>nearLeg(c,b,24)));
+  return relevant.map(b=>({key:b.key,x:b.x,y:b.y,w:b.w,h:b.h,
+    available:potential.includes(b)&&canHelpAmbient(b)}));
+}
+
+function sameHelpState(before,now) {
+  return before.length===now.length&&now.every((b,i)=>{
+    const old=before[i];
+    return old.key===b.key&&old.x===b.x&&old.y===b.y&&old.w===b.w&&old.h===b.h&&old.available===b.available;
+  });
+}
+
+function saveFailedSearch(request,a) {
+  const feet=helpSnapshot(a);
+  if(!sameHelpState(request.startedWith,feet))return;
+  const memo=helpedAt.get(a.key);
+  if(memo&&sameHelpState(memo.feet,feet))memo.tried|=request.bit;
+  else helpedAt.set(a.key,{feet,tried:request.bit});
+}
+
 function rememberBlocked(a, p) {
   if (actors.length<=15 || !scene.navigation?.intentScale || !scene.navigation?.intentAware ||
       a.target || clock<a.manualUntil || clock-a.lastWalk<15) return;
@@ -77,19 +109,14 @@ function rememberBlocked(a, p) {
   const r=Math.min(12,length);
   const sector=(Math.round(Math.atan2(dy,dx)*4/Math.PI)+8)%8;
   const bit=1<<(sector+(r<8?0:8));
-  let memo=helpedAt.get(a.key);
-  if(!memo||differentFeet(memo.feet,feet,s)){
-    memo={feet,tried:0};helpedAt.set(a.key,memo);
-  }
-  if(memo.tried&bit)return;
-  memo.tried|=bit;
+  const memo=helpedAt.get(a.key);
+  if(memo&&(memo.tried&bit)&&sameHelpState(memo.feet,helpSnapshot(a)))return;
   const goal={x:a.x+dx/length*r/s.x,y:a.y+dy/length*r/s.y};
-  relief={owner:a.key,expires:clock+12,search:pairPlan(a,goal,true)};
+  relief={owner:a.key,bit,expires:clock+12,search:pairPlan(a,goal,true)};
 }
 
-function clearRelief(interrupted=false) {
+function clearRelief() {
   if(!relief)return;
-  if(interrupted)helpedAt.delete(relief.owner);
   const b=actor(relief.yieldPeer);
   if(b&&b.yieldFor===relief.owner&&b.source==='yield')releaseHelper(b);
   relief=null;
@@ -97,7 +124,7 @@ function clearRelief(interrupted=false) {
 
 function stepRelief(flags) {
   if(flags.reducedMotion || flags.autonomy===false || manualGoals.size || flags.heldActor!=null) {
-    clearRelief(true);return;
+    clearRelief();return;
   }
   if(relief){
     const r=relief,a=actor(r.owner);
@@ -105,12 +132,13 @@ function stepRelief(flags) {
       clearRelief();return;
     }
     if(r.search){
+      r.startedWith??=helpSnapshot(a);
       let result;
       // Less background work per frame than a player's active drop.
       for(let i=0;i<2;i++){result=r.search.next();if(result.done)break;}
       if(!result.done)return;
       r.search=null;r.pair=result.value;r.stage=0;
-      if(!r.pair){clearRelief();return;}
+      if(!r.pair){saveFailedSearch(r,a);clearRelief();return;}
     }
     if(r.yieldPeer&&actor(r.yieldPeer)?.target)return;
     if(r.stage<r.pair.stages.length){
@@ -168,7 +196,7 @@ function patchMovement(source) {
             request.pairSearch=null;request.peers=null;request.nextAt=clock;
           }
         }`);
-  const localRecovery = [canHelpAmbient,nearbyFeet,differentFeet,rememberBlocked,clearRelief,stepRelief].map(fn=>fn.toString()).join('\n');
+  const localRecovery = [canHelpAmbient,nearbyFeet,differentFeet,helpSnapshot,sameHelpState,saveFailedSearch,rememberBlocked,clearRelief,stepRelief].map(fn=>fn.toString()).join('\n');
   source = replaceOnce(source, '    const manualGoals=new Map();',
     '    const waiting=new Map(),helpedAt=new Map();let relief=null,nextRecovery=0,earlyKey=null;\n'+localRecovery+'\n    const manualGoals=new Map();');
   source = replaceOnce(source, 'function cancel(){manualGoals.clear();',
@@ -176,9 +204,9 @@ function patchMovement(source) {
   source = replaceOnce(source, 'if(!actor(selected))selected=null;',
     'if(arrange){clearRelief();waiting.clear();helpedAt.clear();}if(!actor(selected))selected=null;');
   source = replaceOnce(source, 'if(!a||paused)return false;releaseHelper(a);stopYield(key);',
-    'if(!a||paused)return false;clearRelief(true);waiting.delete(key);releaseHelper(a);stopYield(key);');
+    'if(!a||paused)return false;clearRelief();waiting.delete(key);releaseHelper(a);stopYield(key);');
   source = replaceOnce(source, "if(source!=='ambient'&&retryingKey!==key){releaseHelper(a);",
-    "if(source!=='ambient'&&retryingKey!==key){clearRelief(true);waiting.delete(key);releaseHelper(a);");
+    "if(source!=='ambient'&&retryingKey!==key){clearRelief();waiting.delete(key);releaseHelper(a);");
   source = replaceOnce(source, 'function* pairPlan(a,goal){','function* pairPlan(a,goal,ambient=false){');
   // Reuse the same geometry, order and bounded generator for one or two
   // autonomous helpers. User drops keep the original single-first search.

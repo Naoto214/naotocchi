@@ -38,6 +38,16 @@ def main():
         data["browser"]=b.version
         for region,time in [("forest","day"),("city","evening")]:
             page=b.new_page(viewport={"width":390,"height":792},device_scale_factor=2,is_mobile=True,has_touch=True)
+            page.add_init_script("""()=>{
+              for(const k of ['requestAnimationFrame','setTimeout','setInterval']){
+                const schedule=window[k];
+                window[k]=function(callback,...args){
+                  return schedule.call(window,typeof callback==='function'?function(...v){
+                    if(!window.holdPixelTasks)return callback.apply(this,v);
+                  }:callback,...args);
+                };
+              }
+            }""".replace("()=>{","(()=>{",1)+" )();")
             def route(r):
                 res=r.fetch()
                 r.fulfill(response=res,body=injected)
@@ -46,20 +56,29 @@ def main():
                 page.goto(opt.base+"/mobility-v7.html?region="+region+"&time="+time+"&count=28&policy=B&variant=B&layout=optimized&curve=linear&ground=on&paused=1&clock=0&season=autumn&weather=sunny",wait_until="domcontentloaded",timeout=120000)
                 page.wait_for_function("window.HomeCastTrial?.ready&&HomeCastTrial.inspect().length===28&&window.paintPixelTrial&&!paintPixelTrial(false).waiting",timeout=120000)
                 page.evaluate("Promise.all([...document.querySelectorAll('#castStage img.character-asset')].map(i=>i.decode()))")
-                page.clock.install()
-                # Only this pixel equality test pins time. All frame and input
-                # measurements use the browser's real scheduler and clock.
-                page.clock.pause_at(page.evaluate("Date.now()+600") )
-                page.evaluate("""()=>{document.getAnimations().forEach(a=>a.pause());document.querySelectorAll('svg').forEach(s=>s.pauseAnimations?.());}""")
+                # Freeze only this visual control. The timing experiments always
+                # retain the browser's native scheduler with all gameplay active.
+                clip=page.evaluate("""()=>{
+                  window.holdPixelTasks=true;
+                  const style=document.createElement('style');
+                  style.textContent='*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}';
+                  document.head.appendChild(style);
+                  for(const a of document.getAnimations())a.pause();
+                  for(const svg of document.querySelectorAll('svg'))svg.pauseAnimations?.();
+                  const r=document.querySelector('#castStage').getBoundingClientRect();
+                  const x=Math.max(0,Math.ceil(r.left)),y=Math.max(0,Math.ceil(r.top));
+                  return {x,y,width:Math.floor(Math.min(innerWidth,r.right)-x),height:Math.floor(Math.min(innerHeight,r.bottom)-y)};
+                }""")
+                assert clip["height"]>40 and clip["width"]>80,clip
                 imgs=[]
                 for arm in ("v7","v8","v7"):
                     info=page.evaluate("legacy=>paintPixelTrial(legacy)",arm=="v7")
                     assert info=={"residents":28,"waiting":False,"active":True},info
-                    im=Image.open(BytesIO(page.screenshot(timeout=60000))).convert("RGB")
+                    im=Image.open(BytesIO(page.screenshot(clip=clip,timeout=60000))).convert("RGB")
                     imgs.append(im)
                 bbox=ImageChops.difference(imgs[0],imgs[1]).getbbox()
                 control=ImageChops.difference(imgs[0],imgs[2]).getbbox()
-                entry={"region":region,"time":time,"pixelSize":imgs[0].size,"returnControlDiffBox":control,
+                entry={"region":region,"time":time,"clipCSS":clip,"pixelSize":imgs[0].size,"returnControlDiffBox":control,
                        "v7v8DiffBox":bbox,"pixelSHA256":[hashes(im.tobytes()) for im in imgs]}
                 data["scenes"].append(entry)
                 opt.out.write_text(json.dumps(data,separators=(",",":"))+"\n")
