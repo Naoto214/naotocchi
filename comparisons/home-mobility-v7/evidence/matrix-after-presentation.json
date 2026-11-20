@@ -1,0 +1,824 @@
+{
+  "purpose": "Additional three-arm direct-entry regression after owner-shell background readiness packaging. The original full gameplay, touch and timing evidence remains #44704441208.",
+  "measuredRevision": "4961becd5b265e861813ccb6be2de67169aef4d1",
+  "previousGameplayRevision": "ecaae91a833d81c6a9eef5bf9155f3cd93809772",
+  "runId": 44709182706,
+  "workflow": "https://github.com/Naoto214/naotocchi/actions/runs/44709182706",
+  "conclusion": "success",
+  "regionsSuccessful": 13,
+  "profileCount": 260,
+  "openingPlannedArmRows": 4680,
+  "fiveMinuteModelProfilesPerArm": 260,
+  "officialRawArchivesSHA256Verified": true,
+  "frozenHistoricalTouchCSV_SHA256": "6b8dceea217b967eca205f3762d73d717d696c20539ab62a9abba121a73d1546",
+  "nativeIdentity": {
+    "v5": {
+      "modelSHA256": "ed42980a1c5374768b8a2c3144ccb53b8284f51b90a4b3f68545bb5cc1e49320",
+      "navigationSHA256": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9",
+      "gameStateSHA256": "7748355390239c8cb7924ac51161394399accb467489a582f069167ff0d2e731",
+      "telemetrySHA256": "1a2c50c9288439e9cfb57cd4d3c2422683aae8aa7ba1b6ec52e285eaa364ba89",
+      "controllerBefore": "188caa5aa5e2a36f95eb94d56496d46ebcdf6db02f722bca2829720eb160ff6c",
+      "controllerAfter": "e8d271e814764dca702c84c2ad228b0ca12fd79e65f365dc7b6e8453dda9c7fe",
+      "controllerRestoringOnlyPriorImportSHA256": "188caa5aa5e2a36f95eb94d56496d46ebcdf6db02f722bca2829720eb160ff6c",
+      "allOtherObservedModuleBytesIdentical": true
+    },
+    "v6": {
+      "modelSHA256": "3569c5e81fc3cd3f22a761c1b3c7d2722861fc27a6f5e7fc71b2713fa2bcb1cc",
+      "navigationSHA256": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9",
+      "gameStateSHA256": "4d0d425c41a89f0241e92b18c0270534dbdb36d09b5507d8bce0ebfd6cd9bc02",
+      "telemetrySHA256": "1a2c50c9288439e9cfb57cd4d3c2422683aae8aa7ba1b6ec52e285eaa364ba89",
+      "controllerBefore": "28ab18c89863b134b1395a3e2b6ef46420951ce4c9d8daac9851ac5495c30dfd",
+      "controllerAfter": "d18d785dee092a3674751056f4464eef31e344a5802d154263992ebe0f3c4a08",
+      "controllerRestoringOnlyPriorImportSHA256": "28ab18c89863b134b1395a3e2b6ef46420951ce4c9d8daac9851ac5495c30dfd",
+      "allOtherObservedModuleBytesIdentical": true
+    },
+    "v7": {
+      "modelSHA256": "dd0789888f19c57f1a88b05e144c98d82a77b57b7d04dd18e55e84dcd8ea4baf",
+      "navigationSHA256": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9",
+      "gameStateSHA256": "4d0d425c41a89f0241e92b18c0270534dbdb36d09b5507d8bce0ebfd6cd9bc02",
+      "telemetrySHA256": "1a2c50c9288439e9cfb57cd4d3c2422683aae8aa7ba1b6ec52e285eaa364ba89",
+      "controllerBefore": "7803aed05515d63561f44f4d3667da564b42dc0c19c97f4cb211c0338a68080f",
+      "controllerAfter": "e99836b3e34986f38e7742e8c5df4f1283e99987fd0d736e9b3bfacc00345d0e",
+      "controllerRestoringOnlyPriorImportSHA256": "7803aed05515d63561f44f4d3667da564b42dc0c19c97f4cb211c0338a68080f",
+      "allOtherObservedModuleBytesIdentical": true
+    }
+  },
+  "directEntryRenderer": {
+    "query": "no waitForPainting",
+    "file": "home-production-world-finish.mjs",
+    "sha256": "5f93a1f03481205e65d983e62cf2865b8e5c9618d216d053e42a3436e0406880",
+    "identicalToFrozenOriginal": true,
+    "ownerMarkerRenderer": "home-production-world-mobility.mjs",
+    "ownerMarkerSHA256": "ca37d01dafadc67e43df1c87dfd923ac98f7910a9b21ab145d3d1670308579fc",
+    "separateShellCoverage": "verify_painted_start.py"
+  },
+  "checks": {
+    "allHistoricalV5V6RowFlagsMatched": true,
+    "allPrePresentationOpeningsSeedsAndPhysicalTouchesMatched": true,
+    "allPrePresentationDirectOutcomeFlagsMatched": false,
+    "priorV5V6AndV7BenchmarkTotalsAllReproduced": false,
+    "priorV5AndV6BenchmarkTotalsReproduced": true,
+    "V7AtLeastFrozenV6OnArrivalNear4OccupiedAndTap": true,
+    "noV7DragJumpOrContact": true,
+    "noV7AutonomousTerrainContactSpeedOrOcclusionViolations": true,
+    "all39SaveRestoresAndPostRestoreArrivals": true
+  },
+  "initial": {
+    "v5": {
+      "drags": 1058,
+      "issued": 969,
+      "tapSent": 260,
+      "tapSelected": 218,
+      "arrival": 746,
+      "exact": 366,
+      "near4": 398,
+      "eventArrival": 746,
+      "eventNear4": 398,
+      "terminalArrival": 746,
+      "terminalNear4": 398,
+      "occupiedSent": 208,
+      "occupiedArrival": 32,
+      "unsafe": 0,
+      "swept": 0,
+      "maxReleaseJump": 0.0,
+      "backwardsIssued": 0,
+      "yieldOffers": 0,
+      "yieldRequesterMoved": 0,
+      "sameBenchmarksAsMeasuredGameplay": true
+    },
+    "v6": {
+      "drags": 1058,
+      "issued": 969,
+      "tapSent": 260,
+      "tapSelected": 218,
+      "arrival": 870,
+      "exact": 432,
+      "near4": 513,
+      "eventArrival": 870,
+      "eventNear4": 466,
+      "terminalArrival": 870,
+      "terminalNear4": 513,
+      "occupiedSent": 208,
+      "occupiedArrival": 120,
+      "unsafe": 0,
+      "swept": 0,
+      "maxReleaseJump": 0.0,
+      "backwardsIssued": 0,
+      "yieldOffers": 344,
+      "yieldRequesterMoved": 305,
+      "sameBenchmarksAsMeasuredGameplay": true
+    },
+    "v7": {
+      "drags": 1058,
+      "issued": 1025,
+      "tapSent": 260,
+      "tapSelected": 246,
+      "arrival": 910,
+      "exact": 431,
+      "near4": 521,
+      "eventArrival": 910,
+      "eventNear4": 471,
+      "terminalArrival": 910,
+      "terminalNear4": 521,
+      "occupiedSent": 208,
+      "occupiedArrival": 144,
+      "unsafe": 0,
+      "swept": 0,
+      "maxReleaseJump": 0.0,
+      "backwardsIssued": 0,
+      "yieldOffers": 365,
+      "yieldRequesterMoved": 360,
+      "sameBenchmarksAsMeasuredGameplay": false
+    }
+  },
+  "V6ToV7PairedChanges": {
+    "selected": {
+      "gained": 85,
+      "lost": 1
+    },
+    "issued": {
+      "gained": 57,
+      "lost": 1
+    },
+    "arrival": {
+      "gained": 41,
+      "lost": 1
+    },
+    "nearFinger": {
+      "gained": 9,
+      "lost": 1
+    },
+    "exact": {
+      "gained": 1,
+      "lost": 2
+    },
+    "sameIntendedBodyReceived": {
+      "n": 968,
+      "oldArrival": 869,
+      "newArrival": 869,
+      "oldNear4": 512,
+      "newNear4": 520
+    },
+    "newIntendedBodyReceived": {
+      "n": 57,
+      "oldArrival": 0,
+      "newArrival": 41,
+      "oldNear4": 0,
+      "newNear4": 1
+    },
+    "lostIntendedBodyReceived": {
+      "n": 1,
+      "oldArrival": 1,
+      "newArrival": 0,
+      "oldNear4": 1,
+      "newNear4": 0
+    }
+  },
+  "sameRunV7OpeningLossCasesAgainstV6": [
+    {
+      "region": "snow",
+      "count": 28,
+      "width": 320,
+      "case": "clear/0",
+      "target": "pet:dog",
+      "lost": [
+        "selected",
+        "issued",
+        "arrival",
+        "nearFinger",
+        "exact"
+      ],
+      "v6Selected": "pet:dog",
+      "v7Selected": "companion:chameleon",
+      "v6FinalFingerErrorCss": 0.0,
+      "v7FinalFingerErrorCss": 41.824
+    },
+    {
+      "region": "star_stop",
+      "count": 20,
+      "width": 320,
+      "case": "historical/0",
+      "target": "pet:dog",
+      "lost": [
+        "exact"
+      ],
+      "v6Selected": "pet:dog",
+      "v7Selected": "pet:dog",
+      "v6FinalFingerErrorCss": 0.0,
+      "v7FinalFingerErrorCss": 2.758
+    }
+  ],
+  "aged": {
+    "v5": {
+      "residentProfiles": 3276,
+      "fiveMinuteHouseholds": 260,
+      "postAgeTrusted": 260,
+      "postAgeArrived": 181,
+      "steps": 1075402,
+      "terrain": 0,
+      "bounds": 0,
+      "occlusion": 0,
+      "speed": 0,
+      "swept": 551,
+      "noAutoAndWrongSelection": 5,
+      "ambientNoStartAfterFailure": 174,
+      "recoveredEpisodes": 4923,
+      "failureEpisodes": 6207,
+      "renderedFootSamples": 19656,
+      "offTerrainFootSamples": 0,
+      "outOfBoundsFootSamples": 0,
+      "occludedFootSamples": 0,
+      "maxPaintedAnchorErrorCss": 0.013386431319539458,
+      "noAutoAndNoDragStep": 21
+    },
+    "v6": {
+      "residentProfiles": 3276,
+      "fiveMinuteHouseholds": 260,
+      "postAgeTrusted": 260,
+      "postAgeArrived": 205,
+      "steps": 1074762,
+      "terrain": 0,
+      "bounds": 0,
+      "occlusion": 0,
+      "speed": 0,
+      "swept": 548,
+      "noAutoAndWrongSelection": 5,
+      "ambientNoStartAfterFailure": 174,
+      "recoveredEpisodes": 4927,
+      "failureEpisodes": 6220,
+      "renderedFootSamples": 19656,
+      "offTerrainFootSamples": 0,
+      "outOfBoundsFootSamples": 0,
+      "occludedFootSamples": 0,
+      "maxPaintedAnchorErrorCss": 0.013386431319539458,
+      "noAutoAndNoDragStep": 17
+    },
+    "v7": {
+      "residentProfiles": 3276,
+      "fiveMinuteHouseholds": 260,
+      "postAgeTrusted": 260,
+      "postAgeArrived": 239,
+      "steps": 1080184,
+      "terrain": 0,
+      "bounds": 0,
+      "occlusion": 0,
+      "speed": 0,
+      "swept": 0,
+      "noAutoAndWrongSelection": 0,
+      "ambientNoStartAfterFailure": 72,
+      "recoveredEpisodes": 4691,
+      "failureEpisodes": 5653,
+      "renderedFootSamples": 19656,
+      "offTerrainFootSamples": 0,
+      "outOfBoundsFootSamples": 0,
+      "occludedFootSamples": 0,
+      "maxPaintedAnchorErrorCss": 0.013624006382250333,
+      "noAutoAndNoDragStep": 3
+    }
+  },
+  "postReload": {
+    "reloadTried": 39,
+    "matchedNativeFields": 39,
+    "trusted": 39,
+    "arrival": 39
+  },
+  "regions": {
+    "home": {
+      "tripleProfiles": 20,
+      "artifactId": 14617127941,
+      "archiveSHA256": "8658c04de071b0ad4268c6bfdab13d94f829c3333c4263fd3238168165e0584d",
+      "bytes": 959494,
+      "v5": {
+        "dragArrival": 54,
+        "near4": 29,
+        "intendedTap": 17
+      },
+      "v6": {
+        "dragArrival": 63,
+        "near4": 41,
+        "intendedTap": 17
+      },
+      "v7": {
+        "dragArrival": 65,
+        "near4": 42,
+        "intendedTap": 17
+      }
+    },
+    "forest": {
+      "tripleProfiles": 20,
+      "artifactId": 14617775632,
+      "archiveSHA256": "5bfbdde08734672b710235af81cf54d49e96e5617b9bebc26bc3462cd5a68f7c",
+      "bytes": 1326018,
+      "v5": {
+        "dragArrival": 67,
+        "near4": 34,
+        "intendedTap": 17
+      },
+      "v6": {
+        "dragArrival": 69,
+        "near4": 40,
+        "intendedTap": 17
+      },
+      "v7": {
+        "dragArrival": 69,
+        "near4": 40,
+        "intendedTap": 19
+      }
+    },
+    "river_lake": {
+      "tripleProfiles": 20,
+      "artifactId": 14616683029,
+      "archiveSHA256": "388e52aec9793d761616ff8d7f4b6eb372a058fa569a2cd433cd2c098a5696f1",
+      "bytes": 1209781,
+      "v5": {
+        "dragArrival": 61,
+        "near4": 32,
+        "intendedTap": 17
+      },
+      "v6": {
+        "dragArrival": 68,
+        "near4": 43,
+        "intendedTap": 17
+      },
+      "v7": {
+        "dragArrival": 72,
+        "near4": 45,
+        "intendedTap": 20
+      }
+    },
+    "city": {
+      "tripleProfiles": 20,
+      "artifactId": 14616903593,
+      "archiveSHA256": "b1e7d1e276a00c99f5474b6fc152a33517ac0710b4f4b88858467886640871be",
+      "bytes": 1240103,
+      "v5": {
+        "dragArrival": 61,
+        "near4": 33,
+        "intendedTap": 17
+      },
+      "v6": {
+        "dragArrival": 72,
+        "near4": 38,
+        "intendedTap": 17
+      },
+      "v7": {
+        "dragArrival": 74,
+        "near4": 38,
+        "intendedTap": 20
+      }
+    },
+    "countryside": {
+      "tripleProfiles": 20,
+      "artifactId": 14617990916,
+      "archiveSHA256": "1a432ee5d322e260010f0369b203191345e95c7985f77b08771984177dbc615c",
+      "bytes": 1165616,
+      "v5": {
+        "dragArrival": 55,
+        "near4": 29,
+        "intendedTap": 15
+      },
+      "v6": {
+        "dragArrival": 59,
+        "near4": 37,
+        "intendedTap": 15
+      },
+      "v7": {
+        "dragArrival": 62,
+        "near4": 39,
+        "intendedTap": 20
+      }
+    },
+    "mountain": {
+      "tripleProfiles": 20,
+      "artifactId": 14616353276,
+      "archiveSHA256": "ba97e2a557e06aba8b16236532143b63212d7aa7a5508ed153d192a25db31476",
+      "bytes": 1103268,
+      "v5": {
+        "dragArrival": 60,
+        "near4": 34,
+        "intendedTap": 16
+      },
+      "v6": {
+        "dragArrival": 72,
+        "near4": 42,
+        "intendedTap": 16
+      },
+      "v7": {
+        "dragArrival": 75,
+        "near4": 42,
+        "intendedTap": 18
+      }
+    },
+    "snow": {
+      "tripleProfiles": 20,
+      "artifactId": 14616488085,
+      "archiveSHA256": "2e95aac7ad0d14acc80eab6b99ffbb989acb123886d67dd153c76ba30e171ab5",
+      "bytes": 1151152,
+      "v5": {
+        "dragArrival": 53,
+        "near4": 30,
+        "intendedTap": 16
+      },
+      "v6": {
+        "dragArrival": 65,
+        "near4": 39,
+        "intendedTap": 16
+      },
+      "v7": {
+        "dragArrival": 72,
+        "near4": 38,
+        "intendedTap": 20
+      }
+    },
+    "sea": {
+      "tripleProfiles": 20,
+      "artifactId": 14616946955,
+      "archiveSHA256": "9ab1cfc9d827217bb1f3fbe73830b81550db685520b06625fce283f8ea296056",
+      "bytes": 1295458,
+      "v5": {
+        "dragArrival": 48,
+        "near4": 25,
+        "intendedTap": 20
+      },
+      "v6": {
+        "dragArrival": 64,
+        "near4": 31,
+        "intendedTap": 20
+      },
+      "v7": {
+        "dragArrival": 66,
+        "near4": 32,
+        "intendedTap": 20
+      }
+    },
+    "jungle": {
+      "tripleProfiles": 20,
+      "artifactId": 14617352063,
+      "archiveSHA256": "8fc7e1e7fff4d9a08be99b570cb03a2c1ff4dd425ebb2c290a6fe3b14f736e6a",
+      "bytes": 1231740,
+      "v5": {
+        "dragArrival": 69,
+        "near4": 30,
+        "intendedTap": 16
+      },
+      "v6": {
+        "dragArrival": 76,
+        "near4": 41,
+        "intendedTap": 16
+      },
+      "v7": {
+        "dragArrival": 80,
+        "near4": 41,
+        "intendedTap": 18
+      }
+    },
+    "desert": {
+      "tripleProfiles": 20,
+      "artifactId": 14617546215,
+      "archiveSHA256": "1cb37a9afef418d9db59bc3f1576b4612c57c5fc224cd5d50bf1d514a8857e45",
+      "bytes": 1080311,
+      "v5": {
+        "dragArrival": 53,
+        "near4": 29,
+        "intendedTap": 18
+      },
+      "v6": {
+        "dragArrival": 66,
+        "near4": 39,
+        "intendedTap": 18
+      },
+      "v7": {
+        "dragArrival": 69,
+        "near4": 40,
+        "intendedTap": 20
+      }
+    },
+    "deepsea": {
+      "tripleProfiles": 20,
+      "artifactId": 14617676456,
+      "archiveSHA256": "3b7300c757ca3c385c9fb96cdc0c244533afbec2f7b5774acee7ec2d577b85f9",
+      "bytes": 1102424,
+      "v5": {
+        "dragArrival": 57,
+        "near4": 30,
+        "intendedTap": 16
+      },
+      "v6": {
+        "dragArrival": 69,
+        "near4": 40,
+        "intendedTap": 16
+      },
+      "v7": {
+        "dragArrival": 71,
+        "near4": 41,
+        "intendedTap": 18
+      }
+    },
+    "star_stop": {
+      "tripleProfiles": 20,
+      "artifactId": 14617710935,
+      "archiveSHA256": "b5583d9b5ceca3371eef86be741da8b491effc9d70834e4ae1f3c0cedd1e2ba6",
+      "bytes": 1112310,
+      "v5": {
+        "dragArrival": 55,
+        "near4": 35,
+        "intendedTap": 18
+      },
+      "v6": {
+        "dragArrival": 65,
+        "near4": 42,
+        "intendedTap": 18
+      },
+      "v7": {
+        "dragArrival": 69,
+        "near4": 42,
+        "intendedTap": 18
+      }
+    },
+    "memory_lake": {
+      "tripleProfiles": 20,
+      "artifactId": 14616627562,
+      "archiveSHA256": "773915e95cd2295f063fcbf04e09ed777e861d34f1958fd6721de99b2ed43ac2",
+      "bytes": 1148461,
+      "v5": {
+        "dragArrival": 53,
+        "near4": 28,
+        "intendedTap": 15
+      },
+      "v6": {
+        "dragArrival": 62,
+        "near4": 40,
+        "intendedTap": 15
+      },
+      "v7": {
+        "dragArrival": 66,
+        "near4": 41,
+        "intendedTap": 18
+      }
+    }
+  },
+  "priorDirectOutcomeFlagDifferences": [
+    {
+      "region": "snow",
+      "count": 28,
+      "width": 320,
+      "arm": "v7",
+      "case": "clear/0",
+      "key": "pet:dog",
+      "changed": {
+        "selected": {
+          "gameplayRun": true,
+          "supplemental": false
+        },
+        "selectedKey": {
+          "gameplayRun": "pet:dog",
+          "supplemental": "companion:chameleon"
+        },
+        "issued": {
+          "gameplayRun": true,
+          "supplemental": false
+        },
+        "accepted": {
+          "gameplayRun": true,
+          "supplemental": false
+        },
+        "routed": {
+          "gameplayRun": true,
+          "supplemental": false
+        },
+        "moved": {
+          "gameplayRun": true,
+          "supplemental": false
+        },
+        "arrived": {
+          "gameplayRun": true,
+          "supplemental": false
+        },
+        "near4": {
+          "gameplayRun": true,
+          "supplemental": false
+        },
+        "terminalArrived": {
+          "gameplayRun": true,
+          "supplemental": false
+        },
+        "terminalNear4": {
+          "gameplayRun": true,
+          "supplemental": false
+        },
+        "arrival": {
+          "gameplayRun": true,
+          "supplemental": false
+        },
+        "nearFinger": {
+          "gameplayRun": true,
+          "supplemental": false
+        },
+        "exact": {
+          "gameplayRun": true,
+          "supplemental": false
+        }
+      },
+      "trusted": true,
+      "physicalStart": [
+        166.3003904223442,
+        196.71827292442322
+      ],
+      "physicalGoal": [
+        201.71558516651967,
+        217.68444730474266
+      ],
+      "goalClass": {
+        "contacts": [],
+        "insideBounds": true,
+        "straightClear": true,
+        "terrain": true,
+        "visible": true
+      },
+      "pressPixelStackCaptured": false
+    }
+  ],
+  "V7AgedBothFailedTargets": [
+    {
+      "region": "forest",
+      "count": 20,
+      "width": 390,
+      "key": "partner:forest_bear"
+    },
+    {
+      "region": "forest",
+      "count": 20,
+      "width": 430,
+      "key": "partner:forest_bear"
+    },
+    {
+      "region": "forest",
+      "count": 28,
+      "width": 390,
+      "key": "companion:tanuki"
+    }
+  ],
+  "postAgeArrivalChangesAcrossDistinctRuns": [
+    {
+      "arm": "v5",
+      "region": "home",
+      "count": 4,
+      "width": 320,
+      "previousID": "pet:dog",
+      "currentID": "pet:dog",
+      "sameAgedPositionSet": true,
+      "samePhysicalFingerCoordinates": true,
+      "previousArrived": true,
+      "repeatArrived": false
+    },
+    {
+      "arm": "v6",
+      "region": "home",
+      "count": 4,
+      "width": 320,
+      "previousID": "pet:dog",
+      "currentID": "pet:dog",
+      "sameAgedPositionSet": true,
+      "samePhysicalFingerCoordinates": false,
+      "previousArrived": false,
+      "repeatArrived": true
+    },
+    {
+      "arm": "v5",
+      "region": "home",
+      "count": 10,
+      "width": 320,
+      "previousID": "companion:panda",
+      "currentID": "companion:owl",
+      "sameAgedPositionSet": false,
+      "samePhysicalFingerCoordinates": false,
+      "previousArrived": true,
+      "repeatArrived": false
+    },
+    {
+      "arm": "v7",
+      "region": "forest",
+      "count": 28,
+      "width": 320,
+      "previousID": "pet:dog",
+      "currentID": "pet:dog",
+      "sameAgedPositionSet": true,
+      "samePhysicalFingerCoordinates": false,
+      "previousArrived": false,
+      "repeatArrived": true
+    },
+    {
+      "arm": "v5",
+      "region": "city",
+      "count": 10,
+      "width": 320,
+      "previousID": "companion:otter",
+      "currentID": "companion:otter",
+      "sameAgedPositionSet": false,
+      "samePhysicalFingerCoordinates": false,
+      "previousArrived": false,
+      "repeatArrived": true
+    },
+    {
+      "arm": "v7",
+      "region": "city",
+      "count": 10,
+      "width": 320,
+      "previousID": "companion:otter",
+      "currentID": "companion:otter",
+      "sameAgedPositionSet": false,
+      "samePhysicalFingerCoordinates": false,
+      "previousArrived": false,
+      "repeatArrived": true
+    },
+    {
+      "arm": "v5",
+      "region": "countryside",
+      "count": 10,
+      "width": 320,
+      "previousID": "companion:rabbit_friend",
+      "currentID": "companion:tanuki",
+      "sameAgedPositionSet": false,
+      "samePhysicalFingerCoordinates": false,
+      "previousArrived": false,
+      "repeatArrived": true
+    },
+    {
+      "arm": "v7",
+      "region": "countryside",
+      "count": 10,
+      "width": 320,
+      "previousID": "companion:rabbit_friend",
+      "currentID": "companion:tanuki",
+      "sameAgedPositionSet": true,
+      "samePhysicalFingerCoordinates": false,
+      "previousArrived": false,
+      "repeatArrived": true
+    },
+    {
+      "arm": "v6",
+      "region": "mountain",
+      "count": 10,
+      "width": 320,
+      "previousID": "companion:panda",
+      "currentID": "companion:tanuki",
+      "sameAgedPositionSet": true,
+      "samePhysicalFingerCoordinates": false,
+      "previousArrived": true,
+      "repeatArrived": false
+    },
+    {
+      "arm": "v6",
+      "region": "jungle",
+      "count": 10,
+      "width": 320,
+      "previousID": "companion:hamster",
+      "currentID": "companion:hamster",
+      "sameAgedPositionSet": false,
+      "samePhysicalFingerCoordinates": false,
+      "previousArrived": false,
+      "repeatArrived": true
+    },
+    {
+      "arm": "v5",
+      "region": "star_stop",
+      "count": 10,
+      "width": 320,
+      "previousID": "companion:squirrel",
+      "currentID": "partner:forest_bear",
+      "sameAgedPositionSet": false,
+      "samePhysicalFingerCoordinates": false,
+      "previousArrived": false,
+      "repeatArrived": true
+    },
+    {
+      "arm": "v6",
+      "region": "star_stop",
+      "count": 10,
+      "width": 320,
+      "previousID": "companion:squirrel",
+      "currentID": "partner:forest_bear",
+      "sameAgedPositionSet": false,
+      "samePhysicalFingerCoordinates": false,
+      "previousArrived": false,
+      "repeatArrived": true
+    },
+    {
+      "arm": "v7",
+      "region": "star_stop",
+      "count": 10,
+      "width": 320,
+      "previousID": "companion:squirrel",
+      "currentID": "partner:forest_bear",
+      "sameAgedPositionSet": false,
+      "samePhysicalFingerCoordinates": false,
+      "previousArrived": true,
+      "repeatArrived": false
+    }
+  ],
+  "sameNatural300ModelSecEndCoordinatesAsPreviousRun": {
+    "v5": 253,
+    "v6": 253,
+    "v7": 254
+  }
+}
