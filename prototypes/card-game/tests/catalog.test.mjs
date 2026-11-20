@@ -7,8 +7,8 @@ import { fileURLToPath } from 'node:url';
 import { CATALOG } from '../full-catalog.mjs';
 const root = fileURLToPath(new URL('../../../', import.meta.url));
 
-test('canonical catalog contains all452 current cards, including explicit vanilla', () => {
-  assert.equal(Object.keys(CATALOG).length, 452);
+test('canonical catalog contains all459 current cards, including explicit vanilla', () => {
+  assert.equal(Object.keys(CATALOG).length, 459);
   const counts = {};
   for (const [id, card] of Object.entries(CATALOG)) {
     assert.equal(card.id, id);
@@ -26,7 +26,7 @@ test('canonical catalog contains all452 current cards, including explicit vanill
       assert.ok(['すぐつかう', 'しかける', 'みにつける'].includes(card.method));
     }
   }
-  assert.deepEqual(counts, { companion: 26, event: 21, play: 100, item: 26, main: 248, partner: 18, world: 13 });
+  assert.deepEqual(counts, { companion: 26, event: 24, play: 100, item: 26, main: 248, partner: 18, world: 17 });
   assert.equal(Object.values(CATALOG).filter(c => c.text === '能力なし。').length, 7);
   assert.equal(Object.values(CATALOG).filter(c => c.type === 'main' && c.rare).length, 64);
   assert.equal(CATALOG['M-ren-01'].rare, false);

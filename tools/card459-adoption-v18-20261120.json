@@ -1,0 +1,70 @@
+{
+  "version": "card459-v18",
+  "sourcePR": 498,
+  "sourceCommit": "948026343099e34628f5655ae240d1083763ea9e",
+  "cards": {
+    "W-time-ix": {
+      "displayName": "時のカード IX",
+      "legacyNames": [
+        "IX"
+      ],
+      "searchAliases": [
+        "IX"
+      ]
+    },
+    "W-time-x": {
+      "displayName": "時のカード X",
+      "legacyNames": [
+        "X"
+      ],
+      "searchAliases": [
+        "X"
+      ]
+    },
+    "W-time-xi": {
+      "displayName": "時のカード XI",
+      "legacyNames": [
+        "XI"
+      ],
+      "searchAliases": [
+        "XI"
+      ]
+    },
+    "W-time-xii": {
+      "displayName": "時のカード XII",
+      "legacyNames": [
+        "XII"
+      ],
+      "searchAliases": [
+        "XII"
+      ]
+    },
+    "E-hayajimai": {
+      "displayName": "早じまい",
+      "legacyNames": [
+        "はやじまい"
+      ],
+      "searchAliases": [
+        "はやじまい"
+      ]
+    },
+    "E-nagaiki": {
+      "displayName": "長生きの秘訣",
+      "legacyNames": [
+        "ながいきのひけつ"
+      ],
+      "searchAliases": [
+        "ながいきのひけつ"
+      ]
+    },
+    "E-omoide-photo": {
+      "displayName": "思い出の写真",
+      "legacyNames": [
+        "おもいでのしゃしん"
+      ],
+      "searchAliases": [
+        "おもいでのしゃしん"
+      ]
+    }
+  }
+}
