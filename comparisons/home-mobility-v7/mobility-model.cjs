@@ -179,11 +179,14 @@ function patchModel(source) {
     function meetsDropFloor(request,q,scale){`);
   replace('      if(!best)return false;', `      if(!best){
         if(!request.floor&&actors.length>15&&length>=6&&length<=32){
+          // A presentation sync invalidates the route cache even when nobody
+          // moved. Keep this search's starting feet for the next retry tick.
+          request.pairPeers=request.peers;
           request.pairSearch=pairPlan(a,request.point);
         }
         return false;
       }`);
-  replace("        if(!a.target&&a.key!==flags.heldActor&&clock>=request.nextAt){", `        if(request.pairSearch&&clock>=request.nextAt&&(!request.peers||request.peers.some(([id,x,y])=>{
+  replace("        if(!a.target&&a.key!==flags.heldActor&&clock>=request.nextAt){", `        if(request.pairSearch&&clock>=request.nextAt&&(!request.pairPeers||request.pairPeers.length!==actors.length-1||request.pairPeers.some(([id,x,y])=>{
           const peer=actor(id);return !peer||peer.x!==x||peer.y!==y;
         })))request.pairSearch=null;
         if(!a.target&&a.key!==flags.heldActor&&request.pairSearch){

@@ -9,7 +9,7 @@
 #metrics dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
 @media (max-width:739px), (max-height:500px) and (max-width:940px) {
   .tools { grid-template-columns: minmax(132px,1fr) auto auto auto; }
-  .tools button { padding-inline: 4px; }
+  .tools button { padding-inline: 4px; min-width: 44px; }
 }
 
 @media (max-width:350px) {
