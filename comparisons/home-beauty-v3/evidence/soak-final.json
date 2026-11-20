@@ -1,0 +1,1062 @@
+{
+  "engine": "chromium",
+  "results": [
+    {
+      "test": "soak-20",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.016300000000744,
+        "internalRollingFPS": 25.424806135853217,
+        "frameCountStart": 30,
+        "frameCountEnd": 555,
+        "rafHz": 51.75885171288813,
+        "rafP95ms": 16.799999999999272,
+        "rafMaxMs": 266.59999999999854,
+        "heapBytes": 37836921,
+        "cast": {
+          "distance": 385.5615396367489,
+          "moves": 22,
+          "turns": 18,
+          "activities": {
+            "walk": 22,
+            "turn": 15,
+            "rest": 15,
+            "sit": 10,
+            "look": 5,
+            "solitude": 7,
+            "approach": 1,
+            "together": 4,
+            "observe": 2
+          },
+          "clock": 24.015800000000073
+        },
+        "nodes": 1451,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-40",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.217800000000747,
+        "internalRollingFPS": 24.12972138215045,
+        "frameCountStart": 555,
+        "frameCountEnd": 975,
+        "rafHz": 39.65398301677974,
+        "rafP95ms": 33.400000000001455,
+        "rafMaxMs": 383.40000000000146,
+        "heapBytes": 49508585,
+        "cast": {
+          "distance": 650.5380222186877,
+          "moves": 39,
+          "turns": 27,
+          "activities": {
+            "walk": 39,
+            "turn": 17,
+            "rest": 33,
+            "sit": 10,
+            "look": 13,
+            "solitude": 9,
+            "approach": 5,
+            "together": 11,
+            "observe": 7
+          },
+          "clock": 43.381700000000244
+        },
+        "nodes": 1451,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-60",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.005099999999626,
+        "internalRollingFPS": 27.356787218909,
+        "frameCountStart": 975,
+        "frameCountEnd": 1530,
+        "rafHz": 53.357580723324936,
+        "rafP95ms": 16.80000000000291,
+        "rafMaxMs": 166.60000000000582,
+        "heapBytes": 42389312,
+        "cast": {
+          "distance": 835.2345977755688,
+          "moves": 50,
+          "turns": 46,
+          "activities": {
+            "walk": 50,
+            "turn": 23,
+            "rest": 55,
+            "sit": 17,
+            "look": 26,
+            "solitude": 14,
+            "approach": 10,
+            "together": 17,
+            "observe": 8
+          },
+          "clock": 61.981000000000435
+        },
+        "nodes": 1461,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-80",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.006099999999627,
+        "internalRollingFPS": 24.897298643097223,
+        "frameCountStart": 1530,
+        "frameCountEnd": 2070,
+        "rafHz": 52.102084083363344,
+        "rafP95ms": 16.80000000000291,
+        "rafMaxMs": 216.70000000001164,
+        "heapBytes": 44223220,
+        "cast": {
+          "distance": 943.5692106155311,
+          "moves": 60,
+          "turns": 49,
+          "activities": {
+            "walk": 60,
+            "turn": 25,
+            "rest": 63,
+            "sit": 19,
+            "look": 35,
+            "solitude": 20,
+            "approach": 12,
+            "together": 21,
+            "observe": 9
+          },
+          "clock": 82.18019999999959
+        },
+        "nodes": 1461,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-100",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.037700000001117,
+        "internalRollingFPS": 24.227349447212617,
+        "frameCountStart": 2070,
+        "frameCountEnd": 2565,
+        "rafHz": 48.161711439405686,
+        "rafP95ms": 16.80000000000291,
+        "rafMaxMs": 183.39999999999418,
+        "heapBytes": 50578331,
+        "cast": {
+          "distance": 1072.750512596781,
+          "moves": 72,
+          "turns": 51,
+          "activities": {
+            "walk": 72,
+            "turn": 26,
+            "rest": 77,
+            "sit": 19,
+            "look": 45,
+            "solitude": 23,
+            "approach": 14,
+            "together": 24,
+            "observe": 13
+          },
+          "clock": 101.84599999999878
+        },
+        "nodes": 1462,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-120",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.011299999998883,
+        "internalRollingFPS": 26.0125380433369,
+        "frameCountStart": 2565,
+        "frameCountEnd": 3090,
+        "rafHz": 50.01024185772312,
+        "rafP95ms": 16.80000000000291,
+        "rafMaxMs": 500.1000000000058,
+        "heapBytes": 28743078,
+        "cast": {
+          "distance": 1229.7557359452746,
+          "moves": 89,
+          "turns": 59,
+          "activities": {
+            "walk": 89,
+            "turn": 28,
+            "rest": 97,
+            "sit": 27,
+            "look": 63,
+            "solitude": 26,
+            "approach": 18,
+            "together": 28,
+            "observe": 14
+          },
+          "clock": 119.64529999999806
+        },
+        "nodes": 1464,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-140",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.009699999999256,
+        "internalRollingFPS": 23.591953571035404,
+        "frameCountStart": 3090,
+        "frameCountEnd": 3600,
+        "rafHz": 49.10196407856315,
+        "rafP95ms": 16.800000000017462,
+        "rafMaxMs": 283.29999999998836,
+        "heapBytes": 42724558,
+        "cast": {
+          "distance": 1289.3443037701334,
+          "moves": 100,
+          "turns": 62,
+          "activities": {
+            "walk": 100,
+            "turn": 29,
+            "rest": 110,
+            "sit": 28,
+            "look": 71,
+            "solitude": 30,
+            "approach": 19,
+            "together": 31,
+            "observe": 16
+          },
+          "clock": 139.69449999999938
+        },
+        "nodes": 1464,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-160",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.19339999999851,
+        "internalRollingFPS": 23.499737586263663,
+        "frameCountStart": 3600,
+        "frameCountEnd": 4095,
+        "rafHz": 47.56218806049192,
+        "rafP95ms": 16.800000000017462,
+        "rafMaxMs": 283.30000000001746,
+        "heapBytes": 21589175,
+        "cast": {
+          "distance": 1497.2339874311156,
+          "moves": 115,
+          "turns": 62,
+          "activities": {
+            "walk": 115,
+            "turn": 29,
+            "rest": 120,
+            "sit": 30,
+            "look": 81,
+            "solitude": 33,
+            "approach": 23,
+            "together": 37,
+            "observe": 22
+          },
+          "clock": 159.66040000000285
+        },
+        "nodes": 1464,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-180",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.022,
+        "internalRollingFPS": 24.097159748104346,
+        "frameCountStart": 4095,
+        "frameCountEnd": 4560,
+        "rafHz": 45.01443859351115,
+        "rafP95ms": 33.29999999998836,
+        "rafMaxMs": 1283.2999999999884,
+        "heapBytes": 23888924,
+        "cast": {
+          "distance": 1583.121385520211,
+          "moves": 120,
+          "turns": 68,
+          "activities": {
+            "walk": 120,
+            "turn": 31,
+            "rest": 128,
+            "sit": 31,
+            "look": 92,
+            "solitude": 36,
+            "approach": 26,
+            "together": 43,
+            "observe": 24
+          },
+          "clock": 175.8764000000056
+        },
+        "nodes": 1464,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-200",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.005700000001116,
+        "internalRollingFPS": 24.129527302560152,
+        "frameCountStart": 4560,
+        "frameCountEnd": 5085,
+        "rafHz": 50.16037330508901,
+        "rafP95ms": 16.79999999998836,
+        "rafMaxMs": 300,
+        "heapBytes": 28789106,
+        "cast": {
+          "distance": 1687.2995103008373,
+          "moves": 128,
+          "turns": 78,
+          "activities": {
+            "walk": 128,
+            "turn": 35,
+            "rest": 140,
+            "sit": 32,
+            "look": 114,
+            "solitude": 39,
+            "approach": 32,
+            "together": 45,
+            "observe": 26
+          },
+          "clock": 197.02560000000926
+        },
+        "nodes": 1464,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-220",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.00879999999888,
+        "internalRollingFPS": 23.28686310429412,
+        "frameCountStart": 5085,
+        "frameCountEnd": 5580,
+        "rafHz": 47.502137596191815,
+        "rafP95ms": 33.29999999998836,
+        "rafMaxMs": 216.80000000001746,
+        "heapBytes": 46631860,
+        "cast": {
+          "distance": 1809.5609836415586,
+          "moves": 138,
+          "turns": 81,
+          "activities": {
+            "walk": 138,
+            "turn": 37,
+            "rest": 155,
+            "sit": 33,
+            "look": 130,
+            "solitude": 44,
+            "approach": 35,
+            "together": 47,
+            "observe": 26
+          },
+          "clock": 217.12470000001252
+        },
+        "nodes": 1464,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-240",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.012700000001118,
+        "internalRollingFPS": 23.377594913035367,
+        "frameCountStart": 5580,
+        "frameCountEnd": 6060,
+        "rafHz": 45.10202959133159,
+        "rafP95ms": 33.29999999998836,
+        "rafMaxMs": 1016.5999999999767,
+        "heapBytes": 25994436,
+        "cast": {
+          "distance": 1882.7174263895129,
+          "moves": 147,
+          "turns": 93,
+          "activities": {
+            "walk": 147,
+            "turn": 43,
+            "rest": 167,
+            "sit": 35,
+            "look": 157,
+            "solitude": 46,
+            "approach": 36,
+            "together": 50,
+            "observe": 29
+          },
+          "clock": 234.94080000001532
+        },
+        "nodes": 1464,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-260",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.00489999999851,
+        "internalRollingFPS": 24.624880979741953,
+        "frameCountStart": 6060,
+        "frameCountEnd": 6585,
+        "rafHz": 51.25230635378583,
+        "rafP95ms": 16.79999999998836,
+        "rafMaxMs": 183.29999999998836,
+        "heapBytes": 40360625,
+        "cast": {
+          "distance": 1972.8545358128342,
+          "moves": 156,
+          "turns": 98,
+          "activities": {
+            "walk": 156,
+            "turn": 43,
+            "rest": 171,
+            "sit": 35,
+            "look": 178,
+            "solitude": 48,
+            "approach": 40,
+            "together": 51,
+            "observe": 30
+          },
+          "clock": 254.82330000001903
+        },
+        "nodes": 1464,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-280",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.01459999999963,
+        "internalRollingFPS": 22.41683354753865,
+        "frameCountStart": 6585,
+        "frameCountEnd": 7065,
+        "rafHz": 46.20161705659701,
+        "rafP95ms": 16.800000000046566,
+        "rafMaxMs": 416.70000000001164,
+        "heapBytes": 24754476,
+        "cast": {
+          "distance": 2108.430363790208,
+          "moves": 167,
+          "turns": 100,
+          "activities": {
+            "walk": 167,
+            "turn": 44,
+            "rest": 183,
+            "sit": 37,
+            "look": 196,
+            "solitude": 49,
+            "approach": 40,
+            "together": 51,
+            "observe": 34
+          },
+          "clock": 274.6226000000235
+        },
+        "nodes": 1464,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-300",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.00540000000037,
+        "internalRollingFPS": 22.78579078086909,
+        "frameCountStart": 7065,
+        "frameCountEnd": 7530,
+        "rafHz": 43.95175807032279,
+        "rafP95ms": 33.29999999998836,
+        "rafMaxMs": 583.2999999999884,
+        "heapBytes": 35711613,
+        "cast": {
+          "distance": 2335.5770329860698,
+          "moves": 179,
+          "turns": 114,
+          "activities": {
+            "walk": 179,
+            "turn": 55,
+            "rest": 200,
+            "sit": 41,
+            "look": 217,
+            "solitude": 53,
+            "approach": 45,
+            "together": 53,
+            "observe": 35
+          },
+          "clock": 292.3718000000276
+        },
+        "nodes": 1460,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-320",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.00639999999851,
+        "internalRollingFPS": 26.126031978263168,
+        "frameCountStart": 7530,
+        "frameCountEnd": 8070,
+        "rafHz": 52.70184456455979,
+        "rafP95ms": 16.79999999998836,
+        "rafMaxMs": 183.29999999998836,
+        "heapBytes": 25237958,
+        "cast": {
+          "distance": 2505.1149078759568,
+          "moves": 189,
+          "turns": 116,
+          "activities": {
+            "walk": 189,
+            "turn": 55,
+            "rest": 214,
+            "sit": 45,
+            "look": 222,
+            "solitude": 56,
+            "approach": 46,
+            "together": 55,
+            "observe": 37
+          },
+          "clock": 312.32100000003214
+        },
+        "nodes": 1460,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-340",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.003400000000372,
+        "internalRollingFPS": 24.862839999336966,
+        "frameCountStart": 8070,
+        "frameCountEnd": 8580,
+        "rafHz": 48.75219384872325,
+        "rafP95ms": 16.800000000046566,
+        "rafMaxMs": 283.3999999999651,
+        "heapBytes": 44707906,
+        "cast": {
+          "distance": 2741.563455663556,
+          "moves": 203,
+          "turns": 125,
+          "activities": {
+            "walk": 203,
+            "turn": 59,
+            "rest": 231,
+            "sit": 46,
+            "look": 230,
+            "solitude": 62,
+            "approach": 48,
+            "together": 59,
+            "observe": 40
+          },
+          "clock": 332.40360000003676
+        },
+        "nodes": 1462,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-360",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.009699999999256,
+        "internalRollingFPS": 24.828476607437025,
+        "frameCountStart": 8580,
+        "frameCountEnd": 9105,
+        "rafHz": 51.30205208208325,
+        "rafP95ms": 16.79999999998836,
+        "rafMaxMs": 1283.2000000000116,
+        "heapBytes": 35470990,
+        "cast": {
+          "distance": 2885.9324708553218,
+          "moves": 208,
+          "turns": 128,
+          "activities": {
+            "walk": 208,
+            "turn": 61,
+            "rest": 240,
+            "sit": 51,
+            "look": 235,
+            "solitude": 65,
+            "approach": 51,
+            "together": 63,
+            "observe": 44
+          },
+          "clock": 344.6698000000395
+        },
+        "nodes": 1468,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-380",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.014099999999626,
+        "internalRollingFPS": 25.641902287257736,
+        "frameCountStart": 9105,
+        "frameCountEnd": 9600,
+        "rafHz": 48.55169930947586,
+        "rafP95ms": 16.79999999998836,
+        "rafMaxMs": 1799.9000000000233,
+        "heapBytes": 20377828,
+        "cast": {
+          "distance": 2925.669492879986,
+          "moves": 214,
+          "turns": 144,
+          "activities": {
+            "walk": 214,
+            "turn": 71,
+            "rest": 250,
+            "sit": 58,
+            "look": 250,
+            "solitude": 69,
+            "approach": 54,
+            "together": 68,
+            "observe": 47
+          },
+          "clock": 359.6695000000429
+        },
+        "nodes": 1469,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-400",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.0035,
+        "internalRollingFPS": 24.358360195191707,
+        "frameCountStart": 9600,
+        "frameCountEnd": 10080,
+        "rafHz": 48.05216234730568,
+        "rafP95ms": 16.79999999998836,
+        "rafMaxMs": 2199.899999999965,
+        "heapBytes": 29604105,
+        "cast": {
+          "distance": 2956.418083514937,
+          "moves": 219,
+          "turns": 154,
+          "activities": {
+            "walk": 219,
+            "turn": 74,
+            "rest": 264,
+            "sit": 66,
+            "look": 272,
+            "solitude": 70,
+            "approach": 58,
+            "together": 72,
+            "observe": 48
+          },
+          "clock": 373.8855000000462
+        },
+        "nodes": 1469,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-420",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.7495,
+        "internalRollingFPS": 24.16198192683761,
+        "frameCountStart": 10080,
+        "frameCountEnd": 10515,
+        "rafHz": 41.127829348471415,
+        "rafP95ms": 16.79999999998836,
+        "rafMaxMs": 2049.9000000000233,
+        "heapBytes": 44974856,
+        "cast": {
+          "distance": 3028.157434118926,
+          "moves": 225,
+          "turns": 166,
+          "activities": {
+            "walk": 225,
+            "turn": 79,
+            "rest": 280,
+            "sit": 73,
+            "look": 297,
+            "solitude": 71,
+            "approach": 58,
+            "together": 74,
+            "observe": 50
+          },
+          "clock": 387.05190000004916
+        },
+        "nodes": 1463,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-440",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.008,
+        "internalRollingFPS": 24.524029461534013,
+        "frameCountStart": 10515,
+        "frameCountEnd": 11040,
+        "rafHz": 52.26506926244852,
+        "rafP95ms": 16.79999999998836,
+        "rafMaxMs": 2116.5999999999767,
+        "heapBytes": 34884887,
+        "cast": {
+          "distance": 3053.774201457578,
+          "moves": 229,
+          "turns": 183,
+          "activities": {
+            "walk": 229,
+            "turn": 86,
+            "rest": 291,
+            "sit": 76,
+            "look": 326,
+            "solitude": 74,
+            "approach": 61,
+            "together": 74,
+            "observe": 52
+          },
+          "clock": 396.91800000005145
+        },
+        "nodes": 1469,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-460",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.001300000000747,
+        "internalRollingFPS": 29.50926098974065,
+        "frameCountStart": 11040,
+        "frameCountEnd": 11580,
+        "rafHz": 53.052122084883365,
+        "rafP95ms": 16.79999999998836,
+        "rafMaxMs": 1916.5999999999767,
+        "heapBytes": 31035962,
+        "cast": {
+          "distance": 3069.2117525308,
+          "moves": 231,
+          "turns": 192,
+          "activities": {
+            "walk": 231,
+            "turn": 90,
+            "rest": 295,
+            "sit": 79,
+            "look": 342,
+            "solitude": 74,
+            "approach": 61,
+            "together": 75,
+            "observe": 52
+          },
+          "clock": 402.0678000000526
+        },
+        "nodes": 1470,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-480",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.021699999999257,
+        "internalRollingFPS": 29.412918153653152,
+        "frameCountStart": 11580,
+        "frameCountEnd": 12165,
+        "rafHz": 58.90206157215506,
+        "rafP95ms": 16.79999999998836,
+        "rafMaxMs": 116.60000000003492,
+        "heapBytes": 21498904,
+        "cast": {
+          "distance": 3069.2117525308,
+          "moves": 231,
+          "turns": 192,
+          "activities": {
+            "walk": 231,
+            "turn": 90,
+            "rest": 295,
+            "sit": 79,
+            "look": 342,
+            "solitude": 74,
+            "approach": 61,
+            "together": 75,
+            "observe": 52
+          },
+          "clock": 402.0678000000526
+        },
+        "nodes": 1470,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-500",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.00359999999963,
+        "internalRollingFPS": 29.75334477184154,
+        "frameCountStart": 12165,
+        "frameCountEnd": 12765,
+        "rafHz": 59.50208257289009,
+        "rafP95ms": 16.79999999998836,
+        "rafMaxMs": 99.89999999996508,
+        "heapBytes": 30285427,
+        "cast": {
+          "distance": 3069.2117525308,
+          "moves": 231,
+          "turns": 192,
+          "activities": {
+            "walk": 231,
+            "turn": 90,
+            "rest": 295,
+            "sit": 79,
+            "look": 342,
+            "solitude": 74,
+            "approach": 61,
+            "together": 75,
+            "observe": 52
+          },
+          "clock": 402.0678000000526
+        },
+        "nodes": 1470,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-520",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.009400000000372,
+        "internalRollingFPS": 30.000900027000952,
+        "frameCountStart": 12765,
+        "frameCountEnd": 13365,
+        "rafHz": 58.902356094243906,
+        "rafP95ms": 16.79999999998836,
+        "rafMaxMs": 199.90000000002328,
+        "heapBytes": 31410549,
+        "cast": {
+          "distance": 3069.2117525308,
+          "moves": 231,
+          "turns": 192,
+          "activities": {
+            "walk": 231,
+            "turn": 90,
+            "rest": 295,
+            "sit": 79,
+            "look": 342,
+            "solitude": 74,
+            "approach": 61,
+            "together": 75,
+            "observe": 52
+          },
+          "clock": 402.0678000000526
+        },
+        "nodes": 1470,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-540",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.00910000000149,
+        "internalRollingFPS": 28.437097141123896,
+        "frameCountStart": 13365,
+        "frameCountEnd": 13920,
+        "rafHz": 56.00224008960372,
+        "rafP95ms": 16.79999999993015,
+        "rafMaxMs": 216.70000000006985,
+        "heapBytes": 27492902,
+        "cast": {
+          "distance": 3069.2117525308,
+          "moves": 231,
+          "turns": 192,
+          "activities": {
+            "walk": 231,
+            "turn": 90,
+            "rest": 295,
+            "sit": 79,
+            "look": 342,
+            "solitude": 74,
+            "approach": 61,
+            "together": 75,
+            "observe": 52
+          },
+          "clock": 402.0678000000526
+        },
+        "nodes": 1470,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-560",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.008199999999256,
+        "internalRollingFPS": 29.412918153653152,
+        "frameCountStart": 13920,
+        "frameCountEnd": 14520,
+        "rafHz": 58.902356094243565,
+        "rafP95ms": 16.79999999993015,
+        "rafMaxMs": 100,
+        "heapBytes": 31179686,
+        "cast": {
+          "distance": 3069.2117525308,
+          "moves": 231,
+          "turns": 192,
+          "activities": {
+            "walk": 231,
+            "turn": 90,
+            "rest": 295,
+            "sit": 79,
+            "look": 342,
+            "solitude": 74,
+            "approach": 61,
+            "together": 75,
+            "observe": 52
+          },
+          "clock": 402.0678000000526
+        },
+        "nodes": 1471,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-580",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.005599999999628,
+        "internalRollingFPS": 29.412918153653152,
+        "frameCountStart": 14520,
+        "frameCountEnd": 15120,
+        "rafHz": 58.85235409416356,
+        "rafP95ms": 16.79999999993015,
+        "rafMaxMs": 133.29999999993015,
+        "heapBytes": 26769268,
+        "cast": {
+          "distance": 3069.2117525308,
+          "moves": 231,
+          "turns": 192,
+          "activities": {
+            "walk": 231,
+            "turn": 90,
+            "rest": 295,
+            "sit": 79,
+            "look": 342,
+            "solitude": 74,
+            "approach": 61,
+            "together": 75,
+            "observe": 52
+          },
+          "clock": 402.0678000000526
+        },
+        "nodes": 1471,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-600",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.008,
+        "internalRollingFPS": 29.412918153653152,
+        "frameCountStart": 15120,
+        "frameCountEnd": 15705,
+        "rafHz": 58.902356094243906,
+        "rafP95ms": 16.79999999993015,
+        "rafMaxMs": 100.09999999997672,
+        "heapBytes": 25666243,
+        "cast": {
+          "distance": 3069.2117525308,
+          "moves": 231,
+          "turns": 192,
+          "activities": {
+            "walk": 231,
+            "turn": 90,
+            "rest": 295,
+            "sit": 79,
+            "look": 342,
+            "solitude": 74,
+            "approach": 61,
+            "together": 75,
+            "observe": 52
+          },
+          "clock": 402.0678000000526
+        },
+        "nodes": 1471,
+        "panels": 2
+      }
+    },
+    {
+      "test": "speech",
+      "result": [
+        "Ciao!",
+        "転がったほうが早くない?",
+        "見晴らしのいい所で考えてた",
+        "振り返る用事、いま作った",
+        "いまのぼく、たぶん天才"
+      ]
+    },
+    {
+      "test": "drag",
+      "result": {
+        "hit": true,
+        "marker": true,
+        "pointerToNextRAFms": [
+          19.40000000037253,
+          4.300000000745058,
+          18,
+          5.200000001117587,
+          14.199999999254942,
+          7.300000000745058,
+          17.5,
+          5.699999999254942,
+          10.800000000745058,
+          5.400000000372529,
+          18.5,
+          3
+        ]
+      }
+    },
+    {
+      "test": "browser",
+      "result": "156.0.8078.79"
+    }
+  ],
+  "errors": [],
+  "missing": []
+}

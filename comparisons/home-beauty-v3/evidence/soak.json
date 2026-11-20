@@ -1,0 +1,280 @@
+{
+  "engine": "chromium",
+  "results": [
+    {
+      "test": "soak-20",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.0165,
+        "internalRollingFPS": 25.678775635977676,
+        "frameCountStart": 15,
+        "frameCountEnd": 555,
+        "rafHz": 52.071903118328784,
+        "rafP95ms": 16.799999999999272,
+        "rafMaxMs": 200,
+        "heapBytes": 39207846,
+        "cast": {
+          "distance": 344.679314222369,
+          "moves": 19,
+          "turns": 9,
+          "activities": {
+            "walk": 19,
+            "observe": 7,
+            "rest": 21,
+            "turn": 3,
+            "look": 9,
+            "sit": 8,
+            "approach": 6,
+            "together": 6,
+            "solitude": 1
+          },
+          "clock": 23.765572000000073
+        },
+        "nodes": 1441,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-40",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.04490000000037,
+        "internalRollingFPS": 21.353073063098332,
+        "frameCountStart": 555,
+        "frameCountEnd": 975,
+        "rafHz": 37.5515020600824,
+        "rafP95ms": 50,
+        "rafMaxMs": 783.3000000000029,
+        "heapBytes": 20266628,
+        "cast": {
+          "distance": 672.921594938094,
+          "moves": 38,
+          "turns": 15,
+          "activities": {
+            "walk": 38,
+            "observe": 9,
+            "rest": 39,
+            "turn": 7,
+            "look": 13,
+            "sit": 12,
+            "approach": 13,
+            "together": 10,
+            "solitude": 5
+          },
+          "clock": 43.7981720000002
+        },
+        "nodes": 1442,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-60",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.011099999999626,
+        "internalRollingFPS": 25.9002495057369,
+        "frameCountStart": 975,
+        "frameCountEnd": 1455,
+        "rafHz": 46.163300176359776,
+        "rafP95ms": 33.299999999995634,
+        "rafMaxMs": 633.3000000000029,
+        "heapBytes": 22913495,
+        "cast": {
+          "distance": 821.7859990465159,
+          "moves": 49,
+          "turns": 19,
+          "activities": {
+            "walk": 49,
+            "observe": 11,
+            "rest": 48,
+            "turn": 9,
+            "look": 16,
+            "sit": 14,
+            "approach": 17,
+            "together": 12,
+            "solitude": 9
+          },
+          "clock": 60.73077200000037
+        },
+        "nodes": 1449,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-80",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.010400000000374,
+        "internalRollingFPS": 22.44500972617088,
+        "frameCountStart": 1455,
+        "frameCountEnd": 1950,
+        "rafHz": 46.55186207448298,
+        "rafP95ms": 33.19999999999709,
+        "rafMaxMs": 466.6999999999971,
+        "heapBytes": 54370753,
+        "cast": {
+          "distance": 975.1688797669682,
+          "moves": 61,
+          "turns": 33,
+          "activities": {
+            "walk": 61,
+            "observe": 16,
+            "rest": 60,
+            "turn": 13,
+            "look": 36,
+            "sit": 20,
+            "approach": 19,
+            "together": 18,
+            "solitude": 12
+          },
+          "clock": 81.74657199999952
+        },
+        "nodes": 1449,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-100",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 20.0085,
+        "internalRollingFPS": 18.67297398232292,
+        "frameCountStart": 1950,
+        "frameCountEnd": 2310,
+        "rafHz": 33.95135805432218,
+        "rafP95ms": 116.59999999999127,
+        "rafMaxMs": 633.3000000000029,
+        "heapBytes": 20289134,
+        "cast": {
+          "distance": 1142.2676443105713,
+          "moves": 75,
+          "turns": 36,
+          "activities": {
+            "walk": 75,
+            "observe": 20,
+            "rest": 75,
+            "turn": 15,
+            "look": 42,
+            "sit": 22,
+            "approach": 23,
+            "together": 21,
+            "solitude": 18
+          },
+          "clock": 101.07917199999886
+        },
+        "nodes": 1449,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-120",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 21.3165,
+        "internalRollingFPS": 18.311888077740065,
+        "frameCountStart": 2310,
+        "frameCountEnd": 2670,
+        "rafHz": 31.22182992788462,
+        "rafP95ms": 66.60000000000582,
+        "rafMaxMs": 2099.9000000000087,
+        "heapBytes": 23332225,
+        "cast": {
+          "distance": 1249.0030815884834,
+          "moves": 83,
+          "turns": 38,
+          "activities": {
+            "walk": 83,
+            "observe": 21,
+            "rest": 88,
+            "turn": 16,
+            "look": 52,
+            "sit": 22,
+            "approach": 29,
+            "together": 24,
+            "solitude": 19
+          },
+          "clock": 118.16187199999813
+        },
+        "nodes": 1449,
+        "panels": 2
+      }
+    },
+    {
+      "test": "soak-125",
+      "result": {
+        "residents": 28,
+        "variant": "B",
+        "seconds": 5.011900000000373,
+        "internalRollingFPS": 21.27735026064754,
+        "frameCountStart": 2670,
+        "frameCountEnd": 2820,
+        "rafHz": 56.41383434665604,
+        "rafP95ms": 16.79999999998836,
+        "rafMaxMs": 99.89999999999418,
+        "heapBytes": 23312853,
+        "cast": {
+          "distance": 1311.9785579610568,
+          "moves": 85,
+          "turns": 45,
+          "activities": {
+            "walk": 85,
+            "observe": 22,
+            "rest": 97,
+            "turn": 17,
+            "look": 63,
+            "sit": 26,
+            "approach": 30,
+            "together": 24,
+            "solitude": 19
+          },
+          "clock": 124.47837199999785
+        },
+        "nodes": 1449,
+        "panels": 2
+      }
+    },
+    {
+      "test": "speech",
+      "result": [
+        "止まる場所を先に決めたい",
+        "Aloha!",
+        "びっくりした?",
+        "ジャジャン!",
+        "冷蔵庫に何かいた気がする"
+      ]
+    },
+    {
+      "test": "drag",
+      "result": {
+        "hit": true,
+        "marker": true,
+        "pointerToNextRAFms": [
+          16.300000000745058,
+          7.900000000372529,
+          21.200000001117587,
+          12.600000001490116,
+          10.400000000372529,
+          4.099999999627471,
+          12.900000000372529,
+          20,
+          7.599999999627471,
+          15.800000000745058,
+          5.400000000372529,
+          6.099999999627471
+        ]
+      }
+    },
+    {
+      "test": "browser",
+      "result": "156.0.8078.79"
+    }
+  ],
+  "errors": [],
+  "missing": []
+}
