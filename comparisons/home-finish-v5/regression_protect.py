@@ -2,6 +2,7 @@
 import argparse
 import hashlib
 import json
+import re
 from pathlib import Path
 
 BASE_FILES=3920
@@ -25,6 +26,32 @@ def fingerprint(rows):
     return digest.hexdigest()
 
 
+def verify_active_html(base,finish):
+    source=(base/'game/population.html').read_bytes()
+    active=(finish/'game/finish.html').read_bytes()
+    def versioned(name):
+        sha=hashlib.sha256((finish/'game'/name).read_bytes()).hexdigest()[:12]
+        return (name+'?v='+sha).encode()
+    def once(text,old,new):
+        if text.count(old)!=1:
+            raise ValueError('Missing or repeated script reference '+old.decode())
+        return text.replace(old,new)
+    ground=(b'<link rel="stylesheet" href="'+versioned('ground.css')+b'">\n<script defer src="'+
+        versioned('ground.js')+b'"></script>\n</head>')
+    restored=once(active,ground,b'</head>')
+    aliases={'population-policy.js':'finish-policy.js','population-seating.js':'finish-seating.js',
+        'cast-population.js':'cast-finish.js','home-production-model.js':'home-production-model-finish.js',
+        'home-production-touch.js':'home-production-touch-finish.js',
+        'home-production-diorama-population.js':'home-production-diorama-finish.js'}
+    for original,added in aliases.items():
+        old=re.findall(b'src="('+re.escape(original.encode())+b'(?:\\?v=[a-f0-9]+)?)"',source)
+        assert len(old)==1,original
+        restored=once(restored,b'src="'+versioned(added)+b'"',b'src="'+old[0]+b'"')
+    assert restored==source, 'Unreviewed change to the active game HTML, inline save initialization, or dependencies'
+    return {'unchangedHTMLAfterRestoringSixReviewedURLsAndRemovingGroundIncludes':True,
+        'referenceHTMLSHA256':hashlib.sha256(source).hexdigest(),'aliases':aliases}
+
+
 def verify(base,finish):
     before,after=inventory(base),inventory(finish)
     assert len(before)==BASE_FILES and fingerprint(before)==BASE_SHA, 'Unrecognized V4 archive'
@@ -37,6 +64,7 @@ def verify(base,finish):
         'daypartArt':'game/comparisons/dayparts-','V1':'v1/','V3':'v3/','V4':'v4/'}
     return {'referenceFiles':len(before),'referenceSHA256':fingerprint(before),'retainedAtIdenticalPaths':len(before),
         'preservedGroups':{group:sum(p.startswith(prefix) for p in before) for group,prefix in categories.items()},
+        'activeEntry':verify_active_html(base,finish),
         'candidateFiles':len(after),'candidateSHA256':fingerprint(after),
         'newFiles':{p:after[p].hex() for p in additions}}
 

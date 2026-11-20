@@ -1,7 +1,11 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {createTerrainNavigation} from '../../home-route-navigation.mjs';
-import model from '../../home-production-model.js';
+import source from './native-source.cjs';
+import path from 'node:path';
+import {pathToFileURL} from 'node:url';
+const fixture=source.nativeFixture();
+const {createTerrainNavigation}=await import(pathToFileURL(path.join(fixture,'home-route-navigation.mjs')));
+const {default:model}=await import(pathToFileURL(path.join(fixture,'home-production-model.js')));
 
 const bounds = {left: 0, right: 128, top: 0, bottom: 128};
 const start = {x: 8, y: 8};

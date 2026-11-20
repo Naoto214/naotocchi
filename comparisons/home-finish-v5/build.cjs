@@ -3,6 +3,7 @@ const path = require('node:path');
 const {createHash} = require('node:crypto');
 const {digest, replaceExact, composeController, composeWorld} = require('./native-hooks.cjs');
 const {applyGroundPaint} = require('./ground-render.cjs');
+const {readNative} = require('./native-source.cjs');
 
 const referenceCommit = 'e07d2cc53eca36ff23e02142ab385d6001e0521b';
 const referenceBundle = 'f9b927c65ea9f683dead97b906d569c2216f7334bad7e70e1ee915635c56f90a';
@@ -33,7 +34,7 @@ function hashFiles(root, names) {
 }
 
 function prepare(baseline, sourceRoot) {
-  const native = name => fs.readFileSync(path.join(sourceRoot, name), 'utf8');
+  const native = name => readNative(name, sourceRoot);
   const archived = name => fs.readFileSync(path.join(baseline, 'game', name), 'utf8');
   const local = name => fs.readFileSync(path.join(__dirname, name), 'utf8');
   const files = new Map();

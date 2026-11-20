@@ -40,7 +40,7 @@ export function extendVisibleGroundNavigation(legacy,{spec,stage,presentation:p,
   return true;
  };
  const origin=legacy.project({x:0,z:0});
- const union=createTerrainNavigation({staticGeometry:legacy.staticGeometry===true,width:legacy.width,height:legacy.height,cell:8,gridOrigin:origin,project:q=>q,unproject:q=>({...q,z:q.y}),walkable:valid,segmentWalkable});
+ const union=createTerrainNavigation({width:legacy.width,height:legacy.height,cell:8,gridOrigin:origin,project:q=>q,unproject:q=>({...q,z:q.y}),walkable:valid,segmentWalkable});
  const safePath=(from,path,predicate)=>path.every((to,i)=>union.segmentSafe(i?path[i-1]:from,to,predicate));
  const route=(from,to,bounds,predicate=()=>true)=>{
   // An old route is reusable only when it really reaches the requested point;

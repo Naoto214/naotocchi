@@ -3,9 +3,13 @@ import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 import {readFileSync} from 'node:fs';
 import {runInNewContext} from 'node:vm';
-import {createTerrainNavigation} from '../../home-route-navigation.mjs';
+import source from './native-source.cjs';
+import path from 'node:path';
+import {pathToFileURL} from 'node:url';
+const fixture=source.nativeFixture();
+const {createTerrainNavigation}=await import(pathToFileURL(path.join(fixture,'home-route-navigation.mjs')));
 const require=createRequire(import.meta.url);
-const {createModel}=require('../../home-production-model.js');
+const {createModel}=require(path.join(fixture,'home-production-model.js'));
 
 function household(points,{walkable=()=>true,scale={x:1,y:1},box={left:0,right:120,top:0,bottom:100}}={}){
   const events=[],model=createModel({random:()=>.5,onEvent:e=>events.push(e)});
@@ -90,7 +94,7 @@ test('long drags can use a long detour around a barrier to reach the original go
 
 test('CSS movement on release distinguishes 7px jitter from an 8px drag without a move event',()=>{
   const calls=[];
-  const source=readFileSync(new URL('../../home-production-diorama.js',import.meta.url),'utf8');
+  const source=readFileSync(path.join(fixture,'home-production-diorama.js'),'utf8');
   const handlers=source.slice(source.indexOf('    function down(e)'),source.indexOf('    function keydown(e)'));
   const context={enabled:true,blocked:()=>false,hit:()=>'0',
     point:e=>({x:e.clientX/2,y:e.clientY/.5}),paint:()=>{},resume:()=>{},

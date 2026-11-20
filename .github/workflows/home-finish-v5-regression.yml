@@ -3,9 +3,11 @@ on:
   push:
     branches: [draft/home-finish-v5]
     paths:
+      - comparisons/home-finish-v5/native/**
       - comparisons/home-finish-v5/*.css
       - comparisons/home-finish-v5/*.html
       - comparisons/home-finish-v5/build.cjs
+      - comparisons/home-finish-v5/native-source.cjs
       - comparisons/home-finish-v5/native-hooks.cjs
       - comparisons/home-finish-v5/ground-render.cjs
       - comparisons/home-finish-v5/ground.js
@@ -63,7 +65,9 @@ jobs:
           node-version: 22
       - name: Preserve legacy routing and exercise the foot-drop contract
         if: matrix.region == 'forest'
-        run: node --test tests/home-movement-v5-routing-test.cjs comparisons/home-finish-v5/*.test.*
+        run: |
+          node comparisons/home-finish-v5/native-source.cjs --test-routing
+          node --test comparisons/home-finish-v5/*.test.*
       - name: Rebuild the fixed V4 baseline and candidate game
         run: |
           node .cast-reference/comparisons/home-cast-size-v1/build.cjs "$RUNNER_TEMP/v1" --reference-checkout .leaf-reference
