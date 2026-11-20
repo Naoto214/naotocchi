@@ -1,0 +1,808 @@
+{
+  "home": {
+    "morning": {
+      "art": "comparisons/dayparts-20261103/v2/home-morning.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "home",
+      "count": 19
+    },
+    "day": {
+      "art": "comparisons/dayparts-20261103/v2/home-day.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "home",
+      "count": 19
+    },
+    "evening": {
+      "art": "comparisons/dayparts-20261103/images/home-evening.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "home",
+      "count": 19
+    },
+    "night": {
+      "art": "comparisons/dayparts-20261103/v6/home-night.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "home",
+      "count": 19
+    }
+  },
+  "forest": {
+    "morning": {
+      "art": "comparisons/dayparts-20261103/v2/forest-morning.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "forest",
+      "count": 19
+    },
+    "day": {
+      "art": "comparisons/dayparts-20261103/v2/forest-day.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "forest",
+      "count": 19
+    },
+    "evening": {
+      "art": "comparisons/dayparts-20261103/images/forest-evening.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "forest",
+      "count": 19
+    },
+    "night": {
+      "art": "comparisons/dayparts-20261103/v6/forest-night.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "forest",
+      "count": 19
+    }
+  },
+  "river_lake": {
+    "morning": {
+      "art": "comparisons/dayparts-20261103/v4/river_lake-morning.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "river_lake",
+      "count": 19
+    },
+    "day": {
+      "art": "comparisons/dayparts-20261103/v4/river_lake-day.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "river_lake",
+      "count": 19
+    },
+    "evening": {
+      "art": "comparisons/dayparts-20261103/v4/river_lake-evening.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "river_lake",
+      "count": 19
+    },
+    "night": {
+      "art": "comparisons/dayparts-20261103/v6/river_lake-night.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "river_lake",
+      "count": 19
+    }
+  },
+  "city": {
+    "morning": {
+      "art": "comparisons/dayparts-20261103/v2/city-morning.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "city",
+      "count": 19
+    },
+    "day": {
+      "art": "comparisons/dayparts-20261103/v2/city-day.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "city",
+      "count": 19
+    },
+    "evening": {
+      "art": "comparisons/dayparts-20261103/images/city-evening.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "city",
+      "count": 19
+    },
+    "night": {
+      "art": "comparisons/dayparts-20261103/v6/city-night.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "city",
+      "count": 19
+    }
+  },
+  "countryside": {
+    "morning": {
+      "art": "comparisons/dayparts-20261103/v4/countryside-morning.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "countryside",
+      "count": 19
+    },
+    "day": {
+      "art": "comparisons/dayparts-20261103/v4/countryside-day.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "countryside",
+      "count": 19
+    },
+    "evening": {
+      "art": "comparisons/dayparts-20261103/v4/countryside-evening.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "countryside",
+      "count": 19
+    },
+    "night": {
+      "art": "comparisons/dayparts-20261103/v6/countryside-night.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "countryside",
+      "count": 19
+    }
+  },
+  "mountain": {
+    "morning": {
+      "art": "comparisons/dayparts-20261103/v4/mountain-morning.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "mountain",
+      "count": 19
+    },
+    "day": {
+      "art": "comparisons/dayparts-20261103/v4/mountain-day.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "mountain",
+      "count": 19
+    },
+    "evening": {
+      "art": "comparisons/dayparts-20261103/v4/mountain-evening.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "mountain",
+      "count": 19
+    },
+    "night": {
+      "art": "comparisons/dayparts-20261103/v6/mountain-night.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "mountain",
+      "count": 19
+    }
+  },
+  "snow": {
+    "morning": {
+      "art": "comparisons/dayparts-20261103/v4/snow-morning.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "snow",
+      "count": 19
+    },
+    "day": {
+      "art": "comparisons/dayparts-20261103/v4/snow-day.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "snow",
+      "count": 19
+    },
+    "evening": {
+      "art": "comparisons/dayparts-20261103/v4/snow-evening.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "snow",
+      "count": 19
+    },
+    "night": {
+      "art": "comparisons/dayparts-20261103/v6/snow-night.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "snow",
+      "count": 19
+    }
+  },
+  "sea": {
+    "morning": {
+      "art": "comparisons/dayparts-20261103/v4/sea-morning.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "sea",
+      "count": 19
+    },
+    "day": {
+      "art": "comparisons/dayparts-20261103/v4/sea-day.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "sea",
+      "count": 19
+    },
+    "evening": {
+      "art": "comparisons/dayparts-20261103/v4/sea-evening.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "sea",
+      "count": 19
+    },
+    "night": {
+      "art": "comparisons/dayparts-20261103/v6/sea-night.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "sea",
+      "count": 19
+    }
+  },
+  "jungle": {
+    "morning": {
+      "art": "comparisons/dayparts-20261103/v4/jungle-morning.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "jungle",
+      "count": 19
+    },
+    "day": {
+      "art": "comparisons/dayparts-20261103/v4/jungle-day.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "jungle",
+      "count": 19
+    },
+    "evening": {
+      "art": "comparisons/dayparts-20261103/v4/jungle-evening.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "jungle",
+      "count": 19
+    },
+    "night": {
+      "art": "comparisons/dayparts-20261103/v6/jungle-night.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "jungle",
+      "count": 19
+    }
+  },
+  "desert": {
+    "morning": {
+      "art": "comparisons/dayparts-20261103/v4/desert-morning.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "desert",
+      "count": 19
+    },
+    "day": {
+      "art": "comparisons/dayparts-20261103/v4/desert-day.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "desert",
+      "count": 19
+    },
+    "evening": {
+      "art": "comparisons/dayparts-20261103/v4/desert-evening.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "desert",
+      "count": 19
+    },
+    "night": {
+      "art": "comparisons/dayparts-20261103/v6/desert-night.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "desert",
+      "count": 19
+    }
+  },
+  "deepsea": {
+    "morning": {
+      "art": "comparisons/dayparts-20261103/v4/deepsea-morning.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "deepsea",
+      "count": 19
+    },
+    "day": {
+      "art": "comparisons/dayparts-20261103/v4/deepsea-day.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "deepsea",
+      "count": 19
+    },
+    "evening": {
+      "art": "comparisons/dayparts-20261103/v4/deepsea-evening.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "deepsea",
+      "count": 19
+    },
+    "night": {
+      "art": "comparisons/dayparts-20261103/v4/deepsea-night.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "deepsea",
+      "count": 19
+    }
+  },
+  "star_stop": {
+    "morning": {
+      "art": "comparisons/dayparts-20261103/v4/star_stop-morning.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "star_stop",
+      "count": 19
+    },
+    "day": {
+      "art": "comparisons/dayparts-20261103/v4/star_stop-day.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "star_stop",
+      "count": 19
+    },
+    "evening": {
+      "art": "comparisons/dayparts-20261103/v4/star_stop-evening.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "star_stop",
+      "count": 19
+    },
+    "night": {
+      "art": "comparisons/dayparts-20261103/v6/star_stop-night.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "star_stop",
+      "count": 19
+    }
+  },
+  "memory_lake": {
+    "morning": {
+      "art": "comparisons/dayparts-20261103/v4/memory_lake-morning.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "memory_lake",
+      "count": 19
+    },
+    "day": {
+      "art": "comparisons/dayparts-20261103/v4/memory_lake-day.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "memory_lake",
+      "count": 19
+    },
+    "evening": {
+      "art": "comparisons/dayparts-20261103/v4/memory_lake-evening.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "memory_lake",
+      "count": 19
+    },
+    "night": {
+      "art": "comparisons/dayparts-20261103/v6/memory_lake-night.webp",
+      "pixels": [
+        1024,
+        1536
+      ],
+      "visibleCanvas": [
+        750,
+        1520
+      ],
+      "size": "B",
+      "extra": 1.5,
+      "region": "memory_lake",
+      "count": 19
+    }
+  }
+}

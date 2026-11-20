@@ -64,6 +64,7 @@ def host_load():
 
 
 def run_sample(browser, url, scene, args, repeat, seed):
+    profile = args.mode == "phases" or args.profile_sustained
     region, width, count = scene.split(",")
     width, count = int(width), int(count)
     height = {375: 760, 390: 792, 430: 880}[width]
@@ -94,7 +95,7 @@ def run_sample(browser, url, scene, args, repeat, seed):
                 return model.snapshot().map(a=>[a.key,a.x,a.y,a.w,a.h]);
               };""",
             )
-            if args.mode == "phases":
+            if profile:
                 source = sub(
                     source,
                     "    function sync(){",
@@ -119,7 +120,7 @@ def run_sample(browser, url, scene, args, repeat, seed):
                 "function sync(list,next){",
                 "function sync(list,next){if(next.navigation&&list.length)finishPerf.scene=[list,next];",
             )
-            if args.mode == "phases":
+            if profile:
                 source = sub(
                     source,
                     "return {metrics:()=>({...stats",
@@ -130,7 +131,7 @@ def run_sample(browser, url, scene, args, repeat, seed):
                 )
                 old = "return {point:q,path,originalReference,expandedReference};\n      };"
                 source = sub(source, old, old[:-2] + "});")
-        elif "world" in name and args.mode == "phases":
+        elif "world" in name and profile:
             (anchor,) = [
                 line.strip()
                 for line in source.splitlines()
@@ -140,6 +141,25 @@ def run_sample(browser, url, scene, args, repeat, seed):
                 source,
                 anchor,
                 "const nt=performance.now();" + anchor + "finishPerf.add('nature',nt);",
+            )
+        elif name == "script-v2.js" and args.mode == "sustained":
+            anchor = (
+                "  window.addEventListener('home-v6-egg-ready',()=>renderHomeCast());"
+            )
+            source = sub(
+                source,
+                anchor,
+                """  finishPerf.blockingState=()=>({
+              hidden:document.visibilityState==='hidden',menu:isAnyMenuOverlayOpen(),individuality:individualityDialogOpen,
+              conversation:conv2Unit?.kind??null,lowerNoticeMs:Math.max(0,homeV11Presentation().lowerUntil-Date.now()),
+              sleeping:!!state.isSleeping,sick:!!state.isSick,dying:!!state.dying,transform:!!state.transformOptions,
+              lifeCard:!el.lifeCardOverlay.classList.contains('hidden'),birth:!!birthCelebration,game:!!gameActive,meguru:!!meguruActive,
+              movie:document.body.classList.contains('movie-active'),screenHidden:el.screenNormal.classList.contains('hidden'),
+              castReaction:el.castResponse.dataset.reaction||null,actorReactions:homeCastActors().map(a=>a.node.dataset.reaction).filter(Boolean),
+              blocked:!!homeDioramaBlocked(),buttons:[...document.querySelectorAll('[role=dialog] button')]
+                .filter(b=>b.getBoundingClientRect().height>0).map(b=>[b.id,b.textContent.trim()]).slice(0,12)
+            });\n"""
+                + anchor,
             )
         elif "beauty" in name and seed != 214:
             source = sub(source, "let actorSeed=214;", f"let actorSeed={seed};")
@@ -157,7 +177,11 @@ def run_sample(browser, url, scene, args, repeat, seed):
     try:
         page = ctx.new_page()
         page.on("pageerror", lambda e: errors.append(str(e)))
-        page.clock.set_fixed_time(datetime(2026, 10, 15, 3, tzinfo=UTC))
+        if args.mode == "sustained":
+            ctx.route("**/script-v2.js*", instrument)
+            page.clock.set_system_time(datetime(2026, 10, 15, 3, tzinfo=UTC))
+        else:
+            page.clock.set_fixed_time(datetime(2026, 10, 15, 3, tzinfo=UTC))
         query = urlencode(
             {
                 "region": region,
@@ -199,13 +223,47 @@ def run_sample(browser, url, scene, args, repeat, seed):
             sample = page.evaluate(
                 (HERE / "performance-replay.js").read_text(), [seed, args.steps]
             )
-        else:
-            observer = (
-                (HERE / "performance-sustained.js").read_text()
-                if args.mode == "sustained"
-                else SAMPLE
+        elif args.mode == "sustained":
+            observer = (HERE / "performance-sustained.js").read_text()
+            page.on(
+                "console",
+                lambda msg: (
+                    print(msg.text, flush=True)
+                    if msg.text.startswith("sustained pause ")
+                    else None
+                ),
             )
-            sample = page.evaluate(observer, [args.seconds, seed])
+            page.evaluate(
+                "args => { ("
+                + observer
+                + ")(args).then(r=>finishPerf.finished=r).catch(e=>finishPerf.failure=String(e)); }",
+                [args.seconds, seed],
+            )
+            dismissals = []
+            while True:
+                page.wait_for_function(
+                    "finishPerf.finished || finishPerf.failure || finishPerf.dismissRequested",
+                    polling=500,
+                    timeout=(args.seconds + 120) * 1000,
+                )
+                status = page.evaluate(
+                    "()=>({done:!!finishPerf.finished,failure:finishPerf.failure,request:finishPerf.dismissRequested})"
+                )
+                assert not status.get("failure"), status
+                if status["done"]:
+                    break
+                assert status["request"]["id"] == "individualityLater", status
+                button = page.get_by_role("button", name="あとで", exact=True).and_(
+                    page.locator("#individualityLater")
+                )
+                button.click(timeout=5000)
+                assert not button.is_visible()
+                dismissals.append(status["request"])
+                page.evaluate("finishPerf.dismissRequested=null")
+            sample = page.evaluate("finishPerf.finished")
+            sample["dismissals"] = dismissals
+        else:
+            sample = page.evaluate(SAMPLE, [args.seconds, seed])
         assert not errors, errors
         if args.mode != "replay":
             assert (
@@ -236,6 +294,7 @@ def main(args):
             "seconds": args.seconds,
             "steps": args.steps,
             "taskTrace": args.tasks,
+            "profileSustained": args.profile_sustained,
             "rows": [],
         }
     )
@@ -245,6 +304,10 @@ def main(args):
         args.seconds,
         args.steps,
     )
+    if args.profile_sustained:
+        assert args.mode == "sustained" and output.get("profileSustained"), (
+            "Profile sustained work in a separate file"
+        )
     if args.tasks:
         assert args.mode == "phases" and output.get("taskTrace"), (
             "Task attribution belongs in a separate phase run"
@@ -337,6 +400,7 @@ if __name__ == "__main__":
     )
     p.add_argument("--scene", action="append", required=True)
     p.add_argument("--tasks", action="store_true")
+    p.add_argument("--profile-sustained", action="store_true")
     p.add_argument("--repeat", type=int, default=2)
     p.add_argument("--seconds", type=float, default=12)
     p.add_argument("--steps", type=int, default=300)

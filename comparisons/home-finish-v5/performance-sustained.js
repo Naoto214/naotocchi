@@ -2,6 +2,8 @@
 // schedules its own model, rendering, input and background work.
 async ([seconds, seed]) => {
   const opening = finishPerf.reset(seed);
+  finishPerf.parts = {};
+  finishPerf.slow = [];
   const stage = document.querySelector('#castStage');
   const nodes = [...stage.querySelectorAll('[data-diorama-actor]')];
   const reactions = {};
@@ -11,6 +13,8 @@ async ([seconds, seed]) => {
   const gaps = [], minutes = [];
   const start = performance.now();
   let last = start, previousTime = start, previousFrame = 0, previousMetrics = before;
+  let pausedMs = 0, previousPausedMs = 0, pauseStart = 0, lastCheck = 0, previousReason = '';
+  const pauses = [], wallStart = Date.now();
   let nextBoundary = Math.min(seconds, 60) * 1000;
   const quantile = (sorted, fraction) => sorted[Math.ceil(sorted.length * fraction) - 1];
   const describe = (values, elapsedMs) => {
@@ -25,12 +29,33 @@ async ([seconds, seed]) => {
     function frame() {
       const now = performance.now();
       gaps.push(now - last);
+      if (stage.dataset.dioramaPaused === "true") {
+        pausedMs += now - last;
+        if (!pauseStart) pauseStart = last;
+        if (now - pauseStart >= 1000 && now - lastCheck >= 2000) {
+          const reason = finishPerf.blockingState();
+          const signature = JSON.stringify({...reason, lowerNoticeMs: reason.lowerNoticeMs > 0});
+          if (signature !== previousReason) {
+            const atMs = now - start;
+            pauses.push({atMs, reason});
+            console.info('sustained pause ' + JSON.stringify({atMs, reason}));
+            previousReason = signature;
+            if (reason.individuality && reason.buttons.some(([id, label]) => id === 'individualityLater' && label === 'あとで'))
+              finishPerf.dismissRequested = {atMs, id: 'individualityLater', label: 'あとで'};
+          }
+          lastCheck = now;
+        }
+      } else {
+        if (previousReason) pauses.push({atMs: now - start, resumed: true});
+        pauseStart = 0; previousReason = '';
+      }
       last = now;
       if (now - start >= nextBoundary) {
         const metrics = finishPerf.live.metrics();
         minutes.push({...describe(gaps.slice(previousFrame), now - previousTime),
-          throughMs: now - start, clock: metrics.clock - previousMetrics.clock,
+          throughMs: now - start, pausedMs: pausedMs - previousPausedMs, clock: metrics.clock - previousMetrics.clock,
           moves: metrics.moves - previousMetrics.moves, distance: metrics.distance - previousMetrics.distance});
+        previousPausedMs = pausedMs;
         previousFrame = gaps.length;
         previousTime = now;
         previousMetrics = metrics;
@@ -43,7 +68,8 @@ async ([seconds, seed]) => {
   });
   stage.removeEventListener('naotocchi:home-reaction', onReaction);
   const after = finishPerf.live.metrics();
-  return {...describe(gaps, last - start), opening, minutes, intervals: gaps, reactions,
+  return {...describe(gaps, last - start), opening, minutes, intervals: gaps, reactions, pausedMs, pauses, wallElapsedMs: Date.now() - wallStart,
+    phases: finishPerf.parts, slow: finishPerf.slow.map(([phase, a, b]) => [phase, a - start, b - start]),
     clock: after.clock - before.clock, moves: after.moves - before.moves,
     distance: after.distance - before.distance, activities: after.activities,
     sameNodes: nodes.every(node => node.isConnected), rows: nodes.length};
