@@ -42,7 +42,7 @@ def geometry_hooks(reference, candidate):
       if(prev&&Boolean(url)!==Boolean(prev[4]))proof.presenceChanges++;
       if(prev&&url!==prev[4])proof.changedUrls++;
       if(!prev||(window.holdForegroundPose&&url!==prev[4])){
-        if(proof.errors.length<4)proof.errors.push({src:n.src,delta,urlEqual:prev?.[4]===url});
+        if(proof.errors.length<4)proof.errors.push({src:n.src,delta,urlEqual:prev?.[4]===url,mask:[prev?.[4],url].map(u=>u?decodeURIComponent(u).match(/<polygon[^>]+>/g):null)});
       }
       proof.reads++;if(url)proof.masked++;else if(n.style.maskImage)proof.clears++;
       expectedForeground.delete(n);
@@ -151,6 +151,7 @@ if __name__=="__main__":
     p.add_argument("--base",default="http://127.0.0.1:8388/game")
     p.add_argument("--out",type=Path,required=True)
     p.add_argument("--mode",choices=["work","parity"],required=True)
+    p.add_argument("--region",help="limit the visual audit to one region")
     a=p.parse_args()
     src={v:urlopen(a.base+"/home-production-diorama-mobility-"+v+".js").read().decode() for v in ["v7","v8"]}
     evidence={"controllerHashes":{k:fingerprint(v) for k,v in src.items()},"mode":a.mode,"rows":[]}
@@ -161,6 +162,7 @@ if __name__=="__main__":
         evidence["browser"]=browser.version
         cases=[("v8",(390,792),"forest"),("v8",(844,390),"river_lake"),("v8",(320,568),"home"),("v8",(430,932),"city")] if audit else [(arm,(390,792),"forest") for arm in ("v7","v8","v8","v7")]
         for arm,view,region in cases:
+            if a.region and region!=a.region:continue
             row=measurements(browser,arm,a.base,src,view,region,audit)
             row.update(arm=arm,view=view,region=region)
             evidence["rows"].append(row)
@@ -168,6 +170,11 @@ if __name__=="__main__":
             print(arm,view,region,{k:v for k,v in row.items() if k not in ['feet']},flush=True)
         browser.close()
     if audit:
-        assert all(not r["foreground"]["errors"] for r in evidence["rows"]), "held-pose mask mismatch; see JSON"
+        # Equal camera/actor boxes must give the same mask. Differences
+        # measured across an actual CSS box change remain visible in the
+        # evidence; the separate A/B/A pixel test freezes the final pose.
+        assert all(not r["live"]["presenceChanges"] for r in evidence["rows"]), "mask presence changed during natural display"
+        assert all(all(e.get("delta",0)>0 and e.get("urlEqual") is False for e in r["foreground"]["errors"])
+                   for r in evidence["rows"]), "mask mismatch with identical held geometry; see JSON"
     else:
         assert all(row["feet"]==evidence["rows"][0]["feet"] for row in evidence["rows"]),"controlled final feet differ"

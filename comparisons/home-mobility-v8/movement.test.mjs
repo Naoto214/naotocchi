@@ -73,7 +73,7 @@ test('an unrelated moving foot cannot starve the native two-helper handoff', mov
 async function corridor(twoHelpers,spacing=20) {
   const {pathToFileURL}=await import('node:url');
   const {createTerrainNavigation}=await import(pathToFileURL(process.env.MOBILITY_GAME+'/home-route-navigation.mjs'));
-  const x=i=>i===0?40:i===1?40+spacing:i===2&&twoHelpers?40+2*spacing:140+40*i;
+  const x=i=>i===0?40:i===1?40+spacing:i===2&&twoHelpers?40+2*spacing:spacing===20?140+28*i:170+(i-2)*39;
   const people=Array.from({length:16},(_,i)=>({key:String(i),kind:i?'companion':'pet',w:spacing-10,h:10,x:x(i),y:40}));
   const native=source.replace('    return {metrics:', '    globalThis.actors=()=>actors;    return {metrics:')
     .replace('function* pairPlan(a,goal,ambient=false){','function* pairPlan(a,goal,ambient=false){if(ambient)globalThis.searches++;');
@@ -84,7 +84,7 @@ async function corridor(twoHelpers,spacing=20) {
   Object.assign(navigation,{intentAware:true,intentScale:{x:1,y:1}});
   let seating=true;
   const scene={width:700,height:150,region:'forest',navigation,
-    actorBounds:a=>({left:a.key==='0'?40:0,right:a.key==='0'?52:900,top:40,bottom:40}),
+    actorBounds:a=>({left:a.key==='0'?40:0,right:a.key==='0'?52:680,top:40,bottom:40}),
     visible:(p,a)=>!seating||Math.abs(p.x-people[+a.key].x)<1e-8&&Math.abs(p.y-40)<1e-8};
   model.sync(people,scene);seating=false;
   for(const a of context.actors()){a.nextAt=1000;a.lastWalk=-85;}
@@ -204,7 +204,7 @@ test('an exhausted direction is reused across repeated identical requests and un
   }
   assert.equal(searches(),1);
 });
-test('a waiting owner observes the second helper leaving a conversation across two footprints',async()=>{
+test('a distant second helper that stops talking is reconsidered on the next ordinary intention',async()=>{
   const {model,actors}=await corridor(true,40);
   // Only the second helper is 80px away. It blocks the direct neighbor at 40px.
   const helper=actors()[2];helper.activity='together';
@@ -212,6 +212,9 @@ test('a waiting owner observes the second helper leaving a conversation across t
   for(let i=0;i<35;i++)model.step(.05,{autonomy:true});
   assert.equal(model.snapshot()[0].x,40);
   helper.activity='rest';
+  for(let i=0;i<240;i++)model.step(.05,{autonomy:true});
+  assert.equal(model.snapshot()[0].x,40);
+  assert.equal(model.move('0',{x:52,y:40},'ambient'),false);
   for(let i=0;i<165;i++)model.step(.05,{autonomy:true});
   assert.equal(model.snapshot()[0].x,52);
 });

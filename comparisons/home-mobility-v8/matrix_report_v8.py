@@ -11,6 +11,7 @@ import zipfile
 from matrix_worker_v8 import ARMS, HERE, SUBJECTS, old, subjects, validate
 import matrix_review as v7
 
+ARCHIVES = 'https://naotocchi-mobility-v8-evidence.kerzion214.chatgpt.site/evidence/mobility-v8/matrix/'
 SITE = 'https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/mobility-v8/matrix/'
 REPO = 'Naoto214/naotocchi'
 V7_RELEASE = '44709182706'
@@ -28,6 +29,7 @@ def checked_cells(raw_root):
     selected = subjects()
     cells = []
     identity = {}
+    region_browsers = {}
     for region in old.REGIONS:
         folder = raw_root / region
         manifest = json.loads((folder/'region.json').read_bytes())
@@ -45,9 +47,15 @@ def checked_cells(raw_root):
                 hashes = meta.setdefault('scripts',{}).setdefault(arm,d['hashes'])
                 old.require(d['browser']==meta['browser'] and hashes==d['hashes'], 'browser or game changed within arm')
             cells.append(cell)
+        # GitHub hosts can receive a Chrome patch at different times. The
+        # browser must match across all count/width/arm comparisons within
+        # each region; native game bytes must also match across all regions.
+        region_browsers[region] = meta.pop('browser')
         if not identity: identity = meta
-        old.require(meta==identity, 'region built from a different revision/browser')
-    return cells, identity
+        old.require(meta==identity, 'region built from a different gameplay or test revision')
+    versions = sorted(set(region_browsers.values()))
+    old.require(len({v.rsplit('.',1)[0] for v in versions})==1, 'mixed browser release lines')
+    return cells, {**identity,'browser':' / '.join(versions),'browserByRegion':region_browsers}
 
 def verified_zips(raw_root, archives, run_id, identity):
     def github(*args): return json.loads(subprocess.check_output(['gh',*args],text=True))
@@ -69,7 +77,7 @@ def verified_zips(raw_root, archives, run_id, identity):
         expected = {'region.json',*(f'{region}-{n}-{w}.json' for n in old.COUNTS for w in old.WIDTHS)}
         with zipfile.ZipFile(path) as z:
             old.require(len(z.namelist())==len(expected) and set(z.namelist())==expected and all(z.read(k)==(folder/k).read_bytes() for k in expected), 'archive differs from verified raw rows')
-        receipt['regions'][region] = {'url':SITE+export,'sha256':sha,'bytes':path.stat().st_size,'artifactId':item['id'],'jobId':job['databaseId']}
+        receipt['regions'][region] = {'url':ARCHIVES+export,'sha256':sha,'bytes':path.stat().st_size,'artifactId':item['id'],'jobId':job['databaseId']}
     return receipt
 
 def old_controls(cells, prior):
