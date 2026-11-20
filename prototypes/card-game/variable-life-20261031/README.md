@@ -1,0 +1,132 @@
+# 人生延長カード・そだち上限解放カードによる 10／11／12 ラウンド可変制の比較実験（2026-10-31）
+
+**通常は10ラウンド・100歳・そだち100で終わり、特定のカードで最大12ラウンド・120歳・そだち上限120まで延ばせる方式**が、現行ルールより面白いかを、実際のエンジンと正式CPU（heuristic-2）で比べた独立実験です。
+本人の正式決定（10R・100歳・そだち100・100維持、PR #495 DECISION.md）を覆すものではありません。
+
+**正式カード452枚・正式ルール・正式CPU・正式7デッキ・保存形式・固定400戦・PR #495 の資料・main・本番Pagesは変更していません。** 新カードは隔離ビルドの中だけで定義した仮カードです。mainへのマージ・Pages公開は行いません。
+
+## 本人の方針（2026-10-31、PR #498 の追加比較を受けて）
+1. 現行の10ラウンド・100歳・そだち100を正式ルールとして維持する。
+2. A1t1（人生延長・しかける・時2・デッキ1枚）は正式採用せず、試作を続ける。
+3. A1t1 を人間同士で試す本人限定の試遊版を作る → **[trial/README.md](trial/README.md)**（https://claude.ai/artifact/FZbYtFDC5MPvqpR1bUcb5X）
+4. そだちの上限は100固定とし、人生延長だけを比べる。
+5. カードを引いた側の +3pt の有利は試遊段階では許容し、正式採用の前に再評価する。
+6. 重点：伏せた延長カードによる読み合い、延長のタイミング、延長後の逆転の可能性。
+
+## 本人の方針（2026-11-01）と、せかい「XI」「XII」の比較
+- 延長カードは「せかい」とし、既存のセカイと同じ通常の出し方を使う（しかける方式は第一候補から外す）。カード名「XI」「XII」。そだち上限100・最大12。
+- 設計と既存カードとの関係：**[WORLD.md](WORLD.md)**、計画：[PLAN-WORLD.md](PLAN-WORLD.md)、結果：REPORT.md **§12**。
+- 比較試遊版（方式 A／B／C を選べる）：**[trial-world/README.md](trial-world/README.md)**（https://claude.ai/artifact/YBgWnd9pMguL1LCBLTDvPm）
+- 結果の要点：通常のセカイとしていつでも出せると、延長が大半の試合で起き（12R 44〜68%）、固定12Rに近い悪い影響が出る。時2・時3の差は小さい。A／B／C では A が最も穏やか。
+
+## 本人の正式決定（2026-11-02、試作の前提）と、時のカード IX・X・XI・XII
+- IX〜XII は通常のセカイ（時2・暫定、同名3枚まで）。現在のラウンドより前には変更できない。相手の時のカードに、時のカードで特殊カウンターできる（何回でも。最後のカードだけ成立し、前の時のカードは捨て札）。終了ラウンドは両者共通。
+- 監査・実装・処理順・未確定事項：**[TIME.md](TIME.md)**、計画：[PLAN-TIME.md](PLAN-TIME.md)、結果：REPORT.md **§13**。
+- 試遊版（人生の時計の小針が終了ラウンドを指す・CPU対戦・同一端末）：**[trial-time/README.md](trial-time/README.md)**（https://claude.ai/artifact/2vkeGuyKQG9LC2VwKpK4TK）
+- 結果の要点（CPU 6,720戦）：
+  - 終了は R9 13%・R10 40%・R11 31%・R12 16%。カウンターは40%の試合で起きる。
+  - 先攻の有利・デッキ幅・接戦・維持勝利への影響は小さい。§12 より穏やか。時2と時3の差はない。
+  - ただし、延ばした側はあまり逆転できない（得点率0.20）。アイテム型は +8.5pt。
+  - **本人の試遊で操作性とバランスを確認するまで、正式導入はしません。**
+
+## VERSION 8（2026-11-06）：CPU の標準構成 P3 と、正式導入の直前までの準備
+- 本人の決定：CPU の標準構成は **P3**、CPU の判断は状況型。U8・U9・U11・U16・U17・U19 の方針も決まりました。
+- まとめ：[integration/CANDIDATE-V8.md](integration/CANDIDATE-V8.md)。報告：REPORT §19。未確定事項：[OPEN-ITEMS.md](OPEN-ITEMS.md)。
+- 道具：P3 のデッキ一覧（`integration/cpu-decks-p3.mjs`）、先攻得点率の見守り（`integration/first-seat-check.py`）、Astra の画像の受け入れ確認（`integration/art-intake.mjs`）、時計の確認（`integration/test-clock-u8.mjs`）。
+- 試遊版 VERSION 8（同じ URL）：https://claude.ai/artifact/2vkeGuyKQG9LC2VwKpK4TK
+
+## VERSION 7（2026-11-04）：正式導入候補7枚の統合準備
+- 計画：[PLAN-V7.md](PLAN-V7.md)。結果：REPORT.md **§18**。
+- **統合候補（459枚）：** [integration/CANDIDATE-V7.md](integration/CANDIDATE-V7.md)。
+  - ID は `W-time-ix`〜`W-time-xii`・`E-hayajimai`・`E-nagaiki`・`E-omoide-photo`。
+  - 新カードのない対戦は main（hotseat-8・heuristic-3）と完全に同じでした（560/560）。正式IDへの付け替えも、対戦に影響しません（560/560）。
+- **CPU：** 状況型（`heuristic-4-candidate`）。標準の構成は VERSION 2 の推奨＋有望3枚（RECP3）。別の案は P3（U20、本人の判断）。
+- **戦績 version 2：** [RECORDS-V2.md](RECORDS-V2.md)。9項目すべて合格。
+- **未確定事項：** [OPEN-ITEMS.md](OPEN-ITEMS.md)。**絵の仕様（Astra 向け）：** [ASTRA-ART-SPEC.md](ASTRA-ART-SPEC.md)。**再現と長期保存：** [REPRODUCE.md](REPRODUCE.md)。
+- 試遊版 VERSION 7（Version 8、同じ URL）：https://claude.ai/artifact/2vkeGuyKQG9LC2VwKpK4TK
+- **記録ファイルは HEAD にありません。** `sh lib/restore-archive.sh` で、VERSION 1〜7 の358件を戻せます。
+
+## VERSION 6（2026-11-04）：有望3枚の最終検証・CI の修復・正式導入の準備
+- 計画：[PLAN-V6.md](PLAN-V6.md)。結果：REPORT.md **§17**（4,480戦、全 61,460戦で保存→復元一致）。
+- **おもいでのしゃしん：** 持つ席だけを入れ替えた比較で、後攻−先攻 +2.2pt [−1.2, +5.1]（有意でない）。最大 +15 を維持します。
+- **ながいきのひけつの CPU：** 状況に応じた使用型が最もつり合いがよい結果でした（有望3枚で R8 に負けていた側 +10.2pt、温存型より +2.5pt）。
+- **CI：** 保存容量の点検に合わせて326件を HEAD から外しました（[ARCHIVE.md](ARCHIVE.md)、履歴に保持・復元可）。ホーム本番テストは、実験ディレクトリ1つだけを除外しました（要承認）。
+- 正式戦績の互換性：[RECORDS-COMPAT.md](RECORDS-COMPAT.md)。未確定事項：[OPEN-ITEMS.md](OPEN-ITEMS.md)。
+- 試遊版 VERSION 6（Version 7、同じ URL）：https://claude.ai/artifact/2vkeGuyKQG9LC2VwKpK4TK
+- **記録ファイルは HEAD にありません。** 集計を再実行する前に `sh lib/restore-archive.sh` を実行してください。
+
+## VERSION 5（2026-11-04）：逆転カード4種類の最終比較
+- 計画：[PLAN-V5.md](PLAN-V5.md)（本実行前に固定）。結果：REPORT.md **§16**（6,160戦＋分岐、全 56,980戦で保存→復元一致）。
+- **おいわいのつる：** ラウンド終了時判定（D2）で、後攻有利（−7.8pt）が解消しました（+0.2pt）。
+- **CPU smart4：** ながいきのひけつの R5 以前の使用が 52% → 13% に減りました。
+- **推奨：** はやじまい・ながいきのひけつ・おもいでのしゃしん（R8に負けていた側 +7.7pt）。次点は、はやじまい＋ながいき（先攻差なし）。
+- 試遊版 VERSION 5（同じ URL、Version 6）：https://claude.ai/artifact/2vkeGuyKQG9LC2VwKpK4TK 。戦績が2戦目以降に保存できなかった不具合（VERSION 1 から）も修正しました。
+
+## VERSION 4（2026-11-04）：新カード7種類の比較試作
+- 計画：[PLAN-V4.md](PLAN-V4.md)（本実行前に固定。単独追加の結果と有望カードの選定は §7）。結果：REPORT.md **§15**（11,256戦＋同じ局面からの分岐 3,295局面）。
+- 実装：実験ビルド `T-4v`。U12（カウンターされた時のカードに既存の置換を適用。効果は常に不成立）。CPU smart3（新カードがなければ smart2 と同一）。
+- 推奨：
+  - 採用を推奨：**はやじまい**・**ながいきのひけつ**・**おもいでのしゃしん**。
+  - おいわいのつる：後攻有利のため修正して再試験。
+  - まちぶせどけい・いなかのおみやげ：見送り。
+  - ちょっとまった：保留。
+- 試遊版 VERSION 4（新カード・構成・CPU 判断を選べる）：同じ URL https://claude.ai/artifact/2vkeGuyKQG9LC2VwKpK4TK
+
+## VERSION 3 企画案（2026-11-03）：終了ラウンド可変制を活かす新カード
+- **企画だけです**（実装・画像・正式追加・検証なし）。資料：**[CARDS-V3.md](CARDS-V3.md)**
+- 14種類の候補を出し、有望な5種類（はやじまい・ながいきのひけつ・おいわいのつる・おもいでのしゃしん・まちぶせどけい）を比較しました。
+- 調査の結果、既存の置換カード（タンポポ④・ヒトデ⑦・サンゴ⑦）とカウンターの関係を、新しい未確定事項 U12 として挙げました。
+- 試作するカードは、本人との相談で決めます。
+
+## VERSION 2（2026-11-02）：時のカードのデッキ構成と CPU 判断の改善
+- 本人の追加決定：時のカードは、通常のセカイと同じ構築ルールに従う（同名3枚まで、合計の上限なし）。カードのルールと時2は VERSION 1 のまま。
+- 計画：[PLAN-V2.md](PLAN-V2.md)。CPU・構成・未確定事項の推奨裁定：[TIME-V2.md](TIME-V2.md)。結果：REPORT.md **§14**（11,032戦）。
+- 要点：
+  - 実験用CPU smart2 は勝率の見込みで判断し、序盤の使用を 20% → 4% に減らしました。点差と逆向きの使用は、デッキの傾向と100維持で説明できるものだけでした。
+  - 時のカードを多く入れるほど、どのデッキも弱くなり、公平性も悪くなりました（各2・各3でデッキ幅が約1.8倍）。
+  - CPU の推奨構成は、こいびと・バランスが XII×2、ほかの5デッキは時のカードなしです。この構成で、公平性は現行10Rと同等でした。
+- 試遊版 VERSION 2（構成・CPU 判断を選べる）：同じ URL https://claude.ai/artifact/2vkeGuyKQG9LC2VwKpK4TK
+
+## 結論（REPORT.md §0）
+- **第一推奨：正式ルールは現行のまま。** 可変制が現行より面白いという根拠は得られませんでした。延長ルールそのものは、接戦を −3.7〜−6.3pt 減らし、最強のアイテム・じゅんびデッキを +5〜+7pt 強くします（対照X0との差）。
+- 延長は、負けている側が使っても得点率は約0.15で、**逆転の手段としては弱い**です。毎試合12Rにはなりません（A1t 4.8%・A3 0.7%）。
+- 事前の判断基準を満たした最有望案は **A1t（人生延長・しかける・時2・最終ラウンドの自分のターン終了時）**。追加比較（REPORT §11）の **しかける×1枚（A1t1）** は、延長27.5%・12R 0.9%で現行との差がすべて有意差なしの、最も穏やかな方式でした。ただし延長ルールそのものは接戦を −4.0pt 減らし、引いた側がわずかに有利（+3.0pt）になります。試作を続けるなら A1t1 を人間同士の試遊にかけるのが次の一歩です。
+- **そだち上限解放（共通）は、相手の100維持を止める守りのカード**として新しい駆け引きを生みます（維持の開始の21.7%を阻止）。ただし88%は使われずに終わります。
+
+## 資料
+| ファイル | 内容 |
+|---|---|
+| [PLAN.md](PLAN.md) | 本実行の前に固定した計画（条件・seed・試合数・指標・判断基準） |
+| [PLAN-NEXT.md](PLAN-NEXT.md) | 追加比較（しかける×1枚）の計画（実行前に固定） |
+| [REPORT.md](REPORT.md) | 結果と推奨（全指標・95%CI） |
+| [CARDS.md](CARDS.md) | 仮カードの効果比較（コスト・分類・タイミング・枚数・使用回数・公平性・抜いた枠） |
+| [RULINGS.md](RULINGS.md) | 12の論点の仮裁定と、正式ルールと矛盾する箇所 |
+| [SAVE-COMPAT.md](SAVE-COMPAT.md) | 保存互換性（実験の事実と、正式採用時に必要な変更） |
+| [CLOCK.md](CLOCK.md) | 時計型カウンター（12目盛り・10赤／11緑／12青・3本針）の設計検討 |
+
+| コード・データ | 内容 |
+|---|---|
+| `lib/build-life.mjs` | main `7c1f18c7` の正式モジュールを `git show` で `build/<条件>/`（git管理外）へ写し、仮カード・`life` 状態・CPU補助だけを足す。前後で正式ファイルの sha256 を照合 |
+| `lib/decks-life.mjs` | 実験デッキ（各デッキの同じ2枠を置き換え） |
+| `lib/make-manifest-life.mjs` | 対戦計画（PR #495 と同じ seed ラベル） |
+| `lib/run.mjs`・`lib/run-all.sh` | 隔離環境での CPU 対戦と記録（PR #495 の runner を複製して拡張） |
+| `lib/smoke.mjs` | 動作確認（`evidence/smoke.txt`、26項目合格） |
+| `lib/extract-ref.py` | PR #495 の G-A（A0）・G-D（A5）の記録を、PR #495 の commit から読み出して `ref/` へ写す（PR #495 側は無変更） |
+| `analyze_life.py` | 集計（seed グループ単位のブートストラップ 95%CI） |
+| `runs/` | 計画（`*-manifest.json`）と記録（`*.jsonl.gz`）：pilot 672、EQ 112、MAIN 8,960、SENS 1,680、E8 420、追加 NEXT 1,120・NEXTn1 560（計13,524戦。異常終了0、保存→復元 13,524/13,524 一致） |
+| `results/` | `summary.json`（全集計）、`build-manifest.json`（ビルドの sha256） |
+| `ref/` | PR #495 から再利用した A0・A5 の記録（2,240＋280戦）と出典の sha256 |
+
+## 再現
+```sh
+cd prototypes/card-game/variable-life-20261031
+node lib/build-life.mjs                        # build/L-*（git管理外）
+node lib/smoke.mjs > evidence/smoke.txt        # 動作確認
+sh lib/run-all.sh pilot EQ MAIN SENS E8        # 4並列・再開可能（約2時間）
+sh lib/run-all.sh NEXT NEXTn1                  # 追加比較（約20分）
+python3 lib/extract-ref.py                     # PR #495 の A0・A5（要：git fetch origin pull/495/head）
+python3 analyze_life.py > results/summary.json # 約5分
+```
+
+## 本人の判断が必要な事項
+REPORT.md §9 と、PR 本文の「本人が判断すべき事項」を参照してください。

@@ -1,0 +1,31 @@
+PASS 通常のセカイとして出せる（時2）
+PASS XI で終了ラウンド11
+PASS XI はセカイ枠に残る
+PASS R10 では IX を出せない（画面に操作が出ない）
+PASS R10 では X を出せる
+PASS A が IX を出す（能力は連鎖上で待機） — chain=1 final=10
+PASS A は自分の IX にはカウンターできない
+PASS B に XII のカウンターが出る
+PASS B の XII はセカイ枠へ（時2を払う） — B time=6
+PASS 途中では終了ラウンドは変わらない（10のまま）
+PASS A に X のカウンターが出る
+PASS A の X は A のセカイ枠へ（IX は置き換えで捨て札）
+PASS 連鎖に4枚の時のカード — chain=4
+PASS 最後の XI だけが成立：終了ラウンド11 — final=11
+PASS XI だけが場に残る（B のセカイ） — A:discard B:discard
+PASS A のセカイ枠は空（X が捨て札へ）
+PASS 記録：4枚の勝負・3枚がカウンターされた
+PASS A の通常の行動機会に戻る
+PASS 先攻の IX で終了ラウンド9
+PASS 後攻の通常の番がある
+PASS R9 後攻の終了で最終比較 — R9最終比較
+PASS 後攻の X で終了ラウンド10
+PASS 先攻の番を足さずに R10 後攻の終了で最終比較 — R10最終比較
+PASS 先攻に XII のカウンター（相手の番の対応機会）
+PASS カウンター成立：終了ラウンド12
+PASS R11 へ続く
+PASS 場を離れても12のまま
+PASS カウンターなしの条件では B にカウンターが出ない
+PASS 時3の条件では XI は時3
+PASS 時1ではカウンターできない（時2が必要）
+ALL PASS

@@ -1,0 +1,24 @@
+build/
+runs/*.jsonl
+runs/*.log
+runs/run-all.out
+_*.py
+runs/*.out
+# VERSION 6 (ARCHIVE.md): regenerable or archived data stays out of HEAD; restore with lib/restore-archive.sh.
+runs/*.jsonl.gz
+ref/*.jsonl.gz
+**/evidence*/*.png
+/runs/MAIN-manifest.json
+/runs/MAINT-manifest.json
+/runs/MAINW-manifest.json
+/runs/SENSW-manifest.json
+/runs/V2S-manifest.json
+/runs/V4S-manifest.json
+build-main/
+runs-v7/*.jsonl
+runs-v7/*.jsonl.gz
+runs-v7/*.log
+build-main-all/
+runs-v7/**/*.jsonl
+runs-v7/**/*.jsonl.gz
+runs-v7/**/*.log

@@ -1,0 +1,3396 @@
+{
+ "conditions": {
+  "A0": {
+   "games": 1120,
+   "completed": 1120,
+   "replayMatch": 1120,
+   "abnormal": 0,
+   "final": {
+    "R9": 0.0,
+    "R10": 1.0,
+    "R11": 0.0,
+    "R12": 0.0
+   },
+   "finalMean": 10.0,
+   "firstWin": 0.468,
+   "secondWin": 0.436,
+   "firstSeatScore": 0.516,
+   "draw": 0.096,
+   "close": 0.406,
+   "holdWin": 0.029,
+   "timeUsedGames": 0.0,
+   "counterGames": 0.0,
+   "cardsPerGame": 0.0,
+   "deck": {
+    "main": 0.531,
+    "companion": 0.41,
+    "partner": 0.508,
+    "challenge": 0.537,
+    "growth": 0.431,
+    "item": 0.646,
+    "balance": 0.435
+   },
+   "deckSpread": 0.235,
+   "deckSD": 0.076,
+   "events": {
+    "resolutions": 0,
+    "byState": {},
+    "wrongDirection": null,
+    "behindShortenShare": null,
+    "aheadExtendShare": null,
+    "round": {},
+    "earlyShare": null,
+    "battle": {},
+    "maxBattle": 0,
+    "comebackByExtender": {
+     "games": 0,
+     "score": null
+    },
+    "holdByShortener": {
+     "games": 0,
+     "score": null
+    }
+   },
+   "finalTimeCard": {}
+  },
+  "TX4": {
+   "games": 1120,
+   "completed": 1120,
+   "replayMatch": 1120,
+   "abnormal": 0,
+   "final": {
+    "R9": 0.0,
+    "R10": 1.0,
+    "R11": 0.0,
+    "R12": 0.0
+   },
+   "finalMean": 10.0,
+   "firstWin": 0.458,
+   "secondWin": 0.433,
+   "firstSeatScore": 0.512,
+   "draw": 0.109,
+   "close": 0.43,
+   "holdWin": 0.02,
+   "timeUsedGames": 0.0,
+   "counterGames": 0.0,
+   "cardsPerGame": 0.0,
+   "deck": {
+    "main": 0.608,
+    "companion": 0.465,
+    "partner": 0.473,
+    "challenge": 0.59,
+    "growth": 0.398,
+    "item": 0.567,
+    "balance": 0.4
+   },
+   "deckSpread": 0.21,
+   "deckSD": 0.082,
+   "events": {
+    "resolutions": 0,
+    "byState": {},
+    "wrongDirection": null,
+    "behindShortenShare": null,
+    "aheadExtendShare": null,
+    "round": {},
+    "earlyShare": null,
+    "battle": {},
+    "maxBattle": 0,
+    "comebackByExtender": {
+     "games": 0,
+     "score": null
+    },
+    "holdByShortener": {
+     "games": 0,
+     "score": null
+    }
+   },
+   "finalTimeCard": {}
+  },
+  "V1": {
+   "games": 1120,
+   "completed": 1120,
+   "replayMatch": 1120,
+   "abnormal": 0,
+   "final": {
+    "R9": 0.129,
+    "R10": 0.4,
+    "R11": 0.312,
+    "R12": 0.158
+   },
+   "finalMean": 10.5,
+   "firstWin": 0.468,
+   "secondWin": 0.435,
+   "firstSeatScore": 0.517,
+   "draw": 0.097,
+   "close": 0.418,
+   "holdWin": 0.034,
+   "timeUsedGames": 0.862,
+   "counterGames": 0.4,
+   "cardsPerGame": 2.03,
+   "deck": {
+    "main": 0.585,
+    "companion": 0.483,
+    "partner": 0.442,
+    "challenge": 0.544,
+    "growth": 0.4,
+    "item": 0.652,
+    "balance": 0.394
+   },
+   "deckSpread": 0.258,
+   "deckSD": 0.09,
+   "events": {
+    "resolutions": 1717,
+    "byState": {
+     "ahead/extend": 2,
+     "ahead/shorten": 704,
+     "behind/extend": 1002,
+     "behind/shorten": 9
+    },
+    "wrongDirection": 0.006,
+    "behindShortenShare": 0.009,
+    "aheadExtendShare": 0.003,
+    "round": {
+     "2": 8,
+     "3": 24,
+     "4": 110,
+     "5": 207,
+     "6": 244,
+     "7": 443,
+     "8": 274,
+     "9": 276,
+     "10": 100,
+     "11": 31
+    },
+    "earlyShare": 0.203,
+    "battle": {
+     "1": 1219,
+     "2": 439,
+     "3": 58,
+     "4": 1
+    },
+    "maxBattle": 4,
+    "comebackByExtender": {
+     "games": 393,
+     "score": 0.146
+    },
+    "holdByShortener": {
+     "games": 341,
+     "score": 0.842
+    }
+   },
+   "finalTimeCard": {}
+  },
+  "V1H8": {
+   "games": 560,
+   "completed": 560,
+   "replayMatch": 560,
+   "abnormal": 0,
+   "final": {
+    "R9": 0.075,
+    "R10": 0.386,
+    "R11": 0.395,
+    "R12": 0.145
+   },
+   "finalMean": 10.61,
+   "firstWin": 0.471,
+   "secondWin": 0.432,
+   "firstSeatScore": 0.52,
+   "draw": 0.096,
+   "close": 0.354,
+   "holdWin": 0.036,
+   "timeUsedGames": 0.97,
+   "counterGames": 0.789,
+   "cardsPerGame": 4.0,
+   "deck": {
+    "main": 0.658,
+    "companion": 0.571,
+    "partner": 0.417,
+    "challenge": 0.562,
+    "growth": 0.254,
+    "item": 0.654,
+    "balance": 0.383
+   },
+   "deckSpread": 0.404,
+   "deckSD": 0.141,
+   "events": {
+    "resolutions": 1372,
+    "byState": {
+     "ahead/extend": 2,
+     "ahead/shorten": 592,
+     "behind/extend": 773,
+     "behind/shorten": 5
+    },
+    "wrongDirection": 0.005,
+    "behindShortenShare": 0.006,
+    "aheadExtendShare": 0.003,
+    "round": {
+     "2": 4,
+     "3": 7,
+     "4": 69,
+     "5": 206,
+     "6": 234,
+     "7": 346,
+     "8": 198,
+     "9": 200,
+     "10": 83,
+     "11": 25
+    },
+    "earlyShare": 0.208,
+    "battle": {
+     "1": 723,
+     "2": 496,
+     "3": 103,
+     "4": 37,
+     "5": 10,
+     "6": 3
+    },
+    "maxBattle": 6,
+    "comebackByExtender": {
+     "games": 201,
+     "score": 0.167
+    },
+    "holdByShortener": {
+     "games": 184,
+     "score": 0.891
+    }
+   },
+   "finalTimeCard": {}
+  },
+  "V2C": {
+   "games": 1120,
+   "completed": 1120,
+   "replayMatch": 1120,
+   "abnormal": 0,
+   "final": {
+    "R9": 0.088,
+    "R10": 0.637,
+    "R11": 0.131,
+    "R12": 0.143
+   },
+   "finalMean": 10.33,
+   "firstWin": 0.456,
+   "secondWin": 0.433,
+   "firstSeatScore": 0.512,
+   "draw": 0.111,
+   "close": 0.433,
+   "holdWin": 0.033,
+   "timeUsedGames": 0.474,
+   "counterGames": 0.188,
+   "cardsPerGame": 0.91,
+   "deck": {
+    "main": 0.577,
+    "companion": 0.46,
+    "partner": 0.456,
+    "challenge": 0.544,
+    "growth": 0.415,
+    "item": 0.644,
+    "balance": 0.404
+   },
+   "deckSpread": 0.24,
+   "deckSD": 0.083,
+   "events": {
+    "resolutions": 768,
+    "byState": {
+     "ahead/extend": 18,
+     "ahead/shorten": 311,
+     "behind/extend": 421,
+     "behind/shorten": 18
+    },
+    "wrongDirection": 0.047,
+    "behindShortenShare": 0.041,
+    "aheadExtendShare": 0.055,
+    "round": {
+     "3": 3,
+     "4": 2,
+     "5": 25,
+     "6": 30,
+     "7": 128,
+     "8": 212,
+     "9": 210,
+     "10": 137,
+     "11": 21
+    },
+    "earlyShare": 0.039,
+    "battle": {
+     "1": 539,
+     "2": 206,
+     "3": 21,
+     "4": 2
+    },
+    "maxBattle": 4,
+    "comebackByExtender": {
+     "games": 260,
+     "score": 0.142
+    },
+    "holdByShortener": {
+     "games": 142,
+     "score": 0.835
+    }
+   },
+   "finalTimeCard": {}
+  },
+  "V2O": {
+   "games": 1120,
+   "completed": 1120,
+   "replayMatch": 1120,
+   "abnormal": 0,
+   "final": {
+    "R9": 0.0,
+    "R10": 0.869,
+    "R11": 0.0,
+    "R12": 0.131
+   },
+   "finalMean": 10.26,
+   "firstWin": 0.461,
+   "secondWin": 0.435,
+   "firstSeatScore": 0.513,
+   "draw": 0.104,
+   "close": 0.411,
+   "holdWin": 0.045,
+   "timeUsedGames": 0.131,
+   "counterGames": 0.0,
+   "cardsPerGame": 0.13,
+   "deck": {
+    "main": 0.523,
+    "companion": 0.415,
+    "partner": 0.515,
+    "challenge": 0.544,
+    "growth": 0.425,
+    "item": 0.642,
+    "balance": 0.438
+   },
+   "deckSpread": 0.227,
+   "deckSD": 0.075,
+   "events": {
+    "resolutions": 147,
+    "byState": {
+     "ahead/extend": 6,
+     "behind/extend": 141
+    },
+    "wrongDirection": 0.041,
+    "behindShortenShare": 0.0,
+    "aheadExtendShare": 1.0,
+    "round": {
+     "2": 2,
+     "5": 11,
+     "6": 11,
+     "7": 23,
+     "8": 30,
+     "9": 15,
+     "10": 55
+    },
+    "earlyShare": 0.088,
+    "battle": {
+     "1": 147
+    },
+    "maxBattle": 1,
+    "comebackByExtender": {
+     "games": 141,
+     "score": 0.156
+    },
+    "holdByShortener": {
+     "games": 0,
+     "score": null
+    }
+   },
+   "finalTimeCard": {}
+  },
+  "V2R": {
+   "games": 560,
+   "completed": 560,
+   "replayMatch": 560,
+   "abnormal": 0,
+   "final": {
+    "R9": 0.075,
+    "R10": 0.661,
+    "R11": 0.079,
+    "R12": 0.186
+   },
+   "finalMean": 10.38,
+   "firstWin": 0.457,
+   "secondWin": 0.446,
+   "firstSeatScore": 0.505,
+   "draw": 0.096,
+   "close": 0.4,
+   "holdWin": 0.046,
+   "timeUsedGames": 0.371,
+   "counterGames": 0.104,
+   "cardsPerGame": 0.6,
+   "deck": {
+    "main": 0.658,
+    "companion": 0.383,
+    "partner": 0.483,
+    "challenge": 0.542,
+    "growth": 0.4,
+    "item": 0.629,
+    "balance": 0.404
+   },
+   "deckSpread": 0.275,
+   "deckSD": 0.105,
+   "events": {
+    "resolutions": 263,
+    "byState": {
+     "ahead/extend": 17,
+     "ahead/shorten": 80,
+     "behind/extend": 157,
+     "behind/shorten": 9
+    },
+    "wrongDirection": 0.099,
+    "behindShortenShare": 0.054,
+    "aheadExtendShare": 0.175,
+    "round": {
+     "3": 1,
+     "4": 1,
+     "5": 8,
+     "6": 21,
+     "7": 44,
+     "8": 50,
+     "9": 57,
+     "10": 75,
+     "11": 6
+    },
+    "earlyShare": 0.038,
+    "battle": {
+     "1": 199,
+     "2": 57,
+     "3": 6,
+     "4": 1
+    },
+    "maxBattle": 4,
+    "comebackByExtender": {
+     "games": 123,
+     "score": 0.228
+    },
+    "holdByShortener": {
+     "games": 52,
+     "score": 0.817
+    }
+   },
+   "finalTimeCard": {}
+  },
+  "V2H8": {
+   "games": 560,
+   "completed": 560,
+   "replayMatch": 560,
+   "abnormal": 0,
+   "final": {
+    "R9": 0.096,
+    "R10": 0.562,
+    "R11": 0.182,
+    "R12": 0.159
+   },
+   "finalMean": 10.4,
+   "firstWin": 0.468,
+   "secondWin": 0.427,
+   "firstSeatScore": 0.521,
+   "draw": 0.105,
+   "close": 0.355,
+   "holdWin": 0.027,
+   "timeUsedGames": 0.588,
+   "counterGames": 0.375,
+   "cardsPerGame": 1.78,
+   "deck": {
+    "main": 0.696,
+    "companion": 0.554,
+    "partner": 0.392,
+    "challenge": 0.592,
+    "growth": 0.263,
+    "item": 0.621,
+    "balance": 0.383
+   },
+   "deckSpread": 0.433,
+   "deckSD": 0.144,
+   "events": {
+    "resolutions": 595,
+    "byState": {
+     "ahead/extend": 13,
+     "ahead/shorten": 249,
+     "behind/extend": 319,
+     "behind/shorten": 14
+    },
+    "wrongDirection": 0.045,
+    "behindShortenShare": 0.042,
+    "aheadExtendShare": 0.05,
+    "round": {
+     "3": 1,
+     "4": 1,
+     "5": 17,
+     "6": 15,
+     "7": 105,
+     "8": 166,
+     "9": 182,
+     "10": 98,
+     "11": 10
+    },
+    "earlyShare": 0.032,
+    "battle": {
+     "1": 305,
+     "2": 222,
+     "3": 32,
+     "4": 31,
+     "5": 4,
+     "6": 1
+    },
+    "maxBattle": 6,
+    "comebackByExtender": {
+     "games": 156,
+     "score": 0.093
+    },
+    "holdByShortener": {
+     "games": 85,
+     "score": 0.818
+    }
+   },
+   "finalTimeCard": {}
+  },
+  "V2H": {
+   "games": 560,
+   "completed": 560,
+   "replayMatch": 560,
+   "abnormal": 0,
+   "final": {
+    "R9": 0.084,
+    "R10": 0.609,
+    "R11": 0.18,
+    "R12": 0.127
+   },
+   "finalMean": 10.35,
+   "firstWin": 0.439,
+   "secondWin": 0.434,
+   "firstSeatScore": 0.503,
+   "draw": 0.127,
+   "close": 0.398,
+   "holdWin": 0.02,
+   "timeUsedGames": 0.543,
+   "counterGames": 0.375,
+   "cardsPerGame": 2.22,
+   "deck": {
+    "main": 0.679,
+    "companion": 0.542,
+    "partner": 0.429,
+    "challenge": 0.633,
+    "growth": 0.258,
+    "item": 0.583,
+    "balance": 0.375
+   },
+   "deckSpread": 0.421,
+   "deckSD": 0.14,
+   "events": {
+    "resolutions": 716,
+    "byState": {
+     "ahead/extend": 13,
+     "ahead/shorten": 315,
+     "behind/extend": 378,
+     "behind/shorten": 10
+    },
+    "wrongDirection": 0.032,
+    "behindShortenShare": 0.026,
+    "aheadExtendShare": 0.04,
+    "round": {
+     "3": 1,
+     "4": 1,
+     "5": 10,
+     "6": 14,
+     "7": 92,
+     "8": 261,
+     "9": 228,
+     "10": 97,
+     "11": 12
+    },
+    "earlyShare": 0.017,
+    "battle": {
+     "1": 334,
+     "2": 310,
+     "3": 20,
+     "4": 39,
+     "5": 6,
+     "6": 6,
+     "7": 1
+    },
+    "maxBattle": 7,
+    "comebackByExtender": {
+     "games": 128,
+     "score": 0.145
+    },
+    "holdByShortener": {
+     "games": 98,
+     "score": 0.786
+    }
+   },
+   "finalTimeCard": {}
+  }
+ },
+ "conditions10": {
+  "A0": {
+   "games": 560,
+   "completed": 560,
+   "replayMatch": 560,
+   "abnormal": 0,
+   "final": {
+    "R9": 0.0,
+    "R10": 1.0,
+    "R11": 0.0,
+    "R12": 0.0
+   },
+   "finalMean": 10.0,
+   "firstWin": 0.47,
+   "secondWin": 0.439,
+   "firstSeatScore": 0.515,
+   "draw": 0.091,
+   "close": 0.412,
+   "holdWin": 0.034,
+   "timeUsedGames": 0.0,
+   "counterGames": 0.0,
+   "cardsPerGame": 0.0,
+   "deck": {
+    "main": 0.65,
+    "companion": 0.388,
+    "partner": 0.496,
+    "challenge": 0.542,
+    "growth": 0.392,
+    "item": 0.642,
+    "balance": 0.392
+   },
+   "deckSpread": 0.263,
+   "deckSD": 0.107,
+   "events": {
+    "resolutions": 0,
+    "byState": {},
+    "wrongDirection": null,
+    "behindShortenShare": null,
+    "aheadExtendShare": null,
+    "round": {},
+    "earlyShare": null,
+    "battle": {},
+    "maxBattle": 0,
+    "comebackByExtender": {
+     "games": 0,
+     "score": null
+    },
+    "holdByShortener": {
+     "games": 0,
+     "score": null
+    }
+   },
+   "finalTimeCard": {}
+  },
+  "V1": {
+   "games": 560,
+   "completed": 560,
+   "replayMatch": 560,
+   "abnormal": 0,
+   "final": {
+    "R9": 0.125,
+    "R10": 0.396,
+    "R11": 0.3,
+    "R12": 0.179
+   },
+   "finalMean": 10.53,
+   "firstWin": 0.468,
+   "secondWin": 0.429,
+   "firstSeatScore": 0.52,
+   "draw": 0.104,
+   "close": 0.393,
+   "holdWin": 0.041,
+   "timeUsedGames": 0.868,
+   "counterGames": 0.371,
+   "cardsPerGame": 2.01,
+   "deck": {
+    "main": 0.683,
+    "companion": 0.454,
+    "partner": 0.458,
+    "challenge": 0.542,
+    "growth": 0.362,
+    "item": 0.637,
+    "balance": 0.362
+   },
+   "deckSpread": 0.321,
+   "deckSD": 0.117,
+   "events": {
+    "resolutions": 864,
+    "byState": {
+     "ahead/extend": 2,
+     "ahead/shorten": 360,
+     "behind/extend": 497,
+     "behind/shorten": 5
+    },
+    "wrongDirection": 0.008,
+    "behindShortenShare": 0.01,
+    "aheadExtendShare": 0.006,
+    "round": {
+     "2": 4,
+     "3": 13,
+     "4": 56,
+     "5": 99,
+     "6": 133,
+     "7": 206,
+     "8": 146,
+     "9": 145,
+     "10": 50,
+     "11": 12
+    },
+    "earlyShare": 0.199,
+    "battle": {
+     "1": 631,
+     "2": 203,
+     "3": 30
+    },
+    "maxBattle": 3,
+    "comebackByExtender": {
+     "games": 201,
+     "score": 0.154
+    },
+    "holdByShortener": {
+     "games": 170,
+     "score": 0.853
+    }
+   },
+   "finalTimeCard": {}
+  },
+  "V2C": {
+   "games": 560,
+   "completed": 560,
+   "replayMatch": 560,
+   "abnormal": 0,
+   "final": {
+    "R9": 0.089,
+    "R10": 0.637,
+    "R11": 0.138,
+    "R12": 0.136
+   },
+   "finalMean": 10.32,
+   "firstWin": 0.461,
+   "secondWin": 0.432,
+   "firstSeatScore": 0.514,
+   "draw": 0.107,
+   "close": 0.409,
+   "holdWin": 0.043,
+   "timeUsedGames": 0.491,
+   "counterGames": 0.207,
+   "cardsPerGame": 0.97,
+   "deck": {
+    "main": 0.688,
+    "companion": 0.408,
+    "partner": 0.483,
+    "challenge": 0.546,
+    "growth": 0.388,
+    "item": 0.617,
+    "balance": 0.371
+   },
+   "deckSpread": 0.317,
+   "deckSD": 0.113,
+   "events": {
+    "resolutions": 401,
+    "byState": {
+     "ahead/extend": 11,
+     "ahead/shorten": 168,
+     "behind/extend": 210,
+     "behind/shorten": 12
+    },
+    "wrongDirection": 0.057,
+    "behindShortenShare": 0.054,
+    "aheadExtendShare": 0.061,
+    "round": {
+     "3": 2,
+     "5": 16,
+     "6": 20,
+     "7": 74,
+     "8": 101,
+     "9": 113,
+     "10": 64,
+     "11": 11
+    },
+    "earlyShare": 0.045,
+    "battle": {
+     "1": 276,
+     "2": 110,
+     "3": 14,
+     "4": 1
+    },
+    "maxBattle": 4,
+    "comebackByExtender": {
+     "games": 135,
+     "score": 0.17
+    },
+    "holdByShortener": {
+     "games": 73,
+     "score": 0.856
+    }
+   },
+   "finalTimeCard": {}
+  },
+  "V2O": {
+   "games": 560,
+   "completed": 560,
+   "replayMatch": 560,
+   "abnormal": 0,
+   "final": {
+    "R9": 0.0,
+    "R10": 0.879,
+    "R11": 0.0,
+    "R12": 0.121
+   },
+   "finalMean": 10.24,
+   "firstWin": 0.464,
+   "secondWin": 0.439,
+   "firstSeatScore": 0.512,
+   "draw": 0.096,
+   "close": 0.421,
+   "holdWin": 0.052,
+   "timeUsedGames": 0.121,
+   "counterGames": 0.0,
+   "cardsPerGame": 0.12,
+   "deck": {
+    "main": 0.629,
+    "companion": 0.35,
+    "partner": 0.529,
+    "challenge": 0.546,
+    "growth": 0.388,
+    "item": 0.654,
+    "balance": 0.404
+   },
+   "deckSpread": 0.304,
+   "deckSD": 0.112,
+   "events": {
+    "resolutions": 68,
+    "byState": {
+     "ahead/extend": 4,
+     "behind/extend": 64
+    },
+    "wrongDirection": 0.059,
+    "behindShortenShare": 0.0,
+    "aheadExtendShare": 1.0,
+    "round": {
+     "2": 1,
+     "5": 6,
+     "6": 7,
+     "7": 9,
+     "8": 13,
+     "9": 8,
+     "10": 24
+    },
+    "earlyShare": 0.103,
+    "battle": {
+     "1": 68
+    },
+    "maxBattle": 1,
+    "comebackByExtender": {
+     "games": 64,
+     "score": 0.164
+    },
+    "holdByShortener": {
+     "games": 0,
+     "score": null
+    }
+   },
+   "finalTimeCard": {}
+  }
+ },
+ "contrasts": {
+  "V2C-V1（CPU の効果（同じ各1構成））": {
+   "firstSeat": {
+    "n": 1120,
+    "diff": -0.005,
+    "ci95": [
+     -0.015,
+     0.004
+    ]
+   },
+   "close": {
+    "n": 1120,
+    "diff": 0.015,
+    "ci95": [
+     0.002,
+     0.028
+    ]
+   },
+   "holdWin": {
+    "n": 1120,
+    "diff": -0.001,
+    "ci95": [
+     -0.009,
+     0.007
+    ]
+   },
+   "r10": {
+    "n": 1120,
+    "diff": 0.237,
+    "ci95": [
+     0.202,
+     0.275
+    ]
+   },
+   "final": {
+    "n": 1120,
+    "diff": -0.171,
+    "ci95": [
+     -0.231,
+     -0.106
+    ]
+   },
+   "counter": {
+    "n": 1120,
+    "diff": -0.212,
+    "ci95": [
+     -0.246,
+     -0.181
+    ]
+   },
+   "draw": {
+    "n": 1120,
+    "diff": 0.013,
+    "ci95": [
+     0.001,
+     0.026
+    ]
+   },
+   "spread": {
+    "n": 1120,
+    "diff": -0.019,
+    "ci95": [
+     -0.052,
+     0.017
+    ]
+   },
+   "deck:main": {
+    "n": 1120,
+    "diff": -0.008,
+    "ci95": [
+     -0.029,
+     0.008
+    ]
+   },
+   "deck:companion": {
+    "n": 1120,
+    "diff": -0.023,
+    "ci95": [
+     -0.058,
+     0.008
+    ]
+   },
+   "deck:partner": {
+    "n": 1120,
+    "diff": 0.015,
+    "ci95": [
+     -0.002,
+     0.031
+    ]
+   },
+   "deck:challenge": {
+    "n": 1120,
+    "diff": 0.0,
+    "ci95": [
+     -0.025,
+     0.023
+    ]
+   },
+   "deck:growth": {
+    "n": 1120,
+    "diff": 0.015,
+    "ci95": [
+     -0.004,
+     0.033
+    ]
+   },
+   "deck:item": {
+    "n": 1120,
+    "diff": -0.008,
+    "ci95": [
+     -0.029,
+     0.015
+    ]
+   },
+   "deck:balance": {
+    "n": 1120,
+    "diff": 0.01,
+    "ci95": [
+     -0.023,
+     0.035
+    ]
+   }
+  },
+  "V2C-A0（総合（各1・smart2））": {
+   "firstSeat": {
+    "n": 1120,
+    "diff": -0.004,
+    "ci95": [
+     -0.027,
+     0.016
+    ]
+   },
+   "close": {
+    "n": 1120,
+    "diff": 0.027,
+    "ci95": [
+     -0.016,
+     0.075
+    ]
+   },
+   "holdWin": {
+    "n": 1120,
+    "diff": 0.004,
+    "ci95": [
+     -0.004,
+     0.013
+    ]
+   },
+   "r10": {
+    "n": 1120,
+    "diff": -0.362,
+    "ci95": [
+     -0.393,
+     -0.333
+    ]
+   },
+   "final": {
+    "n": 1120,
+    "diff": 0.329,
+    "ci95": [
+     0.276,
+     0.39
+    ]
+   },
+   "counter": {
+    "n": 1120,
+    "diff": 0.188,
+    "ci95": [
+     0.161,
+     0.212
+    ]
+   },
+   "draw": {
+    "n": 1120,
+    "diff": 0.014,
+    "ci95": [
+     -0.013,
+     0.04
+    ]
+   },
+   "spread": {
+    "n": 1120,
+    "diff": 0.004,
+    "ci95": [
+     -0.085,
+     0.09
+    ]
+   },
+   "deck:main": {
+    "n": 1120,
+    "diff": 0.046,
+    "ci95": [
+     -0.006,
+     0.096
+    ]
+   },
+   "deck:companion": {
+    "n": 1120,
+    "diff": 0.05,
+    "ci95": [
+     -0.004,
+     0.106
+    ]
+   },
+   "deck:partner": {
+    "n": 1120,
+    "diff": -0.052,
+    "ci95": [
+     -0.092,
+     -0.013
+    ]
+   },
+   "deck:challenge": {
+    "n": 1120,
+    "diff": 0.006,
+    "ci95": [
+     -0.037,
+     0.048
+    ]
+   },
+   "deck:growth": {
+    "n": 1120,
+    "diff": -0.017,
+    "ci95": [
+     -0.09,
+     0.052
+    ]
+   },
+   "deck:item": {
+    "n": 1120,
+    "diff": -0.002,
+    "ci95": [
+     -0.062,
+     0.06
+    ]
+   },
+   "deck:balance": {
+    "n": 1120,
+    "diff": -0.031,
+    "ci95": [
+     -0.085,
+     0.027
+    ]
+   }
+  },
+  "V2O-V2C（構成の効果）": {
+   "firstSeat": {
+    "n": 1120,
+    "diff": 0.001,
+    "ci95": [
+     -0.016,
+     0.021
+    ]
+   },
+   "close": {
+    "n": 1120,
+    "diff": -0.022,
+    "ci95": [
+     -0.067,
+     0.024
+    ]
+   },
+   "holdWin": {
+    "n": 1120,
+    "diff": 0.012,
+    "ci95": [
+     0.0,
+     0.022
+    ]
+   },
+   "r10": {
+    "n": 1120,
+    "diff": 0.231,
+    "ci95": [
+     0.205,
+     0.259
+    ]
+   },
+   "final": {
+    "n": 1120,
+    "diff": -0.066,
+    "ci95": [
+     -0.12,
+     -0.013
+    ]
+   },
+   "counter": {
+    "n": 1120,
+    "diff": -0.188,
+    "ci95": [
+     -0.213,
+     -0.163
+    ]
+   },
+   "draw": {
+    "n": 1120,
+    "diff": -0.006,
+    "ci95": [
+     -0.034,
+     0.021
+    ]
+   },
+   "spread": {
+    "n": 1120,
+    "diff": -0.013,
+    "ci95": [
+     -0.096,
+     0.079
+    ]
+   },
+   "deck:main": {
+    "n": 1120,
+    "diff": -0.054,
+    "ci95": [
+     -0.098,
+     -0.006
+    ]
+   },
+   "deck:companion": {
+    "n": 1120,
+    "diff": -0.046,
+    "ci95": [
+     -0.085,
+     -0.013
+    ]
+   },
+   "deck:partner": {
+    "n": 1120,
+    "diff": 0.058,
+    "ci95": [
+     0.031,
+     0.081
+    ]
+   },
+   "deck:challenge": {
+    "n": 1120,
+    "diff": 0.0,
+    "ci95": [
+     -0.044,
+     0.048
+    ]
+   },
+   "deck:growth": {
+    "n": 1120,
+    "diff": 0.01,
+    "ci95": [
+     -0.05,
+     0.073
+    ]
+   },
+   "deck:item": {
+    "n": 1120,
+    "diff": -0.002,
+    "ci95": [
+     -0.06,
+     0.056
+    ]
+   },
+   "deck:balance": {
+    "n": 1120,
+    "diff": 0.033,
+    "ci95": [
+     -0.013,
+     0.079
+    ]
+   }
+  },
+  "V2O-V1（VERSION 2 − VERSION 1）": {
+   "firstSeat": {
+    "n": 1120,
+    "diff": -0.004,
+    "ci95": [
+     -0.021,
+     0.016
+    ]
+   },
+   "close": {
+    "n": 1120,
+    "diff": -0.007,
+    "ci95": [
+     -0.047,
+     0.032
+    ]
+   },
+   "holdWin": {
+    "n": 1120,
+    "diff": 0.011,
+    "ci95": [
+     -0.001,
+     0.021
+    ]
+   },
+   "r10": {
+    "n": 1120,
+    "diff": 0.469,
+    "ci95": [
+     0.434,
+     0.505
+    ]
+   },
+   "final": {
+    "n": 1120,
+    "diff": -0.237,
+    "ci95": [
+     -0.304,
+     -0.162
+    ]
+   },
+   "counter": {
+    "n": 1120,
+    "diff": -0.4,
+    "ci95": [
+     -0.43,
+     -0.367
+    ]
+   },
+   "draw": {
+    "n": 1120,
+    "diff": 0.007,
+    "ci95": [
+     -0.024,
+     0.035
+    ]
+   },
+   "spread": {
+    "n": 1120,
+    "diff": -0.031,
+    "ci95": [
+     -0.108,
+     0.065
+    ]
+   },
+   "deck:main": {
+    "n": 1120,
+    "diff": -0.062,
+    "ci95": [
+     -0.11,
+     -0.017
+    ]
+   },
+   "deck:companion": {
+    "n": 1120,
+    "diff": -0.069,
+    "ci95": [
+     -0.125,
+     -0.015
+    ]
+   },
+   "deck:partner": {
+    "n": 1120,
+    "diff": 0.073,
+    "ci95": [
+     0.042,
+     0.104
+    ]
+   },
+   "deck:challenge": {
+    "n": 1120,
+    "diff": 0.0,
+    "ci95": [
+     -0.044,
+     0.046
+    ]
+   },
+   "deck:growth": {
+    "n": 1120,
+    "diff": 0.025,
+    "ci95": [
+     -0.035,
+     0.085
+    ]
+   },
+   "deck:item": {
+    "n": 1120,
+    "diff": -0.01,
+    "ci95": [
+     -0.065,
+     0.044
+    ]
+   },
+   "deck:balance": {
+    "n": 1120,
+    "diff": 0.044,
+    "ci95": [
+     0.0,
+     0.087
+    ]
+   }
+  },
+  "V2O-A0（総合（VERSION 2））": {
+   "firstSeat": {
+    "n": 1120,
+    "diff": -0.003,
+    "ci95": [
+     -0.013,
+     0.009
+    ]
+   },
+   "close": {
+    "n": 1120,
+    "diff": 0.004,
+    "ci95": [
+     -0.012,
+     0.021
+    ]
+   },
+   "holdWin": {
+    "n": 1120,
+    "diff": 0.016,
+    "ci95": [
+     0.008,
+     0.024
+    ]
+   },
+   "r10": {
+    "n": 1120,
+    "diff": -0.131,
+    "ci95": [
+     -0.155,
+     -0.111
+    ]
+   },
+   "final": {
+    "n": 1120,
+    "diff": 0.263,
+    "ci95": [
+     0.221,
+     0.312
+    ]
+   },
+   "counter": {
+    "n": 1120,
+    "diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "draw": {
+    "n": 1120,
+    "diff": 0.008,
+    "ci95": [
+     -0.004,
+     0.02
+    ]
+   },
+   "spread": {
+    "n": 1120,
+    "diff": -0.008,
+    "ci95": [
+     -0.06,
+     0.033
+    ]
+   },
+   "deck:main": {
+    "n": 1120,
+    "diff": -0.008,
+    "ci95": [
+     -0.035,
+     0.015
+    ]
+   },
+   "deck:companion": {
+    "n": 1120,
+    "diff": 0.004,
+    "ci95": [
+     -0.035,
+     0.044
+    ]
+   },
+   "deck:partner": {
+    "n": 1120,
+    "diff": 0.006,
+    "ci95": [
+     -0.04,
+     0.046
+    ]
+   },
+   "deck:challenge": {
+    "n": 1120,
+    "diff": 0.006,
+    "ci95": [
+     -0.01,
+     0.025
+    ]
+   },
+   "deck:growth": {
+    "n": 1120,
+    "diff": -0.006,
+    "ci95": [
+     -0.027,
+     0.013
+    ]
+   },
+   "deck:item": {
+    "n": 1120,
+    "diff": -0.004,
+    "ci95": [
+     -0.031,
+     0.023
+    ]
+   },
+   "deck:balance": {
+    "n": 1120,
+    "diff": 0.002,
+    "ci95": [
+     -0.062,
+     0.069
+    ]
+   }
+  },
+  "V2R-V2C（型別代表構成）": {
+   "firstSeat": {
+    "n": 560,
+    "diff": -0.009,
+    "ci95": [
+     -0.021,
+     0.004
+    ]
+   },
+   "close": {
+    "n": 560,
+    "diff": -0.009,
+    "ci95": [
+     -0.043,
+     0.027
+    ]
+   },
+   "holdWin": {
+    "n": 560,
+    "diff": 0.004,
+    "ci95": [
+     -0.013,
+     0.02
+    ]
+   },
+   "r10": {
+    "n": 560,
+    "diff": 0.023,
+    "ci95": [
+     -0.02,
+     0.064
+    ]
+   },
+   "final": {
+    "n": 560,
+    "diff": 0.055,
+    "ci95": [
+     -0.032,
+     0.13
+    ]
+   },
+   "counter": {
+    "n": 560,
+    "diff": -0.104,
+    "ci95": [
+     -0.127,
+     -0.08
+    ]
+   },
+   "draw": {
+    "n": 560,
+    "diff": -0.011,
+    "ci95": [
+     -0.037,
+     0.016
+    ]
+   },
+   "spread": {
+    "n": 560,
+    "diff": -0.042,
+    "ci95": [
+     -0.096,
+     0.046
+    ]
+   },
+   "deck:main": {
+    "n": 560,
+    "diff": -0.029,
+    "ci95": [
+     -0.079,
+     0.017
+    ]
+   },
+   "deck:companion": {
+    "n": 560,
+    "diff": -0.025,
+    "ci95": [
+     -0.071,
+     0.017
+    ]
+   },
+   "deck:partner": {
+    "n": 560,
+    "diff": 0.0,
+    "ci95": [
+     -0.033,
+     0.038
+    ]
+   },
+   "deck:challenge": {
+    "n": 560,
+    "diff": -0.004,
+    "ci95": [
+     -0.033,
+     0.021
+    ]
+   },
+   "deck:growth": {
+    "n": 560,
+    "diff": 0.013,
+    "ci95": [
+     -0.029,
+     0.05
+    ]
+   },
+   "deck:item": {
+    "n": 560,
+    "diff": 0.012,
+    "ci95": [
+     -0.025,
+     0.046
+    ]
+   },
+   "deck:balance": {
+    "n": 560,
+    "diff": 0.033,
+    "ci95": [
+     -0.013,
+     0.079
+    ]
+   }
+  },
+  "V2H8-V2C（各2（8枚））": {
+   "firstSeat": {
+    "n": 560,
+    "diff": 0.006,
+    "ci95": [
+     -0.013,
+     0.024
+    ]
+   },
+   "close": {
+    "n": 560,
+    "diff": -0.054,
+    "ci95": [
+     -0.102,
+     0.0
+    ]
+   },
+   "holdWin": {
+    "n": 560,
+    "diff": -0.016,
+    "ci95": [
+     -0.03,
+     -0.002
+    ]
+   },
+   "r10": {
+    "n": 560,
+    "diff": -0.075,
+    "ci95": [
+     -0.13,
+     -0.021
+    ]
+   },
+   "final": {
+    "n": 560,
+    "diff": 0.084,
+    "ci95": [
+     0.041,
+     0.125
+    ]
+   },
+   "counter": {
+    "n": 560,
+    "diff": 0.168,
+    "ci95": [
+     0.114,
+     0.211
+    ]
+   },
+   "draw": {
+    "n": 560,
+    "diff": -0.002,
+    "ci95": [
+     -0.036,
+     0.03
+    ]
+   },
+   "spread": {
+    "n": 560,
+    "diff": 0.117,
+    "ci95": [
+     -0.008,
+     0.221
+    ]
+   },
+   "deck:main": {
+    "n": 560,
+    "diff": 0.008,
+    "ci95": [
+     -0.062,
+     0.079
+    ]
+   },
+   "deck:companion": {
+    "n": 560,
+    "diff": 0.146,
+    "ci95": [
+     0.079,
+     0.221
+    ]
+   },
+   "deck:partner": {
+    "n": 560,
+    "diff": -0.092,
+    "ci95": [
+     -0.162,
+     -0.033
+    ]
+   },
+   "deck:challenge": {
+    "n": 560,
+    "diff": 0.046,
+    "ci95": [
+     -0.021,
+     0.117
+    ]
+   },
+   "deck:growth": {
+    "n": 560,
+    "diff": -0.125,
+    "ci95": [
+     -0.225,
+     -0.025
+    ]
+   },
+   "deck:item": {
+    "n": 560,
+    "diff": 0.004,
+    "ci95": [
+     -0.079,
+     0.088
+    ]
+   },
+   "deck:balance": {
+    "n": 560,
+    "diff": 0.013,
+    "ci95": [
+     -0.05,
+     0.079
+    ]
+   }
+  },
+  "V2H-V2C（各3（12枚））": {
+   "firstSeat": {
+    "n": 560,
+    "diff": -0.012,
+    "ci95": [
+     -0.029,
+     0.004
+    ]
+   },
+   "close": {
+    "n": 560,
+    "diff": -0.011,
+    "ci95": [
+     -0.07,
+     0.045
+    ]
+   },
+   "holdWin": {
+    "n": 560,
+    "diff": -0.023,
+    "ci95": [
+     -0.045,
+     0.002
+    ]
+   },
+   "r10": {
+    "n": 560,
+    "diff": -0.029,
+    "ci95": [
+     -0.093,
+     0.032
+    ]
+   },
+   "final": {
+    "n": 560,
+    "diff": 0.03,
+    "ci95": [
+     -0.057,
+     0.125
+    ]
+   },
+   "counter": {
+    "n": 560,
+    "diff": 0.168,
+    "ci95": [
+     0.1,
+     0.225
+    ]
+   },
+   "draw": {
+    "n": 560,
+    "diff": 0.02,
+    "ci95": [
+     -0.007,
+     0.046
+    ]
+   },
+   "spread": {
+    "n": 560,
+    "diff": 0.104,
+    "ci95": [
+     -0.042,
+     0.275
+    ]
+   },
+   "deck:main": {
+    "n": 560,
+    "diff": -0.008,
+    "ci95": [
+     -0.062,
+     0.062
+    ]
+   },
+   "deck:companion": {
+    "n": 560,
+    "diff": 0.133,
+    "ci95": [
+     0.025,
+     0.242
+    ]
+   },
+   "deck:partner": {
+    "n": 560,
+    "diff": -0.054,
+    "ci95": [
+     -0.129,
+     0.012
+    ]
+   },
+   "deck:challenge": {
+    "n": 560,
+    "diff": 0.088,
+    "ci95": [
+     0.021,
+     0.154
+    ]
+   },
+   "deck:growth": {
+    "n": 560,
+    "diff": -0.129,
+    "ci95": [
+     -0.263,
+     -0.004
+    ]
+   },
+   "deck:item": {
+    "n": 560,
+    "diff": -0.033,
+    "ci95": [
+     -0.104,
+     0.046
+    ]
+   },
+   "deck:balance": {
+    "n": 560,
+    "diff": 0.004,
+    "ci95": [
+     -0.058,
+     0.071
+    ]
+   }
+  },
+  "V2H8-V1H8（各2：CPU の効果）": {
+   "firstSeat": {
+    "n": 560,
+    "diff": 0.001,
+    "ci95": [
+     -0.016,
+     0.019
+    ]
+   },
+   "close": {
+    "n": 560,
+    "diff": 0.002,
+    "ci95": [
+     -0.018,
+     0.018
+    ]
+   },
+   "holdWin": {
+    "n": 560,
+    "diff": -0.009,
+    "ci95": [
+     -0.018,
+     0.0
+    ]
+   },
+   "r10": {
+    "n": 560,
+    "diff": 0.177,
+    "ci95": [
+     0.096,
+     0.252
+    ]
+   },
+   "final": {
+    "n": 560,
+    "diff": -0.205,
+    "ci95": [
+     -0.273,
+     -0.143
+    ]
+   },
+   "counter": {
+    "n": 560,
+    "diff": -0.414,
+    "ci95": [
+     -0.466,
+     -0.366
+    ]
+   },
+   "draw": {
+    "n": 560,
+    "diff": 0.009,
+    "ci95": [
+     -0.023,
+     0.043
+    ]
+   },
+   "spread": {
+    "n": 560,
+    "diff": 0.029,
+    "ci95": [
+     -0.063,
+     0.058
+    ]
+   },
+   "deck:main": {
+    "n": 560,
+    "diff": 0.037,
+    "ci95": [
+     0.013,
+     0.071
+    ]
+   },
+   "deck:companion": {
+    "n": 560,
+    "diff": -0.017,
+    "ci95": [
+     -0.062,
+     0.029
+    ]
+   },
+   "deck:partner": {
+    "n": 560,
+    "diff": -0.025,
+    "ci95": [
+     -0.054,
+     0.0
+    ]
+   },
+   "deck:challenge": {
+    "n": 560,
+    "diff": 0.029,
+    "ci95": [
+     0.008,
+     0.05
+    ]
+   },
+   "deck:growth": {
+    "n": 560,
+    "diff": 0.008,
+    "ci95": [
+     -0.017,
+     0.033
+    ]
+   },
+   "deck:item": {
+    "n": 560,
+    "diff": -0.033,
+    "ci95": [
+     -0.079,
+     0.017
+    ]
+   },
+   "deck:balance": {
+    "n": 560,
+    "diff": 0.0,
+    "ci95": [
+     -0.046,
+     0.05
+    ]
+   }
+  },
+  "V1-A0（総合（VERSION 1））": {
+   "firstSeat": {
+    "n": 1120,
+    "diff": 0.0,
+    "ci95": [
+     -0.023,
+     0.022
+    ]
+   },
+   "close": {
+    "n": 1120,
+    "diff": 0.012,
+    "ci95": [
+     -0.029,
+     0.05
+    ]
+   },
+   "holdWin": {
+    "n": 1120,
+    "diff": 0.005,
+    "ci95": [
+     -0.005,
+     0.016
+    ]
+   },
+   "r10": {
+    "n": 1120,
+    "diff": -0.6,
+    "ci95": [
+     -0.633,
+     -0.571
+    ]
+   },
+   "final": {
+    "n": 1120,
+    "diff": 0.499,
+    "ci95": [
+     0.442,
+     0.551
+    ]
+   },
+   "counter": {
+    "n": 1120,
+    "diff": 0.4,
+    "ci95": [
+     0.369,
+     0.43
+    ]
+   },
+   "draw": {
+    "n": 1120,
+    "diff": 0.001,
+    "ci95": [
+     -0.026,
+     0.029
+    ]
+   },
+   "spread": {
+    "n": 1120,
+    "diff": 0.023,
+    "ci95": [
+     -0.073,
+     0.108
+    ]
+   },
+   "deck:main": {
+    "n": 1120,
+    "diff": 0.054,
+    "ci95": [
+     0.0,
+     0.106
+    ]
+   },
+   "deck:companion": {
+    "n": 1120,
+    "diff": 0.073,
+    "ci95": [
+     0.017,
+     0.129
+    ]
+   },
+   "deck:partner": {
+    "n": 1120,
+    "diff": -0.067,
+    "ci95": [
+     -0.106,
+     -0.027
+    ]
+   },
+   "deck:challenge": {
+    "n": 1120,
+    "diff": 0.006,
+    "ci95": [
+     -0.042,
+     0.05
+    ]
+   },
+   "deck:growth": {
+    "n": 1120,
+    "diff": -0.031,
+    "ci95": [
+     -0.1,
+     0.038
+    ]
+   },
+   "deck:item": {
+    "n": 1120,
+    "diff": 0.006,
+    "ci95": [
+     -0.052,
+     0.069
+    ]
+   },
+   "deck:balance": {
+    "n": 1120,
+    "diff": -0.042,
+    "ci95": [
+     -0.094,
+     0.013
+    ]
+   }
+  }
+ },
+ "search": {
+  "main": {
+   "N0": {
+    "games": 112,
+    "score": 0.661,
+    "ci95": [
+     0.616,
+     0.71
+    ],
+    "vsB4": 0.004,
+    "vsB4ci95": [
+     -0.022,
+     0.04
+    ],
+    "final": {
+     "R9": 0.098,
+     "R10": 0.643,
+     "R11": 0.071,
+     "R12": 0.188
+    },
+    "wrongDirection": 0.0
+   },
+   "B4": {
+    "games": 112,
+    "score": 0.656,
+    "ci95": [
+     0.58,
+     0.723
+    ],
+    "vsB4": 0.0,
+    "vsB4ci95": [
+     0.0,
+     0.0
+    ],
+    "final": {
+     "R9": 0.08,
+     "R10": 0.607,
+     "R11": 0.143,
+     "R12": 0.17
+    },
+    "wrongDirection": 0.0
+   },
+   "S2": {
+    "games": 112,
+    "score": 0.638,
+    "ci95": [
+     0.567,
+     0.696
+    ],
+    "vsB4": -0.018,
+    "vsB4ci95": [
+     -0.04,
+     0.004
+    ],
+    "final": {
+     "R9": 0.143,
+     "R10": 0.634,
+     "R11": 0.089,
+     "R12": 0.134
+    },
+    "wrongDirection": 0.0
+   },
+   "S3": {
+    "games": 112,
+    "score": 0.629,
+    "ci95": [
+     0.558,
+     0.696
+    ],
+    "vsB4": -0.027,
+    "vsB4ci95": [
+     -0.054,
+     -0.004
+    ],
+    "final": {
+     "R9": 0.116,
+     "R10": 0.643,
+     "R11": 0.107,
+     "R12": 0.134
+    },
+    "wrongDirection": 0.0
+   },
+   "L2": {
+    "games": 112,
+    "score": 0.656,
+    "ci95": [
+     0.598,
+     0.71
+    ],
+    "vsB4": 0.0,
+    "vsB4ci95": [
+     -0.018,
+     0.022
+    ],
+    "final": {
+     "R9": 0.071,
+     "R10": 0.607,
+     "R11": 0.062,
+     "R12": 0.259
+    },
+    "wrongDirection": 0.0
+   },
+   "L3": {
+    "games": 112,
+    "score": 0.661,
+    "ci95": [
+     0.607,
+     0.714
+    ],
+    "vsB4": 0.004,
+    "vsB4ci95": [
+     -0.013,
+     0.027
+    ],
+    "final": {
+     "R9": 0.071,
+     "R10": 0.562,
+     "R11": 0.089,
+     "R12": 0.277
+    },
+    "wrongDirection": 0.0
+   },
+   "SL2": {
+    "games": 112,
+    "score": 0.643,
+    "ci95": [
+     0.576,
+     0.701
+    ],
+    "vsB4": -0.013,
+    "vsB4ci95": [
+     -0.031,
+     0.0
+    ],
+    "final": {
+     "R9": 0.116,
+     "R10": 0.554,
+     "R11": 0.089,
+     "R12": 0.241
+    },
+    "wrongDirection": 0.0
+   },
+   "H8": {
+    "games": 112,
+    "score": 0.603,
+    "ci95": [
+     0.531,
+     0.688
+    ],
+    "vsB4": -0.054,
+    "vsB4ci95": [
+     -0.098,
+     0.0
+    ],
+    "final": {
+     "R9": 0.152,
+     "R10": 0.446,
+     "R11": 0.232,
+     "R12": 0.17
+    },
+    "wrongDirection": 0.0
+   },
+   "H12": {
+    "games": 112,
+    "score": 0.545,
+    "ci95": [
+     0.473,
+     0.634
+    ],
+    "vsB4": -0.112,
+    "vsB4ci95": [
+     -0.179,
+     -0.031
+    ],
+    "final": {
+     "R9": 0.17,
+     "R10": 0.42,
+     "R11": 0.17,
+     "R12": 0.241
+    },
+    "wrongDirection": 0.0
+   }
+  },
+  "companion": {
+   "N0": {
+    "games": 112,
+    "score": 0.411,
+    "ci95": [
+     0.259,
+     0.549
+    ],
+    "vsB4": -0.004,
+    "vsB4ci95": [
+     -0.049,
+     0.045
+    ],
+    "final": {
+     "R9": 0.161,
+     "R10": 0.679,
+     "R11": 0.036,
+     "R12": 0.125
+    },
+    "wrongDirection": 0.073
+   },
+   "B4": {
+    "games": 112,
+    "score": 0.415,
+    "ci95": [
+     0.277,
+     0.554
+    ],
+    "vsB4": 0.0,
+    "vsB4ci95": [
+     0.0,
+     0.0
+    ],
+    "final": {
+     "R9": 0.143,
+     "R10": 0.598,
+     "R11": 0.143,
+     "R12": 0.116
+    },
+    "wrongDirection": 0.05
+   },
+   "S2": {
+    "games": 112,
+    "score": 0.42,
+    "ci95": [
+     0.277,
+     0.567
+    ],
+    "vsB4": 0.004,
+    "vsB4ci95": [
+     -0.027,
+     0.036
+    ],
+    "final": {
+     "R9": 0.268,
+     "R10": 0.598,
+     "R11": 0.036,
+     "R12": 0.098
+    },
+    "wrongDirection": 0.058
+   },
+   "S3": {
+    "games": 112,
+    "score": 0.411,
+    "ci95": [
+     0.272,
+     0.536
+    ],
+    "vsB4": -0.004,
+    "vsB4ci95": [
+     -0.031,
+     0.027
+    ],
+    "final": {
+     "R9": 0.188,
+     "R10": 0.705,
+     "R11": 0.027,
+     "R12": 0.08
+    },
+    "wrongDirection": 0.057
+   },
+   "L2": {
+    "games": 112,
+    "score": 0.406,
+    "ci95": [
+     0.281,
+     0.536
+    ],
+    "vsB4": -0.009,
+    "vsB4ci95": [
+     -0.036,
+     0.027
+    ],
+    "final": {
+     "R9": 0.152,
+     "R10": 0.616,
+     "R11": 0.062,
+     "R12": 0.17
+    },
+    "wrongDirection": 0.046
+   },
+   "L3": {
+    "games": 112,
+    "score": 0.424,
+    "ci95": [
+     0.299,
+     0.54
+    ],
+    "vsB4": 0.009,
+    "vsB4ci95": [
+     -0.027,
+     0.054
+    ],
+    "final": {
+     "R9": 0.125,
+     "R10": 0.545,
+     "R11": 0.134,
+     "R12": 0.196
+    },
+    "wrongDirection": 0.025
+   },
+   "SL2": {
+    "games": 112,
+    "score": 0.411,
+    "ci95": [
+     0.268,
+     0.531
+    ],
+    "vsB4": -0.004,
+    "vsB4ci95": [
+     -0.031,
+     0.031
+    ],
+    "final": {
+     "R9": 0.205,
+     "R10": 0.589,
+     "R11": 0.062,
+     "R12": 0.143
+    },
+    "wrongDirection": 0.065
+   },
+   "H8": {
+    "games": 112,
+    "score": 0.393,
+    "ci95": [
+     0.254,
+     0.531
+    ],
+    "vsB4": -0.022,
+    "vsB4ci95": [
+     -0.076,
+     0.036
+    ],
+    "final": {
+     "R9": 0.143,
+     "R10": 0.482,
+     "R11": 0.17,
+     "R12": 0.205
+    },
+    "wrongDirection": 0.034
+   },
+   "H12": {
+    "games": 112,
+    "score": 0.277,
+    "ci95": [
+     0.165,
+     0.406
+    ],
+    "vsB4": -0.138,
+    "vsB4ci95": [
+     -0.214,
+     -0.062
+    ],
+    "final": {
+     "R9": 0.107,
+     "R10": 0.491,
+     "R11": 0.161,
+     "R12": 0.241
+    },
+    "wrongDirection": 0.069
+   }
+  },
+  "partner": {
+   "N0": {
+    "games": 112,
+    "score": 0.594,
+    "ci95": [
+     0.433,
+     0.75
+    ],
+    "vsB4": 0.036,
+    "vsB4ci95": [
+     -0.013,
+     0.089
+    ],
+    "final": {
+     "R9": 0.08,
+     "R10": 0.812,
+     "R11": 0.054,
+     "R12": 0.054
+    },
+    "wrongDirection": 0.083
+   },
+   "B4": {
+    "games": 112,
+    "score": 0.558,
+    "ci95": [
+     0.411,
+     0.714
+    ],
+    "vsB4": 0.0,
+    "vsB4ci95": [
+     0.0,
+     0.0
+    ],
+    "final": {
+     "R9": 0.098,
+     "R10": 0.661,
+     "R11": 0.116,
+     "R12": 0.125
+    },
+    "wrongDirection": 0.016
+   },
+   "S2": {
+    "games": 112,
+    "score": 0.612,
+    "ci95": [
+     0.478,
+     0.754
+    ],
+    "vsB4": 0.054,
+    "vsB4ci95": [
+     0.018,
+     0.089
+    ],
+    "final": {
+     "R9": 0.188,
+     "R10": 0.759,
+     "R11": 0.045,
+     "R12": 0.009
+    },
+    "wrongDirection": 0.042
+   },
+   "S3": {
+    "games": 112,
+    "score": 0.549,
+    "ci95": [
+     0.397,
+     0.696
+    ],
+    "vsB4": -0.009,
+    "vsB4ci95": [
+     -0.054,
+     0.04
+    ],
+    "final": {
+     "R9": 0.17,
+     "R10": 0.741,
+     "R11": 0.054,
+     "R12": 0.036
+    },
+    "wrongDirection": 0.023
+   },
+   "L2": {
+    "games": 112,
+    "score": 0.625,
+    "ci95": [
+     0.491,
+     0.772
+    ],
+    "vsB4": 0.067,
+    "vsB4ci95": [
+     0.031,
+     0.103
+    ],
+    "final": {
+     "R9": 0.071,
+     "R10": 0.714,
+     "R11": 0.054,
+     "R12": 0.161
+    },
+    "wrongDirection": 0.106
+   },
+   "L3": {
+    "games": 112,
+    "score": 0.585,
+    "ci95": [
+     0.442,
+     0.719
+    ],
+    "vsB4": 0.027,
+    "vsB4ci95": [
+     -0.009,
+     0.062
+    ],
+    "final": {
+     "R9": 0.045,
+     "R10": 0.688,
+     "R11": 0.071,
+     "R12": 0.196
+    },
+    "wrongDirection": 0.1
+   },
+   "SL2": {
+    "games": 112,
+    "score": 0.598,
+    "ci95": [
+     0.469,
+     0.754
+    ],
+    "vsB4": 0.04,
+    "vsB4ci95": [
+     -0.009,
+     0.089
+    ],
+    "final": {
+     "R9": 0.143,
+     "R10": 0.661,
+     "R11": 0.062,
+     "R12": 0.134
+    },
+    "wrongDirection": 0.102
+   },
+   "H8": {
+    "games": 112,
+    "score": 0.393,
+    "ci95": [
+     0.246,
+     0.549
+    ],
+    "vsB4": -0.165,
+    "vsB4ci95": [
+     -0.214,
+     -0.121
+    ],
+    "final": {
+     "R9": 0.125,
+     "R10": 0.661,
+     "R11": 0.071,
+     "R12": 0.143
+    },
+    "wrongDirection": 0.017
+   },
+   "H12": {
+    "games": 112,
+    "score": 0.357,
+    "ci95": [
+     0.228,
+     0.5
+    ],
+    "vsB4": -0.201,
+    "vsB4ci95": [
+     -0.259,
+     -0.138
+    ],
+    "final": {
+     "R9": 0.089,
+     "R10": 0.589,
+     "R11": 0.134,
+     "R12": 0.188
+    },
+    "wrongDirection": 0.013
+   }
+  },
+  "challenge": {
+   "N0": {
+    "games": 112,
+    "score": 0.504,
+    "ci95": [
+     0.348,
+     0.643
+    ],
+    "vsB4": 0.009,
+    "vsB4ci95": [
+     -0.103,
+     0.112
+    ],
+    "final": {
+     "R9": 0.045,
+     "R10": 0.696,
+     "R11": 0.089,
+     "R12": 0.17
+    },
+    "wrongDirection": 0.162
+   },
+   "B4": {
+    "games": 112,
+    "score": 0.496,
+    "ci95": [
+     0.424,
+     0.58
+    ],
+    "vsB4": 0.0,
+    "vsB4ci95": [
+     0.0,
+     0.0
+    ],
+    "final": {
+     "R9": 0.089,
+     "R10": 0.661,
+     "R11": 0.125,
+     "R12": 0.125
+    },
+    "wrongDirection": 0.077
+   },
+   "S2": {
+    "games": 112,
+    "score": 0.464,
+    "ci95": [
+     0.375,
+     0.549
+    ],
+    "vsB4": -0.031,
+    "vsB4ci95": [
+     -0.067,
+     0.009
+    ],
+    "final": {
+     "R9": 0.205,
+     "R10": 0.607,
+     "R11": 0.071,
+     "R12": 0.116
+    },
+    "wrongDirection": 0.109
+   },
+   "S3": {
+    "games": 112,
+    "score": 0.487,
+    "ci95": [
+     0.406,
+     0.571
+    ],
+    "vsB4": -0.009,
+    "vsB4ci95": [
+     -0.04,
+     0.013
+    ],
+    "final": {
+     "R9": 0.232,
+     "R10": 0.652,
+     "R11": 0.036,
+     "R12": 0.08
+    },
+    "wrongDirection": 0.109
+   },
+   "L2": {
+    "games": 112,
+    "score": 0.496,
+    "ci95": [
+     0.397,
+     0.585
+    ],
+    "vsB4": 0.0,
+    "vsB4ci95": [
+     -0.054,
+     0.054
+    ],
+    "final": {
+     "R9": 0.036,
+     "R10": 0.562,
+     "R11": 0.125,
+     "R12": 0.277
+    },
+    "wrongDirection": 0.078
+   },
+   "L3": {
+    "games": 112,
+    "score": 0.504,
+    "ci95": [
+     0.397,
+     0.598
+    ],
+    "vsB4": 0.009,
+    "vsB4ci95": [
+     -0.045,
+     0.054
+    ],
+    "final": {
+     "R9": 0.027,
+     "R10": 0.58,
+     "R11": 0.188,
+     "R12": 0.205
+    },
+    "wrongDirection": 0.083
+   },
+   "SL2": {
+    "games": 112,
+    "score": 0.46,
+    "ci95": [
+     0.375,
+     0.545
+    ],
+    "vsB4": -0.036,
+    "vsB4ci95": [
+     -0.067,
+     -0.009
+    ],
+    "final": {
+     "R9": 0.107,
+     "R10": 0.625,
+     "R11": 0.089,
+     "R12": 0.179
+    },
+    "wrongDirection": 0.097
+   },
+   "H8": {
+    "games": 112,
+    "score": 0.424,
+    "ci95": [
+     0.308,
+     0.531
+    ],
+    "vsB4": -0.071,
+    "vsB4ci95": [
+     -0.134,
+     -0.013
+    ],
+    "final": {
+     "R9": 0.089,
+     "R10": 0.714,
+     "R11": 0.098,
+     "R12": 0.098
+    },
+    "wrongDirection": 0.071
+   },
+   "H12": {
+    "games": 112,
+    "score": 0.402,
+    "ci95": [
+     0.312,
+     0.491
+    ],
+    "vsB4": -0.094,
+    "vsB4ci95": [
+     -0.125,
+     -0.062
+    ],
+    "final": {
+     "R9": 0.107,
+     "R10": 0.643,
+     "R11": 0.134,
+     "R12": 0.116
+    },
+    "wrongDirection": 0.086
+   }
+  },
+  "growth": {
+   "N0": {
+    "games": 112,
+    "score": 0.46,
+    "ci95": [
+     0.397,
+     0.527
+    ],
+    "vsB4": 0.058,
+    "vsB4ci95": [
+     -0.036,
+     0.125
+    ],
+    "final": {
+     "R9": 0.134,
+     "R10": 0.518,
+     "R11": 0.08,
+     "R12": 0.268
+    },
+    "wrongDirection": 0.121
+   },
+   "B4": {
+    "games": 112,
+    "score": 0.402,
+    "ci95": [
+     0.317,
+     0.5
+    ],
+    "vsB4": 0.0,
+    "vsB4ci95": [
+     0.0,
+     0.0
+    ],
+    "final": {
+     "R9": 0.107,
+     "R10": 0.518,
+     "R11": 0.188,
+     "R12": 0.188
+    },
+    "wrongDirection": 0.121
+   },
+   "S2": {
+    "games": 112,
+    "score": 0.411,
+    "ci95": [
+     0.33,
+     0.504
+    ],
+    "vsB4": 0.009,
+    "vsB4ci95": [
+     -0.027,
+     0.054
+    ],
+    "final": {
+     "R9": 0.241,
+     "R10": 0.491,
+     "R11": 0.125,
+     "R12": 0.143
+    },
+    "wrongDirection": 0.08
+   },
+   "S3": {
+    "games": 112,
+    "score": 0.415,
+    "ci95": [
+     0.344,
+     0.482
+    ],
+    "vsB4": 0.013,
+    "vsB4ci95": [
+     -0.022,
+     0.054
+    ],
+    "final": {
+     "R9": 0.286,
+     "R10": 0.527,
+     "R11": 0.071,
+     "R12": 0.116
+    },
+    "wrongDirection": 0.076
+   },
+   "L2": {
+    "games": 112,
+    "score": 0.411,
+    "ci95": [
+     0.317,
+     0.509
+    ],
+    "vsB4": 0.009,
+    "vsB4ci95": [
+     -0.045,
+     0.054
+    ],
+    "final": {
+     "R9": 0.116,
+     "R10": 0.42,
+     "R11": 0.125,
+     "R12": 0.339
+    },
+    "wrongDirection": 0.062
+   },
+   "L3": {
+    "games": 112,
+    "score": 0.384,
+    "ci95": [
+     0.304,
+     0.46
+    ],
+    "vsB4": -0.018,
+    "vsB4ci95": [
+     -0.054,
+     0.013
+    ],
+    "final": {
+     "R9": 0.036,
+     "R10": 0.384,
+     "R11": 0.321,
+     "R12": 0.259
+    },
+    "wrongDirection": 0.117
+   },
+   "SL2": {
+    "games": 112,
+    "score": 0.411,
+    "ci95": [
+     0.312,
+     0.513
+    ],
+    "vsB4": 0.009,
+    "vsB4ci95": [
+     -0.036,
+     0.058
+    ],
+    "final": {
+     "R9": 0.161,
+     "R10": 0.42,
+     "R11": 0.134,
+     "R12": 0.286
+    },
+    "wrongDirection": 0.082
+   },
+   "H8": {
+    "games": 112,
+    "score": 0.317,
+    "ci95": [
+     0.237,
+     0.402
+    ],
+    "vsB4": -0.085,
+    "vsB4ci95": [
+     -0.161,
+     -0.009
+    ],
+    "final": {
+     "R9": 0.116,
+     "R10": 0.536,
+     "R11": 0.188,
+     "R12": 0.161
+    },
+    "wrongDirection": 0.086
+   },
+   "H12": {
+    "games": 112,
+    "score": 0.272,
+    "ci95": [
+     0.196,
+     0.366
+    ],
+    "vsB4": -0.129,
+    "vsB4ci95": [
+     -0.228,
+     -0.049
+    ],
+    "final": {
+     "R9": 0.161,
+     "R10": 0.518,
+     "R11": 0.107,
+     "R12": 0.214
+    },
+    "wrongDirection": 0.093
+   }
+  },
+  "item": {
+   "N0": {
+    "games": 112,
+    "score": 0.647,
+    "ci95": [
+     0.545,
+     0.75
+    ],
+    "vsB4": 0.08,
+    "vsB4ci95": [
+     0.04,
+     0.121
+    ],
+    "final": {
+     "R9": 0.143,
+     "R10": 0.607,
+     "R11": 0.089,
+     "R12": 0.161
+    },
+    "wrongDirection": 0.197
+   },
+   "B4": {
+    "games": 112,
+    "score": 0.567,
+    "ci95": [
+     0.464,
+     0.661
+    ],
+    "vsB4": 0.0,
+    "vsB4ci95": [
+     0.0,
+     0.0
+    ],
+    "final": {
+     "R9": 0.062,
+     "R10": 0.616,
+     "R11": 0.196,
+     "R12": 0.125
+    },
+    "wrongDirection": 0.115
+   },
+   "S2": {
+    "games": 112,
+    "score": 0.589,
+    "ci95": [
+     0.478,
+     0.688
+    ],
+    "vsB4": 0.022,
+    "vsB4ci95": [
+     -0.004,
+     0.054
+    ],
+    "final": {
+     "R9": 0.161,
+     "R10": 0.661,
+     "R11": 0.08,
+     "R12": 0.098
+    },
+    "wrongDirection": 0.094
+   },
+   "S3": {
+    "games": 112,
+    "score": 0.558,
+    "ci95": [
+     0.442,
+     0.656
+    ],
+    "vsB4": -0.009,
+    "vsB4ci95": [
+     -0.031,
+     0.009
+    ],
+    "final": {
+     "R9": 0.143,
+     "R10": 0.696,
+     "R11": 0.098,
+     "R12": 0.062
+    },
+    "wrongDirection": 0.092
+   },
+   "L2": {
+    "games": 112,
+    "score": 0.612,
+    "ci95": [
+     0.469,
+     0.737
+    ],
+    "vsB4": 0.045,
+    "vsB4ci95": [
+     -0.009,
+     0.094
+    ],
+    "final": {
+     "R9": 0.045,
+     "R10": 0.616,
+     "R11": 0.08,
+     "R12": 0.259
+    },
+    "wrongDirection": 0.184
+   },
+   "L3": {
+    "games": 112,
+    "score": 0.594,
+    "ci95": [
+     0.482,
+     0.688
+    ],
+    "vsB4": 0.027,
+    "vsB4ci95": [
+     -0.004,
+     0.058
+    ],
+    "final": {
+     "R9": 0.036,
+     "R10": 0.562,
+     "R11": 0.161,
+     "R12": 0.241
+    },
+    "wrongDirection": 0.149
+   },
+   "SL2": {
+    "games": 112,
+    "score": 0.598,
+    "ci95": [
+     0.464,
+     0.719
+    ],
+    "vsB4": 0.031,
+    "vsB4ci95": [
+     -0.022,
+     0.076
+    ],
+    "final": {
+     "R9": 0.098,
+     "R10": 0.607,
+     "R11": 0.107,
+     "R12": 0.188
+    },
+    "wrongDirection": 0.117
+   },
+   "H8": {
+    "games": 112,
+    "score": 0.496,
+    "ci95": [
+     0.375,
+     0.585
+    ],
+    "vsB4": -0.071,
+    "vsB4ci95": [
+     -0.138,
+     0.004
+    ],
+    "final": {
+     "R9": 0.054,
+     "R10": 0.527,
+     "R11": 0.232,
+     "R12": 0.188
+    },
+    "wrongDirection": 0.107
+   },
+   "H12": {
+    "games": 112,
+    "score": 0.46,
+    "ci95": [
+     0.362,
+     0.536
+    ],
+    "vsB4": -0.107,
+    "vsB4ci95": [
+     -0.183,
+     0.0
+    ],
+    "final": {
+     "R9": 0.071,
+     "R10": 0.616,
+     "R11": 0.134,
+     "R12": 0.179
+    },
+    "wrongDirection": 0.125
+   }
+  },
+  "balance": {
+   "N0": {
+    "games": 112,
+    "score": 0.478,
+    "ci95": [
+     0.366,
+     0.58
+    ],
+    "vsB4": 0.031,
+    "vsB4ci95": [
+     -0.009,
+     0.071
+    ],
+    "final": {
+     "R9": 0.089,
+     "R10": 0.75,
+     "R11": 0.018,
+     "R12": 0.143
+    },
+    "wrongDirection": 0.0
+   },
+   "B4": {
+    "games": 112,
+    "score": 0.446,
+    "ci95": [
+     0.344,
+     0.536
+    ],
+    "vsB4": 0.0,
+    "vsB4ci95": [
+     0.0,
+     0.0
+    ],
+    "final": {
+     "R9": 0.071,
+     "R10": 0.643,
+     "R11": 0.143,
+     "R12": 0.143
+    },
+    "wrongDirection": 0.022
+   },
+   "S2": {
+    "games": 112,
+    "score": 0.482,
+    "ci95": [
+     0.371,
+     0.585
+    ],
+    "vsB4": 0.036,
+    "vsB4ci95": [
+     -0.027,
+     0.085
+    ],
+    "final": {
+     "R9": 0.098,
+     "R10": 0.732,
+     "R11": 0.045,
+     "R12": 0.125
+    },
+    "wrongDirection": 0.0
+   },
+   "S3": {
+    "games": 112,
+    "score": 0.482,
+    "ci95": [
+     0.384,
+     0.567
+    ],
+    "vsB4": 0.036,
+    "vsB4ci95": [
+     0.018,
+     0.058
+    ],
+    "final": {
+     "R9": 0.107,
+     "R10": 0.795,
+     "R11": 0.036,
+     "R12": 0.062
+    },
+    "wrongDirection": 0.04
+   },
+   "L2": {
+    "games": 112,
+    "score": 0.5,
+    "ci95": [
+     0.402,
+     0.598
+    ],
+    "vsB4": 0.054,
+    "vsB4ci95": [
+     -0.027,
+     0.112
+    ],
+    "final": {
+     "R9": 0.027,
+     "R10": 0.625,
+     "R11": 0.089,
+     "R12": 0.259
+    },
+    "wrongDirection": 0.016
+   },
+   "L3": {
+    "games": 112,
+    "score": 0.504,
+    "ci95": [
+     0.402,
+     0.58
+    ],
+    "vsB4": 0.058,
+    "vsB4ci95": [
+     0.031,
+     0.094
+    ],
+    "final": {
+     "R9": 0.045,
+     "R10": 0.607,
+     "R11": 0.134,
+     "R12": 0.214
+    },
+    "wrongDirection": 0.087
+   },
+   "SL2": {
+    "games": 112,
+    "score": 0.473,
+    "ci95": [
+     0.366,
+     0.571
+    ],
+    "vsB4": 0.027,
+    "vsB4ci95": [
+     -0.045,
+     0.071
+    ],
+    "final": {
+     "R9": 0.062,
+     "R10": 0.705,
+     "R11": 0.054,
+     "R12": 0.179
+    },
+    "wrongDirection": 0.0
+   },
+   "H8": {
+    "games": 112,
+    "score": 0.344,
+    "ci95": [
+     0.241,
+     0.415
+    ],
+    "vsB4": -0.103,
+    "vsB4ci95": [
+     -0.152,
+     -0.04
+    ],
+    "final": {
+     "R9": 0.116,
+     "R10": 0.527,
+     "R11": 0.188,
+     "R12": 0.17
+    },
+    "wrongDirection": 0.044
+   },
+   "H12": {
+    "games": 112,
+    "score": 0.277,
+    "ci95": [
+     0.179,
+     0.379
+    ],
+    "vsB4": -0.17,
+    "vsB4ci95": [
+     -0.246,
+     -0.094
+    ],
+    "final": {
+     "R9": 0.125,
+     "R10": 0.482,
+     "R11": 0.125,
+     "R12": 0.268
+    },
+    "wrongDirection": 0.027
+   }
+  }
+ },
+ "selected": {
+  "main": "N0",
+  "companion": "N0",
+  "partner": "L2",
+  "challenge": "N0",
+  "growth": "N0",
+  "item": "N0",
+  "balance": "L2"
+ }
+}

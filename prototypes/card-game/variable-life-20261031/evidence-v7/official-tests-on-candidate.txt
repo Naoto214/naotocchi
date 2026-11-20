@@ -1,0 +1,36 @@
+E3: main の公式テスト（prototypes/card-game/tests/*.test.mjs、CI の card-regression と同じコマンド）
+  main（88ff5e1f）のまま        : pass 642 fail 0
+  統合候補 I7 のモジュールに差し替え: pass 626 fail 16
+  not ok 13 - all 452 faces preserve formal colors, marks, and unique dedicated art at both resolution
+      → 想定どおり（枚数）：正式の枚数 452（たまごを含む一覧は453）を前提にした確認。正式採用時に 459（460）へ更新する
+  not ok 72 - canonical catalog contains all452 current cards, including explicit vanilla
+      → 想定どおり（枚数）：正式の枚数 452（たまごを含む一覧は453）を前提にした確認。正式採用時に 459（460）へ更新する
+  not ok 73 - every source is real, exact text is preserved, and content hashes match
+      → 想定どおり（出典）：出典の文書が docs/card-game にない／カタログの生成に未登録。正式採用時に 481 の文書を置き、生成に登録する
+  not ok 75 - regeneration is deterministic and read-only in check mode
+      → 想定どおり（出典）：出典の文書が docs/card-game にない／カタログの生成に未登録。正式採用時に 481 の文書を置き、生成に登録する
+  not ok 82 - 453 unique cards, egg first, 31 contiguous eight-stage families and 51 nine-pocket pages
+      → 想定どおり（枚数）：正式の枚数 452（たまごを含む一覧は453）を前提にした確認。正式採用時に 459（460）へ更新する
+  not ok 126 - 方針の版：現在は heuristic-3、既知の版は heuristic-1・heuristic-2・heuristic-3
+      → 想定どおり（CPUの版）：CPU の版の名前（候補は heuristic-4-candidate）。正式採用時に heuristic-4 へ更新する
+  not ok 127 - 新しいCPU対戦は heuristic-3 で保存される
+      → 想定どおり（CPUの版）：CPU の版の名前（候補は heuristic-4-candidate）。正式採用時に heuristic-4 へ更新する
+  not ok 136 - all 452 definitions use the same bounded legal candidate interface
+      → 想定どおり（枚数）：正式の枚数 452（たまごを含む一覧は453）を前提にした確認。正式採用時に 459（460）へ更新する
+  not ok 195 - カタログ：変わったのはぴょんぴょんジャンプの本文と、同じ設計正本（85）の出典hashだけ
+      → 想定どおり（枚数）：正式の枚数 452（たまごを含む一覧は453）を前提にした確認。正式採用時に 459（460）へ更新する
+  not ok 255 - 452 release representative deck completes and replays every committed choice exactly
+      → 想定どおり（枚数）：正式の枚数 452（たまごを含む一覧は453）を前提にした確認。正式採用時に 459（460）へ更新する
+  not ok 413 - catalog filters cover all cards, attribute, species and stage in combination
+      → 想定どおり（枚数）：正式の枚数 452（たまごを含む一覧は453）を前提にした確認。正式採用時に 459（460）へ更新する
+  not ok 421 - unfinished ignored; seat results and adoption vs committed play counted
+      → 想定どおり（枚数）：正式の枚数 452（たまごを含む一覧は453）を前提にした確認。正式採用時に 459（460）へ更新する
+  not ok 480 - カタログ：変わったのは2枚の本文と、設計正本83・85の出典hashだけ（main eb97817d と同じ）
+      → 想定どおり（枚数）：正式の枚数 452（たまごを含む一覧は453）を前提にした確認。正式採用時に 459（460）へ更新する
+  not ok 504 - all 452 canonical cards use distinct dedicated thumbnails and high resolution detail ar
+      → 想定どおり（絵）：全カードに専用の絵があることの確認。Astra の絵の組み込みまで想定どおり失敗
+  not ok 532 - egg is a tappable state card only in the empty main slot, in both orientations
+      → 想定どおり（枚数）：正式の枚数 452（たまごを含む一覧は453）を前提にした確認。正式採用時に 459（460）へ更新する
+  not ok 587 - every catalog card renders current text; main-only fields never leak into other categor
+      → 想定どおり（枚数）：正式の枚数 452（たまごを含む一覧は453）を前提にした確認。正式採用時に 459（460）へ更新する
+ゲームの規則・CPU・保存・戦績の処理の不具合による失敗：0件

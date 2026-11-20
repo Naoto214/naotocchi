@@ -1,0 +1,75 @@
+{
+  "W-time-ix": {
+    "id": "W-time-ix",
+    "name": "IX",
+    "type": "world",
+    "cost": 2,
+    "rare": false,
+    "text": "【時のカード】終了ラウンドを9にする。",
+    "source": "481-time-reversal-cards.md#W-time-ix — IX",
+    "source_sha256": "db230be35b0a175c2e63b85d7f62c4dce3d2167a40c6548f7d181979725e7292"
+  },
+  "W-time-x": {
+    "id": "W-time-x",
+    "name": "X",
+    "type": "world",
+    "cost": 2,
+    "rare": false,
+    "text": "【時のカード】終了ラウンドを10にする。",
+    "source": "481-time-reversal-cards.md#W-time-x — X",
+    "source_sha256": "db230be35b0a175c2e63b85d7f62c4dce3d2167a40c6548f7d181979725e7292"
+  },
+  "W-time-xi": {
+    "id": "W-time-xi",
+    "name": "XI",
+    "type": "world",
+    "cost": 2,
+    "rare": false,
+    "text": "【時のカード】終了ラウンドを11にする。",
+    "source": "481-time-reversal-cards.md#W-time-xi — XI",
+    "source_sha256": "db230be35b0a175c2e63b85d7f62c4dce3d2167a40c6548f7d181979725e7292"
+  },
+  "W-time-xii": {
+    "id": "W-time-xii",
+    "name": "XII",
+    "type": "world",
+    "cost": 2,
+    "rare": false,
+    "text": "【時のカード】終了ラウンドを12にする。",
+    "source": "481-time-reversal-cards.md#W-time-xii — XII",
+    "source_sha256": "db230be35b0a175c2e63b85d7f62c4dce3d2167a40c6548f7d181979725e7292"
+  },
+  "E-hayajimai": {
+    "id": "E-hayajimai",
+    "name": "はやじまい",
+    "type": "event",
+    "cost": 2,
+    "rare": false,
+    "text": "負けていて、終了ラウンドが次のラウンドの時に使える。そだち+5（終了ラウンドが10なら+10、9なら+15）。1ターンに1回。",
+    "source": "481-time-reversal-cards.md#E-hayajimai — はやじまい",
+    "source_sha256": "db230be35b0a175c2e63b85d7f62c4dce3d2167a40c6548f7d181979725e7292",
+    "method": "すぐつかう"
+  },
+  "E-nagaiki": {
+    "id": "E-nagaiki",
+    "name": "ながいきのひけつ",
+    "type": "event",
+    "cost": 2,
+    "rare": false,
+    "text": "そだち+5。効果を解決する直前に、終了ラウンドが11以上で負けているなら、さらに+10。",
+    "source": "481-time-reversal-cards.md#E-nagaiki — ながいきのひけつ",
+    "source_sha256": "db230be35b0a175c2e63b85d7f62c4dce3d2167a40c6548f7d181979725e7292",
+    "method": "すぐつかう"
+  },
+  "E-omoide-photo": {
+    "id": "E-omoide-photo",
+    "name": "おもいでのしゃしん",
+    "type": "event",
+    "cost": 2,
+    "rare": false,
+    "text": "終了ラウンドのラウンドに使える。自分のなかま・こいびと・セカイ（時のカードを除く）1枚につきそだち+5（最大+15）。1ターンに1回。",
+    "source": "481-time-reversal-cards.md#E-omoide-photo — おもいでのしゃしん",
+    "source_sha256": "db230be35b0a175c2e63b85d7f62c4dce3d2167a40c6548f7d181979725e7292",
+    "method": "すぐつかう"
+  }
+}

@@ -1,0 +1,12 @@
+PASS 正式の records.mjs が version 1 を書ける（2件）
+PASS version 1 のカタログは正式452枚（試作の番号台帳 v1 と同一）
+PASS 試作は version 1 をそのまま読める（デッキ・使用・結果が正式の読み込みと一致）
+PASS 新カードの提案IDは452枚と重ならない
+PASS 並べ替え番号のまま足すと既存の番号がずれる（だから番号でなく文字列で保存する） — ずれる既存カード 420枚
+PASS version 2：新カード入りのデッキと R12 の対戦を保存して読み直せる
+PASS version 2：既存の2件は version 1 の内容のまま
+PASS 知らないカードIDは拒否する
+PASS version 1 でカタログが違うものは拒否する（番号の取り違えを防ぐ）
+PASS ラウンドは12まで
+PASS 正式の records.mjs（version 1）は version 2 を読まずに拒否する（誤読しない）
+ALL PASS
