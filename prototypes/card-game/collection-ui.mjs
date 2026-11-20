@@ -6,12 +6,13 @@ import {fitMainCardCopy} from './ui-art-loading.mjs';
 import {marriedText} from './lover-married.mjs';
 
 export function mountCollection({decks,onStats=()=>{},onRule=()=>{},onOpen=()=>{},onClose=()=>{}}){
+ const allCards=collectionCards(),totalCards=allCards.length,totalPages=collectionPage(allCards).pages;
  const $=id=>document.getElementById(id),dialog=document.createElement('dialog');
  dialog.id='collection-dialog';dialog.setAttribute('aria-label','カードコレクション');
  dialog.innerHTML=`<header class="collection-toolbar"><div><small>NAOTOCCHI</small><h2>カードコレクション</h2></div><button id="collection-close" type="button">戻る ×</button></header>
  <p id="collection-status" role="status" aria-live="polite"></p>
  <section id="collection-notice" hidden><p>カードコレクションには、なおとっち本編でまだ出会っていないキャラクターや出来事も登場します。</p><button id="collection-ack" type="button">確認してひらく</button></section>
- <div id="collection-shelf"><button id="collection-cover" type="button" aria-label="カードファイルを開く" aria-describedby="collection-cover-caption"><span class="binder-spine"></span><img src="ui-assets/card-back-approved.png" class="binder-cover-art" alt="正式カード裏面の植物紋章" draggable="false"><span class="binder-title"><strong>NAOTOCCHI</strong><span>CARD COLLECTION</span></span></button><span class="binder-caption" id="collection-cover-caption">453 CARDS · 51 PAGES<br>タップしてひらく</span></div>
+ <div id="collection-shelf"><button id="collection-cover" type="button" aria-label="カードファイルを開く" aria-describedby="collection-cover-caption"><span class="binder-spine"></span><img src="ui-assets/card-back-approved.png" class="binder-cover-art" alt="正式カード裏面の植物紋章" draggable="false"><span class="binder-title"><strong>NAOTOCCHI</strong><span>CARD COLLECTION</span></span></button><span class="binder-caption" id="collection-cover-caption">${totalCards} CARDS · ${totalPages} PAGES<br>タップしてひらく</span></div>
  <section id="collection-book" hidden><div class="collection-book-tools"><button id="collection-to-cover" type="button">表紙へ</button><span id="collection-count"></span><button id="collection-favorites-only" type="button" aria-pressed="false">♡ お気に入り</button></div>
  <label class="collection-search">カード名・効果を検索<input id="collection-query" type="search" placeholder="カード名・効果・ID"></label>
  <details class="collection-filter-panel"><summary>分類・属性などで絞り込む</summary><div class="collection-filters">${[['type','分類'],['attribute','属性'],['species','メインの種族'],['stage','成長段階'],['rarity','レア区分']].map(([key,label])=>`<label>${label}<select id="collection-${key}"><option value="">すべて</option></select></label>`).join('')}</div></details>
@@ -37,7 +38,7 @@ export function mountCollection({decks,onStats=()=>{},onRule=()=>{},onOpen=()=>{
  function favoriteButton(b,id){const yes=prefs.data.favorites.includes(id);b.textContent=yes?'♥':'♡';b.setAttribute('aria-pressed',String(yes));b.setAttribute('aria-label',(yes?'お気に入りを解除：':'お気に入りに登録：')+(CARDS[id]?.name??'たまご'));}
  function renderPage(){
   list=collectionCards(filters(),prefs.data.favorites);const view=collectionPage(list,page);page=view.page;
-  $('collection-count').textContent=`${list.length} / 453種類`;$('collection-page').textContent=`${list.length?page+1:0} / ${list.length?view.pages:0} ページ`;
+  $('collection-count').textContent=`${list.length} / ${totalCards}種類`;$('collection-page').textContent=`${list.length?page+1:0} / ${list.length?view.pages:0} ページ`;
   $('collection-prev').disabled=page===0;$('collection-next').disabled=!list.length||page>=view.pages-1;
   $('collection-filter-status').textContent=filtered?'絞り込み中':'全カードを公開中';
   $('collection-grid').innerHTML=view.cards.map(c=>`<article class="collection-pocket"><button type="button" class="collection-card-tap" data-collection-card="${h(c.id)}" aria-label="${h(c.name)}の詳細">${c.viewOnly?eggCardMarkup():cardMarkup(c,{compact:true})}</button><div class="collection-pocket-label"><span>${h(c.form??c.name)}</span><button type="button" data-collection-favorite="${h(c.id)}"></button></div></article>`).join('')+Array.from({length:9-view.cards.length},()=>'<div class="collection-pocket empty-pocket" aria-hidden="true"></div>').join('');

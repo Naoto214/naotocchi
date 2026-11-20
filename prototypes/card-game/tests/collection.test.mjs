@@ -22,3 +22,9 @@ test('deck creation works where secure-context randomUUID is unavailable',()=>{
  const original=globalThis.crypto;Object.defineProperty(globalThis,'crypto',{value:{getRandomValues:array=>original.getRandomValues(array)},configurable:true});
  try{const l=new DeckLibrary(storage());for(let i=0;i<18;i++)l.create('追加');assert.equal(new Set(l.data.decks.map(d=>d.id)).size,20);l.save();}finally{Object.defineProperty(globalThis,'crypto',{value:original,configurable:true});}
 });
+
+test('the 52nd collection page survives saving and reopening without changing version1 preferences',()=>{
+ const s=storage(),p=new mod.CollectionPreferences(s);p.update({page:51,noticeSeen:true});p.toggle('W-time-xii');
+ const restored=new mod.CollectionPreferences(s);assert.equal(restored.data.page,51);assert.deepEqual(restored.data.favorites,['W-time-xii']);assert.equal(restored.data.version,1);assert.equal(restored.data.noticeSeen,true);
+ assert.equal(restored.update({page:999}).page,51);assert.equal(restored.update({page:50}).page,50);assert.equal(new mod.CollectionPreferences(s).data.page,50);
+});
