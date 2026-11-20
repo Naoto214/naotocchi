@@ -1,0 +1,110 @@
+[
+  {
+    "region": "river_lake",
+    "time": "morning",
+    "active": 4471,
+    "reduced": 0,
+    "boosted": 3484,
+    "outside": 0,
+    "ink": 23808
+  },
+  {
+    "region": "river_lake",
+    "time": "day",
+    "active": 4564,
+    "reduced": 0,
+    "boosted": 3588,
+    "outside": 0,
+    "ink": 23844
+  },
+  {
+    "region": "river_lake",
+    "time": "evening",
+    "active": 4407,
+    "reduced": 0,
+    "boosted": 3446,
+    "outside": 0,
+    "ink": 23909
+  },
+  {
+    "region": "river_lake",
+    "time": "night",
+    "active": 3826,
+    "reduced": 0,
+    "boosted": 2795,
+    "outside": 0,
+    "ink": 23894
+  },
+  {
+    "region": "home",
+    "time": "morning",
+    "active": 363,
+    "reduced": 0,
+    "boosted": 97,
+    "outside": 0,
+    "ink": 364
+  },
+  {
+    "region": "home",
+    "time": "day",
+    "active": 292,
+    "reduced": 0,
+    "boosted": 61,
+    "outside": 0,
+    "ink": 364
+  },
+  {
+    "region": "home",
+    "time": "evening",
+    "active": 280,
+    "reduced": 0,
+    "boosted": 63,
+    "outside": 0,
+    "ink": 364
+  },
+  {
+    "region": "home",
+    "time": "night",
+    "active": 160,
+    "reduced": 0,
+    "boosted": 70,
+    "outside": 0,
+    "ink": 364
+  },
+  {
+    "region": "countryside",
+    "time": "morning",
+    "active": 6937,
+    "reduced": 0,
+    "boosted": 3846,
+    "outside": 0,
+    "ink": 0
+  },
+  {
+    "region": "countryside",
+    "time": "day",
+    "active": 6952,
+    "reduced": 0,
+    "boosted": 3806,
+    "outside": 0,
+    "ink": 0
+  },
+  {
+    "region": "countryside",
+    "time": "evening",
+    "active": 6924,
+    "reduced": 0,
+    "boosted": 3857,
+    "outside": 0,
+    "ink": 0
+  },
+  {
+    "region": "countryside",
+    "time": "night",
+    "active": 6262,
+    "reduced": 0,
+    "boosted": 3437,
+    "outside": 0,
+    "ink": 0
+  }
+]

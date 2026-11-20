@@ -1,0 +1,1622 @@
+{
+ "reference": {
+  "forest/morning/D3/1": true,
+  "forest/morning/D3/0.375": true,
+  "forest/day/D3/1": true,
+  "forest/day/D3/0.375": true,
+  "forest/evening/D3/1": true,
+  "forest/evening/D3/0.375": true,
+  "forest/night/D3/1": true,
+  "forest/night/D3/0.375": true,
+  "city/morning/D3/1": true,
+  "city/morning/D3/0.375": true,
+  "city/day/D3/1": true,
+  "city/day/D3/0.375": true,
+  "city/evening/D3/1": true,
+  "city/evening/D3/0.375": true,
+  "city/night/D3/1": true,
+  "city/night/D3/0.375": true,
+  "snow/morning/D3/1": true,
+  "snow/morning/D3/0.375": true,
+  "snow/day/D3/1": true,
+  "snow/day/D3/0.375": true,
+  "snow/evening/D3/1": true,
+  "snow/evening/D3/0.375": true,
+  "snow/night/D3/1": true,
+  "snow/night/D3/0.375": true,
+  "sea/morning/D3/1": true,
+  "sea/morning/D3/0.375": true,
+  "sea/day/D3/1": true,
+  "sea/day/D3/0.375": true,
+  "sea/evening/D3/1": true,
+  "sea/evening/D3/0.375": true,
+  "sea/night/D3/1": true,
+  "sea/night/D3/0.375": true,
+  "memory_lake/morning/D3/1": true,
+  "memory_lake/morning/D3/0.375": true,
+  "memory_lake/day/D3/1": true,
+  "memory_lake/day/D3/0.375": true,
+  "memory_lake/evening/D3/1": true,
+  "memory_lake/evening/D3/0.375": true,
+  "memory_lake/night/D3/1": true,
+  "memory_lake/night/D3/0.375": true,
+  "forest/morning/E3/1": true,
+  "forest/morning/E3/0.375": true,
+  "forest/day/E3/1": true,
+  "forest/day/E3/0.375": true,
+  "forest/evening/E3/1": true,
+  "forest/evening/E3/0.375": true,
+  "forest/night/E3/1": true,
+  "forest/night/E3/0.375": true,
+  "sea/morning/E3/1": true,
+  "sea/morning/E3/0.375": true,
+  "sea/day/E3/1": true,
+  "sea/day/E3/0.375": true,
+  "sea/evening/E3/1": true,
+  "sea/evening/E3/0.375": true,
+  "sea/night/E3/1": true,
+  "sea/night/E3/0.375": true
+ },
+ "conditions": {
+  "home/morning": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 3,
+     "cloudy": 325,
+     "rain": 365,
+     "snow": 346
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 322,
+     "rain": 365,
+     "snow": 346
+    },
+    "autumn": {
+     "sunny": 218,
+     "cloudy": 338,
+     "rain": 379,
+     "snow": 360
+    },
+    "winter": {
+     "sunny": 338,
+     "cloudy": 320,
+     "rain": 363,
+     "snow": 344
+    }
+   }
+  },
+  "home/day": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 4,
+     "cloudy": 222,
+     "rain": 269,
+     "snow": 251
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 218,
+     "rain": 269,
+     "snow": 251
+    },
+    "autumn": {
+     "sunny": 89,
+     "cloudy": 227,
+     "rain": 275,
+     "snow": 257
+    },
+    "winter": {
+     "sunny": 191,
+     "cloudy": 225,
+     "rain": 276,
+     "snow": 258
+    }
+   }
+  },
+  "home/evening": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 5,
+     "cloudy": 265,
+     "rain": 318,
+     "snow": 295
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 260,
+     "rain": 318,
+     "snow": 295
+    },
+    "autumn": {
+     "sunny": 3,
+     "cloudy": 263,
+     "rain": 318,
+     "snow": 295
+    },
+    "winter": {
+     "sunny": 0,
+     "cloudy": 260,
+     "rain": 318,
+     "snow": 295
+    }
+   }
+  },
+  "home/night": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 442,
+     "rain": 506,
+     "snow": 478
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 442,
+     "rain": 506,
+     "snow": 478
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 442,
+     "rain": 506,
+     "snow": 478
+    },
+    "winter": {
+     "sunny": 0,
+     "cloudy": 442,
+     "rain": 506,
+     "snow": 478
+    }
+   }
+  },
+  "forest/morning": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 42,
+     "cloudy": 3664,
+     "rain": 4196,
+     "snow": 4109
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 3622,
+     "rain": 4196,
+     "snow": 4109
+    },
+    "autumn": {
+     "sunny": 35,
+     "cloudy": 3657,
+     "rain": 4196,
+     "snow": 4109
+    },
+    "winter": {
+     "sunny": 3374,
+     "cloudy": 3802,
+     "rain": 4263,
+     "snow": 4176
+    }
+   }
+  },
+  "forest/day": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 43,
+     "cloudy": 3892,
+     "rain": 4415,
+     "snow": 4322
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 3849,
+     "rain": 4415,
+     "snow": 4322
+    },
+    "autumn": {
+     "sunny": 36,
+     "cloudy": 3885,
+     "rain": 4415,
+     "snow": 4322
+    },
+    "winter": {
+     "sunny": 3289,
+     "cloudy": 4005,
+     "rain": 4492,
+     "snow": 4400
+    }
+   }
+  },
+  "forest/evening": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 217,
+     "cloudy": 3370,
+     "rain": 3910,
+     "snow": 3814
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 3150,
+     "rain": 3910,
+     "snow": 3814
+    },
+    "autumn": {
+     "sunny": 203,
+     "cloudy": 3356,
+     "rain": 3910,
+     "snow": 3814
+    },
+    "winter": {
+     "sunny": 4145,
+     "cloudy": 3565,
+     "rain": 3989,
+     "snow": 3892
+    }
+   }
+  },
+  "forest/night": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 255,
+     "cloudy": 2425,
+     "rain": 2982,
+     "snow": 2894
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 2175,
+     "rain": 2982,
+     "snow": 2894
+    },
+    "autumn": {
+     "sunny": 254,
+     "cloudy": 2424,
+     "rain": 2982,
+     "snow": 2894
+    },
+    "winter": {
+     "sunny": 210,
+     "cloudy": 2380,
+     "rain": 2982,
+     "snow": 2894
+    }
+   }
+  },
+  "river_lake/morning": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 1892,
+     "cloudy": 1878,
+     "rain": 1898,
+     "snow": 1878
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 213,
+     "rain": 250,
+     "snow": 213
+    },
+    "autumn": {
+     "sunny": 10,
+     "cloudy": 212,
+     "rain": 249,
+     "snow": 212
+    },
+    "winter": {
+     "sunny": 1885,
+     "cloudy": 1863,
+     "rain": 1885,
+     "snow": 1863
+    }
+   }
+  },
+  "river_lake/day": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 1904,
+     "cloudy": 1897,
+     "rain": 1916,
+     "snow": 1897
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 215,
+     "rain": 255,
+     "snow": 215
+    },
+    "autumn": {
+     "sunny": 9,
+     "cloudy": 214,
+     "rain": 254,
+     "snow": 214
+    },
+    "winter": {
+     "sunny": 1925,
+     "cloudy": 1894,
+     "rain": 1914,
+     "snow": 1894
+    }
+   }
+  },
+  "river_lake/evening": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 1869,
+     "cloudy": 1843,
+     "rain": 1863,
+     "snow": 1843
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 203,
+     "rain": 239,
+     "snow": 203
+    },
+    "autumn": {
+     "sunny": 6,
+     "cloudy": 203,
+     "rain": 239,
+     "snow": 203
+    },
+    "winter": {
+     "sunny": 1886,
+     "cloudy": 1861,
+     "rain": 1879,
+     "snow": 1861
+    }
+   }
+  },
+  "river_lake/night": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 1645,
+     "cloudy": 1626,
+     "rain": 1646,
+     "snow": 1626
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 221,
+     "rain": 263,
+     "snow": 221
+    },
+    "autumn": {
+     "sunny": 10,
+     "cloudy": 220,
+     "rain": 262,
+     "snow": 220
+    },
+    "winter": {
+     "sunny": 1630,
+     "cloudy": 1603,
+     "rain": 1624,
+     "snow": 1603
+    }
+   }
+  },
+  "city/morning": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 33,
+     "rain": 2639,
+     "snow": 57
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 33,
+     "rain": 2639,
+     "snow": 57
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 33,
+     "rain": 2639,
+     "snow": 57
+    },
+    "winter": {
+     "sunny": 0,
+     "cloudy": 33,
+     "rain": 2639,
+     "snow": 57
+    }
+   }
+  },
+  "city/day": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 41,
+     "rain": 2292,
+     "snow": 65
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 41,
+     "rain": 2292,
+     "snow": 65
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 41,
+     "rain": 2292,
+     "snow": 65
+    },
+    "winter": {
+     "sunny": 0,
+     "cloudy": 41,
+     "rain": 2292,
+     "snow": 65
+    }
+   }
+  },
+  "city/evening": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 2560,
+     "snow": 26
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 2560,
+     "snow": 26
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 2560,
+     "snow": 26
+    },
+    "winter": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 2560,
+     "snow": 26
+    }
+   }
+  },
+  "city/night": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 2546,
+     "snow": 28
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 2546,
+     "snow": 28
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 2546,
+     "snow": 28
+    },
+    "winter": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 2546,
+     "snow": 28
+    }
+   }
+  },
+  "countryside/morning": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 25,
+     "cloudy": 130,
+     "rain": 175,
+     "snow": 142
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 105,
+     "rain": 175,
+     "snow": 142
+    },
+    "autumn": {
+     "sunny": 17,
+     "cloudy": 122,
+     "rain": 175,
+     "snow": 142
+    },
+    "winter": {
+     "sunny": 0,
+     "cloudy": 105,
+     "rain": 175,
+     "snow": 142
+    }
+   }
+  },
+  "countryside/day": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 26,
+     "cloudy": 134,
+     "rain": 178,
+     "snow": 146
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 108,
+     "rain": 178,
+     "snow": 146
+    },
+    "autumn": {
+     "sunny": 20,
+     "cloudy": 128,
+     "rain": 178,
+     "snow": 146
+    },
+    "winter": {
+     "sunny": 0,
+     "cloudy": 108,
+     "rain": 178,
+     "snow": 146
+    }
+   }
+  },
+  "countryside/evening": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 135,
+     "cloudy": 135,
+     "rain": 210,
+     "snow": 173
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 210,
+     "snow": 173
+    },
+    "autumn": {
+     "sunny": 135,
+     "cloudy": 135,
+     "rain": 210,
+     "snow": 173
+    },
+    "winter": {
+     "sunny": 135,
+     "cloudy": 135,
+     "rain": 210,
+     "snow": 173
+    }
+   }
+  },
+  "countryside/night": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 138,
+     "cloudy": 138,
+     "rain": 210,
+     "snow": 177
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 210,
+     "snow": 177
+    },
+    "autumn": {
+     "sunny": 138,
+     "cloudy": 138,
+     "rain": 210,
+     "snow": 177
+    },
+    "winter": {
+     "sunny": 138,
+     "cloudy": 138,
+     "rain": 210,
+     "snow": 177
+    }
+   }
+  },
+  "mountain/morning": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 733,
+     "rain": 788,
+     "snow": 503
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 733,
+     "rain": 788,
+     "snow": 503
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 733,
+     "rain": 788,
+     "snow": 503
+    },
+    "winter": {
+     "sunny": 0,
+     "cloudy": 733,
+     "rain": 788,
+     "snow": 503
+    }
+   }
+  },
+  "mountain/day": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 695,
+     "rain": 739,
+     "snow": 485
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 695,
+     "rain": 739,
+     "snow": 485
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 695,
+     "rain": 739,
+     "snow": 485
+    },
+    "winter": {
+     "sunny": 0,
+     "cloudy": 695,
+     "rain": 739,
+     "snow": 485
+    }
+   }
+  },
+  "mountain/evening": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 728,
+     "rain": 789,
+     "snow": 497
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 728,
+     "rain": 789,
+     "snow": 497
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 728,
+     "rain": 789,
+     "snow": 497
+    },
+    "winter": {
+     "sunny": 0,
+     "cloudy": 728,
+     "rain": 789,
+     "snow": 497
+    }
+   }
+  },
+  "mountain/night": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 720,
+     "rain": 781,
+     "snow": 502
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 720,
+     "rain": 781,
+     "snow": 502
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 720,
+     "rain": 781,
+     "snow": 502
+    },
+    "winter": {
+     "sunny": 0,
+     "cloudy": 720,
+     "rain": 781,
+     "snow": 502
+    }
+   }
+  },
+  "snow/morning": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 25,
+     "rain": 239,
+     "snow": 104
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 25,
+     "rain": 239,
+     "snow": 104
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 25,
+     "rain": 239,
+     "snow": 104
+    },
+    "winter": {
+     "sunny": 107,
+     "cloudy": 47,
+     "rain": 239,
+     "snow": 187
+    }
+   }
+  },
+  "snow/day": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 7,
+     "rain": 96,
+     "snow": 88
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 7,
+     "rain": 96,
+     "snow": 88
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 7,
+     "rain": 96,
+     "snow": 88
+    },
+    "winter": {
+     "sunny": 56,
+     "cloudy": 25,
+     "rain": 96,
+     "snow": 126
+    }
+   }
+  },
+  "snow/evening": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 17,
+     "rain": 198,
+     "snow": 100
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 17,
+     "rain": 198,
+     "snow": 100
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 17,
+     "rain": 198,
+     "snow": 100
+    },
+    "winter": {
+     "sunny": 74,
+     "cloudy": 24,
+     "rain": 198,
+     "snow": 147
+    }
+   }
+  },
+  "snow/night": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 39,
+     "rain": 311,
+     "snow": 114
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 39,
+     "rain": 311,
+     "snow": 114
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 39,
+     "rain": 311,
+     "snow": 114
+    },
+    "winter": {
+     "sunny": 162,
+     "cloudy": 53,
+     "rain": 311,
+     "snow": 249
+    }
+   }
+  },
+  "sea/morning": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 29,
+     "cloudy": 530,
+     "rain": 10095,
+     "snow": 13482
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 514,
+     "rain": 10096,
+     "snow": 13484
+    },
+    "autumn": {
+     "sunny": 29,
+     "cloudy": 505,
+     "rain": 10070,
+     "snow": 13457
+    },
+    "winter": {
+     "sunny": 138,
+     "cloudy": 565,
+     "rain": 10106,
+     "snow": 13495
+    }
+   }
+  },
+  "sea/day": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 24,
+     "cloudy": 502,
+     "rain": 10700,
+     "snow": 13890
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 486,
+     "rain": 10699,
+     "snow": 13889
+    },
+    "autumn": {
+     "sunny": 24,
+     "cloudy": 494,
+     "rain": 10692,
+     "snow": 13882
+    },
+    "winter": {
+     "sunny": 153,
+     "cloudy": 534,
+     "rain": 10714,
+     "snow": 13904
+    }
+   }
+  },
+  "sea/evening": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 63,
+     "cloudy": 634,
+     "rain": 11080,
+     "snow": 14222
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 616,
+     "rain": 11080,
+     "snow": 14219
+    },
+    "autumn": {
+     "sunny": 67,
+     "cloudy": 606,
+     "rain": 11052,
+     "snow": 14196
+    },
+    "winter": {
+     "sunny": 210,
+     "cloudy": 690,
+     "rain": 11122,
+     "snow": 14265
+    }
+   }
+  },
+  "sea/night": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 56,
+     "cloudy": 823,
+     "rain": 7649,
+     "snow": 10433
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 817,
+     "rain": 7649,
+     "snow": 10432
+    },
+    "autumn": {
+     "sunny": 126,
+     "cloudy": 805,
+     "rain": 7631,
+     "snow": 10415
+    },
+    "winter": {
+     "sunny": 297,
+     "cloudy": 845,
+     "rain": 7651,
+     "snow": 10438
+    }
+   }
+  },
+  "jungle/morning": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 1738,
+     "rain": 2255,
+     "snow": 1971
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 1738,
+     "rain": 2255,
+     "snow": 1971
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 1738,
+     "rain": 2255,
+     "snow": 1971
+    },
+    "winter": {
+     "sunny": 0,
+     "cloudy": 1738,
+     "rain": 2255,
+     "snow": 1971
+    }
+   }
+  },
+  "jungle/day": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 1587,
+     "rain": 2184,
+     "snow": 1843
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 1587,
+     "rain": 2184,
+     "snow": 1843
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 1587,
+     "rain": 2184,
+     "snow": 1843
+    },
+    "winter": {
+     "sunny": 0,
+     "cloudy": 1587,
+     "rain": 2184,
+     "snow": 1843
+    }
+   }
+  },
+  "jungle/evening": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 1398,
+     "rain": 1937,
+     "snow": 1626
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 1398,
+     "rain": 1937,
+     "snow": 1626
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 1398,
+     "rain": 1937,
+     "snow": 1626
+    },
+    "winter": {
+     "sunny": 0,
+     "cloudy": 1398,
+     "rain": 1937,
+     "snow": 1626
+    }
+   }
+  },
+  "jungle/night": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 41,
+     "cloudy": 1664,
+     "rain": 2196,
+     "snow": 1951
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 1664,
+     "rain": 2196,
+     "snow": 1951
+    },
+    "autumn": {
+     "sunny": 41,
+     "cloudy": 1664,
+     "rain": 2196,
+     "snow": 1951
+    },
+    "winter": {
+     "sunny": 41,
+     "cloudy": 1664,
+     "rain": 2196,
+     "snow": 1951
+    }
+   }
+  },
+  "desert/morning": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 317,
+     "snow": 315
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 317,
+     "snow": 315
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 317,
+     "snow": 315
+    },
+    "winter": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 317,
+     "snow": 315
+    }
+   }
+  },
+  "desert/day": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 27,
+     "cloudy": 180,
+     "rain": 482,
+     "snow": 472
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 180,
+     "rain": 482,
+     "snow": 472
+    },
+    "autumn": {
+     "sunny": 27,
+     "cloudy": 180,
+     "rain": 482,
+     "snow": 472
+    },
+    "winter": {
+     "sunny": 180,
+     "cloudy": 180,
+     "rain": 482,
+     "snow": 472
+    }
+   }
+  },
+  "desert/evening": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 372,
+     "snow": 365
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 372,
+     "snow": 365
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 372,
+     "snow": 365
+    },
+    "winter": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 372,
+     "snow": 365
+    }
+   }
+  },
+  "desert/night": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 32,
+     "rain": 388,
+     "snow": 371
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 32,
+     "rain": 388,
+     "snow": 371
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 32,
+     "rain": 388,
+     "snow": 371
+    },
+    "winter": {
+     "sunny": 0,
+     "cloudy": 32,
+     "rain": 388,
+     "snow": 371
+    }
+   }
+  },
+  "deepsea/morning": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 5,
+     "cloudy": 2481,
+     "rain": 4208,
+     "snow": 4208
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 2469,
+     "rain": 4201,
+     "snow": 4201
+    },
+    "autumn": {
+     "sunny": 19,
+     "cloudy": 2493,
+     "rain": 4216,
+     "snow": 4216
+    },
+    "winter": {
+     "sunny": 23,
+     "cloudy": 2496,
+     "rain": 4220,
+     "snow": 4220
+    }
+   }
+  },
+  "deepsea/day": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 5,
+     "cloudy": 2303,
+     "rain": 4084,
+     "snow": 4084
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 2287,
+     "rain": 4076,
+     "snow": 4076
+    },
+    "autumn": {
+     "sunny": 18,
+     "cloudy": 2317,
+     "rain": 4092,
+     "snow": 4092
+    },
+    "winter": {
+     "sunny": 23,
+     "cloudy": 2322,
+     "rain": 4095,
+     "snow": 4095
+    }
+   }
+  },
+  "deepsea/evening": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 10,
+     "cloudy": 2075,
+     "rain": 4009,
+     "snow": 4009
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 2056,
+     "rain": 4000,
+     "snow": 4000
+    },
+    "autumn": {
+     "sunny": 21,
+     "cloudy": 2088,
+     "rain": 4017,
+     "snow": 4017
+    },
+    "winter": {
+     "sunny": 31,
+     "cloudy": 2094,
+     "rain": 4023,
+     "snow": 4023
+    }
+   }
+  },
+  "deepsea/night": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 9,
+     "cloudy": 468,
+     "rain": 2719,
+     "snow": 2719
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 457,
+     "rain": 2698,
+     "snow": 2698
+    },
+    "autumn": {
+     "sunny": 20,
+     "cloudy": 487,
+     "rain": 2731,
+     "snow": 2731
+    },
+    "winter": {
+     "sunny": 29,
+     "cloudy": 493,
+     "rain": 2733,
+     "snow": 2733
+    }
+   }
+  },
+  "star_stop/morning": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 1,
+     "rain": 57,
+     "snow": 57
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 1,
+     "rain": 57,
+     "snow": 57
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 1,
+     "rain": 57,
+     "snow": 57
+    },
+    "winter": {
+     "sunny": 20,
+     "cloudy": 21,
+     "rain": 77,
+     "snow": 77
+    }
+   }
+  },
+  "star_stop/day": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 2,
+     "rain": 54,
+     "snow": 54
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 2,
+     "rain": 54,
+     "snow": 54
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 2,
+     "rain": 54,
+     "snow": 54
+    },
+    "winter": {
+     "sunny": 9,
+     "cloudy": 11,
+     "rain": 63,
+     "snow": 63
+    }
+   }
+  },
+  "star_stop/evening": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 10,
+     "rain": 117,
+     "snow": 117
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 10,
+     "rain": 117,
+     "snow": 117
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 10,
+     "rain": 117,
+     "snow": 117
+    },
+    "winter": {
+     "sunny": 31,
+     "cloudy": 41,
+     "rain": 148,
+     "snow": 148
+    }
+   }
+  },
+  "star_stop/night": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 72,
+     "rain": 237,
+     "snow": 237
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 72,
+     "rain": 237,
+     "snow": 237
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 72,
+     "rain": 237,
+     "snow": 237
+    },
+    "winter": {
+     "sunny": 14,
+     "cloudy": 86,
+     "rain": 251,
+     "snow": 251
+    }
+   }
+  },
+  "memory_lake/morning": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 0,
+     "snow": 0
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 0,
+     "snow": 0
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 0,
+     "snow": 0
+    },
+    "winter": {
+     "sunny": 371,
+     "cloudy": 371,
+     "rain": 371,
+     "snow": 371
+    }
+   }
+  },
+  "memory_lake/day": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 0,
+     "snow": 0
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 0,
+     "snow": 0
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 0,
+     "snow": 0
+    },
+    "winter": {
+     "sunny": 560,
+     "cloudy": 560,
+     "rain": 560,
+     "snow": 560
+    }
+   }
+  },
+  "memory_lake/evening": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 0,
+     "snow": 0
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 0,
+     "snow": 0
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 0,
+     "snow": 0
+    },
+    "winter": {
+     "sunny": 519,
+     "cloudy": 519,
+     "rain": 519,
+     "snow": 519
+    }
+   }
+  },
+  "memory_lake/night": {
+   "zeroDiff": 0,
+   "reducedTemporalDiff": 0,
+   "changes": {
+    "spring": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 0,
+     "snow": 0
+    },
+    "summer": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 0,
+     "snow": 0
+    },
+    "autumn": {
+     "sunny": 0,
+     "cloudy": 0,
+     "rain": 0,
+     "snow": 0
+    },
+    "winter": {
+     "sunny": 937,
+     "cloudy": 937,
+     "rain": 937,
+     "snow": 937
+    }
+   }
+  }
+ }
+}

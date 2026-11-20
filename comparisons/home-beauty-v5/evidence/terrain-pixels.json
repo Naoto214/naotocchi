@@ -1,0 +1,222 @@
+{
+  "chromium": [
+    {
+      "region": "mountain",
+      "time": "morning",
+      "changed4to12": 5424,
+      "peakChange": 102,
+      "strongerPixels": 5216,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "mountain",
+      "time": "day",
+      "changed4to12": 6073,
+      "peakChange": 162,
+      "strongerPixels": 5706,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "mountain",
+      "time": "evening",
+      "changed4to12": 6333,
+      "peakChange": 157,
+      "strongerPixels": 5884,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "mountain",
+      "time": "night",
+      "changed4to12": 2822,
+      "peakChange": 42,
+      "strongerPixels": 2212,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "jungle",
+      "time": "morning",
+      "changed4to12": 17847,
+      "peakChange": 179,
+      "strongerPixels": 12803,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "jungle",
+      "time": "day",
+      "changed4to12": 18943,
+      "peakChange": 175,
+      "strongerPixels": 13638,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "jungle",
+      "time": "evening",
+      "changed4to12": 16648,
+      "peakChange": 161,
+      "strongerPixels": 12517,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "jungle",
+      "time": "night",
+      "changed4to12": 16274,
+      "peakChange": 136,
+      "strongerPixels": 11695,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "desert",
+      "time": "morning",
+      "changed4to12": 1006,
+      "peakChange": 78,
+      "strongerPixels": 229,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "desert",
+      "time": "day",
+      "changed4to12": 2354,
+      "peakChange": 117,
+      "strongerPixels": 1507,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "desert",
+      "time": "evening",
+      "changed4to12": 951,
+      "peakChange": 82,
+      "strongerPixels": 230,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "desert",
+      "time": "night",
+      "changed4to12": 909,
+      "peakChange": 142,
+      "strongerPixels": 206,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    }
+  ],
+  "webkit": [
+    {
+      "region": "mountain",
+      "time": "morning",
+      "changed4to12": 5383,
+      "peakChange": 103,
+      "strongerPixels": 5154,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "mountain",
+      "time": "day",
+      "changed4to12": 6072,
+      "peakChange": 162,
+      "strongerPixels": 5673,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "mountain",
+      "time": "evening",
+      "changed4to12": 6273,
+      "peakChange": 155,
+      "strongerPixels": 5848,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "mountain",
+      "time": "night",
+      "changed4to12": 2829,
+      "peakChange": 42,
+      "strongerPixels": 2193,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "jungle",
+      "time": "morning",
+      "changed4to12": 17847,
+      "peakChange": 179,
+      "strongerPixels": 12806,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "jungle",
+      "time": "day",
+      "changed4to12": 18945,
+      "peakChange": 174,
+      "strongerPixels": 13641,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "jungle",
+      "time": "evening",
+      "changed4to12": 16634,
+      "peakChange": 161,
+      "strongerPixels": 12529,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "jungle",
+      "time": "night",
+      "changed4to12": 16278,
+      "peakChange": 136,
+      "strongerPixels": 11703,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "desert",
+      "time": "morning",
+      "changed4to12": 1009,
+      "peakChange": 77,
+      "strongerPixels": 228,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "desert",
+      "time": "day",
+      "changed4to12": 2354,
+      "peakChange": 119,
+      "strongerPixels": 1545,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "desert",
+      "time": "evening",
+      "changed4to12": 947,
+      "peakChange": 81,
+      "strongerPixels": 230,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    },
+    {
+      "region": "desert",
+      "time": "night",
+      "changed4to12": 923,
+      "peakChange": 128,
+      "strongerPixels": 205,
+      "reducedDelta": 0,
+      "zeroDelta": 0
+    }
+  ]
+}
