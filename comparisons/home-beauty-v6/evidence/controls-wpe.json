@@ -1,0 +1,110 @@
+{
+ "browser": "26.5",
+ "engine": "webkit",
+ "widths": {
+  "320": {
+   "scene": "forest-leaves",
+   "geometryOffset": 0.010416666666685614,
+   "reduced": true,
+   "staticClock": true,
+   "sameFourActors": true,
+   "saveProtected": true,
+   "completeSliders": [
+    "count",
+    "size",
+    "speed",
+    "wind"
+   ],
+   "presets": [
+    "forest-leaves",
+    "forest-petals",
+    "snow-day",
+    "snow-night",
+    "country-leaves",
+    "sea-rain"
+   ],
+   "regions": 13,
+   "splitDrag": 0.95,
+   "toggleParticles": true,
+   "errors": []
+  },
+  "375": {
+   "scene": "forest-petals",
+   "geometryOffset": 0.010416666666685614,
+   "reduced": true,
+   "staticClock": true,
+   "sameFourActors": true,
+   "saveProtected": true,
+   "completeSliders": [
+    "count",
+    "size",
+    "speed",
+    "wind"
+   ],
+   "presets": [
+    "forest-leaves",
+    "forest-petals",
+    "snow-day",
+    "snow-night",
+    "country-leaves",
+    "sea-rain"
+   ],
+   "regions": 13,
+   "splitDrag": 0.95,
+   "toggleParticles": true,
+   "errors": []
+  },
+  "390": {
+   "scene": "snow-night",
+   "geometryOffset": 0.006250000000022737,
+   "reduced": true,
+   "staticClock": true,
+   "sameFourActors": true,
+   "saveProtected": true,
+   "completeSliders": [
+    "count",
+    "size",
+    "speed",
+    "wind"
+   ],
+   "presets": [
+    "forest-leaves",
+    "forest-petals",
+    "snow-day",
+    "snow-night",
+    "country-leaves",
+    "sea-rain"
+   ],
+   "regions": 13,
+   "splitDrag": 0.95,
+   "toggleParticles": true,
+   "errors": []
+  },
+  "430": {
+   "scene": "sea-rain",
+   "geometryOffset": 0.010416666666685614,
+   "reduced": true,
+   "staticClock": true,
+   "sameFourActors": true,
+   "saveProtected": true,
+   "completeSliders": [
+    "count",
+    "size",
+    "speed",
+    "wind"
+   ],
+   "presets": [
+    "forest-leaves",
+    "forest-petals",
+    "snow-day",
+    "snow-night",
+    "country-leaves",
+    "sea-rain"
+   ],
+   "regions": 13,
+   "splitDrag": 0.95,
+   "toggleParticles": true,
+   "errors": []
+  }
+ }
+}

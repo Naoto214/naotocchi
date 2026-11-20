@@ -1,0 +1,45 @@
+name: Home beauty V6 private comparison
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'comparisons/home-beauty-v6/**'
+      - '.github/workflows/home-beauty-v6-comparison.yml'
+permissions:
+  contents: read
+jobs:
+  private-comparison:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify falling trajectories and E3 references, original assets, and private packaging
+        run: node --test comparisons/home-beauty-v6/*.test.*
+      - name: Build the comparison from the official Pages asset list
+        run: node comparisons/home-beauty-v6/build.cjs "$RUNNER_TEMP/beauty-v6" --fresh
+      - name: Verify the generated comparison can load all renderers
+        run: node --input-type=module -e 'import(process.argv[1])' "$RUNNER_TEMP/beauty-v6/game/beauty/paint.mjs"
+      - name: Retrieve the fixed E3 comparison from PR 567
+        uses: actions/checkout@v4
+        with:
+          ref: fae83a21915f9ada92f4ac13ac1aaacd397e333d
+          path: reference-v5
+          sparse-checkout: comparisons/home-beauty-v5
+          persist-credentials: false
+      - name: Compare 260 baseline images and the six E3+ scenes in Chromium
+        env:
+          CHROMIUM_PATH: /usr/bin/google-chrome
+        run: |
+          cp -R --reflink=auto "$RUNNER_TEMP/beauty-v6" "$RUNNER_TEMP/beauty-v5"
+          node reference-v5/comparisons/home-beauty-v5/build.cjs "$RUNNER_TEMP/beauty-v5"
+          python -m venv "$RUNNER_TEMP/probe-env"
+          "$RUNNER_TEMP/probe-env/bin/pip" install 'playwright==1.62.0'
+          python -m http.server 8195 --bind 127.0.0.1 --directory "$RUNNER_TEMP/beauty-v5" > "$RUNNER_TEMP/beauty-v5.log" 2>&1 &
+          old_server=$!
+          python -m http.server 8196 --bind 127.0.0.1 --directory "$RUNNER_TEMP/beauty-v6" > "$RUNNER_TEMP/beauty-v6.log" 2>&1 &
+          new_server=$!
+          trap 'kill "$old_server" "$new_server" 2>/dev/null || true' EXIT
+          "$RUNNER_TEMP/probe-env/bin/python" comparisons/home-beauty-v6/verify_reference.py http://127.0.0.1:8195 http://127.0.0.1:8196 "$RUNNER_TEMP/reference.json"

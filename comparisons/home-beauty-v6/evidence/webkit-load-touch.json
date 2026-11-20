@@ -1,0 +1,419 @@
+{
+ "engine": "webkit",
+ "suite": "touch",
+ "at": "2026-11-19T10:05:39.769559+00:00",
+ "viewport": [
+  390,
+  844
+ ],
+ "dpr": 2,
+ "affinity": [
+  3,
+  4
+ ],
+ "url": "http://127.0.0.1:8196",
+ "conditions": {
+  "forest-leaves": [
+   "forest",
+   "day",
+   "autumn",
+   "sunny"
+  ],
+  "forest-petals": [
+   "forest",
+   "day",
+   "spring",
+   "sunny"
+  ],
+  "snow-day": [
+   "snow",
+   "day",
+   "winter",
+   "snow"
+  ],
+  "snow-night": [
+   "snow",
+   "night",
+   "winter",
+   "snow"
+  ],
+  "country-leaves": [
+   "countryside",
+   "evening",
+   "autumn",
+   "sunny"
+  ],
+  "sea-rain": [
+   "sea",
+   "day",
+   "summer",
+   "rain"
+  ]
+ },
+ "seconds": 6.0,
+ "rows": [
+  {
+   "elapsed": 6.012,
+   "frames": 67,
+   "rafHz": 11.29657730568201,
+   "p95": 394,
+   "max": 835,
+   "over250": 6,
+   "firstDelay": 380,
+   "stepHz": 7.318695941450433,
+   "natureHz": 4.990019960079841,
+   "clockDelta": 6.800999999999999,
+   "clockMarkers": [],
+   "pausedSec": 0,
+   "invitations": 0,
+   "cast": 4,
+   "moving": 1,
+   "visibility": "visible",
+   "phases": {
+    "model": {
+     "n": 44,
+     "total": 347,
+     "max": 293
+    },
+    "nature": {
+     "n": 30,
+     "total": 32,
+     "max": 5
+    },
+    "world": {
+     "n": 44,
+     "total": 46,
+     "max": 8
+    },
+    "actors": {
+     "n": 44,
+     "total": 137,
+     "max": 24
+    }
+   },
+   "slow": [
+    {
+     "name": "model",
+     "start": 80,
+     "ms": 293
+    }
+   ],
+   "long": [
+    {
+     "start": 80,
+     "end": 474,
+     "ms": 394,
+     "paused": "false"
+    },
+    {
+     "start": 618,
+     "end": 968,
+     "ms": 350,
+     "paused": "false"
+    },
+    {
+     "start": 1374,
+     "end": 1774,
+     "ms": 400,
+     "paused": "false"
+    },
+    {
+     "start": 1774,
+     "end": 2609,
+     "ms": 835,
+     "paused": "false"
+    },
+    {
+     "start": 2609,
+     "end": 3270,
+     "ms": 661,
+     "paused": "false"
+    },
+    {
+     "start": 3559,
+     "end": 3896,
+     "ms": 337,
+     "paused": "false"
+    }
+   ],
+   "drag": {
+    "hit": true,
+    "marker": true,
+    "pointerToNextCallbackMs": [
+     665,
+     638,
+     599,
+     565,
+     562,
+     558,
+     554,
+     551,
+     549,
+     547
+    ]
+   },
+   "scene": "snow-night",
+   "mode": "E3",
+   "count": 4,
+   "errors": []
+  },
+  {
+   "elapsed": 6.113,
+   "frames": 49,
+   "rafHz": 8.108555353301341,
+   "p95": 187,
+   "max": 813,
+   "over250": 2,
+   "firstDelay": 526,
+   "stepHz": 8.179290037624734,
+   "natureHz": 7.0341894323572705,
+   "clockDelta": 7.1000000000000005,
+   "clockMarkers": [],
+   "pausedSec": 0,
+   "invitations": 0,
+   "cast": 4,
+   "moving": 1,
+   "visibility": "visible",
+   "phases": {
+    "model": {
+     "n": 50,
+     "total": 523,
+     "max": 455
+    },
+    "nature": {
+     "n": 43,
+     "total": 95,
+     "max": 10
+    },
+    "world": {
+     "n": 50,
+     "total": 135,
+     "max": 12
+    },
+    "actors": {
+     "n": 50,
+     "total": 119,
+     "max": 18
+    }
+   },
+   "slow": [
+    {
+     "name": "model",
+     "start": 64,
+     "ms": 455
+    }
+   ],
+   "long": [
+    {
+     "start": 63,
+     "end": 876,
+     "ms": 813,
+     "paused": "false"
+    },
+    {
+     "start": 2524,
+     "end": 2808,
+     "ms": 284,
+     "paused": "false"
+    }
+   ],
+   "drag": {
+    "hit": true,
+    "marker": true,
+    "pointerToNextCallbackMs": [
+     2239,
+     2205,
+     2201,
+     2197,
+     2196,
+     2192,
+     2188,
+     2184,
+     2181,
+     2178
+    ]
+   },
+   "scene": "snow-night",
+   "mode": "E3plus",
+   "count": 4,
+   "errors": []
+  },
+  {
+   "elapsed": 6.063,
+   "frames": 33,
+   "rafHz": 5.54808338937458,
+   "p95": 796,
+   "max": 1181,
+   "over250": 4,
+   "firstDelay": 134,
+   "stepHz": 4.783110671284843,
+   "natureHz": 4.123371268349002,
+   "clockDelta": 6.189,
+   "clockMarkers": [],
+   "pausedSec": 0,
+   "invitations": 0,
+   "cast": 4,
+   "moving": 2,
+   "visibility": "visible",
+   "phases": {
+    "model": {
+     "n": 29,
+     "total": 224,
+     "max": 112
+    },
+    "nature": {
+     "n": 25,
+     "total": 55,
+     "max": 9
+    },
+    "world": {
+     "n": 29,
+     "total": 82,
+     "max": 20
+    },
+    "actors": {
+     "n": 29,
+     "total": 106,
+     "max": 11
+    }
+   },
+   "slow": [
+    {
+     "name": "model",
+     "start": 4340,
+     "ms": 112
+    }
+   ],
+   "long": [
+    {
+     "start": 113,
+     "end": 909,
+     "ms": 796,
+     "paused": "false"
+    },
+    {
+     "start": 2247,
+     "end": 2722,
+     "ms": 475,
+     "paused": "false"
+    },
+    {
+     "start": 2722,
+     "end": 3903,
+     "ms": 1181,
+     "paused": "false"
+    },
+    {
+     "start": 5385,
+     "end": 5650,
+     "ms": 265,
+     "paused": "false"
+    }
+   ],
+   "drag": {
+    "hit": true,
+    "marker": true,
+    "pointerToNextCallbackMs": [
+     1376,
+     225,
+     222,
+     221,
+     217,
+     208,
+     207,
+     205,
+     203,
+     195
+    ]
+   },
+   "scene": "sea-rain",
+   "mode": "E3plus",
+   "count": 4,
+   "errors": []
+  },
+  {
+   "elapsed": 6.004,
+   "frames": 74,
+   "rafHz": 12.587174689573057,
+   "p95": 219,
+   "max": 717,
+   "over250": 1,
+   "firstDelay": 155,
+   "stepHz": 8.660892738174551,
+   "natureHz": 5.9960026648900735,
+   "clockDelta": 6.296000000000001,
+   "clockMarkers": [],
+   "pausedSec": 0,
+   "invitations": 0,
+   "cast": 4,
+   "moving": 2,
+   "visibility": "visible",
+   "phases": {
+    "model": {
+     "n": 52,
+     "total": 152,
+     "max": 30
+    },
+    "nature": {
+     "n": 36,
+     "total": 62,
+     "max": 6
+    },
+    "world": {
+     "n": 52,
+     "total": 99,
+     "max": 13
+    },
+    "actors": {
+     "n": 52,
+     "total": 97,
+     "max": 11
+    }
+   },
+   "slow": [],
+   "long": [
+    {
+     "start": 124,
+     "end": 841,
+     "ms": 717,
+     "paused": "false"
+    }
+   ],
+   "drag": {
+    "hit": true,
+    "marker": true,
+    "pointerToNextCallbackMs": [
+     1236,
+     218,
+     215,
+     213,
+     211,
+     207,
+     206,
+     204,
+     199,
+     198
+    ]
+   },
+   "scene": "sea-rain",
+   "mode": "E3",
+   "count": 4,
+   "errors": []
+  }
+ ],
+ "renderers": {
+  "deepsea-stars.mjs": "0aad4b0335ef47314a0d1e36493fb1f5fe7cdb55b9fd80ad3801f3a6e8698a7f",
+  "fall-motion.mjs": "3d3ddf1801223d4cc5a1cfaaf632d5968c08d36fc780b7b71a414b53f67bc726",
+  "forest-e.mjs": "0696967255d9e7dd3c9873bb0a4fc097595337f70d71dee89e636acf008db3da",
+  "full-motion.mjs": "c93fef1527c6629e728f6b7ab5b9f634531d3201ee1addcb0b864107b38e6039",
+  "mountain-jungle-desert.mjs": "0e676e9ec87c17824830d4e97fdc1ad7dd5b5d6684e98aee31f245acb865cb33",
+  "nature.mjs": "7d1cdd479413b6ecd98d5bde074af49e3dfb9247f9b1eca7d8b377058472456e",
+  "other-regions.mjs": "26132fd774b4a8e2d449697b98cb1d7b8cd6d7910214a2fe3e9310322bc4f398",
+  "paint.mjs": "ec6f8105fbac4b8f14754fa66473af7ae53b0f8e28579f85d3c9f6c6750756e4",
+  "regional-fall.mjs": "231b7798340c7713eb19dce5da760bee4d514a28f8e07bc9074a3302c131da4c",
+  "river-home-country.mjs": "c6a3787760865a0ebf165391b65b20b31816eed554ac220e9794a1f6fb0f8ca4",
+  "sea-e.mjs": "eb661a269a98c4b2991e8bdc3bdbd868fde2dbc7861f74c43efdaeda1ade2450",
+  "snow-city-lake.mjs": "881cb234be3aed0378c053a308e273a99849716dbbf2e5cb765eaf4713c3ef9c"
+ },
+ "browser": "26.5"
+}
