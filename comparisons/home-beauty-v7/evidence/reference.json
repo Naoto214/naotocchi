@@ -1,0 +1,37 @@
+{
+  "referenceRendererSHA256": "523338eef6c87dc357e9b24a41f7b6943374ca2b3b6da7649069371c59cea379",
+  "candidateRendererSHA256": "68aef2849855526e94b45f3b81e138b83fc5876b0fe813183c9e8a1d853df5a3",
+  "referencePR": 568,
+  "referenceCommit": "2935622edf9ccdc6f8a36f2297dd86b789022b87",
+  "chromium": "156.0.8078.79",
+  "rgbaSize": [
+    300,
+    450
+  ],
+  "originalPaintings": 52,
+  "regionDaypartWeatherCases": 416,
+  "mixedRegionFades": 1,
+  "matchingWindFoliageComparisons": 42,
+  "matchingWindLightingComparisons": 12,
+  "referenceAggregateSHA256": "e91b73144d351be7f851925775745905e4e1d54a8c5506ddf1efe7b3638f09fa",
+  "defaultWindHalfWipe": {
+    "scenesAndModes": 45,
+    "exactAcrossEntireFrame": 34,
+    "maxDifferingPixelsPerFrame": 1,
+    "maxChannelDeltaOf255": 4,
+    "maxDistanceFromDividerPx": 2
+  },
+  "checks": {
+    "referenceSliderLock": 416,
+    "protectedCandidate": 1203,
+    "reducedTime": 156,
+    "reducedFractionalSplit": 156,
+    "activeCandidate": 45,
+    "splitReferenceEdge": 48,
+    "splitCandidateEdge": 48,
+    "defaultWindHalfWipeOutsideDivider": 45,
+    "mixedRegionFade": 3
+  },
+  "mismatchesWith568": [],
+  "failedChecks": []
+}

@@ -1,0 +1,3943 @@
+{
+ "engine": "chromium",
+ "browser": "156.0.8078.79",
+ "height": 844,
+ "start": 0,
+ "step": 0.5,
+ "clocks": 49,
+ "conditions": [
+  {
+   "width": 390,
+   "scene": "forest-leaves",
+   "mode": "E3plus",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -69,
+     "top": 0
+    },
+    "cssWidth": 390,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     780,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     390,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 3.0,
+      "short": 1.49,
+      "visible": 2.25,
+      "delta": 17.73,
+      "area": 3.0,
+      "n": 146
+     },
+     "edge": {
+      "long": 2.3,
+      "short": 0.74,
+      "visible": 0.5,
+      "delta": 8.92,
+      "area": 1.25,
+      "n": 39
+     },
+     "all": {
+      "long": 2.74,
+      "short": 1.2,
+      "visible": 1.75,
+      "delta": 14.72,
+      "area": 2.25,
+      "n": 269
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 4.31,
+      "short": 1.87,
+      "visible": 4.25,
+      "delta": 25.07,
+      "area": 5.25,
+      "n": 149
+     },
+     "edge": {
+      "long": 3.5,
+      "short": 0.97,
+      "visible": 1.12,
+      "delta": 10.19,
+      "area": 2.0,
+      "n": 38
+     },
+     "all": {
+      "long": 4.04,
+      "short": 1.6,
+      "visible": 3.5,
+      "delta": 21.66,
+      "area": 4.25,
+      "n": 267
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 6.52,
+      "short": 2.57,
+      "visible": 9.5,
+      "delta": 34.52,
+      "area": 10.5,
+      "n": 97
+     },
+     "edge": {
+      "long": 5.89,
+      "short": 1.2,
+      "visible": 3.38,
+      "delta": 16.23,
+      "area": 4.25,
+      "n": 24
+     },
+     "all": {
+      "long": 6.2,
+      "short": 2.13,
+      "visible": 7.5,
+      "delta": 31.23,
+      "area": 8.25,
+      "n": 191
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [],
+    "trackIds": []
+   }
+  },
+  {
+   "width": 390,
+   "scene": "forest-leaves",
+   "mode": "A",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -69,
+     "top": 0
+    },
+    "cssWidth": 390,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     780,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     390,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 4.54,
+      "short": 3.05,
+      "visible": 8.75,
+      "delta": 39.37,
+      "area": 8.75,
+      "n": 166
+     },
+     "edge": {
+      "long": 4.03,
+      "short": 1.21,
+      "visible": 2.75,
+      "delta": 38.36,
+      "area": 2.75,
+      "n": 35
+     },
+     "all": {
+      "long": 4.46,
+      "short": 2.71,
+      "visible": 7.25,
+      "delta": 38.65,
+      "area": 7.25,
+      "n": 269
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 7.14,
+      "short": 4.08,
+      "visible": 18,
+      "delta": 47.67,
+      "area": 18.25,
+      "n": 163
+     },
+     "edge": {
+      "long": 6.08,
+      "short": 1.61,
+      "visible": 5.88,
+      "delta": 52.23,
+      "area": 6.0,
+      "n": 32
+     },
+     "all": {
+      "long": 6.89,
+      "short": 3.65,
+      "visible": 15.0,
+      "delta": 47.71,
+      "area": 15.25,
+      "n": 266
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 11.92,
+      "short": 7.44,
+      "visible": 49.25,
+      "delta": 61.56,
+      "area": 50.25,
+      "n": 101
+     },
+     "edge": {
+      "long": 10.59,
+      "short": 2.75,
+      "visible": 16.5,
+      "delta": 58.93,
+      "area": 16.75,
+      "n": 23
+     },
+     "all": {
+      "long": 11.7,
+      "short": 6.26,
+      "visible": 40.5,
+      "delta": 59.75,
+      "area": 41.75,
+      "n": 175
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     2,
+     5,
+     11,
+     14
+    ]
+   }
+  },
+  {
+   "width": 390,
+   "scene": "forest-leaves",
+   "mode": "B",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -69,
+     "top": 0
+    },
+    "cssWidth": 390,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     780,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     390,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 6.22,
+      "short": 4.1,
+      "visible": 15.38,
+      "delta": 39.46,
+      "area": 15.5,
+      "n": 166
+     },
+     "edge": {
+      "long": 5.8,
+      "short": 1.61,
+      "visible": 5,
+      "delta": 38.88,
+      "area": 5.25,
+      "n": 35
+     },
+     "all": {
+      "long": 6.09,
+      "short": 3.58,
+      "visible": 12.75,
+      "delta": 38.88,
+      "area": 13,
+      "n": 269
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 9.64,
+      "short": 5.34,
+      "visible": 32,
+      "delta": 48.04,
+      "area": 32.5,
+      "n": 163
+     },
+     "edge": {
+      "long": 8.69,
+      "short": 1.99,
+      "visible": 10.5,
+      "delta": 50.64,
+      "area": 10.75,
+      "n": 32
+     },
+     "all": {
+      "long": 9.49,
+      "short": 4.77,
+      "visible": 26.5,
+      "delta": 48.16,
+      "area": 27.0,
+      "n": 266
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 16.05,
+      "short": 9.89,
+      "visible": 87.5,
+      "delta": 59.98,
+      "area": 90.75,
+      "n": 101
+     },
+     "edge": {
+      "long": 15.29,
+      "short": 3.63,
+      "visible": 30.38,
+      "delta": 59.06,
+      "area": 30.75,
+      "n": 22
+     },
+     "all": {
+      "long": 15.84,
+      "short": 8.27,
+      "visible": 72.62,
+      "delta": 59.55,
+      "area": 74.38,
+      "n": 174
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     2,
+     5,
+     11,
+     14
+    ]
+   }
+  },
+  {
+   "width": 390,
+   "scene": "forest-leaves",
+   "mode": "C",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -69,
+     "top": 0
+    },
+    "cssWidth": 390,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     780,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     390,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 7.92,
+      "short": 5.14,
+      "visible": 23.75,
+      "delta": 39.06,
+      "area": 24.25,
+      "n": 166
+     },
+     "edge": {
+      "long": 7.45,
+      "short": 1.94,
+      "visible": 8.25,
+      "delta": 39.29,
+      "area": 8.5,
+      "n": 35
+     },
+     "all": {
+      "long": 7.62,
+      "short": 4.51,
+      "visible": 19.5,
+      "delta": 39.08,
+      "area": 20,
+      "n": 269
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 12.14,
+      "short": 6.66,
+      "visible": 50.5,
+      "delta": 48.41,
+      "area": 51.25,
+      "n": 163
+     },
+     "edge": {
+      "long": 11.19,
+      "short": 2.39,
+      "visible": 16.25,
+      "delta": 50.17,
+      "area": 16.5,
+      "n": 32
+     },
+     "all": {
+      "long": 11.97,
+      "short": 5.96,
+      "visible": 41.12,
+      "delta": 48.25,
+      "area": 41.75,
+      "n": 266
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 20.17,
+      "short": 12.4,
+      "visible": 137.5,
+      "delta": 60.36,
+      "area": 139,
+      "n": 99
+     },
+     "edge": {
+      "long": 19.03,
+      "short": 4.4,
+      "visible": 45.75,
+      "delta": 60.58,
+      "area": 46.38,
+      "n": 22
+     },
+     "all": {
+      "long": 19.9,
+      "short": 10.23,
+      "visible": 112.75,
+      "delta": 60.0,
+      "area": 114.75,
+      "n": 172
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     2,
+     5,
+     11,
+     14
+    ]
+   }
+  },
+  {
+   "width": 390,
+   "scene": "country-leaves",
+   "mode": "E3plus",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -69,
+     "top": 0
+    },
+    "cssWidth": 390,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     780,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     390,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 2.73,
+      "short": 1.42,
+      "visible": 1.25,
+      "delta": 9.09,
+      "area": 2.75,
+      "n": 45
+     },
+     "edge": {
+      "long": 2,
+      "short": 0.5,
+      "visible": 0,
+      "delta": 5.3,
+      "area": 1,
+      "n": 13
+     },
+     "all": {
+      "long": 2.59,
+      "short": 1.13,
+      "visible": 0.75,
+      "delta": 8.38,
+      "area": 2.25,
+      "n": 86
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 7.0,
+      "short": 2.77,
+      "visible": 10.75,
+      "delta": 19.11,
+      "area": 12.62,
+      "n": 40
+     },
+     "edge": {
+      "long": 6.52,
+      "short": 1.26,
+      "visible": 3.0,
+      "delta": 12.2,
+      "area": 4.75,
+      "n": 10
+     },
+     "all": {
+      "long": 6.95,
+      "short": 2.4,
+      "visible": 8.25,
+      "delta": 18.59,
+      "area": 10.75,
+      "n": 78
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 10.61,
+      "short": 4.1,
+      "visible": 27.25,
+      "delta": 37.81,
+      "area": 28.75,
+      "n": 26
+     },
+     "edge": {
+      "long": 10.15,
+      "short": 1.7,
+      "visible": 8.88,
+      "delta": 25.19,
+      "area": 10.12,
+      "n": 6
+     },
+     "all": {
+      "long": 10.55,
+      "short": 3.62,
+      "visible": 23,
+      "delta": 31.02,
+      "area": 24.25,
+      "n": 47
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     2,
+     2.5,
+     3,
+     3.5,
+     4
+    ],
+    "trackIds": [
+     5
+    ]
+   }
+  },
+  {
+   "width": 390,
+   "scene": "country-leaves",
+   "mode": "A",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -69,
+     "top": 0
+    },
+    "cssWidth": 390,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     780,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     390,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 4.26,
+      "short": 2.96,
+      "visible": 6.5,
+      "delta": 20.08,
+      "area": 7.75,
+      "n": 49
+     },
+     "edge": {
+      "long": 4.07,
+      "short": 1.18,
+      "visible": 2.25,
+      "delta": 17.89,
+      "area": 2.88,
+      "n": 6
+     },
+     "all": {
+      "long": 4.13,
+      "short": 2.65,
+      "visible": 5.5,
+      "delta": 19.61,
+      "area": 7.0,
+      "n": 86
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 12.03,
+      "short": 6.67,
+      "visible": 49.0,
+      "delta": 36.92,
+      "area": 50.5,
+      "n": 46
+     },
+     "edge": {
+      "long": 11.0,
+      "short": 2.42,
+      "visible": 17.12,
+      "delta": 25.85,
+      "area": 17.62,
+      "n": 8
+     },
+     "all": {
+      "long": 11.84,
+      "short": 6.1,
+      "visible": 43.5,
+      "delta": 36.63,
+      "area": 45.0,
+      "n": 76
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 20.94,
+      "short": 12.97,
+      "visible": 145.75,
+      "delta": 46.79,
+      "area": 150.0,
+      "n": 48
+     },
+     "edge": {
+      "long": 19.27,
+      "short": 4.64,
+      "visible": 46.75,
+      "delta": 39.43,
+      "area": 48,
+      "n": 9
+     },
+     "all": {
+      "long": 20.57,
+      "short": 11.75,
+      "visible": 129.5,
+      "delta": 45.08,
+      "area": 134.75,
+      "n": 77
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     5
+    ]
+   }
+  },
+  {
+   "width": 390,
+   "scene": "country-leaves",
+   "mode": "B",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -69,
+     "top": 0
+    },
+    "cssWidth": 390,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     780,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     390,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 5.79,
+      "short": 3.98,
+      "visible": 12,
+      "delta": 20.21,
+      "area": 13.5,
+      "n": 49
+     },
+     "edge": {
+      "long": 5.54,
+      "short": 1.6,
+      "visible": 3.62,
+      "delta": 17.44,
+      "area": 5.12,
+      "n": 6
+     },
+     "all": {
+      "long": 5.7,
+      "short": 3.51,
+      "visible": 10.0,
+      "delta": 19.28,
+      "area": 12.5,
+      "n": 86
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 15.76,
+      "short": 8.9,
+      "visible": 85.88,
+      "delta": 38.39,
+      "area": 90.12,
+      "n": 46
+     },
+     "edge": {
+      "long": 15.03,
+      "short": 3.09,
+      "visible": 29.62,
+      "delta": 23.5,
+      "area": 30.75,
+      "n": 8
+     },
+     "all": {
+      "long": 15.65,
+      "short": 8.1,
+      "visible": 76,
+      "delta": 36.79,
+      "area": 80.5,
+      "n": 75
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 28.06,
+      "short": 17.53,
+      "visible": 260.12,
+      "delta": 45.72,
+      "area": 269.0,
+      "n": 46
+     },
+     "edge": {
+      "long": 25.52,
+      "short": 6.06,
+      "visible": 83,
+      "delta": 39.3,
+      "area": 86,
+      "n": 9
+     },
+     "all": {
+      "long": 27.64,
+      "short": 15.66,
+      "visible": 231.5,
+      "delta": 45.56,
+      "area": 240,
+      "n": 75
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     5
+    ]
+   }
+  },
+  {
+   "width": 390,
+   "scene": "country-leaves",
+   "mode": "C",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -69,
+     "top": 0
+    },
+    "cssWidth": 390,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     780,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     390,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 7.5,
+      "short": 4.91,
+      "visible": 18.75,
+      "delta": 21.53,
+      "area": 21.25,
+      "n": 49
+     },
+     "edge": {
+      "long": 6.54,
+      "short": 1.93,
+      "visible": 6.12,
+      "delta": 16.72,
+      "area": 7.5,
+      "n": 6
+     },
+     "all": {
+      "long": 7.34,
+      "short": 4.51,
+      "visible": 16.12,
+      "delta": 20.39,
+      "area": 19.5,
+      "n": 86
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 19.66,
+      "short": 10.93,
+      "visible": 135,
+      "delta": 39.53,
+      "area": 138.5,
+      "n": 45
+     },
+     "edge": {
+      "long": 19.17,
+      "short": 3.81,
+      "visible": 46.25,
+      "delta": 24.86,
+      "area": 48.75,
+      "n": 8
+     },
+     "all": {
+      "long": 19.62,
+      "short": 10.24,
+      "visible": 121,
+      "delta": 36.88,
+      "area": 125.5,
+      "n": 73
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 35.13,
+      "short": 22.07,
+      "visible": 405.5,
+      "delta": 47.18,
+      "area": 421.25,
+      "n": 45
+     },
+     "edge": {
+      "long": 32.1,
+      "short": 7.3,
+      "visible": 130.75,
+      "delta": 38.67,
+      "area": 135.75,
+      "n": 9
+     },
+     "all": {
+      "long": 34.86,
+      "short": 19.46,
+      "visible": 364.38,
+      "delta": 45.3,
+      "area": 375.62,
+      "n": 74
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     5
+    ]
+   }
+  },
+  {
+   "width": 320,
+   "scene": "forest-leaves",
+   "mode": "E3plus",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -104,
+     "top": 0
+    },
+    "cssWidth": 320,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     640,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     320,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 3.0,
+      "short": 1.49,
+      "visible": 2.25,
+      "delta": 17.73,
+      "area": 3.0,
+      "n": 146
+     },
+     "edge": {
+      "long": 2.3,
+      "short": 0.74,
+      "visible": 0.5,
+      "delta": 8.92,
+      "area": 1.25,
+      "n": 39
+     },
+     "all": {
+      "long": 2.74,
+      "short": 1.2,
+      "visible": 1.75,
+      "delta": 14.72,
+      "area": 2.25,
+      "n": 269
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 4.31,
+      "short": 1.87,
+      "visible": 4.25,
+      "delta": 24.93,
+      "area": 5.25,
+      "n": 146
+     },
+     "edge": {
+      "long": 3.5,
+      "short": 0.97,
+      "visible": 1.12,
+      "delta": 10.19,
+      "area": 2.0,
+      "n": 38
+     },
+     "all": {
+      "long": 4.04,
+      "short": 1.6,
+      "visible": 3.5,
+      "delta": 21.66,
+      "area": 4.25,
+      "n": 259
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 6.82,
+      "short": 2.66,
+      "visible": 10.25,
+      "delta": 35.01,
+      "area": 11.75,
+      "n": 44
+     },
+     "edge": {
+      "long": 6.09,
+      "short": 1.21,
+      "visible": 3.5,
+      "delta": 16.14,
+      "area": 4.25,
+      "n": 7
+     },
+     "all": {
+      "long": 6.58,
+      "short": 2.18,
+      "visible": 8,
+      "delta": 32.03,
+      "area": 9.5,
+      "n": 73
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [],
+    "trackIds": []
+   }
+  },
+  {
+   "width": 320,
+   "scene": "forest-leaves",
+   "mode": "A",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -104,
+     "top": 0
+    },
+    "cssWidth": 320,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     640,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     320,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 4.54,
+      "short": 3.05,
+      "visible": 8.75,
+      "delta": 39.37,
+      "area": 8.75,
+      "n": 166
+     },
+     "edge": {
+      "long": 4.03,
+      "short": 1.21,
+      "visible": 2.75,
+      "delta": 38.36,
+      "area": 2.75,
+      "n": 35
+     },
+     "all": {
+      "long": 4.46,
+      "short": 2.71,
+      "visible": 7.25,
+      "delta": 38.65,
+      "area": 7.25,
+      "n": 269
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 7.15,
+      "short": 4.09,
+      "visible": 18.0,
+      "delta": 47.9,
+      "area": 18.38,
+      "n": 156
+     },
+     "edge": {
+      "long": 6.08,
+      "short": 1.61,
+      "visible": 5.88,
+      "delta": 52.23,
+      "area": 6.0,
+      "n": 32
+     },
+     "all": {
+      "long": 6.89,
+      "short": 3.63,
+      "visible": 15,
+      "delta": 47.84,
+      "area": 15,
+      "n": 257
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 12.23,
+      "short": 7.78,
+      "visible": 55.38,
+      "delta": 63.19,
+      "area": 56.12,
+      "n": 48
+     },
+     "edge": {
+      "long": 11.44,
+      "short": 2.68,
+      "visible": 17.38,
+      "delta": 62.74,
+      "area": 17.75,
+      "n": 8
+     },
+     "all": {
+      "long": 12.16,
+      "short": 7.02,
+      "visible": 48.75,
+      "delta": 64.15,
+      "area": 49.5,
+      "n": 73
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     2,
+     5,
+     11
+    ]
+   }
+  },
+  {
+   "width": 320,
+   "scene": "forest-leaves",
+   "mode": "B",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -104,
+     "top": 0
+    },
+    "cssWidth": 320,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     640,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     320,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 6.22,
+      "short": 4.1,
+      "visible": 15.38,
+      "delta": 39.46,
+      "area": 15.5,
+      "n": 166
+     },
+     "edge": {
+      "long": 5.8,
+      "short": 1.61,
+      "visible": 5,
+      "delta": 38.88,
+      "area": 5.25,
+      "n": 35
+     },
+     "all": {
+      "long": 6.09,
+      "short": 3.58,
+      "visible": 12.75,
+      "delta": 38.88,
+      "area": 13,
+      "n": 269
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 9.65,
+      "short": 5.35,
+      "visible": 32.0,
+      "delta": 48.22,
+      "area": 32.62,
+      "n": 156
+     },
+     "edge": {
+      "long": 8.69,
+      "short": 1.99,
+      "visible": 10.5,
+      "delta": 50.64,
+      "area": 10.75,
+      "n": 32
+     },
+     "all": {
+      "long": 9.5,
+      "short": 4.77,
+      "visible": 26.25,
+      "delta": 48.29,
+      "area": 26.75,
+      "n": 255
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 16.48,
+      "short": 10.16,
+      "visible": 98.5,
+      "delta": 63.67,
+      "area": 100.25,
+      "n": 47
+     },
+     "edge": {
+      "long": 15.79,
+      "short": 3.56,
+      "visible": 31.5,
+      "delta": 61.07,
+      "area": 31.5,
+      "n": 7
+     },
+     "all": {
+      "long": 16.41,
+      "short": 9.46,
+      "visible": 87,
+      "delta": 64.31,
+      "area": 88.25,
+      "n": 71
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     2,
+     5,
+     11
+    ]
+   }
+  },
+  {
+   "width": 320,
+   "scene": "forest-leaves",
+   "mode": "C",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -104,
+     "top": 0
+    },
+    "cssWidth": 320,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     640,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     320,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 7.92,
+      "short": 5.14,
+      "visible": 23.75,
+      "delta": 39.06,
+      "area": 24.25,
+      "n": 166
+     },
+     "edge": {
+      "long": 7.45,
+      "short": 1.94,
+      "visible": 8.25,
+      "delta": 39.29,
+      "area": 8.5,
+      "n": 35
+     },
+     "all": {
+      "long": 7.62,
+      "short": 4.51,
+      "visible": 19.5,
+      "delta": 39.08,
+      "area": 20,
+      "n": 269
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 12.16,
+      "short": 6.71,
+      "visible": 50.75,
+      "delta": 48.55,
+      "area": 51.25,
+      "n": 155
+     },
+     "edge": {
+      "long": 11.19,
+      "short": 2.39,
+      "visible": 16.25,
+      "delta": 50.17,
+      "area": 16.5,
+      "n": 32
+     },
+     "all": {
+      "long": 11.97,
+      "short": 5.95,
+      "visible": 41,
+      "delta": 48.25,
+      "area": 41.75,
+      "n": 253
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 20.63,
+      "short": 13.0,
+      "visible": 155.75,
+      "delta": 63.47,
+      "area": 157.5,
+      "n": 46
+     },
+     "edge": {
+      "long": 19.91,
+      "short": 4.32,
+      "visible": 48.5,
+      "delta": 60.96,
+      "area": 49.5,
+      "n": 7
+     },
+     "all": {
+      "long": 20.45,
+      "short": 11.96,
+      "visible": 136.38,
+      "delta": 64.26,
+      "area": 137.5,
+      "n": 70
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     2,
+     5,
+     11
+    ]
+   }
+  },
+  {
+   "width": 320,
+   "scene": "country-leaves",
+   "mode": "E3plus",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -104,
+     "top": 0
+    },
+    "cssWidth": 320,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     640,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     320,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 2.74,
+      "short": 1.41,
+      "visible": 1.12,
+      "delta": 8.73,
+      "area": 2.75,
+      "n": 40
+     },
+     "edge": {
+      "long": 1.91,
+      "short": 0.5,
+      "visible": 0.12,
+      "delta": 6.29,
+      "area": 0.88,
+      "n": 10
+     },
+     "all": {
+      "long": 2.62,
+      "short": 1.17,
+      "visible": 0.75,
+      "delta": 8.49,
+      "area": 2.25,
+      "n": 71
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 6.82,
+      "short": 2.72,
+      "visible": 10.25,
+      "delta": 20.72,
+      "area": 12,
+      "n": 33
+     },
+     "edge": {
+      "long": 6.42,
+      "short": 1.26,
+      "visible": 3.0,
+      "delta": 12.2,
+      "area": 4.75,
+      "n": 8
+     },
+     "all": {
+      "long": 6.82,
+      "short": 2.4,
+      "visible": 8.25,
+      "delta": 19.64,
+      "area": 10.75,
+      "n": 65
+     }
+    },
+    "foreground": {
+     "all": {
+      "long": 10.38,
+      "short": 2.6,
+      "visible": 15.0,
+      "delta": 25.8,
+      "area": 16.62,
+      "n": 2
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [],
+    "trackIds": []
+   }
+  },
+  {
+   "width": 320,
+   "scene": "country-leaves",
+   "mode": "A",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -104,
+     "top": 0
+    },
+    "cssWidth": 320,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     640,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     320,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 4.26,
+      "short": 2.98,
+      "visible": 6.5,
+      "delta": 19.79,
+      "area": 7.75,
+      "n": 41
+     },
+     "edge": {
+      "long": 4.07,
+      "short": 1.17,
+      "visible": 2.25,
+      "delta": 19.89,
+      "area": 2.88,
+      "n": 4
+     },
+     "all": {
+      "long": 4.11,
+      "short": 2.67,
+      "visible": 5.5,
+      "delta": 19.43,
+      "area": 7,
+      "n": 71
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 11.88,
+      "short": 6.59,
+      "visible": 46.75,
+      "delta": 42.28,
+      "area": 49.0,
+      "n": 40
+     },
+     "edge": {
+      "long": 11.0,
+      "short": 2.32,
+      "visible": 14.62,
+      "delta": 25.85,
+      "area": 15.25,
+      "n": 6
+     },
+     "all": {
+      "long": 11.62,
+      "short": 6.09,
+      "visible": 43.25,
+      "delta": 38.93,
+      "area": 44.25,
+      "n": 65
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 21.12,
+      "short": 13.67,
+      "visible": 159,
+      "delta": 45.45,
+      "area": 165,
+      "n": 29
+     },
+     "edge": {
+      "long": 20.59,
+      "short": 4.41,
+      "visible": 50.25,
+      "delta": 43.58,
+      "area": 51.25,
+      "n": 4
+     },
+     "all": {
+      "long": 21.05,
+      "short": 12.74,
+      "visible": 150.0,
+      "delta": 45.27,
+      "area": 156.25,
+      "n": 42
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     5
+    ]
+   }
+  },
+  {
+   "width": 320,
+   "scene": "country-leaves",
+   "mode": "B",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -104,
+     "top": 0
+    },
+    "cssWidth": 320,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     640,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     320,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 5.79,
+      "short": 3.96,
+      "visible": 11.75,
+      "delta": 19.72,
+      "area": 13.5,
+      "n": 40
+     },
+     "edge": {
+      "long": 5.28,
+      "short": 1.7,
+      "visible": 3.38,
+      "delta": 16.05,
+      "area": 4.88,
+      "n": 4
+     },
+     "all": {
+      "long": 5.68,
+      "short": 3.51,
+      "visible": 10.0,
+      "delta": 18.34,
+      "area": 12.5,
+      "n": 70
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 15.61,
+      "short": 8.76,
+      "visible": 83.38,
+      "delta": 41.39,
+      "area": 87.12,
+      "n": 40
+     },
+     "edge": {
+      "long": 14.66,
+      "short": 2.9,
+      "visible": 26.5,
+      "delta": 23.5,
+      "area": 27.38,
+      "n": 6
+     },
+     "all": {
+      "long": 15.56,
+      "short": 8.03,
+      "visible": 75.75,
+      "delta": 39.99,
+      "area": 79.25,
+      "n": 65
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 28.18,
+      "short": 18.06,
+      "visible": 284.5,
+      "delta": 45.56,
+      "area": 294.5,
+      "n": 29
+     },
+     "edge": {
+      "long": 27.75,
+      "short": 5.8,
+      "visible": 89.25,
+      "delta": 43.23,
+      "area": 92.25,
+      "n": 4
+     },
+     "all": {
+      "long": 28.14,
+      "short": 17.27,
+      "visible": 268.62,
+      "delta": 45.35,
+      "area": 278.0,
+      "n": 42
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     5
+    ]
+   }
+  },
+  {
+   "width": 320,
+   "scene": "country-leaves",
+   "mode": "C",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -104,
+     "top": 0
+    },
+    "cssWidth": 320,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     640,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     320,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 7.5,
+      "short": 4.92,
+      "visible": 18.38,
+      "delta": 19.77,
+      "area": 21.25,
+      "n": 40
+     },
+     "edge": {
+      "long": 6.54,
+      "short": 1.97,
+      "visible": 6.0,
+      "delta": 15.27,
+      "area": 8.25,
+      "n": 4
+     },
+     "all": {
+      "long": 7.32,
+      "short": 4.51,
+      "visible": 16.12,
+      "delta": 19.63,
+      "area": 19.5,
+      "n": 70
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 19.63,
+      "short": 10.86,
+      "visible": 128.75,
+      "delta": 42.04,
+      "area": 136.38,
+      "n": 40
+     },
+     "edge": {
+      "long": 19.02,
+      "short": 3.64,
+      "visible": 40.5,
+      "delta": 24.86,
+      "area": 43.75,
+      "n": 6
+     },
+     "all": {
+      "long": 19.55,
+      "short": 10.21,
+      "visible": 120.62,
+      "delta": 39.19,
+      "area": 125.12,
+      "n": 64
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 35.22,
+      "short": 22.65,
+      "visible": 444.25,
+      "delta": 45.42,
+      "area": 458.5,
+      "n": 29
+     },
+     "edge": {
+      "long": 34.8,
+      "short": 7.45,
+      "visible": 138.88,
+      "delta": 43.23,
+      "area": 145.38,
+      "n": 4
+     },
+     "all": {
+      "long": 35.19,
+      "short": 21.25,
+      "visible": 419.38,
+      "delta": 45.3,
+      "area": 433.12,
+      "n": 42
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     5
+    ]
+   }
+  },
+  {
+   "width": 375,
+   "scene": "forest-leaves",
+   "mode": "E3plus",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -76.5,
+     "top": 0
+    },
+    "cssWidth": 375,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     750,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     375,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 3.0,
+      "short": 1.49,
+      "visible": 2.25,
+      "delta": 17.73,
+      "area": 3.0,
+      "n": 146
+     },
+     "edge": {
+      "long": 2.3,
+      "short": 0.74,
+      "visible": 0.5,
+      "delta": 8.92,
+      "area": 1.25,
+      "n": 39
+     },
+     "all": {
+      "long": 2.74,
+      "short": 1.2,
+      "visible": 1.75,
+      "delta": 14.72,
+      "area": 2.25,
+      "n": 269
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 4.31,
+      "short": 1.87,
+      "visible": 4.38,
+      "delta": 25.04,
+      "area": 5.25,
+      "n": 148
+     },
+     "edge": {
+      "long": 3.5,
+      "short": 0.97,
+      "visible": 1.12,
+      "delta": 10.19,
+      "area": 2.0,
+      "n": 38
+     },
+     "all": {
+      "long": 4.04,
+      "short": 1.6,
+      "visible": 3.5,
+      "delta": 21.64,
+      "area": 4.25,
+      "n": 264
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 6.56,
+      "short": 2.57,
+      "visible": 9.5,
+      "delta": 34.63,
+      "area": 10.75,
+      "n": 86
+     },
+     "edge": {
+      "long": 5.94,
+      "short": 1.21,
+      "visible": 3.25,
+      "delta": 16.16,
+      "area": 4.25,
+      "n": 16
+     },
+     "all": {
+      "long": 6.35,
+      "short": 2.15,
+      "visible": 7.75,
+      "delta": 31.31,
+      "area": 8.75,
+      "n": 163
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [],
+    "trackIds": []
+   }
+  },
+  {
+   "width": 375,
+   "scene": "forest-leaves",
+   "mode": "A",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -76.5,
+     "top": 0
+    },
+    "cssWidth": 375,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     750,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     375,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 4.54,
+      "short": 3.05,
+      "visible": 8.75,
+      "delta": 39.37,
+      "area": 8.75,
+      "n": 166
+     },
+     "edge": {
+      "long": 4.03,
+      "short": 1.21,
+      "visible": 2.75,
+      "delta": 38.36,
+      "area": 2.75,
+      "n": 35
+     },
+     "all": {
+      "long": 4.46,
+      "short": 2.71,
+      "visible": 7.25,
+      "delta": 38.65,
+      "area": 7.25,
+      "n": 269
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 7.15,
+      "short": 4.09,
+      "visible": 18.0,
+      "delta": 47.9,
+      "area": 18.38,
+      "n": 162
+     },
+     "edge": {
+      "long": 6.08,
+      "short": 1.61,
+      "visible": 5.88,
+      "delta": 52.23,
+      "area": 6.0,
+      "n": 32
+     },
+     "all": {
+      "long": 6.92,
+      "short": 3.65,
+      "visible": 15.0,
+      "delta": 47.79,
+      "area": 15.25,
+      "n": 264
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 11.94,
+      "short": 7.4,
+      "visible": 49.75,
+      "delta": 62.03,
+      "area": 51.25,
+      "n": 93
+     },
+     "edge": {
+      "long": 10.8,
+      "short": 2.75,
+      "visible": 16.5,
+      "delta": 59.58,
+      "area": 16.75,
+      "n": 21
+     },
+     "all": {
+      "long": 11.79,
+      "short": 6.2,
+      "visible": 40.88,
+      "delta": 61.58,
+      "area": 41.88,
+      "n": 160
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     2,
+     5,
+     11,
+     14
+    ]
+   }
+  },
+  {
+   "width": 375,
+   "scene": "forest-leaves",
+   "mode": "B",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -76.5,
+     "top": 0
+    },
+    "cssWidth": 375,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     750,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     375,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 6.22,
+      "short": 4.1,
+      "visible": 15.38,
+      "delta": 39.46,
+      "area": 15.5,
+      "n": 166
+     },
+     "edge": {
+      "long": 5.8,
+      "short": 1.61,
+      "visible": 5,
+      "delta": 38.88,
+      "area": 5.25,
+      "n": 35
+     },
+     "all": {
+      "long": 6.09,
+      "short": 3.58,
+      "visible": 12.75,
+      "delta": 38.88,
+      "area": 13,
+      "n": 269
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 9.65,
+      "short": 5.35,
+      "visible": 32.0,
+      "delta": 48.22,
+      "area": 32.62,
+      "n": 162
+     },
+     "edge": {
+      "long": 8.69,
+      "short": 1.99,
+      "visible": 10.5,
+      "delta": 50.64,
+      "area": 10.75,
+      "n": 32
+     },
+     "all": {
+      "long": 9.49,
+      "short": 4.77,
+      "visible": 26.5,
+      "delta": 48.34,
+      "area": 27.0,
+      "n": 264
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 16.16,
+      "short": 9.89,
+      "visible": 90.75,
+      "delta": 62.18,
+      "area": 91.5,
+      "n": 90
+     },
+     "edge": {
+      "long": 15.48,
+      "short": 3.64,
+      "visible": 31,
+      "delta": 59.52,
+      "area": 31,
+      "n": 21
+     },
+     "all": {
+      "long": 16.0,
+      "short": 8.1,
+      "visible": 73.75,
+      "delta": 61.33,
+      "area": 75,
+      "n": 155
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     2,
+     5,
+     11,
+     14
+    ]
+   }
+  },
+  {
+   "width": 375,
+   "scene": "forest-leaves",
+   "mode": "C",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -76.5,
+     "top": 0
+    },
+    "cssWidth": 375,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     750,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     375,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 7.92,
+      "short": 5.14,
+      "visible": 23.75,
+      "delta": 39.06,
+      "area": 24.25,
+      "n": 166
+     },
+     "edge": {
+      "long": 7.45,
+      "short": 1.94,
+      "visible": 8.25,
+      "delta": 39.29,
+      "area": 8.5,
+      "n": 35
+     },
+     "all": {
+      "long": 7.62,
+      "short": 4.51,
+      "visible": 19.5,
+      "delta": 39.08,
+      "area": 20,
+      "n": 269
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 12.15,
+      "short": 6.68,
+      "visible": 50.62,
+      "delta": 48.48,
+      "area": 51.25,
+      "n": 162
+     },
+     "edge": {
+      "long": 11.19,
+      "short": 2.39,
+      "visible": 16.25,
+      "delta": 50.17,
+      "area": 16.5,
+      "n": 32
+     },
+     "all": {
+      "long": 11.98,
+      "short": 5.96,
+      "visible": 41.12,
+      "delta": 48.28,
+      "area": 41.75,
+      "n": 264
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 20.24,
+      "short": 12.4,
+      "visible": 141,
+      "delta": 62.12,
+      "area": 144.25,
+      "n": 85
+     },
+     "edge": {
+      "long": 19.07,
+      "short": 4.38,
+      "visible": 46.5,
+      "delta": 60.89,
+      "area": 46.75,
+      "n": 19
+     },
+     "all": {
+      "long": 20.08,
+      "short": 9.96,
+      "visible": 113.25,
+      "delta": 61.68,
+      "area": 116.0,
+      "n": 148
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     2,
+     5,
+     11,
+     14
+    ]
+   }
+  },
+  {
+   "width": 375,
+   "scene": "country-leaves",
+   "mode": "E3plus",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -76.5,
+     "top": 0
+    },
+    "cssWidth": 375,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     750,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     375,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 2.73,
+      "short": 1.42,
+      "visible": 1.25,
+      "delta": 9.09,
+      "area": 2.75,
+      "n": 45
+     },
+     "edge": {
+      "long": 1.96,
+      "short": 0.5,
+      "visible": 0.0,
+      "delta": 5.63,
+      "area": 1.0,
+      "n": 12
+     },
+     "all": {
+      "long": 2.61,
+      "short": 1.15,
+      "visible": 0.75,
+      "delta": 8.4,
+      "area": 2.25,
+      "n": 85
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 6.9,
+      "short": 2.75,
+      "visible": 10.5,
+      "delta": 19.64,
+      "area": 12.25,
+      "n": 37
+     },
+     "edge": {
+      "long": 6.52,
+      "short": 1.26,
+      "visible": 3.0,
+      "delta": 12.2,
+      "area": 4.75,
+      "n": 10
+     },
+     "all": {
+      "long": 6.9,
+      "short": 2.4,
+      "visible": 8.25,
+      "delta": 18.92,
+      "area": 10.75,
+      "n": 73
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 10.61,
+      "short": 4.1,
+      "visible": 27.38,
+      "delta": 41.23,
+      "area": 28.75,
+      "n": 20
+     },
+     "edge": {
+      "long": 10.14,
+      "short": 1.62,
+      "visible": 8.25,
+      "delta": 30.81,
+      "area": 10,
+      "n": 5
+     },
+     "all": {
+      "long": 10.51,
+      "short": 3.55,
+      "visible": 22.25,
+      "delta": 30.81,
+      "area": 23.75,
+      "n": 37
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     2.5,
+     3,
+     3.5,
+     4
+    ],
+    "trackIds": [
+     5
+    ]
+   }
+  },
+  {
+   "width": 375,
+   "scene": "country-leaves",
+   "mode": "A",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -76.5,
+     "top": 0
+    },
+    "cssWidth": 375,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     750,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     375,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 4.26,
+      "short": 2.96,
+      "visible": 6.5,
+      "delta": 20.08,
+      "area": 7.75,
+      "n": 49
+     },
+     "edge": {
+      "long": 4.07,
+      "short": 1.18,
+      "visible": 2.25,
+      "delta": 17.89,
+      "area": 2.88,
+      "n": 6
+     },
+     "all": {
+      "long": 4.13,
+      "short": 2.65,
+      "visible": 5.5,
+      "delta": 19.61,
+      "area": 7.0,
+      "n": 86
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 11.97,
+      "short": 6.63,
+      "visible": 47.88,
+      "delta": 38.38,
+      "area": 49.88,
+      "n": 44
+     },
+     "edge": {
+      "long": 11.0,
+      "short": 2.42,
+      "visible": 17.12,
+      "delta": 25.85,
+      "area": 17.62,
+      "n": 8
+     },
+     "all": {
+      "long": 11.79,
+      "short": 6.12,
+      "visible": 43.75,
+      "delta": 37.57,
+      "area": 45,
+      "n": 71
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 21.03,
+      "short": 13.28,
+      "visible": 147.5,
+      "delta": 47.18,
+      "area": 152,
+      "n": 45
+     },
+     "edge": {
+      "long": 19.27,
+      "short": 4.64,
+      "visible": 46.75,
+      "delta": 39.43,
+      "area": 48,
+      "n": 9
+     },
+     "all": {
+      "long": 20.61,
+      "short": 11.61,
+      "visible": 130.75,
+      "delta": 45.27,
+      "area": 135.38,
+      "n": 74
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     5
+    ]
+   }
+  },
+  {
+   "width": 375,
+   "scene": "country-leaves",
+   "mode": "B",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -76.5,
+     "top": 0
+    },
+    "cssWidth": 375,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     750,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     375,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 5.79,
+      "short": 3.98,
+      "visible": 12,
+      "delta": 20.21,
+      "area": 13.5,
+      "n": 49
+     },
+     "edge": {
+      "long": 5.54,
+      "short": 1.6,
+      "visible": 3.62,
+      "delta": 17.44,
+      "area": 5.12,
+      "n": 6
+     },
+     "all": {
+      "long": 5.7,
+      "short": 3.51,
+      "visible": 10.0,
+      "delta": 19.28,
+      "area": 12.5,
+      "n": 86
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 15.68,
+      "short": 8.81,
+      "visible": 84.5,
+      "delta": 40.15,
+      "area": 88.62,
+      "n": 44
+     },
+     "edge": {
+      "long": 15.03,
+      "short": 3.09,
+      "visible": 29.62,
+      "delta": 23.5,
+      "area": 30.75,
+      "n": 8
+     },
+     "all": {
+      "long": 15.61,
+      "short": 8.1,
+      "visible": 76,
+      "delta": 37.15,
+      "area": 80,
+      "n": 71
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 28.07,
+      "short": 17.61,
+      "visible": 264.12,
+      "delta": 45.67,
+      "area": 272.12,
+      "n": 44
+     },
+     "edge": {
+      "long": 26.52,
+      "short": 6.0,
+      "visible": 82.62,
+      "delta": 39.91,
+      "area": 85.88,
+      "n": 8
+     },
+     "all": {
+      "long": 27.89,
+      "short": 15.61,
+      "visible": 232.88,
+      "delta": 45.35,
+      "area": 240.62,
+      "n": 72
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     5
+    ]
+   }
+  },
+  {
+   "width": 375,
+   "scene": "country-leaves",
+   "mode": "C",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -76.5,
+     "top": 0
+    },
+    "cssWidth": 375,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     750,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     375,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 7.5,
+      "short": 4.91,
+      "visible": 18.75,
+      "delta": 21.53,
+      "area": 21.25,
+      "n": 49
+     },
+     "edge": {
+      "long": 6.54,
+      "short": 1.93,
+      "visible": 6.12,
+      "delta": 16.72,
+      "area": 7.5,
+      "n": 6
+     },
+     "all": {
+      "long": 7.34,
+      "short": 4.51,
+      "visible": 16.12,
+      "delta": 20.39,
+      "area": 19.5,
+      "n": 86
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 19.64,
+      "short": 10.92,
+      "visible": 130.5,
+      "delta": 40.45,
+      "area": 138,
+      "n": 43
+     },
+     "edge": {
+      "long": 19.17,
+      "short": 3.81,
+      "visible": 46.25,
+      "delta": 24.86,
+      "area": 48.75,
+      "n": 8
+     },
+     "all": {
+      "long": 19.6,
+      "short": 10.21,
+      "visible": 120.62,
+      "delta": 37.86,
+      "area": 125.12,
+      "n": 70
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 35.17,
+      "short": 22.25,
+      "visible": 420.25,
+      "delta": 47.29,
+      "area": 435.75,
+      "n": 41
+     },
+     "edge": {
+      "long": 34.35,
+      "short": 7.15,
+      "visible": 128.5,
+      "delta": 40.66,
+      "area": 134.5,
+      "n": 7
+     },
+     "all": {
+      "long": 35.05,
+      "short": 19.59,
+      "visible": 367.62,
+      "delta": 45.3,
+      "area": 378.38,
+      "n": 66
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     5
+    ]
+   }
+  },
+  {
+   "width": 430,
+   "scene": "forest-leaves",
+   "mode": "E3plus",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -49,
+     "top": 0
+    },
+    "cssWidth": 430,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     860,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     430,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 3.0,
+      "short": 1.49,
+      "visible": 2.25,
+      "delta": 17.73,
+      "area": 3.0,
+      "n": 146
+     },
+     "edge": {
+      "long": 2.3,
+      "short": 0.74,
+      "visible": 0.5,
+      "delta": 8.96,
+      "area": 1.25,
+      "n": 39
+     },
+     "all": {
+      "long": 2.74,
+      "short": 1.2,
+      "visible": 1.75,
+      "delta": 14.72,
+      "area": 2.25,
+      "n": 269
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 4.31,
+      "short": 1.87,
+      "visible": 4.25,
+      "delta": 25.04,
+      "area": 5.25,
+      "n": 152
+     },
+     "edge": {
+      "long": 3.5,
+      "short": 0.97,
+      "visible": 1.12,
+      "delta": 10.19,
+      "area": 2.0,
+      "n": 38
+     },
+     "all": {
+      "long": 4.05,
+      "short": 1.6,
+      "visible": 3.5,
+      "delta": 21.88,
+      "area": 4.38,
+      "n": 270
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 6.53,
+      "short": 2.57,
+      "visible": 9.25,
+      "delta": 35.88,
+      "area": 10.5,
+      "n": 114
+     },
+     "edge": {
+      "long": 5.91,
+      "short": 1.2,
+      "visible": 3.5,
+      "delta": 16.47,
+      "area": 4.25,
+      "n": 27
+     },
+     "all": {
+      "long": 6.2,
+      "short": 2.17,
+      "visible": 8,
+      "delta": 31.84,
+      "area": 8.75,
+      "n": 219
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [],
+    "trackIds": []
+   }
+  },
+  {
+   "width": 430,
+   "scene": "forest-leaves",
+   "mode": "A",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -49,
+     "top": 0
+    },
+    "cssWidth": 430,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     860,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     430,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 4.54,
+      "short": 3.05,
+      "visible": 8.75,
+      "delta": 39.37,
+      "area": 8.75,
+      "n": 166
+     },
+     "edge": {
+      "long": 4.03,
+      "short": 1.21,
+      "visible": 2.75,
+      "delta": 38.36,
+      "area": 2.75,
+      "n": 35
+     },
+     "all": {
+      "long": 4.46,
+      "short": 2.71,
+      "visible": 7.25,
+      "delta": 38.65,
+      "area": 7.25,
+      "n": 269
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 7.14,
+      "short": 4.08,
+      "visible": 17.75,
+      "delta": 47.64,
+      "area": 18.25,
+      "n": 166
+     },
+     "edge": {
+      "long": 6.08,
+      "short": 1.61,
+      "visible": 5.88,
+      "delta": 52.23,
+      "area": 6.0,
+      "n": 32
+     },
+     "all": {
+      "long": 6.89,
+      "short": 3.65,
+      "visible": 15.0,
+      "delta": 47.68,
+      "area": 15.25,
+      "n": 270
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 12.03,
+      "short": 7.47,
+      "visible": 50.25,
+      "delta": 58.88,
+      "area": 51.5,
+      "n": 125
+     },
+     "edge": {
+      "long": 10.59,
+      "short": 2.68,
+      "visible": 16.5,
+      "delta": 56.87,
+      "area": 16.75,
+      "n": 29
+     },
+     "all": {
+      "long": 11.65,
+      "short": 6.41,
+      "visible": 41.12,
+      "delta": 58.19,
+      "area": 41.88,
+      "n": 212
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     2,
+     5,
+     11,
+     14
+    ]
+   }
+  },
+  {
+   "width": 430,
+   "scene": "forest-leaves",
+   "mode": "B",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -49,
+     "top": 0
+    },
+    "cssWidth": 430,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     860,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     430,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 6.22,
+      "short": 4.1,
+      "visible": 15.38,
+      "delta": 39.46,
+      "area": 15.5,
+      "n": 166
+     },
+     "edge": {
+      "long": 5.8,
+      "short": 1.61,
+      "visible": 5,
+      "delta": 38.88,
+      "area": 5.25,
+      "n": 35
+     },
+     "all": {
+      "long": 6.09,
+      "short": 3.58,
+      "visible": 12.75,
+      "delta": 38.88,
+      "area": 13,
+      "n": 269
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 9.63,
+      "short": 5.32,
+      "visible": 32.0,
+      "delta": 48.02,
+      "area": 32.38,
+      "n": 166
+     },
+     "edge": {
+      "long": 8.69,
+      "short": 1.99,
+      "visible": 10.5,
+      "delta": 50.64,
+      "area": 10.75,
+      "n": 32
+     },
+     "all": {
+      "long": 9.49,
+      "short": 4.77,
+      "visible": 26.5,
+      "delta": 48.02,
+      "area": 27.0,
+      "n": 270
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 16.2,
+      "short": 9.96,
+      "visible": 90.0,
+      "delta": 58.53,
+      "area": 91.5,
+      "n": 124
+     },
+     "edge": {
+      "long": 15.09,
+      "short": 3.62,
+      "visible": 29.75,
+      "delta": 55.87,
+      "area": 30.5,
+      "n": 29
+     },
+     "all": {
+      "long": 15.84,
+      "short": 8.45,
+      "visible": 72.5,
+      "delta": 58.18,
+      "area": 73.75,
+      "n": 211
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     2,
+     5,
+     11,
+     14
+    ]
+   }
+  },
+  {
+   "width": 430,
+   "scene": "forest-leaves",
+   "mode": "C",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -49,
+     "top": 0
+    },
+    "cssWidth": 430,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     860,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     430,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 7.92,
+      "short": 5.14,
+      "visible": 23.75,
+      "delta": 39.06,
+      "area": 24.25,
+      "n": 166
+     },
+     "edge": {
+      "long": 7.45,
+      "short": 1.94,
+      "visible": 8.25,
+      "delta": 39.29,
+      "area": 8.5,
+      "n": 35
+     },
+     "all": {
+      "long": 7.62,
+      "short": 4.51,
+      "visible": 19.5,
+      "delta": 39.08,
+      "area": 20,
+      "n": 269
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 12.14,
+      "short": 6.62,
+      "visible": 50.38,
+      "delta": 48.36,
+      "area": 50.88,
+      "n": 166
+     },
+     "edge": {
+      "long": 11.19,
+      "short": 2.39,
+      "visible": 16.25,
+      "delta": 50.17,
+      "area": 16.5,
+      "n": 32
+     },
+     "all": {
+      "long": 11.95,
+      "short": 5.96,
+      "visible": 41.12,
+      "delta": 48.23,
+      "area": 41.75,
+      "n": 270
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 20.24,
+      "short": 12.48,
+      "visible": 139.75,
+      "delta": 58.57,
+      "area": 142.5,
+      "n": 123
+     },
+     "edge": {
+      "long": 19.03,
+      "short": 4.37,
+      "visible": 45.75,
+      "delta": 58.22,
+      "area": 46.38,
+      "n": 28
+     },
+     "all": {
+      "long": 19.9,
+      "short": 10.52,
+      "visible": 113.75,
+      "delta": 57.95,
+      "area": 115.75,
+      "n": 209
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     2,
+     5,
+     11,
+     14
+    ]
+   }
+  },
+  {
+   "width": 430,
+   "scene": "country-leaves",
+   "mode": "E3plus",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -49,
+     "top": 0
+    },
+    "cssWidth": 430,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     860,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     430,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 2.73,
+      "short": 1.42,
+      "visible": 1.25,
+      "delta": 9.17,
+      "area": 2.75,
+      "n": 45
+     },
+     "edge": {
+      "long": 2,
+      "short": 0.5,
+      "visible": 0,
+      "delta": 5.3,
+      "area": 1,
+      "n": 13
+     },
+     "all": {
+      "long": 2.59,
+      "short": 1.13,
+      "visible": 0.75,
+      "delta": 8.38,
+      "area": 2.25,
+      "n": 86
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 7.01,
+      "short": 2.77,
+      "visible": 10.75,
+      "delta": 18.54,
+      "area": 12.88,
+      "n": 42
+     },
+     "edge": {
+      "long": 6.52,
+      "short": 1.26,
+      "visible": 3.0,
+      "delta": 12.2,
+      "area": 4.75,
+      "n": 10
+     },
+     "all": {
+      "long": 7.0,
+      "short": 2.41,
+      "visible": 8.5,
+      "delta": 18.28,
+      "area": 11,
+      "n": 81
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 10.79,
+      "short": 4.12,
+      "visible": 27.5,
+      "delta": 36.52,
+      "area": 29,
+      "n": 35
+     },
+     "edge": {
+      "long": 10.14,
+      "short": 1.62,
+      "visible": 9.25,
+      "delta": 30.81,
+      "area": 10,
+      "n": 7
+     },
+     "all": {
+      "long": 10.62,
+      "short": 3.62,
+      "visible": 23,
+      "delta": 34.69,
+      "area": 25,
+      "n": 63
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4
+    ],
+    "trackIds": [
+     5
+    ]
+   }
+  },
+  {
+   "width": 430,
+   "scene": "country-leaves",
+   "mode": "A",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -49,
+     "top": 0
+    },
+    "cssWidth": 430,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     860,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     430,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 4.26,
+      "short": 2.96,
+      "visible": 6.5,
+      "delta": 20.08,
+      "area": 7.75,
+      "n": 49
+     },
+     "edge": {
+      "long": 4.07,
+      "short": 1.18,
+      "visible": 2.25,
+      "delta": 17.89,
+      "area": 2.88,
+      "n": 6
+     },
+     "all": {
+      "long": 4.13,
+      "short": 2.65,
+      "visible": 5.5,
+      "delta": 19.61,
+      "area": 7.0,
+      "n": 86
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 12.61,
+      "short": 6.69,
+      "visible": 49.25,
+      "delta": 35.75,
+      "area": 51.5,
+      "n": 51
+     },
+     "edge": {
+      "long": 11.0,
+      "short": 2.42,
+      "visible": 17.12,
+      "delta": 25.85,
+      "area": 17.62,
+      "n": 8
+     },
+     "all": {
+      "long": 11.94,
+      "short": 6.32,
+      "visible": 43.75,
+      "delta": 35.91,
+      "area": 45.5,
+      "n": 81
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 20.84,
+      "short": 12.97,
+      "visible": 144.25,
+      "delta": 45.92,
+      "area": 148.12,
+      "n": 52
+     },
+     "edge": {
+      "long": 19.27,
+      "short": 4.64,
+      "visible": 46.75,
+      "delta": 39.43,
+      "area": 48,
+      "n": 9
+     },
+     "all": {
+      "long": 19.45,
+      "short": 11.75,
+      "visible": 129.5,
+      "delta": 45.08,
+      "area": 134.75,
+      "n": 83
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     5
+    ]
+   }
+  },
+  {
+   "width": 430,
+   "scene": "country-leaves",
+   "mode": "B",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -49,
+     "top": 0
+    },
+    "cssWidth": 430,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     860,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     430,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 5.79,
+      "short": 3.98,
+      "visible": 12,
+      "delta": 20.21,
+      "area": 13.5,
+      "n": 49
+     },
+     "edge": {
+      "long": 5.54,
+      "short": 1.6,
+      "visible": 3.62,
+      "delta": 17.44,
+      "area": 5.12,
+      "n": 6
+     },
+     "all": {
+      "long": 5.7,
+      "short": 3.51,
+      "visible": 10.0,
+      "delta": 19.28,
+      "area": 12.5,
+      "n": 86
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 16.87,
+      "short": 9.01,
+      "visible": 88.25,
+      "delta": 33.63,
+      "area": 91.75,
+      "n": 51
+     },
+     "edge": {
+      "long": 15.03,
+      "short": 3.09,
+      "visible": 29.62,
+      "delta": 23.5,
+      "area": 30.75,
+      "n": 8
+     },
+     "all": {
+      "long": 15.82,
+      "short": 8.26,
+      "visible": 77.25,
+      "delta": 34.09,
+      "area": 81.75,
+      "n": 81
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 27.95,
+      "short": 17.41,
+      "visible": 255.75,
+      "delta": 45.61,
+      "area": 264.5,
+      "n": 52
+     },
+     "edge": {
+      "long": 25.52,
+      "short": 6.06,
+      "visible": 83,
+      "delta": 39.3,
+      "area": 86,
+      "n": 9
+     },
+     "all": {
+      "long": 25.83,
+      "short": 15.79,
+      "visible": 231.5,
+      "delta": 44.4,
+      "area": 240,
+      "n": 83
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     5
+    ]
+   }
+  },
+  {
+   "width": 430,
+   "scene": "country-leaves",
+   "mode": "C",
+   "geometry": {
+    "mode": "cover",
+    "art": {
+     "width": 528,
+     "height": 792,
+     "left": -49,
+     "top": 0
+    },
+    "cssWidth": 430,
+    "cssHeight": 792,
+    "x": 0,
+    "y": 0,
+    "buffer": [
+     860,
+     1584
+    ],
+    "dpr": 2,
+    "viewport": [
+     430,
+     792
+    ]
+   },
+   "bands": {
+    "distant": {
+     "broad": {
+      "long": 7.5,
+      "short": 4.91,
+      "visible": 18.75,
+      "delta": 21.53,
+      "area": 21.25,
+      "n": 49
+     },
+     "edge": {
+      "long": 6.54,
+      "short": 1.93,
+      "visible": 6.12,
+      "delta": 16.72,
+      "area": 7.5,
+      "n": 6
+     },
+     "all": {
+      "long": 7.34,
+      "short": 4.51,
+      "visible": 16.12,
+      "delta": 20.39,
+      "area": 19.5,
+      "n": 86
+     }
+    },
+    "middle": {
+     "broad": {
+      "long": 21.27,
+      "short": 11.18,
+      "visible": 135.25,
+      "delta": 33.95,
+      "area": 143,
+      "n": 51
+     },
+     "edge": {
+      "long": 19.17,
+      "short": 3.81,
+      "visible": 46.25,
+      "delta": 24.86,
+      "area": 48.75,
+      "n": 8
+     },
+     "all": {
+      "long": 19.78,
+      "short": 10.35,
+      "visible": 121,
+      "delta": 35.31,
+      "area": 127.25,
+      "n": 81
+     }
+    },
+    "foreground": {
+     "broad": {
+      "long": 35.04,
+      "short": 21.57,
+      "visible": 400.75,
+      "delta": 46.41,
+      "area": 415.5,
+      "n": 51
+     },
+     "edge": {
+      "long": 32.1,
+      "short": 7.3,
+      "visible": 130.75,
+      "delta": 38.67,
+      "area": 135.75,
+      "n": 9
+     },
+     "all": {
+      "long": 33.28,
+      "short": 19.59,
+      "visible": 359.88,
+      "delta": 45.09,
+      "area": 371.88,
+      "n": 82
+     }
+    }
+   },
+   "rightHalfFirst5s": {
+    "qualifyingClocks": [
+     0,
+     0.5,
+     1,
+     1.5,
+     2,
+     2.5,
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "trackIds": [
+     5
+    ]
+   }
+  }
+ ],
+ "artSha256": "1f4b30d3f1878ba2d400eadfd3d32ddc2631b1d4bc86643598c6ba2ebe05606c"
+}
