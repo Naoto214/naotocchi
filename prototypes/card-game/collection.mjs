@@ -12,7 +12,7 @@ export function collectionPage(cards,page=0){const pages=Math.max(1,Math.ceil(ca
 function parse(raw){
  const v=raw===null?{version:1,favorites:[],page:0,noticeSeen:false}:JSON.parse(raw);
  if(v?.version!==1||!Array.isArray(v.favorites)||!v.favorites.every(id=>typeof id==='string')||!Number.isInteger(v.page)||v.page<0||typeof v.noticeSeen!=='boolean')throw Error('コレクションの保存形式を読み込めません');
- return {...v,favorites:[...new Set(v.favorites.filter(id=>ids.has(id)))],page:Math.min(50,v.page)};
+ return {...v,favorites:[...new Set(v.favorites.filter(id=>ids.has(id)))],page:collectionPage(entries,v.page).page};
 }
 export class CollectionPreferences{
  constructor(storage){this.storage=storage;this.data=parse(storage.getItem(COLLECTION_KEY));}
