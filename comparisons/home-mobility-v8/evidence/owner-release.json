@@ -1,0 +1,467 @@
+{
+  "projectGameRuntime": "30960c2f00e16eee113ea3e5cf3f536c09bd40d4",
+  "trial": {
+    "version": 14,
+    "source": "be8504ad36ef21e1e6e392db6462dc8e8d87ccd5",
+    "deployment": "appgdep_6b00dcf739408191a4896a573582d5da",
+    "status": "succeeded",
+    "roles": [
+      "owner"
+    ],
+    "groups": 0,
+    "externalVisitors": 0,
+    "origin": "https://naotocchi-cast-size.kerzion214.chatgpt.site",
+    "endpoints": {
+      "game/home-production-model-mobility-v8.js": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "282ccb0c35751ae6bf89b8efc4641d674aa7be4e1f4a3ea7e6a8902b49704809"
+      },
+      "game/home-production-diorama-mobility-v8.js": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "0c906f72d0dbde61c6f871c16954bf0309dd64388b1469d7afec56acc9c04ea6"
+      },
+      "game/telemetry-mobility-v8.js": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "9d764b666542581950dd1c8c2fd1c47a40cf73012d097e091e6c9ae5f0e4f262"
+      },
+      "game/mobility-v8.html": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "ce8be69ef7ea3d76cfb37a5a4e6dc20ba53ad8646b46ded1e9a5cac9e5840df2"
+      },
+      "v8/index.html": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "214f8e3e5ffeb459a6523484003f77e368cfcd3a6482d4df104809efe9e9641d"
+      },
+      "v8/controls.mjs": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "9c492d90a68d17360da554ebe25d04f45b1cf3bee77d817157b524c9a25401ec"
+      },
+      "v8/shell-model.mjs": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "6053efd62e4b619858c3ac479fbf1f678e54f878f5764a249f730eaebfd96839"
+      },
+      "v8/diagnostics.mjs": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "ac20fdd9e956057e8aa6145890e4a9d186e4efc747fa733c8d41eb01bc7a592e"
+      },
+      "v7/index.html": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "1a8a507f2d9f95ff9754757e814ed0f6affaf47fae3bf20fc88c13709d78aba2"
+      },
+      "game/mobility-v7.html": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "f217233b114fc12e474ecb161f39e8b652f93cbe0ad2d3529f77ed70681ced7a"
+      },
+      "v6/index.html": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "ccc175401c8052c6323e8ce97d5918ad2b0d8ed8bdee5a53c389c96f6b745f06"
+      },
+      "evidence/mobility-v8/forest/SHA256SUMS": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "91f56bdcb2592b59973ee31f651b16a4feefc7e00681eb68d9d7dce064606639"
+      },
+      "evidence/mobility-v8/forest/authoritative-geometry.json.gz": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "09869c4f5b0e007c7d119b98229893102ec16336beec007416af7fc2f57a26a3"
+      },
+      "evidence/mobility-v8/forest/checkpoint-touches.json.gz": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "8307c44619d1ebaea13ac196d25a02210436069e8ba410fad5245ab17b40a9af"
+      },
+      "evidence/mobility-v8/forest/request-geometry.json.gz": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "5bb959592d08c8a6a3f3690dee9e83adc245819f697e09816570be6098bec604"
+      },
+      "evidence/mobility-v8/forest/v6-autonomy-only.json.gz": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "c4b196c1901b5dc2abde8c9a02098f9369a1e51f66d741f6acd948114d1ab32e"
+      },
+      "evidence/mobility-v8/forest/v6-forest28.json.gz": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "828850d2d1705055a130907992173bd4cd6a1d3a316282d72e549104cbf6dcd5"
+      },
+      "evidence/mobility-v8/forest/v7-300-touch-checkpoint.json.gz": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "97d43c4df8c17f637fbb08eafacd58fdb253449ce4a18a8b5c7bd6fcadb387b9"
+      },
+      "evidence/mobility-v8/forest/v7-autonomy-only.json.gz": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "12ab588c5b591446bce1b874fca038fcd2e2621ff942ccbfd0c4d89e8be22ac6"
+      },
+      "evidence/mobility-v8/forest/v7-forest28.json.gz": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "3cdde12ee140fba8deaeca235f9bdfd8e9a6d93f18696e75dd12b313ddef3e4e"
+      },
+      "evidence/mobility-v8/forest/v8-forest28.json.gz": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "6c115a50d0e865904391b1f1039247fb2ac4473afdd97254496ca0b9fa854e67"
+      },
+      "evidence/mobility-v8/matrix/matrix-aged-targets.csv.gz": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "2aed51ab4959b1013d306cd415dd2631b575cf33135b4e4966f78f636425a5d4"
+      },
+      "evidence/mobility-v8/matrix/matrix-opening-inputs.csv.gz": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "a5d30c1b62a23ce03cab774b6a7439fe815bb0d224b22a92a40a76ec8ffc9354"
+      },
+      "evidence/mobility-v8/matrix/matrix-residents.csv.gz": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "26503e801e59105df6de07a404f4c37335317d908587245f2a796b6a05e9c70a"
+      },
+      "evidence/mobility-v8/performance/forward.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "333c3ee75c424d9566dc87a51286f682517eeb3428e0649538b2f763afcf34d2"
+      },
+      "evidence/mobility-v8/performance/mobility-v8-native-webkit-44835922835.zip": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "e207f1dbeaf58b59e56f1ecd2f9eeafd8f0579bc22619ca02bd12879819dbcf8"
+      },
+      "evidence/mobility-v8/performance/reverse.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "d5238c0953a871fbc5fe0dd3a9806d3ab26820e54a23ab296d1a3ba5a2bb3484"
+      },
+      "evidence/mobility-v8/performance/summary.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "e05952d2a6e5ac2d1b747a4dd101baf3be9e43f9f712ac1aec81d0b470563787"
+      },
+      "evidence/mobility-v8/performance/touch.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "8a2e48036b7a363f27233212e4b18b67e351b7867fa3d7eb34bd8f4654bf8606"
+      },
+      "evidence/mobility-v8/performance/trace.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "16119c8bbb4d889c0cb11273a711e30da82df170e956fd8dbd044a7edc4adcb0"
+      },
+      "evidence/mobility-v8/touch/aged-v6-chromium.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "9efb381acbc8f4f96c85264939c1086237272a1ff3a27a46a049302611f5583a"
+      },
+      "evidence/mobility-v8/touch/aged-v7-chromium.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "e411f71f5bf1035a99dc42692458c40d64dd5246f318ed8a764388f047c9143b"
+      },
+      "evidence/mobility-v8/touch/aged-v8-chromium.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "7cbe27acc38cf9666b5480301a993bade2498dbb97894685e956ee365a58efd4"
+      },
+      "evidence/mobility-v8/touch/checkpoint-20-390.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "d62dd8bd2bcd6b24d7f9df0f8591f3b1556659031e35d4f5016a1a02c0bc5a95"
+      },
+      "evidence/mobility-v8/touch/checkpoint-20-430.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "0440943a03f0fd73ef1a1afe336a81e3e744e94feb0ef6b6f45ef1d9967811f8"
+      },
+      "evidence/mobility-v8/touch/checkpoint-28-390.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "0fcbc5664eb12803d5817b682587014c79a28b13d4cb3ce6bf1d8c70dd8fad53"
+      },
+      "evidence/mobility-v8/touch/extra-v6-chromium.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "b389f88fb68e084155eec2de1aba5c2886b1ec973dbc825919765e169a8b594b"
+      },
+      "evidence/mobility-v8/touch/extra-v7-chromium.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "65815ae1dc36bc255c66343425b14c01861e4c30dfc5d699d855ea16ecd70760"
+      },
+      "evidence/mobility-v8/touch/extra-v8-chromium.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "70b6b8cfeab6c1aa6dcf72493c8d55d077d582bb53731006363fa8f2b137c720"
+      },
+      "evidence/mobility-v8/touch/forest-crossed.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "72e25bface75fdc226fd270bc5d32bc6c6bac8efd0eb86ff7837edf6b755d1df"
+      },
+      "evidence/mobility-v8/touch/forest-v6-chromium.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "0161cb884ac981fbb0eab4fa1f2ddd3432c7615d969ae91a6a07e4ef137ad307"
+      },
+      "evidence/mobility-v8/touch/forest-v7-chromium.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "04567b4ae34f878c7e52a370b51c309e451716a85f13df3c0e5490a5cb215ff1"
+      },
+      "evidence/mobility-v8/touch/forest-v8-chromium.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "603ce21591647879b20f5fd7ba93f8c6c91eb2b29f5e871362353912c462b845"
+      },
+      "evidence/mobility-v8/touch/ink-v6-chromium.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "8430b4b2b0b3e82e5360b21c4586810749b876bea2a005f017184671296baa9f"
+      },
+      "evidence/mobility-v8/touch/ink-v6-webkit.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "9012dcc537403d9bbf2902ca3084cbd473721b5e786fce38cf2ba6a198d31c93"
+      },
+      "evidence/mobility-v8/touch/ink-v7-chromium.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "12dcaa8d313d48857ad775c2bcf2316a92e2666c5fd87a759a343b3d920237e2"
+      },
+      "evidence/mobility-v8/touch/ink-v7-webkit.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "27de4c92139893df642ed722f3bdfda2e4ca80477ca5716ebd4407f2e050c544"
+      },
+      "evidence/mobility-v8/touch/ink-v8-chromium.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "5eda6ea7db58e832c58d3a3a165d0db7b5aca473bee54d92ca691ae49b388be3"
+      },
+      "evidence/mobility-v8/touch/ink-v8-webkit.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "12562c7e34f8c48828eeb9d0fbd0d9ff7b43c1e7b31508e8ed71fa922f71405a"
+      },
+      "evidence/mobility-v8/touch/manifest.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "33987bbd5fbd4cb5c39b8da7655b9a84fd2c162584fafcb80b0d4b5aae336cf2"
+      },
+      "evidence/mobility-v8/touch/monkey-fresh-0-v8.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "0e3d1760a63e5b052a0b7346537a08d1494d5bcbd6ea90b263550a8d3d4ac2ec"
+      },
+      "evidence/mobility-v8/touch/monkey-fresh-1-v7.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "274dfef339f7240b3bde8d6f4d54ae1123391493170a900a024536324669e19a"
+      },
+      "evidence/mobility-v8/touch/monkey-fresh-2-v7.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "78e85c9a8ff4a52912bc62bbf48a6272b56a95ac2a2f143bdfb9a93677723d79"
+      },
+      "evidence/mobility-v8/touch/monkey-fresh-3-v8.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "d2af01461e06b96ea89a49cfd40ff30c0ed1ad8b25763339c5a247ae85ae250d"
+      },
+      "evidence/mobility-v8/touch/monkey-gate-0-v7.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "90c00ad69833b4da655867fb882e7984477443747f578830857edf30dba61f65"
+      },
+      "evidence/mobility-v8/touch/monkey-gate-1-v8.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "0a8d8a8eb8c44270c96ed11899a6a68ad68978bcacd1ab264054070c82749a06"
+      },
+      "evidence/mobility-v8/touch/monkey-sequence-0-v7.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "cb799ffa48949a8081726d4130fb376205f31772de60ff1c8c89544508392537"
+      },
+      "evidence/mobility-v8/touch/monkey-sequence-1-v8.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "fd8d7c4bf17c1955e418897e1376aad362dbc04283066d8704231bdb45d0cccd"
+      },
+      "evidence/mobility-v8/touch/resync-v6-chromium.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "a933538157d791e4ee6af6a5878e52e62732ea60cd201490ee4db3235237629a"
+      },
+      "evidence/mobility-v8/touch/resync-v7-chromium.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "53f613b6b983792c158ab95ed6ba3fe5c1b65f8375d7650c23f5b2c5c34fce08"
+      },
+      "evidence/mobility-v8/touch/resync-v8-chromium.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "320897ff5fe6db100fbc7d2eb09d98f5b1dc400c98322be7973a13db7c01769f"
+      },
+      "evidence/mobility-v8/touch/settled-ink-v6-webkit.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "c922ab28da4e422f53d90b8b92a5e9a5f6d76475a2968445d132bf52279720d3"
+      },
+      "evidence/mobility-v8/touch/settled-ink-v7-webkit.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "684c40da80b1efe176a356bd858c64b19fd2bd21fe35bb5895eda865af6efdb8"
+      },
+      "evidence/mobility-v8/touch/settled-ink-v8-webkit.json": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "205a1caf65cb96677cde453ffa0607fe319c09623d2adf6a02fd2b679e363fc0"
+      },
+      "evidence/mobility-v8/touch/touch-forest-crossover.csv": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "c2d1ebdbbf41dc0632a1e58830ec1ed54d76d5616280c0b1c87245ddb83b1697"
+      },
+      "evidence/mobility-v8/touch/touch-gates.csv": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "a2012d98e3bdd036b3bc10de69f678ff35d05ae8bd67e8ab1b36f96567a0324e"
+      },
+      "evidence/mobility-v8/touch/touch-inputs.csv": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "c83ee5f53ebca8283c4f10698dde840ad59bec9bd95600a0194af179a3d4fcb5"
+      }
+    },
+    "ui": {
+      "browser": "156.0.8078.79",
+      "width": 390,
+      "height": 844,
+      "region": "forest",
+      "count": 28,
+      "size": "B",
+      "roles": [
+        138,
+        138,
+        120.75
+      ],
+      "same28FeetAssetsAndSizesOnArmsAndRestart": true,
+      "sameDayCanvasSHA256": "cbf05f106e1ae4575f7b18f6b4b26e9b8960cce660983cb01f5d0e090e6a7376",
+      "shadows": 28,
+      "ground": true,
+      "authenticatedArms": [
+        "v6",
+        "v7",
+        "v8"
+      ],
+      "onDemandResidentLogs": 28,
+      "residentWalked": true,
+      "options": [
+        13,
+        4,
+        28
+      ],
+      "errors": []
+    }
+  },
+  "regionalData": {
+    "version": 1,
+    "source": "975bff473407a225477411815dcda188b824cf69",
+    "deployment": "appgdep_6b00dd16b078819183ccb904d4d76c6f",
+    "status": "succeeded",
+    "roles": [
+      "owner"
+    ],
+    "groups": 0,
+    "externalVisitors": 0,
+    "origin": "https://naotocchi-mobility-v8-evidence.kerzion214.chatgpt.site",
+    "endpoints": {
+      "index.html": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "281e65ac3764236c747234e04c9a6935a8cc5fee716f86f15784b90425c1ffb1"
+      },
+      "evidence/mobility-v8/matrix/mobility-v8-44835922835-city.zip": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "a50153660cb6308a77c77ccddc4117ce753755e5b77662f3c385c8770c124376"
+      },
+      "evidence/mobility-v8/matrix/mobility-v8-44835922835-countryside.zip": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "9b5ea9fceb9c94fe9b42da1e583dc570970ff7a00385e2dab5c07c8b9332f0f8"
+      },
+      "evidence/mobility-v8/matrix/mobility-v8-44835922835-deepsea.zip": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "6ffaacffb99db5a5aad8a7aabe4dad5bb11afae8c837bc18780afe112c2dad69"
+      },
+      "evidence/mobility-v8/matrix/mobility-v8-44835922835-desert.zip": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "55f5abda4e3c77c4216a83fd28f5e6d701e7643f4cfcf9c1426ebcdb29709fba"
+      },
+      "evidence/mobility-v8/matrix/mobility-v8-44835922835-forest.zip": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "c301b763baf373039a62b27c1112b8079402f6354058ae535a66a9b427ffd2c5"
+      },
+      "evidence/mobility-v8/matrix/mobility-v8-44835922835-home.zip": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "1cae83712ebe948079ffc79cd5edd6aa34133ec2ebe303c727d577b88bd7a400"
+      },
+      "evidence/mobility-v8/matrix/mobility-v8-44835922835-jungle.zip": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "4f516b38b1ff985b4d1a0c8e573a8e3c9936968d25a7502c3342f1c1c27f90d1"
+      },
+      "evidence/mobility-v8/matrix/mobility-v8-44835922835-memory_lake.zip": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "f0e4ff6ca5cb7bc6e8bb521e1abdebb8efac658e29037dca5197178e05dccef5"
+      },
+      "evidence/mobility-v8/matrix/mobility-v8-44835922835-mountain.zip": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "d8a968409abac518957cf47419de6e5e6f289d6bbb49a9a91d158160d620cb85"
+      },
+      "evidence/mobility-v8/matrix/mobility-v8-44835922835-river_lake.zip": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "6657b4a4e3d5654c4d664bec76f9d82e48e77608b5a0672d17d8be459a9bdc45"
+      },
+      "evidence/mobility-v8/matrix/mobility-v8-44835922835-sea.zip": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "5b68a31bfb5ed3672386dfe002a105d5329d385326a1089873218a158fa64407"
+      },
+      "evidence/mobility-v8/matrix/mobility-v8-44835922835-snow.zip": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "436ce3d4db6ce7c3b4a04913c9406829e01dabf72731a873199dec83559d2708"
+      },
+      "evidence/mobility-v8/matrix/mobility-v8-44835922835-star_stop.zip": {
+        "authenticated": 200,
+        "anonymous": 401,
+        "sha256": "196782803bb9ac44858d8a7544495d629606591ce004384382f8aac554e4e345"
+      }
+    }
+  },
+  "previousSitePathsPreserved": 4264
+}

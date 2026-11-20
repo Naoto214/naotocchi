@@ -1,0 +1,132 @@
+name: Home mobility V8 triple-arm regression
+on:
+  push:
+    branches: [draft/home-mobility-v8]
+    paths:
+      - 'comparisons/home-mobility-v8/build.cjs'
+      - 'comparisons/home-mobility-v8/movement.cjs'
+      - 'comparisons/home-mobility-v8/render.cjs'
+      - 'comparisons/home-mobility-v8/matrix_worker_v8.py'
+      - 'comparisons/home-mobility-v8/performance-trace.py'
+      - 'comparisons/home-mobility-v8/performance-touch.py'
+      - 'comparisons/home-mobility-v8/performance-report.py'
+      - 'comparisons/home-mobility-v8/matrix-aged-subjects.csv'
+      - 'comparisons/home-mobility-v8/matrix_presentation.js'
+      - '.github/workflows/home-mobility-v8-matrix.yml'
+concurrency:
+  group: home-mobility-v8-matrix-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  region:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        region: [home, forest, river_lake, city, countryside, mountain, snow, sea, jungle, desert, deepsea, star_stop, memory_lake]
+    env:
+      REGION: ${{ matrix.region }}
+      CHROMIUM_PATH: /usr/bin/google-chrome
+    steps:
+      - &v8-source
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-mobility-v8
+            comparisons/home-mobility-v7
+            comparisons/home-drag-v6
+            comparisons/home-finish-v5
+      - &size-source
+        uses: actions/checkout@v4
+        with:
+          ref: e07d2cc53eca36ff23e02142ab385d6001e0521b
+          path: .cast-reference
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-cast-size-v1
+            comparisons/home-cast-size-v2
+            comparisons/home-cast-size-v3
+            comparisons/home-cast-size-v4
+            tools/work
+      - &art-source
+        uses: actions/checkout@v4
+        with:
+          ref: 28628cf336a8ed92efe4e9e197ca03298b798a1e
+          path: .leaf-reference
+          persist-credentials: false
+      - &node22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - &build-v8
+        name: Build the three isolated game entries from the pinned releases
+        run: |
+          node .cast-reference/comparisons/home-cast-size-v1/build.cjs "$RUNNER_TEMP/v1" --reference-checkout .leaf-reference
+          node .cast-reference/comparisons/home-cast-size-v2/build.cjs "$RUNNER_TEMP/v2" --baseline "$RUNNER_TEMP/v1"
+          node .cast-reference/comparisons/home-cast-size-v3/build.cjs "$RUNNER_TEMP/v3" --baseline "$RUNNER_TEMP/v2"
+          node .cast-reference/comparisons/home-cast-size-v4/build.cjs "$RUNNER_TEMP/v4" --baseline "$RUNNER_TEMP/v3"
+          node comparisons/home-finish-v5/build.cjs "$RUNNER_TEMP/v5" --baseline "$RUNNER_TEMP/v4"
+          node comparisons/home-drag-v6/build.cjs "$RUNNER_TEMP/drag" --baseline "$RUNNER_TEMP/v5"
+          node comparisons/home-mobility-v7/build.cjs "$RUNNER_TEMP/mobility" --baseline "$RUNNER_TEMP/drag"
+          node comparisons/home-mobility-v8/build.cjs "$RUNNER_TEMP/v8" --baseline "$RUNNER_TEMP/mobility"
+      - &python312
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Measure frozen initial gesture replay, natural living, and post-aging touch
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.62.0
+          python -m http.server 8377 --bind 127.0.0.1 --directory "$RUNNER_TEMP/v8" > "$RUNNER_TEMP/drag-http.log" 2>&1 &
+          server=$!
+          trap 'kill "$server"' EXIT
+          python -B comparisons/home-mobility-v8/matrix_worker_v8.py --url http://127.0.0.1:8377 --region "$REGION" --out "$RUNNER_TEMP/mobility-evidence/$REGION"
+      - name: Retain only numerical observations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobility-v8-${{ matrix.region }}
+          path: ${{ runner.temp }}/mobility-evidence/${{ matrix.region }}
+          retention-days: 14
+          if-no-files-found: error
+
+  native-webkit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    steps:
+      - *v8-source
+      - *size-source
+      - *art-source
+      - *node22
+      - *build-v8
+      - *python312
+      - name: Install the pinned native Linux WebKit browser
+        run: |
+          python -m pip install playwright==1.62.0 psutil==7.2.2
+          python -m playwright install --with-deps webkit
+      - name: Time both orders on this runner, followed by independent attribution
+        run: |
+          python -m http.server 8377 --bind 127.0.0.1 --directory "$RUNNER_TEMP/v8" > "$RUNNER_TEMP/native-http.log" 2>&1 &
+          server=$!
+          trap 'kill "$server"' EXIT
+          out="$RUNNER_TEMP/native-observations"
+          mkdir -p "$out"
+          probe=comparisons/home-mobility-v7/performance-clock.py
+          for pair in 'forward v6,v7,v8' 'reverse v8,v7,v6'; do
+            read -r name arms <<< "$pair"
+            python "$probe" --arms "$arms" --seconds 180 --quiet --out "$out/$name.json"
+          done
+          python comparisons/home-mobility-v8/performance-trace.py --arms v6,v7,v8 --seconds 25 --trace --out "$out/trace.json"
+          python comparisons/home-mobility-v8/performance-touch.py --out "$out/touch.json"
+          python comparisons/home-mobility-v8/performance-report.py "$out" --out "$out/summary.json"
+      - name: Retain native interval and scheduler evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobility-v8-native-webkit
+          path: ${{ runner.temp }}/native-observations
+          retention-days: 14
+          if-no-files-found: error

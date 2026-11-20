@@ -1,0 +1,28 @@
+{
+  "modelSHA256": "282ccb0c35751ae6bf89b8efc4641d674aa7be4e1f4a3ea7e6a8902b49704809",
+  "suiteSHA256": "76286e35a2b38063c70e8fdc9f129c071d2dd1498809c61314fe6e1d458b8815",
+  "passed": 20,
+  "failed": 0,
+  "names": [
+    "V7 continuous forest endpoint, native safe short exit for companion:otter",
+    "V7 continuous forest endpoint, native safe short exit for companion:sekizou",
+    "an unrelated moving foot cannot starve the native two-helper handoff",
+    "a stalled autonomous corridor completes one checked helper leg",
+    "a stalled autonomous corridor completes two checked helper legs",
+    "a failed autonomous intention rechecks only when its local corridor opens: false",
+    "a failed autonomous intention rechecks only when its local corridor opens: true",
+    "background help yields immediately to pause",
+    "background help yields immediately to held",
+    "background help yields immediately to select",
+    "background help yields immediately to reduced",
+    "live ambient handoff handles presentation",
+    "live ambient handoff handles remove owner",
+    "live ambient handoff handles new command",
+    "stationary helper re-enters after native manual cooldown: new intention",
+    "stationary helper re-enters after native manual cooldown: pending intention",
+    "new autonomous direction can use a helper at unchanged feet",
+    "a blocked direction is cached against the helpers actually available during its search",
+    "an exhausted direction is reused across repeated identical requests and unrelated motion",
+    "a distant second helper that stops talking is reconsidered on the next ordinary intention"
+  ]
+}

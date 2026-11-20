@@ -1,0 +1,887 @@
+{
+  "source": {
+    "revision": "30960c2f00e16eee113ea3e5cf3f536c09bd40d4",
+    "entries": {
+      "v6": "aebc94c7096ed7b9dffedd24d356ab27e83d23e530544aeccd2d11cf20b6e2fe",
+      "v7": "f217233b114fc12e474ecb161f39e8b652f93cbe0ad2d3529f77ed70681ced7a",
+      "v8": "ce8be69ef7ea3d76cfb37a5a4e6dc20ba53ad8646b46ded1e9a5cac9e5840df2"
+    },
+    "historicalInputsSHA256": "6b8dceea217b967eca205f3762d73d717d696c20539ab62a9abba121a73d1546",
+    "agedSubjectsSHA256": "13329e1c91b38f29331db5a8df1fb25137e666a574e18c943939f8604e0a926a",
+    "scripts": {
+      "v6": {
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-diorama-mobility-v6.js": "d18d785dee092a3674751056f4464eef31e344a5802d154263992ebe0f3c4a08",
+        "home-production-model-mobility-v6.js": "3569c5e81fc3cd3f22a761c1b3c7d2722861fc27a6f5e7fc71b2713fa2bcb1cc",
+        "home-route-navigation-finish.mjs": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9",
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "script-v2-mobility-v6.js": "4d0d425c41a89f0241e92b18c0270534dbdb36d09b5507d8bce0ebfd6cd9bc02",
+        "telemetry.js": "1a2c50c9288439e9cfb57cd4d3c2422683aae8aa7ba1b6ec52e285eaa364ba89"
+      },
+      "v7": {
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-diorama-mobility-v7.js": "e99836b3e34986f38e7742e8c5df4f1283e99987fd0d736e9b3bfacc00345d0e",
+        "home-production-model-mobility-v7.js": "dd0789888f19c57f1a88b05e144c98d82a77b57b7d04dd18e55e84dcd8ea4baf",
+        "home-route-navigation-finish.mjs": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9",
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "script-v2-mobility-v7.js": "4d0d425c41a89f0241e92b18c0270534dbdb36d09b5507d8bce0ebfd6cd9bc02",
+        "telemetry.js": "1a2c50c9288439e9cfb57cd4d3c2422683aae8aa7ba1b6ec52e285eaa364ba89"
+      },
+      "v8": {
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-diorama-mobility-v8.js": "0c906f72d0dbde61c6f871c16954bf0309dd64388b1469d7afec56acc9c04ea6",
+        "home-production-model-mobility-v8.js": "282ccb0c35751ae6bf89b8efc4641d674aa7be4e1f4a3ea7e6a8902b49704809",
+        "home-route-navigation-finish.mjs": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9",
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "script-v2-mobility-v7.js": "4d0d425c41a89f0241e92b18c0270534dbdb36d09b5507d8bce0ebfd6cd9bc02",
+        "telemetry-mobility-v8.js": "9d764b666542581950dd1c8c2fd1c47a40cf73012d097e091e6c9ae5f0e4f262"
+      }
+    },
+    "browser": "157.0.8103.50 / 157.0.8103.78",
+    "browserByRegion": {
+      "home": "157.0.8103.50",
+      "forest": "157.0.8103.50",
+      "river_lake": "157.0.8103.78",
+      "city": "157.0.8103.78",
+      "countryside": "157.0.8103.78",
+      "mountain": "157.0.8103.78",
+      "snow": "157.0.8103.50",
+      "sea": "157.0.8103.78",
+      "jungle": "157.0.8103.78",
+      "desert": "157.0.8103.78",
+      "deepsea": "157.0.8103.78",
+      "star_stop": "157.0.8103.78",
+      "memory_lake": "157.0.8103.78"
+    }
+  },
+  "pairedShippedControls": {
+    "sourceRunId": "44709182706",
+    "nativeSourceSeedAndInitialCoordinatesVerified": {
+      "v6": {
+        "cells": 260,
+        "sameAgedLocations": 250
+      },
+      "v7": {
+        "cells": 260,
+        "sameAgedLocations": 249
+      }
+    },
+    "changedOpeningFlags": [
+      {
+        "region": "countryside",
+        "count": 20,
+        "width": 320,
+        "arm": "v7",
+        "case": "clear/0",
+        "changed": "selected,issued,moved,arrived,near4,terminalArrived,terminalNear4"
+      },
+      {
+        "region": "countryside",
+        "count": 28,
+        "width": 320,
+        "arm": "v7",
+        "case": "clear/0",
+        "changed": "selected,issued,moved,arrived,near4,terminalArrived,terminalNear4"
+      },
+      {
+        "region": "snow",
+        "count": 28,
+        "width": 320,
+        "arm": "v7",
+        "case": "clear/0",
+        "changed": "selected,issued,moved,arrived,near4,terminalArrived,terminalNear4"
+      },
+      {
+        "region": "jungle",
+        "count": 20,
+        "width": 320,
+        "arm": "v7",
+        "case": "obstacle/0",
+        "changed": "selected,issued,moved,arrived,terminalArrived"
+      }
+    ]
+  },
+  "cells": 260,
+  "inputs": {
+    "v6": {
+      "drags": 1058,
+      "selected": 977,
+      "issued": 969,
+      "tapSent": 260,
+      "tapSelected": 218,
+      "arrival": 870,
+      "eventArrival": 870,
+      "terminalArrival": 870,
+      "exact": 432,
+      "near4": 513,
+      "eventNear4": 466,
+      "terminalNear4": 513,
+      "occupiedArrival": 120,
+      "occupiedSent": 208,
+      "graphSearchesDuringMove": 0,
+      "unsafe": 0,
+      "swept": 0,
+      "maxReleaseJump": 0.0,
+      "backwardsIssued": 0,
+      "yieldOffers": 344,
+      "yieldRequesterMoved": 305,
+      "timings": {
+        "releaseMs": {
+          "n": 1058,
+          "median": 15.3,
+          "p95NearestRank": 58.8,
+          "max": 134.5,
+          "p99": 90.2
+        },
+        "pointerQueueMs": {
+          "n": 1058,
+          "median": 35.5,
+          "p95NearestRank": 40.7,
+          "max": 58.3,
+          "p99": 44
+        },
+        "releaseFrameMs": {
+          "n": 1058,
+          "median": 53.25,
+          "p95NearestRank": 95.6,
+          "max": 170.7,
+          "p99": 126.0
+        },
+        "modelMoveMs": {
+          "n": 969,
+          "median": 11.5,
+          "p95NearestRank": 53.7,
+          "max": 130.3,
+          "p99": 85.1
+        },
+        "maxSearchMs": {
+          "n": 1058,
+          "median": 4.0,
+          "p95NearestRank": 36.5,
+          "max": 93.1,
+          "p99": 62.9
+        },
+        "firstFootModelSec": {
+          "n": 870,
+          "median": 0.05,
+          "p95NearestRank": 0.7,
+          "max": 2.8,
+          "p99": 1.05
+        },
+        "firstArrivalModelSec": {
+          "n": 870,
+          "median": 0.9,
+          "p95NearestRank": 2.45,
+          "max": 6.7,
+          "p99": 4.75
+        }
+      }
+    },
+    "v7": {
+      "drags": 1058,
+      "selected": 1031,
+      "issued": 1023,
+      "tapSent": 260,
+      "tapSelected": 246,
+      "arrival": 908,
+      "eventArrival": 908,
+      "terminalArrival": 908,
+      "exact": 430,
+      "near4": 520,
+      "eventNear4": 470,
+      "terminalNear4": 520,
+      "occupiedArrival": 144,
+      "occupiedSent": 208,
+      "graphSearchesDuringMove": 0,
+      "unsafe": 0,
+      "swept": 0,
+      "maxReleaseJump": 0.0,
+      "backwardsIssued": 0,
+      "yieldOffers": 365,
+      "yieldRequesterMoved": 360,
+      "timings": {
+        "releaseMs": {
+          "n": 1058,
+          "median": 16.45,
+          "p95NearestRank": 61.3,
+          "max": 149.8,
+          "p99": 104.0
+        },
+        "pointerQueueMs": {
+          "n": 1058,
+          "median": 34.849999999999994,
+          "p95NearestRank": 40.9,
+          "max": 59.5,
+          "p99": 49.3
+        },
+        "releaseFrameMs": {
+          "n": 1058,
+          "median": 53.6,
+          "p95NearestRank": 99.0,
+          "max": 185.7,
+          "p99": 142.1
+        },
+        "modelMoveMs": {
+          "n": 1023,
+          "median": 12.2,
+          "p95NearestRank": 56.8,
+          "max": 146,
+          "p99": 97.8
+        },
+        "maxSearchMs": {
+          "n": 1058,
+          "median": 4.15,
+          "p95NearestRank": 39.5,
+          "max": 121.5,
+          "p99": 71.2
+        },
+        "firstFootModelSec": {
+          "n": 910,
+          "median": 0.05,
+          "p95NearestRank": 0.7,
+          "max": 2.8,
+          "p99": 1.1
+        },
+        "firstArrivalModelSec": {
+          "n": 908,
+          "median": 0.9,
+          "p95NearestRank": 2.45,
+          "max": 6.7,
+          "p99": 4.75
+        }
+      }
+    },
+    "v8": {
+      "drags": 1058,
+      "selected": 1032,
+      "issued": 1024,
+      "tapSent": 260,
+      "tapSelected": 246,
+      "arrival": 909,
+      "eventArrival": 909,
+      "terminalArrival": 909,
+      "exact": 430,
+      "near4": 520,
+      "eventNear4": 470,
+      "terminalNear4": 520,
+      "occupiedArrival": 144,
+      "occupiedSent": 208,
+      "graphSearchesDuringMove": 0,
+      "unsafe": 0,
+      "swept": 0,
+      "maxReleaseJump": 0.0,
+      "backwardsIssued": 0,
+      "yieldOffers": 365,
+      "yieldRequesterMoved": 360,
+      "timings": {
+        "releaseMs": {
+          "n": 1058,
+          "median": 15.850000000000001,
+          "p95NearestRank": 63.7,
+          "max": 153.7,
+          "p99": 108.7
+        },
+        "pointerQueueMs": {
+          "n": 1058,
+          "median": 34.25,
+          "p95NearestRank": 40.0,
+          "max": 60.3,
+          "p99": 49.2
+        },
+        "releaseFrameMs": {
+          "n": 1058,
+          "median": 53.6,
+          "p95NearestRank": 100.6,
+          "max": 189.7,
+          "p99": 147.4
+        },
+        "modelMoveMs": {
+          "n": 1024,
+          "median": 12.2,
+          "p95NearestRank": 59.7,
+          "max": 150.1,
+          "p99": 104.2
+        },
+        "maxSearchMs": {
+          "n": 1058,
+          "median": 4.1,
+          "p95NearestRank": 39.9,
+          "max": 124.1,
+          "p99": 70.7
+        },
+        "firstFootModelSec": {
+          "n": 911,
+          "median": 0.05,
+          "p95NearestRank": 0.7,
+          "max": 2.8,
+          "p99": 1.1
+        },
+        "firstArrivalModelSec": {
+          "n": 909,
+          "median": 0.9,
+          "p95NearestRank": 2.45,
+          "max": 6.7,
+          "p99": 4.75
+        }
+      }
+    }
+  },
+  "agedDrag": {
+    "v6": {
+      "drags": 260,
+      "selected": 243,
+      "issued": 242,
+      "tapSent": 0,
+      "tapSelected": 0,
+      "arrival": 204,
+      "eventArrival": 203,
+      "terminalArrival": 204,
+      "exact": 118,
+      "near4": 154,
+      "eventNear4": 137,
+      "terminalNear4": 154,
+      "occupiedArrival": 0,
+      "occupiedSent": 0,
+      "graphSearchesDuringMove": 0,
+      "unsafe": 0,
+      "swept": 0,
+      "maxReleaseJump": 0.0,
+      "backwardsIssued": 0,
+      "yieldOffers": 66,
+      "yieldRequesterMoved": 60,
+      "timings": {
+        "releaseMs": {
+          "n": 260,
+          "median": 12.850000000000001,
+          "p95NearestRank": 38.2,
+          "max": 80.7,
+          "p99": 61.3
+        },
+        "pointerQueueMs": {
+          "n": 260,
+          "median": 35.9,
+          "p95NearestRank": 43.3,
+          "max": 113.4,
+          "p99": 76.2
+        },
+        "releaseFrameMs": {
+          "n": 260,
+          "median": 52.7,
+          "p95NearestRank": 83.9,
+          "max": 142.0,
+          "p99": 107.3
+        },
+        "modelMoveMs": {
+          "n": 242,
+          "median": 8.55,
+          "p95NearestRank": 33.7,
+          "max": 75.5,
+          "p99": 56.4
+        },
+        "maxSearchMs": {
+          "n": 260,
+          "median": 2.55,
+          "p95NearestRank": 19,
+          "max": 54.9,
+          "p99": 43
+        },
+        "firstFootModelSec": {
+          "n": 205,
+          "median": 0.05,
+          "p95NearestRank": 0.35,
+          "max": 1.25,
+          "p99": 0.55
+        },
+        "firstArrivalModelSec": {
+          "n": 203,
+          "median": 0.4,
+          "p95NearestRank": 0.75,
+          "max": 1.6,
+          "p99": 1.0
+        }
+      }
+    },
+    "v7": {
+      "drags": 260,
+      "selected": 258,
+      "issued": 257,
+      "tapSent": 0,
+      "tapSelected": 0,
+      "arrival": 239,
+      "eventArrival": 236,
+      "terminalArrival": 239,
+      "exact": 134,
+      "near4": 181,
+      "eventNear4": 158,
+      "terminalNear4": 181,
+      "occupiedArrival": 0,
+      "occupiedSent": 0,
+      "graphSearchesDuringMove": 0,
+      "unsafe": 0,
+      "swept": 0,
+      "maxReleaseJump": 0.0,
+      "backwardsIssued": 0,
+      "yieldOffers": 70,
+      "yieldRequesterMoved": 70,
+      "timings": {
+        "releaseMs": {
+          "n": 260,
+          "median": 14.7,
+          "p95NearestRank": 39.0,
+          "max": 62.7,
+          "p99": 54.0
+        },
+        "pointerQueueMs": {
+          "n": 260,
+          "median": 35.849999999999994,
+          "p95NearestRank": 52.1,
+          "max": 107.7,
+          "p99": 74.4
+        },
+        "releaseFrameMs": {
+          "n": 260,
+          "median": 53.150000000000006,
+          "p95NearestRank": 87.4,
+          "max": 136.1,
+          "p99": 114.6
+        },
+        "modelMoveMs": {
+          "n": 257,
+          "median": 9.9,
+          "p95NearestRank": 34.2,
+          "max": 58,
+          "p99": 47.7
+        },
+        "maxSearchMs": {
+          "n": 260,
+          "median": 3.1,
+          "p95NearestRank": 16.3,
+          "max": 44.3,
+          "p99": 31.5
+        },
+        "firstFootModelSec": {
+          "n": 240,
+          "median": 0.05,
+          "p95NearestRank": 0.35,
+          "max": 1.65,
+          "p99": 1.3
+        },
+        "firstArrivalModelSec": {
+          "n": 236,
+          "median": 0.4,
+          "p95NearestRank": 0.85,
+          "max": 1.95,
+          "p99": 1.75
+        }
+      }
+    },
+    "v8": {
+      "drags": 260,
+      "selected": 258,
+      "issued": 258,
+      "tapSent": 0,
+      "tapSelected": 0,
+      "arrival": 239,
+      "eventArrival": 235,
+      "terminalArrival": 239,
+      "exact": 134,
+      "near4": 188,
+      "eventNear4": 159,
+      "terminalNear4": 188,
+      "occupiedArrival": 0,
+      "occupiedSent": 0,
+      "graphSearchesDuringMove": 0,
+      "unsafe": 0,
+      "swept": 0,
+      "maxReleaseJump": 0.0,
+      "backwardsIssued": 0,
+      "yieldOffers": 73,
+      "yieldRequesterMoved": 73,
+      "timings": {
+        "releaseMs": {
+          "n": 260,
+          "median": 14.9,
+          "p95NearestRank": 39.2,
+          "max": 65.2,
+          "p99": 54.2
+        },
+        "pointerQueueMs": {
+          "n": 260,
+          "median": 35.849999999999994,
+          "p95NearestRank": 41.7,
+          "max": 57.9,
+          "p99": 49.8
+        },
+        "releaseFrameMs": {
+          "n": 260,
+          "median": 53.8,
+          "p95NearestRank": 78.4,
+          "max": 103.6,
+          "p99": 101.6
+        },
+        "modelMoveMs": {
+          "n": 258,
+          "median": 10.7,
+          "p95NearestRank": 34.6,
+          "max": 60.1,
+          "p99": 49.7
+        },
+        "maxSearchMs": {
+          "n": 260,
+          "median": 3.2,
+          "p95NearestRank": 17.3,
+          "max": 43.7,
+          "p99": 31.2
+        },
+        "firstFootModelSec": {
+          "n": 240,
+          "median": 0.05,
+          "p95NearestRank": 0.4,
+          "max": 2.55,
+          "p99": 1.45
+        },
+        "firstArrivalModelSec": {
+          "n": 235,
+          "median": 0.4,
+          "p95NearestRank": 0.95,
+          "max": 3.05,
+          "p99": 1.75
+        }
+      }
+    }
+  },
+  "age": {
+    "v6": {
+      "residentProfiles": 3276,
+      "ambientRequests": 52366,
+      "ambientPlans": 35367,
+      "ambientFailures": 16999,
+      "ambientStarts": 35018,
+      "ambientArrivals": 29659,
+      "dragRequests": 0,
+      "dragStarts": 0,
+      "dragArrivals": 0,
+      "failureEpisodes": 6237,
+      "recoveredEpisodes": 4949,
+      "recoveredSameSource": 4949,
+      "yieldOffers": 0,
+      "yieldSuccesses": 0,
+      "yieldsGiven": 0,
+      "yieldPhysicalStarts": 0,
+      "yieldArrivals": 0,
+      "retries": 0,
+      "waits": 22576,
+      "vetoCount": 5529,
+      "longWithoutFoot": 916,
+      "neverMoved": 175,
+      "noAmbientStart": 175,
+      "noAmbientStartWithFailures": 174,
+      "openFailedStationary60": 653,
+      "actualAmbientWalkers": 3101,
+      "recovery": {
+        "numerator": 4949,
+        "denominator": 6237,
+        "percent": 79.35
+      },
+      "escapePlans": 0,
+      "escapeStarts": 0,
+      "escapeArrivals": 0,
+      "escapeDistance": 0,
+      "walkersWithOrdinaryStarts": 3101,
+      "escapeStartsOnly": 0
+    },
+    "v7": {
+      "residentProfiles": 3276,
+      "ambientRequests": 52053,
+      "ambientPlans": 39593,
+      "ambientFailures": 12460,
+      "ambientStarts": 38659,
+      "ambientArrivals": 33179,
+      "dragRequests": 0,
+      "dragStarts": 0,
+      "dragArrivals": 0,
+      "failureEpisodes": 5665,
+      "recoveredEpisodes": 4692,
+      "recoveredSameSource": 4692,
+      "yieldOffers": 0,
+      "yieldSuccesses": 0,
+      "yieldsGiven": 0,
+      "yieldPhysicalStarts": 0,
+      "yieldArrivals": 0,
+      "retries": 0,
+      "waits": 24564,
+      "vetoCount": 6228,
+      "longWithoutFoot": 594,
+      "neverMoved": 74,
+      "noAmbientStart": 74,
+      "noAmbientStartWithFailures": 72,
+      "openFailedStationary60": 377,
+      "actualAmbientWalkers": 3202,
+      "recovery": {
+        "numerator": 4692,
+        "denominator": 5665,
+        "percent": 82.82
+      },
+      "escapePlans": 2102,
+      "escapeStarts": 2102,
+      "escapeArrivals": 2081,
+      "escapeDistance": 27365.741008667403,
+      "walkersWithOrdinaryStarts": 3170,
+      "escapeStartsOnly": 32
+    },
+    "v8": {
+      "residentProfiles": 3276,
+      "ambientRequests": 54777,
+      "ambientPlans": 42267,
+      "ambientFailures": 12510,
+      "ambientStarts": 41365,
+      "ambientArrivals": 35917,
+      "dragRequests": 0,
+      "dragStarts": 0,
+      "dragArrivals": 0,
+      "failureEpisodes": 5725,
+      "recoveredEpisodes": 5003,
+      "recoveredSameSource": 5003,
+      "yieldOffers": 0,
+      "yieldSuccesses": 0,
+      "yieldsGiven": 357,
+      "yieldPhysicalStarts": 356,
+      "yieldArrivals": 355,
+      "retries": 0,
+      "waits": 26337,
+      "vetoCount": 6174,
+      "longWithoutFoot": 293,
+      "neverMoved": 29,
+      "noAmbientStart": 29,
+      "noAmbientStartWithFailures": 27,
+      "openFailedStationary60": 136,
+      "actualAmbientWalkers": 3247,
+      "recovery": {
+        "numerator": 5003,
+        "denominator": 5725,
+        "percent": 87.39
+      },
+      "escapePlans": 4049,
+      "escapeStarts": 4048,
+      "escapeArrivals": 4012,
+      "escapeDistance": 36941.87307271353,
+      "ambientSingleOffers": 142,
+      "ambientSequentialOffers": 109,
+      "ambientYieldStages": 357,
+      "walkersWithOrdinaryStarts": 3185,
+      "escapeStartsOnly": 62
+    }
+  },
+  "bothFailedAfterAging": {
+    "v6": {
+      "noAutoAndNoDragStep": 17,
+      "noAutoAndWrongSelection": 5
+    },
+    "v7": {
+      "noAutoAndNoDragStep": 3,
+      "noAutoAndWrongSelection": 0
+    },
+    "v8": {
+      "noAutoAndNoDragStep": 2,
+      "noAutoAndWrongSelection": 0
+    }
+  },
+  "physicalSafety": {
+    "v6": {
+      "steps": 1073279,
+      "terrain": 0,
+      "bounds": 0,
+      "occlusion": 0,
+      "speed": 0,
+      "swept": 547
+    },
+    "v7": {
+      "steps": 1081181,
+      "terrain": 0,
+      "bounds": 0,
+      "occlusion": 0,
+      "speed": 0,
+      "swept": 0
+    },
+    "v8": {
+      "steps": 1088699,
+      "terrain": 0,
+      "bounds": 0,
+      "occlusion": 0,
+      "speed": 0,
+      "swept": 0
+    }
+  },
+  "rendered": {
+    "v6": {
+      "frames": 1560,
+      "actors": 19656,
+      "maxFootErrorCss": 0.013386431319539458,
+      "outsideActorBounds": 0,
+      "nonGround": 0,
+      "hidden": 0,
+      "missingShadows": 0,
+      "extraShadows": 0,
+      "ribbonVisible": 1560,
+      "ribbonSameScale": 1560,
+      "ribbonSameTranslation": 1560,
+      "maxRibbonAnchorErrorStageUnits": 0.0008000000000265572
+    },
+    "v7": {
+      "frames": 1560,
+      "actors": 19656,
+      "maxFootErrorCss": 0.013624006382250333,
+      "outsideActorBounds": 0,
+      "nonGround": 0,
+      "hidden": 0,
+      "missingShadows": 0,
+      "extraShadows": 0,
+      "ribbonVisible": 1560,
+      "ribbonSameScale": 1560,
+      "ribbonSameTranslation": 1560,
+      "maxRibbonAnchorErrorStageUnits": 0.0008000000000265572
+    },
+    "v8": {
+      "frames": 1560,
+      "actors": 19656,
+      "maxFootErrorCss": 0.013386431319539458,
+      "outsideActorBounds": 0,
+      "nonGround": 0,
+      "hidden": 0,
+      "missingShadows": 0,
+      "extraShadows": 0,
+      "ribbonVisible": 1560,
+      "ribbonSameScale": 1560,
+      "ribbonSameTranslation": 1560,
+      "maxRibbonAnchorErrorStageUnits": 0.0008000000000265572
+    }
+  },
+  "reactions": {
+    "v6": {
+      "arrive": 26728,
+      "environment": 9587,
+      "look": 13921,
+      "move": 29954,
+      "proximity": 24132,
+      "social": 4994
+    },
+    "v7": {
+      "arrive": 29829,
+      "environment": 10660,
+      "look": 15105,
+      "move": 33403,
+      "proximity": 27273,
+      "social": 5319
+    },
+    "v8": {
+      "arrive": 32326,
+      "environment": 11476,
+      "look": 15913,
+      "move": 35867,
+      "proximity": 29766,
+      "social": 5455
+    }
+  },
+  "pairedOpeningChanges": {
+    "v6": {
+      "selected": {
+        "gained": 85,
+        "lost": 2
+      },
+      "issued": {
+        "gained": 57,
+        "lost": 2
+      },
+      "arrival": {
+        "gained": 41,
+        "lost": 2
+      },
+      "nearFinger": {
+        "gained": 9,
+        "lost": 2
+      },
+      "exact": {
+        "gained": 1,
+        "lost": 3
+      },
+      "sameIntendedBodyReceived": {
+        "n": 967,
+        "oldArrival": 868,
+        "newArrival": 868,
+        "oldNear4": 511,
+        "newNear4": 519
+      },
+      "newIntendedBodyReceived": {
+        "n": 57,
+        "oldArrival": 0,
+        "newArrival": 41,
+        "oldNear4": 0,
+        "newNear4": 1
+      },
+      "lostIntendedBodyReceived": {
+        "n": 2,
+        "oldArrival": 2,
+        "newArrival": 0,
+        "oldNear4": 2,
+        "newNear4": 0
+      }
+    },
+    "v7": {
+      "selected": {
+        "gained": 1,
+        "lost": 0
+      },
+      "issued": {
+        "gained": 1,
+        "lost": 0
+      },
+      "arrival": {
+        "gained": 1,
+        "lost": 0
+      },
+      "nearFinger": {
+        "gained": 0,
+        "lost": 0
+      },
+      "exact": {
+        "gained": 0,
+        "lost": 0
+      },
+      "sameIntendedBodyReceived": {
+        "n": 1023,
+        "oldArrival": 908,
+        "newArrival": 908,
+        "oldNear4": 520,
+        "newNear4": 520
+      },
+      "newIntendedBodyReceived": {
+        "n": 1,
+        "oldArrival": 0,
+        "newArrival": 1,
+        "oldNear4": 0,
+        "newNear4": 0
+      },
+      "lostIntendedBodyReceived": {
+        "n": 0,
+        "oldArrival": 0,
+        "newArrival": 0,
+        "oldNear4": 0,
+        "newNear4": 0
+      }
+    }
+  },
+  "checks": {
+    "arrivalGeShippedV7": false,
+    "near4GeShippedV7": false,
+    "tapSelectedGeShippedV7": true,
+    "dualFailureLeShippedV7": true,
+    "noOpeningOrAgedReleaseSafetyRegression": true,
+    "safeAutonomous": true,
+    "noMissingActorsOrShadows": true,
+    "ribbonObservedAndFollowed": true,
+    "nativeSaveRestore": true
+  }
+}

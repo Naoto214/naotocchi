@@ -1,0 +1,16 @@
+{
+  "base": "e1f4a743684ce4ce8760a713d309483cedb9c50f",
+  "originalFiles": 3968,
+  "originalDigest": "c943da8849e9903ce4ab691e8d0d665a0c18c27efecd7cb0d4c9d13e76ff19ab",
+  "addedFiles": {
+    "game/home-production-model-mobility-v8.js": "282ccb0c35751ae6bf89b8efc4641d674aa7be4e1f4a3ea7e6a8902b49704809",
+    "game/home-production-diorama-mobility-v8.js": "0c906f72d0dbde61c6f871c16954bf0309dd64388b1469d7afec56acc9c04ea6",
+    "game/telemetry-mobility-v8.js": "9d764b666542581950dd1c8c2fd1c47a40cf73012d097e091e6c9ae5f0e4f262",
+    "game/mobility-v8.html": "ce8be69ef7ea3d76cfb37a5a4e6dc20ba53ad8646b46ded1e9a5cac9e5840df2",
+    "v8/index.html": "214f8e3e5ffeb459a6523484003f77e368cfcd3a6482d4df104809efe9e9641d",
+    "v8/controls.mjs": "9c492d90a68d17360da554ebe25d04f45b1cf3bee77d817157b524c9a25401ec",
+    "v8/shell-model.mjs": "6053efd62e4b619858c3ac479fbf1f678e54f878f5764a249f730eaebfd96839",
+    "v8/diagnostics.mjs": "ac20fdd9e956057e8aa6145890e4a9d186e4efc747fa733c8d41eb01bc7a592e"
+  },
+  "completeDigest": "8612640d1b70a37c622a3416f23fbef7ae981084b3c811dd6903ead3b9907820"
+}

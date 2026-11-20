@@ -1,0 +1,1 @@
+{"runtime":"v24.22.1","measuredIn":"20 native movement regression cases","phases":{"stepRelief":{"calls":2880,"p50ms":0.0003,"p95ms":0.0577,"p99ms":0.6022,"maxMs":55.7421},"ambientPairSlice":{"calls":453,"p50ms":0.0288,"p95ms":0.3359,"p99ms":5.3954,"maxMs":38.5816},"dragPairSlice":{"calls":97,"p50ms":0.1416,"p95ms":3.4608,"p99ms":26.0628,"maxMs":26.0628}}}

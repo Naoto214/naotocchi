@@ -1,0 +1,201 @@
+{
+  "engine": "156.0.8078.79",
+  "units": "CSS px; right=0°, down=90°",
+  "radii": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10,
+    12,
+    14,
+    16,
+    18,
+    20,
+    22,
+    24
+  ],
+  "headingIntervalDeg": 3,
+  "microscopicHeadingIntervalDeg": 0.25,
+  "localProgressMinPx": 3,
+  "localFingerErrorGainPx": 0.75,
+  "maxHelpers": 2,
+  "results": [
+    {
+      "file": "forest-20-390.json",
+      "key": "partner:forest_bear",
+      "start": [
+        273.87,
+        86.79800000000003
+      ],
+      "target": {
+        "x": 264.90287898407377,
+        "y": 86.79800000000003
+      },
+      "topMarginCss": 0.08857786275708368,
+      "goalGround": true,
+      "contactsAtStart": [
+        {
+          "key": "companion:otter",
+          "clearance": 0.8809741900959303
+        },
+        {
+          "key": "companion:parrot",
+          "clearance": 0.7962491041990247
+        }
+      ],
+      "coneDegrees": [
+        [
+          238.68467290586443,
+          316.674813171041
+        ]
+      ],
+      "nearOrigin": {
+        "1": {
+          "bounds": 312
+        },
+        "2": {
+          "bounds": 312
+        },
+        "3": {
+          "bounds": 312
+        },
+        "4": {
+          "bounds": 312
+        },
+        "6": {
+          "bounds": 312
+        },
+        "0.1": {
+          "free": 91,
+          "bounds": 221
+        },
+        "0.25": {
+          "bounds": 312
+        },
+        "0.5": {
+          "bounds": 312
+        }
+      },
+      "directSoloHeadings": 0,
+      "boundedNearFingerCandidates": 220,
+      "viablePlansByHelpers": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "forest-20-430.json",
+      "key": "partner:forest_bear",
+      "start": [
+        304.47,
+        76.59191428761201
+      ],
+      "target": {
+        "x": 295.52002803048646,
+        "y": 76.59191428761201
+      },
+      "topMarginCss": 0,
+      "goalGround": true,
+      "contactsAtStart": [
+        {
+          "key": "companion:panda",
+          "clearance": 0.8242209404470277
+        },
+        {
+          "key": "companion:chicken",
+          "clearance": 0.7143785480276353
+        },
+        {
+          "key": "companion:hedgehog",
+          "clearance": 0.7880678417425906
+        }
+      ],
+      "coneDegrees": [],
+      "nearOrigin": {
+        "1": {},
+        "2": {},
+        "3": {},
+        "4": {},
+        "6": {},
+        "0.1": {},
+        "0.25": {},
+        "0.5": {}
+      },
+      "directSoloHeadings": 0,
+      "boundedNearFingerCandidates": 241,
+      "viablePlansByHelpers": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "forest-28-390.json",
+      "key": "companion:tanuki",
+      "start": [
+        184.37,
+        194.1980000000001
+      ],
+      "target": {
+        "x": 193.1309018088182,
+        "y": 194.1980000000001
+      },
+      "topMarginCss": 141.41299704194486,
+      "goalGround": true,
+      "contactsAtStart": [
+        {
+          "key": "companion:panda",
+          "clearance": 0.948785502139111
+        },
+        {
+          "key": "companion:hedgehog",
+          "clearance": 0.8425912339612862
+        }
+      ],
+      "coneDegrees": [
+        [
+          94.57459254840666,
+          100.9405542512909
+        ]
+      ],
+      "nearOrigin": {
+        "1": {
+          "companion:penguin_friend": 25
+        },
+        "2": {
+          "companion:penguin_friend": 25
+        },
+        "3": {
+          "companion:penguin_friend": 25
+        },
+        "4": {
+          "companion:penguin_friend": 25
+        },
+        "6": {
+          "companion:penguin_friend": 25
+        },
+        "0.1": {
+          "free": 25
+        },
+        "0.25": {
+          "free": 25
+        },
+        "0.5": {
+          "companion:penguin_friend": 25
+        }
+      },
+      "directSoloHeadings": 0,
+      "boundedNearFingerCandidates": 469,
+      "viablePlansByHelpers": [
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

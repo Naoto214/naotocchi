@@ -1,0 +1,152 @@
+{
+  "radiiCss": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10,
+    12,
+    14,
+    16,
+    18,
+    20,
+    22,
+    24
+  ],
+  "headingDegrees": 3,
+  "maxShortStraightHelpers": 2,
+  "minOwnerProgressCss": 3,
+  "minFingerErrorGainCss": 0.75,
+  "exactContactCone": true,
+  "results": [
+    {
+      "file": "forest-20-390.json",
+      "sha256": "92904298547b769ded7304aa10fe1600a34ec4030eb6d07e31b8a224fa670141",
+      "region": "forest",
+      "count": 20,
+      "viewport": [
+        390,
+        792
+      ],
+      "key": "partner:forest_bear",
+      "modelSha256": "282ccb0c35751ae6bf89b8efc4641d674aa7be4e1f4a3ea7e6a8902b49704809",
+      "start": [
+        273.87,
+        86.79800000000003
+      ],
+      "target": {
+        "x": 264.90287898407377,
+        "y": 86.79800000000003
+      },
+      "topMarginCss": 0.08857786275708368,
+      "goalGround": true,
+      "contactsAtStart": [
+        {
+          "key": "companion:otter",
+          "clearance": 0.8809741900959303
+        },
+        {
+          "key": "companion:parrot",
+          "clearance": 0.8088051692835179
+        }
+      ],
+      "coneDegrees": [
+        [
+          238.68467290586443,
+          312.6712555471081
+        ]
+      ],
+      "nearOrigin": {
+        "1": {
+          "bounds": 296
+        },
+        "2": {
+          "bounds": 296
+        },
+        "3": {
+          "bounds": 296
+        },
+        "4": {
+          "bounds": 296
+        },
+        "6": {
+          "bounds": 296
+        },
+        "0.1": {
+          "free": 75,
+          "bounds": 221
+        },
+        "0.25": {
+          "bounds": 296
+        },
+        "0.5": {
+          "bounds": 296
+        }
+      },
+      "directSoloHeadings": 0,
+      "boundedNearFingerCandidates": 228,
+      "viablePlansByHelpers": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "forest-20-430.json",
+      "sha256": "ec4d8e2306d62d8da242c4aaaee71620d4b29dfe58bce0d638aba6734964233e",
+      "region": "forest",
+      "count": 20,
+      "viewport": [
+        430,
+        880
+      ],
+      "key": "partner:forest_bear",
+      "modelSha256": "282ccb0c35751ae6bf89b8efc4641d674aa7be4e1f4a3ea7e6a8902b49704809",
+      "start": [
+        304.47,
+        76.59191428761201
+      ],
+      "target": {
+        "x": 295.52002803048646,
+        "y": 76.59191428761201
+      },
+      "topMarginCss": 0,
+      "goalGround": true,
+      "contactsAtStart": [
+        {
+          "key": "companion:panda",
+          "clearance": 0.8303672193696157
+        },
+        {
+          "key": "companion:chicken",
+          "clearance": 0.7493998938671577
+        },
+        {
+          "key": "companion:hedgehog",
+          "clearance": 0.8056233076725869
+        }
+      ],
+      "coneDegrees": [],
+      "nearOrigin": {
+        "1": {},
+        "2": {},
+        "3": {},
+        "4": {},
+        "6": {},
+        "0.1": {},
+        "0.25": {},
+        "0.5": {}
+      },
+      "directSoloHeadings": 0,
+      "boundedNearFingerCandidates": 241,
+      "viablePlansByHelpers": [
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

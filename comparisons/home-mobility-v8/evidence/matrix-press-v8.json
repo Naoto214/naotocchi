@@ -1,0 +1,1279 @@
+{
+  "browser": "156.0.8078.79",
+  "supplementary": true,
+  "gameplayRevision": "30960c2f00e16eee113ea3e5cf3f536c09bd40d4",
+  "rows": [
+    {
+      "region": "countryside",
+      "count": 20,
+      "width": 320,
+      "case": "clear/0",
+      "arm": "v7",
+      "waitBeforeReplayMs": 0,
+      "target": "pet:dog",
+      "actualSelected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "frontInk": "companion:monkey",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 237,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            89,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 195,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            101,
+            75
+          ]
+        },
+        {
+          "key": "partner:forest_bear",
+          "z": 142,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            49,
+            121
+          ]
+        }
+      ],
+      "pointer": [
+        172.2774658203125,
+        201.02198791503906
+      ],
+      "terminalArrival": false
+    },
+    {
+      "region": "countryside",
+      "count": 20,
+      "width": 320,
+      "case": "clear/0",
+      "arm": "v7",
+      "waitBeforeReplayMs": 350,
+      "target": "pet:dog",
+      "actualSelected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "frontInk": "companion:monkey",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 237,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            89,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 195,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            101,
+            75
+          ]
+        },
+        {
+          "key": "partner:forest_bear",
+          "z": 142,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            49,
+            121
+          ]
+        }
+      ],
+      "pointer": [
+        172.2774658203125,
+        201.02198791503906
+      ],
+      "terminalArrival": false
+    },
+    {
+      "region": "countryside",
+      "count": 20,
+      "width": 320,
+      "case": "clear/0",
+      "arm": "v7",
+      "waitBeforeReplayMs": 900,
+      "target": "pet:dog",
+      "actualSelected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "frontInk": "companion:monkey",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 237,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            89,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 195,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            101,
+            75
+          ]
+        },
+        {
+          "key": "partner:forest_bear",
+          "z": 142,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            49,
+            121
+          ]
+        }
+      ],
+      "pointer": [
+        172.2774658203125,
+        201.02198791503906
+      ],
+      "terminalArrival": false
+    },
+    {
+      "region": "countryside",
+      "count": 20,
+      "width": 320,
+      "case": "clear/0",
+      "arm": "v8",
+      "waitBeforeReplayMs": 0,
+      "target": "pet:dog",
+      "actualSelected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "frontInk": "companion:monkey",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 237,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            89,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 195,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            101,
+            75
+          ]
+        },
+        {
+          "key": "partner:forest_bear",
+          "z": 142,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            49,
+            121
+          ]
+        }
+      ],
+      "pointer": [
+        172.2774658203125,
+        201.02198791503906
+      ],
+      "terminalArrival": false
+    },
+    {
+      "region": "countryside",
+      "count": 20,
+      "width": 320,
+      "case": "clear/0",
+      "arm": "v8",
+      "waitBeforeReplayMs": 350,
+      "target": "pet:dog",
+      "actualSelected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "frontInk": "companion:monkey",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 237,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            89,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 195,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            101,
+            75
+          ]
+        },
+        {
+          "key": "partner:forest_bear",
+          "z": 142,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            49,
+            121
+          ]
+        }
+      ],
+      "pointer": [
+        172.2774658203125,
+        201.02198791503906
+      ],
+      "terminalArrival": false
+    },
+    {
+      "region": "countryside",
+      "count": 20,
+      "width": 320,
+      "case": "clear/0",
+      "arm": "v8",
+      "waitBeforeReplayMs": 900,
+      "target": "pet:dog",
+      "actualSelected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "frontInk": "companion:monkey",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 237,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            89,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 195,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            101,
+            75
+          ]
+        },
+        {
+          "key": "partner:forest_bear",
+          "z": 142,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            49,
+            121
+          ]
+        }
+      ],
+      "pointer": [
+        172.2774658203125,
+        201.02198791503906
+      ],
+      "terminalArrival": false
+    },
+    {
+      "region": "countryside",
+      "count": 28,
+      "width": 320,
+      "case": "clear/0",
+      "arm": "v7",
+      "waitBeforeReplayMs": 0,
+      "target": "pet:dog",
+      "actualSelected": "pet:dog",
+      "issued": true,
+      "trusted": true,
+      "frontInk": "pet:dog",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            61,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 250,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            106,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 208,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            74,
+            83
+          ]
+        }
+      ],
+      "pointer": [
+        167.9320831298828,
+        200.19149780273438
+      ],
+      "terminalArrival": true
+    },
+    {
+      "region": "countryside",
+      "count": 28,
+      "width": 320,
+      "case": "clear/0",
+      "arm": "v7",
+      "waitBeforeReplayMs": 350,
+      "target": "pet:dog",
+      "actualSelected": "pet:dog",
+      "issued": true,
+      "trusted": true,
+      "frontInk": "pet:dog",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            61,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 250,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            106,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 208,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            74,
+            83
+          ]
+        }
+      ],
+      "pointer": [
+        167.9320831298828,
+        200.19149780273438
+      ],
+      "terminalArrival": true
+    },
+    {
+      "region": "countryside",
+      "count": 28,
+      "width": 320,
+      "case": "clear/0",
+      "arm": "v7",
+      "waitBeforeReplayMs": 900,
+      "target": "pet:dog",
+      "actualSelected": "pet:dog",
+      "issued": true,
+      "trusted": true,
+      "frontInk": "pet:dog",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            61,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 250,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            106,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 208,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            74,
+            83
+          ]
+        }
+      ],
+      "pointer": [
+        167.9320831298828,
+        200.19149780273438
+      ],
+      "terminalArrival": true
+    },
+    {
+      "region": "countryside",
+      "count": 28,
+      "width": 320,
+      "case": "clear/0",
+      "arm": "v8",
+      "waitBeforeReplayMs": 0,
+      "target": "pet:dog",
+      "actualSelected": "pet:dog",
+      "issued": true,
+      "trusted": true,
+      "frontInk": "pet:dog",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            61,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 250,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            106,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 208,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            74,
+            83
+          ]
+        }
+      ],
+      "pointer": [
+        167.9320831298828,
+        200.19149780273438
+      ],
+      "terminalArrival": true
+    },
+    {
+      "region": "countryside",
+      "count": 28,
+      "width": 320,
+      "case": "clear/0",
+      "arm": "v8",
+      "waitBeforeReplayMs": 350,
+      "target": "pet:dog",
+      "actualSelected": "pet:dog",
+      "issued": true,
+      "trusted": true,
+      "frontInk": "pet:dog",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            61,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 250,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            106,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 208,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            74,
+            83
+          ]
+        }
+      ],
+      "pointer": [
+        167.9320831298828,
+        200.19149780273438
+      ],
+      "terminalArrival": true
+    },
+    {
+      "region": "countryside",
+      "count": 28,
+      "width": 320,
+      "case": "clear/0",
+      "arm": "v8",
+      "waitBeforeReplayMs": 900,
+      "target": "pet:dog",
+      "actualSelected": "pet:dog",
+      "issued": true,
+      "trusted": true,
+      "frontInk": "pet:dog",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            61,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 250,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            106,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 208,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            74,
+            83
+          ]
+        }
+      ],
+      "pointer": [
+        167.9320831298828,
+        200.19149780273438
+      ],
+      "terminalArrival": true
+    },
+    {
+      "region": "snow",
+      "count": 28,
+      "width": 320,
+      "case": "clear/0",
+      "arm": "v7",
+      "waitBeforeReplayMs": 0,
+      "target": "pet:dog",
+      "actualSelected": "companion:chameleon",
+      "issued": false,
+      "trusted": true,
+      "frontInk": "companion:chameleon",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:chameleon",
+          "z": 249,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            14,
+            60
+          ]
+        }
+      ],
+      "pointer": [
+        166.30038452148438,
+        196.71827697753906
+      ],
+      "terminalArrival": false
+    },
+    {
+      "region": "snow",
+      "count": 28,
+      "width": 320,
+      "case": "clear/0",
+      "arm": "v7",
+      "waitBeforeReplayMs": 350,
+      "target": "pet:dog",
+      "actualSelected": "companion:chameleon",
+      "issued": false,
+      "trusted": true,
+      "frontInk": "companion:chameleon",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:chameleon",
+          "z": 249,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            14,
+            60
+          ]
+        }
+      ],
+      "pointer": [
+        166.30038452148438,
+        196.71827697753906
+      ],
+      "terminalArrival": false
+    },
+    {
+      "region": "snow",
+      "count": 28,
+      "width": 320,
+      "case": "clear/0",
+      "arm": "v7",
+      "waitBeforeReplayMs": 900,
+      "target": "pet:dog",
+      "actualSelected": "companion:chameleon",
+      "issued": false,
+      "trusted": true,
+      "frontInk": "companion:chameleon",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:chameleon",
+          "z": 249,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            14,
+            60
+          ]
+        }
+      ],
+      "pointer": [
+        166.30038452148438,
+        196.71827697753906
+      ],
+      "terminalArrival": false
+    },
+    {
+      "region": "snow",
+      "count": 28,
+      "width": 320,
+      "case": "clear/0",
+      "arm": "v8",
+      "waitBeforeReplayMs": 0,
+      "target": "pet:dog",
+      "actualSelected": "companion:chameleon",
+      "issued": false,
+      "trusted": true,
+      "frontInk": "companion:chameleon",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:chameleon",
+          "z": 249,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            14,
+            60
+          ]
+        }
+      ],
+      "pointer": [
+        166.30038452148438,
+        196.71827697753906
+      ],
+      "terminalArrival": false
+    },
+    {
+      "region": "snow",
+      "count": 28,
+      "width": 320,
+      "case": "clear/0",
+      "arm": "v8",
+      "waitBeforeReplayMs": 350,
+      "target": "pet:dog",
+      "actualSelected": "companion:chameleon",
+      "issued": false,
+      "trusted": true,
+      "frontInk": "companion:chameleon",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:chameleon",
+          "z": 249,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            15,
+            59
+          ]
+        }
+      ],
+      "pointer": [
+        166.30038452148438,
+        196.71827697753906
+      ],
+      "terminalArrival": false
+    },
+    {
+      "region": "snow",
+      "count": 28,
+      "width": 320,
+      "case": "clear/0",
+      "arm": "v8",
+      "waitBeforeReplayMs": 900,
+      "target": "pet:dog",
+      "actualSelected": "companion:chameleon",
+      "issued": false,
+      "trusted": true,
+      "frontInk": "companion:chameleon",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:chameleon",
+          "z": 249,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            14,
+            60
+          ]
+        }
+      ],
+      "pointer": [
+        166.30038452148438,
+        196.71827697753906
+      ],
+      "terminalArrival": false
+    },
+    {
+      "region": "jungle",
+      "count": 20,
+      "width": 320,
+      "case": "obstacle/0",
+      "arm": "v7",
+      "waitBeforeReplayMs": 0,
+      "target": "pet:dog",
+      "actualSelected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "frontInk": "companion:monkey",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 285,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 238,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            101,
+            50
+          ]
+        },
+        {
+          "key": "companion:cat_friend",
+          "z": 192,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            26,
+            93
+          ]
+        }
+      ],
+      "pointer": [
+        179.08055114746094,
+        197.35751342773438
+      ],
+      "terminalArrival": false
+    },
+    {
+      "region": "jungle",
+      "count": 20,
+      "width": 320,
+      "case": "obstacle/0",
+      "arm": "v7",
+      "waitBeforeReplayMs": 350,
+      "target": "pet:dog",
+      "actualSelected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "frontInk": "companion:monkey",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 285,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 238,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            100,
+            49
+          ]
+        },
+        {
+          "key": "companion:cat_friend",
+          "z": 192,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            26,
+            93
+          ]
+        }
+      ],
+      "pointer": [
+        179.08055114746094,
+        197.35751342773438
+      ],
+      "terminalArrival": false
+    },
+    {
+      "region": "jungle",
+      "count": 20,
+      "width": 320,
+      "case": "obstacle/0",
+      "arm": "v7",
+      "waitBeforeReplayMs": 900,
+      "target": "pet:dog",
+      "actualSelected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "frontInk": "companion:monkey",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 285,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            61,
+            49
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 238,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            101,
+            50
+          ]
+        },
+        {
+          "key": "companion:cat_friend",
+          "z": 192,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            26,
+            93
+          ]
+        }
+      ],
+      "pointer": [
+        179.08055114746094,
+        197.35751342773438
+      ],
+      "terminalArrival": false
+    },
+    {
+      "region": "jungle",
+      "count": 20,
+      "width": 320,
+      "case": "obstacle/0",
+      "arm": "v8",
+      "waitBeforeReplayMs": 0,
+      "target": "pet:dog",
+      "actualSelected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "frontInk": "companion:monkey",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 285,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 238,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            101,
+            50
+          ]
+        },
+        {
+          "key": "companion:cat_friend",
+          "z": 192,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            26,
+            93
+          ]
+        }
+      ],
+      "pointer": [
+        179.08055114746094,
+        197.35751342773438
+      ],
+      "terminalArrival": false
+    },
+    {
+      "region": "jungle",
+      "count": 20,
+      "width": 320,
+      "case": "obstacle/0",
+      "arm": "v8",
+      "waitBeforeReplayMs": 350,
+      "target": "pet:dog",
+      "actualSelected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "frontInk": "companion:monkey",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 285,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 238,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            100,
+            49
+          ]
+        },
+        {
+          "key": "companion:cat_friend",
+          "z": 192,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            26,
+            93
+          ]
+        }
+      ],
+      "pointer": [
+        179.08055114746094,
+        197.35751342773438
+      ],
+      "terminalArrival": false
+    },
+    {
+      "region": "jungle",
+      "count": 20,
+      "width": 320,
+      "case": "obstacle/0",
+      "arm": "v8",
+      "waitBeforeReplayMs": 900,
+      "target": "pet:dog",
+      "actualSelected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "frontInk": "companion:monkey",
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 285,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 238,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            101,
+            50
+          ]
+        },
+        {
+          "key": "companion:cat_friend",
+          "z": 192,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            26,
+            93
+          ]
+        }
+      ],
+      "pointer": [
+        179.08055114746094,
+        197.35751342773438
+      ],
+      "terminalArrival": false
+    }
+  ]
+}

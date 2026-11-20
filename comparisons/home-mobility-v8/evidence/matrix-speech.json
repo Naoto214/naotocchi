@@ -1,0 +1,400 @@
+{
+  "engine": "156.0.8078.79",
+  "count": 4,
+  "width": 390,
+  "observations": {
+    "home": {
+      "region": "home",
+      "social": 3,
+      "visibleBeats": [
+        {
+          "unit": "b-rabbit-back",
+          "index": 0,
+          "model": 59.99999999999873,
+          "actor": "companion:rabbit_friend",
+          "listener": "pet",
+          "intended": "ただいま!",
+          "text": "ただいま!",
+          "visible": true
+        },
+        {
+          "unit": "b-rabbit-back",
+          "index": 1,
+          "model": 59.99999999999873,
+          "actor": "pet",
+          "listener": "companion:rabbit_friend",
+          "intended": "いま来たばっかりでしょ",
+          "text": "いま来たばっかりでしょ",
+          "visible": true
+        },
+        {
+          "unit": "b-rabbit-back",
+          "index": 2,
+          "model": 59.99999999999873,
+          "actor": "companion:rabbit_friend",
+          "listener": "pet",
+          "intended": "一回、あっちまで行ってきた",
+          "text": "一回、あっちまで行ってきた",
+          "visible": true
+        }
+      ],
+      "modelSeconds": 59.99999999999873,
+      "gate": []
+    },
+    "forest": {
+      "region": "forest",
+      "social": 1,
+      "visibleBeats": [
+        {
+          "unit": "b-cat-box",
+          "index": 0,
+          "model": 10.000000000000007,
+          "actor": "pet",
+          "listener": "companion:cat_friend",
+          "intended": "その箱、ちいさくない?",
+          "text": "その箱、ちいさくない?",
+          "visible": true
+        },
+        {
+          "unit": "b-cat-box",
+          "index": 1,
+          "model": 10.000000000000007,
+          "actor": "companion:cat_friend",
+          "listener": "pet",
+          "intended": "入れたから、ちょうどいい",
+          "text": "入れたから、ちょうどいい",
+          "visible": true
+        }
+      ],
+      "modelSeconds": 10.000000000000007,
+      "gate": []
+    },
+    "river_lake": {
+      "region": "river_lake",
+      "social": 5,
+      "visibleBeats": [
+        {
+          "unit": "b-bear-bite",
+          "index": 0,
+          "model": 79.9999999999976,
+          "actor": "partner:forest_bear",
+          "listener": "pet",
+          "intended": "はちみつ、ひとくちどうぞ",
+          "text": "はちみつ、ひとくちどうぞ",
+          "visible": true
+        },
+        {
+          "unit": "b-bear-bite",
+          "index": 1,
+          "model": 79.9999999999976,
+          "actor": "pet",
+          "listener": "partner:forest_bear",
+          "intended": "……ひとくちが大きい",
+          "text": "……ひとくちが大きい",
+          "visible": true
+        },
+        {
+          "unit": "b-bear-bite",
+          "index": 2,
+          "model": 79.9999999999976,
+          "actor": "partner:forest_bear",
+          "listener": "pet",
+          "intended": "クマのひとくちだから",
+          "text": "クマのひとくちだから",
+          "visible": true
+        }
+      ],
+      "modelSeconds": 79.9999999999976,
+      "gate": []
+    },
+    "city": {
+      "region": "city",
+      "social": 1,
+      "visibleBeats": [
+        {
+          "unit": "b-rabbit-slow",
+          "index": 0,
+          "model": 10.000000000000007,
+          "actor": "pet",
+          "listener": "companion:rabbit_friend",
+          "intended": "ゆっくりでいいよ",
+          "text": "ゆっくりでいいよ",
+          "visible": true
+        },
+        {
+          "unit": "b-rabbit-slow",
+          "index": 1,
+          "model": 10.000000000000007,
+          "actor": "companion:rabbit_friend",
+          "listener": "pet",
+          "intended": "ゆっくりって、どっち向き?",
+          "text": "ゆっくりって、どっち向き?",
+          "visible": true
+        }
+      ],
+      "modelSeconds": 10.000000000000007,
+      "gate": []
+    },
+    "countryside": {
+      "region": "countryside",
+      "social": 1,
+      "visibleBeats": [
+        {
+          "unit": "b-cat-bed",
+          "index": 0,
+          "model": 10.000000000000007,
+          "actor": "pet",
+          "listener": "companion:cat_friend",
+          "intended": "きょう、どこで寝るの?",
+          "text": "きょう、どこで寝るの?",
+          "visible": true
+        },
+        {
+          "unit": "b-cat-bed",
+          "index": 1,
+          "model": 10.000000000000007,
+          "actor": "companion:cat_friend",
+          "listener": "pet",
+          "intended": "決めてない。寝たところ",
+          "text": "決めてない。寝たところ",
+          "visible": true
+        }
+      ],
+      "modelSeconds": 10.000000000000007,
+      "gate": []
+    },
+    "mountain": {
+      "region": "mountain",
+      "social": 3,
+      "visibleBeats": [
+        {
+          "unit": "b-cat-come",
+          "index": 0,
+          "model": 59.99999999999873,
+          "actor": "pet",
+          "listener": "companion:cat_friend",
+          "intended": "おいで",
+          "text": "おいで",
+          "visible": true
+        },
+        {
+          "unit": "b-cat-come",
+          "index": 1,
+          "model": 59.99999999999873,
+          "actor": "companion:cat_friend",
+          "listener": "pet",
+          "intended": "……いま、毛づくろい中",
+          "text": "……いま、毛づくろい中",
+          "visible": true
+        }
+      ],
+      "modelSeconds": 59.99999999999873,
+      "gate": []
+    },
+    "snow": {
+      "region": "snow",
+      "social": 1,
+      "visibleBeats": [
+        {
+          "unit": "b-bear-chair",
+          "index": 0,
+          "model": 10.000000000000007,
+          "actor": "partner:forest_bear",
+          "listener": "pet",
+          "intended": "ここ、座っていい?",
+          "text": "ここ、座っていい?",
+          "visible": true
+        },
+        {
+          "unit": "b-bear-chair",
+          "index": 1,
+          "model": 10.000000000000007,
+          "actor": "pet",
+          "listener": "partner:forest_bear",
+          "intended": "いいよ",
+          "text": "いいよ",
+          "visible": true
+        }
+      ],
+      "modelSeconds": 10.000000000000007,
+      "gate": []
+    },
+    "sea": {
+      "region": "sea",
+      "social": 1,
+      "visibleBeats": [
+        {
+          "unit": "terrain:companion:rabbit_friend/companion:cat_friend",
+          "index": 0,
+          "model": 39.999999999999865,
+          "actor": "companion:rabbit_friend",
+          "listener": "companion:cat_friend",
+          "intended": "先に行くね!ここで待ってる!",
+          "text": "先に行くね!ここで待ってる!",
+          "visible": true
+        },
+        {
+          "unit": "terrain:companion:rabbit_friend/companion:cat_friend",
+          "index": 1,
+          "model": 39.999999999999865,
+          "actor": "companion:cat_friend",
+          "listener": "companion:rabbit_friend",
+          "intended": "そこ、座ろうと思ってた",
+          "text": "そこ、座ろうと思ってた",
+          "visible": true
+        }
+      ],
+      "modelSeconds": 39.999999999999865,
+      "gate": []
+    },
+    "jungle": {
+      "region": "jungle",
+      "social": 1,
+      "visibleBeats": [
+        {
+          "unit": "b-rabbit-cross",
+          "index": 0,
+          "model": 20.00000000000015,
+          "actor": "companion:rabbit_friend",
+          "listener": "pet",
+          "intended": "いま、横切ったの見た?",
+          "text": "いま、横切ったの見た?",
+          "visible": true
+        },
+        {
+          "unit": "b-rabbit-cross",
+          "index": 1,
+          "model": 20.00000000000015,
+          "actor": "pet",
+          "listener": "companion:rabbit_friend",
+          "intended": "見てない",
+          "text": "見てない",
+          "visible": true
+        }
+      ],
+      "modelSeconds": 20.00000000000015,
+      "gate": []
+    },
+    "desert": {
+      "region": "desert",
+      "social": 3,
+      "visibleBeats": [
+        {
+          "unit": "b-bear-door",
+          "index": 0,
+          "model": 69.99999999999817,
+          "actor": "partner:forest_bear",
+          "listener": "pet",
+          "intended": "ドア、ちょっと小さいね",
+          "text": "ドア、ちょっと小さいね",
+          "visible": true
+        },
+        {
+          "unit": "b-bear-door",
+          "index": 1,
+          "model": 69.99999999999817,
+          "actor": "pet",
+          "listener": "partner:forest_bear",
+          "intended": "ごめんね",
+          "text": "ごめんね",
+          "visible": true
+        }
+      ],
+      "modelSeconds": 69.99999999999817,
+      "gate": []
+    },
+    "deepsea": {
+      "region": "deepsea",
+      "social": 1,
+      "visibleBeats": [
+        {
+          "unit": "b-cat-bed",
+          "index": 0,
+          "model": 10.000000000000007,
+          "actor": "pet",
+          "listener": "companion:cat_friend",
+          "intended": "きょう、どこで寝るの?",
+          "text": "きょう、どこで寝るの?",
+          "visible": true
+        },
+        {
+          "unit": "b-cat-bed",
+          "index": 1,
+          "model": 10.000000000000007,
+          "actor": "companion:cat_friend",
+          "listener": "pet",
+          "intended": "決めてない。寝たところ",
+          "text": "決めてない。寝たところ",
+          "visible": true
+        }
+      ],
+      "modelSeconds": 10.000000000000007,
+      "gate": []
+    },
+    "star_stop": {
+      "region": "star_stop",
+      "social": 1,
+      "visibleBeats": [
+        {
+          "unit": "terrain:companion:rabbit_friend/companion:cat_friend",
+          "index": 0,
+          "model": 39.999999999999865,
+          "actor": "companion:rabbit_friend",
+          "listener": "companion:cat_friend",
+          "intended": "呼んだらすぐ振り返るよ",
+          "text": "呼んだらすぐ振り返るよ",
+          "visible": true
+        },
+        {
+          "unit": "terrain:companion:rabbit_friend/companion:cat_friend",
+          "index": 1,
+          "model": 39.999999999999865,
+          "actor": "companion:cat_friend",
+          "listener": "companion:rabbit_friend",
+          "intended": "そこ、座ろうと思ってた",
+          "text": "そこ、座ろうと思ってた",
+          "visible": true
+        }
+      ],
+      "modelSeconds": 39.999999999999865,
+      "gate": []
+    },
+    "memory_lake": {
+      "region": "memory_lake",
+      "social": 1,
+      "visibleBeats": [
+        {
+          "unit": "b-bear-bite",
+          "index": 0,
+          "model": 10.000000000000007,
+          "actor": "partner:forest_bear",
+          "listener": "pet",
+          "intended": "はちみつ、ひとくちどうぞ",
+          "text": "はちみつ、ひとくちどうぞ",
+          "visible": true
+        },
+        {
+          "unit": "b-bear-bite",
+          "index": 1,
+          "model": 10.000000000000007,
+          "actor": "pet",
+          "listener": "partner:forest_bear",
+          "intended": "……ひとくちが大きい",
+          "text": "……ひとくちが大きい",
+          "visible": true
+        }
+      ],
+      "modelSeconds": 10.000000000000007,
+      "gate": []
+    }
+  },
+  "sources": {
+    "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+    "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+    "home-production-model-mobility-v8.js": "282ccb0c35751ae6bf89b8efc4641d674aa7be4e1f4a3ea7e6a8902b49704809",
+    "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6",
+    "home-production-diorama-mobility-v8.js": "0c906f72d0dbde61c6f871c16954bf0309dd64388b1469d7afec56acc9c04ea6",
+    "script-v2-mobility-v7.js": "4d0d425c41a89f0241e92b18c0270534dbdb36d09b5507d8bce0ebfd6cd9bc02",
+    "home-route-navigation-finish.mjs": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "engine": "chromium",
+  "version": "156.0.8078.79",
+  "width": 320,
+  "count": 28,
+  "openingSHA256": "f53c5c3bbc03e23c7bb5c481b515cf1605998a607f846df9a355c888482566e2",
+  "paintSHA256": "cfe977cd502453303b2857436cb6e0b99eaaf31c098d3f9ee5d835e23731bc20",
+  "sameInV6V7V8AndRestart": true,
+  "shadows": 28,
+  "ground": true,
+  "size": "B",
+  "loadedV8Scripts": [
+    "telemetry-mobility-v8.js?v=9d764b666542",
+    "home-production-model-mobility-v8.js?v=282ccb0c3575",
+    "home-production-diorama-mobility-v8.js?v=0c906f72d0db"
+  ],
+  "toolbar": [
+    [
+      "v6",
+      7,
+      52.578125,
+      45.578125,
+      44
+    ],
+    [
+      "v7",
+      52.578125,
+      98.15625,
+      45.578125,
+      44
+    ],
+    [
+      "v8",
+      98.15625,
+      143.734375,
+      45.578125,
+      44
+    ],
+    [
+      "restart",
+      148.734375,
+      192.734375,
+      44,
+      44
+    ],
+    [
+      "freeze",
+      196.734375,
+      240.734375,
+      44,
+      44
+    ],
+    [
+      "settings-toggle",
+      244.734375,
+      314,
+      69.265625,
+      44
+    ]
+  ],
+  "regionTimeCountOptions": [
+    13,
+    4,
+    28
+  ],
+  "diagnosticResidents": 28,
+  "advancedModelSeconds": 8.716599999999994,
+  "errors": []
+}
