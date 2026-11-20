@@ -1,0 +1,97 @@
+{
+  "revision": "ecaae91a833d81c6a9eef5bf9155f3cd93809772",
+  "runId": 44704441208,
+  "derived": {
+    "matrix-inputs.csv": {
+      "file": "matrix-inputs.csv.gz",
+      "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/mobility-v7/matrix/matrix-inputs.csv.gz",
+      "sha256": "2f876d0e215ba2357afc45be3d5a2ad142ee959970134616e1586307f8f2c76e",
+      "bytes": 167176,
+      "uncompressedSHA256": "a9ae80b5a36761911c8fb04b6a98b221e1d4c507ebb75e0d5e2d67236df6587f",
+      "uncompressedBytes": 1350083
+    },
+    "matrix-residents.csv": {
+      "file": "matrix-residents.csv.gz",
+      "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/mobility-v7/matrix/matrix-residents.csv.gz",
+      "sha256": "5a242d10be2f1cbff04d64eeddeb8fbee74f81b032d06aa85e93f40026efef8b",
+      "bytes": 910000,
+      "uncompressedSHA256": "f2c2632e4cc95b019a807e6ec78add2aade875b9a4381fa91e6f040a2ab5d1c5",
+      "uncompressedBytes": 8101450
+    },
+    "matrix-tap-ink.json": {
+      "file": "matrix-tap-ink.json.gz",
+      "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/mobility-v7/matrix/matrix-tap-ink.json.gz",
+      "sha256": "5dfd33073f79244c382079cee70761aa5f5c1d9a9056e8944308527518568444",
+      "bytes": 12096,
+      "uncompressedSHA256": "53afe8eed1b187a69627a088cf7ceeab4b19cfd4f0bcb76cf157483b50f36c7d",
+      "uncompressedBytes": 256360
+    }
+  },
+  "rawRegions": {
+    "river_lake": {
+      "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/mobility-v7/matrix/mobility-matrix-44704441208-river_lake.zip",
+      "sha256": "fa6355ceacfce08bd3651f71228d016b5ebf87364ec9b7d4da444af8796759dc",
+      "bytes": 1209404
+    },
+    "memory_lake": {
+      "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/mobility-v7/matrix/mobility-matrix-44704441208-memory_lake.zip",
+      "sha256": "4a8d80c536ba2ae275df23dfb4bc0f5f13c412ac970bf9168052f1ebd382be0e",
+      "bytes": 1148262
+    },
+    "desert": {
+      "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/mobility-v7/matrix/mobility-matrix-44704441208-desert.zip",
+      "sha256": "b7bf4ca085f511746718668ee5ec946b2bc9e2cee3592bf3c498f4fe878db2bb",
+      "bytes": 1087806
+    },
+    "city": {
+      "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/mobility-v7/matrix/mobility-matrix-44704441208-city.zip",
+      "sha256": "46bccf1a78fb3e9774230abf1588bb9ee747998ba0abf81aef996889ca9e1007",
+      "bytes": 1237897
+    },
+    "sea": {
+      "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/mobility-v7/matrix/mobility-matrix-44704441208-sea.zip",
+      "sha256": "cb311aaa7edc75e3b7b904d4a1be75f73b32ef4b1113c71549bd795a4d68d3be",
+      "bytes": 1294989
+    },
+    "jungle": {
+      "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/mobility-v7/matrix/mobility-matrix-44704441208-jungle.zip",
+      "sha256": "828177b93b0eb3e73d467c05726d3e969ea32c2b1e988c95bcdbb334dbe507ef",
+      "bytes": 1231654
+    },
+    "mountain": {
+      "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/mobility-v7/matrix/mobility-matrix-44704441208-mountain.zip",
+      "sha256": "2205e7068af8279ceb48fef56a712ebd2f9312daf2d2d951e1f6fd138fce0b95",
+      "bytes": 1104069
+    },
+    "forest": {
+      "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/mobility-v7/matrix/mobility-matrix-44704441208-forest.zip",
+      "sha256": "31a01e8695140c71379c73346ff0c7909f5ec7f31e8b55d5d2a6fb343b3bd0a2",
+      "bytes": 1326103
+    },
+    "star_stop": {
+      "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/mobility-v7/matrix/mobility-matrix-44704441208-star_stop.zip",
+      "sha256": "e5fc76f614088c698526b8e7455d21d75f2a62e45c805fff6c8ede18d1e4378e",
+      "bytes": 1111117
+    },
+    "home": {
+      "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/mobility-v7/matrix/mobility-matrix-44704441208-home.zip",
+      "sha256": "aa2a1cddadf3962eaf85b3c5351aaf6de1ace309fe63ecf474ad14869a5a6412",
+      "bytes": 959284
+    },
+    "deepsea": {
+      "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/mobility-v7/matrix/mobility-matrix-44704441208-deepsea.zip",
+      "sha256": "deaee519da80142c6eee19898b3e1ac082df8aaf0e9d7e05ac00a73120ed9dcb",
+      "bytes": 1101252
+    },
+    "countryside": {
+      "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/mobility-v7/matrix/mobility-matrix-44704441208-countryside.zip",
+      "sha256": "86fe5a73d42724254a6865a568ab8ac0b690fafe94e9e2147c1f1090ab6c9d7f",
+      "bytes": 1166499
+    },
+    "snow": {
+      "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/mobility-v7/matrix/mobility-matrix-44704441208-snow.zip",
+      "sha256": "c10c35389817f059a1e76fddd55838a5d029a35b7545af6b781192424e3f4f0a",
+      "bytes": 1152020
+    }
+  }
+}

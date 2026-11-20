@@ -1,0 +1,4 @@
+arm,ageWallSec,ageNativeSec,priorNativeStarts,priorDistance,preGate,overlays,key,trusted,selectedKey,selected,issued,accepted,routed,arrived,near4,terminalArrived,terminalNear4,earlyDistanceCss,endDistanceCss,endFingerErrorCss,correctedErrorCss,releaseJumpCss,arrivalClock,searchCount,unsafeSteps,sweptViolations
+v5,71.02,60.898,12,224.294,False,,companion:otter,True,companion:otter,True,True,False,False,False,False,False,False,0.0,0.0,12.0,,0.0,,80,0,0
+v6,72.12,57.982,17,168.558,False,,companion:otter,True,companion:otter,True,True,False,False,False,False,False,False,0.0,0.0,12.0,,0.0,,197,0,0
+v7,70.9,59.698,23,303.272,False,,companion:otter,True,companion:otter,True,True,False,False,False,False,False,False,0.0,0.0,12.0,,0.0,,434,0,0

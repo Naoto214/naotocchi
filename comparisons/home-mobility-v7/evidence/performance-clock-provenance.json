@@ -1,0 +1,17 @@
+{
+  "engine": "26.5",
+  "checks": {
+    "native": {
+      "requestAnimationFrame": "function requestAnimationFrame() {\n    [native code]\n}",
+      "setTimeout": "function setTimeout() {\n    [native code]\n}",
+      "performanceNow": "function now() {\n    [native code]\n}",
+      "DateNow": "function now() {\n    [native code]\n}"
+    },
+    "set_system_time": {
+      "requestAnimationFrame": "(...args) => {\n        return api[method].apply(api, args);\n      }",
+      "setTimeout": "(...args) => {\n        return api[method].apply(api, args);\n      }",
+      "performanceNow": "() => clock.performanceNow()",
+      "DateNow": "() => clock.now()"
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "conclusion": "success",
+  "headSha": "ecaae91a833d81c6a9eef5bf9155f3cd93809772",
+  "status": "completed",
+  "url": "https://github.com/Naoto214/naotocchi/actions/runs/44704441208",
+  "runId": 44704441208,
+  "regions": {
+    "river_lake": {
+      "artifactId": 14616230419,
+      "jobId": 136180402992,
+      "zipSHA256": "fa6355ceacfce08bd3651f71228d016b5ebf87364ec9b7d4da444af8796759dc",
+      "bytes": 1209404,
+      "startedAt": "2026-11-20T08:53:45Z",
+      "completedAt": "2026-11-20T09:04:02Z"
+    },
+    "memory_lake": {
+      "artifactId": 14615936296,
+      "jobId": 136180403089,
+      "zipSHA256": "4a8d80c536ba2ae275df23dfb4bc0f5f13c412ac970bf9168052f1ebd382be0e",
+      "bytes": 1148262,
+      "startedAt": "2026-11-20T08:53:18Z",
+      "completedAt": "2026-11-20T09:04:16Z"
+    },
+    "desert": {
+      "artifactId": 14615735250,
+      "jobId": 136180402869,
+      "zipSHA256": "b7bf4ca085f511746718668ee5ec946b2bc9e2cee3592bf3c498f4fe878db2bb",
+      "bytes": 1087806,
+      "startedAt": "2026-11-20T08:41:27Z",
+      "completedAt": "2026-11-20T08:54:09Z"
+    },
+    "city": {
+      "artifactId": 14615665098,
+      "jobId": 136180402952,
+      "zipSHA256": "46bccf1a78fb3e9774230abf1588bb9ee747998ba0abf81aef996889ca9e1007",
+      "bytes": 1237897,
+      "startedAt": "2026-11-20T08:43:06Z",
+      "completedAt": "2026-11-20T08:52:48Z"
+    },
+    "sea": {
+      "artifactId": 14615622711,
+      "jobId": 136180402956,
+      "zipSHA256": "cb311aaa7edc75e3b7b904d4a1be75f73b32ef4b1113c71549bd795a4d68d3be",
+      "bytes": 1294989,
+      "startedAt": "2026-11-20T08:52:59Z",
+      "completedAt": "2026-11-20T09:04:14Z"
+    },
+    "jungle": {
+      "artifactId": 14615392151,
+      "jobId": 136180403044,
+      "zipSHA256": "828177b93b0eb3e73d467c05726d3e969ea32c2b1e988c95bcdbb334dbe507ef",
+      "bytes": 1231654,
+      "startedAt": "2026-11-20T08:48:51Z",
+      "completedAt": "2026-11-20T08:59:31Z"
+    },
+    "mountain": {
+      "artifactId": 14615226523,
+      "jobId": 136180402874,
+      "zipSHA256": "2205e7068af8279ceb48fef56a712ebd2f9312daf2d2d951e1f6fd138fce0b95",
+      "bytes": 1104069,
+      "startedAt": "2026-11-20T08:41:26Z",
+      "completedAt": "2026-11-20T08:54:14Z"
+    },
+    "forest": {
+      "artifactId": 14615203978,
+      "jobId": 136180403090,
+      "zipSHA256": "31a01e8695140c71379c73346ff0c7909f5ec7f31e8b55d5d2a6fb343b3bd0a2",
+      "bytes": 1326103,
+      "startedAt": "2026-11-20T08:52:50Z",
+      "completedAt": "2026-11-20T09:05:42Z"
+    },
+    "star_stop": {
+      "artifactId": 14615072052,
+      "jobId": 136180403003,
+      "zipSHA256": "e5fc76f614088c698526b8e7455d21d75f2a62e45c805fff6c8ede18d1e4378e",
+      "bytes": 1111117,
+      "startedAt": "2026-11-20T08:45:27Z",
+      "completedAt": "2026-11-20T08:56:42Z"
+    },
+    "home": {
+      "artifactId": 14614822292,
+      "jobId": 136180402901,
+      "zipSHA256": "aa2a1cddadf3962eaf85b3c5351aaf6de1ace309fe63ecf474ad14869a5a6412",
+      "bytes": 959284,
+      "startedAt": "2026-11-20T08:41:24Z",
+      "completedAt": "2026-11-20T08:53:56Z"
+    },
+    "deepsea": {
+      "artifactId": 14614757427,
+      "jobId": 136180402877,
+      "zipSHA256": "deaee519da80142c6eee19898b3e1ac082df8aaf0e9d7e05ac00a73120ed9dcb",
+      "bytes": 1101252,
+      "startedAt": "2026-11-20T08:41:28Z",
+      "completedAt": "2026-11-20T08:53:44Z"
+    },
+    "countryside": {
+      "artifactId": 14614717503,
+      "jobId": 136180402620,
+      "zipSHA256": "86fe5a73d42724254a6865a568ab8ac0b690fafe94e9e2147c1f1090ab6c9d7f",
+      "bytes": 1166499,
+      "startedAt": "2026-11-20T08:41:17Z",
+      "completedAt": "2026-11-20T08:53:43Z"
+    },
+    "snow": {
+      "artifactId": 14614414177,
+      "jobId": 136180402859,
+      "zipSHA256": "c10c35389817f059a1e76fddd55838a5d029a35b7545af6b781192424e3f4f0a",
+      "bytes": 1152020,
+      "startedAt": "2026-11-20T08:41:26Z",
+      "completedAt": "2026-11-20T08:52:57Z"
+    }
+  }
+}

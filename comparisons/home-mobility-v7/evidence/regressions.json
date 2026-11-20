@@ -1,0 +1,27 @@
+{
+  "revision": "ecaae91a833d81c6a9eef5bf9155f3cd93809772",
+  "nativeModel": "dd0789888f19c57f1a88b05e144c98d82a77b57b7d04dd18e55e84dcd8ea4baf",
+  "passed": 19,
+  "failed": 0,
+  "cases": [
+    "a failed dense ambient intention can take the safe part of an overlapping lane",
+    "a stationary resident surrounded on both sides stays in the lane until a real opening",
+    "a horizontal touch with subpixel camera round-off can use the same cleared second leg",
+    "two blocked neighbors make room one at a time before the selected resident walks",
+    "an ordinary autonomous step cannot cut through the edge of another footprint",
+    "pending two-neighbor walk stops on cancel",
+    "pending two-neighbor walk stops on select",
+    "pending two-neighbor walk stops on leave",
+    "pending two-neighbor walk stops on takeover",
+    "pending two-neighbor walk stops on pause",
+    "a same-position native sync lets an unfinished second-helper search finish",
+    "a real change in peer feet still preempts the pending two-helper search at its retry",
+    "only the unused world-host layout read is removed, including successive cameras",
+    "a visible back resident wins only through fully transparent layers",
+    "single hits and padded/native assignments are retained",
+    "a functional session starts once and counts real travel independently of plans and wall time",
+    "a failed planned intent opens one episode; only a real later resident step closes it",
+    "the two real sequential helper legs count once for the requester and once per physical helper",
+    "hidden intervals and simultaneous native pause reasons are recorded without model clock ticks"
+  ]
+}

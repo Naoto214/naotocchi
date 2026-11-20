@@ -1,0 +1,35 @@
+{
+  "base": "5db9835478eafe526271c6864e0c86ded6324172",
+  "measuredRevision": "4961becd5b265e861813ccb6be2de67169aef4d1",
+  "unchangedFileModesAndBlobs": 35969,
+  "prs": {
+    "p561": {
+      "state": "MERGED",
+      "headRefOid": "985a369d6b942d3ab91cb2aff2e17e698cb137fc"
+    },
+    "p567": {
+      "state": "OPEN",
+      "headRefOid": "fae83a21915f9ada92f4ac13ac1aaacd397e333d"
+    },
+    "p568": {
+      "state": "OPEN",
+      "headRefOid": "2935622edf9ccdc6f8a36f2297dd86b789022b87"
+    },
+    "p569": {
+      "state": "OPEN",
+      "headRefOid": "28628cf336a8ed92efe4e9e197ca03298b798a1e"
+    },
+    "p570": {
+      "state": "OPEN",
+      "headRefOid": "e07d2cc53eca36ff23e02142ab385d6001e0521b"
+    },
+    "p572": {
+      "state": "OPEN",
+      "headRefOid": "a0df9061c26dde237158ba3423dd4732ca8bec42"
+    },
+    "p575": {
+      "state": "OPEN",
+      "headRefOid": "5db9835478eafe526271c6864e0c86ded6324172"
+    }
+  }
+}

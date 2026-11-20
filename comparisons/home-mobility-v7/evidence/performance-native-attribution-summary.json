@@ -1,0 +1,759 @@
+[
+  {
+    "arm": "v5",
+    "frame": {
+      "elapsedMs": 16100,
+      "clock": 9.619999999999985,
+      "moves": 3,
+      "distance": 35.456824063954784,
+      "frames": 17,
+      "hz": 1.0559006211180124,
+      "p95": 4472,
+      "p99": 4472,
+      "max": 4472,
+      "over500": 7,
+      "over1000": 4,
+      "pausedMs": 0,
+      "retained": true
+    },
+    "visible": [
+      null,
+      null
+    ],
+    "gaps": [
+      {
+        "range": [
+          509,
+          2380
+        ],
+        "duration": 1871,
+        "worker": {
+          "inside": 84,
+          "largestOverlappingGap": 77
+        },
+        "mainTimer": {
+          "inside": 36,
+          "largestOverlappingGap": 536
+        },
+        "phaseMs": {
+          "requestAnimationFrame apply schedule@http://127.0.0.1:8377/game/home-production-touch-finish.js:553:79": 439,
+          "actorBounds": 16,
+          "step": 392,
+          "route": 266,
+          "move": 315,
+          "nature": 15,
+          "world": 15,
+          "paintForeground": 19,
+          "paint": 37,
+          "requestAnimationFrame frame": 446
+        },
+        "osRangeErrorMs": 22.1,
+        "process": {
+          "MiniBrowser": {
+            "cpuMs": 0,
+            "mainCpuMs": 1.8,
+            "mainRunnableWaitMs": 23.3
+          },
+          "WPENetworkProcess": {
+            "cpuMs": 0,
+            "mainCpuMs": 0.2,
+            "mainRunnableWaitMs": 0.0
+          },
+          "WPEWebProcess": {
+            "cpuMs": 710,
+            "mainCpuMs": 273.4,
+            "mainRunnableWaitMs": 777.7
+          }
+        },
+        "webThreadCpuMs": {
+          "main": 273.4,
+          "other": 36.9,
+          "compositor": 81.2,
+          "raster": 258.1,
+          "jit": 57.2,
+          "gc": 3.4
+        },
+        "cgroupThrottlePeriods": 19,
+        "cgroupThrottledMs": 1270.9
+      },
+      {
+        "range": [
+          2380,
+          3622
+        ],
+        "duration": 1242,
+        "worker": {
+          "inside": 52,
+          "largestOverlappingGap": 44
+        },
+        "mainTimer": {
+          "inside": 19,
+          "largestOverlappingGap": 657
+        },
+        "phaseMs": {
+          "sync": 40,
+          "setTimeout anonymous": 162,
+          "move": 366,
+          "step": 396,
+          "route": 272,
+          "world": 19,
+          "paintForeground": 50,
+          "paint": 108,
+          "requestAnimationFrame frame": 523
+        },
+        "osRangeErrorMs": 31.2,
+        "process": {
+          "MiniBrowser": {
+            "cpuMs": 10,
+            "mainCpuMs": 2.3,
+            "mainRunnableWaitMs": 24.9
+          },
+          "WPENetworkProcess": {
+            "cpuMs": 0,
+            "mainCpuMs": 0.0,
+            "mainRunnableWaitMs": 0.0
+          },
+          "WPEWebProcess": {
+            "cpuMs": 410,
+            "mainCpuMs": 169.2,
+            "mainRunnableWaitMs": 672.0
+          }
+        },
+        "webThreadCpuMs": {
+          "main": 169.2,
+          "other": 10.5,
+          "compositor": 100.7,
+          "raster": 91.2,
+          "jit": 36.0,
+          "gc": 0.0
+        },
+        "cgroupThrottlePeriods": 12,
+        "cgroupThrottledMs": 1036.7
+      },
+      {
+        "range": [
+          3622,
+          8094
+        ],
+        "duration": 4472,
+        "worker": {
+          "inside": 152,
+          "largestOverlappingGap": 270
+        },
+        "mainTimer": {
+          "inside": 106,
+          "largestOverlappingGap": 1729
+        },
+        "phaseMs": {
+          "sync": 417,
+          "setInterval loop": 607,
+          "setInterval anonymous": 38,
+          "setTimeout anonymous": 30,
+          "paint": 147,
+          "step": 1,
+          "actorBounds": 78,
+          "nature": 16,
+          "world": 53,
+          "requestAnimationFrame frame": 119
+        },
+        "osRangeErrorMs": 31.2,
+        "process": {
+          "MiniBrowser": {
+            "cpuMs": 20,
+            "mainCpuMs": 2.8,
+            "mainRunnableWaitMs": 11.6
+          },
+          "WPENetworkProcess": {
+            "cpuMs": 0,
+            "mainCpuMs": 0.0,
+            "mainRunnableWaitMs": 0.0
+          },
+          "WPEWebProcess": {
+            "cpuMs": 1850,
+            "mainCpuMs": 242.3,
+            "mainRunnableWaitMs": 1760.3
+          }
+        },
+        "webThreadCpuMs": {
+          "main": 238.0,
+          "other": 91.1,
+          "compositor": 1313.8,
+          "raster": 126.2,
+          "jit": 67.6,
+          "gc": 4.3
+        },
+        "cgroupThrottlePeriods": 44,
+        "cgroupThrottledMs": 4164.1
+      },
+      {
+        "range": [
+          8094,
+          11079
+        ],
+        "duration": 2985,
+        "worker": {
+          "inside": 107,
+          "largestOverlappingGap": 139
+        },
+        "mainTimer": {
+          "inside": 49,
+          "largestOverlappingGap": 1729
+        },
+        "phaseMs": {
+          "requestAnimationFrame apply schedule@http://127.0.0.1:8377/game/home-production-touch-finish.js:553:79": 1212,
+          "sync": 46,
+          "setInterval loop": 96,
+          "step": 1,
+          "world": 28,
+          "requestAnimationFrame frame": 31
+        },
+        "osRangeErrorMs": 17.8,
+        "process": {
+          "MiniBrowser": {
+            "cpuMs": 10,
+            "mainCpuMs": 2.6,
+            "mainRunnableWaitMs": 7.0
+          },
+          "WPENetworkProcess": {
+            "cpuMs": 0,
+            "mainCpuMs": 0.0,
+            "mainRunnableWaitMs": 0.0
+          },
+          "WPEWebProcess": {
+            "cpuMs": 1110,
+            "mainCpuMs": 521.3,
+            "mainRunnableWaitMs": 1362.3
+          }
+        },
+        "webThreadCpuMs": {
+          "main": 525.6,
+          "other": 101.2,
+          "compositor": 167.9,
+          "raster": 302.2,
+          "jit": 19.9,
+          "gc": 0.0
+        },
+        "cgroupThrottlePeriods": 30,
+        "cgroupThrottledMs": 2669.6
+      },
+      {
+        "range": [
+          11079,
+          11936
+        ],
+        "duration": 857,
+        "worker": {
+          "inside": 35,
+          "largestOverlappingGap": 47
+        },
+        "mainTimer": {
+          "inside": 31,
+          "largestOverlappingGap": 111
+        },
+        "phaseMs": {},
+        "osRangeErrorMs": 14.4,
+        "process": {
+          "MiniBrowser": {
+            "cpuMs": 0,
+            "mainCpuMs": 0.2,
+            "mainRunnableWaitMs": 4.1
+          },
+          "WPENetworkProcess": {
+            "cpuMs": 0,
+            "mainCpuMs": 0.0,
+            "mainRunnableWaitMs": 0.0
+          },
+          "WPEWebProcess": {
+            "cpuMs": 330,
+            "mainCpuMs": 21.9,
+            "mainRunnableWaitMs": 125.7
+          }
+        },
+        "webThreadCpuMs": {
+          "main": 21.9,
+          "other": 7.0,
+          "compositor": 126.4,
+          "raster": 175.9,
+          "jit": 1.1,
+          "gc": 0.0
+        },
+        "cgroupThrottlePeriods": 8,
+        "cgroupThrottledMs": 743.8
+      },
+      {
+        "range": [
+          11936,
+          12592
+        ],
+        "duration": 656,
+        "worker": {
+          "inside": 25,
+          "largestOverlappingGap": 45
+        },
+        "mainTimer": {
+          "inside": 19,
+          "largestOverlappingGap": 111
+        },
+        "phaseMs": {
+          "world": 39,
+          "paint": 16,
+          "requestAnimationFrame frame": 56
+        },
+        "osRangeErrorMs": 17.2,
+        "process": {
+          "MiniBrowser": {
+            "cpuMs": 0,
+            "mainCpuMs": 4.4,
+            "mainRunnableWaitMs": 25.6
+          },
+          "WPENetworkProcess": {
+            "cpuMs": 0,
+            "mainCpuMs": 0.0,
+            "mainRunnableWaitMs": 0.0
+          },
+          "WPEWebProcess": {
+            "cpuMs": 290,
+            "mainCpuMs": 27.0,
+            "mainRunnableWaitMs": 136.7
+          }
+        },
+        "webThreadCpuMs": {
+          "main": 26.3,
+          "other": 4.2,
+          "compositor": 75.2,
+          "raster": 174.8,
+          "jit": 2.9,
+          "gc": 0.0
+        },
+        "cgroupThrottlePeriods": 7,
+        "cgroupThrottledMs": 611.7
+      },
+      {
+        "range": [
+          12883,
+          13783
+        ],
+        "duration": 900,
+        "worker": {
+          "inside": 36,
+          "largestOverlappingGap": 67
+        },
+        "mainTimer": {
+          "inside": 32,
+          "largestOverlappingGap": 88
+        },
+        "phaseMs": {
+          "world": 30,
+          "requestAnimationFrame frame": 40
+        },
+        "osRangeErrorMs": 7.6,
+        "process": {
+          "MiniBrowser": {
+            "cpuMs": 10,
+            "mainCpuMs": 1.3,
+            "mainRunnableWaitMs": 2.5
+          },
+          "WPENetworkProcess": {
+            "cpuMs": 0,
+            "mainCpuMs": 0.0,
+            "mainRunnableWaitMs": 0.0
+          },
+          "WPEWebProcess": {
+            "cpuMs": 330,
+            "mainCpuMs": 32.1,
+            "mainRunnableWaitMs": 145.3
+          }
+        },
+        "webThreadCpuMs": {
+          "main": 31.5,
+          "other": 9.7,
+          "compositor": 60.6,
+          "raster": 215.3,
+          "jit": 7.6,
+          "gc": 0.0
+        },
+        "cgroupThrottlePeriods": 9,
+        "cgroupThrottledMs": 803.2
+      }
+    ]
+  },
+  {
+    "arm": "v6",
+    "frame": {
+      "elapsedMs": 20003,
+      "clock": 2.0000000000000004,
+      "moves": 2,
+      "distance": 16.80000000000002,
+      "frames": 2,
+      "hz": 0.09998500224966254,
+      "p95": 17017,
+      "p99": 17017,
+      "max": 17017,
+      "over500": 2,
+      "over1000": 2,
+      "pausedMs": 0,
+      "retained": true
+    },
+    "visible": [
+      28,
+      28
+    ],
+    "gaps": [
+      {
+        "range": [
+          0,
+          2986
+        ],
+        "duration": 2986,
+        "worker": {
+          "inside": 99,
+          "largestOverlappingGap": 155.0
+        },
+        "mainTimer": {
+          "inside": 50,
+          "largestOverlappingGap": 2084
+        },
+        "phaseMs": {
+          "paintForeground": 277,
+          "paint": 381,
+          "sync": 89,
+          "step": 31,
+          "setInterval loop": 268,
+          "world": 20,
+          "requestAnimationFrame frame": 150
+        },
+        "osRangeErrorMs": 905.1,
+        "process": {
+          "MiniBrowser": {
+            "cpuMs": 10,
+            "mainCpuMs": 3.5,
+            "mainRunnableWaitMs": 5.8
+          },
+          "WPENetworkProcess": {
+            "cpuMs": 0,
+            "mainCpuMs": 0.0,
+            "mainRunnableWaitMs": 0.0
+          },
+          "WPEWebProcess": {
+            "cpuMs": 280,
+            "mainCpuMs": 61.0,
+            "mainRunnableWaitMs": 997.8
+          }
+        },
+        "webThreadCpuMs": {
+          "main": 61.0,
+          "other": 21.3,
+          "compositor": 49.3,
+          "raster": 138.0,
+          "jit": 15.0,
+          "gc": 0.0
+        },
+        "cgroupThrottlePeriods": 21,
+        "cgroupThrottledMs": 2165.5
+      },
+      {
+        "range": [
+          2986,
+          20003
+        ],
+        "duration": 17017,
+        "worker": {
+          "inside": 514,
+          "largestOverlappingGap": 288.0
+        },
+        "mainTimer": {
+          "inside": 242,
+          "largestOverlappingGap": 2084
+        },
+        "phaseMs": {
+          "requestAnimationFrame apply schedule@http://127.0.0.1:8377/game/home-production-touch-finish.js:553:79": 1182,
+          "setTimeout anonymous": 1014,
+          "sync": 560,
+          "paintForeground": 468,
+          "paint": 794,
+          "setInterval loop": 1714,
+          "actorBounds": 171,
+          "setInterval anonymous": 147,
+          "step": 1236,
+          "route": 832,
+          "move": 1113,
+          "nature": 30,
+          "world": 31,
+          "requestAnimationFrame frame": 1838,
+          "requestAnimationFrame anonymous": 28
+        },
+        "osRangeErrorMs": 101.2,
+        "process": {
+          "MiniBrowser": {
+            "cpuMs": 110,
+            "mainCpuMs": 15.7,
+            "mainRunnableWaitMs": 218.9
+          },
+          "WPENetworkProcess": {
+            "cpuMs": 10,
+            "mainCpuMs": 0.4,
+            "mainRunnableWaitMs": 34.1
+          },
+          "WPEWebProcess": {
+            "cpuMs": 3340,
+            "mainCpuMs": 961.0,
+            "mainRunnableWaitMs": 10942.9
+          }
+        },
+        "webThreadCpuMs": {
+          "main": 960.9,
+          "other": 314.0,
+          "compositor": 1348.0,
+          "raster": 539.6,
+          "jit": 156.6
+        },
+        "cgroupThrottlePeriods": 170,
+        "cgroupThrottledMs": 16452.7
+      }
+    ]
+  },
+  {
+    "arm": "v7",
+    "frame": {
+      "elapsedMs": 23142,
+      "clock": 4.999999999999998,
+      "moves": 3,
+      "distance": 53.39983999587286,
+      "frames": 5,
+      "hz": 0.21605738484141387,
+      "p95": 8830,
+      "p99": 8830,
+      "max": 8830,
+      "over500": 4,
+      "over1000": 4,
+      "pausedMs": 0,
+      "retained": true
+    },
+    "visible": [
+      28,
+      28
+    ],
+    "gaps": [
+      {
+        "range": [
+          212,
+          3524
+        ],
+        "duration": 3312,
+        "worker": {
+          "inside": 118,
+          "largestOverlappingGap": 183.0
+        },
+        "mainTimer": {
+          "inside": 74,
+          "largestOverlappingGap": 1426
+        },
+        "phaseMs": {
+          "setTimeout anonymous": 53,
+          "paint": 193,
+          "sync": 85,
+          "setInterval loop": 157,
+          "step": 410,
+          "route": 330,
+          "move": 381,
+          "paintForeground": 81,
+          "requestAnimationFrame frame": 590
+        },
+        "osRangeErrorMs": 29.1,
+        "process": {
+          "MiniBrowser": {
+            "cpuMs": 10,
+            "mainCpuMs": 4.8,
+            "mainRunnableWaitMs": 16.1
+          },
+          "WPENetworkProcess": {
+            "cpuMs": 0,
+            "mainCpuMs": 0.0,
+            "mainRunnableWaitMs": 0.0
+          },
+          "WPEWebProcess": {
+            "cpuMs": 860,
+            "mainCpuMs": 183.0,
+            "mainRunnableWaitMs": 1440.5
+          }
+        },
+        "webThreadCpuMs": {
+          "main": 183.0,
+          "other": 124.8,
+          "compositor": 106.8,
+          "raster": 319.3,
+          "jit": 116.2,
+          "gc": 0.0
+        },
+        "cgroupThrottlePeriods": 33,
+        "cgroupThrottledMs": 3220.8
+      },
+      {
+        "range": [
+          3524,
+          9025
+        ],
+        "duration": 5501,
+        "worker": {
+          "inside": 206,
+          "largestOverlappingGap": 91.0
+        },
+        "mainTimer": {
+          "inside": 100,
+          "largestOverlappingGap": 1960
+        },
+        "phaseMs": {
+          "requestAnimationFrame apply schedule@http://127.0.0.1:8377/game/home-production-touch-mobility-v7.js:553:79": 621,
+          "sync": 141,
+          "step": 8,
+          "setTimeout anonymous": 490,
+          "setInterval loop": 540,
+          "paintForeground": 12,
+          "paint": 80,
+          "nature": 26,
+          "world": 27,
+          "requestAnimationFrame frame": 83
+        },
+        "osRangeErrorMs": 22.5,
+        "process": {
+          "MiniBrowser": {
+            "cpuMs": 40,
+            "mainCpuMs": 3.5,
+            "mainRunnableWaitMs": 23.4
+          },
+          "WPENetworkProcess": {
+            "cpuMs": 0,
+            "mainCpuMs": 0.2,
+            "mainRunnableWaitMs": 0.5
+          },
+          "WPEWebProcess": {
+            "cpuMs": 1500,
+            "mainCpuMs": 420.9,
+            "mainRunnableWaitMs": 2701.7
+          }
+        },
+        "webThreadCpuMs": {
+          "main": 420.9,
+          "other": 129.6,
+          "compositor": 178.9,
+          "raster": 691.8,
+          "jit": 70.6,
+          "gc": 14.7
+        },
+        "cgroupThrottlePeriods": 54,
+        "cgroupThrottledMs": 5202.3
+      },
+      {
+        "range": [
+          9025,
+          14312
+        ],
+        "duration": 5287,
+        "worker": {
+          "inside": 154,
+          "largestOverlappingGap": 550.0
+        },
+        "mainTimer": {
+          "inside": 42,
+          "largestOverlappingGap": 4061
+        },
+        "phaseMs": {
+          "paint": 88,
+          "requestAnimationFrame apply schedule@http://127.0.0.1:8377/game/home-production-touch-mobility-v7.js:553:79": 1353,
+          "actorBounds": 30,
+          "sync": 220,
+          "setInterval loop": 2182,
+          "step": 14,
+          "nature": 152,
+          "world": 163,
+          "requestAnimationFrame frame": 217
+        },
+        "osRangeErrorMs": 35.5,
+        "process": {
+          "MiniBrowser": {
+            "cpuMs": 280,
+            "mainCpuMs": 11.3,
+            "mainRunnableWaitMs": 38.6
+          },
+          "WPENetworkProcess": {
+            "cpuMs": 0,
+            "mainCpuMs": 0.0,
+            "mainRunnableWaitMs": 0.0
+          },
+          "WPEWebProcess": {
+            "cpuMs": 2060,
+            "mainCpuMs": 784.0,
+            "mainRunnableWaitMs": 3697.2
+          }
+        },
+        "webThreadCpuMs": {
+          "main": 784.0,
+          "other": 311.6,
+          "compositor": 320.0,
+          "raster": 579.0,
+          "jit": 66.2,
+          "gc": 0.0
+        },
+        "cgroupThrottlePeriods": 52,
+        "cgroupThrottledMs": 4458.2
+      },
+      {
+        "range": [
+          14312,
+          23142
+        ],
+        "duration": 8830,
+        "worker": {
+          "inside": 320,
+          "largestOverlappingGap": 105.0
+        },
+        "mainTimer": {
+          "inside": 77,
+          "largestOverlappingGap": 4061
+        },
+        "phaseMs": {
+          "requestAnimationFrame apply schedule@http://127.0.0.1:8377/game/home-production-touch-mobility-v7.js:553:79": 2914,
+          "actorBounds": 147,
+          "paint": 479,
+          "sync": 836,
+          "setInterval loop": 1038,
+          "paintForeground": 127,
+          "setTimeout anonymous": 156,
+          "route": 667,
+          "move": 679,
+          "step": 730,
+          "nature": 92,
+          "world": 181,
+          "requestAnimationFrame frame": 1056
+        },
+        "osRangeErrorMs": 35.5,
+        "process": {
+          "MiniBrowser": {
+            "cpuMs": 210,
+            "mainCpuMs": 9.7,
+            "mainRunnableWaitMs": 28.7
+          },
+          "WPENetworkProcess": {
+            "cpuMs": 0,
+            "mainCpuMs": 0.0,
+            "mainRunnableWaitMs": 0.0
+          },
+          "WPEWebProcess": {
+            "cpuMs": 2190,
+            "mainCpuMs": 1099.0,
+            "mainRunnableWaitMs": 6070.4
+          }
+        },
+        "webThreadCpuMs": {
+          "main": 1099.0,
+          "other": 234.1,
+          "compositor": 212.2,
+          "raster": 527.6,
+          "jit": 108.7
+        },
+        "cgroupThrottlePeriods": 86,
+        "cgroupThrottledMs": 8285.6
+      }
+    ]
+  }
+]

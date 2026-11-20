@@ -1,0 +1,28 @@
+{
+  "base": "5db9835478eafe526271c6864e0c86ded6324172",
+  "originalFiles": 3948,
+  "originalDigest": "387767cc468cb804710f15b74c37f64b7ad0706e7e16977c8f3f6f3d57138816",
+  "addedFiles": {
+    "game/home-production-world-mobility.mjs": "ca37d01dafadc67e43df1c87dfd923ac98f7910a9b21ab145d3d1670308579fc",
+    "game/telemetry.js": "1a2c50c9288439e9cfb57cd4d3c2422683aae8aa7ba1b6ec52e285eaa364ba89",
+    "game/home-production-model-mobility-v5.js": "ed42980a1c5374768b8a2c3144ccb53b8284f51b90a4b3f68545bb5cc1e49320",
+    "game/home-production-diorama-mobility-v5.js": "e8d271e814764dca702c84c2ad228b0ca12fd79e65f365dc7b6e8453dda9c7fe",
+    "game/script-v2-mobility-v5.js": "7748355390239c8cb7924ac51161394399accb467489a582f069167ff0d2e731",
+    "game/mobility-v5.html": "d40bb521ddea19b33a0c1ff5317586182946431955af4caff5554b9301827391",
+    "game/home-production-model-mobility-v6.js": "3569c5e81fc3cd3f22a761c1b3c7d2722861fc27a6f5e7fc71b2713fa2bcb1cc",
+    "game/home-production-diorama-mobility-v6.js": "d18d785dee092a3674751056f4464eef31e344a5802d154263992ebe0f3c4a08",
+    "game/script-v2-mobility-v6.js": "4d0d425c41a89f0241e92b18c0270534dbdb36d09b5507d8bce0ebfd6cd9bc02",
+    "game/mobility-v6.html": "aebc94c7096ed7b9dffedd24d356ab27e83d23e530544aeccd2d11cf20b6e2fe",
+    "game/home-production-model-mobility-v7.js": "dd0789888f19c57f1a88b05e144c98d82a77b57b7d04dd18e55e84dcd8ea4baf",
+    "game/home-production-diorama-mobility-v7.js": "e99836b3e34986f38e7742e8c5df4f1283e99987fd0d736e9b3bfacc00345d0e",
+    "game/script-v2-mobility-v7.js": "4d0d425c41a89f0241e92b18c0270534dbdb36d09b5507d8bce0ebfd6cd9bc02",
+    "game/home-production-touch-mobility-v7.js": "9985323abfc93ecb062338405944c1caaadd4e739818afd909ad7d8cfda44819",
+    "game/mobility-v7.html": "f217233b114fc12e474ecb161f39e8b652f93cbe0ad2d3529f77ed70681ced7a",
+    "v7/index.html": "1a8a507f2d9f95ff9754757e814ed0f6affaf47fae3bf20fc88c13709d78aba2",
+    "v7/style.css": "d0dffb5d513f9e8dc38ebc336e3388a3a928ea7bf7ec4744fef492c90dc0d427",
+    "v7/controls.mjs": "9c492d90a68d17360da554ebe25d04f45b1cf3bee77d817157b524c9a25401ec",
+    "v7/shell-model.mjs": "e42e2b044b9174ebab9130f9c9640f09b0693ddd8ecfac1944c85522b361b2b2",
+    "v7/diagnostics.mjs": "b3dd1f401fd6cab109bb681165605d0bbd2203f4b7ee07158006a2ce969455eb"
+  },
+  "completeDigest": "c943da8849e9903ce4ab691e8d0d665a0c18c27efecd7cb0d4c9d13e76ff19ab"
+}
