@@ -1,0 +1,19 @@
+{
+  "reference": "a0df9061c26dde237158ba3423dd4732ca8bec42",
+  "originalFilesUnchanged": 3938,
+  "originalTreeSha256": "f6890f54972be66698b9ac5d53938969333d71cc7e3eacc1c018c43539329c7d",
+  "candidateTreeSha256": "387767cc468cb804710f15b74c37f64b7ad0706e7e16977c8f3f6f3d57138816",
+  "newFiles": {
+    "game/drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6",
+    "game/drag-v5.html": "1dca17d4884d1d7472c9f505ac49ced7a01be19e2d7f600a21cf7d6ff5d17276",
+    "game/home-production-model-drag-v6.js": "115c2a98a532a797c7a791c061d11b6c065292ca5f717e668f4de4ad95344454",
+    "game/home-production-diorama-drag-v6.js": "b724d782d97c6d07f7482531fd57fa6e0bbd5834410dcbcd48d73f41e5143ffd",
+    "game/script-v2-drag-v6.js": "4015923114645a1d7c0491bc680ed588723a2741a070673d6e9c103f7fea2443",
+    "game/drag-v6.html": "1115f4d3be48358c1c8b883c4c1c3b8f73dce86604cb118230d38b001f0a601b",
+    "v6/index.html": "ccc175401c8052c6323e8ce97d5918ad2b0d8ed8bdee5a53c389c96f6b745f06",
+    "v6/controls.mjs": "014c5fdafdfdd95e267098f27a877f26330766a14f65892c5c4c6ee8e867237f",
+    "v6/shell-model.mjs": "aa44dee487ce19871bd46577af3ca864de350f900715215c430139dafdd1a7e3",
+    "v6/style.css": "6b4100577e0bad809d04f252b098c6c015f82755366643fd03621a71d3e99064"
+  },
+  "htmlDiffersOnlyInThreeNativeScripts": true
+}

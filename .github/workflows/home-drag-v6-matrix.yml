@@ -1,0 +1,85 @@
+name: Home drag V6 paired touch matrix
+on:
+  push:
+    branches: [draft/home-drag-finish-v6]
+    paths:
+      - 'comparisons/home-drag-v6/native/**'
+      - 'comparisons/home-drag-v6/build.cjs'
+      - 'comparisons/home-drag-v6/native-source.cjs'
+      - 'comparisons/home-drag-v6/trial-hooks.js'
+      - 'comparisons/home-drag-v6/measure_input.py'
+      - 'comparisons/home-drag-v6/input_probe.js'
+      - 'comparisons/home-drag-v6/reaction_input.py'
+      - 'comparisons/home-drag-v6/gate_probe.js'
+      - 'comparisons/home-drag-v6/matrix_run.py'
+      - 'comparisons/home-drag-v6/matrix_contract.py'
+      - '.github/workflows/home-drag-v6-matrix.yml'
+concurrency:
+  group: home-drag-v6-matrix-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  region:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        region: [home, forest, river_lake, city, countryside, mountain, snow, sea, jungle, desert, deepsea, star_stop, memory_lake]
+    env:
+      REGION: ${{ matrix.region }}
+      CHROMIUM_PATH: /usr/bin/google-chrome
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-drag-v6
+            comparisons/home-finish-v5
+      - uses: actions/checkout@v4
+        with:
+          ref: e07d2cc53eca36ff23e02142ab385d6001e0521b
+          path: .cast-reference
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-cast-size-v1
+            comparisons/home-cast-size-v2
+            comparisons/home-cast-size-v3
+            comparisons/home-cast-size-v4
+            tools/work
+      - uses: actions/checkout@v4
+        with:
+          ref: 28628cf336a8ed92efe4e9e197ca03298b798a1e
+          path: .leaf-reference
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build both isolated game entries from the pinned owner distribution
+        run: |
+          node .cast-reference/comparisons/home-cast-size-v1/build.cjs "$RUNNER_TEMP/v1" --reference-checkout .leaf-reference
+          node .cast-reference/comparisons/home-cast-size-v2/build.cjs "$RUNNER_TEMP/v2" --baseline "$RUNNER_TEMP/v1"
+          node .cast-reference/comparisons/home-cast-size-v3/build.cjs "$RUNNER_TEMP/v3" --baseline "$RUNNER_TEMP/v2"
+          node .cast-reference/comparisons/home-cast-size-v4/build.cjs "$RUNNER_TEMP/v4" --baseline "$RUNNER_TEMP/v3"
+          node comparisons/home-finish-v5/build.cjs "$RUNNER_TEMP/v5" --baseline "$RUNNER_TEMP/v4"
+          node comparisons/home-drag-v6/build.cjs "$RUNNER_TEMP/drag" --baseline "$RUNNER_TEMP/v5"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Perform real paired touchscreen gestures in each household and viewport
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.62.0
+          python -m http.server 8366 --bind 127.0.0.1 --directory "$RUNNER_TEMP/drag" > "$RUNNER_TEMP/drag-http.log" 2>&1 &
+          server=$!
+          trap 'kill "$server"' EXIT
+          python -B comparisons/home-drag-v6/matrix_run.py --url http://127.0.0.1:8366 --region "$REGION" --out "$RUNNER_TEMP/drag-evidence/$REGION"
+      - name: Retain only numerical observations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: drag-matrix-${{ matrix.region }}
+          path: ${{ runner.temp }}/drag-evidence/${{ matrix.region }}
+          retention-days: 14
+          if-no-files-found: error

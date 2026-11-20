@@ -1,0 +1,14 @@
+#panel > label { display: block; color: var(--forest); font-size: .91rem; font-weight: 650; }
+#toolbar-count { font-size: .8rem; }
+.feedback { pointer-events: none; }
+.feedback #retry { pointer-events: auto; }
+@media (max-width:739px), (max-height:500px) and (max-width:940px) {
+  .tools { display: grid; grid-template-columns: minmax(88px,1fr) auto auto auto; gap: 4px; }
+  .presets { display: grid; grid-template-columns: 1fr 1fr; }
+  .tools button { padding-inline: .45rem; }
+  .presets button { padding-inline: 0; }
+  select { font-size: 1rem; }
+}
+
+.frame-wrap { position: relative; }
+body[data-ready="false"] .frame-wrap::after { content: ""; position: absolute; inset: 0; background: #23392f; }

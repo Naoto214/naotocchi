@@ -1,0 +1,121 @@
+{
+  "siteVersion": 11,
+  "siteSourceCommit": "c99323f131484639e138eb597161052f21bc18ec",
+  "gameRuntimeCommit": "762c68d0ed7ef5ed2dc1317ef0c86f0123a2895f",
+  "access": {
+    "roles": [
+      "owner"
+    ],
+    "groups": 0,
+    "external": 0,
+    "accessMode": "custom",
+    "role": "owner"
+  },
+  "inventory": {
+    "allV5SitePathsAtOriginalBytes": 4137,
+    "gameDistributionFilesMatched": 3948
+  },
+  "privateEvidenceFiles": 43,
+  "origin": "https://naotocchi-cast-size.kerzion214.chatgpt.site",
+  "endpoints": {
+    "v6/index.html": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "ccc175401c8052c6323e8ce97d5918ad2b0d8ed8bdee5a53c389c96f6b745f06"
+    },
+    "v6/shell-model.mjs": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "aa44dee487ce19871bd46577af3ca864de350f900715215c430139dafdd1a7e3"
+    },
+    "v6/controls.mjs": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "014c5fdafdfdd95e267098f27a877f26330766a14f65892c5c4c6ee8e867237f"
+    },
+    "v6/style.css": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "6b4100577e0bad809d04f252b098c6c015f82755366643fd03621a71d3e99064"
+    },
+    "game/drag-v5.html": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "1dca17d4884d1d7472c9f505ac49ced7a01be19e2d7f600a21cf7d6ff5d17276"
+    },
+    "game/drag-v6.html": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "1115f4d3be48358c1c8b883c4c1c3b8f73dce86604cb118230d38b001f0a601b"
+    },
+    "game/drag-trial-hooks.js": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6"
+    },
+    "game/home-production-model-drag-v6.js": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "115c2a98a532a797c7a791c061d11b6c065292ca5f717e668f4de4ad95344454"
+    },
+    "game/home-production-diorama-drag-v6.js": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "b724d782d97c6d07f7482531fd57fa6e0bbd5834410dcbcd48d73f41e5143ffd"
+    },
+    "game/script-v2-drag-v6.js": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "4015923114645a1d7c0491bc680ed588723a2741a070673d6e9c103f7fea2443"
+    },
+    "v5/index.html": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "b23ec46a6207a774131b76a4f17bbb87b00c23da8cfdb973b83a91e87d12110d"
+    },
+    "game/finish.html": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "a7f3a0f6b449f98da9d2f04bc52a37fc0eb5ed13810fe827af2e557bdc73a013"
+    },
+    "evidence/v6/input/chromium/forest-28-390-forest.json": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "26bd6bda803f3735463a16a52add1341bc55856e581ed6dd6c946b60cd739da7"
+    },
+    "evidence/v6/input/webkit/river_lake-28-390-region.json": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "f38f67850b97b7e670f0e499e2094af481c447896c79c2250160197d6479605f"
+    },
+    "evidence/v6/matrix/drag-matrix-44693837385-forest.zip": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "33a05a3d74cedcd5c8da2bd7ae8523f687c3abdb3ef111a3968ca293ab282833"
+    }
+  },
+  "ui": {
+    "browser": "156.0.8078.79",
+    "width": 390,
+    "height": 844,
+    "region": "forest",
+    "count": 28,
+    "size": "B",
+    "roles": [
+      138,
+      138,
+      120.75
+    ],
+    "same28FeetAssetsAndSizesOnArmsAndRestart": true,
+    "sameDayCanvasSHA256": "cbf05f106e1ae4575f7b18f6b4b26e9b8960cce660983cb01f5d0e090e6a7376",
+    "shadows": 28,
+    "ground": true,
+    "residentWalked": true,
+    "options": [
+      13,
+      4,
+      28
+    ],
+    "errors": []
+  }
+}

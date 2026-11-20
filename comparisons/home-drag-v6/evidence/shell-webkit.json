@@ -1,0 +1,260 @@
+{
+  "engine": "webkit",
+  "version": "26.5",
+  "ownerViewport": [
+    390,
+    844
+  ],
+  "toolbar": [
+    {
+      "id": "v5",
+      "width": 86.75,
+      "height": 44,
+      "visible": true
+    },
+    {
+      "id": "v6",
+      "width": 86.75,
+      "height": 44,
+      "visible": true
+    },
+    {
+      "id": "restart",
+      "width": 72.703125,
+      "height": 44,
+      "visible": true
+    },
+    {
+      "id": "freeze",
+      "width": 44.546875,
+      "height": 44,
+      "visible": true
+    },
+    {
+      "id": "settings-toggle",
+      "width": 73.25,
+      "height": 44,
+      "visible": true
+    }
+  ],
+  "nativeScripts": {
+    "v5": [
+      "population-beauty.js",
+      "beauty/fixture.js",
+      "home-production-model-finish.js?v=d1a8706b7339",
+      "drag-trial-hooks.js?v=86a657ad0f2d",
+      "home-production-diorama-finish.js?v=2631bb91fe16",
+      "script-v2.js?v=20261114-ebb7bae6"
+    ],
+    "v6": [
+      "population-beauty.js",
+      "beauty/fixture.js",
+      "home-production-model-drag-v6.js?v=115c2a98a532",
+      "drag-trial-hooks.js?v=86a657ad0f2d",
+      "home-production-diorama-drag-v6.js?v=b724d782d97c",
+      "script-v2-drag-v6.js?v=401592311464"
+    ]
+  },
+  "randomSources": {
+    "beauty/fixture.js": {
+      "seed": 214,
+      "sha256": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a"
+    },
+    "population-beauty.js": {
+      "seed": 214,
+      "sha256": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a"
+    }
+  },
+  "pairedOpening": {
+    "opening": {
+      "region": "forest",
+      "time": "day",
+      "season": "autumn",
+      "weather": "sunny",
+      "variant": "B",
+      "clock": 0,
+      "width": 390,
+      "height": 792,
+      "actors": [
+        [
+          "pet:dog",
+          "assets/characters/dog/06.png",
+          193.32000000000002,
+          283.3400000000001,
+          52.0457142857143,
+          60.72000000000001
+        ],
+        [
+          "partner:forest_bear",
+          "assets/characters/partners/forest_bear.png",
+          273.87,
+          86.79800000000009,
+          42.93333333333334,
+          44.160000000000004
+        ],
+        [
+          "companion:cat_friend",
+          "assets/characters/companions/cat_friend.png",
+          216.59,
+          135.1280000000001,
+          44.160000000000004,
+          35.98222222222223
+        ],
+        [
+          "companion:tanuki",
+          "assets/characters/companions/tanuki.png",
+          184.37,
+          194.1980000000001,
+          40.01062641509434,
+          43.2768
+        ],
+        [
+          "companion:owl",
+          "assets/characters/companions/owl.png",
+          131.40097863624635,
+          268.7315445745761,
+          31.028649056603776,
+          43.2768
+        ],
+        [
+          "companion:hamster",
+          "assets/characters/companions/hamster.png",
+          227.33,
+          339.1880000000001,
+          41.52824242424242,
+          43.2768
+        ],
+        [
+          "companion:monkey",
+          "assets/characters/companions/monkey.png",
+          173.09960845180143,
+          236.32248041417705,
+          37.63917757009346,
+          42.3936
+        ],
+        [
+          "companion:sheep",
+          "assets/characters/companions/sheep.png",
+          270.3212965027194,
+          131.04983645741171,
+          42.3936,
+          39.64586666666667
+        ],
+        [
+          "companion:bat",
+          "assets/characters/companions/bat.png",
+          99.17617410840202,
+          235.91341628358035,
+          30.153781132075476,
+          41.510400000000004
+        ],
+        [
+          "companion:penguin_friend",
+          "assets/characters/companions/penguin_friend.png",
+          166.09435097937182,
+          161.60128135979636,
+          41.510400000000004,
+          19.245730909090913
+        ],
+        [
+          "companion:shiba",
+          "assets/characters/companions/shiba.png",
+          94.09435097937181,
+          314.3112484489038,
+          41.510400000000004,
+          38.05120000000001
+        ],
+        [
+          "companion:rabbit_friend",
+          "assets/characters/companions/rabbit_friend.png",
+          187.83330113564926,
+          365.1406087051728,
+          32.711111111111116,
+          44.160000000000004
+        ],
+        [
+          "companion:squirrel",
+          "assets/characters/companions/squirrel.png",
+          261.3126497322856,
+          369.7497552048601,
+          38.468266666666665,
+          43.2768
+        ],
+        [
+          "companion:otter",
+          "assets/characters/companions/otter.png",
+          230.54824202606704,
+          100.00266665604221,
+          43.2768,
+          41.703098181818184
+        ],
+        [
+          "companion:panda",
+          "assets/characters/companions/panda.png",
+          93.92517340742177,
+          276.32248041417705,
+          40.852014545454544,
+          42.3936
+        ],
+        [
+          "companion:parrot",
+          "assets/characters/companions/parrot.png",
+          213.2117850552422,
+          172.32248041417705,
+          38.07573333333333,
+          42.3936
+        ],
+        [
+          "companion:seal",
+          "assets/characters/companions/seal.png",
+          142.3212965027194,
+          218.715974017012,
+          42.3936,
+          38.92503272727273
+        ],
+        [
+          "companion:chicken",
+          "assets/characters/companions/chicken.png",
+          309.20548101292695,
+          99.91341628358035,
+          38.05120000000001,
+          41.510400000000004
+        ],
+        [
+          "companion:hedgehog",
+          "assets/characters/companions/hedgehog.png",
+          206.09435097937182,
+          219.71921412870554,
+          41.510400000000004,
+          41.09110303030303
+        ]
+      ]
+    },
+    "canvas": [
+      780,
+      1584
+    ],
+    "canvasSHA256": "5ef3e2b5f9d42e7b96b6962cfc8a94a861c15e9bb1028a225c6d47498896d203",
+    "region": "forest",
+    "time": "day",
+    "count": 19,
+    "policy": "B",
+    "curve": "linear",
+    "ground": true,
+    "leaf": "B",
+    "lighting": "E3plus",
+    "stored": [
+      null,
+      null
+    ]
+  },
+  "restartsMatched": true,
+  "playingClockSeconds": 0.923,
+  "walkingWhenSampled": 0,
+  "regionTimeCountOptions": [
+    13,
+    4,
+    28
+  ],
+  "errors": []
+}

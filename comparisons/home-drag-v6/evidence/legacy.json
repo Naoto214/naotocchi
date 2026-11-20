@@ -1,0 +1,26 @@
+{
+  "sourceHashes": {
+    "home-production-model.js": "115c2a98a532a797c7a791c061d11b6c065292ca5f717e668f4de4ad95344454",
+    "script-v2.js": "4015923114645a1d7c0491bc680ed588723a2741a070673d6e9c103f7fea2443"
+  },
+  "suites": [
+    "tests/home-manual-dialogue-test.cjs",
+    "tests/home-movement-bounds-test.cjs",
+    "tests/home-movement-v2-test.cjs",
+    "tests/home-movement-v3-test.cjs",
+    "tests/home-movement-v4-test.cjs",
+    "tests/home-movement-v5-bounds-test.cjs",
+    "tests/home-movement-v5-ground-test.cjs",
+    "tests/home-movement-v5-routing-test.cjs",
+    "tests/home-production-save-test.cjs",
+    "tests/home-social-approach-test.cjs",
+    "tests/home-terrain-conversation-test.cjs"
+  ],
+  "counts": {
+    "tests": 84,
+    "pass": 84,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  }
+}

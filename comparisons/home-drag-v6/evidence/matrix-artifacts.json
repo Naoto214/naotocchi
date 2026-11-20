@@ -1,0 +1,113 @@
+{
+  "conclusion": "success",
+  "headSha": "762c68d0ed7ef5ed2dc1317ef0c86f0123a2895f",
+  "status": "completed",
+  "url": "https://github.com/Naoto214/naotocchi/actions/runs/44693837385",
+  "runId": 44693837385,
+  "regions": {
+    "countryside": {
+      "jobId": 136145752380,
+      "artifactId": 14610390999,
+      "zipSHA256": "1064ddf227e11e33d2e6494a270d4a9dc4a92f8abf99deb35f79a6fba0742e15",
+      "bytes": 127546,
+      "startedAt": "2026-11-20T07:17:13Z",
+      "completedAt": "2026-11-20T07:21:24Z"
+    },
+    "deepsea": {
+      "jobId": 136145752308,
+      "artifactId": 14610196773,
+      "zipSHA256": "db70bfb3ae51bbe09fdcad3246349a8d7490df4a18240292e33570c00dd52655",
+      "bytes": 125322,
+      "startedAt": "2026-11-20T07:17:13Z",
+      "completedAt": "2026-11-20T07:21:46Z"
+    },
+    "desert": {
+      "jobId": 136145752281,
+      "artifactId": 14610067076,
+      "zipSHA256": "0f687a66b308a144decf6d06c3100c7e5ad23c5bb4d8446a5b141a559cf49b8a",
+      "bytes": 121991,
+      "startedAt": "2026-11-20T07:17:12Z",
+      "completedAt": "2026-11-20T07:21:35Z"
+    },
+    "memory_lake": {
+      "jobId": 136145752237,
+      "artifactId": 14609807384,
+      "zipSHA256": "e2eb4e0eab5d863016a4bf086872a60394c4fa488824978fa8566af8e5d29993",
+      "bytes": 122257,
+      "startedAt": "2026-11-20T07:17:13Z",
+      "completedAt": "2026-11-20T07:21:25Z"
+    },
+    "star_stop": {
+      "jobId": 136145752274,
+      "artifactId": 14609722568,
+      "zipSHA256": "44ade531c171726f59d0435f9914fbdfd359f6f0b57c13b1e4d75603d2353649",
+      "bytes": 121686,
+      "startedAt": "2026-11-20T07:17:12Z",
+      "completedAt": "2026-11-20T07:21:30Z"
+    },
+    "home": {
+      "jobId": 136145752318,
+      "artifactId": 14609612715,
+      "zipSHA256": "86a8329e801c1455fe9a703595bd5f04df9050ea5e57f02d4aedcf3cb5933ab0",
+      "bytes": 120632,
+      "startedAt": "2026-11-20T07:17:12Z",
+      "completedAt": "2026-11-20T07:22:52Z"
+    },
+    "snow": {
+      "jobId": 136145752434,
+      "artifactId": 14609522820,
+      "zipSHA256": "9d654ab6c31fb31064eaf705c00ecec488f6d545935181e190d3e0f888ea2e45",
+      "bytes": 121895,
+      "startedAt": "2026-11-20T07:17:13Z",
+      "completedAt": "2026-11-20T07:21:20Z"
+    },
+    "city": {
+      "jobId": 136145752404,
+      "artifactId": 14609498023,
+      "zipSHA256": "9ce6cd6fee9cfa4b710c2b331d11872870d5dcf7985c5bce74c06ab8e180c827",
+      "bytes": 126745,
+      "startedAt": "2026-11-20T07:17:13Z",
+      "completedAt": "2026-11-20T07:21:38Z"
+    },
+    "forest": {
+      "jobId": 136145752106,
+      "artifactId": 14609419433,
+      "zipSHA256": "33a05a3d74cedcd5c8da2bd7ae8523f687c3abdb3ef111a3968ca293ab282833",
+      "bytes": 131240,
+      "startedAt": "2026-11-20T07:17:13Z",
+      "completedAt": "2026-11-20T07:22:53Z"
+    },
+    "mountain": {
+      "jobId": 136145752375,
+      "artifactId": 14609339536,
+      "zipSHA256": "c0841b347415b9659c6660497b2524b8d9a9765340d970bea0217a249fee807f",
+      "bytes": 124815,
+      "startedAt": "2026-11-20T07:17:13Z",
+      "completedAt": "2026-11-20T07:21:44Z"
+    },
+    "jungle": {
+      "jobId": 136145752350,
+      "artifactId": 14609279704,
+      "zipSHA256": "30b34a0a252a940f252409160c80a5258b6d5bd3505f399edeb744869c6d4315",
+      "bytes": 130559,
+      "startedAt": "2026-11-20T07:17:13Z",
+      "completedAt": "2026-11-20T07:21:34Z"
+    },
+    "river_lake": {
+      "jobId": 136145752329,
+      "artifactId": 14609254734,
+      "zipSHA256": "8de5fb3bead6bb44f53aa74b61a42f16bee3dd13f11c7282d0d2c7c9d96c413d",
+      "bytes": 129434,
+      "startedAt": "2026-11-20T07:17:13Z",
+      "completedAt": "2026-11-20T07:21:55Z"
+    },
+    "sea": {
+      "jobId": 136145752303,
+      "artifactId": 14609209982,
+      "zipSHA256": "63d5d6c13821a1ea1d8725dbbe4b848c1b0fe37733ee37a38362b3fa2024c659",
+      "bytes": 122082,
+      "startedAt": "2026-11-20T07:17:13Z",
+      "completedAt": "2026-11-20T07:21:56Z"
+    }
+  }
+}

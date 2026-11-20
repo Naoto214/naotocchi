@@ -1,0 +1,15 @@
+{
+  "runtimeCommit": "762c68d0ed7ef5ed2dc1317ef0c86f0123a2895f",
+  "testSources": {
+    "shell.test.mjs": "2562e18097063dfa70563415b83803115662af6d283a8142bd5dc21076ce5939",
+    "reaction.test.cjs": "9d2a55c8be9f9a3617d25e65d93c37519df94aa53ea9bf339d495f5ae57e55d5",
+    "model.test.mjs": "fa04000c3a82a05bdd04b88d6b8a99ecfdc4d8e424755649202ba83555124e16"
+  },
+  "counts": {
+    "tests": 26,
+    "pass": 26,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  }
+}

@@ -1,0 +1,172 @@
+--- a/home-production-diorama-finish.js
++++ b/home-production-diorama-finish.js
+@@ -269,2 +269,3 @@
+     let propNodes=[],world=null,worldLoading=false,worldHost=null,activeTime=0,frames=0,frameGaps=[],loadGeneration=0;
++    let waitingDrop=null,refusedDrop=null;
+     const movedHomeElements=[];
+@@ -314,4 +315,32 @@
+     const blocked=()=>pendingResidentPresentation||!enabled||doc.visibilityState==='hidden'||!!flags.paused||isBlocked();
+-    function clearGesture(){if(gesture){try{stage.releasePointerCapture(gesture.pointerId);}catch(_){}gesture=null;}marker.hidden=true;}
+-    function interrupt(){clearGesture();model.cancel();paint();}
++    const hardInputBlock=()=>pendingResidentPresentation||!enabled||doc.visibilityState==='hidden'||!!flags.paused||env.HomeCastTrial.settings.paused||isBlocked(true);
++    function clearGesture(){if(gesture){const id=gesture.pointerId;gesture=null;try{stage.releasePointerCapture(id);}catch(_){}}marker.hidden=true;}
++    function clearInput(){waitingDrop=null;refusedDrop=null;clearGesture();}
++    function interrupt(){clearInput();model.cancel();paint();}
++    function applyHomeBlock(busy){
++      if(busy&&refusedDrop){refusedDrop=null;marker.hidden=true;}
++      if(busy&&(gesture||waitingDrop)&&hardInputBlock())clearInput();
++      if(busy&&gesture?.key&&gesture.trusted)gesture.sawSoft=true;
++      if(busy&&!wasBlocked){
++        if(gesture&&(!gesture.key||!gesture.trusted))clearGesture();
++        model.cancel();paint();
++      }
++      wasBlocked=busy;
++    }
++    function showDropPoint(key,p,actors=model.snapshot()){
++      const a=actors.find(a=>a.key===key);
++      if(!a)return;
++      const b=model.bounds(a);
++      marker.style.left=Math.max(b.left,Math.min(b.right,p.x))+'px';
++      marker.style.top=Math.max(b.top,Math.min(b.bottom,p.y))+'px';marker.hidden=false;
++    }
++    function paintDropMarker(selected,actors){
++      if(refusedDrop&&(env.performance.now()>=refusedDrop.expires||selected?.key!==refusedDrop.key||selected.target||
++        refusedDrop.navigation!==scene.navigation||rows.get(refusedDrop.key)?.owner!==refusedDrop.owner))refusedDrop=null;
++      if(gesture?.drag)return;
++      const fixed=waitingDrop||refusedDrop;
++      if(fixed)showDropPoint(fixed.key,fixed.point,actors);
++      else if(selected?.target){marker.hidden=false;marker.style.left=selected.target.x+'px';marker.style.top=selected.target.y+'px';}
++      else marker.hidden=true;
++    }
+     function clearStage(){const poop=doc.getElementById?.('poopRow');if(poop){delete poop.dataset.groundKey;for(const n of [...poop.children]){n.style.left='';n.style.top='';n.style.visibility='';n.style.scale='';n.style.transformOrigin='';}}for(const k of Object.keys(stage.dataset))if(k.startsWith('diorama')||k.startsWith('world')||k==='livingMetrics')delete stage.dataset[k];}
+@@ -417,3 +446,3 @@
+       }
+-      for(const [key,row]of rows)if(!next.has(key)){restore(row);if(gesture?.key===key)clearGesture();}
++      for(const [key,row]of rows)if(!next.has(key)){restore(row);if(gesture?.key===key||waitingDrop?.key===key||refusedDrop?.key===key)clearInput();}
+       let newbornPoint=null;
+@@ -441,3 +470,3 @@
+       // 320px screens). Wait for that fit, then apply the same safety bounds.
+-      if(presentation&&env.CustomEvent&&(!env.visualViewport||env.visualViewport.scale===1)&&previousEnvelope!==stage.__homeResidentEnvelope){pendingResidentPresentation=true;return;}
++      if(presentation&&env.CustomEvent&&(!env.visualViewport||env.visualViewport.scale===1)&&previousEnvelope!==stage.__homeResidentEnvelope){pendingResidentPresentation=true;if(gesture||waitingDrop||refusedDrop)clearInput();return;}
+       if(presentation&&(doc.body?.dataset.homeDisplayVersion==='18'||doc.body?.dataset.homeDisplayVersion==='17'&&presentation.landscape)&&model.snapshot().some(a=>{const b=model.bounds(a);return a.x<b.left||a.x>b.right||a.y<b.top||a.y>b.bottom;})){
+@@ -679,4 +708,3 @@
+       if(presentation){marker.style.scale=`${bod/sx} ${bod/sy}`;marker.style.transformOrigin='0 0';selectedLabel.style.scale=`${1/sx} ${1/sy}`;selectedLabel.style.transformOrigin='0 0';for(const n of poop?.children||[]){n.style.scale=`${bod/sx} ${bod/sy}`;n.style.transformOrigin='9px 18px';}}else {marker.style.scale='';selectedLabel.style.scale='';for(const n of poop?.children||[])n.style.scale='';}
+-      const selected=chosen;
+-      if(!gesture?.drag&&selected?.target){marker.hidden=false;marker.style.left=selected.target.x+'px';marker.style.top=selected.target.y+'px';}else if(!gesture?.drag)marker.hidden=true;
++      paintDropMarker(chosen,snapshot);
+     }
+@@ -691,4 +719,5 @@
+         const busy=blocked();stage.dataset.dioramaPaused=String(busy);
+-        if(busy&&!wasBlocked)interrupt();wasBlocked=busy;
++        applyHomeBlock(busy);
+         for(let remaining=env.HomeCastTrial.settings.paused?0:dt;remaining>1e-8;remaining-=.1)model.step(Math.min(.1,remaining),{blocked:busy,reducedMotion:!!media?.matches,heldActor:gesture?(gesture.key||model.selected()):null});
++        if(waitingDrop)serviceWaitingDrop();
+         world?.draw(dt,{paused:!isVisible(),reducedMotion:!!media?.matches,tier:flags.tier||0});paint();
+@@ -703,3 +732,3 @@
+       const next=modelAPI.supported(e.region)&&f.available!==false;
+-      if(!next){placeHomeSlots(false);enabled=false;selectedLabel.hidden=true;showGuide();stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();model.sync([],{...e,width:350,height:240,tags:[]});clearStage();art.hidden=true;overlay.hidden=true;hint.hidden=true;return;}
++      if(!next){placeHomeSlots(false);enabled=false;selectedLabel.hidden=true;showGuide();stop();clearWorld();clearInput();for(const row of rows.values())restore(row);rows.clear();model.sync([],{...e,width:350,height:240,tags:[]});clearStage();art.hidden=true;overlay.hidden=true;hint.hidden=true;return;}
+       enabled=true;placeHomeSlots(true);stage.dataset.diorama=e.region;stage.dataset.dioramaReduced=String(!!media?.matches);stage.dataset.dioramaTier=String(f.tier||0);stage.dataset.dioramaTime=e.time;stage.dataset.dioramaWeather=e.weather;
+@@ -707,3 +736,3 @@
+       const r=displayRect(stage);scene=sceneFor(e,r.width,r.height,getProfile(e.region),getWorld(e.region));
+-      const key=JSON.stringify([e.region,r.width,r.height,f.tier]);if(key!==sceneKey){sceneKey=key;art.innerHTML='';clearGesture();}
++      const key=JSON.stringify([e.region,r.width,r.height,f.tier]);if(key!==sceneKey){sceneKey=key;art.innerHTML='';clearInput();}
+       ensureWorld();world?.setEnvironment(e);if(world){scene.navigation=world.navigation(displayRect(stage));scene.visualPoints=world.observationPoints?.(scene.navigation)||[];}scene.visible=visibleAt;scene.planVisibility=planVisibility;scene.actorBounds=actorBounds;scene.referenceBounds=a=>{
+@@ -712,3 +741,3 @@
+       };sync();stage.dataset.dioramaPaused=String(blocked());
+-      if(blocked()&&!wasBlocked){interrupt();wasBlocked=true;}
++      applyHomeBlock(blocked());
+       if(!blocked()&&!env.HomeCastTrial.settings.paused){wasBlocked=false;model.step(0,{blocked:false,reducedMotion:!!media?.matches,heldActor:gesture?(gesture.key||model.selected()):null});}resume();
+@@ -734,13 +763,60 @@
+     }
+-    function down(e){if(!enabled||env.HomeCastTrial.settings.paused)return;if(e.isPrimary===false){clearGesture();return;}if(blocked()||e.button>0||e.target?.closest?.('button,a,input,select,textarea'))return;
+-      const p=point(e),key=hit(p,e.target);if(!key&&!model.selected())return;
+-      gesture={pointerId:e.pointerId,clientX:e.clientX,clientY:e.clientY,key,drag:false};if(key)model.select(key);paint();try{stage.setPointerCapture(e.pointerId);}catch(_){}e.preventDefault();}
++    function down(e){
++      if(waitingDrop||refusedDrop||gesture)clearInput();
++      if(!enabled||env.HomeCastTrial.settings.paused||e.isPrimary===false||e.button>0||e.target?.closest?.('button,a,input,select,textarea'))return;
++      const busy=blocked(),trusted=e.isTrusted===true;
++      if(busy&&(!trusted||hardInputBlock()))return;
++      const p=point(e),key=hit(p,e.target);
++      if(!key&&(busy||!model.selected()))return;
++      gesture={pointerId:e.pointerId,clientX:e.clientX,clientY:e.clientY,key,drag:false,trusted,sawSoft:busy,
++        owner:key&&rows.get(key)?.owner,navigation:scene.navigation};
++      // During a cosmetic reaction a tap keeps its original native behavior.
++      // Capture only after the real movement threshold establishes a drag.
++      if(busy)return;
++      if(key)model.select(key);paint();try{stage.setPointerCapture(e.pointerId);}catch(_){}e.preventDefault();}
+     const isDrag=(g,e)=>g.drag||Math.hypot(e.clientX-g.clientX,e.clientY-g.clientY)>=8;
+-    function move(e){if(!gesture||gesture.pointerId!==e.pointerId)return;if(blocked()){clearGesture();return;}
+-      const p=point(e);gesture.drag=isDrag(gesture,e);
+-      if(gesture.drag){const key=gesture.key||model.selected(),a=model.snapshot().find(a=>a.key===key);if(a){const b=model.bounds(a);marker.hidden=false;marker.style.left=Math.max(b.left,Math.min(b.right,p.x))+'px';marker.style.top=Math.max(b.top,Math.min(b.bottom,p.y))+'px';}}
++    function move(e){if(!gesture||gesture.pointerId!==e.pointerId)return;
++      const busy=blocked();
++      if(env.HomeCastTrial.settings.paused||(busy&&(!gesture.trusted||!gesture.key||hardInputBlock()))){clearInput();return;}
++      if(busy)gesture.sawSoft=true;
++      const wasDrag=gesture.drag;gesture.drag=isDrag(gesture,e);
++      if(gesture.sawSoft&&!gesture.drag)return;
++      if(gesture.drag){
++        if(gesture.sawSoft&&!wasDrag)try{stage.setPointerCapture(e.pointerId);}catch(_){}
++        showDropPoint(gesture.key||model.selected(),point(e));
++      }
+       e.preventDefault();}
+-    function up(e){if(!gesture||gesture.pointerId!==e.pointerId)return;const g=gesture,p=point(e);g.drag=isDrag(g,e);clearGesture();if(blocked())return;
+-      if(g.key&&model.selected()!==g.key)model.select(g.key);
+-      if(g.drag||!g.key){const success=model.move(g.key||model.selected(),p,g.drag?'drag':'ground',{pointerDrop:g.drag});if(g.drag){if(g.key&&success&&guide.visible())guideWalk=g.key;guide.drag({actor:!!g.key,success});showGuide();}}
++    function submitRelease(g,p){
++      if(g.key&&model.selected()!==g.key&&!model.select(g.key))return;
++      if(g.drag||!g.key){const success=model.move(g.key||model.selected(),p,g.drag?'drag':'ground',{pointerDrop:g.drag});if(g.drag){
++        if(g.key&&success&&guide.visible())guideWalk=g.key;
++        if(g.key&&!success){
++          const a=model.snapshot().find(item=>item.key===g.key);
++          if(a){
++            refusedDrop={key:g.key,owner:g.owner,navigation:g.navigation,point:p,expires:env.performance.now()+480};
++            showDropPoint(g.key,p,[a]);onGesture(a,'curious');
++          }
++        }
++        guide.drag({actor:!!g.key,success});showGuide();}}
++    }
++    function serviceWaitingDrop(){
++      const d=waitingDrop;
++      if(!d)return;
++      if(env.performance.now()>=d.expires||hardInputBlock()||d.navigation!==scene?.navigation||rows.get(d.key)?.owner!==d.owner){clearInput();return;}
++      if(blocked())return;
++      waitingDrop=null;marker.hidden=true;
++      if(model.select(d.key)&&!hardInputBlock())submitRelease(d,d.point);
++    }
++    function up(e){if(!gesture||gesture.pointerId!==e.pointerId)return;
++      const g=gesture,p=point(e),busy=blocked();
++      g.drag=isDrag(g,e);clearGesture();
++      if(env.HomeCastTrial.settings.paused||(busy&&hardInputBlock()))return;
++      if(g.key&&(g.navigation!==scene?.navigation||rows.get(g.key)?.owner!==g.owner))return;
++      if(busy||g.sawSoft||(wasBlocked&&g.drag)){
++        if(!g.key||!g.drag||!g.trusted||!e.isTrusted)return;
++        // One lower-lane speech beat is 2500ms. An unhandled older release
++        // must never begin a walk after the player has moved on.
++        waitingDrop={...g,point:p,expires:env.performance.now()+2600};
++        showDropPoint(g.key,p);
++      }else submitRelease(g,p);
+       paint();resume();e.preventDefault();}
+@@ -768,7 +844,15 @@
+     }
+-    const listeners={'home-presentation':presentationChanged,pointerdown:down,pointermove:move,pointerup:up,pointercancel:clearGesture,lostpointercapture:clearGesture,keydown};
++    function cancelPointer(e){if(gesture?.pointerId===e.pointerId)clearInput();}
++    function lostCapture(e){
++      // A touchscreen initially captures the sprite it hit. Transferring that
++      // capture to the stage sends a bubbling loss from the old sprite first.
++      if(e.target===stage||!stage.hasPointerCapture?.(e.pointerId))cancelPointer(e);
++    }
++    function freshInput(){if(gesture||waitingDrop||refusedDrop)clearInput();}
++    const listeners={'home-presentation':presentationChanged,pointerdown:down,pointermove:move,pointerup:up,pointercancel:cancelPointer,lostpointercapture:lostCapture,keydown};
+     for(const [name,fn]of Object.entries(listeners))stage.addEventListener(name,fn);
++    doc.addEventListener('pointerdown',freshInput,true);doc.addEventListener('pointerup',cancelPointer);doc.addEventListener('pointercancel',cancelPointer);doc.addEventListener('keydown',freshInput,true);env.addEventListener?.('blur',freshInput);
+     doc.addEventListener('visibilitychange',visibility);media?.addEventListener?.('change',preference);
+     const trialController={
+-      repaint:paint,clearGesture,
++      repaint:paint,clearGesture:clearInput,
+       presentation(){
+@@ -802,3 +886,3 @@
+     env.HomeCastTrial.attach(trialController);
+-    return {model,update,sync,interrupt,prepareNewborn(){newbornPending=true;},replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){env.HomeCastTrial.detach(trialController);env.removeEventListener?.('dayparts-qa-change',refreshDayparts);placeHomeSlots(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
++    return {model,update,sync,interrupt,prepareNewborn(){newbornPending=true;},replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){env.HomeCastTrial.detach(trialController);env.removeEventListener?.('dayparts-qa-change',refreshDayparts);placeHomeSlots(false);dead=true;stop();clearWorld();clearInput();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('pointerdown',freshInput,true);doc.removeEventListener('pointerup',cancelPointer);doc.removeEventListener('pointercancel',cancelPointer);doc.removeEventListener('keydown',freshInput,true);env.removeEventListener?.('blur',freshInput);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
+   }
