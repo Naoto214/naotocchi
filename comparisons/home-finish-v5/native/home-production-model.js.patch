@@ -52,8 +52,19 @@
        });
        // At capacity, individually separated seats can still form a closed ring
        // around the main character. Reserve one short, terrain-safe exit while
-@@ -144,23 +153,98 @@
+@@ -142,25 +151,109 @@
+       }
+       if(!actor(selected))selected=null;
        if(changed){cancel();cooldown.clear();}
++      else for(const [key,request] of manualGoals){
++        if(!request.pointerDrop)continue;
++        const resident=actor(key);
++        if(!resident){manualGoals.delete(key);continue;}
++        // A native sync can change ink bounds, body sizes or ground while all
++        // feet stay put. Recheck at the scheduled time using the original goal.
++        request.peers=null;
++        if(!resident.target&&request.nextAt===Infinity){resident.route=[];request.nextAt=clock+1;}
++      }
      }
      function select(key){const a=actor(key);if(!a||paused)return false;manualGoals.delete(key);selected=key;a.visualReaction=undefined;a.visualTarget=null;a.target=null;a.route=[];a.manualUntil=clock+12;defer(a,4);emit('tap',a,'tap');idleAt=clock+4;return true;}
 -    function move(key,p,source='tap'){
@@ -156,7 +167,7 @@
          const reference=expandedReference&&(!originalReference||!retreats(expandedReference.point,originalReference.point))?expandedReference:originalReference;
          const preferReference=reference&&(!proposal||Math.hypot(proposal.x-reference.point.x,proposal.y-reference.point.y)<1e-7||retreats(proposal,reference.point));
          let q=preferReference?reference.point:proposal;
-@@ -172,20 +256,26 @@
+@@ -172,20 +265,26 @@
          if(!path.length&&originalReference&&originalReference!==reference){q=originalReference.point;path=nav.referenceRoute(a,q,originalReference.bounds,referenceFree);if(!path.length)path=currentRoute(q,nav);}
          if(nav?.reachable){
            const prior=path.length?q:null,score=prior?Math.hypot(prior.x-p.x,prior.y-p.y):Infinity;
@@ -188,7 +199,7 @@
          const prior=plan(legacy);
          // A sampled legacy shortcut can cross a thin terrain gap. Preserve its
          // endpoint through a current safe detour, never the unsafe old segment.
-@@ -196,16 +286,16 @@
+@@ -196,16 +295,16 @@
          if(prior.path.length&&Math.hypot(prior.point.x-a.x,prior.point.y-a.y)>=3&&(!scene.navigation.intentAware||forward(prior.point))&&(!path.length||retreats(q,prior.point))){
            q=prior.point;path=prior.path;
            const score=Math.hypot(q.x-p.x,q.y-p.y),floor=q;
@@ -208,7 +219,7 @@
            const options=[];
            for(const candidate of [originalReference,expandedReference])if(candidate&&eligible(candidate.point)){
              let route=scene.navigation.referenceRoute(a,candidate.point,candidate.bounds,referenceFree);
-@@ -218,10 +308,26 @@
+@@ -218,10 +317,33 @@
            path=options[0]||[];q=path.at(-1)||null;
          }
        }
@@ -220,8 +231,8 @@
 +        if(!valid||(drag.cost(drag.point)<score&&!retreats(drag.point,floor))){q=drag.point;path=drag.path;}
 +      }
        const request=manualGoals.get(key);
-+      // A stationary crowd cannot open a previously checked route. A changed
-+      // position runs the original bounded retry with fresh terrain and contacts.
++      // Between native syncs, stationary peers cannot open a checked route.
++      // Moving peers or a sync allow the original bounded retry with fresh data.
 +      if(drag&&request)request.peers=actors.filter(b=>b!==a).map(b=>[b.key,b.x,b.y]);
 +      if(!path.length||(!drag&&Math.hypot(q.x-a.x,q.y-a.y)<3)){
 +        if(pointerDrop){
@@ -231,12 +242,20 @@
 +        return false;
 +      }
        if(request?.floor&&['x','y'].some(axis=>(q[axis]-request.floor[axis])*request.direction[axis]<-1e-7))return false;
-       if(request){request.nextAt=Infinity;request.floor={...q};}
+-      if(request){request.nextAt=Infinity;request.floor={...q};}
++      if(request){
++        request.nextAt=Infinity;request.floor={...q};
++        // A detour can end beyond the finger on one axis. Keep progress up
++        // to the release so a later opening can still reach the exact foot.
++        if(drag)for(const axis of ['x','y']){
++          if((q[axis]-request.point[axis])*request.direction[axis]>0)request.floor[axis]=request.point[axis];
++        }
++      }
 +      a.pointerDrop=pointerDrop;
        a.route=path.slice(1);a.target=path[0];a.source=source;if(source!=='ambient'){a.faceKey=null;a.visualReaction=undefined;a.visualTarget=null;}activity(a,'walk');a.lastWalk=clock;stats.moves++;defer(a,4);idleAt=clock+4;emit('move',a,source);return true;
      }
      function idle(a){
-@@ -268,8 +374,11 @@
+@@ -268,8 +390,11 @@
          const a=actor(key);
          if(!a||clock>request.expires||request.retries>=4){manualGoals.delete(key);continue;}
          if(!a.target&&a.key!==flags.heldActor&&clock>=request.nextAt){
@@ -249,7 +268,7 @@
          }
        }
        if(!flags.reducedMotion&&flags.autonomy!==false)for(const a of actors)if(!a.target&&a.key!==flags.heldActor&&clock>=a.nextAt&&clock>=a.manualUntil)idle(a);
-@@ -277,7 +386,8 @@
+@@ -277,10 +402,16 @@
          if(flags.reducedMotion&&a.source==='ambient'){a.target=null;a.route=[];}
          if(!a.target)continue;
          const dx=a.target.x-a.x,dy=a.target.y-a.y,dist=Math.hypot(dx,dy),speed=(flags.reducedMotion?28:42)*(scene.time==='night'?.75:1),step=Math.min(dist,speed*dt);
@@ -258,8 +277,17 @@
 +        if(dist<(a.pointerDrop?1e-7:.5)){
            if(a.route?.length){a.target=a.route.shift();continue;}
            a.target=null;activity(a,a.source==='ambient'?a.after:'rest');
-           const request=manualGoals.get(a.key);if(request){if(Math.hypot(a.x-request.point.x,a.y-request.point.y)<3)manualGoals.delete(a.key);else request.nextAt=clock+1;}
-@@ -301,7 +411,12 @@
+-          const request=manualGoals.get(a.key);if(request){if(Math.hypot(a.x-request.point.x,a.y-request.point.y)<3)manualGoals.delete(a.key);else request.nextAt=clock+1;}
++          const request=manualGoals.get(a.key);
++          if(request){
++            const scale=request.pointerDrop?scene.navigation?.intentScale:null;
++            const remaining=Math.hypot((a.x-request.point.x)*(scale?.x||1),(a.y-request.point.y)*(scale?.y||1));
++            if(remaining<(request.pointerDrop?2:3))manualGoals.delete(a.key);else request.nextAt=clock+1;
++          }
+           if(a.source==='ambient'&&a.visualTarget)a.direction=a.visualTarget.x<a.x?-1:1;
+           defer(a,3+random()*5);
+           const b=actor(a.faceKey);
+@@ -301,7 +432,12 @@
          // If a very crowded/short viewport cannot seat everyone, permit escape only
          // when every existing overlap shrinks; never enter a new overlap.
          const distance=(q,b)=>clearance(a,q,b);

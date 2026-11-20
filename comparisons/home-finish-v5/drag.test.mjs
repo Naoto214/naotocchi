@@ -24,14 +24,16 @@ function household(points,{walkable=()=>true,scale={x:1,y:1},box={left:0,right:1
   nav.intentScale=scale;
   let seating=true;
   const list=points.map(([x,y],i)=>({key:String(i),kind:i?'companion':'pet',x,y,w:10,h:10}));
-  model.sync(list,{region:'forest',width:120,height:100,navigation:nav,actorBounds:()=>box,
-    visible:(p,a)=>!seating || (p.x===list[a.key].x && p.y===list[a.key].y)});
+  const scene={region:'forest',width:120,height:100,navigation:nav,actorBounds:()=>box,
+    visible:(p,a)=>!seating || (p.x===list[a.key].x && p.y===list[a.key].y)};
+  const sync=()=>model.sync(list,scene);
+  sync();
   seating=false;
   model.select('0');
   const live=()=>model.snapshot()[0];
   const step=()=>model.step(.025,{autonomy:false});
   const trace=()=>{const positions=[];for(let i=0;i<500;i++){step();positions.push(live());}return positions;};
-  return {model,live,step,trace,events};
+  return {model,live,step,trace,events,scene,list,sync};
 }
 
 test('a crowded opening allows a short step that continuously escapes its initial overlap',()=>{
@@ -209,4 +211,79 @@ test('the normal ambient, keyboard and legacy navigation steppers keep their ori
     const walker=passingNeighbor([52.1,66.79],[52.1,62.59],options);
     assert.equal(walker.x,54.2);
   }
+});
+
+test('a pending drop detects changed contact dimensions at the same neighbor foot',()=>{
+  const box={left:0,right:120,top:48,bottom:48};
+  const h=household([[45,48],[65,48]],{box});
+  assert.equal(h.model.move('0',{x:57,y:48},'drag',{pointerDrop:true}),false);
+  h.list[1].w=2;
+  h.sync();
+  assert.equal(h.model.snapshot()[1].x,65);
+  for(let i=0;i<100;i++)h.step();
+  assert.ok(h.live().x>48.9&&h.live().x<=49);
+});
+
+test('a pending drop detects updated actor bounds and mutable ground at the same feet',()=>{
+  for(const change of ['bounds','ground']){
+    let groundEnd=change==='ground'?45:120;
+    const box={left:0,right:change==='bounds'?45:120,top:48,bottom:48};
+    const h=household([[45,48]],{box,walkable:p=>p.x<=groundEnd});
+    assert.equal(h.model.move('0',{x:57,y:48},'drag',{pointerDrop:true}),false);
+    groundEnd=120;box.right=120;
+    h.sync();
+    for(let i=0;i<110;i++)h.step();
+    assert.equal(h.live().x,57,change);
+  }
+});
+
+test('a shape sync that interrupts an accepted drop resumes walking to its original foot',()=>{
+  const h=household([[45,48]]);
+  assert.equal(h.model.move('0',{x:75,y:48},'drag',{pointerDrop:true}),true);
+  h.step();const previous=h.live().x;
+  h.list[0].w=12;
+  h.sync();
+  assert.equal(h.live().x,previous);
+  assert.equal(h.live().target,null);
+  for(let i=0;i<140;i++)h.step();
+  assert.equal(h.live().x,75);
+});
+
+test('a newly open lane cannot revive a canceled, expired, removed-actor or replaced-scene drop',()=>{
+  for(const stop of ['cancel','expiry','remove actor','replace navigation']){
+    const box={left:0,right:45,top:48,bottom:48},h=household([[45,48]],{box});
+    assert.equal(h.model.move('0',{x:57,y:48},'drag',{pointerDrop:true}),false);
+    if(stop==='cancel')h.model.cancel();
+    if(stop==='expiry')for(let i=0;i<500;i++)h.step();
+    if(stop==='remove actor'){const resident=h.list.pop();h.sync();h.list.push(resident);}
+    if(stop==='replace navigation')h.scene.navigation={...h.scene.navigation};
+    box.right=120;h.sync();
+    for(let i=0;i<110;i++)h.step();
+    assert.equal(h.live().x,45,stop);
+  }
+});
+
+test('a corrected foot beyond one requested axis can return to the actual release once a peer leaves',()=>{
+  const h=household([[45,45],[70,45]],{box:{left:8,right:110,top:8,bottom:96}});
+  const goal={x:74,y:46},drop=(key,p)=>h.model.move(key,p,'drag',{pointerDrop:true});
+  assert.equal(drop('0',goal),true);
+  const corrected=h.live().route.at(-1)||h.live().target;
+  assert.ok(corrected.x>goal.x||corrected.y>goal.y);
+  for(let i=0;i<120;i++)h.step();
+  assert.ok(Math.hypot(h.live().x-corrected.x,h.live().y-corrected.y)<1e-6);
+  assert.equal(drop('1',{x:95,y:80}),true);
+  for(let i=0;i<240;i++)h.step();
+  assert.ok(Math.hypot(h.live().x-goal.x,h.live().y-goal.y)<1e-6);
+});
+
+test('a partial arrival still several screen pixels from the release remains retryable',()=>{
+  const h=household([[45,48],[75,48]],{scale:{x:2.25,y:.75},box:{left:0,right:120,top:48,bottom:48}});
+  const drop=(key,x)=>h.model.move(key,{x,y:48},'drag',{pointerDrop:true});
+  assert.equal(drop('0',57.5),true);
+  for(let i=0;i<60;i++)h.step();
+  const miss=57.5-h.live().x;
+  assert.ok(miss<3&&miss*2.25>4);
+  assert.equal(drop('1',105),true);
+  for(let i=0;i<180;i++)h.step();
+  assert.equal(h.live().x,57.5);
 });
