@@ -1,0 +1,19 @@
+@import url('../v6/style.css');
+.presets { grid-template-columns: repeat(3,minmax(44px,1fr)); }
+#diagnostics { margin: 16px 0; border-top: 1px solid var(--edge); padding-top: 12px; }
+#diagnostics summary { cursor: pointer; color: var(--forest); font-weight: 650; padding-block: .5rem; }
+#clock-note, #blockers, #resident-state, #recent { font-size: .84rem; line-height: 1.55; color: var(--muted); }
+#start-record { min-height: 44px; border: 1px solid var(--edge); border-radius: .4rem; background: #fffdf8; }
+#record label { font-size: .9rem; font-weight: 650; }
+#metrics { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: .3em .5em; font-size: .83rem; }
+#metrics dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+@media (max-width:739px), (max-height:500px) and (max-width:940px) {
+  .tools { grid-template-columns: minmax(132px,1fr) auto auto auto; }
+  .tools button { padding-inline: 4px; }
+}
+
+@media (max-width:350px) {
+  #restart, #freeze { min-width: 44px; }
+  #restart span { display: none; }
+  #restart::after { content: '↺'; font: 1.4rem/1 sans-serif; }
+}

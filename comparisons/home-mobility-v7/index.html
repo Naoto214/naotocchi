@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <title>なおとっち｜住民の移動を比べる</title>
+  <link rel="stylesheet" href="../v1/style.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="bar">
+    <h1><span class="brand">なおとっち</span>住民の移動を比べる</h1>
+    <div class="tools">
+      <div class="presets" role="group" aria-label="移動のバージョン">
+        <button type="button" data-arm="v5" aria-pressed="false" aria-label="V5の動作">V5</button>
+        <button type="button" data-arm="v6" aria-pressed="false" aria-label="V6の動作">V6</button>
+        <button type="button" data-arm="v7" aria-pressed="true" aria-label="V7の動作">V7</button>
+      </div>
+      <button type="button" id="restart" aria-label="同じ初期位置からやり直す"><span>最初から</span></button>
+      <button type="button" id="freeze" aria-pressed="false">停止</button>
+      <button type="button" id="settings-toggle" aria-expanded="false" aria-controls="panel">設定 <span id="toolbar-count">28体</span></button>
+    </div>
+  </header>
+  <main>
+    <section class="stage" aria-label="ホーム">
+      <div class="frame-wrap"><iframe id="home" title="なおとっちのホーム" allow="autoplay"></iframe></div>
+      <div class="feedback"><p id="status" role="status">ホームを読み込んでいます…</p><button id="retry" type="button" hidden>読み込み直す</button></div>
+    </section>
+    <div id="scrim" hidden></div>
+    <aside id="panel" aria-labelledby="panel-title">
+      <div class="panel-head"><h2 id="panel-title">試遊の設定</h2><button type="button" id="settings-close" aria-label="設定を閉じる">閉じる</button></div>
+      <div class="scene-pick">
+        <label for="region">地域<select id="region"></select></label>
+        <label for="time">時間帯<select id="time"></select></label>
+      </div>
+      <label for="count">住民数<select id="count"></select></label>
+      <p class="instructions">住民から行き先までドラッグして、指を離してください。版を切り替えると、同じ背景・住民の初期位置に戻ります。</p>
+      <details id="diagnostics">
+        <summary>住民の移動記録</summary>
+        <p id="clock-note">記録を開始すると、住民ごとの移動と待機を追跡できます。</p>
+        <button type="button" id="start-record">移動を記録する</button>
+        <div id="record" hidden>
+          <label for="resident">記録を見る住民<select id="resident"></select></label>
+          <dl id="metrics"></dl>
+          <p id="resident-state"></p>
+          <p id="blockers"></p>
+          <p id="recent"></p>
+        </div>
+      </details>
+    </aside>
+  </main>
+  <script type="module" src="./controls.mjs"></script>
+</body>
+</html>
