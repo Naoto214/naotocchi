@@ -1,0 +1,82 @@
+name: Measure the 13-region cast-size comparison
+on:
+  push:
+    branches: [draft/home-cast-size-v1]
+    paths:
+      - 'comparisons/home-cast-size-v3/**'
+      - '.github/workflows/home-cast-size-v3-matrix.yml'
+permissions:
+  contents: read
+jobs:
+  measure:
+    if: contains(github.event.head_commit.message, '[cast-matrix]') || contains(github.event.head_commit.message, '[cast-opt]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 7
+      matrix:
+        region: [forest, river_lake, city, home, countryside, mountain, snow, sea, jungle, desert, deepsea, star_stop, memory_lake]
+    env:
+      REGION: ${{ matrix.region }}
+      CHROMIUM_PATH: /usr/bin/google-chrome
+      LAYOUT: ${{ contains(github.event.head_commit.message, '[cast-opt]') && 'optimized' || 'fixed' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-cast-size-v1
+            comparisons/home-cast-size-v2
+            comparisons/home-cast-size-v3
+      - uses: actions/checkout@v4
+        with:
+          ref: 28628cf336a8ed92efe4e9e197ca03298b798a1e
+          path: .leaf-reference
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build the preserved and candidate comparisons
+        run: |
+          node comparisons/home-cast-size-v1/build.cjs "$RUNNER_TEMP/cast-v1" --reference-checkout .leaf-reference
+          node comparisons/home-cast-size-v2/build.cjs "$RUNNER_TEMP/cast-v2" --baseline "$RUNNER_TEMP/cast-v1"
+          node comparisons/home-cast-size-v3/build.cjs "$RUNNER_TEMP/cast-v3" --baseline "$RUNNER_TEMP/cast-v2"
+      - name: Sample the five population sizes and four phone widths
+        run: |
+          python -m pip install --disable-pip-version-check 'playwright==1.62.0'
+          "$CHROMIUM_PATH" --version
+          python -m http.server 8303 --bind 127.0.0.1 --directory "$RUNNER_TEMP/cast-v3" > "$RUNNER_TEMP/home-http.log" 2>&1 &
+          server=$!
+          trap 'kill "$server"' EXIT
+          if [[ "$LAYOUT" == optimized ]]; then
+            python comparisons/home-cast-size-v3/geometry_optimized.py http://127.0.0.1:8303/game/limit.html "$RUNNER_TEMP/cast-v3/game" "$RUNNER_TEMP/geometry" --regions "$REGION"
+          else
+            python comparisons/home-cast-size-v3/geometry_collect.py http://127.0.0.1:8303/game/limit.html "$RUNNER_TEMP/geometry" --regions "$REGION" --counts 1 4 10 20 28
+          fi
+      - name: Sample the live renderer with all five sizes and both layouts
+        if: ${{ !cancelled() && env.LAYOUT == 'optimized' }}
+        run: |
+          python -m http.server 8303 --bind 127.0.0.1 --directory "$RUNNER_TEMP/cast-v3" > "$RUNNER_TEMP/perf-http.log" 2>&1 &
+          server=$!
+          trap 'kill "$server"' EXIT
+          python comparisons/home-cast-size-v3/verify_perf_grid.py http://127.0.0.1:8303 "$RUNNER_TEMP/cast-v3/game" "$RUNNER_TEMP/perf" --region "$REGION" --retry
+      - name: Retain numeric timing samples
+        if: ${{ always() && env.LAYOUT == 'optimized' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: timing-${{ matrix.region }}
+          path: ${{ runner.temp }}/perf/*.json
+          if-no-files-found: error
+          retention-days: 4
+      - name: Retain numeric measurements
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.LAYOUT }}-${{ matrix.region }}
+          path: ${{ runner.temp }}/geometry/**/*.json
+          if-no-files-found: error
+          retention-days: 4

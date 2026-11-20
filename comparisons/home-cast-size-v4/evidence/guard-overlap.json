@@ -1,0 +1,621 @@
+{
+  "repository": "Naoto214/naotocchi",
+  "main": "38b4e9d0c8ed4cacdfc1cc6c072a7a9e62e5c053",
+  "checkedAt": "2026-11-19T15:29:22.070984+00:00",
+  "openOtherPRs": 90,
+  "otherChangedPaths": 10199,
+  "overlappingOtherPRs": [
+    {
+      "number": 563,
+      "head": "5363cd8fefa15f8aed93fc403203198d295ac923",
+      "files": 45,
+      "matches": [
+        "tools/work/storage-exceptions.json"
+      ],
+      "overlappingManifestKeys": [],
+      "peerChangedManifestKeys": 4,
+      "mergeBase": "38b4e9d0c8ed4cacdfc1cc6c072a7a9e62e5c053",
+      "cleanRegistryMerge": true,
+      "mainRegistryConflicts": 0,
+      "identicalConflictHunksToMain": true
+    },
+    {
+      "number": 553,
+      "head": "45b7a0fcdd8b3c75e35333c3b1b074164423b297",
+      "files": 25,
+      "matches": [
+        "tools/work/storage-exceptions.json"
+      ],
+      "overlappingManifestKeys": [],
+      "peerChangedManifestKeys": 4,
+      "mergeBase": "408c72e6ebef71da3eab33cfb268c7494117aaaa",
+      "cleanRegistryMerge": false,
+      "mainRegistryConflicts": 1,
+      "identicalConflictHunksToMain": true
+    },
+    {
+      "number": 551,
+      "head": "4a8a765667b349ac1eda75afac7359ac8e3d1350",
+      "files": 350,
+      "matches": [
+        "tools/work/storage-exceptions.json"
+      ],
+      "overlappingManifestKeys": [],
+      "peerChangedManifestKeys": 20,
+      "mergeBase": "105dba519890c2dc17e94a8c9d1b7679720fddf3",
+      "cleanRegistryMerge": false,
+      "mainRegistryConflicts": 1,
+      "identicalConflictHunksToMain": true
+    }
+  ],
+  "targetPR": {
+    "number": 570,
+    "draft": true,
+    "state": "open",
+    "head": "5171cd154744786efeae9308e33d22c963b3baad",
+    "base": "38b4e9d0c8ed4cacdfc1cc6c072a7a9e62e5c053"
+  },
+  "otherPRs": [
+    {
+      "number": 571,
+      "head": "fb60029b10109ddb3ee22260f45a5d5228c9ff0b",
+      "files": 78,
+      "matches": []
+    },
+    {
+      "number": 569,
+      "head": "28628cf336a8ed92efe4e9e197ca03298b798a1e",
+      "files": 72,
+      "matches": []
+    },
+    {
+      "number": 568,
+      "head": "2935622edf9ccdc6f8a36f2297dd86b789022b87",
+      "files": 44,
+      "matches": []
+    },
+    {
+      "number": 567,
+      "head": "fae83a21915f9ada92f4ac13ac1aaacd397e333d",
+      "files": 69,
+      "matches": []
+    },
+    {
+      "number": 566,
+      "head": "726fa9e4943a361be0a2d4115548dd5c3f7561a4",
+      "files": 55,
+      "matches": []
+    },
+    {
+      "number": 565,
+      "head": "c0f960ace83fe427e8231555f5708cfd7ee21c26",
+      "files": 62,
+      "matches": []
+    },
+    {
+      "number": 564,
+      "head": "5df4fda8b89894348f7a296aae6ecbf135227a60",
+      "files": 27,
+      "matches": []
+    },
+    {
+      "number": 563,
+      "head": "5363cd8fefa15f8aed93fc403203198d295ac923",
+      "files": 45,
+      "matches": [
+        "tools/work/storage-exceptions.json"
+      ]
+    },
+    {
+      "number": 562,
+      "head": "d00eca21f5d2b6e72154811fba39e0ad4ba5a4c6",
+      "files": 21,
+      "matches": []
+    },
+    {
+      "number": 560,
+      "head": "e5e4ed3463ec5eb4aa6ae176cfb45a31d5a6256e",
+      "files": 67,
+      "matches": []
+    },
+    {
+      "number": 559,
+      "head": "7eccb1e51a0088b0e77cd484f15c1f355501d1ab",
+      "files": 24,
+      "matches": []
+    },
+    {
+      "number": 558,
+      "head": "02df2efc39cd18543b9c66df281872ed1751b02c",
+      "files": 61,
+      "matches": []
+    },
+    {
+      "number": 557,
+      "head": "48d062aa55681061e72b593e5ec4012ed305270e",
+      "files": 52,
+      "matches": []
+    },
+    {
+      "number": 556,
+      "head": "23b19aaf551e5b57b3333911dd4d43c479ad186f",
+      "files": 90,
+      "matches": []
+    },
+    {
+      "number": 555,
+      "head": "e7032c2862320296b88969a6125ddb52af3d228a",
+      "files": 51,
+      "matches": []
+    },
+    {
+      "number": 554,
+      "head": "6ab53fc23747fc1982089939206c1b6087643953",
+      "files": 19,
+      "matches": []
+    },
+    {
+      "number": 553,
+      "head": "45b7a0fcdd8b3c75e35333c3b1b074164423b297",
+      "files": 25,
+      "matches": [
+        "tools/work/storage-exceptions.json"
+      ]
+    },
+    {
+      "number": 551,
+      "head": "4a8a765667b349ac1eda75afac7359ac8e3d1350",
+      "files": 350,
+      "matches": [
+        "tools/work/storage-exceptions.json"
+      ]
+    },
+    {
+      "number": 550,
+      "head": "bea117b5e3bf763219d5ad226595d19dfed14f87",
+      "files": 40,
+      "matches": []
+    },
+    {
+      "number": 549,
+      "head": "01a55914244b8cf74f3cd467ef9b83beb23f8e13",
+      "files": 183,
+      "matches": []
+    },
+    {
+      "number": 548,
+      "head": "c9c4b82b06b304ea19ca1b86f558fb0467daa3f8",
+      "files": 149,
+      "matches": []
+    },
+    {
+      "number": 547,
+      "head": "25c69a0a78e7f72351ffad1836ec4932760f0552",
+      "files": 87,
+      "matches": []
+    },
+    {
+      "number": 546,
+      "head": "146383829818fc986926c05700986705d7241858",
+      "files": 168,
+      "matches": []
+    },
+    {
+      "number": 545,
+      "head": "06d2f325ba6952c3b4bd4d2dd0052a7349466689",
+      "files": 3,
+      "matches": []
+    },
+    {
+      "number": 544,
+      "head": "0cf8100d3ad85888f5e32f670a56631ecb4e82ce",
+      "files": 138,
+      "matches": []
+    },
+    {
+      "number": 543,
+      "head": "a87b276b9cccff93aaf64685b7a7ba08e20de576",
+      "files": 138,
+      "matches": []
+    },
+    {
+      "number": 542,
+      "head": "580ebd244aa0357a70fcb204350affa07b3d1fe3",
+      "files": 143,
+      "matches": []
+    },
+    {
+      "number": 540,
+      "head": "e3974381d4fa7cd6d0d4a44dce69a71023e207f5",
+      "files": 45,
+      "matches": []
+    },
+    {
+      "number": 539,
+      "head": "84717fd803da44dcf5dd65ca0420e4c1bc00e0e8",
+      "files": 146,
+      "matches": []
+    },
+    {
+      "number": 537,
+      "head": "02f2e72b128f407cb33bb38a921859e55809ed78",
+      "files": 20,
+      "matches": []
+    },
+    {
+      "number": 536,
+      "head": "9e76a71546882233b499e80391613868ae947612",
+      "files": 130,
+      "matches": []
+    },
+    {
+      "number": 535,
+      "head": "1903088fe4a2b41b81b41839391c84a9bee0ca51",
+      "files": 449,
+      "matches": []
+    },
+    {
+      "number": 534,
+      "head": "3060388f624deb7787d0f23006595493caecbfdc",
+      "files": 34,
+      "matches": []
+    },
+    {
+      "number": 533,
+      "head": "f957ee7bc9125f987fcf9f6fad4e63180147ab41",
+      "files": 19,
+      "matches": []
+    },
+    {
+      "number": 532,
+      "head": "fce9067b41ed4c6b6640791ec13bd610c5b6bde3",
+      "files": 186,
+      "matches": []
+    },
+    {
+      "number": 531,
+      "head": "3f9329ae479d31bde9dbd5d9a53e98ca9eaee9ac",
+      "files": 25,
+      "matches": []
+    },
+    {
+      "number": 530,
+      "head": "12411ea5df21d357678749335773571c13252688",
+      "files": 52,
+      "matches": []
+    },
+    {
+      "number": 529,
+      "head": "c3508ff8780c14aa4691ed74a4889a5158124ea2",
+      "files": 20,
+      "matches": []
+    },
+    {
+      "number": 528,
+      "head": "740225ef3188dd6258be2f9293c7bc469421016c",
+      "files": 5,
+      "matches": []
+    },
+    {
+      "number": 527,
+      "head": "af51d03eef54fd7a6f2246e3092c5b0f998fda4a",
+      "files": 9,
+      "matches": []
+    },
+    {
+      "number": 525,
+      "head": "ef8700fdc0767eda03467e81c3100a428561bd5d",
+      "files": 41,
+      "matches": []
+    },
+    {
+      "number": 524,
+      "head": "84717fd803da44dcf5dd65ca0420e4c1bc00e0e8",
+      "files": 389,
+      "matches": []
+    },
+    {
+      "number": 523,
+      "head": "9ebcda6d40d57634fe94dc7e80b5e7b66be65a18",
+      "files": 33,
+      "matches": []
+    },
+    {
+      "number": 522,
+      "head": "b557e037bb8f2cceb2a149c01dadf882ebffb83d",
+      "files": 27,
+      "matches": []
+    },
+    {
+      "number": 517,
+      "head": "414e344ce3c31270f2e4b31d03df90693a6ca294",
+      "files": 95,
+      "matches": []
+    },
+    {
+      "number": 510,
+      "head": "3c8068099d45b4a3365084890c961960fd2e8aaf",
+      "files": 25,
+      "matches": []
+    },
+    {
+      "number": 509,
+      "head": "1cd723084d2daa8bd736197e34e70eddee88829f",
+      "files": 37,
+      "matches": []
+    },
+    {
+      "number": 503,
+      "head": "38454e4fbf96dff3bedf06291a3d916674fdac97",
+      "files": 22,
+      "matches": []
+    },
+    {
+      "number": 502,
+      "head": "5cb81cebd203514bebe68202df05e996352891ea",
+      "files": 46,
+      "matches": []
+    },
+    {
+      "number": 500,
+      "head": "71bcbde2c1457bc0caa0613bc9690f5c069cad5b",
+      "files": 557,
+      "matches": []
+    },
+    {
+      "number": 499,
+      "head": "121fad9fa947178a6801c76cf8bb872bae17d7e8",
+      "files": 54,
+      "matches": []
+    },
+    {
+      "number": 498,
+      "head": "948026343099e34628f5655ae240d1083763ea9e",
+      "files": 231,
+      "matches": []
+    },
+    {
+      "number": 497,
+      "head": "a4b873688aa2468e2d4c24e3bbca7bc6c130d8e1",
+      "files": 58,
+      "matches": []
+    },
+    {
+      "number": 495,
+      "head": "0eb96d8c980805e5431b1c71714f1a316e425f12",
+      "files": 116,
+      "matches": []
+    },
+    {
+      "number": 494,
+      "head": "329645edf89b6d34ef888e833643819296764f36",
+      "files": 299,
+      "matches": []
+    },
+    {
+      "number": 492,
+      "head": "814af477c1d8fa0a13f6db6746eca685ea2eb052",
+      "files": 113,
+      "matches": []
+    },
+    {
+      "number": 491,
+      "head": "6de2b492ca42ef3d0a19f1bec0c06009b12d3c55",
+      "files": 127,
+      "matches": []
+    },
+    {
+      "number": 489,
+      "head": "0ac54ccd0ddd3f9919dd3e916fcbfbefbdc223e3",
+      "files": 33,
+      "matches": []
+    },
+    {
+      "number": 488,
+      "head": "768b94fa192c33654b59cf1dacbe918735794802",
+      "files": 60,
+      "matches": []
+    },
+    {
+      "number": 487,
+      "head": "fd88cf29a6b5a6d3bc8fc4ab685dd40b45460304",
+      "files": 2,
+      "matches": []
+    },
+    {
+      "number": 486,
+      "head": "57c29aae4352979deb0115b4d287f2685eb11307",
+      "files": 22,
+      "matches": []
+    },
+    {
+      "number": 485,
+      "head": "559817cfd9c386c6e9ac31ea42c72235ff0de263",
+      "files": 17,
+      "matches": []
+    },
+    {
+      "number": 483,
+      "head": "809c1f8b5153b7f0f5ab125192ca5a3d8f4773a0",
+      "files": 51,
+      "matches": []
+    },
+    {
+      "number": 482,
+      "head": "79981ddee5772a0b301da8a06a63faa6ca4d9661",
+      "files": 83,
+      "matches": []
+    },
+    {
+      "number": 479,
+      "head": "9e72857a731389993eaccf72354178f93d212771",
+      "files": 1,
+      "matches": []
+    },
+    {
+      "number": 472,
+      "head": "1c8fa7fdd656c265695d69ec3a5f2a040044e6a2",
+      "files": 431,
+      "matches": []
+    },
+    {
+      "number": 470,
+      "head": "e836b25c17191b4a731835154ee9ba5ae64c586a",
+      "files": 9,
+      "matches": []
+    },
+    {
+      "number": 462,
+      "head": "e0c5c52671666e8ab06b37afabf3eeae29f530fa",
+      "files": 315,
+      "matches": []
+    },
+    {
+      "number": 457,
+      "head": "b7608c97363bb1fab53094b6b5866b92c22130f1",
+      "files": 77,
+      "matches": []
+    },
+    {
+      "number": 445,
+      "head": "2b50389d81a1b6b667e5ca0fc3d9724181d52d09",
+      "files": 59,
+      "matches": []
+    },
+    {
+      "number": 440,
+      "head": "d1c8d96c995e3fd4db3aa3f5671383ec5767bcc0",
+      "files": 6,
+      "matches": []
+    },
+    {
+      "number": 434,
+      "head": "5a0983d94b54757b8204daafc17128fd742ba270",
+      "files": 28,
+      "matches": []
+    },
+    {
+      "number": 432,
+      "head": "ac9b441c7985284bedbde335c2d2fa56b291c4cd",
+      "files": 27,
+      "matches": []
+    },
+    {
+      "number": 430,
+      "head": "599fcb4854818e418a88301b48aed1da8ee16325",
+      "files": 51,
+      "matches": []
+    },
+    {
+      "number": 427,
+      "head": "0ec415ea853ee8afb66bda9a685eb8b910e1f02d",
+      "files": 31,
+      "matches": []
+    },
+    {
+      "number": 422,
+      "head": "88ab41e1fd1fdd8f4b1b33528e157b7e96fba444",
+      "files": 17,
+      "matches": []
+    },
+    {
+      "number": 409,
+      "head": "b0ed3e414b08bae2915589b034cbad7b7a3404fc",
+      "files": 99,
+      "matches": []
+    },
+    {
+      "number": 407,
+      "head": "25c15199e66e179e303d9419492f27281d87c6c7",
+      "files": 58,
+      "matches": []
+    },
+    {
+      "number": 406,
+      "head": "dda7c9db305d718226dae78ae07dcfc5b3867862",
+      "files": 43,
+      "matches": []
+    },
+    {
+      "number": 405,
+      "head": "a3df3cad7bd8ff70d00460045f0b808cacaca260",
+      "files": 38,
+      "matches": []
+    },
+    {
+      "number": 397,
+      "head": "0f6f9bcb4a355edcb217f0c6ee398ca820ec734c",
+      "files": 32,
+      "matches": []
+    },
+    {
+      "number": 393,
+      "head": "a6ad1a9689335f0379d5c6795d1da8652f02ac0d",
+      "files": 2844,
+      "matches": []
+    },
+    {
+      "number": 391,
+      "head": "0a4aeb6dbd679b58777021768158a90a43e371fe",
+      "files": 38,
+      "matches": []
+    },
+    {
+      "number": 390,
+      "head": "6f8aac751d3b232cf84e0329bf544d940053750e",
+      "files": 4,
+      "matches": []
+    },
+    {
+      "number": 387,
+      "head": "0f979b0179f5e47578d52ce1ce8776b75ca00b1f",
+      "files": 29,
+      "matches": []
+    },
+    {
+      "number": 365,
+      "head": "ad09126e76180757f3d937e006f38c2aeba5d4bb",
+      "files": 2,
+      "matches": []
+    },
+    {
+      "number": 302,
+      "head": "f74214a335ae277fdc93192e5b9bf69f4650af3b",
+      "files": 7,
+      "matches": []
+    },
+    {
+      "number": 300,
+      "head": "f6fd7ca51c2b08a994eb6074431e72aaea218edd",
+      "files": 10,
+      "matches": []
+    },
+    {
+      "number": 298,
+      "head": "4b90c922a2bd4d5128ae3d08c73b08a6dedf43c3",
+      "files": 1,
+      "matches": []
+    },
+    {
+      "number": 92,
+      "head": "fcf1209029eb54544007ca38483a7035adee77ef",
+      "files": 3,
+      "matches": []
+    }
+  ],
+  "checksFor": {
+    "directories": [
+      "comparisons/home-cast-size-v4/"
+    ],
+    "files": [
+      ".github/workflows/home-cast-size-v4.yml",
+      ".github/workflows/home-cast-size-v4-matrix.yml",
+      "tools/work/storage-exceptions.json"
+    ],
+    "manifestEntries": [
+      "comparisons/home-cast-size-v3/evidence/geometry-fixtures.tar.gz",
+      "comparisons/home-cast-size-v3/evidence/perf-grid-raw.tar.gz"
+    ]
+  },
+  "openOverlapsOnlyOnSharedManifest": true
+}

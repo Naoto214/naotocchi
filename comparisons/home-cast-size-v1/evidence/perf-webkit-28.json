@@ -1,0 +1,719 @@
+{
+ "viewport": [
+  390,
+  844
+ ],
+ "DPR": 2,
+ "engine": "webkit",
+ "suite": "live",
+ "affinity": [
+  0,
+  1
+ ],
+ "region": "river_lake",
+ "reference": false,
+ "rows": [
+  {
+   "seconds": 5.157,
+   "callbacks": 5,
+   "rafHz": 0.9695559433779329,
+   "p95": 2304,
+   "max": 2304,
+   "long": [
+    {
+     "start": 0,
+     "end": 2304,
+     "ms": 2304,
+     "events": []
+    },
+    {
+     "start": 2304,
+     "end": 3861,
+     "ms": 1557,
+     "events": []
+    },
+    {
+     "start": 3861,
+     "end": 4407,
+     "ms": 546,
+     "events": []
+    },
+    {
+     "start": 4407,
+     "end": 4749,
+     "ms": 342,
+     "events": []
+    },
+    {
+     "start": 4749,
+     "end": 5157,
+     "ms": 408,
+     "events": []
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 2,
+     "ms": 0,
+     "max": 0
+    },
+    "nature": {
+     "calls": 2,
+     "ms": 2,
+     "max": 1
+    },
+    "world": {
+     "calls": 2,
+     "ms": 45,
+     "max": 40
+    },
+    "actors": {
+     "calls": 2,
+     "ms": 5,
+     "max": 4
+    }
+   },
+   "pausedSec": 4.407,
+   "syncs": 3,
+   "clock": 0.9300000000000007,
+   "distance": 0,
+   "moves": 0,
+   "rows": 28,
+   "sameNodes": true,
+   "count": 28,
+   "preset": "current"
+  },
+  {
+   "seconds": 6.248,
+   "callbacks": 7,
+   "rafHz": 1.120358514724712,
+   "p95": 1411,
+   "max": 1411,
+   "long": [
+    {
+     "start": 15,
+     "end": 922,
+     "ms": 907,
+     "events": [
+      [
+       "plan",
+       566
+      ],
+      [
+       "plan",
+       135
+      ],
+      [
+       "model",
+       720
+      ]
+     ]
+    },
+    {
+     "start": 922,
+     "end": 2333,
+     "ms": 1411,
+     "events": [
+      [
+       "plan",
+       562
+      ],
+      [
+       "plan",
+       144
+      ],
+      [
+       "plan",
+       478
+      ],
+      [
+       "plan",
+       61
+      ],
+      [
+       "model",
+       1256
+      ]
+     ]
+    },
+    {
+     "start": 2333,
+     "end": 2832,
+     "ms": 499,
+     "events": []
+    },
+    {
+     "start": 2832,
+     "end": 3759,
+     "ms": 927,
+     "events": []
+    },
+    {
+     "start": 3759,
+     "end": 4840,
+     "ms": 1081,
+     "events": []
+    },
+    {
+     "start": 4840,
+     "end": 6248,
+     "ms": 1408,
+     "events": [
+      [
+       "plan",
+       157
+      ],
+      [
+       "plan",
+       57
+      ],
+      [
+       "model",
+       225
+      ]
+     ]
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 7,
+     "ms": 2206,
+     "max": 1256
+    },
+    "nature": {
+     "calls": 7,
+     "ms": 6,
+     "max": 1
+    },
+    "world": {
+     "calls": 7,
+     "ms": 18,
+     "max": 8
+    },
+    "actors": {
+     "calls": 7,
+     "ms": 89,
+     "max": 48
+    },
+    "plan": {
+     "calls": 8,
+     "ms": 2160,
+     "max": 566
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 6,
+   "clock": 5.173999999999991,
+   "distance": 113.05245651300811,
+   "moves": 4,
+   "rows": 28,
+   "sameNodes": true,
+   "count": 28,
+   "preset": "A"
+  },
+  {
+   "seconds": 5.026,
+   "callbacks": 23,
+   "rafHz": 4.576203740549144,
+   "p95": 572,
+   "max": 677,
+   "long": [
+    {
+     "start": 332,
+     "end": 858,
+     "ms": 526,
+     "events": []
+    },
+    {
+     "start": 1890,
+     "end": 2261,
+     "ms": 371,
+     "events": []
+    },
+    {
+     "start": 2653,
+     "end": 3225,
+     "ms": 572,
+     "events": [
+      [
+       "plan",
+       78
+      ],
+      [
+       "plan",
+       220
+      ],
+      [
+       "model",
+       398
+      ]
+     ]
+    },
+    {
+     "start": 3225,
+     "end": 3525,
+     "ms": 300,
+     "events": []
+    },
+    {
+     "start": 3525,
+     "end": 4202,
+     "ms": 677,
+     "events": []
+    },
+    {
+     "start": 4202,
+     "end": 4498,
+     "ms": 296,
+     "events": []
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 23,
+     "ms": 437,
+     "max": 398
+    },
+    "nature": {
+     "calls": 23,
+     "ms": 19,
+     "max": 7
+    },
+    "world": {
+     "calls": 23,
+     "ms": 73,
+     "max": 29
+    },
+    "actors": {
+     "calls": 23,
+     "ms": 191,
+     "max": 41
+    },
+    "plan": {
+     "calls": 2,
+     "ms": 298,
+     "max": 220
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 5,
+   "clock": 5.666999999999985,
+   "distance": 14.92380757938119,
+   "moves": 0,
+   "rows": 28,
+   "sameNodes": true,
+   "count": 28,
+   "preset": "B"
+  },
+  {
+   "seconds": 6.976,
+   "callbacks": 9,
+   "rafHz": 1.290137614678899,
+   "p95": 2779,
+   "max": 2779,
+   "long": [
+    {
+     "start": 1074,
+     "end": 2872,
+     "ms": 1798,
+     "events": [
+      [
+       "plan",
+       831
+      ],
+      [
+       "plan",
+       170
+      ],
+      [
+       "model",
+       1010
+      ]
+     ]
+    },
+    {
+     "start": 2872,
+     "end": 4197,
+     "ms": 1325,
+     "events": [
+      [
+       "plan",
+       1030
+      ],
+      [
+       "plan",
+       122
+      ],
+      [
+       "model",
+       1176
+      ]
+     ]
+    },
+    {
+     "start": 4197,
+     "end": 6976,
+     "ms": 2779,
+     "events": [
+      [
+       "plan",
+       1363
+      ],
+      [
+       "plan",
+       263
+      ],
+      [
+       "plan",
+       657
+      ],
+      [
+       "plan",
+       100
+      ],
+      [
+       "model",
+       2395
+      ]
+     ]
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 9,
+     "ms": 4581,
+     "max": 2395
+    },
+    "nature": {
+     "calls": 9,
+     "ms": 6,
+     "max": 1
+    },
+    "world": {
+     "calls": 9,
+     "ms": 21,
+     "max": 5
+    },
+    "actors": {
+     "calls": 9,
+     "ms": 52,
+     "max": 15
+    },
+    "plan": {
+     "calls": 10,
+     "ms": 4541,
+     "max": 1363
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 4,
+   "clock": 4.162000000000006,
+   "distance": 103.98478641319372,
+   "moves": 5,
+   "rows": 28,
+   "sameNodes": true,
+   "count": 28,
+   "preset": "B"
+  },
+  {
+   "seconds": 5.629,
+   "callbacks": 8,
+   "rafHz": 1.4212115828744005,
+   "p95": 1129,
+   "max": 1129,
+   "long": [
+    {
+     "start": 0,
+     "end": 269,
+     "ms": 269,
+     "events": []
+    },
+    {
+     "start": 269,
+     "end": 767,
+     "ms": 498,
+     "events": []
+    },
+    {
+     "start": 767,
+     "end": 1836,
+     "ms": 1069,
+     "events": [
+      [
+       "plan",
+       462
+      ],
+      [
+       "plan",
+       195
+      ],
+      [
+       "model",
+       795
+      ]
+     ]
+    },
+    {
+     "start": 1995,
+     "end": 3124,
+     "ms": 1129,
+     "events": [
+      [
+       "plan",
+       922
+      ],
+      [
+       "plan",
+       64
+      ],
+      [
+       "model",
+       988
+      ]
+     ]
+    },
+    {
+     "start": 3124,
+     "end": 3685,
+     "ms": 561,
+     "events": [
+      [
+       "plan",
+       267
+      ],
+      [
+       "model",
+       351
+      ]
+     ]
+    },
+    {
+     "start": 3685,
+     "end": 4691,
+     "ms": 1006,
+     "events": [
+      [
+       "plan",
+       225
+      ],
+      [
+       "plan",
+       65
+      ],
+      [
+       "plan",
+       257
+      ],
+      [
+       "model",
+       553
+      ]
+     ]
+    },
+    {
+     "start": 4691,
+     "end": 5629,
+     "ms": 938,
+     "events": [
+      [
+       "plan",
+       235
+      ],
+      [
+       "plan",
+       74
+      ],
+      [
+       "plan",
+       309
+      ],
+      [
+       "plan",
+       157
+      ],
+      [
+       "model",
+       781
+      ]
+     ]
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 8,
+     "ms": 3473,
+     "max": 988
+    },
+    "nature": {
+     "calls": 8,
+     "ms": 8,
+     "max": 2
+    },
+    "world": {
+     "calls": 8,
+     "ms": 14,
+     "max": 5
+    },
+    "actors": {
+     "calls": 8,
+     "ms": 76,
+     "max": 21
+    },
+    "plan": {
+     "calls": 14,
+     "ms": 3278,
+     "max": 922
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 2,
+   "clock": 5.503000000000078,
+   "distance": 147.41287380089787,
+   "moves": 6,
+   "rows": 28,
+   "sameNodes": true,
+   "count": 28,
+   "preset": "A"
+  },
+  {
+   "seconds": 5.169,
+   "callbacks": 7,
+   "rafHz": 1.3542271232346683,
+   "p95": 1564,
+   "max": 1564,
+   "long": [
+    {
+     "start": 0,
+     "end": 564,
+     "ms": 564,
+     "events": [
+      [
+       "plan",
+       280
+      ],
+      [
+       "plan",
+       54
+      ],
+      [
+       "model",
+       341
+      ]
+     ]
+    },
+    {
+     "start": 564,
+     "end": 2128,
+     "ms": 1564,
+     "events": [
+      [
+       "plan",
+       492
+      ],
+      [
+       "plan",
+       126
+      ],
+      [
+       "plan",
+       404
+      ],
+      [
+       "plan",
+       95
+      ],
+      [
+       "model",
+       1137
+      ]
+     ]
+    },
+    {
+     "start": 2128,
+     "end": 2488,
+     "ms": 360,
+     "events": []
+    },
+    {
+     "start": 2629,
+     "end": 3562,
+     "ms": 933,
+     "events": [
+      [
+       "plan",
+       284
+      ],
+      [
+       "plan",
+       209
+      ],
+      [
+       "plan",
+       60
+      ],
+      [
+       "model",
+       574
+      ]
+     ]
+    },
+    {
+     "start": 3731,
+     "end": 5169,
+     "ms": 1438,
+     "events": [
+      [
+       "plan",
+       447
+      ],
+      [
+       "plan",
+       178
+      ],
+      [
+       "model",
+       631
+      ]
+     ]
+    }
+   ],
+   "phases": {
+    "plan": {
+     "calls": 12,
+     "ms": 2635,
+     "max": 492
+    },
+    "model": {
+     "calls": 7,
+     "ms": 2696,
+     "max": 1137
+    },
+    "nature": {
+     "calls": 7,
+     "ms": 4,
+     "max": 1
+    },
+    "world": {
+     "calls": 7,
+     "ms": 7,
+     "max": 2
+    },
+    "actors": {
+     "calls": 7,
+     "ms": 47,
+     "max": 8
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 5,
+   "clock": 4.813000000000066,
+   "distance": 184.956102677486,
+   "moves": 6,
+   "rows": 28,
+   "sameNodes": true,
+   "count": 28,
+   "preset": "current"
+  }
+ ],
+ "browser": "26.5"
+}

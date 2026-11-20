@@ -1,0 +1,119 @@
+{
+  "engine": "webkit",
+  "version": "26.5",
+  "mobileEmulation": true,
+  "dpr": 2,
+  "scenes": [
+    {
+      "region": "river_lake",
+      "width": 390,
+      "height": 844,
+      "count": 28,
+      "readyWithStablePose": true,
+      "reducedMotion": false,
+      "factors": [
+        1.2,
+        1.2,
+        1.05
+      ],
+      "originalHeroPercent": "110",
+      "overviewButtons": 0,
+      "gear": {
+        "shadowCount": 28,
+        "ribbon": 15.029006958007812,
+        "ring": 13.863250732421875,
+        "decoded": true
+      },
+      "taps": [
+        {
+          "requested": "partner:forest_bear",
+          "attempts": [
+            {
+              "selected": "partner:forest_bear",
+              "events": [
+                "partner:forest_bear"
+              ]
+            }
+          ],
+          "selected": true
+        },
+        {
+          "requested": "companion:shiba",
+          "attempts": [
+            {
+              "selected": "companion:shiba",
+              "events": [
+                "companion:shiba"
+              ]
+            }
+          ],
+          "selected": true
+        },
+        {
+          "requested": "pet:dog",
+          "attempts": [
+            {
+              "selected": "pet:dog",
+              "events": [
+                "pet:dog"
+              ]
+            }
+          ],
+          "selected": true
+        }
+      ],
+      "dragInput": "Linux WebKit mouse pointer",
+      "dragTrials": [
+        {
+          "actor": "pet:dog",
+          "heldActor": "pet:dog",
+          "target": "reserved exit",
+          "marker": true,
+          "accepted": true,
+          "distance": 7.36,
+          "nativeRequest": {
+            "key": "pet:dog",
+            "x": 199.54806070054582,
+            "y": 338.83221110695786,
+            "actorX": 200.47925957805415,
+            "actorY": 288.7131467932701
+          },
+          "sourceAfter": "drag"
+        }
+      ],
+      "events": {
+        "tap/tap": 4,
+        "move/ambient": 2,
+        "look/ambient": 12,
+        "arrive/ambient": 2,
+        "environment/ambient": 1,
+        "proximity/ambient": 3,
+        "move/drag": 1,
+        "arrive/drag": 1
+      },
+      "visibleDialogue": [
+        "大人のいぬ\nG'day mate!",
+        "大人のいぬ\nやあ!"
+      ],
+      "stops": {},
+      "environmentSeconds": 7.5,
+      "additionalIdleObservationSeconds": 4,
+      "attachmentsAfterInputs": {
+        "ribbonTranslate": true,
+        "ribbonScale": true,
+        "ringActor": "partner:forest_bear",
+        "maximumShadowOriginDelta": 0
+      },
+      "saveBoundaryOnReentry": {
+        "realSaveSentinelsRetained": 3,
+        "tabRetained": true,
+        "frameWriteAbsentAfterReload": true,
+        "restoredFixtureKeys": 28,
+        "originalRibbon": true
+      },
+      "pageErrors": []
+    }
+  ],
+  "nativeModelSha256": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+  "layoutSha256": "b9d63b5e005b3f780af7522e84703f31dc328e7934457371158ea8576c88c54b"
+}

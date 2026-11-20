@@ -1,0 +1,19 @@
+{
+  "engine": "chromium",
+  "pageErrors": [],
+  "version": "156.0.8078.79",
+  "heldOpening": 20,
+  "testedVisualGains": [
+    0,
+    5,
+    10,
+    15,
+    20
+  ],
+  "sameFrozenFeetThroughAllGains": true,
+  "sameLiveFrame": true,
+  "restoredQuery": "region=forest&time=day&count=28&paused=1&layout=optimized&extra=0&seatExtra=20",
+  "restoredVisibleGain": 0,
+  "coldReloadMaxFootDifferenceNativeUnits": 0.0,
+  "releasedOpening": 0
+}

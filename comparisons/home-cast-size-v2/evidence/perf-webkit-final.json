@@ -1,0 +1,293 @@
+{
+ "engine": "webkit",
+ "host": "Linux",
+ "affinity": [
+  0,
+  1
+ ],
+ "viewport": [
+  320,
+  568
+ ],
+ "gameContentHeight": 516,
+ "dpr": 2,
+ "region": "forest",
+ "rows": [
+  {
+   "mode": "final",
+   "trial": 0,
+   "count": 28,
+   "scales": [
+    1.2,
+    1.2,
+    1.05
+   ],
+   "sameRosterKey": "a41961ef30b73c9061ec6aa1851903fa2f27b6e297e51c3e92430e8f7a08a15d",
+   "modelSizes": "7ea65ebb5668f8aa6d0828b920de94bdf0d585d3e2e18068752c5c864b3cc2b0",
+   "startPose": "7fbdcae2e269122a4b27d15bd211329ec34988f9b7083a856cfb881a6c0d1029",
+   "hashes": {
+    "seating.js": "b9d63b5e005b3f780af7522e84703f31dc328e7934457371158ea8576c88c54b",
+    "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+    "home-production-diorama-v2.js": "05efcea5931dc74a890355325d615b5dbecb6c72e58f8b53146c7d36407e3b4d",
+    "home-production-world-v2.mjs": "0694f86c09852f37e4c686864705f8756f32dc668d92537d0a39d5d79734960d"
+   },
+   "startup": {
+    "untilTrialReadyMs": 17510,
+    "firstPaintMs": 2139,
+    "width": 320,
+    "height": 516,
+    "nativeUpdates": 6,
+    "syncs": 15,
+    "seating": {
+     "calls": 1,
+     "ms": 0,
+     "max": 0
+    },
+    "seatingBindings": {
+     "calls": 3,
+     "ms": 0,
+     "max": 0
+    }
+   },
+   "sample": {
+    "seconds": 12.072,
+    "callbacks": 203,
+    "rafHz": 16.815772034459908,
+    "p95": 115,
+    "max": 1841,
+    "long": [
+     {
+      "start": 1123,
+      "end": 1454,
+      "ms": 331,
+      "events": []
+     },
+     {
+      "start": 9479,
+      "end": 9932,
+      "ms": 453,
+      "events": [
+       [
+        "plan",
+        107
+       ],
+       [
+        "plan",
+        96
+       ],
+       [
+        "plan",
+        83
+       ],
+       [
+        "plan",
+        58
+       ],
+       [
+        "model",
+        388
+       ]
+      ]
+     },
+     {
+      "start": 10116,
+      "end": 11957,
+      "ms": 1841,
+      "events": [
+       [
+        "plan",
+        637
+       ],
+       [
+        "plan",
+        51
+       ],
+       [
+        "model",
+        711
+       ]
+      ]
+     }
+    ],
+    "phases": {
+     "model": {
+      "calls": 145,
+      "ms": 1135,
+      "max": 711
+     },
+     "nature": {
+      "calls": 80,
+      "ms": 94,
+      "max": 5
+     },
+     "world": {
+      "calls": 145,
+      "ms": 233,
+      "max": 12
+     },
+     "actors": {
+      "calls": 145,
+      "ms": 307,
+      "max": 14
+     },
+     "plan": {
+      "calls": 6,
+      "ms": 1032,
+      "max": 637
+     }
+    },
+    "pausedSec": 0,
+    "syncs": 9,
+    "clock": 12.049999999999986,
+    "distance": 0,
+    "moves": 1,
+    "rows": 28,
+    "sameNodes": true
+   },
+   "inputs": [
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:tanuki",
+     "dispatchMs": 1109,
+     "afterHandlerMs": 1128,
+     "selected": "companion:tanuki",
+     "marker": false,
+     "nextRafMs": 1475
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:tanuki",
+     "dispatchMs": 2,
+     "afterHandlerMs": 8,
+     "selected": "companion:tanuki",
+     "marker": false,
+     "nextRafMs": 344
+    },
+    {
+     "type": "pointermove",
+     "kind": "mouse",
+     "expected": "companion:penguin_friend",
+     "dispatchMs": 35,
+     "afterHandlerMs": 35,
+     "selected": "companion:tanuki",
+     "marker": false,
+     "nextRafMs": 1463
+    },
+    {
+     "type": "pointerdown",
+     "kind": "mouse",
+     "expected": "companion:penguin_friend",
+     "dispatchMs": 1,
+     "afterHandlerMs": 22,
+     "selected": "companion:penguin_friend",
+     "marker": false,
+     "nextRafMs": 1125
+    },
+    {
+     "type": "pointermove",
+     "kind": "mouse",
+     "expected": "companion:penguin_friend",
+     "dispatchMs": 16,
+     "afterHandlerMs": 17,
+     "selected": "companion:penguin_friend",
+     "marker": true,
+     "nextRafMs": 1088
+    },
+    {
+     "type": "pointermove",
+     "kind": "mouse",
+     "expected": "companion:penguin_friend",
+     "dispatchMs": 3,
+     "afterHandlerMs": 4,
+     "selected": "companion:penguin_friend",
+     "marker": true,
+     "nextRafMs": 1065
+    },
+    {
+     "type": "pointerup",
+     "kind": "mouse",
+     "expected": "companion:penguin_friend",
+     "dispatchMs": 2,
+     "afterHandlerMs": 296,
+     "selected": "companion:penguin_friend",
+     "marker": true,
+     "nextRafMs": 1058
+    },
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:chameleon",
+     "dispatchMs": 1,
+     "afterHandlerMs": 45,
+     "selected": "companion:chameleon",
+     "marker": false,
+     "nextRafMs": 643
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:chameleon",
+     "dispatchMs": 3,
+     "afterHandlerMs": 14,
+     "selected": "companion:chameleon",
+     "marker": false,
+     "nextRafMs": 595
+    },
+    {
+     "type": "pointermove",
+     "kind": "mouse",
+     "expected": "companion:rabbit_friend",
+     "dispatchMs": 1,
+     "afterHandlerMs": 1,
+     "selected": "companion:chameleon",
+     "marker": false,
+     "nextRafMs": 876
+    },
+    {
+     "type": "pointerdown",
+     "kind": "mouse",
+     "expected": "companion:rabbit_friend",
+     "dispatchMs": 1,
+     "afterHandlerMs": 19,
+     "selected": "companion:rabbit_friend",
+     "marker": false,
+     "nextRafMs": 1374
+    },
+    {
+     "type": "pointermove",
+     "kind": "mouse",
+     "expected": "companion:rabbit_friend",
+     "dispatchMs": 4,
+     "afterHandlerMs": 5,
+     "selected": "companion:rabbit_friend",
+     "marker": true,
+     "nextRafMs": 1348
+    },
+    {
+     "type": "pointermove",
+     "kind": "mouse",
+     "expected": "companion:rabbit_friend",
+     "dispatchMs": 5,
+     "afterHandlerMs": 6,
+     "selected": "companion:rabbit_friend",
+     "marker": true,
+     "nextRafMs": 1341
+    },
+    {
+     "type": "pointerup",
+     "kind": "mouse",
+     "expected": "companion:rabbit_friend",
+     "dispatchMs": 1,
+     "afterHandlerMs": 439,
+     "selected": "companion:rabbit_friend",
+     "marker": false,
+     "nextRafMs": 1323
+    }
+   ],
+   "errors": []
+  }
+ ],
+ "browser": "26.5"
+}

@@ -1,0 +1,123 @@
+{
+  "engine": "Linux Chromium 156.0.8078.79",
+  "viewport": [
+    320,
+    568
+  ],
+  "region": "forest",
+  "count": 28,
+  "time": "day",
+  "input": "CDP touch with 5 moves and a 7 by 5 CSS px arc",
+  "sha256": {
+    "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+    "home-production-touch.js": "df9353d84de426e6f71fdd3b9230d31eac2bc8107d801e13ed5eac7d398d8f42",
+    "home-production-diorama.js": "ed8428eee409b393d9e46c951eb74105ca81be39e4882e17f651f9d2caad9cb8",
+    "home-production-diorama-v2.js": "05efcea5931dc74a890355325d615b5dbecb6c72e58f8b53146c7d36407e3b4d",
+    "seating.js": "b9d63b5e005b3f780af7522e84703f31dc328e7934457371158ea8576c88c54b",
+    "script.js": "ad7bb033714f391af11dc08e5c464454a4ad930f4bfe82a8a99d3705b9949d4f",
+    "script-v2.js": "3f5255546fe017d4de625ae24f0016da90f5265ee3c7b8b3744d70607e966844",
+    "home-production-world-v2.mjs": "0694f86c09852f37e4c686864705f8756f32dc668d92537d0a39d5d79734960d"
+  },
+  "trials": {
+    "adopted": {
+      "position": [
+        168.26044210866212,
+        291.87729989493744
+      ],
+      "source": "drag",
+      "dragEvents": [
+        [
+          "move",
+          "pet:dog"
+        ]
+      ],
+      "route": [
+        {
+          "actor": "pet:dog",
+          "requested": [
+            141.92729745523698,
+            302.7848114335559
+          ],
+          "planned": {
+            "x": 141.92729745523698,
+            "y": 302.7848114335559
+          },
+          "waypoints": 1
+        }
+      ],
+      "origin": {
+        "x": 184.42575446955288,
+        "y": 285.1814292185556
+      },
+      "targetNative": {
+        "x": 141.9272959740337,
+        "y": 302.7848671073497,
+        "length": 46,
+        "angle": 7,
+        "clearanceAtEnd": 1.094652998435
+      },
+      "pressedCss": [
+        174.15222625732423,
+        206.44048461914062
+      ],
+      "releasedCss": [
+        124.89761154019763,
+        223.06962201402808
+      ],
+      "legalSampleCount": 7,
+      "marker": true,
+      "held": "pet:dog",
+      "displacementAfter900ms": 17.497199999999946
+    },
+    "final": {
+      "position": [
+        163.07999639852406,
+        258.45997732717296
+      ],
+      "source": "drag",
+      "dragEvents": [
+        [
+          "move",
+          "pet:dog"
+        ]
+      ],
+      "route": [
+        {
+          "actor": "pet:dog",
+          "requested": [
+            163.07999639852406,
+            258.45997732717296
+          ],
+          "planned": {
+            "x": 163.07999639852406,
+            "y": 258.45997732717296
+          },
+          "waypoints": 1
+        }
+      ],
+      "origin": {
+        "x": 163.08,
+        "y": 298.46000000000004
+      },
+      "targetNative": {
+        "x": 163.08,
+        "y": 258.46000000000004,
+        "length": 40,
+        "angle": 12,
+        "clearanceAtEnd": 1.011808331725505
+      },
+      "pressedCss": [
+        153.24139404296875,
+        208.97349853515624
+      ],
+      "releasedCss": [
+        153.24767023217663,
+        213.9788864859836
+      ],
+      "legalSampleCount": 18,
+      "marker": true,
+      "held": "pet:dog",
+      "displacementAfter900ms": 40.000022672827235
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "engine": "chromium",
+  "version": "156.0.8078.79",
+  "widths": [
+    {
+      "width": 320,
+      "minToolbarHeight": 44,
+      "fit": true,
+      "sameActorNode": true
+    },
+    {
+      "width": 375,
+      "minToolbarHeight": 44,
+      "fit": true,
+      "sameActorNode": true
+    },
+    {
+      "width": 390,
+      "minToolbarHeight": 44,
+      "fit": true,
+      "sameActorNode": true
+    },
+    {
+      "width": 430,
+      "minToolbarHeight": 44,
+      "fit": true,
+      "sameActorNode": true
+    },
+    {
+      "width": 900,
+      "minToolbarHeight": 44,
+      "fit": true,
+      "sameActorNode": true
+    }
+  ],
+  "counts": [
+    1,
+    4,
+    10,
+    20,
+    28
+  ],
+  "regions": [
+    "forest",
+    "city",
+    "home",
+    "river_lake"
+  ],
+  "verifiedManualPercent": [
+    133,
+    124,
+    107
+  ],
+  "pageErrors": []
+}

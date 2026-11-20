@@ -1,0 +1,853 @@
+{
+  "engine": "chromium",
+  "version": "156.0.8078.79",
+  "reducedMotion": true,
+  "scenes": [
+    {
+      "region": "river_lake",
+      "width": 320,
+      "height": 568,
+      "count": 1,
+      "times": {
+        "morning": {
+          "paint": "river_lake-morning.webp",
+          "model": 1,
+          "roles": [
+            1,
+            0,
+            0
+          ],
+          "shadows": 1,
+          "rings": 0,
+          "spriteImgs": 1,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "day": {
+          "paint": "river_lake-day.webp",
+          "model": 1,
+          "roles": [
+            1,
+            0,
+            0
+          ],
+          "shadows": 1,
+          "rings": 0,
+          "spriteImgs": 1,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "evening": {
+          "paint": "river_lake-evening.webp",
+          "model": 1,
+          "roles": [
+            1,
+            0,
+            0
+          ],
+          "shadows": 1,
+          "rings": 0,
+          "spriteImgs": 1,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "night": {
+          "paint": "river_lake-night.webp",
+          "model": 1,
+          "roles": [
+            1,
+            0,
+            0
+          ],
+          "shadows": 1,
+          "rings": 0,
+          "spriteImgs": 1,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        }
+      },
+      "pageErrors": []
+    },
+    {
+      "region": "forest",
+      "width": 375,
+      "height": 812,
+      "count": 4,
+      "times": {
+        "morning": {
+          "paint": "forest-morning.webp",
+          "model": 4,
+          "roles": [
+            1,
+            1,
+            2
+          ],
+          "shadows": 4,
+          "rings": 1,
+          "spriteImgs": 4,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "day": {
+          "paint": "forest-day.webp",
+          "model": 4,
+          "roles": [
+            1,
+            1,
+            2
+          ],
+          "shadows": 4,
+          "rings": 1,
+          "spriteImgs": 4,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "evening": {
+          "paint": "forest-evening.webp",
+          "model": 4,
+          "roles": [
+            1,
+            1,
+            2
+          ],
+          "shadows": 4,
+          "rings": 1,
+          "spriteImgs": 4,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "night": {
+          "paint": "forest-night.webp",
+          "model": 4,
+          "roles": [
+            1,
+            1,
+            2
+          ],
+          "shadows": 4,
+          "rings": 1,
+          "spriteImgs": 4,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        }
+      },
+      "pageErrors": []
+    },
+    {
+      "region": "city",
+      "width": 390,
+      "height": 844,
+      "count": 10,
+      "times": {
+        "morning": {
+          "paint": "city-morning.webp",
+          "model": 10,
+          "roles": [
+            1,
+            1,
+            8
+          ],
+          "shadows": 10,
+          "rings": 1,
+          "spriteImgs": 10,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "day": {
+          "paint": "city-day.webp",
+          "model": 10,
+          "roles": [
+            1,
+            1,
+            8
+          ],
+          "shadows": 10,
+          "rings": 1,
+          "spriteImgs": 10,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "evening": {
+          "paint": "city-evening.webp",
+          "model": 10,
+          "roles": [
+            1,
+            1,
+            8
+          ],
+          "shadows": 10,
+          "rings": 1,
+          "spriteImgs": 10,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "night": {
+          "paint": "city-night.webp",
+          "model": 10,
+          "roles": [
+            1,
+            1,
+            8
+          ],
+          "shadows": 10,
+          "rings": 1,
+          "spriteImgs": 10,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        }
+      },
+      "pageErrors": []
+    },
+    {
+      "region": "home",
+      "width": 430,
+      "height": 932,
+      "count": 20,
+      "times": {
+        "morning": {
+          "paint": "home-morning.webp",
+          "model": 20,
+          "roles": [
+            1,
+            1,
+            18
+          ],
+          "shadows": 20,
+          "rings": 1,
+          "spriteImgs": 20,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "day": {
+          "paint": "home-day.webp",
+          "model": 20,
+          "roles": [
+            1,
+            1,
+            18
+          ],
+          "shadows": 20,
+          "rings": 1,
+          "spriteImgs": 20,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "evening": {
+          "paint": "home-evening.webp",
+          "model": 20,
+          "roles": [
+            1,
+            1,
+            18
+          ],
+          "shadows": 20,
+          "rings": 1,
+          "spriteImgs": 20,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "night": {
+          "paint": "home-night.webp",
+          "model": 20,
+          "roles": [
+            1,
+            1,
+            18
+          ],
+          "shadows": 20,
+          "rings": 1,
+          "spriteImgs": 20,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        }
+      },
+      "pageErrors": []
+    },
+    {
+      "region": "countryside",
+      "width": 320,
+      "height": 568,
+      "count": 28,
+      "times": {
+        "morning": {
+          "paint": "countryside-morning.webp",
+          "model": 28,
+          "roles": [
+            1,
+            1,
+            26
+          ],
+          "shadows": 28,
+          "rings": 1,
+          "spriteImgs": 28,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "day": {
+          "paint": "countryside-day.webp",
+          "model": 28,
+          "roles": [
+            1,
+            1,
+            26
+          ],
+          "shadows": 28,
+          "rings": 1,
+          "spriteImgs": 28,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "evening": {
+          "paint": "countryside-evening.webp",
+          "model": 28,
+          "roles": [
+            1,
+            1,
+            26
+          ],
+          "shadows": 28,
+          "rings": 1,
+          "spriteImgs": 28,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "night": {
+          "paint": "countryside-night.webp",
+          "model": 28,
+          "roles": [
+            1,
+            1,
+            26
+          ],
+          "shadows": 28,
+          "rings": 1,
+          "spriteImgs": 28,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        }
+      },
+      "pageErrors": []
+    },
+    {
+      "region": "mountain",
+      "width": 375,
+      "height": 812,
+      "count": 1,
+      "times": {
+        "morning": {
+          "paint": "mountain-morning.webp",
+          "model": 1,
+          "roles": [
+            1,
+            0,
+            0
+          ],
+          "shadows": 1,
+          "rings": 0,
+          "spriteImgs": 1,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "day": {
+          "paint": "mountain-day.webp",
+          "model": 1,
+          "roles": [
+            1,
+            0,
+            0
+          ],
+          "shadows": 1,
+          "rings": 0,
+          "spriteImgs": 1,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "evening": {
+          "paint": "mountain-evening.webp",
+          "model": 1,
+          "roles": [
+            1,
+            0,
+            0
+          ],
+          "shadows": 1,
+          "rings": 0,
+          "spriteImgs": 1,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "night": {
+          "paint": "mountain-night.webp",
+          "model": 1,
+          "roles": [
+            1,
+            0,
+            0
+          ],
+          "shadows": 1,
+          "rings": 0,
+          "spriteImgs": 1,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        }
+      },
+      "pageErrors": []
+    },
+    {
+      "region": "snow",
+      "width": 390,
+      "height": 844,
+      "count": 4,
+      "times": {
+        "morning": {
+          "paint": "snow-morning.webp",
+          "model": 4,
+          "roles": [
+            1,
+            1,
+            2
+          ],
+          "shadows": 4,
+          "rings": 1,
+          "spriteImgs": 4,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "day": {
+          "paint": "snow-day.webp",
+          "model": 4,
+          "roles": [
+            1,
+            1,
+            2
+          ],
+          "shadows": 4,
+          "rings": 1,
+          "spriteImgs": 4,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "evening": {
+          "paint": "snow-evening.webp",
+          "model": 4,
+          "roles": [
+            1,
+            1,
+            2
+          ],
+          "shadows": 4,
+          "rings": 1,
+          "spriteImgs": 4,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "night": {
+          "paint": "snow-night.webp",
+          "model": 4,
+          "roles": [
+            1,
+            1,
+            2
+          ],
+          "shadows": 4,
+          "rings": 1,
+          "spriteImgs": 4,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        }
+      },
+      "pageErrors": []
+    },
+    {
+      "region": "sea",
+      "width": 430,
+      "height": 932,
+      "count": 10,
+      "times": {
+        "morning": {
+          "paint": "sea-morning.webp",
+          "model": 10,
+          "roles": [
+            1,
+            1,
+            8
+          ],
+          "shadows": 10,
+          "rings": 1,
+          "spriteImgs": 10,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "day": {
+          "paint": "sea-day.webp",
+          "model": 10,
+          "roles": [
+            1,
+            1,
+            8
+          ],
+          "shadows": 10,
+          "rings": 1,
+          "spriteImgs": 10,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "evening": {
+          "paint": "sea-evening.webp",
+          "model": 10,
+          "roles": [
+            1,
+            1,
+            8
+          ],
+          "shadows": 10,
+          "rings": 1,
+          "spriteImgs": 10,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "night": {
+          "paint": "sea-night.webp",
+          "model": 10,
+          "roles": [
+            1,
+            1,
+            8
+          ],
+          "shadows": 10,
+          "rings": 1,
+          "spriteImgs": 10,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        }
+      },
+      "pageErrors": []
+    },
+    {
+      "region": "jungle",
+      "width": 320,
+      "height": 568,
+      "count": 20,
+      "times": {
+        "morning": {
+          "paint": "jungle-morning.webp",
+          "model": 20,
+          "roles": [
+            1,
+            1,
+            18
+          ],
+          "shadows": 20,
+          "rings": 1,
+          "spriteImgs": 20,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "day": {
+          "paint": "jungle-day.webp",
+          "model": 20,
+          "roles": [
+            1,
+            1,
+            18
+          ],
+          "shadows": 20,
+          "rings": 1,
+          "spriteImgs": 20,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "evening": {
+          "paint": "jungle-evening.webp",
+          "model": 20,
+          "roles": [
+            1,
+            1,
+            18
+          ],
+          "shadows": 20,
+          "rings": 1,
+          "spriteImgs": 20,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "night": {
+          "paint": "jungle-night.webp",
+          "model": 20,
+          "roles": [
+            1,
+            1,
+            18
+          ],
+          "shadows": 20,
+          "rings": 1,
+          "spriteImgs": 20,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        }
+      },
+      "pageErrors": []
+    },
+    {
+      "region": "desert",
+      "width": 375,
+      "height": 812,
+      "count": 28,
+      "times": {
+        "morning": {
+          "paint": "desert-morning.webp",
+          "model": 28,
+          "roles": [
+            1,
+            1,
+            26
+          ],
+          "shadows": 28,
+          "rings": 1,
+          "spriteImgs": 28,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "day": {
+          "paint": "desert-day.webp",
+          "model": 28,
+          "roles": [
+            1,
+            1,
+            26
+          ],
+          "shadows": 28,
+          "rings": 1,
+          "spriteImgs": 28,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "evening": {
+          "paint": "desert-evening.webp",
+          "model": 28,
+          "roles": [
+            1,
+            1,
+            26
+          ],
+          "shadows": 28,
+          "rings": 1,
+          "spriteImgs": 28,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "night": {
+          "paint": "desert-night.webp",
+          "model": 28,
+          "roles": [
+            1,
+            1,
+            26
+          ],
+          "shadows": 28,
+          "rings": 1,
+          "spriteImgs": 28,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        }
+      },
+      "pageErrors": []
+    },
+    {
+      "region": "deepsea",
+      "width": 390,
+      "height": 844,
+      "count": 1,
+      "times": {
+        "morning": {
+          "paint": "deepsea-morning.webp",
+          "model": 1,
+          "roles": [
+            1,
+            0,
+            0
+          ],
+          "shadows": 1,
+          "rings": 0,
+          "spriteImgs": 1,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "day": {
+          "paint": "deepsea-day.webp",
+          "model": 1,
+          "roles": [
+            1,
+            0,
+            0
+          ],
+          "shadows": 1,
+          "rings": 0,
+          "spriteImgs": 1,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "evening": {
+          "paint": "deepsea-evening.webp",
+          "model": 1,
+          "roles": [
+            1,
+            0,
+            0
+          ],
+          "shadows": 1,
+          "rings": 0,
+          "spriteImgs": 1,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "night": {
+          "paint": "deepsea-night.webp",
+          "model": 1,
+          "roles": [
+            1,
+            0,
+            0
+          ],
+          "shadows": 1,
+          "rings": 0,
+          "spriteImgs": 1,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        }
+      },
+      "pageErrors": []
+    },
+    {
+      "region": "star_stop",
+      "width": 430,
+      "height": 932,
+      "count": 4,
+      "times": {
+        "morning": {
+          "paint": "star_stop-morning.webp",
+          "model": 4,
+          "roles": [
+            1,
+            1,
+            2
+          ],
+          "shadows": 4,
+          "rings": 1,
+          "spriteImgs": 4,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "day": {
+          "paint": "star_stop-day.webp",
+          "model": 4,
+          "roles": [
+            1,
+            1,
+            2
+          ],
+          "shadows": 4,
+          "rings": 1,
+          "spriteImgs": 4,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "evening": {
+          "paint": "star_stop-evening.webp",
+          "model": 4,
+          "roles": [
+            1,
+            1,
+            2
+          ],
+          "shadows": 4,
+          "rings": 1,
+          "spriteImgs": 4,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "night": {
+          "paint": "star_stop-night.webp",
+          "model": 4,
+          "roles": [
+            1,
+            1,
+            2
+          ],
+          "shadows": 4,
+          "rings": 1,
+          "spriteImgs": 4,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        }
+      },
+      "pageErrors": []
+    },
+    {
+      "region": "memory_lake",
+      "width": 320,
+      "height": 568,
+      "count": 10,
+      "times": {
+        "morning": {
+          "paint": "memory_lake-morning.webp",
+          "model": 10,
+          "roles": [
+            1,
+            1,
+            8
+          ],
+          "shadows": 10,
+          "rings": 1,
+          "spriteImgs": 10,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "day": {
+          "paint": "memory_lake-day.webp",
+          "model": 10,
+          "roles": [
+            1,
+            1,
+            8
+          ],
+          "shadows": 10,
+          "rings": 1,
+          "spriteImgs": 10,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "evening": {
+          "paint": "memory_lake-evening.webp",
+          "model": 10,
+          "roles": [
+            1,
+            1,
+            8
+          ],
+          "shadows": 10,
+          "rings": 1,
+          "spriteImgs": 10,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        },
+        "night": {
+          "paint": "memory_lake-night.webp",
+          "model": 10,
+          "roles": [
+            1,
+            1,
+            8
+          ],
+          "shadows": 10,
+          "rings": 1,
+          "spriteImgs": 10,
+          "ribbon": true,
+          "alphaAtCentre": 255
+        }
+      },
+      "pageErrors": []
+    }
+  ],
+  "layoutSha256": "b9d63b5e005b3f780af7522e84703f31dc328e7934457371158ea8576c88c54b"
+}

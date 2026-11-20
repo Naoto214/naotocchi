@@ -1,0 +1,266 @@
+{
+  "engine": "chromium",
+  "cases": {
+    "320/forest/28/optimized/20": {
+      "taps": [
+        {
+          "target": "partner:forest_bear",
+          "point": [
+            181.01018822193146,
+            191.79139125347137
+          ],
+          "predictedKey": "partner:forest_bear",
+          "blocked": false,
+          "selected": "partner:forest_bear",
+          "events": [
+            "partner:forest_bear"
+          ]
+        },
+        {
+          "target": "companion:shiba",
+          "point": [
+            36.93647490441799,
+            206.89329141378403
+          ],
+          "predictedKey": "companion:shiba",
+          "blocked": false,
+          "selected": "companion:shiba",
+          "events": [
+            "companion:shiba"
+          ]
+        },
+        {
+          "target": "pet:dog",
+          "point": [
+            157.81947696208954,
+            196.92370861768723
+          ],
+          "predictedKey": "pet:dog",
+          "blocked": false,
+          "selected": "pet:dog",
+          "events": [
+            "pet:dog"
+          ]
+        }
+      ],
+      "drags": [
+        {
+          "assisted": false,
+          "delivered": true,
+          "held": "pet:dog",
+          "marker": true,
+          "requestedDistanceCss": 27.56,
+          "moveAccepted": true,
+          "displacementNative": 45.5,
+          "predicted": true,
+          "nativeRoutes": [
+            {
+              "key": "pet:dog",
+              "x": 167.17142857142858,
+              "y": 298.4300366300366,
+              "waypoints": 1
+            }
+          ],
+          "pointerTrace": [
+            [
+              "pointerdown",
+              "touch",
+              "pet:dog",
+              false
+            ],
+            [
+              "pointermove",
+              "touch",
+              "castStage",
+              false
+            ],
+            [
+              "pointermove",
+              "touch",
+              "castStage",
+              false
+            ],
+            [
+              "pointermove",
+              "touch",
+              "castStage",
+              false
+            ],
+            [
+              "pointermove",
+              "touch",
+              "castStage",
+              false
+            ],
+            [
+              "pointermove",
+              "touch",
+              "castStage",
+              false
+            ],
+            [
+              "pointerup",
+              "touch",
+              "castStage",
+              false
+            ],
+            [
+              "lostpointercapture",
+              "touch",
+              "castStage",
+              false
+            ]
+          ]
+        }
+      ],
+      "events": {
+        "look/ambient": 3,
+        "move/ambient": 1,
+        "arrive/ambient": 1,
+        "proximity/ambient": 1,
+        "tap/tap": 4,
+        "move/drag": 1,
+        "arrive/drag": 1
+      },
+      "speech": [
+        "おっちょこちょいリス\n荷物の心配で足もと見てなかった",
+        "大人のいぬ\nCiao!"
+      ],
+      "pageErrors": [],
+      "seed": "1793b2e62a7283db",
+      "dragFirst": true
+    },
+    "430/home/28/optimized/20": {
+      "taps": [
+        {
+          "target": "partner:forest_bear",
+          "point": [
+            157.26070016622543,
+            398.7120898962021
+          ],
+          "predictedKey": "partner:forest_bear",
+          "blocked": false,
+          "selected": "partner:forest_bear",
+          "events": [
+            "partner:forest_bear"
+          ]
+        },
+        {
+          "target": "companion:shiba",
+          "point": [
+            299.1657611131668,
+            408.12714302539825
+          ],
+          "predictedKey": "companion:shiba",
+          "blocked": false,
+          "selected": "companion:shiba",
+          "events": [
+            "companion:shiba"
+          ]
+        },
+        {
+          "target": "pet:dog",
+          "point": [
+            220.05390256643295,
+            449.260791182518
+          ],
+          "predictedKey": "pet:dog",
+          "blocked": false,
+          "selected": "pet:dog",
+          "events": [
+            "pet:dog"
+          ]
+        }
+      ],
+      "drags": [
+        {
+          "assisted": false,
+          "delivered": true,
+          "held": "pet:dog",
+          "marker": true,
+          "requestedDistanceCss": 33.51,
+          "moveAccepted": true,
+          "displacementNative": 23.8,
+          "predicted": true,
+          "nativeRoutes": [
+            {
+              "key": "pet:dog",
+              "x": 220.0788416073536,
+              "y": 298.56137487929556,
+              "waypoints": 3
+            }
+          ],
+          "pointerTrace": [
+            [
+              "pointerdown",
+              "touch",
+              "pet:dog",
+              false
+            ],
+            [
+              "pointermove",
+              "touch",
+              "castStage",
+              false
+            ],
+            [
+              "pointermove",
+              "touch",
+              "castStage",
+              false
+            ],
+            [
+              "pointermove",
+              "touch",
+              "castStage",
+              false
+            ],
+            [
+              "pointermove",
+              "touch",
+              "castStage",
+              false
+            ],
+            [
+              "pointermove",
+              "touch",
+              "castStage",
+              false
+            ],
+            [
+              "pointerup",
+              "touch",
+              "castStage",
+              false
+            ],
+            [
+              "lostpointercapture",
+              "touch",
+              "castStage",
+              false
+            ]
+          ]
+        }
+      ],
+      "events": {
+        "move/ambient": 5,
+        "look/ambient": 12,
+        "arrive/ambient": 4,
+        "proximity/ambient": 4,
+        "social/ambient": 2,
+        "environment/ambient": 1,
+        "tap/tap": 4,
+        "move/drag": 1
+      },
+      "speech": [
+        "ものしりふくろう\n見晴らしのいい所で考えてた",
+        "ごろごろアザラシ\nここからだと一回転で届く",
+        "大人のいぬ\nCiao!"
+      ],
+      "pageErrors": [],
+      "seed": "v2",
+      "dragFirst": true
+    }
+  },
+  "version": "156.0.8078.79"
+}

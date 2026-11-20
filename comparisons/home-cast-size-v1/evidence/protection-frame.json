@@ -1,0 +1,21 @@
+{
+  "roles": 28,
+  "roleGeometrySHA256": "315f1051984b9a8b8019ee4152eac03e5ba5afb00c13f930f544958150bcca6b",
+  "frameCanvasSHA256": "e85e70aa022681ed5b33a25250e78c3d920aed5503e460276ae13aaea0f0e8b4",
+  "sameNodesPositionsModelDimensionsAcross": [
+    "current",
+    "A",
+    "B"
+  ],
+  "sameSceneCanvasAcrossPresets": true,
+  "environment": "B, single, frozen",
+  "localStorageNamespacesIsolated": 4,
+  "sessionTabIsolated": true,
+  "nonParentMessagesIgnored": true,
+  "chromium": "156.0.8078.79",
+  "screen": [
+    390,
+    844
+  ],
+  "pageErrors": []
+}

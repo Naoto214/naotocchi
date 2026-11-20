@@ -1,0 +1,2101 @@
+{
+  "browser": "156.0.8078.79",
+  "dpr": 2,
+  "time": "2026-10-15T03:00:00Z",
+  "residentCount": 28,
+  "openingPolicy": "B",
+  "curve": "linear",
+  "settledAtSeconds": [
+    0,
+    8
+  ],
+  "hashes": {
+    "home-production-diorama-population.js": "e9eaec1883695d97ebfffd33430a12a4bdb23d3d08c55eb17fff98f1128e27ab",
+    "population-policy.js": "8773699e127261bf83369dfa38a4cc548cedfe72835f48007c5ac44c41ddfb34",
+    "population-seating.js": "4e16f1b768e2a07cebd4064f805890e90da2be765829fbbb4509a47076e71e75"
+  },
+  "rows": [
+    {
+      "region": "forest",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "fixed",
+      "simulationSeconds": 0,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.021,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "fixed",
+      "simulationSeconds": 0,
+      "repaint": "B",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.021,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "fixed",
+      "simulationSeconds": 0,
+      "repaint": "C",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.021,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "fixed",
+      "simulationSeconds": 8,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
+        "none": 27
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0195,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "fixed",
+      "simulationSeconds": 8,
+      "repaint": "B",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
+        "none": 27
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0195,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "fixed",
+      "simulationSeconds": 8,
+      "repaint": "C",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
+        "none": 27
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0195,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "optimized",
+      "simulationSeconds": 0,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.021,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "optimized",
+      "simulationSeconds": 0,
+      "repaint": "B",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.021,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "optimized",
+      "simulationSeconds": 0,
+      "repaint": "C",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.021,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "optimized",
+      "simulationSeconds": 8,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
+        "none": 27
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0195,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "optimized",
+      "simulationSeconds": 8,
+      "repaint": "B",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
+        "none": 27
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0195,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "optimized",
+      "simulationSeconds": 8,
+      "repaint": "C",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
+        "none": 27
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0195,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "fixed",
+      "simulationSeconds": 0,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "ground": 23,
+        "water": 5
+      },
+      "contacts": {
+        "none": 23,
+        "water": 5
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0149,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "fixed",
+      "simulationSeconds": 0,
+      "repaint": "B",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "ground": 23,
+        "water": 5
+      },
+      "contacts": {
+        "none": 23,
+        "water": 5
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0149,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "fixed",
+      "simulationSeconds": 0,
+      "repaint": "C",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "ground": 23,
+        "water": 5
+      },
+      "contacts": {
+        "none": 23,
+        "water": 5
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0149,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "fixed",
+      "simulationSeconds": 8,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "ground": 23,
+        "water": 5
+      },
+      "contacts": {
+        "none": 23,
+        "water": 5
+      },
+      "computedLightFilters": {
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
+        "none": 27
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0149,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "fixed",
+      "simulationSeconds": 8,
+      "repaint": "B",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "ground": 23,
+        "water": 5
+      },
+      "contacts": {
+        "none": 23,
+        "water": 5
+      },
+      "computedLightFilters": {
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
+        "none": 27
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0149,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "fixed",
+      "simulationSeconds": 8,
+      "repaint": "C",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "ground": 23,
+        "water": 5
+      },
+      "contacts": {
+        "none": 23,
+        "water": 5
+      },
+      "computedLightFilters": {
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
+        "none": 27
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0149,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "optimized",
+      "simulationSeconds": 0,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "ground": 23,
+        "water": 5
+      },
+      "contacts": {
+        "none": 23,
+        "water": 5
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0149,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "optimized",
+      "simulationSeconds": 0,
+      "repaint": "B",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "ground": 23,
+        "water": 5
+      },
+      "contacts": {
+        "none": 23,
+        "water": 5
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0149,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "optimized",
+      "simulationSeconds": 0,
+      "repaint": "C",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "ground": 23,
+        "water": 5
+      },
+      "contacts": {
+        "none": 23,
+        "water": 5
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0149,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "optimized",
+      "simulationSeconds": 8,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "ground": 23,
+        "water": 5
+      },
+      "contacts": {
+        "none": 23,
+        "water": 5
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0149,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "optimized",
+      "simulationSeconds": 8,
+      "repaint": "B",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "ground": 23,
+        "water": 5
+      },
+      "contacts": {
+        "none": 23,
+        "water": 5
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0149,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "optimized",
+      "simulationSeconds": 8,
+      "repaint": "C",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "ground": 23,
+        "water": 5
+      },
+      "contacts": {
+        "none": 23,
+        "water": 5
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0149,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "home",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "fixed",
+      "simulationSeconds": 0,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0146,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "home",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "fixed",
+      "simulationSeconds": 0,
+      "repaint": "B",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0146,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "home",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "fixed",
+      "simulationSeconds": 0,
+      "repaint": "C",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0146,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "home",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "fixed",
+      "simulationSeconds": 8,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0146,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "home",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "fixed",
+      "simulationSeconds": 8,
+      "repaint": "B",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0146,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "home",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "fixed",
+      "simulationSeconds": 8,
+      "repaint": "C",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0146,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "home",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "optimized",
+      "simulationSeconds": 0,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0146,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "home",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "optimized",
+      "simulationSeconds": 0,
+      "repaint": "B",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0146,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "home",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "optimized",
+      "simulationSeconds": 0,
+      "repaint": "C",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0146,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "home",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "optimized",
+      "simulationSeconds": 8,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "none": 27,
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0146,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "home",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "optimized",
+      "simulationSeconds": 8,
+      "repaint": "B",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "none": 27,
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0146,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "home",
+      "deviceWidth": 320,
+      "innerHeight": 516,
+      "layout": "optimized",
+      "simulationSeconds": 8,
+      "repaint": "C",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "none": 27,
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0146,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "fixed",
+      "simulationSeconds": 0,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0248,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "fixed",
+      "simulationSeconds": 0,
+      "repaint": "B",
+      "extraPct": 15,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0248,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0.01725,
+      "maxGearScalingErrorCssPx": 0.00229
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "fixed",
+      "simulationSeconds": 0,
+      "repaint": "C",
+      "extraPct": 20,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0247,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0.01724,
+      "maxGearScalingErrorCssPx": 0.00308
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "fixed",
+      "simulationSeconds": 8,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0248,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "fixed",
+      "simulationSeconds": 8,
+      "repaint": "B",
+      "extraPct": 15,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0248,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0.01725,
+      "maxGearScalingErrorCssPx": 0.00229
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "fixed",
+      "simulationSeconds": 8,
+      "repaint": "C",
+      "extraPct": 20,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0248,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0.01724,
+      "maxGearScalingErrorCssPx": 0.00308
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "optimized",
+      "simulationSeconds": 0,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0248,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "optimized",
+      "simulationSeconds": 0,
+      "repaint": "B",
+      "extraPct": 15,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0248,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0.01725,
+      "maxGearScalingErrorCssPx": 0.00229
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "optimized",
+      "simulationSeconds": 0,
+      "repaint": "C",
+      "extraPct": 20,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0247,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0.01724,
+      "maxGearScalingErrorCssPx": 0.00308
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "optimized",
+      "simulationSeconds": 8,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0248,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "optimized",
+      "simulationSeconds": 8,
+      "repaint": "B",
+      "extraPct": 15,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0248,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0.01725,
+      "maxGearScalingErrorCssPx": 0.00229
+    },
+    {
+      "region": "forest",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "optimized",
+      "simulationSeconds": 8,
+      "repaint": "C",
+      "extraPct": 20,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "grass": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0248,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0.01724,
+      "maxGearScalingErrorCssPx": 0.00308
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "fixed",
+      "simulationSeconds": 0,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "water": 12,
+        "ground": 16
+      },
+      "contacts": {
+        "water": 12,
+        "none": 16
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.034,
+      "maxInlineShadowWidthErrorPx": 4e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "fixed",
+      "simulationSeconds": 0,
+      "repaint": "B",
+      "extraPct": 15,
+      "residents": 28,
+      "surfaces": {
+        "water": 12,
+        "ground": 16
+      },
+      "contacts": {
+        "water": 12,
+        "none": 16
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.034,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0.01314,
+      "maxGearScalingErrorCssPx": 0.00393
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "fixed",
+      "simulationSeconds": 0,
+      "repaint": "C",
+      "extraPct": 20,
+      "residents": 28,
+      "surfaces": {
+        "water": 12,
+        "ground": 16
+      },
+      "contacts": {
+        "water": 12,
+        "none": 16
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.034,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0.00878,
+      "maxGearScalingErrorCssPx": 0.00526
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "fixed",
+      "simulationSeconds": 8,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "water": 12,
+        "ground": 16
+      },
+      "contacts": {
+        "water": 12,
+        "none": 16
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.034,
+      "maxInlineShadowWidthErrorPx": 4e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "fixed",
+      "simulationSeconds": 8,
+      "repaint": "B",
+      "extraPct": 15,
+      "residents": 28,
+      "surfaces": {
+        "water": 12,
+        "ground": 16
+      },
+      "contacts": {
+        "water": 12,
+        "none": 16
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.034,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0.01314,
+      "maxGearScalingErrorCssPx": 0.00393
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "fixed",
+      "simulationSeconds": 8,
+      "repaint": "C",
+      "extraPct": 20,
+      "residents": 28,
+      "surfaces": {
+        "water": 12,
+        "ground": 16
+      },
+      "contacts": {
+        "water": 12,
+        "none": 16
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.034,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0.00878,
+      "maxGearScalingErrorCssPx": 0.00526
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "optimized",
+      "simulationSeconds": 0,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "water": 12,
+        "ground": 16
+      },
+      "contacts": {
+        "water": 12,
+        "none": 16
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.034,
+      "maxInlineShadowWidthErrorPx": 4e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "optimized",
+      "simulationSeconds": 0,
+      "repaint": "B",
+      "extraPct": 15,
+      "residents": 28,
+      "surfaces": {
+        "water": 12,
+        "ground": 16
+      },
+      "contacts": {
+        "water": 12,
+        "none": 16
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.034,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0.01314,
+      "maxGearScalingErrorCssPx": 0.00393
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "optimized",
+      "simulationSeconds": 0,
+      "repaint": "C",
+      "extraPct": 20,
+      "residents": 28,
+      "surfaces": {
+        "water": 12,
+        "ground": 16
+      },
+      "contacts": {
+        "water": 12,
+        "none": 16
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.034,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0.00878,
+      "maxGearScalingErrorCssPx": 0.00526
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "optimized",
+      "simulationSeconds": 8,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "water": 12,
+        "ground": 16
+      },
+      "contacts": {
+        "water": 12,
+        "none": 16
+      },
+      "computedLightFilters": {
+        "none": 27,
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.034,
+      "maxInlineShadowWidthErrorPx": 4e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "optimized",
+      "simulationSeconds": 8,
+      "repaint": "B",
+      "extraPct": 15,
+      "residents": 28,
+      "surfaces": {
+        "water": 12,
+        "ground": 16
+      },
+      "contacts": {
+        "water": 12,
+        "none": 16
+      },
+      "computedLightFilters": {
+        "none": 27,
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.034,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0.01314,
+      "maxGearScalingErrorCssPx": 0.00393
+    },
+    {
+      "region": "sea",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "optimized",
+      "simulationSeconds": 8,
+      "repaint": "C",
+      "extraPct": 20,
+      "residents": 28,
+      "surfaces": {
+        "water": 12,
+        "ground": 16
+      },
+      "contacts": {
+        "water": 12,
+        "none": 16
+      },
+      "computedLightFilters": {
+        "none": 27,
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.034,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0.00878,
+      "maxGearScalingErrorCssPx": 0.00526
+    },
+    {
+      "region": "home",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "fixed",
+      "simulationSeconds": 0,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.018,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "home",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "fixed",
+      "simulationSeconds": 0,
+      "repaint": "B",
+      "extraPct": 15,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.018,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0.0019
+    },
+    {
+      "region": "home",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "fixed",
+      "simulationSeconds": 0,
+      "repaint": "C",
+      "extraPct": 20,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.018,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0.00255
+    },
+    {
+      "region": "home",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "fixed",
+      "simulationSeconds": 8,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.018,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "home",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "fixed",
+      "simulationSeconds": 8,
+      "repaint": "B",
+      "extraPct": 15,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.018,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0.0019
+    },
+    {
+      "region": "home",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "fixed",
+      "simulationSeconds": 8,
+      "repaint": "C",
+      "extraPct": 20,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.018,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0.00255
+    },
+    {
+      "region": "home",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "optimized",
+      "simulationSeconds": 0,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0207,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "home",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "optimized",
+      "simulationSeconds": 0,
+      "repaint": "B",
+      "extraPct": 15,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0206,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0.0019
+    },
+    {
+      "region": "home",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "optimized",
+      "simulationSeconds": 0,
+      "repaint": "C",
+      "extraPct": 20,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "none": 28
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0206,
+      "maxInlineShadowWidthErrorPx": 4e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0.00255
+    },
+    {
+      "region": "home",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "optimized",
+      "simulationSeconds": 8,
+      "repaint": "current",
+      "extraPct": 0,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
+        "none": 27
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0207,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0
+    },
+    {
+      "region": "home",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "optimized",
+      "simulationSeconds": 8,
+      "repaint": "B",
+      "extraPct": 15,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
+        "none": 27
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0206,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0.0019
+    },
+    {
+      "region": "home",
+      "deviceWidth": 375,
+      "innerHeight": 760,
+      "layout": "optimized",
+      "simulationSeconds": 8,
+      "repaint": "C",
+      "extraPct": 20,
+      "residents": 28,
+      "surfaces": {
+        "unmarked": 28
+      },
+      "contacts": {
+        "none": 28
+      },
+      "computedLightFilters": {
+        "drop-shadow(rgb(249, 217, 154) 0px 0px 2px)": 1,
+        "none": 27
+      },
+      "shadowEdgeClips": 0,
+      "gearEdgeClips": 0,
+      "visibleGear": 2,
+      "groundProps": 0,
+      "maxFootShiftCssPx": 0,
+      "maxShadowCenterToFootCssPx": 0.0206,
+      "maxInlineShadowWidthErrorPx": 5e-05,
+      "maxContactWidthScalingErrorCssPx": 0,
+      "maxGearScalingErrorCssPx": 0.00255
+    }
+  ]
+}

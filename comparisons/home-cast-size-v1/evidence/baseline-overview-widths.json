@@ -1,0 +1,447 @@
+{
+ "320x568": {
+  "production": {
+   "rect": [
+    214.8,
+    132.3,
+    83.1,
+    15.9
+   ],
+   "reachablePointsAt0_4_15": [
+    13,
+    13,
+    13
+   ],
+   "topmostAt15": {
+    "homeEventSlot": 5,
+    "device": 5,
+    "BUTTON": 13,
+    "pet": 2
+   },
+   "touches": [
+    {
+     "hit": {
+      "x": 256.3,
+      "y": 140.2,
+      "hit": "BUTTON",
+      "button": true
+     },
+     "before": "みんなを見る",
+     "after": "いつもの表示"
+    },
+    {
+     "hit": {
+      "x": 216.8,
+      "y": 146.1,
+      "hit": "pet",
+      "button": false
+     },
+     "before": "いつもの表示",
+     "after": "みんなを見る"
+    },
+    {
+     "hit": {
+      "x": 295.9,
+      "y": 146.1,
+      "hit": "pet",
+      "button": false
+     },
+     "before": "みんなを見る",
+     "after": "みんなを見る"
+    },
+    {
+     "hit": {
+      "x": 216.8,
+      "y": 140.2,
+      "hit": "BUTTON",
+      "button": true
+     },
+     "before": "みんなを見る",
+     "after": "いつもの表示"
+    }
+   ]
+  },
+  "privateComparison": {
+   "rect": [
+    214.8,
+    163.1,
+    83.1,
+    7.2
+   ],
+   "reachablePointsAt0_4_15": [
+    25,
+    25,
+    25
+   ],
+   "topmostAt15": {
+    "BUTTON": 25
+   },
+   "touches": [
+    {
+     "hit": {
+      "x": 256.3,
+      "y": 166.7,
+      "hit": "BUTTON",
+      "button": true
+     },
+     "before": "みんなを見る",
+     "after": "いつもの表示"
+    },
+    {
+     "hit": {
+      "x": 216.8,
+      "y": 168.3,
+      "hit": "BUTTON",
+      "button": true
+     },
+     "before": "いつもの表示",
+     "after": "みんなを見る"
+    },
+    {
+     "hit": {
+      "x": 295.9,
+      "y": 168.3,
+      "hit": "BUTTON",
+      "button": true
+     },
+     "before": "みんなを見る",
+     "after": "いつもの表示"
+    },
+    {
+     "hit": {
+      "x": 216.8,
+      "y": 165.1,
+      "hit": "BUTTON",
+      "button": true
+     },
+     "before": "いつもの表示",
+     "after": "みんなを見る"
+    }
+   ]
+  }
+ },
+ "375x812": {
+  "production": {
+   "rect": [
+    262.3,
+    82.3,
+    85.1,
+    44.2
+   ],
+   "reachablePointsAt0_4_15": [
+    0,
+    0,
+    0
+   ],
+   "topmostAt15": {
+    "homeInformation": 10,
+    "homeEventSlot": 15
+   },
+   "touches": [
+    {
+     "hit": {
+      "x": 304.8,
+      "y": 104.3,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     "before": "みんなを見る",
+     "after": "みんなを見る"
+    },
+    {
+     "hit": {
+      "x": 264.3,
+      "y": 124.4,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     "before": "みんなを見る",
+     "after": "みんなを見る"
+    },
+    {
+     "hit": {
+      "x": 345.4,
+      "y": 124.4,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     "before": "みんなを見る",
+     "after": "みんなを見る"
+    }
+   ]
+  },
+  "privateComparison": {
+   "rect": [
+    262.3,
+    97.9,
+    85.1,
+    37.4
+   ],
+   "reachablePointsAt0_4_15": [
+    0,
+    0,
+    0
+   ],
+   "topmostAt15": {
+    "homeInformation": 15,
+    "homeEventSlot": 10
+   },
+   "touches": [
+    {
+     "hit": {
+      "x": 304.8,
+      "y": 116.6,
+      "hit": "homeInformation",
+      "button": false
+     },
+     "before": "みんなを見る",
+     "after": "みんなを見る"
+    },
+    {
+     "hit": {
+      "x": 264.3,
+      "y": 133.3,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     "before": "みんなを見る",
+     "after": "みんなを見る"
+    },
+    {
+     "hit": {
+      "x": 345.4,
+      "y": 133.3,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     "before": "みんなを見る",
+     "after": "みんなを見る"
+    }
+   ]
+  }
+ },
+ "390x844": {
+  "production": {
+   "rect": [
+    278.7,
+    84.8,
+    85.7,
+    47.1
+   ],
+   "reachablePointsAt0_4_15": [
+    0,
+    0,
+    0
+   ],
+   "topmostAt15": {
+    "homeInformation": 10,
+    "homeEventSlot": 15
+   },
+   "touches": [
+    {
+     "hit": {
+      "x": 321.6,
+      "y": 108.3,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     "before": "みんなを見る",
+     "after": "みんなを見る"
+    },
+    {
+     "hit": {
+      "x": 280.7,
+      "y": 129.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     "before": "みんなを見る",
+     "after": "みんなを見る"
+    },
+    {
+     "hit": {
+      "x": 362.4,
+      "y": 129.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     "before": "みんなを見る",
+     "after": "みんなを見る"
+    }
+   ]
+  },
+  "privateComparison": {
+   "rect": [
+    278.7,
+    96.1,
+    85.7,
+    40.7
+   ],
+   "reachablePointsAt0_4_15": [
+    0,
+    0,
+    0
+   ],
+   "topmostAt15": {
+    "homeInformation": 15,
+    "homeEventSlot": 10
+   },
+   "touches": [
+    {
+     "hit": {
+      "x": 321.6,
+      "y": 116.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     "before": "みんなを見る",
+     "after": "みんなを見る"
+    },
+    {
+     "hit": {
+      "x": 280.7,
+      "y": 134.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     "before": "みんなを見る",
+     "after": "みんなを見る"
+    },
+    {
+     "hit": {
+      "x": 362.4,
+      "y": 134.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     "before": "みんなを見る",
+     "after": "みんなを見る"
+    }
+   ]
+  }
+ },
+ "430x932": {
+  "production": {
+   "rect": [
+    316.7,
+    98.3,
+    85.1,
+    54.3
+   ],
+   "reachablePointsAt0_4_15": [
+    3,
+    3,
+    3
+   ],
+   "topmostAt15": {
+    "homeEventSlot": 20,
+    "pet": 2,
+    "BUTTON": 3
+   },
+   "touches": [
+    {
+     "hit": {
+      "x": 359.3,
+      "y": 125.5,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     "before": "みんなを見る",
+     "after": "みんなを見る"
+    },
+    {
+     "hit": {
+      "x": 318.7,
+      "y": 150.6,
+      "hit": "pet",
+      "button": false
+     },
+     "before": "みんなを見る",
+     "after": "みんなを見る"
+    },
+    {
+     "hit": {
+      "x": 399.8,
+      "y": 150.6,
+      "hit": "pet",
+      "button": false
+     },
+     "before": "みんなを見る",
+     "after": "みんなを見る"
+    },
+    {
+     "hit": {
+      "x": 338,
+      "y": 150.6,
+      "hit": "BUTTON",
+      "button": true
+     },
+     "before": "みんなを見る",
+     "after": "いつもの表示"
+    }
+   ]
+  },
+  "privateComparison": {
+   "rect": [
+    316.7,
+    105.9,
+    85.1,
+    48.5
+   ],
+   "reachablePointsAt0_4_15": [
+    3,
+    3,
+    3
+   ],
+   "topmostAt15": {
+    "homeInformation": 10,
+    "homeEventSlot": 5,
+    "device": 5,
+    "pet": 2,
+    "BUTTON": 3
+   },
+   "touches": [
+    {
+     "hit": {
+      "x": 359.3,
+      "y": 130.1,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     "before": "みんなを見る",
+     "after": "みんなを見る"
+    },
+    {
+     "hit": {
+      "x": 318.7,
+      "y": 152.4,
+      "hit": "pet",
+      "button": false
+     },
+     "before": "みんなを見る",
+     "after": "みんなを見る"
+    },
+    {
+     "hit": {
+      "x": 399.8,
+      "y": 152.4,
+      "hit": "pet",
+      "button": false
+     },
+     "before": "みんなを見る",
+     "after": "みんなを見る"
+    },
+    {
+     "hit": {
+      "x": 338,
+      "y": 152.4,
+      "hit": "BUTTON",
+      "button": true
+     },
+     "before": "みんなを見る",
+     "after": "いつもの表示"
+    }
+   ]
+  }
+ }
+}

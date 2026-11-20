@@ -1,0 +1,61 @@
+{
+  "engine": "156.0.8078.79",
+  "stage": "river_lake",
+  "count": 28,
+  "input": "Chromium CDP touch, CSS coordinates",
+  "modes": {
+    "B": {
+      "taps": [
+        [
+          "partner:forest_bear",
+          "partner:forest_bear"
+        ],
+        [
+          "companion:shiba",
+          "companion:shiba"
+        ],
+        [
+          "companion:panda",
+          "companion:panda"
+        ],
+        [
+          "pet:dog",
+          "pet:dog"
+        ]
+      ],
+      "dragMarker": true,
+      "sourceAfterRelease": "ambient",
+      "distanceAfter600ms": 0.0
+    }
+  },
+  "observationSeconds": 10,
+  "observedActions": {
+    "tap/tap": 4,
+    "move/ambient": 4,
+    "look/ambient": 10,
+    "arrive/ambient": 2,
+    "proximity/ambient": 2
+  },
+  "actualSpeech": [
+    "大人のいぬ\n座る場所に先を越された"
+  ],
+  "stops": {},
+  "model": {
+    "distance": 141.33320420589862,
+    "moves": 4,
+    "turns": 10,
+    "activities": {
+      "walk": 4,
+      "observe": 2,
+      "sit": 8,
+      "together": 1,
+      "solitude": 1,
+      "approach": 3,
+      "look": 8,
+      "turn": 4,
+      "rest": 4
+    },
+    "clock": 14.199499999999997
+  },
+  "clock": 14.1662
+}

@@ -1,0 +1,14 @@
+{
+  "checkedUTC": "2026-11-19T14:12:17.017539+00:00",
+  "versionNumber": 4,
+  "siteSource": "37c0d17679fef0004bb5f71253cf18d8f06c1312",
+  "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/v3/",
+  "anonymousHTTPStatus": {
+    "/": 401,
+    "/v1/": 401,
+    "/v3/": 401,
+    "/v3/controls.mjs": 401,
+    "/game/limit.html": 401,
+    "/evidence/forest-limit.webp": 401
+  }
+}

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <title>なおとっち｜住民サイズの比較</title>
+  <link rel="stylesheet" href="../v1/style.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="bar">
+    <h1><span class="brand">なおとっち</span><span>住民サイズの比較</span></h1>
+    <div class="tools">
+      <div class="presets" role="group" aria-label="採用サイズからの拡大率">
+        <button data-extra="0" type="button" aria-pressed="true" aria-label="現行の採用サイズ">現行</button>
+        <button data-extra="5" type="button" aria-pressed="false">+5%</button>
+        <button data-extra="10" type="button" aria-pressed="false">+10%</button>
+        <button data-extra="15" type="button" aria-pressed="false">+15%</button>
+        <button data-extra="20" type="button" aria-pressed="false">+20%</button>
+      </div>
+      <button id="freeze" type="button" aria-label="配置を固定" aria-pressed="false">固定</button>
+      <button id="settings-toggle" type="button" aria-expanded="false" aria-controls="panel">設定</button>
+    </div>
+  </header>
+  <main>
+    <section class="stage" aria-label="ホーム動作比較">
+      <div class="frame-wrap"><iframe id="home" title="なおとっちのホーム" allow="autoplay"></iframe></div>
+      <div class="feedback"><p id="status" role="status">ホームを読み込んでいます…</p><button id="retry" type="button" hidden>読み込み直す</button></div>
+    </section>
+    <div id="scrim" hidden></div>
+    <aside id="panel" aria-labelledby="panel-title">
+      <div class="panel-head">
+        <h2 id="panel-title">比較設定</h2>
+        <button id="settings-close" type="button" aria-label="設定を閉じる">閉じる</button>
+      </div>
+      <fieldset id="layouts"><legend>初期配置</legend>
+        <div class="layout-options">
+          <label><input type="radio" name="layout" value="fixed" checked><span>V2の配置</span></label>
+          <label><input type="radio" name="layout" value="optimized"><span>サイズ別の配置</span></label>
+        </div>
+        <label id="hold-option" hidden>
+          <input type="checkbox" id="hold-opening" aria-describedby="layout-note">
+          <span>この候補配置のまま倍率を比べる</span>
+        </label>
+        <p id="layout-note">「固定」を押すと、住民の位置を揃えて大きさを比べられます。</p>
+      </fieldset>
+      <div class="scene-pick">
+        <label for="region">地域<select id="region"></select></label>
+        <label for="time">時間帯<select id="time"></select></label>
+      </div>
+      <fieldset><legend>住民数</legend><div id="counts"></div></fieldset>
+      <section class="sizes" aria-labelledby="sizes-title">
+        <h3 id="sizes-title">住民の実寸</h3>
+        <p id="size-note">「現行」は主人公120%・恋人120%・仲間105%。表の倍率は元のゲーム表示を基準とします。本体は透明余白と装備を除いた幅 × 高さです。重なりで隠れた部分も含みます。</p>
+        <table aria-describedby="size-note">
+          <thead><tr><th scope="col">住民</th><th scope="col">倍率</th><th scope="col">実寸（CSS px）</th></tr></thead>
+          <tbody id="measurements"></tbody>
+        </table>
+        <details id="companion-detail" hidden>
+          <summary>仲間ごとの実寸</summary>
+          <table aria-label="仲間ごとの表示寸法"><thead><tr><th scope="col">仲間</th><th scope="col">幅 × 高さ（CSS px）</th></tr></thead><tbody id="individual-sizes"></tbody></table>
+        </details>
+        <button id="measure" type="button" disabled>現在の実寸を測る</button>
+        <span id="measurement-status" role="status"></span>
+      </section>
+      <a class="archive" href="../?mode=final">前回の最終配置を開く</a>
+    </aside>
+  </main>
+  <script type="module" src="./controls.mjs"></script>
+</body>
+</html>

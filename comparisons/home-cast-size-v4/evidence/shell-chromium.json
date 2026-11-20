@@ -1,0 +1,106 @@
+{
+  "engine": "chromium",
+  "devices": [
+    {
+      "width": 320,
+      "height": 568,
+      "toolbarMinWidth": 50.16,
+      "toolbarMinHeight": 44,
+      "candidateGains": {
+        "current": 0,
+        "A": 0,
+        "B": 0,
+        "C": 0
+      },
+      "fixedFeet": 28,
+      "individualCompanions": 26,
+      "companionRange": "仲間26体の範囲　幅 7.0〜22.6 px ／ 高さ 9.4〜22.0 px"
+    },
+    {
+      "width": 348,
+      "height": 700,
+      "toolbarMinWidth": 54.83,
+      "toolbarMinHeight": 44,
+      "candidateGains": {
+        "current": 0,
+        "A": 5.1363,
+        "B": 7.7045,
+        "C": 10.2727
+      },
+      "fixedFeet": 28,
+      "individualCompanions": 26,
+      "companionRange": "仲間26体の範囲　幅 7.0〜22.4 px ／ 高さ 9.4〜21.9 px"
+    },
+    {
+      "width": 375,
+      "height": 812,
+      "toolbarMinWidth": 59.33,
+      "toolbarMinHeight": 44,
+      "candidateGains": {
+        "current": 0,
+        "A": 10,
+        "B": 15,
+        "C": 20
+      },
+      "fixedFeet": 28,
+      "individualCompanions": 26,
+      "companionRange": "仲間26体の範囲　幅 7.2〜23.0 px ／ 高さ 9.7〜22.7 px"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "toolbarMinWidth": 61.83,
+      "toolbarMinHeight": 44,
+      "candidateGains": {
+        "current": 0,
+        "A": 10,
+        "B": 15,
+        "C": 20
+      },
+      "fixedFeet": 28,
+      "individualCompanions": 26,
+      "companionRange": "仲間26体の範囲　幅 7.7〜24.4 px ／ 高さ 10.3〜24.1 px"
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "toolbarMinWidth": 68.5,
+      "toolbarMinHeight": 44,
+      "candidateGains": {
+        "current": 0,
+        "A": 10,
+        "B": 15,
+        "C": 20
+      },
+      "fixedFeet": 28,
+      "individualCompanions": 26,
+      "companionRange": "仲間26体の範囲　幅 8.7〜27.7 px ／ 高さ 11.8〜27.3 px"
+    }
+  ],
+  "pageErrors": [],
+  "version": "156.0.8078.79",
+  "coldDefault": {
+    "readySeconds": 125.93,
+    "count": 28,
+    "region": "river_lake",
+    "variant": "B",
+    "curve": "linear",
+    "moving": true
+  },
+  "testedNativeCounts": [
+    1,
+    18,
+    19,
+    23,
+    28
+  ],
+  "touchTrials": [
+    "forest",
+    "home",
+    "river_lake"
+  ],
+  "focusedModal": true,
+  "sameOptimizedRoster": true,
+  "coldLink": "region=river_lake&time=night&count=23&paused=1&variant=C&curve=step&layout=optimized",
+  "pauseAndResume": true
+}

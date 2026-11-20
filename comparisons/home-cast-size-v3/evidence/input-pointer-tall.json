@@ -1,0 +1,162 @@
+{
+  "engine": "chromium",
+  "cases": {
+    "375/city/28/optimized/20": {
+      "taps": [
+        {
+          "target": "partner:forest_bear",
+          "point": [
+            169.67848551273346,
+            350.7977101802826
+          ],
+          "predictedKey": "partner:forest_bear",
+          "blocked": false,
+          "selected": "partner:forest_bear",
+          "events": [
+            "partner:forest_bear"
+          ]
+        },
+        {
+          "target": "companion:shiba",
+          "point": [
+            198.18054395914078,
+            458.20461666584015
+          ],
+          "predictedKey": "companion:shiba",
+          "blocked": false,
+          "selected": "companion:shiba",
+          "events": [
+            "companion:shiba"
+          ]
+        },
+        {
+          "target": "pet:dog",
+          "point": [
+            234.9618275165558,
+            368.3671290874481
+          ],
+          "predictedKey": "pet:dog",
+          "blocked": false,
+          "selected": "pet:dog",
+          "events": [
+            "pet:dog"
+          ]
+        }
+      ],
+      "drags": [
+        {
+          "assisted": false,
+          "delivered": true,
+          "held": "pet:dog",
+          "marker": true,
+          "requestedDistanceCss": 29.54,
+          "moveAccepted": true,
+          "displacementNative": 11.9,
+          "predicted": true,
+          "nativeRoutes": [
+            {
+              "key": "pet:dog",
+              "x": 238.7800902613996,
+              "y": 307.9731703353984,
+              "waypoints": 1
+            }
+          ]
+        }
+      ],
+      "events": {
+        "tap/tap": 4,
+        "move/ambient": 3,
+        "look/ambient": 15,
+        "arrive/ambient": 3,
+        "proximity/ambient": 4,
+        "environment/ambient": 2,
+        "move/drag": 1,
+        "arrive/drag": 1
+      },
+      "speech": [
+        "じかんにルーズなとけい\n待ってたよ。何時からかは忘れた",
+        "大人のいぬ\nShalom!"
+      ],
+      "pageErrors": [],
+      "seed": "v2"
+    },
+    "430/home/28/optimized/20": {
+      "taps": [
+        {
+          "target": "partner:forest_bear",
+          "point": [
+            157.26070016622543,
+            398.9797079563141
+          ],
+          "predictedKey": "partner:forest_bear",
+          "blocked": false,
+          "selected": "partner:forest_bear",
+          "events": [
+            "partner:forest_bear"
+          ]
+        },
+        {
+          "target": "companion:shiba",
+          "point": [
+            299.4512127637863,
+            408.334100484848
+          ],
+          "predictedKey": "companion:shiba",
+          "blocked": false,
+          "selected": "companion:shiba",
+          "events": [
+            "companion:shiba"
+          ]
+        },
+        {
+          "target": "pet:dog",
+          "point": [
+            230.51386731863022,
+            425.504935503006
+          ],
+          "predictedKey": "pet:dog",
+          "blocked": false,
+          "selected": "pet:dog",
+          "events": [
+            "pet:dog"
+          ]
+        }
+      ],
+      "drags": [
+        {
+          "assisted": false,
+          "delivered": true,
+          "held": "pet:dog",
+          "marker": true,
+          "requestedDistanceCss": 33.51,
+          "moveAccepted": false,
+          "displacementNative": 0.0,
+          "predicted": true,
+          "nativeRoutes": []
+        },
+        {
+          "assisted": true,
+          "delivered": false
+        }
+      ],
+      "events": {
+        "tap/tap": 4,
+        "move/ambient": 9,
+        "look/ambient": 12,
+        "arrive/ambient": 7,
+        "proximity/ambient": 7,
+        "social/ambient": 2,
+        "environment/ambient": 2
+      },
+      "speech": [
+        "よふかしコウモリ\n逆さでも話は聞けるよ",
+        "大人のいぬ\nようきたな!",
+        "まねっこサル\nまねする前から目があった!",
+        "ただのはこ\n中の話はまだしません"
+      ],
+      "pageErrors": [],
+      "seed": "v2"
+    }
+  },
+  "version": "156.0.8078.79"
+}

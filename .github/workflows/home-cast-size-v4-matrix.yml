@@ -1,0 +1,105 @@
+name: Measure population-dependent home sizes
+on:
+  push:
+    branches: [draft/home-cast-size-v1]
+    paths:
+      - 'comparisons/home-cast-size-v4/**'
+      - '.github/workflows/home-cast-size-v4-matrix.yml'
+permissions:
+  contents: read
+jobs:
+  measure:
+    if: contains(github.event.head_commit.message, '[v4-final-geometry]') || contains(github.event.head_commit.message, '[v4-fixed]') || contains(github.event.head_commit.message, '[v4-layout]') || contains(github.event.head_commit.message, '[v4-timing]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 145
+    strategy:
+      fail-fast: false
+      matrix:
+        region: [forest, river_lake, city, home, countryside, mountain, snow, sea, jungle, desert, deepsea, star_stop, memory_lake]
+    env:
+      REGION: ${{ matrix.region }}
+      CHROMIUM_PATH: /usr/bin/google-chrome
+      LAYOUT: ${{ contains(github.event.head_commit.message, '[v4-final-geometry]') && 'both' || contains(github.event.head_commit.message, '[v4-layout]') && 'optimized' || 'fixed' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-cast-size-v1
+            comparisons/home-cast-size-v2
+            comparisons/home-cast-size-v3
+            comparisons/home-cast-size-v4
+      - uses: actions/checkout@v4
+        with:
+          ref: 28628cf336a8ed92efe4e9e197ca03298b798a1e
+          path: .leaf-reference
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Rebuild the owner trial from the verified V3 game
+        run: |
+          node comparisons/home-cast-size-v1/build.cjs "$RUNNER_TEMP/cast-v1" --reference-checkout .leaf-reference
+          node comparisons/home-cast-size-v2/build.cjs "$RUNNER_TEMP/cast-v2" --baseline "$RUNNER_TEMP/cast-v1"
+          node comparisons/home-cast-size-v3/build.cjs "$RUNNER_TEMP/cast-v3" --baseline "$RUNNER_TEMP/cast-v2"
+          node comparisons/home-cast-size-v4/build.cjs "$RUNNER_TEMP/cast-v4" --baseline "$RUNNER_TEMP/cast-v3"
+          python -m pip install --disable-pip-version-check 'playwright==1.62.0' numpy pillow
+          "$CHROMIUM_PATH" --version
+      - name: Measure every population and portrait width in the native game
+        if: contains(github.event.head_commit.message, '[v4-final-geometry]') || contains(github.event.head_commit.message, '[v4-fixed]') || contains(github.event.head_commit.message, '[v4-layout]')
+        run: |
+          python -m http.server 8304 --bind 127.0.0.1 --directory "$RUNNER_TEMP/cast-v4" > "$RUNNER_TEMP/geometry-http.log" 2>&1 &
+          server=$!
+          trap 'kill "$server"' EXIT
+          python comparisons/home-cast-size-v4/geometry_collect.py http://127.0.0.1:8304/game/population.html "$RUNNER_TEMP/geometry" --game "$RUNNER_TEMP/cast-v4/game" --regions "$REGION" --widths 320 348 360 375 390 430 --counts 18 19 20 21 22 23 24 25 26 27 28 --layout "$LAYOUT" --jobs 2
+      - name: Store numeric poses and observations
+        if: always() && (contains(github.event.head_commit.message, '[v4-fixed]') || contains(github.event.head_commit.message, '[v4-layout]'))
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.LAYOUT }}-${{ matrix.region }}
+          path: ${{ runner.temp }}/geometry
+          if-no-files-found: error
+          retention-days: 7
+      - name: Store final fixed-position observations
+        if: always() && contains(github.event.head_commit.message, '[v4-final-geometry]')
+        uses: actions/upload-artifact@v4
+        with:
+          name: fixed-${{ matrix.region }}
+          path: ${{ runner.temp }}/geometry/fixed
+          if-no-files-found: error
+          retention-days: 7
+      - name: Store final optimized-position observations
+        if: always() && contains(github.event.head_commit.message, '[v4-final-geometry]')
+        uses: actions/upload-artifact@v4
+        with:
+          name: optimized-${{ matrix.region }}
+          path: ${{ runner.temp }}/geometry/optimized
+          if-no-files-found: error
+          retention-days: 7
+      - name: Measure live resident, route and rendering workloads
+        if: ${{ !cancelled() && contains(github.event.head_commit.message, '[v4-timing]') }}
+        run: |
+          python -m http.server 8304 --bind 127.0.0.1 --directory "$RUNNER_TEMP/cast-v4" > "$RUNNER_TEMP/timing-http.log" 2>&1 &
+          server=$!
+          trap 'kill "$server"' EXIT
+          mkdir -p "$RUNNER_TEMP/timing"
+          python comparisons/home-cast-size-v4/measure_performance.py --url http://127.0.0.1:8304 --region "$REGION" --suite region --out "$RUNNER_TEMP/timing/region.json"
+      - name: Check touches and actual V5 routes for the entire household
+        if: always() && contains(github.event.head_commit.message, '[v4-timing]')
+        run: |
+          python -m http.server 8304 --bind 127.0.0.1 --directory "$RUNNER_TEMP/cast-v4" > "$RUNNER_TEMP/input-http.log" 2>&1 &
+          server=$!
+          trap 'kill "$server"' EXIT
+          mkdir -p "$RUNNER_TEMP/timing"
+          python comparisons/home-cast-size-v4/measure_input.py --url http://127.0.0.1:8304 --region "$REGION" --suite household --out "$RUNNER_TEMP/timing/input.json"
+      - name: Store numeric live timing samples
+        if: always() && contains(github.event.head_commit.message, '[v4-timing]')
+        uses: actions/upload-artifact@v4
+        with:
+          name: timing-${{ matrix.region }}
+          path: ${{ runner.temp }}/timing
+          if-no-files-found: error
+          retention-days: 7
