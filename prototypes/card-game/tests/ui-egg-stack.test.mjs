@@ -18,7 +18,7 @@ test('egg is a tappable state card only in the empty main slot, in both orientat
   p.board.main=null;
   assert.match(ui.boardMarkup(p,seat,front),/data-egg-detail=/);
  }
- assert.equal(save(s),before);assert.equal(Object.keys(CARDS).length,452);
+ assert.equal(save(s),before);assert.equal(Object.keys(CARDS).length,459);
 });
 test('egg detail shows printed normal draw, extra draw and mandatory return once without duplicate explanation or actions',()=>{
  assert.equal(typeof ui.eggDetailMarkup,'function');

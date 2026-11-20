@@ -8,7 +8,9 @@ import * as e from '../../engine.mjs';
 import {observeCpu} from '../../cpu-observation.mjs';
 import {chooseCpuAction} from '../../cpu-policy.mjs';
 import {advanceResponses} from '../../auto-progress.mjs';
-import {cpuDeck} from '../../cpu-decks.mjs';
+import {CPU_DECK_HISTORY} from '../../cpu-decks.mjs';
+// These golden games predate P3: resolve their original lists, never current defaults.
+const cpuDeck=id=>{const d=CPU_DECK_HISTORY[id]?.find(d=>d.version==='2026-10-22');if(!d)throw Error('Missing historical golden deck: '+id);return d;};
 // Decks with stat-choice cards (スキージャンプ／かくとうバトル) and without, both difficulties.
 export const GAMES=[
  {seed:11,A:'challenge',B:'challenge',difficulty:{A:'intermediate',B:'intermediate'}},

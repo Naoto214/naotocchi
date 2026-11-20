@@ -3,7 +3,7 @@
 // 新しい対戦の版（hotseat-8）からだけ働く。hotseat-7 以前の保存は、結婚後の追加能力なしで再生する（旧保存を新ルールへ変換しない）。
 // 依存のない小さな表なので、rules / late-conditions / costs / effects / ability-copy / UI から読む。正式カタログ（canonical452）は変えない。
 export const marriedText=id=>LOVER_MARRIED[id]?.married??null;
-export const MARRIED_VERSIONS=Object.freeze(['hotseat-8']);
+export const MARRIED_VERSIONS=Object.freeze(['hotseat-8','hotseat-9']);
 // 結婚後の追加能力がない版（hotseat-1 は legacy-engine）。うし・ゆきだるまの旧版用トリガーはこの版でだけ働く。
 export const MARRIED_LEGACY_VERSIONS=Object.freeze(['hotseat-2','hotseat-3','hotseat-4','hotseat-5','hotseat-6','hotseat-7']);
 export const marriedAbilitiesActive=s=>MARRIED_VERSIONS.includes(s?.version);

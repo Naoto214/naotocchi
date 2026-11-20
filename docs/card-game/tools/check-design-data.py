@@ -3801,8 +3801,14 @@ result = {"proxy_test_count": proxy_test_count, "current_proxy_test_count": curr
                   "character_item_identical_ability_groups": all_draft_duplicates, "play_draft_followup": play_audit, "world_draft_followup": world_audit, "event_draft_followup": event_audit, "errors": errors,
                   "scope": "Source, ID, numeric curves, complete body coverage, literal mirrors and local links; not a gameplay or semantic-equivalence validator."}
 if "--catalog" in sys.argv:
-    result["events"] = sorted(event_records.values(), key=lambda r: r["id"])
-    result["worlds"] = sorted(world_records.values(), key=lambda r: r["id"])
+    # VERSION18 adoption is additive; historical452 audits and evidence above stay frozen.
+    from adopted_time_cards_v18 import adopted_cards
+    adopted = adopted_cards(ROOT)
+    worlds_v18 = {**world_records, **{r["id"]: r for r in adopted if r["id"].startswith("W-")}}
+    events_v18 = {**event_records, **{r["id"]: r for r in adopted if r["id"].startswith("E-")}}
+    check(len(worlds_v18) == 17 and len(events_v18) == 24, "V18 additive world/event population")
+    result["events"] = sorted(events_v18.values(), key=lambda r: r["id"])
+    result["worlds"] = sorted(worlds_v18.values(), key=lambda r: r["id"])
     result["cards"] = sorted(body_records.values(), key=lambda r: r["id"])
     result["companions"] = sorted(companion_records.values(), key=lambda r: r["id"])
     result["partners"] = sorted(partner_records.values(), key=lambda r: r["id"])

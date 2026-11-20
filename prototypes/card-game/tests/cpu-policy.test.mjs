@@ -24,8 +24,8 @@ test('CPU avoids losing public-stat challenge and prefers higher winning paramet
  for(const id of Object.keys(s.cards))if(!located.has(id))s.players.A.deck.push(id);
  const o=observeCpu(s,'A');assert.equal(o.actions.find(a=>a.id===chooseCpuAction(o).id).kind,'pass');
 });
-test('all 452 definitions use the same bounded legal candidate interface',()=>{
- assert.equal(Object.keys(e.CARDS).length,452);for(const id of Object.keys(e.CARDS)){const s=normal();put(s,'A',id);s.players.A.time=10;const o=observeCpu(s,'A'),decision=chooseCpuAction(o);assert.ok(o.actions.some(a=>a.id===decision.id),id);assert.ok(Number.isFinite(decision.score),id);}
+test('all 459 definitions use the same bounded legal candidate interface',()=>{
+ assert.equal(Object.keys(e.CARDS).length,459);for(const id of Object.keys(e.CARDS)){const s=normal();put(s,'A',id);s.players.A.time=10;const o=observeCpu(s,'A'),decision=chooseCpuAction(o);assert.ok(o.actions.some(a=>a.id===decision.id),id);assert.ok(Number.isFinite(decision.score),id);}
 });
 test('policy rejects unknown difficulty and empty inventory instead of making up commands',()=>{
  const o=observeCpu(normal(),'A');assert.throws(()=>chooseCpuAction(o,{difficulty:'cheat'}));assert.throws(()=>chooseCpuAction({...o,actions:[]}));

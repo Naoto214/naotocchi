@@ -4,7 +4,7 @@ import {CARDS,createGame,view} from '../engine.mjs';
 import {cardMarkup,boardMarkup,gameMarkup,needsConfirmation} from '../ui-presentation.mjs';
 
 test('every catalog card renders current text; main-only fields never leak into other categories',()=>{
- assert.equal(Object.keys(CARDS).length,452);
+ assert.equal(Object.keys(CARDS).length,459);
  for(const c of Object.values(CARDS)){
   const html=cardMarkup(c,{detail:true});
   assert.ok(html.includes(c.text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;')));

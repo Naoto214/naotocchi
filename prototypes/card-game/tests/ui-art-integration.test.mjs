@@ -16,7 +16,7 @@ test('all 452 canonical cards use distinct dedicated thumbnails and high resolut
   assert.match(compact,/loading="lazy"/);assert.match(detail,/decoding="async"/);
   assert.ok(detail.includes(c.text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;')));
  }
- assert.equal(small.size,452);assert.equal(large.size,452);
+ assert.equal(small.size,459);assert.equal(large.size,459);
 });
 test('hidden identity is never read, embedded or requested by art rendering',()=>{
  const c={hidden:true,get cardId(){throw Error('private identity accessed');},get name(){throw Error('private name accessed');}};

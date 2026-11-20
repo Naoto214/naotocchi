@@ -1808,5 +1808,33 @@ export const CARD_ART = Object.freeze({
   "W-star_stop": {
     "small": "art-delivery/small/W-star_stop-d054b7846bdf.webp",
     "large": "art-delivery/large/W-star_stop-41579954963c.webp"
+  },
+  "W-time-ix": {
+    "small": "art-delivery/small/W-time-ix-d92309a35440.webp",
+    "large": "art-delivery/large/W-time-ix-816e94692e5d.webp"
+  },
+  "W-time-x": {
+    "small": "art-delivery/small/W-time-x-01a1e0863471.webp",
+    "large": "art-delivery/large/W-time-x-31089be76a35.webp"
+  },
+  "W-time-xi": {
+    "small": "art-delivery/small/W-time-xi-92ebfefa3bd4.webp",
+    "large": "art-delivery/large/W-time-xi-bf941f5652cf.webp"
+  },
+  "W-time-xii": {
+    "small": "art-delivery/small/W-time-xii-ab939cb57c27.webp",
+    "large": "art-delivery/large/W-time-xii-68ab1da0d455.webp"
+  },
+  "E-hayajimai": {
+    "small": "art-delivery/small/E-hayajimai-c6654b4e04ee.webp",
+    "large": "art-delivery/large/E-hayajimai-e218b4236826.webp"
+  },
+  "E-nagaiki": {
+    "small": "art-delivery/small/E-nagaiki-df181cbf6844.webp",
+    "large": "art-delivery/large/E-nagaiki-630e05ecf2ee.webp"
+  },
+  "E-omoide-photo": {
+    "small": "art-delivery/small/E-omoide-photo-4d04892dd9af.webp",
+    "large": "art-delivery/large/E-omoide-photo-7cef5605a0cc.webp"
   }
 });

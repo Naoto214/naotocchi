@@ -16,8 +16,8 @@ const titleOf=html=>html.match(/<h3 class="v8-title" data-fit>([\s\S]*?)<\/h3>/)
 const segs=html=>[...titleOf(html).matchAll(/<span>([^<]*)<\/span>/g)].map(m=>m[1]);
 const unescape=s=>s.replaceAll('&amp;','&');
 
-test('全452枚：正式カード名は変えず、改行文字を持たない。改行表は実在する名前だけ',()=>{
- assert.equal(Object.keys(CARDS).length,452);
+test('全459枚：正式カード名は変えず、改行文字を持たない。改行表は実在する名前だけ',()=>{
+ assert.equal(Object.keys(CARDS).length,459);
  for(const c of Object.values(CARDS)){assert.equal(c.name,CATALOG[c.id].name,c.id);assert.doesNotMatch(c.name,/[\n|]/,c.id);}
  const names=new Set(nonMain.flatMap(c=>[c.name,...(c.searchAliases??[])]));
  for(const [name,lines] of TITLE_BREAKS){assert.ok(names.has(name),name);assert.equal(lines.length,2,name);assert.equal(lines.join(''),name);}
@@ -82,7 +82,7 @@ test('すれちがい：結婚後のこいびとにも使え、そだち−10で
  assert.ok(s.players.A.hand.includes(p));assert.equal(s.players.A.growth,40);assert.equal(s.history.find(x=>x.kind==='breakup').married,true);
  // サボテンさんの結婚の能力（装備なしでメインのちから+1）が消える。
  const after=e.stats(s,'A');assert.equal(after.power,before.power-1);
- assert.equal(e.VERSION,'hotseat-8');
+ assert.equal(e.VERSION,'hotseat-9');
 });
 test('すれちがいの正式本文は変えていない。ルールブック第9章・よくある質問に説明があり、関連ルールは第9章',()=>{
  assert.equal(CARDS['E-misunderstanding'].text,'相手のこいびと1枚を対象として発動できる。対象を持ち主の手札に戻す。');

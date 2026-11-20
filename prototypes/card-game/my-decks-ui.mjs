@@ -35,7 +35,7 @@ export function mountMyDecks({inspect,message,onChange,seats=()=>['A','B']}){
   for(const c of entries){const row=node('article');row.className='catalog-card';row.dataset.cardId=c.id;row.append(preview(c),node('strong',c.name),node('small',`${TYPE_NAMES[c.type]}${c.attribute?' · '+c.attribute:''}${c.stage?' · '+c.stage+'段階':''} · ${cardRarityLabel(c)}`));
    const controls=node('div');controls.className='deck-card-controls';const minus=action('−',()=>run(()=>library.change(edited,c.id,-1))),count=node('span'),plus=action('＋',()=>run(()=>library.change(edited,c.id,1)));minus.setAttribute('aria-label',c.name+'を1枚減らす');plus.setAttribute('aria-label',c.name+'を1枚追加');plus.dataset.add=c.id;minus.dataset.remove=c.id;controls.append(minus,count,plus);row.append(controls);fragment.append(row);rows.set(c.id,{minus,plus,count});
   }
-  list.replaceChildren(fragment);list.scrollTop=0;$('catalog-count').textContent=`${entries.length} / 452種類を表示`;
+  list.replaceChildren(fragment);list.scrollTop=0;$('catalog-count').textContent=`${entries.length} / 459種類を表示`;
  }
  function counts(){const d=library.get(edited),m=new Map();for(const id of d.cards)m.set(id,(m.get(id)??0)+1);
   for(const [id,r] of rows){const n=m.get(id)??0,max=CARDS[id].rare?1:3;r.count.textContent=`${n} / ${max}`;r.minus.disabled=n===0;r.plus.disabled=d.cards.length>=40||n>=max;}

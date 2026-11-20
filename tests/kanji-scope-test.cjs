@@ -10,12 +10,15 @@ test('each V17 approved path rejects unrelated edits and deletion',()=>{
 });
 test('exact V17 replacements cannot be missing, duplicated or modified',()=>{
  for(const [file,entry] of Object.entries(scope.files)){
-  const text=fs.readFileSync(file,'utf8');
+  const text=require('./helpers/approved-card459-v18.cjs').restore(file,fs.readFileSync(file,'utf8'));
   for(const {after} of entry.replacements){
    assert.throws(()=>scope.restore(file,text.replace(after,'')),{code:'ERR_ASSERTION'});
    assert.throws(()=>scope.restore(file,text.replace(after,()=>after+after)),{code:'ERR_ASSERTION'});
    assert.throws(()=>scope.restore(file,text.replace(after,()=>after.slice(0,-1)+'!')),{code:'ERR_ASSERTION'});
   }
-  if(entry.baselineBlob!==null)assert.notEqual(scope.blob(scope.restore(file,text+'\n// unrelated change\n')),entry.baselineBlob);
+  if(entry.baselineBlob!==null){
+   let restored;try{restored=scope.restore(file,text+'\n// unrelated change\n');}catch(error){assert.equal(error.code,'ERR_ASSERTION');continue;}
+   assert.notEqual(scope.blob(restored),entry.baselineBlob);
+  }
  }
 });

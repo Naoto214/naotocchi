@@ -109,7 +109,7 @@ export function cardRarityLabel(c){return c.rare?'レア · 同名1枚まで':'�
 export function cardMarkup(c,{compact=false,detail=false}={}){
  if(!c||c.hidden)return renderCard(c,{detail});
  const id=c.cardId??c.id,asset=CARD_ART[id],colors=cardArtColors(c);
- return renderCard({...c,...colors,mark:icon(c.type==='main'?c.attribute:c.type),image:asset?.small,large:asset?.large,married:marriedText(id)},{detail,art:/^M-starfish-0[1-3]$/.test(id)?'contain':'cover'});
+ return renderCard({...c,...colors,mark:icon(c.type==='main'?c.attribute:c.type),image:asset?.small,large:asset?.large,married:marriedText(id)},{detail,art:/^(?:M-starfish-0[1-3]|W-time-(?:ix|x|xi|xii)|E-(?:hayajimai|nagaiki|omoide-photo))$/.test(id)?'contain':'cover'});
 }
 export function canInspectCard(v,viewer,c){if(v?.mode==='cpu'&&viewer===v.humanSeat&&!c.hidden)return true;return !v||v.phase!=='response'||Boolean(viewer===v.actor&&!c.hidden&&v.actions.some(a=>a.kind!=='pass'&&a.source===c.id));}
 export function inspectButton(c,cls='card-tap',v=null,viewer=null){const restricted=v?.phase==='response',allowed=canInspectCard(v,viewer,c),eligible=cardActions(v,viewer,c).length>0;return `<button type="button"${allowed?'':' disabled aria-disabled="true"'} class="${cls}${restricted?(eligible?' is-eligible':' response-unavailable'):''}" data-inspect="${h(c.id)}" aria-label="${h(c.hidden?'しかけたカード':c.name)}を拡大">${cardMarkup(c,{compact:true})}</button>`;}

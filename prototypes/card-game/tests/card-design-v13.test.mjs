@@ -10,8 +10,8 @@ import {cardMarkup,eggCardMarkup,eggDetailMarkup,EGG_PRINTED_TEXT,escapeHTML} fr
 import {marriedText} from '../lover-married.mjs';
 import {CARD_ART} from '../ui-art.mjs';
 const base=new URL('../',import.meta.url),sha=b=>createHash('sha256').update(b).digest('hex');
-test('all 452 formal cards: one-line names, normal face has no effect, detail contains official effects',()=>{
- assert.equal(Object.keys(CATALOG).length,452);
+test('all 459 formal cards: one-line names, normal face has no effect, detail contains official effects',()=>{
+ assert.equal(Object.keys(CATALOG).length,459);
  for(const c of Object.values(CATALOG)){
   const normal=cardMarkup(c),detail=cardMarkup(c,{detail:true});
   assert.match(normal,/v11-card/);assert.match(normal,/data-normal="true"/);assert.doesNotMatch(normal,/v10-copy|v10-effect|v10-ability/);
@@ -41,14 +41,14 @@ test('approved starfish originals exact hashes and runtime delivered artifacts m
 });
 test('catalog uses exact baseline or approved 19-name bytes; other 449 art mappings unchanged',()=>{
  const baseline='38b4e9d0';
- for(const file of ['lover-married.mjs','cards.mjs','art-pilot/approved-colors.mjs','art-pilot/symbols/attributes.mjs'])assert.equal(sha(readFileSync(new URL(file,base))),sha(execFileSync('git',['show',`${baseline}:prototypes/card-game/${file}`])));
+ for(const file of ['lover-married.mjs','cards.mjs','art-pilot/approved-colors.mjs','art-pilot/symbols/attributes.mjs'])assert.equal(sha(Buffer.from(integrationRequire('../../../tests/helpers/approved-card459-v18.cjs').restore('prototypes/card-game/'+file,readFileSync(new URL(file,base),'utf8')))),sha(execFileSync('git',['show',`${baseline}:prototypes/card-game/${file}`])));
  const catalog=Buffer.from(integrationRequire('../../../tests/helpers/approved-kanji-v17.cjs').restore('prototypes/card-game/full-catalog.mjs',readFileSync(new URL('full-catalog.mjs',base),'utf8')));
  const approved=JSON.parse(readFileSync(new URL('../../tests/helpers/approved-card-integration-v16.json',base))).files['prototypes/card-game/full-catalog.mjs'];
  const blob=bytes=>createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex');
  assert.equal(approved.baseline,blob(execFileSync('git',['show',`${baseline}:prototypes/card-game/full-catalog.mjs`])));
  assert.ok([approved.baseline,approved.names].includes(blob(catalog)),'only exact approved display-name changes may differ; all other catalog bytes remain protected');
  const old=execFileSync('git',['show',`${baseline}:prototypes/card-game/ui-art.mjs`],{encoding:'utf8'});const oldMap=JSON.parse(old.slice(old.indexOf('Object.freeze(')+14,old.lastIndexOf(');')));
- for(const [id,art] of Object.entries(CARD_ART))if(!/^M-starfish-0[1-3]$/.test(id))assert.deepEqual(art,oldMap[id]);
+ for(const [id,art] of Object.entries(CARD_ART))if(Object.hasOwn(oldMap,id)&&!/^M-starfish-0[1-3]$/.test(id))assert.deepEqual(art,oldMap[id]);
 });
 
 test('only the inner face draws the frame, and failed art retains the existing fallback contract',()=>{

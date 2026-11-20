@@ -36,6 +36,7 @@ const additions={
   ]
 };
 function restoredBlob(file,text=fs.readFileSync(file,'utf8')){
+ // V17 restore first reverses the exact V18 delta, then its own frozen changes.
  text=require('./approved-kanji-v17.cjs').restore(file,text);
  for(const addition of additions[file]||[]){assert.equal(text.split(addition).length,2,'exact single BGM insertion: '+file);text=text.replace(addition,'');}
  // PR #565's approved design adds only these two includes to this protected file.

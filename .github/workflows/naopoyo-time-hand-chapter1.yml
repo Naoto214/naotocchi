@@ -33,6 +33,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Fetch immutable card regression baselines
+        run: git fetch --no-tags --depth=1 origin 38b4e9d0c8ed4cacdfc1cc6c072a7a9e62e5c053 526b326d16717fca46ce585fc32638e8b852d15d
       - run: node --test --test-concurrency=2 prototypes/card-game/tests/*.test.mjs
   runtime:
     runs-on: ubuntu-latest

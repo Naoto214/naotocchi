@@ -41,9 +41,9 @@ test('design audit permits shared layout but detects back styling, opt-in, lost 
 test('cost ink cannot inherit a white heading color',()=>{
  assert.match(css,/\.card-face \.card-cost\s*\{color:#211d18\}/);
 });
-test('all 452 faces preserve formal colors, marks, and unique dedicated art at both resolutions',()=>{
+test('all 459 faces preserve formal colors, marks, and unique dedicated art at both resolutions',()=>{
  const colors=new Set(),hashes={small:new Set(),large:new Set()};
- assert.equal(Object.keys(CATALOG).length,452);
+ assert.equal(Object.keys(CATALOG).length,459);
  for(const c of Object.values(CATALOG)){
   const color=cardArtColors(c).color;colors.add(color);assert.ok(approved.includes(color));
   for(const compact of [false,true]){
@@ -53,7 +53,7 @@ test('all 452 faces preserve formal colors, marks, and unique dedicated art at b
    const data=readFileSync(new URL('../'+CARD_ART[c.id][size],import.meta.url));const hash=createHash('sha256').update(data).digest('hex');assert.ok(!hashes[size].has(hash),c.id);hashes[size].add(hash);
   }
  }
- assert.equal(colors.size,14);assert.equal(hashes.small.size,452);assert.equal(hashes.large.size,452);
+ assert.equal(colors.size,14);assert.equal(hashes.small.size,459);assert.equal(hashes.large.size,459);
 });
 test('hidden cards retain the blue-silver back without front content',()=>{
  const html=cardMarkup({...CATALOG['M-unknown-05'],hidden:true});assert.ok(html.includes('card-back-approved.png'));assert.ok(!html.includes('card-face'));assert.ok(!html.includes('card-cost'));assert.ok(!html.includes('専用イラスト'));

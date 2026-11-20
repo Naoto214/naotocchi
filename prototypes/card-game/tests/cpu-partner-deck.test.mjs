@@ -1,4 +1,4 @@
-// CPU こいびと・交際 deck list (2026-10-25): legality, lover counts, the other six decks unchanged,
+// Historical CPU こいびと・交際 list (2026-10-25): legality, lover counts, the other six historical decks unchanged,
 // matches saved with the earlier list still restore with their own 40 cards, both difficulties play it out.
 import test from 'node:test';import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -12,16 +12,16 @@ const sorted=l=>[...l].sort();
 // Lists fixed before the comparison ran (generated from the decks as they were on main 0b3bb1fe).
 const planned=JSON.parse(readFileSync(new URL('../partner-deck-20261025/runs/PD-manifest.json',import.meta.url),'utf8')).decks;
 
-test('partner list is legal and holds six lovers of two kinds, three copies each',()=>{
- const d=cpuDeck('partner'),c=count(d.cards);assert.ok(e.validateDeck(d.cards));assert.equal(d.cards.length,40);assert.equal(d.version,'2026-10-25');
+test('historical 2026-10-25 partner list is legal and holds six lovers of two kinds, three copies each',()=>{
+ const d=CPU_DECK_HISTORY.partner.find(d=>d.version==='2026-10-25'),c=count(d.cards);assert.ok(e.validateDeck(d.cards));assert.equal(d.cards.length,40);assert.equal(d.version,'2026-10-25');
  const lovers=Object.entries(c).filter(([id])=>e.CARDS[id].type==='partner');
  assert.deepEqual(Object.fromEntries(lovers),{'P-grove_deer':3,'P-high_eagle':3});
  for(const [id,n] of Object.entries(c))assert.ok(n<=(e.CARDS[id].rare?1:3),id);
  assert.deepEqual(sorted(d.cards),sorted(ALL_VARIANTS.L6cf.cards));
- assert.equal(d.name,'こいびと・交際');
+ assert.equal(cpuDeck('partner').name,'こいびと・交際');assert.equal(cpuDeckVersion('partner',d.cards),'2026-10-25');
 });
-test('the other six CPU decks are exactly the lists used before the change',()=>{
- for(const d of CPU_DECKS.filter(d=>d.id!=='partner'))assert.deepEqual(d.cards,planned[d.id].cards,d.id);
+test('the other six historical CPU decks retain the exact lists used before the partner change',()=>{
+ for(const {id} of CPU_DECKS.filter(d=>d.id!=='partner'))assert.deepEqual(CPU_DECK_HISTORY[id].find(d=>d.version==='2026-10-22').cards,planned[id].cards,id);
  assert.equal(CPU_DECKS.length,7);
 });
 test('earlier partner list is kept as a version and still recognised',()=>{
