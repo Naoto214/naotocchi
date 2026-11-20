@@ -1,0 +1,3131 @@
+{
+  "kind": "Geometric opportunity sample; no gestures dispatched",
+  "fixture": "geometry-fixture.json",
+  "parameters": {
+    "shortForwardMinimumCss": 4,
+    "shortGoalErrorMaximumCss": 9,
+    "shortActorTravelMaximumCss": 26,
+    "anyActorTravelMaximumCss": 30,
+    "helperEndpointMaximumCss": 24,
+    "helperTravelMaximumCss": 29,
+    "maximumSegmentsPerResident": 2,
+    "anyHeadingDisplacementsCss": [
+      8,
+      10,
+      12,
+      16,
+      20,
+      24
+    ]
+  },
+  "validation": [
+    {
+      "key": "pet:dog",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": []
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "partner:forest_bear"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": true,
+      "measuredV6Within4": true
+    },
+    {
+      "key": "partner:forest_bear",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:clock"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "pet:dog",
+          "companion:hamster",
+          "companion:seal"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": true,
+      "measuredV6Within4": false
+    },
+    {
+      "key": "companion:cat_friend",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:hedgehog",
+          "companion:many_tail_fox",
+          "companion:box"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:bat",
+          "companion:many_tail_fox",
+          "companion:box"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": false,
+      "measuredV6Within4": false
+    },
+    {
+      "key": "companion:tanuki",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:chicken",
+          "companion:box"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:watcher",
+          "companion:chicken",
+          "companion:box"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": false,
+      "measuredV6Within4": false
+    },
+    {
+      "key": "companion:owl",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:seal",
+          "companion:sekizou"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:seal"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": false,
+      "measuredV6Within4": false
+    },
+    {
+      "key": "companion:hamster",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:seal",
+          "companion:clock"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:punyu",
+          "companion:seal",
+          "companion:clock"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": false,
+      "measuredV6Within4": false
+    },
+    {
+      "key": "companion:monkey",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": []
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": []
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": true,
+      "measuredV6Within4": true
+    },
+    {
+      "key": "companion:sheep",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:parrot",
+          "companion:many_tail_fox"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:many_tail_fox"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": true,
+      "measuredV6Within4": false
+    },
+    {
+      "key": "companion:bat",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:box"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:cat_friend",
+          "companion:box"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": true,
+      "measuredV6Within4": false
+    },
+    {
+      "key": "companion:penguin_friend",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": []
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:monkey"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": true,
+      "measuredV6Within4": true
+    },
+    {
+      "key": "companion:shiba",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:sekizou"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:owl",
+          "companion:sekizou"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": true,
+      "measuredV6Within4": false
+    },
+    {
+      "key": "companion:punyu",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:panda"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:hamster"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": true,
+      "measuredV6Within4": true
+    },
+    {
+      "key": "companion:chameleon",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:clock"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:hamster",
+          "companion:clock"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": false,
+      "measuredV6Within4": false
+    },
+    {
+      "key": "companion:unicorn",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:parrot",
+          "companion:hedgehog"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:sheep",
+          "companion:parrot",
+          "companion:hedgehog"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": false,
+      "measuredV6Within4": false
+    },
+    {
+      "key": "companion:watcher",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:chicken",
+          "companion:box"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:tanuki",
+          "companion:chicken",
+          "companion:box"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": false,
+      "measuredV6Within4": false
+    },
+    {
+      "key": "companion:rabbit_friend",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": []
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:tanuki"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": true,
+      "measuredV6Within4": false
+    },
+    {
+      "key": "companion:squirrel",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": []
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:shiba"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": true,
+      "measuredV6Within4": true
+    },
+    {
+      "key": "companion:otter",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:snail"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:snail"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": true,
+      "measuredV6Within4": true
+    },
+    {
+      "key": "companion:panda",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:punyu",
+          "companion:sekizou"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:punyu"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": true,
+      "measuredV6Within4": false
+    },
+    {
+      "key": "companion:parrot",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:sheep",
+          "companion:unicorn"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:sheep",
+          "companion:unicorn"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": true,
+      "measuredV6Within4": false
+    },
+    {
+      "key": "companion:seal",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:owl",
+          "companion:hamster"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "partner:forest_bear",
+          "companion:hamster"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": true,
+      "measuredV6Within4": false
+    },
+    {
+      "key": "companion:chicken",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:tanuki",
+          "companion:watcher"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:tanuki",
+          "companion:watcher"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": true,
+      "measuredV6Within4": false
+    },
+    {
+      "key": "companion:hedgehog",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:cat_friend",
+          "companion:unicorn"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:cat_friend",
+          "companion:unicorn",
+          "companion:many_tail_fox"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": false,
+      "measuredV6Within4": false
+    },
+    {
+      "key": "companion:snail",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:otter"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:monkey"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": true,
+      "measuredV6Within4": true
+    },
+    {
+      "key": "companion:sekizou",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:owl",
+          "companion:shiba",
+          "companion:panda"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:owl",
+          "companion:shiba",
+          "companion:panda"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": false,
+      "measuredV6Within4": false
+    },
+    {
+      "key": "companion:clock",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "partner:forest_bear",
+          "companion:hamster",
+          "companion:chameleon"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "partner:forest_bear",
+          "companion:hamster",
+          "companion:chameleon"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": false,
+      "measuredV6Within4": false
+    },
+    {
+      "key": "companion:many_tail_fox",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:cat_friend",
+          "companion:sheep"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": false,
+        "visible": true,
+        "contacts": [
+          "companion:cat_friend"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": false,
+      "measuredV6Within4": false
+    },
+    {
+      "key": "companion:box",
+      "start": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:cat_friend",
+          "companion:tanuki",
+          "companion:bat",
+          "companion:watcher"
+        ]
+      },
+      "release": {
+        "insideBounds": true,
+        "terrain": true,
+        "visible": true,
+        "contacts": [
+          "companion:tanuki",
+          "companion:bat",
+          "companion:watcher"
+        ]
+      },
+      "depthMatched": true,
+      "paintedFootMatched": true,
+      "measuredV6Arrival": false,
+      "measuredV6Within4": false
+    }
+  ],
+  "areaCss2": {
+    "nativeStage": {
+      "terrain": 46682.05
+    },
+    "cellEdgeNative": 2,
+    "perResident": [
+      {
+        "key": "pet:dog",
+        "terrain": 44401.59,
+        "terrainAndInk": 44401.59,
+        "clearOfOtherFeet": 795.43
+      },
+      {
+        "key": "partner:forest_bear",
+        "terrain": 43031.04,
+        "terrainAndInk": 43031.04,
+        "clearOfOtherFeet": 223.72
+      },
+      {
+        "key": "companion:cat_friend",
+        "terrain": 44762.1,
+        "terrainAndInk": 44762.1,
+        "clearOfOtherFeet": 242.36
+      },
+      {
+        "key": "companion:tanuki",
+        "terrain": 44838.93,
+        "terrainAndInk": 44838.93,
+        "clearOfOtherFeet": 254.79
+      },
+      {
+        "key": "companion:owl",
+        "terrain": 44826.5,
+        "terrainAndInk": 44826.5,
+        "clearOfOtherFeet": 584.15
+      },
+      {
+        "key": "companion:hamster",
+        "terrain": 44845.14,
+        "terrainAndInk": 44845.14,
+        "clearOfOtherFeet": 217.5
+      },
+      {
+        "key": "companion:monkey",
+        "terrain": 44792.23,
+        "terrainAndInk": 44792.23,
+        "clearOfOtherFeet": 652.5
+      },
+      {
+        "key": "companion:sheep",
+        "terrain": 44767.95,
+        "terrainAndInk": 44767.95,
+        "clearOfOtherFeet": 273.43
+      },
+      {
+        "key": "companion:bat",
+        "terrain": 44801.93,
+        "terrainAndInk": 44801.93,
+        "clearOfOtherFeet": 484.72
+      },
+      {
+        "key": "companion:penguin_friend",
+        "terrain": 44743.85,
+        "terrainAndInk": 44743.85,
+        "clearOfOtherFeet": 553.08
+      },
+      {
+        "key": "companion:shiba",
+        "terrain": 44804.59,
+        "terrainAndInk": 44804.59,
+        "clearOfOtherFeet": 447.43
+      },
+      {
+        "key": "companion:punyu",
+        "terrain": 44795.96,
+        "terrainAndInk": 44795.96,
+        "clearOfOtherFeet": 337.23
+      },
+      {
+        "key": "companion:chameleon",
+        "terrain": 44773,
+        "terrainAndInk": 44773,
+        "clearOfOtherFeet": 316.93
+      },
+      {
+        "key": "companion:unicorn",
+        "terrain": 44781.88,
+        "terrainAndInk": 44781.88,
+        "clearOfOtherFeet": 354.22
+      },
+      {
+        "key": "companion:watcher",
+        "terrain": 44732.17,
+        "terrainAndInk": 44732.17,
+        "clearOfOtherFeet": 994.29
+      },
+      {
+        "key": "companion:rabbit_friend",
+        "terrain": 44757.86,
+        "terrainAndInk": 44757.86,
+        "clearOfOtherFeet": 453.65
+      },
+      {
+        "key": "companion:squirrel",
+        "terrain": 44803.62,
+        "terrainAndInk": 44803.62,
+        "clearOfOtherFeet": 776.79
+      },
+      {
+        "key": "companion:otter",
+        "terrain": 44732.2,
+        "terrainAndInk": 44732.2,
+        "clearOfOtherFeet": 223.72
+      },
+      {
+        "key": "companion:panda",
+        "terrain": 44820.29,
+        "terrainAndInk": 44820.29,
+        "clearOfOtherFeet": 217.5
+      },
+      {
+        "key": "companion:parrot",
+        "terrain": 44810.87,
+        "terrainAndInk": 44810.87,
+        "clearOfOtherFeet": 304.5
+      },
+      {
+        "key": "companion:seal",
+        "terrain": 44747.74,
+        "terrainAndInk": 44747.74,
+        "clearOfOtherFeet": 248.57
+      },
+      {
+        "key": "companion:chicken",
+        "terrain": 44835.73,
+        "terrainAndInk": 44835.73,
+        "clearOfOtherFeet": 292.07
+      },
+      {
+        "key": "companion:hedgehog",
+        "terrain": 44718.52,
+        "terrainAndInk": 44718.52,
+        "clearOfOtherFeet": 236.14
+      },
+      {
+        "key": "companion:snail",
+        "terrain": 44748.25,
+        "terrainAndInk": 44748.25,
+        "clearOfOtherFeet": 845.15
+      },
+      {
+        "key": "companion:sekizou",
+        "terrain": 44789.79,
+        "terrainAndInk": 44789.79,
+        "clearOfOtherFeet": 745.72
+      },
+      {
+        "key": "companion:clock",
+        "terrain": 44833.57,
+        "terrainAndInk": 44833.57,
+        "clearOfOtherFeet": 310.72
+      },
+      {
+        "key": "companion:many_tail_fox",
+        "terrain": 44790.25,
+        "terrainAndInk": 44790.25,
+        "clearOfOtherFeet": 254.79
+      },
+      {
+        "key": "companion:box",
+        "terrain": 44763.33,
+        "terrainAndInk": 44763.33,
+        "clearOfOtherFeet": 248.57
+      }
+    ]
+  },
+  "localSeatAblation": {
+    "bearings": 16,
+    "radiusCss": 8,
+    "maxSeatShiftCss": 16,
+    "candidatesPreservingAllBearingsAndOpeningSomeone": [
+      {
+        "resident": "companion:monkey",
+        "from": {
+          "x": 178.2327574772689,
+          "y": 239.10640072997268
+        },
+        "to": {
+          "x": 183.17917358550133,
+          "y": 237.27773201881197
+        },
+        "seatShiftCss": 7.09,
+        "opened": 1,
+        "gain": 10,
+        "changes": [
+          {
+            "resident": "monkey",
+            "newBearings": 6
+          },
+          {
+            "resident": "penguin_friend",
+            "newBearings": 1
+          },
+          {
+            "resident": "snail",
+            "newBearings": 3
+          }
+        ]
+      }
+    ]
+  },
+  "opening": {
+    "headingStepDegrees": 7.5,
+    "rows": [
+      {
+        "key": "pet:dog",
+        "anyHeading": {
+          "soloBearings": 13,
+          "extraHelpedBearings": 12,
+          "maxSoloCss": 24,
+          "maxHelpedCss": 24,
+          "solo": [
+            {
+              "resident": "dog",
+              "waypointsCss": [
+                [
+                  11.09,
+                  -4.59
+                ]
+              ],
+              "travelCss": 12
+            }
+          ],
+          "one": [
+            {
+              "resident": "monkey",
+              "waypointsCss": [
+                [
+                  -1.15,
+                  -2.77
+                ]
+              ],
+              "travelCss": 3
+            },
+            {
+              "resident": "dog",
+              "waypointsCss": [
+                [
+                  -11.09,
+                  -4.59
+                ]
+              ],
+              "travelCss": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "partner:forest_bear",
+        "anyHeading": {
+          "soloBearings": 1,
+          "extraHelpedBearings": 3,
+          "maxSoloCss": 8,
+          "maxHelpedCss": 24,
+          "solo": [
+            {
+              "resident": "forest_bear",
+              "waypointsCss": [
+                [
+                  -7.73,
+                  -2.07
+                ]
+              ],
+              "travelCss": 8
+            }
+          ],
+          "one": [
+            {
+              "resident": "dog",
+              "waypointsCss": [
+                [
+                  -1.91,
+                  -4.62
+                ]
+              ],
+              "travelCss": 5
+            },
+            {
+              "resident": "forest_bear",
+              "waypointsCss": [
+                [
+                  -11.09,
+                  -4.59
+                ]
+              ],
+              "travelCss": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:cat_friend",
+        "shortDrop": {
+          "solo": null,
+          "one": null,
+          "two": null
+        },
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null,
+          "two": null
+        },
+        "bottleneck": {
+          "bearings": 144,
+          "terrainInkAllowed": 144,
+          "minBlockers": 1,
+          "minimalBlockingSets": [
+            [
+              "hedgehog"
+            ],
+            [
+              "many_tail_fox"
+            ]
+          ]
+        }
+      },
+      {
+        "key": "companion:tanuki",
+        "shortDrop": {
+          "solo": null,
+          "one": null,
+          "two": null
+        },
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null,
+          "two": null
+        },
+        "bottleneck": {
+          "bearings": 144,
+          "terrainInkAllowed": 144,
+          "minBlockers": 1,
+          "minimalBlockingSets": [
+            [
+              "chicken"
+            ],
+            [
+              "rabbit_friend"
+            ],
+            [
+              "box"
+            ]
+          ]
+        }
+      },
+      {
+        "key": "companion:owl",
+        "shortDrop": {
+          "solo": null,
+          "one": null,
+          "two": null
+        },
+        "anyHeading": {
+          "soloBearings": 3,
+          "extraHelpedBearings": 10,
+          "maxSoloCss": 24,
+          "maxHelpedCss": 24,
+          "solo": [
+            {
+              "resident": "owl",
+              "waypointsCss": [
+                [
+                  -4.59,
+                  -11.09
+                ]
+              ],
+              "travelCss": 12
+            }
+          ],
+          "one": [
+            {
+              "resident": "sekizou",
+              "waypointsCss": [
+                [
+                  -2.6,
+                  1.5
+                ]
+              ],
+              "travelCss": 3
+            },
+            {
+              "resident": "owl",
+              "waypointsCss": [
+                [
+                  -6,
+                  -10.39
+                ]
+              ],
+              "travelCss": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:hamster",
+        "shortDrop": {
+          "solo": null,
+          "one": null,
+          "two": {
+            "missCss": 1.57,
+            "walks": [
+              {
+                "resident": "dog",
+                "waypointsCss": [
+                  [
+                    20.78,
+                    -12
+                  ]
+                ],
+                "travelCss": 24
+              },
+              {
+                "resident": "seal",
+                "waypointsCss": [
+                  [
+                    -1.31,
+                    -9.91
+                  ],
+                  [
+                    -4.14,
+                    -15.45
+                  ]
+                ],
+                "travelCss": 16.22
+              },
+              {
+                "resident": "hamster",
+                "waypointsCss": [
+                  [
+                    -11.9,
+                    -1.57
+                  ]
+                ],
+                "travelCss": 12
+              }
+            ]
+          }
+        },
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null
+        }
+      },
+      {
+        "key": "companion:monkey",
+        "anyHeading": {
+          "soloBearings": 16,
+          "extraHelpedBearings": 13,
+          "maxSoloCss": 24,
+          "maxHelpedCss": 24,
+          "solo": [
+            {
+              "resident": "monkey",
+              "waypointsCss": [
+                [
+                  7.31,
+                  -9.52
+                ]
+              ],
+              "travelCss": 12
+            }
+          ],
+          "one": [
+            {
+              "resident": "dog",
+              "waypointsCss": [
+                [
+                  3,
+                  0
+                ]
+              ],
+              "travelCss": 3
+            },
+            {
+              "resident": "monkey",
+              "waypointsCss": [
+                [
+                  9.24,
+                  3.83
+                ],
+                [
+                  11.59,
+                  3.11
+                ]
+              ],
+              "travelCss": 12.46
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:sheep",
+        "anyHeading": {
+          "soloBearings": 3,
+          "extraHelpedBearings": 2,
+          "maxSoloCss": 16,
+          "maxHelpedCss": 16,
+          "solo": [
+            {
+              "resident": "sheep",
+              "waypointsCss": [
+                [
+                  -7.31,
+                  -9.52
+                ]
+              ],
+              "travelCss": 12
+            }
+          ],
+          "one": [
+            {
+              "resident": "parrot",
+              "waypointsCss": [
+                [
+                  2.77,
+                  -1.15
+                ]
+              ],
+              "travelCss": 3
+            },
+            {
+              "resident": "sheep",
+              "waypointsCss": [
+                [
+                  -4.59,
+                  -11.09
+                ]
+              ],
+              "travelCss": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:bat",
+        "anyHeading": {
+          "soloBearings": 6,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 16,
+          "maxHelpedCss": 0,
+          "solo": [
+            {
+              "resident": "bat",
+              "waypointsCss": [
+                [
+                  -9.52,
+                  7.31
+                ]
+              ],
+              "travelCss": 12
+            }
+          ],
+          "one": null
+        }
+      },
+      {
+        "key": "companion:penguin_friend",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 15,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 24,
+          "solo": null,
+          "one": [
+            {
+              "resident": "monkey",
+              "waypointsCss": [
+                [
+                  3.04,
+                  3.97
+                ]
+              ],
+              "travelCss": 5
+            },
+            {
+              "resident": "penguin_friend",
+              "waypointsCss": [
+                [
+                  12,
+                  0
+                ]
+              ],
+              "travelCss": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:shiba",
+        "anyHeading": {
+          "soloBearings": 4,
+          "extraHelpedBearings": 22,
+          "maxSoloCss": 24,
+          "maxHelpedCss": 24,
+          "solo": [
+            {
+              "resident": "shiba",
+              "waypointsCss": [
+                [
+                  -11.09,
+                  4.59
+                ]
+              ],
+              "travelCss": 12
+            }
+          ],
+          "one": [
+            {
+              "resident": "squirrel",
+              "waypointsCss": [
+                [
+                  -2.38,
+                  -1.83
+                ]
+              ],
+              "travelCss": 3
+            },
+            {
+              "resident": "shiba",
+              "waypointsCss": [
+                [
+                  -12,
+                  0
+                ]
+              ],
+              "travelCss": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:punyu",
+        "anyHeading": {
+          "soloBearings": 2,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 10,
+          "maxHelpedCss": 10,
+          "solo": [
+            {
+              "resident": "punyu",
+              "waypointsCss": [
+                [
+                  10,
+                  0
+                ]
+              ],
+              "travelCss": 10
+            }
+          ],
+          "one": [
+            {
+              "resident": "panda",
+              "waypointsCss": [
+                [
+                  -1.15,
+                  2.77
+                ]
+              ],
+              "travelCss": 3
+            },
+            {
+              "resident": "punyu",
+              "waypointsCss": [
+                [
+                  0.39,
+                  -2.97
+                ],
+                [
+                  10,
+                  0
+                ]
+              ],
+              "travelCss": 13.06
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:chameleon",
+        "shortDrop": {
+          "solo": null,
+          "one": null,
+          "two": null
+        },
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null
+        }
+      },
+      {
+        "key": "companion:unicorn",
+        "shortDrop": {
+          "solo": null,
+          "one": null,
+          "two": null
+        },
+        "anyHeading": {
+          "soloBearings": 6,
+          "extraHelpedBearings": 1,
+          "maxSoloCss": 20,
+          "maxHelpedCss": 20,
+          "solo": [
+            {
+              "resident": "unicorn",
+              "waypointsCss": [
+                [
+                  9.52,
+                  7.31
+                ]
+              ],
+              "travelCss": 12
+            }
+          ],
+          "one": [
+            {
+              "resident": "parrot",
+              "waypointsCss": [
+                [
+                  -0.78,
+                  -2.9
+                ]
+              ],
+              "travelCss": 3
+            },
+            {
+              "resident": "unicorn",
+              "waypointsCss": [
+                [
+                  12,
+                  0
+                ]
+              ],
+              "travelCss": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:watcher",
+        "shortDrop": {
+          "solo": null,
+          "one": null,
+          "two": null
+        },
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null,
+          "two": null
+        },
+        "bottleneck": {
+          "bearings": 144,
+          "terrainInkAllowed": 73,
+          "minBlockers": 1,
+          "minimalBlockingSets": [
+            [
+              "chicken"
+            ],
+            [
+              "box"
+            ]
+          ]
+        }
+      },
+      {
+        "key": "companion:rabbit_friend",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null,
+          "two": null
+        },
+        "bottleneck": {
+          "bearings": 144,
+          "terrainInkAllowed": 53,
+          "minBlockers": 1,
+          "minimalBlockingSets": [
+            [
+              "tanuki"
+            ]
+          ]
+        }
+      },
+      {
+        "key": "companion:squirrel",
+        "anyHeading": {
+          "soloBearings": 8,
+          "extraHelpedBearings": 34,
+          "maxSoloCss": 24,
+          "maxHelpedCss": 24,
+          "solo": [
+            {
+              "resident": "squirrel",
+              "waypointsCss": [
+                [
+                  11.09,
+                  -4.59
+                ]
+              ],
+              "travelCss": 12
+            }
+          ],
+          "one": [
+            {
+              "resident": "shiba",
+              "waypointsCss": [
+                [
+                  -2.77,
+                  1.15
+                ]
+              ],
+              "travelCss": 3
+            },
+            {
+              "resident": "squirrel",
+              "waypointsCss": [
+                [
+                  11.9,
+                  -1.57
+                ]
+              ],
+              "travelCss": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:otter",
+        "anyHeading": {
+          "soloBearings": 18,
+          "extraHelpedBearings": 21,
+          "maxSoloCss": 12,
+          "maxHelpedCss": 16,
+          "solo": [
+            {
+              "resident": "otter",
+              "waypointsCss": [
+                [
+                  -1.57,
+                  -11.9
+                ]
+              ],
+              "travelCss": 12
+            }
+          ],
+          "one": [
+            {
+              "resident": "snail",
+              "waypointsCss": [
+                [
+                  1.15,
+                  2.77
+                ]
+              ],
+              "travelCss": 3
+            },
+            {
+              "resident": "otter",
+              "waypointsCss": [
+                [
+                  0,
+                  -12
+                ]
+              ],
+              "travelCss": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:panda",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null
+        }
+      },
+      {
+        "key": "companion:parrot",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 8,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 12,
+          "solo": null,
+          "one": [
+            {
+              "resident": "unicorn",
+              "waypointsCss": [
+                [
+                  8.49,
+                  8.49
+                ]
+              ],
+              "travelCss": 12
+            },
+            {
+              "resident": "parrot",
+              "waypointsCss": [
+                [
+                  10.39,
+                  6
+                ]
+              ],
+              "travelCss": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:seal",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 12,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 24,
+          "solo": null,
+          "one": [
+            {
+              "resident": "dog",
+              "waypointsCss": [
+                [
+                  4.87,
+                  -6.35
+                ]
+              ],
+              "travelCss": 8
+            },
+            {
+              "resident": "seal",
+              "waypointsCss": [
+                [
+                  5.66,
+                  -5.66
+                ]
+              ],
+              "travelCss": 8
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:chicken",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null,
+          "two": null
+        },
+        "bottleneck": {
+          "bearings": 144,
+          "terrainInkAllowed": 80,
+          "minBlockers": 1,
+          "minimalBlockingSets": [
+            [
+              "tanuki"
+            ],
+            [
+              "watcher"
+            ]
+          ]
+        }
+      },
+      {
+        "key": "companion:hedgehog",
+        "shortDrop": {
+          "solo": null,
+          "one": null,
+          "two": null
+        },
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null
+        }
+      },
+      {
+        "key": "companion:snail",
+        "anyHeading": {
+          "soloBearings": 10,
+          "extraHelpedBearings": 9,
+          "maxSoloCss": 24,
+          "maxHelpedCss": 24,
+          "solo": [
+            {
+              "resident": "snail",
+              "waypointsCss": [
+                [
+                  1.57,
+                  11.9
+                ]
+              ],
+              "travelCss": 12
+            }
+          ],
+          "one": [
+            {
+              "resident": "monkey",
+              "waypointsCss": [
+                [
+                  -1.15,
+                  -2.77
+                ]
+              ],
+              "travelCss": 3
+            },
+            {
+              "resident": "snail",
+              "waypointsCss": [
+                [
+                  7.31,
+                  9.52
+                ]
+              ],
+              "travelCss": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:sekizou",
+        "shortDrop": {
+          "solo": null,
+          "one": null,
+          "two": {
+            "missCss": 7.46,
+            "walks": [
+              {
+                "resident": "shiba",
+                "waypointsCss": [
+                  [
+                    -7.73,
+                    2.07
+                  ]
+                ],
+                "travelCss": 8
+              },
+              {
+                "resident": "owl",
+                "waypointsCss": [
+                  [
+                    -2.3,
+                    -5.54
+                  ],
+                  [
+                    -2.61,
+                    -19.83
+                  ]
+                ],
+                "travelCss": 20.29
+              },
+              {
+                "resident": "sekizou",
+                "waypointsCss": [
+                  [
+                    6.35,
+                    -4.87
+                  ]
+                ],
+                "travelCss": 8
+              }
+            ]
+          }
+        },
+        "anyHeading": {
+          "soloBearings": 1,
+          "extraHelpedBearings": 2,
+          "maxSoloCss": 8,
+          "maxHelpedCss": 12,
+          "solo": [
+            {
+              "resident": "sekizou",
+              "waypointsCss": [
+                [
+                  -6.93,
+                  4
+                ]
+              ],
+              "travelCss": 8
+            }
+          ],
+          "one": [
+            {
+              "resident": "shiba",
+              "waypointsCss": [
+                [
+                  4.33,
+                  -2.5
+                ]
+              ],
+              "travelCss": 5
+            },
+            {
+              "resident": "sekizou",
+              "waypointsCss": [
+                [
+                  -9.24,
+                  3.83
+                ]
+              ],
+              "travelCss": 10
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:clock",
+        "shortDrop": {
+          "solo": null,
+          "one": null,
+          "two": null
+        },
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null
+        }
+      },
+      {
+        "key": "companion:many_tail_fox",
+        "shortDrop": {
+          "solo": null,
+          "one": null,
+          "two": null
+        },
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null,
+          "two": null
+        },
+        "bottleneck": {
+          "bearings": 144,
+          "terrainInkAllowed": 74,
+          "minBlockers": 1,
+          "minimalBlockingSets": [
+            [
+              "cat_friend"
+            ]
+          ]
+        }
+      },
+      {
+        "key": "companion:box",
+        "shortDrop": {
+          "solo": null,
+          "one": null,
+          "two": null
+        },
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null,
+          "two": null
+        },
+        "bottleneck": {
+          "bearings": 144,
+          "terrainInkAllowed": 144,
+          "minBlockers": 1,
+          "minimalBlockingSets": [
+            [
+              "watcher"
+            ],
+            [
+              "tanuki"
+            ]
+          ]
+        }
+      }
+    ],
+    "totals": {
+      "shortSolo": 0,
+      "shortOne": 0,
+      "shortTwo": 2,
+      "anySolo": 13,
+      "anySoloOrOne": 16
+    }
+  },
+  "contactOnly": {
+    "headingStepDegrees": 15,
+    "rows": [
+      {
+        "key": "pet:dog"
+      },
+      {
+        "key": "partner:forest_bear"
+      },
+      {
+        "key": "companion:cat_friend",
+        "shortDrop": {
+          "solo": null,
+          "one": null,
+          "two": {
+            "missCss": 4.75,
+            "walks": [
+              {
+                "resident": "sheep",
+                "waypointsCss": [
+                  [
+                    -7.07,
+                    -7.07
+                  ],
+                  [
+                    -5.18,
+                    -19.32
+                  ]
+                ],
+                "travelCss": 22.39
+              },
+              {
+                "resident": "many_tail_fox",
+                "waypointsCss": [
+                  [
+                    -12,
+                    -20.78
+                  ]
+                ],
+                "travelCss": 24
+              },
+              {
+                "resident": "cat_friend",
+                "waypointsCss": [
+                  [
+                    -7.73,
+                    -2.07
+                  ]
+                ],
+                "travelCss": 8
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "companion:tanuki",
+        "shortDrop": {
+          "solo": null,
+          "one": {
+            "missCss": 6.01,
+            "walks": [
+              {
+                "resident": "chicken",
+                "waypointsCss": [
+                  [
+                    16.97,
+                    16.97
+                  ]
+                ],
+                "travelCss": 24
+              },
+              {
+                "resident": "tanuki",
+                "waypointsCss": [
+                  [
+                    8.66,
+                    5
+                  ]
+                ],
+                "travelCss": 10
+              }
+            ]
+          },
+          "two": {
+            "missCss": 6.01,
+            "walks": [
+              {
+                "resident": "watcher",
+                "waypointsCss": [
+                  [
+                    4,
+                    -6.93
+                  ]
+                ],
+                "travelCss": 8
+              },
+              {
+                "resident": "chicken",
+                "waypointsCss": [
+                  [
+                    24,
+                    0
+                  ]
+                ],
+                "travelCss": 24
+              },
+              {
+                "resident": "tanuki",
+                "waypointsCss": [
+                  [
+                    8.66,
+                    5
+                  ]
+                ],
+                "travelCss": 10
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "companion:owl",
+        "shortDrop": {
+          "solo": null,
+          "one": null,
+          "two": null
+        }
+      },
+      {
+        "key": "companion:hamster",
+        "shortDrop": {
+          "solo": null,
+          "one": null,
+          "two": {
+            "missCss": 6,
+            "walks": [
+              {
+                "resident": "dog",
+                "waypointsCss": [
+                  [
+                    17.32,
+                    -10
+                  ]
+                ],
+                "travelCss": 20
+              },
+              {
+                "resident": "seal",
+                "waypointsCss": [
+                  [
+                    0,
+                    -12
+                  ]
+                ],
+                "travelCss": 12
+              },
+              {
+                "resident": "hamster",
+                "waypointsCss": [
+                  [
+                    -6,
+                    0
+                  ]
+                ],
+                "travelCss": 6
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "companion:monkey"
+      },
+      {
+        "key": "companion:sheep"
+      },
+      {
+        "key": "companion:bat"
+      },
+      {
+        "key": "companion:penguin_friend"
+      },
+      {
+        "key": "companion:shiba"
+      },
+      {
+        "key": "companion:punyu"
+      },
+      {
+        "key": "companion:chameleon",
+        "shortDrop": {
+          "solo": null,
+          "one": null,
+          "two": null
+        }
+      },
+      {
+        "key": "companion:unicorn",
+        "shortDrop": {
+          "solo": null,
+          "one": {
+            "missCss": 8.5,
+            "walks": [
+              {
+                "resident": "hedgehog",
+                "waypointsCss": [
+                  [
+                    1.55,
+                    5.8
+                  ],
+                  [
+                    0,
+                    24
+                  ]
+                ],
+                "travelCss": 24.27
+              },
+              {
+                "resident": "unicorn",
+                "waypointsCss": [
+                  [
+                    -5.66,
+                    5.66
+                  ]
+                ],
+                "travelCss": 8
+              }
+            ]
+          },
+          "two": {
+            "missCss": 0,
+            "walks": [
+              {
+                "resident": "hedgehog",
+                "waypointsCss": [
+                  [
+                    6.21,
+                    23.18
+                  ]
+                ],
+                "travelCss": 24
+              },
+              {
+                "resident": "sheep",
+                "waypointsCss": [
+                  [
+                    -4,
+                    -6.93
+                  ]
+                ],
+                "travelCss": 8
+              },
+              {
+                "resident": "unicorn",
+                "waypointsCss": [
+                  [
+                    -12,
+                    0
+                  ]
+                ],
+                "travelCss": 12
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "companion:watcher",
+        "shortDrop": {
+          "solo": null,
+          "one": null,
+          "two": null
+        }
+      },
+      {
+        "key": "companion:rabbit_friend"
+      },
+      {
+        "key": "companion:squirrel"
+      },
+      {
+        "key": "companion:otter"
+      },
+      {
+        "key": "companion:panda"
+      },
+      {
+        "key": "companion:parrot"
+      },
+      {
+        "key": "companion:seal"
+      },
+      {
+        "key": "companion:chicken"
+      },
+      {
+        "key": "companion:hedgehog",
+        "shortDrop": {
+          "solo": null,
+          "one": null,
+          "two": null
+        }
+      },
+      {
+        "key": "companion:snail"
+      },
+      {
+        "key": "companion:sekizou",
+        "shortDrop": {
+          "solo": null,
+          "one": null,
+          "two": {
+            "missCss": 8.5,
+            "walks": [
+              {
+                "resident": "shiba",
+                "waypointsCss": [
+                  [
+                    -15.45,
+                    4.14
+                  ]
+                ],
+                "travelCss": 16
+              },
+              {
+                "resident": "owl",
+                "waypointsCss": [
+                  [
+                    -6.21,
+                    -23.18
+                  ]
+                ],
+                "travelCss": 24
+              },
+              {
+                "resident": "sekizou",
+                "waypointsCss": [
+                  [
+                    5.66,
+                    -5.66
+                  ]
+                ],
+                "travelCss": 8
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "companion:clock",
+        "shortDrop": {
+          "solo": null,
+          "one": null,
+          "two": null
+        }
+      },
+      {
+        "key": "companion:many_tail_fox",
+        "shortDrop": {
+          "solo": {
+            "missCss": 0,
+            "walks": [
+              {
+                "resident": "many_tail_fox",
+                "waypointsCss": [
+                  [
+                    -12,
+                    0
+                  ]
+                ],
+                "travelCss": 12
+              }
+            ]
+          },
+          "one": {
+            "missCss": 3.13,
+            "walks": [
+              {
+                "resident": "sheep",
+                "waypointsCss": [
+                  [
+                    -4,
+                    -6.93
+                  ]
+                ],
+                "travelCss": 8
+              },
+              {
+                "resident": "many_tail_fox",
+                "waypointsCss": [
+                  [
+                    -2.12,
+                    -2.12
+                  ],
+                  [
+                    -11.59,
+                    -3.11
+                  ]
+                ],
+                "travelCss": 12.52
+              }
+            ]
+          },
+          "two": {
+            "missCss": 0,
+            "walks": [
+              {
+                "resident": "hedgehog",
+                "waypointsCss": [
+                  [
+                    3,
+                    5.2
+                  ],
+                  [
+                    14.14,
+                    14.14
+                  ]
+                ],
+                "travelCss": 20.29
+              },
+              {
+                "resident": "cat_friend",
+                "waypointsCss": [
+                  [
+                    8,
+                    0
+                  ]
+                ],
+                "travelCss": 8
+              },
+              {
+                "resident": "many_tail_fox",
+                "waypointsCss": [
+                  [
+                    -5.8,
+                    -1.55
+                  ],
+                  [
+                    -12,
+                    0
+                  ]
+                ],
+                "travelCss": 12.4
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "companion:box",
+        "shortDrop": {
+          "solo": null,
+          "one": null,
+          "two": null
+        }
+      }
+    ],
+    "totals": {
+      "shortSolo": 1,
+      "shortOne": 3,
+      "shortTwo": 6,
+      "anySolo": 0,
+      "anySoloOrOne": 0
+    }
+  },
+  "after300": {
+    "headingStepDegrees": 7.5,
+    "rows": [
+      {
+        "key": "pet:dog",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 7,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 24,
+          "solo": null,
+          "one": [
+            {
+              "resident": "forest_bear",
+              "waypointsCss": [
+                [
+                  4,
+                  6.93
+                ]
+              ],
+              "travelCss": 8
+            },
+            {
+              "resident": "dog",
+              "waypointsCss": [
+                [
+                  11.9,
+                  -1.57
+                ]
+              ],
+              "travelCss": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "partner:forest_bear",
+        "anyHeading": {
+          "soloBearings": 8,
+          "extraHelpedBearings": 6,
+          "maxSoloCss": 24,
+          "maxHelpedCss": 24,
+          "solo": [
+            {
+              "resident": "forest_bear",
+              "waypointsCss": [
+                [
+                  4.59,
+                  11.09
+                ]
+              ],
+              "travelCss": 12
+            }
+          ],
+          "one": [
+            {
+              "resident": "seal",
+              "waypointsCss": [
+                [
+                  -2.38,
+                  1.83
+                ]
+              ],
+              "travelCss": 3
+            },
+            {
+              "resident": "forest_bear",
+              "waypointsCss": [
+                [
+                  1.31,
+                  9.91
+                ],
+                [
+                  4.59,
+                  11.09
+                ]
+              ],
+              "travelCss": 13.49
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:cat_friend",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null
+        }
+      },
+      {
+        "key": "companion:tanuki",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null
+        }
+      },
+      {
+        "key": "companion:owl",
+        "anyHeading": {
+          "soloBearings": 2,
+          "extraHelpedBearings": 7,
+          "maxSoloCss": 8,
+          "maxHelpedCss": 24,
+          "solo": [
+            {
+              "resident": "owl",
+              "waypointsCss": [
+                [
+                  -7.73,
+                  2.07
+                ]
+              ],
+              "travelCss": 8
+            }
+          ],
+          "one": [
+            {
+              "resident": "panda",
+              "waypointsCss": [
+                [
+                  -1.15,
+                  2.77
+                ]
+              ],
+              "travelCss": 3
+            },
+            {
+              "resident": "owl",
+              "waypointsCss": [
+                [
+                  -11.09,
+                  4.59
+                ]
+              ],
+              "travelCss": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:hamster",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null
+        }
+      },
+      {
+        "key": "companion:monkey",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null
+        }
+      },
+      {
+        "key": "companion:sheep",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null
+        }
+      },
+      {
+        "key": "companion:bat",
+        "anyHeading": {
+          "soloBearings": 6,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 16,
+          "maxHelpedCss": 0,
+          "solo": [
+            {
+              "resident": "bat",
+              "waypointsCss": [
+                [
+                  -9.52,
+                  7.31
+                ]
+              ],
+              "travelCss": 12
+            }
+          ],
+          "one": null
+        }
+      },
+      {
+        "key": "companion:penguin_friend",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 13,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 10,
+          "solo": null,
+          "one": [
+            {
+              "resident": "rabbit_friend",
+              "waypointsCss": [
+                [
+                  -0.39,
+                  -2.97
+                ]
+              ],
+              "travelCss": 3
+            },
+            {
+              "resident": "penguin_friend",
+              "waypointsCss": [
+                [
+                  7.93,
+                  -6.09
+                ]
+              ],
+              "travelCss": 10
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:shiba",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 7,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 24,
+          "solo": null,
+          "one": [
+            {
+              "resident": "sekizou",
+              "waypointsCss": [
+                [
+                  3.11,
+                  11.59
+                ]
+              ],
+              "travelCss": 12
+            },
+            {
+              "resident": "shiba",
+              "waypointsCss": [
+                [
+                  -4.59,
+                  11.09
+                ]
+              ],
+              "travelCss": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:punyu",
+        "anyHeading": {
+          "soloBearings": 20,
+          "extraHelpedBearings": 12,
+          "maxSoloCss": 24,
+          "maxHelpedCss": 24,
+          "solo": [
+            {
+              "resident": "punyu",
+              "waypointsCss": [
+                [
+                  4.59,
+                  11.09
+                ]
+              ],
+              "travelCss": 12
+            }
+          ],
+          "one": [
+            {
+              "resident": "panda",
+              "waypointsCss": [
+                [
+                  -1.15,
+                  -2.77
+                ]
+              ],
+              "travelCss": 3
+            },
+            {
+              "resident": "punyu",
+              "waypointsCss": [
+                [
+                  -10.39,
+                  6
+                ]
+              ],
+              "travelCss": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:chameleon",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 1,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 24,
+          "solo": null,
+          "one": [
+            {
+              "resident": "clock",
+              "waypointsCss": [
+                [
+                  1.91,
+                  -4.62
+                ]
+              ],
+              "travelCss": 5
+            },
+            {
+              "resident": "chameleon",
+              "waypointsCss": [
+                [
+                  12,
+                  0
+                ]
+              ],
+              "travelCss": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:unicorn",
+        "anyHeading": {
+          "soloBearings": 9,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 24,
+          "maxHelpedCss": 0,
+          "solo": [
+            {
+              "resident": "unicorn",
+              "waypointsCss": [
+                [
+                  9.52,
+                  7.31
+                ]
+              ],
+              "travelCss": 12
+            }
+          ],
+          "one": null
+        }
+      },
+      {
+        "key": "companion:watcher",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null
+        }
+      },
+      {
+        "key": "companion:rabbit_friend",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null
+        }
+      },
+      {
+        "key": "companion:squirrel",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 4,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 12,
+          "solo": null,
+          "one": [
+            {
+              "resident": "shiba",
+              "waypointsCss": [
+                [
+                  -4.33,
+                  -2.5
+                ]
+              ],
+              "travelCss": 5
+            },
+            {
+              "resident": "squirrel",
+              "waypointsCss": [
+                [
+                  -9.52,
+                  7.31
+                ]
+              ],
+              "travelCss": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:otter",
+        "anyHeading": {
+          "soloBearings": 2,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 8,
+          "maxHelpedCss": 8,
+          "solo": [
+            {
+              "resident": "otter",
+              "waypointsCss": [
+                [
+                  -7.39,
+                  3.06
+                ]
+              ],
+              "travelCss": 8
+            }
+          ],
+          "one": [
+            {
+              "resident": "penguin_friend",
+              "waypointsCss": [
+                [
+                  1.15,
+                  -2.77
+                ]
+              ],
+              "travelCss": 3
+            },
+            {
+              "resident": "otter",
+              "waypointsCss": [
+                [
+                  -0.78,
+                  -2.9
+                ],
+                [
+                  -7.73,
+                  2.07
+                ]
+              ],
+              "travelCss": 11.54
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:panda",
+        "anyHeading": {
+          "soloBearings": 13,
+          "extraHelpedBearings": 15,
+          "maxSoloCss": 24,
+          "maxHelpedCss": 24,
+          "solo": [
+            {
+              "resident": "panda",
+              "waypointsCss": [
+                [
+                  -11.09,
+                  -4.59
+                ]
+              ],
+              "travelCss": 12
+            }
+          ],
+          "one": [
+            {
+              "resident": "punyu",
+              "waypointsCss": [
+                [
+                  1.15,
+                  2.77
+                ]
+              ],
+              "travelCss": 3
+            },
+            {
+              "resident": "panda",
+              "waypointsCss": [
+                [
+                  0,
+                  3
+                ],
+                [
+                  -11.59,
+                  3.11
+                ]
+              ],
+              "travelCss": 14.59
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:parrot",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 9,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 20,
+          "solo": null,
+          "one": [
+            {
+              "resident": "unicorn",
+              "waypointsCss": [
+                [
+                  3.97,
+                  3.04
+                ]
+              ],
+              "travelCss": 5
+            },
+            {
+              "resident": "parrot",
+              "waypointsCss": [
+                [
+                  10.39,
+                  6
+                ]
+              ],
+              "travelCss": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:seal",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 17,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 12,
+          "solo": null,
+          "one": [
+            {
+              "resident": "owl",
+              "waypointsCss": [
+                [
+                  -7.93,
+                  1.04
+                ]
+              ],
+              "travelCss": 8
+            },
+            {
+              "resident": "seal",
+              "waypointsCss": [
+                [
+                  -11.09,
+                  4.59
+                ]
+              ],
+              "travelCss": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:chicken",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null
+        }
+      },
+      {
+        "key": "companion:hedgehog",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 6,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 10,
+          "solo": null,
+          "one": [
+            {
+              "resident": "unicorn",
+              "waypointsCss": [
+                [
+                  23.79,
+                  -3.13
+                ]
+              ],
+              "travelCss": 24
+            },
+            {
+              "resident": "hedgehog",
+              "waypointsCss": [
+                [
+                  9.91,
+                  1.31
+                ]
+              ],
+              "travelCss": 10
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:snail",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 4,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 12,
+          "solo": null,
+          "one": [
+            {
+              "resident": "squirrel",
+              "waypointsCss": [
+                [
+                  -1.5,
+                  2.6
+                ]
+              ],
+              "travelCss": 3
+            },
+            {
+              "resident": "snail",
+              "waypointsCss": [
+                [
+                  -11.9,
+                  1.57
+                ]
+              ],
+              "travelCss": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:sekizou",
+        "anyHeading": {
+          "soloBearings": 12,
+          "extraHelpedBearings": 3,
+          "maxSoloCss": 24,
+          "maxHelpedCss": 24,
+          "solo": [
+            {
+              "resident": "sekizou",
+              "waypointsCss": [
+                [
+                  8.49,
+                  8.49
+                ]
+              ],
+              "travelCss": 12
+            }
+          ],
+          "one": [
+            {
+              "resident": "shiba",
+              "waypointsCss": [
+                [
+                  -2.38,
+                  -1.83
+                ]
+              ],
+              "travelCss": 3
+            },
+            {
+              "resident": "sekizou",
+              "waypointsCss": [
+                [
+                  11.59,
+                  -3.11
+                ]
+              ],
+              "travelCss": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "companion:clock",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null
+        }
+      },
+      {
+        "key": "companion:many_tail_fox",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null
+        }
+      },
+      {
+        "key": "companion:box",
+        "anyHeading": {
+          "soloBearings": 0,
+          "extraHelpedBearings": 0,
+          "maxSoloCss": 0,
+          "maxHelpedCss": 0,
+          "solo": null,
+          "one": null
+        }
+      }
+    ],
+    "totals": {
+      "shortSolo": 0,
+      "shortOne": 0,
+      "shortTwo": 0,
+      "anySolo": 8,
+      "anySoloOrOne": 17
+    }
+  }
+}

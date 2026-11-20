@@ -1,0 +1,199 @@
+{
+  "v5": {
+    "drags": 219,
+    "releaseQueueMs": {
+      "n": 219,
+      "median": 33.2,
+      "p95": 41.6,
+      "p99": 54.4,
+      "max": 59.2
+    },
+    "releaseHandlerMs": {
+      "n": 219,
+      "median": 17.4,
+      "p95": 30.8,
+      "p99": 34.5,
+      "max": 42.4
+    },
+    "eventToNextFrameMs": {
+      "n": 219,
+      "median": 55.8,
+      "p95": 69.8,
+      "p99": 77.3,
+      "max": 96.3
+    },
+    "modelMoveAtReleaseMs": {
+      "n": 205,
+      "median": 12.7,
+      "p95": 25.8,
+      "p99": 28.2,
+      "max": 37.7
+    },
+    "modelMoveAtReleaseWithOnePeerMs": {
+      "n": 0
+    },
+    "modelMoveAtReleaseWithMultiplePeersMs": {
+      "n": 0
+    },
+    "subsequentRetryMs": {
+      "n": 2,
+      "median": 8.05,
+      "p95": 12.3,
+      "p99": 12.3,
+      "max": 12.3
+    },
+    "worstLaterRetry": {
+      "region": "mountain",
+      "width": 320,
+      "case": "diagonal/1",
+      "resident": "partner:forest_bear",
+      "modelClock": 1.0,
+      "ms": 12.3
+    },
+    "allSearchMs": {
+      "n": 1073,
+      "median": 0.5,
+      "p95": 6.8,
+      "p99": 12.3,
+      "max": 24.5
+    },
+    "searchCountByPhase": {
+      "pointerup": 1043,
+      "simulation": 30
+    }
+  },
+  "v6": {
+    "drags": 219,
+    "releaseQueueMs": {
+      "n": 219,
+      "median": 33.5,
+      "p95": 42.9,
+      "p99": 56.8,
+      "max": 58.4
+    },
+    "releaseHandlerMs": {
+      "n": 219,
+      "median": 18.7,
+      "p95": 31.4,
+      "p99": 35.3,
+      "max": 38.1
+    },
+    "eventToNextFrameMs": {
+      "n": 219,
+      "median": 56.0,
+      "p95": 70.5,
+      "p99": 77.2,
+      "max": 81.7
+    },
+    "modelMoveAtReleaseMs": {
+      "n": 205,
+      "median": 13.7,
+      "p95": 25.7,
+      "p99": 30.4,
+      "max": 33.2
+    },
+    "modelMoveAtReleaseWithOnePeerMs": {
+      "n": 79,
+      "median": 16.7,
+      "p95": 27.6,
+      "p99": 33.2,
+      "max": 33.2
+    },
+    "modelMoveAtReleaseWithMultiplePeersMs": {
+      "n": 0
+    },
+    "subsequentRetryMs": {
+      "n": 85,
+      "median": 0.9,
+      "p95": 2.1,
+      "p99": 10.1,
+      "max": 10.1
+    },
+    "worstLaterRetry": {
+      "region": "mountain",
+      "width": 320,
+      "case": "diagonal/1",
+      "resident": "partner:forest_bear",
+      "modelClock": 1.0,
+      "ms": 10.1
+    },
+    "allSearchMs": {
+      "n": 969,
+      "median": 0.7,
+      "p95": 7.2,
+      "p99": 12.4,
+      "max": 21.8
+    },
+    "searchCountByPhase": {
+      "pointerup": 939,
+      "simulation": 30
+    }
+  },
+  "v7": {
+    "drags": 219,
+    "releaseQueueMs": {
+      "n": 219,
+      "median": 36.3,
+      "p95": 40.1,
+      "p99": 47.8,
+      "max": 57.1
+    },
+    "releaseHandlerMs": {
+      "n": 219,
+      "median": 18.2,
+      "p95": 31.5,
+      "p99": 35.5,
+      "max": 47.6
+    },
+    "eventToNextFrameMs": {
+      "n": 219,
+      "median": 55.6,
+      "p95": 70.4,
+      "p99": 76.4,
+      "max": 86.0
+    },
+    "modelMoveAtReleaseMs": {
+      "n": 214,
+      "median": 13.45,
+      "p95": 26.3,
+      "p99": 30.5,
+      "max": 42.5
+    },
+    "modelMoveAtReleaseWithOnePeerMs": {
+      "n": 80,
+      "median": 17.25,
+      "p95": 26.8,
+      "p99": 42.5,
+      "max": 42.5
+    },
+    "modelMoveAtReleaseWithMultiplePeersMs": {
+      "n": 0
+    },
+    "subsequentRetryMs": {
+      "n": 83,
+      "median": 0.8,
+      "p95": 3.1,
+      "p99": 9.5,
+      "max": 9.5
+    },
+    "worstLaterRetry": {
+      "region": "countryside",
+      "width": 320,
+      "case": "occupied/2",
+      "resident": "companion:cat_friend",
+      "modelClock": 1.55,
+      "ms": 9.5
+    },
+    "allSearchMs": {
+      "n": 979,
+      "median": 0.6,
+      "p95": 7.3,
+      "p99": 12.3,
+      "max": 28
+    },
+    "searchCountByPhase": {
+      "pointerup": 947,
+      "simulation": 32
+    }
+  }
+}

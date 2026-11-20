@@ -1,0 +1,221 @@
+{
+  "base": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/mobility-v7/",
+  "files": {
+    "matrix/mobility-matrix-44704441208-city.zip": {
+      "sha256": "46bccf1a78fb3e9774230abf1588bb9ee747998ba0abf81aef996889ca9e1007",
+      "bytes": 1237897
+    },
+    "matrix/mobility-matrix-44704441208-countryside.zip": {
+      "sha256": "86fe5a73d42724254a6865a568ab8ac0b690fafe94e9e2147c1f1090ab6c9d7f",
+      "bytes": 1166499
+    },
+    "matrix/mobility-matrix-44704441208-deepsea.zip": {
+      "sha256": "deaee519da80142c6eee19898b3e1ac082df8aaf0e9d7e05ac00a73120ed9dcb",
+      "bytes": 1101252
+    },
+    "matrix/mobility-matrix-44704441208-desert.zip": {
+      "sha256": "b7bf4ca085f511746718668ee5ec946b2bc9e2cee3592bf3c498f4fe878db2bb",
+      "bytes": 1087806
+    },
+    "matrix/mobility-matrix-44704441208-forest.zip": {
+      "sha256": "31a01e8695140c71379c73346ff0c7909f5ec7f31e8b55d5d2a6fb343b3bd0a2",
+      "bytes": 1326103
+    },
+    "matrix/mobility-matrix-44704441208-home.zip": {
+      "sha256": "aa2a1cddadf3962eaf85b3c5351aaf6de1ace309fe63ecf474ad14869a5a6412",
+      "bytes": 959284
+    },
+    "matrix/mobility-matrix-44704441208-jungle.zip": {
+      "sha256": "828177b93b0eb3e73d467c05726d3e969ea32c2b1e988c95bcdbb334dbe507ef",
+      "bytes": 1231654
+    },
+    "matrix/mobility-matrix-44704441208-memory_lake.zip": {
+      "sha256": "4a8d80c536ba2ae275df23dfb4bc0f5f13c412ac970bf9168052f1ebd382be0e",
+      "bytes": 1148262
+    },
+    "matrix/mobility-matrix-44704441208-mountain.zip": {
+      "sha256": "2205e7068af8279ceb48fef56a712ebd2f9312daf2d2d951e1f6fd138fce0b95",
+      "bytes": 1104069
+    },
+    "matrix/mobility-matrix-44704441208-river_lake.zip": {
+      "sha256": "fa6355ceacfce08bd3651f71228d016b5ebf87364ec9b7d4da444af8796759dc",
+      "bytes": 1209404
+    },
+    "matrix/mobility-matrix-44704441208-sea.zip": {
+      "sha256": "cb311aaa7edc75e3b7b904d4a1be75f73b32ef4b1113c71549bd795a4d68d3be",
+      "bytes": 1294989
+    },
+    "matrix/mobility-matrix-44704441208-snow.zip": {
+      "sha256": "c10c35389817f059a1e76fddd55838a5d029a35b7545af6b781192424e3f4f0a",
+      "bytes": 1152020
+    },
+    "matrix/mobility-matrix-44704441208-star_stop.zip": {
+      "sha256": "e5fc76f614088c698526b8e7455d21d75f2a62e45c805fff6c8ede18d1e4378e",
+      "bytes": 1111117
+    },
+    "forest/locality.json.gz": {
+      "sha256": "a62f47a59d71b705927ba7f84b79363d17c4bfed42ca8ab8120d39bc0e619f08",
+      "bytes": 9522
+    },
+    "forest/v5-forest28.json.gz": {
+      "sha256": "72f921a172ac8c9dc450dd3d9fa9b5019f447a64061e98fef8c4be8f156f28d3",
+      "bytes": 107202
+    },
+    "forest/v6-forest28.json.gz": {
+      "sha256": "3e45fba3116fa41ca16b6414f364be33d1f3b6e15b67a1ec3552f611c0d7548c",
+      "bytes": 113757
+    },
+    "forest/v7-forest28.json.gz": {
+      "sha256": "91832af693701828f4f066e8427dfc38b5d05d61078dd0beac77babd4cffe7f1",
+      "bytes": 97375
+    },
+    "forest/v7-unattended-illness.json.gz": {
+      "sha256": "6654dcd254ee17a2c0923f72e631da0ca17b6899e9a916efca449e5bfe486dab",
+      "bytes": 577
+    },
+    "touch/forest-v5.json": {
+      "sha256": "be84803e3fb6098f06098b8d399d1074da0863b62069940f1f0c4cf2d769c7c1",
+      "bytes": 152195
+    },
+    "touch/forest-v6.json": {
+      "sha256": "51b8dc7cb0372d572752d75894a76567ec05514ade8d49b7be3c4deeb563d2e4",
+      "bytes": 151269
+    },
+    "touch/forest-v7.json": {
+      "sha256": "0ff96505e64584bd5007eb0982f166b849844b8b20509726a274fbb0df0e6224",
+      "bytes": 146800
+    },
+    "touch/fresh-v5.json": {
+      "sha256": "3e29d180f65510c8d8e76d77b614a0fa5ec1cafb52b05bf68d0d3b0bfed2f359",
+      "bytes": 32565
+    },
+    "touch/fresh-v6.json": {
+      "sha256": "4d9e4204ca0f0b21f944a0d48e714b71cfb6bc1deb80c6ff306e0c4324e2fb5e",
+      "bytes": 33123
+    },
+    "touch/fresh-v7.json": {
+      "sha256": "de89d19ba0c826f2f680d7bb7e4a8fdb5506cf1cbf148c3b5ec58fa6a8d46f12",
+      "bytes": 35063
+    },
+    "touch/overlap-v5-webkit.json": {
+      "sha256": "f31b047a06c5c177a0ba3d90d613a22b64d187391c95ae69a06e35adba830e7e",
+      "bytes": 27566
+    },
+    "touch/overlap-v5.json": {
+      "sha256": "6bec7800d5db47174f717f3f54098a3d10d7da41aade95c84f98f061590b59ed",
+      "bytes": 96588
+    },
+    "touch/overlap-v6-webkit.json": {
+      "sha256": "9a573ff882aee67d6a89d7c3a6249b21a362af29e15467d3fc79efc4277fbca2",
+      "bytes": 27772
+    },
+    "touch/overlap-v6.json": {
+      "sha256": "bac1227a271c3587f5f47974f3e7bff44ee027c2e17cf0245fbe4c0c8e7579a8",
+      "bytes": 96021
+    },
+    "touch/overlap-v7-webkit.json": {
+      "sha256": "697c20ad21a9eadeaf3d83c24492b2d603997235cefbaa42e5e895398c0f72f2",
+      "bytes": 28148
+    },
+    "touch/overlap-v7.json": {
+      "sha256": "52c46dcac24f32afc083accbb397e3b74efc75271359e284f2fdf2d3d3b7e96e",
+      "bytes": 96206
+    },
+    "touch/restore-v5.json": {
+      "sha256": "9a13dadd7427e4eba70ddf20b9190a8eb0fa3d2bef4d9fa3a6549a9b6cbfb4fc",
+      "bytes": 6628
+    },
+    "touch/restore-v6.json": {
+      "sha256": "3e6ee607f7148fb294d84bc06f43c7741629dfb2322e09c4c3fb95c27930f9cb",
+      "bytes": 6718
+    },
+    "touch/restore-v7.json": {
+      "sha256": "0a0a2ec31c7ae4d247612d2d64eea79467f74d4d9925f528467e3ad0adf6e457",
+      "bytes": 6709
+    },
+    "touch/revision/forest-v7.json": {
+      "sha256": "d0d7fc13312b608ca69d3f7c732a15a0aecf669268bcc798ee71871a65a8a375",
+      "bytes": 147351
+    },
+    "touch/revision/resync-v7.json": {
+      "sha256": "ff16c5af89b3b767569b87906de6aeb1963974a28e889ed28b1de31ef25d02ac",
+      "bytes": 27148
+    },
+    "touch/warm-v5.json": {
+      "sha256": "6e8bbea07cdd17f17c1bfb5621c60a26a0b41157a06752c7279ac21eac0ffd66",
+      "bytes": 19635
+    },
+    "touch/warm-v6.json": {
+      "sha256": "1f42e86d0c4d00138732551af09ab43938f7f2febf8984d53fef3df7c25d9512",
+      "bytes": 26111
+    },
+    "touch/warm-v7.json": {
+      "sha256": "210f6d6366782dca76d222f25095c6406f2bdd464e58e0ee1ac8036b99de2940",
+      "bytes": 41103
+    },
+    "matrix-before-sync/mobility-matrix-44702304318-city.zip": {
+      "sha256": "40d0cd50b15f57b24311746ed76bd3298892f2502ee782c8f4e556001e46b807",
+      "bytes": 1238623
+    },
+    "matrix-before-sync/mobility-matrix-44702304318-countryside.zip": {
+      "sha256": "74094ad2d2408527d478a03685ad916eb0c88d7af2b31b097a51b2311183983e",
+      "bytes": 1162194
+    },
+    "matrix-before-sync/mobility-matrix-44702304318-deepsea.zip": {
+      "sha256": "51681cd25fb2b211db02df0439f2ebb84659955fb134d6b4a74cc81bc903966a",
+      "bytes": 1101712
+    },
+    "matrix-before-sync/mobility-matrix-44702304318-desert.zip": {
+      "sha256": "6a6952f762816391d5d2c3b9d0848ea5518f36c0b6d849ae28d84c25b4abfa5c",
+      "bytes": 1081180
+    },
+    "matrix-before-sync/mobility-matrix-44702304318-forest.zip": {
+      "sha256": "4f7185cc716b24a722918537d6ebdf7c9fae24444f84ad2c71fab1c1b6ed7068",
+      "bytes": 1327278
+    },
+    "matrix-before-sync/mobility-matrix-44702304318-home.zip": {
+      "sha256": "ca46fe80df6a8ce1b0701016bf490fbeee3c84850b80c6d03890a62e7c2d1773",
+      "bytes": 961608
+    },
+    "matrix-before-sync/mobility-matrix-44702304318-jungle.zip": {
+      "sha256": "7b134205c162d4148a80aa9c07d7a27229a0625d4679ceef67ffa99ba44bed80",
+      "bytes": 1231914
+    },
+    "matrix-before-sync/mobility-matrix-44702304318-memory_lake.zip": {
+      "sha256": "c92f36ae9c14c5c75b9113b48e84aa024105340f0698cd13086744b488b56b41",
+      "bytes": 1147839
+    },
+    "matrix-before-sync/mobility-matrix-44702304318-mountain.zip": {
+      "sha256": "6e50bc379c2cb9c23ca36be94ca9c640982a8df7e12ae005f40a649fc37b326c",
+      "bytes": 1102823
+    },
+    "matrix-before-sync/mobility-matrix-44702304318-river_lake.zip": {
+      "sha256": "140c9852c105b43db866c949c455f56e7d701bb1a8ec7b2914df2325e5941a09",
+      "bytes": 1211444
+    },
+    "matrix-before-sync/mobility-matrix-44702304318-sea.zip": {
+      "sha256": "d0970f102a089eab662e937b6f74b99449ed8f7f5a79474f97d5a8a1f465c58b",
+      "bytes": 1294187
+    },
+    "matrix-before-sync/mobility-matrix-44702304318-snow.zip": {
+      "sha256": "67210a53d7d7f3e0915912ff582b351bdd84cddc636eb4237929c6fb8f886dde",
+      "bytes": 1152154
+    },
+    "matrix-before-sync/mobility-matrix-44702304318-star_stop.zip": {
+      "sha256": "864bf3bb389b4a75e0e9a678dd757d2d05055e80c7b71448ca97af526dbd84e3",
+      "bytes": 1112161
+    },
+    "matrix/matrix-inputs.csv.gz": {
+      "sha256": "2f876d0e215ba2357afc45be3d5a2ad142ee959970134616e1586307f8f2c76e",
+      "bytes": 167176
+    },
+    "matrix/matrix-residents.csv.gz": {
+      "sha256": "5a242d10be2f1cbff04d64eeddeb8fbee74f81b032d06aa85e93f40026efef8b",
+      "bytes": 910000
+    },
+    "matrix/matrix-tap-ink.json.gz": {
+      "sha256": "5dfd33073f79244c382079cee70761aa5f5c1d9a9056e8944308527518568444",
+      "bytes": 12096
+    }
+  }
+}

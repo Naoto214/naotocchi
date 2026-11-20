@@ -1,0 +1,124 @@
+{
+  "startedUTC": "2026-11-20T09:15:50+00:00",
+  "engine": "chromium",
+  "version": "156.0.8078.79",
+  "arm": "v7",
+  "count": 28,
+  "width": 430,
+  "heldMinimumAfterFallbackSeconds": 7,
+  "held": {
+    "clock": 0,
+    "documentState": "complete",
+    "shellReady": false,
+    "castReady": true,
+    "painted": [
+      [
+        "/game/assets/home-v6-20261029/runtime/forest-waterfall.webp",
+        8279.699999999255
+      ]
+    ],
+    "announcedPicture": null,
+    "sha256": "7d33f93464e449032cab1f1e9e7e90bf5c4c4d48431cfba4030af46079f1fe72",
+    "rect": {
+      "left": -38.33333333333334,
+      "top": 0,
+      "width": 506.6666666666667,
+      "height": 760
+    }
+  },
+  "released": {
+    "clock": 0,
+    "documentState": "complete",
+    "shellReady": true,
+    "castReady": true,
+    "painted": [
+      [
+        "/game/assets/home-v6-20261029/runtime/forest-waterfall.webp",
+        8279.699999999255
+      ],
+      [
+        "/game/comparisons/dayparts-20261103/v2/forest-day.webp",
+        15805
+      ]
+    ],
+    "announcedPicture": "http://127.0.0.1:8377/game/comparisons/dayparts-20261103/v2/forest-day.webp",
+    "sha256": "7c0e59f581ef576d6b38b0ef4fc565bce7a5969d90d5c3de071b9f87a9744f45",
+    "rect": {
+      "left": -38.33333333333334,
+      "top": 0,
+      "width": 506.6666666666667,
+      "height": 760
+    }
+  },
+  "settled": {
+    "clock": 0,
+    "documentState": "complete",
+    "shellReady": true,
+    "castReady": true,
+    "painted": [
+      [
+        "/game/assets/home-v6-20261029/runtime/forest-waterfall.webp",
+        8279.699999999255
+      ],
+      [
+        "/game/comparisons/dayparts-20261103/v2/forest-day.webp",
+        15805
+      ]
+    ],
+    "announcedPicture": "http://127.0.0.1:8377/game/comparisons/dayparts-20261103/v2/forest-day.webp",
+    "sha256": "7c0e59f581ef576d6b38b0ef4fc565bce7a5969d90d5c3de071b9f87a9744f45",
+    "rect": {
+      "left": -38.33333333333334,
+      "top": 0,
+      "width": 506.6666666666667,
+      "height": 760
+    }
+  },
+  "switches": [
+    {
+      "control": "region",
+      "value": "city",
+      "clock": 0,
+      "documentState": "complete",
+      "shellReady": true,
+      "castReady": true,
+      "painted": [
+        [
+          "/game/comparisons/dayparts-20261103/v2/city-day.webp",
+          6249.699999999255
+        ]
+      ],
+      "announcedPicture": "http://127.0.0.1:8377/game/comparisons/dayparts-20261103/v2/city-day.webp",
+      "sha256": "7964951a4ffea3c5b1d5d0bf163efb61d1f170c0e0606c80582837f74a4f7264",
+      "rect": {
+        "left": -38.33333333333334,
+        "top": 0,
+        "width": 506.6666666666667,
+        "height": 760
+      }
+    },
+    {
+      "control": "time",
+      "value": "night",
+      "clock": 0,
+      "documentState": "complete",
+      "shellReady": true,
+      "castReady": true,
+      "painted": [
+        [
+          "/game/comparisons/dayparts-20261103/v6/city-night.webp",
+          3923
+        ]
+      ],
+      "announcedPicture": "http://127.0.0.1:8377/game/comparisons/dayparts-20261103/v6/city-night.webp",
+      "sha256": "842ac17be8d5b4975cd04fcfd2ab8c00ad68eb864f259bfcc974833528d29b4b",
+      "rect": {
+        "left": -38.33333333333334,
+        "top": 0,
+        "width": 506.6666666666667,
+        "height": 760
+      }
+    }
+  ],
+  "servedWorldSHA256": "ca37d01dafadc67e43df1c87dfd923ac98f7910a9b21ab145d3d1670308579fc"
+}

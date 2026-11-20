@@ -1,0 +1,78 @@
+{
+  "startedUTC": "2026-11-20T09:15:50+00:00",
+  "engine": "webkit",
+  "version": "26.5",
+  "arm": "v7",
+  "count": 28,
+  "width": 430,
+  "heldMinimumAfterFallbackSeconds": 7,
+  "held": {
+    "clock": 0,
+    "documentState": "complete",
+    "shellReady": false,
+    "castReady": true,
+    "painted": [
+      [
+        "/game/assets/home-v6-20261029/runtime/forest-waterfall.webp",
+        11486
+      ]
+    ],
+    "announcedPicture": null,
+    "sha256": "17158b97848deeb4f81565863dac282ac6bf71dbc99d9eb6eb4d17fe1cd929f1",
+    "rect": {
+      "left": -38.33333333333334,
+      "top": 0,
+      "width": 506.6666666666667,
+      "height": 760
+    }
+  },
+  "released": {
+    "clock": 0,
+    "documentState": "complete",
+    "shellReady": true,
+    "castReady": true,
+    "painted": [
+      [
+        "/game/assets/home-v6-20261029/runtime/forest-waterfall.webp",
+        11486
+      ],
+      [
+        "/game/comparisons/dayparts-20261103/v2/forest-day.webp",
+        22659
+      ]
+    ],
+    "announcedPicture": "http://127.0.0.1:8377/game/comparisons/dayparts-20261103/v2/forest-day.webp",
+    "sha256": "9d0eb35cf88848d9e1033ca786d65974c485e1ddd8c14874afc492d754e09681",
+    "rect": {
+      "left": -38.33333333333334,
+      "top": 0,
+      "width": 506.6666666666667,
+      "height": 760
+    }
+  },
+  "settled": {
+    "clock": 0,
+    "documentState": "complete",
+    "shellReady": true,
+    "castReady": true,
+    "painted": [
+      [
+        "/game/assets/home-v6-20261029/runtime/forest-waterfall.webp",
+        11486
+      ],
+      [
+        "/game/comparisons/dayparts-20261103/v2/forest-day.webp",
+        22659
+      ]
+    ],
+    "announcedPicture": "http://127.0.0.1:8377/game/comparisons/dayparts-20261103/v2/forest-day.webp",
+    "sha256": "9d0eb35cf88848d9e1033ca786d65974c485e1ddd8c14874afc492d754e09681",
+    "rect": {
+      "left": -38.33333333333334,
+      "top": 0,
+      "width": 506.6666666666667,
+      "height": 760
+    }
+  },
+  "servedWorldSHA256": "ca37d01dafadc67e43df1c87dfd923ac98f7910a9b21ab145d3d1670308579fc"
+}

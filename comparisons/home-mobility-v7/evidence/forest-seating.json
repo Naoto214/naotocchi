@@ -1,0 +1,2241 @@
+{
+  "fixture": "geometry-fixture.json",
+  "shell": "game/finish.html",
+  "query": {
+    "region": "forest",
+    "count": 28,
+    "time": "day",
+    "paused": 1,
+    "ground": "on",
+    "policy": "B",
+    "variant": "B",
+    "layout": "optimized",
+    "curve": "linear",
+    "compareSplit": 0
+  },
+  "release": "V6 native resident model; startup scoring only",
+  "profiles": [
+    "original",
+    "conservative",
+    "network035",
+    "network065",
+    "individual035",
+    "local"
+  ],
+  "input": "Direct native pointerDrop command toward the center by 12 CSS px, 245 steps of .05 s, autonomy off; each resident starts from the same opening. Completed requires at least 2 CSS px of actual displacement and no remaining walking target. This is a model-command ablation. See the archived V6 input trial for trusted touch results.",
+  "simulation": "Fresh page for each arm, 300 native model seconds at 20 steps/s; random seed 214, multiplier 16807, uint32; observed actual cumulative foot distance.",
+  "result": "Retain the canonical V6 seats. Relaxed scoring trades previous successes or contact severity; local-only scoring changes one initial seat without improving completed movement in these runs.",
+  "drops": {
+    "original": {
+      "rows": [
+        {
+          "key": "pet:dog",
+          "seatNative": [
+            193.32000000000002,
+            283.3400000000001
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.25,
+          "errorCss": 1.7,
+          "within4": true
+        },
+        {
+          "key": "partner:forest_bear",
+          "seatNative": [
+            239.99999999999997,
+            307.2200000000001
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.84,
+          "errorCss": 2.36,
+          "within4": true
+        },
+        {
+          "key": "companion:cat_friend",
+          "seatNative": [
+            216.59000000000003,
+            135.1280000000001
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:tanuki",
+          "seatNative": [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:owl",
+          "seatNative": [
+            160.20428613148488,
+            327.37445894055924
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:hamster",
+          "seatNative": [
+            223.92724112066642,
+            341.52069374809605
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:monkey",
+          "seatNative": [
+            178.2327574772689,
+            239.10640072997268
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 12.0,
+          "errorCss": 0.0,
+          "within4": true
+        },
+        {
+          "key": "companion:sheep",
+          "seatNative": [
+            248.80999999999997,
+            96.46400000000008
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 15.99,
+          "errorCss": 10.49,
+          "within4": false
+        },
+        {
+          "key": "companion:bat",
+          "seatNative": [
+            176.18452110187735,
+            151.09973241766886
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 5.99,
+          "errorCss": 9.61,
+          "within4": false
+        },
+        {
+          "key": "companion:penguin_friend",
+          "seatNative": [
+            139.45644019024434,
+            221.91833564135425
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.8,
+          "errorCss": 0.21,
+          "within4": true
+        },
+        {
+          "key": "companion:shiba",
+          "seatNative": [
+            115.45462155961602,
+            317.46425430986636
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 10.39,
+          "errorCss": 6.0,
+          "within4": false
+        },
+        {
+          "key": "companion:punyu",
+          "seatNative": [
+            192.0145111154864,
+            369.3108414069595
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.32,
+          "errorCss": 0.68,
+          "within4": true
+        },
+        {
+          "key": "companion:chameleon",
+          "seatNative": [
+            247.8809070512517,
+            370.15545390081553
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:unicorn",
+          "seatNative": [
+            282.2651758191864,
+            118.57452778708824
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:watcher",
+          "seatNative": [
+            219.26339347752662,
+            174.57877125855435
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "seatNative": [
+            144.65452306043565,
+            191.62554325845883
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 2.75,
+          "errorCss": 11.24,
+          "within4": false
+        },
+        {
+          "key": "companion:squirrel",
+          "seatNative": [
+            95.30690440490982,
+            285.52069374809616
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 12.19,
+          "errorCss": 2.61,
+          "within4": true
+        },
+        {
+          "key": "companion:otter",
+          "seatNative": [
+            96.2817192439559,
+            244.94052846050403
+          ],
+          "issued": false,
+          "completedWithTravel": true,
+          "travelCss": 12.0,
+          "errorCss": 0.0,
+          "within4": true
+        },
+        {
+          "key": "companion:panda",
+          "seatNative": [
+            151.96268896662244,
+            365.52069463424124
+          ],
+          "issued": false,
+          "completedWithTravel": true,
+          "travelCss": 5.14,
+          "errorCss": 7.51,
+          "within4": false
+        },
+        {
+          "key": "companion:parrot",
+          "seatNative": [
+            287.2681427628173,
+            85.27773201881197
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 7.64,
+          "errorCss": 5.79,
+          "within4": false
+        },
+        {
+          "key": "companion:seal",
+          "seatNative": [
+            192.14811521408575,
+            323.99223885010247
+          ],
+          "issued": false,
+          "completedWithTravel": true,
+          "travelCss": 8.44,
+          "errorCss": 8.49,
+          "within4": false
+        },
+        {
+          "key": "companion:chicken",
+          "seatNative": [
+            215.42813775395706,
+            205.27773201881197
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 4.59,
+          "errorCss": 11.09,
+          "within4": false
+        },
+        {
+          "key": "companion:hedgehog",
+          "seatNative": [
+            256.0145111493196,
+            132.87852068488257
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:snail",
+          "seatNative": [
+            136.01451114931962,
+            244.74800838989245
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 12.0,
+          "errorCss": 0.0,
+          "within4": true
+        },
+        {
+          "key": "companion:sekizou",
+          "seatNative": [
+            131.8402088418265,
+            341.034769390209
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:clock",
+          "seatNative": [
+            255.49329035344178,
+            340.79180677477973
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:many_tail_fox",
+          "seatNative": [
+            215.88090708455348,
+            116.51497660820144
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:box",
+          "seatNative": [
+            199.88090708455348,
+            164.6298316890444
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        }
+      ],
+      "completed": 16,
+      "within4": 8,
+      "contacts": 22,
+      "squaredOverlap": 0.741576,
+      "changedSeatCss": {},
+      "gained": [],
+      "lost": [],
+      "candidateSha256": "115c2a98a532a797c7a791c061d11b6c065292ca5f717e668f4de4ad95344454"
+    },
+    "conservative": {
+      "rows": [
+        {
+          "key": "pet:dog",
+          "seatNative": [
+            193.32000000000002,
+            283.3400000000001
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.25,
+          "errorCss": 1.7,
+          "within4": true
+        },
+        {
+          "key": "partner:forest_bear",
+          "seatNative": [
+            239.99999999999997,
+            307.2200000000001
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.84,
+          "errorCss": 2.36,
+          "within4": true
+        },
+        {
+          "key": "companion:cat_friend",
+          "seatNative": [
+            216.59000000000003,
+            135.1280000000001
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:tanuki",
+          "seatNative": [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:owl",
+          "seatNative": [
+            160.20428613148488,
+            327.37445894055924
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:hamster",
+          "seatNative": [
+            223.92724112066642,
+            341.52069374809605
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:monkey",
+          "seatNative": [
+            178.2327574772689,
+            239.10640072997268
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 12.0,
+          "errorCss": 0.0,
+          "within4": true
+        },
+        {
+          "key": "companion:sheep",
+          "seatNative": [
+            248.80999999999997,
+            96.46400000000008
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 15.99,
+          "errorCss": 10.49,
+          "within4": false
+        },
+        {
+          "key": "companion:bat",
+          "seatNative": [
+            176.18452110187735,
+            151.09973241766886
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 5.99,
+          "errorCss": 9.61,
+          "within4": false
+        },
+        {
+          "key": "companion:penguin_friend",
+          "seatNative": [
+            139.45644019024434,
+            221.91833564135425
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.8,
+          "errorCss": 0.21,
+          "within4": true
+        },
+        {
+          "key": "companion:shiba",
+          "seatNative": [
+            115.45462155961602,
+            317.46425430986636
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 10.39,
+          "errorCss": 6.0,
+          "within4": false
+        },
+        {
+          "key": "companion:punyu",
+          "seatNative": [
+            192.0145111154864,
+            369.3108414069595
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.32,
+          "errorCss": 0.68,
+          "within4": true
+        },
+        {
+          "key": "companion:chameleon",
+          "seatNative": [
+            247.8809070512517,
+            370.15545390081553
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:unicorn",
+          "seatNative": [
+            282.2651758191864,
+            118.57452778708824
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:watcher",
+          "seatNative": [
+            219.26339347752662,
+            174.57877125855435
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "seatNative": [
+            144.65452306043565,
+            191.62554325845883
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 2.75,
+          "errorCss": 11.24,
+          "within4": false
+        },
+        {
+          "key": "companion:squirrel",
+          "seatNative": [
+            95.30690440490982,
+            285.52069374809616
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 12.19,
+          "errorCss": 2.61,
+          "within4": true
+        },
+        {
+          "key": "companion:otter",
+          "seatNative": [
+            96.2817192439559,
+            244.94052846050403
+          ],
+          "issued": false,
+          "completedWithTravel": true,
+          "travelCss": 12.0,
+          "errorCss": 0.0,
+          "within4": true
+        },
+        {
+          "key": "companion:panda",
+          "seatNative": [
+            151.96268896662244,
+            365.52069463424124
+          ],
+          "issued": false,
+          "completedWithTravel": true,
+          "travelCss": 5.14,
+          "errorCss": 7.51,
+          "within4": false
+        },
+        {
+          "key": "companion:parrot",
+          "seatNative": [
+            287.2681427628173,
+            85.27773201881197
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 7.64,
+          "errorCss": 5.79,
+          "within4": false
+        },
+        {
+          "key": "companion:seal",
+          "seatNative": [
+            192.14811521408575,
+            323.99223885010247
+          ],
+          "issued": false,
+          "completedWithTravel": true,
+          "travelCss": 8.44,
+          "errorCss": 8.49,
+          "within4": false
+        },
+        {
+          "key": "companion:chicken",
+          "seatNative": [
+            215.42813775395706,
+            205.27773201881197
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 4.59,
+          "errorCss": 11.09,
+          "within4": false
+        },
+        {
+          "key": "companion:hedgehog",
+          "seatNative": [
+            256.0145111493196,
+            132.87852068488257
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:snail",
+          "seatNative": [
+            136.01451114931962,
+            244.74800838989245
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 12.0,
+          "errorCss": 0.0,
+          "within4": true
+        },
+        {
+          "key": "companion:sekizou",
+          "seatNative": [
+            131.8402088418265,
+            341.034769390209
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:clock",
+          "seatNative": [
+            255.49329035344178,
+            340.79180677477973
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:many_tail_fox",
+          "seatNative": [
+            215.88090708455348,
+            116.51497660820144
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:box",
+          "seatNative": [
+            199.88090708455348,
+            164.6298316890444
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        }
+      ],
+      "completed": 16,
+      "within4": 8,
+      "contacts": 22,
+      "squaredOverlap": 0.741576,
+      "changedSeatCss": {},
+      "gained": [],
+      "lost": [],
+      "candidateSha256": "a9076c68b17cd9f2dfd485b2dbde67c0eadabb26361aabdf98fc16ea21094017"
+    },
+    "network035": {
+      "rows": [
+        {
+          "key": "pet:dog",
+          "seatNative": [
+            193.32000000000002,
+            283.3400000000001
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.25,
+          "errorCss": 1.7,
+          "within4": true
+        },
+        {
+          "key": "partner:forest_bear",
+          "seatNative": [
+            239.99999999999997,
+            307.2200000000001
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 7.49,
+          "errorCss": 8.54,
+          "within4": false
+        },
+        {
+          "key": "companion:cat_friend",
+          "seatNative": [
+            216.59000000000003,
+            135.1280000000001
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 12.0,
+          "errorCss": 0.0,
+          "within4": true
+        },
+        {
+          "key": "companion:tanuki",
+          "seatNative": [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 9.52,
+          "errorCss": 7.31,
+          "within4": false
+        },
+        {
+          "key": "companion:owl",
+          "seatNative": [
+            160.20428613148488,
+            327.37445894055924
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:hamster",
+          "seatNative": [
+            223.92724112066642,
+            341.52069374809605
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:monkey",
+          "seatNative": [
+            178.2327574772689,
+            239.10640072997268
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.43,
+          "errorCss": 0.76,
+          "within4": true
+        },
+        {
+          "key": "companion:sheep",
+          "seatNative": [
+            248.80999999999997,
+            96.46400000000008
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 7.31,
+          "errorCss": 9.52,
+          "within4": false
+        },
+        {
+          "key": "companion:bat",
+          "seatNative": [
+            176.18452110187735,
+            151.09973241766886
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.68,
+          "errorCss": 4.85,
+          "within4": false
+        },
+        {
+          "key": "companion:penguin_friend",
+          "seatNative": [
+            139.45644019024434,
+            221.91833564135425
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.8,
+          "errorCss": 0.21,
+          "within4": true
+        },
+        {
+          "key": "companion:shiba",
+          "seatNative": [
+            115.45462155961602,
+            317.46425430986636
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 10.39,
+          "errorCss": 6.0,
+          "within4": false
+        },
+        {
+          "key": "companion:punyu",
+          "seatNative": [
+            192.0145111154864,
+            369.3108414069595
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.32,
+          "errorCss": 0.68,
+          "within4": true
+        },
+        {
+          "key": "companion:chameleon",
+          "seatNative": [
+            247.8809070512517,
+            370.15545390081553
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:unicorn",
+          "seatNative": [
+            282.2651758191864,
+            118.57452778708824
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:watcher",
+          "seatNative": [
+            219.26339347752662,
+            174.57877125855435
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 12.27,
+          "errorCss": 2.03,
+          "within4": true
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "seatNative": [
+            144.65452306043565,
+            191.62554325845883
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 7.83,
+          "errorCss": 4.17,
+          "within4": false
+        },
+        {
+          "key": "companion:squirrel",
+          "seatNative": [
+            95.30690440490982,
+            285.52069374809616
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 12.19,
+          "errorCss": 2.61,
+          "within4": true
+        },
+        {
+          "key": "companion:otter",
+          "seatNative": [
+            96.2817192439559,
+            244.94052846050403
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 12.0,
+          "errorCss": 0.0,
+          "within4": true
+        },
+        {
+          "key": "companion:panda",
+          "seatNative": [
+            151.96268896662244,
+            370.15545858369086
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:parrot",
+          "seatNative": [
+            287.2681427628173,
+            85.27773201881197
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 4.4,
+          "errorCss": 11.09,
+          "within4": false
+        },
+        {
+          "key": "companion:seal",
+          "seatNative": [
+            200.14811521408575,
+            323.99223885010247
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:chicken",
+          "seatNative": [
+            207.42813775395706,
+            213.27773201881197
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:hedgehog",
+          "seatNative": [
+            256.0145111493196,
+            132.87852068488257
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:snail",
+          "seatNative": [
+            144.01451114931962,
+            244.74800838989245
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 4.59,
+          "errorCss": 11.09,
+          "within4": false
+        },
+        {
+          "key": "companion:sekizou",
+          "seatNative": [
+            131.8402088418265,
+            341.034769390209
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:clock",
+          "seatNative": [
+            255.49329035344178,
+            340.79180677477973
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:many_tail_fox",
+          "seatNative": [
+            183.88090708455348,
+            348.51497660820144
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:box",
+          "seatNative": [
+            223.88090708455348,
+            108.62983168904441
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        }
+      ],
+      "completed": 16,
+      "within4": 8,
+      "contacts": 21,
+      "squaredOverlap": 0.68181,
+      "changedSeatCss": {
+        "companion:panda": 5.26,
+        "companion:seal": 10.96,
+        "companion:chicken": 14.23,
+        "companion:snail": 10.96,
+        "companion:many_tail_fox": 266.77,
+        "companion:box": 71.52
+      },
+      "gained": [
+        "companion:cat_friend",
+        "companion:tanuki",
+        "companion:watcher"
+      ],
+      "lost": [
+        "companion:panda",
+        "companion:seal",
+        "companion:chicken"
+      ],
+      "candidateSha256": "ebfebea48f6e1dee60c4afe49f95762822167bb87434f63501d6cfa7b7a7d28f"
+    },
+    "network065": {
+      "rows": [
+        {
+          "key": "pet:dog",
+          "seatNative": [
+            193.32000000000002,
+            283.3400000000001
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.25,
+          "errorCss": 1.7,
+          "within4": true
+        },
+        {
+          "key": "partner:forest_bear",
+          "seatNative": [
+            239.99999999999997,
+            307.2200000000001
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.84,
+          "errorCss": 2.36,
+          "within4": true
+        },
+        {
+          "key": "companion:cat_friend",
+          "seatNative": [
+            216.59000000000003,
+            135.1280000000001
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:tanuki",
+          "seatNative": [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 5.97,
+          "errorCss": 8.12,
+          "within4": false
+        },
+        {
+          "key": "companion:owl",
+          "seatNative": [
+            160.20428613148488,
+            327.37445894055924
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:hamster",
+          "seatNative": [
+            223.92724112066642,
+            341.52069374809605
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:monkey",
+          "seatNative": [
+            178.2327574772689,
+            239.10640072997268
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.43,
+          "errorCss": 0.76,
+          "within4": true
+        },
+        {
+          "key": "companion:sheep",
+          "seatNative": [
+            248.80999999999997,
+            96.46400000000008
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 15.99,
+          "errorCss": 10.49,
+          "within4": false
+        },
+        {
+          "key": "companion:bat",
+          "seatNative": [
+            176.18452110187735,
+            151.09973241766886
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 3.11,
+          "errorCss": 11.59,
+          "within4": false
+        },
+        {
+          "key": "companion:penguin_friend",
+          "seatNative": [
+            139.45644019024434,
+            221.91833564135425
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.8,
+          "errorCss": 0.21,
+          "within4": true
+        },
+        {
+          "key": "companion:shiba",
+          "seatNative": [
+            115.45462155961602,
+            317.46425430986636
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.09,
+          "errorCss": 4.59,
+          "within4": false
+        },
+        {
+          "key": "companion:punyu",
+          "seatNative": [
+            192.0145111154864,
+            369.3108414069595
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.32,
+          "errorCss": 0.68,
+          "within4": true
+        },
+        {
+          "key": "companion:chameleon",
+          "seatNative": [
+            247.8809070512517,
+            370.15545390081553
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:unicorn",
+          "seatNative": [
+            282.2651758191864,
+            118.57452778708824
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:watcher",
+          "seatNative": [
+            219.26339347752662,
+            174.57877125855435
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 6.35,
+          "errorCss": 9.57,
+          "within4": false
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "seatNative": [
+            144.65452306043565,
+            191.62554325845883
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 2.75,
+          "errorCss": 11.24,
+          "within4": false
+        },
+        {
+          "key": "companion:squirrel",
+          "seatNative": [
+            95.30690440490982,
+            285.52069374809616
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 12.19,
+          "errorCss": 2.61,
+          "within4": true
+        },
+        {
+          "key": "companion:otter",
+          "seatNative": [
+            96.2817192439559,
+            244.94052846050403
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 12.0,
+          "errorCss": 0.0,
+          "within4": true
+        },
+        {
+          "key": "companion:panda",
+          "seatNative": [
+            151.96268896662244,
+            370.15545858369086
+          ],
+          "issued": false,
+          "completedWithTravel": true,
+          "travelCss": 3.93,
+          "errorCss": 8.07,
+          "within4": false
+        },
+        {
+          "key": "companion:parrot",
+          "seatNative": [
+            295.2681427628173,
+            93.27773201881197
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 10.22,
+          "errorCss": 4.23,
+          "within4": false
+        },
+        {
+          "key": "companion:seal",
+          "seatNative": [
+            192.14811521408575,
+            331.99223885010247
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 8.85,
+          "errorCss": 11.0,
+          "within4": false
+        },
+        {
+          "key": "companion:chicken",
+          "seatNative": [
+            207.42813775395706,
+            213.27773201881197
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:hedgehog",
+          "seatNative": [
+            256.0145111493196,
+            132.87852068488257
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:snail",
+          "seatNative": [
+            144.01451114931962,
+            244.74800838989245
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 4.59,
+          "errorCss": 11.09,
+          "within4": false
+        },
+        {
+          "key": "companion:sekizou",
+          "seatNative": [
+            123.84020884182648,
+            341.034769390209
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 9.74,
+          "errorCss": 2.26,
+          "within4": true
+        },
+        {
+          "key": "companion:clock",
+          "seatNative": [
+            255.49329035344178,
+            340.79180677477973
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:many_tail_fox",
+          "seatNative": [
+            215.88090708455348,
+            116.51497660820144
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:box",
+          "seatNative": [
+            199.88090708455348,
+            156.6298316890444
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        }
+      ],
+      "completed": 18,
+      "within4": 8,
+      "contacts": 17,
+      "squaredOverlap": 0.91657,
+      "changedSeatCss": {
+        "companion:panda": 5.26,
+        "companion:parrot": 14.23,
+        "companion:seal": 9.07,
+        "companion:chicken": 14.23,
+        "companion:snail": 10.96,
+        "companion:sekizou": 10.96,
+        "companion:box": 9.07
+      },
+      "gained": [
+        "companion:tanuki",
+        "companion:watcher",
+        "companion:sekizou"
+      ],
+      "lost": [
+        "companion:chicken"
+      ],
+      "candidateSha256": "b61d4c30be4105c51235389aecba41d537e61479260d321c52eb044b93dc0636"
+    },
+    "individual035": {
+      "rows": [
+        {
+          "key": "pet:dog",
+          "seatNative": [
+            193.32000000000002,
+            283.3400000000001
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.25,
+          "errorCss": 1.7,
+          "within4": true
+        },
+        {
+          "key": "partner:forest_bear",
+          "seatNative": [
+            239.99999999999997,
+            307.2200000000001
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.84,
+          "errorCss": 2.36,
+          "within4": true
+        },
+        {
+          "key": "companion:cat_friend",
+          "seatNative": [
+            216.59000000000003,
+            135.1280000000001
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:tanuki",
+          "seatNative": [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:owl",
+          "seatNative": [
+            160.20428613148488,
+            327.37445894055924
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:hamster",
+          "seatNative": [
+            223.92724112066642,
+            341.52069374809605
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:monkey",
+          "seatNative": [
+            178.2327574772689,
+            239.10640072997268
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.43,
+          "errorCss": 0.76,
+          "within4": true
+        },
+        {
+          "key": "companion:sheep",
+          "seatNative": [
+            248.80999999999997,
+            96.46400000000008
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 15.99,
+          "errorCss": 10.49,
+          "within4": false
+        },
+        {
+          "key": "companion:bat",
+          "seatNative": [
+            176.18452110187735,
+            151.09973241766886
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 5.99,
+          "errorCss": 9.61,
+          "within4": false
+        },
+        {
+          "key": "companion:penguin_friend",
+          "seatNative": [
+            139.45644019024434,
+            221.91833564135425
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.8,
+          "errorCss": 0.21,
+          "within4": true
+        },
+        {
+          "key": "companion:shiba",
+          "seatNative": [
+            115.45462155961602,
+            317.46425430986636
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 10.1,
+          "errorCss": 2.39,
+          "within4": true
+        },
+        {
+          "key": "companion:punyu",
+          "seatNative": [
+            192.0145111154864,
+            369.3108414069595
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.32,
+          "errorCss": 0.68,
+          "within4": true
+        },
+        {
+          "key": "companion:chameleon",
+          "seatNative": [
+            247.8809070512517,
+            370.15545390081553
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:unicorn",
+          "seatNative": [
+            282.2651758191864,
+            118.57452778708824
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:watcher",
+          "seatNative": [
+            219.26339347752662,
+            174.57877125855435
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 4.59,
+          "errorCss": 11.09,
+          "within4": false
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "seatNative": [
+            144.65452306043565,
+            191.62554325845883
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 2.75,
+          "errorCss": 11.24,
+          "within4": false
+        },
+        {
+          "key": "companion:squirrel",
+          "seatNative": [
+            95.30690440490982,
+            285.52069374809616
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 12.19,
+          "errorCss": 2.61,
+          "within4": true
+        },
+        {
+          "key": "companion:otter",
+          "seatNative": [
+            96.2817192439559,
+            244.94052846050403
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 12.0,
+          "errorCss": 0.0,
+          "within4": true
+        },
+        {
+          "key": "companion:panda",
+          "seatNative": [
+            151.96268896662244,
+            357.52069463424124
+          ],
+          "issued": false,
+          "completedWithTravel": true,
+          "travelCss": 7.06,
+          "errorCss": 5.49,
+          "within4": false
+        },
+        {
+          "key": "companion:parrot",
+          "seatNative": [
+            287.2681427628173,
+            85.27773201881197
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 7.64,
+          "errorCss": 5.79,
+          "within4": false
+        },
+        {
+          "key": "companion:seal",
+          "seatNative": [
+            192.14811521408575,
+            323.99223885010247
+          ],
+          "issued": false,
+          "completedWithTravel": true,
+          "travelCss": 8.44,
+          "errorCss": 8.49,
+          "within4": false
+        },
+        {
+          "key": "companion:chicken",
+          "seatNative": [
+            207.42813775395706,
+            213.27773201881197
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:hedgehog",
+          "seatNative": [
+            256.0145111493196,
+            132.87852068488257
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:snail",
+          "seatNative": [
+            144.01451114931962,
+            244.74800838989245
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 4.59,
+          "errorCss": 11.09,
+          "within4": false
+        },
+        {
+          "key": "companion:sekizou",
+          "seatNative": [
+            251.8402088418265,
+            341.034769390209
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:clock",
+          "seatNative": [
+            119.49329035344178,
+            340.79180677477973
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:many_tail_fox",
+          "seatNative": [
+            215.88090708455348,
+            116.51497660820144
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:box",
+          "seatNative": [
+            199.88090708455348,
+            164.6298316890444
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        }
+      ],
+      "completed": 16,
+      "within4": 8,
+      "contacts": 21,
+      "squaredOverlap": 0.823905,
+      "changedSeatCss": {
+        "companion:panda": 9.07,
+        "companion:chicken": 14.23,
+        "companion:snail": 10.96,
+        "companion:sekizou": 164.37,
+        "companion:clock": 186.28
+      },
+      "gained": [
+        "companion:watcher"
+      ],
+      "lost": [
+        "companion:chicken"
+      ],
+      "candidateSha256": "695783178d4452725c4f3cfddc9c7ff6890e528476f6dc5246a35e5fa3481b23"
+    },
+    "local": {
+      "rows": [
+        {
+          "key": "pet:dog",
+          "seatNative": [
+            193.32000000000002,
+            283.3400000000001
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.25,
+          "errorCss": 1.7,
+          "within4": true
+        },
+        {
+          "key": "partner:forest_bear",
+          "seatNative": [
+            239.99999999999997,
+            307.2200000000001
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.84,
+          "errorCss": 2.36,
+          "within4": true
+        },
+        {
+          "key": "companion:cat_friend",
+          "seatNative": [
+            216.59000000000003,
+            135.1280000000001
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:tanuki",
+          "seatNative": [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:owl",
+          "seatNative": [
+            160.20428613148488,
+            327.37445894055924
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:hamster",
+          "seatNative": [
+            223.92724112066642,
+            341.52069374809605
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:monkey",
+          "seatNative": [
+            183.17917358550133,
+            237.27773201881197
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 12.0,
+          "errorCss": 0.0,
+          "within4": true
+        },
+        {
+          "key": "companion:sheep",
+          "seatNative": [
+            248.80999999999997,
+            96.46400000000008
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 15.99,
+          "errorCss": 10.49,
+          "within4": false
+        },
+        {
+          "key": "companion:bat",
+          "seatNative": [
+            176.18452110187735,
+            151.09973241766886
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 5.99,
+          "errorCss": 9.61,
+          "within4": false
+        },
+        {
+          "key": "companion:penguin_friend",
+          "seatNative": [
+            139.45644019024434,
+            221.91833564135425
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 10.82,
+          "errorCss": 1.18,
+          "within4": true
+        },
+        {
+          "key": "companion:shiba",
+          "seatNative": [
+            115.45462155961602,
+            317.46425430986636
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 10.39,
+          "errorCss": 6.0,
+          "within4": false
+        },
+        {
+          "key": "companion:punyu",
+          "seatNative": [
+            192.0145111154864,
+            369.3108414069595
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 11.32,
+          "errorCss": 0.68,
+          "within4": true
+        },
+        {
+          "key": "companion:chameleon",
+          "seatNative": [
+            247.8809070512517,
+            370.15545390081553
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:unicorn",
+          "seatNative": [
+            282.2651758191864,
+            118.57452778708824
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:watcher",
+          "seatNative": [
+            219.26339347752662,
+            174.57877125855435
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "seatNative": [
+            144.65452306043565,
+            191.62554325845883
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 2.75,
+          "errorCss": 11.24,
+          "within4": false
+        },
+        {
+          "key": "companion:squirrel",
+          "seatNative": [
+            95.30690440490982,
+            285.52069374809616
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 12.19,
+          "errorCss": 2.61,
+          "within4": true
+        },
+        {
+          "key": "companion:otter",
+          "seatNative": [
+            96.2817192439559,
+            244.94052846050403
+          ],
+          "issued": false,
+          "completedWithTravel": true,
+          "travelCss": 12.0,
+          "errorCss": 0.0,
+          "within4": true
+        },
+        {
+          "key": "companion:panda",
+          "seatNative": [
+            151.96268896662244,
+            365.52069463424124
+          ],
+          "issued": false,
+          "completedWithTravel": true,
+          "travelCss": 5.14,
+          "errorCss": 7.51,
+          "within4": false
+        },
+        {
+          "key": "companion:parrot",
+          "seatNative": [
+            287.2681427628173,
+            85.27773201881197
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 7.64,
+          "errorCss": 5.79,
+          "within4": false
+        },
+        {
+          "key": "companion:seal",
+          "seatNative": [
+            192.14811521408575,
+            323.99223885010247
+          ],
+          "issued": false,
+          "completedWithTravel": true,
+          "travelCss": 8.49,
+          "errorCss": 8.49,
+          "within4": false
+        },
+        {
+          "key": "companion:chicken",
+          "seatNative": [
+            215.42813775395706,
+            205.27773201881197
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 4.59,
+          "errorCss": 11.09,
+          "within4": false
+        },
+        {
+          "key": "companion:hedgehog",
+          "seatNative": [
+            256.0145111493196,
+            132.87852068488257
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:snail",
+          "seatNative": [
+            136.01451114931962,
+            244.74800838989245
+          ],
+          "issued": true,
+          "completedWithTravel": true,
+          "travelCss": 12.0,
+          "errorCss": 0.0,
+          "within4": true
+        },
+        {
+          "key": "companion:sekizou",
+          "seatNative": [
+            131.8402088418265,
+            341.034769390209
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:clock",
+          "seatNative": [
+            255.49329035344178,
+            340.79180677477973
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:many_tail_fox",
+          "seatNative": [
+            215.88090708455348,
+            116.51497660820144
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        },
+        {
+          "key": "companion:box",
+          "seatNative": [
+            199.88090708455348,
+            164.6298316890444
+          ],
+          "issued": false,
+          "completedWithTravel": false,
+          "travelCss": 0.0,
+          "errorCss": 12.0,
+          "within4": false
+        }
+      ],
+      "completed": 16,
+      "within4": 8,
+      "contacts": 22,
+      "squaredOverlap": 0.741576,
+      "changedSeatCss": {
+        "companion:monkey": 7.09
+      },
+      "gained": [],
+      "lost": [],
+      "candidateSha256": "7174b8b1e6c23755a4aa3d2dd7472703f9d1ba48cd4172e7f050f6530f4f7744"
+    }
+  },
+  "autonomous": {
+    "original": {
+      "moved": 14,
+      "over8Native": 12,
+      "over16Native": 9,
+      "walkNative": 661.33,
+      "attempts": 425,
+      "accepted": 57,
+      "arrivals": 55,
+      "blockedSteps": 2,
+      "perResident": {
+        "pet:dog": 14.11,
+        "partner:forest_bear": 80.93,
+        "companion:cat_friend": 0,
+        "companion:tanuki": 0,
+        "companion:owl": 38.95,
+        "companion:hamster": 0,
+        "companion:monkey": 29.44,
+        "companion:sheep": 12.6,
+        "companion:bat": 0,
+        "companion:penguin_friend": 5.49,
+        "companion:shiba": 123.78,
+        "companion:punyu": 52.57,
+        "companion:chameleon": 0,
+        "companion:unicorn": 0,
+        "companion:watcher": 0,
+        "companion:rabbit_friend": 0,
+        "companion:squirrel": 46.2,
+        "companion:otter": 85.09,
+        "companion:panda": 64.13,
+        "companion:parrot": 6.19,
+        "companion:seal": 0,
+        "companion:chicken": 0,
+        "companion:hedgehog": 0,
+        "companion:snail": 13.02,
+        "companion:sekizou": 88.82,
+        "companion:clock": 0,
+        "companion:many_tail_fox": 0,
+        "companion:box": 0
+      }
+    },
+    "local": {
+      "moved": 14,
+      "over8Native": 12,
+      "over16Native": 9,
+      "walkNative": 661.49,
+      "attempts": 425,
+      "accepted": 57,
+      "arrivals": 55,
+      "blockedSteps": 2,
+      "perResident": {
+        "pet:dog": 14.11,
+        "partner:forest_bear": 80.93,
+        "companion:cat_friend": 0,
+        "companion:tanuki": 0,
+        "companion:owl": 38.95,
+        "companion:hamster": 0,
+        "companion:monkey": 29.6,
+        "companion:sheep": 12.6,
+        "companion:bat": 0,
+        "companion:penguin_friend": 5.49,
+        "companion:shiba": 123.78,
+        "companion:punyu": 52.57,
+        "companion:chameleon": 0,
+        "companion:unicorn": 0,
+        "companion:watcher": 0,
+        "companion:rabbit_friend": 0,
+        "companion:squirrel": 46.2,
+        "companion:otter": 85.09,
+        "companion:panda": 64.13,
+        "companion:parrot": 6.19,
+        "companion:seal": 0,
+        "companion:chicken": 0,
+        "companion:hedgehog": 0,
+        "companion:snail": 13.02,
+        "companion:sekizou": 88.82,
+        "companion:clock": 0,
+        "companion:many_tail_fox": 0,
+        "companion:box": 0
+      }
+    }
+  }
+}
