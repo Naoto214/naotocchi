@@ -1,0 +1,20 @@
+/* Paint directly on the native shadow: the same foot, z-order, selection
+   outline and hit target survive throughout a side-by-side comparison. */
+html[data-beauty-contact="true"] body[data-finish-ground="on"] #castStage .diorama-shadow:is([data-finish-surface="boards"],[data-finish-surface="paving"],[data-finish-surface="pebbles"],[data-finish-surface="clearing"]) {
+  --ground-ink: 52 40 37;
+  background-image:
+    radial-gradient(ellipse 29% 32% at 50% 50%, rgb(var(--ground-ink) / calc(var(--contact-opacity) * 1.4)) 8%, transparent 100%),
+    radial-gradient(ellipse 48% 48% at calc(50% + var(--contact-throw)) 54%, rgb(var(--ground-ink) / calc(var(--contact-opacity) * .65)) 14%, transparent 100%);
+}
+html[data-beauty-contact="true"] body[data-finish-ground="on"] #castStage .diorama-shadow[data-finish-surface="boards"] { --ground-ink: 63 36 24; }
+html[data-beauty-contact="true"] body[data-finish-ground="on"] #castStage .diorama-shadow[data-finish-surface="paving"] { --ground-ink: 38 43 55; }
+html[data-beauty-contact="true"] body[data-finish-ground="on"] #castStage .diorama-shadow[data-finish-surface="clearing"] { --ground-ink: 31 49 18; }
+html[data-beauty-contact="true"] body[data-finish-ground="on"] #castStage .diorama-shadow[data-finish-surface="river"] {
+  background-image: radial-gradient(ellipse 46% 43% at center, rgb(23 72 74 / calc(var(--contact-opacity) * .78)) 12%, transparent 52%, rgb(214 247 238 / calc(var(--contact-opacity) * 1.12)) 66%, transparent 89%);
+}
+html[data-beauty-contact="true"] body[data-finish-ground="on"] #castStage .diorama-shadow[data-finish-surface="uncertain"] {
+  background-image: none;
+}
+html[data-beauty-contact="true"] body[data-finish-ground="on"] #castStage .beauty-foot[data-finish-surface="uncertain"] {
+  visibility: hidden;
+}

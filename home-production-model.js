@@ -54,19 +54,19 @@
       }
       return null;
     }
-    function referenceDestination(a,p,b=scene.referenceBounds?.(a),nav=scene.navigation){
+    function referenceDestination(a,p,b=scene.referenceBounds?.(a),nav=scene.navigation,freePoint){
       if(!b||!nav?.referenceNearest)return null;
-      const point=nav.referenceNearest({x:clamp(p.x,b.left,b.right),y:clamp(p.y,b.top,b.bottom)},b,q=>free(a,q));
-      const safe=bounds(a,scene);if(!point||point.x<safe.left||point.x>safe.right||point.y<safe.top||point.y>safe.bottom||!free(a,point))return null;
+      const point=nav.referenceNearest({x:clamp(p.x,b.left,b.right),y:clamp(p.y,b.top,b.bottom)},b,freePoint);
+      const safe=bounds(a,scene);if(!point||point.x<safe.left||point.x>safe.right||point.y<safe.top||point.y>safe.bottom||!freePoint(point))return null;
       return {point,bounds:b};
     }
-    function destination(a,p,nav=scene.navigation){
-      if(nav)return nav.nearest(nav.rawDestination?p:limit(a,p,scene),bounds(a,scene),q=>free(a,q));
-      const q=limit(a,p,scene);if(free(a,q))return q;
+    function destination(a,p,nav=scene.navigation,freePoint){
+      if(nav)return nav.nearest(nav.rawDestination?p:limit(a,p,scene),bounds(a,scene),freePoint);
+      const q=limit(a,p,scene);if(freePoint(q))return q;
       let best=null,dist=Infinity;
       for(let r=20;r<=120;r+=20)for(let i=0;i<16;i++){
         const c=limit(a,{x:q.x+Math.cos(i*Math.PI/8)*r,y:q.y+Math.sin(i*Math.PI/8)*r*.6},scene);
-        const d=Math.hypot(c.x-q.x,c.y-q.y);if(d<dist&&free(a,c)){best=c;dist=d;}
+        const d=Math.hypot(c.x-q.x,c.y-q.y);if(d<dist&&freePoint(c)){best=c;dist=d;}
       }
       return best;
     }
@@ -144,6 +144,61 @@
       if(changed){cancel();cooldown.clear();}
     }
     function select(key){const a=actor(key);if(!a||paused)return false;manualGoals.delete(key);selected=key;a.visualReaction=undefined;a.visualTarget=null;a.target=null;a.route=[];a.manualUntil=clock+12;defer(a,4);emit('tap',a,'tap');idleAt=clock+4;return true;}
+    function dragDestination(a,goal,box,routeFree,freePoint){
+      const nav=scene.navigation,{x:sx,y:sy}=nav.intentScale||{x:1,y:1};
+      const distance=(p,q)=>Math.hypot((p.x-q.x)*sx,(p.y-q.y)*sy);
+      const length=distance(a,goal),maxError=Math.min(24,length);
+      const peers=actors.filter(b=>b!==a).map(b=>({x:b.x,y:b.y,rx:(a.w+b.w)*.5+10,ry:(a.h+b.h)*.38+10}));
+      // Across each complete segment, a new contact is forbidden. Inside an
+      // existing ellipse the squared distance must increase from the start.
+      function safe(from,to){
+        if(to.x<box.left||to.x>box.right||to.y<box.top||to.y>box.bottom)return false;
+        for(const b of peers){
+          const x=(from.x-b.x)/b.rx,y=(from.y-b.y)/b.ry;
+          const dx=(to.x-from.x)/b.rx,dy=(to.y-from.y)/b.ry;
+          const dot=x*dx+y*dy;
+          if(x*x+y*y<1){if(dot<0)return false;continue;}
+          const t=clamp(-dot/(dx*dx+dy*dy||1),0,1);
+          if((x+t*dx)**2+(y+t*dy)**2<1)return false;
+        }
+        return nav.segmentSafe(from,to,routeFree);
+      }
+      const target=limit(a,goal,scene);
+      const error=q=>distance(q,goal);
+      const usable=q=>q&&distance(a,q)>=2&&error(q)<length-1e-5&&error(q)<=maxError;
+      const checkedRoute=q=>{
+        const path=nav.route(a,q,box,routeFree);
+        return path.length&&distance(path.at(-1),q)<1e-5&&path.every((end,i)=>safe(i?path[i-1]:a,end))?path:[];
+      };
+      let path=[],best=maxError;
+      if(usable(target)){
+        if(safe(a,target))return {point:target,path:[target]};
+        if(nav.valid(target)&&routeFree(target)){
+          path=checkedRoute(target);if(path.length)return {point:target,path};
+        }
+      }
+      // On each ray the projection is the point closest to the release.
+      // Bisect the continuous safe prefix, including narrow sub-grid gaps.
+      const angle=Math.atan2((goal.y-a.y)*sy,(goal.x-a.x)*sx);
+      for(let i=-11;i<=11;i++){
+        const turn=i*Math.PI/24,heading=angle+turn;
+        const at=r=>({x:a.x+Math.cos(heading)*r/sx,y:a.y+Math.sin(heading)*r/sy});
+        let hi=length*Math.cos(turn),lo=0,q=at(hi);
+        if(error(q)>=best||hi<2)continue;
+        if(!safe(a,q)){
+          for(let j=0;j<10;j++){const mid=(lo+hi)/2;if(safe(a,at(mid)))lo=mid;else hi=mid;}
+          q=at(lo);
+        }
+        if(usable(q)&&error(q)<best){path=[q];best=error(q);}
+      }
+      // A nearby free seat can require a detour even when the requested foot
+      // was occupied. Let the normal graph find that route and verify its end.
+      const nearest=nav.nearest(target,box,freePoint);
+      if(usable(nearest)&&error(nearest)<best){
+        const detour=checkedRoute(nearest);if(detour.length)path=detour;
+      }
+      return {point:path.at(-1),path};
+    }
     function move(key,p,source='tap'){
       const a=actor(key);if(!a||paused||!Number.isFinite(p?.x+p?.y))return false;
       if(source==='ambient'&&(clock<a.manualUntil||a.target&&a.source!=='ambient'))return false;
@@ -153,14 +208,36 @@
       const retreats=(q,r)=>['x','y'].some(axis=>(q[axis]-r[axis])*Math.sign(p[axis]-a[axis])< -1e-7);
       // A cramped fallback seat may already overlap. Allow only escape that
       // does not worsen that overlap; step() still requires strict improvement.
-      const routeFree=p=>visible(a,p)&&actors.every(b=>b===a||separated(a,p,b)||clearance(a,a,b)<1&&clearance(a,p,b)>=clearance(a,a,b)-1e-9);
+      const canSee=scene.planVisibility?.(a)||((point)=>visible(a,point));
+      // Only this synchronous plan shares occupancy results. A retry, another
+      // resident's plan, and every accepted motion step see the live cast again.
+      const obstacles=actors.filter(b=>b!==a).map(b=>({x:b.x,y:b.y,rx:(a.w+b.w)*.5+10,ry:(a.h+b.h)*.38+10,initial:clearance(a,a,b)}));
+      const occupancy=new Map();
+      function available(point){
+        let row=occupancy.get(point.y);
+        if(!row){row=new Map();occupancy.set(point.y,row);}
+        if(row.has(point.x))return row.get(point.x);
+        // 2 is strictly clear. 1 permits only escape from existing contact.
+        let result=2;
+        for(const item of obstacles){
+          const dx=(point.x-item.x)/item.rx,dy=(point.y-item.y)/item.ry;
+          if(Math.abs(dx)>=1||Math.abs(dy)>=1)continue;
+          const separation=Math.hypot(dx,dy);
+          if(separation>=1)continue;
+          if(!(item.initial<1&&separation>=item.initial-1e-9)){result=0;break;}
+          result=1;
+        }
+        if(result&&!canSee(point))result=0;
+        row.set(point.x,result);return result;
+      }
+      const freePoint=point=>available(point)===2,routeFree=point=>available(point)>0;
       const safeBounds=bounds(a,scene),referenceFree=p=>p.x>=safeBounds.left&&p.x<=safeBounds.right&&p.y>=safeBounds.top&&p.y<=safeBounds.bottom&&routeFree(p);
       const currentRoute=(point,nav=scene.navigation)=>nav?nav.route(a,point,safeBounds,routeFree):[point];
       // Pure planning permits a complete V4 comparison, including its stable
       // grid and supplemental route, without changing scene or actor state.
       const plan=nav=>{
-        const proposal=destination(a,p,nav),originalReference=referenceDestination(a,p,undefined,nav);
-        const expandedReference=scene.referenceBounds?.(a)?referenceDestination(a,p,safeBounds,nav):null;
+        const proposal=destination(a,p,nav,freePoint),originalReference=referenceDestination(a,p,undefined,nav,freePoint);
+        const expandedReference=scene.referenceBounds?.(a)?referenceDestination(a,p,safeBounds,nav,freePoint):null;
         const reference=expandedReference&&(!originalReference||!retreats(expandedReference.point,originalReference.point))?expandedReference:originalReference;
         const preferReference=reference&&(!proposal||Math.hypot(proposal.x-reference.point.x,proposal.y-reference.point.y)<1e-7||retreats(proposal,reference.point));
         let q=preferReference?reference.point:proposal;
@@ -172,20 +249,24 @@
         if(!path.length&&originalReference&&originalReference!==reference){q=originalReference.point;path=nav.referenceRoute(a,q,originalReference.bounds,referenceFree);if(!path.length)path=currentRoute(q,nav);}
         if(nav?.reachable){
           const prior=path.length?q:null,score=prior?Math.hypot(prior.x-p.x,prior.y-p.y):Infinity;
-          const better=score>1e-5?nav.reachable(a,p,safeBounds,referenceFree,point=>Math.hypot(point.x-a.x,point.y-a.y)>=3&&free(a,point)&&(!prior||!retreats(point,prior))&&Math.hypot(point.x-p.x,point.y-p.y)<score-1e-5):[];
+          const better=score>1e-5?nav.reachable(a,p,safeBounds,referenceFree,point=>Math.hypot(point.x-a.x,point.y-a.y)>=3&&freePoint(point)&&(!prior||!retreats(point,prior))&&Math.hypot(point.x-p.x,point.y-p.y)<score-1e-5):[];
           if(better.length){path=better;q=better[better.length-1];}
         }
         return {point:q,path,originalReference,expandedReference};
       };
-      const result=plan(scene.navigation),{originalReference,expandedReference}=result;
+      const scale=scene.navigation?.intentScale||{},sx=scale.x||1,sy=scale.y||1;
+      const dx=(p.x-a.x)*sx,dy=(p.y-a.y)*sy;
+      // Short releases need continuous endpoints inside a dense opening.
+      // Longer walks retain the full V5 component search and directional floors.
+      const shortDrag=source==='drag'&&scene.navigation?.intentAware&&scene.navigation.segmentSafe&&Math.hypot(dx,dy)<=24;
+      const result=shortDrag?dragDestination(a,p,safeBounds,referenceFree,freePoint):plan(scene.navigation);
+      const {originalReference,expandedReference}=result;
       let q=result.point,path=result.path;
       // Compare direction in actual screen units. A hard dominant-axis test
       // rejects useful diagonal routes around the 45-degree dividing line.
-      const scale=scene.navigation?.intentScale||{},sx=scale.x||1,sy=scale.y||1;
-      const dx=(p.x-a.x)*sx,dy=(p.y-a.y)*sy;
       const forward=point=>point&&((point.x-a.x)*sx*dx+(point.y-a.y)*sy*dy)>1e-7;
       const legacy=scene.navigation?.layoutNavigation;
-      if(legacy&&legacy!==scene.navigation){
+      if(!shortDrag&&legacy&&legacy!==scene.navigation){
         const prior=plan(legacy);
         // A sampled legacy shortcut can cross a thin terrain gap. Preserve its
         // endpoint through a current safe detour, never the unsafe old segment.
@@ -196,16 +277,16 @@
         if(prior.path.length&&Math.hypot(prior.point.x-a.x,prior.point.y-a.y)>=3&&(!scene.navigation.intentAware||forward(prior.point))&&(!path.length||retreats(q,prior.point))){
           q=prior.point;path=prior.path;
           const score=Math.hypot(q.x-p.x,q.y-p.y),floor=q;
-          const better=scene.navigation.reachable?.(a,p,safeBounds,referenceFree,point=>Math.hypot(point.x-a.x,point.y-a.y)>=3&&free(a,point)&&!retreats(point,floor)&&Math.hypot(point.x-p.x,point.y-p.y)<score-1e-5)||[];
+          const better=scene.navigation.reachable?.(a,p,safeBounds,referenceFree,point=>Math.hypot(point.x-a.x,point.y-a.y)>=3&&freePoint(point)&&!retreats(point,floor)&&Math.hypot(point.x-p.x,point.y-p.y)<score-1e-5)||[];
           if(better.length){path=better;q=better.at(-1);}
         }
       }
-      if(scene.navigation?.intentAware){
+      if(!shortDrag&&scene.navigation?.intentAware){
         if(!path.length||!forward(q)){
           // A reachable fallback can otherwise send a downward drag upwards.
           // Keep any safe legacy endpoint that follows the request, and compare
           // it with the reachable forward component before deciding to stay put.
-          const eligible=point=>forward(point)&&Math.hypot(point.x-a.x,point.y-a.y)>=3&&referenceFree(point)&&free(a,point);
+          const eligible=point=>forward(point)&&Math.hypot(point.x-a.x,point.y-a.y)>=3&&referenceFree(point)&&freePoint(point);
           const options=[];
           for(const candidate of [originalReference,expandedReference])if(candidate&&eligible(candidate.point)){
             let route=scene.navigation.referenceRoute(a,candidate.point,candidate.bounds,referenceFree);
@@ -218,10 +299,16 @@
           path=options[0]||[];q=path.at(-1)||null;
         }
       }
-      if(!path.length||Math.hypot(q.x-a.x,q.y-a.y)<3)return false;
+      if(!path.length||(!shortDrag&&Math.hypot(q.x-a.x,q.y-a.y)<3)){
+        if(source==='drag'){
+          if(Math.abs(dx)>.3)a.direction=dx<0?-1:1;
+          activity(a,'look');manualGoals.delete(key);
+        }
+        return false;
+      }
       const request=manualGoals.get(key);
       if(request?.floor&&['x','y'].some(axis=>(q[axis]-request.floor[axis])*request.direction[axis]<-1e-7))return false;
-      if(request){request.nextAt=Infinity;request.floor={...q};}
+      if(request){request.nextAt=Infinity;request.floor={...q};if(shortDrag)request.point={...q};}
       a.route=path.slice(1);a.target=path[0];a.source=source;if(source!=='ambient'){a.faceKey=null;a.visualReaction=undefined;a.visualTarget=null;}activity(a,'walk');a.lastWalk=clock;stats.moves++;defer(a,4);idleAt=clock+4;emit('move',a,source);return true;
     }
     function idle(a){
@@ -277,7 +364,8 @@
         if(flags.reducedMotion&&a.source==='ambient'){a.target=null;a.route=[];}
         if(!a.target)continue;
         const dx=a.target.x-a.x,dy=a.target.y-a.y,dist=Math.hypot(dx,dy),speed=(flags.reducedMotion?28:42)*(scene.time==='night'?.75:1),step=Math.min(dist,speed*dt);
-        if(dist<.5){
+        // Finish a drag waypoint before turning around a painted corner.
+        if(dist<(a.source==='drag'?1e-7:.5)){
           if(a.route?.length){a.target=a.route.shift();continue;}
           a.target=null;activity(a,a.source==='ambient'?a.after:'rest');
           const request=manualGoals.get(a.key);if(request){if(Math.hypot(a.x-request.point.x,a.y-request.point.y)<3)manualGoals.delete(a.key);else request.nextAt=clock+1;}
