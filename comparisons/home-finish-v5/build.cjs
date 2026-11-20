@@ -100,9 +100,10 @@ function contains(parent, child) {
 
 function build(destination, baseline, sourceRoot = defaultSourceRoot) {
   const out = path.resolve(destination), base = fs.realpathSync(baseline), source = fs.realpathSync(sourceRoot);
-  const parent = path.dirname(out);
+  let ancestor = out;
+  while (!fs.existsSync(ancestor)) ancestor = path.dirname(ancestor);
   if ([base,source,path.resolve(__dirname)].some(root => contains(root,out) || contains(out,root)) ||
-      fs.realpathSync(parent) !== parent || (fs.existsSync(out) && fs.realpathSync(out) !== out)) {
+      fs.realpathSync(ancestor) !== ancestor) {
     throw Error('Use a separate output directory outside the source trees');
   }
   const names = listFiles(base);
@@ -112,8 +113,9 @@ function build(destination, baseline, sourceRoot = defaultSourceRoot) {
   const existing = fs.existsSync(out) ? listFiles(out) : [];
   if (existing.length) {
     const entries = new Set(existing);
-    if (![...additions.keys(), ...names].every(name => entries.has(name)) || hashFiles(out,names) !== referenceBundle)
-      throw Error('Destination must be empty or a previous complete V5 build');
+    if (entries.size !== names.length + additions.size ||
+        ![...additions.keys(), ...names].every(name => entries.has(name)) || hashFiles(out,names) !== referenceBundle)
+      throw Error('Destination must be empty or contain exactly a previous V5 build');
   } else fs.cpSync(base, out, {recursive:true, mode:fs.constants.COPYFILE_FICLONE});
   for (const [name, value] of additions) {
     const file = path.join(out, name);

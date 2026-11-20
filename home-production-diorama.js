@@ -669,7 +669,7 @@
       e.preventDefault();}
     function up(e){if(!gesture||gesture.pointerId!==e.pointerId)return;const g=gesture,p=point(e);g.drag=isDrag(g,e);clearGesture();if(blocked())return;
       if(g.key&&model.selected()!==g.key)model.select(g.key);
-      if(g.drag||!g.key){const success=model.move(g.key||model.selected(),p,g.drag?'drag':'ground');if(g.drag){if(g.key&&success&&guide.visible())guideWalk=g.key;guide.drag({actor:!!g.key,success});showGuide();}}
+      if(g.drag||!g.key){const success=model.move(g.key||model.selected(),p,g.drag?'drag':'ground',{pointerDrop:g.drag});if(g.drag){if(g.key&&success&&guide.visible())guideWalk=g.key;guide.drag({actor:!!g.key,success});showGuide();}}
       paint();resume();e.preventDefault();}
     function keydown(e){if(blocked())return;const owner=e.target?.closest?.('[data-diorama-actor]');const key=[...rows.values()].find(row=>e.target===row.owner||owner===row.owner)?.key;if(!key)return;
       if(e.key==='Enter'||e.key===' '){model.select(key);paint();e.preventDefault();return;}

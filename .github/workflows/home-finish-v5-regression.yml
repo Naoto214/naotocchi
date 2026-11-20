@@ -5,15 +5,22 @@ on:
     paths:
       - comparisons/home-finish-v5/*.css
       - comparisons/home-finish-v5/*.html
-      - comparisons/home-finish-v5/*.mjs
-      - comparisons/home-finish-v5/*.cjs
-      - comparisons/home-finish-v5/*.js
+      - comparisons/home-finish-v5/build.cjs
+      - comparisons/home-finish-v5/native-hooks.cjs
+      - comparisons/home-finish-v5/ground-render.cjs
+      - comparisons/home-finish-v5/ground.js
+      - comparisons/home-finish-v5/shell-model.mjs
+      - comparisons/home-finish-v5/controls.mjs
+      - comparisons/home-finish-v5/regression_probe.js
       - comparisons/home-finish-v5/regression_grid.py
       - comparisons/home-finish-v5/regression_protect.py
       - comparisons/home-finish-v5/regression_dayparts.py
       - .github/workflows/home-finish-v5-regression.yml
       - home-*.js
       - home-*.mjs
+concurrency:
+  group: home-finish-matrix-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
@@ -32,7 +39,9 @@ jobs:
         with:
           ref: ${{ github.sha }}
           persist-credentials: false
-          sparse-checkout: comparisons/home-finish-v5
+          sparse-checkout: |
+            comparisons/home-finish-v5
+            tests/helpers
       - uses: actions/checkout@v4
         with:
           ref: e07d2cc53eca36ff23e02142ab385d6001e0521b
@@ -52,6 +61,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Preserve legacy routing and exercise the foot-drop contract
+        if: matrix.region == 'forest'
+        run: node --test tests/home-movement-v5-routing-test.cjs comparisons/home-finish-v5/*.test.*
       - name: Rebuild the fixed V4 baseline and candidate game
         run: |
           node .cast-reference/comparisons/home-cast-size-v1/build.cjs "$RUNNER_TEMP/v1" --reference-checkout .leaf-reference
