@@ -8,9 +8,11 @@ let scene = readScene(new URLSearchParams(location.search));
 let frame = byId('home');
 let ready = false;
 let timeout;
+let paintingObserver;
 
 function load() {
   clearTimeout(timeout);
+  paintingObserver?.disconnect();
   ready = false;
   diagnostic.reset();
   document.body.dataset.ready = 'false';
@@ -78,9 +80,21 @@ window.addEventListener('message', event => {
       byId('retry').hidden = false;
       return;
     }
-    ready = true;
-    applyLive();
-    diagnostic.refresh();
+    const canvas = frame.contentDocument.querySelector('.home-art-canvas');
+    if (!canvas) return;
+    const filename = scene.region + '-' + scene.time + '.webp';
+    const checkPainting = () => {
+      const source = canvas.dataset.mobilityPainting;
+      if (!source || new URL(source, frame.contentWindow.location.href).pathname.split('/').pop() !== filename) return;
+      paintingObserver?.disconnect();
+      ready = true;
+      applyLive();
+      diagnostic.refresh();
+    };
+    paintingObserver?.disconnect();
+    paintingObserver = new MutationObserver(checkPainting);
+    paintingObserver.observe(canvas, {attributes:true, attributeFilter:['data-mobility-painting']});
+    checkPainting();
   }
   if (!ready || event.data?.type !== 'home-cast-state') return;
   const state = event.data.settings;

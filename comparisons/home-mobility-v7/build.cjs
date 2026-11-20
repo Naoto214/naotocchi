@@ -19,6 +19,17 @@ function prepare(baseline) {
   const files = new Map();
   const read = name => fs.readFileSync(path.join(baseline,'game',name),'utf8');
   const local = name => fs.readFileSync(path.join(__dirname,name),'utf8');
+  const worldName = 'home-production-world-finish.mjs';
+  const ownerWorld = 'home-production-world-mobility.mjs';
+  const declaration = "let paintingKey='';";
+  const pristine = replaceExact(read(worldName),declaration,declaration+'let reportedPainting=null;');
+  const paintScene = 'composeNature(ctx,t,host,fade,time/1000,flags.reducedMotion);';
+  const artwork = replaceExact(pristine,paintScene,paintScene+`
+    // Signal only after the requested artwork and its effects reached the visible canvas.
+    if(reportedPainting!==img&&fade.image===img&&!fade.previous&&fade.alpha===1){
+      reportedPainting=img;canvas.dataset.mobilityPainting=img.src;
+    }`);
+  files.set('game/'+ownerWorld,artwork);
   const telemetry = local('telemetry.js');
   files.set('game/telemetry.js',telemetry);
   for (const arm of ['v5','v6','v7']) {
@@ -31,6 +42,12 @@ function prepare(baseline) {
         code = patchSelection(source,code,arm);
       }
       code = patchTelemetry(source,code,arm);
+      if(kind==='home-production-diorama'){
+        const native = "'./"+worldName+"?v=5f93a1f03481'";
+        const marked = "'./"+ownerWorld+"?v="+digest(artwork).slice(0,12)+"'";
+        code = replaceExact(code,'import('+native+')',
+          "import(new URLSearchParams(env.location?.search).has('waitForPainting')?"+marked+":"+native+")");
+      }
       const alias = kind+'-mobility-'+arm+'.js';
       files.set('game/'+alias,code);
       const matches = [...html.matchAll(/<script src="([^"?]+)\?v=[^"]+"><\/script>/g)].filter(m=>m[1]===source);

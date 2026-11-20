@@ -15,7 +15,7 @@ export function sceneQuery({arm,region,time,count,paused,diagnostics}) {
 }
 export function gameURL({arm,region,time,count,diagnostics},base) {
   const url=new URL('../game/mobility-'+arm+'.html',base);
-  url.search=new URLSearchParams({region,time,count,paused:1,clock:0,ground:'on',paired:1,
+  url.search=new URLSearchParams({region,time,count,paused:1,clock:0,ground:'on',paired:1,waitForPainting:1,
     variant:'B',compareSplit:0,season:'autumn',weather:'sunny',diagnostics:Number(diagnostics)});
   return url;
 }
