@@ -78,7 +78,7 @@ export function mountLifeClock({dialog,getView,onPause,onResume,loadRenderer=()=
   face.replaceChildren();values.replaceChildren();status.textContent='時計を読み込んでいます…';
   dialog.showModal();onPause();dialog.querySelector('#life-clock-close').focus({preventScroll:true});
   try{
-   const state=clockState(view),seatName=seat=>seat+(view.mode==='cpu'?(seat===view.humanSeat?'（あなた）':'（CPU）'):'');
+   const state=clockState(view,{endRound:view.life?.final??10}),seatName=seat=>seat+(view.mode==='cpu'?(seat===view.humanSeat?'（あなた）':'（CPU）'):'');
    const lines=[['gold','ラウンド',String(state.round)],['red',`先攻 ${seatName(state.firstSeat)}`,`時 ${state.firstTime} · そだち ${state.firstGrowth}`],['green',`後攻 ${seatName(state.secondSeat)}`,`時 ${state.secondTime} · そだち ${state.secondGrowth}`],['gold','終了ラウンド',`${['','I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'][state.end]}（${state.end}）`]];
    for(const [color,label,value] of lines){const p=document.createElement('p');p.className='clock-value '+color;const strong=document.createElement('strong');strong.textContent=label;p.append(strong,document.createTextNode(value));values.append(p);}
    const renderer=await loadRenderer();if(request!==revision||!dialog.open)return;

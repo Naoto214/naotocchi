@@ -167,7 +167,7 @@ function cpuMatch(seed,loverId,difficulty='intermediate'){const S='E-misundersta
  for(let i=0;s.phase!=='finished';i++){assert.ok(i<6000,'step limit');const a=e.actor(s),o=observeCpu(s,a),d=chooseCpuAction(o,{difficulty,seed:seed+(a==='A'?0:7),step:i});s=e.act(s,a,s.revision,d.id);adv();}return s;}
 test('CPU対戦：18種類それぞれで完走し、保存→復帰で一致する（初級・中級）',()=>{
  let fired=0,ids=Object.keys(LOVERS);ids.forEach((id,i)=>{for(const difficulty of ['beginner','intermediate']){const s=cpuMatch(100+i,id,difficulty);assert.equal(s.phase,'finished');
-  const back=e.restore(e.save(s));assert.deepEqual(back.players,s.players);assert.equal(e.save(back),e.save(s));assert.equal(JSON.parse(e.save(s)).version,TRIAL_VERSION);
+  const back=e.restore(e.save(s));assert.deepEqual(back.players,s.players);assert.equal(e.save(back),e.save(s));assert.equal(JSON.parse(e.save(s)).version,e.VERSION);
   fired+=s.history.filter(x=>x.kind==='ability'&&x.marriedAbility).length;for(const a of ['A','B'])assert.ok(s.players[a].hand.length<40);}});
  assert.ok(fired>0,'結婚の能力が実際に発動した');
 });

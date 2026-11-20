@@ -23,7 +23,7 @@ function misunderstand(s,mis){s=doAction(s,find(s,a=>a.source===mis&&['play','pr
 
 test('共通処理：結婚前（交際0〜3）は5、結婚後は10。旧版（hotseat-2〜6）は交際段階によらず10',()=>{
  // hotseat-8（結婚後の追加能力、480）でも別れの基本値は hotseat-7 と同じ。
- const s=e.createGame(1);assert.equal(s.version,'hotseat-8');assert.equal(e.VERSION,e.RULE_VERSIONS.at(-1));assert.ok(e.RULE_VERSIONS.includes('hotseat-7'));
+ const s=e.createGame(1);assert.equal(s.version,'hotseat-9');assert.equal(e.VERSION,e.RULE_VERSIONS.at(-1));assert.ok(e.RULE_VERSIONS.includes('hotseat-7'));
  for(const v of [s,e.createGame(1,undefined,'hotseat-7')]){for(const k of [0,1,2,3])assert.equal(e.breakupPenalty(v,k),5,v.version+' stage '+k);assert.equal(e.breakupPenalty(v,4),10);}
  for(const version of OLD)for(const k of [0,1,2,3,4])assert.equal(e.breakupPenalty(e.createGame(1,undefined,version),k),10,version+' '+k);
 });

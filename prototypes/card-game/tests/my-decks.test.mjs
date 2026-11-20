@@ -28,7 +28,7 @@ test('bad existing data stays untouched; quota failures leave edits available fo
  const x=new DeckLibrary(storage());x.storage.setItem=()=>{throw Error('quota')};x.rename(x.data.decks[0].id,'未保存');assert.throws(()=>x.save());assert.match(x.exportJSON(),/未保存/);
 });
 test('catalog filters cover all cards, attribute, species and stage in combination',()=>{
- assert.equal(filterCards({}).length,452);const c=Object.values(CARDS).find(c=>c.type==='main');assert.equal(filterCards({species:c.species}).length,8);assert.equal(filterCards({species:c.species,stage:String(c.stage)}).length,1);assert.ok(filterCards({attribute:c.attribute}).every(v=>v.attribute===c.attribute));assert.equal(filterCards({query:c.id})[0].id,c.id);assert.ok(filterCards({type:'item'}).every(v=>v.type==='item'));
+ assert.equal(filterCards({}).length,459);const c=Object.values(CARDS).find(c=>c.type==='main');assert.equal(filterCards({species:c.species}).length,8);assert.equal(filterCards({species:c.species,stage:String(c.stage)}).length,1);assert.ok(filterCards({attribute:c.attribute}).every(v=>v.attribute===c.attribute));assert.equal(filterCards({query:c.id})[0].id,c.id);assert.ok(filterCards({type:'item'}).every(v=>v.type==='item'));
 });
 test('selected arrays are independent from the library and valid for existing engine',()=>{const x=new DeckLibrary(storage()),d=x.selectedDecks();createGame(123,d);d.A.pop();assert.equal(x.selectedDecks().A.length,40);});
 test('explicit restore can recover a full 20-deck backup with selected seats; default import never replaces',()=>{

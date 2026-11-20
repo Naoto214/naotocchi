@@ -53,13 +53,15 @@ test('latest-main game catalogs, conversations, formal images and other games st
  const cp=require('child_process');const unchanged=['assets/characters','prototypes','conversation-*.js','relationship-*.js','individuality*.js','item-*.js','games.js','quick.js','script.js','style.css','ui.css','character-world-master.v1.js'];
  // Pin the exact V1 choice, navigation and presentation edits. All other
  // files in the protected directories still go through the previous guards.
+ const v18Scope=require('./helpers/approved-card459-v18.cjs');v18Scope.verify();
+ for(const file of Object.keys(v18Scope.files))unchanged.push(':(exclude)'+file);
  const bgmScope=require('./helpers/approved-bgm-scope.cjs'); bgmScope.verify();
  for(const file of Object.keys(bgmScope.baseline))unchanged.push(':(exclude)'+file);
  const cardScope=require('./helpers/approved-card-integration-v16.cjs');cardScope.verify();
  for(const file of Object.keys(cardScope.files))unchanged.push(':(exclude)'+file);
  const kanjiScope=require('./helpers/approved-kanji-v17.cjs');kanjiScope.verify();
  for(const file of Object.keys(kanjiScope.files))unchanged.push(':(exclude)'+file);
- const checkedBlob=file=>Object.hasOwn(bgmScope.baseline,file)?bgmScope.restoredBlob(file):(cardScope.originalBlob(file)||kanjiScope.originalBlob(file)||cp.execFileSync('git',['hash-object','--',file],{encoding:'utf8'}).trim());
+ const checkedBlob=file=>Object.hasOwn(bgmScope.baseline,file)?bgmScope.restoredBlob(file):(cardScope.originalBlob(file)||kanjiScope.originalBlob(file)||v18Scope.originalBlob(file)||cp.execFileSync('git',['hash-object','--',file],{encoding:'utf8'}).trim());
  const homeUI = {
   "individuality-data.js": "1f555e84bd5ebd56d1bcfa8cd4e313ad8f441e7c",
   "prototypes/card-game/app.mjs": "b3180cb0d788580a839521c55f76554bb8cf11a2",

@@ -10,8 +10,8 @@ const F=JSON.parse(fs.readFileSync(new URL('./fixtures/hotseat7-saves.json',impo
 const sha=t=>createHash('sha256').update(t).digest('hex');
 const fingerprint=s=>sha(JSON.stringify({round:s.round,turn:s.turn,phase:s.phase,result:s.result,players:s.players,history:s.history},(k,v)=>k==='onlyVersions'?undefined:v));
 
-test('版：新しい対戦は hotseat-8、旧版 hotseat-2〜7 も読める。結婚の能力は hotseat-8 だけ',()=>{
- assert.equal(e.VERSION,'hotseat-8');assert.deepEqual([...MARRIED_VERSIONS],['hotseat-8']);
+test('版：新しい対戦は hotseat-8、旧版 hotseat-2〜7 も読める。結婚の能力は hotseat-8 以降',()=>{
+ assert.equal(e.VERSION,'hotseat-9');assert.deepEqual([...MARRIED_VERSIONS],['hotseat-8','hotseat-9']);
  for(const v of ['hotseat-2','hotseat-3','hotseat-4','hotseat-5','hotseat-6','hotseat-7'])assert.ok(e.RULE_VERSIONS.includes(v),v);
  assert.equal(marriedAbilitiesActive(e.createGame(1)),true);assert.equal(marriedAbilitiesActive(e.createGame(1,undefined,'hotseat-7')),false);
 });
@@ -35,7 +35,7 @@ function play(seed,A,B,{reload=0}={}){let s=e.createGame(seed,{A,B});s=advanceRe
 const deck=id=>CPU_DECKS.find(d=>d.id===id).cards;
 
 test('新しい対戦（hotseat-8）：同じ山札で、旧版では出ない結婚の能力が実際に発動し、保存→復帰で一致する',()=>{
- let fired=0;for(const seed of [11,12,13]){const s=play(seed,deck('partner'),deck('main'));assert.equal(s.version,'hotseat-8');const back=e.restore(e.save(s));assert.equal(e.save(back),e.save(s));assert.equal(fingerprint(back),fingerprint(s));
+ let fired=0;for(const seed of [11,12,13]){const s=play(seed,deck('partner'),deck('main'));assert.equal(s.version,'hotseat-9');const back=e.restore(e.save(s));assert.equal(e.save(back),e.save(s));assert.equal(fingerprint(back),fingerprint(s));
   fired+=s.history.filter(x=>x.marriedAbility).length;}
  assert.ok(fired>0,'恋人デッキ（シカ・ワシ）の結婚の能力が発動した');
 });

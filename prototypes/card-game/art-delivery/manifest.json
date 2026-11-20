@@ -1,7 +1,10 @@
 {
   "source_head": "a6ad1a9689335f0379d5c6795d1da8652f02ac0d",
   "source_manifest": "art-pilot/rollout/final-452-20261019/deck-manifest.json",
-  "count": 452,
+  "additional_source_manifests": [
+    "art-pilot/approved-card459-20261120/manifest.json"
+  ],
+  "count": 459,
   "profiles": {
     "small": {
       "width": 384,
@@ -15,9 +18,9 @@
     }
   },
   "totals": {
-    "original": 1287805298,
-    "small": 17135402,
-    "large": 120519640
+    "original": 1309183055,
+    "small": 17398144,
+    "large": 122707138
   },
   "cards": [
     {
@@ -9058,6 +9061,146 @@
         "height": 768,
         "bytes": 417646,
         "sha256": "41579954963c0ec7e3fa282932c15f8d709e6de91e70fc6057860d908c2eb04d"
+      }
+    },
+    {
+      "id": "W-time-ix",
+      "source": "illustrations/W-time-ix.png",
+      "source_sha256": "22ce850de58275e9826730e56ca67ee24efe6d2af5d9be034094b5877797ae52",
+      "original_bytes": 3041314,
+      "small": {
+        "path": "art-delivery/small/W-time-ix-d92309a35440.webp",
+        "width": 384,
+        "height": 256,
+        "bytes": 42918,
+        "sha256": "d92309a354406c802005e90efeda46a96104d2cf8f620dd362ee9b33929cba1d"
+      },
+      "large": {
+        "path": "art-delivery/large/W-time-ix-816e94692e5d.webp",
+        "width": 1152,
+        "height": 768,
+        "bytes": 332874,
+        "sha256": "816e94692e5d2fea279871a92916e35896d1b63967312430dd80baf9b77566dd"
+      }
+    },
+    {
+      "id": "W-time-x",
+      "source": "illustrations/W-time-x.png",
+      "source_sha256": "49c41e8ed93006d29c431dac5a5088b7592b8067ca2808c8c0be67ee455ee2ed",
+      "original_bytes": 2898161,
+      "small": {
+        "path": "art-delivery/small/W-time-x-01a1e0863471.webp",
+        "width": 384,
+        "height": 256,
+        "bytes": 39832,
+        "sha256": "01a1e086347116af5bebec9f7d6e6c26c640b4e59c3277df08492fc57b773169"
+      },
+      "large": {
+        "path": "art-delivery/large/W-time-x-31089be76a35.webp",
+        "width": 1152,
+        "height": 768,
+        "bytes": 315684,
+        "sha256": "31089be76a35ce07310de3b4141b4f9dcdad2b96331ecd075623369c6a2dbeb0"
+      }
+    },
+    {
+      "id": "W-time-xi",
+      "source": "illustrations/W-time-xi.png",
+      "source_sha256": "0767d333d57274796d76d7dd5be1f221427a4ddc18622f1bc5990ba26bc832e6",
+      "original_bytes": 2948364,
+      "small": {
+        "path": "art-delivery/small/W-time-xi-92ebfefa3bd4.webp",
+        "width": 384,
+        "height": 256,
+        "bytes": 34246,
+        "sha256": "92ebfefa3bd496a741c0ad55d632b7fcacc97557b0f6a83d7ca1aba3670e0cda"
+      },
+      "large": {
+        "path": "art-delivery/large/W-time-xi-bf941f5652cf.webp",
+        "width": 1152,
+        "height": 768,
+        "bytes": 292358,
+        "sha256": "bf941f5652cfbe127349757ee70c90ac73a6f31ce57270a86a38f1f0632ec875"
+      }
+    },
+    {
+      "id": "W-time-xii",
+      "source": "illustrations/W-time-xii.png",
+      "source_sha256": "a7288da3b853b1d86b34b699fda9b63328caf37524ff0cdd289a4085b8a23c1d",
+      "original_bytes": 2803968,
+      "small": {
+        "path": "art-delivery/small/W-time-xii-ab939cb57c27.webp",
+        "width": 384,
+        "height": 256,
+        "bytes": 30692,
+        "sha256": "ab939cb57c278047654a725754f31e0b1ac3cda1dbdd85b7f96ee37e31ed3550"
+      },
+      "large": {
+        "path": "art-delivery/large/W-time-xii-68ab1da0d455.webp",
+        "width": 1152,
+        "height": 768,
+        "bytes": 253412,
+        "sha256": "68ab1da0d45536abf3f91fe45df231e3c78f9e6ab6e63c9a6a0116edfb4c40e7"
+      }
+    },
+    {
+      "id": "E-hayajimai",
+      "source": "illustrations/E-hayajimai.png",
+      "source_sha256": "654b96e76d975a2cc5727b7c839b5b705dfe184ea84b8e6a8a2e4d6ca4683fe6",
+      "original_bytes": 3441215,
+      "small": {
+        "path": "art-delivery/small/E-hayajimai-c6654b4e04ee.webp",
+        "width": 384,
+        "height": 256,
+        "bytes": 41218,
+        "sha256": "c6654b4e04eec72f8336f30430dbffd5254185b99fe01f34183e327288d68acb"
+      },
+      "large": {
+        "path": "art-delivery/large/E-hayajimai-e218b4236826.webp",
+        "width": 1152,
+        "height": 768,
+        "bytes": 375108,
+        "sha256": "e218b4236826fa5412ddfe663e2e9f8ac66fb129ec6d32817d16998acf862555"
+      }
+    },
+    {
+      "id": "E-nagaiki",
+      "source": "illustrations/E-nagaiki.png",
+      "source_sha256": "9eb4a8d125aa9f42ee2d08db4ff6e98e840341eca4f85e87d4e57a0a9669c239",
+      "original_bytes": 3693415,
+      "small": {
+        "path": "art-delivery/small/E-nagaiki-df181cbf6844.webp",
+        "width": 384,
+        "height": 256,
+        "bytes": 47494,
+        "sha256": "df181cbf68449dcd5f0a4cc1200420573e1353a38bb3d846560f1cfce88bd7ec"
+      },
+      "large": {
+        "path": "art-delivery/large/E-nagaiki-630e05ecf2ee.webp",
+        "width": 1152,
+        "height": 768,
+        "bytes": 413296,
+        "sha256": "630e05ecf2eeecc4321a457f19f35203e8ec66c156f2e622d0ea5e4edfbb78f2"
+      }
+    },
+    {
+      "id": "E-omoide-photo",
+      "source": "illustrations/E-omoide-photo.png",
+      "source_sha256": "63eea753e9b34d76d4f8af4173c8771edde26b91fadc559dde1c16bf4f3162bd",
+      "original_bytes": 2551320,
+      "small": {
+        "path": "art-delivery/small/E-omoide-photo-4d04892dd9af.webp",
+        "width": 384,
+        "height": 256,
+        "bytes": 26342,
+        "sha256": "4d04892dd9af1bd872ab2887bdd617ed3d78ab37d9bfb33e95979a7653c620ce"
+      },
+      "large": {
+        "path": "art-delivery/large/E-omoide-photo-7cef5605a0cc.webp",
+        "width": 1152,
+        "height": 768,
+        "bytes": 204766,
+        "sha256": "7cef5605a0cc27581e2e83137084c20219422aa458cf5cd30a1c477ab827c923"
       }
     }
   ]

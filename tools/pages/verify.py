@@ -71,8 +71,8 @@ def verify(artifact, report):
         worker.join()
 
     art = json.loads((ROOT / 'prototypes/card-game/art-delivery/manifest.json').read_text())
-    if len(art['cards']) != 452 or len({c['id'] for c in art['cards']}) != 452:
-        raise ValueError('expected 452 unique card IDs')
+    if len(art['cards']) != 459 or len({c['id'] for c in art['cards']}) != 459:
+        raise ValueError('expected 459 unique card IDs')
     images = 0
     for card in art['cards']:
         for profile in ['small', 'large']:
@@ -82,7 +82,7 @@ def verify(artifact, report):
                 raise ValueError(f'card delivery mismatch: {card["id"]} / {profile}')
             images += 1
     return {'http_files': len(actual), 'http_bytes': delivered, 'entrypoints': len(entries),
-            'card_ids': 452, 'card_images': images, 'excluded_paths_return_404': len(excluded),
+            'card_ids': 459, 'card_images': images, 'excluded_paths_return_404': len(excluded),
             'missing_files': 0, 'hash_mismatches': 0, 'prefix': '/naotocchi/'}
 
 

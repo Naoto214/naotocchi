@@ -13,7 +13,7 @@ import {RULES, supported} from './rules.mjs';
 import * as fx from './effects.mjs';
 import * as selections from './selection.mjs';
 export {CARDS};
-export const VERSION='hotseat-8';
+export const VERSION='hotseat-9';
 /** 対戦の版。旧保存はその版のまま再生する（保存を新しい版へ変換しない）。
  * hotseat-2 = PR #446 修正前のこいびと（クモが結婚時にも誘発、サソリが伏せたあいてむも数える）＋ぴょんぴょんジャンプ改善前。
  * hotseat-3 = こいびと修正（PR #449）＋ぴょんぴょんジャンプ改善前（次のときおくりで1枚、その次のときおくりで+5）。
@@ -22,7 +22,7 @@ export const VERSION='hotseat-8';
  * hotseat-6 = hotseat-5＋かえるのおうちがえりが自分自身を対象にできない（81接続）。
  * hotseat-7 = hotseat-6＋結婚前の別れはそだち−5（結婚後の別れは−10のまま。479、2026-11-04 正式決定）。
  * hotseat-8 = hotseat-7＋恋人18種類の「♥ 結婚したら」（結婚後の追加能力。480、2026-11-04 正式決定）。hotseat-7 以前の保存は追加能力なしで再生する。 */
-export const RULE_VERSIONS=Object.freeze(['hotseat-2','hotseat-3','hotseat-4','hotseat-5','hotseat-6','hotseat-7',VERSION]);
+export const RULE_VERSIONS=Object.freeze(['hotseat-2','hotseat-3','hotseat-4','hotseat-5','hotseat-6','hotseat-7','hotseat-8',VERSION]);
 export const DEFAULT_DECK=Object.values(BASE_CARDS).flatMap(c=>Array(c.rare?1:c.id==='G-area-claim'?2:3).fill(c.id));
 export function validateDeck(deck){if(!Array.isArray(deck)||deck.length!==40)throw Error('デッキは40枚必要です');const counts={};for(const id of deck){if(!CARDS[id]||!supported(id))throw Error('未対応カードです：'+id);counts[id]=(counts[id]??0)+1;if(counts[id]>(CARDS[id].rare?1:3))throw Error('同名上限を超えています：'+id);}return true;}
 export {supported};
@@ -35,9 +35,10 @@ const title=(s,id)=>id?card(s,id).name:'たまご';
 function random(seed){let n=seed>>>0;return ()=>{n+=0x6D2B79F5;let t=n;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return ((t^t>>>14)>>>0)/4294967296;};}
 export function createGame(seed=1,decks={A:DEFAULT_DECK,B:DEFAULT_DECK},version=VERSION){
  if(!RULE_VERSIONS.includes(version))throw Error('対戦の版が不正です');
- for(const a of ['A','B'])validateDeck(decks[a]);
+ for(const a of ['A','B']){validateDeck(decks[a]);if(version!=='hotseat-9'&&decks[a].some(id=>['W-time-ix','W-time-x','W-time-xi','W-time-xii','E-hayajimai','E-nagaiki','E-omoide-photo'].includes(id)))throw Error('この版には追加7枚を使用できません');}
  if(!Number.isSafeInteger(seed)||seed<0||seed>0xffffffff)throw Error('開始seedが不正です');
  const s={version,seed,revision:0,commands:[],decks:clone(decks),effects:[],scheduled:[],history:[],cards:{},players:{},round:1,turn:'A',serial:1,phase:'normal',priority:'A',chain:[],pending:[],choice:null,window:'normal',passes:0,result:null,log:[],challenge:null};
+ if(version==='hotseat-9')s.life={final:10,events:[]};
  const rng=random(seed);
  for(const a of ['A','B']){
   const deck=[],counts={};for(const cardId of decks[a]){const i=counts[cardId]=(counts[cardId]??0)+1,id=`${a}:${cardId}:${i}`;s.cards[id]={cardId,owner:a,generation:0};deck.push(id);}
@@ -80,8 +81,9 @@ function finishStart(s){const a=s.turn,p=s.players[a];triggers(s,p.hand.length<=
 function endWindow(s){if(startBoundary(s,'end'))return;finishEnd(s);}
 function finishEnd(s){const a=s.turn,p=s.players[a];triggers(s,!p.challengeUsed&&p.time>=2?p.board.prepared.filter(e=>card(s,e.id).id==='I-sleepboost1').map(e=>({actor:a,source:e.id,kind:'sleep'})):[],'end');enqueueTriggers(s,{kind:'end',actor:a});}
 function endTurn(s){
- if(s.round<10){const winner=['A','B'].find(a=>s.players[a].growth===100&&s.players[a].reached!==null&&s.players[a].reached<=s.serial&&s.turn!==a);if(winner){finish(s,winner,'100維持');return;}}
- if(s.round===10&&s.turn==='B'){const a=s.players.A.growth,b=s.players.B.growth;finish(s,a===b?null:a>b?'A':'B','R10最終比較');return;}
+ const final=s.life?.final??10;
+ if(s.round<final){const winner=['A','B'].find(a=>s.players[a].growth===100&&s.players[a].reached!==null&&s.players[a].reached<=s.serial&&s.turn!==a);if(winner){finish(s,winner,'100維持');return;}}
+ if(s.round===final&&s.turn==='B'){const a=s.players.A.growth,b=s.players.B.growth;finish(s,a===b?null:a>b?'A':'B',`R${final}最終比較`);return;}
  fx.cleanup(s,'end',s.turn);if(s.turn==='B')s.round++;s.turn=other(s.turn);s.serial++;beginTurn(s);
 }
 function finish(s,winner,reason){s.phase='finished';s.result={winner,reason,growth:{A:s.players.A.growth,B:s.players.B.growth}};log(s,winner?`${winner}の勝利`:'引き分け');}
@@ -106,7 +108,7 @@ function listActions(s){
    if(c.type==='main'){const base=mainCost(b.main?card(s,b.main).id:null,c.id),variant=!b.main?'birth':card(s,b.main).species===c.species?'time_skip':'transform',cost=base===null?null:fx.payment(s,a,variant,base);if(cost!==null)add('place',`${c.name}を${variant==='time_skip'?'ときおくり':b.main?'へんしん':'たんじょう'}（時${cost}）`,{source:id,slot:'main',cost,variant});}
    if(c.type==='companion'&&!p.personUsed){if(b.companions.length<3)add('place',`${c.name}をなかまへ`,{source:id,slot:'companions',cost:0});else for(const target of b.companions)add('place',`${c.name}を出す／${title(s,target)}と交代`,{source:id,target,slot:'companions',cost:0});}
    if(c.type==='partner'&&!p.personUsed&&!b.partner)add('place',`${c.name}と交際開始`,{source:id,slot:'partner',cost:0});
-   if(c.type==='world'){const cost=fx.payment(s,a,'world',c.cost);if(cost!==Infinity)add('place',`${c.name}を配置（時${cost}）`,{source:id,slot:'world',cost});}
+   if(c.type==='world'&&(!RULES[c.id]?.placeCondition||fx.condition(s,a,RULES[c.id].placeCondition,{source:id}))){const cost=fx.payment(s,a,'world',c.cost);if(cost!==Infinity)add('place',`${c.name}を配置（時${cost}）`,{source:id,slot:'world',cost});}
    if((['I-sleepboost1','I-bowtie'].includes(c.id)||RULES[c.id]?.mode==='equipment')&&b.prepared.length<3){const targets=c.id==='I-sleepboost1'?[b.main]:RULES[c.id]?.mode==='equipment'?[b.main,b.partner,...b.companions].filter(id=>id&&RULES[c.id].attach.includes(card(s,id).type)):[b.main,b.partner,...b.companions];for(const target of targets.filter(Boolean))add('place',`${c.name} → ${title(s,target)}（時${fx.payment(s,a,'equip',c.cost)}）`,{source:id,slot:'prepared',target,cost:fx.payment(s,a,'equip',c.cost)});}
   }
   if(b.main&&b.partner&&p.relationship<4&&!p.relationshipUsed)add('relationship',`交際を進める ${p.relationship}→${p.relationship===3?'結婚':p.relationship+1}（時${fx.payment(s,a,'relationship',1)}）`,{cost:fx.payment(s,a,'relationship',1)});
@@ -114,7 +116,7 @@ function listActions(s){
  }
  for(const source of [b.main,b.partner,b.world,...b.companions,...b.prepared.filter(e=>!e.faceDown).map(e=>e.id),...p.discard.filter(id=>RULES[card(s,id).id]?.active?.from==='discard')].filter(Boolean)){const root=effectiveRule(s,source,RULES[card(s,source).id])?.active;const r=root;if(!r||(card(s,source).type==='partner'&&!b.main)||(r.onceName&&s.history.some(e=>e.kind==='ability'&&e.serial===s.serial&&e.actor===a&&e.cardId===(r.onceNameCardId??card(s,source).id)&&(e.nameScope??null)===(r.nameScope??null)))||p.used.includes(token(s,source)+':'+(r.limitKey??'active'))||p.time<(r.cost??0)||!fx.condition(s,a,r.condition,{source,contract:r,stats:{A:stats(s,'A'),B:stats(s,'B')}}))continue;for(const target of fx.targets(s,a,r.target,source))for(const variant of r.variants??[null])for(const payment of fx.costOptions(s,a,variantRule(r,variant),source))if(fx.condition(s,a,r.variantCondition,{source,variant,contract:r})&&selectionAvailable(s,a,variantRule(r,variant),{source,variant}))add('programAbility',`${title(s,source)}の能力${target?' → '+title(s,target):''}${variant?' / '+variant:''}（時${r.cost??0}）${payment.costCard?' / 支払い：'+title(s,payment.costCard):''}`,{source,target,variant,cost:r.cost??0,...payment});}
  if(s.turn===a)for(const source of b.companions)if(card(s,source).id==='C-cat_friend'&&!p.used.includes(token(s,source)))for(const target of p.discard)if(card(s,target).type==='companion'&&card(s,target).id!=='C-cat_friend')add('ability',`${title(s,source)} → ${title(s,target)}を回収`,{source,target});
- for(const source of p.hand){const c=card(s,source);if(p.time<fx.payment(s,a,'quick_'+c.type,c.cost)&&RULES[c.id]?.mode!=='trap')continue;
+ for(const source of p.hand){const c=card(s,source);if(RULES[c.id]?.reaction==='timeCounter'){if(s.phase==='response'&&!s.choice&&!s.pending.length&&fx.condition(s,a,RULES[c.id].placeCondition,{source})){const top=[...s.chain].reverse().find(l=>!l.negated&&RULES[card(s,l.source)?.id]?.reaction==='timeCounter');if(top&&top.actor!==a){const cost=fx.payment(s,a,'world',c.cost);if(cost!==Infinity)add('place',`${c.name}でカウンター（時${cost}）`,{source,slot:'world',cost,counter:true});}}continue;}if(p.time<fx.payment(s,a,'quick_'+c.type,c.cost)&&RULES[c.id]?.mode!=='trap')continue;
   const rule=RULES[c.id];if(rule?.reaction==='quickPlay'){if(fx.condition(s,a,rule.condition,{source})){for(const link of s.chain.filter(x=>x.actor!==a&&!x.ability&&card(s,x.source).type==='play'&&card(s,x.source).method==='すぐつかう'))for(const target of fx.targets(s,a,rule.target,source))add('programPlay',`${c.name}：${title(s,link.source)}に反応`,{source,target,cost:fx.payment(s,a,'quick_'+c.type,c.cost),event:{linkId:link.uid}});}continue;}if(rule?.reaction==='retarget'){for(const link of s.chain.filter(x=>x.actor!==a))for(const target of fx.alternateTargets(s,link))add('programPlay',`${c.name}：${title(s,link.source)}の対象を${title(s,target)}へ変更`,{source,target,cost:fx.payment(s,a,'quick_'+c.type,c.cost),event:{linkId:link.uid}});continue;}if(rule?.mode==='quick'){const values=s.challenge?{A:stats(s,'A')?.[s.challenge.parameter],B:stats(s,'B')?.[s.challenge.parameter]}:null;if(fx.condition(s,a,rule.condition,{source,values})&&(!rule.onceName||!s.history.some(e=>e.serial===s.serial&&e.actor===a&&e.kind==='play'&&e.cardId===c.id))){for(const target of fx.targets(s,a,rule.target))for(const variant of rule.variants??[null]){const cost=fx.payment(s,a,'quick_'+c.type,c.cost)+(rule.extraTime==='variant'?Number(variant):0);if(p.time>=cost&&selectionAvailable(s,a,variantRule(rule,variant),{source,variant}))add('programPlay',`${c.name}${target?' → '+title(s,target):''}${variant!==null?' / '+(TYPE_NAMES[variant]??variant):''}（時${cost}）`,{source,target,variant,cost});}}continue;}
   const play=(data={},suffix='')=>add('play',`${c.name}${suffix}（時${c.cost}）`,{source,...data});
   if(['I-c_coin2','G-area-claim'].includes(c.id))play();
@@ -213,9 +215,10 @@ function resolveChain(s){
 }
 export function validate(s){
  if(s.version===legacy.VERSION)return legacy.validate(s);
- if(!RULE_VERSIONS.includes(s.version)||!Number.isSafeInteger(s.revision)||s.revision!==s.commands.length||!['A','B'].includes(s.turn)||!Number.isInteger(s.round)||s.round<1||s.round>10)throw Error('状態形式が不正です');
+ if(!RULE_VERSIONS.includes(s.version)||!Number.isSafeInteger(s.revision)||s.revision!==s.commands.length||!['A','B'].includes(s.turn)||!Number.isInteger(s.round)||s.round<1||s.round>(s.version==='hotseat-9'?12:10))throw Error('状態形式が不正です');
+ if(s.version==='hotseat-9'&&(!s.life||!Number.isInteger(s.life.final)||s.life.final<9||s.life.final>12||s.round>s.life.final||!Array.isArray(s.life.events)))throw Error('終了ラウンドが不正です');
  const located=[];
- for(const a of ['A','B']){const p=s.players[a],b=p.board;if(!Number.isInteger(p.time)||p.time<0||p.time>10||p.growth<0||p.growth>100||p.growth%5||b.companions.length>3||b.prepared.length>3)throw Error('資源または枠が不正です');
+ for(const a of ['A','B']){const p=s.players[a],b=p.board;if(!Number.isInteger(p.time)||p.time<0||p.time>(s.version==='hotseat-9'?12:10)||p.growth<0||p.growth>100||p.growth%5||b.companions.length>3||b.prepared.length>3)throw Error('資源または枠が不正です');
   const ids=[...p.deck,...p.hand,...p.discard,...[b.main,b.partner,b.world].filter(Boolean),...b.companions,...b.prepared.map(e=>e.id)];
   if(ids.some(id=>!s.cards[id]||s.cards[id].owner!==a||!CARDS[s.cards[id].cardId]))throw Error('カード所有者が不正です');located.push(...ids);
   for(const e of b.prepared)if(!e.faceDown&&(![b.main,b.partner,...b.companions].includes(e.target)||s.cards[e.target].generation!==e.targetGeneration))throw Error('装備対象が不正です');
@@ -232,7 +235,7 @@ export function view(s,viewer){
  const describe=id=>({...card(s,id),cardId:card(s,id).id,id,name:title(s,id)});
  const players={};for(const a of ['A','B']){const p=s.players[a],b=p.board;players[a]={time:p.time,growth:p.growth,relationship:p.relationship,handCount:p.hand.length,deckCount:p.deck.length,discard:p.discard.map(describe),stats:stats(s,a),board:{main:b.main?describe(b.main):null,partner:b.partner?describe(b.partner):null,world:b.world?describe(b.world):null,companions:b.companions.map(describe),prepared:b.prepared.map((e,i)=>e.faceDown&&a!==viewer?{id:'hidden:'+a+':'+i,name:'しかけたカード',text:'相手の伏せ札は確認できません',hidden:true}:{...describe(e.id),target:e.faceDown?'しかける':title(s,e.target)})}};if(a===viewer)players[a].hand=p.hand.map(describe);}
  const targetLabel=(l,id)=>(l.hiddenTargets??[]).includes(id)&&s.cards[id].owner!==viewer?'しかけたカード':privateLabel(s,viewer,title(s,id));const choice=s.choice&&s.choice.actor===viewer?{kind:s.choice.kind,peek:s.choice.peek?s.choice.peek.map(describe):s.choice.kind==='look'?describe(s.players[viewer].deck[0]):null}:null;
- return {round:s.round,turn:s.turn,actor:actor(s),phase:s.phase,revision:s.revision,result:s.result,players,choice,chain:s.chain.map(l=>({actor:l.actor,name:title(s,l.source),target:l.publicTargets?.length?l.publicTargets.map(id=>targetLabel(l,id)).join(' / '):l.target?targetLabel(l,l.target):null,declare:l.declare?TYPE_NAMES[l.declare]:null})),log:s.log.slice(-60),actions:viewer===actor(s)?legalActions(s).map((a,i)=>({kind:a.kind,source:a.source,label:privateLabel(s,viewer,a.label),id:`ui:${s.revision}:${i}`})):[]};
+ return {...(s.life?{life:{final:s.life.final}}:{}),round:s.round,turn:s.turn,actor:actor(s),phase:s.phase,revision:s.revision,result:s.result,players,choice,chain:s.chain.map(l=>({actor:l.actor,name:title(s,l.source),target:l.publicTargets?.length?l.publicTargets.map(id=>targetLabel(l,id)).join(' / '):l.target?targetLabel(l,l.target):null,declare:l.declare?TYPE_NAMES[l.declare]:null})),log:s.log.slice(-60),actions:viewer===actor(s)?legalActions(s).map((a,i)=>({kind:a.kind,source:a.source,label:privateLabel(s,viewer,a.label),id:`ui:${s.revision}:${i}`})):[]};
 }
 export function save(s){if(s.version===legacy.VERSION)return legacy.save(s);validate(s);return JSON.stringify({version:s.version,seed:s.seed,decks:s.decks,commands:s.commands});}
 export function restore(text){const data=JSON.parse(text);if(data.version===legacy.VERSION)return legacy.restore(text);if(!RULE_VERSIONS.includes(data.version)||!Array.isArray(data.commands)||data.commands.length>10000||Object.keys(data).sort().join()!=='commands,decks,seed,version')throw Error('保存形式が異なります');let s=createGame(data.seed,data.decks,data.version);for(const id of data.commands)s=act(s,actor(s),s.revision,id);return s;}

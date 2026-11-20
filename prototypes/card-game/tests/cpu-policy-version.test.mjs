@@ -1,5 +1,5 @@
 // CPU policy versions and save compatibility.
-// - New CPU matches are saved with the current policy version (heuristic-2).
+// - New CPU matches are saved with the current policy version (heuristic-4).
 // - A saved CPU match keeps the policy version it was started with: a heuristic-1 save restores and its CPU keeps
 //   choosing with heuristic-1 (same moves as before heuristic-2 existed); an unknown version is still refused.
 // - heuristic-1 CPU-vs-CPU games reproduce the golden saves recorded on main 851cf09a; beginner-only games are
@@ -20,8 +20,9 @@ function stepOnce(raw){const s=restoreMatch(raw);s.reveal(); // the app reveals 
  assert.ok(s.cpuPending,'CPU to move');const before=JSON.parse(s.engineSave).commands.length;
  assert.ok(s.stepCpu(s.projection.revision));const cmds=JSON.parse(s.engineSave).commands;assert.equal(cmds.length,before+1);return {session:s,command:JSON.parse(cmds.at(-1))};}
 // heuristic-3（480）：中級だけ、恋人の結婚の能力を評価に加えた版。heuristic-1・2 の保存はそのまま再開できる（下のテスト）。
-test('方針の版：現在は heuristic-3、既知の版は heuristic-1・heuristic-2・heuristic-3',()=>{assert.equal(POLICY_VERSION,'heuristic-3');assert.deepEqual([...POLICY_VERSIONS],['heuristic-1','heuristic-2','heuristic-3']);});
-test('新しいCPU対戦は heuristic-3 で保存される',()=>{const s=new CpuSession({humanSeat:'A',difficulty:'intermediate',policySeed:3});s.start(e.createGame(5));assert.equal(JSON.parse(s.save()).policy,'heuristic-3');});
+test('方針の版：現在は heuristic-4、旧 heuristic-1・2・3 も残す',()=>{assert.equal(POLICY_VERSION,'heuristic-4');assert.deepEqual([...POLICY_VERSIONS],['heuristic-1','heuristic-2','heuristic-3','heuristic-4']);});
+test('新しいCPU対戦は heuristic-4 で保存される',()=>{const s=new CpuSession({humanSeat:'A',difficulty:'intermediate',policySeed:3});s.start(e.createGame(5));assert.equal(JSON.parse(s.save()).policy,'heuristic-4');});
+test('heuristic-3 の途中保存は元の版で再開・再保存できる',()=>{const {session}=stepOnce(cpuSave(F['ski:power'],'heuristic-3',3));assert.equal(JSON.parse(session.save()).policy,'heuristic-3');assert.equal(JSON.parse(restoreMatch(session.save()).save()).policy,'heuristic-3');});
 test('heuristic-1 の途中保存は再開でき、続きも heuristic-1 で指す（再保存しても heuristic-1）',()=>{
  const f=F['ski:power'];let differs=0;
  for(let seed=1;seed<=12;seed++){

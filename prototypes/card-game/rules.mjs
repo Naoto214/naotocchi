@@ -205,3 +205,12 @@ for(const [id,rule] of Object.entries(COPY_RULES))add(id,rule);
  add2('P-sunflower_partner',r=>({...r,triggers:[...r.triggers,T({when:'time_skip',target:'ownMain',steps:[stat(0,1)],once:true,limitKey:0})]}));
  add2('P-swamp_croc',r=>({...r,triggers:[...r.triggers,T({when:'challengeResult',condition:{all:['tied',{not:'eventOwnChallenge'}]},once:true,limitKey:0,steps:[draw()]})]}));
 }
+
+// ---- Approved seven cards (PR #498, VERSION 18 adoption) ----
+add('W-time-ix',{mode:'world',placeCondition:'roundAtMost9',reaction:'timeCounter',triggers:[{when:'place',mandatory:true,steps:[{op:'timeSet',n:9}]}]});
+add('W-time-x',{mode:'world',placeCondition:'roundAtMost10',reaction:'timeCounter',triggers:[{when:'place',mandatory:true,steps:[{op:'timeSet',n:10}]}]});
+add('W-time-xi',{mode:'world',placeCondition:'roundAtMost11',reaction:'timeCounter',triggers:[{when:'place',mandatory:true,steps:[{op:'timeSet',n:11}]}]});
+add('W-time-xii',{mode:'world',placeCondition:'roundAtMost12',reaction:'timeCounter',triggers:[{when:'place',mandatory:true,steps:[{op:'timeSet',n:12}]}]});
+add('E-hayajimai',{mode:'quick',condition:{"all":[{"value":"growth","op":"lt","n":{"value":"opponentGrowth"}},{"value":"roundsLeft","op":"eq","n":1}]},onceName:true,steps:[{"op":"growth","n":5,"to":"self"},{"op":"if","condition":{"value":"final","op":"lte","n":10},"steps":[{"op":"growth","n":5,"to":"self"}]},{"op":"if","condition":{"value":"final","op":"eq","n":9},"steps":[{"op":"growth","n":5,"to":"self"}]}]});
+add('E-nagaiki',{mode:'quick',steps:[{"op":"if","condition":{"all":[{"value":"final","op":"gte","n":11},{"value":"growth","op":"lt","n":{"value":"opponentGrowth"}}]},"steps":[{"op":"growth","n":10,"to":"self"}]},{"op":"growth","n":5,"to":"self"}]});
+add('E-omoide-photo',{mode:'quick',condition:{"value":"roundsLeft","op":"eq","n":0},onceName:true,steps:[{op:'growthByValue',key:'photoCount',per:5,max:15}]});

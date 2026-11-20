@@ -26,13 +26,13 @@ test('19候補名が本体・図鑑マスター・カード表示で一致する
 test('452 IDs・能力・数値・原典・正式名を保持する',()=>{
  const baseline=JSON.parse(fs.readFileSync(new URL('./fixtures/evolution-names-baseline.json',import.meta.url)));
  const kanji=JSON.parse(fs.readFileSync(new URL('../../../tools/kanji-display-names-v17-20261119.json',import.meta.url))).cards;
- const actual=Object.fromEntries(Object.entries(CATALOG).map(([id,card])=>{const c={...card};if(kanji[id]){assert.equal(c.name,kanji[id].displayName);c.name=kanji[id].legacyNames[0];delete c.reading;delete c.searchAliases;delete c.displayNameVersion;}if(id==='E-special-trip-memory')for(const region of ['W-memory_lake','W-star_stop'])c.text=c.text.replace(kanji[region].displayName,kanji[region].legacyNames[0]);if(expected[id]){delete c.form;delete c.searchAliases;delete c.displayNameVersion;}return [id,c];}));
+ const actual=Object.fromEntries(Object.entries(CATALOG).filter(([id])=>baseline.ids.includes(id)).map(([id,card])=>{const c={...card};if(kanji[id]){assert.equal(c.name,kanji[id].displayName);c.name=kanji[id].legacyNames[0];delete c.reading;delete c.searchAliases;delete c.displayNameVersion;}if(id==='E-special-trip-memory')for(const region of ['W-memory_lake','W-star_stop'])c.text=c.text.replace(kanji[region].displayName,kanji[region].legacyNames[0]);if(expected[id]){delete c.form;delete c.searchAliases;delete c.displayNameVersion;}return [id,c];}));
  assert.deepEqual(Object.keys(actual),baseline.ids);
  assert.equal(createHash('sha256').update(JSON.stringify(actual)).digest('hex'),baseline.sha256);
 });
 test('旧保存のversion/seed/decks/commandsを維持し再生できる',()=>{
  const fixtures=JSON.parse(fs.readFileSync(new URL('./fixtures/evolution-names-old-replays.json',import.meta.url)));
- assert.deepEqual(fixtures.map(x=>x.version),e.RULE_VERSIONS);
+ assert.deepEqual(fixtures.map(x=>x.version),e.RULE_VERSIONS.filter(v=>v!=='hotseat-9'));
  for(const {save,stateSha256} of fixtures){
   const restored=e.restore(save);
   assert.equal(e.save(restored),save);

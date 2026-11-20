@@ -5,9 +5,9 @@ import {LOVER_MARRIED,MARRIED_CPU_VALUE} from './lover-married.mjs';
 // (cpu-session.mjs), so a saved match never changes its CPU. heuristic-1 = the policy up to 2026-10-30.
 // heuristic-2 = heuristic-1 + `statChoice` for the intermediate CPU (stat-choosing candidates follow the compared stat
 // of an open challenge; PR #491 B1). The beginner is identical in both versions.
-export const POLICY_VERSION='heuristic-3';
-export const POLICY_VERSIONS=Object.freeze(['heuristic-1','heuristic-2','heuristic-3']);
-const VERSION_FEATURES=Object.freeze({'heuristic-1':{},'heuristic-2':{intermediate:{statChoice:true}},'heuristic-3':{intermediate:{statChoice:true,loverMarried:true}}});
+export const POLICY_VERSION='heuristic-4';
+export const POLICY_VERSIONS=Object.freeze(['heuristic-1','heuristic-2','heuristic-3','heuristic-4']);
+const VERSION_FEATURES=Object.freeze({'heuristic-1':{},'heuristic-2':{intermediate:{statChoice:true}},'heuristic-3':{intermediate:{statChoice:true,loverMarried:true}},'heuristic-4':{beginner:{timeCards:true},intermediate:{statChoice:true,loverMarried:true,timeCards:true}}});
 // heuristic-3（中級だけ）：恋人の「♥ 結婚したら」の見積もり。1回型は値そのもの、それ以外は値×残りのターン数（480・VERSION 5 で検証）。
 const marriedKind=id=>LOVER_MARRIED[id]?.cpuKind??LOVER_MARRIED[id]?.kind;
 const marriedWorth=(id,o)=>{const v=MARRIED_CPU_VALUE[id]??0,left=Math.max(0,10-(o.round??1));return marriedKind(id)==='once'?v:v*left;};
@@ -23,7 +23,7 @@ const other=a=>a==='A'?'B':'A';
 function tie(seed,step,index){let n=(seed^Math.imul(step+1,2654435761)^Math.imul(index+1,2246822519))>>>0;n=Math.imul(n^(n>>>16),2246822507);return ((n^(n>>>13))>>>0)/4294967296;}
 function cardValue(c,o){
  if(!c)return 0;const p=o.players[o.seat],b=p.board;
- if(c.type==='main'){const cost=!b.main?c.stage:b.main.species===c.species?c.stage-b.main.stage:c.stage;if(cost<=0)return 1;return (!b.main?16:4)+(cost<=Math.max(p.time,Math.min(10,o.round+1))?8:-3)+(b.main?.species===c.species?4:0)+Math.max(c.power??0,c.wisdom??0)*.3-cost*.6;}
+ if(c.type==='main'){const cost=!b.main?c.stage:b.main.species===c.species?c.stage-b.main.stage:c.stage;if(cost<=0)return 1;return (!b.main?16:4)+(cost<=Math.max(p.time,Math.min(finalOf(o),o.round+1))?8:-3)+(b.main?.species===c.species?4:0)+Math.max(c.power??0,c.wisdom??0)*.3-cost*.6;}
  if(c.type==='partner')return b.partner?2:12+(o.loverMarried?Math.min(4,(MARRIED_CPU_VALUE[c.cardId]??0)):0);
  if(c.type==='companion')return b.companions.length<3?10:4;
  if(c.type==='world')return b.world?.cardId===c.cardId?1:b.world?3:8;
@@ -36,6 +36,40 @@ const choose=(n,k)=>{if(k<0||k>n)return 0;let r=1;for(let i=1;i<=k;i++)r=r*(n-k+
 function expectedHits(N,K,n,max){n=Math.min(n,N);if(!N||!K||!n)return 0;let e=0;const all=choose(N,n);for(let x=1;x<=Math.min(K,n);x++)e+=Math.min(x,max)*choose(K,x)*choose(N-K,n-x)/all;return e;}
 function searchValue(s,o,prof){if(prof.search!=='deck')return null;const mean=deckMean(o);if(!s.hit||!mean)return null;const K=s.hit.matches.reduce((n,c)=>n+c.count,0);if(!K)return 0;
  const best=Math.max(0,...s.hit.matches.map(c=>cardValue(c,o)));return 3*expectedHits(s.hit.N,K,s.n,s.max??1)*best/mean;}
+
+// Approved VERSION 6 adaptive policy; public observations only. Display aliases preserve the canonical time values.
+const TIMEN={IX:9,X:10,XI:11,XII:12,'時のカード IX':9,'時のカード X':10,'時のカード XI':11,'時のカード XII':12};
+const finalOf=o=>o.timeCards?(o.life?.final??10):10;
+function pendingFinal(o){for(let i=(o.chain?.length??0)-1;i>=0;i--){const n=TIMEN[o.chain[i].name];if(n)return n;}return o.life?.final??10;}
+const TREND={'M-turtle':-2,'M-mushroom':-.5,'M-cat':0,'M-dog':.5,'M-beetle':.5,'M-sakura':.5,'M-dragon':.5,'M-venus_flytrap':1,'M-salmon':1};
+// Preserve the approved generated candidate's /-d+$/ expression exactly; correcting its
+// original template escape would change measured deck-trend decisions.
+const spec=id=>id?.replace(/-d+$/,'')??null;
+function trendOf(o,seat){const m=o.players[seat]?.board?.main;let k=m&&!m.hidden?spec(m.cardId):null;
+ if(!k&&seat===o.seat){const n={};for(const c of o.deck??[])if(c.type==='main')n[spec(c.cardId)]=(n[spec(c.cardId)]??0)+c.count;k=Object.keys(n).sort((x,y)=>n[y]-n[x])[0]??null;}
+ return TREND[k]??0;}
+const PHI=x=>{const t=1/(1+.2316419*Math.abs(x)),y=.3989423*Math.exp(-x*x/2)*t*(.3193815+t*(-.3565638+t*(1.781478+t*(-1.821256+t*1.330274))));return x>0?1-y:y;};
+function winP(o,F,bonus=0){const me=o.players[o.seat],op=o.players[other(o.seat)],r=o.round,done=Math.max(.5,r-(o.turn===o.seat?.5:0)-.5);
+ const wt=done/(done+5),rate=(g,tr)=>wt*(g-20)/done+(1-wt)*7+tr;
+ const left=Math.max(0,F-r+.5),a=Math.min(100,me.growth+rate(me.growth,trendOf(o,o.seat))*left),b=Math.min(100,op.growth+rate(op.growth,trendOf(o,other(o.seat)))*left);
+ return PHI((Math.min(100,a+bonus)-b)/(6*Math.sqrt(left+.3)+2));}
+function timeValue(c,o){const n=TIMEN[c?.name],L=o.life;if(!n||!L)return null;const F=pendingFinal(o);if(n===F)return 0;
+ let v=80*(winP(o,n,v4Bonus(o,n))-winP(o,F,v4Bonus(o,F)));
+ if(L.holding[other(o.seat)])v+=n>F?-20:10;if(L.holding[o.seat])v+=n>F?10:-10;
+ const op=o.players[other(o.seat)],h=(op.hand?.length??op.handCount??0),qNow=(op.time??0)>=2?1-Math.pow(.92,h):0;
+ const stand=(1-qNow)*Math.pow(.9,Math.max(0,Math.min(n,F)-o.round));return v>0?v*stand:v;}
+
+const ownHand=o=>o.players[o.seat]?.hand??[],hasNew=(o,id)=>ownHand(o).filter(c=>c.cardId===id).length;
+function v4Bonus(o,n){const me=o.players[o.seat],op=o.players[other(o.seat)];let b=0;
+ if(me.growth<op.growth){if(hasNew(o,'E-hayajimai')&&n-o.round===1)b+=n===9?15:n===10?10:5;b+=10*Math.min(2,hasNew(o,'E-nagaiki'))*(n>=11?1:0);}
+ return b;}
+function newCardValue(a,o,spend){const id=a.card?.cardId;if(!['E-hayajimai','E-nagaiki','E-omoide-photo'].includes(id))return null;
+ const me=o.players[o.seat],op=o.players[other(o.seat)],F=o.life?.final??10,G=g=>g*growthMult(o),behind=me.growth<op.growth;
+ if(!['play','programPlay'].includes(a.kind))return null;
+ if(id==='E-hayajimai')return G(F===9?15:F===10?10:5)-3-spend;
+ if(id==='E-nagaiki'){const big=F>=11&&behind;if(big||o.round>=F)return G(big?15:5)-3-spend;if(me.growth<100&&me.growth+5>=100&&!o.life?.holding?.[o.seat])return G(5)+10-3-spend;const ext=ownHand(o).some(c=>TIMEN[c.name]>=11);const oh=op.handCount??op.hand?.length??0,qC=(op.time??0)>=2?1-Math.pow(.92,oh):0;const pExt=(F>=11?1:ext&&o.round<=10?.75:o.round<=6?.35:o.round<=8?.25:.12)*(F>=11?1:1-.5*qC);const pW=winP(o,F),pBehind=Math.min(.95,Math.max(.05,1-pW));const hs=ownHand(o).length,crowd=hs>=7?.3:hs>=5?.15:.05;const later=(5+10*pExt*pBehind)*(1-crowd)*.95;if(later>5-spend/growthMult(o))return -1;return G(5)-3-spend;}
+ if(id==='E-omoide-photo'){const b=me.board,n=Math.min(3,(b.companions?.length??0)+(b.partner?1:0)+(b.world&&!TIMEN[b.world.name]?1:0));return n?G(5*n)-3-spend:-1;}
+ return null;}
 const growthMult=o=>o.round>=8?2.2:1.6;
 // statChoice (heuristic-2): only the compared stat matters in an open challenge.
 const STAT_KEYS=new Set(['power','wisdom']);
@@ -67,7 +101,7 @@ function stepValue(steps,o,a,prof=PROFILES.intermediate){
  case 'negate':v=o.chain.some(l=>l.actor!==o.seat)?12:0;break;
  case 'discount':v=o.turn===o.seat?n*2:0.5;break;
  case 'handBottom':case 'handTop':v=-3;break;
- case 'schedule':v=stepValue(s.steps,o,a,prof)*(o.round===10?.1:.65);break;
+ case 'schedule':v=stepValue(s.steps,o,a,prof)*(o.round===finalOf(o)?.1:.65);break;
  // targetPresent re-checks the action's own target, which is on the field whenever the action is offered.
  // statChoice: a branch guarded by the chosen variant (cpu-observation.mjs `variantCond`) applies exactly for that variant.
  case 'if':if(prof.statChoice&&s.variantCond!=null){v=a.variant===s.variantCond?stepValue(s.steps,o,a,prof):0;break;}
@@ -108,12 +142,12 @@ export function scoreCpuAction(a,o,spendOf=legacySpend,prof=PROFILES.intermediat
  if(a.kind==='choose')return choiceScore(a,o);
  if(a.kind==='pass')return 0;
  if(a.kind==='skip')return -0.1;
- const spend=spendOf(a,o);
+ const spend=spendOf(a,o);{const nv=o.timeCards?newCardValue(a,o,spend):null;if(nv!==null)return nv;}
  if(a.kind==='place'){
   if(a.slot==='main'){if(a.variant==='birth')return 40+Math.max(c?.power??0,c?.wisdom??0)-spend;const improvement=Math.max(c?.power??0,c?.wisdom??0)-Math.max(p.stats?.power??0,p.stats?.wisdom??0);return (a.variant==='time_skip'?13+Math.min(a.timeSkipBonus??0,100-p.growth)*growthMult(o):0)+improvement*2+(c?.stage??0)-(b.main?.stage??0)-spend;}
   if(a.slot==='partner')return 20+(b.main?6:0)+(o.loverMarried?Math.min(4,(MARRIED_CPU_VALUE[c?.cardId]??0)):0);
   if(a.slot==='companions')return a.target?cardValue(c,o)-cardValue(a.target,o)-2:15;
-  if(a.slot==='world')return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;
+  if(a.slot==='world'){const tv=o.timeCards?timeValue(c,o):null;if(tv!==null)return (tv<=.5?-1:tv)-spend-(b.world&&!TIMEN[b.world.name]?3+(ownHand(o).some(x=>x.cardId==='E-omoide-photo')?5:0):0);return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;}
   if(a.slot==='prepared')return 7-spend+(b.main?2:0)+(o.loverMarried&&c?.cardId==='I-partner1'&&p.relationship===4?4:0);
  }
  if(a.kind==='relationship')return (p.relationship===3?28+(o.loverMarried&&b.partner?marriedWorth(b.partner.cardId,o):0):17)-spend;
@@ -155,7 +189,7 @@ export function chooseCpuAction(observation,{difficulty='intermediate',seed=1,st
  if(!DIFFICULTIES.includes(difficulty))throw Error('Unsupported CPU difficulty');
  if(!POLICY_VERSIONS.includes(version))throw Error('Unsupported CPU policy version');
  if(!observation?.actions?.length)throw Error('CPU has no legal candidates');
- const prof={...PROFILES[difficulty],...VERSION_FEATURES[version][difficulty],...profile},o={...observation,loverMarried:!!prof.loverMarried},timed=timeOpportunity(o,prof);
+ const prof={...PROFILES[difficulty],...VERSION_FEATURES[version][difficulty],...profile},o={...observation,loverMarried:!!prof.loverMarried,timeCards:!!prof.timeCards},timed=timeOpportunity(o,prof);
  // Beginner does not react on the opponent's turn: only required choices/triggers and passing.
  const idle=!prof.opponentTurn&&o.turn!==o.seat&&o.phase==='response';
  const ranked=o.actions.map((a,i)=>{let score=timed?timed[i]:scoreCpuAction(a,o,legacySpend,prof);if(!Number.isFinite(score))throw Error('Non-finite CPU evaluation');if(idle&&a.kind!=='pass'&&!a.mandatory)score=Math.min(score,-1);if(prof.cap!==null&&score>0&&a.kind!=='choose')score=Math.min(score,prof.cap);return {id:a.id,score,tie:tie(seed,step,i)};}).sort((a,b)=>b.score-a.score||b.tie-a.tie);
