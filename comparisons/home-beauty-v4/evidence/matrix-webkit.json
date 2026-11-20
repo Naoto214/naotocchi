@@ -1,0 +1,722 @@
+{
+ "browser": "26.5",
+ "results": {
+  "sea/1/D3": {
+   "elapsed": 6.031,
+   "pairs": 67,
+   "firstDelay": 9,
+   "rafHz": 11.114797611147976,
+   "p95": 169,
+   "max": 327,
+   "cachedBackgroundHz": 11.275078759741337,
+   "internalHz": 4.8135549707977665,
+   "count": 1,
+   "pausedSec": 0,
+   "modelSeconds": 5.442999999999994,
+   "moves": 1,
+   "approaches": null,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     163,
+     134,
+     131,
+     129,
+     125,
+     119,
+     116,
+     112,
+     108,
+     104
+    ]
+   }
+  },
+  "sea/1/E1": {
+   "elapsed": 6.057,
+   "pairs": 70,
+   "firstDelay": 100,
+   "rafHz": 11.690046760187041,
+   "p95": 130,
+   "max": 180,
+   "cachedBackgroundHz": 11.721974574872048,
+   "internalHz": 6.242197253433209,
+   "count": 1,
+   "pausedSec": 0,
+   "modelSeconds": 6.275999999999992,
+   "moves": 1,
+   "approaches": null,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     106,
+     91,
+     71,
+     59,
+     43
+    ]
+   }
+  },
+  "sea/1/E2": {
+   "elapsed": 6.064,
+   "pairs": 64,
+   "firstDelay": 5,
+   "rafHz": 10.562799141772569,
+   "p95": 164,
+   "max": 244,
+   "cachedBackgroundHz": 10.718997361477573,
+   "internalHz": 6.8991950939057105,
+   "count": 1,
+   "pausedSec": 0,
+   "modelSeconds": 6.6299999999999955,
+   "moves": 1,
+   "approaches": null,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     170,
+     120,
+     116,
+     114,
+     112,
+     111,
+     109,
+     106,
+     104,
+     100
+    ]
+   }
+  },
+  "sea/1/E3": {
+   "elapsed": 6.042,
+   "pairs": 53,
+   "firstDelay": 45,
+   "rafHz": 8.817168524371985,
+   "p95": 228,
+   "max": 292,
+   "cachedBackgroundHz": 8.937437934458789,
+   "internalHz": 5.2264808362369335,
+   "count": 1,
+   "pausedSec": 0,
+   "modelSeconds": 6.520999999999989,
+   "moves": 1,
+   "approaches": null,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     135,
+     102,
+     101,
+     96,
+     91,
+     86,
+     82,
+     74,
+     73,
+     71
+    ]
+   }
+  },
+  "forest/1/D3": {
+   "elapsed": 6.057,
+   "pairs": 93,
+   "firstDelay": 27,
+   "rafHz": 15.422885572139304,
+   "p95": 114,
+   "max": 292,
+   "cachedBackgroundHz": 13.868251609707775,
+   "internalHz": 8.23981793926077,
+   "count": 1,
+   "pausedSec": 0,
+   "modelSeconds": 6.167999999999998,
+   "moves": 1,
+   "approaches": null,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     106,
+     83,
+     79,
+     77,
+     76,
+     75,
+     73,
+     68,
+     63,
+     61
+    ]
+   }
+  },
+  "forest/1/E1": {
+   "elapsed": 6.043,
+   "pairs": 90,
+   "firstDelay": 112,
+   "rafHz": 15.159171298635675,
+   "p95": 114,
+   "max": 296,
+   "cachedBackgroundHz": 12.907496276683766,
+   "internalHz": 8.41009211053264,
+   "count": 1,
+   "pausedSec": 0,
+   "modelSeconds": 6.542999999999999,
+   "moves": 1,
+   "approaches": null,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     79,
+     59,
+     33,
+     33,
+     29,
+     28,
+     26,
+     25,
+     23,
+     21
+    ]
+   }
+  },
+  "forest/1/E2": {
+   "elapsed": 6.011,
+   "pairs": 80,
+   "firstDelay": 43,
+   "rafHz": 13.391362571141613,
+   "p95": 138,
+   "max": 193,
+   "cachedBackgroundHz": 12.809848610880053,
+   "internalHz": 7.137192704203013,
+   "count": 1,
+   "pausedSec": 0,
+   "modelSeconds": 6.184999999999997,
+   "moves": 1,
+   "approaches": null,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     110,
+     91,
+     72,
+     70,
+     69,
+     67,
+     65,
+     64,
+     63,
+     61
+    ]
+   }
+  },
+  "forest/1/E3": {
+   "elapsed": 6.069,
+   "pairs": 68,
+   "firstDelay": 284,
+   "rafHz": 11.665808886601475,
+   "p95": 187,
+   "max": 445,
+   "cachedBackgroundHz": 10.71016641950898,
+   "internalHz": 6.014916994145481,
+   "count": 1,
+   "pausedSec": 0,
+   "modelSeconds": 5.588999999999989,
+   "moves": 1,
+   "approaches": null,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     125,
+     90,
+     86,
+     85,
+     83,
+     81,
+     79,
+     78,
+     76,
+     75
+    ]
+   }
+  },
+  "sea/4/D3": {
+   "elapsed": 6.176,
+   "pairs": 115,
+   "firstDelay": 12,
+   "rafHz": 18.754076973255057,
+   "p95": 138,
+   "max": 320,
+   "cachedBackgroundHz": 7.610103626943005,
+   "internalHz": 8.369868473495416,
+   "count": 4,
+   "pausedSec": 0,
+   "modelSeconds": 6.068999999999999,
+   "moves": 2,
+   "approaches": 1,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     569,
+     623,
+     602,
+     601,
+     600,
+     596,
+     595,
+     594,
+     593,
+     593
+    ]
+   }
+  },
+  "sea/4/E1": {
+   "elapsed": 6.095,
+   "pairs": 83,
+   "firstDelay": 439,
+   "rafHz": 13.728084684088653,
+   "p95": 138,
+   "max": 498,
+   "cachedBackgroundHz": 7.219031993437244,
+   "internalHz": 6.994637444625787,
+   "count": 4,
+   "pausedSec": 0,
+   "modelSeconds": 5.121,
+   "moves": 2,
+   "approaches": 1,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     316,
+     292,
+     289,
+     282,
+     281,
+     279,
+     278,
+     277,
+     276,
+     275
+    ]
+   }
+  },
+  "sea/4/E2": {
+   "elapsed": 6.559,
+   "pairs": 39,
+   "firstDelay": 89,
+   "rafHz": 6.377759607522486,
+   "p95": 408,
+   "max": 635,
+   "cachedBackgroundHz": 4.726330233267266,
+   "internalHz": 2.998400852878465,
+   "count": 4,
+   "pausedSec": 0,
+   "modelSeconds": 4.066999999999994,
+   "moves": 2,
+   "approaches": 1,
+   "drag": {
+    "marker": false,
+    "pointerToNextRAFms": [
+     157,
+     163,
+     115,
+     114,
+     113,
+     112,
+     111,
+     106,
+     105,
+     102
+    ]
+   }
+  },
+  "sea/4/E3": {
+   "elapsed": 6.163,
+   "pairs": 97,
+   "firstDelay": 1,
+   "rafHz": 15.79290133507001,
+   "p95": 109,
+   "max": 533,
+   "cachedBackgroundHz": 7.301638812266753,
+   "internalHz": 7.649158592554819,
+   "count": 4,
+   "pausedSec": 0,
+   "modelSeconds": 5.902,
+   "moves": 2,
+   "approaches": 1,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     387,
+     325,
+     398,
+     368,
+     364,
+     363,
+     361,
+     360,
+     359,
+     358
+    ]
+   }
+  },
+  "forest/4/D3": {
+   "elapsed": 6.055,
+   "pairs": 116,
+   "firstDelay": 3,
+   "rafHz": 19.173553719008265,
+   "p95": 104,
+   "max": 403,
+   "cachedBackgroundHz": 7.597027250206441,
+   "internalHz": 8.123162617979267,
+   "count": 4,
+   "pausedSec": 0,
+   "modelSeconds": 5.735999999999995,
+   "moves": 1,
+   "approaches": 1,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     296,
+     254,
+     252,
+     251,
+     250,
+     248,
+     246,
+     245,
+     243,
+     239
+    ]
+   }
+  },
+  "forest/4/E1": {
+   "elapsed": 6.16,
+   "pairs": 151,
+   "firstDelay": 97,
+   "rafHz": 24.909270867700428,
+   "p95": 88,
+   "max": 397,
+   "cachedBackgroundHz": 7.467532467532467,
+   "internalHz": 9.440641963653528,
+   "count": 4,
+   "pausedSec": 0,
+   "modelSeconds": 5.9179999999999975,
+   "moves": 1,
+   "approaches": 1,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     501,
+     427,
+     422,
+     410,
+     407,
+     405,
+     402,
+     398,
+     397,
+     393
+    ]
+   }
+  },
+  "forest/4/E2": {
+   "elapsed": 6.204,
+   "pairs": 57,
+   "firstDelay": 136,
+   "rafHz": 9.390444810543658,
+   "p95": 324,
+   "max": 779,
+   "cachedBackgroundHz": 5.963894261766603,
+   "internalHz": 4.133939644481191,
+   "count": 4,
+   "pausedSec": 0,
+   "modelSeconds": 5.033999999999995,
+   "moves": 1,
+   "approaches": 1,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     685,
+     652,
+     650,
+     648,
+     646,
+     645,
+     643,
+     642,
+     639,
+     638
+    ]
+   }
+  },
+  "forest/4/E3": {
+   "elapsed": 6.089,
+   "pairs": 103,
+   "firstDelay": 149,
+   "rafHz": 17.342987034854353,
+   "p95": 109,
+   "max": 412,
+   "cachedBackgroundHz": 7.718837247495483,
+   "internalHz": 8.215319615053595,
+   "count": 4,
+   "pausedSec": 0,
+   "modelSeconds": 6.027000000000003,
+   "moves": 1,
+   "approaches": 1,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     354,
+     314,
+     310,
+     309,
+     307,
+     306,
+     304,
+     303,
+     301,
+     299
+    ]
+   }
+  },
+  "sea/28/D3": {
+   "elapsed": 6.066,
+   "pairs": 111,
+   "firstDelay": 19,
+   "rafHz": 18.359245782335428,
+   "p95": 122,
+   "max": 463,
+   "cachedBackgroundHz": 7.748104187273327,
+   "internalHz": 5.9473237043330505,
+   "count": 28,
+   "pausedSec": 0,
+   "modelSeconds": 6.594999999999986,
+   "moves": 5,
+   "approaches": 3,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     528,
+     485,
+     483,
+     477,
+     475,
+     470,
+     468,
+     464,
+     459,
+     455
+    ]
+   }
+  },
+  "sea/28/E1": {
+   "elapsed": 6.012,
+   "pairs": 175,
+   "firstDelay": 14,
+   "rafHz": 29.186124082721815,
+   "p95": 92,
+   "max": 233,
+   "cachedBackgroundHz": 7.984031936127745,
+   "internalHz": 5.559158713981285,
+   "count": 28,
+   "pausedSec": 0,
+   "modelSeconds": 6.483999999999996,
+   "moves": 5,
+   "approaches": null,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     365,
+     364,
+     343,
+     342,
+     341,
+     340,
+     337,
+     329,
+     327,
+     325
+    ]
+   }
+  },
+  "sea/28/E2": {
+   "elapsed": 6.023,
+   "pairs": 124,
+   "firstDelay": 44,
+   "rafHz": 20.7566119852695,
+   "p95": 121,
+   "max": 311,
+   "cachedBackgroundHz": 7.471359787481322,
+   "internalHz": 6.172416158013854,
+   "count": 28,
+   "pausedSec": 0,
+   "modelSeconds": 5.505999999999995,
+   "moves": 5,
+   "approaches": 2,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     344,
+     262,
+     209,
+     208,
+     204,
+     202,
+     200,
+     198,
+     196,
+     194
+    ]
+   }
+  },
+  "sea/28/E3": {
+   "elapsed": 6.028,
+   "pairs": 120,
+   "firstDelay": 20,
+   "rafHz": 19.97336884154461,
+   "p95": 145,
+   "max": 499,
+   "cachedBackgroundHz": 7.465162574651626,
+   "internalHz": 6.3460724862501765,
+   "count": 28,
+   "pausedSec": 0,
+   "modelSeconds": 5.728999999999992,
+   "moves": 5,
+   "approaches": 2,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     426,
+     398,
+     396,
+     395,
+     392,
+     391,
+     390,
+     389,
+     383,
+     382
+    ]
+   }
+  },
+  "forest/28/D3": {
+   "elapsed": 6.007,
+   "pairs": 173,
+   "firstDelay": 63,
+   "rafHz": 29.060977658323534,
+   "p95": 100,
+   "max": 340,
+   "cachedBackgroundHz": 7.990677542866656,
+   "internalHz": 6.945650286508075,
+   "count": 28,
+   "pausedSec": 0,
+   "modelSeconds": 7.165999999999993,
+   "moves": 3,
+   "approaches": 2,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     277,
+     234,
+     222,
+     218,
+     214,
+     213,
+     205,
+     202,
+     201,
+     197
+    ]
+   }
+  },
+  "forest/28/E1": {
+   "elapsed": 6.177,
+   "pairs": 151,
+   "firstDelay": 1453,
+   "rafHz": 26.088458880442296,
+   "p95": 103,
+   "max": 1129,
+   "cachedBackgroundHz": 5.989962765096325,
+   "internalHz": 7.231820008035356,
+   "count": 28,
+   "pausedSec": 0,
+   "modelSeconds": 6.151999999999999,
+   "moves": 5,
+   "approaches": 3,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     178,
+     134,
+     95,
+     34,
+     31,
+     28,
+     25,
+     23,
+     19,
+     17
+    ]
+   }
+  },
+  "forest/28/E2": {
+   "elapsed": 6.127,
+   "pairs": 88,
+   "firstDelay": 701,
+   "rafHz": 14.678899082568808,
+   "p95": 188,
+   "max": 1424,
+   "cachedBackgroundHz": 4.896360372123389,
+   "internalHz": 5.001667222407469,
+   "count": 28,
+   "pausedSec": 0,
+   "modelSeconds": 5.668999999999999,
+   "moves": 6,
+   "approaches": 6,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     385,
+     153,
+     139,
+     137,
+     136,
+     133,
+     131,
+     129,
+     127,
+     126
+    ]
+   }
+  },
+  "forest/28/E3": {
+   "elapsed": 6.297,
+   "pairs": 105,
+   "firstDelay": 1318,
+   "rafHz": 17.338177014531045,
+   "p95": 140,
+   "max": 1504,
+   "cachedBackgroundHz": 4.922979196442751,
+   "internalHz": 5.703422053231939,
+   "count": 28,
+   "pausedSec": 0,
+   "modelSeconds": 6.572999999999997,
+   "moves": 4,
+   "approaches": 2,
+   "drag": {
+    "marker": true,
+    "pointerToNextRAFms": [
+     108,
+     76,
+     67,
+     63,
+     57,
+     56,
+     51,
+     48,
+     42,
+     38
+    ]
+   }
+  }
+ },
+ "errors": [],
+ "httpErrors": []
+}

@@ -1,0 +1,575 @@
+{
+ "browser": "156.0.8078.79",
+ "results": {
+  "forest/D3": {
+   "records": [
+    {
+     "checkpoint": 30,
+     "wall": 30.067800000000744,
+     "clock": 30.0655,
+     "windowSeconds": 0.5166999999999966,
+     "clockDelta": 0.5167000000000002,
+     "changedPercent": 9.621514642006446,
+     "meanChannelMax": 1.7369430432955024,
+     "poses": [
+      [
+       "pet:dog",
+       "-23.52px 4.99px",
+       "0.983519 0.574347"
+      ]
+     ],
+     "paused": "false",
+     "speech": false
+    },
+    {
+     "checkpoint": 60,
+     "wall": 60.01660000000075,
+     "clock": 60.014300000000006,
+     "windowSeconds": 0.30000000000000426,
+     "clockDelta": 0.29999999999999716,
+     "changedPercent": 4.33392882163374,
+     "meanChannelMax": 0.6654581757040774,
+     "poses": [
+      [
+       "pet:dog",
+       "45.3px -46.43px",
+       "0.922992 0.539"
+      ]
+     ],
+     "paused": "false",
+     "speech": false
+    },
+    {
+     "checkpoint": 180,
+     "wall": 180.02850000000075,
+     "clock": 167.91,
+     "windowSeconds": 0.5167000000000144,
+     "clockDelta": 0,
+     "changedPercent": 0,
+     "meanChannelMax": 0,
+     "poses": [
+      [
+       "pet:dog",
+       "44.36px -9.76px",
+       "0.925895 0.6028"
+      ]
+     ],
+     "paused": "true",
+     "speech": false
+    }
+   ],
+   "callbacks": 2062,
+   "maxGap": 833.3000000000175,
+   "initialPoses": [
+    [
+     "pet:dog",
+     "65.52px 135.55px",
+     "1.13723 0.66411"
+    ]
+   ],
+   "wall": 180.05870000000297,
+   "width": 640,
+   "height": 1688,
+   "visible": "visible"
+  },
+  "sea/E3": {
+   "records": [
+    {
+     "checkpoint": 30,
+     "wall": 30.035800000001487,
+     "clock": 30.0321,
+     "windowSeconds": 0.5165999999999897,
+     "clockDelta": 0.5165999999999968,
+     "changedPercent": 28.463465041333894,
+     "meanChannelMax": 5.126777707720331,
+     "poses": [
+      [
+       "pet:dog",
+       "84.61px 53.5px",
+       "1.03802 0.286868"
+      ]
+     ],
+     "paused": "false",
+     "speech": true
+    },
+    {
+     "checkpoint": 60,
+     "wall": 60.001400000001496,
+     "clock": 59.99770000000001,
+     "windowSeconds": 0.30000000000000426,
+     "clockDelta": 0.29999999999999716,
+     "changedPercent": 23.6934286114614,
+     "meanChannelMax": 3.376042104525711,
+     "poses": [
+      [
+       "pet:dog",
+       "8.75px 134.43px",
+       "1.21571 0.335974"
+      ]
+     ],
+     "paused": "false",
+     "speech": false
+    },
+    {
+     "checkpoint": 180,
+     "wall": 180.0132000000015,
+     "clock": 93.07960000000003,
+     "windowSeconds": 0.4998999999999967,
+     "clockDelta": 0,
+     "changedPercent": 0,
+     "meanChannelMax": 0,
+     "poses": [
+      [
+       "pet:dog",
+       "85.01px 87.4px",
+       "1.03737 0.296687"
+      ]
+     ],
+     "paused": "true",
+     "speech": false
+    }
+   ],
+   "callbacks": 2127,
+   "maxGap": 950,
+   "initialPoses": [
+    [
+     "pet:dog",
+     "-9.06px 64.55px",
+     "1.06228 0.293574"
+    ]
+   ],
+   "wall": 180.07130000000075,
+   "width": 640,
+   "height": 1688,
+   "visible": "visible"
+  },
+  "sea/E1": {
+   "records": [
+    {
+     "checkpoint": 30,
+     "wall": 30.099399999999253,
+     "clock": 29.898799999999987,
+     "windowSeconds": 0.5333000000000041,
+     "clockDelta": 0.533299999999997,
+     "changedPercent": 29.459156508336836,
+     "meanChannelMax": 5.478264677035169,
+     "poses": [
+      [
+       "pet:dog",
+       "93.38px 74.35px",
+       "1.08381 0.299522"
+      ]
+     ],
+     "paused": "false",
+     "speech": true
+    },
+    {
+     "checkpoint": 60,
+     "wall": 60.11489999999925,
+     "clock": 59.91429999999999,
+     "windowSeconds": 0.4665999999999926,
+     "clockDelta": 0.46659999999998547,
+     "changedPercent": 28.978387277567606,
+     "meanChannelMax": 4.969656368221942,
+     "poses": [
+      [
+       "pet:dog",
+       "69.65px 135.09px",
+       "1.21714 0.33637"
+      ]
+     ],
+     "paused": "false",
+     "speech": false
+    },
+    {
+     "checkpoint": 180,
+     "wall": 180.04349999999926,
+     "clock": 163.4435,
+     "windowSeconds": 0.516699999999986,
+     "clockDelta": 0,
+     "changedPercent": 0,
+     "meanChannelMax": 0,
+     "poses": [
+      [
+       "pet:dog",
+       "-93.16px 85.67px",
+       "1.03356 0.295596"
+      ]
+     ],
+     "paused": "true",
+     "speech": false
+    }
+   ],
+   "callbacks": 2085,
+   "maxGap": 850.1000000000058,
+   "initialPoses": [
+    [
+     "pet:dog",
+     "90.97px 140.97px",
+     "1.23006 0.339941"
+    ]
+   ],
+   "wall": 180.1408999999985,
+   "width": 640,
+   "height": 1688,
+   "visible": "visible"
+  },
+  "sea/D3": {
+   "records": [
+    {
+     "checkpoint": 30,
+     "wall": 30.034600000000747,
+     "clock": 29.96549999999999,
+     "windowSeconds": 0.5333000000000006,
+     "clockDelta": 0.533299999999997,
+     "changedPercent": 18.644038111251227,
+     "meanChannelMax": 3.3172551492223623,
+     "poses": [
+      [
+       "pet:dog",
+       "-9.06px 64.55px",
+       "1.06228 0.293574"
+      ]
+     ],
+     "paused": "false",
+     "speech": false
+    },
+    {
+     "checkpoint": 60,
+     "wall": 60.28340000000075,
+     "clock": 60.21430000000001,
+     "windowSeconds": 0.6666000000000096,
+     "clockDelta": 0.6666000000000167,
+     "changedPercent": 19.500490402129746,
+     "meanChannelMax": 3.9091530054644807,
+     "poses": [
+      [
+       "pet:dog",
+       "93.38px 156.34px",
+       "1.26381 0.349268"
+      ]
+     ],
+     "paused": "false",
+     "speech": false
+    },
+    {
+     "checkpoint": 180,
+     "wall": 180.04530000000074,
+     "clock": 72.48059999999998,
+     "windowSeconds": 0.516600000000011,
+     "clockDelta": 0,
+     "changedPercent": 0,
+     "meanChannelMax": 0,
+     "poses": [
+      [
+       "pet:dog",
+       "-93.36px 96.73px",
+       "1.05785 0.302543"
+      ]
+     ],
+     "paused": "true",
+     "speech": false
+    }
+   ],
+   "callbacks": 2181,
+   "maxGap": 883.3000000000175,
+   "initialPoses": [
+    [
+     "pet:dog",
+     "-76.5px 71.41px",
+     "1.07734 0.297736"
+    ]
+   ],
+   "wall": 180.15440000000223,
+   "width": 640,
+   "height": 1688,
+   "visible": "visible"
+  },
+  "forest/E2": {
+   "records": [
+    {
+     "checkpoint": 30,
+     "wall": 30.047,
+     "clock": 30.032199999999992,
+     "windowSeconds": 0.5333000000000041,
+     "clockDelta": 0.533299999999997,
+     "changedPercent": 9.904371584699453,
+     "meanChannelMax": 1.4347327308392883,
+     "poses": [
+      [
+       "pet:dog",
+       "65.23px 135.26px",
+       "1.13689 0.66391"
+      ]
+     ],
+     "paused": "false",
+     "speech": false
+    },
+    {
+     "checkpoint": 60,
+     "wall": 60.26239999999999,
+     "clock": 60.04769999999996,
+     "windowSeconds": 0.6999999999999957,
+     "clockDelta": 0.6999999999999886,
+     "changedPercent": 22.71437578814628,
+     "meanChannelMax": 4.092143057306992,
+     "poses": [
+      [
+       "pet:dog",
+       "-28.78px 8.49px",
+       "0.987647 0.576757"
+      ]
+     ],
+     "paused": "false",
+     "speech": true
+    },
+    {
+     "checkpoint": 180,
+     "wall": 180.02429999999998,
+     "clock": 110.67899999999997,
+     "windowSeconds": 0.5165999999999826,
+     "clockDelta": 0,
+     "changedPercent": 0,
+     "meanChannelMax": 0,
+     "poses": [
+      [
+       "pet:dog",
+       "-70.99px 115.41px",
+       "1.07325 0.698738"
+      ]
+     ],
+     "paused": "true",
+     "speech": false
+    }
+   ],
+   "callbacks": 1936,
+   "maxGap": 1866.5999999999913,
+   "initialPoses": [
+    [
+     "pet:dog",
+     "33.01px 73.21px",
+     "1.06384 0.621249"
+    ]
+   ],
+   "wall": 180.12219999999925,
+   "width": 640,
+   "height": 1688,
+   "visible": "visible"
+  },
+  "sea/E2": {
+   "records": [
+    {
+     "checkpoint": 30,
+     "wall": 30.14749999999776,
+     "clock": 30.13209999999998,
+     "windowSeconds": 0.5166999999999966,
+     "clockDelta": 0.5167000000000002,
+     "changedPercent": 25.32313997477932,
+     "meanChannelMax": 4.006716757741348,
+     "poses": [
+      [
+       "pet:dog",
+       "73.62px 71.68px",
+       "1.07793 0.297897"
+      ]
+     ],
+     "paused": "false",
+     "speech": false
+    },
+    {
+     "checkpoint": 60,
+     "wall": 60.06289999999777,
+     "clock": 60.047499999999985,
+     "windowSeconds": 0.1331999999999951,
+     "clockDelta": 0.133199999999988,
+     "changedPercent": 10.350987810004204,
+     "meanChannelMax": 1.2731014431834105,
+     "poses": [
+      [
+       "pet:dog",
+       "-74.48px 128.3px",
+       "1.20225 0.332256"
+      ]
+     ],
+     "paused": "false",
+     "speech": false
+    },
+    {
+     "checkpoint": 180,
+     "wall": 180.00809999999777,
+     "clock": 85.19669999999996,
+     "windowSeconds": 0.4665999999999997,
+     "clockDelta": 0,
+     "changedPercent": 0,
+     "meanChannelMax": 0,
+     "poses": [
+      [
+       "pet:dog",
+       "85.01px 87.4px",
+       "1.03737 0.296687"
+      ]
+     ],
+     "paused": "true",
+     "speech": false
+    }
+   ],
+   "callbacks": 2058,
+   "maxGap": 1583.2000000000116,
+   "initialPoses": [
+    [
+     "pet:dog",
+     "-13.63px 74.77px",
+     "1.08473 0.299777"
+    ]
+   ],
+   "wall": 180.11319999999927,
+   "width": 640,
+   "height": 1688,
+   "visible": "visible"
+  },
+  "forest/E1": {
+   "records": [
+    {
+     "checkpoint": 30,
+     "wall": 30.148499999997018,
+     "clock": 30.0655,
+     "windowSeconds": 0.6000000000000014,
+     "clockDelta": 0.6000000000000014,
+     "changedPercent": 9.726600812666387,
+     "meanChannelMax": 1.7017304189435336,
+     "poses": [
+      [
+       "pet:dog",
+       "65.52px 135.55px",
+       "1.13723 0.66411"
+      ]
+     ],
+     "paused": "true",
+     "speech": true
+    },
+    {
+     "checkpoint": 60,
+     "wall": 60.247199999997015,
+     "clock": 59.914300000000004,
+     "windowSeconds": 0.6998999999999924,
+     "clockDelta": 0.6998999999999853,
+     "changedPercent": 20.040808462939612,
+     "meanChannelMax": 3.9973465741908365,
+     "poses": [
+      [
+       "pet:dog",
+       "73.01px 161.21px",
+       "1.16744 0.68175"
+      ]
+     ],
+     "paused": "false",
+     "speech": false
+    },
+    {
+     "checkpoint": 180,
+     "wall": 180.20909999999702,
+     "clock": 178.39290000000005,
+     "windowSeconds": 0.5,
+     "clockDelta": 0,
+     "changedPercent": 0,
+     "meanChannelMax": 0,
+     "poses": [
+      [
+       "pet:dog",
+       "44.26px -9.56px",
+       "0.926125 0.60295"
+      ]
+     ],
+     "paused": "true",
+     "speech": false
+    }
+   ],
+   "callbacks": 1653,
+   "maxGap": 1200,
+   "initialPoses": [
+    [
+     "pet:dog",
+     "33.01px 73.21px",
+     "1.06384 0.621249"
+    ]
+   ],
+   "wall": 180.2755,
+   "width": 640,
+   "height": 1688,
+   "visible": "visible"
+  },
+  "forest/E3": {
+   "records": [
+    {
+     "checkpoint": 30,
+     "wall": 30.51449999999851,
+     "clock": 30.5488,
+     "windowSeconds": 0.9832999999999963,
+     "clockDelta": 0.9832999999999927,
+     "changedPercent": 13.439645509317641,
+     "meanChannelMax": 2.1956967213114753,
+     "poses": [
+      [
+       "pet:dog",
+       "65.52px 135.55px",
+       "1.13723 0.66411"
+      ]
+     ],
+     "paused": "false",
+     "speech": false
+    },
+    {
+     "checkpoint": 60,
+     "wall": 60.0132999999985,
+     "clock": 59.7144,
+     "windowSeconds": 0.25,
+     "clockDelta": 0.25,
+     "changedPercent": 12.768845453271682,
+     "meanChannelMax": 1.9512137452711222,
+     "poses": [
+      [
+       "pet:dog",
+       "-23.52px 4.99px",
+       "0.983519 0.574347"
+      ]
+     ],
+     "paused": "false",
+     "speech": false
+    },
+    {
+     "checkpoint": 180,
+     "wall": 180.0918999999985,
+     "clock": 178.12640000000005,
+     "windowSeconds": 0.5500999999999863,
+     "clockDelta": 0.5501000000000147,
+     "changedPercent": 10.162708420905142,
+     "meanChannelMax": 1.817009948157489,
+     "poses": [
+      [
+       "pet:dog",
+       "0.44px -24.61px",
+       "0.948672 0.553997"
+      ]
+     ],
+     "paused": "false",
+     "speech": false
+    }
+   ],
+   "callbacks": 1683,
+   "maxGap": 2116.5999999999913,
+   "initialPoses": [
+    [
+     "pet:dog",
+     "-70.48px 47.55px",
+     "1.03363 0.603609"
+    ]
+   ],
+   "wall": 180.74019999999925,
+   "width": 640,
+   "height": 1688,
+   "visible": "visible"
+  }
+ },
+ "errors": [],
+ "httpErrors": []
+}

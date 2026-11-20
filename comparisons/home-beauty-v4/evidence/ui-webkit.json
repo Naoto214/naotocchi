@@ -1,0 +1,363 @@
+{
+ "browser": "26.5",
+ "results": {
+  "320/sea": {
+   "actors": [
+    [
+     "companion:cat_friend",
+     "179.54px 84.59px",
+     "1.393544 0.37595"
+    ],
+    [
+     "partner:forest_bear",
+     "-174.41px 48.86px",
+     "1.397689 0.377068"
+    ],
+    [
+     "pet:dog",
+     "9.06px 112.12px",
+     "1.527927 0.412204"
+    ],
+    [
+     "companion:rabbit_friend",
+     "-143.56px 182.85px",
+     "1.590912 0.429196"
+    ]
+   ],
+   "reduced": true,
+   "freeze5": true,
+   "splitBounds": [
+    0.05,
+    0.95
+   ],
+   "offsetPx": 0.010416666666685614,
+   "toggles": [
+    "water",
+    "particles",
+    "light",
+    "contact",
+    "motion",
+    "magic",
+    "waves",
+    "foam",
+    "reflections",
+    "caustics"
+   ],
+   "saveProtected": true
+  },
+  "320/forest": {
+   "actors": [
+    [
+     "companion:cat_friend",
+     "108.25px 2.5px",
+     "1.080366 0.713601"
+    ],
+    [
+     "partner:forest_bear",
+     "-23.42px -77.99px",
+     "1.022864 0.67562"
+    ],
+    [
+     "pet:dog",
+     "12.08px 89.46px",
+     "1.22133 0.80671"
+    ],
+    [
+     "companion:rabbit_friend",
+     "-135.04px 97.45px",
+     "1.167108 0.770895"
+    ]
+   ],
+   "reduced": true,
+   "freeze5": true,
+   "splitBounds": [
+    0.05,
+    0.95
+   ],
+   "offsetPx": 0.010416666666685614,
+   "toggles": [
+    "water",
+    "particles",
+    "light",
+    "contact",
+    "motion",
+    "magic",
+    "canopy",
+    "shafts",
+    "depth",
+    "gusts",
+    "ground"
+   ],
+   "saveProtected": true
+  },
+  "375/sea": {
+   "actors": [
+    [
+     "companion:cat_friend",
+     "205.4px 67.2px",
+     "1.383341 0.475132"
+    ],
+    [
+     "partner:forest_bear",
+     "-198.09px 34.7px",
+     "1.395167 0.479194"
+    ],
+    [
+     "pet:dog",
+     "10.29px 104.12px",
+     "1.52517 0.523845"
+    ],
+    [
+     "companion:rabbit_friend",
+     "-164.97px 175.69px",
+     "1.582637 0.543583"
+    ]
+   ],
+   "reduced": true,
+   "freeze5": true,
+   "splitBounds": [
+    0.05,
+    0.95
+   ],
+   "offsetPx": 0.010416666666685614,
+   "toggles": [
+    "water",
+    "particles",
+    "light",
+    "contact",
+    "motion",
+    "magic",
+    "waves",
+    "foam",
+    "reflections",
+    "caustics"
+   ],
+   "saveProtected": true
+  },
+  "375/forest": {
+   "actors": [
+    [
+     "companion:cat_friend",
+     "119.69px -21.05px",
+     "1.081913 0.760087"
+    ],
+    [
+     "partner:forest_bear",
+     "-26.6px -102.04px",
+     "1.03072 0.724122"
+    ],
+    [
+     "pet:dog",
+     "13.72px 78.4px",
+     "1.220536 0.857476"
+    ],
+    [
+     "companion:rabbit_friend",
+     "-148.5px 81.88px",
+     "1.167549 0.820251"
+    ]
+   ],
+   "reduced": true,
+   "freeze5": true,
+   "splitBounds": [
+    0.05,
+    0.95
+   ],
+   "offsetPx": 0.010416666666685614,
+   "toggles": [
+    "water",
+    "particles",
+    "light",
+    "contact",
+    "motion",
+    "magic",
+    "canopy",
+    "shafts",
+    "depth",
+    "gusts",
+    "ground"
+   ],
+   "saveProtected": true
+  },
+  "390/sea": {
+   "actors": [
+    [
+     "companion:cat_friend",
+     "217.56px 75.02px",
+     "1.403112 0.539626"
+    ],
+    [
+     "partner:forest_bear",
+     "-206.75px 29.54px",
+     "1.383161 0.531952"
+    ],
+    [
+     "pet:dog",
+     "10.74px 101.2px",
+     "1.512045 0.58152"
+    ],
+    [
+     "companion:rabbit_friend",
+     "-169.05px 172.99px",
+     "1.56715 0.602713"
+    ]
+   ],
+   "reduced": true,
+   "freeze5": true,
+   "splitBounds": [
+    0.05,
+    0.95
+   ],
+   "offsetPx": 0.010416666666685614,
+   "toggles": [
+    "water",
+    "particles",
+    "light",
+    "contact",
+    "motion",
+    "magic",
+    "waves",
+    "foam",
+    "reflections",
+    "caustics"
+   ],
+   "saveProtected": true
+  },
+  "390/forest": {
+   "actors": [
+    [
+     "companion:cat_friend",
+     "147.85px -69.98px",
+     "1.035655 0.736971"
+    ],
+    [
+     "partner:forest_bear",
+     "-68.79px -43.31px",
+     "1.106982 0.787727"
+    ],
+    [
+     "pet:dog",
+     "14.32px 74.34px",
+     "1.218358 0.866981"
+    ],
+    [
+     "companion:rabbit_friend",
+     "-157.4px 78.4px",
+     "1.168331 0.831382"
+    ]
+   ],
+   "reduced": true,
+   "freeze5": true,
+   "splitBounds": [
+    0.05,
+    0.95
+   ],
+   "offsetPx": 0.010416666666685614,
+   "toggles": [
+    "water",
+    "particles",
+    "light",
+    "contact",
+    "motion",
+    "magic",
+    "canopy",
+    "shafts",
+    "depth",
+    "gusts",
+    "ground"
+   ],
+   "saveProtected": true
+  },
+  "430/sea": {
+   "actors": [
+    [
+     "companion:cat_friend",
+     "222.09px 58.88px",
+     "1.281746 0.599194"
+    ],
+    [
+     "partner:forest_bear",
+     "-222.78px 15.74px",
+     "1.269913 0.593662"
+    ],
+    [
+     "pet:dog",
+     "11.94px 93.4px",
+     "1.388245 0.64898"
+    ],
+    [
+     "companion:rabbit_friend",
+     "-167.68px 164.99px",
+     "1.433357 0.670069"
+    ]
+   ],
+   "reduced": true,
+   "freeze5": true,
+   "splitBounds": [
+    0.05,
+    0.95
+   ],
+   "offsetPx": 0.010416666666685614,
+   "toggles": [
+    "water",
+    "particles",
+    "light",
+    "contact",
+    "motion",
+    "magic",
+    "waves",
+    "foam",
+    "reflections",
+    "caustics"
+   ],
+   "saveProtected": true
+  },
+  "430/forest": {
+   "actors": [
+    [
+     "companion:cat_friend",
+     "145.2px -76.04px",
+     "0.88169 0.765801"
+    ],
+    [
+     "partner:forest_bear",
+     "-76.49px -47.82px",
+     "0.936422 0.813339"
+    ],
+    [
+     "pet:dog",
+     "15.92px 63.55px",
+     "1.014594 0.881236"
+    ],
+    [
+     "companion:rabbit_friend",
+     "-115.44px 4.63px",
+     "0.924413 0.802908"
+    ]
+   ],
+   "reduced": true,
+   "freeze5": true,
+   "splitBounds": [
+    0.05,
+    0.95
+   ],
+   "offsetPx": 0.010416666666685614,
+   "toggles": [
+    "water",
+    "particles",
+    "light",
+    "contact",
+    "motion",
+    "magic",
+    "canopy",
+    "shafts",
+    "depth",
+    "gusts",
+    "ground"
+   ],
+   "saveProtected": true
+  }
+ },
+ "errors": [],
+ "httpErrors": []
+}
