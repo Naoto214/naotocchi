@@ -11,7 +11,7 @@ const {createTerrainNavigation}=await import(pathToFileURL(path.join(fixture,'ho
 const require=createRequire(import.meta.url);
 const {createModel}=require(path.join(fixture,'home-production-model.js'));
 
-function household(points,{walkable=()=>true,scale={x:1,y:1},box={left:0,right:120,top:0,bottom:100}}={}){
+function household(points,{walkable=()=>true,scale={x:1,y:1},box={left:0,right:120,top:0,bottom:100},intentAware=true}={}){
   const events=[],model=createModel({random:()=>.5,onEvent:e=>events.push(e)});
   const nav=createTerrainNavigation({width:120,height:100,cell:4,gridOrigin:{x:0,y:0},
     project:p=>p,unproject:p=>({...p,z:p.y}),walkable,
@@ -20,7 +20,7 @@ function household(points,{walkable=()=>true,scale={x:1,y:1},box={left:0,right:1
       for(let i=1;i<=steps;i++)if(!walkable({x:a.x+(b.x-a.x)*i/steps,y:a.y+(b.y-a.y)*i/steps}))return false;
       return true;
     }});
-  nav.intentAware=true;
+  nav.intentAware=intentAware;
   nav.intentScale=scale;
   let seating=true;
   const list=points.map(([x,y],i)=>({key:String(i),kind:i?'companion':'pet',x,y,w:10,h:10}));
@@ -177,4 +177,36 @@ test('a partial arrival keeps the initial drop goal while a moving neighbor yiel
   assert.equal(drop('1',120),true);
   for(let i=0;i<200;i++)h.step();
   assert.equal(h.live().x,95);
+});
+
+// The neighbor moves first in the model's live step, after both routes were planned.
+function passingNeighbor(start,end,{source='drag',pointerDrop=true,intentAware=true}={}){
+  const {model}=household([start,[50,45]],{intentAware});
+  assert.equal(model.move('1',{x:90,y:45},source,{pointerDrop}),true);
+  assert.equal(model.move('0',{x:end[0],y:end[1]},'drag',{pointerDrop:true}),true);
+  model.step(.1,{autonomy:false});
+  const [neighbor,walker]=model.snapshot();
+  assert.ok(Math.hypot(neighbor.x-end[0],neighbor.y-end[1])<1e-7);
+  return walker;
+}
+
+test('a moving neighbor can close the middle of a drag step while both ends stay clear',()=>{
+  const walker=passingNeighbor([52.1,66.79],[52.1,62.59]);
+  assert.equal(walker.x,50);
+  assert.equal(walker.target,null);
+});
+
+test('a drag step must ease an existing live overlap from its first point',()=>{
+  const walker=passingNeighbor([47,62],[50.8,62.55]);
+  assert.equal(walker.x,50);
+  assert.equal(walker.target,null);
+  const escaping=passingNeighbor([47,62],[49.8,62.55]);
+  assert.equal(escaping.x,54.2);
+});
+
+test('the normal ambient, keyboard and legacy navigation steppers keep their original path',()=>{
+  for(const options of [{source:'ambient',pointerDrop:false},{source:'keyboard',pointerDrop:false},{intentAware:false}]){
+    const walker=passingNeighbor([52.1,66.79],[52.1,62.59],options);
+    assert.equal(walker.x,54.2);
+  }
 });

@@ -1,6 +1,22 @@
 --- a/home-production-model.js
 +++ b/home-production-model.js
-@@ -54,19 +54,19 @@
+@@ -11,6 +11,15 @@
+   function limit(a,p,s){const b=bounds(a,s);return {x:clamp(p.x,b.left,b.right),y:clamp(p.y,b.top,b.bottom)};}
+   function clearance(a,p,b){return Math.hypot((p.x-b.x)/((a.w+b.w)*.5+10),(p.y-b.y)/((a.h+b.h)*.38+10));}
+   function separated(a,p,b){return clearance(a,p,b)>=1;}
++  // In unit-ellipse coordinates the squared distance is convex along a line.
++  // From inside, a nonnegative initial derivative guarantees continuous escape.
++  function contactSegmentSafe(from,to,peer,rx,ry){
++    const x=(from.x-peer.x)/rx,y=(from.y-peer.y)/ry;
++    const dx=(to.x-from.x)/rx,dy=(to.y-from.y)/ry,dot=x*dx+y*dy;
++    if(x*x+y*y<1)return dot>=0;
++    const t=clamp(-dot/(dx*dx+dy*dy||1),0,1);
++    return (x+t*dx)**2+(y+t*dy)**2>=1;
++  }
+   function privateRandom(){const bytes=new Uint32Array(1);if(typeof crypto!=='undefined'&&crypto.getRandomValues)crypto.getRandomValues(bytes);let seed=bytes[0]||Date.now()>>>0||1;return ()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return (seed>>>0)/4294967296;};}
+   function createModel({random=privateRandom(),onEvent=()=>{}}={}){
+     let actors=[],scene={},selected=null,clock=0,idleAt=5,paused=false;
+@@ -54,19 +63,19 @@
        }
        return null;
      }
@@ -27,7 +43,7 @@
        }
        return best;
      }
-@@ -94,7 +94,7 @@
+@@ -94,7 +103,7 @@
          const initial=scene.navigation?.initialPoint&&(restoreSeats||!previousScene.navigation||previousScene.region!==scene.region||(list.length>5&&list.length!==previousActors.length)||!previousActors.some(b=>b.key===a.key));
          const seed=initial?(a.kind==='pet'&&scene.newbornPoint&&(!previousScene.navigation||!previousActors.some(b=>b.key===a.key))?scene.newbornPoint:scene.navigation.initialPoint(index,list.length)):null;
          const old=!initial&&!changed&&!reflow&&actor(a.key),previous=!initial&&previousScene.region===scene.region?previousActors.find(b=>b.key===a.key):null,worldPoint=previous&&previousScene.navigation?.unproject(previous),preserved=worldPoint&&scene.navigation?scene.navigation.project(worldPoint):previous,limited=limit(a,old||preserved||seed||(a.kind==='pet'&&terrainCentre)||a,scene),p=previous&&scene.navigation?.reachable&&scene.navigation.valid(limited)&&visible(a,limited)?limited:scene.navigation?.nearest(limited,bounds(a,scene))||limited;
@@ -36,7 +52,7 @@
        });
        // At capacity, individually separated seats can still form a closed ring
        // around the main character. Reserve one short, terrain-safe exit while
-@@ -144,23 +144,106 @@
+@@ -144,23 +153,98 @@
        if(changed){cancel();cooldown.clear();}
      }
      function select(key){const a=actor(key);if(!a||paused)return false;manualGoals.delete(key);selected=key;a.visualReaction=undefined;a.visualTarget=null;a.target=null;a.route=[];a.manualUntil=clock+12;defer(a,4);emit('tap',a,'tap');idleAt=clock+4;return true;}
@@ -50,15 +66,7 @@
 +      // existing ellipse the squared distance must increase from the start.
 +      function safe(from,to){
 +        if(to.x<box.left||to.x>box.right||to.y<box.top||to.y>box.bottom)return false;
-+        for(const b of peers){
-+          const x=(from.x-b.x)/b.rx,y=(from.y-b.y)/b.ry;
-+          const dx=(to.x-from.x)/b.rx,dy=(to.y-from.y)/b.ry;
-+          const dot=x*dx+y*dy;
-+          if(x*x+y*y<1){if(dot<0)return false;continue;}
-+          const t=clamp(-dot/(dx*dx+dy*dy||1),0,1);
-+          if((x+t*dx)**2+(y+t*dy)**2<1)return false;
-+        }
-+        return nav.segmentSafe(from,to,routeFree);
++        return peers.every(b=>contactSegmentSafe(from,to,b,b.rx,b.ry))&&nav.segmentSafe(from,to,routeFree);
 +      }
 +      const target=limit(a,goal,scene);
 +      const error=q=>distance(q,goal);
@@ -148,7 +156,7 @@
          const reference=expandedReference&&(!originalReference||!retreats(expandedReference.point,originalReference.point))?expandedReference:originalReference;
          const preferReference=reference&&(!proposal||Math.hypot(proposal.x-reference.point.x,proposal.y-reference.point.y)<1e-7||retreats(proposal,reference.point));
          let q=preferReference?reference.point:proposal;
-@@ -172,20 +255,26 @@
+@@ -172,20 +256,26 @@
          if(!path.length&&originalReference&&originalReference!==reference){q=originalReference.point;path=nav.referenceRoute(a,q,originalReference.bounds,referenceFree);if(!path.length)path=currentRoute(q,nav);}
          if(nav?.reachable){
            const prior=path.length?q:null,score=prior?Math.hypot(prior.x-p.x,prior.y-p.y):Infinity;
@@ -180,7 +188,7 @@
          const prior=plan(legacy);
          // A sampled legacy shortcut can cross a thin terrain gap. Preserve its
          // endpoint through a current safe detour, never the unsafe old segment.
-@@ -196,16 +285,16 @@
+@@ -196,16 +286,16 @@
          if(prior.path.length&&Math.hypot(prior.point.x-a.x,prior.point.y-a.y)>=3&&(!scene.navigation.intentAware||forward(prior.point))&&(!path.length||retreats(q,prior.point))){
            q=prior.point;path=prior.path;
            const score=Math.hypot(q.x-p.x,q.y-p.y),floor=q;
@@ -200,7 +208,7 @@
            const options=[];
            for(const candidate of [originalReference,expandedReference])if(candidate&&eligible(candidate.point)){
              let route=scene.navigation.referenceRoute(a,candidate.point,candidate.bounds,referenceFree);
-@@ -218,10 +307,26 @@
+@@ -218,10 +308,26 @@
            path=options[0]||[];q=path.at(-1)||null;
          }
        }
@@ -228,7 +236,7 @@
        a.route=path.slice(1);a.target=path[0];a.source=source;if(source!=='ambient'){a.faceKey=null;a.visualReaction=undefined;a.visualTarget=null;}activity(a,'walk');a.lastWalk=clock;stats.moves++;defer(a,4);idleAt=clock+4;emit('move',a,source);return true;
      }
      function idle(a){
-@@ -268,8 +373,11 @@
+@@ -268,8 +374,11 @@
          const a=actor(key);
          if(!a||clock>request.expires||request.retries>=4){manualGoals.delete(key);continue;}
          if(!a.target&&a.key!==flags.heldActor&&clock>=request.nextAt){
@@ -241,7 +249,7 @@
          }
        }
        if(!flags.reducedMotion&&flags.autonomy!==false)for(const a of actors)if(!a.target&&a.key!==flags.heldActor&&clock>=a.nextAt&&clock>=a.manualUntil)idle(a);
-@@ -277,7 +385,8 @@
+@@ -277,7 +386,8 @@
          if(flags.reducedMotion&&a.source==='ambient'){a.target=null;a.route=[];}
          if(!a.target)continue;
          const dx=a.target.x-a.x,dy=a.target.y-a.y,dist=Math.hypot(dx,dy),speed=(flags.reducedMotion?28:42)*(scene.time==='night'?.75:1),step=Math.min(dist,speed*dt);
@@ -251,3 +259,17 @@
            if(a.route?.length){a.target=a.route.shift();continue;}
            a.target=null;activity(a,a.source==='ambient'?a.after:'rest');
            const request=manualGoals.get(a.key);if(request){if(Math.hypot(a.x-request.point.x,a.y-request.point.y)<3)manualGoals.delete(a.key);else request.nextAt=clock+1;}
+@@ -301,7 +411,12 @@
+         // If a very crowded/short viewport cannot seat everyone, permit escape only
+         // when every existing overlap shrinks; never enter a new overlap.
+         const distance=(q,b)=>clearance(a,q,b);
+-        const safe=visible(a,p)&&(!scene.navigation||scene.navigation.segmentSafe(a,p))&&actors.every(b=>b===a||separated(a,p,b)||distance(a,b)<1&&distance(p,b)>distance(a,b)+1e-6);
++        const liveDrop=a.pointerDrop&&scene.navigation?.intentAware;
++        const safe=visible(a,p)&&(!scene.navigation||scene.navigation.segmentSafe(a,p))&&actors.every(b=>{
++          if(b===a)return true;
++          if(liveDrop&&!contactSegmentSafe(a,p,b,(a.w+b.w)*.5+10,(a.h+b.h)*.38+10))return false;
++          return separated(a,p,b)||distance(a,b)<1&&distance(p,b)>distance(a,b)+1e-6;
++        });
+         if(!safe){a.target=null;a.route=[];a.activity='look';const request=manualGoals.get(a.key);if(request)request.nextAt=clock+1;defer(a,1+random()*2);continue;}
+         stats.distance+=Math.hypot(p.x-a.x,p.y-a.y);a.x=p.x;a.y=p.y;if(Math.abs(dx)>.3)a.direction=dx<0?-1:1;
+       }
