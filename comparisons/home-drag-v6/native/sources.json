@@ -1,0 +1,14 @@
+{
+  "home-production-model.js": {
+    "before": "d1a8706b7339670b9fc5141bc2eaa056788453fc22c4c3cb3028be5f6d502b05",
+    "after": "115c2a98a532a797c7a791c061d11b6c065292ca5f717e668f4de4ad95344454"
+  },
+  "home-production-diorama-finish.js": {
+    "before": "2631bb91fe16fa595a2410c31ad5e6d09ee75df30a3543a6ce7f582d4f231f88",
+    "after": "b724d782d97c6d07f7482531fd57fa6e0bbd5834410dcbcd48d73f41e5143ffd"
+  },
+  "script-v2.js": {
+    "before": "3f5255546fe017d4de625ae24f0016da90f5265ee3c7b8b3744d70607e966844",
+    "after": "4015923114645a1d7c0491bc680ed588723a2741a070673d6e9c103f7fea2443"
+  }
+}
