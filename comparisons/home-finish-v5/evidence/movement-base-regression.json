@@ -1,0 +1,53 @@
+{
+  "candidateSourceSHA256": {
+    "home-art-navigation.mjs": "8419e25fc7877dbb88bbb447c0ffa47100acaecd7fcefe4bbd6291b2c71f462c",
+    "home-production-diorama.js": "ff488da3ae7dcf287fc708caa61484ab47446ac730f307bfd93ca0095e4624b6",
+    "home-production-model.js": "d1a8706b7339670b9fc5141bc2eaa056788453fc22c4c3cb3028be5f6d502b05",
+    "home-production-touch.js": "ec0537400d8a1f2d470ca35432214e0978278157e03702c54bdd7ee9843a3a7c",
+    "home-production-world.mjs": "222098afde73c45ac1d1b6a457ed0f94ac69fa4df6f25c21711aa949a6292142",
+    "home-recovered-navigation.mjs": "9a7e25d9fbe9598f66f04139fc534b70cf847a289c53b908d5dc69e3eb62578d",
+    "home-route-navigation.mjs": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9",
+    "home-visible-ground-navigation.mjs": "e7c4148b9a4440417f2d39e7dfa685ba15032d2d6e9e8c8ed25d6214fb500fd5"
+  },
+  "suites": [
+    "tests/home-movement-v5-bounds-test.cjs",
+    "tests/home-movement-v5-ground-test.cjs",
+    "tests/home-movement-v5-routing-test.cjs"
+  ],
+  "counts": {
+    "tests": 27,
+    "pass": 27,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "cases": [
+    "added walking ground does not refit the existing camera or body envelope (1 residents)",
+    "added walking ground does not refit the existing camera or body envelope (28 residents)",
+    "presentation changes refresh painted-ground navigation even when the presentation key is unchanged",
+    "growth waits for the camera to consume its new envelope before correcting a safe foot",
+    "visible ground adds reachable left paving without moving legacy camera/depth",
+    "additional ground excludes painted obstacles and upper forest/jungle spurs",
+    "all safe legacy points and segments remain available",
+    "union routes still respect collision predicates and cannot jump exclusions",
+    "invalid camera geometry falls back to legacy navigation",
+    "exact union guard detects subpixel terrain gaps missed by the old 3px samples",
+    "unsafe legacy shortcuts are replaced with a complete safe detour to the same endpoint",
+    "terrain navigation accepts an optional exact segment guard without changing old callers",
+    "the measured 390px city watcher shortcut cannot cross the gap between ground projections",
+    "V5 diagonal down intent uses screen metric and reaches the existing safe downward reference",
+    "non-V5 navigation retains the pinned fallback policy",
+    "V5 stays put when every available route ends opposite the requested screen direction",
+    "a new reachable forward endpoint is preferred to an opposite fallback",
+    "ambient routing uses the same forward-intent guard",
+    "a temporarily blocked manual request retries after the blocker moves without weakening contacts",
+    "a cancel ends a queued manual intention",
+    "a select ends a queued manual intention",
+    "a persistently blocked manual intention expires rather than moving much later",
+    "the complete V4 supplemental endpoint survives a newly closer but component-retreating proposal",
+    "a new endpoint that improves both requested components still replaces the V4 plan",
+    "a retained V4 endpoint uses a new safe detour when its old shortcut crosses a terrain gap",
+    "a forward diagonal endpoint is not rejected by a nearly tied primary-axis classification",
+    "retries never trade away the first accepted endpoint component"
+  ]
+}

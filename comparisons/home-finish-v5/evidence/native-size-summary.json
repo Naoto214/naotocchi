@@ -1,0 +1,130 @@
+{
+  "browsers": [
+    "157.0.8103.50",
+    "157.0.8103.78"
+  ],
+  "pairedCases": 1456,
+  "nativeSamples": 2912,
+  "actorObservationsPerVersion": 21112,
+  "equipmentObservationsPerVersion": 2860,
+  "finishMaxCssScaleError": 5.9e-06,
+  "finishMaxAspectError": 8.43e-06,
+  "v4MaxCssScaleError": 5.9e-06,
+  "v4MaxAspectError": 8.43e-06,
+  "identicalNativeSnapshotHashes": 1441,
+  "cameraFitEvents": [
+    {
+      "region": "city",
+      "count": 26,
+      "width": 375,
+      "V4Activations": 1,
+      "finishActivations": 1
+    }
+  ],
+  "fitRecoveryReadingsV4": 4,
+  "fitRecoveryReadingsFinish": 4,
+  "widths": [
+    320,
+    375,
+    390,
+    430
+  ],
+  "counts": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28
+  ],
+  "visibleDayparts": 52,
+  "regions": {
+    "home": {
+      "pairedCases": 112,
+      "visibleDayparts": 4,
+      "finishFitRecoveryReadings": 0
+    },
+    "forest": {
+      "pairedCases": 112,
+      "visibleDayparts": 4,
+      "finishFitRecoveryReadings": 0
+    },
+    "river_lake": {
+      "pairedCases": 112,
+      "visibleDayparts": 4,
+      "finishFitRecoveryReadings": 0
+    },
+    "city": {
+      "pairedCases": 112,
+      "visibleDayparts": 4,
+      "finishFitRecoveryReadings": 4
+    },
+    "countryside": {
+      "pairedCases": 112,
+      "visibleDayparts": 4,
+      "finishFitRecoveryReadings": 0
+    },
+    "mountain": {
+      "pairedCases": 112,
+      "visibleDayparts": 4,
+      "finishFitRecoveryReadings": 0
+    },
+    "snow": {
+      "pairedCases": 112,
+      "visibleDayparts": 4,
+      "finishFitRecoveryReadings": 0
+    },
+    "sea": {
+      "pairedCases": 112,
+      "visibleDayparts": 4,
+      "finishFitRecoveryReadings": 0
+    },
+    "jungle": {
+      "pairedCases": 112,
+      "visibleDayparts": 4,
+      "finishFitRecoveryReadings": 0
+    },
+    "desert": {
+      "pairedCases": 112,
+      "visibleDayparts": 4,
+      "finishFitRecoveryReadings": 0
+    },
+    "deepsea": {
+      "pairedCases": 112,
+      "visibleDayparts": 4,
+      "finishFitRecoveryReadings": 0
+    },
+    "star_stop": {
+      "pairedCases": 112,
+      "visibleDayparts": 4,
+      "finishFitRecoveryReadings": 0
+    },
+    "memory_lake": {
+      "pairedCases": 112,
+      "visibleDayparts": 4,
+      "finishFitRecoveryReadings": 0
+    }
+  }
+}

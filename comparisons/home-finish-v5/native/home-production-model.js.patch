@@ -1,0 +1,303 @@
+--- a/home-production-model.js
++++ b/home-production-model.js
+@@ -11,6 +11,15 @@
+   function limit(a,p,s){const b=bounds(a,s);return {x:clamp(p.x,b.left,b.right),y:clamp(p.y,b.top,b.bottom)};}
+   function clearance(a,p,b){return Math.hypot((p.x-b.x)/((a.w+b.w)*.5+10),(p.y-b.y)/((a.h+b.h)*.38+10));}
+   function separated(a,p,b){return clearance(a,p,b)>=1;}
++  // In unit-ellipse coordinates the squared distance is convex along a line.
++  // From inside, a nonnegative initial derivative guarantees continuous escape.
++  function contactSegmentSafe(from,to,peer,rx,ry){
++    const x=(from.x-peer.x)/rx,y=(from.y-peer.y)/ry;
++    const dx=(to.x-from.x)/rx,dy=(to.y-from.y)/ry,dot=x*dx+y*dy;
++    if(x*x+y*y<1)return dot>=0;
++    const t=clamp(-dot/(dx*dx+dy*dy||1),0,1);
++    return (x+t*dx)**2+(y+t*dy)**2>=1;
++  }
+   function privateRandom(){const bytes=new Uint32Array(1);if(typeof crypto!=='undefined'&&crypto.getRandomValues)crypto.getRandomValues(bytes);let seed=bytes[0]||Date.now()>>>0||1;return ()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return (seed>>>0)/4294967296;};}
+   function createModel({random=privateRandom(),onEvent=()=>{}}={}){
+     let actors=[],scene={},selected=null,clock=0,idleAt=5,paused=false;
+@@ -54,19 +63,19 @@
+       }
+       return null;
+     }
+-    function referenceDestination(a,p,b=scene.referenceBounds?.(a),nav=scene.navigation){
++    function referenceDestination(a,p,b=scene.referenceBounds?.(a),nav=scene.navigation,freePoint){
+       if(!b||!nav?.referenceNearest)return null;
+-      const point=nav.referenceNearest({x:clamp(p.x,b.left,b.right),y:clamp(p.y,b.top,b.bottom)},b,q=>free(a,q));
+-      const safe=bounds(a,scene);if(!point||point.x<safe.left||point.x>safe.right||point.y<safe.top||point.y>safe.bottom||!free(a,point))return null;
++      const point=nav.referenceNearest({x:clamp(p.x,b.left,b.right),y:clamp(p.y,b.top,b.bottom)},b,freePoint);
++      const safe=bounds(a,scene);if(!point||point.x<safe.left||point.x>safe.right||point.y<safe.top||point.y>safe.bottom||!freePoint(point))return null;
+       return {point,bounds:b};
+     }
+-    function destination(a,p,nav=scene.navigation){
+-      if(nav)return nav.nearest(nav.rawDestination?p:limit(a,p,scene),bounds(a,scene),q=>free(a,q));
+-      const q=limit(a,p,scene);if(free(a,q))return q;
++    function destination(a,p,nav=scene.navigation,freePoint){
++      if(nav)return nav.nearest(nav.rawDestination?p:limit(a,p,scene),bounds(a,scene),freePoint);
++      const q=limit(a,p,scene);if(freePoint(q))return q;
+       let best=null,dist=Infinity;
+       for(let r=20;r<=120;r+=20)for(let i=0;i<16;i++){
+         const c=limit(a,{x:q.x+Math.cos(i*Math.PI/8)*r,y:q.y+Math.sin(i*Math.PI/8)*r*.6},scene);
+-        const d=Math.hypot(c.x-q.x,c.y-q.y);if(d<dist&&free(a,c)){best=c;dist=d;}
++        const d=Math.hypot(c.x-q.x,c.y-q.y);if(d<dist&&freePoint(c)){best=c;dist=d;}
+       }
+       return best;
+     }
+@@ -94,7 +103,7 @@
+         const initial=scene.navigation?.initialPoint&&(restoreSeats||!previousScene.navigation||previousScene.region!==scene.region||(list.length>5&&list.length!==previousActors.length)||!previousActors.some(b=>b.key===a.key));
+         const seed=initial?(a.kind==='pet'&&scene.newbornPoint&&(!previousScene.navigation||!previousActors.some(b=>b.key===a.key))?scene.newbornPoint:scene.navigation.initialPoint(index,list.length)):null;
+         const old=!initial&&!changed&&!reflow&&actor(a.key),previous=!initial&&previousScene.region===scene.region?previousActors.find(b=>b.key===a.key):null,worldPoint=previous&&previousScene.navigation?.unproject(previous),preserved=worldPoint&&scene.navigation?scene.navigation.project(worldPoint):previous,limited=limit(a,old||preserved||seed||(a.kind==='pet'&&terrainCentre)||a,scene),p=previous&&scene.navigation?.reachable&&scene.navigation.valid(limited)&&visible(a,limited)?limited:scene.navigation?.nearest(limited,bounds(a,scene))||limited;
+-        return {...a,...p,route:old?.route?.map(p=>({...p}))||[],temperament:{...a.temperament},target:old&&old.w===a.w&&old.h===a.h&&old.target?limit(a,old.target,scene):null,activity:old?.activity||'rest',direction:old?.direction||1,source:old?.source||'ambient',manualUntil:previousActors.find(b=>b.key===a.key)?.manualUntil??0,nextAt:old?.nextAt??clock+1+random()*3,lastWalk:old?.lastWalk??clock-12,recent:old?.recent||[],after:old?.after||'observe',faceKey:old?.faceKey||null,visualReaction:old?.visualReaction,visualTarget:old?.visualTarget,nextVisualAt:old?.nextVisualAt||0};
++        return {...a,...p,route:old?.route?.map(p=>({...p}))||[],temperament:{...a.temperament},target:old&&old.w===a.w&&old.h===a.h&&old.target?limit(a,old.target,scene):null,activity:old?.activity||'rest',direction:old?.direction||1,source:old?.source||'ambient',pointerDrop:!!old?.pointerDrop,manualUntil:previousActors.find(b=>b.key===a.key)?.manualUntil??0,nextAt:old?.nextAt??clock+1+random()*3,lastWalk:old?.lastWalk??clock-12,recent:old?.recent||[],after:old?.after||'observe',faceKey:old?.faceKey||null,visualReaction:old?.visualReaction,visualTarget:old?.visualTarget,nextVisualAt:old?.nextVisualAt||0};
+       });
+       // At capacity, individually separated seats can still form a closed ring
+       // around the main character. Reserve one short, terrain-safe exit while
+@@ -142,25 +151,109 @@
+       }
+       if(!actor(selected))selected=null;
+       if(changed){cancel();cooldown.clear();}
++      else for(const [key,request] of manualGoals){
++        if(!request.pointerDrop)continue;
++        const resident=actor(key);
++        if(!resident){manualGoals.delete(key);continue;}
++        // A native sync can change ink bounds, body sizes or ground while all
++        // feet stay put. Recheck at the scheduled time using the original goal.
++        request.peers=null;
++        if(!resident.target&&request.nextAt===Infinity){resident.route=[];request.nextAt=clock+1;}
++      }
+     }
+     function select(key){const a=actor(key);if(!a||paused)return false;manualGoals.delete(key);selected=key;a.visualReaction=undefined;a.visualTarget=null;a.target=null;a.route=[];a.manualUntil=clock+12;defer(a,4);emit('tap',a,'tap');idleAt=clock+4;return true;}
+-    function move(key,p,source='tap'){
++    function dragDestination(a,goal,box,routeFree,freePoint){
++      const nav=scene.navigation,{x:sx,y:sy}=nav.intentScale||{x:1,y:1};
++      const distance=(p,q)=>Math.hypot((p.x-q.x)*sx,(p.y-q.y)*sy);
++      const length=distance(a,goal);
++      const peers=actors.filter(b=>b!==a).map(b=>({x:b.x,y:b.y,rx:(a.w+b.w)*.5+10,ry:(a.h+b.h)*.38+10}));
++      // Across each complete segment, a new contact is forbidden. Inside an
++      // existing ellipse the squared distance must increase from the start.
++      function safe(from,to){
++        if(to.x<box.left||to.x>box.right||to.y<box.top||to.y>box.bottom)return false;
++        return peers.every(b=>contactSegmentSafe(from,to,b,b.rx,b.ry))&&nav.segmentSafe(from,to,routeFree);
++      }
++      const target=limit(a,goal,scene);
++      const error=q=>distance(q,goal);
++      function cost(q){
++        if(!q||distance(a,q)<2)return Infinity;
++        const miss=error(q),gain=length-miss;
++        // A distant partial is useful only if it visibly closes the gap.
++        return gain>1e-5&&(miss<=24||gain>=Math.min(12,length/4))?miss:Infinity;
++      }
++      const result=(path,closest=false)=>({point:path.at(-1),path,closest,cost,safe});
++      const checkedRoute=q=>{
++        const path=nav.route(a,q,box,routeFree);
++        return path.length&&distance(path.at(-1),q)<1e-5&&path.every((end,i)=>safe(i?path[i-1]:a,end))?path:[];
++      };
++      let path=[],best=length;
++      if(Number.isFinite(cost(target))){
++        if(safe(a,target))return result([target],true);
++        if(nav.valid(target)&&routeFree(target)){
++          path=checkedRoute(target);if(path.length)return result(path,true);
++        }
++      }
++      // On each ray the projection is the point closest to the release.
++      // Bisect the continuous safe prefix, including narrow sub-grid gaps.
++      const angle=Math.atan2((goal.y-a.y)*sy,(goal.x-a.x)*sx);
++      for(let i=-11;i<=11;i++){
++        const turn=i*Math.PI/24,heading=angle+turn;
++        const at=r=>({x:a.x+Math.cos(heading)*r/sx,y:a.y+Math.sin(heading)*r/sy});
++        let hi=length*Math.cos(turn),lo=0,q=at(hi);
++        if(error(q)>=best||hi<2)continue;
++        if(!safe(a,q)){
++          for(let j=0;j<10;j++){const mid=(lo+hi)/2;if(safe(a,at(mid)))lo=mid;else hi=mid;}
++          q=at(lo);
++        }
++        const score=cost(q);if(score<best){path=[q];best=score;}
++      }
++      // A nearby free seat can require a detour even when the requested foot
++      // was occupied. Let the normal graph find that route and verify its end.
++      const nearest=nav.nearest(target,box,freePoint);
++      if(cost(nearest)<best){
++        const detour=checkedRoute(nearest);if(detour.length)path=detour;
++      }
++      return result(path);
++    }
++    function move(key,p,source='tap',{pointerDrop=false}={}){
+       const a=actor(key);if(!a||paused||!Number.isFinite(p?.x+p?.y))return false;
+       if(source==='ambient'&&(clock<a.manualUntil||a.target&&a.source!=='ambient'))return false;
+       if(source!=='ambient'&&retryingKey!==key)a.manualUntil=clock+12;
+-      if(source!=='ambient'&&scene.navigation?.intentAware&&retryingKey!==key)manualGoals.set(key,{point:{x:p.x,y:p.y},direction:{x:Math.sign(p.x-a.x),y:Math.sign(p.y-a.y)},source,expires:clock+12,retries:0,nextAt:clock+1});
++      if(source!=='ambient'&&scene.navigation?.intentAware&&retryingKey!==key)manualGoals.set(key,{point:{x:p.x,y:p.y},direction:{x:Math.sign(p.x-a.x),y:Math.sign(p.y-a.y)},source,pointerDrop,expires:clock+12,retries:0,nextAt:clock+1});
+       if(source==='ambient'&&actors.filter(b=>b.target&&b.source==='ambient').length>=(actors.length>15?2:actors.length>5?3:5))return false;
+       const retreats=(q,r)=>['x','y'].some(axis=>(q[axis]-r[axis])*Math.sign(p[axis]-a[axis])< -1e-7);
+       // A cramped fallback seat may already overlap. Allow only escape that
+       // does not worsen that overlap; step() still requires strict improvement.
+-      const routeFree=p=>visible(a,p)&&actors.every(b=>b===a||separated(a,p,b)||clearance(a,a,b)<1&&clearance(a,p,b)>=clearance(a,a,b)-1e-9);
++      const canSee=scene.planVisibility?.(a)||((point)=>visible(a,point));
++      // Only this synchronous plan shares occupancy results. A retry, another
++      // resident's plan, and every accepted motion step see the live cast again.
++      const obstacles=actors.filter(b=>b!==a).map(b=>({x:b.x,y:b.y,rx:(a.w+b.w)*.5+10,ry:(a.h+b.h)*.38+10,initial:clearance(a,a,b)}));
++      const occupancy=new Map();
++      function available(point){
++        let row=occupancy.get(point.y);
++        if(!row){row=new Map();occupancy.set(point.y,row);}
++        if(row.has(point.x))return row.get(point.x);
++        // 2 is strictly clear. 1 permits only escape from existing contact.
++        let result=2;
++        for(const item of obstacles){
++          const dx=(point.x-item.x)/item.rx,dy=(point.y-item.y)/item.ry;
++          if(Math.abs(dx)>=1||Math.abs(dy)>=1)continue;
++          const separation=Math.hypot(dx,dy);
++          if(separation>=1)continue;
++          if(!(item.initial<1&&separation>=item.initial-1e-9)){result=0;break;}
++          result=1;
++        }
++        if(result&&!canSee(point))result=0;
++        row.set(point.x,result);return result;
++      }
++      const freePoint=point=>available(point)===2,routeFree=point=>available(point)>0;
+       const safeBounds=bounds(a,scene),referenceFree=p=>p.x>=safeBounds.left&&p.x<=safeBounds.right&&p.y>=safeBounds.top&&p.y<=safeBounds.bottom&&routeFree(p);
+       const currentRoute=(point,nav=scene.navigation)=>nav?nav.route(a,point,safeBounds,routeFree):[point];
+       // Pure planning permits a complete V4 comparison, including its stable
+       // grid and supplemental route, without changing scene or actor state.
+       const plan=nav=>{
+-        const proposal=destination(a,p,nav),originalReference=referenceDestination(a,p,undefined,nav);
+-        const expandedReference=scene.referenceBounds?.(a)?referenceDestination(a,p,safeBounds,nav):null;
++        const proposal=destination(a,p,nav,freePoint),originalReference=referenceDestination(a,p,undefined,nav,freePoint);
++        const expandedReference=scene.referenceBounds?.(a)?referenceDestination(a,p,safeBounds,nav,freePoint):null;
+         const reference=expandedReference&&(!originalReference||!retreats(expandedReference.point,originalReference.point))?expandedReference:originalReference;
+         const preferReference=reference&&(!proposal||Math.hypot(proposal.x-reference.point.x,proposal.y-reference.point.y)<1e-7||retreats(proposal,reference.point));
+         let q=preferReference?reference.point:proposal;
+@@ -172,20 +265,26 @@
+         if(!path.length&&originalReference&&originalReference!==reference){q=originalReference.point;path=nav.referenceRoute(a,q,originalReference.bounds,referenceFree);if(!path.length)path=currentRoute(q,nav);}
+         if(nav?.reachable){
+           const prior=path.length?q:null,score=prior?Math.hypot(prior.x-p.x,prior.y-p.y):Infinity;
+-          const better=score>1e-5?nav.reachable(a,p,safeBounds,referenceFree,point=>Math.hypot(point.x-a.x,point.y-a.y)>=3&&free(a,point)&&(!prior||!retreats(point,prior))&&Math.hypot(point.x-p.x,point.y-p.y)<score-1e-5):[];
++          const better=score>1e-5?nav.reachable(a,p,safeBounds,referenceFree,point=>Math.hypot(point.x-a.x,point.y-a.y)>=3&&freePoint(point)&&(!prior||!retreats(point,prior))&&Math.hypot(point.x-p.x,point.y-p.y)<score-1e-5):[];
+           if(better.length){path=better;q=better[better.length-1];}
+         }
+         return {point:q,path,originalReference,expandedReference};
+       };
+-      const result=plan(scene.navigation),{originalReference,expandedReference}=result;
++      const scale=scene.navigation?.intentScale||{},sx=scale.x||1,sy=scale.y||1;
++      const dx=(p.x-a.x)*sx,dy=(p.y-a.y)*sy;
++      const drag=pointerDrop&&source==='drag'&&scene.navigation?.intentAware&&scene.navigation.segmentSafe
++        ?dragDestination(a,p,safeBounds,referenceFree,freePoint):null;
++      // An exact checked foot goal is already optimal. Otherwise compare the
++      // local correction with the original V5 route and its forward floor.
++      const fullSearch=!drag||!drag.closest;
++      const result=fullSearch?plan(scene.navigation):drag;
++      const {originalReference,expandedReference}=result;
+       let q=result.point,path=result.path;
+       // Compare direction in actual screen units. A hard dominant-axis test
+       // rejects useful diagonal routes around the 45-degree dividing line.
+-      const scale=scene.navigation?.intentScale||{},sx=scale.x||1,sy=scale.y||1;
+-      const dx=(p.x-a.x)*sx,dy=(p.y-a.y)*sy;
+       const forward=point=>point&&((point.x-a.x)*sx*dx+(point.y-a.y)*sy*dy)>1e-7;
+       const legacy=scene.navigation?.layoutNavigation;
+-      if(legacy&&legacy!==scene.navigation){
++      if(fullSearch&&legacy&&legacy!==scene.navigation){
+         const prior=plan(legacy);
+         // A sampled legacy shortcut can cross a thin terrain gap. Preserve its
+         // endpoint through a current safe detour, never the unsafe old segment.
+@@ -196,16 +295,16 @@
+         if(prior.path.length&&Math.hypot(prior.point.x-a.x,prior.point.y-a.y)>=3&&(!scene.navigation.intentAware||forward(prior.point))&&(!path.length||retreats(q,prior.point))){
+           q=prior.point;path=prior.path;
+           const score=Math.hypot(q.x-p.x,q.y-p.y),floor=q;
+-          const better=scene.navigation.reachable?.(a,p,safeBounds,referenceFree,point=>Math.hypot(point.x-a.x,point.y-a.y)>=3&&free(a,point)&&!retreats(point,floor)&&Math.hypot(point.x-p.x,point.y-p.y)<score-1e-5)||[];
++          const better=scene.navigation.reachable?.(a,p,safeBounds,referenceFree,point=>Math.hypot(point.x-a.x,point.y-a.y)>=3&&freePoint(point)&&!retreats(point,floor)&&Math.hypot(point.x-p.x,point.y-p.y)<score-1e-5)||[];
+           if(better.length){path=better;q=better.at(-1);}
+         }
+       }
+-      if(scene.navigation?.intentAware){
++      if(fullSearch&&scene.navigation?.intentAware){
+         if(!path.length||!forward(q)){
+           // A reachable fallback can otherwise send a downward drag upwards.
+           // Keep any safe legacy endpoint that follows the request, and compare
+           // it with the reachable forward component before deciding to stay put.
+-          const eligible=point=>forward(point)&&Math.hypot(point.x-a.x,point.y-a.y)>=3&&referenceFree(point)&&free(a,point);
++          const eligible=point=>forward(point)&&Math.hypot(point.x-a.x,point.y-a.y)>=3&&referenceFree(point)&&freePoint(point);
+           const options=[];
+           for(const candidate of [originalReference,expandedReference])if(candidate&&eligible(candidate.point)){
+             let route=scene.navigation.referenceRoute(a,candidate.point,candidate.bounds,referenceFree);
+@@ -218,10 +317,33 @@
+           path=options[0]||[];q=path.at(-1)||null;
+         }
+       }
+-      if(!path.length||Math.hypot(q.x-a.x,q.y-a.y)<3)return false;
++      if(drag&&fullSearch){
++        const score=drag.cost(q);
++        const valid=path.length&&Number.isFinite(score)&&path.every((end,i)=>drag.safe(i?path[i-1]:a,end));
++        const floor=valid?{x:clamp(q.x,Math.min(a.x,p.x),Math.max(a.x,p.x)),y:clamp(q.y,Math.min(a.y,p.y),Math.max(a.y,p.y))}:null;
++        if(!valid||(drag.cost(drag.point)<score&&!retreats(drag.point,floor))){q=drag.point;path=drag.path;}
++      }
+       const request=manualGoals.get(key);
++      // Between native syncs, stationary peers cannot open a checked route.
++      // Moving peers or a sync allow the original bounded retry with fresh data.
++      if(drag&&request)request.peers=actors.filter(b=>b!==a).map(b=>[b.key,b.x,b.y]);
++      if(!path.length||(!drag&&Math.hypot(q.x-a.x,q.y-a.y)<3)){
++        if(pointerDrop){
++          if(Math.abs(dx)>.3)a.direction=dx<0?-1:1;
++          activity(a,'look');
++        }
++        return false;
++      }
+       if(request?.floor&&['x','y'].some(axis=>(q[axis]-request.floor[axis])*request.direction[axis]<-1e-7))return false;
+-      if(request){request.nextAt=Infinity;request.floor={...q};}
++      if(request){
++        request.nextAt=Infinity;request.floor={...q};
++        // A detour can end beyond the finger on one axis. Keep progress up
++        // to the release so a later opening can still reach the exact foot.
++        if(drag)for(const axis of ['x','y']){
++          if((q[axis]-request.point[axis])*request.direction[axis]>0)request.floor[axis]=request.point[axis];
++        }
++      }
++      a.pointerDrop=pointerDrop;
+       a.route=path.slice(1);a.target=path[0];a.source=source;if(source!=='ambient'){a.faceKey=null;a.visualReaction=undefined;a.visualTarget=null;}activity(a,'walk');a.lastWalk=clock;stats.moves++;defer(a,4);idleAt=clock+4;emit('move',a,source);return true;
+     }
+     function idle(a){
+@@ -268,8 +390,11 @@
+         const a=actor(key);
+         if(!a||clock>request.expires||request.retries>=4){manualGoals.delete(key);continue;}
+         if(!a.target&&a.key!==flags.heldActor&&clock>=request.nextAt){
++          if(request.peers&&request.peers.length===actors.length-1&&request.peers.every(([key,x,y])=>{const peer=actor(key);return peer&&peer.x===x&&peer.y===y;})){
++            request.nextAt=clock+1;continue;
++          }
+           request.retries++;request.nextAt=clock+1;retryingKey=key;
+-          try{move(key,request.point,request.source);}finally{retryingKey=null;}
++          try{move(key,request.point,request.source,{pointerDrop:request.pointerDrop});}finally{retryingKey=null;}
+         }
+       }
+       if(!flags.reducedMotion&&flags.autonomy!==false)for(const a of actors)if(!a.target&&a.key!==flags.heldActor&&clock>=a.nextAt&&clock>=a.manualUntil)idle(a);
+@@ -277,10 +402,16 @@
+         if(flags.reducedMotion&&a.source==='ambient'){a.target=null;a.route=[];}
+         if(!a.target)continue;
+         const dx=a.target.x-a.x,dy=a.target.y-a.y,dist=Math.hypot(dx,dy),speed=(flags.reducedMotion?28:42)*(scene.time==='night'?.75:1),step=Math.min(dist,speed*dt);
+-        if(dist<.5){
++        // Finish a drag waypoint before turning around a painted corner.
++        if(dist<(a.pointerDrop?1e-7:.5)){
+           if(a.route?.length){a.target=a.route.shift();continue;}
+           a.target=null;activity(a,a.source==='ambient'?a.after:'rest');
+-          const request=manualGoals.get(a.key);if(request){if(Math.hypot(a.x-request.point.x,a.y-request.point.y)<3)manualGoals.delete(a.key);else request.nextAt=clock+1;}
++          const request=manualGoals.get(a.key);
++          if(request){
++            const scale=request.pointerDrop?scene.navigation?.intentScale:null;
++            const remaining=Math.hypot((a.x-request.point.x)*(scale?.x||1),(a.y-request.point.y)*(scale?.y||1));
++            if(remaining<(request.pointerDrop?2:3))manualGoals.delete(a.key);else request.nextAt=clock+1;
++          }
+           if(a.source==='ambient'&&a.visualTarget)a.direction=a.visualTarget.x<a.x?-1:1;
+           defer(a,3+random()*5);
+           const b=actor(a.faceKey);
+@@ -301,7 +432,12 @@
+         // If a very crowded/short viewport cannot seat everyone, permit escape only
+         // when every existing overlap shrinks; never enter a new overlap.
+         const distance=(q,b)=>clearance(a,q,b);
+-        const safe=visible(a,p)&&(!scene.navigation||scene.navigation.segmentSafe(a,p))&&actors.every(b=>b===a||separated(a,p,b)||distance(a,b)<1&&distance(p,b)>distance(a,b)+1e-6);
++        const liveDrop=a.pointerDrop&&scene.navigation?.intentAware;
++        const safe=visible(a,p)&&(!scene.navigation||scene.navigation.segmentSafe(a,p))&&actors.every(b=>{
++          if(b===a)return true;
++          if(liveDrop&&!contactSegmentSafe(a,p,b,(a.w+b.w)*.5+10,(a.h+b.h)*.38+10))return false;
++          return separated(a,p,b)||distance(a,b)<1&&distance(p,b)>distance(a,b)+1e-6;
++        });
+         if(!safe){a.target=null;a.route=[];a.activity='look';const request=manualGoals.get(a.key);if(request)request.nextAt=clock+1;defer(a,1+random()*2);continue;}
+         stats.distance+=Math.hypot(p.x-a.x,p.y-a.y);a.x=p.x;a.y=p.y;if(Math.abs(dx)>.3)a.direction=dx<0?-1:1;
+       }

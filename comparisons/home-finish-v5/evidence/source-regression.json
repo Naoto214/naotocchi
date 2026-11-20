@@ -1,0 +1,61 @@
+{
+  "checkedAt": "2026-11-20T03:50:15.498249+00:00",
+  "mainBase": "526b326d16717fca46ce585fc32638e8b852d15d",
+  "candidate": "c1b520efd98b1aa3bc348cd7543996c5892222cf",
+  "mainFiles": 35814,
+  "retainedMainBlobs": 35814,
+  "changedOriginalFiles": [],
+  "movementV5": {
+    "state": "MERGED",
+    "isDraft": false,
+    "mergedAt": "2026-11-17T16:29:55Z",
+    "headRefOid": "985a369d6b942d3ab91cb2aff2e17e698cb137fc",
+    "mergeCommit": {
+      "oid": "38b4e9d0c8ed4cacdfc1cc6c072a7a9e62e5c053"
+    },
+    "url": "https://github.com/Naoto214/naotocchi/pull/561",
+    "changedFiles": 174
+  },
+  "priorPRs": {
+    "567": {
+      "state": "OPEN",
+      "isDraft": true,
+      "mergedAt": null,
+      "headRefOid": "fae83a21915f9ada92f4ac13ac1aaacd397e333d",
+      "mergeCommit": null,
+      "url": "https://github.com/Naoto214/naotocchi/pull/567",
+      "changedFiles": 69,
+      "candidateOverlap": []
+    },
+    "568": {
+      "state": "OPEN",
+      "isDraft": true,
+      "mergedAt": null,
+      "headRefOid": "2935622edf9ccdc6f8a36f2297dd86b789022b87",
+      "mergeCommit": null,
+      "url": "https://github.com/Naoto214/naotocchi/pull/568",
+      "changedFiles": 44,
+      "candidateOverlap": []
+    },
+    "569": {
+      "state": "OPEN",
+      "isDraft": true,
+      "mergedAt": null,
+      "headRefOid": "28628cf336a8ed92efe4e9e197ca03298b798a1e",
+      "mergeCommit": null,
+      "url": "https://github.com/Naoto214/naotocchi/pull/569",
+      "changedFiles": 72,
+      "candidateOverlap": []
+    },
+    "570": {
+      "state": "OPEN",
+      "isDraft": true,
+      "mergedAt": null,
+      "headRefOid": "e07d2cc53eca36ff23e02142ab385d6001e0521b",
+      "mergeCommit": null,
+      "url": "https://github.com/Naoto214/naotocchi/pull/570",
+      "changedFiles": 341,
+      "candidateOverlap": []
+    }
+  }
+}

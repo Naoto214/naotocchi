@@ -1,0 +1,154 @@
+{
+  "origin": "https://naotocchi-cast-size.kerzion214.chatgpt.site",
+  "endpoints": {
+    "v5/index.html": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "b23ec46a6207a774131b76a4f17bbb87b00c23da8cfdb973b83a91e87d12110d"
+    },
+    "v5/controls.mjs": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "96b024f3025882a20df856588322df22a6537c74b17dfd595dce7b68d229e79b"
+    },
+    "game/finish.html": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "a7f3a0f6b449f98da9d2f04bc52a37fc0eb5ed13810fe827af2e557bdc73a013"
+    },
+    "game/home-production-model-finish.js": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "d1a8706b7339670b9fc5141bc2eaa056788453fc22c4c3cb3028be5f6d502b05"
+    },
+    "game/home-production-diorama-finish.js": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "2631bb91fe16fa595a2410c31ad5e6d09ee75df30a3543a6ce7f582d4f231f88"
+    },
+    "game/home-route-navigation-finish.mjs": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9"
+    },
+    "game/home-production-world-finish.mjs": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "5f93a1f03481205e65d983e62cf2865b8e5c9618d216d053e42a3436e0406880"
+    },
+    "game/ground.js": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "0968f7a37ae11107658e54f33210ce5ed4fcbb8c7f3abcac3ef58f786d604570"
+    },
+    "game/ground.css": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "093ba471e52621cb3974e6ced8ef77a454dc03d9bc41bbe851df155a2b998223"
+    },
+    "v4/index.html": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "33bc67a499df3a750356a4f971b0db2d4711346d052609d463dea640b60de189"
+    },
+    "evidence/v5/ground-city.webp": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "cd5ad72def60c8f096aeac40ac86aa6f372361a9703b8b90fde832aa083aaa36"
+    },
+    "evidence/v5/ground-forest.webp": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "d542450038fde1009d1a9a8165a8c7ed3502c49f2a074f87eba940ba54af4596"
+    },
+    "evidence/v5/ground-home.webp": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "97c1278682fd33750b8381a358c9aac24bc70d504cedd5699b5903e5f8c01df9"
+    },
+    "evidence/v5/ground-river_lake.webp": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "44a6170aec61c26547e53d861e3bcb6693441e580cbecfc618c37d9afc2583c7"
+    },
+    "evidence/v5/touch/v4-off-detour-chromium-390-city-3.json.gz": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "e8c0e03a4ea416efc66df3099786b332b06047297cceeba0567af8ca5f1d324d"
+    },
+    "evidence/v5/touch-before-guard/v5-off-forest-chromium-390-forest-28.json.gz": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "b36e3c00913de151da1cf8ff0eb667e2ca872eaa445117b9edd68fc855eb42a1"
+    },
+    "evidence/v5/touch-final/v5-off-forest-chromium-390-forest-28.json.gz": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "956a3679304f06d9d3a0036ca1800b27fa0c287dc31bef4105e7c42c82fe5ed8"
+    },
+    "evidence/v5/touch-peer-fresh/v5-on-peer-chromium-390-forest-28.json.gz": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "55ea6895861f688746d93bc8e4ba346d42a51cba2339548cc96d04db70fe206c"
+    },
+    "evidence/v5/touch-peers/v5-on-peer-chromium-390-forest-28.json.gz": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "cd7ea319ea7e3db87cf7180fea44762d46c0cbaf481e7b92a402dd3b713f7188"
+    },
+    "evidence/v5/touch-soak/v5-on-custom-chromium-390-forest-28.json.gz": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "cf987b05b188a82bdc0131f8a15a35a02cb059c0cff1eba1f479edfa026e9864"
+    }
+  },
+  "ui": {
+    "engine": "156.0.8078.79",
+    "viewport": [
+      390,
+      844
+    ],
+    "region": "forest",
+    "count": 28,
+    "roles": [
+      138,
+      138,
+      120.75
+    ],
+    "shadows": 28,
+    "sameFeetAcrossGroundAndTime": 28,
+    "dayToNight": true,
+    "firstWalkingRole": "companion",
+    "groundOriginalAndCandidate": true,
+    "fixtureIsolated": true,
+    "removed84PercentButton": true,
+    "errors": []
+  },
+  "siteVersion": 10,
+  "siteSourceCommit": "aef9fe8facc23d2b9e4c4b5aed40486f832ec17b",
+  "runtimeCommit": "e0a58b145c3fdc3c0350de424efbe78010f452bd",
+  "verifiedAt": "2026-11-20T03:49:02.033382+00:00",
+  "accessPolicy": {
+    "role": "owner",
+    "accessMode": "custom",
+    "allowedUserRoles": [
+      "owner"
+    ],
+    "allowedGroups": 0,
+    "externalVisitors": 0
+  },
+  "inventory": {
+    "previousSiteFilesPreserved": 3936,
+    "gamePackageFilesMatched": 3938,
+    "privateTouchArchiveCount": 179,
+    "privateTouchArchiveBytes": 1042094,
+    "privateTouchManifestSha256": "4563f99a3b35793369715699d1105939fbf16fdb69be18eb6f547de61ca49bec",
+    "groundGallery": {
+      "ground-city.webp": "cd5ad72def60c8f096aeac40ac86aa6f372361a9703b8b90fde832aa083aaa36",
+      "ground-forest.webp": "d542450038fde1009d1a9a8165a8c7ed3502c49f2a074f87eba940ba54af4596",
+      "ground-home.webp": "97c1278682fd33750b8381a358c9aac24bc70d504cedd5699b5903e5f8c01df9",
+      "ground-river_lake.webp": "44a6170aec61c26547e53d861e3bcb6693441e580cbecfc618c37d9afc2583c7"
+    },
+    "modelSha256": "d1a8706b7339670b9fc5141bc2eaa056788453fc22c4c3cb3028be5f6d502b05"
+  }
+}

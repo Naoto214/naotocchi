@@ -1,0 +1,15 @@
+#panel > label { display: block; color: var(--forest); font-size: .91rem; font-weight: 650; }
+.residents { margin-top: 1.4rem; }
+.residents h3 { margin: 0; font-size: 1rem; }
+.residents p { font-size: .875rem; line-height: 1.6; color: var(--muted); }
+#gain { min-height: 1.6em; font-variant-numeric: tabular-nums; font-weight: 600; color: var(--forest); }
+#toolbar-count { font-size: .8rem; }
+.feedback { pointer-events: none; }
+.feedback #retry { pointer-events: auto; }
+@media (max-width:739px), (max-height:500px) and (max-width:940px) {
+  .tools { display: grid; grid-template-columns: minmax(0,1fr) auto auto; }
+  .presets { display: grid; grid-template-columns: 1fr 1fr; }
+  .tools button { padding-inline: .4rem; }
+  .presets button { padding-inline: 0; }
+  select { font-size: 1rem; }
+}

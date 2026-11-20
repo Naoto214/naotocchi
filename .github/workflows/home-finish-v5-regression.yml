@@ -1,0 +1,98 @@
+name: Home finish V5 paired native regression
+on:
+  push:
+    branches: [draft/home-finish-v5]
+    paths:
+      - comparisons/home-finish-v5/native/**
+      - comparisons/home-finish-v5/*.css
+      - comparisons/home-finish-v5/*.html
+      - comparisons/home-finish-v5/build.cjs
+      - comparisons/home-finish-v5/native-source.cjs
+      - comparisons/home-finish-v5/native-hooks.cjs
+      - comparisons/home-finish-v5/ground-render.cjs
+      - comparisons/home-finish-v5/ground.js
+      - comparisons/home-finish-v5/shell-model.mjs
+      - comparisons/home-finish-v5/controls.mjs
+      - comparisons/home-finish-v5/regression_probe.js
+      - comparisons/home-finish-v5/regression_grid.py
+      - comparisons/home-finish-v5/regression_protect.py
+      - comparisons/home-finish-v5/regression_dayparts.py
+      - .github/workflows/home-finish-v5-regression.yml
+      - home-*.js
+      - home-*.mjs
+concurrency:
+  group: home-finish-matrix-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  region:
+    runs-on: ubuntu-latest
+    timeout-minutes: 85
+    strategy:
+      fail-fast: false
+      matrix:
+        region: [home, forest, river_lake, city, countryside, mountain, snow, sea, jungle, desert, deepsea, star_stop, memory_lake]
+    env:
+      CHROMIUM_PATH: /usr/bin/google-chrome
+      REGION: ${{ matrix.region }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-finish-v5
+            tests/helpers
+      - uses: actions/checkout@v4
+        with:
+          ref: e07d2cc53eca36ff23e02142ab385d6001e0521b
+          path: .cast-reference
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-cast-size-v1
+            comparisons/home-cast-size-v2
+            comparisons/home-cast-size-v3
+            comparisons/home-cast-size-v4
+            tools/work
+      - uses: actions/checkout@v4
+        with:
+          ref: 28628cf336a8ed92efe4e9e197ca03298b798a1e
+          path: .leaf-reference
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Preserve legacy routing and exercise the foot-drop contract
+        if: matrix.region == 'forest'
+        run: |
+          node comparisons/home-finish-v5/native-source.cjs --test-routing
+          node --test comparisons/home-finish-v5/*.test.*
+      - name: Rebuild the fixed V4 baseline and candidate game
+        run: |
+          node .cast-reference/comparisons/home-cast-size-v1/build.cjs "$RUNNER_TEMP/v1" --reference-checkout .leaf-reference
+          node .cast-reference/comparisons/home-cast-size-v2/build.cjs "$RUNNER_TEMP/v2" --baseline "$RUNNER_TEMP/v1"
+          node .cast-reference/comparisons/home-cast-size-v3/build.cjs "$RUNNER_TEMP/v3" --baseline "$RUNNER_TEMP/v2"
+          node .cast-reference/comparisons/home-cast-size-v4/build.cjs "$RUNNER_TEMP/v4" --baseline "$RUNNER_TEMP/v3"
+          node comparisons/home-finish-v5/build.cjs "$RUNNER_TEMP/finish" --baseline "$RUNNER_TEMP/v4"
+          python -B comparisons/home-finish-v5/regression_protect.py "$RUNNER_TEMP/v4" "$RUNNER_TEMP/finish" --out "$RUNNER_TEMP/package.json"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run both games at every household size and phone width
+        run: |
+          mkdir -p "$RUNNER_TEMP/results"
+          cp "$RUNNER_TEMP/package.json" "$RUNNER_TEMP/results/$REGION-package.json"
+          python -m pip install --disable-pip-version-check playwright==1.62.0
+          python -m http.server 8305 --bind 127.0.0.1 --directory "$RUNNER_TEMP/finish" > "$RUNNER_TEMP/server.log" 2>&1 &
+          server=$!
+          trap 'kill "$server"' EXIT
+          python -B comparisons/home-finish-v5/regression_grid.py http://127.0.0.1:8305 --region "$REGION" --out "$RUNNER_TEMP/results"
+          python -B comparisons/home-finish-v5/regression_dayparts.py http://127.0.0.1:8305 --region "$REGION" --out "$RUNNER_TEMP/results"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: regression-${{ matrix.region }}
+          path: ${{ runner.temp }}/results
+          retention-days: 14
+          if-no-files-found: error
