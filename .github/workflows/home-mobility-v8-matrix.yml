@@ -7,7 +7,9 @@ on:
       - 'comparisons/home-mobility-v8/movement.cjs'
       - 'comparisons/home-mobility-v8/render.cjs'
       - 'comparisons/home-mobility-v8/matrix_worker_v8.py'
-      - 'comparisons/home-mobility-v8/performance-*.py'
+      - 'comparisons/home-mobility-v8/performance-trace.py'
+      - 'comparisons/home-mobility-v8/performance-touch.py'
+      - 'comparisons/home-mobility-v8/performance-report.py'
       - 'comparisons/home-mobility-v8/matrix-aged-subjects.csv'
       - 'comparisons/home-mobility-v8/matrix_presentation.js'
       - '.github/workflows/home-mobility-v8-matrix.yml'
@@ -117,7 +119,7 @@ jobs:
             read -r name arms <<< "$pair"
             python "$probe" --arms "$arms" --seconds 180 --quiet --out "$out/$name.json"
           done
-          python "$probe" --arms v6,v7,v8 --seconds 25 --trace --out "$out/trace.json"
+          python comparisons/home-mobility-v8/performance-trace.py --arms v6,v7,v8 --seconds 25 --trace --out "$out/trace.json"
           python comparisons/home-mobility-v8/performance-touch.py --out "$out/touch.json"
           python comparisons/home-mobility-v8/performance-report.py "$out" --out "$out/summary.json"
       - name: Retain native interval and scheduler evidence

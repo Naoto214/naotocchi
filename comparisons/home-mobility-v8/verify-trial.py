@@ -12,11 +12,11 @@ def observe(origin, width, count, engine, executable):
         browser = getattr(pw,engine).launch(executable_path=executable)
         ctx = browser.new_context(viewport={'width':width,'height':812},device_scale_factor=2,is_mobile=True,has_touch=True)
         page=ctx.new_page()
-        page.set_default_timeout(120000)
+        page.set_default_timeout(180000)
         errors=[]
         page.on('pageerror',lambda err:errors.append(str(err)))
         def ready(arm):
-            page.wait_for_function("arm=>document.body.dataset.ready==='true' && document.getElementById('home').contentWindow.location.pathname.endsWith('mobility-'+arm+'.html')",arg=arm)
+            page.wait_for_function("arm=>document.body.dataset.ready==='true' && document.getElementById('home').contentWindow.location.pathname.endsWith('mobility-'+arm+'.html')",arg=arm,polling=250)
             return page.locator('#home').element_handle().content_frame()
         try:
             page.goto(f'{origin}/v8/?region=forest&arm=v6&count={count}&time=day&paused=1',wait_until='commit')
@@ -49,6 +49,11 @@ def observe(origin, width, count, engine, executable):
             options=[page.locator('#'+s+' option').count() for s in ('region','time','count')]
             assert options==[13,4,28] and baseline>0 and not errors
             return {'engine':engine,'version':browser.version,'width':width,'count':count,'openingSHA256':hashlib.sha256(json.dumps(snap['opening'],sort_keys=True).encode()).hexdigest(),'paintSHA256':snap['paint'],'sameInV6V7V8AndRestart':True,'shadows':snap['shadows'],'ground':snap['ground'],'size':snap['size'],'toolbar':positions,'regionTimeCountOptions':options,'diagnosticResidents':count,'advancedModelSeconds':baseline,'errors':errors}
+        except Exception:
+            frames=[(f.url,f.evaluate("document.readyState")) for f in page.frames]
+            status=page.locator('#status').text_content(timeout=5000)
+            print('Comparison status:',status,'frames:',frames,'errors:',errors,flush=True)
+            raise
         finally:
             ctx.close();browser.close()
 

@@ -30,14 +30,19 @@ def geometry_hooks(reference, candidate):
     fn = clock.replace(fn, write, "auditReference(n,r,url);")
     candidate = clock.replace(candidate, "function paintForeground(a,row,edits){", fn + """
     const expectedForeground=new Map();
-    const proof=window.foregroundProof={reads:0,masked:0,clears:0,errors:[]};
+    const proof=window.foregroundProof={reads:0,masked:0,clears:0,changedGeometry:0,maxGeometryCssPx:0,changedUrls:0,presenceChanges:0,errors:[]};
     function auditReference(n,r,url){
       expectedForeground.set(n,[r.left,r.top,r.width,r.height,url]);
     }
     function auditResult(n,r,url){
       const prev=expectedForeground.get(n),now=[r.left,r.top,r.width,r.height,url];
-      if(!prev||prev.some((v,i)=>v!==now[i])){
-        if(proof.errors.length<4) proof.errors.push({src:n.src,prev:prev?.slice(0,4),now:now.slice(0,4),urlEqual:prev?.[4]===url});
+      const delta=prev?Math.max(...prev.slice(0,4).map((v,i)=>Math.abs(v-now[i]))):Infinity;
+      proof.maxGeometryCssPx=Math.max(delta,proof.maxGeometryCssPx);
+      if(delta)proof.changedGeometry++;
+      if(prev&&Boolean(url)!==Boolean(prev[4]))proof.presenceChanges++;
+      if(prev&&url!==prev[4])proof.changedUrls++;
+      if(!prev||(window.holdForegroundPose&&(delta!==0||url!==prev[4]))){
+        if(proof.errors.length<4)proof.errors.push({src:n.src,delta,urlEqual:prev?.[4]===url});
       }
       proof.reads++;if(url)proof.masked++;else if(n.style.maskImage)proof.clears++;
       expectedForeground.delete(n);
@@ -107,14 +112,32 @@ def measurements(browser, arm, base, sources, viewport, region, audit):
         def metrics():
             return {m["name"]:m["value"] for m in cdp.send("Performance.getMetrics")["metrics"] if m["name"] in keys}
         before = metrics() if cdp else {}
-        output = page.evaluate("mobilityPerf.advanceFrames(72)")
+        if audit:
+            page.evaluate("HomeCastTrial.apply({paused:false});0")
+            initial_reads=page.evaluate("foregroundProof.reads")
+            page.wait_for_function("start=>foregroundProof.reads>=start+28*50",arg=initial_reads,timeout=180000)
+            output={"nativeComparedBeforeChallenge":page.evaluate("foregroundProof.reads")-initial_reads,
+                    "live":page.evaluate("structuredClone(foregroundProof)")}
+            assert not output["live"]["errors"],output["live"]
+            page.evaluate("""()=>{
+              const style=document.createElement('style');
+              style.textContent='*,*::before,*::after{animation-play-state:paused!important;transition-property:none!important}';
+              document.head.appendChild(style);
+              for(const a of document.getAnimations())a.pause();
+              for(const svg of document.querySelectorAll('svg'))svg.pauseAnimations?.();
+              for(const k in foregroundProof)foregroundProof[k]=k==='errors'?[]:0;
+              window.holdForegroundPose=true;
+            }""")
+            page.wait_for_function("foregroundProof.reads>=28*30",timeout=180000)
+        else:
+            output=page.evaluate("mobilityPerf.advanceFrames(72)")
         if cdp:
             after = metrics()
             output["browserWork"]={k:after[k]-v for k,v in before.items()}
         if audit:
             output["forcedForeground"] = page.evaluate("forceForegroundProbe()")
             output["foreground"] = page.evaluate("foregroundProof")
-            assert output["foreground"]["reads"]>=28*72 and not output["foreground"]["errors"],output["foreground"]
+            assert output["foreground"]["reads"]>=28*30 and not output["foreground"]["errors"],output["foreground"]
             if output["forcedForeground"]:
                 assert output["foreground"]["masked"]>0,output["foreground"]
         assert not errors, errors

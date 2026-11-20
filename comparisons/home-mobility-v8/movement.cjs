@@ -43,43 +43,53 @@ function shortEscape(a, box, nav, s, near, debt, startDebt, heading, clock, canS
   return best?.q || null;
 }
 
+function canHelpAmbient(b) {
+  return canYield(b) && b.activity !== 'together' && b.activity !== 'approach';
+}
+
 function nearbyFeet(a) {
   const s = scene.navigation.intentScale;
   return actors.filter(b => b !== a &&
     Math.abs(b.x-a.x) < (a.w+b.w)*.7+12+24/s.x &&
     Math.abs(b.y-a.y) < (a.h+b.h)*.6+12+24/s.y)
-    .map(b => ({key:b.key,x:b.x,y:b.y}));
+    .map(b => ({key:b.key,x:b.x,y:b.y,available:canHelpAmbient(b)}));
 }
 
-function differentFeet(before, now, scale) {
+function differentFeet(before, now, scale, availability=true) {
   return before.length !== now.length || now.some((b,i) => {
     const old=before[i];
-    return old.key!==b.key || Math.hypot((b.x-old.x)*scale.x,(b.y-old.y)*scale.y)>=3;
+    return old.key!==b.key || (availability && !old.available && b.available) || Math.hypot((b.x-old.x)*scale.x,(b.y-old.y)*scale.y)>=3;
   });
 }
 
 function rememberBlocked(a, p) {
   if (actors.length<=15 || !scene.navigation?.intentScale || !scene.navigation?.intentAware ||
-      a.target || clock<a.manualUntil || clock-a.lastWalk<15 || earlyKey===a.key) return;
+      a.target || clock<a.manualUntil || clock-a.lastWalk<15) return;
   const feet=nearbyFeet(a);
   if(!feet.length)return;
-  waiting.set(a.key,{point:{x:p.x,y:p.y},feet,expires:clock+12});
-  // An otherwise ordinary failed walk is eligible only after the existing
-  // dense-room overdue timer. Repeated requests at unchanged feet share one
-  // attempted help. A later physical opening can make another attempt useful.
+  if(earlyKey!==a.key)waiting.set(a.key,{point:{x:p.x,y:p.y},feet,expires:clock+12});
+  // One attempt per direction/range at the same local feet and availability.
+  // New ordinary intentions can point into an entirely different corridor.
   if(relief || manualGoals.size || clock-a.lastWalk<70)return;
-  const previous=helpedAt.get(a.key),s=scene.navigation.intentScale;
-  if(previous&&!differentFeet(previous,feet,s))return;
+  const s=scene.navigation.intentScale;
   const dx=(p.x-a.x)*s.x,dy=(p.y-a.y)*s.y,length=Math.hypot(dx,dy);
   if(length<3)return;
-  helpedAt.set(a.key,feet);
   const r=Math.min(12,length);
+  const sector=(Math.round(Math.atan2(dy,dx)*4/Math.PI)+8)%8;
+  const bit=1<<(sector+(r<8?0:8));
+  let memo=helpedAt.get(a.key);
+  if(!memo||differentFeet(memo.feet,feet,s)){
+    memo={feet,tried:0};helpedAt.set(a.key,memo);
+  }
+  if(memo.tried&bit)return;
+  memo.tried|=bit;
   const goal={x:a.x+dx/length*r/s.x,y:a.y+dy/length*r/s.y};
   relief={owner:a.key,expires:clock+12,search:pairPlan(a,goal,true)};
 }
 
-function clearRelief() {
+function clearRelief(interrupted=false) {
   if(!relief)return;
+  if(interrupted)helpedAt.delete(relief.owner);
   const b=actor(relief.yieldPeer);
   if(b&&b.yieldFor===relief.owner&&b.source==='yield')releaseHelper(b);
   relief=null;
@@ -87,7 +97,7 @@ function clearRelief() {
 
 function stepRelief(flags) {
   if(flags.reducedMotion || flags.autonomy===false || manualGoals.size || flags.heldActor!=null) {
-    clearRelief();return;
+    clearRelief(true);return;
   }
   if(relief){
     const r=relief,a=actor(r.owner);
@@ -121,10 +131,9 @@ function stepRelief(flags) {
     if(!a||a.target||clock>=w.expires||clock<a.manualUntil||clock>=a.nextAt){
       waiting.delete(key);continue;
     }
-    if(flags.heldActor===key||!differentFeet(w.feet,nearbyFeet(a),scene.navigation.intentScale))continue;
+    if(flags.heldActor===key||!differentFeet(w.feet,nearbyFeet(a),scene.navigation.intentScale,clock-a.lastWalk>=70))continue;
     if(actors.filter(b=>b.target&&b.source==='ambient').length>=2)return;
-    // One early retry of this failed intention, only after a nearby 3px foot
-    // change. Never add a new idle choice, turn a rest into a forced walk, or
+    // One early retry after a nearby 3px foot change or a newly available helper. Never add a new idle choice, turn a rest into a forced walk, or
     // resubmit an identical refusal every frame.
     waiting.delete(key);earlyKey=key;
     try{move(key,w.point,'ambient');}finally{earlyKey=null;}
@@ -159,7 +168,7 @@ function patchMovement(source) {
             request.pairSearch=null;request.peers=null;request.nextAt=clock;
           }
         }`);
-  const localRecovery = [nearbyFeet,differentFeet,rememberBlocked,clearRelief,stepRelief].map(fn=>fn.toString()).join('\n');
+  const localRecovery = [canHelpAmbient,nearbyFeet,differentFeet,rememberBlocked,clearRelief,stepRelief].map(fn=>fn.toString()).join('\n');
   source = replaceOnce(source, '    const manualGoals=new Map();',
     '    const waiting=new Map(),helpedAt=new Map();let relief=null,nextRecovery=0,earlyKey=null;\n'+localRecovery+'\n    const manualGoals=new Map();');
   source = replaceOnce(source, 'function cancel(){manualGoals.clear();',
@@ -167,14 +176,14 @@ function patchMovement(source) {
   source = replaceOnce(source, 'if(!actor(selected))selected=null;',
     'if(arrange){clearRelief();waiting.clear();helpedAt.clear();}if(!actor(selected))selected=null;');
   source = replaceOnce(source, 'if(!a||paused)return false;releaseHelper(a);stopYield(key);',
-    'if(!a||paused)return false;clearRelief();waiting.delete(key);releaseHelper(a);stopYield(key);');
+    'if(!a||paused)return false;clearRelief(true);waiting.delete(key);releaseHelper(a);stopYield(key);');
   source = replaceOnce(source, "if(source!=='ambient'&&retryingKey!==key){releaseHelper(a);",
-    "if(source!=='ambient'&&retryingKey!==key){clearRelief();waiting.delete(key);releaseHelper(a);");
+    "if(source!=='ambient'&&retryingKey!==key){clearRelief(true);waiting.delete(key);releaseHelper(a);");
   source = replaceOnce(source, 'function* pairPlan(a,goal){','function* pairPlan(a,goal,ambient=false){');
   // Reuse the same geometry, order and bounded generator for one or two
   // autonomous helpers. User drops keep the original single-first search.
-  source = replaceOnce(source,'canHelp:b!==a&&canYield(b)',"canHelp:b!==a&&canYield(b)&&(!ambient||!['together','approach'].includes(b.activity))");
-  source = replaceOnce(source,'!sameFoot(b,leg.from)||!canYield(b)||!yieldLeg',"!sameFoot(b,leg.from)||!canYield(b)||(request.owner&&['together','approach'].includes(b.activity))||!yieldLeg");
+  source = replaceOnce(source,'canHelp:b!==a&&canYield(b)',"canHelp:b!==a&&(ambient?canHelpAmbient(b):canYield(b))");
+  source = replaceOnce(source,'!sameFoot(b,leg.from)||!canYield(b)||!yieldLeg',"!sameFoot(b,leg.from)||!(request.owner?canHelpAmbient(b):canYield(b))||!yieldLeg");
   source = replaceOnce(source, '      let comparisons=0;',
     `      let comparisons=0;
       if(ambient)for(const {q,blocked} of goals){

@@ -82,12 +82,12 @@ async function corridor(twoHelpers) {
     unproject:p=>({...p,z:p.y}),walkable:()=>true,segmentWalkable:()=>true});
   Object.assign(navigation,{intentAware:true,intentScale:{x:1,y:1}});
   let seating=true;
-  model.sync(people,{width:700,height:150,region:'forest',navigation,
+  const scene={width:700,height:150,region:'forest',navigation,
     actorBounds:a=>({left:a.key==='0'?40:0,right:a.key==='0'?52:680,top:40,bottom:40}),
-    visible:(p,a)=>!seating||Math.abs(p.x-people[+a.key].x)<1e-8&&Math.abs(p.y-40)<1e-8});
-  seating=false;
+    visible:(p,a)=>!seating||Math.abs(p.x-people[+a.key].x)<1e-8&&Math.abs(p.y-40)<1e-8};
+  model.sync(people,scene);seating=false;
   for(const a of context.actors()){a.nextAt=1000;a.lastWalk=-85;}
-  return {model,people,actors:context.actors};
+  return {model,people,scene,actors:context.actors};
 }
 for(const two of [false,true]) test('a stalled autonomous corridor completes '+(two?'two checked helper legs':'one checked helper leg'),async()=>{
   const {model,people}=await corridor(two);
@@ -129,4 +129,51 @@ for(const mode of ['pause','held','select','reduced'])test('background help yiel
   const before=model.snapshot().map(a=>[a.x,a.y]);
   for(let i=0;i<8;i++)model.step(.05,flags);
   assert.deepEqual(model.snapshot().map(a=>[a.x,a.y]),before);
+});
+
+for(const change of ['presentation','remove owner','new command'])test('live ambient handoff handles '+change,async()=>{
+  const {model,people,scene}=await corridor(true);
+  model.move('0',{x:52,y:40},'ambient');
+  while(model.metrics().clock<8&&!model.snapshot()[2].target)model.step(.05,{autonomy:true});
+  assert.ok(model.snapshot()[2].target);
+  const before=model.snapshot().map(a=>[a.x,a.y]);
+  if(change==='presentation')model.sync(people,scene);
+  if(change==='remove owner')model.sync(people.slice(1),scene);
+  if(change==='new command')model.move('1',{x:60,y:40},'drag',{pointerDrop:true});
+  if(change==='presentation')assert.deepEqual(model.snapshot().map(a=>[a.x,a.y]),before);
+  const afterSync=model.snapshot().map(a=>[a.key,a.x,a.y]);
+  const moved=()=>model.snapshot()[0].x>40.1;
+  if(change==='presentation'){
+    while(model.metrics().clock<12&&!moved())model.step(.05,{autonomy:true});
+    assert.ok(moved());
+  }else {
+    for(let i=0;i<8;i++)model.step(.05,{autonomy:true});
+    const helper=model.snapshot().find(a=>a.key==='2'),prior=afterSync.find(a=>a[0]==='2');
+    assert.deepEqual([helper.x,helper.y],[prior[1],prior[2]]);
+    assert.ok(!helper.target);
+  }
+});
+
+// Same feet can open a handoff when a real helper becomes available, or a
+// resident's next normal intention points along a different safe corridor.
+for(const retry of ['new intention','pending intention'])test('stationary helper re-enters after native manual cooldown: '+retry,async()=>{
+  const {model,actors}=await corridor(false);
+  model.select('1');model.select('14');
+  for(const a of actors())a.nextAt=1000;
+  const tick=n=>{for(let i=0;i<n;i++)model.step(.05,{autonomy:true});};
+  if(retry==='pending intention')tick(80);
+  assert.equal(model.move('0',{x:52,y:40},'ambient'),false);
+  tick(retry==='pending intention'?150:260);
+  assert.equal(model.snapshot()[0].x,40);
+  if(retry==='new intention')assert.equal(model.move('0',{x:52,y:40},'ambient'),false);
+  tick(175);
+  assert.equal(model.snapshot()[0].x,52);
+});
+test('new autonomous direction can use a helper at unchanged feet',async()=>{
+  const {model}=await corridor(false);
+  assert.equal(model.move('0',{x:28,y:40},'ambient'),false);
+  for(let i=0;i<20;i++)model.step(.05,{autonomy:true});
+  assert.equal(model.move('0',{x:52,y:40},'ambient'),false);
+  for(let i=0;i<150;i++)model.step(.05,{autonomy:true});
+  assert.equal(model.snapshot()[0].x,52);
 });

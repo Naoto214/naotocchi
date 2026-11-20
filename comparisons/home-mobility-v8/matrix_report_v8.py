@@ -17,6 +17,7 @@ V7_RELEASE = '44709182706'
 COHORT = ('region', 'count', 'width')
 V7_MIN = dict(arrival=910, near4=521, tapSelected=246)
 SAFETY = ('steps', 'terrain', 'bounds', 'occlusion', 'speed', 'swept')
+V8_MOTION = ('escapePlans','escapeStarts','escapeArrivals','escapeDistance','ambientSingleOffers','ambientSequentialOffers','ambientYieldStages')
 
 def json_write(path, value):
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False) + '\n')
@@ -101,6 +102,11 @@ def household(residents):
     agg = v7.age_metrics(residents)
     agg['actualAmbientWalkers'] = len(residents)-agg['noAmbientStart']
     agg['recovery'] = rate(agg['recoveredEpisodes'], agg['failureEpisodes'])
+    # Report only counters carried by this arm's native observer.
+    if residents and 'escapeStarts' in residents[0]:
+        agg.update({k:sum(r[k] for r in residents) for k in V8_MOTION if k in residents[0]})
+        agg['walkersWithOrdinaryStarts'] = sum(r['ambientStarts']>r['escapeStarts'] for r in residents)
+        agg['escapeStartsOnly'] = sum(r['escapeStarts']>0 and r['ambientStarts']==r['escapeStarts'] for r in residents)
     return agg
 
 def dataset(cells, out, large):
@@ -118,9 +124,17 @@ def dataset(cells, out, large):
             opening[arm].extend(v7.drag_row(c,arm,case,r,'opening') for case,r in d['rows'].items())
             a = d['aged']
             people = v7.age_residents(c,arm)
+            initial = {r['key']:r for r in a['initial']['residents']}
+            final = {r['key']:r for r in a['final']['residents']}
+            for r in people:
+                native = final[r['key']]
+                r.update({k:native[k]-initial[r['key']][k] for k in V8_MOTION if k in native})
             residents[arm].extend(people)
             drag = v7.drag_row(c,arm,f"aged/{a['index']}",a['drag'],'aged')
             aged[arm].append(drag)
+            # Count a real displacement of this actor, even if the planner accepted
+            # a zero-length segment. Preserve the historical step count in the ZIP.
+            drag['actualStep'] = a['drag']['nativeMotion']['firstNativeFootClock'] is not None
             subject = next(r for r in people if r['key']==drag['key'])
             failed = subject['noAmbientStartWithFailures']
             targets.append({**label,'arm':arm,'key':drag['key'], **{k:subject[k] for k in ('ambientRequests','ambientFailures','ambientStarts','lastMovedAgo','activity','stepVetoes','blockingPeers','directObstructions')}, **{k:drag[k] for k in ('issued','selected','selectedKey','actualStep','arrival','nearFinger','touchX','touchY','goalX','goalY')},

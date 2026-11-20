@@ -52,7 +52,7 @@ function prepare(base) {
   files.set('v8/shell-model.mjs',replaceExact(read('v7/shell-model.mjs'),
     "['v5','v6'].includes(query.get('arm')) ? query.get('arm') : 'v7'",
     "['v6','v7'].includes(query.get('arm')) ? query.get('arm') : 'v8'"));
-  const labels = "  ['短い退避歩行の開始','escapeStarts'], ['短い退避歩行の到着','escapeArrivals'],\n"+
+  const labels = "  ['退避歩行の開始（全距離）','escapeStarts'], ['退避歩行の到着（全距離）','escapeArrivals'],\n"+
     "  ['ドラッグ・1体の道譲り','singleOffers'], ['ドラッグ・2体の順次道譲り','sequentialOffers'],\n"+
     "  ['自律移動・1体の道譲り','ambientSingleOffers'], ['自律移動・2体の順次道譲り','ambientSequentialOffers'],\n"+
     "  ['道を譲る歩行の開始','yieldPhysicalStarts'], ['道を譲る歩行の到着','yieldArrivals'],";
