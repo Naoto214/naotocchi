@@ -1,0 +1,211 @@
+{
+  "test": "tests/home-production-birth-browser.cjs",
+  "cases": [
+    {
+      "engine": "chromium",
+      "width": 320,
+      "height": 568,
+      "motion": "reduce",
+      "safeInsets": false,
+      "newbornGround": {
+        "x": 0.5,
+        "z": 0.44690069337044036,
+        "y": 0
+      },
+      "restoredAdultGround": {
+        "x": 0.55,
+        "z": 0.7400000000000002,
+        "y": 0
+      },
+      "maxWorldDifference": 0.0,
+      "maxGrowthFootDifference": 5.551115123125783e-17
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "height": 667,
+      "motion": "reduce",
+      "safeInsets": false,
+      "newbornGround": {
+        "x": 0.5,
+        "z": 0.6138888495827179,
+        "y": 0
+      },
+      "restoredAdultGround": {
+        "x": 0.55,
+        "z": 0.7399999999999999,
+        "y": 0
+      },
+      "maxWorldDifference": 0.0,
+      "maxGrowthFootDifference": 1.1102230246251565e-16
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "height": 844,
+      "motion": "reduce",
+      "safeInsets": false,
+      "newbornGround": {
+        "x": 0.5,
+        "z": 0.6536923345364315,
+        "y": 0
+      },
+      "restoredAdultGround": {
+        "x": 0.55,
+        "z": 0.74,
+        "y": 0
+      },
+      "maxWorldDifference": 0.0,
+      "maxGrowthFootDifference": 0.0
+    },
+    {
+      "engine": "chromium",
+      "width": 430,
+      "height": 932,
+      "motion": "reduce",
+      "safeInsets": false,
+      "newbornGround": {
+        "x": 0.5,
+        "z": 0.6304115769858639,
+        "y": 0
+      },
+      "restoredAdultGround": {
+        "x": 0.55,
+        "z": 0.7400000000000001,
+        "y": 0
+      },
+      "maxWorldDifference": 0.0,
+      "maxGrowthFootDifference": 0.0
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "height": 844,
+      "motion": "reduce",
+      "safeInsets": true,
+      "newbornGround": {
+        "x": 0.5,
+        "z": 0.6536923345364315,
+        "y": 0
+      },
+      "restoredAdultGround": {
+        "x": 0.55,
+        "z": 0.74,
+        "y": 0
+      },
+      "maxWorldDifference": 0.0,
+      "maxGrowthFootDifference": 0.0
+    },
+    {
+      "engine": "chromium",
+      "width": 320,
+      "height": 568,
+      "motion": "no-preference",
+      "safeInsets": false,
+      "newbornGround": {
+        "x": 0.5,
+        "z": 0.44690069337044036,
+        "y": 0
+      },
+      "restoredAdultGround": {
+        "x": 0.55,
+        "z": 0.7400000000000002,
+        "y": 0
+      },
+      "maxWorldDifference": 0.0,
+      "maxGrowthFootDifference": 5.551115123125783e-17
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "height": 667,
+      "motion": "no-preference",
+      "safeInsets": false,
+      "newbornGround": {
+        "x": 0.5,
+        "z": 0.6138888495827179,
+        "y": 0
+      },
+      "restoredAdultGround": {
+        "x": 0.55,
+        "z": 0.7399999999999999,
+        "y": 0
+      },
+      "maxWorldDifference": 0.0,
+      "maxGrowthFootDifference": 1.1102230246251565e-16
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "height": 844,
+      "motion": "no-preference",
+      "safeInsets": false,
+      "newbornGround": {
+        "x": 0.5,
+        "z": 0.6536923345364315,
+        "y": 0
+      },
+      "restoredAdultGround": {
+        "x": 0.55,
+        "z": 0.74,
+        "y": 0
+      },
+      "maxWorldDifference": 0.0,
+      "maxGrowthFootDifference": 0.0
+    },
+    {
+      "engine": "chromium",
+      "width": 430,
+      "height": 932,
+      "motion": "no-preference",
+      "safeInsets": false,
+      "newbornGround": {
+        "x": 0.5,
+        "z": 0.6304115769858639,
+        "y": 0
+      },
+      "restoredAdultGround": {
+        "x": 0.55,
+        "z": 0.7400000000000001,
+        "y": 0
+      },
+      "maxWorldDifference": 0.0,
+      "maxGrowthFootDifference": 0.0
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "height": 844,
+      "motion": "no-preference",
+      "safeInsets": true,
+      "newbornGround": {
+        "x": 0.5,
+        "z": 0.6536923345364315,
+        "y": 0
+      },
+      "restoredAdultGround": {
+        "x": 0.55,
+        "z": 0.74,
+        "y": 0
+      },
+      "maxWorldDifference": 0.0,
+      "maxGrowthFootDifference": 0.0
+    }
+  ],
+  "before": {
+    "home-production-diorama.js": "ecac051a6f903dab5ee2f266d70b879686e15a035fbcefd1e6a84fa5a2db783a",
+    "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+    "home-production-world.mjs": "d824c818c676353898afb052b43f8e88db9a14a7add55c3986af0104dbdc9ca6",
+    "home-visible-ground-navigation.mjs": "47d394909efd22698dc697883efab1dc5f5142842d03615283d43d2f9490093b",
+    "home-art-navigation.mjs": "b08b767e0984c662aae5bd2e98dfc1463923950b7c41ded9af7ee4a26f8668be",
+    "home-route-navigation.mjs": "9459d7632eb786f8415839e102ddd422829804423f0b9e674bae44424eef678e"
+  },
+  "after": {
+    "home-production-diorama.js": "ff488da3ae7dcf287fc708caa61484ab47446ac730f307bfd93ca0095e4624b6",
+    "home-production-model.js": "d1a8706b7339670b9fc5141bc2eaa056788453fc22c4c3cb3028be5f6d502b05",
+    "home-production-world.mjs": "222098afde73c45ac1d1b6a457ed0f94ac69fa4df6f25c21711aa949a6292142",
+    "home-visible-ground-navigation.mjs": "e7c4148b9a4440417f2d39e7dfa685ba15032d2d6e9e8c8ed25d6214fb500fd5",
+    "home-art-navigation.mjs": "8419e25fc7877dbb88bbb447c0ffa47100acaecd7fcefe4bbd6291b2c71f462c",
+    "home-route-navigation.mjs": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9"
+  }
+}

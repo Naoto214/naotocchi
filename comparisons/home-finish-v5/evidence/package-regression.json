@@ -1,0 +1,48 @@
+{
+  "referenceFiles": 3920,
+  "referenceSHA256": "f9b927c65ea9f683dead97b906d569c2216f7334bad7e70e1ee915635c56f90a",
+  "retainedAtIdenticalPaths": 3920,
+  "preservedGroups": {
+    "sprites": 30,
+    "gameAssets": 3023,
+    "beauty": 17,
+    "daypartArt": 52,
+    "V1": 4,
+    "V3": 4,
+    "V4": 4
+  },
+  "activeEntry": {
+    "unchangedHTMLAfterRestoringSixReviewedURLsAndRemovingGroundIncludes": true,
+    "referenceHTMLSHA256": "80b4079fe8d7b3910da3504f9ca16694de5111b7226ff4420aee5b0b913f5168",
+    "aliases": {
+      "population-policy.js": "finish-policy.js",
+      "population-seating.js": "finish-seating.js",
+      "cast-population.js": "cast-finish.js",
+      "home-production-model.js": "home-production-model-finish.js",
+      "home-production-touch.js": "home-production-touch-finish.js",
+      "home-production-diorama-population.js": "home-production-diorama-finish.js"
+    }
+  },
+  "candidateFiles": 3938,
+  "candidateSHA256": "f6890f54972be66698b9ac5d53938969333d71cc7e3eacc1c018c43539329c7d",
+  "newFiles": {
+    "game/cast-finish.js": "4939348c99e24a849945f8b1cb64df2e0e119e0c2e7e2d5ed9881930cac79887",
+    "game/finish-policy.js": "6eaa3b6bbd56777a78efc93c0b2d71e749fa021938154b7d1b50ecfcf6f787b2",
+    "game/finish-seating.js": "af7a273d9010339355ebd4efd871a39440f219b28bede55ee2984116bf699964",
+    "game/finish.html": "a7f3a0f6b449f98da9d2f04bc52a37fc0eb5ed13810fe827af2e557bdc73a013",
+    "game/ground.css": "093ba471e52621cb3974e6ced8ef77a454dc03d9bc41bbe851df155a2b998223",
+    "game/ground.js": "0968f7a37ae11107658e54f33210ce5ed4fcbb8c7f3abcac3ef58f786d604570",
+    "game/home-art-navigation-finish.mjs": "5b0af9177102b0059efce5584fec2f57fcb1574f293b4d074c569edb694d551e",
+    "game/home-production-diorama-finish.js": "2631bb91fe16fa595a2410c31ad5e6d09ee75df30a3543a6ce7f582d4f231f88",
+    "game/home-production-model-finish.js": "d1a8706b7339670b9fc5141bc2eaa056788453fc22c4c3cb3028be5f6d502b05",
+    "game/home-production-touch-finish.js": "ec0537400d8a1f2d470ca35432214e0978278157e03702c54bdd7ee9843a3a7c",
+    "game/home-production-world-finish.mjs": "5f93a1f03481205e65d983e62cf2865b8e5c9618d216d053e42a3436e0406880",
+    "game/home-recovered-navigation-finish.mjs": "f4a9a02af349608cd9c40057cf3b7e5be90877bf9d893a2740e47636f5512ed2",
+    "game/home-route-navigation-finish.mjs": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9",
+    "game/home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+    "v5/controls.mjs": "96b024f3025882a20df856588322df22a6537c74b17dfd595dce7b68d229e79b",
+    "v5/index.html": "b23ec46a6207a774131b76a4f17bbb87b00c23da8cfdb973b83a91e87d12110d",
+    "v5/shell-model.mjs": "721612b8a9c65e63969d327f58fcdaf4d1640784283d9d26987c39f5cbdde41e",
+    "v5/style.css": "583f0cc5e3a7c93abcff4d78766a4664e303fa81b007abd22bf8031c73fb905f"
+  }
+}
