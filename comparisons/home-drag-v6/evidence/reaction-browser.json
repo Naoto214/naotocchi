@@ -1,0 +1,561 @@
+{
+  "browser": "156.0.8078.79",
+  "arms": {
+    "v5": {
+      "region": "forest",
+      "count": 28,
+      "viewport": [
+        390,
+        792
+      ],
+      "actor": "companion:tanuki",
+      "start": [
+        173.94756108522415,
+        297.0356676578522
+      ],
+      "goal": [
+        186.08903675033866,
+        312.8189043881688
+      ],
+      "preRelease": {
+        "held": null,
+        "waiting": null,
+        "ring": false,
+        "marker": [
+          0,
+          0
+        ],
+        "key": "companion:tanuki",
+        "foot": [
+          184.37000000000003,
+          194.1980000000001
+        ],
+        "direction": 1,
+        "activity": "rest",
+        "target": null,
+        "route": [],
+        "walk": false,
+        "issued": 0,
+        "events": [],
+        "busy": false,
+        "modelClock": 0
+      },
+      "frames": [
+        [
+          0.2,
+          false,
+          false,
+          null,
+          [
+            193.131,
+            194.198
+          ],
+          [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "look",
+          1
+        ],
+        [
+          27.6,
+          false,
+          false,
+          null,
+          [
+            193.131,
+            194.198
+          ],
+          [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "look",
+          1
+        ],
+        [
+          97.1,
+          false,
+          false,
+          null,
+          [
+            193.131,
+            194.198
+          ],
+          [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "look",
+          1
+        ],
+        [
+          417.9,
+          false,
+          false,
+          null,
+          [
+            193.131,
+            194.198
+          ],
+          [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "look",
+          1
+        ],
+        [
+          597.1,
+          false,
+          false,
+          null,
+          [
+            193.131,
+            194.198
+          ],
+          [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "look",
+          1
+        ],
+        [
+          710.2,
+          false,
+          false,
+          null,
+          [
+            193.131,
+            194.198
+          ],
+          [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "look",
+          1
+        ],
+        [
+          761.3,
+          false,
+          false,
+          null,
+          [
+            193.131,
+            194.198
+          ],
+          [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "look",
+          1
+        ],
+        [
+          949.3,
+          false,
+          false,
+          null,
+          [
+            193.131,
+            194.198
+          ],
+          [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "look",
+          1
+        ],
+        [
+          1135,
+          false,
+          false,
+          null,
+          [
+            193.131,
+            194.198
+          ],
+          [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "look",
+          1
+        ]
+      ],
+      "native": {
+        "moves": [
+          {
+            "key": "companion:tanuki",
+            "source": "drag",
+            "request": [
+              193.13090055589322,
+              194.1980037939657
+            ],
+            "accepted": false,
+            "wall": 37306.300000000745,
+            "ms": 86,
+            "clock": 2.083199999999997,
+            "foot": [
+              184.37000000000003,
+              194.1980000000001
+            ]
+          }
+        ],
+        "trust": [
+          [
+            "pointerdown",
+            true
+          ],
+          [
+            "pointermove",
+            true
+          ],
+          [
+            "pointermove",
+            true
+          ],
+          [
+            "pointermove",
+            true
+          ],
+          [
+            "pointerup",
+            true
+          ]
+        ],
+        "state": {
+          "held": null,
+          "waiting": null,
+          "ring": false,
+          "marker": [
+            193.131,
+            194.198
+          ],
+          "key": "companion:tanuki",
+          "foot": [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "direction": 1,
+          "activity": "look",
+          "target": null,
+          "route": [],
+          "walk": false,
+          "issued": 1,
+          "events": [
+            [
+              0.617,
+              "tap",
+              "tap",
+              [
+                184.37000000000003,
+                194.1980000000001
+              ]
+            ]
+          ],
+          "busy": false,
+          "modelClock": 3.483199999999998
+        }
+      },
+      "sha256": {
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "home-production-model-finish.js": "d1a8706b7339670b9fc5141bc2eaa056788453fc22c4c3cb3028be5f6d502b05",
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6",
+        "script-v2.js": "3f5255546fe017d4de625ae24f0016da90f5265ee3c7b8b3744d70607e966844",
+        "home-production-diorama-finish.js": "2631bb91fe16fa595a2410c31ad5e6d09ee75df30a3543a6ce7f582d4f231f88",
+        "home-route-navigation-finish.mjs": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9"
+      }
+    },
+    "v6": {
+      "region": "forest",
+      "count": 28,
+      "viewport": [
+        390,
+        792
+      ],
+      "actor": "companion:tanuki",
+      "start": [
+        173.94756108522415,
+        297.0356676578522
+      ],
+      "goal": [
+        186.08903675033866,
+        312.8189043881688
+      ],
+      "preRelease": {
+        "held": null,
+        "waiting": null,
+        "ring": false,
+        "marker": [
+          0,
+          0
+        ],
+        "key": "companion:tanuki",
+        "foot": [
+          184.37000000000003,
+          194.1980000000001
+        ],
+        "direction": 1,
+        "activity": "rest",
+        "target": null,
+        "route": [],
+        "walk": false,
+        "issued": 0,
+        "events": [],
+        "busy": false,
+        "modelClock": 0.48340000000000144
+      },
+      "frames": [
+        [
+          2.1,
+          true,
+          false,
+          null,
+          [
+            193.131,
+            194.198
+          ],
+          [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "look",
+          1
+        ],
+        [
+          140.3,
+          true,
+          false,
+          null,
+          [
+            193.131,
+            194.198
+          ],
+          [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "look",
+          1
+        ],
+        [
+          301.1,
+          true,
+          false,
+          null,
+          [
+            193.131,
+            194.198
+          ],
+          [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "look",
+          1
+        ],
+        [
+          836.4,
+          false,
+          false,
+          null,
+          [
+            193.131,
+            194.198
+          ],
+          [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "look",
+          1
+        ],
+        [
+          2494.3,
+          false,
+          false,
+          null,
+          [
+            193.131,
+            194.198
+          ],
+          [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "look",
+          1
+        ]
+      ],
+      "native": {
+        "moves": [
+          {
+            "key": "companion:tanuki",
+            "source": "drag",
+            "request": [
+              193.13090055589322,
+              194.1980037939657
+            ],
+            "accepted": false,
+            "wall": 41139.90000000037,
+            "ms": 270.90000000037253,
+            "clock": 4.633299999999996,
+            "foot": [
+              184.37000000000003,
+              194.1980000000001
+            ]
+          }
+        ],
+        "trust": [
+          [
+            "pointerdown",
+            true
+          ],
+          [
+            "pointermove",
+            true
+          ],
+          [
+            "pointermove",
+            true
+          ],
+          [
+            "pointermove",
+            true
+          ],
+          [
+            "pointerup",
+            true
+          ]
+        ],
+        "state": {
+          "held": null,
+          "waiting": null,
+          "ring": false,
+          "marker": [
+            193.131,
+            194.198
+          ],
+          "key": "companion:tanuki",
+          "foot": [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "direction": 1,
+          "activity": "look",
+          "target": null,
+          "route": [],
+          "walk": false,
+          "issued": 1,
+          "events": [
+            [
+              1.933,
+              "tap",
+              "tap",
+              [
+                184.37000000000003,
+                194.1980000000001
+              ]
+            ]
+          ],
+          "busy": false,
+          "modelClock": 7.016499999999993
+        }
+      },
+      "sha256": {
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "home-production-diorama-drag-v6.js": "b724d782d97c6d07f7482531fd57fa6e0bbd5834410dcbcd48d73f41e5143ffd",
+        "home-production-model-drag-v6.js": "115c2a98a532a797c7a791c061d11b6c065292ca5f717e668f4de4ad95344454",
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6",
+        "script-v2-drag-v6.js": "4015923114645a1d7c0491bc680ed588723a2741a070673d6e9c103f7fea2443",
+        "home-route-navigation-finish.mjs": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9"
+      },
+      "mouseReleaseOutsideStage": {
+        "point": [
+          8,
+          8
+        ],
+        "heldAtPress": "companion:tanuki",
+        "after": {
+          "held": null,
+          "waiting": null,
+          "ring": false,
+          "marker": [
+            193.131,
+            194.198
+          ],
+          "key": "companion:tanuki",
+          "foot": [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "direction": 1,
+          "activity": "rest",
+          "target": null,
+          "route": [],
+          "walk": false,
+          "issued": 0,
+          "events": [],
+          "busy": true,
+          "modelClock": 1.4834000000000016
+        }
+      },
+      "cameraRefit": {
+        "queued": {
+          "held": null,
+          "waiting": "companion:tanuki",
+          "ring": true,
+          "marker": [
+            193.131,
+            194.198
+          ],
+          "key": "companion:tanuki",
+          "foot": [
+            184.37000000000003,
+            194.1980000000001
+          ],
+          "direction": 1,
+          "activity": "rest",
+          "target": null,
+          "route": [],
+          "walk": false,
+          "issued": 0,
+          "events": [],
+          "busy": true,
+          "modelClock": 0
+        },
+        "after": {
+          "held": null,
+          "waiting": null,
+          "ring": false,
+          "marker": [
+            193.131,
+            194.198
+          ],
+          "key": "companion:tanuki",
+          "foot": [
+            176.64500000000004,
+            201.98300000000003
+          ],
+          "direction": 1,
+          "activity": "rest",
+          "target": null,
+          "route": [],
+          "walk": false,
+          "issued": 0,
+          "events": [],
+          "busy": false,
+          "modelClock": 0.7165999999999983
+        },
+        "newViewport": [
+          375,
+          760
+        ]
+      }
+    }
+  }
+}

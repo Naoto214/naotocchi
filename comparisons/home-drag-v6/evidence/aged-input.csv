@@ -1,0 +1,5 @@
+arm,keptHomeOpen,dismissedInvitations,overlaysAtInput,openingSHA256,wallSeconds,modelSeconds,nativeMovesByThen,nativeDistanceByThen,tapSelected,tapGate,dragKey,enteredBlocked,actualRequests,steps,firstFootMs,lastStepMs,nativeArrivalMs,stationaryAtGoal,fingerErrorCss,raw
+v5,True,1,,41cc8c711ce5a564081c243b6ed2750b5d482c3fd31aeee636c948034fa35fb2,360.57,162.36,55,2645.12,False,True,pet:dog,True,0,0,,,,False,36.0,chromium/aged-play-v5.json
+v6,True,2,,41cc8c711ce5a564081c243b6ed2750b5d482c3fd31aeee636c948034fa35fb2,192.51,181.59,71,3421.49,True,False,pet:dog,False,1,33,30.4,1162.8,1196.0,True,0.0,chromium/aged-play-v6.json
+v5,False,0,companionInviteOverlay,41cc8c711ce5a564081c243b6ed2750b5d482c3fd31aeee636c948034fa35fb2,181.06,80.4,22,1085.31,False,True,pet:dog,True,0,0,,,,False,12.0,chromium/aged-v5.json
+v6,False,0,companionInviteOverlay,41cc8c711ce5a564081c243b6ed2750b5d482c3fd31aeee636c948034fa35fb2,181.03,80.41,27,1315.35,False,True,pet:dog,True,0,0,,,,False,12.0,chromium/aged-v6.json

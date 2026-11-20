@@ -1,0 +1,34 @@
+{
+  "verifiedAt": "2026-11-20T07:18:11.172394+00:00",
+  "reference": "a0df9061c26dde237158ba3423dd4732ca8bec42",
+  "candidate": "762c68d0ed7ef5ed2dc1317ef0c86f0123a2895f",
+  "originalFiles": 35905,
+  "originalModeAndContentIdentical": 35905,
+  "priorDrafts": {
+    "567": {
+      "state": "OPEN",
+      "isDraft": true,
+      "headRefOid": "fae83a21915f9ada92f4ac13ac1aaacd397e333d"
+    },
+    "568": {
+      "state": "OPEN",
+      "isDraft": true,
+      "headRefOid": "2935622edf9ccdc6f8a36f2297dd86b789022b87"
+    },
+    "569": {
+      "state": "OPEN",
+      "isDraft": true,
+      "headRefOid": "28628cf336a8ed92efe4e9e197ca03298b798a1e"
+    },
+    "570": {
+      "state": "OPEN",
+      "isDraft": true,
+      "headRefOid": "e07d2cc53eca36ff23e02142ab385d6001e0521b"
+    },
+    "572": {
+      "state": "OPEN",
+      "isDraft": true,
+      "headRefOid": "a0df9061c26dde237158ba3423dd4732ca8bec42"
+    }
+  }
+}

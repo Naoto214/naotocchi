@@ -1,0 +1,332 @@
+{
+  "engine": "chromium",
+  "version": "156.0.8078.79",
+  "ownerViewport": [
+    375,
+    812
+  ],
+  "toolbar": [
+    {
+      "id": "v5",
+      "width": 78.046875,
+      "height": 44,
+      "visible": true
+    },
+    {
+      "id": "v6",
+      "width": 78.0625,
+      "height": 44,
+      "visible": true
+    },
+    {
+      "id": "restart",
+      "width": 72.703125,
+      "height": 44,
+      "visible": true
+    },
+    {
+      "id": "freeze",
+      "width": 44.546875,
+      "height": 44,
+      "visible": true
+    },
+    {
+      "id": "settings-toggle",
+      "width": 75.640625,
+      "height": 44,
+      "visible": true
+    }
+  ],
+  "nativeScripts": {
+    "v5": [
+      "population-beauty.js",
+      "beauty/fixture.js",
+      "home-production-model-finish.js?v=d1a8706b7339",
+      "drag-trial-hooks.js?v=86a657ad0f2d",
+      "home-production-diorama-finish.js?v=2631bb91fe16",
+      "script-v2.js?v=20261114-ebb7bae6"
+    ],
+    "v6": [
+      "population-beauty.js",
+      "beauty/fixture.js",
+      "home-production-model-drag-v6.js?v=115c2a98a532",
+      "drag-trial-hooks.js?v=86a657ad0f2d",
+      "home-production-diorama-drag-v6.js?v=b724d782d97c",
+      "script-v2-drag-v6.js?v=401592311464"
+    ]
+  },
+  "randomSources": {
+    "beauty/fixture.js": {
+      "seed": 214,
+      "sha256": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a"
+    },
+    "population-beauty.js": {
+      "seed": 214,
+      "sha256": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a"
+    }
+  },
+  "pairedOpening": {
+    "opening": {
+      "region": "river_lake",
+      "time": "day",
+      "season": "autumn",
+      "weather": "sunny",
+      "variant": "B",
+      "clock": 0,
+      "width": 375,
+      "height": 760,
+      "actors": [
+        [
+          "pet:dog",
+          "assets/characters/dog/06.png",
+          192.07875337200255,
+          292.54029816898935,
+          39.44285714285715,
+          46.01666666666667
+        ],
+        [
+          "partner:forest_bear",
+          "assets/characters/partners/forest_bear.png",
+          138.97189557719926,
+          277.5543950257404,
+          32.53703703703704,
+          33.46666666666667
+        ],
+        [
+          "companion:cat_friend",
+          "assets/characters/companions/cat_friend.png",
+          156.0659349709981,
+          196.8490949891776,
+          33.46666666666667,
+          27.269135802469137
+        ],
+        [
+          "companion:tanuki",
+          "assets/characters/companions/tanuki.png",
+          265.8192862883449,
+          263.7300434481857,
+          30.47676729559748,
+          32.964666666666666
+        ],
+        [
+          "companion:owl",
+          "assets/characters/companions/owl.png",
+          143.35102669591672,
+          314.0090966621277,
+          23.63504402515723,
+          32.964666666666666
+        ],
+        [
+          "companion:hamster",
+          "assets/characters/companions/hamster.png",
+          279.53845520301326,
+          330.6109919071939,
+          31.632760942760942,
+          32.964666666666666
+        ],
+        [
+          "companion:monkey",
+          "assets/characters/companions/monkey.png",
+          177.20210300128622,
+          249.74518251074727,
+          28.821993769470406,
+          32.46266666666667
+        ],
+        [
+          "companion:sheep",
+          "assets/characters/companions/sheep.png",
+          63.46154479698675,
+          159.80733891957308,
+          32.46266666666667,
+          30.358604938271608
+        ],
+        [
+          "companion:bat",
+          "assets/characters/companions/bat.png",
+          119.33187232929632,
+          209.74518251074727,
+          23.581371069182396,
+          32.46266666666667
+        ],
+        [
+          "companion:penguin_friend",
+          "assets/characters/companions/penguin_friend.png",
+          242.32220697697545,
+          288.4689995468898,
+          31.96066666666667,
+          14.818127272727274
+        ],
+        [
+          "companion:shiba",
+          "assets/characters/companions/shiba.png",
+          122.32220697697544,
+          344.0810570879418,
+          31.960666666666672,
+          29.297277777777783
+        ],
+        [
+          "companion:punyu",
+          "assets/characters/companions/punyu.png",
+          242.32220697697545,
+          349.4362136086067,
+          31.960666666666672,
+          24.266432098765435
+        ],
+        [
+          "companion:chameleon",
+          "assets/characters/companions/chameleon.png",
+          218.1430573127023,
+          254.51103440542414,
+          31.458666666666666,
+          26.31088484848485
+        ],
+        [
+          "companion:unicorn",
+          "assets/characters/companions/unicorn.png",
+          105.22450812497442,
+          169.21735419148584,
+          28.884775757575756,
+          31.458666666666666
+        ],
+        [
+          "companion:watcher",
+          "assets/characters/companions/watcher.png",
+          146.83510308329505,
+          233.21735419148584,
+          10.980855345911946,
+          31.45866666666666
+        ],
+        [
+          "companion:rabbit_friend",
+          "assets/characters/companions/rabbit_friend.png",
+          295.76324201939457,
+          290.27301083000873,
+          24.790123456790127,
+          33.46666666666667
+        ],
+        [
+          "companion:squirrel",
+          "assets/characters/companions/squirrel.png",
+          161.37337727360276,
+          370.0090966621277,
+          29.301925925925925,
+          32.964666666666666
+        ],
+        [
+          "companion:otter",
+          "assets/characters/companions/otter.png",
+          282.68050630552176,
+          369.3789016436972,
+          32.964666666666666,
+          31.765951515151514
+        ],
+        [
+          "companion:panda",
+          "assets/characters/companions/panda.png",
+          106.25271862234827,
+          306.0090966621277,
+          31.765951515151514,
+          32.964666666666666
+        ],
+        [
+          "companion:parrot",
+          "assets/characters/companions/parrot.png",
+          65.32140175372103,
+          193.74518251074727,
+          29.156283950617286,
+          32.46266666666667
+        ],
+        [
+          "companion:seal",
+          "assets/characters/companions/seal.png",
+          114.5013566412486,
+          248.34883667664116,
+          32.46266666666667,
+          29.806630303030307
+        ],
+        [
+          "companion:chicken",
+          "assets/characters/companions/chicken.png",
+          241.53593900599878,
+          225.74518251074727,
+          29.757444444444445,
+          32.46266666666667
+        ],
+        [
+          "companion:hedgehog",
+          "assets/characters/companions/hedgehog.png",
+          90.32220697697545,
+          369.31154577249663,
+          31.960666666666675,
+          31.637831649831657
+        ],
+        [
+          "companion:snail",
+          "assets/characters/companions/snail.png",
+          218.32220697697545,
+          371.2708838418771,
+          31.960666666666672,
+          14.838880952380954
+        ],
+        [
+          "companion:sekizou",
+          "assets/characters/companions/sekizou.png",
+          204.72488583056418,
+          217.48126834286626,
+          16.276265432098768,
+          31.960666666666672
+        ],
+        [
+          "companion:clock",
+          "assets/characters/companions/clock.png",
+          81.62330211388507,
+          225.21735419148584,
+          30.002246913580247,
+          31.458666666666666
+        ],
+        [
+          "companion:many_tail_fox",
+          "assets/characters/companions/many_tail_fox.png",
+          82.14305731270228,
+          272.9166519937454,
+          31.458666666666666,
+          30.88669090909091
+        ],
+        [
+          "companion:box",
+          "assets/characters/companions/box.png",
+          322.1430573127023,
+          321.04141141289847,
+          31.458666666666673,
+          31.124000000000006
+        ]
+      ]
+    },
+    "canvas": [
+      750,
+      1520
+    ],
+    "canvasSHA256": "2b465accb7880bad3219e4cc9bfcca81f4079363b2b7aa3198de9b402af22b98",
+    "region": "river_lake",
+    "time": "day",
+    "count": 28,
+    "policy": "B",
+    "curve": "linear",
+    "ground": true,
+    "leaf": "B",
+    "lighting": "E3plus",
+    "stored": [
+      null,
+      null
+    ]
+  },
+  "restartsMatched": true,
+  "playingClockSeconds": 1.9498999999999986,
+  "walkingWhenSampled": 2,
+  "regionTimeCountOptions": [
+    13,
+    4,
+    28
+  ],
+  "errors": []
+}
