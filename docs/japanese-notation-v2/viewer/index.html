@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>表記候補の個別レビュー｜なおとっち総合 VERSION 2</title>
+  <link rel="stylesheet" href="review.css">
+  <script defer src="review.js"></script>
+</head>
+<body>
+  <header><div class="wrap mast"><strong>なおとっち総合</strong><span>日本語表記統一　VERSION 2</span></div></header>
+  <main class="wrap">
+    <h1>表記候補の個別レビュー</h1>
+    <p class="intro">VERSION 1の519件について、使用場面と変更理由を一件ずつ確認できます。採用は未決定です。</p>
+    <nav aria-label="比較資料"><a href="guide.html">方針・分野別集計</a><a href="home.html">ホームの9語</a><a href="../sample/">カード面5枚の比較</a><a href="cards.html">カードの名称差</a><a href="rules.html">説明内容の訂正</a><a href="story.html">物語の原文保護</a><a href="additional.html">維持からの再検討</a><a href="../">VERSION 1</a></nav>
+    <div class="filters">
+      <label>分野<select id="domain"><option value="">全10分野</option></select></label>
+      <label>VERSION 2の提案<select id="status"><option value="">すべて</option><option>変更推奨</option><option>保留</option><option>維持</option></select></label>
+      <label>優先度<select id="priority"><option value="">すべて</option><option value="A">A　整合性</option><option value="B">B　読みやすさ</option><option value="C">C　好み・世界観</option></select></label>
+      <label>論点<select id="track"><option value="">すべて</option><option>名称・表記</option><option>説明内容の確認</option></select></label>
+      <label>分類<select id="kind"><option value="">すべて</option></select></label>
+      <label>VERSION 1の判断<select id="old"><option value="">すべて</option><option>変更推奨</option><option>保留</option></select></label>
+      <label>表記・IDで検索<input id="search" type="search" placeholder="例　すれ違い、J001"></label>
+    </div>
+    <div class="layout">
+      <section class="listcol" aria-label="候補一覧">
+        <p id="count" role="status">資料を読み込んでいます…</p>
+        <ul id="list"></ul>
+        <div class="pager"><button type="button" id="prevpage">前の一覧</button><button type="button" id="nextpage">次の一覧</button></div>
+      </section>
+      <article id="detail" aria-label="選択中の候補" tabindex="-1"></article>
+    </div>
+  </main>
+  <footer class="wrap"><a href="candidates.csv" download>519件の比較表をダウンロード（CSV）</a></footer>
+</body>
+</html>
