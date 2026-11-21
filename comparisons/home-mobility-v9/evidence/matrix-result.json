@@ -1,0 +1,361 @@
+{
+  "total": {
+    "v7": {
+      "group": "all",
+      "value": "all",
+      "arm": "v7",
+      "residents": 3276,
+      "requested": 3274,
+      "normalWalkers": 3082,
+      "ownArrivalsWalkers": 3169,
+      "actualWalkers": 3202,
+      "escapeOnlyWalkers": 32,
+      "requests": 52031,
+      "plans": 39615,
+      "planningFailures": 12416,
+      "normalCompletions": 24433,
+      "longestToNormalSec": 298.95,
+      "openToNormalOver60": 667,
+      "ambientFootDistanceCss": 2141962.59,
+      "longestFailureSec": 298.95,
+      "openOver60": 376,
+      "recoveredFailures": 4679,
+      "bothFailed": 3,
+      "wrongSelectionAndAutonomyFailed": 0,
+      "agedDragArrival": 241,
+      "agedNear4": 184,
+      "agedDragCount": 260,
+      "drags": 1058,
+      "arrival": 911,
+      "near4": 522,
+      "tapSent": 260,
+      "tapSelected": 246,
+      "occupiedSent": 208,
+      "occupiedArrival": 144
+    },
+    "v8": {
+      "group": "all",
+      "value": "all",
+      "arm": "v8",
+      "residents": 3276,
+      "requested": 3274,
+      "normalWalkers": 3088,
+      "ownArrivalsWalkers": 3183,
+      "actualWalkers": 3247,
+      "escapeOnlyWalkers": 64,
+      "requests": 54768,
+      "plans": 42301,
+      "planningFailures": 12467,
+      "normalCompletions": 24646,
+      "longestToNormalSec": 298.95,
+      "openToNormalOver60": 587,
+      "ambientFootDistanceCss": 2152621.18,
+      "longestFailureSec": 298.55,
+      "openOver60": 148,
+      "recoveredFailures": 4991,
+      "bothFailed": 2,
+      "wrongSelectionAndAutonomyFailed": 0,
+      "agedDragArrival": 240,
+      "agedNear4": 190,
+      "agedDragCount": 260,
+      "drags": 1058,
+      "arrival": 910,
+      "near4": 521,
+      "tapSent": 260,
+      "tapSelected": 246,
+      "occupiedSent": 208,
+      "occupiedArrival": 144
+    },
+    "v9": {
+      "group": "all",
+      "value": "all",
+      "arm": "v9",
+      "residents": 3276,
+      "requested": 3274,
+      "normalWalkers": 3217,
+      "ownArrivalsWalkers": 3241,
+      "actualWalkers": 3264,
+      "escapeOnlyWalkers": 23,
+      "requests": 56144,
+      "plans": 44540,
+      "planningFailures": 11604,
+      "normalCompletions": 27542,
+      "longestToNormalSec": 298.55,
+      "openToNormalOver60": 293,
+      "ambientFootDistanceCss": 2165272.08,
+      "longestFailureSec": 297.85,
+      "openOver60": 87,
+      "recoveredFailures": 6331,
+      "bothFailed": 2,
+      "wrongSelectionAndAutonomyFailed": 0,
+      "agedDragArrival": 236,
+      "agedNear4": 192,
+      "agedDragCount": 260,
+      "drags": 1058,
+      "arrival": 911,
+      "near4": 522,
+      "tapSent": 260,
+      "tapSelected": 246,
+      "occupiedSent": 208,
+      "occupiedArrival": 144
+    }
+  },
+  "safety": {
+    "v7": {
+      "steps": 1081531,
+      "bounds": 0,
+      "terrain": 0,
+      "occlusion": 0,
+      "speed": 0,
+      "swept": 0,
+      "painted": 19656,
+      "outsideActorBounds": 0,
+      "nonGround": 0,
+      "hidden": 0,
+      "missingShadow": 0,
+      "extraShadows": 0,
+      "frames": 1560,
+      "ribbonOK": 1560,
+      "maxFootErrorCss": 0.013624006382250333,
+      "socialEvents": 5312,
+      "opening-unsafe": 0,
+      "opening-swept": 0,
+      "opening-backwardsIssued": 0,
+      "opening-maxReleaseJump": 0.0,
+      "opening-graphSearchesDuringMove": 0,
+      "aged-unsafe": 0,
+      "aged-swept": 0,
+      "aged-backwardsIssued": 0,
+      "aged-maxReleaseJump": 0.0,
+      "aged-graphSearchesDuringMove": 0
+    },
+    "v8": {
+      "steps": 1089325,
+      "bounds": 0,
+      "terrain": 0,
+      "occlusion": 0,
+      "speed": 0,
+      "swept": 0,
+      "painted": 19656,
+      "outsideActorBounds": 0,
+      "nonGround": 0,
+      "hidden": 0,
+      "missingShadow": 0,
+      "extraShadows": 0,
+      "frames": 1560,
+      "ribbonOK": 1560,
+      "maxFootErrorCss": 0.013386431319539458,
+      "socialEvents": 5453,
+      "opening-unsafe": 0,
+      "opening-swept": 0,
+      "opening-backwardsIssued": 0,
+      "opening-maxReleaseJump": 0.0,
+      "opening-graphSearchesDuringMove": 0,
+      "aged-unsafe": 0,
+      "aged-swept": 0,
+      "aged-backwardsIssued": 0,
+      "aged-maxReleaseJump": 0.0,
+      "aged-graphSearchesDuringMove": 0
+    },
+    "v9": {
+      "steps": 1114483,
+      "bounds": 0,
+      "terrain": 0,
+      "occlusion": 0,
+      "speed": 0,
+      "swept": 0,
+      "painted": 19656,
+      "outsideActorBounds": 0,
+      "nonGround": 0,
+      "hidden": 0,
+      "missingShadow": 0,
+      "extraShadows": 0,
+      "frames": 1560,
+      "ribbonOK": 1560,
+      "maxFootErrorCss": 0.013386431319539458,
+      "socialEvents": 5432,
+      "opening-unsafe": 0,
+      "opening-swept": 0,
+      "opening-backwardsIssued": 0,
+      "opening-maxReleaseJump": 0.0,
+      "opening-graphSearchesDuringMove": 0,
+      "aged-unsafe": 0,
+      "aged-swept": 0,
+      "aged-backwardsIssued": 0,
+      "aged-maxReleaseJump": 0.0,
+      "aged-graphSearchesDuringMove": 0
+    }
+  },
+  "sameRunPairedOpening": {
+    "v7": {
+      "selected": {
+        "gained": 0,
+        "lost": 0
+      },
+      "issued": {
+        "gained": 0,
+        "lost": 0
+      },
+      "arrival": {
+        "gained": 0,
+        "lost": 0
+      },
+      "nearFinger": {
+        "gained": 0,
+        "lost": 0
+      },
+      "exact": {
+        "gained": 0,
+        "lost": 0
+      },
+      "sameIntendedBodyReceived": {
+        "n": 1026,
+        "oldArrival": 911,
+        "newArrival": 911,
+        "oldNear4": 522,
+        "newNear4": 522
+      },
+      "newIntendedBodyReceived": {
+        "n": 0,
+        "oldArrival": 0,
+        "newArrival": 0,
+        "oldNear4": 0,
+        "newNear4": 0
+      },
+      "lostIntendedBodyReceived": {
+        "n": 0,
+        "oldArrival": 0,
+        "newArrival": 0,
+        "oldNear4": 0,
+        "newNear4": 0
+      }
+    },
+    "v8": {
+      "selected": {
+        "gained": 1,
+        "lost": 0
+      },
+      "issued": {
+        "gained": 1,
+        "lost": 0
+      },
+      "arrival": {
+        "gained": 1,
+        "lost": 0
+      },
+      "nearFinger": {
+        "gained": 1,
+        "lost": 0
+      },
+      "exact": {
+        "gained": 1,
+        "lost": 0
+      },
+      "sameIntendedBodyReceived": {
+        "n": 1025,
+        "oldArrival": 910,
+        "newArrival": 910,
+        "oldNear4": 521,
+        "newNear4": 521
+      },
+      "newIntendedBodyReceived": {
+        "n": 1,
+        "oldArrival": 0,
+        "newArrival": 1,
+        "oldNear4": 0,
+        "newNear4": 1
+      },
+      "lostIntendedBodyReceived": {
+        "n": 0,
+        "oldArrival": 0,
+        "newArrival": 0,
+        "oldNear4": 0,
+        "newNear4": 0
+      }
+    }
+  },
+  "saves": {
+    "n": 39,
+    "rosterAndNativeFieldsAndInput": 39
+  },
+  "historic": {
+    "v7": {
+      "arrival": 910,
+      "near4": 521,
+      "tapSelected": 246,
+      "bothFailed": 3
+    },
+    "v8": {
+      "arrival": 909,
+      "near4": 520,
+      "tapSelected": 246,
+      "bothFailed": 2
+    }
+  },
+  "historicalControls": {
+    "V8 release V8": {
+      "arm": "v8",
+      "identicalOpeningAndSource": 260,
+      "identicalAgedFootprints": 252,
+      "before": {
+        "drags": 1058,
+        "tapSent": 260,
+        "tapSelected": 246,
+        "arrival": 909,
+        "near4": 520
+      },
+      "replay": {
+        "drags": 1058,
+        "tapSent": 260,
+        "tapSelected": 246,
+        "arrival": 910,
+        "near4": 521
+      }
+    },
+    "V8 release V7": {
+      "arm": "v7",
+      "identicalOpeningAndSource": 260,
+      "identicalAgedFootprints": 252,
+      "before": {
+        "drags": 1058,
+        "tapSent": 260,
+        "tapSelected": 246,
+        "arrival": 908,
+        "near4": 520
+      },
+      "replay": {
+        "drags": 1058,
+        "tapSent": 260,
+        "tapSelected": 246,
+        "arrival": 911,
+        "near4": 522
+      }
+    },
+    "V7 release V7": {
+      "arm": "v7",
+      "identicalOpeningAndSource": 260,
+      "identicalAgedFootprints": 248,
+      "before": {
+        "drags": 1058,
+        "tapSent": 260,
+        "tapSelected": 246,
+        "arrival": 910,
+        "near4": 521
+      },
+      "replay": {
+        "drags": 1058,
+        "tapSent": 260,
+        "tapSelected": 246,
+        "arrival": 911,
+        "near4": 522
+      }
+    }
+  },
+  "gatesAgainstPublishedV8": {
+    "arrival": true,
+    "near4": true,
+    "tapSelected": true,
+    "bothFailed": true
+  },
+  "revision": "e309a299de5593b0f3fa06ebde768058f08749f5"
+}

@@ -1,0 +1,279 @@
+{
+  "browser": "156.0.8078.79",
+  "region": "forest",
+  "count": 28,
+  "widths": {
+    "390": {
+      "v8": {
+        "pairs": [
+          {
+            "actor": "companion:shiba",
+            "listener": "companion:squirrel",
+            "at": 19.700000000000145,
+            "until": 23.700000000000145,
+            "distance": 40.837096329867094,
+            "from": [
+              126.9607575737802,
+              319.32189650900204
+            ],
+            "to": [
+              95.3069044359285,
+              293.52069463424124
+            ]
+          },
+          {
+            "actor": "companion:penguin_friend",
+            "listener": "companion:panda",
+            "at": 27.75000000000026,
+            "until": 31.75000000000026,
+            "distance": 53.09183502935538,
+            "from": [
+              176.69831264938693,
+              231.31928179798058
+            ],
+            "to": [
+              143.96268896662244,
+              189.52069463424124
+            ]
+          },
+          {
+            "actor": "companion:clock",
+            "listener": "companion:rabbit_friend",
+            "at": 80.84999999999755,
+            "until": 84.84999999999755,
+            "distance": 46.73994895873041,
+            "from": [
+              95.2414100802487,
+              236.02849264405273
+            ],
+            "to": [
+              140.9293197631836,
+              226.1675729370118
+            ]
+          },
+          {
+            "actor": "companion:monkey",
+            "listener": "companion:chicken",
+            "at": 199.8500000000112,
+            "until": 203.8500000000112,
+            "distance": 48.394378007325166,
+            "from": [
+              162.674105914967,
+              265.1809872274811
+            ],
+            "to": [
+              185.63922747578732,
+              307.7793324349258
+            ]
+          },
+          {
+            "actor": "companion:shiba",
+            "listener": "companion:chameleon",
+            "at": 257.7000000000243,
+            "until": 261.7000000000243,
+            "distance": 51.74391720654472,
+            "from": [
+              104.05672545308369,
+              323.90724132144067
+            ],
+            "to": [
+              154.56494022056773,
+              335.14793564516737
+            ]
+          }
+        ],
+        "interrupted": [],
+        "modelSeconds": 300.00000000003394,
+        "openingSHA256": "f2b3e9eb22405816d35f49cee64b7781f743812358f3d14d60bbeffa049171c4",
+        "modelSHA256": "282ccb0c35751ae6bf89b8efc4641d674aa7be4e1f4a3ea7e6a8902b49704809"
+      },
+      "v9Before": {
+        "pairs": [
+          {
+            "actor": "companion:penguin_friend",
+            "listener": "companion:rabbit_friend",
+            "at": 8.949999999999992,
+            "until": 12.949999999999992,
+            "distance": 47.6777200352219,
+            "from": [
+              158.71653808305723,
+              220.78449173560182
+            ],
+            "to": [
+              118.10611728593146,
+              245.76365726284422
+            ]
+          },
+          {
+            "actor": "companion:owl",
+            "listener": "companion:chicken",
+            "at": 21.850000000000176,
+            "until": 25.850000000000176,
+            "distance": 47.557369616699575,
+            "from": [
+              151.24826147957253,
+              311.6974142974243
+            ],
+            "to": [
+              196.36906252779056,
+              326.7246135583148
+            ]
+          },
+          {
+            "actor": "companion:chameleon",
+            "listener": "companion:shiba",
+            "at": 131.64999999999569,
+            "until": 135.64999999999569,
+            "distance": 50.91862660348045,
+            "from": [
+              150.72808867776558,
+              325.0918784198862
+            ],
+            "to": [
+              99.82030564414576,
+              326.14266944885264
+            ]
+          },
+          {
+            "actor": "companion:punyu",
+            "listener": "companion:hamster",
+            "at": 157.85000000000164,
+            "until": 161.85000000000164,
+            "distance": 52.90256471703195,
+            "from": [
+              170.29432453049714,
+              357.53190506671103
+            ],
+            "to": [
+              221.36093193790452,
+              343.71586505745086
+            ]
+          }
+        ],
+        "interrupted": [
+          {
+            "key": "companion:hamster",
+            "at": 160.10000000000215,
+            "assignedAt": 157.85000000000164,
+            "expectedUntil": 161.85000000000164,
+            "early": true,
+            "continued": false,
+            "assisted": false
+          }
+        ],
+        "modelSeconds": 300.00000000003394,
+        "openingSHA256": "f2b3e9eb22405816d35f49cee64b7781f743812358f3d14d60bbeffa049171c4",
+        "modelSHA256": "d43381037ebb4fa726effb3d96a45e7e37d60fe1ca318cb86e42b55f2dbf42a0"
+      },
+      "v9After": {
+        "pairs": [
+          {
+            "actor": "companion:penguin_friend",
+            "listener": "companion:rabbit_friend",
+            "at": 8.949999999999992,
+            "until": 12.949999999999992,
+            "distance": 47.6777200352219,
+            "from": [
+              158.71653808305723,
+              220.78449173560182
+            ],
+            "to": [
+              118.10611728593146,
+              245.76365726284422
+            ]
+          },
+          {
+            "actor": "companion:owl",
+            "listener": "companion:chicken",
+            "at": 21.850000000000176,
+            "until": 25.850000000000176,
+            "distance": 47.557369616699575,
+            "from": [
+              151.24826147957253,
+              311.6974142974243
+            ],
+            "to": [
+              196.36906252779056,
+              326.7246135583148
+            ]
+          }
+        ],
+        "interrupted": [],
+        "modelSeconds": 300.00000000003394,
+        "openingSHA256": "f2b3e9eb22405816d35f49cee64b7781f743812358f3d14d60bbeffa049171c4",
+        "modelSHA256": "cb1d889b035b4e275270a7f783cd37f396e87ec77f681a38a68c6ecae9f41933"
+      }
+    },
+    "320": {
+      "v8": {
+        "pairs": [
+          {
+            "actor": "companion:punyu",
+            "listener": "companion:owl",
+            "at": 153.45000000000064,
+            "until": 157.45000000000064,
+            "distance": 44.26175793668698,
+            "from": [
+              82.25849152393897,
+              330.2926242020928
+            ],
+            "to": [
+              125.81422686985091,
+              322.4185443115436
+            ]
+          }
+        ],
+        "interrupted": [],
+        "modelSeconds": 300.00000000003394,
+        "openingSHA256": "c2ca8c4e0f046a97972d4206674bb407b87f843033fa32bd5e783d5bdd99a6b8",
+        "modelSHA256": "282ccb0c35751ae6bf89b8efc4641d674aa7be4e1f4a3ea7e6a8902b49704809"
+      },
+      "v9Before": {
+        "pairs": [
+          {
+            "actor": "partner:forest_bear",
+            "listener": "pet:dog",
+            "at": 52.649999999999146,
+            "until": 56.649999999999146,
+            "distance": 66.10705842595192,
+            "from": [
+              177.9072385483152,
+              229.73420221049372
+            ],
+            "to": [
+              163.96264277796934,
+              294.35379229379487
+            ]
+          }
+        ],
+        "interrupted": [],
+        "modelSeconds": 300.00000000003394,
+        "openingSHA256": "c2ca8c4e0f046a97972d4206674bb407b87f843033fa32bd5e783d5bdd99a6b8",
+        "modelSHA256": "d43381037ebb4fa726effb3d96a45e7e37d60fe1ca318cb86e42b55f2dbf42a0"
+      },
+      "v9After": {
+        "pairs": [
+          {
+            "actor": "partner:forest_bear",
+            "listener": "pet:dog",
+            "at": 52.649999999999146,
+            "until": 56.649999999999146,
+            "distance": 66.10705842595192,
+            "from": [
+              177.9072385483152,
+              229.73420221049372
+            ],
+            "to": [
+              163.96264277796934,
+              294.35379229379487
+            ]
+          }
+        ],
+        "interrupted": [],
+        "modelSeconds": 300.00000000003394,
+        "openingSHA256": "c2ca8c4e0f046a97972d4206674bb407b87f843033fa32bd5e783d5bdd99a6b8",
+        "modelSHA256": "cb1d889b035b4e275270a7f783cd37f396e87ec77f681a38a68c6ecae9f41933"
+      }
+    }
+  }
+}

@@ -1,0 +1,2 @@
+comparedWith,region,count,width,case,key,changed,oldSelected,newSelected,oldOutcome,newOutcome,oldNear4,newNear4
+v8,snow,28,320,clear/0,pet:dog,"selected,issued,arrival,nearFinger,exact",False,True,not-issued,arrived-exact,False,True

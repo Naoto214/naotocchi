@@ -1,0 +1,73 @@
+{
+  "engine": "chromium",
+  "version": "156.0.8078.79",
+  "width": 390,
+  "count": 28,
+  "openingSHA256": "1b280a66c95f94247194ecacabb03bfeb439561e9b13c466e14591e52d140219",
+  "paintSHA256": "423f0db4506878d0cb594f21875450bb2c66e53172af5cea6bc22d64c1f6102a",
+  "sameInV7V8V9AndRestart": true,
+  "shadows": 28,
+  "ground": true,
+  "size": "B",
+  "loadedV9Scripts": [
+    "telemetry-mobility-v9.js?v=bd627b0d71c4",
+    "home-production-model-mobility-v9.js?v=cb1d889b035b",
+    "home-production-diorama-mobility-v9.js?v=c1ba14468dd4"
+  ],
+  "optionalOpeningMoves": [
+    "companion:bat",
+    "companion:shiba"
+  ],
+  "toolbar": [
+    [
+      "v7",
+      7,
+      68.46875,
+      61.46875,
+      44
+    ],
+    [
+      "v8",
+      68.46875,
+      129.9375,
+      61.46875,
+      44
+    ],
+    [
+      "v9",
+      129.9375,
+      191.40625,
+      61.46875,
+      44
+    ],
+    [
+      "restart",
+      196.40625,
+      262.734375,
+      66.328125,
+      44
+    ],
+    [
+      "freeze",
+      266.734375,
+      310.734375,
+      44,
+      44
+    ],
+    [
+      "settings-toggle",
+      314.734375,
+      384,
+      69.265625,
+      44
+    ]
+  ],
+  "regionTimeCountOptions": [
+    13,
+    4,
+    28
+  ],
+  "diagnosticResidents": 28,
+  "advancedModelSeconds": 5.316500000000005,
+  "errors": []
+}

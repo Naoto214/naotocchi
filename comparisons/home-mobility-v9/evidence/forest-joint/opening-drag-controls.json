@@ -1,0 +1,99 @@
+{
+  "method": {
+    "ordered": "28 historical 12 CSS px touch gestures in resident order; restore native feet for each gesture in one open household. Framework gates may carry over.",
+    "isolated": "Same historical touch start and goal per resident as its corresponding ordered arm, every gesture the first trusted gesture of a new Chromium context. Forest/day, fixed 390 x 792 CSS px, DPR2, variant B, 28 residents.",
+    "terminalArrived": "Arrived at the native route endpoint (may be a corrected point).",
+    "terminalNear4": "Finished within 4 CSS px of the intended finger release."
+  },
+  "arms": {
+    "v9": {
+      "ordered": {
+        "commands": 28,
+        "initiallyBlocked": 1,
+        "trusted": 28,
+        "selected": 28,
+        "issued": 28,
+        "routed": 17,
+        "terminalArrived": 17,
+        "terminalNear4": 8,
+        "unsafeSteps": 0,
+        "sweptViolations": 0,
+        "releaseJumpSamples": 28,
+        "maxReleaseJumpCss": 0.0
+      },
+      "isolated": {
+        "commands": 28,
+        "initiallyBlocked": 0,
+        "trusted": 28,
+        "selected": 28,
+        "issued": 28,
+        "routed": 17,
+        "terminalArrived": 17,
+        "terminalNear4": 8,
+        "unsafeSteps": 0,
+        "sweptViolations": 0,
+        "releaseJumpSamples": 28,
+        "maxReleaseJumpCss": 0.0
+      }
+    },
+    "v9-joint": {
+      "ordered": {
+        "commands": 28,
+        "initiallyBlocked": 3,
+        "trusted": 28,
+        "selected": 25,
+        "issued": 25,
+        "routed": 13,
+        "terminalArrived": 12,
+        "terminalNear4": 6,
+        "unsafeSteps": 0,
+        "sweptViolations": 0,
+        "releaseJumpSamples": 25,
+        "maxReleaseJumpCss": 0.0
+      },
+      "isolated": {
+        "commands": 28,
+        "initiallyBlocked": 0,
+        "trusted": 28,
+        "selected": 28,
+        "issued": 28,
+        "routed": 15,
+        "terminalArrived": 15,
+        "terminalNear4": 7,
+        "unsafeSteps": 0,
+        "sweptViolations": 0,
+        "releaseJumpSamples": 28,
+        "maxReleaseJumpCss": 0.0
+      }
+    }
+  },
+  "pairedIsolated": {
+    "selected": {
+      "gained": [],
+      "lost": []
+    },
+    "issued": {
+      "gained": [],
+      "lost": []
+    },
+    "terminalArrived": {
+      "gained": [
+        "companion:box"
+      ],
+      "lost": [
+        "companion:sheep",
+        "companion:bat",
+        "companion:parrot"
+      ]
+    },
+    "terminalNear4": {
+      "gained": [
+        "companion:seal"
+      ],
+      "lost": [
+        "companion:watcher",
+        "companion:snail"
+      ]
+    }
+  }
+}

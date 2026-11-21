@@ -1,0 +1,1157 @@
+{
+  "browser": "156.0.8078.79",
+  "rows": {
+    "jungle/20/320/obstacle/0/v7/0": {
+      "foreground": "companion:monkey",
+      "selected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 285,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 238,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            101,
+            50
+          ]
+        },
+        {
+          "key": "companion:cat_friend",
+          "z": 192,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            26,
+            93
+          ]
+        }
+      ],
+      "input": [
+        179.08054465055466,
+        197.35751140117645
+      ],
+      "target": "pet:dog",
+      "arrived": false,
+      "near": false
+    },
+    "jungle/20/320/obstacle/0/v7/500": {
+      "foreground": "companion:monkey",
+      "selected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 285,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 238,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            101,
+            50
+          ]
+        },
+        {
+          "key": "companion:cat_friend",
+          "z": 192,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            26,
+            93
+          ]
+        }
+      ],
+      "input": [
+        179.08054465055466,
+        197.35751140117645
+      ],
+      "target": "pet:dog",
+      "arrived": false,
+      "near": false
+    },
+    "jungle/20/320/obstacle/0/v8/0": {
+      "foreground": "companion:monkey",
+      "selected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 285,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 238,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            101,
+            50
+          ]
+        },
+        {
+          "key": "companion:cat_friend",
+          "z": 192,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            26,
+            93
+          ]
+        }
+      ],
+      "input": [
+        179.08054465055466,
+        197.35751140117645
+      ],
+      "target": "pet:dog",
+      "arrived": false,
+      "near": false
+    },
+    "jungle/20/320/obstacle/0/v8/500": {
+      "foreground": "companion:monkey",
+      "selected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 285,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 238,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            101,
+            50
+          ]
+        },
+        {
+          "key": "companion:cat_friend",
+          "z": 192,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            26,
+            93
+          ]
+        }
+      ],
+      "input": [
+        179.08054465055466,
+        197.35751140117645
+      ],
+      "target": "pet:dog",
+      "arrived": false,
+      "near": false
+    },
+    "jungle/20/320/obstacle/0/v9/0": {
+      "foreground": "companion:monkey",
+      "selected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 285,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 238,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            101,
+            50
+          ]
+        },
+        {
+          "key": "companion:cat_friend",
+          "z": 192,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            26,
+            93
+          ]
+        }
+      ],
+      "input": [
+        179.08054465055466,
+        197.35751140117645
+      ],
+      "target": "pet:dog",
+      "arrived": false,
+      "near": false
+    },
+    "jungle/20/320/obstacle/0/v9/500": {
+      "foreground": "companion:monkey",
+      "selected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 285,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 238,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            101,
+            50
+          ]
+        },
+        {
+          "key": "companion:cat_friend",
+          "z": 192,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            26,
+            93
+          ]
+        }
+      ],
+      "input": [
+        179.08054465055466,
+        197.35751140117645
+      ],
+      "target": "pet:dog",
+      "arrived": false,
+      "near": false
+    },
+    "snow/28/320/clear/0/v7/0": {
+      "foreground": "companion:chameleon",
+      "selected": "companion:chameleon",
+      "issued": false,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:chameleon",
+          "z": 249,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            14,
+            60
+          ]
+        }
+      ],
+      "input": [
+        166.3003904223442,
+        196.71827292442322
+      ],
+      "target": "pet:dog",
+      "arrived": false,
+      "near": false
+    },
+    "snow/28/320/clear/0/v7/500": {
+      "foreground": "companion:chameleon",
+      "selected": "companion:chameleon",
+      "issued": false,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:chameleon",
+          "z": 249,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            14,
+            60
+          ]
+        }
+      ],
+      "input": [
+        166.3003904223442,
+        196.71827292442322
+      ],
+      "target": "pet:dog",
+      "arrived": false,
+      "near": false
+    },
+    "snow/28/320/clear/0/v8/0": {
+      "foreground": "companion:chameleon",
+      "selected": "companion:chameleon",
+      "issued": false,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:chameleon",
+          "z": 249,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            14,
+            60
+          ]
+        }
+      ],
+      "input": [
+        166.3003904223442,
+        196.71827292442322
+      ],
+      "target": "pet:dog",
+      "arrived": false,
+      "near": false
+    },
+    "snow/28/320/clear/0/v8/500": {
+      "foreground": "companion:chameleon",
+      "selected": "companion:chameleon",
+      "issued": false,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:chameleon",
+          "z": 249,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            15,
+            59
+          ]
+        }
+      ],
+      "input": [
+        166.3003904223442,
+        196.71827292442322
+      ],
+      "target": "pet:dog",
+      "arrived": false,
+      "near": false
+    },
+    "snow/28/320/clear/0/v9/0": {
+      "foreground": "companion:chameleon",
+      "selected": "companion:chameleon",
+      "issued": false,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:chameleon",
+          "z": 249,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            14,
+            60
+          ]
+        }
+      ],
+      "input": [
+        166.3003904223442,
+        196.71827292442322
+      ],
+      "target": "pet:dog",
+      "arrived": false,
+      "near": false
+    },
+    "snow/28/320/clear/0/v9/500": {
+      "foreground": "companion:chameleon",
+      "selected": "companion:chameleon",
+      "issued": false,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:chameleon",
+          "z": 249,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            14,
+            60
+          ]
+        }
+      ],
+      "input": [
+        166.3003904223442,
+        196.71827292442322
+      ],
+      "target": "pet:dog",
+      "arrived": false,
+      "near": false
+    },
+    "countryside/20/320/clear/0/v7/0": {
+      "foreground": "companion:monkey",
+      "selected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 237,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            89,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 195,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            101,
+            75
+          ]
+        },
+        {
+          "key": "partner:forest_bear",
+          "z": 142,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            49,
+            121
+          ]
+        }
+      ],
+      "input": [
+        172.2774719595909,
+        201.02198845148087
+      ],
+      "target": "pet:dog",
+      "arrived": false,
+      "near": false
+    },
+    "countryside/20/320/clear/0/v7/500": {
+      "foreground": "companion:monkey",
+      "selected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 237,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            89,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 195,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            101,
+            75
+          ]
+        },
+        {
+          "key": "partner:forest_bear",
+          "z": 142,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            49,
+            121
+          ]
+        }
+      ],
+      "input": [
+        172.2774719595909,
+        201.02198845148087
+      ],
+      "target": "pet:dog",
+      "arrived": false,
+      "near": false
+    },
+    "countryside/20/320/clear/0/v8/0": {
+      "foreground": "companion:monkey",
+      "selected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 237,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            89,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 195,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            101,
+            75
+          ]
+        },
+        {
+          "key": "partner:forest_bear",
+          "z": 142,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            49,
+            121
+          ]
+        }
+      ],
+      "input": [
+        172.2774719595909,
+        201.02198845148087
+      ],
+      "target": "pet:dog",
+      "arrived": false,
+      "near": false
+    },
+    "countryside/20/320/clear/0/v8/500": {
+      "foreground": "companion:monkey",
+      "selected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 237,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            89,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 195,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            101,
+            75
+          ]
+        },
+        {
+          "key": "partner:forest_bear",
+          "z": 142,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            49,
+            121
+          ]
+        }
+      ],
+      "input": [
+        172.2774719595909,
+        201.02198845148087
+      ],
+      "target": "pet:dog",
+      "arrived": false,
+      "near": false
+    },
+    "countryside/20/320/clear/0/v9/0": {
+      "foreground": "companion:monkey",
+      "selected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 237,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            89,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 195,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            101,
+            75
+          ]
+        },
+        {
+          "key": "partner:forest_bear",
+          "z": 142,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            49,
+            121
+          ]
+        }
+      ],
+      "input": [
+        172.2774719595909,
+        201.02198845148087
+      ],
+      "target": "pet:dog",
+      "arrived": false,
+      "near": false
+    },
+    "countryside/20/320/clear/0/v9/500": {
+      "foreground": "companion:monkey",
+      "selected": "companion:monkey",
+      "issued": false,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            62,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 237,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            88,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 195,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            101,
+            75
+          ]
+        },
+        {
+          "key": "partner:forest_bear",
+          "z": 142,
+          "alpha": 0,
+          "sourceAlpha": 0,
+          "masked": false,
+          "texel": [
+            49,
+            121
+          ]
+        }
+      ],
+      "input": [
+        172.2774719595909,
+        201.02198845148087
+      ],
+      "target": "pet:dog",
+      "arrived": false,
+      "near": false
+    },
+    "countryside/28/320/clear/0/v7/0": {
+      "foreground": "pet:dog",
+      "selected": "pet:dog",
+      "issued": true,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            61,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 250,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            106,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 208,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            74,
+            83
+          ]
+        }
+      ],
+      "input": [
+        167.93208193778992,
+        200.19149553775787
+      ],
+      "target": "pet:dog",
+      "arrived": true,
+      "near": true
+    },
+    "countryside/28/320/clear/0/v7/500": {
+      "foreground": "pet:dog",
+      "selected": "pet:dog",
+      "issued": true,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            61,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 250,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            106,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 208,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            74,
+            83
+          ]
+        }
+      ],
+      "input": [
+        167.93208193778992,
+        200.19149553775787
+      ],
+      "target": "pet:dog",
+      "arrived": true,
+      "near": true
+    },
+    "countryside/28/320/clear/0/v8/0": {
+      "foreground": "pet:dog",
+      "selected": "pet:dog",
+      "issued": true,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            61,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 250,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            106,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 208,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            74,
+            83
+          ]
+        }
+      ],
+      "input": [
+        167.93208193778992,
+        200.19149553775787
+      ],
+      "target": "pet:dog",
+      "arrived": true,
+      "near": true
+    },
+    "countryside/28/320/clear/0/v8/500": {
+      "foreground": "pet:dog",
+      "selected": "pet:dog",
+      "issued": true,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            60,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 250,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            106,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 208,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            74,
+            83
+          ]
+        }
+      ],
+      "input": [
+        167.93208193778992,
+        200.19149553775787
+      ],
+      "target": "pet:dog",
+      "arrived": true,
+      "near": true
+    },
+    "countryside/28/320/clear/0/v9/0": {
+      "foreground": "pet:dog",
+      "selected": "pet:dog",
+      "issued": true,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            61,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 250,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            106,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 208,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            74,
+            83
+          ]
+        }
+      ],
+      "input": [
+        167.93208193778992,
+        200.19149553775787
+      ],
+      "target": "pet:dog",
+      "arrived": true,
+      "near": true
+    },
+    "countryside/28/320/clear/0/v9/500": {
+      "foreground": "pet:dog",
+      "selected": "pet:dog",
+      "issued": true,
+      "trusted": true,
+      "stack": [
+        {
+          "key": "pet:dog",
+          "z": 289,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            60,
+            50
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "z": 250,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            106,
+            47
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "z": 208,
+          "alpha": 255,
+          "sourceAlpha": 255,
+          "masked": false,
+          "texel": [
+            74,
+            83
+          ]
+        }
+      ],
+      "input": [
+        167.93208193778992,
+        200.19149553775787
+      ],
+      "target": "pet:dog",
+      "arrived": true,
+      "near": true
+    }
+  }
+}

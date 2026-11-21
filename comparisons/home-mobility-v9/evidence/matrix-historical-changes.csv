@@ -1,0 +1,8 @@
+source,region,count,width,case,key,changed,oldSelection,newSelection,oldArrival,newArrival,oldNear4,newNear4
+V8 release V8,countryside,28,320,clear/0,pet:dog,"selected,issued,accepted,routed,moved,arrived,near4,terminalArrived,terminalNear4",companion:monkey,pet:dog,False,True,False,True
+V8 release V8,countryside,20,320,clear/0,pet:dog,"selected,issued,accepted,routed,moved,arrived,near4,terminalArrived,terminalNear4",companion:monkey,pet:dog,False,True,False,True
+V8 release V8,snow,28,320,clear/0,pet:dog,"selected,issued,accepted,routed,moved,arrived,near4,terminalArrived,terminalNear4",pet:dog,companion:chameleon,True,False,True,False
+V8 release V7,countryside,28,320,clear/0,pet:dog,"selected,issued,accepted,routed,moved,arrived,near4,terminalArrived,terminalNear4",companion:monkey,pet:dog,False,True,False,True
+V8 release V7,countryside,20,320,clear/0,pet:dog,"selected,issued,accepted,routed,moved,arrived,near4,terminalArrived,terminalNear4",companion:monkey,pet:dog,False,True,False,True
+V8 release V7,jungle,20,320,obstacle/0,pet:dog,"selected,issued,accepted,routed,moved,arrived,terminalArrived",companion:monkey,pet:dog,False,True,False,False
+V7 release V7,snow,28,320,clear/0,pet:dog,"selected,issued,accepted,routed,moved,arrived,near4,terminalArrived,terminalNear4",companion:chameleon,pet:dog,False,True,False,True
