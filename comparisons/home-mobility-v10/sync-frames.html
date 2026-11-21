@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>パンダの足位置・通知時の比較｜なおとっち</title>
+<style>
+*{box-sizing:border-box}body{max-width:48rem;margin:auto;padding:1.15rem;color:#25392f;background:#faf9f5;font:1rem/1.6 system-ui,sans-serif}a{color:#185b47}h1{font-size:clamp(1.35rem,4vw,1.85rem);line-height:1.35}p{margin:.7rem 0}fieldset{margin:1rem 0;padding:.75rem;border:1px solid #bccabc}legend{padding:0 .4rem}input{accent-color:#257152}label{display:inline-flex;align-items:center;min-height:44px;padding:0 .25rem;font-weight:600}.panels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}figure{margin:.5rem 0}figcaption{font-weight:650}.crop{position:relative;aspect-ratio:135/84;overflow:hidden;background:#dfe7dd}.crop img{position:absolute;width:222.963%;height:auto;max-width:none;left:-25.926%;top:-355.952%}#before:checked~.panels .after,#after:checked~.panels .before{display:none}.full{font-size:.85rem}a:focus-visible,input:focus-visible{outline:3px solid #ab7335}
+</style>
+<main>
+<a href="./">検証記録に戻る</a>
+<h1>通知の前後で動いたパンダの足元</h1>
+<p>森・320px・28体で記録された足位置を同じホームに戻し、パンダの画像を載せる画面要素だけを差し替えました。2枚は実際のブラウザーで撮影した、同期直前と直後の拡大表示です。</p>
+<fieldset><legend>両方の画面を切り替える</legend>
+<input type="radio" name="step" id="before" checked><label for="before">差し替え前</label>
+<input type="radio" name="step" id="after"><label for="after">差し替え直後</label>
+<div class="panels">
+<figure><figcaption>現在の同期処理</figcaption>
+<div class="crop"><img class="before" src="../evidence/mobility-v10/sync/ink/control-before.png" alt="差し替え前のパンダの足元"><img class="after" src="../evidence/mobility-v10/sync/ink/control-after.png" alt="再同期でパンダが右上へ補正された"></div>
+<span class="before">元の足位置</span><span class="after">22.74 CSS px移動</span></figure>
+<figure><figcaption>実測範囲を引き継ぐ案</figcaption>
+<div class="crop"><img class="before" src="../evidence/mobility-v10/sync/ink/same-before.png" alt="現在の同期処理と同じ開始位置"><img class="after" src="../evidence/mobility-v10/sync/ink/same-after.png" alt="同じ画像の実測範囲を引き継ぎ、パンダの足元が保たれた"></div>
+<span class="before">元の足位置</span><span class="after">0 CSS px移動</span></figure>
+</div></fieldset>
+<p>比較案は、同じ仲間・原画・体格・投影であると確認できた場合に、画像から測った範囲を次の画面要素へ引き継ぎます。ホームの通常再生で測定したV10とは別の、1回の同期を比べる試験です。</p>
+<p class="full"><a href="../evidence/mobility-v10/sync/ink/control-before.png">元の画面</a>　<a href="../evidence/mobility-v10/sync/ink/control-after.png">現在の同期直後</a>　<a href="../evidence/mobility-v10/sync/ink/same-after.png">比較案の同期直後</a>　<a href="../evidence/mobility-v10/sync/ink/evidence.json">座標・条件の記録</a></p>
+</main></html>
