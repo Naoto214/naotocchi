@@ -1,0 +1,22 @@
+{
+  "main": "e0120c58f36394c9acff6507d72ceb3a1f48e1e2",
+  "pr523Head": "9ebcda6d40d57634fe94dc7e80b5e7b66be65a18",
+  "pr523Branch": "feature/naopoyo-castle-forest-v1-20261108",
+  "pr523Path": "prototypes/naopoyo-castle-forest",
+  "v2SnapshotSHA256": {
+    "chapter2V2StagesSource": "165cf590e5792b3bff12afc25131a4ed95937b5e0e10d7626a77f9c50a789bdb",
+    "chapter2V2RuntimeSource": "adae06e97f10ef71998bf97f1f3629774205756f4302fdd58669a0fe9920b9e8"
+  },
+  "protectedSHA256": {
+    "prototypes/naopoyo-time-hand-chapter1/stages.mjs": "14352c86aa48ac0f41b71f99dc172504ce7e29d05235d1b85d785dd177a3b0c0",
+    "prototypes/naopoyo-v2/engine.mjs": "a79bfb3459a11198402eb6081f5f2d47d6c67347dc287a1f90e1af187919507c",
+    "character-world-master.v1.js": "f883f2b57ac6a4f9a4387bb2c8d81ef54f31a091981078f5496d817e31c76904"
+  },
+  "characterCopies": {
+    "docs/naopoyo-gimmick-atlas-v1/characters/penguin_friend.png": "cd5c10182e742c681c4a6a654f1823de65258f350a989f88bd9f2ae9793da935",
+    "docs/naopoyo-gimmick-atlas-v1/characters/forest_bear.png": "0a62ed9e7c8037f75e54a6b7d8aa6f138d011c7f16a84952caf807cfa0efd959",
+    "docs/naopoyo-gimmick-atlas-v1/characters/squirrel.png": "571b799fe75878de5d705d2b26596a9e4f72883b25106883f1a2570d5f73e2cf",
+    "docs/naopoyo-gimmick-atlas-v1/characters/otter.png": "3f24e4d6ff26e80fd7e9dd1bd8aa2f8e3ff4ad6d00267fd746f2d49db538a530",
+    "docs/naopoyo-gimmick-atlas-v1/characters/owl.png": "943c2809d0394bc8b155e68eb8c701797530813de6bc4209166089fb78ad7a61"
+  }
+}

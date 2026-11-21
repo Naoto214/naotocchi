@@ -1,0 +1,558 @@
+[
+  {
+    "number": 11,
+    "title": "古城の入口",
+    "gravity": false,
+    "gates": [],
+    "mechanisms": {
+      "plates": [
+        {
+          "id": "A",
+          "x": 1,
+          "y": 3,
+          "hold": true,
+          "label": ""
+        },
+        {
+          "id": "B",
+          "x": 6,
+          "y": 3,
+          "label": ""
+        }
+      ],
+      "doors": [
+        {
+          "x": 4,
+          "y": 4,
+          "any": [
+            "AHeld",
+            "B"
+          ],
+          "needs": [
+            "A"
+          ]
+        }
+      ]
+    },
+    "required": [
+      "A",
+      "B"
+    ]
+  },
+  {
+    "number": 12,
+    "title": "閉ざされた扉",
+    "gravity": false,
+    "gates": [],
+    "mechanisms": {
+      "plates": [
+        {
+          "id": "A",
+          "x": 1,
+          "y": 2,
+          "hold": true,
+          "label": ""
+        },
+        {
+          "id": "B",
+          "x": 4,
+          "y": 5,
+          "hold": true,
+          "label": ""
+        },
+        {
+          "id": "C",
+          "x": 6,
+          "y": 5,
+          "label": ""
+        }
+      ],
+      "doors": [
+        {
+          "x": 3,
+          "y": 4,
+          "any": [
+            "AHeld",
+            "C"
+          ],
+          "needs": [
+            "A"
+          ]
+        },
+        {
+          "x": 5,
+          "y": 3,
+          "any": [
+            "BHeld",
+            "C"
+          ],
+          "needs": [
+            "B"
+          ]
+        }
+      ]
+    },
+    "required": [
+      "A",
+      "B",
+      "C"
+    ]
+  },
+  {
+    "number": 13,
+    "title": "ふたつのスイッチ",
+    "gravity": false,
+    "gates": [
+      {
+        "x": 4,
+        "y": 4,
+        "exact": 2
+      }
+    ],
+    "mechanisms": {
+      "sequence": [
+        "A",
+        "B"
+      ],
+      "plates": [
+        {
+          "id": "A",
+          "x": 6,
+          "y": 3,
+          "exact": 2,
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "x": 1,
+          "y": 3,
+          "exact": 2,
+          "label": "B"
+        }
+      ],
+      "doors": [
+        {
+          "x": 6,
+          "y": 5,
+          "needs": [
+            "sequence"
+          ]
+        }
+      ]
+    },
+    "required": [
+      "sequence"
+    ]
+  },
+  {
+    "number": 14,
+    "title": "動く足場",
+    "gravity": true,
+    "gates": [],
+    "mechanisms": {
+      "plates": [
+        {
+          "id": "L",
+          "x": 1,
+          "y": 5,
+          "label": "",
+          "exact": 1,
+          "requiresRider": true
+        },
+        {
+          "id": "B",
+          "x": 6,
+          "y": 3,
+          "exact": 2,
+          "label": ""
+        }
+      ],
+      "platforms": [
+        {
+          "x": 4,
+          "y": 6,
+          "rise": 2,
+          "needs": "L"
+        }
+      ],
+      "doors": [
+        {
+          "x": 0,
+          "y": 5,
+          "needs": [
+            "B"
+          ]
+        },
+        {
+          "x": 3,
+          "y": 2,
+          "needs": [
+            "B"
+          ]
+        }
+      ]
+    },
+    "required": [
+      "L",
+      "platformUsed",
+      "B"
+    ]
+  },
+  {
+    "number": 15,
+    "title": "落ちる床",
+    "gravity": true,
+    "gates": [],
+    "mechanisms": {
+      "floors": [
+        {
+          "id": "F",
+          "x": 3,
+          "y": 4
+        }
+      ],
+      "plates": [
+        {
+          "id": "A",
+          "x": 1,
+          "y": 6,
+          "hold": true,
+          "label": ""
+        },
+        {
+          "id": "B",
+          "x": 5,
+          "y": 6,
+          "label": ""
+        }
+      ],
+      "doors": [
+        {
+          "x": 4,
+          "y": 6,
+          "any": [
+            "AHeld",
+            "B"
+          ],
+          "needs": [
+            "A"
+          ]
+        }
+      ]
+    },
+    "required": [
+      "F",
+      "A",
+      "B"
+    ]
+  },
+  {
+    "number": 16,
+    "title": "ふくろうの番人",
+    "gravity": false,
+    "gates": [
+      {
+        "x": 3,
+        "y": 4,
+        "exact": 2
+      }
+    ],
+    "mechanisms": {
+      "plates": [
+        {
+          "id": "A",
+          "x": 4,
+          "y": 2,
+          "hold": true,
+          "exact": 2,
+          "label": ""
+        },
+        {
+          "id": "B",
+          "x": 6,
+          "y": 3,
+          "label": ""
+        }
+      ],
+      "doors": [
+        {
+          "x": 5,
+          "y": 4,
+          "any": [
+            "AHeld",
+            "B"
+          ],
+          "needs": [
+            "A"
+          ]
+        }
+      ],
+      "guardian": {
+        "x": 5,
+        "y": 1
+      }
+    },
+    "required": [
+      "A",
+      "B"
+    ]
+  },
+  {
+    "number": 17,
+    "title": "重さの仕掛け",
+    "gravity": true,
+    "gates": [
+      {
+        "x": 4,
+        "y": 6,
+        "exact": 2
+      }
+    ],
+    "mechanisms": {
+      "plates": [
+        {
+          "id": "H",
+          "x": 3,
+          "y": 3,
+          "label": ""
+        },
+        {
+          "id": "A",
+          "x": 3,
+          "y": 6,
+          "hold": true,
+          "exact": 2,
+          "label": ""
+        },
+        {
+          "id": "B",
+          "x": 0,
+          "y": 6,
+          "label": ""
+        }
+      ],
+      "doors": [
+        {
+          "x": 6,
+          "y": 5,
+          "needs": [
+            "H"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 6,
+          "any": [
+            "AHeld",
+            "B"
+          ],
+          "needs": [
+            "A"
+          ]
+        }
+      ]
+    },
+    "required": [
+      "H",
+      "A",
+      "B"
+    ]
+  },
+  {
+    "number": 18,
+    "title": "森の道しるべ",
+    "gravity": false,
+    "gates": [],
+    "mechanisms": {
+      "plates": [
+        {
+          "id": "O",
+          "x": 1,
+          "y": 3,
+          "exact": 2,
+          "label": ""
+        },
+        {
+          "id": "A",
+          "x": 4,
+          "y": 6,
+          "hold": true,
+          "label": ""
+        },
+        {
+          "id": "B",
+          "x": 6,
+          "y": 3,
+          "label": ""
+        }
+      ],
+      "doors": [
+        {
+          "x": 3,
+          "y": 4,
+          "needs": [
+            "owlHelp"
+          ]
+        },
+        {
+          "x": 5,
+          "y": 4,
+          "any": [
+            "AHeld",
+            "B"
+          ],
+          "needs": [
+            "A"
+          ]
+        }
+      ],
+      "owl": {
+        "x": 5,
+        "y": 1,
+        "needs": "O"
+      }
+    },
+    "required": [
+      "owlHelp",
+      "A",
+      "B"
+    ]
+  },
+  {
+    "number": 19,
+    "title": "森の分かれ道",
+    "gravity": false,
+    "gates": [
+      {
+        "x": 3,
+        "y": 4,
+        "exact": 2
+      }
+    ],
+    "mechanisms": {
+      "plates": [
+        {
+          "id": "K",
+          "x": 4,
+          "y": 3,
+          "weight": 4,
+          "label": ""
+        },
+        {
+          "id": "B",
+          "x": 6,
+          "y": 3,
+          "exact": 2,
+          "label": ""
+        }
+      ],
+      "boulders": [
+        {
+          "x": 5,
+          "y": 4,
+          "parkX": 6,
+          "parkY": 1
+        }
+      ],
+      "doors": [
+        {
+          "x": 6,
+          "y": 5,
+          "needs": [
+            "B"
+          ]
+        }
+      ],
+      "bear": {
+        "x": 5,
+        "y": 1,
+        "needs": "K"
+      }
+    },
+    "required": [
+      "bearRescued",
+      "bearHelp",
+      "K",
+      "B"
+    ]
+  },
+  {
+    "number": 20,
+    "title": "古城の門",
+    "gravity": true,
+    "gates": [
+      {
+        "x": 4,
+        "y": 4,
+        "exact": 3
+      }
+    ],
+    "mechanisms": {
+      "plates": [
+        {
+          "id": "H",
+          "x": 3,
+          "y": 1,
+          "label": ""
+        },
+        {
+          "id": "A",
+          "x": 3,
+          "y": 4,
+          "hold": true,
+          "exact": 3,
+          "label": ""
+        },
+        {
+          "id": "B",
+          "x": 0,
+          "y": 4,
+          "exact": 3,
+          "label": ""
+        },
+        {
+          "id": "W",
+          "x": 0,
+          "y": 4,
+          "weight": 6,
+          "label": ""
+        }
+      ],
+      "doors": [
+        {
+          "x": 6,
+          "y": 3,
+          "needs": [
+            "H"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 4,
+          "any": [
+            "AHeld",
+            "B"
+          ],
+          "needs": [
+            "A"
+          ]
+        }
+      ],
+      "platforms": [
+        {
+          "x": 0,
+          "y": 5,
+          "rise": 2,
+          "needs": "W"
+        }
+      ]
+    },
+    "required": [
+      "H",
+      "A",
+      "B",
+      "W",
+      "platformUsed"
+    ]
+  }
+]
