@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import crypto from 'node:crypto';
+test('formally adopted chapter1 sources remain byte identical',()=>{const files=JSON.parse(fs.readFileSync(new URL('./protected-hashes.json',import.meta.url)));for(const [path,hash]of Object.entries(files))assert.equal(crypto.createHash('sha256').update(fs.readFileSync(new URL('../../../'+path,import.meta.url))).digest('hex'),hash,path);});

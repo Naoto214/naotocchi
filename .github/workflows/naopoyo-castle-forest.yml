@@ -1,0 +1,20 @@
+name: Naopoyo Castle Forest V2
+on:
+  pull_request:
+    paths:
+      - 'prototypes/naopoyo-castle-forest/**'
+      - 'docs/naopoyo-castle-forest-v1/**'
+      - 'docs/naopoyo-castle-forest-v2/**'
+      - '.github/workflows/naopoyo-castle-forest.yml'
+  workflow_dispatch:
+jobs:
+  chapter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test prototypes/naopoyo-castle-forest/tests/*.test.mjs prototypes/naopoyo-time-hand-chapter1/tests/*.test.mjs prototypes/naopoyo-v2/tests/*.test.mjs prototypes/naopoyo-rescue/tests/*.test.mjs
+      - run: node prototypes/naopoyo-castle-forest/audit.mjs
+      - run: node prototypes/naopoyo-castle-forest/build-preview.mjs /tmp/castle-forest-preview

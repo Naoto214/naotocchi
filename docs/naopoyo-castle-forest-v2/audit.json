@@ -1,0 +1,518 @@
+[
+  {
+    "stage": 11,
+    "states": 268,
+    "edges": 2284,
+    "clearStates": 1,
+    "maxActors": 2,
+    "deadStates": 0,
+    "deadExample": [],
+    "allClearStatesMeetRequired": true,
+    "allStatesMeetOrder": [
+      [
+        "B",
+        "A"
+      ]
+    ],
+    "reachableCells": [
+      "1,3",
+      "1,4",
+      "1,5",
+      "2,3",
+      "2,4",
+      "2,5",
+      "3,3",
+      "3,4",
+      "3,5",
+      "4,4",
+      "5,3",
+      "5,4",
+      "5,5",
+      "6,3",
+      "6,4",
+      "6,5"
+    ]
+  },
+  {
+    "stage": 12,
+    "states": 2275,
+    "edges": 22480,
+    "clearStates": 1,
+    "maxActors": 3,
+    "deadStates": 0,
+    "deadExample": [],
+    "allClearStatesMeetRequired": true,
+    "allStatesMeetOrder": [
+      [
+        "B",
+        "A"
+      ],
+      [
+        "C",
+        "B"
+      ]
+    ],
+    "reachableCells": [
+      "1,2",
+      "1,3",
+      "1,4",
+      "1,5",
+      "2,2",
+      "2,3",
+      "2,4",
+      "2,5",
+      "3,4",
+      "4,2",
+      "4,3",
+      "4,4",
+      "4,5",
+      "5,3",
+      "6,2",
+      "6,3",
+      "6,4",
+      "6,5"
+    ]
+  },
+  {
+    "stage": 13,
+    "states": 3842,
+    "edges": 50030,
+    "clearStates": 1,
+    "maxActors": 4,
+    "deadStates": 20,
+    "deadExample": [
+      [
+        "parent",
+        1,
+        -1
+      ],
+      [
+        "parent",
+        0,
+        1
+      ],
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "child1",
+        1,
+        0
+      ],
+      [
+        "child1",
+        1,
+        1
+      ],
+      [
+        "child1",
+        1,
+        0
+      ]
+    ],
+    "allClearStatesMeetRequired": true,
+    "allStatesMeetOrder": [],
+    "reachableCells": [
+      "1,3",
+      "1,4",
+      "1,5",
+      "2,3",
+      "2,4",
+      "2,5",
+      "3,3",
+      "3,4",
+      "3,5",
+      "4,4",
+      "5,3",
+      "5,4",
+      "5,5",
+      "6,3",
+      "6,4",
+      "6,5",
+      "6,6"
+    ]
+  },
+  {
+    "stage": 14,
+    "states": 410,
+    "edges": 2241,
+    "clearStates": 1,
+    "maxActors": 4,
+    "deadStates": 252,
+    "deadExample": [
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "parent",
+        -1,
+        0
+      ],
+      [
+        "child1",
+        -1,
+        0
+      ]
+    ],
+    "allClearStatesMeetRequired": true,
+    "allStatesMeetOrder": [
+      [
+        "B",
+        "platformUsed"
+      ]
+    ],
+    "reachableCells": [
+      "0,5",
+      "1,5",
+      "2,5",
+      "3,2",
+      "3,5",
+      "4,3",
+      "4,5",
+      "4,6",
+      "5,3",
+      "6,3"
+    ]
+  },
+  {
+    "stage": 15,
+    "states": 215,
+    "edges": 938,
+    "clearStates": 1,
+    "maxActors": 3,
+    "deadStates": 5,
+    "deadExample": [
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "parent",
+        -1,
+        0
+      ],
+      [
+        "child2",
+        1,
+        0
+      ],
+      [
+        "child2",
+        1,
+        1
+      ]
+    ],
+    "allClearStatesMeetRequired": true,
+    "allStatesMeetOrder": [
+      [
+        "A",
+        "F"
+      ]
+    ],
+    "reachableCells": [
+      "1,3",
+      "1,6",
+      "2,3",
+      "2,6",
+      "3,3",
+      "3,6",
+      "4,3",
+      "4,6",
+      "5,6",
+      "6,6"
+    ]
+  },
+  {
+    "stage": 16,
+    "states": 2819,
+    "edges": 34299,
+    "clearStates": 1,
+    "maxActors": 4,
+    "deadStates": 14,
+    "deadExample": [
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "child2",
+        1,
+        0
+      ],
+      [
+        "child2",
+        1,
+        -1
+      ],
+      [
+        "child2",
+        1,
+        1
+      ],
+      [
+        "child2",
+        1,
+        0
+      ]
+    ],
+    "allClearStatesMeetRequired": true,
+    "allStatesMeetOrder": [
+      [
+        "B",
+        "A"
+      ]
+    ],
+    "reachableCells": [
+      "0,3",
+      "0,4",
+      "0,5",
+      "1,3",
+      "1,4",
+      "1,5",
+      "2,3",
+      "2,4",
+      "2,5",
+      "3,4",
+      "4,1",
+      "4,2",
+      "4,3",
+      "4,4",
+      "4,5",
+      "5,1",
+      "5,4",
+      "6,1",
+      "6,3",
+      "6,4",
+      "6,5"
+    ]
+  },
+  {
+    "stage": 17,
+    "states": 171,
+    "edges": 695,
+    "clearStates": 1,
+    "maxActors": 4,
+    "deadStates": 26,
+    "deadExample": [
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "child1",
+        1,
+        0
+      ],
+      [
+        "child1",
+        1,
+        0
+      ],
+      [
+        "child3",
+        1,
+        0
+      ],
+      [
+        "child3",
+        1,
+        0
+      ],
+      [
+        "child3",
+        1,
+        0
+      ]
+    ],
+    "allClearStatesMeetRequired": true,
+    "allStatesMeetOrder": [
+      [
+        "A",
+        "H"
+      ],
+      [
+        "B",
+        "A"
+      ]
+    ],
+    "reachableCells": [
+      "0,6",
+      "1,6",
+      "2,6",
+      "3,4",
+      "3,6",
+      "4,4",
+      "4,6",
+      "5,4",
+      "5,6",
+      "6,6"
+    ]
+  },
+  {
+    "stage": 18,
+    "states": 1494,
+    "edges": 14402,
+    "clearStates": 1,
+    "maxActors": 3,
+    "deadStates": 0,
+    "deadExample": [],
+    "allClearStatesMeetRequired": true,
+    "allStatesMeetOrder": [
+      [
+        "A",
+        "owlHelp"
+      ],
+      [
+        "B",
+        "A"
+      ]
+    ],
+    "reachableCells": [
+      "1,3",
+      "1,4",
+      "1,5",
+      "2,3",
+      "2,4",
+      "2,5",
+      "3,4",
+      "4,3",
+      "4,4",
+      "4,5",
+      "4,6",
+      "5,4",
+      "6,3",
+      "6,4",
+      "6,5"
+    ]
+  },
+  {
+    "stage": 19,
+    "states": 4261,
+    "edges": 54520,
+    "clearStates": 1,
+    "maxActors": 4,
+    "deadStates": 0,
+    "deadExample": [],
+    "allClearStatesMeetRequired": true,
+    "allStatesMeetOrder": [
+      [
+        "B",
+        "bearHelp"
+      ]
+    ],
+    "reachableCells": [
+      "0,3",
+      "0,4",
+      "0,5",
+      "1,3",
+      "1,4",
+      "1,5",
+      "2,3",
+      "2,4",
+      "2,5",
+      "3,4",
+      "4,3",
+      "4,4",
+      "4,5",
+      "5,4",
+      "6,3",
+      "6,4",
+      "6,5"
+    ]
+  },
+  {
+    "stage": 20,
+    "states": 342,
+    "edges": 1690,
+    "clearStates": 1,
+    "maxActors": 5,
+    "deadStates": 68,
+    "deadExample": [
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "child1",
+        1,
+        0
+      ],
+      [
+        "child1",
+        1,
+        0
+      ]
+    ],
+    "allClearStatesMeetRequired": true,
+    "allStatesMeetOrder": [
+      [
+        "A",
+        "H"
+      ],
+      [
+        "B",
+        "A"
+      ],
+      [
+        "W",
+        "B"
+      ]
+    ],
+    "reachableCells": [
+      "0,2",
+      "0,4",
+      "1,4",
+      "2,4",
+      "3,2",
+      "3,4",
+      "4,2",
+      "4,4",
+      "5,2",
+      "5,4",
+      "6,4"
+    ]
+  }
+]
