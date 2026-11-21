@@ -78,6 +78,25 @@ def save(path,data):
     temp.write_bytes(gzip.compress(raw,compresslevel=2,mtime=0) if path.suffix=='.gz' else raw)
     temp.replace(path)
 
+async def attend_choice(page, data, wall, clock, reasons):
+    # Only explicit deferrals on user-choice panels are eligible. Never drive the
+    # actor, end ordinary conversation, skip a tick, choose a personality or wake
+    # a sleeping resident. A changed or dismissed panel is rechecked by Playwright.
+    options=[]
+    if 'dialog' in reasons: options.append(('dialog','#individualityLater','あとで'))
+    if 'growth-choice' in reasons: options.append(('growth-choice','#transformSkipBtn','このままでいい'))
+    if 'menu' in reasons: options.append(('menu','#companionInviteLaterBtn','またこんど'))
+    for reason,selector,label in options:
+        button=page.locator(selector)
+        if not await button.is_visible() or not await button.is_enabled():continue
+        if (await button.inner_text()).strip()!=label:continue
+        before=await page.evaluate('HomeMobilityDiagnostics.read().currentGateReasons')
+        if reason not in before:continue
+        try: await button.tap(timeout=3500); result='trusted native choice deferral'
+        except PlaywrightTimeout: result='choice deferral acknowledgement timeout'
+        data['care'].append(dict(wall=wall,clock=clock,control=selector,label=label,gate=before,action=result))
+        return
+
 async def run(args):
     args.out.mkdir(parents=True,exist_ok=True)
     arm=args.arm
@@ -111,10 +130,10 @@ async def run(args):
             assert len(opening['actors'])==28 and opening['clock']==0 and len(hashes)==4,(opening,hashes)
             version=await pg.evaluate('()=>{HomeMobilityDiagnostics.enable();HomeCastTrial.apply({paused:false});return HomeMobilityDiagnostics.read().arm}')
             assert version==arm or (arm=='v9-seats' and version=='v9')
-            data=dict(arm=arm,seed=args.seed,url=url,opening=opening,initial=initial,sources=hashes,browser=browser.version,
+            data=dict(arm=arm,seed=args.seed,choice_deferrals=args.attended,url=url,opening=opening,initial=initial,sources=hashes,browser=browser.version,
                       startedUTC=time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),trajectory=[],care=[],errors=errors)
             start=time.monotonic();ill_since=None; last_care=-100; last_routine=-100; sample_no=0
-            last_clock=0; last_advance=0
+            last_clock=0; last_advance=0; last_attended=-100
             print(arm,args.seed,'opening',hashlib.sha256(prior.v7.encode(opening['actors'])).hexdigest(),hashes,flush=True)
             while True:
                 await asyncio.sleep(5)
@@ -149,6 +168,9 @@ async def run(args):
                             except PlaywrightTimeout: result='tap acknowledgement timeout'
                             data['care'].append(dict(wall=wall,clock=clock,control=control,indicators=status,action=result));last_routine=wall
                 if clock>last_clock: last_advance=wall;last_clock=clock
+                if args.attended and wall-last_advance>=30 and wall-last_attended>=35:
+                    await attend_choice(pg,data,wall,clock,sample['gate'])
+                    last_attended=wall
                 if wall-last_advance>100:
                     print('Native clock gated',wall,clock,sample['gate'],flush=True)
                 progress=dict(arm=arm,seed=args.seed,wall=wall,clock=clock,gate=sample['gate'],roster=len(d['residents']))
@@ -168,4 +190,5 @@ async def run(args):
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--url',required=True);p.add_argument('--arm',required=True)
     p.add_argument('--seed',type=int,default=214);p.add_argument('--out',type=Path,required=True);p.add_argument('--seconds',type=float,default=600)
+    p.add_argument('--attended',action='store_true',help='Use the visible native later/keep control only after 30 seconds of a stalled choice panel')
     p.add_argument('--chromium',default='/usr/bin/chromium');asyncio.run(run(p.parse_args()))

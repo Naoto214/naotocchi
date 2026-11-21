@@ -230,6 +230,12 @@ function patchMovement(source) {
     'if(memo&&sameFoot(memo.point,request.point)&&sameHelpState(memo.feet,feet))memo.tried|=request.bit;');
   change('helpedAt.set(a.key,{feet,tried:request.bit})', 'helpedAt.set(a.key,{feet,point:request.point,tried:request.bit})');
   change('if(memo&&(memo.tried&bit)&&sameHelpState', 'if(memo&&sameFoot(memo.point,p)&&(memo.tried&bit)&&sameHelpState');
+  // A previously rejected walk belongs to the previous activity. The native
+  // listener now has a fresh four-second social commitment.
+  change("b.direction=-a.direction;activity(b,'together');defer(b,4);",
+    "waiting.delete(b.key);if(relief?.owner===b.key)clearRelief();b.direction=-a.direction;activity(b,'together');defer(b,4);");
+  // Cache the footprint of the longest owner segment this planner can submit.
+  change('nearLeg(owner,b,12)', 'nearLeg(owner,b,24)');
   return source;
 }
 module.exports={patchMovement};

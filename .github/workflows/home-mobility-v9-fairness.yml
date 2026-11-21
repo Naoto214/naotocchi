@@ -14,8 +14,8 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: home-mobility-v9-forest-${{ github.ref }}
-  cancel-in-progress: true
+  group: home-mobility-v9-forest-${{ github.sha }}
+  cancel-in-progress: false
 jobs:
   forest:
     runs-on: ubuntu-latest
@@ -94,7 +94,7 @@ jobs:
           python -m http.server 8377 --bind 127.0.0.1 --directory "$RUNNER_TEMP/v9" > "$RUNNER_TEMP/forest-http.log" 2>&1 &
           server=$!
           trap 'kill "$server"' EXIT
-          python -B comparisons/home-mobility-v9/forest_live.py --url http://127.0.0.1:8377 --arm "$ARM" --seed "$ACTOR_SEED" --chromium /usr/bin/google-chrome --out "$RUNNER_TEMP/forest"
+          python -B comparisons/home-mobility-v9/forest_live.py --url http://127.0.0.1:8377 --arm "$ARM" --seed "$ACTOR_SEED" --attended --chromium /usr/bin/google-chrome --out "$RUNNER_TEMP/forest"
           python -B comparisons/home-mobility-v9/forest_rays.py --url http://127.0.0.1:8377 --chromium /usr/bin/google-chrome "$RUNNER_TEMP/forest/forest28.json.gz"
       - name: Retain numerical trajectory, legs, and end checkpoint
         uses: actions/upload-artifact@v4

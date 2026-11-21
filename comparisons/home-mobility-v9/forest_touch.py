@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import sys
 from unittest.mock import patch
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import BrowserContext, sync_playwright
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent / 'home-mobility-v8'))
@@ -38,13 +38,20 @@ def save(path, result):
 def run(a):
     original_patch = base.patch
     def instrument(name, code):
+        if name=='drag-trial-hooks-mobility-v9-seats.js':
+            name='drag-trial-hooks.js'
         src = original_patch(name, code)
         if 'production-model' in name:
             src = base.legacy.once(src, '    let checkpoint;', HOOK+'    let checkpoint;')
         return src
 
     result = json.loads(a.out.read_bytes()) if a.out.exists() else {'arms':{}, 'tape':[]}
-    with sync_playwright() as pw, patch.object(base, 'patch', instrument):
+    original_route = BrowserContext.route
+    def include_seat_bridge(context, url, handler, **options):
+        if url == '**/drag-trial-hooks.js*':
+            url = '**/drag-trial-hooks*.js*'
+        return original_route(context, url, handler, **options)
+    with sync_playwright() as pw, patch.object(base, 'patch', instrument), patch.object(BrowserContext,'route',include_seat_bridge):
         browser = pw.chromium.launch(executable_path='/usr/bin/chromium')
         for arm in a.arms:
             with base.native_page(browser,a.url,'forest',28,390,arm,False) as (p,t,meta):
@@ -76,7 +83,7 @@ def run(a):
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--url',default='http://127.0.0.1:8399')
-    ap.add_argument('--arms',choices=['v8','v9'],nargs='+',required=True)
+    ap.add_argument('--arms',choices=['v8','v9','v9-seats'],nargs='+',required=True)
     ap.add_argument('--snapshot',type=Path)
     ap.add_argument('--out',type=Path,required=True)
     run(ap.parse_args())

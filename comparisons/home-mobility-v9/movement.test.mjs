@@ -19,14 +19,40 @@ function restored(row, seed=214) {
   }
   return trial;
 }
+// Independently audit each committed native step in actor order. The live model
+// sees already-advanced peers to its left and the preceding positions to its right.
+function auditedTick(model,scene) {
+  const before=model.snapshot();
+  model.step(.05);
+  const end=model.testState().actors;
+  for(let i=0;i<end.length;i++){
+    const a=before[i],p=end[i];
+    if(a.x===p.x&&a.y===p.y)continue;
+    assert.ok(Math.hypot(a.x-p.x,a.y-p.y)<=42*.05+1e-7);
+    assert.ok(scene.navigation.segmentSafe(a,p,scene.planVisibility(p)));
+    const box=model.bounds(p);
+    assert.ok(p.x>=box.left&&p.x<=box.right&&p.y>=box.top&&p.y<=box.bottom);
+    for(let j=0;j<end.length;j++){
+      if(i===j)continue;
+      const b=j<i?end[j]:before[j],rx=(p.w+b.w)*.5+10,ry=(p.h+b.h)*.38+10;
+      const x=(a.x-b.x)/rx,y=(a.y-b.y)/ry,dx=(p.x-a.x)/rx,dy=(p.y-a.y)/ry;
+      const start=x*x+y*y,dot=x*dx+y*dy;
+      if(start<1){assert.ok(dot>=-1e-12);assert.ok((x+dx)**2+(y+dy)**2>start);}
+      else {
+        const closest=Math.max(0,Math.min(1,-dot/(dx*dx+dy*dy||1)));
+        assert.ok((x+closest*dx)**2+(y+closest*dy)**2>=1-1e-10);
+      }
+    }
+  }
+}
 for(const row of cases) test('an original forest intention completes a checked normal walk at captured refusal '+row.index,()=>{
-  const {model}=restored(row);
+  const {model,scene}=restored(row);
   const who=()=>model.testState().actors.find(a=>a.key===row.key),start={...who()};
   const goal={x:row.goal[0],y:row.goal[1]};
   model.move(row.key,goal,'ambient');
   const helpers=new Set();let accepted=false;
   for(let i=0;i<240;i++) {
-    model.step(.05);
+    auditedTick(model,scene);
     const actors=model.testState().actors;
     const moving=actors.filter(a=>a.source==='yield'&&a.target);
     assert.ok(moving.length<=1);for(const b of moving)helpers.add(b.key);
@@ -157,4 +183,79 @@ test('holding the owner cancels its verified native route before another footste
   model.step(.05,{heldActor:'0'});
   assert.equal(who().x,before);
   assert.ok(!who().target);
+});
+
+test('the archived variant gives panda a checked original-goal walk through two sequential helpers',()=>{
+  const row=JSON.parse(fs.readFileSync(new URL('./forest-panda-refusal.json',import.meta.url)));
+  const {model,scene}=restored(row,911);
+  const who=()=>model.testState().actors.find(a=>a.key===row.key),start={...who()};
+  const goal={x:row.goal[0],y:row.goal[1]};const helpers=new Set();
+  assert.equal(model.move(row.key,goal,'ambient'),false);
+  let walked=false;
+  for(let i=0;i<240;i++){
+    auditedTick(model,scene);
+    const moving=model.testState().actors.filter(a=>a.target&&a.source==='yield');
+    assert.ok(moving.length<=1);for(const b of moving)helpers.add(b.key);
+    if(who().target&&who().source==='ambient')walked=true;
+    if(walked&&!who().target)break;
+  }
+  assert.ok(walked);
+  assert.equal(helpers.size,2);
+  assert.ok(distance(start,who())>=12-1e-6);
+  assert.ok(distance(start,goal)-distance(who(),goal)>=10);
+  assert.equal(who().ambientEscape,false);
+});
+
+test('the saved household input stays byte-identical across a handoff and a fresh model load',()=>{
+  const {model,scene,rows}=parallelCorridors();
+  const before=JSON.stringify(rows);
+  model.move('0',{x:52,y:40},'ambient');
+  for(let i=0;i<200;i++)model.step(.05);
+  assert.equal(model.snapshot()[0].x,52);
+  assert.equal(JSON.stringify(rows),before);
+  const loaded=api.createModel({random:()=>.5});
+  loaded.sync(JSON.parse(before),scene);
+  assert.deepEqual(loaded.snapshot().map(a=>[a.key,a.x,a.y]),rows.map(a=>[a.key,a.x,a.y]));
+  assert.equal(loaded.testState().waiting.size,0);
+  assert.equal(loaded.testState().relief,null);
+});
+
+test('an old failed walk cannot interrupt a fresh four-second social listener wait',()=>{
+  const {model}=parallelCorridors();
+  const actors=model.testState().actors,[listener,blocker,speaker,peer]=actors;
+  blocker.manualUntil=1.25;
+  assert.equal(model.move(listener.key,{x:52,y:40},'ambient'),false);
+  speaker.x=50;peer.x=180;speaker.after='approach';speaker.faceKey=listener.key;
+  assert.ok(model.move(speaker.key,{x:40,y:100},'ambient'));
+  for(let i=0;i<30&&listener.activity!=='together';i++)model.step(.05);
+  assert.equal(listener.activity,'together');
+  const until=listener.nextAt,foot=listener.x;
+  assert.ok(until-model.metrics().clock>=4-1e-7);
+  while(model.metrics().clock+.05<until){
+    model.step(.05);
+    assert.equal(listener.activity,'together');
+    assert.equal(listener.x,foot);
+  }
+});
+
+test('an unchanged original goal rechecks a newly available helper in the 24px envelope',()=>{
+  const rows=Array.from({length:16},(_,i)=>({key:String(i),kind:i?'companion':'pet',w:10,h:10,
+    x:i===0?40:i===1?77:200+i*35,y:i<2?40:150}));
+  const nav={intentAware:true,intentScale:{x:1,y:1},initialPoint:i=>rows[i],
+    nearest:(p,b,accept=()=>true)=>p.x>=b.left&&p.x<=b.right&&p.y>=b.top&&p.y<=b.bottom&&accept(p)?p:null,
+    route:(a,p,b,accept)=>accept(p)?[p]:[],valid:()=>true,segmentSafe:(a,b,ink=()=>true)=>ink(a)&&ink(b)};
+  const scene={region:'forest',width:1000,height:200,navigation:nav,
+    actorBounds:a=>({left:a.key==='0'?40:0,right:a.key==='0'?64:900,top:rows[+a.key].y,bottom:rows[+a.key].y})};
+  const model=api.createModel({random:()=>.5});model.sync(rows,scene);
+  const actors=model.testState().actors;for(const a of actors){a.nextAt=1000;a.lastWalk=-90;}
+  // A shallow original bearing requires at least 18px of corridor to reduce
+  // actual goal distance by 0.75px. The obstacle at 37px is beyond contact+12.
+  actors[1].manualUntil=2;
+  assert.equal(model.move('0',{x:178,y:3040},'ambient'),false);
+  for(let i=0;i<39;i++)model.step(.05);
+  assert.equal(actors[0].x,40);
+  for(let i=0;i<150&&!actors[0].target;i++)model.step(.05);
+  assert.ok(actors[0].target);
+  for(let i=0;i<50&&actors[0].target;i++)model.step(.05);
+  assert.equal(actors[0].x,64);
 });
