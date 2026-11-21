@@ -1,0 +1,133 @@
+name: Home mobility V10 continuous forest
+on:
+  push:
+    branches: [draft/home-mobility-v10]
+    paths: ['comparisons/home-mobility-v10/forest-ci.request']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: home-mobility-v10-forest-${{ github.sha }}
+  cancel-in-progress: false
+jobs:
+  paired:
+    name: forest ${{ matrix.profile }} ${{ matrix.layout }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        include:
+          - {profile: '390-937-0', layout: reference}
+          - {profile: '390-937-0', layout: fixed}
+          - {profile: '390-937-0', layout: seats}
+          - {profile: '390-214-0', layout: reference}
+          - {profile: '390-214-0', layout: fixed}
+          - {profile: '390-214-0', layout: seats}
+          - {profile: '320-214-0', layout: fixed}
+          - {profile: '320-214-0', layout: seats}
+          - {profile: '375-937-0', layout: fixed}
+          - {profile: '375-937-0', layout: seats}
+          - {profile: '430-214-0', layout: fixed}
+          - {profile: '430-214-0', layout: seats}
+          - {profile: '390-937-937', layout: fixed}
+          - {profile: '390-937-937', layout: seats}
+    env:
+      PROFILE: ${{ matrix.profile }}
+      LAYOUT: ${{ matrix.layout }}
+    steps:
+      - name: Check out the isolated candidate
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-mobility-v10
+            comparisons/home-mobility-v9
+            comparisons/home-mobility-v8
+            comparisons/home-mobility-v7
+            comparisons/home-drag-v6
+            comparisons/home-finish-v5
+      - name: Check out the exact V9 baseline
+        uses: actions/checkout@v4
+        with:
+          ref: be5db6804bf0bee872080bae49cb714f295a461b
+          path: .v9-reference
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-mobility-v9
+            comparisons/home-finish-v5
+      - name: Check out the exact V8 release for building all reference bundles
+        uses: actions/checkout@v4
+        with:
+          ref: 6b2e2a22ab3981ac748cc645f5f1f53ce91e4c64
+          path: .v8-reference
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-mobility-v8
+            comparisons/home-mobility-v7
+            comparisons/home-drag-v6
+            comparisons/home-finish-v5
+      - name: Check out pinned cast size tools
+        uses: actions/checkout@v4
+        with:
+          ref: e07d2cc53eca36ff23e02142ab385d6001e0521b
+          path: .cast-reference
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-cast-size-v1
+            comparisons/home-cast-size-v2
+            comparisons/home-cast-size-v3
+            comparisons/home-cast-size-v4
+            tools/work
+      - name: Check out pinned home and artwork
+        uses: actions/checkout@v4
+        with:
+          ref: 28628cf336a8ed92efe4e9e197ca03298b798a1e
+          path: .leaf-reference
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build pinned releases and then the isolated V10 entry
+        run: |
+          node .cast-reference/comparisons/home-cast-size-v1/build.cjs "$RUNNER_TEMP/v1" --reference-checkout .leaf-reference
+          node .cast-reference/comparisons/home-cast-size-v2/build.cjs "$RUNNER_TEMP/v2" --baseline "$RUNNER_TEMP/v1"
+          node .cast-reference/comparisons/home-cast-size-v3/build.cjs "$RUNNER_TEMP/v3" --baseline "$RUNNER_TEMP/v2"
+          node .cast-reference/comparisons/home-cast-size-v4/build.cjs "$RUNNER_TEMP/v4" --baseline "$RUNNER_TEMP/v3"
+          node .v8-reference/comparisons/home-finish-v5/build.cjs "$RUNNER_TEMP/v5" --baseline "$RUNNER_TEMP/v4"
+          node .v8-reference/comparisons/home-drag-v6/build.cjs "$RUNNER_TEMP/drag" --baseline "$RUNNER_TEMP/v5"
+          node .v8-reference/comparisons/home-mobility-v7/build.cjs "$RUNNER_TEMP/mobility" --baseline "$RUNNER_TEMP/drag"
+          node .v8-reference/comparisons/home-mobility-v8/build.cjs "$RUNNER_TEMP/v8" --baseline "$RUNNER_TEMP/mobility"
+          node .v9-reference/comparisons/home-mobility-v9/build.cjs "$RUNNER_TEMP/v9" --baseline "$RUNNER_TEMP/v8"
+          node comparisons/home-mobility-v10/build.cjs "$RUNNER_TEMP/v10" --baseline "$RUNNER_TEMP/v9"
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the pinned browser driver
+        run: python -m pip install --disable-pip-version-check playwright==1.62.0
+      - name: Record V9 forest and opening and aged input
+        if: matrix.layout != 'reference'
+        run: bash comparisons/home-mobility-v10/forest_case.sh v9
+      - name: Retain V9 trajectories, direction probes, real inputs and save
+        if: ${{ always() && matrix.layout != 'reference' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: forest-v10-${{ matrix.profile }}-${{ matrix.layout }}-v9
+          path: ${{ runner.temp }}/forest/v9
+          retention-days: 14
+          if-no-files-found: error
+      - name: Record V10 forest and opening and aged input
+        if: ${{ !cancelled() }}
+        run: bash comparisons/home-mobility-v10/forest_case.sh v10
+      - name: Retain V10 trajectories, direction probes, real inputs and save
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: forest-v10-${{ matrix.profile }}-${{ matrix.layout }}-v10
+          path: ${{ runner.temp }}/forest/v10
+          retention-days: 14
+          if-no-files-found: error

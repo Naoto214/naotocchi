@@ -1,0 +1,125 @@
+name: Home mobility V10 native WebKit performance
+on:
+  workflow_dispatch:
+  push:
+    branches: [draft/home-mobility-v10]
+    paths:
+      - 'comparisons/home-mobility-v10/*.cjs'
+      - 'comparisons/home-mobility-v10/diagnostic-values.js'
+      - 'comparisons/home-mobility-v10/performance*.py'
+      - 'comparisons/home-mobility-v10/performance-fixed.js'
+      - '.github/workflows/home-mobility-v10-performance.yml'
+concurrency:
+  group: home-mobility-v10-performance-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        experiment: [autonomous, fixed, stress, attribution, style, candidate]
+    steps:
+      -
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-mobility-v10
+            comparisons/home-mobility-v9
+            comparisons/home-mobility-v8
+            comparisons/home-mobility-v7
+            comparisons/home-drag-v6
+            comparisons/home-finish-v5
+      -
+        uses: actions/checkout@v4
+        with:
+          ref: e07d2cc53eca36ff23e02142ab385d6001e0521b
+          path: .cast-reference
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-cast-size-v1
+            comparisons/home-cast-size-v2
+            comparisons/home-cast-size-v3
+            comparisons/home-cast-size-v4
+            tools/work
+      -
+        uses: actions/checkout@v4
+        with:
+          ref: 28628cf336a8ed92efe4e9e197ca03298b798a1e
+          path: .leaf-reference
+          persist-credentials: false
+      -
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      -
+        name: Build the three isolated game entries from the pinned releases
+        run: |
+          node .cast-reference/comparisons/home-cast-size-v1/build.cjs "$RUNNER_TEMP/v1" --reference-checkout .leaf-reference
+          node .cast-reference/comparisons/home-cast-size-v2/build.cjs "$RUNNER_TEMP/v2" --baseline "$RUNNER_TEMP/v1"
+          node .cast-reference/comparisons/home-cast-size-v3/build.cjs "$RUNNER_TEMP/v3" --baseline "$RUNNER_TEMP/v2"
+          node .cast-reference/comparisons/home-cast-size-v4/build.cjs "$RUNNER_TEMP/v4" --baseline "$RUNNER_TEMP/v3"
+          node comparisons/home-finish-v5/build.cjs "$RUNNER_TEMP/v5" --baseline "$RUNNER_TEMP/v4"
+          node comparisons/home-drag-v6/build.cjs "$RUNNER_TEMP/drag" --baseline "$RUNNER_TEMP/v5"
+          node comparisons/home-mobility-v7/build.cjs "$RUNNER_TEMP/mobility" --baseline "$RUNNER_TEMP/drag"
+          node comparisons/home-mobility-v8/build.cjs "$RUNNER_TEMP/v8" --baseline "$RUNNER_TEMP/mobility"
+          node comparisons/home-mobility-v9/build.cjs "$RUNNER_TEMP/v9" --baseline "$RUNNER_TEMP/v8"
+          node comparisons/home-mobility-v10/build.cjs "$RUNNER_TEMP/v10" --baseline "$RUNNER_TEMP/v9"
+      -
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the pinned native WPE browser
+        run: |
+          python -m pip install playwright==1.62.0 psutil==7.2.2 Pillow==11.3.0
+          python -m playwright install --with-deps webkit
+      - name: Install the pinned Chromium for style attribution
+        if: matrix.experiment == 'style'
+        run: python -m playwright install --with-deps chromium
+      - name: Run experiment on its dedicated runner
+        env:
+          EXPERIMENT: ${{ matrix.experiment }}
+        run: |
+          python -m http.server 8377 --bind 127.0.0.1 --directory "$RUNNER_TEMP/v10" > "$RUNNER_TEMP/http.log" 2>&1 &
+          server=$!
+          trap 'kill "$server"' EXIT
+          folder=comparisons/home-mobility-v10
+          out="$RUNNER_TEMP/observations"
+          mkdir -p "$out"
+          case "$EXPERIMENT" in
+            autonomous)
+              python -B "$folder/performance.py" native --order v8,v9,v10 --seconds 180 --out "$out/forward.json"
+              python -B "$folder/performance.py" native --order v10,v9,v8 --seconds 180 --out "$out/reverse.json"
+              ;;
+            fixed)
+              python -B "$folder/performance-fixed.py" --out "$out/fixed.json"
+              ;;
+            stress)
+              python -B "$folder/performance-fixed.py" --stress --out "$out/stress.json"
+              ;;
+            candidate)
+              python -B "$folder/performance-fixed.py" --order v9,guarded,guarded,v9 --out "$out/candidate.json"
+              ;;
+            style)
+              python -B "$folder/performance-style.py" --out "$out/style.json"
+              ;;
+            attribution)
+              python -B "$folder/performance.py" native --trace --order v8,v9,v10 --seconds 25 --out "$out/trace.json"
+              python -B "$folder/performance.py" touch --out "$out/touch.json"
+              python -B "$folder/performance-visual.py" pixels --out "$out/pixels.json"
+              python -B "$folder/performance-visual.py" environment --out "$out/environment.json"
+              ;;
+          esac
+      - name: Retain native frame intervals, CPU samples, and input observations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobility-v10-performance-${{ matrix.experiment }}
+          path: ${{ runner.temp }}/observations/
+          retention-days: 14
+          if-no-files-found: error

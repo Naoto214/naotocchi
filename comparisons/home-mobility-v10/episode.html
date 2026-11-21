@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>なおとっち｜犬が動けなかった森の記録</title>
+<style>
+:root{color-scheme:light;font:16px/1.6 system-ui,sans-serif;color:#23362d;background:#faf9f4}main{max-width:42rem;margin:auto;padding:1rem}h1{font-size:1.45rem}p{margin:.6rem 0}a{color:#245d45}canvas{width:100%;display:block;background:#f1f3e8;border:1px solid #a3b29d;border-radius:.5rem}.legend{font-size:.9rem}.house{color:#715226;font-weight:bold}.foot{color:#214c40;font-weight:bold}.goal{color:#963e35;font-weight:bold}label,output{display:block;font-weight:600}input{width:100%;min-height:44px;accent-color:#436747}button{background:white;color:#244737;border:1px solid #879e89;border-radius:.4rem;padding:.5rem 1rem;min-height:44px;font:inherit}button:disabled{opacity:.45}.buttons{display:flex;gap:.7rem}#facts{min-height:3.3em}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #ac663c}
+</style>
+<main>
+<a href="./?arm=v10&amp;region=forest&amp;count=28&amp;seats=reference&amp;seed=937">同じ条件の森を試遊する</a>
+<h1>犬が次の道を見つけるまで</h1>
+<p>森の28体・V9の初期配置案・乱数937。犬が経路を求めた各時点の足元を、当時のゲーム内座標から表示します。</p>
+<canvas id="map" width="660" height="380" aria-label="犬と周囲の住民の足元、犬が向かおうとした地点"></canvas>
+<p class="legend"><span class="foot">● 犬の足元</span>　<span class="house">● ほかの住民</span>　<span class="goal">× 元の目的地</span></p>
+<label for="event">移動要求</label><input id="event" type="range" min="0" value="0" disabled>
+<div class="buttons"><button id="back" disabled>前の要求</button><button id="next" disabled>次の要求</button></div>
+<output id="clock" for="event"></output><p id="facts" aria-live="polite">記録を読み込んでいます…</p>
+<p>線は当時の犬から元の目的地への方向です。各点はゲームが記録した足の位置です。実際の歩行、接触回避、会話は試遊画面で確認できます。</p>
+</main><script type="module" src="./episode.mjs"></script>
+</html>
