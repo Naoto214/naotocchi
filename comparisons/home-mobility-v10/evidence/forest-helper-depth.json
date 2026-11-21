@@ -1,0 +1,589 @@
+{
+  "input": {
+    "archive": "44921996432/390-937-0-seats-v9/forest28.json.gz",
+    "archiveSHA256": "1d6a367834e9675329a136a39c72a9676690bb1ef74989197287608f1e0b5498",
+    "nativeSHA256": "6fea4db612a3efbe3f264293763847cfd07397f851cf4c464f2cb79a13d0f030",
+    "arm": "v9-seats",
+    "seed": 937,
+    "nativeViewport": [
+      390,
+      792
+    ],
+    "subject": "companion:cat_friend",
+    "range": [
+      436.949200000068,
+      600
+    ],
+    "endReason": "still open at cutoff",
+    "requestIndices": [
+      612,
+      618,
+      627,
+      634,
+      648,
+      653,
+      669,
+      676,
+      691,
+      717,
+      725,
+      740,
+      747,
+      753,
+      757,
+      768,
+      777,
+      788,
+      797,
+      809,
+      817
+    ],
+    "plannedRefusals": 21,
+    "realOwnMovements": 0,
+    "electiveRestChoices": 0,
+    "lastOwnStepBeforeInterval": 202.6919000000146,
+    "restoredPose": {
+      "index": 612,
+      "clock": 436.949200000068,
+      "key": "companion:cat_friend",
+      "goal": [
+        248.04441300338752,
+        361.7482126741187
+      ],
+      "selected": null,
+      "scale": [
+        1.3697220060064486,
+        1.134232061136463
+      ],
+      "from": [
+        205.2114444483648,
+        139.39601299614122
+      ],
+      "peers": [
+        [
+          "pet:dog",
+          211.01531801884505,
+          253.10097207511384,
+          41.800000000000004,
+          48.76666666666667,
+          null,
+          "ambient",
+          0,
+          9.599800000000007,
+          false,
+          null,
+          "together"
+        ],
+        [
+          "partner:forest_bear",
+          221.259002011483,
+          295.1382128075101,
+          34.48148148148148,
+          35.46666666666667,
+          null,
+          "ambient",
+          0,
+          94.19629999999921,
+          false,
+          null,
+          "approach"
+        ],
+        [
+          "companion:cat_friend",
+          205.2114444483648,
+          139.39601299614122,
+          35.46666666666666,
+          28.89876543209876,
+          null,
+          "ambient",
+          0,
+          35.56540000000019,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:tanuki",
+          187.57539332547867,
+          187.32561948664534,
+          32.29808805031446,
+          34.934666666666665,
+          null,
+          "ambient",
+          0,
+          0,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:owl",
+          175.67930167850992,
+          284.43701696976143,
+          25.04749685534591,
+          34.934666666666665,
+          null,
+          "ambient",
+          0,
+          0,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:hamster",
+          192.17797428884887,
+          323.002593300507,
+          33.52316498316498,
+          34.934666666666665,
+          null,
+          "ambient",
+          0,
+          365.285600000051,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:monkey",
+          157.8907069848502,
+          252.3338844352017,
+          30.544423676012467,
+          34.402666666666676,
+          null,
+          "ambient",
+          0,
+          0,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:sheep",
+          254.29185718775844,
+          82.86558758284063,
+          34.40266666666667,
+          32.17286419753086,
+          null,
+          "ambient",
+          0,
+          0,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:bat",
+          168.73918811310912,
+          155.2220113680237,
+          24.990616352201254,
+          34.40266666666666,
+          null,
+          "ambient",
+          0,
+          0,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:penguin_friend",
+          171.64965413868458,
+          214.98577756667805,
+          33.870666666666665,
+          15.703672727272725,
+          null,
+          "ambient",
+          0,
+          0,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:shiba",
+          136,
+          283.2200000000001,
+          33.870666666666665,
+          31.048111111111112,
+          null,
+          "ambient",
+          0,
+          183.47610000000955,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:punyu",
+          140.93533333333335,
+          351.7166172839506,
+          33.870666666666665,
+          25.716617283950615,
+          null,
+          "ambient",
+          0,
+          249.49010000002454,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:chameleon",
+          103.76744521882361,
+          334.83852028393187,
+          33.33866666666667,
+          27.883248484848487,
+          null,
+          "yield",
+          0,
+          416.76680000006274,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:unicorn",
+          293.35919988105275,
+          127.3635588086022,
+          30.610957575757578,
+          33.33866666666667,
+          null,
+          "ambient",
+          0,
+          0,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:watcher",
+          218.89330913490463,
+          170.14585169615935,
+          11.63708176100629,
+          33.33866666666667,
+          null,
+          "ambient",
+          0,
+          120.37859999999797,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:rabbit_friend",
+          132.42076065893568,
+          224.82239141568633,
+          26.2716049382716,
+          35.46666666666666,
+          null,
+          "ambient",
+          0,
+          183.3428000000095,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:squirrel",
+          96,
+          299.2200000000001,
+          31.053037037037036,
+          34.934666666666665,
+          null,
+          "ambient",
+          0,
+          209.9750000000156,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:otter",
+          258.1020864073582,
+          363.9538075631033,
+          34.93466666666667,
+          33.664315151515154,
+          null,
+          "yield",
+          0,
+          367.3522000000515,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:panda",
+          143.96268896662244,
+          189.52069463424124,
+          33.664315151515154,
+          34.93466666666667,
+          null,
+          "ambient",
+          0,
+          0,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:parrot",
+          296,
+          91.22000000000008,
+          30.898691358024692,
+          34.40266666666667,
+          null,
+          "ambient",
+          0,
+          61.66430000000037,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:seal",
+          251.09829677932174,
+          135.72242100549468,
+          34.40266666666666,
+          31.587903030303025,
+          null,
+          "ambient",
+          0,
+          0,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:chicken",
+          142.61730442659888,
+          318.07970508037613,
+          31.535777777777778,
+          34.40266666666667,
+          null,
+          "ambient",
+          0,
+          413.13380000006197,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:hedgehog",
+          214.59119691895813,
+          208.45430620292987,
+          33.870666666666665,
+          33.52853872053872,
+          null,
+          "ambient",
+          0,
+          0,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:snail",
+          92.93533333333333,
+          269.72566666666665,
+          33.870666666666665,
+          15.725666666666667,
+          null,
+          "ambient",
+          0,
+          177.82630000000825,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:sekizou",
+          235.15375980212366,
+          335.0442368683634,
+          17.24895061728395,
+          33.870666666666665,
+          null,
+          "ambient",
+          0,
+          367.5523000000515,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:clock",
+          96.58017425537109,
+          239.14141494750984,
+          31.79520987654321,
+          33.33866666666667,
+          null,
+          "ambient",
+          0,
+          0,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:many_tail_fox",
+          212.47068560609875,
+          366.58307620660014,
+          33.33866666666667,
+          32.73250909090909,
+          null,
+          "ambient",
+          0,
+          249.8234000000246,
+          false,
+          null,
+          "rest"
+        ],
+        [
+          "companion:box",
+          223.88090708455348,
+          108.62983168904441,
+          33.33866666666667,
+          32.984,
+          null,
+          "ambient",
+          0,
+          0,
+          false,
+          null,
+          "rest"
+        ]
+      ]
+    }
+  },
+  "proof": {
+    "normalOwnProgressFloorCss": 0.75,
+    "ownerRadiiCss": [
+      8,
+      12,
+      18,
+      24
+    ],
+    "ownerHeadingIncrementDegrees": 0.5,
+    "helperRadiiCss": [
+      4,
+      8,
+      12,
+      16,
+      20,
+      24
+    ],
+    "helperHeadingIncrementDegrees": 5,
+    "eligibleHelpers": 25,
+    "normalizedContacts": 0,
+    "nearestNormalizedGaps": [
+      {
+        "key": "companion:watcher",
+        "gap": 1.0006654168736262
+      },
+      {
+        "key": "companion:box",
+        "gap": 1.0096802097586681
+      },
+      {
+        "key": "companion:bat",
+        "gap": 1.018791741499309
+      },
+      {
+        "key": "companion:seal",
+        "gap": 1.0272456424805498
+      },
+      {
+        "key": "companion:tanuki",
+        "gap": 1.4557078214069152
+      }
+    ],
+    "roomBounds": {
+      "left": 80.41532334361807,
+      "right": 318.85029526699486,
+      "top": 66.76411868183712,
+      "bottom": 370.15545858369086
+    },
+    "roomEdgeCss": 82.38142319235888,
+    "terrainVisibleBounded8pxDirections": 720,
+    "directBlockerCountsByRadius": {
+      "8": {
+        "1": 22,
+        "2": 278,
+        "3": 35
+      },
+      "12": {
+        "1": 24,
+        "2": 278,
+        "3": 38
+      },
+      "18": {
+        "1": 26,
+        "2": 278,
+        "3": 39
+      },
+      "24": {
+        "1": 24,
+        "2": 136,
+        "3": 182
+      }
+    },
+    "minimumMoverLowerBoundByRadius": {
+      "8": {
+        "3": 16,
+        "moreThan3": 319
+      },
+      "12": {
+        "3": 16,
+        "moreThan3": 324
+      },
+      "18": {
+        "3": 16,
+        "moreThan3": 327
+      },
+      "24": {
+        "3": 9,
+        "moreThan3": 333
+      }
+    },
+    "additionalExactGoalRays": [
+      {
+        "range": 8,
+        "heading": 76.90415618464691,
+        "direct": 2,
+        "necessary": "moreThan3"
+      },
+      {
+        "range": 12,
+        "heading": 76.90415618464691,
+        "direct": 2,
+        "necessary": "moreThan3"
+      },
+      {
+        "range": 18,
+        "heading": 76.90415618464691,
+        "direct": 2,
+        "necessary": "moreThan3"
+      },
+      {
+        "range": 24,
+        "heading": 76.90415618464691,
+        "direct": 3,
+        "necessary": "moreThan3"
+      }
+    ],
+    "relaxedSurvivingOrders": {
+      "companion:penguin_friend > companion:hedgehog > companion:watcher": 57
+    },
+    "physicalVetoesOfThirdLeg": {
+      "companion:hedgehog": 465
+    },
+    "firstPhysicalWitness": null,
+    "candidateCounts": {
+      "orders": 57,
+      "triples": 465,
+      "validRays": 0
+    },
+    "method": "For each goal-progress ray, count its initial blocking ellipses. Enumerate distinct, initially eligible mover orders up to length three; each foot may take one checked straight leg, and the owner must stay still until its final leg. The optimistic bound treats earlier moved feet as gone but preserves every body that has yet to move. Each direct blocker must have an endpoint clear of the owner segment. Exhaustively recombine the retained endpoints of every surviving order. Require continuous clearance from the earlier helpers at their actual destinations before accepting each later leg.",
+    "scope": "Fixed archived feet, availability and terrain. Native helper radii and 5-degree directions; 0.5-degree owner grid plus the exact raw goal direction at four radii. Different radii, other directions, bent or repeated moves, later independent motion and different rosters are untested. A negative finite result does not establish impossibility for arbitrary continuous paths."
+  }
+}

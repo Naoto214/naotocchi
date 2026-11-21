@@ -1,0 +1,418 @@
+{
+  "source": "8ca183dd1b1431c3a27ffebcb8472097f3a3466fadec9477d9f8769a6ba7a55a",
+  "arm": "v9-seats",
+  "seed": 937,
+  "rawStart": 174.90970000000866,
+  "lastPoseElapsed": 384.8507,
+  "note": "Independent frozen-peer probes at recorded request times. Fresh poses after earlier success are counterfactual; their summed CSS travel/gain are not a continuous rollout. FirstStep uses the browser convention of recording the clock at the beginning of the first positive integration step. Temporary waypoints keep the original goal and retry it once after arrival. Only owner motion is evaluated; no helpers in these four policies. No event after last recorded pose is extrapolated. Redraw preserves elective decisions and uses one fresh V9 walk draw per eligible retry. All starts physically stepped.",
+  "results": {
+    "keepAtNaturalDecisions": {
+      "snapshots": 41,
+      "redraws": 0,
+      "replacementStarts": 0,
+      "roundedRedrawStreamSHA256": null,
+      "starts": 1,
+      "ownNormalAtLeast8": 0,
+      "rawGoalProgress": 1,
+      "rawGoalLoss": 0,
+      "firstStep": {
+        "request": 793,
+        "elapsed": 384.8507
+      },
+      "firstNormalStep": null,
+      "firstNormalArrival": null,
+      "sumTravelAcrossIndependentPoses": 5.180534,
+      "sumRawGoalGainAcrossIndependentPoses": 4.988618,
+      "sumIssuedGoalGainAcrossIndependentPoses": 4.988618,
+      "successes": [
+        {
+          "request": 793,
+          "clock": 559.7604,
+          "result": {
+            "firstStep": 0,
+            "endedAfter": 0.133333,
+            "arrived": true,
+            "travel": 5.180534,
+            "net": 5.180534,
+            "gain": 4.988618,
+            "issuedGain": 4.988618,
+            "escape": false,
+            "end": [
+              214.904654,
+              263.764825
+            ]
+          }
+        }
+      ]
+    },
+    "keepAndRetryChangedPeers": {
+      "snapshots": 78,
+      "redraws": 0,
+      "replacementStarts": 0,
+      "roundedRedrawStreamSHA256": null,
+      "starts": 1,
+      "ownNormalAtLeast8": 0,
+      "rawGoalProgress": 1,
+      "rawGoalLoss": 0,
+      "firstStep": {
+        "request": 793,
+        "elapsed": 384.8507
+      },
+      "firstNormalStep": null,
+      "firstNormalArrival": null,
+      "sumTravelAcrossIndependentPoses": 5.180534,
+      "sumRawGoalGainAcrossIndependentPoses": 4.988618,
+      "sumIssuedGoalGainAcrossIndependentPoses": 4.988618,
+      "successes": [
+        {
+          "request": 793,
+          "clock": 559.7604,
+          "result": {
+            "firstStep": 0,
+            "endedAfter": 0.133333,
+            "arrived": true,
+            "travel": 5.180534,
+            "net": 5.180534,
+            "gain": 4.988618,
+            "issuedGain": 4.988618,
+            "escape": false,
+            "end": [
+              214.904654,
+              263.764825
+            ]
+          }
+        }
+      ]
+    },
+    "checkedWaypointOnHeldGoal": {
+      "snapshots": 78,
+      "redraws": 0,
+      "replacementStarts": 0,
+      "roundedRedrawStreamSHA256": null,
+      "starts": 6,
+      "ownNormalAtLeast8": 1,
+      "rawGoalProgress": 6,
+      "rawGoalLoss": 0,
+      "firstStep": {
+        "request": 554,
+        "elapsed": 194.7587
+      },
+      "firstNormalStep": {
+        "request": 793,
+        "elapsed": 384.8507
+      },
+      "firstNormalArrival": 385.0507,
+      "sumTravelAcrossIndependentPoses": 23,
+      "sumRawGoalGainAcrossIndependentPoses": 15.761228,
+      "sumIssuedGoalGainAcrossIndependentPoses": 15.761228,
+      "successes": [
+        {
+          "request": 554,
+          "clock": 369.6684,
+          "waypoints": [
+            [
+              216.561094,
+              260.877353
+            ]
+          ],
+          "result": {
+            "firstStep": 0,
+            "endedAfter": 0.1,
+            "arrived": true,
+            "travel": 3,
+            "net": 3,
+            "gain": 1.939645,
+            "issuedGain": 1.939645,
+            "escape": false,
+            "end": [
+              216.561094,
+              260.877353
+            ],
+            "onward": null
+          }
+        },
+        {
+          "request": 563,
+          "clock": 370.8184,
+          "waypoints": [
+            [
+              216.561094,
+              260.877353
+            ]
+          ],
+          "result": {
+            "firstStep": 0,
+            "endedAfter": 0.1,
+            "arrived": true,
+            "travel": 3,
+            "net": 3,
+            "gain": 1.939645,
+            "issuedGain": 1.939645,
+            "escape": false,
+            "end": [
+              216.561094,
+              260.877353
+            ],
+            "onward": null
+          }
+        },
+        {
+          "request": 565,
+          "clock": 376.4514,
+          "waypoints": [
+            [
+              216.561094,
+              260.877353
+            ]
+          ],
+          "result": {
+            "firstStep": 0,
+            "endedAfter": 0.1,
+            "arrived": true,
+            "travel": 3,
+            "net": 3,
+            "gain": 1.557855,
+            "issuedGain": 1.557855,
+            "escape": false,
+            "end": [
+              216.561094,
+              260.877353
+            ],
+            "onward": null
+          }
+        },
+        {
+          "request": 569,
+          "clock": 378.4847,
+          "waypoints": [
+            [
+              216.561094,
+              260.877353
+            ]
+          ],
+          "result": {
+            "firstStep": 0,
+            "endedAfter": 0.1,
+            "arrived": true,
+            "travel": 3,
+            "net": 3,
+            "gain": 1.557855,
+            "issuedGain": 1.557855,
+            "escape": false,
+            "end": [
+              216.561094,
+              260.877353
+            ],
+            "onward": null
+          }
+        },
+        {
+          "request": 570,
+          "clock": 382.5345,
+          "waypoints": [
+            [
+              216.561094,
+              260.877353
+            ]
+          ],
+          "result": {
+            "firstStep": 0,
+            "endedAfter": 0.1,
+            "arrived": true,
+            "travel": 3,
+            "net": 3,
+            "gain": 1.293056,
+            "issuedGain": 1.293056,
+            "escape": false,
+            "end": [
+              216.561094,
+              260.877353
+            ],
+            "onward": null
+          }
+        },
+        {
+          "request": 793,
+          "clock": 559.7604,
+          "waypoints": [
+            [
+              212.816298,
+              264.025344
+            ]
+          ],
+          "result": {
+            "firstStep": 0,
+            "endedAfter": 0.2,
+            "arrived": true,
+            "travel": 8,
+            "net": 8,
+            "gain": 7.473172,
+            "issuedGain": 7.473172,
+            "escape": false,
+            "end": [
+              212.816298,
+              264.025344
+            ],
+            "onward": null
+          }
+        }
+      ]
+    },
+    "oneRedrawAfterChangedPeerRetry214": {
+      "snapshots": 78,
+      "redraws": 37,
+      "replacementStarts": 0,
+      "roundedRedrawStreamSHA256": "b972e2ddc6e32570ca4d88b7bd540e2c46f89eaff0dc304295be7a81a256c728",
+      "starts": 1,
+      "ownNormalAtLeast8": 0,
+      "rawGoalProgress": 1,
+      "rawGoalLoss": 0,
+      "firstStep": {
+        "request": 793,
+        "elapsed": 384.8507
+      },
+      "firstNormalStep": null,
+      "firstNormalArrival": null,
+      "sumTravelAcrossIndependentPoses": 5.180534,
+      "sumRawGoalGainAcrossIndependentPoses": 4.988618,
+      "sumIssuedGoalGainAcrossIndependentPoses": 4.988618,
+      "successes": [
+        {
+          "request": 793,
+          "clock": 559.7604,
+          "result": {
+            "firstStep": 0,
+            "endedAfter": 0.133333,
+            "arrived": true,
+            "travel": 5.180534,
+            "net": 5.180534,
+            "gain": 4.988618,
+            "issuedGain": 4.988618,
+            "escape": false,
+            "end": [
+              214.904654,
+              263.764825
+            ]
+          }
+        }
+      ]
+    },
+    "oneRedrawAfterChangedPeerRetry937": {
+      "snapshots": 78,
+      "redraws": 37,
+      "replacementStarts": 0,
+      "roundedRedrawStreamSHA256": "7ec48626c4bb0043477ebb85d81acef7f97bb2e7639f483f1fe3cea38825eba2",
+      "starts": 1,
+      "ownNormalAtLeast8": 0,
+      "rawGoalProgress": 1,
+      "rawGoalLoss": 0,
+      "firstStep": {
+        "request": 793,
+        "elapsed": 384.8507
+      },
+      "firstNormalStep": null,
+      "firstNormalArrival": null,
+      "sumTravelAcrossIndependentPoses": 5.180534,
+      "sumRawGoalGainAcrossIndependentPoses": 4.988618,
+      "sumIssuedGoalGainAcrossIndependentPoses": 4.988618,
+      "successes": [
+        {
+          "request": 793,
+          "clock": 559.7604,
+          "result": {
+            "firstStep": 0,
+            "endedAfter": 0.133333,
+            "arrived": true,
+            "travel": 5.180534,
+            "net": 5.180534,
+            "gain": 4.988618,
+            "issuedGain": 4.988618,
+            "escape": false,
+            "end": [
+              214.904654,
+              263.764825
+            ]
+          }
+        }
+      ]
+    },
+    "oneRedrawAfterChangedPeerRetry2026": {
+      "snapshots": 78,
+      "redraws": 37,
+      "replacementStarts": 0,
+      "roundedRedrawStreamSHA256": "cfc40a264848e8f2269823b9057925af4de54b780fe21941a6b35bcda3a881bc",
+      "starts": 1,
+      "ownNormalAtLeast8": 0,
+      "rawGoalProgress": 1,
+      "rawGoalLoss": 0,
+      "firstStep": {
+        "request": 793,
+        "elapsed": 384.8507
+      },
+      "firstNormalStep": null,
+      "firstNormalArrival": null,
+      "sumTravelAcrossIndependentPoses": 5.180534,
+      "sumRawGoalGainAcrossIndependentPoses": 4.988618,
+      "sumIssuedGoalGainAcrossIndependentPoses": 4.988618,
+      "successes": [
+        {
+          "request": 793,
+          "clock": 559.7604,
+          "result": {
+            "firstStep": 0,
+            "endedAfter": 0.133333,
+            "arrived": true,
+            "travel": 5.180534,
+            "net": 5.180534,
+            "gain": 4.988618,
+            "issuedGain": 4.988618,
+            "escape": false,
+            "end": [
+              214.904654,
+              263.764825
+            ]
+          }
+        }
+      ]
+    },
+    "permanentFirstGoalSensitivity": {
+      "snapshots": 78,
+      "redraws": 0,
+      "replacementStarts": 0,
+      "roundedRedrawStreamSHA256": null,
+      "starts": 1,
+      "ownNormalAtLeast8": 0,
+      "rawGoalProgress": 1,
+      "rawGoalLoss": 0,
+      "firstStep": {
+        "request": 793,
+        "elapsed": 384.8507
+      },
+      "firstNormalStep": null,
+      "firstNormalArrival": null,
+      "sumTravelAcrossIndependentPoses": 5.180534,
+      "sumRawGoalGainAcrossIndependentPoses": 3.603374,
+      "sumIssuedGoalGainAcrossIndependentPoses": 3.603374,
+      "successes": [
+        {
+          "request": 793,
+          "clock": 559.7604,
+          "result": {
+            "firstStep": 0,
+            "endedAfter": 0.133333,
+            "arrived": true,
+            "travel": 5.180534,
+            "net": 5.180534,
+            "gain": 3.603374,
+            "issuedGain": 3.603374,
+            "escape": false,
+            "end": [
+              214.904654,
+              263.764825
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

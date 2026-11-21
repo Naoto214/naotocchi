@@ -1,0 +1,987 @@
+{
+  "archive": "8ca183dd1b1431c3a27ffebcb8472097f3a3466fadec9477d9f8769a6ba7a55a",
+  "originalRequest": 733,
+  "firstRetry": 739,
+  "openingMotion": 741,
+  "pose": 742,
+  "openingClock": 517.4620000000863,
+  "poseClock": 517.8954000000864,
+  "gateClock": 518.6620000000866,
+  "condition": [
+    "resident-hungry"
+  ],
+  "clockConvention": "All time fields inside runs are seconds relative to #742, with the true gate at +0.7666. Integrate native motion until the archived stopped clock, then execute the native blocked tick. tFirst is first physical owner motion, t8 is first 8 CSS px and tEnd is native arrival bookkeeping.",
+  "limits": "The archive lacks the global service phase, hidden helper generator and individual frame durations. Interpolate 13 and 23 native ticks between the three recorded clocks. The earlier sweep varies a possible scheduling slot; it does not assert that the live scheduler fired on that earlier frame. Hedgehog-first admits the competing request before dog service; hedgehogAtRecordedTime injects it only at its observed time. The control saves the current feet as its prior signature.",
+  "nativeHashes": {
+    "V9": "6fea4db612a3efbe3f264293763847cfd07397f851cf4c464f2cb79a13d0f030",
+    "guardedRetryOnly": "5489e4d8d5414ad526e616f92009182d18eac833f745bcd9af20b309ce9c5b9e"
+  },
+  "runs": [
+    {
+      "arm": "V9",
+      "scenario": "bothWaiting",
+      "serviceFrame": 6,
+      "serviceRelativeTo742": -0.23337,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "bothWaiting",
+      "serviceFrame": 7,
+      "serviceRelativeTo742": -0.20003,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "bothWaiting",
+      "serviceFrame": 8,
+      "serviceRelativeTo742": -0.16669,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "bothWaiting",
+      "serviceFrame": 9,
+      "serviceRelativeTo742": -0.13335,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "bothWaiting",
+      "serviceFrame": 10,
+      "serviceRelativeTo742": -0.10002,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "bothWaiting",
+      "serviceFrame": 11,
+      "serviceRelativeTo742": -0.06668,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "bothWaiting",
+      "serviceFrame": 12,
+      "serviceRelativeTo742": -0.03334,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "bothWaiting",
+      "serviceFrame": 13,
+      "serviceRelativeTo742": 0,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "bothWaiting",
+      "serviceFrame": "at742",
+      "serviceRelativeTo742": 0,
+      "net": 0,
+      "gain": 0,
+      "steps": {},
+      "ends": {},
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "hedgehogFirst",
+      "serviceFrame": 6,
+      "serviceRelativeTo742": -0.23337,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "hedgehogFirst",
+      "serviceFrame": 7,
+      "serviceRelativeTo742": -0.20003,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "hedgehogFirst",
+      "serviceFrame": 8,
+      "serviceRelativeTo742": -0.16669,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "hedgehogFirst",
+      "serviceFrame": 9,
+      "serviceRelativeTo742": -0.13335,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "hedgehogFirst",
+      "serviceFrame": 10,
+      "serviceRelativeTo742": -0.10002,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "hedgehogFirst",
+      "serviceFrame": 11,
+      "serviceRelativeTo742": -0.06668,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "hedgehogFirst",
+      "serviceFrame": 12,
+      "serviceRelativeTo742": -0.03334,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "hedgehogFirst",
+      "serviceFrame": 13,
+      "serviceRelativeTo742": 0,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "hedgehogFirst",
+      "serviceFrame": "at742",
+      "serviceRelativeTo742": 0,
+      "net": 0,
+      "gain": 0,
+      "steps": {},
+      "ends": {},
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "hedgehogAtRecordedTime",
+      "serviceFrame": 6,
+      "serviceRelativeTo742": -0.23337,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "hedgehogAtRecordedTime",
+      "serviceFrame": 7,
+      "serviceRelativeTo742": -0.20003,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "hedgehogAtRecordedTime",
+      "serviceFrame": 8,
+      "serviceRelativeTo742": -0.16669,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "hedgehogAtRecordedTime",
+      "serviceFrame": 9,
+      "serviceRelativeTo742": -0.13335,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "hedgehogAtRecordedTime",
+      "serviceFrame": 10,
+      "serviceRelativeTo742": -0.10002,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "hedgehogAtRecordedTime",
+      "serviceFrame": 11,
+      "serviceRelativeTo742": -0.06668,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "hedgehogAtRecordedTime",
+      "serviceFrame": 12,
+      "serviceRelativeTo742": -0.03334,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "hedgehogAtRecordedTime",
+      "serviceFrame": 13,
+      "serviceRelativeTo742": 0,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "hedgehogAtRecordedTime",
+      "serviceFrame": "at742",
+      "serviceRelativeTo742": 0,
+      "net": 0,
+      "gain": 0,
+      "steps": {},
+      "ends": {},
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "V9",
+      "scenario": "unchangedControl",
+      "serviceFrame": "at742",
+      "serviceRelativeTo742": 0,
+      "net": 0,
+      "gain": 0,
+      "steps": {},
+      "ends": {},
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "bothWaiting",
+      "serviceFrame": 6,
+      "serviceRelativeTo742": -0.23337,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "bothWaiting",
+      "serviceFrame": 7,
+      "serviceRelativeTo742": -0.20003,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "bothWaiting",
+      "serviceFrame": 8,
+      "serviceRelativeTo742": -0.16669,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "bothWaiting",
+      "serviceFrame": 9,
+      "serviceRelativeTo742": -0.13335,
+      "net": 8,
+      "gain": 1.74942,
+      "tFirst": 0.49996,
+      "t8": 0.63328,
+      "tEnd": 0.66661,
+      "tRetry": -0.13335,
+      "steps": {
+        "companion:chicken": -0.4334,
+        "companion:sekizou": 0.09999,
+        "partner:forest_bear": 0.23331,
+        "pet:dog": 0.49996
+      },
+      "ends": {
+        "companion:chicken": -0.10002,
+        "companion:sekizou": 0.19998,
+        "partner:forest_bear": 0.46663,
+        "pet:dog": 0.66661
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "bothWaiting",
+      "serviceFrame": 10,
+      "serviceRelativeTo742": -0.10002,
+      "net": 8,
+      "gain": 1.74942,
+      "tFirst": 0.49996,
+      "t8": 0.63328,
+      "tEnd": 0.66661,
+      "tRetry": -0.10002,
+      "steps": {
+        "companion:chicken": -0.4334,
+        "companion:sekizou": 0.09999,
+        "partner:forest_bear": 0.23331,
+        "pet:dog": 0.49996
+      },
+      "ends": {
+        "companion:chicken": -0.10002,
+        "companion:sekizou": 0.19998,
+        "partner:forest_bear": 0.46663,
+        "pet:dog": 0.66661
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "bothWaiting",
+      "serviceFrame": 11,
+      "serviceRelativeTo742": -0.06668,
+      "net": 8,
+      "gain": 1.74942,
+      "tFirst": 0.53329,
+      "t8": 0.66661,
+      "tEnd": 0.69994,
+      "tRetry": -0.06668,
+      "steps": {
+        "companion:chicken": -0.4334,
+        "companion:sekizou": 0.13332,
+        "partner:forest_bear": 0.26664,
+        "pet:dog": 0.53329
+      },
+      "ends": {
+        "companion:chicken": -0.10002,
+        "companion:sekizou": 0.23331,
+        "partner:forest_bear": 0.49996,
+        "pet:dog": 0.69994
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "bothWaiting",
+      "serviceFrame": 12,
+      "serviceRelativeTo742": -0.03334,
+      "net": 8,
+      "gain": 1.74942,
+      "tFirst": 0.56662,
+      "t8": 0.69994,
+      "tEnd": 0.73327,
+      "tRetry": -0.03334,
+      "steps": {
+        "companion:chicken": -0.4334,
+        "companion:sekizou": 0.16665,
+        "partner:forest_bear": 0.29997,
+        "pet:dog": 0.56662
+      },
+      "ends": {
+        "companion:chicken": -0.10002,
+        "companion:sekizou": 0.26664,
+        "partner:forest_bear": 0.53329,
+        "pet:dog": 0.73327
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "bothWaiting",
+      "serviceFrame": 13,
+      "serviceRelativeTo742": 0,
+      "net": 8,
+      "gain": 1.74942,
+      "tFirst": 0.59995,
+      "t8": 0.73327,
+      "tEnd": 0.7666,
+      "tRetry": 0,
+      "steps": {
+        "companion:chicken": -0.4334,
+        "companion:sekizou": 0.19998,
+        "partner:forest_bear": 0.3333,
+        "pet:dog": 0.59995
+      },
+      "ends": {
+        "companion:chicken": -0.10002,
+        "companion:sekizou": 0.29997,
+        "partner:forest_bear": 0.56662,
+        "pet:dog": 0.7666
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "bothWaiting",
+      "serviceFrame": "at742",
+      "serviceRelativeTo742": 0,
+      "net": 8,
+      "gain": 1.74942,
+      "tFirst": 0.59995,
+      "t8": 0.73327,
+      "tEnd": 0.7666,
+      "tRetry": 0,
+      "steps": {
+        "companion:sekizou": 0.19998,
+        "partner:forest_bear": 0.3333,
+        "pet:dog": 0.59995
+      },
+      "ends": {
+        "companion:sekizou": 0.29997,
+        "partner:forest_bear": 0.56662,
+        "pet:dog": 0.7666
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "hedgehogFirst",
+      "serviceFrame": 6,
+      "serviceRelativeTo742": -0.23337,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "hedgehogFirst",
+      "serviceFrame": 7,
+      "serviceRelativeTo742": -0.20003,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "hedgehogFirst",
+      "serviceFrame": 8,
+      "serviceRelativeTo742": -0.16669,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "hedgehogFirst",
+      "serviceFrame": 9,
+      "serviceRelativeTo742": -0.13335,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "hedgehogFirst",
+      "serviceFrame": 10,
+      "serviceRelativeTo742": -0.10002,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "hedgehogFirst",
+      "serviceFrame": 11,
+      "serviceRelativeTo742": -0.06668,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "hedgehogFirst",
+      "serviceFrame": 12,
+      "serviceRelativeTo742": -0.03334,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "hedgehogFirst",
+      "serviceFrame": 13,
+      "serviceRelativeTo742": 0,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "hedgehogFirst",
+      "serviceFrame": "at742",
+      "serviceRelativeTo742": 0,
+      "net": 0,
+      "gain": 0,
+      "steps": {},
+      "ends": {},
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "hedgehogAtRecordedTime",
+      "serviceFrame": 6,
+      "serviceRelativeTo742": -0.23337,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "hedgehogAtRecordedTime",
+      "serviceFrame": 7,
+      "serviceRelativeTo742": -0.20003,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "hedgehogAtRecordedTime",
+      "serviceFrame": 8,
+      "serviceRelativeTo742": -0.16669,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "hedgehogAtRecordedTime",
+      "serviceFrame": 9,
+      "serviceRelativeTo742": -0.13335,
+      "net": 8,
+      "gain": 1.74942,
+      "tFirst": 0.49996,
+      "t8": 0.63328,
+      "tEnd": 0.66661,
+      "tRetry": -0.13335,
+      "steps": {
+        "companion:chicken": -0.4334,
+        "companion:sekizou": 0.09999,
+        "partner:forest_bear": 0.23331,
+        "pet:dog": 0.49996
+      },
+      "ends": {
+        "companion:chicken": -0.10002,
+        "companion:sekizou": 0.19998,
+        "partner:forest_bear": 0.46663,
+        "pet:dog": 0.66661
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "hedgehogAtRecordedTime",
+      "serviceFrame": 10,
+      "serviceRelativeTo742": -0.10002,
+      "net": 8,
+      "gain": 1.74942,
+      "tFirst": 0.49996,
+      "t8": 0.63328,
+      "tEnd": 0.66661,
+      "tRetry": -0.10002,
+      "steps": {
+        "companion:chicken": -0.4334,
+        "companion:sekizou": 0.09999,
+        "partner:forest_bear": 0.23331,
+        "pet:dog": 0.49996
+      },
+      "ends": {
+        "companion:chicken": -0.10002,
+        "companion:sekizou": 0.19998,
+        "partner:forest_bear": 0.46663,
+        "pet:dog": 0.66661
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "hedgehogAtRecordedTime",
+      "serviceFrame": 11,
+      "serviceRelativeTo742": -0.06668,
+      "net": 8,
+      "gain": 1.74942,
+      "tFirst": 0.53329,
+      "t8": 0.66661,
+      "tEnd": 0.69994,
+      "tRetry": -0.06668,
+      "steps": {
+        "companion:chicken": -0.4334,
+        "companion:sekizou": 0.13332,
+        "partner:forest_bear": 0.26664,
+        "pet:dog": 0.53329
+      },
+      "ends": {
+        "companion:chicken": -0.10002,
+        "companion:sekizou": 0.23331,
+        "partner:forest_bear": 0.49996,
+        "pet:dog": 0.69994
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "hedgehogAtRecordedTime",
+      "serviceFrame": 12,
+      "serviceRelativeTo742": -0.03334,
+      "net": 8,
+      "gain": 1.74942,
+      "tFirst": 0.56662,
+      "t8": 0.69994,
+      "tEnd": 0.73327,
+      "tRetry": -0.03334,
+      "steps": {
+        "companion:chicken": -0.4334,
+        "companion:sekizou": 0.16665,
+        "partner:forest_bear": 0.29997,
+        "pet:dog": 0.56662
+      },
+      "ends": {
+        "companion:chicken": -0.10002,
+        "companion:sekizou": 0.26664,
+        "partner:forest_bear": 0.53329,
+        "pet:dog": 0.73327
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "hedgehogAtRecordedTime",
+      "serviceFrame": 13,
+      "serviceRelativeTo742": 0,
+      "net": 0,
+      "gain": 0,
+      "steps": {
+        "companion:chicken": -0.4334
+      },
+      "ends": {
+        "companion:chicken": -0.10002
+      },
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "hedgehogAtRecordedTime",
+      "serviceFrame": "at742",
+      "serviceRelativeTo742": 0,
+      "net": 0,
+      "gain": 0,
+      "steps": {},
+      "ends": {},
+      "dogTarget": false,
+      "cancelled": true
+    },
+    {
+      "arm": "guardedRetryOnly",
+      "scenario": "unchangedControl",
+      "serviceFrame": "at742",
+      "serviceRelativeTo742": 0,
+      "net": 0,
+      "gain": 0,
+      "steps": {},
+      "ends": {},
+      "dogTarget": false,
+      "cancelled": true
+    }
+  ]
+}

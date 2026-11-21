@@ -5,6 +5,7 @@ import gzip
 import hashlib
 import importlib.util
 import json
+import math
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
@@ -16,14 +17,14 @@ seed_spec = importlib.util.spec_from_file_location('forest_seat_seed', HERE.pare
 seed_module=importlib.util.module_from_spec(seed_spec)
 seed_spec.loader.exec_module(seed_module)
 PROBE="""
-    if(next.auditDirectionOpening)globalThis.seatSurvey=({sectors,distances,adjust})=>{
+    if(next.auditDirectionOpening)globalThis.seatSurvey=({sectors,distances,angles,adjust})=>{
       const nav=scene.navigation,s=nav.intentScale;
       const list=actors.map(a=>({...a}));
-      if(adjust){
-        const a=list[adjust.slot];
-        a.x+=adjust.dx/s.x;a.y+=adjust.dy/s.y;
+      for(const offset of adjust||[]){
+        const a=list[offset.slot];
+        a.x+=offset.dx/s.x;a.y+=offset.dy/s.y;
       }
-      const unit=Array.from({length:sectors},(_,i)=>[Math.cos(2*Math.PI*i/sectors)/s.x,Math.sin(2*Math.PI*i/sectors)/s.y]);
+      const unit=angles?angles.map(deg=>[Math.cos(Math.PI*deg/180)/s.x,Math.sin(Math.PI*deg/180)/s.y]):Array.from({length:sectors},(_,i)=>[Math.cos(2*Math.PI*i/sectors)/s.x,Math.sin(2*Math.PI*i/sectors)/s.y]);
       const boundsFor=a=>bounds(a,scene);
       const inkFor=a=>scene.planVisibility?.(a)||(p=>visible(a,p));
       const residents=list.map(a=>{
@@ -89,7 +90,7 @@ def capture(browser,args,arm,width,order,seed,adjust=None):
         page.goto(forest_url(args.url,arm),wait_until='domcontentloaded',timeout=120000)
         page.wait_for_function('window.HomeCastTrial?.ready && HomeDragTrial.opening() && typeof seatSurvey==="function"', timeout=120000)
         actual=page.evaluate('HomeDragTrial.opening()')
-        data=page.evaluate('p=>seatSurvey(p)',dict(sectors=args.sectors,distances=args.distances,adjust=adjust))
+        data=page.evaluate('p=>seatSurvey(p)',dict(sectors=args.sectors,distances=args.distances,angles=getattr(args,'angles',None),adjust=adjust))
         assert len(data['residents'])==len(actual['actors'])==28 and actual['width']==width and len(sources)==4 and not errors
         return dict(**data,sources=sources,opening=actual,browser=browser.version)
     finally:
@@ -112,20 +113,25 @@ def compare(args,a,b,width,order,seed):
         for d,base,final in zip(args.distances,left['headings'],right['headings']):
             old,new=set(base),set(final)
             def degrees(indices):
-                return ' '.join(f'{n*360/args.sectors:g}' for n in sorted(indices))
+                return ' '.join(f'{(args.angles[n] if getattr(args,"angles",None) else n*360/args.sectors):g}' for n in sorted(indices))
             rows.append(dict(**row,rangeCSS=d,before=degrees(old),after=degrees(new),
                              lost=degrees(old-new),gained=degrees(new-old),lostCount=len(old-new),gainedCount=len(new-old)))
     return rows
 
 
 def run(args):
+    if args.sectors<1 or any(not math.isfinite(d) or d<=0 for d in args.distances):
+        raise ValueError('Positive finite distances and at least one bearing are required')
+    if args.angles and any(not math.isfinite(a) for a in args.angles):
+        raise ValueError('Bearings must be finite')
     out=args.out
     out.mkdir(parents=True,exist_ok=True)
     cases=[(w,order,seed) for w in args.widths for order,seed in ((0,214),(937,937))]
     if 390 in args.widths:
         cases.extend([(390,0,937),(390,937,214)])
-    if args.squirrel:
-        cases=[(375,0,214)]
+    if args.test_offset:
+        assert len(args.widths)==1
+        cases=[(args.widths[0],0,214)]
     rows=[];metadata=[]
     with sync_playwright() as pw:
         browser=pw.chromium.launch(executable_path=args.chromium)
@@ -133,18 +139,20 @@ def run(args):
             for width,order,seed in cases:
                 left=capture(browser,args,args.baseline,width,order,seed)
                 adjustment=None
-                if args.squirrel:
-                    slot=next(i for i,a in enumerate(left['residents']) if a['key']=='companion:squirrel')
-                    adjustment=dict(slot=slot,dx=1,dy=0)
+                if args.test_offset:
+                    adjustment=[]
+                    for slot,dx,dy in args.test_offset:
+                        assert slot==int(slot) and 0<=slot<28
+                        adjustment.append(dict(slot=int(slot),dx=dx,dy=dy))
                 right=capture(browser,args,args.candidate,width,order,seed,adjustment)
                 batch=compare(args,left,right,width,order,seed)
                 by_key={r['key']:r for r in batch}
-                item=dict(width=width,order=order,seed=seed,sectors=args.sectors,ranges=args.distances,
+                item=dict(width=width,order=order,seed=seed,sectors=len(args.angles) if args.angles else args.sectors,ranges=args.distances,
                           changes={k:round(r['displacementCSS'],4) for k,r in by_key.items() if r['displacementCSS']>.00001},
                           lost=sum(r['lostCount'] for r in batch),gained=sum(r['gainedCount'] for r in batch),
                           lostResidents=sorted({r['key'] for r in batch if r['lostCount']}),
                           native={label:data['sources'] for label,data in [('baseline',left),('candidate',right)]},
-                          browser=browser.version,corridorPreserved=left['corridor']==right['corridor'],
+                          angles=args.angles,browser=browser.version,corridorPreserved=left['corridor']==right['corridor'],
                           openingArtworkPreserved=[(a[0],a[1],a[4:]) for a in left['opening']['actors']]==
                                                   [(a[0],a[1],a[4:]) for a in right['opening']['actors']])
                 assert item['corridorPreserved'] and item['openingArtworkPreserved'], item
@@ -152,9 +160,15 @@ def run(args):
                 print(width,order,seed,item['changes'],item['lost'],item['gained'],flush=True)
         finally:
             browser.close()
-    with gzip.open(out/'directions.csv.gz','wt',newline='') as stream:
+    args.raw.parent.mkdir(parents=True,exist_ok=True)
+    with gzip.open(args.raw,'wt',newline='') as stream:
         writer=csv.DictWriter(stream,fieldnames=rows[0],lineterminator='\n')
         writer.writeheader();writer.writerows(rows)
+    fields=['width','order','seed','key','role','rangeCSS','xCSSChange','yCSSChange','lostCount','gainedCount','lost','gained']
+    with (out/'direction-changes.csv').open('w',newline='') as stream:
+        writer=csv.DictWriter(stream,fieldnames=fields,extrasaction='ignore',lineterminator='\n')
+        writer.writeheader()
+        writer.writerows(r for r in rows if r['lostCount'] or r['gainedCount'])
     (out/'directions.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2)+'\n')
 
 
@@ -164,9 +178,11 @@ if __name__=='__main__':
     parser.add_argument('--baseline',default='v9')
     parser.add_argument('--candidate',default='v9-seats')
     parser.add_argument('--sectors',type=int,default=96)
+    parser.add_argument('--angles',type=float,nargs='+',help='specific native CSS bearings to resolve a near-tangent question')
     parser.add_argument('--distances',type=float,nargs='+',default=[3,4,5,6,8,12,16,18,24])
     parser.add_argument('--widths',type=int,nargs='+',default=[320,375,390,430])
     parser.add_argument('--chromium',default='/usr/bin/chromium')
     parser.add_argument('--out',type=Path,required=True)
-    parser.add_argument('--squirrel',action='store_true',help='recheck the measured 375px one-pixel suggestion on a copy of native feet')
+    parser.add_argument('--raw',type=Path,required=True,help='private destination for all direction pairs, gzip CSV')
+    parser.add_argument('--test-offset',type=float,nargs=3,action='append',metavar=('SLOT','DX','DY'),help='apply a CSS offset to one scratch seat on the measured opening')
     run(parser.parse_args())

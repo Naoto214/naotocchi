@@ -1,0 +1,68 @@
+{
+  "engine": "chromium",
+  "browser": "156.0.8078.79",
+  "width": 320,
+  "toolbar": [
+    [
+      "v8",
+      7,
+      52.578125,
+      45.578125,
+      44
+    ],
+    [
+      "v9",
+      52.578125,
+      98.15625,
+      45.578125,
+      44
+    ],
+    [
+      "v10",
+      98.15625,
+      143.734375,
+      45.578125,
+      44
+    ],
+    [
+      "restart",
+      148.734375,
+      192.734375,
+      44,
+      44
+    ],
+    [
+      "freeze",
+      196.734375,
+      240.734375,
+      44,
+      44
+    ],
+    [
+      "settings-toggle",
+      244.734375,
+      314,
+      69.265625,
+      44
+    ]
+  ],
+  "openingSHA256": "dca0e1c654e3bcc6d5dce23f0dc5195ac6ba76bd997a92d0617606c213cbaa49",
+  "allOriginalOpeningsEqual": true,
+  "identicalV9ReferenceOpening": true,
+  "referenceChangedFeet": [
+    "companion:penguin_friend",
+    "companion:shiba"
+  ],
+  "size": "B",
+  "ground": true,
+  "shadows": 28,
+  "paintSHA256": "fd052da1162d7d59102d8855795dc1da16466805f0a11ec1babe72b77d0e03c2",
+  "readout": {
+    "arm": "v10-reference",
+    "seconds": 1.8666000000000005,
+    "step": true,
+    "tracked": 28
+  },
+  "forestOnly": true,
+  "errors": []
+}

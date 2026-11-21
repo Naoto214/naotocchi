@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>森の28体・10分間の移動記録｜なおとっち</title>
+<style>
+*{box-sizing:border-box}body{margin:auto;max-width:42rem;padding:1.25rem;background:#faf9f5;color:#263b32;font:1rem/1.6 system-ui,sans-serif}h1{font-size:clamp(1.35rem,5vw,1.8rem);margin:.8em 0 .3em}h2{font-size:1.15rem}p{margin:.6em 0}a{color:#195e4b}label{display:block;font-weight:650;margin:.65em 0}select{display:block;max-width:100%;min-height:44px;width:100%;padding:.4rem;font:inherit;color:inherit;background:white;border:1px solid #8b9f90;border-radius:.35em}table{width:100%;border-collapse:collapse;margin:.7rem 0 1.5rem;table-layout:fixed}td,th{padding:.5em .25em;border-bottom:1px solid #c7d1c7;text-align:right;font-variant-numeric:tabular-nums}th:first-child{text-align:left;width:63%;font-weight:500}thead th{background:#e7eee6}a:focus-visible,select:focus-visible{outline:3px solid #98642e}
+</style>
+<main>
+<a href="./">検証記録に戻る</a>
+<h1>森の28体・10分間の移動記録</h1>
+<p>同じ住民・足位置・乱数から始めたV9とV10の実測です。最初と最後の5分を分けると、一度歩いた後も移動できたかを確認できます。</p>
+<label for="case">開始条件<select id="case"></select></label><label for="resident">住民<select id="resident"></select></label>
+<h2 id="name" aria-live="polite"></h2>
+<table><thead><tr><th scope="col">測定項目</th><th scope="col">V9</th><th scope="col">V10</th></tr></thead><tbody id="measurements"></tbody></table>
+<p>通常歩行は、自分の目的地の方向へ8 CSS px以上歩き終えた場合を数えました。経路終点には安全のため補正された地点を含みます。ドラッグは各住民につき1回ずつ試み、入力できなかった場合は「—」で示しました。</p>
+<p>最初の通常歩行がなかった場合、その後の最長不成立時間は「—」です。正常な休息・会話・育成表示と、本人の経路が成立しなかった時間は分けて集計しました。</p>
+</main>
+<script>
+const recordings=/*OBSERVATIONS*/null;
+const condition=document.querySelector('#case'),picker=document.querySelector('#resident');
+const body=document.querySelector('#measurements');
+const number=new Intl.NumberFormat('ja-JP',{maximumFractionDigits:2});
+function showResident(){
+  const [key,name,before,after]=recordings.cases[Number(condition.value)].residents.find(row=>row[0]===picker.value);
+  document.querySelector('#name').textContent=name;
+  body.replaceChildren();
+  Object.entries(recordings.fields).forEach(([field,title],index)=>{
+    const tr=document.createElement('tr'),th=document.createElement('th');
+    th.scope='row';th.textContent=title;tr.append(th);
+    for(const raw of [before[index],after[index]]){
+      const td=document.createElement('td');
+      td.textContent=raw===''?'—':field.includes('_touch_')?(Number(raw)?'はい':'いいえ'):field==='plan_rate_cutoff'||field==='step_recovery_excluding_idle_choices'?number.format(100*Number(raw))+'%':number.format(Number(raw));
+      tr.append(td);
+    }
+    body.append(tr);
+  });
+}
+function showCase(){
+  const last=picker.value,actors=recordings.cases[Number(condition.value)].residents;
+  picker.replaceChildren(...actors.map(([key,title])=>new Option(title,key)));
+  if(actors.some(a=>a[0]===last))picker.value=last;
+  showResident();
+}
+condition.addEventListener('change',showCase);picker.addEventListener('change',showResident);
+recordings.cases.forEach((value,index)=>condition.add(new Option(value.label,index)));
+showCase();
+</script>
+</html>

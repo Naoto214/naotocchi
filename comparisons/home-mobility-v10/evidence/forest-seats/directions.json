@@ -1,0 +1,453 @@
+[
+  {
+    "width": 320,
+    "order": 0,
+    "seed": 214,
+    "sectors": 96,
+    "ranges": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      12,
+      16,
+      18,
+      24
+    ],
+    "changes": {
+      "companion:penguin_friend": 4.0,
+      "companion:shiba": 4.0
+    },
+    "lost": 147,
+    "gained": 236,
+    "lostResidents": [
+      "companion:chameleon",
+      "companion:chicken",
+      "companion:panda",
+      "companion:penguin_friend",
+      "companion:shiba"
+    ],
+    "native": {
+      "baseline": {
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-model-mobility-v9.js": "cb1d889b035b4e275270a7f783cd37f396e87ec77f681a38a68c6ecae9f41933",
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6"
+      },
+      "candidate": {
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-model-mobility-v9-seats.js": "6fea4db612a3efbe3f264293763847cfd07397f851cf4c464f2cb79a13d0f030",
+        "drag-trial-hooks-mobility-v9-seats.js": "17e90fc5b9f9399e9450770cdffc2037b58957aa6e38e3ba2d3be7e45251a74f"
+      }
+    },
+    "browser": "156.0.8078.79",
+    "corridorPreserved": true,
+    "openingArtworkPreserved": true
+  },
+  {
+    "width": 320,
+    "order": 937,
+    "seed": 937,
+    "sectors": 96,
+    "ranges": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      12,
+      16,
+      18,
+      24
+    ],
+    "changes": {},
+    "lost": 0,
+    "gained": 0,
+    "lostResidents": [],
+    "native": {
+      "baseline": {
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-model-mobility-v9.js": "cb1d889b035b4e275270a7f783cd37f396e87ec77f681a38a68c6ecae9f41933",
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6"
+      },
+      "candidate": {
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-model-mobility-v9-seats.js": "6fea4db612a3efbe3f264293763847cfd07397f851cf4c464f2cb79a13d0f030",
+        "drag-trial-hooks-mobility-v9-seats.js": "17e90fc5b9f9399e9450770cdffc2037b58957aa6e38e3ba2d3be7e45251a74f"
+      }
+    },
+    "browser": "156.0.8078.79",
+    "corridorPreserved": true,
+    "openingArtworkPreserved": true
+  },
+  {
+    "width": 375,
+    "order": 0,
+    "seed": 214,
+    "sectors": 96,
+    "ranges": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      12,
+      16,
+      18,
+      24
+    ],
+    "changes": {
+      "companion:bat": 4.0,
+      "companion:unicorn": 8.0,
+      "companion:squirrel": 4.0,
+      "companion:seal": 4.0
+    },
+    "lost": 178,
+    "gained": 348,
+    "lostResidents": [
+      "companion:bat",
+      "companion:monkey",
+      "companion:seal",
+      "companion:sekizou",
+      "companion:unicorn"
+    ],
+    "native": {
+      "baseline": {
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-model-mobility-v9.js": "cb1d889b035b4e275270a7f783cd37f396e87ec77f681a38a68c6ecae9f41933",
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6"
+      },
+      "candidate": {
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "home-production-model-mobility-v9-seats.js": "6fea4db612a3efbe3f264293763847cfd07397f851cf4c464f2cb79a13d0f030",
+        "drag-trial-hooks-mobility-v9-seats.js": "17e90fc5b9f9399e9450770cdffc2037b58957aa6e38e3ba2d3be7e45251a74f",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a"
+      }
+    },
+    "browser": "156.0.8078.79",
+    "corridorPreserved": true,
+    "openingArtworkPreserved": true
+  },
+  {
+    "width": 375,
+    "order": 937,
+    "seed": 937,
+    "sectors": 96,
+    "ranges": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      12,
+      16,
+      18,
+      24
+    ],
+    "changes": {
+      "companion:panda": 4.0,
+      "companion:clock": 8.0
+    },
+    "lost": 250,
+    "gained": 162,
+    "lostResidents": [
+      "companion:clock",
+      "companion:monkey",
+      "companion:panda",
+      "companion:rabbit_friend"
+    ],
+    "native": {
+      "baseline": {
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6",
+        "home-production-model-mobility-v9.js": "cb1d889b035b4e275270a7f783cd37f396e87ec77f681a38a68c6ecae9f41933"
+      },
+      "candidate": {
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-model-mobility-v9-seats.js": "6fea4db612a3efbe3f264293763847cfd07397f851cf4c464f2cb79a13d0f030",
+        "drag-trial-hooks-mobility-v9-seats.js": "17e90fc5b9f9399e9450770cdffc2037b58957aa6e38e3ba2d3be7e45251a74f"
+      }
+    },
+    "browser": "156.0.8078.79",
+    "corridorPreserved": true,
+    "openingArtworkPreserved": true
+  },
+  {
+    "width": 390,
+    "order": 0,
+    "seed": 214,
+    "sectors": 96,
+    "ranges": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      12,
+      16,
+      18,
+      24
+    ],
+    "changes": {
+      "companion:bat": 12.0,
+      "companion:shiba": 4.0
+    },
+    "lost": 269,
+    "gained": 587,
+    "lostResidents": [
+      "companion:bat",
+      "companion:owl",
+      "companion:shiba"
+    ],
+    "native": {
+      "baseline": {
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6",
+        "home-production-model-mobility-v9.js": "cb1d889b035b4e275270a7f783cd37f396e87ec77f681a38a68c6ecae9f41933"
+      },
+      "candidate": {
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "home-production-model-mobility-v9-seats.js": "6fea4db612a3efbe3f264293763847cfd07397f851cf4c464f2cb79a13d0f030",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "drag-trial-hooks-mobility-v9-seats.js": "17e90fc5b9f9399e9450770cdffc2037b58957aa6e38e3ba2d3be7e45251a74f"
+      }
+    },
+    "browser": "156.0.8078.79",
+    "corridorPreserved": true,
+    "openingArtworkPreserved": true
+  },
+  {
+    "width": 390,
+    "order": 937,
+    "seed": 937,
+    "sectors": 96,
+    "ranges": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      12,
+      16,
+      18,
+      24
+    ],
+    "changes": {
+      "companion:bat": 8.0,
+      "companion:tanuki": 8.0,
+      "companion:many_tail_fox": 12.0
+    },
+    "lost": 110,
+    "gained": 379,
+    "lostResidents": [
+      "companion:chameleon",
+      "companion:many_tail_fox"
+    ],
+    "native": {
+      "baseline": {
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "home-production-model-mobility-v9.js": "cb1d889b035b4e275270a7f783cd37f396e87ec77f681a38a68c6ecae9f41933",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6"
+      },
+      "candidate": {
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-model-mobility-v9-seats.js": "6fea4db612a3efbe3f264293763847cfd07397f851cf4c464f2cb79a13d0f030",
+        "drag-trial-hooks-mobility-v9-seats.js": "17e90fc5b9f9399e9450770cdffc2037b58957aa6e38e3ba2d3be7e45251a74f"
+      }
+    },
+    "browser": "156.0.8078.79",
+    "corridorPreserved": true,
+    "openingArtworkPreserved": true
+  },
+  {
+    "width": 430,
+    "order": 0,
+    "seed": 214,
+    "sectors": 96,
+    "ranges": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      12,
+      16,
+      18,
+      24
+    ],
+    "changes": {
+      "companion:watcher": 4.0,
+      "companion:rabbit_friend": 8.0
+    },
+    "lost": 102,
+    "gained": 324,
+    "lostResidents": [
+      "companion:rabbit_friend",
+      "companion:watcher"
+    ],
+    "native": {
+      "baseline": {
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6",
+        "home-production-model-mobility-v9.js": "cb1d889b035b4e275270a7f783cd37f396e87ec77f681a38a68c6ecae9f41933"
+      },
+      "candidate": {
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "home-production-model-mobility-v9-seats.js": "6fea4db612a3efbe3f264293763847cfd07397f851cf4c464f2cb79a13d0f030",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "drag-trial-hooks-mobility-v9-seats.js": "17e90fc5b9f9399e9450770cdffc2037b58957aa6e38e3ba2d3be7e45251a74f"
+      }
+    },
+    "browser": "156.0.8078.79",
+    "corridorPreserved": true,
+    "openingArtworkPreserved": true
+  },
+  {
+    "width": 430,
+    "order": 937,
+    "seed": 937,
+    "sectors": 96,
+    "ranges": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      12,
+      16,
+      18,
+      24
+    ],
+    "changes": {
+      "companion:many_tail_fox": 8.0,
+      "companion:panda": 4.0
+    },
+    "lost": 165,
+    "gained": 550,
+    "lostResidents": [
+      "companion:many_tail_fox",
+      "companion:panda",
+      "companion:rabbit_friend",
+      "companion:unicorn",
+      "companion:watcher"
+    ],
+    "native": {
+      "baseline": {
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-model-mobility-v9.js": "cb1d889b035b4e275270a7f783cd37f396e87ec77f681a38a68c6ecae9f41933",
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6",
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a"
+      },
+      "candidate": {
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-model-mobility-v9-seats.js": "6fea4db612a3efbe3f264293763847cfd07397f851cf4c464f2cb79a13d0f030",
+        "drag-trial-hooks-mobility-v9-seats.js": "17e90fc5b9f9399e9450770cdffc2037b58957aa6e38e3ba2d3be7e45251a74f"
+      }
+    },
+    "browser": "156.0.8078.79",
+    "corridorPreserved": true,
+    "openingArtworkPreserved": true
+  },
+  {
+    "width": 390,
+    "order": 0,
+    "seed": 937,
+    "sectors": 96,
+    "ranges": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      12,
+      16,
+      18,
+      24
+    ],
+    "changes": {
+      "companion:bat": 12.0,
+      "companion:shiba": 4.0
+    },
+    "lost": 269,
+    "gained": 587,
+    "lostResidents": [
+      "companion:bat",
+      "companion:owl",
+      "companion:shiba"
+    ],
+    "native": {
+      "baseline": {
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-model-mobility-v9.js": "cb1d889b035b4e275270a7f783cd37f396e87ec77f681a38a68c6ecae9f41933",
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6"
+      },
+      "candidate": {
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-model-mobility-v9-seats.js": "6fea4db612a3efbe3f264293763847cfd07397f851cf4c464f2cb79a13d0f030",
+        "drag-trial-hooks-mobility-v9-seats.js": "17e90fc5b9f9399e9450770cdffc2037b58957aa6e38e3ba2d3be7e45251a74f"
+      }
+    },
+    "browser": "156.0.8078.79",
+    "corridorPreserved": true,
+    "openingArtworkPreserved": true
+  },
+  {
+    "width": 390,
+    "order": 937,
+    "seed": 214,
+    "sectors": 96,
+    "ranges": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      12,
+      16,
+      18,
+      24
+    ],
+    "changes": {
+      "companion:bat": 8.0,
+      "companion:tanuki": 8.0,
+      "companion:many_tail_fox": 12.0
+    },
+    "lost": 110,
+    "gained": 379,
+    "lostResidents": [
+      "companion:chameleon",
+      "companion:many_tail_fox"
+    ],
+    "native": {
+      "baseline": {
+        "home-production-model-mobility-v9.js": "cb1d889b035b4e275270a7f783cd37f396e87ec77f681a38a68c6ecae9f41933",
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6",
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a"
+      },
+      "candidate": {
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-model-mobility-v9-seats.js": "6fea4db612a3efbe3f264293763847cfd07397f851cf4c464f2cb79a13d0f030",
+        "drag-trial-hooks-mobility-v9-seats.js": "17e90fc5b9f9399e9450770cdffc2037b58957aa6e38e3ba2d3be7e45251a74f"
+      }
+    },
+    "browser": "156.0.8078.79",
+    "corridorPreserved": true,
+    "openingArtworkPreserved": true
+  }
+]

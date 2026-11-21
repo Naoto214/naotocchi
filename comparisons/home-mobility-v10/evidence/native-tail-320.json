@@ -1,0 +1,1142 @@
+[
+  {
+    "width": 320,
+    "seed": 214,
+    "sourceSHA256": "72b5770265228d2adaf3a2f4ac3d22ed55532ca29a000d695068ed2c52c2db44",
+    "residents": [
+      {
+        "key": "companion:box",
+        "requests": 47,
+        "normal8": 0,
+        "longest": 581.8999999999999,
+        "refusals": 47,
+        "anyHeadingMinimumBlockers": {
+          "1": 47
+        },
+        "goalwardMinimumBlockers": {
+          "1": 42,
+          "2": 5
+        },
+        "first": {
+          "key": "companion:box",
+          "clock": 18.100000000000122,
+          "from": [
+            169.90154469456328,
+            193.16865113745408
+          ],
+          "goal": [
+            117.23533585754829,
+            290.1046916497053
+          ],
+          "contacts": [
+            "companion:cat_friend",
+            "companion:tanuki",
+            "companion:watcher",
+            "companion:squirrel"
+          ],
+          "edgeCss": 116.55475674869066,
+          "all": {
+            "boundsOK": 96,
+            "terrainOK": 96,
+            "blockerCounts": [
+              0,
+              17,
+              62,
+              17
+            ],
+            "eligibleAtMostTwo": 79
+          },
+          "toward": {
+            "boundsOK": 44,
+            "terrainOK": 44,
+            "blockerCounts": [
+              0,
+              1,
+              31,
+              12
+            ],
+            "eligibleAtMostTwo": 32
+          },
+          "blockers": {
+            "companion:cat_friend": 1,
+            "companion:tanuki": 43,
+            "companion:squirrel": 30,
+            "companion:watcher": 25
+          },
+          "blockerSets": {
+            "companion:cat_friend|companion:squirrel|companion:tanuki": 1,
+            "companion:squirrel|companion:tanuki": 18,
+            "companion:squirrel|companion:tanuki|companion:watcher": 11,
+            "companion:tanuki|companion:watcher": 13,
+            "companion:watcher": 1
+          },
+          "completeNativeUpToTwo": null
+        },
+        "firstOutwardCones": {
+          "companion:cat_friend": {
+            "intervals": [
+              [
+                0.0,
+                39.886904
+              ],
+              [
+                351.972241,
+                360.0
+              ]
+            ],
+            "allowedBoundaries": [
+              0.0,
+              39.886904,
+              351.972241
+            ]
+          },
+          "companion:tanuki": {
+            "intervals": [],
+            "allowedBoundaries": []
+          },
+          "companion:watcher": {
+            "intervals": [
+              [
+                107.894938,
+                287.894938
+              ]
+            ],
+            "allowedBoundaries": [
+              107.894938,
+              287.894938
+            ]
+          },
+          "companion:squirrel": {
+            "intervals": [
+              [
+                0.0,
+                12.472297
+              ],
+              [
+                326.441141,
+                360.0
+              ]
+            ],
+            "allowedBoundaries": [
+              0.0,
+              12.472297,
+              326.441141
+            ]
+          },
+          "companion:box": {
+            "intervals": [],
+            "allowedBoundaries": []
+          }
+        }
+      },
+      {
+        "key": "companion:clock",
+        "requests": 38,
+        "normal8": 0,
+        "longest": 375.7000000000585,
+        "refusals": 36,
+        "anyHeadingMinimumBlockers": {
+          "2": 1,
+          "1": 35
+        },
+        "goalwardMinimumBlockers": {
+          "2": 6,
+          "1": 30
+        },
+        "first": {
+          "key": "companion:clock",
+          "clock": 2.000000000000001,
+          "from": [
+            217.63413624698433,
+            345.4485709703989
+          ],
+          "goal": [
+            66.44,
+            207.4
+          ],
+          "contacts": [
+            "partner:forest_bear",
+            "companion:hamster",
+            "companion:rabbit_friend"
+          ],
+          "edgeCss": 32.7660544360111,
+          "all": {
+            "boundsOK": 96,
+            "terrainOK": 45,
+            "blockerCounts": [
+              0,
+              0,
+              16,
+              29
+            ],
+            "eligibleAtMostTwo": 16
+          },
+          "toward": {
+            "boundsOK": 45,
+            "terrainOK": 28,
+            "blockerCounts": [
+              0,
+              0,
+              15,
+              13
+            ],
+            "eligibleAtMostTwo": 15
+          },
+          "blockers": {
+            "companion:hamster": 28,
+            "companion:rabbit_friend": 8,
+            "companion:many_tail_fox": 13,
+            "partner:forest_bear": 21
+          },
+          "blockerSets": {
+            "companion:hamster|companion:many_tail_fox|companion:rabbit_friend": 7,
+            "companion:hamster|companion:many_tail_fox|companion:rabbit_friend|partner:forest_bear": 1,
+            "companion:hamster|companion:many_tail_fox|partner:forest_bear": 5,
+            "companion:hamster|partner:forest_bear": 15
+          },
+          "completeNativeUpToTwo": null
+        },
+        "firstOutwardCones": {
+          "partner:forest_bear": {
+            "intervals": [
+              [
+                162.830849,
+                342.830849
+              ]
+            ],
+            "allowedBoundaries": [
+              162.830849,
+              342.830849
+            ]
+          },
+          "companion:hamster": {
+            "intervals": [],
+            "allowedBoundaries": []
+          },
+          "companion:rabbit_friend": {
+            "intervals": [
+              [
+                0.0,
+                122.220283
+              ],
+              [
+                347.230854,
+                360.0
+              ]
+            ],
+            "allowedBoundaries": [
+              0.0,
+              122.220283,
+              347.230854
+            ]
+          },
+          "companion:clock": {
+            "intervals": [
+              [
+                342.830849,
+                347.230854
+              ]
+            ],
+            "allowedBoundaries": [
+              342.830849,
+              347.230854
+            ]
+          }
+        }
+      },
+      {
+        "key": "companion:rabbit_friend",
+        "requests": 41,
+        "normal8": 0,
+        "longest": 598.6,
+        "refusals": 41,
+        "anyHeadingMinimumBlockers": {
+          "2": 7,
+          "1": 34
+        },
+        "goalwardMinimumBlockers": {
+          "2": 7,
+          "1": 34
+        },
+        "first": {
+          "key": "companion:rabbit_friend",
+          "clock": 1.4000000000000006,
+          "from": [
+            224.16616885692608,
+            369.90662159904946
+          ],
+          "goal": [
+            66.44,
+            207.4
+          ],
+          "contacts": [
+            "companion:hamster",
+            "companion:clock"
+          ],
+          "edgeCss": 0.37171191817559984,
+          "all": {
+            "boundsOK": 49,
+            "terrainOK": 21,
+            "blockerCounts": [
+              0,
+              0,
+              1,
+              20
+            ],
+            "eligibleAtMostTwo": 1
+          },
+          "toward": {
+            "boundsOK": 35,
+            "terrainOK": 21,
+            "blockerCounts": [
+              0,
+              0,
+              1,
+              20
+            ],
+            "eligibleAtMostTwo": 1
+          },
+          "blockers": {
+            "companion:hamster": 21,
+            "companion:clock": 21,
+            "companion:many_tail_fox": 20
+          },
+          "blockerSets": {
+            "companion:clock|companion:hamster|companion:many_tail_fox": 20,
+            "companion:clock|companion:hamster": 1
+          },
+          "completeNativeUpToTwo": null
+        },
+        "firstOutwardCones": {
+          "companion:hamster": {
+            "intervals": [],
+            "allowedBoundaries": []
+          },
+          "companion:rabbit_friend": {
+            "intervals": [
+              [
+                0.0,
+                122.220283
+              ],
+              [
+                347.230854,
+                360.0
+              ]
+            ],
+            "allowedBoundaries": [
+              0.0,
+              122.220283,
+              347.230854
+            ]
+          },
+          "companion:clock": {
+            "intervals": [
+              [
+                342.830849,
+                347.230854
+              ]
+            ],
+            "allowedBoundaries": [
+              342.830849,
+              347.230854
+            ]
+          }
+        }
+      },
+      {
+        "key": "companion:squirrel",
+        "requests": 43,
+        "normal8": 0,
+        "longest": 598.8,
+        "refusals": 43,
+        "anyHeadingMinimumBlockers": {
+          "2": 43
+        },
+        "goalwardMinimumBlockers": {
+          "2": 41,
+          "noTerrainRay": 2
+        },
+        "first": {
+          "key": "companion:squirrel",
+          "clock": 1.2000000000000004,
+          "from": [
+            185.38649008652436,
+            209.9066215990495
+          ],
+          "goal": [
+            144.96,
+            271.28
+          ],
+          "contacts": [
+            "companion:tanuki",
+            "companion:hedgehog",
+            "companion:box"
+          ],
+          "edgeCss": 114.54022630145688,
+          "all": {
+            "boundsOK": 96,
+            "terrainOK": 48,
+            "blockerCounts": [
+              0,
+              0,
+              32,
+              16
+            ],
+            "eligibleAtMostTwo": 32
+          },
+          "toward": {
+            "boundsOK": 43,
+            "terrainOK": 32,
+            "blockerCounts": [
+              0,
+              0,
+              20,
+              12
+            ],
+            "eligibleAtMostTwo": 20
+          },
+          "blockers": {
+            "companion:tanuki": 32,
+            "companion:hedgehog": 29,
+            "companion:box": 15
+          },
+          "blockerSets": {
+            "companion:hedgehog|companion:tanuki": 17,
+            "companion:box|companion:hedgehog|companion:tanuki": 12,
+            "companion:box|companion:tanuki": 3
+          },
+          "completeNativeUpToTwo": null
+        },
+        "firstOutwardCones": {
+          "companion:tanuki": {
+            "intervals": [],
+            "allowedBoundaries": []
+          },
+          "companion:squirrel": {
+            "intervals": [
+              [
+                0.0,
+                12.472297
+              ],
+              [
+                326.441141,
+                360.0
+              ]
+            ],
+            "allowedBoundaries": [
+              0.0,
+              12.472297,
+              326.441141
+            ]
+          },
+          "companion:hedgehog": {
+            "intervals": [
+              [
+                12.472297,
+                36.205855
+              ]
+            ],
+            "allowedBoundaries": [
+              12.472297,
+              36.205855
+            ]
+          },
+          "companion:box": {
+            "intervals": [],
+            "allowedBoundaries": []
+          }
+        }
+      },
+      {
+        "key": "companion:tanuki",
+        "requests": 41,
+        "normal8": 0,
+        "longest": 558.1500000000002,
+        "refusals": 41,
+        "anyHeadingMinimumBlockers": {
+          "1": 41
+        },
+        "goalwardMinimumBlockers": {
+          "1": 39,
+          "2": 2
+        },
+        "first": {
+          "key": "companion:tanuki",
+          "clock": 41.84999999999976,
+          "from": [
+            155.53,
+            223.262
+          ],
+          "goal": [
+            144.96,
+            271.28
+          ],
+          "contacts": [
+            "companion:squirrel",
+            "companion:otter",
+            "companion:hedgehog",
+            "companion:box"
+          ],
+          "edgeCss": 120.4220097838485,
+          "all": {
+            "boundsOK": 96,
+            "terrainOK": 96,
+            "blockerCounts": [
+              0,
+              21,
+              27,
+              48
+            ],
+            "eligibleAtMostTwo": 48
+          },
+          "toward": {
+            "boundsOK": 43,
+            "terrainOK": 43,
+            "blockerCounts": [
+              0,
+              21,
+              22,
+              0
+            ],
+            "eligibleAtMostTwo": 43
+          },
+          "blockers": {
+            "companion:squirrel": 10,
+            "companion:hedgehog": 30,
+            "companion:otter": 21,
+            "companion:watcher": 4
+          },
+          "blockerSets": {
+            "companion:hedgehog|companion:squirrel": 10,
+            "companion:hedgehog": 12,
+            "companion:hedgehog|companion:otter": 8,
+            "companion:otter": 9,
+            "companion:otter|companion:watcher": 4
+          },
+          "completeNativeUpToTwo": null
+        },
+        "firstOutwardCones": {
+          "companion:tanuki": {
+            "intervals": [],
+            "allowedBoundaries": []
+          },
+          "companion:squirrel": {
+            "intervals": [
+              [
+                0.0,
+                8.982924
+              ],
+              [
+                326.441141,
+                360.0
+              ]
+            ],
+            "allowedBoundaries": [
+              0.0,
+              8.982924,
+              326.441141
+            ]
+          },
+          "companion:otter": {
+            "intervals": [
+              [
+                104.399915,
+                284.399915
+              ]
+            ],
+            "allowedBoundaries": [
+              104.399915,
+              284.399915
+            ]
+          },
+          "companion:hedgehog": {
+            "intervals": [
+              [
+                8.982924,
+                131.560335
+              ]
+            ],
+            "allowedBoundaries": [
+              8.982924,
+              131.560335
+            ]
+          },
+          "companion:box": {
+            "intervals": [],
+            "allowedBoundaries": []
+          }
+        }
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "seed": 937,
+    "sourceSHA256": "72b5770265228d2adaf3a2f4ac3d22ed55532ca29a000d695068ed2c52c2db44",
+    "residents": [
+      {
+        "key": "companion:box",
+        "requests": 44,
+        "normal8": 0,
+        "longest": 581.1499999999999,
+        "refusals": 44,
+        "anyHeadingMinimumBlockers": {
+          "1": 44
+        },
+        "goalwardMinimumBlockers": {
+          "1": 34,
+          "2": 10
+        },
+        "first": {
+          "key": "companion:box",
+          "clock": 18.850000000000133,
+          "from": [
+            169.90154469456328,
+            193.16865113745408
+          ],
+          "goal": [
+            65.90154469456328,
+            202.63249861363545
+          ],
+          "contacts": [
+            "companion:cat_friend",
+            "companion:tanuki",
+            "companion:watcher",
+            "companion:squirrel"
+          ],
+          "edgeCss": 116.55475674869066,
+          "all": {
+            "boundsOK": 96,
+            "terrainOK": 96,
+            "blockerCounts": [
+              0,
+              14,
+              68,
+              14
+            ],
+            "eligibleAtMostTwo": 48
+          },
+          "toward": {
+            "boundsOK": 44,
+            "terrainOK": 44,
+            "blockerCounts": [
+              0,
+              1,
+              30,
+              13
+            ],
+            "eligibleAtMostTwo": 16
+          },
+          "blockers": {
+            "companion:tanuki": 28,
+            "companion:squirrel": 15,
+            "companion:watcher": 42,
+            "companion:cat_friend": 15
+          },
+          "blockerSets": {
+            "companion:squirrel|companion:tanuki": 2,
+            "companion:squirrel|companion:tanuki|companion:watcher": 13,
+            "companion:tanuki|companion:watcher": 13,
+            "companion:watcher": 1,
+            "companion:cat_friend|companion:watcher": 15
+          },
+          "completeNativeUpToTwo": null
+        },
+        "firstOutwardCones": {
+          "companion:cat_friend": {
+            "intervals": [
+              [
+                3.769029,
+                20.310922
+              ]
+            ],
+            "allowedBoundaries": [
+              3.769029,
+              20.310922
+            ]
+          },
+          "companion:tanuki": {
+            "intervals": [],
+            "allowedBoundaries": []
+          },
+          "companion:watcher": {
+            "intervals": [
+              [
+                98.130082,
+                278.130082
+              ]
+            ],
+            "allowedBoundaries": [
+              98.130082,
+              278.130082
+            ]
+          },
+          "companion:squirrel": {
+            "intervals": [
+              [
+                0.0,
+                6.938625
+              ],
+              [
+                326.441141,
+                360.0
+              ]
+            ],
+            "allowedBoundaries": [
+              0.0,
+              6.938625,
+              326.441141
+            ]
+          },
+          "companion:box": {
+            "intervals": [],
+            "allowedBoundaries": []
+          }
+        }
+      },
+      {
+        "key": "companion:clock",
+        "requests": 53,
+        "normal8": 0,
+        "longest": 598,
+        "refusals": 53,
+        "anyHeadingMinimumBlockers": {
+          "2": 2,
+          "1": 51
+        },
+        "goalwardMinimumBlockers": {
+          "2": 3,
+          "1": 50
+        },
+        "first": {
+          "key": "companion:clock",
+          "clock": 2.000000000000001,
+          "from": [
+            217.63413624698433,
+            345.4485709703989
+          ],
+          "goal": [
+            131.5921889721008,
+            323.1959479183539
+          ],
+          "contacts": [
+            "partner:forest_bear",
+            "companion:hamster",
+            "companion:rabbit_friend"
+          ],
+          "edgeCss": 32.7660544360111,
+          "all": {
+            "boundsOK": 96,
+            "terrainOK": 45,
+            "blockerCounts": [
+              0,
+              0,
+              16,
+              29
+            ],
+            "eligibleAtMostTwo": 1
+          },
+          "toward": {
+            "boundsOK": 44,
+            "terrainOK": 35,
+            "blockerCounts": [
+              0,
+              0,
+              15,
+              20
+            ],
+            "eligibleAtMostTwo": 0
+          },
+          "blockers": {
+            "companion:hamster": 35,
+            "companion:rabbit_friend": 15,
+            "companion:many_tail_fox": 20,
+            "partner:forest_bear": 21
+          },
+          "blockerSets": {
+            "companion:hamster|companion:many_tail_fox|companion:rabbit_friend": 14,
+            "companion:hamster|companion:many_tail_fox|companion:rabbit_friend|partner:forest_bear": 1,
+            "companion:hamster|companion:many_tail_fox|partner:forest_bear": 5,
+            "companion:hamster|partner:forest_bear": 15
+          },
+          "completeNativeUpToTwo": null
+        },
+        "firstOutwardCones": {
+          "partner:forest_bear": {
+            "intervals": [
+              [
+                162.830849,
+                342.830849
+              ]
+            ],
+            "allowedBoundaries": [
+              162.830849,
+              342.830849
+            ]
+          },
+          "companion:hamster": {
+            "intervals": [],
+            "allowedBoundaries": []
+          },
+          "companion:rabbit_friend": {
+            "intervals": [
+              [
+                0.0,
+                122.220283
+              ],
+              [
+                347.230854,
+                360.0
+              ]
+            ],
+            "allowedBoundaries": [
+              0.0,
+              122.220283,
+              347.230854
+            ]
+          },
+          "companion:clock": {
+            "intervals": [
+              [
+                342.830849,
+                347.230854
+              ]
+            ],
+            "allowedBoundaries": [
+              342.830849,
+              347.230854
+            ]
+          }
+        }
+      },
+      {
+        "key": "companion:rabbit_friend",
+        "requests": 43,
+        "normal8": 0,
+        "longest": 598.45,
+        "refusals": 43,
+        "anyHeadingMinimumBlockers": {
+          "2": 5,
+          "1": 38
+        },
+        "goalwardMinimumBlockers": {
+          "2": 5,
+          "1": 38
+        },
+        "first": {
+          "key": "companion:rabbit_friend",
+          "clock": 1.5500000000000007,
+          "from": [
+            224.16616885692608,
+            369.90662159904946
+          ],
+          "goal": [
+            102.22692852121745,
+            267.5757022161322
+          ],
+          "contacts": [
+            "companion:hamster",
+            "companion:clock"
+          ],
+          "edgeCss": 0.37171191817559984,
+          "all": {
+            "boundsOK": 49,
+            "terrainOK": 21,
+            "blockerCounts": [
+              0,
+              0,
+              1,
+              20
+            ],
+            "eligibleAtMostTwo": 1
+          },
+          "toward": {
+            "boundsOK": 33,
+            "terrainOK": 21,
+            "blockerCounts": [
+              0,
+              0,
+              1,
+              20
+            ],
+            "eligibleAtMostTwo": 1
+          },
+          "blockers": {
+            "companion:hamster": 21,
+            "companion:clock": 21,
+            "companion:many_tail_fox": 20
+          },
+          "blockerSets": {
+            "companion:clock|companion:hamster|companion:many_tail_fox": 20,
+            "companion:clock|companion:hamster": 1
+          },
+          "completeNativeUpToTwo": null
+        },
+        "firstOutwardCones": {
+          "companion:hamster": {
+            "intervals": [],
+            "allowedBoundaries": []
+          },
+          "companion:rabbit_friend": {
+            "intervals": [
+              [
+                0.0,
+                122.220283
+              ],
+              [
+                347.230854,
+                360.0
+              ]
+            ],
+            "allowedBoundaries": [
+              0.0,
+              122.220283,
+              347.230854
+            ]
+          },
+          "companion:clock": {
+            "intervals": [
+              [
+                342.830849,
+                347.230854
+              ]
+            ],
+            "allowedBoundaries": [
+              342.830849,
+              347.230854
+            ]
+          }
+        }
+      },
+      {
+        "key": "companion:squirrel",
+        "requests": 53,
+        "normal8": 0,
+        "longest": 598,
+        "refusals": 53,
+        "anyHeadingMinimumBlockers": {
+          "2": 53
+        },
+        "goalwardMinimumBlockers": {
+          "2": 52,
+          "noTerrainRay": 1
+        },
+        "first": {
+          "key": "companion:squirrel",
+          "clock": 2.000000000000001,
+          "from": [
+            185.38649008652436,
+            209.9066215990495
+          ],
+          "goal": [
+            119.85902788794314,
+            301.39393182316917
+          ],
+          "contacts": [
+            "companion:tanuki",
+            "companion:hedgehog",
+            "companion:box"
+          ],
+          "edgeCss": 114.54022630145688,
+          "all": {
+            "boundsOK": 96,
+            "terrainOK": 48,
+            "blockerCounts": [
+              0,
+              0,
+              32,
+              16
+            ],
+            "eligibleAtMostTwo": 32
+          },
+          "toward": {
+            "boundsOK": 44,
+            "terrainOK": 33,
+            "blockerCounts": [
+              0,
+              0,
+              21,
+              12
+            ],
+            "eligibleAtMostTwo": 21
+          },
+          "blockers": {
+            "companion:tanuki": 33,
+            "companion:hedgehog": 29,
+            "companion:box": 16
+          },
+          "blockerSets": {
+            "companion:hedgehog|companion:tanuki": 17,
+            "companion:box|companion:hedgehog|companion:tanuki": 12,
+            "companion:box|companion:tanuki": 4
+          },
+          "completeNativeUpToTwo": null
+        },
+        "firstOutwardCones": {
+          "companion:tanuki": {
+            "intervals": [],
+            "allowedBoundaries": []
+          },
+          "companion:squirrel": {
+            "intervals": [
+              [
+                0.0,
+                12.472297
+              ],
+              [
+                326.441141,
+                360.0
+              ]
+            ],
+            "allowedBoundaries": [
+              0.0,
+              12.472297,
+              326.441141
+            ]
+          },
+          "companion:hedgehog": {
+            "intervals": [
+              [
+                12.472297,
+                36.205855
+              ]
+            ],
+            "allowedBoundaries": [
+              12.472297,
+              36.205855
+            ]
+          },
+          "companion:box": {
+            "intervals": [],
+            "allowedBoundaries": []
+          }
+        }
+      },
+      {
+        "key": "companion:tanuki",
+        "requests": 51,
+        "normal8": 0,
+        "longest": 598,
+        "refusals": 51,
+        "anyHeadingMinimumBlockers": {
+          "1": 14,
+          "2": 37
+        },
+        "goalwardMinimumBlockers": {
+          "2": 42,
+          "1": 9
+        },
+        "first": {
+          "key": "companion:tanuki",
+          "clock": 2.000000000000001,
+          "from": [
+            155.53,
+            223.262
+          ],
+          "goal": [
+            235.56,
+            214.4
+          ],
+          "contacts": [
+            "companion:squirrel",
+            "companion:otter",
+            "companion:hedgehog",
+            "companion:box"
+          ],
+          "edgeCss": 120.4220097838485,
+          "all": {
+            "boundsOK": 96,
+            "terrainOK": 96,
+            "blockerCounts": [
+              0,
+              5,
+              37,
+              54
+            ],
+            "eligibleAtMostTwo": 15
+          },
+          "toward": {
+            "boundsOK": 44,
+            "terrainOK": 44,
+            "blockerCounts": [
+              0,
+              0,
+              8,
+              36
+            ],
+            "eligibleAtMostTwo": 3
+          },
+          "blockers": {
+            "companion:squirrel": 39,
+            "companion:hedgehog": 36,
+            "companion:box": 28,
+            "companion:monkey": 18,
+            "companion:watcher": 5,
+            "companion:otter": 3
+          },
+          "blockerSets": {
+            "companion:box|companion:hedgehog|companion:squirrel": 18,
+            "companion:box|companion:hedgehog|companion:monkey|companion:squirrel": 2,
+            "companion:hedgehog|companion:monkey|companion:squirrel": 11,
+            "companion:hedgehog|companion:monkey": 5,
+            "companion:box|companion:otter|companion:squirrel|companion:watcher": 3,
+            "companion:box|companion:squirrel|companion:watcher": 2,
+            "companion:box|companion:squirrel": 3
+          },
+          "completeNativeUpToTwo": null
+        },
+        "firstOutwardCones": {
+          "companion:tanuki": {
+            "intervals": [],
+            "allowedBoundaries": []
+          },
+          "companion:squirrel": {
+            "intervals": [
+              [
+                0.0,
+                12.472297
+              ],
+              [
+                326.441141,
+                360.0
+              ]
+            ],
+            "allowedBoundaries": [
+              0.0,
+              12.472297,
+              326.441141
+            ]
+          },
+          "companion:otter": {
+            "intervals": [
+              [
+                104.399915,
+                284.399915
+              ]
+            ],
+            "allowedBoundaries": [
+              104.399915,
+              284.399915
+            ]
+          },
+          "companion:hedgehog": {
+            "intervals": [
+              [
+                12.472297,
+                36.205855
+              ]
+            ],
+            "allowedBoundaries": [
+              12.472297,
+              36.205855
+            ]
+          },
+          "companion:box": {
+            "intervals": [],
+            "allowedBoundaries": []
+          }
+        }
+      }
+    ]
+  }
+]

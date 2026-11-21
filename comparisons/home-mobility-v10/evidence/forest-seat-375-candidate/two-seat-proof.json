@@ -1,0 +1,274 @@
+{
+  "originalSafeRays": 95273,
+  "originalRoles": [
+    "pet",
+    "partner",
+    "companion"
+  ],
+  "normedSquirrelClockUpperBoundWithSecondFootWithinTwoCssPx": 0.9517902875134089,
+  "squirrelOriginalBottomPx": 0.0,
+  "fixedSquirrelOffsetCss": [
+    1,
+    0
+  ],
+  "testedAdditionalResidents": [
+    "companion:clock",
+    "companion:hedgehog",
+    "companion:hamster"
+  ],
+  "quarterPixelCandidates": 588,
+  "fineAlignmentTrials": 54,
+  "resultByProposedSecondaryResident": {
+    "companion:clock": {
+      "contact": 165,
+      "old-ray": 75,
+      "no-squirrel-exit": 7,
+      "candidate": 3
+    },
+    "companion:hamster": {
+      "contact": 196
+    },
+    "companion:hedgehog": {
+      "contact": 146,
+      "old-ray": 50
+    }
+  },
+  "nativeDense": [
+    {
+      "dyClockCSS": -0.1,
+      "dxClockCSS": 0.7591268540066328,
+      "horizontalError": 0,
+      "old8": 15,
+      "new8": 16,
+      "squirrel8Headings": "0",
+      "lost": 11,
+      "gained": 71,
+      "losses": [
+        [
+          "companion:clock",
+          2,
+          "281.5 281.75 282 282.25 282.5 282.75 283 283.25 283.5 283.75 284"
+        ]
+      ],
+      "clockLost1": "",
+      "file": "375-compensation-dy-0.1-eps0.csv.gz",
+      "sha256": "ff5b60a358cb3061acf26b40a3e1b38550555d2349e71b6b87d3228516e687c9",
+      "maximumWorsenedContacts": 0,
+      "clockSpriteDelta": 0.0
+    },
+    {
+      "dyClockCSS": -0.01,
+      "dxClockCSS": 0.7591268540066328,
+      "horizontalError": 0,
+      "old8": 15,
+      "new8": 16,
+      "squirrel8Headings": "0",
+      "lost": 11,
+      "gained": 173,
+      "losses": [
+        [
+          "companion:clock",
+          2,
+          "281.5 281.75 282 282.25 282.5 282.75 283 283.25 283.5 283.75 284"
+        ]
+      ],
+      "clockLost1": "",
+      "file": "375-compensation-dy-0.01-eps0.csv.gz",
+      "sha256": "70950a38c18d8b5a4308a669fe275f226ba7cee23a5c0da51c2903d8ef66522a",
+      "maximumWorsenedContacts": 0,
+      "clockSpriteDelta": 0.0
+    },
+    {
+      "dyClockCSS": -0.001,
+      "dxClockCSS": 0.7591268540066328,
+      "horizontalError": 0,
+      "old8": 15,
+      "new8": 16,
+      "squirrel8Headings": "0",
+      "lost": 11,
+      "gained": 193,
+      "losses": [
+        [
+          "companion:clock",
+          2,
+          "281.5 281.75 282 282.25 282.5 282.75 283 283.25 283.5 283.75 284"
+        ]
+      ],
+      "clockLost1": "",
+      "file": "375-compensation-dy-0.001-eps0.csv.gz",
+      "sha256": "d3786424f7ab118e39054a1d10aae8acb036e93c6ee78f6b34f88f1c2a652134",
+      "maximumWorsenedContacts": 0,
+      "clockSpriteDelta": 0.0
+    },
+    {
+      "dyClockCSS": -0.01,
+      "dxClockCSS": 0.7491268540066328,
+      "horizontalError": -0.01,
+      "old8": 15,
+      "new8": 16,
+      "squirrel8Headings": "0",
+      "lost": 12,
+      "gained": 168,
+      "losses": [
+        [
+          "companion:clock",
+          1,
+          "0"
+        ],
+        [
+          "companion:clock",
+          2,
+          "281.5 281.75 282 282.25 282.5 282.75 283 283.25 283.5 283.75 284"
+        ]
+      ],
+      "clockLost1": "0",
+      "file": "375-compensation-dy-0.01-eps-0.01.csv.gz",
+      "sha256": "c3a40bcc9e61a40ad24683a3ba5760e639bdd96fb47e4b4480b98b36639e5de6",
+      "maximumWorsenedContacts": 0,
+      "clockSpriteDelta": -0.007248800650444309
+    },
+    {
+      "dyClockCSS": -0.01,
+      "dxClockCSS": 0.7691268540066328,
+      "horizontalError": 0.01,
+      "old8": 15,
+      "new8": 15,
+      "squirrel8Headings": "",
+      "lost": 11,
+      "gained": 165,
+      "losses": [
+        [
+          "companion:clock",
+          2,
+          "281.5 281.75 282 282.25 282.5 282.75 283 283.25 283.5 283.75 284"
+        ]
+      ],
+      "clockLost1": "",
+      "file": "375-compensation-dy-0.01-eps0.01.csv.gz",
+      "sha256": "c73bb8e3af9c480919079308835daf967a59c73ea37f95f081d49964a285e534",
+      "maximumWorsenedContacts": 0,
+      "clockSpriteDelta": 0.007248800650472731
+    }
+  ],
+  "nearZeroNative": [
+    {
+      "name": "original",
+      "angles": [
+        -0.25,
+        -0.2,
+        -0.175,
+        -0.15,
+        -0.125,
+        -0.1,
+        -0.075,
+        -0.05,
+        -0.025,
+        -0.01,
+        0,
+        0.01,
+        0.025,
+        0.05,
+        0.075,
+        0.1,
+        0.125,
+        0.15,
+        0.175,
+        0.2,
+        0.225,
+        0.25
+      ],
+      "distances": [
+        1,
+        8
+      ],
+      "results": {
+        "companion:squirrel": {
+          "1": [],
+          "8": []
+        },
+        "companion:clock": {
+          "1": [
+            -0.25,
+            -0.2,
+            -0.175,
+            -0.15,
+            -0.125,
+            -0.1,
+            -0.075,
+            -0.05,
+            -0.025,
+            -0.01,
+            0,
+            0.01,
+            0.025,
+            0.05,
+            0.075,
+            0.1,
+            0.125,
+            0.15,
+            0.175,
+            0.2
+          ],
+          "8": []
+        }
+      }
+    },
+    {
+      "name": "exact-pair",
+      "angles": [
+        -0.25,
+        -0.2,
+        -0.175,
+        -0.15,
+        -0.125,
+        -0.1,
+        -0.075,
+        -0.05,
+        -0.025,
+        -0.01,
+        0,
+        0.01,
+        0.025,
+        0.05,
+        0.075,
+        0.1,
+        0.125,
+        0.15,
+        0.175,
+        0.2,
+        0.225,
+        0.25
+      ],
+      "distances": [
+        1,
+        8
+      ],
+      "results": {
+        "companion:squirrel": {
+          "1": [
+            0
+          ],
+          "8": [
+            0
+          ]
+        },
+        "companion:clock": {
+          "1": [
+            -0.25,
+            -0.2,
+            -0.175,
+            -0.15,
+            -0.125,
+            -0.1,
+            -0.075,
+            -0.05,
+            -0.025,
+            -0.01,
+            0
+          ],
+          "8": []
+        }
+      }
+    }
+  ]
+}
