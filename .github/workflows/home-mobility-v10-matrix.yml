@@ -9,8 +9,14 @@ on:
       - 'comparisons/home-mobility-v10/matrix_worker_v10.py'
       - '.github/workflows/home-mobility-v10-matrix.yml'
   workflow_dispatch:
+    inputs:
+      region:
+        description: Optional single region for an exact-runtime recovery
+        type: string
+        required: false
+        default: ''
 concurrency:
-  group: home-mobility-v10-regions-${{ github.ref }}
+  group: home-mobility-v10-regions-${{ github.ref }}-${{ inputs.region || (contains(github.event.head_commit.message, '[matrix-home]') && 'home') || 'all' }}
   cancel-in-progress: true
 permissions:
   contents: read
@@ -21,7 +27,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        region: [home, forest, river_lake, city, countryside, mountain, snow, sea, jungle, desert, deepsea, star_stop, memory_lake]
+        region: ${{ fromJSON(inputs.region && format('["{0}"]', inputs.region) || contains(github.event.head_commit.message, '[matrix-home]') && '["home"]' || '["home","forest","river_lake","city","countryside","mountain","snow","sea","jungle","desert","deepsea","star_stop","memory_lake"]') }}
     env:
       REGION: ${{ matrix.region }}
       CHROMIUM_PATH: /usr/bin/google-chrome

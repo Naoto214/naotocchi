@@ -88,6 +88,17 @@ def natural_aging(page, touch, meta, subject, tracks):
     return aged,snapshot
 
 
+def same_input(row,ref):
+    differences={}
+    for k in ('start','goal','foot','modelGoal','key'):
+        if row[k]!=ref[k]:
+            differences[k]={'expected':ref[k],'observed':row[k]}
+    for k in ('origin','scale'):
+        if max(abs(u-v) for u,v in zip(row[k],ref[k],strict=True))>1e-9:
+            differences[k]={'expected':ref[k],'observed':row[k]}
+    return differences
+
+
 def shared_drop(page,touch,index,state,ref,opening):
     # The receiving controller must be in its normal input-ready state before
     # restoring the comparison clock. A stale pause flag is not a route refusal.
@@ -144,9 +155,14 @@ def run(browser,url,coord,tape,subjects,history):
                 series = cell['shared'].setdefault(donor,dict(snapshot=state,opening=aged['opening'],
                     natural=aged['drag'],input={k:ref[k] for k in ('start','goal','foot','origin','modelGoal','scale','key')},
                     historicFeetAndCoordinates=matching,replays={}))
-                row = shared_drop(page,touch,aged['index'],state,ref,aged['opening'])
-                series['replays'][arm] = dict(scripts=meta['hashes'],row=row)
-    return validate(cell,tape,history)
+                retries=[]
+                for attempt in range(3):
+                    row=shared_drop(page,touch,aged['index'],state,ref,aged['opening'])
+                    mismatch=same_input(row,series['input'])
+                    if not mismatch:break
+                    retries.append(mismatch)
+                series['replays'][arm]=dict(scripts=meta['hashes'],row=row,coordinateRetries=retries)
+    return cell
 
 
 def validate(cell,tape,history):
@@ -175,7 +191,8 @@ def validate(cell,tape,history):
         old.require(set(series['replays'])=={'v8','v9','v10'},'incomplete shared feet replays')
         for arm,x in series['replays'].items():
             row=x['row']
-            old.require(all(row[k]==ref[k] for k in ('start','goal','foot','origin','modelGoal','scale','key')),'shared input or geometry changed')
+            diffs=same_input(row,ref)
+            old.require(not diffs,f'{coord}/{arm} shared-state mismatch: {diffs}')
             old.require(row['goalClass']==series['replays']['v9']['row']['goalClass'],'shared endpoint geometry differs')
             old.require(row['trusted'] and row['inkAtPress'] is not None,'missing actual drop or ink probe')
     return cell
@@ -210,6 +227,8 @@ def main():
                     cell=run(browser,url,(a.region,n,w),tape,subjects,history)
                     f=a.out/f'{a.region}-{n}-{w}.json'
                     old.save(f,cell)
+                    # Keep a failed native observation available for diagnosis.
+                    validate(cell,tape,history)
                     manifest['cells'][f.name]={'sha256':old.digest(f.read_bytes())}
                     old.save(a.out/'region.json',manifest)
                     print(f.name,'natural and matched-state trials recorded',flush=True)
