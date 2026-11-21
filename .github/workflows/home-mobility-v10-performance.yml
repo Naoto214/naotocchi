@@ -1,27 +1,57 @@
 name: Home mobility V10 native WebKit performance
 on:
   workflow_dispatch:
+    inputs:
+      suite:
+        description: Measurement suite
+        type: choice
+        default: auto
+        options: [auto, native, full]
   push:
     branches: [draft/home-mobility-v10]
     paths:
-      - 'comparisons/home-mobility-v10/*.cjs'
-      - 'comparisons/home-mobility-v10/diagnostic-values.js'
-      - 'comparisons/home-mobility-v10/performance*.py'
-      - 'comparisons/home-mobility-v10/performance-fixed.js'
-      - '.github/workflows/home-mobility-v10-performance.yml'
+      - 'comparisons/home-mobility-v10/movement.cjs'
+      - 'comparisons/home-mobility-v10/seats.cjs'
+      - 'comparisons/home-mobility-v10/render.cjs'
+      - 'comparisons/home-mobility-v10/build.cjs'
+      - 'comparisons/home-mobility-v10/observer.cjs'
 concurrency:
-  group: home-mobility-v10-performance-${{ github.ref }}
+  group: home-mobility-v10-performance-${{ github.sha }}
   cancel-in-progress: true
 permissions:
   contents: read
+  actions: read
 jobs:
+  suite:
+    runs-on: ubuntu-latest
+    outputs:
+      experiments: ${{ steps.choose.outputs.experiments }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: comparisons/home-mobility-v10
+      - id: choose
+        env:
+          SCOPE: ${{ inputs.suite || 'auto' }}
+        working-directory: comparisons/home-mobility-v10
+        run: |
+          if [ "$SCOPE" = auto ]; then
+            if sha256sum --quiet -c active-painter.sha256; then SCOPE=native; else SCOPE=full; fi
+          fi
+          if [ "$SCOPE" = native ]; then
+            echo 'experiments=["autonomous","attribution","fixed-replay","stress-replay"]' >> "$GITHUB_OUTPUT"
+          else
+            echo 'experiments=["autonomous","fixed","stress","attribution","style","candidate"]' >> "$GITHUB_OUTPUT"
+          fi
   native:
+    needs: suite
     runs-on: ubuntu-latest
     timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
-        experiment: [autonomous, fixed, stress, attribution, style, candidate]
+        experiment: ${{ fromJSON(needs.suite.outputs.experiments) }}
     steps:
       -
         uses: actions/checkout@v4
@@ -81,6 +111,14 @@ jobs:
       - name: Install the pinned Chromium for style attribution
         if: matrix.experiment == 'style'
         run: python -m playwright install --with-deps chromium
+      - name: Download the authenticated first-cut motion fixture
+        if: endsWith(matrix.experiment, '-replay')
+        uses: actions/download-artifact@v4
+        with:
+          name: mobility-v10-performance-${{ matrix.experiment == 'fixed-replay' && 'fixed' || 'stress' }}
+          path: ${{ runner.temp }}/first-cut
+          run-id: 44921996416
+          github-token: ${{ github.token }}
       - name: Run experiment on its dedicated runner
         env:
           EXPERIMENT: ${{ matrix.experiment }}
@@ -95,6 +133,12 @@ jobs:
             autonomous)
               python -B "$folder/performance.py" native --order v8,v9,v10 --seconds 180 --out "$out/forward.json"
               python -B "$folder/performance.py" native --order v10,v9,v8 --seconds 180 --out "$out/reverse.json"
+              ;;
+            fixed-replay|stress-replay)
+              original="${EXPERIMENT%-replay}"
+              (cd "$RUNNER_TEMP/first-cut" && sha256sum -c "$GITHUB_WORKSPACE/$folder/$original-fixture.sha256")
+              python -B "$folder/replay-poses.py" --base http://127.0.0.1:8377/game --order v8,v9,v10,v10,v9,v8 --record "$RUNNER_TEMP/first-cut/$original.json" --poses "$RUNNER_TEMP/first-cut/active-poses.json.gz" --out "$out/$original.json"
+              cp "$RUNNER_TEMP/first-cut/active-animation-phases.json.gz" "$RUNNER_TEMP/first-cut/active-poses.json.gz" "$out/"
               ;;
             fixed)
               python -B "$folder/performance-fixed.py" --out "$out/fixed.json"

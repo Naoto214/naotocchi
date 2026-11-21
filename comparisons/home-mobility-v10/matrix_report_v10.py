@@ -3,8 +3,9 @@ import argparse
 from collections import Counter, defaultdict
 import csv
 import json
+import math
+import zipfile
 from pathlib import Path
-from unittest.mock import patch
 
 from matrix_worker_v10 import ARMS, BASE_SHA, HERE, history_aged, old, v8, v9, validate
 import matrix_report_v9 as prior
@@ -46,6 +47,36 @@ def input_summary(c,source,arm,raw,identical=None):
         'trusted':raw['trusted'],'near4':raw['near4'] or raw['terminalNear4']}
 
 
+def contact_directions(aged):
+    """Exact first-order direction cone imposed by peers already overlapping this foot.
+
+    Native contactSegmentSafe requires a nonnegative derivative of squared
+    elliptical separation at the segment start. In two dimensions the best
+    normalized finger projection occurs at the finger angle or a boundary
+    of one of these half-planes. Excludes terrain, visibility and outer peers.
+    """
+    r=aged['drag'];a=aged['opening'][aged['index']]
+    sx,sy=r['scale']
+    tx,ty=(r['modelGoal'][0]-a[1])*sx,(r['modelGoal'][1]-a[2])*sy
+    length=math.hypot(tx,ty);tx,ty=tx/length,ty/length
+    normals=[]
+    for b in aged['opening']:
+        if b[0]==a[0]:continue
+        rx,ry=(a[3]+b[3])*.5+10,(a[4]+b[4])*.38+10
+        dx,dy=a[1]-b[1],a[2]-b[2]
+        if (dx/rx)**2+(dy/ry)**2>=1:continue
+        nx,ny=dx/(rx*rx*sx),dy/(ry*ry*sy)
+        scale=math.hypot(nx,ny)
+        if scale>0:normals.append((nx/scale,ny/scale))
+    angles=[(tx,ty)]
+    for x,y in normals:angles.extend([(-y,x),(y,-x)])
+    feasible=[tx*x+ty*y for x,y in angles if all(x*nx+y*ny>=-1e-12 for nx,ny in normals)]
+    best=max(feasible,default=None)
+    return dict(initialOverlaps=len(normals),initialDirectionExists=bool(feasible),
+                positiveTowardFinger=best is not None and best>1e-10,
+                maximumForwardProjection=None if best is None else round(best,7))
+
+
 def add_frames(counter,aged):
     counter.update({k:aged['safety'][k] for k in prior.SAFETY})
     for f in aged['frameSamples']:
@@ -74,7 +105,7 @@ def aggregate(cells,old_cells,out,large):
                 rows.append(prior.resident(c,arm,r,a['tracks'][r['key']],raw['scale'],a['final']['modelSeconds']))
             row=prior.prior.drag_row(c,arm,f"aged/{a['index']}",raw,'aged')
             aged.append(row)
-            natural.append(input_summary(c,'natural',arm,raw))
+            natural.append({**input_summary(c,'natural',arm,raw),**contact_directions(a)})
             who=next(r for r in people if r['key']==row['key'])
             no_auto=bool(who['ambientFailures'] and not who['ambientStarts'])
             target.append({**label,'arm':arm,'key':who['key'],'dualFailure':no_auto and row['issued'] and not row['actualStep'],
@@ -92,7 +123,8 @@ def aggregate(cells,old_cells,out,large):
             for arm,test in series['replays'].items():
                 cross.append(input_summary(c,donor,arm,test['row'],series['historicFeetAndCoordinates']))
         for arm in ('v8','v9'):
-            historical.append(input_summary(c,'published',arm,old_cells[coord]['arms'][arm]['aged']['drag']))
+            archive=old_cells[coord]['arms'][arm]['aged']
+            historical.append({**input_summary(c,'published',arm,archive['drag']),**contact_directions(archive)})
     groups=[]
     for arm in ARMS:
         selected=[[r for r in chunk if r['arm']==arm] for chunk in (rows,opened,aged,target)]
@@ -164,16 +196,67 @@ def aggregate(cells,old_cells,out,large):
         publishedV9=PUBLISHED,gateAgainstPublishedV9={k:(totals['v10'][k]<=v if k=='bothFailed' else totals['v10'][k]>=v) for k,v in PUBLISHED.items()})
 
 
+def verified_current(run,archives,recovery,region_names):
+    """Each region must come from one successful official job with identical loaded native bytes."""
+    sources={}
+    for rid,directory in [(run,archives),*([recovery] if recovery else [])]:
+        status=prior.github('run','view',rid,'-R',prior.REPO,'--json','status,conclusion,headSha,url,jobs')
+        jobs={j['name']:j for j in status.pop('jobs')}
+        artifacts=prior.github('api',f'repos/{prior.REPO}/actions/runs/{rid}/artifacts?per_page=100')['artifacts']
+        sources[rid]=(status,jobs,{a['name']:a for a in artifacts},directory)
+    receipt=dict(sources[run][0],run=run,regions={},identity={},
+                 runs={rid:s[0] for rid,s in sources.items()})
+    cells={}
+    for region in old.REGIONS:
+        rid=recovery[0] if recovery and region in region_names else run
+        status,jobs,items,directory=sources[rid]
+        job=jobs[f'region ({region})']
+        old.require(job['conclusion']=='success',f'{rid}/{region} did not pass')
+        a=items['mobility-v10-'+region]
+        f=directory/f'mobility-v10-{rid}-{region}.zip'
+        sha=old.digest(f.read_bytes())
+        old.require(f.stat().st_size==a['size_in_bytes'] and 'sha256:'+sha==a['digest'],'raw GitHub ZIP differs')
+        rec=dict(id=a['id'],bytes=f.stat().st_size,sha256=sha,job=job['databaseId'],
+                 run=rid,revision=status['headSha'],url=status['url']+'/artifacts/'+str(a['id']))
+        receipt['regions'][region]=rec
+        names={f'{region}-{n}-{w}.json' for n in old.COUNTS for w in old.WIDTHS}
+        with zipfile.ZipFile(f) as z:
+            old.require(len(z.namelist())==21 and set(z.namelist())==names|{'region.json'},'missing or unexpected archive member')
+            m=json.loads(z.read('region.json'))
+            old.require(m['revision']==status['headSha'] and m['base']==BASE_SHA and m['complete'] and set(m['cells'])==names and
+                        m['region']==region and m['historicalInputsSHA256']==old.digest(old.HISTORY.read_bytes()) and
+                        m['agedSubjectsSHA256']==old.digest(v8.SUBJECTS.read_bytes()),'regional provenance mismatch')
+            old.require(m['historicAgedResultsSHA256']==old.digest((HERE/'matrix-aged-history.csv').read_bytes()),'wrong archived gestures')
+            rec['browser']=m['browser']
+            for name in sorted(names):
+                b=z.read(name);old.require(old.digest(b)==m['cells'][name]['sha256'],'cell SHA mismatch')
+                c=json.loads(b);coord=tuple(c[k] for k in ID)
+                old.require(name==f'{coord[0]}-{coord[1]}-{coord[2]}.json','mislabeled condition')
+                for arm in ('v8','v9','v10'):
+                    d=c['shared']['v9']['replays'][arm]
+                    identity=dict(scripts=d['scripts'],entry=m['entries'][arm])
+                    old.require(receipt['identity'].setdefault(arm,identity)==identity,'native runtime differs across runs')
+                    if arm in c['arms']:
+                        old.require(c['arms'][arm]['hashes']==d['scripts'] and c['arms'][arm]['browser']==m['browser'],'natural comparator differs')
+                cells[coord]=c
+    old.require(len(cells)==260,'missing native conditions')
+    return cells,receipt
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--run',required=True)
     p.add_argument('--archives',type=Path,required=True)
+    p.add_argument('--recovery-run',help='Optional narrow successful recovery on identical native runtime bytes')
+    p.add_argument('--recovery-archives',type=Path)
+    p.add_argument('--recover-regions',nargs='+',choices=old.REGIONS,default=['home'])
     p.add_argument('--v9-archives',type=Path,required=True)
     p.add_argument('--out',type=Path,default=HERE/'evidence')
     p.add_argument('--private-data',type=Path,required=True)
     a=p.parse_args()
-    with patch.object(prior,'BASE_SHA',BASE_SHA):
-        cells,receipt=prior.region_zips(a.archives,a.run,'mobility-v10-')
+    old.require(bool(a.recovery_run)==bool(a.recovery_archives),'specify both recovery flags')
+    recovery=(a.recovery_run,a.recovery_archives) if a.recovery_run else None
+    cells,receipt=verified_current(a.run,a.archives,recovery,a.recover_regions)
     baseline,previous=prior.region_zips(a.v9_archives,V9_RUN,'mobility-v9-')
     hist=history_aged();tape=v9.history();who=v8.subjects()
     for coord,c in cells.items():

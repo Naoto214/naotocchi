@@ -10,13 +10,13 @@ fixed=load('v10_fixed',HERE/'performance-fixed.py')
 pixel=load('v9_pixels',V9/'performance-pixels.py')
 
 def pixels(browser,args):
-    painters,hashes=fixed.painters(args.base)
+    painters,hashes=fixed.painters(args.base,guard=True)
     def insert(name,source):
         if 'production-diorama' in name:
-            return clock.replace(source,'    function stop(){',pixel.HOOK.replace('PAINTERS',painters)+'\n    function stop(){')
+            return clock.replace(source,'    function stop(){',pixel.HOOK.replace('PAINTERS',painters)+"\nwindow.pixelSelection=()=>{HomeCastTrial.apply({paused:false});model.step(0,{blocked:false,reducedMotion:false});const a=model.snapshot()[0];if(!model.select(a.key))throw Error('Cannot select the native owner');return model.selected();};\n    function stop(){")
         return source
     result=dict(browser=browser.version,controllers=hashes,rows=[])
-    for region,view in [('forest',(390,792)),('river_lake',(844,390))]:
+    for region,view,selected in [('forest',(390,792),False),('forest',(390,792),True),('river_lake',(844,390),False)]:
         page,errors,_=native_page(browser,args.base,'v9',init=fixed.HOLD,transform=insert,region=region,view=view)
         clip=page.evaluate('''()=>{window.holdGameTasks=true;const style=document.createElement('style');
             style.textContent='*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}';
@@ -25,11 +25,12 @@ def pixels(browser,args):
             return {x,y,width:Math.floor(Math.min(innerWidth,r.right)-x),height:Math.floor(Math.min(innerHeight,r.bottom)-y)};}''')
         challenge=page.evaluate('placeVisibleMask()') if region=='river_lake' else None
         assert region!='river_lake' or challenge['applied']
-        masks=[];images=[];order=[*ARMS,'v9']
+        chosen=page.evaluate('pixelSelection()') if selected else None
+        masks=[];images=[];order=['v8','v9','guarded','v10','v9']
         for arm in order:
             masks.append(page.evaluate('arm=>pixelRender(arm)',arm));images.append(Image.open(BytesIO(page.screenshot(clip=clip,timeout=60000))).convert('RGB'))
         changes=[ImageChops.difference(images[0],im).getbbox() for im in images[1:]]
-        result['rows'].append(dict(region=region,order=order,view=view,clip=clip,size=images[0].size,challenge=challenge,
+        result['rows'].append(dict(region=region,selected=chosen,order=order,view=view,clip=clip,size=images[0].size,challenge=challenge,
           masked=sum(bool(x) for x in masks[0]),masksEqual=all(m==masks[0] for m in masks),hashes=[digest(im.tobytes()) for im in images],changes=changes))
         save(args.out,result);assert not any(changes) and result['rows'][-1]['masksEqual'] and not errors
         page.close()

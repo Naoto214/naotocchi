@@ -4,6 +4,12 @@ on:
     branches: [draft/home-mobility-v10]
     paths: ['comparisons/home-mobility-v10/forest-ci.request']
   workflow_dispatch:
+    inputs:
+      scope:
+        description: Forest cases to record
+        type: choice
+        options: [full, v10-only]
+        default: full
 permissions:
   contents: read
 concurrency:
@@ -16,7 +22,7 @@ jobs:
     timeout-minutes: 90
     strategy:
       fail-fast: false
-      max-parallel: 8
+      max-parallel: ${{ (contains(github.event.head_commit.message, '[forest-v10-only]') || inputs.scope == 'v10-only') && 14 || 8 }}
       matrix:
         include:
           - {profile: '390-937-0', layout: reference}
@@ -110,10 +116,10 @@ jobs:
       - name: Install the pinned browser driver
         run: python -m pip install --disable-pip-version-check playwright==1.62.0
       - name: Record V9 forest and opening and aged input
-        if: matrix.layout != 'reference'
+        if: ${{ matrix.layout != 'reference' && !contains(github.event.head_commit.message, '[forest-v10-only]') && inputs.scope != 'v10-only' }}
         run: bash comparisons/home-mobility-v10/forest_case.sh v9
       - name: Retain V9 trajectories, direction probes, real inputs and save
-        if: ${{ always() && matrix.layout != 'reference' }}
+        if: ${{ always() && matrix.layout != 'reference' && !contains(github.event.head_commit.message, '[forest-v10-only]') && inputs.scope != 'v10-only' }}
         uses: actions/upload-artifact@v4
         with:
           name: forest-v10-${{ matrix.profile }}-${{ matrix.layout }}-v9

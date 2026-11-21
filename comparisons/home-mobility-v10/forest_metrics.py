@@ -60,6 +60,8 @@ def measure(path, cutoff=600, with_touches=True):
         failed=[r for r in asks if r['planned'] and not r['accepted']];accepted=[r for r in asks if r['planned'] and r['accepted']]
         early=[r for r in asks if r['early'] and not r['resumed']]
         resumed=[r for r in asks if r['resumed']]
+        reopened=[r for r in asks if r.get('reopened')]
+        assert all(r['early'] for r in reopened), 'Reopened requests must preserve native early retry provenance'
         accepted_steps=[(r['clock'],'own_plan') for r in accepted]
         failed_events=[(r['clock'],'refusal') for r in failed]
         first=normal[0]['finish_s'] if normal else None
@@ -90,6 +92,7 @@ def measure(path, cutoff=600, with_touches=True):
             post_first_rejection_episodes=len(after_first),longest_post_first_refusal_s=v9.number(max((b-a for a,b,c in after_first),default=0)) if normal else '',
             post_first_planner_refusals=sum(r['clock']>first for r in failed) if normal else '',
             peer_change_retries=len(early),peer_change_plans=sum(r['accepted'] and r['planned'] for r in early),continuation_retries=len(resumed),
+            reopened_original_goal_retries=len(reopened),reopened_original_goal_plans=sum(r['accepted'] and r['planned'] for r in reopened),
             normal_after_received_help=sum(l['assisted'] for l in normal),yielded_legs_cutoff=len(yields),yields_followed_by_own_normal=len(after_yield),
             yielded_wait_to_normal_s='/'.join(str(v9.number(n)) for n in after_yield))
         for phase,table in touch_tables.items():

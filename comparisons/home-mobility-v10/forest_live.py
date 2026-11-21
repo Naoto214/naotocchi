@@ -22,7 +22,7 @@ attend_choice=v9.attend_choice
 
 def observe_model(source):
     updated=v9.observe_model(source)
-    return replace_once(updated,"planned:report.planned,retry:report.retry,escape:","activity:a.activity,resumed:typeof continuing!=='undefined'&&continuing===key,planned:report.planned,retry:report.retry,escape:")
+    return replace_once(updated,"planned:report.planned,retry:report.retry,escape:","activity:a.activity,reopened:typeof reopenedKey!=='undefined'&&reopenedKey===key,resumed:typeof continuing!=='undefined'&&continuing===key,planned:report.planned,retry:report.retry,escape:")
 
 async def reload_save(browser, args, raw, initial_save):
     saved=json.loads(raw)

@@ -7,7 +7,7 @@ const definitions=JSON.parse(fs.readFileSync(new URL('./dog-episode.json',import
 export function restoreEpisode(row,nativeSource=source) {
   const mod={exports:{}};
   const injection=`    return {probe:{actors:()=>actors,inspect:()=>({relief,waiting,clock}),setClock:t=>clock=t,
-    intentPlan:(a,p)=>intentPlan(a,p),yieldLeg,canHelpAmbient,contactSegmentSafe,
+    setMissHistory:(key,since,choices)=>{if(typeof crowdMisses!=='undefined')crowdMisses.set(key,{since,choices});},nearbyFeet,intentPlan:(a,p)=>intentPlan(a,p),yieldLeg,canHelpAmbient,contactSegmentSafe,
     solo:(a,p)=>localIntentRoute(a,p,bounds(a,scene),scene.planVisibility(a))}, metrics:`;
   if(nativeSource.split('    return {metrics:').length!==2)throw Error('Native QA anchor changed');
   new Function('module',nativeSource.replace('    return {metrics:',injection))(mod);

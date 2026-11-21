@@ -1,77 +1,51 @@
 'use strict';
 const {replaceExact}=require('../home-finish-v5/native-hooks.cjs');
-
-// Ordinary walkers may stop along an already verified route when its final
-// steps would close a stationary neighbor's last sampled walking direction.
-// Independent accepts and refusals always use the original requested point.
-const courtesy=`function considerateEndpoint(a,goal,path) {
-  const nav=scene.navigation,s=nav?.intentScale;
-  if(actors.length<=15||!nav?.intentAware||!s||!path.length)return null;
-  const q=path[path.length-1];
-  const distance=(b,c)=>Math.hypot((c.x-b.x)*s.x,(c.y-b.y)*s.y);
-  const length=distance(a,q),first=path[0],firstLength=distance(a,first);
-  if(length<=10||length>24||firstLength<8)return null;
-  const oldDistance=distance(a,goal),oldGain=oldDistance-distance(q,goal);
-  if(oldGain<.75)return null;
-  const samePlace=new Map(),neighbors=[];
-  function newObstacle(b,point) {
-    const rx=(a.w+b.w)*.5+10,ry=(a.h+b.h)*.38+10;
-    if(Math.abs(point.x-b.x)>rx+8/s.x||Math.abs(point.y-b.y)>ry+8/s.y)return false;
-    const gap=p=>Math.hypot((p.x-b.x)/rx,(p.y-b.y)/ry);
-    return gap(point)<gap(a)-.01;
+// This is a reason to retry the original command. The unchanged planner and
+// stepper still verify every helper stage and actual owner step.
+const opening=`function openedGoalwardRay(a,goal,oldFeet,now) {
+  const nav=scene.navigation,s=nav.intentScale,box=bounds(a,scene);
+  const distance=p=>Math.hypot((p.x-goal.x)*s.x,(p.y-goal.y)*s.y);
+  const start=distance(a);if(start<8)return false;
+  const shapes=new Map(actors.map(b=>[b.key,[(a.w+b.w)*.5+10,(a.h+b.h)*.38+10]]));
+  let ink=null;
+  for(let i=0;i<48;i++){
+    const angle=i*Math.PI/24,q={x:a.x+8*Math.cos(angle)/s.x,y:a.y+8*Math.sin(angle)/s.y};
+    if(q.x<box.left||q.x>box.right||q.y<box.top||q.y>box.bottom||start-distance(q)<.75)continue;
+    function blocks(b){const z=shapes.get(b.key);return z&&!contactSegmentSafe(a,q,b,z[0],z[1]);}
+    const after=now.filter(blocks);
+    if(after.length>2||after.some(b=>!b.available)||oldFeet.filter(blocks).length<=after.length)continue;
+    ink??=scene.planVisibility?.(a)||(p=>visible(a,p));
+    if(nav.segmentSafe(a,q,ink))return true;
   }
-  for(const b of actors)if(b!==a&&!b.target&&(newObstacle(b,q)||newObstacle(b,first)))neighbors.push(b);
-  if(!neighbors.length)return null;
-  const directions=new Map();
-  function closes(b,point) {
-    if(!newObstacle(b,point))return false;
-    let sample=directions.get(b);
-    if(!sample){
-      const rx=(a.w+b.w)*.5+10,ry=(a.h+b.h)*.38+10;
-      const candidates=[];
-      const pairs=actors.filter(c=>c!==a&&c!==b).map(c=>({c,rx:(c.w+b.w)*.5+10,ry:(c.h+b.h)*.38+10})).filter(({c,rx,ry})=>
-        Math.abs(c.x-b.x)<=rx+8/s.x&&Math.abs(c.y-b.y)<=ry+8/s.y);
-      const box=bounds(b,scene);
-      for(let i=0;i<48;i++){
-        const z={x:b.x+8*Math.cos(i*Math.PI/24)/s.x,y:b.y+8*Math.sin(i*Math.PI/24)/s.y};
-        if(z.x<box.left||z.x>box.right||z.y<box.top||z.y>box.bottom)continue;
-        if(pairs.every(n=>contactSegmentSafe(b,z,n.c,n.rx,n.ry)))candidates.push(z);
-      }
-      sample={rx,ry,candidates,ink:null};directions.set(b,sample);
-    }
-    function onGround(z){
-      sample.ink??=scene.planVisibility?.(b)||(p=>visible(b,p));
-      z.safe??=nav.segmentSafe(b,z,sample.ink);return z.safe;
-    }
-    const usable=(z,obstacle)=>contactSegmentSafe(b,z,obstacle,sample.rx,sample.ry)&&onGround(z);
-    return !sample.candidates.some(z=>usable(z,point))&&sample.candidates.some(z=>usable(z,a));
-  }
-  if(!neighbors.some(b=>closes(b,q)))return null;
-  for(const range of [firstLength-2,firstLength-4,8]){
-    if(range<8||range>length||range>firstLength)continue;
-    const fraction=range/firstLength,tip={x:a.x+(first.x-a.x)*fraction,y:a.y+(first.y-a.y)*fraction};
-    if(oldDistance-distance(tip,goal)<Math.max(.75,oldGain*.5))continue;
-    if(!yieldLeg(a,a,tip,samePlace)||neighbors.some(b=>closes(b,tip)))continue;
-    return tip;
-  }
-  return null;
+  return false;
 }
 `;
+
 function patchMovement(source){
-  let result=replaceExact(source,'function localIntentRoute(a,goal,box,ink) {',courtesy+'function localIntentRoute(a,goal,box,ink) {');
-  result=replaceExact(result,"      if(source==='ambient'&&!escape&&continuing!==key&&",`      if(source==='ambient'&&!escape&&!intentRoute&&path.length&&
-         clock-(a.lastOwnWalk??a.lastWalk)>=70&&Math.hypot((q.x-a.x)*sx,(q.y-a.y)*sy)<8){
-        const onward=localIntentRoute(a,p,safeBounds,canSee);
-        if(onward){
-          const distance=z=>Math.hypot((z.x-p.x)*sx,(z.y-p.y)*sy),end=onward.at(-1);
-          if(distance(end)<=distance(q)){path=onward;q=end;intentRoute=true;}
-        }
-      }
-      if(source==='ambient'&& !relieved&&!escape&&path.length){
-        const tip=considerateEndpoint(a,p,path);
-        if(tip){q=tip;path=[tip];intentRoute=true;}
-      }
-      if(source==='ambient'&&!escape&&continuing!==key&&`);
-  return result;
+ let s=replaceExact(source,'const waiting=new Map(),helpedAt=new Map();','const crowdMisses=new Map(),waiting=new Map(),helpedAt=new Map();let reopenedKey=null;');
+ s=replaceExact(s,'  if(earlyKey!==a.key && !resuming)waiting.set(a.key,{point:{x:p.x,y:p.y},feet,expires:clock+12});',`  if(earlyKey!==a.key&&!resuming){
+    const misses=crowdMisses.get(a.key)||{since:clock,choices:0};
+    misses.choices=Math.min(3,misses.choices+1);crowdMisses.set(a.key,misses);
+    waiting.set(a.key,{point:{x:p.x,y:p.y},feet,expires:clock+12});
+  }`);
+ s=replaceExact(s,'function clearRelief() {',opening+'function clearRelief() {');
+ s=replaceExact(s,'    if(w.retried||flags.heldActor===key||!differentFeet(w.feet,nearbyFeet(a),scene.navigation.intentScale,clock-a.lastWalk>=70))continue;',`    if(flags.heldActor===key)continue;
+    const misses=w.retried&&crowdMisses.get(key);
+    if(w.retried&&(w.reopened||!misses||misses.choices<3||clock-misses.since<240))continue;
+    const feet=nearbyFeet(a),scale=scene.navigation.intentScale;
+    if(w.retried){
+      if(!differentFeet(w.examined||w.feet,feet,scale,false))continue;
+      if(!openedGoalwardRay(a,w.point,w.feet,feet)){w.examined=feet;continue;}
+    }else if(!differentFeet(w.feet,feet,scale,clock-a.lastWalk>=70))continue;`);
+ s=replaceExact(s,'    w.retried=true;w.attempted=false;w.feet=nearbyFeet(a);earlyKey=key;',`    if(w.retried){w.reopened=true;reopenedKey=key;}
+    w.retried=true;w.attempted=false;w.feet=feet;earlyKey=key;`);
+ s=replaceExact(s,"    try{move(key,w.point,'ambient');}finally{earlyKey=null;}",
+   "    try{move(key,w.point,'ambient');}finally{earlyKey=null;reopenedKey=null;}");
+ s=replaceExact(s,'if(arrange){clearRelief();waiting.clear();helpedAt.clear();}', 'if(arrange){clearRelief();waiting.clear();helpedAt.clear();crowdMisses.clear();}');
+ s=replaceExact(s,'if(changed){cancel();cooldown.clear();}', 'if(changed){cancel();cooldown.clear();crowdMisses.clear();}');
+ s=replaceExact(s,'if(!a||paused)return false;clearRelief();waiting.delete(key);','if(!a||paused)return false;crowdMisses.delete(key);clearRelief();waiting.delete(key);');
+ s=replaceExact(s,"if(source!=='ambient'&&retryingKey!==key){clearRelief();", "if(source!=='ambient'&&retryingKey!==key){crowdMisses.delete(key);clearRelief();");
+ s=replaceExact(s,'        if(mobility?.enabled)mobility.hop(a,p,clock);',"        if(a.source!=='yield'&&crowdMisses.size)crowdMisses.delete(a.key);\n        if(mobility?.enabled)mobility.hop(a,p,clock);");
+ return s;
 }
 module.exports={patchMovement};
