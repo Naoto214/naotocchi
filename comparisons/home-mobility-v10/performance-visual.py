@@ -26,11 +26,22 @@ def pixels(browser,args):
         challenge=page.evaluate('placeVisibleMask()') if region=='river_lake' else None
         assert region!='river_lake' or challenge['applied']
         chosen=page.evaluate('pixelSelection()') if selected else None
+        # Selection can start a real resident WAAPI gesture after the initial
+        # stage freeze. Keep the actual gesture at the same 120ms sample across
+        # all screenshots, including the repeated V9 control at the end.
+        effects=page.evaluate('''()=>{const effects=[];
+          for(const a of document.getAnimations()){a.pause();a.currentTime=120;
+            const target=a.effect?.target;if(target?.closest('#castStage'))effects.push({
+              key:target.closest('[data-diorama-actor]')?.dataset.dioramaActor||null,
+              name:a.animationName||a.transitionProperty||'animation',time:a.currentTime,
+              frames:a.effect.getKeyframes(),timing:a.effect.getTiming()});}
+          for(const s of document.querySelectorAll('svg')){s.pauseAnimations?.();s.setCurrentTime?.(.12);}
+          return effects;}''')
         masks=[];images=[];order=['v8','v9','guarded','v10','v9']
         for arm in order:
             masks.append(page.evaluate('arm=>pixelRender(arm)',arm));images.append(Image.open(BytesIO(page.screenshot(clip=clip,timeout=60000))).convert('RGB'))
         changes=[ImageChops.difference(images[0],im).getbbox() for im in images[1:]]
-        result['rows'].append(dict(region=region,selected=chosen,order=order,view=view,clip=clip,size=images[0].size,challenge=challenge,
+        result['rows'].append(dict(region=region,selected=chosen,effects=effects,order=order,view=view,clip=clip,size=images[0].size,challenge=challenge,
           masked=sum(bool(x) for x in masks[0]),masksEqual=all(m==masks[0] for m in masks),hashes=[digest(im.tobytes()) for im in images],changes=changes))
         save(args.out,result);assert not any(changes) and result['rows'][-1]['masksEqual'] and not errors
         page.close()

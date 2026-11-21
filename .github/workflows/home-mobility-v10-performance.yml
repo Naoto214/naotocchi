@@ -6,7 +6,7 @@ on:
         description: Measurement suite
         type: choice
         default: auto
-        options: [auto, native, full]
+        options: [auto, native, full, visual-and-fixed, fixed-only, stress-only, replays]
   push:
     branches: [draft/home-mobility-v10]
     paths:
@@ -15,6 +15,8 @@ on:
       - 'comparisons/home-mobility-v10/render.cjs'
       - 'comparisons/home-mobility-v10/build.cjs'
       - 'comparisons/home-mobility-v10/observer.cjs'
+      - 'comparisons/home-mobility-v10/replay-poses.py'
+      - 'comparisons/home-mobility-v10/performance-visual.py'
 concurrency:
   group: home-mobility-v10-performance-${{ github.sha }}
   cancel-in-progress: true
@@ -33,13 +35,21 @@ jobs:
           sparse-checkout: comparisons/home-mobility-v10
       - id: choose
         env:
-          SCOPE: ${{ inputs.suite || 'auto' }}
+          SCOPE: ${{ inputs.suite || (contains(github.event.head_commit.message, '[v10-perf-recovery]') && 'visual-and-fixed') || 'auto' }}
         working-directory: comparisons/home-mobility-v10
         run: |
           if [ "$SCOPE" = auto ]; then
             if sha256sum --quiet -c active-painter.sha256; then SCOPE=native; else SCOPE=full; fi
           fi
-          if [ "$SCOPE" = native ]; then
+          if [ "$SCOPE" = visual-and-fixed ]; then
+            echo 'experiments=["fixed-replay","visual-recovery"]' >> "$GITHUB_OUTPUT"
+          elif [ "$SCOPE" = replays ]; then
+            echo 'experiments=["fixed-replay","stress-replay"]' >> "$GITHUB_OUTPUT"
+          elif [ "$SCOPE" = fixed-only ]; then
+            echo 'experiments=["fixed-replay"]' >> "$GITHUB_OUTPUT"
+          elif [ "$SCOPE" = stress-only ]; then
+            echo 'experiments=["stress-replay"]' >> "$GITHUB_OUTPUT"
+          elif [ "$SCOPE" = native ]; then
             echo 'experiments=["autonomous","attribution","fixed-replay","stress-replay"]' >> "$GITHUB_OUTPUT"
           else
             echo 'experiments=["autonomous","fixed","stress","attribution","style","candidate"]' >> "$GITHUB_OUTPUT"
@@ -134,10 +144,14 @@ jobs:
               python -B "$folder/performance.py" native --order v8,v9,v10 --seconds 180 --out "$out/forward.json"
               python -B "$folder/performance.py" native --order v10,v9,v8 --seconds 180 --out "$out/reverse.json"
               ;;
+            visual-recovery)
+              python -B "$folder/performance-visual.py" environment --out "$out/environment.json"
+              python -B "$folder/performance-visual.py" pixels --out "$out/pixels.json"
+              ;;
             fixed-replay|stress-replay)
               original="${EXPERIMENT%-replay}"
               (cd "$RUNNER_TEMP/first-cut" && sha256sum -c "$GITHUB_WORKSPACE/$folder/$original-fixture.sha256")
-              python -B "$folder/replay-poses.py" --base http://127.0.0.1:8377/game --order v8,v9,v10,v10,v9,v8 --record "$RUNNER_TEMP/first-cut/$original.json" --poses "$RUNNER_TEMP/first-cut/active-poses.json.gz" --out "$out/$original.json"
+              python -B "$folder/replay-poses.py" --base http://127.0.0.1:8377/game --order v8,v9,v10,v10,v9,v8 --record "$RUNNER_TEMP/first-cut/$original.json" --poses "$RUNNER_TEMP/first-cut/active-poses.json.gz" --phases "$RUNNER_TEMP/first-cut/active-animation-phases.json.gz" --out "$out/$original.json"
               cp "$RUNNER_TEMP/first-cut/active-animation-phases.json.gz" "$RUNNER_TEMP/first-cut/active-poses.json.gz" "$out/"
               ;;
             fixed)

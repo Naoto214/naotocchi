@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {listFiles, hashFiles} = require('../home-finish-v5/build.cjs');
 const {digest, replaceExact} = require('../home-finish-v5/native-hooks.cjs');
-const {patchObserver} = require('./observer.cjs');
+const {patchObserver, patchOwnerObserver} = require('./observer.cjs');
 const baselineHash = '52eaa0e4f313355867190804459a136767eda6ea5986ec3c0631e5c86173a529';
 const baselineCount = 3990;
 
@@ -23,13 +23,15 @@ function prepare(base) {
     return replaceExact(html,'src="'+oldRef+'"','src="'+next+'?v='+digest(contents).slice(0,12)+'"');
   }
   const v9Telemetry='telemetry-mobility-v9.js', v10Telemetry='telemetry-mobility-v10.js';
-  const observers = html => script(html,v9Telemetry,v10Telemetry,patchObserver);
+  const attachObserver = (html, owner) => script(html, v9Telemetry,
+    owner ? 'telemetry-mobility-v10-owner.js' : v10Telemetry,
+    source => owner ? patchOwnerObserver(patchObserver(source)) : patchObserver(source));
   for (const arm of ['v8','v9','v9-seats','v10','v10-seats','v10-reference']) {
     const reference = arm === 'v10-reference';
     const seats = arm.endsWith('-seats') || reference;
     const v10 = arm.startsWith('v10');
     const old = arm==='v8'?'v9-replay-v8':(seats?'v9-seats':'v9');
-    let html = observers(game('mobility-'+old+'.html'));
+    let html = game('mobility-'+old+'.html');
     if(v10) {
       html=script(html,'home-production-model-mobility-'+old+'.js','home-production-model-mobility-'+arm+'.js',source=>{
         const moved=patchMovement(source);
@@ -38,10 +40,11 @@ function prepare(base) {
       });
       html=script(html,'home-production-diorama-mobility-v9.js','home-production-diorama-mobility-v10.js',source=>patchRender(source));
       // Native entry for direct testing uses the exact seeded V9 fixture.
-      files.set('game/mobility-'+arm+'.html',html);
+      files.set('game/mobility-'+arm+'.html',attachObserver(html,false));
     }
     // Only the owner comparison shell uses the selectable actor random seed.
     // No simulation clock or original save is imported into the native game.
+    html=attachObserver(html,true);
     const bridge=seats?'drag-trial-hooks-mobility-v9-seats.js':'drag-trial-hooks.js';
     const seed="Number(new URLSearchParams(location.search).get('trialSeed')==='937' ? 937 : 214)";
     html=script(html,bridge,seats?'drag-trial-hooks-v10-compare-seats.js':'drag-trial-hooks-v10-compare.js',source=>replaceExact(source,'let seed = 214;','let seed = '+seed+';'));
@@ -72,13 +75,18 @@ function prepare(base) {
   controls=replaceExact(controls,"byId('seats').addEventListener","byId('seed').addEventListener('change', event => change({seed:event.target.value}));\nbyId('seats').addEventListener");
   files.set('v10/controls.mjs',controls);
   let diagnostics=replaceExact(read('v9/diagnostics.mjs'), 'const metrics = [',`const metrics = [
-  ['本人の経路が成立しなかった最長時間','strictFailedFor'],
-  ['本人の経路が再び成立した割合','ownRecoveryRate'],
+  ['本人が経路を求め続けた最長不成立時間','strictFailedFor'],
+  ['経路が再び成立した割合（休息・歩行枠待ちを除く）','ownRecoveryRate'],
+  ['経路不成立が休息など本人の選択で終わった回数','ownIdleEnds'],
+  ['経路不成立が歩行枠待ちで終わった回数','ownBudgetEnds'],
   ['目的の方向に歩いた1回の平均変位','meanStrictDistance'],`);
-  diagnostics=replaceExact(diagnostics,'const values = {',`const values = {
+  diagnostics=replaceExact(diagnostics,'const values = {',`const continuedDemand = row.ownRejections - row.ownIdleEnds - row.ownBudgetEnds;
+    const values = {
       strictFailedFor: secs(Math.max(row.longestRejected,row.firstRejectedAt===null?0:report.modelSeconds-row.firstRejectedAt)),
-      ownRecoveryRate: row.ownRejections ? row.ownRecoveries+' / '+row.ownRejections+' 回' : '経路不成立なし',
+      ownRecoveryRate: continuedDemand ? (100*row.ownRecoveries/continuedDemand).toFixed(1)+'%（'+row.ownRecoveries+'/'+continuedDemand+'）'
+        : row.ownRejections ? '休息・歩行枠待ちで終了' : '経路不成立なし',
       meanStrictDistance: row.goalWalks ? (row.strictDistanceCss/row.goalWalks).toFixed(1)+' CSS px' : '通常歩行待ち',`);
+  diagnostics=replaceExact(diagnostics,'経路失敗から再び歩くまでの最長時間（継続中を含む）','指示不成立から次の自力・手動の一歩まで（休息・継続中を含む）');
   files.set('v10/diagnostics.mjs',diagnostics);
   return files;
 }

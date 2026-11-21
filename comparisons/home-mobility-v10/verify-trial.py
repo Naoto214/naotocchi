@@ -4,7 +4,8 @@ import getpass
 import hashlib
 import json
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import urlsplit, urljoin
+from urllib.request import Request, build_opener, HTTPRedirectHandler
 from playwright.sync_api import sync_playwright
 
 SNAPSHOT = """async () => {
@@ -17,17 +18,29 @@ SNAPSHOT = """async () => {
 
 def check(args, token):
     with sync_playwright() as pw:
-        browser = getattr(pw,args.engine).launch(executable_path='/usr/bin/chromium' if args.engine=='chromium' else None)
+        browser = getattr(pw,args.engine).launch(executable_path=args.executable or ('/usr/bin/chromium' if args.engine=='chromium' else None))
         ctx=browser.new_context(viewport={'width':args.width,'height':844},device_scale_factor=2,is_mobile=True,has_touch=True,locale='ja-JP')
         if token:
             expected=urlsplit(args.origin)
+            class SameOrigin(HTTPRedirectHandler):
+                def redirect_request(self, req, fp, code, msg, headers, url):
+                    dest=urljoin(req.full_url,url)
+                    if urlsplit(dest)[:2]!=expected[:2]:return None
+                    return super().redirect_request(req,fp,code,msg,headers,dest)
+            api=build_opener(SameOrigin())
+            cache={}
             def authorize(route):
-                host=urlsplit(route.request.url)
-                if (host.scheme, host.netloc)!=(expected.scheme,expected.netloc):
-                    return route.continue_()
-                headers={**route.request.headers,'OAI-Sites-Authorization':'Bearer '+token}
-                incoming=route.fetch(headers=headers,max_redirects=0,timeout=65000)
-                route.fulfill(response=incoming)
+                url=route.request.url
+                if urlsplit(url)[:2]!=expected[:2]:return route.continue_()
+                if url not in cache:
+                    request=Request(url, headers={'User-Agent':'Mozilla/5.0','OAI-Sites-Authorization':'Bearer '+token})
+                    try:
+                        with api.open(request,timeout=60) as result:
+                            cache[url]=(result.status,result.headers.get('content-type','application/octet-stream'),result.read())
+                    except Exception:
+                        return route.abort()
+                status,kind,body=cache[url]
+                return route.fulfill(status=status,content_type=kind,body=body)
             ctx.route(args.origin+'/**',authorize)
         page=ctx.new_page()
         page.set_default_timeout(120000)
@@ -64,7 +77,8 @@ def check(args, token):
             page.locator('#start-record').tap()
             page.wait_for_function("document.getElementById('resident').options.length===28")
             page.locator('#resident').select_option(index=27)
-            assert '最長時間' in page.locator('#metrics').inner_text()
+            assert '本人が経路を求め続けた最長不成立時間' in page.locator('#metrics').inner_text()
+            assert '歩行枠待ちで終わった回数' in page.locator('#metrics').inner_text()
             page.locator('#settings-close').tap()
             page.locator('#freeze').tap()
             room.wait_for_function("HomeMobilityDiagnostics.read().residents.some(r=>r.actualDistance>0)",polling=500)
@@ -84,6 +98,7 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--origin',required=True);parser.add_argument('--width',type=int,default=390)
     parser.add_argument('--engine',choices=['chromium','webkit'],default='chromium')
+    parser.add_argument('--executable',help='Path to a local Playwright-compatible browser')
     parser.add_argument('--owner',action='store_true');parser.add_argument('--out',required=True,type=Path)
     args=parser.parse_args()
     data=check(args,getpass.getpass('Owner verification credential: ') if args.owner else '')
