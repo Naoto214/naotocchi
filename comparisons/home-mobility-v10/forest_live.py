@@ -22,6 +22,8 @@ attend_choice=v9.attend_choice
 
 def observe_model(source):
     updated=v9.observe_model(source)
+    updated=replace_once(updated,'stats:structuredClone(stats),cooldown:[...cooldown]',
+        "crowdMisses:typeof crowdMisses==='undefined'?null:[...crowdMisses],reopenedKey:typeof reopenedKey==='undefined'?null:reopenedKey,stats:structuredClone(stats),cooldown:[...cooldown]")
     return replace_once(updated,"planned:report.planned,retry:report.retry,escape:","activity:a.activity,reopened:typeof reopenedKey!=='undefined'&&reopenedKey===key,resumed:typeof continuing!=='undefined'&&continuing===key,planned:report.planned,retry:report.retry,escape:")
 
 async def reload_save(browser, args, raw, initial_save):

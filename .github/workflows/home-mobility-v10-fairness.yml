@@ -8,7 +8,7 @@ on:
       scope:
         description: Forest cases to record
         type: choice
-        options: [full, v10-only]
+        options: [full, v10-only, reference-extra]
         default: full
 permissions:
   contents: read
@@ -24,21 +24,10 @@ jobs:
       fail-fast: false
       max-parallel: ${{ (contains(github.event.head_commit.message, '[forest-v10-only]') || inputs.scope == 'v10-only') && 14 || 8 }}
       matrix:
-        include:
-          - {profile: '390-937-0', layout: reference}
-          - {profile: '390-937-0', layout: fixed}
-          - {profile: '390-937-0', layout: seats}
-          - {profile: '390-214-0', layout: reference}
-          - {profile: '390-214-0', layout: fixed}
-          - {profile: '390-214-0', layout: seats}
-          - {profile: '320-214-0', layout: fixed}
-          - {profile: '320-214-0', layout: seats}
-          - {profile: '375-937-0', layout: fixed}
-          - {profile: '375-937-0', layout: seats}
-          - {profile: '430-214-0', layout: fixed}
-          - {profile: '430-214-0', layout: seats}
-          - {profile: '390-937-937', layout: fixed}
-          - {profile: '390-937-937', layout: seats}
+        include: >-
+          ${{ fromJSON((contains(github.event.head_commit.message, '[forest-reference-extra]') || inputs.scope == 'reference-extra')
+          && '[{"profile":"320-214-0","layout":"reference"},{"profile":"375-937-0","layout":"reference"},{"profile":"430-214-0","layout":"reference"},{"profile":"390-937-937","layout":"reference"}]'
+          || '[{"profile":"390-937-0","layout":"reference"},{"profile":"390-937-0","layout":"fixed"},{"profile":"390-937-0","layout":"seats"},{"profile":"390-214-0","layout":"reference"},{"profile":"390-214-0","layout":"fixed"},{"profile":"390-214-0","layout":"seats"},{"profile":"320-214-0","layout":"fixed"},{"profile":"320-214-0","layout":"seats"},{"profile":"375-937-0","layout":"fixed"},{"profile":"375-937-0","layout":"seats"},{"profile":"430-214-0","layout":"fixed"},{"profile":"430-214-0","layout":"seats"},{"profile":"390-937-937","layout":"fixed"},{"profile":"390-937-937","layout":"seats"}]') }}
     env:
       PROFILE: ${{ matrix.profile }}
       LAYOUT: ${{ matrix.layout }}

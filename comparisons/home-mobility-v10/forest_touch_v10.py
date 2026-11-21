@@ -38,8 +38,20 @@ def instrument(name, source, order, seed, saved):
         return once(updated, 'let seed = 214;', f'let seed = {seed};')
     if name == 'population-beauty.js':
         return once(updated, 'let actorSeed=214;', f'let actorSeed={seed};')
+    if name.startswith('script-v2') and saved is not None:
+        anchor='globalThis.HomeMobilityDiagnostics?.bindGates(()=>{'
+        return once(updated,anchor,'globalThis.touchDirectGate=()=>homeDioramaBlocked(true);\n  globalThis.HomeMobilityDiagnostics?.bindGates(globalThis.touchGateReasons=()=>{')
     if 'production-model' in name:
-        return once(updated, '    let checkpoint;', prior.HOOK + '    let checkpoint;')
+        marker = '      Object.assign(stats,structuredClone(s.stats));qa.writeSeed(s.seed);'
+        restore = '''
+      if(typeof crowdMisses!=='undefined'){
+        crowdMisses.clear();
+        for(const [key,value] of structuredClone(s.crowdMisses||[]))crowdMisses.set(key,value);
+        reopenedKey=s.reopenedKey??null;
+      }
+'''
+        state_hook = once(prior.HOOK, marker, restore + marker) if 'const crowdMisses=' in updated else prior.HOOK
+        return once(updated, '    let checkpoint;', state_hook + '    let checkpoint;')
     return updated
 
 
@@ -113,6 +125,12 @@ def checkpoint_page(browser, args, checkpoint):
           document.addEventListener('pointerdown',e=>{const xy=[e.clientX,e.clientY];
             touchQA.forestDown={trusted:e.isTrusted,xy,hit:touchQA.hit(...xy),modelPaused:touchQA.forestModelPaused(),gate:touchQA.gates()};
           },true);
+          if(typeof touchGateReasons==='function'){
+            touchQA.savedGateEvents=[];
+            for(const type of ['pointerdown','pointerup'])document.addEventListener(type,()=>{
+              touchQA.savedGateEvents.push({type,reasons:touchGateReasons(),directBlocked:touchDirectGate()});
+            },true);
+          }
           touchQA.restore();
         }""", checkpoint)
         feet = [[a[k] for k in ('key','x','y','w','h')] for a in checkpoint['actors']]
@@ -205,6 +223,8 @@ def run(args):
                         row = prior.compact(incoming)
                         row['pointerDownInputState']=page.evaluate('touchQA.forestDown')
                         row['issuedRecipients']=page.evaluate('touchQA.issuedRecipients')
+                        if args.saved_raw:
+                            row['nativeSavedGateEvents']=page.evaluate('touchQA.savedGateEvents')
                         assert row['pointerDownInputState']['trusted']
                     result['tape'].append(ref)
                     arm['rows'].append(row)
