@@ -1,0 +1,62 @@
+[
+  {
+    "id": "main-a",
+    "decodedSeconds": 43.636375,
+    "peak": 0.3422084450721741,
+    "seamStep": 0.014477968215942383
+  },
+  {
+    "id": "main-b",
+    "decodedSeconds": 48.0,
+    "peak": 0.3837374150753021,
+    "seamStep": 0.0010968856513500214
+  },
+  {
+    "id": "main-c",
+    "decodedSeconds": 45.71428125,
+    "peak": 0.31876707077026367,
+    "seamStep": 0.0009804219007492065
+  },
+  {
+    "id": "home-day",
+    "decodedSeconds": 45.71428125,
+    "peak": 0.3430359363555908,
+    "seamStep": 0.0042729489505290985
+  },
+  {
+    "id": "home-night",
+    "decodedSeconds": 32.0,
+    "peak": 0.3785954415798187,
+    "seamStep": 0.008349273353815079
+  },
+  {
+    "id": "naopoyo",
+    "decodedSeconds": 53.33334375,
+    "peak": 0.33173537254333496,
+    "seamStep": 0.0008449079468846321
+  },
+  {
+    "id": "naokoro",
+    "decodedSeconds": 41.739125,
+    "peak": 0.39260610938072205,
+    "seamStep": 0.002119620330631733
+  },
+  {
+    "id": "card-normal",
+    "decodedSeconds": 43.636375,
+    "peak": 0.3508594036102295,
+    "seamStep": 0.0043295398354530334
+  },
+  {
+    "id": "card-late",
+    "decodedSeconds": 35.5555625,
+    "peak": 0.3329046368598938,
+    "seamStep": 0.003290819004178047
+  },
+  {
+    "id": "story",
+    "decodedSeconds": 45.0,
+    "peak": 0.423480361700058,
+    "seamStep": 0.0015154704451560974
+  }
+]
