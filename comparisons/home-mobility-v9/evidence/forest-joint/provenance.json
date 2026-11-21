@@ -1,0 +1,235 @@
+{
+  "testedNative": "e309a299de5593b0f3fa06ebde768058f08749f5",
+  "canonicalNative": "cb1d889b035b4e275270a7f783cd37f396e87ec77f681a38a68c6ecae9f41933",
+  "sources": {
+    "home-production-model-mobility-v9-joint.js": "269f444422b3103f4bc3d49e07db18a08088010daad2b3bc450b25b504afb214",
+    "mobility-v9-joint.html": "1b789a634f42e7aa9ce95f42b310c8756447d5802740271b429a93581c569101",
+    "drag-trial-hooks-mobility-v9-seats.js": "17e90fc5b9f9399e9450770cdffc2037b58957aa6e38e3ba2d3be7e45251a74f"
+  },
+  "runs": [
+    {
+      "seed": 214,
+      "maximumInitialFootErrorCss": 3.1530333899354446e-14,
+      "initialArtworkAndDimensionsMatched": 28,
+      "startedUTC": "2026-11-21T12:36:55Z",
+      "modelSeconds": 601.3117000000528,
+      "wallSeconds": 756.633714174,
+      "care": [
+        {
+          "wall": 137.7004617120001,
+          "clock": 106.91339999999907,
+          "control": "#cleanBtn",
+          "indicators": {
+            "waste": 3,
+            "hunger": 77,
+            "health": 100
+          },
+          "action": "tap acknowledgement timeout"
+        },
+        {
+          "wall": 326.85508190400014,
+          "clock": 271.0242999999989,
+          "control": "#cleanBtn",
+          "indicators": {
+            "waste": 3,
+            "hunger": 55,
+            "health": 100
+          },
+          "action": "tap acknowledgement timeout"
+        },
+        {
+          "wall": 502.7195162610001,
+          "clock": 401.85280000002876,
+          "control": "#cleanBtn",
+          "indicators": {
+            "waste": 3,
+            "hunger": 34,
+            "health": 100
+          },
+          "action": "button tap"
+        },
+        {
+          "wall": 540.7909046300001,
+          "clock": 426.2518000000341,
+          "control": "#feedBtn",
+          "indicators": {
+            "waste": 1,
+            "hunger": 30,
+            "health": 100
+          },
+          "action": "button tap"
+        },
+        {
+          "wall": 703.1771479270001,
+          "clock": 561.1800000000522,
+          "control": "#cleanBtn",
+          "indicators": {
+            "waste": 3,
+            "hunger": 36,
+            "health": 100
+          },
+          "action": "button tap"
+        },
+        {
+          "wall": 738.356268213,
+          "clock": 586.2288000000526,
+          "control": "#feedBtn",
+          "indicators": {
+            "waste": 0,
+            "hunger": 32,
+            "health": 100
+          },
+          "action": "button tap"
+        }
+      ],
+      "files": {
+        "forest28.json.gz": "83c8a89c7d11227a7061cac0799aa2e96b4d7578ea9216f410231c427bd6c51f",
+        "aged-touch.json": "859e9f8ee79654731c649b3893606982b4efacb0b3c1dbeb6687973f66ab79f9",
+        "directions.json.gz": "632c89f9e4d8a42825011d8a13deb3a97e2c3eb3faaf01a57621b6afc27c4ecf",
+        "legs.csv.gz": "9aef725be3bc329fb586d82333c77f4202128c1b69f75da454af2889a841d0dc",
+        "checkpoint.json": "85f635db19b390d11fea6c9e2e54da97686f39cdf4aeb1697f742b47d5406f85"
+      },
+      "browserSourceAndObserverSha256": {
+        "population-beauty.js": {
+          "source": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+          "observed": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a"
+        },
+        "drag-trial-hooks-mobility-v9-seats.js": {
+          "source": "17e90fc5b9f9399e9450770cdffc2037b58957aa6e38e3ba2d3be7e45251a74f",
+          "observed": "0b74f70bb6a978daa62797a5a3120bc725aed1c77152b981cae59916bf725f6d"
+        },
+        "home-production-model-mobility-v9-joint.js": {
+          "source": "269f444422b3103f4bc3d49e07db18a08088010daad2b3bc450b25b504afb214",
+          "observed": "6fd5998b4b827d65223e33505a49fdd40e642ddba5dc38ff4c3b6be566bdd040"
+        },
+        "fixture.js": {
+          "source": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+          "observed": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a"
+        }
+      }
+    },
+    {
+      "seed": 937,
+      "maximumInitialFootErrorCss": 3.1530333899354446e-14,
+      "initialArtworkAndDimensionsMatched": 28,
+      "startedUTC": "2026-11-21T12:37:17Z",
+      "modelSeconds": 602.4443000000512,
+      "wallSeconds": 787.0123963789997,
+      "care": [
+        {
+          "wall": 348.8703903119999,
+          "clock": 304.42280000000477,
+          "control": "#cleanBtn",
+          "indicators": {
+            "waste": 3,
+            "hunger": 52,
+            "health": 100
+          },
+          "action": "button tap"
+        },
+        {
+          "wall": 467.33776841200006,
+          "clock": 395.6196000000255,
+          "control": "#cleanBtn",
+          "indicators": {
+            "waste": 3,
+            "hunger": 39,
+            "health": 100
+          },
+          "action": "button tap"
+        },
+        {
+          "wall": 503.8354487249999,
+          "clock": 424.1517000000319,
+          "control": "#feedBtn",
+          "indicators": {
+            "waste": 0,
+            "hunger": 34,
+            "health": 100
+          },
+          "action": "button tap"
+        },
+        {
+          "wall": 591.7769375319999,
+          "clock": 466.2998000000415,
+          "control": "#speechChoices:not(.hidden) button.speech-choice[data-choice=\"0\"]",
+          "label": "いいよ",
+          "gate": [
+            "conversation"
+          ],
+          "question": "ひみつ、ひとつ言っていい?",
+          "choices": [
+            "いいよ",
+            "だめ",
+            "あとでね"
+          ],
+          "action": "trusted native question answer"
+        },
+        {
+          "wall": 717.8104896969999,
+          "clock": 556.9794000000506,
+          "control": "#feedBtn",
+          "indicators": {
+            "waste": 2,
+            "hunger": 34,
+            "health": 100
+          },
+          "action": "button tap"
+        }
+      ],
+      "files": {
+        "forest28.json.gz": "11163e53816e19e48a5afe12a1ce28c0d09517ad51315c6f0827498bc9d39245",
+        "aged-touch.json": "1082f2105a0734ebbc9ea0574f2a7bd845c9e52b0f30defb5b59642749608133",
+        "directions.json.gz": "54e08535b47f4836d54479ebcfbd5380e562d254c274f6241d6ffacdd8b55f74",
+        "legs.csv.gz": "bc35048454b5c5168b3f6d26ba8b7c50f272c75b2effcc579c7171e0012b7c73",
+        "checkpoint.json": "048ae2e50a21435ea7cd117c7e4f3d21c008aaede31f9ca618b546b7fb91aead"
+      },
+      "browserSourceAndObserverSha256": {
+        "population-beauty.js": {
+          "source": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+          "observed": "09fca413fc6de30505352b83dae7f91b356eefdd637cc667667af19fca720194"
+        },
+        "fixture.js": {
+          "source": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+          "observed": "ca621ea2fb3373d3c2231d8c185cfb989755c6d229959ab8ac16e7adb4725caf"
+        },
+        "home-production-model-mobility-v9-joint.js": {
+          "source": "269f444422b3103f4bc3d49e07db18a08088010daad2b3bc450b25b504afb214",
+          "observed": "6fd5998b4b827d65223e33505a49fdd40e642ddba5dc38ff4c3b6be566bdd040"
+        },
+        "drag-trial-hooks-mobility-v9-seats.js": {
+          "source": "17e90fc5b9f9399e9450770cdffc2037b58957aa6e38e3ba2d3be7e45251a74f",
+          "observed": "525a4ca2152353faffb754d216e0e8663e553f441b1baf25cd21253c76fbdb25"
+        }
+      }
+    }
+  ],
+  "input": {
+    "opening-touch.json": "f47a2848fc2420383556d5a7ae2644cbfe0d87087419cbd8be00bbe702dbbfe0",
+    "fixed-opening-touch.json": "e7b870b727f0831ec9b9392c6d312c0e5dcf95cab9ee9461a6add8f955e67fc6",
+    "held-input.jsonl": "4b7c124af9a41c2035a14902e67cc6e7b549d7885372bb6f0a58cc995c8a51e3",
+    "independentOpeningControlSha256": "bf6fc981cd60f0bb6c0c019d5be59d45f38389c84c5ea0bfe504e1c7c30fcd2d"
+  },
+  "excludedPartialRuns": [
+    {
+      "seed": 214,
+      "lastModelClock": 310.4548000000075,
+      "wallSeconds": 450.33339302900004,
+      "currentGate": [
+        "conversation"
+      ],
+      "sha256": "e7767cc436fa7a2c5f763b377b14cae82067a746422ac7d79903a9ea3408ef21",
+      "exclusion": "Observation ended at an untimed visible speech choice. The two full runs use an attended choice handler."
+    },
+    {
+      "seed": 937,
+      "lastModelClock": 460.50040000004316,
+      "wallSeconds": 585.1130566770003,
+      "currentGate": [
+        "conversation"
+      ],
+      "sha256": "93b6682a6159e9b5e1e46a1536fec47fad74ce3b31f5284ff607435f3766f034",
+      "exclusion": "Observation ended at an untimed visible speech choice. The two full runs use an attended choice handler."
+    }
+  ]
+}

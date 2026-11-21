@@ -1,0 +1,128 @@
+{
+  "origin": "https://naotocchi-cast-size.kerzion214.chatgpt.site",
+  "endpoints": {
+    "game/telemetry-mobility-v9.js": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "bd627b0d71c4ffe8c573f2ff994ed99c5f5c700bb5ba091a33bf9197191bda51"
+    },
+    "game/mobility-v9-replay-v8.html": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "542db190945c947cd590a52197e2f2ddb8ec92348a93a8763c3ffd194688cd96"
+    },
+    "game/telemetry-mobility-v9-replay-v7.js": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "74b2b21158ebdce0289f70008fe5a6bccb9701396a3738a69f8eae5f3dcb58f3"
+    },
+    "game/mobility-v9-replay-v7.html": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "15a24d69705aa2889f681323df6b1ee852bc1aa819427f72b4e58bd9f888297a"
+    },
+    "game/home-production-diorama-mobility-v9.js": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "c1ba14468dd4507b774fe157a3e7f669f9f62f74f9d5cb6ab3ef838288e0abd9"
+    },
+    "game/home-production-model-mobility-v9.js": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "cb1d889b035b4e275270a7f783cd37f396e87ec77f681a38a68c6ecae9f41933"
+    },
+    "game/mobility-v9.html": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "f8670cb721c5efebf76bb9af06aac43e717bd3e203009e44518b43ac72b27d91"
+    },
+    "game/home-production-model-mobility-v9-seats.js": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "6fea4db612a3efbe3f264293763847cfd07397f851cf4c464f2cb79a13d0f030"
+    },
+    "game/drag-trial-hooks-mobility-v9-seats.js": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "17e90fc5b9f9399e9450770cdffc2037b58957aa6e38e3ba2d3be7e45251a74f"
+    },
+    "game/mobility-v9-seats.html": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "02ddaa7d9b934651a692901cd096e2650adcf0eb1b41de0be00b7c756099178a"
+    },
+    "v9/index.html": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "e58b0eb98056508e767c76ee10faa04d610b0962f64b9550fcc335f123649c8a"
+    },
+    "v9/shell-model.mjs": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "c57878a5bdd78c6af6726a8cfe36c99c30a6b13d4b9b0494befcb60de4a59f49"
+    },
+    "v9/controls.mjs": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "196e4c552f2416981c70e66aa31b14a763502e1adafb5d1c4a229b53d1a2c2a3"
+    },
+    "v9/diagnostics.mjs": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "de68db04c0a64a8e3246501fa3e6b1ff903edb88d31257e23c0786066a84da43"
+    },
+    "v7/index.html": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "1a8a507f2d9f95ff9754757e814ed0f6affaf47fae3bf20fc88c13709d78aba2"
+    },
+    "game/mobility-v7.html": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "f217233b114fc12e474ecb161f39e8b652f93cbe0ad2d3529f77ed70681ced7a"
+    },
+    "v8/index.html": {
+      "authenticated": 200,
+      "anonymous": 401,
+      "sha256": "214f8e3e5ffeb459a6523484003f77e368cfcd3a6482d4df104809efe9e9641d"
+    }
+  },
+  "ui": {
+    "browser": "156.0.8078.79",
+    "width": 390,
+    "height": 844,
+    "region": "forest",
+    "count": 28,
+    "size": "B",
+    "roles": [
+      138,
+      138,
+      120.75
+    ],
+    "same28FeetAssetsAndSizesOnArmsAndRestart": true,
+    "sameDayCanvasSHA256": "cbf05f106e1ae4575f7b18f6b4b26e9b8960cce660983cb01f5d0e090e6a7376",
+    "shadows": 28,
+    "ground": true,
+    "authenticatedEntries": [
+      "https://naotocchi-cast-size.kerzion214.chatgpt.site/game/mobility-v9-replay-v7.html?region=forest&time=day&count=28&paused=1&clock=0&ground=on&paired=1&waitForPainting=1&variant=B&compareSplit=0&season=autumn&weather=sunny&diagnostics=0",
+      "https://naotocchi-cast-size.kerzion214.chatgpt.site/game/mobility-v9-replay-v8.html?region=forest&time=day&count=28&paused=1&clock=0&ground=on&paired=1&waitForPainting=1&variant=B&compareSplit=0&season=autumn&weather=sunny&diagnostics=0",
+      "https://naotocchi-cast-size.kerzion214.chatgpt.site/game/mobility-v9.html?region=forest&time=day&count=28&paused=1&clock=0&ground=on&paired=1&waitForPainting=1&variant=B&compareSplit=0&season=autumn&weather=sunny&diagnostics=0",
+      "https://naotocchi-cast-size.kerzion214.chatgpt.site/game/mobility-v9.html?region=forest&time=day&count=28&paused=1&clock=0&ground=on&paired=1&waitForPainting=1&variant=B&compareSplit=0&season=autumn&weather=sunny&diagnostics=0",
+      "https://naotocchi-cast-size.kerzion214.chatgpt.site/game/mobility-v9-seats.html?region=forest&time=day&count=28&paused=1&clock=0&ground=on&paired=1&waitForPainting=1&variant=B&compareSplit=0&season=autumn&weather=sunny&diagnostics=1"
+    ],
+    "onDemandResidentLogs": 28,
+    "residentWalked": true,
+    "options": [
+      13,
+      4,
+      28
+    ],
+    "errors": []
+  },
+  "siteVersion": 16,
+  "siteSourceCommit": "81f762ebaa6f4fa8642123e53f4546485cb7a687",
+  "ownerCount": 1,
+  "viewerCount": 0,
+  "groupCount": 0,
+  "externalVisitorCount": 0
+}

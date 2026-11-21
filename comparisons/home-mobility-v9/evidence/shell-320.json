@@ -1,0 +1,72 @@
+{
+  "engine": "chromium",
+  "version": "156.0.8078.79",
+  "width": 320,
+  "count": 28,
+  "openingSHA256": "f53c5c3bbc03e23c7bb5c481b515cf1605998a607f846df9a355c888482566e2",
+  "paintSHA256": "cfe977cd502453303b2857436cb6e0b99eaaf31c098d3f9ee5d835e23731bc20",
+  "sameInV7V8V9AndRestart": true,
+  "shadows": 28,
+  "ground": true,
+  "size": "B",
+  "loadedV9Scripts": [
+    "telemetry-mobility-v9.js?v=bd627b0d71c4",
+    "home-production-model-mobility-v9.js?v=cb1d889b035b",
+    "home-production-diorama-mobility-v9.js?v=c1ba14468dd4"
+  ],
+  "optionalOpeningMoves": [
+    "companion:owl"
+  ],
+  "toolbar": [
+    [
+      "v7",
+      7,
+      52.578125,
+      45.578125,
+      44
+    ],
+    [
+      "v8",
+      52.578125,
+      98.15625,
+      45.578125,
+      44
+    ],
+    [
+      "v9",
+      98.15625,
+      143.734375,
+      45.578125,
+      44
+    ],
+    [
+      "restart",
+      148.734375,
+      192.734375,
+      44,
+      44
+    ],
+    [
+      "freeze",
+      196.734375,
+      240.734375,
+      44,
+      44
+    ],
+    [
+      "settings-toggle",
+      244.734375,
+      314,
+      69.265625,
+      44
+    ]
+  ],
+  "regionTimeCountOptions": [
+    13,
+    4,
+    28
+  ],
+  "diagnosticResidents": 28,
+  "advancedModelSeconds": 5.333099999999997,
+  "errors": []
+}
