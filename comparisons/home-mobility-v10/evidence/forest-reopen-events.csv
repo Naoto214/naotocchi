@@ -1,0 +1,5 @@
+width,seed,order,arm,key,model_s,original_goal_x,original_goal_y,initial_accepted,followup_window_end,accepted_on_same_goal,committed_own_legs,normal_completions,normal_net_gain_css,normal_net_distance_css
+375,937,0,v10-seats,companion:parrot,316.3708000000409,243.81315125405467,161.02912979240716,False,327.78690000004354,0,0,0,,
+375,937,0,v10-seats,companion:parrot,337.95320000004585,278.0340288101979,129.31784609083428,False,338.686500000046,0,0,0,,
+390,214,0,v10-seats,companion:many_tail_fox,277.972500000032,79.88090708455347,335.07765447756555,False,284.30560000003345,1,1,1,8.0,8.0
+390,937,0,v10-seats,companion:tanuki,490.54730000008067,28.14904402515723,261.929155355474,False,494.2805000000815,0,0,0,,

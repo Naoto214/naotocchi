@@ -1,0 +1,509 @@
+[
+  {
+    "arm": "v10",
+    "sourceFile": "forest28.json.gz",
+    "rawSHA256": "4463bbc8a3f4f95781497f4a14548e7d473e1e072ff5126d070484828fac63b5",
+    "modelSHA256": "95e32fa82fdf92920212fcf90b65fd8a3d25927b5388b9d01935ae3f886cd5c8",
+    "oldIndex": 398,
+    "newIndex": 399,
+    "oldClock": 260.4394000000279,
+    "newClock": 262.1061000000283,
+    "oldFeet": [
+      "companion:panda",
+      113.73032378520752,
+      370.1350683886255,
+      30.597895757575756,
+      31.752533333333332,
+      null,
+      "ambient",
+      0,
+      0,
+      false,
+      null,
+      "look"
+    ],
+    "newFeet": [
+      "companion:panda",
+      120,
+      354.18,
+      30.597895757575756,
+      31.752533333333332,
+      null,
+      "ambient",
+      0,
+      0,
+      false,
+      null,
+      "rest"
+    ],
+    "distanceCss": 22.741647930442042,
+    "oldScale": [
+      1.340256955194829,
+      1.324485872144212
+    ],
+    "newScale": [
+      1.340256955194829,
+      1.324485872144212
+    ],
+    "trajectory": [
+      {
+        "wall": 292.347025884,
+        "clock": 255.83960000002688,
+        "gate": [],
+        "panda": [
+          "companion:panda",
+          113.73032378520752,
+          370.1350683886255,
+          "look",
+          18,
+          2,
+          2,
+          2,
+          8.208140411937691
+        ]
+      },
+      {
+        "wall": 297.36005148799995,
+        "clock": 260.839400000028,
+        "gate": [],
+        "panda": [
+          "companion:panda",
+          113.73032378520752,
+          370.1350683886255,
+          "look",
+          19,
+          2,
+          2,
+          2,
+          8.208140411937691
+        ]
+      },
+      {
+        "wall": 302.37612685199997,
+        "clock": 261.53940000002814,
+        "gate": [
+          "lower-notice"
+        ],
+        "panda": [
+          "companion:panda",
+          120,
+          354.18,
+          "rest",
+          19,
+          2,
+          2,
+          2,
+          8.208140411937691
+        ]
+      }
+    ],
+    "gates": [
+      {
+        "wallSeconds": 298.19780000000003,
+        "reasons": [
+          "lower-notice",
+          "resident-positive"
+        ]
+      },
+      {
+        "wallSeconds": 299.27660000000003,
+        "reasons": [
+          "lower-notice"
+        ]
+      },
+      {
+        "wallSeconds": 300.9266,
+        "reasons": [
+          "group-bounce",
+          "lower-notice",
+          "resident-bounce"
+        ]
+      },
+      {
+        "wallSeconds": 301.72650000000004,
+        "reasons": [
+          "lower-notice"
+        ]
+      },
+      {
+        "wallSeconds": 303.1932,
+        "reasons": []
+      }
+    ],
+    "changes": [
+      {
+        "key": "companion:shiba",
+        "before": [
+          91.3295194832661,
+          342.5094682190198,
+          31.362133333333333,
+          28.74862222222222
+        ],
+        "after": [
+          88,
+          338.18,
+          31.362133333333333,
+          28.74862222222222
+        ],
+        "oldActivity": "walk",
+        "newActivity": "rest"
+      },
+      {
+        "key": "companion:rabbit_friend",
+        "before": [
+          224.16616885692608,
+          369.90662159904946,
+          23.80958024691358,
+          32.14293333333333
+        ],
+        "after": [
+          216,
+          362.18,
+          23.80958024691358,
+          32.14293333333333
+        ],
+        "oldActivity": "look",
+        "newActivity": "rest"
+      },
+      {
+        "key": "companion:panda",
+        "before": [
+          113.73032378520752,
+          370.1350683886255,
+          30.597895757575756,
+          31.752533333333332
+        ],
+        "after": [
+          120,
+          354.18,
+          30.597895757575756,
+          31.752533333333332
+        ],
+        "oldActivity": "look",
+        "newActivity": "rest"
+      },
+      {
+        "key": "companion:many_tail_fox",
+        "before": [
+          175.45579824859888,
+          370.1769133357958,
+          30.581333333333326,
+          30.025309090909083
+        ],
+        "after": [
+          175.45579824859888,
+          368,
+          30.581333333333326,
+          30.025309090909083
+        ],
+        "oldActivity": "look",
+        "newActivity": "rest"
+      }
+    ],
+    "scenarios": [
+      {
+        "label": "measuredInkBounds",
+        "after": [
+          113.73032378520752,
+          370.1350683886255
+        ],
+        "equalsHistorical": false,
+        "otherHouseholdChangesMatching": [],
+        "observed": [
+          {
+            "phase": "preserve-or-nearest",
+            "old": true,
+            "changed": false,
+            "reflow": false,
+            "limited": {
+              "x": 113.73032378520752,
+              "y": 370.1350683886255
+            },
+            "p": {
+              "x": 113.73032378520752,
+              "y": 370.1350683886255
+            },
+            "terrain": true,
+            "visible": true,
+            "box": {
+              "left": 65.90578909486499,
+              "right": 270.32858402787116,
+              "top": 105.75393807277194,
+              "bottom": 370.1872677924089
+            }
+          }
+        ]
+      },
+      {
+        "label": "referenceBounds",
+        "after": [
+          120,
+          354.18
+        ],
+        "equalsHistorical": true,
+        "otherHouseholdChangesMatching": [
+          "companion:rabbit_friend",
+          "companion:panda",
+          "companion:many_tail_fox"
+        ],
+        "observed": [
+          {
+            "phase": "preserve-or-nearest",
+            "old": true,
+            "changed": false,
+            "reflow": false,
+            "limited": {
+              "x": 113.73032378520752,
+              "y": 368
+            },
+            "p": {
+              "x": 120,
+              "y": 354.18
+            },
+            "terrain": false,
+            "visible": true,
+            "box": {
+              "left": 27.298947878787878,
+              "right": 274.7010521212121,
+              "top": 61.75253333333333,
+              "bottom": 368
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "arm": "v9",
+    "sourceFile": "forest28.json.gz",
+    "rawSHA256": "e7f1dd84a6324dddeef3aceaa933c6dfb2a529f834a4ff707f0fa4e92a01b0df",
+    "modelSHA256": "cb1d889b035b4e275270a7f783cd37f396e87ec77f681a38a68c6ecae9f41933",
+    "oldIndex": 479,
+    "newIndex": 480,
+    "oldClock": 286.82190000003396,
+    "newClock": 287.2053000000341,
+    "oldFeet": [
+      "companion:panda",
+      113.7121267616164,
+      370.0081078677881,
+      30.597895757575756,
+      31.752533333333332,
+      null,
+      "ambient",
+      0,
+      0,
+      false,
+      null,
+      "sit"
+    ],
+    "newFeet": [
+      "companion:panda",
+      120,
+      354.18,
+      30.597895757575756,
+      31.752533333333332,
+      null,
+      "ambient",
+      0,
+      0,
+      false,
+      null,
+      "rest"
+    ],
+    "distanceCss": 22.594561383366784,
+    "oldScale": [
+      1.340256955194829,
+      1.324485872144212
+    ],
+    "newScale": [
+      1.340256955194829,
+      1.324485872144212
+    ],
+    "trajectory": [
+      {
+        "wall": 296.62339451899993,
+        "clock": 286.5886000000339,
+        "gate": [],
+        "panda": [
+          "companion:panda",
+          113.7121267616164,
+          370.0081078677881,
+          "sit",
+          11,
+          2,
+          2,
+          2,
+          8.20770976704392
+        ]
+      },
+      {
+        "wall": 301.6456502389999,
+        "clock": 289.0719000000345,
+        "gate": [],
+        "panda": [
+          "companion:panda",
+          120,
+          354.18,
+          "rest",
+          11,
+          2,
+          2,
+          2,
+          8.20770976704392
+        ]
+      }
+    ],
+    "gates": [
+      {
+        "wallSeconds": 297.22999999999996,
+        "reasons": [
+          "lower-notice",
+          "resident-positive"
+        ]
+      },
+      {
+        "wallSeconds": 297.49230000000006,
+        "reasons": [
+          "lower-notice",
+          "resident-bounce",
+          "resident-positive"
+        ]
+      },
+      {
+        "wallSeconds": 298.2923,
+        "reasons": [
+          "lower-notice"
+        ]
+      },
+      {
+        "wallSeconds": 299.75719999999995,
+        "reasons": []
+      }
+    ],
+    "changes": [
+      {
+        "key": "companion:rabbit_friend",
+        "before": [
+          224.16616885692608,
+          369.90662159904946,
+          23.80958024691358,
+          32.14293333333333
+        ],
+        "after": [
+          216,
+          362.18,
+          23.80958024691358,
+          32.14293333333333
+        ],
+        "oldActivity": "look",
+        "newActivity": "rest"
+      },
+      {
+        "key": "companion:panda",
+        "before": [
+          113.7121267616164,
+          370.0081078677881,
+          30.597895757575756,
+          31.752533333333332
+        ],
+        "after": [
+          120,
+          354.18,
+          30.597895757575756,
+          31.752533333333332
+        ],
+        "oldActivity": "sit",
+        "newActivity": "rest"
+      },
+      {
+        "key": "companion:many_tail_fox",
+        "before": [
+          185.90154469456328,
+          370.1872677924089,
+          30.581333333333326,
+          30.025309090909083
+        ],
+        "after": [
+          185.90154469456328,
+          368,
+          30.581333333333326,
+          30.025309090909083
+        ],
+        "oldActivity": "look",
+        "newActivity": "rest"
+      }
+    ],
+    "scenarios": [
+      {
+        "label": "measuredInkBounds",
+        "after": [
+          113.7121267616164,
+          370.0081078677881
+        ],
+        "equalsHistorical": false,
+        "otherHouseholdChangesMatching": [],
+        "observed": [
+          {
+            "phase": "preserve-or-nearest",
+            "old": true,
+            "changed": false,
+            "reflow": false,
+            "limited": {
+              "x": 113.7121267616164,
+              "y": 370.0081078677881
+            },
+            "p": {
+              "x": 113.7121267616164,
+              "y": 370.0081078677881
+            },
+            "terrain": true,
+            "visible": true,
+            "box": {
+              "left": 65.90578909486499,
+              "right": 270.32858402787116,
+              "top": 105.75393807277194,
+              "bottom": 370.1872677924089
+            }
+          }
+        ]
+      },
+      {
+        "label": "referenceBounds",
+        "after": [
+          120,
+          354.18
+        ],
+        "equalsHistorical": true,
+        "otherHouseholdChangesMatching": [
+          "companion:rabbit_friend",
+          "companion:panda",
+          "companion:many_tail_fox"
+        ],
+        "observed": [
+          {
+            "phase": "preserve-or-nearest",
+            "old": true,
+            "changed": false,
+            "reflow": false,
+            "limited": {
+              "x": 113.7121267616164,
+              "y": 368
+            },
+            "p": {
+              "x": 120,
+              "y": 354.18
+            },
+            "terrain": false,
+            "visible": true,
+            "box": {
+              "left": 27.298947878787878,
+              "right": 274.7010521212121,
+              "top": 61.75253333333333,
+              "bottom": 368
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
