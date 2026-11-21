@@ -9,6 +9,8 @@ def compressed(destination,data):
 def report(a):
     a.out.mkdir(parents=True,exist_ok=True);a.private.mkdir(parents=True,exist_ok=True)
     summary=dict(run=a.run,sourceSHA256={},carriedFrom={},frames=[],fixed={},native={},units='milliseconds and native CSS/model coordinates');table=[]
+    source_jobs=a.directory/'source-jobs.json'
+    if source_jobs.exists():summary['sourceJobs']=json.loads(source_jobs.read_text())
     def raw(name):
         files=list(a.directory.rglob(name+'.json'))
         if not files and a.causal_reference and name in ('candidate','style'):
@@ -19,7 +21,9 @@ def report(a):
         return json.loads(content),files[0].parent
     def add(label,arm,order,gaps,moves=None,distance=None):
         stats=distribution(gaps);table.append(dict(workload=label,order=order,arm=arm,**stats,moves=moves,distance=distance));return stats
-    for case,expected in [('fixed',ARMS+ARMS[::-1]),('stress',ARMS+ARMS[::-1]),('candidate',['v9','guarded','guarded','v9'])]:
+    cases=[('fixed',ARMS+ARMS[::-1]),('stress',ARMS+ARMS[::-1]),('candidate',['v9','guarded','guarded','v9'])]
+    if any(a.directory.rglob('controlled.json')):cases.append(('controlled',ARMS+ARMS[::-1]))
+    for case,expected in cases:
         data,folder=raw(case);assert [r['arm'] for r in data['rows']]==expected;assert data['fixture']['stress']==(case=='stress');poses=folder/'active-poses.json.gz';phases=folder/'active-animation-phases.json.gz'
         for file in [poses,phases]:shutil.copyfile(file,a.private/(case+'-'+file.name))
         values=json.loads(gzip.decompress(poses.read_bytes()));css=json.loads(gzip.decompress(phases.read_bytes()));assert digest(json.dumps(values,separators=(',',':')))==data['posesSHA256'];key=digest(json.dumps(css,separators=(',',':')));base=data['rows'][0];assert len(data['fixture']['initial'])==28
@@ -30,7 +34,12 @@ def report(a):
             physicalActors=len(physical),averageMoving=sum(movement)/n,peakMoving=max(movement),zeroMoving=sum(not v for v in movement),
             averageScanMoving=sum(src)/(len(src)*(clip_size-2)),warmup=data['warmupFrames'],clips=len(data['fixture']['clips']),
             frames=n,observedCSSFrames=sum(bool(x) for x in css),sourceModel=data['source'],rows=[])
+        if 'replayOfArchive' in data:info['replayOfArchiveSHA256']=data['replayOfArchive']
+        if 'nativeIntro' in data:info['nativeIntro']=data['nativeIntro']
         for i,r in enumerate(data['rows']):
+            if 'nativeIntro' in data:
+                expected_recipe=digest(json.dumps(data['nativeIntro']['recipes'],separators=(',',':')))
+                assert r['nativeRecipeSHA256']==expected_recipe
             assert r['phaseSHA256']==key and r['intervalFrames']==reference_rows and r['environment']==base['environment'] and r['countByKey']==base['countByKey'] and r['cast']==28
             stats=add(case,r['arm'],'forward' if i<len(expected)/2 else 'reverse',r['intervals']);assert stats==r['distribution'];t0,t1=r['cpu']
             cpu={kind:round(t1[5][kind]-t0[5][kind],2) for kind in ('main','raster','compositor')};info['rows'].append(dict(arm=r['arm'],distribution=stats,cpuMs=cpu,throttle=t1[2]-t0[2],environmentCompositions=sum(z[1] for z in r['environment'])))

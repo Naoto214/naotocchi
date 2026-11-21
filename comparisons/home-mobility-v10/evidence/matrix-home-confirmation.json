@@ -1,0 +1,99 @@
+{
+  "primary": {
+    "run": "44924416605",
+    "revision": "fdd2b1bcf6b156de0daeb5c1ab46295c681921f1",
+    "bytes": 1309074,
+    "sha256": "1a6c5a27354de151b02395bc52429599187a2db28f84b5119a02773b6b37f332",
+    "artifact": 14715193953,
+    "job": 136907249623,
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/44924416605/artifacts/14715193953",
+    "entries": {
+      "v10": "a4d5f4d828254582f77d122e9ca76d83b912147168f04707fbd1e631f8f6a785",
+      "v8": "ce8be69ef7ea3d76cfb37a5a4e6dc20ba53ad8646b46ded1e9a5cac9e5840df2",
+      "v9": "f8670cb721c5efebf76bb9af06aac43e717bd3e203009e44518b43ac72b27d91"
+    },
+    "metrics": {
+      "v9": {
+        "dualFailed": 0,
+        "normalWalkers": 252,
+        "agedArrival": 19,
+        "arrival": 65,
+        "near4": 42,
+        "tapSelected": 17,
+        "unsafe": 0,
+        "swept": 0,
+        "steps": 142061,
+        "bounds": 0,
+        "terrain": 0,
+        "occlusion": 0,
+        "speed": 0
+      },
+      "v10": {
+        "dualFailed": 0,
+        "normalWalkers": 252,
+        "agedArrival": 19,
+        "arrival": 65,
+        "near4": 42,
+        "tapSelected": 17,
+        "unsafe": 0,
+        "swept": 0,
+        "steps": 140947,
+        "bounds": 0,
+        "terrain": 0,
+        "occlusion": 0,
+        "speed": 0
+      }
+    }
+  },
+  "independentConfirmation": {
+    "run": "44926076361",
+    "revision": "330efb1a7c91ce4b9e094e7399118c1e285a94d9",
+    "bytes": 1310504,
+    "sha256": "be14ed04775f4bc258d50762d2667f7e82579a2def2e38fcc229f3d160ca03c1",
+    "artifact": 14715693200,
+    "job": 136912340262,
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/44926076361/artifacts/14715693200",
+    "entries": {
+      "v10": "a4d5f4d828254582f77d122e9ca76d83b912147168f04707fbd1e631f8f6a785",
+      "v8": "ce8be69ef7ea3d76cfb37a5a4e6dc20ba53ad8646b46ded1e9a5cac9e5840df2",
+      "v9": "f8670cb721c5efebf76bb9af06aac43e717bd3e203009e44518b43ac72b27d91"
+    },
+    "metrics": {
+      "v9": {
+        "dualFailed": 0,
+        "normalWalkers": 252,
+        "agedArrival": 19,
+        "arrival": 65,
+        "near4": 42,
+        "tapSelected": 17,
+        "unsafe": 0,
+        "swept": 0,
+        "steps": 141328,
+        "bounds": 0,
+        "terrain": 0,
+        "occlusion": 0,
+        "speed": 0
+      },
+      "v10": {
+        "dualFailed": 0,
+        "normalWalkers": 252,
+        "agedArrival": 19,
+        "arrival": 65,
+        "near4": 42,
+        "tapSelected": 17,
+        "unsafe": 0,
+        "swept": 0,
+        "steps": 141328,
+        "bounds": 0,
+        "terrain": 0,
+        "occlusion": 0,
+        "speed": 0
+      }
+    }
+  },
+  "identicalOpeningAndLoadedScripts": 20,
+  "identicalNatural300sFootprints": {
+    "v10": 18,
+    "v9": 19
+  }
+}

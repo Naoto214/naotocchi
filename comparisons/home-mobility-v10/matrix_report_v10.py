@@ -240,6 +240,21 @@ def verified_current(run,archives,recovery,region_names):
                         old.require(c['arms'][arm]['hashes']==d['scripts'] and c['arms'][arm]['browser']==m['browser'],'natural comparator differs')
                 cells[coord]=c
     old.require(len(cells)==260,'missing native conditions')
+    if recovery:
+        status,jobs,items,directory=sources[run]
+        receipt['excludedIncomplete']={}
+        for name in region_names:
+            item=items['mobility-v10-'+name]
+            file=directory/f'mobility-v10-{run}-{name}-partial.zip'
+            if not file.exists():continue
+            sha=old.digest(file.read_bytes())
+            old.require(item['digest']=='sha256:'+sha and item['size_in_bytes']==file.stat().st_size,'partial ZIP differs')
+            with zipfile.ZipFile(file) as z:
+                m=json.loads(z.read('region.json'))
+                old.require(not m['complete'] and m['revision']==status['headSha'] and all(
+                    m['cells'][p]['sha256']==old.digest(z.read(p)) for p in m['cells']),'partial member differs')
+            receipt['excludedIncomplete'][name]=dict(run=run,id=item['id'],sha256=sha,bytes=file.stat().st_size,
+                recordedCells=len(m['cells']),job=jobs[f'region ({name})']['databaseId'],filename=file.name)
     return cells,receipt
 
 
