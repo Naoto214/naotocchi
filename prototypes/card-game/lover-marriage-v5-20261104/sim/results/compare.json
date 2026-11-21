@@ -1,0 +1,796 @@
+{
+ "gorilla": {
+  "V4": {
+   "score": 0.3917,
+   "diff_vs_A0": [
+    -0.0542,
+    -0.1029,
+    -0.0054,
+    120
+   ],
+   "growth": 68.21,
+   "oppGrowth": 74.12,
+   "married": 0.733,
+   "marriedRound": 6.51,
+   "v4PerGame": 0.075,
+   "uses": {
+    "P-gentle_gorilla": 9
+   },
+   "oppV4PerGame": 0.633,
+   "first": 0.3583,
+   "second": 0.425,
+   "byOpp": {
+    "balance": -0.025,
+    "companion": -0.025,
+    "growth": 0.0,
+    "item": -0.175,
+    "main": -0.05,
+    "partner": -0.05
+   },
+   "abnormal": 0,
+   "replay": {
+    "match": 120
+   },
+   "maxHand": 8
+  },
+  "Gnone": {
+   "score": 0.3833,
+   "diff_vs_A0": [
+    -0.0625,
+    -0.1081,
+    -0.0169,
+    120
+   ],
+   "growth": 67.83,
+   "oppGrowth": 74.25,
+   "married": 0.733,
+   "marriedRound": 6.51,
+   "v4PerGame": 0.0,
+   "uses": {},
+   "oppV4PerGame": 0.633,
+   "first": 0.3417,
+   "second": 0.425,
+   "byOpp": {
+    "balance": -0.025,
+    "companion": -0.025,
+    "growth": 0.0,
+    "item": -0.175,
+    "main": -0.05,
+    "partner": -0.1
+   },
+   "abnormal": 0,
+   "replay": {
+    "match": 120
+   },
+   "maxHand": 8
+  },
+  "Gv2b": {
+   "score": 0.3833,
+   "diff_vs_A0": [
+    -0.0625,
+    -0.1081,
+    -0.0169,
+    120
+   ],
+   "growth": 67.79,
+   "oppGrowth": 74.21,
+   "married": 0.733,
+   "marriedRound": 6.51,
+   "v4PerGame": 0.017,
+   "uses": {
+    "P-gentle_gorilla": 2
+   },
+   "oppV4PerGame": 0.633,
+   "first": 0.3417,
+   "second": 0.425,
+   "byOpp": {
+    "balance": -0.025,
+    "companion": -0.025,
+    "growth": 0.0,
+    "item": -0.175,
+    "main": -0.05,
+    "partner": -0.1
+   },
+   "abnormal": 0,
+   "replay": {
+    "match": 120
+   },
+   "maxHand": 8
+  },
+  "Gv3n": {
+   "score": 0.4042,
+   "diff_vs_A0": [
+    -0.0417,
+    -0.0915,
+    0.0081,
+    120
+   ],
+   "growth": 68.71,
+   "oppGrowth": 74.17,
+   "married": 0.733,
+   "marriedRound": 6.51,
+   "v4PerGame": 0.733,
+   "uses": {
+    "P-gentle_gorilla": 88
+   },
+   "oppV4PerGame": 0.633,
+   "first": 0.375,
+   "second": 0.4333,
+   "byOpp": {
+    "balance": 0.0,
+    "companion": -0.025,
+    "growth": 0.0,
+    "item": -0.175,
+    "main": -0.05,
+    "partner": 0.0
+   },
+   "abnormal": 0,
+   "replay": {
+    "match": 120
+   },
+   "maxHand": 9
+  },
+  "Gg4": {
+   "score": 0.3583,
+   "diff_vs_A0": [
+    -0.0875,
+    -0.1374,
+    -0.0376,
+    120
+   ],
+   "growth": 66.38,
+   "oppGrowth": 74.29,
+   "married": 0.733,
+   "marriedRound": 6.51,
+   "v4PerGame": 2.142,
+   "uses": {
+    "P-gentle_gorilla": 257
+   },
+   "oppV4PerGame": 0.633,
+   "first": 0.3167,
+   "second": 0.4,
+   "byOpp": {
+    "balance": -0.075,
+    "companion": -0.1,
+    "growth": 0.0,
+    "item": -0.175,
+    "main": -0.05,
+    "partner": -0.125
+   },
+   "abnormal": 0,
+   "replay": {
+    "match": 120
+   },
+   "maxHand": 8
+  }
+ },
+ "gorilla_vsV4": {
+  "Gnone": [
+   -0.0083,
+   -0.0246,
+   0.0079,
+   120
+  ],
+  "Gv2b": [
+   -0.0083,
+   -0.0246,
+   0.0079,
+   120
+  ],
+  "Gv3n": [
+   0.0125,
+   -0.0015,
+   0.0265,
+   120
+  ],
+  "Gg4": [
+   -0.0333,
+   -0.0585,
+   -0.0082,
+   120
+  ]
+ },
+ "snow": {
+  "V4": {
+   "score": 0.5417,
+   "diff_vs_A0": [
+    0.05,
+    0.0077,
+    0.0923,
+    120
+   ],
+   "growth": 73.75,
+   "oppGrowth": 70.67,
+   "married": 0.658,
+   "marriedRound": 6.76,
+   "v4PerGame": 0.642,
+   "uses": {
+    "P-snow_spirit": 77
+   },
+   "oppV4PerGame": 0.558,
+   "first": 0.55,
+   "second": 0.5333,
+   "byOpp": {
+    "balance": 0.1,
+    "challenge": 0.05,
+    "companion": 0.1,
+    "growth": 0.05,
+    "item": 0.05,
+    "partner": -0.05
+   },
+   "abnormal": 0,
+   "replay": {
+    "match": 120
+   },
+   "maxHand": 9
+  },
+  "Snone": {
+   "score": 0.4875,
+   "diff_vs_A0": [
+    -0.0042,
+    -0.0466,
+    0.0383,
+    120
+   ],
+   "growth": 70.42,
+   "oppGrowth": 70.46,
+   "married": 0.633,
+   "marriedRound": 6.79,
+   "v4PerGame": 0.0,
+   "uses": {},
+   "oppV4PerGame": 0.558,
+   "first": 0.4833,
+   "second": 0.4917,
+   "byOpp": {
+    "balance": 0.05,
+    "challenge": 0.0,
+    "companion": 0.0,
+    "growth": 0.0,
+    "item": 0.0,
+    "partner": -0.075
+   },
+   "abnormal": 0,
+   "replay": {
+    "match": 120
+   },
+   "maxHand": 9
+  },
+  "Sdraw": {
+   "score": 0.475,
+   "diff_vs_A0": [
+    -0.0167,
+    -0.0549,
+    0.0215,
+    120
+   ],
+   "growth": 70.54,
+   "oppGrowth": 70.71,
+   "married": 0.658,
+   "marriedRound": 6.76,
+   "v4PerGame": 0.6,
+   "uses": {
+    "P-snow_spirit": 72
+   },
+   "oppV4PerGame": 0.558,
+   "first": 0.4583,
+   "second": 0.4917,
+   "byOpp": {
+    "balance": 0.05,
+    "challenge": 0.0,
+    "companion": 0.0,
+    "growth": 0.0,
+    "item": 0.0,
+    "partner": -0.15
+   },
+   "abnormal": 0,
+   "replay": {
+    "match": 120
+   },
+   "maxHand": 9
+  },
+  "Sb": {
+   "score": 0.525,
+   "diff_vs_A0": [
+    0.0333,
+    -0.0139,
+    0.0806,
+    120
+   ],
+   "growth": 70.58,
+   "oppGrowth": 69.33,
+   "married": 0.642,
+   "marriedRound": 6.77,
+   "v4PerGame": 0.0,
+   "uses": {},
+   "oppV4PerGame": 0.575,
+   "first": 0.5083,
+   "second": 0.5417,
+   "byOpp": {
+    "balance": 0.1,
+    "challenge": 0.0,
+    "companion": 0.0,
+    "growth": 0.0,
+    "item": 0.075,
+    "partner": 0.025
+   },
+   "abnormal": 0,
+   "replay": {
+    "match": 120
+   },
+   "maxHand": 9
+  }
+ },
+ "snow_vsV4": {
+  "Snone": [
+   -0.0542,
+   -0.0884,
+   -0.0199,
+   120
+  ],
+  "Sdraw": [
+   -0.0667,
+   -0.0992,
+   -0.0341,
+   120
+  ],
+  "Sb": [
+   -0.0167,
+   -0.0549,
+   0.0215,
+   120
+  ]
+ },
+ "cactus": {
+  "V4": {
+   "score": 0.4917,
+   "diff_vs_A0": [
+    0.0458,
+    -0.0131,
+    0.1047,
+    120
+   ],
+   "growth": 68.96,
+   "oppGrowth": 73.38,
+   "married": 1.0,
+   "marriedRound": 6.52,
+   "v4PerGame": 0.55,
+   "uses": {
+    "P-high_eagle": 66
+   },
+   "oppV4PerGame": 0.475,
+   "first": 0.5417,
+   "second": 0.4417,
+   "byOpp": {
+    "balance": 0.075,
+    "challenge": 0.075,
+    "companion": 0.075,
+    "growth": 0.125,
+    "item": 0.0,
+    "main": -0.075
+   },
+   "abnormal": 0,
+   "replay": {
+    "match": 120
+   },
+   "maxHand": 16
+  },
+  "Cnone": {
+   "score": 0.4708,
+   "diff_vs_A0": [
+    0.025,
+    -0.029,
+    0.079,
+    120
+   ],
+   "growth": 68.21,
+   "oppGrowth": 73.46,
+   "married": 1.0,
+   "marriedRound": 6.5,
+   "v4PerGame": 0.55,
+   "uses": {
+    "P-high_eagle": 66
+   },
+   "oppV4PerGame": 0.475,
+   "first": 0.4917,
+   "second": 0.45,
+   "byOpp": {
+    "balance": -0.025,
+    "challenge": 0.0,
+    "companion": 0.075,
+    "growth": 0.125,
+    "item": 0.0,
+    "main": -0.025
+   },
+   "abnormal": 0,
+   "replay": {
+    "match": 120
+   },
+   "maxHand": 16
+  },
+  "Cb": {
+   "score": 0.4958,
+   "diff_vs_A0": [
+    0.05,
+    -0.0093,
+    0.1093,
+    120
+   ],
+   "growth": 69.71,
+   "oppGrowth": 73.42,
+   "married": 1.0,
+   "marriedRound": 6.52,
+   "v4PerGame": 0.55,
+   "uses": {
+    "P-high_eagle": 66
+   },
+   "oppV4PerGame": 0.483,
+   "first": 0.5417,
+   "second": 0.45,
+   "byOpp": {
+    "balance": 0.075,
+    "challenge": 0.1,
+    "companion": 0.075,
+    "growth": 0.125,
+    "item": 0.0,
+    "main": -0.075
+   },
+   "abnormal": 0,
+   "replay": {
+    "match": 120
+   },
+   "maxHand": 16
+  },
+  "Cc3": {
+   "score": 0.475,
+   "diff_vs_A0": [
+    0.0292,
+    -0.0202,
+    0.0786,
+    120
+   ],
+   "growth": 67.96,
+   "oppGrowth": 73.25,
+   "married": 1.0,
+   "marriedRound": 6.5,
+   "v4PerGame": 1.267,
+   "uses": {
+    "P-oasis_cactus": 86,
+    "P-high_eagle": 66
+   },
+   "oppV4PerGame": 0.475,
+   "first": 0.5,
+   "second": 0.45,
+   "byOpp": {
+    "balance": -0.025,
+    "challenge": 0.025,
+    "companion": 0.075,
+    "growth": 0.125,
+    "item": 0.0,
+    "main": -0.025
+   },
+   "abnormal": 0,
+   "replay": {
+    "match": 120
+   },
+   "maxHand": 16
+  }
+ },
+ "cactus_vsV4": {
+  "Cnone": [
+   -0.0208,
+   -0.0522,
+   0.0106,
+   120
+  ],
+  "Cb": [
+   0.0042,
+   -0.004,
+   0.0123,
+   120
+  ],
+  "Cc3": [
+   -0.0167,
+   -0.0471,
+   0.0137,
+   120
+  ]
+ },
+ "Ktop": {
+  "Ktop": {
+   "score": 0.5417,
+   "diff_vs_A0": [
+    -0.0417,
+    -0.0826,
+    -0.0007,
+    120
+   ],
+   "growth": 74.96,
+   "oppGrowth": 72.58,
+   "married": 0.675,
+   "marriedRound": 7.44,
+   "v4PerGame": 0.342,
+   "uses": {
+    "P-knitting_spider": 41
+   },
+   "oppV4PerGame": 0.542,
+   "first": 0.5583,
+   "second": 0.525,
+   "byOpp": {
+    "balance": -0.025,
+    "challenge": 0.0,
+    "companion": 0.0,
+    "growth": 0,
+    "main": -0.05,
+    "partner": -0.175
+   },
+   "abnormal": 0,
+   "replay": {
+    "match": 120
+   },
+   "maxHand": 8
+  },
+  "V4": {
+   "score": 0.6125,
+   "diff_vs_A0": [
+    0.0292,
+    -0.0216,
+    0.0799,
+    120
+   ],
+   "growth": 77,
+   "oppGrowth": 72.46,
+   "married": 0.675,
+   "marriedRound": 7.44,
+   "v4PerGame": 0.342,
+   "uses": {
+    "P-knitting_spider": 41
+   },
+   "oppV4PerGame": 0.533,
+   "first": 0.625,
+   "second": 0.6,
+   "byOpp": {
+    "balance": 0.0,
+    "challenge": 0.175,
+    "companion": 0.1,
+    "growth": 0.075,
+    "main": -0.05,
+    "partner": -0.125
+   },
+   "abnormal": 0,
+   "replay": {
+    "match": 120
+   },
+   "maxHand": 8
+  }
+ },
+ "Ktop_vsV4": [
+  -0.0708,
+  -0.1129,
+  -0.0287,
+  120
+ ],
+ "Xspider": {
+  "Xspider": {
+   "score": 0.5542,
+   "diff_vs_A0": [
+    -0.0292,
+    -0.0604,
+    0.002,
+    120
+   ],
+   "growth": 75.17,
+   "oppGrowth": 72.62,
+   "married": 0.675,
+   "marriedRound": 7.44,
+   "v4PerGame": 0.0,
+   "uses": {},
+   "oppV4PerGame": 0.542,
+   "first": 0.5583,
+   "second": 0.55,
+   "byOpp": {
+    "balance": -0.025,
+    "challenge": 0.0,
+    "companion": 0.025,
+    "growth": 0,
+    "main": -0.05,
+    "partner": -0.125
+   },
+   "abnormal": 0,
+   "replay": {
+    "match": 120
+   },
+   "maxHand": 8
+  },
+  "V4": {
+   "score": 0.6125,
+   "diff_vs_A0": [
+    0.0292,
+    -0.0216,
+    0.0799,
+    120
+   ],
+   "growth": 77,
+   "oppGrowth": 72.46,
+   "married": 0.675,
+   "marriedRound": 7.44,
+   "v4PerGame": 0.342,
+   "uses": {
+    "P-knitting_spider": 41
+   },
+   "oppV4PerGame": 0.533,
+   "first": 0.625,
+   "second": 0.6,
+   "byOpp": {
+    "balance": 0.0,
+    "challenge": 0.175,
+    "companion": 0.1,
+    "growth": 0.075,
+    "main": -0.05,
+    "partner": -0.125
+   },
+   "abnormal": 0,
+   "replay": {
+    "match": 120
+   },
+   "maxHand": 8
+  }
+ },
+ "Xspider_vsV4": [
+  -0.0583,
+  -0.097,
+  -0.0197,
+  120
+ ],
+ "Xeagle": {
+  "Xeagle": {
+   "score": 0.5083,
+   "diff_vs_A0": [
+    0.075,
+    0.0051,
+    0.1449,
+    120
+   ],
+   "growth": 68.71,
+   "oppGrowth": 71.62,
+   "married": 0.942,
+   "marriedRound": 6.19,
+   "v4PerGame": 0.625,
+   "uses": {
+    "P-high_eagle*": 140,
+    "P-grove_deer": 75
+   },
+   "oppV4PerGame": 0.442,
+   "first": 0.5833,
+   "second": 0.4333,
+   "byOpp": {
+    "balance": 0.275,
+    "challenge": -0.05,
+    "companion": -0.025,
+    "growth": 0.075,
+    "item": 0.125,
+    "main": 0.05
+   },
+   "abnormal": 0,
+   "replay": {
+    "match": 120
+   },
+   "maxHand": 14
+  },
+  "V4": {
+   "score": 0.4958,
+   "diff_vs_A0": [
+    0.0625,
+    -0.0083,
+    0.1333,
+    120
+   ],
+   "growth": 69.29,
+   "oppGrowth": 72.46,
+   "married": 0.942,
+   "marriedRound": 6.19,
+   "v4PerGame": 0.942,
+   "uses": {
+    "P-high_eagle": 38,
+    "P-grove_deer": 75
+   },
+   "oppV4PerGame": 0.508,
+   "first": 0.5833,
+   "second": 0.4083,
+   "byOpp": {
+    "balance": 0.05,
+    "challenge": 0.05,
+    "companion": -0.025,
+    "growth": 0.125,
+    "item": 0.125,
+    "main": 0.05
+   },
+   "abnormal": 0,
+   "replay": {
+    "match": 120
+   },
+   "maxHand": 15
+  }
+ },
+ "Xeagle_vsV4": [
+  0.0125,
+  -0.0299,
+  0.0549,
+  120
+ ],
+ "Xdeer": {
+  "Xdeer": {
+   "score": 0.4542,
+   "diff_vs_A0": [
+    0.0208,
+    -0.0418,
+    0.0835,
+    120
+   ],
+   "growth": 68.5,
+   "oppGrowth": 73.79,
+   "married": 0.942,
+   "marriedRound": 6.19,
+   "v4PerGame": 0.533,
+   "uses": {
+    "P-high_eagle": 64,
+    "P-high_eagle*": 233
+   },
+   "oppV4PerGame": 0.292,
+   "first": 0.4833,
+   "second": 0.425,
+   "byOpp": {
+    "balance": -0.075,
+    "challenge": 0.075,
+    "companion": 0.075,
+    "growth": 0.15,
+    "item": -0.075,
+    "main": -0.025
+   },
+   "abnormal": 0,
+   "replay": {
+    "match": 120
+   },
+   "maxHand": 15
+  },
+  "V4": {
+   "score": 0.4958,
+   "diff_vs_A0": [
+    0.0625,
+    -0.0083,
+    0.1333,
+    120
+   ],
+   "growth": 69.29,
+   "oppGrowth": 72.46,
+   "married": 0.942,
+   "marriedRound": 6.19,
+   "v4PerGame": 0.942,
+   "uses": {
+    "P-high_eagle": 38,
+    "P-grove_deer": 75
+   },
+   "oppV4PerGame": 0.508,
+   "first": 0.5833,
+   "second": 0.4083,
+   "byOpp": {
+    "balance": 0.05,
+    "challenge": 0.05,
+    "companion": -0.025,
+    "growth": 0.125,
+    "item": 0.125,
+    "main": 0.05
+   },
+   "abnormal": 0,
+   "replay": {
+    "match": 120
+   },
+   "maxHand": 15
+  }
+ },
+ "Xdeer_vsV4": [
+  -0.0417,
+  -0.1012,
+  0.0179,
+  120
+ ]
+}
