@@ -79,22 +79,33 @@ def save(path,data):
     temp.replace(path)
 
 async def attend_choice(page, data, wall, clock, reasons):
-    # Only explicit deferrals on user-choice panels are eligible. Never drive the
-    # actor, end ordinary conversation, skip a tick, choose a personality or wake
-    # a sleeping resident. A changed or dismissed panel is rechecked by Playwright.
+    # Some production-home choices have no timeout. Wait for the genuine visible
+    # control and send a trusted tap so its native response can play in full.
     options=[]
     if 'dialog' in reasons: options.append(('dialog','#individualityLater','あとで'))
     if 'growth-choice' in reasons: options.append(('growth-choice','#transformSkipBtn','このままでいい'))
     if 'menu' in reasons: options.append(('menu','#companionInviteLaterBtn','またこんど'))
-    for reason,selector,label in options:
+    if 'conversation' in reasons:
+        selector='#speechChoices:not(.hidden) button.speech-choice[data-choice="0"]'
+        options.append(('conversation',selector,None))
+    for reason,selector,expected_label in options:
         button=page.locator(selector)
         if not await button.is_visible() or not await button.is_enabled():continue
-        if (await button.inner_text()).strip()!=label:continue
+        label=(await button.inner_text()).strip()
+        if not label or (expected_label is not None and label!=expected_label):continue
         before=await page.evaluate('HomeMobilityDiagnostics.read().currentGateReasons')
         if reason not in before:continue
-        try: await button.tap(timeout=3500); result='trusted native choice deferral'
-        except PlaywrightTimeout: result='choice deferral acknowledgement timeout'
-        data['care'].append(dict(wall=wall,clock=clock,control=selector,label=label,gate=before,action=result))
+        is_answer=reason=='conversation'
+        record=dict(wall=wall,clock=clock,control=selector,label=label,gate=before)
+        if is_answer:
+            record['question']=await page.locator('#speechText').inner_text()
+            record['choices']=await page.locator('#speechChoices button.speech-choice').all_inner_texts()
+            if not record['choices'] or record['choices'][0].strip()!=label:continue
+        try:
+            await button.tap(timeout=3500)
+            record['action']='trusted native question answer' if is_answer else 'trusted native choice deferral'
+        except PlaywrightTimeout: record['action']='choice tap acknowledgement timeout'
+        data['care'].append(record)
         return
 
 async def run(args):
@@ -190,5 +201,5 @@ async def run(args):
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--url',required=True);p.add_argument('--arm',required=True)
     p.add_argument('--seed',type=int,default=214);p.add_argument('--out',type=Path,required=True);p.add_argument('--seconds',type=float,default=600)
-    p.add_argument('--attended',action='store_true',help='Use the visible native later/keep control only after 30 seconds of a stalled choice panel')
+    p.add_argument('--attended',action='store_true',help='After 30 seconds of a stalled native user choice, defer it or answer the visible authored question')
     p.add_argument('--chromium',default='/usr/bin/chromium');asyncio.run(run(p.parse_args()))
