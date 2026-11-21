@@ -1,0 +1,31 @@
+{
+  "main": "e0120c58f36394c9acff6507d72ceb3a1f48e1e2",
+  "musicTree": "740225ef3188dd6258be2f9293c7bc469421016c",
+  "files": [
+    {
+      "path": "prototypes/main-theme-20261108/songs.js",
+      "gitBlob": "4af9dd03ccbdf4d9a22fdaacf04e3ae11d25f4d9",
+      "sha256": "e0deb4482a438bf13cee9a93b1e931a4376f734df00479badc9f5c96464d31ff"
+    },
+    {
+      "path": "prototypes/main-theme-v2-20261108/songs-v2.js",
+      "gitBlob": "b376a9c94cb66eee08407213df0243a530648d91",
+      "sha256": "a1d0911c2973636f8ac0047f1d12bd6641e8edf452815eeacd01cf23a0481591"
+    },
+    {
+      "path": "prototypes/main-theme-v2-20261108/engine-v2.js",
+      "gitBlob": "1fa6dc43d141179c3db935b7e6e0a3bdf8db2b66",
+      "sha256": "0fab1f9b0e1b2933a015cede557ccfd4b9ccfe1eebaa1e7cbe6490fdd705e6fd"
+    },
+    {
+      "path": "prototypes/main-theme-v3-morning-20261108/songs-v3.js",
+      "gitBlob": "551811916177ab72ddefb5d4befe2dd1205fadb0",
+      "sha256": "22a8e6b5f6d66957a8b21ab083064db140b4bedaef6bf3c24095431c29e706b4"
+    },
+    {
+      "path": "prototypes/main-theme-favorites-20261108/favorites.js",
+      "gitBlob": "3b137b09e3834de3184f7533c385e052192d0da1",
+      "sha256": "08b5fa052cc05470f8c717bcbf1573f3e85c90fc6bc631f6a3a2cd6ffa0a0341"
+    }
+  ]
+}
