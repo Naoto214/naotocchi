@@ -1,0 +1,49 @@
+{
+  "siteVersion": 3,
+  "siteSource": "bf5ea23aee49291ff23cc2156602c9c5cff52dae",
+  "release": "appgdep_6b01d3ffb7dc8191a0b9d6d54c252d5a",
+  "url": "https://naotocchi-mobility-v8-evidence.kerzion214.chatgpt.site/v10/",
+  "ownerCount": 1,
+  "otherUsers": 0,
+  "groups": 0,
+  "external": 0,
+  "files": 449,
+  "verifiedOwnerURLs": 453,
+  "anonymousResponseCounts": {
+    "401": 453
+  },
+  "manifestSHA256": "be781d3b796bfb84a0eadbd513270e35c48ebfd14f6883d0365b38f256ea63d9",
+  "preservedEarlierDataFiles": 236,
+  "ui": {
+    "320": {
+      "cases": 12,
+      "residentsPerCase": 28,
+      "focusSelectionsChecked": 48,
+      "horizontalOverflow": false,
+      "errors": [],
+      "syncComparison": {
+        "nativeImagesLoaded": 4,
+        "toggleStates": [
+          "before",
+          "after",
+          "before"
+        ]
+      }
+    },
+    "390": {
+      "cases": 12,
+      "residentsPerCase": 28,
+      "focusSelectionsChecked": 48,
+      "horizontalOverflow": false,
+      "errors": [],
+      "syncComparison": {
+        "nativeImagesLoaded": 4,
+        "toggleStates": [
+          "before",
+          "after",
+          "before"
+        ]
+      }
+    }
+  }
+}

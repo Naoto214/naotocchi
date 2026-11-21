@@ -1,0 +1,7 @@
+sample,arm,modelClock,residents,trusted,selected,issued,routed,terminalArrived,terminalNear4,unsafeSteps,sweptViolations,initiallyGated,inputGated,selectedNoIssue,issuedNoRoute,routedNoArrival,arrivedOutside4,pendingSearchGeneratorRemoved,sourceSHA256,feetSHA256
+local-opening,v9-seats,0,28,28,28,27,18,18,8,0,0,0,1,1,9,0,10,False,6fea4db612a3efbe3f264293763847cfd07397f851cf4c464f2cb79a13d0f030,86d983ffacb35d773b85a143f7e22658628c41117f86319824f376ccf539e5e3
+local-601s,v9-seats,601.4608000000771,28,28,28,28,24,24,10,0,0,0,0,0,4,0,14,True,6fea4db612a3efbe3f264293763847cfd07397f851cf4c464f2cb79a13d0f030,eb0c515e1777aa6bae9bbb852e3e6f6b70aa90b3c2aeeae59a55144f7608ebf5
+local-native-save-601s,v9-seats,601.4608000000771,28,28,21,10,10,6,2,0,0,7,18,11,0,4,4,True,6fea4db612a3efbe3f264293763847cfd07397f851cf4c464f2cb79a13d0f030,eb0c515e1777aa6bae9bbb852e3e6f6b70aa90b3c2aeeae59a55144f7608ebf5
+local-native-save-600s-v10,v10-reference,602.7788000000585,28,28,28,28,22,22,7,0,0,0,0,0,6,0,15,True,34e0c9bbdb5cc2b03c3f426a5160d8425c9b7c1d22daa1a7664f0eacf6196c2e,d0219b9f0bd12c265ba6a45c86a7ca29b20d976c020292a952cd7bfdb8bb9c6f
+archived-600s-v9,v9-seats,600.1922000001047,28,28,28,28,21,21,12,0,0,0,0,0,7,0,9,False,6fea4db612a3efbe3f264293763847cfd07397f851cf4c464f2cb79a13d0f030,dfcdc02c5ac3bedfbc07a47f83266c369cf1dfcff67b91ae590dd67c7af0b80f
+archived-600s-v10,v10-reference,600.1922000001047,28,28,28,28,21,21,12,0,0,0,0,0,7,0,9,False,34e0c9bbdb5cc2b03c3f426a5160d8425c9b7c1d22daa1a7664f0eacf6196c2e,dfcdc02c5ac3bedfbc07a47f83266c369cf1dfcff67b91ae590dd67c7af0b80f

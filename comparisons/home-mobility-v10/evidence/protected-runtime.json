@@ -1,0 +1,48 @@
+{
+  "reference": "be5db6804bf0bee872080bae49cb714f295a461b",
+  "candidate": "330efb1a7c91ce4b9e094e7399118c1e285a94d9",
+  "unchangedGitPaths": 36276,
+  "addedGitPaths": 53,
+  "protectedPRs": {
+    "p561": {
+      "state": "MERGED",
+      "headRefOid": "985a369d6b942d3ab91cb2aff2e17e698cb137fc"
+    },
+    "p567": {
+      "state": "OPEN",
+      "headRefOid": "fae83a21915f9ada92f4ac13ac1aaacd397e333d"
+    },
+    "p568": {
+      "state": "OPEN",
+      "headRefOid": "2935622edf9ccdc6f8a36f2297dd86b789022b87"
+    },
+    "p569": {
+      "state": "OPEN",
+      "headRefOid": "28628cf336a8ed92efe4e9e197ca03298b798a1e"
+    },
+    "p570": {
+      "state": "OPEN",
+      "headRefOid": "e07d2cc53eca36ff23e02142ab385d6001e0521b"
+    },
+    "p572": {
+      "state": "OPEN",
+      "headRefOid": "a0df9061c26dde237158ba3423dd4732ca8bec42"
+    },
+    "p575": {
+      "state": "OPEN",
+      "headRefOid": "5db9835478eafe526271c6864e0c86ded6324172"
+    },
+    "p576": {
+      "state": "OPEN",
+      "headRefOid": "e1f4a743684ce4ce8760a713d309483cedb9c50f"
+    },
+    "p578": {
+      "state": "OPEN",
+      "headRefOid": "6b2e2a22ab3981ac748cc645f5f1f53ce91e4c64"
+    },
+    "p579": {
+      "state": "OPEN",
+      "headRefOid": "be5db6804bf0bee872080bae49cb714f295a461b"
+    }
+  }
+}

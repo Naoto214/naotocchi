@@ -1,0 +1,59 @@
+[
+  {
+    "width": 375,
+    "order": 0,
+    "seed": 214,
+    "sectors": 1440,
+    "ranges": [
+      1.0,
+      2.0,
+      3.0,
+      4.0,
+      5.0,
+      6.0,
+      7.0,
+      8.0,
+      9.0,
+      10.0,
+      11.0,
+      12.0,
+      13.0,
+      14.0,
+      15.0,
+      16.0,
+      17.0,
+      18.0,
+      19.0,
+      20.0,
+      21.0,
+      22.0,
+      23.0,
+      24.0
+    ],
+    "changes": {
+      "companion:squirrel": 1.0
+    },
+    "lost": 3,
+    "gained": 36,
+    "lostResidents": [
+      "companion:clock"
+    ],
+    "native": {
+      "baseline": {
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "home-production-model-mobility-v9.js": "cb1d889b035b4e275270a7f783cd37f396e87ec77f681a38a68c6ecae9f41933",
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6"
+      },
+      "candidate": {
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-model-mobility-v9.js": "cb1d889b035b4e275270a7f783cd37f396e87ec77f681a38a68c6ecae9f41933",
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6"
+      }
+    },
+    "browser": "156.0.8078.79",
+    "corridorPreserved": true,
+    "openingArtworkPreserved": true
+  }
+]

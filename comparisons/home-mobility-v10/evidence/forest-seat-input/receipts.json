@@ -1,0 +1,172 @@
+[
+  {
+    "filename": "375-compensation-dy-0.001-eps0.csv.gz",
+    "bytes": 36873,
+    "sha256": "d3786424f7ab118e39054a1d10aae8acb036e93c6ee78f6b34f88f1c2a652134"
+  },
+  {
+    "filename": "375-compensation-dy-0.01-eps-0.01.csv.gz",
+    "bytes": 36879,
+    "sha256": "c3a40bcc9e61a40ad24683a3ba5760e639bdd96fb47e4b4480b98b36639e5de6"
+  },
+  {
+    "filename": "375-compensation-dy-0.01-eps0.01.csv.gz",
+    "bytes": 36873,
+    "sha256": "c73bb8e3af9c480919079308835daf967a59c73ea37f95f081d49964a285e534"
+  },
+  {
+    "filename": "375-compensation-dy-0.01-eps0.csv.gz",
+    "bytes": 36871,
+    "sha256": "70950a38c18d8b5a4308a669fe275f226ba7cee23a5c0da51c2903d8ef66522a"
+  },
+  {
+    "filename": "375-compensation-dy-0.1-eps0.csv.gz",
+    "bytes": 36865,
+    "sha256": "ff5b60a358cb3061acf26b40a3e1b38550555d2349e71b6b87d3228516e687c9"
+  },
+  {
+    "filename": "375-compensation-screen.zip",
+    "bytes": 11590,
+    "sha256": "34501c92d40ca391da670cd019bec5e815363dcc2b5b55b5e80bd6bdb20eb405"
+  },
+  {
+    "filename": "375-one-pixel-directions.csv.gz",
+    "bytes": 36935,
+    "sha256": "b145f3c6e1d1d440d0bf6855735b2e4071beeae06a9f6abe2e3fd69db311b756"
+  },
+  {
+    "filename": "archived-390-937-v9-seats-checkpoint.json.gz",
+    "bytes": 6368,
+    "sha256": "28a4261262a513f79ac67c3317c62081512e3659b920acce1612ae13585c8013"
+  },
+  {
+    "filename": "archived-390-937-v9-seats-live.json.gz",
+    "bytes": 369466,
+    "sha256": "8ca183dd1b1431c3a27ffebcb8472097f3a3466fadec9477d9f8769a6ba7a55a"
+  },
+  {
+    "filename": "archived-600s-v10.json.gz",
+    "bytes": 10436,
+    "sha256": "c2e0452670310645463d70da9820d62ae9162c22618e53c0341ce06af5c0ea9e"
+  },
+  {
+    "filename": "archived-600s-v9.json.gz",
+    "bytes": 10355,
+    "sha256": "22dff019d4bc9c13c2bd99491490bfa03878b884566718cd734014ee316efb2d"
+  },
+  {
+    "filename": "bounded-opening-search.zip",
+    "bytes": 106565,
+    "sha256": "65442c93bfaf76905340d14c9ec379303402c03084463ca78dfad027f9694ffb"
+  },
+  {
+    "filename": "ce31-pilot-local-390-937-v10-reference-aged-save.json.gz",
+    "bytes": 2427,
+    "sha256": "c08737bc529c6d7a97558da67eff5f9f54c028be98f82823cb1cb06780dc3bd1"
+  },
+  {
+    "filename": "ce31-pilot-local-390-937-v10-reference-checkpoint.json.gz",
+    "bytes": 4968,
+    "sha256": "7ef1b265ea53cc8a45a364b8fbe3d0a886cce14ec23bd7f1227a35ac28288e1e"
+  },
+  {
+    "filename": "ce31-pilot-local-390-937-v10-reference-live.json.gz",
+    "bytes": 395392,
+    "sha256": "b9622cb1bc0df25e3293572f5ce9d3a8cecfdbe13f25d1d0f59c5640d6f981eb"
+  },
+  {
+    "filename": "ce31-pilot-local-390-937-v10-reference-restore.json.gz",
+    "bytes": 697,
+    "sha256": "5701f4bd95779d8821dce7a118090648b7e064fa70b57318864f8659d08ab09d"
+  },
+  {
+    "filename": "ce31-pilot-seats10-native-v10-saved.json.gz",
+    "bytes": 2471,
+    "sha256": "b2165e28e1d5e8cd8f87ce5ee32de3bfce73c02a4e16c38807fc1f1821f32e60"
+  },
+  {
+    "filename": "ce31-pilot-v10-touch.json.gz",
+    "bytes": 4427,
+    "sha256": "1581a6fbcde000bcc6a00373c2cf4ca541b1aac06478ddee34b3b15d2cce346a"
+  },
+  {
+    "filename": "input-observers.zip",
+    "bytes": 24162,
+    "sha256": "2e41fa84c9217c0f6afd93a6f21b059e2375b6539c2c8e211930188ccd0c299f"
+  },
+  {
+    "filename": "local-390-937-v10-reference-aged-save.json.gz",
+    "bytes": 2375,
+    "sha256": "0121f3572749a2f9610a87e2a879b4b91feb586105ba0667ee16ef7f6883203d"
+  },
+  {
+    "filename": "local-390-937-v10-reference-checkpoint.json.gz",
+    "bytes": 6921,
+    "sha256": "89b6db2dd0c539a884496ca5787125f80342eed92fcf559581e4ca8bf7311a4a"
+  },
+  {
+    "filename": "local-390-937-v10-reference-live.json.gz",
+    "bytes": 338790,
+    "sha256": "7971d69f7406679fb1a5f18cfe7ea0659f70c3689db845aa7bfd487d69c5b52b"
+  },
+  {
+    "filename": "local-390-937-v10-reference-restore.json.gz",
+    "bytes": 671,
+    "sha256": "09abaa74a91f2d1770ac7bf43a0913ad03d0588e1b93d69afc8f5a3b6178f60b"
+  },
+  {
+    "filename": "local-390-937-v9-seats-aged-save.json.gz",
+    "bytes": 2364,
+    "sha256": "e307d1de57ff0c648ba7e9e1aeadcbac15cddde9c84a929a136d921e3f9f0be7"
+  },
+  {
+    "filename": "local-390-937-v9-seats-checkpoint.json.gz",
+    "bytes": 6444,
+    "sha256": "298f864b795a00667223141e6db4551f91c7bb54c2dbe950d673cebf634adee3"
+  },
+  {
+    "filename": "local-390-937-v9-seats-initial-checkpoint.json.gz",
+    "bytes": 2617,
+    "sha256": "f974e93bd019a11c9dc198a9e244ed12bf90ecb0a8c9e4f30f2ea599fa8cf4d8"
+  },
+  {
+    "filename": "local-390-937-v9-seats-initial-save.json.gz",
+    "bytes": 2215,
+    "sha256": "2def2b4de4ab1fdc19c5f50e4b9e97a21bbfefa1ed08be1bcb61bbac0bf03b7b"
+  },
+  {
+    "filename": "local-390-937-v9-seats-live.json.gz",
+    "bytes": 363521,
+    "sha256": "05ab08c241559ce0c51e7da4ea1997f1c138113cd9933dddd80779c7d4bbad81"
+  },
+  {
+    "filename": "local-390-937-v9-seats-restore.json.gz",
+    "bytes": 402,
+    "sha256": "901ba9baf9e51aeedadf902e1ff64daa204d567fb61db08006731b0a5c45689b"
+  },
+  {
+    "filename": "local-601s.json.gz",
+    "bytes": 10618,
+    "sha256": "43cd77426f115797d9ff62f839a625fdc92ec87ac6c7d3f2982f02d993a1eaa5"
+  },
+  {
+    "filename": "local-native-save-600s-v10.json.gz",
+    "bytes": 10426,
+    "sha256": "c9af40abb0bd9c79dd4a890f3cb2348960b50df6a57e441aab365af44ef06890"
+  },
+  {
+    "filename": "local-native-save-601s.json.gz",
+    "bytes": 8941,
+    "sha256": "c08ce1e0182c641019d24932ede0d058a17a98265aee21da7c6e601243b8aaae"
+  },
+  {
+    "filename": "local-opening.json.gz",
+    "bytes": 9834,
+    "sha256": "78a76e61e1382ab28347b43ee34949df54dde4ee70e0a5e8fcf949ec6a34615b"
+  },
+  {
+    "filename": "original-v9-directions.csv.gz",
+    "bytes": 25447,
+    "sha256": "048a52cdc91e25aa0c921ff0f510e3d6c4e12556fa4f635b3be6f9a50ae6afa6"
+  }
+]

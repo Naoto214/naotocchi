@@ -1,0 +1,28 @@
+{
+  "measuredGameCommit": "fdd2b1bcf6b156de0daeb5c1ab46295c681921f1",
+  "identicalFiles": 4008,
+  "newObserver": "game/telemetry-mobility-v10-owner.js",
+  "wrappersWithOnlyObserverURLReplaced": [
+    "game/mobility-v10-compare-v8.html",
+    "game/mobility-v10-compare-v9.html",
+    "game/mobility-v10-compare-v9-seats.html",
+    "game/mobility-v10-compare-v10.html",
+    "game/mobility-v10-compare-v10-seats.html",
+    "game/mobility-v10-compare-v10-reference.html"
+  ],
+  "updatedReadout": "v10/diagnostics.mjs",
+  "nativeAndOwnerDigests": {
+    "game/home-production-diorama-mobility-v10.js": "c1ba14468dd4507b774fe157a3e7f669f9f62f74f9d5cb6ab3ef838288e0abd9",
+    "game/mobility-v10-reference.html": "417ff8c680ff6b1ec25b10244c808f059db389d515109967fe051133d89013db",
+    "game/mobility-v10-seats.html": "18aa9fccb982fa757cac5f53c54b1ea839eb5be698ff3af7dc2dc3f03e34804e",
+    "game/telemetry-mobility-v10.js": "b2d04a892c48e50a5876f8d6e542dbdc851b20a6e108ea2925d0365a82a6a870",
+    "game/home-production-model-mobility-v10.js": "95e32fa82fdf92920212fcf90b65fd8a3d25927b5388b9d01935ae3f886cd5c8",
+    "game/home-production-model-mobility-v10-reference.js": "34e0c9bbdb5cc2b03c3f426a5160d8425c9b7c1d22daa1a7664f0eacf6196c2e",
+    "game/home-production-model-mobility-v10-seats.js": "be7b3ba5d90ffd70a7bf90c597e56ea8d35ce0d036696fe3fc0987f5a417a97d",
+    "game/mobility-v10.html": "a4d5f4d828254582f77d122e9ca76d83b912147168f04707fbd1e631f8f6a785",
+    "game/mobility-v9.html": "f8670cb721c5efebf76bb9af06aac43e717bd3e203009e44518b43ac72b27d91",
+    "game/telemetry-mobility-v10-owner.js": "dc6e587a51f4b0003789fafe09bfd69ab71e822e909d00cdef66fb71cc5cda33",
+    "game/mobility-v9-seats.html": "02ddaa7d9b934651a692901cd096e2650adcf0eb1b41de0be00b7c756099178a",
+    "game/mobility-v8.html": "ce8be69ef7ea3d76cfb37a5a4e6dc20ba53ad8646b46ded1e9a5cac9e5840df2"
+  }
+}

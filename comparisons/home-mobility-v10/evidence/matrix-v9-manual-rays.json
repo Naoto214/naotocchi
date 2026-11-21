@@ -1,0 +1,337 @@
+{
+  "sourceRun": 44903860732,
+  "sourceArm": "v9",
+  "restored": "all native feet, widths, heights, canonical region navigation",
+  "directions": 720,
+  "integerCssLengths": [
+    2,
+    12
+  ],
+  "rows": [
+    {
+      "region": "desert",
+      "count": 10,
+      "width": 390,
+      "key": "companion:otter",
+      "accepted": false,
+      "scan": {
+        "max": {},
+        "count": {
+          "contact": 0,
+          "bounds": 0,
+          "safe": 0
+        }
+      }
+    },
+    {
+      "region": "forest",
+      "count": 10,
+      "width": 375,
+      "key": "companion:squirrel",
+      "accepted": false,
+      "scan": {
+        "max": {},
+        "count": {
+          "contact": 0,
+          "bounds": 0,
+          "safe": 0
+        }
+      }
+    },
+    {
+      "region": "forest",
+      "count": 20,
+      "width": 320,
+      "key": "partner:forest_bear",
+      "accepted": false,
+      "scan": {
+        "max": {
+          "contact": {
+            "point": {
+              "x": 219.0397404599962,
+              "y": 114.3110540762016
+            },
+            "radius": 12,
+            "degrees": 192.5,
+            "gain": 9.387195003552845
+          },
+          "bounds": {
+            "point": {
+              "x": 219.0397404599962,
+              "y": 114.3110540762016
+            },
+            "radius": 12,
+            "degrees": 192.5,
+            "gain": 9.387195003552845
+          }
+        },
+        "count": {
+          "contact": 1258,
+          "bounds": 1246,
+          "safe": 0
+        }
+      }
+    },
+    {
+      "region": "forest",
+      "count": 20,
+      "width": 375,
+      "key": "pet:dog",
+      "accepted": false,
+      "scan": {
+        "max": {},
+        "count": {
+          "contact": 0,
+          "bounds": 0,
+          "safe": 0
+        }
+      }
+    },
+    {
+      "region": "forest",
+      "count": 20,
+      "width": 390,
+      "key": "partner:forest_bear",
+      "accepted": false,
+      "scan": {
+        "max": {
+          "contact": {
+            "point": {
+              "x": 271.5273460697722,
+              "y": 82.2253493999588
+            },
+            "radius": 6,
+            "degrees": 238.5,
+            "gain": 1.7647566379248243
+          }
+        },
+        "count": {
+          "contact": 292,
+          "bounds": 0,
+          "safe": 0
+        }
+      }
+    },
+    {
+      "region": "forest",
+      "count": 20,
+      "width": 430,
+      "key": "partner:forest_bear",
+      "accepted": false,
+      "scan": {
+        "max": {},
+        "count": {
+          "contact": 0,
+          "bounds": 0,
+          "safe": 0
+        }
+      }
+    },
+    {
+      "region": "forest",
+      "count": 28,
+      "width": 430,
+      "key": "companion:tanuki",
+      "accepted": false,
+      "scan": {
+        "max": {},
+        "count": {
+          "contact": 0,
+          "bounds": 0,
+          "safe": 0
+        }
+      }
+    },
+    {
+      "region": "jungle",
+      "count": 20,
+      "width": 375,
+      "key": "pet:dog",
+      "accepted": false,
+      "scan": {
+        "max": {},
+        "count": {
+          "contact": 0,
+          "bounds": 0,
+          "safe": 0
+        }
+      }
+    },
+    {
+      "region": "jungle",
+      "count": 28,
+      "width": 320,
+      "key": "companion:owl",
+      "accepted": false,
+      "scan": {
+        "max": {},
+        "count": {
+          "contact": 0,
+          "bounds": 0,
+          "safe": 0
+        }
+      }
+    },
+    {
+      "region": "jungle",
+      "count": 28,
+      "width": 430,
+      "key": "pet:dog",
+      "accepted": false,
+      "scan": {
+        "max": {
+          "contact": {
+            "point": {
+              "x": 219.33216532276234,
+              "y": 275.1342877061988
+            },
+            "radius": 2,
+            "degrees": 85,
+            "gain": 0.00764725551684009
+          },
+          "bounds": {
+            "point": {
+              "x": 219.33216532276234,
+              "y": 275.1342877061988
+            },
+            "radius": 2,
+            "degrees": 85,
+            "gain": 0.00764725551684009
+          },
+          "safe": {
+            "point": {
+              "x": 219.33216532276234,
+              "y": 275.1342877061988
+            },
+            "radius": 2,
+            "degrees": 85,
+            "gain": 0.00764725551684009
+          }
+        },
+        "count": {
+          "contact": 1,
+          "bounds": 1,
+          "safe": 1
+        }
+      }
+    },
+    {
+      "region": "mountain",
+      "count": 28,
+      "width": 390,
+      "key": "pet:dog",
+      "accepted": false,
+      "scan": {
+        "max": {},
+        "count": {
+          "contact": 0,
+          "bounds": 0,
+          "safe": 0
+        }
+      }
+    },
+    {
+      "region": "river_lake",
+      "count": 28,
+      "width": 320,
+      "key": "pet:dog",
+      "accepted": false,
+      "scan": {
+        "max": {},
+        "count": {
+          "contact": 0,
+          "bounds": 0,
+          "safe": 0
+        }
+      }
+    },
+    {
+      "region": "river_lake",
+      "count": 28,
+      "width": 390,
+      "key": "companion:chicken",
+      "accepted": false,
+      "scan": {
+        "max": {},
+        "count": {
+          "contact": 0,
+          "bounds": 0,
+          "safe": 0
+        }
+      }
+    },
+    {
+      "region": "sea",
+      "count": 20,
+      "width": 320,
+      "key": "partner:forest_bear",
+      "accepted": false,
+      "scan": {
+        "max": {
+          "contact": {
+            "point": {
+              "x": 96.84597438323493,
+              "y": 256.5052021126722
+            },
+            "radius": 11,
+            "degrees": 351.5,
+            "gain": 10.025205815166045
+          },
+          "bounds": {
+            "point": {
+              "x": 96.84597438323493,
+              "y": 256.5052021126722
+            },
+            "radius": 11,
+            "degrees": 351.5,
+            "gain": 10.025205815166045
+          },
+          "safe": {
+            "point": {
+              "x": 86.85893495517479,
+              "y": 260.42756688146414
+            },
+            "radius": 2,
+            "degrees": 356,
+            "gain": 1.9941554285743397
+          }
+        },
+        "count": {
+          "contact": 1361,
+          "bounds": 1361,
+          "safe": 3
+        }
+      }
+    },
+    {
+      "region": "sea",
+      "count": 20,
+      "width": 375,
+      "key": "pet:dog",
+      "accepted": false,
+      "scan": {
+        "max": {},
+        "count": {
+          "contact": 0,
+          "bounds": 0,
+          "safe": 0
+        }
+      }
+    },
+    {
+      "region": "sea",
+      "count": 28,
+      "width": 320,
+      "key": "companion:tanuki",
+      "accepted": false,
+      "scan": {
+        "max": {},
+        "count": {
+          "contact": 0,
+          "bounds": 0,
+          "safe": 0
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,314 @@
+{
+  "arm": "v9",
+  "width": 320,
+  "seed": 214,
+  "order": 0,
+  "browser": "156.0.8078.79",
+  "wallSeconds": 320.43019741899843,
+  "sources": {
+    "population-beauty.js": {
+      "source": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+      "observed": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a"
+    },
+    "fixture.js": {
+      "source": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+      "observed": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a"
+    },
+    "drag-trial-hooks.js": {
+      "source": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6",
+      "observed": "a9e05b94c5b2939c1f02c9b77be783d07d1ede6f0f823d29680f110840d4dec7"
+    },
+    "home-production-model-mobility-v9.js": {
+      "source": "cb1d889b035b4e275270a7f783cd37f396e87ec77f681a38a68c6ecae9f41933",
+      "observed": "c032aa38276e133473a46d894fbeda5e6c342ff12cf8a3c3f5dd66c197dc7f8d"
+    }
+  },
+  "errors": [],
+  "modelSeconds": 307.9045000000373,
+  "rawSHA256": "f3dc6883343a22edb06473613338053c6cca131791acc9da584ae2e258de14a9",
+  "renderer": {
+    "original": "c1ba14468dd4507b774fe157a3e7f669f9f62f74f9d5cb6ab3ef838288e0abd9",
+    "observed": "2dd3706392d614621ee60b554d88a7de55b387f640d6882056cecee834b31b50"
+  },
+  "syncShifts": [
+    {
+      "clock": 287.0053000000325,
+      "key": "companion:rabbit_friend",
+      "before": [
+        224.16616885692608,
+        369.90662159904946,
+        23.80958024691358,
+        32.14293333333333,
+        "look"
+      ],
+      "after": [
+        216,
+        362.18,
+        23.80958024691358,
+        32.14293333333333,
+        "look"
+      ],
+      "changed": false,
+      "arrange": false,
+      "scene": [
+        "forest",
+        302,
+        380
+      ],
+      "oldScene": [
+        "forest",
+        302,
+        380
+      ],
+      "sameNavigation": true,
+      "initialNav": true,
+      "scale": {
+        "x": 1.340256955194829,
+        "y": 1.324485872144212
+      },
+      "box": {
+        "left": 23.90479012345679,
+        "right": 278.0952098765432,
+        "top": 62.14293333333333,
+        "bottom": 368
+      },
+      "reference": {
+        "left": 23.90479012345679,
+        "right": 278.0952098765432,
+        "top": 62.14293333333333,
+        "bottom": 368
+      },
+      "limited": {
+        "x": 224.16616885692608,
+        "y": 368
+      },
+      "limitedTerrain": false,
+      "limitedVisible": true,
+      "nearest": {
+        "x": 216,
+        "y": 362.18
+      },
+      "directWalkDistance": 681.8431757751987,
+      "gate": [],
+      "info": {
+        "oldOwnerRecorded": true,
+        "currentOwnerRecorded": true,
+        "sameNode": false,
+        "oldInk": true,
+        "newInk": false,
+        "sameAsset": true,
+        "sameSize": true,
+        "frame": true,
+        "presentation": true,
+        "landscape": false,
+        "pending": false,
+        "bodyVersion": "18",
+        "nativeBlocked": true,
+        "clockUTC": 1792033501309,
+        "pageMs": 301360.3999999985,
+        "viewport": [
+          320,
+          792
+        ],
+        "projection": 4
+      },
+      "stack": "Error\n    at Object.sync (http://127.0.0.1:43211/game/home-production-model-mobility-v9.js?v=cb1d889b035b:440:120)\n    at sync (http://127.0.0.1:43211/game/home-production-diorama-mobility-v9.js?v=c1ba14468dd4:488:23)\n    at Object.update (http://127.0.0.1:43211/game/home-production-diorama-mobility-v9.js?v=c1ba14468dd4:780:9)\n    at renderHomeDiorama (http://127.0.0.1:43211/game/script-v2-mobility-v7.js?v=4d0d425c41a8:15476:18)\n    at renderEnvironment (http://127.0.0.1:43211/game/script-v2-mobility-v7.js?v=4d0d425c41a8:15539:5)\n    at render (http://127.0.0.1:43211/game/script-v2-mobility-v7.js?v=4d0d425c41a8:13008:5)\n    at loop (http://127.0.0.1:43211/game/script-v2-mobility-v7.js?v=4d0d425c41a8:20342:5)",
+      "distanceCSS": 14.983943347575487
+    },
+    {
+      "clock": 287.0053000000325,
+      "key": "companion:panda",
+      "before": [
+        115.54143179615629,
+        369.77962401577565,
+        30.597895757575756,
+        31.752533333333332,
+        "observe"
+      ],
+      "after": [
+        128,
+        362.18,
+        30.597895757575756,
+        31.752533333333332,
+        "observe"
+      ],
+      "changed": false,
+      "arrange": false,
+      "scene": [
+        "forest",
+        302,
+        380
+      ],
+      "oldScene": [
+        "forest",
+        302,
+        380
+      ],
+      "sameNavigation": true,
+      "initialNav": true,
+      "scale": {
+        "x": 1.340256955194829,
+        "y": 1.324485872144212
+      },
+      "box": {
+        "left": 27.298947878787878,
+        "right": 274.7010521212121,
+        "top": 61.75253333333333,
+        "bottom": 368
+      },
+      "reference": {
+        "left": 27.298947878787878,
+        "right": 274.7010521212121,
+        "top": 61.75253333333333,
+        "bottom": 368
+      },
+      "limited": {
+        "x": 115.54143179615629,
+        "y": 368
+      },
+      "limitedTerrain": false,
+      "limitedVisible": true,
+      "nearest": {
+        "x": 128,
+        "y": 362.18
+      },
+      "directWalkDistance": 681.8431757751987,
+      "gate": [],
+      "info": {
+        "oldOwnerRecorded": true,
+        "currentOwnerRecorded": true,
+        "sameNode": false,
+        "oldInk": true,
+        "newInk": false,
+        "sameAsset": true,
+        "sameSize": true,
+        "frame": true,
+        "presentation": true,
+        "landscape": false,
+        "pending": false,
+        "bodyVersion": "18",
+        "nativeBlocked": true,
+        "clockUTC": 1792033501311,
+        "pageMs": 301362.69999999925,
+        "viewport": [
+          320,
+          792
+        ],
+        "projection": 4
+      },
+      "stack": "Error\n    at Object.sync (http://127.0.0.1:43211/game/home-production-model-mobility-v9.js?v=cb1d889b035b:440:120)\n    at sync (http://127.0.0.1:43211/game/home-production-diorama-mobility-v9.js?v=c1ba14468dd4:488:23)\n    at Object.update (http://127.0.0.1:43211/game/home-production-diorama-mobility-v9.js?v=c1ba14468dd4:780:9)\n    at renderHomeDiorama (http://127.0.0.1:43211/game/script-v2-mobility-v7.js?v=4d0d425c41a8:15476:18)\n    at renderEnvironment (http://127.0.0.1:43211/game/script-v2-mobility-v7.js?v=4d0d425c41a8:15539:5)\n    at render (http://127.0.0.1:43211/game/script-v2-mobility-v7.js?v=4d0d425c41a8:13008:5)\n    at loop (http://127.0.0.1:43211/game/script-v2-mobility-v7.js?v=4d0d425c41a8:20342:5)",
+      "distanceCSS": 19.496892127258118
+    },
+    {
+      "clock": 287.0053000000325,
+      "key": "companion:many_tail_fox",
+      "before": [
+        158.762974126524,
+        370.0568119017486,
+        30.581333333333326,
+        30.025309090909083,
+        "together"
+      ],
+      "after": [
+        158.762974126524,
+        368,
+        30.581333333333326,
+        30.025309090909083,
+        "together"
+      ],
+      "changed": false,
+      "arrange": false,
+      "scene": [
+        "forest",
+        302,
+        380
+      ],
+      "oldScene": [
+        "forest",
+        302,
+        380
+      ],
+      "sameNavigation": true,
+      "initialNav": true,
+      "scale": {
+        "x": 1.340256955194829,
+        "y": 1.324485872144212
+      },
+      "box": {
+        "left": 27.290666666666663,
+        "right": 274.70933333333335,
+        "top": 60.02530909090908,
+        "bottom": 368
+      },
+      "reference": {
+        "left": 27.290666666666663,
+        "right": 274.70933333333335,
+        "top": 60.02530909090908,
+        "bottom": 368
+      },
+      "limited": {
+        "x": 158.762974126524,
+        "y": 368
+      },
+      "limitedTerrain": true,
+      "limitedVisible": true,
+      "nearest": {
+        "x": 158.762974126524,
+        "y": 368
+      },
+      "directWalkDistance": 681.8431757751987,
+      "gate": [],
+      "info": {
+        "oldOwnerRecorded": true,
+        "currentOwnerRecorded": true,
+        "sameNode": false,
+        "oldInk": true,
+        "newInk": false,
+        "sameAsset": true,
+        "sameSize": true,
+        "frame": true,
+        "presentation": true,
+        "landscape": false,
+        "pending": false,
+        "bodyVersion": "18",
+        "nativeBlocked": true,
+        "clockUTC": 1792033501312,
+        "pageMs": 301363.5,
+        "viewport": [
+          320,
+          792
+        ],
+        "projection": 4
+      },
+      "stack": "Error\n    at Object.sync (http://127.0.0.1:43211/game/home-production-model-mobility-v9.js?v=cb1d889b035b:440:120)\n    at sync (http://127.0.0.1:43211/game/home-production-diorama-mobility-v9.js?v=c1ba14468dd4:488:23)\n    at Object.update (http://127.0.0.1:43211/game/home-production-diorama-mobility-v9.js?v=c1ba14468dd4:780:9)\n    at renderHomeDiorama (http://127.0.0.1:43211/game/script-v2-mobility-v7.js?v=4d0d425c41a8:15476:18)\n    at renderEnvironment (http://127.0.0.1:43211/game/script-v2-mobility-v7.js?v=4d0d425c41a8:15539:5)\n    at render (http://127.0.0.1:43211/game/script-v2-mobility-v7.js?v=4d0d425c41a8:13008:5)\n    at loop (http://127.0.0.1:43211/game/script-v2-mobility-v7.js?v=4d0d425c41a8:20342:5)",
+      "distanceCSS": 2.724218305524056
+    }
+  ],
+  "gatesAtFiveMinutes": [
+    {
+      "wallSeconds": 297.369,
+      "reasons": [
+        "lower-notice",
+        "resident-bounce",
+        "resident-positive"
+      ]
+    },
+    {
+      "wallSeconds": 298.181,
+      "reasons": [
+        "lower-notice",
+        "resident-bounce"
+      ]
+    },
+    {
+      "wallSeconds": 298.47980000000075,
+      "reasons": [
+        "lower-notice"
+      ]
+    },
+    {
+      "wallSeconds": 299.82340000000227,
+      "reasons": []
+    }
+  ]
+}

@@ -1,0 +1,278 @@
+{
+  "total": {
+    "v9": {
+      "group": "all",
+      "value": "all",
+      "arm": "v9",
+      "residents": 3276,
+      "requested": 3274,
+      "normalWalkers": 3215,
+      "ownArrivalsWalkers": 3238,
+      "actualWalkers": 3263,
+      "escapeOnlyWalkers": 25,
+      "requests": 56180,
+      "plans": 44540,
+      "planningFailures": 11640,
+      "normalCompletions": 27528,
+      "longestToNormalSec": 298.55,
+      "openToNormalOver60": 294,
+      "ambientFootDistanceCss": 2165609.56,
+      "longestFailureSec": 297.85,
+      "openOver60": 85,
+      "recoveredFailures": 6329,
+      "bothFailed": 2,
+      "wrongSelectionAndAutonomyFailed": 0,
+      "agedDragArrival": 235,
+      "agedNear4": 190,
+      "agedDragCount": 260,
+      "drags": 1058,
+      "arrival": 911,
+      "near4": 522,
+      "tapSent": 260,
+      "tapSelected": 246,
+      "occupiedSent": 208,
+      "occupiedArrival": 144
+    },
+    "v10": {
+      "group": "all",
+      "value": "all",
+      "arm": "v10",
+      "residents": 3276,
+      "requested": 3275,
+      "normalWalkers": 3217,
+      "ownArrivalsWalkers": 3237,
+      "actualWalkers": 3260,
+      "escapeOnlyWalkers": 23,
+      "requests": 55947,
+      "plans": 44771,
+      "planningFailures": 11176,
+      "normalCompletions": 27814,
+      "longestToNormalSec": 298.55,
+      "openToNormalOver60": 243,
+      "ambientFootDistanceCss": 2163600.92,
+      "longestFailureSec": 297.95,
+      "openOver60": 85,
+      "recoveredFailures": 6072,
+      "bothFailed": 2,
+      "wrongSelectionAndAutonomyFailed": 0,
+      "agedDragArrival": 241,
+      "agedNear4": 186,
+      "agedDragCount": 260,
+      "drags": 1058,
+      "arrival": 911,
+      "near4": 522,
+      "tapSent": 260,
+      "tapSelected": 246,
+      "occupiedSent": 208,
+      "occupiedArrival": 144
+    }
+  },
+  "safety": {
+    "v10": {
+      "steps": 1112117,
+      "bounds": 0,
+      "terrain": 0,
+      "occlusion": 0,
+      "speed": 0,
+      "swept": 0,
+      "painted": 19656,
+      "outsideActorBounds": 0,
+      "nonGround": 0,
+      "hidden": 0,
+      "missingShadow": 0,
+      "extraShadows": 0,
+      "frames": 1560,
+      "ribbonOK": 1560,
+      "maxFootErrorCss": 0.013386431319539458,
+      "socialEvents": 5504,
+      "inputPeerUnsafe": 0,
+      "inputPeerSwept": 0,
+      "opening-unsafe": 0,
+      "opening-swept": 0,
+      "opening-backwardsIssued": 0,
+      "opening-maxReleaseJump": 0.0,
+      "opening-graphSearchesDuringMove": 0,
+      "aged-unsafe": 0,
+      "aged-swept": 0,
+      "aged-backwardsIssued": 0,
+      "aged-maxReleaseJump": 0.0,
+      "aged-graphSearchesDuringMove": 0
+    },
+    "v9": {
+      "steps": 1114330,
+      "bounds": 0,
+      "terrain": 0,
+      "occlusion": 0,
+      "speed": 0,
+      "swept": 0,
+      "painted": 19656,
+      "outsideActorBounds": 0,
+      "nonGround": 0,
+      "hidden": 0,
+      "missingShadow": 0,
+      "extraShadows": 0,
+      "frames": 1560,
+      "ribbonOK": 1560,
+      "maxFootErrorCss": 0.013386431319539458,
+      "socialEvents": 5429,
+      "inputPeerUnsafe": 0,
+      "inputPeerSwept": 0,
+      "opening-unsafe": 0,
+      "opening-swept": 0,
+      "opening-backwardsIssued": 0,
+      "opening-maxReleaseJump": 0.0,
+      "opening-graphSearchesDuringMove": 0,
+      "aged-unsafe": 0,
+      "aged-swept": 0,
+      "aged-backwardsIssued": 0,
+      "aged-maxReleaseJump": 0.0,
+      "aged-graphSearchesDuringMove": 0
+    },
+    "shared": {
+      "trusted": 852,
+      "unsafe": 0,
+      "swept": 0,
+      "peerUnsafe": 0,
+      "peerSwept": 0,
+      "maxJump": 0.0
+    }
+  },
+  "cohortPublishedReplayCandidate": {
+    "yes-yes-yes": 3195,
+    "no-no-yes": 21,
+    "yes-yes-no": 19,
+    "no-no-no": 37,
+    "no-yes-no": 1,
+    "yes-no-no": 2,
+    "yes-no-yes": 1
+  },
+  "agedStatuses": {
+    "published/v8": {
+      "arrived": 240,
+      "wrong-recipient": 2,
+      "issued-no-route": 17,
+      "issued-route-unfinished": 1
+    },
+    "published/v9": {
+      "arrived": 236,
+      "wrong-recipient": 5,
+      "issued-no-route": 16,
+      "issued-route-unfinished": 2,
+      "selected-no-command": 1
+    },
+    "natural/v10": {
+      "arrived": 241,
+      "issued-no-route": 15,
+      "wrong-recipient": 3,
+      "issued-route-unfinished": 1
+    },
+    "natural/v9": {
+      "arrived": 235,
+      "wrong-recipient": 5,
+      "issued-no-route": 18,
+      "issued-route-unfinished": 2
+    },
+    "v9/v10": {
+      "arrived": 235,
+      "wrong-recipient": 5,
+      "issued-no-route": 18,
+      "issued-route-unfinished": 2
+    },
+    "v9/v8": {
+      "arrived": 235,
+      "wrong-recipient": 5,
+      "issued-no-route": 18,
+      "issued-route-unfinished": 2
+    },
+    "v9/v9": {
+      "arrived": 235,
+      "wrong-recipient": 5,
+      "issued-no-route": 18,
+      "issued-route-unfinished": 2
+    },
+    "v8/v10": {
+      "wrong-recipient": 1,
+      "issued-no-route": 9,
+      "arrived": 14
+    },
+    "v8/v8": {
+      "wrong-recipient": 1,
+      "issued-no-route": 9,
+      "arrived": 14
+    },
+    "v8/v9": {
+      "wrong-recipient": 1,
+      "issued-no-route": 9,
+      "arrived": 14
+    }
+  },
+  "historicAgedFlips": {
+    "wrong-recipient -> arrived": 1,
+    "issued-no-route -> arrived": 9,
+    "arrived -> wrong-recipient": 4,
+    "arrived -> issued-no-route": 9,
+    "arrived -> issued-route-unfinished": 1
+  },
+  "shared": {
+    "v8": {
+      "cases": 24,
+      "exactHistoricFeetAndCoordinates": 24,
+      "changedV8toV9": 0,
+      "changedV9toV10": 0,
+      "changedTerminalV8toV9": 0,
+      "changedTerminalV9toV10": 0,
+      "nativeDonorMissingOnTransfer": 0
+    },
+    "v9": {
+      "cases": 260,
+      "exactHistoricFeetAndCoordinates": 251,
+      "changedV8toV9": 0,
+      "changedV9toV10": 0,
+      "changedTerminalV8toV9": 0,
+      "changedTerminalV9toV10": 0,
+      "nativeDonorMissingOnTransfer": 0
+    }
+  },
+  "saves": {
+    "total": 26,
+    "preserved": 26
+  },
+  "publishedV9": {
+    "normalWalkers": 3217,
+    "arrival": 911,
+    "near4": 522,
+    "tapSelected": 246,
+    "bothFailed": 2,
+    "agedDragArrival": 236
+  },
+  "gateAgainstPublishedV9": {
+    "normalWalkers": true,
+    "arrival": true,
+    "near4": true,
+    "tapSelected": true,
+    "bothFailed": true,
+    "agedDragArrival": true
+  },
+  "revision": "ce31e78cbfa27eed6ab1829f8b7bf48d28bde5cb",
+  "historicalV9Replay": {
+    "publishedV9": {
+      "arm": "v9",
+      "identicalOpeningAndSource": 260,
+      "identicalAgedFootprints": 251,
+      "before": {
+        "drags": 1058,
+        "tapSent": 260,
+        "tapSelected": 246,
+        "arrival": 911,
+        "near4": 522
+      },
+      "replay": {
+        "drags": 1058,
+        "tapSent": 260,
+        "tapSelected": 246,
+        "arrival": 911,
+        "near4": 522
+      }
+    }
+  }
+}
