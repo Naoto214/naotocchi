@@ -1,0 +1,61 @@
+{
+ "id": "var-poyo-chapter",
+ "title": "ぽよぽよこもれび（章の おわり）",
+ "family": "poyo",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2116800,
+ "seconds": 48.0,
+ "flacFrames": 2116800,
+ "aacDecodedFrames": 2117632,
+ "integratedLUFS": -25.0,
+ "targetLUFS": -25,
+ "truePeakDbtp": -10.34,
+ "samplePeakDbfs": -10.35,
+ "clippedSamples": 0,
+ "monoLossDb": -1.23,
+ "sideToMidDb": -4.8,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00045,
+ "loopJoinTypicalStep999": 0.03195,
+ "bands": {
+  "centroidHz": 577,
+  "low40_250": -4.1,
+  "lowmid250_800": -4.8,
+  "mid800_3k": -5.8,
+  "pres3k_6k": -20.2,
+  "air6k_12k": -38.8,
+  "top12k_20k": -55.3
+ },
+ "roleGainsDb": {
+  "bass": 4.0,
+  "accompaniment": 11.1,
+  "pad": 13.6,
+  "sparkle": 14.7
+ },
+ "tonalCorrection": [
+  [
+   "highshelf",
+   8000,
+   5.0,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 575,
+  "low40_250": -4.1,
+  "lowmid250_800": -4.8,
+  "mid800_3k": -5.8,
+  "pres3k_6k": -20.4,
+  "air6k_12k": -40.7,
+  "top12k_20k": -60.1
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 5.9,
+ "flacSha256": "31211eae80bb61f7b7d4b4ce79f57ba6b9a58cdcfe1822c75107f7b3bfebb365",
+ "flacBytes": 7237729,
+ "aacSha256": "63a8044d7e31cb3fb329dc894039c354874723c20cee7ce72003950fcdbab411",
+ "aacBytes": 1178481,
+ "midiSha256": "5102ec47b52a5e1d10bd00c8b3f81c4d5e24bbcae3859a6c8c37df6ffc905af7",
+ "problems": []
+}

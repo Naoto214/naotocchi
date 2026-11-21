@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>なおとっち BGM 聴きくらべ</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* 1段組み: 再生中の 帯（V1/V2 切りかえ）→ 代表6曲 → 全32曲。A/B は 同じ 位置で 切りかえる 2つの 鍵盤スイッチ */
+:root {
+  --bg: #f3f5f0; --surface: #ffffff; --ink: #1f2a24; --muted: #5d6a62; --line: #d6ddd4;
+  --v1: #8a7356; --v2: #2f7d63; --v2-soft: #e3f1ea; --v1-soft: #f1ebe2; --focus: #2f6fb0;
+  --f-display: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', 'Hiragino Sans', sans-serif;
+  --f-body: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+  --f-mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #141a17; --surface: #1c2420; --ink: #e8eee9; --muted: #a2b0a7; --line: #2f3a34;
+  --v1: #d2b48d; --v2: #6fd0ab; --v2-soft: #1f3a30; --v1-soft: #3a3226; --focus: #7fb4ea; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #141a17; --surface: #1c2420; --ink: #e8eee9; --muted: #a2b0a7; --line: #2f3a34;
+  --v1: #d2b48d; --v2: #6fd0ab; --v2-soft: #1f3a30; --v1-soft: #3a3226; --focus: #7fb4ea; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.7 var(--f-body); }
+.wrap { max-width: 760px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 20px 56px; display: grid; gap: 22px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; }
+h1 { font-size: 1.55rem; line-height: 1.3; }
+h2 { font-size: 1.08rem; }
+p { margin: 0; }
+.lead { color: var(--muted); max-width: 62ch; }
+.now { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px; display: grid; gap: 12px; box-shadow: 0 6px 18px rgb(0 0 0 / .06); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.now-top { display: flex; gap: 12px; align-items: center; }
+.now-title { min-width: 0; flex: 1; }
+.now-title h2 { font-size: 1.05rem; overflow-wrap: anywhere; }
+.now-title p { color: var(--muted); font-size: .82rem; }
+.play { width: 52px; height: 52px; border-radius: 50%; border: 0; background: var(--ink); color: var(--bg); font-size: 1.15rem; cursor: pointer; flex: none; }
+.ab { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.ab button { border: 2px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 12px; padding: 10px 8px; font: 700 1rem var(--f-display); cursor: pointer; display: grid; gap: 2px; }
+.ab button small { font: 400 .72rem var(--f-body); color: var(--muted); }
+.ab button[data-v="v1"][aria-pressed="true"] { border-color: var(--v1); background: var(--v1-soft); }
+.ab button[data-v="v2"][aria-pressed="true"] { border-color: var(--v2); background: var(--v2-soft); }
+.bar { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; background: var(--v2); }
+.bar.v1 i { background: var(--v1); }
+.row { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; font-size: .85rem; color: var(--muted); }
+.row label { display: inline-flex; gap: 6px; align-items: center; }
+.row input[type=range] { width: 120px; }
+.clock { font: 500 .8rem var(--f-mono); font-variant-numeric: tabular-nums; margin-left: auto; }
+.btn { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 6px 12px; font: 500 .85rem var(--f-body); cursor: pointer; }
+.status { font-size: .8rem; color: var(--muted); min-height: 1.2em; }
+.list { display: grid; gap: 8px; }
+.track { display: grid; grid-template-columns: 2.2rem 1fr auto; gap: 10px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
+.track[data-active="true"] { border-color: var(--v2); }
+.track .no { font: 500 .78rem var(--f-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.track .copy { min-width: 0; }
+.track h3 { font-size: .98rem; }
+.track p { font-size: .8rem; color: var(--muted); overflow-wrap: anywhere; }
+.track .tone { color: var(--ink); opacity: .85; }
+.track button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; font-size: .95rem; }
+.track[data-active="true"] button { background: var(--v2); color: var(--surface); border-color: var(--v2); }
+.why { font-size: .78rem; color: var(--v2); font-weight: 700; }
+.note { font-size: .82rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 14px; display: grid; gap: 6px; }
+button:focus-visible, input:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+@media (max-width: 420px) { .row input[type=range] { width: 96px; } .clock { margin-left: 0; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header style="display:grid;gap:8px">
+    <h1>なおとっち BGM 聴きくらべ</h1>
+    <p class="lead">採用32曲の VERSION 1（PR #536）と VERSION 2（音質改善）を、同じ 曲の 同じ 場所で 切りかえて 聴けます。旋律・曲・テンポは 同じで、変えたのは 音色・楽器の 割り当て・残響・帯域です。2つの 版は 同じ 音量（ラウドネス）に そろえて あります。</p>
+  </header>
+
+  <section class="now" aria-label="再生中">
+    <div class="now-top">
+      <button class="play" id="toggle" type="button" aria-label="再生">▶</button>
+      <div class="now-title"><h2 id="nowTitle">曲を 選んでください</h2><p id="nowUsage">下の 一覧の ▶ で 再生します</p></div>
+    </div>
+    <div class="ab" role="group" aria-label="版の 切りかえ">
+      <button type="button" id="ab-v1" data-v="v1" aria-pressed="false">VERSION 1<small>PR #536 の 原盤</small></button>
+      <button type="button" id="ab-v2" data-v="v2" aria-pressed="true">VERSION 2<small>音質改善版</small></button>
+    </div>
+    <div class="bar" id="bar"><i id="prog"></i></div>
+    <div class="row">
+      <label><input type="checkbox" id="loop" checked> ループ</label>
+      <label>音量 <input type="range" id="vol" min="0" max="100" value="80"></label>
+      <button class="btn" type="button" id="all">▶ 連続再生</button>
+      <span class="clock" id="clock">0:00 / 0:00</span>
+    </div>
+    <p class="status" id="status" aria-live="polite"></p>
+  </section>
+
+  <section style="display:grid;gap:10px">
+    <h2>まず 聴いて ほしい 6曲</h2>
+    <p class="lead">こもりの 改善が 分かりやすい 曲です。V1 と V2 を 何度か 切りかえて みてください。</p>
+    <div class="list" id="featured"></div>
+  </section>
+
+  <section style="display:grid;gap:10px">
+    <h2>全32曲</h2>
+    <div class="list" id="tracks"></div>
+  </section>
+
+  <section class="note">
+    <p>iPhone では 消音スイッチが オンでも 鳴るように して いますが、鳴らない ときは 音量ボタンを 押してから もう一度 ▶ を タップして ください。</p>
+    <p>数値の 測定（帯域・音量・ピーク）は 済んで いますが、実際の 聴こえ方は 耳での 確認が 必要です。</p>
+  </section>
+</main>
+<script src="catalog.js"></script>
+<script>
+'use strict';
+// 音源の 置き場所（リポジトリ内の 配置。公開版では v1/ と v2/ に 置きかえる）
+const BASE = { v1: '../../bgm-master32-v1/audio/', v2: '../audio/' };
+const $ = (id) => document.getElementById(id);
+const esc = (x) => String(x).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const clock = (s) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+const CAT = window.BGM_V2_CATALOG.tracks;
+const WHY = { 'home-morning': 'ホーム朝。V1 は 2 kHz から 上が ほぼ 無く、いちばん こもって いた 曲', 'koro-1': 'ギターと ウッドベースに 変更。明るく 軽やかに', 'card-2': '弦の ピチカートの きざみで 輪郭が はっきり', 'var-flight': '本人メモ「煌びやかに」。グロッケンと ハープの きらめき', 'event-1': 'フルートと ギターが 加わり、祝う 場面が 華やかに', 'bgm-farewell': '静かな 曲でも 音の 芯が 聞こえる ように' };
+const st = { id: null, v: 'v2', queue: null, playing: false, loading: false };
+let ctx = null, out = null, src = null, srcGain = null, startedAt = 0, offset0 = 0, serial = 0;
+const cache = new Map();
+const track = (id) => CAT.find((t) => t.id === id);
+const dur = (t, v) => t[v].duration;
+const pos = () => { const t = track(st.id); if (!t || !st.playing) return offset0; const d = dur(t, st.v); const p = offset0 + ctx.currentTime - startedAt; return t.loop && $('loop').checked && !st.queue ? p % d : Math.min(p, d); };
+
+function initAudio() {
+  if (ctx) return;
+  const AC = window.AudioContext || window.webkitAudioContext; ctx = new AC();
+  out = ctx.createGain(); out.gain.value = Number($('vol').value) / 100; out.connect(ctx.destination);
+  try { if (navigator.audioSession) navigator.audioSession.type = 'playback'; } catch (e) {}
+  const n = ctx.createBufferSource(); n.buffer = ctx.createBuffer(1, 1, ctx.sampleRate); n.connect(ctx.destination); n.start();
+}
+async function load(t, v) {
+  const key = t.id + ':' + v;
+  if (cache.has(key)) { const b = cache.get(key); cache.delete(key); cache.set(key, b); return b; }
+  const res = await fetch(BASE[v] + t[v].audio); if (!res.ok) throw new Error('HTTP ' + res.status);
+  const ab = await res.arrayBuffer();
+  const dec = await new Promise((ok, ng) => { const p = ctx.decodeAudioData(ab, ok, ng); if (p && p.then) p.then(ok, ng); });
+  // AAC の 末尾の 詰め物は 曲に 含めない（原盤の 長さで 切る）
+  const len = Math.min(dec.length, Math.round(t[v].duration * dec.sampleRate)); const b = ctx.createBuffer(dec.numberOfChannels, len, dec.sampleRate);
+  for (let c = 0; c < dec.numberOfChannels; c++) b.copyToChannel(dec.getChannelData(c).subarray(0, len), c);
+  cache.set(key, b); while (cache.size > 4) cache.delete(cache.keys().next().value); return b;
+}
+// 2つの 版は 同じ ラウドネスに 合わせる（測定値の 差を 打ち消す）
+const levelGain = (t, v) => Math.pow(10, ((t.targetLUFS) - (t[v].lufs ?? t.targetLUFS)) / 20);
+function stopSource(fade = .03) {
+  if (!src) return; const s = src, g = srcGain; src = null; s.onended = null;
+  try { g.gain.setTargetAtTime(0, ctx.currentTime, fade / 3); s.stop(ctx.currentTime + fade + .02); } catch (e) {}
+}
+async function play(id, v, at = 0) {
+  initAudio(); const resumed = ctx.resume(); const my = ++serial; const t = track(id);
+  st.id = id; st.v = v; st.loading = true; refresh();
+  try {
+    const b = await load(t, v); await resumed; if (my !== serial) return;
+    stopSource();
+    const s = ctx.createBufferSource(); s.buffer = b; const g = ctx.createGain(); g.gain.value = 0; s.connect(g); g.connect(out);
+    s.loop = t.loop && $('loop').checked && !st.queue; s.loopStart = 0; s.loopEnd = b.duration;
+    const off = Math.min(at, b.duration - .05); s.start(0, Math.max(0, off)); g.gain.setTargetAtTime(levelGain(t, v), ctx.currentTime, .012);
+    s.onended = () => { if (my !== serial) return; src = null; st.playing = false; offset0 = 0; refresh(); next(); };
+    src = s; srcGain = g; startedAt = ctx.currentTime; offset0 = Math.max(0, off); st.playing = true; st.loading = false; refresh();
+    $('status').textContent = '';
+  } catch (e) { if (my !== serial) return; st.loading = false; st.playing = false; refresh(); $('status').textContent = '音源を 読み込めませんでした。通信を 確かめて もう一度 ▶ を タップして ください。'; }
+}
+function next() { if (!st.queue) return; const i = st.queue.indexOf(st.id); if (i + 1 < st.queue.length) play(st.queue[i + 1], st.v, 0); else { st.queue = null; refresh(); } }
+function stop() { serial++; st.queue = null; stopSource(); st.playing = false; st.loading = false; offset0 = 0; refresh(); }
+function switchVersion(v) {
+  if (v === st.v) return; if (st.id && (st.playing || st.loading)) { const p = pos(); play(st.id, v, p); } else { st.v = v; refresh(); }
+}
+function card(t, featured) {
+  const active = t.id === st.id && (st.playing || st.loading);
+  return `<article class="track" data-active="${active}"><span class="no">${String(t.number).padStart(2, '0')}</span><div class="copy"><h3>${esc(t.title)}</h3><p>${esc(t.usage)} ・ ♩${t.bpm} ・ ${clock(t.v2.duration)}${t.loop ? '' : ' ・ ジングル'}</p>${featured ? `<p class="why">${esc(WHY[t.id] || '')}</p>` : ''}<p class="tone">V2: ${esc(t.tone)}</p></div><button type="button" data-play="${esc(t.id)}" aria-label="${esc(t.title)} を ${active ? '停止' : '再生'}">${active ? '■' : '▶'}</button></article>`;
+}
+function refresh() {
+  const t = track(st.id);
+  $('nowTitle').textContent = t ? t.title : '曲を 選んでください';
+  $('nowUsage').textContent = t ? `${t.usage}（${st.v === 'v1' ? 'VERSION 1' : 'VERSION 2'}）` : '下の 一覧の ▶ で 再生します';
+  $('toggle').textContent = st.playing || st.loading ? '■' : '▶'; $('toggle').setAttribute('aria-label', st.playing || st.loading ? '停止' : '再生');
+  ['v1', 'v2'].forEach((v) => $('ab-' + v).setAttribute('aria-pressed', String(st.v === v)));
+  $('bar').className = 'bar ' + st.v; $('all').textContent = st.queue ? '■ 連続再生を 止める' : '▶ 連続再生';
+  if (st.loading) $('status').textContent = '読み込んでいます…';
+  $('featured').innerHTML = CAT.filter((x) => x.featured).sort((a, b) => a.featured - b.featured).map((x) => card(x, true)).join('');
+  $('tracks').innerHTML = CAT.map((x) => card(x, false)).join('');
+}
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-play]'); if (!b) return; const id = b.dataset.play;
+  if (id === st.id && (st.playing || st.loading)) stop(); else { st.queue = null; play(id, st.v, 0); }
+});
+$('toggle').addEventListener('click', () => { if (st.playing || st.loading) stop(); else play(st.id || 'home-morning', st.v, 0); });
+$('ab-v1').addEventListener('click', () => switchVersion('v1'));
+$('ab-v2').addEventListener('click', () => switchVersion('v2'));
+$('vol').addEventListener('input', () => { if (out) out.gain.setTargetAtTime(Number($('vol').value) / 100, ctx.currentTime, .02); });
+$('loop').addEventListener('change', () => { const t = track(st.id); if (src && t) src.loop = t.loop && $('loop').checked && !st.queue; });
+$('all').addEventListener('click', () => { if (st.queue) { stop(); return; } st.queue = CAT.map((x) => x.id); play(st.queue[0], st.v, 0); });
+setInterval(() => { const t = track(st.id); if (!t) return; const p = pos(), d = dur(t, st.v); $('clock').textContent = `${clock(p)} / ${clock(d)}`; $('prog').style.width = Math.min(100, p / d * 100) + '%'; }, 200);
+document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); });
+refresh();
+</script>
+</body>
+</html>

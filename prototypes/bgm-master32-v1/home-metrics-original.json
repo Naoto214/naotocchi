@@ -1,0 +1,90 @@
+[
+  {
+    "id": "soyokaze-A",
+    "seconds": 83.47825,
+    "sampleRate": 32000,
+    "peakDbfs": -6.901348758916263,
+    "integratedLUFS": -23.0,
+    "gainDb": 5.989999999999998,
+    "joinJump": 0.00019419018617819863,
+    "playbackBytes": 1349670,
+    "masterSha256": "7ebb7ae1ec15476def24b2a6a3536e81a042c1d6fbc811402bd9f63706826caa"
+  },
+  {
+    "id": "soyokaze-B",
+    "seconds": 83.47825,
+    "sampleRate": 32000,
+    "peakDbfs": -14.009035210185266,
+    "integratedLUFS": -23.0,
+    "gainDb": 1.36,
+    "joinJump": 0.000811747661571007,
+    "playbackBytes": 1351434,
+    "masterSha256": "9e65c0bd3a9dd0ddc8aa08457ed4b93a9fc6fe07b5941f8618366e9314883c08"
+  },
+  {
+    "id": "current-A",
+    "seconds": 60.0,
+    "sampleRate": 32000,
+    "peakDbfs": -10.687392520119639,
+    "integratedLUFS": -23.0,
+    "gainDb": 3.8000000000000007,
+    "joinJump": 0.003353719133870947,
+    "playbackBytes": 970736,
+    "masterSha256": "ce9280cdfa8f51a4961330f3e35301f136e81f818826efef3c2baf340b82015c"
+  },
+  {
+    "id": "current-B",
+    "seconds": 60.0,
+    "sampleRate": 32000,
+    "peakDbfs": -9.82433351319205,
+    "integratedLUFS": -23.0,
+    "gainDb": 5.239999999999998,
+    "joinJump": 0.005456690596211969,
+    "playbackBytes": 973420,
+    "masterSha256": "528680f277cc1e6f2eef8580a1ff716c62da92445bb6083d808e8d5550ffdb01"
+  },
+  {
+    "id": "starlake-B",
+    "seconds": 65.45453125,
+    "sampleRate": 32000,
+    "peakDbfs": -6.609062647641823,
+    "integratedLUFS": -23.0,
+    "gainDb": 8.629999999999999,
+    "joinJump": 0.0001625198181602833,
+    "playbackBytes": 1060549,
+    "masterSha256": "eb9074230621850d88d0d699483a89a58cd44f4353c2eefac2938c6ee15c5a1f"
+  },
+  {
+    "id": "hoshizora-A",
+    "seconds": 50.5263125,
+    "sampleRate": 32000,
+    "peakDbfs": -7.734193405353611,
+    "integratedLUFS": -23.0,
+    "gainDb": 6.010000000000002,
+    "joinJump": 0.0004182501499918785,
+    "playbackBytes": 817277,
+    "masterSha256": "6057e65bf47327d034dbe298ffd4cfe2e05fca390513cc4746bded8058dc69fa"
+  },
+  {
+    "id": "hoshizora-B",
+    "seconds": 50.5263125,
+    "sampleRate": 32000,
+    "peakDbfs": -7.4911358104985855,
+    "integratedLUFS": -23.0,
+    "gainDb": 7.73,
+    "joinJump": 0.00016289059404956101,
+    "playbackBytes": 818018,
+    "masterSha256": "88e3d3ede8fa4b7ff3d33f1669b4f80c9498d7b34efcc823c1bdf78b866ba077"
+  },
+  {
+    "id": "starlake-A",
+    "seconds": 65.45453125,
+    "sampleRate": 32000,
+    "peakDbfs": -7.65286695027614,
+    "integratedLUFS": -23.0,
+    "gainDb": 6.949999999999999,
+    "joinJump": 0.0033196887867403754,
+    "playbackBytes": 1059521,
+    "masterSha256": "a0df0b30ad75bd094381e51c6914466746f6e8204cc1c8c544202a1627b96ace"
+  }
+]

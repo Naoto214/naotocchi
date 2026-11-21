@@ -1,0 +1,345 @@
+{
+  "bgm": {
+    "track": "game",
+    "summary": "Quick mode runs as a single minigame object (id quick-run, or quick-solo for 1本ずつ) through tryStartPlay → startMinigame, so gameActive=true and activeMinigame is that quick object. It has no category in minigameCategoryOf, so minigameGenreId falls back to action and currentScene() returns \"game\" for the whole run; the 50 inner micro-games never change activeMinigame, so the track never changes mid-run. After the run ends (closeMinigameScreen) it reverts to home/night.",
+    "verifiedAtRuntime": {
+      "quickRun": {
+        "id": "quick-run",
+        "category": null,
+        "genre": "action",
+        "bgm": "game",
+        "info": {
+          "name": "クイックモード",
+          "emoji": "⚡",
+          "desc": "みじかい指示のとおりに、つぎつぎそうさ。"
+        }
+      },
+      "quickSolo": {
+        "id": "quick-solo",
+        "category": null,
+        "genre": "action",
+        "bgm": "game",
+        "info": {
+          "name": "クイック（1本ずつ）",
+          "emoji": "⚡",
+          "desc": "えらんだ1本を10回。"
+        }
+      }
+    },
+    "citations": [
+      "quick.js:1147 id: only ? quick-solo : quick-run (makeQuickRun object)",
+      "script.js:15747 const QUICK_RUN = quickMod.makeQuickRun()",
+      "script.js:16096-16098 quickSoloRun(gameId) → makeQuickRun({only})",
+      "script.js:16137-16141 startQuickRun → tryStartPlay(run)",
+      "script.js:18556-18592 tryStartPlay → startMinigame(game,...)",
+      "script.js:17920,17927 startMinigame sets gameActive = true; :17970 activeMinigame = game",
+      "script.js:16425-16427 minigameGenreId: category undefined → action",
+      "audio.js:268-272 gameActive + genre action → game",
+      "script.js:17605-17611 closeMinigameScreen resets gameActive/activeMinigame",
+      "tryStartPlay refuses to start (any game, quick included) while state.isSleeping (script.js:18558)"
+    ]
+  },
+  "total": 50,
+  "games": [
+    {
+      "id": "eat",
+      "name": "たべろ！（ごはん）",
+      "cue": "たべろ！",
+      "motif": "ごはん"
+    },
+    {
+      "id": "dodge",
+      "name": "よけろ！（うんち）",
+      "cue": "よけろ！",
+      "motif": "うんち"
+    },
+    {
+      "id": "catch",
+      "name": "つかまえろ！（なかま）",
+      "cue": "つかまえろ！",
+      "motif": "なかま"
+    },
+    {
+      "id": "mash",
+      "name": "れんだ！（へんしん）",
+      "cue": "れんだ！",
+      "motif": "へんしん"
+    },
+    {
+      "id": "clean",
+      "name": "そうじしろ！（おせわ）",
+      "cue": "そうじしろ！",
+      "motif": "おせわ"
+    },
+    {
+      "id": "stop",
+      "name": "とめろ！（たこやき）",
+      "cue": "とめろ！",
+      "motif": "たこやき"
+    },
+    {
+      "id": "swipe",
+      "name": "スワイプ！（スキージャンプ）",
+      "cue": "スワイプ！",
+      "motif": "スキージャンプ"
+    },
+    {
+      "id": "medicine",
+      "name": "くすりをのませろ！（病気）",
+      "cue": "くすりをのませろ！",
+      "motif": "病気"
+    },
+    {
+      "id": "find",
+      "name": "さがせ！（ずかん）",
+      "cue": "さがせ！",
+      "motif": "ずかん"
+    },
+    {
+      "id": "charge",
+      "name": "ためて…はなせ！（ジャンプクエスト）",
+      "cue": "ためて…はなせ！",
+      "motif": "ジャンプクエスト"
+    },
+    {
+      "id": "partner",
+      "name": "こいびとは？（こいびと・なかま）",
+      "cue": "こいびとは？",
+      "motif": "こいびと・なかま"
+    },
+    {
+      "id": "season",
+      "name": "きせつは？（世界・季節）",
+      "cue": "きせつは？",
+      "motif": "世界・季節"
+    },
+    {
+      "id": "jump",
+      "name": "とべ！（ジャンプ）",
+      "cue": "とべ！",
+      "motif": "ジャンプ"
+    },
+    {
+      "id": "pull",
+      "name": "ひっぱれ！（しゅうかく）",
+      "cue": "ひっぱれ！",
+      "motif": "しゅうかく"
+    },
+    {
+      "id": "pet",
+      "name": "なでろ！（おせわ）",
+      "cue": "なでろ！",
+      "motif": "おせわ"
+    },
+    {
+      "id": "button",
+      "name": "みどりでおせ！（ボタン）",
+      "cue": "みどりでおせ！",
+      "motif": "ボタン"
+    },
+    {
+      "id": "flames",
+      "name": "けせ！（たんじょうび）",
+      "cue": "けせ！",
+      "motif": "たんじょうび"
+    },
+    {
+      "id": "coins",
+      "name": "あつめろ！（コイン）",
+      "cue": "あつめろ！",
+      "motif": "コイン"
+    },
+    {
+      "id": "cliff",
+      "name": "とまれ！（ダウンヒル）",
+      "cue": "とまれ！",
+      "motif": "ダウンヒル"
+    },
+    {
+      "id": "throw",
+      "name": "なげろ！（バスケ）",
+      "cue": "なげろ！",
+      "motif": "バスケ"
+    },
+    {
+      "id": "knock",
+      "name": "たたけ！（ノック）",
+      "cue": "たたけ！",
+      "motif": "ノック"
+    },
+    {
+      "id": "wait",
+      "name": "まて！（おあずけ）",
+      "cue": "まて！",
+      "motif": "おあずけ"
+    },
+    {
+      "id": "flee",
+      "name": "にげろ！（おばけ屋敷）",
+      "cue": "にげろ！",
+      "motif": "おばけ屋敷"
+    },
+    {
+      "id": "mole",
+      "name": "でたらたたけ！（もぐらたたき）",
+      "cue": "でたらたたけ！",
+      "motif": "もぐらたたき"
+    },
+    {
+      "id": "slice",
+      "name": "きれ！（フルーツ）",
+      "cue": "きれ！",
+      "motif": "フルーツ"
+    },
+    {
+      "id": "guard",
+      "name": "まもれ！（ミサイル）",
+      "cue": "まもれ！",
+      "motif": "ミサイル"
+    },
+    {
+      "id": "bento",
+      "name": "つめろ！（おべんとう）",
+      "cue": "つめろ！",
+      "motif": "おべんとう"
+    },
+    {
+      "id": "spin",
+      "name": "まわせ！（へんしん）",
+      "cue": "まわせ！",
+      "motif": "へんしん"
+    },
+    {
+      "id": "lift",
+      "name": "もちあげろ！（だっこ）",
+      "cue": "もちあげろ！",
+      "motif": "だっこ"
+    },
+    {
+      "id": "tickle",
+      "name": "くすぐれ！（じゃれる）",
+      "cue": "くすぐれ！",
+      "motif": "じゃれる"
+    },
+    {
+      "id": "balance",
+      "name": "バランス！（かたむき迷路）",
+      "cue": "バランス！",
+      "motif": "かたむき迷路"
+    },
+    {
+      "id": "color",
+      "name": "いろは？（ずかん）",
+      "cue": "いろは？",
+      "motif": "ずかん"
+    },
+    {
+      "id": "count",
+      "name": "いくつ？（ほし）",
+      "cue": "いくつ？",
+      "motif": "ほし"
+    },
+    {
+      "id": "bigger",
+      "name": "おおきいほう！（ごはん）",
+      "cue": "おおきいほう！",
+      "motif": "ごはん"
+    },
+    {
+      "id": "odd",
+      "name": "ちがうの！（まちがいさがし）",
+      "cue": "ちがうの！",
+      "motif": "まちがいさがし"
+    },
+    {
+      "id": "order",
+      "name": "じゅんばんに！（ふうせん）",
+      "cue": "じゅんばんに！",
+      "motif": "ふうせん"
+    },
+    {
+      "id": "holdlid",
+      "name": "おさえろ！（びっくりばこ）",
+      "cue": "おさえろ！",
+      "motif": "びっくりばこ"
+    },
+    {
+      "id": "umbrella",
+      "name": "あめがきたらかさ！（てんき）",
+      "cue": "あめがきたらかさ！",
+      "motif": "てんき"
+    },
+    {
+      "id": "shutter",
+      "name": "とれ！（アルバム）",
+      "cue": "とれ！",
+      "motif": "アルバム"
+    },
+    {
+      "id": "sort",
+      "name": "ごはんはひだり！（おかたづけ）",
+      "cue": "ごはんはひだり！",
+      "motif": "おかたづけ"
+    },
+    {
+      "id": "rhythm",
+      "name": "リズム！（リズムハイウェイ）",
+      "cue": "リズム！",
+      "motif": "リズムハイウェイ"
+    },
+    {
+      "id": "trace",
+      "name": "なぞれ！（ラインレース）",
+      "cue": "なぞれ！",
+      "motif": "ラインレース"
+    },
+    {
+      "id": "pushbox",
+      "name": "おしだせ！（倉庫番）",
+      "cue": "おしだせ！",
+      "motif": "倉庫番"
+    },
+    {
+      "id": "fish",
+      "name": "ひいたら つれ！（つり）",
+      "cue": "ひいたら つれ！",
+      "motif": "つり"
+    },
+    {
+      "id": "stack",
+      "name": "つめ！（つみあげタワー）",
+      "cue": "つめ！",
+      "motif": "つみあげタワー"
+    },
+    {
+      "id": "pair",
+      "name": "おなじの！（しんけいすいじゃく）",
+      "cue": "おなじの！",
+      "motif": "しんけいすいじゃく"
+    },
+    {
+      "id": "doors",
+      "name": "どっち？（こいびと・なかま）",
+      "cue": "どっち？",
+      "motif": "こいびと・なかま"
+    },
+    {
+      "id": "sneak",
+      "name": "そっとはこべ！（ねる）",
+      "cue": "そっとはこべ！",
+      "motif": "ねる"
+    },
+    {
+      "id": "feather",
+      "name": "ふけ！（かぜ）",
+      "cue": "ふけ！",
+      "motif": "かぜ"
+    },
+    {
+      "id": "weather",
+      "name": "てんきは？（てんき）",
+      "cue": "てんきは？",
+      "motif": "てんき"
+    }
+  ]
+}

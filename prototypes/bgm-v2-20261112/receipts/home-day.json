@@ -1,0 +1,68 @@
+{
+ "id": "home-day",
+ "title": "いつもの にわ",
+ "family": "home",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2646000,
+ "seconds": 60.0,
+ "flacFrames": 2646000,
+ "aacDecodedFrames": 2646016,
+ "integratedLUFS": -23.01,
+ "targetLUFS": -23,
+ "truePeakDbtp": -6.72,
+ "samplePeakDbfs": -6.74,
+ "clippedSamples": 0,
+ "monoLossDb": -0.42,
+ "sideToMidDb": -9.9,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00518,
+ "loopJoinTypicalStep999": 0.04216,
+ "bands": {
+  "centroidHz": 624,
+  "low40_250": -11.7,
+  "lowmid250_800": -1.0,
+  "mid800_3k": -8.5,
+  "pres3k_6k": -23.1,
+  "air6k_12k": -46.0,
+  "top12k_20k": -59.8
+ },
+ "roleGainsDb": {},
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   1.9,
+   0.7
+  ],
+  [
+   "highshelf",
+   8000,
+   5.0,
+   0.7
+  ],
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 574,
+  "low40_250": -12.2,
+  "lowmid250_800": -0.8,
+  "mid800_3k": -9.7,
+  "pres3k_6k": -25.9,
+  "air6k_12k": -50.0,
+  "top12k_20k": -65.6
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 6.2,
+ "flacSha256": "6b6e0f5e446ee9c4cb4de45f5b0033de4bd5114278687f3411a308ee34c8225f",
+ "flacBytes": 8719389,
+ "aacSha256": "99c1f819602ba3dac93453941aef56eed3d70129ef67b474dabcf1a3a93e0138",
+ "aacBytes": 1470016,
+ "midiSha256": "589aadbbb698e1e4bc8d656046bd07199f0558b26ac45fb2802e4a36f521e10e",
+ "problems": []
+}

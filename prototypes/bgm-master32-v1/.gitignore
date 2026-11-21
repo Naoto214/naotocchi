@@ -1,0 +1,4 @@
+samples/**/*.wav
+__pycache__/
+*.wav
+audio/.*

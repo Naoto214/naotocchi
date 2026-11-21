@@ -1,0 +1,85 @@
+{
+ "id": "fishing-a",
+ "title": "みずべの うたたね",
+ "family": "fishing",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 2016000,
+ "seconds": 45.714286,
+ "flacFrames": 2016000,
+ "aacDecodedFrames": 2016256,
+ "integratedLUFS": -27.0,
+ "targetLUFS": -27,
+ "truePeakDbtp": -7.1,
+ "samplePeakDbfs": -7.1,
+ "clippedSamples": 0,
+ "monoLossDb": -0.44,
+ "sideToMidDb": -9.7,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00814,
+ "loopJoinTypicalStep999": 0.02876,
+ "bands": {
+  "centroidHz": 559,
+  "low40_250": -5.7,
+  "lowmid250_800": -2.4,
+  "mid800_3k": -8.4,
+  "pres3k_6k": -20.9,
+  "air6k_12k": -33.2,
+  "top12k_20k": -50.3
+ },
+ "roleGainsDb": {
+  "bass": -6.4,
+  "accompaniment": -6.7,
+  "pad": -4.4,
+  "sparkle": -7.2
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   -3.4,
+   0.7
+  ],
+  [
+   "highshelf",
+   8000,
+   1.4,
+   0.7
+  ],
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ],
+  [
+   "peak",
+   3800,
+   -1.3,
+   0.7
+  ],
+  [
+   "highshelf",
+   8000,
+   0.5,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 623,
+  "low40_250": -6.4,
+  "lowmid250_800": -2.2,
+  "mid800_3k": -8.1,
+  "pres3k_6k": -17.6,
+  "air6k_12k": -32.4,
+  "top12k_20k": -53.0
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 8.7,
+ "flacSha256": "a98c9564dcfc1893efd354f915321cdc2ef09847b4e22e8208b073400d9f0321",
+ "flacBytes": 6984647,
+ "aacSha256": "d124fc66735ad7f5d438cdb6f6e0db4a4f3dcb73fe2053aab9163421306cafb9",
+ "aacBytes": 1115117,
+ "midiSha256": "2f058799e5a766b7648c59deed296188065b6275536705ca0fea5c21e8de2a12",
+ "problems": []
+}

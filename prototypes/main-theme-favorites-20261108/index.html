@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>なおとっち お気に入り6曲</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* 1段組み: 上に 操作と 再生中表示、つぎに 曲順つきの 6曲リスト(評価・メモ)、ブラインドの 答え合わせ、音量の 記録 */
+:root {
+  --bg: #f2f1ec; --surface: #ffffff; --ink: #1c2633; --muted: #566273; --line: #d4dbe4; --accent: #34558b; --accent-ink: #ffffff; --soft: #e4e9f0; --on-c: #ffffff; --star: #c8921b; --r-must: #c2412d; --r-hold: #c98a1c; --r-good: #3a7d5c; --r-no: #6b7280;
+  --c-current: #7a8796; --c-starlake: #5f64c4; --c-hoshizora: #2f78aa; --c-kisetsu: #bf5670; --c-ohayo: #c9952f; --c-soyokaze: #3c9aa6; --c-blind: #6b7280;
+  --font-display: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', 'Yu Gothic', sans-serif;
+  --font-body: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11151d; --surface: #191f2a; --ink: #e6ebf2; --muted: #9eaabb; --line: #2a3342; --accent: #8fb1e8; --accent-ink: #0e1622; --soft: #202838; --on-c: #10151d; --star: #f0c04a; --r-must: #f08a74; --r-hold: #f0c04a; --r-good: #7fcfa4; --r-no: #a3acb9;
+  --c-current: #9aa7b5; --c-starlake: #9197ef; --c-hoshizora: #6fb3e3; --c-kisetsu: #e57c97; --c-ohayo: #ecc274; --c-soyokaze: #6cc6d1; --c-blind: #a3acb9; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #11151d; --surface: #191f2a; --ink: #e6ebf2; --muted: #9eaabb; --line: #2a3342; --accent: #8fb1e8; --accent-ink: #0e1622; --soft: #202838; --on-c: #10151d; --star: #f0c04a; --r-must: #f08a74; --r-hold: #f0c04a; --r-good: #7fcfa4; --r-no: #a3acb9;
+  --c-current: #9aa7b5; --c-starlake: #9197ef; --c-hoshizora: #6fb3e3; --c-kisetsu: #e57c97; --c-ohayo: #ecc274; --c-soyokaze: #6cc6d1; --c-blind: #a3acb9; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.7; -webkit-text-size-adjust: 100%; }
+.wrap { max-width: 980px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 28px 64px; display: grid; gap: 28px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; text-wrap: balance; margin: 0; line-height: 1.35; }
+h1 { font-size: clamp(26px, 5vw, 38px); }
+h2 { font-size: 21px; }
+h3 { font-size: 17px; }
+p { margin: 0; }
+.lede { color: var(--muted); max-width: 64ch; }
+header.top { display: grid; gap: 10px; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; color: var(--muted); }
+.controls { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-block: 10px; display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; border-bottom: 1px solid var(--line); }
+@media (max-width: 560px) { .controls { position: static; } }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--surface); }
+.seg button { border: 0; background: transparent; color: var(--ink); font: 500 13px var(--font-body); padding: 8px 13px; cursor: pointer; min-height: 36px; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ctl-label { font-size: 12px; color: var(--muted); margin-right: 6px; }
+.ctl { display: inline-flex; align-items: center; gap: 6px; }
+.chk { display: inline-flex; gap: 6px; align-items: center; font-size: 13px; }
+.btn { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 7px 14px; font: 500 13px var(--font-body); cursor: pointer; min-height: 36px; }
+input[type="range"] { width: 120px; accent-color: var(--accent); }
+.vol-num { font-family: var(--font-mono); font-size: 12px; color: var(--muted); min-width: 3ch; font-variant-numeric: tabular-nums; }
+.group { display: grid; gap: 12px; }
+.group-head { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; }
+.group-head p { color: var(--muted); font-size: 13px; }
+.track { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: grid; grid-template-columns: auto 1fr auto; gap: 6px 14px; align-items: center; }
+.track[data-active="true"] { border-color: var(--tc); box-shadow: 0 0 0 1px var(--tc) inset; }
+.chip { font-family: var(--font-display); font-weight: 700; font-size: 14px; color: var(--on-c); background: var(--tc); border-radius: 10px; min-width: 52px; text-align: center; padding: 6px 8px; line-height: 1.3; }
+.tinfo { min-width: 0; }
+.tinfo h3 { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+.tinfo .sub { font-family: var(--font-body); font-weight: 500; font-size: 13px; color: var(--muted); }
+.meta { font-family: var(--font-mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.tbtns { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+.play { border: 0; background: var(--tc); color: var(--on-c); border-radius: 999px; padding: 9px 18px; font: 700 14px var(--font-body); cursor: pointer; min-width: 96px; min-height: 40px; }
+.play.alt { background: transparent; color: var(--ink); border: 1px solid var(--line); font-weight: 500; font-size: 12px; padding: 5px 10px; min-width: 0; min-height: 32px; }
+.track .desc { grid-column: 2 / 4; font-size: 14px; }
+.track .hook { grid-column: 2 / 4; font-size: 13px; color: var(--muted); }
+.prog { grid-column: 1 / 4; height: 3px; background: var(--soft); border-radius: 2px; overflow: hidden; }
+.prog i { display: block; height: 100%; width: 0; background: var(--tc); }
+@media (max-width: 560px) { .track { grid-template-columns: auto 1fr; } .tbtns { grid-column: 1 / 3; flex-direction: row; justify-content: flex-start; } .track .desc, .track .hook, .prog { grid-column: 1 / 3; } }
+.score { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 12px; }
+.score-head { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; justify-content: space-between; }
+.rollbox { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+canvas#roll { display: block; width: 100%; min-width: 760px; height: 200px; }
+.solf { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.solf div { background: var(--soft); border-radius: 8px; padding: 6px 8px; font-size: 13px; min-width: 0; }
+.solf b { font-family: var(--font-mono); font-weight: 500; font-size: 11px; color: var(--muted); display: block; }
+.solf .cn { font-family: var(--font-mono); font-size: 11px; color: var(--accent); overflow-wrap: anywhere; }
+.solf div.on { outline: 2px solid var(--stc); }
+@media (max-width: 640px) { .solf { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.tablebox { overflow-x: auto; -webkit-overflow-scrolling: touch; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 13px; }
+th, td { padding: 9px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { font-weight: 700; font-size: 12px; color: var(--muted); }
+td.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bar { display: inline-block; height: 6px; border-radius: 3px; background: var(--tc); vertical-align: middle; margin-left: 6px; }
+.tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+.stars { display: inline-flex; gap: 2px; }
+.stars button { border: 0; background: transparent; font-size: 20px; line-height: 1; color: var(--line); cursor: pointer; padding: 4px 2px; min-height: 32px; }
+.stars button[data-on="true"] { color: var(--star); }
+textarea { width: 100%; min-width: 180px; font: 13px var(--font-body); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; resize: vertical; }
+.split { display: grid; gap: 12px; }
+.notes { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.note { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: grid; gap: 6px; min-width: 0; }
+.note ul { margin: 0; padding-left: 1.2em; }
+code { font-family: var(--font-mono); font-size: 12px; background: var(--soft); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+.status { font-size: 12px; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+/* 一日の 通し試聴 */
+.day { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 12px; }
+.day-row { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+.timeline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.slot { border-radius: 10px; padding: 8px 10px; background: var(--soft); border: 2px solid transparent; min-width: 0; display: grid; gap: 2px; }
+.slot .when { font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
+.slot .what { font-family: var(--font-display); font-weight: 700; font-size: 14px; overflow-wrap: anywhere; }
+.slot .bar2 { height: 3px; background: var(--line); border-radius: 2px; overflow: hidden; }
+.slot .bar2 i { display: block; height: 100%; width: 0; background: var(--tc); }
+.slot[data-now="true"] { border-color: var(--tc); }
+@media (max-width: 560px) { .timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* 再生中 */
+.now { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: grid; gap: 8px; }
+.now-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(20px, 4vw, 26px); }
+.now-sub { font-size: 13px; color: var(--muted); }
+.now .prog { height: 4px; }
+.now > * { grid-column: 1 / -1; }
+.row-tools { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
+/* 曲リスト */
+.fav { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; display: grid; grid-template-columns: auto auto 1fr auto; gap: 8px 12px; align-items: center; }
+.fav[data-active="true"] { border-color: var(--tc); box-shadow: 0 0 0 1px var(--tc) inset; }
+.ord { font-family: var(--font-mono); font-size: 12px; color: var(--muted); width: 2ch; text-align: right; }
+.move { display: flex; flex-direction: column; gap: 4px; }
+.move button { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 8px; width: 34px; height: 30px; cursor: pointer; font-size: 13px; }
+.move button:disabled { opacity: .35; cursor: default; }
+.fav .rate { grid-column: 3 / 5; display: flex; flex-wrap: wrap; gap: 6px; }
+.fav .memo { grid-column: 3 / 5; }
+.rate button { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 6px 12px; font: 500 12px var(--font-body); cursor: pointer; min-height: 34px; }
+.rate button[aria-pressed="true"][data-r="must"] { background: var(--r-must); border-color: var(--r-must); color: var(--on-c); }
+.rate button[aria-pressed="true"][data-r="hold"] { background: var(--r-hold); border-color: var(--r-hold); color: var(--on-c); }
+.rate button[aria-pressed="true"][data-r="good"] { background: var(--r-good); border-color: var(--r-good); color: var(--on-c); }
+.rate button[aria-pressed="true"][data-r="no"] { background: var(--r-no); border-color: var(--r-no); color: var(--on-c); }
+.blindchip { font-family: var(--font-display); font-weight: 700; font-size: 22px; color: var(--on-c); background: var(--tc); border-radius: 12px; width: 52px; height: 52px; display: grid; place-items: center; }
+@media (max-width: 560px) { .fav { grid-template-columns: auto auto 1fr; } .fav .tbtns { grid-column: 1 / 4; flex-direction: row; justify-content: flex-start; } .fav .rate, .fav .memo { grid-column: 1 / 4; } }
+.summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.summary div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 8px 10px; min-width: 0; }
+.summary b { font-family: var(--font-mono); font-size: 20px; display: block; }
+.summary span { font-size: 12px; color: var(--muted); }
+@media (max-width: 560px) { .summary { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">NAOTOCCHI · お気に入り 6曲 · 2026-11-08</div>
+    <h1>なおとっち お気に入り6曲 聴きくらべ</h1>
+    <p class="lede">これまでに 気に入った 6曲を、原曲の まま 同じ 音色・同じ 音量で 聴きくらべる ページです。曲名や 用途を 伏せて A〜F の 記号だけで 聴く ブラインド比較も できます。評価と メモは この ブラウザの 中だけに 保存されます。</p>
+  </header>
+
+  <div class="controls" role="group" aria-label="再生の 設定">
+    <span class="ctl"><span class="ctl-label">音色</span>
+      <span class="seg" id="modeSeg">
+        <button type="button" id="mode-melody" data-mode="melody" aria-pressed="false">メロディのみ</button>
+        <button type="button" id="mode-piano" data-mode="piano" aria-pressed="true">ピアノ</button>
+        <button type="button" id="mode-band" data-mode="band" aria-pressed="false">軽い伴奏</button>
+      </span></span>
+    <label class="ctl" for="volRange"><span class="ctl-label">音量</span><input type="range" id="volRange" min="0" max="100" step="1" value="80"><span class="vol-num" id="volNum">80</span></label>
+    <label class="chk" for="loopChk"><input type="checkbox" id="loopChk"> ループ</label>
+    <label class="chk" for="levelChk"><input type="checkbox" id="levelChk" checked> 曲間の 音量を そろえる</label>
+    <span class="ctl"><span class="ctl-label">比較</span>
+      <span class="seg" id="viewSeg">
+        <button type="button" id="view-named" data-view="named" aria-pressed="true">曲名あり</button>
+        <button type="button" id="view-blind" data-view="blind" aria-pressed="false">ブラインド A〜F</button>
+      </span></span>
+  </div>
+
+  <section class="now" aria-label="再生中">
+    <div class="now-sub" id="nowLabel">再生していません</div>
+    <div class="now-title" id="nowTitle">—</div>
+    <div class="prog" aria-hidden="true"><i id="nowProg"></i></div>
+    <div class="row-tools">
+      <button type="button" class="btn" id="prevBtn" aria-label="前の 曲">◀ 前の 曲</button>
+      <button type="button" class="play" id="allBtn" style="--tc: var(--accent)">▶ 6曲を 連続再生</button>
+      <button type="button" class="btn" id="stopBtn">■ とめる</button>
+      <button type="button" class="btn" id="nextBtn" aria-label="次の 曲">次の 曲 ▶</button>
+      <span class="ctl"><span class="ctl-label">連続再生の 長さ</span>
+        <span class="seg" id="lenSeg">
+          <button type="button" id="len-full" data-len="full" aria-pressed="true">いつもの 長さ</button>
+          <button type="button" id="len-short" data-len="short" aria-pressed="false">1周ずつ</button>
+        </span></span>
+    </div>
+    <p class="status" id="status" aria-live="polite"></p>
+  </section>
+
+  <section class="group" aria-labelledby="listTitle">
+    <div class="group-head"><h2 id="listTitle">曲の 一覧（上から 再生順）</h2><p id="listHint">↑↓ で 曲順を 変えられます。連続再生は この 順に 流れます。</p></div>
+    <div class="row-tools">
+      <button type="button" class="btn" id="resetOrderBtn">曲順を もとに もどす</button>
+      <button type="button" class="btn" id="shuffleBtn" hidden>A〜F を くじ引きし直す</button>
+    </div>
+    <div class="group" id="list"></div>
+  </section>
+
+  <section class="split" aria-labelledby="sumTitle">
+    <h2 id="sumTitle">評価の まとめ</h2>
+    <div class="summary" id="summary"></div>
+  </section>
+
+  <section class="split" id="revealSec" aria-labelledby="revealTitle">
+    <h2 id="revealTitle">ブラインドの 答え合わせ</h2>
+    <p class="lede">ブラインドで つけた 評価と、曲名ありで つけた 評価を ならべて 見られます。ブラインドで 評価し終わってから 開いて ください。</p>
+    <div class="row-tools"><button type="button" class="btn" id="revealBtn" aria-expanded="false">答え合わせを 見る</button></div>
+    <div class="tablebox" id="revealBox" hidden><table id="reveal"></table></div>
+  </section>
+
+  <section class="score" id="score" aria-label="譜面">
+    <div class="score-head"><h2 id="scoreTitle">譜面</h2><span class="meta" id="scoreMeta"></span></div>
+    <div class="rollbox"><canvas id="roll" aria-label="メロディの ピアノロール"></canvas></div>
+    <div class="solf" id="solf"></div>
+    <p class="meta" id="scoreNote">ピアノロールは メロディ 1周ぶん。階名は 移動ド（長調は 主音を ド、短調は 主音を ラ）。「ー」は 付点4分以上の のばす音、「・」は 休符。</p>
+  </section>
+
+  <section class="split" aria-labelledby="loudTitle">
+    <h2 id="loudTitle">曲間の 音量（測定値）</h2>
+    <p class="lede">各曲 1周を ブラウザ内で 描いて 測った 平均の 大きさ（RMS）です。「曲間の 音量を そろえる」が オンの とき、右の 補正値を 再生時の 音量だけに かけて 6曲の 平均に そろえます。原曲データは 変えていません。</p>
+    <div class="tablebox"><table id="loud"></table></div>
+  </section>
+
+  <section class="notes" aria-label="制約と 記録">
+    <div class="note"><h3>iPhone Safari で 聴くとき</h3>
+      <ul>
+        <li>最初は「▶」を タップして ください（タップ前は 音を 出せません）。</li>
+        <li>消音スイッチが オンでも 鳴る ように「メディア再生」として 鳴らしています。鳴らない ときは 消音を 切って ください。</li>
+        <li>画面を 消すと 止まります。もどったら もう一度 ▶ を。</li>
+      </ul></div>
+    <div class="note"><h3>音源と 原曲</h3>
+      <ul>
+        <li>ブラウザで その場で 合成した 音です。音色・伴奏型は これまでの 試聴室と 同一です。</li>
+        <li>6曲の 楽曲データは PR #524・#526・#527 の ものを そのまま 読んでいます。</li>
+        <li>比べる 条件を そろえる ため、現行曲の「ゲームの 音で」は この ページには 入れていません。</li>
+      </ul></div>
+    <div class="note"><h3>記録</h3>
+      <ul>
+        <li>ページ: <code>prototypes/main-theme-favorites-20261108/</code></li>
+        <li>点検: <code>tools/check-favorites.cjs</code>（原曲データが 元と 同一か）</li>
+        <li>音量の 測定: <code>tools/measure-loudness.cjs</code></li>
+        <li>説明: <code>docs/main-theme-favorites-20261108/README.md</code></li>
+      </ul></div>
+  </section>
+</div>
+
+<script src="../main-theme-20261108/songs.js"></script>
+<script src="../main-theme-v2-20261108/songs-v2.js"></script>
+<script src="../main-theme-v3-morning-20261108/songs-v3.js"></script>
+<script src="favorites.js"></script>
+<script src="../main-theme-v2-20261108/engine-v2.js"></script>
+<script>
+(() => {
+  'use strict';
+  const F = window.NAOTOCCHI_FAVORITES, E = window.NAOTOCCHI_THEME_ENGINE_V2;
+  const player = E.createPlayer();
+  const KEY = 'naotocchi-favorites6-v1';
+  const RATINGS = [{ r: 'must', label: '絶対に 使いたい' }, { r: 'hold', label: '好きだが 保留' }, { r: 'good', label: '候補の 中では よい' }, { r: 'no', label: '採用しない' }];
+  const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
+  const ids = F.FAVORITES.map((f) => f.id);
+  const byId = (id) => F.FAVORITES.find((f) => f.id === id);
+  const shuffled = () => { const a = ids.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (err) { return {}; } };
+  const saved = load();
+  const valid = (o) => Array.isArray(o) && o.length === ids.length && ids.every((id) => o.includes(id));
+  const st = {
+    mode: saved.mode || 'piano', vol: saved.vol ?? 80, level: saved.level ?? true, view: saved.view || 'named', len: saved.len || 'full', loop: false,
+    order: valid(saved.order) ? saved.order : ids.slice(),
+    blind: valid(saved.blind) ? saved.blind : shuffled(), // blind[i] = LETTERS[i] の 曲
+    ratings: Object.assign({ named: {}, blind: {} }, saved.ratings || {}),
+    playing: null, queue: null, sel: null,
+  };
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify({ mode: st.mode, vol: st.vol, level: st.level, view: st.view, len: st.len, order: st.order, blind: st.blind, ratings: st.ratings })); } catch (err) {} };
+  const isBlind = () => st.view === 'blind';
+  const letterOf = (id) => LETTERS[st.blind.indexOf(id)];
+  const nameOf = (id) => (isBlind() ? `曲 ${letterOf(id)}` : byId(id).title);
+  const listOrder = () => (isBlind() ? st.blind : st.order);
+  const fmt = (sec) => `${Math.floor(sec / 60)}:${String(Math.round(sec % 60)).padStart(2, '0')}`;
+  const passSec = (song) => F.flatten(song).beats * 60 / song.bpm;
+  const repeatsFor = (song, queued) => (queued && st.len === 'short' ? (song.bars.length <= 8 ? 2 : 1) : song.repeats);
+  const gain = (id) => (st.level ? Math.pow(10, ((F.LOUDNESS_DB[st.mode] || {})[id] || 0) / 20) : 1);
+  const applyVolume = () => player.setVolume(Math.min(1, st.vol / 100 * (st.playing ? gain(st.playing.id) : 1)));
+
+  // ---- 一覧 ----
+  const listEl = document.getElementById('list');
+  function renderList() {
+    const order = listOrder();
+    listEl.innerHTML = order.map((id, i) => {
+      const f = byId(id), s = f.song, r = (st.ratings[st.view][id] || {});
+      const color = isBlind() ? 'var(--c-blind)' : `var(--c-${id})`;
+      const head = isBlind()
+        ? `<div class="blindchip">${letterOf(id)}</div>`
+        : `<div class="tinfo"><h3>${f.title}<span class="sub">${f.origin}</span></h3><div class="meta">${s.tonicName || s.key.replace('b', '♭') + ' major'} · ${s.meter}/4 · ♩=${s.bpm} · ${fmt(passSec(s) * s.repeats)}</div></div>`;
+      return `<article class="fav" id="fav-${id}" data-id="${id}" style="--tc:${color}" data-active="${!!(st.playing && st.playing.id === id)}">
+        <span class="ord">${i + 1}</span>
+        <span class="move">${isBlind() ? '' : `<button type="button" data-up="${id}" aria-label="${f.title} を 上へ" ${i === 0 ? 'disabled' : ''}>↑</button><button type="button" data-down="${id}" aria-label="${f.title} を 下へ" ${i === order.length - 1 ? 'disabled' : ''}>↓</button>`}</span>
+        ${head}
+        <div class="tbtns"><button type="button" class="play" id="play-${id}" data-play="${id}">${st.playing && st.playing.id === id && !st.queue ? '■ とめる' : '▶ 再生'}</button></div>
+        <div class="rate" role="group" aria-label="${nameOf(id)} の 評価">${RATINGS.map((x) => `<button type="button" id="rate-${id}-${x.r}" data-rate="${id}" data-r="${x.r}" aria-pressed="${r.r === x.r}">${x.label}</button>`).join('')}</div>
+        <div class="memo"><textarea id="memo-${id}" data-memo="${id}" rows="2" placeholder="メモ（例: 2回目で 好きに なった、夜に 合いそう）">${(r.memo || '').replace(/</g, '&lt;')}</textarea></div>
+      </article>`;
+    }).join('');
+    document.getElementById('listHint').textContent = isBlind() ? 'A〜F は くじ引きで 決めた 順です。連続再生も A → F の 順に 流れます。曲名ありの 評価とは 別に 保存されます。' : '↑↓ で 曲順を 変えられます。連続再生は この 順に 流れます。';
+    document.getElementById('resetOrderBtn').hidden = isBlind();
+    document.getElementById('shuffleBtn').hidden = !isBlind();
+    renderSummary(); renderReveal();
+  }
+  listEl.addEventListener('click', (ev) => {
+    const b = ev.target.closest('button'); if (!b) return;
+    if (b.dataset.up || b.dataset.down) {
+      const id = b.dataset.up || b.dataset.down, i = st.order.indexOf(id), j = i + (b.dataset.up ? -1 : 1);
+      [st.order[i], st.order[j]] = [st.order[j], st.order[i]]; save(); renderList();
+      const again = document.querySelector(`[data-${b.dataset.up ? 'up' : 'down'}="${id}"]`); if (again && !again.disabled) again.focus();
+    } else if (b.dataset.play) {
+      const id = b.dataset.play;
+      if (st.playing && st.playing.id === id && !st.queue) stop(); else { st.queue = null; start(id); }
+    } else if (b.dataset.rate) {
+      const id = b.dataset.rate, cur = st.ratings[st.view][id] || {};
+      st.ratings[st.view][id] = Object.assign({}, cur, { r: cur.r === b.dataset.r ? null : b.dataset.r }); save();
+      b.parentElement.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.r === st.ratings[st.view][id].r)));
+      renderSummary(); renderReveal();
+    }
+  });
+  listEl.addEventListener('input', (ev) => { const t = ev.target.closest('[data-memo]'); if (!t) return; const id = t.dataset.memo; st.ratings[st.view][id] = Object.assign({}, st.ratings[st.view][id], { memo: t.value }); save(); renderReveal(); });
+  listEl.addEventListener('click', (ev) => { const card = ev.target.closest('.fav'); if (card && !ev.target.closest('button, textarea')) select(card.dataset.id); });
+
+  // ---- 再生 ----
+  function start(id) {
+    const f = byId(id), queued = !!st.queue;
+    st.playing = { id }; applyVolume();
+    try {
+      player.play(f.song, st.mode, { repeats: repeatsFor(f.song, queued), loop: !queued && st.loop, onend: onEnd });
+    } catch (err) { st.playing = null; setStatus('この ブラウザでは 音を 出せませんでした（Web Audio に 未対応）'); return; }
+    select(id); refresh(); requestAnimationFrame(frame);
+    setTimeout(() => { if (st.playing && player.state !== 'running') setStatus('音が 出ない ときは、もう一度 ▶ を タップして ください'); }, 900);
+  }
+  function onEnd() {
+    if (st.queue) {
+      const order = listOrder(), i = order.indexOf(st.playing.id) + 1;
+      if (i < order.length || st.loop) { const next = order[i % order.length]; st.playing = null; refresh(); setTimeout(() => { if (st.queue) start(next); }, 800); return; }
+      st.queue = null; st.playing = null; refresh(); setStatus('6曲の 連続再生が 終わりました'); return;
+    }
+    st.playing = null; refresh();
+  }
+  function stop() { st.queue = null; player.stop(); st.playing = null; refresh(); drawRoll(null); setStatus(''); }
+  function playAll() { st.queue = true; start(listOrder()[0]); }
+  function step(dir) {
+    const order = listOrder(), cur = st.playing ? st.playing.id : (st.sel || order[0]);
+    const next = order[(order.indexOf(cur) + dir + order.length) % order.length];
+    if (st.playing) start(next); else select(next);
+  }
+  function setStatus(t) { document.getElementById('status').textContent = t; }
+  function refresh() {
+    const p = st.playing && byId(st.playing.id);
+    document.getElementById('nowLabel').textContent = p ? `${st.queue ? '連続再生' : '再生中'} · ${listOrder().indexOf(p.id) + 1} / 6 曲目` : '再生していません';
+    document.getElementById('nowTitle').textContent = p ? nameOf(p.id) + (isBlind() ? '' : `（${p.origin}）`) : '—';
+    document.getElementById('allBtn').textContent = st.queue ? '■ 連続再生を とめる' : '▶ 6曲を 連続再生';
+    document.querySelectorAll('[data-play]').forEach((b) => { b.textContent = st.playing && st.playing.id === b.dataset.play && !st.queue ? '■ とめる' : '▶ 再生'; });
+    document.querySelectorAll('.fav').forEach((c) => { c.dataset.active = String(!!(st.playing && st.playing.id === c.dataset.id)); });
+    if (!st.playing) document.getElementById('nowProg').style.width = '0';
+    if (p) setStatus('');
+  }
+  function frame() {
+    if (!st.playing) return;
+    const pos = player.position();
+    if (pos && pos.duration) document.getElementById('nowProg').style.width = `${Math.min(100, pos.seconds / pos.duration * 100)}%`;
+    if (pos && st.sel === st.playing.id) drawRoll(pos);
+    requestAnimationFrame(frame);
+  }
+
+  // ---- 設定 ----
+  function seg(id, key, attr, after) {
+    const el = document.getElementById(id);
+    const sync = () => el.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset[attr] === st[key])));
+    el.addEventListener('click', (ev) => { const b = ev.target.closest('button'); if (!b) return; st[key] = b.dataset[attr]; sync(); save(); after && after(); });
+    sync();
+  }
+  seg('modeSeg', 'mode', 'mode', () => { if (st.playing) start(st.playing.id); renderLoud(); });
+  seg('lenSeg', 'len', 'len');
+  seg('viewSeg', 'view', 'view', () => { stop(); st.sel = null; renderList(); select(listOrder()[0]); });
+  const vol = document.getElementById('volRange'), volNum = document.getElementById('volNum');
+  vol.value = st.vol; volNum.textContent = st.vol;
+  vol.addEventListener('input', () => { st.vol = Number(vol.value); volNum.textContent = st.vol; applyVolume(); save(); });
+  const levelChk = document.getElementById('levelChk'); levelChk.checked = st.level;
+  levelChk.addEventListener('change', () => { st.level = levelChk.checked; applyVolume(); save(); });
+  document.getElementById('loopChk').addEventListener('change', (ev) => { st.loop = ev.target.checked; if (st.playing && !st.queue) start(st.playing.id); });
+  document.getElementById('stopBtn').addEventListener('click', stop);
+  document.getElementById('allBtn').addEventListener('click', () => { if (st.queue) stop(); else playAll(); });
+  document.getElementById('prevBtn').addEventListener('click', () => step(-1));
+  document.getElementById('nextBtn').addEventListener('click', () => step(1));
+  document.getElementById('resetOrderBtn').addEventListener('click', () => { st.order = ids.slice(); save(); renderList(); });
+  document.getElementById('shuffleBtn').addEventListener('click', () => { stop(); st.blind = shuffled(); st.ratings.blind = {}; save(); renderList(); select(st.blind[0]); setStatus('A〜F を くじ引きし直しました（ブラインドの 評価は 消えました）'); });
+
+  // ---- まとめ・答え合わせ ----
+  function renderSummary() {
+    const rs = st.ratings[st.view];
+    document.getElementById('summary').innerHTML = RATINGS.map((x) => { const hit = listOrder().filter((id) => (rs[id] || {}).r === x.r); return `<div><b>${hit.length}</b><span>${x.label}</span><br><span>${hit.map(nameOf).join('、') || '—'}</span></div>`; }).join('');
+    document.getElementById('sumTitle').textContent = `評価の まとめ（${isBlind() ? 'ブラインド' : '曲名あり'}）`;
+  }
+  const rLabel = (x) => (RATINGS.find((r) => r.r === (x || {}).r) || {}).label || '—';
+  function renderReveal() {
+    document.getElementById('reveal').innerHTML = `<thead><tr><th>記号</th><th>曲名</th><th>ブラインドの 評価</th><th>曲名ありの 評価</th><th>ブラインドの メモ</th></tr></thead><tbody>${st.blind.map((id, i) => `<tr><td class="num"><b>${LETTERS[i]}</b></td><td>${byId(id).title}<br><span class="meta">${byId(id).origin}</span></td><td>${rLabel(st.ratings.blind[id])}</td><td>${rLabel(st.ratings.named[id])}</td><td>${((st.ratings.blind[id] || {}).memo || '').replace(/</g, '&lt;')}</td></tr>`).join('')}</tbody>`;
+  }
+  const revealBtn = document.getElementById('revealBtn'), revealBox = document.getElementById('revealBox');
+  revealBtn.addEventListener('click', () => { const open = revealBox.hidden; revealBox.hidden = !open; revealBtn.setAttribute('aria-expanded', String(open)); revealBtn.textContent = open ? '答え合わせを 閉じる' : '答え合わせを 見る'; });
+
+  // ---- 譜面 (ブラインド中は コード名・階名を 出さない) ----
+  const canvas = document.getElementById('roll'), solfEl = document.getElementById('solf');
+  function select(id) {
+    st.sel = id; const f = byId(id), s = f.song;
+    document.getElementById('scoreTitle').textContent = isBlind() ? `曲 ${letterOf(id)} の メロディ` : f.title;
+    document.getElementById('scoreMeta').textContent = isBlind() ? '' : `${s.tonicName || s.key.replace('b', '♭') + ' major'} · ${s.meter}/4 · 聴きどころ ${s.hook}`;
+    document.getElementById('score').style.setProperty('--stc', isBlind() ? 'var(--c-blind)' : `var(--c-${id})`);
+    solfEl.hidden = isBlind();
+    document.getElementById('scoreNote').hidden = isBlind();
+    solfEl.innerHTML = isBlind() ? '' : s.bars.map((bar, i) => `<div data-bar="${i}"><b>${i + 1}</b><span class="cn">${bar.ch.map((c) => c[0]).join(' | ')}</span><br>${bar.m.map(([n, d]) => (n === 'r' ? '・' : F.solfege(n, s.key) + (d >= 1.5 ? 'ー' : ''))).join(' ')}</div>`).join('');
+    drawRoll(null);
+  }
+  function drawRoll(pos) {
+    if (!st.sel) return;
+    const id = st.sel, s = byId(id).song, flat = F.flatten(s);
+    const dpr = window.devicePixelRatio || 1, w = canvas.clientWidth, h = canvas.clientHeight; if (!w || !h) return;
+    if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) { canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr); }
+    const g = canvas.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, w, h);
+    const cs = getComputedStyle(document.documentElement), ink = cs.getPropertyValue('--muted').trim(), line = cs.getPropertyValue('--line').trim(), col = cs.getPropertyValue(isBlind() ? '--c-blind' : '--c-' + id).trim();
+    const mids = flat.notes.map((n) => n.midi), lo = Math.min(...mids) - 2, hi = Math.max(...mids) + 2;
+    const top = 22, padL = 4, W = w - padL * 2, H = h - top - 6, x = (b) => padL + b / flat.beats * W, y = (m) => top + (hi - m) / (hi - lo) * H;
+    g.font = `11px ${cs.getPropertyValue('--font-mono')}`; g.textBaseline = 'top';
+    for (let bar = 0; bar <= s.bars.length; bar++) { g.fillStyle = line; g.fillRect(Math.round(x(bar * s.meter)), top - 4, 1, H + 8); }
+    if (!isBlind()) for (const c of flat.chords) { g.fillStyle = ink; g.fillText(c.chord.name, x(c.beat) + 3, 4); }
+    const cur = pos ? pos.beat : -1, rh = Math.max(4, H / (hi - lo) * 0.9);
+    for (const n of flat.notes) {
+      const on = cur >= n.beat && cur < n.beat + n.dur;
+      g.fillStyle = col; g.globalAlpha = on ? 1 : (pos ? 0.5 : 0.85);
+      const nx = x(n.beat), nw = Math.max(3, x(n.beat + n.dur) - nx - 2), ny = y(n.midi) - rh / 2;
+      g.beginPath(); if (g.roundRect) g.roundRect(nx, ny, nw, rh, 3); else g.rect(nx, ny, nw, rh); g.fill();
+    }
+    g.globalAlpha = 1;
+    if (pos) { g.fillStyle = cs.getPropertyValue('--ink').trim(); g.fillRect(Math.round(x(cur)), top - 4, 2, H + 8); }
+    const barNow = pos ? Math.floor(cur / s.meter) : -1;
+    solfEl.querySelectorAll('div').forEach((d) => d.classList.toggle('on', Number(d.dataset.bar) === barNow));
+  }
+  window.addEventListener('resize', () => drawRoll(st.playing ? player.position() : null));
+  try { window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => drawRoll(null)); } catch (err) {}
+
+  // ---- 音量の 表 (測定値) ----
+  const MEASURED = F.MEASURED_RMS || null;
+  function renderLoud() {
+    const modes = [['melody', 'メロディのみ'], ['piano', 'ピアノ'], ['band', '軽い伴奏']];
+    const rows = (isBlind() ? st.blind : ids).map((id) => `<tr><td>${nameOf(id)}</td>${modes.map(([m]) => { const v = MEASURED && MEASURED[m] && MEASURED[m][id]; const c = (F.LOUDNESS_DB[m] || {})[id] || 0; return `<td class="num">${v != null ? v.toFixed(1) + ' dB' : '—'}</td><td class="num">${(c > 0 ? '+' : '') + c.toFixed(1)} dB</td>`; }).join('')}</tr>`).join('');
+    document.getElementById('loud').innerHTML = `<thead><tr><th>曲</th>${modes.map(([, l]) => `<th>${l} RMS</th><th>補正</th>`).join('')}</tr></thead><tbody>${rows}</tbody>`;
+  }
+
+  renderList(); renderLoud(); select(listOrder()[0]); refresh();
+  // ブラインドの 切りかえで 表の 並びも かえる
+  document.getElementById('viewSeg').addEventListener('click', renderLoud);
+})();
+</script>
+</body>
+</html>

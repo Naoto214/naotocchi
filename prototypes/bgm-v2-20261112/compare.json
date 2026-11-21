@@ -1,0 +1,930 @@
+[
+ {
+  "id": "home-morning",
+  "title": "そよかぜの まど",
+  "v1": {
+   "centroidHz": 351,
+   "low40_250": -4.3,
+   "lowmid250_800": -2.1,
+   "mid800_3k": -21.4,
+   "pres3k_6k": -47.5,
+   "air6k_12k": -55.7,
+   "top12k_20k": -80.1,
+   "sideToMidDb": -21.2,
+   "phoneClarityDb": -33.9
+  },
+  "v2": {
+   "centroidHz": 599,
+   "low40_250": -8.0,
+   "lowmid250_800": -1.6,
+   "mid800_3k": -8.5,
+   "pres3k_6k": -23.4,
+   "air6k_12k": -40.4,
+   "top12k_20k": -57.2,
+   "sideToMidDb": -8.3,
+   "phoneClarityDb": -11.6
+  },
+  "v2LUFS": -23.0,
+  "v2TruePeak": -2.65,
+  "v2MonoLossDb": -0.6
+ },
+ {
+  "id": "home-day",
+  "title": "いつもの にわ",
+  "v1": {
+   "centroidHz": 411,
+   "low40_250": -6.6,
+   "lowmid250_800": -1.1,
+   "mid800_3k": -25.1,
+   "pres3k_6k": -51.2,
+   "air6k_12k": -60.6,
+   "top12k_20k": -82.6,
+   "sideToMidDb": -23.6,
+   "phoneClarityDb": -32.2
+  },
+  "v2": {
+   "centroidHz": 624,
+   "low40_250": -11.7,
+   "lowmid250_800": -1.0,
+   "mid800_3k": -8.5,
+   "pres3k_6k": -23.1,
+   "air6k_12k": -46.0,
+   "top12k_20k": -59.8,
+   "sideToMidDb": -9.9,
+   "phoneClarityDb": -12.4
+  },
+  "v2LUFS": -23.01,
+  "v2TruePeak": -6.72,
+  "v2MonoLossDb": -0.42
+ },
+ {
+  "id": "home-evening",
+  "title": "ほしふる みずうみ",
+  "v1": {
+   "centroidHz": 332,
+   "low40_250": -3.4,
+   "lowmid250_800": -2.7,
+   "mid800_3k": -19.0,
+   "pres3k_6k": -46.2,
+   "air6k_12k": -54.4,
+   "top12k_20k": -79.0,
+   "sideToMidDb": -20.5,
+   "phoneClarityDb": -31.9
+  },
+  "v2": {
+   "centroidHz": 625,
+   "low40_250": -8.8,
+   "lowmid250_800": -1.3,
+   "mid800_3k": -9.1,
+   "pres3k_6k": -23.5,
+   "air6k_12k": -41.0,
+   "top12k_20k": -57.8,
+   "sideToMidDb": -8.1,
+   "phoneClarityDb": -10.8
+  },
+  "v2LUFS": -23.0,
+  "v2TruePeak": -4.15,
+  "v2MonoLossDb": -0.63
+ },
+ {
+  "id": "home-night",
+  "title": "ほしぞらの やくそく",
+  "v1": {
+   "centroidHz": 360,
+   "low40_250": -4.5,
+   "lowmid250_800": -2.0,
+   "mid800_3k": -19.3,
+   "pres3k_6k": -49.4,
+   "air6k_12k": -56.4,
+   "top12k_20k": -80.4,
+   "sideToMidDb": -21.5,
+   "phoneClarityDb": -33.5
+  },
+  "v2": {
+   "centroidHz": 598,
+   "low40_250": -8.0,
+   "lowmid250_800": -1.5,
+   "mid800_3k": -8.8,
+   "pres3k_6k": -23.4,
+   "air6k_12k": -43.7,
+   "top12k_20k": -58.8,
+   "sideToMidDb": -8.6,
+   "phoneClarityDb": -12.0
+  },
+  "v2LUFS": -23.0,
+  "v2TruePeak": -3.55,
+  "v2MonoLossDb": -0.56
+ },
+ {
+  "id": "poyo-1",
+  "title": "ぽよぽよ こもれび",
+  "v1": {
+   "centroidHz": 717,
+   "low40_250": -6.7,
+   "lowmid250_800": -4.6,
+   "mid800_3k": -3.6,
+   "pres3k_6k": -22.4,
+   "air6k_12k": -46.2,
+   "top12k_20k": -74.1,
+   "sideToMidDb": -28.2,
+   "phoneClarityDb": -17.0
+  },
+  "v2": {
+   "centroidHz": 610,
+   "low40_250": -4.4,
+   "lowmid250_800": -5.0,
+   "mid800_3k": -5.1,
+   "pres3k_6k": -20.4,
+   "air6k_12k": -38.8,
+   "top12k_20k": -55.3,
+   "sideToMidDb": -4.6,
+   "phoneClarityDb": -13.9
+  },
+  "v2LUFS": -26.0,
+  "v2TruePeak": -11.76,
+  "v2MonoLossDb": -1.28
+ },
+ {
+  "id": "koro-1",
+  "title": "ころころ じんせい",
+  "v1": {
+   "centroidHz": 508,
+   "low40_250": -7.0,
+   "lowmid250_800": -1.4,
+   "mid800_3k": -11.2,
+   "pres3k_6k": -40.0,
+   "air6k_12k": -49.5,
+   "top12k_20k": -64.6,
+   "sideToMidDb": -26.0,
+   "phoneClarityDb": -28.7
+  },
+  "v2": {
+   "centroidHz": 716,
+   "low40_250": -6.5,
+   "lowmid250_800": -2.6,
+   "mid800_3k": -6.8,
+   "pres3k_6k": -19.0,
+   "air6k_12k": -23.7,
+   "top12k_20k": -32.8,
+   "sideToMidDb": -9.0,
+   "phoneClarityDb": -12.1
+  },
+  "v2LUFS": -23.0,
+  "v2TruePeak": -6.83,
+  "v2MonoLossDb": -0.52
+ },
+ {
+  "id": "card-2",
+  "title": "デュエル・スタート",
+  "v1": {
+   "centroidHz": 512,
+   "low40_250": -6.6,
+   "lowmid250_800": -1.7,
+   "mid800_3k": -9.7,
+   "pres3k_6k": -41.0,
+   "air6k_12k": -49.9,
+   "top12k_20k": -64.9,
+   "sideToMidDb": -23.9,
+   "phoneClarityDb": -28.4
+  },
+  "v2": {
+   "centroidHz": 656,
+   "low40_250": -5.4,
+   "lowmid250_800": -2.5,
+   "mid800_3k": -8.9,
+   "pres3k_6k": -19.0,
+   "air6k_12k": -22.8,
+   "top12k_20k": -32.7,
+   "sideToMidDb": -6.7,
+   "phoneClarityDb": -11.3
+  },
+  "v2LUFS": -24.0,
+  "v2TruePeak": -8.59,
+  "v2MonoLossDb": -0.83
+ },
+ {
+  "id": "game-1",
+  "title": "あそびの はじまり",
+  "v1": {
+   "centroidHz": 831,
+   "low40_250": -11.4,
+   "lowmid250_800": -5.0,
+   "mid800_3k": -2.2,
+   "pres3k_6k": -20.5,
+   "air6k_12k": -45.4,
+   "top12k_20k": -72.4,
+   "sideToMidDb": -27.8,
+   "phoneClarityDb": -14.8
+  },
+  "v2": {
+   "centroidHz": 809,
+   "low40_250": -6.5,
+   "lowmid250_800": -5.5,
+   "mid800_3k": -3.2,
+   "pres3k_6k": -19.0,
+   "air6k_12k": -23.0,
+   "top12k_20k": -32.1,
+   "sideToMidDb": -5.3,
+   "phoneClarityDb": -11.8
+  },
+  "v2LUFS": -24.0,
+  "v2TruePeak": -10.05,
+  "v2MonoLossDb": -1.13
+ },
+ {
+  "id": "explore-1",
+  "title": "ふしぎの ちか",
+  "v1": {
+   "centroidHz": 801,
+   "low40_250": -15.7,
+   "lowmid250_800": -2.8,
+   "mid800_3k": -3.4,
+   "pres3k_6k": -33.3,
+   "air6k_12k": -52.2,
+   "top12k_20k": -72.0,
+   "sideToMidDb": -33.2,
+   "phoneClarityDb": -17.8
+  },
+  "v2": {
+   "centroidHz": 675,
+   "low40_250": -6.0,
+   "lowmid250_800": -4.5,
+   "mid800_3k": -4.2,
+   "pres3k_6k": -20.0,
+   "air6k_12k": -40.7,
+   "top12k_20k": -55.7,
+   "sideToMidDb": -7.6,
+   "phoneClarityDb": -16.3
+  },
+  "v2LUFS": -25.0,
+  "v2TruePeak": -12.55,
+  "v2MonoLossDb": -0.69
+ },
+ {
+  "id": "event-2",
+  "title": "ふたりの きねんび",
+  "v1": {
+   "centroidHz": 510,
+   "low40_250": -6.8,
+   "lowmid250_800": -1.9,
+   "mid800_3k": -8.2,
+   "pres3k_6k": -38.7,
+   "air6k_12k": -47.3,
+   "top12k_20k": -61.8,
+   "sideToMidDb": -24.8,
+   "phoneClarityDb": -27.6
+  },
+  "v2": {
+   "centroidHz": 538,
+   "low40_250": -5.4,
+   "lowmid250_800": -2.5,
+   "mid800_3k": -8.7,
+   "pres3k_6k": -19.7,
+   "air6k_12k": -32.9,
+   "top12k_20k": -54.6,
+   "sideToMidDb": -6.3,
+   "phoneClarityDb": -16.2
+  },
+  "v2LUFS": -24.0,
+  "v2TruePeak": -5.96,
+  "v2MonoLossDb": -0.91
+ },
+ {
+  "id": "event-1",
+  "title": "おめでとうの ひ",
+  "v1": {
+   "centroidHz": 467,
+   "low40_250": -6.5,
+   "lowmid250_800": -1.6,
+   "mid800_3k": -11.1,
+   "pres3k_6k": -34.8,
+   "air6k_12k": -47.1,
+   "top12k_20k": -62.6,
+   "sideToMidDb": -23.9,
+   "phoneClarityDb": -27.2
+  },
+  "v2": {
+   "centroidHz": 639,
+   "low40_250": -5.4,
+   "lowmid250_800": -2.8,
+   "mid800_3k": -7.7,
+   "pres3k_6k": -17.9,
+   "air6k_12k": -23.2,
+   "top12k_20k": -31.3,
+   "sideToMidDb": -6.7,
+   "phoneClarityDb": -13.1
+  },
+  "v2LUFS": -23.0,
+  "v2TruePeak": -5.67,
+  "v2MonoLossDb": -0.84
+ },
+ {
+  "id": "kisetsu",
+  "title": "きせつの きおく",
+  "v1": {
+   "centroidHz": 492,
+   "low40_250": -7.8,
+   "lowmid250_800": -1.0,
+   "mid800_3k": -13.3,
+   "pres3k_6k": -40.9,
+   "air6k_12k": -49.9,
+   "top12k_20k": -64.9,
+   "sideToMidDb": -26.4,
+   "phoneClarityDb": -29.9
+  },
+  "v2": {
+   "centroidHz": 514,
+   "low40_250": -5.6,
+   "lowmid250_800": -1.9,
+   "mid800_3k": -11.4,
+   "pres3k_6k": -20.5,
+   "air6k_12k": -33.2,
+   "top12k_20k": -53.6,
+   "sideToMidDb": -8.5,
+   "phoneClarityDb": -15.7
+  },
+  "v2LUFS": -24.0,
+  "v2TruePeak": -7.34,
+  "v2MonoLossDb": -0.57
+ },
+ {
+  "id": "ohayo",
+  "title": "おはようの ひかり",
+  "v1": {
+   "centroidHz": 428,
+   "low40_250": -10.1,
+   "lowmid250_800": -0.5,
+   "mid800_3k": -18.2,
+   "pres3k_6k": -39.7,
+   "air6k_12k": -53.9,
+   "top12k_20k": -69.7,
+   "sideToMidDb": -26.6,
+   "phoneClarityDb": -31.0
+  },
+  "v2": {
+   "centroidHz": 604,
+   "low40_250": -5.1,
+   "lowmid250_800": -2.7,
+   "mid800_3k": -8.9,
+   "pres3k_6k": -17.1,
+   "air6k_12k": -22.6,
+   "top12k_20k": -31.1,
+   "sideToMidDb": -7.4,
+   "phoneClarityDb": -10.6
+  },
+  "v2LUFS": -23.0,
+  "v2TruePeak": -5.83,
+  "v2MonoLossDb": -0.73
+ },
+ {
+  "id": "bgm-game",
+  "title": "game（ミニゲーム・汎用）",
+  "v1": {
+   "centroidHz": 803,
+   "low40_250": -12.6,
+   "lowmid250_800": -2.1,
+   "mid800_3k": -4.8,
+   "pres3k_6k": -23.5,
+   "air6k_12k": -46.8,
+   "top12k_20k": -73.3,
+   "sideToMidDb": -29.7,
+   "phoneClarityDb": -12.6
+  },
+  "v2": {
+   "centroidHz": 782,
+   "low40_250": -7.4,
+   "lowmid250_800": -2.8,
+   "mid800_3k": -5.6,
+   "pres3k_6k": -19.0,
+   "air6k_12k": -23.1,
+   "top12k_20k": -31.7,
+   "sideToMidDb": -6.5,
+   "phoneClarityDb": -10.5
+  },
+  "v2LUFS": -24.0,
+  "v2TruePeak": -11.07,
+  "v2MonoLossDb": -0.87
+ },
+ {
+  "id": "bgm-race",
+  "title": "race（3D・のりもの）",
+  "v1": {
+   "centroidHz": 532,
+   "low40_250": -8.3,
+   "lowmid250_800": -1.3,
+   "mid800_3k": -9.8,
+   "pres3k_6k": -43.3,
+   "air6k_12k": -53.3,
+   "top12k_20k": -69.6,
+   "sideToMidDb": -26.9,
+   "phoneClarityDb": -29.1
+  },
+  "v2": {
+   "centroidHz": 704,
+   "low40_250": -6.7,
+   "lowmid250_800": -2.4,
+   "mid800_3k": -7.3,
+   "pres3k_6k": -19.0,
+   "air6k_12k": -21.9,
+   "top12k_20k": -31.3,
+   "sideToMidDb": -6.3,
+   "phoneClarityDb": -12.1
+  },
+  "v2LUFS": -24.0,
+  "v2TruePeak": -10.4,
+  "v2MonoLossDb": -0.91
+ },
+ {
+  "id": "bgm-farewell",
+  "title": "farewell（おわかれ）",
+  "v1": {
+   "centroidHz": 444,
+   "low40_250": -16.9,
+   "lowmid250_800": -0.1,
+   "mid800_3k": -26.2,
+   "pres3k_6k": -52.9,
+   "air6k_12k": -58.2,
+   "top12k_20k": -72.1,
+   "sideToMidDb": -34.3,
+   "phoneClarityDb": -34.3
+  },
+  "v2": {
+   "centroidHz": 448,
+   "low40_250": -7.3,
+   "lowmid250_800": -1.2,
+   "mid800_3k": -13.2,
+   "pres3k_6k": -27.5,
+   "air6k_12k": -48.3,
+   "top12k_20k": -57.1,
+   "sideToMidDb": -9.3,
+   "phoneClarityDb": -15.5
+  },
+  "v2LUFS": -25.0,
+  "v2TruePeak": -9.31,
+  "v2MonoLossDb": -0.48
+ },
+ {
+  "id": "poyo-2",
+  "title": "みんなで かえろう",
+  "v1": {
+   "centroidHz": 800,
+   "low40_250": -16.5,
+   "lowmid250_800": -2.3,
+   "mid800_3k": -4.2,
+   "pres3k_6k": -33.6,
+   "air6k_12k": -52.2,
+   "top12k_20k": -75.1,
+   "sideToMidDb": -34.3,
+   "phoneClarityDb": -19.9
+  },
+  "v2": {
+   "centroidHz": 765,
+   "low40_250": -5.3,
+   "lowmid250_800": -8.2,
+   "mid800_3k": -2.6,
+   "pres3k_6k": -20.8,
+   "air6k_12k": -33.9,
+   "top12k_20k": -45.7,
+   "sideToMidDb": -8.6,
+   "phoneClarityDb": -12.5
+  },
+  "v2LUFS": -27.0,
+  "v2TruePeak": -12.79,
+  "v2MonoLossDb": -0.56
+ },
+ {
+  "id": "game-2",
+  "title": "ぴょこぴょこ ステップ",
+  "v1": {
+   "centroidHz": 836,
+   "low40_250": -10.5,
+   "lowmid250_800": -4.2,
+   "mid800_3k": -2.8,
+   "pres3k_6k": -21.6,
+   "air6k_12k": -45.2,
+   "top12k_20k": -71.9,
+   "sideToMidDb": -27.8,
+   "phoneClarityDb": -13.1
+  },
+  "v2": {
+   "centroidHz": 798,
+   "low40_250": -6.4,
+   "lowmid250_800": -4.7,
+   "mid800_3k": -3.9,
+   "pres3k_6k": -19.0,
+   "air6k_12k": -23.0,
+   "top12k_20k": -31.6,
+   "sideToMidDb": -5.1,
+   "phoneClarityDb": -11.0
+  },
+  "v2LUFS": -24.0,
+  "v2TruePeak": -10.45,
+  "v2MonoLossDb": -1.16
+ },
+ {
+  "id": "explore-2",
+  "title": "そらと うみの さんぽ",
+  "v1": {
+   "centroidHz": 765,
+   "low40_250": -16.2,
+   "lowmid250_800": -2.3,
+   "mid800_3k": -4.1,
+   "pres3k_6k": -35.0,
+   "air6k_12k": -51.4,
+   "top12k_20k": -74.5,
+   "sideToMidDb": -33.2,
+   "phoneClarityDb": -20.7
+  },
+  "v2": {
+   "centroidHz": 716,
+   "low40_250": -5.9,
+   "lowmid250_800": -3.7,
+   "mid800_3k": -5.3,
+   "pres3k_6k": -18.0,
+   "air6k_12k": -21.2,
+   "top12k_20k": -48.9,
+   "sideToMidDb": -8.1,
+   "phoneClarityDb": -14.7
+  },
+  "v2LUFS": -24.01,
+  "v2TruePeak": -11.95,
+  "v2MonoLossDb": -0.63
+ },
+ {
+  "id": "board-b",
+  "title": "きしと おしろ",
+  "v1": {
+   "centroidHz": 521,
+   "low40_250": -8.0,
+   "lowmid250_800": -1.7,
+   "mid800_3k": -7.9,
+   "pres3k_6k": -44.0,
+   "air6k_12k": -52.3,
+   "top12k_20k": -67.0,
+   "sideToMidDb": -26.6,
+   "phoneClarityDb": -29.8
+  },
+  "v2": {
+   "centroidHz": 617,
+   "low40_250": -6.0,
+   "lowmid250_800": -2.6,
+   "mid800_3k": -7.3,
+   "pres3k_6k": -18.9,
+   "air6k_12k": -35.1,
+   "top12k_20k": -49.6,
+   "sideToMidDb": -10.5,
+   "phoneClarityDb": -10.9
+  },
+  "v2LUFS": -27.0,
+  "v2TruePeak": -10.95,
+  "v2MonoLossDb": -0.37
+ },
+ {
+  "id": "fishing-a",
+  "title": "みずべの うたたね",
+  "v1": {
+   "centroidHz": 531,
+   "low40_250": -9.2,
+   "lowmid250_800": -1.0,
+   "mid800_3k": -10.9,
+   "pres3k_6k": -37.0,
+   "air6k_12k": -47.1,
+   "top12k_20k": -61.8,
+   "sideToMidDb": -28.3,
+   "phoneClarityDb": -28.1
+  },
+  "v2": {
+   "centroidHz": 559,
+   "low40_250": -5.7,
+   "lowmid250_800": -2.4,
+   "mid800_3k": -8.4,
+   "pres3k_6k": -20.9,
+   "air6k_12k": -33.2,
+   "top12k_20k": -50.3,
+   "sideToMidDb": -9.7,
+   "phoneClarityDb": -11.6
+  },
+  "v2LUFS": -27.0,
+  "v2TruePeak": -7.1,
+  "v2MonoLossDb": -0.44
+ },
+ {
+  "id": "lullaby-a",
+  "title": "ねむりの ほし",
+  "v1": {
+   "centroidHz": 699,
+   "low40_250": -13.4,
+   "lowmid250_800": -1.4,
+   "mid800_3k": -6.5,
+   "pres3k_6k": -22.4,
+   "air6k_12k": -39.2,
+   "top12k_20k": -66.4,
+   "sideToMidDb": -28.8,
+   "phoneClarityDb": -13.9
+  },
+  "v2": {
+   "centroidHz": 575,
+   "low40_250": -7.2,
+   "lowmid250_800": -1.3,
+   "mid800_3k": -12.0,
+   "pres3k_6k": -20.9,
+   "air6k_12k": -33.4,
+   "top12k_20k": -52.7,
+   "sideToMidDb": -6.6,
+   "phoneClarityDb": -12.8
+  },
+  "v2LUFS": -31.01,
+  "v2TruePeak": -13.31,
+  "v2MonoLossDb": -0.86
+ },
+ {
+  "id": "jingle-achieve",
+  "title": "やったね",
+  "v1": {
+   "centroidHz": 448,
+   "low40_250": -5.0,
+   "lowmid250_800": -2.4,
+   "mid800_3k": -9.5,
+   "pres3k_6k": -32.9,
+   "air6k_12k": -46.2,
+   "top12k_20k": -61.0,
+   "sideToMidDb": -23.0,
+   "phoneClarityDb": -24.6
+  },
+  "v2": {
+   "centroidHz": 715,
+   "low40_250": -4.9,
+   "lowmid250_800": -4.7,
+   "mid800_3k": -5.1,
+   "pres3k_6k": -18.0,
+   "air6k_12k": -23.6,
+   "top12k_20k": -31.3,
+   "sideToMidDb": -4.5,
+   "phoneClarityDb": -12.2
+  },
+  "v2LUFS": -22.99,
+  "v2TruePeak": -4.98,
+  "v2MonoLossDb": -1.33
+ },
+ {
+  "id": "jingle-card-lose",
+  "title": "つぎは かつぞ",
+  "v1": {
+   "centroidHz": 502,
+   "low40_250": -5.4,
+   "lowmid250_800": -2.2,
+   "mid800_3k": -9.7,
+   "pres3k_6k": -38.7,
+   "air6k_12k": -47.0,
+   "top12k_20k": -62.1,
+   "sideToMidDb": -22.1,
+   "phoneClarityDb": -27.1
+  },
+  "v2": {
+   "centroidHz": 664,
+   "low40_250": -6.3,
+   "lowmid250_800": -2.2,
+   "mid800_3k": -8.5,
+   "pres3k_6k": -18.8,
+   "air6k_12k": -30.3,
+   "top12k_20k": -55.0,
+   "sideToMidDb": -5.7,
+   "phoneClarityDb": -14.3
+  },
+  "v2LUFS": -23.99,
+  "v2TruePeak": -6.64,
+  "v2MonoLossDb": -1.03
+ },
+ {
+  "id": "var-poyo-clear",
+  "title": "ぽよぽよこもれび（ステージクリア）",
+  "v1": {
+   "centroidHz": 668,
+   "low40_250": -6.2,
+   "lowmid250_800": -3.5,
+   "mid800_3k": -5.0,
+   "pres3k_6k": -24.2,
+   "air6k_12k": -47.9,
+   "top12k_20k": -75.6,
+   "sideToMidDb": -28.3,
+   "phoneClarityDb": -18.5
+  },
+  "v2": {
+   "centroidHz": 542,
+   "low40_250": -3.5,
+   "lowmid250_800": -4.4,
+   "mid800_3k": -7.3,
+   "pres3k_6k": -19.6,
+   "air6k_12k": -40.0,
+   "top12k_20k": -56.4,
+   "sideToMidDb": -5.8,
+   "phoneClarityDb": -15.5
+  },
+  "v2LUFS": -26.01,
+  "v2TruePeak": -11.38,
+  "v2MonoLossDb": -1.01
+ },
+ {
+  "id": "var-poyo-chapter",
+  "title": "ぽよぽよこもれび（章の おわり）",
+  "v1": {
+   "centroidHz": 376,
+   "low40_250": -3.3,
+   "lowmid250_800": -3.6,
+   "mid800_3k": -10.2,
+   "pres3k_6k": -39.3,
+   "air6k_12k": -48.7,
+   "top12k_20k": -63.3,
+   "sideToMidDb": -24.4,
+   "phoneClarityDb": -25.9
+  },
+  "v2": {
+   "centroidHz": 577,
+   "low40_250": -4.1,
+   "lowmid250_800": -4.8,
+   "mid800_3k": -5.8,
+   "pres3k_6k": -20.2,
+   "air6k_12k": -38.8,
+   "top12k_20k": -55.3,
+   "sideToMidDb": -4.8,
+   "phoneClarityDb": -13.9
+  },
+  "v2LUFS": -25.0,
+  "v2TruePeak": -10.34,
+  "v2MonoLossDb": -1.23
+ },
+ {
+  "id": "var-koro-goal",
+  "title": "ころころじんせい（ゴール）",
+  "v1": {
+   "centroidHz": 502,
+   "low40_250": -7.5,
+   "lowmid250_800": -1.1,
+   "mid800_3k": -12.6,
+   "pres3k_6k": -39.6,
+   "air6k_12k": -49.7,
+   "top12k_20k": -65.0,
+   "sideToMidDb": -26.8,
+   "phoneClarityDb": -28.0
+  },
+  "v2": {
+   "centroidHz": 694,
+   "low40_250": -6.4,
+   "lowmid250_800": -2.5,
+   "mid800_3k": -7.3,
+   "pres3k_6k": -18.8,
+   "air6k_12k": -23.6,
+   "top12k_20k": -32.2,
+   "sideToMidDb": -9.9,
+   "phoneClarityDb": -13.0
+  },
+  "v2LUFS": -23.01,
+  "v2TruePeak": -7.56,
+  "v2MonoLossDb": -0.43
+ },
+ {
+  "id": "var-koro-album",
+  "title": "ころころじんせい（人生アルバム）",
+  "v1": {
+   "centroidHz": 504,
+   "low40_250": -7.0,
+   "lowmid250_800": -1.3,
+   "mid800_3k": -11.7,
+   "pres3k_6k": -40.0,
+   "air6k_12k": -48.8,
+   "top12k_20k": -63.5,
+   "sideToMidDb": -25.7,
+   "phoneClarityDb": -28.2
+  },
+  "v2": {
+   "centroidHz": 654,
+   "low40_250": -5.9,
+   "lowmid250_800": -2.6,
+   "mid800_3k": -7.4,
+   "pres3k_6k": -19.0,
+   "air6k_12k": -32.9,
+   "top12k_20k": -55.1,
+   "sideToMidDb": -8.7,
+   "phoneClarityDb": -11.2
+  },
+  "v2LUFS": -25.01,
+  "v2TruePeak": -7.59,
+  "v2MonoLossDb": -0.55
+ },
+ {
+  "id": "var-card-late",
+  "title": "デュエル・スタート（終盤）",
+  "v1": {
+   "centroidHz": 514,
+   "low40_250": -6.6,
+   "lowmid250_800": -1.7,
+   "mid800_3k": -9.7,
+   "pres3k_6k": -41.0,
+   "air6k_12k": -50.2,
+   "top12k_20k": -65.3,
+   "sideToMidDb": -24.1,
+   "phoneClarityDb": -28.3
+  },
+  "v2": {
+   "centroidHz": 650,
+   "low40_250": -5.4,
+   "lowmid250_800": -2.4,
+   "mid800_3k": -9.2,
+   "pres3k_6k": -19.0,
+   "air6k_12k": -22.7,
+   "top12k_20k": -32.8,
+   "sideToMidDb": -7.0,
+   "phoneClarityDb": -11.2
+  },
+  "v2LUFS": -24.0,
+  "v2TruePeak": -8.26,
+  "v2MonoLossDb": -0.79
+ },
+ {
+  "id": "var-card-win",
+  "title": "デュエル・スタート（勝利）",
+  "v1": {
+   "centroidHz": 495,
+   "low40_250": -7.6,
+   "lowmid250_800": -1.3,
+   "mid800_3k": -10.3,
+   "pres3k_6k": -40.9,
+   "air6k_12k": -49.7,
+   "top12k_20k": -65.0,
+   "sideToMidDb": -24.7,
+   "phoneClarityDb": -30.0
+  },
+  "v2": {
+   "centroidHz": 623,
+   "low40_250": -6.6,
+   "lowmid250_800": -1.9,
+   "mid800_3k": -9.4,
+   "pres3k_6k": -19.0,
+   "air6k_12k": -22.9,
+   "top12k_20k": -32.8,
+   "sideToMidDb": -6.6,
+   "phoneClarityDb": -13.6
+  },
+  "v2LUFS": -24.01,
+  "v2TruePeak": -10.68,
+  "v2MonoLossDb": -0.85
+ },
+ {
+  "id": "var-flight",
+  "title": "そらとうみのさんぽ（きらめき・はやめ）",
+  "v1": {
+   "centroidHz": 764,
+   "low40_250": -16.0,
+   "lowmid250_800": -2.3,
+   "mid800_3k": -4.2,
+   "pres3k_6k": -34.8,
+   "air6k_12k": -51.3,
+   "top12k_20k": -74.2,
+   "sideToMidDb": -32.8,
+   "phoneClarityDb": -20.9
+  },
+  "v2": {
+   "centroidHz": 713,
+   "low40_250": -5.7,
+   "lowmid250_800": -3.9,
+   "mid800_3k": -5.3,
+   "pres3k_6k": -18.0,
+   "air6k_12k": -21.2,
+   "top12k_20k": -48.8,
+   "sideToMidDb": -7.9,
+   "phoneClarityDb": -14.6
+  },
+  "v2LUFS": -24.0,
+  "v2TruePeak": -13.41,
+  "v2MonoLossDb": -0.65
+ },
+ {
+  "id": "var-ohayo-hatch2",
+  "title": "おはようのひかり（たまごが かえる・ファンファーレ 2小節）",
+  "v1": {
+   "centroidHz": 532,
+   "low40_250": -11.6,
+   "lowmid250_800": -1.0,
+   "mid800_3k": -8.9,
+   "pres3k_6k": -27.7,
+   "air6k_12k": -39.8,
+   "top12k_20k": -72.1,
+   "sideToMidDb": -27.0,
+   "phoneClarityDb": -18.7
+  },
+  "v2": {
+   "centroidHz": 825,
+   "low40_250": -7.2,
+   "lowmid250_800": -3.4,
+   "mid800_3k": -4.9,
+   "pres3k_6k": -17.2,
+   "air6k_12k": -22.7,
+   "top12k_20k": -50.0,
+   "sideToMidDb": -10.8,
+   "phoneClarityDb": -10.0
+  },
+  "v2LUFS": -18.99,
+  "v2TruePeak": -5.42,
+  "v2MonoLossDb": -0.34
+ }
+]

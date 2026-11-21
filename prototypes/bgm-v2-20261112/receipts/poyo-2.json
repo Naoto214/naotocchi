@@ -1,0 +1,79 @@
+{
+ "id": "poyo-2",
+ "title": "みんなで かえろう",
+ "family": "puzzle",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 3663692,
+ "seconds": 83.076916,
+ "flacFrames": 3663692,
+ "aacDecodedFrames": 3663872,
+ "integratedLUFS": -27.0,
+ "targetLUFS": -27,
+ "truePeakDbtp": -12.79,
+ "samplePeakDbfs": -12.79,
+ "clippedSamples": 0,
+ "monoLossDb": -0.56,
+ "sideToMidDb": -8.6,
+ "aacFlacCorrelation": 0.9999,
+ "loopJoinJump": 0.00274,
+ "loopJoinTypicalStep999": 0.0266,
+ "bands": {
+  "centroidHz": 765,
+  "low40_250": -5.3,
+  "lowmid250_800": -8.2,
+  "mid800_3k": -2.6,
+  "pres3k_6k": -20.8,
+  "air6k_12k": -33.9,
+  "top12k_20k": -45.7
+ },
+ "roleGainsDb": {
+  "bass": 3.7,
+  "accompaniment": 10.8,
+  "pad": 22.8,
+  "sparkle": 24.1
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   -4.7,
+   0.7
+  ],
+  [
+   "highshelf",
+   8000,
+   2.3,
+   0.7
+  ],
+  [
+   "peak",
+   3800,
+   -0.9,
+   0.7
+  ],
+  [
+   "highshelf",
+   8000,
+   1.4,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 862,
+  "low40_250": -6.0,
+  "lowmid250_800": -8.7,
+  "mid800_3k": -2.3,
+  "pres3k_6k": -16.3,
+  "air6k_12k": -32.5,
+  "top12k_20k": -49.6
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 11.6,
+ "flacSha256": "2671841c13e358522213bd7a1f731a5e55275051f2fac2aac5d09e2fe103a3b1",
+ "flacBytes": 12573401,
+ "aacSha256": "b08f97dea41434dc7959bfe291b7b439997f25f96dd1e1f67d63b4373d0dcdf2",
+ "aacBytes": 2015256,
+ "midiSha256": "cea0134acf11a34e5c6f73e7f2fd52ce0ac3d17027343be7df715afc181d0a44",
+ "problems": []
+}

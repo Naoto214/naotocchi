@@ -1,0 +1,87 @@
+{
+ "id": "var-card-late",
+ "title": "デュエル・スタート（終盤）",
+ "family": "card",
+ "loop": true,
+ "sampleRate": 44100,
+ "frames": 3256615,
+ "seconds": 73.846145,
+ "flacFrames": 3256615,
+ "aacDecodedFrames": 3257344,
+ "integratedLUFS": -24.0,
+ "targetLUFS": -24,
+ "truePeakDbtp": -8.26,
+ "samplePeakDbfs": -8.26,
+ "clippedSamples": 0,
+ "monoLossDb": -0.79,
+ "sideToMidDb": -7.0,
+ "aacFlacCorrelation": 0.9995,
+ "loopJoinJump": 0.00526,
+ "loopJoinTypicalStep999": 0.05014,
+ "bands": {
+  "centroidHz": 650,
+  "low40_250": -5.4,
+  "lowmid250_800": -2.4,
+  "mid800_3k": -9.2,
+  "pres3k_6k": -19.0,
+  "air6k_12k": -22.7,
+  "top12k_20k": -32.8
+ },
+ "roleGainsDb": {
+  "bass": -15.8,
+  "accompaniment": -10.3,
+  "pad": -3.6,
+  "percussion": 5.3,
+  "sparkle": -1.5,
+  "doubling": -16.4
+ },
+ "tonalCorrection": [
+  [
+   "peak",
+   3800,
+   -1.3,
+   0.7
+  ],
+  [
+   "highshelf",
+   8000,
+   -2.7,
+   0.7
+  ],
+  [
+   "peak",
+   380,
+   -1.5,
+   0.8
+  ],
+  [
+   "peak",
+   3800,
+   -0.7,
+   0.7
+  ],
+  [
+   "highshelf",
+   8000,
+   -2.1,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 722,
+  "low40_250": -5.9,
+  "lowmid250_800": -2.3,
+  "mid800_3k": -9.2,
+  "pres3k_6k": -17.7,
+  "air6k_12k": -20.5,
+  "top12k_20k": -28.9
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 10.9,
+ "flacSha256": "e6b3e4184dad831e434df8f96eece4ac71200fc331cb582e72b0cfdc65a117ce",
+ "flacBytes": 12137227,
+ "aacSha256": "c6bd773c67cb15241c3d0fdc3b993671a6acbe729c06f8ca9fb47bafbb27a084",
+ "aacBytes": 1818570,
+ "midiSha256": "c3190378933d48c8ac5327475c828dd302364540f34d8ac44c609eb95bf4451f",
+ "problems": []
+}

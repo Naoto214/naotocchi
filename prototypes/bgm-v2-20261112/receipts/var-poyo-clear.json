@@ -1,0 +1,61 @@
+{
+ "id": "var-poyo-clear",
+ "title": "ぽよぽよこもれび（ステージクリア）",
+ "family": "poyo",
+ "loop": false,
+ "sampleRate": 44100,
+ "frames": 476280,
+ "seconds": 10.8,
+ "flacFrames": 476280,
+ "aacDecodedFrames": 477184,
+ "integratedLUFS": -26.01,
+ "targetLUFS": -26,
+ "truePeakDbtp": -11.38,
+ "samplePeakDbfs": -11.38,
+ "clippedSamples": 0,
+ "monoLossDb": -1.01,
+ "sideToMidDb": -5.8,
+ "aacFlacCorrelation": 0.9997,
+ "loopJoinJump": 0.00032,
+ "loopJoinTypicalStep999": 0.02768,
+ "bands": {
+  "centroidHz": 542,
+  "low40_250": -3.5,
+  "lowmid250_800": -4.4,
+  "mid800_3k": -7.3,
+  "pres3k_6k": -19.6,
+  "air6k_12k": -40.0,
+  "top12k_20k": -56.4
+ },
+ "roleGainsDb": {
+  "bass": 4.3,
+  "accompaniment": 10.3,
+  "pad": 19.0,
+  "sparkle": 13.9
+ },
+ "tonalCorrection": [
+  [
+   "highshelf",
+   8000,
+   5.0,
+   0.7
+  ]
+ ],
+ "bandsBeforeCorrection": {
+  "centroidHz": 540,
+  "low40_250": -3.5,
+  "lowmid250_800": -4.4,
+  "mid800_3k": -7.3,
+  "pres3k_6k": -19.8,
+  "air6k_12k": -42.3,
+  "top12k_20k": -61.2
+ },
+ "limiterMaxGainReductionDb": 0.0,
+ "renderSeconds": 4.0,
+ "flacSha256": "2ee55d84ffced9bd3505788a5dbc285c43b66dd221a0fab02042f404a0b0f5c5",
+ "flacBytes": 1579948,
+ "aacSha256": "cf523515036b513066979405b2ca0a7ee0bf78002813c781f87ed985bab9a39f",
+ "aacBytes": 260015,
+ "midiSha256": "094448d26111131e080f786a641049d481899638acf5420fbd9b4b5e841bbcfd",
+ "problems": []
+}

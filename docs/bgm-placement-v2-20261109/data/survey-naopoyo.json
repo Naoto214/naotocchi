@@ -1,0 +1,85 @@
+{
+  "title": "なおぽよ。",
+  "audio": "none. No AudioContext / Audio / speechSynthesis / audio.js in any naopoyo-* entry or module (grep over prototypes/naopoyo*/*.mjs and index.html). No BGM, no SFX.",
+  "public_entry": {
+    "home_menu_link": "index.html:490 -> prototypes/naopoyo/",
+    "redirect": "prototypes/naopoyo/index.html: meta refresh to ../naopoyo-time-hand-chapter1/index.html (git: e03fdcc94 'Publish approved Time Hand chapter 1')",
+    "allowlist_entrypoints": ["prototypes/naopoyo/index.html", "prototypes/naopoyo-time-hand-chapter1/index.html", "prototypes/naopoyo-chapter1/index.html", "prototypes/naopoyo-chapter2/index.html", "prototypes/naopoyo-rescue/index.html"]
+  },
+  "main_published_game": {
+    "path": "prototypes/naopoyo-time-hand-chapter1/",
+    "page_title": "なおぽよ。｜第1章 地下牢 (index.html <title>); header 'ときのはり · 地下牢'",
+    "mode": "Time Hand (時の針) rules; reuses modules from naopoyo-chapter1 (render.mjs sampleEffects), naopoyo-chapter2 (example-ui, gate-effects, contact-motion, session ForestSession, example-clock) and naopoyo-rescue (sprites.mjs) (app.mjs:1-16).",
+    "chapter": {"number": 1, "name": "地下牢", "subtitle": "星の道のはじまり", "stage_count": 10, "source": "stages.mjs:5-16; stage-ui.mjs stageGrid"},
+    "stages": [
+      {"n": 1, "title": "めざめ", "scene": "cell", "gravity": false},
+      {"n": 2, "title": "うしろにひとり", "scene": "cell", "gravity": false},
+      {"n": 3, "title": "まっすぐの針", "scene": "cell", "gravity": false},
+      {"n": 4, "title": "岩で曲がる針", "scene": "moss", "gravity": false},
+      {"n": 5, "title": "時間を合わせる", "scene": "moss", "gravity": false},
+      {"n": 6, "title": "はじめての重力", "scene": "moss", "gravity": true},
+      {"n": 7, "title": "仲間が足場に", "scene": "hall", "gravity": true},
+      {"n": 8, "title": "通れるななめ", "scene": "hall", "gravity": true},
+      {"n": 9, "title": "落ちて、ひとつに", "scene": "hall", "gravity": true},
+      {"n": 10, "title": "地下牢の出口", "scene": "dawn", "gravity": true}
+    ],
+    "scene_mood": {
+      "cell": "stone dungeon cell, grey floor, warm light #e7c58b (dungeon-art.mjs palettes.cell)",
+      "moss": "mossy stone, greenish grey (dungeon-art.mjs palettes.moss)",
+      "hall": "cooler blue-grey hall (dungeon-art.mjs palettes.hall)",
+      "dawn": "pale warm floor, light #fff0bd - escape toward light (dungeon-art.mjs palettes.dawn)",
+      "overall": "dungeon escape toward a 'small light'; theme-color #192b3d (dark navy) in index.html. Inference: quiet, mysterious underground mood brightening at stage 10."
+    },
+    "roadmap_future_chapters": ["地下牢", "地底洞窟", "古城", "光の森", "水の谷", "雪山", "砂漠遺跡", "深海遺跡", "星の回廊", "時の塔"],
+    "roadmap_source": "stages.mjs:17 (only chapter 1 is implemented; victory text says 第2章「地底洞窟」は準備中, stage-ui.mjs:9)",
+    "screens": [
+      {"id": "play", "desc": "header (brand, ホームにもどる, 説明) + intro (第1章 · NN / 10, stage title, moves, lesson) + 8x8 canvas board + tools (もどす/やりなおす/ヒント/おてほん/えらぶ)", "source": "index.html; app.mjs mode='play'"},
+      {"id": "demo (おてほん replay)", "desc": "solution replay with 前へ/自動再生/次へ/プレイへ/最初へ and stage picker for all 10", "source": "index.html #replay; app.mjs openDemo mode='demo' (app.mjs:49)"},
+      {"id": "stage select (えらぶ)", "desc": "dialog 'CHAPTER 01 地下牢 星の道のはじまり' grid of 10 stages (★クリア / ✧挑戦できる / 🔒未開放)", "source": "stage-ui.mjs stageGrid; index.html <dialog id=dialog>"},
+      {"id": "stage clear", "desc": "victory dialog ★ 'みんな、おかえり。' 'みんな、行こう。次の光が見えてきた。' + 次の星の道へ (stages 1-9)", "source": "stage-ui.mjs victory(index<9)"},
+      {"id": "chapter clear / ending", "desc": "'第1章 クリア！' '古い鉄格子の向こうに、やわらかな光。みんなで抜けた地下牢の先に、地底洞窟が広がっていた。' + '第2章「地底洞窟」は準備中です' + 星の道をふりかえる", "source": "stage-ui.mjs victory(index==9)"},
+      {"id": "details (説明 / 旅の手引き)", "desc": "rules explanation dialog", "source": "index.html <dialog id=details>"}
+    ],
+    "no_title_screen": "No separate title/menu screen: the redirect page prototypes/naopoyo/index.html is a 0-second meta refresh; play screen opens directly."
+  },
+  "legacy_but_still_deployed_entrypoints": [
+    {
+      "path": "prototypes/naopoyo-chapter1/index.html",
+      "title": "なおぽよ。｜ひかりの牢屋",
+      "chapter": "第1章 ひかりの牢屋 (older ruleset)",
+      "stage_count": 10,
+      "stages": ["01 はじめての星", "02 ふたりで、ひとつ", "03 大きさのちがう仲間", "04 ほどける光", "05 数字の魔法門", "06 あふれた光も、仲間", "07 ふたつ、みっつ", "08 門のむこうで", "09 星から考える", "10 ふくろうの試練"],
+      "theme": "cave (all stages, stages.mjs stage() theme:'cave'); narrator ものしりふくろう",
+      "mood": "light-filled mysterious prison/cave ('光のさす不思議な牢屋')",
+      "screens": ["play", "stage select 'ひかりの牢屋'", "ほどくヒント dialog (up to 3)", "stage clear 'みんな、おかえり。'", "chapter clear '第1章 クリア！' with link to 第2章「こもれびの森」"],
+      "reachability": "Not linked from time-hand chapter1. Linked from chapter2 ('第1章・保存した続き').",
+      "source": "prototypes/naopoyo-chapter1/stages.mjs, app.mjs"
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/index.html",
+      "title": "なおぽよ。｜こもれびの森",
+      "chapter": "第2章 こもれびの森",
+      "stage_count": 10,
+      "stages": ["11 落ちる森", "12 支え合う仲間", "13 最後のひとり", "14 落とす順番", "15 ほどける足場", "16 小さな橋を編む", "17 支える役を交代", "18 あまりを上へ", "19 星から逆算", "20 森の結び目"],
+      "stage_source": "stages.mjs (11-13) + expansion-stages.mjs (14-20, pushed at stages.mjs:25)",
+      "theme": "forest, gravity on (stages.mjs stage() theme:'forest', gravity:true); companion きまぐれなねこ",
+      "mood": "forest / komorebi (sunlight through leaves)",
+      "screens": ["play", "stage select 'こもれびの森'", "ほどくヒント", "おてほんを見る？ (example replay)", "stage clear", "chapter clear '第2章 クリア！' '森の仲間が、みんな星の向こうへ帰りました。'"],
+      "reachability": "Linked from chapter1 clear and chapter1 header links.",
+      "source": "prototypes/naopoyo-chapter2/stages.mjs, expansion-stages.mjs, app.mjs"
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/index.html",
+      "title": "なおぽよ。 (rescue / '以前の12面・保存した続き')",
+      "stage_count": 12,
+      "stages": ["ひかりの牢屋", "ふたりで、ひとつ", "ぷにっと連続合体", "とげで、ふたりに", "もう一度、ひとつに", "小さな抜け道", "魔法の門", "それぞれの帰り道", "なかまの階段", "みんなで帰ろう", "ペンギンの大きな約束", "かえるの小さな鍵"],
+      "worlds": {"01-04": "prison 洞窟牢屋", "05-08": "cavern 地下洞窟", "09-12": "castle 古城の地下通路"},
+      "worlds_source": "prototypes/naopoyo-rescue/themes.mjs:2-3 (palettes dark blue/teal/slate, lanterns)",
+      "mood": "dark cave/castle with lantern glow",
+      "screens": ["play (stageNum/title/lesson/board/moves)", "stageDialog 帰り道を選ぶ", "hintDialog 帰り道のヒント", "help なおぽよ。 rules", "win 'みんな、おかえり！' + next"],
+      "reachability": "Linked from chapter1 header ('以前の12面・保存した続き').",
+      "source": "prototypes/naopoyo-rescue/index.html, stages.mjs"
+    }
+  ],
+  "earlier_survey_hint": "FETCH_HEAD comparisons/music-v1/SCREEN-INVENTORY.md lists the same 5 stage sources; verified here."
+}
