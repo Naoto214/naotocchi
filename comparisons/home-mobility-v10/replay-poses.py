@@ -10,9 +10,21 @@ fixed = load('active_fixed', HERE/'performance-fixed.py')
 INSTALL = '''
 // Preserve the real native keyframes on the target(s) present at the first
 // archived sample. The original archive records target, animation and phase.
-fixedCast.matchNativeIntro=expected=>{
+const introAttempts=[];
+fixedCast.introAttempts=introAttempts;
+fixedCast.matchNativeIntro=({targets:expected,controlled})=>{
   const effects=stage.getAnimations({subtree:true}).filter(a=>!a.animationName&&!a.transitionProperty);
   const actual=effects.map(fixedEffectName).sort();
+  if(controlled&&!introAttempts.some(a=>a.presented)){
+    if(actual.length||stage.dataset.dioramaPaused==='true'||expected.length!==1)return false;
+    const prior=introAttempts[introAttempts.length-1];
+    if(prior&&performance.now()-prior.wallMs<1200)return false;
+    const key=expected[0].split('/')[0],wallMs=performance.now();
+    const accepted=mobilityPerf.live.select(key);
+    const presented=stage.getAnimations({subtree:true}).some(a=>fixedEffectName(a)===expected[0]);
+    introAttempts.push({key,wallMs,accepted,presented});
+    return false;
+  }
   if(JSON.stringify(actual)!==JSON.stringify(expected))return false;
   for(const a of effects)a.pause();
   window.holdGameTasks=true;
@@ -45,7 +57,8 @@ def run(args):
     source=read(args.record)
     fingerprint=digest(json.dumps(frame_data,separators=(',',':')))
     assert fingerprint==source['posesSHA256'], 'Archived poses differ from the native run'
-    archive_phases=read(args.phases)
+    phase_path=args.phases or args.poses.with_name(args.poses.name.replace('active-poses','active-animation-phases'))
+    archive_phases=read(phase_path)
     fingerprint_phases=digest(json.dumps(archive_phases,separators=(',',':')))
     assert all(r['phaseSHA256']==fingerprint_phases for r in source['rows'])
     initial_effects=sorted(x.rsplit('@',1)[0] for x in archive_phases[0].split('|') if '/animation@' in x)
@@ -68,11 +81,13 @@ def run(args):
         # idle reaction. Wait for the real game to reach this archived target set.
         # Its full native recipe is independently retained for all six arms.
         page.evaluate('HomeCastTrial.apply({paused:false});0')
-        page.wait_for_function('expected=>fixedCast.matchNativeIntro(expected)',arg=initial_effects,timeout=720000)
+        page.wait_for_function('expected=>fixedCast.matchNativeIntro(expected)',arg=dict(targets=initial_effects,controlled=args.prepare_gesture),timeout=720000)
         recipes=page.evaluate('fixedCast.readRecipes()')
         observed['nativeIntro']=dict(targets=initial_effects,recipes=recipes,
-            historicalKeyframesRecorded=False,method='Wait for the native home to present the archived target set, then hold its live animation')
+            historicalKeyframesRecorded=False,setupAttempts=page.evaluate('fixedCast.introAttempts'),
+            method=('Trigger the archived resident through native model selection while the natural home is unblocked, then hold the observed native gesture before the 28-foot reset' if args.prepare_gesture else 'Wait for the native home to present the archived target set, then hold its live animation'))
         page.evaluate('a=>fixedCast.loadReference(a)',dict(initial=source['fixture']['initial'],data=frame_data,clip=source['fixture']['clipSize']))
+        assert page.evaluate('mobilityPerf.live.selected()===null'), 'Preparatory selection survived the complete roster reset'
         samples=[]
         page.expose_function('markSampling',lambda stamp:samples[-1].begin(stamp))
         for arm in args.order.split(','):
@@ -99,5 +114,6 @@ def run(args):
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--base',default='http://127.0.0.1:8461/game');p.add_argument('--record',type=Path,required=True)
-    p.add_argument('--poses',type=Path,required=True);p.add_argument('--phases',type=Path,required=True);p.add_argument('--out',type=Path,required=True)
+    p.add_argument('--poses',type=Path,required=True);p.add_argument('--phases',type=Path,help='Phase record, defaults to the sibling archive');p.add_argument('--out',type=Path,required=True)
+    p.add_argument('--prepare-gesture',action='store_true',help='Recreate the archived active resident using its genuine selection gesture before reset and preheating')
     p.add_argument('--order',default=','.join(ARMS));run(p.parse_args())
