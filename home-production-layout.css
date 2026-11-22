@@ -350,3 +350,5 @@ body[data-home-production="true"] #castStage .diorama-shadow[data-surface="clear
   background:linear-gradient(to top,#5e742e 8%,#94a953 60%,#bdc97c);
   clip-path:polygon(0 100%,7% 87%,5% 30%,11% 80%,14% 7%,17% 85%,31% 100%,43% 87%,42% 45%,48% 89%,49% 19%,54% 87%,68% 100%,81% 89%,80% 8%,85% 76%,90% 25%,88% 87%,100% 100%);
 }
+
+body[data-home-production="true"] #castStage[data-diorama-seating="pending"]{visibility:hidden}

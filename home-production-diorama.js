@@ -565,7 +565,11 @@ function bodyChanged(old, next) {
       // The envelope event schedules the camera fit on the next frame. New ink
       // with the old camera can falsely exclude an established foot (growth on
       // 320px screens). Wait for that fit, then apply the same safety bounds.
-      if(presentation&&env.CustomEvent&&(!env.visualViewport||env.visualViewport.scale===1)&&previousEnvelope!==stage.__homeResidentEnvelope){pendingResidentPresentation=true;clearInput();return;}
+      if(presentation&&env.CustomEvent&&(!env.visualViewport||env.visualViewport.scale===1)&&previousEnvelope!==stage.__homeResidentEnvelope){
+        // The frame already has its new CSS axes. Present these feet with the
+        // corresponding inverse scale even while their next measured fit waits.
+        clearInput();paint();pendingResidentPresentation=true;return;
+      }
       if(presentation&&(doc.body?.dataset.homeDisplayVersion==='18'||doc.body?.dataset.homeDisplayVersion==='17'&&presentation.landscape)&&model.snapshot().some(a=>{const b=model.bounds(a);return a.x<b.left||a.x>b.right||a.y<b.top||a.y>b.bottom;})){
         model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint:null});
       }
@@ -653,6 +657,10 @@ function bodyChanged(old, next) {
       // Care and visibility changes can interrupt before activation or after exit.
       // In those states the legacy Home owns the cast and poop presentation.
       if(dead||!enabled||!scene||pendingResidentPresentation)return;
+      // A fresh household can be packed more than once while its camera fits.
+      // Expose that cast only when its authoritative seats are committed.
+      if(model.seatingPending?.()){stage.dataset.dioramaSeating='pending';return;}
+      if(stage.dataset.dioramaSeating)delete stage.dataset.dioramaSeating;
       showGuide();
       const snapshot=model.snapshot(),chosen=snapshot.find(a=>a.key===model.selected()),isPaused=blocked(),revision=world?.stats().projectionRevision||0;
       selectedLabel.hidden=!chosen||!enabled;selectedLabel.textContent=chosen?(rows.get(chosen.key)?.label||chosen.id):'';
@@ -915,7 +923,11 @@ function bodyChanged(old, next) {
       }
       const p=env.NaotocchiHomeViewport?.residentPresentation?.();
       const key=['17','18'].includes(doc.body?.dataset.homeDisplayVersion)?JSON.stringify([p?.landscape,p?.safeTop,p?.safeBottom,p?.scaleX,p?.scaleY,p?.bodyScale,p?.world,[...rows.values()].map(r=>[r.key,r.w,r.h,r.paintExtent])]):'';
-      if(pending||navigationChanged||key!==lastSafePresentation){lastSafePresentation=key;displayBoundsCache.clear();occlusionCache.clear();for(const row of rows.values()){row.maskKey='';row.paintStamp='';}sync();}else paint();
+      if(pending||navigationChanged||key!==lastSafePresentation){
+        // The canvas and transformed DOM share one camera on this browser paint.
+        // Waiting for a simulation tick leaves the former crop under new feet.
+        world?.draw?.(0,{paused:!isVisible(),reducedMotion:!!media?.matches,tier:flags.tier||0});
+        lastSafePresentation=key;displayBoundsCache.clear();occlusionCache.clear();for(const row of rows.values()){row.maskKey='';row.paintStamp='';}sync();}else paint();
     }
     function cancelPointer(e){if(gesture?.pointerId===e.pointerId)clearInput();}
     function lostCapture(e){
