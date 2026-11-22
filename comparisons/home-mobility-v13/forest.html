@@ -4,8 +4,8 @@
 <style>
 :root{color-scheme:light;font:16px/1.55 system-ui,sans-serif;color:#27372a;background:#f7f7ef}
 body{margin:0 auto;padding:1rem;max-width:1100px}a{color:#265839}h1{line-height:1.2;font-size:clamp(1.6rem,4.5vw,2.5rem);margin:.8rem 0}
-h2{font-size:1.15rem;margin:1.4rem 0 .35rem}p{margin:.45rem 0}label{display:inline-grid;gap:2px;margin:.45rem .6rem .45rem 0}
-select{font:inherit;padding:.35rem;max-width:100%;background:#fff;border:1px solid #a5b49e;border-radius:.35rem}
+h2{font-size:1.15rem;margin:1.4rem 0 .35rem}p{margin:.45rem 0}label{display:inline-grid;grid-template-columns:minmax(0,1fr);gap:2px;max-width:100%;margin:.45rem 0}
+select{box-sizing:border-box;min-width:0;font:inherit;padding:.35rem;max-width:100%;background:#fff;border:1px solid #a5b49e;border-radius:.35rem}
 .scroll{overflow-x:auto;max-height:63vh;margin:.55rem 0 1rem}table{border-collapse:separate;border-spacing:0;background:white;width:100%;font-size:.9rem;font-variant-numeric:tabular-nums}
 th,td{padding:.32rem .48rem;white-space:nowrap;border-bottom:1px solid #d6ddce;text-align:right}
 th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:inherit}thead{position:sticky;top:0;z-index:2;background:#e2ead9}
@@ -24,7 +24,7 @@ tr{background:white}tr:nth-child(even){background:#f4f6ef}button{font:inherit;te
 <h2>住民ごとの歩行</h2><div class="scroll"><table><thead><tr><th>住民</th><th>前半</th><th>後半</th><th>総距離 px</th><th>経路成立/要求</th><th>最長不成立 秒</th><th>復帰率</th><th>譲った/受けた</th><th>ドラッグ到着/入力</th></tr></thead><tbody id="people"></tbody></table></div>
 <div class="focus"><label>足元を調べる住民<select id="person"></select></label><p id="foot"></p><p id="reach"></p><p id="input"></p></div>
 <p id="sources"></p>
-<p class="muted">本人の目的へ0.75pxを超えて近づき、直線変位8px以上の通常歩行を終えた回数。総距離は観測終了時までの足の全歩行で、道譲りも含みます。休息などの自発的待機を選んだ時点で不成立時間を区切り、復帰率の分母から外します。ドラッグでは初期と終了時の各足で最初の入力を独立に再生しました。時間と距離の表示は小数1桁に丸めています。</p>
+<p class="muted">本人の目的へ0.75pxを超えて近づき、直線変位8px以上の通常歩行を終えた回数。総距離は観測終了時までの足の全歩行で、道譲りも含みます。休息などの自発的待機と自律判断枠による待機で不成立時間を区切り、復帰率の分母から外します。ドラッグでは初期と終了時の各足で最初の入力を独立に再生しました。時間と距離の表示は小数1桁に丸めています。</p>
 </main>
 <script type="module">
 const get=id=>document.getElementById(id);

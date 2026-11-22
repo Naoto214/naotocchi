@@ -1,0 +1,238 @@
+:root {
+  font-family: system-ui, 'Noto Sans JP', sans-serif;
+  color: #27382f;
+  background: #faf8ef;
+  color-scheme: light;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+main {
+  max-width: 1170px;
+  margin: auto;
+  padding: 1rem clamp(0.65rem, 3vw, 2.4rem) 3rem;
+}
+header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #c1c8ba;
+  padding-bottom: 1rem;
+}
+header nav {
+  display: flex;
+  gap: 1rem;
+}
+a {
+  color: #165e49;
+}
+h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(1.55rem, 4vw, 2.4rem);
+  margin: 0.35rem 0 0;
+}
+h2 {
+  font-size: 1.05rem;
+  margin: 0 0 0.8rem;
+}
+p {
+  line-height: 1.65;
+  margin: 0.7rem 0;
+}
+form,
+.view,
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: end;
+}
+form {
+  margin: 1rem 0;
+}
+label {
+  display: grid;
+  gap: 0.15rem;
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+button,
+select {
+  font: inherit;
+  min-height: 2.55rem;
+  padding: 0.35rem 0.5rem;
+  background: #fffdf4;
+  border: 1px solid #809183;
+  border-radius: 0.35rem;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+  color: #165e49;
+}
+button[aria-pressed='true'] {
+  background: #215745;
+  color: #fff;
+}
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(250px, 0.85fr);
+  gap: 1rem;
+  align-items: start;
+}
+.scene,
+.card,
+details {
+  background: #fffef8;
+  border: 1px solid #c4c9b8;
+  border-radius: 0.6rem;
+  padding: 0.8rem;
+}
+.scene {
+  min-width: 0;
+}
+.view {
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+canvas {
+  background: #d6d6c9;
+  display: block;
+  width: 100%;
+  max-height: 67vh;
+  object-fit: contain;
+  cursor: crosshair;
+  touch-action: manipulation;
+  border-radius: 0.3rem;
+}
+#scene-note,
+.card p,
+details p {
+  font-size: 0.88rem;
+}
+fieldset {
+  display: flex;
+  gap: 0.22rem 0.7rem;
+  flex-wrap: wrap;
+  border: 0;
+  padding: 0;
+  margin: 0.7rem 0 0;
+}
+legend {
+  font-weight: 650;
+  font-size: 0.9rem;
+  margin-bottom: 0.35rem;
+}
+fieldset label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  font-weight: 450;
+  gap: 0.23rem;
+  cursor: pointer;
+}
+i {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 30%;
+}
+.ground {
+  background: #2db685;
+}
+.excluded {
+  background: #303238;
+}
+.source {
+  border: 2px dashed #786912;
+}
+.contact {
+  border: 2px solid #d68b28;
+}
+.feet {
+  background: #132b2d;
+}
+.ink {
+  background: #777169;
+}
+.free {
+  background: #529feb;
+}
+.topo {
+  background: #915c34;
+}
+.passing {
+  background: #8b4f8b;
+}
+.refuge {
+  background: #38c4eb;
+}
+.rays {
+  background: #006c3e;
+}
+.closed {
+  background: #c4253d;
+}
+aside {
+  display: grid;
+  gap: 0.65rem;
+}
+dl {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  margin: 0;
+  gap: 0.27rem 0.5rem;
+  font-size: 0.86rem;
+}
+dt {
+  color: #495d50;
+}
+dd {
+  margin: 0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 650;
+}
+details {
+  margin-top: 1rem;
+}
+summary {
+  cursor: pointer;
+  font-weight: 650;
+}
+#status:empty {
+  display: none;
+}
+@media (max-width: 700px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  main {
+    padding-top: 0.7rem;
+  }
+  .scene,
+  .card {
+    padding: 0.65rem;
+  }
+  canvas {
+    max-height: 66vh;
+  }
+  form {
+    gap: 0.45rem;
+  }
+  header nav {
+    font-size: 0.8rem;
+  }
+  button,
+  select {
+    min-height: 2.5rem;
+  }
+  aside {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}

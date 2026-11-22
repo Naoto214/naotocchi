@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>歩ける場所と足元 | なおとっち</title>
+    <link rel="stylesheet" href="map.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <a href="./">本人限定試遊に戻る</a>
+          <h1>歩ける場所と足元</h1>
+        </div>
+        <nav aria-label="関連する記録">
+          <a href="forest.html">28体の長時間記録</a>
+          <a href="../v12/yield.html">曲がる道譲り</a>
+        </nav>
+      </header>
+      <form id="filters" aria-label="測定条件">
+        <label>地域<select id="region"></select></label
+        ><label>画面幅<select id="width"></select></label
+        ><label>住民数<select id="count"></select></label
+        ><label>測定条件<select id="study"></select></label
+        ><label>歩行案<select id="arm"></select></label
+        ><label>観察時点<select id="phase"></select></label>
+      </form>
+      <div class="layout">
+        <section class="scene">
+          <div class="view">
+            <label
+              >照合する原画<select id="painting">
+                <option value="morning">朝</option>
+                <option value="day" selected>昼</option>
+                <option value="evening">夕</option>
+                <option value="night">夜</option>
+              </select></label
+            ><label
+              >表示<select id="view">
+                <option value="stage">歩行範囲</option>
+                <option value="art">原画全体</option>
+                <option value="local">選んだ住民の周囲</option>
+              </select></label
+            ><button type="button" id="original" aria-pressed="false">
+              原画だけを見る
+            </button>
+          </div>
+          <canvas
+            id="chart"
+            aria-label="背景原画に重ねた歩行地形と住民の足位置"
+          ></canvas>
+          <p id="scene-note"></p>
+          <fieldset id="layers">
+            <legend>重ねるもの</legend>
+            <label
+              ><input type="checkbox" value="ground" checked /><i
+                class="ground"
+              ></i
+              >歩ける地形</label
+            ><label
+              ><input type="checkbox" value="excluded" /><i class="excluded"></i
+              >歩けない地形</label
+            ><label
+              ><input type="checkbox" value="source" /><i class="source"></i
+              >原画座標の地形</label
+            ><label
+              ><input type="checkbox" value="contact" checked /><i
+                class="contact"
+              ></i
+              >接触楕円</label
+            ><label
+              ><input type="checkbox" value="feet" checked /><i class="feet"></i
+              >足元</label
+            ><label
+              ><input type="checkbox" value="ink" /><i class="ink"></i
+              >開幕の体の原画</label
+            ><label
+              ><input type="checkbox" value="free" /><i class="free"></i
+              >本人を置ける場所</label
+            ><label
+              ><input type="checkbox" value="topo" /><i class="topo"></i
+              >狭い通路・行き止まり</label
+            ><label
+              ><input type="checkbox" value="passing" /><i class="passing"></i
+              >すれ違い</label
+            ><label
+              ><input type="checkbox" value="refuge" checked /><i
+                class="refuge"
+              ></i
+              >本人の退避先</label
+            ><label
+              ><input type="checkbox" value="rays" checked /><i class="rays"></i
+              >歩ける方向</label
+            ><label
+              ><input type="checkbox" value="closed" checked /><i
+                class="closed"
+              ></i
+              >接触で閉じる方向</label
+            >
+          </fieldset>
+        </section>
+        <aside>
+          <div class="card">
+            <h2>住民の退路</h2>
+            <div class="choices">
+              <label>住民<select id="person"></select></label
+              ><label
+                >距離<select id="distance">
+                  <option>3</option>
+                  <option selected>8</option>
+                  <option>16</option>
+                </select></label
+              >
+            </div>
+            <p id="person-note" aria-live="polite"></p>
+            <dl id="body"></dl>
+            <details id="pair-probe">
+              <summary>2体の接触境界を原画と比べる</summary>
+              <div class="choices">
+                <label>相手<select id="peer"></select></label
+                ><label
+                  >並び方<select id="axis">
+                    <option value="side">左右</option>
+                    <option value="depth">前後</option>
+                  </select></label
+                >
+              </div>
+              <canvas
+                id="pair"
+                aria-label="同じ奥行きの開幕体格を使った、接触境界での原画の比較"
+              ></canvas>
+              <p id="pair-note"></p>
+            </details>
+          </div>
+          <div class="card">
+            <h2>世帯の空間</h2>
+            <dl id="house"></dl>
+          </div>
+          <div class="card">
+            <h2>地形と原画</h2>
+            <p id="alignment"></p>
+            <p id="topology"></p>
+          </div>
+        </aside>
+      </div>
+      <details>
+        <summary>測定方法と表示の読み方</summary>
+        <p>
+          幅は CSS
+          px。地形・表示枠・遮蔽はネイティブの判定で2px格子を検査しました。接触占有率は個別楕円を合併して地形内を数えます。本人を置ける場所はその人の体格・表示枠・遮蔽・他者との接触を満たすセルです。到達可能性は別に調べています。
+        </p>
+        <p>
+          緑の線は96方位のうち地形・表示枠・遮蔽・全住民との接触検査を通った線分、赤は地形側を通った後で住民に遮られた線分。既に接触する住民は、離れる向きに初動を取れます。青いひし形は本人が16px直接歩けて、着地時に他者と重ならず、左右両方に3pxの退路を持つ地点です。表示は4地点までです。
+        </p>
+        <p>
+          すれ違いは中間体格2体による逆向き平行歩行。12px間隔の中心・4方向・24pxの線分・横余裕2pxで、他者を静止させて両方の線分を確認しました。1体では判定対象がありません。茶の×は8px以上の袋小路、水色のひし形は両側の分岐より狭くなる首。青い点は主領域の中心線で枝端から8px以上離れ、幅24px未満の地点です。格子の枝先や幅は近似値です。
+        </p>
+        <p>
+          原画座標は黄色の線が歩行地形と各地域の高さ下限、赤の線が除外域、紫の線が手前の遮蔽物、青緑が比較案の候補地です。白い点線は実画面の端です。現行の地形は旧投影も含みます。枠外の地形は「画面内」面積から除きました。原画の足幅は透明度32/255以上の最下部15%にある画素の横幅。時間経過後は記録時の足元を表示します。全員の通常歩行と休息を時刻ごとに追う場合は長時間記録を開いてください。
+        </p>
+      </details>
+      <p role="status" id="status">測定記録を読み込んでいます。</p>
+    </main>
+    <script type="module" src="map.mjs"></script>
+  </body>
+</html>
