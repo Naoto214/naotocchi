@@ -24,6 +24,7 @@ function observePair(label, input) {
     navigation:!!scene?.navigation,projection:world?.stats()?.projectionRevision,
     drawn:window.pairCanvas,viewport:[env.innerWidth,env.innerHeight],loaded:world?.stats()?.loaded,
     pending:pendingResidentPresentation,bodyScale:p?.bodyScale, camera:p&&[p.scaleX,p.scaleY],
+    seating:stage.dataset.dioramaSeating||null,stageVisibility:env.getComputedStyle(stage).visibility,
     input:input?.filter(a=>a.kind==='pet'||a.kind==='partner').map(a=>[a.key,a.x,a.y,a.w,a.h]),
     actors:actors.map(position)};
 }

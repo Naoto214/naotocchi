@@ -142,7 +142,8 @@ def main():
     args=p.parse_args()
     args.out.mkdir(parents=True,exist_ok=True)
     sources={name:hashlib.sha256((args.root/name).read_bytes()).hexdigest() for name in
-             ('script.js','home-production-world.mjs','home-production-model.js','home-production-diorama.js')}
+             ('index.html','script.js','home-production-world.mjs','home-production-model.js',
+              'home-production-diorama.js','home-production-touch.js','home-production-layout.css')}
     (args.out/'sources.json').write_text(json.dumps(sources,indent=2))
     server=serve(args.root,args.assets)
     try:
