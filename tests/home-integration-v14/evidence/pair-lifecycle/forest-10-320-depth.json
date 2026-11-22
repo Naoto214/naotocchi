@@ -1,0 +1,276 @@
+[
+  {
+    "runtime": "4ecf4e19",
+    "engine": "chromium",
+    "region": "forest",
+    "count": 10,
+    "viewport": [
+      320,
+      516
+    ],
+    "version": "156.0.8078.79",
+    "source": "owner scenario launcher, held after navigation",
+    "feet": [
+      [
+        152.3545,
+        220.5435
+      ],
+      [
+        46.0086,
+        221.26
+      ]
+    ],
+    "artwork": [
+      [
+        0.482,
+        0.6521
+      ],
+      [
+        0.231,
+        0.6532
+      ]
+    ],
+    "rawCastStage": [
+      [
+        155,
+        188.3748874409565
+      ],
+      [
+        147,
+        276.41994329601687
+      ]
+    ],
+    "camera": [
+      1.2656497528112913,
+      0.15721890849921205
+    ],
+    "cameraAtCompletedSeats": [
+      [
+        1.2656497528112913,
+        0.15721890849921205
+      ]
+    ],
+    "projectedVector": [
+      -10.12519802249033,
+      13.842347580284748
+    ],
+    "projectedDistance": 17.150225115958598,
+    "observedVector": [
+      -106.3459,
+      0.7164999999999964
+    ],
+    "observedDistance": 106.34831366345213,
+    "visible": [
+      true,
+      true
+    ],
+    "valid": [
+      true,
+      true
+    ]
+  },
+  {
+    "runtime": "ca6059cd",
+    "engine": "chromium",
+    "region": "forest",
+    "count": 10,
+    "viewport": [
+      320,
+      516
+    ],
+    "version": "156.0.8078.79",
+    "source": "owner scenario launcher, held after navigation",
+    "feet": [
+      [
+        153.8797,
+        220.8972
+      ],
+      [
+        101.6971,
+        229.1763
+      ]
+    ],
+    "artwork": [
+      [
+        0.4856,
+        0.6526
+      ],
+      [
+        0.3624,
+        0.6657
+      ]
+    ],
+    "rawCastStage": [
+      [
+        155,
+        188.3748874409565
+      ],
+      [
+        147,
+        276.41994329601687
+      ]
+    ],
+    "camera": [
+      1.2656497528112913,
+      0.15721890849921205
+    ],
+    "cameraAtCompletedSeats": [
+      [
+        1.2656497528112913,
+        0.15721890849921205
+      ]
+    ],
+    "projectedVector": [
+      -10.12519802249033,
+      13.842347580284748
+    ],
+    "projectedDistance": 17.150225115958598,
+    "observedVector": [
+      -52.18260000000001,
+      8.2791
+    ],
+    "observedDistance": 52.8352840398346,
+    "visible": [
+      true,
+      true
+    ],
+    "valid": [
+      true,
+      true
+    ]
+  },
+  {
+    "runtime": "4ecf4e19",
+    "engine": "webkit",
+    "region": "forest",
+    "count": 10,
+    "viewport": [
+      320,
+      516
+    ],
+    "version": "26.5",
+    "source": "owner scenario launcher, held after navigation",
+    "feet": [
+      [
+        153.8797,
+        220.8972
+      ],
+      [
+        48.2805,
+        220.8972
+      ]
+    ],
+    "artwork": [
+      [
+        0.4856,
+        0.6526
+      ],
+      [
+        0.2364,
+        0.6526
+      ]
+    ],
+    "rawCastStage": [
+      [
+        155,
+        188.3748874409565
+      ],
+      [
+        147,
+        276.41994329601687
+      ]
+    ],
+    "camera": [
+      1.265649698655205,
+      0.15721890849921205
+    ],
+    "cameraAtCompletedSeats": [
+      null
+    ],
+    "projectedVector": [
+      -10.12519758924164,
+      13.842347580284748
+    ],
+    "projectedDistance": 17.150224860176024,
+    "observedVector": [
+      -105.59920000000001,
+      0.0
+    ],
+    "observedDistance": 105.59920000000001,
+    "visible": [
+      true,
+      true
+    ],
+    "valid": [
+      true,
+      true
+    ]
+  },
+  {
+    "runtime": "ca6059cd",
+    "engine": "webkit",
+    "region": "forest",
+    "count": 10,
+    "viewport": [
+      320,
+      516
+    ],
+    "version": "26.5",
+    "source": "owner scenario launcher, held after navigation",
+    "feet": [
+      [
+        153.8797,
+        220.8972
+      ],
+      [
+        48.2805,
+        220.8972
+      ]
+    ],
+    "artwork": [
+      [
+        0.4856,
+        0.6526
+      ],
+      [
+        0.2364,
+        0.6526
+      ]
+    ],
+    "rawCastStage": [
+      [
+        155,
+        188.3748874409565
+      ],
+      [
+        147,
+        276.41994329601687
+      ]
+    ],
+    "camera": [
+      1.265649698655205,
+      0.15721890849921205
+    ],
+    "cameraAtCompletedSeats": [
+      null
+    ],
+    "projectedVector": [
+      -10.12519758924164,
+      13.842347580284748
+    ],
+    "projectedDistance": 17.150224860176024,
+    "observedVector": [
+      -105.59920000000001,
+      0.0
+    ],
+    "observedDistance": 105.59920000000001,
+    "visible": [
+      true,
+      true
+    ],
+    "valid": [
+      true,
+      true
+    ]
+  }
+]
