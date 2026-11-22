@@ -1,5 +1,5 @@
 """Exercise the private controls, loaded paintings, resident count and matched opening feet."""
-import argparse,json
+import argparse,json,os
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 p=argparse.ArgumentParser(description=__doc__)
@@ -8,7 +8,7 @@ p.add_argument('--width',type=int,required=True);p.add_argument('--out',type=Pat
 args=p.parse_args()
 with sync_playwright() as pw:
     engine=getattr(pw,args.engine)
-    b=engine.launch(**({'executable_path':'/usr/bin/chromium','args':['--no-sandbox','--disable-dev-shm-usage']} if args.engine=='chromium' else {}))
+    b=engine.launch(**({'executable_path':'/usr/bin/chromium','args':['--no-sandbox','--disable-dev-shm-usage']} if args.engine=='chromium' else {'executable_path':os.getenv('WEBKIT_PATH')}))
     page=b.new_page(viewport={'width':args.width,'height':792},is_mobile=True,has_touch=True)
     errors=[]
     page.on('pageerror',lambda error:errors.append(str(error)))
@@ -24,7 +24,7 @@ with sync_playwright() as pw:
             path:win.location.pathname, picture:win.document.querySelector('.home-art-canvas').dataset.mobilityPainting.split('/').pop(),
             feet:first.actors.map(a=>a.slice(0,4))};
         }""")
-        assert snapshot['region']=='forest' and snapshot['time']=='day' and snapshot['bodyWidth']<=args.width and snapshot['picture'].startswith('forest-day.webp')
+        assert snapshot['region']=='forest' and snapshot['time']=='day' and snapshot['bodyWidth']<=args.width and snapshot['picture'].startswith('forest-day.webp'),{k:v for k,v in snapshot.items() if k!='feet'}
         assert len(set(tuple(v) for v in snapshot['feet']))==28
         states[arm]=snapshot
     assert states['a']['feet']==states['b']['feet']==states['c']['feet']

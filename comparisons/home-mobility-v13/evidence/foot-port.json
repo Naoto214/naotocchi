@@ -1,0 +1,81 @@
+{
+  "patchSHA256": "36027d663c6f611da7a33f8d6a42c8bd5a55c96275062148f74535d7877750e0",
+  "before": {
+    "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+    "home-production-diorama.js": "ecac051a6f903dab5ee2f266d70b879686e15a035fbcefd1e6a84fa5a2db783a",
+    "home-production-world.mjs": "d824c818c676353898afb052b43f8e88db9a14a7add55c3986af0104dbdc9ca6",
+    "index.html": "a087464bce1de49934bbab652fa20e3c656b6cfa48f85e8d31d42e6a9ac10bb4"
+  },
+  "after": {
+    "home-production-model.js": "b1fcb925dd9724032e207f2f9480dfb60c0d66bd9b33b7126be402e85e956d7a",
+    "home-production-diorama.js": "50f2b32fddd6ce8b424855db9f678265371f9e5e0e66c87e3be46b4209bac9a5",
+    "home-production-world.mjs": "f7243c5df4c9a5f78ed0e31d132d4d564feb3e54c44cb65ade8720036cb06fac",
+    "index.html": "552636d9fb17962c282c3e0e7008fcfc11a336bf7287b28acd78b4683b26d756"
+  },
+  "suites": [
+    "home-production-v18-release",
+    "home-production-v18",
+    "home-production-save",
+    "home-production-birth",
+    "home-movement-bounds",
+    "home-movement-v2",
+    "home-movement-v3",
+    "home-movement-v4",
+    "home-social-approach",
+    "home-terrain-conversation"
+  ],
+  "counts": {
+    "tests": 64,
+    "pass": 64,
+    "fail": 0,
+    "skipped": 0
+  },
+  "engine": "Chromium",
+  "version": "156.0.8078.79",
+  "officialEntry": {
+    "before": [
+      [
+        "pet:butterfly",
+        193.31915806843546,
+        283.34568303806066
+      ],
+      [
+        "companion:panda",
+        261.33515889350383,
+        106.14610194117188
+      ]
+    ],
+    "after": [
+      [
+        "pet:butterfly",
+        193.31915806843546,
+        283.34568303806066
+      ],
+      [
+        "companion:panda",
+        261.33515889350383,
+        106.14610194117188
+      ]
+    ],
+    "renewed": [
+      [
+        "pet:butterfly",
+        193.31915806843546,
+        283.34568303806066
+      ],
+      [
+        "companion:panda",
+        261.33515889350383,
+        106.14610194117188
+      ]
+    ],
+    "decision": {
+      "held": true,
+      "reason": "same-ground",
+      "liveSegments": 0
+    },
+    "painted": 2,
+    "version": "18"
+  },
+  "pageErrors": []
+}

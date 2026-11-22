@@ -1,0 +1,140 @@
+{
+  "coordinateSystem": "normalized cover artwork x,z; y down",
+  "referencePixels": [
+    1024,
+    1536
+  ],
+  "minimumEdgeDistancePx": {
+    "B shoulder": {
+      "exclude": 198.47857037722625,
+      "foreground": 187.99605374581665,
+      "forbiddenLandmarks": 273.7357137094098
+    },
+    "C bay": {
+      "exclude": 202.58967239225206,
+      "foreground": 117.7613070529777,
+      "forbiddenLandmarks": 220.5953648833084
+    }
+  },
+  "patches": [
+    [
+      [
+        0.604,
+        0.558
+      ],
+      [
+        0.638,
+        0.552
+      ],
+      [
+        0.662,
+        0.558
+      ],
+      [
+        0.665,
+        0.573
+      ],
+      [
+        0.65,
+        0.588
+      ],
+      [
+        0.617,
+        0.597
+      ],
+      [
+        0.603,
+        0.586
+      ]
+    ],
+    [
+      [
+        0.616,
+        0.581
+      ],
+      [
+        0.65,
+        0.568
+      ],
+      [
+        0.681,
+        0.558
+      ],
+      [
+        0.714,
+        0.562
+      ],
+      [
+        0.731,
+        0.575
+      ],
+      [
+        0.728,
+        0.592
+      ],
+      [
+        0.703,
+        0.606
+      ],
+      [
+        0.666,
+        0.618
+      ],
+      [
+        0.627,
+        0.616
+      ],
+      [
+        0.613,
+        0.601
+      ]
+    ]
+  ],
+  "artwork": [
+    {
+      "paint": "morning",
+      "path": "comparisons/dayparts-20261103/v2/forest-morning.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "sha256": "e2560a178b9ab16b13476978cc2501959c303514f13e286e57c64bb4df5731aa"
+    },
+    {
+      "paint": "day",
+      "path": "comparisons/dayparts-20261103/v2/forest-day.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "sha256": "c8a761d93797f21d7f660dd374a3838123712c005e9668c982231df05b50c70d"
+    },
+    {
+      "paint": "evening",
+      "path": "comparisons/dayparts-20261103/images/forest-evening.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "sha256": "bba2bd0fac41238055c850a6243808e3edb04c12246fde86aaba6ef396f20bef"
+    },
+    {
+      "paint": "night",
+      "path": "comparisons/dayparts-20261103/v6/forest-night.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "sha256": "23ca6c6f1765ef79784a8ff1cbcabed686c6c9a4b64b9aba9b4ecc755395f466"
+    },
+    {
+      "paint": "waterfall",
+      "path": "assets/home-v6-20261029/runtime/forest-waterfall.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "sha256": "25953e6acc2adef5a48a58d8ff2284b8dd594a9ce36c857e9945f0d891fdf71f"
+    }
+  ]
+}
