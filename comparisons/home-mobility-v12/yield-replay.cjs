@@ -81,6 +81,9 @@ function createYieldReplay() {
   }
   function advanceNative(){
     const req=liveRequest,proc=procedure,dt=req.dt;
+    // A normal renderer refresh can replace actor records while retaining their
+    // identities and feet. Observe the current actor by its stable model key.
+    req.a=actor(fixture.key);
     if(relief?.pair){
       req.routeKind=relief.pair.curved?'curved':relief.pair.stages.length?'straight':'solo';
       req.planEnd={x:relief.pair.q.x,y:relief.pair.q.y};
@@ -162,12 +165,13 @@ function createYieldReplay() {
     }
     return status();
   }
-  function exitCount(key) {
+  function exitCount(key,radius=8) {
+    if(![3,8,16].includes(radius))throw Error("対応していない退路の距離です。");
     const a=actor(key),nav=scene.navigation,s=nav.intentScale,b=bounds(a,scene),ink=scene.planVisibility(a);
     const peers=actors.filter(other=>other!==a);
     let allowed=0;
     for(let n=0;n<96;n++){
-      const theta=n*Math.PI/48,dx=8*Math.cos(theta)/s.x,dy=8*Math.sin(theta)/s.y,to={x:a.x+dx,y:a.y+dy};
+      const theta=n*Math.PI/48,dx=radius*Math.cos(theta)/s.x,dy=radius*Math.sin(theta)/s.y,to={x:a.x+dx,y:a.y+dy};
       if(to.x<b.left||to.x>b.right||to.y<b.top||to.y>b.bottom)continue;
       const t=Math.min(1,.35/Math.hypot(dx,dy)),first={x:a.x+t*dx,y:a.y+t*dy};
       if(peers.every(p=>{
@@ -181,12 +185,14 @@ function createYieldReplay() {
   return Object.freeze({reset,start,startNative,advance,status,exitCount});
 }
 
-function addYieldReplay({add,baseline,modelSource,rendererSource}) {
+function addYieldReplay({add,baseline,modelSource,rendererSource,shortModelSource}) {
   const read=name=>fs.readFileSync(path.join(__dirname,name),'utf8');
   const game=name=>fs.readFileSync(path.join(baseline,'game',name),'utf8');
   const oldModel='home-production-model-mobility-v11-foot-reference.js';
   const oldRenderer='home-production-diorama-mobility-v11.js';
-  for(const [suffix,source,paint] of [['',modelSource,rendererSource],['-baseline',game(oldModel),game(oldRenderer)]]){
+  const models=[['',modelSource,rendererSource],['-baseline',game(oldModel),game(oldRenderer)]];
+  if(shortModelSource)models.push(['-short',shortModelSource,rendererSource]);
+  for(const [suffix,source,paint] of models){
     const newModel='home-production-model-mobility-v12-yield'+suffix+'.js';
     const newRenderer='home-production-diorama-mobility-v12-yield'+suffix+'.js';
     const model=replaceExact(source,'    return {metrics:',
@@ -202,7 +208,9 @@ function addYieldReplay({add,baseline,modelSource,rendererSource}) {
     add('game/'+newModel,model); add('game/'+newRenderer,renderer);
     add('game/mobility-v12-yield'+suffix+'.html',html);
   }
-  for(const name of ['yield.html','yield.mjs'])add('v12/'+name,read(name));
+  let page=read('yield.html');
+  if(!shortModelSource)page=page.replace(/<option value="short">[^<]*<\/option>/,'');
+  add('v12/yield.html',page);add('v12/yield.mjs',read('yield.mjs'));
   add('v12/yield-recording.json',read('evidence/yield-recording.json'));
 }
 

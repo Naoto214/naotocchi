@@ -94,7 +94,13 @@ function liveGrowthModel(source){
   }
 `+cap);
   code=replaceExact(code,'return {prepare,verify,finish,read};',
-    'return {prepare,preflight,verify:withinBudget,finish,read:()=>({...read(),armed,warmed:!!warmed,lastReason})};');
+    `return {prepare,preflight,verify:withinBudget,finish,read:()=>{
+      const info=read(),current=lastReason==='no-current-preflight'?[]:info.steps;
+      const expired=armed&&performance.now()>deadline,applied=current.length===2&&current.every(s=>s.accepted);
+      const reason=expired?'stage-window-expired':!armed&&current.length?current.at(-1).reason:lastReason;
+      return {...info,steps:current,applied,partial:!applied&&current.some(s=>s.accepted),
+        armed:armed&&!expired,warmed:!!warmed,expired,lastReason:reason};
+    }};`);
   code=replaceExact(code,"globalThis.HomeCareFootControl={prepare:careFeet.prepare,read:careFeet.read};",
     "globalThis.HomeV12LifeGrowth=Object.freeze({prepare:careFeet.prepare,preflight:careFeet.preflight,read:careFeet.read});");
   return code;

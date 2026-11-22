@@ -70,8 +70,16 @@ grow.addEventListener('click',async () => {
     ['対象の住民', labels.get(report.residentKey) || '変位なし'],
   ];
   if (mode !== 'legacy') {
-    if(mode==='live'&&!report.steps.length)fields.push(['照合','有効な事前測定がなく従来の配置を適用']);
-    fields.push(['足位置を保持した回数',report.steps.filter(step=>step.accepted).length + ' / ' + report.steps.length]);
+    if(mode==='live'){
+      const life=win.HomeV12LifeGrowth.read();
+      const decision=life.applied?'2回の照合を完了し、元の足位置を保持':
+        life.expired?'4秒の事前測定の有効期間が終了し、従来の配置を適用':
+        !report.steps.length?'有効な事前測定がなく従来の配置を適用':
+        report.steps.some(step=>step.reason==='time-budget')?'照合の時間枠を超え、従来の配置を適用':
+        '2回の保持条件が揃わず、従来の配置を適用';
+      fields.push(['実際の配置',decision]);
+    }
+    fields.push(['足位置を保持した回数',report.steps.filter(step=>step.accepted).length + ' / 2']);
     for (const step of report.steps) {
       const reasons = {'new-or-deeper-contact':'接触が増える','projected-foot-invalid':'投影先の足位置が無効',
         'time-budget':'48msの照合枠に達したため従来の配置を適用','legacy':'従来の配置を適用','resident-walk':'主人公の歩行で退路を回復','neighbour-yield':'近くの住民が歩き退路を回復','local-foot-restores-directions':'最小補正で退路を回復','previous-direction-lost':'以前の退路が失われる','previous-directions-preserved':'以前の退路を保持'};

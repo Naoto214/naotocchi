@@ -4,8 +4,9 @@ const play = byId('play'), live = byId('live'), pause = byId('pause'), reset = b
 const message = byId('status'), participants = byId('participants'), outcome = byId('outcome-exits');
 const frame = document.querySelector('iframe'), stage = document.querySelector('.view');
 const sleep = ms => new Promise(resolve => setTimeout(resolve,ms));
-const isStone = () => scene.value.startsWith('stone');
-const sceneWidth = () => isStone()?390:375;
+const isRequestScene = () => scene.value==='watcher'||scene.value.startsWith('stone');
+const requestSample = () => scene.value==='watcher'?data.watcher:scene.value==='stone375'?data.stone375:data.stone;
+const sceneWidth = () => scene.value==='watcher'||scene.value==='stone'||scene.value==='stone-near'?390:375;
 function fit() {
   const scale = stage.clientWidth/sceneWidth();
   frame.style.transform = 'scale('+scale+')';
@@ -14,11 +15,11 @@ function fit() {
 new ResizeObserver(fit).observe(stage);
 
 let data, api, win, paused=true, playing=false, request=0, last=0, elapsed=0, previous='';
-let revision=0, diagnosis=0, names=new Map(), stoneExits=null;
+let revision=0, diagnosis=0, names=new Map(), stoneExits=null, shortStoneExits=null, stoneWidth=null;
 const person=key => names.get(key)||key;
-const subject=() => isStone()?data.stone.key:scene.value==='opening' ? data.key : scene.value==='cat' ? 'companion:cat_friend' : 'pet:dog';
-const state=() => isStone()?{...data.stone,goalPoint:scene.value==='stone'?data.stone.goalPoint:null}:scene.value==='opening' ? data : {...data,key:subject(),feet:data.minuteFeet};
-const selected=() => isStone()?{degrees:scene.value==='stone-near'?data.stone.nearDegrees:0}:scene.value==='opening' ? data.routes[bearing.selectedIndex] : {degrees:scene.value==='cat'?120:180};
+const subject=() => isRequestScene()?requestSample().key:scene.value==='opening' ? data.key : scene.value==='cat' ? 'companion:cat_friend' : 'pet:dog';
+const state=() => isRequestScene()?{...requestSample(),goalPoint:scene.value==='stone'||scene.value==='watcher'?requestSample().goalPoint:null}:scene.value==='opening' ? data : {...data,key:subject(),feet:data.minuteFeet};
+const selected=() => isRequestScene()?{degrees:scene.value==='stone'?0:requestSample().nearDegrees}:scene.value==='opening' ? data.routes[bearing.selectedIndex] : {degrees:scene.value==='cat'?120:180};
 
 function stop() {
   if(request)cancelAnimationFrame(request);
@@ -34,10 +35,10 @@ function describe() {
   bearing.disabled=!recording;
   participants.textContent=recording ? route.steps.map((s,i)=>person(s.who)+
     (i===route.steps.length-1?'':s.ends.length===2?'（途中で曲がる）':'（直進）')).join(' → ') :
-    isStone()?'要求404・記録270.19ゲーム秒の28体。'+(scene.value==='stone'?'石像が要求した元の目標まで314.44px。':'同じ足位置で新たに与える近い目標、160°・8.01px。'):'開始'+data.minuteClock.toFixed(2)+'ゲーム秒の足位置 · '+person(subject())+'への指示は10 CSS px';
+    scene.value==='watcher'?'118.15ゲーム秒の足位置。同じ28体に、新しく8.00pxの目標を与えます。':scene.value==='stone375'?'要求281・記録196.68ゲーム秒の28体。同じ足位置で新たに165°へ8.01pxの指示。':isRequestScene()?'要求404・記録270.19ゲーム秒の28体。'+(scene.value==='stone'?'石像が要求した元の目標まで314.44px。':'同じ足位置で新たに与える近い目標、160°・8.01px。'):'開始'+data.minuteClock.toFixed(2)+'ゲーム秒の足位置 · '+person(subject())+'への指示は10 CSS px';
   const lost=recording?data.lastExits?.[route.degrees]:null;
   byId('exits').textContent=lost?.length?'V11の記録終点で単独8pxの退路が塞がる住民 · '+lost.map(person).join('、'):'';
-  live.textContent=(version.value==='v11'?'V11':'V12')+'が道を探す';
+  live.textContent=(version.value==='short'?'短い退路も守る版':version.value==='v11'?'V11':'V12')+'が道を探す';
 }
 function opening() {
   diagnosis++;stop();playing=false;paused=true;previous='';outcome.textContent='';
@@ -46,17 +47,23 @@ function opening() {
 }
 function setScene() {
   bearing.replaceChildren();
-  const headings=scene.value==='opening'?data.routes.map(r=>r.degrees):isStone()?[scene.value==='stone'?'記録した目標':160]:[scene.value==='cat'?120:180];
+  const headings=scene.value==='opening'?data.routes.map(r=>r.degrees):isRequestScene()?[scene.value==='stone'?'記録した目標':Math.round(requestSample().nearDegrees)]:[scene.value==='cat'?120:180];
   for(const deg of headings){const o=document.createElement('option');o.value=String(deg);o.textContent=typeof deg==='number'?deg+'°':deg;bearing.append(o);}
   opening();
 }
 async function exitReport() {
-  const epoch=++diagnosis,base=isStone()?stoneExits:scene.value==='opening'?data.openingExits:data.minuteExits;
+  const epoch=++diagnosis,base=isRequestScene()?stoneExits:scene.value==='opening'?data.openingExits:data.minuteExits;
   const now=new Map(),keys=Object.keys(base),currentSubject=subject();
   outcome.textContent='道譲り後の28体の退路を確認しています…';
+  const shortLost={3:[],16:[]};
   for(const key of keys) {
     if(epoch!==diagnosis)return;
     now.set(key,api.exitCount(key));
+    if(scene.value==='watcher'){
+      for(const [i,radius] of [[0,3],[2,16]]){
+        if(data.watcher.exits[key][i]>0 && !api.exitCount(key,radius))shortLost[radius].push(key);
+      }
+    }
     await new Promise(resolve=>requestAnimationFrame(resolve));
   }
   if(epoch!==diagnosis)return;
@@ -65,6 +72,13 @@ async function exitReport() {
   const list=keys=>keys.length?keys.map(person).join('、'):'該当なし';
   outcome.textContent='終点で周囲が静止した場合の単独8pxの退路。ほかの27体で最後の方向が閉じた住民 · '+list(lost)+
     '。新たに方向が開いた住民 · '+list(gained)+'。';
+  if(scene.value==='watcher'){
+    const lostEight=keys.filter(k=>base[k]>0&&now.get(k)===0);
+    outcome.textContent+=' 全28体で、開始時にあった最後の単独方向を失った住民 · 3px '+list(shortLost[3])+'、8px '+list(lostEight)+'、16px '+list(shortLost[16])+'。';
+  }else if(isRequestScene() && shortStoneExits){
+    const counts=shortStoneExits.map(([key,radius,before])=>person(key)+'の単独'+radius+'px '+before+'→'+api.exitCount(key,radius)+'方向');
+    outcome.textContent+=' 同じ開始・終了位置で測定 · '+counts.join('、')+'。';
+  }
 }
 function draw(time) {
   request=0;if(paused||!playing)return;
@@ -97,9 +111,14 @@ function draw(time) {
 function run(native=false) {
   try {
     opening();
-    if(native)api.startNative(selected().degrees,isStone()?data.stone.nearRadius:scene.value==='opening'?8:10,entry.value);
+    if(native)api.startNative(selected().degrees,isRequestScene()?requestSample().nearRadius:scene.value==='opening'?8:10,entry.value);
     else api.start(selected().steps);
-    playing=true;paused=false;play.disabled=true;live.disabled=true;pause.disabled=false;request=requestAnimationFrame(draw);
+    playing=true;paused=false;play.disabled=true;live.disabled=true;pause.disabled=false;
+    const viewport=frame.getBoundingClientRect();
+    const cast=win.document.getElementById('castStage').getBoundingClientRect();
+    const middle=viewport.top+(cast.top+cast.height/2)*viewport.width/sceneWidth();
+    if(middle<0 || middle>innerHeight)byId('forest-tools').scrollIntoView({block:'start',behavior:'instant'});
+    request=requestAnimationFrame(draw);
   }catch(error){recover(error);}
 }
 function toggle() {
@@ -112,11 +131,11 @@ async function loadVersion() {
   const epoch=++revision;diagnosis++;stop();playing=false;paused=true;api=null;
   play.disabled=true;live.disabled=true;pause.disabled=true;reset.disabled=true;scene.disabled=true;
   message.textContent='28体を読み込んでいます…';outcome.textContent='';
-  const suffix=version.value==='v11'?'-baseline':'';
+  const suffix=version.value==='v11'?'-baseline':version.value==='short'?'-short':'';
   const url=new URL('../game/mobility-v12-yield'+suffix+'.html',location.href);
   stage.style.maxWidth=sceneWidth()+'px';frame.style.width=sceneWidth()+'px';fit();
   url.search=new URLSearchParams({region:'forest',time:'day',season:'autumn',weather:'sunny',count:28,
-    trialSeed:isStone()?data.stone.seed:data.seed,scenario:scene.value,paused:1,clock:0,variant:'B',ground:'on',paired:1,waitForPainting:1});
+    trialSeed:isRequestScene()?requestSample().seed:data.seed,scenario:scene.value,paused:1,clock:0,variant:'B',ground:'on',paired:1,waitForPainting:1});
   frame.src=url.href;
   const until=performance.now()+120000;
   while(epoch===revision){
@@ -130,13 +149,16 @@ async function loadVersion() {
   if(epoch!==revision)return;
   names=new Map(win.HomeCastTrial.inspect().map(item=>[item.key,item.label||item.name||item.key]));
   api=win.HomeYieldReplay;setScene();
-  if(isStone() && !stoneExits) {
+  if(isRequestScene() && stoneWidth!==requestSample().clock) {
     const counts={};live.disabled=true;reset.disabled=true;
-    for(const [id] of data.stone.feet){
+    for(const [id] of requestSample().feet){
       if(epoch!==revision)return;
       counts[id]=api.exitCount(id);
       await sleep(0);
     }
+    const probes=scene.value==='stone375'?[['companion:snail',8],['companion:snail',16]]:[['companion:hamster',3],['companion:otter',3]];
+    shortStoneExits=probes.map(([key,radius])=>[key,radius,api.exitCount(key,radius)]);
+    stoneWidth=requestSample().clock;
     stoneExits=counts;
   }
   if(epoch!==revision)return;
@@ -147,7 +169,7 @@ pause.addEventListener('click',toggle);
 reset.addEventListener('click',()=>{try{opening();}catch(e){recover(e);}});
 bearing.addEventListener('change',()=>{try{opening();}catch(e){recover(e);}});
 entry.addEventListener('change',()=>{if(api){try{opening();}catch(e){recover(e);}}});
-scene.addEventListener('change',()=>{entry.value=isStone()?'ordinary':'waiting';loadVersion().catch(recover);});
+scene.addEventListener('change',()=>{entry.value=isRequestScene()?'ordinary':'waiting';loadVersion().catch(recover);});
 version.addEventListener('change',()=>{loadVersion().catch(recover);});
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&playing&&!paused)toggle();});
 fetch('./yield-recording.json').then(response=>{
@@ -156,7 +178,8 @@ fetch('./yield-recording.json').then(response=>{
   data=value;
   const params=new URLSearchParams(location.search);
   if([...scene.options].some(o=>o.value===params.get('scene')))scene.value=params.get('scene');
-  if(params.get('arm')==='v11')version.value='v11';
-  entry.value=params.get('entry')==='ordinary'||isStone()?'ordinary':'waiting';
+  if([...version.options].some(o=>o.value===params.get('arm')))version.value=params.get('arm');
+  else if(scene.value==='watcher' && [...version.options].some(o=>o.value==='short'))version.value='short';
+  entry.value=params.get('entry')==='ordinary'||isRequestScene()?'ordinary':'waiting';
   return loadVersion();
 }).catch(recover);
