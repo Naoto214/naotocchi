@@ -1,0 +1,223 @@
+{
+  "run": "44986753461",
+  "source": "ce51a0435367b5d6b65330af8d05ccba4f18850d",
+  "url": "https://github.com/Naoto214/naotocchi/actions/runs/44986753461",
+  "overall": "success",
+  "statuses": {
+    "home": "success",
+    "forest": "success",
+    "river_lake": "success",
+    "city": "success",
+    "countryside": "success",
+    "mountain": "success",
+    "snow": "success",
+    "sea": "success",
+    "jungle": "success",
+    "desert": "success",
+    "deepsea": "success",
+    "star_stop": "success",
+    "memory_lake": "success"
+  },
+  "artifacts": {
+    "home": {
+      "id": 14741196021,
+      "sha256": "2d73852e4d4615d18bd115355d35468f5e59f86f18ec5dc9278d63abe4cae975",
+      "bytes": 1925892,
+      "job": 137098892003,
+      "certifiedCells": 20,
+      "totalRecordedCells": 20,
+      "complete": true
+    },
+    "forest": {
+      "id": 14740846251,
+      "sha256": "44e3e1fa7703cd68d6522c4fc83f428748e403edf8f7a834bc7df86e7de2fb27",
+      "bytes": 2114849,
+      "job": 137098891839,
+      "certifiedCells": 20,
+      "totalRecordedCells": 20,
+      "complete": true
+    },
+    "river_lake": {
+      "id": 14740951361,
+      "sha256": "f7a06b217d80a84bcfce6ed57d47cfaed73188f937c7a28b6f0901dbd42acfa2",
+      "bytes": 2357894,
+      "job": 137098892107,
+      "certifiedCells": 20,
+      "totalRecordedCells": 20,
+      "complete": true
+    },
+    "city": {
+      "id": 14741150279,
+      "sha256": "0451161b539a47fb38bf10b373276289c5811284e7d963c4bbffd3a773c67520",
+      "bytes": 2325413,
+      "job": 137098892123,
+      "certifiedCells": 20,
+      "totalRecordedCells": 20,
+      "complete": true
+    },
+    "countryside": {
+      "id": 14741080970,
+      "sha256": "3700a60b457415a181a18e095c914399834d718cd53e43595c6dfb1ca5683209",
+      "bytes": 2259140,
+      "job": 137098892070,
+      "certifiedCells": 20,
+      "totalRecordedCells": 20,
+      "complete": true
+    },
+    "mountain": {
+      "id": 14741590014,
+      "sha256": "b24d25912e06cfa689b98e5b9fa2fcfb386579690d736a5839e53233fbb21f2f",
+      "bytes": 2221488,
+      "job": 137098892149,
+      "certifiedCells": 20,
+      "totalRecordedCells": 20,
+      "complete": true
+    },
+    "snow": {
+      "id": 14741276965,
+      "sha256": "407bf84dc4f4fd0fbb9b2a5b24cbbc87eec8ed6aefed62660a715dd5cc8a46e5",
+      "bytes": 2260460,
+      "job": 137098892218,
+      "certifiedCells": 20,
+      "totalRecordedCells": 20,
+      "complete": true
+    },
+    "sea": {
+      "id": 14740598825,
+      "sha256": "1657c3325ed069bf79ebc16870abcc2267c91cece058cea89e7bdea04a86acab",
+      "bytes": 2241353,
+      "job": 137098892036,
+      "certifiedCells": 20,
+      "totalRecordedCells": 20,
+      "complete": true
+    },
+    "jungle": {
+      "id": 14741446128,
+      "sha256": "a8d37e44205f5aa67ba169837cfb5da9a95b6b87148df94e097bff0928b0cd7f",
+      "bytes": 2264336,
+      "job": 137098892226,
+      "certifiedCells": 20,
+      "totalRecordedCells": 20,
+      "complete": true
+    },
+    "desert": {
+      "id": 14741181487,
+      "sha256": "de3ccb942842a315474f73773625bcf83cf41c9ffc89283d98e5d1f0c6bc2b1d",
+      "bytes": 2181714,
+      "job": 137098892144,
+      "certifiedCells": 20,
+      "totalRecordedCells": 20,
+      "complete": true
+    },
+    "deepsea": {
+      "id": 14741031289,
+      "sha256": "a22f4a24e1eb802adc9d02c0e05150a66e07d133826e9caacd4d0108ea7ee578",
+      "bytes": 2164940,
+      "job": 137098892146,
+      "certifiedCells": 20,
+      "totalRecordedCells": 20,
+      "complete": true
+    },
+    "star_stop": {
+      "id": 14740638874,
+      "sha256": "99ddb85925c43af325d205814718149a460f1e2da3f9a454cb50ff639e3b3711",
+      "bytes": 2189033,
+      "job": 137098892172,
+      "certifiedCells": 20,
+      "totalRecordedCells": 20,
+      "complete": true
+    },
+    "memory_lake": {
+      "id": 14741417161,
+      "sha256": "c1df298d3bac86c70ea05608b170a1c2e81c97a93f31bd44230bb98aea9344eb",
+      "bytes": 2296757,
+      "job": 137098892238,
+      "certifiedCells": 20,
+      "totalRecordedCells": 20,
+      "complete": true
+    }
+  },
+  "completeRegions": 13,
+  "certifiedCells": 260,
+  "uncertifiedCellsWithRawEvidence": 0,
+  "nativeScripts": {
+    "v10": {
+      "scripts": {
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-diorama-mobility-v10.js": "c1ba14468dd4507b774fe157a3e7f669f9f62f74f9d5cb6ab3ef838288e0abd9",
+        "home-production-model-mobility-v10.js": "95e32fa82fdf92920212fcf90b65fd8a3d25927b5388b9d01935ae3f886cd5c8",
+        "home-route-navigation-finish.mjs": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9",
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "script-v2-mobility-v7.js": "4d0d425c41a89f0241e92b18c0270534dbdb36d09b5507d8bce0ebfd6cd9bc02",
+        "telemetry-mobility-v10.js": "b2d04a892c48e50a5876f8d6e542dbdc851b20a6e108ea2925d0365a82a6a870"
+      },
+      "entry": "a4d5f4d828254582f77d122e9ca76d83b912147168f04707fbd1e631f8f6a785"
+    },
+    "v11": {
+      "scripts": {
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377",
+        "home-production-model-mobility-v11.js": "3de077af5adbbebb24e0e66f0acd9843eb74b78b245fb1c32d26de94bf616386",
+        "home-route-navigation-finish.mjs": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9",
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "script-v2-mobility-v7.js": "4d0d425c41a89f0241e92b18c0270534dbdb36d09b5507d8bce0ebfd6cd9bc02",
+        "telemetry-mobility-v10.js": "b2d04a892c48e50a5876f8d6e542dbdc851b20a6e108ea2925d0365a82a6a870"
+      },
+      "entry": "d8756c6314f013814e523709b688f917cfda967ce24c889737464d8d2f17847a"
+    },
+    "v11-foot": {
+      "scripts": {
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377",
+        "home-production-model-mobility-v11-foot.js": "fcdf57a485c28b10b9e715f752822aa5bbe2b99f7ad4f334d0180f07789d1b80",
+        "home-route-navigation-finish.mjs": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9",
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "script-v2-mobility-v7.js": "4d0d425c41a89f0241e92b18c0270534dbdb36d09b5507d8bce0ebfd6cd9bc02",
+        "telemetry-mobility-v10.js": "b2d04a892c48e50a5876f8d6e542dbdc851b20a6e108ea2925d0365a82a6a870"
+      },
+      "entry": "272b23660e89f051625eb87217c61b15a68afbf024d184b387714003569dad21"
+    }
+  },
+  "unusableCellRecords": [],
+  "totalsOverCertifiedCells": {
+    "v10": {
+      "normalWalkers": 3215,
+      "arrival": 911,
+      "near4": 522,
+      "tapSelected": 246,
+      "bothFailed": 3,
+      "agedDragArrival": 233,
+      "goalChanges": 0,
+      "agedSafeSteps": 1113581,
+      "syncs": 877,
+      "nonWalkingShifts": 17
+    },
+    "v11-foot": {
+      "normalWalkers": 3215,
+      "arrival": 910,
+      "near4": 521,
+      "tapSelected": 246,
+      "bothFailed": 2,
+      "agedDragArrival": 235,
+      "goalChanges": 0,
+      "agedSafeSteps": 1113432,
+      "syncs": 877,
+      "nonWalkingShifts": 8
+    },
+    "v11": {
+      "normalWalkers": 3209,
+      "arrival": 911,
+      "near4": 522,
+      "tapSelected": 246,
+      "bothFailed": 2,
+      "agedDragArrival": 236,
+      "goalChanges": 118,
+      "agedSafeSteps": 1111113,
+      "syncs": 870,
+      "nonWalkingShifts": 10
+    }
+  }
+}

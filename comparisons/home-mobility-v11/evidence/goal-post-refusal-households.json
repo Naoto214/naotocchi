@@ -1,0 +1,671 @@
+[
+  {
+    "width": 320,
+    "seed": 1249,
+    "seconds": 600,
+    "modelSHA256": "b33ff32136d182c9b0bb456ae1ee63d17b2686932471f7a9af649dc753d95ee0",
+    "original": {
+      "walkers": 11,
+      "repeat": 7,
+      "walks": 40,
+      "distance": 959.0691
+    },
+    "ray": {
+      "walkers": 11,
+      "repeat": 7,
+      "walks": 40,
+      "distance": 959.0691
+    },
+    "originalUnchangedResidents": 28,
+    "changedResidents": [],
+    "postRefusalCalls": 746,
+    "offers": [],
+    "wallTotalMs": 71.0804260000188,
+    "wallMaxMs": 24.9210609999991
+  },
+  {
+    "width": 320,
+    "seed": 2026,
+    "seconds": 600,
+    "modelSHA256": "b33ff32136d182c9b0bb456ae1ee63d17b2686932471f7a9af649dc753d95ee0",
+    "original": {
+      "walkers": 16,
+      "repeat": 10,
+      "walks": 36,
+      "distance": 716.7981
+    },
+    "ray": {
+      "walkers": 16,
+      "repeat": 10,
+      "walks": 36,
+      "distance": 716.7981
+    },
+    "originalUnchangedResidents": 28,
+    "changedResidents": [],
+    "postRefusalCalls": 791,
+    "offers": [],
+    "wallTotalMs": 61.45528700000662,
+    "wallMaxMs": 23.738498999999138
+  },
+  {
+    "width": 320,
+    "seed": 214,
+    "seconds": 600,
+    "modelSHA256": "b33ff32136d182c9b0bb456ae1ee63d17b2686932471f7a9af649dc753d95ee0",
+    "original": {
+      "walkers": 13,
+      "repeat": 7,
+      "walks": 44,
+      "distance": 1173.1905
+    },
+    "ray": {
+      "walkers": 11,
+      "repeat": 6,
+      "walks": 28,
+      "distance": 889.3445
+    },
+    "originalUnchangedResidents": 1,
+    "changedResidents": [
+      {
+        "key": "companion:bat",
+        "original": {
+          "walks": 9,
+          "distance": 140.64822,
+          "requests": 29
+        },
+        "ray": {
+          "walks": 0,
+          "distance": 16.12903,
+          "requests": 34
+        }
+      },
+      {
+        "key": "companion:box",
+        "original": {
+          "walks": 0,
+          "distance": 0,
+          "requests": 47
+        },
+        "ray": {
+          "walks": 0,
+          "distance": 0,
+          "requests": 44
+        }
+      },
+      {
+        "key": "companion:cat_friend",
+        "original": {
+          "walks": 1,
+          "distance": 23.5,
+          "requests": 35
+        },
+        "ray": {
+          "walks": 1,
+          "distance": 22.0,
+          "requests": 35
+        }
+      },
+      {
+        "key": "companion:chameleon",
+        "original": {
+          "walks": 1,
+          "distance": 94.54316,
+          "requests": 29
+        },
+        "ray": {
+          "walks": 3,
+          "distance": 79.95735,
+          "requests": 25
+        }
+      },
+      {
+        "key": "companion:chicken",
+        "original": {
+          "walks": 7,
+          "distance": 140.81623,
+          "requests": 23
+        },
+        "ray": {
+          "walks": 2,
+          "distance": 89.67108,
+          "requests": 28
+        }
+      },
+      {
+        "key": "companion:clock",
+        "original": {
+          "walks": 0,
+          "distance": 6.0,
+          "requests": 38
+        },
+        "ray": {
+          "walks": 0,
+          "distance": 0,
+          "requests": 42
+        }
+      },
+      {
+        "key": "companion:hamster",
+        "original": {
+          "walks": 2,
+          "distance": 46.99296,
+          "requests": 32
+        },
+        "ray": {
+          "walks": 1,
+          "distance": 37.5,
+          "requests": 32
+        }
+      },
+      {
+        "key": "companion:hedgehog",
+        "original": {
+          "walks": 0,
+          "distance": 10.5,
+          "requests": 49
+        },
+        "ray": {
+          "walks": 0,
+          "distance": 7.5,
+          "requests": 41
+        }
+      },
+      {
+        "key": "companion:many_tail_fox",
+        "original": {
+          "walks": 0,
+          "distance": 0,
+          "requests": 47
+        },
+        "ray": {
+          "walks": 0,
+          "distance": 0,
+          "requests": 54
+        }
+      },
+      {
+        "key": "companion:monkey",
+        "original": {
+          "walks": 1,
+          "distance": 8.0,
+          "requests": 37
+        },
+        "ray": {
+          "walks": 0,
+          "distance": 6.0,
+          "requests": 39
+        }
+      },
+      {
+        "key": "companion:otter",
+        "original": {
+          "walks": 0,
+          "distance": 0,
+          "requests": 46
+        },
+        "ray": {
+          "walks": 0,
+          "distance": 3.0,
+          "requests": 38
+        }
+      },
+      {
+        "key": "companion:owl",
+        "original": {
+          "walks": 5,
+          "distance": 134.15546,
+          "requests": 23
+        },
+        "ray": {
+          "walks": 5,
+          "distance": 144.99119,
+          "requests": 27
+        }
+      },
+      {
+        "key": "companion:panda",
+        "original": {
+          "walks": 1,
+          "distance": 11.0,
+          "requests": 35
+        },
+        "ray": {
+          "walks": 0,
+          "distance": 11.0,
+          "requests": 49
+        }
+      },
+      {
+        "key": "companion:parrot",
+        "original": {
+          "walks": 0,
+          "distance": 49.61931,
+          "requests": 17
+        },
+        "ray": {
+          "walks": 2,
+          "distance": 46.5,
+          "requests": 22
+        }
+      },
+      {
+        "key": "companion:penguin_friend",
+        "original": {
+          "walks": 2,
+          "distance": 29.5,
+          "requests": 34
+        },
+        "ray": {
+          "walks": 0,
+          "distance": 27,
+          "requests": 28
+        }
+      },
+      {
+        "key": "companion:punyu",
+        "original": {
+          "walks": 0,
+          "distance": 0,
+          "requests": 55
+        },
+        "ray": {
+          "walks": 1,
+          "distance": 14.0,
+          "requests": 32
+        }
+      },
+      {
+        "key": "companion:rabbit_friend",
+        "original": {
+          "walks": 0,
+          "distance": 0,
+          "requests": 41
+        },
+        "ray": {
+          "walks": 0,
+          "distance": 0,
+          "requests": 39
+        }
+      },
+      {
+        "key": "companion:seal",
+        "original": {
+          "walks": 0,
+          "distance": 3.0,
+          "requests": 40
+        },
+        "ray": {
+          "walks": 0,
+          "distance": 3.0,
+          "requests": 28
+        }
+      },
+      {
+        "key": "companion:sekizou",
+        "original": {
+          "walks": 4,
+          "distance": 138.55886,
+          "requests": 27
+        },
+        "ray": {
+          "walks": 6,
+          "distance": 164.04095,
+          "requests": 35
+        }
+      },
+      {
+        "key": "companion:sheep",
+        "original": {
+          "walks": 0,
+          "distance": 15.0,
+          "requests": 37
+        },
+        "ray": {
+          "walks": 1,
+          "distance": 16.0,
+          "requests": 34
+        }
+      },
+      {
+        "key": "companion:shiba",
+        "original": {
+          "walks": 9,
+          "distance": 262.25971,
+          "requests": 34
+        },
+        "ray": {
+          "walks": 5,
+          "distance": 179.55487,
+          "requests": 20
+        }
+      },
+      {
+        "key": "companion:squirrel",
+        "original": {
+          "walks": 0,
+          "distance": 0,
+          "requests": 43
+        },
+        "ray": {
+          "walks": 0,
+          "distance": 0,
+          "requests": 37
+        }
+      },
+      {
+        "key": "companion:tanuki",
+        "original": {
+          "walks": 0,
+          "distance": 0,
+          "requests": 41
+        },
+        "ray": {
+          "walks": 0,
+          "distance": 0,
+          "requests": 45
+        }
+      },
+      {
+        "key": "companion:unicorn",
+        "original": {
+          "walks": 0,
+          "distance": 6.0,
+          "requests": 48
+        },
+        "ray": {
+          "walks": 0,
+          "distance": 6.0,
+          "requests": 37
+        }
+      },
+      {
+        "key": "companion:watcher",
+        "original": {
+          "walks": 1,
+          "distance": 12.0,
+          "requests": 35
+        },
+        "ray": {
+          "walks": 1,
+          "distance": 12.5,
+          "requests": 33
+        }
+      },
+      {
+        "key": "partner:forest_bear",
+        "original": {
+          "walks": 0,
+          "distance": 22.09663,
+          "requests": 32
+        },
+        "ray": {
+          "walks": 0,
+          "distance": 3.0,
+          "requests": 37
+        }
+      },
+      {
+        "key": "pet:dog",
+        "original": {
+          "walks": 1,
+          "distance": 19.0,
+          "requests": 36
+        },
+        "ray": {
+          "walks": 0,
+          "distance": 0,
+          "requests": 50
+        }
+      }
+    ],
+    "postRefusalCalls": 727,
+    "offers": [
+      {
+        "key": "companion:owl",
+        "clock": 2.000000000000001,
+        "start": [
+          135.8987254524713,
+          337.7539380727719
+        ],
+        "goal": [
+          207.88785592536738,
+          251.36455844615816
+        ],
+        "route": [
+          [
+            133.85417264401968,
+            325.85226155275876
+          ]
+        ],
+        "scale": [
+          1.340256955194829,
+          1.324485872144212
+        ],
+        "arrived": true,
+        "travel": 15.999999999999984,
+        "end": [
+          133.85417264401968,
+          325.85226155275876
+        ]
+      }
+    ],
+    "wallTotalMs": 90.31779599998168,
+    "wallMaxMs": 25.336075999999593
+  },
+  {
+    "width": 320,
+    "seed": 318,
+    "seconds": 600,
+    "modelSHA256": "b33ff32136d182c9b0bb456ae1ee63d17b2686932471f7a9af649dc753d95ee0",
+    "original": {
+      "walkers": 14,
+      "repeat": 8,
+      "walks": 35,
+      "distance": 994.7584
+    },
+    "ray": {
+      "walkers": 14,
+      "repeat": 8,
+      "walks": 35,
+      "distance": 994.7584
+    },
+    "originalUnchangedResidents": 28,
+    "changedResidents": [],
+    "postRefusalCalls": 719,
+    "offers": [],
+    "wallTotalMs": 66.56479599999017,
+    "wallMaxMs": 22.248782000000574
+  },
+  {
+    "width": 320,
+    "seed": 911,
+    "seconds": 600,
+    "modelSHA256": "b33ff32136d182c9b0bb456ae1ee63d17b2686932471f7a9af649dc753d95ee0",
+    "original": {
+      "walkers": 13,
+      "repeat": 8,
+      "walks": 36,
+      "distance": 833.2136
+    },
+    "ray": {
+      "walkers": 13,
+      "repeat": 8,
+      "walks": 36,
+      "distance": 833.2136
+    },
+    "originalUnchangedResidents": 28,
+    "changedResidents": [],
+    "postRefusalCalls": 745,
+    "offers": [],
+    "wallTotalMs": 51.618351000031566,
+    "wallMaxMs": 6.467535999996471
+  },
+  {
+    "width": 320,
+    "seed": 937,
+    "seconds": 600,
+    "modelSHA256": "b33ff32136d182c9b0bb456ae1ee63d17b2686932471f7a9af649dc753d95ee0",
+    "original": {
+      "walkers": 15,
+      "repeat": 11,
+      "walks": 38,
+      "distance": 1249.623
+    },
+    "ray": {
+      "walkers": 15,
+      "repeat": 11,
+      "walks": 38,
+      "distance": 1249.623
+    },
+    "originalUnchangedResidents": 28,
+    "changedResidents": [],
+    "postRefusalCalls": 649,
+    "offers": [],
+    "wallTotalMs": 44.314964999986444,
+    "wallMaxMs": 18.72251999999935
+  },
+  {
+    "width": 390,
+    "seed": 1249,
+    "seconds": 600,
+    "modelSHA256": "b33ff32136d182c9b0bb456ae1ee63d17b2686932471f7a9af649dc753d95ee0",
+    "original": {
+      "walkers": 24,
+      "repeat": 22,
+      "walks": 118,
+      "distance": 2947.1326
+    },
+    "ray": {
+      "walkers": 24,
+      "repeat": 22,
+      "walks": 118,
+      "distance": 2947.1326
+    },
+    "originalUnchangedResidents": 28,
+    "changedResidents": [],
+    "postRefusalCalls": 372,
+    "offers": [],
+    "wallTotalMs": 62.50381999999607,
+    "wallMaxMs": 22.698961000001873
+  },
+  {
+    "width": 390,
+    "seed": 2026,
+    "seconds": 600,
+    "modelSHA256": "b33ff32136d182c9b0bb456ae1ee63d17b2686932471f7a9af649dc753d95ee0",
+    "original": {
+      "walkers": 28,
+      "repeat": 27,
+      "walks": 214,
+      "distance": 4127.7353
+    },
+    "ray": {
+      "walkers": 28,
+      "repeat": 27,
+      "walks": 214,
+      "distance": 4127.7353
+    },
+    "originalUnchangedResidents": 28,
+    "changedResidents": [],
+    "postRefusalCalls": 212,
+    "offers": [],
+    "wallTotalMs": 9.974180000016872,
+    "wallMaxMs": 0.5629210000006424
+  },
+  {
+    "width": 390,
+    "seed": 214,
+    "seconds": 600,
+    "modelSHA256": "b33ff32136d182c9b0bb456ae1ee63d17b2686932471f7a9af649dc753d95ee0",
+    "original": {
+      "walkers": 26,
+      "repeat": 24,
+      "walks": 119,
+      "distance": 3247.6818
+    },
+    "ray": {
+      "walkers": 26,
+      "repeat": 24,
+      "walks": 119,
+      "distance": 3247.6818
+    },
+    "originalUnchangedResidents": 28,
+    "changedResidents": [],
+    "postRefusalCalls": 267,
+    "offers": [],
+    "wallTotalMs": 41.07403399998998,
+    "wallMaxMs": 16.973872999999912
+  },
+  {
+    "width": 390,
+    "seed": 318,
+    "seconds": 600,
+    "modelSHA256": "b33ff32136d182c9b0bb456ae1ee63d17b2686932471f7a9af649dc753d95ee0",
+    "original": {
+      "walkers": 25,
+      "repeat": 24,
+      "walks": 134,
+      "distance": 2994.8548
+    },
+    "ray": {
+      "walkers": 25,
+      "repeat": 24,
+      "walks": 134,
+      "distance": 2994.8548
+    },
+    "originalUnchangedResidents": 28,
+    "changedResidents": [],
+    "postRefusalCalls": 305,
+    "offers": [],
+    "wallTotalMs": 29.325581000003865,
+    "wallMaxMs": 10.068411000000197
+  },
+  {
+    "width": 390,
+    "seed": 911,
+    "seconds": 600,
+    "modelSHA256": "b33ff32136d182c9b0bb456ae1ee63d17b2686932471f7a9af649dc753d95ee0",
+    "original": {
+      "walkers": 27,
+      "repeat": 21,
+      "walks": 117,
+      "distance": 3041.1613
+    },
+    "ray": {
+      "walkers": 27,
+      "repeat": 21,
+      "walks": 117,
+      "distance": 3041.1613
+    },
+    "originalUnchangedResidents": 28,
+    "changedResidents": [],
+    "postRefusalCalls": 410,
+    "offers": [],
+    "wallTotalMs": 61.53641700004778,
+    "wallMaxMs": 19.355552999999986
+  },
+  {
+    "width": 390,
+    "seed": 937,
+    "seconds": 600,
+    "modelSHA256": "b33ff32136d182c9b0bb456ae1ee63d17b2686932471f7a9af649dc753d95ee0",
+    "original": {
+      "walkers": 27,
+      "repeat": 22,
+      "walks": 114,
+      "distance": 2751.9079
+    },
+    "ray": {
+      "walkers": 27,
+      "repeat": 22,
+      "walks": 114,
+      "distance": 2751.9079
+    },
+    "originalUnchangedResidents": 28,
+    "changedResidents": [],
+    "postRefusalCalls": 400,
+    "offers": [],
+    "wallTotalMs": 39.15810399999458,
+    "wallMaxMs": 5.193827000000056
+  }
+]

@@ -1,0 +1,675 @@
+{
+  "independentRooms": [
+    {
+      "scope": "live",
+      "region": "forest",
+      "count": 20,
+      "width": 320,
+      "mode": "shadow",
+      "genuineDeclines": 141,
+      "offers": [],
+      "safety": {
+        "steps": 589,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "live",
+      "region": "forest",
+      "count": 20,
+      "width": 390,
+      "mode": "shadow",
+      "genuineDeclines": 68,
+      "offers": [],
+      "safety": {
+        "steps": 857,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "live",
+      "region": "forest",
+      "count": 28,
+      "width": 320,
+      "mode": "shadow",
+      "genuineDeclines": 251,
+      "offers": [],
+      "safety": {
+        "steps": 482,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "live",
+      "region": "forest",
+      "count": 28,
+      "width": 390,
+      "mode": "shadow",
+      "genuineDeclines": 122,
+      "offers": [],
+      "safety": {
+        "steps": 1054,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "live",
+      "region": "home",
+      "count": 20,
+      "width": 320,
+      "mode": "shadow",
+      "genuineDeclines": 16,
+      "offers": [],
+      "safety": {
+        "steps": 5387,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "live",
+      "region": "home",
+      "count": 20,
+      "width": 390,
+      "mode": "shadow",
+      "genuineDeclines": 3,
+      "offers": [],
+      "safety": {
+        "steps": 7296,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "live",
+      "region": "home",
+      "count": 28,
+      "width": 320,
+      "mode": "shadow",
+      "genuineDeclines": 12,
+      "offers": [],
+      "safety": {
+        "steps": 7406,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "live",
+      "region": "home",
+      "count": 28,
+      "width": 390,
+      "mode": "shadow",
+      "genuineDeclines": 12,
+      "offers": [],
+      "safety": {
+        "steps": 7873,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "live",
+      "region": "river_lake",
+      "count": 20,
+      "width": 320,
+      "mode": "shadow",
+      "genuineDeclines": 31,
+      "offers": [],
+      "safety": {
+        "steps": 3353,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "live",
+      "region": "river_lake",
+      "count": 20,
+      "width": 390,
+      "mode": "shadow",
+      "genuineDeclines": 22,
+      "offers": [],
+      "safety": {
+        "steps": 4507,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "live",
+      "region": "river_lake",
+      "count": 28,
+      "width": 320,
+      "mode": "shadow",
+      "genuineDeclines": 35,
+      "offers": [],
+      "safety": {
+        "steps": 3237,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "live",
+      "region": "river_lake",
+      "count": 28,
+      "width": 390,
+      "mode": "shadow",
+      "genuineDeclines": 33,
+      "offers": [
+        {
+          "key": "companion:watcher",
+          "clock": 216.550000000015,
+          "raw": [
+            327.5981025388917,
+            368.93199236883027
+          ],
+          "origin": [
+            157.89746451440791,
+            204.25242420027712
+          ],
+          "scale": [
+            0.9736202217027006,
+            1.1308338712167254
+          ],
+          "route": [
+            [
+              159.06677979199677,
+              218.36541242949042
+            ]
+          ],
+          "arrived": false,
+          "travel": 0
+        }
+      ],
+      "safety": {
+        "steps": 5273,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "smaller",
+      "region": "forest",
+      "count": 10,
+      "width": 320,
+      "mode": "shadow",
+      "genuineDeclines": 85,
+      "offers": [],
+      "safety": {
+        "steps": 1421,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "smaller",
+      "region": "forest",
+      "count": 4,
+      "width": 320,
+      "mode": "shadow",
+      "genuineDeclines": 10,
+      "offers": [],
+      "safety": {
+        "steps": 2147,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "smaller",
+      "region": "home",
+      "count": 10,
+      "width": 320,
+      "mode": "shadow",
+      "genuineDeclines": 11,
+      "offers": [],
+      "safety": {
+        "steps": 9542,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "smaller",
+      "region": "home",
+      "count": 4,
+      "width": 320,
+      "mode": "shadow",
+      "genuineDeclines": 0,
+      "offers": [],
+      "safety": {
+        "steps": 5784,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "smaller",
+      "region": "river_lake",
+      "count": 10,
+      "width": 320,
+      "mode": "shadow",
+      "genuineDeclines": 24,
+      "offers": [],
+      "safety": {
+        "steps": 3560,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "smaller",
+      "region": "river_lake",
+      "count": 4,
+      "width": 320,
+      "mode": "shadow",
+      "genuineDeclines": 2,
+      "offers": [],
+      "safety": {
+        "steps": 3087,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "ray-live",
+      "region": "forest",
+      "count": 20,
+      "width": 320,
+      "mode": "ray",
+      "genuineDeclines": 141,
+      "offers": [],
+      "safety": {
+        "steps": 589,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "ray-live",
+      "region": "forest",
+      "count": 20,
+      "width": 390,
+      "mode": "ray",
+      "genuineDeclines": 68,
+      "offers": [],
+      "safety": {
+        "steps": 857,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "ray-live",
+      "region": "forest",
+      "count": 28,
+      "width": 320,
+      "mode": "ray",
+      "genuineDeclines": 251,
+      "offers": [],
+      "safety": {
+        "steps": 482,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "ray-live",
+      "region": "forest",
+      "count": 28,
+      "width": 390,
+      "mode": "ray",
+      "genuineDeclines": 122,
+      "offers": [],
+      "safety": {
+        "steps": 1054,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "ray-live",
+      "region": "home",
+      "count": 20,
+      "width": 320,
+      "mode": "ray",
+      "genuineDeclines": 16,
+      "offers": [],
+      "safety": {
+        "steps": 5387,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "ray-live",
+      "region": "home",
+      "count": 20,
+      "width": 390,
+      "mode": "ray",
+      "genuineDeclines": 3,
+      "offers": [],
+      "safety": {
+        "steps": 7296,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "ray-live",
+      "region": "home",
+      "count": 28,
+      "width": 320,
+      "mode": "ray",
+      "genuineDeclines": 12,
+      "offers": [],
+      "safety": {
+        "steps": 7406,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "ray-live",
+      "region": "home",
+      "count": 28,
+      "width": 390,
+      "mode": "ray",
+      "genuineDeclines": 12,
+      "offers": [],
+      "safety": {
+        "steps": 7873,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "ray-live",
+      "region": "river_lake",
+      "count": 20,
+      "width": 320,
+      "mode": "ray",
+      "genuineDeclines": 31,
+      "offers": [],
+      "safety": {
+        "steps": 3353,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "ray-live",
+      "region": "river_lake",
+      "count": 20,
+      "width": 390,
+      "mode": "ray",
+      "genuineDeclines": 22,
+      "offers": [],
+      "safety": {
+        "steps": 4507,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "ray-live",
+      "region": "river_lake",
+      "count": 28,
+      "width": 320,
+      "mode": "ray",
+      "genuineDeclines": 44,
+      "offers": [],
+      "safety": {
+        "steps": 3314,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    },
+    {
+      "scope": "ray-live",
+      "region": "river_lake",
+      "count": 28,
+      "width": 390,
+      "mode": "ray",
+      "genuineDeclines": 33,
+      "offers": [],
+      "safety": {
+        "steps": 5273,
+        "terrain": 0,
+        "bounds": 0,
+        "occlusion": 0,
+        "speed": 0,
+        "swept": 0,
+        "examples": []
+      }
+    }
+  ],
+  "sameOpening": {
+    "region": "river_lake",
+    "width": 390,
+    "count": 28,
+    "arms": {
+      "shadow": {
+        "openingSHA256": "a38129b7262fa851f2ea455958e82665ab0224c1fbffb3080208e71d339623c8",
+        "genuineDeclines": 33,
+        "offers": [
+          {
+            "key": "companion:watcher",
+            "clock": 216.550000000015,
+            "raw": [
+              327.5981025388917,
+              368.93199236883027
+            ],
+            "origin": [
+              157.89746451440791,
+              204.25242420027712
+            ],
+            "scale": [
+              0.9736202217027006,
+              1.1308338712167254
+            ],
+            "route": [
+              [
+                159.06677979199677,
+                218.36541242949042
+              ]
+            ],
+            "arrived": false,
+            "travel": 0
+          }
+        ],
+        "safety": {
+          "steps": 5273,
+          "terrain": 0,
+          "bounds": 0,
+          "occlusion": 0,
+          "speed": 0,
+          "swept": 0,
+          "examples": []
+        },
+        "completedNonEscapeRoutes": 260
+      },
+      "active": {
+        "openingSHA256": "a38129b7262fa851f2ea455958e82665ab0224c1fbffb3080208e71d339623c8",
+        "genuineDeclines": 39,
+        "offers": [
+          {
+            "key": "companion:watcher",
+            "clock": 216.550000000015,
+            "raw": [
+              327.5981025388917,
+              368.93199236883027
+            ],
+            "origin": [
+              157.89746451440791,
+              204.25242420027712
+            ],
+            "scale": [
+              0.9736202217027006,
+              1.1308338712167254
+            ],
+            "route": [
+              [
+                159.06677979199677,
+                218.36541242949042
+              ]
+            ],
+            "arrived": true,
+            "travel": 16.000000000000007,
+            "end": [
+              159.06677979199677,
+              218.36541242949042
+            ]
+          }
+        ],
+        "safety": {
+          "steps": 4801,
+          "terrain": 0,
+          "bounds": 0,
+          "occlusion": 0,
+          "speed": 0,
+          "swept": 0,
+          "examples": []
+        },
+        "completedNonEscapeRoutes": 263
+      },
+      "ray": {
+        "openingSHA256": "a38129b7262fa851f2ea455958e82665ab0224c1fbffb3080208e71d339623c8",
+        "genuineDeclines": 33,
+        "offers": [],
+        "safety": {
+          "steps": 5273,
+          "terrain": 0,
+          "bounds": 0,
+          "occlusion": 0,
+          "speed": 0,
+          "swept": 0,
+          "examples": []
+        },
+        "completedNonEscapeRoutes": 260
+      }
+    }
+  }
+}

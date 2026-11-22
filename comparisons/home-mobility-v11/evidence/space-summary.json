@@ -1,0 +1,4203 @@
+[
+  {
+    "width": 320,
+    "seats": "reference",
+    "seed": 214,
+    "sourceRawSHA256": "208b6614fc1b6be55e02856e17171136ada1e7848431fd4f517dd203dfcf67ce",
+    "nativeModelSHA256": [
+      "34e0c9bbdb5cc2b03c3f426a5160d8425c9b7c1d22daa1a7664f0eacf6196c2e"
+    ],
+    "probeSHA256": "882af442a96f02f9e586cf693f307211c25158ffac581a3d32cbcca774164a79",
+    "browser": "156.0.8078.79",
+    "sectors": 96,
+    "stepCss": 2,
+    "model": [
+      302,
+      380
+    ],
+    "displayScale": {
+      "x": 1.340256955194829,
+      "y": 1.324485872144212
+    },
+    "terrainAreaPx2": 38696,
+    "terrainTopology": {
+      "components": 2,
+      "componentsAtLeast64px2": 2,
+      "largestPx2": [
+        38576,
+        120
+      ],
+      "endsAtLeast8px": 4,
+      "deadEndExamples": [
+        [
+          296.51,
+          307.0,
+          199.0
+        ],
+        [
+          116.14,
+          135.0,
+          501.0
+        ],
+        [
+          104.71,
+          115.0,
+          339.0
+        ],
+        [
+          61.11,
+          263.0,
+          477.0
+        ]
+      ],
+      "necks": 0,
+      "neckExamples": [],
+      "centrelineWidthP10": 20.0,
+      "centrelineWidthMedian": 60.0
+    },
+    "snapshots": {
+      "opening": {
+        "zeroSolo3_8_16": [
+          10,
+          16,
+          22
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 25,
+        "sumOfFullContactEllipseAreasPx2": 49264.27,
+        "medianContactDiameterCss": [
+          54.4,
+          44.42
+        ],
+        "footContactUnionPx2": 29800,
+        "footContactUnionPct": 77.01,
+        "footOverlapPx2": 5376,
+        "contactCoverageMedianPct": 99.16,
+        "contactCoverageRangePct": [
+          96.34,
+          99.54
+        ],
+        "representative": "companion:monkey",
+        "representativeArea": 36660,
+        "representativeTopology": {
+          "components": 2,
+          "componentsAtLeast64px2": 1,
+          "largestPx2": [
+            36656,
+            4
+          ],
+          "endsAtLeast8px": 4,
+          "deadEndExamples": [
+            [
+              296.51,
+              307.0,
+              199.0
+            ],
+            [
+              104.71,
+              115.0,
+              339.0
+            ],
+            [
+              95.66,
+              155.0,
+              489.0
+            ],
+            [
+              70.77,
+              269.0,
+              471.0
+            ]
+          ],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 29.77,
+          "centrelineWidthMedian": 60.13
+        },
+        "representativeFreeArea": 408,
+        "representativeFreeTopology": {
+          "components": 3,
+          "componentsAtLeast64px2": 1,
+          "largestPx2": [
+            376,
+            28,
+            4
+          ],
+          "endsAtLeast8px": 0,
+          "deadEndExamples": [],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 4.0,
+          "centrelineWidthMedian": 8.0
+        },
+        "passing": {
+          "pair": [
+            "companion:monkey",
+            "companion:chicken"
+          ],
+          "step": 8,
+          "laneLength": 24,
+          "terrainSites": 334,
+          "occupiedSites": 0,
+          "examples": []
+        }
+      },
+      "60": {
+        "zeroSolo3_8_16": [
+          12,
+          20,
+          23
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 20
+      },
+      "120": {
+        "zeroSolo3_8_16": [
+          15,
+          20,
+          25
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 17
+      },
+      "180": {
+        "zeroSolo3_8_16": [
+          17,
+          23,
+          27
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 15
+      },
+      "240": {
+        "zeroSolo3_8_16": [
+          12,
+          22,
+          27
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 15
+      },
+      "300": {
+        "zeroSolo3_8_16": [
+          15,
+          25,
+          27
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 17
+      },
+      "360": {
+        "zeroSolo3_8_16": [
+          17,
+          26,
+          27
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 17
+      },
+      "420": {
+        "zeroSolo3_8_16": [
+          18,
+          26,
+          28
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 17
+      },
+      "480": {
+        "zeroSolo3_8_16": [
+          18,
+          26,
+          28
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 17
+      },
+      "540": {
+        "zeroSolo3_8_16": [
+          19,
+          27,
+          28
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 16
+      },
+      "aged": {
+        "zeroSolo3_8_16": [
+          21,
+          28,
+          28
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 16,
+        "sumOfFullContactEllipseAreasPx2": 49264.27,
+        "medianContactDiameterCss": [
+          54.4,
+          44.42
+        ],
+        "footContactUnionPx2": 30268,
+        "footContactUnionPct": 78.22,
+        "footOverlapPx2": 1976,
+        "contactCoverageMedianPct": 100.0,
+        "contactCoverageRangePct": [
+          99.9,
+          100.0
+        ],
+        "representative": "companion:monkey",
+        "representativeArea": 36660,
+        "representativeTopology": {
+          "components": 2,
+          "componentsAtLeast64px2": 1,
+          "largestPx2": [
+            36656,
+            4
+          ],
+          "endsAtLeast8px": 4,
+          "deadEndExamples": [
+            [
+              296.51,
+              307.0,
+              199.0
+            ],
+            [
+              104.71,
+              115.0,
+              339.0
+            ],
+            [
+              95.66,
+              155.0,
+              489.0
+            ],
+            [
+              70.77,
+              269.0,
+              471.0
+            ]
+          ],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 29.77,
+          "centrelineWidthMedian": 60.13
+        },
+        "representativeFreeArea": 4,
+        "representativeFreeTopology": {
+          "components": 1,
+          "componentsAtLeast64px2": 0,
+          "largestPx2": [
+            4
+          ],
+          "endsAtLeast8px": 0,
+          "deadEndExamples": [],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 4.0,
+          "centrelineWidthMedian": 4.0
+        },
+        "passing": {
+          "pair": [
+            "companion:monkey",
+            "companion:chicken"
+          ],
+          "step": 8,
+          "laneLength": 24,
+          "terrainSites": 334,
+          "occupiedSites": 0,
+          "examples": []
+        }
+      }
+    },
+    "neverAnySolo8Samples": [
+      "companion:box",
+      "companion:clock",
+      "companion:hedgehog",
+      "companion:many_tail_fox",
+      "companion:otter",
+      "companion:punyu",
+      "companion:rabbit_friend",
+      "companion:seal",
+      "companion:snail",
+      "companion:squirrel",
+      "companion:tanuki",
+      "companion:unicorn"
+    ],
+    "postNeighborMovementBlocked8": {
+      "companion:cat_friend": 5,
+      "companion:tanuki": 9,
+      "companion:owl": 9,
+      "companion:hamster": 7,
+      "companion:sheep": 5,
+      "companion:penguin_friend": 9,
+      "companion:shiba": 4,
+      "companion:punyu": 9,
+      "companion:unicorn": 5,
+      "companion:rabbit_friend": 5,
+      "companion:squirrel": 8,
+      "companion:otter": 9,
+      "companion:panda": 8,
+      "companion:parrot": 6,
+      "companion:seal": 6,
+      "companion:hedgehog": 9,
+      "companion:snail": 5,
+      "companion:clock": 8,
+      "companion:many_tail_fox": 6,
+      "companion:box": 5,
+      "companion:watcher": 3,
+      "companion:sekizou": 5,
+      "pet:dog": 6,
+      "companion:bat": 1,
+      "companion:chameleon": 7,
+      "companion:chicken": 3,
+      "partner:forest_bear": 4,
+      "companion:monkey": 4
+    },
+    "changedNeighborObservations": {
+      "pet:dog": 9,
+      "partner:forest_bear": 8,
+      "companion:cat_friend": 5,
+      "companion:tanuki": 9,
+      "companion:owl": 9,
+      "companion:hamster": 8,
+      "companion:monkey": 9,
+      "companion:sheep": 5,
+      "companion:bat": 3,
+      "companion:penguin_friend": 9,
+      "companion:shiba": 9,
+      "companion:punyu": 9,
+      "companion:chameleon": 9,
+      "companion:unicorn": 5,
+      "companion:watcher": 4,
+      "companion:rabbit_friend": 5,
+      "companion:squirrel": 8,
+      "companion:otter": 9,
+      "companion:panda": 8,
+      "companion:parrot": 9,
+      "companion:seal": 6,
+      "companion:chicken": 8,
+      "companion:hedgehog": 9,
+      "companion:snail": 5,
+      "companion:sekizou": 8,
+      "companion:clock": 8,
+      "companion:many_tail_fox": 6,
+      "companion:box": 5
+    },
+    "blockerInstances8": [
+      [
+        "companion:tanuki",
+        2314
+      ],
+      [
+        "companion:hamster",
+        2076
+      ],
+      [
+        "pet:dog",
+        1876
+      ],
+      [
+        "companion:box",
+        1849
+      ],
+      [
+        "companion:owl",
+        1811
+      ],
+      [
+        "companion:squirrel",
+        1759
+      ],
+      [
+        "companion:parrot",
+        1724
+      ],
+      [
+        "companion:punyu",
+        1708
+      ],
+      [
+        "companion:cat_friend",
+        1418
+      ],
+      [
+        "companion:hedgehog",
+        1356
+      ],
+      [
+        "companion:many_tail_fox",
+        1306
+      ],
+      [
+        "companion:penguin_friend",
+        1186
+      ],
+      [
+        "companion:clock",
+        1182
+      ],
+      [
+        "companion:chameleon",
+        1079
+      ],
+      [
+        "companion:panda",
+        1074
+      ],
+      [
+        "companion:watcher",
+        970
+      ],
+      [
+        "companion:snail",
+        945
+      ],
+      [
+        "companion:bat",
+        925
+      ],
+      [
+        "companion:monkey",
+        904
+      ],
+      [
+        "companion:chicken",
+        859
+      ],
+      [
+        "companion:shiba",
+        810
+      ],
+      [
+        "companion:seal",
+        807
+      ],
+      [
+        "companion:unicorn",
+        731
+      ],
+      [
+        "companion:otter",
+        695
+      ],
+      [
+        "companion:sheep",
+        604
+      ],
+      [
+        "companion:rabbit_friend",
+        590
+      ],
+      [
+        "partner:forest_bear",
+        586
+      ],
+      [
+        "companion:sekizou",
+        468
+      ]
+    ],
+    "routineRequests": 1264,
+    "routineAccepted": 159
+  },
+  {
+    "width": 320,
+    "seats": "original",
+    "seed": 214,
+    "sourceRawSHA256": "4463bbc8a3f4f95781497f4a14548e7d473e1e072ff5126d070484828fac63b5",
+    "nativeModelSHA256": [
+      "95e32fa82fdf92920212fcf90b65fd8a3d25927b5388b9d01935ae3f886cd5c8"
+    ],
+    "probeSHA256": "882af442a96f02f9e586cf693f307211c25158ffac581a3d32cbcca774164a79",
+    "browser": "156.0.8078.79",
+    "sectors": 96,
+    "stepCss": 2,
+    "model": [
+      302,
+      380
+    ],
+    "displayScale": {
+      "x": 1.340256955194829,
+      "y": 1.324485872144212
+    },
+    "terrainAreaPx2": 38696,
+    "terrainTopology": {
+      "components": 2,
+      "componentsAtLeast64px2": 2,
+      "largestPx2": [
+        38576,
+        120
+      ],
+      "endsAtLeast8px": 4,
+      "deadEndExamples": [
+        [
+          296.51,
+          307.0,
+          199.0
+        ],
+        [
+          116.14,
+          135.0,
+          501.0
+        ],
+        [
+          104.71,
+          115.0,
+          339.0
+        ],
+        [
+          61.11,
+          263.0,
+          477.0
+        ]
+      ],
+      "necks": 0,
+      "neckExamples": [],
+      "centrelineWidthP10": 20.0,
+      "centrelineWidthMedian": 60.0
+    },
+    "snapshots": {
+      "opening": {
+        "zeroSolo3_8_16": [
+          10,
+          17,
+          23
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 25,
+        "sumOfFullContactEllipseAreasPx2": 49264.27,
+        "medianContactDiameterCss": [
+          54.4,
+          44.42
+        ],
+        "footContactUnionPx2": 30012,
+        "footContactUnionPct": 77.56,
+        "footOverlapPx2": 5476,
+        "contactCoverageMedianPct": 99.16,
+        "contactCoverageRangePct": [
+          96.65,
+          99.54
+        ],
+        "representative": "companion:monkey",
+        "representativeArea": 36660,
+        "representativeTopology": {
+          "components": 2,
+          "componentsAtLeast64px2": 1,
+          "largestPx2": [
+            36656,
+            4
+          ],
+          "endsAtLeast8px": 4,
+          "deadEndExamples": [
+            [
+              296.51,
+              307.0,
+              199.0
+            ],
+            [
+              104.71,
+              115.0,
+              339.0
+            ],
+            [
+              95.66,
+              155.0,
+              489.0
+            ],
+            [
+              70.77,
+              269.0,
+              471.0
+            ]
+          ],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 29.77,
+          "centrelineWidthMedian": 60.13
+        },
+        "representativeFreeArea": 356,
+        "representativeFreeTopology": {
+          "components": 2,
+          "componentsAtLeast64px2": 1,
+          "largestPx2": [
+            348,
+            8
+          ],
+          "endsAtLeast8px": 0,
+          "deadEndExamples": [],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 4.0,
+          "centrelineWidthMedian": 8.0
+        },
+        "passing": {
+          "pair": [
+            "companion:monkey",
+            "companion:chicken"
+          ],
+          "step": 8,
+          "laneLength": 24,
+          "terrainSites": 334,
+          "occupiedSites": 0,
+          "examples": []
+        }
+      },
+      "60": {
+        "zeroSolo3_8_16": [
+          14,
+          20,
+          23
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 18
+      },
+      "120": {
+        "zeroSolo3_8_16": [
+          13,
+          20,
+          25
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 18
+      },
+      "180": {
+        "zeroSolo3_8_16": [
+          17,
+          23,
+          27
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 15
+      },
+      "240": {
+        "zeroSolo3_8_16": [
+          16,
+          21,
+          27
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 13
+      },
+      "300": {
+        "zeroSolo3_8_16": [
+          14,
+          19,
+          27
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 14
+      },
+      "360": {
+        "zeroSolo3_8_16": [
+          12,
+          23,
+          28
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 13
+      },
+      "420": {
+        "zeroSolo3_8_16": [
+          16,
+          23,
+          28
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 13
+      },
+      "480": {
+        "zeroSolo3_8_16": [
+          15,
+          24,
+          28
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 13
+      },
+      "540": {
+        "zeroSolo3_8_16": [
+          14,
+          24,
+          28
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 13
+      },
+      "aged": {
+        "zeroSolo3_8_16": [
+          15,
+          23,
+          28
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 13,
+        "sumOfFullContactEllipseAreasPx2": 49264.27,
+        "medianContactDiameterCss": [
+          54.4,
+          44.42
+        ],
+        "footContactUnionPx2": 30596,
+        "footContactUnionPct": 79.07,
+        "footOverlapPx2": 1844,
+        "contactCoverageMedianPct": 100.0,
+        "contactCoverageRangePct": [
+          99.67,
+          100.0
+        ],
+        "representative": "companion:monkey",
+        "representativeArea": 36660,
+        "representativeTopology": {
+          "components": 2,
+          "componentsAtLeast64px2": 1,
+          "largestPx2": [
+            36656,
+            4
+          ],
+          "endsAtLeast8px": 4,
+          "deadEndExamples": [
+            [
+              296.51,
+              307.0,
+              199.0
+            ],
+            [
+              104.71,
+              115.0,
+              339.0
+            ],
+            [
+              95.66,
+              155.0,
+              489.0
+            ],
+            [
+              70.77,
+              269.0,
+              471.0
+            ]
+          ],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 29.77,
+          "centrelineWidthMedian": 60.13
+        },
+        "representativeFreeArea": 4,
+        "representativeFreeTopology": {
+          "components": 1,
+          "componentsAtLeast64px2": 0,
+          "largestPx2": [
+            4
+          ],
+          "endsAtLeast8px": 0,
+          "deadEndExamples": [],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 4.0,
+          "centrelineWidthMedian": 4.0
+        },
+        "passing": {
+          "pair": [
+            "companion:monkey",
+            "companion:chicken"
+          ],
+          "step": 8,
+          "laneLength": 24,
+          "terrainSites": 334,
+          "occupiedSites": 0,
+          "examples": []
+        }
+      }
+    },
+    "neverAnySolo8Samples": [
+      "companion:box",
+      "companion:clock",
+      "companion:hamster",
+      "companion:hedgehog",
+      "companion:otter",
+      "companion:seal",
+      "companion:snail",
+      "companion:squirrel",
+      "companion:tanuki",
+      "companion:unicorn"
+    ],
+    "postNeighborMovementBlocked8": {
+      "pet:dog": 9,
+      "companion:cat_friend": 9,
+      "companion:tanuki": 7,
+      "companion:hamster": 10,
+      "companion:monkey": 8,
+      "companion:bat": 1,
+      "companion:shiba": 3,
+      "companion:punyu": 7,
+      "companion:unicorn": 9,
+      "companion:squirrel": 10,
+      "companion:otter": 8,
+      "companion:panda": 7,
+      "companion:parrot": 7,
+      "companion:seal": 9,
+      "companion:hedgehog": 7,
+      "companion:snail": 9,
+      "companion:clock": 10,
+      "companion:many_tail_fox": 9,
+      "companion:box": 10,
+      "companion:owl": 5,
+      "companion:sheep": 8,
+      "companion:rabbit_friend": 2,
+      "companion:penguin_friend": 3,
+      "companion:chameleon": 6,
+      "companion:chicken": 6,
+      "companion:sekizou": 8,
+      "partner:forest_bear": 5,
+      "companion:watcher": 1
+    },
+    "changedNeighborObservations": {
+      "pet:dog": 10,
+      "partner:forest_bear": 9,
+      "companion:cat_friend": 9,
+      "companion:tanuki": 7,
+      "companion:owl": 10,
+      "companion:hamster": 10,
+      "companion:monkey": 9,
+      "companion:sheep": 9,
+      "companion:bat": 3,
+      "companion:penguin_friend": 9,
+      "companion:shiba": 10,
+      "companion:punyu": 10,
+      "companion:chameleon": 9,
+      "companion:unicorn": 9,
+      "companion:watcher": 2,
+      "companion:squirrel": 10,
+      "companion:otter": 8,
+      "companion:panda": 10,
+      "companion:parrot": 10,
+      "companion:seal": 9,
+      "companion:chicken": 10,
+      "companion:hedgehog": 7,
+      "companion:snail": 9,
+      "companion:sekizou": 10,
+      "companion:clock": 10,
+      "companion:many_tail_fox": 10,
+      "companion:box": 10,
+      "companion:rabbit_friend": 4
+    },
+    "blockerInstances8": [
+      [
+        "companion:tanuki",
+        2301
+      ],
+      [
+        "pet:dog",
+        2012
+      ],
+      [
+        "companion:hamster",
+        1922
+      ],
+      [
+        "companion:box",
+        1865
+      ],
+      [
+        "companion:parrot",
+        1656
+      ],
+      [
+        "companion:punyu",
+        1546
+      ],
+      [
+        "companion:squirrel",
+        1478
+      ],
+      [
+        "companion:owl",
+        1471
+      ],
+      [
+        "companion:cat_friend",
+        1425
+      ],
+      [
+        "companion:sekizou",
+        1224
+      ],
+      [
+        "companion:many_tail_fox",
+        1200
+      ],
+      [
+        "companion:hedgehog",
+        1195
+      ],
+      [
+        "companion:clock",
+        1178
+      ],
+      [
+        "companion:bat",
+        1145
+      ],
+      [
+        "companion:snail",
+        1117
+      ],
+      [
+        "companion:chicken",
+        992
+      ],
+      [
+        "companion:penguin_friend",
+        952
+      ],
+      [
+        "companion:watcher",
+        936
+      ],
+      [
+        "companion:otter",
+        894
+      ],
+      [
+        "companion:monkey",
+        887
+      ],
+      [
+        "companion:seal",
+        759
+      ],
+      [
+        "companion:unicorn",
+        759
+      ],
+      [
+        "companion:sheep",
+        717
+      ],
+      [
+        "companion:panda",
+        710
+      ],
+      [
+        "companion:chameleon",
+        664
+      ],
+      [
+        "companion:rabbit_friend",
+        616
+      ],
+      [
+        "companion:shiba",
+        605
+      ],
+      [
+        "partner:forest_bear",
+        524
+      ]
+    ],
+    "routineRequests": 1202,
+    "routineAccepted": 185
+  },
+  {
+    "width": 375,
+    "seats": "reference",
+    "seed": 937,
+    "sourceRawSHA256": "b25cf6edbd2197dd4210dd4ca4bb98189d8015e6cf5205c5fa8ebac761bdac25",
+    "nativeModelSHA256": [
+      "34e0c9bbdb5cc2b03c3f426a5160d8425c9b7c1d22daa1a7664f0eacf6196c2e"
+    ],
+    "probeSHA256": "882af442a96f02f9e586cf693f307211c25158ffac581a3d32cbcca774164a79",
+    "browser": "156.0.8078.79",
+    "sectors": 96,
+    "stepCss": 2,
+    "model": [
+      343,
+      380
+    ],
+    "displayScale": {
+      "x": 1.3795385584741402,
+      "y": 1.1617963402803402
+    },
+    "terrainAreaPx2": 44080,
+    "terrainTopology": {
+      "components": 2,
+      "componentsAtLeast64px2": 1,
+      "largestPx2": [
+        44060,
+        20
+      ],
+      "endsAtLeast8px": 4,
+      "deadEndExamples": [
+        [
+          348.31,
+          399.0,
+          133.0
+        ],
+        [
+          126.71,
+          353.0,
+          439.0
+        ],
+        [
+          120.23,
+          135.0,
+          277.0
+        ],
+        [
+          103.66,
+          191.0,
+          439.0
+        ]
+      ],
+      "necks": 0,
+      "neckExamples": [],
+      "centrelineWidthP10": 25.55,
+      "centrelineWidthMedian": 64.0
+    },
+    "snapshots": {
+      "opening": {
+        "zeroSolo3_8_16": [
+          4,
+          12,
+          19
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 20,
+        "sumOfFullContactEllipseAreasPx2": 46294.76,
+        "medianContactDiameterCss": [
+          57.19,
+          39.61
+        ],
+        "footContactUnionPx2": 31400,
+        "footContactUnionPct": 71.23,
+        "footOverlapPx2": 2684,
+        "contactCoverageMedianPct": 99.55,
+        "contactCoverageRangePct": [
+          97.23,
+          99.71
+        ],
+        "representative": "companion:shiba",
+        "representativeArea": 42456,
+        "representativeTopology": {
+          "components": 1,
+          "componentsAtLeast64px2": 1,
+          "largestPx2": [
+            42456
+          ],
+          "endsAtLeast8px": 3,
+          "deadEndExamples": [
+            [
+              348.31,
+              399.0,
+              133.0
+            ],
+            [
+              151.88,
+              319.0,
+              411.0
+            ],
+            [
+              120.23,
+              135.0,
+              277.0
+            ]
+          ],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 41.18,
+          "centrelineWidthMedian": 72.0
+        },
+        "representativeFreeArea": 388,
+        "representativeFreeTopology": {
+          "components": 1,
+          "componentsAtLeast64px2": 1,
+          "largestPx2": [
+            388
+          ],
+          "endsAtLeast8px": 0,
+          "deadEndExamples": [],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 4.0,
+          "centrelineWidthMedian": 8.47
+        },
+        "passing": {
+          "pair": [
+            "companion:shiba",
+            "companion:clock"
+          ],
+          "step": 8,
+          "laneLength": 24,
+          "terrainSites": 400,
+          "occupiedSites": 0,
+          "examples": []
+        }
+      },
+      "60": {
+        "zeroSolo3_8_16": [
+          5,
+          15,
+          20
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 7
+      },
+      "120": {
+        "zeroSolo3_8_16": [
+          6,
+          14,
+          23
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 3
+      },
+      "180": {
+        "zeroSolo3_8_16": [
+          10,
+          20,
+          23
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "240": {
+        "zeroSolo3_8_16": [
+          6,
+          17,
+          25
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "300": {
+        "zeroSolo3_8_16": [
+          6,
+          17,
+          23
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 1
+      },
+      "360": {
+        "zeroSolo3_8_16": [
+          5,
+          17,
+          26
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "420": {
+        "zeroSolo3_8_16": [
+          3,
+          14,
+          24
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "480": {
+        "zeroSolo3_8_16": [
+          3,
+          14,
+          23
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "540": {
+        "zeroSolo3_8_16": [
+          8,
+          14,
+          22
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "aged": {
+        "zeroSolo3_8_16": [
+          8,
+          17,
+          22
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0,
+        "sumOfFullContactEllipseAreasPx2": 46294.76,
+        "medianContactDiameterCss": [
+          57.19,
+          39.61
+        ],
+        "footContactUnionPx2": 32244,
+        "footContactUnionPct": 73.15,
+        "footOverlapPx2": 0,
+        "contactCoverageMedianPct": 99.96,
+        "contactCoverageRangePct": [
+          98.85,
+          100.0
+        ],
+        "representative": "companion:shiba",
+        "representativeArea": 42456,
+        "representativeTopology": {
+          "components": 1,
+          "componentsAtLeast64px2": 1,
+          "largestPx2": [
+            42456
+          ],
+          "endsAtLeast8px": 3,
+          "deadEndExamples": [
+            [
+              348.31,
+              399.0,
+              133.0
+            ],
+            [
+              151.88,
+              319.0,
+              411.0
+            ],
+            [
+              120.23,
+              135.0,
+              277.0
+            ]
+          ],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 41.18,
+          "centrelineWidthMedian": 72.0
+        },
+        "representativeFreeArea": 16,
+        "representativeFreeTopology": {
+          "components": 2,
+          "componentsAtLeast64px2": 0,
+          "largestPx2": [
+            12,
+            4
+          ],
+          "endsAtLeast8px": 0,
+          "deadEndExamples": [],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 4.0,
+          "centrelineWidthMedian": 4.0
+        },
+        "passing": {
+          "pair": [
+            "companion:shiba",
+            "companion:clock"
+          ],
+          "step": 8,
+          "laneLength": 24,
+          "terrainSites": 400,
+          "occupiedSites": 0,
+          "examples": []
+        }
+      }
+    },
+    "neverAnySolo8Samples": [
+      "companion:tanuki"
+    ],
+    "postNeighborMovementBlocked8": {
+      "companion:tanuki": 10,
+      "companion:owl": 5,
+      "companion:hamster": 4,
+      "companion:monkey": 9,
+      "companion:bat": 6,
+      "companion:shiba": 9,
+      "companion:unicorn": 5,
+      "companion:rabbit_friend": 3,
+      "companion:parrot": 8,
+      "companion:seal": 9,
+      "companion:chicken": 8,
+      "companion:hedgehog": 8,
+      "companion:snail": 4,
+      "companion:clock": 8,
+      "companion:cat_friend": 5,
+      "companion:sheep": 2,
+      "companion:penguin_friend": 1,
+      "companion:watcher": 8,
+      "companion:squirrel": 5,
+      "companion:sekizou": 2,
+      "pet:dog": 8,
+      "partner:forest_bear": 6,
+      "companion:chameleon": 5,
+      "companion:otter": 1,
+      "companion:panda": 5,
+      "companion:box": 6,
+      "companion:many_tail_fox": 4
+    },
+    "changedNeighborObservations": {
+      "pet:dog": 10,
+      "partner:forest_bear": 10,
+      "companion:cat_friend": 10,
+      "companion:tanuki": 10,
+      "companion:owl": 10,
+      "companion:hamster": 10,
+      "companion:monkey": 10,
+      "companion:sheep": 10,
+      "companion:bat": 10,
+      "companion:penguin_friend": 9,
+      "companion:shiba": 10,
+      "companion:punyu": 9,
+      "companion:chameleon": 10,
+      "companion:unicorn": 9,
+      "companion:watcher": 10,
+      "companion:rabbit_friend": 10,
+      "companion:otter": 10,
+      "companion:panda": 10,
+      "companion:parrot": 9,
+      "companion:seal": 10,
+      "companion:chicken": 10,
+      "companion:hedgehog": 10,
+      "companion:snail": 10,
+      "companion:sekizou": 10,
+      "companion:clock": 10,
+      "companion:many_tail_fox": 10,
+      "companion:box": 9,
+      "companion:squirrel": 6
+    },
+    "blockerInstances8": [
+      [
+        "companion:chicken",
+        1973
+      ],
+      [
+        "companion:shiba",
+        1762
+      ],
+      [
+        "companion:panda",
+        1586
+      ],
+      [
+        "companion:monkey",
+        1570
+      ],
+      [
+        "companion:tanuki",
+        1540
+      ],
+      [
+        "companion:hamster",
+        1534
+      ],
+      [
+        "companion:chameleon",
+        1372
+      ],
+      [
+        "companion:owl",
+        1294
+      ],
+      [
+        "companion:clock",
+        1197
+      ],
+      [
+        "companion:seal",
+        1157
+      ],
+      [
+        "companion:snail",
+        1142
+      ],
+      [
+        "companion:cat_friend",
+        1052
+      ],
+      [
+        "companion:hedgehog",
+        1037
+      ],
+      [
+        "companion:sekizou",
+        1002
+      ],
+      [
+        "companion:watcher",
+        985
+      ],
+      [
+        "companion:rabbit_friend",
+        977
+      ],
+      [
+        "partner:forest_bear",
+        926
+      ],
+      [
+        "companion:punyu",
+        901
+      ],
+      [
+        "pet:dog",
+        881
+      ],
+      [
+        "companion:bat",
+        798
+      ],
+      [
+        "companion:many_tail_fox",
+        794
+      ],
+      [
+        "companion:penguin_friend",
+        793
+      ],
+      [
+        "companion:box",
+        713
+      ],
+      [
+        "companion:parrot",
+        656
+      ],
+      [
+        "companion:unicorn",
+        642
+      ],
+      [
+        "companion:squirrel",
+        606
+      ],
+      [
+        "companion:otter",
+        595
+      ],
+      [
+        "companion:sheep",
+        586
+      ]
+    ],
+    "routineRequests": 833,
+    "routineAccepted": 345
+  },
+  {
+    "width": 375,
+    "seats": "original",
+    "seed": 937,
+    "sourceRawSHA256": "34b890366c8bbbf77f3ced35fae3a56a80ab1d442e25b12480a12297e6669509",
+    "nativeModelSHA256": [
+      "95e32fa82fdf92920212fcf90b65fd8a3d25927b5388b9d01935ae3f886cd5c8"
+    ],
+    "probeSHA256": "882af442a96f02f9e586cf693f307211c25158ffac581a3d32cbcca774164a79",
+    "browser": "156.0.8078.79",
+    "sectors": 96,
+    "stepCss": 2,
+    "model": [
+      343,
+      380
+    ],
+    "displayScale": {
+      "x": 1.3795385584741402,
+      "y": 1.1617963402803402
+    },
+    "terrainAreaPx2": 44080,
+    "terrainTopology": {
+      "components": 2,
+      "componentsAtLeast64px2": 1,
+      "largestPx2": [
+        44060,
+        20
+      ],
+      "endsAtLeast8px": 4,
+      "deadEndExamples": [
+        [
+          348.31,
+          399.0,
+          133.0
+        ],
+        [
+          126.71,
+          353.0,
+          439.0
+        ],
+        [
+          120.23,
+          135.0,
+          277.0
+        ],
+        [
+          103.66,
+          191.0,
+          439.0
+        ]
+      ],
+      "necks": 0,
+      "neckExamples": [],
+      "centrelineWidthP10": 25.55,
+      "centrelineWidthMedian": 64.0
+    },
+    "snapshots": {
+      "opening": {
+        "zeroSolo3_8_16": [
+          5,
+          15,
+          20
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 22,
+        "sumOfFullContactEllipseAreasPx2": 46294.76,
+        "medianContactDiameterCss": [
+          57.19,
+          39.61
+        ],
+        "footContactUnionPx2": 31824,
+        "footContactUnionPct": 72.2,
+        "footOverlapPx2": 2884,
+        "contactCoverageMedianPct": 99.55,
+        "contactCoverageRangePct": [
+          97.36,
+          99.72
+        ],
+        "representative": "companion:shiba",
+        "representativeArea": 42456,
+        "representativeTopology": {
+          "components": 1,
+          "componentsAtLeast64px2": 1,
+          "largestPx2": [
+            42456
+          ],
+          "endsAtLeast8px": 3,
+          "deadEndExamples": [
+            [
+              348.31,
+              399.0,
+              133.0
+            ],
+            [
+              151.88,
+              319.0,
+              411.0
+            ],
+            [
+              120.23,
+              135.0,
+              277.0
+            ]
+          ],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 41.18,
+          "centrelineWidthMedian": 72.0
+        },
+        "representativeFreeArea": 388,
+        "representativeFreeTopology": {
+          "components": 1,
+          "componentsAtLeast64px2": 1,
+          "largestPx2": [
+            388
+          ],
+          "endsAtLeast8px": 0,
+          "deadEndExamples": [],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 4.0,
+          "centrelineWidthMedian": 8.47
+        },
+        "passing": {
+          "pair": [
+            "companion:shiba",
+            "companion:clock"
+          ],
+          "step": 8,
+          "laneLength": 24,
+          "terrainSites": 400,
+          "occupiedSites": 0,
+          "examples": []
+        }
+      },
+      "60": {
+        "zeroSolo3_8_16": [
+          7,
+          16,
+          23
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 7
+      },
+      "120": {
+        "zeroSolo3_8_16": [
+          6,
+          18,
+          24
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 1
+      },
+      "180": {
+        "zeroSolo3_8_16": [
+          6,
+          16,
+          25
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "240": {
+        "zeroSolo3_8_16": [
+          3,
+          13,
+          23
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "300": {
+        "zeroSolo3_8_16": [
+          7,
+          13,
+          23
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "360": {
+        "zeroSolo3_8_16": [
+          9,
+          17,
+          25
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "420": {
+        "zeroSolo3_8_16": [
+          6,
+          12,
+          20
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "480": {
+        "zeroSolo3_8_16": [
+          5,
+          16,
+          23
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "540": {
+        "zeroSolo3_8_16": [
+          5,
+          15,
+          24
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "aged": {
+        "zeroSolo3_8_16": [
+          2,
+          15,
+          21
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0,
+        "sumOfFullContactEllipseAreasPx2": 46294.76,
+        "medianContactDiameterCss": [
+          57.19,
+          39.61
+        ],
+        "footContactUnionPx2": 32224,
+        "footContactUnionPct": 73.1,
+        "footOverlapPx2": 0,
+        "contactCoverageMedianPct": 99.93,
+        "contactCoverageRangePct": [
+          99.33,
+          99.99
+        ],
+        "representative": "companion:shiba",
+        "representativeArea": 42456,
+        "representativeTopology": {
+          "components": 1,
+          "componentsAtLeast64px2": 1,
+          "largestPx2": [
+            42456
+          ],
+          "endsAtLeast8px": 3,
+          "deadEndExamples": [
+            [
+              348.31,
+              399.0,
+              133.0
+            ],
+            [
+              151.88,
+              319.0,
+              411.0
+            ],
+            [
+              120.23,
+              135.0,
+              277.0
+            ]
+          ],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 41.18,
+          "centrelineWidthMedian": 72.0
+        },
+        "representativeFreeArea": 16,
+        "representativeFreeTopology": {
+          "components": 2,
+          "componentsAtLeast64px2": 0,
+          "largestPx2": [
+            8,
+            8
+          ],
+          "endsAtLeast8px": 0,
+          "deadEndExamples": [],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 4.0,
+          "centrelineWidthMedian": 4.0
+        },
+        "passing": {
+          "pair": [
+            "companion:shiba",
+            "companion:clock"
+          ],
+          "step": 8,
+          "laneLength": 24,
+          "terrainSites": 400,
+          "occupiedSites": 0,
+          "examples": []
+        }
+      }
+    },
+    "neverAnySolo8Samples": [
+      "companion:parrot",
+      "companion:tanuki"
+    ],
+    "postNeighborMovementBlocked8": {
+      "partner:forest_bear": 9,
+      "companion:cat_friend": 5,
+      "companion:tanuki": 10,
+      "companion:owl": 6,
+      "companion:hamster": 7,
+      "companion:sheep": 8,
+      "companion:bat": 6,
+      "companion:punyu": 1,
+      "companion:chameleon": 6,
+      "companion:watcher": 8,
+      "companion:squirrel": 5,
+      "companion:panda": 5,
+      "companion:parrot": 10,
+      "companion:hedgehog": 4,
+      "companion:clock": 6,
+      "companion:box": 3,
+      "companion:penguin_friend": 3,
+      "companion:shiba": 6,
+      "companion:rabbit_friend": 2,
+      "companion:seal": 7,
+      "companion:chicken": 5,
+      "companion:sekizou": 1,
+      "companion:many_tail_fox": 5,
+      "pet:dog": 7,
+      "companion:monkey": 8,
+      "companion:unicorn": 2,
+      "companion:snail": 3
+    },
+    "changedNeighborObservations": {
+      "pet:dog": 10,
+      "partner:forest_bear": 10,
+      "companion:cat_friend": 10,
+      "companion:tanuki": 10,
+      "companion:owl": 10,
+      "companion:hamster": 10,
+      "companion:monkey": 10,
+      "companion:sheep": 10,
+      "companion:bat": 10,
+      "companion:penguin_friend": 9,
+      "companion:shiba": 10,
+      "companion:punyu": 10,
+      "companion:chameleon": 10,
+      "companion:unicorn": 9,
+      "companion:watcher": 10,
+      "companion:rabbit_friend": 10,
+      "companion:squirrel": 10,
+      "companion:otter": 10,
+      "companion:panda": 10,
+      "companion:parrot": 10,
+      "companion:seal": 8,
+      "companion:chicken": 10,
+      "companion:hedgehog": 10,
+      "companion:snail": 10,
+      "companion:sekizou": 10,
+      "companion:clock": 10,
+      "companion:many_tail_fox": 10,
+      "companion:box": 10
+    },
+    "blockerInstances8": [
+      [
+        "companion:tanuki",
+        1793
+      ],
+      [
+        "companion:monkey",
+        1671
+      ],
+      [
+        "companion:chicken",
+        1661
+      ],
+      [
+        "companion:hamster",
+        1606
+      ],
+      [
+        "companion:shiba",
+        1553
+      ],
+      [
+        "companion:owl",
+        1478
+      ],
+      [
+        "companion:seal",
+        1366
+      ],
+      [
+        "companion:chameleon",
+        1287
+      ],
+      [
+        "pet:dog",
+        1187
+      ],
+      [
+        "companion:watcher",
+        1079
+      ],
+      [
+        "companion:cat_friend",
+        1065
+      ],
+      [
+        "companion:penguin_friend",
+        1051
+      ],
+      [
+        "companion:clock",
+        997
+      ],
+      [
+        "companion:snail",
+        980
+      ],
+      [
+        "partner:forest_bear",
+        972
+      ],
+      [
+        "companion:panda",
+        963
+      ],
+      [
+        "companion:hedgehog",
+        952
+      ],
+      [
+        "companion:sekizou",
+        907
+      ],
+      [
+        "companion:many_tail_fox",
+        896
+      ],
+      [
+        "companion:punyu",
+        847
+      ],
+      [
+        "companion:sheep",
+        843
+      ],
+      [
+        "companion:bat",
+        841
+      ],
+      [
+        "companion:parrot",
+        768
+      ],
+      [
+        "companion:rabbit_friend",
+        654
+      ],
+      [
+        "companion:squirrel",
+        611
+      ],
+      [
+        "companion:unicorn",
+        562
+      ],
+      [
+        "companion:otter",
+        531
+      ],
+      [
+        "companion:box",
+        398
+      ]
+    ],
+    "routineRequests": 910,
+    "routineAccepted": 370
+  },
+  {
+    "width": 390,
+    "seats": "reference",
+    "seed": 937,
+    "sourceRawSHA256": "15730ba2453fb7dea853be87412163dd6428deb02a0afd0e7faadbaef6ef3d06",
+    "nativeModelSHA256": [
+      "34e0c9bbdb5cc2b03c3f426a5160d8425c9b7c1d22daa1a7664f0eacf6196c2e"
+    ],
+    "probeSHA256": "882af442a96f02f9e586cf693f307211c25158ffac581a3d32cbcca774164a79",
+    "browser": "156.0.8078.79",
+    "sectors": 96,
+    "stepCss": 2,
+    "model": [
+      358,
+      380
+    ],
+    "displayScale": {
+      "x": 1.3697220060064486,
+      "y": 1.134232061136463
+    },
+    "terrainAreaPx2": 46556,
+    "terrainTopology": {
+      "components": 2,
+      "componentsAtLeast64px2": 1,
+      "largestPx2": [
+        46532,
+        24
+      ],
+      "endsAtLeast8px": 4,
+      "deadEndExamples": [
+        [
+          334.99,
+          385.0,
+          121.0
+        ],
+        [
+          121.05,
+          139.0,
+          267.0
+        ],
+        [
+          105.66,
+          199.0,
+          429.0
+        ],
+        [
+          78.77,
+          325.0,
+          405.0
+        ]
+      ],
+      "necks": 0,
+      "neckExamples": [],
+      "centrelineWidthP10": 38.8,
+      "centrelineWidthMedian": 70.88
+    },
+    "snapshots": {
+      "opening": {
+        "zeroSolo3_8_16": [
+          6,
+          12,
+          19
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 22,
+        "sumOfFullContactEllipseAreasPx2": 48836.33,
+        "medianContactDiameterCss": [
+          59.36,
+          40.3
+        ],
+        "footContactUnionPx2": 33708,
+        "footContactUnionPct": 72.4,
+        "footOverlapPx2": 2484,
+        "contactCoverageMedianPct": 99.18,
+        "contactCoverageRangePct": [
+          96.68,
+          99.49
+        ],
+        "representative": "companion:shiba",
+        "representativeArea": 44876,
+        "representativeTopology": {
+          "components": 1,
+          "componentsAtLeast64px2": 1,
+          "largestPx2": [
+            44876
+          ],
+          "endsAtLeast8px": 3,
+          "deadEndExamples": [
+            [
+              334.99,
+              385.0,
+              121.0
+            ],
+            [
+              151.88,
+              327.0,
+              399.0
+            ],
+            [
+              121.05,
+              139.0,
+              267.0
+            ]
+          ],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 44.0,
+          "centrelineWidthMedian": 72.11
+        },
+        "representativeFreeArea": 648,
+        "representativeFreeTopology": {
+          "components": 2,
+          "componentsAtLeast64px2": 2,
+          "largestPx2": [
+            352,
+            296
+          ],
+          "endsAtLeast8px": 0,
+          "deadEndExamples": [],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 4.17,
+          "centrelineWidthMedian": 8.0
+        },
+        "passing": {
+          "pair": [
+            "companion:shiba",
+            "companion:clock"
+          ],
+          "step": 8,
+          "laneLength": 24,
+          "terrainSites": 432,
+          "occupiedSites": 0,
+          "examples": []
+        }
+      },
+      "60": {
+        "zeroSolo3_8_16": [
+          10,
+          16,
+          20
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 9
+      },
+      "120": {
+        "zeroSolo3_8_16": [
+          6,
+          17,
+          23
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 2
+      },
+      "180": {
+        "zeroSolo3_8_16": [
+          4,
+          15,
+          22
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 1
+      },
+      "240": {
+        "zeroSolo3_8_16": [
+          6,
+          12,
+          23
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "300": {
+        "zeroSolo3_8_16": [
+          2,
+          11,
+          23
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 1
+      },
+      "360": {
+        "zeroSolo3_8_16": [
+          5,
+          14,
+          24
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "420": {
+        "zeroSolo3_8_16": [
+          7,
+          19,
+          24
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "480": {
+        "zeroSolo3_8_16": [
+          4,
+          16,
+          23
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "540": {
+        "zeroSolo3_8_16": [
+          5,
+          13,
+          24
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "aged": {
+        "zeroSolo3_8_16": [
+          4,
+          12,
+          23
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0,
+        "sumOfFullContactEllipseAreasPx2": 48836.33,
+        "medianContactDiameterCss": [
+          59.36,
+          40.3
+        ],
+        "footContactUnionPx2": 33940,
+        "footContactUnionPct": 72.9,
+        "footOverlapPx2": 0,
+        "contactCoverageMedianPct": 99.91,
+        "contactCoverageRangePct": [
+          99.03,
+          100.0
+        ],
+        "representative": "companion:shiba",
+        "representativeArea": 44876,
+        "representativeTopology": {
+          "components": 1,
+          "componentsAtLeast64px2": 1,
+          "largestPx2": [
+            44876
+          ],
+          "endsAtLeast8px": 3,
+          "deadEndExamples": [
+            [
+              334.99,
+              385.0,
+              121.0
+            ],
+            [
+              151.88,
+              327.0,
+              399.0
+            ],
+            [
+              121.05,
+              139.0,
+              267.0
+            ]
+          ],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 44.0,
+          "centrelineWidthMedian": 72.11
+        },
+        "representativeFreeArea": 56,
+        "representativeFreeTopology": {
+          "components": 2,
+          "componentsAtLeast64px2": 0,
+          "largestPx2": [
+            52,
+            4
+          ],
+          "endsAtLeast8px": 0,
+          "deadEndExamples": [],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 4.0,
+          "centrelineWidthMedian": 4.0
+        },
+        "passing": {
+          "pair": [
+            "companion:shiba",
+            "companion:clock"
+          ],
+          "step": 8,
+          "laneLength": 24,
+          "terrainSites": 432,
+          "occupiedSites": 0,
+          "examples": []
+        }
+      }
+    },
+    "neverAnySolo8Samples": [],
+    "postNeighborMovementBlocked8": {
+      "partner:forest_bear": 3,
+      "companion:tanuki": 9,
+      "companion:hamster": 8,
+      "companion:monkey": 6,
+      "companion:sheep": 4,
+      "companion:bat": 6,
+      "companion:punyu": 3,
+      "companion:chameleon": 5,
+      "companion:rabbit_friend": 8,
+      "companion:otter": 5,
+      "companion:panda": 8,
+      "companion:seal": 8,
+      "companion:sekizou": 4,
+      "companion:clock": 5,
+      "companion:many_tail_fox": 6,
+      "companion:box": 6,
+      "pet:dog": 7,
+      "companion:cat_friend": 2,
+      "companion:unicorn": 4,
+      "companion:watcher": 8,
+      "companion:parrot": 2,
+      "companion:chicken": 4,
+      "companion:hedgehog": 7,
+      "companion:snail": 5,
+      "companion:owl": 4,
+      "companion:penguin_friend": 1,
+      "companion:squirrel": 2
+    },
+    "changedNeighborObservations": {
+      "pet:dog": 10,
+      "partner:forest_bear": 10,
+      "companion:cat_friend": 10,
+      "companion:tanuki": 10,
+      "companion:owl": 10,
+      "companion:hamster": 10,
+      "companion:monkey": 10,
+      "companion:sheep": 8,
+      "companion:bat": 10,
+      "companion:penguin_friend": 8,
+      "companion:shiba": 9,
+      "companion:punyu": 9,
+      "companion:chameleon": 10,
+      "companion:unicorn": 9,
+      "companion:watcher": 10,
+      "companion:rabbit_friend": 10,
+      "companion:squirrel": 9,
+      "companion:otter": 7,
+      "companion:panda": 10,
+      "companion:parrot": 8,
+      "companion:seal": 10,
+      "companion:chicken": 10,
+      "companion:hedgehog": 10,
+      "companion:snail": 10,
+      "companion:sekizou": 8,
+      "companion:clock": 10,
+      "companion:many_tail_fox": 9,
+      "companion:box": 10
+    },
+    "blockerInstances8": [
+      [
+        "companion:hamster",
+        1819
+      ],
+      [
+        "companion:tanuki",
+        1632
+      ],
+      [
+        "companion:rabbit_friend",
+        1625
+      ],
+      [
+        "companion:monkey",
+        1564
+      ],
+      [
+        "companion:owl",
+        1555
+      ],
+      [
+        "companion:many_tail_fox",
+        1518
+      ],
+      [
+        "companion:chicken",
+        1474
+      ],
+      [
+        "companion:hedgehog",
+        1371
+      ],
+      [
+        "companion:seal",
+        1174
+      ],
+      [
+        "partner:forest_bear",
+        1124
+      ],
+      [
+        "companion:squirrel",
+        1112
+      ],
+      [
+        "companion:box",
+        1105
+      ],
+      [
+        "companion:chameleon",
+        1103
+      ],
+      [
+        "companion:snail",
+        1053
+      ],
+      [
+        "pet:dog",
+        1049
+      ],
+      [
+        "companion:cat_friend",
+        963
+      ],
+      [
+        "companion:sekizou",
+        929
+      ],
+      [
+        "companion:punyu",
+        823
+      ],
+      [
+        "companion:watcher",
+        820
+      ],
+      [
+        "companion:penguin_friend",
+        785
+      ],
+      [
+        "companion:otter",
+        782
+      ],
+      [
+        "companion:unicorn",
+        746
+      ],
+      [
+        "companion:shiba",
+        744
+      ],
+      [
+        "companion:panda",
+        703
+      ],
+      [
+        "companion:bat",
+        696
+      ],
+      [
+        "companion:clock",
+        696
+      ],
+      [
+        "companion:sheep",
+        640
+      ],
+      [
+        "companion:parrot",
+        505
+      ]
+    ],
+    "routineRequests": 789,
+    "routineAccepted": 381
+  },
+  {
+    "width": 390,
+    "seats": "original",
+    "seed": 937,
+    "sourceRawSHA256": "729c978cbfa9379fb5507e74f74f8d8e4468d79c219aa36d2197704afd341937",
+    "nativeModelSHA256": [
+      "95e32fa82fdf92920212fcf90b65fd8a3d25927b5388b9d01935ae3f886cd5c8"
+    ],
+    "probeSHA256": "882af442a96f02f9e586cf693f307211c25158ffac581a3d32cbcca774164a79",
+    "browser": "156.0.8078.79",
+    "sectors": 96,
+    "stepCss": 2,
+    "model": [
+      358,
+      380
+    ],
+    "displayScale": {
+      "x": 1.3697220060064486,
+      "y": 1.134232061136463
+    },
+    "terrainAreaPx2": 46556,
+    "terrainTopology": {
+      "components": 2,
+      "componentsAtLeast64px2": 1,
+      "largestPx2": [
+        46532,
+        24
+      ],
+      "endsAtLeast8px": 4,
+      "deadEndExamples": [
+        [
+          334.99,
+          385.0,
+          121.0
+        ],
+        [
+          121.05,
+          139.0,
+          267.0
+        ],
+        [
+          105.66,
+          199.0,
+          429.0
+        ],
+        [
+          78.77,
+          325.0,
+          405.0
+        ]
+      ],
+      "necks": 0,
+      "neckExamples": [],
+      "centrelineWidthP10": 38.8,
+      "centrelineWidthMedian": 70.88
+    },
+    "snapshots": {
+      "opening": {
+        "zeroSolo3_8_16": [
+          7,
+          15,
+          20
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 22,
+        "sumOfFullContactEllipseAreasPx2": 48836.33,
+        "medianContactDiameterCss": [
+          59.36,
+          40.3
+        ],
+        "footContactUnionPx2": 34212,
+        "footContactUnionPct": 73.49,
+        "footOverlapPx2": 2484,
+        "contactCoverageMedianPct": 99.18,
+        "contactCoverageRangePct": [
+          96.63,
+          99.49
+        ],
+        "representative": "companion:shiba",
+        "representativeArea": 44876,
+        "representativeTopology": {
+          "components": 1,
+          "componentsAtLeast64px2": 1,
+          "largestPx2": [
+            44876
+          ],
+          "endsAtLeast8px": 3,
+          "deadEndExamples": [
+            [
+              334.99,
+              385.0,
+              121.0
+            ],
+            [
+              151.88,
+              327.0,
+              399.0
+            ],
+            [
+              121.05,
+              139.0,
+              267.0
+            ]
+          ],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 44.0,
+          "centrelineWidthMedian": 72.11
+        },
+        "representativeFreeArea": 648,
+        "representativeFreeTopology": {
+          "components": 2,
+          "componentsAtLeast64px2": 2,
+          "largestPx2": [
+            352,
+            296
+          ],
+          "endsAtLeast8px": 0,
+          "deadEndExamples": [],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 4.17,
+          "centrelineWidthMedian": 8.0
+        },
+        "passing": {
+          "pair": [
+            "companion:shiba",
+            "companion:clock"
+          ],
+          "step": 8,
+          "laneLength": 24,
+          "terrainSites": 432,
+          "occupiedSites": 0,
+          "examples": []
+        }
+      },
+      "60": {
+        "zeroSolo3_8_16": [
+          11,
+          15,
+          21
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 9
+      },
+      "120": {
+        "zeroSolo3_8_16": [
+          10,
+          15,
+          24
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 5
+      },
+      "180": {
+        "zeroSolo3_8_16": [
+          8,
+          15,
+          23
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 4
+      },
+      "240": {
+        "zeroSolo3_8_16": [
+          9,
+          16,
+          24
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 3
+      },
+      "300": {
+        "zeroSolo3_8_16": [
+          6,
+          11,
+          23
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 3
+      },
+      "360": {
+        "zeroSolo3_8_16": [
+          3,
+          12,
+          26
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 2
+      },
+      "420": {
+        "zeroSolo3_8_16": [
+          2,
+          12,
+          24
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 2
+      },
+      "480": {
+        "zeroSolo3_8_16": [
+          3,
+          15,
+          22
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 2
+      },
+      "540": {
+        "zeroSolo3_8_16": [
+          3,
+          11,
+          24
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "aged": {
+        "zeroSolo3_8_16": [
+          4,
+          15,
+          25
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0,
+        "sumOfFullContactEllipseAreasPx2": 48836.33,
+        "medianContactDiameterCss": [
+          59.36,
+          40.3
+        ],
+        "footContactUnionPx2": 33264,
+        "footContactUnionPct": 71.45,
+        "footOverlapPx2": 0,
+        "contactCoverageMedianPct": 99.96,
+        "contactCoverageRangePct": [
+          99.4,
+          100.0
+        ],
+        "representative": "companion:shiba",
+        "representativeArea": 44876,
+        "representativeTopology": {
+          "components": 1,
+          "componentsAtLeast64px2": 1,
+          "largestPx2": [
+            44876
+          ],
+          "endsAtLeast8px": 3,
+          "deadEndExamples": [
+            [
+              334.99,
+              385.0,
+              121.0
+            ],
+            [
+              151.88,
+              327.0,
+              399.0
+            ],
+            [
+              121.05,
+              139.0,
+              267.0
+            ]
+          ],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 44.0,
+          "centrelineWidthMedian": 72.11
+        },
+        "representativeFreeArea": 116,
+        "representativeFreeTopology": {
+          "components": 3,
+          "componentsAtLeast64px2": 1,
+          "largestPx2": [
+            80,
+            24,
+            12
+          ],
+          "endsAtLeast8px": 0,
+          "deadEndExamples": [],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 4.0,
+          "centrelineWidthMedian": 4.0
+        },
+        "passing": {
+          "pair": [
+            "companion:shiba",
+            "companion:clock"
+          ],
+          "step": 8,
+          "laneLength": 24,
+          "terrainSites": 432,
+          "occupiedSites": 0,
+          "examples": []
+        }
+      }
+    },
+    "neverAnySolo8Samples": [
+      "companion:tanuki"
+    ],
+    "postNeighborMovementBlocked8": {
+      "partner:forest_bear": 3,
+      "companion:cat_friend": 6,
+      "companion:tanuki": 10,
+      "companion:hamster": 8,
+      "companion:bat": 6,
+      "companion:punyu": 2,
+      "companion:unicorn": 3,
+      "companion:watcher": 3,
+      "companion:parrot": 3,
+      "companion:hedgehog": 8,
+      "companion:sekizou": 5,
+      "companion:clock": 6,
+      "companion:many_tail_fox": 7,
+      "companion:box": 8,
+      "pet:dog": 7,
+      "companion:sheep": 3,
+      "companion:otter": 6,
+      "companion:seal": 5,
+      "companion:chicken": 7,
+      "companion:monkey": 6,
+      "companion:owl": 3,
+      "companion:chameleon": 4,
+      "companion:panda": 5,
+      "companion:rabbit_friend": 3,
+      "companion:penguin_friend": 3,
+      "companion:squirrel": 1,
+      "companion:snail": 1
+    },
+    "changedNeighborObservations": {
+      "pet:dog": 10,
+      "partner:forest_bear": 10,
+      "companion:cat_friend": 10,
+      "companion:tanuki": 10,
+      "companion:owl": 10,
+      "companion:hamster": 10,
+      "companion:monkey": 10,
+      "companion:sheep": 10,
+      "companion:bat": 8,
+      "companion:penguin_friend": 10,
+      "companion:shiba": 9,
+      "companion:punyu": 9,
+      "companion:chameleon": 10,
+      "companion:unicorn": 10,
+      "companion:watcher": 9,
+      "companion:rabbit_friend": 10,
+      "companion:squirrel": 10,
+      "companion:panda": 10,
+      "companion:parrot": 10,
+      "companion:seal": 10,
+      "companion:chicken": 10,
+      "companion:hedgehog": 9,
+      "companion:snail": 9,
+      "companion:sekizou": 10,
+      "companion:clock": 10,
+      "companion:many_tail_fox": 9,
+      "companion:box": 10,
+      "companion:otter": 7
+    },
+    "blockerInstances8": [
+      [
+        "companion:tanuki",
+        1780
+      ],
+      [
+        "companion:hamster",
+        1765
+      ],
+      [
+        "companion:chicken",
+        1702
+      ],
+      [
+        "companion:owl",
+        1371
+      ],
+      [
+        "companion:rabbit_friend",
+        1334
+      ],
+      [
+        "companion:monkey",
+        1281
+      ],
+      [
+        "companion:hedgehog",
+        1279
+      ],
+      [
+        "companion:box",
+        1255
+      ],
+      [
+        "companion:chameleon",
+        1146
+      ],
+      [
+        "companion:cat_friend",
+        1136
+      ],
+      [
+        "companion:seal",
+        1095
+      ],
+      [
+        "pet:dog",
+        1079
+      ],
+      [
+        "companion:many_tail_fox",
+        1020
+      ],
+      [
+        "companion:penguin_friend",
+        1009
+      ],
+      [
+        "partner:forest_bear",
+        979
+      ],
+      [
+        "companion:snail",
+        895
+      ],
+      [
+        "companion:squirrel",
+        852
+      ],
+      [
+        "companion:bat",
+        848
+      ],
+      [
+        "companion:punyu",
+        783
+      ],
+      [
+        "companion:shiba",
+        763
+      ],
+      [
+        "companion:sekizou",
+        745
+      ],
+      [
+        "companion:panda",
+        745
+      ],
+      [
+        "companion:clock",
+        670
+      ],
+      [
+        "companion:otter",
+        649
+      ],
+      [
+        "companion:watcher",
+        647
+      ],
+      [
+        "companion:sheep",
+        604
+      ],
+      [
+        "companion:unicorn",
+        568
+      ],
+      [
+        "companion:parrot",
+        532
+      ]
+    ],
+    "routineRequests": 757,
+    "routineAccepted": 366
+  },
+  {
+    "width": 430,
+    "seats": "reference",
+    "seed": 214,
+    "sourceRawSHA256": "c13ecb068a9475e5312ee9abb6352fb63e4ceda30738aedc238d3d9d2acdfd7a",
+    "nativeModelSHA256": [
+      "34e0c9bbdb5cc2b03c3f426a5160d8425c9b7c1d22daa1a7664f0eacf6196c2e"
+    ],
+    "probeSHA256": "882af442a96f02f9e586cf693f307211c25158ffac581a3d32cbcca774164a79",
+    "browser": "156.0.8078.79",
+    "sectors": 96,
+    "stepCss": 2,
+    "model": [
+      398,
+      380
+    ],
+    "displayScale": {
+      "x": 1.3635176849213149,
+      "y": 1.0738316622564055
+    },
+    "terrainAreaPx2": 54144,
+    "terrainTopology": {
+      "components": 2,
+      "componentsAtLeast64px2": 1,
+      "largestPx2": [
+        54116,
+        28
+      ],
+      "endsAtLeast8px": 4,
+      "deadEndExamples": [
+        [
+          391.97,
+          459.0,
+          77.0
+        ],
+        [
+          139.54,
+          155.0,
+          231.0
+        ],
+        [
+          108.83,
+          229.0,
+          407.0
+        ],
+        [
+          80.77,
+          355.0,
+          379.0
+        ]
+      ],
+      "necks": 0,
+      "neckExamples": [],
+      "centrelineWidthP10": 33.89,
+      "centrelineWidthMedian": 76.68
+    },
+    "snapshots": {
+      "opening": {
+        "zeroSolo3_8_16": [
+          7,
+          11,
+          17
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 22,
+        "sumOfFullContactEllipseAreasPx2": 55398.45,
+        "medianContactDiameterCss": [
+          65.11,
+          41.63
+        ],
+        "footContactUnionPx2": 39736,
+        "footContactUnionPct": 73.39,
+        "footOverlapPx2": 2296,
+        "contactCoverageMedianPct": 99.09,
+        "contactCoverageRangePct": [
+          97.22,
+          99.41
+        ],
+        "representative": "companion:shiba",
+        "representativeArea": 51888,
+        "representativeTopology": {
+          "components": 1,
+          "componentsAtLeast64px2": 1,
+          "largestPx2": [
+            51888
+          ],
+          "endsAtLeast8px": 3,
+          "deadEndExamples": [
+            [
+              390.31,
+              459.0,
+              77.0
+            ],
+            [
+              166.37,
+              363.0,
+              375.0
+            ],
+            [
+              139.54,
+              155.0,
+              231.0
+            ]
+          ],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 44.72,
+          "centrelineWidthMedian": 78.59
+        },
+        "representativeFreeArea": 656,
+        "representativeFreeTopology": {
+          "components": 3,
+          "componentsAtLeast64px2": 2,
+          "largestPx2": [
+            480,
+            140,
+            36
+          ],
+          "endsAtLeast8px": 0,
+          "deadEndExamples": [],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 4.0,
+          "centrelineWidthMedian": 5.66
+        },
+        "passing": {
+          "pair": [
+            "companion:shiba",
+            "companion:clock"
+          ],
+          "step": 8,
+          "laneLength": 24,
+          "terrainSites": 507,
+          "occupiedSites": 0,
+          "examples": []
+        }
+      },
+      "60": {
+        "zeroSolo3_8_16": [
+          6,
+          16,
+          19
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 6
+      },
+      "120": {
+        "zeroSolo3_8_16": [
+          2,
+          15,
+          20
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 1
+      },
+      "180": {
+        "zeroSolo3_8_16": [
+          3,
+          9,
+          20
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "240": {
+        "zeroSolo3_8_16": [
+          2,
+          13,
+          21
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "300": {
+        "zeroSolo3_8_16": [
+          4,
+          12,
+          22
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 2
+      },
+      "360": {
+        "zeroSolo3_8_16": [
+          7,
+          15,
+          21
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 1
+      },
+      "420": {
+        "zeroSolo3_8_16": [
+          6,
+          13,
+          19
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 1
+      },
+      "480": {
+        "zeroSolo3_8_16": [
+          9,
+          16,
+          22
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 1
+      },
+      "540": {
+        "zeroSolo3_8_16": [
+          3,
+          12,
+          23
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 1
+      },
+      "aged": {
+        "zeroSolo3_8_16": [
+          5,
+          15,
+          24
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 1,
+        "sumOfFullContactEllipseAreasPx2": 55398.45,
+        "medianContactDiameterCss": [
+          65.11,
+          41.63
+        ],
+        "footContactUnionPx2": 40376,
+        "footContactUnionPct": 74.57,
+        "footOverlapPx2": 32,
+        "contactCoverageMedianPct": 99.96,
+        "contactCoverageRangePct": [
+          99.33,
+          100.0
+        ],
+        "representative": "companion:shiba",
+        "representativeArea": 51888,
+        "representativeTopology": {
+          "components": 1,
+          "componentsAtLeast64px2": 1,
+          "largestPx2": [
+            51888
+          ],
+          "endsAtLeast8px": 3,
+          "deadEndExamples": [
+            [
+              390.31,
+              459.0,
+              77.0
+            ],
+            [
+              166.37,
+              363.0,
+              375.0
+            ],
+            [
+              139.54,
+              155.0,
+              231.0
+            ]
+          ],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 44.72,
+          "centrelineWidthMedian": 78.59
+        },
+        "representativeFreeArea": 24,
+        "representativeFreeTopology": {
+          "components": 3,
+          "componentsAtLeast64px2": 0,
+          "largestPx2": [
+            16,
+            4,
+            4
+          ],
+          "endsAtLeast8px": 0,
+          "deadEndExamples": [],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 4.0,
+          "centrelineWidthMedian": 4.0
+        },
+        "passing": {
+          "pair": [
+            "companion:shiba",
+            "companion:clock"
+          ],
+          "step": 8,
+          "laneLength": 24,
+          "terrainSites": 507,
+          "occupiedSites": 0,
+          "examples": []
+        }
+      }
+    },
+    "neverAnySolo8Samples": [
+      "companion:parrot"
+    ],
+    "postNeighborMovementBlocked8": {
+      "partner:forest_bear": 5,
+      "companion:tanuki": 9,
+      "companion:hamster": 3,
+      "companion:monkey": 7,
+      "companion:sheep": 5,
+      "companion:shiba": 1,
+      "companion:chameleon": 9,
+      "companion:unicorn": 5,
+      "companion:rabbit_friend": 6,
+      "companion:otter": 2,
+      "companion:parrot": 10,
+      "companion:chicken": 4,
+      "companion:hedgehog": 2,
+      "companion:snail": 3,
+      "companion:clock": 4,
+      "companion:box": 2,
+      "pet:dog": 8,
+      "companion:penguin_friend": 8,
+      "companion:seal": 8,
+      "companion:sekizou": 6,
+      "companion:many_tail_fox": 5,
+      "companion:panda": 4,
+      "companion:owl": 5,
+      "companion:watcher": 4,
+      "companion:bat": 2,
+      "companion:punyu": 1,
+      "companion:squirrel": 1
+    },
+    "changedNeighborObservations": {
+      "pet:dog": 10,
+      "partner:forest_bear": 10,
+      "companion:cat_friend": 10,
+      "companion:tanuki": 10,
+      "companion:owl": 10,
+      "companion:hamster": 10,
+      "companion:monkey": 10,
+      "companion:sheep": 8,
+      "companion:bat": 10,
+      "companion:penguin_friend": 10,
+      "companion:shiba": 10,
+      "companion:punyu": 10,
+      "companion:chameleon": 10,
+      "companion:unicorn": 7,
+      "companion:watcher": 10,
+      "companion:rabbit_friend": 9,
+      "companion:squirrel": 10,
+      "companion:otter": 9,
+      "companion:panda": 10,
+      "companion:parrot": 10,
+      "companion:seal": 9,
+      "companion:chicken": 10,
+      "companion:hedgehog": 7,
+      "companion:snail": 10,
+      "companion:sekizou": 10,
+      "companion:clock": 8,
+      "companion:many_tail_fox": 10,
+      "companion:box": 10
+    },
+    "blockerInstances8": [
+      [
+        "companion:tanuki",
+        1650
+      ],
+      [
+        "companion:monkey",
+        1648
+      ],
+      [
+        "companion:penguin_friend",
+        1590
+      ],
+      [
+        "companion:owl",
+        1587
+      ],
+      [
+        "companion:sekizou",
+        1572
+      ],
+      [
+        "companion:chameleon",
+        1547
+      ],
+      [
+        "companion:hamster",
+        1539
+      ],
+      [
+        "companion:panda",
+        1483
+      ],
+      [
+        "pet:dog",
+        1301
+      ],
+      [
+        "companion:chicken",
+        1070
+      ],
+      [
+        "companion:many_tail_fox",
+        1065
+      ],
+      [
+        "companion:parrot",
+        1031
+      ],
+      [
+        "companion:snail",
+        1030
+      ],
+      [
+        "companion:seal",
+        1027
+      ],
+      [
+        "companion:cat_friend",
+        1004
+      ],
+      [
+        "companion:hedgehog",
+        942
+      ],
+      [
+        "partner:forest_bear",
+        923
+      ],
+      [
+        "companion:squirrel",
+        885
+      ],
+      [
+        "companion:clock",
+        869
+      ],
+      [
+        "companion:shiba",
+        859
+      ],
+      [
+        "companion:sheep",
+        839
+      ],
+      [
+        "companion:unicorn",
+        794
+      ],
+      [
+        "companion:box",
+        775
+      ],
+      [
+        "companion:rabbit_friend",
+        747
+      ],
+      [
+        "companion:bat",
+        719
+      ],
+      [
+        "companion:watcher",
+        625
+      ],
+      [
+        "companion:otter",
+        587
+      ],
+      [
+        "companion:punyu",
+        503
+      ]
+    ],
+    "routineRequests": 771,
+    "routineAccepted": 377
+  },
+  {
+    "width": 430,
+    "seats": "original",
+    "seed": 214,
+    "sourceRawSHA256": "8853d6c22851ea79f9a3ce966a4906678145aee887b9381ad11b2efe5d7e7ff6",
+    "nativeModelSHA256": [
+      "95e32fa82fdf92920212fcf90b65fd8a3d25927b5388b9d01935ae3f886cd5c8"
+    ],
+    "probeSHA256": "882af442a96f02f9e586cf693f307211c25158ffac581a3d32cbcca774164a79",
+    "browser": "156.0.8078.79",
+    "sectors": 96,
+    "stepCss": 2,
+    "model": [
+      398,
+      380
+    ],
+    "displayScale": {
+      "x": 1.3635176849213149,
+      "y": 1.0738316622564055
+    },
+    "terrainAreaPx2": 54144,
+    "terrainTopology": {
+      "components": 2,
+      "componentsAtLeast64px2": 1,
+      "largestPx2": [
+        54116,
+        28
+      ],
+      "endsAtLeast8px": 4,
+      "deadEndExamples": [
+        [
+          391.97,
+          459.0,
+          77.0
+        ],
+        [
+          139.54,
+          155.0,
+          231.0
+        ],
+        [
+          108.83,
+          229.0,
+          407.0
+        ],
+        [
+          80.77,
+          355.0,
+          379.0
+        ]
+      ],
+      "necks": 0,
+      "neckExamples": [],
+      "centrelineWidthP10": 33.89,
+      "centrelineWidthMedian": 76.68
+    },
+    "snapshots": {
+      "opening": {
+        "zeroSolo3_8_16": [
+          7,
+          12,
+          18
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 23,
+        "sumOfFullContactEllipseAreasPx2": 55398.45,
+        "medianContactDiameterCss": [
+          65.11,
+          41.63
+        ],
+        "footContactUnionPx2": 40012,
+        "footContactUnionPct": 73.9,
+        "footOverlapPx2": 2308,
+        "contactCoverageMedianPct": 99.12,
+        "contactCoverageRangePct": [
+          97.22,
+          99.41
+        ],
+        "representative": "companion:shiba",
+        "representativeArea": 51888,
+        "representativeTopology": {
+          "components": 1,
+          "componentsAtLeast64px2": 1,
+          "largestPx2": [
+            51888
+          ],
+          "endsAtLeast8px": 3,
+          "deadEndExamples": [
+            [
+              390.31,
+              459.0,
+              77.0
+            ],
+            [
+              166.37,
+              363.0,
+              375.0
+            ],
+            [
+              139.54,
+              155.0,
+              231.0
+            ]
+          ],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 44.72,
+          "centrelineWidthMedian": 78.59
+        },
+        "representativeFreeArea": 656,
+        "representativeFreeTopology": {
+          "components": 3,
+          "componentsAtLeast64px2": 2,
+          "largestPx2": [
+            480,
+            140,
+            36
+          ],
+          "endsAtLeast8px": 0,
+          "deadEndExamples": [],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 4.0,
+          "centrelineWidthMedian": 5.66
+        },
+        "passing": {
+          "pair": [
+            "companion:shiba",
+            "companion:clock"
+          ],
+          "step": 8,
+          "laneLength": 24,
+          "terrainSites": 507,
+          "occupiedSites": 0,
+          "examples": []
+        }
+      },
+      "60": {
+        "zeroSolo3_8_16": [
+          5,
+          15,
+          20
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 4
+      },
+      "120": {
+        "zeroSolo3_8_16": [
+          3,
+          16,
+          21
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 1
+      },
+      "180": {
+        "zeroSolo3_8_16": [
+          4,
+          10,
+          20
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "240": {
+        "zeroSolo3_8_16": [
+          5,
+          12,
+          19
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 0
+      },
+      "300": {
+        "zeroSolo3_8_16": [
+          5,
+          12,
+          22
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 2
+      },
+      "360": {
+        "zeroSolo3_8_16": [
+          4,
+          14,
+          16
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 1
+      },
+      "420": {
+        "zeroSolo3_8_16": [
+          6,
+          12,
+          20
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 1
+      },
+      "480": {
+        "zeroSolo3_8_16": [
+          7,
+          15,
+          18
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 1
+      },
+      "540": {
+        "zeroSolo3_8_16": [
+          6,
+          13,
+          21
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 1
+      },
+      "aged": {
+        "zeroSolo3_8_16": [
+          2,
+          8,
+          22
+        ],
+        "zeroTerrain3_8_16": [
+          0,
+          0,
+          0
+        ],
+        "contactPairs": 1,
+        "sumOfFullContactEllipseAreasPx2": 55398.45,
+        "medianContactDiameterCss": [
+          65.11,
+          41.63
+        ],
+        "footContactUnionPx2": 39176,
+        "footContactUnionPct": 72.36,
+        "footOverlapPx2": 28,
+        "contactCoverageMedianPct": 99.89,
+        "contactCoverageRangePct": [
+          99.17,
+          100.0
+        ],
+        "representative": "companion:shiba",
+        "representativeArea": 51888,
+        "representativeTopology": {
+          "components": 1,
+          "componentsAtLeast64px2": 1,
+          "largestPx2": [
+            51888
+          ],
+          "endsAtLeast8px": 3,
+          "deadEndExamples": [
+            [
+              390.31,
+              459.0,
+              77.0
+            ],
+            [
+              166.37,
+              363.0,
+              375.0
+            ],
+            [
+              139.54,
+              155.0,
+              231.0
+            ]
+          ],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 44.72,
+          "centrelineWidthMedian": 78.59
+        },
+        "representativeFreeArea": 60,
+        "representativeFreeTopology": {
+          "components": 1,
+          "componentsAtLeast64px2": 0,
+          "largestPx2": [
+            60
+          ],
+          "endsAtLeast8px": 0,
+          "deadEndExamples": [],
+          "necks": 0,
+          "neckExamples": [],
+          "centrelineWidthP10": 4.33,
+          "centrelineWidthMedian": 5.66
+        },
+        "passing": {
+          "pair": [
+            "companion:shiba",
+            "companion:clock"
+          ],
+          "step": 8,
+          "laneLength": 24,
+          "terrainSites": 507,
+          "occupiedSites": 0,
+          "examples": []
+        }
+      }
+    },
+    "neverAnySolo8Samples": [],
+    "postNeighborMovementBlocked8": {
+      "companion:tanuki": 9,
+      "companion:owl": 7,
+      "companion:hamster": 5,
+      "companion:monkey": 7,
+      "companion:bat": 6,
+      "companion:chameleon": 4,
+      "companion:unicorn": 5,
+      "companion:watcher": 9,
+      "companion:otter": 2,
+      "companion:panda": 6,
+      "companion:parrot": 9,
+      "companion:snail": 7,
+      "companion:clock": 3,
+      "companion:many_tail_fox": 5,
+      "companion:box": 4,
+      "pet:dog": 9,
+      "partner:forest_bear": 2,
+      "companion:rabbit_friend": 3,
+      "companion:squirrel": 1,
+      "companion:seal": 6,
+      "companion:chicken": 4,
+      "companion:cat_friend": 4,
+      "companion:sheep": 4,
+      "companion:penguin_friend": 1,
+      "companion:shiba": 1
+    },
+    "changedNeighborObservations": {
+      "pet:dog": 10,
+      "partner:forest_bear": 9,
+      "companion:cat_friend": 10,
+      "companion:tanuki": 10,
+      "companion:owl": 10,
+      "companion:hamster": 10,
+      "companion:monkey": 10,
+      "companion:sheep": 9,
+      "companion:bat": 9,
+      "companion:penguin_friend": 10,
+      "companion:shiba": 10,
+      "companion:punyu": 9,
+      "companion:chameleon": 10,
+      "companion:unicorn": 8,
+      "companion:watcher": 10,
+      "companion:rabbit_friend": 10,
+      "companion:squirrel": 10,
+      "companion:otter": 9,
+      "companion:panda": 10,
+      "companion:parrot": 10,
+      "companion:seal": 10,
+      "companion:chicken": 10,
+      "companion:hedgehog": 10,
+      "companion:snail": 10,
+      "companion:sekizou": 10,
+      "companion:clock": 10,
+      "companion:many_tail_fox": 10,
+      "companion:box": 10
+    },
+    "blockerInstances8": [
+      [
+        "companion:tanuki",
+        1748
+      ],
+      [
+        "companion:hamster",
+        1612
+      ],
+      [
+        "companion:panda",
+        1477
+      ],
+      [
+        "companion:owl",
+        1457
+      ],
+      [
+        "companion:monkey",
+        1430
+      ],
+      [
+        "pet:dog",
+        1351
+      ],
+      [
+        "companion:cat_friend",
+        1323
+      ],
+      [
+        "companion:chameleon",
+        1263
+      ],
+      [
+        "companion:snail",
+        1236
+      ],
+      [
+        "partner:forest_bear",
+        1108
+      ],
+      [
+        "companion:sekizou",
+        1066
+      ],
+      [
+        "companion:watcher",
+        1041
+      ],
+      [
+        "companion:many_tail_fox",
+        1038
+      ],
+      [
+        "companion:chicken",
+        1031
+      ],
+      [
+        "companion:clock",
+        996
+      ],
+      [
+        "companion:shiba",
+        916
+      ],
+      [
+        "companion:seal",
+        884
+      ],
+      [
+        "companion:penguin_friend",
+        865
+      ],
+      [
+        "companion:box",
+        864
+      ],
+      [
+        "companion:parrot",
+        842
+      ],
+      [
+        "companion:bat",
+        814
+      ],
+      [
+        "companion:squirrel",
+        795
+      ],
+      [
+        "companion:hedgehog",
+        762
+      ],
+      [
+        "companion:sheep",
+        760
+      ],
+      [
+        "companion:unicorn",
+        749
+      ],
+      [
+        "companion:otter",
+        677
+      ],
+      [
+        "companion:punyu",
+        657
+      ],
+      [
+        "companion:rabbit_friend",
+        646
+      ]
+    ],
+    "routineRequests": 842,
+    "routineAccepted": 387
+  }
+]

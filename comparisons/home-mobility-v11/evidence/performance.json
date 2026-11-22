@@ -1,0 +1,4490 @@
+{
+  "run": "44986753407",
+  "browser": "26.5",
+  "openingSHA256": "01fb1c71817b75a65396cc26225c2f0e5e52dd51a1ceaf872f6c9ee31472e1be",
+  "assets": {
+    "home-production-model-mobility-v10.js": "95e32fa82fdf92920212fcf90b65fd8a3d25927b5388b9d01935ae3f886cd5c8",
+    "home-production-diorama-mobility-v10.js": "c1ba14468dd4507b774fe157a3e7f669f9f62f74f9d5cb6ab3ef838288e0abd9",
+    "home-production-world-mobility.mjs": "ca37d01dafadc67e43df1c87dfd923ac98f7910a9b21ab145d3d1670308579fc",
+    "telemetry-mobility-v10.js": "b2d04a892c48e50a5876f8d6e542dbdc851b20a6e108ea2925d0365a82a6a870",
+    "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377",
+    "home-production-model-mobility-v11-foot.js": "fcdf57a485c28b10b9e715f752822aa5bbe2b99f7ad4f334d0180f07789d1b80",
+    "home-production-model-mobility-v11.js": "3de077af5adbbebb24e0e66f0acd9843eb74b78b245fb1c32d26de94bf616386"
+  },
+  "native": {
+    "forward": [
+      {
+        "arm": "v10",
+        "frames": {
+          "n": 5031,
+          "p50": 17,
+          "p95": 116,
+          "p99": 160,
+          "max": 282,
+          "over250": 13,
+          "over500": 0,
+          "over1000": 0
+        },
+        "wallMs": 180025,
+        "modelSeconds": 172.49199999999882,
+        "moves": 110,
+        "distanceTerrain": 882.5024244556547,
+        "events": {
+          "move": 91,
+          "look": 66,
+          "arrive": 89,
+          "proximity": 89,
+          "social": 5,
+          "environment": 7
+        },
+        "pausedMs": 7571,
+        "gateHistory": [
+          {
+            "wallMs": 43970,
+            "clock": 44.03300000000019,
+            "blocked": true,
+            "reasons": [
+              "lower-notice"
+            ],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 46455,
+            "clock": 44.081000000000195,
+            "blocked": false,
+            "reasons": [],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 104080,
+            "clock": 101.6520000000009,
+            "blocked": true,
+            "reasons": [
+              "lower-notice",
+              "group-bounce",
+              "resident-bounce"
+            ],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": "bounce"
+          },
+          {
+            "wallMs": 106566,
+            "clock": 101.7000000000009,
+            "blocked": false,
+            "reasons": [],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 164232,
+            "clock": 159.26599999999937,
+            "blocked": true,
+            "reasons": [
+              "lower-notice"
+            ],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 166725,
+            "clock": 159.29999999999936,
+            "blocked": false,
+            "reasons": [],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          }
+        ],
+        "maxInterval": [
+          146249,
+          146531
+        ],
+        "maxIntervalCPUms": {
+          "main": 89.8,
+          "other": 2.0,
+          "compositor": 48.7,
+          "raster": 739.4,
+          "jit": 0.0,
+          "gc": 2.2
+        },
+        "alignmentErrorMs": 40.0,
+        "cpuMs": {
+          "main": 17082.28,
+          "raster": 414906.03,
+          "compositor": 19642.03
+        }
+      },
+      {
+        "arm": "v11-foot",
+        "frames": {
+          "n": 4975,
+          "p50": 18,
+          "p95": 113,
+          "p99": 137,
+          "max": 279,
+          "over250": 8,
+          "over500": 0,
+          "over1000": 0
+        },
+        "wallMs": 180025,
+        "modelSeconds": 172.53199999999805,
+        "moves": 113,
+        "distanceTerrain": 1050.9425232709154,
+        "events": {
+          "move": 80,
+          "look": 66,
+          "social": 3,
+          "arrive": 77,
+          "proximity": 77,
+          "environment": 4
+        },
+        "pausedMs": 7548,
+        "gateHistory": [
+          {
+            "wallMs": 49061,
+            "clock": 49.17100000000013,
+            "blocked": true,
+            "reasons": [
+              "lower-notice"
+            ],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 51583,
+            "clock": 49.21900000000013,
+            "blocked": false,
+            "reasons": [],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 109249,
+            "clock": 106.83599999999966,
+            "blocked": true,
+            "reasons": [
+              "lower-notice"
+            ],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 111760,
+            "clock": 106.86999999999966,
+            "blocked": false,
+            "reasons": [],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 169382,
+            "clock": 164.41499999999823,
+            "blocked": true,
+            "reasons": [
+              "lower-notice",
+              "group-bounce",
+              "resident-bounce"
+            ],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": "bounce"
+          },
+          {
+            "wallMs": 171880,
+            "clock": 164.48899999999824,
+            "blocked": false,
+            "reasons": [],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          }
+        ],
+        "maxInterval": [
+          85206,
+          85485
+        ],
+        "maxIntervalCPUms": {
+          "main": 82.0,
+          "other": 3.9,
+          "compositor": 49.4,
+          "raster": 763.4,
+          "jit": 5.5,
+          "gc": 0.0
+        },
+        "alignmentErrorMs": 40.4,
+        "cpuMs": {
+          "main": 16875.78,
+          "raster": 409692.1,
+          "compositor": 21090.87
+        }
+      },
+      {
+        "arm": "v11",
+        "frames": {
+          "n": 4380,
+          "p50": 17,
+          "p95": 121,
+          "p99": 160,
+          "max": 410,
+          "over250": 16,
+          "over500": 0,
+          "over1000": 0
+        },
+        "wallMs": 180001,
+        "modelSeconds": 171.82499999999723,
+        "moves": 125,
+        "distanceTerrain": 1147.8638869924623,
+        "events": {
+          "move": 96,
+          "look": 58,
+          "arrive": 93,
+          "proximity": 93,
+          "social": 2,
+          "environment": 11
+        },
+        "pausedMs": 8195,
+        "gateHistory": [
+          {
+            "wallMs": 49596,
+            "clock": 49.64199999999998,
+            "blocked": true,
+            "reasons": [
+              "lower-notice",
+              "group-bounce",
+              "resident-bounce"
+            ],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": "bounce"
+          },
+          {
+            "wallMs": 52110,
+            "clock": 49.71599999999998,
+            "blocked": false,
+            "reasons": [],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 109652,
+            "clock": 107.21099999999899,
+            "blocked": true,
+            "reasons": [
+              "lower-notice"
+            ],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 112150,
+            "clock": 107.25299999999899,
+            "blocked": false,
+            "reasons": [],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 112602,
+            "clock": 107.46999999999898,
+            "blocked": true,
+            "reasons": [],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 113279,
+            "clock": 107.73099999999897,
+            "blocked": false,
+            "reasons": [],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 169995,
+            "clock": 164.38599999999752,
+            "blocked": true,
+            "reasons": [
+              "lower-notice"
+            ],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 172515,
+            "clock": 164.43199999999752,
+            "blocked": false,
+            "reasons": [],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          }
+        ],
+        "maxInterval": [
+          112602,
+          113012
+        ],
+        "maxIntervalCPUms": {
+          "main": 229.8,
+          "other": 3.5,
+          "compositor": 59.2,
+          "raster": 923.6,
+          "jit": 52.1,
+          "gc": 1.7
+        },
+        "alignmentErrorMs": 36.0,
+        "cpuMs": {
+          "main": 17089.52,
+          "raster": 433230.91,
+          "compositor": 18583.7
+        }
+      }
+    ],
+    "reverse": [
+      {
+        "arm": "v11",
+        "frames": {
+          "n": 5168,
+          "p50": 17,
+          "p95": 112,
+          "p99": 136,
+          "max": 272,
+          "over250": 6,
+          "over500": 0,
+          "over1000": 0
+        },
+        "wallMs": 180003,
+        "modelSeconds": 172.45899999999835,
+        "moves": 108,
+        "distanceTerrain": 898.6763590846754,
+        "events": {
+          "move": 83,
+          "look": 68,
+          "arrive": 79,
+          "proximity": 79,
+          "social": 4,
+          "environment": 8
+        },
+        "pausedMs": 7571,
+        "gateHistory": [
+          {
+            "wallMs": 49570,
+            "clock": 49.58999999999997,
+            "blocked": true,
+            "reasons": [
+              "lower-notice"
+            ],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 52118,
+            "clock": 49.66499999999997,
+            "blocked": false,
+            "reasons": [],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 109664,
+            "clock": 107.15399999999971,
+            "blocked": true,
+            "reasons": [
+              "lower-notice",
+              "group-bounce",
+              "resident-bounce"
+            ],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": "bounce"
+          },
+          {
+            "wallMs": 112154,
+            "clock": 107.20299999999972,
+            "blocked": false,
+            "reasons": [],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 169782,
+            "clock": 164.78399999999868,
+            "blocked": true,
+            "reasons": [
+              "lower-notice"
+            ],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 172300,
+            "clock": 164.82999999999868,
+            "blocked": false,
+            "reasons": [],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          }
+        ],
+        "maxInterval": [
+          55595,
+          55867
+        ],
+        "maxIntervalCPUms": {
+          "main": 78.7,
+          "other": 2.1,
+          "compositor": 49.0,
+          "raster": 787.7,
+          "jit": 0.0,
+          "gc": 0.0
+        },
+        "alignmentErrorMs": 51.6,
+        "cpuMs": {
+          "main": 16693.87,
+          "raster": 400008.37,
+          "compositor": 19941.2
+        }
+      },
+      {
+        "arm": "v11-foot",
+        "frames": {
+          "n": 4581,
+          "p50": 17,
+          "p95": 119,
+          "p99": 160,
+          "max": 281,
+          "over250": 11,
+          "over500": 0,
+          "over1000": 0
+        },
+        "wallMs": 180031,
+        "modelSeconds": 172.52799999999732,
+        "moves": 112,
+        "distanceTerrain": 914.8475884210995,
+        "events": {
+          "move": 95,
+          "look": 57,
+          "arrive": 93,
+          "proximity": 93,
+          "social": 1,
+          "environment": 8
+        },
+        "pausedMs": 7529,
+        "gateHistory": [
+          {
+            "wallMs": 49623,
+            "clock": 49.664000000000186,
+            "blocked": true,
+            "reasons": [
+              "lower-notice"
+            ],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 52125,
+            "clock": 49.713000000000186,
+            "blocked": false,
+            "reasons": [],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 109739,
+            "clock": 107.30299999999947,
+            "blocked": true,
+            "reasons": [
+              "lower-notice"
+            ],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 112234,
+            "clock": 107.37299999999946,
+            "blocked": false,
+            "reasons": [],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 169851,
+            "clock": 164.9179999999976,
+            "blocked": true,
+            "reasons": [
+              "lower-notice",
+              "group-bounce",
+              "resident-bounce"
+            ],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": "bounce"
+          },
+          {
+            "wallMs": 172362,
+            "clock": 164.9659999999976,
+            "blocked": false,
+            "reasons": [],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          }
+        ],
+        "maxInterval": [
+          136865,
+          137146
+        ],
+        "maxIntervalCPUms": {
+          "main": 87.3,
+          "other": 1.8,
+          "compositor": 48.8,
+          "raster": 788.8,
+          "jit": 0.2,
+          "gc": 0.8
+        },
+        "alignmentErrorMs": 40.1,
+        "cpuMs": {
+          "main": 16476.15,
+          "raster": 430106.03,
+          "compositor": 18603.89
+        }
+      },
+      {
+        "arm": "v10",
+        "frames": {
+          "n": 4119,
+          "p50": 17,
+          "p95": 122,
+          "p99": 183,
+          "max": 526,
+          "over250": 13,
+          "over500": 1,
+          "over1000": 0
+        },
+        "wallMs": 180043,
+        "modelSeconds": 172.4999999999984,
+        "moves": 84,
+        "distanceTerrain": 734.9348008426329,
+        "events": {
+          "move": 73,
+          "look": 71,
+          "arrive": 69,
+          "proximity": 69,
+          "environment": 9,
+          "social": 2
+        },
+        "pausedMs": 7594,
+        "gateHistory": [
+          {
+            "wallMs": 49712,
+            "clock": 49.76500000000025,
+            "blocked": true,
+            "reasons": [
+              "lower-notice",
+              "group-bounce",
+              "resident-bounce"
+            ],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": "bounce"
+          },
+          {
+            "wallMs": 52188,
+            "clock": 49.83500000000025,
+            "blocked": false,
+            "reasons": [],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 109822,
+            "clock": 107.44899999999967,
+            "blocked": true,
+            "reasons": [
+              "lower-notice"
+            ],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 112335,
+            "clock": 107.49199999999968,
+            "blocked": false,
+            "reasons": [],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 170001,
+            "clock": 164.99599999999862,
+            "blocked": true,
+            "reasons": [
+              "lower-notice"
+            ],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          },
+          {
+            "wallMs": 172482,
+            "clock": 165.03899999999862,
+            "blocked": false,
+            "reasons": [],
+            "visibility": "visible",
+            "trialPaused": false,
+            "groupReaction": null
+          }
+        ],
+        "maxInterval": [
+          21135,
+          21661
+        ],
+        "maxIntervalCPUms": {
+          "main": 6.5,
+          "other": 2.2,
+          "compositor": 417.4,
+          "raster": 349.0,
+          "jit": 0.8,
+          "gc": 0.0
+        },
+        "alignmentErrorMs": 34.2,
+        "cpuMs": {
+          "main": 15278.26,
+          "raster": 443511.68,
+          "compositor": 16983.25
+        }
+      }
+    ],
+    "trace": [
+      {
+        "arm": "v10",
+        "frames": {
+          "n": 1050,
+          "p50": 17,
+          "p95": 53,
+          "p99": 76,
+          "max": 183,
+          "over250": 0,
+          "over500": 0,
+          "over1000": 0
+        },
+        "wallMs": 25002,
+        "modelSeconds": 25.037000000000035,
+        "moves": 17,
+        "distanceTerrain": 113.15574073512494,
+        "events": {
+          "move": 14,
+          "look": 13,
+          "arrive": 10,
+          "proximity": 10,
+          "social": 1,
+          "environment": 2
+        },
+        "pausedMs": 0,
+        "gateHistory": [],
+        "maxInterval": [
+          20618,
+          20801
+        ],
+        "maxIntervalCPUms": {
+          "main": 53.8,
+          "other": 1.3,
+          "compositor": 40.1,
+          "raster": 478.3,
+          "jit": 1.5,
+          "gc": 0.0
+        },
+        "alignmentErrorMs": 45.5,
+        "cpuMs": {
+          "main": 2489.34,
+          "raster": 45496.03,
+          "compositor": 3353.55
+        },
+        "phaseTotalsInclusive": {
+          "stepRelief": {
+            "calls": 584,
+            "ms": 86,
+            "max": 8
+          },
+          "step": {
+            "calls": 584,
+            "ms": 291,
+            "max": 24
+          },
+          "world": {
+            "calls": 557,
+            "ms": 190,
+            "max": 4
+          },
+          "paintForeground": {
+            "calls": 16296,
+            "ms": 137,
+            "max": 2
+          },
+          "paint": {
+            "calls": 582,
+            "ms": 357,
+            "max": 3
+          },
+          "nature": {
+            "calls": 204,
+            "ms": 91,
+            "max": 4
+          },
+          "route": {
+            "calls": 64,
+            "ms": 156,
+            "max": 5
+          },
+          "localIntentRoute": {
+            "calls": 26,
+            "ms": 3,
+            "max": 1
+          },
+          "move": {
+            "calls": 33,
+            "ms": 206,
+            "max": 11
+          },
+          "modelSync": {
+            "calls": 19,
+            "ms": 18,
+            "max": 1
+          },
+          "sync": {
+            "calls": 19,
+            "ms": 36,
+            "max": 3
+          },
+          "ambientPairSlice": {
+            "calls": 188,
+            "ms": 24,
+            "max": 2
+          },
+          "yieldLeg": {
+            "calls": 6,
+            "ms": 0,
+            "max": 0
+          }
+        },
+        "domReads": {
+          "world.getBoundingClientRect": 1114,
+          "world.worldRect": 557,
+          "paintForeground.getBoundingClientRect": 16878,
+          "other.getBoundingClientRect": 2583,
+          "actorBounds.getBoundingClientRect": 3584,
+          "step.getBoundingClientRect": 347,
+          "clearance": 10405,
+          "move.getBoundingClientRect": 33,
+          "contactSegmentSafe": 48244,
+          "other.worldRect": 25,
+          "sync.getBoundingClientRect": 1064,
+          "other.getComputedStyle": 18,
+          "paint.getBoundingClientRect": 6,
+          "stepRelief.getBoundingClientRect": 20,
+          "yieldLeg.getBoundingClientRect": 6
+        }
+      },
+      {
+        "arm": "v11-foot",
+        "frames": {
+          "n": 1062,
+          "p50": 17,
+          "p95": 58,
+          "p99": 69,
+          "max": 160,
+          "over250": 0,
+          "over500": 0,
+          "over1000": 0
+        },
+        "wallMs": 25010,
+        "modelSeconds": 25.030999999999977,
+        "moves": 14,
+        "distanceTerrain": 128.13925381010296,
+        "events": {
+          "move": 13,
+          "look": 15,
+          "arrive": 10,
+          "proximity": 10,
+          "social": 1,
+          "environment": 3
+        },
+        "pausedMs": 0,
+        "gateHistory": [],
+        "maxInterval": [
+          4245,
+          4405
+        ],
+        "maxIntervalCPUms": {
+          "main": 69.8,
+          "other": 1.7,
+          "compositor": 44.1,
+          "raster": 443.7,
+          "jit": 1.3,
+          "gc": 0.0
+        },
+        "alignmentErrorMs": 50.9,
+        "cpuMs": {
+          "main": 2326.75,
+          "raster": 43885.56,
+          "compositor": 2827.51
+        },
+        "phaseTotalsInclusive": {
+          "stepRelief": {
+            "calls": 574,
+            "ms": 58,
+            "max": 11
+          },
+          "step": {
+            "calls": 574,
+            "ms": 249,
+            "max": 33
+          },
+          "world": {
+            "calls": 546,
+            "ms": 172,
+            "max": 2
+          },
+          "paintForeground": {
+            "calls": 16072,
+            "ms": 115,
+            "max": 2
+          },
+          "paint": {
+            "calls": 574,
+            "ms": 292,
+            "max": 4
+          },
+          "nature": {
+            "calls": 207,
+            "ms": 102,
+            "max": 1
+          },
+          "modelSync": {
+            "calls": 21,
+            "ms": 16,
+            "max": 1
+          },
+          "sync": {
+            "calls": 21,
+            "ms": 36,
+            "max": 2
+          },
+          "route": {
+            "calls": 52,
+            "ms": 146,
+            "max": 7
+          },
+          "localIntentRoute": {
+            "calls": 19,
+            "ms": 3,
+            "max": 1
+          },
+          "move": {
+            "calls": 26,
+            "ms": 182,
+            "max": 12
+          },
+          "ambientPairSlice": {
+            "calls": 115,
+            "ms": 19,
+            "max": 2
+          }
+        },
+        "domReads": {
+          "world.getBoundingClientRect": 1092,
+          "world.worldRect": 546,
+          "paintForeground.getBoundingClientRect": 16646,
+          "other.getBoundingClientRect": 2688,
+          "actorBounds.getBoundingClientRect": 3440,
+          "step.getBoundingClientRect": 385,
+          "clearance": 11060,
+          "other.worldRect": 28,
+          "sync.getBoundingClientRect": 1176,
+          "move.getBoundingClientRect": 26,
+          "contactSegmentSafe": 33330,
+          "other.getComputedStyle": 21,
+          "paint.getBoundingClientRect": 7,
+          "stepRelief.getBoundingClientRect": 13
+        }
+      },
+      {
+        "arm": "v11",
+        "frames": {
+          "n": 811,
+          "p50": 17,
+          "p95": 92,
+          "p99": 105,
+          "max": 183,
+          "over250": 0,
+          "over500": 0,
+          "over1000": 0
+        },
+        "wallMs": 25013,
+        "modelSeconds": 25.016000000000048,
+        "moves": 20,
+        "distanceTerrain": 242.34195874275005,
+        "events": {
+          "move": 15,
+          "look": 8,
+          "arrive": 14,
+          "proximity": 14,
+          "social": 1,
+          "environment": 1
+        },
+        "pausedMs": 0,
+        "gateHistory": [],
+        "maxInterval": [
+          16620,
+          16803
+        ],
+        "maxIntervalCPUms": {
+          "main": 83.3,
+          "other": 1.7,
+          "compositor": 48.7,
+          "raster": 398.9,
+          "jit": 8.6,
+          "gc": 1.7
+        },
+        "alignmentErrorMs": 19.3,
+        "cpuMs": {
+          "main": 2331.07,
+          "raster": 55468.32,
+          "compositor": 3116.4
+        },
+        "phaseTotalsInclusive": {
+          "stepRelief": {
+            "calls": 513,
+            "ms": 53,
+            "max": 7
+          },
+          "step": {
+            "calls": 513,
+            "ms": 255,
+            "max": 17
+          },
+          "world": {
+            "calls": 476,
+            "ms": 195,
+            "max": 3
+          },
+          "paintForeground": {
+            "calls": 14000,
+            "ms": 150,
+            "max": 2
+          },
+          "paint": {
+            "calls": 500,
+            "ms": 356,
+            "max": 4
+          },
+          "nature": {
+            "calls": 205,
+            "ms": 98,
+            "max": 3
+          },
+          "chooseWanderGoal": {
+            "calls": 15,
+            "ms": 1,
+            "max": 1
+          },
+          "route": {
+            "calls": 56,
+            "ms": 121,
+            "max": 6
+          },
+          "localIntentRoute": {
+            "calls": 17,
+            "ms": 4,
+            "max": 1
+          },
+          "move": {
+            "calls": 29,
+            "ms": 157,
+            "max": 10
+          },
+          "modelSync": {
+            "calls": 19,
+            "ms": 20,
+            "max": 2
+          },
+          "sync": {
+            "calls": 19,
+            "ms": 44,
+            "max": 5
+          },
+          "ambientPairSlice": {
+            "calls": 106,
+            "ms": 20,
+            "max": 2
+          },
+          "yieldLeg": {
+            "calls": 5,
+            "ms": 0,
+            "max": 0
+          }
+        },
+        "domReads": {
+          "world.getBoundingClientRect": 952,
+          "world.worldRect": 476,
+          "paintForeground.getBoundingClientRect": 14500,
+          "other.getBoundingClientRect": 2044,
+          "actorBounds.getBoundingClientRect": 3284,
+          "step.getBoundingClientRect": 383,
+          "clearance": 11299,
+          "move.getBoundingClientRect": 29,
+          "other.worldRect": 24,
+          "sync.getBoundingClientRect": 1064,
+          "contactSegmentSafe": 30425,
+          "chooseWanderGoal.getBoundingClientRect": 5,
+          "other.getComputedStyle": 17,
+          "paint.getBoundingClientRect": 1377,
+          "stepRelief.getBoundingClientRect": 15,
+          "yieldLeg.getBoundingClientRect": 5
+        }
+      }
+    ]
+  },
+  "replay": {
+    "fixed": {
+      "fixtureSHA256": "a6815e666d2be485980c7e87691b6253a0133534344bb8ce707a05573b426805",
+      "phaseSHA256": "ce9f0ffa68c33ce65766e865689e8e567ef4e6459bfcbd3a9c7fb8f292e634d8",
+      "physicalMovement": {
+        "residentsInAll480Frames": 27,
+        "maxSimultaneous": 2,
+        "meanSimultaneous": 0.5608465608465608,
+        "framesWithFour": 0,
+        "framesWithEight": 0
+      },
+      "rows": [
+        {
+          "arm": "v10",
+          "order": "forward",
+          "frames": {
+            "n": 378,
+            "p50": 47,
+            "p95": 52,
+            "p99": 70,
+            "max": 105,
+            "over250": 0,
+            "over500": 0,
+            "over1000": 0
+          },
+          "cpuMs": {
+            "main": 2608.23,
+            "raster": 58434.03,
+            "compositor": 2482.85
+          },
+          "busy": {
+            "atLeast1": {
+              "n": 181,
+              "p50": 48,
+              "p95": 53,
+              "p99": 71,
+              "max": 75,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            },
+            "atLeast4": null,
+            "atLeast8": null
+          }
+        },
+        {
+          "arm": "v11-foot",
+          "order": "forward",
+          "frames": {
+            "n": 378,
+            "p50": 47,
+            "p95": 52,
+            "p99": 54,
+            "max": 67,
+            "over250": 0,
+            "over500": 0,
+            "over1000": 0
+          },
+          "cpuMs": {
+            "main": 2517.4,
+            "raster": 58245.61,
+            "compositor": 2372.18
+          },
+          "busy": {
+            "atLeast1": {
+              "n": 181,
+              "p50": 48,
+              "p95": 52,
+              "p99": 56,
+              "max": 67,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            },
+            "atLeast4": null,
+            "atLeast8": null
+          }
+        },
+        {
+          "arm": "v11",
+          "order": "forward",
+          "frames": {
+            "n": 378,
+            "p50": 47,
+            "p95": 51,
+            "p99": 55,
+            "max": 56,
+            "over250": 0,
+            "over500": 0,
+            "over1000": 0
+          },
+          "cpuMs": {
+            "main": 2518.62,
+            "raster": 57980.95,
+            "compositor": 2357.34
+          },
+          "busy": {
+            "atLeast1": {
+              "n": 181,
+              "p50": 48,
+              "p95": 53,
+              "p99": 55,
+              "max": 56,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            },
+            "atLeast4": null,
+            "atLeast8": null
+          }
+        },
+        {
+          "arm": "v11",
+          "order": "reverse",
+          "frames": {
+            "n": 378,
+            "p50": 47,
+            "p95": 51,
+            "p99": 56,
+            "max": 62,
+            "over250": 0,
+            "over500": 0,
+            "over1000": 0
+          },
+          "cpuMs": {
+            "main": 2497.84,
+            "raster": 57978.09,
+            "compositor": 2325.6
+          },
+          "busy": {
+            "atLeast1": {
+              "n": 181,
+              "p50": 48,
+              "p95": 53,
+              "p99": 56,
+              "max": 62,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            },
+            "atLeast4": null,
+            "atLeast8": null
+          }
+        },
+        {
+          "arm": "v11-foot",
+          "order": "reverse",
+          "frames": {
+            "n": 378,
+            "p50": 48,
+            "p95": 53,
+            "p99": 63,
+            "max": 70,
+            "over250": 0,
+            "over500": 0,
+            "over1000": 0
+          },
+          "cpuMs": {
+            "main": 2543.36,
+            "raster": 58185.88,
+            "compositor": 2432.59
+          },
+          "busy": {
+            "atLeast1": {
+              "n": 181,
+              "p50": 48,
+              "p95": 55,
+              "p99": 68,
+              "max": 70,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            },
+            "atLeast4": null,
+            "atLeast8": null
+          }
+        },
+        {
+          "arm": "v10",
+          "order": "reverse",
+          "frames": {
+            "n": 378,
+            "p50": 47,
+            "p95": 51,
+            "p99": 59,
+            "max": 69,
+            "over250": 0,
+            "over500": 0,
+            "over1000": 0
+          },
+          "cpuMs": {
+            "main": 2509.02,
+            "raster": 58300.36,
+            "compositor": 2371.53
+          },
+          "busy": {
+            "atLeast1": {
+              "n": 181,
+              "p50": 48,
+              "p95": 51,
+              "p99": 59,
+              "max": 62,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            },
+            "atLeast4": null,
+            "atLeast8": null
+          }
+        }
+      ]
+    },
+    "stress": {
+      "fixtureSHA256": "04117a2701c96d137d8767b3d2954797e8370c29384193cfe8737add2f7f4e74",
+      "phaseSHA256": "7f5046b758b88e0f2389d72f4e190744f243995bbdc347a137373cca81efd42b",
+      "physicalMovement": {
+        "residentsInAll480Frames": 27,
+        "maxSimultaneous": 12,
+        "meanSimultaneous": 3.4682539682539684,
+        "framesWithFour": 175,
+        "framesWithEight": 6
+      },
+      "rows": [
+        {
+          "arm": "v10",
+          "order": "forward",
+          "frames": {
+            "n": 378,
+            "p50": 56,
+            "p95": 63,
+            "p99": 81,
+            "max": 122,
+            "over250": 0,
+            "over500": 0,
+            "over1000": 0
+          },
+          "cpuMs": {
+            "main": 4973.38,
+            "raster": 64861.5,
+            "compositor": 3299.17
+          },
+          "busy": {
+            "atLeast1": {
+              "n": 368,
+              "p50": 56,
+              "p95": 63,
+              "p99": 81,
+              "max": 122,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            },
+            "atLeast4": {
+              "n": 175,
+              "p50": 58,
+              "p95": 64,
+              "p99": 69,
+              "max": 94,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            },
+            "atLeast8": {
+              "n": 6,
+              "p50": 64,
+              "p95": 69,
+              "p99": 69,
+              "max": 69,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            }
+          }
+        },
+        {
+          "arm": "v11-foot",
+          "order": "forward",
+          "frames": {
+            "n": 378,
+            "p50": 56,
+            "p95": 62,
+            "p99": 67,
+            "max": 71,
+            "over250": 0,
+            "over500": 0,
+            "over1000": 0
+          },
+          "cpuMs": {
+            "main": 4963.96,
+            "raster": 65318.55,
+            "compositor": 3117.25
+          },
+          "busy": {
+            "atLeast1": {
+              "n": 368,
+              "p50": 56,
+              "p95": 62,
+              "p99": 67,
+              "max": 71,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            },
+            "atLeast4": {
+              "n": 175,
+              "p50": 58,
+              "p95": 63,
+              "p99": 68,
+              "max": 71,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            },
+            "atLeast8": {
+              "n": 6,
+              "p50": 60,
+              "p95": 63,
+              "p99": 63,
+              "max": 63,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            }
+          }
+        },
+        {
+          "arm": "v11",
+          "order": "forward",
+          "frames": {
+            "n": 378,
+            "p50": 56,
+            "p95": 62,
+            "p99": 64,
+            "max": 67,
+            "over250": 0,
+            "over500": 0,
+            "over1000": 0
+          },
+          "cpuMs": {
+            "main": 4885.81,
+            "raster": 65172.73,
+            "compositor": 3092.85
+          },
+          "busy": {
+            "atLeast1": {
+              "n": 368,
+              "p50": 56,
+              "p95": 62,
+              "p99": 64,
+              "max": 67,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            },
+            "atLeast4": {
+              "n": 175,
+              "p50": 58,
+              "p95": 62,
+              "p99": 65,
+              "max": 67,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            },
+            "atLeast8": {
+              "n": 6,
+              "p50": 60,
+              "p95": 62,
+              "p99": 62,
+              "max": 62,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            }
+          }
+        },
+        {
+          "arm": "v11",
+          "order": "reverse",
+          "frames": {
+            "n": 378,
+            "p50": 57,
+            "p95": 63,
+            "p99": 71,
+            "max": 84,
+            "over250": 0,
+            "over500": 0,
+            "over1000": 0
+          },
+          "cpuMs": {
+            "main": 4934.18,
+            "raster": 65143.59,
+            "compositor": 3185.58
+          },
+          "busy": {
+            "atLeast1": {
+              "n": 368,
+              "p50": 57,
+              "p95": 63,
+              "p99": 71,
+              "max": 84,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            },
+            "atLeast4": {
+              "n": 175,
+              "p50": 58,
+              "p95": 66,
+              "p99": 72,
+              "max": 74,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            },
+            "atLeast8": {
+              "n": 6,
+              "p50": 60,
+              "p95": 67,
+              "p99": 67,
+              "max": 67,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            }
+          }
+        },
+        {
+          "arm": "v11-foot",
+          "order": "reverse",
+          "frames": {
+            "n": 378,
+            "p50": 56,
+            "p95": 61,
+            "p99": 64,
+            "max": 82,
+            "over250": 0,
+            "over500": 0,
+            "over1000": 0
+          },
+          "cpuMs": {
+            "main": 4900.37,
+            "raster": 65223.84,
+            "compositor": 3155.95
+          },
+          "busy": {
+            "atLeast1": {
+              "n": 368,
+              "p50": 56,
+              "p95": 61,
+              "p99": 64,
+              "max": 82,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            },
+            "atLeast4": {
+              "n": 175,
+              "p50": 58,
+              "p95": 62,
+              "p99": 69,
+              "max": 73,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            },
+            "atLeast8": {
+              "n": 6,
+              "p50": 61,
+              "p95": 64,
+              "p99": 64,
+              "max": 64,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            }
+          }
+        },
+        {
+          "arm": "v10",
+          "order": "reverse",
+          "frames": {
+            "n": 378,
+            "p50": 56,
+            "p95": 61,
+            "p99": 65,
+            "max": 80,
+            "over250": 0,
+            "over500": 0,
+            "over1000": 0
+          },
+          "cpuMs": {
+            "main": 4922.56,
+            "raster": 65266.25,
+            "compositor": 3207.51
+          },
+          "busy": {
+            "atLeast1": {
+              "n": 368,
+              "p50": 56,
+              "p95": 61,
+              "p99": 65,
+              "max": 80,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            },
+            "atLeast4": {
+              "n": 175,
+              "p50": 58,
+              "p95": 63,
+              "p99": 66,
+              "max": 69,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            },
+            "atLeast8": {
+              "n": 6,
+              "p50": 61,
+              "p95": 66,
+              "p99": 66,
+              "max": 66,
+              "over250": 0,
+              "over500": 0,
+              "over1000": 0
+            }
+          }
+        }
+      ]
+    }
+  },
+  "touch": [
+    {
+      "arm": "v10",
+      "order": "forward",
+      "commands": 9,
+      "selected": 9,
+      "arrivals": 3,
+      "moved": 3,
+      "immediateAcceptance": 2,
+      "laterPlannedKeys": [
+        "companion:tanuki"
+      ],
+      "movingKeys": [
+        "companion:bat",
+        "companion:punyu",
+        "companion:tanuki"
+      ],
+      "handler": {
+        "n": 9,
+        "p50": 9,
+        "p95": 27,
+        "p99": 27,
+        "max": 27,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "plans": [
+        {
+          "key": "companion:cat_friend",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:hamster",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:bat",
+          "target": {
+            "x": 186.48711227537638,
+            "y": 157.90410724468182
+          },
+          "arrival": {
+            "x": 186.48666666666668,
+            "y": 157.9051149984391
+          }
+        },
+        {
+          "key": "companion:punyu",
+          "target": {
+            "x": 182.52639234196096,
+            "y": 370.15497329758654
+          },
+          "arrival": {
+            "x": 182.53,
+            "y": 370.15319687635963
+          }
+        },
+        {
+          "key": "companion:watcher",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:tanuki",
+          "target": {
+            "x": 188.5237042449185,
+            "y": 185.4892656757752
+          },
+          "arrival": {
+            "x": 188.5266666666667,
+            "y": 185.49000799953947
+          }
+        },
+        {
+          "key": "companion:panda",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:box",
+          "target": null,
+          "arrival": null
+        }
+      ],
+      "onset": {
+        "n": 3,
+        "p50": 28,
+        "p95": 332,
+        "p99": 332,
+        "max": 332,
+        "over250": 1,
+        "over500": 0,
+        "over1000": 0
+      },
+      "arrival": {
+        "n": 3,
+        "p50": 127,
+        "p95": 581,
+        "p99": 581,
+        "max": 581,
+        "over250": 1,
+        "over500": 1,
+        "over1000": 0
+      },
+      "queue": {
+        "n": 9,
+        "p50": 0,
+        "p95": 1,
+        "p99": 1,
+        "max": 1,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v11-foot",
+      "order": "forward",
+      "commands": 9,
+      "selected": 9,
+      "arrivals": 3,
+      "moved": 3,
+      "immediateAcceptance": 2,
+      "laterPlannedKeys": [
+        "companion:tanuki"
+      ],
+      "movingKeys": [
+        "companion:bat",
+        "companion:punyu",
+        "companion:tanuki"
+      ],
+      "handler": {
+        "n": 9,
+        "p50": 8,
+        "p95": 20,
+        "p99": 20,
+        "max": 20,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "plans": [
+        {
+          "key": "companion:cat_friend",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:hamster",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:bat",
+          "target": {
+            "x": 186.48711227537638,
+            "y": 157.90410724468182
+          },
+          "arrival": {
+            "x": 186.48666666666668,
+            "y": 157.9051149984391
+          }
+        },
+        {
+          "key": "companion:punyu",
+          "target": {
+            "x": 182.52639234196096,
+            "y": 370.15497329758654
+          },
+          "arrival": {
+            "x": 182.53,
+            "y": 370.15319687635963
+          }
+        },
+        {
+          "key": "companion:watcher",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:tanuki",
+          "target": {
+            "x": 188.5237042449185,
+            "y": 185.4892656757752
+          },
+          "arrival": {
+            "x": 188.5266666666667,
+            "y": 185.49000799953947
+          }
+        },
+        {
+          "key": "companion:panda",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:box",
+          "target": null,
+          "arrival": null
+        }
+      ],
+      "onset": {
+        "n": 3,
+        "p50": 33,
+        "p95": 316,
+        "p99": 316,
+        "max": 316,
+        "over250": 1,
+        "over500": 0,
+        "over1000": 0
+      },
+      "arrival": {
+        "n": 3,
+        "p50": 150,
+        "p95": 523,
+        "p99": 523,
+        "max": 523,
+        "over250": 1,
+        "over500": 1,
+        "over1000": 0
+      },
+      "queue": {
+        "n": 9,
+        "p50": 0,
+        "p95": 1,
+        "p99": 1,
+        "max": 1,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v11",
+      "order": "forward",
+      "commands": 9,
+      "selected": 9,
+      "arrivals": 3,
+      "moved": 3,
+      "immediateAcceptance": 2,
+      "laterPlannedKeys": [
+        "companion:tanuki"
+      ],
+      "movingKeys": [
+        "companion:bat",
+        "companion:punyu",
+        "companion:tanuki"
+      ],
+      "handler": {
+        "n": 9,
+        "p50": 9,
+        "p95": 24,
+        "p99": 24,
+        "max": 24,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "plans": [
+        {
+          "key": "companion:cat_friend",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:hamster",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:bat",
+          "target": {
+            "x": 186.48711227537638,
+            "y": 157.90410724468182
+          },
+          "arrival": {
+            "x": 186.48666666666668,
+            "y": 157.9051149984391
+          }
+        },
+        {
+          "key": "companion:punyu",
+          "target": {
+            "x": 182.52639234196096,
+            "y": 370.15497329758654
+          },
+          "arrival": {
+            "x": 182.53,
+            "y": 370.15319687635963
+          }
+        },
+        {
+          "key": "companion:watcher",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:tanuki",
+          "target": {
+            "x": 188.5237042449185,
+            "y": 185.4892656757752
+          },
+          "arrival": {
+            "x": 188.5266666666667,
+            "y": 185.49000799953947
+          }
+        },
+        {
+          "key": "companion:panda",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:box",
+          "target": null,
+          "arrival": null
+        }
+      ],
+      "onset": {
+        "n": 3,
+        "p50": 28,
+        "p95": 258,
+        "p99": 258,
+        "max": 258,
+        "over250": 1,
+        "over500": 0,
+        "over1000": 0
+      },
+      "arrival": {
+        "n": 3,
+        "p50": 162,
+        "p95": 525,
+        "p99": 525,
+        "max": 525,
+        "over250": 1,
+        "over500": 1,
+        "over1000": 0
+      },
+      "queue": {
+        "n": 9,
+        "p50": 0,
+        "p95": 1,
+        "p99": 1,
+        "max": 1,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v11",
+      "order": "reverse",
+      "commands": 9,
+      "selected": 9,
+      "arrivals": 3,
+      "moved": 3,
+      "immediateAcceptance": 2,
+      "laterPlannedKeys": [
+        "companion:tanuki"
+      ],
+      "movingKeys": [
+        "companion:bat",
+        "companion:punyu",
+        "companion:tanuki"
+      ],
+      "handler": {
+        "n": 9,
+        "p50": 12,
+        "p95": 23,
+        "p99": 23,
+        "max": 23,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "plans": [
+        {
+          "key": "companion:cat_friend",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:hamster",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:bat",
+          "target": {
+            "x": 186.48711227537638,
+            "y": 157.90410724468182
+          },
+          "arrival": {
+            "x": 186.48666666666668,
+            "y": 157.9051149984391
+          }
+        },
+        {
+          "key": "companion:punyu",
+          "target": {
+            "x": 182.52639234196096,
+            "y": 370.15497329758654
+          },
+          "arrival": {
+            "x": 182.53,
+            "y": 370.15319687635963
+          }
+        },
+        {
+          "key": "companion:watcher",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:tanuki",
+          "target": {
+            "x": 188.5237042449185,
+            "y": 185.4892656757752
+          },
+          "arrival": {
+            "x": 188.5266666666667,
+            "y": 185.49000799953947
+          }
+        },
+        {
+          "key": "companion:panda",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:box",
+          "target": null,
+          "arrival": null
+        }
+      ],
+      "onset": {
+        "n": 3,
+        "p50": 53,
+        "p95": 293,
+        "p99": 293,
+        "max": 293,
+        "over250": 1,
+        "over500": 0,
+        "over1000": 0
+      },
+      "arrival": {
+        "n": 3,
+        "p50": 223,
+        "p95": 529,
+        "p99": 529,
+        "max": 529,
+        "over250": 1,
+        "over500": 1,
+        "over1000": 0
+      },
+      "queue": {
+        "n": 9,
+        "p50": 0,
+        "p95": 2,
+        "p99": 2,
+        "max": 2,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v11-foot",
+      "order": "reverse",
+      "commands": 9,
+      "selected": 9,
+      "arrivals": 3,
+      "moved": 3,
+      "immediateAcceptance": 2,
+      "laterPlannedKeys": [
+        "companion:tanuki"
+      ],
+      "movingKeys": [
+        "companion:bat",
+        "companion:punyu",
+        "companion:tanuki"
+      ],
+      "handler": {
+        "n": 9,
+        "p50": 13,
+        "p95": 34,
+        "p99": 34,
+        "max": 34,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "plans": [
+        {
+          "key": "companion:cat_friend",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:hamster",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:bat",
+          "target": {
+            "x": 186.48711227537638,
+            "y": 157.90410724468182
+          },
+          "arrival": {
+            "x": 186.48666666666668,
+            "y": 157.9051149984391
+          }
+        },
+        {
+          "key": "companion:punyu",
+          "target": {
+            "x": 182.52639234196096,
+            "y": 370.15497329758654
+          },
+          "arrival": {
+            "x": 182.53,
+            "y": 370.15319687635963
+          }
+        },
+        {
+          "key": "companion:watcher",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:tanuki",
+          "target": {
+            "x": 188.5237042449185,
+            "y": 185.4892656757752
+          },
+          "arrival": {
+            "x": 188.5266666666667,
+            "y": 185.49000799953947
+          }
+        },
+        {
+          "key": "companion:panda",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:box",
+          "target": null,
+          "arrival": null
+        }
+      ],
+      "onset": {
+        "n": 3,
+        "p50": 35,
+        "p95": 323,
+        "p99": 323,
+        "max": 323,
+        "over250": 1,
+        "over500": 0,
+        "over1000": 0
+      },
+      "arrival": {
+        "n": 3,
+        "p50": 160,
+        "p95": 658,
+        "p99": 658,
+        "max": 658,
+        "over250": 1,
+        "over500": 1,
+        "over1000": 0
+      },
+      "queue": {
+        "n": 9,
+        "p50": 0,
+        "p95": 1,
+        "p99": 1,
+        "max": 1,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v10",
+      "order": "reverse",
+      "commands": 9,
+      "selected": 9,
+      "arrivals": 3,
+      "moved": 3,
+      "immediateAcceptance": 2,
+      "laterPlannedKeys": [
+        "companion:tanuki"
+      ],
+      "movingKeys": [
+        "companion:bat",
+        "companion:punyu",
+        "companion:tanuki"
+      ],
+      "handler": {
+        "n": 9,
+        "p50": 13,
+        "p95": 30,
+        "p99": 30,
+        "max": 30,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "plans": [
+        {
+          "key": "companion:cat_friend",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:hamster",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:bat",
+          "target": {
+            "x": 186.48711227537638,
+            "y": 157.90410724468182
+          },
+          "arrival": {
+            "x": 186.48666666666668,
+            "y": 157.9051149984391
+          }
+        },
+        {
+          "key": "companion:punyu",
+          "target": {
+            "x": 182.52639234196096,
+            "y": 370.15497329758654
+          },
+          "arrival": {
+            "x": 182.53,
+            "y": 370.15319687635963
+          }
+        },
+        {
+          "key": "companion:watcher",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:tanuki",
+          "target": {
+            "x": 188.5237042449185,
+            "y": 185.4892656757752
+          },
+          "arrival": {
+            "x": 188.5266666666667,
+            "y": 185.49000799953947
+          }
+        },
+        {
+          "key": "companion:panda",
+          "target": null,
+          "arrival": null
+        },
+        {
+          "key": "companion:box",
+          "target": null,
+          "arrival": null
+        }
+      ],
+      "onset": {
+        "n": 3,
+        "p50": 49,
+        "p95": 319,
+        "p99": 319,
+        "max": 319,
+        "over250": 1,
+        "over500": 0,
+        "over1000": 0
+      },
+      "arrival": {
+        "n": 3,
+        "p50": 204,
+        "p95": 599,
+        "p99": 599,
+        "max": 599,
+        "over250": 1,
+        "over500": 1,
+        "over1000": 0
+      },
+      "queue": {
+        "n": 9,
+        "p50": 0,
+        "p95": 1,
+        "p99": 1,
+        "max": 1,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    }
+  ],
+  "sync": [
+    {
+      "arm": "v10",
+      "order": "forward",
+      "replaced": 0,
+      "native": {
+        "n": 20,
+        "p50": 1,
+        "p95": 2,
+        "p99": 4,
+        "max": 4,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "afterDecode": {
+        "n": 20,
+        "p50": 1,
+        "p95": 2,
+        "p99": 4,
+        "max": 4,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v10",
+      "order": "forward",
+      "replaced": 1,
+      "native": {
+        "n": 20,
+        "p50": 3,
+        "p95": 6,
+        "p99": 7,
+        "max": 7,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "afterDecode": {
+        "n": 20,
+        "p50": 4,
+        "p95": 6,
+        "p99": 7,
+        "max": 7,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v10",
+      "order": "forward",
+      "replaced": 26,
+      "native": {
+        "n": 20,
+        "p50": 10,
+        "p95": 12,
+        "p99": 13,
+        "max": 13,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "afterDecode": {
+        "n": 20,
+        "p50": 11,
+        "p95": 13,
+        "p99": 14,
+        "max": 14,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v11-foot",
+      "order": "forward",
+      "replaced": 0,
+      "native": {
+        "n": 20,
+        "p50": 2,
+        "p95": 2,
+        "p99": 3,
+        "max": 3,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "afterDecode": {
+        "n": 20,
+        "p50": 2,
+        "p95": 2,
+        "p99": 3,
+        "max": 3,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v11-foot",
+      "order": "forward",
+      "replaced": 1,
+      "native": {
+        "n": 20,
+        "p50": 4,
+        "p95": 5,
+        "p99": 5,
+        "max": 5,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "afterDecode": {
+        "n": 20,
+        "p50": 4,
+        "p95": 5,
+        "p99": 6,
+        "max": 6,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v11-foot",
+      "order": "forward",
+      "replaced": 26,
+      "native": {
+        "n": 20,
+        "p50": 12,
+        "p95": 13,
+        "p99": 17,
+        "max": 17,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "afterDecode": {
+        "n": 20,
+        "p50": 13,
+        "p95": 14,
+        "p99": 18,
+        "max": 18,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v11",
+      "order": "forward",
+      "replaced": 0,
+      "native": {
+        "n": 20,
+        "p50": 2,
+        "p95": 2,
+        "p99": 2,
+        "max": 2,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "afterDecode": {
+        "n": 20,
+        "p50": 2,
+        "p95": 2,
+        "p99": 2,
+        "max": 2,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v11",
+      "order": "forward",
+      "replaced": 1,
+      "native": {
+        "n": 20,
+        "p50": 4,
+        "p95": 5,
+        "p99": 6,
+        "max": 6,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "afterDecode": {
+        "n": 20,
+        "p50": 5,
+        "p95": 5,
+        "p99": 6,
+        "max": 6,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v11",
+      "order": "forward",
+      "replaced": 26,
+      "native": {
+        "n": 20,
+        "p50": 12,
+        "p95": 14,
+        "p99": 15,
+        "max": 15,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "afterDecode": {
+        "n": 20,
+        "p50": 13,
+        "p95": 15,
+        "p99": 16,
+        "max": 16,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v11",
+      "order": "reverse",
+      "replaced": 0,
+      "native": {
+        "n": 20,
+        "p50": 2,
+        "p95": 4,
+        "p99": 4,
+        "max": 4,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "afterDecode": {
+        "n": 20,
+        "p50": 3,
+        "p95": 4,
+        "p99": 4,
+        "max": 4,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v11",
+      "order": "reverse",
+      "replaced": 1,
+      "native": {
+        "n": 20,
+        "p50": 5,
+        "p95": 7,
+        "p99": 7,
+        "max": 7,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "afterDecode": {
+        "n": 20,
+        "p50": 6,
+        "p95": 8,
+        "p99": 8,
+        "max": 8,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v11",
+      "order": "reverse",
+      "replaced": 26,
+      "native": {
+        "n": 20,
+        "p50": 16,
+        "p95": 22,
+        "p99": 23,
+        "max": 23,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "afterDecode": {
+        "n": 20,
+        "p50": 17,
+        "p95": 24,
+        "p99": 24,
+        "max": 24,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v11-foot",
+      "order": "reverse",
+      "replaced": 0,
+      "native": {
+        "n": 20,
+        "p50": 3,
+        "p95": 3,
+        "p99": 4,
+        "max": 4,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "afterDecode": {
+        "n": 20,
+        "p50": 3,
+        "p95": 3,
+        "p99": 4,
+        "max": 4,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v11-foot",
+      "order": "reverse",
+      "replaced": 1,
+      "native": {
+        "n": 20,
+        "p50": 6,
+        "p95": 6,
+        "p99": 7,
+        "max": 7,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "afterDecode": {
+        "n": 20,
+        "p50": 6,
+        "p95": 7,
+        "p99": 7,
+        "max": 7,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v11-foot",
+      "order": "reverse",
+      "replaced": 26,
+      "native": {
+        "n": 20,
+        "p50": 18,
+        "p95": 23,
+        "p99": 23,
+        "max": 23,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "afterDecode": {
+        "n": 20,
+        "p50": 19,
+        "p95": 25,
+        "p99": 25,
+        "max": 25,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v10",
+      "order": "reverse",
+      "replaced": 0,
+      "native": {
+        "n": 20,
+        "p50": 2,
+        "p95": 3,
+        "p99": 3,
+        "max": 3,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "afterDecode": {
+        "n": 20,
+        "p50": 2,
+        "p95": 3,
+        "p99": 3,
+        "max": 3,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v10",
+      "order": "reverse",
+      "replaced": 1,
+      "native": {
+        "n": 20,
+        "p50": 4,
+        "p95": 5,
+        "p99": 5,
+        "max": 5,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "afterDecode": {
+        "n": 20,
+        "p50": 4,
+        "p95": 5,
+        "p99": 5,
+        "max": 5,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    },
+    {
+      "arm": "v10",
+      "order": "reverse",
+      "replaced": 26,
+      "native": {
+        "n": 20,
+        "p50": 15,
+        "p95": 20,
+        "p99": 20,
+        "max": 20,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "afterDecode": {
+        "n": 20,
+        "p50": 16,
+        "p95": 22,
+        "p99": 22,
+        "max": 22,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      }
+    }
+  ],
+  "sourceSHA256": {
+    "forward.json": "7a103e1b96c700d598102b2f8ed36a69746efaabab12338f4300516039d8d01d",
+    "reverse.json": "fdd1eb04477bb18882d77ac2eafb854e682debbebf54fb95ef2ec523058329b5",
+    "trace.json": "eba58f275d2489f13dcef6a31420b4ded722a52532f76e404a3b7e883ed70a95",
+    "fixed.json": "ebc732ed4f948f6a010db425c1f3e06f1edca4c24da821e4b8596e907bfb4868",
+    "stress.json": "0977642a78e229e8d0e0d591dce0ac6083687b6f7660322bfa0b8e152d40513f",
+    "touch.json": "89cba470e0357cfe9ff58fa4a901ac631a53477e0d33ab9746bc51e87d1391ed",
+    "touch-reverse.json": "730d23afff953b1b47158fa7a98fd5188521ccdffdb9299c70f8e0c2b07ad24c",
+    "sync.json": "ca10a6ebeac04cb0c5ad4aa66a4028268a6612736d5adb2d27abf4248ac6a097",
+    "sync-reverse.json": "f50dcb7b004b0bfdd9f994ba296717a599d8f6c79a2cd95e91a19018bd34ac2f",
+    "notice-v10.json": "6bf3e96d4ceb1c5d2a500941f0ace92bb86e1017036d9ff093ca277133a310b5",
+    "notice-v11-foot.json": "ac190dddceff3800cb73ee801e61ef07ca182ffbaed3679744e82da6795e83d6",
+    "notice-v11.json": "771171529b70a9ccb3f407973555c0d854ec7d94f199846148a5ad922fdd29bd",
+    "routes.json": "9eb17febf681611a9d887cb44c601fd0c291aa04c8a2a557f5925e5e53a37a14",
+    "routes-narrow.json": "a8b8ecf626790694df633071c2daaba40425997b5016ca61e66909d155bfef2c"
+  },
+  "confirmedOwnerTrialSources": true,
+  "ordinaryNarrowNotification": [
+    {
+      "arm": "v10",
+      "openingSHA256": "b5667e6f9c8cb99943c5f160671b7862f71264d5d4853fcd2b32aa3e9d5580d4",
+      "modelSeconds": 317.63999999999766,
+      "wallSeconds": 330.02,
+      "frames": {
+        "n": 13190,
+        "p50": 17,
+        "p95": 57,
+        "p99": 96,
+        "max": 498,
+        "over250": 4,
+        "over500": 0,
+        "over1000": 0
+      },
+      "sync": {
+        "n": 264,
+        "p50": 2,
+        "p95": 5,
+        "p99": 9,
+        "max": 11,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "ownerReplacementSyncs": 2,
+      "physicalShiftCount": 3,
+      "replacements": [
+        {
+          "start": 290817,
+          "duration": 11,
+          "count": 26,
+          "changed": [
+            {
+              "key": "companion:rabbit_friend",
+              "distance": 14.983943347575487,
+              "from": [
+                224.16616885692608,
+                369.90662159904946
+              ],
+              "to": [
+                216,
+                362.18
+              ]
+            },
+            {
+              "key": "companion:panda",
+              "distance": 22.7378589735368,
+              "from": [
+                113.70665748898725,
+                370.1224444549915
+              ],
+              "to": [
+                120,
+                354.18
+              ]
+            },
+            {
+              "key": "companion:many_tail_fox",
+              "distance": 2.897005289641614,
+              "from": [
+                185.90154469456328,
+                370.1872677924089
+              ],
+              "to": [
+                185.90154469456328,
+                368
+              ]
+            }
+          ],
+          "gate": [
+            "lower-notice"
+          ],
+          "containingFramesMs": [
+            88
+          ]
+        },
+        {
+          "start": 293321,
+          "duration": 9,
+          "count": 26,
+          "changed": [],
+          "gate": [],
+          "containingFramesMs": [
+            68
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "v11-foot",
+      "openingSHA256": "b5667e6f9c8cb99943c5f160671b7862f71264d5d4853fcd2b32aa3e9d5580d4",
+      "modelSeconds": 317.6029999999969,
+      "wallSeconds": 330.033,
+      "frames": {
+        "n": 14631,
+        "p50": 17,
+        "p95": 50,
+        "p99": 78,
+        "max": 641,
+        "over250": 3,
+        "over500": 1,
+        "over1000": 0
+      },
+      "sync": {
+        "n": 264,
+        "p50": 2,
+        "p95": 4,
+        "p99": 6,
+        "max": 20,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "ownerReplacementSyncs": 2,
+      "physicalShiftCount": 0,
+      "replacements": [
+        {
+          "start": 291379,
+          "duration": 14,
+          "count": 26,
+          "changed": [],
+          "gate": [
+            "lower-notice"
+          ],
+          "containingFramesMs": [
+            87
+          ]
+        },
+        {
+          "start": 293883,
+          "duration": 20,
+          "count": 26,
+          "changed": [],
+          "gate": [],
+          "containingFramesMs": [
+            90
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "v11",
+      "openingSHA256": "b5667e6f9c8cb99943c5f160671b7862f71264d5d4853fcd2b32aa3e9d5580d4",
+      "modelSeconds": 316.79599999999954,
+      "wallSeconds": 330.013,
+      "frames": {
+        "n": 12103,
+        "p50": 17,
+        "p95": 65,
+        "p99": 109,
+        "max": 504,
+        "over250": 7,
+        "over500": 1,
+        "over1000": 0
+      },
+      "sync": {
+        "n": 266,
+        "p50": 2,
+        "p95": 5,
+        "p99": 8,
+        "max": 13,
+        "over250": 0,
+        "over500": 0,
+        "over1000": 0
+      },
+      "ownerReplacementSyncs": 2,
+      "physicalShiftCount": 0,
+      "replacements": [
+        {
+          "start": 290770,
+          "duration": 13,
+          "count": 26,
+          "changed": [],
+          "gate": [
+            "lower-notice"
+          ],
+          "containingFramesMs": [
+            91
+          ]
+        },
+        {
+          "start": 293271,
+          "duration": 12,
+          "count": 26,
+          "changed": [],
+          "gate": [],
+          "containingFramesMs": [
+            89
+          ]
+        }
+      ]
+    }
+  ],
+  "modelProfile": {
+    "node": "v24.22.3",
+    "seconds": 600,
+    "seed": 214,
+    "rows": [
+      {
+        "arm": "v10",
+        "order": "forward",
+        "moves": 233,
+        "distance": 1915.7409891836182,
+        "timing": {
+          "stepRelief": {
+            "wallMs": {
+              "n": 6000,
+              "total": 778.8545229999952,
+              "p50": 0.022296,
+              "p95": 0.299767,
+              "p99": 3.327808,
+              "max": 6.230701
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 773.3140000000005,
+              "p50": 0,
+              "p95": 1.001,
+              "p99": 3.001,
+              "max": 6.003
+            }
+          },
+          "step": {
+            "wallMs": {
+              "n": 6000,
+              "total": 2989.5182059999993,
+              "p50": 0.037769,
+              "p95": 3.596113,
+              "p99": 5.768322,
+              "max": 29.46219
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 2984.7020000000043,
+              "p50": 0,
+              "p95": 3.998,
+              "p99": 5.986,
+              "max": 29.951
+            }
+          },
+          "localIntentRoute": {
+            "wallMs": {
+              "n": 614,
+              "total": 39.38168299999999,
+              "p50": 0.048594,
+              "p95": 0.142752,
+              "p99": 0.252594,
+              "max": 1.297863
+            },
+            "cpuMs": {
+              "n": 614,
+              "total": 35.349,
+              "p50": 0,
+              "p95": 0.998,
+              "p99": 1,
+              "max": 1.007
+            }
+          },
+          "move": {
+            "wallMs": {
+              "n": 719,
+              "total": 2562.7746719999986,
+              "p50": 3.405689,
+              "p95": 5.675056,
+              "p99": 9.112174,
+              "max": 17.331568
+            },
+            "cpuMs": {
+              "n": 719,
+              "total": 2546.3990000000013,
+              "p50": 3.004,
+              "p95": 5.988,
+              "p99": 8.97,
+              "max": 17.992
+            }
+          },
+          "ambientSlice": {
+            "wallMs": {
+              "n": 9280,
+              "total": 356.55949999999984,
+              "p50": 0.011036,
+              "p95": 0.152749,
+              "p99": 0.230682,
+              "max": 2.194808
+            },
+            "cpuMs": {
+              "n": 9280,
+              "total": 364.66699999999986,
+              "p50": 0,
+              "p95": 0,
+              "p99": 1.003,
+              "max": 2.501
+            }
+          },
+          "yieldLeg": {
+            "wallMs": {
+              "n": 68,
+              "total": 0.7784430000000003,
+              "p50": 0.008433,
+              "p95": 0.025704,
+              "p99": 0.113011,
+              "max": 0.113011
+            },
+            "cpuMs": {
+              "n": 68,
+              "total": 0,
+              "p50": 0,
+              "p95": 0,
+              "p99": 0,
+              "max": 0
+            }
+          }
+        }
+      },
+      {
+        "arm": "v11-foot",
+        "order": "forward",
+        "moves": 233,
+        "distance": 1915.7409891836182,
+        "timing": {
+          "stepRelief": {
+            "wallMs": {
+              "n": 6000,
+              "total": 779.0251799999978,
+              "p50": 0.025795,
+              "p95": 0.299118,
+              "p99": 3.2663,
+              "max": 6.128931
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 768.7440000000005,
+              "p50": 0,
+              "p95": 1.001,
+              "p99": 3.002,
+              "max": 6.006
+            }
+          },
+          "step": {
+            "wallMs": {
+              "n": 6000,
+              "total": 2924.465180000008,
+              "p50": 0.039317,
+              "p95": 3.50802,
+              "p99": 5.384629,
+              "max": 19.96135
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 2916.065000000002,
+              "p50": 0,
+              "p95": 3.998,
+              "p99": 5.003,
+              "max": 20.003
+            }
+          },
+          "localIntentRoute": {
+            "wallMs": {
+              "n": 614,
+              "total": 37.93289699999998,
+              "p50": 0.04824,
+              "p95": 0.152123,
+              "p99": 0.239769,
+              "max": 0.884108
+            },
+            "cpuMs": {
+              "n": 614,
+              "total": 35.48,
+              "p50": 0,
+              "p95": 0.998,
+              "p99": 1.001,
+              "max": 1.003
+            }
+          },
+          "move": {
+            "wallMs": {
+              "n": 719,
+              "total": 2491.0108879999984,
+              "p50": 3.329577,
+              "p95": 5.160402,
+              "p99": 6.676675,
+              "max": 11.458973
+            },
+            "cpuMs": {
+              "n": 719,
+              "total": 2507.3649999999984,
+              "p50": 3.004,
+              "p95": 5.002,
+              "p99": 6.003,
+              "max": 10.998
+            }
+          },
+          "ambientSlice": {
+            "wallMs": {
+              "n": 9280,
+              "total": 365.4167009999991,
+              "p50": 0.012509,
+              "p95": 0.151801,
+              "p99": 0.228003,
+              "max": 2.771664
+            },
+            "cpuMs": {
+              "n": 9280,
+              "total": 347.37499999999966,
+              "p50": 0,
+              "p95": 0,
+              "p99": 1.003,
+              "max": 3.085
+            }
+          },
+          "yieldLeg": {
+            "wallMs": {
+              "n": 68,
+              "total": 0.6804270000000002,
+              "p50": 0.008178,
+              "p95": 0.019907,
+              "p99": 0.075167,
+              "max": 0.075167
+            },
+            "cpuMs": {
+              "n": 68,
+              "total": 0,
+              "p50": 0,
+              "p95": 0,
+              "p99": 0,
+              "max": 0
+            }
+          }
+        }
+      },
+      {
+        "arm": "v11",
+        "order": "forward",
+        "moves": 233,
+        "distance": 1915.7409891836182,
+        "timing": {
+          "stepRelief": {
+            "wallMs": {
+              "n": 6000,
+              "total": 750.0304600000018,
+              "p50": 0.022604,
+              "p95": 0.294753,
+              "p99": 3.258483,
+              "max": 7.828754
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 732.759999999999,
+              "p50": 0,
+              "p95": 1.001,
+              "p99": 2.999,
+              "max": 7.787
+            }
+          },
+          "step": {
+            "wallMs": {
+              "n": 6000,
+              "total": 2878.6713310000064,
+              "p50": 0.036566,
+              "p95": 3.519473,
+              "p99": 5.350555,
+              "max": 22.880189
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 2870.8529999999987,
+              "p50": 0,
+              "p95": 3.997,
+              "p99": 5.003,
+              "max": 22.985
+            }
+          },
+          "localIntentRoute": {
+            "wallMs": {
+              "n": 614,
+              "total": 41.71251999999999,
+              "p50": 0.050231,
+              "p95": 0.151169,
+              "p99": 0.294744,
+              "max": 2.035091
+            },
+            "cpuMs": {
+              "n": 614,
+              "total": 45.181,
+              "p50": 0,
+              "p95": 0.998,
+              "p99": 1.002,
+              "max": 1.758
+            }
+          },
+          "move": {
+            "wallMs": {
+              "n": 719,
+              "total": 2459.8566859999987,
+              "p50": 3.319168,
+              "p95": 5.222339,
+              "p99": 7.908542,
+              "max": 9.811494
+            },
+            "cpuMs": {
+              "n": 719,
+              "total": 2464.2590000000005,
+              "p50": 3.002,
+              "p95": 5.003,
+              "p99": 7.986,
+              "max": 9.822
+            }
+          },
+          "chooseWanderGoal": {
+            "wallMs": {
+              "n": 569,
+              "total": 8.142345999999993,
+              "p50": 0.012054,
+              "p95": 0.03557,
+              "p99": 0.063814,
+              "max": 0.141116
+            },
+            "cpuMs": {
+              "n": 569,
+              "total": 8.012999999999998,
+              "p50": 0,
+              "p95": 0,
+              "p99": 1,
+              "max": 1.004
+            }
+          },
+          "ambientSlice": {
+            "wallMs": {
+              "n": 9280,
+              "total": 344.69334800000036,
+              "p50": 0.011201,
+              "p95": 0.149417,
+              "p99": 0.221399,
+              "max": 1.887282
+            },
+            "cpuMs": {
+              "n": 9280,
+              "total": 337.54599999999965,
+              "p50": 0,
+              "p95": 0,
+              "p99": 1.003,
+              "max": 2.004
+            }
+          },
+          "yieldLeg": {
+            "wallMs": {
+              "n": 68,
+              "total": 0.6943759999999999,
+              "p50": 0.007892,
+              "p95": 0.018929,
+              "p99": 0.087194,
+              "max": 0.087194
+            },
+            "cpuMs": {
+              "n": 68,
+              "total": 0,
+              "p50": 0,
+              "p95": 0,
+              "p99": 0,
+              "max": 0
+            }
+          }
+        }
+      },
+      {
+        "arm": "v11",
+        "order": "reverse",
+        "moves": 233,
+        "distance": 1915.7409891836182,
+        "timing": {
+          "stepRelief": {
+            "wallMs": {
+              "n": 6000,
+              "total": 741.2036470000003,
+              "p50": 0.023694,
+              "p95": 0.2936,
+              "p99": 3.213779,
+              "max": 6.733566
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 733.3379999999997,
+              "p50": 0,
+              "p95": 1.001,
+              "p99": 3,
+              "max": 7.178
+            }
+          },
+          "step": {
+            "wallMs": {
+              "n": 6000,
+              "total": 2842.6638010000042,
+              "p50": 0.036383,
+              "p95": 3.493921,
+              "p99": 5.061414,
+              "max": 17.152096
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 2837.826999999998,
+              "p50": 0,
+              "p95": 3.997,
+              "p99": 5,
+              "max": 17
+            }
+          },
+          "localIntentRoute": {
+            "wallMs": {
+              "n": 614,
+              "total": 40.17228100000001,
+              "p50": 0.047739,
+              "p95": 0.147346,
+              "p99": 0.315433,
+              "max": 0.998474
+            },
+            "cpuMs": {
+              "n": 614,
+              "total": 54.666000000000004,
+              "p50": 0,
+              "p95": 0.999,
+              "p99": 1.004,
+              "max": 1.572
+            }
+          },
+          "move": {
+            "wallMs": {
+              "n": 719,
+              "total": 2432.103189000003,
+              "p50": 3.294407,
+              "p95": 4.954155,
+              "p99": 6.332669,
+              "max": 10.405452
+            },
+            "cpuMs": {
+              "n": 719,
+              "total": 2443.969000000002,
+              "p50": 3.002,
+              "p95": 5,
+              "p99": 6.009,
+              "max": 9.998
+            }
+          },
+          "chooseWanderGoal": {
+            "wallMs": {
+              "n": 569,
+              "total": 8.484182000000004,
+              "p50": 0.011122,
+              "p95": 0.032941,
+              "p99": 0.055706,
+              "max": 0.732795
+            },
+            "cpuMs": {
+              "n": 569,
+              "total": 6.003,
+              "p50": 0,
+              "p95": 0,
+              "p99": 0.998,
+              "max": 1.004
+            }
+          },
+          "ambientSlice": {
+            "wallMs": {
+              "n": 9280,
+              "total": 337.74042900000126,
+              "p50": 0.011438,
+              "p95": 0.147131,
+              "p99": 0.216098,
+              "max": 1.204812
+            },
+            "cpuMs": {
+              "n": 9280,
+              "total": 326.80899999999986,
+              "p50": 0,
+              "p95": 0,
+              "p99": 1.002,
+              "max": 1.34
+            }
+          },
+          "yieldLeg": {
+            "wallMs": {
+              "n": 68,
+              "total": 0.6856789999999998,
+              "p50": 0.007968,
+              "p95": 0.020376,
+              "p99": 0.074875,
+              "max": 0.074875
+            },
+            "cpuMs": {
+              "n": 68,
+              "total": 0.997,
+              "p50": 0,
+              "p95": 0,
+              "p99": 0.997,
+              "max": 0.997
+            }
+          }
+        }
+      },
+      {
+        "arm": "v11-foot",
+        "order": "reverse",
+        "moves": 233,
+        "distance": 1915.7409891836182,
+        "timing": {
+          "stepRelief": {
+            "wallMs": {
+              "n": 6000,
+              "total": 763.0591010000002,
+              "p50": 0.023356,
+              "p95": 0.290464,
+              "p99": 3.244914,
+              "max": 9.215826
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 769.0000000000002,
+              "p50": 0,
+              "p95": 1.001,
+              "p99": 2.999,
+              "max": 9.848
+            }
+          },
+          "step": {
+            "wallMs": {
+              "n": 6000,
+              "total": 2847.6951000000017,
+              "p50": 0.036745,
+              "p95": 3.501275,
+              "p99": 5.074186,
+              "max": 17.101245
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 2842.6719999999978,
+              "p50": 0,
+              "p95": 3.994,
+              "p99": 5,
+              "max": 16.999
+            }
+          },
+          "localIntentRoute": {
+            "wallMs": {
+              "n": 614,
+              "total": 41.441956000000026,
+              "p50": 0.052091,
+              "p95": 0.153104,
+              "p99": 0.309596,
+              "max": 1.284607
+            },
+            "cpuMs": {
+              "n": 614,
+              "total": 35.42699999999999,
+              "p50": 0,
+              "p95": 0.998,
+              "p99": 1.001,
+              "max": 1.006
+            }
+          },
+          "move": {
+            "wallMs": {
+              "n": 719,
+              "total": 2428.431071000003,
+              "p50": 3.321313,
+              "p95": 5.094654,
+              "p99": 6.663024,
+              "max": 9.196331
+            },
+            "cpuMs": {
+              "n": 719,
+              "total": 2415.061,
+              "p50": 3.001,
+              "p95": 5,
+              "p99": 6.98,
+              "max": 9.848
+            }
+          },
+          "ambientSlice": {
+            "wallMs": {
+              "n": 9280,
+              "total": 350.014849000001,
+              "p50": 0.011428,
+              "p95": 0.148784,
+              "p99": 0.224282,
+              "max": 2.407852
+            },
+            "cpuMs": {
+              "n": 9280,
+              "total": 347.82399999999984,
+              "p50": 0,
+              "p95": 0,
+              "p99": 1.002,
+              "max": 1.999
+            }
+          },
+          "yieldLeg": {
+            "wallMs": {
+              "n": 68,
+              "total": 0.7193390000000001,
+              "p50": 0.008159,
+              "p95": 0.024791,
+              "p99": 0.089022,
+              "max": 0.089022
+            },
+            "cpuMs": {
+              "n": 68,
+              "total": 1.9979999999999998,
+              "p50": 0,
+              "p95": 0,
+              "p99": 1.003,
+              "max": 1.003
+            }
+          }
+        }
+      },
+      {
+        "arm": "v10",
+        "order": "reverse",
+        "moves": 233,
+        "distance": 1915.7409891836182,
+        "timing": {
+          "stepRelief": {
+            "wallMs": {
+              "n": 6000,
+              "total": 761.2872239999972,
+              "p50": 0.023047,
+              "p95": 0.297662,
+              "p99": 3.235873,
+              "max": 5.88332
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 753.9209999999993,
+              "p50": 0,
+              "p95": 1.001,
+              "p99": 2.999,
+              "max": 6
+            }
+          },
+          "step": {
+            "wallMs": {
+              "n": 6000,
+              "total": 2863.1109510000115,
+              "p50": 0.036355,
+              "p95": 3.487798,
+              "p99": 5.163935,
+              "max": 19.648831
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 2861.077000000001,
+              "p50": 0,
+              "p95": 3.997,
+              "p99": 5.002,
+              "max": 19.998
+            }
+          },
+          "localIntentRoute": {
+            "wallMs": {
+              "n": 614,
+              "total": 37.86099400000006,
+              "p50": 0.047881,
+              "p95": 0.134989,
+              "p99": 0.229547,
+              "max": 0.925737
+            },
+            "cpuMs": {
+              "n": 614,
+              "total": 41.388,
+              "p50": 0,
+              "p95": 0.999,
+              "p99": 1.001,
+              "max": 1.006
+            }
+          },
+          "move": {
+            "wallMs": {
+              "n": 719,
+              "total": 2447.001260000002,
+              "p50": 3.311995,
+              "p95": 5.134748,
+              "p99": 6.516234,
+              "max": 11.840876
+            },
+            "cpuMs": {
+              "n": 719,
+              "total": 2446.111000000003,
+              "p50": 3.002,
+              "p95": 5.003,
+              "p99": 6.006,
+              "max": 11.749
+            }
+          },
+          "ambientSlice": {
+            "wallMs": {
+              "n": 9280,
+              "total": 352.45366999999834,
+              "p50": 0.011334,
+              "p95": 0.150895,
+              "p99": 0.227441,
+              "max": 1.709608
+            },
+            "cpuMs": {
+              "n": 9280,
+              "total": 347.5089999999997,
+              "p50": 0,
+              "p95": 0,
+              "p99": 1.003,
+              "max": 2.004
+            }
+          },
+          "yieldLeg": {
+            "wallMs": {
+              "n": 68,
+              "total": 0.6974790000000002,
+              "p50": 0.008043,
+              "p95": 0.016003,
+              "p99": 0.069578,
+              "max": 0.069578
+            },
+            "cpuMs": {
+              "n": 68,
+              "total": 1.002,
+              "p50": 0,
+              "p95": 0,
+              "p99": 1.002,
+              "max": 1.002
+            }
+          }
+        }
+      }
+    ]
+  },
+  "narrowModelProfile": {
+    "node": "v24.22.1",
+    "seconds": 600,
+    "seed": 214,
+    "openingSHA256": "df8f018de0a1c7929ec023407a6def7a8079cb1e17511cb0eb17b9c21563659f",
+    "rows": [
+      {
+        "arm": "v10",
+        "order": "forward",
+        "moves": 158,
+        "distance": 1170.5204844973132,
+        "substitutions": 0,
+        "timing": {
+          "stepRelief": {
+            "wallMs": {
+              "n": 6000,
+              "total": 64788.493010000035,
+              "p50": 0.09493,
+              "p95": 10.695615,
+              "p99": 305.024884,
+              "max": 2544.418844
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 1929.5270000000012,
+              "p50": 0,
+              "p95": 2.094,
+              "p99": 4.989,
+              "max": 61.582
+            }
+          },
+          "step": {
+            "wallMs": {
+              "n": 6000,
+              "total": 343539.8150939995,
+              "p50": 0.143086,
+              "p95": 248.580488,
+              "p99": 1311.85994,
+              "max": 17301.44599
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 9322.134999999993,
+              "p50": 0,
+              "p95": 9.098,
+              "p99": 19.924,
+              "max": 239.134
+            }
+          },
+          "localIntentRoute": {
+            "wallMs": {
+              "n": 861,
+              "total": 5714.558806,
+              "p50": 0.089346,
+              "p95": 3.226277,
+              "p99": 240.074355,
+              "max": 832.744264
+            },
+            "cpuMs": {
+              "n": 861,
+              "total": 155.69799999999995,
+              "p50": 0,
+              "p95": 1.288,
+              "p99": 3.354,
+              "max": 5.404
+            }
+          },
+          "move": {
+            "wallMs": {
+              "n": 933,
+              "total": 291009.1717609996,
+              "p50": 31.005763,
+              "p95": 1536.356837,
+              "p99": 2879.72238,
+              "max": 7412.680358
+            },
+            "cpuMs": {
+              "n": 933,
+              "total": 7791.915000000002,
+              "p50": 6.752,
+              "p95": 20.513,
+              "p99": 30.115,
+              "max": 69.079
+            }
+          },
+          "ambientSlice": {
+            "wallMs": {
+              "n": 9457,
+              "total": 42429.07116300009,
+              "p50": 0.046632,
+              "p95": 0.783535,
+              "p99": 116.058797,
+              "max": 1207.09637
+            },
+            "cpuMs": {
+              "n": 9457,
+              "total": 1258.5409999999995,
+              "p50": 0,
+              "p95": 0.857,
+              "p99": 3.187,
+              "max": 61.582
+            }
+          },
+          "yieldLeg": {
+            "wallMs": {
+              "n": 12,
+              "total": 0.5533190000000001,
+              "p50": 0.020525,
+              "p95": 0.161962,
+              "p99": 0.161962,
+              "max": 0.161962
+            },
+            "cpuMs": {
+              "n": 12,
+              "total": 1.11,
+              "p50": 0,
+              "p95": 0.937,
+              "p99": 0.937,
+              "max": 0.937
+            }
+          }
+        }
+      },
+      {
+        "arm": "v11-foot",
+        "order": "forward",
+        "moves": 158,
+        "distance": 1170.5204844973132,
+        "substitutions": 0,
+        "timing": {
+          "stepRelief": {
+            "wallMs": {
+              "n": 6000,
+              "total": 42538.57235100014,
+              "p50": 0.093162,
+              "p95": 14.713449,
+              "p99": 178.115928,
+              "max": 1897.606538
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 1727.627,
+              "p50": 0,
+              "p95": 1.781,
+              "p99": 4.667,
+              "max": 26.151
+            }
+          },
+          "step": {
+            "wallMs": {
+              "n": 6000,
+              "total": 233684.63294600035,
+              "p50": 0.140639,
+              "p95": 209.844834,
+              "p99": 832.700593,
+              "max": 8157.136547
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 9033.865999999998,
+              "p50": 0,
+              "p95": 9.196,
+              "p99": 18.248,
+              "max": 191.86
+            }
+          },
+          "localIntentRoute": {
+            "wallMs": {
+              "n": 861,
+              "total": 5873.9310489999925,
+              "p50": 0.105705,
+              "p95": 13.506138,
+              "p99": 184.46709,
+              "max": 1110.198767
+            },
+            "cpuMs": {
+              "n": 861,
+              "total": 163.13300000000004,
+              "p50": 0,
+              "p95": 1.43,
+              "p99": 3.158,
+              "max": 4.362
+            }
+          },
+          "move": {
+            "wallMs": {
+              "n": 933,
+              "total": 199579.5573040002,
+              "p50": 45.262401,
+              "p95": 909.218491,
+              "p99": 1897.505004,
+              "max": 2870.953232
+            },
+            "cpuMs": {
+              "n": 933,
+              "total": 7609.3150000000005,
+              "p50": 6.997,
+              "p95": 18.194,
+              "p99": 26.703,
+              "max": 96.381
+            }
+          },
+          "ambientSlice": {
+            "wallMs": {
+              "n": 9457,
+              "total": 27233.98735300003,
+              "p50": 0.042827,
+              "p95": 0.791072,
+              "p99": 90.469797,
+              "max": 762.151179
+            },
+            "cpuMs": {
+              "n": 9457,
+              "total": 1137.533000000001,
+              "p50": 0,
+              "p95": 0.797,
+              "p99": 2.843,
+              "max": 17.334
+            }
+          },
+          "yieldLeg": {
+            "wallMs": {
+              "n": 12,
+              "total": 1.29764,
+              "p50": 0.02929,
+              "p95": 0.955524,
+              "p99": 0.955524,
+              "max": 0.955524
+            },
+            "cpuMs": {
+              "n": 12,
+              "total": 1.28,
+              "p50": 0,
+              "p95": 1.28,
+              "p99": 1.28,
+              "max": 1.28
+            }
+          }
+        }
+      },
+      {
+        "arm": "v11",
+        "order": "forward",
+        "moves": 163,
+        "distance": 1237.3229066192712,
+        "substitutions": 2,
+        "timing": {
+          "stepRelief": {
+            "wallMs": {
+              "n": 6000,
+              "total": 13209.23061099997,
+              "p50": 0.074654,
+              "p95": 1.38322,
+              "p99": 43.662126,
+              "max": 2094.947708
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 1570.6549999999993,
+              "p50": 0,
+              "p95": 1.632,
+              "p99": 5.407,
+              "max": 42.904
+            }
+          },
+          "step": {
+            "wallMs": {
+              "n": 6000,
+              "total": 55848.31304000017,
+              "p50": 0.117443,
+              "p95": 30.988524,
+              "p99": 203.089873,
+              "max": 2380.622578
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 7620.616000000007,
+              "p50": 0,
+              "p95": 7.674,
+              "p99": 14.167,
+              "max": 142.439
+            }
+          },
+          "localIntentRoute": {
+            "wallMs": {
+              "n": 880,
+              "total": 1448.1282870000025,
+              "p50": 0.079914,
+              "p95": 1.119425,
+              "p99": 26.053657,
+              "max": 463.950373
+            },
+            "cpuMs": {
+              "n": 880,
+              "total": 138.26000000000002,
+              "p50": 0,
+              "p95": 1.194,
+              "p99": 3.627,
+              "max": 4.059
+            }
+          },
+          "move": {
+            "wallMs": {
+              "n": 956,
+              "total": 46237.214888000046,
+              "p50": 10.257909,
+              "p95": 226.136254,
+              "p99": 585.190784,
+              "max": 2094.775205
+            },
+            "cpuMs": {
+              "n": 956,
+              "total": 6397.846000000001,
+              "p50": 6.102,
+              "p95": 12.005,
+              "p99": 24.74,
+              "max": 85.941
+            }
+          },
+          "yieldLeg": {
+            "wallMs": {
+              "n": 51,
+              "total": 1.1617709999999999,
+              "p50": 0.013261,
+              "p95": 0.080167,
+              "p99": 0.240673,
+              "max": 0.240673
+            },
+            "cpuMs": {
+              "n": 51,
+              "total": 2.026,
+              "p50": 0,
+              "p95": 0,
+              "p99": 1.956,
+              "max": 1.956
+            }
+          },
+          "chooseWanderGoal": {
+            "wallMs": {
+              "n": 771,
+              "total": 412.20354599999933,
+              "p50": 0.051315,
+              "p95": 0.264265,
+              "p99": 3.113864,
+              "max": 201.633625
+            },
+            "cpuMs": {
+              "n": 771,
+              "total": 56.592,
+              "p50": 0,
+              "p95": 0.348,
+              "p99": 2.02,
+              "max": 4.04
+            }
+          },
+          "ambientSlice": {
+            "wallMs": {
+              "n": 9375,
+              "total": 7197.540449999971,
+              "p50": 0.035256,
+              "p95": 0.483138,
+              "p99": 7.026734,
+              "max": 795.527193
+            },
+            "cpuMs": {
+              "n": 9375,
+              "total": 945.9490000000004,
+              "p50": 0,
+              "p95": 0.521,
+              "p99": 3.09,
+              "max": 14.788
+            }
+          }
+        }
+      },
+      {
+        "arm": "v11",
+        "order": "reverse",
+        "moves": 163,
+        "distance": 1237.3229066192712,
+        "substitutions": 2,
+        "timing": {
+          "stepRelief": {
+            "wallMs": {
+              "n": 6000,
+              "total": 7118.909295999977,
+              "p50": 0.088214,
+              "p95": 1.704876,
+              "p99": 22.784181,
+              "max": 405.762768
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 1837.035,
+              "p50": 0,
+              "p95": 1.753,
+              "p99": 4.89,
+              "max": 46.583
+            }
+          },
+          "step": {
+            "wallMs": {
+              "n": 6000,
+              "total": 32374.776754000002,
+              "p50": 0.137432,
+              "p95": 18.850656,
+              "p99": 99.96529,
+              "max": 1553.140951
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 8460.513000000004,
+              "p50": 0,
+              "p95": 8.845,
+              "p99": 15.702,
+              "max": 107.005
+            }
+          },
+          "localIntentRoute": {
+            "wallMs": {
+              "n": 880,
+              "total": 513.3425309999999,
+              "p50": 0.095401,
+              "p95": 0.941481,
+              "p99": 13.992127,
+              "max": 86.384189
+            },
+            "cpuMs": {
+              "n": 880,
+              "total": 192.781,
+              "p50": 0,
+              "p95": 1.784,
+              "p99": 3.922,
+              "max": 10.408
+            }
+          },
+          "move": {
+            "wallMs": {
+              "n": 956,
+              "total": 27044.291869000004,
+              "p50": 9.62125,
+              "p95": 109.681871,
+              "p99": 304.592227,
+              "max": 1452.286648
+            },
+            "cpuMs": {
+              "n": 956,
+              "total": 7049.421999999996,
+              "p50": 6.44,
+              "p95": 14.462,
+              "p99": 29.075,
+              "max": 72.109
+            }
+          },
+          "yieldLeg": {
+            "wallMs": {
+              "n": 51,
+              "total": 1.126242,
+              "p50": 0.014463,
+              "p95": 0.041469,
+              "p99": 0.234794,
+              "max": 0.234794
+            },
+            "cpuMs": {
+              "n": 51,
+              "total": 0.122,
+              "p50": 0,
+              "p95": 0,
+              "p99": 0.122,
+              "max": 0.122
+            }
+          },
+          "chooseWanderGoal": {
+            "wallMs": {
+              "n": 771,
+              "total": 149.95314399999992,
+              "p50": 0.052807,
+              "p95": 0.211775,
+              "p99": 2.059349,
+              "max": 47.183207
+            },
+            "cpuMs": {
+              "n": 771,
+              "total": 70.78300000000002,
+              "p50": 0,
+              "p95": 0.445,
+              "p99": 2.447,
+              "max": 4.003
+            }
+          },
+          "ambientSlice": {
+            "wallMs": {
+              "n": 9375,
+              "total": 4034.598057000006,
+              "p50": 0.042631,
+              "p95": 0.553462,
+              "p99": 4.634019,
+              "max": 369.954811
+            },
+            "cpuMs": {
+              "n": 9375,
+              "total": 1094.135999999997,
+              "p50": 0,
+              "p95": 0.714,
+              "p99": 3.03,
+              "max": 16.339
+            }
+          }
+        }
+      },
+      {
+        "arm": "v11-foot",
+        "order": "reverse",
+        "moves": 158,
+        "distance": 1170.5204844973132,
+        "substitutions": 0,
+        "timing": {
+          "stepRelief": {
+            "wallMs": {
+              "n": 6000,
+              "total": 10590.930012000073,
+              "p50": 0.085162,
+              "p95": 1.805241,
+              "p99": 42.852768,
+              "max": 389.728317
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 1559.2200000000012,
+              "p50": 0,
+              "p95": 1.811,
+              "p99": 4.411,
+              "max": 14.666
+            }
+          },
+          "step": {
+            "wallMs": {
+              "n": 6000,
+              "total": 51952.7280150001,
+              "p50": 0.127223,
+              "p95": 28.623046,
+              "p99": 199.301161,
+              "max": 2270.545967
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 7609.575000000003,
+              "p50": 0,
+              "p95": 8.066,
+              "p99": 12.656,
+              "max": 85.895
+            }
+          },
+          "localIntentRoute": {
+            "wallMs": {
+              "n": 861,
+              "total": 642.506017999999,
+              "p50": 0.096426,
+              "p95": 1.094096,
+              "p99": 20.487728,
+              "max": 87.332218
+            },
+            "cpuMs": {
+              "n": 861,
+              "total": 151.48099999999997,
+              "p50": 0,
+              "p95": 1.245,
+              "p99": 3.81,
+              "max": 6.381
+            }
+          },
+          "move": {
+            "wallMs": {
+              "n": 933,
+              "total": 43607.968543,
+              "p50": 11.330001,
+              "p95": 236.553265,
+              "p99": 489.935002,
+              "max": 1054.321033
+            },
+            "cpuMs": {
+              "n": 933,
+              "total": 6294.687999999999,
+              "p50": 6.584,
+              "p95": 11.253,
+              "p99": 15.058,
+              "max": 21.584
+            }
+          },
+          "ambientSlice": {
+            "wallMs": {
+              "n": 9457,
+              "total": 6344.073356000015,
+              "p50": 0.039696,
+              "p95": 0.510466,
+              "p99": 14.842456,
+              "max": 295.14214
+            },
+            "cpuMs": {
+              "n": 9457,
+              "total": 1040.789,
+              "p50": 0,
+              "p95": 0.539,
+              "p99": 3.493,
+              "max": 10.106
+            }
+          },
+          "yieldLeg": {
+            "wallMs": {
+              "n": 12,
+              "total": 0.5853630000000001,
+              "p50": 0.019113,
+              "p95": 0.325299,
+              "p99": 0.325299,
+              "max": 0.325299
+            },
+            "cpuMs": {
+              "n": 12,
+              "total": 0.417,
+              "p50": 0,
+              "p95": 0.417,
+              "p99": 0.417,
+              "max": 0.417
+            }
+          }
+        }
+      },
+      {
+        "arm": "v10",
+        "order": "reverse",
+        "moves": 158,
+        "distance": 1170.5204844973132,
+        "substitutions": 0,
+        "timing": {
+          "stepRelief": {
+            "wallMs": {
+              "n": 6000,
+              "total": 5054.672173000009,
+              "p50": 0.076214,
+              "p95": 1.113235,
+              "p99": 15.809032,
+              "max": 277.376315
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 1336.6860000000017,
+              "p50": 0,
+              "p95": 1.42,
+              "p99": 4.052,
+              "max": 13.26
+            }
+          },
+          "step": {
+            "wallMs": {
+              "n": 6000,
+              "total": 21859.937894000006,
+              "p50": 0.115264,
+              "p95": 15.638681,
+              "p99": 66.472719,
+              "max": 476.791076
+            },
+            "cpuMs": {
+              "n": 6000,
+              "total": 6718.715000000012,
+              "p50": 0,
+              "p95": 7.444,
+              "p99": 12.87,
+              "max": 101.19
+            }
+          },
+          "localIntentRoute": {
+            "wallMs": {
+              "n": 861,
+              "total": 417.3920270000002,
+              "p50": 0.094472,
+              "p95": 0.571461,
+              "p99": 7.43796,
+              "max": 76.917838
+            },
+            "cpuMs": {
+              "n": 861,
+              "total": 127.888,
+              "p50": 0,
+              "p95": 1.166,
+              "p99": 3.412,
+              "max": 4.026
+            }
+          },
+          "move": {
+            "wallMs": {
+              "n": 933,
+              "total": 17986.22238200001,
+              "p50": 8.943022,
+              "p95": 66.075096,
+              "p99": 166.85479,
+              "max": 476.155889
+            },
+            "cpuMs": {
+              "n": 933,
+              "total": 5719.480000000004,
+              "p50": 5.624,
+              "p95": 11.737,
+              "p99": 17.701,
+              "max": 28.398
+            }
+          },
+          "ambientSlice": {
+            "wallMs": {
+              "n": 9457,
+              "total": 3242.51014799998,
+              "p50": 0.036263,
+              "p95": 0.444767,
+              "p99": 4.447983,
+              "max": 228.377956
+            },
+            "cpuMs": {
+              "n": 9457,
+              "total": 838.8790000000001,
+              "p50": 0,
+              "p95": 0.451,
+              "p99": 2.572,
+              "max": 5.148
+            }
+          },
+          "yieldLeg": {
+            "wallMs": {
+              "n": 12,
+              "total": 0.720236,
+              "p50": 0.020712,
+              "p95": 0.26937,
+              "p99": 0.26937,
+              "max": 0.26937
+            },
+            "cpuMs": {
+              "n": 12,
+              "total": 0.546,
+              "p50": 0,
+              "p95": 0.546,
+              "p99": 0.546,
+              "max": 0.546
+            }
+          }
+        }
+      }
+    ]
+  }
+}

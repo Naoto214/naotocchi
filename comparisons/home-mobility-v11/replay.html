@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>通知時の足元を再現｜なおとっち</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#faf9f5;color:#272f29;font:1rem/1.6 system-ui,sans-serif}main{max-width:43rem;margin:auto;padding:1rem}h1{margin:.4rem 0;font-size:clamp(1.3rem,4vw,1.8rem)}a{color:#245741}p{margin:.5rem 0}.buttons{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 .3rem}button{min-height:44px;padding:.4rem .85rem;border:1px solid #738575;border-radius:.4rem;background:#fff;color:#23392c;font:inherit}button[aria-pressed=true]{background:#efdb99;font-weight:650}#result{min-height:3em;font-variant-numeric:tabular-nums}.view{overflow:auto;margin:auto;width:100%;max-width:320px;background:#e9ece0}iframe{width:320px;height:792px;border:0;display:block}button:focus-visible,a:focus-visible{outline:3px solid #956721}
+</style>
+<main>
+<a href="./">ホームの試遊に戻る</a>
+<h1>通知で表示が切り替わったときの足元</h1>
+<p>森の28体を、320px幅で記録した同じ足位置から再生します。「パンダの表示を差し替える」を押すと、ホームが足元を再計算します。</p>
+<div class="buttons" role="group" aria-label="足元の同期処理">
+<button data-arm="v10" aria-pressed="false">V10</button>
+<button data-arm="v11" aria-pressed="true">V11</button>
+</div>
+<div class="buttons"><button id="replace" disabled>パンダの表示を差し替える</button><button id="restart">記録位置に戻す</button></div>
+<p id="result" role="status">読み込み中</p>
+</main>
+<div class="view"><iframe id="replay" title="森・320px・住民28体の記録再生"></iframe></div>
+<script type="module" src="./replay.mjs"></script>
+</html>

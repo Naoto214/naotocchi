@@ -1,0 +1,499 @@
+{
+  "sources": [
+    {
+      "name": "foot-transitions-main.json",
+      "sha256": "0153bd7fa88e7d0b4ab765dac14d9ef94de21b910b9dbc05d3df41ca6cc312b7"
+    },
+    {
+      "name": "foot-transitions-late.json",
+      "sha256": "f1b196d777e781a4f336d3a46447c1af02f568280b3c05c2f23471589a140083"
+    },
+    {
+      "name": "foot-transitions-extras.json",
+      "sha256": "95b091b43bbb65a03eed3f22de619062d0fced94dd040b8603e7ea15201bbe56"
+    },
+    {
+      "name": "foot-transitions-camera-save.json",
+      "sha256": "29c918fdf3108fcbd0309fbb61bc88663186a8178f197a67d079b7e8bd9474ad"
+    }
+  ],
+  "cases": [
+    {
+      "case": "notice",
+      "fromView": [
+        320,
+        792,
+        "forest",
+        4
+      ],
+      "toView": [
+        320,
+        792,
+        "forest",
+        4
+      ],
+      "countBefore": 28,
+      "countAfter": 28,
+      "ownerReplacements": 0,
+      "observedInkHandling": {},
+      "bodyOrLifeChange": {
+        "notice": [
+          false,
+          true
+        ]
+      },
+      "invalidFinalFoot": [],
+      "movedInModel": 0,
+      "maxGroundCoordinateChangeCSS": 0,
+      "syncReasonCounts": {},
+      "finalScreenChangeCSS": null,
+      "savedSHA256": null
+    },
+    {
+      "case": "social",
+      "fromView": [
+        320,
+        792,
+        "forest",
+        4
+      ],
+      "toView": [
+        320,
+        792,
+        "forest",
+        4
+      ],
+      "countBefore": 28,
+      "countAfter": 28,
+      "ownerReplacements": 26,
+      "observedInkHandling": {
+        "remeasured": 26
+      },
+      "bodyOrLifeChange": {},
+      "invalidFinalFoot": [],
+      "movedInModel": 0,
+      "maxGroundCoordinateChangeCSS": 0,
+      "syncReasonCounts": {},
+      "finalScreenChangeCSS": null,
+      "savedSHA256": null
+    },
+    {
+      "case": "expression",
+      "fromView": [
+        320,
+        792,
+        "forest",
+        4
+      ],
+      "toView": [
+        320,
+        792,
+        "forest",
+        4
+      ],
+      "countBefore": 28,
+      "countAfter": 28,
+      "ownerReplacements": 0,
+      "observedInkHandling": {},
+      "bodyOrLifeChange": {
+        "expression": [
+          "normal",
+          "hungry"
+        ],
+        "image": [
+          "assets/characters/dog/06.png",
+          "assets/characters/expressions/dog/06-hungry.png"
+        ]
+      },
+      "invalidFinalFoot": [],
+      "movedInModel": 0,
+      "maxGroundCoordinateChangeCSS": 0,
+      "syncReasonCounts": {},
+      "finalScreenChangeCSS": null,
+      "savedSHA256": null
+    },
+    {
+      "case": "growth",
+      "fromView": [
+        320,
+        792,
+        "forest",
+        4
+      ],
+      "toView": [
+        320,
+        792,
+        "forest",
+        5
+      ],
+      "countBefore": 28,
+      "countAfter": 28,
+      "ownerReplacements": 0,
+      "observedInkHandling": {
+        "remeasured": 5
+      },
+      "bodyOrLifeChange": {
+        "base": [
+          "assets/characters/dog/06.png",
+          "assets/characters/dog/07.png"
+        ],
+        "stage": [
+          5,
+          6
+        ],
+        "image": [
+          "assets/characters/dog/06.png",
+          "assets/characters/dog/07.png"
+        ],
+        "notice": [
+          false,
+          true
+        ]
+      },
+      "invalidFinalFoot": [],
+      "movedInModel": 13,
+      "maxGroundCoordinateChangeCSS": 324.98112713359023,
+      "syncReasonCounts": {
+        "arrangement": 6,
+        "projection": 12
+      },
+      "finalScreenChangeCSS": null,
+      "savedSHA256": null
+    },
+    {
+      "case": "evolution",
+      "fromView": [
+        320,
+        792,
+        "forest",
+        4
+      ],
+      "toView": [
+        320,
+        792,
+        "forest",
+        4
+      ],
+      "countBefore": 28,
+      "countAfter": 28,
+      "ownerReplacements": 0,
+      "observedInkHandling": {
+        "remeasured": 1
+      },
+      "bodyOrLifeChange": {
+        "base": [
+          "assets/characters/dog/06.png",
+          "assets/characters/cat/06.png"
+        ],
+        "form": [
+          "dog",
+          "cat"
+        ],
+        "image": [
+          "assets/characters/dog/06.png",
+          "assets/characters/cat/06.png"
+        ],
+        "notice": [
+          false,
+          true
+        ]
+      },
+      "invalidFinalFoot": [],
+      "movedInModel": 0,
+      "maxGroundCoordinateChangeCSS": 0,
+      "syncReasonCounts": {},
+      "finalScreenChangeCSS": null,
+      "savedSHA256": null
+    },
+    {
+      "case": "gear-off",
+      "fromView": [
+        320,
+        792,
+        "forest",
+        4
+      ],
+      "toView": [
+        320,
+        792,
+        "forest",
+        5
+      ],
+      "countBefore": 28,
+      "countAfter": 28,
+      "ownerReplacements": 0,
+      "observedInkHandling": {
+        "remeasured": 1
+      },
+      "bodyOrLifeChange": {
+        "gear": [
+          "ribbon",
+          null
+        ]
+      },
+      "invalidFinalFoot": [],
+      "movedInModel": 13,
+      "maxGroundCoordinateChangeCSS": 327.03523106344767,
+      "syncReasonCounts": {
+        "projection": 13
+      },
+      "finalScreenChangeCSS": null,
+      "savedSHA256": null
+    },
+    {
+      "case": "gear-on",
+      "fromView": [
+        320,
+        792,
+        "forest",
+        5
+      ],
+      "toView": [
+        320,
+        792,
+        "forest",
+        6
+      ],
+      "countBefore": 28,
+      "countAfter": 28,
+      "ownerReplacements": 0,
+      "observedInkHandling": {
+        "remeasured": 1
+      },
+      "bodyOrLifeChange": {
+        "gear": [
+          null,
+          "ribbon"
+        ]
+      },
+      "invalidFinalFoot": [],
+      "movedInModel": 13,
+      "maxGroundCoordinateChangeCSS": 323.6261845633188,
+      "syncReasonCounts": {
+        "projection": 13
+      },
+      "finalScreenChangeCSS": null,
+      "savedSHA256": null
+    },
+    {
+      "case": "population-remove",
+      "fromView": [
+        320,
+        792,
+        "forest",
+        4
+      ],
+      "toView": [
+        320,
+        792,
+        "forest",
+        4
+      ],
+      "countBefore": 28,
+      "countAfter": 27,
+      "ownerReplacements": 25,
+      "observedInkHandling": {
+        "remeasured": 45
+      },
+      "bodyOrLifeChange": {
+        "notice": [
+          false,
+          true
+        ]
+      },
+      "invalidFinalFoot": [],
+      "movedInModel": 21,
+      "maxGroundCoordinateChangeCSS": 291.77390348706876,
+      "syncReasonCounts": {
+        "population": 20,
+        "body": 6
+      },
+      "finalScreenChangeCSS": null,
+      "savedSHA256": null
+    },
+    {
+      "case": "population-add",
+      "fromView": [
+        320,
+        792,
+        "forest",
+        4
+      ],
+      "toView": [
+        320,
+        792,
+        "forest",
+        5
+      ],
+      "countBefore": 27,
+      "countAfter": 28,
+      "ownerReplacements": 25,
+      "observedInkHandling": {
+        "remeasured": 45
+      },
+      "bodyOrLifeChange": {},
+      "invalidFinalFoot": [],
+      "movedInModel": 21,
+      "maxGroundCoordinateChangeCSS": 291.77390348706876,
+      "syncReasonCounts": {
+        "population": 21,
+        "projection": 1
+      },
+      "finalScreenChangeCSS": null,
+      "savedSHA256": null
+    },
+    {
+      "case": "region",
+      "fromView": [
+        320,
+        792,
+        "forest",
+        4
+      ],
+      "toView": [
+        320,
+        792,
+        "river_lake",
+        8
+      ],
+      "countBefore": 28,
+      "countAfter": 28,
+      "ownerReplacements": 0,
+      "observedInkHandling": {},
+      "bodyOrLifeChange": {
+        "region": [
+          "forest",
+          "river_lake"
+        ],
+        "notice": [
+          false,
+          true
+        ]
+      },
+      "invalidFinalFoot": [],
+      "movedInModel": 28,
+      "maxGroundCoordinateChangeCSS": 243.85236780954546,
+      "syncReasonCounts": {
+        "region": 28,
+        "projection": 28
+      },
+      "finalScreenChangeCSS": 259.6093728069423,
+      "savedSHA256": null
+    },
+    {
+      "case": "time",
+      "fromView": [
+        320,
+        792,
+        "forest",
+        4
+      ],
+      "toView": [
+        320,
+        792,
+        "forest",
+        4
+      ],
+      "countBefore": 28,
+      "countAfter": 28,
+      "ownerReplacements": 0,
+      "observedInkHandling": {},
+      "bodyOrLifeChange": {
+        "time": [
+          "day",
+          "night"
+        ]
+      },
+      "invalidFinalFoot": [],
+      "movedInModel": 0,
+      "maxGroundCoordinateChangeCSS": 0,
+      "syncReasonCounts": {},
+      "finalScreenChangeCSS": null,
+      "savedSHA256": null
+    },
+    {
+      "case": "width",
+      "fromView": [
+        320,
+        792,
+        "forest",
+        4
+      ],
+      "toView": [
+        375,
+        792,
+        "forest",
+        8
+      ],
+      "countBefore": 28,
+      "countAfter": 28,
+      "ownerReplacements": 0,
+      "observedInkHandling": {
+        "remeasured": 28
+      },
+      "bodyOrLifeChange": {},
+      "invalidFinalFoot": [],
+      "movedInModel": 28,
+      "maxGroundCoordinateChangeCSS": 299.8416965083283,
+      "syncReasonCounts": {
+        "projection": 49
+      },
+      "finalScreenChangeCSS": 331.15970212890164,
+      "savedSHA256": null
+    },
+    {
+      "case": "camera",
+      "fromView": [
+        320,
+        792,
+        "forest",
+        4
+      ],
+      "toView": [
+        320,
+        690,
+        "forest",
+        6
+      ],
+      "countBefore": 28,
+      "countAfter": 28,
+      "ownerReplacements": 0,
+      "observedInkHandling": {},
+      "bodyOrLifeChange": {},
+      "invalidFinalFoot": [],
+      "movedInModel": 16,
+      "maxGroundCoordinateChangeCSS": 208.8649195565507,
+      "syncReasonCounts": {
+        "projection": 29
+      },
+      "finalScreenChangeCSS": 254.8855121333629,
+      "savedSHA256": null
+    },
+    {
+      "case": "save-restore",
+      "fromView": [
+        320,
+        792,
+        "forest",
+        4
+      ],
+      "toView": [
+        320,
+        792,
+        "forest",
+        4
+      ],
+      "countBefore": 28,
+      "countAfter": 28,
+      "ownerReplacements": null,
+      "observedInkHandling": {},
+      "bodyOrLifeChange": {},
+      "invalidFinalFoot": [],
+      "movedInModel": 20,
+      "maxGroundCoordinateChangeCSS": 227.91619931497462,
+      "syncReasonCounts": {},
+      "finalScreenChangeCSS": 227.9161993149746,
+      "savedSHA256": "bfea6696bf8aa80bc110a62d8d5d3aee571bd355a7e57da9889837d8915bbe25"
+    }
+  ]
+}

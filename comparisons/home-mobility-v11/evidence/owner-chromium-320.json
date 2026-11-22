@@ -1,0 +1,18 @@
+{
+  "width": 320,
+  "engine": "chromium",
+  "version": "156.0.8078.79",
+  "fixedOpening": "f1b731cfc3bc66d30eeb17120f33e0f1f1846a1d073799fbbd522fd7375409b7",
+  "historicalOpening": "a4c497d36fb009ddec2ae2dcb8573c14c0ecba3048373d8f2c2b8cb62490f231",
+  "sameOpeningAllFour": true,
+  "toolbarFits": true,
+  "footReadoutResidents": 4,
+  "progress": {
+    "arm": "v11-reference",
+    "tracked": 28,
+    "elapsed": 5.249900000000001,
+    "moved": 3,
+    "syncRecorder": true
+  },
+  "errors": []
+}

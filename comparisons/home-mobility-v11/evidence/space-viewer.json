@@ -1,0 +1,36 @@
+{
+  "observer": "Chromium",
+  "observedMasks": 7392,
+  "dataSHA256": "77514e65bcdc2938fa336c3b308a7096d741e77ab8a6dec74f4b47a63462e130",
+  "browsers": [
+    {
+      "width": 320,
+      "checkedSelections": 72,
+      "tapSelectedDog": true,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "width": 375,
+      "checkedSelections": 72,
+      "tapSelectedDog": true,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "width": 390,
+      "checkedSelections": 72,
+      "tapSelectedDog": true,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "width": 430,
+      "checkedSelections": 72,
+      "tapSelectedDog": true,
+      "overflow": false,
+      "errors": []
+    }
+  ],
+  "version": "156.0.8078.79"
+}

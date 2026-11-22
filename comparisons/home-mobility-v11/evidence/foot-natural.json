@@ -1,0 +1,24 @@
+{
+  "width": 320,
+  "seed": 214,
+  "browser": "156.0.8078.79",
+  "sourceRenderer": {
+    "original": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377",
+    "observed": "58ca125b85d3e10e91555610b909018d5585aa112ed5b63128dc141960d5c6e7"
+  },
+  "rawSHA256": "10de294cbd664c6b4edc6e3c80c1933af524f00f1b34b9323e1ea75627b90cce",
+  "modelSeconds": 321.7563000000161,
+  "realSeconds": 464.08970099400005,
+  "shifts": [],
+  "transitionCounts": {
+    "group-bounce": 11,
+    "lower-notice": 26,
+    "resident-bounce": 11,
+    "group-clean": 2,
+    "illness": 14,
+    "resident-shake": 5,
+    "resident-recover": 1,
+    "resident-hungry": 7
+  },
+  "pageErrors": []
+}

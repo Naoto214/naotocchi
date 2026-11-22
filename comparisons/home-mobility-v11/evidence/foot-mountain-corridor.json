@@ -1,0 +1,83 @@
+{
+  "region": "mountain",
+  "count": 10,
+  "width": 320,
+  "sourceClock": 180.00000000000668,
+  "points": [
+    {
+      "key": "pet:dog",
+      "before": [
+        125.4093306517028,
+        227.30988999268598
+      ]
+    },
+    {
+      "key": "partner:forest_bear",
+      "before": [
+        280,
+        318.18
+      ]
+    },
+    {
+      "key": "companion:cat_friend",
+      "before": [
+        218.84218786897273,
+        170.33671463220946
+      ]
+    },
+    {
+      "key": "companion:tanuki",
+      "before": [
+        208,
+        242.18
+      ]
+    },
+    {
+      "key": "companion:owl",
+      "before": [
+        255.06643022894855,
+        215.42913723308786
+      ]
+    },
+    {
+      "key": "companion:hamster",
+      "before": [
+        93.70800900164639,
+        291.2607516378725
+      ]
+    },
+    {
+      "key": "companion:rabbit_friend",
+      "before": [
+        178.57307815551758,
+        202.70792167663575
+      ]
+    },
+    {
+      "key": "companion:squirrel",
+      "before": [
+        142.92890329639476,
+        165.06513311142695
+      ]
+    },
+    {
+      "key": "companion:otter",
+      "before": [
+        162.67970688371162,
+        273.88937464832657
+      ]
+    },
+    {
+      "key": "companion:panda",
+      "before": [
+        88.54074357129925,
+        173.99519499479192
+      ]
+    }
+  ],
+  "held": {
+    "strictLongBearings96": [
+      176.25
+    ]
+  }
+}

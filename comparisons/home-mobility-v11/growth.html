@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>成長時の足元を比べる｜なおとっち</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#faf9f5;color:#27372f;font:1rem/1.55 system-ui,sans-serif}main{max-width:45rem;margin:auto;padding:1rem}a{color:#245741}h1{font-size:clamp(1.35rem,4vw,1.85rem);margin:.4rem 0}p{margin:.5rem 0}.row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin:.75rem 0}select,button{font:inherit;border:1px solid #758778;border-radius:.4rem;min-height:44px;color:inherit;background:white;padding:.35rem .6rem}button[aria-pressed=true]{background:#efda96;font-weight:650}#result{font-variant-numeric:tabular-nums}dd,dt{margin:0}dl{display:grid;grid-template-columns:max-content 1fr;gap:.25rem .7rem;margin:.5rem 0}.stage{width:100%;max-width:430px;margin:auto;overflow:hidden}iframe{display:block;transform-origin:top left;height:792px;border:0}.note{font-size:.9rem}button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid #956721}
+</style>
+<main><a href="./">ホームの試遊に戻る</a><h1>成長した瞬間の足元</h1>
+<p>森の28体が立っている状態で、主人公を次の成長段階へ進めます。どの住民の足元が最も動いたかを画面上の距離で比べられます。</p>
+<div class="row"><label for="width">ゲーム画面の幅</label><select id="width"><option>320</option><option>375</option><option selected>390</option><option>430</option></select></div>
+<div class="row" role="group" aria-label="成長時の配置"><button type="button" data-guard="0" aria-pressed="true">従来の再配置</button><button type="button" data-guard="1" aria-pressed="false">元の退路を守れる時は足位置を保つ</button></div>
+<div class="row"><button id="grow" disabled>成長させる</button><button id="restart">初期状態に戻す</button></div>
+<p id="status" role="status">読み込み中</p><div id="result"></div>
+<p class="note">これは一時停止した試遊での比較です。退路の確認に時間がかかる場合があります。</p></main>
+<div class="stage"><iframe title="成長時の足元を測る森のホーム"></iframe></div>
+<script type="module" src="./growth.mjs"></script>
+</html>

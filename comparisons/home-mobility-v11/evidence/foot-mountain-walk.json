@@ -1,0 +1,66 @@
+{
+  "seed": 3761425696,
+  "browser": "156.0.8078.79",
+  "walk": {
+    "bearing": 176.25,
+    "start": {
+      "x": 125.4093306517028,
+      "y": 227.30988999268598
+    },
+    "end": {
+      "x": 52.58843745924449,
+      "y": 232.0828234978183
+    },
+    "accepted": true,
+    "initialTarget": {
+      "x": 52.58843745924449,
+      "y": 232.0828234978183
+    },
+    "initialRoute": [],
+    "sameOpening": true,
+    "originalRoutes": [
+      {
+        "key": "companion:hamster",
+        "target": {
+          "x": 92,
+          "y": 290.18
+        },
+        "route": [
+          {
+            "x": 91.56951193374515,
+            "y": 290.1080115243783
+          }
+        ]
+      }
+    ],
+    "priorWalks": [
+      {
+        "key": "companion:hamster",
+        "end": {
+          "x": 91.56951193374515,
+          "y": 290.1080115243783
+        },
+        "arrived": false,
+        "walkedCss": 1.7112777584772754
+      }
+    ],
+    "nonWalkingCorrections": 0,
+    "pandaChange": 0,
+    "steps": 35,
+    "maxStep": 2.0879810171753395,
+    "actualCss": 72.55947093971756,
+    "arrived": true,
+    "safetyErrors": 0,
+    "finalFoot": {
+      "x": 52.58843745924449,
+      "y": 232.0828234978183
+    },
+    "nativeSafetyDelta": {
+      "terrain": 0,
+      "bounds": 0,
+      "occlusion": 0,
+      "swept": 0,
+      "speed": 0
+    }
+  }
+}

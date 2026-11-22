@@ -1,0 +1,109 @@
+name: Home mobility V11 native WebKit performance
+on:
+  push:
+    branches: [draft/home-mobility-v11]
+  workflow_dispatch:
+    inputs:
+      experiment:
+        type: choice
+        options: [all, autonomy, fixed, stress, attribution, reverse-input]
+        default: all
+        description: Native performance measurements
+permissions:
+  contents: read
+  actions: read
+jobs:
+  measure:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[v11-perf]') || contains(github.event.head_commit.message, '[v11-reverse-input]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        experiment: ${{ fromJSON((inputs.experiment == 'reverse-input' || contains(github.event.head_commit.message, '[v11-reverse-input]')) && '["reverse-input","notice-v10","notice-v11-foot","notice-v11"]' || inputs.experiment == 'autonomy' && '["autonomy"]' || inputs.experiment == 'fixed' && '["fixed"]' || inputs.experiment == 'stress' && '["stress"]' || inputs.experiment == 'attribution' && '["attribution"]' || '["autonomy","fixed","stress","attribution"]') }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: comparisons
+      - uses: actions/checkout@v4
+        with:
+          ref: e07d2cc53eca36ff23e02142ab385d6001e0521b
+          path: .cast-reference
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons
+            tools/work
+      - uses: actions/checkout@v4
+        with:
+          ref: 28628cf336a8ed92efe4e9e197ca03298b798a1e
+          path: .leaf-reference
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Build the pinned native homes
+        run: |
+          folder=.cast-reference/comparisons
+          node "$folder/home-cast-size-v1/build.cjs" "$RUNNER_TEMP/v1" --reference-checkout .leaf-reference
+          for n in 2 3 4; do node "$folder/home-cast-size-v$n/build.cjs" "$RUNNER_TEMP/v$n" --baseline "$RUNNER_TEMP/v$((n-1))"; done
+          node comparisons/home-finish-v5/build.cjs "$RUNNER_TEMP/v5" --baseline "$RUNNER_TEMP/v4"
+          node comparisons/home-drag-v6/build.cjs "$RUNNER_TEMP/v6" --baseline "$RUNNER_TEMP/v5"
+          for n in 7 8 9 10 11; do node "comparisons/home-mobility-v$n/build.cjs" "$RUNNER_TEMP/v$n" --baseline "$RUNNER_TEMP/v$((n-1))"; done
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned native WPE
+        run: |
+          python -m pip install playwright==1.62.0 psutil==7.2.2 Pillow==11.3.0
+          python -m playwright install --with-deps webkit
+      - name: Retrieve the historical motion and environment fixture
+        if: matrix.experiment == 'fixed' || matrix.experiment == 'stress'
+        uses: actions/download-artifact@v4
+        with:
+          name: mobility-v10-performance-${{ matrix.experiment }}
+          path: ${{ runner.temp }}/tape
+          run-id: 44921996416
+          github-token: ${{ github.token }}
+      - name: Run the dedicated experiment
+        env:
+          EXPERIMENT: ${{ matrix.experiment }}
+        run: |
+          python -m http.server 8377 --bind 127.0.0.1 --directory "$RUNNER_TEMP/v11" > "$RUNNER_TEMP/http.log" 2>&1 &
+          server=$!
+          trap 'kill "$server"' EXIT
+          folder=comparisons/home-mobility-v11
+          out="$RUNNER_TEMP/performance"
+          mkdir -p "$out"
+          case "$EXPERIMENT" in
+            autonomy)
+              python -B "$folder/performance.py" native --order v10,v11-foot,v11 --seconds 180 --out "$out/forward.json"
+              python -B "$folder/performance.py" native --order v11,v11-foot,v10 --seconds 180 --out "$out/reverse.json"
+              ;;
+            fixed|stress)
+              (cd "$RUNNER_TEMP/tape" && sha256sum -c "$GITHUB_WORKSPACE/comparisons/home-mobility-v10/$EXPERIMENT-fixture.sha256")
+              python -B "$folder/performance.py" replay --order v10,v11-foot,v11,v11,v11-foot,v10 --tape "$RUNNER_TEMP/tape" --kind "$EXPERIMENT" --out "$out/$EXPERIMENT.json"
+              ;;
+            notice-*)
+              arm="${EXPERIMENT#notice-}"
+              python -B "$folder/performance-notice.py" --arm "$arm" --seconds 330 --out "$out/$EXPERIMENT.json"
+              ;;
+            reverse-input)
+              python -B "$folder/performance.py" touch --order v11,v11-foot,v10 --out "$out/touch-reverse.json"
+              python -B "$folder/performance.py" sync --order v11,v11-foot,v10 --out "$out/sync-reverse.json"
+              ;;
+            attribution)
+              python -B "$folder/performance.py" native --trace --order v10,v11-foot,v11 --seconds 25 --out "$out/trace.json"
+              python -B "$folder/performance.py" touch --out "$out/touch.json"
+              python -B "$folder/performance.py" sync --out "$out/sync.json"
+              MOBILITY_GAME="$RUNNER_TEMP/v11/game" node "$folder/performance-routes.mjs" "$out/routes.json"
+              ;;
+          esac
+      - name: Retain rAF, Linux compositor and input observations
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mobility-v11-performance-${{ matrix.experiment }}
+          path: ${{ runner.temp }}/performance/
+          retention-days: 14
+          if-no-files-found: error

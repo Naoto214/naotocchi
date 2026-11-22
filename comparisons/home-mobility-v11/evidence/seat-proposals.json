@@ -1,0 +1,164 @@
+[
+  {
+    "width": 320,
+    "source": "4463bbc8a3f4f95781497f4a14548e7d473e1e072ff5126d070484828fac63b5",
+    "browser": "156.0.8078.79",
+    "coarse": {
+      "counts": {
+        "tested": 6272,
+        "invalid": 1422,
+        "newOrWorseContact": 4257,
+        "otherExitLost": 262,
+        "ownExitLost": 308,
+        "preservedButNoNewWalker": 23,
+        "survived": 0
+      },
+      "survivors": [],
+      "firstLost": []
+    },
+    "fine": null
+  },
+  {
+    "width": 375,
+    "source": "34b890366c8bbbf77f3ced35fae3a56a80ab1d442e25b12480a12297e6669509",
+    "browser": "156.0.8078.79",
+    "coarse": {
+      "counts": {
+        "tested": 6272,
+        "invalid": 1203,
+        "newOrWorseContact": 3845,
+        "otherExitLost": 573,
+        "ownExitLost": 622,
+        "preservedButNoNewWalker": 25,
+        "survived": 4
+      },
+      "survivors": [
+        {
+          "key": "companion:bat",
+          "dx": -4,
+          "dy": 4.898587196589413e-16,
+          "opened": [
+            "companion:cat_friend"
+          ]
+        },
+        {
+          "key": "companion:squirrel",
+          "dx": 1,
+          "dy": 0,
+          "opened": [
+            "companion:squirrel"
+          ]
+        },
+        {
+          "key": "companion:squirrel",
+          "dx": 2,
+          "dy": 0,
+          "opened": [
+            "companion:squirrel"
+          ]
+        },
+        {
+          "key": "companion:squirrel",
+          "dx": 4,
+          "dy": 0,
+          "opened": [
+            "companion:squirrel"
+          ]
+        }
+      ],
+      "firstLost": []
+    },
+    "fine": {
+      "counts": {
+        "tested": 4,
+        "invalid": 0,
+        "newOrWorseContact": 0,
+        "otherExitLost": 3,
+        "ownExitLost": 1,
+        "preservedButNoNewWalker": 0,
+        "survived": 0
+      },
+      "survivors": [],
+      "firstLost": [
+        {
+          "key": "companion:bat",
+          "dx": -4,
+          "dy": 4.898587196589413e-16,
+          "reason": "ownExitLost",
+          "who": "companion:bat",
+          "d": 9,
+          "bearing": 782,
+          "sectors": 1440
+        },
+        {
+          "key": "companion:squirrel",
+          "dx": 1,
+          "dy": 0,
+          "reason": "otherExitLost",
+          "who": "companion:clock",
+          "d": 1,
+          "bearing": 0,
+          "sectors": 1440
+        },
+        {
+          "key": "companion:squirrel",
+          "dx": 2,
+          "dy": 0,
+          "reason": "otherExitLost",
+          "who": "companion:clock",
+          "d": 1,
+          "bearing": 0,
+          "sectors": 1440
+        },
+        {
+          "key": "companion:squirrel",
+          "dx": 4,
+          "dy": 0,
+          "reason": "otherExitLost",
+          "who": "companion:clock",
+          "d": 1,
+          "bearing": 0,
+          "sectors": 1440
+        }
+      ]
+    }
+  },
+  {
+    "width": 390,
+    "source": "729c978cbfa9379fb5507e74f74f8d8e4468d79c219aa36d2197704afd341937",
+    "browser": "156.0.8078.79",
+    "coarse": {
+      "counts": {
+        "tested": 6272,
+        "invalid": 1208,
+        "newOrWorseContact": 4122,
+        "otherExitLost": 394,
+        "ownExitLost": 534,
+        "preservedButNoNewWalker": 14,
+        "survived": 0
+      },
+      "survivors": [],
+      "firstLost": []
+    },
+    "fine": null
+  },
+  {
+    "width": 430,
+    "source": "8853d6c22851ea79f9a3ce966a4906678145aee887b9381ad11b2efe5d7e7ff6",
+    "browser": "156.0.8078.79",
+    "coarse": {
+      "counts": {
+        "tested": 6272,
+        "invalid": 1139,
+        "newOrWorseContact": 4193,
+        "otherExitLost": 416,
+        "ownExitLost": 516,
+        "preservedButNoNewWalker": 8,
+        "survived": 0
+      },
+      "survivors": [],
+      "firstLost": []
+    },
+    "fine": null
+  }
+]

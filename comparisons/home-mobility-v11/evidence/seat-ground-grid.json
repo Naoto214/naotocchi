@@ -1,0 +1,273 @@
+{
+  "width": 320,
+  "gridStepCss": 2,
+  "openingSHA": "4463bbc8a3f4f95781497f4a14548e7d473e1e072ff5126d070484828fac63b5",
+  "individualAllowedCentres": 256271,
+  "noWorseContactCentres": 3223,
+  "stages": [
+    {
+      "sectors": 96,
+      "lengths": [
+        3,
+        8,
+        16
+      ],
+      "counts": {
+        "tested": 3223,
+        "invalid": 0,
+        "newOrWorseContact": 0,
+        "otherExitLost": 2794,
+        "ownExitLost": 404,
+        "preservedButNoNewWalker": 1,
+        "survived": 24
+      },
+      "survivors": [
+        {
+          "key": "companion:watcher",
+          "dx": -46.430386415094645,
+          "dy": 147.57821495330987,
+          "opened": [
+            "companion:box"
+          ]
+        },
+        {
+          "key": "companion:watcher",
+          "dx": -44.430386415094645,
+          "dy": 147.57821495330987,
+          "opened": [
+            "companion:box"
+          ]
+        },
+        {
+          "key": "companion:watcher",
+          "dx": -48.43038641509466,
+          "dy": 149.57821495330984,
+          "opened": [
+            "companion:box"
+          ]
+        },
+        {
+          "key": "companion:watcher",
+          "dx": -46.430386415094645,
+          "dy": 149.57821495330984,
+          "opened": [
+            "companion:box"
+          ]
+        },
+        {
+          "key": "companion:watcher",
+          "dx": -44.430386415094645,
+          "dy": 149.57821495330984,
+          "opened": [
+            "companion:box"
+          ]
+        },
+        {
+          "key": "companion:watcher",
+          "dx": -48.43038641509466,
+          "dy": 151.57821495330987,
+          "opened": [
+            "companion:box"
+          ]
+        },
+        {
+          "key": "companion:watcher",
+          "dx": -46.430386415094645,
+          "dy": 151.57821495330987,
+          "opened": [
+            "companion:box"
+          ]
+        },
+        {
+          "key": "companion:watcher",
+          "dx": -44.430386415094645,
+          "dy": 151.57821495330987,
+          "opened": [
+            "companion:box"
+          ]
+        },
+        {
+          "key": "companion:watcher",
+          "dx": -46.430386415094645,
+          "dy": 153.5782149533098,
+          "opened": [
+            "companion:box"
+          ]
+        },
+        {
+          "key": "companion:watcher",
+          "dx": -44.430386415094645,
+          "dy": 153.5782149533098,
+          "opened": [
+            "companion:box"
+          ]
+        },
+        {
+          "key": "companion:sekizou",
+          "dx": 48.385414614695556,
+          "dy": 1.2357972731581084,
+          "opened": [
+            "companion:chicken",
+            "companion:sekizou"
+          ]
+        },
+        {
+          "key": "companion:sekizou",
+          "dx": 46.38541461469554,
+          "dy": 3.2357972731581457,
+          "opened": [
+            "companion:chicken",
+            "companion:sekizou"
+          ]
+        },
+        {
+          "key": "companion:sekizou",
+          "dx": 48.385414614695556,
+          "dy": 3.2357972731581457,
+          "opened": [
+            "companion:chicken",
+            "companion:sekizou"
+          ]
+        },
+        {
+          "key": "companion:sekizou",
+          "dx": 42.38541461469555,
+          "dy": 5.2357972731581075,
+          "opened": [
+            "companion:chicken",
+            "companion:sekizou"
+          ]
+        },
+        {
+          "key": "companion:sekizou",
+          "dx": 44.38541461469555,
+          "dy": 5.2357972731581075,
+          "opened": [
+            "companion:chicken",
+            "companion:sekizou"
+          ]
+        },
+        {
+          "key": "companion:sekizou",
+          "dx": 46.38541461469554,
+          "dy": 5.2357972731581075,
+          "opened": [
+            "companion:chicken",
+            "companion:sekizou"
+          ]
+        },
+        {
+          "key": "companion:sekizou",
+          "dx": 48.385414614695556,
+          "dy": 5.2357972731581075,
+          "opened": [
+            "companion:chicken",
+            "companion:sekizou"
+          ]
+        },
+        {
+          "key": "companion:sekizou",
+          "dx": 44.38541461469555,
+          "dy": 7.235797273158145,
+          "opened": [
+            "companion:chicken",
+            "companion:sekizou"
+          ]
+        },
+        {
+          "key": "companion:sekizou",
+          "dx": 46.38541461469554,
+          "dy": 7.235797273158145,
+          "opened": [
+            "companion:chicken",
+            "companion:sekizou"
+          ]
+        },
+        {
+          "key": "companion:sekizou",
+          "dx": 48.385414614695556,
+          "dy": 7.235797273158145,
+          "opened": [
+            "companion:chicken",
+            "companion:sekizou"
+          ]
+        },
+        {
+          "key": "companion:sekizou",
+          "dx": 46.38541461469554,
+          "dy": 9.235797273158108,
+          "opened": [
+            "companion:chicken",
+            "companion:sekizou"
+          ]
+        },
+        {
+          "key": "companion:sekizou",
+          "dx": 48.385414614695556,
+          "dy": 9.235797273158108,
+          "opened": [
+            "companion:chicken",
+            "companion:sekizou"
+          ]
+        },
+        {
+          "key": "companion:sekizou",
+          "dx": 46.38541461469554,
+          "dy": 11.235797273158143,
+          "opened": [
+            "companion:chicken",
+            "companion:sekizou"
+          ]
+        },
+        {
+          "key": "companion:sekizou",
+          "dx": 48.385414614695556,
+          "dy": 11.235797273158143,
+          "opened": [
+            "companion:chicken",
+            "companion:sekizou"
+          ]
+        }
+      ]
+    },
+    {
+      "sectors": 384,
+      "lengths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "counts": {
+        "tested": 24,
+        "invalid": 0,
+        "newOrWorseContact": 0,
+        "otherExitLost": 24,
+        "ownExitLost": 0,
+        "preservedButNoNewWalker": 0,
+        "survived": 0
+      },
+      "survivors": []
+    }
+  ]
+}

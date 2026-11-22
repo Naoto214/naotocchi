@@ -1,0 +1,29 @@
+{
+  "site": "trial",
+  "previousCredentialBeforeRotation": 200,
+  "previousCredentialAfterRotation": 401,
+  "reissuedCredentialAfterRotation": 200,
+  "anonymousAfterRotation": 403,
+  "ownerConfiguration": {
+    "role": "owner",
+    "ownerCount": 1,
+    "otherUsers": 0,
+    "groups": 0,
+    "externalVisitors": 0
+  },
+  "evidenceConfiguration": {
+    "role": "owner",
+    "ownerCount": 1,
+    "otherUsers": 0,
+    "groups": 0,
+    "externalVisitors": 0
+  },
+  "serverConfirmedCurrentCredential": true,
+  "newActionsArtifacts": {
+    "repositoryVisibility": "public",
+    "retentionDays": 14,
+    "ownerDecision": "allow configured automatic expiry",
+    "permanentRawEvidence": "owner-only site",
+    "content": "generated test households"
+  }
+}

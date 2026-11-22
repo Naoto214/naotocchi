@@ -1,0 +1,889 @@
+[
+  {
+    "width": 320,
+    "source": "208b6614fc1b6be55e02856e17171136ada1e7848431fd4f517dd203dfcf67ce",
+    "native": {
+      "home-production-model-mobility-v10-reference.js": "34e0c9bbdb5cc2b03c3f426a5160d8425c9b7c1d22daa1a7664f0eacf6196c2e",
+      "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+      "home-route-navigation-finish.mjs": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9"
+    },
+    "cases": [
+      {
+        "phase": "opening",
+        "key": "companion:monkey",
+        "includePeers": true,
+        "modelGridStep": 4,
+        "nodes": 14,
+        "components": [
+          14
+        ],
+        "degreeOne": 1,
+        "isolated": 0,
+        "firstDeadEnds": [
+          {
+            "x": 124,
+            "y": 278.18
+          }
+        ]
+      },
+      {
+        "phase": "opening",
+        "key": "companion:tanuki",
+        "includePeers": true,
+        "modelGridStep": 4,
+        "nodes": 8,
+        "components": [
+          8
+        ],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": null,
+        "includePeers": false,
+        "modelGridStep": 4,
+        "nodes": 1380,
+        "components": [
+          1374,
+          6
+        ],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": "companion:monkey",
+        "includePeers": false,
+        "modelGridStep": 4,
+        "nodes": 1314,
+        "components": [
+          1313,
+          1
+        ],
+        "degreeOne": 0,
+        "isolated": 1,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": "companion:tanuki",
+        "includePeers": false,
+        "modelGridStep": 4,
+        "nodes": 1314,
+        "components": [
+          1313,
+          1
+        ],
+        "degreeOne": 0,
+        "isolated": 1,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": "companion:monkey",
+        "includePeers": true,
+        "modelGridStep": 8,
+        "nodes": 4,
+        "components": [
+          4
+        ],
+        "degreeOne": 2,
+        "isolated": 0,
+        "firstDeadEnds": [
+          {
+            "x": 120,
+            "y": 282.18
+          },
+          {
+            "x": 120,
+            "y": 306.18
+          }
+        ]
+      },
+      {
+        "phase": "opening",
+        "key": "companion:tanuki",
+        "includePeers": true,
+        "modelGridStep": 8,
+        "nodes": 2,
+        "components": [
+          2
+        ],
+        "degreeOne": 2,
+        "isolated": 0,
+        "firstDeadEnds": [
+          {
+            "x": 120,
+            "y": 290.18
+          },
+          {
+            "x": 112,
+            "y": 298.18
+          }
+        ]
+      },
+      {
+        "phase": "opening",
+        "key": null,
+        "includePeers": false,
+        "modelGridStep": 8,
+        "nodes": 348,
+        "components": [
+          347,
+          1
+        ],
+        "degreeOne": 1,
+        "isolated": 1,
+        "firstDeadEnds": [
+          {
+            "x": 104,
+            "y": 378.18
+          }
+        ]
+      },
+      {
+        "phase": "opening",
+        "key": "companion:monkey",
+        "includePeers": false,
+        "modelGridStep": 8,
+        "nodes": 331,
+        "components": [
+          331
+        ],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": "companion:tanuki",
+        "includePeers": false,
+        "modelGridStep": 8,
+        "nodes": 331,
+        "components": [
+          331
+        ],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "aged",
+        "key": "companion:monkey",
+        "includePeers": true,
+        "modelGridStep": 4,
+        "nodes": 0,
+        "components": [],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "aged",
+        "key": "companion:tanuki",
+        "includePeers": true,
+        "modelGridStep": 4,
+        "nodes": 0,
+        "components": [],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "aged",
+        "key": "companion:monkey",
+        "includePeers": true,
+        "modelGridStep": 8,
+        "nodes": 0,
+        "components": [],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "aged",
+        "key": "companion:tanuki",
+        "includePeers": true,
+        "modelGridStep": 8,
+        "nodes": 0,
+        "components": [],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "source": "b25cf6edbd2197dd4210dd4ca4bb98189d8015e6cf5205c5fa8ebac761bdac25",
+    "native": {
+      "home-production-model-mobility-v10-reference.js": "34e0c9bbdb5cc2b03c3f426a5160d8425c9b7c1d22daa1a7664f0eacf6196c2e",
+      "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+      "home-route-navigation-finish.mjs": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9"
+    },
+    "cases": [
+      {
+        "phase": "opening",
+        "key": "companion:shiba",
+        "includePeers": true,
+        "modelGridStep": 4,
+        "nodes": 15,
+        "components": [
+          15
+        ],
+        "degreeOne": 2,
+        "isolated": 0,
+        "firstDeadEnds": [
+          {
+            "x": 140,
+            "y": 280.37000000000006
+          },
+          {
+            "x": 128,
+            "y": 308.37000000000006
+          }
+        ]
+      },
+      {
+        "phase": "opening",
+        "key": "companion:tanuki",
+        "includePeers": true,
+        "modelGridStep": 4,
+        "nodes": 7,
+        "components": [
+          7
+        ],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": null,
+        "includePeers": false,
+        "modelGridStep": 4,
+        "nodes": 1715,
+        "components": [
+          1715
+        ],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": "companion:shiba",
+        "includePeers": false,
+        "modelGridStep": 4,
+        "nodes": 1657,
+        "components": [
+          1657
+        ],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": "companion:tanuki",
+        "includePeers": false,
+        "modelGridStep": 4,
+        "nodes": 1657,
+        "components": [
+          1657
+        ],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": "companion:shiba",
+        "includePeers": true,
+        "modelGridStep": 8,
+        "nodes": 2,
+        "components": [
+          2
+        ],
+        "degreeOne": 2,
+        "isolated": 0,
+        "firstDeadEnds": [
+          {
+            "x": 136,
+            "y": 288.37000000000006
+          },
+          {
+            "x": 136,
+            "y": 296.37000000000006
+          }
+        ]
+      },
+      {
+        "phase": "opening",
+        "key": "companion:tanuki",
+        "includePeers": true,
+        "modelGridStep": 8,
+        "nodes": 1,
+        "components": [
+          1
+        ],
+        "degreeOne": 0,
+        "isolated": 1,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": null,
+        "includePeers": false,
+        "modelGridStep": 8,
+        "nodes": 434,
+        "components": [
+          434
+        ],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": "companion:shiba",
+        "includePeers": false,
+        "modelGridStep": 8,
+        "nodes": 419,
+        "components": [
+          419
+        ],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": "companion:tanuki",
+        "includePeers": false,
+        "modelGridStep": 8,
+        "nodes": 419,
+        "components": [
+          419
+        ],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "aged",
+        "key": "companion:shiba",
+        "includePeers": true,
+        "modelGridStep": 4,
+        "nodes": 1,
+        "components": [
+          1
+        ],
+        "degreeOne": 0,
+        "isolated": 1,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "aged",
+        "key": "companion:tanuki",
+        "includePeers": true,
+        "modelGridStep": 4,
+        "nodes": 2,
+        "components": [
+          2
+        ],
+        "degreeOne": 2,
+        "isolated": 0,
+        "firstDeadEnds": [
+          {
+            "x": 180,
+            "y": 188.37000000000006
+          },
+          {
+            "x": 180,
+            "y": 192.37000000000006
+          }
+        ]
+      },
+      {
+        "phase": "aged",
+        "key": "companion:shiba",
+        "includePeers": true,
+        "modelGridStep": 8,
+        "nodes": 0,
+        "components": [],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "aged",
+        "key": "companion:tanuki",
+        "includePeers": true,
+        "modelGridStep": 8,
+        "nodes": 0,
+        "components": [],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "source": "15730ba2453fb7dea853be87412163dd6428deb02a0afd0e7faadbaef6ef3d06",
+    "native": {
+      "home-production-model-mobility-v10-reference.js": "34e0c9bbdb5cc2b03c3f426a5160d8425c9b7c1d22daa1a7664f0eacf6196c2e",
+      "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+      "home-route-navigation-finish.mjs": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9"
+    },
+    "cases": [
+      {
+        "phase": "opening",
+        "key": "companion:shiba",
+        "includePeers": true,
+        "modelGridStep": 4,
+        "nodes": 22,
+        "components": [
+          12,
+          10
+        ],
+        "degreeOne": 2,
+        "isolated": 0,
+        "firstDeadEnds": [
+          {
+            "x": 124,
+            "y": 323.2200000000001
+          },
+          {
+            "x": 100,
+            "y": 331.2200000000001
+          }
+        ]
+      },
+      {
+        "phase": "opening",
+        "key": "companion:tanuki",
+        "includePeers": true,
+        "modelGridStep": 4,
+        "nodes": 11,
+        "components": [
+          11
+        ],
+        "degreeOne": 1,
+        "isolated": 0,
+        "firstDeadEnds": [
+          {
+            "x": 148,
+            "y": 271.2200000000001
+          }
+        ]
+      },
+      {
+        "phase": "opening",
+        "key": null,
+        "includePeers": false,
+        "modelGridStep": 4,
+        "nodes": 1887,
+        "components": [
+          1886,
+          1
+        ],
+        "degreeOne": 0,
+        "isolated": 1,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": "companion:shiba",
+        "includePeers": false,
+        "modelGridStep": 4,
+        "nodes": 1795,
+        "components": [
+          1795
+        ],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": "companion:tanuki",
+        "includePeers": false,
+        "modelGridStep": 4,
+        "nodes": 1795,
+        "components": [
+          1795
+        ],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": "companion:shiba",
+        "includePeers": true,
+        "modelGridStep": 8,
+        "nodes": 7,
+        "components": [
+          4,
+          3
+        ],
+        "degreeOne": 2,
+        "isolated": 0,
+        "firstDeadEnds": [
+          {
+            "x": 120,
+            "y": 323.2200000000001
+          },
+          {
+            "x": 104,
+            "y": 331.2200000000001
+          }
+        ]
+      },
+      {
+        "phase": "opening",
+        "key": "companion:tanuki",
+        "includePeers": true,
+        "modelGridStep": 8,
+        "nodes": 4,
+        "components": [
+          4
+        ],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": null,
+        "includePeers": false,
+        "modelGridStep": 8,
+        "nodes": 475,
+        "components": [
+          475
+        ],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": "companion:shiba",
+        "includePeers": false,
+        "modelGridStep": 8,
+        "nodes": 444,
+        "components": [
+          444
+        ],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": "companion:tanuki",
+        "includePeers": false,
+        "modelGridStep": 8,
+        "nodes": 444,
+        "components": [
+          444
+        ],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "aged",
+        "key": "companion:shiba",
+        "includePeers": true,
+        "modelGridStep": 4,
+        "nodes": 2,
+        "components": [
+          2
+        ],
+        "degreeOne": 2,
+        "isolated": 0,
+        "firstDeadEnds": [
+          {
+            "x": 100,
+            "y": 327.2200000000001
+          },
+          {
+            "x": 104,
+            "y": 327.2200000000001
+          }
+        ]
+      },
+      {
+        "phase": "aged",
+        "key": "companion:tanuki",
+        "includePeers": true,
+        "modelGridStep": 4,
+        "nodes": 1,
+        "components": [
+          1
+        ],
+        "degreeOne": 0,
+        "isolated": 1,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "aged",
+        "key": "companion:shiba",
+        "includePeers": true,
+        "modelGridStep": 8,
+        "nodes": 0,
+        "components": [],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "aged",
+        "key": "companion:tanuki",
+        "includePeers": true,
+        "modelGridStep": 8,
+        "nodes": 0,
+        "components": [],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "source": "c13ecb068a9475e5312ee9abb6352fb63e4ceda30738aedc238d3d9d2acdfd7a",
+    "native": {
+      "home-production-model-mobility-v10-reference.js": "34e0c9bbdb5cc2b03c3f426a5160d8425c9b7c1d22daa1a7664f0eacf6196c2e",
+      "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+      "home-route-navigation-finish.mjs": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9"
+    },
+    "cases": [
+      {
+        "phase": "opening",
+        "key": "companion:shiba",
+        "includePeers": true,
+        "modelGridStep": 4,
+        "nodes": 25,
+        "components": [
+          18,
+          7
+        ],
+        "degreeOne": 2,
+        "isolated": 0,
+        "firstDeadEnds": [
+          {
+            "x": 132,
+            "y": 318.82000000000005
+          },
+          {
+            "x": 112.00000000000001,
+            "y": 326.82000000000005
+          }
+        ]
+      },
+      {
+        "phase": "opening",
+        "key": "companion:tanuki",
+        "includePeers": true,
+        "modelGridStep": 4,
+        "nodes": 16,
+        "components": [
+          15,
+          1
+        ],
+        "degreeOne": 0,
+        "isolated": 1,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": null,
+        "includePeers": false,
+        "modelGridStep": 4,
+        "nodes": 2323,
+        "components": [
+          2321,
+          2
+        ],
+        "degreeOne": 2,
+        "isolated": 0,
+        "firstDeadEnds": [
+          {
+            "x": 140,
+            "y": 374.82000000000005
+          },
+          {
+            "x": 140,
+            "y": 378.82000000000005
+          }
+        ]
+      },
+      {
+        "phase": "opening",
+        "key": "companion:shiba",
+        "includePeers": false,
+        "modelGridStep": 4,
+        "nodes": 2209,
+        "components": [
+          2209
+        ],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": "companion:tanuki",
+        "includePeers": false,
+        "modelGridStep": 4,
+        "nodes": 2194,
+        "components": [
+          2194
+        ],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": "companion:shiba",
+        "includePeers": true,
+        "modelGridStep": 8,
+        "nodes": 9,
+        "components": [
+          7,
+          1,
+          1
+        ],
+        "degreeOne": 0,
+        "isolated": 2,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": "companion:tanuki",
+        "includePeers": true,
+        "modelGridStep": 8,
+        "nodes": 5,
+        "components": [
+          5
+        ],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "opening",
+        "key": null,
+        "includePeers": false,
+        "modelGridStep": 8,
+        "nodes": 584,
+        "components": [
+          584
+        ],
+        "degreeOne": 1,
+        "isolated": 0,
+        "firstDeadEnds": [
+          {
+            "x": 112.00000000000001,
+            "y": 210.82000000000005
+          }
+        ]
+      },
+      {
+        "phase": "opening",
+        "key": "companion:shiba",
+        "includePeers": false,
+        "modelGridStep": 8,
+        "nodes": 544,
+        "components": [
+          544
+        ],
+        "degreeOne": 1,
+        "isolated": 0,
+        "firstDeadEnds": [
+          {
+            "x": 112.00000000000001,
+            "y": 210.82000000000005
+          }
+        ]
+      },
+      {
+        "phase": "opening",
+        "key": "companion:tanuki",
+        "includePeers": false,
+        "modelGridStep": 8,
+        "nodes": 544,
+        "components": [
+          544
+        ],
+        "degreeOne": 1,
+        "isolated": 0,
+        "firstDeadEnds": [
+          {
+            "x": 112.00000000000001,
+            "y": 210.82000000000005
+          }
+        ]
+      },
+      {
+        "phase": "aged",
+        "key": "companion:shiba",
+        "includePeers": true,
+        "modelGridStep": 4,
+        "nodes": 2,
+        "components": [
+          1,
+          1
+        ],
+        "degreeOne": 0,
+        "isolated": 2,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "aged",
+        "key": "companion:tanuki",
+        "includePeers": true,
+        "modelGridStep": 4,
+        "nodes": 1,
+        "components": [
+          1
+        ],
+        "degreeOne": 0,
+        "isolated": 1,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "aged",
+        "key": "companion:shiba",
+        "includePeers": true,
+        "modelGridStep": 8,
+        "nodes": 0,
+        "components": [],
+        "degreeOne": 0,
+        "isolated": 0,
+        "firstDeadEnds": []
+      },
+      {
+        "phase": "aged",
+        "key": "companion:tanuki",
+        "includePeers": true,
+        "modelGridStep": 8,
+        "nodes": 1,
+        "components": [
+          1
+        ],
+        "degreeOne": 0,
+        "isolated": 1,
+        "firstDeadEnds": []
+      }
+    ]
+  }
+]

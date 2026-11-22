@@ -1,0 +1,4 @@
+region,count,width,case,arm,changed,prior,new
+countryside,20,320,clear/0,v10,"selectedKey,issued,accepted,step,arrived,near4","[""pet:dog"",true,true,true,true,true]","[""companion:monkey"",false,false,false,false,false]"
+countryside,20,320,clear/0,v11-foot,"selectedKey,issued,accepted,step,arrived,near4","[""pet:dog"",true,true,true,true,true]","[""companion:monkey"",false,false,false,false,false]"
+countryside,28,320,clear/0,v10,"selectedKey,issued,accepted,step,arrived,near4","[""pet:dog"",true,true,true,true,true]","[""companion:monkey"",false,false,false,false,false]"
