@@ -472,7 +472,9 @@ function bodyChanged(old, next) {
         if(!a.owner?.isConnected)continue;
         let row=rows.get(a.key);
         const replacing=!!row && row.owner!==a.owner;
-        const refresh=!!row && (replacing || bodyChanged(row,a));
+        // A changed body must first publish its envelope and let the camera refit.
+        // Only an equivalent replacement needs ink before the first model sync.
+        const refresh=replacing && !bodyChanged(row,a);
         let cached=null;
         if (replacing && row.inkShape && row.paintExtent && row.inkNavigation===scene.navigation &&
             row.inkScope!==null && row.inkScope===currentScope() && row.inkShape===bareCompanionShape(a)) {
