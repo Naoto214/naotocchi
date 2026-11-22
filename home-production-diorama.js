@@ -392,15 +392,98 @@
       // Keep the face and body centre visible; true triangle masks still cover feet/edges.
       return [.22,.5,.8].every(f=>[-.3,0,.3].every(x=>!polys.some(poly=>inside(p.x+a.w*x+stageRect.left-host.left,p.y-a.h*f+stageRect.top-host.top,poly))));
     }
+function measurementScope() {
+  const p=env.NaotocchiHomeViewport?.residentPresentation?.();
+  const frame=stage.closest?.('.screen-frame');
+  if (!p || !frame || !scene.navigation) return null;
+  const r=displayRect(stage),safe=frame.getBoundingClientRect();
+  return JSON.stringify([
+    scene.region,scene.width,scene.height,world?.stats().projectionRevision,
+    env.innerWidth,env.innerHeight,env.devicePixelRatio,env.visualViewport?.scale,
+    doc.body.dataset.homeDisplayVersion,doc.body.dataset.homeViewportVersion,
+    p.x,p.y,p.scaleX,p.scaleY,p.bodyScale,p.bodyScaleLimit,p.landscape,
+    p.safeLeft,p.safeRight,p.safeTop,p.safeBottom,
+    r.left,r.top,r.width,r.height,safe.left,safe.top,safe.right,safe.bottom
+  ]);
+}
+function bareCompanionShape(row) {
+  if (row.kind !== 'companion' || row.attachments?.length) return null;
+  const host=row.owner, visual=host.firstElementChild, image=visual?.firstElementChild;
+  if (host.dataset.companionId!==row.id || row.key!=='companion:'+row.id ||
+      host.children.length!==1 || !visual?.matches('.character-visual.character-companion.has-asset') ||
+      visual.children.length!==2 || !visual.lastElementChild.matches('.character-emoji-fallback') ||
+      !image?.matches('img.character-asset') || image.hasAttribute('srcset') || image.hasAttribute('sizes') ||
+      !row.asset || !image.getAttribute('src') || image.src!==new URL(row.asset,doc.baseURI).href ||
+      (image.currentSrc && image.currentSrc!==image.src)) return null;
+  const e=row.extent;
+  if (!e || e.left!==row.w/2 || e.right!==row.w/2 || e.top!==row.h || e.bottom!==0) return null;
+  const geometryStyle=el=>[el.className,...['width','height','object-fit','object-position','transform','scale','rotate']
+    .map(name=>el.style.getPropertyValue(name))];
+  return JSON.stringify([row.key,row.id,row.asset,image.src,row.x,row.y,row.w,row.h,row.originX,
+    host.style.width,host.style.height,host.style.left,host.style.top,geometryStyle(visual),geometryStyle(image)]);
+}
+function bodyChanged(old, next) {
+  const a=old.extent,b=next.extent;
+  return old.kind!==next.kind || old.id!==next.id || old.asset!==next.asset || old.w!==next.w ||
+    old.h!==next.h || old.x!==next.x || old.y!==next.y || old.originX!==next.originX ||
+    a?.top!==b?.top || a?.bottom!==b?.bottom || a?.left!==b?.left || a?.right!==b?.right;
+}
+    function measureCurrentBody(row,a,v15,h,foot){
+        let up=Math.max(a.extent?.top||a.h,a.h*1.08+a.w*.12),down=Math.max(8,a.extent?.bottom||0),wide=Math.max(a.extent?.left||a.w/2,a.extent?.right||a.w/2);
+        if(a.kind==='pet')for(const kind of Object.keys(accentCenters)){
+          const html=env.NaotocchiPetExpression?.accentFor?.(row.asset,kind)||'',m=html.match(/translate\(\s*[-\d.]+[ ,]+([-\d.]+)/);if(!m)continue;
+          up=Math.max(up,foot-(2+Number(m[1]))*h/104);down=Math.max(down,(46+Number(m[1]))*h/104-foot);
+          wide=Math.max(wide,h*.55);
+        }
+        let paint={up,down};
+        if(v15&&a.kind==='pet'&&doc.createElement){
+          // Measure the approved SVG paths, including their existing translations.
+          // Keep this independent of the currently visible expression and model bounds.
+          const probe=doc.createElement('div');probe.style.cssText='position:absolute;visibility:hidden;pointer-events:none';
+          const boxes=[];let measurable=true;stage.appendChild(probe);
+          try{for(const kind of Object.keys(accentCenters)){
+            const html=env.NaotocchiPetExpression?.accentFor?.(row.asset,kind)||'';if(!html)continue;
+            probe.innerHTML=html;const svg=probe.querySelector?.('svg');if(!svg?.getBBox){measurable=false;break;}
+            const b=svg.getBBox();boxes.push({y:b.y,height:b.height});
+          }}catch(_){measurable=false;}finally{probe.remove();}
+          paint=residentPaintExtent(row,h,foot,measurable?boxes:null,paint);
+        }
+        // A sibling attachment is not reflected with the body. Reserve each side
+        // independently while retaining the existing body/expression motion space.
+        const bodySide=Math.max(a.w/2,a.kind==='pet'?h*.55:0);
+        row.paintExtent={...paint,side:wide,left:Math.max(bodySide,a.extent?.left||0),right:Math.max(bodySide,a.extent?.right||0)};
+      return {up,down,wide,paint};
+    }
+
     function sync(){
       if(!enabled||!scene||pendingResidentPresentation)return;
       const list=getActors(),next=new Map();
+      let scope; const currentScope=()=>scope===undefined?(scope=measurementScope()):scope;
       for(const a of list){
         if(!a.owner?.isConnected)continue;
         let row=rows.get(a.key);
+        const replacing=!!row && row.owner!==a.owner;
+        const refresh=!!row && (replacing || bodyChanged(row,a));
+        let cached=null;
+        if (replacing && row.inkShape && row.paintExtent && row.inkNavigation===scene.navigation &&
+            row.inkScope!==null && row.inkScope===currentScope() && row.inkShape===bareCompanionShape(a)) {
+          const e=row.paintExtent;
+          if(e.up===Math.max(a.h+12,a.h*1.08+a.w*.12) && e.down===8 &&
+             e.left===a.w/2 && e.right===a.w/2 && e.side===a.w/2)
+            cached={paintExtent:e,inkShape:row.inkShape,inkScope:row.inkScope,inkNavigation:row.inkNavigation};
+        }
         if(row&&row.owner!==a.owner){restore(row);row=null;}
         if(!row){const shadow=doc.createElement('span');shadow.className='diorama-shadow';overlay.appendChild(shadow);row={shadow,original:Object.fromEntries(['role','tabindex','aria-label','aria-pressed'].map(k=>[k,a.owner.getAttribute?.(k)??null]))};}
         Object.assign(row,a);a.owner.dataset.dioramaActor=a.key;a.owner.setAttribute('role','button');a.owner.setAttribute('tabindex','0');a.owner.setAttribute('aria-label',`${a.label||a.id}をえらぶ`);
+        if (cached) Object.assign(row,cached);
+        else if (refresh && stage.__homeResidentEnvelope) {
+          const adjusted={...a,extent:{...a.extent,top:Math.max(a.extent?.top||a.h,a.h)+12}};
+          measureCurrentBody(row,adjusted,['15','16','17','18'].includes(doc.body.dataset.homeDisplayVersion),
+            parseFloat(row.owner.style.height)||row.h,row.y-(parseFloat(row.owner.style.top)||0));
+          row.inkShape=bareCompanionShape(row);
+          row.inkScope=row.inkShape ? currentScope() : null;
+          row.inkNavigation=scene.navigation;
+        }
         next.set(a.key,row);
       }
       for(const [key,row]of rows)if(!next.has(key)){restore(row);if(gesture?.key===key)clearGesture();}
@@ -442,33 +525,15 @@
       const v15=['15','16','17','18'].includes(doc.body.dataset.homeDisplayVersion),depthAware=v15||doc.body.dataset.homeDisplayVersion==='14',vertical=new Map(),fitVertical=new Map();
       const key=JSON.stringify([doc.body.dataset.homeDisplayVersion==='18'?env.NaotocchiHomeViewport?.residentPresentation?.()?.landscape:null,scene.width,scene.height,world?.stats().projectionRevision,...[...rows.values()].map(r=>[r.key,r.asset,r.w,r.h,r.extent])]);
       if(key===residentEnvelopeKey)return;residentEnvelopeKey=key;
+      let scope; const currentScope=()=>scope===undefined?(scope=measurementScope()):scope;
       let left=Infinity,right=-Infinity,top=Infinity,bottom=-Infinity,above=0,below=0,side=0;
       for(const a of model.snapshot()){
         const row=rows.get(a.key);if(!row)continue;
         const base=modelAPI.bounds(a,{...scene,actorBounds:null}),b=doc.body.dataset.homeDisplayVersion==='18'?portraitWalkingBounds(base,scene,env.NaotocchiHomeViewport?.residentPresentation?.()?.landscape!==false):base,h=parseFloat(row.owner.style.height)||row.h,foot=row.y-(parseFloat(row.owner.style.top)||0);
-        let up=Math.max(a.extent?.top||a.h,a.h*1.08+a.w*.12),down=Math.max(8,a.extent?.bottom||0),wide=Math.max(a.extent?.left||a.w/2,a.extent?.right||a.w/2);
-        if(a.kind==='pet')for(const kind of Object.keys(accentCenters)){
-          const html=env.NaotocchiPetExpression?.accentFor?.(row.asset,kind)||'',m=html.match(/translate\(\s*[-\d.]+[ ,]+([-\d.]+)/);if(!m)continue;
-          up=Math.max(up,foot-(2+Number(m[1]))*h/104);down=Math.max(down,(46+Number(m[1]))*h/104-foot);
-          wide=Math.max(wide,h*.55);
-        }
-        let paint={up,down};
-        if(v15&&a.kind==='pet'&&doc.createElement){
-          // Measure the approved SVG paths, including their existing translations.
-          // Keep this independent of the currently visible expression and model bounds.
-          const probe=doc.createElement('div');probe.style.cssText='position:absolute;visibility:hidden;pointer-events:none';
-          const boxes=[];let measurable=true;stage.appendChild(probe);
-          try{for(const kind of Object.keys(accentCenters)){
-            const html=env.NaotocchiPetExpression?.accentFor?.(row.asset,kind)||'';if(!html)continue;
-            probe.innerHTML=html;const svg=probe.querySelector?.('svg');if(!svg?.getBBox){measurable=false;break;}
-            const b=svg.getBBox();boxes.push({y:b.y,height:b.height});
-          }}catch(_){measurable=false;}finally{probe.remove();}
-          paint=residentPaintExtent(row,h,foot,measurable?boxes:null,paint);
-        }
-        // A sibling attachment is not reflected with the body. Reserve each side
-        // independently while retaining the existing body/expression motion space.
-        const bodySide=Math.max(a.w/2,a.kind==='pet'?h*.55:0);
-        row.paintExtent={...paint,side:wide,left:Math.max(bodySide,a.extent?.left||0),right:Math.max(bodySide,a.extent?.right||0)};
+        const {up,down,wide,paint}=measureCurrentBody(row,a,v15,h,foot);
+        row.inkShape=bareCompanionShape(row);
+        row.inkScope=row.inkShape ? currentScope() : null;
+        row.inkNavigation=scene.navigation;
         let maxDepth=1;
         // Camera reservation uses the original navigation grid, not added ground.
         for(let y=b.top;y<=b.bottom+.001;y+=Math.min(8,Math.max(1,b.bottom-y))) {
