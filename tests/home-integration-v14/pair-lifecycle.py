@@ -37,7 +37,7 @@ def serve(root, assets):
             if file.name=='home-production-world.mjs':
                 anchor=b'if(stamp===lastPaint)return;'
                 assert body.count(anchor)==1
-                body=body.replace(anchor,b'win.pairCanvas={left:host.left+t.left,top:host.top+t.top,width:t.width,height:t.height,region:env.region};'+anchor)
+                body=body.replace(anchor,b'win.pairCanvas={left:host.left+t.left,top:host.top+t.top,width:t.width,height:t.height,region:env.region,revision};'+anchor)
                 anchor=b'const mood=atmosphere'
                 assert body.count(anchor)==1
                 body=body.replace(anchor,b'win.pairPaintedRegion=env.region;'+anchor)
@@ -108,12 +108,12 @@ def run(browser,base,region,count,out,before_navigation=False):
     capture('expression')
     page.wait_for_function("pairStages.some(s=>s.label==='first-navigated-pair-target')",timeout=180000)
     capture('autonomy')
-    page.set_viewport_size(dict(width=375,height=615))
-    page.wait_for_function(ready,timeout=180000)
-    capture('resize-375')
-    page.set_viewport_size(dict(width=390,height=630))
-    page.wait_for_function(ready,timeout=180000)
-    capture('resize-back')
+    for width,height,label in [(375,615,'resize-375'),(390,630,'resize-back')]:
+        previous=page.evaluate("pairSample('before-resize').projection")
+        page.set_viewport_size(dict(width=width,height=height))
+        page.wait_for_function("([count,width,previous])=>innerWidth===width && pairReady(count) && pairSample('resized').projection>previous",
+                               arg=[count,width,previous],timeout=180000)
+        capture(label)
     result['stages']['entry']=page.evaluate('pairStages')
     other='mountain' if region=='forest' else 'forest'
     result['travel']=page.evaluate('r=>pairGame.travel(r)',other)

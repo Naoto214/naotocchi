@@ -21,7 +21,8 @@ function observePair(label, input) {
       navigation:scene?.navigation?.valid(a), visible:scene?.navigation ? visibleAt(a,a):null};
   }
   return {label,region:scene?.region,ms:Math.round(performance.now()),clock:model.metrics().clock,
-    navigation:!!scene?.navigation,projection:world?.stats()?.projectionRevision,loaded:world?.stats()?.loaded,
+    navigation:!!scene?.navigation,projection:world?.stats()?.projectionRevision,
+    drawn:window.pairCanvas,viewport:[env.innerWidth,env.innerHeight],loaded:world?.stats()?.loaded,
     pending:pendingResidentPresentation,bodyScale:p?.bodyScale, camera:p&&[p.scaleX,p.scaleY],
     input:input?.filter(a=>a.kind==='pet'||a.kind==='partner').map(a=>[a.key,a.x,a.y,a.w,a.h]),
     actors:actors.map(position)};
