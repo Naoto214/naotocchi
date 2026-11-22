@@ -63,6 +63,10 @@ def phase_metrics(phase, reference, prior):
         solver_order_changed = order != side(solver_dx)
     contacts = {tuple(sorted(pair[:2])) for pair in phase['contacts']}
     old_contacts = {tuple(sorted(pair[:2])) for pair in reference['contacts']}
+    worst=max((1-q for _,_,q in phase['contacts']),default=0)
+    old_worst=max((1-q for _,_,q in prior['contacts']),default=0)
+    severity=sum((1-q)**2 for _,_,q in phase['contacts'])
+    old_severity=sum((1-q)**2 for _,_,q in prior['contacts'])
     prior_contacts = {tuple(sorted(pair[:2])) for pair in prior['contacts']}
     leads = {a['key'] for a in feet if a['kind'] in ('pet','partner')}
     pair_contacts = sum(set(pair)==leads for pair in contacts)
@@ -80,6 +84,8 @@ def phase_metrics(phase, reference, prior):
                 solverOrderChanged=solver_order_changed, vectorErrorMain=vector_error, order=order, orderChanged=order_changed,
                 partnerSideMargin=partner['horizontalEdge'] if partner else None,
                 partnerEdge=partner['edge'] if partner else None, contactPairs=len(contacts),
+                worstPenetration=worst, countRaisedVsPrior=len(contacts)>len(prior_contacts),
+                worstRaisedVsPrior=worst>old_worst+1e-7, severityRaisedVsPrior=severity>old_severity+1e-7,
                 pairEllipse=pair_ellipse,pairContact=pair_contacts,pairCrowdContacts=pair_crowd_contacts,
                 companionContacts=len(contacts)-pair_contacts-pair_crowd_contacts,
                 addedContactPairs=len(contacts-old_contacts),addedContactPairsVsPrior=len(contacts-prior_contacts),
@@ -176,7 +182,7 @@ def summarize(rows):
                 maxAbsoluteSolverDistanceError=max((abs(r['distanceDeltaSolver']) for r in solver), default=None),
                 cells=len(entries), pairCells=len(pairs),
                 **{k:sum(r[k] for r in entries) for k in ('contactPairs','addedContactPairs','addedContactPairsVsPrior','addedPairCrowdVsPrior',
-                   'pairContact','pairCrowdContacts','companionContacts',
+                   'pairContact','pairCrowdContacts','companionContacts','countRaisedVsPrior','worstRaisedVsPrior','severityRaisedVsPrior',
                    'invalidTerrain','occluded','outsidePaintedGround','addedOutsidePaintedGround','addedInvalidTerrain','addedOccluded',
                    'outsideActorBounds','outsideFrame','companionMovedVsMain')},
                 petOutsidePaintedGround=sum(not r['petPainted'] for r in entries),
@@ -233,6 +239,27 @@ def main():
         raise ValueError(f'Missing {len(expected-rows.keys())}, unexpected {len(rows.keys()-expected)}')
     out,summary=summarize(rows)
     args.out.mkdir(parents=True, exist_ok=True)
+    cases=[]
+    for (region,count,width,arm),row in sorted(rows.items()):
+        if arm!='candidate':
+            continue
+        before=rows[region,count,width,'prior']
+        def contacts(p):
+            return {tuple(sorted(c[:2])):c[2] for c in p['contacts']}
+        now=row['placements']['opening'];old=before['placements']['opening']
+        current,previous=contacts(now),contacts(old)
+        fresh=[[*pair,round(current[pair],6)] for pair in sorted(current.keys()-previous.keys())]
+        prior_feet=by_key(old)
+        lost=[dict(key=a['key'],art=a['art'],surface=a.get('surface')) for a in now['feet']
+              if prior_feet[a['key']]['painted'] and not a['painted']]
+        trace=row['observation']['trace']
+        prior_drag=before['observation']['trace']['sourceHops'].get('drag',0)
+        hops=trace['sourceHops'].get('drag',0)
+        if fresh or lost or not hops:
+            cases.append(dict(region=region,count=count,width=width,contactsBefore=len(previous),
+                  contactsAfter=len(current),newContactEllipses=fresh,newOutsidePaintedGround=lost,
+                  beforeDragHops=prior_drag,afterDragHops=hops))
+    (args.out/'pair-placement-exceptions.json').write_text(json.dumps(cases,indent=2)+'\n')
     with (args.out/'pair-placement.csv').open('w') as f:
         writer=csv.DictWriter(f,fieldnames=out[0],lineterminator='\n')
         writer.writeheader()
