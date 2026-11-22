@@ -4694,7 +4694,7 @@
     "prototypes/card-game/card-design/cards.css": "999e80822bb5fc7464742829f3e22a7ba9b31d70d100467a4114397cba88a22b",
     "prototypes/card-game/card-design/bootstrap.mjs": "8377e2ee10ac93f540275e42f6c1da823dd145189cadde2f094f17b44b605ebd",
     "prototypes/card-game/card-design/face.mjs": "9cc4411f298ee3ac65816a32e9346d29bd0f6b4d823c961f3c0bd59d52bf6214",
-    "prototypes/card-game/display-catalog.mjs": "10899629096280103f1c3333b139efe69cc9b9ff05e9ced5bad1027210693e2c"
+    "prototypes/card-game/display-catalog.mjs": "b26d16f7560cb0d556bdf0e6e496c8c8b07f1dc99280898cfe15e21492980530"
   },
   "forbidden_patterns": [
     "^(?:docs|tests|tools|\\.github)/",

@@ -193,5 +193,6 @@ const abilities = {
 export function abilityName(card) {
   if (!card || card.hidden) return undefined;
   const id = card.cardId ?? card.id;
-  return abilities[id] ?? card.source?.match(/「([^」]+)」/)?.[1];
+  if (Object.hasOwn(abilities, id)) return abilities[id];
+  return card.source?.match(/「([^」]+)」/)?.[1];
 }
