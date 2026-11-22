@@ -1,0 +1,15 @@
+{
+  "source": "https://github.com/Naoto214/naotocchi/actions/runs/44987952256",
+  "sourceIdentity": "PR #581, V11-foot",
+  "cells": 260,
+  "reproduced": {
+    "normalWalkers": 3215,
+    "arrival": 910,
+    "near4": 521,
+    "tapSelected": 246,
+    "bothFailed": 2,
+    "agedDragArrival": 235
+  },
+  "checkedSteps": 1112694,
+  "restores": 13
+}
