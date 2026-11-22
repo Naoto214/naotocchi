@@ -111,6 +111,7 @@ jobs:
               MOBILITY_GAME="$RUNNER_TEMP/v12/game" node "$folder/performance-curve.mjs" "$out/curve.json"
               python -B "$folder/performance-witness.py" --out "$out/witness.json"
               MOBILITY_GAME="$RUNNER_TEMP/v12/game" node "$folder/performance-statue.mjs" "$out/statue.json"
+              MOBILITY_GAME="$RUNNER_TEMP/v12/game" node "$folder/performance-statue.mjs" "$out/exit-guard.json" --guard
               ;;
           esac
       - name: Retain rAF, Linux compositor and input observations
