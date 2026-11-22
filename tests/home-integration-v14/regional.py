@@ -83,6 +83,15 @@ def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False):
             src=once(src,anchor,HOP+anchor)
             anchor='function step(dt,flags={}){'
             src=once(src,anchor,anchor+'if(dt>0&&!window.regionStepping)return;')
+        elif name == 'home-production-world.mjs':
+            anchor='if(stamp===lastPaint)return;'
+            observe="""
+            if(window.regionalMeasuringArt) {
+              window.regionalPaintedCover=[host.left+t.left,host.top+t.top,t.width,t.height];
+              return;
+            }
+            """
+            src=once(src,anchor,observe+anchor)
         elif name.startswith('home-production-diorama'):
             src=re.sub(r'modelAPI.createModel\(\{(?:random:env.HomeBeauty.actorRandom,)?onEvent:emit\}\)',
                        'modelAPI.createModel({random:window.regionalRandom,onEvent:emit})',src)
@@ -97,6 +106,8 @@ def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False):
             src=prefix+src[:suffix]+(HERE/'regional-game.js').read_text()+src[suffix:]
         route.fulfill(content_type='text/javascript',body=src)
     page.route(re.compile(r'/(home-production-(model|diorama)[\w-]*|script(?:-v2-mobility-v7)?)\.js(?:\?|$)'),patch)
+    if pairs:
+        page.route(re.compile(r'/home-production-world\.mjs(?:\?|$)'),patch)
     query=urlencode(dict(region=region,count=count,policy='B',gear='none',time='day',season='autumn',weather='sunny',speed=1))
     page.goto(base+'/'+ENTRIES[arm]+'?'+query,wait_until='domcontentloaded',timeout=60000)
     try:

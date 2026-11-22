@@ -51,12 +51,18 @@ def phase_metrics(phase, reference):
             return 0 if abs(x) < .001 else (1 if x > 0 else -1)
         order = side(dx)
         order_changed = order != side(rx)
+    solver_dx = solver_dy = solver_error = solver_order_changed = None
+    if partner and 'solverScreen' in partner:
+        solver_dx, solver_dy = [q-p for p,q in zip(pet['solverScreen'],partner['solverScreen'])]
+        solver_error = math.hypot(dx-solver_dx,dy-solver_dy)
+        solver_order_changed = order != side(solver_dx)
     contacts = {tuple(sorted(pair[:2])) for pair in phase['contacts']}
     old_contacts = {tuple(sorted(pair[:2])) for pair in reference['contacts']}
     peers = movement(reference, phase, 'companion')
     previous = by_key(reference)
     return dict(**data, dx=dx, dy=dy, distance=dist, distanceDeltaMain=dist_delta,
-                vectorErrorMain=vector_error, order=order, orderChanged=order_changed,
+                solverDx=solver_dx,solverDy=solver_dy,vectorErrorSolver=solver_error,
+                solverOrderChanged=solver_order_changed, vectorErrorMain=vector_error, order=order, orderChanged=order_changed,
                 partnerSideMargin=partner['horizontalEdge'] if partner else None,
                 partnerEdge=partner['edge'] if partner else None, contactPairs=len(contacts),
                 addedContactPairs=len(contacts-old_contacts),
@@ -111,7 +117,10 @@ def summarize(rows):
         for p, entries in groups[arm].items():
             pairs = [r for r in entries if r['distance'] is not None]
             errors = [r['vectorErrorMain'] for r in pairs]
+            solver = [r for r in pairs if r['solverDx'] is not None]
             phase_summary[p] = dict(
+                solverPairCells=len(solver), solverOrderChanges=sum(r['solverOrderChanged'] for r in solver),
+                maxSolverVectorError=max((r['vectorErrorSolver'] for r in solver), default=None),
                 cells=len(entries), pairCells=len(pairs),
                 **{k:sum(r[k] for r in entries) for k in ('contactPairs','addedContactPairs',
                    'invalidTerrain','occluded','outsidePaintedGround','addedOutsidePaintedGround','addedInvalidTerrain','addedOccluded',

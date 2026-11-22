@@ -2,20 +2,25 @@
 regional.placement = function() {
   const actors = model.snapshot();
   const frame = stage.closest('.screen-frame').getBoundingClientRect();
-  const host = worldHost.getBoundingClientRect();
+  window.regionalPaintedCover = null;
+  window.regionalMeasuringArt = true;
+  try { world.draw(0,{reducedMotion:true}); }
+  finally { window.regionalMeasuringArt = false; }
+  const [left,top,width,height] = window.regionalPaintedCover;
   const r = displayRect(stage), v = env.NaotocchiHomeViewport.residentPresentation();
-  const width = Math.max(host.width, host.height / 1.5), height = width * 1.5;
-  const left = host.left + (host.width - width) / 2, top = host.top + (host.height - height) / 2;
   const spec = window.regionalScenes[scene.region];
+  const toScreen = a => [
+    v.x + (r.left+a.x-v.x)*v.scaleX,
+    v.y + (r.top+a.y-v.y)*v.scaleY
+  ];
   const feet = actors.map(a => {
-    const x = v.x + (r.left + a.x - v.x) * v.scaleX;
-    const y = v.y + (r.top + a.y - v.y) * v.scaleY;
+    const [x,y]=toScreen(a);
     const art = [(x - left) / width, (y - top) / height];
     const native = scene.navigation.unproject(a);
     const bounds = model.bounds(a);
     const row = rows.get(a.key);
-    return {key:a.key, kind:a.kind, stage:[a.x,a.y], screen:[x,y], art,
-      nativeArt:[native.x,native.z], size:[a.w,a.h], layer:Number(row.owner.style.zIndex),
+    return {key:a.key, kind:a.kind, stage:[a.x,a.y], screen:[x,y], solverScreen:toScreen(row), art,
+      surface:world.groundSurface?.(a.x,a.y)||'', nativeArt:[native.x,native.z], size:[a.w,a.h], layer:Number(row.owner.style.zIndex),
       valid:scene.navigation.valid(a), visible:scene.visible(a,a),
       painted:window.regionalInside(art[0],art[1],spec.ground) && !(spec.exclude||[]).some(poly=>window.regionalInside(art[0],art[1],poly)),
       boundMargin:Math.min(a.x-bounds.left,bounds.right-a.x,a.y-bounds.top,bounds.bottom-a.y),
