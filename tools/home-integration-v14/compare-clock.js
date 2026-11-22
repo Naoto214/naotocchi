@@ -1,0 +1,40 @@
+(() => {
+  const edition = {main:'現行 main', before:'修正前 V14', fixed:'修正後 V14'}['__EDITION__'];
+  const mountain = new URLSearchParams(location.search).get('scene') === 'mountain';
+  const panel = document.createElement('details');
+  panel.id = 'comparison-panel';
+  panel.style.cssText = 'position:fixed;top:env(safe-area-inset-top,0px);left:50%;transform:translateX(-50%);z-index:2147483647;white-space:nowrap;background:#fffef4;color:#18372c;border:1px solid #566e60;border-radius:5px;font:13px/1.5 system-ui';
+  panel.innerHTML = '<summary style="padding:3px 8px;cursor:pointer"></summary><div style="padding:4px 10px 8px"><div id="compare-screen"></div>主人公から見たクマの足元（画面px）<div id="initial-pair"></div><div id="current-pair"></div><div id="aged-pair"></div><a href="../#compare">比較条件の選択に戻る</a></div>';
+  panel.querySelector('a').href = '../?scene=' + (mountain ? 'mountain' : 'forest') + '#compare';
+  document.body.append(panel);
+  let active = 0;
+  let last = performance.now();
+  let aged;
+  function position(p) {
+    if (!p) return '計測待ち';
+    const side = p.dx >= 0 ? '右' : '左', depth = p.dy >= 0 ? '下' : '上';
+    return side + Math.abs(p.dx).toFixed(1) + '・' + depth + Math.abs(p.dy).toFixed(1);
+  }
+  function update() {
+    const now = performance.now();
+    const samples = window.comparisonFeet;
+    // A paused native model can finish loading its backdrop between steps.
+    if (samples && !samples.initial) samples.initial = samples.current();
+    if (samples?.initial && !document.hidden) active += now - last;
+    last = now;
+    const sec = Math.floor(active / 1000);
+    if (!aged && sec >= 180) aged = samples.current();
+    const time = samples?.initial ? Math.floor(sec / 60) + ':' + String(sec % 60).padStart(2, '0') : '準備中';
+    panel.querySelector('summary').textContent = edition + ' __SHA__ · ' + (mountain ? '山10体' : '森28体') + ' · ' + time;
+    if (panel.open) {
+      panel.querySelector('#compare-screen').textContent = '画面 ' + innerWidth + ' × ' + innerHeight + ' px・昼／晴れ';
+      panel.querySelector('#initial-pair').textContent = '開始時　' + position(samples?.initial);
+      panel.querySelector('#current-pair').textContent = '現在　　' + position(samples?.current());
+      panel.querySelector('#aged-pair').textContent = '3分後　 ' + position(aged);
+    }
+  }
+  document.addEventListener('visibilitychange', () => { last = performance.now(); });
+  panel.addEventListener('toggle', update);
+  update();
+  setInterval(update, 500);
+})();

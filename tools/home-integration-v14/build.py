@@ -13,6 +13,7 @@ from urllib.parse import quote
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent / 'pages'))
 from package import validate
+from comparison import build_comparison
 
 # Only existing public main bytes may be served remotely, all game logic stays local.
 BASE_SHA = '9539e462e78452ad6da5f72d454911679b4ec20e'
@@ -37,13 +38,16 @@ def main():
     parser.add_argument('--runtime', type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--report', type=Path, required=True)
+    parser.add_argument('--candidate', default='HEAD', help='commit matching the runtime')
     args = parser.parse_args()
     root, out = args.runtime.resolve(), args.out.resolve()
     if root == out or root.is_relative_to(out) or out.is_relative_to(root):
         parser.error('output and runtime must be distinct trees')
     if out.exists() and any(out.iterdir()):
         parser.error('output must be empty')
-    manifest = json.loads((HERE.parent / 'pages/allowlist.json').read_text())
+    manifest = json.loads(subprocess.check_output([
+        'git', 'show', f'{args.candidate}:tools/pages/allowlist.json'
+    ], cwd=HERE))
     result = validate(root, manifest)
     cards = json.loads(subprocess.check_output([
         'git', 'show', f'{BASE_SHA}:{CARD}art-delivery/manifest.json'
@@ -105,14 +109,15 @@ document.addEventListener('error', event => {
     (game / 'trial.html').write_text(trial)
     (game / '.nojekyll').touch()
     for name in ['index.html', 'launcher.js']:
-        stage(HERE / name, out / name)
+        shutil.copyfile(HERE / name, out / name)
+    versions = build_comparison(game, root, manifest, args.candidate)
     paths = sorted(p for p in out.rglob('*') if p.is_file())
     # Plain ustar regular files and directory entries, rounded to record blocks.
     estimate = sum(512 + ((p.stat().st_size + 511) // 512 * 512) for p in paths)
     estimate += 512 * sum(p.is_dir() for p in out.rglob('*')) + 20480
     if estimate >= HARD_LIMIT:
         raise ValueError('archive exceeds hosting limit')
-    summary = {'runtime_files': len(manifest['files']), 'hosted_files': len(paths),
+    summary = {'comparison_revisions': versions, 'runtime_files': len(manifest['files']), 'hosted_files': len(paths),
                'local_bytes': sum(p.stat().st_size for p in paths),
                'remote_card_images': len(omitted), 'static_references': result['static_references'],
                'dynamic_references': result['dynamic_references'],
