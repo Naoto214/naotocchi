@@ -1,6 +1,7 @@
 // Inserted into each game's closure by the test runner in its disposable page.
 window.regionGame={
   state:()=>[state.regionId,state.stageIndex,state.lifetime.equippedItemId,state.lifetime.timeMode,state.companions.length,!!state.partner],
+  travel(id) {return travelToRegion(findRegion(id));},
   transitions() {
     const first=this.state();
     clearConversationTimers();message='';speechActive=false;conversationBusyUntil=0;petBusyUntil=0;

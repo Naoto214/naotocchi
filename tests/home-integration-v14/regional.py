@@ -16,7 +16,7 @@ from playwright.sync_api import sync_playwright
 HERE = Path(__file__).resolve().parent
 REGIONS = 'home forest river_lake city countryside mountain snow sea jungle desert deepsea star_stop memory_lake'.split()
 HEIGHT = {320:516,375:615,390:630,430:695}
-ENTRIES = dict(production='index.html', candidate='index.html', v11='mobility-v11-foot.html', v13='mobility-v13-a.html')
+ENTRIES = dict(production='index.html', candidate='index.html', prior='index.html', v11='mobility-v11-foot.html', v13='mobility-v13-a.html')
 
 def once(source, key, replacement):
     if source.count(key) != 1:
@@ -57,15 +57,15 @@ def serve(root):
     threading.Thread(target=httpd.serve_forever,daemon=True).start()
     return 'http://127.0.0.1:'+str(httpd.server_port)
 
-def run(browser,root,base,region,count,width,arm,seconds):
+def run(browser,root,base,region,count,width,arm,seconds,pairs=False):
     ctx=browser.new_context(viewport={'width':width,'height':HEIGHT[width]},device_scale_factor=2,
                              is_mobile=True,has_touch=True,timezone_id='Asia/Tokyo',locale='ja-JP')
     try:
-        return measure(ctx,root,base,region,count,width,arm,seconds)
+        return measure(ctx,root,base,region,count,width,arm,seconds,pairs)
     finally:
         ctx.close()
 
-def measure(ctx,root,base,region,count,width,arm,seconds):
+def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False):
     save=seed(region,count)
     hashes={}
     seen_errors=[]
@@ -87,10 +87,12 @@ def measure(ctx,root,base,region,count,width,arm,seconds):
             src=re.sub(r'modelAPI.createModel\(\{(?:random:env.HomeBeauty.actorRandom,)?onEvent:emit\}\)',
                        'modelAPI.createModel({random:window.regionalRandom,onEvent:emit})',src)
             anchor='return {model,update,sync,interrupt,'
-            src=once(src,anchor,(HERE/'regional-probe.js').read_text()+anchor)
+            probe=(HERE/'regional-probe.js').read_text()
+            if pairs:probe+=(HERE/'pair-probe.js').read_text()
+            src=once(src,anchor,probe+anchor)
         else:
             key=re.search(r"const SAVE_KEY = '([^']+)'",src)[1]
-            prefix=f"(()=>{{let s={json.dumps(save)};s.savedAt=Date.now(); localStorage.setItem({json.dumps(key)},JSON.stringify(s));localStorage.setItem({json.dumps(key+':home-guide-v1')},'done')}})();\n"
+            prefix=f"(()=>{{if(localStorage.getItem({json.dumps(key)}))return;let s={json.dumps(save)};s.savedAt=Date.now(); localStorage.setItem({json.dumps(key)},JSON.stringify(s));localStorage.setItem({json.dumps(key+':home-guide-v1')},'done')}})();\n"
             suffix=src.rindex('})();')
             src=prefix+src[:suffix]+(HERE/'regional-game.js').read_text()+src[suffix:]
         route.fulfill(content_type='text/javascript',body=src)
@@ -101,6 +103,13 @@ def measure(ctx,root,base,region,count,width,arm,seconds):
         page.wait_for_function('([r,c])=>window.regional?.ready(r,c)',arg=[region,count],timeout=35000)
     except Exception as exc:
         raise RuntimeError(str(page.evaluate('()=>({probe:!!window.regional,game:window.regionGame?.state(),ready:document.readyState,stage:document.querySelector("#castStage")?.dataset.diorama})'))+str(seen_errors)) from exc
+    def placement():
+        page.evaluate("async()=>{window.regionalScenes=(await import('./home-production-manifest.mjs')).ART_SCENES;window.regionalInside=(await import('./home-art-navigation.mjs')).insidePolygon}")
+        return page.evaluate('regional.placement()')
+    extra={}
+    if pairs:
+        extra['opening']=placement()
+        extra['sync']=page.evaluate('regional.resync()')
     opening=page.evaluate('regional.summary()')
     target=page.evaluate('regional.target()')
     cdp=ctx.new_cdp_session(page)
@@ -114,29 +123,40 @@ def measure(ctx,root,base,region,count,width,arm,seconds):
         tap=None
     page.evaluate('n=>regional.advance(n)',seconds)
     observation=page.evaluate('()=>({trace:regionTrace,trusted:window.regionalTrusted||false,end:regional.summary()})')
+    if pairs:extra['walked']=placement()
     lifecycle=page.evaluate('regionGame.transitions()')
+    if pairs:extra['lifecycle']=placement()
     alt=375 if width==320 else 320
     page.set_viewport_size({'width':alt,'height':HEIGHT[alt]})
     page.wait_for_function('([r,c])=>regional.ready(r,c)',arg=[region,count],timeout=35000)
     resized=page.evaluate('regional.summary()')
+    if pairs:extra['resized']=placement()
     save=lifecycle.pop('save')
     page.reload(wait_until='domcontentloaded')
     page.wait_for_function('([r,c])=>window.regional?.ready(r,c)',arg=[region,count],timeout=35000)
     lifecycle['reloaded']=page.evaluate('regionGame.state()')
-    return dict(region=region,count=count,width=width,arm=arm,seconds=seconds,opening=opening,
+    if pairs:
+        extra['reload']=placement()
+        destination='forest' if region=='home' else 'home'
+        page.evaluate('r=>regionGame.travel(r)', destination)
+        page.wait_for_function('([r,c])=>regional.ready(r,c)',arg=[destination,count],timeout=35000)
+        extra['travel']=placement()
+    return dict(placements=extra,region=region,count=count,width=width,arm=arm,seconds=seconds,opening=opening,
                 target=target,tap=tap,observation=observation,lifecycle=lifecycle,resized=resized,
                 errors=seen_errors,sources=hashes)
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     for name in ['production','candidate','historical','out']:p.add_argument('--'+name,type=Path,required=True)
+    p.add_argument('--pairs',action='store_true')
+    p.add_argument('--prior',type=Path)
     p.add_argument('--region',choices=REGIONS,required=True)
-    p.add_argument('--arms',nargs='+',choices=ENTRIES,default=list(ENTRIES))
+    p.add_argument('--arms',nargs='+',choices=ENTRIES,default=['production','candidate','v11','v13'])
     p.add_argument('--counts',nargs='+',type=int,default=[1,4,10,20,28])
     p.add_argument('--widths',nargs='+',type=int,default=list(HEIGHT))
     p.add_argument('--seconds',type=int,default=30)
     a=p.parse_args()
-    roots=dict(production=a.production,candidate=a.candidate,v11=a.historical,v13=a.historical)
+    roots=dict(production=a.production,candidate=a.candidate,prior=a.prior or a.candidate,v11=a.historical,v13=a.historical)
     bases={root:serve(root) for root in set(roots.values())}
     a.out.mkdir(exist_ok=True,parents=True)
     failed=[]
@@ -147,7 +167,7 @@ def main():
                 for arm in a.arms:
                     key=f'{a.region}-{n}-{w}-{arm}'
                     try:
-                        row=run(browser,roots[arm],bases[roots[arm]],a.region,n,w,arm,a.seconds)
+                        row=run(browser,roots[arm],bases[roots[arm]],a.region,n,w,arm,a.seconds,a.pairs)
                         (a.out/(key+'.json')).write_text(json.dumps(row,sort_keys=True))
                         print(key,row['observation']['trace']['hops'],flush=True)
                     except Exception as e:

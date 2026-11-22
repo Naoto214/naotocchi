@@ -44,7 +44,7 @@ def main():
     p.add_argument('summary',type=Path)
     p.add_argument('--sha',required=True)
     p.add_argument('--run',required=True,help='Source workflow or local receipt for this dataset')
-    p.add_argument('--arms',nargs='+',choices=ENTRIES,default=list(ENTRIES))
+    p.add_argument('--arms',nargs='+',choices=ENTRIES,default=['production','candidate','v11','v13'])
     a=p.parse_args()
     expected=set(itertools.product(REGIONS,COUNTS,HEIGHT,a.arms))
     rows={}
