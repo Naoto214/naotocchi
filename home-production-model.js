@@ -98,9 +98,12 @@
         for(let y=b.top;y<=b.bottom;y+=12)for(let x=b.left;x<=b.right;x+=20)if(scene.navigation.valid({x,y})&&visible(main,{x,y}))points.push({x,y});
         if(points.length){const ys=points.map(p=>p.y);terrainCentre=scene.navigation.nearest({x:scene.width/2,y:(Math.min(...ys)+Math.max(...ys))/2},b,p=>visible(main,p));}
       }
+      const enteringTerrain=!previousScene.navigation||previousScene.region!==scene.region;
+      const partner=list.find(a=>a.kind==='partner');
+      const seatPair=main&&partner&&scene.navigation?.initialPoint&&(enteringTerrain||!retained.has(partner.key));
       actors=list.filter(a=>['pet','companion','partner'].includes(a.kind)&&Number.isFinite(a.x+a.y+a.w+a.h)).map((a,index)=>{
         const reflow=list.length>5&&(next.width!==previousScene.width||next.height!==previousScene.height||list.length!==previousActors.length||list.some(a=>previousActors.find(b=>b.key===a.key)?.w!==a.w));
-        const initial=scene.navigation?.initialPoint&&(restoreSeats||!previousScene.navigation||previousScene.region!==scene.region||(list.length>5&&list.length!==previousActors.length)||!previousActors.some(b=>b.key===a.key));
+        const initial=scene.navigation?.initialPoint&&(restoreSeats||enteringTerrain||((!partner||a.kind==='companion')&&list.length>5&&list.length!==previousActors.length)||!previousActors.some(b=>b.key===a.key));
         const seed=initial?(a.kind==='pet'&&scene.newbornPoint&&(!previousScene.navigation||!previousActors.some(b=>b.key===a.key))?scene.newbornPoint:scene.navigation.initialPoint(index,list.length)):null;
         const old=!initial&&!changed&&!reflow&&actor(a.key),previous=!initial&&previousScene.region===scene.region?previousActors.find(b=>b.key===a.key):null,worldPoint=previous&&previousScene.navigation?.unproject(previous),preserved=worldPoint&&scene.navigation?scene.navigation.project(worldPoint):previous,limited=limit(a,old||preserved||seed||(a.kind==='pet'&&terrainCentre)||a,scene),p=previous&&scene.navigation?.reachable&&scene.navigation.valid(limited)&&visible(a,limited)?limited:scene.navigation?.nearest(limited,bounds(a,scene))||limited;
         return {...a,...p,route:old?.route?.map(p=>({...p}))||[],temperament:{...a.temperament},target:old&&old.w===a.w&&old.h===a.h&&old.target?limit(a,old.target,scene):null,activity:old?.activity||'rest',direction:old?.direction||1,source:old?.source||'ambient',pointerDrop:!!old?.pointerDrop,yieldFor:old?.yieldFor,yieldAfter:old?.yieldAfter,manualUntil:previousActors.find(b=>b.key===a.key)?.manualUntil??0,nextAt:old?.nextAt??clock+1+random()*3,lastWalk:old?.lastWalk??clock-12,recent:old?.recent||[],after:old?.after||'observe',faceKey:old?.faceKey||null,visualReaction:old?.visualReaction,visualTarget:old?.visualTarget,nextVisualAt:old?.nextVisualAt||0};
@@ -111,6 +114,17 @@
       // residents merely to recreate this initial corridor.
       let exit=[];
       const lead=actors.find(a=>a.kind==='pet');
+      const mate=lead&&seatPair&&actor(partner.key);
+      // The cast solver owns the side and spacing. Regional seats locate the
+      // household on terrain, but the next generic seat can be across the map.
+      function pairSeat(){
+        const dx=partner.x-main.x,dy=partner.y-main.y;
+        const gap=Math.max(Math.hypot(dx,dy),(lead.w+mate.w)*.5+10);
+        const preferred=limit(mate,{x:lead.x+(dx<0?-gap:gap),y:lead.y},scene);
+        return scene.navigation.nearest(preferred,bounds(mate,scene),p=>visible(mate,p))||mate;
+      }
+      const leadBeforeSeating=mate&&{x:lead.x,y:lead.y};
+      if(mate)Object.assign(mate,pairSeat());
       const arrange=changed||exitPolicyChanged||actors.length!==previousActors.length||actors.some(a=>{const b=previousActors.find(b=>b.key===a.key);return !b||a.w!==b.w||a.h!==b.h;});
       if(lead&&(actors.length>5||scene.fiveResidentExit)&&arrange&&scene.navigation?.segmentSafe){
         const length=Math.max(40,lead.w*1.2),options=[];
@@ -127,6 +141,7 @@
       // Keep established actors stable; seat new/reshaped arrivals in the nearest free spot.
       const seated=[];
       for(const a of [...actors].sort((a,b)=>Number(retained.has(b.key))-Number(retained.has(a.key)))){
+        if(a===mate&&(lead.x!==leadBeforeSeating.x||lead.y!==leadBeforeSeating.y))Object.assign(a,pairSeat());
         const fits=p=>(!scene.navigation||scene.navigation.valid(p))&&seated.every(b=>separated(a,p,b))&&visible(a,p)&&(a===lead||exit.every(q=>separated(lead,q,{...a,x:p.x,y:p.y})));
         if(!fits(a)&&(arrange||!retained.has(a.key)||!visible(a,a)||scene.navigation&&!scene.navigation.valid(a))){
           const b=bounds(a,scene),candidates=[];
