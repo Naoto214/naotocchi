@@ -38,7 +38,9 @@ if args.inventory:
         if src.is_file():
             path=record_dir/src.name
             if path.exists() and not os.path.samefile(src,path):path.unlink()
-            if not path.exists():os.link(src,path)
+            if not path.exists():
+                try:os.link(src,path)
+                except OSError:shutil.copyfile(src,path)
             index[path.relative_to(dest).as_posix()]=dict(group='overview',bytes=path.stat().st_size,sha256=hashlib.sha256(path.read_bytes()).hexdigest())
 for src in sorted(here.glob('*.md')):
     if src.name!='README.md':retain('overview',src.name,src)
@@ -46,6 +48,8 @@ for src in sorted((here/'evidence').glob('*')):
     if src.is_file() and src.suffix in {'.json','.csv','.jpg'}:
         retain('foot' if src.name.startswith('foot-') else 'overview',src.name,src)
 retain('foot','foot-only.patch',here/'foot-only.patch')
+for old in record_dir.rglob('*'):
+    if old.is_file() and old.relative_to(dest).as_posix() not in index:old.unlink()
 (dest/'checksums.json').write_text(json.dumps(index,ensure_ascii=False,indent=2)+'\n')
 def h(s):return html.escape(str(s),quote=True)
 repo=here.parents[1]
