@@ -26,6 +26,7 @@ jobs:
             vendor
             comparisons/dayparts-20261103
       - uses: actions/checkout@v4
+        if: contains(github.event.head_commit.message, '[v14-pairs]')
         with:
           ref: 9539e462e78452ad6da5f72d454911679b4ec20e
           path: .production
@@ -35,6 +36,7 @@ jobs:
             vendor
             comparisons/dayparts-20261103
       - uses: actions/checkout@v4
+        if: contains(github.event.head_commit.message, '[v14-pairs]')
         with:
           ref: d5bed0e06c2b9185deeef3ad0f38fe74dc23113d
           path: .prior
