@@ -78,7 +78,7 @@ def verify(raw, game):
     for margin, rows in witnesses.items():
         roles = collections.Counter('/'.join(sorted(key.split(':')[0] for key in row['actors'])) for row in rows)
         results[margin] = {'count': len(rows), 'rolePairs': dict(roles),
-                           'examples': sorted(rows, key=lambda row: -row['areaCSS2'])[:3]}
+                           'witnesses': rows, 'examples': sorted(rows, key=lambda row: -row['areaCSS2'])[:3]}
     return {'inputSHA256': hashlib.sha256(raw.read_bytes()).hexdigest(),
             'width': data['width'], 'height': data['height'], 'alpha': 128,
             'spacingCSS': SPACING, 'boundaryPosesPerMargin': len(angles) * math.comb(len(people), 2),
