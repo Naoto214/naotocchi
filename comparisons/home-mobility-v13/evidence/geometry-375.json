@@ -1,0 +1,282 @@
+{
+  "width": 375,
+  "modelSHA256": "aa02461028d5e3cbf9eb628b6c4248b0fc9db68cea645cc37a1593ee48bdc15d",
+  "sha256": "dfbacda9b16c634dd7a81b1a5fb01b651918bacd935a585669190e3dd3c031f9",
+  "units": "CSS px",
+  "bearings": 96,
+  "distances": [
+    3,
+    8,
+    16
+  ],
+  "arms": {
+    "a": {
+      "contacts": 20,
+      "residentsWithExit": [
+        24,
+        16,
+        9
+      ],
+      "focus": {
+        "companion:tanuki": [
+          [
+            96,
+            5
+          ],
+          [
+            96,
+            0
+          ],
+          [
+            96,
+            0
+          ]
+        ],
+        "companion:panda": [
+          [
+            66,
+            6
+          ],
+          [
+            52,
+            0
+          ],
+          [
+            40,
+            0
+          ]
+        ],
+        "companion:box": [
+          [
+            53,
+            9
+          ],
+          [
+            46,
+            4
+          ],
+          [
+            41,
+            0
+          ]
+        ]
+      },
+      "newWalkerFirstBearingFromA": [],
+      "lostDirections": 0,
+      "newTerrainCSS2": 0,
+      "reachableByBoundsAndInkCSS2": 0
+    },
+    "b": {
+      "contacts": 20,
+      "residentsWithExit": [
+        24,
+        16,
+        9
+      ],
+      "focus": {
+        "companion:tanuki": [
+          [
+            96,
+            5
+          ],
+          [
+            96,
+            0
+          ],
+          [
+            96,
+            0
+          ]
+        ],
+        "companion:panda": [
+          [
+            66,
+            6
+          ],
+          [
+            52,
+            0
+          ],
+          [
+            40,
+            0
+          ]
+        ],
+        "companion:box": [
+          [
+            53,
+            9
+          ],
+          [
+            46,
+            4
+          ],
+          [
+            41,
+            0
+          ]
+        ]
+      },
+      "newWalkerFirstBearingFromA": [],
+      "lostDirections": 0,
+      "newTerrainCSS2": 646,
+      "reachableByBoundsAndInkCSS2": 646
+    },
+    "c": {
+      "contacts": 20,
+      "residentsWithExit": [
+        25,
+        17,
+        10
+      ],
+      "focus": {
+        "companion:tanuki": [
+          [
+            96,
+            5
+          ],
+          [
+            96,
+            0
+          ],
+          [
+            96,
+            0
+          ]
+        ],
+        "companion:panda": [
+          [
+            66,
+            6
+          ],
+          [
+            52,
+            0
+          ],
+          [
+            40,
+            0
+          ]
+        ],
+        "companion:box": [
+          [
+            53,
+            9
+          ],
+          [
+            46,
+            4
+          ],
+          [
+            41,
+            0
+          ]
+        ]
+      },
+      "newWalkerFirstBearingFromA": [
+        {
+          "key": "companion:clock",
+          "opened": [
+            311.25,
+            333.75,
+            337.5
+          ]
+        }
+      ],
+      "lostDirections": 0,
+      "newTerrainCSS2": 2160,
+      "reachableByBoundsAndInkCSS2": 2160
+    }
+  },
+  "seatSearch": {
+    "gridSpacingCSS": 2,
+    "radiusCSS": 180,
+    "nearBoundaryCSS": 28,
+    "localDistancesCSS": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      8,
+      12
+    ],
+    "localBearings": 32,
+    "newSites": 725,
+    "counts": {
+      "tested": 8637,
+      "invalid": 111,
+      "newOrWorseContact": 8167,
+      "otherExitLost": 157,
+      "ownExitLost": 167,
+      "preservedButNoNewWalker": 17,
+      "survived": 18
+    },
+    "best": [
+      {
+        "key": "companion:clock",
+        "offsetCSS": [
+          23.582346072328967,
+          -10.383573183971569
+        ],
+        "painted": [
+          0.6849696969696968,
+          0.5883030303030299
+        ],
+        "opened": [
+          "companion:hamster"
+        ],
+        "contacts": 18,
+        "residentsWithExit": [
+          26,
+          18,
+          10
+        ],
+        "focus": {
+          "companion:tanuki": [
+            [
+              96,
+              5
+            ],
+            [
+              96,
+              0
+            ],
+            [
+              96,
+              0
+            ]
+          ],
+          "companion:panda": [
+            [
+              66,
+              6
+            ],
+            [
+              52,
+              0
+            ],
+            [
+              40,
+              0
+            ]
+          ],
+          "companion:box": [
+            [
+              53,
+              9
+            ],
+            [
+              46,
+              4
+            ],
+            [
+              41,
+              0
+            ]
+          ]
+        }
+      }
+    ]
+  }
+}

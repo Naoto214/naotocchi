@@ -1,0 +1,40 @@
+{
+  "original": "bff63b9db6fd22334fbf776090a318bc671ce5aa",
+  "unchangedReleaseBlobsAt": "526b326d16717fca46ce585fc32638e8b852d15d",
+  "outputs": [
+    {
+      "part": "v11",
+      "sha256": "2c376d14cd5eac7417bd64b99c77a943cf09b4c89ffcb5ac1e1ba98686fe74f3",
+      "bytes": 11267,
+      "paths": [
+        "home-production-diorama.js",
+        "index.html"
+      ],
+      "appliesIndependently": true
+    },
+    {
+      "part": "v12",
+      "sha256": "df060622444b9710530da13827593ee9533d514501c0a28ecfcd7ee2c5dfb7d5",
+      "bytes": 11294,
+      "paths": [
+        "home-production-diorama.js",
+        "home-production-model.js",
+        "home-production-world.mjs",
+        "index.html"
+      ],
+      "appliesIndependently": true
+    },
+    {
+      "part": "joint",
+      "sha256": "36027d663c6f611da7a33f8d6a42c8bd5a55c96275062148f74535d7877750e0",
+      "bytes": 24327,
+      "paths": [
+        "home-production-diorama.js",
+        "home-production-model.js",
+        "home-production-world.mjs",
+        "index.html"
+      ],
+      "appliesIndependently": true
+    }
+  ]
+}

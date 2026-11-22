@@ -1,0 +1,242 @@
+{
+  "engine": "Chromium",
+  "version": "156.0.8078.79",
+  "conditions": "Independently booted native opening. Same V6 trusted touch coordinates. Exact agreement in preceding mountain/320/10 case, 6 gestures. Full gate and activity state not captured for first forest pair.",
+  "region": "forest",
+  "count": 28,
+  "width": 320,
+  "arms": {
+    "v11-foot": {
+      "historical/0": {
+        "key": "pet:dog",
+        "selectedKey": "pet:dog",
+        "start": [
+          154.00473046302795,
+          201.15545642375946
+        ],
+        "goal": [
+          165.24767023217663,
+          222.1826205263161
+        ],
+        "issued": true,
+        "accepted": true,
+        "arrived": true,
+        "near4": true,
+        "terminalArrived": true,
+        "terminalNear4": true,
+        "releaseJumpCss": 0.0
+      },
+      "diagonal/1": {
+        "key": "partner:forest_bear",
+        "selectedKey": "partner:forest_bear",
+        "start": [
+          177.1510238647461,
+          190.41412514448166
+        ],
+        "goal": [
+          211.10834089236914,
+          238.96014907381348
+        ],
+        "issued": true,
+        "accepted": false,
+        "arrived": false,
+        "near4": false,
+        "terminalArrived": false,
+        "terminalNear4": false,
+        "releaseJumpCss": 0.0
+      },
+      "occupied/2": {
+        "key": "companion:cat_friend",
+        "selectedKey": "partner:forest_bear",
+        "start": [
+          174.0761713385582,
+          187.57764130830765
+        ],
+        "goal": [
+          195.16627693160473,
+          190.99044610028557
+        ],
+        "issued": false,
+        "accepted": false,
+        "arrived": false,
+        "near4": false,
+        "terminalArrived": false,
+        "terminalNear4": false,
+        "releaseJumpCss": null
+      },
+      "clear/0": {
+        "key": "pet:dog",
+        "selectedKey": "pet:dog",
+        "start": [
+          153.8356162905693,
+          201.07961136102676
+        ],
+        "goal": [
+          160.3187380440421,
+          215.11155271445062
+        ],
+        "issued": true,
+        "accepted": true,
+        "arrived": true,
+        "near4": true,
+        "terminalArrived": true,
+        "terminalNear4": true,
+        "releaseJumpCss": 0.0
+      },
+      "obstacle/0": {
+        "key": "pet:dog",
+        "selectedKey": "pet:dog",
+        "start": [
+          154.0315706729889,
+          201.14922749996185
+        ],
+        "goal": [
+          190.0172228538771,
+          185.41306790461562
+        ],
+        "issued": true,
+        "accepted": true,
+        "arrived": true,
+        "near4": false,
+        "terminalArrived": true,
+        "terminalNear4": false,
+        "releaseJumpCss": 0.0
+      },
+      "tap/4": {
+        "key": "companion:owl",
+        "selectedKey": "companion:owl",
+        "start": [
+          106.13646084070206,
+          212.618537068367
+        ],
+        "goal": [
+          106.13646084070206,
+          212.618537068367
+        ],
+        "issued": false,
+        "accepted": false,
+        "arrived": false,
+        "near4": false,
+        "terminalArrived": false,
+        "terminalNear4": false,
+        "releaseJumpCss": null
+      }
+    },
+    "v13-foot": {
+      "historical/0": {
+        "key": "pet:dog",
+        "selectedKey": "pet:dog",
+        "start": [
+          154.00473046302795,
+          201.15545642375946
+        ],
+        "goal": [
+          165.24767023217663,
+          222.1826205263161
+        ],
+        "issued": true,
+        "accepted": true,
+        "arrived": false,
+        "near4": false,
+        "terminalArrived": false,
+        "terminalNear4": false,
+        "releaseJumpCss": 0.0
+      },
+      "diagonal/1": {
+        "key": "partner:forest_bear",
+        "selectedKey": "partner:forest_bear",
+        "start": [
+          177.1510238647461,
+          190.41412514448166
+        ],
+        "goal": [
+          211.10834089236914,
+          238.96014907381348
+        ],
+        "issued": true,
+        "accepted": false,
+        "arrived": false,
+        "near4": false,
+        "terminalArrived": false,
+        "terminalNear4": false,
+        "releaseJumpCss": 0.0
+      },
+      "occupied/2": {
+        "key": "companion:cat_friend",
+        "selectedKey": "partner:forest_bear",
+        "start": [
+          174.0761713385582,
+          187.57764130830765
+        ],
+        "goal": [
+          195.16627693160473,
+          190.99044610028557
+        ],
+        "issued": false,
+        "accepted": false,
+        "arrived": false,
+        "near4": false,
+        "terminalArrived": false,
+        "terminalNear4": false,
+        "releaseJumpCss": null
+      },
+      "clear/0": {
+        "key": "pet:dog",
+        "selectedKey": "pet:dog",
+        "start": [
+          153.8356162905693,
+          201.07961136102676
+        ],
+        "goal": [
+          160.3187380440421,
+          215.11155271445062
+        ],
+        "issued": true,
+        "accepted": true,
+        "arrived": true,
+        "near4": true,
+        "terminalArrived": true,
+        "terminalNear4": true,
+        "releaseJumpCss": 0.0
+      },
+      "obstacle/0": {
+        "key": "pet:dog",
+        "selectedKey": "pet:dog",
+        "start": [
+          154.0315706729889,
+          201.14922749996185
+        ],
+        "goal": [
+          190.0172228538771,
+          185.41306790461562
+        ],
+        "issued": false,
+        "accepted": false,
+        "arrived": false,
+        "near4": false,
+        "terminalArrived": false,
+        "terminalNear4": false,
+        "releaseJumpCss": null
+      },
+      "tap/4": {
+        "key": "companion:owl",
+        "selectedKey": null,
+        "start": [
+          106.13646084070206,
+          212.618537068367
+        ],
+        "goal": [
+          106.13646084070206,
+          212.618537068367
+        ],
+        "issued": false,
+        "accepted": false,
+        "arrived": false,
+        "near4": false,
+        "terminalArrived": false,
+        "terminalNear4": false,
+        "releaseJumpCss": null
+      }
+    }
+  }
+}

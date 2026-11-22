@@ -9,7 +9,7 @@ from http.server import ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlencode
 
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import TimeoutError as BrowserTimeout, sync_playwright
 
 HERE = Path(__file__).resolve().parent
 V11 = HERE.parent / "home-mobility-v11"
@@ -108,6 +108,34 @@ def corridor(browser,base,dist):
             output.append(dict(region=region,panda=panda,**result))
         page.close()
     return output
+
+
+def compatibility(browser,base,dist):
+    results=[]
+    for path in ["v13/foot-corridor.html","v12/corridor.html"]:
+        page=browser_page(browser,390,844)
+        errors=[]
+        page.on("pageerror",lambda error:errors.append(str(error)))
+        stage="opening"
+        timeout=False
+        try:
+            page.goto(base+"/"+path,wait_until="domcontentloaded")
+            problem="document.querySelector('#result').textContent.startsWith('この場面')"
+            page.wait_for_function("document.body.dataset.ready==='true'||"+problem,timeout=150000)
+            if page.locator("#apply").is_enabled():
+                stage="arranging"
+                page.locator("#apply").tap()
+                page.wait_for_function("document.body.dataset.phase==='arranged'||"+problem)
+            if page.locator("#walk").is_enabled():
+                stage="walking"
+                page.locator("#walk").tap()
+                page.wait_for_function("document.body.dataset.phase==='finished'||"+problem)
+        except BrowserTimeout:
+            timeout=True
+        phase=page.evaluate("({ready:document.body.dataset.ready,status:document.querySelector('#result').textContent,phase:document.body.dataset.phase})")
+        results.append(dict(path=path,lastStage=stage,timedOut=timeout,phase=phase,errors=errors))
+        page.close()
+    return results
 
 
 def interface(browser,base,dist):
@@ -276,7 +304,7 @@ def save(browser,base,dist):
 
 if __name__=="__main__":
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("suite",choices=["witnesses","corridor","interface","controls","regions","care","save","legacy"])
+    parser.add_argument("suite",choices=["witnesses","corridor","interface","compatibility","controls","regions","care","save","legacy"])
     parser.add_argument("dist",type=Path)
     parser.add_argument("out",type=Path)
     parser.add_argument("--engine",choices=["chromium","webkit"],default="chromium")

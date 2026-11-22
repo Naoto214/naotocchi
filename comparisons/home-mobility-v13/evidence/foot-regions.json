@@ -1,0 +1,1348 @@
+{
+  "engine": "Chromium",
+  "version": "156.0.8078.79",
+  "cases": [
+    {
+      "region": "forest",
+      "width": 320,
+      "count": 10,
+      "decision": {
+        "held": false,
+        "reason": "existing-contact",
+        "clock": 0,
+        "events": 4,
+        "moves": 1,
+        "distanceCSS": 0,
+        "from": [
+          163.08,
+          298.46000000000004
+        ],
+        "to": [
+          163.08,
+          298.46000000000004
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 516
+    },
+    {
+      "region": "river_lake",
+      "width": 320,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 90,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 3,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          169.1185782427617,
+          302.9960424682628
+        ],
+        "to": [
+          169.1185782427617,
+          302.9960424682628
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 516
+    },
+    {
+      "region": "city",
+      "width": 320,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 135,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          199.31620864736453,
+          316.58497615033406
+        ],
+        "to": [
+          199.31620864736453,
+          316.58497615033406
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 516
+    },
+    {
+      "region": "countryside",
+      "width": 320,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 0,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 5,
+        "moves": 1,
+        "distanceCSS": 0,
+        "from": [
+          169.12,
+          289.4
+        ],
+        "to": [
+          169.12,
+          289.4
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 516
+    },
+    {
+      "region": "sea",
+      "width": 320,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 45,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          160.05928912138086,
+          321.11462071102454
+        ],
+        "to": [
+          160.05928912138086,
+          321.11462071102454
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 516
+    },
+    {
+      "region": "snow",
+      "width": 320,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 0,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          160.05928912138086,
+          289.4071087861916
+        ],
+        "to": [
+          160.05928912138086,
+          289.4071087861916
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 516
+    },
+    {
+      "region": "mountain",
+      "width": 320,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 135,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 4,
+        "moves": 1,
+        "distanceCSS": 0,
+        "from": [
+          172.14,
+          284.87
+        ],
+        "to": [
+          172.14,
+          284.87
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 516
+    },
+    {
+      "region": "jungle",
+      "width": 320,
+      "count": 10,
+      "decision": {
+        "held": false,
+        "reason": "existing-contact",
+        "clock": 0,
+        "events": 4,
+        "moves": 1,
+        "distanceCSS": 0,
+        "from": [
+          184.22,
+          284.87
+        ],
+        "to": [
+          184.22,
+          284.87
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 516
+    },
+    {
+      "region": "desert",
+      "width": 320,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 0,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 3,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          166.0988152023014,
+          289.4071087861916
+        ],
+        "to": [
+          166.0988152023014,
+          289.4071087861916
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 516
+    },
+    {
+      "region": "deepsea",
+      "width": 320,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 0,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 4,
+        "moves": 1,
+        "distanceCSS": 0,
+        "from": [
+          169.12,
+          289.4
+        ],
+        "to": [
+          169.12,
+          289.4
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 516
+    },
+    {
+      "region": "star_stop",
+      "width": 320,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 45,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 3,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          166.10000000000002,
+          289.4
+        ],
+        "to": [
+          166.10000000000002,
+          289.4
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 516
+    },
+    {
+      "region": "memory_lake",
+      "width": 320,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 135,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 3,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          160.05928912138086,
+          284.8774642255011
+        ],
+        "to": [
+          160.05928912138086,
+          284.8774642255011
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 516
+    },
+    {
+      "region": "home",
+      "width": 320,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 135,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 3,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          166.0988152023014,
+          289.4071087861916
+        ],
+        "to": [
+          166.0988152023014,
+          289.4071087861916
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 516
+    },
+    {
+      "region": "forest",
+      "width": 375,
+      "count": 10,
+      "decision": {
+        "held": false,
+        "reason": "existing-contact",
+        "clock": 0,
+        "events": 3,
+        "moves": 1,
+        "distanceCSS": 0,
+        "from": [
+          185.21999999999997,
+          287.39
+        ],
+        "to": [
+          185.21999999999997,
+          287.39
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 615
+    },
+    {
+      "region": "river_lake",
+      "width": 375,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 90,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          192.0793317710852,
+          292.53783997288815
+        ],
+        "to": [
+          192.0793317710852,
+          292.53783997288815
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 615
+    },
+    {
+      "region": "city",
+      "width": 375,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 90,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          226.37821805622713,
+          307.972338801202
+        ],
+        "to": [
+          226.37821805622713,
+          307.972338801202
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 615
+    },
+    {
+      "region": "countryside",
+      "width": 375,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 0,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 3,
+        "moves": 1,
+        "distanceCSS": 0,
+        "from": [
+          192.0781296212408,
+          277.1093518937962
+        ],
+        "to": [
+          192.0781296212408,
+          277.1093518937962
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 615
+    },
+    {
+      "region": "sea",
+      "width": 375,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 90,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          181.7896658855426,
+          313.11717174397324
+        ],
+        "to": [
+          181.7896658855426,
+          313.11717174397324
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 615
+    },
+    {
+      "region": "snow",
+      "width": 375,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 0,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          181.7896658855426,
+          277.10334114457413
+        ],
+        "to": [
+          181.7896658855426,
+          277.10334114457413
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 615
+    },
+    {
+      "region": "mountain",
+      "width": 375,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 135,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 3,
+        "moves": 1,
+        "distanceCSS": 0,
+        "from": [
+          195.5098185090451,
+          271.9558167092971
+        ],
+        "to": [
+          195.5098185090451,
+          271.9558167092971
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 615
+    },
+    {
+      "region": "jungle",
+      "width": 375,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 45,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 3,
+        "moves": 1,
+        "distanceCSS": 0,
+        "from": [
+          209.23,
+          271.95500000000004
+        ],
+        "to": [
+          209.23,
+          271.95500000000004
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 615
+    },
+    {
+      "region": "desert",
+      "width": 375,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 0,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          188.649443142571,
+          277.1033411445742
+        ],
+        "to": [
+          188.649443142571,
+          277.1033411445742
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 615
+    },
+    {
+      "region": "deepsea",
+      "width": 375,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 0,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 3,
+        "moves": 1,
+        "distanceCSS": 0,
+        "from": [
+          192.07882701069963,
+          277.10586494650204
+        ],
+        "to": [
+          192.07882701069963,
+          277.10586494650204
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 615
+    },
+    {
+      "region": "star_stop",
+      "width": 375,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 45,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          188.649443142571,
+          277.1033411445742
+        ],
+        "to": [
+          188.649443142571,
+          277.1033411445742
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 615
+    },
+    {
+      "region": "memory_lake",
+      "width": 375,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 135,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          181.7896658855426,
+          271.9585082018029
+        ],
+        "to": [
+          181.7896658855426,
+          271.9585082018029
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 615
+    },
+    {
+      "region": "home",
+      "width": 375,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 135,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          188.649443142571,
+          277.10334114457413
+        ],
+        "to": [
+          188.649443142571,
+          277.10334114457413
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 615
+    },
+    {
+      "region": "forest",
+      "width": 390,
+      "count": 10,
+      "decision": {
+        "held": false,
+        "reason": "existing-contact",
+        "clock": 0,
+        "events": 3,
+        "moves": 1,
+        "distanceCSS": 0,
+        "from": [
+          193.32000000000002,
+          283.34000000000003
+        ],
+        "to": [
+          193.32000000000002,
+          283.34000000000003
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 630
+    },
+    {
+      "region": "river_lake",
+      "width": 390,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 90,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          200.47956811877353,
+          288.71183549521265
+        ],
+        "to": [
+          200.47956811877353,
+          288.71183549521265
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 630
+    },
+    {
+      "region": "city",
+      "width": 390,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 90,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 3,
+        "moves": 1,
+        "distanceCSS": 0,
+        "from": [
+          236.2757960506894,
+          304.82551768347025
+        ],
+        "to": [
+          236.2757960506894,
+          304.82551768347025
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 630
+    },
+    {
+      "region": "countryside",
+      "width": 390,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 0,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 3,
+        "moves": 1,
+        "distanceCSS": 0,
+        "from": [
+          200.47918871628477,
+          272.6040564185763
+        ],
+        "to": [
+          200.47918871628477,
+          272.6040564185763
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 630
+    },
+    {
+      "region": "sea",
+      "width": 390,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 90,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          189.73978405938675,
+          310.19140361398615
+        ],
+        "to": [
+          189.73978405938675,
+          310.19140361398615
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 630
+    },
+    {
+      "region": "snow",
+      "width": 390,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 0,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          189.73978405938675,
+          272.6021594061325
+        ],
+        "to": [
+          189.73978405938675,
+          272.6021594061325
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 630
+    },
+    {
+      "region": "mountain",
+      "width": 390,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 135,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 3,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          204.05946409467327,
+          267.2324115739702
+        ],
+        "to": [
+          204.05946409467327,
+          267.2324115739702
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 630
+    },
+    {
+      "region": "jungle",
+      "width": 390,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 45,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 3,
+        "moves": 1,
+        "distanceCSS": 0,
+        "from": [
+          218.38,
+          267.22999999999996
+        ],
+        "to": [
+          218.38,
+          267.22999999999996
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 630
+    },
+    {
+      "region": "desert",
+      "width": 390,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 0,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          196.89964009897793,
+          272.6021594061325
+        ],
+        "to": [
+          196.89964009897793,
+          272.6021594061325
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 630
+    },
+    {
+      "region": "deepsea",
+      "width": 390,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 0,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 3,
+        "moves": 1,
+        "distanceCSS": 0,
+        "from": [
+          200.47967508307778,
+          272.6016245846112
+        ],
+        "to": [
+          200.47967508307778,
+          272.6016245846112
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 630
+    },
+    {
+      "region": "star_stop",
+      "width": 390,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 180,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          196.89964009897793,
+          272.6021594061325
+        ],
+        "to": [
+          196.89964009897793,
+          272.6021594061325
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 630
+    },
+    {
+      "region": "memory_lake",
+      "width": 390,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 135,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          189.73978405938675,
+          267.23226737643915
+        ],
+        "to": [
+          189.73978405938675,
+          267.23226737643915
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 630
+    },
+    {
+      "region": "home",
+      "width": 390,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 135,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          196.89964009897793,
+          272.6021594061325
+        ],
+        "to": [
+          196.89964009897793,
+          272.6021594061325
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 630
+    },
+    {
+      "region": "forest",
+      "width": 430,
+      "count": 10,
+      "decision": {
+        "held": false,
+        "reason": "existing-contact",
+        "clock": 0,
+        "events": 3,
+        "moves": 1,
+        "distanceCSS": 0,
+        "from": [
+          214.92000000000002,
+          272.5400000000001
+        ],
+        "to": [
+          214.92000000000002,
+          272.5400000000001
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 695
+    },
+    {
+      "region": "river_lake",
+      "width": 430,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 90,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          222.87938667851668,
+          278.5126066163042
+        ],
+        "to": [
+          222.87938667851668,
+          278.5126066163042
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 695
+    },
+    {
+      "region": "city",
+      "width": 430,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 90,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          262.67836447604446,
+          296.4221466251917
+        ],
+        "to": [
+          262.67836447604446,
+          296.4221466251917
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 695
+    },
+    {
+      "region": "countryside",
+      "width": 430,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 0,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 3,
+        "moves": 1,
+        "distanceCSS": 0,
+        "from": [
+          222.8791181914293,
+          260.60440904285355
+        ],
+        "to": [
+          222.8791181914293,
+          260.60440904285355
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 695
+    },
+    {
+      "region": "sea",
+      "width": 430,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 45,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          210.93969333925835,
+          302.39199329482085
+        ],
+        "to": [
+          210.93969333925835,
+          302.39199329482085
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 695
+    },
+    {
+      "region": "snow",
+      "width": 430,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 0,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          210.93969333925835,
+          260.6030666074166
+        ],
+        "to": [
+          210.93969333925835,
+          260.6030666074166
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 695
+    },
+    {
+      "region": "mountain",
+      "width": 430,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 135,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 3,
+        "moves": 1,
+        "distanceCSS": 0,
+        "from": [
+          226.85876337966673,
+          254.6355647914996
+        ],
+        "to": [
+          226.85876337966673,
+          254.6355647914996
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 695
+    },
+    {
+      "region": "jungle",
+      "width": 430,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 45,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 3,
+        "moves": 1,
+        "distanceCSS": 0,
+        "from": [
+          242.78,
+          254.63000000000005
+        ],
+        "to": [
+          242.78,
+          254.63000000000005
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 695
+    },
+    {
+      "region": "desert",
+      "width": 430,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 0,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          218.8994888987639,
+          260.6030666074166
+        ],
+        "to": [
+          218.8994888987639,
+          260.6030666074166
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 695
+    },
+    {
+      "region": "deepsea",
+      "width": 430,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 0,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 3,
+        "moves": 1,
+        "distanceCSS": 0,
+        "from": [
+          222.87885541002677,
+          260.60572294986616
+        ],
+        "to": [
+          222.87885541002677,
+          260.60572294986616
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 695
+    },
+    {
+      "region": "star_stop",
+      "width": 430,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 45,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          218.8994888987639,
+          260.6030666074166
+        ],
+        "to": [
+          218.8994888987639,
+          260.6030666074166
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 695
+    },
+    {
+      "region": "memory_lake",
+      "width": 430,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 135,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          210.93969333925835,
+          254.6332199377875
+        ],
+        "to": [
+          210.93969333925835,
+          254.6332199377875
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 695
+    },
+    {
+      "region": "home",
+      "width": 430,
+      "count": 10,
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 135,
+        "liveSegments": 0,
+        "clock": 0,
+        "events": 2,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          218.8994888987639,
+          260.6030666074166
+        ],
+        "to": [
+          218.8994888987639,
+          260.6030666074166
+        ]
+      },
+      "changed": [],
+      "routesPreserved": true,
+      "height": 695
+    }
+  ]
+}

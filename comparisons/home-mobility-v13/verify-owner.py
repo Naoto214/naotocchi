@@ -13,11 +13,12 @@ with sync_playwright() as pw:
     errors=[]
     page.on('pageerror',lambda error:errors.append(str(error)))
     page.goto(args.base+'/v13/?arm=a&region=forest&count=28&time=day&paused=1',wait_until='domcontentloaded',timeout=90000)
+    ready_timeout=300000 if args.engine=='webkit' else 120000
     states={}
     for arm in ['a','b','c','d','d-curve','v11','v12']:
         print(args.engine,args.width,arm,flush=True)
         page.select_option('#version',arm)
-        page.wait_for_function("document.body.dataset.ready==='true' && document.querySelector('#home').contentWindow.HomeDragTrial?.opening()?.actors.length===28",timeout=120000)
+        page.wait_for_function("document.body.dataset.ready==='true' && document.querySelector('#home').contentWindow.HomeDragTrial?.opening()?.actors.length===28",timeout=ready_timeout)
         snapshot=page.evaluate("""() => {
           const win=document.querySelector('#home').contentWindow, first=win.HomeDragTrial.opening();
           return {region:first.region,time:first.time,width:win.innerWidth,bodyWidth:document.body.scrollWidth,
@@ -32,7 +33,7 @@ with sync_playwright() as pw:
     page.locator('#settings-toggle').tap()
     page.select_option('#region','mountain');page.select_option('#count','4');page.select_option('#time','night')
     page.locator('#settings-close').tap()
-    page.wait_for_function("document.body.dataset.ready==='true' && document.querySelector('#home').contentWindow.HomeDragTrial?.opening()?.actors.length===4",timeout=120000)
+    page.wait_for_function("document.body.dataset.ready==='true' && document.querySelector('#home').contentWindow.HomeDragTrial?.opening()?.actors.length===4",timeout=ready_timeout)
     page.locator('#freeze').tap()
     page.wait_for_function("document.querySelector('#freeze').getAttribute('aria-pressed')==='false'")
     assert not errors,errors

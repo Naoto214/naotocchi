@@ -1,0 +1,35 @@
+{
+  "engine": "Linux Playwright WebKit, local WPE build 2336",
+  "environment": "Shared Linux CPU; this is not physical iPhone hardware.",
+  "cases": [
+    {
+      "entry": "game/mobility-v10.html",
+      "width": 320,
+      "height": 792,
+      "status": "Historical replacement reference timed out waiting for the paused native home opening (120 s).",
+      "completed": false
+    },
+    {
+      "entry": "game/mobility-v13-foot-corridor.html",
+      "width": 320,
+      "height": 516,
+      "status": "Native restore rejected historical feet in this viewport.",
+      "message": "この表示条件では元の足位置を再現できません。",
+      "completed": false
+    },
+    {
+      "entry": "v13/foot-corridor.html",
+      "width": 390,
+      "height": 844,
+      "status": "First isolated attempt timed out waiting for the ready state (120 s).",
+      "completed": false
+    },
+    {
+      "entry": "v13/foot-corridor.html",
+      "width": 390,
+      "height": 844,
+      "status": "Later isolated attempt reached ready; the physical Apply tap did not reach the arranged state within 120 s. Walking was not started.",
+      "completed": false
+    }
+  ]
+}
