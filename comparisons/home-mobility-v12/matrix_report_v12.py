@@ -91,7 +91,7 @@ def curve_counts(events):
     return {"searches":count["search"], "finishedSearches":count["plan"], "foundPlans":len(plans),
             "plannedOneHelper":sum(len(e["stages"])==1 for e in plans),
             "plannedTwoHelpers":sum(len(e["stages"])==2 for e in plans),
-            "helperStarts":count["start"], "ownerRechecked":count["owner"],
+            "helperStarts":count["start"], "stopped":count["stop"], "ownerRechecked":count["owner"],
             "ownerAccepted":sum(e["type"]=="owner" and bool(e.get("accepted")) for e in events),
             "nativeYieldHops":sum(e["type"]=="native-step" and e["source"]=="yield" for e in events)}
 
@@ -118,8 +118,34 @@ def assisted_episodes(cell, data):
                 break
             later.append(r)
         helpers={s["key"]:s for s in event["stages"]}
-        steps=[r for r in later if r["type"]=="native-step" and r["source"]=="yield" and r["key"] in helpers]
-        stops={key:any(r["key"]==key and distance(r["to"],stage["to"])<.01 for r in steps) for key,stage in helpers.items()}
+        steps=[]
+        completed_helpers=set()
+        active={event["helper"]}
+        for r in later:
+            if r["type"]=="start":
+                if r["owner"]==owner and r["helper"] in helpers:
+                    active.add(r["helper"])
+                else:
+                    active.discard(r["helper"])
+                continue
+            key=r.get("key")
+            if key not in active or r["type"] not in ("native-step","native-arrive"):
+                continue
+            if r["source"]!="yield":
+                active.discard(key)
+                continue
+            if "yieldFor" in r and r["yieldFor"] != owner:
+                active.discard(key)
+                continue
+            if r["type"]=="native-step":
+                steps.append(r)
+                if distance(r["to"],helpers[key]["to"])<.01:
+                    completed_helpers.add(key)
+                    active.discard(key)
+            else:
+                if distance(r["at"],helpers[key]["to"])<.01:
+                    completed_helpers.add(key)
+                active.discard(key)
         recheck=next((r for r in later if r["type"]=="owner" and r["owner"]==owner),None)
         trip=None
         if recheck and recheck["accepted"]:
@@ -131,7 +157,7 @@ def assisted_episodes(cell, data):
               "hasTurn":any(bool(s.get("via")) for s in helpers.values()),"stages":len(helpers),
               "startedHelpers":len({event["helper"],*(r["helper"] for r in later if r["type"]=="start" and r["owner"]==owner)}),
               "steppedHelpers":len({r["key"] for r in steps}),"steps":len(steps),"helperDistanceCss":sum(distance(r["from"],r["to"]) for r in steps),
-              "completedHelperEndpoints":sum(stops.values()),"ownerRechecked":bool(recheck),"accepted":bool(recheck and recheck["accepted"]),
+              "completedHelperEndpoints":len(completed_helpers),"ownerRechecked":bool(recheck),"accepted":bool(recheck and recheck["accepted"]),
               "observedOwnerTrip":trip is not None,"arrived":completed,"originalGain":original_gain,"displacement":displacement,
               "normalTowardOriginal":bool(completed and not trip["escape"] and displacement>=8-1e-7 and original_gain>.75),
               "endsAtFiveMinuteBoundary":end>=aged["final"]["modelSeconds"]-1e-6}
@@ -141,12 +167,21 @@ def walk_effects(cell, people_by_arm, archived):
     ref,new=people_by_arm[REFERENCE],people_by_arm["v12"]
     events=cell["arms"]["v12"]["aged"]["curve"]
     owners,helpers=participants(events)
+    scale=cell["arms"]["v12"]["aged"]["drag"]["scale"]
+    yield_distance=Counter()
+    for row in events:
+        if row["type"]=="native-step" and row["source"]=="yield" and row["key"] in helpers:
+            yield_distance[row["key"]]+=math.hypot(*((v-u)*z for u,v,z in zip(row["from"],row["to"],scale,strict=True)))
     for key,baseline in ref.items():
         candidate=new[key]
         yield {**v11.label(cell),"key":key,"curvedHelper":key in helpers,"curvedOwner":key in owners,
+            "trackedYieldDistanceCss":yield_distance[key],
             "archivedNormal":archived[key]["normalCompletions"],"refNormal":baseline["normalCompletions"],"v12Normal":candidate["normalCompletions"],
             "refActualStarts":baseline["actualStarts"],"v12ActualStarts":candidate["actualStarts"],
             "refLongestRefusalSec":baseline["longestRefusalToNormalSec"],"v12LongestRefusalSec":candidate["longestRefusalToNormalSec"],
+            "refLongestRouteFailureSec":baseline["longestFailureSec"],"v12LongestRouteFailureSec":candidate["longestFailureSec"],
+            "refOpenRouteFailureSec":baseline["openFailureSec"],"v12OpenRouteFailureSec":candidate["openFailureSec"],
+            "refReopened":baseline["recoveredFailures"],"v12Reopened":candidate["recoveredFailures"],
             "refYieldsGiven":baseline["givenYield"],"v12YieldsGiven":candidate["givenYield"],
             "refYieldsReceived":baseline["receivedYield"],"v12YieldsReceived":candidate["receivedYield"],
             "refRequests":baseline["requests"],"v12Requests":candidate["requests"],
@@ -203,7 +238,11 @@ def main():
                 diff=v11.replay_difference(old_row,row)
                 if diff:opening_differences.append({**label,"arm":arm,"case":case,"changed":diff,
                     "archived":old.canonical(prior.drop_outcome(old_row)),"current":old.canonical(prior.drop_outcome(row))})
-            shifts.extend({**label,"arm":arm,**q} for q in aged["sync"]["shifts"])
+            for shift in aged["sync"]["shifts"]:
+                scale=shift["scale"]
+                dx=scale["x"]*(shift["after"][0]-shift["before"][0])
+                dy=scale["y"]*(shift["after"][1]-shift["before"][1])
+                shifts.append({**label,"arm":arm,**shift,"distanceCss":math.hypot(dx,dy)})
             for phase,events in [("living",aged["curve"]),("aged-input",aged["drag"]["curve"]),
                                  *((k,r.get("curve",[])) for k,r in data["rows"].items())]:
                 curves.append({**label,"arm":arm,"phase":phase,**curve_counts(events)})
@@ -212,11 +251,18 @@ def main():
         changes.extend(local_changes)
         previous_age=cell["arms"][REFERENCE]["aged"]
         final_age=cell["arms"]["v12"]["aged"]
+        first_help=next((e["clock"] for e in final_age["curve"] if e["type"]=="start"),None)
+        def earlier_plans(measurement):
+            return {key:[(t["start"],t["from"],t["goal"]) for t in track["trips"] if first_help is None or t["start"]<first_help-1e-6]
+                    for key,track in measurement["tracks"].items()}
+        ref_plans,v12_plans=earlier_plans(previous_age),earlier_plans(final_age)
         households.append({**label,**curve_counts(final_age["curve"]),
             "gained":"|".join(r["key"] for r in local_changes if not r["refNormal"] and r["v12Normal"]),
             "lost":"|".join(r["key"] for r in local_changes if r["refNormal"] and not r["v12Normal"]),
             "refSyncs":previous_age["sync"]["calls"],"v12Syncs":final_age["sync"]["calls"],
             "refSyncMoves":len(previous_age["sync"]["shifts"]),"v12SyncMoves":len(final_age["sync"]["shifts"]),
+            "firstHelperStart":first_help,"identicalPlansBeforeFirstHelp":ref_plans==v12_plans,
+            "refEarlierPlans":sum(map(len,ref_plans.values())),"v12EarlierPlans":sum(map(len,v12_plans.values())),
             "sameAgedFeet":previous_age["opening"]==final_age["opening"],
             "sameAgedInput":not v11.replay_difference(previous_age["drag"],final_age["drag"])})
         episodes.extend(assisted_episodes(cell,cell["arms"]["v12"]))
@@ -235,9 +281,18 @@ def main():
     census={k:sum(row[k] for row in curves if row["arm"]=="v12" and row["phase"]=="living") for k in curve_counts([])}
     statuses=Counter(r["status"] for r in shared if r["arm"]=="v12" and r["source"]==REFERENCE)
     differences=[r for r in changes if bool(r["refNormal"])!=bool(r["v12Normal"])]
+    crossed=[r for r in changes if (r["refLongestRouteFailureSec"]>=60)!=(r["v12LongestRouteFailureSec"]>=60)]
+    long_failures={arm:sum(r[key]>=60 for r in changes)
+                   for arm,key in ((REFERENCE,"refLongestRouteFailureSec"),("v12","v12LongestRouteFailureSec"))}
+    movement={}
+    for arm in ARMS:
+        sampled=[q["distanceCss"] for q in shifts if q["arm"]==arm]
+        movement[arm]={"count":len(sampled),"maximumCss":max(sampled,default=0),
+                       "over8Css":sum(d>8 for d in sampled),"over32Css":sum(d>32 for d in sampled),"over100Css":sum(d>100 for d in sampled)}
     result={"cells":len(receipt["regions"])*20,"clock":"300 native model seconds per separate home; real Chromium touch",
             "historical":BENCHMARK,"totals":totals,"safety":safety,"livingCurveEvents":census,"livingHandoffs":len(episodes),
-            "changedNormalWalkers":differences,"sharedInputs":len(shared),"sameStateInputDifferences":sum(bool(r["comparedFlags"]) for r in shared),
+            "changedNormalWalkers":differences,"routeFailureAtLeast60s":long_failures,"crossed60s":len(crossed),"syncMoves":movement,
+            "sharedInputs":len(shared),"sharedPairs":sum(r["arm"]=="v12" for r in shared),"sameStateInputDifferences":sum(bool(r["comparedFlags"]) for r in shared),
             "restoredVsOriginalDifferences":sum(not r["sameDonorLivingFlags"] for r in shared),"restoredReferenceStatus":statuses,
             "lateSameFeet":{a:sum(r["arm"]==a and r["source"]=="matched" and r["sameConcurrentFeet"] for r in aging) for a in ARMS},
             "unalignedNaturalStarts":{a:sum(r["arm"]==a and not r["warmIdentical"] for r in starts) for a in ARMS},
@@ -251,6 +306,8 @@ def main():
             write(mode+"-"+suffix,[record for arm in ARMS for record in datasets[mode][arm][i]],args.private_data,True)
     write("startup",starts,args.out)
     write("walk-changes",differences,args.out)
+    write("long-failure-changes",crossed,args.out)
+    write("sync-moves",shifts,args.out)
     write("curve-households",[r for r in curves if r["searches"] or r["helperStarts"]],args.out)
     write("households",households,args.out)
     write("curve-episodes",episodes,args.out)

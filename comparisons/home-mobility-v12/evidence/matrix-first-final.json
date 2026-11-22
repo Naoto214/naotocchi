@@ -1,0 +1,32 @@
+{
+  "firstRun": "44992612829",
+  "finalRun": "44994820430",
+  "cells": 260,
+  "sameReferenceSource": true,
+  "sameFullOpening": 260,
+  "sameReferenceAgedFeet": 252,
+  "sameReferenceAgedSnapshotAndFinger": 161,
+  "changedRestoredResultsOnIdenticalCheckpoint": {
+    "v11-foot": 0,
+    "v12": 0
+  },
+  "changesAcrossRuns": {
+    "v11-foot": {
+      "normalWalkers": 0,
+      "arrival": 0,
+      "near4": 0,
+      "tapSelected": 0,
+      "bothFailed": 0,
+      "agedDragArrival": 0
+    },
+    "v12": {
+      "normalWalkers": 22,
+      "arrival": 2,
+      "near4": 1,
+      "tapSelected": 0,
+      "bothFailed": 0,
+      "agedDragArrival": -4
+    }
+  },
+  "rowsCompressedSHA256": "53f8fa67d5298b719e10af9ecf70c3c2713207863beb4bf8360bd95f1745848a"
+}
