@@ -30,7 +30,7 @@ def movement(before, after, kind=None):
             if a['key'] in older and (not kind or a['kind'] == kind)]
 
 
-def phase_metrics(phase, reference):
+def phase_metrics(phase, reference, prior):
     feet = phase['feet']
     pet = next(a for a in feet if a['kind'] == 'pet')
     partner = next((a for a in feet if a['kind'] == 'partner'), None)
@@ -58,6 +58,15 @@ def phase_metrics(phase, reference):
         solver_order_changed = order != side(solver_dx)
     contacts = {tuple(sorted(pair[:2])) for pair in phase['contacts']}
     old_contacts = {tuple(sorted(pair[:2])) for pair in reference['contacts']}
+    prior_contacts = {tuple(sorted(pair[:2])) for pair in prior['contacts']}
+    leads = {a['key'] for a in feet if a['kind'] in ('pet','partner')}
+    pair_contacts = sum(set(pair)==leads for pair in contacts)
+    pair_crowd_contacts = sum(len(leads.intersection(pair))==1 for pair in contacts)
+    pair_ellipse = None
+    if partner:
+        (px,py),(qx,qy) = pet['stage'],partner['stage']
+        (pw,ph),(qw,qh) = pet['size'],partner['size']
+        pair_ellipse = math.hypot((qx-px)/((pw+qw)*.5+10),(qy-py)/((ph+qh)*.38+10))
     peers = movement(reference, phase, 'companion')
     previous = by_key(reference)
     return dict(**data, dx=dx, dy=dy, distance=dist, distanceDeltaMain=dist_delta,
@@ -65,7 +74,10 @@ def phase_metrics(phase, reference):
                 solverOrderChanged=solver_order_changed, vectorErrorMain=vector_error, order=order, orderChanged=order_changed,
                 partnerSideMargin=partner['horizontalEdge'] if partner else None,
                 partnerEdge=partner['edge'] if partner else None, contactPairs=len(contacts),
-                addedContactPairs=len(contacts-old_contacts),
+                pairEllipse=pair_ellipse,pairContact=pair_contacts,pairCrowdContacts=pair_crowd_contacts,
+                companionContacts=len(contacts)-pair_contacts-pair_crowd_contacts,
+                addedContactPairs=len(contacts-old_contacts),addedContactPairsVsPrior=len(contacts-prior_contacts),
+                addedPairCrowdVsPrior=sum(bool(leads.intersection(pair)) for pair in contacts-prior_contacts),
                 invalidTerrain=sum(not a['valid'] for a in feet),
                 occluded=sum(not a['visible'] for a in feet),
                 outsidePaintedGround=sum(not a['painted'] for a in feet),
@@ -95,8 +107,9 @@ def summarize(rows):
     groups = {a: {p: [] for p in PHASES} for a in ARMS}
     for (region, n, w, arm), row in sorted(rows.items()):
         reference = rows[region,n,w,'production']['placements']
+        prior = rows.get((region,n,w,'prior'), rows[region,n,w,'production'])['placements']
         phase = row['placements']
-        values = {p:phase_metrics(phase[p], reference[p]) for p in PHASES}
+        values = {p:phase_metrics(phase[p], reference[p], prior[p]) for p in PHASES}
         for p in PHASES:
             groups[arm][p].append(values[p])
         original = phase['opening']
@@ -122,7 +135,8 @@ def summarize(rows):
                 solverPairCells=len(solver), solverOrderChanges=sum(r['solverOrderChanged'] for r in solver),
                 maxSolverVectorError=max((r['vectorErrorSolver'] for r in solver), default=None),
                 cells=len(entries), pairCells=len(pairs),
-                **{k:sum(r[k] for r in entries) for k in ('contactPairs','addedContactPairs',
+                **{k:sum(r[k] for r in entries) for k in ('contactPairs','addedContactPairs','addedContactPairsVsPrior','addedPairCrowdVsPrior',
+                   'pairContact','pairCrowdContacts','companionContacts',
                    'invalidTerrain','occluded','outsidePaintedGround','addedOutsidePaintedGround','addedInvalidTerrain','addedOccluded',
                    'outsideActorBounds','outsideFrame','companionMovedVsMain')},
                 orderChanges=sum(r['orderChanged'] for r in pairs),
