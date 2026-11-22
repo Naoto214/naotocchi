@@ -6,6 +6,7 @@ const {digest, replaceExact} = require('../home-finish-v5/native-hooks.cjs');
 const {patchFootDiagnostics} = require('../home-mobility-v11/foot.cjs');
 const {patchCurve} = require('./curve.cjs');
 const {patchDeferred} = require('./curve-deferred.cjs');
+const {patchExitGuard} = require('./curve-exit-guard.cjs');
 const {patchReflow,patchReflowWorld,patchReflowPainter} = require('./reflow.cjs');
 
 const baseHash = '7d66d2be995b4df351c67cb6aa1f07f55ac5661e2bfad77df9fd9d6c955a492d';
@@ -35,10 +36,13 @@ function prepare(baseline) {
   const audit='mobility-v12-owner-events.js';
   add('game/'+audit,local('owner-events.js'));
   const swap=(html,oldName,newName)=>replaceExact(html,tag(oldName,game(oldName)),tag(newName,files.get('game/'+newName)));
+  let eightPixelComparison;
   for (const suffix of ['','-reference']) {
     const oldArm='v11-foot'+suffix,arm='v12'+suffix;
     const old=modelFile(oldArm),model=modelFile(arm);
-    const modelSource=replaceExact(patchReflow(patchDeferred(patchCurve(game(old)))),"bindModel('"+oldArm+"',","bindModel('"+arm+"',");
+    const eightPixelModel=replaceExact(patchReflow(patchDeferred(patchCurve(game(old)))),"bindModel('"+oldArm+"',","bindModel('"+arm+"',");
+    if (!suffix) eightPixelComparison=eightPixelModel;
+    const modelSource=patchExitGuard(eightPixelModel,'short');
     add('game/'+model,modelSource);
     let direct=swap(game('mobility-'+oldArm+'.html'),old,model);
     add('game/mobility-'+arm+'.html',swap(direct,oldPainter,painter));
@@ -71,7 +75,7 @@ function prepare(baseline) {
     replaceExact(read('v10/diagnostics.mjs'),'    if(!row)return;','    if(!row)return;\n    showResidentChanges(root,frame,row.key);'));
   add('v12/readout.mjs',local('readout.mjs'));
   const replay = {add,baseline,modelSource:files.get('game/'+modelFile('v12')),rendererSource};
-  require('./yield-replay.cjs').addYieldReplay(replay);
+  require('./yield-replay.cjs').addYieldReplay({...replay,modelSource:eightPixelComparison,shortModelSource:replay.modelSource});
   require('./reflow-pages.cjs').addReflowPages(replay);
   return files;
 }
