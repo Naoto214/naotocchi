@@ -91,7 +91,7 @@ test('two tabs: the tab opened later takes over; the older tab stops writing and
   assert.equal(JSON.parse(fromB).lifetime.money, 111);
   a.api.state().lifetime.money = 999; a.api.saveState();
   assert.equal(storage.getItem(SAVE), fromB, 'the older tab does not overwrite');
-  assert.match(a.api.getMessage(), /べつのタブでひらかれています/);
+  assert.match(a.api.getMessage(), /別のタブで開いています/);
   a.advance(3000);
   assert.equal(storage.getItem(SAVE), fromB, 'nor on the next tick');
   b.api.state().lifetime.money = 222; b.api.saveState();
@@ -106,13 +106,13 @@ test('two tabs: another tab\'s write (storage event) makes this tab read-only im
   const before = storage.getItem(SAVE);
   a.api.saveState();
   assert.equal(storage.getItem(SAVE), before);
-  assert.match(a.api.getMessage(), /べつのタブでひらかれています/);
+  assert.match(a.api.getMessage(), /別のタブで開いています/);
   // ほかの キー・消去(newValue null)では 止まらない
   const c = harness({ deterministic: true, storage: storageWith() }); growing(c);
   c.dispatch(c.window, 'storage', { key: 'other', newValue: 'x', bubbles: false });
   c.dispatch(c.window, 'storage', { key: SAVE, newValue: null, bubbles: false });
   c.api.state().lifetime.money = 5; c.api.saveState();
-  assert.doesNotMatch(c.api.getMessage(), /べつのタブ/);
+  assert.doesNotMatch(c.api.getMessage(), /別のタブ/);
 });
 
 test('waits written by a clock in the future are clamped to their real length', () => {
