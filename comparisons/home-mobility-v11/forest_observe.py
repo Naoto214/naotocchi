@@ -24,7 +24,13 @@ reload_save = previous.reload_save
 def observe_model(source):
     source=previous.observe_model(source)
     source=replace_once(source,'const forestRecords = {requests:[], motions:[], choices:[]};',
-        'const forestRecords = {requests:[], motions:[], choices:[],syncs:[]};')
+        """const forestRecords = {requests:[], motions:[], choices:[],syncs:[],proposals:[],budget:[]};
+    globalThis.HomeGoalDiagnostics={proposal(actor,raw,chosen,scale,when){
+      forestRecords.proposals.push({key:actor.key,clock:when,from:[actor.x,actor.y],raw:[raw.x,raw.y],
+        chosen:[chosen.x,chosen.y],scale:[scale.x,scale.y]});
+    }};""")
+    budget="if(mobility?.enabled)mobility.wait(a,'ambient-budget');"
+    source=replace_once(source,budget,"forestRecords.budget.push([clock,a.key]);"+budget)
     # Read after native sync has already settled the feet. Do not call nearest or route.
     extra="""
       if(clock>0){
