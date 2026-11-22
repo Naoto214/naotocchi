@@ -1,0 +1,101 @@
+{
+  "original": "9539e462e78452ad6da5f72d454911679b4ec20e",
+  "current": "384730f1f2b1ef287a2bc4d17df35b861de9f2ae",
+  "identicalGitObjects": {
+    "assets": "6f989df098344f53d086af14e2177d4033f48004",
+    "canvas-illustrations.js": "9ae83a707f65098c3981625655b8600801716352",
+    "care-attention.css": "4f9d936b3c545bd5fa00bf8c7cf99e42289e78e9",
+    "care-status.css": "dcdd9c4cc464276bcf1bb2a9d93a9f894c769d8c",
+    "cast-bounds.js": "88b0ad58a8cb9c76f2325b0cce7ed17502420b39",
+    "cast-layout.js": "8dfa89e18191a74e27741187be5d579ed52b5dd7",
+    "cast-motion.js": "88c2f248e02d194f754b98e801a24ed5f1dd2faf",
+    "character-3d": "2e4fdf580a6107009cdd24609a350bec9af76606",
+    "character-world-master.v1.js": "e97b63217ecdac185a01fc7a2d779ac4182dcc1c",
+    "comparisons": "2f78261a9b993bc9ac2e5651f98bef4d10d2da12",
+    "design.css": "47d7b80df8f13e1dbe1afdbcc8cba31782e2397b",
+    "display-illustrations.js": "46d2aa0c1738c958b668db22294fc77614cc587d",
+    "egg-hatching.css": "c8adc3792466f8a7fc2877241f40f82e2fb68ed3",
+    "game-home-return.css": "6b0300763a961568629c71adadaf44ba58c17da6",
+    "home-ab-manifest.mjs": "edc3586a431bf883d1aebb6af4d44353575c08f0",
+    "home-art-manifest.mjs": "d561edecc3bf880d90b08c9ad15e24a9c7ab816b",
+    "home-art-navigation.mjs": "d0d5915840c65b25d1046974ae429ee029add983",
+    "home-art-world.mjs": "4b93ee647800d0be824691ab1515c90fbd96de85",
+    "home-art.css": "02ceb422fc6d8da6050874c58097c8838e79a3c5",
+    "home-c-comparison-data.json": "9abcee4f223860a4d8ab4e82db91b3d9c34b383e",
+    "home-care-colors.css": "eb317ff966ef9e85cde94b505deaa52912cad151",
+    "home-dayparts-qa.mjs": "54c0616562136a7bfbeff5ec209ae0ef46179b5f",
+    "home-dayparts.css": "252f9d94bcb7efa7743c420affbcb1b402b3d140",
+    "home-dayparts.mjs": "9fea4427c61c945123f2c8d2911d86d5f148295a",
+    "home-diorama-model.js": "2fb9c998a67ff253862ee5976dd0ca0fe633904b",
+    "home-diorama.css": "e3a4280aa083630f977ae218acb61a6ddc3a4769",
+    "home-diorama.js": "eae4f4403fb793a9e441f80d6297c79eaab27cfd",
+    "home-ground-expansion.mjs": "b7b56f3302add0c1d9da1940e1a141da1217f8a8",
+    "home-japan-manifest.mjs": "6e78f928588ccf8e3a70d781ed9e4351753c7b5d",
+    "home-japan-world.mjs": "26e0c039d5dd236e3ab89138b680cbf9c07cd462",
+    "home-occlusion.mjs": "6e2f9393fd91e0d14dfa55a4385198bac5fe8d3b",
+    "home-production-diorama.js": "0e024bf67759b8910649c3ea55c0729bf580e9e1",
+    "home-production-egg.mjs": "3171779a385fb9955420552b4ec2780a9c5dc260",
+    "home-production-layout.css": "d59aaeda79209ed5dbfdbc3300c2986e8771f37f",
+    "home-production-manifest.mjs": "613e3f947f838ab068e3f3be18d7ae6d1a7477c1",
+    "home-production-model.js": "2a6d830b0ea231a7751db259dec4286ee2f957ac",
+    "home-production-touch.js": "ebb8454434bbd1fa59df2f06bf44806406f84e4c",
+    "home-production-transform.mjs": "d92aa51e9816502ea8f736287047002615a39561",
+    "home-production-world.mjs": "ad374be0cbea76a8d578a9a35cdea2b191f292a4",
+    "home-recovered-manifest.mjs": "02fc1129a5a47d99ff8342b1f524ae62843deb55",
+    "home-recovered-navigation.mjs": "392624821463fe597bdd839eb692c3ace330e5f6",
+    "home-recovered-world.mjs": "79eb6e35ec9cca27d852820e61fa5c5359c7df95",
+    "home-route-navigation.mjs": "d8549a90c75dd7ea5af0155bc3aeda7e028a9e79",
+    "home-scenery.mjs": "3c821c88e86ab8fd9e27ced07de6e46b334d1408",
+    "home-terrain-navigation.mjs": "fa7a09faea7717e5588ebdcfc7bd49d238fbb552",
+    "home-touch.js": "a6d8a112c4a6eb012975a910a4e6109feb4758cb",
+    "home-v6-capture.mjs": "87db7687d492fdc1795d2ebb9f574bc220c9c03b",
+    "home-v6-egg.mjs": "c69bd541eb071bb63d4d90c656b513871d92ac40",
+    "home-v6-frame.mjs": "ce742b32012e163119cebf717fff99c2a75bf871",
+    "home-v6-manifest.mjs": "a2e7764cd5c2f18d81dbc570abb512ef45e56d59",
+    "home-v7-manifest.mjs": "88837cebebce31451b9b6b6a71fe1fd68a3cb195",
+    "home-v8-manifest.mjs": "75f8a0d1f43cd3286af02e07fcac024838c940e1",
+    "home-v8.css": "6f1150ef31e552f6edb8ed4676b9469d003fe2a8",
+    "home-v9-manifest.mjs": "006f59e3cda54c9ad10fc01e08687c445d199196",
+    "home-visible-ground-navigation.mjs": "07f51cce23c475a62cf931f8acd99c5d8064d0b6",
+    "home-world.mjs": "7b363b87f8298f0e2b22c38117420277471eea45",
+    "illustration-catalog.js": "b2f1f7c1bcf593b9d1b905b3b2ae226131945731",
+    "item-memories.css": "05d992335121054826b792e5b5d059ed4baeef0d",
+    "movie.css": "98ae1d4af4229dda39de50827d0b8e4d76cca684",
+    "pet-expression.css": "9f2f258f25eb6713c6e391c1b2be302902fca5ce",
+    "style.css": "7703ad6374d0b2be6fe57547f0d34f626b2f6145",
+    "ui-illustrations.css": "1866c92e751e540bb587bf43db3f933f6c70435a",
+    "ui.css": "f326825ac138427fbb3b80532cbef4f4199ad310",
+    "vendor": "a15678d86fee1f449c5a162f8af30e9dba6b7272",
+    "world-scene.css": "7fba5f888c158faecda2295c22acdbdf3d934073"
+  },
+  "changedRootAppFiles": {
+    "care-status.js": [
+      "fc21371a74cc94e3e2ca35d9a0542ac7ae4c550e",
+      "7c9fcb3695b6c92ff0f711d90f43b38ebb120122"
+    ],
+    "games.js": [
+      "2b3a6ccdbd3ec3bde991fa06409b9016dbdda6a5",
+      "a93847e0d6ce254074270b01583caad8c54f1928"
+    ],
+    "index.html": [
+      "f40897b9be732d10efa1f4343186379d99394b55",
+      "c9432f2b62b2c95a36338f8166627abe8feb97d3"
+    ],
+    "item-system.js": [
+      "894517fd076c12d509471660b3764fa1f9e6f387",
+      "3ad716bb6b2c683797d169e22d4f9873ba3f0323"
+    ],
+    "meguru.js": [
+      "50f6aed47edbfff3ee5457c6f4a4e6146b1f9a36",
+      "bc6ff46ee4fb52a96ca633fd02f11509776b6048"
+    ],
+    "quick.js": [
+      "9ec166e8e5fdb36474cdf2062dde3ca7774fd797",
+      "3e56fd02d858ff1e776121257cd65c6251b02c40"
+    ],
+    "script.js": [
+      "3f440d831360e43d89204379f3e12f70797d0e64",
+      "70112eac0365045f7ff701229028ddf5debe4cae"
+    ]
+  }
+}
