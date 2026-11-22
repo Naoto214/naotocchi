@@ -152,6 +152,11 @@ def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False):
         page.evaluate('r=>regionGame.travel(r)', destination)
         page.wait_for_function('([r,c])=>regional.ready(r,c)',arg=[destination,count],timeout=35000)
         extra['travel']=placement()
+        if arm=='candidate':
+            lifecycle['returnGate']=page.evaluate('r=>regionGame.returnTrip(r)',region)
+            if lifecycle['returnGate']['accepted']:
+                page.wait_for_function('([r,c])=>regional.ready(r,c)',arg=[region,count],timeout=35000)
+                extra['returnTrip']=placement()
     return dict(placements=extra,region=region,count=count,width=width,arm=arm,seconds=seconds,opening=opening,
                 target=target,tap=tap,observation=observation,lifecycle=lifecycle,resized=resized,
                 errors=seen_errors,sources=hashes)

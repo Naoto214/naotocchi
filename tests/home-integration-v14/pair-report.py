@@ -136,6 +136,16 @@ def summarize(rows):
         for p in ('walked', 'lifecycle', 'resized', 'reload', 'travel'):
             for k in ('distance','order','contactPairs','addedContactPairs','invalidTerrain','occluded'):
                 checks[p+k[0].upper()+k[1:]] = values[p][k]
+        gate=row['lifecycle'].get('returnGate')
+        returned=phase.get('returnTrip')
+        checks.update(returnAccepted=gate['accepted'] if gate else None,
+                      returnSpecial=gate['special'] if gate else None,
+                      returnAllowedBeforeFixture=gate['beforeAllowed'] if gate else None,
+                      returnAllowedAfterFixture=gate['afterAllowed'] if gate else None,
+                      returnObserved=returned['region']==region if returned else None,
+                      returnContacts=len(returned['contacts']) if returned else None,
+                      returnInvalidTerrain=sum(not a['valid'] for a in returned['feet']) if returned else None,
+                      returnOccluded=sum(not a['visible'] for a in returned['feet']) if returned else None)
         out.append(checks)
     summary = {}
     for arm in sorted(set(r['arm'] for r in out)):
@@ -171,6 +181,9 @@ def summarize(rows):
             maxSyncShift=max(r['ordinarySyncShift'] for r in selected),
             missingShadowOffsets=sum(r['maxShadowOffset'] is None for r in selected),
             shadowDiscrepancies=sum(r['maxShadowOffset'] is not None and r['maxShadowOffset']>.001 for r in selected),
+            returnTrip={k:sum(r[k] or 0 for r in selected) for k in ('returnAccepted','returnSpecial',
+                'returnAllowedBeforeFixture','returnAllowedAfterFixture','returnObserved','returnContacts',
+                'returnInvalidTerrain','returnOccluded') } if any(r['returnAccepted'] is not None for r in selected) else None,
             modelSeconds=dict(Counter(r['seconds'] for r in selected)))
     return out,summary
 
@@ -199,7 +212,7 @@ def main():
     (args.out/'pair-placement.json').write_text(json.dumps(dict(sources=args.source,sourceHashes=source_hashes,
         declaredStage=3,observedStageIndices=sorted({row['lifecycle']['first'][1] for row in rows.values()}),
         sizes=HEIGHT,units='screen in CSS pixels, original art x/z as fractions, order -1 left/0 equal/+1 right',
-        phaseNotes='Initial clock zero. Sync repeats controller sync without movement. Walked follows 30 model seconds. Lifecycle combines evolution, gear, census, night. Resize precedes save reload. Travel uses the game action after reload.',
+        phaseNotes='Initial clock zero. Sync repeats controller sync without movement. Walked follows 30 model seconds. Lifecycle combines evolution, gear, census, night. Resize precedes save reload. Travel uses the game action after reload. Final-only return visits the original region in the resized viewport. Special returns raise maxSodachi to the normal unlock threshold of 70; both gate states are recorded.',
         results=summary),indent=2)+'\n')
 
 

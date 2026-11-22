@@ -2,6 +2,14 @@
 window.regionGame={
   state:()=>[state.regionId,state.stageIndex,state.lifetime.equippedItemId,state.lifetime.timeMode,state.companions.length,!!state.partner],
   travel(id) {return travelToRegion(findRegion(id));},
+  returnTrip(id) {
+    const region=findRegion(id), beforeMax=state.maxSodachi;
+    const beforeAllowed=travelStartAllowed(region);
+    if(region.special && !hasPerk(70)) state.maxSodachi=70;
+    const afterMax=state.maxSodachi, afterAllowed=travelStartAllowed(region);
+    return {special:!!region.special,beforeMax,afterMax,beforeAllowed,afterAllowed,
+      accepted:travelToRegion(region)===true};
+  },
   transitions() {
     const first=this.state();
     clearConversationTimers();message='';speechActive=false;conversationBusyUntil=0;petBusyUntil=0;
