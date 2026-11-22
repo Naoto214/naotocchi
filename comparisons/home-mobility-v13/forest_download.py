@@ -6,6 +6,7 @@ import io
 import json
 from pathlib import Path
 import re
+import tempfile
 import subprocess
 import zipfile
 
@@ -23,6 +24,14 @@ def api(path):
     return result.stdout
 
 
+def put(path, contents):
+    if path.is_file() and path.read_bytes() == contents:
+        return
+    with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as tmp:
+        tmp.write(contents)
+    Path(tmp.name).replace(path)
+
+
 def download(args):
     run = json.loads(api(f'actions/runs/{args.run}'))
     assert run['head_branch'] == 'draft/home-mobility-v13'
@@ -30,7 +39,7 @@ def download(args):
     folder = args.out / str(args.run)
     folder.mkdir(parents=True, exist_ok=True)
     metadata = api(f'actions/runs/{args.run}/artifacts?per_page=100')
-    (folder / 'github-artifacts.json').write_bytes(metadata)
+    put(folder / 'github-artifacts.json', metadata)
     records = json.loads(metadata)
 
     def artifact(a):
@@ -49,12 +58,12 @@ def download(args):
             names = zipped.namelist()
             assert len(names) == len(set(names)) and set(names) <= FILES and zipped.testzip() is None
             for name in names:
-                (out / name).write_bytes(zipped.read(name))
+                put(out / name, zipped.read(name))
         if not target.exists():
-            target.write_bytes(source)
+            put(target, source)
         receipt = dict(case=case, artifact=a['id'], run=args.run, commit=run['head_sha'],
             sha256=digest, bytes=len(source), files=sorted(names), complete=set(names)==FILES)
-        (out / 'receipt.json').write_text(json.dumps(receipt, indent=2)+'\n')
+        put(out / 'receipt.json', (json.dumps(receipt, indent=2)+'\n').encode())
         return case, receipt['complete']
 
     assert records['total_count'] == len(records['artifacts'])

@@ -491,6 +491,9 @@ function draw() {
     ctx.setLineDash([]);
   }
   const s = f.survey;
+  $('case-file').href = './map-data/' + data.id + '.json';
+  const seed = data.traceName?.split('-')[1];
+  const seedNote = seed ? '乱数 ' + seed + '。' : '';
   const paintingNames = {
     morning: '朝',
     day: '昼',
@@ -514,7 +517,7 @@ function draw() {
       `${regions[data.region]} ${data.width}×${data.height}、${name(r[0])}の足元と${[3, 8, 16][i]}pxの進路`,
     );
   $('scene-note').textContent =
-    `${regions[data.region]}　${data.width} × ${data.height} CSS px・${data.count}体・${nfmt(f.time)}秒。${paintingNote}${data.id.includes('-living-') ? (data.traceVersion === 'pre-guard' ? '強化前の案の連続再生で観察した足位置を、最終判定で再検査。' : 'この案の連続再生で記録した実際の足位置。') : f.phase === 'opening' ? '' : data.id.match(/-[bc]$/) ? 'V12の同時刻の足位置を新地形に置いた比較。' : 'V12の移動記録の足位置。'}${reuse}${data.region !== 'forest' ? '　この地域ではA～Dの地形・接触・座席条件は共通です。' : ''}`;
+    `${regions[data.region]}　${data.width} × ${data.height} CSS px・${data.count}体・${nfmt(f.time)}秒。${paintingNote}${seedNote}${data.id.includes('-living-') ? (data.traceVersion === 'pre-guard' ? '強化前の案の連続再生で観察した足位置を、最終判定で再検査。' : 'この案の連続再生で記録した実際の足位置。') : f.phase === 'opening' ? '' : data.id.match(/-[bc]$/) ? 'V12の同時刻の足位置を新地形に置いた比較。' : 'V12の移動記録の足位置。'}${reuse}${data.region !== 'forest' ? '　この地域ではA～Dの地形・接触・座席条件は共通です。' : ''}`;
   $('person-note').textContent =
     `${name(r[0])}　${[3, 8, 16][i]}pxの96方向中、地形・表示条件を通るのは${r[6][i]}方向。周りの住民を置くと${r[5][i]}方向。` +
     (r[7].length

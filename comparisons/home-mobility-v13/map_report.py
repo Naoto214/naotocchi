@@ -345,6 +345,51 @@ def main(a):
         f"同じ幅320pxでも高さ516pxの5分試験では、Cが実際のモデル領域内に追加した面積は1・4・10・20・28体の順に{'、'.join(str(row['native_gain_px2']) for row in short)} px²。28体の単独8pxはAの{S('forest-320-28')['solo8']}/28からCの{short[-1]['solo8']}/28。高さ792pxの従来席でCが{tall['native_gain_px2']:,} px²を追加した値を、低い画面に転用できない。"
     )
     wr("")
+    if (HERE / "evidence/map-living-receipts.json").exists():
+        wr("## 新しい連続再生の足位置で、いつ単独経路が残るか")
+        wr("")
+        wr(
+            "各欄は、実際の開幕・5分付近・10分を超えた観察終了時の足に対し、単独8pxが1方位以上ある人数（28体中）。候補間で開幕後の足位置が違う場合も、各候補自身の記録を使った。5分付近の軌跡は足の座標を保存し、体格は開幕の寸法を使った。全28体について終了時の記録寸法と一致した。5・10分の2点の間に動いたか、希望した通常歩行を完了したかは住民別の連続記録で判定する。"
+        )
+        wr("")
+        rows = []
+        focal = []
+        for width, seat in [
+            (320, "fixed"),
+            (320, "reference"),
+            (375, "fixed"),
+            (390, "fixed"),
+            (430, "reference"),
+        ]:
+            seat_name = "従来席" if seat == "fixed" else "V9調整席"
+            cells = []
+            for arm in ("a", "b", "c", "d", "d-curve"):
+                run = case(f"forest-{width}-28-living-{seat}-{arm}")
+                assert run["traceVersion"] in ("a-control", "final")
+                frames = run["frames"]
+                cells.append(" → ".join(str(f["survey"]["solo8"]) for f in frames))
+                seed = run["traceName"].split("-")[1]
+                if width == 320:
+                    last = frames[-1]
+                    values = []
+                    for key in ("companion:tanuki", "companion:panda", "companion:box"):
+                        row = next(r for r in last["rows"] if r[0] == key)
+                        values.append(f"{row[6][1]} / {row[5][1]}")
+                    focal.append(
+                        [
+                            seat_name,
+                            arm.upper().replace("D-CURVE", "D＋曲がる道譲り"),
+                            f"{last['time']:.1f}",
+                            *values,
+                        ]
+                    )
+            rows.append([width, seat_name, seed, *cells])
+        table(["幅", "座席", "乱数", "A", "B", "C", "D", "D＋曲がる道譲り"], rows)
+        wr(
+            "320pxの3体について、終了時の8px方向を「地形・表示を通る方位数 / 他者との接触も通る方位数」で示す（各96方位）。終了時刻は再生中の実経過モデル秒。地形条件だけで残る方位が多くても、現在の近隣の足に阻まれると個体が単独で進める方位は少なくなる。"
+        )
+        wr("")
+        table(["座席", "案", "終了時刻（秒）", "タヌキ", "パンダ", "箱"], focal)
     saved = HERE / "evidence/map-guard-delta.json"
     if saved.exists():
         retest = json.loads(saved.read_bytes())
@@ -358,7 +403,7 @@ def main(a):
     wr("## 原資料")
     wr("")
     wr(
-        "各地図は既存の本人用ゲームのネイティブ地形・線分・原画遮蔽・役別の表示枠・厳密な接触を読み取る観察用スクリプトから生成した。写真の画面上の座標は実測のステージ左上＋モデル足×実際の表示倍率。原画は同じ配布物の当該地域の昼原画を、描画時に記録したカバーの左・上・幅・高さに重ねている。格子面積には境界セルの丸めがある。3・8・16pxの線分は各96方位を検査した。比較図の他者だけを置き換えた方位は保存小数点3桁のCSS座標から再計算した測定で、境界上では丸めの影響を受け得る。iPhone Safari実機の表示・タッチ・描画は未検証。[全条件・時点別面積](evidence/map-cases.csv) ／ [個体別面積と出口](evidence/map-residents.csv) ／ [元の5分試験と投影照合](evidence/map-receipts.json) ／ [ブラウザー操作結果](evidence/map-ui.json) ／ [実歩行の描画](evidence/map-gait.json)"
+        "各地図は既存の本人用ゲームのネイティブ地形・線分・原画遮蔽・役別の表示枠・厳密な接触を読み取る観察用スクリプトから生成した。写真の画面上の座標は実測のステージ左上＋モデル足×実際の表示倍率。原画は同じ配布物の当該地域の昼原画を、描画時に記録したカバーの左・上・幅・高さに重ねている。格子面積には境界セルの丸めがある。3・8・16pxの線分は各96方位を検査した。比較図の他者だけを置き換えた方位は保存小数点3桁のCSS座標から再計算した測定で、境界上では丸めの影響を受け得る。iPhone Safari実機の表示・タッチ・描画は未検証。[全条件・時点別面積](evidence/map-cases.csv) ／ [個体別面積と出口](evidence/map-residents.csv) ／ [元の5分試験と投影照合](evidence/map-receipts.json) ／ [ブラウザー操作結果](evidence/map-ui.json) ／ [実歩行の描画](evidence/map-gait.json) ／ [CSS変形前固有寸法と実画面の測定](evidence/map-ink-layout.json)"
     )
     wr("")
     receipt = json.loads((HERE / "evidence/map-receipts.json").read_text())
@@ -375,8 +420,18 @@ def main(a):
         f"公式の13個のZIPすべてをGitHub登録SHA-256と照合した。うち{archive['independentNativeReplays']}世帯は、公式Chromium 157と別実行のChromium 156で格子地形、個別許容域、個体の足・接触・96方位・退避先・すれ違い地点が一致した。照合した個体時点は{archive['independentlyReplayedActorSnapshots']:,}。[各ZIPのIDとSHA-256照合](evidence/map-archives.json)"
     )
     wr("")
+    actual = HERE / "evidence/map-living-receipts.json"
+    if actual.exists():
+        live = json.loads(actual.read_bytes())
+        wr(
+            f"10分連続再生の地図では、Aは元の5本、B・C・D・D＋曲がる道譲りは強化後の20本に対応する。合計{live['cases']}世帯、{live['frames']}時点、個体位置{live['actorPoints']:,}点で元のテープとネイティブモデル・地形モジュールを照合した。保存時の丸めによる画面足位置の最大差は{live['maxRoundingCss']:.5f}px。[各連続再生と出典の対応](evidence/map-living-receipts.json) ／ [本人限定の元記録](https://naotocchi-home-v13-records.kerzion214.chatgpt.site/)"
+        )
+        wr("")
     wr("```sh")
     wr('node map-manifest.mjs "$V12/game" > map-data/art.json')
+    wr(
+        "node -p 'JSON.stringify(require(\"./geometry.cjs\").polygons)' > map-data/patches.json"
+    )
     wr(
         'python map_receipts.py --raw "$ATLAS_RAW" --archives "$V12_ARCHIVES" --out evidence/map-receipts.json'
     )

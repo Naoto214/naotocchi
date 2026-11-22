@@ -51,6 +51,23 @@ def main(a):
                 page.select_option("#painting", painting)
                 stable()
                 report("painting-" + painting)
+            page.select_option("#view", "art")
+            page.locator("#chart").scroll_into_view_if_needed()
+            point = page.evaluate(
+                """async () => {
+                const data=await (await fetch(document.getElementById('case-file').href)).json();
+                const box=data.frames[0].rows.find(r=>r[0]==='companion:box');
+                const screen=document.getElementById('chart').getBoundingClientRect();
+                return [screen.x+(box[1]+data.origin[0]-data.paint[0])*screen.width/data.paint[2],
+                        screen.y+(box[2]+data.origin[1]-data.paint[1])*screen.height/data.paint[3]];
+            }"""
+            )
+            page.touchscreen.tap(*point)
+            page.wait_for_function(
+                "document.getElementById('person').value==='companion:box'",
+                timeout=10000,
+            )
+            report("touch-box-on-source")
             page.select_option("#person", "companion:box")
             page.select_option("#view", "local")
             page.select_option("#distance", "16")

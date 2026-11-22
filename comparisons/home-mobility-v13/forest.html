@@ -50,7 +50,8 @@ function draw(){
  }
  list.value=resident;showPerson();
  const raw=document.createElement('a');raw.href='https://github.com/Naoto214/naotocchi/actions/runs/'+home.receipt.run+'/artifacts/'+home.receipt.artifact;raw.textContent='この家庭の原本ZIP（GitHub）';
- get('sources').replaceChildren(raw);
+ const archive=document.createElement('a');archive.href='https://naotocchi-home-v13-records.kerzion214.chatgpt.site/#forest';archive.textContent='本人限定の保存原簿';
+ get('sources').replaceChildren(archive,' ／ ',raw);
 }
 function showPerson(){
  const r=home.people.find(x=>x.key===get('person').value);if(!r)return;

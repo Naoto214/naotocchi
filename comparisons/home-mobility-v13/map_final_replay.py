@@ -15,6 +15,11 @@ def poses(trace):
     d = json.loads(gzip.decompress(trace.read_bytes()))
     initial = d["initial"]["actors"]
     axes = {r["key"]: (r["w"], r["h"]) for r in initial}
+    final_axes = {r["key"]: (r["w"], r["h"]) for r in d["baseline"]["residents"]}
+    if axes != final_axes:
+        raise ValueError(
+            f"Intermediate tape does not store sizes for changed residents: {trace}"
+        )
     middle = min(d["trajectory"], key=lambda f: abs(f["clock"] - 300))
     fields = ("key", "x", "y", "w", "h")
     frames = [
