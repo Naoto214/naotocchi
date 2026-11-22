@@ -68,7 +68,7 @@ def main():
             dragDidNotWalk=sum(r['dragIssued'] and r['dragHops']==0 for r in selected),
             modelDurations=dict(Counter(r['seconds'] for r in selected))))
     with a.table.open('w') as file:
-        writer=csv.DictWriter(file,fieldnames=next(iter(rows.values())).keys())
+        writer=csv.DictWriter(file,fieldnames=next(iter(rows.values())).keys(),lineterminator='\n')
         writer.writeheader()
         writer.writerows(rows[k] for k in sorted(rows))
     a.summary.write_text(json.dumps(dict(source=a.sha,run=a.run,engines='Chromium',results=results),indent=2)+'\n')
