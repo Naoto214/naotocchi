@@ -1,0 +1,373 @@
+{
+  "candidate": "ca6059cd9c2f2e171f803287147249ce69bacce4",
+  "managedSource": "989aa78e",
+  "archiveBytes": 266373120,
+  "cases": [
+    {
+      "engine": "chromium",
+      "arm": "fixed",
+      "sha": "ca6059cd",
+      "verifiedResponses": 25,
+      "region": "mountain",
+      "time": "day",
+      "weather": "sunny",
+      "count": 10,
+      "feet": {
+        "dx": 75.72611811493366,
+        "dy": -21.758361371344705,
+        "clock": 7.916599999999991
+      },
+      "background": [
+        "mountain-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "engine": "chromium",
+      "arm": "fixed",
+      "sha": "ca6059cd",
+      "verifiedResponses": 25,
+      "region": "forest",
+      "time": "day",
+      "weather": "sunny",
+      "count": 28,
+      "feet": {
+        "dx": -74.74240024080302,
+        "dy": 0,
+        "clock": 6.333199999999992
+      },
+      "background": [
+        "forest-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "engine": "chromium",
+      "arm": "main",
+      "sha": "9539e462",
+      "verifiedResponses": 23,
+      "region": "mountain",
+      "time": "day",
+      "weather": "sunny",
+      "count": 10,
+      "feet": {
+        "dx": -27.47668304513975,
+        "dy": -197.8410541550309,
+        "clock": 2.3000000000000007
+      },
+      "background": [
+        "mountain-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "engine": "chromium",
+      "arm": "main",
+      "sha": "9539e462",
+      "verifiedResponses": 23,
+      "region": "forest",
+      "time": "day",
+      "weather": "sunny",
+      "count": 28,
+      "feet": {
+        "dx": 110.78128586878309,
+        "dy": -256.8149936405945,
+        "clock": 2.2333
+      },
+      "background": [
+        "forest-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "engine": "chromium",
+      "arm": "before",
+      "sha": "d9df1c60",
+      "verifiedResponses": 25,
+      "region": "mountain",
+      "time": "day",
+      "weather": "sunny",
+      "count": 10,
+      "feet": {
+        "dx": -27.47668304513975,
+        "dy": -197.8410541550309,
+        "clock": 1.6166000000000007
+      },
+      "background": [
+        "mountain-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "engine": "chromium",
+      "arm": "before",
+      "sha": "d9df1c60",
+      "verifiedResponses": 25,
+      "region": "forest",
+      "time": "day",
+      "weather": "sunny",
+      "count": 28,
+      "feet": {
+        "dx": 110.78128586878309,
+        "dy": -256.8149936405945,
+        "clock": 2.0000000000000004
+      },
+      "background": [
+        "forest-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "engine": "webkit",
+      "arm": "main",
+      "sha": "9539e462",
+      "verifiedResponses": 23,
+      "region": "forest",
+      "time": "day",
+      "weather": "sunny",
+      "count": 28,
+      "feet": {
+        "dx": 110.78127655038226,
+        "dy": -215.7721478181553,
+        "clock": 0.9999999999999999
+      },
+      "background": [
+        "forest-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "engine": "webkit",
+      "arm": "main",
+      "sha": "9539e462",
+      "verifiedResponses": 23,
+      "region": "mountain",
+      "time": "day",
+      "weather": "sunny",
+      "count": 10,
+      "feet": {
+        "dx": -26.783931626301893,
+        "dy": -159.22354906173143,
+        "clock": 0.9999999999999999
+      },
+      "background": [
+        "mountain-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "engine": "webkit",
+      "arm": "before",
+      "sha": "d9df1c60",
+      "verifiedResponses": 25,
+      "region": "forest",
+      "time": "day",
+      "weather": "sunny",
+      "count": 28,
+      "feet": {
+        "dx": 101.77691616191987,
+        "dy": -203.3850019440085,
+        "clock": 0.9999999999999999
+      },
+      "background": [
+        "forest-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "engine": "webkit",
+      "arm": "before",
+      "sha": "d9df1c60",
+      "verifiedResponses": 25,
+      "region": "mountain",
+      "time": "day",
+      "weather": "sunny",
+      "count": 10,
+      "feet": {
+        "dx": -26.783931626301893,
+        "dy": -159.22354906173143,
+        "clock": 0.9999999999999999
+      },
+      "background": [
+        "mountain-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "engine": "webkit",
+      "arm": "fixed",
+      "sha": "ca6059cd",
+      "verifiedResponses": 25,
+      "region": "forest",
+      "time": "day",
+      "weather": "sunny",
+      "count": 28,
+      "feet": {
+        "dx": -68.60968470633057,
+        "dy": 0,
+        "clock": 0.9999999999999999
+      },
+      "background": [
+        "forest-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "engine": "webkit",
+      "arm": "fixed",
+      "sha": "ca6059cd",
+      "verifiedResponses": 25,
+      "region": "mountain",
+      "time": "day",
+      "weather": "sunny",
+      "count": 10,
+      "feet": {
+        "dx": 71.94223612554475,
+        "dy": 0,
+        "clock": 0.9999999999999999
+      },
+      "background": [
+        "mountain-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ]
+    }
+  ],
+  "continuousMountain10": {
+    "initial": {
+      "dx": 75.72611811493366,
+      "dy": -21.758361371344705,
+      "clock": 7.916599999999991
+    },
+    "current": {
+      "dx": -70.70725749092509,
+      "dy": -152.37093102066598,
+      "clock": 88.76449999999939
+    },
+    "aged": "3分後　 左70.7・上152.4（モデル 88.8秒）",
+    "paused": "true",
+    "metrics": {
+      "distance": 4663.692289791046,
+      "moves": 78,
+      "turns": 29,
+      "activities": {
+        "walk": 78,
+        "rest": 12,
+        "sit": 14,
+        "turn": 15,
+        "look": 19,
+        "approach": 15,
+        "together": 32,
+        "solitude": 9,
+        "observe": 9
+      },
+      "clock": 88.76449999999939
+    },
+    "visible": true
+  },
+  "forest10At320": {
+    "dx": -16.839652990106583,
+    "dy": 33.39864001078313,
+    "modelSeconds": 10.916499999999976,
+    "scale": [
+      1.1275454921590229,
+      0.26255097977762076
+    ],
+    "view": [
+      320,
+      568
+    ],
+    "region": "forest",
+    "count": 10,
+    "firstSeated": {
+      "dx": -61.13579971362078,
+      "dy": 12.112508193945501,
+      "modelSeconds": 4.766499999999998,
+      "stage": [
+        -54.22025110184957,
+        46.13392874863666
+      ],
+      "camera": {
+        "x": 1.1275454921590229,
+        "y": 0.26255097977762076,
+        "body": 1.08
+      }
+    }
+  },
+  "ordinaryAndTrial": "passed",
+  "siteVersion": 4,
+  "savedArchive": {
+    "commit": "989aa78e4d68b3425890cd5fc5a294821db64d33",
+    "files": 4259,
+    "expandedTarBytes": 266280960,
+    "archiveBytes": 253944245,
+    "sha256": "c5c8fc0560c25eea9b4ab7a3e10f9f3f0a096a0f70e8e1cfd8d42cd6dbe42b89"
+  },
+  "anonymousResponses": [
+    [
+      "/",
+      401,
+      null
+    ],
+    [
+      "/game/",
+      401,
+      null
+    ],
+    [
+      "/game/compare-main.html?scene=forest",
+      401,
+      null
+    ],
+    [
+      "/game/compare-before.html?scene=forest",
+      401,
+      null
+    ],
+    [
+      "/game/compare-fixed.html?scene=forest",
+      401,
+      null
+    ],
+    [
+      "/game/compare-fixed.html?scene=mountain",
+      401,
+      null
+    ]
+  ]
+}
