@@ -1,0 +1,579 @@
+{
+  "sourceSHA256": "b28cd2dfa3ae67a31bfd32980c767ca70d652c8ebf5b73d96864b9ef6fce6ef9",
+  "sourceModel": "34e0c9bbdb5cc2b03c3f426a5160d8425c9b7c1d22daa1a7664f0eacf6196c2e",
+  "comparisonSHA256": "e4422dae646e43b0b2ceeda587dc5ea741a9a9dc9898b2373c22e66305024669",
+  "nativeSnapshotSeconds": 615.7293000000863,
+  "modelSeconds": 300,
+  "resumeSeed": 3717753091,
+  "sameSourceRerunMatched": true,
+  "soleChangedActor": "companion:panda",
+  "originalSync": {
+    "clock": 282.97230000002423,
+    "key": "companion:panda",
+    "from": [
+      129.90578909486499,
+      369.7539380727719
+    ],
+    "to": [
+      129.90578909486499,
+      368
+    ],
+    "distanceCss": 2.32306619800225,
+    "sameBody": true,
+    "sameRegion": true,
+    "sameProjection": true,
+    "sameSize": true,
+    "beforeRegion": "forest",
+    "region": "forest",
+    "changed": false,
+    "arrange": false,
+    "ink": {
+      "sameNode": false,
+      "hadInk": true,
+      "hasInk": false,
+      "sameAsset": true,
+      "sameExtentInputs": true
+    },
+    "gate": []
+  },
+  "originalNeighbours": [
+    "companion:shiba"
+  ],
+  "retainedNeighbours": [],
+  "runs": [
+    {
+      "strategy": "as_observed",
+      "normalWalkers": 4,
+      "repeatedWalkers": 3,
+      "totalNormal": 12,
+      "normalDistanceCSS": 111.056,
+      "endingRng": 1070413322,
+      "residents": [
+        {
+          "key": "pet:dog",
+          "normal": 0,
+          "rejections": 18,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "partner:forest_bear",
+          "normal": 3,
+          "rejections": 13,
+          "longest_blocked_s": 52.267
+        },
+        {
+          "key": "companion:cat_friend",
+          "normal": 0,
+          "rejections": 19,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:tanuki",
+          "normal": 0,
+          "rejections": 22,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:owl",
+          "normal": 0,
+          "rejections": 10,
+          "longest_blocked_s": 67.067
+        },
+        {
+          "key": "companion:hamster",
+          "normal": 0,
+          "rejections": 11,
+          "longest_blocked_s": 83.3
+        },
+        {
+          "key": "companion:monkey",
+          "normal": 0,
+          "rejections": 26,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:sheep",
+          "normal": 0,
+          "rejections": 19,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:bat",
+          "normal": 0,
+          "rejections": 19,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:penguin_friend",
+          "normal": 0,
+          "rejections": 20,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:shiba",
+          "normal": 0,
+          "rejections": 14,
+          "longest_blocked_s": 120.0
+        },
+        {
+          "key": "companion:punyu",
+          "normal": 0,
+          "rejections": 7,
+          "longest_blocked_s": 27.533
+        },
+        {
+          "key": "companion:chameleon",
+          "normal": 0,
+          "rejections": 18,
+          "longest_blocked_s": 299.1
+        },
+        {
+          "key": "companion:unicorn",
+          "normal": 0,
+          "rejections": 19,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:watcher",
+          "normal": 0,
+          "rejections": 20,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "normal": 0,
+          "rejections": 11,
+          "longest_blocked_s": 209.133
+        },
+        {
+          "key": "companion:squirrel",
+          "normal": 0,
+          "rejections": 19,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:otter",
+          "normal": 0,
+          "rejections": 21,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:panda",
+          "normal": 6,
+          "rejections": 2,
+          "longest_blocked_s": 30.867
+        },
+        {
+          "key": "companion:parrot",
+          "normal": 0,
+          "rejections": 16,
+          "longest_blocked_s": 225.2
+        },
+        {
+          "key": "companion:seal",
+          "normal": 0,
+          "rejections": 18,
+          "longest_blocked_s": 280.833
+        },
+        {
+          "key": "companion:chicken",
+          "normal": 0,
+          "rejections": 29,
+          "longest_blocked_s": 277.4
+        },
+        {
+          "key": "companion:hedgehog",
+          "normal": 0,
+          "rejections": 26,
+          "longest_blocked_s": 279.933
+        },
+        {
+          "key": "companion:snail",
+          "normal": 0,
+          "rejections": 19,
+          "longest_blocked_s": 279.333
+        },
+        {
+          "key": "companion:sekizou",
+          "normal": 0,
+          "rejections": 18,
+          "longest_blocked_s": 287.033
+        },
+        {
+          "key": "companion:clock",
+          "normal": 1,
+          "rejections": 27,
+          "longest_blocked_s": 268.3
+        },
+        {
+          "key": "companion:many_tail_fox",
+          "normal": 2,
+          "rejections": 4,
+          "longest_blocked_s": 42.5
+        },
+        {
+          "key": "companion:box",
+          "normal": 0,
+          "rejections": 18,
+          "longest_blocked_s": 280.767
+        }
+      ]
+    },
+    {
+      "strategy": "keep_prior_foot",
+      "normalWalkers": 4,
+      "repeatedWalkers": 2,
+      "totalNormal": 10,
+      "normalDistanceCSS": 113.172,
+      "endingRng": 926142139,
+      "residents": [
+        {
+          "key": "pet:dog",
+          "normal": 0,
+          "rejections": 18,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "partner:forest_bear",
+          "normal": 3,
+          "rejections": 13,
+          "longest_blocked_s": 107.867
+        },
+        {
+          "key": "companion:cat_friend",
+          "normal": 0,
+          "rejections": 19,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:tanuki",
+          "normal": 0,
+          "rejections": 23,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:owl",
+          "normal": 0,
+          "rejections": 14,
+          "longest_blocked_s": 110.867
+        },
+        {
+          "key": "companion:hamster",
+          "normal": 0,
+          "rejections": 14,
+          "longest_blocked_s": 122.867
+        },
+        {
+          "key": "companion:monkey",
+          "normal": 0,
+          "rejections": 31,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:sheep",
+          "normal": 0,
+          "rejections": 20,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:bat",
+          "normal": 0,
+          "rejections": 19,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:penguin_friend",
+          "normal": 0,
+          "rejections": 19,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:shiba",
+          "normal": 0,
+          "rejections": 14,
+          "longest_blocked_s": 122.833
+        },
+        {
+          "key": "companion:punyu",
+          "normal": 0,
+          "rejections": 12,
+          "longest_blocked_s": 96.933
+        },
+        {
+          "key": "companion:chameleon",
+          "normal": 0,
+          "rejections": 19,
+          "longest_blocked_s": 299.1
+        },
+        {
+          "key": "companion:unicorn",
+          "normal": 0,
+          "rejections": 18,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:watcher",
+          "normal": 0,
+          "rejections": 19,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "normal": 1,
+          "rejections": 16,
+          "longest_blocked_s": 250.967
+        },
+        {
+          "key": "companion:squirrel",
+          "normal": 0,
+          "rejections": 19,
+          "longest_blocked_s": 276.4
+        },
+        {
+          "key": "companion:otter",
+          "normal": 0,
+          "rejections": 21,
+          "longest_blocked_s": 285.467
+        },
+        {
+          "key": "companion:panda",
+          "normal": 5,
+          "rejections": 2,
+          "longest_blocked_s": 33.6
+        },
+        {
+          "key": "companion:parrot",
+          "normal": 0,
+          "rejections": 19,
+          "longest_blocked_s": 280.133
+        },
+        {
+          "key": "companion:seal",
+          "normal": 0,
+          "rejections": 17,
+          "longest_blocked_s": 279.067
+        },
+        {
+          "key": "companion:chicken",
+          "normal": 0,
+          "rejections": 28,
+          "longest_blocked_s": 280.833
+        },
+        {
+          "key": "companion:hedgehog",
+          "normal": 0,
+          "rejections": 24,
+          "longest_blocked_s": 277.4
+        },
+        {
+          "key": "companion:snail",
+          "normal": 0,
+          "rejections": 17,
+          "longest_blocked_s": 279.933
+        },
+        {
+          "key": "companion:sekizou",
+          "normal": 0,
+          "rejections": 17,
+          "longest_blocked_s": 279.333
+        },
+        {
+          "key": "companion:clock",
+          "normal": 0,
+          "rejections": 21,
+          "longest_blocked_s": 160.133
+        },
+        {
+          "key": "companion:many_tail_fox",
+          "normal": 1,
+          "rejections": 3,
+          "longest_blocked_s": 49.767
+        },
+        {
+          "key": "companion:box",
+          "normal": 0,
+          "rejections": 19,
+          "longest_blocked_s": 278.933
+        }
+      ]
+    },
+    {
+      "strategy": "repeat_control",
+      "normalWalkers": 4,
+      "repeatedWalkers": 3,
+      "totalNormal": 12,
+      "normalDistanceCSS": 111.056,
+      "endingRng": 1070413322,
+      "residents": [
+        {
+          "key": "pet:dog",
+          "normal": 0,
+          "rejections": 18,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "partner:forest_bear",
+          "normal": 3,
+          "rejections": 13,
+          "longest_blocked_s": 52.267
+        },
+        {
+          "key": "companion:cat_friend",
+          "normal": 0,
+          "rejections": 19,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:tanuki",
+          "normal": 0,
+          "rejections": 22,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:owl",
+          "normal": 0,
+          "rejections": 10,
+          "longest_blocked_s": 67.067
+        },
+        {
+          "key": "companion:hamster",
+          "normal": 0,
+          "rejections": 11,
+          "longest_blocked_s": 83.3
+        },
+        {
+          "key": "companion:monkey",
+          "normal": 0,
+          "rejections": 26,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:sheep",
+          "normal": 0,
+          "rejections": 19,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:bat",
+          "normal": 0,
+          "rejections": 19,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:penguin_friend",
+          "normal": 0,
+          "rejections": 20,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:shiba",
+          "normal": 0,
+          "rejections": 14,
+          "longest_blocked_s": 120.0
+        },
+        {
+          "key": "companion:punyu",
+          "normal": 0,
+          "rejections": 7,
+          "longest_blocked_s": 27.533
+        },
+        {
+          "key": "companion:chameleon",
+          "normal": 0,
+          "rejections": 18,
+          "longest_blocked_s": 299.1
+        },
+        {
+          "key": "companion:unicorn",
+          "normal": 0,
+          "rejections": 19,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:watcher",
+          "normal": 0,
+          "rejections": 20,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "normal": 0,
+          "rejections": 11,
+          "longest_blocked_s": 209.133
+        },
+        {
+          "key": "companion:squirrel",
+          "normal": 0,
+          "rejections": 19,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:otter",
+          "normal": 0,
+          "rejections": 21,
+          "longest_blocked_s": 297.967
+        },
+        {
+          "key": "companion:panda",
+          "normal": 6,
+          "rejections": 2,
+          "longest_blocked_s": 30.867
+        },
+        {
+          "key": "companion:parrot",
+          "normal": 0,
+          "rejections": 16,
+          "longest_blocked_s": 225.2
+        },
+        {
+          "key": "companion:seal",
+          "normal": 0,
+          "rejections": 18,
+          "longest_blocked_s": 280.833
+        },
+        {
+          "key": "companion:chicken",
+          "normal": 0,
+          "rejections": 29,
+          "longest_blocked_s": 277.4
+        },
+        {
+          "key": "companion:hedgehog",
+          "normal": 0,
+          "rejections": 26,
+          "longest_blocked_s": 279.933
+        },
+        {
+          "key": "companion:snail",
+          "normal": 0,
+          "rejections": 19,
+          "longest_blocked_s": 279.333
+        },
+        {
+          "key": "companion:sekizou",
+          "normal": 0,
+          "rejections": 18,
+          "longest_blocked_s": 287.033
+        },
+        {
+          "key": "companion:clock",
+          "normal": 1,
+          "rejections": 27,
+          "longest_blocked_s": 268.3
+        },
+        {
+          "key": "companion:many_tail_fox",
+          "normal": 2,
+          "rejections": 4,
+          "longest_blocked_s": 42.5
+        },
+        {
+          "key": "companion:box",
+          "normal": 0,
+          "rejections": 18,
+          "longest_blocked_s": 280.767
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "engine": "webkit",
+  "version": "26.5",
+  "cases": [
+    {
+      "region": "mountain",
+      "mode": "guard",
+      "openingCount": 10,
+      "panda": 0,
+      "oldRays": 1,
+      "newRays": 1,
+      "held": true,
+      "travel": {
+        "accepted": true,
+        "arrived": true,
+        "done": true,
+        "start": {
+          "x": 125.4093306517028,
+          "y": 227.30988999268598
+        },
+        "end": {
+          "x": 52.58843745924449,
+          "y": 232.0828234978183
+        },
+        "clock": 180.00000000000668,
+        "steps": 35,
+        "walked": 72.55946815682574
+      },
+      "rendered": {
+        "modelPoses": 33,
+        "shadowPoses": 33
+      },
+      "text": "元の足位置を保持しました。 パンダの変位 0.00 CSS px。主人公の長い退路は96方向中、配置前 1方向、配置後 1方向です。 主人公は72.56 CSS px歩き、退路の終点に到着しました。"
+    },
+    {
+      "region": "mountain",
+      "mode": "native",
+      "openingCount": 10,
+      "panda": 55.6567597898237,
+      "oldRays": 1,
+      "newRays": 12,
+      "held": false,
+      "travel": {
+        "accepted": true,
+        "arrived": true,
+        "done": true,
+        "start": {
+          "x": 125.40933065170279,
+          "y": 227.30988999268595
+        },
+        "end": {
+          "x": 52.43218779455994,
+          "y": 227.30988999268595
+        },
+        "clock": 180.00000000000668,
+        "steps": 35,
+        "walked": 72.7107884526712
+      },
+      "rendered": {
+        "modelPoses": 34,
+        "shadowPoses": 34
+      },
+      "text": "通常の配置を使いました。 パンダの変位 55.66 CSS px。主人公の長い退路は96方向中、配置前 1方向、配置後 12方向です。 主人公は72.71 CSS px歩き、退路の終点に到着しました。"
+    },
+    {
+      "region": "forest",
+      "mode": "guard",
+      "openingCount": 10,
+      "panda": 12.223330104565639,
+      "oldRays": 0,
+      "newRays": 5,
+      "held": false,
+      "travel": {
+        "accepted": true,
+        "arrived": true,
+        "done": true,
+        "start": {
+          "x": 146.40714285714284,
+          "y": 279.0181318681319
+        },
+        "end": {
+          "x": 94.80451027123772,
+          "y": 330.62076445403704
+        },
+        "clock": 300.00000000003394,
+        "steps": 35,
+        "walked": 67.41920660153792
+      },
+      "rendered": {
+        "modelPoses": 36,
+        "shadowPoses": 36
+      },
+      "text": "以前の足位置では長い退路を確かめられず、通常の配置を使いました。 パンダの変位 12.22 CSS px。主人公の長い退路は96方向中、配置前 0方向、配置後 5方向です。 主人公は67.42 CSS px歩き、退路の終点に到着しました。"
+    },
+    {
+      "region": "forest",
+      "mode": "native",
+      "openingCount": 10,
+      "panda": 12.223330104565639,
+      "oldRays": 0,
+      "newRays": 5,
+      "held": false,
+      "travel": {
+        "accepted": true,
+        "arrived": true,
+        "done": true,
+        "start": {
+          "x": 146.40714285714284,
+          "y": 279.0181318681319
+        },
+        "end": {
+          "x": 94.80451027123772,
+          "y": 330.62076445403704
+        },
+        "clock": 300.00000000003394,
+        "steps": 35,
+        "walked": 67.41920660153792
+      },
+      "rendered": {
+        "modelPoses": 35,
+        "shadowPoses": 35
+      },
+      "text": "通常の配置を使いました。 パンダの変位 12.22 CSS px。主人公の長い退路は96方向中、配置前 0方向、配置後 5方向です。 主人公は67.42 CSS px歩き、退路の終点に到着しました。"
+    }
+  ],
+  "errors": []
+}

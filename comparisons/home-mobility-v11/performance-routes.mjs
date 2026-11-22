@@ -7,6 +7,10 @@ import {forest} from '../home-mobility-v9/movement-scene.mjs';
 
 const game = process.env.MOBILITY_GAME;
 const arms = ['v10', 'v11-foot', 'v11'];
+const narrow = process.argv[3] === '--narrow';
+const scenario = narrow ? (await import('./performance-narrow.mjs')).narrowForest : forest;
+const seed = Number(process.env.PROFILE_SEED || 214);
+const seconds = Number(process.env.PROFILE_SECONDS || 600);
 const rows = [];
 for (const [order, sequence] of [['forward', arms], ['reverse', arms.toReversed()]]) {
   for (const arm of sequence) {
@@ -14,6 +18,11 @@ for (const [order, sequence] of [['forward', arms], ['reverse', arms.toReversed(
     let source = fs.readFileSync(path.join(game, name), 'utf8');
     const sourceSHA256 = createHash('sha256').update(source).digest('hex');
     const samples = new Map();
+    let substitutions = 0;
+    function recordGoal(raw, value) {
+      if (Math.hypot(value.x-raw.x,value.y-raw.y)>1e-7) substitutions++;
+      return value;
+    }
     const timed = (key, fn) => {
       const start = process.hrtime.bigint(), cpu = process.threadCpuUsage();
       try { return fn(); }
@@ -30,8 +39,9 @@ for (const [order, sequence] of [['forward', arms], ['reverse', arms.toReversed(
     for (const key of functions) {
       const signature = source.match(new RegExp('function ' + key + '\\([^)]*\\)\\s*\\{'))?.[0];
       assert.ok(signature, key);
-      source = source.replace(signature, signature + `return timed('${key}',()=>native_${key}.apply(this,arguments));} `
-        + signature.replace(key, 'native_' + key));
+      const call = "timed('" + key + "',()=>native_" + key + ".apply(this,arguments))";
+      const result = key === 'chooseWanderGoal' ? 'recordGoal(arguments[1],'+call+')' : call;
+      source = source.replace(signature, signature+'return '+result+';} '+signature.replace(key,'native_'+key));
     }
     for (const [label, iterator] of [['ambientSlice','r.search'], ['manualSlice', 'request.pairSearch']]) {
       const call = 'result=' + iterator + '.next();';
@@ -39,17 +49,17 @@ for (const [order, sequence] of [['forward', arms], ['reverse', arms.toReversed(
       source = source.replace(call, `result=timed('${label}',()=>${iterator}.next());`);
     }
     const mod = {exports:{}};
-    new Function('module','timed',source)(mod,timed);
-    const {model} = forest(mod.exports,214);
+    new Function('module','timed','recordGoal',source)(mod,timed,recordGoal);
+    const {model} = scenario(mod.exports,seed);
     const initialFeet = model.snapshot().map(({key,x,y})=>[key,x,y]);
-    for (let n=0; n<6000; n++) model.step(.1,{reducedMotion:false});
+    for (let n=0; n<seconds*10; n++) model.step(.1,{reducedMotion:false});
     const summary = values => {
       const sorted = values.toSorted((a,b)=>a-b);
       const percentile = p => sorted[Math.ceil(p*sorted.length)-1];
       return {n:sorted.length, total:values.reduce((sum,x)=>sum+x,0), p50:percentile(.5),
         p95:percentile(.95), p99:percentile(.99), max:sorted.at(-1)};
     };
-    rows.push({arm,order,source:name,sourceSHA256,initialFeet,metrics:model.metrics(),timing:
+    rows.push({arm,order,source:name,sourceSHA256,initialFeet,substitutions,metrics:model.metrics(),timing:
       Object.fromEntries([...samples].map(([key,series]) =>
         [key,{wallMs:summary(series.wallMs), cpuMs:summary(series.cpuMs)}]))});
   }
@@ -57,4 +67,4 @@ for (const [order, sequence] of [['forward', arms], ['reverse', arms.toReversed(
 assert.ok(rows.every(r=>JSON.stringify(r.initialFeet)===JSON.stringify(rows[0].initialFeet)));
 for (const arm of arms)
   assert.deepEqual(rows.find(r=>r.arm===arm).metrics, rows.find(r=>r.arm===arm&&r.order==='reverse').metrics);
-fs.writeFileSync(process.argv[2],JSON.stringify({node:process.version,seed:214,seconds:600,rows})+'\n');
+fs.writeFileSync(process.argv[2],JSON.stringify({node:process.version,seed,seconds,geometry:narrow ? "captured-320" : "historical-forest",rows})+'\n');

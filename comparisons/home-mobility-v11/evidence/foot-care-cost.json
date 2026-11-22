@@ -1,0 +1,211 @@
+{
+  "browser": "156.0.8078.79",
+  "widthRegion": "forest",
+  "paired": [
+    {
+      "index": 0,
+      "width": 390,
+      "order": [
+        "full",
+        "bounded"
+      ],
+      "final28SHA256": "b2e3f6c661d3ab1659687311f303ba37d875ae12fa77ecd6a635b6b50c307b66",
+      "decision": [
+        [
+          true,
+          true,
+          398,
+          0,
+          "previous-directions-preserved"
+        ],
+        [
+          true,
+          true,
+          411,
+          0,
+          "previous-directions-preserved"
+        ]
+      ],
+      "full": {
+        "growCallMs": 6387.9,
+        "phaseMs": [
+          454.3,
+          1096.9
+        ],
+        "lastMaxScreenCSS": 0.5805837927020718
+      },
+      "bounded": {
+        "growCallMs": 4198,
+        "phaseMs": [
+          97.2,
+          48.9
+        ],
+        "lastMaxScreenCSS": 0.5805837927020718
+      }
+    },
+    {
+      "index": 1,
+      "width": 320,
+      "order": [
+        "bounded",
+        "full"
+      ],
+      "final28SHA256": "ad16a3325644c7c3f9e315c7e769fa690891a88607b5a0a36951436a56ab5dfa",
+      "decision": [
+        [
+          true,
+          true,
+          248,
+          0,
+          "previous-directions-preserved"
+        ],
+        [
+          true,
+          false,
+          264,
+          1,
+          "previous-direction-lost"
+        ]
+      ],
+      "bounded": {
+        "growCallMs": 1599.7,
+        "phaseMs": [
+          27.4,
+          18.9
+        ],
+        "lastMaxScreenCSS": 325.78786652191627
+      },
+      "full": {
+        "growCallMs": 4750.2,
+        "phaseMs": [
+          244,
+          800.7
+        ],
+        "lastMaxScreenCSS": 325.78786652191627
+      }
+    },
+    {
+      "index": 2,
+      "width": 375,
+      "order": [
+        "full",
+        "bounded"
+      ],
+      "final28SHA256": "946ad0359a9addb1ca5b4cbc46d0806e64e08e404054bc661ac896a0fab43f0f",
+      "decision": [
+        [
+          true,
+          true,
+          542,
+          0,
+          "previous-directions-preserved"
+        ],
+        [
+          true,
+          false,
+          548,
+          1,
+          "previous-direction-lost"
+        ]
+      ],
+      "full": {
+        "growCallMs": 6178.4,
+        "phaseMs": [
+          797.9,
+          386.1
+        ],
+        "lastMaxScreenCSS": 207.49453599637346
+      },
+      "bounded": {
+        "growCallMs": 4318.3,
+        "phaseMs": [
+          104.9,
+          70.7
+        ],
+        "lastMaxScreenCSS": 207.49453599637346
+      }
+    },
+    {
+      "index": 3,
+      "width": 430,
+      "order": [
+        "bounded",
+        "full"
+      ],
+      "final28SHA256": "4bb43ab09eda523d429b95d7ec4265f01601dcf2e29df5ecf641368d3307fc68",
+      "decision": [
+        [
+          true,
+          true,
+          432,
+          0,
+          "previous-directions-preserved"
+        ],
+        [
+          true,
+          false,
+          439,
+          7,
+          "previous-direction-lost"
+        ]
+      ],
+      "bounded": {
+        "growCallMs": 1879.9,
+        "phaseMs": [
+          21,
+          41.8
+        ],
+        "lastMaxScreenCSS": 325.20572695810404
+      },
+      "full": {
+        "growCallMs": 2888,
+        "phaseMs": [
+          481.3,
+          563.8
+        ],
+        "lastMaxScreenCSS": 325.20572695810404
+      }
+    },
+    {
+      "index": 4,
+      "width": 390,
+      "order": [
+        "bounded",
+        "full"
+      ],
+      "final28SHA256": "b2e3f6c661d3ab1659687311f303ba37d875ae12fa77ecd6a635b6b50c307b66",
+      "decision": [
+        [
+          true,
+          true,
+          398,
+          0,
+          "previous-directions-preserved"
+        ],
+        [
+          true,
+          true,
+          411,
+          0,
+          "previous-directions-preserved"
+        ]
+      ],
+      "bounded": {
+        "growCallMs": 1708.5,
+        "phaseMs": [
+          47.2,
+          18.4
+        ],
+        "lastMaxScreenCSS": 0.5805837927020718
+      },
+      "full": {
+        "growCallMs": 1967.2,
+        "phaseMs": [
+          262.9,
+          237.8
+        ],
+        "lastMaxScreenCSS": 0.5805837927020718
+      }
+    }
+  ]
+}

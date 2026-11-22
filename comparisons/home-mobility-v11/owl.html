@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>森のフクロウの歩行を比べる｜なおとっち</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#faf9f5;color:#293328;font:1rem/1.6 system-ui,sans-serif}main{max-width:38rem;margin:auto;padding:1rem}a{color:#245741}h1{font-size:clamp(1.35rem,5vw,1.8rem);margin:.5rem 0}p{margin:.45rem 0}.buttons{display:flex;gap:.5rem;flex-wrap:wrap;margin:.8rem 0}button{font:inherit;min-height:44px;border:1px solid #608069;border-radius:.5rem;background:#fff;color:#24462d;padding:.35rem .75rem}button:first-child{background:#244e37;color:white}button:disabled{opacity:.6}button:focus-visible,a:focus-visible{outline:3px solid #a76820}#status{min-height:3em;font-variant-numeric:tabular-nums}figure{width:min(100vw,320px);margin:.5rem 0;position:relative;left:50%;transform:translateX(-50%)}.window{width:100%;overflow:hidden;position:relative;height:320px;border-radius:.7rem;background:#e7e9dd}.window iframe{width:320px;height:792px;position:absolute;border:0;left:0;top:0;pointer-events:none}.window iframe[aria-hidden=true]{visibility:hidden}.ring{position:absolute;width:40px;height:40px;transform:translate(-50%,-100%);border:2px solid #ffe898;box-shadow:0 0 0 1px #61472e,inset 0 0 0 1px #61472e;border-radius:50%;pointer-events:none}.ring[hidden]{display:none}figcaption{font-size:.9rem;color:#4b604e;margin-top:.25rem}
+</style>
+<main>
+<a href="./">ホームの試遊に戻る</a>
+<h1>森のフクロウの歩行を比べる</h1>
+<p>同じ28体の足位置から、輪で示したフクロウの散歩をゆっくり再生します。</p>
+<div class="buttons">
+<button id="both" disabled>2案を続けて再生</button><button id="original" disabled>従来を再生</button><button id="after" disabled>拒否後の探索を再生</button>
+</div>
+<p id="status" role="status">320px幅の森を読み込んでいます…</p>
+<figure><div class="window"><iframe data-arm="original" title="従来の森・28体" tabindex="-1" inert></iframe><iframe data-arm="after" title="拒否後に前方の安全な場所を探す森・28体" tabindex="-1" inert aria-hidden="true"></iframe><span class="ring" hidden aria-hidden="true"></span></div><figcaption>もり・昼　28体　記録時の幅320px</figcaption></figure>
+</main>
+<script type="module" src="./goal-owl.mjs"></script>
+</html>

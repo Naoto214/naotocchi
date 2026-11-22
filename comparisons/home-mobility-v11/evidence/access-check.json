@@ -18,5 +18,12 @@
     "groups": 0,
     "externalVisitors": 0
   },
-  "serverConfirmedCurrentCredential": true
+  "serverConfirmedCurrentCredential": true,
+  "newActionsArtifacts": {
+    "repositoryVisibility": "public",
+    "retentionDays": 14,
+    "ownerDecision": "allow configured automatic expiry",
+    "permanentRawEvidence": "owner-only site",
+    "content": "generated test households"
+  }
 }

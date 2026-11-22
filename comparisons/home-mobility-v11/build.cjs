@@ -9,6 +9,8 @@ const {patchAfterRefusal} = require('./goal-after-refusal.cjs');
 const {modelReplay, rendererReplay} = require('./foot-replay.cjs');
 const {patchCareGame} = require('./foot-care.cjs');
 const {patchFastCareModel} = require('./foot-care-fast.cjs');
+const {corridorModel,corridorPainter} = require('./foot-corridor.cjs');
+const {owlObservation,owlPainting} = require('./goal-owl-replay.cjs');
 
 const originalCount = 4016;
 const originalHash = 'd8eb7138a4932e0465897dcfc79b80580b8686c18125846e429e597e9bcad965';
@@ -76,6 +78,30 @@ function prepare(base) {
     page = replaceGame(page, oldPainter, recorder);
     add('game/mobility-v11-replay-' + arm + '.html', page);
   }
+  const owlPainter='home-production-diorama-mobility-v11-owl.js';
+  add('game/'+owlPainter,owlPainting(files.get('game/'+newPainter)));
+  for(const [mode,source] of [['original',game(modelFile('v10'))],
+                              ['after',files.get('game/'+modelFile('v11-after'))]]){
+    const owlModel=modelFile('v11-owl-'+mode);
+    add('game/'+owlModel,owlObservation(source));
+    let page=replaceGame(game('mobility-v10.html'),modelFile('v10'),owlModel);
+    page=replaceGame(page,oldPainter,owlPainter);
+    add('game/mobility-v11-owl-'+mode+'.html',page);
+  }
+  add('v11/owl-forest.json',local('../home-mobility-v10/evidence/native-scene-320.json'));
+  add('v11/owl-request.json',local('evidence/goal-forward-witness.json'));
+  for(const name of ['owl.html','goal-owl.mjs','goal-owl-scene.mjs'])add('v11/'+name,local(name));
+  const corridorRenderer = painter + 'v11-corridor.js';
+  add('game/' + corridorRenderer,corridorPainter(files.get('game/' + newPainter)));
+  for (const [region,arm] of [['forest','v11-foot'],['mountain','v11']]) {
+    const model = modelFile('v11-corridor-' + region);
+    add('game/' + model,corridorModel(files.get('game/' + modelFile(arm)),local('foot-geometry-diagnostic.js')));
+    let page=replaceGame(game('mobility-v10.html'),modelFile('v10'),model);
+    page=replaceGame(page,oldPainter,corridorRenderer);
+    add('game/mobility-v11-corridor-' + region + '.html',page);
+    add('v11/corridor-' + region + '.json',local('evidence/corridor-' + region + '.json'));
+  }
+  for (const name of ['corridor.html','corridor.mjs']) add('v11/' + name,local(name));
   const careModel = modelFile('v11-growth');
   const careGame = 'script-v2-mobility-v11-growth.js';
   const oldGame = 'script-v2-mobility-v7.js';
@@ -94,7 +120,9 @@ function prepare(base) {
   html = replaceExact(html, '<label for="seed">',
     '<label for="variant">V11の改善範囲<select id="variant"><option value="full">足元＋探索前に散歩先を選び直す</option><option value="foot">足元の修正のみ</option><option value="after">足元＋経路が決まらなかったときだけ前方を探す</option></select></label>\n      <label for="seed">');
   html = replaceExact(html, '<p><a href="./episode.html">', [
+    '<p><a href="./owl.html">フクロウが安全に16px歩けた場面を比べる</a></p>',
     '<p><a href="./replay.html">通知前後のパンダの足元を再現する</a></p>',
+    '<p><a href="./corridor.html">やま・もりの主人公の退路を歩く</a></p>',
     '<p><a href="./growth.html">成長時の足元を比べる</a></p>',
     '<p><a href="./space.html">森で28体が歩ける方向を見る</a></p>',
     '<p><a href="https://naotocchi-mobility-v8-evidence.kerzion214.chatgpt.site/v11/forest.html">28体それぞれの10分間の歩行を比べる</a></p>',

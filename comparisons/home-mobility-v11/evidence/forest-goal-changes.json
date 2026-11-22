@@ -1,0 +1,68 @@
+[
+  {
+    "width": 320,
+    "seed": 214,
+    "order": 0,
+    "layout": "fixed",
+    "repeat": 1,
+    "resident": "companion:penguin_friend",
+    "game_s": 25.216,
+    "desired_css": 200.824,
+    "desired_deg": 27.44,
+    "chosen_css": 32.0,
+    "chosen_deg": 27.44,
+    "arrivals": [
+      {
+        "at_s": 25.782,
+        "walked_css": 31.814,
+        "toward_original_css": 31.814,
+        "end_error_css": 0.186,
+        "ordinary": true
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "seed": 214,
+    "order": 0,
+    "layout": "fixed",
+    "repeat": 1,
+    "resident": "companion:penguin_friend",
+    "game_s": 55.781,
+    "desired_css": 65.449,
+    "desired_deg": 1.78,
+    "chosen_css": 16.362,
+    "chosen_deg": 1.78,
+    "arrivals": [
+      {
+        "at_s": 56.081,
+        "walked_css": 16.362,
+        "toward_original_css": 16.362,
+        "end_error_css": 0.0,
+        "ordinary": true
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "seed": 214,
+    "order": 0,
+    "layout": "fixed",
+    "repeat": 1,
+    "resident": "companion:penguin_friend",
+    "game_s": 112.362,
+    "desired_css": 161.216,
+    "desired_deg": 30.79,
+    "chosen_css": 32.0,
+    "chosen_deg": 8.29,
+    "arrivals": [
+      {
+        "at_s": 112.929,
+        "walked_css": 31.886,
+        "toward_original_css": 28.895,
+        "end_error_css": 0.114,
+        "ordinary": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>森の28体・10分間の実測｜なおとっち</title>
+<style>
+* { box-sizing: border-box; }
+body { max-width: 48rem; margin:auto; padding:1rem; color:#263b32; background:#faf9f5; font:1rem/1.55 system-ui,sans-serif; }
+h1 { font-size:clamp(1.35rem,4.5vw,1.8rem); line-height:1.35; margin:.8em 0 .3em; }
+h2 { font-size:1.15rem; } p { margin:.65em 0; } a { color:#175740; }
+label { display:block; font-weight:650; margin:.7rem 0; }
+select { display:block; width:100%; max-width:100%; min-height:44px; padding:.3em; color:inherit; font:inherit; background:white; border:1px solid #879c8a; border-radius:.3em; }
+table { width:100%; border-collapse:collapse; table-layout:fixed; margin:.6em 0 1.2em; }
+th,td { padding:.4em .2em; border-bottom:1px solid #c4d0c4; text-align:right; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
+thead th { background:#e6eee6; }
+th:first-child { text-align:left; width:46%; } tbody th { font-weight:500; }
+#raw { display:flex; flex-wrap:wrap; gap:.25em 1em; } #raw a { display:inline-flex; min-height:44px; align-items:center; }
+a:focus-visible,select:focus-visible { outline:3px solid #98642e; }
+@media (max-width:374px) { body{padding:.7rem} table{font-size:.81rem} th:first-child{width:43%} }
+</style>
+<main>
+<a href="./">検証記録に戻る</a>
+<h1>森の28体・10分間の実測</h1>
+<p>同じ28体、同じ足位置・乱数から始めた4版を比較できます。「足元」はV11の足元修正のみ、「V11」は目的地選択も含む候補です。</p>
+<label>開始条件<select id="case"></select></label><label>住民<select id="resident"></select></label>
+<h2 id="name" aria-live="polite"></h2>
+<table><thead><tr><th scope="col">測定項目</th><th scope="col">V9</th><th scope="col">V10</th><th scope="col">足元</th><th scope="col">V11</th></tr></thead><tbody id="measurements"></tbody></table>
+<p>通常歩行は、本人が自分の目的地方向へ8 CSS px以上歩き終えた場合です。本人が選んだ休息と、病気や会話でゲーム内時間が止まった区間は、経路不成立の継続時間に加えません。</p>
+<p>ドラッグは、開始時と10分後に保存した各家庭の足位置で住民ごとに1回ずつ実行しました。到着には指先の近くに安全な終点を選んだ場合を含みます。「—」は該当する機会や実入力がなかった項目です。</p>
+<h2>選んだ住民の足位置の変化</h2>
+<p id="unchanged">この4試行で、同期中にこの住民の足位置が変わった記録は0件です。</p>
+<table id="change-table" hidden><thead><tr><th scope="col">版・同期の種類</th><th scope="col">ゲーム内秒</th><th scope="col">移動量<br>CSS px</th><th scope="col">移動前<br>地形座標</th><th scope="col">移動後<br>地形座標</th></tr></thead><tbody id="changes"></tbody></table>
+<h2>この家庭の測定元データ</h2>
+<div id="raw"></div>
+</main>
+<script>
+const data=/*OBSERVATIONS*/null;
+const choice=document.querySelector('#case');
+const resident=document.querySelector('#resident');
+const table=document.querySelector('#measurements');
+const format=new Intl.NumberFormat('ja-JP',{maximumFractionDigits:2});
+function display(value,kind) {
+  if(value===null)return '—';
+  if(kind==='touch')return value?'到着':'未到着';
+  if(kind==='rate')return format.format(value*100)+'%';
+  return format.format(value);
+}
+function showResident() {
+  const current=data.cases[Number(choice.value)];
+  const row=current.people.find(person=>person.key===resident.value);
+  document.querySelector('#name').textContent=row.label;
+  document.querySelector('#changes').replaceChildren(...row.changes.map(([version,when,distance,from,to,replaced])=>{
+    const tr=document.createElement('tr');
+    const note=document.createElement('th'); note.scope='row';
+    note.textContent=version+'・'+(replaced?'同じ画像の表示要素の差し替え':'表示同期'); tr.append(note);
+    for(const value of [format.format(when),format.format(distance),from.map(n=>format.format(n)).join(', '),to.map(n=>format.format(n)).join(', ')]) {
+      const td=document.createElement('td');td.textContent=value;tr.append(td);
+    }
+    return tr;
+  }));
+  document.querySelector('#change-table').hidden=row.changes.length===0;
+  document.querySelector('#unchanged').hidden=row.changes.length!==0;
+  table.replaceChildren(...data.fields.map(([title,unit],i)=>{
+    const tr=document.createElement('tr'), th=document.createElement('th');
+    th.scope='row';th.textContent=title;tr.append(th);
+    row.arms.forEach(values=>{
+      const td=document.createElement('td');td.textContent=display(values[i],unit);tr.append(td);
+    });
+    return tr;
+  }));
+}
+function showCase() {
+  const current=data.cases[Number(choice.value)], previous=resident.value;
+  resident.replaceChildren(...current.people.map(p=>new Option(p.label,p.key)));
+  if(current.people.some(p=>p.key===previous))resident.value=previous;
+  document.querySelector('#raw').replaceChildren(...current.archives.map(([title,url])=>{
+    const a=document.createElement('a');a.textContent=title+'の記録（ZIP）';a.href=url;return a;
+  }));
+  showResident();
+}
+choice.replaceChildren(...data.cases.map((c,i)=>new Option(c.label,i)));
+choice.addEventListener('change',showCase);
+resident.addEventListener('change',showResident);
+showCase();
+</script>
+</html>

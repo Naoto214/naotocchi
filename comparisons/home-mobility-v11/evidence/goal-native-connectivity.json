@@ -1,0 +1,46 @@
+[
+  {
+    "width": 320,
+    "seed": 214,
+    "draws": 776,
+    "offTerrain": 611,
+    "occludedOnTerrain": 0,
+    "occupied": 165,
+    "legalFree": 0,
+    "staticUnresolved": 0,
+    "withAlternate": 0
+  },
+  {
+    "width": 320,
+    "seed": 937,
+    "draws": 707,
+    "offTerrain": 553,
+    "occludedOnTerrain": 0,
+    "occupied": 154,
+    "legalFree": 0,
+    "staticUnresolved": 0,
+    "withAlternate": 0
+  },
+  {
+    "width": 390,
+    "seed": 214,
+    "draws": 471,
+    "offTerrain": 363,
+    "occludedOnTerrain": 0,
+    "occupied": 108,
+    "legalFree": 0,
+    "staticUnresolved": 0,
+    "withAlternate": 0
+  },
+  {
+    "width": 390,
+    "seed": 937,
+    "draws": 553,
+    "offTerrain": 399,
+    "occludedOnTerrain": 0,
+    "occupied": 154,
+    "legalFree": 0,
+    "staticUnresolved": 0,
+    "withAlternate": 0
+  }
+]

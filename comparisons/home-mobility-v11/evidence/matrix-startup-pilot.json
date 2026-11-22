@@ -1,0 +1,313 @@
+{
+  "scene": {
+    "region": "home",
+    "count": 4,
+    "width": 320,
+    "height": 516
+  },
+  "goal": "Preserve independent opening observation excluded by identical-initial-RNG gate",
+  "archive": "home-4-320-unaligned.json.gz",
+  "rawSHA256": "a7d10c9c864557a1afcb4ac525e7794bf076f2801a98ba662620bf440f1de25e",
+  "candidate": "ce51a0435367b5d6b65330af8d05ccba4f18850d",
+  "variants": {
+    "v10": {
+      "seed": 2992601918,
+      "drawsAfter214": 8,
+      "exactOpening": [
+        [
+          "pet:dog",
+          166.10000000000002,
+          289.4,
+          105.04164,
+          122.54858,
+          175.22414174991266,
+          223.4379056490766
+        ],
+        [
+          "partner:forest_bear",
+          132.88,
+          153.5,
+          61.438125,
+          63.1935,
+          141.74626829876433,
+          208.1607617159474
+        ],
+        [
+          "companion:cat_friend",
+          232.54,
+          171.62,
+          69.51285000000001,
+          56.640100000000004,
+          242.17988865220923,
+          210.19771424036463
+        ],
+        [
+          "companion:rabbit_friend",
+          101.75173176935908,
+          227.22637012666542,
+          51.49100000000001,
+          69.51285000000001,
+          110.3763638863984,
+          216.44868201096008
+        ]
+      ],
+      "hashes": {
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-diorama-mobility-v10.js": "c1ba14468dd4507b774fe157a3e7f669f9f62f74f9d5cb6ab3ef838288e0abd9",
+        "home-production-model-mobility-v10.js": "95e32fa82fdf92920212fcf90b65fd8a3d25927b5388b9d01935ae3f886cd5c8",
+        "home-route-navigation-finish.mjs": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9",
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "script-v2-mobility-v7.js": "4d0d425c41a89f0241e92b18c0270534dbdb36d09b5507d8bce0ebfd6cd9bc02",
+        "telemetry-mobility-v10.js": "b2d04a892c48e50a5876f8d6e542dbdc851b20a6e108ea2925d0365a82a6a870"
+      },
+      "browser": "156.0.8078.79"
+    },
+    "v11": {
+      "seed": 2531321450,
+      "drawsAfter214": 4,
+      "exactOpening": [
+        [
+          "pet:dog",
+          166.10000000000002,
+          289.4,
+          105.04164,
+          122.54858,
+          175.22414174991266,
+          223.4379056490766
+        ],
+        [
+          "partner:forest_bear",
+          132.88,
+          153.5,
+          61.438125,
+          63.1935,
+          141.74626829876433,
+          208.1607617159474
+        ],
+        [
+          "companion:cat_friend",
+          232.54,
+          171.62,
+          69.51285000000001,
+          56.640100000000004,
+          242.17988865220923,
+          210.19771424036463
+        ],
+        [
+          "companion:rabbit_friend",
+          101.75173176935908,
+          227.22637012666542,
+          51.49100000000001,
+          69.51285000000001,
+          110.3763638863984,
+          216.44868201096008
+        ]
+      ],
+      "hashes": {
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377",
+        "home-production-model-mobility-v11.js": "3de077af5adbbebb24e0e66f0acd9843eb74b78b245fb1c32d26de94bf616386",
+        "home-route-navigation-finish.mjs": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9",
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "script-v2-mobility-v7.js": "4d0d425c41a89f0241e92b18c0270534dbdb36d09b5507d8bce0ebfd6cd9bc02",
+        "telemetry-mobility-v10.js": "b2d04a892c48e50a5876f8d6e542dbdc851b20a6e108ea2925d0365a82a6a870"
+      },
+      "browser": "156.0.8078.79"
+    },
+    "v11-foot": {
+      "seed": 2531321450,
+      "drawsAfter214": 4,
+      "exactOpening": [
+        [
+          "pet:dog",
+          166.10000000000002,
+          289.4,
+          105.04164,
+          122.54858,
+          175.22414174991266,
+          223.4379056490766
+        ],
+        [
+          "partner:forest_bear",
+          132.88,
+          153.5,
+          61.438125,
+          63.1935,
+          141.74626829876433,
+          208.1607617159474
+        ],
+        [
+          "companion:cat_friend",
+          232.54,
+          171.62,
+          69.51285000000001,
+          56.640100000000004,
+          242.17988865220923,
+          210.19771424036463
+        ],
+        [
+          "companion:rabbit_friend",
+          101.75173176935908,
+          227.22637012666542,
+          51.49100000000001,
+          69.51285000000001,
+          110.3763638863984,
+          216.44868201096008
+        ]
+      ],
+      "hashes": {
+        "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6",
+        "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+        "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377",
+        "home-production-model-mobility-v11-foot.js": "fcdf57a485c28b10b9e715f752822aa5bbe2b99f7ad4f334d0180f07789d1b80",
+        "home-route-navigation-finish.mjs": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9",
+        "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+        "script-v2-mobility-v7.js": "4d0d425c41a89f0241e92b18c0270534dbdb36d09b5507d8bce0ebfd6cd9bc02",
+        "telemetry-mobility-v10.js": "b2d04a892c48e50a5876f8d6e542dbdc851b20a6e108ea2925d0365a82a6a870"
+      },
+      "browser": "156.0.8078.79"
+    }
+  },
+  "repeatedV10FinalPairedSeed": 2531321450,
+  "repeatedSource": "foot-startup.json",
+  "forcedFullStateRestore": {
+    "archive": "matched-home-starts.json.gz",
+    "sha256": "2a43a2c934c2b446e41206118f95199f9e3e6eb0d3ee09f6f3cd2ebe28990f8c",
+    "keys": [
+      "actors",
+      "selected",
+      "clock",
+      "idleAt",
+      "paused",
+      "stats",
+      "cooldown",
+      "manualGoals",
+      "seed",
+      "background"
+    ],
+    "nativeStates": {
+      "v10": 2531321450,
+      "v11-foot": 2531321450,
+      "v11": 2531321450
+    },
+    "identicalAlignedSnapshots": true,
+    "actorCount": 4,
+    "commonSeed": 2531321450
+  },
+  "completeLocalRun": {
+    "archive": "home-4-320-matched-and-natural.json.gz",
+    "rawSHA256": "720d454a529fa0e96c05f2a2a4f289d59448096bd9aa9e7d117f75af05b3b200",
+    "cases": {
+      "v10": {
+        "age": [
+          {
+            "start": "native",
+            "normalSteps": 6524,
+            "state": [
+              "pet:dog",
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "modelSec": 300.00000000003394,
+            "seed": 2531321450,
+            "warmSeed": 2531321450
+          },
+          {
+            "start": "matched",
+            "normalSteps": 6524,
+            "state": [
+              "pet:dog",
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "modelSec": 300.00000000003394,
+            "seed": 2531321450,
+            "warmSeed": 2531321450
+          }
+        ],
+        "alignedOpeningSHA256": "eafeb47e798d7e5f019d58aeb3e1a2eb3fc8dc10ee46be47135eee000b79fd42",
+        "usesSameStart": true
+      },
+      "v11": {
+        "age": [
+          {
+            "start": "native",
+            "normalSteps": 5784,
+            "state": [
+              "pet:dog",
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "modelSec": 300.00000000003394,
+            "seed": 2531321450,
+            "warmSeed": 2531321450
+          },
+          {
+            "start": "matched",
+            "normalSteps": 5784,
+            "state": [
+              "pet:dog",
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "modelSec": 300.00000000003394,
+            "seed": 2531321450,
+            "warmSeed": 2531321450
+          }
+        ],
+        "alignedOpeningSHA256": "eafeb47e798d7e5f019d58aeb3e1a2eb3fc8dc10ee46be47135eee000b79fd42",
+        "usesSameStart": true
+      },
+      "v11-foot": {
+        "age": [
+          {
+            "start": "native",
+            "normalSteps": 6524,
+            "state": [
+              "pet:dog",
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "modelSec": 300.00000000003394,
+            "seed": 2531321450,
+            "warmSeed": 2531321450
+          },
+          {
+            "start": "matched",
+            "normalSteps": 6524,
+            "state": [
+              "pet:dog",
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "modelSec": 300.00000000003394,
+            "seed": 2531321450,
+            "warmSeed": 2531321450
+          }
+        ],
+        "alignedOpeningSHA256": "eafeb47e798d7e5f019d58aeb3e1a2eb3fc8dc10ee46be47135eee000b79fd42",
+        "usesSameStart": true
+      }
+    }
+  }
+}

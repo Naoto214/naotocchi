@@ -1,0 +1,50 @@
+{
+  "trial": "https://naotocchi-cast-size.kerzion214.chatgpt.site/v11/",
+  "deployedSource": "7f9918a936a100111167a5b20f7b148a8f7e21a3",
+  "deployment": "appgdep_6b027ca87c1c81918166446543e581ff",
+  "checkedUrls": 60,
+  "ownerCodes": {
+    "200": 60
+  },
+  "anonymousCodes": {
+    "401": 60
+  },
+  "allDigestsEqual": true,
+  "pageChecks": {
+    "growth": [
+      {
+        "guard": 0,
+        "width": 390,
+        "residents": 28,
+        "maxScreenCss": 231.1051632371127
+      },
+      {
+        "guard": 1,
+        "width": 390,
+        "residents": 28,
+        "maxScreenCss": 0.5805837927020718
+      }
+    ],
+    "afterPolicyLoaded": true,
+    "errors": []
+  },
+  "baselineSource": "ed671e26f5599cebf5aa1a8020d50a5f43dbf076",
+  "previousLiveUrlBrowserResult": {
+    "width": 390,
+    "engine": "chromium",
+    "version": "156.0.8078.79",
+    "fixedOpening": "e260d34dbc70ebf78a9919a563a9884373eef6da24073db4a69172edf8591ce3",
+    "historicalOpening": "7bb5dd200b3a2612cffb3f7c1925695889fd243ec7e78aad4219f66c53eed0f9",
+    "sameOpeningAllFour": true,
+    "toolbarFits": true,
+    "footReadoutResidents": 4,
+    "progress": {
+      "arm": "v11-reference",
+      "tracked": 28,
+      "elapsed": 6.850000000000007,
+      "moved": 5,
+      "syncRecorder": true
+    },
+    "errors": []
+  }
+}

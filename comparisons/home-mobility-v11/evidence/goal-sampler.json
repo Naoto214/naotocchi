@@ -1,0 +1,369 @@
+{
+  "method": "78 saved owner snapshots. 77 prior denials classified with restored native visibility and bounds. One warm-up per foot; isolated target selector timing in Node. Four matched full-planner alternatives on the recorded household at first refusal, steering selected overlapping/invalid example points into native planner and physical stepper. Non-dog raw points are diagnostic inputs, not historical commands to these companions.",
+  "source": "8ca183dd1b1431c3a27ffebcb8472097f3a3466fadec9477d9f8769a6ba7a55a",
+  "nativeSHA256": "7c2e1e25e22290139fd7a49c510f68ca0f946c6438b8fd0ef6abe10de83d6869",
+  "sourceSHA256": "34e0c9bbdb5cc2b03c3f426a5160d8425c9b7c1d22daa1a7664f0eacf6196c2e",
+  "rejected": 77,
+  "distinctRequestedPoints": 40,
+  "repeat": 37,
+  "offTerrain": 66,
+  "occupied": 11,
+  "noSolo8Headings": 77,
+  "changedOriginals": 0,
+  "activity": {
+    "walk/initial/offTerrain": 32,
+    "walk/retry/offTerrain": 32,
+    "observe/initial/offTerrain": 1,
+    "observe/retry/offTerrain": 1,
+    "solitude/initial/occupied": 1,
+    "solitude/retry/occupied": 1,
+    "walk/initial/occupied": 6,
+    "walk/retry/occupied": 3
+  },
+  "places": {
+    "left/initial/offTerrain": 11,
+    "left/retry/offTerrain": 11,
+    "interior/initial/offTerrain": 22,
+    "interior/retry/offTerrain": 22,
+    "interior/initial/occupied": 7,
+    "interior/retry/occupied": 4
+  },
+  "refusalSelectorWall": {
+    "n": 77,
+    "medianMs": 0.03982,
+    "p95Ms": 0.25212,
+    "p99Ms": 5.94921,
+    "maxMs": 5.94921
+  },
+  "refusalSelectorProcessCPU": {
+    "n": 77,
+    "medianMs": 0.049,
+    "p95Ms": 4.858,
+    "p99Ms": 7.372,
+    "maxMs": 7.372
+  },
+  "matchedPlannerAndPhysicalArrivals": [
+    {
+      "key": "companion:punyu",
+      "version": "V10",
+      "raw": {
+        "x": 80.01451114931962,
+        "y": 293.9443044968065
+      },
+      "issued": {
+        "x": 80.01451114931962,
+        "y": 293.9443044968065
+      },
+      "accepted": true,
+      "routeEndpoint": {
+        "x": 146.90945823434024,
+        "y": 362.1087622848857
+      },
+      "end": {
+        "x": 147.17245200631427,
+        "y": 362.259836773526
+      },
+      "endpointReached": true,
+      "nativeTravel": 40.05729,
+      "net": 39.30546,
+      "rawProgress": 19.93663,
+      "originalDistance": 140.21035,
+      "selectedDistance": 140.21035,
+      "selector": {
+        "n": 6,
+        "medianMs": 0.00061,
+        "p95Ms": 0.00169,
+        "p99Ms": 0.00169,
+        "maxMs": 0.00169
+      },
+      "nativePlanner": {
+        "n": 6,
+        "medianMs": 18.19067,
+        "p95Ms": 61.73945,
+        "p99Ms": 61.73945,
+        "maxMs": 61.73945
+      }
+    },
+    {
+      "key": "companion:punyu",
+      "version": "V11",
+      "raw": {
+        "x": 80.01451114931962,
+        "y": 293.9443044968065
+      },
+      "issued": {
+        "x": 153.79246478180067,
+        "y": 367.2535873555988
+      },
+      "accepted": true,
+      "routeEndpoint": {
+        "x": 153.79246478180067,
+        "y": 367.2535873555988
+      },
+      "end": {
+        "x": 153.87957570468768,
+        "y": 367.15759907729097
+      },
+      "endpointReached": true,
+      "nativeTravel": 34.89106,
+      "net": 34.89106,
+      "rawProgress": 9.32075,
+      "originalDistance": 140.21035,
+      "selectedDistance": 35.05259,
+      "selector": {
+        "n": 6,
+        "medianMs": 0.06054,
+        "p95Ms": 3.10067,
+        "p99Ms": 3.10067,
+        "maxMs": 3.10067
+      },
+      "nativePlanner": {
+        "n": 6,
+        "medianMs": 0.16092,
+        "p95Ms": 4.71904,
+        "p99Ms": 4.71904,
+        "maxMs": 4.71904
+      }
+    },
+    {
+      "key": "companion:chameleon",
+      "version": "V10",
+      "raw": {
+        "x": 79.88090708455347,
+        "y": 294.1916778029314
+      },
+      "issued": {
+        "x": 79.88090708455347,
+        "y": 294.1916778029314
+      },
+      "accepted": true,
+      "routeEndpoint": {
+        "x": 108.66933333333333,
+        "y": 329.8832484848485
+      },
+      "end": {
+        "x": 108.66933333333333,
+        "y": 329.8832484848485
+      },
+      "endpointReached": true,
+      "nativeTravel": 17.3021,
+      "net": 17.3021,
+      "rawProgress": 17.10789,
+      "originalDistance": 73.62097,
+      "selectedDistance": 73.62097,
+      "selector": {
+        "n": 6,
+        "medianMs": 0.00065,
+        "p95Ms": 0.00077,
+        "p99Ms": 0.00077,
+        "maxMs": 0.00077
+      },
+      "nativePlanner": {
+        "n": 6,
+        "medianMs": 22.96398,
+        "p95Ms": 41.38331,
+        "p99Ms": 41.38331,
+        "maxMs": 41.38331
+      }
+    },
+    {
+      "key": "companion:chameleon",
+      "version": "V11",
+      "raw": {
+        "x": 79.88090708455347,
+        "y": 294.1916778029314
+      },
+      "issued": {
+        "x": 106.3486126621286,
+        "y": 333.03206187838856
+      },
+      "accepted": true,
+      "routeEndpoint": {
+        "x": 106.3486126621286,
+        "y": 333.03206187838856
+      },
+      "end": {
+        "x": 106.3486126621286,
+        "y": 333.03206187838856
+      },
+      "endpointReached": true,
+      "nativeTravel": 18.40524,
+      "net": 18.40524,
+      "rawProgress": 16.56779,
+      "originalDistance": 73.62097,
+      "selectedDistance": 18.40524,
+      "selector": {
+        "n": 6,
+        "medianMs": 0.03916,
+        "p95Ms": 0.08665,
+        "p99Ms": 0.08665,
+        "maxMs": 0.08665
+      },
+      "nativePlanner": {
+        "n": 6,
+        "medianMs": 0.08399,
+        "p95Ms": 0.15087,
+        "p99Ms": 0.15087,
+        "maxMs": 0.15087
+      }
+    },
+    {
+      "key": "companion:squirrel",
+      "version": "V10",
+      "raw": {
+        "x": 139.4698568706175,
+        "y": 294.9967675963284
+      },
+      "issued": {
+        "x": 139.4698568706175,
+        "y": 294.9967675963284
+      },
+      "accepted": true,
+      "routeEndpoint": {
+        "x": 108.30144047013138,
+        "y": 299.17954690335995
+      },
+      "end": {
+        "x": 108,
+        "y": 299.22
+      },
+      "endpointReached": true,
+      "nativeTravel": 22.71249,
+      "net": 22.71249,
+      "rawProgress": 22.33553,
+      "originalDistance": 65.70582,
+      "selectedDistance": 65.70582,
+      "selector": {
+        "n": 6,
+        "medianMs": 0.00046,
+        "p95Ms": 0.0007,
+        "p99Ms": 0.0007,
+        "maxMs": 0.0007
+      },
+      "nativePlanner": {
+        "n": 6,
+        "medianMs": 10.84535,
+        "p95Ms": 19.7074,
+        "p99Ms": 19.7074,
+        "maxMs": 19.7074
+      }
+    },
+    {
+      "key": "companion:squirrel",
+      "version": "V11",
+      "raw": {
+        "x": 139.4698568706175,
+        "y": 294.9967675963284
+      },
+      "issued": {
+        "x": 102.75351119994548,
+        "y": 302.02616076222694
+      },
+      "accepted": true,
+      "routeEndpoint": {
+        "x": 102.75351119994548,
+        "y": 302.02616076222694
+      },
+      "end": {
+        "x": 102.75351119994548,
+        "y": 302.02616076222694
+      },
+      "endpointReached": true,
+      "nativeTravel": 16.42646,
+      "net": 16.42646,
+      "rawProgress": 14.78656,
+      "originalDistance": 65.70582,
+      "selectedDistance": 16.42646,
+      "selector": {
+        "n": 6,
+        "medianMs": 0.04914,
+        "p95Ms": 2.62316,
+        "p99Ms": 2.62316,
+        "maxMs": 2.62316
+      },
+      "nativePlanner": {
+        "n": 6,
+        "medianMs": 0.13851,
+        "p95Ms": 6.26147,
+        "p99Ms": 6.26147,
+        "maxMs": 6.26147
+      }
+    },
+    {
+      "key": "pet:dog",
+      "version": "V10",
+      "raw": {
+        "x": 86.90465442395963,
+        "y": 186.92395899287624
+      },
+      "issued": {
+        "x": 86.90465442395963,
+        "y": 186.92395899287624
+      },
+      "accepted": false,
+      "routeEndpoint": null,
+      "end": {
+        "x": 218.4578850793296,
+        "y": 262.1998340620651
+      },
+      "endpointReached": false,
+      "nativeTravel": 0,
+      "net": 0,
+      "rawProgress": 0,
+      "originalDistance": 199.39589,
+      "selectedDistance": 199.39589,
+      "selector": {
+        "n": 6,
+        "medianMs": 0.00061,
+        "p95Ms": 0.00094,
+        "p99Ms": 0.00094,
+        "maxMs": 0.00094
+      },
+      "nativePlanner": {
+        "n": 6,
+        "medianMs": 21.44063,
+        "p95Ms": 43.03655,
+        "p99Ms": 43.03655,
+        "maxMs": 43.03655
+      }
+    },
+    {
+      "key": "pet:dog",
+      "version": "V11",
+      "raw": {
+        "x": 86.90465442395963,
+        "y": 186.92395899287624
+      },
+      "issued": {
+        "x": 86.90465442395963,
+        "y": 186.92395899287624
+      },
+      "accepted": false,
+      "routeEndpoint": null,
+      "end": {
+        "x": 218.4578850793296,
+        "y": 262.1998340620651
+      },
+      "endpointReached": false,
+      "nativeTravel": 0,
+      "net": 0,
+      "rawProgress": 0,
+      "originalDistance": 199.39589,
+      "selectedDistance": 199.39589,
+      "selector": {
+        "n": 6,
+        "medianMs": 0.03553,
+        "p95Ms": 0.07191,
+        "p99Ms": 0.07191,
+        "maxMs": 0.07191
+      },
+      "nativePlanner": {
+        "n": 6,
+        "medianMs": 30.19189,
+        "p95Ms": 54.96298,
+        "p99Ms": 54.96298,
+        "maxMs": 54.96298
+      }
+    }
+  ]
+}

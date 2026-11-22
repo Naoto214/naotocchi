@@ -1,0 +1,416 @@
+{
+  "sources": [
+    {
+      "filename": "foot-geometry2-forest.json",
+      "sha256": "a7f0045ceec4a8305086d8092ed734017f91fbe67d4a7107a2d9878260c45bd5"
+    },
+    {
+      "filename": "foot-geometry-final-forest.json",
+      "sha256": "e6e0048e7ee5c3bc23f3ed630ef8ecf04b4738cd004d1f296a10d0013e85d1ea"
+    },
+    {
+      "filename": "foot-geometry-final-mountain.json",
+      "sha256": "7b378d25f5d1851ab35989b12fa36af4b286bcbffd4979a85de7408f0972d656"
+    },
+    {
+      "filename": "foot-geometry-controls.json",
+      "sha256": "6d052aa733222f787e88154dc3322a7b8efd3ef45c0fafc8ddf7a902e793c0d7"
+    },
+    {
+      "filename": "foot-matrix-reflow.json",
+      "sha256": "1e13b092b32d753d5e9728f2679b4e4fafd09123caf754699bc43dc8f412ff6a"
+    }
+  ],
+  "units": "CSS pixels for screen distances; native model coordinates for each foot",
+  "confirmedFoothold": [
+    {
+      "phase": "recorded-foot",
+      "clock": 0,
+      "key": "companion:panda",
+      "old": [
+        87.879393923934,
+        302.059393923934
+      ],
+      "wanted": [
+        87.879393923934,
+        302.05939392393395
+      ],
+      "seed": [
+        87.879393923934,
+        302.05939392393395
+      ],
+      "final": [
+        80.25225670318574,
+        258.18714011227866
+      ],
+      "oldScale": {
+        "x": 1.2961925890888548,
+        "y": 0.16384670023649817
+      },
+      "newScale": {
+        "x": 1.2961925890888548,
+        "y": 0.16384670023649817
+      },
+      "oldWidth": 302,
+      "oldHeight": 380,
+      "newWidth": 302,
+      "newHeight": 380,
+      "ground": true,
+      "visible": true,
+      "bounds": {
+        "left": 64.25225670318574,
+        "right": 271.3571451847335,
+        "top": -37.812859887721345,
+        "bottom": 438.6686326752938
+      },
+      "touchingSeated": [],
+      "intersectsReservedExit": true
+    }
+  ],
+  "archivedForestFinalError": {
+    "pet:dog": 0.0,
+    "partner:forest_bear": 0.0,
+    "companion:cat_friend": 0.0,
+    "companion:tanuki": 0.0,
+    "companion:owl": 0.0,
+    "companion:hamster": 0.0,
+    "companion:rabbit_friend": 0.0,
+    "companion:squirrel": 0.0,
+    "companion:otter": 0.0,
+    "companion:panda": 0.0
+  },
+  "events": [
+    {
+      "region": "forest",
+      "arm": "v11-foot",
+      "clock": 300.00000000003394,
+      "phase": "unforced-ordinary",
+      "moves": [
+        {
+          "key": "companion:panda",
+          "before": [
+            87.879393923934,
+            302.059393923934
+          ],
+          "after": [
+            80.25225670318574,
+            258.18714011227866
+          ],
+          "distanceCSS": 12.223326824383918
+        }
+      ],
+      "exactEffective": true,
+      "exactConstructor": false,
+      "keptWouldLose": 0,
+      "reseatedWouldLose": 20,
+      "old": {
+        "availableSamples": 118,
+        "invalid": [],
+        "contacts": [],
+        "routes": [],
+        "nativeLongDirections": []
+      },
+      "held": {
+        "availableSamples": 118,
+        "invalid": [],
+        "contacts": [],
+        "routes": [],
+        "nativeLongDirections": []
+      },
+      "native": {
+        "availableSamples": 118,
+        "invalid": [],
+        "contacts": [],
+        "routes": [],
+        "nativeLongDirections": [
+          3
+        ]
+      },
+      "reason": "native-opens-reserved-exit"
+    },
+    {
+      "region": "forest",
+      "arm": "v11-foot",
+      "clock": 0,
+      "phase": "archived-stationary",
+      "moves": [
+        {
+          "key": "companion:panda",
+          "before": [
+            87.879393923934,
+            302.059393923934
+          ],
+          "after": [
+            80.25225670318574,
+            258.18714011227866
+          ],
+          "distanceCSS": 12.223326824383918
+        }
+      ],
+      "exactEffective": true,
+      "exactConstructor": true,
+      "keptWouldLose": 0,
+      "reseatedWouldLose": 20,
+      "old": {
+        "availableSamples": 118,
+        "invalid": [],
+        "contacts": [],
+        "routes": [],
+        "nativeLongDirections": [],
+        "strictLongBearings96": []
+      },
+      "held": {
+        "availableSamples": 118,
+        "invalid": [],
+        "contacts": [],
+        "routes": [],
+        "nativeLongDirections": [],
+        "strictLongBearings96": []
+      },
+      "native": {
+        "availableSamples": 118,
+        "invalid": [],
+        "contacts": [],
+        "routes": [],
+        "nativeLongDirections": [
+          3
+        ],
+        "strictLongBearings96": [
+          123.75,
+          127.5,
+          131.25,
+          135,
+          138.75
+        ]
+      },
+      "reason": "native-opens-reserved-exit"
+    },
+    {
+      "region": "forest",
+      "arm": "v11-foot",
+      "clock": 119.99999999999532,
+      "phase": "unforced-ordinary",
+      "moves": [
+        {
+          "key": "companion:squirrel",
+          "before": [
+            82.76138954795765,
+            328.9967684164237
+          ],
+          "after": [
+            79.6346405709512,
+            276.94268970435644
+          ],
+          "distanceCSS": 9.442864715280853
+        },
+        {
+          "key": "companion:panda",
+          "before": [
+            100,
+            266.18
+          ],
+          "after": [
+            128.25225670318574,
+            218.18714011227866
+          ],
+          "distanceCSS": 37.455111483975
+        }
+      ],
+      "exactEffective": true,
+      "exactConstructor": false,
+      "keptWouldLose": 0,
+      "reseatedWouldLose": 21,
+      "old": {
+        "availableSamples": 113,
+        "invalid": [],
+        "contacts": [],
+        "routes": [],
+        "nativeLongDirections": [],
+        "strictLongBearings96": []
+      },
+      "held": {
+        "availableSamples": 113,
+        "invalid": [],
+        "contacts": [],
+        "routes": [],
+        "nativeLongDirections": [],
+        "strictLongBearings96": []
+      },
+      "native": {
+        "availableSamples": 146,
+        "invalid": [],
+        "contacts": [
+          [
+            "companion:panda",
+            "companion:tanuki"
+          ]
+        ],
+        "routes": [],
+        "nativeLongDirections": [
+          4
+        ],
+        "strictLongBearings96": [
+          180
+        ]
+      },
+      "reason": "native-opens-reserved-exit"
+    },
+    {
+      "region": "mountain",
+      "arm": "v11",
+      "clock": 59.99999999999873,
+      "phase": "unforced-ordinary",
+      "moves": [
+        {
+          "key": "companion:hamster",
+          "before": [
+            123.40655247060609,
+            379.2865033807042
+          ],
+          "after": [
+            114.33820911206712,
+            404.64647775616413
+          ],
+          "distanceCSS": 9.974651738443166
+        }
+      ],
+      "exactEffective": true,
+      "exactConstructor": false,
+      "keptWouldLose": 0,
+      "reseatedWouldLose": 17,
+      "old": {
+        "availableSamples": 414,
+        "invalid": [],
+        "contacts": [],
+        "routes": [
+          {
+            "key": "companion:hamster",
+            "segments": 5,
+            "safe": true
+          }
+        ],
+        "nativeLongDirections": [],
+        "strictLongBearings96": []
+      },
+      "held": {
+        "availableSamples": 414,
+        "invalid": [],
+        "contacts": [],
+        "routes": [
+          {
+            "key": "companion:hamster",
+            "segments": 5,
+            "safe": true
+          }
+        ],
+        "nativeLongDirections": [],
+        "strictLongBearings96": []
+      },
+      "native": {
+        "availableSamples": 416,
+        "invalid": [],
+        "contacts": [],
+        "routes": [],
+        "nativeLongDirections": [
+          1
+        ],
+        "strictLongBearings96": [
+          45
+        ]
+      },
+      "reason": "native-opens-reserved-exit"
+    },
+    {
+      "region": "mountain",
+      "arm": "v11",
+      "clock": 180.00000000000668,
+      "phase": "unforced-ordinary",
+      "moves": [
+        {
+          "key": "companion:panda",
+          "before": [
+            88.54074357129925,
+            173.99519499479192
+          ],
+          "after": [
+            138.39635176628138,
+            324.64647775616413
+          ],
+          "distanceCSS": 55.656760862881164
+        }
+      ],
+      "exactEffective": true,
+      "exactConstructor": false,
+      "keptWouldLose": 0,
+      "reseatedWouldLose": 94,
+      "old": {
+        "availableSamples": 244,
+        "invalid": [],
+        "contacts": [],
+        "routes": [
+          {
+            "key": "companion:hamster",
+            "segments": 2,
+            "safe": true
+          }
+        ],
+        "nativeLongDirections": [],
+        "strictLongBearings96": [
+          176.25
+        ]
+      },
+      "held": {
+        "availableSamples": 244,
+        "invalid": [],
+        "contacts": [],
+        "routes": [
+          {
+            "key": "companion:hamster",
+            "segments": 2,
+            "safe": true
+          }
+        ],
+        "nativeLongDirections": [],
+        "strictLongBearings96": [
+          176.25
+        ]
+      },
+      "native": {
+        "availableSamples": 234,
+        "invalid": [],
+        "contacts": [],
+        "routes": [],
+        "nativeLongDirections": [
+          4
+        ],
+        "strictLongBearings96": [
+          176.25,
+          180,
+          183.75,
+          187.5,
+          191.25,
+          195,
+          198.75,
+          202.5,
+          206.25,
+          210,
+          213.75,
+          217.5
+        ]
+      },
+      "reason": "native-opens-reserved-exit"
+    }
+  ],
+  "controls": [
+    {
+      "region": "forest",
+      "sameView": "equivalent-ground-and-routes",
+      "realResize": "geometry-key-changed"
+    },
+    {
+      "region": "mountain",
+      "sameView": "equivalent-ground-and-routes",
+      "realResize": "geometry-key-changed"
+    }
+  ]
+}

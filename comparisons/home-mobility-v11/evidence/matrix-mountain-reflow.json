@@ -1,0 +1,165 @@
+{
+  "attempt": 0,
+  "start": 3761425696,
+  "sha": {
+    "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+    "home-production-model-mobility-v11.js": "3de077af5adbbebb24e0e66f0acd9843eb74b78b245fb1c32d26de94bf616386",
+    "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6",
+    "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377",
+    "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+    "script-v2-mobility-v7.js": "4d0d425c41a89f0241e92b18c0270534dbdb36d09b5507d8bce0ebfd6cd9bc02",
+    "home-route-navigation-finish.mjs": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9",
+    "telemetry-mobility-v10.js": "b2d04a892c48e50a5876f8d6e542dbdc851b20a6e108ea2925d0365a82a6a870"
+  },
+  "archiveCellSHA256": "db26c39ff40e172f0c51bbe1f6026f33662df00e80999deeeed1748b1660ef30",
+  "archiveShifts": [
+    {
+      "after": [
+        187.53198914008334,
+        208.9617384262195
+      ],
+      "before": [
+        171.06908984634777,
+        203.0926514242181
+      ],
+      "clock": 119.99999999999532,
+      "key": "companion:cat_friend",
+      "reflow": true,
+      "sameBody": true,
+      "sameNavigation": false,
+      "scale": {
+        "x": 0.9963502049407095,
+        "y": 0.16663557953189992
+      }
+    },
+    {
+      "after": [
+        233.59286976815028,
+        175.42913723308786
+      ],
+      "before": [
+        127.97562637371617,
+        155.0666504311854
+      ],
+      "clock": 119.99999999999532,
+      "key": "companion:squirrel",
+      "reflow": true,
+      "sameBody": true,
+      "sameNavigation": false,
+      "scale": {
+        "x": 0.9963502049407095,
+        "y": 0.16663557953189992
+      }
+    },
+    {
+      "after": [
+        210.91963565420974,
+        319.8906597081522
+      ],
+      "before": [
+        136,
+        246.18
+      ],
+      "clock": 119.99999999999532,
+      "key": "companion:otter",
+      "reflow": true,
+      "sameBody": true,
+      "sameNavigation": false,
+      "scale": {
+        "x": 0.9963502049407095,
+        "y": 0.16663557953189992
+      }
+    },
+    {
+      "after": [
+        242.39635176628138,
+        228.64647775616416
+      ],
+      "before": [
+        104.26356317038291,
+        197.7722227863681
+      ],
+      "clock": 119.99999999999532,
+      "key": "companion:panda",
+      "reflow": true,
+      "sameBody": true,
+      "sameNavigation": false,
+      "scale": {
+        "x": 0.9963502049407095,
+        "y": 0.16663557953189992
+      }
+    }
+  ],
+  "observed": [
+    {
+      "key": "companion:hamster",
+      "clock": 59.99999999999873,
+      "before": [
+        123.40655247060609,
+        379.2865033807042
+      ],
+      "after": [
+        114.33820911206712,
+        404.64647775616413
+      ],
+      "sameBody": true,
+      "sameNavigation": false,
+      "scale": {
+        "x": 0.9963502049407095,
+        "y": 0.16663557953189992
+      },
+      "reflow": true
+    }
+  ],
+  "classifications": [
+    {
+      "phase": "observed-age",
+      "clock": 59.99999999999873,
+      "key": "companion:hamster",
+      "old": [
+        123.40655247060609,
+        379.2865033807042
+      ],
+      "wanted": [
+        123.40655247060609,
+        379.2865033807042
+      ],
+      "seed": [
+        123.40655247060609,
+        379.2865033807042
+      ],
+      "final": [
+        114.33820911206712,
+        404.64647775616413
+      ],
+      "oldScale": {
+        "x": 0.9963502049407095,
+        "y": 0.16663557953189992
+      },
+      "newScale": {
+        "x": 0.9963502049407095,
+        "y": 0.16663557953189992
+      },
+      "oldWidth": 302,
+      "oldHeight": 380,
+      "newWidth": 302,
+      "newHeight": 380,
+      "ground": true,
+      "visible": true,
+      "bounds": {
+        "left": 18.338209112067123,
+        "right": 287.88053892731176,
+        "top": -27.35352224383584,
+        "bottom": 436.8642182986856
+      },
+      "touchingSeated": [],
+      "intersectsReservedExit": true
+    }
+  ],
+  "browser": "156.0.8078.79",
+  "sameAgedFeet": false,
+  "observedRelease": "same native scripts as first CI, fresh independently initialized real home, did not reproduce the official four residents or time",
+  "originalArchiveRecord": "44986753461/mobility-v11-44986753461-mountain.zip/mountain-10-320.json.gz",
+  "retainedRawSHA256": "718d6ca775154b352a98bded7ac4351dff6bf35604855563bafa54f125677e8f",
+  "diagnosticSource": "foot_matrix_reflow.py"
+}

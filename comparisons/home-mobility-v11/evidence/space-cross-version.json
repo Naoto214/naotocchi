@@ -1,0 +1,386 @@
+[
+  {
+    "width": 320,
+    "arm": "v11-foot",
+    "native": {
+      "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377",
+      "home-production-model-mobility-v11-foot.js": "fcdf57a485c28b10b9e715f752822aa5bbe2b99f7ad4f334d0180f07789d1b80"
+    },
+    "sourceRaw": "4463bbc8a3f4f95781497f4a14548e7d473e1e072ff5126d070484828fac63b5",
+    "matchingOpeningFeet": 28,
+    "largestOpeningDifferenceCss": 0.0,
+    "bodyDimensionsMatch": true,
+    "sameTerrainGrid": true,
+    "sameResidentPermissionGrids": 28,
+    "replayedFootStates": [
+      {
+        "phase": "opening",
+        "equalResidentGeometry": 28
+      },
+      {
+        "phase": "aged",
+        "equalResidentGeometry": 28
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "arm": "v11",
+    "native": {
+      "home-production-model-mobility-v11.js": "3de077af5adbbebb24e0e66f0acd9843eb74b78b245fb1c32d26de94bf616386",
+      "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377"
+    },
+    "sourceRaw": "4463bbc8a3f4f95781497f4a14548e7d473e1e072ff5126d070484828fac63b5",
+    "matchingOpeningFeet": 28,
+    "largestOpeningDifferenceCss": 0.0,
+    "bodyDimensionsMatch": true,
+    "sameTerrainGrid": true,
+    "sameResidentPermissionGrids": 28,
+    "replayedFootStates": [
+      {
+        "phase": "opening",
+        "equalResidentGeometry": 28
+      },
+      {
+        "phase": "aged",
+        "equalResidentGeometry": 28
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "arm": "v11-foot-reference",
+    "native": {
+      "home-production-model-mobility-v11-foot-reference.js": "b97cc429dcabfd71773b139ecbb8e06553b5efa823f6852e2cf4c7faed2d5ba7",
+      "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377"
+    },
+    "sourceRaw": "208b6614fc1b6be55e02856e17171136ada1e7848431fd4f517dd203dfcf67ce",
+    "matchingOpeningFeet": 28,
+    "largestOpeningDifferenceCss": 0.0,
+    "bodyDimensionsMatch": true,
+    "sameTerrainGrid": true,
+    "sameResidentPermissionGrids": 28,
+    "replayedFootStates": [
+      {
+        "phase": "opening",
+        "equalResidentGeometry": 28
+      },
+      {
+        "phase": "aged",
+        "equalResidentGeometry": 28
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "arm": "v11-reference",
+    "native": {
+      "home-production-model-mobility-v11-reference.js": "d5b53fc85623faa21d335e61568e1f38e5352dd1c71ed9c6328143e167d71c2b",
+      "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377"
+    },
+    "sourceRaw": "208b6614fc1b6be55e02856e17171136ada1e7848431fd4f517dd203dfcf67ce",
+    "matchingOpeningFeet": 28,
+    "largestOpeningDifferenceCss": 0.0,
+    "bodyDimensionsMatch": true,
+    "sameTerrainGrid": true,
+    "sameResidentPermissionGrids": 28,
+    "replayedFootStates": [
+      {
+        "phase": "opening",
+        "equalResidentGeometry": 28
+      },
+      {
+        "phase": "aged",
+        "equalResidentGeometry": 28
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "arm": "v11-foot",
+    "native": {
+      "home-production-model-mobility-v11-foot.js": "fcdf57a485c28b10b9e715f752822aa5bbe2b99f7ad4f334d0180f07789d1b80",
+      "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377"
+    },
+    "sourceRaw": "34b890366c8bbbf77f3ced35fae3a56a80ab1d442e25b12480a12297e6669509",
+    "matchingOpeningFeet": 28,
+    "largestOpeningDifferenceCss": 0.0,
+    "bodyDimensionsMatch": true,
+    "sameTerrainGrid": true,
+    "sameResidentPermissionGrids": 28,
+    "replayedFootStates": [
+      {
+        "phase": "opening",
+        "equalResidentGeometry": 28
+      },
+      {
+        "phase": "aged",
+        "equalResidentGeometry": 28
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "arm": "v11",
+    "native": {
+      "home-production-model-mobility-v11.js": "3de077af5adbbebb24e0e66f0acd9843eb74b78b245fb1c32d26de94bf616386",
+      "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377"
+    },
+    "sourceRaw": "34b890366c8bbbf77f3ced35fae3a56a80ab1d442e25b12480a12297e6669509",
+    "matchingOpeningFeet": 28,
+    "largestOpeningDifferenceCss": 0.0,
+    "bodyDimensionsMatch": true,
+    "sameTerrainGrid": true,
+    "sameResidentPermissionGrids": 28,
+    "replayedFootStates": [
+      {
+        "phase": "opening",
+        "equalResidentGeometry": 28
+      },
+      {
+        "phase": "aged",
+        "equalResidentGeometry": 28
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "arm": "v11-foot-reference",
+    "native": {
+      "home-production-model-mobility-v11-foot-reference.js": "b97cc429dcabfd71773b139ecbb8e06553b5efa823f6852e2cf4c7faed2d5ba7",
+      "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377"
+    },
+    "sourceRaw": "b25cf6edbd2197dd4210dd4ca4bb98189d8015e6cf5205c5fa8ebac761bdac25",
+    "matchingOpeningFeet": 28,
+    "largestOpeningDifferenceCss": 0.0,
+    "bodyDimensionsMatch": true,
+    "sameTerrainGrid": true,
+    "sameResidentPermissionGrids": 28,
+    "replayedFootStates": [
+      {
+        "phase": "opening",
+        "equalResidentGeometry": 28
+      },
+      {
+        "phase": "aged",
+        "equalResidentGeometry": 28
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "arm": "v11-reference",
+    "native": {
+      "home-production-model-mobility-v11-reference.js": "d5b53fc85623faa21d335e61568e1f38e5352dd1c71ed9c6328143e167d71c2b",
+      "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377"
+    },
+    "sourceRaw": "b25cf6edbd2197dd4210dd4ca4bb98189d8015e6cf5205c5fa8ebac761bdac25",
+    "matchingOpeningFeet": 28,
+    "largestOpeningDifferenceCss": 0.0,
+    "bodyDimensionsMatch": true,
+    "sameTerrainGrid": true,
+    "sameResidentPermissionGrids": 28,
+    "replayedFootStates": [
+      {
+        "phase": "opening",
+        "equalResidentGeometry": 28
+      },
+      {
+        "phase": "aged",
+        "equalResidentGeometry": 28
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "arm": "v11-foot",
+    "native": {
+      "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377",
+      "home-production-model-mobility-v11-foot.js": "fcdf57a485c28b10b9e715f752822aa5bbe2b99f7ad4f334d0180f07789d1b80"
+    },
+    "sourceRaw": "729c978cbfa9379fb5507e74f74f8d8e4468d79c219aa36d2197704afd341937",
+    "matchingOpeningFeet": 28,
+    "largestOpeningDifferenceCss": 0.0,
+    "bodyDimensionsMatch": true,
+    "sameTerrainGrid": true,
+    "sameResidentPermissionGrids": 28,
+    "replayedFootStates": [
+      {
+        "phase": "opening",
+        "equalResidentGeometry": 28
+      },
+      {
+        "phase": "aged",
+        "equalResidentGeometry": 28
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "arm": "v11",
+    "native": {
+      "home-production-model-mobility-v11.js": "3de077af5adbbebb24e0e66f0acd9843eb74b78b245fb1c32d26de94bf616386",
+      "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377"
+    },
+    "sourceRaw": "729c978cbfa9379fb5507e74f74f8d8e4468d79c219aa36d2197704afd341937",
+    "matchingOpeningFeet": 28,
+    "largestOpeningDifferenceCss": 0.0,
+    "bodyDimensionsMatch": true,
+    "sameTerrainGrid": true,
+    "sameResidentPermissionGrids": 28,
+    "replayedFootStates": [
+      {
+        "phase": "opening",
+        "equalResidentGeometry": 28
+      },
+      {
+        "phase": "aged",
+        "equalResidentGeometry": 28
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "arm": "v11-foot-reference",
+    "native": {
+      "home-production-model-mobility-v11-foot-reference.js": "b97cc429dcabfd71773b139ecbb8e06553b5efa823f6852e2cf4c7faed2d5ba7",
+      "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377"
+    },
+    "sourceRaw": "15730ba2453fb7dea853be87412163dd6428deb02a0afd0e7faadbaef6ef3d06",
+    "matchingOpeningFeet": 28,
+    "largestOpeningDifferenceCss": 0.0,
+    "bodyDimensionsMatch": true,
+    "sameTerrainGrid": true,
+    "sameResidentPermissionGrids": 28,
+    "replayedFootStates": [
+      {
+        "phase": "opening",
+        "equalResidentGeometry": 28
+      },
+      {
+        "phase": "aged",
+        "equalResidentGeometry": 28
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "arm": "v11-reference",
+    "native": {
+      "home-production-model-mobility-v11-reference.js": "d5b53fc85623faa21d335e61568e1f38e5352dd1c71ed9c6328143e167d71c2b",
+      "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377"
+    },
+    "sourceRaw": "15730ba2453fb7dea853be87412163dd6428deb02a0afd0e7faadbaef6ef3d06",
+    "matchingOpeningFeet": 28,
+    "largestOpeningDifferenceCss": 0.0,
+    "bodyDimensionsMatch": true,
+    "sameTerrainGrid": true,
+    "sameResidentPermissionGrids": 28,
+    "replayedFootStates": [
+      {
+        "phase": "opening",
+        "equalResidentGeometry": 28
+      },
+      {
+        "phase": "aged",
+        "equalResidentGeometry": 28
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "arm": "v11-foot",
+    "native": {
+      "home-production-model-mobility-v11-foot.js": "fcdf57a485c28b10b9e715f752822aa5bbe2b99f7ad4f334d0180f07789d1b80",
+      "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377"
+    },
+    "sourceRaw": "8853d6c22851ea79f9a3ce966a4906678145aee887b9381ad11b2efe5d7e7ff6",
+    "matchingOpeningFeet": 28,
+    "largestOpeningDifferenceCss": 0.0,
+    "bodyDimensionsMatch": true,
+    "sameTerrainGrid": true,
+    "sameResidentPermissionGrids": 28,
+    "replayedFootStates": [
+      {
+        "phase": "opening",
+        "equalResidentGeometry": 28
+      },
+      {
+        "phase": "aged",
+        "equalResidentGeometry": 28
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "arm": "v11",
+    "native": {
+      "home-production-model-mobility-v11.js": "3de077af5adbbebb24e0e66f0acd9843eb74b78b245fb1c32d26de94bf616386",
+      "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377"
+    },
+    "sourceRaw": "8853d6c22851ea79f9a3ce966a4906678145aee887b9381ad11b2efe5d7e7ff6",
+    "matchingOpeningFeet": 28,
+    "largestOpeningDifferenceCss": 0.0,
+    "bodyDimensionsMatch": true,
+    "sameTerrainGrid": true,
+    "sameResidentPermissionGrids": 28,
+    "replayedFootStates": [
+      {
+        "phase": "opening",
+        "equalResidentGeometry": 28
+      },
+      {
+        "phase": "aged",
+        "equalResidentGeometry": 28
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "arm": "v11-foot-reference",
+    "native": {
+      "home-production-model-mobility-v11-foot-reference.js": "b97cc429dcabfd71773b139ecbb8e06553b5efa823f6852e2cf4c7faed2d5ba7",
+      "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377"
+    },
+    "sourceRaw": "c13ecb068a9475e5312ee9abb6352fb63e4ceda30738aedc238d3d9d2acdfd7a",
+    "matchingOpeningFeet": 28,
+    "largestOpeningDifferenceCss": 0.0,
+    "bodyDimensionsMatch": true,
+    "sameTerrainGrid": true,
+    "sameResidentPermissionGrids": 28,
+    "replayedFootStates": [
+      {
+        "phase": "opening",
+        "equalResidentGeometry": 28
+      },
+      {
+        "phase": "aged",
+        "equalResidentGeometry": 28
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "arm": "v11-reference",
+    "native": {
+      "home-production-model-mobility-v11-reference.js": "d5b53fc85623faa21d335e61568e1f38e5352dd1c71ed9c6328143e167d71c2b",
+      "home-production-diorama-mobility-v11.js": "6e9fca64f04c940afe1608fd33df18500a7630243a46edaa90e98259b2dad377"
+    },
+    "sourceRaw": "c13ecb068a9475e5312ee9abb6352fb63e4ceda30738aedc238d3d9d2acdfd7a",
+    "matchingOpeningFeet": 28,
+    "largestOpeningDifferenceCss": 0.0,
+    "bodyDimensionsMatch": true,
+    "sameTerrainGrid": true,
+    "sameResidentPermissionGrids": 28,
+    "replayedFootStates": [
+      {
+        "phase": "opening",
+        "equalResidentGeometry": 28
+      },
+      {
+        "phase": "aged",
+        "equalResidentGeometry": 28
+      }
+    ]
+  }
+]

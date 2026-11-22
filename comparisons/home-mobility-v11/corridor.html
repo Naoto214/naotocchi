@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>主人公の退路と住民の足位置｜なおとっち</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#faf9f5;color:#272f29;font:1rem/1.55 system-ui,sans-serif}main{max-width:42rem;margin:auto;padding:1rem}h1{font-size:clamp(1.3rem,4vw,1.8rem);margin:.4rem 0}a{color:#245741}p{margin:.5rem 0}fieldset{border:0;padding:0;margin:1rem 0 .4rem}legend{font-weight:600}button,select{min-height:44px;padding:.4rem .75rem;background:#fff;color:#23392c;border:1px solid #738575;border-radius:.4rem;font:inherit}button[aria-pressed=true]{background:#efdb99;font-weight:650}button:disabled{opacity:.55}.buttons{display:flex;flex-wrap:wrap;gap:.45rem;margin:.4rem 0}.view{position:relative;margin:.5rem auto;max-width:320px;overflow:hidden}.view iframe{display:block;border:0;width:320px;height:516px;transform-origin:top left}#result{font-variant-numeric:tabular-nums}button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid #956721}
+</style>
+<main>
+<a href="./">ホームの試遊に戻る</a>
+<h1>主人公の退路と住民の足位置</h1>
+<p>320px幅・住民10体の記録です。「配置を再計算」でパンダの足位置を、「主人公を歩かせる」で犬が通れる退路を確認できます。</p>
+<label>記録 <select id="region"><option value="mountain">やま・180秒</option><option value="forest">もり・300秒</option></select></label>
+<fieldset><legend>配置の扱い</legend><div class="buttons"><button data-mode="native" aria-pressed="false">通常の再配置</button><button data-mode="guard" aria-pressed="true">退路が残れば足位置を保持</button></div></fieldset>
+<div class="buttons"><button id="apply" disabled>配置を再計算</button><button id="walk" disabled>主人公を歩かせる</button><button id="restart">記録位置に戻す</button></div>
+<p id="result" role="status"></p>
+<div class="view"><iframe title="320pxのホームで主人公とパンダを確認"></iframe></div>
+</main>
+<script type="module" src="./corridor.mjs"></script>
+</html>

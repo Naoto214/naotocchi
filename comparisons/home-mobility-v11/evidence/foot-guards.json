@@ -1,0 +1,252 @@
+{
+  "browser": "156.0.8078.79",
+  "historicalNativeBefore": [
+    {
+      "key": "companion:panda",
+      "from": [
+        113.73032378520752,
+        370.1350683886255
+      ],
+      "to": [
+        120,
+        354.18
+      ],
+      "distanceCSS": 22.741647930442042
+    }
+  ],
+  "candidateMoved": [],
+  "roster": 28,
+  "cases": [
+    {
+      "case": "same",
+      "replacements": 1,
+      "transferred": 1,
+      "countMoved": 0,
+      "watchedFootMoved": null,
+      "watchedFootValid": true
+    },
+    {
+      "case": "all",
+      "replacements": 26,
+      "transferred": 26,
+      "countMoved": 0,
+      "watchedFootMoved": null,
+      "watchedFootValid": true
+    },
+    {
+      "case": "invalid-foot",
+      "replacements": 1,
+      "transferred": 1,
+      "countMoved": 1,
+      "watchedFootMoved": {
+        "key": "companion:panda",
+        "from": [
+          -100,
+          -100
+        ],
+        "to": [
+          152,
+          186.18
+        ],
+        "d": 507.68481934813
+      },
+      "watchedFootValid": true
+    },
+    {
+      "case": "unmeasured",
+      "replacements": 1,
+      "transferred": 0,
+      "countMoved": 0,
+      "watchedFootMoved": null,
+      "watchedFootValid": true
+    },
+    {
+      "case": "corrupt",
+      "replacements": 1,
+      "transferred": 0,
+      "countMoved": 0,
+      "watchedFootMoved": null,
+      "watchedFootValid": true
+    },
+    {
+      "case": "image",
+      "replacements": 1,
+      "transferred": 0,
+      "countMoved": 0,
+      "watchedFootMoved": null,
+      "watchedFootValid": true
+    },
+    {
+      "case": "owner-id",
+      "replacements": 1,
+      "transferred": 0,
+      "countMoved": 0,
+      "watchedFootMoved": null,
+      "watchedFootValid": true
+    },
+    {
+      "case": "owner-width",
+      "replacements": 1,
+      "transferred": 0,
+      "countMoved": 0,
+      "watchedFootMoved": null,
+      "watchedFootValid": true
+    },
+    {
+      "case": "image-width",
+      "replacements": 1,
+      "transferred": 0,
+      "countMoved": 0,
+      "watchedFootMoved": null,
+      "watchedFootValid": true
+    },
+    {
+      "case": "equipment-dom",
+      "replacements": 1,
+      "transferred": 0,
+      "countMoved": 0,
+      "watchedFootMoved": null,
+      "watchedFootValid": true
+    },
+    {
+      "case": "frame",
+      "replacements": 1,
+      "transferred": 0,
+      "countMoved": 0,
+      "watchedFootMoved": null,
+      "watchedFootValid": true
+    },
+    {
+      "case": "region",
+      "replacements": 1,
+      "transferred": 0,
+      "countMoved": 22,
+      "watchedFootMoved": {
+        "key": "companion:panda",
+        "from": [
+          113.73032378520752,
+          370.1350683886255
+        ],
+        "to": [
+          121.90578909486499,
+          369.7539380727719
+        ],
+        "d": 10.968846242497863
+      },
+      "watchedFootValid": true
+    },
+    {
+      "case": "scene-width",
+      "replacements": 1,
+      "transferred": 0,
+      "countMoved": 16,
+      "watchedFootMoved": {
+        "key": "companion:panda",
+        "from": [
+          113.73032378520752,
+          370.1350683886255
+        ],
+        "to": [
+          121.90578909486499,
+          217.75393807277194
+        ],
+        "d": 202.1238707893696
+      },
+      "watchedFootValid": true
+    },
+    {
+      "case": "navigation",
+      "replacements": 1,
+      "transferred": 0,
+      "countMoved": 16,
+      "watchedFootMoved": {
+        "key": "companion:panda",
+        "from": [
+          113.73032378520752,
+          370.1350683886255
+        ],
+        "to": [
+          121.90578909486499,
+          217.75393807277194
+        ],
+        "d": 202.1238707893696
+      },
+      "watchedFootValid": true
+    },
+    {
+      "case": "revision",
+      "replacements": 1,
+      "transferred": 0,
+      "countMoved": 0,
+      "watchedFootMoved": null,
+      "watchedFootValid": true
+    },
+    {
+      "case": "actor-id",
+      "replacements": 1,
+      "transferred": 0,
+      "countMoved": 0,
+      "watchedFootMoved": null,
+      "watchedFootValid": true
+    },
+    {
+      "case": "body-asset",
+      "replacements": 1,
+      "transferred": 0,
+      "countMoved": 0,
+      "watchedFootMoved": null,
+      "watchedFootValid": true
+    },
+    {
+      "case": "growth",
+      "replacements": 1,
+      "transferred": 0,
+      "countMoved": 16,
+      "watchedFootMoved": {
+        "key": "companion:panda",
+        "from": [
+          113.73032378520752,
+          370.1350683886255
+        ],
+        "to": [
+          122.41832279640155,
+          218.5361283760745
+        ],
+        "d": 201.12800178127137
+      },
+      "watchedFootValid": true
+    },
+    {
+      "case": "equipment-bounds",
+      "replacements": 1,
+      "transferred": 0,
+      "countMoved": 0,
+      "watchedFootMoved": null,
+      "watchedFootValid": true
+    },
+    {
+      "case": "attachments",
+      "replacements": 1,
+      "transferred": 0,
+      "countMoved": 0,
+      "watchedFootMoved": null,
+      "watchedFootValid": true
+    },
+    {
+      "case": "origin",
+      "replacements": 1,
+      "transferred": 0,
+      "countMoved": 0,
+      "watchedFootMoved": null,
+      "watchedFootValid": true
+    },
+    {
+      "case": "foot-space",
+      "replacements": 1,
+      "transferred": 0,
+      "countMoved": 0,
+      "watchedFootMoved": null,
+      "watchedFootValid": true
+    }
+  ]
+}

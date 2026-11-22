@@ -132,7 +132,11 @@ def report(args):
         moving = [r for r in matched if r["firstStepMs"] is not None]
         arrivals = [r["arrivalMs"] for r in moving if r["arrivalMs"] is not None]
         result["touch"].append(dict(arm=row["arm"], order="forward" if index < len(ARMS) else "reverse", commands=len(command), selected=len(matched), arrivals=len(arrivals),
-                                    moved=len(moving), movingKeys=[r["key"] for r in moving], onset=summary([r["firstStepMs"] for r in moving]),
+                                    moved=len(moving), immediateAcceptance=sum(bool(r.get("accepted")) for r in matched),
+                                    laterPlannedKeys=[r["key"] for r in moving if not r.get("accepted")],
+                                    movingKeys=[r["key"] for r in moving], handler=summary([r["handlerMs"] for r in matched]),
+                                    plans=[dict(key=r["key"],target=r.get("plan"),arrival=r.get("finalFoot")) for r in matched],
+                                    onset=summary([r["firstStepMs"] for r in moving]),
                                     arrival=summary(arrivals), queue=summary([r["queueMs"] for r in readings])))
     sync = raw("sync")["rows"]
     assert [r["arm"] for r in sync] == ARMS
@@ -146,6 +150,34 @@ def report(args):
             assert len(samples) == 20
             result["sync"].append(dict(arm=row["arm"], order="forward" if index < len(ARMS) else "reverse", replaced=count, native=summary([s["nativeSyncMs"] for s in samples]),
                                        afterDecode=summary([s["afterDecodeMs"] for s in samples])))
+    notice = []
+    for arm in ARMS:
+        name = "notice-"+arm
+        paths = list(args.directory.rglob(name+".json"))
+        if not paths:
+            continue
+        assert len(paths)==1
+        content=paths[0].read_bytes()
+        value=json.loads(content)
+        assert value["arm"]==arm and value["browser"]==result["browser"] and value["viewport"]==[320,792]
+        assert all(result["assets"].get(k,expected)==expected for k,expected in value["assets"].items())
+        result["sourceSHA256"][name+".json"]=sha(content)
+        (args.archive/(name+".json.gz")).write_bytes(gzip.compress(content,compresslevel=6,mtime=0))
+        sample=value["sample"]
+        assert sample["elapsedMs"]>=330000 and len(sample["opening"])==28 and sample["clockSeconds"]>0
+        assert sorted(a[0] for a in sample["opening"])==sorted(sample["closingKeys"])
+        replacements=[e for e in sample["syncs"] if e["rebound"]]
+        elapsed=[e["duration"] for e in sample["syncs"]]
+        notice.append(dict(arm=arm,openingSHA256=fingerprint(sample["opening"]),
+            modelSeconds=sample["clockSeconds"],wallSeconds=sample["elapsedMs"]/1000,
+            frames=summary(sample["intervals"]),sync=summary(elapsed),
+            ownerReplacementSyncs=len(replacements),physicalShiftCount=sum(len(e["changed"]) for e in sample["syncs"]),
+            replacements=[dict(start=e["start"],duration=e["duration"],count=len(e["rebound"]),
+                               changed=e["changed"],gate=e["gate"],containingFramesMs=e["containingFramesMs"])
+                          for e in replacements]))
+    if notice:
+        assert len(notice)==3 and len({r["openingSHA256"] for r in notice})==1
+        result["ordinaryNarrowNotification"]=notice
     route_files = list(args.directory.rglob("routes.json"))
     assert len(route_files)==1
     source = route_files[0].read_bytes()
@@ -160,6 +192,19 @@ def report(args):
     result["modelProfile"] = dict(node=routes["node"], seconds=routes["seconds"], seed=routes["seed"],
         rows=[dict(arm=r["arm"],order=r["order"],moves=r["metrics"]["moves"],distance=r["metrics"]["distance"],
                    timing=r["timing"]) for r in routes["rows"]])
+    if args.narrow:
+        data=args.narrow.read_bytes()
+        profile=json.loads(data)
+        assert profile["geometry"]=="captured-320" and profile["seconds"]==600 and profile["seed"]==214
+        assert len(profile["rows"])==6 and all(r["initialFeet"]==profile["rows"][0]["initialFeet"] for r in profile["rows"])
+        for r in profile["rows"]:
+            assert result["assets"][r["source"]]==r["sourceSHA256"]
+        result["sourceSHA256"]["routes-narrow.json"]=sha(data)
+        (args.archive/"routes-narrow.json.gz").write_bytes(gzip.compress(data,compresslevel=6,mtime=0))
+        result["narrowModelProfile"]=dict(node=profile["node"],seconds=profile["seconds"],seed=profile["seed"],
+            openingSHA256=fingerprint(profile["rows"][0]["initialFeet"]),rows=[
+              dict(arm=r["arm"],order=r["order"],moves=r["metrics"]["moves"],distance=r["metrics"]["distance"],
+                   substitutions=r["substitutions"],timing=r["timing"]) for r in profile["rows"]])
     write(args.out / "performance.json", result)
     with (args.out / "performance-frames.csv").open("w", newline="") as output:
         writer = csv.DictWriter(output, fieldnames=frames[0])
@@ -176,5 +221,6 @@ if __name__ == "__main__":
     parser.add_argument("--archive", type=Path, required=True)
     parser.add_argument("--run", required=True)
     parser.add_argument("--commit", required=True)
+    parser.add_argument("--narrow", type=Path, help="Optional low-priority local native 320px CPU replay")
     parser.add_argument("--dist", type=Path, help="Byte-verify all JS sources against this native distribution")
     report(parser.parse_args())

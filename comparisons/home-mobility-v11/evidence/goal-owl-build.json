@@ -1,0 +1,23 @@
+{
+  "baseFiles": 4016,
+  "modifiedFiles": [],
+  "priorPrivateDistribution": {
+    "newPaths": [
+      "game/home-production-diorama-mobility-v11-owl.js",
+      "game/home-production-model-mobility-v11-owl-original.js",
+      "game/mobility-v11-owl-original.html",
+      "game/home-production-model-mobility-v11-owl-after.js",
+      "game/mobility-v11-owl-after.html",
+      "v11/owl-forest.json",
+      "v11/owl-request.json",
+      "v11/owl.html",
+      "v11/goal-owl.mjs",
+      "v11/goal-owl-scene.mjs"
+    ],
+    "changed": [
+      "v11/index.html"
+    ],
+    "priorAssets": 57
+  },
+  "priorPrivateSource": "fd44b917b5d6dc54d5abab36d008177fde033ba9"
+}

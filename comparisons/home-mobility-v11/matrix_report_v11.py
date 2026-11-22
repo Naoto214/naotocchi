@@ -47,13 +47,18 @@ def summarize_drops(cell, previous, shared_rows, aged_rows, initial_differences)
         aged = data["aged"]
         raw = aged["drag"]
         aged_rows.append({**metrics.input_summary(cell, "matched-start-living", arm, raw), "opening": digest_opening(aged["opening"]),
+            **metrics.contact_directions(aged),
             "priorV9SameFeet": aged["opening"] == previous_v9["opening"],
             "priorV10SameFeet": aged["opening"] == previous_v10["opening"],
             "freshV10SameFeet": aged["opening"] == fresh["opening"],
             "footOnlySameFeet": aged["opening"] == cell["arms"]["v11-foot"]["aged"]["opening"],
             "priorV9": metrics.drop_status(previous_v9["drag"]), "priorV10": metrics.drop_status(previous_v10["drag"]),
             "freshV10": metrics.drop_status(fresh["drag"]),
-            "footOnly": metrics.drop_status(cell["arms"]["v11-foot"]["aged"]["drag"])})
+            "footOnly": metrics.drop_status(cell["arms"]["v11-foot"]["aged"]["drag"]),
+            "differencesFromPreviousV9": replay_difference(previous_v9["drag"], raw),
+            "differencesFromPreviousV10": replay_difference(previous_v10["drag"], raw),
+            "differencesFromConcurrentV10": replay_difference(fresh["drag"], raw),
+            "differencesFromFootOnly": replay_difference(cell["arms"]["v11-foot"]["aged"]["drag"], raw)})
     for donor, series in cell["shared"].items():
         reference = series["replays"]["v10"]["row"]
         for receiver, observation in series["replays"].items():
@@ -67,12 +72,17 @@ def alternative_goals(cell, arm, aged):
     sx, sy = aged["drag"]["scale"]
     def distance(a, b):
         return math.hypot((a[0] - b[0]) * sx, (a[1] - b[1]) * sy)
+    def heading(a, b):
+        return math.degrees(math.atan2((b[1] - a[1]) * sy, (b[0] - a[0]) * sx))
     for choice in aged["goalChanges"]:
         paths = aged["tracks"][choice["key"]]["trips"]
         trips = [trip for trip in paths if abs(trip["start"] - choice["clock"]) < 1e-6
                  and distance(trip["goal"], choice["chosen"]) < 1e-6]
         row = dict(**label(cell), arm=arm, **choice, originalLength=distance(choice["from"], choice["raw"]),
                    chosenLength=distance(choice["from"], choice["chosen"]), immediatePlans=len(trips))
+        before = heading(choice["from"], choice["raw"])
+        after = heading(choice["from"], choice["chosen"])
+        row.update(originalHeadingDeg=before, chosenHeadingDeg=after, turnDeg=(after - before + 180) % 360 - 180)
         complete = next((trip for trip in trips if trip["end"] is not None), None)
         if complete:
             row.update(end=complete["end"], to=complete["to"], actualWalkCss=complete["cssDistance"],
@@ -81,6 +91,25 @@ def alternative_goals(cell, arm, aged):
                        chosenGain=distance(complete["from"], choice["chosen"]) - distance(complete["to"], choice["chosen"]),
                        escape=complete["escape"])
         yield row
+
+
+def household_goal_effects(cell, scores):
+    foot = cell["arms"]["v11-foot"]["aged"]
+    final = cell["arms"]["v11"]["aged"]
+    if not final["goalChanges"]:
+        return None
+    first = final["goalChanges"][0]
+    def earlier(age):
+        return {key: [(t["start"], t["from"], t["goal"]) for t in resident["trips"] if t["start"] < first["clock"] - 1e-6]
+                for key, resident in age["tracks"].items()}
+    earlier_foot, earlier_final = earlier(foot), earlier(final)
+    base, new = scores["v11-foot"], scores["v11"]
+    return {**label(cell), "changedGoals":len(final["goalChanges"]), "firstTime":first["clock"], "firstResident":first["key"],
+            "beforeFirstPlansFoot":sum(map(len, earlier_foot.values())), "beforeFirstPlansV11":sum(map(len, earlier_final.values())),
+            "identicalEarlierPlans":earlier_foot == earlier_final,
+            "footSyncShifts":len(foot["sync"]["shifts"]), "finalSyncShifts":len(final["sync"]["shifts"]),
+            "lostNormal":",".join(key for key in base if base[key] and not new[key]),
+            "gainedNormal":",".join(key for key in base if new[key] and not base[key])}
 
 
 def add_household(cell, arm, residents, inputs, aged_inputs, targets, safety, extra):
@@ -97,20 +126,18 @@ def add_household(cell, arm, residents, inputs, aged_inputs, targets, safety, ex
     no_auto = bool(who["ambientFailures"] and not who["ambientStarts"])
     targets.append({**label(cell), "arm": arm, "key": who["key"], "dualFailure": no_auto and after["issued"] and not after["actualStep"],
                     "wrongSelectionAndAutonomyFailed": no_auto and not after["selected"]})
-    for field in prior.SAFETY:
-        safety[field] += a["safety"][field]
+    metrics.add_frames(safety, a)
     safety["modelSyncCallsDuringAge"] += a["sync"]["calls"]
     safety["feetChangedBySyncDuringAge"] += len(a["sync"]["shifts"])
-    for frame in a["frameSamples"]:
-        for field in ("painted", "outsideActorBounds", "nonGround", "hidden"):
-            safety[field] += frame[field]
-        safety["sampledFrames"] += 1
     for gesture in [drop, *data["rows"].values()]:
         if gesture.get("skip"): continue
         safety["inputUnsafe"] += gesture["unsafeSteps"]
         safety["inputSwept"] += gesture["sweptViolations"]
         safety["inputPeerUnsafe"] += sum(peer["unsafe"] for peer in gesture["peerWalk"].values())
         safety["inputPeerSwept"] += sum(peer["swept"] for peer in gesture["peerWalk"].values())
+        if gesture["releaseJumpCss"] is not None:
+            safety["observedReleaseJump"] += 1
+            safety["maxReleaseJumpCss"] = max(safety["maxReleaseJumpCss"], gesture["releaseJumpCss"])
     if "reloaded" in data:
         restore = data["reloaded"]
         old.require(restore["saved"] == restore["loaded"] and len(restore["roster"]) == 28 and restore["drag"]["trusted"],
@@ -190,8 +217,13 @@ def grouped(residents, inputs, aged_inputs, targets):
 
 def original_state_arm(data):
     start = data["naturalOpening"]
-    return {**data, "opening": start["opening"], "seed":start["seed"], "rows":start.get("rows", data["rows"]),
-            "aged":data.get("naturalAged", data["aged"])}
+    native = {**data, "opening": start["opening"], "seed":start["seed"], "rows":start.get("rows", data["rows"]),
+              "aged":data.get("naturalAged", data["aged"])}
+    if "naturalAged" in data:
+        native.pop("reloaded", None)
+        if "naturalReloaded" in data:
+            native["reloaded"] = data["naturalReloaded"]
+    return native
 
 
 def write_table(path, rows, empty_columns):
@@ -214,7 +246,7 @@ def main():
     args.private_data.mkdir(parents=True, exist_ok=True)
     args.out.mkdir(parents=True, exist_ok=True)
     residents, inputs, aged_inputs, targets = [], [], [], []
-    shared, aged_rows, opening_diffs, alternatives, cohorts, sync = [], [], [], [], [], []
+    shared, aged_rows, opening_diffs, alternatives, cohorts, sync, goal_effects = [], [], [], [], [], [], []
     natural_residents, natural_inputs, natural_aged_inputs, natural_targets = [], [], [], []
     opening_states, unaligned_aged = [], []
     native_safety = {arm: Counter() for arm in ARMS}
@@ -248,11 +280,31 @@ def main():
             alternatives.extend(alternative_goals(cell, arm, aged))
             sync.extend({**label(cell), "arm":arm, **shift} for shift in aged["sync"]["shifts"])
             values[arm] = {r["key"]:r["normalCompletions"] for r in residents[start:]}
+        effect = household_goal_effects(cell, values)
+        if effect:
+            goal_effects.append(effect)
+        historical = {}
+        for arm in ("v9", "v10"):
+            aged = previous["arms"][arm]["aged"]
+            historical["prior" + arm.upper()] = {
+                r["key"]: prior.resident(previous, arm, r, aged["tracks"][r["key"]], aged["drag"]["scale"],
+                                         aged["final"]["modelSeconds"])["normalCompletions"]
+                for r in aged["final"]["residents"]
+            }
         for key in values["v10"]:
             scores = {arm: values[arm][key] for arm in ARMS}
-            if not all(scores.values()):cohorts.append({**label(cell), "key":key, **scores})
+            previous_scores = {arm: records[key] for arm, records in historical.items()}
+            if not all((*scores.values(), *previous_scores.values())):
+                cohorts.append({**label(cell), "key": key, **previous_scores, **scores})
     groups = grouped(residents, inputs, aged_inputs, targets)
     natural_groups = grouped(natural_residents, natural_inputs, natural_aged_inputs, natural_targets)
+    changed_by_region = []
+    for region in old.REGIONS:
+        changed = [row for row in alternatives if row["region"] == region]
+        completed = [row for row in changed if "end" in row]
+        changed_by_region.append({"region": region, "changed": len(changed), "immediatePlans":sum(row["immediatePlans"] for row in changed),
+            "completed":len(completed), "towardOriginal":sum(row["actualDisplacement"] >= 8 - 1e-7 and row["originalGain"] > .75 and
+                       not row["escape"] for row in completed), "affectedResidents":len({(row["count"],row["width"],row["key"]) for row in changed})})
     totals = {r["arm"]: r for r in groups if r["group"] == "all"}
     for arm, totals_for_arm in totals.items():
         old.require(tuple(totals_for_arm[k] for k in ("residents","drags","tapSent","agedDragCount")) ==
@@ -274,11 +326,14 @@ def main():
                                               and not r.get("escape") for r in alternatives),
         "equalAgedFeetToCurrentV10": {arm: sum(r["arm"] == arm and r["freshV10SameFeet"] for r in aged_rows) for arm in ARMS}}
     for basename, rows in (("groups", groups), ("natural-start-groups",natural_groups), ("opening-states",opening_states),
+                           ("goals-by-region", changed_by_region),
+                           ("goal-effects", goal_effects),
                            ("uncompleted", cohorts), ("opening-differences", opening_diffs)):
         write_table(args.out / f"matrix-{basename}.csv", rows, (*ID, "case", "arm", "changed", "prior", "new"))
     for basename, rows in (("residents", residents), ("opening-inputs", inputs), ("aged-inputs", aged_rows),
                            ("matched-inputs", shared), ("alternative-goals", alternatives), ("foot-shifts", sync),
-                           ("natural-start-residents",natural_residents), ("natural-start-inputs", unaligned_aged)):
+                           ("natural-start-residents",natural_residents), ("natural-start-inputs", unaligned_aged),
+                           ("natural-opening-inputs",natural_inputs)):
         empty = (*ID, "arm", "clock", "key", "before", "after") if basename == "foot-shifts" else (*ID, "arm", "clock", "key", "from", "raw", "chosen")
         write_table(args.private_data / f"matrix-{basename}.csv.gz", rows, empty)
     failures = [r for r in aged_rows if r["status"] != "arrived"]

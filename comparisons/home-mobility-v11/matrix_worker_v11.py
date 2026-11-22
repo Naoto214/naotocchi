@@ -133,6 +133,8 @@ def observe_arm(browser, url, coord, arm, tape, subject, donor=None):
         result["aged"] = native_aged
     else:
         result["naturalAged"] = native_aged
+        if restore:
+            result["naturalReloaded"] = restore
         with native_page(browser, url, coord, arm, True) as (page, touch, start):
             old.require(start["hashes"] == meta["hashes"], "aligned runtime changed")
             aligned = match_opening(page, start, current_opening(page, start), donor)
