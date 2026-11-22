@@ -9,7 +9,7 @@ HERE = Path(__file__).resolve().parent
 REASONS = {
     "45008630395": "Initial terrain, before the complete painted obstacle guard. The short 320px natural input failed its movement-density check. The two 320px stress fixtures had identical feet and different native opening animation phases. The 390px control generation also sampled different absolute CSS touch coordinates across orders; each was retained.",
     "45008878132": "Initial 375px seat cost and trusted input on C and D, before the whole-segment obstacle guard.",
-    "45009396848": "320px input correction on the initial terrain. The longer natural source and the pinned stress input were replayed in both orders.",
+    "45009396848": "320px input correction on the initial terrain. Stress used the same pinned pose and phase tapes in both orders. The unpinned natural source selected 200 clips (167 resident-frame movements) in forward and 600 (175 movements) in reverse; each was shared within its own order. Final cross-order measurements use the single published 600-clip source.",
 }
 
 

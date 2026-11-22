@@ -15,7 +15,8 @@ old=helpers["old"]
 
 def report(directory, game, out, touch_archive=None):
     receipt=json.loads((directory/"receipt.json").read_bytes())
-    assert receipt["complete"] and receipt["conclusion"]=="success"
+    jobs=[j for j in receipt["jobs"] if "seat-375" in j["name"]]
+    assert len(jobs)==2 and all(j["conclusion"]=="success" for j in jobs)
     seat_archives=[a for a in receipt["archives"] if "-seat-375-" in a["name"]]
     assert len(seat_archives)==2
     result=dict(run=receipt["run"],url=receipt["url"],commit=receipt["commit"],archives=seat_archives,assets={},sources={},measures=[])

@@ -62,6 +62,7 @@ def report(directory, dist, out, supplements=()):
                 raw[name] = json.loads(data)
     assert len(raw) == 20, sorted(raw)
     result.update(run=runs[0]["run"], url=runs[0]["url"], commit=runs[0]["commit"], runs=runs)
+    validated = {}
     frames = []
     openings = {}
     first_commands = {}
@@ -112,6 +113,10 @@ def report(directory, dist, out, supplements=()):
                         s = row["sample"]
                         assert s["retained"] and s["visibleAtOpen"] == s["visibleAtEnd"] == len(s["opening"]) == 28
                         assert s["elapsedMs"] >= data["seconds"] * 1000 and not s["diagnostics"]["enabled"]
+                        assert s["scales"] == ([1.2, 1.2, 1.05] if width == 320 else [1.38, 1.38, 1.2075])
+                        settings = s["settings"]
+                        assert settings["count"] == 28 and settings["width"] == width and settings["policy"] == "B"
+                        assert not settings["paused"] and s["moves"] > 0 and s["distance"] > 0
                         digest = old["fingerprint"](s["opening"])
                         assert openings.setdefault((width, arm), digest) == digest, (width, arm, digest, openings)
                         summary.update(openingSHA256=digest, wallMs=s["elapsedMs"], modelSeconds=s["clock"], moves=s["moves"],

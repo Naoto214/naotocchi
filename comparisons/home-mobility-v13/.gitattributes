@@ -1,0 +1,3 @@
+# Preserve the standard CRLF record separators used by the archived CSV exports.
+forest-residents.csv whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+forest-peer-changes.csv whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

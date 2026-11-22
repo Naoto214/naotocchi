@@ -31,9 +31,15 @@ for entry in args.group:
     group,loc=entry.split('=',1);root=Path(loc).resolve()
     if not root.is_dir():raise ValueError(root)
     for src in sorted(root.rglob('*')):
-        if src.is_file() and not src.name.startswith('.') and src.suffix in {'.zip','.gz','.json','.csv','.md','.jpg','.patch'}:
+        if src.is_file() and not src.name.startswith('.'):
             retain(group,src.relative_to(root),src)
-if args.inventory:retain('overview','github-archives.json',args.inventory)
+if args.inventory:
+    for src in args.inventory.resolve().parent.iterdir():
+        if src.is_file():
+            path=record_dir/src.name
+            if path.exists() and not os.path.samefile(src,path):path.unlink()
+            if not path.exists():os.link(src,path)
+            index[path.relative_to(dest).as_posix()]=dict(group='overview',bytes=path.stat().st_size,sha256=hashlib.sha256(path.read_bytes()).hexdigest())
 for src in sorted(here.glob('*.md')):
     if src.name!='README.md':retain('overview',src.name,src)
 for src in sorted((here/'evidence').glob('*')):
@@ -74,7 +80,7 @@ for group,label in groups.items():
     if not files:continue
     rows=[]
     for key,item in files:
-        name=key.split('/',2)[2];size=item['bytes']
+        name=key.split('/',2)[-1];size=item['bytes']
         formatted=f'{size/1048576:.1f} MB' if size>=1048576 else f'{max(1,round(size/1024)):,} KB'
         if group=='overview' and name in reports:
             rows.append(f'<li><a href="reports/{quote(Path(name).stem)}.html">{h(name)}</a><a href="{quote(key)}" download>原文</a></li>')

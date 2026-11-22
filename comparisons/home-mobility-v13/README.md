@@ -12,6 +12,12 @@
 
 V11の足元のみ、V12の曲がる道譲りも試遊できる。森以外は既存地形を使用する。足元保持の独立した候補は、通知時のパンダと山の通路で再生できる。
 
+## 測定結果
+
+[総合報告](RESULTS.md) · [歩行地図と接触](MAP.md) · [長時間の公平性](forest-report.md) · [13地域の回帰](regional.md) · [WebKitの性能](PERF.md) · [足元保持の独立候補](FOOT.md)
+
+[本人限定試遊](https://naotocchi-home-v13.kerzion214.chatgpt.site/v13/) · [住民別の記録](https://naotocchi-home-v13.kerzion214.chatgpt.site/v13/forest.html) · [測定原本](https://naotocchi-home-v13-records.kerzion214.chatgpt.site/)
+
 ## 再現
 
 比較用の全ファイルを生成するには、#582の本人限定バンドルをビルドしてから `node comparisons/home-mobility-v13/build.cjs OUTPUT --baseline V12_DIR` を実行する。計測用のみを生成する場合は `--gameplay-only` を追加する。いずれもゲーム本体の出力先と別のディレクトリを指定する。

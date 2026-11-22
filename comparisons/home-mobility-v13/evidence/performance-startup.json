@@ -164,5 +164,7 @@
         "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6"
       }
     }
-  ]
+  ],
+  "runtimeSource": "ec99cfdd9a29a6b5b72247877d6789974adb244e",
+  "precedesFinalPaintedObstacleGuard": true
 }
