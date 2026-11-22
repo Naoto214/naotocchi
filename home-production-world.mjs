@@ -1,3 +1,5 @@
+import {surfaceAt} from './home-ground-material.mjs?v=4adaf0c8c69b';
+import {usesAutumnLeaves,paintAutumnLeaves} from './home-autumn-leaves.mjs?v=059657479bfe';
 import {extendVisibleGroundNavigation} from './home-visible-ground-navigation.mjs?v=47d394909efd';
 import {createDayparts,atmosphere} from './home-dayparts.mjs';
 import {ART_CANDIDATES,selectRecoveredScene} from './home-production-manifest.mjs';
@@ -9,6 +11,7 @@ export function createHomeWorld(options){
  const dayparts=createDayparts(win);let fade=null,fxKey='';
  const fx=doc.createElement('div');fx.className='home-dayparts-fx';container.appendChild(fx);
  const canvas=doc.createElement('canvas');canvas.className='home-art-canvas';container.appendChild(canvas);const ctx=canvas.getContext('2d');
+ let groundProjection=null;
  let env={},spec=null,img=null,loaded=false,error=null,generation=0,time=0,dead=false,nav=null,navKey='',revision=0,lastPaint='';
  const displayRect=e=>win.NaotocchiHomeViewport?.presentationRect?.(e)||e.getBoundingClientRect();
  const geometry=()=>{const host=displayRect(container),r=displayRect(doc.getElementById('castStage'));return {host,stage:{left:r.left-host.left,top:r.top-host.top,width:r.width,height:r.height}};};
@@ -16,7 +19,7 @@ export function createHomeWorld(options){
  function setEnvironment(e){if(dead)return;env={...e};const selected=selectRecoveredScene(e.region);
   canvas.style.display='';fx.hidden=false;dayparts.select(e.region,e.time);
   if(spec===selected)return;
-  spec=selected;error=null;nav=null;navKey='';lastPaint='';revision++;const token=++generation;
+  spec=selected;groundProjection=null;error=null;nav=null;navKey='';lastPaint='';revision++;const token=++generation;
   // Keep the previous successful painting visible while either new image loads.
   const next=new win.Image();next.decoding='async';next.onload=()=>{if(dead||token!==generation||dayparts.frame(0).image)return;img=next;loaded=true;lastPaint='';onStatus('art-25d');};
   next.onerror=()=>{if(dead||token!==generation)return;error='旧背景画像を読み込めませんでした';};
@@ -46,7 +49,14 @@ export function createHomeWorld(options){
   const v15=['15','16','17','18'].includes(doc.body.dataset.homeDisplayVersion),v14=v15||doc.body.dataset.homeDisplayVersion==='14';
   const contain=fullBackdrop&&['13','14','15','16','17','18'].includes(doc.body.dataset.homeDisplayVersion)&&win.NaotocchiHomeViewport?.residentPresentation?.()?.landscape;
   const cover=backdropComposition(host,stage).cover,cw=v14?host.height/1.5:Math.min(host.width,host.height/1.5);
-  const t=contain?{width:cw,height:cw*1.5,left:(host.width-cw)/2,top:(host.height-cw*1.5)/2}:fullBackdrop?cover:artTransform(host,stage),stamp=JSON.stringify([fullBackdrop,contain,host.width,host.height,t.top,env.time,env.weather,env.season,loaded,img?.src,fade.alpha,flags.reducedMotion,Math.floor(time/120)]);if(stamp===lastPaint)return;lastPaint=stamp;
+  const t=contain?{width:cw,height:cw*1.5,left:(host.width-cw)/2,top:(host.height-cw*1.5)/2}:fullBackdrop?cover:artTransform(host,stage),stamp=JSON.stringify([fullBackdrop,contain,host.width,host.height,t.top,env.time,env.weather,env.season,loaded,img?.src,fade.alpha,flags.reducedMotion,Math.floor(time/120)]);// Full-screen artwork is in screen coordinates. Resident feet are in stage coordinates.
+  const presentation=fullBackdrop && win.NaotocchiHomeViewport?.residentPresentation?.();
+  const sx=presentation?.scaleX||1,sy=presentation?.scaleY||1;
+  const stageLeft=stage.left+native.host.left,stageTop=stage.top+native.host.top;
+  const localX=fullBackdrop?(presentation?presentation.x+(stageLeft-presentation.x)*sx:stageLeft)-host.left:stage.left;
+  const localY=fullBackdrop?(presentation?presentation.y+(stageTop-presentation.y)*sy:stageTop)-host.top:stage.top;
+  groundProjection={x:(localX-t.left)/t.width,y:(localY-t.top)/t.height,dx:sx/t.width,dy:sy/t.height};
+  if(stamp===lastPaint)return;lastPaint=stamp;
   const dpr=Math.min(2,win.devicePixelRatio||1),W=Math.round(host.width*dpr),H=Math.round(host.height*dpr);if(canvas.width!==W||canvas.height!==H){canvas.width=W;canvas.height=H;}
   ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle=contain&&v15?'#ffffff':contain&&v14?'#eee8dc':env.region==='city'?'#ac8c90':env.region==='forest'?'#173d35':'#b5d4d9';ctx.fillRect(0,0,host.width,host.height);
   if(!loaded||!img)return;
@@ -67,14 +77,30 @@ export function createHomeWorld(options){
    if(env.region==='home'){ctx.beginPath();ctx.moveTo(t.left+t.width*.27,t.top+t.height*.12);ctx.lineTo(t.left+t.width*.57,t.top+t.height*.13);ctx.lineTo(t.left+t.width*.57,t.top+t.height*.30);ctx.lineTo(t.left+t.width*.27,t.top+t.height*.31);ctx.closePath();ctx.clip();}
    ctx.fillRect(t.left,t.top,t.width,t.height);ctx.restore();}
   const fk=JSON.stringify([env.region,env.weather,env.season,env.time,flags.reducedMotion,flags.tier]);
-  if(fk!==fxKey){fxKey=fk;const model=win.NaotocchiWorldScene?.resolveScene?.(env);fx.innerHTML=model?win.NaotocchiWorldScene.sceneMarkup({...model,water:null,particle:mood.particle},{tier:flags.tier,reducedMotion:flags.reducedMotion}).atmosphere:'';fx.dataset.region=env.region;fx.dataset.frost=String(mood.frost);}
+  const leafScene=usesAutumnLeaves(env.region,env.time,env);
+  if(!flags.reducedMotion && env.season==='autumn'){
+   const layer=(picture,opacity)=>{
+    const scene=picture?.src?.match(/\/([a-z_]+)-(morning|day|evening|night)\.webp(?:\?|$)/);
+    if(opacity>0 && scene && usesAutumnLeaves(scene[1],scene[2],env))
+     paintAutumnLeaves(ctx,t,scene[1],scene[2],time/1000,opacity);
+   };
+   if(fade.previous)layer(fade.previous,1-fade.alpha);
+   layer(fade.image,fade.alpha);
+  }
+  if(fk!==fxKey){fxKey=fk;
+   const overcast=['cloudy','rain','snow'].includes(env.weather);
+   doc.body.style.setProperty('--contact-opacity',String(overcast?.28:night?.33:.48));
+   doc.body.style.setProperty('--contact-throw',env.region==='forest'&&!overcast&&['morning','evening'].includes(env.time)?'10%':'0%');
+   const model=win.NaotocchiWorldScene?.resolveScene?.(env);fx.innerHTML=model?win.NaotocchiWorldScene.sceneMarkup({...model,water:null,particle:leafScene&&!flags.reducedMotion?'none':mood.particle},{tier:flags.tier,reducedMotion:flags.reducedMotion}).atmosphere:'';fx.dataset.region=env.region;fx.dataset.frost=String(mood.frost);}
   Object.assign(fx.style,{left:t.left+'px',top:t.top+'px',width:t.width+'px',height:t.height+'px'});
   // A representative painting is retained. This restrained overlay is not a
   // claim that baked sunset/sunbeams have become a completed night artwork.
   if(!fade.image&&(env.time==='night'||env.weather==='rain')){ctx.fillStyle=env.time==='night'?'rgba(21,30,73,.24)':'rgba(38,57,78,.15)';if(contain&&v15)ctx.fillRect(t.left,t.top,t.width,t.height);else ctx.fillRect(0,0,host.width,host.height);}
   if(!flags.reducedMotion){ctx.save();ctx.globalCompositeOperation='screen';for(let i=0;i<7;i++){const u=.18+(i*.117)% .65,v=spec.accent==='water'?.28+(i%3)*.035:.16+(i%4)*.13,x=(contain?t.left:0)+u*t.width,y=t.top+v*t.height+Math.sin(time/2400+i)*3;ctx.globalAlpha=.08+.12*(.5+.5*Math.sin(time/1500+i));ctx.fillStyle=spec.accent==='glow'?'#ffdb9b':'#fffad4';ctx.beginPath();ctx.ellipse(x,y,spec.accent==='water'?7:1.4,spec.accent==='water'?1:1.4,0,0,Math.PI*2);ctx.fill();}ctx.restore();}
  }
- return {setEnvironment,navigation,draw,observationPoints(n){return spec.points.map(([x,z,action,tag])=>({...n.project({x,z}),activity:action,id:'art-'+env.region+'-'+tag,tag,target:n.project({x:x+.02,z:z-.04})})).filter(p=>n.valid(p));},
+ return {setEnvironment,navigation,draw,
+  groundSurface(x,y){const p=groundProjection;return p?surfaceAt(env.region,p.x+x*p.dx,p.y+y*p.dy):'';},
+  observationPoints(n){return spec.points.map(([x,z,action,tag])=>({...n.project({x,z}),activity:action,id:'art-'+env.region+'-'+tag,tag,target:n.project({x:x+.02,z:z-.04})})).filter(p=>n.valid(p));},
   occlusion(p){if(!spec||!nav)return [];const {host,stage}=geometry();
    if(['17','18'].includes(doc.body.dataset.homeDisplayVersion)&&doc.body.dataset.homeTinyOverview==='true'){
     // Match the displayed painting, then invert only the resident presentation.

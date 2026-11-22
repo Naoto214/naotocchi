@@ -116,6 +116,15 @@
   }
   // The official solver already shrinks crowded casts. Do not shrink them twice.
   function crowdScale(){return 1;}
+  function residentVisualScale(kind,count,width,heroPercent){
+    const t=Math.max(0,Math.min(1,(width-320)/55));
+    const density=Math.max(0,Math.min(1,(count-18)/10));
+    const extra=1+.15*density*t*t*(3-2*t);
+    // layoutTerrainCast already applies the protagonist's configured percentage.
+    const nativeHero=[100,105,110,115,120].includes(heroPercent)?heroPercent:100;
+    const role=kind==='pet'?120/nativeHero:kind==='partner'?1.2:1.05;
+    return role*extra;
+  }
   function scaleLayout(layout,args,k=crowdScale(1+(args.hasPartner?1:0)+(args.companions?.length||0))){
     k=Number.isFinite(k)?Math.max(.6,Math.min(1,k)):1;
     const boxes=typeof module==='object'&&module.exports?require('./cast-bounds.js'):window.NaotocchiCastBounds;
@@ -305,7 +314,7 @@
     function ensureWorld(){
       const M=getMeguru();if(!M||worldLoading||world||!doc.body)return;
       worldLoading=true;const generation=++loadGeneration;worldHost=doc.createElement('div');worldHost.className='home-living-world';worldHost.setAttribute('aria-hidden','true');doc.body.appendChild(worldHost);
-      import('./home-production-world.mjs?v=d824c818c676').then(mod=>{if(generation!==loadGeneration||dead||!enabled)return;
+      import('./home-production-world.mjs?v=0bcf4f08534f').then(mod=>{if(generation!==loadGeneration||dead||!enabled)return;
         world=mod.createHomeWorld({M,container:worldHost,document:doc,window:env,
           getGroundAnchor:()=>scene?displayRect(stage).top-displayRect(worldHost).top+scene.floor*.8:undefined,
           onStatus:(mode,error)=>{stage.dataset.worldRenderer=mode;if(error)stage.dataset.worldError=error;else delete stage.dataset.worldError;doc.body.dataset.livingHome=mode;}});
@@ -591,6 +600,9 @@ function bodyChanged(old, next) {
       if(env.CustomEvent)stage.dispatchEvent(new env.CustomEvent('home-paint-envelope'));
     }
     let paintedBodyScale=null,bodyScaleTime=0,paintedLandscape=null;
+    function actorVisualScale(kind){
+      return residentVisualScale(kind,rows.size,env.innerWidth||320,Number(doc.body?.dataset.homeHeroPercent));
+    }
     function paint(){
       // Care and visibility changes can interrupt before activation or after exit.
       // In those states the legacy Home owns the cast and poop presentation.
@@ -608,12 +620,17 @@ function bodyChanged(old, next) {
       const sx=presentation?.scaleX||1,sy=presentation?.scaleY||1,bod=paintedBodyScale??1;
       for(const a of snapshot){
         const row=rows.get(a.key);if(!row)continue;
-        const dx=a.x-row.x,dy=a.y-row.y,depthScale=scene.navigation?.depthScale?.(a)||1;
+        const dx=a.x-row.x,dy=a.y-row.y,depthScale=(scene.navigation?.depthScale?.(a)||1)*actorVisualScale(a.kind);
         // A visual can be replaced on sleep/wake without moving its actor.
         const sleep=row.owner.querySelector?.('.pet-expression-accent--sleeping > svg > g');
         row.owner.style.setProperty('--diorama-sleep-shift',sleepAccentShift(sleep?.getAttribute?.('transform'),row.originX??50,facingScale(row,a.direction))+'%');
         placeActorEffects(row.owner,row.originX??50,facingScale(row,a.direction),a.direction);
         const stamp=[sx,sy,bod,depthScale.toFixed(4),dx.toFixed(2),dy.toFixed(2),a.activity,a.direction,!!a.target,model.selected()===a.key,isPaused,revision,row.x,row.y,row.w,row.h].join(':');
+        const surface=world?.groundSurface?.(a.x,a.y)||'';
+        if((row.shadow.dataset.surface||'')!==surface){
+          if(surface)row.shadow.dataset.surface=surface;
+          else delete row.shadow.dataset.surface;
+        }
         if(row.paintStamp===stamp){if(['17','18'].includes(doc.body?.dataset.homeDisplayVersion))paintForeground(a,row);onPosition(a,dx,dy);continue;}row.paintStamp=stamp;
         for(const n of [row.owner,...(row.attachments||[])]){
           n.style.translate=`${dx.toFixed(2)}px ${dy.toFixed(2)}px`;
@@ -747,6 +764,6 @@ function bodyChanged(old, next) {
     doc.addEventListener('visibilitychange',visibility);media?.addEventListener?.('change',preference);
     return {model,update,sync,interrupt,prepareNewborn(){newbornPending=true;},overview:()=>overview,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){env.removeEventListener?.('dayparts-qa-change',refreshDayparts);placeHomeSlots(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);view.remove();selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
   }
-  return {displayWalkingBounds,portraitWalkingBounds,localOcclusionPolygons,residentPaintExtent,residentInkBand,noticeChunks,textLayout,homeText,homeWarnings,sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,effectPosition,effectTrajectory,placeActorEffects,speechPlacement,speechTail,placeGroundProps};
+  return {residentVisualScale,displayWalkingBounds,portraitWalkingBounds,localOcclusionPolygons,residentPaintExtent,residentInkBand,noticeChunks,textLayout,homeText,homeWarnings,sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,effectPosition,effectTrajectory,placeActorEffects,speechPlacement,speechTail,placeGroundProps};
 });
 
