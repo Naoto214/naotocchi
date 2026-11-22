@@ -1,44 +1,4 @@
 {
-  "hostedYieldTouch390": {
-    "cases": [
-      {
-        "scene": "watcher",
-        "arm": "short",
-        "state": "arrived",
-        "travel": 8.000000000000016,
-        "error": 0,
-        "helpers": [
-          "companion:hedgehog",
-          "companion:tanuki"
-        ],
-        "actorCount": 28,
-        "exits": "終点で周囲が静止した場合の単独8pxの退路。ほかの27体で最後の方向が閉じた住民 · 該当なし。新たに方向が開いた住民 · 該当なし。 全28体で、開始時にあった最後の単独方向を失った住民 · 3px 該当なし、8px 該当なし、16px 該当なし。"
-      },
-      {
-        "scene": "stone-near",
-        "arm": "short",
-        "state": "closed",
-        "travel": 0,
-        "error": 8.00999999999999,
-        "helpers": [],
-        "actorCount": 28,
-        "exits": "終点で周囲が静止した場合の単独8pxの退路。ほかの27体で最後の方向が閉じた住民 · 該当なし。新たに方向が開いた住民 · 該当なし。 同じ開始・終了位置で測定 · ほおぶくろハムスターの単独3px 12→12方向、あそびずきカワウソの単独3px 3→3方向。"
-      },
-      {
-        "scene": "stone-near",
-        "arm": "v12",
-        "state": "arrived",
-        "travel": 8.009999999999987,
-        "error": 0,
-        "helpers": [
-          "companion:hamster"
-        ],
-        "actorCount": 28,
-        "exits": "終点で周囲が静止した場合の単独8pxの退路。ほかの27体で最後の方向が閉じた住民 · 該当なし。新たに方向が開いた住民 · 該当なし。 同じ開始・終了位置で測定 · ほおぶくろハムスターの単独3px 12→0方向、あそびずきカワウソの単独3px 3→0方向。"
-      }
-    ],
-    "errors": []
-  },
   "localWebKitHome390": {
     "width": 390,
     "engine": "webkit",
@@ -92,5 +52,534 @@
         "errors": []
       }
     ]
+  },
+  "localWebKitMousePointerDrag390": {
+    "engine": "WPE WebKit 26.5",
+    "viewport": [
+      390,
+      792
+    ],
+    "nativePath": "http://127.0.0.1:18642/game/mobility-v12-compare-v12.html?region=forest&time=day&count=28&trialSeed=937&paused=1&clock=0&ground=on&paired=1&waitForPainting=1&variant=B&compareSplit=0&season=autumn&weather=sunny&diagnostics=0&footLog=1",
+    "residents": 28,
+    "route": "forest",
+    "input": "trusted mouse pointer drag in a mobile WebKit viewport",
+    "tests": [
+      {
+        "intended": "pet:dog",
+        "selected": "pet:dog",
+        "points": [
+          [
+            186.34804870409636,
+            367.7906310442951
+          ],
+          [
+            211.34804870409636,
+            376.7906310442951
+          ]
+        ],
+        "events": [
+          {
+            "t": "pointerdown",
+            "pt": [
+              186,
+              367
+            ],
+            "trusted": true,
+            "type": "mouse",
+            "actor": null,
+            "source": null,
+            "target": null,
+            "at": null
+          },
+          {
+            "t": "pointerup",
+            "pt": [
+              211,
+              376
+            ],
+            "trusted": true,
+            "type": "mouse",
+            "actor": "pet:dog",
+            "source": "ambient",
+            "target": null,
+            "at": {
+              "x": 186.34804870409636,
+              "y": 376.7906310442951
+            }
+          }
+        ],
+        "command": {
+          "key": "pet:dog",
+          "kind": "pet",
+          "id": "dog",
+          "asset": "assets/characters/dog/06.png",
+          "label": "大人のいぬ",
+          "x": 193.32000000000002,
+          "y": 283.34000000000003,
+          "w": 41.800000000000004,
+          "h": 48.76666666666667,
+          "depth": 0.9103448275862069,
+          "foot": {
+            "x": 186.34804870409636,
+            "y": 376.7906310442951
+          },
+          "selected": true,
+          "activity": "walk",
+          "direction": 1,
+          "target": {
+            "x": 194.97213969089546,
+            "y": 283.2642657145178
+          },
+          "source": "drag",
+          "route": []
+        },
+        "samples": [
+          {
+            "foot": {
+              "x": 188.61102079571253,
+              "y": 376.7180535851508
+            },
+            "source": "drag",
+            "target": null,
+            "activity": "rest"
+          },
+          {
+            "foot": {
+              "x": 188.61102079571253,
+              "y": 376.7180535851508
+            },
+            "source": "drag",
+            "target": null,
+            "activity": "rest"
+          },
+          {
+            "foot": {
+              "x": 188.61102079571253,
+              "y": 376.7180535851508
+            },
+            "source": "drag",
+            "target": null,
+            "activity": "rest"
+          },
+          {
+            "foot": {
+              "x": 188.61102079571253,
+              "y": 376.7180535851508
+            },
+            "source": "drag",
+            "target": null,
+            "activity": "rest"
+          },
+          {
+            "foot": {
+              "x": 188.61102079571253,
+              "y": 376.7180535851508
+            },
+            "source": "drag",
+            "target": null,
+            "activity": "rest"
+          },
+          {
+            "foot": {
+              "x": 188.61102079571253,
+              "y": 376.7180535851508
+            },
+            "source": "drag",
+            "target": null,
+            "activity": "rest"
+          },
+          {
+            "foot": {
+              "x": 188.61102079571253,
+              "y": 376.7180535851508
+            },
+            "source": "drag",
+            "target": null,
+            "activity": "rest"
+          },
+          {
+            "foot": {
+              "x": 188.61102079571253,
+              "y": 376.7180535851508
+            },
+            "source": "drag",
+            "target": null,
+            "activity": "look"
+          },
+          {
+            "foot": {
+              "x": 188.61102079571253,
+              "y": 376.7180535851508
+            },
+            "source": "drag",
+            "target": null,
+            "activity": "look"
+          }
+        ],
+        "displacementCss": 2.2641356352943025,
+        "dragCommandSeen": true
+      },
+      {
+        "intended": "pet:dog",
+        "selected": "pet:dog",
+        "points": [
+          [
+            188.61102079571253,
+            367.7180535851508
+          ],
+          [
+            158.61102079571253,
+            384.7180535851508
+          ]
+        ],
+        "events": [
+          {
+            "t": "pointerdown",
+            "pt": [
+              188,
+              367
+            ],
+            "trusted": true,
+            "type": "mouse",
+            "actor": "pet:dog",
+            "source": "drag",
+            "target": null,
+            "at": {
+              "x": 188.61102079571253,
+              "y": 376.7180535851508
+            }
+          },
+          {
+            "t": "pointerup",
+            "pt": [
+              158,
+              384
+            ],
+            "trusted": true,
+            "type": "mouse",
+            "actor": "pet:dog",
+            "source": "drag",
+            "target": null,
+            "at": {
+              "x": 188.61102079571253,
+              "y": 376.7180535851508
+            }
+          }
+        ],
+        "command": {
+          "key": "pet:dog",
+          "kind": "pet",
+          "id": "dog",
+          "asset": "assets/characters/dog/06.png",
+          "label": "大人のいぬ",
+          "x": 194.97213969089546,
+          "y": 283.2642657145178,
+          "w": 41.800000000000004,
+          "h": 48.76666666666667,
+          "depth": 0.9102816062601125,
+          "foot": {
+            "x": 188.61102079571253,
+            "y": 376.7180535851508
+          },
+          "selected": true,
+          "activity": "walk",
+          "direction": 1,
+          "target": {
+            "x": 174.91020291119406,
+            "y": 282.7728607875172
+          },
+          "source": "drag",
+          "route": [
+            {
+              "x": 166.91020291119406,
+              "y": 290.7728607875172
+            }
+          ]
+        },
+        "samples": [
+          {
+            "foot": {
+              "x": 174.63582975777638,
+              "y": 376.47855596805414
+            },
+            "source": "drag",
+            "target": {
+              "x": 174.91020291119406,
+              "y": 282.7728607875172
+            },
+            "activity": "walk"
+          },
+          {
+            "foot": {
+              "x": 174.63582975777638,
+              "y": 376.47855596805414
+            },
+            "source": "drag",
+            "target": {
+              "x": 174.91020291119406,
+              "y": 282.7728607875172
+            },
+            "activity": "walk"
+          },
+          {
+            "foot": {
+              "x": 157.22659235929376,
+              "y": 378.97934610832533
+            },
+            "source": "drag",
+            "target": {
+              "x": 166.91020291119406,
+              "y": 290.7728607875172
+            },
+            "activity": "walk"
+          },
+          {
+            "foot": {
+              "x": 151.85700815833533,
+              "y": 382.73614071139855
+            },
+            "source": "drag",
+            "target": {
+              "x": 166.91020291119406,
+              "y": 290.7728607875172
+            },
+            "activity": "walk"
+          },
+          {
+            "foot": {
+              "x": 151.85700815833533,
+              "y": 382.73614071139855
+            },
+            "source": "drag",
+            "target": null,
+            "activity": "look"
+          },
+          {
+            "foot": {
+              "x": 151.85700815833533,
+              "y": 382.73614071139855
+            },
+            "source": "drag",
+            "target": null,
+            "activity": "look"
+          },
+          {
+            "foot": {
+              "x": 151.85700815833533,
+              "y": 382.73614071139855
+            },
+            "source": "drag",
+            "target": null,
+            "activity": "look"
+          },
+          {
+            "foot": {
+              "x": 151.85700815833533,
+              "y": 382.73614071139855
+            },
+            "source": "drag",
+            "target": null,
+            "activity": "look"
+          },
+          {
+            "foot": {
+              "x": 151.85700815833533,
+              "y": 382.73614071139855
+            },
+            "source": "drag",
+            "target": null,
+            "activity": "look"
+          }
+        ],
+        "displacementCss": 37.24345335233552,
+        "dragCommandSeen": true
+      }
+    ],
+    "errors": []
+  },
+  "finalHostedMobileTouch390": {
+    "cases": [
+      {
+        "scene": "watcher",
+        "arm": "short",
+        "state": "arrived",
+        "travel": 8.000000000000016,
+        "error": 0,
+        "helpers": [
+          "companion:hedgehog",
+          "companion:tanuki"
+        ],
+        "actorCount": 28,
+        "exits": "終点で周囲が静止した場合の単独8pxの退路。ほかの27体で最後の方向が閉じた住民 · 該当なし。新たに方向が開いた住民 · 該当なし。 全28体で、開始時にあった最後の単独方向を失った住民 · 3px 該当なし、8px 該当なし、16px 該当なし。"
+      },
+      {
+        "scene": "stone-near",
+        "arm": "short",
+        "state": "closed",
+        "travel": 0,
+        "error": 8.00999999999999,
+        "helpers": [],
+        "actorCount": 28,
+        "exits": "終点で周囲が静止した場合の単独8pxの退路。ほかの27体で最後の方向が閉じた住民 · 該当なし。新たに方向が開いた住民 · 該当なし。 同じ開始・終了位置で測定 · ほおぶくろハムスターの単独3px 12→12方向、あそびずきカワウソの単独3px 3→3方向。"
+      },
+      {
+        "scene": "stone-near",
+        "arm": "v12",
+        "state": "arrived",
+        "travel": 8.009999999999987,
+        "error": 0,
+        "helpers": [
+          "companion:hamster"
+        ],
+        "actorCount": 28,
+        "exits": "終点で周囲が静止した場合の単独8pxの退路。ほかの27体で最後の方向が閉じた住民 · 該当なし。新たに方向が開いた住民 · 該当なし。 同じ開始・終了位置で測定 · ほおぶくろハムスターの単独3px 12→0方向、あそびずきカワウソの単独3px 3→0方向。"
+      }
+    ],
+    "narrowPassages": [
+      {
+        "arm": "shipped",
+        "exits": "198.27秒の測定 · 1 / 384方向（146.25°）",
+        "angles": "",
+        "walks": "時計\t2 → 2\t3 → 3\nハリネズミ\t1 → 1\t3 → 2\nハムスター\t2 → 2\t0 → 2",
+        "actors": 28,
+        "clock": "198.27秒"
+      },
+      {
+        "arm": "margin",
+        "exits": "198.30秒の測定 · 4 / 384方向（143.4375°～146.25°）",
+        "angles": "",
+        "walks": "時計\t2 → 2\t3 → 3\nハリネズミ\t1 → 1\t3 → 2\nハムスター\t2 → 2\t0 → 2",
+        "actors": 28,
+        "clock": "198.30秒"
+      }
+    ],
+    "errors": []
+  },
+  "localWebKitCorridor390": {
+    "engine": "webkit",
+    "version": "26.5",
+    "cases": [
+      {
+        "region": "mountain",
+        "mode": "guard",
+        "openingCount": 10,
+        "panda": 0,
+        "oldRays": 1,
+        "newRays": 1,
+        "held": true,
+        "travel": {
+          "accepted": true,
+          "arrived": true,
+          "done": true,
+          "start": {
+            "x": 125.4093306517028,
+            "y": 227.30988999268598
+          },
+          "end": {
+            "x": 52.58843745924449,
+            "y": 232.0828234978183
+          },
+          "clock": 180.00000000000668,
+          "steps": 35,
+          "walked": 72.55946815682574
+        },
+        "rendered": {
+          "modelPoses": 34,
+          "shadowPoses": 34
+        },
+        "text": "元の足位置を保持しました。 パンダの変位 0.00 CSS px。主人公の長い退路は96方向中、配置前 1方向、配置後 1方向です。 主人公は72.56 CSS px歩き、退路の終点に到着しました。"
+      },
+      {
+        "region": "mountain",
+        "mode": "native",
+        "openingCount": 10,
+        "panda": 55.6567597898237,
+        "oldRays": 1,
+        "newRays": 12,
+        "held": false,
+        "travel": {
+          "accepted": true,
+          "arrived": true,
+          "done": true,
+          "start": {
+            "x": 125.40933065170279,
+            "y": 227.30988999268595
+          },
+          "end": {
+            "x": 52.43218779455994,
+            "y": 227.30988999268595
+          },
+          "clock": 180.00000000000668,
+          "steps": 35,
+          "walked": 72.7107884526712
+        },
+        "rendered": {
+          "modelPoses": 35,
+          "shadowPoses": 35
+        },
+        "text": "通常の配置を使いました。 パンダの変位 55.66 CSS px。主人公の長い退路は96方向中、配置前 1方向、配置後 12方向です。 主人公は72.71 CSS px歩き、退路の終点に到着しました。"
+      },
+      {
+        "region": "forest",
+        "mode": "guard",
+        "openingCount": 10,
+        "panda": 12.223330104565639,
+        "oldRays": 0,
+        "newRays": 5,
+        "held": false,
+        "travel": {
+          "accepted": true,
+          "arrived": true,
+          "done": true,
+          "start": {
+            "x": 146.40714285714284,
+            "y": 279.0181318681319
+          },
+          "end": {
+            "x": 94.80451027123772,
+            "y": 330.62076445403704
+          },
+          "clock": 300.00000000003394,
+          "steps": 35,
+          "walked": 67.41920660153792
+        },
+        "rendered": {
+          "modelPoses": 36,
+          "shadowPoses": 36
+        },
+        "text": "以前の足位置では長い退路を確かめられず、通常の配置を使いました。 パンダの変位 12.22 CSS px。主人公の長い退路は96方向中、配置前 0方向、配置後 5方向です。 主人公は67.42 CSS px歩き、退路の終点に到着しました。"
+      },
+      {
+        "region": "forest",
+        "mode": "native",
+        "openingCount": 10,
+        "panda": 12.223330104565639,
+        "oldRays": 0,
+        "newRays": 5,
+        "held": false,
+        "travel": {
+          "accepted": true,
+          "arrived": true,
+          "done": true,
+          "start": {
+            "x": 146.40714285714284,
+            "y": 279.0181318681319
+          },
+          "end": {
+            "x": 94.80451027123772,
+            "y": 330.62076445403704
+          },
+          "clock": 300.00000000003394,
+          "steps": 35,
+          "walked": 67.41920660153792
+        },
+        "rendered": {
+          "modelPoses": 34,
+          "shadowPoses": 34
+        },
+        "text": "通常の配置を使いました。 パンダの変位 12.22 CSS px。主人公の長い退路は96方向中、配置前 0方向、配置後 5方向です。 主人公は67.42 CSS px歩き、退路の終点に到着しました。"
+      }
+    ],
+    "errors": []
   }
 }

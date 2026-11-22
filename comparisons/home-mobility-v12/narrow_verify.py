@@ -99,6 +99,12 @@ def run(args):
                 "document.getElementById('play').textContent==='一時停止'"
             )
             page.locator("#play").tap()
+            stopped = int(page.locator("#tick").input_value())
+            page.locator("#play").tap()
+            page.wait_for_function(
+                "t=>Number(document.getElementById('tick').value)>t", arg=stopped
+            )
+            page.locator("#play").tap()
             before = page.locator("#tick").input_value()
             page.locator("input[value=shipped]").check()
             assert page.locator("#tick").input_value() == before

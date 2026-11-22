@@ -2,8 +2,6 @@
 
 import argparse
 from collections import Counter, defaultdict
-import csv
-import hashlib
 import json
 import math
 from pathlib import Path
@@ -43,7 +41,6 @@ def attach_curves(d, cutoff=600):
     native = v9.legs(d)
     people = defaultdict(Counter)
     for i, run in enumerate(sessions):
-        t = run["s"]
         limit = next(
             (
                 r["s"]
@@ -167,6 +164,10 @@ def attach_curves(d, cutoff=600):
                     ),
                     None,
                 )
+        run["owner_last_foot"] = (
+            [owner_leg["end_x"], owner_leg["end_y"]] if owner_leg else None
+        )
+        run["owner_last_step_s"] = owner_leg["last_step_s"] if owner_leg else None
         run["owner_steps"] = owner_leg["steps"] if owner_leg else 0
         run["owner_walked_css"] = owner_leg["css_distance"] if owner_leg else 0
         run["owner_strict_normal"] = bool(

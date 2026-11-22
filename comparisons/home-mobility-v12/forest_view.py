@@ -40,7 +40,7 @@ FIELDS = [
 ]
 
 
-def build(tables, output):
+def build(tables, output, prior_page=None):
     read_csv = lambda k: list(
         csv.DictReader((tables / ("forest-" + k + ".csv")).open())
     )
@@ -134,6 +134,22 @@ def build(tables, output):
     for source, dest in subst.items():
         assert source in page, source
         page = page.replace(source, dest)
+    if prior_page:
+        variants = {
+            "first": ("forest-first.html", "初回のV12候補"),
+            "eight": ("forest-eight.html", "低優先・8pxの退路を保護"),
+            "final": ("forest.html", "最終候補・8pxと3pxの退路を保護"),
+        }
+        anchor = '<a href="./">検証記録に戻る</a>'
+        alternatives = [
+            f'<a href="./{path}">{name}</a>'
+            for k, (path, name) in variants.items()
+            if k != prior_page
+        ]
+        page = page.replace(anchor, " ／ ".join([anchor, *alternatives]))
+        page = page.replace(
+            "森の28体・道譲り後の歩行", "森の28体・" + variants[prior_page][1]
+        )
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(page)
 
@@ -143,8 +159,9 @@ if __name__ == "__main__":
     parser.add_argument("tables", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--verify", type=Path)
+    parser.add_argument("--comparison", choices=["first", "eight", "final"])
     args = parser.parse_args()
-    build(args.tables, args.output)
+    build(args.tables, args.output, args.comparison)
     if args.verify:
         v11.FIELDS = FIELDS
         args.verify.write_text(json.dumps(v11.verify(args.output), indent=2) + "\n")

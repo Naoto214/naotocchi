@@ -4,6 +4,8 @@ import csv
 import hashlib
 import importlib.util
 import json
+import os
+from functools import cache
 import zipfile
 from pathlib import Path
 
@@ -22,7 +24,7 @@ def report(args):
     raw={}
     sources={}
     runs={}
-    selected={str(args.core_run)}|({str(args.care_run)} if args.care_run else set())
+    selected={str(run) for run in (args.core_run,args.care_run,args.witness_run) if run}
     for run in sorted(selected):
         receipt_path=args.archive/run/'receipt.json'
         receipt=json.loads(receipt_path.read_bytes())
@@ -39,12 +41,25 @@ def report(args):
                     raw[name]=json.loads(data)
                     sources[name]=digest(data)
     outputs=dict(runs=runs,sourceSHA256=sources,assets={},frames=[],normal=[],trace=[],fixed={},touch=[],growth=[],witness=[],model=[])
+    @cache
+    def asset_paths(root):
+        files={}
+        for directory,dirs,names in os.walk(root,followlinks=True):
+            for name in names:
+                if name.endswith(('.js','.mjs')):files.setdefault(name,[]).append(Path(directory)/name)
+        return files
+
+    @cache
+    def asset_hashes(root,name):
+        direct=root/name
+        paths=[direct] if direct.is_file() else asset_paths(root).get(name,[])
+        return {digest(file.read_bytes()) for file in paths}
+
     def verify(assets, root=None, group='assets'):
         root = root or args.game
         for name,expected in assets.items():
             assert Path(name).name==name
-            file=root/name
-            assert file.is_file() and digest(file.read_bytes())==expected, name
+            assert asset_hashes(root,name)=={expected},name
             assert outputs.setdefault(group,{}).setdefault(name,expected)==expected
     opening=None
     nativeBrowser=set()
@@ -121,8 +136,20 @@ def report(args):
             for row,source in zip(outputs['life'],raw['life.json']['cases'],strict=True):
                 row['lifeBefore']=source['lifeBefore'];row['lifeAfter']=source['lifeAfter'];warm=source['preflight']
                 row['preflight']=None if warm is None else dict(ready=warm['ready'],wallMs=warm['duration'],frames=prior.summary(warm['intervals']))
-    if 'statue.json' in raw:
-        statue=raw['statue.json'];assert len(statue['rows'])==12
+    complete_witness='statue-complete.json' in raw
+    statue_name='statue-complete.json' if complete_witness else 'statue.json'
+    premature_probe = not complete_witness and outputs['assets']['home-production-model-mobility-v12.js'].startswith(('41fac1bc','10c049d6'))
+    if premature_probe:
+        outputs['excludedControlledReplay']={'files':[name for name in ('statue.json','exit-guard.json') if name in raw],
+                                            'reason':'The recorded probe stopped when the regular slot cleared while a deferred iterator could remain pending.'}
+        statue_name=None
+    if statue_name in raw:
+        statue=raw[statue_name];assert len(statue['rows'])==12
+        if complete_witness:
+            assert all(r.get('deferredPendingAtEnd') is False for r in statue['rows'])
+            outputs['supersededControlledReplay']={'files':[n for n in ('statue.json','exit-guard.json') if n in raw],
+                    'reason':'The older 15-second fixture stopped when the regular relief slot cleared even if a deferred generator was still pending.',
+                    'correctedRun':str(args.witness_run)}
         for r in statue['rows']:
             verify({f"home-production-model-mobility-{r['arm']}.js":r['sourceSHA256']},args.final_game if separate else args.game,'finalCareAssets' if separate else 'assets')
             summary={}
@@ -130,6 +157,20 @@ def report(args):
                 summary[key]=dict(cpu=prior.summary([x[1] for x in series]),wall=prior.summary([x[0] for x in series]),
                                   totalCpu=sum(x[1] for x in series),totalWall=sum(x[0] for x in series))
             outputs.setdefault('statue',[]).append({**{k:r[k] for k in ['arm','order','index','actual','goalError','simulationSeconds','curve']},'timings':summary})
+    guard_name='exit-guard-complete.json' if complete_witness else 'exit-guard.json'
+    if guard_name in raw and not premature_probe:
+        comparison=raw[guard_name];rows=comparison['rows'];assert len(rows)==32
+        if complete_witness:assert all(r.get('deferredPendingAtEnd') is False for r in rows)
+        historic={'':'41fac1bcf2a4f68595db3a5443bb45664f26c7cce4aff32b90b00e73e2fc438e','-reference':'44843a073beac32781433c7fcc90f4f51ad3ae7cceb39e5d5cdb4445b9dcf66a'}
+        for row in rows:
+            arm=row['arm'];suffix=row['suffix']
+            if arm=='v12-eight':assert row['sourceSHA256']==historic[suffix]
+            else:verify({f'home-production-model-mobility-{arm}{suffix}.js':row['sourceSHA256']})
+            measures={}
+            for phase, samples in row['samples'].items():
+                measures[phase]=dict(resumes=len(samples),cpuMs=prior.summary([p[1] for p in samples]),
+                                     totalCpuMs=sum(p[1] for p in samples),wallMs=prior.summary([p[0] for p in samples]),totalWallMs=sum(p[0] for p in samples))
+            outputs.setdefault('exitGuard',[]).append({**{k:row[k] for k in ['arm','index','order','width','resident','actual','goalError','curve','simulationSeconds','sourceSHA256']},'timings':measures})
     witness=raw['witness.json'];nativeBrowser.add(witness['browser']);assert witness['kind']=='webkit' and len(witness['rows'])==24
     for r in witness['rows']:
         verify(r['sources']);assert len(r['resumes'])==r['iters'] and not r.get('violations',0)
@@ -144,5 +185,5 @@ def report(args):
 
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('archive',type=Path);ap.add_argument('--core-run',required=True);ap.add_argument('--care-run');ap.add_argument('--out',type=Path,default=HERE/'evidence');ap.add_argument('--game',type=Path,required=True);ap.add_argument('--final-game',type=Path,help='Pinned final care distribution if a different source was measured')
+    ap.add_argument('archive',type=Path);ap.add_argument('--core-run',required=True);ap.add_argument('--care-run');ap.add_argument('--witness-run',help='Dedicated CPU correction for this exact final model');ap.add_argument('--out',type=Path,default=HERE/'evidence');ap.add_argument('--game',type=Path,required=True);ap.add_argument('--final-game',type=Path,help='Pinned final care distribution if a different source was measured')
     report(ap.parse_args())
