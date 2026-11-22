@@ -57,15 +57,15 @@ def serve(root):
     threading.Thread(target=httpd.serve_forever,daemon=True).start()
     return 'http://127.0.0.1:'+str(httpd.server_port)
 
-def run(browser,root,base,region,count,width,arm,seconds,pairs=False,alternate=False,opening_probe=None):
+def run(browser,root,base,region,count,width,arm,seconds,pairs=False,alternate=False,opening_probe=None,phase_observer=None):
     ctx=browser.new_context(viewport={'width':width,'height':HEIGHT[width]},device_scale_factor=2,
                              is_mobile=True,has_touch=True,timezone_id='Asia/Tokyo',locale='ja-JP')
     try:
-        return measure(ctx,root,base,region,count,width,arm,seconds,pairs,alternate,opening_probe)
+        return measure(ctx,root,base,region,count,width,arm,seconds,pairs,alternate,opening_probe,phase_observer)
     finally:
         ctx.close()
 
-def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False,alternate=False,opening_probe=None):
+def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False,alternate=False,opening_probe=None,phase_observer=None):
     save=seed(region,count)
     hashes={}
     seen_errors=[]
@@ -149,13 +149,16 @@ def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False,alternate=F
     if alternate:
         return dict(target=target,tap=tap,trace=observation['trace'],trusted=observation['trusted'],errors=seen_errors)
     if pairs:extra['walked']=placement()
+    if phase_observer:phase_observer(page,'walked')
     lifecycle=page.evaluate('regionGame.transitions()')
     if pairs:extra['lifecycle']=placement()
+    if phase_observer:phase_observer(page,'restored')
     alt=375 if width==320 else 320
     page.set_viewport_size({'width':alt,'height':HEIGHT[alt]})
     page.wait_for_function('([r,c])=>regional.ready(r,c)',arg=[region,count],timeout=35000)
     resized=page.evaluate('regional.summary()')
     if pairs:extra['resized']=placement()
+    if phase_observer:phase_observer(page,'resized')
     save=lifecycle.pop('save')
     page.reload(wait_until='domcontentloaded')
     page.wait_for_function('([r,c])=>window.regional?.ready(r,c)',arg=[region,count],timeout=35000)
