@@ -181,7 +181,21 @@ def summarize(rows):
                 medianVectorError=statistics.median(errors) if errors else None,
                 maxVectorError=max(errors,default=None),
                 minPartnerSideMargin=min((r['partnerSideMargin'] for r in pairs), default=None))
-        summary[arm] = dict(phases=phase_summary,
+        regions={}
+        for region in REGIONS:
+            subset=[r for r in selected if r['region']==region]
+            pairs=[r for r in subset if r['distance'] is not None]
+            if not pairs:
+                continue
+            regions[region]=dict(cells=len(subset),pairedCells=len(pairs),
+                maxAbsoluteLateralPx=round(max(abs(r['dx']) for r in pairs),3),
+                maxPairDistancePx=round(max(r['distance'] for r in pairs),3),
+                minPartnerSideMarginPx=round(min(r['partnerSideMargin'] for r in pairs),3),
+                pairContacts=sum(r['pairContact'] for r in pairs),
+                addedInitialContactsVsPrior=sum(r['addedContactPairsVsPrior'] for r in subset),
+                addedLeadContactsVsPrior=sum(r['addedPairCrowdVsPrior'] for r in subset),
+                solverSideChanges=sum(bool(r['solverOrderChanged']) for r in pairs) if any(r['solverDx'] is not None for r in pairs) else None)
+        summary[arm] = dict(phases=phase_summary,openingByRegion=regions,
             totals={k:sum(r[k] for r in selected) for k in ('hops','ambientHops','dragHops',
                     'yieldHops','terrain','occlusion','contact','speed','errors','tapped','dragIssued',
                     'dragAccepted','decoded','shadows','conversation','evolution','equipment','census',
