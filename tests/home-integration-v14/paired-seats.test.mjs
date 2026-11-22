@@ -52,7 +52,7 @@ test('a blocked layout seat is corrected on terrain before the other residents a
   assert.ok(Math.hypot(lead.x-mate.x,lead.y-mate.y)<65);
 });
 
-test('fitting a pair into an occupied seat preserves unrelated regional seats', () => {
+test('an occupied layout seat leaves the lead and every companion in their production seats', () => {
   const x=[160,272,104,72];
   const nav=createTerrainNavigation({width:320,height:200,cell:8,
     project:p=>({x:p.x,y:p.z}), unproject:p=>({x:p.x,y:0,z:p.y}),
@@ -66,7 +66,8 @@ test('fitting a pair into an occupied seat preserves unrelated regional seats', 
   const model=production.createModel({random:()=>.5});
   model.sync(cast,scene);
   const positions=model.snapshot().map(a=>a.x);
-  assert.deepEqual(positions,[160,104,40,72]);
+  assert.deepEqual([positions[0],...positions.slice(2)],[160,104,72]);
+  assert.ok(positions[1]>=192 && positions[1]<272,'the partner alone can use the other side');
 });
 
 
@@ -102,4 +103,36 @@ test('portrait depth retains the cast offset with only enough width for painted 
     model.finishSeating(()=>true,{x:1,y:scaleY,body:.75});
     assert.deepEqual(feet(model.snapshot()),[[180,160],[expectedX,240]]);
   }
+});
+
+test('a full household keeps the production pack when walking ground expands', () => {
+  const nav=createTerrainNavigation({width:350,height:300,project:p=>({x:p.x,y:p.z}),
+    unproject:p=>({x:p.x,y:0,z:p.y}),walkable:p=>p.x>=100});
+  nav.initialPoint=i=>({x:140+(i%4)*18,y:180+(i%3)*18});
+  const wider=createTerrainNavigation({width:350,height:300,project:nav.project,unproject:nav.unproject,walkable:()=>true});
+  const expanded={...wider,initialPoint:nav.initialPoint,layoutNavigation:nav};
+  const cast=Array.from({length:28},(_,i)=>({kind:i===0?'pet':i===1?'partner':'companion',key:String(i),
+    x:i===1?100:160,y:180,w:20,h:20}));
+  const scene={region:'city',width:350,height:300,groundTop:40};
+  const traditional=production.createModel({random:()=>.5});
+  traditional.sync(cast,{...scene,navigation:nav},true);
+  const expected=traditional.snapshot().map(({x,y})=>[x,y]);
+  const model=production.createModel({random:()=>.5});
+  model.sync(cast,{...scene,navigation:expanded});
+  const actual=model.snapshot().map(({x,y})=>[x,y]);
+  assert.deepEqual([actual[0],...actual.slice(2)],[expected[0],...expected.slice(2)]);
+});
+
+test('an isolated safe partner seat survives when both adjacent sides are occupied', () => {
+  const points=[160,300,120,200];
+  const nav=createTerrainNavigation({width:340,height:200,project:p=>({x:p.x,y:p.z}),
+    unproject:p=>({x:p.x,y:0,z:p.y}),walkable:p=>p.z===128&&points.includes(p.x)});
+  nav.initialPoint=i=>({x:points[i],y:128});
+  const cast=['pet','partner','companion','companion'].map((kind,i)=>({
+    kind,key:String(i),x:i===1?120:160,y:128,w:20,h:20
+  }));
+  const model=production.createModel({random:()=>.5});
+  model.sync(cast,{region:'mountain',width:340,height:200,navigation:nav,
+    actorBounds:()=>({left:0,right:340,top:128,bottom:128})});
+  assert.deepEqual(model.snapshot().map(a=>a.x),points);
 });
