@@ -15,7 +15,7 @@ else:
     source=legacy.read_module('verify-source.py')
     before,after=source.tree(base),source.tree('HEAD')
     assert all(after.get(k)==v for k,v in before.items())
-    kinds=('matrix','fairness','performance')
+    kinds=('matrix','fairness','performance','atlas')
     workflows={'.github/workflows/home-mobility-v13-'+k+'.yml' for k in kinds}
     additions=[p.decode() for p in after.keys()-before.keys()]
     assert all(p.startswith('comparisons/home-mobility-v13/') or p in workflows for p in additions)

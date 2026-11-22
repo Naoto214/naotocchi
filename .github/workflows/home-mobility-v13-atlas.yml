@@ -1,0 +1,118 @@
+name: Home mobility V13 spatial atlas
+on:
+  push:
+    branches: [draft/home-mobility-v13]
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  survey:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[v13-atlas]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      matrix:
+        region: [home, forest, river_lake, city, countryside, mountain, snow, sea, jungle, desert, deepsea, star_stop, memory_lake]
+    env:
+      REGION: ${{ matrix.region }}
+    steps:
+      - name: Check out the isolated candidate
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-mobility-v13
+            comparisons/home-mobility-v12
+            comparisons/home-mobility-v11
+            comparisons/home-mobility-v10
+            comparisons/home-mobility-v9
+            comparisons/home-mobility-v8
+            comparisons/home-mobility-v7
+            comparisons/home-drag-v6
+            comparisons/home-finish-v5
+      - name: Check out the exact V9 release for building all reference bundles
+        uses: actions/checkout@v4
+        with:
+          ref: be5db6804bf0bee872080bae49cb714f295a461b
+          path: .v9-reference
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-mobility-v9
+            comparisons/home-mobility-v8
+            comparisons/home-mobility-v7
+            comparisons/home-drag-v6
+            comparisons/home-finish-v5
+      - name: Check out pinned cast size tools
+        uses: actions/checkout@v4
+        with:
+          ref: e07d2cc53eca36ff23e02142ab385d6001e0521b
+          path: .cast-reference
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-cast-size-v1
+            comparisons/home-cast-size-v2
+            comparisons/home-cast-size-v3
+            comparisons/home-cast-size-v4
+            tools/work
+      - name: Check out pinned home and artwork
+        uses: actions/checkout@v4
+        with:
+          ref: 28628cf336a8ed92efe4e9e197ca03298b798a1e
+          path: .leaf-reference
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build pinned releases through the unmodified V12 native comparison
+        run: |
+          node .cast-reference/comparisons/home-cast-size-v1/build.cjs "$RUNNER_TEMP/v1" --reference-checkout .leaf-reference
+          node .cast-reference/comparisons/home-cast-size-v2/build.cjs "$RUNNER_TEMP/v2" --baseline "$RUNNER_TEMP/v1"
+          node .cast-reference/comparisons/home-cast-size-v3/build.cjs "$RUNNER_TEMP/v3" --baseline "$RUNNER_TEMP/v2"
+          node .cast-reference/comparisons/home-cast-size-v4/build.cjs "$RUNNER_TEMP/v4" --baseline "$RUNNER_TEMP/v3"
+          node .v9-reference/comparisons/home-finish-v5/build.cjs "$RUNNER_TEMP/v5" --baseline "$RUNNER_TEMP/v4"
+          node .v9-reference/comparisons/home-drag-v6/build.cjs "$RUNNER_TEMP/drag" --baseline "$RUNNER_TEMP/v5"
+          node .v9-reference/comparisons/home-mobility-v7/build.cjs "$RUNNER_TEMP/mobility" --baseline "$RUNNER_TEMP/drag"
+          node .v9-reference/comparisons/home-mobility-v8/build.cjs "$RUNNER_TEMP/v8" --baseline "$RUNNER_TEMP/mobility"
+          node .v9-reference/comparisons/home-mobility-v9/build.cjs "$RUNNER_TEMP/v9" --baseline "$RUNNER_TEMP/v8"
+          node comparisons/home-mobility-v10/build.cjs "$RUNNER_TEMP/v10" --baseline "$RUNNER_TEMP/v9"
+          node comparisons/home-mobility-v11/build.cjs "$RUNNER_TEMP/v11" --baseline "$RUNNER_TEMP/v10"
+          node comparisons/home-mobility-v12/build.cjs "$RUNNER_TEMP/v12" --baseline "$RUNNER_TEMP/v11"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download the recorded regional V12 poses and verify the receipt
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: python
+        run: |
+          import hashlib, json, os, subprocess
+          from pathlib import Path
+          region = os.environ['REGION']
+          record = json.loads(Path('comparisons/home-mobility-v12/evidence/matrix-receipt.json').read_text())['regions'][region]
+          folder = Path(os.environ['RUNNER_TEMP']) / 'atlas-archives' / record['run']
+          folder.mkdir(parents=True)
+          archive = folder / f'mobility-v12-{record["run"]}-{region}.zip'
+          with archive.open('wb') as f:
+              subprocess.run(['gh','api',f'repos/{os.environ["GITHUB_REPOSITORY"]}/actions/artifacts/{record["artifact"]}/zip'],stdout=f,check=True)
+          assert hashlib.sha256(archive.read_bytes()).hexdigest() == record['sha256']
+      - name: Replay all 40 opening and aged poses in the native renderer
+        shell: bash
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.62.0
+          python -m http.server 8378 --bind 127.0.0.1 --directory "$RUNNER_TEMP/v12" > "$RUNNER_TEMP/atlas-http.log" 2>&1 &
+          server=$!
+          trap 'kill "$server"' EXIT
+          python -B comparisons/home-mobility-v13/map_capture.py --base http://127.0.0.1:8378 --chromium /usr/bin/google-chrome --archives "$RUNNER_TEMP/atlas-archives" --out "$RUNNER_TEMP/atlas-records" --regions "$REGION"
+          test "$(find "$RUNNER_TEMP/atlas-records" -name '*.json.gz' | wc -l)" -eq 20
+      - name: Retain native geometry and direct source-pose checksums
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobility-v13-atlas-${{ matrix.region }}
+          path: ${{ runner.temp }}/atlas-records
+          retention-days: 14
+          if-no-files-found: error
