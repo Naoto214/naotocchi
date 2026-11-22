@@ -56,8 +56,8 @@ def serve(root, assets):
     threading.Thread(target=server.serve_forever,daemon=True).start()
     return server
 
-def run(browser,base,region,count,out,before_navigation=False,opening_only=False):
-    context=browser.new_context(viewport=dict(width=390,height=630),is_mobile=True,has_touch=True,
+def run(browser,base,region,count,out,width,height,before_navigation=False,opening_only=False):
+    context=browser.new_context(viewport=dict(width=width,height=height),is_mobile=True,has_touch=True,
                                 device_scale_factor=2,locale='ja-JP',timezone_id='Asia/Tokyo')
     # The exact launcher household can independently trigger its first anniversary.
     # Continue past its ordinary movie controls, as an owner returning home would.
@@ -113,7 +113,8 @@ def run(browser,base,region,count,out,before_navigation=False,opening_only=False
     capture('expression')
     page.wait_for_function("pairStages.some(s=>s.label==='first-autonomous-resident')",timeout=180000)
     capture('autonomy')
-    for width,height,label in [(375,615,'resize-375'),(390,630,'resize-back')]:
+    alternate=(390,630) if width==375 else (375,615)
+    for width,height,label in [(*alternate,f'resize-{alternate[0]}'),(width,height,'resize-back')]:
         previous=page.evaluate("pairSample('before-resize').projection")
         page.set_viewport_size(dict(width=width,height=height))
         page.wait_for_function("([count,width,previous])=>innerWidth===width && pairReady(count) && pairSample('resized').projection>previous",
@@ -141,6 +142,7 @@ def main():
     p=argparse.ArgumentParser()
     p.add_argument('root',type=Path);p.add_argument('out',type=Path)
     p.add_argument('--assets',type=Path);p.add_argument('--browser',choices=['chromium','webkit'],default='chromium')
+    p.add_argument('--width',type=int,default=390);p.add_argument('--height',type=int,default=630)
     p.add_argument('--opening-only',action='store_true',help='Capture first presented frame and initial sync trace only')
     p.add_argument('--before-navigation',action='store_true',help='Separate screenshot run holding only the world module response')
     p.add_argument('--executable',required=True)
@@ -157,7 +159,7 @@ def main():
             browser=getattr(pw,args.browser).launch(executable_path=args.executable)
             for region,count in [('forest',28),('mountain',10)]:
                 if args.region and region!=args.region: continue
-                run(browser,f'http://127.0.0.1:{server.server_port}',region,count,args.out,args.before_navigation,args.opening_only)
+                run(browser,f'http://127.0.0.1:{server.server_port}',region,count,args.out,args.width,args.height,args.before_navigation,args.opening_only)
             browser.close()
     finally:server.shutdown()
 
