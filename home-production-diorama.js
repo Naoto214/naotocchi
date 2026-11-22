@@ -573,7 +573,12 @@ function bodyChanged(old, next) {
       if(presentation&&(doc.body?.dataset.homeDisplayVersion==='18'||doc.body?.dataset.homeDisplayVersion==='17'&&presentation.landscape)&&model.snapshot().some(a=>{const b=model.bounds(a);return a.x<b.left||a.x>b.right||a.y<b.top||a.y>b.bottom;})){
         model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint:null},true);
       }
-      model.finishSeating(p=>world?.initialPaintedGround?.(p));paint();
+      if(model.seatingPending()){
+        const view=presentation&&{x:presentation.scaleX,y:presentation.scaleY,
+          body:Math.min(presentation.bodyScale,presentation.bodyScaleLimit||presentation.bodyScale)*actorVisualScale('partner')};
+        model.finishSeating(p=>world?.initialPaintedGround?.(p),view);
+      }
+      paint();
     }
     let residentEnvelopeKey='';
     function publishResidentEnvelope(){

@@ -23,7 +23,7 @@
   // Resolve the couple on the final regional pack before it is first painted.
   // A candidate exchanges only seats in its local obstruction chain. The
   // full household is checked together before any feet are committed.
-  function fitInitialPair(actors,lead,mate,offset,scene,initialExits,lend,painted){
+  function fitInitialPair(actors,lead,mate,offset,scene,initialExits,lend,painted,view){
     const group=[lead,mate,...actors.filter(a=>a!==lead&&a!==mate)];
     const n=group.length;
     // The game has 26 recruitable companions. Each bit identifies one of them.
@@ -31,6 +31,27 @@
     const bit=i=>1<<i;
     const count=bits=>{let n=0;for(;bits;bits&=bits-1)n++;return n;};
     const spacing=Math.max(Math.hypot(offset.x,offset.y),(lead.w+mate.w)*.5+10),side=offset.x<0?-1:1;
+    const scale=view&&view.x>0&&view.y>0&&view.body>0?view:null;
+    const projected=scale?Math.hypot(offset.x,offset.y*scale.y/scale.x):spacing;
+    // Turning a principally vertical cast offset sideways can greatly enlarge
+    // its painted distance on a compressed portrait camera. Preserve its depth
+    // when this would add more than the existing ten-unit contact padding.
+    let keepDepth=!!scale&&Math.abs(offset.y)>Math.abs(offset.x)&&spacing-projected>10&&(!painted||painted(lead));
+    const depth=p=>(scene.navigation.depthScale?.(p)||1)*scale.body;
+    // Native contact and painted alpha bounds use different scales. Reserve
+    // horizontal ink only where the two vertical body intervals intersect.
+    function inkGap(anchor,p){
+      const a=depth(anchor),b=depth(p),dy=(p.y-anchor.y)*scale.y;
+      if(dy>=mate.h*b||dy<=-lead.h*a)return 0;
+      return (lead.w*a+mate.w*b)*.5/scale.x;
+    }
+    function intended(anchor){
+      if(!keepDepth)return {x:anchor.x+side*spacing,y:anchor.y};
+      const p={x:anchor.x+offset.x,y:anchor.y+offset.y};
+      p.x=anchor.x+side*Math.max(Math.abs(offset.x),inkGap(anchor,p)+.5/scale.x);
+      return p;
+    }
+    const error=(p,q)=>keepDepth?Math.hypot(p.x-q.x,(p.y-q.y)*scale.y/scale.x):Math.hypot(p.x-q.x,p.y-q.y);
     const dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
     const boxes=group.map(a=>bounds(a,scene)),nav=scene.navigation;
     const paintedStart=group.map(a=>painted?.(a));
@@ -140,7 +161,7 @@
         const added=assess(positions);
         if(added===null)return null;
         const travel=done.reduce((sum,i)=>sum+dist(group[i],positions[i]),0);
-        return {positions,close:Math.hypot(foot.x-anchor.x-side*spacing,foot.y-anchor.y)<spacing*.15&&added<=.12,score:base+.025*travel/spacing+.03*done.length+3*added};
+        return {positions,close:error(foot,intended(anchor))<spacing*.15&&added<=.12,score:base+.025*travel/spacing+.03*done.length+3*added};
       }
       const order=[];for(let i=2;i<n;i++)if(mask&bit(i))order.push(i);
       return assign(mask,order,0);
@@ -148,11 +169,12 @@
     function consider(anchors,shifted){
       const plans=[];
       for(const anchor of anchors){
-        const goal={x:anchor.x+side*spacing,y:anchor.y};
+        const goal=intended(anchor);
         const feet=grid(1,goal,shifted?4:8,spacing*(shifted?.48:1));
         if(legal(1,goal))feet.push({...goal,d:0});
         for(const p of feet){
           p.blocked=0;
+          if(keepDepth)p.d=error(p,goal);
           for(let j=2;j<n;j++)if(squared(geometry[1][j],p,group[j])<1)p.blocked|=bit(j);
         }
         const reserve=shifted&&initialExits[0].length;
@@ -170,6 +192,7 @@
           if(count(lane)>4||(!lend&&lane))continue;
           const byMask=new Map();
           for(const foot of feet){
+            if(keepDepth&&((foot.x-anchor.x)*side<inkGap(anchor,foot)||painted&&!painted(foot)))continue;
             if((foot.x-anchor.x)*side<=0||!clearsExit(1,foot,anchor,end))continue;
             const mask=lane|foot.blocked,k=count(mask);
             if(k>4||(!lend&&mask))continue;
@@ -191,14 +214,18 @@
     }
     // Try the regional hero seat first. If its only clear exit is also the
     // partner’s side, try a small joint shift and verify the replacement exit.
-    consider([lead],false);
-    if(lend&&(!best||!best.close&&best.score>.40)){
-      const anchors=grid(0,lead,4,spacing*.62).filter(a=>a.d>0&&(n<=5||group.slice(2).every((b,j)=>squared(geometry[0][j+2],a,b)>=1)));
-      const ideal={x:lead.x+side*spacing*.55,y:lead.y};
-      anchors.sort((a,b)=>dist(a,ideal)-dist(b,ideal));
-      if(anchors.length)consider([anchors[0]],true);
-      if(!best||!best.close&&best.score>.4)consider(anchors.slice(1),true);
+    function findPair(){
+      consider([lead],false);
+      if(lend&&(!best||!best.close&&best.score>.40)){
+        const anchors=grid(0,lead,4,spacing*.62).filter(a=>a.d>0&&(n<=5||group.slice(2).every((b,j)=>squared(geometry[0][j+2],a,b)>=1)));
+        const ideal={x:lead.x+side*spacing*.55,y:lead.y};
+        anchors.sort((a,b)=>dist(a,ideal)-dist(b,ideal));
+        if(anchors.length)consider([anchors[0]],true);
+        if(!best||!best.close&&best.score>.4)consider(anchors.slice(1),true);
+      }
     }
+    findPair();
+    if(!best&&keepDepth){keepDepth=false;findPair();}
     if(best)best.positions.forEach((p,i)=>{group[i].x=p.x;group[i].y=p.y;});
   }
   function privateRandom(){const bytes=new Uint32Array(1);if(typeof crypto!=='undefined'&&crypto.getRandomValues)crypto.getRandomValues(bytes);let seed=bytes[0]||Date.now()>>>0||1;return ()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return (seed>>>0)/4294967296;};}
@@ -262,7 +289,7 @@
     }
     function cancel(){manualGoals.clear();for(const a of actors){if(a.target)a.target=null;a.route=[];a.activity='rest';a.visualReaction=undefined;a.visualTarget=null;a.nextAt=Math.min(a.nextAt||clock+2,clock+2);}idleAt=clock+2;}
     let pendingPair=null;
-    function finishSeating(painted){const pending=pendingPair;pendingPair=null;pending?.place?.(painted);}
+    function finishSeating(painted,view){const pending=pendingPair;pendingPair=null;pending?.place?.(painted,view);}
     function sync(list,next,deferPair=false){
       const changed=next.region!==scene.region||next.width!==scene.width||next.height!==scene.height||next.navigation!==scene.navigation;
       const previousScene=scene,previousActors=actors;
@@ -344,7 +371,7 @@
         if(arrange)pendingPair.lanes=lanes;
         const exits=pendingPair.lanes?.length?pendingPair.lanes:[[]],lend=pendingPair.lend;
         const offset={x:partner.x-main.x,y:partner.y-main.y};
-        pendingPair.place=painted=>fitInitialPair(actors,lead,mate,offset,scene,exits,lend,painted);
+        pendingPair.place=(painted,view)=>fitInitialPair(actors,lead,mate,offset,scene,exits,lend,painted,view);
         if(!deferPair)finishSeating();
       }
       if(!actor(selected))selected=null;

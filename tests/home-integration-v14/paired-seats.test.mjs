@@ -89,3 +89,17 @@ test('the coupled placement uses the measured camera once before first paint', (
   model.finishSeating();
   assert.deepEqual(feet(model.snapshot()),[[160,210],[104,210]]);
 });
+
+test('portrait depth retains the cast offset with only enough width for painted bodies', () => {
+  const nav=createTerrainNavigation({width:340,height:340,project:p=>({x:p.x,y:p.z}),
+    unproject:p=>({x:p.x,y:0,z:p.y}),walkable:()=>true});
+  nav.initialPoint=i=>({x:i?260:180,y:i?100:160});
+  const cast=[{kind:'pet',key:'hero',x:140,y:160,w:40,h:50},
+    {kind:'partner',key:'mate',x:132,y:240,w:30,h:38}];
+  for(const [scaleY,expectedX] of [[.15,153.25],[.45,172]]){
+    const model=production.createModel({random:()=>.5});
+    model.sync(cast,{region:'forest',width:340,height:340,groundTop:20,navigation:nav},true);
+    model.finishSeating(()=>true,{x:1,y:scaleY,body:.75});
+    assert.deepEqual(feet(model.snapshot()),[[180,160],[expectedX,240]]);
+  }
+});
