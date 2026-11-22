@@ -57,6 +57,7 @@ function prepare(baseline) {
     (_,prefix,number)=>prefix+(Number(number)+2));
   const links=[
     ['./yield.html','森で曲がる道譲りを比べる（石像・タヌキほか）'],
+    ['./narrow.html','375pxでハムスターに残る退路を比べる'],
     ['./growth.html','成長する住民の足位置を比べる'],
     ['./corridor.html','やま・もりで主人公の退路を歩く'],
     ['../v11/replay.html','通知時のパンダの足元を再現する'],
@@ -76,6 +77,7 @@ function prepare(baseline) {
   add('v12/readout.mjs',local('readout.mjs'));
   const replay = {add,baseline,modelSource:files.get('game/'+modelFile('v12')),rendererSource};
   require('./yield-replay.cjs').addYieldReplay({...replay,modelSource:eightPixelComparison,shortModelSource:replay.modelSource});
+  require('./narrow-replay.cjs').addNarrowReplay({add,files});
   require('./reflow-pages.cjs').addReflowPages(replay);
   return files;
 }

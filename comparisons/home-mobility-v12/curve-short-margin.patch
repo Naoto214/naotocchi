@@ -1,0 +1,50 @@
+--- a/home-production-model-mobility-v12-reference.js
++++ b/home-production-model-mobility-v12-reference.js
+@@ -218,7 +218,7 @@
+   }
+   const rays=Array.from({length:96},(_,i)=>[Math.cos(i*Math.PI/48),Math.sin(i*Math.PI/48)]);
+   const opening=new Map();
+-  const openingsByRadius=new Map();
++  const openingsByRadius=new Map(),wideOpenings=new Map();
+   function walkLeg(b,from,to,other,pos){
+     const leg=legs(b,from,to);
+     if(!contact(leg,other,pos))return false;
+@@ -229,7 +229,7 @@
+     const near=Math.hypot((from.x+(to.x-from.x)*dt-pos.x)/rx,(from.y+(to.y-from.y)*dt-pos.y)/ry);
+     return near>=1 || near>before+1e-6;
+   }
+-  function* hasExit(b,at,first=-1,radius=8){
++  function* hasExit(b,at,first=-1,radius=8,margin=false){
+     const from=at.get(b.key)||b;
+     const others=cast.filter(peer=>{
+       const pos=at.get(peer.key)||peer;
+@@ -243,7 +243,14 @@
+       const n=i<0?first:i,to=point(from,rays[n],radius);
+       if(!inside(b,to)||!others.every(peer=>walkLeg(b,from,to,peer,at.get(peer.key)||peer)))continue;
+       stats.ground++;
+-      if(ground(b,from,to))return n;
++      if(!ground(b,from,to))continue;
++      if(!margin)return n;
++      for(const delta of [-.25,.25]){
++        if(stats.probes>=maxProbes)return null;
++        if(++stats.probes%96===0)yield;
++        const theta=(n+delta)*Math.PI/48,t=point(from,[Math.cos(theta),Math.sin(theta)],radius);
++        if(inside(b,t)&&others.every(peer=>walkLeg(b,from,t,peer,at.get(peer.key)||peer))&&ground(b,from,t))return n;
++      }
+     }
+     return -1;
+   }
+@@ -272,6 +279,13 @@
+             const current=yield* hasExit(b,at,startRay,radius);
+             if(current===null)return false;
+             if(current<0){stats.protected++;protectedBy[id]=(protectedBy[id]||0)+1;return false;}
++            if(radius===3){
++              if(!wideOpenings.has(b))wideOpenings.set(b,yield* hasExit(b,empty,startRay,3,true));
++              const wide=wideOpenings.get(b);if(wide===null)return false;
++              if(wide>=0){const retained=yield* hasExit(b,at,current,3,true);
++                if(retained===null)return false;
++                if(retained<0){stats.protected++;protectedBy[b.key+'@3-margin']=(protectedBy[b.key+'@3-margin']||0)+1;return false;}}
++            }
+           }
+         }
+         previous=next;
