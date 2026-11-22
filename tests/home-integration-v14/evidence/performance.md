@@ -22,4 +22,4 @@ WPE WebKit 26.5で森・昼・秋・晴れ・28体の正式ホームを読み込
 
 全144タップの選択が一致した。統合版は全4組で本番・V11よりフレーム間隔のp95・p99が短かった。共有CPUの負荷により同じ390px本番のp95が150msから479msに変動した。統合版でも長い停止があり、絶対値をiPhoneの性能には換算できない。12入力のp95は最も遅い1件に相当する。
 
-[各フレーム、各入力、活動状態の観測値](performance-local.json.gz) · [計測コード](../performance.py) · [通常セーブの作成](../resident-save.cjs)
+[各フレーム、各入力、活動状態の観測値](performance-local.json) · [計測コード](../performance.py) · [通常セーブの作成](../resident-save.cjs)
