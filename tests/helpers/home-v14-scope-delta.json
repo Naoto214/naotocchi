@@ -5,8 +5,8 @@
       "<link rel=\"stylesheet\" href=\"home-production-layout.css?v=0d1b0a12508f\">\n"
     ],
     [
-      "  <script src=\"home-production-model.js?v=a715408c992a\"></script>\n  <script src=\"home-production-diorama.js?v=296f4c7dd193\"></script>\n  <script src=\"script.js?v=0a61fb011e1f\"></script>\n  <script src=\"home-production-touch.js?v=ec0537400d8a\"></script>\n",
-      "  <script src=\"home-production-model.js?v=812fad81ddc5\"></script>\n  <script src=\"home-production-diorama.js?v=ecac051a6f90\"></script>\n  <script src=\"script.js?v=1ff8ddd2f5e8\"></script>\n  <script src=\"home-production-touch.js?v=df9353d84de4\"></script>\n"
+      "  <script src=\"home-production-model.js?v=488c7b19a945\"></script>\n  <script src=\"home-production-diorama.js?v=296f4c7dd193\"></script>\n  <script src=\"script.js?v=b91746ce3644\"></script>\n  <script src=\"home-production-touch.js?v=ec0537400d8a\"></script>\n",
+      "  <script src=\"home-production-model.js?v=812fad81ddc5\"></script>\n  <script src=\"home-production-diorama.js?v=ecac051a6f90\"></script>\n  <script src=\"script.js?v=958e4c160582\"></script>\n  <script src=\"home-production-touch.js?v=df9353d84de4\"></script>\n"
     ]
   ],
   "script.js": [
@@ -37,20 +37,20 @@
       "    \"home-production-layout.css\": \"0d1b0a12508f0194bbcf62c222be6768242073d0b51a8fed52d8d4a9e81a41fd\",\n"
     ],
     [
-      "    \"home-production-model.js\": \"a715408c992a4c09971cadd03d43acb75c116cb91193c8fc7cb0bfa4840b72ef\",\n    \"home-production-touch.js\": \"ec0537400d8a1f2d470ca35432214e0978278157e03702c54bdd7ee9843a3a7c\",\n",
+      "    \"home-production-model.js\": \"488c7b19a945b4f7b0d1bec90819c20da28ad0dce4da0e13c28110cfb4ab1c23\",\n    \"home-production-touch.js\": \"ec0537400d8a1f2d470ca35432214e0978278157e03702c54bdd7ee9843a3a7c\",\n",
       "    \"home-production-model.js\": \"812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856\",\n    \"home-production-touch.js\": \"df9353d84de426e6f71fdd3b9230d31eac2bc8107d801e13ed5eac7d398d8f42\",\n"
     ],
     [
-      "    \"home-ground-material.mjs\": \"4adaf0c8c69bcb6e20b8468a94665155fd7993e8902c4d30432567ddb7b7370e\",\n    \"home-autumn-leaves.mjs\": \"059657479bfee0d2732a67f2b6dc5874df65a718a2468dea5bb3fe5138be0b15\",\n    \"home-production-world.mjs\": \"ee2f884cd801ed4aa45cb7f89bef721fcefc1608de297b22882a6681e698dd68\",\n    \"home-recovered-navigation.mjs\": \"04b4e28df664bfcf54f769e14ea8f39176346e371b45cb58168a61ff96db0470\",\n",
+      "    \"home-production-world.mjs\": \"ee2f884cd801ed4aa45cb7f89bef721fcefc1608de297b22882a6681e698dd68\",\n    \"home-recovered-navigation.mjs\": \"04b4e28df664bfcf54f769e14ea8f39176346e371b45cb58168a61ff96db0470\",\n",
       "    \"home-production-world.mjs\": \"d824c818c676353898afb052b43f8e88db9a14a7add55c3986af0104dbdc9ca6\",\n    \"home-recovered-navigation.mjs\": \"9a7e25d9fbe9598f66f04139fc534b70cf847a289c53b908d5dc69e3eb62578d\",\n"
     ],
     [
-      "    \"index.html\": \"43a0dc57aef2b1f136af08fe7ea27b792c4732b8724606fb704ee63909496c82\",\n",
-      "    \"index.html\": \"a087464bce1de49934bbab652fa20e3c656b6cfa48f85e8d31d42e6a9ac10bb4\",\n"
+      "    \"index.html\": \"e921b8385d7e6e8b73cc38051bbcc1b1d09d0b18e94816b5962728a0e84eec4f\",\n",
+      "    \"index.html\": \"76cd45be9c8bccfa81f96a04a52caa54c9fae9159436a83fca1a0fe42bd72cc7\",\n"
     ],
     [
-      "    \"script.js\": \"0a61fb011e1f23e688aa3519a90c9ea338278cebbbfdf8d179fd7cdf4f428e6c\",\n",
-      "    \"script.js\": \"1ff8ddd2f5e8d67bed1340b64cc617333f652de96b25cf52c90c3a819b2e879c\",\n"
+      "    \"script.js\": \"b91746ce36444a89a5f7945efe38aafbc34a8a319af628e7bce7d1426a9249e7\",\n",
+      "    \"script.js\": \"958e4c16058264dc22ad23ad6c74f78ffc55c8351635f3591cb4f53878601807\",\n"
     ],
     [
       "    \"home-route-navigation.mjs\": \"32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9\",\n",
@@ -59,28 +59,10 @@
     [
       "    \"home-visible-ground-navigation.mjs\": \"31893b6c79075a1b4ca34ab0d760359723d534da46a6e2d9188221c169a10e23\",\n",
       "    \"home-visible-ground-navigation.mjs\": \"47d394909efd22698dc697883efab1dc5f5142842d03615283d43d2f9490093b\",\n"
-    ]
-  ],
-  "tests/helpers/approved-card459-v18.cjs": [
-    [
-      "const fs=require('node:fs'),crypto=require('node:crypto'),assert=require('node:assert/strict');\nconst home=require('./home-v14-scope.cjs');\nconst manifest=require('./approved-card459-v18.json'),files=manifest.files;\n",
-      "const fs=require('node:fs'),crypto=require('node:crypto'),assert=require('node:assert/strict');\nconst manifest=require('./approved-card459-v18.json'),files=manifest.files;\n"
     ],
     [
-      "function restore(file,text){\n text=home.restore(file,text);\n const e=files[file];if(!e||text===null)return text;\n",
-      "function restore(file,text){\n const e=files[file];if(!e||text===null)return text;\n"
-    ],
-    [
-      "}\nfunction beforeHome(file,bytes){\n return (file==='tools/pages/allowlist.json'||file==='tests/helpers/approved-card459-v18.cjs') && bytes!==null ? Buffer.from(home.restore(file,bytes.toString('utf8'))) : bytes;\n}\nfunction restoreBytes(file,bytes){\n",
-      "}\nfunction restoreBytes(file,bytes){\n"
-    ],
-    [
-      " assert.notEqual(bytes,null,'retained V18 file: '+file);\n bytes=beforeHome(file,bytes);\n assert.equal(blob(bytes),e.approvedBlob,'exact V18 approved bytes: '+file);\n",
-      " assert.notEqual(bytes,null,'retained V18 file: '+file);\n assert.equal(blob(bytes),e.approvedBlob,'exact V18 approved bytes: '+file);\n"
-    ],
-    [
-      " for(const [file,e] of Object.entries(files)){\n  const bytes=beforeHome(file,reader(file));assert.notEqual(bytes,null,'retained V18 file: '+file);\n  assert.equal(blob(bytes),e.approvedBlob,'exact V18 approved bytes: '+file);\n",
-      " for(const [file,e] of Object.entries(files)){\n  const bytes=reader(file);assert.notEqual(bytes,null,'retained V18 file: '+file);\n  assert.equal(blob(bytes),e.approvedBlob,'exact V18 approved bytes: '+file);\n"
+      "    \"prototypes/card-game/display-catalog.mjs\": \"b26d16f7560cb0d556bdf0e6e496c8c8b07f1dc99280898cfe15e21492980530\",\n    \"home-ground-material.mjs\": \"4adaf0c8c69bcb6e20b8468a94665155fd7993e8902c4d30432567ddb7b7370e\",\n    \"home-autumn-leaves.mjs\": \"059657479bfee0d2732a67f2b6dc5874df65a718a2468dea5bb3fe5138be0b15\"\n",
+      "    \"prototypes/card-game/display-catalog.mjs\": \"b26d16f7560cb0d556bdf0e6e496c8c8b07f1dc99280898cfe15e21492980530\"\n"
     ]
   ]
 }

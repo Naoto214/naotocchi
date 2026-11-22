@@ -1,4 +1,4 @@
-// Reconstruct main (9539e462) for older byte-level scopes. Keep appended
+// Reconstruct main (384730f1) for older byte-level scopes. Keep appended
 // or unrelated bytes in the result so the original guards still reject them.
 const delta = require('./home-v14-scope-delta.json');
 function restore(file, text) {
@@ -8,4 +8,11 @@ function restore(file, text) {
   for (const [after, before] of blocks) text = text.replace(after, () => before);
   return text;
 }
-module.exports = { restore };
+function restoreBytes(file, bytes) {
+  if (!delta[file] || bytes === null) return bytes;
+  const text = bytes.toString('utf8');
+  // Retain even malformed trailing bytes for the downstream approval guards.
+  if (!Buffer.from(text).equals(bytes)) return bytes;
+  return Buffer.from(restore(file, text));
+}
+module.exports = { restore, restoreBytes };

@@ -8,8 +8,8 @@
     "prototypes/naopoyo-chapter1/index.html",
     "prototypes/naopoyo-chapter2/index.html",
     "prototypes/naopoyo-rescue/index.html",
-    "prototypes/naopoyo-time-hand-chapter1/index.html",
-    "prototypes/naopoyo/index.html"
+    "prototypes/naopoyo/index.html",
+    "prototypes/naopoyo-time-hand-chapter1/index.html"
   ],
   "files": [
     "assets/bgm/bgm-farewell.m4a",
@@ -4368,8 +4368,8 @@
   ],
   "dynamic_families": [
     "assets/characters/**/*.png",
-    "assets/items/unified/*.png",
     "assets/marks/hunger/*.svg",
+    "assets/items/unified/*.png",
     "assets/world/*.webp"
   ],
   "dynamic_lists": [],
@@ -4436,7 +4436,7 @@
     "home-production-egg.mjs": "95b0eb7a4986281f61fa9eb3beae933db2cd8ef3ae162031a5c401fab39bddf5",
     "home-production-layout.css": "ad2694278fb57d5d22506b83596d694a81b5d59b373be3d04e7538fd7853c679",
     "home-production-manifest.mjs": "8c9c44d8adecc52051a7ce9b9e542c6f98da58971e81b6adb77c2543bf2303f3",
-    "home-production-model.js": "a715408c992a4c09971cadd03d43acb75c116cb91193c8fc7cb0bfa4840b72ef",
+    "home-production-model.js": "488c7b19a945b4f7b0d1bec90819c20da28ad0dce4da0e13c28110cfb4ab1c23",
     "home-production-touch.js": "ec0537400d8a1f2d470ca35432214e0978278157e03702c54bdd7ee9843a3a7c",
     "home-production-transform.mjs": "e4ab3a2d221e2efa2baee71092738767d9e1e33d46d04147e32b5b2f57c06214",
     "home-production-world.mjs": "ee2f884cd801ed4aa45cb7f89bef721fcefc1608de297b22882a6681e698dd68",
@@ -4448,7 +4448,7 @@
     "home-v8.css": "5b8d58a9f12f0fcd793f76f556a6e605ded679eaf25e48ed92636fc10c2a1603",
     "home-world.mjs": "28bf74a303e5176c590e1c3bf3ddda87cbcbcd8b894dee066c33e2cb8363e2cf",
     "illustration-catalog.js": "75f714c1d6ddb429f2d2eebab23f468d976d8e4201dcbaa10b91adfc3c84da0d",
-    "index.html": "9df4431a5ccc82a1903a1be8fc042548decf79f215349009ed987b0d3664c074",
+    "index.html": "e921b8385d7e6e8b73cc38051bbcc1b1d09d0b18e94816b5962728a0e84eec4f",
     "individuality-data.js": "abff7c551e89d5a4015e335db508ae53aced8583a9f278091dc486dd10e6de28",
     "individuality.js": "58f2b79761d45917fb07eaf8d48c1c2ae0f85e618e85b7bf2729e7691504679a",
     "item-memories.css": "8434fee41472c872e3c3ee168ee78335ce7ba091fb8a60a7c96fe35bec5e0eb8",
@@ -4701,15 +4701,15 @@
     "home-autumn-leaves.mjs": "059657479bfee0d2732a67f2b6dc5874df65a718a2468dea5bb3fe5138be0b15"
   },
   "forbidden_patterns": [
-    "/(?:balance-20261015/results|witnesses|results)/",
+    "^(?:docs|tests|tools|\\.github)/",
     "/(?:sources|illustrations|previews|references|rollout|evidence|integration-evidence|cpu-evidence|design-adoption)/",
     "/art-pilot/",
-    "^(?:docs|tests|tools|\\.github)/",
+    "/(?:balance-20261015/results|witnesses|results)/",
     "^prototypes/(?:growth-chain|growth-clear|slide08|naopoyo-swap)/",
-    "^prototypes/naopoyo-(?:world|insight|v2)/(?:index|qa[^/]*)\\.html$",
+    "^prototypes/naopoyo/(?:legacy\\.html|series\\.(?:css|mjs)|settings\\.mjs)$",
     "^prototypes/naopoyo-chapter1/(?:qa\\.html|ability[^/]*|tests/|build-preview\\.mjs|witness\\.mjs)$",
-    "^prototypes/naopoyo-chapter2/(?:qa\\.html|contact-comparison/|tests/|design/|build-preview\\.mjs|audit\\.mjs|optimize-examples\\.mjs)",
-    "^prototypes/naopoyo/(?:legacy\\.html|series\\.(?:css|mjs)|settings\\.mjs)$"
+    "^prototypes/naopoyo-(?:world|insight|v2)/(?:index|qa[^/]*)\\.html$",
+    "^prototypes/naopoyo-chapter2/(?:qa\\.html|contact-comparison/|tests/|design/|build-preview\\.mjs|audit\\.mjs|optimize-examples\\.mjs)"
   ],
   "runtime_exceptions": [
     "prototypes/card-game/art-pilot/approved-colors.mjs",

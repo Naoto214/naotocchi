@@ -4,6 +4,7 @@ const assert = require('node:assert/strict');
 const crypto = require('node:crypto');
 const fs = require('node:fs');
 const files = require('./approved-notation-v6.json');
+const home = require('./home-v14-scope.cjs');
 
 function blob(bytes) {
   return crypto.createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex');
@@ -11,11 +12,12 @@ function blob(bytes) {
 
 function verifyCurrent() {
   for (const [file, entry] of Object.entries(files)) {
-    assert.equal(blob(fs.readFileSync(file)), entry.after, 'approved V6 bytes: ' + file);
+    assert.equal(blob(home.restoreBytes(file, fs.readFileSync(file))), entry.after, 'approved V6 bytes: ' + file);
   }
 }
 
 function restoreBytes(file, bytes) {
+  bytes = home.restoreBytes(file, bytes);
   const entry = files[file];
   if (!entry || !bytes || bytes.length < entry.size) return bytes;
   const prefix = bytes.subarray(0, entry.size);

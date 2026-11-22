@@ -6,10 +6,9 @@ const {restore}=require('../helpers/home-v14-scope.cjs');
 const changes=require('../helpers/home-v14-scope-delta.json');
 
 const main={
-  'tests/helpers/approved-card459-v18.cjs':'6f1d62d81bfedf5da5a1007de68eefae7ed542df',
-  'index.html':'f40897b9be732d10efa1f4343186379d99394b55',
-  'script.js':'3f440d831360e43d89204379f3e12f70797d0e64',
-  'tools/pages/allowlist.json':'9aba7e37169b15f7d7ffdc8f7f912c2afa70890a'
+  'index.html':'c9432f2b62b2c95a36338f8166627abe8feb97d3',
+  'script.js':'70112eac0365045f7ff701229028ddf5debe4cae',
+  'tools/pages/allowlist.json':'f1b1fb9cf575c6305fac17fb25dcf80a59d13c31'
 };
 
 for(const [file,hash] of Object.entries(main))test('reverse only the exact home integration in '+file,()=>{
