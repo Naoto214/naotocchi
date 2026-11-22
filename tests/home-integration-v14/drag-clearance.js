@@ -13,13 +13,15 @@ function surroundingClearance() {
     if(d<1.05)summary.neighbors.push([peer.key,+d.toFixed(6)]);
   }
   for(const radius of [1,4,12,28]){
-    let clear=0,forward=0,terrain=0,bodyBlocked=0,alternate=null;
+    let clear=0,forward=0,terrain=0,bodyBlocked=0,alternate=null,straightTerrain=false,straightClear=false;
     for(let i=0;i<72;i++){
       const angle=i*Math.PI/36;
       const p={x:a.x+Math.cos(angle)*radius/scale.x,y:a.y+Math.sin(angle)*radius/scale.y};
       if(p.x<b.left||p.x>b.right||p.y<b.top||p.y>b.bottom||
          !scene.navigation.segmentSafe(a,p)||!visibleAt(p,a))continue;
       terrain++;
+      const straight=(horizontal===1&&i===0)||(horizontal===-1&&i===36);
+      if(straight)straightTerrain=true;
       const safe=actors.every(peer=>{
         if(peer.key===a.key)return true;
         const rx=(a.w+peer.w)*.5+10,ry=(a.h+peer.h)*.38+10;
@@ -30,12 +32,12 @@ function surroundingClearance() {
         return Math.hypot(x+t*dx,y+t*dy)>=1;
       });
       if(!safe){bodyBlocked++;continue;}
-      clear++;
+      clear++;if(straight)straightClear=true;
       if(!alternate)alternate=[Math.round(v.x+(r.left+p.x-v.x)*v.scaleX),
         Math.round(v.y+(r.top+p.y-v.y)*v.scaleY)];
       if((p.x-a.x)*horizontal>0)forward++;
     }
-    summary.radii.push({radius,terrain,bodyBlocked,clear,forward,alternate});
+    summary.radii.push({radius,terrain,bodyBlocked,clear,forward,alternate,straightTerrain,straightClear});
   }
   return summary;
 }
