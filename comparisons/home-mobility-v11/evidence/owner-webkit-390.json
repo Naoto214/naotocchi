@@ -1,0 +1,18 @@
+{
+  "width": 390,
+  "engine": "webkit",
+  "version": "26.5",
+  "fixedOpening": "0ccf153718cf433bd9307de519092586e26ed09721320679f41188e1a52729de",
+  "historicalOpening": "7c0840ed803293a606f0d8fbd59dd864400bb1c526cfc77fa0453d47d81d1c1d",
+  "sameOpeningAllFour": true,
+  "toolbarFits": true,
+  "footReadoutResidents": 4,
+  "progress": {
+    "arm": "v11-reference",
+    "tracked": 28,
+    "elapsed": 2.0000000000000004,
+    "moved": 2,
+    "syncRecorder": true
+  },
+  "errors": []
+}

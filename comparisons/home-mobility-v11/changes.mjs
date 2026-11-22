@@ -20,6 +20,6 @@ export function showChanges(root, frame, key) {
   const node = root.getElementById('wander-goal');
   node.textContent = goal ? '直近の散歩先　' + goal.rawDistance.toFixed(1) + 'px・' +
     Math.round(goal.rawBearing) + '° → ' + goal.chosenDistance.toFixed(1) + 'px・' +
-    Math.round(goal.chosenBearing) + '°。' + (states[goal.status] || goal.status) +
-    '。出発点からの実変位 ' + goal.actualDistance.toFixed(1) + 'px。' : '';
+    Math.round(goal.chosenBearing) + '°（右が0°）。' + (states[goal.status] || goal.status) +
+    '。実歩行距離 ' + goal.actualDistance.toFixed(1) + 'px。' : '';
 }

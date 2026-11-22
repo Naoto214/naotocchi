@@ -5,6 +5,8 @@ const {hashFiles, listFiles} = require('../home-finish-v5/build.cjs');
 const {digest, replaceExact} = require('../home-finish-v5/native-hooks.cjs');
 const {patchFoot, patchFootDiagnostics} = require('./foot.cjs');
 const {patchGoals, patchGoalTelemetry} = require('./goals.cjs');
+const {modelReplay, rendererReplay} = require('./foot-replay.cjs');
+const {patchCareModel, patchCareGame} = require('./foot-care.cjs');
 
 const originalCount = 4016;
 const originalHash = 'd8eb7138a4932e0465897dcfc79b80580b8686c18125846e429e597e9bcad965';
@@ -57,11 +59,39 @@ function prepare(base) {
     add('game/mobility-v11-compare-' + arm + '.html', owner);
   }
 
+  const replayModel = 'home-production-model-mobility-v11-recording.js';
+  add('game/' + replayModel, modelReplay(game(modelFile('v10'))));
+  for (const arm of ['v10','v11']) {
+    const recorder = 'home-production-diorama-mobility-v11-recording-' + arm + '.js';
+    const renderer = arm === 'v10' ? game(oldPainter) : files.get('game/' + newPainter);
+    add('game/' + recorder, rendererReplay(renderer));
+    let page = replaceGame(game('mobility-v10.html'), modelFile('v10'), replayModel);
+    page = replaceGame(page, oldPainter, recorder);
+    add('game/mobility-v11-replay-' + arm + '.html', page);
+  }
+  const careModel = modelFile('v11-growth');
+  const careGame = 'script-v2-mobility-v11-growth.js';
+  const oldGame = 'script-v2-mobility-v7.js';
+  add('game/' + careModel, patchCareModel(files.get('game/' + modelFile('v11-foot'))));
+  add('game/' + careGame, patchCareGame(game(oldGame)));
+  let care = replaceGame(game('mobility-v10.html'), oldGame, careGame);
+  care = replaceGame(care, oldPainter, newPainter);
+  care = replaceGame(care, modelFile('v10'), careModel);
+  add('game/mobility-v11-care.html', care);
+  add('v11/recorded-panda.json', local('evidence/foot-recorded-panda.json'));
+  add('v11/space-map.json', local('evidence/space-map.json'));
+  for (const name of ['replay.html','replay.mjs','growth.html','growth.mjs','space.html','space-view.mjs']) add('v11/' + name, local(name));
+
   let html = read('v10/index.html').replace(/(data-arm="v|aria-label="V|>V)(8|9|10)(?=["の<])/g,
     (_, prefix, n) => prefix + (Number(n) + 1));
   html = replaceExact(html, '<label for="seed">',
     '<label for="variant">V11の改善範囲<select id="variant"><option value="full">足元と目的地選択</option><option value="foot">足元の修正のみ</option></select></label>\n      <label for="seed">');
-  html = replaceExact(html, 'href="./episode.html"', 'href="../v10/episode.html"');
+  html = replaceExact(html, '<p><a href="./episode.html">', [
+    '<p><a href="./replay.html">通知前後のパンダの足元を再現する</a></p>',
+    '<p><a href="./growth.html">成長時の足元を比べる</a></p>',
+    '<p><a href="./space.html">森で28体が歩ける方向を見る</a></p>',
+    '<p><a href="../v10/episode.html">',
+  ].join('\n'));
   html = replaceExact(html, '<p id="recent"></p>',
     '<p id="recent"></p><p id="foot-events"></p><p id="wander-goal"></p>');
   add('v11/index.html', html);
