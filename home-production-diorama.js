@@ -116,13 +116,12 @@
   }
   // The official solver already shrinks crowded casts. Do not shrink them twice.
   function crowdScale(){return 1;}
-  function residentVisualScale(kind,count,width,heroPercent){
+  function residentVisualScale(kind,count,width){
     const t=Math.max(0,Math.min(1,(width-320)/55));
     const density=Math.max(0,Math.min(1,(count-18)/10));
     const extra=1+.15*density*t*t*(3-2*t);
-    // layoutTerrainCast already applies the protagonist's configured percentage.
-    const nativeHero=[100,105,110,115,120].includes(heroPercent)?heroPercent:100;
-    const role=kind==='pet'?120/nativeHero:kind==='partner'?1.2:1.05;
+    // The reference is the previous painted body, including its native hero layout.
+    const role=kind==='pet'||kind==='partner'?1.2:1.05;
     return role*extra;
   }
   function scaleLayout(layout,args,k=crowdScale(1+(args.hasPartner?1:0)+(args.companions?.length||0))){
@@ -142,7 +141,7 @@
     const raw=cast.layoutHomeCast(args),boxes=typeof module==='object'&&module.exports?require('./cast-bounds.js'):window.NaotocchiCastBounds;
     const count=1+Number(!!args.hasPartner)+(args.companions?.length||0),crowded=count>5;
     const mainScale=Number.isFinite(args.mainScale)?Math.max(.8,Math.min(1,args.mainScale)):(crowded?1:.85),curved=args.formation!=='distributed',natural=!args.formation||args.formation==='natural';
-    const size=Math.min(220,args.width*.62)*k,view=args.overview?.84:1;
+    const size=Math.min(220,args.width*.62)*k;
     const box=path=>boxes?.[path]?.box||[0,0,128,128];
     const resized=(f,w,path,point)=>{if(!f)return null;const b=box(path),fx=f.x+f.w*(b[0]+b[2])/256,fy=f.y+f.h*b[3]/128+(f.artOffsetY||0),r=w/f.w;return {...f,x:(point?.x??fx)+(f.x-fx)*r,y:(point?.y??fy)+(f.y-fy)*r,w:f.w*r,h:f.h*r,...(f.artOffsetY!==undefined?{artOffsetY:f.artOffsetY*r}:{})};};
     const height=args.height||raw.height,top=30,bottom=Math.max(100,height-64),usable=bottom-top;
@@ -187,10 +186,10 @@
           const theta=angles[Math.max(0,order-1)];
           point=order===0?{x:args.width/2,y:cy}:{x:args.width/2+Math.cos(theta)*rx,y:cy+Math.sin(theta)*Math.min(65,height*.22)};
         }
-        return resized(f,size*relative*view*density*factor,path,point);
+        return resized(f,size*relative*density*factor,path,point);
       }
       const sizeSlot=sizingSlots[index],q=slots[index++],b=box(path),body=Math.max(b[2]-b[0],b[3]-b[1])/128;
-      const target=Math.min(cw-10,ch-7)*(relative===1?1:.80)*(.94+.06*sizeSlot.depth)*view;
+      const target=Math.min(cw-10,ch-7)*(relative===1?1:.80)*(.94+.06*sizeSlot.depth);
       return resized(f,target/Math.max(.1,body)*(relative===1?mainScale*heroFactor:1),path,q);
     }
     const main=frame(raw.main,args.mainAsset,1),partner=raw.partner?frame(raw.partner,args.partnerAsset,.5):null;
@@ -271,7 +270,7 @@
     return {visible:()=>!completed||replaying,replay(){replaying=true;},dismiss:finish,
       drag({actor,success}){if(actor&&success)finish();}};
   }
-  function createController({stage,document:doc,env=window,getActors,isBlocked=()=>false,isVisible=()=>true,onGesture=()=>{},onPosition=()=>{},onViewChange=()=>{},getProfile=()=>({}),getWorld=()=>({}),getMeguru=()=>null,guideKey='naotocchi-home-guide-v1'}){
+  function createController({stage,document:doc,env=window,getActors,isBlocked=()=>false,isVisible=()=>true,onGesture=()=>{},onPosition=()=>{},getProfile=()=>({}),getWorld=()=>({}),getMeguru=()=>null,guideKey='naotocchi-home-guide-v1'}){
     const displayRect=e=>env.NaotocchiHomeViewport?.presentationRect?.(e)||e.getBoundingClientRect();
     const modelAPI=env.NaotocchiHomeDioramaModel;if(!stage||!modelAPI)return null;
     let enabled=false,dead=false,scene=null,environment=null,flags={},rows=new Map(),raf=0,last=0,gesture=null,sceneKey='',wasBlocked=false;
@@ -296,12 +295,9 @@
     let guideStorage;try{guideStorage=env.localStorage;}catch(_){}
     const guide=createGestureGuide({storage:guideStorage,key:guideKey});let guideWalk=null;
     const media=env.matchMedia?.('(prefers-reduced-motion: reduce)');
-    let overview=false;
-    const view=doc.createElement('button'),selectedLabel=doc.createElement('span');
-    view.className='diorama-view';view.type='button';view.textContent='みんなを見る';view.hidden=true;
+    const selectedLabel=doc.createElement('span');
     selectedLabel.className='diorama-selected-label';selectedLabel.hidden=true;
-    stage.appendChild(view);stage.appendChild(selectedLabel);
-    view.addEventListener('click',()=>{overview=!overview;view.textContent=overview?'いつもの表示':'みんなを見る';view.setAttribute('aria-pressed',String(overview));onViewChange(overview);});
+    stage.appendChild(selectedLabel);
     const art=doc.createElement('div'),overlay=doc.createElement('div'),marker=doc.createElement('span'),hint=doc.createElement('span');
     art.className='diorama-art';overlay.className='diorama-overlay';marker.className='diorama-target';hint.className='diorama-hint';
     art.setAttribute('aria-hidden','true');overlay.setAttribute('aria-hidden','true');marker.hidden=true;hint.textContent='タップで選択・ドラッグでおさんぽ';
@@ -559,7 +555,7 @@ function bodyChanged(old, next) {
       // Only the five-resident landscape sizing candidate needs the same
       // open walking lane as a larger household.
       scene.fiveResidentExit=next.size===5&&doc.body?.dataset.homePopulationProfile==='v1'&&!!env.NaotocchiHomeViewport?.residentPresentation?.()?.landscape;
-      rows=next;view.hidden=!enabled||rows.size<=5;model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint});
+      rows=next;model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint});
       if(newbornPoint)newbornPending=false;
       const previousEnvelope=stage.__homeResidentEnvelope;
       publishPaintEnvelope();
@@ -651,7 +647,7 @@ function bodyChanged(old, next) {
     }
     let paintedBodyScale=null,bodyScaleTime=0,paintedLandscape=null;
     function actorVisualScale(kind){
-      return residentVisualScale(kind,rows.size,env.innerWidth||320,Number(doc.body?.dataset.homeHeroPercent));
+      return residentVisualScale(kind,rows.size,env.innerWidth||320);
     }
     function paint(){
       // Care and visibility changes can interrupt before activation or after exit.
@@ -748,7 +744,7 @@ function bodyChanged(old, next) {
       environment=e;flags=f;
       if(env.NaotocchiDaypartsQA)e={...e,...env.NaotocchiDaypartsQA};
       const next=modelAPI.supported(e.region)&&f.available!==false;
-      if(!next){placeHomeSlots(false);enabled=false;view.hidden=true;selectedLabel.hidden=true;showGuide();stop();clearWorld();clearInput();for(const row of rows.values())restore(row);rows.clear();model.sync([],{...e,width:350,height:240,tags:[]});clearStage();art.hidden=true;overlay.hidden=true;hint.hidden=true;return;}
+      if(!next){placeHomeSlots(false);enabled=false;selectedLabel.hidden=true;showGuide();stop();clearWorld();clearInput();for(const row of rows.values())restore(row);rows.clear();model.sync([],{...e,width:350,height:240,tags:[]});clearStage();art.hidden=true;overlay.hidden=true;hint.hidden=true;return;}
       enabled=true;placeHomeSlots(true);stage.dataset.diorama=e.region;stage.dataset.dioramaReduced=String(!!media?.matches);stage.dataset.dioramaTier=String(f.tier||0);stage.dataset.dioramaTime=e.time;stage.dataset.dioramaWeather=e.weather;
       art.hidden=false;overlay.hidden=false;showGuide();
       const r=displayRect(stage);scene=sceneFor(e,r.width,r.height,getProfile(e.region),getWorld(e.region));
@@ -932,7 +928,7 @@ function bodyChanged(old, next) {
     for(const [name,fn]of Object.entries(listeners))stage.addEventListener(name,fn);
     doc.addEventListener('pointerdown',freshInput,true);doc.addEventListener('pointerup',cancelPointer);doc.addEventListener('pointercancel',cancelPointer);doc.addEventListener('keydown',freshInput,true);env.addEventListener?.('blur',freshInput);
     doc.addEventListener('visibilitychange',visibility);media?.addEventListener?.('change',preference);
-    return {model,update,sync,interrupt,prepareNewborn(){newbornPending=true;},overview:()=>overview,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){env.removeEventListener?.('dayparts-qa-change',refreshDayparts);placeHomeSlots(false);dead=true;stop();clearWorld();clearInput();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('pointerdown',freshInput,true);doc.removeEventListener('pointerup',cancelPointer);doc.removeEventListener('pointercancel',cancelPointer);doc.removeEventListener('keydown',freshInput,true);env.removeEventListener?.('blur',freshInput);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);view.remove();selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
+    return {model,update,sync,interrupt,prepareNewborn(){newbornPending=true;},overview:()=>false,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){env.removeEventListener?.('dayparts-qa-change',refreshDayparts);placeHomeSlots(false);dead=true;stop();clearWorld();clearInput();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('pointerdown',freshInput,true);doc.removeEventListener('pointerup',cancelPointer);doc.removeEventListener('pointercancel',cancelPointer);doc.removeEventListener('keydown',freshInput,true);env.removeEventListener?.('blur',freshInput);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
   }
   return {residentVisualScale,displayWalkingBounds,portraitWalkingBounds,localOcclusionPolygons,residentPaintExtent,residentInkBand,noticeChunks,textLayout,homeText,homeWarnings,sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,effectPosition,effectTrajectory,placeActorEffects,speechPlacement,speechTail,placeGroundProps};
 });

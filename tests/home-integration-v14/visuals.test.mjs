@@ -4,12 +4,10 @@ import controller from '../../home-production-diorama.js';
 import {surfaceAt} from '../../home-ground-material.mjs';
 import {usesAutumnLeaves,paintAutumnLeaves} from '../../home-autumn-leaves.mjs';
 
-test('size B keeps the native protagonist factor exactly once and interpolates population and width',()=>{
-  for(const native of [100,110,120]){
-    for(const [count,width,extra] of [[18,390,1],[19,375,1.015],[20,375,1.03],[28,320,1],[28,347.5,1.075],[28,375,1.15],[28,430,1.15]]){
-      for(const [kind,desired,existing] of [['pet',1.2,native/100],['partner',1.2,1],['companion',1.05,1]]){
-        assert.ok(Math.abs(controller.residentVisualScale(kind,count,width,native)*existing-desired*extra)<1e-10);
-      }
+test('size B scales the existing painted bodies and interpolates population and width',()=>{
+  for(const [count,width,extra] of [[18,390,1],[19,375,1.015],[20,375,1.03],[28,320,1],[28,347.5,1.075],[28,375,1.15],[28,430,1.15]]){
+    for(const [kind,desired] of [['pet',1.2],['partner',1.2],['companion',1.05]]){
+      assert.ok(Math.abs(controller.residentVisualScale(kind,count,width)-desired*extra)<1e-10);
     }
   }
 });
