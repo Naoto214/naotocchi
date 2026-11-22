@@ -1,0 +1,6 @@
+.version{display:flex;align-items:center;gap:.5rem;font-size:.82rem}
+.version select{max-width:12.8rem;border:1px solid #819a8c;border-radius:.45rem;background:#f8f6eb;min-height:44px;padding:0 .4rem;color:#243d34}
+.views{display:grid;gap:.55rem;margin:1.1rem 0;padding-top:.8rem;border-top:1px solid #ccd4c6}
+.views a{color:#275942;text-underline-offset:.2em}
+@media(max-width:739px){.version{font-size:0}.version select{width:clamp(84px,31vw,132px);font-size:.78rem}.bar .tools{gap:4px}.bar .tools button{padding:4px 6px}.bar h1{font-size:0}.bar .brand{font-size:.88rem;padding-right:0;border:0}}
+@media(max-width:360px){.bar h1{display:none}.bar .tools{width:100%;justify-content:space-between}}

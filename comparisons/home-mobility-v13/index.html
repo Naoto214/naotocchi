@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <title>なおとっち｜住民の歩行空間</title>
+  <link rel="stylesheet" href="../v1/style.css">
+  <link rel="stylesheet" href="../v7/style.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="bar">
+    <h1><span class="brand">なおとっち</span>住民の歩行空間</h1>
+    <div class="tools">
+      <label class="version">比較案<select id="version" aria-label="歩行空間の比較案">
+        <option value="a">A　現行地形</option><option value="b">B　草地を広げる</option>
+        <option value="c">C　退避場所を加える</option><option value="d">D　初期配置も調整</option>
+        <option value="d-curve">D ＋ 曲がる道譲り</option><option value="v11">V11　足元のみ</option>
+        <option value="v12">V12　曲がる道譲り</option>
+      </select></label>
+      <button type="button" id="restart" aria-label="同じ初期位置からやり直す"><span>最初から</span></button>
+      <button type="button" id="freeze" aria-pressed="false">停止</button>
+      <button type="button" id="settings-toggle" aria-expanded="false" aria-controls="panel">設定 <span id="toolbar-count">28体</span></button>
+    </div>
+  </header>
+  <main>
+    <section class="stage" aria-label="ホーム">
+      <div class="frame-wrap"><iframe id="home" title="なおとっちのホーム" allow="autoplay"></iframe></div>
+      <div class="feedback"><p id="status" role="status">ホームを読み込んでいます…</p><button id="retry" type="button" hidden>読み込み直す</button></div>
+    </section>
+    <div id="scrim" hidden></div>
+    <aside id="panel" aria-labelledby="panel-title">
+      <div class="panel-head"><h2 id="panel-title">試遊の設定</h2><button type="button" id="settings-close" aria-label="設定を閉じる">閉じる</button></div>
+      <div class="scene-pick">
+        <label for="region">地域<select id="region"></select></label>
+        <label for="time">時間帯<select id="time"></select></label>
+      </div>
+      <label for="count">住民数<select id="count"></select></label>
+      <label for="seats">初期配置<select id="seats"><option value="original">従来の配置</option><option value="reference">V9で検証した初期配置を再現</option></select></label>
+      <label for="seed">比較する乱数<select id="seed"><option>214</option><option>937</option></select></label>
+      <nav class="views" aria-label="比較記録">
+        <a href="./map.html">歩行地図・足元・接触範囲</a>
+        <a href="./forest.html">森の28体・10分間の歩行記録</a>
+        <a href="./foot-corridor.html">山の通路・足元保持を再生</a>
+        <a href="../v11/replay.html">通知時の足元を再生</a>
+      </nav>
+      <p class="instructions">行き先まで住民をドラッグして指を離してください。案を切り替えると同じ時刻・乱数で再開します。Dでは森の一部の初期位置も変わります。</p>
+      <details id="diagnostics">
+        <summary>住民の移動記録</summary>
+        <p id="clock-note">記録を開始すると、住民ごとの移動と待機を追跡できます。</p>
+        <button type="button" id="start-record">移動を記録する</button>
+        <div id="record" hidden>
+          <label for="resident">記録を見る住民<select id="resident"></select></label>
+          <dl id="metrics"></dl>
+          <p id="resident-state"></p>
+          <p id="blockers"></p>
+          <p id="recent"></p><p id="foot-events"></p><p id="help-events"></p>
+        </div>
+        <p><a href="../v12/yield.html">森で曲がる道譲りを比べる（石像・タヌキほか）</a></p>
+<p><a href="../v12/narrow.html">375pxでハムスターに残る退路を比べる</a></p>
+<p><a href="../v12/growth.html">成長する住民の足位置を比べる</a></p>
+<p><a href="../v12/corridor.html">やま・もりで主人公の退路を歩く</a></p>
+<p><a href="../v11/replay.html">通知時のパンダの足元を再現する</a></p>
+<p><a href="../v11/space.html">幅ごとの森の歩行地図を見る</a></p>
+<p><a href="https://naotocchi-mobility-v8-evidence.kerzion214.chatgpt.site/v12/forest.html">28体の10分間の記録を見る</a></p>
+      </details>
+    </aside>
+  </main>
+  <script type="module" src="./compare.mjs"></script>
+</body>
+</html>
