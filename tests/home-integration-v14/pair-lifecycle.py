@@ -56,7 +56,7 @@ def serve(root, assets):
     threading.Thread(target=server.serve_forever,daemon=True).start()
     return server
 
-def run(browser,base,region,count,out,before_navigation=False):
+def run(browser,base,region,count,out,before_navigation=False,opening_only=False):
     context=browser.new_context(viewport=dict(width=390,height=630),is_mobile=True,has_touch=True,
                                 device_scale_factor=2,locale='ja-JP',timezone_id='Asia/Tokyo')
     # The exact launcher household can independently trigger its first anniversary.
@@ -102,6 +102,11 @@ def run(browser,base,region,count,out,before_navigation=False):
         result['checkpoints'].append(snapshot)
         page.screenshot(path=out/f'{region}-{label}.jpg',type='jpeg',quality=75,scale='css')
     capture('loaded')
+    if opening_only:
+        result['stages']['entry']=page.evaluate('pairStages')
+        (out/f'{region}-opening.json').write_text(json.dumps(result,ensure_ascii=False)+'\n')
+        context.close()
+        return
     page.evaluate('pairGame.sync()')
     capture('explicit-sync')
     result['expression']=page.wait_for_function("()=>{const value=pairGame.express();return value==='happy'&&value}",timeout=90000).json_value()
@@ -136,6 +141,7 @@ def main():
     p=argparse.ArgumentParser()
     p.add_argument('root',type=Path);p.add_argument('out',type=Path)
     p.add_argument('--assets',type=Path);p.add_argument('--browser',choices=['chromium','webkit'],default='chromium')
+    p.add_argument('--opening-only',action='store_true',help='Capture first presented frame and initial sync trace only')
     p.add_argument('--before-navigation',action='store_true',help='Separate screenshot run holding only the world module response')
     p.add_argument('--executable',required=True)
     p.add_argument('--region',choices=['forest','mountain'])
@@ -151,7 +157,7 @@ def main():
             browser=getattr(pw,args.browser).launch(executable_path=args.executable)
             for region,count in [('forest',28),('mountain',10)]:
                 if args.region and region!=args.region: continue
-                run(browser,f'http://127.0.0.1:{server.server_port}',region,count,args.out,args.before_navigation)
+                run(browser,f'http://127.0.0.1:{server.server_port}',region,count,args.out,args.before_navigation,args.opening_only)
             browser.close()
     finally:server.shutdown()
 
