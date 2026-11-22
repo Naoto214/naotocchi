@@ -1,3 +1,4 @@
+import {insidePolygon} from './home-art-navigation.mjs?v=aac392aafc95';
 import {surfaceAt} from './home-ground-material.mjs?v=4adaf0c8c69b';
 import {usesAutumnLeaves,paintAutumnLeaves} from './home-autumn-leaves.mjs?v=059657479bfe';
 import {extendVisibleGroundNavigation} from './home-visible-ground-navigation.mjs?v=31893b6c7907';
@@ -123,6 +124,15 @@ export function createHomeWorld(options){
  }
  return {pointIndependentOcclusion:true,setEnvironment,navigation,draw,
   groundSurface(x,y){const p=groundProjection;return p?surfaceAt(env.region,p.x+x*p.dx,p.y+y*p.dy):'';},
+  // Initial household seat preference only. Walking keeps its original terrain.
+  initialPaintedGround(foot){
+   const p=groundProjection;
+   const point=p?{x:p.x+foot.x*p.dx,z:p.y+foot.y*p.dy}:nav?.visibleGround?.point(foot);
+   if(!point||!spec)return false;
+   const {x,z}=point;
+   if(spec.region==='forest')return surfaceAt('forest',x,z)==='clearing';
+   return insidePolygon(x,z,spec.ground)&&!spec.exclude.some(poly=>insidePolygon(x,z,poly));
+  },
   observationPoints(n){return spec.points.map(([x,z,action,tag])=>({...n.project({x,z}),activity:action,id:'art-'+env.region+'-'+tag,tag,target:n.project({x:x+.02,z:z-.04})})).filter(p=>n.valid(p));},
   occlusion(p){if(!spec||!nav)return [];const {host,stage}=geometry();
    if(['17','18'].includes(doc.body.dataset.homeDisplayVersion)&&doc.body.dataset.homeTinyOverview==='true'){
