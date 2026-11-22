@@ -80,21 +80,19 @@ def measure_touch(args, arms):
                 return common.native_page(browser, args.base, arm, init=driver.LISTEN,
                                           transform=driver.instrument, view=(args.width, 792))
 
-            # The same V12 artwork supplies coordinates for BOTH orders. A missed
-            # hit after a seat change remains a missed hit for that arm.
-            ref, errors, _ = page("v12")
-            ref.evaluate("HomeCastTrial.apply({paused:false});0")
-            probes = []
-            for resident, dx, dy in driver.COMMANDS:
-                key = "companion:" + resident
-                position = ref.evaluate("key=>{mobilityPerf.reset(214);return mobilityPerf.press(key)}", key)
-                probes.append(dict(key=key, start=position, finish=[position[0]+dx, position[1]+dy] if position else None))
-            assert not errors
-            ref.close()
-            result["controls"] = probes
+            tape = (HERE / "performance-touch-controls.json").read_bytes()
+            probes = json.loads(tape)["widths"][str(args.width)]["controls"]
+            assert [p["key"] for p in probes] == ["companion:" + r for r,_,_ in driver.COMMANDS]
+            for p, (_, dx, dy) in zip(probes, driver.COMMANDS, strict=True):
+                if p["start"] is not None:
+                    assert [p["start"][0]+dx, p["start"][1]+dy] == p["finish"]
+            result.update(controls=probes, controlsSHA256=common.digest(tape), warmupSeconds=8)
             for arm in arms:
                 pg, errors, assets = page(arm)
                 pg.evaluate("HomeCastTrial.apply({paused:false});0")
+                pg.wait_for_timeout(8000)
+                openings = pg.evaluate("mobilityPerf.reset(214).snapshot().map(a=>[a.key,a.x,a.y,a.w,a.h])")
+                assert len(openings) == 28
                 readings = []
                 for command in probes:
                     if command["start"] is None:
@@ -106,7 +104,7 @@ def measure_touch(args, arms):
                     assert sample["trusted"], sample
                     readings.append(dict(command=command, **sample))
                 assert readings and not errors, errors
-                result["rows"].append(dict(arm=arm, assets=assets, readings=readings))
+                result["rows"].append(dict(arm=arm, assets=assets, opening=openings, readings=readings))
                 common.save(args.out, result)
                 print(arm, len(readings), "trusted controls", flush=True)
                 pg.close()

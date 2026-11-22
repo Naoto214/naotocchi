@@ -13,12 +13,25 @@ stats=helpers["stats"]
 old=helpers["old"]
 
 
-def report(directory, game, out):
+def report(directory, game, out, touch_archive=None):
     receipt=json.loads((directory/"receipt.json").read_bytes())
     assert receipt["complete"] and receipt["conclusion"]=="success"
     seat_archives=[a for a in receipt["archives"] if "-seat-375-" in a["name"]]
     assert len(seat_archives)==2
     result=dict(run=receipt["run"],url=receipt["url"],commit=receipt["commit"],archives=seat_archives,assets={},sources={},measures=[])
+    replacement={}
+    if touch_archive:
+        other=json.loads((touch_archive/"receipt.json").read_bytes())
+        assert other["complete"] and other["conclusion"]=="success"
+        result["touchRun"]={k:other[k] for k in ("run","url","commit")}
+        inputs=[a for a in other["archives"] if "-touch-375-" in a["name"]]
+        assert len(inputs)==2
+        result["touchArchives"]=inputs
+        for item in inputs:
+            file=touch_archive/item["name"]
+            assert sha(file.read_bytes())==item["sha256"] and file.stat().st_size==item["bytes"]
+            with zipfile.ZipFile(file) as z:
+                [name]=z.namelist();replacement[name]=z.read(name)
     commands=None
     opening={}
     for archive in seat_archives:
@@ -29,11 +42,13 @@ def report(directory, game, out):
         with zipfile.ZipFile(path) as z:
             assert len(z.namelist())==4
             for kind in ["seating","live","trace","touch"]:
-                name=f"{kind}-375-{order}.json";raw=z.read(name);data=json.loads(raw);result["sources"][name]=sha(raw)
+                name=f"{kind}-375-{order}.json";raw=replacement.get(name) or z.read(name);data=json.loads(raw);result["sources"][name]=sha(raw)
                 assert data["width"]==375 and [r["arm"] for r in data["rows"]]==arms
                 assert result.setdefault("browser",data["browser"])==data["browser"]
                 if kind=="touch":
-                    commands=commands or data["controls"];assert commands==data["controls"]
+                    tape=(HERE/"performance-touch-controls.json").read_bytes()
+                    assert data["controlsSHA256"]==sha(tape)
+                    commands=commands or data["controls"];assert commands==data["controls"]==json.loads(tape)["widths"]["375"]["controls"]
                 for row in data["rows"]:
                     for n,h in row["assets"].items():
                         assert (game/n).is_file() and sha((game/n).read_bytes())==h and result["assets"].setdefault(n,h)==h,n
@@ -72,4 +87,5 @@ def report(directory, game, out):
 
 if __name__=="__main__":
     p=argparse.ArgumentParser(description=__doc__);p.add_argument("archive",type=Path);p.add_argument("--game",required=True,type=Path);p.add_argument("--out",type=Path,default=HERE/"evidence/performance-seat.json")
-    a=p.parse_args();report(a.archive,a.game,a.out)
+    p.add_argument("--touch-archive",type=Path,help="Final matched coordinate rerun")
+    a=p.parse_args();report(a.archive,a.game,a.out,a.touch_archive)

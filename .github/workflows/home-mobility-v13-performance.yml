@@ -8,14 +8,14 @@ permissions:
   actions: read
 jobs:
   measure:
-    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[v13-perf]') || contains(github.event.head_commit.message, '[v13-perf-seat]') || contains(github.event.head_commit.message, '[v13-perf-tape]') || contains(github.event.head_commit.message, '[v13-perf-final]')
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[v13-perf]') || contains(github.event.head_commit.message, '[v13-perf-seat]') || contains(github.event.head_commit.message, '[v13-perf-tape]') || contains(github.event.head_commit.message, '[v13-perf-final]') || contains(github.event.head_commit.message, '[v13-perf-input]')
     runs-on: ubuntu-latest
     timeout-minutes: 55
     strategy:
       fail-fast: false
       matrix:
         direction: [forward, reverse]
-        experiment: ${{ fromJSON(contains(github.event.head_commit.message, '[v13-perf-final]') && '["live-390","live-320","trace-390","trace-320","fixed-390","stress-390","fixed-320","stress-320","touch-320","touch-390","seat-375"]' || contains(github.event.head_commit.message, '[v13-perf-seat]') && '["seat-375"]' || contains(github.event.head_commit.message, '[v13-perf-tape]') && '["fixed-320","stress-320"]' || '["live-390","live-320","trace-390","trace-320","fixed-390","stress-390","fixed-320","stress-320","touch-320","touch-390"]') }}
+        experiment: ${{ fromJSON(contains(github.event.head_commit.message, '[v13-perf-final]') && '["live-390","live-320","trace-390","trace-320","fixed-390","stress-390","fixed-320","stress-320","touch-320","touch-390","seat-375"]' || contains(github.event.head_commit.message, '[v13-perf-seat]') && '["seat-375"]' || contains(github.event.head_commit.message, '[v13-perf-input]') && '["touch-320","touch-375","touch-390"]' || contains(github.event.head_commit.message, '[v13-perf-tape]') && '["fixed-320","stress-320"]' || '["live-390","live-320","trace-390","trace-320","fixed-390","stress-390","fixed-320","stress-320","touch-320","touch-390"]') }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -82,6 +82,9 @@ jobs:
             exit 0
           fi
           args=()
+          if [[ "$suite" == touch && "$width" == 375 ]]; then
+            args+=(--arms v13-c v13-d)
+          fi
           if [[ "$suite" == fixed || "$suite" == stress ]]; then
             if [[ "$width" == 390 ]]; then
               tape="$RUNNER_TEMP/tape"

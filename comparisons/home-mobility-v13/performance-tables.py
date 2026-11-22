@@ -38,6 +38,19 @@ def main(path):
         "## 経路・住民更新・描画",
         "別の40実秒のトレースで、各関数の開始から終了までを計測した。括弧内は1回の最大値（ms）。親子の関数は時間が重なる。Webメイン・ラスター・合成は別途、同じ版の180秒通常再生でLinuxの /proc スレッドスケジューラーから求めたCPU秒。ラスターはllvmpipe・Skia CPUスレッドの合計、合成は名前にcompositorを含むスレッドの合計で、複数スレッドのCPU時間が重なる。",
     ]
+    summary=[]
+    for width in [320,390]:
+        rows=[r for r in j["live"] if r["width"]==width]
+        worst=max(rows,key=lambda r:r["frames"]["max"])
+        cpu=worst["longest"]["webThreadCpuMs"]
+        order="通常順" if worst["order"]=="forward" else "逆順"
+        summary.append(f"{width}pxの最長は{order}・{arm(worst)}の{fmt(worst['frames']['max'])}ms。"+
+                       f"対応するサンプリング範囲のWebメイン／ラスター／合成は{fmt(cpu['main'])}／{fmt(cpu['raster'])}／{fmt(cpu['compositor'])} CPU ms"+
+                       f"（時刻対応の最大誤差±{fmt(worst['longest']['osRangeErrorMs'])}ms）。")
+    fixed=j["fixed"]+j["stress"]
+    summary.append(f"同じ姿勢と環境時刻を描く{sum(r['frames']['n'] for r in fixed):,}間隔では、250／500／1,000ms超が"+
+                   "／".join(str(sum(r["frames"][k] for r in fixed)) for k in ("over250","over500","over1000"))+"回。")
+    output.insert(2," ".join(summary))
     def cost(row,k):
         val = row["parts"].get(k)
         return f"{fmt(val['ms'])} ({fmt(val['max'])})" if val else "呼出0"
@@ -52,7 +65,7 @@ def main(path):
             (*label(r),f"{name}（{r['maxMoving']}体）"," / ".join(fmt(r["frames"][k]) for k in ("p50","p95","p99","max")),
             " / ".join(str(r["frames"][k]) for k in ("over250","over500","over1000")),cpu(r)) for suite,name in [("fixed","自然"),("stress","高負荷")] for r in j[suite]]),
         "## ネイティブのタッチから歩行開始まで",
-        "各幅のV12で同じ9体から押せる位置を求め、同じ画面座標を全版・両順へ送った。WebKitのネイティブ入力経由でisTrustedを確認した。開始遅延は指を離したイベント時刻から、対象の足が描画要素のローカル座標で1px以上動いたことをフレーム通知で初めて確認するまで。5秒の観測窓内で開始できた入力だけで遅延を算出した。到着は成立した経路の終点から0.3px以内を示す。",
+        "各幅のV12で採取した9体分の押下・解放の座標を事前に保存し、全版・両順へ同じ画面座標を送った。各版を8秒予熱し、指示前に同じ乱数へ戻した。WebKitのネイティブ入力経由でisTrustedを確認した。開始遅延は指を離したイベント時刻から、対象の足が描画要素のローカル座標で1px以上動いたことをフレーム通知で初めて確認するまで。5秒の観測窓内で開始できた入力だけで遅延を算出した。到着は成立した経路の終点から0.3px以内を示す。 [全27入力のCSS座標](performance-touch-controls.json)",
         table(["幅","順","版","送信 / 対象選択 / 開始 / 到着","開始中央値 / p95 / 最大 ms"],[
             (*label(r)," / ".join(str(r[k]) for k in ("issued","selected","moved","arrived")),
              " / ".join(fmt(r["onset"][k]) for k in ("p50","p95","max")) if r["onset"] else "開始0") for r in j["touch"]]),
@@ -82,11 +95,13 @@ def main(path):
         section.append(f"各順の40秒トレース、180秒のWebメイン／ラスター／合成CPU、起動時の審査結果も保存した。 [375pxの全測定](evidence/performance-seat.json) ／ [専用CI]({seat['url']})")
         i=output.index("## 再現と適用範囲")
         output[i:i]=section
+    if path.with_name("performance-history.json").exists():
+        output.append("障害物の全線分検査前にも3回のCIを保管した。最初の320px自然テープは採取した区間の移動密度が基準に届かず終了した。初版の320px高負荷テープは同じ足位置でも最初のネイティブアニメーションが2順で異なった。最終表には順序間でも姿勢・環境・位相が一致した再生を使った。 [初期3実行のソース・各ZIP・照合記録](evidence/performance-history.json)")
     startup=path.with_name("performance-startup.json")
     if startup.exists():
         wait=json.loads(startup.read_bytes())
         times={r["arm"]:r["readyObservedMs"]/1000 for r in wait["rows"]}
-        output.append(f"別の共有Linux環境で多数のブラウザーが同時に動いていた際、320×792pxの起動から実際に28体の表示準備が完了するまで、V12で{times['v12']:.3f}秒、Bで{times['v13-b']:.3f}秒を観測した。ドキュメントは表示状態を維持し、背景描画と足元の位置合わせが済んだ後に各ページのreadyが成立した。この起動追跡はCIのフレーム集計から独立している。 [起動追跡](evidence/performance-startup.json)")
+        output.append(f"別の共有Linux環境で多数のブラウザーが同時に動いていた際、320×792pxの起動から実際に28体の表示準備が完了するまで、V12で{times['v12']:.3f}秒、障害物の全線分ガード前のBで{times['v13-b']:.3f}秒を観測した。ドキュメントは表示状態を維持し、背景描画と足元の位置合わせが済んだ後に各ページのreadyが成立した。この起動追跡はCIのフレーム集計から独立している。 [起動追跡](evidence/performance-startup.json)")
     if len(j.get("runs",[]))>1:
         output.append("集計に使った実行とソースを順序ごとにperformance.jsonのreadingRunsへ記録した。"+
                       " ".join(f"[run {r['run']}・{r['commit'][:8]}]({r['url']})" for r in j["runs"]))

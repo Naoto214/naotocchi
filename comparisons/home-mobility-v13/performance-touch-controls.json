@@ -1,0 +1,330 @@
+{
+ "description": "The nine original WPE pointer-release tests, in absolute mobile CSS viewport coordinates. Use identical start/end pixels for every arm and order within a width.",
+ "height": 792,
+ "dpr": 2,
+ "seed": 214,
+ "widths": {
+  "320": {
+   "source": "V12 control home, forward 320 job, run 45008630395",
+   "artifactSHA256": "ce051b9f7a31f457775d4bf7a6db2dfe9ca02186521fc8762fab96f9e81d6147",
+   "controls": [
+    {
+     "key": "companion:cat_friend",
+     "start": [
+      180,
+      250
+     ],
+     "finish": [
+      198,
+      250
+     ]
+    },
+    {
+     "key": "companion:hamster",
+     "start": [
+      195,
+      486
+     ],
+     "finish": [
+      173,
+      486
+     ]
+    },
+    {
+     "key": "companion:bat",
+     "start": [
+      246,
+      246
+     ],
+     "finish": [
+      258,
+      258
+     ]
+    },
+    {
+     "key": "companion:punyu",
+     "start": [
+      141,
+      504
+     ],
+     "finish": [
+      141,
+      524
+     ]
+    },
+    {
+     "key": "companion:watcher",
+     "start": [
+      134,
+      266
+     ],
+     "finish": [
+      160,
+      260
+     ]
+    },
+    {
+     "key": "companion:rabbit_friend",
+     "start": [
+      235,
+      508
+     ],
+     "finish": [
+      219,
+      520
+     ]
+    },
+    {
+     "key": "companion:tanuki",
+     "start": [
+      143,
+      315
+     ],
+     "finish": [
+      161,
+      321
+     ]
+    },
+    {
+     "key": "companion:panda",
+     "start": [
+      98,
+      508
+     ],
+     "finish": [
+      80,
+      514
+     ]
+    },
+    {
+     "key": "companion:box",
+     "start": [
+      162,
+      275
+     ],
+     "finish": [
+      178,
+      281
+     ]
+    }
+   ]
+  },
+  "375": {
+   "source": "Linux WPE native V12 375x792 opening after ready and 8 seconds of normal play, seed reset before each hit-test",
+   "browser": "26.5",
+   "assets": {
+    "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+    "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+    "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+    "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17",
+    "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6"
+   },
+   "controls": [
+    {
+     "key": "companion:cat_friend",
+     "start": [
+      209,
+      242
+     ],
+     "finish": [
+      227,
+      242
+     ]
+    },
+    {
+     "key": "companion:hamster",
+     "start": [
+      223,
+      466
+     ],
+     "finish": [
+      201,
+      466
+     ]
+    },
+    {
+     "key": "companion:bat",
+     "start": [
+      160,
+      264
+     ],
+     "finish": [
+      172,
+      276
+     ]
+    },
+    {
+     "key": "companion:punyu",
+     "start": [
+      174,
+      489
+     ],
+     "finish": [
+      174,
+      509
+     ]
+    },
+    {
+     "key": "companion:watcher",
+     "start": [
+      211,
+      282
+     ],
+     "finish": [
+      237,
+      276
+     ]
+    },
+    {
+     "key": "companion:rabbit_friend",
+     "start": [
+      50,
+      411
+     ],
+     "finish": [
+      34,
+      423
+     ]
+    },
+    {
+     "key": "companion:tanuki",
+     "start": [
+      166,
+      307
+     ],
+     "finish": [
+      184,
+      313
+     ]
+    },
+    {
+     "key": "companion:panda",
+     "start": [
+      119,
+      494
+     ],
+     "finish": [
+      101,
+      500
+     ]
+    },
+    {
+     "key": "companion:box",
+     "start": [
+      41,
+      363
+     ],
+     "finish": [
+      57,
+      369
+     ]
+    }
+   ]
+  },
+  "390": {
+   "source": "V12 published nine-input baseline, comparisons/home-mobility-v12/evidence/performance.json",
+   "sourceSHA256": "34642e7ecd8e6c5ca888071a44a8e80190b137b84d79c4cf4fd78853ec808697",
+   "controls": [
+    {
+     "key": "companion:cat_friend",
+     "start": [
+      218,
+      236
+     ],
+     "finish": [
+      236,
+      236
+     ]
+    },
+    {
+     "key": "companion:hamster",
+     "start": [
+      228,
+      476
+     ],
+     "finish": [
+      206,
+      476
+     ]
+    },
+    {
+     "key": "companion:bat",
+     "start": [
+      171,
+      262
+     ],
+     "finish": [
+      183,
+      274
+     ]
+    },
+    {
+     "key": "companion:punyu",
+     "start": [
+      174,
+      500
+     ],
+     "finish": [
+      174,
+      520
+     ]
+    },
+    {
+     "key": "companion:watcher",
+     "start": [
+      221,
+      279
+     ],
+     "finish": [
+      247,
+      273
+     ]
+    },
+    {
+     "key": "companion:rabbit_friend",
+     "start": [
+      83,
+      360
+     ],
+     "finish": [
+      67,
+      372
+     ]
+    },
+    {
+     "key": "companion:tanuki",
+     "start": [
+      174,
+      302
+     ],
+     "finish": [
+      192,
+      308
+     ]
+    },
+    {
+     "key": "companion:panda",
+     "start": [
+      119,
+      297
+     ],
+     "finish": [
+      101,
+      303
+     ]
+    },
+    {
+     "key": "companion:box",
+     "start": [
+      228,
+      205
+     ],
+     "finish": [
+      244,
+      211
+     ]
+    }
+   ]
+  }
+ }
+}

@@ -36,7 +36,7 @@ def report(directory, dist, out, supplements=()):
             path = folder / archive["name"]
             assert sha(path.read_bytes()) == archive["sha256"] and path.stat().st_size == archive["bytes"]
             result["archives"].append(dict(run=receipt["run"], **archive))
-            if "-seat-375-" in archive["name"]:
+            if "-seat-375-" in archive["name"] or "-touch-375-" in archive["name"]:
                 continue  # The four 375px observations are verified by performance-seat-report.py.
             with zipfile.ZipFile(path) as z:
                 rootnames = [n for n in z.namelist() if "/" not in n]
@@ -78,6 +78,8 @@ def report(directory, dist, out, supplements=()):
                     assert data["width"] == width and data["seconds"] == (180 if suite == "live" else 40)
                 if suite == "touch":
                     commands = data["controls"]
+                    tape = (HERE / "performance-touch-controls.json").read_bytes()
+                    assert data["controlsSHA256"] == sha(tape) and commands == json.loads(tape)["widths"][str(width)]["controls"]
                     assert len(commands) == 9 and first_commands.setdefault(width, commands) == commands
                 if suite in ("fixed", "stress"):
                     tape = (data["fixtureSHA256"], data["phaseSHA256"], data["physicalMoversPerMeasuredFrame"])

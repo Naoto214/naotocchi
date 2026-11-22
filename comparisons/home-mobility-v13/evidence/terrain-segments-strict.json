@@ -1,0 +1,360 @@
+{
+  "originalNavigation": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+  "firstNavigation": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+  "correctedNavigation": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+  "contactImplementation": "decd0f9a483b97a20d29a52ca3314ddfe4c8db4604d389bb90b682a8b5866126",
+  "spacingCSS": 6,
+  "art": "forest-waterfall",
+  "arm": "C",
+  "DHasSameTerrain": true,
+  "sparseBrowser": "156.0.8078.79",
+  "rows": [
+    {
+      "width": 320,
+      "height": 792,
+      "count": 28,
+      "source": "../home-mobility-v10/evidence/native-scene-320.json",
+      "sourceSHA": "99880f8eda759c8196171855118730fb958a7a143191b104969e8a85846e47fa",
+      "examined": 30397,
+      "nativeAccepted": 19476,
+      "nativeLost": 0,
+      "firstAdded": 828,
+      "strictAdded": 742,
+      "firstForbidden": 86,
+      "strictForbidden": 0,
+      "firstForbiddenPeerClear": 0,
+      "strictForbiddenPeerClear": 0,
+      "firstWitness": {
+        "key": "companion:shiba",
+        "w": 31.362133333333333,
+        "h": 28.74862222222222,
+        "from": {
+          "x": 98.10163785164316,
+          "y": 336.57912300383487
+        },
+        "to": {
+          "x": 213.8345029806419,
+          "y": 312.9618666817147
+        },
+        "paintedFrom": {
+          "x": 0.3222726674728654,
+          "z": 0.5983440766039579
+        },
+        "paintedTo": {
+          "x": 0.6160449732186337,
+          "z": 0.5588482150667651
+        },
+        "reason": {
+          "group": "exclude",
+          "index": 0,
+          "entrance": {
+            "x": 0.36263458540523463,
+            "z": 0.5929176674739838,
+            "t": 0.13739184103793156
+          }
+        },
+        "peerClear": false,
+        "A": false,
+        "first": true,
+        "corrected": false,
+        "cssDistance": 158.23446871214603
+      },
+      "firstPeerClearWitness": null,
+      "approachWitness": null
+    },
+    {
+      "width": 375,
+      "height": 792,
+      "count": 28,
+      "source": "../home-mobility-v12/evidence/performance-scene-375.json",
+      "sourceSHA": "dfbacda9b16c634dd7a81b1a5fb01b651918bacd935a585669190e3dd3c031f9",
+      "examined": 34911,
+      "nativeAccepted": 22981,
+      "nativeLost": 0,
+      "firstAdded": 777,
+      "strictAdded": 646,
+      "firstForbidden": 131,
+      "strictForbidden": 0,
+      "firstForbiddenPeerClear": 0,
+      "strictForbiddenPeerClear": 0,
+      "firstWitness": {
+        "key": "companion:shiba",
+        "w": 31.960666666666672,
+        "h": 29.297277777777783,
+        "from": {
+          "x": 118.23989001273233,
+          "y": 322.42543713717606
+        },
+        "to": {
+          "x": 243.5125448431875,
+          "y": 332.6462539867201
+        },
+        "paintedFrom": {
+          "x": 0.3071483155368523,
+          "z": 0.5765293337221855
+        },
+        "paintedTo": {
+          "x": 0.6344560005009331,
+          "z": 0.5915223988869279
+        },
+        "reason": {
+          "group": "exclude",
+          "index": 0,
+          "entrance": {
+            "x": 0.39682166711287925,
+            "z": 0.5806370234144327,
+            "t": 0.2739726431595024
+          }
+        },
+        "peerClear": false,
+        "A": false,
+        "first": true,
+        "corrected": false,
+        "cssDistance": 173.22593119775712
+      },
+      "firstPeerClearWitness": null,
+      "approachWitness": null
+    },
+    {
+      "width": 390,
+      "height": 792,
+      "count": 28,
+      "source": "../home-mobility-v10/evidence/native-scene-390.json",
+      "sourceSHA": "c98acd01aab0194c33bf6a8cfd7ad36bdfbc6d10606a5798cd07d75e69570969",
+      "examined": 36237,
+      "nativeAccepted": 23919,
+      "nativeLost": 0,
+      "firstAdded": 728,
+      "strictAdded": 646,
+      "firstForbidden": 82,
+      "strictForbidden": 0,
+      "firstForbiddenPeerClear": 0,
+      "strictForbiddenPeerClear": 0,
+      "firstWitness": {
+        "key": "companion:shiba",
+        "w": 33.870666666666665,
+        "h": 31.048111111111112,
+        "from": {
+          "x": 120.01451114931962,
+          "y": 323.74571768836853
+        },
+        "to": {
+          "x": 250.852096421275,
+          "y": 326.95193313022605
+        },
+        "paintedFrom": {
+          "x": 0.2934467944398846,
+          "z": 0.5805001000471862
+        },
+        "paintedTo": {
+          "x": 0.6328617939848514,
+          "z": 0.5850917570535822
+        },
+        "reason": {
+          "group": "exclude",
+          "index": 0,
+          "entrance": {
+            "x": 0.3889636211867581,
+            "z": 0.5817922660013986,
+            "t": 0.28141604488583927
+          }
+        },
+        "peerClear": false,
+        "A": false,
+        "first": true,
+        "corrected": false,
+        "cssDistance": 179.24801323711804
+      },
+      "firstPeerClearWitness": null,
+      "approachWitness": null
+    },
+    {
+      "width": 430,
+      "height": 792,
+      "count": 28,
+      "source": "../home-mobility-v12/evidence/performance-scene-430.json",
+      "sourceSHA": "b24f17477a2f681cd1313f8397da276e4af7462cde603eaa40c14ac322d82451",
+      "examined": 41595,
+      "nativeAccepted": 28155,
+      "nativeLost": 0,
+      "firstAdded": 559,
+      "strictAdded": 507,
+      "firstForbidden": 52,
+      "strictForbidden": 0,
+      "firstForbiddenPeerClear": 0,
+      "strictForbiddenPeerClear": 0,
+      "firstWitness": {
+        "key": "companion:shiba",
+        "w": 38.3528,
+        "h": 35.156733333333335,
+        "from": {
+          "x": 137.22136852103736,
+          "y": 317.1801637386017
+        },
+        "to": {
+          "x": 287.2386021703252,
+          "y": 332.55356139910674
+        },
+        "paintedFrom": {
+          "x": 0.2787036229368275,
+          "z": 0.5747454526296583
+        },
+        "paintedTo": {
+          "x": 0.6661111061257989,
+          "z": 0.5955894439987351
+        },
+        "reason": {
+          "group": "exclude",
+          "index": 0,
+          "entrance": {
+            "x": 0.3951827331689782,
+            "z": 0.5810124703660514,
+            "t": 0.30066303643219494
+          }
+        },
+        "peerClear": false,
+        "A": false,
+        "first": true,
+        "corrected": false,
+        "cssDistance": 205.2162324372457
+      },
+      "firstPeerClearWitness": null,
+      "approachWitness": null
+    },
+    {
+      "width": 375,
+      "height": 792,
+      "count": 1,
+      "source": "evidence/terrain-segment-sparse-camera.json",
+      "sourceSHA": "6c8145f3210ecf47da991129987dc2decaa03e114e774103b068dedc69e1ae5f",
+      "examined": 669,
+      "nativeAccepted": 647,
+      "nativeLost": 0,
+      "firstAdded": 8,
+      "strictAdded": 8,
+      "firstForbidden": 0,
+      "strictForbidden": 0,
+      "firstForbiddenPeerClear": 0,
+      "strictForbiddenPeerClear": 0,
+      "firstWitness": null,
+      "firstPeerClearWitness": null,
+      "approachWitness": {
+        "openingFoot": {
+          "x": 185.21941562229762,
+          "y": 287.39394454949127
+        },
+        "originalApproach": [
+          {
+            "x": 98.94691841731111,
+            "y": 334.97154385778543
+          }
+        ],
+        "key": "pet:dog",
+        "w": 119.30226000000002,
+        "h": 139.18597000000003,
+        "from": {
+          "x": 98.94691841731111,
+          "y": 334.97154385778543
+        },
+        "to": {
+          "x": 238.5196865877146,
+          "y": 326.3580646677097
+        },
+        "paintedFrom": {
+          "x": 0.3757989970879265,
+          "z": 0.5816920547698793
+        },
+        "paintedTo": {
+          "x": 0.6201171789061085,
+          "z": 0.5665405396183635
+        },
+        "reason": {
+          "group": "exclude",
+          "index": 0,
+          "entrance": {
+            "x": 0.38988030046255595,
+            "z": 0.5808187956458712,
+            "t": 0.05763510218452963
+          }
+        },
+        "peerClear": true,
+        "A": false,
+        "first": true,
+        "corrected": false,
+        "cssDistance": 129.5569372901353
+      },
+      "maximumProjectionErrorCSS": 2.842170943040401e-14
+    },
+    {
+      "width": 375,
+      "height": 792,
+      "count": 4,
+      "source": "evidence/terrain-segment-sparse-camera.json",
+      "sourceSHA": "6c8145f3210ecf47da991129987dc2decaa03e114e774103b068dedc69e1ae5f",
+      "examined": 2497,
+      "nativeAccepted": 1395,
+      "nativeLost": 0,
+      "firstAdded": 22,
+      "strictAdded": 22,
+      "firstForbidden": 0,
+      "strictForbidden": 0,
+      "firstForbiddenPeerClear": 0,
+      "strictForbiddenPeerClear": 0,
+      "firstWitness": null,
+      "firstPeerClearWitness": null,
+      "approachWitness": null,
+      "maximumProjectionErrorCSS": 6.355287432313019e-14
+    }
+  ],
+  "regressionCases": {
+    "narrow": {
+      "oldA": false,
+      "first": true,
+      "strict": false,
+      "emptyRoster": false,
+      "from": {
+        "x": 44,
+        "y": 70
+      },
+      "to": {
+        "x": 50,
+        "y": 70
+      },
+      "foreground": [
+        [
+          [
+            0.4613,
+            0.595
+          ],
+          [
+            0.4614,
+            0.595
+          ],
+          [
+            0.4614,
+            0.605
+          ],
+          [
+            0.4613,
+            0.605
+          ]
+        ]
+      ]
+    },
+    "retained": [
+      true,
+      true,
+      true
+    ],
+    "mixedInterior": [
+      false,
+      true,
+      false
+    ],
+    "boundary": [
+      false,
+      true,
+      false
+    ]
+  }
+}
