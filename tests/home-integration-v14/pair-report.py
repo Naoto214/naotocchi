@@ -148,7 +148,11 @@ def summarize(rows):
             checks.update(retrySameStart=None,retryChangedGoal=None,retryHasOpenGoal=None,retryDragHops=None,retryViolations=None,retryTrusted=None)
         gate=row['lifecycle'].get('returnGate')
         returned=phase.get('returnTrip')
-        checks.update(returnAccepted=gate['accepted'] if gate else None,
+        returning=phase_metrics(returned,phase['reload'],phase['reload']) if returned else {}
+        checks.update(returnPairContact=returning.get('pairContact'),returnLeadCrowd=returning.get('pairCrowdContacts'),
+                      returnNewLeadVsReload=returning.get('addedPairCrowdVsPrior'),
+                      returnWrongSolverSide=returning.get('solverOrderChanged'),returnPartnerSideMargin=returning.get('partnerSideMargin'),
+                      returnAccepted=gate['accepted'] if gate else None,
                       returnSpecial=gate['special'] if gate else None,
                       returnAllowedBeforeFixture=gate['beforeAllowed'] if gate else None,
                       returnAllowedAfterFixture=gate['afterAllowed'] if gate else None,
@@ -211,7 +215,8 @@ def summarize(rows):
             shadowDiscrepancies=sum(r['maxShadowOffset'] is not None and r['maxShadowOffset']>.001 for r in selected),
             returnTrip={k:sum(r[k] or 0 for r in selected) for k in ('returnAccepted','returnSpecial',
                 'returnAllowedBeforeFixture','returnAllowedAfterFixture','returnObserved','returnContacts',
-                'returnInvalidTerrain','returnOccluded') } if any(r['returnAccepted'] is not None for r in selected) else None,
+                'returnInvalidTerrain','returnOccluded','returnPairContact','returnLeadCrowd',
+                'returnNewLeadVsReload','returnWrongSolverSide') } if any(r['returnAccepted'] is not None for r in selected) else None,
             modelSeconds=dict(Counter(r['seconds'] for r in selected)))
     return out,summary
 
