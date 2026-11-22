@@ -134,10 +134,10 @@ test('Escape closes the top panel through the same path', () => {
 test('a critical notice (another tab) is not overwritten for 8 s; the latest ordinary notice follows it', () => {
   const h = harness({ deterministic: true }); growing(h);
   h.dispatch(h.window, 'storage', { key: SAVE, newValue: '{}', bubbles: false });
-  assert.match(h.api.getMessage(), /べつのタブ/);
+  assert.match(h.api.getMessage(), /別のタブ/);
   h.api.setMessage ? h.api.setMessage('ふつうの おしらせ') : null;
   h.api.pushLifeLog && h.api.pushLifeLog('🐶', 'x');
-  assert.match(h.api.getMessage(), /べつのタブ/, 'still the critical notice');
+  assert.match(h.api.getMessage(), /別のタブ/, 'still the critical notice');
 });
 
 // ---------- §8.6: role・inert・reduced motion ----------

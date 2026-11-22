@@ -392,6 +392,22 @@ for (const years of [1, 10, 25, 50]) for (const mismatch of [false, true]) for (
 }
 console.log('DIALOGUE TEST OK: 20 events; 18 partners; 26 companions; action handlers; 2500ms timing; cancellation; recency; 10 sampled legend stories; 16 anniversary cases.');
 
+// The anniversary is shared with this partner. A different partner's memory
+// or a name containing an event word must not choose the reconciliation scene.
+for (const [text, reconciled] of [
+  ['12さい ロボ と すれちがいはじめた', true], ['ロボとすれ違いはじめた', true],
+  ['ロボと なかなおりした', true], ['ロボと仲直りした', true],
+  ['ネコロボと仲直りした', false], ['なかなおりした鳥がなかまになった', false],
+]) {
+  reset({ partner: partner('robot_neighbor', { label: 'ロボ', married: true }), lifeLog: [{ text }] });
+  const before = JSON.stringify(api.getState().lifeLog);
+  random = 0.99;
+  api.playMarriageMovie({ years: 1, icon: '💐', title: 'はじめての結婚記念日' });
+  advance(35000);
+  assert.ok(captions.some((line) => line.includes(reconciled ? 'あのときはごめんね' : 'おやつがおいしかった')), text);
+  assert.equal(JSON.stringify(api.getState().lifeLog), before);
+}
+
 // Every current form has its own description, including new master species.
 const currentSpecies = [...master.playerSpecies.normal, ...master.playerSpecies.rare, ...master.playerSpecies.secret];
 const descriptions = [];
@@ -493,6 +509,8 @@ const memorySamples = [
   ['デートの おもいで: ロボと あめやどりを した', /雨やどり|デート/],
   ['とくべつなデートの おもいで: ロボと なにか たべる', /デート|ごほうび/],
   ['とくべつな旅の おもいで: 深海', /旅/], ['ロボと なかなおりした', /話して|仲直り/],
+  ['ロボと仲直りした', /話して|仲直り/], ['デートと仲直りした', /話して|仲直り/],
+  ['なかなおりした鳥がなかまになった', /仲間|にぎやか/],
   ['カワウソが なかまに なった', /仲間|にぎやか/], ['はじめて 森に いった', /場所|旅/],
   ['星のバス停に たどりついた', /場所|旅/], ['新しい姿に へんしんした', /姿|変身/],
   ['ロボと はじめて であった', /出会い/], ['れんくんに であった', /出会い/],

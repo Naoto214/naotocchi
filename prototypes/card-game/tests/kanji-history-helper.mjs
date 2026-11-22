@@ -12,3 +12,12 @@ export function beforeKanji(card){
 export function beforeKanjiLog(log){
  return log.map(entry=>typeof entry==='string'?Object.values(names).reduce((text,d)=>text.replaceAll(d.displayName,d.legacyNames[0]),entry):entry);
 }
+
+// The frozen hotseat-2 doodle-jump fixtures used the former E-mirror title in these five messages.
+const mirrorLogTemplates = ['A：%を発動', 'A：%を解決', 'B：%を発動', 'B：%を解決', '公開：%'];
+const historicalMirrorMessages = new Map(mirrorLogTemplates.map(template => [
+ template.replace('%', '年をとった自分'), template.replace('%', 'としをとったじぶん')
+]));
+export function beforeMirrorTitle(log) {
+ return log.map(line => historicalMirrorMessages.get(line) ?? line);
+}

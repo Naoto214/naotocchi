@@ -1,5 +1,5 @@
 // Read-only presentation adapter. Never generates eligibility, changes state or advances work.
-import {CATALOG} from './full-catalog.mjs';
+import {CATALOG, abilityName} from './display-catalog.mjs';
 export function visibleCards(v){
  const peek=v.choice?.peek;return [...Object.values(v.players).flatMap(p=>[...(p.hand??[]),...p.discard,p.board.main,p.board.partner,p.board.world,...p.board.companions,...p.board.prepared]),...(Array.isArray(peek)?peek:peek?[peek]:[]),v.effect?.card,...(v.effectQueue??[]).map(x=>x.card)].filter(Boolean);
 }
@@ -19,7 +19,7 @@ export function projectOperation(s,v,viewer){
  const moveKey=bottomKinds.has(q?.kind)?'bottom':q?.kind==='program_handTop'?'top':destination,move=moves[moveKey];
  // moveKey/moveCost let the card detail split a pick into a short label and an outcome note; displayLabel is unchanged.
  v.actions=v.actions.map(a=>({...a,...(a.kind==='choose'&&a.choiceCard&&q?{moveKey:move?moveKey:null,moveCost:Boolean(spec?.cost),pickKind:q.kind,pickName:safe.get(a.choiceCard)?.name??a.label}:{}),displayLabel:a.kind==='choose'&&move&&a.choiceCard?spec?.cost?`${safe.get(a.choiceCard)?.name??a.label}を支払いに選ぶ（${move}）`:`${safe.get(a.choiceCard)?.name??a.label}を${move}${spec?'対象に選ぶ':''}`:a.label}));
- const describe=(link,status)=>{if(!link)return null;const c=safe.get(link.source);return {kind:'card',card:c??null,name:c?.name??'カードの効果',ability:link.kind==='birth'?'たんじょう時の効果':c?.source?.match(/「([^」]+)」/)?.[1]??'カード効果',actor:link.actor??v.actor,status,instruction:''};};
+ const describe=(link,status)=>{if(!link)return null;const c=safe.get(link.source);return {kind:'card',card:c??null,name:c?.name??'カードの効果',ability:link.kind==='birth'?'たんじょう時の効果':abilityName(c)??'カード効果',actor:link.actor??v.actor,status,instruction:''};};
  const chain=(s.chain??[]).map(l=>describe(l,'応答を待っています')).reverse();v.effectQueue=chain;
  let current;
  if(q){

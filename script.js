@@ -59,7 +59,7 @@
     if (saveTabId) try { localStorage.setItem(SAVE_WRITER_KEY, saveTabId); } catch (e) { /* best effort */ }
   }
   let otherTabTookOver = false;
-  const OTHER_TAB_MESSAGE = 'べつの タブで ひらかれています。こちらを とじるか、よみこみなおしてください';
+  const OTHER_TAB_MESSAGE = '別のタブで開いています。このタブを閉じるか、読み込み直してください。';
   function storedSaveRevision(raw) {
     const m = /"saveRevision":(\d+)/.exec(typeof raw === 'string' ? raw : '');
     return m ? Number(m[1]) : 0;
@@ -2226,12 +2226,12 @@
     { id: 'death-1', emoji: '👻', label: 'はじめてのおわかれ', desc: 'はじめててんごくにいった', tier: 'easy', condition: (l) => l.deaths >= 1 },
     { id: 'minigame-50', emoji: '🎮', label: 'あそびのみならい', desc: 'ミニゲームを30かいあそんだ', tier: 'easy', condition: (l) => l.minigamesPlayed >= 30 },
     { id: 'record-rank-s-1', crown: { kind: 'game', bestBelow: 90 }, emoji: '🌟', label: 'はじめてのS', desc: 'ゲームきろくではじめてSランクをとった', tier: 'easy', condition: (l) => countMinigameRecords(l, (r) => r.best >= 90) >= 1 },
-    { id: 'games-played-25', crown: { kind: 'game', unplayed: true }, emoji: '🗂️', label: 'あそびめぐり', desc: '25しゅるいのミニゲームをあそんだ', tier: 'easy', condition: (l) => countMinigamesPlayed(l) >= 25 },
+    { id: 'games-played-25', crown: { kind: 'game', unplayed: true }, emoji: '🗂️', label: 'あそびめぐり', desc: '25種類のミニゲームを遊んだ', tier: 'easy', condition: (l) => countMinigamesPlayed(l) >= 25 },
     { id: 'sick-cured-1', emoji: '💉', label: 'はじめてのかんびょう', desc: 'はじめてびょうきをなおした', tier: 'easy', condition: (l) => l.sicknessCured >= 1 },
     { id: 'age-10', emoji: '🐣', label: 'ひよっこそだち', desc: '10さいになった', tier: 'easy', condition: (l) => l.maxAgeReached >= 10 },
     { id: 'shop-1', emoji: '🎁', label: 'はじめてのおかいもの', desc: 'あいてむを初めて買った', tier: 'easy', condition: (l) => l.ownedShopItems.length >= 1 },
     { id: 'consumable-1', emoji: '🎈', label: 'はじめてのつかいきり', desc: '使い切りのあいてむをはじめてつかった', tier: 'easy', condition: (l) => (l.consumablesUsed || 0) >= 1 },
-    { id: 'sticker-10', crown: { kind: 'sticker', unowned: true }, emoji: '🏷️', label: 'シールあつめ', desc: 'シールを10しゅるいあつめた', tier: 'easy', condition: (l) => ownedStickerKinds(l) >= 10 },
+    { id: 'sticker-10', crown: { kind: 'sticker', unowned: true }, emoji: '🏷️', label: 'シールあつめ', desc: 'シールを10種類集めた', tier: 'easy', condition: (l) => ownedStickerKinds(l) >= 10 },
     { id: 'money-100', emoji: '💰', label: 'ちょきんかデビュー', desc: '持っているおかねが100以上になった', tier: 'easy', condition: (l) => l.money >= 100 },
     { id: 'region-3', emoji: '🧳', label: 'たびずき', desc: '3つの地域を訪れた', tier: 'easy', condition: (l) => regionsVisitedCount(l) >= 3 },
 
@@ -2260,7 +2260,7 @@
     { id: 'minigame-300', emoji: '🕹️', label: 'あそびどっぷり', desc: 'ミニゲームを150かいあそんだ', tier: 'normal', condition: (l) => l.minigamesPlayed >= 150 },
     { id: 'quick-10', emoji: '⚡', label: 'クイックのたつじん', desc: 'クイックモードで1ランに10こクリアした', tier: 'normal', condition: (l) => ((l.quick || {}).bestCleared || 0) >= 10 },
     { id: 'quick-perfect', emoji: '👑', label: 'クイックパーフェクト', desc: 'クイックモードで20こ全部クリアした', tier: 'hard1', condition: (l) => ((l.quick || {}).bestCleared || 0) >= 20 },
-    { id: 'games-played-60', crown: { kind: 'game', unplayed: true }, emoji: '🧭', label: 'あそびたんけんか', desc: '60しゅるいのミニゲームをあそんだ', tier: 'normal', condition: (l) => countMinigamesPlayed(l) >= 60 },
+    { id: 'games-played-60', crown: { kind: 'game', unplayed: true }, emoji: '🧭', label: 'あそびたんけんか', desc: '60種類のミニゲームを遊んだ', tier: 'normal', condition: (l) => countMinigamesPlayed(l) >= 60 },
     { id: 'record-rank-a-20', crown: { kind: 'game', bestBelow: 75 }, emoji: '🎖️', label: 'Aランクコレクター', desc: '20しゅるいのゲームでAランクいじょう', tier: 'normal', condition: (l) => countMinigameRecords(l, (r) => r.best >= 75) >= 20 },
     { id: 'age-50', emoji: '🎂', label: 'はんせいき', desc: '50さいになった', tier: 'normal', condition: (l) => l.maxAgeReached >= 50 },
     { id: 'dex-50', emoji: '📘', label: 'ずかんなかば', desc: 'ずかんを50しゅるいうめた', tier: 'normal', condition: (l, s) => dexFoundCount(s) >= 50 },
@@ -2296,7 +2296,7 @@
     { id: 'medicine-30', emoji: '🩹', label: 'かんびょうのきろく', desc: 'ひとつの人生で、くすりを10回あげた', tier: 'hard1', condition: (l, s) => s.actionCounts.medicine >= 10 },
     { id: 'region-all', emoji: '🌍', label: 'せかいいっしゅう', desc: 'おうちをふくむ、すべての通常地域を訪れた', tier: 'hard1', condition: (l) => regionsVisitedCount(l) >= progressRegistry().regions.size },
     { id: 'consumable-30', emoji: '🫧', label: 'つかいきりいっぱい', desc: '使い切りのあいてむを15かいつかった', tier: 'hard1', condition: (l) => (l.consumablesUsed || 0) >= 15 },
-    { id: 'sticker-100', crown: { kind: 'sticker', unowned: true }, emoji: '🗂️', label: 'シールコレクター', desc: 'シールを100しゅるいあつめた', tier: 'hard1', condition: (l) => ownedStickerKinds(l) >= 100 },
+    { id: 'sticker-100', crown: { kind: 'sticker', unowned: true }, emoji: '🗂️', label: 'シールコレクター', desc: 'シールを100種類集めた', tier: 'hard1', condition: (l) => ownedStickerKinds(l) >= 100 },
 
     // --- むずかしい ---
     { id: 'evolve-100', emoji: '🌲', label: 'そだてのきわみ', desc: 'そだちが合計で100あがった', tier: 'hard2', condition: (l) => l.evolutions >= 100 },
@@ -7752,7 +7752,7 @@
     if (!compatible && !p.mismatched) {
       p.mismatched = true;
       p.repair = 0;
-      recordIdentityLifeLog(subject, '💔', `${p.label}とすれちがいはじめた`);
+      recordIdentityLifeLog(subject, '💔', `${p.label}とすれ違いはじめた`);
       return `${p.label}とは少しすれちがいはじめた。きゅうあいで、ゆっくり話そう`;
     }
     return '';
@@ -10067,10 +10067,10 @@
   }
 
   const MARRIAGE_MILESTONES = [
-    { years: 1, icon: '💐', title: 'はじめてのけっこんきねんび' },
-    { years: 10, icon: '🎀', title: 'けっこん10しゅうねん' },
-    { years: 25, icon: '🥈', title: 'ぎんこんしき' },
-    { years: 50, icon: '🥇', title: 'きんこんしき' },
+    { years: 1, icon: '💐', title: 'はじめての結婚記念日' },
+    { years: 10, icon: '🎀', title: '結婚10周年' },
+    { years: 25, icon: '🥈', title: '銀婚式' },
+    { years: 50, icon: '🥇', title: '金婚式' },
   ];
 
   function partnerAnniversaryLine(partner, years) {
@@ -10098,7 +10098,11 @@
     setStageVisual(el.dateMoviePet, ownStage || { emoji:'✨' }, 'medium');
     el.dateMoviePartner.innerHTML = partnerVisualHTML(state.partner, 'medium');
     const name = compactJapaneseText(state.partner.label);
-    const hadMismatch = (state.lifeLog || []).some((e) => e && /すれちがい|なかなおり/.test(e.text || ''));
+    const partnerName = String(state.partner.label ?? '').replace(/[ \u3000]/g, '');
+    const hadMismatch = (state.lifeLog || []).some((entry) => {
+      const event = relationshipLogEvent(lifeLogTextKey(entry?.text));
+      return event && (event.partner == null || event.partner === partnerName);
+    });
     const signatureAnniversary = partnerAnniversaryLine(state.partner, milestone.years);
 
 
@@ -10444,7 +10448,6 @@
     'デートのおもいで:',
     'とくべつなデートのおもいで:',
     'とくべつな旅のおもいで:',
-    'なかなおりした',
     'なかまになった',
     'はじめてであった',
     'たどりついた',
@@ -10453,6 +10456,13 @@
     'にであった',
   ];
   let lastMemoryRecallKey = null;
+
+  // Old saves may use kana, spaces, or a bare event without a partner's name.
+  function relationshipLogEvent(key) {
+    const match = /^(?:(.+)と)?(すれちがいはじめた|すれ違いはじめた|なかなおりした|仲直りした)[。!！]?$/.exec(key);
+    if (!match) return null;
+    return { partner: match[1], reconciled: match[2] === 'なかなおりした' || match[2] === '仲直りした' };
+  }
 
   // Compare current copy with old spaced logs without rewriting saved history.
   function lifeLogTextKey(text) {
@@ -10469,7 +10479,7 @@
     const memories = state.lifeLog.filter((entry) => {
       if (!entry || typeof entry.text !== 'string') return false;
       const text = lifeLogTextKey(entry.text);
-      return MEMORY_RECALL_MARKERS.some((marker) => text.includes(marker))
+      return relationshipLogEvent(text)?.reconciled || MEMORY_RECALL_MARKERS.some((marker) => text.includes(marker))
         || /^はじめて.+にいった[。!！]?$/.test(text);
     });
     if (!memories.length) return null;
@@ -10505,7 +10515,9 @@
       : 'あのとき';
 
     let lines;
-    if (text === 'びょうきをなおしてもらった') {
+    if (relationshipLogEvent(text)?.reconciled) {
+      lines = ['あのとき、ちゃんと話してよかった', '仲直りのあと、やっとひと息つけたね'];
+    } else if (text === 'びょうきをなおしてもらった') {
       lines = [when + 'の看病、ありがとう', '元気になったとき、ほっとしたね'];
     } else if (text.startsWith('とくべつなデートのおもいで:')) {
       lines = ['あのとくべつなデート、覚えてる?', 'あの日のごほうび、使ってよかったね'];
@@ -10524,8 +10536,6 @@
       lines = ['けっこんした日の顔、思い出すと照れる', when + 'の結婚のこと、覚えてるよ'];
     } else if (/こいびとになった/.test(text)) {
       lines = ['恋人になった日のこと、ふと思い出した', 'あの返事、聞いたあともどきどきしてた'];
-    } else if (/なかなおりした/.test(text)) {
-      lines = ['あのとき、ちゃんと話してよかった', '仲直りのあと、やっとひと息つけたね'];
     } else if (/なかまになった/.test(text)) {
       lines = ['仲間がふえた日のこと、覚えてる?', 'あの出会いから、少しにぎやかになったね'];
     } else if (/へんしんした/.test(text)) {
@@ -11280,7 +11290,7 @@
   }
   function decodeLifeCode(code) {
     const t = (code || '').trim();
-    if (!t.startsWith(LIFE_CODE_PREFIX)) throw new Error('これは いっしょうカードの コードでは ない');
+    if (!t.startsWith(LIFE_CODE_PREFIX)) throw new Error('これは、いっしょうカードのコードではありません。');
     let b64 = t.slice(LIFE_CODE_PREFIX.length).replace(/-/g, '+').replace(/_/g, '/');
     while (b64.length % 4) b64 += '=';
     const bin = atob(b64); const bytes = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
@@ -11305,7 +11315,7 @@
     if (el.profilePastLives) {
       const past = (state.lifetime.pastLives || []).slice().reverse();
       el.profilePastLives.innerHTML = past.length
-        ? past.slice(0, 12).map((p, i) => `<details class="past-life"><summary>${lifeRecordVisual(p)} ${escapeHtml(p.species || '???')}・${escapeHtml(p.age)}さい・そだち${escapeHtml(p.sodachi)}${p.married ? '・💍' : ''}${p.companions ? `・なかま${escapeHtml(p.companions)}` : ''}</summary>${individualityCardHTML(p.individuality || null)}${Array.isArray(p.log) && p.log.length ? buildLifeTimelineHTML(p.log,0,p.line) : '<div class="life-timeline-empty">この子の ねんぴょうは のこっていない(古いきろく)</div>'}${p.code ? `<button type="button" class="profile-code-btn past-life-code-btn" data-code="${escapeHtml(p.code)}">📋いっしょうカードのコード</button>` : ''}</details>`).join('')
+        ? past.slice(0, 12).map((p, i) => `<details class="past-life"><summary>${lifeRecordVisual(p)} ${escapeHtml(p.species || '???')}・${escapeHtml(p.age)}さい・そだち${escapeHtml(p.sodachi)}${p.married ? '・💍' : ''}${p.companions ? `・なかま${escapeHtml(p.companions)}` : ''}</summary>${individualityCardHTML(p.individuality || null)}${Array.isArray(p.log) && p.log.length ? buildLifeTimelineHTML(p.log,0,p.line) : '<div class="life-timeline-empty">この子の年表は残っていません（古い記録）。</div>'}${p.code ? `<button type="button" class="profile-code-btn past-life-code-btn" data-code="${escapeHtml(p.code)}">📋いっしょうカードのコード</button>` : ''}</details>`).join('')
         : '<div class="profile-hint">まだ おわかれした子は いない</div>';
     }
   }
@@ -12899,7 +12909,7 @@
     const seasonInfo = SEASON_INFO[effectiveSeason];
     setHTMLIfChanged(el.seasonLabel, seasonInfo ? `${environmentIconHTML('season',effectiveSeason,seasonInfo.emoji)} ${escapeHtml(seasonInfo.label)}` : '');
     setHTMLIfChanged(el.partnerLabel, state.partner
-      ? `<span class="name-heart" aria-hidden="true">${state.partner.mismatched ? '💔' : '💖'}</span> <span class="partner-name">${escapeHtml(compactJapaneseText(state.partner.label))}</span>${state.partner.married ? ' 💍' : ''}${state.partner.mismatched ? '(すれちがい)' : ''}<span class="partner-affection" aria-label="なかよし度 ${Math.round(clamp(state.partner.affection || 0,0,100))}">♡ ${Math.round(clamp(state.partner.affection || 0,0,100))}</span>`
+      ? `<span class="name-heart" aria-hidden="true">${state.partner.mismatched ? '💔' : '💖'}</span> <span class="partner-name">${escapeHtml(compactJapaneseText(state.partner.label))}</span>${state.partner.married ? ' 💍' : ''}${state.partner.mismatched ? '(すれ違い)' : ''}<span class="partner-affection" aria-label="なかよし度 ${Math.round(clamp(state.partner.affection || 0,0,100))}">♡ ${Math.round(clamp(state.partner.affection || 0,0,100))}</span>`
       : '');
     el.partnerLabel.title = state.partner
       ? `${compactJapaneseText(state.partner.label)}・${GENDER_LABELS[state.partner.gender]}・${orientationLabel(state.partner.orientationId, state.partner.gender, state.partner.attractedTo)}・${state.partner.married ? '夫婦' : 'こいびと'}`
@@ -13300,14 +13310,14 @@
       const status = done && done.score != null
         ? `<span class="mg-rank rank-${done.rank}">${done.rank}</span><span class="daily-score">${done.score}点</span>`
         : `<button type="button" class="mg-tap-btn primary daily-start" data-game-id="${daily.id}">ちょうせん</button>`;
-      html += `<div class="daily-card ${done ? 'done' : ''}"><div class="daily-head">🗓️ きょうのチャレンジ</div><div class="daily-body"><span class="game-cell-emoji">${dInfo.emoji}</span><div class="game-cell-text"><span class="game-cell-label">${dInfo.name}</span><span class="game-cell-desc">${done ? '今日はクリア済み。また明日!' : '1日1回。成功でラッキーコイン1個'}</span></div><div class="daily-status">${status}</div></div></div>`;
+      html += `<div class="daily-card ${done ? 'done' : ''}"><div class="daily-head">🗓️ きょうのチャレンジ</div><div class="daily-body"><span class="game-cell-emoji">${dInfo.emoji}</span><div class="game-cell-text"><span class="game-cell-label">${dInfo.name}</span><span class="game-cell-desc">${done ? '今日はクリア済み。また明日!' : '今日の指定ゲームで30点以上を取ると、ラッキーコインを1個もらえるよ。もらえるのは1日1回。'}</span></div><div class="daily-status">${status}</div></div></div>`;
     }
     // クイックモード カード(ふつうの ゲームとは べつの あそび)
     if (QUICK_RUN) {
       const q = quickStats();
       const qRec = minigameRecordOf(QUICK_RUN);
       const qStatus = q.runs ? `<span class="daily-score">さいこう ✔${q.bestCleared}／${quickMod.QUICK_RULES.TOTAL}${qRec ? `<span class="mg-rank rank-${minigameRankOf(qRec.best)}">${minigameRankOf(qRec.best)}</span>` : ''}</span>` : `<span class="daily-score">まだあそんでいない</span>`;
-      html += `<div class="daily-card quick-card"><div class="daily-head">⚡ クイックモード${q.runs ? `<span class="daily-streak">${q.runs}ラン</span>` : ''}<button type="button" class="quick-list-toggle">${quickListOpen ? 'いちらんをとじる' : 'ひとつずつえらぶ'}</button></div><div class="daily-body"><span class="game-cell-emoji">⚡</span><div class="game-cell-text"><span class="game-cell-label">指示どおりに、すぐそうさ</span><span class="game-cell-desc">げんき消費なし。20/20完走で100コイン</span></div><div class="daily-status">${qStatus}<button type="button" class="mg-tap-btn primary quick-start">はじめる</button></div></div>`
+      html += `<div class="daily-card quick-card"><div class="daily-head">⚡ クイックモード${q.runs ? `<span class="daily-streak">${q.runs}ラン</span>` : ''}<button type="button" class="quick-list-toggle">${quickListOpen ? 'いちらんをとじる' : 'ひとつずつえらぶ'}</button></div><div class="daily-body"><span class="game-cell-emoji">⚡</span><div class="game-cell-text"><span class="game-cell-label">指示どおりに、すぐ操作</span><span class="game-cell-desc">げんきは使わないよ。20個のゲームを全部クリアすると100コイン！</span></div><div class="daily-status">${qStatus}<button type="button" class="mg-tap-btn primary quick-start">はじめる</button></div></div>`
         + (quickListOpen ? `<div class="quick-solo-list">${quickMod.QUICK_GAMES.map((g) => { const r = q.single[g.id]; return `<button type="button" class="quick-solo-start" data-quick-id="${g.id}"><span class="quick-solo-cue">${escapeHtml(g.cue)}</span><span class="quick-solo-motif">${escapeHtml(g.motif)}</span><span class="quick-solo-best">${r ? `✔${r.best}／${quickMod.QUICK_RULES.SOLO_TOTAL}` : '—'}</span></button>`; }).join('')}</div>` : '')
         + '</div>';
     }
@@ -13539,7 +13549,7 @@
       const loc = selectedLocality();
       const name = loc ? `げんざいち（${escapeHtml(loc.display || loc.name || '')}）` : escapeHtml(r.label);
       const icon = loc ? '📍' : environmentIconHTML('region', r.id, r.emoji);
-      el.meguruEntry.innerHTML = meguruMod ? `<button type="button" class="meguru-enter-btn" id="meguruEnterBtn"><span class="meguru-enter-icon">${icon}</span><span class="meguru-enter-text"><span class="meguru-enter-title">${name}をめぐる</span><span class="meguru-enter-sub">いまいる ばしょの なかを あるいて、であった みんなに あいにいく</span></span></button>` : '';
+      el.meguruEntry.innerHTML = meguruMod ? `<button type="button" class="meguru-enter-btn" id="meguruEnterBtn"><span class="meguru-enter-icon">${icon}</span><span class="meguru-enter-text"><span class="meguru-enter-title">${name}をめぐる</span><span class="meguru-enter-sub">いまいる場所を歩いて、出会ったみんなに会いにいく</span></span></button>` : '';
     }
     // 地域カード: こうか・出やすいゲーム・こいびと候補・ごとうちゲーム・おとずれた しるし
     const visited = new Set([...(state.lifetime.regionsVisited || []), ...(state.lifetime.specialRegionsVisited || [])]);
@@ -13609,10 +13619,10 @@
     const stake = ITEM_SYSTEM.duelStake(state);
     const cancel = document.getElementById('duelCancelMatchBtn');
     cancel.classList.toggle('hidden', !stake || stake.status !== 'reserved');
-    cancel.textContent = stake?.published ? 'かけきんをあきらめてやめる' : 'とりけしてかけきんをもどす';
+    cancel.textContent = stake?.published ? '掛け金をあきらめてやめる' : 'とりけしてかけきんをもどす';
     document.getElementById('duelStakeHint').textContent = stake?.status === 'reserved'
       ? `かけきん${stake.bet}は予約済み。とじるだけなら続きが残ります。${stake.published ? 'やめると返金できません。相手の結果は自動で変わりません。' : 'コードを表示するまでは取り消して返金できます。'}`
-      : state.lifetime.duelNotice || '始めるときにかけきんを予約します。コード表示後の取り消しは返金できません。';
+      : state.lifetime.duelNotice || '開始時に掛け金を取り分けます。コードを表示したあとで対戦を取り消しても、掛け金はもどりません。';
     const sections = {
       duelHomeSection: duelUiStep === 'home',
       duelBetSection: duelUiStep === 'bet',
@@ -13765,7 +13775,7 @@
           <div class="duel-review-row-text">
             <span class="duel-review-row-q">${escapeHtml(compactJapaneseText(q.text))}</span>
             <span class="duel-review-row-detail">本心:「${escapeHtml(compactJapaneseText(truthSide.label))}」・${e.isLie ? '🃏うそでこうかい' : '😇本音でこうかい'}${testimonyText}</span>
-            <span class="duel-review-row-pub">あいてに見えるこたえ:「${escapeHtml(compactJapaneseText(pubSide.label))}」</span>
+            <span class="duel-review-row-pub">相手に見える答え：「${escapeHtml(compactJapaneseText(pubSide.label))}」</span>
           </div>
           <span class="duel-review-row-edit">✏️</span>
         </button>
@@ -13793,7 +13803,7 @@
             <span class="duel-guess-row-emoji">${q.emoji}</span>
             <span class="duel-guess-row-text">${escapeHtml(compactJapaneseText(q.text))}</span>
           </div>
-          <div class="duel-guess-row-pub">こうかいされたこたえ:「${escapeHtml(compactJapaneseText(shownSide.label))}」</div>
+          <div class="duel-guess-row-pub">公開された答え：「${escapeHtml(compactJapaneseText(shownSide.label))}」</div>
           ${testimonyHtml}
           <div class="duel-guess-row-buttons">
             <button type="button" class="duel-guess-btn ${current && current.guess === 'honest' ? 'selected' : ''}" data-guess="honest">😇本音だと思う</button>
@@ -13877,7 +13887,7 @@
       el.duelRevealProgress.textContent = '👀いちばんあやしい!';
       el.duelRevealEmoji.textContent = row.emoji;
       setCommentText(el.duelRevealText, compactJapaneseText(row.text));
-      el.duelRevealPub.textContent = `こうかいされたこたえ:「${compactJapaneseText(row.pubLabel)}」`;
+      el.duelRevealPub.textContent = `公開された答え：「${compactJapaneseText(row.pubLabel)}」`;
       if (row.testimony) {
         const t = DUEL_TESTIMONY_PRESETS.find((tt) => tt.id === row.testimony);
         el.duelRevealTestimony.textContent = t ? `💬「${t.label}」` : '';
@@ -13911,7 +13921,7 @@
     el.duelRevealProgress.textContent = `しつもん${duelRevealIndex + 1} / ${DUEL_MATCH_QUESTION_COUNT}${closeMatch ? '(せっせん!ラストです…)' : ''}`;
     el.duelRevealEmoji.textContent = row.emoji;
     setCommentText(el.duelRevealText, compactJapaneseText(row.text));
-    el.duelRevealPub.textContent = `こうかいされたこたえ:「${compactJapaneseText(row.pubLabel)}」`;
+    el.duelRevealPub.textContent = `公開された答え：「${compactJapaneseText(row.pubLabel)}」`;
     if (row.testimony) {
       const t = DUEL_TESTIMONY_PRESETS.find((tt) => tt.id === row.testimony);
       el.duelRevealTestimony.textContent = t ? `💬「${t.label}」` : '';
@@ -13956,7 +13966,7 @@
           <span class="duel-result-row-emoji">${b.emoji}</span>
           <div class="duel-result-row-text">
             <span class="duel-result-row-question">${escapeHtml(compactJapaneseText(b.flourishTitle))}：${escapeHtml(compactJapaneseText(b.text))}</span>
-            <span class="duel-result-row-detail">${escapeHtml(compactJapaneseText(b.flourishDesc))}・こうかいされたこたえ:「${escapeHtml(compactJapaneseText(b.pubLabel))}」(${b.wasHonest ? '✅本音' : '🎭うそ'})・すいり:${b.guess === 'honest' ? 'ほんと' : 'うそ'}(${confLabel})${testimonyText}</span>
+            <span class="duel-result-row-detail">${escapeHtml(compactJapaneseText(b.flourishDesc))}・公開された答え：「${escapeHtml(compactJapaneseText(b.pubLabel))}」（${b.wasHonest ? '✅本音' : '🎭うそ'}）・推理：${b.guess === 'honest' ? 'ほんと' : 'うそ'}（${confLabel}）${testimonyText}</span>
           </div>
           <span class="duel-result-row-mark">${escapeHtml(compactJapaneseText(b.pointsLabel))}</span>
         </div>
@@ -14624,7 +14634,7 @@
       + `<div class="records-row"><span class="records-label">レア</span>${bar(rare, rareTotal, 'dex-fill-rare')}<span class="records-num">${rare}/${rareTotal}</span></div>`
       + (next ? `<div class="dex-next">🔎 ${next}</div>` : '')
       // 「いまの版で何種類みつけたか」と「むかし コンプリートした きろく」は べつもの。数は水増しせず、きろくだけ そえる
-      + (state.lifetime.dexCleared === true && !isDexComplete() ? '<div class="dex-next">📖 ずかんコンプリートの きろく あり</div>' : '') + '</div>';
+      + (state.lifetime.dexCleared === true && !isDexComplete() ? '<div class="dex-next">📖 以前、ずかんをコンプリートした記録があります</div>' : '') + '</div>';
   }
 
   // ずかんの したの ほうに、なかまイベントで であえる COMPANIONS の
@@ -16212,7 +16222,7 @@
   };
   const MINIGAME_INFO = {
     'quick-run': { name: 'クイックモード', emoji: '⚡', desc: 'みじかい指示のとおりに、つぎつぎそうさ。' },
-    'quick-solo': { name: 'クイック（1本ずつ）', emoji: '⚡', desc: 'えらんだ1本を10回。' },
+    'quick-solo': { name: 'クイック（1本ずつ）', emoji: '⚡', desc: '選んだ1本を最大10回。' },
     'road-themed': { name: 'ロードラン', emoji: '🏃', desc: 'よいものをキャッチ。わるいものはよけよう。' },
     'stack-themed': { name: 'つみあげタワー', emoji: '🏗️', desc: 'ゆれるクレーンから落として、高くつもう。' },
     'stack-snowman': { name: 'ゆきだるまタワー', emoji: '⛄', desc: '丸く重ねよう。' },
@@ -16319,104 +16329,104 @@
   const MINIGAME_CONTROLS = {
     "quick-run": "「たべろ!」「よけろ!」などの指示が出たら、すぐそのとおりにタップ・れんだ・なぞる。1つ3〜5秒で○か✕。3回しっぱいでおわり、20こできたらパーフェクト!",
     "quick-solo": "えらんだ1本だけを10回くりかえす。2回ごとにレベルが上がる。3回しっぱいでおわり、10こできたらパーフェクト!",
-    "road-themed": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+    "road-themed": "画面下のパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
     "stack-themed": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
     "stack-snowman": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
-    "bowling-3d": "ボールから上へスワイプ!速くはらうほど強く、ななめにはらうとねらいが変わる。したのパッドを左右になぞって立ち位置を変えよう。",
+    "bowling-3d": "ボールから上へスワイプ!速くはらうほど強く、ななめにはらうとねらいが変わる。画面下のパッドを左右になぞって立ち位置を変えよう。",
     "archery-3d": "画面をおさえて後ろへ引っぱり、はなすと発射。○が当たるところ（風の分も入っている）。まっすぐ下へ、いっぱいに引くとよく当たる。",
-    "breakout-classic": "画面かしたのパッドを横になぞってパドルを動かす。パドルのはしで打つと、ボールがななめに飛ぶ。落ちてくるあいてむ：⬌ワイドはパドルが広がる／●マルチボールはボールが増える／🐢スローはボールがゆっくりになる。",
+    "breakout-classic": "ゲーム画面か下のパッドを横になぞってパドルを動かす。パドルのはしで打つと、ボールがななめに飛ぶ。落ちてくるあいてむ：⬌ワイドはパドルが広がる／●マルチボールはボールが増える／🐢スローはボールがゆっくりになる。",
     "dragDecorate-cake": "下のトッピングを指でドラッグして、点線の場所に置く。ヒントに合ったトッピングを選ぼう。",
     "dragDecorate-bento": "見本を覚えてね!見本が消えたら、同じ場所に具をドラッグしてもどそう。",
-    "p3-space": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
-    "p3-drive": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
-    "fp-dungeon": "したのパッドを左右になぞって向きを変え、上になぞって進む（下でさがる）。画面をドラッグしても見まわせる。",
-    "falling-block-puzzle": "したのパッドを左右になぞって移動、下になぞると速く下がる。タップで回転。⏬で一気に落とそう。",
-    "crane-game-3d": "ボタンをおしている間、アームが動く。景品の真ん中ではなそう。落ちても、左手前の落とし口に入ればゲット!",
-    "pinball-physics": "「はっしゃ」を長おしでためて、はなす。フリッパーはおしっぱなしで上がる。",
-    "haunted-house-3d": "したのパッドを左右になぞって向きを変え、上になぞって進む。かぎを取ると、ゆうれいが追いかけてくる!",
-    "race-3d": "アクセルをおしっぱなしで加速。カーブでは外にふられるので、したのパッドを左右になぞっておさえよう。",
+    "p3-space": "画面下のパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+    "p3-drive": "画面下のパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+    "fp-dungeon": "画面下のパッドを左右になぞって向きを変え、上になぞって進む（下でさがる）。画面をドラッグしても見まわせる。",
+    "falling-block-puzzle": "画面下のパッドを左右になぞって移動、下になぞると速く下がる。タップで回転。⏬で一気に落とそう。",
+    "crane-game-3d": "ボタンを押している間、アームが動く。景品の真ん中で指を離そう。落ちても、左手前の落とし口に入ればゲット!",
+    "pinball-physics": "「はっしゃ」を長押しでためて、指を離す。フリッパーは押しっぱなしで上がる。",
+    "haunted-house-3d": "画面下のパッドを左右になぞって向きを変え、上になぞって進む。かぎを取ると、ゆうれいが追いかけてくる!",
+    "race-3d": "アクセルを押しっぱなしで加速。カーブでは外にふられるので、画面下のパッドを左右になぞっておさえよう。",
     "rhythm-highway-3d": "ノーツが手前のラインに重なった瞬間に、そのレーンのボタンをタップ!",
-    "tilt-maze-3d": "盤か したのパッドをなぞってかたむける。穴に落ちないようにゴールへ進もう。",
-    "space-gunner-3d": "したのパッドか画面をなぞってねらいを合わせ、画面をタップするか「うつ!」で発射。赤くなった敵は攻撃直前!",
+    "tilt-maze-3d": "盤か画面下のパッドをなぞって、盤をかたむけよう。穴に落ちないようにゴールへ進もう。",
+    "space-gunner-3d": "下のパッドかゲーム画面をなぞってねらいを合わせ、画面をタップするか「うつ!」で発射。赤くなった敵は攻撃直前!",
     "mini-golf-physics": "ボールから後ろへ引っぱって、はなすとパット。引っぱる長さで強さが決まる。",
-    "real-fishing": "ボタンを長おしでためて、はなすとキャスト。うきがしずんだら「あわせる」!",
+    "real-fishing": "ボタンを長押しでためて、指を離すとキャスト。うきがしずんだら「あわせる」!",
     "basketball-3d": "ボールを上へはらってシュート。はらっている間に出る白い輪が、ボールの落ちる場所。緑になったらリングの真上!",
     "pingpong-3d": "画面をなぞってラケットを動かす。ボールが来た場所にラケットを置くと返せる。先に4点取ろう!",
-    "chain-puzzle": "したのパッドを左右になぞって動かし、タップで回転、下になぞると速く落ちる。同じ色を4こつなげると消える。消えたあとに落ちてつながれば、れんさ!",
-    "street-fight": "したのパッドを左右になぞって動く。パンチは速い。キックは強くて、相手をふき飛ばす。相手が光ったらガード（長おし）!",
+    "chain-puzzle": "画面下のパッドを左右になぞって動かし、タップで回転、下になぞると速く落ちる。同じ色を4こつなげると消える。消えたあとに落ちてつながれば、れんさ!",
+    "street-fight": "画面下のパッドを左右になぞって動く。パンチは速い。キックは強くて、相手をふき飛ばす。相手が光ったらガード（長押し）!",
     "free-kick-3d": "ボールから上へはらってシュート。速くはらうほど強く、ななめにはらうとねらいが変わる。途中で曲げるとカーブ!",
     "tower-defense": "茶色い道の外にタワーを建てよう。タワーを選び、もう一度タップすると強化。敵が来る前にそなえて!",
-    "roguelike-dungeon": "したのパッドをなぞって1マス動くと敵も動く。敵にぶつかって攻撃。🧪は回復、⚔️は攻撃力アップ、🪜で次の階へ。",
-    "grand-prix-3d": "アクセルを長おし、したのパッドを左右になぞってハンドル操作。青いパッドでブースト、オイルはすべる。ライバルをぬいて1位をめざせ!",
-    "sky-shooter": "したのパッドか画面をなぞって機体を動かそう。弾は自動で出るよ。Pを取るとパワーアップ。ピンチではボム!",
-    "jump-quest": "したのパッドを左右になぞって走り、ジャンプは長おしで高く。敵は上からふみ、とげは飛びこえて、🚩まで!",
-    "push-puzzle": "したのパッドをなぞって1マスずつ動く。箱（📦）をおして★のマスへ。引っぱれないので、おす向きを考えよう。↩で1手もどせる。",
+    "roguelike-dungeon": "画面下のパッドをなぞって1マス動くと敵も動く。敵にぶつかって攻撃。🧪は回復、⚔️は攻撃力アップ、🪜で次の階へ。",
+    "grand-prix-3d": "アクセルを長押し、画面下のパッドを左右になぞってハンドル操作。青いパッドでブースト、オイルはすべる。ライバルをぬいて1位をめざせ!",
+    "sky-shooter": "下のパッドかゲーム画面をなぞって機体を動かそう。弾は自動で出るよ。Pを取るとパワーアップ。ピンチではボム!",
+    "jump-quest": "画面下のパッドを左右になぞって走り、ジャンプは長押しで高く。敵は上からふみ、とげは飛びこえて、🚩まで!",
+    "push-puzzle": "画面下のパッドをなぞって1マスずつ動く。箱（📦）をおして★のマスへ。引っぱれないので、おす向きを考えよう。↩で1手もどせる。",
     "reversi-6": "光っているマスをタップ。相手の石をはさむと、全部自分の色に変わる。角を取ると強い!",
     "billiards-6": "白いボールから後ろへ引っぱって、はなすとショット。引っぱる長さで強さが変わる。ガイド線を見てねらおう!",
     "animal-shogi": "こまをタップして、光ったマスへ。🦁を取るか、自分の🦁が一番奥まで行けば勝ち。取ったこまは、下の手持ちから打てる。",
-    "minesweeper-8": "マスをタップで開く。数字は、まわり8マスにあるばくだんの数。あやしいマスは🚩モードか長おしで、旗を立てよう。",
-    "snake-classic": "したのパッドか画面をスワイプして向きを変える。🍎でのびてスピードアップ。⭐は3こ分!かべと体にぶつからないで。",
-    "baseball-batting": "したのパッドか画面を横になぞって、バットを球のコースへ。球がホームベースに来る瞬間にスイング!真ん中で当てるとホームラン。",
-    "ring-flight-3d": "したのパッドか画面をなぞって飛行機を動かす。リングの真ん中をくぐると○。雲に当たるとスピードダウン。",
+    "minesweeper-8": "マスをタップで開く。数字は、まわり8マスにあるばくだんの数。あやしいマスは🚩モードか長押しで、旗を立てよう。",
+    "snake-classic": "下のパッドかゲーム画面をスワイプして向きを変える。🍎でのびてスピードアップ。⭐は3こ分!かべと体にぶつからないで。",
+    "baseball-batting": "下のパッドかゲーム画面を横になぞって、バットを球のコースへ。球がホームベースに来る瞬間にスイング!真ん中で当てるとホームラン。",
+    "ring-flight-3d": "下のパッドかゲーム画面をなぞって飛行機を動かす。リングの真ん中をくぐると○。雲に当たるとスピードダウン。",
     "bubble-shooter": "画面をおさえてねらいを決め、はなすと発射。同じ色が3こつながると消える。かべではね返して、裏からねらうのもアリ。",
     "catapult-castle": "ボールをおさえて後ろへ引っぱり、はなすと発射。ブロックをくずして👻をたおそう。高い場所から落としてもOK。",
     "connect-four": "落としたい列をタップ。たて・横・ななめに4つならべたら勝ち。相手（🟡）の3つならびはふさごう。",
-    "puzzle-2048": "したのパッドか画面をスワイプすると、全部のタイルがすべる。同じ数がぶつかると、足されて1つに。大きい数を角にためるのがコツ。",
-    "frogger-road": "したのパッドか画面をスワイプして1マス飛ぶ（パッドのタップで前へ）。車に当たらないように道路をわたろう。川は🪵の上だけ安全。空いている🏠へ!",
-    "ski-jump": "ボタンでスタート。台のはし（赤い線）でタップして飛び出す!空中では長おしで前かがみになり、風の目印（▽）に重ねよう。着地直前にタップでテレマーク。",
+    "puzzle-2048": "下のパッドかゲーム画面をスワイプすると、全部のタイルがすべる。同じ数がぶつかると、足されて1つに。大きい数を角にためるのがコツ。",
+    "frogger-road": "下のパッドかゲーム画面をスワイプして1マス飛ぶ（パッドのタップで前へ）。車に当たらないように道路をわたろう。川は🪵の上だけ安全。空いている🏠へ!",
+    "ski-jump": "ボタンでスタート。台のはし（赤い線）でタップして飛び出す!空中では長押しで前かがみになり、風の目印（▽）に重ねよう。着地直前にタップでテレマーク。",
     "air-hockey": "下半分で指を動かすとマレットがついてくる。パックをはじいて上のゴールへ!自分のゴールも守ろう。先に4点取ったら勝ち。",
-    "submarine-3d": "したのパッドか画面をなぞって潜水艦を動かす。💎を取り、岩やクラゲはよける。酸素メーターが減ったら🫧を取ろう。",
+    "submarine-3d": "下のパッドかゲーム画面をなぞって潜水艦を動かす。💎を取り、岩やクラゲはよける。酸素メーターが減ったら🫧を取ろう。",
     "match-3": "となり合うフルーツを、スワイプか2回のタップで入れかえる。たて・横に3つ以上そろうと消える。4つ・5つや、れんさで大きくかせごう。",
     "gomoku-9": "マスをタップすると仮置き。同じ場所をもう一度タップで決定。たて・横・ななめに5つならべたら勝ち。相手の3つ・4つならびはふさごう。",
-    "tank-battle": "したのパッドをなぞった向きに動き、🔥で発射（画面タップでもOK）。向いている方へ弾が飛ぶ。レンガのかべは、こわして道を作れる。",
-    "tennis-rally": "したのパッドを左右になぞって動き、ボールが近づいたらスイング（画面タップでもOK）!低い場所で打つと速いドライブ、高い場所で打つとロブ。相手のコートに落とそう。3ポイント先取り。",
-    "picross-5": "数字は、その列で続けてぬるマスの数。「2 1」なら2つぬって、間を空けて1つぬる。タップでぬる。✕モードか長おしで、ぬらない印をつけよう。",
+    "tank-battle": "画面下のパッドをなぞった向きに動き、🔥で発射（画面タップでもOK）。向いている方へ弾が飛ぶ。レンガのかべは、こわして道を作れる。",
+    "tennis-rally": "画面下のパッドを左右になぞって動き、ボールが近づいたらスイング（画面タップでもOK）!低い場所で打つと速いドライブ、高い場所で打つとロブ。相手のコートに落とそう。3ポイント先取り。",
+    "picross-5": "数字は、その列で続けてぬるマスの数。「2 1」なら2つぬって、間を空けて1つぬる。タップでぬる。✕モードか長押しで、ぬらない印をつけよう。",
     "darts-board": "画面をおさえてねらいを動かし、はなすと投げる。おさえている間は手がゆれるので、早めにはなすのがコツ。真ん中のブルは50点!",
-    "hang-glider-3d": "したのパッドか画面をなぞって左右に動き、上下で機首を上げ下げ。下げると速く進むけど、高さが減る。🌀の上昇気流で高さをかせぎ、🎈を集めよう。地面につくと終わり。",
-    "bomber-maze": "したのパッドをなぞった向きに動き、💣（画面タップでもOK）でばくだんを置く。2秒で十字に爆発!自分もまきこまれるので、はなれよう。レンガからあいてむが出る。",
+    "hang-glider-3d": "下のパッドかゲーム画面をなぞって左右に動き、上下で機首を上げ下げ。下げると速く進むけど、高さが減る。🌀の上昇気流で高さをかせぎ、🎈を集めよう。地面につくと終わり。",
+    "bomber-maze": "画面下のパッドをなぞった向きに動き、💣（画面タップでもOK）でばくだんを置く。2秒で十字に爆発!自分もまきこまれるので、はなれよう。レンガからあいてむが出る。",
     "blackjack-21": "カードの合計を21に近づける。21をこえたら負け。Aは1か11、絵札は10。ヒットで1枚引き、スタンドで勝負。ディーラーは17以上で止まる。",
     "pipe-connect": "パイプをタップすると90°回る。左の🚰から右の🌻まで、水が通る道を作ろう。少ないタップでつなぐと高得点。",
     "fruit-slice": "指で素早くなぞってフルーツを切る!1回のスワイプで何こも切るとコンボ。💣を切るとライフが減る。落としすぎにも注意。",
     "track-field": "◀と▶を交互に素早くタップして走る!100mのあとは幅とび。白いラインの手前でジャンプボタンをおして、はなすと飛ぶ。長くおすと高く飛べる。",
-    "voxel-mine": "したのパッドをなぞった向きに1マスほる（ゆびをおさえたままだとほり続ける）。石は時間がかかる。⚫石炭→⛓鉄→🟡金→💎ダイヤは、深いほど多い。🔥マグマにさわるとダメージ!",
+    "voxel-mine": "画面下のパッドをなぞった向きに1マスほる（ゆびをおさえたままだとほり続ける）。石は時間がかかる。⚫石炭→⛓鉄→🟡金→💎ダイヤは、深いほど多い。🔥マグマにさわるとダメージ!",
     "sushi-belt": "上の「注文」と同じネタのお皿を、レーンからタップして取る。ちがうお皿や🌶わさびはペナルティ。早くそろえるとボーナス。",
-    "asteroids-classic": "したのパッドを左右になぞって回り、上になぞると進む。🔥か画面のタップで打つ。岩をわると、小さく速くなる。画面のはしはつながっている。",
+    "asteroids-classic": "画面下のパッドを左右になぞって回り、上になぞると進む。🔥か画面のタップで打つ。岩をわると、小さく速くなる。画面のはしはつながっている。",
     "yacht-dice": "「ふる」は1ターンに全部で3回。サイコロをタップでキープし、残りだけふり直す。役をタップして記録。同じ役は1回だけ。",
     "lights-out": "タップしたマスと、上下左右のライトが反転する。全部消せばクリア。「さいてい」の手数をめざそう。",
-    "doodle-jump": "したのパッドか画面を横になぞって動き、台に降りよう。ジャンプは自動。緑はふつう、青は動く、茶色は1回でこわれる。🔴バネは大ジャンプ。左右のはしはつながっていて、1回だけ落ちても助かるよ。",
+    "doodle-jump": "下のパッドかゲーム画面を横になぞって動き、台に降りよう。ジャンプは自動。緑はふつう、青は動く、茶色は1回でこわれる。🔴バネは大ジャンプ。左右のはしはつながっていて、1回だけ落ちても助かるよ。",
     "curling-ice": "🔴を上へスワイプ。なぞった長さの先にある●が、石の止まる場所の目安。投げたあとは連打でのばせる。真ん中に一番近い石のチームが得点。",
     "jenga-tower": "タップしたブロックをぬいて、上につみ直すよ。真ん中を残すと安定し、はしだけだとくずれやすい。安定度（%）を見ながら選ぼう。",
-    "line-trace": "●から灰色の線をひと筆でなぞろう。線に近いと緑、はなれると赤。指をはなすと判定するよ。",
+    "line-trace": "●から灰色の線をひと筆でなぞろう。線に近いと緑、はなれると赤。指を離すと判定するよ。",
     "checkers-6": "こまをタップして、光ったマスへ。ななめ前に1マス進める。相手のこまを飛びこすと取れる（続けて飛べる）。奥まで行くと👑キングになり、後ろにも進める。",
     "memory-cards": "カードを2枚タップしてめくる。同じ絵ならそのまま、ちがえばもどる。場所を覚えて、少ない回数で全部そろえよう。",
-    "halfpipe-skate": "下り坂で「ポンプ」を長おしすると加速。勢いがつくと、ふちから飛び出す。空中で「トリック」をおすと1回転（何度もおせる）。着地までに回りきらないと転倒!",
+    "halfpipe-skate": "下り坂で「ポンプ」を長押しすると加速。勢いがつくと、ふちから飛び出す。空中で「トリック」をおすと1回転（何度もおせる）。着地までに回りきらないと転倒!",
     "domino-run": "道の途中でドミノが欠けている（点線）。手持ちのドミノを、欠けた場所にタップして置こう。全部つながったら「おす!」。",
     "sudoku-mini": "難易度により4×4（1〜4）か6×6（1〜6）。たて・横・太いわくの中に、それぞれの数字を1つずつ入れる。マスをタップで選び、下の数字ボタンで入れよう。まちがうと赤く光る。",
     "mancala-kalah": "下にある自分の穴をタップ。たねを1つずつ、自分のストアの方向へまく。最後のたねが右の自分のストアに入ると、もう1回。空の自分の穴に落ちると、向かいのたねももらえる。",
     "plane-landing": "緑の線にのせて飛べば▲に着陸できる。接地の直前に機首を上げるとふわっと浮いて◎までのびる（これが高得点）。風で流されるので線にのせ直そう。",
-    "dot-eater": "したのパッドか画面をスワイプして進む。ドットを全部食べよう。⭐を食べると、6秒間はおばけを食べ返せる!",
+    "dot-eater": "下のパッドかゲーム画面をスワイプして進む。ドットを全部食べよう。⭐を食べると、6秒間はおばけを食べ返せる!",
     "missile-command": "空をタップすると、一番近い基地から迎撃ミサイルが飛ぶ。爆発の輪に敵のミサイルをまきこんで、町を守れ!基地の弾はウェーブごとに補給される。",
-    "area-claim": "したのパッドをなぞった向きにふちを動き、中へ線を引いてかこもう。60%取ればクリア。✨が線にふれると1ミス。",
+    "area-claim": "画面下のパッドをなぞった向きにふちを動き、中へ線を引いてかこもう。60%取ればクリア。✨が線にふれると1ミス。",
     "solitaire-klondike": "カードをタップで選び、置きたい列か右上の台をタップ。選んだカードをもう1回タップすると台へ。山札はタップでめくる。",
     "hit-blow": "答えは6色のうち4色（同じ色は2つない）。色を4つ選んで「けってい」。🎯ヒット＝色も場所も当たり。💨ブロー＝色はあるけど場所がちがう。",
-    "lunar-lander": "したのパッドを左右になぞってかたむけ、🔥で逆噴射。平らなパッド（×2/×3）に、まっすぐ、ゆっくり降りよう。速すぎたり、ななめだとクラッシュ。",
+    "lunar-lander": "画面下のパッドを左右になぞってかたむけ、🔥で逆噴射。平らなパッド（×2/×3）に、まっすぐ、ゆっくり降りよう。速すぎたり、ななめだとクラッシュ。",
     "shanghai-tiles": "上に牌がなく、左か右が空いている牌だけ取れる。同じ絵の2枚をタップして消そう。必ず解ききれるならびになっている。",
-    "beach-volley": "すなの○がボールの落ちる場所。したのパッドを左右になぞって、そこへ走ろう。ふれると高く上がる（うけ）。🏐アタックをおしながらふれるとスパイク!先に4点取ろう。",
+    "beach-volley": "すなの○がボールの落ちる場所。画面下のパッドを左右になぞって、そこへ走ろう。ふれると高く上がる（うけ）。🏐アタックをおしながらふれるとスパイク!先に4点取ろう。",
     "slide-puzzle": "空いたマスのとなりのピースを、タップかスワイプですべらせる。左上から順番にならべて、絵を完成させよう。",
     "sugoroku-race": "「🎲とめる」をおすと、回っているサイコロが止まる。ねらって止めよう!➕は進む、➖はもどる、⭐はコイン、💤は1回休み。先にゴールへ!",
     "takoyaki-grill": "きつね色（緑のゾーン）になったら、タップでひっくり返す。裏もきつね色になったら、タップで取り出す。早いと生、おそいとこげ!",
-    "road-city": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+    "road-city": "画面下のパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
     "stack-harvest": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
     "stack-acorn": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
     "downhill-mountain": "◀▶か画面のタップで岩をえらぼう。針が緑のわくに入ったら「つかむ」!明るい岩はつかみやすい。3段ごとの休憩で、にぎる力がもどる。12段の山頂をめざそう。",
-    "downhill-snow": "したのパッドを左右になぞるか、画面のドラッグでハンドル操作。🚩🚩の間を通り、🪵はジャンプでこえよう。",
-    "fishing-sea": "ボタンを長おしでためて、はなすとキャスト。うきがしずんだら「あわせる」!",
-    "fishing-deepsea": "ボタンを長おしでためて、はなすとキャスト。うきがしずんだら「あわせる」!",
-    "fishing-river": "ボタンを長おしでためて、はなすとキャスト。うきがしずんだら「あわせる」!",
-    "road-jungle": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
-    "road-desert": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+    "downhill-snow": "画面下のパッドを左右になぞるか、画面のドラッグでハンドル操作。🚩🚩の間を通り、🪵はジャンプでこえよう。",
+    "fishing-sea": "ボタンを長押しでためて、指を離すとキャスト。うきがしずんだら「あわせる」!",
+    "fishing-deepsea": "ボタンを長押しでためて、指を離すとキャスト。うきがしずんだら「あわせる」!",
+    "fishing-river": "ボタンを長押しでためて、指を離すとキャスト。うきがしずんだら「あわせる」!",
+    "road-jungle": "画面下のパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+    "road-desert": "画面下のパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
     "stack-sakura": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
-    "ring-flight-summer": "したのパッドか画面をなぞって飛行機を動かす。リングの真ん中をくぐると○。雲に当たるとスピードダウン。",
+    "ring-flight-summer": "下のパッドかゲーム画面をなぞって飛行機を動かす。リングの真ん中をくぐると○。雲に当たるとスピードダウン。",
     "stack-leaves": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
     "curling-winter": "🔴を上へスワイプ。なぞった長さの先にある●が、石の止まる場所の目安。投げたあとは連打でのばせる。真ん中に一番近い石のチームが得点。",
   };
@@ -16904,17 +16914,17 @@
   const anyPageHas = (pages, predicate) => Object.values(pages).some(predicate);
   const countStickerKind = (page, kind) => page.filter((p) => stickerById(p.id)?.kind === kind).length;
   const STICKER_TASKS = [
-    { id: 'page-any-3', supply: { count: 3, matches: () => true }, page: null, label: 'ひとつの ページに シールを 3まい はる', check: (pages) => anyPageHas(pages, p => p.length >= 3) },
-    { id: 'same-sticker-2', supply: { count: 0, matches: () => false }, page: null, label: 'ひとつの ページに 同じシールを 2まい はる', check: (pages) => anyPageHas(pages, p => {
+    { id: 'page-any-3', supply: { count: 3, matches: () => true }, page: null, label: '1つのページにシールを3枚貼る', check: (pages) => anyPageHas(pages, p => p.length >= 3) },
+    { id: 'same-sticker-2', supply: { count: 0, matches: () => false }, page: null, label: '1つのページに同じシールを2枚貼る', check: (pages) => anyPageHas(pages, p => {
       const counts = {};
       for (const placed of p) counts[placed.id] = (counts[placed.id] || 0) + 1;
       return Object.values(counts).some((n) => n >= 2);
     }) },
-    { id: 'page-item-2', supply: { count: 2, matches: s => s.kind === 'item' }, page: null, label: 'ひとつの ページに あいてむを 2まい はる', check: (pages) => anyPageHas(pages, p => countStickerKind(p, 'item') >= 2) },
-    { id: 'page-companion-3', supply: { count: 3, matches: s => s.kind === 'companion' }, page: null, label: 'ひとつの ページに なかまを 3にん はる', check: (pages) => anyPageHas(pages, p => countStickerKind(p, 'companion') >= 3) },
-    { id: 'page-other-3', supply: { count: 3, matches: s => s.kind === 'scenery' }, page: null, label: 'ひとつの ページに その他の シールを 3まい はる', check: (pages) => anyPageHas(pages, p => countStickerKind(p, 'scenery') >= 3) },
-    { id: 'page-8', supply: { count: 8, matches: () => true }, page: null, label: 'ひとつの ページに 8まい はる', check: (pages) => anyPageHas(pages, p => p.length >= 8) },
-    { id: 'multi-pages-2', supply: { count: 2, matches: () => true }, page: null, label: '2つの ページに シールを はる', check: (pages) => Object.values(pages).filter((p) => p.length >= 1).length >= 2 },
+    { id: 'page-item-2', supply: { count: 2, matches: s => s.kind === 'item' }, page: null, label: '1つのページに「あいてむ」のシールを2枚貼る', check: (pages) => anyPageHas(pages, p => countStickerKind(p, 'item') >= 2) },
+    { id: 'page-companion-3', supply: { count: 3, matches: s => s.kind === 'companion' }, page: null, label: '1つのページに「なかま」のシールを3枚貼る', check: (pages) => anyPageHas(pages, p => countStickerKind(p, 'companion') >= 3) },
+    { id: 'page-other-3', supply: { count: 3, matches: s => s.kind === 'scenery' }, page: null, label: '1つのページに「その他」のシールを3枚貼る', check: (pages) => anyPageHas(pages, p => countStickerKind(p, 'scenery') >= 3) },
+    { id: 'page-8', supply: { count: 8, matches: () => true }, page: null, label: '1つのページに8枚貼る', check: (pages) => anyPageHas(pages, p => p.length >= 8) },
+    { id: 'multi-pages-2', supply: { count: 2, matches: () => true }, page: null, label: '2つのページにシールを貼る', check: (pages) => Object.values(pages).filter((p) => p.length >= 1).length >= 2 },
     { id: 'background-change', supply: { count: 0, matches: () => false }, page: null, label: 'はいけいを かえる', check: (_pages, store) => store.pageOrder.some((id) => stickerPageBackground(id) !== 'home') },
   ]
   function crownNeedsTaskSticker(candidate) {
@@ -16942,17 +16952,17 @@
       if (!ok) continue;
       store.tasksDone.push(task.id);
       done.push(task);
-      if (!gameActive) showStoryEvent({ emoji: '🏷️', message: `おだい たっせい!「${task.label}」` });
+      if (!gameActive) showStoryEvent({ emoji: '🏷️', message: `お題達成！「${task.label}」` });
     }
     const doneCount = STICKER_TASKS.filter((task) => store.tasksDone.includes(task.id)).length;
     if (doneCount >= 5 && ownedStickerCount(STICKER_TASK_ADEPT_ID) === 0) {
       const silver = grantSticker(STICKER_TASK_ADEPT_ID, 'task-adept');
-      if (silver && !gameActive) showStoryEvent({ emoji: '🥈', message: 'おだい 5こたっせい！「ぎんのシールちょう」を もらった！' });
+      if (silver && !gameActive) showStoryEvent({ emoji: '🥈', message: 'お題を5こ達成！「ぎんのシールちょう」をもらった！' });
     }
     const allDone = doneCount === STICKER_TASKS.length;
     if (allDone && ownedStickerCount(STICKER_TASK_MASTER_ID) === 0) {
       const gold = grantSticker(STICKER_TASK_MASTER_ID, 'task-master');
-      if (gold && !gameActive) showStoryEvent({ emoji: '🥇', message: 'おだい ぜんぶたっせい！「きんのシールちょう」を もらった！' });
+      if (gold && !gameActive) showStoryEvent({ emoji: '🥇', message: 'お題を全部達成！「きんのシールちょう」をもらった！' });
     }
     return done;
   }
@@ -17037,7 +17047,7 @@
     const themeKind = document.getElementById('stickerThemeKind').value;
     const themeAvailable = stickerDrawablePool(collectiblePool.filter((s) => s.kind === themeKind)).length > 0;
     const themeBtn = document.getElementById('stickerThemePackBtn');
-    themeBtn.innerHTML = `ぶんるいパック（${STICKER_PACK_SIZE}まい） ${coin}${STICKER_THEME_PRICE}`;
+    themeBtn.innerHTML = `ぶんるいパック（最大${STICKER_PACK_SIZE}まい） ${coin}${STICKER_THEME_PRICE}`;
     themeBtn.disabled = state.lifetime.money < STICKER_THEME_PRICE || !themeAvailable;
     el.stickerOwnedCount.textContent = `${ownedKinds}しゅるい・同じシールは${STICKER_COPY_MAX}まいまで`;
     const filters = [['owned', 'もっている'], ...Object.entries(STICKER_KINDS)];
@@ -17049,7 +17059,7 @@
       const placed = placedStickerCount(s.id);
       const used = placed >= owned;
       return `<button type="button" class="sticker-cell rarity-${s.rarity}${used ? ' used' : ''}${stickerNewIds.has(s.id) ? ' new' : ''}" data-sticker="${s.id}" aria-label="${escapeHtml(s.label)}を はる">${owned > 1 ? `<span class="sticker-cell-count">×${owned}</span>` : ''}<span class="sticker-cell-art">${s.visual()}</span><span class="sticker-cell-label">${escapeHtml(s.label)}</span>${used ? '<span class="sticker-cell-used">はった</span>' : ''}</button>`;
-    }).join('') : '<div class="profile-hint">まだ シールが ない。パックを あけるか、あそんで あつめよう</div>');
+    }).join('') : '<div class="profile-hint">まだシールがないよ。パックを開けたり、遊んだりして集めよう</div>');
   }
   function renderStickerPackResult(results) {
     if (!el.stickerPackResult) return;
@@ -17834,7 +17844,7 @@
     if (dailyCompleted) {
       state.lifetime.dailyChallenge = { date: dailyKey(), gameId: game.id, score: record.score, rank: record.rank };
       ITEM_SYSTEM.grant(state, 'c_coin2');
-      resultMessage += '／🗓️今日のチャレンジクリア!／ラッキーコイン1個をもらった';
+      resultMessage += '／🗓️きょうのチャレンジクリア!／ラッキーコイン1個をもらった';
     }
     if (record && record.rank === 'S' && !dailyCompleted) {
       grantGrowthBoost(BOOST_TICKS_S_RANK);
@@ -18053,12 +18063,12 @@
   const MG_DEMO_KINDS = ['pad', 'swipe', 'drag', 'dpad', 'hold', 'tap'];
   function minigameDemoKind(game) {
     const text = (game && MINIGAME_CONTROLS[game.id]) || '';
-    // 「したのパッド」で はじまる せつめいは タッチパッドが 主役
-    if (/^したのパッド/.test(text)) return 'pad';
+    // 新旧どちらの操作説明でも、先頭にあるパッドを主操作とする。
+    if (/^(?:した|下|画面下)のパッド/.test(text)) return 'pad';
     if (/スワイプ|はら[っう]|フリック|なぞって|なぞる/.test(text)) return 'swipe';
     if (/ドラッグ|引っぱ|ひっぱ|なぞ/.test(text)) return 'drag';
     if (/◀▶|↶↷|▲|▼|◀|▶/.test(text)) return 'dpad';
-    if (/長おし|おしっぱなし|おさえ|ためて|おしている間|おしている あいだ/.test(text)) return 'hold';
+    if (/長[お押]し|[お押]しっぱなし|おさえ|ためて|[お押]している(?:間| あいだ)/.test(text)) return 'hold';
     return 'tap';
   }
 
@@ -18162,7 +18172,7 @@
     const demoKind = minigameDemoKind(game);
     el.minigameOverlay.innerHTML = `
       <div class="mg-intro">
-        <div class="mg-intro-badge">✨はじめてのゲーム</div>
+        <div class="mg-intro-badge">✨あそびかた</div>
         <div class="mg-intro-emoji">${info.emoji}</div>
         <div class="mg-intro-name">${info.name}</div>
         <div class="mg-intro-genre">${genre ? `${genre.emoji} ${genre.label}` : ''}</div>
@@ -18835,7 +18845,7 @@
         p.mismatched = false;
         p.repair = 0;
         applyGrowth(12); applyDecline(-15);
-        pushLifeLog('💞', `${p.label}となかなおりした`);
+        pushLifeLog('💞', `${p.label}と仲直りした`);
         rememberPartnerLetter('repair');
         if (!checkMeters()) {
           setMessage(`${p.emoji} ${p.label}とちゃんと話した。恋愛タイプは変わったけれど、それでもいっしょにいることにした`);
@@ -19581,13 +19591,13 @@
   });
   el.stickerExportBtn.addEventListener('click', () => {
     const pg = stickerPageInfo(stickerCurrentPage);
-    el.stickerExportView.innerHTML = '<p class="profile-hint">がぞうを つくっている…</p>';
+    el.stickerExportView.innerHTML = '<p class="profile-hint">画像をつくっている…</p>';
     el.stickerExportView.classList.remove('hidden');
     exportStickerPageImage(stickerCurrentPage).then((url) => {
       el.stickerExportView.innerHTML = url
-        ? `<img src="${url}" alt="シールちょう ${pg ? pg.label : ''}"><p class="profile-hint">がぞうを ながおしすると ほぞんできる</p>`
-        : '<p class="profile-hint">この たんまつでは がぞうに できなかった</p>';
-    }).catch(() => { el.stickerExportView.innerHTML = '<p class="profile-hint">この たんまつでは がぞうに できなかった</p>'; });
+        ? `<img src="${url}" alt="シールちょう ${pg ? pg.label : ''}"><p class="profile-hint">画像を長押しすると保存できる</p>`
+        : '<p class="profile-hint">この端末では画像にできなかった</p>';
+    }).catch(() => { el.stickerExportView.innerHTML = '<p class="profile-hint">この端末では画像にできなかった</p>'; });
   });
   bindStickerBoard();
 
@@ -19894,7 +19904,7 @@
     el.saveExportCopyBtn.addEventListener('click', () => copyCodeToClipboard(el.saveExportText.value, el.saveExportText, el.saveExportCopied));
     el.saveImportBtn.addEventListener('click', () => {
       let json;
-      try { json = decodeSaveCode(el.saveImportInput.value); } catch (err) { el.saveImportStatus.textContent = `よみこめない: ${err.message}`; saveImportArmedAt = 0; return; }
+      try { json = decodeSaveCode(el.saveImportInput.value); } catch (err) { el.saveImportStatus.textContent = `読み込めない: ${err.message}`; saveImportArmedAt = 0; return; }
       const now = Date.now();
       if (now - saveImportArmedAt > 6000) { saveImportArmedAt = now; el.saveImportStatus.textContent = 'いまのセーブを、このコードでおきかえます。よければ、もう一度押してください'; return; }
       saveImportArmedAt = 0;
@@ -19959,7 +19969,7 @@
   el.duelBetConfirmBtn.addEventListener('click', () => {
     const bet = Math.round(Number(el.duelBetInput.value));
     if (!Number.isFinite(bet) || bet <= 0) {
-      el.duelBetError.textContent = 'かけきんを1以上の数字で入力してください';
+      el.duelBetError.textContent = '掛け金を1以上の数字で入力してください';
       el.duelBetError.classList.remove('hidden');
       return;
     }
@@ -19970,7 +19980,7 @@
     }
     const d = startDuelChallenge(bet);
     if (!d) {
-      el.duelBetError.textContent = 'かけきんをかくにんしてください';
+      el.duelBetError.textContent = '掛け金を確認してください';
       el.duelBetError.classList.remove('hidden');
       return;
     }

@@ -1,5 +1,5 @@
 import {marriedAbilitiesActive} from './lover-married.mjs';
-import {CATALOG} from './full-catalog.mjs';
+import {CATALOG} from './display-catalog.mjs';
 const other=a=>a==='A'?'B':'A',card=(s,id)=>CATALOG[s.cards[id]?.cardId];
 export function lateCondition(s,a,key,l){
  const p=s.players[a],b=p.board,o=s.players[other(a)],ev=l.event??{},actions=s.history.filter(e=>e.kind==='play'&&e.serial===s.serial&&e.actor===a&&['play','item','event'].includes(e.type)),stats=l.stats??ev.stats??{};

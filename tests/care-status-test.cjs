@@ -138,11 +138,11 @@ test('low life gives recovery advice before the critical threshold and clears af
 test('life and health notices choose one useful action from the actual cause', () => {
   const cases = [
     ['illness can be treated even asleep', { isSick: true, sicknessType: 'ねつ', isSleeping: true }, 'medicineBtn', /くすり.*ねつ/],
-    ['sleeping must end before food', { hunger: 40, isSleeping: true }, 'sleepBtn', /おきて.*ごはん/],
+    ['sleeping must end before food', { hunger: 40, isSleeping: true }, 'sleepBtn', /起きて.*ごはん/],
     ['hunger can be restored while awake', { hunger: 40 }, 'feedBtn', /ごはん/],
-    ['sleeping must end before affection', { happiness: 40, isSleeping: true }, 'sleepBtn', /おきて.*ごきげん/],
+    ['sleeping must end before affection', { happiness: 40, isSleeping: true }, 'sleepBtn', /起きて.*ごきげん/],
     ['safe affection can restore mood', { happiness: 40 }, 'playWithBtn', /じゃれ/],
-    ['tired pets need sleep rather than play', { happiness: 40, energy: 20 }, 'sleepBtn', /ねて.*げんき/],
+    ['tired pets need sleep rather than play', { happiness: 40, energy: 20 }, 'sleepBtn', /寝て.*げんき/],
     ['dirt can be removed', { poopCount: 2 }, 'cleanBtn', /そうじ/],
     ['health recovery takes continued balanced care', {}, '', /少しずつ.*回復/],
   ];
@@ -167,7 +167,7 @@ test('health advice never prescribes harmful care and falls back from unavailabl
 
   const tired = careStatus.assess(growing({ health: 25, happiness: 40, energy: 20 }), { petAvailable: true });
   assert.equal(tired.action, 'sleepBtn');
-  assert.doesNotMatch(tired.detail, /あそ/);
+  assert.doesNotMatch(tired.detail, /遊んで/);
 });
 
 test('high life risk restores every stat to the 60-point recovery threshold', () => {
@@ -191,7 +191,7 @@ test('unavailable affection uses sleep when exhausted and play when energy is ad
   const rested = careStatus.assess(growing({ happiness: 25, energy: 80 }), { petAvailable: false });
   assert.equal(rested.kind, 'happiness');
   assert.equal(rested.action, 'playBtn');
-  assert.match(rested.detail, /あそ/);
+  assert.equal(rested.detail, '遊んで、ごきげんを整えよう');
 });
 
 test('assess reports ordinary care needs in priority order', () => {

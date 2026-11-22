@@ -33,8 +33,18 @@ async function quit(page){
 }
 async function blackjack(page,entry,bust){
   await entry.click();
-  if(await page.locator('#mgIntroStart').isVisible())await page.locator('#mgIntroStart').click();
+  if(await page.locator('#mgIntroStart').isVisible()){
+    assert.equal(await page.locator('.mg-intro .mg-intro-badge').textContent(),'✨あそびかた');
+    await page.locator('#mgIntroStart').click();
+  }
   await page.locator('#bjHit').waitFor();
+  if(bust){
+    await page.locator('#mgHelpBtn').click();
+    const help=page.locator('#mgHelpOverlay');
+    assert.equal(await help.locator('.mg-intro-badge').textContent(),'✨あそびかた');
+    assert.equal(await help.locator('.mg-help-note').innerText(),'説明を読んでいる間も、ゲームは進むよ。読んだらとじよう。');
+    await help.locator('#mgHelpCloseBtn').click();
+  }
   for(let hand=0;hand<4;hand++){
     // Math.random=.99 leaves the deck ordered. Standing yields 60 points;
     // repeatedly hitting yields 15. No score/payout handler is substituted.
@@ -83,9 +93,9 @@ module.exports=async function(browser,engine,fixtures,baseURL,output){
       assert.equal((await readSave(page)).lifetime.money,before.lifetime.money);
       await openGames(page);
       assert.equal(await page.locator('.daily-start').getAttribute('data-game-id'),'blackjack-21');
-      assert.match(await page.locator('.daily-card:not(.quick-card)').textContent(),/1日1回。成功でラッキーコイン1個/);
+      assert.match(await page.locator('.daily-card:not(.quick-card)').textContent(),/今日の指定ゲームで30点以上を取ると、ラッキーコインを1個もらえるよ。もらえるのは1日1回。/);
       assert.doesNotMatch(await page.locator('.daily-card:not(.quick-card)').textContent(),/連続|2ばい|10コイン/);
-      assert.match(await page.locator('.quick-card').textContent(),/げんき消費なし。20\/20完走で100コイン/);
+      assert.match(await page.locator('.quick-card').textContent(),/げんきは使わないよ。20個のゲームを全部クリアすると100コイン！/);
       await readableCards(page,width);
       await visibleWithin(page,page.locator('.daily-start'),width);
       await visibleWithin(page,page.locator('.quick-start'),width);

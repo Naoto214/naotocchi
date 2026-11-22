@@ -1,8 +1,8 @@
 {
   "base": "2cf0570ab801d389c42af560d323ff643c69a220",
-  "note": "Authorized PR #382 integration: free life events and optional expression presentation; model/World geometry/save unchanged. See docs/qa/social-expression-20261016/REPORT.md.",
+  "note": "Authorized PR #382 integration: free life events and optional expression presentation; model/World geometry/save unchanged. V6 updates the approved event text; tests/helpers/approved-notation-v6.json verifies the exact pre-V6 bytes.",
   "meguru.js": {
     "count": 1,
-    "sha1": "fe7d14d52b37e4a33b756240ed5c8752210ea811"
+    "sha1": "2fe7ed3981ab82cc4f2f1fe5a3d6188ac622ff7c"
   }
 }

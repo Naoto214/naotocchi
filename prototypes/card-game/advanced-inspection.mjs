@@ -1,5 +1,5 @@
 /** Explicit multistage inspection programs. Inspected cards remain in their zone until moved. */
-import {CATALOG} from './full-catalog.mjs';
+import {CATALOG} from './display-catalog.mjs';
 const rule=(mode,n,extra={})=>({mode:'quick',steps:[{op:'inspect',mode,n}],...extra});
 export const INSPECTION_RULES={
  'G-blackjack-21':rule('blackjack',3),

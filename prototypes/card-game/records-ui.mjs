@@ -5,6 +5,12 @@ import {cardMarkup,escapeHTML as h} from './ui-presentation.mjs';
 const labels={win:'勝利',loss:'敗北',draw:'引き分け'},date=t=>t===null?'日時不明（旧セーブ）':new Date(t).toLocaleString('ja-JP');
 const counts=t=>`${t.total}戦 · ${t.wins}勝 ${t.losses}敗 ${t.draws}分 · 勝率 ${winRate(t)}`;
 const names=cards=>{const m=new Map();for(const id of cards)m.set(id,(m.get(id)??0)+1);return [...m].map(([id,n])=>`${CARDS[id].name} ×${n}`).join('、');};
+export function recordCards(query) {
+ const q = query.trim().toLowerCase();
+ return Object.values(CARDS).filter(c =>
+   !q || [c.name, c.id, ...(c.searchAliases ?? [])].join(' ').toLowerCase().includes(q)
+ );
+}
 function download(raw,name){const u=URL.createObjectURL(new Blob([raw],{type:'application/json'})),a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);}
 export function mountRecords({store,listDecks=()=>[],onOpen=()=>{},onClose=()=>{},inspect=()=>{},withLock=fn=>fn()}){
  const d=document.createElement('dialog');d.id='records-dialog';d.setAttribute('aria-label','戦績');document.body.append(d);
@@ -17,7 +23,7 @@ export function mountRecords({store,listDecks=()=>[],onOpen=()=>{},onClose=()=>{
  const $=id=>document.getElementById(id);let tab=0,scope='cpu',query='',page=0,origin;
  const status=m=>$('records-status').textContent=m;
  function data(){try{store.refresh();}catch(e){status('保存を読み込めません：'+e.message);}return summarize(store.records,{scope});}
- function cardRows(s){const q=query.trim().toLowerCase();const all=Object.values(CARDS).filter(c=>!q||`${c.name} ${c.id}`.toLowerCase().includes(q)).sort((a,b)=>s.cards[b.id].uses-s.cards[a.id].uses||a.name.localeCompare(b.name));const shown=all.slice(page*24,(page+1)*24);
+ function cardRows(s){const all=recordCards(query).sort((a,b)=>s.cards[b.id].uses-s.cards[a.id].uses||a.name.localeCompare(b.name));const shown=all.slice(page*24,(page+1)*24);
  return `<p>全459種類 · 該当${all.length}種類。使用回数順。${Object.values(s.cards).filter(t=>t.uses>0).length}/459種類を使用。</p><p>勝率はデッキ・相手・先後にも左右されます。カードの強さの判定ではありません。</p><label>カード名・ID<input id="records-query" type="search" value="${h(query)}" placeholder="カードを探す"></label><div class="records-card-list">${shown.map(c=>{const t=s.cards[c.id];return `<article><button type="button" class="records-card-art" data-record-card="${h(c.id)}" aria-label="${h(c.name)}の詳細">${cardMarkup(c,{compact:true})}</button><div><h3>${h(c.name)}</h3><p>採用 ${t.copies}枚 / ${t.total}戦 · 採用時勝率 ${winRate(t)}</p><p>使用 ${t.uses}回 / ${t.usedMatches}戦 · 使用時勝率 ${winRate({total:t.usedMatches,wins:t.usedWins})}</p><small>${t.total<10?'採用10戦未満 · 参考値':''} ${t.usedMatches<10?'使用10戦未満 · 参考値':''}</small></div></article>`;}).join('')}</div><div class="records-actions"><button data-record-page="-1" ${page===0?'disabled':''}>前へ</button><span>${page+1}/${Math.max(1,Math.ceil(all.length/24))}</span><button data-record-page="1" ${(page+1)*24>=all.length?'disabled':''}>次へ</button></div>`;}
  function render(){const s=data();$('records-scope-wrap').hidden=![2,4].includes(tab);for(const b of d.querySelectorAll('[data-record-tab]'))b.setAttribute('aria-pressed',String(Number(b.dataset.recordTab)===tab));
  if(store.error)status(store.error+'。原本を書き出して保護し、バックアップ復旧を選べます。');else if(store.pending.length)status('未保存の戦績があります。JSON書き出しまたは再保存をしてください。');

@@ -9589,7 +9589,7 @@
         walk: (g) => `${plainLabel(g.to)}の ほうへ あるいて いく…`,
         up: (g) => (g.layerTo === 'sky' ? 'ゴンドラが のぼって いく…' : 'みなもへ うかんで いく…'),
         down: (g) => (g.layerTo === 'below' ? 'しずかに もぐって いく…' : 'ゴンドラが おりて いく…'),
-        sail: (g) => (g.to === 'jungle' ? 'ふねが みなみにしの うみへ 出て いく…' : 'ふねが ほんどへ もどって いく…'),
+        sail: (g) => (g.to === 'jungle' ? 'ふねが南西の海へ出ていく…' : 'ふねが ほんどへ もどって いく…'),
       };
       function beginTransition(g) {
         if (trans) return;                                   // 二重に はじめない(§33)

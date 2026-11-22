@@ -647,7 +647,7 @@ export const EVENTS=freeze([
   {
     "id": "romance-02",
     "category": "romance",
-    "title": "うれしいの意味",
+    "title": "「うれしい」の意味",
     "text": "となりまちのロボットが「誰かに会うと、うれしい？」と尋ねた。答えを、ゆっくり考える時間になった。",
     "stages": [
       4,

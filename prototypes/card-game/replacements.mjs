@@ -1,5 +1,5 @@
 /** Non-activating move replacements. Choices stay inside the resolving effect. */
-import {CATALOG} from './full-catalog.mjs';
+import {CATALOG} from './display-catalog.mjs';
 import {RULES} from './rules.mjs';
 const card=(s,id)=>CATALOG[s.cards[id].cardId];
 const field=b=>[b.main,b.partner,b.world,...b.companions,...b.prepared.map(e=>e.id)].filter(Boolean);

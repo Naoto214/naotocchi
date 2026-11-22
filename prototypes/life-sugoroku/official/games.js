@@ -179,7 +179,7 @@
           <div class="mg-header"><span id="lrTimer">残り：${Math.ceil(DURATION_MS / 1000)}秒</span><span id="lrScore">得点：0</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="lrCanvas"></canvas></div>
-          <div class="mg-hint" id="lrHint">したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。</div>
+          <div class="mg-hint" id="lrHint">画面下のパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。</div>
           `;
         const canvas = container.querySelector('#lrCanvas');
         const { pad } = mgPad(container, { mode: 'steps', axis: 'x', stepPx: 30, onStep: (dx) => setLane(lane + dx) }, '');
@@ -469,7 +469,7 @@
           <div class="mg-header"><span id="bwFrame">1フレーム1投目</span><span id="bwScore">たおした0</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="bwCanvas"></canvas></div>
-          <div class="mg-hint" id="bwHint">ボールから上へスワイプ!速くはらうほど強く、ななめにはらうとねらいが変わる。したのパッドを左右になぞって立ち位置を変えよう。</div>
+          <div class="mg-hint" id="bwHint">ボールから上へスワイプ!速くはらうほど強く、ななめにはらうとねらいが変わる。画面下のパッドを左右になぞって立ち位置を変えよう。</div>
           `;
         const canvas = container.querySelector('#bwCanvas');
         const { pad } = mgPad(container, { mode: 'vector', axis: 'x', holdMs: 150, onVector: (x) => { leftHeld = x < -0.4; rightHeld = x > 0.4; } }, '');
@@ -770,7 +770,7 @@
           <div class="mg-header"><span id="bkStage">ステージ1/3</span><span id="bkScore">❤️❤️❤️／0点</span>${mgTimerSpan(DURATION_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="bkCanvas"></canvas></div>
-          <div class="mg-hint" id="bkHint">画面かしたのパッドを横になぞってパドルを動かす。パドルのはしで打つと、ボールがななめに飛ぶ。落ちてくるあいてむ：⬌ワイドはパドルが広がる／●マルチボールはボールが増える／🐢スローはボールがゆっくりになる。</div>
+          <div class="mg-hint" id="bkHint">ゲーム画面か下のパッドを横になぞってパドルを動かす。パドルのはしで打つと、ボールがななめに飛ぶ。落ちてくるあいてむ：⬌ワイドはパドルが広がる／●マルチボールはボールが増える／🐢スローはボールがゆっくりになる。</div>
           `;
         mgTimerHud(container, DURATION_MS, () => DURATION_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#bkCanvas');
@@ -1364,7 +1364,7 @@
           <div class="mg-header"><span id="mgDTimer">残り：${Math.ceil(DURATION_MS / 1000)}秒</span><span id="mgDTreasure">宝箱0/3</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="mgDCanvas"></canvas></div>
-          <div class="mg-hint" id="mgDHint">したのパッドを左右になぞって向きを変え、上になぞって進む（下でさがる）。画面をドラッグしても見まわせる。</div>
+          <div class="mg-hint" id="mgDHint">画面下のパッドを左右になぞって向きを変え、上になぞって進む（下でさがる）。画面をドラッグしても見まわせる。</div>
           `;
         const canvas = container.querySelector('#mgDCanvas');
         const { pad } = mgPad(container, { mode: 'vector', sticky: true }, '');
@@ -1456,7 +1456,7 @@
           <div class="mg-header"><span id="dhTimer">残り：${Math.ceil(TIME_LIMIT_MS / 1000)}秒</span><span id="dhScore">🚩 0/0／🪵 0</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="dhCanvas"></canvas></div>
-          <div class="mg-hint" id="dhHint">したのパッドを左右になぞるか、画面のドラッグでハンドル操作。🚩🚩の間を通り、🪵はジャンプでこえよう。</div>
+          <div class="mg-hint" id="dhHint">画面下のパッドを左右になぞるか、画面のドラッグでハンドル操作。🚩🚩の間を通り、🪵はジャンプでこえよう。</div>
           `;
         const canvas = container.querySelector('#dhCanvas');
         const { pad } = mgPad(container, { mode: 'vector', axis: 'x', holdMs: 150, onVector: (x) => { leftHeld = x < -0.4; rightHeld = x > 0.4; } }, `<button class="mg-tap-btn primary" id="dhJump" data-key="action">ジャンプ!</button>`);
@@ -1727,7 +1727,7 @@
         <div class="mg-header"><span id="fbTimer">残り：${Math.ceil(DURATION_MS/1000)}秒</span><span id="fbScore">ライン0／0点</span></div>
         <div class="mg-title">ブロックパズル!そろえて消そう</div>
         <div class="mg-falling-wrap"><div class="mg-falling-board" id="fbBoard"></div></div>
-        <div class="mg-hint" id="fbHint">したのパッドを左右になぞって移動、下になぞると速く下がる。タップで回転。⏬で一気に落とそう。</div>
+        <div class="mg-hint" id="fbHint">画面下のパッドを左右になぞって移動、下になぞると速く下がる。タップで回転。⏬で一気に落とそう。</div>
         `;
       const { pad } = mgPad(container, { mode: 'steps', axis: 'xy', stepPx: 24, onStep: (dx, dy) => { if (dx) move(dx); else if (dy > 0) { meter.act(); softDrop(); } }, onTap: () => rotate() }, `<button class="mg-tap-btn fb-rotate" id="fbRotate" data-key="up">↻かいてん</button><button class="mg-tap-btn fb-hard" id="fbDrop" data-key="action">⏬いっきに</button>`);
       const boardEl=container.querySelector('#fbBoard'),hint=container.querySelector('#fbHint'),timer=container.querySelector('#fbTimer'),scoreEl=container.querySelector('#fbScore');
@@ -1778,7 +1778,7 @@
           <div class="mg-header"><span id="crTries">🪙 ×${TRIES}</span><span id="crScore">景品0こ／0点</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">UFOキャッチャー!アームで景品をつかもう</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="crCanvas"></canvas></div>
-          <div class="mg-hint" id="crHint">ボタンをおしている間、アームが動く。景品の真ん中ではなそう。落ちても、左手前の落とし口に入ればゲット!</div>
+          <div class="mg-hint" id="crHint">ボタンを押している間、アームが動く。景品の真ん中で指を離そう。落ちても、左手前の落とし口に入ればゲット!</div>
           <div class="mg-race-controls"><button class="mg-tap-btn mg-hold-btn primary" id="crMove" data-key="action">▶よこにうごかす(ながおし)</button></div>`;
         mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#crCanvas');
@@ -1930,7 +1930,7 @@
         <div class="mg-header"><span id="pbTimer">残り：${Math.ceil(DURATION_MS/1000)}秒</span><span id="pbScore">0／${GOAL}点／●●●</span></div>
         <div class="mg-title">ピンボール!フリッパーではじいて${GOAL}点をめざそう</div>
         <div class="mg-canvas-wrap mg-pinball-wrap"><canvas class="mg-canvas" id="pbCanvas"></canvas></div>
-        <div class="mg-hint" id="pbHint">「はっしゃ」を長おしでためて、はなす。フリッパーはおしっぱなしで上がる。</div>
+        <div class="mg-hint" id="pbHint">「はっしゃ」を長押しでためて、指を離す。フリッパーは押しっぱなしで上がる。</div>
         <div class="mg-pinball-controls"><button class="mg-tap-btn mg-hold-btn" id="pbLeft" data-key="left">◀ひだり</button><button class="mg-tap-btn mg-launch-btn" id="pbLaunch" data-key="action">はっしゃ</button><button class="mg-tap-btn mg-hold-btn" id="pbRight" data-key="right">みぎ▶</button></div>`;
       const canvas=container.querySelector('#pbCanvas');
       const {ctx,W,H}=createMgCanvas(canvas,(w)=>w*FH/FW);
@@ -2086,7 +2086,7 @@
           <div class="mg-header"><span id="hhTimer">残り：${Math.ceil(DURATION_MS / 1000)}秒</span><span id="hhKey">🔑なし</span></div>
           <div class="mg-title">3Dおばけ屋敷!かぎを見つけて、出口からにげろ</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="hhCanvas"></canvas></div>
-          <div class="mg-hint" id="hhHint">したのパッドを左右になぞって向きを変え、上になぞって進む。かぎを取ると、ゆうれいが追いかけてくる!</div>
+          <div class="mg-hint" id="hhHint">画面下のパッドを左右になぞって向きを変え、上になぞって進む。かぎを取ると、ゆうれいが追いかけてくる!</div>
           `;
         const canvas = container.querySelector('#hhCanvas');
         const { pad } = mgPad(container, { mode: 'vector', sticky: true }, '');
@@ -2388,7 +2388,7 @@
           <div class="mg-header"><span id="rcTimer">残り：${Math.ceil(TIME_LIMIT_MS / 1000)}秒</span><span id="rcSpeed">0 km/h</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="rcCanvas"></canvas></div>
-          <div class="mg-hint" id="rcHint">アクセルをおしっぱなしで加速。カーブでは外にふられるので、したのパッドを左右になぞっておさえよう。</div>
+          <div class="mg-hint" id="rcHint">アクセルを押しっぱなしで加速。カーブでは外にふられるので、画面下のパッドを左右になぞっておさえよう。</div>
           `;
         const canvas = container.querySelector('#rcCanvas');
         const { pad } = mgPad(container, { mode: 'vector', axis: 'x', holdMs: 150, onVector: (x) => { leftHeld = x < -0.4; rightHeld = x > 0.4; } }, `<button class="mg-tap-btn mg-hold-btn primary" id="rcAccel" data-key="action">アクセル</button>`);
@@ -2653,7 +2653,7 @@
           <div class="mg-header"><span id="tmTimer">残り：${Math.ceil(DURATION_MS / 1000)}秒</span><span id="tmLives">❤️❤️❤️</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="tmCanvas"></canvas></div>
-          <div class="mg-hint" id="tmHint">ゆっくりなぞると転がる。指をはなすと止まる。穴をよけて${goalEmoji}のゴールへ。</div>
+          <div class="mg-hint" id="tmHint">ゆっくりなぞると転がる。指を離すと止まる。穴をよけて${goalEmoji}のゴールへ。</div>
           `;
         const canvas = container.querySelector('#tmCanvas');
         const { pad } = mgPad(container, { mode: 'vector', sticky: true, onRelease: () => brake(), onVector: (x, y) => { held.left = x < -0.4; held.right = x > 0.4; held.up = y < -0.4; held.down = y > 0.4; } }, '');
@@ -2779,7 +2779,7 @@
           <div class="mg-header"><span id="sgTimer">残り：${Math.ceil(DURATION_MS / 1000)}秒</span><span id="sgScore">🛡️🛡️🛡️／撃破0</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="sgCanvas"></canvas></div>
-          <div class="mg-hint" id="sgHint">したのパッドか画面をなぞってねらいを合わせ、画面をタップするか「うつ!」で発射。赤くなった敵は攻撃直前!</div>
+          <div class="mg-hint" id="sgHint">下のパッドかゲーム画面をなぞってねらいを合わせ、画面をタップするか「うつ!」で発射。赤くなった敵は攻撃直前!</div>
           `;
         const canvas = container.querySelector('#sgCanvas');
         const { pad } = mgPad(container, { mode: 'delta', glide: { speed: 200 }, onDelta: (dx, dy) => { cx = clamp(cx + dx * 1.15, 10, W - 10); cy = clamp(cy + dy * 1.15, 10, H - 10); } }, `<button class="mg-tap-btn primary" id="sgFire" data-key="action">うつ!</button>`);
@@ -3080,7 +3080,7 @@
           <div class="mg-header"><span id="rfTimer">残り：${Math.ceil(DURATION_MS / 1000)}秒</span><span id="rfScore">つった：0ひき／0点</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="rfCanvas"></canvas></div>
-          <div class="mg-hint" id="rfHint">ボタンを長おしでためて、はなすとキャスト。うきがしずんだら「あわせる」!</div>
+          <div class="mg-hint" id="rfHint">ボタンを長押しでためて、指を離すとキャスト。うきがしずんだら「あわせる」!</div>
           <div class="mg-race-controls"><button class="mg-tap-btn mg-hold-btn primary" id="rfMain" data-key="action">キャスト(ながおし)</button></div>`;
         const canvas = container.querySelector('#rfCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, 235);
@@ -3563,7 +3563,7 @@
           <div class="mg-header"><span id="cpTimer">残り：${Math.ceil(DURATION_MS / 1000)}秒</span><span id="cpScore">0点／最大0れんさ</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="cpCanvas"></canvas></div>
-          <div class="mg-hint" id="cpHint">したのパッドを左右になぞって動かし、タップで回転、下になぞると速く落ちる。同じ色を4こつなげると消える。消えたあとに落ちてつながれば、れんさ!</div>
+          <div class="mg-hint" id="cpHint">画面下のパッドを左右になぞって動かし、タップで回転、下になぞると速く落ちる。同じ色を4こつなげると消える。消えたあとに落ちてつながれば、れんさ!</div>
           `;
         const canvas = container.querySelector('#cpCanvas');
         const { pad } = mgPad(container, { mode: 'steps', axis: 'xy', stepPx: 24, holdMs: 160, onStep: (dx) => { if (dx) move(dx); }, onVector: (x, y) => { softHeld = y > 0.6; }, onTap: () => rotate() }, `<button class="mg-tap-btn fb-rotate" id="fbRotate" data-key="up">↻かいてん</button><button class="mg-tap-btn fb-hard" id="fbDrop" data-key="action">⏬いっきに</button>`);
@@ -3694,7 +3694,7 @@
           <div class="mg-header"><span id="sfTimer">残り：${Math.ceil(DURATION_MS / 1000)}秒</span><span id="sfRound">${rival.name}と対戦</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="sfCanvas"></canvas></div>
-          <div class="mg-hint" id="sfHint">したのパッドを左右になぞって動く。パンチは速い。キックは強くて、相手をふき飛ばす。相手が光ったらガード（長おし）!</div>
+          <div class="mg-hint" id="sfHint">画面下のパッドを左右になぞって動く。パンチは速い。キックは強くて、相手をふき飛ばす。相手が光ったらガード（長押し）!</div>
           `;
         const canvas = container.querySelector('#sfCanvas');
         const { pad } = mgPad(container, { mode: 'vector', axis: 'x', sticky: true, onVector: (x) => { leftHeld = x < -0.4; rightHeld = x > 0.4; } }, `<button class="mg-tap-btn punch" id="sfPunch" data-key="action">👊パンチ</button><button class="mg-tap-btn kick" id="sfKick" data-key="action2">🦵キック</button><button class="mg-tap-btn mg-hold-btn guard" id="sfGuard" data-key="down">🛡️ガード</button>`);
@@ -4131,7 +4131,7 @@
           <div class="mg-header"><span id="rgFloor">B1F</span><span id="rgStat">❤️ 20/20／⚔️ 3／💰 0</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="rgCanvas"></canvas></div>
-          <div class="mg-hint" id="rgHint">したのパッドをなぞって1マス動くと敵も動く。敵にぶつかって攻撃。🧪は回復、⚔️は攻撃力アップ、🪜で次の階へ。</div>
+          <div class="mg-hint" id="rgHint">画面下のパッドをなぞって1マス動くと敵も動く。敵にぶつかって攻撃。🧪は回復、⚔️は攻撃力アップ、🪜で次の階へ。</div>
           `;
         mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#rgCanvas');
@@ -4258,7 +4258,7 @@
           <div class="mg-header"><span id="gpLap">LAP 1/${LAPS}</span><span id="gpPos">6位／6</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="gpCanvas"></canvas></div>
-          <div class="mg-hint" id="gpHint">アクセルを長おし、したのパッドを左右になぞってハンドル操作。青いパッドでブースト、オイルはすべる。ライバルをぬいて1位をめざせ!</div>
+          <div class="mg-hint" id="gpHint">アクセルを長押し、画面下のパッドを左右になぞってハンドル操作。青いパッドでブースト、オイルはすべる。ライバルをぬいて1位をめざせ!</div>
           `;
         mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#gpCanvas');
@@ -4370,7 +4370,7 @@
           <div class="mg-header"><span id="ssTimer">残り：${Math.ceil(DURATION_MS / 1000)}秒</span><span id="ssScore">❤️❤️❤️／0点</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="ssCanvas"></canvas></div>
-          <div class="mg-hint" id="ssHint">したのパッドか画面をなぞって機体を動かそう。弾は自動で出るよ。Pを取るとパワーアップ。ピンチではボム!</div>
+          <div class="mg-hint" id="ssHint">下のパッドかゲーム画面をなぞって機体を動かそう。弾は自動で出るよ。Pを取るとパワーアップ。ピンチではボム!</div>
           `;
         const canvas = container.querySelector('#ssCanvas');
         const { pad } = mgPad(container, { mode: 'delta', glide: { speed: 200 }, onDelta: (dx, dy) => { ship.x = clamp(ship.x + dx * 1.1, 10, W - 10); ship.y = clamp(ship.y + dy * 1.1, 10, H - 10); meter.act(); } }, `<button class="mg-tap-btn primary" id="ssBomb" data-key="action">💣×2</button>`);
@@ -4499,7 +4499,7 @@
           <div class="mg-header"><span id="jqTimer">残り：${Math.ceil(DURATION_MS / 1000)}秒</span><span id="jqScore">❤️❤️❤️／🪙 0</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="jqCanvas"></canvas></div>
-          <div class="mg-hint" id="jqHint">したのパッドを左右になぞって走り、ジャンプは長おしで高く。敵は上からふみ、とげは飛びこえて、🚩まで!</div>
+          <div class="mg-hint" id="jqHint">画面下のパッドを左右になぞって走り、ジャンプは長押しで高く。敵は上からふみ、とげは飛びこえて、🚩まで!</div>
           `;
         const canvas = container.querySelector('#jqCanvas');
         const { pad } = mgPad(container, { mode: 'vector', axis: 'x', sticky: true, onVector: (x) => { leftHeld = x < -0.4; rightHeld = x > 0.4; } }, `<button class="mg-tap-btn mg-hold-btn primary" id="jqJump" data-key="action">ジャンプ</button>`);
@@ -5220,7 +5220,7 @@
           <div class="mg-header"><span id="snTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="snScore">🍎 0／長さ3</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="snCanvas"></canvas></div>
-          <div class="mg-hint" id="snHint">したのパッドか画面をスワイプして向きを変える。🍎でのびてスピードアップ。⭐は3こ分!かべと体にぶつからないで。</div>
+          <div class="mg-hint" id="snHint">下のパッドかゲーム画面をスワイプして向きを変える。🍎でのびてスピードアップ。⭐は3こ分!かべと体にぶつからないで。</div>
           `;
         const canvas = container.querySelector('#snCanvas');
         const { pad } = mgPad(container, { mode: 'steps', axis: 'xy', triggerPx: 9, repeatPx: 26, onStep: (dx, dy) => turnTo(dx, dy) }, '');
@@ -5303,7 +5303,7 @@
           <div class="mg-header"><span id="bbCount">1/${PITCHES}球目</span><span id="bbScore">🏟 0ベース</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="bbCanvas"></canvas></div>
-          <div class="mg-hint" id="bbHint">したのパッドか画面を横になぞって、バットを球のコースへ。球がホームベースに来る瞬間にスイング!真ん中で当てるとホームラン。</div>
+          <div class="mg-hint" id="bbHint">下のパッドかゲーム画面を横になぞって、バットを球のコースへ。球がホームベースに来る瞬間にスイング!真ん中で当てるとホームラン。</div>
           `;
         const canvas = container.querySelector('#bbCanvas');
         const { pad } = mgPad(container, { mode: 'vector', axis: 'x', holdMs: 150, onVector: (x) => { leftHeld = x < -0.4; rightHeld = x > 0.4; } }, `<button class="mg-tap-btn primary" id="bbSwing" data-key="action">スイング!</button>`);
@@ -5900,7 +5900,7 @@
           <div class="mg-header"><span id="tfTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="tfScore">得点：0／最大0</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="tfCanvas"></canvas></div>
-          <div class="mg-hint" id="tfHint">したのパッドか画面をスワイプすると、全部のタイルがすべる。同じ数がぶつかると、足されて1つに。大きい数を角にためるのがコツ。</div>
+          <div class="mg-hint" id="tfHint">下のパッドかゲーム画面をスワイプすると、全部のタイルがすべる。同じ数がぶつかると、足されて1つに。大きい数を角にためるのがコツ。</div>
           `;
         const canvas = container.querySelector('#tfCanvas');
         const { pad } = mgPad(container, { mode: 'steps', axis: 'xy', triggerPx: 14, repeatPx: 40, repeatMs: 220, onStep: (dx, dy) => { if (running && !over) slide(dy, dx); } }, '');
@@ -6112,7 +6112,7 @@
           <div class="mg-header"><span id="sjJump">1/${JUMPS}本目</span><span id="sjDist">合計0.0m</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="sjCanvas"></canvas></div>
-          <div class="mg-hint" id="sjHint">ボタンでスタート。台のはし（赤い線）でタップして飛び出す!空中では長おしで前かがみになり、風の目印（▽）に重ねよう。着地直前にタップでテレマーク。</div>
+          <div class="mg-hint" id="sjHint">ボタンでスタート。台のはし（赤い線）でタップして飛び出す!空中では長押しで前かがみになり、風の目印（▽）に重ねよう。着地直前にタップでテレマーク。</div>
           <div class="mg-race-controls"><button class="mg-tap-btn mg-hold-btn primary" id="sjBtn" data-key="action">スタート</button></div>`;
         const canvas = container.querySelector('#sjCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, 235);
@@ -6312,7 +6312,7 @@
           <div class="mg-header"><span id="smTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="smScore">💎 0／❤️❤️❤️</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="smCanvas"></canvas></div>
-          <div class="mg-hint" id="smHint">したのパッドか画面をなぞって潜水艦を動かす。💎を取り、岩やクラゲはよける。酸素メーターが減ったら🫧を取ろう。</div>
+          <div class="mg-hint" id="smHint">下のパッドかゲーム画面をなぞって潜水艦を動かす。💎を取り、岩やクラゲはよける。酸素メーターが減ったら🫧を取ろう。</div>
           `;
         const canvas = container.querySelector('#smCanvas');
         const { pad } = mgPad(container, { mode: 'delta', gainY: 1.2, glide: { speed: 260 }, onDelta: (dx, dy) => { tx = clamp(tx + dx / (W * 0.3), -1, 1); ty = clamp(ty - dy / (H * 0.3), -1, 1); meter.act(); } }, '');
@@ -6582,7 +6582,7 @@
           <div class="mg-header"><span id="tkTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="tkScore">❤️❤️❤️／💥 0/${TOTAL_ENEMIES}</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="tkCanvas"></canvas></div>
-          <div class="mg-hint" id="tkHint">したのパッドをなぞった向きに動き、🔥で発射（画面タップでもOK）。向いている方へ弾が飛ぶ。レンガのかべは、こわして道を作れる。</div>
+          <div class="mg-hint" id="tkHint">画面下のパッドをなぞった向きに動き、🔥で発射（画面タップでもOK）。向いている方へ弾が飛ぶ。レンガのかべは、こわして道を作れる。</div>
           `;
         const canvas = container.querySelector('#tkCanvas');
         const { pad } = mgPad(container, { mode: 'vector', sticky: true, dominant: true, onVector: (x, y) => { held.left = x < -0.4; held.right = x > 0.4; held.up = y < -0.4; held.down = y > 0.4; } }, `<button class="mg-tap-btn mg-hold-btn primary" id="tkFire" data-key="action">🔥</button>`);
@@ -6682,7 +6682,7 @@
           <div class="mg-header"><span id="tnScore">じぶん0 - 0あいて</span><span id="tnTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="tnCanvas"></canvas></div>
-          <div class="mg-hint" id="tnHint">したのパッドを左右になぞって動き、ボールが近づいたらスイング（画面タップでもOK）!低い場所で打つと速いドライブ、高い場所で打つとロブ。相手のコートに落とそう。${WIN}ポイント先取り。</div>
+          <div class="mg-hint" id="tnHint">画面下のパッドを左右になぞって動き、ボールが近づいたらスイング（画面タップでもOK）!低い場所で打つと速いドライブ、高い場所で打つとロブ。相手のコートに落とそう。${WIN}ポイント先取り。</div>
           `;
         const canvas = container.querySelector('#tnCanvas');
         const { pad } = mgPad(container, { mode: 'vector', axis: 'x', holdMs: 150, onVector: (x) => { leftHeld = x < -0.4; rightHeld = x > 0.4; if (leftHeld || rightHeld) meter.act(); } }, `<button class="mg-tap-btn primary" id="tnSwing" data-key="action">スイング!</button>`);
@@ -6792,7 +6792,7 @@
           <div class="mg-header"><span id="pcRound">1/${ROUNDS}問目</span><span id="pcMiss">ミス0</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="pcCanvas"></canvas></div>
-          <div class="mg-hint" id="pcHint">数字は、その列で続けてぬるマスの数。「2 1」なら2つぬって、間を空けて1つぬる。タップでぬる。✕モードか長おしで、ぬらない印をつけよう。</div>
+          <div class="mg-hint" id="pcHint">数字は、その列で続けてぬるマスの数。「2 1」なら2つぬって、間を空けて1つぬる。タップでぬる。✕モードか長押しで、ぬらない印をつけよう。</div>
           <div class="mg-race-controls"><button class="mg-tap-btn" id="pcMark" data-key="action">✕モード: OFF</button></div>`;
         mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#pcCanvas');
@@ -6924,7 +6924,7 @@
           <div class="mg-header"><span id="hgTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="hgScore">📏 0m／🎈 0</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="hgCanvas"></canvas></div>
-          <div class="mg-hint" id="hgHint">したのパッドか画面をなぞって左右に動き、上下で機首を上げ下げ。下げると速く進むけど、高さが減る。🌀の上昇気流で高さをかせぎ、🎈を集めよう。地面につくと終わり。</div>
+          <div class="mg-hint" id="hgHint">下のパッドかゲーム画面をなぞって左右に動き、上下で機首を上げ下げ。下げると速く進むけど、高さが減る。🌀の上昇気流で高さをかせぎ、🎈を集めよう。地面につくと終わり。</div>
           `;
         const canvas = container.querySelector('#hgCanvas');
         const { pad } = mgPad(container, { mode: 'delta', gainY: 1.2, glide: { speed: 260 }, onDelta: (dx, dy) => { tx = clamp(tx + dx / (W * 0.3), -1, 1); pitch = clamp(pitch + dy / (H * 0.3), -1, 1); meter.act(); } }, '');
@@ -7038,7 +7038,7 @@
           <div class="mg-header"><span id="bmTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="bmScore">❤️❤️／👾 0/${ENEMIES}</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="bmCanvas"></canvas></div>
-          <div class="mg-hint" id="bmHint">したのパッドをなぞった向きに動き、💣（画面タップでもOK）でばくだんを置く。2秒で十字に爆発!自分もまきこまれるので、はなれよう。レンガからあいてむが出る。</div>
+          <div class="mg-hint" id="bmHint">画面下のパッドをなぞった向きに動き、💣（画面タップでもOK）でばくだんを置く。2秒で十字に爆発!自分もまきこまれるので、はなれよう。レンガからあいてむが出る。</div>
           `;
         const canvas = container.querySelector('#bmCanvas');
         const { pad } = mgPad(container, { mode: 'vector', sticky: true, dominant: true, onVector: (x, y) => { held.left = x < -0.4; held.right = x > 0.4; held.up = y < -0.4; held.down = y > 0.4; } }, `<button class="mg-tap-btn primary" id="bmBomb" data-key="action">💣</button>`);
@@ -7435,7 +7435,7 @@
           <div class="mg-header"><span id="vmTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="vmScore">❤️❤️❤️／0点</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="vmCanvas"></canvas></div>
-          <div class="mg-hint" id="vmHint">したのパッドをなぞった向きに1マスほる（ゆびをおさえたままだとほり続ける）。石は時間がかかる。⚫石炭→⛓鉄→🟡金→💎ダイヤは、深いほど多い。🔥マグマにさわるとダメージ!</div>
+          <div class="mg-hint" id="vmHint">画面下のパッドをなぞった向きに1マスほる（ゆびをおさえたままだとほり続ける）。石は時間がかかる。⚫石炭→⛓鉄→🟡金→💎ダイヤは、深いほど多い。🔥マグマにさわるとダメージ!</div>
           `;
         const canvas = container.querySelector('#vmCanvas');
         const { pad } = mgPad(container, { mode: 'vector', sticky: true, dominant: true, onVector: (x, y) => { held.left = x < -0.4; held.right = x > 0.4; held.up = y < -0.4; held.down = y > 0.4; } }, '');
@@ -7622,7 +7622,7 @@
           <div class="mg-header"><span id="asTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="asScore">❤️❤️❤️／0点</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="asCanvas"></canvas></div>
-          <div class="mg-hint" id="asHint">したのパッドを左右になぞって回り、上になぞると進む。🔥か画面のタップで打つ。岩をわると、小さく速くなる。画面のはしはつながっている。</div>
+          <div class="mg-hint" id="asHint">画面下のパッドを左右になぞって回り、上になぞると進む。🔥か画面のタップで打つ。岩をわると、小さく速くなる。画面のはしはつながっている。</div>
           `;
         const canvas = container.querySelector('#asCanvas');
         const { pad } = mgPad(container, { mode: 'vector', sticky: true, onDelta: (dx) => { ship.a += dx * 0.014; }, onVector: (x, y) => { held.thrust = y < -0.4; } }, `<button class="mg-tap-btn primary" id="asFire" data-key="action">🔥</button>`);
@@ -7835,7 +7835,7 @@
           <div class="mg-header"><span id="djTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="djScore">📏 0m／⭐ 0</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="djCanvas"></canvas></div>
-          <div class="mg-hint" id="djHint">したのパッドか画面を横になぞって動き、台に降りよう。ジャンプは自動。緑はふつう、青は動く、茶色は1回でこわれる。🔴バネは大ジャンプ。左右のはしはつながっていて、1回だけ落ちても助かるよ。</div>
+          <div class="mg-hint" id="djHint">下のパッドかゲーム画面を横になぞって動き、台に降りよう。ジャンプは自動。緑はふつう、青は動く、茶色は1回でこわれる。🔴バネは大ジャンプ。左右のはしはつながっていて、1回だけ落ちても助かるよ。</div>
           `;
         const canvas = container.querySelector('#djCanvas');
         const { pad } = mgPad(container, { mode: 'delta', axis: 'x', glide: { speed: 220 }, onDelta: (dx) => { p.x += dx * 1.4; meter.act(); } }, '');
@@ -8132,7 +8132,7 @@
           <div class="mg-header"><span id="ltRound">1/${ROUNDS}問目</span><span id="ltScore">精度-</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="ltCanvas"></canvas></div>
-          <div class="mg-hint" id="ltHint">●から灰色の線をひと筆でなぞろう。線に近いと緑、はなれると赤。指をはなすと判定するよ。</div>`;
+          <div class="mg-hint" id="ltHint">●から灰色の線をひと筆でなぞろう。線に近いと緑、はなれると赤。指を離すと判定するよ。</div>`;
         mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#ltCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
@@ -8342,7 +8342,7 @@
           <div class="mg-header"><span id="hpTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="hpScore">0点</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="hpCanvas"></canvas></div>
-          <div class="mg-hint" id="hpHint">下り坂で「ポンプ」を長おしすると加速。勢いがつくと、ふちから飛び出す。空中で「トリック」をおすと1回転（何度もおせる）。着地までに回りきらないと転倒!</div>
+          <div class="mg-hint" id="hpHint">下り坂で「ポンプ」を長押しすると加速。勢いがつくと、ふちから飛び出す。空中で「トリック」をおすと1回転（何度もおせる）。着地までに回りきらないと転倒!</div>
           <div class="mg-race-controls"><button class="mg-tap-btn mg-hold-btn" id="hpPump" data-key="left">ポンプ(ながおし)</button><button class="mg-tap-btn primary" id="hpTrick" data-key="action">🌀トリック</button></div>`;
         const canvas = container.querySelector('#hpCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, 230);
@@ -8813,7 +8813,7 @@
           <div class="mg-header"><span id="deTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="deScore">● 0/0／❤️ 2</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="deCanvas"></canvas></div>
-          <div class="mg-hint" id="deHint">したのパッドか画面をスワイプして進む。ドットを全部食べよう。⭐を食べると、6秒間はおばけを食べ返せる!</div>
+          <div class="mg-hint" id="deHint">下のパッドかゲーム画面をスワイプして進む。ドットを全部食べよう。⭐を食べると、6秒間はおばけを食べ返せる!</div>
           `;
         const canvas = container.querySelector('#deCanvas');
         const { pad } = mgPad(container, { mode: 'steps', axis: 'xy', triggerPx: 9, repeatPx: 26, onStep: (dx, dy) => turnTo(dx, dy) }, '');
@@ -9112,7 +9112,7 @@
           <div class="mg-header"><span id="acTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="acScore">陣地0%／❤️❤️❤️</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="acCanvas"></canvas></div>
-          <div class="mg-hint" id="acHint">したのパッドをなぞった向きにふちを動き、中へ線を引いてかこもう。${GOAL}%取ればクリア。✨が線にふれると1ミス。</div>
+          <div class="mg-hint" id="acHint">画面下のパッドをなぞった向きにふちを動き、中へ線を引いてかこもう。${GOAL}%取ればクリア。✨が線にふれると1ミス。</div>
           `;
         const canvas = container.querySelector('#acCanvas');
         const { pad } = mgPad(container, { mode: 'vector', sticky: true, dominant: true, onVector: (x, y) => { held = { l: x < -0.4, r: x > 0.4, u: y < -0.4, d: y > 0.4 }; } }, '');
@@ -9524,7 +9524,7 @@
           <div class="mg-header"><span id="llCount">1/${ATTEMPTS}回目</span><span id="llScore">🚀 0点／⛽ 100</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="llCanvas"></canvas></div>
-          <div class="mg-hint" id="llHint">したのパッドを左右になぞってかたむけ、🔥で逆噴射。平らなパッド（×2/×3）に、まっすぐ、ゆっくり降りよう。速すぎたり、ななめだとクラッシュ。</div>
+          <div class="mg-hint" id="llHint">画面下のパッドを左右になぞってかたむけ、🔥で逆噴射。平らなパッド（×2/×3）に、まっすぐ、ゆっくり降りよう。速すぎたり、ななめだとクラッシュ。</div>
           `;
         const canvas = container.querySelector('#llCanvas');
         const { pad } = mgPad(container, { mode: 'vector', axis: 'x', holdMs: 150, onVector: (x) => { held.l = x < -0.4; held.r = x > 0.4; } }, `<button class="mg-tap-btn primary mg-hold-btn" id="llThrust" data-key="action">🔥ふんしゃ</button>`);
@@ -9833,7 +9833,7 @@
           <div class="mg-header"><span id="bvTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="bvScore">わたし0 - 0あいて</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="bvCanvas"></canvas></div>
-          <div class="mg-hint" id="bvHint">すなの○がボールの落ちる場所。したのパッドを左右になぞって、そこへ走ろう。ふれると高く上がる（うけ）。🏐アタックをおしながらふれるとスパイク!先に${TARGET}点取ろう。</div>
+          <div class="mg-hint" id="bvHint">すなの○がボールの落ちる場所。画面下のパッドを左右になぞって、そこへ走ろう。ふれると高く上がる（うけ）。🏐アタックをおしながらふれるとスパイク!先に${TARGET}点取ろう。</div>
           `;
         const canvas = container.querySelector('#bvCanvas');
         const { pad } = mgPad(container, { mode: 'vector', axis: 'x', sticky: true, onVector: (x) => { held.l = x < -0.4; held.r = x > 0.4; } }, `<button class="mg-tap-btn primary mg-hold-btn" id="bvAttack" data-key="action">🏐アタック</button>`);

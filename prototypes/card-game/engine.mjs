@@ -6,7 +6,7 @@ import * as eventEffects from './event-effects.mjs';
  * Commands are atomic; save files replay commands instead of trusting state.
  */
 import {CARDS as BASE_CARDS} from './cards.mjs';
-import {CATALOG as CARDS} from './full-catalog.mjs';
+import {CATALOG as CARDS} from './display-catalog.mjs';
 import {marriedAbilitiesActive} from './lover-married.mjs';
 import * as legacy from './legacy-engine.mjs';
 import {RULES, supported} from './rules.mjs';

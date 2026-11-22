@@ -1,5 +1,5 @@
 /** Transfers retain the equipment's physical generation and create a new attachment. */
-import {CATALOG} from './full-catalog.mjs';
+import {CATALOG} from './display-catalog.mjs';
 import {RULES} from './rules.mjs';
 export {EQUIPMENT_RULES} from './equipment-rules.mjs';
 const definition=(s,id)=>CATALOG[s.cards[id]?.cardId];

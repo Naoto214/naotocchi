@@ -5,7 +5,7 @@ import {INSPECTION_RULES} from './advanced-inspection.mjs';
 import {REMAINING_RULES} from './remaining-rules.mjs';
 /** Explicit effect programs. Unknown card text is never treated as a no-op. */
 import {MAIN_RULES} from './main-rules.mjs';
-import {CATALOG} from './full-catalog.mjs';
+import {CATALOG} from './display-catalog.mjs';
 import {CARDS as BASE} from './cards.mjs';
 import {MARRIED_VERSIONS,MARRIED_LEGACY_VERSIONS} from './lover-married.mjs';
 export const RULES={};

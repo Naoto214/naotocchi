@@ -54,7 +54,7 @@ async function withPage(browser, fn) {
           await page.goto('http://127.0.0.1:5197/');
           await page.waitForSelector('#bootRescue', { timeout: 5000 });
           const labels = await page.$$eval('#bootRescue button', (bs) => bs.map((b) => b.textContent));
-          assert.deepEqual(labels, ['もういちど よみこむ', 'セーブコードを うつす', 'じどうバックアップから もどす'], `${engine}: order`);
+          assert.deepEqual(labels, ['もういちど よみこむ', 'セーブコードを表示する', '自動バックアップからもどす'], `${engine}: order`);
           assert.equal(await page.evaluate(() => document.activeElement && document.activeElement.id), 'bootRescueReload', `${engine}: reload is focused`);
           // 2) セーブコード: 主キーと backup の 2 つ(NTS1.)
           await page.click('#bootRescueCopy');
@@ -65,7 +65,8 @@ async function withPage(browser, fn) {
           const snap = page.locator('#bootRescueSnaps button');
           assert.equal(await snap.count(), 1, `${engine}: one snapshot`);
           await snap.click();
-          assert.match(await snap.textContent(), /ほんとうに もどす/);
+          const date = await page.evaluate(() => new Date('2026-09-20T01:00:00Z').toLocaleString('ja-JP'));
+          assert.equal(await snap.textContent(), `本当に${date}の記録にもどす`);
           assert.equal(await page.evaluate((k) => localStorage.getItem(k), KEY), PRIMARY, `${engine}: nothing written before confirming`);
           await Promise.all([page.waitForEvent('load'), snap.click()]);
           assert.equal(await page.evaluate((k) => localStorage.getItem(k), KEY), OLDER, `${engine}: restored`);
@@ -99,11 +100,11 @@ async function withPage(browser, fn) {
           const a = await context.newPage();
           await a.goto('http://127.0.0.1:5197/'); await booted(a);
           for (let i = 0; i < 2; i++) { await a.reload(); await booted(a); await a.waitForTimeout(500); }
-          assert.doesNotMatch(await notice(a), /べつのタブ/, `${engine}: a reload is the same tab`);
+          assert.doesNotMatch(await notice(a), /別のタブ/, `${engine}: a reload is the same tab`);
           const b = await context.newPage();
           await b.goto('http://127.0.0.1:5197/'); await booted(b);
-          await a.waitForFunction(() => /べつのタブ/.test((document.getElementById('message') || {}).textContent || ''), null, { timeout: 5000 });
-          assert.doesNotMatch(await notice(b), /べつのタブ/, `${engine}: the newer tab keeps going`);
+          await a.waitForFunction(() => /別のタブ/.test((document.getElementById('message') || {}).textContent || ''), null, { timeout: 5000 });
+          assert.doesNotMatch(await notice(b), /別のタブ/, `${engine}: the newer tab keeps going`);
           await context.close();
         }
         console.log(`PASS ${engine}`);

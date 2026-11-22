@@ -138,6 +138,18 @@ test('a partner whose targets no longer include us is retained as mismatched, in
   assert.equal(h3.api.state().partner.married,true);
 });
 
+test('old relationship logs survive reload beside the newly written partner events',()=>{
+  const oldText='前のこいびとと なかなおりした';
+  const {h,s}=setup({lifeLog:[{age:20,icon:'💞',text:oldText}],
+    partner:partner('male','gay',['male'],{label:'ともだち',married:true}),marriageAge:30});
+  ageTo(h,70,69);
+  for(let attempt=0;attempt<3;attempt++) h.dispatch(h.get('courtBtn'),'click');
+  const logs=reload(copy(s)).api.state().lifeLog.map(entry=>entry.text);
+  assert.ok(logs.includes(oldText));
+  assert.ok(logs.includes('ともだちとすれ違いはじめた'));
+  assert.ok(logs.includes('ともだちと仲直りした'));
+});
+
 test('compatible partners keep affection and a newly matching partner leaves mismatch',()=>{
   for(const [id,targets,mismatch] of [['pan',ALL,false],['straight',['female'],true]]) {
     const {h,s}=setup({partner:partner('male',id,targets,{mismatched:mismatch,repair:2})});

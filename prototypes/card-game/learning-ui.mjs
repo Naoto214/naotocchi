@@ -9,7 +9,7 @@ const tags=text=>h(text).replace(/そだち|準備枠|チェーン|通常行動|
 const flow=parts=>`<ol class="learn-flow">${parts.map(x=>`<li>${h(x)}</li>`).join('')}</ol>`;
 export function diagramMarkup(kind){
  if(kind==='board')return `<figure class="learn-diagram"><figcaption>あなたから見た3×3フィールド</figcaption><div class="learn-board">${slots.map((s,i)=>`<div class="learn-board-cell"><span>${s}</span>${i===1?eggCardMarkup():`<i aria-hidden="true">${['♧','', '♡','◇','◇','◇','▧','▧','▧'][i]}</i>`}</div>`).join('')}</div><p>手札（自分だけ） · 山札（順序は非公開） · 発動領域 · 捨て札（公開）</p></figure>`;
- const sequences={victory:['100へ到達','その後に始まる相手ターン','終了処理後まで100維持','R1〜R9なら早期勝利'],egg:['通常1ドロー','たまごなら追加1ドロー','手札1枚を山札の下へ'],birth:['手札のメイン','段階ぶんの時を払う','たまごに完全に重ねる'],growth:['かめ①','時2で かめ③','時1で ヒトデ①'],romance:['交際0','時1で1','別ターンに2','別ターンに3','別ターンに結婚 +10'],methods:['すぐつかう → 発動領域','みにつける → 準備枠','しかける → 準備枠（裏）'],challenge:['能力を選んで宣言','比較前に応答','同じ能力を比較','勝者 そだち+5'],chain:['B：コインを発動','A：じんとりを発動','双方連続パス','じんとり → コインの順に解決'],round:['Aのターン','Bのターン','次のラウンドへ']};
+ const sequences={victory:['100へ到達','その後に始まる相手ターン','終了処理後まで100維持','終了ラウンドより前なら早期勝利'],egg:['通常1ドロー','たまごなら追加1ドロー','手札1枚を山札の下へ'],birth:['手札のメイン','段階ぶんの時を払う','たまごに完全に重ねる'],growth:['かめ①','時2で かめ③','時1で ヒトデ①'],romance:['交際0','時1で1','別ターンに2','別ターンに3','別ターンに結婚 +10'],methods:['すぐつかう → 発動領域','みにつける → 準備枠','しかける → 準備枠（裏）'],challenge:['能力を選んで宣言','比較前に応答','同じ能力を比較','勝者 そだち+5'],chain:['B：コインを発動','A：じんとりを発動','双方連続パス','じんとり → コインの順に解決'],round:['Aのターン','Bのターン','次のラウンドへ']};
  return sequences[kind]?`<figure class="learn-diagram">${flow(sequences[kind])}</figure>`:'';
 }
 // Render the curated normative text, including tables, without executable Markdown.

@@ -13,13 +13,13 @@ test('search finds detailed rulings, respects chapter scope, normalizes width, a
  assert.ok(book.searchRules('置換先を実行できない',15).length);
  assert.equal(book.searchRules('置換先を実行できない',3).length,0);
  assert.ok(book.searchChapters('置換先を実行できない').some(c=>c.id===15));
- assert.ok(book.searchRules('４５２').length);
+ assert.ok(book.searchRules('４５９').some(r=>r.id==='rule-01-1'));
  for(const term of ['発見済み','カード解禁','次に再開','ユーザー','設計','監査','再質問','未登録source','名称暫定','仮採用'])assert.equal(book.searchRules(term).length,0,term);
 });
 test('current collection policy and shared person placement are explicit and separate from relationship progress',()=>{
  assert.ok(Array.isArray(book.CURRENT_RULINGS));
- const all=book.CURRENT_RULINGS.map(r=>r.text).join('\n');
- assert.match(all,/452枚.*最初から/);assert.match(all,/453.*たまご/);
+ const concept=book.CURRENT_RULINGS.find(r=>r.id==='rule-01-1').text;
+ assert.match(concept,/全459枚を最初から閲覧/);assert.match(concept,/通常たまごを含めて460種類/);
  const people=book.rulingsForChapter(9).map(r=>r.text).join('\n');
  assert.match(people,/合計1人/);assert.match(people,/時0/);assert.match(people,/交際進行.*別/);
  assert.match(people,/おともだちチケット/);assert.match(people,/手札に加える/);
