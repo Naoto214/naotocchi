@@ -23,7 +23,8 @@ def compact(row):
     offsets=[s['shadowOffset'] for s in (start,end,row['resized'])]
     return dict(region=row['region'],count=n,width=row['width'],arm=row['arm'],
         seconds=round(end['clock']-start['clock'],3),walkers=len(trace['walkers']),
-        ambientHops=trace['sourceHops'].get('ambient',0),hops=trace['hops'],
+        ambientHops=trace['sourceHops'].get('ambient',0),dragHops=trace['sourceHops'].get('drag',0),
+        yieldHops=trace['sourceHops'].get('yield',0),hops=trace['hops'],
         terrain=trace['terrain'],occlusion=trace['occlusion'],speed=trace['speed'],contact=trace['contact'],
         exposed=bool(target),trusted=row['observation']['trusted'],
         tapped=bool(target and row['tap']==target['key'] and selections),
@@ -57,12 +58,14 @@ def main():
     results=[]
     for arm in a.arms:
         selected=[v for k,v in rows.items() if k[-1]==arm]
-        numeric='hops ambientHops terrain occlusion speed contact errors'.split()
+        numeric='hops ambientHops dragHops yieldHops terrain occlusion speed contact errors'.split()
         booleans='exposed trusted tapped dragIssued dragAccepted decoded shadows conversation evolution equipment census time reload'.split()
         sums={k:sum(r[k] for r in selected) for k in numeric+booleans}
         results.append(dict(arm=arm,cells=len(selected),**sums,
             shadowDiscrepancies=sum(r['maxShadowOffset'] is None or r['maxShadowOffset']>.001 for r in selected),
             noAmbientHops=sum(not r['ambientHops'] for r in selected),
+            deferredDragWalks=sum(r['dragIssued'] and not r['dragAccepted'] and r['dragHops']>0 for r in selected),
+            dragDidNotWalk=sum(r['dragIssued'] and r['dragHops']==0 for r in selected),
             modelDurations=dict(Counter(r['seconds'] for r in selected))))
     with a.table.open('w') as file:
         writer=csv.DictWriter(file,fieldnames=next(iter(rows.values())).keys())
