@@ -61,12 +61,12 @@ def run(browser,base,region,count,out,width,height,before_navigation=False,openi
                                 device_scale_factor=2,locale='ja-JP',timezone_id='Asia/Tokyo')
     # The exact launcher household can independently trigger its first anniversary.
     # Continue past its ordinary movie controls, as an owner returning home would.
-    context.add_init_script("""window.pairMovieActions=[];
+    context.add_init_script("""window.pairMovieActions=[];window.pairMovieEvents=[];
       setInterval(()=>{
         const shown=document.querySelector('#dateOverlay:not(.hidden) #dateMovie:not(.hidden)');
         if(!shown)return;
         const button=shown.querySelector('.date-movie-actions button:not(.hidden)');
-        if(button){pairMovieActions.push(button.id);button.click();}
+        if(button){pairMovieActions.push(button.id);pairMovieEvents.push({button:button.id,ms:Math.round(performance.now())});button.click();}
       },350);""")
     if hold_opening:context.add_init_script('window.pairHoldOpening=true')
     page=context.new_page()
@@ -104,6 +104,7 @@ def run(browser,base,region,count,out,width,height,before_navigation=False,openi
         page.screenshot(path=out/f'{region}-{label}.jpg',type='jpeg',quality=75,scale='css')
     capture('loaded')
     if opening_only:
+        result['entryMovieEvents']=page.evaluate('pairMovieEvents')
         result['stages']['entry']=page.evaluate('pairStages')
         (out/f'{region}-opening.json').write_text(json.dumps(result,ensure_ascii=False)+'\n')
         context.close()
@@ -128,11 +129,13 @@ def run(browser,base,region,count,out,width,height,before_navigation=False,openi
     capture('region-change')
     result['savedRegion']=page.evaluate(f"JSON.parse(localStorage.getItem('{SAVE}')).regionId")
     result['entryMovieActions']=page.evaluate('pairMovieActions')
+    result['entryMovieEvents']=page.evaluate('pairMovieEvents')
     page.reload(wait_until='domcontentloaded')
     page.wait_for_function(images,timeout=180000)
     capture('reload')
     result['stages']['reload']=page.evaluate('pairStages')
     result['reloadMovieActions']=page.evaluate('pairMovieActions')
+    result['reloadMovieEvents']=page.evaluate('pairMovieEvents')
     assert not errors,errors
     assert result['expression']=='happy' and result['travel']==result['savedRegion']==other,(result['expression'],result['travel'],result['savedRegion'],other)
     assert result['checkpoints'][-1]['region']==other
