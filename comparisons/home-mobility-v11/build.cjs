@@ -5,8 +5,10 @@ const {hashFiles, listFiles} = require('../home-finish-v5/build.cjs');
 const {digest, replaceExact} = require('../home-finish-v5/native-hooks.cjs');
 const {patchFoot, patchFootDiagnostics} = require('./foot.cjs');
 const {patchGoals, patchGoalTelemetry} = require('./goals.cjs');
+const {patchAfterRefusal} = require('./goal-after-refusal.cjs');
 const {modelReplay, rendererReplay} = require('./foot-replay.cjs');
-const {patchCareModel, patchCareGame} = require('./foot-care.cjs');
+const {patchCareGame} = require('./foot-care.cjs');
+const {patchFastCareModel} = require('./foot-care-fast.cjs');
 
 const originalCount = 4016;
 const originalHash = 'd8eb7138a4932e0465897dcfc79b80580b8686c18125846e429e597e9bcad965';
@@ -36,13 +38,18 @@ function prepare(base) {
   const goalObserver = 'mobility-v11-goal-observer.js';
   add('game/' + goalObserver, local('goal-observer.js'));
 
-  for (const arm of ['v9','v9-seats','v10','v10-reference','v11-foot','v11-foot-reference','v11','v11-reference']) {
+  const refusalObserver = 'mobility-v11-refusal-observer.js';
+  add('game/' + refusalObserver, local('refusal-observer.js'));
+
+  for (const arm of ['v9','v9-seats','v10','v10-reference','v11-foot','v11-foot-reference','v11','v11-reference','v11-after','v11-after-reference']) {
     const candidate = arm.startsWith('v11');
     const sourceArm = candidate ? (arm.endsWith('-reference') ? 'v10-reference' : 'v10') : arm;
     const oldModel = modelFile(sourceArm);
     let model = game(oldModel);
+    const afterRefusal = arm.startsWith('v11-after');
     if (candidate) {
-      if (!arm.startsWith('v11-foot')) model = patchGoals(model);
+      if (afterRefusal) model = patchAfterRefusal(model,{policy:'ray'});
+      else if (!arm.startsWith('v11-foot')) model = patchGoals(model);
       model = replaceExact(model, "bindModel('" + sourceArm + "',", "bindModel('" + arm + "',");
       add('game/' + modelFile(arm), model);
       let direct = replaceGame(game('mobility-' + sourceArm + '.html'), oldModel, modelFile(arm));
@@ -54,8 +61,8 @@ function prepare(base) {
     let owner = replaceGame(game('mobility-v10-compare-' + sourceArm + '.html'), oldModel, recordedModel);
     if (candidate) owner = replaceGame(owner, oldPainter, newPainter);
     owner = replaceExact(owner, sourceTag(telemetry, game(telemetry)),
-      sourceTag(goalObserver, files.get('game/' + goalObserver)) + '\n' +
-      sourceTag(newTelemetry, files.get('game/' + newTelemetry)));
+      [goalObserver,...(afterRefusal ? [refusalObserver] : []),newTelemetry]
+        .map(name=>sourceTag(name, files.get('game/' + name))).join('\n'));
     add('game/mobility-v11-compare-' + arm + '.html', owner);
   }
 
@@ -72,7 +79,7 @@ function prepare(base) {
   const careModel = modelFile('v11-growth');
   const careGame = 'script-v2-mobility-v11-growth.js';
   const oldGame = 'script-v2-mobility-v7.js';
-  add('game/' + careModel, patchCareModel(files.get('game/' + modelFile('v11-foot'))));
+  add('game/' + careModel, patchFastCareModel(files.get('game/' + modelFile('v11-foot'))));
   add('game/' + careGame, patchCareGame(game(oldGame)));
   let care = replaceGame(game('mobility-v10.html'), oldGame, careGame);
   care = replaceGame(care, oldPainter, newPainter);
@@ -85,11 +92,12 @@ function prepare(base) {
   let html = read('v10/index.html').replace(/(data-arm="v|aria-label="V|>V)(8|9|10)(?=["の<])/g,
     (_, prefix, n) => prefix + (Number(n) + 1));
   html = replaceExact(html, '<label for="seed">',
-    '<label for="variant">V11の改善範囲<select id="variant"><option value="full">足元と目的地選択</option><option value="foot">足元の修正のみ</option></select></label>\n      <label for="seed">');
+    '<label for="variant">V11の改善範囲<select id="variant"><option value="full">足元＋探索前に散歩先を選び直す</option><option value="foot">足元の修正のみ</option><option value="after">足元＋経路が決まらなかったときだけ前方を探す</option></select></label>\n      <label for="seed">');
   html = replaceExact(html, '<p><a href="./episode.html">', [
     '<p><a href="./replay.html">通知前後のパンダの足元を再現する</a></p>',
     '<p><a href="./growth.html">成長時の足元を比べる</a></p>',
     '<p><a href="./space.html">森で28体が歩ける方向を見る</a></p>',
+    '<p><a href="https://naotocchi-mobility-v8-evidence.kerzion214.chatgpt.site/v11/forest.html">28体それぞれの10分間の歩行を比べる</a></p>',
     '<p><a href="../v10/episode.html">',
   ].join('\n'));
   html = replaceExact(html, '<p id="recent"></p>',
@@ -127,7 +135,7 @@ function build(destination, baseline) {
     throw Error('Expected the owner distribution from PR #580 at ed671e26');
   }
   const files = prepare(base);
-  let existing = fs.existsSync(out) ? listFiles(out) : [];
+  const existing = fs.existsSync(out) ? listFiles(out) : [];
   if (existing.length) {
     const allowed = new Set([...originals, ...files.keys()]);
     if (existing.some(n => !allowed.has(n)) || hashFiles(out,originals) !== originalHash) {

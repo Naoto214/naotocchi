@@ -7,7 +7,7 @@ export function readScene(query) {
   return {
     ...readBaseline(query),
     arm: ['v9', 'v10'].includes(requested) ? requested : 'v11',
-    variant: query.get('variant') === 'foot' ? 'foot' : 'full',
+    variant: ['foot','after'].includes(query.get('variant')) ? query.get('variant') : 'full',
   };
 }
 
@@ -18,7 +18,7 @@ export function offersSeats(scene) {
 export function gameURL(scene, base) {
   const url = baselineURL(scene, base);
   let arm = scene.arm;
-  if (arm === 'v11' && scene.variant === 'foot') arm += '-foot';
+  if (arm === 'v11' && ['foot','after'].includes(scene.variant)) arm += '-' + scene.variant;
   if (offersSeats(scene) && scene.seats === 'reference') {
     arm += arm === 'v9' ? '-seats' : '-reference';
   }

@@ -1,0 +1,89 @@
+{
+  "engine": "webkit",
+  "browser": "26.5",
+  "width": 390,
+  "arms": [
+    {
+      "variant": "full",
+      "seats": "original",
+      "model": "v11",
+      "painting": "forest-day.webp",
+      "size": "B",
+      "refusalObserver": false,
+      "scripts": [
+        "home-production-model-mobility-v11-owner-v11.js"
+      ],
+      "openingSHA256": "7b0bcbe20803bc8216b0d190e614d3d18b9ddece71b91a2362f9855ddd1abd3b"
+    },
+    {
+      "variant": "foot",
+      "seats": "original",
+      "model": "v11-foot",
+      "painting": "forest-day.webp",
+      "size": "B",
+      "refusalObserver": false,
+      "scripts": [
+        "home-production-model-mobility-v11-owner-v11-foot.js"
+      ],
+      "openingSHA256": "7b0bcbe20803bc8216b0d190e614d3d18b9ddece71b91a2362f9855ddd1abd3b"
+    },
+    {
+      "variant": "after",
+      "seats": "original",
+      "model": "v11-after",
+      "painting": "forest-day.webp",
+      "size": "B",
+      "refusalObserver": true,
+      "scripts": [
+        "home-production-model-mobility-v11-owner-v11-after.js"
+      ],
+      "openingSHA256": "7b0bcbe20803bc8216b0d190e614d3d18b9ddece71b91a2362f9855ddd1abd3b"
+    },
+    {
+      "variant": "full",
+      "seats": "reference",
+      "model": "v11-reference",
+      "painting": "forest-day.webp",
+      "size": "B",
+      "refusalObserver": false,
+      "scripts": [
+        "home-production-model-mobility-v11-owner-v11-reference.js"
+      ],
+      "openingSHA256": "da63a180434c1f4fe69b13586df2204e79f3e9b9b9c17d604a1ec034baa7abf7"
+    },
+    {
+      "variant": "foot",
+      "seats": "reference",
+      "model": "v11-foot-reference",
+      "painting": "forest-day.webp",
+      "size": "B",
+      "refusalObserver": false,
+      "scripts": [
+        "home-production-model-mobility-v11-owner-v11-foot-reference.js"
+      ],
+      "openingSHA256": "da63a180434c1f4fe69b13586df2204e79f3e9b9b9c17d604a1ec034baa7abf7"
+    },
+    {
+      "variant": "after",
+      "seats": "reference",
+      "model": "v11-after-reference",
+      "painting": "forest-day.webp",
+      "size": "B",
+      "refusalObserver": true,
+      "scripts": [
+        "home-production-model-mobility-v11-owner-v11-after-reference.js"
+      ],
+      "openingSHA256": "da63a180434c1f4fe69b13586df2204e79f3e9b9b9c17d604a1ec034baa7abf7"
+    }
+  ],
+  "realRefusal": {
+    "key": "companion:sekizou",
+    "receipt": {
+      "checks": 1,
+      "offers": 0,
+      "lastDistance": null
+    },
+    "readout": "直近の散歩先　331.2px・338° → 331.2px・338°（右が0°）。経路不成立。実歩行距離 0.0px。経路不成立後の探索 1回、前方に経路が見つかった回数 0回。直近は進める地点なし。"
+  },
+  "pageErrors": []
+}

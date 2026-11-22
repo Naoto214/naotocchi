@@ -49,7 +49,7 @@ def native_tests(game,arm):
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--game',type=Path)
-    parser.add_argument('--arm',choices=['v11','v11-foot'],default='v11')
+    parser.add_argument('--arm',choices=['v11','v11-foot','v11-after'],default='v11')
     parser.add_argument('--head',default='HEAD')
     parser.add_argument('--out',type=Path,required=True)
     args=parser.parse_args()

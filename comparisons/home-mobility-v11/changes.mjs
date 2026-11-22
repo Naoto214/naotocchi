@@ -18,8 +18,14 @@ export function showChanges(root, frame, key) {
   }
   const goal = frame.HomeGoalDiagnostics?.read(key);
   const node = root.getElementById('wander-goal');
+  const refusal = frame.HomeRefusalDiagnostics?.read(key);
   node.textContent = goal ? '直近の散歩先　' + goal.rawDistance.toFixed(1) + 'px・' +
     Math.round(goal.rawBearing) + '° → ' + goal.chosenDistance.toFixed(1) + 'px・' +
     Math.round(goal.chosenBearing) + '°（右が0°）。' + (states[goal.status] || goal.status) +
     '。実歩行距離 ' + goal.actualDistance.toFixed(1) + 'px。' : '';
+  if (refusal) {
+    node.textContent += '経路不成立後の探索 ' + refusal.checks + '回、前方に経路が見つかった回数 ' + refusal.offers + '回。';
+    if (refusal.checks) node.textContent += refusal.lastDistance === null
+      ? '直近は進める地点なし。' : '直近の代替地点まで ' + refusal.lastDistance.toFixed(1) + ' CSS px。';
+  }
 }
