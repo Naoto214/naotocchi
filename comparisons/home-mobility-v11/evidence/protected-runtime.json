@@ -1,0 +1,52 @@
+{
+  "reference": "ed671e26f5599cebf5aa1a8020d50a5f43dbf076",
+  "candidate": "3d45521d7a5fccb07e827d093647fb1709c061db",
+  "protectedPaths": 36426,
+  "addedFiles": 188,
+  "protectedPRs": {
+    "p561": {
+      "headRefOid": "985a369d6b942d3ab91cb2aff2e17e698cb137fc",
+      "state": "MERGED"
+    },
+    "p567": {
+      "headRefOid": "fae83a21915f9ada92f4ac13ac1aaacd397e333d",
+      "state": "OPEN"
+    },
+    "p568": {
+      "headRefOid": "2935622edf9ccdc6f8a36f2297dd86b789022b87",
+      "state": "OPEN"
+    },
+    "p569": {
+      "headRefOid": "28628cf336a8ed92efe4e9e197ca03298b798a1e",
+      "state": "OPEN"
+    },
+    "p570": {
+      "headRefOid": "e07d2cc53eca36ff23e02142ab385d6001e0521b",
+      "state": "OPEN"
+    },
+    "p572": {
+      "headRefOid": "a0df9061c26dde237158ba3423dd4732ca8bec42",
+      "state": "OPEN"
+    },
+    "p575": {
+      "headRefOid": "5db9835478eafe526271c6864e0c86ded6324172",
+      "state": "OPEN"
+    },
+    "p576": {
+      "headRefOid": "e1f4a743684ce4ce8760a713d309483cedb9c50f",
+      "state": "OPEN"
+    },
+    "p578": {
+      "headRefOid": "6b2e2a22ab3981ac748cc645f5f1f53ce91e4c64",
+      "state": "OPEN"
+    },
+    "p579": {
+      "headRefOid": "be5db6804bf0bee872080bae49cb714f295a461b",
+      "state": "OPEN"
+    },
+    "p580": {
+      "headRefOid": "ed671e26f5599cebf5aa1a8020d50a5f43dbf076",
+      "state": "OPEN"
+    }
+  }
+}

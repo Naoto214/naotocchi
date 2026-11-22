@@ -1,0 +1,11 @@
+region,count,width,changedGoals,firstTime,firstResident,beforeFirstPlansFoot,beforeFirstPlansV11,identicalEarlierPlans,footSyncShifts,finalSyncShifts,lostNormal,gainedNormal
+home,28,320,24,7.94999999999998,companion:seal,8,8,True,0,0,,
+river_lake,28,320,7,49.849999999999305,companion:box,38,38,True,0,0,partner:forest_bear,
+countryside,28,320,14,14.000000000000064,companion:owl,14,14,True,0,0,,
+mountain,28,320,12,1.4500000000000006,companion:sekizou,0,0,True,0,0,companion:bat,
+snow,28,320,11,3.099999999999997,partner:forest_bear,5,5,True,0,0,,
+jungle,28,320,1,119.59999999999535,companion:seal,75,75,True,0,0,"companion:owl,companion:watcher,companion:rabbit_friend,companion:squirrel,companion:hedgehog,companion:clock",companion:sekizou
+desert,28,320,16,24.700000000000216,companion:tanuki,25,25,True,0,0,,partner:forest_bear
+deepsea,28,320,20,11.900000000000034,companion:sekizou,9,9,True,0,0,,
+star_stop,28,320,5,155.25000000000105,companion:watcher,160,160,True,0,0,,
+memory_lake,28,320,8,38.749999999999936,companion:penguin_friend,39,39,True,0,0,partner:forest_bear,companion:chameleon
