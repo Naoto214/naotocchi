@@ -1,0 +1,357 @@
+{
+  "schema": 1,
+  "observer": {
+    "originalRevision": "82d4d1632a547ba3ed39cdd3b33faa8cb63685c6",
+    "correctedRevision": "3c6f94bfdf4246033ae0ff74402dc783704350a3",
+    "identicalObserverFunctions": [
+      "matched_state",
+      "network_sha",
+      "fingerprint",
+      "frozen_drop",
+      "measure",
+      "main"
+    ],
+    "unchangedLegacyGitTrees": {
+      "home-finish-v5": "f042cf27b3f96ee31471b8887ccb76e7447f9bf1",
+      "home-drag-v6": "3442cc89c324c0fc5f0f9bc86c0d14657757003c",
+      "home-mobility-v7": "d59a476202a16c2c1f21cea45e8dcecb0b6922b2",
+      "home-mobility-v8": "9776a1f968e9db8aa36cce9a9c37d5f65e61888c",
+      "home-mobility-v9": "a5abde189c04ec68becfed932293a7bab0b29d3d",
+      "home-mobility-v10": "904805f563fb9bdc8d1b91e2abd58938a8a82211",
+      "home-mobility-v11": "5744ab97b384957ef8682e8fe5d7002fb3c2c2f9",
+      "home-mobility-v12": "fe418cc7323e0fc1023fd3824c18e5ff3f3c98d0"
+    },
+    "byteIdenticalDonors": {
+      "home": {
+        "gzipSHA256": "08065ae020257dd8bf61a74761286f1a6faacdb53b2ec9485b598fa150462534",
+        "plainSHA256": "c319e6aa2d10296391a84350cf711d9195f832d4187b7330a83199033805d898",
+        "cells": 20
+      },
+      "forest": {
+        "gzipSHA256": "41f44503618f8fa8146c1dd86c5843d614fe55e4ab1c5ca40797cf681edc7996",
+        "plainSHA256": "d0ddf46af89e2a553f9d360167e4f541f0543d972e3bbe3bea1825c9d2a8431a",
+        "cells": 20
+      },
+      "river_lake": {
+        "gzipSHA256": "3437dc3cdcdfd8d58ae9dc6f7707413806f8b2ac7199e217e2fa2330c635e0de",
+        "plainSHA256": "c7681a4cd76a600d56d55774bbebb14b8862984c5c17df613c8cfe1f670f043c",
+        "cells": 20
+      },
+      "city": {
+        "gzipSHA256": "a3c7159d2f8db7588ee1ece209525d0520fc4d24ed98bab7369b5e3b497a3a81",
+        "plainSHA256": "3d73970cd3160bb398244d806091dd23fc8da40a762f4195de3c024d627376e1",
+        "cells": 20
+      },
+      "countryside": {
+        "gzipSHA256": "2b14e47fadd333010d3d82e551c09040c358a0abcf63b5ce664fccd5f9424dd4",
+        "plainSHA256": "a33b3a61855d99250fba39cd466cc5e9c16ae981713a50647d648c028998a70d",
+        "cells": 20
+      },
+      "mountain": {
+        "gzipSHA256": "2a61950eb14fe480e79974342c895c5a2dc60c95d931e3952ffff3cd5898649e",
+        "plainSHA256": "75f6891e3c20817dd171f9d11793da3003d1ef9dc1ad2bc726758cd020100923",
+        "cells": 20
+      },
+      "snow": {
+        "gzipSHA256": "e8fc867dae56104150184be47c109125d5500ad854d8aa9ec826c0dbfb5e6363",
+        "plainSHA256": "cff92497e1b365868f5a89a15497ea6f43ead01495739a1b175e6c9d3187c81b",
+        "cells": 20
+      },
+      "sea": {
+        "gzipSHA256": "6a4c0211be6d4456c532e72ce3d3d2b396f746c49590e8f25edada845ac13a88",
+        "plainSHA256": "5bfea6ad9695233384bc0060a4b0f54fa2f9fbe0891ce3fdfeedf7d8e25278a6",
+        "cells": 20
+      },
+      "jungle": {
+        "gzipSHA256": "b9425365f76ec777e6d8b7ad0df9a4abd09f1e04e967f387d239c853bf01aa82",
+        "plainSHA256": "674fd3ebe5800f43c0d12c529ff4525f5be3fba5d929652a97a57ba9dbbeab7f",
+        "cells": 20
+      },
+      "desert": {
+        "gzipSHA256": "f028ba63e5fc2b610c45dee13810382219be639f7f54057cb0e13b35db1ae8a6",
+        "plainSHA256": "f37ba73436e1edccd74ffcd488e7975267de25b1b9ab69b4f9b1468cdae80b45",
+        "cells": 20
+      },
+      "deepsea": {
+        "gzipSHA256": "2041e0c5f0d7c05feb8e8d043bbd0f0b8d780779e2fd101b0a927d1de8f95c1d",
+        "plainSHA256": "5f49f938e54a1d02e33270791574238fdb7ecef642162cef6221e35805091198",
+        "cells": 20
+      },
+      "star_stop": {
+        "gzipSHA256": "c1980a439375e28cd56c9effb96929abcd156757d06494cd00ff2fa2fa3262f7",
+        "plainSHA256": "a549c7aff587195f38d9fa66d853ce9e16da62060226b063e7c3c7550e936cf5",
+        "cells": 20
+      },
+      "memory_lake": {
+        "gzipSHA256": "03a53d10105e8bd6776c0241e40333a002822b932a6a3694f661b263ae0629f9",
+        "plainSHA256": "0afbdba804859cf93b8a5d3bdd1908aee4085c1713205edecb6fa6a91fa2d620",
+        "cells": 20
+      }
+    }
+  },
+  "unaffectedRegions": [
+    "city",
+    "countryside",
+    "deepsea",
+    "desert",
+    "home",
+    "jungle",
+    "memory_lake",
+    "mountain",
+    "river_lake",
+    "sea",
+    "snow",
+    "star_stop"
+  ],
+  "correctedRegion": "forest",
+  "acorn": "8.18.0",
+  "baselineScriptsWithoutMarker": 401,
+  "conditions": [
+    "For nonforest world specs the only visible-ground call omits patches. The legacy route is unchanged when visible-ground is disabled.",
+    "Empty patches make patchContains and clearAdded false. The corrected sample returns valid(q) before any added flag or obstruction code. Both painted-ground formulae reduce to the same original polygon condition.",
+    "v13Opening exists only in the forest world branch, so the roster ink callback is not invoked outside it. The remaining model, terrain, renderer, controls and entry bytes or parsed syntax match after verifying dependency hashes."
+  ],
+  "generated": {
+    "home-visible-ground-navigation-v13.mjs": {
+      "original": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+      "corrected": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "identicalFile": false,
+      "nonforestProgramSHA256": "c035e51e970846657793d92cc6b663989ed2cb2b024eb0f1136edba059d9fbd7"
+    },
+    "home-production-diorama-mobility-v12.js": {
+      "original": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+      "corrected": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+      "identicalFile": true,
+      "nonforestProgramSHA256": "d006c66e66977147ffb254711f7b16023a41e27cfa20e2ba0c979365ff1850fa"
+    },
+    "home-production-world-v12-finish.mjs": {
+      "original": "0008a3e0d27dd360dd31d8296fe9e9f5f3012f7f60085398aa992b734ca1c165",
+      "corrected": "0008a3e0d27dd360dd31d8296fe9e9f5f3012f7f60085398aa992b734ca1c165",
+      "identicalFile": true,
+      "nonforestProgramSHA256": "2b7bd3e7aab02c69c57a8eabec8ee685a2be385cdc30a8b764c8dd7350e3164b"
+    },
+    "home-production-world-v12-mobility.mjs": {
+      "original": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+      "corrected": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+      "identicalFile": true,
+      "nonforestProgramSHA256": "32a219cef0c001705471edd73643fabc8e7e6d4a71a918436a8cb46a31f605e9"
+    },
+    "mobility-v12.html": {
+      "original": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17",
+      "corrected": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17",
+      "identicalFile": true,
+      "nonforestProgramSHA256": "6fd431fc185df8a91f4415c351ad871d2ed1c6eefa25d28dd475ae40c40ab931"
+    },
+    "home-production-model-mobility-v12.js": {
+      "original": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+      "corrected": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+      "identicalFile": true,
+      "nonforestProgramSHA256": "922d10531d3cf24376e0122e67fd0c5b4d1727578d203cb097a98a39807d99dc"
+    },
+    "mobility-v13-a.html": {
+      "original": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+      "corrected": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+      "identicalFile": true,
+      "nonforestProgramSHA256": "b8e6a23aea8d8ea42ca9de5b94bbcd1ed476ab084e64d2a93aed01cf3eee3054"
+    },
+    "home-production-model-mobility-v13-a.js": {
+      "original": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+      "corrected": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+      "identicalFile": true,
+      "nonforestProgramSHA256": "6fd8315555f7d86c1e10e9bb821428887e29b3d24cf17eff5d07e447d04b6c40"
+    },
+    "mobility-v13-b.html": {
+      "original": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+      "corrected": "507e3a76d8a554608348ecab76b388b9717e6aa31251a193152cf055df4475e2",
+      "identicalFile": false,
+      "nonforestProgramSHA256": "c74c47ae54bded732f62a82ee19e4ad7a5b891468f2b48cb012794770fca0f5a"
+    },
+    "home-production-model-mobility-v13-b.js": {
+      "original": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+      "corrected": "f491dd08faffcdc4784492740c28c1bbbc861468b0f43999ece9a57bca6321b1",
+      "identicalFile": false,
+      "nonforestProgramSHA256": "bede10add2737dcf3d3d7e96ff5743bc41f90940dfd6d811c0b1c879b29a067e"
+    },
+    "home-production-diorama-mobility-v13-b.js": {
+      "original": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+      "corrected": "a0577690e835dd555ba90e64d5ed6d6d5549d55791cb28004fae0b24dc977c0b",
+      "identicalFile": false,
+      "nonforestProgramSHA256": "f89d8f380576a0418b88b14d79292ce13b824a88228f5606392deabc1974f08e"
+    },
+    "home-production-world-v13-b-finish.mjs": {
+      "original": "71af3b63b87a5904a8c3986ebb972a6dcec9524712e97b1f38199cfbc64f290d",
+      "corrected": "c56b86ee462f2117dd2d5b4d06e8d0a12dfe3f272b8e857ac6ca0df5d0b92ae2",
+      "identicalFile": false,
+      "nonforestProgramSHA256": "afdde920e73eef4037e341a773154311518000f95f368992dfae72c6670aaf35"
+    },
+    "home-production-world-v13-b-mobility.mjs": {
+      "original": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+      "corrected": "8b2aa26b5710dda7794395ce2a6fdc8e3256f56f7525c5629fcf95d72a3948e4",
+      "identicalFile": false,
+      "nonforestProgramSHA256": "a71427ca850db33c59ac7fe480f8b3ba502d8a3023f6def9b9ef8afbfff0a5d9"
+    },
+    "mobility-v13-c.html": {
+      "original": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+      "corrected": "ff61cf1c49f091fa04e2cfb4dc1ecad6a8a40af3e9cb3d0cb0015a21d0da58a0",
+      "identicalFile": false,
+      "nonforestProgramSHA256": "910579bd3c993ddba472130d7e8f62e2b7a206c309e1416de5358b3c706bb424"
+    },
+    "home-production-model-mobility-v13-c.js": {
+      "original": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+      "corrected": "601ca0c2eded38d6f68e1b9abf60f1936c01aaa9d4826a1f76681686f4735a56",
+      "identicalFile": false,
+      "nonforestProgramSHA256": "65519f5bd9bfd02fe0b113bdaeac00b27b634b6c30f2793785b59772e41d96b1"
+    },
+    "home-production-diorama-mobility-v13-c.js": {
+      "original": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+      "corrected": "b1a56d88aa3ab4c98cc4643edc76d04876fa2c1372dacfb151a84cd6ab76a963",
+      "identicalFile": false,
+      "nonforestProgramSHA256": "2e92cc79534f2beefc25e2cd5343ccd2a1f3e9b8f9a4f9ce044444e64f9e2d2b"
+    },
+    "home-production-world-v13-c-finish.mjs": {
+      "original": "c6cb6696278569e8e9fa973282c2e7a258ea2814ed64942ea04ab0fe7d3d05b6",
+      "corrected": "79393f110a44fc04d1bca098f67567015724a60e866954027f2edb028a4a31ea",
+      "identicalFile": false,
+      "nonforestProgramSHA256": "afdde920e73eef4037e341a773154311518000f95f368992dfae72c6670aaf35"
+    },
+    "home-production-world-v13-c-mobility.mjs": {
+      "original": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+      "corrected": "f653c174554ff7d58b7df73c78d3af5b91be7ea4b1aa566c370629fca97cb90c",
+      "identicalFile": false,
+      "nonforestProgramSHA256": "a71427ca850db33c59ac7fe480f8b3ba502d8a3023f6def9b9ef8afbfff0a5d9"
+    },
+    "mobility-v13-d.html": {
+      "original": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a",
+      "corrected": "46cec0400be667d53cd4eb15b268b375463ed970e8828c201003b324fcf11c6e",
+      "identicalFile": false,
+      "nonforestProgramSHA256": "12e31bfc6295209f2c5318870b3eb0c872ed9e862df1e6da5cc6e71d0b165a78"
+    },
+    "home-production-model-mobility-v13-d.js": {
+      "original": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+      "corrected": "87ed167c639b50b0309324918c649243edd067b170cbac117fa5f1c53203ad79",
+      "identicalFile": false,
+      "nonforestProgramSHA256": "31e9affa1e26ed6780504be1316333355acf5a4780483f6e1ca6eb95ff5a703b"
+    },
+    "home-production-diorama-mobility-v13-d.js": {
+      "original": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+      "corrected": "fc2e033c70e983bea69eed6a900110f8303949ddae89ba4e843b405942d4b066",
+      "identicalFile": false,
+      "nonforestProgramSHA256": "a28af8adaa1c2626a96f02adec9d2fb07b8bbb01311b1ba0a2b129de42cf526e"
+    },
+    "home-production-world-v13-d-finish.mjs": {
+      "original": "c6cb6696278569e8e9fa973282c2e7a258ea2814ed64942ea04ab0fe7d3d05b6",
+      "corrected": "79393f110a44fc04d1bca098f67567015724a60e866954027f2edb028a4a31ea",
+      "identicalFile": false,
+      "nonforestProgramSHA256": "afdde920e73eef4037e341a773154311518000f95f368992dfae72c6670aaf35"
+    },
+    "home-production-world-v13-d-mobility.mjs": {
+      "original": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+      "corrected": "f653c174554ff7d58b7df73c78d3af5b91be7ea4b1aa566c370629fca97cb90c",
+      "identicalFile": false,
+      "nonforestProgramSHA256": "a71427ca850db33c59ac7fe480f8b3ba502d8a3023f6def9b9ef8afbfff0a5d9"
+    }
+  },
+  "navigationProbe": {
+    "oldSHA256": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+    "newSHA256": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+    "scope": "empty-patch public navigation branches; four archived camera transforms, original regional art and the feet of all 240 nonforest households",
+    "regions": {
+      "home": {
+        "households": 20,
+        "validPoints": 8448,
+        "segments": 9204,
+        "route": 20,
+        "referenceRoute": 20,
+        "reachable": 20
+      },
+      "river_lake": {
+        "households": 20,
+        "validPoints": 8448,
+        "segments": 9204,
+        "route": 20,
+        "referenceRoute": 20,
+        "reachable": 20
+      },
+      "city": {
+        "households": 20,
+        "validPoints": 8448,
+        "segments": 9204,
+        "route": 20,
+        "referenceRoute": 20,
+        "reachable": 20
+      },
+      "countryside": {
+        "households": 20,
+        "validPoints": 8448,
+        "segments": 9204,
+        "route": 20,
+        "referenceRoute": 20,
+        "reachable": 20
+      },
+      "mountain": {
+        "households": 20,
+        "validPoints": 8448,
+        "segments": 9204,
+        "route": 20,
+        "referenceRoute": 20,
+        "reachable": 20
+      },
+      "snow": {
+        "households": 20,
+        "validPoints": 8448,
+        "segments": 9204,
+        "route": 20,
+        "referenceRoute": 20,
+        "reachable": 20
+      },
+      "sea": {
+        "households": 20,
+        "validPoints": 8448,
+        "segments": 9204,
+        "route": 20,
+        "referenceRoute": 20,
+        "reachable": 20
+      },
+      "jungle": {
+        "households": 20,
+        "validPoints": 8448,
+        "segments": 9204,
+        "route": 20,
+        "referenceRoute": 20,
+        "reachable": 20
+      },
+      "desert": {
+        "households": 20,
+        "validPoints": 8448,
+        "segments": 9204,
+        "route": 20,
+        "referenceRoute": 20,
+        "reachable": 20
+      },
+      "deepsea": {
+        "households": 20,
+        "validPoints": 8448,
+        "segments": 9204,
+        "route": 20,
+        "referenceRoute": 20,
+        "reachable": 20
+      },
+      "star_stop": {
+        "households": 20,
+        "validPoints": 8448,
+        "segments": 9204,
+        "route": 20,
+        "referenceRoute": 20,
+        "reachable": 20
+      },
+      "memory_lake": {
+        "households": 20,
+        "validPoints": 8448,
+        "segments": 9204,
+        "route": 20,
+        "referenceRoute": 20,
+        "reachable": 20
+      }
+    }
+  }
+}

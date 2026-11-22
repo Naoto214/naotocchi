@@ -12,7 +12,7 @@ def github(*args):
     return json.loads(subprocess.check_output(['gh', *args], text=True))
 
 
-def collect(root, run):
+def collect(root, run, *, metadata_only=False):
     directory = root / run
     directory.mkdir(parents=True, exist_ok=True)
     info = github('run', 'view', run, '-R', REPO, '--json', 'headSha,status,conclusion,url,workflowName,jobs')
@@ -27,10 +27,10 @@ def collect(root, run):
             continue
         region = item['name'][len(prefix):]
         path = directory / (region + '.zip')
-        if not path.exists():
+        if not path.exists() and not metadata_only:
             tmp = path.with_suffix('.download')
             with tmp.open('wb') as stream:
-                subprocess.run(['gh', 'api', f"repos/{REPO}/actions/artifacts/{item['id']}/zip"], stdout=stream, check=True)
+                subprocess.run(['gh', 'api', f"repos/{REPO}/actions/artifacts/{item['id']}/zip"], stdout=stream, stderr=subprocess.DEVNULL, check=True)
             if tmp.stat().st_size != item['size_in_bytes'] or 'sha256:' + hashlib.sha256(tmp.read_bytes()).hexdigest() != item['digest']:
                 raise ValueError('download does not match GitHub digest: ' + str(path))
             tmp.replace(path)
@@ -46,8 +46,9 @@ def collect(root, run):
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--metadata-only', action='store_true', help='Record official digests for ZIPs downloaded by a separate authorized client')
     p.add_argument('directory', type=Path)
     p.add_argument('runs', nargs='+')
     args = p.parse_args()
     for run in args.runs:
-        collect(args.directory, run)
+        collect(args.directory, run, metadata_only=args.metadata_only)

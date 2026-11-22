@@ -1,0 +1,7 @@
+region,count,width,gained,lost,normalWalkersBefore,arrivalBefore,near4Before,tapSelectedBefore,bothFailedBefore,agedDragArrivalBefore,normalWalkersFresh,arrivalFresh,near4Fresh,tapSelectedFresh,bothFailedFresh,agedDragArrivalFresh
+forest,10,320,,,9,4,2,1,0,1,9,4,2,1,0,0
+countryside,10,320,,,10,3,3,1,0,1,10,2,2,1,0,1
+countryside,20,320,,,20,3,3,1,0,1,20,2,2,1,0,1
+mountain,20,320,,,20,4,2,1,0,1,20,3,1,1,0,1
+snow,28,320,,,28,4,2,1,0,1,28,3,1,1,0,1
+jungle,10,320,,,10,3,2,1,0,0,10,3,2,1,0,1

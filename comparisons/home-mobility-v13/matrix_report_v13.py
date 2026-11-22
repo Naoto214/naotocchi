@@ -13,7 +13,9 @@ legacy, v11 = previous.legacy, previous.v11
 FIELDS = ('normalWalkers', 'arrival', 'near4', 'tapSelected', 'bothFailed', 'agedDragArrival')
 DENOMINATORS = ('residents', 'drags', 'drags', 'tapSent', 'agedDragCount', 'agedDragCount')
 VIOLATIONS = ('bounds', 'terrain', 'occlusion', 'speed', 'swept', 'inputUnsafe', 'inputSwept',
-              'outsideActorBounds', 'nonGround', 'hidden', 'frozenUnsafe', 'frozenSwept', 'reloadUnsafe', 'reloadSwept')
+              'outsideActorBounds', 'nonGround', 'hidden', 'inputPeerUnsafe', 'inputPeerSwept',
+              'frozenUnsafe', 'frozenSwept', 'frozenPeerUnsafe', 'frozenPeerSwept',
+              'reloadUnsafe', 'reloadSwept', 'reloadPeerUnsafe', 'reloadPeerSwept')
 
 
 def select_archives(root, runs):
@@ -65,11 +67,14 @@ def notes(result):
         '## 安全性・保存復帰', '',
         '| 条件 | 地形 | 遮蔽 | 速度 | すれ違い接触 | 操作時の違反 | 保存復帰 |', '|---|---:|---:|---:|---:|---:|---:|',
         *['| '+a+' | '+' | '.join(str(x) for x in (s['terrain'],s['occlusion'],s['speed'],s['swept'],sum(s[k] for k in ('inputUnsafe','inputSwept','frozenUnsafe','frozenSwept','reloadUnsafe','reloadSwept')),s['confirmedSaveRestore']))+' |' for a,s in n.items()], '',
+        '全案の安全判定は'+('合格。' if result['safetyPassed'] else '不合格。')+'開幕・生活直後、共通状態、保存復帰の各操作で、指示を受けた住民と周囲の住民の両方を検査した。操作時の表の数値は両者を含む。各区分の件数は `matrix-results.json` の `touchSafetyByActor` と `totalViolationsByField` に収録した。', '',
         '各地域の28体・390pxで、ゲームの保存関数が書いた所持金・成長段階・装備・恋人・仲間・保存版を再読込し、復帰後の実指操作を確認した。保存試験の対象は全13地域 × 5案。', '',
         '## 記録と再現', '',
         '開幕はV12と同じ画面上の始点・終点へ信頼済みタッチを送る。席を変えた案では新しい席を保持し、初期配置の効果を測る。5分後の操作は二種類ある。表の5分後到着は各家庭が独自に生活した直後の入力。別の対照では、V12試験から保存した同一家庭の足・時計・乱数・目標と指座標を各版で復元し、同じ入力を送る。この対照の復元では中断中の経路探索キャッシュを全案で消去した。', '',
         '元のV12 ZIPから抽出した260家庭の固定状態は `matrix-fixtures/` に収録。`matrix_fixtures.py` は元ZIPと各セルのSHA-256を再照合する。`.github/workflows/home-mobility-v13-matrix.yml` は全案の生データを地域別ZIPに保存。`matrix_collect.py` で公開チェックサムと照合し、`matrix_report_v13.py` で260条件が全案にそろったことと入力・ネイティブ歩行を再検証してから集計する。', '',
-        '地域・住民数・幅別の数値は `evidence/matrix-groups.csv`、各家庭と各案の結果は `evidence/matrix-households.csv`、失敗を含む個々の操作・住民別の正規化記録は数値アーカイブ、各原本ZIPの識別子とSHA-256は `evidence/matrix-receipt.json` に収録。iPhone Safari実機での地域別回帰は未測定。', ''])
+        '地域・住民数・幅別の集計、各家庭の数値、原本ZIPのSHA-256を保存した。失敗を含む個々の操作と住民別の記録は数値アーカイブから取得できる。iPhone Safari実機での地域別回帰は未測定。', '',
+        '[地域別集計](evidence/matrix-groups.csv) ／ [全家庭の結果](evidence/matrix-households.csv) ／ [V12再測定の差](evidence/matrix-historical-drift.csv) ／ [原本照合](evidence/matrix-receipt.json)', '',
+        ' ／ '.join('[GitHub Actions '+url.rsplit('/',1)[-1]+']('+url+')' for url in result['runURLs']), ''])
 
 
 def main():
@@ -91,6 +96,9 @@ def main():
         old.require(proof['unaffectedRegions'] == sorted(set(old.REGIONS)-{'forest'}) and
                     sum(r['households'] for r in proof['navigationProbe']['regions'].values())==240,
                     'incomplete nonforest source/evaluation proof')
+        for r in run_receipts:
+            side = 'correctedRevision' if r['run'] in a.corrected_runs else 'originalRevision'
+            old.require(r['headSha'] == proof['observer'][side], 'run revision does not match the audited measurement code')
     def equivalent_hash(filename, observed, corrected):
         row = proof['generated'].get(filename) if proof else None
         if not row:
@@ -184,9 +192,13 @@ def main():
                         s = safety[arm]
                         s['frozenUnsafe'] += frozen['unsafeSteps']
                         s['frozenSwept'] += frozen['sweptViolations']
+                        s['frozenPeerUnsafe'] += sum(v['unsafe'] for v in frozen['peerWalk'].values())
+                        s['frozenPeerSwept'] += sum(v['swept'] for v in frozen['peerWalk'].values())
                         if 'reloaded' in d:
                             s['reloadUnsafe'] += d['reloaded']['drag']['unsafeSteps']
                             s['reloadSwept'] += d['reloaded']['drag']['sweptViolations']
+                            s['reloadPeerUnsafe'] += sum(v['unsafe'] for v in d['reloaded']['drag']['peerWalk'].values())
+                            s['reloadPeerSwept'] += sum(v['swept'] for v in d['reloaded']['drag']['peerWalk'].values())
                         home = {'region':region,'count':count,'width':width,'arm':arm,**{k:totals[k] for k in (*FIELDS,'residents','drags','tapSent','agedDragCount')},
                                 'seed':d['seed'],'openingSHA256':d['openingSHA256'],'agedFeetSHA256':sha(encode(d['aged']['opening'])),
                                 'seatChanges':'|'.join(q['key'] for q in d['seatChanges']), 'frozenArrival':replay['arrival'],
@@ -226,10 +238,25 @@ def main():
     for arm,s in safety.items():
         old.require(s['confirmedSaveRestore'] == 13 and s['frames'] == 1560, 'missing restore or 60s samples')
     result = {'cellsPerArm':260,'nativeHouseholds':len(cells),'ageModelSeconds':300,'historical':historical,'totals':totals,'safety':safety,
-              'comparisons':comparisons,'historicFreshV12':historic_fresh,'browsers':browsers,'frozen300':{arm:legacy.prior.metrics([r for r in touches if r['arm']==arm]) for arm in ARMS},
+              'comparisons':comparisons,'runURLs':[r['url'] for r in run_receipts],'historicFreshV12':historic_fresh,'browsers':browsers,'frozen300':{arm:legacy.prior.metrics([r for r in touches if r['arm']==arm]) for arm in ARMS},
               'observerRetries':sum(r['observerErrorsBeforeValidTrial'] for r in homes),
               'frozenPreDispatchResyncs':sum(r['frozenPreDispatchResyncs'] for r in homes),
               'observedViolations':{arm:{k:s[k] for k in VIOLATIONS} for arm,s in safety.items()}}
+    # The raw inclusive gesture counts already include peers. Separate recipient
+    # and peer evidence for each phase without counting one crossing twice.
+    result['touchSafetyByActor'] = {}
+    for arm, sample in safety.items():
+        split = {}
+        for phase in ('input','frozen','reload'):
+            for suffix in ('Unsafe','Swept'):
+                peer = sample[phase+'Peer'+suffix]
+                recipient = sample[phase+suffix]-peer
+                old.require(recipient >= 0, 'peer violations exceed the inclusive native observation')
+                split[phase+suffix] = {'recipient':recipient,'peers':peer}
+        result['touchSafetyByActor'][arm] = split
+    result['safetyPassedByArm'] = {arm:all(sample[k]==0 for k in VIOLATIONS) for arm,sample in safety.items()}
+    result['safetyPassed'] = all(result['safetyPassedByArm'].values())
+    result['totalViolationsByField'] = {key:sum(s[key] for s in safety.values()) for key in VIOLATIONS}
     result['versusPublishedV12'] = {arm: {k: {'delta':totals[arm][k]-v,
                 'atLeastAsGood': totals[arm][k]<=v if k=='bothFailed' else totals[arm][k]>=v} for k,v in historical.items()} for arm in ARMS}
     result['correctedForestHouseholds'] = sum(sources[run,arm] for run in a.corrected_runs for arm in ARMS)
@@ -257,6 +284,7 @@ def main():
                'normalized':{x.name:{'sha256':sha(x.read_bytes()),'bytes':x.stat().st_size} for x in sorted(a.normalized.glob('matrix-*.csv.gz'))}}
     legacy.write_json(a.out/'matrix-receipt.json',receipt)
     (a.out.parent/'regional.md').write_text(notes(result))
+    print('Native safety:',result['safetyPassedByArm'])
     print('Verified',len(cells),'independent native observations:',{k:{field:v[field] for field in FIELDS} for k,v in totals.items()})
 
 
