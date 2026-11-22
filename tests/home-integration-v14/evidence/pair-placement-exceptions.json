@@ -1,0 +1,391 @@
+[
+  {
+    "region": "countryside",
+    "count": 20,
+    "width": 320,
+    "contactsBefore": 0,
+    "contactsAfter": 0,
+    "newContactEllipses": [],
+    "newOutsidePaintedGround": [],
+    "beforeDragHops": 3,
+    "afterDragHops": 0
+  },
+  {
+    "region": "deepsea",
+    "count": 28,
+    "width": 375,
+    "contactsBefore": 0,
+    "contactsAfter": 0,
+    "newContactEllipses": [],
+    "newOutsidePaintedGround": [],
+    "beforeDragHops": 0,
+    "afterDragHops": 0
+  },
+  {
+    "region": "desert",
+    "count": 28,
+    "width": 390,
+    "contactsBefore": 0,
+    "contactsAfter": 0,
+    "newContactEllipses": [],
+    "newOutsidePaintedGround": [],
+    "beforeDragHops": 0,
+    "afterDragHops": 0
+  },
+  {
+    "region": "forest",
+    "count": 4,
+    "width": 320,
+    "contactsBefore": 0,
+    "contactsAfter": 0,
+    "newContactEllipses": [],
+    "newOutsidePaintedGround": [],
+    "beforeDragHops": 6,
+    "afterDragHops": 0
+  },
+  {
+    "region": "forest",
+    "count": 10,
+    "width": 320,
+    "contactsBefore": 5,
+    "contactsAfter": 5,
+    "newContactEllipses": [
+      [
+        "companion:hamster",
+        "companion:otter",
+        0.972339
+      ]
+    ],
+    "newOutsidePaintedGround": [
+      {
+        "key": "companion:otter",
+        "art": [
+          0.6899185087745688,
+          0.6208654461927793
+        ],
+        "surface": "clearing"
+      }
+    ],
+    "beforeDragHops": 6,
+    "afterDragHops": 6
+  },
+  {
+    "region": "forest",
+    "count": 10,
+    "width": 375,
+    "contactsBefore": 4,
+    "contactsAfter": 4,
+    "newContactEllipses": [],
+    "newOutsidePaintedGround": [
+      {
+        "key": "companion:hamster",
+        "art": [
+          0.6592214408184845,
+          0.6354309953046594
+        ],
+        "surface": "clearing"
+      }
+    ],
+    "beforeDragHops": 6,
+    "afterDragHops": 6
+  },
+  {
+    "region": "forest",
+    "count": 10,
+    "width": 390,
+    "contactsBefore": 3,
+    "contactsAfter": 3,
+    "newContactEllipses": [],
+    "newOutsidePaintedGround": [
+      {
+        "key": "companion:hamster",
+        "art": [
+          0.6526111095034343,
+          0.6297430308501606
+        ],
+        "surface": "clearing"
+      }
+    ],
+    "beforeDragHops": 6,
+    "afterDragHops": 6
+  },
+  {
+    "region": "forest",
+    "count": 10,
+    "width": 430,
+    "contactsBefore": 4,
+    "contactsAfter": 4,
+    "newContactEllipses": [
+      [
+        "companion:cat_friend",
+        "companion:tanuki",
+        0.923323
+      ]
+    ],
+    "newOutsidePaintedGround": [],
+    "beforeDragHops": 6,
+    "afterDragHops": 6
+  },
+  {
+    "region": "forest",
+    "count": 20,
+    "width": 320,
+    "contactsBefore": 18,
+    "contactsAfter": 16,
+    "newContactEllipses": [
+      [
+        "companion:parrot",
+        "companion:shiba",
+        0.989896
+      ]
+    ],
+    "newOutsidePaintedGround": [
+      {
+        "key": "companion:hamster",
+        "art": [
+          0.6067398944453692,
+          0.6724212375344779
+        ],
+        "surface": "clearing"
+      },
+      {
+        "key": "companion:shiba",
+        "art": [
+          0.6169056091623777,
+          0.6895227890849432
+        ],
+        "surface": "clearing"
+      },
+      {
+        "key": "companion:rabbit_friend",
+        "art": [
+          0.6807251417554114,
+          0.6184797205444068
+        ],
+        "surface": "clearing"
+      },
+      {
+        "key": "companion:chicken",
+        "art": [
+          0.6393058793463783,
+          0.6786283364091381
+        ],
+        "surface": "clearing"
+      }
+    ],
+    "beforeDragHops": 6,
+    "afterDragHops": 0
+  },
+  {
+    "region": "forest",
+    "count": 20,
+    "width": 375,
+    "contactsBefore": 16,
+    "contactsAfter": 12,
+    "newContactEllipses": [],
+    "newOutsidePaintedGround": [
+      {
+        "key": "companion:hamster",
+        "art": [
+          0.6931093629462637,
+          0.5912730581691626
+        ],
+        "surface": "clearing"
+      }
+    ],
+    "beforeDragHops": 5,
+    "afterDragHops": 0
+  },
+  {
+    "region": "forest",
+    "count": 20,
+    "width": 390,
+    "contactsBefore": 15,
+    "contactsAfter": 13,
+    "newContactEllipses": [
+      [
+        "companion:chicken",
+        "companion:rabbit_friend",
+        0.922921
+      ],
+      [
+        "companion:panda",
+        "companion:rabbit_friend",
+        0.988847
+      ]
+    ],
+    "newOutsidePaintedGround": [
+      {
+        "key": "companion:rabbit_friend",
+        "art": [
+          0.6650662591275165,
+          0.5831736800092326
+        ],
+        "surface": "clearing"
+      }
+    ],
+    "beforeDragHops": 7,
+    "afterDragHops": 8
+  },
+  {
+    "region": "forest",
+    "count": 28,
+    "width": 320,
+    "contactsBefore": 24,
+    "contactsAfter": 23,
+    "newContactEllipses": [
+      [
+        "companion:many_tail_fox",
+        "companion:penguin_friend",
+        0.947656
+      ],
+      [
+        "companion:monkey",
+        "companion:parrot",
+        0.980605
+      ],
+      [
+        "companion:parrot",
+        "companion:unicorn",
+        0.969188
+      ]
+    ],
+    "newOutsidePaintedGround": [
+      {
+        "key": "companion:chameleon",
+        "art": [
+          0.6682005557617211,
+          0.6796484880771982
+        ],
+        "surface": "clearing"
+      },
+      {
+        "key": "companion:chicken",
+        "art": [
+          0.5841653518301457,
+          0.6844567976679766
+        ],
+        "surface": "clearing"
+      },
+      {
+        "key": "companion:clock",
+        "art": [
+          0.6614030212736338,
+          0.6728483470869533
+        ],
+        "surface": "clearing"
+      }
+    ],
+    "beforeDragHops": 6,
+    "afterDragHops": 5
+  },
+  {
+    "region": "forest",
+    "count": 28,
+    "width": 375,
+    "contactsBefore": 17,
+    "contactsAfter": 17,
+    "newContactEllipses": [
+      [
+        "companion:hedgehog",
+        "companion:rabbit_friend",
+        0.998023
+      ],
+      [
+        "companion:monkey",
+        "companion:penguin_friend",
+        0.988128
+      ],
+      [
+        "companion:sekizou",
+        "companion:sheep",
+        0.975097
+      ],
+      [
+        "companion:sekizou",
+        "companion:squirrel",
+        0.999515
+      ]
+    ],
+    "newOutsidePaintedGround": [],
+    "beforeDragHops": 3,
+    "afterDragHops": 6
+  },
+  {
+    "region": "forest",
+    "count": 28,
+    "width": 390,
+    "contactsBefore": 19,
+    "contactsAfter": 19,
+    "newContactEllipses": [
+      [
+        "companion:panda",
+        "companion:squirrel",
+        0.98518
+      ],
+      [
+        "companion:parrot",
+        "companion:squirrel",
+        0.947418
+      ]
+    ],
+    "newOutsidePaintedGround": [],
+    "beforeDragHops": 6,
+    "afterDragHops": 5
+  },
+  {
+    "region": "forest",
+    "count": 28,
+    "width": 430,
+    "contactsBefore": 17,
+    "contactsAfter": 17,
+    "newContactEllipses": [
+      [
+        "companion:clock",
+        "companion:monkey",
+        0.976168
+      ],
+      [
+        "companion:monkey",
+        "companion:watcher",
+        0.943722
+      ]
+    ],
+    "newOutsidePaintedGround": [],
+    "beforeDragHops": 5,
+    "afterDragHops": 5
+  },
+  {
+    "region": "sea",
+    "count": 20,
+    "width": 320,
+    "contactsBefore": 14,
+    "contactsAfter": 12,
+    "newContactEllipses": [
+      [
+        "companion:bat",
+        "companion:squirrel",
+        0.930604
+      ],
+      [
+        "companion:hedgehog",
+        "companion:parrot",
+        0.979302
+      ]
+    ],
+    "newOutsidePaintedGround": [],
+    "beforeDragHops": 5,
+    "afterDragHops": 2
+  },
+  {
+    "region": "snow",
+    "count": 20,
+    "width": 430,
+    "contactsBefore": 0,
+    "contactsAfter": 0,
+    "newContactEllipses": [],
+    "newOutsidePaintedGround": [],
+    "beforeDragHops": 0,
+    "afterDragHops": 0
+  }
+]
