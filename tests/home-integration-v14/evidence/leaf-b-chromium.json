@@ -1,0 +1,119 @@
+{
+  "engine": "Chromium 156.0.8078.79 built on Debian GNU/Linux 13 (trixie)",
+  "reference": "28628cf336a8ed92efe4e9e197ca03298b798a1e",
+  "method": "Render the archived #569 B forest and countryside painters with only leaves enabled (autumn, sunny, default depth, gusts, wind and strength), then render the production leaf B module at the same scene clock. Compare all RGBA bytes in the two 400 × 600 transparent canvases. pixels counts nontransparent reference pixels; difference counts pixels with any different channel.",
+  "samples": [
+    {
+      "region": "forest",
+      "time": "day",
+      "seconds": 0,
+      "pixels": 411,
+      "difference": 0
+    },
+    {
+      "region": "forest",
+      "time": "day",
+      "seconds": 7,
+      "pixels": 378,
+      "difference": 0
+    },
+    {
+      "region": "forest",
+      "time": "day",
+      "seconds": 33,
+      "pixels": 376,
+      "difference": 0
+    },
+    {
+      "region": "forest",
+      "time": "day",
+      "seconds": 100,
+      "pixels": 320,
+      "difference": 0
+    },
+    {
+      "region": "forest",
+      "time": "night",
+      "seconds": 0,
+      "pixels": 411,
+      "difference": 0
+    },
+    {
+      "region": "forest",
+      "time": "night",
+      "seconds": 7,
+      "pixels": 378,
+      "difference": 0
+    },
+    {
+      "region": "forest",
+      "time": "night",
+      "seconds": 33,
+      "pixels": 376,
+      "difference": 0
+    },
+    {
+      "region": "forest",
+      "time": "night",
+      "seconds": 100,
+      "pixels": 320,
+      "difference": 0
+    },
+    {
+      "region": "countryside",
+      "time": "day",
+      "seconds": 0,
+      "pixels": 236,
+      "difference": 0
+    },
+    {
+      "region": "countryside",
+      "time": "day",
+      "seconds": 7,
+      "pixels": 221,
+      "difference": 0
+    },
+    {
+      "region": "countryside",
+      "time": "day",
+      "seconds": 33,
+      "pixels": 225,
+      "difference": 0
+    },
+    {
+      "region": "countryside",
+      "time": "day",
+      "seconds": 100,
+      "pixels": 206,
+      "difference": 0
+    },
+    {
+      "region": "countryside",
+      "time": "evening",
+      "seconds": 0,
+      "pixels": 357,
+      "difference": 0
+    },
+    {
+      "region": "countryside",
+      "time": "evening",
+      "seconds": 7,
+      "pixels": 366,
+      "difference": 0
+    },
+    {
+      "region": "countryside",
+      "time": "evening",
+      "seconds": 33,
+      "pixels": 426,
+      "difference": 0
+    },
+    {
+      "region": "countryside",
+      "time": "evening",
+      "seconds": 100,
+      "pixels": 386,
+      "difference": 0
+    }
+  ]
+}
