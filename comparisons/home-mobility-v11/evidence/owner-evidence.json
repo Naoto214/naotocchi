@@ -1,0 +1,34 @@
+{
+  "website": "https://naotocchi-mobility-v8-evidence.kerzion214.chatgpt.site/v11/",
+  "files": 565,
+  "totalBytes": 85276647,
+  "previousUnmodified": 689,
+  "checkedEndpoints": 568,
+  "ownerResponseCodes": {
+    "200": 568
+  },
+  "anonymousResponseCodes": {
+    "401": 568
+  },
+  "authenticatedBytesMatch": true,
+  "verifiedActionsArchives": {
+    "forest10Minutes": 32,
+    "allRegions": 26,
+    "webKit": 8
+  },
+  "viewer": {
+    "areas": 7,
+    "households": 8,
+    "residentsEach": 28,
+    "tested": {
+      "0": 31,
+      "7": 31
+    },
+    "errors": []
+  },
+  "signedDownloadLinksInSource": 0,
+  "credentialMatchesInPreflight": 0,
+  "manifestSHA256": "8a52057b2c8a86faa1581187b14e05c6a1513f68efe3fa2fe6e1e03de91ad093",
+  "sitesSource": "10866ce8fab1302822402ed30881b93a972ca3ce",
+  "deployment": "appgdep_6b02826a67dc8191a0d516cacba5a6e9"
+}

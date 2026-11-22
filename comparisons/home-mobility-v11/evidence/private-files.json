@@ -1715,7 +1715,7 @@
     },
     "matrix/matrix-index.json": {
       "bytes": 10105,
-      "sha256": "b3d165e6b86445f26093d9a7f6068dbecf558fda975501ae681f39227a47a119"
+      "sha256": "e3488745cc2bb9acdec519ea1d31946ac10103d98018bb17e3dd77a81a6c5fc3"
     },
     "matrix/pilot/forest-10-320-otter-repeat.json.gz": {
       "bytes": 12829,
@@ -1738,8 +1738,8 @@
       "sha256": "718d6ca775154b352a98bded7ac4351dff6bf35604855563bafa54f125677e8f"
     },
     "matrix/summary/MATRIX.md": {
-      "bytes": 15700,
-      "sha256": "30574bcadb4392393221461c11fd6442619d26213cbccd7ceee490ac87c33473"
+      "bytes": 15732,
+      "sha256": "c60549f7097d9c90e78b0e7ac267c8f1e5c2080e8cd735ed36fa22e48270b3f4"
     },
     "matrix/summary/evidence/matrix-aged-failures.csv": {
       "bytes": 44797,
