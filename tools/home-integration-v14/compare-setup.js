@@ -44,12 +44,14 @@
       };
       function pair() {
         const viewport = window.NaotocchiHomeViewport;
-        if (!navigated) return null;
+        const stage = document.getElementById('castStage');
+        if (!navigated || stage?.dataset.worldRenderer !== 'art-25d') return null;
+        const camera = viewport?.residentPresentation?.();
+        if (document.body.dataset.homeTinyOverview === 'true' && !camera) return null;
         const actors = model.snapshot();
         if (actors.length !== count) return null;
         const pet = actors.find(a => a.kind === 'pet'), bear = actors.find(a => a.kind === 'partner');
         if (!pet || !bear) return null;
-        const camera = viewport?.residentPresentation?.();
         // Both feet share the same stage and camera origin. Translation cancels.
         return {dx:(bear.x - pet.x) * (camera?.scaleX || 1),
                 dy:(bear.y - pet.y) * (camera?.scaleY || 1), clock:model.metrics().clock};
