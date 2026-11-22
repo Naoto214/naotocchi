@@ -308,6 +308,7 @@
     const model=modelAPI.createModel({onEvent:emit});
     // One-shot presentation request from a real hatch, never inferred from save age.
     let newbornPending=false,pendingResidentPresentation=false;
+    let openingCameraFrames=null;
     function ensureWorld(){
       const M=getMeguru();if(!M||worldLoading||world||!doc.body)return;
       worldLoading=true;const generation=++loadGeneration;worldHost=doc.createElement('div');worldHost.className='home-living-world';worldHost.setAttribute('aria-hidden','true');doc.body.appendChild(worldHost);
@@ -318,7 +319,7 @@
         worldLoading=false;world.setEnvironment(environment);if(scene){scene.navigation=world.navigation(displayRect(stage));scene.visualPoints=world.observationPoints?.(scene.navigation)||[];scene.visible=visibleAt;scene.planVisibility=planVisibility;sync();}
       }).catch(error=>{if(generation!==loadGeneration)return;worldLoading=false;stage.dataset.worldRenderer='unavailable';stage.dataset.worldError=String(error.message);});
     }
-    function clearWorld(){pendingResidentPresentation=false;loadGeneration++;worldLoading=false;world?.destroy();world=null;worldHost?.remove();worldHost=null;if(doc.body)delete doc.body.dataset.livingHome;}
+    function clearWorld(){openingCameraFrames=null;pendingResidentPresentation=false;loadGeneration++;worldLoading=false;world?.destroy();world=null;worldHost?.remove();worldHost=null;if(doc.body)delete doc.body.dataset.livingHome;}
 
     const blocked=()=>pendingResidentPresentation||!enabled||doc.visibilityState==='hidden'||!!flags.paused||isBlocked();
     const hardInputBlock=()=>pendingResidentPresentation||!enabled||doc.visibilityState==='hidden'||!!flags.paused||isBlocked(true);
@@ -574,6 +575,14 @@ function bodyChanged(old, next) {
         model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint:null},true);
       }
       if(model.seatingPending()){
+        // The production viewport script follows the game script. WebKit can
+        // attach navigation before that script's first portrait fit.
+        if(!presentation && openingCameraFrames!==0 && doc.body?.dataset.homeDisplayVersion==='18' &&
+           doc.body.dataset.homeViewportVersion==='12' && env.innerHeight>env.innerWidth &&
+           (!env.visualViewport||env.visualViewport.scale===1)){
+          openingCameraFrames??=2;paint();pendingResidentPresentation=true;return;
+        }
+        openingCameraFrames=null;
         const view=presentation&&{x:presentation.scaleX,y:presentation.scaleY,
           body:Math.min(presentation.bodyScale,presentation.bodyScaleLimit||presentation.bodyScale)*actorVisualScale('partner')};
         model.finishSeating(p=>world?.initialPaintedGround?.(p),view);
@@ -739,6 +748,11 @@ function bodyChanged(old, next) {
     function frame(now){raf=0;if(dead||!enabled||doc.visibilityState==='hidden')return;
       // Touch deliberately retains the current camera during pinch zoom, so
       // no fit-completed event is forthcoming. Use its real, unchanged bounds.
+      // A covering movie disables the camera. Count two visible frames after
+      // parsing so an unsupported viewport still gets its native layout.
+      if(openingCameraFrames>0 && doc.readyState!=='loading' && isVisible() && --openingCameraFrames===0){
+        pendingResidentPresentation=false;sync();
+      }
       if(pendingResidentPresentation&&env.visualViewport&&env.visualViewport.scale!==1){pendingResidentPresentation=false;sync();}
       if(pendingResidentPresentation){last=now;raf=env.requestAnimationFrame(frame);return;}
       if(!last)last=now;const gap=now-last,interval=flags.tier>=2?66:33;
@@ -917,6 +931,7 @@ function bodyChanged(old, next) {
     let lastSafePresentation='';
     function presentationChanged(){
       const pending=pendingResidentPresentation;pendingResidentPresentation=false;
+      if(env.NaotocchiHomeViewport?.residentPresentation?.())openingCameraFrames=null;
       // Painted-ground navigation captures the inverse presentation transform.
       // Refresh it after camera/offset changes without rebuilding the world or
       // its fixed camera-fit envelope. The world caches unchanged navigation.
