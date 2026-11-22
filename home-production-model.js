@@ -44,27 +44,31 @@
     function fits(p){
       return p.x>=box.left&&p.x<=box.right&&p.y>=box.top&&p.y<=box.bottom&&
         actors.every(a=>a===mate||separated(mate,p,a))&&
-        (!exit.length||contactSegmentSafe(exit[0],exit.at(-1),p,(mate.w+lead.w)*.5+10,(mate.h+lead.h)*.38+10))&&
         Math.abs(p.x-lead.x)>=inkGap(p)&&nav.valid(p)&&sees(p)&&(!checkPaint||painted(p));
     }
     // Leave a safe, already-close regional seat untouched. Only consider
     // alternatives closer to the lead than the partner's packed position.
     const start=distance(lead,mate),intended=distance(lead,goal);
     if(start<=intended+1&&fits(mate))return;
-    let best=null,error=Infinity;
+    let best=null,score=Infinity;
     function consider(p){
-      const d=distance(p,goal);
-      if(d<error&&distance(lead,p)<=start&&fits(p)){best=p;error=d;}
+      let d=distance(p,goal);
+      if(d>=score||distance(lead,p)>start||!fits(p))return;
+      // Favor an open exit between similarly close seats. A possible future
+      // walk must not force the partner to open on the opposite side of the scene.
+      if(exit.length&&!contactSegmentSafe(exit[0],exit.at(-1),p,(mate.w+lead.w)*.5+10,(mate.h+lead.h)*.38+10))d+=4;
+      if(d<score){best=p;score=d;}
     }
     consider(goal);
-    if(!best){
-      const radius=spacing*1.5;
-      // Search only the lead's neighborhood. Keep the production seat if
-      // neither side has space, including on narrow or crowded terrain.
-      for(let y=Math.max(box.top,lead.y-radius);y<=Math.min(box.bottom,lead.y+radius);y+=4){
-        for(let x=Math.max(box.left,lead.x-radius);x<=Math.min(box.right,lead.x+radius);x+=4){
-          if(Math.hypot(x-lead.x,y-lead.y)<=radius)consider({x,y});
-        }
+    if(score>0){
+      // A portrait camera compresses depth. Include the whole painted
+      // neighborhood and the exact ink bounds, even when a grid step misses an edge.
+      const radius=spacing*1.5,depthRadius=scale?radius*scale.x/scale.y:radius;
+      const left=Math.max(box.left,lead.x-radius),right=Math.min(box.right,lead.x+radius);
+      const top=Math.max(box.top,lead.y-depthRadius),bottom=Math.min(box.bottom,lead.y+depthRadius);
+      for(let y=top;y<bottom+2;y+=2)for(let x=left;x<right+2;x+=2){
+        const p={x:Math.min(x,right),y:Math.min(y,bottom)};
+        if(distance(lead,p)<=radius)consider(p);
       }
     }
     if(best){mate.x=best.x;mate.y=best.y;}

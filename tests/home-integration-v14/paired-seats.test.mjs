@@ -136,3 +136,17 @@ test('an isolated safe partner seat survives when both adjacent sides are occupi
     actorBounds:()=>({left:0,right:340,top:128,bottom:128})});
   assert.deepEqual(model.snapshot().map(a=>a.x),points);
 });
+
+test('the only adjacent safe seat may occupy the lead’s reserved walking lane', () => {
+  const points=[180,300,340,380,420,460];
+  const nav=createTerrainNavigation({width:500,height:240,project:p=>({x:p.x,y:p.z}),
+    unproject:p=>({x:p.x,y:0,z:p.y}),walkable:p=>p.z===180&&(p.x>=120&&p.x<=180||p.x>=300)});
+  nav.initialPoint=i=>({x:points[i],y:180});
+  const cast=['pet','partner',...Array(4).fill('companion')].map((kind,i)=>({
+    kind,key:String(i),x:i===1?135:180,y:180,w:20,h:20
+  }));
+  const model=production.createModel({random:()=>.5});
+  model.sync(cast,{region:'forest',width:500,height:240,navigation:nav,
+    actorBounds:()=>({left:0,right:500,top:180,bottom:180})});
+  assert.deepEqual(model.snapshot().map(a=>a.x),[180,135,340,380,420,460]);
+});
