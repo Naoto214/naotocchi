@@ -154,16 +154,13 @@
         if(points.length){const ys=points.map(p=>p.y);terrainCentre=scene.navigation.nearest({x:scene.width/2,y:(Math.min(...ys)+Math.max(...ys))/2},b,p=>visible(main,p));}
       }
       const enteringTerrain=!previousScene.navigation||previousScene.region!==scene.region;
-      // Additional painted paths extend walking. Opening feet and the lead's
-      // reserved exit still use the regional floor on which the cast was laid out.
-      const packingNav=(enteringTerrain&&scene.navigation?.layoutNavigation)||scene.navigation;
       const partner=list.find(a=>a.kind==='partner');
-      const seatPair=main&&partner&&packingNav?.initialPoint&&(enteringTerrain||!retained.has(partner.key));
+      const seatPair=main&&partner&&scene.navigation?.initialPoint&&(enteringTerrain||!retained.has(partner.key));
       actors=list.filter(a=>['pet','companion','partner'].includes(a.kind)&&Number.isFinite(a.x+a.y+a.w+a.h)).map((a,index)=>{
         const reflow=list.length>5&&(next.width!==previousScene.width||next.height!==previousScene.height||list.length!==previousActors.length||list.some(a=>previousActors.find(b=>b.key===a.key)?.w!==a.w));
-        const initial=packingNav?.initialPoint&&(restoreSeats||enteringTerrain||((!partner||a.kind==='companion')&&list.length>5&&list.length!==previousActors.length)||!previousActors.some(b=>b.key===a.key));
-        const seed=initial?(a.kind==='pet'&&scene.newbornPoint&&(!previousScene.navigation||!previousActors.some(b=>b.key===a.key))?scene.newbornPoint:packingNav.initialPoint(index,list.length)):null;
-        const old=!initial&&!changed&&!reflow&&actor(a.key),previous=!initial&&previousScene.region===scene.region?previousActors.find(b=>b.key===a.key):null,worldPoint=previous&&previousScene.navigation?.unproject(previous),preserved=worldPoint&&scene.navigation?scene.navigation.project(worldPoint):previous,limited=limit(a,old||preserved||seed||(a.kind==='pet'&&terrainCentre)||a,scene),p=previous&&scene.navigation?.reachable&&scene.navigation.valid(limited)&&visible(a,limited)?limited:packingNav?.nearest(limited,bounds(a,scene))||limited;
+        const initial=scene.navigation?.initialPoint&&(restoreSeats||enteringTerrain||((!partner||a.kind==='companion')&&list.length>5&&list.length!==previousActors.length)||!previousActors.some(b=>b.key===a.key));
+        const seed=initial?(a.kind==='pet'&&scene.newbornPoint&&(!previousScene.navigation||!previousActors.some(b=>b.key===a.key))?scene.newbornPoint:scene.navigation.initialPoint(index,list.length)):null;
+        const old=!initial&&!changed&&!reflow&&actor(a.key),previous=!initial&&previousScene.region===scene.region?previousActors.find(b=>b.key===a.key):null,worldPoint=previous&&previousScene.navigation?.unproject(previous),preserved=worldPoint&&scene.navigation?scene.navigation.project(worldPoint):previous,limited=limit(a,old||preserved||seed||(a.kind==='pet'&&terrainCentre)||a,scene),p=previous&&scene.navigation?.reachable&&scene.navigation.valid(limited)&&visible(a,limited)?limited:scene.navigation?.nearest(limited,bounds(a,scene))||limited;
         return {...a,...p,route:old?.route?.map(p=>({...p}))||[],temperament:{...a.temperament},target:old&&old.w===a.w&&old.h===a.h&&old.target?limit(a,old.target,scene):null,activity:old?.activity||'rest',direction:old?.direction||1,source:old?.source||'ambient',pointerDrop:!!old?.pointerDrop,yieldFor:old?.yieldFor,yieldAfter:old?.yieldAfter,manualUntil:previousActors.find(b=>b.key===a.key)?.manualUntil??0,nextAt:old?.nextAt??clock+1+random()*3,lastWalk:old?.lastWalk??clock-12,recent:old?.recent||[],after:old?.after||'observe',faceKey:old?.faceKey||null,visualReaction:old?.visualReaction,visualTarget:old?.visualTarget,nextVisualAt:old?.nextVisualAt||0};
       });
       // At capacity, individually separated seats can still form a closed ring
@@ -173,11 +170,11 @@
       let exit=[];
       const lead=actors.find(a=>a.kind==='pet');
       const arrange=changed||exitPolicyChanged||actors.length!==previousActors.length||actors.some(a=>{const b=previousActors.find(b=>b.key===a.key);return !b||a.w!==b.w||a.h!==b.h;});
-      if(lead&&(actors.length>5||scene.fiveResidentExit)&&arrange&&packingNav?.segmentSafe){
+      if(lead&&(actors.length>5||scene.fiveResidentExit)&&arrange&&scene.navigation?.segmentSafe){
         const length=Math.max(40,lead.w*1.2),options=[];
         for(let i=0;i<8;i++){
           const end=limit(lead,{x:lead.x+Math.cos(i*Math.PI/4)*length,y:lead.y+Math.sin(i*Math.PI/4)*length},scene);
-          if(Math.hypot(end.x-lead.x,end.y-lead.y)<length*.8||!packingNav.segmentSafe(lead,end,p=>visible(lead,p)))continue;
+          if(Math.hypot(end.x-lead.x,end.y-lead.y)<length*.8||!scene.navigation.segmentSafe(lead,end,p=>visible(lead,p)))continue;
           const points=[];
           // Sample the same three-pixel spacing used by terrain routes.
           for(let j=0,n=Math.ceil(length/3);j<=n;j++)points[j]={x:lead.x+(end.x-lead.x)*j/n,y:lead.y+(end.y-lead.y)*j/n};
@@ -188,7 +185,7 @@
       // Keep established actors stable; seat new/reshaped arrivals in the nearest free spot.
       const seated=[];
       for(const a of [...actors].sort((a,b)=>Number(retained.has(b.key))-Number(retained.has(a.key)))){
-        const fits=p=>(!packingNav||packingNav.valid(p))&&seated.every(b=>separated(a,p,b))&&visible(a,p)&&(a===lead||exit.every(q=>separated(lead,q,{...a,x:p.x,y:p.y})));
+        const fits=p=>(!scene.navigation||scene.navigation.valid(p))&&seated.every(b=>separated(a,p,b))&&visible(a,p)&&(a===lead||exit.every(q=>separated(lead,q,{...a,x:p.x,y:p.y})));
         if(!fits(a)&&(arrange||!retained.has(a.key)||!visible(a,a)||scene.navigation&&!scene.navigation.valid(a))){
           const b=bounds(a,scene),candidates=[];
           for(let y=b.top;y<=b.bottom+7;y+=8)for(let x=b.left;x<=b.right+7;x+=8){
@@ -202,7 +199,7 @@
           // Keep every foot on the path and preserve the pet's reserved exit;
           // among those seats minimize overlap with already seated residents.
           if(!best&&a!==lead&&exit.length){
-            const allowed=candidates.filter(p=>(!packingNav||packingNav.valid(p))&&visible(a,p)&&exit.every(q=>separated(lead,q,{...a,x:p.x,y:p.y})));
+            const allowed=candidates.filter(p=>(!scene.navigation||scene.navigation.valid(p))&&visible(a,p)&&exit.every(q=>separated(lead,q,{...a,x:p.x,y:p.y})));
             const overlap=p=>seated.reduce((sum,b)=>sum+Math.max(0,1-clearance(a,p,b))**2,0);
             allowed.sort((p,q)=>overlap(p)-overlap(q)||p.d-q.d);best=allowed[0];
           }

@@ -105,7 +105,7 @@ test('portrait depth retains the cast offset with only enough width for painted 
   }
 });
 
-test('a full household keeps the production pack when walking ground expands', () => {
+test('a full household packs on the same expanded floor as production', () => {
   const nav=createTerrainNavigation({width:350,height:300,project:p=>({x:p.x,y:p.z}),
     unproject:p=>({x:p.x,y:0,z:p.y}),walkable:p=>p.x>=100});
   nav.initialPoint=i=>({x:140+(i%4)*18,y:180+(i%3)*18});
@@ -115,7 +115,7 @@ test('a full household keeps the production pack when walking ground expands', (
     x:i===1?100:160,y:180,w:20,h:20}));
   const scene={region:'city',width:350,height:300,groundTop:40};
   const traditional=production.createModel({random:()=>.5});
-  traditional.sync(cast,{...scene,navigation:nav},true);
+  traditional.sync(cast,{...scene,navigation:{...wider,initialPoint:nav.initialPoint}},true);
   const expected=traditional.snapshot().map(({x,y})=>[x,y]);
   const model=production.createModel({random:()=>.5});
   model.sync(cast,{...scene,navigation:expanded});
