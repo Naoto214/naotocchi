@@ -55,10 +55,11 @@ def phase_metrics(phase, reference, prior):
             return 0 if abs(x) < .001 else (1 if x > 0 else -1)
         order = side(dx)
         order_changed = order != side(rx)
-    solver_dx = solver_dy = solver_error = solver_order_changed = None
+    solver_dx = solver_dy = solver_error = solver_order_changed = solver_distance_delta = None
     if partner and 'solverScreen' in partner:
         solver_dx, solver_dy = [q-p for p,q in zip(pet['solverScreen'],partner['solverScreen'])]
         solver_error = math.hypot(dx-solver_dx,dy-solver_dy)
+        solver_distance_delta = dist-math.hypot(solver_dx,solver_dy)
         solver_order_changed = order != side(solver_dx)
     contacts = {tuple(sorted(pair[:2])) for pair in phase['contacts']}
     old_contacts = {tuple(sorted(pair[:2])) for pair in reference['contacts']}
@@ -75,6 +76,7 @@ def phase_metrics(phase, reference, prior):
     previous = by_key(reference)
     return dict(**data, dx=dx, dy=dy, distance=dist, distanceDeltaMain=dist_delta,
                 solverDx=solver_dx,solverDy=solver_dy,vectorErrorSolver=solver_error,
+                distanceDeltaSolver=solver_distance_delta,
                 solverOrderChanged=solver_order_changed, vectorErrorMain=vector_error, order=order, orderChanged=order_changed,
                 partnerSideMargin=partner['horizontalEdge'] if partner else None,
                 partnerEdge=partner['edge'] if partner else None, contactPairs=len(contacts),
@@ -146,6 +148,8 @@ def summarize(rows):
             phase_summary[p] = dict(
                 solverPairCells=len(solver), solverOrderChanges=sum(r['solverOrderChanged'] for r in solver),
                 maxSolverVectorError=max((r['vectorErrorSolver'] for r in solver), default=None),
+                medianAbsoluteSolverDistanceError=statistics.median(abs(r['distanceDeltaSolver']) for r in solver) if solver else None,
+                maxAbsoluteSolverDistanceError=max((abs(r['distanceDeltaSolver']) for r in solver), default=None),
                 cells=len(entries), pairCells=len(pairs),
                 **{k:sum(r[k] for r in entries) for k in ('contactPairs','addedContactPairs','addedContactPairsVsPrior','addedPairCrowdVsPrior',
                    'pairContact','pairCrowdContacts','companionContacts',
