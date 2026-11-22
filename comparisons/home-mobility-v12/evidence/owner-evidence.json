@@ -1,0 +1,274 @@
+{
+  "trial": {
+    "source": "b99aef20e79c510d6bd73fb9608e0e707732f0d7",
+    "deployment": "appgdep_6b0297775e748191a530a7fc5d7032ee",
+    "version": "appgprj_6afedbc8feb88191a2a2f93773c322ca~appgver_517d8dc06aa08191bc52451806de311d",
+    "origin": "https://naotocchi-cast-size.kerzion214.chatgpt.site",
+    "verifiedResources": 55,
+    "statuses": [
+      [
+        200,
+        401
+      ]
+    ]
+  },
+  "catalog": {
+    "source": "def1fd72cb5278038bfab677bbfa037ca69d44ae",
+    "deployment": "appgdep_6b029d604d688191bc17fee4e9cc5def",
+    "version": "appgprj_6b00dc40c0948191806d5c2af21fb6a6~appgver_61431afa295c819192e74971ae98410f",
+    "origin": "https://naotocchi-mobility-v8-evidence.kerzion214.chatgpt.site",
+    "verifiedResources": 57,
+    "statuses": [
+      [
+        200,
+        401
+      ]
+    ]
+  },
+  "records": {
+    "source": "6cf8327889267a6724303ee1a14a9719cfec2f08",
+    "deployment": "appgdep_6b029dec0d648191979fd31476dd18d7",
+    "version": "appgprj_6b0291679dc48191bf6629aa014c6627~appgver_b96f569078b08191896748f79ffe2ec0",
+    "origin": "https://naotocchi-home-v12-records.kerzion214.chatgpt.site",
+    "verifiedResources": 441,
+    "statuses": [
+      [
+        200,
+        401
+      ]
+    ]
+  },
+  "protectedGameAtMeasurementReport": {
+    "reference": "5f899a2de868fa70e772a56d0fad733f87717e6a",
+    "candidate": "fb04673454b0450676db49fc7c2807ab7a17faab",
+    "protectedPaths": 36627,
+    "addedFiles": 164,
+    "protectedPRs": {
+      "p561": {
+        "headRefOid": "985a369d6b942d3ab91cb2aff2e17e698cb137fc",
+        "state": "MERGED"
+      },
+      "p567": {
+        "headRefOid": "fae83a21915f9ada92f4ac13ac1aaacd397e333d",
+        "state": "OPEN"
+      },
+      "p568": {
+        "headRefOid": "2935622edf9ccdc6f8a36f2297dd86b789022b87",
+        "state": "OPEN"
+      },
+      "p569": {
+        "headRefOid": "28628cf336a8ed92efe4e9e197ca03298b798a1e",
+        "state": "OPEN"
+      },
+      "p570": {
+        "headRefOid": "e07d2cc53eca36ff23e02142ab385d6001e0521b",
+        "state": "OPEN"
+      },
+      "p572": {
+        "headRefOid": "a0df9061c26dde237158ba3423dd4732ca8bec42",
+        "state": "OPEN"
+      },
+      "p575": {
+        "headRefOid": "5db9835478eafe526271c6864e0c86ded6324172",
+        "state": "OPEN"
+      },
+      "p576": {
+        "headRefOid": "e1f4a743684ce4ce8760a713d309483cedb9c50f",
+        "state": "OPEN"
+      },
+      "p578": {
+        "headRefOid": "6b2e2a22ab3981ac748cc645f5f1f53ce91e4c64",
+        "state": "OPEN"
+      },
+      "p579": {
+        "headRefOid": "be5db6804bf0bee872080bae49cb714f295a461b",
+        "state": "OPEN"
+      },
+      "p580": {
+        "headRefOid": "ed671e26f5599cebf5aa1a8020d50a5f43dbf076",
+        "state": "OPEN"
+      },
+      "p581": {
+        "headRefOid": "5f899a2de868fa70e772a56d0fad733f87717e6a",
+        "state": "OPEN"
+      }
+    }
+  },
+  "privatePublicationVerification": {
+    "checked": {
+      "addedGitObjects": 184,
+      "trialAssets": 51,
+      "gameSourcesAndEvidence": 164,
+      "newRawRecords": 441,
+      "newRawRecords-zip": 1939,
+      "newRawRecords-zip-gzip": 981,
+      "newRawRecords-gzip": 52,
+      "dataPages": 5,
+      "dataDownloads": 52,
+      "dataDownloads-zip": 645,
+      "dataDownloads-zip-gzip": 16,
+      "newPrivateTrialHistory": 42,
+      "newPrivateEvidenceHistory": 57,
+      "newPrivateEvidenceHistory-zip": 645,
+      "newPrivateEvidenceHistory-zip-gzip": 16,
+      "newPrivateRecordsHistory": 379,
+      "newPrivateRecordsHistory-zip": 1939,
+      "newPrivateRecordsHistory-zip-gzip": 981,
+      "newPrivateRecordsHistory-gzip": 46
+    },
+    "credentialPatternsChecked": 7,
+    "ownerCredentialMatches": 0,
+    "signedArtifactURLs": 0
+  },
+  "nativeRegression": {
+    "v11-foot": {
+      "tests": 84,
+      "pass": 84,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "v12": {
+      "tests": 84,
+      "pass": 84,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "v12-reference": {
+      "tests": 84,
+      "pass": 84,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  "mobileOwnerInput": {
+    "cases": [
+      {
+        "scene": "watcher",
+        "arm": "short",
+        "state": "arrived",
+        "travel": 8.000000000000016,
+        "error": 0,
+        "helpers": [
+          "companion:hedgehog",
+          "companion:tanuki"
+        ],
+        "actorCount": 28,
+        "exits": "終点で周囲が静止した場合の単独8pxの退路。ほかの27体で最後の方向が閉じた住民 · 該当なし。新たに方向が開いた住民 · 該当なし。 全28体で、開始時にあった最後の単独方向を失った住民 · 3px 該当なし、8px 該当なし、16px 該当なし。"
+      },
+      {
+        "scene": "stone-near",
+        "arm": "short",
+        "state": "closed",
+        "travel": 0,
+        "error": 8.00999999999999,
+        "helpers": [],
+        "actorCount": 28,
+        "exits": "終点で周囲が静止した場合の単独8pxの退路。ほかの27体で最後の方向が閉じた住民 · 該当なし。新たに方向が開いた住民 · 該当なし。 同じ開始・終了位置で測定 · ほおぶくろハムスターの単独3px 12→12方向、あそびずきカワウソの単独3px 3→3方向。"
+      },
+      {
+        "scene": "stone-near",
+        "arm": "v12",
+        "state": "arrived",
+        "travel": 8.009999999999987,
+        "error": 0,
+        "helpers": [
+          "companion:hamster"
+        ],
+        "actorCount": 28,
+        "exits": "終点で周囲が静止した場合の単独8pxの退路。ほかの27体で最後の方向が閉じた住民 · 該当なし。新たに方向が開いた住民 · 該当なし。 同じ開始・終了位置で測定 · ほおぶくろハムスターの単独3px 12→0方向、あそびずきカワウソの単独3px 3→0方向。"
+      }
+    ],
+    "narrowPassages": [
+      {
+        "arm": "shipped",
+        "exits": "198.27秒の測定 · 1 / 384方向（146.25°）",
+        "angles": "",
+        "walks": "時計\t2 → 2\t3 → 3\nハリネズミ\t1 → 1\t3 → 2\nハムスター\t2 → 2\t0 → 2",
+        "actors": 28,
+        "clock": "198.27秒"
+      },
+      {
+        "arm": "margin",
+        "exits": "198.30秒の測定 · 4 / 384方向（143.4375°～146.25°）",
+        "angles": "",
+        "walks": "時計\t2 → 2\t3 → 3\nハリネズミ\t1 → 1\t3 → 2\nハムスター\t2 → 2\t0 → 2",
+        "actors": 28,
+        "clock": "198.30秒"
+      }
+    ],
+    "errors": []
+  },
+  "mobileEvidenceViewer": {
+    "cases": 8,
+    "residents": 28,
+    "rows": 37,
+    "errors": []
+  },
+  "archiveValidation": {
+    "prior_unchanged": 1257,
+    "V12_manifest_files": 439,
+    "V12_zip_files": 106,
+    "HTML_pages_checked": 12,
+    "distinct_zip_crc": 299,
+    "forest_32": {
+      "44994011396": 8,
+      "44994820432": 8,
+      "44992612660": 8,
+      "44991773760": 8
+    },
+    "matrix_39": {
+      "first": {
+        "regions": 13,
+        "actual_runs": {
+          "44992612829": 13
+        },
+        "browser": "157.0.8103.78"
+      },
+      "eight": {
+        "regions": 13,
+        "actual_runs": {
+          "44994011363": 13
+        },
+        "browser": "157.0.8103.78"
+      },
+      "final": {
+        "regions": 13,
+        "actual_runs": {
+          "44994820430": 12,
+          "44998142556": 1
+        },
+        "browser": "157.0.8103.78"
+      }
+    },
+    "matrix_incomplete_excluded": [
+      {
+        "original_run": "44994820430",
+        "region": "jungle",
+        "cells": 8,
+        "completed_run": "44998142556",
+        "sha256": "9d3213437fddf9e942b3c4735d3122258bad997f797ef066e1f0ef18938209f6"
+      }
+    ],
+    "performance_25": {
+      "44992612737": 8,
+      "44993726285": 1,
+      "44994039453": 8,
+      "44994965617": 8
+    },
+    "supplementary_witness_complete_1": "performance/44996349766/mobility-v12-performance-witness-complete.zip",
+    "local_links": {
+      "https://naotocchi-cast-size.kerzion214.chatgpt.site": 11,
+      "https://naotocchi-mobility-v8-evidence.kerzion214.chatgpt.site": 1325,
+      "https://naotocchi-home-v12-records.kerzion214.chatgpt.site": 488
+    },
+    "external_github_pr_routes_format_only": [
+      "/Naoto214/naotocchi/pull/579",
+      "/Naoto214/naotocchi/pull/580",
+      "/Naoto214/naotocchi/pull/581",
+      "/Naoto214/naotocchi/pull/582"
+    ]
+  }
+}
