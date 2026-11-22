@@ -97,7 +97,7 @@ TARGET = """i=>{
 }"""
 
 
-def measure(browser, url, width, seconds, save):
+def measure(browser, url, width, seconds, save, active_input=False):
     ctx = browser.new_context(viewport={"width": width, "height": 792}, device_scale_factor=2,
                               has_touch=True, is_mobile=True, reduced_motion="no-preference")
     ctx.add_init_script(SETUP.replace("SAVE_TEMPLATE", save))
@@ -131,20 +131,29 @@ def measure(browser, url, width, seconds, save):
           window.touchRows=[];
           document.addEventListener('pointerup',e=>{
             if(!e.isTrusted||e.pointerType!=='touch')return;
-            const at=performance.now(), row={queueMs:at-e.timeStamp};
+            const at=performance.now(), row={queueMs:at-e.timeStamp,
+              paused:document.getElementById('castStage').dataset.dioramaPaused==='true',
+              eventTarget:e.target.closest('[data-diorama-actor]')?.dataset.dioramaActor||null};
             touchRows.push(row);
             requestAnimationFrame(()=>{row.nextFrameMs=performance.now()-e.timeStamp;
               row.selected=document.querySelector('[data-diorama-selected="true"]')?.dataset.dioramaActor||null;});
           },true);
         }""")
         taps = []
-        for i in range(12):
+        for i in range(36 if active_input else 12):
+            if active_input:
+                page.wait_for_function("document.getElementById('castStage').dataset.dioramaPaused === 'false'",
+                                       timeout=30000)
             target = page.evaluate(TARGET, i)
             page.touchscreen.tap(target["x"], target["y"])
             page.wait_for_function("i=>window.touchRows[i]?.nextFrameMs!=null", arg=i, timeout=5000)
             row = page.evaluate("i=>touchRows[i]", i)
             taps.append({"target": target["key"], **row})
+            if active_input and sum(not t["paused"] for t in taps) == 12:
+                break
             page.wait_for_timeout(150)
+        if active_input and sum(not t["paused"] for t in taps) != 12:
+            raise RuntimeError("Did not receive twelve trusted inputs while the home was active")
         count = page.locator(ACTORS).count()
         if count != 28 or errors:
             raise ValueError((count, errors))
@@ -165,6 +174,8 @@ def main():
     parser.add_argument("candidate")
     parser.add_argument("output", type=Path)
     parser.add_argument("--assets", type=Path, action="append", default=[])
+    parser.add_argument("--active-input", action="store_true",
+                        help="Collect twelve unpaused pointerup events; pair with --seconds 1 for input-only runs")
     parser.add_argument("--widths", nargs="+", type=int, default=[320, 390])
     parser.add_argument("--seconds", default=90, type=int)
     parser.add_argument("--arms", nargs="+", default=ARMS, choices=ARMS)
@@ -174,7 +185,7 @@ def main():
                  for arm, rev in zip(ARMS, (BASE, FOOT, opts.candidate))}
     servers = {arm: start_server(revisions[arm], opts.assets) for arm in opts.arms}
     save = subprocess.check_output(["node", str(SEED)], text=True, cwd=ROOT)
-    result = {"revisions": revisions, "durationSeconds": opts.seconds, "rows": []}
+    result = {"revisions": revisions, "durationSeconds": opts.seconds, "requireActiveInput": opts.active_input, "rows": []}
     try:
         with sync_playwright() as pw:
             browser = pw.webkit.launch(executable_path=os.environ.get("WEBKIT_EXECUTABLE"))
@@ -185,9 +196,9 @@ def main():
                     for arm in arms:
                         print("Starting", width, order, arm, flush=True)
                         port = servers[arm].server_address[1]
-                        row = measure(browser, f"http://127.0.0.1:{port}/", width, opts.seconds, save)
+                        row = measure(browser, f"http://127.0.0.1:{port}/", width, opts.seconds, save, opts.active_input)
                         frame = row["framesMs"]
-                        taps = row["taps"]
+                        taps = [t for t in row["taps"] if not opts.active_input or not t["paused"]]
                         row.update(arm=arm, width=width, order=order, frame=stats(frame),
                                    over50=sum(t>50 for t in frame), over100=sum(t>100 for t in frame),
                                    hitches={n: sum(t>n for t in frame) for n in (250, 500, 1000)},
