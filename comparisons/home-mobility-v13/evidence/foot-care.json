@@ -1,0 +1,176 @@
+{
+  "engine": "Chromium",
+  "version": "156.0.8078.79",
+  "cases": [
+    {
+      "case": "notice",
+      "before": [
+        5,
+        "dog",
+        "ribbon"
+      ],
+      "after": [
+        5,
+        "dog",
+        "ribbon"
+      ],
+      "shifted": 0,
+      "maxScreenCSS": 0,
+      "remeasured": 0,
+      "pageErrors": []
+    },
+    {
+      "case": "social",
+      "before": [
+        5,
+        "dog",
+        "ribbon"
+      ],
+      "after": [
+        5,
+        "dog",
+        "ribbon"
+      ],
+      "shifted": 0,
+      "maxScreenCSS": 0,
+      "remeasured": 26,
+      "pageErrors": []
+    },
+    {
+      "case": "expression",
+      "before": [
+        5,
+        "dog",
+        "ribbon"
+      ],
+      "after": [
+        5,
+        "dog",
+        "ribbon"
+      ],
+      "shifted": 0,
+      "maxScreenCSS": 0,
+      "remeasured": 0,
+      "pageErrors": []
+    },
+    {
+      "case": "time",
+      "before": [
+        5,
+        "dog",
+        "ribbon"
+      ],
+      "after": [
+        5,
+        "dog",
+        "ribbon"
+      ],
+      "shifted": 0,
+      "maxScreenCSS": 0,
+      "remeasured": 0,
+      "pageErrors": []
+    },
+    {
+      "case": "growth",
+      "before": [
+        5,
+        "dog",
+        "ribbon"
+      ],
+      "after": [
+        6,
+        "dog",
+        "ribbon"
+      ],
+      "shifted": 13,
+      "maxScreenCSS": 325.78786652191627,
+      "remeasured": 5,
+      "pageErrors": []
+    },
+    {
+      "case": "evolution",
+      "before": [
+        5,
+        "dog",
+        "ribbon"
+      ],
+      "after": [
+        5,
+        "cat",
+        "ribbon"
+      ],
+      "shifted": 0,
+      "maxScreenCSS": 0,
+      "remeasured": 1,
+      "pageErrors": []
+    },
+    {
+      "case": "gear-off",
+      "before": [
+        5,
+        "dog",
+        "ribbon"
+      ],
+      "after": [
+        5,
+        "dog",
+        null
+      ],
+      "shifted": 13,
+      "maxScreenCSS": 326.83229518378204,
+      "remeasured": 1,
+      "pageErrors": []
+    },
+    {
+      "case": "gear-on",
+      "before": [
+        5,
+        "dog",
+        null
+      ],
+      "after": [
+        5,
+        "dog",
+        "ribbon"
+      ],
+      "shifted": 13,
+      "maxScreenCSS": 326.83229518378204,
+      "remeasured": 1,
+      "pageErrors": []
+    },
+    {
+      "case": "width",
+      "before": [
+        5,
+        "dog",
+        "ribbon"
+      ],
+      "after": [
+        5,
+        "dog",
+        "ribbon"
+      ],
+      "shifted": 28,
+      "maxScreenCSS": 331.15970212890164,
+      "remeasured": 28,
+      "pageErrors": []
+    },
+    {
+      "case": "region",
+      "before": [
+        5,
+        "dog",
+        "ribbon"
+      ],
+      "after": [
+        5,
+        "dog",
+        "ribbon"
+      ],
+      "shifted": 28,
+      "maxScreenCSS": 259.6093728069423,
+      "remeasured": 0,
+      "pageErrors": []
+    }
+  ]
+}

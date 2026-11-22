@@ -1,0 +1,147 @@
+name: Home mobility V13 regional regression
+on:
+  push:
+    branches: [draft/home-mobility-v13]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  plan:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[v13-matrix]')
+    runs-on: ubuntu-latest
+    outputs:
+      regions: ${{ steps.plan.outputs.regions }}
+      arms: ${{ steps.plan.outputs.arms }}
+      widths: ${{ steps.plan.outputs.widths }}
+      counts: ${{ steps.plan.outputs.counts }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: comparisons/home-mobility-v13
+      - id: plan
+        name: Select requested cells from the draft manifest
+        shell: python
+        run: |
+          import json, os
+          from pathlib import Path
+          config = json.loads(Path('comparisons/home-mobility-v13/matrix-ci.request').read_text())
+          allowed = {'regions': 'home forest river_lake city countryside mountain snow sea jungle desert deepsea star_stop memory_lake'.split(),
+                     'arms': ['v12','v13-a','v13-b','v13-c','v13-d'], 'widths': [320,375,390,430], 'counts': [1,4,10,20,28]}
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              for key, values in allowed.items():
+                  selected = config.get(key, values)
+                  assert selected and set(selected) <= set(values) and len(set(selected)) == len(selected)
+                  print(key+'='+(json.dumps(selected) if key=='regions' else ' '.join(map(str,selected))), file=f)
+  region:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      matrix:
+        region: ${{ fromJSON(needs.plan.outputs.regions) }}
+    env:
+      REGION: ${{ matrix.region }}
+      ARMS: ${{ needs.plan.outputs.arms }}
+      WIDTHS: ${{ needs.plan.outputs.widths }}
+      COUNTS: ${{ needs.plan.outputs.counts }}
+      CHROMIUM_PATH: /usr/bin/google-chrome
+    steps:
+      - name: Check out the isolated candidate
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-mobility-v13
+            comparisons/home-mobility-v12
+            comparisons/home-mobility-v11
+            comparisons/home-mobility-v10
+            comparisons/home-mobility-v9
+            comparisons/home-mobility-v8
+            comparisons/home-mobility-v7
+            comparisons/home-drag-v6
+            comparisons/home-finish-v5
+      - name: Check out the exact V9 release for building all reference bundles
+        uses: actions/checkout@v4
+        with:
+          ref: be5db6804bf0bee872080bae49cb714f295a461b
+          path: .v9-reference
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-mobility-v9
+            comparisons/home-mobility-v8
+            comparisons/home-mobility-v7
+            comparisons/home-drag-v6
+            comparisons/home-finish-v5
+      - name: Check out pinned cast size tools
+        uses: actions/checkout@v4
+        with:
+          ref: e07d2cc53eca36ff23e02142ab385d6001e0521b
+          path: .cast-reference
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-cast-size-v1
+            comparisons/home-cast-size-v2
+            comparisons/home-cast-size-v3
+            comparisons/home-cast-size-v4
+            tools/work
+      - name: Check out pinned home and artwork
+        uses: actions/checkout@v4
+        with:
+          ref: 28628cf336a8ed92efe4e9e197ca03298b798a1e
+          path: .leaf-reference
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build pinned releases and then the isolated V12 and V13 entries
+        run: |
+          node .cast-reference/comparisons/home-cast-size-v1/build.cjs "$RUNNER_TEMP/v1" --reference-checkout .leaf-reference
+          node .cast-reference/comparisons/home-cast-size-v2/build.cjs "$RUNNER_TEMP/v2" --baseline "$RUNNER_TEMP/v1"
+          node .cast-reference/comparisons/home-cast-size-v3/build.cjs "$RUNNER_TEMP/v3" --baseline "$RUNNER_TEMP/v2"
+          node .cast-reference/comparisons/home-cast-size-v4/build.cjs "$RUNNER_TEMP/v4" --baseline "$RUNNER_TEMP/v3"
+          node .v9-reference/comparisons/home-finish-v5/build.cjs "$RUNNER_TEMP/v5" --baseline "$RUNNER_TEMP/v4"
+          node .v9-reference/comparisons/home-drag-v6/build.cjs "$RUNNER_TEMP/drag" --baseline "$RUNNER_TEMP/v5"
+          node .v9-reference/comparisons/home-mobility-v7/build.cjs "$RUNNER_TEMP/mobility" --baseline "$RUNNER_TEMP/drag"
+          node .v9-reference/comparisons/home-mobility-v8/build.cjs "$RUNNER_TEMP/v8" --baseline "$RUNNER_TEMP/mobility"
+          node .v9-reference/comparisons/home-mobility-v9/build.cjs "$RUNNER_TEMP/v9" --baseline "$RUNNER_TEMP/v8"
+          node comparisons/home-mobility-v10/build.cjs "$RUNNER_TEMP/v10" --baseline "$RUNNER_TEMP/v9"
+          node comparisons/home-mobility-v11/build.cjs "$RUNNER_TEMP/v11" --baseline "$RUNNER_TEMP/v10"
+          node comparisons/home-mobility-v12/build.cjs "$RUNNER_TEMP/v12" --baseline "$RUNNER_TEMP/v11"
+          node comparisons/home-mobility-v13/build.cjs "$RUNNER_TEMP/v13" --baseline "$RUNNER_TEMP/v12" --gameplay-only
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Measure native 300 s households and trusted physical inputs
+        shell: bash
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.62.0
+          python -m http.server 8377 --bind 127.0.0.1 --directory "$RUNNER_TEMP/v13" > "$RUNNER_TEMP/regional-http.log" 2>&1 &
+          server=$!
+          trap 'kill "$server"' EXIT
+          read -ra arms <<< "$ARMS"
+          read -ra widths <<< "$WIDTHS"
+          read -ra counts <<< "$COUNTS"
+          pids=()
+          for offset in 0 1; do
+            group=()
+            for ((i=offset;i<${#widths[@]};i+=2)); do group+=("${widths[i]}"); done
+            if ((${#group[@]})); then
+              python -B comparisons/home-mobility-v13/matrix_worker_v13.py --url http://127.0.0.1:8377 --region "$REGION" --arms "${arms[@]}" --counts "${counts[@]}" --widths "${group[@]}" --out "$RUNNER_TEMP/mobility-evidence/$REGION" &
+              pids+=("$!")
+            fi
+          done
+          failure=0
+          for pid in "${pids[@]}"; do wait "$pid" || failure=1; done
+          exit "$failure"
+      - name: Retain native observations and any specific errors
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobility-v13-${{ matrix.region }}
+          path: ${{ runner.temp }}/mobility-evidence/${{ matrix.region }}
+          retention-days: 14
+          if-no-files-found: error

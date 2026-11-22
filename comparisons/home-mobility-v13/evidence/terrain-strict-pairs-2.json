@@ -1,0 +1,458 @@
+{
+  "width": 320,
+  "modelSHA256": "aa02461028d5e3cbf9eb628b6c4248b0fc9db68cea645cc37a1593ee48bdc15d",
+  "sha256": "99880f8eda759c8196171855118730fb958a7a143191b104969e8a85846e47fa",
+  "units": "CSS px",
+  "bearings": 96,
+  "distances": [
+    3,
+    8,
+    16
+  ],
+  "arms": {
+    "a": {
+      "contacts": 25,
+      "residentsWithExit": [
+        18,
+        11,
+        5
+      ],
+      "focus": {
+        "companion:tanuki": [
+          [
+            96,
+            0
+          ],
+          [
+            96,
+            0
+          ],
+          [
+            96,
+            0
+          ]
+        ],
+        "companion:panda": [
+          [
+            53,
+            11
+          ],
+          [
+            27,
+            5
+          ],
+          [
+            21,
+            0
+          ]
+        ],
+        "companion:box": [
+          [
+            96,
+            0
+          ],
+          [
+            96,
+            0
+          ],
+          [
+            96,
+            0
+          ]
+        ]
+      },
+      "newWalkerFirstBearingFromA": [],
+      "lostDirections": 0,
+      "newTerrainCSS2": 0,
+      "reachableByBoundsAndInkCSS2": 0,
+      "shortClockDrag": {
+        "bearing": 345,
+        "distanceCSS": 8,
+        "accepted": false,
+        "elapsed": 4.99999999999999,
+        "travel": 0,
+        "remaining": 8.000000000000023,
+        "unsafeGround": 0,
+        "displacement": 0
+      }
+    },
+    "b": {
+      "contacts": 25,
+      "residentsWithExit": [
+        18,
+        11,
+        6
+      ],
+      "focus": {
+        "companion:tanuki": [
+          [
+            96,
+            0
+          ],
+          [
+            96,
+            0
+          ],
+          [
+            96,
+            0
+          ]
+        ],
+        "companion:panda": [
+          [
+            53,
+            11
+          ],
+          [
+            27,
+            5
+          ],
+          [
+            21,
+            0
+          ]
+        ],
+        "companion:box": [
+          [
+            96,
+            0
+          ],
+          [
+            96,
+            0
+          ],
+          [
+            96,
+            0
+          ]
+        ]
+      },
+      "newWalkerFirstBearingFromA": [
+        {
+          "key": "partner:forest_bear",
+          "opened": [
+            null,
+            null,
+            333.75
+          ]
+        }
+      ],
+      "lostDirections": 0,
+      "newTerrainCSS2": 689,
+      "reachableByBoundsAndInkCSS2": 689,
+      "shortClockDrag": {
+        "bearing": 345,
+        "distanceCSS": 8,
+        "accepted": false,
+        "elapsed": 4.99999999999999,
+        "travel": 0,
+        "remaining": 8.000000000000023,
+        "unsafeGround": 0,
+        "displacement": 0
+      }
+    },
+    "c": {
+      "contacts": 25,
+      "residentsWithExit": [
+        19,
+        12,
+        7
+      ],
+      "focus": {
+        "companion:tanuki": [
+          [
+            96,
+            0
+          ],
+          [
+            96,
+            0
+          ],
+          [
+            96,
+            0
+          ]
+        ],
+        "companion:panda": [
+          [
+            53,
+            11
+          ],
+          [
+            27,
+            5
+          ],
+          [
+            21,
+            0
+          ]
+        ],
+        "companion:box": [
+          [
+            96,
+            0
+          ],
+          [
+            96,
+            0
+          ],
+          [
+            96,
+            0
+          ]
+        ]
+      },
+      "newWalkerFirstBearingFromA": [
+        {
+          "key": "partner:forest_bear",
+          "opened": [
+            null,
+            null,
+            333.75
+          ]
+        },
+        {
+          "key": "companion:clock",
+          "opened": [
+            345,
+            345,
+            345
+          ]
+        }
+      ],
+      "lostDirections": 0,
+      "newTerrainCSS2": 2419,
+      "reachableByBoundsAndInkCSS2": 2419,
+      "shortClockDrag": {
+        "bearing": 345,
+        "distanceCSS": 8,
+        "accepted": true,
+        "elapsed": 0.15000000000000002,
+        "travel": 8.000000000000023,
+        "remaining": 0,
+        "unsafeGround": 0,
+        "displacement": 8.000000000000023
+      }
+    }
+  },
+  "pairs": {
+    "design": {
+      "target": [
+        "companion:tanuki",
+        "companion:box"
+      ],
+      "nearDistance": 180,
+      "localRadii": [
+        1,
+        2,
+        4,
+        8,
+        12,
+        16
+      ],
+      "localAngles": 32
+    },
+    "gridSpacingCSS": 2,
+    "baySites": 607,
+    "hadEight": 12,
+    "counts": {
+      "singleEndpointsConstructed": 12306,
+      "singleEndpointsEligibleForSomePartner": 1691,
+      "pairsConsidered": 30546510,
+      "compatibleEndpointPairs": 618,
+      "newOrWorseContact": 600,
+      "lostOwnDirection": 0,
+      "protectedButNoNewWalker": 16,
+      "improved": 2,
+      "bothEndpointsInC": 12523086,
+      "focus": [
+        "companion:tanuki",
+        "companion:box",
+        "companion:monkey",
+        "companion:hedgehog",
+        "companion:otter",
+        "companion:squirrel",
+        "companion:cat_friend",
+        "companion:watcher"
+      ]
+    },
+    "distinctClasses": 2,
+    "focusExamples": [],
+    "otherExamples": [
+      {
+        "moves": [
+          {
+            "key": "companion:rabbit_friend",
+            "dx": 46.55973307012732,
+            "dy": -62.93609432053452
+          },
+          {
+            "key": "companion:hedgehog",
+            "dx": 0.9238795325112867,
+            "dy": 0.3826834323650898
+          }
+        ],
+        "opened": [
+          "companion:rabbit_friend"
+        ],
+        "contacts": 23,
+        "residentsWithExit": [
+          20,
+          13,
+          8
+        ],
+        "focus": {
+          "companion:tanuki": [
+            [
+              96,
+              0
+            ],
+            [
+              96,
+              0
+            ],
+            [
+              96,
+              0
+            ]
+          ],
+          "companion:panda": [
+            [
+              53,
+              11
+            ],
+            [
+              27,
+              5
+            ],
+            [
+              21,
+              0
+            ]
+          ],
+          "companion:box": [
+            [
+              96,
+              0
+            ],
+            [
+              96,
+              0
+            ],
+            [
+              96,
+              0
+            ]
+          ]
+        },
+        "lost": 0
+      },
+      {
+        "moves": [
+          {
+            "key": "companion:rabbit_friend",
+            "dx": 46.55973307012732,
+            "dy": -62.93609432053452
+          },
+          {
+            "key": "companion:hedgehog",
+            "dx": 0.8314696123025452,
+            "dy": 0.5555702330196022
+          }
+        ],
+        "opened": [
+          "companion:rabbit_friend"
+        ],
+        "contacts": 23,
+        "residentsWithExit": [
+          20,
+          13,
+          8
+        ],
+        "focus": {
+          "companion:tanuki": [
+            [
+              96,
+              0
+            ],
+            [
+              96,
+              0
+            ],
+            [
+              96,
+              0
+            ]
+          ],
+          "companion:panda": [
+            [
+              53,
+              11
+            ],
+            [
+              27,
+              5
+            ],
+            [
+              21,
+              0
+            ]
+          ],
+          "companion:box": [
+            [
+              96,
+              0
+            ],
+            [
+              96,
+              0
+            ],
+            [
+              96,
+              0
+            ]
+          ]
+        },
+        "lost": 0
+      }
+    ],
+    "oneSeatRefinement": {
+      "centre": {
+        "key": "companion:rabbit_friend",
+        "dx": 46.55973307012732,
+        "dy": -62.93609432053452
+      },
+      "extentCSS": 8,
+      "stepCSS": 0.25,
+      "counts": {
+        "tested": 1635,
+        "invalid": 0,
+        "newOrWorseContact": 0,
+        "otherExitLost": 1606,
+        "ownExitLost": 0,
+        "preservedButNoNewWalker": 0,
+        "survived": 29
+      },
+      "survivorDistanceRangeCSS": [
+        78.28640183253236,
+        81.12545086103553
+      ],
+      "shortest": {
+        "key": "companion:rabbit_friend",
+        "dx": 46.55973307012732,
+        "dy": -62.93609432053452,
+        "opened": [
+          "companion:rabbit_friend"
+        ]
+      },
+      "atCentre": {
+        "key": "companion:rabbit_friend",
+        "dx": 46.55973307012732,
+        "dy": -62.93609432053452,
+        "opened": [
+          "companion:rabbit_friend"
+        ]
+      }
+    }
+  }
+}

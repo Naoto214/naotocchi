@@ -1,0 +1,75 @@
+{
+  "measuredUTC": "2026-11-22T11:04:50.103706+00:00",
+  "draft": {
+    "number": 583,
+    "repositoryVisibility": "public",
+    "baseline": "bff63b9db6fd22334fbf776090a318bc671ce5aa",
+    "testedSource": "2d572fd5f7039043604bf8869aba620738405b97",
+    "previousGitBlobsUnchanged": 36792,
+    "priorPRStatesAndHeadsUnchanged": 13,
+    "pagesAllowlistedFiles": 4335,
+    "v13PathsPublishedByPages": 0,
+    "addedWorkflowWritePermissions": 0,
+    "storageGuardPass": true,
+    "commitMetadata": "The author/committer email already present in the public baseline is present in candidate Git metadata; its value is omitted."
+  },
+  "sites": {
+    "trial": {
+      "version": 1,
+      "live": true,
+      "ownerUserCount": 1,
+      "additionalEditorsOrGroupsOrExternalVisitors": 0,
+      "anonymous401Endpoints": 5,
+      "sourceCommit": "5b4486c94b3c07ef58d4d6617183e3e097c0b60a",
+      "archiveSHA256": "ce971591cdb104f84288623cbd6d438f5e55df514ac3a0e3f7134c4957c6f001",
+      "archiveBytes": 176729181,
+      "memberFiles": 4580,
+      "allMembersMatchSource": true,
+      "url": "https://naotocchi-home-v13.kerzion214.chatgpt.site/v13/",
+      "deployment": "appgdep_6b02cabf13ac8191a11ce507ea6202c4"
+    },
+    "records": {
+      "version": 1,
+      "live": true,
+      "ownerUserCount": 1,
+      "additionalEditorsOrGroupsOrExternalVisitors": 0,
+      "anonymous401Endpoints": 3,
+      "sourceCommit": "8aae1ae0ef2040e9188c1267f1a3c53fc5a15662",
+      "archiveSHA256": "c501528fa873de5eb4b756e90de638aa738c4a73b6698386690aefde4b0611f0",
+      "archiveBytes": 126854501,
+      "memberFiles": 890,
+      "allMembersMatchSource": true,
+      "url": "https://naotocchi-home-v13-records.kerzion214.chatgpt.site/",
+      "deployment": "appgdep_6b02cc0bf4f88191a1b68186740e2657"
+    }
+  },
+  "evidence": {
+    "indexedDownloads": 878,
+    "retainedLedgerVerified": 782,
+    "officialArchivesVerified": 140,
+    "officialRuns": 12,
+    "officialArchiveMembersVerified": 2607,
+    "additionalLocalWpeReconstructionArchives": 5,
+    "recordReaders": 9,
+    "recordReaderLocalTargets": 1029,
+    "verifiedReaderFragments": 17,
+    "commitPinnedReaderGitFiles": 9,
+    "brokenHtmlOrAtlasTargets": 0,
+    "atlasSelectableCombinations": 393,
+    "atlasDistinctMeasurements": 368,
+    "verifiedAtlasArtAssets": 80,
+    "forestHomes": 41,
+    "v13ForestHomes": 25,
+    "verifiedRetainedForestArchives": 41,
+    "forestRawLinks": "41 canonical GitHub Actions links and 41 owner-only records catalog links. The catalog includes each original ZIP. GitHub access and expiry follow the public repository."
+  },
+  "dataPrivacy": {
+    "distinctContentPayloadsScanned": 10276,
+    "expandedArchiveMembersIncludingNestedGzip": 4944,
+    "expandedUniqueRetainedTextBytes": 945698163,
+    "sourceAndPrivatePackageSecretsFound": 0,
+    "signedLinksFound": 0,
+    "emailAddressesFoundInContent": 0,
+    "syntheticSource": "All 57 compared native trial HTML pages share one authored initial fixture; the seeded roster replaces both storage APIs with in-memory Maps. Recorded V12 donor bytes and individual cell hashes were checked. Browser profiles, owner saves and sign-in credentials are absent from the scan."
+  }
+}

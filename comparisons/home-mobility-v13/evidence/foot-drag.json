@@ -1,0 +1,922 @@
+{
+  "engine": "Chromium",
+  "version": "156.0.8078.79",
+  "conditions": "Same opening state, RNG and feet; wait for the normal input gate.",
+  "cases": [
+    {
+      "region": "forest",
+      "count": 28,
+      "width": 320,
+      "arms": {
+        "v13-foot": {
+          "historical/0": {
+            "key": "pet:dog",
+            "selectedKey": "pet:dog",
+            "start": [
+              154.00473046302795,
+              201.15545642375946
+            ],
+            "goal": [
+              165.24767023217663,
+              222.1826205263161
+            ],
+            "foot": [
+              153.24767023217663,
+              222.1826205263161
+            ],
+            "issued": true,
+            "accepted": true,
+            "arrived": true,
+            "near4": true,
+            "terminalArrived": true,
+            "terminalNear4": true,
+            "releaseJumpCss": 0.0,
+            "initialGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "releaseGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "blockedClass": null,
+            "nativeRelease": {
+              "key": "pet:dog",
+              "drag": true,
+              "busy": false,
+              "sawSoft": false,
+              "wasBlocked": false,
+              "hard": false,
+              "paused": false,
+              "sameNavigation": true,
+              "sameOwner": true,
+              "trusted": true
+            }
+          },
+          "obstacle/0": {
+            "key": "pet:dog",
+            "selectedKey": "pet:dog",
+            "start": [
+              154.0315706729889,
+              201.14922749996185
+            ],
+            "goal": [
+              190.0172228538771,
+              185.41306790461562
+            ],
+            "foot": [
+              153.24767023217663,
+              222.1826205263161
+            ],
+            "issued": true,
+            "accepted": true,
+            "arrived": true,
+            "near4": false,
+            "terminalArrived": true,
+            "terminalNear4": false,
+            "releaseJumpCss": 0.0,
+            "initialGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "releaseGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "blockedClass": null,
+            "nativeRelease": {
+              "key": "pet:dog",
+              "drag": true,
+              "busy": false,
+              "sawSoft": false,
+              "wasBlocked": false,
+              "hard": false,
+              "paused": false,
+              "sameNavigation": true,
+              "sameOwner": true,
+              "trusted": true
+            }
+          },
+          "tap/4": {
+            "key": "companion:owl",
+            "selectedKey": "companion:owl",
+            "start": [
+              106.13646084070206,
+              212.618537068367
+            ],
+            "goal": [
+              106.13646084070206,
+              212.618537068367
+            ],
+            "foot": [
+              106.24453368592819,
+              226.51219097796894
+            ],
+            "issued": false,
+            "accepted": false,
+            "arrived": false,
+            "near4": false,
+            "terminalArrived": false,
+            "terminalNear4": false,
+            "releaseJumpCss": null,
+            "initialGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "releaseGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "blockedClass": null,
+            "nativeRelease": {
+              "key": "companion:owl",
+              "drag": false,
+              "busy": false,
+              "sawSoft": false,
+              "wasBlocked": false,
+              "hard": false,
+              "paused": false,
+              "sameNavigation": true,
+              "sameOwner": true,
+              "trusted": true
+            }
+          }
+        },
+        "v11-foot": {
+          "historical/0": {
+            "key": "pet:dog",
+            "selectedKey": "pet:dog",
+            "start": [
+              154.00473046302795,
+              201.15545642375946
+            ],
+            "goal": [
+              165.24767023217663,
+              222.1826205263161
+            ],
+            "foot": [
+              153.24767023217663,
+              222.1826205263161
+            ],
+            "issued": true,
+            "accepted": true,
+            "arrived": true,
+            "near4": true,
+            "terminalArrived": true,
+            "terminalNear4": true,
+            "releaseJumpCss": 0.0,
+            "initialGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "releaseGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "blockedClass": null,
+            "nativeRelease": {
+              "key": "pet:dog",
+              "drag": true,
+              "busy": false,
+              "sawSoft": false,
+              "wasBlocked": false,
+              "hard": false,
+              "paused": false,
+              "sameNavigation": true,
+              "sameOwner": true,
+              "trusted": true
+            }
+          },
+          "obstacle/0": {
+            "key": "pet:dog",
+            "selectedKey": "pet:dog",
+            "start": [
+              154.0315706729889,
+              201.14922749996185
+            ],
+            "goal": [
+              190.0172228538771,
+              185.41306790461562
+            ],
+            "foot": [
+              153.24767023217663,
+              222.1826205263161
+            ],
+            "issued": true,
+            "accepted": true,
+            "arrived": false,
+            "near4": false,
+            "terminalArrived": false,
+            "terminalNear4": false,
+            "releaseJumpCss": 0.0,
+            "initialGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "releaseGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "blockedClass": "non-ground",
+            "nativeRelease": {
+              "key": "pet:dog",
+              "drag": true,
+              "busy": false,
+              "sawSoft": false,
+              "wasBlocked": false,
+              "hard": false,
+              "paused": false,
+              "sameNavigation": true,
+              "sameOwner": true,
+              "trusted": true
+            }
+          },
+          "tap/4": {
+            "key": "companion:owl",
+            "selectedKey": "companion:owl",
+            "start": [
+              106.13646084070206,
+              212.618537068367
+            ],
+            "goal": [
+              106.13646084070206,
+              212.618537068367
+            ],
+            "foot": [
+              106.24453368592819,
+              226.51219097796894
+            ],
+            "issued": false,
+            "accepted": false,
+            "arrived": false,
+            "near4": false,
+            "terminalArrived": false,
+            "terminalNear4": false,
+            "releaseJumpCss": null,
+            "initialGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "releaseGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "blockedClass": null,
+            "nativeRelease": {
+              "key": "companion:owl",
+              "drag": false,
+              "busy": false,
+              "sawSoft": false,
+              "wasBlocked": false,
+              "hard": false,
+              "paused": false,
+              "sameNavigation": true,
+              "sameOwner": true,
+              "trusted": true
+            }
+          }
+        }
+      },
+      "differences": {
+        "historical/0": [],
+        "obstacle/0": [
+          "arrived",
+          "terminalArrived"
+        ],
+        "tap/4": []
+      }
+    },
+    {
+      "region": "mountain",
+      "count": 10,
+      "width": 320,
+      "arms": {
+        "v13-foot": {
+          "historical/0": {
+            "key": "pet:dog",
+            "selectedKey": "pet:dog",
+            "start": [
+              179.9550021290779,
+              192.46123617887497
+            ],
+            "goal": [
+              166.95492725090583,
+              220.16872680883046
+            ],
+            "foot": [
+              178.95492725090583,
+              220.16872680883046
+            ],
+            "issued": true,
+            "accepted": true,
+            "arrived": true,
+            "near4": true,
+            "terminalArrived": true,
+            "terminalNear4": true,
+            "releaseJumpCss": 0.0,
+            "initialGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "releaseGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "blockedClass": null,
+            "nativeRelease": {
+              "key": "pet:dog",
+              "drag": true,
+              "busy": false,
+              "sawSoft": false,
+              "wasBlocked": false,
+              "hard": false,
+              "paused": false,
+              "sameNavigation": true,
+              "sameOwner": true,
+              "trusted": true
+            }
+          }
+        },
+        "v11-foot": {
+          "historical/0": {
+            "key": "pet:dog",
+            "selectedKey": "pet:dog",
+            "start": [
+              179.9550021290779,
+              192.46123617887497
+            ],
+            "goal": [
+              166.95492725090583,
+              220.16872680883046
+            ],
+            "foot": [
+              178.95492725090583,
+              220.16872680883046
+            ],
+            "issued": true,
+            "accepted": true,
+            "arrived": true,
+            "near4": true,
+            "terminalArrived": true,
+            "terminalNear4": true,
+            "releaseJumpCss": 0.0,
+            "initialGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "releaseGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "blockedClass": null,
+            "nativeRelease": {
+              "key": "pet:dog",
+              "drag": true,
+              "busy": false,
+              "sawSoft": false,
+              "wasBlocked": false,
+              "hard": false,
+              "paused": false,
+              "sameNavigation": true,
+              "sameOwner": true,
+              "trusted": true
+            }
+          }
+        }
+      },
+      "differences": {
+        "historical/0": []
+      }
+    },
+    {
+      "region": "forest",
+      "count": 10,
+      "width": 375,
+      "arms": {
+        "v13-foot": {
+          "historical/0": {
+            "key": "pet:dog",
+            "selectedKey": "pet:dog",
+            "start": [
+              183.10600513219833,
+              351.6753398180008
+            ],
+            "goal": [
+              193.55754492320605,
+              394.5379872362424
+            ],
+            "foot": [
+              181.55754492320605,
+              394.5379872362424
+            ],
+            "issued": true,
+            "accepted": true,
+            "arrived": true,
+            "near4": true,
+            "terminalArrived": true,
+            "terminalNear4": true,
+            "releaseJumpCss": 0.0,
+            "initialGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "releaseGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "blockedClass": null,
+            "nativeRelease": {
+              "key": "pet:dog",
+              "drag": true,
+              "busy": false,
+              "sawSoft": false,
+              "wasBlocked": false,
+              "hard": false,
+              "paused": false,
+              "sameNavigation": true,
+              "sameOwner": true,
+              "trusted": true
+            }
+          }
+        },
+        "v11-foot": {
+          "historical/0": {
+            "key": "pet:dog",
+            "selectedKey": "pet:dog",
+            "start": [
+              183.10600513219833,
+              351.6753398180008
+            ],
+            "goal": [
+              193.55754492320605,
+              394.5379872362424
+            ],
+            "foot": [
+              181.55754492320605,
+              394.5379872362424
+            ],
+            "issued": true,
+            "accepted": true,
+            "arrived": true,
+            "near4": true,
+            "terminalArrived": true,
+            "terminalNear4": true,
+            "releaseJumpCss": 0.0,
+            "initialGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "releaseGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "blockedClass": null,
+            "nativeRelease": {
+              "key": "pet:dog",
+              "drag": true,
+              "busy": false,
+              "sawSoft": false,
+              "wasBlocked": false,
+              "hard": false,
+              "paused": false,
+              "sameNavigation": true,
+              "sameOwner": true,
+              "trusted": true
+            }
+          }
+        }
+      },
+      "differences": {
+        "historical/0": []
+      }
+    },
+    {
+      "region": "river_lake",
+      "count": 10,
+      "width": 390,
+      "arms": {
+        "v13-foot": {
+          "historical/0": {
+            "key": "pet:dog",
+            "selectedKey": "pet:dog",
+            "start": [
+              215.48314279317856,
+              378.0210371017456
+            ],
+            "goal": [
+              201.9031388249675,
+              421.7225637870681
+            ],
+            "foot": [
+              213.9031388249675,
+              421.7225637870681
+            ],
+            "issued": true,
+            "accepted": true,
+            "arrived": true,
+            "near4": true,
+            "terminalArrived": true,
+            "terminalNear4": true,
+            "releaseJumpCss": 0.0,
+            "initialGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "releaseGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "blockedClass": null,
+            "nativeRelease": {
+              "key": "pet:dog",
+              "drag": true,
+              "busy": false,
+              "sawSoft": false,
+              "wasBlocked": false,
+              "hard": false,
+              "paused": false,
+              "sameNavigation": true,
+              "sameOwner": true,
+              "trusted": true
+            }
+          }
+        },
+        "v11-foot": {
+          "historical/0": {
+            "key": "pet:dog",
+            "selectedKey": "pet:dog",
+            "start": [
+              215.48314279317856,
+              378.0210371017456
+            ],
+            "goal": [
+              201.9031388249675,
+              421.7225637870681
+            ],
+            "foot": [
+              213.9031388249675,
+              421.7225637870681
+            ],
+            "issued": true,
+            "accepted": true,
+            "arrived": true,
+            "near4": true,
+            "terminalArrived": true,
+            "terminalNear4": true,
+            "releaseJumpCss": 0.0,
+            "initialGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "releaseGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "blockedClass": null,
+            "nativeRelease": {
+              "key": "pet:dog",
+              "drag": true,
+              "busy": false,
+              "sawSoft": false,
+              "wasBlocked": false,
+              "hard": false,
+              "paused": false,
+              "sameNavigation": true,
+              "sameOwner": true,
+              "trusted": true
+            }
+          }
+        }
+      },
+      "differences": {
+        "historical/0": []
+      }
+    },
+    {
+      "region": "home",
+      "count": 4,
+      "width": 430,
+      "arms": {
+        "v13-foot": {
+          "historical/0": {
+            "key": "pet:dog",
+            "selectedKey": "pet:dog",
+            "start": [
+              231.31408590078354,
+              404.8889582157135
+            ],
+            "goal": [
+              215.7474871257289,
+              503.2646156209652
+            ],
+            "foot": [
+              227.7474871257289,
+              503.2646156209652
+            ],
+            "issued": true,
+            "accepted": true,
+            "arrived": true,
+            "near4": false,
+            "terminalArrived": true,
+            "terminalNear4": true,
+            "releaseJumpCss": 0.0,
+            "initialGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "releaseGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "blockedClass": null,
+            "nativeRelease": {
+              "key": "pet:dog",
+              "drag": true,
+              "busy": false,
+              "sawSoft": false,
+              "wasBlocked": false,
+              "hard": false,
+              "paused": false,
+              "sameNavigation": true,
+              "sameOwner": true,
+              "trusted": true
+            }
+          }
+        },
+        "v11-foot": {
+          "historical/0": {
+            "key": "pet:dog",
+            "selectedKey": "pet:dog",
+            "start": [
+              231.31408590078354,
+              404.8889582157135
+            ],
+            "goal": [
+              215.7474871257289,
+              503.2646156209652
+            ],
+            "foot": [
+              227.7474871257289,
+              503.2646156209652
+            ],
+            "issued": true,
+            "accepted": true,
+            "arrived": true,
+            "near4": false,
+            "terminalArrived": true,
+            "terminalNear4": true,
+            "releaseJumpCss": 0.0,
+            "initialGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "releaseGate": {
+              "blocked": false,
+              "pending": false,
+              "enabled": true,
+              "hidden": "visible",
+              "paused": false,
+              "trialPaused": false,
+              "framework": false,
+              "gesture": null,
+              "reaction": null,
+              "visibleOverlays": []
+            },
+            "blockedClass": null,
+            "nativeRelease": {
+              "key": "pet:dog",
+              "drag": true,
+              "busy": false,
+              "sawSoft": false,
+              "wasBlocked": false,
+              "hard": false,
+              "paused": false,
+              "sameNavigation": true,
+              "sameOwner": true,
+              "trusted": true
+            }
+          }
+        }
+      },
+      "differences": {
+        "historical/0": []
+      }
+    }
+  ]
+}

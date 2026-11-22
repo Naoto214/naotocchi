@@ -1,0 +1,256 @@
+{
+  "engine": "Chromium",
+  "version": "156.0.8078.79",
+  "cases": [
+    {
+      "mode": "unchanged",
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 176.25,
+        "liveSegments": 2,
+        "clock": 180.00000000000668,
+        "events": 1,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          125.4093306517028,
+          227.30988999268598
+        ],
+        "to": [
+          125.4093306517028,
+          227.30988999268598
+        ]
+      },
+      "before": null,
+      "after": {
+        "target": null,
+        "source": "ambient"
+      }
+    },
+    {
+      "mode": "art",
+      "decision": {
+        "held": false,
+        "reason": "resident-geometry",
+        "clock": 180.00000000000668,
+        "events": 1,
+        "moves": 0,
+        "distanceCSS": 4.736068022222637e-15,
+        "from": [
+          125.4093306517028,
+          227.30988999268598
+        ],
+        "to": [
+          125.4093306517028,
+          227.30988999268595
+        ]
+      },
+      "before": null,
+      "after": {
+        "target": null,
+        "source": "ambient"
+      }
+    },
+    {
+      "mode": "gear",
+      "decision": {
+        "held": false,
+        "reason": "resident-geometry",
+        "clock": 180.00000000000668,
+        "events": 1,
+        "moves": 0,
+        "distanceCSS": 4.736068022222637e-15,
+        "from": [
+          125.4093306517028,
+          227.30988999268598
+        ],
+        "to": [
+          125.4093306517028,
+          227.30988999268595
+        ]
+      },
+      "before": null,
+      "after": {
+        "target": null,
+        "source": "ambient"
+      }
+    },
+    {
+      "mode": "ink",
+      "decision": {
+        "held": false,
+        "reason": "resident-geometry",
+        "clock": 180.00000000000668,
+        "events": 1,
+        "moves": 0,
+        "distanceCSS": 4.736068022222637e-15,
+        "from": [
+          125.4093306517028,
+          227.30988999268598
+        ],
+        "to": [
+          125.4093306517028,
+          227.30988999268595
+        ]
+      },
+      "before": null,
+      "after": {
+        "target": null,
+        "source": "ambient"
+      }
+    },
+    {
+      "mode": "population",
+      "decision": {
+        "held": false,
+        "reason": "geometry-or-population",
+        "clock": 180.00000000000668,
+        "events": 1,
+        "moves": 1,
+        "distanceCSS": 47.53779648803517,
+        "from": [
+          125.4093306517028,
+          227.30988999268598
+        ],
+        "to": [
+          172.14,
+          284.87
+        ]
+      },
+      "before": null,
+      "after": {
+        "target": null,
+        "source": null
+      }
+    },
+    {
+      "mode": "projection",
+      "decision": {
+        "held": false,
+        "reason": "geometry-or-population",
+        "clock": 180.00000000000668,
+        "events": 1,
+        "moves": 0,
+        "distanceCSS": 4.736068022222637e-15,
+        "from": [
+          125.4093306517028,
+          227.30988999268598
+        ],
+        "to": [
+          125.4093306517028,
+          227.30988999268595
+        ]
+      },
+      "before": null,
+      "after": {
+        "target": null,
+        "source": "ambient"
+      }
+    },
+    {
+      "mode": "overlap",
+      "decision": {
+        "held": false,
+        "reason": "existing-contact",
+        "clock": 180.00000000000668,
+        "events": 1,
+        "moves": 0,
+        "distanceCSS": 4.736068022222637e-15,
+        "from": [
+          125.4093306517028,
+          227.30988999268598
+        ],
+        "to": [
+          125.4093306517028,
+          227.30988999268595
+        ]
+      },
+      "before": null,
+      "after": {
+        "target": null,
+        "source": "ambient"
+      }
+    },
+    {
+      "mode": "outside",
+      "decision": {
+        "held": false,
+        "reason": "invalid-foot",
+        "clock": 180.00000000000668,
+        "events": 1,
+        "moves": 0,
+        "distanceCSS": 4.736068022222637e-15,
+        "from": [
+          125.4093306517028,
+          227.30988999268598
+        ],
+        "to": [
+          125.4093306517028,
+          227.30988999268595
+        ]
+      },
+      "before": null,
+      "after": {
+        "target": null,
+        "source": "ambient"
+      }
+    },
+    {
+      "mode": "route-outside",
+      "decision": {
+        "held": false,
+        "reason": "route-or-budget",
+        "clock": 180.00000000000668,
+        "events": 1,
+        "moves": 0,
+        "distanceCSS": 4.736068022222637e-15,
+        "from": [
+          125.4093306517028,
+          227.30988999268598
+        ],
+        "to": [
+          125.4093306517028,
+          227.30988999268595
+        ]
+      },
+      "before": null,
+      "after": {
+        "target": null,
+        "source": "ambient"
+      }
+    },
+    {
+      "mode": "route-safe",
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 176.25,
+        "liveSegments": 3,
+        "clock": 180.00000000000668,
+        "events": 1,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          125.4093306517028,
+          227.30988999268598
+        ],
+        "to": [
+          125.4093306517028,
+          227.30988999268598
+        ]
+      },
+      "before": {
+        "x": 80.78503019663056,
+        "y": 186.42082682346023
+      },
+      "after": {
+        "target": {
+          "x": 80.78503019663056,
+          "y": 186.42082682346023
+        },
+        "source": "keyboard"
+      }
+    }
+  ]
+}

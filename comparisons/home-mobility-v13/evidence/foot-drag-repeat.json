@@ -1,0 +1,1140 @@
+{
+  "engine": "Chromium",
+  "version": "156.0.8078.79",
+  "conditions": "Independent natural opening; archived six gestures; observe each real navigation guard and input gate.",
+  "arms": {
+    "v13-foot": {
+      "seed": 3291341858,
+      "opening": [
+        [
+          "pet:dog",
+          163.08,
+          298.46000000000004,
+          38.34285714285714,
+          44.733333333333334,
+          153.24767023217663,
+          222.1826205263161
+        ],
+        [
+          "partner:forest_bear",
+          180.92698454317002,
+          214.77324533401764,
+          31.629629629629626,
+          32.53333333333333,
+          177.16721539541484,
+          205.0190235768592
+        ],
+        [
+          "companion:cat_friend",
+          178.56044599648794,
+          178.32585581090822,
+          32.53333333333333,
+          26.508641975308638,
+          173.9954456484875,
+          197.5439063240594
+        ],
+        [
+          "companion:tanuki",
+          177.82499104321823,
+          336.55626799690975,
+          29.71705157232704,
+          32.14293333333333,
+          173.0097470321353,
+          229.99591179071308
+        ],
+        [
+          "companion:owl",
+          128.00975741400595,
+          319.570242874121,
+          22.765967295597484,
+          31.752533333333332,
+          106.24453368592819,
+          226.51219097796894
+        ],
+        [
+          "companion:hamster",
+          200.62011,
+          376.100123,
+          30.844228956228957,
+          32.14293333333333,
+          203.5610637584556,
+          238.10609352508368
+        ],
+        [
+          "companion:monkey",
+          75.930048,
+          297.39998,
+          28.1915015576324,
+          31.752533333333336,
+          36.44434091928112,
+          221.96521747238026
+        ],
+        [
+          "companion:sheep",
+          194.35654479758665,
+          146.3723078701551,
+          31.752533333333336,
+          29.6944987654321,
+          195.16627693160473,
+          190.99044610028557
+        ],
+        [
+          "companion:bat",
+          89.99992599999999,
+          260.70018500000003,
+          22.781927044025156,
+          31.362133333333333,
+          55.3015927675238,
+          214.43833353451214
+        ],
+        [
+          "companion:penguin_friend",
+          218.15264359868536,
+          347.64132892177236,
+          30.971733333333333,
+          14.359621818181818,
+          227.05916385628063,
+          232.26938408192444
+        ],
+        [
+          "companion:shiba",
+          226.25459419813603,
+          167.9833272172919,
+          31.362133333333333,
+          28.74862222222222,
+          237.9178594978393,
+          195.42272247689533
+        ],
+        [
+          "companion:punyu",
+          90.15264359868537,
+          330.766329740051,
+          30.97173333333333,
+          23.51557530864197,
+          55.50627359134255,
+          228.80843395148267
+        ],
+        [
+          "companion:chameleon",
+          122.15264359868537,
+          352.7977935001124,
+          30.971733333333333,
+          25.903631515151513,
+          98.39449615757707,
+          233.32694068165188
+        ],
+        [
+          "companion:unicorn",
+          137.39728233911927,
+          220.61216744615,
+          28.079224242424235,
+          30.581333333333326,
+          118.82622925887614,
+          206.21654767911298
+        ],
+        [
+          "companion:watcher",
+          121.240014,
+          277.999802,
+          10.674616352201255,
+          30.581333333333326,
+          97.17133799042233,
+          217.9863699562025
+        ],
+        [
+          "companion:rabbit_friend",
+          160.28229062604774,
+          368.55626799690975,
+          23.80958024691358,
+          32.14293333333333,
+          149.49802078512332,
+          236.5588990229791
+        ],
+        [
+          "companion:squirrel",
+          233.52583620947036,
+          128.55626799690975,
+          28.571496296296296,
+          32.14293333333333,
+          247.66319217643496,
+          187.33649478098397
+        ],
+        [
+          "companion:otter",
+          258.45849539703727,
+          149.60416850082163,
+          32.14293333333333,
+          30.97409939393939,
+          281.0793620640738,
+          191.65327922702082
+        ],
+        [
+          "companion:panda",
+          146.05501817618114,
+          191.570242874121,
+          30.597895757575756,
+          31.752533333333332,
+          130.42981993073784,
+          200.26024204890487
+        ],
+        [
+          "companion:parrot",
+          137.4204243242359,
+          382.58421772152985,
+          28.16784197530864,
+          31.362133333333333,
+          118.85724546538572,
+          239.43593823977756
+        ],
+        [
+          "companion:seal",
+          114.35654479758665,
+          249.0086937600159,
+          31.752533333333332,
+          29.154598787878786,
+          87.94572051601844,
+          212.04048641781947
+        ],
+        [
+          "companion:chicken",
+          105.57209157403592,
+          302.58421772152985,
+          28.74862222222222,
+          31.362133333333333,
+          76.17229598557094,
+          223.02847015911252
+        ],
+        [
+          "companion:hedgehog",
+          202.25459419813603,
+          325.7841097973991,
+          31.362133333333333,
+          31.045344107744107,
+          205.75169257316344,
+          227.78661376798374
+        ],
+        [
+          "companion:snail",
+          226.15264359868536,
+          387.6921241788639,
+          30.97173333333333,
+          14.37973333333333,
+          237.78121949783923,
+          240.4835358917492
+        ],
+        [
+          "companion:sekizou",
+          150.13157350492085,
+          340.61216744615,
+          15.573827160493826,
+          30.58133333333333,
+          135.89345156331777,
+          230.82774980011052
+        ],
+        [
+          "companion:clock",
+          185.77819540934507,
+          357.5981925987411,
+          29.537856790123453,
+          30.97173333333333,
+          183.66908449992266,
+          234.31147061896692
+        ],
+        [
+          "companion:many_tail_fox",
+          178.05069299923474,
+          387.2078286124794,
+          30.581333333333326,
+          30.025309090909083,
+          173.3122456484875,
+          240.38421009116092
+        ],
+        [
+          "companion:box",
+          194.05069299923474,
+          187.79047983919222,
+          30.58133333333333,
+          30.255999999999997,
+          194.75635693160478,
+          199.48503778205398
+        ]
+      ],
+      "activity": {
+        "waiting": [],
+        "memo": [],
+        "owner": null,
+        "searching": false,
+        "helper": null
+      },
+      "rows": {
+        "historical/0": {
+          "key": "pet:dog",
+          "start": [
+            154.00473046302795,
+            201.15545642375946
+          ],
+          "goal": [
+            165.24767023217663,
+            222.1826205263161
+          ],
+          "selectedKey": "pet:dog",
+          "issued": true,
+          "accepted": true,
+          "arrived": true,
+          "near4": true,
+          "terminalArrived": true,
+          "terminalNear4": true,
+          "initialGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "releaseGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "blockedClass": null,
+          "releaseJumpCss": 0.0,
+          "unsafeSteps": 0,
+          "sweptViolations": 0,
+          "peerUnsafe": null,
+          "peerSwept": null,
+          "trusted": true
+        },
+        "diagonal/1": {
+          "key": "partner:forest_bear",
+          "start": [
+            177.1510238647461,
+            190.41412514448166
+          ],
+          "goal": [
+            211.10834089236914,
+            238.96014907381348
+          ],
+          "selectedKey": "partner:forest_bear",
+          "issued": true,
+          "accepted": false,
+          "arrived": false,
+          "near4": false,
+          "terminalArrived": false,
+          "terminalNear4": false,
+          "initialGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "releaseGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "blockedClass": "outside-actor-bounds",
+          "releaseJumpCss": 0.0,
+          "unsafeSteps": 0,
+          "sweptViolations": 0,
+          "peerUnsafe": null,
+          "peerSwept": null,
+          "trusted": true
+        },
+        "occupied/2": {
+          "key": "companion:cat_friend",
+          "start": [
+            174.0761713385582,
+            187.57764130830765
+          ],
+          "goal": [
+            195.16627693160473,
+            190.99044610028557
+          ],
+          "selectedKey": "partner:forest_bear",
+          "issued": false,
+          "accepted": false,
+          "arrived": false,
+          "near4": false,
+          "terminalArrived": false,
+          "terminalNear4": false,
+          "initialGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "releaseGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "blockedClass": "selection-miss",
+          "releaseJumpCss": null,
+          "unsafeSteps": 0,
+          "sweptViolations": 0,
+          "peerUnsafe": null,
+          "peerSwept": null,
+          "trusted": true
+        },
+        "clear/0": {
+          "key": "pet:dog",
+          "start": [
+            153.8356162905693,
+            201.07961136102676
+          ],
+          "goal": [
+            160.3187380440421,
+            215.11155271445062
+          ],
+          "selectedKey": "pet:dog",
+          "issued": true,
+          "accepted": true,
+          "arrived": true,
+          "near4": true,
+          "terminalArrived": true,
+          "terminalNear4": true,
+          "initialGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "releaseGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "blockedClass": null,
+          "releaseJumpCss": 0.0,
+          "unsafeSteps": 0,
+          "sweptViolations": 0,
+          "peerUnsafe": null,
+          "peerSwept": null,
+          "trusted": true
+        },
+        "obstacle/0": {
+          "key": "pet:dog",
+          "start": [
+            154.0315706729889,
+            201.14922749996185
+          ],
+          "goal": [
+            190.0172228538771,
+            185.41306790461562
+          ],
+          "selectedKey": "pet:dog",
+          "issued": true,
+          "accepted": true,
+          "arrived": true,
+          "near4": false,
+          "terminalArrived": true,
+          "terminalNear4": false,
+          "initialGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "releaseGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "blockedClass": null,
+          "releaseJumpCss": 0.0,
+          "unsafeSteps": 0,
+          "sweptViolations": 0,
+          "peerUnsafe": null,
+          "peerSwept": null,
+          "trusted": true
+        },
+        "tap/4": {
+          "key": "companion:owl",
+          "start": [
+            106.13646084070206,
+            212.618537068367
+          ],
+          "goal": [
+            106.13646084070206,
+            212.618537068367
+          ],
+          "selectedKey": null,
+          "issued": false,
+          "accepted": false,
+          "arrived": false,
+          "near4": false,
+          "terminalArrived": false,
+          "terminalNear4": false,
+          "initialGate": {
+            "blocked": true,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": true,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "releaseGate": {
+            "blocked": true,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": true,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "blockedClass": null,
+          "releaseJumpCss": null,
+          "unsafeSteps": 0,
+          "sweptViolations": 0,
+          "peerUnsafe": null,
+          "peerSwept": null,
+          "trusted": true
+        }
+      },
+      "projections": [
+        {
+          "clock": 0,
+          "held": false,
+          "reason": "geometry-or-population"
+        },
+        {
+          "clock": 0,
+          "held": false,
+          "reason": "geometry-or-population"
+        }
+      ]
+    },
+    "v11-foot": {
+      "seed": 3291341858,
+      "opening": [
+        [
+          "pet:dog",
+          163.08,
+          298.46000000000004,
+          38.34285714285714,
+          44.733333333333334,
+          153.24767023217663,
+          222.1826205263161
+        ],
+        [
+          "partner:forest_bear",
+          180.92698454317002,
+          214.77324533401764,
+          31.629629629629626,
+          32.53333333333333,
+          177.16721539541484,
+          205.0190235768592
+        ],
+        [
+          "companion:cat_friend",
+          178.56044599648794,
+          178.32585581090822,
+          32.53333333333333,
+          26.508641975308638,
+          173.9954456484875,
+          197.5439063240594
+        ],
+        [
+          "companion:tanuki",
+          177.82499104321823,
+          336.55626799690975,
+          29.71705157232704,
+          32.14293333333333,
+          173.0097470321353,
+          229.99591179071308
+        ],
+        [
+          "companion:owl",
+          128.00975741400595,
+          319.570242874121,
+          22.765967295597484,
+          31.752533333333332,
+          106.24453368592819,
+          226.51219097796894
+        ],
+        [
+          "companion:hamster",
+          200.62011,
+          376.100123,
+          30.844228956228957,
+          32.14293333333333,
+          203.5610637584556,
+          238.10609352508368
+        ],
+        [
+          "companion:monkey",
+          75.930048,
+          297.39998,
+          28.1915015576324,
+          31.752533333333336,
+          36.44434091928112,
+          221.96521747238026
+        ],
+        [
+          "companion:sheep",
+          194.35654479758665,
+          146.3723078701551,
+          31.752533333333336,
+          29.6944987654321,
+          195.16627693160473,
+          190.99044610028557
+        ],
+        [
+          "companion:bat",
+          89.99992599999999,
+          260.70018500000003,
+          22.781927044025156,
+          31.362133333333333,
+          55.3015927675238,
+          214.43833353451214
+        ],
+        [
+          "companion:penguin_friend",
+          218.15264359868536,
+          347.64132892177236,
+          30.971733333333333,
+          14.359621818181818,
+          227.05916385628063,
+          232.26938408192444
+        ],
+        [
+          "companion:shiba",
+          226.25459419813603,
+          167.9833272172919,
+          31.362133333333333,
+          28.74862222222222,
+          237.9178594978393,
+          195.42272247689533
+        ],
+        [
+          "companion:punyu",
+          90.15264359868537,
+          330.766329740051,
+          30.97173333333333,
+          23.51557530864197,
+          55.50627359134255,
+          228.80843395148267
+        ],
+        [
+          "companion:chameleon",
+          122.15264359868537,
+          352.7977935001124,
+          30.971733333333333,
+          25.903631515151513,
+          98.39449615757707,
+          233.32694068165188
+        ],
+        [
+          "companion:unicorn",
+          137.39728233911927,
+          220.61216744615,
+          28.079224242424235,
+          30.581333333333326,
+          118.82622925887614,
+          206.21654767911298
+        ],
+        [
+          "companion:watcher",
+          121.240014,
+          277.999802,
+          10.674616352201255,
+          30.581333333333326,
+          97.17133799042233,
+          217.9863699562025
+        ],
+        [
+          "companion:rabbit_friend",
+          160.28229062604774,
+          368.55626799690975,
+          23.80958024691358,
+          32.14293333333333,
+          149.49802078512332,
+          236.5588990229791
+        ],
+        [
+          "companion:squirrel",
+          233.52583620947036,
+          128.55626799690975,
+          28.571496296296296,
+          32.14293333333333,
+          247.66319217643496,
+          187.33649478098397
+        ],
+        [
+          "companion:otter",
+          258.45849539703727,
+          149.60416850082163,
+          32.14293333333333,
+          30.97409939393939,
+          281.0793620640738,
+          191.65327922702082
+        ],
+        [
+          "companion:panda",
+          146.05501817618114,
+          191.570242874121,
+          30.597895757575756,
+          31.752533333333332,
+          130.42981993073784,
+          200.26024204890487
+        ],
+        [
+          "companion:parrot",
+          137.4204243242359,
+          382.58421772152985,
+          28.16784197530864,
+          31.362133333333333,
+          118.85724546538572,
+          239.43593823977756
+        ],
+        [
+          "companion:seal",
+          114.35654479758665,
+          249.0086937600159,
+          31.752533333333332,
+          29.154598787878786,
+          87.94572051601844,
+          212.04048641781947
+        ],
+        [
+          "companion:chicken",
+          105.57209157403592,
+          302.58421772152985,
+          28.74862222222222,
+          31.362133333333333,
+          76.17229598557094,
+          223.02847015911252
+        ],
+        [
+          "companion:hedgehog",
+          202.25459419813603,
+          325.7841097973991,
+          31.362133333333333,
+          31.045344107744107,
+          205.75169257316344,
+          227.78661376798374
+        ],
+        [
+          "companion:snail",
+          226.15264359868536,
+          387.6921241788639,
+          30.97173333333333,
+          14.37973333333333,
+          237.78121949783923,
+          240.4835358917492
+        ],
+        [
+          "companion:sekizou",
+          150.13157350492085,
+          340.61216744615,
+          15.573827160493826,
+          30.58133333333333,
+          135.89345156331777,
+          230.82774980011052
+        ],
+        [
+          "companion:clock",
+          185.77819540934507,
+          357.5981925987411,
+          29.537856790123453,
+          30.97173333333333,
+          183.66908449992266,
+          234.31147061896692
+        ],
+        [
+          "companion:many_tail_fox",
+          178.05069299923474,
+          387.2078286124794,
+          30.581333333333326,
+          30.025309090909083,
+          173.3122456484875,
+          240.38421009116092
+        ],
+        [
+          "companion:box",
+          194.05069299923474,
+          187.79047983919222,
+          30.58133333333333,
+          30.255999999999997,
+          194.75635693160478,
+          199.48503778205398
+        ]
+      ],
+      "activity": {
+        "waiting": [],
+        "memo": [],
+        "owner": null,
+        "searching": false,
+        "helper": null
+      },
+      "rows": {
+        "historical/0": {
+          "key": "pet:dog",
+          "start": [
+            154.00473046302795,
+            201.15545642375946
+          ],
+          "goal": [
+            165.24767023217663,
+            222.1826205263161
+          ],
+          "selectedKey": "pet:dog",
+          "issued": true,
+          "accepted": true,
+          "arrived": true,
+          "near4": true,
+          "terminalArrived": true,
+          "terminalNear4": true,
+          "initialGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "releaseGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "blockedClass": null,
+          "releaseJumpCss": 0.0,
+          "unsafeSteps": 0,
+          "sweptViolations": 0,
+          "peerUnsafe": null,
+          "peerSwept": null,
+          "trusted": true
+        },
+        "diagonal/1": {
+          "key": "partner:forest_bear",
+          "start": [
+            177.1510238647461,
+            190.41412514448166
+          ],
+          "goal": [
+            211.10834089236914,
+            238.96014907381348
+          ],
+          "selectedKey": "partner:forest_bear",
+          "issued": true,
+          "accepted": false,
+          "arrived": false,
+          "near4": false,
+          "terminalArrived": false,
+          "terminalNear4": false,
+          "initialGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "releaseGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "blockedClass": "outside-actor-bounds",
+          "releaseJumpCss": 0.0,
+          "unsafeSteps": 0,
+          "sweptViolations": 0,
+          "peerUnsafe": null,
+          "peerSwept": null,
+          "trusted": true
+        },
+        "occupied/2": {
+          "key": "companion:cat_friend",
+          "start": [
+            174.0761713385582,
+            187.57764130830765
+          ],
+          "goal": [
+            195.16627693160473,
+            190.99044610028557
+          ],
+          "selectedKey": "partner:forest_bear",
+          "issued": false,
+          "accepted": false,
+          "arrived": false,
+          "near4": false,
+          "terminalArrived": false,
+          "terminalNear4": false,
+          "initialGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "releaseGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "blockedClass": "selection-miss",
+          "releaseJumpCss": null,
+          "unsafeSteps": 0,
+          "sweptViolations": 0,
+          "peerUnsafe": null,
+          "peerSwept": null,
+          "trusted": true
+        },
+        "clear/0": {
+          "key": "pet:dog",
+          "start": [
+            153.8356162905693,
+            201.07961136102676
+          ],
+          "goal": [
+            160.3187380440421,
+            215.11155271445062
+          ],
+          "selectedKey": "pet:dog",
+          "issued": true,
+          "accepted": true,
+          "arrived": true,
+          "near4": true,
+          "terminalArrived": true,
+          "terminalNear4": true,
+          "initialGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "releaseGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "blockedClass": null,
+          "releaseJumpCss": 0.0,
+          "unsafeSteps": 0,
+          "sweptViolations": 0,
+          "peerUnsafe": null,
+          "peerSwept": null,
+          "trusted": true
+        },
+        "obstacle/0": {
+          "key": "pet:dog",
+          "start": [
+            154.0315706729889,
+            201.14922749996185
+          ],
+          "goal": [
+            190.0172228538771,
+            185.41306790461562
+          ],
+          "selectedKey": "pet:dog",
+          "issued": true,
+          "accepted": true,
+          "arrived": true,
+          "near4": false,
+          "terminalArrived": true,
+          "terminalNear4": false,
+          "initialGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "releaseGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "blockedClass": null,
+          "releaseJumpCss": 0.0,
+          "unsafeSteps": 0,
+          "sweptViolations": 0,
+          "peerUnsafe": null,
+          "peerSwept": null,
+          "trusted": true
+        },
+        "tap/4": {
+          "key": "companion:owl",
+          "start": [
+            106.13646084070206,
+            212.618537068367
+          ],
+          "goal": [
+            106.13646084070206,
+            212.618537068367
+          ],
+          "selectedKey": "companion:owl",
+          "issued": false,
+          "accepted": false,
+          "arrived": false,
+          "near4": false,
+          "terminalArrived": false,
+          "terminalNear4": false,
+          "initialGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "releaseGate": {
+            "blocked": false,
+            "pending": false,
+            "enabled": true,
+            "hidden": "visible",
+            "paused": false,
+            "trialPaused": false,
+            "framework": false,
+            "gesture": null,
+            "reaction": null,
+            "visibleOverlays": []
+          },
+          "blockedClass": null,
+          "releaseJumpCss": null,
+          "unsafeSteps": 0,
+          "sweptViolations": 0,
+          "peerUnsafe": null,
+          "peerSwept": null,
+          "trusted": true
+        }
+      },
+      "projections": []
+    }
+  }
+}

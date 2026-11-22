@@ -1,0 +1,114 @@
+name: Home mobility V13 native WebKit performance
+on:
+  push:
+    branches: [draft/home-mobility-v13]
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  measure:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[v13-perf]') || contains(github.event.head_commit.message, '[v13-perf-seat]') || contains(github.event.head_commit.message, '[v13-perf-tape]') || contains(github.event.head_commit.message, '[v13-perf-final]') || contains(github.event.head_commit.message, '[v13-perf-input]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    strategy:
+      fail-fast: false
+      matrix:
+        direction: [forward, reverse]
+        experiment: ${{ fromJSON(contains(github.event.head_commit.message, '[v13-perf-final]') && '["live-390","live-320","trace-390","trace-320","fixed-390","stress-390","fixed-320","stress-320","touch-320","touch-390","seat-375"]' || contains(github.event.head_commit.message, '[v13-perf-seat]') && '["seat-375"]' || contains(github.event.head_commit.message, '[v13-perf-input]') && '["touch-320","touch-375","touch-390"]' || contains(github.event.head_commit.message, '[v13-perf-tape]') && '["fixed-320","stress-320"]' || '["live-390","live-320","trace-390","trace-320","fixed-390","stress-390","fixed-320","stress-320","touch-320","touch-390"]') }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: comparisons
+      - uses: actions/checkout@v4
+        with:
+          ref: e07d2cc53eca36ff23e02142ab385d6001e0521b
+          path: .cast-reference
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons
+            tools/work
+      - uses: actions/checkout@v4
+        with:
+          ref: 28628cf336a8ed92efe4e9e197ca03298b798a1e
+          path: .leaf-reference
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Build complete native homes on this source
+        run: |
+          folder=.cast-reference/comparisons
+          node "$folder/home-cast-size-v1/build.cjs" "$RUNNER_TEMP/v1" --reference-checkout .leaf-reference
+          for n in 2 3 4; do node "$folder/home-cast-size-v$n/build.cjs" "$RUNNER_TEMP/v$n" --baseline "$RUNNER_TEMP/v$((n-1))"; done
+          node comparisons/home-finish-v5/build.cjs "$RUNNER_TEMP/v5" --baseline "$RUNNER_TEMP/v4"
+          node comparisons/home-drag-v6/build.cjs "$RUNNER_TEMP/v6" --baseline "$RUNNER_TEMP/v5"
+          for n in 7 8 9 10 11 12; do node "comparisons/home-mobility-v$n/build.cjs" "$RUNNER_TEMP/v$n" --baseline "$RUNNER_TEMP/v$((n-1))"; done
+          node comparisons/home-mobility-v13/build.cjs "$RUNNER_TEMP/v13" --baseline "$RUNNER_TEMP/v12" --gameplay-only
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the V12 observer's Linux WebKit and Python versions
+        run: |
+          python -m pip install playwright==1.62.0 psutil==7.2.2 Pillow==11.3.0
+          python -m playwright install --with-deps webkit
+      - name: Retrieve original V10 480-pose and animation tape
+        if: matrix.experiment == 'fixed-390' || matrix.experiment == 'stress-390'
+        uses: actions/download-artifact@v4
+        with:
+          name: mobility-v10-performance-${{ startsWith(matrix.experiment,'fixed') && 'fixed' || 'stress' }}
+          path: ${{ runner.temp }}/tape
+          run-id: 44921996416
+          github-token: ${{ github.token }}
+      - name: Measure one width and run order on a dedicated runner
+        env:
+          EXPERIMENT: ${{ matrix.experiment }}
+          DIRECTION: ${{ matrix.direction }}
+        run: |
+          python -m http.server 8377 --bind 127.0.0.1 --directory "$RUNNER_TEMP/v13" > "$RUNNER_TEMP/http.log" 2>&1 &
+          server=$!
+          trap 'kill "$server"' EXIT
+          suite="${EXPERIMENT%-*}"
+          width="${EXPERIMENT#*-}"
+          out="$RUNNER_TEMP/performance"
+          mkdir -p "$out"
+          if [[ "$suite" == seat ]]; then
+            for mode in seating live trace touch; do
+              args=(--width 375 --direction "$DIRECTION" --arms v13-c v13-d)
+              [[ "$mode" != trace ]] || args+=(--seconds 40)
+              python -Bu comparisons/home-mobility-v13/performance.py "$mode" "${args[@]}" --out "$out/$mode-375-$DIRECTION.json"
+            done
+            exit 0
+          fi
+          args=()
+          if [[ "$suite" == touch && "$width" == 375 ]]; then
+            args+=(--arms v13-c v13-d)
+          fi
+          if [[ "$suite" == fixed || "$suite" == stress ]]; then
+            if [[ "$width" == 390 ]]; then
+              tape="$RUNNER_TEMP/tape"
+              sums="$GITHUB_WORKSPACE/comparisons/home-mobility-v10/$suite-fixture.sha256"
+            else
+              stored="$GITHUB_WORKSPACE/comparisons/home-mobility-v13/performance-tapes/$suite"
+              tape="$RUNNER_TEMP/tape"
+              if [[ -f "$stored/SOURCE-SHA256SUMS" ]]; then
+                python -Bu comparisons/home-mobility-v13/performance-tape.py --kind "$suite" --materialize "$stored" --out "$tape"
+              else
+                python -Bu comparisons/home-mobility-v13/performance-tape.py --kind "$suite" --out "$tape"
+              fi
+              sums="$tape/SHA256SUMS"
+              cp -r "$tape" "$out/tape"
+            fi
+            (cd "$tape" && sha256sum -c "$sums")
+            args+=(--tape "$tape")
+          fi
+          [[ "$suite" != trace ]] || args+=(--seconds 40)
+          python -Bu comparisons/home-mobility-v13/performance.py "$suite" --width "$width" --direction "$DIRECTION" "${args[@]}" --out "$out/$EXPERIMENT-$DIRECTION.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mobility-v13-performance-${{ matrix.experiment }}-${{ matrix.direction }}
+          path: ${{ runner.temp }}/performance/
+          retention-days: 90
+          if-no-files-found: error

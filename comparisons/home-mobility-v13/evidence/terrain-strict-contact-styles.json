@@ -1,0 +1,605 @@
+{
+  "source": "computed CSS scale on img.character-asset",
+  "cases": [
+    {
+      "width": 320,
+      "height": 516,
+      "source": "forest-320-28-c.json.gz",
+      "sourceSHA256": "b70e63f2edd8ceee41fbe4350e970a5416c68a408c4a284ba73889bf74f1b63a",
+      "people": {
+        "pet:dog": {
+          "asset": "assets/characters/dog/06.png",
+          "imageScale": "-1 1"
+        },
+        "partner:forest_bear": {
+          "asset": "assets/characters/partners/forest_bear.png",
+          "imageScale": "1"
+        },
+        "companion:cat_friend": {
+          "asset": "assets/characters/companions/cat_friend.png",
+          "imageScale": "-1 1"
+        },
+        "companion:tanuki": {
+          "asset": "assets/characters/companions/tanuki.png",
+          "imageScale": "1"
+        },
+        "companion:owl": {
+          "asset": "assets/characters/companions/owl.png",
+          "imageScale": "1"
+        },
+        "companion:hamster": {
+          "asset": "assets/characters/companions/hamster.png",
+          "imageScale": "1"
+        },
+        "companion:monkey": {
+          "asset": "assets/characters/companions/monkey.png",
+          "imageScale": "1"
+        },
+        "companion:sheep": {
+          "asset": "assets/characters/companions/sheep.png",
+          "imageScale": "1"
+        },
+        "companion:bat": {
+          "asset": "assets/characters/companions/bat.png",
+          "imageScale": "1"
+        },
+        "companion:penguin_friend": {
+          "asset": "assets/characters/companions/penguin_friend.png",
+          "imageScale": "1"
+        },
+        "companion:shiba": {
+          "asset": "assets/characters/companions/shiba.png",
+          "imageScale": "-1 1"
+        },
+        "companion:punyu": {
+          "asset": "assets/characters/companions/punyu.png",
+          "imageScale": "1"
+        },
+        "companion:chameleon": {
+          "asset": "assets/characters/companions/chameleon.png",
+          "imageScale": "1"
+        },
+        "companion:unicorn": {
+          "asset": "assets/characters/companions/unicorn.png",
+          "imageScale": "1"
+        },
+        "companion:watcher": {
+          "asset": "assets/characters/companions/watcher.png",
+          "imageScale": "1"
+        },
+        "companion:rabbit_friend": {
+          "asset": "assets/characters/companions/rabbit_friend.png",
+          "imageScale": "1"
+        },
+        "companion:squirrel": {
+          "asset": "assets/characters/companions/squirrel.png",
+          "imageScale": "-1 1"
+        },
+        "companion:otter": {
+          "asset": "assets/characters/companions/otter.png",
+          "imageScale": "1"
+        },
+        "companion:panda": {
+          "asset": "assets/characters/companions/panda.png",
+          "imageScale": "1"
+        },
+        "companion:parrot": {
+          "asset": "assets/characters/companions/parrot.png",
+          "imageScale": "-1 1"
+        },
+        "companion:seal": {
+          "asset": "assets/characters/companions/seal.png",
+          "imageScale": "1"
+        },
+        "companion:chicken": {
+          "asset": "assets/characters/companions/chicken.png",
+          "imageScale": "1"
+        },
+        "companion:hedgehog": {
+          "asset": "assets/characters/companions/hedgehog.png",
+          "imageScale": "1"
+        },
+        "companion:snail": {
+          "asset": "assets/characters/companions/snail.png",
+          "imageScale": "1"
+        },
+        "companion:sekizou": {
+          "asset": "assets/characters/companions/sekizou.png",
+          "imageScale": "1"
+        },
+        "companion:clock": {
+          "asset": "assets/characters/companions/clock.png",
+          "imageScale": "1"
+        },
+        "companion:many_tail_fox": {
+          "asset": "assets/characters/companions/many_tail_fox.png",
+          "imageScale": "1"
+        },
+        "companion:box": {
+          "asset": "assets/characters/companions/box.png",
+          "imageScale": "1"
+        }
+      }
+    },
+    {
+      "width": 375,
+      "height": 760,
+      "source": "forest-375-28-c.json.gz",
+      "sourceSHA256": "9dc3a9f0923f13d0afda682b599fd01daf94b938d157e35dca81d7d18fdd03a8",
+      "people": {
+        "pet:dog": {
+          "asset": "assets/characters/dog/06.png",
+          "imageScale": "-1 1"
+        },
+        "partner:forest_bear": {
+          "asset": "assets/characters/partners/forest_bear.png",
+          "imageScale": "1"
+        },
+        "companion:cat_friend": {
+          "asset": "assets/characters/companions/cat_friend.png",
+          "imageScale": "-1 1"
+        },
+        "companion:tanuki": {
+          "asset": "assets/characters/companions/tanuki.png",
+          "imageScale": "1"
+        },
+        "companion:owl": {
+          "asset": "assets/characters/companions/owl.png",
+          "imageScale": "1"
+        },
+        "companion:hamster": {
+          "asset": "assets/characters/companions/hamster.png",
+          "imageScale": "1"
+        },
+        "companion:monkey": {
+          "asset": "assets/characters/companions/monkey.png",
+          "imageScale": "1"
+        },
+        "companion:sheep": {
+          "asset": "assets/characters/companions/sheep.png",
+          "imageScale": "1"
+        },
+        "companion:bat": {
+          "asset": "assets/characters/companions/bat.png",
+          "imageScale": "1"
+        },
+        "companion:penguin_friend": {
+          "asset": "assets/characters/companions/penguin_friend.png",
+          "imageScale": "1"
+        },
+        "companion:shiba": {
+          "asset": "assets/characters/companions/shiba.png",
+          "imageScale": "-1 1"
+        },
+        "companion:punyu": {
+          "asset": "assets/characters/companions/punyu.png",
+          "imageScale": "1"
+        },
+        "companion:chameleon": {
+          "asset": "assets/characters/companions/chameleon.png",
+          "imageScale": "1"
+        },
+        "companion:unicorn": {
+          "asset": "assets/characters/companions/unicorn.png",
+          "imageScale": "1"
+        },
+        "companion:watcher": {
+          "asset": "assets/characters/companions/watcher.png",
+          "imageScale": "1"
+        },
+        "companion:rabbit_friend": {
+          "asset": "assets/characters/companions/rabbit_friend.png",
+          "imageScale": "1"
+        },
+        "companion:squirrel": {
+          "asset": "assets/characters/companions/squirrel.png",
+          "imageScale": "-1 1"
+        },
+        "companion:otter": {
+          "asset": "assets/characters/companions/otter.png",
+          "imageScale": "1"
+        },
+        "companion:panda": {
+          "asset": "assets/characters/companions/panda.png",
+          "imageScale": "1"
+        },
+        "companion:parrot": {
+          "asset": "assets/characters/companions/parrot.png",
+          "imageScale": "-1 1"
+        },
+        "companion:seal": {
+          "asset": "assets/characters/companions/seal.png",
+          "imageScale": "1"
+        },
+        "companion:chicken": {
+          "asset": "assets/characters/companions/chicken.png",
+          "imageScale": "1"
+        },
+        "companion:hedgehog": {
+          "asset": "assets/characters/companions/hedgehog.png",
+          "imageScale": "1"
+        },
+        "companion:snail": {
+          "asset": "assets/characters/companions/snail.png",
+          "imageScale": "1"
+        },
+        "companion:sekizou": {
+          "asset": "assets/characters/companions/sekizou.png",
+          "imageScale": "1"
+        },
+        "companion:clock": {
+          "asset": "assets/characters/companions/clock.png",
+          "imageScale": "1"
+        },
+        "companion:many_tail_fox": {
+          "asset": "assets/characters/companions/many_tail_fox.png",
+          "imageScale": "1"
+        },
+        "companion:box": {
+          "asset": "assets/characters/companions/box.png",
+          "imageScale": "1"
+        }
+      }
+    },
+    {
+      "width": 390,
+      "height": 792,
+      "source": "forest-390-28-c.json.gz",
+      "sourceSHA256": "7e4136f25b688a1a9c0cd38ffac15642373070e3cf59c90ed408a7b05c79def7",
+      "people": {
+        "pet:dog": {
+          "asset": "assets/characters/dog/06.png",
+          "imageScale": "-1 1"
+        },
+        "partner:forest_bear": {
+          "asset": "assets/characters/partners/forest_bear.png",
+          "imageScale": "1"
+        },
+        "companion:cat_friend": {
+          "asset": "assets/characters/companions/cat_friend.png",
+          "imageScale": "-1 1"
+        },
+        "companion:tanuki": {
+          "asset": "assets/characters/companions/tanuki.png",
+          "imageScale": "1"
+        },
+        "companion:owl": {
+          "asset": "assets/characters/companions/owl.png",
+          "imageScale": "1"
+        },
+        "companion:hamster": {
+          "asset": "assets/characters/companions/hamster.png",
+          "imageScale": "1"
+        },
+        "companion:monkey": {
+          "asset": "assets/characters/companions/monkey.png",
+          "imageScale": "1"
+        },
+        "companion:sheep": {
+          "asset": "assets/characters/companions/sheep.png",
+          "imageScale": "1"
+        },
+        "companion:bat": {
+          "asset": "assets/characters/companions/bat.png",
+          "imageScale": "1"
+        },
+        "companion:penguin_friend": {
+          "asset": "assets/characters/companions/penguin_friend.png",
+          "imageScale": "1"
+        },
+        "companion:shiba": {
+          "asset": "assets/characters/companions/shiba.png",
+          "imageScale": "-1 1"
+        },
+        "companion:punyu": {
+          "asset": "assets/characters/companions/punyu.png",
+          "imageScale": "1"
+        },
+        "companion:chameleon": {
+          "asset": "assets/characters/companions/chameleon.png",
+          "imageScale": "1"
+        },
+        "companion:unicorn": {
+          "asset": "assets/characters/companions/unicorn.png",
+          "imageScale": "1"
+        },
+        "companion:watcher": {
+          "asset": "assets/characters/companions/watcher.png",
+          "imageScale": "1"
+        },
+        "companion:rabbit_friend": {
+          "asset": "assets/characters/companions/rabbit_friend.png",
+          "imageScale": "1"
+        },
+        "companion:squirrel": {
+          "asset": "assets/characters/companions/squirrel.png",
+          "imageScale": "-1 1"
+        },
+        "companion:otter": {
+          "asset": "assets/characters/companions/otter.png",
+          "imageScale": "1"
+        },
+        "companion:panda": {
+          "asset": "assets/characters/companions/panda.png",
+          "imageScale": "1"
+        },
+        "companion:parrot": {
+          "asset": "assets/characters/companions/parrot.png",
+          "imageScale": "-1 1"
+        },
+        "companion:seal": {
+          "asset": "assets/characters/companions/seal.png",
+          "imageScale": "1"
+        },
+        "companion:chicken": {
+          "asset": "assets/characters/companions/chicken.png",
+          "imageScale": "1"
+        },
+        "companion:hedgehog": {
+          "asset": "assets/characters/companions/hedgehog.png",
+          "imageScale": "1"
+        },
+        "companion:snail": {
+          "asset": "assets/characters/companions/snail.png",
+          "imageScale": "1"
+        },
+        "companion:sekizou": {
+          "asset": "assets/characters/companions/sekizou.png",
+          "imageScale": "1"
+        },
+        "companion:clock": {
+          "asset": "assets/characters/companions/clock.png",
+          "imageScale": "1"
+        },
+        "companion:many_tail_fox": {
+          "asset": "assets/characters/companions/many_tail_fox.png",
+          "imageScale": "1"
+        },
+        "companion:box": {
+          "asset": "assets/characters/companions/box.png",
+          "imageScale": "1"
+        }
+      }
+    },
+    {
+      "width": 430,
+      "height": 880,
+      "source": "forest-430-28-c.json.gz",
+      "sourceSHA256": "6fce9604df4710a4abf09521e84654ad3aa7fb5feae429652f42c030997759b3",
+      "people": {
+        "pet:dog": {
+          "asset": "assets/characters/dog/06.png",
+          "imageScale": "-1 1"
+        },
+        "partner:forest_bear": {
+          "asset": "assets/characters/partners/forest_bear.png",
+          "imageScale": "1"
+        },
+        "companion:cat_friend": {
+          "asset": "assets/characters/companions/cat_friend.png",
+          "imageScale": "-1 1"
+        },
+        "companion:tanuki": {
+          "asset": "assets/characters/companions/tanuki.png",
+          "imageScale": "1"
+        },
+        "companion:owl": {
+          "asset": "assets/characters/companions/owl.png",
+          "imageScale": "1"
+        },
+        "companion:hamster": {
+          "asset": "assets/characters/companions/hamster.png",
+          "imageScale": "1"
+        },
+        "companion:monkey": {
+          "asset": "assets/characters/companions/monkey.png",
+          "imageScale": "1"
+        },
+        "companion:sheep": {
+          "asset": "assets/characters/companions/sheep.png",
+          "imageScale": "1"
+        },
+        "companion:bat": {
+          "asset": "assets/characters/companions/bat.png",
+          "imageScale": "1"
+        },
+        "companion:penguin_friend": {
+          "asset": "assets/characters/companions/penguin_friend.png",
+          "imageScale": "1"
+        },
+        "companion:shiba": {
+          "asset": "assets/characters/companions/shiba.png",
+          "imageScale": "-1 1"
+        },
+        "companion:punyu": {
+          "asset": "assets/characters/companions/punyu.png",
+          "imageScale": "1"
+        },
+        "companion:chameleon": {
+          "asset": "assets/characters/companions/chameleon.png",
+          "imageScale": "1"
+        },
+        "companion:unicorn": {
+          "asset": "assets/characters/companions/unicorn.png",
+          "imageScale": "1"
+        },
+        "companion:watcher": {
+          "asset": "assets/characters/companions/watcher.png",
+          "imageScale": "1"
+        },
+        "companion:rabbit_friend": {
+          "asset": "assets/characters/companions/rabbit_friend.png",
+          "imageScale": "1"
+        },
+        "companion:squirrel": {
+          "asset": "assets/characters/companions/squirrel.png",
+          "imageScale": "-1 1"
+        },
+        "companion:otter": {
+          "asset": "assets/characters/companions/otter.png",
+          "imageScale": "1"
+        },
+        "companion:panda": {
+          "asset": "assets/characters/companions/panda.png",
+          "imageScale": "1"
+        },
+        "companion:parrot": {
+          "asset": "assets/characters/companions/parrot.png",
+          "imageScale": "-1 1"
+        },
+        "companion:seal": {
+          "asset": "assets/characters/companions/seal.png",
+          "imageScale": "1"
+        },
+        "companion:chicken": {
+          "asset": "assets/characters/companions/chicken.png",
+          "imageScale": "1"
+        },
+        "companion:hedgehog": {
+          "asset": "assets/characters/companions/hedgehog.png",
+          "imageScale": "1"
+        },
+        "companion:snail": {
+          "asset": "assets/characters/companions/snail.png",
+          "imageScale": "1"
+        },
+        "companion:sekizou": {
+          "asset": "assets/characters/companions/sekizou.png",
+          "imageScale": "1"
+        },
+        "companion:clock": {
+          "asset": "assets/characters/companions/clock.png",
+          "imageScale": "1"
+        },
+        "companion:many_tail_fox": {
+          "asset": "assets/characters/companions/many_tail_fox.png",
+          "imageScale": "1"
+        },
+        "companion:box": {
+          "asset": "assets/characters/companions/box.png",
+          "imageScale": "1"
+        }
+      }
+    },
+    {
+      "width": 320,
+      "height": 792,
+      "source": "forest-320-28-long-fixed-c.json.gz",
+      "sourceSHA256": "9dcd61fb1697a076160a988ca25be5b89ba640655bd7d7c7eb994e5bc8e54d05",
+      "people": {
+        "pet:dog": {
+          "asset": "assets/characters/dog/06.png",
+          "imageScale": "-1 1"
+        },
+        "partner:forest_bear": {
+          "asset": "assets/characters/partners/forest_bear.png",
+          "imageScale": "1"
+        },
+        "companion:cat_friend": {
+          "asset": "assets/characters/companions/cat_friend.png",
+          "imageScale": "-1 1"
+        },
+        "companion:tanuki": {
+          "asset": "assets/characters/companions/tanuki.png",
+          "imageScale": "1"
+        },
+        "companion:owl": {
+          "asset": "assets/characters/companions/owl.png",
+          "imageScale": "1"
+        },
+        "companion:hamster": {
+          "asset": "assets/characters/companions/hamster.png",
+          "imageScale": "1"
+        },
+        "companion:monkey": {
+          "asset": "assets/characters/companions/monkey.png",
+          "imageScale": "1"
+        },
+        "companion:sheep": {
+          "asset": "assets/characters/companions/sheep.png",
+          "imageScale": "1"
+        },
+        "companion:bat": {
+          "asset": "assets/characters/companions/bat.png",
+          "imageScale": "1"
+        },
+        "companion:penguin_friend": {
+          "asset": "assets/characters/companions/penguin_friend.png",
+          "imageScale": "1"
+        },
+        "companion:shiba": {
+          "asset": "assets/characters/companions/shiba.png",
+          "imageScale": "-1 1"
+        },
+        "companion:punyu": {
+          "asset": "assets/characters/companions/punyu.png",
+          "imageScale": "1"
+        },
+        "companion:chameleon": {
+          "asset": "assets/characters/companions/chameleon.png",
+          "imageScale": "1"
+        },
+        "companion:unicorn": {
+          "asset": "assets/characters/companions/unicorn.png",
+          "imageScale": "1"
+        },
+        "companion:watcher": {
+          "asset": "assets/characters/companions/watcher.png",
+          "imageScale": "1"
+        },
+        "companion:rabbit_friend": {
+          "asset": "assets/characters/companions/rabbit_friend.png",
+          "imageScale": "1"
+        },
+        "companion:squirrel": {
+          "asset": "assets/characters/companions/squirrel.png",
+          "imageScale": "-1 1"
+        },
+        "companion:otter": {
+          "asset": "assets/characters/companions/otter.png",
+          "imageScale": "1"
+        },
+        "companion:panda": {
+          "asset": "assets/characters/companions/panda.png",
+          "imageScale": "1"
+        },
+        "companion:parrot": {
+          "asset": "assets/characters/companions/parrot.png",
+          "imageScale": "-1 1"
+        },
+        "companion:seal": {
+          "asset": "assets/characters/companions/seal.png",
+          "imageScale": "1"
+        },
+        "companion:chicken": {
+          "asset": "assets/characters/companions/chicken.png",
+          "imageScale": "1"
+        },
+        "companion:hedgehog": {
+          "asset": "assets/characters/companions/hedgehog.png",
+          "imageScale": "1"
+        },
+        "companion:snail": {
+          "asset": "assets/characters/companions/snail.png",
+          "imageScale": "1"
+        },
+        "companion:sekizou": {
+          "asset": "assets/characters/companions/sekizou.png",
+          "imageScale": "1"
+        },
+        "companion:clock": {
+          "asset": "assets/characters/companions/clock.png",
+          "imageScale": "1"
+        },
+        "companion:many_tail_fox": {
+          "asset": "assets/characters/companions/many_tail_fox.png",
+          "imageScale": "1"
+        },
+        "companion:box": {
+          "asset": "assets/characters/companions/box.png",
+          "imageScale": "1"
+        }
+      }
+    }
+  ]
+}

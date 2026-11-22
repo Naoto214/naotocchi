@@ -1,0 +1,2049 @@
+[
+ {
+  "run": "45008630395",
+  "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395",
+  "commit": "ec99cfdd9a29a6b5b72247877d6789974adb244e",
+  "conclusion": "failure",
+  "jobs": [
+   {
+    "name": "measure (forward, touch-320)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/job/137165744160",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (reverse, fixed-320)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/job/137165744241",
+    "status": "completed",
+    "conclusion": "failure"
+   },
+   {
+    "name": "measure (reverse, stress-320)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/job/137165744250",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (forward, stress-320)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/job/137165744278",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (forward, live-390)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/job/137165744294",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (forward, fixed-390)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/job/137165744300",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (forward, trace-390)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/job/137165744313",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (reverse, touch-320)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/job/137165744319",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (forward, live-320)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/job/137165744334",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (forward, trace-320)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/job/137165744339",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (reverse, trace-320)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/job/137165744341",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (reverse, fixed-390)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/job/137165744342",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (reverse, live-320)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/job/137165744352",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (forward, stress-390)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/job/137165744366",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (reverse, stress-390)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/job/137165744384",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (reverse, touch-390)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/job/137165744391",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (reverse, trace-390)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/job/137165744400",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (forward, touch-390)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/job/137165744404",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (reverse, live-390)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/job/137165744432",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (forward, fixed-320)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/job/137165744461",
+    "status": "completed",
+    "conclusion": "failure"
+   }
+  ],
+  "purpose": "Initial terrain, before the complete painted obstacle guard. The short 320px natural input failed its movement-density check. The two 320px stress fixtures had identical feet and different native opening animation phases. The 390px control generation also sampled different absolute CSS touch coordinates across orders; each was retained.",
+  "archives": [
+   {
+    "id": 14749706978,
+    "name": "mobility-v13-performance-fixed-390-forward.zip",
+    "bytes": 7541,
+    "sha256": "1f5b00b4f85d2381d98299909f8ac8179c634c37b6954c81d05cb903b149e968",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/artifacts/14749706978",
+    "contents": {
+     "fixed-390-forward.json": {
+      "bytes": 65907,
+      "sha256": "6777361aa7e15900eee42560b08ec705c9ba9821d89d3467aa5bedc12a771271",
+      "browser": "26.5",
+      "arms": [
+       "v12",
+       "v13-a",
+       "v13-b",
+       "v13-c",
+       "v13-d"
+      ],
+      "sourceSHA256": {
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a"
+      },
+      "posesSHA256": "a6815e666d2be485980c7e87691b6253a0133534344bb8ce707a05573b426805",
+      "phaseSHA256": "ce9f0ffa68c33ce65766e865689e8e567ef4e6459bfcbd3a9c7fb8f292e634d8"
+     }
+    }
+   },
+   {
+    "id": 14750176008,
+    "name": "mobility-v13-performance-fixed-390-reverse.zip",
+    "bytes": 7488,
+    "sha256": "4fc67d22144bcae0336356bff840f3e4665ae47ad98678f14de175e1785b1a5b",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/artifacts/14750176008",
+    "contents": {
+     "fixed-390-reverse.json": {
+      "bytes": 65889,
+      "sha256": "68551e9166cf70ed04170c193750a14a12afb1c2b8676ec332dcd189d9015225",
+      "browser": "26.5",
+      "arms": [
+       "v13-d",
+       "v13-c",
+       "v13-b",
+       "v13-a",
+       "v12"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17"
+      },
+      "posesSHA256": "a6815e666d2be485980c7e87691b6253a0133534344bb8ce707a05573b426805",
+      "phaseSHA256": "ce9f0ffa68c33ce65766e865689e8e567ef4e6459bfcbd3a9c7fb8f292e634d8"
+     }
+    }
+   },
+   {
+    "id": 14750029443,
+    "name": "mobility-v13-performance-live-320-forward.zip",
+    "bytes": 510931,
+    "sha256": "527079e059e2b3e1dcddb853917e1fd4df0762549ce023203246861d5f0db457",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/artifacts/14750029443",
+    "contents": {
+     "live-320-forward.json": {
+      "bytes": 2568171,
+      "sha256": "a4f099c94759c8c2cd05ae6e65638205c8f933862c88b3c704e7fc6f332e9947",
+      "browser": "26.5",
+      "arms": [
+       "v12",
+       "v13-a",
+       "v13-b",
+       "v13-c",
+       "v13-d"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "telemetry-mobility-v10.js": "b2d04a892c48e50a5876f8d6e542dbdc851b20a6e108ea2925d0365a82a6a870",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a"
+      }
+     }
+    }
+   },
+   {
+    "id": 14749618987,
+    "name": "mobility-v13-performance-live-320-reverse.zip",
+    "bytes": 509178,
+    "sha256": "8d62ec4c78fa9e4d039f83cd6ac40a0a2bb844bfbf6c4b37750ee4d68508cbc4",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/artifacts/14749618987",
+    "contents": {
+     "live-320-reverse.json": {
+      "bytes": 2543788,
+      "sha256": "76cb77515199d84b2372ece75c6e555da4552a2a16840ad66bd6282492f046e3",
+      "browser": "26.5",
+      "arms": [
+       "v13-d",
+       "v13-c",
+       "v13-b",
+       "v13-a",
+       "v12"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "telemetry-mobility-v10.js": "b2d04a892c48e50a5876f8d6e542dbdc851b20a6e108ea2925d0365a82a6a870",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17"
+      }
+     }
+    }
+   },
+   {
+    "id": 14750201557,
+    "name": "mobility-v13-performance-live-390-forward.zip",
+    "bytes": 510049,
+    "sha256": "31ea0313c678f49179ab7fc8266c2a504989f69391cb875f115a6ca57bd822ae",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/artifacts/14750201557",
+    "contents": {
+     "live-390-forward.json": {
+      "bytes": 2535658,
+      "sha256": "5108624f481c4988234d83ccd5550b0cde7e8d1971390f782df56ce105b90555",
+      "browser": "26.5",
+      "arms": [
+       "v12",
+       "v13-a",
+       "v13-b",
+       "v13-c",
+       "v13-d"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "telemetry-mobility-v10.js": "b2d04a892c48e50a5876f8d6e542dbdc851b20a6e108ea2925d0365a82a6a870",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a"
+      }
+     }
+    }
+   },
+   {
+    "id": 14750970683,
+    "name": "mobility-v13-performance-live-390-reverse.zip",
+    "bytes": 512033,
+    "sha256": "b7e5fbd205465c16727a10237d1b698e2f3ec652a11f4c2d669e18fef23e37f3",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/artifacts/14750970683",
+    "contents": {
+     "live-390-reverse.json": {
+      "bytes": 2581776,
+      "sha256": "6f369b581753dd4f571e854851595f7d9191619f52198c65f66244951204d1bd",
+      "browser": "26.5",
+      "arms": [
+       "v13-d",
+       "v13-c",
+       "v13-b",
+       "v13-a",
+       "v12"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "telemetry-mobility-v10.js": "b2d04a892c48e50a5876f8d6e542dbdc851b20a6e108ea2925d0365a82a6a870",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17"
+      }
+     }
+    }
+   },
+   {
+    "id": 14749701922,
+    "name": "mobility-v13-performance-stress-320-forward.zip",
+    "bytes": 45908,
+    "sha256": "caca9621ef5f23416a736d934fd44f8a203a646bb33b94fb4d0efe1d492940d8",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/artifacts/14749701922",
+    "contents": {
+     "stress-320-forward.json": {
+      "bytes": 64313,
+      "sha256": "ae30b58d16133e927838843ac442a38a672c8769e4fa69a0d0c8bd177e6ab0f0",
+      "browser": "26.5",
+      "arms": [
+       "v12",
+       "v13-a",
+       "v13-b",
+       "v13-c",
+       "v13-d"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a"
+      },
+      "posesSHA256": "c3e33631a204e3922d663d3d4852ee050f819c70b6c1a51978604b262cbe97e5",
+      "phaseSHA256": "bddce5b34a9dd2b4a996bd3d6d2f87578bef22e6c4de13fc0ab520d2efaebecf"
+     },
+     "tape/SHA256SUMS": {
+      "bytes": 263,
+      "sha256": "3d044498695683debaee09ea1093e7879f1e1618534222a86d1833a2ec4e1f12"
+     },
+     "tape/active-animation-phases.json.gz": {
+      "bytes": 2584,
+      "sha256": "15318994ebb61856a0a4f7ebb3a54e933024295b88efccc49ae80281c89ee0ad"
+     },
+     "tape/active-poses.json.gz": {
+      "bytes": 30823,
+      "sha256": "a8a21171e1b67e824b9dcad0a7160bcfa3033413e7aea0b35eb6e440e045902a"
+     },
+     "tape/stress.json": {
+      "bytes": 16209,
+      "sha256": "d26aef0d9c7996636e07d61c869e6fd6b4de73a4c1733fb82e9660c397f340b4"
+     }
+    }
+   },
+   {
+    "id": 14749522231,
+    "name": "mobility-v13-performance-stress-320-reverse.zip",
+    "bytes": 43663,
+    "sha256": "6afe175af02fabd1827a3db7ae5b0c16aea50c24907af4d311dd3515d3b026f6",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/artifacts/14749522231",
+    "contents": {
+     "stress-320-reverse.json": {
+      "bytes": 59973,
+      "sha256": "593af868754f0e0e06e8d0554c58bce2749d01b3a609bbf468ba45f7f0ba061e",
+      "browser": "26.5",
+      "arms": [
+       "v13-d",
+       "v13-c",
+       "v13-b",
+       "v13-a",
+       "v12"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17"
+      },
+      "posesSHA256": "c3e33631a204e3922d663d3d4852ee050f819c70b6c1a51978604b262cbe97e5",
+      "phaseSHA256": "04eaefa54498103b9b58cb712e5af2968fd26c23dd342a3bcaa87e0898d1dc37"
+     },
+     "tape/SHA256SUMS": {
+      "bytes": 263,
+      "sha256": "5bc1fbdaf900180791d42e3863f75a778fdd7422ba044b80612782a4657fa5a0"
+     },
+     "tape/active-animation-phases.json.gz": {
+      "bytes": 773,
+      "sha256": "dae3c050be8a10c3fd47680b5af629256c76618673d261de8a2ff572ba39bd9b"
+     },
+     "tape/active-poses.json.gz": {
+      "bytes": 30823,
+      "sha256": "a8a21171e1b67e824b9dcad0a7160bcfa3033413e7aea0b35eb6e440e045902a"
+     },
+     "tape/stress.json": {
+      "bytes": 16209,
+      "sha256": "783b5333a014a509ce2bfca8f7228502f380e22fe834e7897654a470edc52cf4"
+     }
+    }
+   },
+   {
+    "id": 14749579072,
+    "name": "mobility-v13-performance-stress-390-forward.zip",
+    "bytes": 7713,
+    "sha256": "e92ef78576066f8c0ec8cff724ba0d43d622b80d1c587d3c837cff402a8ee0a0",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/artifacts/14749579072",
+    "contents": {
+     "stress-390-forward.json": {
+      "bytes": 61538,
+      "sha256": "f04a536277478bc01e428572f8d5292365a1d3abbd50332f0676050ee98924fc",
+      "browser": "26.5",
+      "arms": [
+       "v12",
+       "v13-a",
+       "v13-b",
+       "v13-c",
+       "v13-d"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a"
+      },
+      "posesSHA256": "04117a2701c96d137d8767b3d2954797e8370c29384193cfe8737add2f7f4e74",
+      "phaseSHA256": "7f5046b758b88e0f2389d72f4e190744f243995bbdc347a137373cca81efd42b"
+     }
+    }
+   },
+   {
+    "id": 14750097298,
+    "name": "mobility-v13-performance-stress-390-reverse.zip",
+    "bytes": 7855,
+    "sha256": "55cc0daac47aa9dc40fa8505dadbacbc94ae537ef657695bf181beed9caf053b",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/artifacts/14750097298",
+    "contents": {
+     "stress-390-reverse.json": {
+      "bytes": 61538,
+      "sha256": "6b4fa1cdffec4bb49a845d260d1bc4d4bb47b1b253c2f2a773942d0c02cf4965",
+      "browser": "26.5",
+      "arms": [
+       "v13-d",
+       "v13-c",
+       "v13-b",
+       "v13-a",
+       "v12"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17"
+      },
+      "posesSHA256": "04117a2701c96d137d8767b3d2954797e8370c29384193cfe8737add2f7f4e74",
+      "phaseSHA256": "7f5046b758b88e0f2389d72f4e190744f243995bbdc347a137373cca81efd42b"
+     }
+    }
+   },
+   {
+    "id": 14749367987,
+    "name": "mobility-v13-performance-touch-320-forward.zip",
+    "bytes": 2428,
+    "sha256": "ce051b9f7a31f457775d4bf7a6db2dfe9ca02186521fc8762fab96f9e81d6147",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/artifacts/14749367987",
+    "contents": {
+     "touch-320-forward.json": {
+      "bytes": 17180,
+      "sha256": "3168307e38f35d1e905afda1edbc7cefc4d19e55a7f8f26a51c976a22d407da3",
+      "browser": "26.5",
+      "arms": [
+       "v12",
+       "v13-a",
+       "v13-b",
+       "v13-c",
+       "v13-d"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a"
+      },
+      "touchControls": [
+       {
+        "key": "companion:cat_friend",
+        "start": [
+         180,
+         250
+        ],
+        "finish": [
+         198,
+         250
+        ]
+       },
+       {
+        "key": "companion:hamster",
+        "start": [
+         195,
+         486
+        ],
+        "finish": [
+         173,
+         486
+        ]
+       },
+       {
+        "key": "companion:bat",
+        "start": [
+         246,
+         246
+        ],
+        "finish": [
+         258,
+         258
+        ]
+       },
+       {
+        "key": "companion:punyu",
+        "start": [
+         141,
+         504
+        ],
+        "finish": [
+         141,
+         524
+        ]
+       },
+       {
+        "key": "companion:watcher",
+        "start": [
+         134,
+         266
+        ],
+        "finish": [
+         160,
+         260
+        ]
+       },
+       {
+        "key": "companion:rabbit_friend",
+        "start": [
+         235,
+         508
+        ],
+        "finish": [
+         219,
+         520
+        ]
+       },
+       {
+        "key": "companion:tanuki",
+        "start": [
+         143,
+         315
+        ],
+        "finish": [
+         161,
+         321
+        ]
+       },
+       {
+        "key": "companion:panda",
+        "start": [
+         98,
+         508
+        ],
+        "finish": [
+         80,
+         514
+        ]
+       },
+       {
+        "key": "companion:box",
+        "start": [
+         162,
+         275
+        ],
+        "finish": [
+         178,
+         281
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": 14750066324,
+    "name": "mobility-v13-performance-touch-320-reverse.zip",
+    "bytes": 2405,
+    "sha256": "d046920990d4ba4e66b30c391361b190a7b21d54e33ac58283329581483e4710",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/artifacts/14750066324",
+    "contents": {
+     "touch-320-reverse.json": {
+      "bytes": 17162,
+      "sha256": "552c69af05cf9e64e6e08b1b4e942f7805195b7d151d2c11e99bdf09a7e8698d",
+      "browser": "26.5",
+      "arms": [
+       "v13-d",
+       "v13-c",
+       "v13-b",
+       "v13-a",
+       "v12"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17"
+      },
+      "touchControls": [
+       {
+        "key": "companion:cat_friend",
+        "start": [
+         180,
+         250
+        ],
+        "finish": [
+         198,
+         250
+        ]
+       },
+       {
+        "key": "companion:hamster",
+        "start": [
+         195,
+         486
+        ],
+        "finish": [
+         173,
+         486
+        ]
+       },
+       {
+        "key": "companion:bat",
+        "start": [
+         246,
+         246
+        ],
+        "finish": [
+         258,
+         258
+        ]
+       },
+       {
+        "key": "companion:punyu",
+        "start": [
+         141,
+         504
+        ],
+        "finish": [
+         141,
+         524
+        ]
+       },
+       {
+        "key": "companion:watcher",
+        "start": [
+         134,
+         266
+        ],
+        "finish": [
+         160,
+         260
+        ]
+       },
+       {
+        "key": "companion:rabbit_friend",
+        "start": [
+         235,
+         508
+        ],
+        "finish": [
+         219,
+         520
+        ]
+       },
+       {
+        "key": "companion:tanuki",
+        "start": [
+         143,
+         315
+        ],
+        "finish": [
+         161,
+         321
+        ]
+       },
+       {
+        "key": "companion:panda",
+        "start": [
+         98,
+         508
+        ],
+        "finish": [
+         80,
+         514
+        ]
+       },
+       {
+        "key": "companion:box",
+        "start": [
+         162,
+         275
+        ],
+        "finish": [
+         178,
+         281
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": 14749488314,
+    "name": "mobility-v13-performance-touch-390-forward.zip",
+    "bytes": 2636,
+    "sha256": "48d049c69c31c92c08c29fa17a65f33c27bbd0fb865e9eaa406505013cce7b8d",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/artifacts/14749488314",
+    "contents": {
+     "touch-390-forward.json": {
+      "bytes": 18253,
+      "sha256": "575edc319af87f0c2439180af3663cb4c5759ff5e7ff48734d6295e44dba189a",
+      "browser": "26.5",
+      "arms": [
+       "v12",
+       "v13-a",
+       "v13-b",
+       "v13-c",
+       "v13-d"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a"
+      },
+      "touchControls": [
+       {
+        "key": "companion:cat_friend",
+        "start": [
+         218,
+         195
+        ],
+        "finish": [
+         236,
+         195
+        ]
+       },
+       {
+        "key": "companion:hamster",
+        "start": [
+         229,
+         431
+        ],
+        "finish": [
+         207,
+         431
+        ]
+       },
+       {
+        "key": "companion:bat",
+        "start": [
+         171,
+         217
+        ],
+        "finish": [
+         183,
+         229
+        ]
+       },
+       {
+        "key": "companion:punyu",
+        "start": [
+         174,
+         455
+        ],
+        "finish": [
+         174,
+         475
+        ]
+       },
+       {
+        "key": "companion:watcher",
+        "start": [
+         221,
+         235
+        ],
+        "finish": [
+         247,
+         229
+        ]
+       },
+       {
+        "key": "companion:rabbit_friend",
+        "start": [
+         51,
+         352
+        ],
+        "finish": [
+         35,
+         364
+        ]
+       },
+       {
+        "key": "companion:tanuki",
+        "start": [
+         174,
+         261
+        ],
+        "finish": [
+         192,
+         267
+        ]
+       },
+       {
+        "key": "companion:panda",
+        "start": [
+         283,
+         451
+        ],
+        "finish": [
+         265,
+         457
+        ]
+       },
+       {
+        "key": "companion:box",
+        "start": [
+         217,
+         269
+        ],
+        "finish": [
+         233,
+         275
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": 14749932868,
+    "name": "mobility-v13-performance-touch-390-reverse.zip",
+    "bytes": 2417,
+    "sha256": "6614fed0465c8623955eefa5074884cd90a73a9885fcbd44495f017f43447661",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/artifacts/14749932868",
+    "contents": {
+     "touch-390-reverse.json": {
+      "bytes": 17522,
+      "sha256": "fa642819cf2e33bfa9c0219111ecdebd07ccb0c42d8c205ecdf2870f28963c54",
+      "browser": "26.5",
+      "arms": [
+       "v13-d",
+       "v13-c",
+       "v13-b",
+       "v13-a",
+       "v12"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17"
+      },
+      "touchControls": [
+       {
+        "key": "companion:cat_friend",
+        "start": [
+         218,
+         236
+        ],
+        "finish": [
+         236,
+         236
+        ]
+       },
+       {
+        "key": "companion:hamster",
+        "start": [
+         228,
+         476
+        ],
+        "finish": [
+         206,
+         476
+        ]
+       },
+       {
+        "key": "companion:bat",
+        "start": [
+         171,
+         262
+        ],
+        "finish": [
+         183,
+         274
+        ]
+       },
+       {
+        "key": "companion:punyu",
+        "start": [
+         174,
+         500
+        ],
+        "finish": [
+         174,
+         520
+        ]
+       },
+       {
+        "key": "companion:watcher",
+        "start": [
+         221,
+         279
+        ],
+        "finish": [
+         247,
+         273
+        ]
+       },
+       {
+        "key": "companion:rabbit_friend",
+        "start": [
+         83,
+         360
+        ],
+        "finish": [
+         67,
+         372
+        ]
+       },
+       {
+        "key": "companion:tanuki",
+        "start": [
+         174,
+         302
+        ],
+        "finish": [
+         192,
+         308
+        ]
+       },
+       {
+        "key": "companion:panda",
+        "start": [
+         119,
+         297
+        ],
+        "finish": [
+         101,
+         303
+        ]
+       },
+       {
+        "key": "companion:box",
+        "start": [
+         228,
+         205
+        ],
+        "finish": [
+         244,
+         211
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": 14749412608,
+    "name": "mobility-v13-performance-trace-320-forward.zip",
+    "bytes": 197299,
+    "sha256": "916bb8e5732e4126886acfe60f7ba48bff2279880381d6cacc5c9dd6afbd6e45",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/artifacts/14749412608",
+    "contents": {
+     "trace-320-forward.json": {
+      "bytes": 779623,
+      "sha256": "0c7e65eaa93abc519a7a0ca4277cbb5bce180eb4ce9589f9ad4985bc430bbfa5",
+      "browser": "26.5",
+      "arms": [
+       "v12",
+       "v13-a",
+       "v13-b",
+       "v13-c",
+       "v13-d"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "telemetry-mobility-v10.js": "b2d04a892c48e50a5876f8d6e542dbdc851b20a6e108ea2925d0365a82a6a870",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a"
+      }
+     }
+    }
+   },
+   {
+    "id": 14749149486,
+    "name": "mobility-v13-performance-trace-320-reverse.zip",
+    "bytes": 199956,
+    "sha256": "7f8d12201dab293abbbb9d4e285fff81e6ee92675f83eb4296a49b0fbc163af5",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/artifacts/14749149486",
+    "contents": {
+     "trace-320-reverse.json": {
+      "bytes": 798344,
+      "sha256": "a9841317da3bab0b8505e1fd015d7db47aaac18d231f981de3131543c1aa4307",
+      "browser": "26.5",
+      "arms": [
+       "v13-d",
+       "v13-c",
+       "v13-b",
+       "v13-a",
+       "v12"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "telemetry-mobility-v10.js": "b2d04a892c48e50a5876f8d6e542dbdc851b20a6e108ea2925d0365a82a6a870",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17"
+      }
+     }
+    }
+   },
+   {
+    "id": 14749218683,
+    "name": "mobility-v13-performance-trace-390-forward.zip",
+    "bytes": 197034,
+    "sha256": "9696bd5cee54e43f82d56e3084e231ffb6865131dd53d6ab4da183f38c272002",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/artifacts/14749218683",
+    "contents": {
+     "trace-390-forward.json": {
+      "bytes": 781153,
+      "sha256": "e5cee356d3fb80af47a33882ae00846570e6229b360206fc8861dbeb360993da",
+      "browser": "26.5",
+      "arms": [
+       "v12",
+       "v13-a",
+       "v13-b",
+       "v13-c",
+       "v13-d"
+      ],
+      "sourceSHA256": {
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "telemetry-mobility-v10.js": "b2d04a892c48e50a5876f8d6e542dbdc851b20a6e108ea2925d0365a82a6a870",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a"
+      }
+     }
+    }
+   },
+   {
+    "id": 14750033181,
+    "name": "mobility-v13-performance-trace-390-reverse.zip",
+    "bytes": 194338,
+    "sha256": "cbf6b07a4dbcfb48a816b888cab25a75947bbfa14661a844646104dde120f9c2",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008630395/artifacts/14750033181",
+    "contents": {
+     "trace-390-reverse.json": {
+      "bytes": 763970,
+      "sha256": "5d14141f62f60df69cea2bb274540dba9d5487645ac653f7fae4d11bde0c99c5",
+      "browser": "26.5",
+      "arms": [
+       "v13-d",
+       "v13-c",
+       "v13-b",
+       "v13-a",
+       "v12"
+      ],
+      "sourceSHA256": {
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "telemetry-mobility-v10.js": "b2d04a892c48e50a5876f8d6e542dbdc851b20a6e108ea2925d0365a82a6a870",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17"
+      }
+     }
+    }
+   }
+  ]
+ },
+ {
+  "run": "45008878132",
+  "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008878132",
+  "commit": "6c8033c78069191ca3159540ceab4db498c9fae0",
+  "conclusion": "success",
+  "jobs": [
+   {
+    "name": "measure (forward, seat-375)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008878132/job/137166499288",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (reverse, seat-375)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008878132/job/137166499518",
+    "status": "completed",
+    "conclusion": "success"
+   }
+  ],
+  "purpose": "Initial 375px seat cost and trusted input on C and D, before the whole-segment obstacle guard.",
+  "archives": [
+   {
+    "id": 14749799689,
+    "name": "mobility-v13-performance-seat-375-forward.zip",
+    "bytes": 287281,
+    "sha256": "bf5a2d857337d65a843c30b5e2383ffbbeb147624a43e73a42a718879d8f876a",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008878132/artifacts/14749799689",
+    "contents": {
+     "live-375-forward.json": {
+      "bytes": 1016341,
+      "sha256": "4b5e55b3c3ff1838886add20d5a6f8cc8a0c61e51085f7a4a455e7104a40d103",
+      "browser": "26.5",
+      "arms": [
+       "v13-c",
+       "v13-d"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "telemetry-mobility-v10.js": "b2d04a892c48e50a5876f8d6e542dbdc851b20a6e108ea2925d0365a82a6a870",
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a"
+      }
+     },
+     "seating-375-forward.json": {
+      "bytes": 22241,
+      "sha256": "c62a30a25ba1d68ec775040b05358cfe15ff6dddb5aa852ecf1a492db78a2562",
+      "browser": "26.5",
+      "arms": [
+       "v13-c",
+       "v13-d"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a"
+      }
+     },
+     "touch-375-forward.json": {
+      "bytes": 8049,
+      "sha256": "e769392b95eb832d66c07523cf37379a1673aaac77039c4a04b2dbbf8a468f6b",
+      "browser": "26.5",
+      "arms": [
+       "v13-c",
+       "v13-d"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a"
+      },
+      "touchControls": [
+       {
+        "key": "companion:cat_friend",
+        "start": [
+         209,
+         242
+        ],
+        "finish": [
+         227,
+         242
+        ]
+       },
+       {
+        "key": "companion:hamster",
+        "start": [
+         223,
+         466
+        ],
+        "finish": [
+         201,
+         466
+        ]
+       },
+       {
+        "key": "companion:bat",
+        "start": [
+         160,
+         264
+        ],
+        "finish": [
+         172,
+         276
+        ]
+       },
+       {
+        "key": "companion:punyu",
+        "start": [
+         174,
+         489
+        ],
+        "finish": [
+         174,
+         509
+        ]
+       },
+       {
+        "key": "companion:watcher",
+        "start": [
+         211,
+         282
+        ],
+        "finish": [
+         237,
+         276
+        ]
+       },
+       {
+        "key": "companion:rabbit_friend",
+        "start": [
+         50,
+         411
+        ],
+        "finish": [
+         34,
+         423
+        ]
+       },
+       {
+        "key": "companion:tanuki",
+        "start": [
+         166,
+         307
+        ],
+        "finish": [
+         184,
+         313
+        ]
+       },
+       {
+        "key": "companion:panda",
+        "start": [
+         119,
+         494
+        ],
+        "finish": [
+         101,
+         500
+        ]
+       },
+       {
+        "key": "companion:box",
+        "start": [
+         41,
+         363
+        ],
+        "finish": [
+         57,
+         369
+        ]
+       }
+      ]
+     },
+     "trace-375-forward.json": {
+      "bytes": 303528,
+      "sha256": "9e3a19449e7dbb9bb3facc43f17f9229535e7e2bc86295768cad2144009b9e72",
+      "browser": "26.5",
+      "arms": [
+       "v13-c",
+       "v13-d"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "telemetry-mobility-v10.js": "b2d04a892c48e50a5876f8d6e542dbdc851b20a6e108ea2925d0365a82a6a870",
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a"
+      }
+     }
+    }
+   },
+   {
+    "id": 14750013804,
+    "name": "mobility-v13-performance-seat-375-reverse.zip",
+    "bytes": 285585,
+    "sha256": "8e23671341e8dd38a7637ef6b0f6a4e7e473c4826d7f1ec1ae6883f672042b17",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45008878132/artifacts/14750013804",
+    "contents": {
+     "seating-375-reverse.json": {
+      "bytes": 22233,
+      "sha256": "bd950ca6e9dee4df781aa6c892bccbae4940ae0d79fc8243de5f079282a766b2",
+      "browser": "26.5",
+      "arms": [
+       "v13-d",
+       "v13-c"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780"
+      }
+     },
+     "live-375-reverse.json": {
+      "bytes": 1015536,
+      "sha256": "7c0f6a60e90bf917a531f09544516d93eeca15c0d5ecc9a34b4a69b5a3ef7961",
+      "browser": "26.5",
+      "arms": [
+       "v13-d",
+       "v13-c"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "telemetry-mobility-v10.js": "b2d04a892c48e50a5876f8d6e542dbdc851b20a6e108ea2925d0365a82a6a870",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780"
+      }
+     },
+     "touch-375-reverse.json": {
+      "bytes": 8041,
+      "sha256": "83becbac128ee4ab2adcc4072fafea675e8d3ef58098fe39342ff8c1fd005e1f",
+      "browser": "26.5",
+      "arms": [
+       "v13-d",
+       "v13-c"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780"
+      },
+      "touchControls": [
+       {
+        "key": "companion:cat_friend",
+        "start": [
+         209,
+         242
+        ],
+        "finish": [
+         227,
+         242
+        ]
+       },
+       {
+        "key": "companion:hamster",
+        "start": [
+         223,
+         466
+        ],
+        "finish": [
+         201,
+         466
+        ]
+       },
+       {
+        "key": "companion:bat",
+        "start": [
+         160,
+         264
+        ],
+        "finish": [
+         172,
+         276
+        ]
+       },
+       {
+        "key": "companion:punyu",
+        "start": [
+         174,
+         489
+        ],
+        "finish": [
+         174,
+         509
+        ]
+       },
+       {
+        "key": "companion:watcher",
+        "start": [
+         211,
+         282
+        ],
+        "finish": [
+         237,
+         276
+        ]
+       },
+       {
+        "key": "companion:rabbit_friend",
+        "start": [
+         50,
+         411
+        ],
+        "finish": [
+         34,
+         423
+        ]
+       },
+       {
+        "key": "companion:tanuki",
+        "start": [
+         166,
+         307
+        ],
+        "finish": [
+         184,
+         313
+        ]
+       },
+       {
+        "key": "companion:panda",
+        "start": [
+         119,
+         494
+        ],
+        "finish": [
+         101,
+         500
+        ]
+       },
+       {
+        "key": "companion:box",
+        "start": [
+         41,
+         363
+        ],
+        "finish": [
+         57,
+         369
+        ]
+       }
+      ]
+     },
+     "trace-375-reverse.json": {
+      "bytes": 308365,
+      "sha256": "7ba2646e6f5e82a17c9e05c5805ec8f21d9813cee416da8d5565115bb9de6779",
+      "browser": "26.5",
+      "arms": [
+       "v13-d",
+       "v13-c"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "telemetry-mobility-v10.js": "b2d04a892c48e50a5876f8d6e542dbdc851b20a6e108ea2925d0365a82a6a870",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780"
+      }
+     }
+    }
+   }
+  ]
+ },
+ {
+  "run": "45009396848",
+  "url": "https://github.com/Naoto214/naotocchi/actions/runs/45009396848",
+  "commit": "50924216e502ad978516f4bec78d86604c1d7a43",
+  "conclusion": "success",
+  "jobs": [
+   {
+    "name": "measure (forward, stress-320)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45009396848/job/137168130453",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (reverse, fixed-320)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45009396848/job/137168130662",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (forward, fixed-320)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45009396848/job/137168130752",
+    "status": "completed",
+    "conclusion": "success"
+   },
+   {
+    "name": "measure (reverse, stress-320)",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45009396848/job/137168130777",
+    "status": "completed",
+    "conclusion": "success"
+   }
+  ],
+  "purpose": "320px input correction on the initial terrain. Stress used the same pinned pose and phase tapes in both orders. The unpinned natural source selected 200 clips (167 resident-frame movements) in forward and 600 (175 movements) in reverse; each was shared within its own order. Final cross-order measurements use the single published 600-clip source.",
+  "archives": [
+   {
+    "id": 14749538360,
+    "name": "mobility-v13-performance-fixed-320-forward.zip",
+    "bytes": 27449,
+    "sha256": "d19810e94eee191ddf55a3deace2fd01ecbfe9f5e2757280d29b58b910d3e48d",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45009396848/artifacts/14749538360",
+    "contents": {
+     "fixed-320-forward.json": {
+      "bytes": 59703,
+      "sha256": "d9272b266765db893828d753173cfaba34570f47d99f3b7529e101336edbb5b0",
+      "browser": "26.5",
+      "arms": [
+       "v12",
+       "v13-a",
+       "v13-b",
+       "v13-c",
+       "v13-d"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a"
+      },
+      "posesSHA256": "ab11422d43b9f0e185af86df0ccfbe75c1d29703a7f92886e0d7cdf36b4dcd50",
+      "phaseSHA256": "e84d34d66a08b0312545e56d7e806f538c8b06c1df58f03e35c0e7d19d57c199"
+     },
+     "tape/active-animation-phases.json.gz": {
+      "bytes": 574,
+      "sha256": "173e908bdbc9441abf0417fdeb9e3885eabaefd81bd7cc8e8ad456e9de353a19"
+     },
+     "tape/SHA256SUMS": {
+      "bytes": 262,
+      "sha256": "73bb0ba5f7d04504e2e6ead6daa874145ba2f503b52f3605a4cf77325b798d8e"
+     },
+     "tape/active-poses.json.gz": {
+      "bytes": 16175,
+      "sha256": "b432cdf7f63b2c5bba74994ea47581967f83345e420c8baf32f3e533f5baed21"
+     },
+     "tape/fixed.json": {
+      "bytes": 13706,
+      "sha256": "90eae356245c85d20bc9f6841f768f0c9025e72a8c5b9a7692d55b095525faa0"
+     }
+    }
+   },
+   {
+    "id": 14749189538,
+    "name": "mobility-v13-performance-fixed-320-reverse.zip",
+    "bytes": 26573,
+    "sha256": "3c044c6ac2922e22befc6de735362a39fccb1996e2475a33946e7fdc1d75a528",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45009396848/artifacts/14749189538",
+    "contents": {
+     "fixed-320-reverse.json": {
+      "bytes": 60214,
+      "sha256": "a581e0ccbc101deb72aeb152c1d11438a46ef55ea453e4858773e6d78aa8e822",
+      "browser": "26.5",
+      "arms": [
+       "v13-d",
+       "v13-c",
+       "v13-b",
+       "v13-a",
+       "v12"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17"
+      },
+      "posesSHA256": "de098130f814c7a6b4d37d101314940a4fbfe6eab746d90d74b5c3ccf5d60028",
+      "phaseSHA256": "91b2e4a0bd7b470d5a1e97c04b14d795bd2f53655e59a586b7997f22f56c9dde"
+     },
+     "tape/SHA256SUMS": {
+      "bytes": 262,
+      "sha256": "76faf8fa649ab00481b8193e2fa250a9d44fa799a204be9386d7f153401dc5a2"
+     },
+     "tape/active-animation-phases.json.gz": {
+      "bytes": 460,
+      "sha256": "11682688bb43d327e5fb3535089bbd8f3ffe9c1808074751656464b07486f210"
+     },
+     "tape/active-poses.json.gz": {
+      "bytes": 15738,
+      "sha256": "9e5dbf43f86072467b02e79eddf13eafff1b21abb1e358a0e65aebfe084ef4a2"
+     },
+     "tape/fixed.json": {
+      "bytes": 14773,
+      "sha256": "397ece07671ee4ecbe1eab9407b4f58d59020b325b844e74ee81392b48f3878c"
+     }
+    }
+   },
+   {
+    "id": 14750485152,
+    "name": "mobility-v13-performance-stress-320-forward.zip",
+    "bytes": 43725,
+    "sha256": "87d1948d57a0573d271455190a189ad9bc5c5f56a21e0a69324169e9c000ad99",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45009396848/artifacts/14750485152",
+    "contents": {
+     "stress-320-forward.json": {
+      "bytes": 59993,
+      "sha256": "d60d4971640402560f8d732a62179f1bb529809a2643f99c734e7969188d5add",
+      "browser": "26.5",
+      "arms": [
+       "v12",
+       "v13-a",
+       "v13-b",
+       "v13-c",
+       "v13-d"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a"
+      },
+      "posesSHA256": "c3e33631a204e3922d663d3d4852ee050f819c70b6c1a51978604b262cbe97e5",
+      "phaseSHA256": "04eaefa54498103b9b58cb712e5af2968fd26c23dd342a3bcaa87e0898d1dc37"
+     },
+     "tape/SHA256SUMS": {
+      "bytes": 263,
+      "sha256": "ae5f864137787e10991d4f57b26e4c4c78ff4ddb0deca1d043d5d4d563a703df"
+     },
+     "tape/active-animation-phases.json.gz": {
+      "bytes": 773,
+      "sha256": "dae3c050be8a10c3fd47680b5af629256c76618673d261de8a2ff572ba39bd9b"
+     },
+     "tape/active-poses.json.gz": {
+      "bytes": 30823,
+      "sha256": "a8a21171e1b67e824b9dcad0a7160bcfa3033413e7aea0b35eb6e440e045902a"
+     },
+     "tape/stress.json": {
+      "bytes": 16011,
+      "sha256": "d57c0618aed42785048496066cbb14ed3773027f7ad611ac898a3a947581bc6c"
+     }
+    }
+   },
+   {
+    "id": 14749689445,
+    "name": "mobility-v13-performance-stress-320-reverse.zip",
+    "bytes": 43700,
+    "sha256": "71966715ecdc6f995d6530383387ffcb7388f321fd4b5ee65b15db67f20f5004",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/45009396848/artifacts/14749689445",
+    "contents": {
+     "stress-320-reverse.json": {
+      "bytes": 59981,
+      "sha256": "0971587b820cc9ed9ed7ab53d1bfa00c92637ce061e418a3639444013288a9df",
+      "browser": "26.5",
+      "arms": [
+       "v13-d",
+       "v13-c",
+       "v13-b",
+       "v13-a",
+       "v12"
+      ],
+      "sourceSHA256": {
+       "home-production-model-mobility-v13-d.js": "8a64ae1b7e18bf12e863d2b2508bed2357f2207e9d7b152a154be246b37487c3",
+       "home-production-diorama-mobility-v13-d.js": "c66cc1e487551859b9b10f288ad6502bd46567bcf5b6c6b01d0a19b23b9b4c0f",
+       "home-production-world-v13-d-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-d.html": "bb9484be551349324302747bd4d855f0da0591e09f5cb4688e50ad2635198f4a",
+       "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+       "home-production-model-mobility-v13-c.js": "f3edc161953a97c7b53e5ebc963df6c23a2d15faf049b9c942ba433b54dada42",
+       "home-production-diorama-mobility-v13-c.js": "dc05a683afa58e55b11cf3c69e0060ad25596015ce15d72dd677cd1ac8ef1560",
+       "home-production-world-v13-c-mobility.mjs": "238a3cde656becb9c26bba5a812dd8a7a2e5613fd821c6ed293e7d74b21fe2fa",
+       "mobility-v13-c.html": "69917ceb5dc6c3ca49530724ab73ea33552fcbbcc0dea67a95d0b7331f9d7780",
+       "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+       "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+       "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+       "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+       "home-production-model-mobility-v13-a.js": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+       "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+       "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+       "mobility-v13-a.html": "57c65f0abc5b2bb34317047f88e8202110b5a96e6164f93276af5847065e2a82",
+       "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6",
+       "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+       "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17"
+      },
+      "posesSHA256": "c3e33631a204e3922d663d3d4852ee050f819c70b6c1a51978604b262cbe97e5",
+      "phaseSHA256": "04eaefa54498103b9b58cb712e5af2968fd26c23dd342a3bcaa87e0898d1dc37"
+     },
+     "tape/SHA256SUMS": {
+      "bytes": 263,
+      "sha256": "ae5f864137787e10991d4f57b26e4c4c78ff4ddb0deca1d043d5d4d563a703df"
+     },
+     "tape/active-animation-phases.json.gz": {
+      "bytes": 773,
+      "sha256": "dae3c050be8a10c3fd47680b5af629256c76618673d261de8a2ff572ba39bd9b"
+     },
+     "tape/active-poses.json.gz": {
+      "bytes": 30823,
+      "sha256": "a8a21171e1b67e824b9dcad0a7160bcfa3033413e7aea0b35eb6e440e045902a"
+     },
+     "tape/stress.json": {
+      "bytes": 16011,
+      "sha256": "d57c0618aed42785048496066cbb14ed3773027f7ad611ac898a3a947581bc6c"
+     }
+    }
+   }
+  ]
+ }
+]

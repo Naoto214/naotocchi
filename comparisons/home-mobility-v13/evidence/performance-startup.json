@@ -1,0 +1,170 @@
+{
+  "kind": "startup diagnostic on a shared Linux host under concurrent browser load",
+  "viewportCSS": [
+    320,
+    792
+  ],
+  "dpr": 2,
+  "forestResidents": 28,
+  "independentFromCIFrameSamples": true,
+  "method": "Observe unchanged cast-finish checkPresentation and the genuine trialController.presentation while polling the public ready flag; log fits every 30s after DOMContentLoaded. Navigation-relative times include the load phase. No gate or clock overrides.",
+  "rows": [
+    {
+      "arm": "v13-b",
+      "observations": [
+        {
+          "nowMs": 81083,
+          "loadEventEndMs": 50586,
+          "documentState": "complete",
+          "hidden": false,
+          "ready": false,
+          "pendingRequests": 0,
+          "pendingFit": false,
+          "seatedNavigationMatches": true,
+          "controllerSample": null,
+          "backgroundPaintRect": null,
+          "fitAvailable": false,
+          "visibleRows": 28,
+          "nativeRegion": "forest",
+          "projectionRevision": 4,
+          "missingShadows": 0
+        },
+        {
+          "nowMs": 111235,
+          "loadEventEndMs": 50586,
+          "documentState": "complete",
+          "hidden": false,
+          "ready": false,
+          "pendingRequests": 0,
+          "pendingFit": false,
+          "seatedNavigationMatches": true,
+          "controllerSample": null,
+          "backgroundPaintRect": null,
+          "fitAvailable": false,
+          "visibleRows": 28,
+          "nativeRegion": "forest",
+          "projectionRevision": 4,
+          "missingShadows": 0
+        },
+        {
+          "nowMs": 141490,
+          "loadEventEndMs": 50586,
+          "documentState": "complete",
+          "hidden": false,
+          "ready": false,
+          "pendingRequests": 0,
+          "pendingFit": true,
+          "seatedNavigationMatches": false,
+          "controllerSample": null,
+          "backgroundPaintRect": {
+            "left": 0,
+            "top": 122.80000000000001,
+            "width": 320,
+            "height": 480
+          },
+          "fitAvailable": true,
+          "visibleRows": 28,
+          "nativeRegion": "forest",
+          "projectionRevision": 5,
+          "missingShadows": 0
+        },
+        {
+          "nowMs": 171766,
+          "loadEventEndMs": 50586,
+          "documentState": "complete",
+          "hidden": false,
+          "ready": false,
+          "pendingRequests": 0,
+          "pendingFit": true,
+          "seatedNavigationMatches": false,
+          "controllerSample": null,
+          "backgroundPaintRect": {
+            "left": 0,
+            "top": 122.80000000000001,
+            "width": 320,
+            "height": 480
+          },
+          "fitAvailable": true,
+          "visibleRows": 28,
+          "nativeRegion": "forest",
+          "projectionRevision": 6,
+          "missingShadows": 0
+        }
+      ],
+      "readyObservedMs": 181344,
+      "assets": {
+        "home-production-model-mobility-v13-b.js": "243c7b598552ae3ff09de073bf32cf345b7472ee8f58dd99a724189f85fbfc1a",
+        "home-production-diorama-mobility-v13-b.js": "5cddc45b8166703559b9f3209565b802c887e7e1da220df076e6c5892cdae102",
+        "home-production-world-v13-b-mobility.mjs": "e3b1faab4631f7460b4792b55b3ec03a5ad6c7513d55b16ac97e5921dfd891af",
+        "mobility-v13-b.html": "244158fc0c570b71fdbb8be84463f2f9bf8ddb5178f90dae3b1e47d80de1dea0",
+        "home-visible-ground-navigation-v13.mjs": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538"
+      }
+    },
+    {
+      "arm": "v12",
+      "observations": [
+        {
+          "nowMs": 48347,
+          "loadEventEndMs": 18268,
+          "documentState": "complete",
+          "hidden": false,
+          "ready": false,
+          "pendingRequests": 0,
+          "pendingFit": true,
+          "seatedNavigationMatches": false,
+          "controllerSample": null,
+          "backgroundPaintRect": null,
+          "fitAvailable": true,
+          "visibleRows": 28,
+          "nativeRegion": "forest",
+          "projectionRevision": 3,
+          "missingShadows": 0
+        },
+        {
+          "nowMs": 78425,
+          "loadEventEndMs": 18268,
+          "documentState": "complete",
+          "hidden": false,
+          "ready": false,
+          "pendingRequests": 0,
+          "pendingFit": true,
+          "seatedNavigationMatches": false,
+          "controllerSample": null,
+          "backgroundPaintRect": null,
+          "fitAvailable": true,
+          "visibleRows": 28,
+          "nativeRegion": "forest",
+          "projectionRevision": 3,
+          "missingShadows": 0
+        },
+        {
+          "nowMs": 109158,
+          "loadEventEndMs": 18268,
+          "documentState": "complete",
+          "hidden": false,
+          "ready": false,
+          "pendingRequests": 0,
+          "pendingFit": false,
+          "seatedNavigationMatches": true,
+          "controllerSample": null,
+          "backgroundPaintRect": null,
+          "fitAvailable": true,
+          "visibleRows": 28,
+          "nativeRegion": "forest",
+          "projectionRevision": 4,
+          "missingShadows": 0
+        }
+      ],
+      "readyObservedMs": 129507,
+      "assets": {
+        "home-production-model-mobility-v12.js": "10c049d6003bf34f4733aa1d928bc7d6787811f4de5aeb89137ca9bd1bc8f378",
+        "home-production-diorama-mobility-v12.js": "1c6f6a4f0664647e244aa282c69231d2b5f37529166e50ca00d33de2a93f3611",
+        "home-production-world-v12-mobility.mjs": "51c00e3ddca88e28557323abdd5f4e1850c1b2e5df168a83d2b1151c773dddda",
+        "mobility-v12.html": "8c91af916abc2626fff8c82dbdac2e0f142bd76f4c74930bc05e6db326b21c17",
+        "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6"
+      }
+    }
+  ],
+  "runtimeSource": "ec99cfdd9a29a6b5b72247877d6789974adb244e",
+  "precedesFinalPaintedObstacleGuard": true
+}

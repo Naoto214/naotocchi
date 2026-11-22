@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>森の28体・10分間の記録｜なおとっち</title>
+<style>
+:root{color-scheme:light;font:16px/1.55 system-ui,sans-serif;color:#27372a;background:#f7f7ef}
+body{margin:0 auto;padding:1rem;max-width:1100px}a{color:#265839}h1{line-height:1.2;font-size:clamp(1.6rem,4.5vw,2.5rem);margin:.8rem 0}
+h2{font-size:1.15rem;margin:1.4rem 0 .35rem}p{margin:.45rem 0}label{display:inline-grid;grid-template-columns:minmax(0,1fr);gap:2px;max-width:100%;margin:.45rem 0}
+select{box-sizing:border-box;min-width:0;font:inherit;padding:.35rem;max-width:100%;background:#fff;border:1px solid #a5b49e;border-radius:.35rem}
+.scroll{overflow-x:auto;max-height:63vh;margin:.55rem 0 1rem}table{border-collapse:separate;border-spacing:0;background:white;width:100%;font-size:.9rem;font-variant-numeric:tabular-nums}
+th,td{padding:.32rem .48rem;white-space:nowrap;border-bottom:1px solid #d6ddce;text-align:right}
+th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:inherit}thead{position:sticky;top:0;z-index:2;background:#e2ead9}
+tr{background:white}tr:nth-child(even){background:#f4f6ef}button{font:inherit;text-align:left;border:none;background:none;color:#21563d;text-decoration:underline;cursor:pointer}
+.focus{padding:.7rem 1rem;border-inline-start:4px solid #547447;background:white}.muted{color:#48574c;font-size:.88rem}#sources{overflow-wrap:anywhere}
+</style>
+<main><a href="./index.html">← 本人限定比較へ</a>
+<h1>森の28体・10分間の記録</h1>
+<p>同じ家庭の前半と後半を比べます。住民名を選ぶと、その足元、退路、ドラッグの結果を確認できます。</p>
+<label>開始条件<select id="profile"></select></label>
+<label>比較案<select id="policy"></select></label>
+<p id="status" aria-live="polite">記録を読み込み中…</p>
+<p class="muted" id="clock"></p>
+<h2>条件をそろえた比較</h2>
+<div class="scroll"><table><thead><tr><th>比較案</th><th>1回以上</th><th>前後半とも</th><th>通常歩行</th><th>180秒超の不成立</th><th>曲がって本人到着</th></tr></thead><tbody id="overview"></tbody></table></div>
+<h2>住民ごとの歩行</h2><div class="scroll"><table><thead><tr><th>住民</th><th>前半</th><th>後半</th><th>総距離 px</th><th>経路成立/要求</th><th>最長不成立 秒</th><th>復帰率</th><th>譲った/受けた</th><th>ドラッグ到着/入力</th></tr></thead><tbody id="people"></tbody></table></div>
+<div class="focus"><label>足元を調べる住民<select id="person"></select></label><p id="foot"></p><p id="reach"></p><p id="input"></p></div>
+<p id="sources"></p>
+<p class="muted">本人の目的へ0.75pxを超えて近づき、直線変位8px以上の通常歩行を終えた回数。総距離は観測終了時までの足の全歩行で、道譲りも含みます。休息などの自発的待機と自律判断枠による待機で不成立時間を区切り、復帰率の分母から外します。ドラッグでは初期と終了時の各足で最初の入力を独立に再生しました。時間と距離の表示は小数1桁に丸めています。</p>
+</main>
+<script type="module">
+const get=id=>document.getElementById(id);
+const names={'v11-foot':'V11 足元のみ','v12':'V12 曲がる道譲りあり','v13-a':'A 現行の空間','v13-b':'B 歩行領域の最小拡張','v13-c':'C 通路の局所改善','v13-d':'D 地形と初期配置','v13-d-curve':'D＋曲がる道譲り'};
+const option=(value,label)=>new Option(label,value);
+const number=v=>Number(v).toFixed(1);
+function noteCell(parent,values){const tr=parent.insertRow();for(const value of values){const td=tr.insertCell();if(value instanceof Node)td.append(value);else td.textContent=value;}}
+let data,home,resident='companion:tanuki';
+function draw(){
+ const key=get('profile').value, policies=get('policy'), previous=policies.value||'v13-a';
+ const group=data.homes.filter(h=>h.profile===key);
+ policies.replaceChildren(...group.map(h=>option(h.policy,names[h.policy])));if(group.some(h=>h.policy===previous))policies.value=previous;
+ home=group.find(h=>h.policy===policies.value);const c=home.cell;
+ get('status').textContent='28体のうち、前後半とも通常歩行を完了した住民は'+c.both_halves+'体。合計'+c.walking_legs+'回。';
+ get('clock').textContent='実時間 '+number(c.wall_s)+'秒 ／ ゲーム内 '+number(c.model_s)+'秒 ／ 集計窓 600秒。';
+ get('overview').replaceChildren();
+ for(const h of group)noteCell(get('overview'),[names[h.policy],h.cell.own_once,h.cell.both_halves,h.cell.walking_legs,h.cell.blocked_above_180,h.cell.assisted_owner_normals]);
+ const list=get('person');list.replaceChildren();get('people').replaceChildren();
+ for(const r of home.people){
+  list.add(option(r.key,data.names[r.key]));const button=document.createElement('button');button.textContent=data.names[r.key];
+  button.onclick=()=>{list.value=r.key;resident=r.key;showPerson();};
+  noteCell(get('people'),[button,r.first_half,r.second_half,number(r.actual_walk_distance_css),r.plans+'/'+r.requests,number(r.longest_blocked_s),r.recovery_rate===''?'—':Math.round(100*r.recovery_rate)+'%',r.yields_performed+'/'+r.completed_help_received,r.drag_arrivals+'/'+r.drag_inputs]);
+ }
+ list.value=resident;showPerson();
+ const raw=document.createElement('a');raw.href='https://github.com/Naoto214/naotocchi/actions/runs/'+home.receipt.run+'/artifacts/'+home.receipt.artifact;raw.textContent='この家庭の原本ZIP（GitHub）';
+ const archive=document.createElement('a');archive.href='https://naotocchi-home-v13-records.kerzion214.chatgpt.site/#forest';archive.textContent='本人限定の保存原簿';
+ get('sources').replaceChildren(archive,' ／ ',raw);
+}
+function showPerson(){
+ const r=home.people.find(x=>x.key===get('person').value);if(!r)return;
+ const pos=a=>'('+a.map(number).join(', ')+')';
+ get('foot').textContent='足の地形座標　開幕 '+pos(r.start)+' → 終了 '+pos(r.end)+'。同期で動いた回数 '+r.sync_foot_changes+'。';
+ get('reach').textContent='3／8／16pxの安全方向数（48方向測定）　開幕 '+r.openRays.join('／')+' → 終了 '+r.endRays.join('／')+'。';
+ const result=(trusted,success)=>!trusted?'入力なし':success?'到着':'未到着';
+ get('input').textContent='本人のドラッグ　開幕 '+result(r.opening_trusted,r.opening_arrived)+' ／ 終了 '+result(r.aged_trusted,r.aged_arrived)+'。';
+}
+try{
+ const response=await fetch('./forest-summary.json');if(!response.ok)throw Error(response.status);data=await response.json();
+ for(const p of data.profiles){
+  const [w,seed,order,layout,rep]=p.split('-');get('profile').add(option(p,w+'px・乱数'+seed+'・'+(layout==='reference'?'旧調整席':'従来席')+(order==='0'?'':'・仲間順変更')+(rep==='1'?'':'・再試行')));
+ }
+ get('profile').onchange=draw;get('policy').onchange=draw;get('person').onchange=()=>{resident=get('person').value;showPerson();};draw();
+}catch(error){get('status').textContent='家庭の記録を読み込めませんでした。';}
+</script></html>

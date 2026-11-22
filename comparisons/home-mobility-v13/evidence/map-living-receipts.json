@@ -1,0 +1,384 @@
+{
+  "cases": 25,
+  "frames": 75,
+  "actorPoints": 2100,
+  "intermediateAxes": "opening dimensions, verified equal to recorded final dimensions for every resident",
+  "maxRoundingCss": 0.000688584025277643,
+  "records": [
+    {
+      "trial": "320-214-0-fixed-1-v13-a",
+      "run": 45008396005,
+      "arm": "a",
+      "archiveSHA": "146a9168a27e57bcebd0e844b6b5af84fbdd96b1767b597230733850f6801501",
+      "native": {
+        "home-production-world-v12-finish.mjs": "0008a3e0d27dd360dd31d8296fe9e9f5f3012f7f60085398aa992b734ca1c165",
+        "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6"
+      },
+      "modelSHA": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-320-28-living-fixed-a.json.gz",
+      "atlasRawSHA": "cdab47d21d3a9bc8fbdc0d85169ebaf7ad1132218a209b0e6be5678d9b48b046",
+      "maxCoordinateRoundingCss": 0.0006430643220248194
+    },
+    {
+      "trial": "320-214-0-fixed-1-v13-b",
+      "run": 45011128754,
+      "arm": "b",
+      "archiveSHA": "7cd05084815eecaee488676bee571208c96874cdf4aba7f2b8934cc9a4a7eb3b",
+      "native": {
+        "home-production-world-v13-b-finish.mjs": "c56b86ee462f2117dd2d5b4d06e8d0a12dfe3f272b8e857ac6ca0df5d0b92ae2",
+        "home-visible-ground-navigation-v13.mjs": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd"
+      },
+      "modelSHA": "f491dd08faffcdc4784492740c28c1bbbc861468b0f43999ece9a57bca6321b1",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-320-28-living-fixed-b.json.gz",
+      "atlasRawSHA": "8d364d1695d114c7decaced9739deafaab77f5037de5c8682d359f98d31c46bc",
+      "maxCoordinateRoundingCss": 0.0006430643220248194
+    },
+    {
+      "trial": "320-214-0-fixed-1-v13-c",
+      "run": 45011128754,
+      "arm": "c",
+      "archiveSHA": "cc59a42e0959cbc7abcc02ed7b3f85cdf06838d2957767c931b362427efac2c0",
+      "native": {
+        "home-production-world-v13-c-finish.mjs": "79393f110a44fc04d1bca098f67567015724a60e866954027f2edb028a4a31ea",
+        "home-visible-ground-navigation-v13.mjs": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd"
+      },
+      "modelSHA": "601ca0c2eded38d6f68e1b9abf60f1936c01aaa9d4826a1f76681686f4735a56",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-320-28-living-fixed-c.json.gz",
+      "atlasRawSHA": "1d895a9ec0b581db599adab985c2d8d014d07466cae4cb2459777081f3fb1f80",
+      "maxCoordinateRoundingCss": 0.0006430643220248194
+    },
+    {
+      "trial": "320-214-0-fixed-1-v13-d",
+      "run": 45011128754,
+      "arm": "d",
+      "archiveSHA": "14ee82342ae96aef8e13320d9472df3a06a9a29839ae18ac2e7d84afe355fa7e",
+      "native": {
+        "home-production-world-v13-d-finish.mjs": "79393f110a44fc04d1bca098f67567015724a60e866954027f2edb028a4a31ea",
+        "home-visible-ground-navigation-v13.mjs": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd"
+      },
+      "modelSHA": "87ed167c639b50b0309324918c649243edd067b170cbac117fa5f1c53203ad79",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-320-28-living-fixed-d.json.gz",
+      "atlasRawSHA": "f89a9ab70aaded7eaec26012ce8f2ee588fe369e290cc77fa53dea9a7654ada5",
+      "maxCoordinateRoundingCss": 0.0006576923750424585
+    },
+    {
+      "trial": "320-214-0-fixed-1-v13-d-curve",
+      "run": 45011128754,
+      "arm": "d-curve",
+      "archiveSHA": "6f1be2d01c588bde93f9455a6098e8b4d037403ee11f8239572bc7ce4b1e3bf4",
+      "native": {
+        "home-production-world-v13-d-finish.mjs": "79393f110a44fc04d1bca098f67567015724a60e866954027f2edb028a4a31ea",
+        "home-visible-ground-navigation-v13.mjs": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd"
+      },
+      "modelSHA": "6777353a2c7947da777196d8f63770869fc9f46278bc307862ab65a82df12d72",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-320-28-living-fixed-d-curve.json.gz",
+      "atlasRawSHA": "3e6a41b73fd983cf5e50e726b7f6cc0850c4cf116785c5962feca6058239de30",
+      "maxCoordinateRoundingCss": 0.0006430643220248194
+    },
+    {
+      "trial": "320-214-0-reference-1-v13-a",
+      "run": 45008396005,
+      "arm": "a",
+      "archiveSHA": "dce04d68981fc985e113ad021ad2f29a6d4de48890b51c87903d99002b76f2ba",
+      "native": {
+        "home-production-world-v12-finish.mjs": "0008a3e0d27dd360dd31d8296fe9e9f5f3012f7f60085398aa992b734ca1c165",
+        "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6"
+      },
+      "modelSHA": "c0ec5ba98d35d91c2a383a9d80508936dae578d93a95c1cdca3f95cd056f0241",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-320-28-living-reference-a.json.gz",
+      "atlasRawSHA": "17c77050bbf52dfebb926ec8ccbbe67e27911cf7400eb2402b904728b9e3e436",
+      "maxCoordinateRoundingCss": 0.0006430643220248194
+    },
+    {
+      "trial": "320-214-0-reference-1-v13-b",
+      "run": 45011128754,
+      "arm": "b",
+      "archiveSHA": "fadc5bb97d06adb8d14cc68e463beb21db6fe8da656e7ce99ea10fa6dec432b4",
+      "native": {
+        "home-production-world-v13-b-finish.mjs": "c56b86ee462f2117dd2d5b4d06e8d0a12dfe3f272b8e857ac6ca0df5d0b92ae2",
+        "home-visible-ground-navigation-v13.mjs": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd"
+      },
+      "modelSHA": "307721f6bc728789a29df814f79d33bcc0525c78f4be4faccfc8fe424afc45d9",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-320-28-living-reference-b.json.gz",
+      "atlasRawSHA": "c91bbe7217e18548b3253b99b972fb66a742608d7cb517bc1e9b3dcd1f324383",
+      "maxCoordinateRoundingCss": 0.0006430643220248194
+    },
+    {
+      "trial": "320-214-0-reference-1-v13-c",
+      "run": 45011128754,
+      "arm": "c",
+      "archiveSHA": "d6a531fec86a681fc3e84d36e2308bfdb0bc3f32166326efa5412218b7d3f1be",
+      "native": {
+        "home-production-world-v13-c-finish.mjs": "79393f110a44fc04d1bca098f67567015724a60e866954027f2edb028a4a31ea",
+        "home-visible-ground-navigation-v13.mjs": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd"
+      },
+      "modelSHA": "ece90da9e1dbab2ea2f76ce57dcaee200026477894b19758155dd2597ebe2447",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-320-28-living-reference-c.json.gz",
+      "atlasRawSHA": "795bd08a1f3de3a74f10208091f3100e3402cb5702f8c571b8b3ea764f523468",
+      "maxCoordinateRoundingCss": 0.0006611377737882028
+    },
+    {
+      "trial": "320-214-0-reference-1-v13-d",
+      "run": 45011128754,
+      "arm": "d",
+      "archiveSHA": "1f867f7a838b54adf1c089e32e7468e9404635658fb8b490a7e833fce2fd035f",
+      "native": {
+        "home-production-world-v13-d-finish.mjs": "79393f110a44fc04d1bca098f67567015724a60e866954027f2edb028a4a31ea",
+        "home-visible-ground-navigation-v13.mjs": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd"
+      },
+      "modelSHA": "bf88ffb2d405d4803f04e535e07cf197054071350a9b3780a998fb02e6e699a1",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-320-28-living-reference-d.json.gz",
+      "atlasRawSHA": "6e14a8cfdcad7d3605f88098f8d879fbcae9c6ed3e5e112b6e070ec5deffdf8e",
+      "maxCoordinateRoundingCss": 0.0006690276397490955
+    },
+    {
+      "trial": "320-214-0-reference-1-v13-d-curve",
+      "run": 45011128754,
+      "arm": "d-curve",
+      "archiveSHA": "11278d9aabea14df8d3843107047cf85c8217bb00665819a78ebe417eb6b5baf",
+      "native": {
+        "home-production-world-v13-d-finish.mjs": "79393f110a44fc04d1bca098f67567015724a60e866954027f2edb028a4a31ea",
+        "home-visible-ground-navigation-v13.mjs": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd"
+      },
+      "modelSHA": "5eb3434ca8103410a40e0349055e7dd713e26d36f3d4d974deefac0673f12b77",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-320-28-living-reference-d-curve.json.gz",
+      "atlasRawSHA": "88bc46b43e1f80653f876bc7b04678301cdd5306a4f08a888cdd211798e031dd",
+      "maxCoordinateRoundingCss": 0.0006726245502449855
+    },
+    {
+      "trial": "375-937-0-fixed-1-v13-a",
+      "run": 45008396005,
+      "arm": "a",
+      "archiveSHA": "2352cc6168eb42f2a2b888e5451f050e521e0c4880afd20aa07a1384e5fbb353",
+      "native": {
+        "home-production-world-v12-finish.mjs": "0008a3e0d27dd360dd31d8296fe9e9f5f3012f7f60085398aa992b734ca1c165",
+        "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6"
+      },
+      "modelSHA": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-375-28-living-fixed-a.json.gz",
+      "atlasRawSHA": "b133e931973950a5119510a566d425f6789ab39155328885716e0cc08e4b89ce",
+      "maxCoordinateRoundingCss": 0.0006633856780279865
+    },
+    {
+      "trial": "375-937-0-fixed-1-v13-b",
+      "run": 45011128754,
+      "arm": "b",
+      "archiveSHA": "f92845e6ca6cfcf5e3a6bbf9b2075a265eea4e1efd8d88fccc276f6c66c067d9",
+      "native": {
+        "home-production-world-v13-b-finish.mjs": "c56b86ee462f2117dd2d5b4d06e8d0a12dfe3f272b8e857ac6ca0df5d0b92ae2",
+        "home-visible-ground-navigation-v13.mjs": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd"
+      },
+      "modelSHA": "f491dd08faffcdc4784492740c28c1bbbc861468b0f43999ece9a57bca6321b1",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-375-28-living-fixed-b.json.gz",
+      "atlasRawSHA": "c4fc96ea7c099d6599932c6ebd1f86a02d9bdbd12a2e1981ac70357d1a99d5d4",
+      "maxCoordinateRoundingCss": 0.0006745052694504541
+    },
+    {
+      "trial": "375-937-0-fixed-1-v13-c",
+      "run": 45011128754,
+      "arm": "c",
+      "archiveSHA": "23f07e3c91be138de57618d3423409f9c0771584d0c9f2e85fe49b096885ae81",
+      "native": {
+        "home-production-world-v13-c-finish.mjs": "79393f110a44fc04d1bca098f67567015724a60e866954027f2edb028a4a31ea",
+        "home-visible-ground-navigation-v13.mjs": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd"
+      },
+      "modelSHA": "601ca0c2eded38d6f68e1b9abf60f1936c01aaa9d4826a1f76681686f4735a56",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-375-28-living-fixed-c.json.gz",
+      "atlasRawSHA": "238ecf1eb2d5985c8d06d09221c2272b06fca3364d87eca38b0969a9ccb09f23",
+      "maxCoordinateRoundingCss": 0.000636534233675709
+    },
+    {
+      "trial": "375-937-0-fixed-1-v13-d",
+      "run": 45011128754,
+      "arm": "d",
+      "archiveSHA": "2d4f7b4292b465d23f995f4d114729197323f260070fe5e8e9f3922797c2578b",
+      "native": {
+        "home-production-world-v13-d-finish.mjs": "79393f110a44fc04d1bca098f67567015724a60e866954027f2edb028a4a31ea",
+        "home-visible-ground-navigation-v13.mjs": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd"
+      },
+      "modelSHA": "87ed167c639b50b0309324918c649243edd067b170cbac117fa5f1c53203ad79",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-375-28-living-fixed-d.json.gz",
+      "atlasRawSHA": "20df69d29b7e2b3ea77cfb04a7d34397ff8eb09fc4e86af7531282eb0f6f904b",
+      "maxCoordinateRoundingCss": 0.0006495746123136651
+    },
+    {
+      "trial": "375-937-0-fixed-1-v13-d-curve",
+      "run": 45011128754,
+      "arm": "d-curve",
+      "archiveSHA": "a9b66cc962d0ceeefb3e944c559ee96dd77e5ac2c2efd993214ae164e274fdbe",
+      "native": {
+        "home-production-world-v13-d-finish.mjs": "79393f110a44fc04d1bca098f67567015724a60e866954027f2edb028a4a31ea",
+        "home-visible-ground-navigation-v13.mjs": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd"
+      },
+      "modelSHA": "6777353a2c7947da777196d8f63770869fc9f46278bc307862ab65a82df12d72",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-375-28-living-fixed-d-curve.json.gz",
+      "atlasRawSHA": "abb41b27d4fbc6d32d3225630738007180e4f97801ca5011c62f542670da13b5",
+      "maxCoordinateRoundingCss": 0.0006110274935989621
+    },
+    {
+      "trial": "390-214-0-fixed-1-v13-a",
+      "run": 45008396005,
+      "arm": "a",
+      "archiveSHA": "be3856082e9a396c056b275c87bd78e1444c3490353d20078210c2e3b11f9d4f",
+      "native": {
+        "home-production-world-v12-finish.mjs": "0008a3e0d27dd360dd31d8296fe9e9f5f3012f7f60085398aa992b734ca1c165",
+        "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6"
+      },
+      "modelSHA": "ec82dac4f41bc69aed7ebaf096a5e74eb336d073a57c2b7970e45be625d05937",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-390-28-living-fixed-a.json.gz",
+      "atlasRawSHA": "a89475bd19632d2e8e68ae80e2003721f35d42464df46284b9ce9287e1965a4a",
+      "maxCoordinateRoundingCss": 0.0006476917433946112
+    },
+    {
+      "trial": "390-214-0-fixed-1-v13-b",
+      "run": 45011128754,
+      "arm": "b",
+      "archiveSHA": "91f999d98f8b29e91e6f7d3752fb6761c4cd8961f5656c995866401b6a10be1c",
+      "native": {
+        "home-production-world-v13-b-finish.mjs": "c56b86ee462f2117dd2d5b4d06e8d0a12dfe3f272b8e857ac6ca0df5d0b92ae2",
+        "home-visible-ground-navigation-v13.mjs": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd"
+      },
+      "modelSHA": "f491dd08faffcdc4784492740c28c1bbbc861468b0f43999ece9a57bca6321b1",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-390-28-living-fixed-b.json.gz",
+      "atlasRawSHA": "faade45e08d9a9bf82407d618d9a9d362f17cfaf5446c3b83d4d94237965661d",
+      "maxCoordinateRoundingCss": 0.0006410710857133524
+    },
+    {
+      "trial": "390-214-0-fixed-1-v13-c",
+      "run": 45011128754,
+      "arm": "c",
+      "archiveSHA": "e35427c51f66e0e2db3d45db97954febae301ff8c5b3182a14e994bc0ee4945d",
+      "native": {
+        "home-production-world-v13-c-finish.mjs": "79393f110a44fc04d1bca098f67567015724a60e866954027f2edb028a4a31ea",
+        "home-visible-ground-navigation-v13.mjs": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd"
+      },
+      "modelSHA": "601ca0c2eded38d6f68e1b9abf60f1936c01aaa9d4826a1f76681686f4735a56",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-390-28-living-fixed-c.json.gz",
+      "atlasRawSHA": "bf04e04f8d8e0f4b418b2dac41e36952a0121551df0e810af349fa6fbb4e7ff0",
+      "maxCoordinateRoundingCss": 0.0006410710857133524
+    },
+    {
+      "trial": "390-214-0-fixed-1-v13-d",
+      "run": 45011128754,
+      "arm": "d",
+      "archiveSHA": "4ead912efe90fcf317059a987b3baa61c4014dd479ee19413b68e34fd8fae086",
+      "native": {
+        "home-production-world-v13-d-finish.mjs": "79393f110a44fc04d1bca098f67567015724a60e866954027f2edb028a4a31ea",
+        "home-visible-ground-navigation-v13.mjs": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd"
+      },
+      "modelSHA": "87ed167c639b50b0309324918c649243edd067b170cbac117fa5f1c53203ad79",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-390-28-living-fixed-d.json.gz",
+      "atlasRawSHA": "0c7a279cf4a4d262d60f8235c9807c1b3bd49bc5788cbc633653d90f11851f03",
+      "maxCoordinateRoundingCss": 0.0006410710857133524
+    },
+    {
+      "trial": "390-214-0-fixed-1-v13-d-curve",
+      "run": 45011128754,
+      "arm": "d-curve",
+      "archiveSHA": "98c507b26ecf815cb204610cafebf36514642d2616412e7025a21c380520d55d",
+      "native": {
+        "home-production-world-v13-d-finish.mjs": "79393f110a44fc04d1bca098f67567015724a60e866954027f2edb028a4a31ea",
+        "home-visible-ground-navigation-v13.mjs": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd"
+      },
+      "modelSHA": "6777353a2c7947da777196d8f63770869fc9f46278bc307862ab65a82df12d72",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-390-28-living-fixed-d-curve.json.gz",
+      "atlasRawSHA": "fd9d1c7417bfcd94557bd30d5d304945406f813ec9dbdb97a38aee85cbf02306",
+      "maxCoordinateRoundingCss": 0.0006410710857133524
+    },
+    {
+      "trial": "430-214-0-reference-1-v13-a",
+      "run": 45008396005,
+      "arm": "a",
+      "archiveSHA": "b63a0c172b1484372bae47636b9c99254f5a0fb833cf9d3530226a2cf1524bd8",
+      "native": {
+        "home-production-world-v12-finish.mjs": "0008a3e0d27dd360dd31d8296fe9e9f5f3012f7f60085398aa992b734ca1c165",
+        "home-visible-ground-navigation-finish.mjs": "881f4643a2c94b40c4e656d84f79a9ff38523cf19c79df06abec9c9a9ce16fc6"
+      },
+      "modelSHA": "c0ec5ba98d35d91c2a383a9d80508936dae578d93a95c1cdca3f95cd056f0241",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-430-28-living-reference-a.json.gz",
+      "atlasRawSHA": "02125bee13a4d2df69a21e4f5df03124fbec74c0bff9c986c977292ed53937af",
+      "maxCoordinateRoundingCss": 0.0006442462468167893
+    },
+    {
+      "trial": "430-214-0-reference-1-v13-b",
+      "run": 45011128754,
+      "arm": "b",
+      "archiveSHA": "3ed9b21037ef3b1f7ab263e881a79d9d2abe7724373b8cb74a40af962e0d0ed3",
+      "native": {
+        "home-production-world-v13-b-finish.mjs": "c56b86ee462f2117dd2d5b4d06e8d0a12dfe3f272b8e857ac6ca0df5d0b92ae2",
+        "home-visible-ground-navigation-v13.mjs": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd"
+      },
+      "modelSHA": "307721f6bc728789a29df814f79d33bcc0525c78f4be4faccfc8fe424afc45d9",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-430-28-living-reference-b.json.gz",
+      "atlasRawSHA": "a08acddd5fc1f8f9a9610890e6691bc1799174d28461003908f1cf724ba3d322",
+      "maxCoordinateRoundingCss": 0.0006345243487091043
+    },
+    {
+      "trial": "430-214-0-reference-1-v13-c",
+      "run": 45011128754,
+      "arm": "c",
+      "archiveSHA": "5983b7d9e422e491e0752a6fa84dce3de59355b65cb50996fe920e0afb4a1f7a",
+      "native": {
+        "home-production-world-v13-c-finish.mjs": "79393f110a44fc04d1bca098f67567015724a60e866954027f2edb028a4a31ea",
+        "home-visible-ground-navigation-v13.mjs": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd"
+      },
+      "modelSHA": "ece90da9e1dbab2ea2f76ce57dcaee200026477894b19758155dd2597ebe2447",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-430-28-living-reference-c.json.gz",
+      "atlasRawSHA": "9d38a841c8112aeab734f1f596afdc2b872de5b7ab2c6d8939370471357071af",
+      "maxCoordinateRoundingCss": 0.0006119702174346931
+    },
+    {
+      "trial": "430-214-0-reference-1-v13-d",
+      "run": 45011128754,
+      "arm": "d",
+      "archiveSHA": "475a01090e42830e782c25fac3d7e02703b84743304ea384306a26a6f15141cc",
+      "native": {
+        "home-production-world-v13-d-finish.mjs": "79393f110a44fc04d1bca098f67567015724a60e866954027f2edb028a4a31ea",
+        "home-visible-ground-navigation-v13.mjs": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd"
+      },
+      "modelSHA": "bf88ffb2d405d4803f04e535e07cf197054071350a9b3780a998fb02e6e699a1",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-430-28-living-reference-d.json.gz",
+      "atlasRawSHA": "c1a444328be7f10e53c2db3e13393190578440418734ad004597fb8f370eeae4",
+      "maxCoordinateRoundingCss": 0.000688584025277643
+    },
+    {
+      "trial": "430-214-0-reference-1-v13-d-curve",
+      "run": 45011128754,
+      "arm": "d-curve",
+      "archiveSHA": "5636d81bf7c88b6973fc0bfb78b329c1bbafb220ec838ae2bf3af7a0127c2203",
+      "native": {
+        "home-production-world-v13-d-finish.mjs": "79393f110a44fc04d1bca098f67567015724a60e866954027f2edb028a4a31ea",
+        "home-visible-ground-navigation-v13.mjs": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd"
+      },
+      "modelSHA": "5eb3434ca8103410a40e0349055e7dd713e26d36f3d4d974deefac0673f12b77",
+      "atlasGuard": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+      "atlasFile": "forest-430-28-living-reference-d-curve.json.gz",
+      "atlasRawSHA": "6b1ed992304dcd94749bce2e390fd66eb6da93dcc48841d09849610989392503",
+      "maxCoordinateRoundingCss": 0.0006207202185348456
+    }
+  ]
+}

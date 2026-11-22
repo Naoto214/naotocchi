@@ -1,0 +1,27 @@
+{
+  "engine": "Chromium",
+  "version": "156.0.8078.79",
+  "cases": [
+    {
+      "when": "opening",
+      "saveSHA256": "342df5c9f6e8a9e841f2f70cccf77eb2922acc9a38c508b2c7b88c31a8f8ff64",
+      "identicalRestoredActors": 28,
+      "companionsAndEquipmentEqual": true,
+      "maxRestoreCSS": 0.0
+    },
+    {
+      "when": "active",
+      "saveSHA256": "b299a39ecdfdd9f9247954e8bc2538feb2640dac970dc282195043d9b27bd570",
+      "identicalRestoredActors": 28,
+      "companionsAndEquipmentEqual": true,
+      "maxRestoreCSS": 4.382771319136662
+    },
+    {
+      "when": "parked",
+      "saveSHA256": "5b0d0e2c99b33f36e35b145b1e909cc53d762324f4697da63e4f39c13a27242b",
+      "identicalRestoredActors": 28,
+      "companionsAndEquipmentEqual": true,
+      "maxRestoreCSS": 28.999925600143847
+    }
+  ]
+}

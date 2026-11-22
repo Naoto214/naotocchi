@@ -1,0 +1,318 @@
+--- a/home-production-diorama.js
++++ b/home-production-diorama.js
+@@ -305,7 +305,7 @@
+     function ensureWorld(){
+       const M=getMeguru();if(!M||worldLoading||world||!doc.body)return;
+       worldLoading=true;const generation=++loadGeneration;worldHost=doc.createElement('div');worldHost.className='home-living-world';worldHost.setAttribute('aria-hidden','true');doc.body.appendChild(worldHost);
+-      import('./home-production-world.mjs?v=d824c818c676').then(mod=>{if(generation!==loadGeneration||dead||!enabled)return;
++      import('./home-production-world.mjs?v=f7243c5df4c9').then(mod=>{if(generation!==loadGeneration||dead||!enabled)return;
+         world=mod.createHomeWorld({M,container:worldHost,document:doc,window:env,
+           getGroundAnchor:()=>scene?displayRect(stage).top-displayRect(worldHost).top+scene.floor*.8:undefined,
+           onStatus:(mode,error)=>{stage.dataset.worldRenderer=mode;if(error)stage.dataset.worldError=error;else delete stage.dataset.worldError;doc.body.dataset.livingHome=mode;}});
+@@ -392,60 +392,43 @@
+       // Keep the face and body centre visible; true triangle masks still cover feet/edges.
+       return [.22,.5,.8].every(f=>[-.3,0,.3].every(x=>!polys.some(poly=>inside(p.x+a.w*x+stageRect.left-host.left,p.y-a.h*f+stageRect.top-host.top,poly))));
+     }
+-    function sync(){
+-      if(!enabled||!scene||pendingResidentPresentation)return;
+-      const list=getActors(),next=new Map();
+-      for(const a of list){
+-        if(!a.owner?.isConnected)continue;
+-        let row=rows.get(a.key);
+-        if(row&&row.owner!==a.owner){restore(row);row=null;}
+-        if(!row){const shadow=doc.createElement('span');shadow.className='diorama-shadow';overlay.appendChild(shadow);row={shadow,original:Object.fromEntries(['role','tabindex','aria-label','aria-pressed'].map(k=>[k,a.owner.getAttribute?.(k)??null]))};}
+-        Object.assign(row,a);a.owner.dataset.dioramaActor=a.key;a.owner.setAttribute('role','button');a.owner.setAttribute('tabindex','0');a.owner.setAttribute('aria-label',`${a.label||a.id}をえらぶ`);
+-        next.set(a.key,row);
+-      }
+-      for(const [key,row]of rows)if(!next.has(key)){restore(row);if(gesture?.key===key)clearGesture();}
+-      let newbornPoint=null;
+-      const newborn=list.find(a=>a.kind==='pet');
+-      if(newbornPending&&newborn&&scene.navigation){
+-        const r=displayRect(stage),pane=stage.closest?.('.screen-frame')?.getBoundingClientRect()||r;
+-        const x=(Math.max(r.left,pane.left)+Math.min(r.right,pane.right))/2-r.left;
+-        const y=(Math.max(r.top,pane.top)+Math.min(r.bottom,pane.bottom))/2-r.top;
+-        newbornPoint={x,y:y+newborn.h/2};
+-        // Depth scales about the foot. Include it when centring the painted body.
+-        for(let i=0;i<3;i++)newbornPoint.y=y+newborn.h*(scene.navigation.depthScale?.(newbornPoint)||1)/2;
+-      }
+-      // Only the five-resident landscape sizing candidate needs the same
+-      // open walking lane as a larger household.
+-      scene.fiveResidentExit=next.size===5&&doc.body?.dataset.homePopulationProfile==='v1'&&!!env.NaotocchiHomeViewport?.residentPresentation?.()?.landscape;
+-      rows=next;view.hidden=!enabled||rows.size<=5;model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint});
+-      if(newbornPoint)newbornPending=false;
+-      const previousEnvelope=stage.__homeResidentEnvelope;
+-      publishPaintEnvelope();
+-      // A newly rendered shape has no measured ink until the pass above. Seat
+-      // it against that ink before its first paint, not at the next UI update.
+-      const presentation=env.NaotocchiHomeViewport?.residentPresentation?.();
+-      // The envelope event schedules the camera fit on the next frame. New ink
+-      // with the old camera can falsely exclude an established foot (growth on
+-      // 320px screens). Wait for that fit, then apply the same safety bounds.
+-      if(presentation&&env.CustomEvent&&(!env.visualViewport||env.visualViewport.scale===1)&&previousEnvelope!==stage.__homeResidentEnvelope){pendingResidentPresentation=true;return;}
+-      if(presentation&&(doc.body?.dataset.homeDisplayVersion==='18'||doc.body?.dataset.homeDisplayVersion==='17'&&presentation.landscape)&&model.snapshot().some(a=>{const b=model.bounds(a);return a.x<b.left||a.x>b.right||a.y<b.top||a.y>b.bottom;})){
+-        model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint:null});
+-      }
+-      paint();
+-    }
+-    let residentEnvelopeKey='';
+-    function publishResidentEnvelope(){
+-      if(!['13','14','15','16','17','18'].includes(doc.body?.dataset.homeDisplayVersion))return;
+-      // Walking ground may grow independently of the approved camera fit. Keep
+-      // that fit on the original floor so adding a route cannot resize the cast.
+-      const layoutNavigation=scene.navigation?.layoutNavigation||scene.navigation;
+-      const v15=['15','16','17','18'].includes(doc.body.dataset.homeDisplayVersion),depthAware=v15||doc.body.dataset.homeDisplayVersion==='14',vertical=new Map(),fitVertical=new Map();
+-      const key=JSON.stringify([doc.body.dataset.homeDisplayVersion==='18'?env.NaotocchiHomeViewport?.residentPresentation?.()?.landscape:null,scene.width,scene.height,world?.stats().projectionRevision,...[...rows.values()].map(r=>[r.key,r.asset,r.w,r.h,r.extent])]);
+-      if(key===residentEnvelopeKey)return;residentEnvelopeKey=key;
+-      let left=Infinity,right=-Infinity,top=Infinity,bottom=-Infinity,above=0,below=0,side=0;
+-      for(const a of model.snapshot()){
+-        const row=rows.get(a.key);if(!row)continue;
+-        const base=modelAPI.bounds(a,{...scene,actorBounds:null}),b=doc.body.dataset.homeDisplayVersion==='18'?portraitWalkingBounds(base,scene,env.NaotocchiHomeViewport?.residentPresentation?.()?.landscape!==false):base,h=parseFloat(row.owner.style.height)||row.h,foot=row.y-(parseFloat(row.owner.style.top)||0);
++function measurementScope() {
++  const p=env.NaotocchiHomeViewport?.residentPresentation?.();
++  const frame=stage.closest?.('.screen-frame');
++  if (!p || !frame || !scene.navigation) return null;
++  const r=displayRect(stage),safe=frame.getBoundingClientRect();
++  return JSON.stringify([
++    scene.region,scene.width,scene.height,world?.stats().projectionRevision,
++    env.innerWidth,env.innerHeight,env.devicePixelRatio,env.visualViewport?.scale,
++    doc.body.dataset.homeDisplayVersion,doc.body.dataset.homeViewportVersion,
++    p.x,p.y,p.scaleX,p.scaleY,p.bodyScale,p.bodyScaleLimit,p.landscape,
++    p.safeLeft,p.safeRight,p.safeTop,p.safeBottom,
++    r.left,r.top,r.width,r.height,safe.left,safe.top,safe.right,safe.bottom
++  ]);
++}
++function bareCompanionShape(row) {
++  if (row.kind !== 'companion' || row.attachments?.length) return null;
++  const host=row.owner, visual=host.firstElementChild, image=visual?.firstElementChild;
++  if (host.dataset.companionId!==row.id || row.key!=='companion:'+row.id ||
++      host.children.length!==1 || !visual?.matches('.character-visual.character-companion.has-asset') ||
++      visual.children.length!==2 || !visual.lastElementChild.matches('.character-emoji-fallback') ||
++      !image?.matches('img.character-asset') || image.hasAttribute('srcset') || image.hasAttribute('sizes') ||
++      !row.asset || !image.getAttribute('src') || image.src!==new URL(row.asset,doc.baseURI).href ||
++      (image.currentSrc && image.currentSrc!==image.src)) return null;
++  const e=row.extent;
++  if (!e || e.left!==row.w/2 || e.right!==row.w/2 || e.top!==row.h || e.bottom!==0) return null;
++  const geometryStyle=el=>[el.className,...['width','height','object-fit','object-position','transform','scale','rotate']
++    .map(name=>el.style.getPropertyValue(name))];
++  return JSON.stringify([row.key,row.id,row.asset,image.src,row.x,row.y,row.w,row.h,row.originX,
++    host.style.width,host.style.height,host.style.left,host.style.top,geometryStyle(visual),geometryStyle(image)]);
++}
++function bodyChanged(old, next) {
++  const a=old.extent,b=next.extent;
++  return old.kind!==next.kind || old.id!==next.id || old.asset!==next.asset || old.w!==next.w ||
++    old.h!==next.h || old.x!==next.x || old.y!==next.y || old.originX!==next.originX ||
++    a?.top!==b?.top || a?.bottom!==b?.bottom || a?.left!==b?.left || a?.right!==b?.right;
++}
++    function measureCurrentBody(row,a,v15,h,foot){
+         let up=Math.max(a.extent?.top||a.h,a.h*1.08+a.w*.12),down=Math.max(8,a.extent?.bottom||0),wide=Math.max(a.extent?.left||a.w/2,a.extent?.right||a.w/2);
+         if(a.kind==='pet')for(const kind of Object.keys(accentCenters)){
+           const html=env.NaotocchiPetExpression?.accentFor?.(row.asset,kind)||'',m=html.match(/translate\(\s*[-\d.]+[ ,]+([-\d.]+)/);if(!m)continue;
+@@ -469,6 +452,92 @@
+         // independently while retaining the existing body/expression motion space.
+         const bodySide=Math.max(a.w/2,a.kind==='pet'?h*.55:0);
+         row.paintExtent={...paint,side:wide,left:Math.max(bodySide,a.extent?.left||0),right:Math.max(bodySide,a.extent?.right||0)};
++      return {up,down,wide,paint};
++    }
++
++    function sync(){
++      if(!enabled||!scene||pendingResidentPresentation)return;
++      const list=getActors(),next=new Map();
++      let scope; const currentScope=()=>scope===undefined?(scope=measurementScope()):scope;
++      for(const a of list){
++        if(!a.owner?.isConnected)continue;
++        let row=rows.get(a.key);
++        const replacing=!!row && row.owner!==a.owner;
++        const refresh=!!row && (replacing || bodyChanged(row,a));
++        let cached=null;
++        if (replacing && row.inkShape && row.paintExtent && row.inkNavigation===scene.navigation &&
++            row.inkScope!==null && row.inkScope===currentScope() && row.inkShape===bareCompanionShape(a)) {
++          const e=row.paintExtent;
++          if(e.up===Math.max(a.h+12,a.h*1.08+a.w*.12) && e.down===8 &&
++             e.left===a.w/2 && e.right===a.w/2 && e.side===a.w/2)
++            cached={paintExtent:e,inkShape:row.inkShape,inkScope:row.inkScope,inkNavigation:row.inkNavigation};
++        }
++        if(row&&row.owner!==a.owner){restore(row);row=null;}
++        if(!row){const shadow=doc.createElement('span');shadow.className='diorama-shadow';overlay.appendChild(shadow);row={shadow,original:Object.fromEntries(['role','tabindex','aria-label','aria-pressed'].map(k=>[k,a.owner.getAttribute?.(k)??null]))};}
++        Object.assign(row,a);a.owner.dataset.dioramaActor=a.key;a.owner.setAttribute('role','button');a.owner.setAttribute('tabindex','0');a.owner.setAttribute('aria-label',`${a.label||a.id}をえらぶ`);
++        if (cached) Object.assign(row,cached);
++        else if (refresh && stage.__homeResidentEnvelope) {
++          const adjusted={...a,extent:{...a.extent,top:Math.max(a.extent?.top||a.h,a.h)+12}};
++          measureCurrentBody(row,adjusted,['15','16','17','18'].includes(doc.body.dataset.homeDisplayVersion),
++            parseFloat(row.owner.style.height)||row.h,row.y-(parseFloat(row.owner.style.top)||0));
++          row.inkShape=bareCompanionShape(row);
++          row.inkScope=row.inkShape ? currentScope() : null;
++          row.inkNavigation=scene.navigation;
++        }
++        next.set(a.key,row);
++      }
++      for(const [key,row]of rows)if(!next.has(key)){restore(row);if(gesture?.key===key)clearGesture();}
++      let newbornPoint=null;
++      const newborn=list.find(a=>a.kind==='pet');
++      if(newbornPending&&newborn&&scene.navigation){
++        const r=displayRect(stage),pane=stage.closest?.('.screen-frame')?.getBoundingClientRect()||r;
++        const x=(Math.max(r.left,pane.left)+Math.min(r.right,pane.right))/2-r.left;
++        const y=(Math.max(r.top,pane.top)+Math.min(r.bottom,pane.bottom))/2-r.top;
++        newbornPoint={x,y:y+newborn.h/2};
++        // Depth scales about the foot. Include it when centring the painted body.
++        for(let i=0;i<3;i++)newbornPoint.y=y+newborn.h*(scene.navigation.depthScale?.(newbornPoint)||1)/2;
++      }
++      // Only the five-resident landscape sizing candidate needs the same
++      // open walking lane as a larger household.
++      scene.fiveResidentExit=next.size===5&&doc.body?.dataset.homePopulationProfile==='v1'&&!!env.NaotocchiHomeViewport?.residentPresentation?.()?.landscape;
++      rows=next;view.hidden=!enabled||rows.size<=5;model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament,asset,attachments,paintExtent})=>({key,kind,id,x,y,w,h,
++        reflowArt:asset,reflowInk:paintExtent,reflowGear:attachments?.length?attachments.map(n=>
++          n.getAttribute('src')||n.querySelector('img')?.getAttribute('src')||n.className).join('|'):'',extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint});
++      if(newbornPoint)newbornPending=false;
++      const previousEnvelope=stage.__homeResidentEnvelope;
++      publishPaintEnvelope();
++      // A newly rendered shape has no measured ink until the pass above. Seat
++      // it against that ink before its first paint, not at the next UI update.
++      const presentation=env.NaotocchiHomeViewport?.residentPresentation?.();
++      // The envelope event schedules the camera fit on the next frame. New ink
++      // with the old camera can falsely exclude an established foot (growth on
++      // 320px screens). Wait for that fit, then apply the same safety bounds.
++      if(presentation&&env.CustomEvent&&(!env.visualViewport||env.visualViewport.scale===1)&&previousEnvelope!==stage.__homeResidentEnvelope){pendingResidentPresentation=true;return;}
++      if(presentation&&(doc.body?.dataset.homeDisplayVersion==='18'||doc.body?.dataset.homeDisplayVersion==='17'&&presentation.landscape)&&model.snapshot().some(a=>{const b=model.bounds(a);return a.x<b.left||a.x>b.right||a.y<b.top||a.y>b.bottom;})){
++        model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament,asset,attachments,paintExtent})=>({key,kind,id,x,y,w,h,
++        reflowArt:asset,reflowInk:paintExtent,reflowGear:attachments?.length?attachments.map(n=>
++          n.getAttribute('src')||n.querySelector('img')?.getAttribute('src')||n.className).join('|'):'',extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint:null});
++      }
++      paint();
++    }
++    let residentEnvelopeKey='';
++    function publishResidentEnvelope(){
++      if(!['13','14','15','16','17','18'].includes(doc.body?.dataset.homeDisplayVersion))return;
++      // Walking ground may grow independently of the approved camera fit. Keep
++      // that fit on the original floor so adding a route cannot resize the cast.
++      const layoutNavigation=scene.navigation?.layoutNavigation||scene.navigation;
++      const v15=['15','16','17','18'].includes(doc.body.dataset.homeDisplayVersion),depthAware=v15||doc.body.dataset.homeDisplayVersion==='14',vertical=new Map(),fitVertical=new Map();
++      const key=JSON.stringify([doc.body.dataset.homeDisplayVersion==='18'?env.NaotocchiHomeViewport?.residentPresentation?.()?.landscape:null,scene.width,scene.height,world?.stats().projectionRevision,...[...rows.values()].map(r=>[r.key,r.asset,r.w,r.h,r.extent])]);
++      if(key===residentEnvelopeKey)return;residentEnvelopeKey=key;
++      let scope; const currentScope=()=>scope===undefined?(scope=measurementScope()):scope;
++      let left=Infinity,right=-Infinity,top=Infinity,bottom=-Infinity,above=0,below=0,side=0;
++      for(const a of model.snapshot()){
++        const row=rows.get(a.key);if(!row)continue;
++        const base=modelAPI.bounds(a,{...scene,actorBounds:null}),b=doc.body.dataset.homeDisplayVersion==='18'?portraitWalkingBounds(base,scene,env.NaotocchiHomeViewport?.residentPresentation?.()?.landscape!==false):base,h=parseFloat(row.owner.style.height)||row.h,foot=row.y-(parseFloat(row.owner.style.top)||0);
++        const {up,down,wide,paint}=measureCurrentBody(row,a,v15,h,foot);
++        row.inkShape=bareCompanionShape(row);
++        row.inkScope=row.inkShape ? currentScope() : null;
++        row.inkNavigation=scene.navigation;
+         let maxDepth=1;
+         // Camera reservation uses the original navigation grid, not added ground.
+         for(let y=b.top;y<=b.bottom+.001;y+=Math.min(8,Math.max(1,b.bottom-y))) {
+--- a/home-production-model.js
++++ b/home-production-model.js
+@@ -11,6 +11,15 @@
+   function limit(a,p,s){const b=bounds(a,s);return {x:clamp(p.x,b.left,b.right),y:clamp(p.y,b.top,b.bottom)};}
+   function clearance(a,p,b){return Math.hypot((p.x-b.x)/((a.w+b.w)*.5+10),(p.y-b.y)/((a.h+b.h)*.38+10));}
+   function separated(a,p,b){return clearance(a,p,b)>=1;}
++  // In unit-ellipse coordinates the squared distance is convex along a line.
++  // From inside, a nonnegative initial derivative guarantees continuous escape.
++  function contactSegmentSafe(from,to,peer,rx,ry){
++    const x=(from.x-peer.x)/rx,y=(from.y-peer.y)/ry;
++    const dx=(to.x-from.x)/rx,dy=(to.y-from.y)/ry,dot=x*dx+y*dy;
++    if(x*x+y*y<1)return dot>=0;
++    const t=clamp(-dot/(dx*dx+dy*dy||1),0,1);
++    return (x+t*dx)**2+(y+t*dy)**2>=1;
++  }
+   function privateRandom(){const bytes=new Uint32Array(1);if(typeof crypto!=='undefined'&&crypto.getRandomValues)crypto.getRandomValues(bytes);let seed=bytes[0]||Date.now()>>>0||1;return ()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return (seed>>>0)/4294967296;};}
+   function createModel({random=privateRandom(),onEvent=()=>{}}={}){
+     let actors=[],scene={},selected=null,clock=0,idleAt=5,paused=false;
+@@ -71,8 +80,55 @@
+       return best;
+     }
+     function cancel(){manualGoals.clear();for(const a of actors){if(a.target)a.target=null;a.route=[];a.activity='rest';a.visualReaction=undefined;a.visualTarget=null;a.nextAt=Math.min(a.nextAt||clock+2,clock+2);}idleAt=clock+2;}
++function assessReflow(list,next,old,people) {
++  const nav=next.navigation;
++  if(!nav?.reflowGeometry||nav.reflowGeometry!==old.navigation?.reflowGeometry ||
++      next.region!==old.region||old.width!==next.width||old.height!==next.height||
++      next.fiveResidentExit!==old.fiveResidentExit||!nav.intentAware||list.length!==people.length||
++      !people.length)return {held:false,reason:'geometry-or-population'};
++  const inBox=(p,b)=>p.x>=b.left-1e-7&&p.x<=b.right+1e-7&&p.y>=b.top-1e-7&&p.y<=b.bottom+1e-7;
++  const safe=(a,p)=>!next.visible||next.visible(p,a);
++  const clear=(a,from,to)=>people.every(peer=>peer===a||
++    contactSegmentSafe(from,to,peer,(a.w+peer.w)*.5+10,(a.h+peer.h)*.38+10));
++  let liveSegments=0;
++  for(let i=0;i<people.length;i++){
++    const a=people[i],row=list[i];
++    if(!a.reflowArt||a.reflowArt!==row.reflowArt||a.reflowGear!==row.reflowGear||
++      !a.reflowInk||!row.reflowInk||['up','down','left','right','side'].some(k=>a.reflowInk[k]!==row.reflowInk[k])||
++      a.key!==row.key||a.kind!==row.kind||a.id!==row.id||a.w!==row.w||a.h!==row.h||
++      ['left','right','top','bottom'].some(k=>a.extent?.[k]!==row.extent?.[k]))return {held:false,reason:'resident-geometry'};
++    const b=bounds(row,next);
++    if(!inBox(a,b)||!nav.valid(a)||!safe(row,a))return {held:false,reason:'invalid-foot'};
++    for(let j=0;j<i;j++)if(!separated(a,a,people[j]))return {held:false,reason:'existing-contact'};
++    if(a.target){
++      let from=a;
++      for(const to of [a.target,...(a.route||[])]){
++        if(++liveSegments>48||!inBox(to,b)||!clear(a,from,to)||!nav.segmentSafe(from,to,p=>safe(row,p)))
++          return {held:false,reason:'route-or-budget'};
++        from=to;
++      }
++    }
++  }
++  const lead=people.find(a=>a.kind==='pet');
++  if(!lead||!(people.length>5||next.fiveResidentExit))return {held:true,reason:'same-ground',liveSegments};
++  // The reserved corridor is an existing native layout requirement. Prefer
++  // its eight headings, then inspect intermediate headings at the same length.
++  const length=Math.max(40,lead.w*1.2);
++  let terrainChecks=0;
++  for(let offset=0;offset<12;offset++)for(let axis=0;axis<8;axis++){
++    const angle=(axis*12+offset)*Math.PI/48;
++    const end=limit(lead,{x:lead.x+length*Math.cos(angle),y:lead.y+length*Math.sin(angle)},next);
++    if(Math.hypot(end.x-lead.x,end.y-lead.y)<length*.8||!clear(lead,lead,end))continue;
++    if(++terrainChecks>24)return {held:false,reason:'corridor-budget'};
++    if(nav.segmentSafe(lead,end,p=>safe(lead,p)))return {held:true,reason:'reserved-exit-open',bearing:angle*180/Math.PI,liveSegments};
++  }
++  return {held:false,reason:'reserved-exit-closed'};
++}
+     function sync(list,next){
+-      const changed=next.region!==scene.region||next.width!==scene.width||next.height!==scene.height||next.navigation!==scene.navigation;
++      const distinctNavigation=next.navigation!==scene.navigation;
++      const reflowChoice=distinctNavigation && scene.navigation && next.navigation && next.region===scene.region ?
++        assessReflow(list,next,scene,actors):null;
++      const changed=next.region!==scene.region||next.width!==scene.width||next.height!==scene.height||(distinctNavigation&&!reflowChoice?.held);
+       const previousScene=scene,previousActors=actors;
+       const exitPolicyChanged=!!next.fiveResidentExit!==!!scene.fiveResidentExit;
+       // Returning from the preview's reserved lane uses the regular terrain
+--- a/home-production-world.mjs
++++ b/home-production-world.mjs
+@@ -3,6 +3,17 @@
+ import {ART_CANDIDATES,selectRecoveredScene} from './home-production-manifest.mjs';
+ import {artTransform,paintBackdrop,backdropComposition} from './home-production-transform.mjs';
+ import {createRecoveredNavigation} from './home-recovered-navigation.mjs?v=9a7e25d9fbe9';
++function projectionStamp(nav,spec,stage,stableGrid,addVisible,real,p,doc,win) {
++  const floor=[{x:0,z:0},{x:1,z:0},{x:0,z:1}].map(q=>nav.project(q));
++  const extra=[{x:0,y:0},{x:1,y:0},{x:0,y:1}].map(q=>nav.visibleGround?.point(q)||null);
++  const crop=r=>r?[r.left,r.top,r.width,r.height]:null;
++  return JSON.stringify([spec.region,spec.candidate,spec.ground,spec.exclude,spec.foreground,spec.depth,
++    stage.width,stage.height,stableGrid,!!addVisible,nav.visibleGround?.rule||null,floor,extra,crop(real),
++    crop(doc.querySelector('.screen-frame')?.getBoundingClientRect()),crop(doc.getElementById('castStage')?.getBoundingClientRect()),
++    p&&[p.x,p.y,p.scaleX,p.scaleY,p.bodyScale,p.safeLeft,p.safeTop,p.safeRight,p.safeBottom],
++    win.innerWidth,win.innerHeight,win.devicePixelRatio,win.visualViewport?.scale,
++    doc.body.dataset.homeDisplayVersion,doc.body.dataset.homeViewportVersion,doc.body.dataset.homeTinyOverview]);
++}
+ export function createHomeWorld(options){
+  const {container,document:doc,window:win=window,onStatus=()=>{}}=options;
+  const painting=doc.createElement('canvas');let paintingKey='';
+@@ -34,6 +45,7 @@
+   if(key!==navKey){
+    navKey=key;const legacy=createRecoveredNavigation(spec,host,stage,{stableGrid,expandCity:stableGrid});
+    nav=addVisible?extendVisibleGroundNavigation(legacy,{spec,stage:rect,presentation:p,cover}):legacy;
++   nav.reflowGeometry=projectionStamp(nav,spec,stage,stableGrid,addVisible,real,p,doc,win);
+    revision++;lastPaint='';
+   }
+   return nav;
+--- a/index.html
++++ b/index.html
+@@ -930,8 +930,8 @@
+   <script src="individuality-data.js?v=abff7c551e89"></script>
+   <script src="individuality.js?v=58f2b79761d4"></script>
+   <script src="minigame-reactions.js?v=b610f680bcab"></script>
+-  <script src="home-production-model.js?v=812fad81ddc5"></script>
+-  <script src="home-production-diorama.js?v=ecac051a6f90"></script>
++  <script src="home-production-model.js?v=b1fcb925dd97"></script>
++  <script src="home-production-diorama.js?v=50f2b32fddd6"></script>
+   <script src="script.js?v=1ff8ddd2f5e8"></script>
+   <script src="home-production-touch.js?v=df9353d84de4"></script>
+ <div id="individualityDialog" class="individual-dialog hidden" role="dialog" aria-modal="true" aria-labelledby="individualityTitle"><div class="individual-panel"><span id="individualitySpeaker" class="lane-speaker hidden"></span><h2 id="individualityTitle"></h2><p id="individualityText"></p><div id="individualityChoices"></div><button type="button" id="individualityLater">あとで</button></div></div>

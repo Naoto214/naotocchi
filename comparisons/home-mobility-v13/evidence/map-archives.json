@@ -1,0 +1,116 @@
+{
+  "run": "https://github.com/Naoto214/naotocchi/actions/runs/45008918474",
+  "archives": [
+    {
+      "id": "14749867236",
+      "digest": "sha256:f099f3fba905a9532ade4e9a3cac55c27525d2f6c20d43096b05fec3bb478e01",
+      "run": 45008918474,
+      "commit": "34371afe90398b6aa88f65a73d34f61a5a3a0a09",
+      "region": "snow",
+      "independentNativeReplays": 20
+    },
+    {
+      "id": "14749337903",
+      "digest": "sha256:8696d2a9a280fe25ac9e0fcb01ffba0ce602a390d6ebd9199043650a1045fbdd",
+      "run": 45008918474,
+      "commit": "34371afe90398b6aa88f65a73d34f61a5a3a0a09",
+      "region": "deepsea",
+      "independentNativeReplays": 1
+    },
+    {
+      "id": "14749416638",
+      "digest": "sha256:e692fdc275acf7418f7982e46c1718cc9fc5c6070a47c945ca06cfe7b23f8b32",
+      "run": 45008918474,
+      "commit": "34371afe90398b6aa88f65a73d34f61a5a3a0a09",
+      "region": "jungle",
+      "independentNativeReplays": 1
+    },
+    {
+      "id": "14749346700",
+      "digest": "sha256:951ba66d8a410e92bafca0b918c7b3377495dea0767eafbd75167cc66a405a36",
+      "run": 45008918474,
+      "commit": "34371afe90398b6aa88f65a73d34f61a5a3a0a09",
+      "region": "home",
+      "independentNativeReplays": 20
+    },
+    {
+      "id": "14749976740",
+      "digest": "sha256:57ecfc150b9b45375f81715507bd6494a56db8d87d3082fa6e4baa0f601d939a",
+      "run": 45008918474,
+      "commit": "34371afe90398b6aa88f65a73d34f61a5a3a0a09",
+      "region": "countryside",
+      "independentNativeReplays": 20
+    },
+    {
+      "id": "14748909944",
+      "digest": "sha256:a2f296487bf8f1b661268517ccba4db04bcdb19ceabc2af5b5c721505fe8c2c7",
+      "run": 45008918474,
+      "commit": "34371afe90398b6aa88f65a73d34f61a5a3a0a09",
+      "region": "memory_lake",
+      "independentNativeReplays": 12
+    },
+    {
+      "id": "14749417166",
+      "digest": "sha256:1fc8982fc186f00aaf60a91fb7ef74eadae74241bd6b85c345c875b7e392263c",
+      "run": 45008918474,
+      "commit": "34371afe90398b6aa88f65a73d34f61a5a3a0a09",
+      "region": "star_stop",
+      "independentNativeReplays": 20
+    },
+    {
+      "id": "14749966394",
+      "digest": "sha256:262f96a19d1e163b48769235c2ec057326755a5c662c6fefdec32b4e3fc978b1",
+      "run": 45008918474,
+      "commit": "34371afe90398b6aa88f65a73d34f61a5a3a0a09",
+      "region": "city",
+      "independentNativeReplays": 20
+    },
+    {
+      "id": "14749383065",
+      "digest": "sha256:87fb1505e96ad4738deaa90f862f455c56a9e3d0b8009f253ad83fb006ed75d9",
+      "run": 45008918474,
+      "commit": "34371afe90398b6aa88f65a73d34f61a5a3a0a09",
+      "region": "forest",
+      "independentNativeReplays": 20
+    },
+    {
+      "id": "14748933068",
+      "digest": "sha256:7949cde312b9855de4e5daf00a5b1ca2342529da18758912a751b63c04a3dae7",
+      "run": 45008918474,
+      "commit": "34371afe90398b6aa88f65a73d34f61a5a3a0a09",
+      "region": "sea",
+      "independentNativeReplays": 1
+    },
+    {
+      "id": "14750025074",
+      "digest": "sha256:5526fce0fb151745a78555c08b841fad60345f99a04bb85f04e60686224749ce",
+      "run": 45008918474,
+      "commit": "34371afe90398b6aa88f65a73d34f61a5a3a0a09",
+      "region": "mountain",
+      "independentNativeReplays": 1
+    },
+    {
+      "id": "14749467485",
+      "digest": "sha256:ca86c190994d871f658712bb3039fed29a1a7e495d487ab61f1086bcc936e61a",
+      "run": 45008918474,
+      "commit": "34371afe90398b6aa88f65a73d34f61a5a3a0a09",
+      "region": "desert",
+      "independentNativeReplays": 1
+    },
+    {
+      "id": "14749905069",
+      "digest": "sha256:a2d4ab54d41f8ddbd63d4a3d4a007283499d8ae6f49100eba9f2fbc0b11a9fc7",
+      "run": 45008918474,
+      "commit": "34371afe90398b6aa88f65a73d34f61a5a3a0a09",
+      "region": "river_lake",
+      "independentNativeReplays": 15
+    }
+  ],
+  "cases": 260,
+  "independentNativeReplays": 152,
+  "independentlyReplayedActorSnapshots": 3992,
+  "engines": [
+    "156.0.8078.79",
+    "157.0.8103.78"
+  ]
+}

@@ -1,0 +1,2012 @@
+{
+  "engine": "156.0.8078.79",
+  "cases": [
+    {
+      "width": 320,
+      "height": 792,
+      "count": 28,
+      "actors": [
+        {
+          "key": "companion:cat_friend",
+          "layout": [
+            38.5469,
+            38.5469
+          ],
+          "projected": [
+            22.2864990234375,
+            22.063644409179688
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:tanuki",
+          "layout": [
+            38.8125,
+            38.8125
+          ],
+          "projected": [
+            23.846771240234375,
+            23.60833740234375
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:owl",
+          "layout": [
+            38.3281,
+            38.3281
+          ],
+          "projected": [
+            26.74091339111328,
+            26.473480224609375
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:hamster",
+          "layout": [
+            41.5469,
+            41.5469
+          ],
+          "projected": [
+            29.47467041015625,
+            29.179901123046875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "layout": [
+            37.9688,
+            37.9688
+          ],
+          "projected": [
+            24.280899047851562,
+            24.0380859375
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:sheep",
+          "layout": [
+            37.625,
+            37.625
+          ],
+          "projected": [
+            20.860946655273438,
+            20.652313232421875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "layout": [
+            37.8594,
+            37.8594
+          ],
+          "projected": [
+            21.783538818359375,
+            21.565689086914062
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:penguin_friend",
+          "layout": [
+            36.0312,
+            36.0312
+          ],
+          "projected": [
+            22.86359405517578,
+            22.634979248046875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:shiba",
+          "layout": [
+            37.1562,
+            37.1562
+          ],
+          "projected": [
+            25.89154815673828,
+            25.63262939453125
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:punyu",
+          "layout": [
+            36.7031,
+            36.7031
+          ],
+          "projected": [
+            26.375404357910156,
+            26.111663818359375
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:chameleon",
+          "layout": [
+            36.0312,
+            36.0312
+          ],
+          "projected": [
+            23.40121841430664,
+            23.16717529296875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:unicorn",
+          "layout": [
+            35.5781,
+            35.5781
+          ],
+          "projected": [
+            19.842010498046875,
+            19.643569946289062
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:watcher",
+          "layout": [
+            36.9219,
+            36.9219
+          ],
+          "projected": [
+            21.665573120117188,
+            21.44891357421875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "partner:forest_bear",
+          "layout": [
+            38.5469,
+            38.5469
+          ],
+          "projected": [
+            30.063385009765625,
+            29.76275634765625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "pet:dog",
+          "layout": [
+            51.1094,
+            51.1094
+          ],
+          "projected": [
+            39.08282470703125,
+            38.69195556640625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "layout": [
+            38.0938,
+            38.0938
+          ],
+          "projected": [
+            27.468231201171875,
+            27.19354248046875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:squirrel",
+          "layout": [
+            38.0938,
+            38.0938
+          ],
+          "projected": [
+            23.035110473632812,
+            22.804779052734375
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:otter",
+          "layout": [
+            37.3906,
+            37.3906
+          ],
+          "projected": [
+            22.81507110595703,
+            22.586944580078125
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:panda",
+          "layout": [
+            36.9375,
+            36.9375
+          ],
+          "projected": [
+            26.63037109375,
+            26.36407470703125
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:parrot",
+          "layout": [
+            37.1562,
+            37.1562
+          ],
+          "projected": [
+            25.919174194335938,
+            25.65997314453125
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:seal",
+          "layout": [
+            36.9375,
+            36.9375
+          ],
+          "projected": [
+            20.155258178710938,
+            19.953704833984375
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:chicken",
+          "layout": [
+            37.1562,
+            37.1562
+          ],
+          "projected": [
+            25.48676300048828,
+            25.23193359375
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:hedgehog",
+          "layout": [
+            40.5469,
+            40.5469
+          ],
+          "projected": [
+            25.213653564453125,
+            24.96148681640625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:snail",
+          "layout": [
+            35.3906,
+            35.3906
+          ],
+          "projected": [
+            19.986160278320312,
+            19.78631591796875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:sekizou",
+          "layout": [
+            36.2344,
+            36.2344
+          ],
+          "projected": [
+            24.213871002197266,
+            23.971710205078125
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:clock",
+          "layout": [
+            36.7031,
+            36.7031
+          ],
+          "projected": [
+            25.81256103515625,
+            25.554443359375
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:many_tail_fox",
+          "layout": [
+            35.5781,
+            35.5781
+          ],
+          "projected": [
+            25.66156005859375,
+            25.404937744140625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:box",
+          "layout": [
+            41.6406,
+            41.6406
+          ],
+          "projected": [
+            24.672943115234375,
+            24.426239013671875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "height": 516,
+      "count": 28,
+      "actors": [
+        {
+          "key": "companion:cat_friend",
+          "layout": [
+            38.5469,
+            38.5469
+          ],
+          "projected": [
+            22.423690795898438,
+            22.199478149414062
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:tanuki",
+          "layout": [
+            38.8125,
+            38.8125
+          ],
+          "projected": [
+            27.045013427734375,
+            26.774566650390625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:owl",
+          "layout": [
+            38.3281,
+            38.3281
+          ],
+          "projected": [
+            26.233993530273438,
+            25.971649169921875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:hamster",
+          "layout": [
+            41.5469,
+            41.5469
+          ],
+          "projected": [
+            30.145339965820312,
+            29.8438720703125
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "layout": [
+            37.9688,
+            37.9688
+          ],
+          "projected": [
+            25.375747680664062,
+            25.121978759765625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:sheep",
+          "layout": [
+            37.625,
+            37.625
+          ],
+          "projected": [
+            21.01300048828125,
+            20.8028564453125
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "layout": [
+            37.8594,
+            37.8594
+          ],
+          "projected": [
+            24.29206085205078,
+            24.04913330078125
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:penguin_friend",
+          "layout": [
+            36.0312,
+            36.0312
+          ],
+          "projected": [
+            25.39752197265625,
+            25.143539428710938
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:shiba",
+          "layout": [
+            37.1562,
+            37.1562
+          ],
+          "projected": [
+            21.335235595703125,
+            21.12188720703125
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:punyu",
+          "layout": [
+            36.7031,
+            36.7031
+          ],
+          "projected": [
+            25.420623779296875,
+            25.166412353515625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:chameleon",
+          "layout": [
+            36.0312,
+            36.0312
+          ],
+          "projected": [
+            25.532638549804688,
+            25.277313232421875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:unicorn",
+          "layout": [
+            35.5781,
+            35.5781
+          ],
+          "projected": [
+            21.79095458984375,
+            21.57305908203125
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:watcher",
+          "layout": [
+            36.9219,
+            36.9219
+          ],
+          "projected": [
+            24.15509796142578,
+            23.913543701171875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "partner:forest_bear",
+          "layout": [
+            38.5469,
+            38.5469
+          ],
+          "projected": [
+            26.794921875,
+            26.526992797851562
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "pet:dog",
+          "layout": [
+            51.1094,
+            51.1094
+          ],
+          "projected": [
+            39.08282470703125,
+            38.691986083984375
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "layout": [
+            38.0938,
+            38.0938
+          ],
+          "projected": [
+            27.430801391601562,
+            27.156509399414062
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:squirrel",
+          "layout": [
+            38.0938,
+            38.0938
+          ],
+          "projected": [
+            20.781143188476562,
+            20.573348999023438
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:otter",
+          "layout": [
+            37.3906,
+            37.3906
+          ],
+          "projected": [
+            20.970001220703125,
+            20.760284423828125
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:panda",
+          "layout": [
+            36.9375,
+            36.9375
+          ],
+          "projected": [
+            21.84331512451172,
+            21.624893188476562
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:parrot",
+          "layout": [
+            37.1562,
+            37.1562
+          ],
+          "projected": [
+            27.134841918945312,
+            26.863479614257812
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:seal",
+          "layout": [
+            36.9375,
+            36.9375
+          ],
+          "projected": [
+            23.386459350585938,
+            23.152587890625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:chicken",
+          "layout": [
+            37.1562,
+            37.1562
+          ],
+          "projected": [
+            24.972835540771484,
+            24.72308349609375
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:hedgehog",
+          "layout": [
+            40.5469,
+            40.5469
+          ],
+          "projected": [
+            27.935867309570312,
+            27.656509399414062
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:snail",
+          "layout": [
+            35.3906,
+            35.3906
+          ],
+          "projected": [
+            25.976913452148438,
+            25.717147827148438
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:sekizou",
+          "layout": [
+            36.2344,
+            36.2344
+          ],
+          "projected": [
+            25.355445861816406,
+            25.101898193359375
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:clock",
+          "layout": [
+            36.7031,
+            36.7031
+          ],
+          "projected": [
+            26.13690185546875,
+            25.87554931640625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:many_tail_fox",
+          "layout": [
+            35.5781,
+            35.5781
+          ],
+          "projected": [
+            26.10198974609375,
+            25.840972900390625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:box",
+          "layout": [
+            41.6406,
+            41.6406
+          ],
+          "projected": [
+            24.51007080078125,
+            24.264984130859375
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "height": 760,
+      "count": 4,
+      "actors": [
+        {
+          "key": "companion:cat_friend",
+          "layout": [
+            93.5625,
+            93.5625
+          ],
+          "projected": [
+            80.13252258300781,
+            79.33120727539062
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "partner:forest_bear",
+          "layout": [
+            85.0625,
+            85.0625
+          ],
+          "projected": [
+            79.93986511230469,
+            79.14048767089844
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "pet:dog",
+          "layout": [
+            159.062,
+            159.062
+          ],
+          "projected": [
+            173.76205444335938,
+            172.02444458007812
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "layout": [
+            93.5625,
+            93.5625
+          ],
+          "projected": [
+            85.87262725830078,
+            85.013916015625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 792,
+      "count": 28,
+      "actors": [
+        {
+          "key": "companion:cat_friend",
+          "layout": [
+            42.0312,
+            42.0312
+          ],
+          "projected": [
+            27.946212768554688,
+            27.666748046875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:tanuki",
+          "layout": [
+            42.1719,
+            42.1719
+          ],
+          "projected": [
+            29.797409057617188,
+            29.49945068359375
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:owl",
+          "layout": [
+            42.1719,
+            42.1719
+          ],
+          "projected": [
+            33.70509338378906,
+            33.3680419921875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:hamster",
+          "layout": [
+            45.1562,
+            45.1562
+          ],
+          "projected": [
+            36.85498046875,
+            36.486480712890625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "layout": [
+            41.1406,
+            41.1406
+          ],
+          "projected": [
+            30.319320678710938,
+            30.01611328125
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:sheep",
+          "layout": [
+            40.7656,
+            40.7656
+          ],
+          "projected": [
+            25.992568969726562,
+            25.732650756835938
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "layout": [
+            41.5312,
+            41.5312
+          ],
+          "projected": [
+            28.262847900390625,
+            27.980239868164062
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:penguin_friend",
+          "layout": [
+            39.4062,
+            39.4062
+          ],
+          "projected": [
+            28.58123779296875,
+            28.29547119140625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:shiba",
+          "layout": [
+            40.1406,
+            40.1406
+          ],
+          "projected": [
+            32.03137969970703,
+            31.711090087890625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:punyu",
+          "layout": [
+            40.1406,
+            40.1406
+          ],
+          "projected": [
+            33.321929931640625,
+            32.9886474609375
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:chameleon",
+          "layout": [
+            38.7812,
+            38.7812
+          ],
+          "projected": [
+            31.78271484375,
+            31.46490478515625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:unicorn",
+          "layout": [
+            38.7812,
+            38.7812
+          ],
+          "projected": [
+            25.283538818359375,
+            25.030715942382812
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:watcher",
+          "layout": [
+            40.25,
+            40.25
+          ],
+          "projected": [
+            27.831527709960938,
+            27.55322265625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "partner:forest_bear",
+          "layout": [
+            42.0312,
+            42.0312
+          ],
+          "projected": [
+            37.77490234375,
+            37.39715576171875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "pet:dog",
+          "layout": [
+            55.7188,
+            55.7188
+          ],
+          "projected": [
+            48.99867248535156,
+            48.508697509765625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "layout": [
+            42.0312,
+            42.0312
+          ],
+          "projected": [
+            31.227333068847656,
+            30.9150390625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:squirrel",
+          "layout": [
+            41.3906,
+            41.3906
+          ],
+          "projected": [
+            32.14612579345703,
+            31.824676513671875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:otter",
+          "layout": [
+            40.6406,
+            40.6406
+          ],
+          "projected": [
+            33.611663818359375,
+            33.27557373046875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:panda",
+          "layout": [
+            40.6406,
+            40.6406
+          ],
+          "projected": [
+            28.581344604492188,
+            28.2955322265625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:parrot",
+          "layout": [
+            40.7656,
+            40.7656
+          ],
+          "projected": [
+            25.670806884765625,
+            25.414093017578125
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:seal",
+          "layout": [
+            40.0312,
+            40.0312
+          ],
+          "projected": [
+            26.52783203125,
+            26.2625732421875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:chicken",
+          "layout": [
+            40.7656,
+            40.7656
+          ],
+          "projected": [
+            32.57417297363281,
+            32.2484130859375
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:hedgehog",
+          "layout": [
+            43.7812,
+            43.7812
+          ],
+          "projected": [
+            31.264495849609375,
+            30.951812744140625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:snail",
+          "layout": [
+            38.7031,
+            38.7031
+          ],
+          "projected": [
+            29.382362365722656,
+            29.08856201171875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:sekizou",
+          "layout": [
+            40.1406,
+            40.1406
+          ],
+          "projected": [
+            32.294464111328125,
+            31.97149658203125
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:clock",
+          "layout": [
+            39.5,
+            39.5
+          ],
+          "projected": [
+            29.0966796875,
+            28.80572509765625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:many_tail_fox",
+          "layout": [
+            38.7812,
+            38.7812
+          ],
+          "projected": [
+            32.216583251953125,
+            31.894378662109375
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:box",
+          "layout": [
+            45.3906,
+            45.3906
+          ],
+          "projected": [
+            29.331161499023438,
+            29.037841796875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "height": 880,
+      "count": 28,
+      "actors": [
+        {
+          "key": "companion:cat_friend",
+          "layout": [
+            47.5938,
+            47.5938
+          ],
+          "projected": [
+            31.6446533203125,
+            31.328216552734375
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:tanuki",
+          "layout": [
+            47.7656,
+            47.7656
+          ],
+          "projected": [
+            33.749786376953125,
+            33.41229248046875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:owl",
+          "layout": [
+            47.7656,
+            47.7656
+          ],
+          "projected": [
+            38.14979553222656,
+            37.768310546875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:hamster",
+          "layout": [
+            51.1406,
+            51.1406
+          ],
+          "projected": [
+            41.36637878417969,
+            40.95269775390625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:monkey",
+          "layout": [
+            47.3125,
+            47.3125
+          ],
+          "projected": [
+            34.90516662597656,
+            34.556121826171875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:sheep",
+          "layout": [
+            46.1562,
+            46.1562
+          ],
+          "projected": [
+            29.4296875,
+            29.135391235351562
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:bat",
+          "layout": [
+            47.0312,
+            47.0312
+          ],
+          "projected": [
+            31.824966430664062,
+            31.5067138671875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:penguin_friend",
+          "layout": [
+            45.3281,
+            45.3281
+          ],
+          "projected": [
+            32.738365173339844,
+            32.410980224609375
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:shiba",
+          "layout": [
+            45.4531,
+            45.4531
+          ],
+          "projected": [
+            36.25270080566406,
+            35.89019775390625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:punyu",
+          "layout": [
+            45.4531,
+            45.4531
+          ],
+          "projected": [
+            37.33818054199219,
+            36.9647216796875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:chameleon",
+          "layout": [
+            44.625,
+            44.625
+          ],
+          "projected": [
+            33.06549072265625,
+            32.73480224609375
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:unicorn",
+          "layout": [
+            43.9219,
+            43.9219
+          ],
+          "projected": [
+            28.59259033203125,
+            28.306686401367188
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:watcher",
+          "layout": [
+            45.5781,
+            45.5781
+          ],
+          "projected": [
+            31.522171020507812,
+            31.206939697265625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "partner:forest_bear",
+          "layout": [
+            47.5938,
+            47.5938
+          ],
+          "projected": [
+            42.38725280761719,
+            41.96337890625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "pet:dog",
+          "layout": [
+            63.0938,
+            63.0938
+          ],
+          "projected": [
+            55.484222412109375,
+            54.92938232421875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "layout": [
+            47.5938,
+            47.5938
+          ],
+          "projected": [
+            34.878211975097656,
+            34.5294189453125
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:squirrel",
+          "layout": [
+            46.875,
+            46.875
+          ],
+          "projected": [
+            38.62849426269531,
+            38.2421875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:otter",
+          "layout": [
+            46.0156,
+            46.0156
+          ],
+          "projected": [
+            38.2744140625,
+            37.89166259765625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:panda",
+          "layout": [
+            45.3281,
+            45.3281
+          ],
+          "projected": [
+            35.275550842285156,
+            34.922760009765625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:parrot",
+          "layout": [
+            46.1562,
+            46.1562
+          ],
+          "projected": [
+            32.4046630859375,
+            32.08062744140625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:seal",
+          "layout": [
+            45.3281,
+            45.3281
+          ],
+          "projected": [
+            37.70256805419922,
+            37.32550048828125
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:chicken",
+          "layout": [
+            45.4531,
+            45.4531
+          ],
+          "projected": [
+            32.827301025390625,
+            32.4990234375
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:hedgehog",
+          "layout": [
+            49.5781,
+            49.5781
+          ],
+          "projected": [
+            37.56377029418945,
+            37.188140869140625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:snail",
+          "layout": [
+            43.8281,
+            43.8281
+          ],
+          "projected": [
+            27.6466064453125,
+            27.3701171875
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:sekizou",
+          "layout": [
+            44.7344,
+            44.7344
+          ],
+          "projected": [
+            29.575836181640625,
+            29.280044555664062
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:clock",
+          "layout": [
+            44.7344,
+            44.7344
+          ],
+          "projected": [
+            35.70851135253906,
+            35.351409912109375
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:many_tail_fox",
+          "layout": [
+            43.9219,
+            43.9219
+          ],
+          "projected": [
+            36.532867431640625,
+            36.16754150390625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        },
+        {
+          "key": "companion:box",
+          "layout": [
+            51.3906,
+            51.3906
+          ],
+          "projected": [
+            41.79937744140625,
+            41.38140869140625
+          ],
+          "fit": "contain",
+          "position": "50% 50%",
+          "original": [
+            128,
+            128
+          ]
+        }
+      ]
+    }
+  ]
+}
