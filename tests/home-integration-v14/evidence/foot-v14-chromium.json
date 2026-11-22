@@ -1,0 +1,40 @@
+{
+  "engine": "chromium",
+  "version": "156.0.8078.79",
+  "viewport": [
+    320,
+    792
+  ],
+  "region": "forest",
+  "pageErrors": [],
+  "before": [
+    [
+      "pet:butterfly",
+      163.0796004413747,
+      298.46269702072107
+    ],
+    [
+      "companion:panda",
+      220.45770253790434,
+      148.9776415587096
+    ]
+  ],
+  "after": [
+    [
+      "pet:butterfly",
+      163.0796004413747,
+      298.46269702072107
+    ],
+    [
+      "companion:panda",
+      220.45770253790434,
+      148.9776415587096
+    ]
+  ],
+  "renewed": null,
+  "decision": null,
+  "shadow": [
+    220.458,
+    148.978
+  ]
+}
