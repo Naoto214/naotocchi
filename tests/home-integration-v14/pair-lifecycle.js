@@ -29,7 +29,7 @@ function observePair(label, input) {
     actors:actors.map(position)};
 }
 window.pairSample=observePair;
-window.pairReady=count=>!!world?.stats().loaded && !!scene.navigation && !pendingResidentPresentation && rows.size===count && window.pairPaintedRegion===scene.region && env.NaotocchiHomeViewport?.residentPresentation?.()?.landscape===false;
+window.pairReady=count=>!!world?.stats().loaded && !!scene.navigation && !pendingResidentPresentation && rows.size===count && stage.dataset.dioramaSeating!=='pending' && window.pairPaintedRegion===scene.region && env.NaotocchiHomeViewport?.residentPresentation?.()?.landscape===false;
 const originalSync=model.sync;
 model.sync=function(input,...rest){
   if(window.pairStages.length<90)window.pairStages.push(observePair('before-sync',input));
@@ -37,6 +37,15 @@ model.sync=function(input,...rest){
   if(window.pairStages.length<90)window.pairStages.push(observePair('after-sync',input));
   return result;
 };
+if (model.finishSeating) {
+  const originalFinish=model.finishSeating;
+  model.finishSeating=function(...args) {
+    const pending=model.seatingPending();
+    const result=originalFinish.apply(this,args);
+    if(pending && !model.seatingPending())window.pairStages.push(observePair('completed-pair-seating'));
+    return result;
+  };
+}
 let firstTick=true,firstWalk=true,firstNavigatedWalk=true,firstAmbientWalk=true;
 const originalStep=model.step;
 model.step=function(dt,...rest) {
