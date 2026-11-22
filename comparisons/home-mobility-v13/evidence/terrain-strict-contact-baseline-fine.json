@@ -1,0 +1,78 @@
+{
+  "inputSHA256": "2af556e9d845474fce56b91ab4eccd636497f32c60e1061a135a3cb7249c0a73",
+  "width": 320,
+  "height": 516,
+  "alpha": 128,
+  "spacingCSS": 0.25,
+  "boundaryPosesPerMargin": 36288,
+  "sampling": "all pair bearings, exact ellipse offsets, quarter CSS pixel grid fixed to first foot, both lower opaque bands",
+  "results": {
+    "8": {
+      "count": 0,
+      "rolePairs": {},
+      "examples": []
+    },
+    "5": {
+      "count": 0,
+      "rolePairs": {},
+      "examples": []
+    },
+    "0": {
+      "count": 29,
+      "rolePairs": {
+        "companion/pet": 28,
+        "companion/companion": 1
+      },
+      "examples": [
+        {
+          "actors": [
+            "pet:dog",
+            "companion:penguin_friend"
+          ],
+          "bearing": 262.5,
+          "areaCSS2": 3.4375,
+          "offsetCSS": [
+            -6.062899989604106,
+            -4.566037277666621
+          ],
+          "oldOffsetCSS": [
+            -7.812286359184319,
+            -6.599424767257892
+          ]
+        },
+        {
+          "actors": [
+            "pet:dog",
+            "companion:penguin_friend"
+          ],
+          "bearing": 270.0,
+          "areaCSS2": 3.375,
+          "offsetCSS": [
+            -8.53266797207453e-15,
+            -4.6054374333431145
+          ],
+          "oldOffsetCSS": [
+            -1.0994680057396016e-14,
+            -6.656370943426245
+          ]
+        },
+        {
+          "actors": [
+            "pet:dog",
+            "companion:snail"
+          ],
+          "bearing": 281.25,
+          "areaCSS2": 3.375,
+          "offsetCSS": [
+            9.061883222099697,
+            -4.51848252773453
+          ],
+          "oldOffsetCSS": [
+            11.676594831832846,
+            -6.530007925509794
+          ]
+        }
+      ]
+    }
+  }
+}

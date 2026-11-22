@@ -28,17 +28,17 @@ def check(old,strictgame):
             rows[-1]['sameOpening']=left['originalCheckpointSHA256']==right['originalCheckpointSHA256']
             rows[-1]['sameFinalNativeState']=left['nativeStateSHA256']==right['nativeStateSHA256']
     arch=old/'home-visible-ground-navigation-v13.mjs' if old else None
-    silhouettes={}
+    silhouettes={'projection':'independent measured image scale on each axis and native CSS facing', 'baselineInputs':'V12 recorded client rectangles and feet'}
     direct=evidence/'terrain-strict-contact.json';fine=evidence/'terrain-strict-contact-fine.json'
     if direct.is_file():
-        orig=load(evidence/'geometry-contact.json')['cases'];actual=load(direct)['cases']
+        orig=load(evidence/'terrain-strict-contact-baseline.json')['cases'];actual=load(direct)['cases']
         silhouettes['cameras']=[{'width':v['width'],'height':v['height'],
             'originalInputSHA256':u['sourceSHA256'],'strictInputSHA256':v['sourceSHA256'],
             'sameScale':u['nativeScale']==v['nativeScale'],
             'sameEveryMarginCountAndWitness':u['marginsModelPixels']==v['marginsModelPixels']}
             for u,v in zip(orig,actual,strict=True)]
     if fine.is_file():
-        previous=load(evidence/'geometry-contact-fine.json');final=load(fine)
+        previous=load(evidence/'terrain-strict-contact-baseline-fine.json');final=load(fine)
         silhouettes['sameOpaqueCoreCountsAndWitnesses']=previous['results']==final['results']
     data={'silhouettes':silhouettes,'firstPassNavigationSHA256':digest(arch) if arch else None,
           'strictNavigationSHA256':digest(strictgame/'home-visible-ground-navigation-v13.mjs'),

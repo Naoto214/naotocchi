@@ -1,9 +1,11 @@
 {
-  "inputSHA256": "88a800d10e4baecec32b9f49e3219ab65c17302ac80849fb5353bab7f1b85419",
+  "inputSHA256": "601a9e12e45679ba9a62e51a9ac4b5fd836ae6105105b96fbcd9a00b17d6f189",
   "width": 320,
   "height": 516,
   "alpha": 128,
   "spacingCSS": 0.25,
+  "boundaryPosesPerMargin": 36288,
+  "sampling": "all pair bearings, exact ellipse offsets, quarter CSS pixel grid fixed to first foot, both lower opaque bands",
   "results": {
     "8": {
       "count": 0,
@@ -16,10 +18,10 @@
       "examples": []
     },
     "0": {
-      "count": 25,
+      "count": 29,
       "rolePairs": {
-        "companion/pet": 23,
-        "companion/companion": 2
+        "companion/pet": 28,
+        "companion/companion": 1
       },
       "examples": [
         {
@@ -27,15 +29,15 @@
             "pet:dog",
             "companion:penguin_friend"
           ],
-          "bearing": 273.75,
+          "bearing": 262.5,
           "areaCSS2": 3.4375,
           "offsetCSS": [
-            3.0379544885596546,
-            -4.595576838278518
+            -6.062899989604106,
+            -4.566037277666621
           ],
           "oldOffsetCSS": [
-            3.9145244769817,
-            -6.64211914228404
+            -7.812286359184319,
+            -6.599424767257892
           ]
         },
         {
@@ -43,31 +45,31 @@
             "pet:dog",
             "companion:penguin_friend"
           ],
+          "bearing": 270.0,
+          "areaCSS2": 3.375,
+          "offsetCSS": [
+            -8.53266797207453e-15,
+            -4.6054374333431145
+          ],
+          "oldOffsetCSS": [
+            -1.0994680057396016e-14,
+            -6.656370943426245
+          ]
+        },
+        {
+          "actors": [
+            "pet:dog",
+            "companion:snail"
+          ],
           "bearing": 281.25,
-          "areaCSS2": 3.25,
+          "areaCSS2": 3.375,
           "offsetCSS": [
             9.061883222099697,
-            -4.516945244440961
+            -4.51848252773453
           ],
           "oldOffsetCSS": [
             11.676594831832846,
-            -6.528470642216225
-          ]
-        },
-        {
-          "actors": [
-            "pet:dog",
-            "companion:penguin_friend"
-          ],
-          "bearing": 266.25,
-          "areaCSS2": 3.1875,
-          "offsetCSS": [
-            -3.0379544885596714,
-            -4.595576838278518
-          ],
-          "oldOffsetCSS": [
-            -3.9145244769817213,
-            -6.64211914228404
+            -6.530007925509794
           ]
         }
       ]

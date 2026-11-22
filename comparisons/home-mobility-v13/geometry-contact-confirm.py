@@ -1,50 +1,95 @@
-"""Recheck candidate foot intersections at quarter-pixel spacing on unrounded pair boundaries."""
-import argparse,collections,gzip,hashlib,itertools,json,math
+"""Count every new opaque-foot intersection on exact pair boundaries at quarter-pixel spacing."""
+import argparse
+import collections
+import hashlib
+import itertools
+import json
+import math
+from importlib.util import module_from_spec, spec_from_file_location
 from pathlib import Path
+
 import numpy as np
 from PIL import Image
-from scipy.signal import fftconvolve
-from importlib.util import spec_from_file_location,module_from_spec
-HERE=Path(__file__).resolve().parent
-s=spec_from_file_location('contact',HERE/'geometry-contact.py');contact=module_from_spec(s);s.loader.exec_module(contact)
 
-def shape(person,game):
-    alpha=np.asarray(Image.open(game/person['asset']).convert('RGBA'))[:,:,3]
-    rows=np.nonzero((alpha>=128).any(axis=1))[0]
-    band=rows[-1]+1-math.ceil((rows[-1]+1-rows[0])*.15)
-    h,w=alpha.shape;l,t,rw,rh=person['rect'];sc=min(rw/w,rh/h)
-    left=l+(rw-w*sc)/2-person['foot']['x'];top=t+(rh-h*sc)/2-person['foot']['y']
-    mirror=person['flip'].startswith('matrix(-1') or person['flip'].startswith('-1')
-    def lookup(x,y):
-        ix=np.floor((x-left)/sc).astype(int);iy=np.floor((y-top)/sc).astype(int)
-        if mirror:ix=w-1-ix
-        valid=(ix>=0)&(ix<w)&(iy>=band)&(iy<h);mask=np.zeros(ix.shape,dtype=bool)
-        mask[valid]=alpha[iy[valid],ix[valid]]>=128
+HERE = Path(__file__).resolve().parent
+spec = spec_from_file_location('contact', HERE / 'geometry-contact.py')
+contact = module_from_spec(spec)
+spec.loader.exec_module(contact)
+SPACING = .25
+
+
+def grid_centres(low, high):
+    start = math.ceil(low / SPACING - .5)
+    stop = math.floor(high / SPACING - .5) + 1
+    return (np.arange(start, stop) + .5) * SPACING
+
+
+def shape(person, game):
+    alpha = np.asarray(Image.open(game / person['asset']).convert('RGBA'))[:, :, 3]
+    rows = np.nonzero((alpha >= 128).any(axis=1))[0]
+    band = rows[-1] + 1 - math.ceil((rows[-1] + 1 - rows[0]) * .15)
+    height, width = alpha.shape
+    left, top, sx, sy, mirror = contact.projection(person, alpha)
+
+    def lookup(x, y):
+        ix = np.floor((x - left) / sx).astype(int)
+        iy = np.floor((y - top) / sy).astype(int)
+        if mirror:
+            ix = width - 1 - ix
+        valid = (ix >= 0) & (ix < width) & (iy >= band) & (iy < height)
+        mask = np.zeros(ix.shape, dtype=bool)
+        mask[valid] = alpha[iy[valid], ix[valid]] >= 128
         return mask
-    return lookup
 
-def verify(raw,game):
-    data=json.load(gzip.open(raw));people=data['geometry']['people'];sx,sy=(data['scale'][z] for z in ('x','y'))
-    low=[contact.mask(p,game)[1][45:136,45:136] for p in people]
-    high=[shape(p,game) for p in people]
-    yy,xx=np.mgrid[-15:15:.25,-40:40:.25];yy+=.125;xx+=.125
-    angles=np.arange(96)*math.tau/96;cs=np.cos(angles);sn=np.sin(angles)
-    output={m:[] for m in [8,5,0]}
-    for i,j in itertools.combinations(range(len(people)),2):
-        a,b=people[i],people[j];left=high[i](xx,yy)
-        lut=np.rint(fftconvolve(low[i],low[j][::-1,::-1],mode='full')).astype(int)
-        for m in [10,8,5,0]:
-            x=cs*((a['w']+b['w'])*.5+m)*sx;y=sn*((a['h']+b['h'])*.38+m)*sy
-            hits=lut[90+np.rint(y).astype(int),90+np.rint(x).astype(int)]
-            if m==10:old=hits;x0=x;y0=y;continue
-            for n in np.nonzero((hits>0)&(old==0))[0]:
-                before=left&high[j](xx-x0[n],yy-y0[n]);after=left&high[j](xx-x[n],yy-y[n])
-                if before.any() or not after.any():continue
-                output[m].append({'actors':[a['key'],b['key']],'bearing':n*3.75,'areaCSS2':float(after.sum())/16,
-                  'offsetCSS':[float(x[n]),float(y[n])],'oldOffsetCSS':[float(x0[n]),float(y0[n])]})
-    return {'inputSHA256':hashlib.sha256(raw.read_bytes()).hexdigest(),'width':data['width'],'height':data['height'],'alpha':128,'spacingCSS':.25,
-      'results':{m:{'count':len(v),'rolePairs':dict(collections.Counter('/'.join(sorted(k.split(':')[0] for k in r['actors'])) for r in v)),'examples':sorted(v,key=lambda x:-x['areaCSS2'])[:3]} for m,v in output.items()}}
+    xs = grid_centres(left, left + width * sx)
+    ys = grid_centres(top + band * sy, top + (rows[-1] + 1) * sy)
+    xx, yy = np.meshgrid(xs, ys)
+    opaque = lookup(xx, yy)
+    return xx[opaque], yy[opaque], lookup
 
-if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('raw',type=Path);p.add_argument('game',type=Path);p.add_argument('out',type=Path)
-    args=p.parse_args();args.out.write_text(json.dumps(verify(args.raw,args.game),indent=2)+'\n')
+
+def verify(raw, game):
+    data = contact.geometry_record(raw)
+    people = contact.rendered_roster(data)
+    sx, sy = (data['scale'][axis] for axis in ('x', 'y'))
+    shapes = [shape(person, game) for person in people]
+    angles = np.arange(96) * math.tau / 96
+    cs, sn = np.cos(angles), np.sin(angles)
+    witnesses = {m: [] for m in (8, 5, 0)}
+    for i, j in itertools.combinations(range(len(people)), 2):
+        first, second = people[i], people[j]
+        xx, yy, _ = shapes[i]
+        lookup = shapes[j][2]
+        for margin in (10, 8, 5, 0):
+            dx = cs * ((first['w'] + second['w']) * .5 + margin) * sx
+            dy = sn * ((first['h'] + second['h']) * .38 + margin) * sy
+            overlap = lookup(xx[None, :] - dx[:, None], yy[None, :] - dy[:, None]).sum(axis=1)
+            if margin == 10:
+                original, old_dx, old_dy = overlap, dx, dy
+                continue
+            for index in np.nonzero((overlap > 0) & (original == 0))[0]:
+                witnesses[margin].append({
+                    'actors': [first['key'], second['key']], 'bearing': index * 3.75,
+                    'areaCSS2': float(overlap[index]) * SPACING ** 2,
+                    'offsetCSS': [float(dx[index]), float(dy[index])],
+                    'oldOffsetCSS': [float(old_dx[index]), float(old_dy[index])],
+                })
+    results = {}
+    for margin, rows in witnesses.items():
+        roles = collections.Counter('/'.join(sorted(key.split(':')[0] for key in row['actors'])) for row in rows)
+        results[margin] = {'count': len(rows), 'rolePairs': dict(roles),
+                           'examples': sorted(rows, key=lambda row: -row['areaCSS2'])[:3]}
+    return {'inputSHA256': hashlib.sha256(raw.read_bytes()).hexdigest(),
+            'width': data['width'], 'height': data['height'], 'alpha': 128,
+            'spacingCSS': SPACING, 'boundaryPosesPerMargin': len(angles) * math.comb(len(people), 2),
+            'sampling': 'all pair bearings, exact ellipse offsets, quarter CSS pixel grid fixed to first foot, both lower opaque bands',
+            'results': results}
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('raw', type=Path)
+    parser.add_argument('game', type=Path)
+    parser.add_argument('out', type=Path)
+    args = parser.parse_args()
+    args.out.write_text(json.dumps(verify(args.raw, args.game), indent=2) + '\n')

@@ -1,11 +1,13 @@
 {
   "silhouettes": {
+    "projection": "independent measured image scale on each axis and native CSS facing",
+    "baselineInputs": "V12 recorded client rectangles and feet",
     "cameras": [
       {
         "width": 320,
         "height": 516,
         "originalInputSHA256": "2af556e9d845474fce56b91ab4eccd636497f32c60e1061a135a3cb7249c0a73",
-        "strictInputSHA256": "88a800d10e4baecec32b9f49e3219ab65c17302ac80849fb5353bab7f1b85419",
+        "strictInputSHA256": "601a9e12e45679ba9a62e51a9ac4b5fd836ae6105105b96fbcd9a00b17d6f189",
         "sameScale": true,
         "sameEveryMarginCountAndWitness": true
       },
@@ -13,15 +15,15 @@
         "width": 375,
         "height": 760,
         "originalInputSHA256": "0eae61e2561d94a0151fea55e101e15fa298151f5bef89f4cba4787f0a5d7362",
-        "strictInputSHA256": "87773b5e1ce20697d699a3b9c748b40714369e34443562e8b95f94f175e57d3b",
+        "strictInputSHA256": "34b9995d649c67be52720754be073af7919a6265fbf16952f56c74f203a2c9b0",
         "sameScale": true,
-        "sameEveryMarginCountAndWitness": true
+        "sameEveryMarginCountAndWitness": false
       },
       {
         "width": 390,
         "height": 792,
         "originalInputSHA256": "2650ed90201c85dc312c30c59cc049d81cdfb73da276215f746dac5c64b034ed",
-        "strictInputSHA256": "9de6a743c2f586f20cf18f61c1116636bd9cf3a2e8457148d216c53cc518b7a5",
+        "strictInputSHA256": "d8d492e85b5c387647bb4cb21ea0801f688bd70bb028ceaab2da66d332010103",
         "sameScale": true,
         "sameEveryMarginCountAndWitness": true
       },
@@ -29,7 +31,7 @@
         "width": 430,
         "height": 880,
         "originalInputSHA256": "e2efe4e8c54ac95173ee7b26d29c08c0958ba119ab9e19d4c1bdf530a4f37737",
-        "strictInputSHA256": "3500407e2bfa81fb3aab938e15d341f74bd449f39775b580366416607330cea0",
+        "strictInputSHA256": "61118aa9fdd0cb5835e5c7711d149834214e62567c8113927a4c883a4937d238",
         "sameScale": true,
         "sameEveryMarginCountAndWitness": true
       },
@@ -37,7 +39,7 @@
         "width": 320,
         "height": 792,
         "originalInputSHA256": "89bd43cdbaebed5efd77c61e8cf25327f9cf9160d94295b3b75e121980da6c5f",
-        "strictInputSHA256": "92505cde4e70df1cdfcd5f0443d63a46ba465b9bb957344255b5b0e0c863fc0e",
+        "strictInputSHA256": "bc44e5abfef0e98e40a092cb7f6ac046efd17d2d337c320ebc7d861d6a99bad3",
         "sameScale": true,
         "sameEveryMarginCountAndWitness": true
       }

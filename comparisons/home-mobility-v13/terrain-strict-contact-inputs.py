@@ -43,7 +43,7 @@ def run(dist,raw,out):
                 compact={'region':'forest','width':width,'height':height,'scale':sc,'geometry':{'people':now},
                     'frames':[{'actors':[{'key':p['key'],'x':p['x']*sc['x'],'y':p['y']*sc['y']} for p in now]}]}
                 rawout=out.parent/'terrain-strict-contact-raw';rawout.mkdir(exist_ok=True)
-                (rawout/old.name).write_bytes(gzip.compress(json.dumps(compact,separators=(',',':')).encode(),mtime=0))
+                (rawout/old.with_suffix('').name).write_bytes(json.dumps(compact,separators=(',',':')).encode())
                 results.append({'width':width,'height':height,'sourceSHA256':hashlib.sha256(old.read_bytes()).hexdigest(),
                  'changedArtworkOrMirror':changed,'maximumDifferences':maximum,
                  'assetsSHA256':hashlib.sha256(json.dumps(assets,sort_keys=True).encode()).hexdigest()})

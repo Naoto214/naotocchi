@@ -5,12 +5,30 @@ import numpy as np
 from PIL import Image
 from scipy.signal import fftconvolve
 
+def rendered_roster(data):
+    styles=Path(__file__).resolve().parent/'evidence/terrain-strict-contact-styles.json'
+    case=next(r for r in json.loads(styles.read_bytes())['cases']
+              if (r['width'],r['height'])==(data['width'],data['height']))
+    result=[]
+    for person in data['geometry']['people']:
+        style=case['people'][person['key']]
+        assert style['asset']==person['asset']
+        result.append({**person,'imageScale':style['imageScale']})
+    return result
+
+def projection(person,source):
+    # Every audited original PNG and its pre-transform CSS image box is square
+    # (map-ink-layout.json). CSS then transforms width and height independently.
+    h,w=source.shape
+    if h!=w:raise ValueError('Non-square art requires its measured layout box')
+    left,top,rw,rh=person['rect']
+    return (left-person['foot']['x'],top-person['foot']['y'],rw/w,rh/h,
+            person['imageScale'].split()[0]=='-1')
+
 def mask(person,game):
     alpha=np.asarray(Image.open(game/person['asset']).convert('RGBA'))[:,:,3]
-    h,w=alpha.shape;l,t,rw,rh=person['rect'];scale=min(rw/w,rh/h)
-    l=l+(rw-w*scale)/2-person['foot']['x'];t=t+(rh-h*scale)/2-person['foot']['y']
-    yy,xx=np.mgrid[-90:91,-90:91];source_x=np.floor((xx-l)/scale).astype(int);source_y=np.floor((yy-t)/scale).astype(int)
-    mirror=person['flip'].startswith('matrix(-1') or person['flip'].startswith('-1')
+    h,w=alpha.shape;l,t,sx,sy,mirror=projection(person,alpha)
+    yy,xx=np.mgrid[-90:91,-90:91];source_x=np.floor((xx-l)/sx).astype(int);source_y=np.floor((yy-t)/sy).astype(int)
     if mirror:source_x=w-1-source_x
     inside=(source_x>=0)&(source_x<w)&(source_y>=0)&(source_y<h)
     ink=np.zeros_like(source_x,dtype=bool)
@@ -18,8 +36,16 @@ def mask(person,game):
     ys,xs=np.nonzero(ink);band=ink.copy();band[:int(ys.max()+1-math.ceil((ys.max()-ys.min()+1)*.15))]=False
     return ink.astype('f'),band.astype('f')
 
+def geometry_record(path):
+    with (gzip.open(path,'rt') if path.suffix=='.gz' else path.open()) as stream:
+        return json.load(stream)
+
+def recorded_case(directory,name):
+    plain=directory/(name+'.json')
+    return plain if plain.is_file() else directory/(name+'.json.gz')
+
 def profile(path,game):
-    data=json.load(gzip.open(path));geometry=data['geometry']['people'];sx,sy=(data['scale'][k] for k in ('x','y'))
+    data=geometry_record(path);geometry=rendered_roster(data);sx,sy=(data['scale'][k] for k in ('x','y'))
     pictures=[mask(a,game) for a in geometry]
     theta=np.arange(96)*math.tau/96;cs=np.cos(theta);sn=np.sin(theta)
     nearHorizontal=np.abs(sn)<.40
@@ -62,8 +88,8 @@ def profile(path,game):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('raw',type=Path);p.add_argument('game',type=Path);p.add_argument('out',type=Path)
-    args=p.parse_args();cases=[args.raw/f'forest-{w}-28.json.gz' for w in (320,375,390,430)]
-    cases.append(args.raw/'forest-320-28-long-fixed.json.gz')
+    args=p.parse_args();cases=[recorded_case(args.raw,f'forest-{w}-28') for w in (320,375,390,430)]
+    cases.append(recorded_case(args.raw,'forest-320-28-long-fixed'))
     rows=[]
     for case in cases:
         rows.append(profile(case,args.game));print(case.name,flush=True)
