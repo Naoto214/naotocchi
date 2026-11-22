@@ -5,6 +5,7 @@ const {listFiles, hashFiles} = require('../home-finish-v5/build.cjs');
 const {digest, replaceExact} = require('../home-finish-v5/native-hooks.cjs');
 const {patchFootDiagnostics} = require('../home-mobility-v11/foot.cjs');
 const {patchCurve} = require('./curve.cjs');
+const {patchDeferred} = require('./curve-deferred.cjs');
 const {patchReflow,patchReflowWorld,patchReflowPainter} = require('./reflow.cjs');
 
 const baseHash = '7d66d2be995b4df351c67cb6aa1f07f55ac5661e2bfad77df9fd9d6c955a492d';
@@ -37,7 +38,7 @@ function prepare(baseline) {
   for (const suffix of ['','-reference']) {
     const oldArm='v11-foot'+suffix,arm='v12'+suffix;
     const old=modelFile(oldArm),model=modelFile(arm);
-    const modelSource=replaceExact(patchReflow(patchCurve(game(old))),"bindModel('"+oldArm+"',","bindModel('"+arm+"',");
+    const modelSource=replaceExact(patchReflow(patchDeferred(patchCurve(game(old)))),"bindModel('"+oldArm+"',","bindModel('"+arm+"',");
     add('game/'+model,modelSource);
     let direct=swap(game('mobility-'+oldArm+'.html'),old,model);
     add('game/mobility-'+arm+'.html',swap(direct,oldPainter,painter));
@@ -51,7 +52,7 @@ function prepare(baseline) {
   const markup=read('v10/index.html').replace(/(data-arm="v|aria-label="V|>V)(8|9|10)(?=["の<])/g,
     (_,prefix,number)=>prefix+(Number(number)+2));
   const links=[
-    ['./yield.html','もりでタヌキに道を譲る'],
+    ['./yield.html','森で曲がる道譲りを比べる（石像・タヌキほか）'],
     ['./growth.html','成長する住民の足位置を比べる'],
     ['./corridor.html','やま・もりで主人公の退路を歩く'],
     ['../v11/replay.html','通知時のパンダの足元を再現する'],

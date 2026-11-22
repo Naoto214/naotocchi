@@ -16,12 +16,14 @@ function createYieldReplay() {
     return Math.hypot((a.x-b.x)*s.x,(a.y-b.y)*s.y);
   };
   const status = () => ({
-    state:procedure?.state || 'ready', who:active?.who || null,
+    stepSeconds:liveRequest?.dt||1/120, initialAcceptance:liveRequest?.accepted??null, startDelay:liveRequest?.startDelay??null, modelElapsed:liveRequest ? clock-20:null, state:procedure?.state || 'ready', who:active?.who || null,
     index:procedure?.index || 0, count:procedure?.steps.length || 0,
     advanced:procedure?.advanced || 0, checked:procedure?.checked || 0,
     reached:procedure?.reached || 0, expected:procedure?.expected || 0,
-    distanceCSS:procedure?.distanceCSS || 0, message:procedure?.message || '', errorCSS:procedure?.errorCSS??null, native:!!liveRequest,
-    searchAvailable:typeof curvedHandoff==='function'
+    distanceCSS:procedure?.distanceCSS || 0, message:procedure?.message || '', errorCSS:procedure?.errorCSS??null, adoptedErrorCSS:procedure?.adoptedErrorCSS??null, native:!!liveRequest,
+    searchAvailable:true,routeKind:liveRequest?.routeKind || null,actualQ:liveRequest?.planEnd || null,
+    rawGain:liveRequest&&procedure ? liveRequest.radius-(procedure.errorCSS??liveRequest.radius) : null,
+    movedHelpers:liveRequest ? Array.from(liveRequest.helpers) : [], stages:liveRequest?.planStages||[]
   });
   function reset(data) {
     if (!globalThis.HomeCastTrial?.ready || !globalThis.HomeCastTrial.settings.paused ||
@@ -36,7 +38,7 @@ function createYieldReplay() {
       clockAtOpen=clock;
       initial=new Map(actors.map(a=>[a.key,{...a}]));
     }
-    clock=clockAtOpen; clearRelief(); manualGoals.clear(); waiting.clear(); crowdMisses.clear(); helpedAt.clear();
+    clock=clockAtOpen;if(typeof backgroundCurve!=='undefined')backgroundCurve=null; clearRelief(); manualGoals.clear(); waiting.clear(); crowdMisses.clear(); helpedAt.clear();
     for (const [key,x,y] of data.feet) {
       const a=actor(key);
       Object.assign(a,initial.get(key),{x,y,route:[],target:null,faceKey:null,yieldFor:null,escapeIntent:null});
@@ -54,24 +56,36 @@ function createYieldReplay() {
     procedure={steps,state:'playing',index:0,advanced:0,checked:0,reached:0,expected:steps.length,distanceCSS:0};
     return status();
   }
-  function startNative(degrees) {
-    if(!fixture || typeof curvedHandoff!=='function')throw Error('この配布物にV12の探索がありません。');
+  function startNative(degrees, radius=8, entry="waiting") {
+    if(!fixture||!['waiting','ordinary'].includes(entry)||![8,8.01,10].includes(radius)||!Number.isFinite(degrees))throw Error('指示を準備できません。');
     const a=actor(fixture.key),s=scene.navigation.intentScale,angle=degrees*Math.PI/180;
-    const target={x:a.x+8*Math.cos(angle)/s.x,y:a.y+8*Math.sin(angle)/s.y};
+    const target=fixture.goalPoint ? point(fixture.goalPoint) : {x:a.x+radius*Math.cos(angle)/s.x,y:a.y+radius*Math.sin(angle)/s.y};
     // Stage a fresh pending request in this isolated opening. Only the real
     // planner supplies helper routes. Every other wander draw is held back.
-    clock=20;paused=false;selected=null;
+    clock=20;nextRecovery=0;idleAt=1e5;paused=false;selected=null;
     for(const b of actors)Object.assign(b,{nextAt:1e5,manualUntil:0,yieldAfter:0,yieldFor:null,
-      lastWalk:0,lastOwnWalk:0,activity:'rest',source:'ambient'});
-    waiting.set(a.key,{point:target,feet:nearbyFeet(a),expires:clock+12,attempted:true});
-    relief={owner:a.key,point:target,expires:clock+12,search:intentPlan(a,target),pair:null,stage:0};
-    liveRequest={a,origin:{x:a.x,y:a.y},target,helpers:new Set(),end:clock+12,found:false};
+      lastWalk:0,lastOwnWalk:0,activity:'rest',source:'ambient',pointerDrop:false,intentRoute:false,escapeIntent:null,ambientEscape:false,visualTarget:null,after:'rest'});
+    liveRequest={a,origin:{x:a.x,y:a.y},target,radius:screenDistance(a,target),entry,dt:entry==='ordinary'?.05:1/120,helpers:new Set(),end:clock+15,routeKind:null,planEnd:null};
+    if(entry==='ordinary'){
+      const accepted=move(a.key,target,'ambient');liveRequest.accepted=accepted;
+      if(accepted && a.target){
+        liveRequest.routeKind='solo';
+        const q=a.route.at(-1)||a.target;liveRequest.planEnd={x:q.x,y:q.y};
+      }
+    }else{
+      waiting.set(a.key,{point:target,feet:nearbyFeet(a),expires:clock+12,attempted:true});
+      relief={owner:a.key,point:target,expires:clock+12,search:intentPlan(a,target),pair:null,stage:0};
+    }
     procedure={steps:[],state:'playing',checked:0,advanced:0,distanceCSS:0,index:0,expected:0};
     return status();
   }
   function advanceNative(){
-    const req=liveRequest,proc=procedure,dt=1/120;
-    if(relief?.pair)req.found=true;
+    const req=liveRequest,proc=procedure,dt=req.dt;
+    if(relief?.pair){
+      req.routeKind=relief.pair.curved?'curved':relief.pair.stages.length?'straight':'solo';
+      req.planEnd={x:relief.pair.q.x,y:relief.pair.q.y};
+      req.planStages??=relief.pair.stages.map(leg=>({who:leg.key,turn:!!leg.via}));
+    }
     const prior=actors.map(b=>({x:b.x,y:b.y}));
     step(dt);
     proc.checked++;
@@ -85,18 +99,20 @@ function createYieldReplay() {
           !scene.navigation.segmentSafe(from,a,scene.planVisibility(a)) || !visible(a,a) ||
           actors.some((b,k)=>b!==a&&!contactSegmentSafe(from,a,k<i?b:prior[k],(a.w+b.w)*.5+10,(a.h+b.h)*.38+10)))
         throw Error('通常の探索後の歩行を再確認できませんでした。');
-      if(a===req.a)proc.distanceCSS+=screenDistance(from,a);
+      if(a===req.a){proc.distanceCSS+=screenDistance(from,a);req.startDelay??=clock-20;}
       else if(a.source==='yield')req.helpers.add(a.key);else throw Error('この比較に含まれない住民が歩きました。');
       proc.advanced++;
     }
     active=first?{who:first.key}:null;
     if(req.helpers.size>2)throw Error('助け手の人数が変わりました。');
-    if(!relief && !req.a.target && !actors.some(b=>b.target && b.source==='yield') || clock>=req.end){
+    const pendingCurve=typeof backgroundCurve!=='undefined' && !!backgroundCurve;
+    if((!relief && !pendingCurve && !req.a.target && !manualGoals.size && !actors.some(b=>b.target && b.source==='yield')) || clock>=req.end){
       const error=screenDistance(req.a,req.target);
       proc.errorCSS=error;
       proc.state=error<.05?'arrived':proc.distanceCSS>0?'partial':'closed';
       proc.reached=error<.05?1:0;proc.expected=1;
-      proc.message='助け手'+req.helpers.size+'体・タヌキの変位'+screenDistance(req.a,req.origin).toFixed(2)+'px・指示点まで'+error.toFixed(2)+'px';
+      proc.adoptedErrorCSS=req.planEnd?screenDistance(req.a,req.planEnd):null;
+      proc.message=(req.routeKind==='curved'?'曲がる道譲り・':req.routeKind==='straight'?'直線の道譲り・':req.routeKind==='solo'?'単独歩行・':'')+'助け手'+req.helpers.size+'体・本人の変位'+screenDistance(req.a,req.origin).toFixed(2)+'px・元の目標へ'+(req.radius-error).toFixed(2)+'px接近・目標まで'+error.toFixed(2)+'px'+(req.startDelay===undefined?'':'・歩き出し'+req.startDelay.toFixed(2)+'ゲーム秒');
     }
     return status();
   }
@@ -146,7 +162,23 @@ function createYieldReplay() {
     }
     return status();
   }
-  return Object.freeze({reset,start,startNative,advance,status});
+  function exitCount(key) {
+    const a=actor(key),nav=scene.navigation,s=nav.intentScale,b=bounds(a,scene),ink=scene.planVisibility(a);
+    const peers=actors.filter(other=>other!==a);
+    let allowed=0;
+    for(let n=0;n<96;n++){
+      const theta=n*Math.PI/48,dx=8*Math.cos(theta)/s.x,dy=8*Math.sin(theta)/s.y,to={x:a.x+dx,y:a.y+dy};
+      if(to.x<b.left||to.x>b.right||to.y<b.top||to.y>b.bottom)continue;
+      const t=Math.min(1,.35/Math.hypot(dx,dy)),first={x:a.x+t*dx,y:a.y+t*dy};
+      if(peers.every(p=>{
+        const original=clearance(a,a,p),next=clearance(a,first,p);
+        return contactSegmentSafe(a,to,p,(a.w+p.w)*.5+10,(a.h+p.h)*.38+10) &&
+          (original>=1 || next>=1 || next>original+1e-6);
+      }) && nav.segmentSafe(a,to,ink))allowed++;
+    }
+    return allowed;
+  }
+  return Object.freeze({reset,start,startNative,advance,status,exitCount});
 }
 
 function addYieldReplay({add,baseline,modelSource,rendererSource}) {
@@ -154,20 +186,22 @@ function addYieldReplay({add,baseline,modelSource,rendererSource}) {
   const game=name=>fs.readFileSync(path.join(baseline,'game',name),'utf8');
   const oldModel='home-production-model-mobility-v11-foot-reference.js';
   const oldRenderer='home-production-diorama-mobility-v11.js';
-  const newModel='home-production-model-mobility-v12-yield.js';
-  const newRenderer='home-production-diorama-mobility-v12-yield.js';
-  const model=replaceExact(modelSource,'    return {metrics:',
-    '    '+createYieldReplay.toString()+'\n    globalThis.HomeYieldReplay=createYieldReplay();\n    return {metrics:');
-  const renderer=replaceExact(rendererSource,'    function sync(){',
-    '    globalThis.paintYieldReplay=()=>paint();\n    function sync(){');
-  let html=game('mobility-v11-foot-reference.html');
-  function replace(name,body,next,newBody) {
-    html=replaceExact(html,name+'?v='+digest(body).slice(0,12),next+'?v='+digest(newBody).slice(0,12));
+  for(const [suffix,source,paint] of [['',modelSource,rendererSource],['-baseline',game(oldModel),game(oldRenderer)]]){
+    const newModel='home-production-model-mobility-v12-yield'+suffix+'.js';
+    const newRenderer='home-production-diorama-mobility-v12-yield'+suffix+'.js';
+    const model=replaceExact(source,'    return {metrics:',
+      '    '+createYieldReplay.toString()+'\n    globalThis.HomeYieldReplay=createYieldReplay();\n    return {metrics:');
+    const renderer=replaceExact(paint,'    function sync(){',
+      '    globalThis.paintYieldReplay=()=>paint();\n    function sync(){');
+    let html=game('mobility-v11-foot-reference.html');
+    function replace(name,body,next,newBody) {
+      html=replaceExact(html,name+'?v='+digest(body).slice(0,12),next+'?v='+digest(newBody).slice(0,12));
+    }
+    replace(oldModel,game(oldModel),newModel,model);
+    replace(oldRenderer,game(oldRenderer),newRenderer,renderer);
+    add('game/'+newModel,model); add('game/'+newRenderer,renderer);
+    add('game/mobility-v12-yield'+suffix+'.html',html);
   }
-  replace(oldModel,game(oldModel),newModel,model);
-  replace(oldRenderer,game(oldRenderer),newRenderer,renderer);
-  add('game/'+newModel,model); add('game/'+newRenderer,renderer);
-  add('game/mobility-v12-yield.html',html);
   for(const name of ['yield.html','yield.mjs'])add('v12/'+name,read(name));
   add('v12/yield-recording.json',read('evidence/yield-recording.json'));
 }
