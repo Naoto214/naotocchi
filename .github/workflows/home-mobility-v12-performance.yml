@@ -103,11 +103,14 @@ jobs:
               MOBILITY_GAME="$RUNNER_TEMP/v12/game" node "$folder/performance-statue.mjs" "$out/statue.json"
               ;;
             growth)
-              python -B "$folder/performance-growth.py" --out "$out/growth.json"
+              python -B "$folder/performance-growth.py" --final --out "$out/growth.json"
+              python -B "$folder/performance-growth.py" --profile --widths 320 390 --out "$out/care-profile.json"
+              python -B "$folder/performance-growth.py" --life --out "$out/life.json"
               ;;
             curve)
               MOBILITY_GAME="$RUNNER_TEMP/v12/game" node "$folder/performance-curve.mjs" "$out/curve.json"
               python -B "$folder/performance-witness.py" --out "$out/witness.json"
+              MOBILITY_GAME="$RUNNER_TEMP/v12/game" node "$folder/performance-statue.mjs" "$out/statue.json"
               ;;
           esac
       - name: Retain rAF, Linux compositor and input observations

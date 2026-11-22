@@ -22,8 +22,11 @@ def report(args):
     raw={}
     sources={}
     runs={}
-    for receipt_path in sorted(args.archive.rglob('receipt.json')):
+    selected={str(args.core_run)}|({str(args.care_run)} if args.care_run else set())
+    for run in sorted(selected):
+        receipt_path=args.archive/run/'receipt.json'
         receipt=json.loads(receipt_path.read_bytes())
+        assert receipt['run']==run and receipt['conclusion']=='success' and receipt['complete'],run
         runs[receipt['run']]=dict(commit=receipt['commit'],url=receipt['url'],jobs=receipt['jobs'])
         for item in receipt['archives']:
             path=receipt_path.parent/item['name']
@@ -36,12 +39,13 @@ def report(args):
                     raw[name]=json.loads(data)
                     sources[name]=digest(data)
     outputs=dict(runs=runs,sourceSHA256=sources,assets={},frames=[],normal=[],trace=[],fixed={},touch=[],growth=[],witness=[],model=[])
-    def verify(assets):
+    def verify(assets, root=None, group='assets'):
+        root = root or args.game
         for name,expected in assets.items():
             assert Path(name).name==name
-            file=args.game/name
+            file=root/name
             assert file.is_file() and digest(file.read_bytes())==expected, name
-            assert outputs['assets'].setdefault(name,expected)==expected
+            assert outputs.setdefault(group,{}).setdefault(name,expected)==expected
     opening=None
     nativeBrowser=set()
     for order,arms in [('forward', ARMS),('reverse', ARMS[::-1])]:
@@ -93,14 +97,39 @@ def report(args):
         assert r['timings']['step']['cpuMs']['n']==profile['seconds']*10
         outputs['model'].append(dict(arm=r['arm'],order=r['order'],events=r['curveEvents'],moves=metrics['moves'],distance=metrics['distance'],timings=r['timings']))
     outputs['modelSetup']={k:profile[k] for k in ['seconds','seed','geometry','node']}
-    growth=raw['growth.json'];nativeBrowser.add(growth['browser']); assert growth['kind']=='webkit' and len(growth['cases'])==56
-    for c in growth['cases']:
-        verify(c['assets']); assert len(c['opening'])==len(c['ending'])==28
-        result=c['result'];assert result['started'] and result['stageAfter']>result['stageBefore']
-        assert c['arm']!='v12' or c['decision']['policy']==c['policy']
-        steps=result['steps'];outputs['growth'].append(dict(arm=c['arm'],order=c['order'],policy=c['policy'],width=c['width'],
-                               openingSHA256=prior.fingerprint(c['opening']),callMs=c['callMs'],framesMs=c['framesMs'],
-                               maxShift=result['maxScreenCss'],phases=[{k:s[k] for k in ['accepted','validateMs','reason','search'] if k in s} for s in steps]))
+    def growth_report(name, bucket, n, final):
+        cases=raw[name];nativeBrowser.add(cases['browser']);assert cases['kind']=='webkit' and len(cases['cases'])==n, (name,len(cases['cases']))
+        for c in cases['cases']:
+            verify(c['assets'],args.final_game if final else args.game,'finalCareAssets' if final else 'assets')
+            assert len(c['opening'])==len(c['ending'])==28
+            result=c['result'];assert result['started'] and result['stageAfter']>result['stageBefore']
+            assert c['arm']!='v12' or c['decision']['policy']==c['policy']
+            steps=result['steps'];outputs.setdefault(bucket,[]).append(dict(arm=c['arm'],order=c['order'],policy=c['policy'],width=c['width'],
+                         openingSHA256=prior.fingerprint(c['opening']),callMs=c['callMs'],framesMs=c['framesMs'],costs=c.get('costs'),settledMs=c.get('settledMs'),
+                         settled=(c.get('decision') or {}).get('complete'),maxShift=result['maxScreenCss'],
+                         phases=[{k:s[k] for k in ['accepted','validateMs','reason','search','attempts'] if k in s} for s in steps]))
+    separate='growth-final.json' in raw
+    count=len(raw['growth.json']['cases']);assert count in (56,64)
+    growth_report('growth.json','growth',count,False)
+    if separate:
+        assert args.final_game
+        growth_report('growth-final.json','finalCare',64,True)
+    if 'care-profile.json' in raw:
+        growth_report('care-profile.json','finalCareProfile',4,separate)
+        if 'life.json' in raw:
+            growth_report('life.json','life',16,separate)
+            for row,source in zip(outputs['life'],raw['life.json']['cases'],strict=True):
+                row['lifeBefore']=source['lifeBefore'];row['lifeAfter']=source['lifeAfter'];warm=source['preflight']
+                row['preflight']=None if warm is None else dict(ready=warm['ready'],wallMs=warm['duration'],frames=prior.summary(warm['intervals']))
+    if 'statue.json' in raw:
+        statue=raw['statue.json'];assert len(statue['rows'])==12
+        for r in statue['rows']:
+            verify({f"home-production-model-mobility-{r['arm']}.js":r['sourceSHA256']},args.final_game if separate else args.game,'finalCareAssets' if separate else 'assets')
+            summary={}
+            for key,series in r['samples'].items():
+                summary[key]=dict(cpu=prior.summary([x[1] for x in series]),wall=prior.summary([x[0] for x in series]),
+                                  totalCpu=sum(x[1] for x in series),totalWall=sum(x[0] for x in series))
+            outputs.setdefault('statue',[]).append({**{k:r[k] for k in ['arm','order','index','actual','goalError','simulationSeconds','curve']},'timings':summary})
     witness=raw['witness.json'];nativeBrowser.add(witness['browser']);assert witness['kind']=='webkit' and len(witness['rows'])==24
     for r in witness['rows']:
         verify(r['sources']);assert len(r['resumes'])==r['iters'] and not r.get('violations',0)
@@ -115,5 +144,5 @@ def report(args):
 
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('archive',type=Path);ap.add_argument('--out',type=Path,default=HERE/'evidence');ap.add_argument('--game',type=Path,required=True)
+    ap.add_argument('archive',type=Path);ap.add_argument('--core-run',required=True);ap.add_argument('--care-run');ap.add_argument('--out',type=Path,default=HERE/'evidence');ap.add_argument('--game',type=Path,required=True);ap.add_argument('--final-game',type=Path,help='Pinned final care distribution if a different source was measured')
     report(ap.parse_args())

@@ -27,6 +27,8 @@ function profile(arm,order) {
   const lastEvent = {};
   globalThis.HomeV12CurveEvent = (type,details) => {
     curveEvents[type] = (curveEvents[type] || 0)+1;
+    if (type==='plan' && details.found) curveEvents.feasible=(curveEvents.feasible||0)+1;
+    if (type==='owner' && details.accepted) curveEvents.ownerAccepted=(curveEvents.ownerAccepted||0)+1;
     lastEvent[type]=details;
   };
   function time(name,action) {

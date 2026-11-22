@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 from urllib.parse import urlencode
 from playwright.sync_api import sync_playwright
@@ -17,9 +18,9 @@ def run(args):
     probe = (HERE / 'curve-probe.js').read_text()
     # Include scheduler time separately. The native resume durations exclude all
     # the time between resumptions and the physical replay of the returned route.
-    step = 'times.push(performance.now()-start);'
-    assert probe.count(step)==1
-    probe=probe.replace(step,step+"globalThis.perfCandidateSteps.push(times[times.length-1]);")
+    timed_resume=r'\.next\(\);times\.push\(performance\.now\(\)-\w+\);'
+    assert len(re.findall(timed_resume,probe))==1
+    probe=re.sub(timed_resume,lambda m:m[0]+"globalThis.perfCandidateSteps.push(times[times.length-1]);",probe)
     data = {'kind': 'chromium' if args.chromium else 'webkit', 'width':375, 'source':INITIAL['source'], 'rows':[]}
     arms = ['v10', 'v11-foot'] if args.controls else ['v10','v11-foot','v12']
     with sync_playwright() as pw:
