@@ -3,7 +3,7 @@
   const mountain = new URLSearchParams(location.search).get('scene') === 'mountain';
   const panel = document.createElement('details');
   panel.id = 'comparison-panel';
-  panel.style.cssText = 'position:fixed;top:env(safe-area-inset-top,0px);left:50%;transform:translateX(-50%);z-index:2147483647;white-space:nowrap;background:#fffef4;color:#18372c;border:1px solid #566e60;border-radius:5px;font:13px/1.5 system-ui';
+  panel.style.cssText = 'position:fixed;top:env(safe-area-inset-top,0px);left:50%;transform:translateX(-50%);z-index:2147483647;width:min(255px,calc(100vw - 8px));font-variant-numeric:tabular-nums;white-space:nowrap;background:#fffef4;color:#18372c;border:1px solid #566e60;border-radius:5px;font:13px/1.5 system-ui';
   panel.innerHTML = '<summary style="padding:3px 8px;cursor:pointer"></summary><div style="padding:4px 10px 8px"><div id="compare-screen"></div>主人公から見たクマの足元（画面px）<div id="initial-pair"></div><div id="current-pair"></div><div id="aged-pair"></div><a href="../#compare">比較条件の選択に戻る</a></div>';
   panel.querySelector('a').href = '../?scene=' + (mountain ? 'mountain' : 'forest') + '#compare';
   document.body.append(panel);
