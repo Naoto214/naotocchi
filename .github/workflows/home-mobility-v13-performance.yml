@@ -8,14 +8,14 @@ permissions:
   actions: read
 jobs:
   measure:
-    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[v13-perf]')
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[v13-perf]') || contains(github.event.head_commit.message, '[v13-perf-seat]')
     runs-on: ubuntu-latest
     timeout-minutes: 55
     strategy:
       fail-fast: false
       matrix:
         direction: [forward, reverse]
-        experiment: [live-390, live-320, trace-390, trace-320, fixed-390, stress-390, fixed-320, stress-320, touch-320, touch-390]
+        experiment: ${{ fromJSON(contains(github.event.head_commit.message, '[v13-perf-seat]') && '["seat-375"]' || '["live-390","live-320","trace-390","trace-320","fixed-390","stress-390","fixed-320","stress-320","touch-320","touch-390"]') }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -73,6 +73,14 @@ jobs:
           width="${EXPERIMENT#*-}"
           out="$RUNNER_TEMP/performance"
           mkdir -p "$out"
+          if [[ "$suite" == seat ]]; then
+            for mode in seating live trace touch; do
+              args=(--width 375 --direction "$DIRECTION" --arms v13-c v13-d)
+              [[ "$mode" != trace ]] || args+=(--seconds 40)
+              python -Bu comparisons/home-mobility-v13/performance.py "$mode" "${args[@]}" --out "$out/$mode-375-$DIRECTION.json"
+            done
+            exit 0
+          fi
           args=()
           if [[ "$suite" == fixed || "$suite" == stress ]]; then
             if [[ "$width" == 390 ]]; then

@@ -11,7 +11,7 @@ const nativeModel = arm => 'home-production-model-mobility-'+arm+'.js';
 const local = name => fs.readFileSync(path.join(__dirname,name),'utf8');
 const ref = (name,source) => name+'?v='+digest(source).slice(0,12);
 
-function prepare(baseline,{gameplayOnly=false}={}) {
+function prepare(baseline,{gameplayOnly=false,scenesOnly=false}={}) {
   const read = name => fs.readFileSync(path.join(baseline,name),'utf8');
   const game = name => read('game/'+name);
   const files = new Map();
@@ -76,7 +76,9 @@ function prepare(baseline,{gameplayOnly=false}={}) {
     controls=replaceExact(controls,"  byId('seed').value = scene.seed;","  byId('version').value = scene.arm;\n  byId('seed').value = scene.seed;");
     controls=replaceExact(controls,"byId('restart').addEventListener","byId('version').addEventListener('change', event => change({arm:event.target.value}));\nbyId('restart').addEventListener");
     add('v13/compare.mjs',controls);
-    for(const name of ['index.html','shell-model.mjs','style.css','map.html','map.mjs','map.css','forest.html','forest-summary.json'])add('v13/'+name,local(name));
+    for(const name of ['index.html','shell-model.mjs','style.css'])add('v13/'+name,local(name));
+    if(scenesOnly)return files;
+    for(const name of ['map.html','map.mjs','map.css','forest.html','forest-summary.json'])add('v13/'+name,local(name));
     for(const n of listFiles(path.join(__dirname,'map-data')))add('v13/map-data/'+n,fs.readFileSync(path.join(__dirname,'map-data',n)));
   }
   return files;
@@ -108,7 +110,7 @@ function build(destination,baseline,options) {
 }
 if(require.main===module){
   const [out,flag,baseline,mode,...rest]=process.argv.slice(2);
-  if(!out||flag!=='--baseline'||!baseline||rest.length||(mode&&mode!=='--gameplay-only'))throw Error('Usage: node build.cjs OUTPUT --baseline V12_DIR [--gameplay-only]');
-  console.log('Built',build(out,baseline,{gameplayOnly:mode==='--gameplay-only'}),'V13 files');
+  if(!out||flag!=='--baseline'||!baseline||rest.length||(mode&&!['--gameplay-only','--scenes-only'].includes(mode)))throw Error('Usage: node build.cjs OUTPUT --baseline V12_DIR [--gameplay-only | --scenes-only]');
+  console.log('Built',build(out,baseline,{gameplayOnly:mode==='--gameplay-only',scenesOnly:mode==='--scenes-only'}),'V13 files');
 }
 module.exports={prepare,build,baselineHash};

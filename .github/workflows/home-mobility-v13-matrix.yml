@@ -130,7 +130,7 @@ jobs:
             group=()
             for ((i=offset;i<${#widths[@]};i+=2)); do group+=("${widths[i]}"); done
             if ((${#group[@]})); then
-              python -B comparisons/home-mobility-v13/matrix_worker.py --url http://127.0.0.1:8377 --region "$REGION" --arms "${arms[@]}" --counts "${counts[@]}" --widths "${group[@]}" --out "$RUNNER_TEMP/mobility-evidence/$REGION" &
+              python -B comparisons/home-mobility-v13/matrix_worker_v13.py --url http://127.0.0.1:8377 --region "$REGION" --arms "${arms[@]}" --counts "${counts[@]}" --widths "${group[@]}" --out "$RUNNER_TEMP/mobility-evidence/$REGION" &
               pids+=("$!")
             fi
           done

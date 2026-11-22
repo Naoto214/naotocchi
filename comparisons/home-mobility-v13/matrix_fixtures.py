@@ -43,9 +43,10 @@ def build(archive_dir):
                     'snapshot': shared['snapshot'], 'frozenFeet': shared['opening'], 'input': shared['input'],
                     'agedSubject': cell['arms']['v12']['aged']['drag']['key'], 'v12RawCellSHA256': checksum,
                 }
-        blob = gzip.compress(encode(fixtures), mtime=0)
-        (FIXTURES / f'{region}.json.gz').write_bytes(blob)
-        index['regions'][region] = {'sha256': sha(blob), 'v12Archive': meta['sha256'], 'url': meta['url'], 'cells': len(fixtures)}
+        blob = encode(fixtures)
+        (FIXTURES / f'{region}.json').write_bytes(blob)
+        index['regions'][region] = {'v12Archive': meta['sha256'], 'url': meta['url'], 'cells': len(fixtures),
+                                    'measuredWorkflowGzipSHA256': sha(gzip.compress(blob, mtime=0)), 'sha256': sha(blob)}
     (FIXTURES / 'index.json').write_text(json.dumps(index, indent=2) + '\n')
 
 

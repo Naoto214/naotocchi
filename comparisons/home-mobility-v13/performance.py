@@ -114,21 +114,55 @@ def measure_touch(args, arms):
             bridge.close()
 
 
+def measure_seating(args, arms):
+    result = {"width": args.width, "order": args.direction, "rows": []}
+    with sync_playwright() as pw:
+        browser = pw.webkit.launch(executable_path=common.WPE)
+        result["browser"] = browser.version
+        for arm in arms:
+            def instrument(name, source):
+                if arm != "v13-d" or "production-model" not in name:
+                    return source
+                start = "scene.navigation.v13SeatReceipt=("
+                end = "b=>exit.every(q=>separated(lead,q,b)));"
+                source = common.clock.replace(source, start, "const tSeat=performance.now();" + start)
+                return common.clock.replace(source, end, end +
+                    "(mobilityPerf.seatTrial||=[]).push({ms:performance.now()-tSeat,...scene.navigation.v13SeatReceipt});")
+            page, errors, assets = common.native_page(browser, args.base, arm, view=(args.width,792), transform=instrument)
+            rows = page.evaluate("""()=>{
+              const boot=mobilityPerf.seatTrial||[],observations=[];
+              for(let i=0;i<6;i++){
+                mobilityPerf.seatTrial=[];const start=performance.now(),model=mobilityPerf.reset(214);
+                const elapsed=performance.now()-start,actors=model.snapshot();
+                observations.push({ms:elapsed,passes:mobilityPerf.seatTrial,opening:actors.map(a=>[a.key,a.x,a.y])});
+              }
+              return {boot, observations};
+            }""")
+            assert not errors and all(len(o["opening"]) == 28 for o in rows["observations"])
+            result["rows"].append(dict(arm=arm, assets=assets, **rows))
+            common.save(args.out, result)
+            page.close()
+        browser.close()
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("suite", choices=["live", "trace", "fixed", "stress", "touch"])
+    p.add_argument("suite", choices=["live", "trace", "fixed", "stress", "touch", "seating"])
+    p.add_argument("--arms", choices=ARMS, nargs="+", default=ARMS)
     p.add_argument("--direction", choices=["forward", "reverse"], required=True)
-    p.add_argument("--width", type=int, choices=[320, 390], default=390)
+    p.add_argument("--width", type=int, choices=[320, 375, 390], default=390)
     p.add_argument("--seconds", type=float, default=180)
     p.add_argument("--warmup", type=float, default=8)
     p.add_argument("--base", default="http://127.0.0.1:8377/game")
     p.add_argument("--tape", type=Path)
     p.add_argument("--out", type=Path, required=True)
     args = p.parse_args()
-    arms = ARMS if args.direction == "forward" else ARMS[::-1]
+    arms = args.arms if args.direction == "forward" else args.arms[::-1]
     if args.suite in ("live", "trace"):
         args.trace = args.suite == "trace"
         measure_live(args, arms)
+    elif args.suite == "seating":
+        measure_seating(args, arms)
     elif args.suite == "touch":
         measure_touch(args, arms)
     else:
