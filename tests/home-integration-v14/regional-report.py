@@ -3,7 +3,6 @@ import argparse
 import csv
 import itertools
 import json
-import sys
 from collections import Counter
 from pathlib import Path
 from regional import ENTRIES, HEIGHT, REGIONS
@@ -43,9 +42,10 @@ def main():
     p.add_argument('table',type=Path)
     p.add_argument('summary',type=Path)
     p.add_argument('--sha',required=True)
-    p.add_argument('--run',required=True)
+    p.add_argument('--run',required=True,help='Source workflow or local receipt for this dataset')
+    p.add_argument('--arms',nargs='+',choices=ENTRIES,default=list(ENTRIES))
     a=p.parse_args()
-    expected=set(itertools.product(REGIONS,COUNTS,HEIGHT,ENTRIES))
+    expected=set(itertools.product(REGIONS,COUNTS,HEIGHT,a.arms))
     rows={}
     for f in a.inputs.rglob('*.json'):
         item=json.loads(f.read_bytes())
@@ -55,7 +55,7 @@ def main():
     missing=expected-rows.keys()
     if missing:raise ValueError(f'{len(missing)} missing native observations')
     results=[]
-    for arm in ENTRIES:
+    for arm in a.arms:
         selected=[v for k,v in rows.items() if k[-1]==arm]
         numeric='hops ambientHops terrain occlusion speed contact errors'.split()
         booleans='exposed trusted tapped dragIssued dragAccepted decoded shadows conversation evolution equipment census time reload'.split()
