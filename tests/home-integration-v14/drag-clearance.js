@@ -12,7 +12,7 @@ function surroundingClearance() {
     const d=Math.hypot((a.x-peer.x)/((a.w+peer.w)*.5+10),(a.y-peer.y)/((a.h+peer.h)*.38+10));
     if(d<1.05)summary.neighbors.push([peer.key,+d.toFixed(6)]);
   }
-  for(const radius of [1,4,12,28]){
+  for(const radius of (window.regionalDragRadii||[1,4,12,28])){
     let clear=0,forward=0,terrain=0,bodyBlocked=0,alternate=null,straightTerrain=false,straightClear=false;
     for(let i=0;i<72;i++){
       const angle=i*Math.PI/36;

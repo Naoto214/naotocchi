@@ -132,6 +132,8 @@ def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False,alternate=F
         touch('touchStart',target['from']);touch('touchEnd',None)
         tap=page.evaluate('regional.summary().selected')
         if alternate:
+            if type(alternate) is int:
+                page.evaluate('radius=>window.regionalDragRadii=[radius]',alternate)
             target['clearance']=page.evaluate('regional.clearance().radii.at(-1)')
             target['originalGoal']=target['goal']
             target['goal']=target['clearance']['alternate'] or target['goal']
