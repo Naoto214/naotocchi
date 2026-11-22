@@ -36,7 +36,7 @@
   "saveGrowthConversationAndGameFailures": 0,
   "site": {
     "url": "https://naotocchi-home-integration-v14.kerzion214.chatgpt.site/",
-    "deployment": "appgdep_6b02e94b660c819187284b0aa8a48fc3",
+    "deployment": "appgdep_6b02ed1854fc819180fd3b1ef01d7e7b",
     "status": "succeeded",
     "ownerCount": 1,
     "groupCount": 0,
@@ -64,11 +64,12 @@
       ]
     ],
     "package": {
-      "commit": "f8e1e88a741ca879ff35daa4d5c99db42afd784c",
+      "commit": "0445eb31f4701f346e7fc90ee5d156c2ec7cb167",
       "files": 4242,
       "expandedTarBytes": 264437760,
-      "archiveBytes": 253317052,
-      "sha256": "0231258d08e76ef6f99c913f6f178d3967636d87767013f4e19e4392a21d9580"
-    }
+      "archiveBytes": 253317044,
+      "sha256": "9def54764abb3486b5b35f4a0323bb5cab8666615bf75b58d9c5ec58f2e9f63f"
+    },
+    "version": 2
   }
 }
