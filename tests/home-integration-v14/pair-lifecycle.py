@@ -44,7 +44,7 @@ def serve(root, assets):
             if file.name=='script.js':
                 offset=body.rindex(b'})();')
                 body=body[:offset]+b"""window.pairGame={
-                 express(){if(!el.storyFlash.classList.contains('hidden'))homeV11ClearUpper();startPetExpression('happy',3000);homeDiorama.sync();return petExpressionTransient?.expression;},
+                 express(){if(!el.storyFlash.classList.contains('hidden'))homeV11ClearUpper();startPetExpression('happy',3000);homeDiorama.sync();const result=el.petSprite.dataset.expression;if(result==='happy')window.pairExpressionFrame=window.pairSample('expression');return result;},
                  sync(){homeDiorama.sync();},
                  travel(region){travelToRegion(findRegion(region));return state.regionId;}
                 };"""+body[offset:]
@@ -98,14 +98,13 @@ def run(browser,base,region,count,out,before_navigation=False):
         raise
     result={'stages':{},'checkpoints':[],'errors':errors,'browser':browser.version}
     def capture(label):
-        snapshot=page.evaluate('label=>window.pairSample(label)',label)
+        snapshot=page.evaluate("label=>label==='expression'?window.pairExpressionFrame:window.pairSample(label)",label)
         result['checkpoints'].append(snapshot)
         page.screenshot(path=out/f'{region}-{label}.jpg',type='jpeg',quality=75,scale='css')
     capture('loaded')
     page.evaluate('pairGame.sync()')
     capture('explicit-sync')
-    page.wait_for_function("pairGame.express()==='happy'",timeout=30000)
-    result['expression']=page.locator('#petSprite').get_attribute('data-expression')
+    result['expression']=page.wait_for_function("()=>{const value=pairGame.express();return value==='happy'&&value}",timeout=90000).json_value()
     capture('expression')
     page.wait_for_function("pairStages.some(s=>s.label==='first-navigated-pair-target')",timeout=180000)
     capture('autonomy')
@@ -128,7 +127,7 @@ def run(browser,base,region,count,out,before_navigation=False):
     result['stages']['reload']=page.evaluate('pairStages')
     result['reloadMovieActions']=page.evaluate('pairMovieActions')
     assert not errors,errors
-    assert result['expression']=='happy' and result['travel']==result['savedRegion']==other,result
+    assert result['expression']=='happy' and result['travel']==result['savedRegion']==other,(result['expression'],result['travel'],result['savedRegion'],other)
     assert result['checkpoints'][-1]['region']==other
     (out/f'{region}.json').write_text(json.dumps(result,ensure_ascii=False))
     context.close()
