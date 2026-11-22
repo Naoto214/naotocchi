@@ -36,6 +36,10 @@ def phase_metrics(phase, reference, prior):
     partner = next((a for a in feet if a['kind'] == 'partner'), None)
     data = {}
     for role, actor in [('pet', pet), ('partner', partner)]:
+        data[role+'Painted']=actor['painted'] if actor else None
+        data[role+'Surface']=actor.get('surface') if actor else None
+        data[role+'Visible']=actor['visible'] if actor else None
+        data[role+'Terrain']=actor['valid'] if actor else None
         for space in ('screen', 'art', 'nativeArt'):
             for i, axis in enumerate(('X', 'Y' if space == 'screen' else 'Z')):
                 data[role + space[:1].upper() + space[1:] + axis] = actor[space][i] if actor else None
@@ -116,7 +120,15 @@ def summarize(rows):
         assert original['clock'] == 0 and len(original['feet']) == n
         checks = regional_report.compact(row)
         sync = max(movement(original,phase['sync']), default=0)
+        lead_keys={a['key'] for a in original['feet'] if a['kind'] in ('pet','partner')}
+        def contact_ids(value):
+            return {tuple(sorted(p[:2])) for p in value['contacts']}
+        opening_ids=contact_ids(original)
+        persistent=opening_ids & contact_ids(phase['walked'])
+        new_persistent=persistent - contact_ids(prior['opening'])
         checks.update(height=HEIGHT[w], ordinarySyncShift=sync,
+                      persistentPairCrowdContacts=sum(bool(lead_keys.intersection(pair)) for pair in persistent),
+                      newPersistentPairCrowdVsPrior=sum(bool(lead_keys.intersection(pair)) for pair in new_persistent),
                       travelled=phase['travel']['region']==('forest' if region=='home' else 'home'),
                       reloadedCount=len(phase['reload']['feet']), **values['opening'])
         for p in ('walked', 'lifecycle', 'resized', 'reload', 'travel'):
@@ -139,6 +151,8 @@ def summarize(rows):
                    'pairContact','pairCrowdContacts','companionContacts',
                    'invalidTerrain','occluded','outsidePaintedGround','addedOutsidePaintedGround','addedInvalidTerrain','addedOccluded',
                    'outsideActorBounds','outsideFrame','companionMovedVsMain')},
+                petOutsidePaintedGround=sum(not r['petPainted'] for r in entries),
+                partnerOutsidePaintedGround=sum(not r['partnerPainted'] for r in pairs),
                 orderChanges=sum(r['orderChanged'] for r in pairs),
                 medianVectorError=statistics.median(errors) if errors else None,
                 maxVectorError=max(errors,default=None),
@@ -147,7 +161,7 @@ def summarize(rows):
             totals={k:sum(r[k] for r in selected) for k in ('hops','ambientHops','dragHops',
                     'yieldHops','terrain','occlusion','contact','speed','errors','tapped','dragIssued',
                     'dragAccepted','decoded','shadows','conversation','evolution','equipment','census',
-                    'time','reload','travelled')},
+                    'time','reload','travelled','persistentPairCrowdContacts','newPersistentPairCrowdVsPrior')},
             stationaryDrags=sum(r['dragIssued'] and not r['dragHops'] for r in selected),
             syncShiftAboveHundredth=sum(r['ordinarySyncShift'] > .01 for r in selected),
             maxSyncShift=max(r['ordinarySyncShift'] for r in selected),
