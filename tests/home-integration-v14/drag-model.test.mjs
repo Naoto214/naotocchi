@@ -140,3 +140,24 @@ test('identical failed graph routes are queried once per drop and retried with f
   assert.equal(drop(34),true);
   assert.equal(calls.route,2);
 });
+
+test('every committed walk checks the interior of the step and allows escape from existing contact',()=>{
+  const runner={key:'runner',kind:'pet',w:10,h:10,x:48,y:50};
+  function walk(peerY,goal,source){
+    let seating=true;
+    const model=createModel({random:()=>.5});
+    const peer={key:'peer',kind:'companion',w:10,h:10,x:50,y:peerY};
+    model.sync([runner,peer],{region:'home',width:120,height:100,
+      actorBounds:()=>({left:0,right:120,top:0,bottom:100}),
+      visible:(p,a)=>!seating||p.x===(a.key===runner.key?runner:peer).x&&p.y===(a.key===runner.key?runner:peer).y});
+    seating=false;
+    assert.ok(model.move('runner',{x:goal,y:50},source));
+    model.step(.1,{autonomy:false});
+    return model.snapshot()[0].x;
+  }
+  // The 4.2px hop crosses the ellipse near its top. Both endpoints are clear.
+  for(const source of ['ambient','ground','drag']){
+    assert.equal(walk(32.45,80,source),48,source);
+    assert.ok(walk(35,20,source)<48,'an existing overlap can separate');
+  }
+});

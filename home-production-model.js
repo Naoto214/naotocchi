@@ -605,12 +605,15 @@
         const p=limit(a,{x:a.x+dx/dist*step,y:a.y+dy/dist*step},scene);
         // If a very crowded/short viewport cannot seat everyone, permit escape only
         // when every existing overlap shrinks; never enter a new overlap.
-        const distance=(q,b)=>clearance(a,q,b);
-        const liveDrop=a.pointerDrop&&scene.navigation?.intentAware;
         const safe=visible(a,p)&&(!scene.navigation||scene.navigation.segmentSafe(a,p))&&actors.every(b=>{
           if(b===a)return true;
-          if(liveDrop&&!contactSegmentSafe(a,p,b,(a.w+b.w)*.5+10,(a.h+b.h)*.38+10))return false;
-          return separated(a,p,b)||distance(a,b)<1&&distance(p,b)>distance(a,b)+1e-6;
+          const rx=(a.w+b.w)*.5+10,ry=(a.h+b.h)*.38+10;
+          // An entire step on one side of the enclosing box cannot enter the ellipse.
+          if(Math.max(a.x,p.x)<=b.x-rx||Math.min(a.x,p.x)>=b.x+rx||
+             Math.max(a.y,p.y)<=b.y-ry||Math.min(a.y,p.y)>=b.y+ry)return true;
+          if(!contactSegmentSafe(a,p,b,rx,ry))return false;
+          const end=clearance(a,p,b);
+          return end>=1||end>clearance(a,a,b)+1e-6;
         });
         if(!safe){a.target=null;a.route=[];a.activity='look';const request=manualGoals.get(a.key);if(request)request.nextAt=clock+1;defer(a,1+random()*2);continue;}
         stats.distance+=Math.hypot(p.x-a.x,p.y-a.y);a.x=p.x;a.y=p.y;if(Math.abs(dx)>.3)a.direction=dx<0?-1:1;
