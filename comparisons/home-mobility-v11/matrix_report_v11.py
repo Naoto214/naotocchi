@@ -46,7 +46,7 @@ def summarize_drops(cell, previous, shared_rows, aged_rows, initial_differences)
     for arm, data in cell["arms"].items():
         aged = data["aged"]
         raw = aged["drag"]
-        aged_rows.append({**metrics.input_summary(cell, "natural", arm, raw), "opening": digest_opening(aged["opening"]),
+        aged_rows.append({**metrics.input_summary(cell, "matched-start-living", arm, raw), "opening": digest_opening(aged["opening"]),
             "priorV9SameFeet": aged["opening"] == previous_v9["opening"],
             "priorV10SameFeet": aged["opening"] == previous_v10["opening"],
             "freshV10SameFeet": aged["opening"] == fresh["opening"],
@@ -177,6 +177,31 @@ def read_cells(args, receipts):
                 yield cell, preceding
 
 
+def grouped(residents, inputs, aged_inputs, targets):
+    groups = []
+    for arm in ARMS:
+        data = [[r for r in items if r["arm"] == arm] for items in (residents, inputs, aged_inputs, targets)]
+        for name, keys in (("all", ("all",)), ("region", old.REGIONS), ("count", old.COUNTS), ("width", old.WIDTHS)):
+            for key in keys:
+                parts = data if name == "all" else [[r for r in part if r[name] == key] for part in data]
+                groups.append({"group": name, "value": key, "arm": arm, **prior.digest_group(*parts)})
+    return groups
+
+
+def original_state_arm(data):
+    start = data["naturalOpening"]
+    return {**data, "opening": start["opening"], "seed":start["seed"], "rows":start.get("rows", data["rows"]),
+            "aged":data.get("naturalAged", data["aged"])}
+
+
+def write_table(path, rows, empty_columns):
+    if rows:
+        prior.csv_write(path, rows)
+    else:
+        header = (",".join(empty_columns) + "\n").encode()
+        path.write_bytes(gzip.compress(header, mtime=0) if path.suffix == ".gz" else header)
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--run", required=True)
@@ -190,13 +215,33 @@ def main():
     args.out.mkdir(parents=True, exist_ok=True)
     residents, inputs, aged_inputs, targets = [], [], [], []
     shared, aged_rows, opening_diffs, alternatives, cohorts, sync = [], [], [], [], [], []
+    natural_residents, natural_inputs, natural_aged_inputs, natural_targets = [], [], [], []
+    opening_states, unaligned_aged = [], []
+    native_safety = {arm: Counter() for arm in ARMS}
     safe = {arm: Counter() for arm in ARMS}
     extra = {arm: Counter() for arm in ARMS}
     receipt = {"base": BASE_SHA, "run": args.run, "regions": {}, "identity": {}}
     for cell, previous in read_cells(args, receipt):
         summarize_drops(cell, previous, shared, aged_rows, opening_diffs)
         values = {}
+        original = dict(cell, arms={arm:original_state_arm(cell["arms"][arm]) for arm in ARMS})
+        donor = cell["arms"]["v10"]["naturalOpening"]["state"]
         for arm in ARMS:
+            source = cell["arms"][arm]
+            cold = source["naturalOpening"]["state"]
+            warm = source["naturalAgedOpening"]["state"]
+            row = {**label(cell), "arm":arm, "canonicalSeed":donor["seed"], "naturalColdSeed":cold["seed"],
+                   "naturalWarmSeed":warm["seed"], "coldExact":cold==donor, "warmExact":warm==donor,
+                   "coldEqualFootprint":source["naturalOpening"]["opening"]==cell["arms"]["v10"]["opening"],
+                   "warmEqualFootprint":source["naturalAgedOpening"]["opening"]==cell["arms"]["v10"]["opening"],
+                   "differentColdActorFields":old.canonical(sorted({k for a,b in zip(cold["actors"],donor["actors"],strict=True)
+                                             for k in set(a)|set(b) if a.get(k)!=b.get(k)}))}
+            opening_states.append(row)
+            add_household(original, arm, natural_residents, natural_inputs, natural_aged_inputs, natural_targets,
+                          native_safety[arm], Counter())
+            natural = original["arms"][arm]["aged"]
+            unaligned_aged.append({**metrics.input_summary(original, "native-start-living", arm, natural["drag"]),
+                                   "agedFeet":digest_opening(natural["opening"]), "warmExact":warm==donor})
             start = len(residents)
             add_household(cell, arm, residents, inputs, aged_inputs, targets, safe[arm], extra[arm])
             aged = cell["arms"][arm]["aged"]
@@ -206,18 +251,18 @@ def main():
         for key in values["v10"]:
             scores = {arm: values[arm][key] for arm in ARMS}
             if not all(scores.values()):cohorts.append({**label(cell), "key":key, **scores})
-    groups = []
-    for arm in ARMS:
-        data = [[r for r in items if r["arm"] == arm] for items in (residents, inputs, aged_inputs, targets)]
-        for name, keys in (("all", ("all",)), ("region", old.REGIONS), ("count", old.COUNTS), ("width", old.WIDTHS)):
-            for key in keys:
-                parts = data if name == "all" else [[r for r in part if r[name] == key] for part in data]
-                groups.append({"group": name, "value": key, "arm": arm, **prior.digest_group(*parts)})
+    groups = grouped(residents, inputs, aged_inputs, targets)
+    natural_groups = grouped(natural_residents, natural_inputs, natural_aged_inputs, natural_targets)
     totals = {r["arm"]: r for r in groups if r["group"] == "all"}
     for arm, totals_for_arm in totals.items():
         old.require(tuple(totals_for_arm[k] for k in ("residents","drags","tapSent","agedDragCount")) ==
                     (3276,1058,260,260), "incomplete cohort")
     result = {"publishedV10": PUBLISHED, "totals": totals, "safety": safe, "cases": 260,
+        "naturalStartupTotals": {r["arm"]:r for r in natural_groups if r["group"]=="all"},
+        "naturalStartupSafety":native_safety,
+        "unchangedOpeningBeforeAlignment":{arm:{k:sum(r["arm"]==arm and r[k] for r in opening_states)
+                        for k in ("coldExact","warmExact","coldEqualFootprint","warmEqualFootprint")} for arm in ARMS},
+        "regionalClock": "300 native model seconds, advanced in the live browser; separate forest trials use elapsed wall time",
         "thresholds": {arm: {field: totals[arm][field] <= goal if field == "bothFailed" else totals[arm][field] >= goal
                              for field, goal in PUBLISHED.items()} for arm in ARMS},
         "matched": {"trusted": sum(r["trusted"] for r in shared), "total": len(shared),
@@ -228,11 +273,14 @@ def main():
         "normalChangedGoalsTowardOriginal": sum(r.get("actualDisplacement",0)>=8-1e-7 and r.get("originalGain",0)>.75
                                               and not r.get("escape") for r in alternatives),
         "equalAgedFeetToCurrentV10": {arm: sum(r["arm"] == arm and r["freshV10SameFeet"] for r in aged_rows) for arm in ARMS}}
-    for basename, rows in (("groups", groups), ("uncompleted", cohorts), ("opening-differences", opening_diffs)):
-        prior.csv_write(args.out / f"matrix-{basename}.csv", rows)
+    for basename, rows in (("groups", groups), ("natural-start-groups",natural_groups), ("opening-states",opening_states),
+                           ("uncompleted", cohorts), ("opening-differences", opening_diffs)):
+        write_table(args.out / f"matrix-{basename}.csv", rows, (*ID, "case", "arm", "changed", "prior", "new"))
     for basename, rows in (("residents", residents), ("opening-inputs", inputs), ("aged-inputs", aged_rows),
-                           ("matched-inputs", shared), ("alternative-goals", alternatives), ("foot-shifts", sync)):
-        prior.csv_write(args.private_data / f"matrix-{basename}.csv.gz", rows)
+                           ("matched-inputs", shared), ("alternative-goals", alternatives), ("foot-shifts", sync),
+                           ("natural-start-residents",natural_residents), ("natural-start-inputs", unaligned_aged)):
+        empty = (*ID, "arm", "clock", "key", "before", "after") if basename == "foot-shifts" else (*ID, "arm", "clock", "key", "from", "raw", "chosen")
+        write_table(args.private_data / f"matrix-{basename}.csv.gz", rows, empty)
     failures = [r for r in aged_rows if r["status"] != "arrived"]
     prior.csv_write(args.out / "matrix-aged-failures.csv", failures)
     receipt["derived"] = {f.name: {"bytes":f.stat().st_size, "sha256":old.digest(f.read_bytes())}

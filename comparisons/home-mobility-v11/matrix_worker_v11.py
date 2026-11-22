@@ -38,6 +38,13 @@ SYNC_OBSERVER = """
 def instrument(name, source):
     source = baseline.instrument_source(name, source)
     if "production-model" in name:
+        start_hook = """    qa.matrixLoadOpening = state => {
+      if (clock !== 0 || state.clock !== 0 || !HomeCastTrial.settings.paused)
+        throw Error('opening restore is only valid in a paused time-zero comparison');
+      qa.matrixLoad(state);
+      paused = state.paused;
+    };"""
+        source = old.legacy.once(source, "    let checkpoint;", start_hook + "\n    let checkpoint;")
         anchor = "      if(arrange){clearRelief();"
         source = old.legacy.once(source, anchor, SYNC_OBSERVER + anchor)
         proposal = "globalThis.HomeGoalDiagnostics?.proposal(a,raw,p,scene.navigation?.intentScale,clock);"
@@ -62,20 +69,80 @@ def drop_outcome(row):
             row["arrived"] or row["terminalArrived"], row["near4"] or row["terminalNear4"])
 
 
-def observe_arm(browser, url, coord, arm, tape, subject):
-    with native_page(browser, url, coord, arm, False) as (page, touch, meta):
-        result = dict(meta, rows=baseline.opening_gestures(page, touch, coord, meta, tape))
-    with native_page(browser, url, coord, arm, True) as (page, touch, start):
-        old.require(all(meta[key] == start[key] for key in ("opening", "seed", "viewport", "hashes")),
-                    f"{arm}: aged scene did not start at its observed opening")
-        aged, snapshot = baseline.natural_aging(page, touch, start, subject, True)
-        aged["sync"] = page.evaluate("({calls: touchQA.matrixSyncCalls || 0, shifts: touchQA.matrixSyncShifts || []})")
-        aged["goalChanges"] = page.evaluate("touchQA.matrixGoalChanges || []")
-        result["aged"] = aged
-        if coord[1:] == (28, 390):
-            result["reloaded"] = old.reload_saved_household(page, meta, touch)
-    return result, snapshot
+def current_opening(page, meta):
+    observed = page.evaluate("""async () => {
+      await new Promise(requestAnimationFrame);
+      await new Promise(requestAnimationFrame);
+      touchQA.checkpoint();
+      return {state:touchQA.matrixState(), feet:touchQA.opening()};
+    }""")
+    state = observed["state"]
+    old.require(state["clock"] == 0, "initial decisions must be observed before the first model tick")
+    meta["earlySeed"] = meta["seed"]
+    meta["seed"] = state["seed"]
+    meta["opening"] = observed["feet"]
+    return state
 
+
+def match_opening(page, meta, original, donor):
+    if original != donor:
+        page.evaluate("""s => {
+          touchQA.matrixLoadOpening(s);
+          touchQA.paint();
+          touchQA.checkpoint();
+        }""", donor)
+    actual = page.evaluate("touchQA.matrixState()")
+    differences = [k for k in donor if actual[k] != donor[k]]
+    old.require(not differences, f"opening state restoration changed {differences}")
+    return {**meta, "seed":actual["seed"], "opening":page.evaluate("touchQA.opening()")}
+
+
+def observe_age(page, touch, meta, subject, coord):
+    aged, snapshot = baseline.natural_aging(page, touch, meta, subject, True)
+    aged["sync"] = page.evaluate("({calls: touchQA.matrixSyncCalls || 0, shifts: touchQA.matrixSyncShifts || []})")
+    aged["goalChanges"] = page.evaluate("touchQA.matrixGoalChanges || []")
+    restore = old.reload_saved_household(page, meta, touch) if coord[1:] == (28, 390) else None
+    return aged, snapshot, restore
+
+
+def observe_arm(browser, url, coord, arm, tape, subject, donor=None):
+    """Save the genuine startup and separately align every model decision and RNG for causal comparisons."""
+    with native_page(browser, url, coord, arm, False) as (page, touch, meta):
+        cold = current_opening(page, meta)
+        if donor is None:
+            donor = cold
+        native_rows = baseline.opening_gestures(page, touch, coord, meta, tape)
+        result = dict(meta, rows=native_rows)
+        result["naturalOpening"] = dict(state=cold, opening=meta["opening"], seed=meta["seed"], earlySeed=meta["earlySeed"])
+    if cold != donor:
+        # A separate page prevents selection/reaction produced by the previous
+        # gestures from influencing the input arm with aligned deadlines.
+        with native_page(browser, url, coord, arm, False) as (page, touch, fresh):
+            old.require(fresh["hashes"] == meta["hashes"], "opening native runtime changed")
+            aligned = match_opening(page, fresh, current_opening(page, fresh), donor)
+            result["naturalOpening"]["rows"] = native_rows
+            result.update(aligned)
+            result["rows"] = baseline.opening_gestures(page, touch, coord, aligned, tape)
+    with native_page(browser, url, coord, arm, True) as (page, touch, start):
+        warm = current_opening(page, start)
+        old.require(start["viewport"] == meta["viewport"] and start["hashes"] == meta["hashes"],
+                    "aged native viewport or runtime changed")
+        result["naturalAgedOpening"] = dict(state=warm, opening=start["opening"], seed=start["seed"], earlySeed=start["earlySeed"])
+        native_aged, snapshot, restore = observe_age(page, touch, start, subject, coord)
+    if warm == donor:
+        result["aged"] = native_aged
+    else:
+        result["naturalAged"] = native_aged
+        with native_page(browser, url, coord, arm, True) as (page, touch, start):
+            old.require(start["hashes"] == meta["hashes"], "aligned runtime changed")
+            aligned = match_opening(page, start, current_opening(page, start), donor)
+            old.require(aligned["opening"] == result["opening"] and aligned["seed"] == result["seed"],
+                        "paired warm opening differs from paired cold opening")
+            result["aged"], snapshot, restore = observe_age(page, touch, aligned, subject, coord)
+    result["alignedOpeningSHA256"] = old.digest(old.canonical(donor).encode())
+    if restore:
+        result["reloaded"] = restore
+    return result, snapshot
 
 def crossover(browser, url, coord, sessions):
     """All versions receive V10's checkpoint. Also cross any candidate with a differing touch outcome."""
@@ -107,7 +174,12 @@ def crossover(browser, url, coord, sessions):
 
 
 def run_cell(browser, url, coord, tape, subjects):
-    sessions = {arm: observe_arm(browser, url, coord, arm, tape, subjects[coord]) for arm in ARMS}
+    subject = subjects[coord]
+    reference = observe_arm(browser, url, coord, "v10", tape, subject)
+    donor = reference[0]["naturalOpening"]["state"]
+    sessions = {"v10":reference}
+    for arm in ARMS[1:]:
+        sessions[arm] = observe_arm(browser, url, coord, arm, tape, subject, donor)
     region, count, width = coord
     return dict(schema=6, region=region, count=count, width=width, height=old.legacy.old.HEIGHTS[width] - 52,
                 engine="chromium", arms={arm: data for arm, (data, _) in sessions.items()},
@@ -121,7 +193,17 @@ def validate(cell, tape):
         pair = dict(cell, schema=1, suite="matrix", paired=True,
                     arms={"v5": cell["arms"]["v10"], "v6": cell["arms"][arm]})
         old.validate_cell(pair, *coord)
+    expected_start = old.digest(old.canonical(cell["arms"]["v10"]["naturalOpening"]["state"]).encode())
     for arm, data in cell["arms"].items():
+        old.require(data["alignedOpeningSHA256"] == expected_start, "different paired opening states")
+        for key in ("naturalOpening", "naturalAgedOpening"):
+            start = data[key]
+            old.require(start["state"]["clock"] == 0 and start["state"]["seed"] == start["seed"],
+                        "native opening state lacks matching clock and RNG")
+        if "naturalAged" in data:
+            native = data["naturalAged"]
+            old.require(native["drag"]["trusted"] and abs(native["final"]["modelSeconds"] - 300) < .001
+                        and native["final"]["arm"] == arm, "incomplete independent native living or touch")
         fingerprint = old.digest(old.canonical(data["opening"]).encode())
         for case, row in data["rows"].items():
             ref = tape[*coord, case, "v6"]
