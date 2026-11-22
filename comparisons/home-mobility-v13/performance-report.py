@@ -22,28 +22,44 @@ def stats(numbers):
     return old["summary"](numbers)
 
 
-def report(directory, dist, out):
-    receipt = json.loads((directory / "receipt.json").read_bytes())
-    assert receipt["conclusion"] == "success" and receipt["complete"] and len(receipt["archives"]) == 20
-    result = dict(run=receipt["run"], url=receipt["url"], commit=receipt["commit"], browser=None,
-                  archives=receipt["archives"], assets={}, sources={}, live=[], trace=[], touch=[], fixed=[], stress=[])
-    validated = {}
+def report(directory, dist, out, supplements=()):
     raw = {}
-    for archive in receipt["archives"]:
-        path = directory / archive["name"]
-        assert sha(path.read_bytes()) == archive["sha256"] and path.stat().st_size == archive["bytes"]
-        with zipfile.ZipFile(path) as z:
-            [name] = [n for n in z.namelist() if "/" not in n]
-            if name.startswith(("fixed-320-", "stress-320-")):
-                sums = z.read("tape/SHA256SUMS").decode().splitlines()
-                assert len(sums) == 3
-                for entry in sums:
-                    digest, filename = entry.split()
-                    assert sha(z.read("tape/" + filename)) == digest
-            assert path.name == "mobility-v13-performance-" + name[:-5] + ".zip" and name not in raw
-            data = z.read(name)
-            result["sources"][name] = sha(data)
-            raw[name] = json.loads(data)
+    runs = []
+    result = dict(browser=None, archives=[], assets={}, sources={}, readingRuns={},
+                  live=[], trace=[], touch=[], fixed=[], stress=[])
+    for folder in [directory, *supplements]:
+        receipt = json.loads((folder / "receipt.json").read_bytes())
+        assert receipt["status"] == "completed" and receipt["conclusion"] in ("success", "failure")
+        assert all(j["status"]=="completed" for j in receipt["jobs"])
+        runs.append({k:receipt[k] for k in ("run", "url", "commit", "conclusion", "jobs")})
+        for archive in receipt["archives"]:
+            path = folder / archive["name"]
+            assert sha(path.read_bytes()) == archive["sha256"] and path.stat().st_size == archive["bytes"]
+            result["archives"].append(dict(run=receipt["run"], **archive))
+            with zipfile.ZipFile(path) as z:
+                rootnames = [n for n in z.namelist() if "/" not in n]
+                if not rootnames:
+                    continue
+                [name] = rootnames
+                assert path.name == "mobility-v13-performance-" + name[:-5] + ".zip"
+                stem = name[:-5]
+                experiment, order = stem.rsplit("-", 1)
+                matching = [j for j in receipt["jobs"] if experiment in j["name"] and order in j["name"]]
+                assert len(matching)==1, (name, matching)
+                if matching[0]["conclusion"] != "success":
+                    continue
+                if name.startswith(("fixed-320-", "stress-320-")):
+                    sums = z.read("tape/SHA256SUMS").decode().splitlines()
+                    assert len(sums) == 3
+                    for entry in sums:
+                        digest, filename = entry.split()
+                        assert sha(z.read("tape/" + filename)) == digest
+                data = z.read(name)
+                result["sources"][name] = sha(data)
+                result["readingRuns"][name] = receipt["run"]
+                raw[name] = json.loads(data)
+    assert len(raw) == 20, sorted(raw)
+    result.update(run=runs[0]["run"], url=runs[0]["url"], commit=runs[0]["commit"], runs=runs)
     frames = []
     openings = {}
     first_commands = {}
@@ -137,6 +153,7 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("archive", type=Path)
     p.add_argument("--game", required=True, type=Path)
+    p.add_argument("--supplement", action="append", type=Path, default=[])
     p.add_argument("--out", default=HERE / "evidence", type=Path)
     args = p.parse_args()
-    report(args.archive, args.game, args.out)
+    report(args.archive, args.game, args.out, args.supplement)

@@ -87,9 +87,11 @@ jobs:
               tape="$RUNNER_TEMP/tape"
               sums="$GITHUB_WORKSPACE/comparisons/home-mobility-v10/$suite-fixture.sha256"
             else
-              tape="$GITHUB_WORKSPACE/comparisons/home-mobility-v13/performance-tapes/$suite"
-              if [[ ! -f "$tape/SHA256SUMS" ]]; then
-                tape="$RUNNER_TEMP/tape"
+              stored="$GITHUB_WORKSPACE/comparisons/home-mobility-v13/performance-tapes/$suite"
+              tape="$RUNNER_TEMP/tape"
+              if [[ -f "$stored/SOURCE-SHA256SUMS" ]]; then
+                python -Bu comparisons/home-mobility-v13/performance-tape.py --kind "$suite" --materialize "$stored" --out "$tape"
+              else
                 python -Bu comparisons/home-mobility-v13/performance-tape.py --kind "$suite" --out "$tape"
               fi
               sums="$tape/SHA256SUMS"

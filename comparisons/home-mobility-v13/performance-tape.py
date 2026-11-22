@@ -4,6 +4,7 @@ import gzip
 import hashlib
 import json
 import runpy
+import shutil
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
@@ -68,10 +69,41 @@ def record(base, kind, out):
     print(kind, "mean movers", sum(movers) / len(movers), "max movers", max(movers), source["posesSHA256"])
 
 
+def materialize(source, kind, out):
+    """Restore the three exact WPE fixture files from the repository's plain JSON."""
+    out.mkdir(parents=True, exist_ok=True)
+    for line in (source / "SOURCE-SHA256SUMS").read_text().splitlines():
+        expected, name = line.split()
+        assert name in (kind + ".json", "active-poses.json", "active-animation-phases.json")
+        data = (source / name).read_bytes()
+        assert hashlib.sha256(data).hexdigest() == expected
+        if name == kind + ".json":
+            (out / name).write_bytes(data)
+        else:
+            if name == "active-poses.json":
+                # Store each resident pose once; each frame retains its original
+                # order, motion list, and indexes into these exact values.
+                packed = json.loads(data)
+                frames = []
+                for at, moved, indexes in packed["frames"]:
+                    fields = {"at": at, "moved": moved, "positions": [packed["positions"][i] for i in indexes]}
+                    frames.append({k: fields[k] for k in packed["fieldOrder"]})
+                data = encode(frames)
+            (out / (name + ".gz")).write_bytes(gzip.compress(data, mtime=0))
+    shutil.copyfile(source / "SHA256SUMS", out / "SHA256SUMS")
+    for line in (out / "SHA256SUMS").read_text().splitlines():
+        expected, name = line.split()
+        assert hashlib.sha256((out / name).read_bytes()).hexdigest() == expected
+
+
 if __name__ == "__main__":
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--kind", required=True, choices=["fixed", "stress"])
     p.add_argument("--out", required=True, type=Path)
+    p.add_argument("--materialize", type=Path, help="Read a stored plain-JSON tape; bypass capture")
     p.add_argument("--base", default="http://127.0.0.1:8377/game")
     args = p.parse_args()
-    record(args.base, args.kind, args.out)
+    if args.materialize:
+        materialize(args.materialize, args.kind, args.out)
+    else:
+        record(args.base, args.kind, args.out)
