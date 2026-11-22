@@ -43,11 +43,23 @@ globalThis.curveProbe=(feet,goalKey,degrees,mode,radius=8,snapshot={})=>{
   let interrupted=false;
   for(let i=0;(service||pair)&&i<300;i++){
     const old=actors.map(b=>({x:b.x,y:b.y})), t=performance.now();
+    const queued=typeof backgroundCurve!=='undefined'&&backgroundCurve;
+    let flags={};
+    if(queued&&!interrupted&&snapshot.cancelOnQueue){
+      const how=snapshot.cancelOnQueue;
+      if(how==='tap')select(actors.find(b=>b.key!==a.key).key);
+      else if(how==='blocked')flags={blocked:true};
+      else if(how==='hold')flags={heldActor:a.key};
+      else if(how==='navigation')scene={...scene,navigation:{...scene.navigation}};
+      else if(how==='new-intent')waiting.delete(a.key);
+      else throw Error('Unknown cancellation condition '+how);
+      interrupted=true;
+    }
     if(snapshot.touchHelper && !interrupted && history.some(row=>row.source==='yield')){
       const helper=history.find(row=>row.source==='yield');
       interrupted=select(helper.key);
     }
-    step(.05);
+    step(.05,flags);
     if(service){times.push(performance.now()-t);iterations++;}
     if(!pair)pair=relief?.pair??manualGoals.get(a.key)?.pairNext??null;
     for(let j=0;j<actors.length;j++){
@@ -59,7 +71,8 @@ globalThis.curveProbe=(feet,goalKey,degrees,mode,radius=8,snapshot={})=>{
         actors.some(v=>v!==b&&!contactSegmentSafe(old[j],b,v,(b.w+v.w)*.5+10,(b.h+v.h)*.38+10)))violations++;
       history.push({key:b.key,x:b.x,y:b.y,source:b.source,clock});
     }
-    if(!relief&&!a.target&&!manualGoals.size)break;
+    const background=typeof backgroundCurve!=='undefined'&&backgroundCurve;
+    if(!relief&&!background&&!a.target&&!manualGoals.size)break;
   }
   const vx=(a.x-before.x)*s.x,vy=(a.y-before.y)*s.y;
   const gx=(q.x-before.x)*s.x,gy=(q.y-before.y)*s.y,length=Math.hypot(gx,gy),error=Math.hypot(gx-vx,gy-vy);

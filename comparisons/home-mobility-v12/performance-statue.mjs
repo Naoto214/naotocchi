@@ -11,7 +11,14 @@ const game=path.resolve(process.env.MOBILITY_GAME);
 const file=name=>new URL(name,import.meta.url);
 const room=JSON.parse(fs.readFileSync(file('../home-mobility-v10/evidence/native-scene-390.json')));
 const fixture=JSON.parse(fs.readFileSync(file('evidence/curve-statue-390.json')));
-const probe=fs.readFileSync(file('curve-probe.js'),'utf8');
+let probe=fs.readFileSync(file('curve-probe.js'),'utf8');
+const early='if(!relief&&!a.target&&!manualGoals.size)break;';
+if(probe.includes(early)){
+  probe=probe.replace(early,"if(!relief&&!a.target&&!manualGoals.size&&(typeof backgroundCurve==='undefined'||!backgroundCurve))break;");
+}
+const resultMarker='found:!!pair,...(pair?{pair}:{}),';
+assert.equal(probe.split(resultMarker).length,2);
+probe=probe.replace(resultMarker,"unfinishedDeferred:!!(typeof backgroundCurve!=='undefined'&&backgroundCurve),"+resultMarker);
 const sceneCode=fs.readFileSync(file('../home-mobility-v11/goal-owl-scene.mjs'),'utf8')
   .replaceAll("'../game/","'"+pathToFileURL(game+'/').href)
   .replace('function forest(config){','export function forest(config){');
@@ -65,9 +72,10 @@ for(const [order,sequence] of [['forward',arms],['reverse',arms.toReversed()]]) 
       const model=mod.exports.createModel({random:()=>.5});model.sync(camera.actors,scene);placed();
       const result=globalThis.curveProbe(request.feet,request.key,request.degrees||0,'service',request.radius||8,request);
       assert.equal(result.violations,0);
+      assert.equal(result.unfinishedDeferred,false,'The test finished while native assistance was still pending');
       runs.push({arm,order,index,width,suffix,resident:request.key,sourceSHA256:hash(source),
         actual:result.actual,goalError:result.goalError,accepted:result.issued,simulationSeconds:result.stopped,
-        curve:!!result.pair?.curved,events:result.trace,samples});
+        curve:!!result.pair?.curved,deferredPendingAtEnd:result.unfinishedDeferred,events:result.trace,samples});
     }
   }
 }
