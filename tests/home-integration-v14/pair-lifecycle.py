@@ -111,7 +111,7 @@ def run(browser,base,region,count,out,before_navigation=False,opening_only=False
     capture('explicit-sync')
     result['expression']=page.wait_for_function("()=>{const value=pairGame.express();return value==='happy'&&value}",timeout=90000).json_value()
     capture('expression')
-    page.wait_for_function("pairStages.some(s=>s.label==='first-navigated-pair-target')",timeout=180000)
+    page.wait_for_function("pairStages.some(s=>s.label==='first-autonomous-resident')",timeout=180000)
     capture('autonomy')
     for width,height,label in [(375,615,'resize-375'),(390,630,'resize-back')]:
         previous=page.evaluate("pairSample('before-resize').projection")

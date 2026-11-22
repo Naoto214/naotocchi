@@ -37,13 +37,20 @@ model.sync=function(input,...rest){
   if(window.pairStages.length<90)window.pairStages.push(observePair('after-sync',input));
   return result;
 };
-let firstTick=true,firstWalk=true,firstNavigatedWalk=true;
+let firstTick=true,firstWalk=true,firstNavigatedWalk=true,firstAmbientWalk=true;
 const originalStep=model.step;
 model.step=function(dt,...rest) {
   const result=originalStep.call(this,dt,...rest);
   if(dt>0 && firstTick){firstTick=false;window.pairStages.push(observePair('first-clock-tick'));}
   if(dt>0 && firstWalk && model.snapshot().some(a=>['pet','partner'].includes(a.kind)&&a.target)){
     firstWalk=false;window.pairStages.push(observePair('first-pair-target'));
+  }
+  if(dt>0 && firstAmbientWalk && scene?.navigation) {
+    const walker=model.snapshot().find(a=>a.target&&a.source!=='drag');
+    if(walker) {
+      firstAmbientWalk=false;
+      window.pairStages.push({...observePair('first-autonomous-resident'),walker:walker.key});
+    }
   }
   if(dt>0 && firstNavigatedWalk && scene?.navigation && model.snapshot().some(a=>['pet','partner'].includes(a.kind)&&a.target)){
     firstNavigatedWalk=false;window.pairStages.push(observePair('first-navigated-pair-target'));
