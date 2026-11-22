@@ -1,0 +1,74 @@
+{
+  "productionPagesCommit": "9539e462e78452ad6da5f72d454911679b4ec20e",
+  "existingPaths": 35856,
+  "unchangedExistingPaths": 35843,
+  "changedExistingPaths": [
+    "home-art-navigation.mjs",
+    "home-production-diorama.js",
+    "home-production-layout.css",
+    "home-production-model.js",
+    "home-production-touch.js",
+    "home-production-world.mjs",
+    "home-recovered-navigation.mjs",
+    "home-route-navigation.mjs",
+    "home-visible-ground-navigation.mjs",
+    "index.html",
+    "script.js",
+    "tests/home-production-v12-interaction-test.cjs",
+    "tools/pages/allowlist.json"
+  ],
+  "trialMatchesRuntimeChanges": [
+    "home-art-navigation.mjs",
+    "home-autumn-leaves.mjs",
+    "home-ground-material.mjs",
+    "home-production-diorama.js",
+    "home-production-layout.css",
+    "home-production-model.js",
+    "home-production-touch.js",
+    "home-production-world.mjs",
+    "home-recovered-navigation.mjs",
+    "home-route-navigation.mjs",
+    "home-visible-ground-navigation.mjs",
+    "index.html",
+    "script.js"
+  ],
+  "saveGrowthConversationAndGameTests": 340,
+  "saveGrowthConversationAndGameFailures": 0,
+  "site": {
+    "url": "https://naotocchi-home-integration-v14.kerzion214.chatgpt.site/",
+    "deployment": "appgdep_6b02e94b660c819187284b0aa8a48fc3",
+    "status": "succeeded",
+    "ownerCount": 1,
+    "groupCount": 0,
+    "externalVisitorCount": 0,
+    "anonymousChecks": [
+      [
+        "/",
+        401,
+        null
+      ],
+      [
+        "/game/",
+        401,
+        null
+      ],
+      [
+        "/game/trial.html",
+        401,
+        null
+      ],
+      [
+        "/launcher.js",
+        401,
+        null
+      ]
+    ],
+    "package": {
+      "commit": "f8e1e88a741ca879ff35daa4d5c99db42afd784c",
+      "files": 4242,
+      "expandedTarBytes": 264437760,
+      "archiveBytes": 253317052,
+      "sha256": "0231258d08e76ef6f99c913f6f178d3967636d87767013f4e19e4392a21d9580"
+    }
+  }
+}
