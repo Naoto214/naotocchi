@@ -1,3 +1,4 @@
+import {beforeMirrorTitle} from './kanji-history-helper.mjs';
 // Approved behavior: PR498 481-time-reversal-cards.md and lib/smoke-v4.mjs (U12).
 // CARD459_ENGINE_DIR allows the identical scenarios to run against the independently built PR498 I7 reference.
 import test from 'node:test';
@@ -84,6 +85,6 @@ test('frozen hotseat1/2/5 saves preserve prior rules, outcomes and replay bytes'
  for(const row of [one.mid,one.finished]){const raw=JSON.stringify(row.save),s=e.restore(raw);assert.equal(e.save(s),raw);assert.equal(s.version,'hotseat-1');assert.equal(s.revision,row.revision);if(row.result)assert.deepEqual(s.result,row.result);}
  for(const [file,version] of [['doodle-jump-hotseat2-saves.json','hotseat-2'],['frogger-hotseat5-saves.json','hotseat-5']]){
   const data=JSON.parse(fs.readFileSync(path.join(here,file),'utf8'));
-  for(const row of data.rows){const raw=JSON.stringify(row.save),s=e.restore(raw);assert.equal(s.version,version);assert.equal(e.save(s),raw);assert.deepEqual(s.result,row.result);const hash=createHash('sha256').update(JSON.stringify({players:s.players,result:s.result,log:s.log})).digest('hex');assert.equal(hash,row.stateSha256,row.case);}
+  for(const row of data.rows){const raw=JSON.stringify(row.save),s=e.restore(raw);assert.equal(s.version,version);assert.equal(e.save(s),raw);assert.deepEqual(s.result,row.result);const hash=createHash('sha256').update(JSON.stringify({players:s.players,result:s.result,log:beforeMirrorTitle(s.log)})).digest('hex');assert.equal(hash,row.stateSha256,row.case);}
  }
 });

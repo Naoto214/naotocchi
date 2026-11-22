@@ -1,4 +1,4 @@
-import {CATALOG} from './full-catalog.mjs';
+import {CATALOG} from './display-catalog.mjs';
 import {marriedAbilitiesActive} from './lover-married.mjs';
 const rule=(mode,action,predicate,optional=false,once=true,extra={})=>({mode,...extra,costModifiers:[{action,predicate,n:1,optional,once}]});
 export const COST_RULES={

@@ -1,6 +1,6 @@
 import {canAttach,transferTargets} from './advanced-equipment.mjs';
 /** Sequential physical-card selection. Existence uses grouped capacities, never combinations. */
-import {CATALOG} from './full-catalog.mjs';
+import {CATALOG} from './display-catalog.mjs';
 const specKeys=new Set(['zone','count','min','max','filter','same','distinct','ordered','consecutive']);
 const filterKeys=new Set(['type','types','excludeType','method','rare','minStage','maxStage','species','excludeSpecies','minCost','maxCost','faceDown','attachedTo','minPower','maxPower','minWisdom','maxWisdom','sameTypeAs','notNameOf','sameEventType','sameWorldName','sameCostAs','differentTypeFrom','powerAboveWisdom','fitsEquipment','excludeEquipmentTarget','unequipped','fitOwnMain','methodsPair']);
 const properties=new Set(['type','name','stage','species']);
