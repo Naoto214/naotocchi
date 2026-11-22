@@ -1,0 +1,47 @@
+name: Home V14 matched Linux WebKit
+on:
+  push:
+    branches: [draft/home-integration-v14]
+    paths:
+      - 'tests/home-integration-v14/performance.request'
+permissions:
+  contents: read
+jobs:
+  timing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        width: [320, 390]
+        order: [forward, reverse]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            assets
+            vendor
+            tests
+            tools
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install WebKit and fetch the two timing controls
+        run: |
+          git fetch --filter=blob:none --depth=1 origin 9539e462e78452ad6da5f72d454911679b4ec20e 3eaea1e7d8e01cebcd903d94515f94830853400c
+          python -m pip install playwright==1.62.0
+          python -m playwright install --with-deps webkit
+      - name: Measure three homes on this runner
+        env:
+          WIDTH: ${{ matrix.width }}
+          ORDER: ${{ matrix.order }}
+        run: |
+          python -Bu tests/home-integration-v14/performance.py HEAD timing.json --widths "$WIDTH" --orders "$ORDER"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-v14-wpe-${{ matrix.width }}-${{ matrix.order }}
+          path: timing.json
