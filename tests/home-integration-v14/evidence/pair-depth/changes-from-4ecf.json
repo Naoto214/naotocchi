@@ -1,0 +1,418 @@
+[
+  {
+    "region": "city",
+    "count": 10,
+    "width": 320,
+    "oldError": 56.0676888284808,
+    "newError": 56.0676888284808,
+    "changed": false
+  },
+  {
+    "region": "city",
+    "count": 10,
+    "width": 375,
+    "oldError": 25.911257766564916,
+    "newError": 25.911257766564916,
+    "changed": false
+  },
+  {
+    "region": "city",
+    "count": 10,
+    "width": 390,
+    "oldError": 24.10334956172504,
+    "newError": 24.10334956172504,
+    "changed": false
+  },
+  {
+    "region": "city",
+    "count": 10,
+    "width": 430,
+    "oldError": 1.4184863587729524e-05,
+    "newError": 1.4184863587729524e-05,
+    "changed": false
+  },
+  {
+    "region": "countryside",
+    "count": 10,
+    "width": 320,
+    "oldError": 65.9574258439722,
+    "newError": 26.398448038509738,
+    "changed": true
+  },
+  {
+    "region": "countryside",
+    "count": 10,
+    "width": 375,
+    "oldError": 39.82014228228134,
+    "newError": 21.841908524519496,
+    "changed": true
+  },
+  {
+    "region": "countryside",
+    "count": 10,
+    "width": 390,
+    "oldError": 37.265611367328674,
+    "newError": 19.175666579189667,
+    "changed": true
+  },
+  {
+    "region": "countryside",
+    "count": 10,
+    "width": 430,
+    "oldError": 2.6078319351086066e-05,
+    "newError": 2.6078319351086066e-05,
+    "changed": false
+  },
+  {
+    "region": "deepsea",
+    "count": 10,
+    "width": 320,
+    "oldError": 73.62416493293797,
+    "newError": 29.968795607464116,
+    "changed": true
+  },
+  {
+    "region": "deepsea",
+    "count": 10,
+    "width": 375,
+    "oldError": 42.0307144604242,
+    "newError": 17.28734156468382,
+    "changed": true
+  },
+  {
+    "region": "deepsea",
+    "count": 10,
+    "width": 390,
+    "oldError": 38.6078133753562,
+    "newError": 18.50508097514888,
+    "changed": true
+  },
+  {
+    "region": "deepsea",
+    "count": 10,
+    "width": 430,
+    "oldError": 2.9507274376783243e-05,
+    "newError": 2.9507274376783243e-05,
+    "changed": false
+  },
+  {
+    "region": "desert",
+    "count": 10,
+    "width": 320,
+    "oldError": 67.14289951107392,
+    "newError": 67.14289951107392,
+    "changed": false
+  },
+  {
+    "region": "desert",
+    "count": 10,
+    "width": 375,
+    "oldError": 33.24295935102458,
+    "newError": 33.24295935102458,
+    "changed": false
+  },
+  {
+    "region": "desert",
+    "count": 10,
+    "width": 390,
+    "oldError": 29.30084604370721,
+    "newError": 29.30084604370721,
+    "changed": false
+  },
+  {
+    "region": "desert",
+    "count": 10,
+    "width": 430,
+    "oldError": 1.7990930430755725e-05,
+    "newError": 1.7990930430755725e-05,
+    "changed": false
+  },
+  {
+    "region": "forest",
+    "count": 10,
+    "width": 320,
+    "oldError": 89.19815364971842,
+    "newError": 35.68502831396725,
+    "changed": true
+  },
+  {
+    "region": "forest",
+    "count": 10,
+    "width": 375,
+    "oldError": 63.67524703623895,
+    "newError": 42.68605317800793,
+    "changed": true
+  },
+  {
+    "region": "forest",
+    "count": 10,
+    "width": 390,
+    "oldError": 59.82924831761042,
+    "newError": 34.69471439989317,
+    "changed": true
+  },
+  {
+    "region": "forest",
+    "count": 10,
+    "width": 430,
+    "oldError": 6.987083818899009e-05,
+    "newError": 6.987083818899009e-05,
+    "changed": false
+  },
+  {
+    "region": "home",
+    "count": 10,
+    "width": 320,
+    "oldError": 71.24606612516276,
+    "newError": 29.230905018673614,
+    "changed": true
+  },
+  {
+    "region": "home",
+    "count": 10,
+    "width": 375,
+    "oldError": 46.94128100396358,
+    "newError": 31.11122575546354,
+    "changed": true
+  },
+  {
+    "region": "home",
+    "count": 10,
+    "width": 390,
+    "oldError": 45.030364920684484,
+    "newError": 29.79035967878162,
+    "changed": true
+  },
+  {
+    "region": "home",
+    "count": 10,
+    "width": 430,
+    "oldError": 5.722844102251656e-05,
+    "newError": 5.722844102251656e-05,
+    "changed": false
+  },
+  {
+    "region": "jungle",
+    "count": 10,
+    "width": 320,
+    "oldError": 78.08694241381866,
+    "newError": 78.08694241381866,
+    "changed": false
+  },
+  {
+    "region": "jungle",
+    "count": 10,
+    "width": 375,
+    "oldError": 45.30304588591459,
+    "newError": 45.30304588591459,
+    "changed": false
+  },
+  {
+    "region": "jungle",
+    "count": 10,
+    "width": 390,
+    "oldError": 42.095379377085095,
+    "newError": 42.095379377085095,
+    "changed": false
+  },
+  {
+    "region": "jungle",
+    "count": 10,
+    "width": 430,
+    "oldError": 3.5379926643486215e-05,
+    "newError": 3.5379926643486215e-05,
+    "changed": false
+  },
+  {
+    "region": "memory_lake",
+    "count": 10,
+    "width": 320,
+    "oldError": 65.72020507639266,
+    "newError": 65.72020507639266,
+    "changed": false
+  },
+  {
+    "region": "memory_lake",
+    "count": 10,
+    "width": 375,
+    "oldError": 31.46103902029357,
+    "newError": 31.46103902029357,
+    "changed": false
+  },
+  {
+    "region": "memory_lake",
+    "count": 10,
+    "width": 390,
+    "oldError": 27.386689007004726,
+    "newError": 27.386689007004726,
+    "changed": false
+  },
+  {
+    "region": "memory_lake",
+    "count": 10,
+    "width": 430,
+    "oldError": 1.740344849565645e-05,
+    "newError": 1.740344849565645e-05,
+    "changed": false
+  },
+  {
+    "region": "mountain",
+    "count": 10,
+    "width": 320,
+    "oldError": 60.70240731711759,
+    "newError": 30.836339709258347,
+    "changed": true
+  },
+  {
+    "region": "mountain",
+    "count": 10,
+    "width": 375,
+    "oldError": 37.85250550175228,
+    "newError": 24.26615647104314,
+    "changed": true
+  },
+  {
+    "region": "mountain",
+    "count": 10,
+    "width": 390,
+    "oldError": 34.04496855906828,
+    "newError": 22.718893893920395,
+    "changed": true
+  },
+  {
+    "region": "mountain",
+    "count": 10,
+    "width": 430,
+    "oldError": 2.1140236952987834e-05,
+    "newError": 2.1140236952987834e-05,
+    "changed": false
+  },
+  {
+    "region": "river_lake",
+    "count": 10,
+    "width": 320,
+    "oldError": 69.63608259105058,
+    "newError": 69.63608259105058,
+    "changed": false
+  },
+  {
+    "region": "river_lake",
+    "count": 10,
+    "width": 375,
+    "oldError": 37.83896794494006,
+    "newError": 37.83896794494006,
+    "changed": false
+  },
+  {
+    "region": "river_lake",
+    "count": 10,
+    "width": 390,
+    "oldError": 33.243621328752084,
+    "newError": 33.243621328752084,
+    "changed": false
+  },
+  {
+    "region": "river_lake",
+    "count": 10,
+    "width": 430,
+    "oldError": 2.021962473008898e-05,
+    "newError": 2.021962473008898e-05,
+    "changed": false
+  },
+  {
+    "region": "sea",
+    "count": 10,
+    "width": 320,
+    "oldError": 48.13946563267038,
+    "newError": 48.13946563267038,
+    "changed": false
+  },
+  {
+    "region": "sea",
+    "count": 10,
+    "width": 375,
+    "oldError": 5.183920214692094,
+    "newError": 5.183920214692094,
+    "changed": false
+  },
+  {
+    "region": "sea",
+    "count": 10,
+    "width": 390,
+    "oldError": 9.651855738400826,
+    "newError": 9.651855738400826,
+    "changed": false
+  },
+  {
+    "region": "sea",
+    "count": 10,
+    "width": 430,
+    "oldError": 7.841130383212658e-05,
+    "newError": 7.841130383212658e-05,
+    "changed": false
+  },
+  {
+    "region": "snow",
+    "count": 10,
+    "width": 320,
+    "oldError": 66.38985624495052,
+    "newError": 66.38985624495052,
+    "changed": false
+  },
+  {
+    "region": "snow",
+    "count": 10,
+    "width": 375,
+    "oldError": 30.369992584698835,
+    "newError": 30.369992584698835,
+    "changed": false
+  },
+  {
+    "region": "snow",
+    "count": 10,
+    "width": 390,
+    "oldError": 28.190335216457996,
+    "newError": 28.190335216457996,
+    "changed": false
+  },
+  {
+    "region": "snow",
+    "count": 10,
+    "width": 430,
+    "oldError": 1.8448424071948466e-05,
+    "newError": 1.8448424071948466e-05,
+    "changed": false
+  },
+  {
+    "region": "star_stop",
+    "count": 10,
+    "width": 320,
+    "oldError": 65.93678942864669,
+    "newError": 65.93678942864669,
+    "changed": false
+  },
+  {
+    "region": "star_stop",
+    "count": 10,
+    "width": 375,
+    "oldError": 32.589309316102685,
+    "newError": 32.589309316102685,
+    "changed": false
+  },
+  {
+    "region": "star_stop",
+    "count": 10,
+    "width": 390,
+    "oldError": 28.66523764359146,
+    "newError": 28.66523764359146,
+    "changed": false
+  },
+  {
+    "region": "star_stop",
+    "count": 10,
+    "width": 430,
+    "oldError": 1.650631854488438e-05,
+    "newError": 1.650631854488438e-05,
+    "changed": false
+  }
+]

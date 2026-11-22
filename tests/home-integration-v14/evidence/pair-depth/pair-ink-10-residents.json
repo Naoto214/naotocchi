@@ -1,0 +1,1306 @@
+{
+  "source": "ca6059cd9c2f2e171f803287147249ce69bacce4",
+  "method": "Decoded PNG alpha >=64 at CSS-pixel centers with the current CSS pose. Translated overlap moves the mate to the raw cast vector with scale, orientation and depth held constant. Horizontal search uses 0.25 CSS px increments.",
+  "results": [
+    {
+      "region": "home",
+      "count": 10,
+      "width": 320,
+      "height": 516,
+      "heroPixels": 1258,
+      "matePixels": 893,
+      "currentOverlap": 0,
+      "translatedOverlap": 320,
+      "firstAlpha": 31.25,
+      "firstLegal": 31.25,
+      "side": -1,
+      "current": [
+        133.28143464906685,
+        227.75101888898593
+      ],
+      "wanted": [
+        166.78244167937135,
+        227.75101888898593
+      ],
+      "hero": [
+        174.4380617330564,
+        216.80692629118403
+      ]
+    },
+    {
+      "region": "forest",
+      "count": 10,
+      "width": 320,
+      "height": 516,
+      "heroPixels": 1211,
+      "matePixels": 834,
+      "currentOverlap": 0,
+      "translatedOverlap": 221,
+      "firstAlpha": 27,
+      "firstLegal": null,
+      "side": -1,
+      "current": [
+        101.69714710315503,
+        229.17630413624104
+      ],
+      "wanted": [
+        143.75451798726417,
+        234.73955108224865
+      ],
+      "hero": [
+        153.8797160097545,
+        220.8972035019639
+      ]
+    },
+    {
+      "region": "river_lake",
+      "count": 10,
+      "width": 320,
+      "height": 516,
+      "heroPixels": 1265,
+      "matePixels": 777,
+      "currentOverlap": 0,
+      "translatedOverlap": 235,
+      "firstAlpha": 28.75,
+      "firstLegal": null,
+      "side": -1,
+      "current": [
+        92.18917631867178,
+        221.84076935069712
+      ],
+      "wanted": [
+        169.67222150203247,
+        235.03766124900375
+      ],
+      "hero": [
+        177.32784155571753,
+        221.5567026881516
+      ]
+    },
+    {
+      "region": "city",
+      "count": 10,
+      "width": 320,
+      "height": 516,
+      "heroPixels": 1242,
+      "matePixels": 756,
+      "currentOverlap": 0,
+      "translatedOverlap": 100,
+      "firstAlpha": 20.25,
+      "firstLegal": null,
+      "side": -1,
+      "current": [
+        130.237745851404,
+        220.5491941881448
+      ],
+      "wanted": [
+        198.57001972864373,
+        241.32698528370514
+      ],
+      "hero": [
+        206.22563978232876,
+        222.8973232886059
+      ]
+    },
+    {
+      "region": "countryside",
+      "count": 10,
+      "width": 320,
+      "height": 516,
+      "heroPixels": 1221,
+      "matePixels": 849,
+      "currentOverlap": 0,
+      "translatedOverlap": 264,
+      "firstAlpha": 30.25,
+      "firstLegal": null,
+      "side": -1,
+      "current": [
+        133.6521771474557,
+        229.04194928698348
+      ],
+      "wanted": [
+        166.28645472623452,
+        232.72721583778403
+      ],
+      "hero": [
+        174.1872879598669,
+        219.75808376996815
+      ]
+    },
+    {
+      "region": "mountain",
+      "count": 10,
+      "width": 320,
+      "height": 516,
+      "heroPixels": 1167,
+      "matePixels": 832,
+      "currentOverlap": 0,
+      "translatedOverlap": 220,
+      "firstAlpha": 27.5,
+      "firstLegal": null,
+      "side": -1,
+      "current": [
+        132.0931232455164,
+        229.20994364883802
+      ],
+      "wanted": [
+        170.72282816731402,
+        233.1143539649077
+      ],
+      "hero": [
+        178.51527716304886,
+        218.12949393475486
+      ]
+    },
+    {
+      "region": "snow",
+      "count": 10,
+      "width": 320,
+      "height": 516,
+      "heroPixels": 1172,
+      "matePixels": 739,
+      "currentOverlap": 0,
+      "translatedOverlap": 133,
+      "firstAlpha": 20.25,
+      "firstLegal": null,
+      "side": -1,
+      "current": [
+        84.05647545066333,
+        218.0694098231472
+      ],
+      "wanted": [
+        161.0028820340491,
+        234.5943797772874
+      ],
+      "hero": [
+        168.65850208773412,
+        218.0694098231472
+      ]
+    },
+    {
+      "region": "sea",
+      "count": 10,
+      "width": 320,
+      "height": 516,
+      "heroPixels": 1148,
+      "matePixels": 718,
+      "currentOverlap": 0,
+      "translatedOverlap": 0,
+      "firstAlpha": 0,
+      "firstLegal": null,
+      "side": -1,
+      "current": [
+        84.05647545066333,
+        221.86152247163565
+      ],
+      "wanted": [
+        161.0028820340491,
+        257.5113448638052
+      ],
+      "hero": [
+        168.65850208773412,
+        221.86152247163565
+      ]
+    },
+    {
+      "region": "jungle",
+      "count": 10,
+      "width": 320,
+      "height": 516,
+      "heroPixels": 1211,
+      "matePixels": 758,
+      "currentOverlap": 0,
+      "translatedOverlap": 176,
+      "firstAlpha": 26.25,
+      "firstLegal": null,
+      "side": -1,
+      "current": [
+        84.97509559280333,
+        217.28462974486845
+      ],
+      "wanted": [
+        172.05229427965,
+        232.66643683758969
+      ],
+      "hero": [
+        180.7158560765654,
+        217.28462974486845
+      ]
+    },
+    {
+      "region": "desert",
+      "count": 10,
+      "width": 320,
+      "height": 516,
+      "heroPixels": 1184,
+      "matePixels": 734,
+      "currentOverlap": 0,
+      "translatedOverlap": 160,
+      "firstAlpha": 23,
+      "firstLegal": null,
+      "side": -1,
+      "current": [
+        89.8360350959856,
+        218.53209156115298
+      ],
+      "wanted": [
+        166.78244167937135,
+        234.223254730126
+      ],
+      "hero": [
+        174.4380617330564,
+        218.53209156115298
+      ]
+    },
+    {
+      "region": "deepsea",
+      "count": 10,
+      "width": 320,
+      "height": 516,
+      "heroPixels": 1217,
+      "matePixels": 847,
+      "currentOverlap": 0,
+      "translatedOverlap": 261,
+      "firstAlpha": 29.5,
+      "firstLegal": null,
+      "side": -1,
+      "current": [
+        127.66618173916635,
+        229.0562077991368
+      ],
+      "wanted": [
+        164.05465072771912,
+        232.85328213580698
+      ],
+      "hero": [
+        172.11624299841344,
+        219.65655109771188
+      ]
+    },
+    {
+      "region": "star_stop",
+      "count": 10,
+      "width": 320,
+      "height": 516,
+      "heroPixels": 1187,
+      "matePixels": 734,
+      "currentOverlap": 0,
+      "translatedOverlap": 128,
+      "firstAlpha": 20,
+      "firstLegal": null,
+      "side": -1,
+      "current": [
+        89.8360350959856,
+        217.54312290901356
+      ],
+      "wanted": [
+        166.78244167937135,
+        234.5661238677269
+      ],
+      "hero": [
+        174.4380617330564,
+        217.54312290901356
+      ]
+    },
+    {
+      "region": "memory_lake",
+      "count": 10,
+      "width": 320,
+      "height": 516,
+      "heroPixels": 1160,
+      "matePixels": 726,
+      "currentOverlap": 0,
+      "translatedOverlap": 118,
+      "firstAlpha": 19.5,
+      "firstLegal": null,
+      "side": -1,
+      "current": [
+        84.05647545066333,
+        216.783312187099
+      ],
+      "wanted": [
+        161.0028820340491,
+        234.04351690902814
+      ],
+      "hero": [
+        168.65850208773412,
+        216.783312187099
+      ]
+    },
+    {
+      "region": "home",
+      "count": 10,
+      "width": 375,
+      "height": 615,
+      "heroPixels": 2433,
+      "matePixels": 1325,
+      "currentOverlap": 0,
+      "translatedOverlap": 897,
+      "firstAlpha": 46.25,
+      "firstLegal": 46.25,
+      "side": 1,
+      "current": [
+        256.4951427363228,
+        255.0549137703167
+      ],
+      "wanted": [
+        209.47224029020006,
+        255.05491377031672
+      ],
+      "hero": [
+        202.48135581675672,
+        284.79118584073734
+      ]
+    },
+    {
+      "region": "forest",
+      "count": 10,
+      "width": 375,
+      "height": 615,
+      "heroPixels": 2360,
+      "matePixels": 1088,
+      "currentOverlap": 0,
+      "translatedOverlap": 571,
+      "firstAlpha": 40.5,
+      "firstLegal": null,
+      "side": 1,
+      "current": [
+        235.98884405199848,
+        231.40270123350604
+      ],
+      "wanted": [
+        191.04117709753396,
+        255.20714584280756
+      ],
+      "hero": [
+        181.55754492320605,
+        295.5505624104653
+      ]
+    },
+    {
+      "region": "river_lake",
+      "count": 10,
+      "width": 375,
+      "height": 615,
+      "heroPixels": 2427,
+      "matePixels": 1519,
+      "currentOverlap": 0,
+      "translatedOverlap": 685,
+      "firstAlpha": 46.75,
+      "firstLegal": null,
+      "side": 1,
+      "current": [
+        282.9668670303197,
+        298.0442283792098
+      ],
+      "wanted": [
+        212.46948468504004,
+        259.01610473149225
+      ],
+      "hero": [
+        205.47860021159673,
+        298.0442283792098
+      ]
+    },
+    {
+      "region": "city",
+      "count": 10,
+      "width": 375,
+      "height": 615,
+      "heroPixels": 2437,
+      "matePixels": 1503,
+      "currentOverlap": 0,
+      "translatedOverlap": 343,
+      "firstAlpha": 42,
+      "firstLegal": null,
+      "side": 1,
+      "current": [
+        312.93931097871933,
+        301.59772350105686
+      ],
+      "wanted": [
+        242.44192863343974,
+        250.49669222921887
+      ],
+      "hero": [
+        235.4510441599964,
+        301.59772350105686
+      ]
+    },
+    {
+      "region": "countryside",
+      "count": 10,
+      "width": 375,
+      "height": 615,
+      "heroPixels": 2372,
+      "matePixels": 1351,
+      "currentOverlap": 0,
+      "translatedOverlap": 618,
+      "firstAlpha": 45,
+      "firstLegal": 86,
+      "side": 1,
+      "current": [
+        258.37903783247634,
+        269.51173014988984
+      ],
+      "wanted": [
+        207.98985064353886,
+        252.18382468392815
+      ],
+      "hero": [
+        200.68301931229695,
+        291.3608910387241
+      ]
+    },
+    {
+      "region": "mountain",
+      "count": 10,
+      "width": 375,
+      "height": 615,
+      "heroPixels": 2283,
+      "matePixels": 1188,
+      "currentOverlap": 0,
+      "translatedOverlap": 520,
+      "firstAlpha": 42.5,
+      "firstLegal": 43.75,
+      "side": 1,
+      "current": [
+        257.31342337650204,
+        246.53851095273035
+      ],
+      "wanted": [
+        212.85586778553662,
+        246.53851095273035
+      ],
+      "hero": [
+        205.67433070015773,
+        287.66518995118463
+      ]
+    },
+    {
+      "region": "snow",
+      "count": 10,
+      "width": 375,
+      "height": 615,
+      "heroPixels": 2340,
+      "matePixels": 1445,
+      "currentOverlap": 0,
+      "translatedOverlap": 401,
+      "firstAlpha": 43.25,
+      "firstLegal": 112.75,
+      "side": 1,
+      "current": [
+        273.97513384579975,
+        286.3318558912489
+      ],
+      "wanted": [
+        203.4777515005201,
+        239.73508238629825
+      ],
+      "hero": [
+        196.48686702707678,
+        286.3318558912489
+      ]
+    },
+    {
+      "region": "sea",
+      "count": 10,
+      "width": 375,
+      "height": 615,
+      "heroPixels": 2248,
+      "matePixels": 1398,
+      "currentOverlap": 0,
+      "translatedOverlap": 0,
+      "firstAlpha": 0,
+      "firstLegal": null,
+      "side": 1,
+      "current": [
+        273.97513384579975,
+        287.0832179115432
+      ],
+      "wanted": [
+        203.4777515005201,
+        204.70714102530806
+      ],
+      "hero": [
+        196.48686702707678,
+        287.0832179115432
+      ]
+    },
+    {
+      "region": "jungle",
+      "count": 10,
+      "width": 375,
+      "height": 615,
+      "heroPixels": 2396,
+      "matePixels": 1484,
+      "currentOverlap": 0,
+      "translatedOverlap": 586,
+      "firstAlpha": 44.75,
+      "firstLegal": null,
+      "side": 1,
+      "current": [
+        296.203359305821,
+        286.6797269959308
+      ],
+      "wanted": [
+        216.42762103260318,
+        245.04090283140835
+      ],
+      "hero": [
+        208.51664687302062,
+        286.6797269959308
+      ]
+    },
+    {
+      "region": "desert",
+      "count": 10,
+      "width": 375,
+      "height": 615,
+      "heroPixels": 2308,
+      "matePixels": 1429,
+      "currentOverlap": 0,
+      "translatedOverlap": 470,
+      "firstAlpha": 44.25,
+      "firstLegal": 104.75,
+      "side": 1,
+      "current": [
+        279.96962263547965,
+        288.5551644320857
+      ],
+      "wanted": [
+        209.47224029020006,
+        244.8656374583345
+      ],
+      "hero": [
+        202.48135581675672,
+        288.5551644320857
+      ]
+    },
+    {
+      "region": "deepsea",
+      "count": 10,
+      "width": 375,
+      "height": 615,
+      "heroPixels": 2382,
+      "matePixels": 1370,
+      "currentOverlap": 0,
+      "translatedOverlap": 640,
+      "firstAlpha": 44.25,
+      "firstLegal": null,
+      "side": 1,
+      "current": [
+        253.55708083371718,
+        272.8867877551579
+      ],
+      "wanted": [
+        206.7351395463401,
+        251.96658990481615
+      ],
+      "hero": [
+        199.3391944674048,
+        291.22328795283886
+      ]
+    },
+    {
+      "region": "star_stop",
+      "count": 10,
+      "width": 375,
+      "height": 615,
+      "heroPixels": 2314,
+      "matePixels": 1441,
+      "currentOverlap": 0,
+      "translatedOverlap": 455,
+      "firstAlpha": 44.25,
+      "firstLegal": 90,
+      "side": 1,
+      "current": [
+        279.96962263547965,
+        287.7984595283625
+      ],
+      "wanted": [
+        209.47224029020006,
+        243.44709067574342
+      ],
+      "hero": [
+        202.48135581675672,
+        287.7984595283625
+      ]
+    },
+    {
+      "region": "memory_lake",
+      "count": 10,
+      "width": 375,
+      "height": 615,
+      "heroPixels": 2261,
+      "matePixels": 1412,
+      "currentOverlap": 0,
+      "translatedOverlap": 410,
+      "firstAlpha": 43,
+      "firstLegal": null,
+      "side": 1,
+      "current": [
+        273.97513384579975,
+        284.842623717319
+      ],
+      "wanted": [
+        203.4777515005201,
+        239.34940188057192
+      ],
+      "hero": [
+        196.48686702707678,
+        284.842623717319
+      ]
+    },
+    {
+      "region": "home",
+      "count": 10,
+      "width": 390,
+      "height": 630,
+      "heroPixels": 2433,
+      "matePixels": 1346,
+      "currentOverlap": 0,
+      "translatedOverlap": 824,
+      "firstAlpha": 45,
+      "firstLegal": 45,
+      "side": 1,
+      "current": [
+        264.82344679067666,
+        262.49356009391056
+      ],
+      "wanted": [
+        217.79368429166206,
+        262.4935600939105
+      ],
+      "hero": [
+        210.75208771293003,
+        295.0856041574861
+      ]
+    },
+    {
+      "region": "forest",
+      "count": 10,
+      "width": 390,
+      "height": 630,
+      "heroPixels": 2352,
+      "matePixels": 1116,
+      "currentOverlap": 0,
+      "translatedOverlap": 444,
+      "firstAlpha": 39,
+      "firstLegal": null,
+      "side": 1,
+      "current": [
+        228.44021024570173,
+        234.72573449942922
+      ],
+      "wanted": [
+        197.02853279253037,
+        259.3553230717669
+      ],
+      "hero": [
+        187.44503480994584,
+        305.2014288750402
+      ]
+    },
+    {
+      "region": "river_lake",
+      "count": 10,
+      "width": 390,
+      "height": 630,
+      "heroPixels": 2449,
+      "matePixels": 1514,
+      "currentOverlap": 0,
+      "translatedOverlap": 501,
+      "firstAlpha": 45.5,
+      "firstLegal": null,
+      "side": 1,
+      "current": [
+        292.277549970123,
+        308.347998857622
+      ],
+      "wanted": [
+        220.94473540369953,
+        263.7699313010895
+      ],
+      "hero": [
+        213.9031388249675,
+        308.347998857622
+      ]
+    },
+    {
+      "region": "city",
+      "count": 10,
+      "width": 390,
+      "height": 630,
+      "heroPixels": 2430,
+      "matePixels": 1507,
+      "currentOverlap": 0,
+      "translatedOverlap": 259,
+      "firstAlpha": 41.75,
+      "firstLegal": null,
+      "side": 1,
+      "current": [
+        323.76854277437116,
+        313.8553175212265
+      ],
+      "wanted": [
+        252.2029894835653,
+        259.78812757838443
+      ],
+      "hero": [
+        245.1384181741246,
+        313.8553175212265
+      ]
+    },
+    {
+      "region": "countryside",
+      "count": 10,
+      "width": 390,
+      "height": 630,
+      "heroPixels": 2366,
+      "matePixels": 1369,
+      "currentOverlap": 0,
+      "translatedOverlap": 469,
+      "firstAlpha": 43.5,
+      "firstLegal": null,
+      "side": 1,
+      "current": [
+        268.5389555755522,
+        277.56171246800443
+      ],
+      "wanted": [
+        215.5613145902304,
+        255.54180023493984
+      ],
+      "hero": [
+        208.16034042772395,
+        300.2631710776096
+      ]
+    },
+    {
+      "region": "mountain",
+      "count": 10,
+      "width": 390,
+      "height": 630,
+      "heroPixels": 2287,
+      "matePixels": 1184,
+      "currentOverlap": 0,
+      "translatedOverlap": 392,
+      "firstAlpha": 41.5,
+      "firstLegal": 42,
+      "side": 1,
+      "current": [
+        265.94387237013643,
+        251.40894300461488
+      ],
+      "wanted": [
+        221.45035441705667,
+        251.4089430046149
+      ],
+      "hero": [
+        214.22662240429779,
+        297.19929613280453
+      ]
+    },
+    {
+      "region": "snow",
+      "count": 10,
+      "width": 390,
+      "height": 630,
+      "heroPixels": 2328,
+      "matePixels": 1443,
+      "currentOverlap": 0,
+      "translatedOverlap": 334,
+      "firstAlpha": 41.5,
+      "firstLegal": 116.25,
+      "side": 1,
+      "current": [
+        282.8243966340106,
+        296.8130522432749
+      ],
+      "wanted": [
+        211.49158206758713,
+        247.1254542490102
+      ],
+      "hero": [
+        204.44998548885513,
+        296.8130522432749
+      ]
+    },
+    {
+      "region": "sea",
+      "count": 10,
+      "width": 390,
+      "height": 630,
+      "heroPixels": 2251,
+      "matePixels": 1399,
+      "currentOverlap": 0,
+      "translatedOverlap": 0,
+      "firstAlpha": 0,
+      "firstLegal": null,
+      "side": 1,
+      "current": [
+        282.8243966340106,
+        296.1130875027063
+      ],
+      "wanted": [
+        211.49158206758713,
+        208.3689163055409
+      ],
+      "hero": [
+        204.44998548885513,
+        296.1130875027063
+      ]
+    },
+    {
+      "region": "jungle",
+      "count": 10,
+      "width": 390,
+      "height": 630,
+      "heroPixels": 2381,
+      "matePixels": 1489,
+      "currentOverlap": 0,
+      "translatedOverlap": 444,
+      "firstAlpha": 43.75,
+      "firstLegal": null,
+      "side": 1,
+      "current": [
+        305.5142708440029,
+        295.67820964357463
+      ],
+      "wanted": [
+        224.33274338187127,
+        249.26501282632466
+      ],
+      "hero": [
+        216.31893417627373,
+        295.67820964357463
+      ]
+    },
+    {
+      "region": "desert",
+      "count": 10,
+      "width": 390,
+      "height": 630,
+      "heroPixels": 2294,
+      "matePixels": 1434,
+      "currentOverlap": 0,
+      "translatedOverlap": 352,
+      "firstAlpha": 41.75,
+      "firstLegal": 106.75,
+      "side": 1,
+      "current": [
+        289.12649885808554,
+        297.644432240289
+      ],
+      "wanted": [
+        217.79368429166206,
+        249.07869627975333
+      ],
+      "hero": [
+        210.75208771293003,
+        297.644432240289
+      ]
+    },
+    {
+      "region": "deepsea",
+      "count": 10,
+      "width": 390,
+      "height": 630,
+      "heroPixels": 2378,
+      "matePixels": 1365,
+      "currentOverlap": 0,
+      "translatedOverlap": 473,
+      "firstAlpha": 43.75,
+      "firstLegal": null,
+      "side": 1,
+      "current": [
+        265.5355766830643,
+        277.43360115980687
+      ],
+      "wanted": [
+        213.28908136194025,
+        255.30933211298384
+      ],
+      "hero": [
+        205.73604703393076,
+        300.1364753563608
+      ]
+    },
+    {
+      "region": "star_stop",
+      "count": 10,
+      "width": 390,
+      "height": 630,
+      "heroPixels": 2291,
+      "matePixels": 1441,
+      "currentOverlap": 0,
+      "translatedOverlap": 344,
+      "firstAlpha": 41.75,
+      "firstLegal": 89.25,
+      "side": 1,
+      "current": [
+        289.12649885808554,
+        296.9598685603313
+      ],
+      "wanted": [
+        217.79368429166206,
+        247.75196423764157
+      ],
+      "hero": [
+        210.75208771293003,
+        296.9598685603313
+      ]
+    },
+    {
+      "region": "memory_lake",
+      "count": 10,
+      "width": 390,
+      "height": 630,
+      "heroPixels": 2261,
+      "matePixels": 1414,
+      "currentOverlap": 0,
+      "translatedOverlap": 296,
+      "firstAlpha": 40.25,
+      "firstLegal": null,
+      "side": 1,
+      "current": [
+        282.8243966340106,
+        293.4758367073089
+      ],
+      "wanted": [
+        211.49158206758713,
+        242.97669090800196
+      ],
+      "hero": [
+        204.44998548885513,
+        293.4758367073089
+      ]
+    },
+    {
+      "region": "home",
+      "count": 10,
+      "width": 430,
+      "height": 695,
+      "heroPixels": 3874,
+      "matePixels": 2524,
+      "currentOverlap": 0,
+      "translatedOverlap": 0,
+      "firstAlpha": 0,
+      "firstLegal": 0,
+      "side": -1,
+      "current": [
+        153.91416660965587,
+        339.08488682953043
+      ],
+      "wanted": [
+        153.9142460932051,
+        339.1438304541738
+      ],
+      "hero": [
+        231.97161529816273,
+        339.08488682953043
+      ]
+    },
+    {
+      "region": "forest",
+      "count": 10,
+      "width": 430,
+      "height": 695,
+      "heroPixels": 3753,
+      "matePixels": 2426,
+      "currentOverlap": 0,
+      "translatedOverlap": 0,
+      "firstAlpha": 0,
+      "firstLegal": 0,
+      "side": -1,
+      "current": [
+        103.11516286756468,
+        346.307246412157
+      ],
+      "wanted": [
+        103.11527594581597,
+        346.4052071491027
+      ],
+      "hero": [
+        214.16455463116077,
+        346.307246412157
+      ]
+    },
+    {
+      "region": "river_lake",
+      "count": 10,
+      "width": 430,
+      "height": 695,
+      "heroPixels": 3871,
+      "matePixels": 2529,
+      "currentOverlap": 0,
+      "translatedOverlap": 0,
+      "firstAlpha": 0,
+      "firstLegal": 0.25,
+      "side": -1,
+      "current": [
+        157.3093616959089,
+        352.1207767054741
+      ],
+      "wanted": [
+        157.3094411794581,
+        352.2169638957751
+      ],
+      "hero": [
+        235.36681038441577,
+        352.1207767054741
+      ]
+    },
+    {
+      "region": "city",
+      "count": 10,
+      "width": 430,
+      "height": 695,
+      "heroPixels": 3876,
+      "matePixels": 2517,
+      "currentOverlap": 0,
+      "translatedOverlap": 0,
+      "firstAlpha": 0,
+      "firstLegal": 0,
+      "side": -1,
+      "current": [
+        191.26131255843936,
+        362.60922354270383
+      ],
+      "wanted": [
+        191.2613920419886,
+        362.7101893363932
+      ],
+      "hero": [
+        269.3187612469463,
+        362.60922354270383
+      ]
+    },
+    {
+      "region": "countryside",
+      "count": 10,
+      "width": 430,
+      "height": 695,
+      "heroPixels": 3894,
+      "matePixels": 2514,
+      "currentOverlap": 0,
+      "translatedOverlap": 0,
+      "firstAlpha": 0,
+      "firstLegal": 0,
+      "side": -1,
+      "current": [
+        163.71288503802447,
+        352.6716837315497
+      ],
+      "wanted": [
+        163.7129680784216,
+        352.7680712996143
+      ],
+      "hero": [
+        245.26336437306827,
+        352.6716837315497
+      ]
+    },
+    {
+      "region": "mountain",
+      "count": 10,
+      "width": 430,
+      "height": 695,
+      "heroPixels": 3621,
+      "matePixels": 2347,
+      "currentOverlap": 0,
+      "translatedOverlap": 0,
+      "firstAlpha": 0,
+      "firstLegal": 0,
+      "side": -1,
+      "current": [
+        156.12872583282368,
+        333.10720670961064
+      ],
+      "wanted": [
+        156.12880717925103,
+        333.2052850762723
+      ],
+      "hero": [
+        236.01562876911242,
+        333.10720670961064
+      ]
+    },
+    {
+      "region": "snow",
+      "count": 10,
+      "width": 430,
+      "height": 695,
+      "heroPixels": 3691,
+      "matePixels": 2392,
+      "currentOverlap": 0,
+      "translatedOverlap": 0,
+      "firstAlpha": 0,
+      "firstLegal": 0,
+      "side": -1,
+      "current": [
+        147.1237764371498,
+        338.14707191118293
+      ],
+      "wanted": [
+        147.12385592069896,
+        338.2446858769846
+      ],
+      "hero": [
+        225.18122512565665,
+        338.14707191118293
+      ]
+    },
+    {
+      "region": "sea",
+      "count": 10,
+      "width": 430,
+      "height": 695,
+      "heroPixels": 3600,
+      "matePixels": 2310,
+      "currentOverlap": 0,
+      "translatedOverlap": 0,
+      "firstAlpha": 0,
+      "firstLegal": 0,
+      "side": -1,
+      "current": [
+        147.1237764371498,
+        339.658570590693
+      ],
+      "wanted": [
+        147.12385592069896,
+        339.81557294293054
+      ],
+      "hero": [
+        225.18122512565665,
+        339.658570590693
+      ]
+    },
+    {
+      "region": "jungle",
+      "count": 10,
+      "width": 430,
+      "height": 695,
+      "heroPixels": 3817,
+      "matePixels": 2471,
+      "currentOverlap": 0,
+      "translatedOverlap": 0,
+      "firstAlpha": 0,
+      "firstLegal": 0,
+      "side": -1,
+      "current": [
+        149.7868792917876,
+        334.83338756662
+      ],
+      "wanted": [
+        149.78696950757183,
+        334.9319603406177
+      ],
+      "hero": [
+        238.38400434167892,
+        334.83338756662
+      ]
+    },
+    {
+      "region": "desert",
+      "count": 10,
+      "width": 430,
+      "height": 695,
+      "heroPixels": 3676,
+      "matePixels": 2375,
+      "currentOverlap": 0,
+      "translatedOverlap": 0,
+      "firstAlpha": 0,
+      "firstLegal": 0,
+      "side": -1,
+      "current": [
+        153.91416660965587,
+        337.38911197326536
+      ],
+      "wanted": [
+        153.9142460932051,
+        337.48709109285323
+      ],
+      "hero": [
+        231.97161529816273,
+        337.38911197326536
+      ]
+    },
+    {
+      "region": "deepsea",
+      "count": 10,
+      "width": 430,
+      "height": 695,
+      "heroPixels": 3783,
+      "matePixels": 2448,
+      "currentOverlap": 0,
+      "translatedOverlap": 0,
+      "firstAlpha": 0,
+      "firstLegal": 0.25,
+      "side": -1,
+      "current": [
+        143.03593527053766,
+        338.91325365362786
+      ],
+      "wanted": [
+        143.03602046838589,
+        339.00978948897165
+      ],
+      "hero": [
+        226.7051565430583,
+        338.91325365362786
+      ]
+    },
+    {
+      "region": "star_stop",
+      "count": 10,
+      "width": 430,
+      "height": 695,
+      "heroPixels": 3689,
+      "matePixels": 2383,
+      "currentOverlap": 0,
+      "translatedOverlap": 0,
+      "firstAlpha": 0,
+      "firstLegal": 0,
+      "side": -1,
+      "current": [
+        153.91416660965587,
+        336.72513458844134
+      ],
+      "wanted": [
+        153.9142460932051,
+        336.82428940605564
+      ],
+      "hero": [
+        231.97161529816273,
+        336.72513458844134
+      ]
+    },
+    {
+      "region": "memory_lake",
+      "count": 10,
+      "width": 430,
+      "height": 695,
+      "heroPixels": 3612,
+      "matePixels": 2345,
+      "currentOverlap": 0,
+      "translatedOverlap": 0,
+      "firstAlpha": 0,
+      "firstLegal": 0,
+      "side": -1,
+      "current": [
+        147.1237764371498,
+        333.0769433090786
+      ],
+      "wanted": [
+        147.12385592069896,
+        333.1753893477836
+      ],
+      "hero": [
+        225.18122512565665,
+        333.0769433090786
+      ]
+    }
+  ]
+}
