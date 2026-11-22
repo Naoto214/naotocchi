@@ -191,7 +191,13 @@ def main():
         writer=csv.DictWriter(f,fieldnames=out[0],lineterminator='\n')
         writer.writeheader()
         writer.writerows({k:round(v,6) if isinstance(v,float) else v for k,v in row.items()} for row in out)
-    (args.out/'pair-placement.json').write_text(json.dumps(dict(sources=args.source,
+    source_hashes={}
+    for (_,_,_,arm),row in rows.items():
+        current=source_hashes.setdefault(arm,row['sources'])
+        if current!=row['sources']:
+            raise ValueError(f'Runtime files differed within {arm}')
+    (args.out/'pair-placement.json').write_text(json.dumps(dict(sources=args.source,sourceHashes=source_hashes,
+        declaredStage=3,observedStageIndices=sorted({row['lifecycle']['first'][1] for row in rows.values()}),
         sizes=HEIGHT,units='screen in CSS pixels, original art x/z as fractions, order -1 left/0 equal/+1 right',
         phaseNotes='Initial clock zero. Sync repeats controller sync without movement. Walked follows 30 model seconds. Lifecycle combines evolution, gear, census, night. Resize precedes save reload. Travel uses the game action after reload.',
         results=summary),indent=2)+'\n')
