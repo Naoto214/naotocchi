@@ -1,0 +1,31 @@
+{
+  "firstRun": "44994011363",
+  "finalRun": "44994820430",
+  "cells": 260,
+  "sameReferenceSource": true,
+  "sameFullOpening": 260,
+  "sameReferenceAgedFeet": 256,
+  "sameReferenceAgedSnapshotAndFinger": 166,
+  "changedRestoredResultsOnIdenticalCheckpoint": {
+    "v11-foot": 0,
+    "v12": 0
+  },
+  "changesAcrossRuns": {
+    "v11-foot": {
+      "normalWalkers": 0,
+      "arrival": 1,
+      "near4": 1,
+      "tapSelected": 0,
+      "bothFailed": 0,
+      "agedDragArrival": 2
+    },
+    "v12": {
+      "normalWalkers": 5,
+      "arrival": 0,
+      "near4": 0,
+      "tapSelected": 0,
+      "bothFailed": 0,
+      "agedDragArrival": -2
+    }
+  }
+}

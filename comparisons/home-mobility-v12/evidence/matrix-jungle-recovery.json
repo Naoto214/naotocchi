@@ -1,0 +1,37 @@
+{
+  "attempt": "44994820430",
+  "failingJob": "137123476693",
+  "artifactSHA256": "9d3213437fddf9e942b3c4735d3122258bad997f797ef066e1f0ef18938209f6",
+  "recordedCells": 8,
+  "includedInFinalDenominator": false,
+  "revision": "d12f458346cc015e532499fd2adc7877c9fd27ce",
+  "id": "jungle/10/320",
+  "phase": "same aged checkpoint, before physical replay",
+  "target": "companion:hamster",
+  "previouslyRecordedNaturalFootCss": [
+    185.22782397947284,
+    215.28480688816242
+  ],
+  "preparedReplayFootCss": [
+    199.13654130590083,
+    219.47464562772728
+  ],
+  "naturalInputDelivered": true,
+  "replayInputDelivered": false,
+  "comparisonStoppedBy": "plan.key == paired.key and plan.foot == paired.foot",
+  "retryRun": "44998142556",
+  "naturalOpeningAndInputUnchanged": true,
+  "footDistanceCss": 14.526085719492249,
+  "verifiedReplacement": {
+    "run": "44998142556",
+    "job": 137133549515,
+    "artifact": 14744869109,
+    "bytes": 2306502,
+    "sha256": "b54705bae3086c2cf03cf297fe4f8ae09b7fd9179826ef5882cf82116577d261",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/44998142556/artifacts/14744869109",
+    "previousRun": "44987952256",
+    "previousSHA256": "7b200ec2eec98b29b1be6335a25c4bb2d3f57555bbe69c51bc5048b8397832f7"
+  },
+  "matchedGameSources": true,
+  "replacementCells": 20
+}

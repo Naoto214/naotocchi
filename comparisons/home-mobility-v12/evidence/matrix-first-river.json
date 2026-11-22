@@ -1,0 +1,1278 @@
+{
+  "run": "44992612829",
+  "source": "265a26732ef2a769b1cedcdb4aa66deec8fd4795",
+  "region": "river_lake",
+  "count": 28,
+  "width": 375,
+  "zipSHA256": "622f8663802ce879fd40d8c408d07d26878214e9b5cd79b51f7c1fac527a9c76",
+  "rawCellSHA256": "c25cb7e2613bc9337a70ee7bfe52bf3c47be3fe9a584d20f4a04063e45565b54",
+  "initialStateSHA256": "cfa41cad7f8993930c5eac641c82fcaea7d30c53fb6c4445070f72961e7a16ec",
+  "clock": 74.6499999999979,
+  "episode": {
+    "region": "river_lake",
+    "count": 28,
+    "width": 375,
+    "owner": "companion:sekizou",
+    "source": "ambient",
+    "start": 74.6499999999979,
+    "helpers": "companion:tanuki|companion:chicken",
+    "hasTurn": true,
+    "stages": 2,
+    "startedHelpers": 2,
+    "steppedHelpers": 2,
+    "steps": 10,
+    "helperDistanceCss": 19.00000000000001,
+    "completedHelperEndpoints": 2,
+    "ownerRechecked": true,
+    "accepted": true,
+    "observedOwnerTrip": true,
+    "arrived": true,
+    "originalGain": 4.643182378425337,
+    "displacement": 8.000000000000002,
+    "normalTowardOriginal": true,
+    "endsAtFiveMinuteBoundary": false
+  },
+  "events": [
+    {
+      "clock": 71.49999999999808,
+      "goal": {
+        "x": 61.71432798810012,
+        "y": 292.0543939194148
+      },
+      "owner": "companion:sekizou",
+      "phase": "living",
+      "source": "ambient",
+      "type": "search"
+    },
+    {
+      "clock": 73.49999999999797,
+      "found": false,
+      "goal": {
+        "x": 61.71432798810012,
+        "y": 292.0543939194148
+      },
+      "goals": 7,
+      "ground": 578,
+      "owner": "companion:sekizou",
+      "phase": "living",
+      "probes": 7680,
+      "protected": 0,
+      "protectedBy": {},
+      "q": null,
+      "source": "ambient",
+      "stages": null,
+      "type": "plan"
+    },
+    {
+      "clock": 73.99999999999794,
+      "goal": {
+        "x": 61.71432798810012,
+        "y": 292.0543939194148
+      },
+      "owner": "companion:sekizou",
+      "phase": "living",
+      "source": "ambient",
+      "type": "search"
+    },
+    {
+      "clock": 74.6499999999979,
+      "found": true,
+      "goal": {
+        "x": 61.71432798810012,
+        "y": 292.0543939194148
+      },
+      "goals": 2,
+      "ground": 252,
+      "owner": "companion:sekizou",
+      "phase": "living",
+      "probes": 2431,
+      "protected": 0,
+      "protectedBy": {},
+      "q": {
+        "x": 211.41708661522892,
+        "y": 213.6342913003705
+      },
+      "source": "ambient",
+      "stages": [
+        {
+          "from": {
+            "x": 268.8564957085846,
+            "y": 245.62611769156737
+          },
+          "key": "companion:tanuki",
+          "to": {
+            "x": 281.8773971766559,
+            "y": 242.63561763574268
+          },
+          "via": {
+            "x": 269.8906302332999,
+            "y": 245.62611769156737
+          }
+        },
+        {
+          "from": {
+            "x": 242.62234519619804,
+            "y": 219.20556520577114
+          },
+          "key": "companion:chicken",
+          "to": {
+            "x": 247.99586581220197,
+            "y": 222.0941664432111
+          }
+        }
+      ],
+      "type": "plan"
+    },
+    {
+      "clock": 74.6499999999979,
+      "goal": {
+        "x": 61.71432798810012,
+        "y": 292.0543939194148
+      },
+      "helper": "companion:tanuki",
+      "owner": "companion:sekizou",
+      "phase": "living",
+      "q": {
+        "x": 211.41708661522892,
+        "y": 213.6342913003705
+      },
+      "source": "ambient",
+      "stage": 0,
+      "stages": [
+        {
+          "from": {
+            "x": 268.8564957085846,
+            "y": 245.62611769156737
+          },
+          "key": "companion:tanuki",
+          "to": {
+            "x": 281.8773971766559,
+            "y": 242.63561763574268
+          },
+          "via": {
+            "x": 269.8906302332999,
+            "y": 245.62611769156737
+          }
+        },
+        {
+          "from": {
+            "x": 242.62234519619804,
+            "y": 219.20556520577114
+          },
+          "key": "companion:chicken",
+          "to": {
+            "x": 247.99586581220197,
+            "y": 222.0941664432111
+          }
+        }
+      ],
+      "type": "start"
+    },
+    {
+      "clock": 75.09999999999788,
+      "goal": {
+        "x": 61.71432798810012,
+        "y": 292.0543939194148
+      },
+      "helper": "companion:chicken",
+      "owner": "companion:sekizou",
+      "phase": "living",
+      "q": {
+        "x": 211.41708661522892,
+        "y": 213.6342913003705
+      },
+      "source": "ambient",
+      "stage": 1,
+      "stages": [
+        {
+          "from": {
+            "x": 268.8564957085846,
+            "y": 245.62611769156737
+          },
+          "key": "companion:tanuki",
+          "to": {
+            "x": 281.8773971766559,
+            "y": 242.63561763574268
+          },
+          "via": {
+            "x": 269.8906302332999,
+            "y": 245.62611769156737
+          }
+        },
+        {
+          "from": {
+            "x": 242.62234519619804,
+            "y": 219.20556520577114
+          },
+          "key": "companion:chicken",
+          "to": {
+            "x": 247.99586581220197,
+            "y": 222.0941664432111
+          }
+        }
+      ],
+      "type": "start"
+    },
+    {
+      "accepted": true,
+      "clock": 75.29999999999787,
+      "goal": {
+        "x": 61.71432798810012,
+        "y": 292.0543939194148
+      },
+      "owner": "companion:sekizou",
+      "phase": "living",
+      "q": {
+        "x": 211.41708661522892,
+        "y": 213.6342913003705
+      },
+      "source": "ambient",
+      "type": "owner"
+    },
+    {
+      "accepted": true,
+      "clock": 75.29999999999787,
+      "goal": {
+        "x": 61.71432798810012,
+        "y": 292.0543939194148
+      },
+      "helpers": [
+        "companion:tanuki",
+        "companion:chicken"
+      ],
+      "owner": "companion:sekizou",
+      "phase": "living",
+      "q": {
+        "x": 211.41708661522892,
+        "y": 213.6342913003705
+      },
+      "source": "ambient",
+      "stage": 2,
+      "type": "stop"
+    }
+  ],
+  "actualSteps": [
+    {
+      "clock": 74.6499999999979,
+      "from": [
+        268.8564957085846,
+        245.62611769156737
+      ],
+      "key": "companion:tanuki",
+      "phase": "living",
+      "source": "yield",
+      "to": [
+        269.8906302332999,
+        245.62611769156737
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 74.7499999999979,
+      "from": [
+        269.8906302332999,
+        245.62611769156737
+      ],
+      "key": "companion:tanuki",
+      "phase": "living",
+      "source": "yield",
+      "to": [
+        271.9281768852286,
+        245.11778350895312
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 74.7999999999979,
+      "from": [
+        271.9281768852286,
+        245.11778350895312
+      ],
+      "key": "companion:tanuki",
+      "phase": "living",
+      "source": "yield",
+      "to": [
+        273.9657235371573,
+        244.60944932633888
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 74.84999999999789,
+      "from": [
+        273.9657235371573,
+        244.60944932633888
+      ],
+      "key": "companion:tanuki",
+      "phase": "living",
+      "source": "yield",
+      "to": [
+        276.00327018908604,
+        244.10111514372466
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 74.89999999999789,
+      "from": [
+        276.00327018908604,
+        244.10111514372466
+      ],
+      "key": "companion:tanuki",
+      "phase": "living",
+      "source": "yield",
+      "to": [
+        278.04081684101476,
+        243.5927809611104
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 74.94999999999789,
+      "from": [
+        278.04081684101476,
+        243.5927809611104
+      ],
+      "key": "companion:tanuki",
+      "phase": "living",
+      "source": "yield",
+      "to": [
+        280.0783634929435,
+        243.0844467784962
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 74.99999999999788,
+      "from": [
+        280.0783634929435,
+        243.0844467784962
+      ],
+      "key": "companion:tanuki",
+      "phase": "living",
+      "source": "yield",
+      "to": [
+        281.8773971766559,
+        242.63561763574268
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 75.09999999999788,
+      "from": [
+        242.62234519619804,
+        219.20556520577114
+      ],
+      "key": "companion:chicken",
+      "phase": "living",
+      "source": "yield",
+      "to": [
+        244.47202849636557,
+        220.19988491747426
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 75.14999999999787,
+      "from": [
+        244.47202849636557,
+        220.19988491747426
+      ],
+      "key": "companion:chicken",
+      "phase": "living",
+      "source": "yield",
+      "to": [
+        246.32171179653307,
+        221.19420462917742
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 75.19999999999787,
+      "from": [
+        246.32171179653307,
+        221.19420462917742
+      ],
+      "key": "companion:chicken",
+      "phase": "living",
+      "source": "yield",
+      "to": [
+        247.99586581220197,
+        222.0941664432111
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 75.29999999999787,
+      "from": [
+        212.13813271604937,
+        205.96066666666667
+      ],
+      "key": "companion:sekizou",
+      "phase": "living",
+      "source": "ambient",
+      "to": [
+        211.94167325953197,
+        208.05145687181516
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 75.34999999999786,
+      "from": [
+        211.94167325953197,
+        208.05145687181516
+      ],
+      "key": "companion:sekizou",
+      "phase": "living",
+      "source": "ambient",
+      "to": [
+        211.7452138030146,
+        210.14224707696366
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 75.39999999999786,
+      "from": [
+        211.7452138030146,
+        210.14224707696366
+      ],
+      "key": "companion:sekizou",
+      "phase": "living",
+      "source": "ambient",
+      "to": [
+        211.5487543464972,
+        212.23303728211215
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 75.44999999999786,
+      "from": [
+        211.5487543464972,
+        212.23303728211215
+      ],
+      "key": "companion:sekizou",
+      "phase": "living",
+      "source": "ambient",
+      "to": [
+        211.41708661522892,
+        213.6342913003705
+      ],
+      "type": "native-step"
+    }
+  ],
+  "allRegionHouseholdEpisodes": [
+    {
+      "region": "river_lake",
+      "count": 28,
+      "width": 375,
+      "owner": "companion:sekizou",
+      "source": "ambient",
+      "start": 74.6499999999979,
+      "helpers": "companion:tanuki|companion:chicken",
+      "hasTurn": true,
+      "stages": 2,
+      "startedHelpers": 2,
+      "steppedHelpers": 2,
+      "steps": 10,
+      "helperDistanceCss": 19.00000000000001,
+      "completedHelperEndpoints": 2,
+      "ownerRechecked": true,
+      "accepted": true,
+      "observedOwnerTrip": true,
+      "arrived": true,
+      "originalGain": 4.643182378425337,
+      "displacement": 8.000000000000002,
+      "normalTowardOriginal": true,
+      "endsAtFiveMinuteBoundary": false
+    }
+  ],
+  "residents": {
+    "pet:dog": {
+      "v11-foot": {
+        "normalBefore": 1,
+        "normalAfter": 6,
+        "firstNormalEndAfter": 89.14999999999708,
+        "lastNormalEndAfter": 275.05000000002826,
+        "afterOwnDistanceCss": 86.55238591065614,
+        "allRequests": 20,
+        "allPlanningFailures": 8,
+        "lastActivity": "together",
+        "givenYield": 1,
+        "receivedYield": 3,
+        "longestRouteFailureAfterSec": 46.550000000010584
+      },
+      "v12": {
+        "normalBefore": 1,
+        "normalAfter": 4,
+        "firstNormalEndAfter": 113.79999999999568,
+        "lastNormalEndAfter": 257.6500000000243,
+        "afterOwnDistanceCss": 51.99999999999999,
+        "allRequests": 20,
+        "allPlanningFailures": 9,
+        "lastActivity": "look",
+        "givenYield": 1,
+        "receivedYield": 7,
+        "longestRouteFailureAfterSec": 38.54999999999781
+      }
+    },
+    "partner:forest_bear": {
+      "v11-foot": {
+        "normalBefore": 1,
+        "normalAfter": 4,
+        "firstNormalEndAfter": 124.59999999999506,
+        "lastNormalEndAfter": 240.95000000002054,
+        "afterOwnDistanceCss": 79.86127724558195,
+        "allRequests": 9,
+        "allPlanningFailures": 1,
+        "lastActivity": "turn",
+        "givenYield": 2,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 1,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 103.09999999999629,
+        "lastNormalEndAfter": 296.000000000033,
+        "afterOwnDistanceCss": 123.37141434376677,
+        "allRequests": 13,
+        "allPlanningFailures": 8,
+        "lastActivity": "solitude",
+        "givenYield": 4,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 85.50000000001941
+      }
+    },
+    "companion:cat_friend": {
+      "v11-foot": {
+        "normalBefore": 1,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 135.6499999999966,
+        "lastNormalEndAfter": 214.95000000001463,
+        "afterOwnDistanceCss": 27.119617557477262,
+        "allRequests": 18,
+        "allPlanningFailures": 5,
+        "lastActivity": "approach",
+        "givenYield": 2,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 30.899999999998244
+      },
+      "v12": {
+        "normalBefore": 1,
+        "normalAfter": 6,
+        "firstNormalEndAfter": 80.84999999999755,
+        "lastNormalEndAfter": 213.45000000001428,
+        "afterOwnDistanceCss": 64.30486102304626,
+        "allRequests": 16,
+        "allPlanningFailures": 5,
+        "lastActivity": "rest",
+        "givenYield": 4,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 60.949999999979894
+      }
+    },
+    "companion:tanuki": {
+      "v11-foot": {
+        "normalBefore": 3,
+        "normalAfter": 6,
+        "firstNormalEndAfter": 80.09999999999759,
+        "lastNormalEndAfter": 289.95000000003165,
+        "afterOwnDistanceCss": 108.8913831160619,
+        "allRequests": 15,
+        "allPlanningFailures": 1,
+        "lastActivity": "turn",
+        "givenYield": 1,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 0.6000000000001364
+      },
+      "v12": {
+        "normalBefore": 2,
+        "normalAfter": 5,
+        "firstNormalEndAfter": 78.34999999999769,
+        "lastNormalEndAfter": 290.30000000003173,
+        "afterOwnDistanceCss": 191.5766449406162,
+        "allRequests": 11,
+        "allPlanningFailures": 0,
+        "lastActivity": "turn",
+        "givenYield": 2,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:owl": {
+      "v11-foot": {
+        "normalBefore": 3,
+        "normalAfter": 6,
+        "firstNormalEndAfter": 137.29999999999697,
+        "lastNormalEndAfter": 299.0500000000337,
+        "afterOwnDistanceCss": 186.37053232834,
+        "allRequests": 17,
+        "allPlanningFailures": 3,
+        "lastActivity": "together",
+        "givenYield": 0,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 3,
+        "normalAfter": 6,
+        "firstNormalEndAfter": 122.79999999999517,
+        "lastNormalEndAfter": 291.9000000000321,
+        "afterOwnDistanceCss": 144.06114947595864,
+        "allRequests": 14,
+        "allPlanningFailures": 3,
+        "lastActivity": "turn",
+        "givenYield": 1,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 1.299999999999926
+      }
+    },
+    "companion:hamster": {
+      "v11-foot": {
+        "normalBefore": 5,
+        "normalAfter": 9,
+        "firstNormalEndAfter": 110.99999999999584,
+        "lastNormalEndAfter": 278.7000000000291,
+        "afterOwnDistanceCss": 554.9263501688814,
+        "allRequests": 17,
+        "allPlanningFailures": 2,
+        "lastActivity": "look",
+        "givenYield": 1,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 21.95000000000499
+      },
+      "v12": {
+        "normalBefore": 4,
+        "normalAfter": 5,
+        "firstNormalEndAfter": 114.29999999999565,
+        "lastNormalEndAfter": 296.8500000000332,
+        "afterOwnDistanceCss": 70.6096993178855,
+        "allRequests": 16,
+        "allPlanningFailures": 2,
+        "lastActivity": "solitude",
+        "givenYield": 0,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 0.7499999999999574
+      }
+    },
+    "companion:monkey": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 162.35000000000267,
+        "lastNormalEndAfter": 170.8000000000046,
+        "afterOwnDistanceCss": 20.59443341886077,
+        "allRequests": 13,
+        "allPlanningFailures": 4,
+        "lastActivity": "sit",
+        "givenYield": 3,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 48.449999999997246
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 7,
+        "firstNormalEndAfter": 76.59999999999779,
+        "lastNormalEndAfter": 297.40000000003334,
+        "afterOwnDistanceCss": 104.46553613454745,
+        "allRequests": 18,
+        "allPlanningFailures": 5,
+        "lastActivity": "observe",
+        "givenYield": 5,
+        "receivedYield": 4,
+        "longestRouteFailureAfterSec": 3.2000000000007276
+      }
+    },
+    "companion:sheep": {
+      "v11-foot": {
+        "normalBefore": 1,
+        "normalAfter": 8,
+        "firstNormalEndAfter": 79.8999999999976,
+        "lastNormalEndAfter": 284.75000000003047,
+        "afterOwnDistanceCss": 436.4685016774516,
+        "allRequests": 14,
+        "allPlanningFailures": 3,
+        "lastActivity": "solitude",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 27.550000000006236
+      },
+      "v12": {
+        "normalBefore": 1,
+        "normalAfter": 7,
+        "firstNormalEndAfter": 102.09999999999634,
+        "lastNormalEndAfter": 299.0500000000337,
+        "afterOwnDistanceCss": 573.0408423942795,
+        "allRequests": 12,
+        "allPlanningFailures": 2,
+        "lastActivity": "observe",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 26.949999999998468
+      }
+    },
+    "companion:bat": {
+      "v11-foot": {
+        "normalBefore": 2,
+        "normalAfter": 5,
+        "firstNormalEndAfter": 127.4499999999949,
+        "lastNormalEndAfter": 295.70000000003296,
+        "afterOwnDistanceCss": 216.29959599313034,
+        "allRequests": 15,
+        "allPlanningFailures": 3,
+        "lastActivity": "look",
+        "givenYield": 2,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 23.70000000000536
+      },
+      "v12": {
+        "normalBefore": 2,
+        "normalAfter": 5,
+        "firstNormalEndAfter": 97.19999999999662,
+        "lastNormalEndAfter": 271.95000000002756,
+        "afterOwnDistanceCss": 62.96206522489472,
+        "allRequests": 21,
+        "allPlanningFailures": 5,
+        "lastActivity": "turn",
+        "givenYield": 2,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 37.100000000008436
+      }
+    },
+    "companion:penguin_friend": {
+      "v11-foot": {
+        "normalBefore": 3,
+        "normalAfter": 6,
+        "firstNormalEndAfter": 99.59999999999648,
+        "lastNormalEndAfter": 291.35000000003197,
+        "afterOwnDistanceCss": 391.47430394602003,
+        "allRequests": 16,
+        "allPlanningFailures": 1,
+        "lastActivity": "walk",
+        "givenYield": 1,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 0.5499999999999687
+      },
+      "v12": {
+        "normalBefore": 3,
+        "normalAfter": 4,
+        "firstNormalEndAfter": 78.04999999999771,
+        "lastNormalEndAfter": 285.6500000000307,
+        "afterOwnDistanceCss": 175.9443301408551,
+        "allRequests": 16,
+        "allPlanningFailures": 1,
+        "lastActivity": "approach",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 3.0500000000006935
+      }
+    },
+    "companion:shiba": {
+      "v11-foot": {
+        "normalBefore": 1,
+        "normalAfter": 7,
+        "firstNormalEndAfter": 76.3499999999978,
+        "lastNormalEndAfter": 232.9000000000187,
+        "afterOwnDistanceCss": 445.5052305541576,
+        "allRequests": 11,
+        "allPlanningFailures": 2,
+        "lastActivity": "look",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 30.099999999999554
+      },
+      "v12": {
+        "normalBefore": 1,
+        "normalAfter": 9,
+        "firstNormalEndAfter": 76.3499999999978,
+        "lastNormalEndAfter": 282.50000000002996,
+        "afterOwnDistanceCss": 312.13156556985854,
+        "allRequests": 14,
+        "allPlanningFailures": 1,
+        "lastActivity": "sit",
+        "givenYield": 4,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 0.9000000000002046
+      }
+    },
+    "companion:punyu": {
+      "v11-foot": {
+        "normalBefore": 2,
+        "normalAfter": 6,
+        "firstNormalEndAfter": 115.2499999999956,
+        "lastNormalEndAfter": 272.1000000000276,
+        "afterOwnDistanceCss": 404.19773186554994,
+        "allRequests": 14,
+        "allPlanningFailures": 1,
+        "lastActivity": "walk",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 34.24999999999805
+      },
+      "v12": {
+        "normalBefore": 2,
+        "normalAfter": 7,
+        "firstNormalEndAfter": 109.14999999999594,
+        "lastNormalEndAfter": 268.1500000000267,
+        "afterOwnDistanceCss": 360.98198140887865,
+        "allRequests": 17,
+        "allPlanningFailures": 3,
+        "lastActivity": "sit",
+        "givenYield": 1,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 31.899999999998187
+      }
+    },
+    "companion:chameleon": {
+      "v11-foot": {
+        "normalBefore": 1,
+        "normalAfter": 3,
+        "firstNormalEndAfter": 146.79999999999913,
+        "lastNormalEndAfter": 275.35000000002833,
+        "afterOwnDistanceCss": 39.584766493407024,
+        "allRequests": 17,
+        "allPlanningFailures": 5,
+        "lastActivity": "rest",
+        "givenYield": 3,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 56.949999999997814
+      },
+      "v12": {
+        "normalBefore": 1,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 223.2500000000165,
+        "lastNormalEndAfter": 223.2500000000165,
+        "afterOwnDistanceCss": 12.000000000000005,
+        "allRequests": 16,
+        "allPlanningFailures": 7,
+        "lastActivity": "solitude",
+        "givenYield": 5,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 37.70000000000857
+      }
+    },
+    "companion:unicorn": {
+      "v11-foot": {
+        "normalBefore": 3,
+        "normalAfter": 7,
+        "firstNormalEndAfter": 124.64999999999506,
+        "lastNormalEndAfter": 220.90000000001598,
+        "afterOwnDistanceCss": 119.58757871005373,
+        "allRequests": 18,
+        "allPlanningFailures": 3,
+        "lastActivity": "observe",
+        "givenYield": 1,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 0.6999999999999602
+      },
+      "v12": {
+        "normalBefore": 3,
+        "normalAfter": 4,
+        "firstNormalEndAfter": 95.59999999999671,
+        "lastNormalEndAfter": 236.05000000001942,
+        "afterOwnDistanceCss": 41.112034941384785,
+        "allRequests": 16,
+        "allPlanningFailures": 4,
+        "lastActivity": "observe",
+        "givenYield": 2,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 29.050000000006577
+      }
+    },
+    "companion:watcher": {
+      "v11-foot": {
+        "normalBefore": 2,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 103.04999999999629,
+        "lastNormalEndAfter": 126.74999999999494,
+        "afterOwnDistanceCss": 18.764802751522332,
+        "allRequests": 15,
+        "allPlanningFailures": 2,
+        "lastActivity": "look",
+        "givenYield": 1,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 20.10000000000457
+      },
+      "v12": {
+        "normalBefore": 3,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 106.74999999999608,
+        "lastNormalEndAfter": 277.15000000002874,
+        "afterOwnDistanceCss": 25.999999999999993,
+        "allRequests": 17,
+        "allPlanningFailures": 4,
+        "lastActivity": "turn",
+        "givenYield": 6,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 97.25000000002211
+      }
+    },
+    "companion:rabbit_friend": {
+      "v11-foot": {
+        "normalBefore": 4,
+        "normalAfter": 7,
+        "firstNormalEndAfter": 105.34999999999616,
+        "lastNormalEndAfter": 290.75000000003183,
+        "afterOwnDistanceCss": 271.87647385205355,
+        "allRequests": 17,
+        "allPlanningFailures": 1,
+        "lastActivity": "look",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 31.150000000007054
+      },
+      "v12": {
+        "normalBefore": 4,
+        "normalAfter": 6,
+        "firstNormalEndAfter": 76.3499999999978,
+        "lastNormalEndAfter": 276.6500000000286,
+        "afterOwnDistanceCss": 262.6481056160814,
+        "allRequests": 13,
+        "allPlanningFailures": 0,
+        "lastActivity": "sit",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:squirrel": {
+      "v11-foot": {
+        "normalBefore": 1,
+        "normalAfter": 4,
+        "firstNormalEndAfter": 89.09999999999708,
+        "lastNormalEndAfter": 273.70000000002796,
+        "afterOwnDistanceCss": 322.44047658871506,
+        "allRequests": 14,
+        "allPlanningFailures": 4,
+        "lastActivity": "rest",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 41.90000000000953
+      },
+      "v12": {
+        "normalBefore": 1,
+        "normalAfter": 5,
+        "firstNormalEndAfter": 203.65000000001206,
+        "lastNormalEndAfter": 280.1500000000294,
+        "afterOwnDistanceCss": 58.63455917254499,
+        "allRequests": 12,
+        "allPlanningFailures": 1,
+        "lastActivity": "approach",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 86.50000000000449
+      }
+    },
+    "companion:otter": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 4,
+        "firstNormalEndAfter": 109.39999999999593,
+        "lastNormalEndAfter": 278.95000000002915,
+        "afterOwnDistanceCss": 143.87497297394677,
+        "allRequests": 12,
+        "allPlanningFailures": 4,
+        "lastActivity": "look",
+        "givenYield": 0,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 39.1500000000089
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 4,
+        "firstNormalEndAfter": 145.49999999999883,
+        "lastNormalEndAfter": 199.75000000001117,
+        "afterOwnDistanceCss": 242.2133064386159,
+        "allRequests": 11,
+        "allPlanningFailures": 3,
+        "lastActivity": "approach",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 56.700000000012864
+      }
+    },
+    "companion:panda": {
+      "v11-foot": {
+        "normalBefore": 2,
+        "normalAfter": 7,
+        "firstNormalEndAfter": 85.09999999999731,
+        "lastNormalEndAfter": 257.9500000000244,
+        "afterOwnDistanceCss": 326.2215236534896,
+        "allRequests": 12,
+        "allPlanningFailures": 1,
+        "lastActivity": "rest",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 60.75000000001381
+      },
+      "v12": {
+        "normalBefore": 2,
+        "normalAfter": 4,
+        "firstNormalEndAfter": 86.34999999999724,
+        "lastNormalEndAfter": 192.15000000000944,
+        "afterOwnDistanceCss": 195.5605614761758,
+        "allRequests": 14,
+        "allPlanningFailures": 3,
+        "lastActivity": "walk",
+        "givenYield": 1,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 26.950000000006128
+      }
+    },
+    "companion:parrot": {
+      "v11-foot": {
+        "normalBefore": 5,
+        "normalAfter": 5,
+        "firstNormalEndAfter": 90.84999999999698,
+        "lastNormalEndAfter": 296.20000000003307,
+        "afterOwnDistanceCss": 280.41551847080757,
+        "allRequests": 14,
+        "allPlanningFailures": 1,
+        "lastActivity": "solitude",
+        "givenYield": 2,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 1.2500000000002842
+      },
+      "v12": {
+        "normalBefore": 5,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 140.4499999999977,
+        "lastNormalEndAfter": 221.35000000001608,
+        "afterOwnDistanceCss": 55.364699983844964,
+        "allRequests": 21,
+        "allPlanningFailures": 5,
+        "lastActivity": "together",
+        "givenYield": 1,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 33.15000000000127
+      }
+    },
+    "companion:seal": {
+      "v11-foot": {
+        "normalBefore": 1,
+        "normalAfter": 4,
+        "firstNormalEndAfter": 90.69999999999699,
+        "lastNormalEndAfter": 276.75000000002865,
+        "afterOwnDistanceCss": 44.74868541143961,
+        "allRequests": 21,
+        "allPlanningFailures": 7,
+        "lastActivity": "approach",
+        "givenYield": 0,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 77.85000000001767
+      },
+      "v12": {
+        "normalBefore": 1,
+        "normalAfter": 7,
+        "firstNormalEndAfter": 111.19999999999582,
+        "lastNormalEndAfter": 254.05000000002352,
+        "afterOwnDistanceCss": 126.51934956456017,
+        "allRequests": 28,
+        "allPlanningFailures": 12,
+        "lastActivity": "look",
+        "givenYield": 2,
+        "receivedYield": 7,
+        "longestRouteFailureAfterSec": 22.900000000005207
+      }
+    },
+    "companion:chicken": {
+      "v11-foot": {
+        "normalBefore": 3,
+        "normalAfter": 3,
+        "firstNormalEndAfter": 94.24999999999679,
+        "lastNormalEndAfter": 214.4500000000145,
+        "afterOwnDistanceCss": 33.54762233698655,
+        "allRequests": 14,
+        "allPlanningFailures": 6,
+        "lastActivity": "turn",
+        "givenYield": 3,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 35.10000000000798
+      },
+      "v12": {
+        "normalBefore": 3,
+        "normalAfter": 7,
+        "firstNormalEndAfter": 140.79999999999777,
+        "lastNormalEndAfter": 266.5000000000263,
+        "afterOwnDistanceCss": 161.53529742445605,
+        "allRequests": 20,
+        "allPlanningFailures": 5,
+        "lastActivity": "sit",
+        "givenYield": 1,
+        "receivedYield": 3,
+        "longestRouteFailureAfterSec": 16.299999999999073
+      }
+    },
+    "companion:hedgehog": {
+      "v11-foot": {
+        "normalBefore": 1,
+        "normalAfter": 4,
+        "firstNormalEndAfter": 122.69999999999517,
+        "lastNormalEndAfter": 274.15000000002806,
+        "afterOwnDistanceCss": 222.79484886621455,
+        "allRequests": 10,
+        "allPlanningFailures": 1,
+        "lastActivity": "turn",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 16.899999999969907
+      },
+      "v12": {
+        "normalBefore": 1,
+        "normalAfter": 7,
+        "firstNormalEndAfter": 94.44999999999678,
+        "lastNormalEndAfter": 286.6000000000309,
+        "afterOwnDistanceCss": 472.2477383114382,
+        "allRequests": 12,
+        "allPlanningFailures": 0,
+        "lastActivity": "look",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:snail": {
+      "v11-foot": {
+        "normalBefore": 5,
+        "normalAfter": 11,
+        "firstNormalEndAfter": 107.54999999999603,
+        "lastNormalEndAfter": 285.7500000000307,
+        "afterOwnDistanceCss": 371.31460898476524,
+        "allRequests": 20,
+        "allPlanningFailures": 3,
+        "lastActivity": "sit",
+        "givenYield": 1,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 13.050000000002967
+      },
+      "v12": {
+        "normalBefore": 5,
+        "normalAfter": 7,
+        "firstNormalEndAfter": 127.29999999999491,
+        "lastNormalEndAfter": 284.60000000003043,
+        "afterOwnDistanceCss": 220.25448900125843,
+        "allRequests": 16,
+        "allPlanningFailures": 2,
+        "lastActivity": "look",
+        "givenYield": 1,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 14.400000000003274
+      }
+    },
+    "companion:sekizou": {
+      "v11-foot": {
+        "normalBefore": 4,
+        "normalAfter": 4,
+        "firstNormalEndAfter": 111.34999999999582,
+        "lastNormalEndAfter": 204.00000000001214,
+        "afterOwnDistanceCss": 48.073507439757506,
+        "allRequests": 13,
+        "allPlanningFailures": 3,
+        "lastActivity": "rest",
+        "givenYield": 2,
+        "receivedYield": 5,
+        "longestRouteFailureAfterSec": 2.4000000000005457
+      },
+      "v12": {
+        "normalBefore": 3,
+        "normalAfter": 6,
+        "firstNormalEndAfter": 75.49999999999785,
+        "lastNormalEndAfter": 231.80000000001846,
+        "afterOwnDistanceCss": 68.0044757575969,
+        "allRequests": 16,
+        "allPlanningFailures": 6,
+        "lastActivity": "turn",
+        "givenYield": 0,
+        "receivedYield": 4,
+        "longestRouteFailureAfterSec": 46.850000000000136
+      }
+    },
+    "companion:clock": {
+      "v11-foot": {
+        "normalBefore": 2,
+        "normalAfter": 5,
+        "firstNormalEndAfter": 157.10000000000147,
+        "lastNormalEndAfter": 291.20000000003193,
+        "afterOwnDistanceCss": 80.63183643565823,
+        "allRequests": 13,
+        "allPlanningFailures": 2,
+        "lastActivity": "sit",
+        "givenYield": 0,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 38.550000000008765
+      },
+      "v12": {
+        "normalBefore": 3,
+        "normalAfter": 4,
+        "firstNormalEndAfter": 79.44999999999763,
+        "lastNormalEndAfter": 293.3000000000324,
+        "afterOwnDistanceCss": 200.69472610880752,
+        "allRequests": 14,
+        "allPlanningFailures": 1,
+        "lastActivity": "rest",
+        "givenYield": 1,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 0.3500000000000796
+      }
+    },
+    "companion:many_tail_fox": {
+      "v11-foot": {
+        "normalBefore": 1,
+        "normalAfter": 5,
+        "firstNormalEndAfter": 132.5499999999959,
+        "lastNormalEndAfter": 298.4000000000336,
+        "afterOwnDistanceCss": 134.02094531838898,
+        "allRequests": 16,
+        "allPlanningFailures": 4,
+        "lastActivity": "look",
+        "givenYield": 0,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 49.199999999998326
+      },
+      "v12": {
+        "normalBefore": 1,
+        "normalAfter": 3,
+        "firstNormalEndAfter": 216.600000000015,
+        "lastNormalEndAfter": 277.0500000000287,
+        "afterOwnDistanceCss": 177.09600436989666,
+        "allRequests": 11,
+        "allPlanningFailures": 0,
+        "lastActivity": "turn",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:box": {
+      "v11-foot": {
+        "normalBefore": 1,
+        "normalAfter": 4,
+        "firstNormalEndAfter": 87.79999999999715,
+        "lastNormalEndAfter": 282.3500000000299,
+        "afterOwnDistanceCss": 100.18925390734984,
+        "allRequests": 7,
+        "allPlanningFailures": 0,
+        "lastActivity": "turn",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 1,
+        "normalAfter": 8,
+        "firstNormalEndAfter": 87.39999999999718,
+        "lastNormalEndAfter": 294.6500000000327,
+        "afterOwnDistanceCss": 332.38996488708403,
+        "allRequests": 13,
+        "allPlanningFailures": 2,
+        "lastActivity": "together",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 19.14999999999891
+      }
+    }
+  }
+}

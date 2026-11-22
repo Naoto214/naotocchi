@@ -1,0 +1,4 @@
+region,count,width,owner,source,start,helpers,hasTurn,stages,startedHelpers,steppedHelpers,steps,helperDistanceCss,completedHelperEndpoints,ownerRechecked,accepted,observedOwnerTrip,arrived,originalGain,displacement,normalTowardOriginal,endsAtFiveMinuteBoundary
+forest,28,390,companion:hedgehog,ambient,108.74999999999596,companion:watcher,True,1,1,1,4,7.000000000000004,1,True,True,True,True,1.7363509781694404,7.999999999999999,True,False
+river_lake,28,375,companion:sekizou,ambient,74.6499999999979,companion:tanuki|companion:chicken,True,2,2,2,10,19.00000000000001,2,True,True,True,True,4.643182378425337,8.000000000000002,True,False
+sea,20,320,companion:chicken,ambient,233.95000000001895,companion:monkey,True,1,1,1,6,7.000000000000004,1,True,True,True,True,5.682222652302741,7.999999999999999,True,False

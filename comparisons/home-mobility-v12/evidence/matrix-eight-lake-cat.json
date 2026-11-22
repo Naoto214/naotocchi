@@ -1,0 +1,1075 @@
+{
+  "run": "44994011363",
+  "source": "a004b4b076ea7be721277e0a028ef00b07c3f63e",
+  "region": "memory_lake",
+  "count": 28,
+  "width": 375,
+  "zipSHA256": "5acb27aceb1b056989e799843aaeba47d37b2d1894fe772509dceebe3225c26b",
+  "rawCellSHA256": "14c9b18c801de4e7b3540d02c0f64e76e15c68190c051b823444542338fc2f48",
+  "initialStateSHA256": "4552def22f8756ec67aa31f5ea8ea18a97b8094fa69fd3d48229c2d27a350aba",
+  "clock": 282.2500000000299,
+  "episode": {
+    "region": "memory_lake",
+    "count": 28,
+    "width": 375,
+    "owner": "companion:cat_friend",
+    "source": "ambient",
+    "start": 282.2500000000299,
+    "helpers": "partner:forest_bear",
+    "hasTurn": true,
+    "stages": 1,
+    "startedHelpers": 1,
+    "steppedHelpers": 1,
+    "steps": 3,
+    "helperDistanceCss": 3.999999999999993,
+    "completedHelperEndpoints": 1,
+    "ownerRechecked": true,
+    "accepted": true,
+    "observedOwnerTrip": true,
+    "arrived": true,
+    "originalGain": 8.0,
+    "displacement": 8.00000000000001,
+    "normalTowardOriginal": true,
+    "endsAtFiveMinuteBoundary": true
+  },
+  "events": [
+    {
+      "clock": 281.9000000000298,
+      "goal": {
+        "x": 308.9913905347816,
+        "y": 240.2273659276607
+      },
+      "owner": "companion:cat_friend",
+      "phase": "living",
+      "source": "ambient",
+      "type": "search"
+    },
+    {
+      "clock": 282.2500000000299,
+      "found": true,
+      "goal": {
+        "x": 308.9913905347816,
+        "y": 240.2273659276607
+      },
+      "goals": 1,
+      "ground": 21,
+      "owner": "companion:cat_friend",
+      "phase": "living",
+      "probes": 1480,
+      "protected": 0,
+      "protectedBy": {},
+      "q": {
+        "x": 178.7875978498813,
+        "y": 308.8285504297048
+      },
+      "source": "ambient",
+      "stages": [
+        {
+          "from": {
+            "x": 160.33863527085856,
+            "y": 280.4949435259768
+          },
+          "key": "partner:forest_bear",
+          "to": {
+            "x": 160.49173919447912,
+            "y": 278.3379260317858
+          },
+          "via": {
+            "x": 159.30450074614328,
+            "y": 280.4949435259768
+          }
+        }
+      ],
+      "type": "plan"
+    },
+    {
+      "clock": 282.2500000000299,
+      "goal": {
+        "x": 308.9913905347816,
+        "y": 240.2273659276607
+      },
+      "helper": "partner:forest_bear",
+      "owner": "companion:cat_friend",
+      "phase": "living",
+      "q": {
+        "x": 178.7875978498813,
+        "y": 308.8285504297048
+      },
+      "source": "ambient",
+      "stage": 0,
+      "stages": [
+        {
+          "from": {
+            "x": 160.33863527085856,
+            "y": 280.4949435259768
+          },
+          "key": "partner:forest_bear",
+          "to": {
+            "x": 160.49173919447912,
+            "y": 278.3379260317858
+          },
+          "via": {
+            "x": 159.30450074614328,
+            "y": 280.4949435259768
+          }
+        }
+      ],
+      "type": "start"
+    },
+    {
+      "accepted": true,
+      "clock": 282.50000000002996,
+      "goal": {
+        "x": 308.9913905347816,
+        "y": 240.2273659276607
+      },
+      "owner": "companion:cat_friend",
+      "phase": "living",
+      "q": {
+        "x": 178.7875978498813,
+        "y": 308.8285504297048
+      },
+      "source": "ambient",
+      "type": "owner"
+    },
+    {
+      "accepted": true,
+      "clock": 282.50000000002996,
+      "goal": {
+        "x": 308.9913905347816,
+        "y": 240.2273659276607
+      },
+      "helpers": [
+        "partner:forest_bear"
+      ],
+      "owner": "companion:cat_friend",
+      "phase": "living",
+      "q": {
+        "x": 178.7875978498813,
+        "y": 308.8285504297048
+      },
+      "source": "ambient",
+      "stage": 1,
+      "type": "stop"
+    }
+  ],
+  "actualSteps": [
+    {
+      "clock": 282.2500000000299,
+      "from": [
+        160.33863527085856,
+        280.4949435259768
+      ],
+      "key": "partner:forest_bear",
+      "phase": "living",
+      "source": "yield",
+      "to": [
+        159.30450074614328,
+        280.4949435259768
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 282.3500000000299,
+      "from": [
+        159.30450074614328,
+        280.4949435259768
+      ],
+      "key": "partner:forest_bear",
+      "phase": "living",
+      "source": "yield",
+      "to": [
+        160.31710554748926,
+        278.6552067197213
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 282.40000000002993,
+      "from": [
+        160.31710554748926,
+        278.6552067197213
+      ],
+      "key": "partner:forest_bear",
+      "phase": "living",
+      "source": "yield",
+      "to": [
+        160.49173919447912,
+        278.3379260317858
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 282.50000000002996,
+      "from": [
+        172.01038856664564,
+        312.3992957579408
+      ],
+      "key": "companion:cat_friend",
+      "phase": "living",
+      "source": "ambient",
+      "to": [
+        173.86828809162708,
+        311.42041407199827
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 282.55000000002997,
+      "from": [
+        173.86828809162708,
+        311.42041407199827
+      ],
+      "key": "companion:cat_friend",
+      "phase": "living",
+      "source": "ambient",
+      "to": [
+        175.7261876166085,
+        310.4415323860557
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 282.60000000003,
+      "from": [
+        175.7261876166085,
+        310.4415323860557
+      ],
+      "key": "companion:cat_friend",
+      "phase": "living",
+      "source": "ambient",
+      "to": [
+        177.58408714158995,
+        309.46265070011316
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 282.65000000003,
+      "from": [
+        177.58408714158995,
+        309.46265070011316
+      ],
+      "key": "companion:cat_friend",
+      "phase": "living",
+      "source": "ambient",
+      "to": [
+        178.7875978498813,
+        308.8285504297048
+      ],
+      "type": "native-step"
+    }
+  ],
+  "allRegionHouseholdEpisodes": [
+    {
+      "region": "memory_lake",
+      "count": 28,
+      "width": 375,
+      "owner": "companion:cat_friend",
+      "source": "ambient",
+      "start": 282.2500000000299,
+      "helpers": "partner:forest_bear",
+      "hasTurn": true,
+      "stages": 1,
+      "startedHelpers": 1,
+      "steppedHelpers": 1,
+      "steps": 3,
+      "helperDistanceCss": 3.999999999999993,
+      "completedHelperEndpoints": 1,
+      "ownerRechecked": true,
+      "accepted": true,
+      "observedOwnerTrip": true,
+      "arrived": true,
+      "originalGain": 8.0,
+      "displacement": 8.00000000000001,
+      "normalTowardOriginal": true,
+      "endsAtFiveMinuteBoundary": true
+    }
+  ],
+  "residents": {
+    "pet:dog": {
+      "v11-foot": {
+        "normalBefore": 6,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 11,
+        "allPlanningFailures": 4,
+        "lastActivity": "together",
+        "givenYield": 1,
+        "receivedYield": 5,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 6,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 11,
+        "allPlanningFailures": 4,
+        "lastActivity": "approach",
+        "givenYield": 1,
+        "receivedYield": 5,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "partner:forest_bear": {
+      "v11-foot": {
+        "normalBefore": 6,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 12,
+        "allPlanningFailures": 3,
+        "lastActivity": "look",
+        "givenYield": 2,
+        "receivedYield": 3,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 6,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 12,
+        "allPlanningFailures": 3,
+        "lastActivity": "turn",
+        "givenYield": 2,
+        "receivedYield": 3,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:cat_friend": {
+      "v11-foot": {
+        "normalBefore": 5,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 283.4500000000302,
+        "lastNormalEndAfter": 283.4500000000302,
+        "afterOwnDistanceCss": 17.23318218394977,
+        "allRequests": 14,
+        "allPlanningFailures": 3,
+        "lastActivity": "solitude",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 10.749999999968509
+      },
+      "v12": {
+        "normalBefore": 5,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 282.70000000003,
+        "lastNormalEndAfter": 289.90000000003164,
+        "afterOwnDistanceCss": 16.00000000000002,
+        "allRequests": 14,
+        "allPlanningFailures": 2,
+        "lastActivity": "rest",
+        "givenYield": 0,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 0.25000000000005684
+      }
+    },
+    "companion:tanuki": {
+      "v11-foot": {
+        "normalBefore": 6,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 294.5000000000327,
+        "lastNormalEndAfter": 294.5000000000327,
+        "afterOwnDistanceCss": 49.46556194973135,
+        "allRequests": 12,
+        "allPlanningFailures": 0,
+        "lastActivity": "approach",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 6,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 290.9500000000319,
+        "lastNormalEndAfter": 290.9500000000319,
+        "afterOwnDistanceCss": 24.00000000000001,
+        "allRequests": 14,
+        "allPlanningFailures": 2,
+        "lastActivity": "solitude",
+        "givenYield": 0,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 5.1499999999672355
+      }
+    },
+    "companion:owl": {
+      "v11-foot": {
+        "normalBefore": 9,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 285.05000000003054,
+        "lastNormalEndAfter": 285.05000000003054,
+        "afterOwnDistanceCss": 13.693394767392432,
+        "allRequests": 12,
+        "allPlanningFailures": 0,
+        "lastActivity": "turn",
+        "givenYield": 2,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 9,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 296.95000000003324,
+        "lastNormalEndAfter": 296.95000000003324,
+        "afterOwnDistanceCss": 15.123960597992347,
+        "allRequests": 12,
+        "allPlanningFailures": 0,
+        "lastActivity": "look",
+        "givenYield": 2,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:hamster": {
+      "v11-foot": {
+        "normalBefore": 11,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 284.65000000003045,
+        "lastNormalEndAfter": 284.65000000003045,
+        "afterOwnDistanceCss": 10.939243027607494,
+        "allRequests": 16,
+        "allPlanningFailures": 0,
+        "lastActivity": "look",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 11,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 14,
+        "allPlanningFailures": 0,
+        "lastActivity": "rest",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:monkey": {
+      "v11-foot": {
+        "normalBefore": 5,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 19,
+        "allPlanningFailures": 4,
+        "lastActivity": "look",
+        "givenYield": 2,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 17.300000000003934
+      },
+      "v12": {
+        "normalBefore": 5,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 300.00000000003394,
+        "lastNormalEndAfter": 300.00000000003394,
+        "afterOwnDistanceCss": 17.149042006646223,
+        "allRequests": 18,
+        "allPlanningFailures": 3,
+        "lastActivity": "look",
+        "givenYield": 2,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 17.300000000003934
+      }
+    },
+    "companion:sheep": {
+      "v11-foot": {
+        "normalBefore": 6,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 12,
+        "allPlanningFailures": 3,
+        "lastActivity": "sit",
+        "givenYield": 2,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 17.7499999999701
+      },
+      "v12": {
+        "normalBefore": 6,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 12,
+        "allPlanningFailures": 3,
+        "lastActivity": "sit",
+        "givenYield": 2,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 17.7499999999701
+      }
+    },
+    "companion:bat": {
+      "v11-foot": {
+        "normalBefore": 7,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 22,
+        "allPlanningFailures": 7,
+        "lastActivity": "rest",
+        "givenYield": 2,
+        "receivedYield": 3,
+        "longestRouteFailureAfterSec": 10.649999999968486
+      },
+      "v12": {
+        "normalBefore": 7,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 295.1000000000328,
+        "lastNormalEndAfter": 295.1000000000328,
+        "afterOwnDistanceCss": 10.764178279526057,
+        "allRequests": 22,
+        "allPlanningFailures": 6,
+        "lastActivity": "look",
+        "givenYield": 2,
+        "receivedYield": 3,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:penguin_friend": {
+      "v11-foot": {
+        "normalBefore": 9,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 14,
+        "allPlanningFailures": 2,
+        "lastActivity": "rest",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 17.7499999999701
+      },
+      "v12": {
+        "normalBefore": 9,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 298.35000000003356,
+        "lastNormalEndAfter": 298.35000000003356,
+        "afterOwnDistanceCss": 48.21636534051561,
+        "allRequests": 16,
+        "allPlanningFailures": 2,
+        "lastActivity": "observe",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 13.000000000002956
+      }
+    },
+    "companion:shiba": {
+      "v11-foot": {
+        "normalBefore": 8,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 11,
+        "allPlanningFailures": 0,
+        "lastActivity": "approach",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 8,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 12,
+        "allPlanningFailures": 0,
+        "lastActivity": "rest",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:punyu": {
+      "v11-foot": {
+        "normalBefore": 12,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 14,
+        "allPlanningFailures": 0,
+        "lastActivity": "turn",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 12,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 15,
+        "allPlanningFailures": 0,
+        "lastActivity": "sit",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:chameleon": {
+      "v11-foot": {
+        "normalBefore": 9,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 19,
+        "allPlanningFailures": 2,
+        "lastActivity": "sit",
+        "givenYield": 1,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 9,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 20,
+        "allPlanningFailures": 2,
+        "lastActivity": "rest",
+        "givenYield": 1,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:unicorn": {
+      "v11-foot": {
+        "normalBefore": 5,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 12,
+        "allPlanningFailures": 2,
+        "lastActivity": "rest",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 5,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 12,
+        "allPlanningFailures": 2,
+        "lastActivity": "sit",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:watcher": {
+      "v11-foot": {
+        "normalBefore": 9,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 13,
+        "allPlanningFailures": 0,
+        "lastActivity": "rest",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 9,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 285.20000000003057,
+        "lastNormalEndAfter": 293.00000000003234,
+        "afterOwnDistanceCss": 137.26614801616213,
+        "allRequests": 15,
+        "allPlanningFailures": 0,
+        "lastActivity": "rest",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:rabbit_friend": {
+      "v11-foot": {
+        "normalBefore": 6,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 10,
+        "allPlanningFailures": 0,
+        "lastActivity": "rest",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 6,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 10,
+        "allPlanningFailures": 0,
+        "lastActivity": "rest",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:squirrel": {
+      "v11-foot": {
+        "normalBefore": 3,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 13,
+        "allPlanningFailures": 3,
+        "lastActivity": "observe",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 10.299999999968406
+      },
+      "v12": {
+        "normalBefore": 3,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 289.7500000000316,
+        "lastNormalEndAfter": 299.4500000000338,
+        "afterOwnDistanceCss": 117.5342372698259,
+        "allRequests": 14,
+        "allPlanningFailures": 2,
+        "lastActivity": "solitude",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:otter": {
+      "v11-foot": {
+        "normalBefore": 7,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 295.900000000033,
+        "lastNormalEndAfter": 295.900000000033,
+        "afterOwnDistanceCss": 42.46039823866949,
+        "allRequests": 14,
+        "allPlanningFailures": 3,
+        "lastActivity": "walk",
+        "givenYield": 0,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 7,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 12,
+        "allPlanningFailures": 3,
+        "lastActivity": "turn",
+        "givenYield": 0,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:panda": {
+      "v11-foot": {
+        "normalBefore": 3,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 10,
+        "allPlanningFailures": 3,
+        "lastActivity": "together",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 17.7499999999701
+      },
+      "v12": {
+        "normalBefore": 3,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 11,
+        "allPlanningFailures": 3,
+        "lastActivity": "look",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 12.900000000002933
+      }
+    },
+    "companion:parrot": {
+      "v11-foot": {
+        "normalBefore": 12,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 15,
+        "allPlanningFailures": 0,
+        "lastActivity": "turn",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 12,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 293.7000000000325,
+        "lastNormalEndAfter": 293.7000000000325,
+        "afterOwnDistanceCss": 11.603906177780646,
+        "allRequests": 16,
+        "allPlanningFailures": 0,
+        "lastActivity": "rest",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:seal": {
+      "v11-foot": {
+        "normalBefore": 5,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 286.7000000000309,
+        "lastNormalEndAfter": 286.7000000000309,
+        "afterOwnDistanceCss": 10.017418819792915,
+        "allRequests": 12,
+        "allPlanningFailures": 2,
+        "lastActivity": "rest",
+        "givenYield": 2,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 5,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 11,
+        "allPlanningFailures": 2,
+        "lastActivity": "approach",
+        "givenYield": 2,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:chicken": {
+      "v11-foot": {
+        "normalBefore": 4,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 7,
+        "allPlanningFailures": 0,
+        "lastActivity": "approach",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 4,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 293.7500000000325,
+        "lastNormalEndAfter": 293.7500000000325,
+        "afterOwnDistanceCss": 27.99857624133812,
+        "allRequests": 8,
+        "allPlanningFailures": 0,
+        "lastActivity": "sit",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:hedgehog": {
+      "v11-foot": {
+        "normalBefore": 11,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 17,
+        "allPlanningFailures": 2,
+        "lastActivity": "sit",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 11,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 284.4500000000304,
+        "lastNormalEndAfter": 284.4500000000304,
+        "afterOwnDistanceCss": 9.794649823389348,
+        "allRequests": 19,
+        "allPlanningFailures": 2,
+        "lastActivity": "together",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:snail": {
+      "v11-foot": {
+        "normalBefore": 8,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 13,
+        "allPlanningFailures": 2,
+        "lastActivity": "look",
+        "givenYield": 2,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 8,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 289.00000000003143,
+        "lastNormalEndAfter": 289.00000000003143,
+        "afterOwnDistanceCss": 15.331715712931027,
+        "allRequests": 14,
+        "allPlanningFailures": 2,
+        "lastActivity": "sit",
+        "givenYield": 2,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:sekizou": {
+      "v11-foot": {
+        "normalBefore": 6,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 289.2000000000315,
+        "lastNormalEndAfter": 289.2000000000315,
+        "afterOwnDistanceCss": 7.999999999999981,
+        "allRequests": 12,
+        "allPlanningFailures": 3,
+        "lastActivity": "rest",
+        "givenYield": 0,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 0.6500000000001478
+      },
+      "v12": {
+        "normalBefore": 6,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 14,
+        "allPlanningFailures": 5,
+        "lastActivity": "rest",
+        "givenYield": 0,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 8.399999999967974
+      }
+    },
+    "companion:clock": {
+      "v11-foot": {
+        "normalBefore": 4,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 289.15000000003147,
+        "lastNormalEndAfter": 297.2500000000333,
+        "afterOwnDistanceCss": 48.315503684121886,
+        "allRequests": 19,
+        "allPlanningFailures": 5,
+        "lastActivity": "observe",
+        "givenYield": 1,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 4,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 16,
+        "allPlanningFailures": 5,
+        "lastActivity": "approach",
+        "givenYield": 1,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:many_tail_fox": {
+      "v11-foot": {
+        "normalBefore": 6,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 11,
+        "allPlanningFailures": 0,
+        "lastActivity": "rest",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 6,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 11,
+        "allPlanningFailures": 0,
+        "lastActivity": "together",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      }
+    },
+    "companion:box": {
+      "v11-foot": {
+        "normalBefore": 12,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 15,
+        "allPlanningFailures": 0,
+        "lastActivity": "walk",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      },
+      "v12": {
+        "normalBefore": 12,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 14,
+        "allPlanningFailures": 0,
+        "lastActivity": "sit",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 0
+      }
+    }
+  }
+}

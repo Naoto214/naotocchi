@@ -1,0 +1,7 @@
+region,count,width,owner,source,start,helpers,hasTurn,stages,startedHelpers,steppedHelpers,steps,helperDistanceCss,completedHelperEndpoints,ownerRechecked,accepted,observedOwnerTrip,arrived,originalGain,displacement,normalTowardOriginal,endsAtFiveMinuteBoundary
+forest,20,320,companion:bat,ambient,86.49999999999723,companion:sheep,True,1,1,1,12,24.999999999999982,1,True,True,True,True,13.060918904502202,24.000000000000018,True,False
+sea,28,320,companion:unicorn,ambient,47.79999999999942,pet:dog,True,1,1,1,3,3.999999999999975,1,False,False,False,False,,,False,False
+jungle,28,320,companion:chameleon,ambient,39.3499999999999,companion:box|companion:owl,True,2,2,2,5,6.999999999999996,2,True,True,True,True,7.9766077306338445,8.00000000000001,True,False
+deepsea,20,320,companion:owl,ambient,51.6499999999992,companion:panda|companion:shiba,True,2,1,1,16,25.000000000000004,1,False,False,False,False,,,False,False
+star_stop,28,320,companion:bat,ambient,178.25000000000628,companion:cat_friend|companion:owl,True,2,1,1,11,13.000000000000012,1,False,False,False,False,,,False,False
+memory_lake,28,375,companion:cat_friend,ambient,282.2500000000299,partner:forest_bear,True,1,1,1,3,3.999999999999993,1,True,True,True,True,8.0,8.00000000000001,True,True

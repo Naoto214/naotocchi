@@ -1,0 +1,37 @@
+{
+  "browser": "156.0.8078.79",
+  "widths": [
+    320,
+    375,
+    390,
+    430
+  ],
+  "DPR": 2,
+  "exercised": "touch, pause and resume, switch at same time, both crops, previous/next single step",
+  "arms": [
+    {
+      "edition": "shipped",
+      "checks": 5068,
+      "frames": 181,
+      "differentFeetVersusOpening": 768,
+      "exits": "198.27秒の測定 · 1 / 384方向（146.25°）",
+      "halfCounts": [
+        "時計\t2 → 2\t3 → 3",
+        "ハリネズミ\t1 → 1\t3 → 2",
+        "ハムスター\t2 → 2\t0 → 2"
+      ]
+    },
+    {
+      "edition": "margin",
+      "checks": 5068,
+      "frames": 181,
+      "differentFeetVersusOpening": 766,
+      "exits": "198.30秒の測定 · 4 / 384方向（143.4375°～146.25°）",
+      "halfCounts": [
+        "時計\t2 → 2\t3 → 3",
+        "ハリネズミ\t1 → 1\t3 → 2",
+        "ハムスター\t2 → 2\t0 → 2"
+      ]
+    }
+  ]
+}

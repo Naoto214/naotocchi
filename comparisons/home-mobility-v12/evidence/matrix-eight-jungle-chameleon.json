@@ -1,0 +1,1205 @@
+{
+  "run": "44994011363",
+  "source": "a004b4b076ea7be721277e0a028ef00b07c3f63e",
+  "region": "jungle",
+  "count": 28,
+  "width": 320,
+  "zipSHA256": "cb900b4ab98fea05209fc0dab3eb9d02363d1f0fe8c30aa72210439d08bf49fc",
+  "rawCellSHA256": "f7f3e22046efe79e18a2487ace85608564665cbab8caf1c0bb3654dbd61bc0fb",
+  "initialStateSHA256": "5a61b71019a520f8d1340da9323e6ae2af6ea4ffbc5752d3c35401301af9897a",
+  "clock": 39.3499999999999,
+  "episode": {
+    "region": "jungle",
+    "count": 28,
+    "width": 320,
+    "owner": "companion:chameleon",
+    "source": "ambient",
+    "start": 39.3499999999999,
+    "helpers": "companion:box|companion:owl",
+    "hasTurn": true,
+    "stages": 2,
+    "startedHelpers": 2,
+    "steppedHelpers": 2,
+    "steps": 5,
+    "helperDistanceCss": 6.999999999999996,
+    "completedHelperEndpoints": 2,
+    "ownerRechecked": true,
+    "accepted": true,
+    "observedOwnerTrip": true,
+    "arrived": true,
+    "originalGain": 7.9766077306338445,
+    "displacement": 8.00000000000001,
+    "normalTowardOriginal": true,
+    "endsAtFiveMinuteBoundary": false
+  },
+  "events": [
+    {
+      "clock": 37.45000000000001,
+      "goal": {
+        "x": 235.56,
+        "y": 214.4
+      },
+      "owner": "companion:chameleon",
+      "phase": "living",
+      "source": "ambient",
+      "type": "search"
+    },
+    {
+      "clock": 38.399999999999956,
+      "goal": {
+        "tag": "shelter",
+        "x": 66.44,
+        "y": 207.4
+      },
+      "owner": "companion:chameleon",
+      "phase": "living",
+      "source": "ambient",
+      "type": "search"
+    },
+    {
+      "clock": 39.3499999999999,
+      "found": true,
+      "goal": {
+        "tag": "shelter",
+        "x": 66.44,
+        "y": 207.4
+      },
+      "goals": 2,
+      "ground": 122,
+      "owner": "companion:chameleon",
+      "phase": "living",
+      "probes": 3279,
+      "protected": 0,
+      "protectedBy": {},
+      "q": {
+        "x": 240.12819217265226,
+        "y": 284.66693703753515
+      },
+      "source": "ambient",
+      "stages": [
+        {
+          "from": {
+            "x": 235.45367708462203,
+            "y": 229.05444506331253
+          },
+          "key": "companion:box",
+          "to": {
+            "x": 232.70179535281795,
+            "y": 227.38840280239583
+          }
+        },
+        {
+          "from": {
+            "x": 254.88415934683664,
+            "y": 257.6433473682322
+          },
+          "key": "companion:owl",
+          "to": {
+            "x": 256.80500511113195,
+            "y": 256.0151511162543
+          },
+          "via": {
+            "x": 254.0293775003429,
+            "y": 256.0151511162543
+          }
+        }
+      ],
+      "type": "plan"
+    },
+    {
+      "clock": 39.3499999999999,
+      "goal": {
+        "tag": "shelter",
+        "x": 66.44,
+        "y": 207.4
+      },
+      "helper": "companion:box",
+      "owner": "companion:chameleon",
+      "phase": "living",
+      "q": {
+        "x": 240.12819217265226,
+        "y": 284.66693703753515
+      },
+      "source": "ambient",
+      "stage": 0,
+      "stages": [
+        {
+          "from": {
+            "x": 235.45367708462203,
+            "y": 229.05444506331253
+          },
+          "key": "companion:box",
+          "to": {
+            "x": 232.70179535281795,
+            "y": 227.38840280239583
+          }
+        },
+        {
+          "from": {
+            "x": 254.88415934683664,
+            "y": 257.6433473682322
+          },
+          "key": "companion:owl",
+          "to": {
+            "x": 256.80500511113195,
+            "y": 256.0151511162543
+          },
+          "via": {
+            "x": 254.0293775003429,
+            "y": 256.0151511162543
+          }
+        }
+      ],
+      "type": "start"
+    },
+    {
+      "clock": 39.49999999999989,
+      "goal": {
+        "tag": "shelter",
+        "x": 66.44,
+        "y": 207.4
+      },
+      "helper": "companion:owl",
+      "owner": "companion:chameleon",
+      "phase": "living",
+      "q": {
+        "x": 240.12819217265226,
+        "y": 284.66693703753515
+      },
+      "source": "ambient",
+      "stage": 1,
+      "stages": [
+        {
+          "from": {
+            "x": 235.45367708462203,
+            "y": 229.05444506331253
+          },
+          "key": "companion:box",
+          "to": {
+            "x": 232.70179535281795,
+            "y": 227.38840280239583
+          }
+        },
+        {
+          "from": {
+            "x": 254.88415934683664,
+            "y": 257.6433473682322
+          },
+          "key": "companion:owl",
+          "to": {
+            "x": 256.80500511113195,
+            "y": 256.0151511162543
+          },
+          "via": {
+            "x": 254.0293775003429,
+            "y": 256.0151511162543
+          }
+        }
+      ],
+      "type": "start"
+    },
+    {
+      "accepted": true,
+      "clock": 39.74999999999988,
+      "goal": {
+        "tag": "shelter",
+        "x": 66.44,
+        "y": 207.4
+      },
+      "owner": "companion:chameleon",
+      "phase": "living",
+      "q": {
+        "x": 240.12819217265226,
+        "y": 284.66693703753515
+      },
+      "source": "ambient",
+      "type": "owner"
+    },
+    {
+      "accepted": true,
+      "clock": 39.74999999999988,
+      "goal": {
+        "tag": "shelter",
+        "x": 66.44,
+        "y": 207.4
+      },
+      "helpers": [
+        "companion:box",
+        "companion:owl"
+      ],
+      "owner": "companion:chameleon",
+      "phase": "living",
+      "q": {
+        "x": 240.12819217265226,
+        "y": 284.66693703753515
+      },
+      "source": "ambient",
+      "stage": 2,
+      "type": "stop"
+    }
+  ],
+  "actualSteps": [
+    {
+      "clock": 39.3499999999999,
+      "from": [
+        235.45367708462203,
+        229.05444506331253
+      ],
+      "key": "companion:box",
+      "phase": "living",
+      "source": "yield",
+      "to": [
+        233.65725117065716,
+        227.96685417716304
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 39.3999999999999,
+      "from": [
+        233.65725117065716,
+        227.96685417716304
+      ],
+      "key": "companion:box",
+      "phase": "living",
+      "source": "yield",
+      "to": [
+        232.70179535281795,
+        227.38840280239583
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 39.49999999999989,
+      "from": [
+        254.88415934683664,
+        257.6433473682322
+      ],
+      "key": "companion:owl",
+      "phase": "living",
+      "source": "yield",
+      "to": [
+        254.0293775003429,
+        256.0151511162543
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 39.59999999999989,
+      "from": [
+        254.0293775003429,
+        256.0151511162543
+      ],
+      "key": "companion:owl",
+      "phase": "living",
+      "source": "yield",
+      "to": [
+        256.1293775003429,
+        256.0151511162543
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 39.649999999999885,
+      "from": [
+        256.1293775003429,
+        256.0151511162543
+      ],
+      "key": "companion:owl",
+      "phase": "living",
+      "source": "yield",
+      "to": [
+        256.80500511113195,
+        256.0151511162543
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 39.74999999999988,
+      "from": [
+        247.4174177475318,
+        290.5774790287097
+      ],
+      "key": "companion:chameleon",
+      "phase": "living",
+      "source": "ambient",
+      "to": [
+        245.7862699862887,
+        289.25484643384766
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 39.799999999999876,
+      "from": [
+        245.7862699862887,
+        289.25484643384766
+      ],
+      "key": "companion:chameleon",
+      "phase": "living",
+      "source": "ambient",
+      "to": [
+        244.15512222504557,
+        287.9322138389856
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 39.84999999999987,
+      "from": [
+        244.15512222504557,
+        287.9322138389856
+      ],
+      "key": "companion:chameleon",
+      "phase": "living",
+      "source": "ambient",
+      "to": [
+        242.52397446380246,
+        286.60958124412355
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 39.89999999999987,
+      "from": [
+        242.52397446380246,
+        286.60958124412355
+      ],
+      "key": "companion:chameleon",
+      "phase": "living",
+      "source": "ambient",
+      "to": [
+        240.89282670255935,
+        285.2869486492615
+      ],
+      "type": "native-step"
+    },
+    {
+      "clock": 39.94999999999987,
+      "from": [
+        240.89282670255935,
+        285.2869486492615
+      ],
+      "key": "companion:chameleon",
+      "phase": "living",
+      "source": "ambient",
+      "to": [
+        240.12819217265226,
+        284.66693703753515
+      ],
+      "type": "native-step"
+    }
+  ],
+  "allRegionHouseholdEpisodes": [
+    {
+      "region": "jungle",
+      "count": 28,
+      "width": 320,
+      "owner": "companion:chameleon",
+      "source": "ambient",
+      "start": 39.3499999999999,
+      "helpers": "companion:box|companion:owl",
+      "hasTurn": true,
+      "stages": 2,
+      "startedHelpers": 2,
+      "steppedHelpers": 2,
+      "steps": 5,
+      "helperDistanceCss": 6.999999999999996,
+      "completedHelperEndpoints": 2,
+      "ownerRechecked": true,
+      "accepted": true,
+      "observedOwnerTrip": true,
+      "arrived": true,
+      "originalGain": 7.9766077306338445,
+      "displacement": 8.00000000000001,
+      "normalTowardOriginal": true,
+      "endsAtFiveMinuteBoundary": false
+    }
+  ],
+  "residents": {
+    "pet:dog": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 3,
+        "firstNormalEndAfter": 97.99999999999658,
+        "lastNormalEndAfter": 230.95000000001826,
+        "afterOwnDistanceCss": 28.848771654023007,
+        "allRequests": 12,
+        "allPlanningFailures": 7,
+        "lastActivity": "look",
+        "givenYield": 3,
+        "receivedYield": 4,
+        "longestRouteFailureAfterSec": 62.049999999980145
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 19,
+        "allPlanningFailures": 13,
+        "lastActivity": "look",
+        "givenYield": 3,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 108.14999999999063
+      }
+    },
+    "partner:forest_bear": {
+      "v11-foot": {
+        "normalBefore": 1,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 58.34999999999882,
+        "lastNormalEndAfter": 58.34999999999882,
+        "afterOwnDistanceCss": 12.000000000000002,
+        "allRequests": 6,
+        "allPlanningFailures": 1,
+        "lastActivity": "together",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 84.10000000000076
+      },
+      "v12": {
+        "normalBefore": 1,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 84.14999999999736,
+        "lastNormalEndAfter": 150.44999999999996,
+        "afterOwnDistanceCss": 30.093393722471006,
+        "allRequests": 11,
+        "allPlanningFailures": 2,
+        "lastActivity": "solitude",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 40.74999999997533
+      }
+    },
+    "companion:cat_friend": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 221.10000000001602,
+        "lastNormalEndAfter": 221.10000000001602,
+        "afterOwnDistanceCss": 8.000000000000007,
+        "allRequests": 10,
+        "allPlanningFailures": 1,
+        "lastActivity": "turn",
+        "givenYield": 0,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 0.5000000000001137
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 229.60000000001796,
+        "lastNormalEndAfter": 237.85000000001983,
+        "afterOwnDistanceCss": 27.637094109530324,
+        "allRequests": 9,
+        "allPlanningFailures": 2,
+        "lastActivity": "look",
+        "givenYield": 1,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 79.150000000018
+      }
+    },
+    "companion:tanuki": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 280.8500000000296,
+        "lastNormalEndAfter": 288.3000000000313,
+        "afterOwnDistanceCss": 24.44709186766174,
+        "allRequests": 20,
+        "allPlanningFailures": 14,
+        "lastActivity": "together",
+        "givenYield": 3,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 91.75000000001552
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 20,
+        "allPlanningFailures": 18,
+        "lastActivity": "rest",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 181.30000000001925
+      }
+    },
+    "companion:owl": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 170.05000000000442,
+        "lastNormalEndAfter": 170.05000000000442,
+        "afterOwnDistanceCss": 9.030545279641306,
+        "allRequests": 11,
+        "allPlanningFailures": 4,
+        "lastActivity": "look",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 15.14999999996951
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 81.89999999999749,
+        "lastNormalEndAfter": 155.9000000000012,
+        "afterOwnDistanceCss": 16.00000000000002,
+        "allRequests": 15,
+        "allPlanningFailures": 8,
+        "lastActivity": "sit",
+        "givenYield": 2,
+        "receivedYield": 4,
+        "longestRouteFailureAfterSec": 42.14999999999761
+      }
+    },
+    "companion:hamster": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 3,
+        "firstNormalEndAfter": 48.99999999999935,
+        "lastNormalEndAfter": 235.30000000001925,
+        "afterOwnDistanceCss": 32.00000000000003,
+        "allRequests": 8,
+        "allPlanningFailures": 4,
+        "lastActivity": "rest",
+        "givenYield": 2,
+        "receivedYield": 4,
+        "longestRouteFailureAfterSec": 56.149999999997405
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 70.89999999999812,
+        "lastNormalEndAfter": 125.599999999995,
+        "afterOwnDistanceCss": 16.48851445763094,
+        "allRequests": 13,
+        "allPlanningFailures": 8,
+        "lastActivity": "sit",
+        "givenYield": 1,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 50.599999999997124
+      }
+    },
+    "companion:monkey": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 16,
+        "allPlanningFailures": 11,
+        "lastActivity": "approach",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 61.2500000000139
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 75.44999999999786,
+        "lastNormalEndAfter": 75.44999999999786,
+        "afterOwnDistanceCss": 12.00000000000001,
+        "allRequests": 11,
+        "allPlanningFailures": 2,
+        "lastActivity": "approach",
+        "givenYield": 0,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 33.04999999999812
+      }
+    },
+    "companion:sheep": {
+      "v11-foot": {
+        "normalBefore": 1,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 98.89999999999652,
+        "lastNormalEndAfter": 128.54999999999498,
+        "afterOwnDistanceCss": 15.999999999999995,
+        "allRequests": 18,
+        "allPlanningFailures": 12,
+        "lastActivity": "look",
+        "givenYield": 1,
+        "receivedYield": 3,
+        "longestRouteFailureAfterSec": 91.64999999998687
+      },
+      "v12": {
+        "normalBefore": 1,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 14,
+        "allPlanningFailures": 10,
+        "lastActivity": "together",
+        "givenYield": 4,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 91.0500000000207
+      }
+    },
+    "companion:bat": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 106.99999999999606,
+        "lastNormalEndAfter": 172.650000000005,
+        "afterOwnDistanceCss": 19.649226379175836,
+        "allRequests": 11,
+        "allPlanningFailures": 6,
+        "lastActivity": "turn",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 36.84999999997444
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 3,
+        "firstNormalEndAfter": 41.599999999999774,
+        "lastNormalEndAfter": 291.9000000000321,
+        "afterOwnDistanceCss": 28.000000000000007,
+        "allRequests": 22,
+        "allPlanningFailures": 15,
+        "lastActivity": "sit",
+        "givenYield": 0,
+        "receivedYield": 3,
+        "longestRouteFailureAfterSec": 95.65000000002172
+      }
+    },
+    "companion:penguin_friend": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 3,
+        "firstNormalEndAfter": 106.4499999999961,
+        "lastNormalEndAfter": 263.95000000002574,
+        "afterOwnDistanceCss": 72.54555156294913,
+        "allRequests": 15,
+        "allPlanningFailures": 9,
+        "lastActivity": "approach",
+        "givenYield": 1,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 66.8999999999962
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 231.20000000001832,
+        "lastNormalEndAfter": 231.20000000001832,
+        "afterOwnDistanceCss": 7.999999999999997,
+        "allRequests": 23,
+        "allPlanningFailures": 17,
+        "lastActivity": "turn",
+        "givenYield": 0,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 97.10000000002208
+      }
+    },
+    "companion:shiba": {
+      "v11-foot": {
+        "normalBefore": 1,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 16,
+        "allPlanningFailures": 7,
+        "lastActivity": "observe",
+        "givenYield": 1,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 53.95000000001224
+      },
+      "v12": {
+        "normalBefore": 1,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 19,
+        "allPlanningFailures": 14,
+        "lastActivity": "rest",
+        "givenYield": 1,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 93.2000000000099
+      }
+    },
+    "companion:punyu": {
+      "v11-foot": {
+        "normalBefore": 2,
+        "normalAfter": 3,
+        "firstNormalEndAfter": 56.49999999999893,
+        "lastNormalEndAfter": 239.55000000002022,
+        "afterOwnDistanceCss": 32.499774601693886,
+        "allRequests": 17,
+        "allPlanningFailures": 3,
+        "lastActivity": "observe",
+        "givenYield": 1,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 7.350000000001671
+      },
+      "v12": {
+        "normalBefore": 2,
+        "normalAfter": 4,
+        "firstNormalEndAfter": 88.94999999999709,
+        "lastNormalEndAfter": 277.4000000000288,
+        "afterOwnDistanceCss": 73.11215204777625,
+        "allRequests": 14,
+        "allPlanningFailures": 2,
+        "lastActivity": "together",
+        "givenYield": 1,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 14.300000000003251
+      }
+    },
+    "companion:chameleon": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 3,
+        "firstNormalEndAfter": 176.00000000000577,
+        "lastNormalEndAfter": 299.55000000003383,
+        "afterOwnDistanceCss": 37.69852643843465,
+        "allRequests": 16,
+        "allPlanningFailures": 9,
+        "lastActivity": "look",
+        "givenYield": 0,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 62.350000000009956
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 3,
+        "firstNormalEndAfter": 39.999999999999865,
+        "lastNormalEndAfter": 138.2499999999972,
+        "afterOwnDistanceCss": 28.00000000000003,
+        "allRequests": 20,
+        "allPlanningFailures": 13,
+        "lastActivity": "solitude",
+        "givenYield": 1,
+        "receivedYield": 5,
+        "longestRouteFailureAfterSec": 84.30000000001917
+      }
+    },
+    "companion:unicorn": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 47.899999999999416,
+        "lastNormalEndAfter": 140.29999999999765,
+        "afterOwnDistanceCss": 19.99999999999999,
+        "allRequests": 14,
+        "allPlanningFailures": 7,
+        "lastActivity": "look",
+        "givenYield": 3,
+        "receivedYield": 3,
+        "longestRouteFailureAfterSec": 34.84999999997399
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 278.60000000002907,
+        "lastNormalEndAfter": 278.60000000002907,
+        "afterOwnDistanceCss": 8.848771654022991,
+        "allRequests": 18,
+        "allPlanningFailures": 14,
+        "lastActivity": "observe",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 81.29999999999538
+      }
+    },
+    "companion:watcher": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 150.85000000000005,
+        "lastNormalEndAfter": 150.85000000000005,
+        "afterOwnDistanceCss": 11.999999999999995,
+        "allRequests": 16,
+        "allPlanningFailures": 12,
+        "lastActivity": "approach",
+        "givenYield": 2,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 91.75000000002086
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 230.55000000001817,
+        "lastNormalEndAfter": 230.55000000001817,
+        "afterOwnDistanceCss": 8.848771654022991,
+        "allRequests": 14,
+        "allPlanningFailures": 6,
+        "lastActivity": "rest",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 54.80000000001246
+      }
+    },
+    "companion:rabbit_friend": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 214.95000000001463,
+        "lastNormalEndAfter": 236.70000000001957,
+        "afterOwnDistanceCss": 17.95506892633407,
+        "allRequests": 16,
+        "allPlanningFailures": 6,
+        "lastActivity": "solitude",
+        "givenYield": 3,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 74.20000000000181
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 12,
+        "allPlanningFailures": 6,
+        "lastActivity": "approach",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 40.40000000000916
+      }
+    },
+    "companion:squirrel": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 182.45000000000724,
+        "lastNormalEndAfter": 259.25000000002467,
+        "afterOwnDistanceCss": 16.563016161389555,
+        "allRequests": 18,
+        "allPlanningFailures": 13,
+        "lastActivity": "look",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 109.20000000000914
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 96.64999999999665,
+        "lastNormalEndAfter": 217.55000000001522,
+        "afterOwnDistanceCss": 30.182711437578234,
+        "allRequests": 13,
+        "allPlanningFailures": 5,
+        "lastActivity": "look",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 47.80000000001084
+      }
+    },
+    "companion:otter": {
+      "v11-foot": {
+        "normalBefore": 1,
+        "normalAfter": 3,
+        "firstNormalEndAfter": 171.50000000000475,
+        "lastNormalEndAfter": 293.95000000003256,
+        "afterOwnDistanceCss": 38.740231220825414,
+        "allRequests": 12,
+        "allPlanningFailures": 4,
+        "lastActivity": "observe",
+        "givenYield": 0,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 28.200000000006412
+      },
+      "v12": {
+        "normalBefore": 1,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 212.05000000001397,
+        "lastNormalEndAfter": 212.05000000001397,
+        "afterOwnDistanceCss": 8.493585323622138,
+        "allRequests": 12,
+        "allPlanningFailures": 4,
+        "lastActivity": "turn",
+        "givenYield": 2,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 50.200000000011414
+      }
+    },
+    "companion:panda": {
+      "v11-foot": {
+        "normalBefore": 2,
+        "normalAfter": 5,
+        "firstNormalEndAfter": 95.49999999999672,
+        "lastNormalEndAfter": 196.3500000000104,
+        "afterOwnDistanceCss": 48.59513057189981,
+        "allRequests": 23,
+        "allPlanningFailures": 10,
+        "lastActivity": "solitude",
+        "givenYield": 1,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 32.39999999997343
+      },
+      "v12": {
+        "normalBefore": 2,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 55.999999999998956,
+        "lastNormalEndAfter": 225.75000000001708,
+        "afterOwnDistanceCss": 24.19882839770872,
+        "allRequests": 12,
+        "allPlanningFailures": 6,
+        "lastActivity": "together",
+        "givenYield": 2,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 60.40000000001373
+      }
+    },
+    "companion:parrot": {
+      "v11-foot": {
+        "normalBefore": 1,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 168.55000000000408,
+        "lastNormalEndAfter": 208.2500000000131,
+        "afterOwnDistanceCss": 22.825488887894927,
+        "allRequests": 14,
+        "allPlanningFailures": 3,
+        "lastActivity": "observe",
+        "givenYield": 1,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 13.499999999969134
+      },
+      "v12": {
+        "normalBefore": 1,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 15,
+        "allPlanningFailures": 9,
+        "lastActivity": "look",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 77.35000000001759
+      }
+    },
+    "companion:seal": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 4,
+        "firstNormalEndAfter": 120.29999999999531,
+        "lastNormalEndAfter": 254.25000000002356,
+        "afterOwnDistanceCss": 61.03001762208128,
+        "allRequests": 18,
+        "allPlanningFailures": 4,
+        "lastActivity": "observe",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 46.250000000010516
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 3,
+        "firstNormalEndAfter": 119.84999999999533,
+        "lastNormalEndAfter": 286.7000000000309,
+        "afterOwnDistanceCss": 43.841952659274995,
+        "allRequests": 10,
+        "allPlanningFailures": 1,
+        "lastActivity": "turn",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 43.90000000000998
+      }
+    },
+    "companion:chicken": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 3,
+        "firstNormalEndAfter": 217.10000000001511,
+        "lastNormalEndAfter": 281.3000000000297,
+        "afterOwnDistanceCss": 36.66725897566719,
+        "allRequests": 16,
+        "allPlanningFailures": 4,
+        "lastActivity": "look",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 21.349999999998786
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 3,
+        "firstNormalEndAfter": 109.59999999999592,
+        "lastNormalEndAfter": 247.0000000000219,
+        "afterOwnDistanceCss": 36.74475970028646,
+        "allRequests": 14,
+        "allPlanningFailures": 8,
+        "lastActivity": "look",
+        "givenYield": 1,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 69.69999999999604
+      }
+    },
+    "companion:hedgehog": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 225.50000000001702,
+        "lastNormalEndAfter": 225.50000000001702,
+        "afterOwnDistanceCss": 8.913584172847656,
+        "allRequests": 16,
+        "allPlanningFailures": 8,
+        "lastActivity": "rest",
+        "givenYield": 1,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 79.5499999999993
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 20,
+        "allPlanningFailures": 13,
+        "lastActivity": "turn",
+        "givenYield": 0,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 79.84999999999548
+      }
+    },
+    "companion:snail": {
+      "v11-foot": {
+        "normalBefore": 1,
+        "normalAfter": 4,
+        "firstNormalEndAfter": 67.84999999999829,
+        "lastNormalEndAfter": 235.1000000000192,
+        "afterOwnDistanceCss": 52.87582547282053,
+        "allRequests": 15,
+        "allPlanningFailures": 5,
+        "lastActivity": "solitude",
+        "givenYield": 0,
+        "receivedYield": 4,
+        "longestRouteFailureAfterSec": 44.65000000001015
+      },
+      "v12": {
+        "normalBefore": 1,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 11,
+        "allPlanningFailures": 2,
+        "lastActivity": "turn",
+        "givenYield": 1,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 32.399999999998165
+      }
+    },
+    "companion:sekizou": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 0,
+        "firstNormalEndAfter": null,
+        "lastNormalEndAfter": null,
+        "afterOwnDistanceCss": 0,
+        "allRequests": 24,
+        "allPlanningFailures": 22,
+        "lastActivity": "together",
+        "givenYield": 2,
+        "receivedYield": 0,
+        "longestRouteFailureAfterSec": 149.05000000000868
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 91.69999999999693,
+        "lastNormalEndAfter": 91.69999999999693,
+        "afterOwnDistanceCss": 23.999999999999993,
+        "allRequests": 11,
+        "allPlanningFailures": 7,
+        "lastActivity": "together",
+        "givenYield": 1,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 51.749999999997065
+      }
+    },
+    "companion:clock": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 205.45000000001247,
+        "lastNormalEndAfter": 205.45000000001247,
+        "afterOwnDistanceCss": 7.999999999999991,
+        "allRequests": 26,
+        "allPlanningFailures": 21,
+        "lastActivity": "sit",
+        "givenYield": 4,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 165.8000000000125
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 5,
+        "firstNormalEndAfter": 78.84999999999766,
+        "lastNormalEndAfter": 264.80000000002593,
+        "afterOwnDistanceCss": 62.49148710955257,
+        "allRequests": 25,
+        "allPlanningFailures": 16,
+        "lastActivity": "look",
+        "givenYield": 2,
+        "receivedYield": 4,
+        "longestRouteFailureAfterSec": 45.7500000000104
+      }
+    },
+    "companion:many_tail_fox": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 250.80000000002278,
+        "lastNormalEndAfter": 250.80000000002278,
+        "afterOwnDistanceCss": 7.999999999999993,
+        "allRequests": 18,
+        "allPlanningFailures": 10,
+        "lastActivity": "approach",
+        "givenYield": 1,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 95.4000000000216
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 2,
+        "firstNormalEndAfter": 155.55000000000112,
+        "lastNormalEndAfter": 280.1000000000294,
+        "afterOwnDistanceCss": 20.953579498205155,
+        "allRequests": 12,
+        "allPlanningFailures": 5,
+        "lastActivity": "together",
+        "givenYield": 2,
+        "receivedYield": 2,
+        "longestRouteFailureAfterSec": 45.95000000001042
+      }
+    },
+    "companion:box": {
+      "v11-foot": {
+        "normalBefore": 0,
+        "normalAfter": 4,
+        "firstNormalEndAfter": 86.49999999999723,
+        "lastNormalEndAfter": 253.65000000002343,
+        "afterOwnDistanceCss": 36.00000000000002,
+        "allRequests": 19,
+        "allPlanningFailures": 11,
+        "lastActivity": "approach",
+        "givenYield": 2,
+        "receivedYield": 3,
+        "longestRouteFailureAfterSec": 41.500000000009436
+      },
+      "v12": {
+        "normalBefore": 0,
+        "normalAfter": 1,
+        "firstNormalEndAfter": 221.55000000001613,
+        "lastNormalEndAfter": 221.55000000001613,
+        "afterOwnDistanceCss": 8.000000000000007,
+        "allRequests": 18,
+        "allPlanningFailures": 14,
+        "lastActivity": "observe",
+        "givenYield": 2,
+        "receivedYield": 1,
+        "longestRouteFailureAfterSec": 138.60000000001833
+      }
+    }
+  }
+}

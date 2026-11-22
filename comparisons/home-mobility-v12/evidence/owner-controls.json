@@ -1,0 +1,92 @@
+{
+  "chromium320": {
+    "width": 320,
+    "engine": "chromium",
+    "version": "156.0.8078.79",
+    "fixedOpening": "f1b731cfc3bc66d30eeb17120f33e0f1f1846a1d073799fbbd522fd7375409b7",
+    "historicalOpening": "a4c497d36fb009ddec2ae2dcb8573c14c0ecba3048373d8f2c2b8cb62490f231",
+    "sameOpeningAllThree": true,
+    "toolbarFits": true,
+    "footReadoutResidents": 4,
+    "progress": {
+      "arm": "v12-reference",
+      "tracked": 28,
+      "elapsed": 3.8498000000000006,
+      "moved": 3,
+      "syncRecorder": true
+    },
+    "errors": []
+  },
+  "chromium390": {
+    "width": 390,
+    "engine": "chromium",
+    "version": "156.0.8078.79",
+    "fixedOpening": "e260d34dbc70ebf78a9919a563a9884373eef6da24073db4a69172edf8591ce3",
+    "historicalOpening": "7bb5dd200b3a2612cffb3f7c1925695889fd243ec7e78aad4219f66c53eed0f9",
+    "sameOpeningAllThree": true,
+    "toolbarFits": true,
+    "footReadoutResidents": 4,
+    "progress": {
+      "arm": "v12-reference",
+      "tracked": 28,
+      "elapsed": 3.5498000000000047,
+      "moved": 3,
+      "syncRecorder": true
+    },
+    "errors": []
+  },
+  "webkit375": {
+    "width": 375,
+    "engine": "webkit",
+    "version": "26.5",
+    "fixedOpening": "771c6c5be176a9f98f73748e39123779add9567148545814230ece30a89530be",
+    "historicalOpening": "43cb142bf28a2072ec4db24ae9a40f25ebe41af799b00f5b9e05e796252dd7bf",
+    "sameOpeningAllThree": true,
+    "toolbarFits": true,
+    "footReadoutResidents": 4,
+    "progress": {
+      "arm": "v12-reference",
+      "tracked": 28,
+      "elapsed": 1.258,
+      "moved": 1,
+      "syncRecorder": true
+    },
+    "errors": []
+  },
+  "chromium430": {
+    "width": 430,
+    "engine": "chromium",
+    "version": "156.0.8078.79",
+    "fixedOpening": "051dfdef4badcb4a13fafe7ba48f0ea0e08aee9f51016504138af13514294dc2",
+    "historicalOpening": "f2085141f234d31e8ca90dec6f8ae50b149bb0efd699f05915e9aeef11bac94b",
+    "sameOpeningAllThree": true,
+    "toolbarFits": true,
+    "footReadoutResidents": 4,
+    "progress": {
+      "arm": "v12-reference",
+      "tracked": 28,
+      "elapsed": 2.4665999999999992,
+      "moved": 1,
+      "syncRecorder": true
+    },
+    "errors": []
+  },
+  "hostedChromium390": {
+    "width": 390,
+    "engine": "chromium",
+    "version": "156.0.8078.79",
+    "fixedOpening": "e260d34dbc70ebf78a9919a563a9884373eef6da24073db4a69172edf8591ce3",
+    "historicalOpening": "7bb5dd200b3a2612cffb3f7c1925695889fd243ec7e78aad4219f66c53eed0f9",
+    "sameOpeningAllThree": true,
+    "toolbarFits": true,
+    "footReadoutResidents": 4,
+    "progress": {
+      "arm": "v12-reference",
+      "tracked": 28,
+      "elapsed": 2.0000000000000004,
+      "moved": 2,
+      "syncRecorder": true
+    },
+    "errors": []
+  }
+}

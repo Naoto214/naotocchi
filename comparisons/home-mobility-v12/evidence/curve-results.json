@@ -1,0 +1,1331 @@
+{
+  "units": "CSS px, simulated seconds",
+  "openings": [
+    {
+      "pose": "320-p0",
+      "count": 168,
+      "straight1": 15,
+      "straight0": 143,
+      "straight2": 10
+    },
+    {
+      "pose": "375-p0",
+      "count": 168,
+      "straight0": 128,
+      "straight2": 13,
+      "straight1": 27
+    },
+    {
+      "pose": "390-p0",
+      "count": 168,
+      "straight0": 135,
+      "straight1": 22,
+      "straight2": 11
+    },
+    {
+      "pose": "430-p0",
+      "count": 168,
+      "straight0": 121,
+      "straight2": 19,
+      "straight1": 28
+    },
+    {
+      "pose": "320-p1",
+      "count": 168,
+      "straight2": 20,
+      "straight1": 14,
+      "straight0": 133,
+      "curved": 1
+    },
+    {
+      "pose": "375-p1",
+      "count": 168,
+      "straight0": 91,
+      "curved": 2,
+      "straight2": 22,
+      "straight1": 53
+    }
+  ],
+  "archivePoses": [
+    {
+      "width": 320,
+      "poses": 1141,
+      "curves": [],
+      "archiveSHA256": "8c0d924c7b4af86c5d2b769fc42bfd842a82b04bbb330b82059c3a1059fe6857"
+    },
+    {
+      "width": 375,
+      "poses": 391,
+      "curves": [
+        281
+      ],
+      "archiveSHA256": "77934d87a7b522357ff9ea110b6d1378c73487a9a3347f8964bdcc860abc49f2"
+    },
+    {
+      "width": 390,
+      "poses": 450,
+      "curves": [
+        404,
+        437
+      ],
+      "archiveSHA256": "22330fc2ea0154acd6a84c4b52b381b32b98b243a92bdc07cd743fed0344de54"
+    },
+    {
+      "width": 430,
+      "poses": 366,
+      "curves": [
+        434
+      ],
+      "archiveSHA256": "41bc59b705c803e0d568c8f13e1abcdb533ece42feca87efe168ec31903385f4"
+    }
+  ],
+  "realEntry": [
+    {
+      "width": 375,
+      "originalRequest": 281,
+      "originalGoal": true,
+      "key": "companion:sekizou",
+      "goal": {
+        "x": 164.64,
+        "y": 256.52000000000004
+      },
+      "at": {
+        "x": 224.28771703949383,
+        "y": 153.67044768836215
+      },
+      "v11": {
+        "actual": 0,
+        "error": 151.259699312316,
+        "issued": false,
+        "violations": 0
+      },
+      "v12": {
+        "actual": 8.000000000000002,
+        "gain": 6.177118436617633,
+        "projected": 6.262545050373639,
+        "goalError": 145.08258087569837,
+        "issued": false,
+        "stopped": 4.500000000000064,
+        "violations": 0
+      },
+      "helpers": [
+        {
+          "key": "companion:snail",
+          "from": {
+            "x": 214.6995647083489,
+            "y": 121.14560894275891
+          },
+          "to": {
+            "x": 222.81114048603234,
+            "y": 123.10242444389795
+          },
+          "via": {
+            "x": 214.18699709880804,
+            "y": 121.75424124488505
+          }
+        },
+        {
+          "key": "companion:cat_friend",
+          "from": {
+            "x": 195.55837114807892,
+            "y": 145.1988408531706
+          },
+          "to": {
+            "x": 191.83045543124618,
+            "y": 141.2597269586826
+          },
+          "via": {
+            "x": 195.28097155673413,
+            "y": 144.40362442798514
+          }
+        }
+      ],
+      "events": [
+        {
+          "type": "search",
+          "clock": 22.15000000000003
+        },
+        {
+          "type": "plan",
+          "clock": 23.650000000000052,
+          "probes": 5858,
+          "ground": 434,
+          "protected": 7
+        },
+        {
+          "type": "start",
+          "clock": 23.650000000000052
+        },
+        {
+          "type": "start",
+          "clock": 24.050000000000058
+        },
+        {
+          "type": "owner",
+          "clock": 24.350000000000062,
+          "accepted": true
+        },
+        {
+          "type": "stop",
+          "clock": 24.350000000000062,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "originalRequest": 281,
+      "originalGoal": false,
+      "key": "companion:sekizou",
+      "goal": {
+        "x": 224.28071523573593,
+        "y": 153.67267543720357
+      },
+      "at": {
+        "x": 224.28071523573593,
+        "y": 153.67267543720357
+      },
+      "v11": {
+        "actual": 0,
+        "error": 8.010000000000005,
+        "issued": false,
+        "violations": 0
+      },
+      "v12": {
+        "actual": 8.010000000000005,
+        "gain": 8.010000000000005,
+        "projected": 8.010000000000005,
+        "goalError": 0,
+        "issued": false,
+        "stopped": 3.5000000000000497,
+        "violations": 0
+      },
+      "helpers": [
+        {
+          "key": "companion:snail",
+          "from": {
+            "x": 214.6995647083489,
+            "y": 121.14560894275891
+          },
+          "to": {
+            "x": 222.81114048603234,
+            "y": 123.10242444389795
+          },
+          "via": {
+            "x": 214.18699709880804,
+            "y": 121.75424124488505
+          }
+        },
+        {
+          "key": "companion:cat_friend",
+          "from": {
+            "x": 195.55837114807892,
+            "y": 145.1988408531706
+          },
+          "to": {
+            "x": 191.83045543124618,
+            "y": 141.2597269586826
+          },
+          "via": {
+            "x": 195.28097155673413,
+            "y": 144.40362442798514
+          }
+        }
+      ],
+      "events": [
+        {
+          "type": "search",
+          "clock": 21.150000000000016
+        },
+        {
+          "type": "plan",
+          "clock": 22.650000000000038,
+          "probes": 5858,
+          "ground": 434,
+          "protected": 7
+        },
+        {
+          "type": "start",
+          "clock": 22.650000000000038
+        },
+        {
+          "type": "start",
+          "clock": 23.050000000000043
+        },
+        {
+          "type": "owner",
+          "clock": 23.350000000000048,
+          "accepted": true
+        },
+        {
+          "type": "stop",
+          "clock": 23.350000000000048,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "originalRequest": 404,
+      "originalGoal": true,
+      "key": "companion:sekizou",
+      "goal": {
+        "x": 75.84020884182648,
+        "y": 163.1722001283605
+      },
+      "at": {
+        "x": 250.51377739269458,
+        "y": 337.3946902823674
+      },
+      "v11": {
+        "actual": 0,
+        "error": 314.43859016994503,
+        "issued": false,
+        "violations": 0
+      },
+      "v12": {
+        "actual": 8.000000000000009,
+        "gain": 4.1293916153992996,
+        "projected": 4.204045500695742,
+        "goalError": 310.30919855454573,
+        "issued": false,
+        "stopped": 5.1000000000000725,
+        "violations": 0
+      },
+      "helpers": [
+        {
+          "key": "companion:hamster",
+          "from": {
+            "x": 216.33773803710938,
+            "y": 334.57475158691415
+          },
+          "to": {
+            "x": 214.98873505919133,
+            "y": 335.92432878712714
+          },
+          "via": {
+            "x": 217.01223952606838,
+            "y": 334.9121458869674
+          }
+        }
+      ],
+      "events": [
+        {
+          "type": "search",
+          "clock": 23.300000000000047
+        },
+        {
+          "type": "plan",
+          "clock": 24.700000000000067,
+          "probes": 5554,
+          "ground": 45,
+          "protected": 0
+        },
+        {
+          "type": "start",
+          "clock": 24.700000000000067
+        },
+        {
+          "type": "owner",
+          "clock": 24.95000000000007,
+          "accepted": true
+        },
+        {
+          "type": "stop",
+          "clock": 24.95000000000007,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "originalRequest": 404,
+      "originalGoal": false,
+      "key": "companion:sekizou",
+      "goal": {
+        "x": 250.50691693037695,
+        "y": 337.3977057159373
+      },
+      "at": {
+        "x": 250.50691693037695,
+        "y": 337.3977057159373
+      },
+      "v11": {
+        "actual": 0,
+        "error": 8.00999999999999,
+        "issued": false,
+        "violations": 0
+      },
+      "v12": {
+        "actual": 8.00999999999999,
+        "gain": 8.00999999999999,
+        "projected": 8.009999999999987,
+        "goalError": 0,
+        "issued": false,
+        "stopped": 2.950000000000042,
+        "violations": 0
+      },
+      "helpers": [
+        {
+          "key": "companion:hamster",
+          "from": {
+            "x": 216.33773803710938,
+            "y": 334.57475158691415
+          },
+          "to": {
+            "x": 214.98873505919133,
+            "y": 335.92432878712714
+          },
+          "via": {
+            "x": 217.01223952606838,
+            "y": 334.9121458869674
+          }
+        }
+      ],
+      "events": [
+        {
+          "type": "search",
+          "clock": 22.250000000000032
+        },
+        {
+          "type": "plan",
+          "clock": 22.550000000000036,
+          "probes": 1234,
+          "ground": 22,
+          "protected": 0
+        },
+        {
+          "type": "start",
+          "clock": 22.550000000000036
+        },
+        {
+          "type": "owner",
+          "clock": 22.80000000000004,
+          "accepted": true
+        },
+        {
+          "type": "stop",
+          "clock": 22.80000000000004,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "originalRequest": 434,
+      "originalGoal": true,
+      "key": "companion:many_tail_fox",
+      "goal": {
+        "x": 144.63106272396317,
+        "y": 75.70883223150331
+      },
+      "at": {
+        "x": 245.2978877695349,
+        "y": 83.83702614589679
+      },
+      "v11": {
+        "actual": 0,
+        "error": 142.4270297445221,
+        "issued": false,
+        "violations": 0
+      },
+      "v12": {
+        "actual": 8.000000000000007,
+        "gain": 4.888800450440613,
+        "projected": 5.029572992800386,
+        "goalError": 137.53822929408148,
+        "issued": false,
+        "stopped": 2.750000000000039,
+        "violations": 0
+      },
+      "helpers": [
+        {
+          "key": "companion:watcher",
+          "from": {
+            "x": 253.3891117755392,
+            "y": 129.83259149724805
+          },
+          "to": {
+            "x": 249.60000051078234,
+            "y": 126.23802692029805
+          },
+          "via": {
+            "x": 252.71154114867593,
+            "y": 130.18896339967543
+          }
+        },
+        {
+          "key": "companion:chicken",
+          "from": {
+            "x": 281.27137415565744,
+            "y": 106.56069918403955
+          },
+          "to": {
+            "x": 280.4293973263202,
+            "y": 109.14177282430632
+          }
+        }
+      ],
+      "events": [
+        {
+          "type": "search",
+          "clock": 20.950000000000014
+        },
+        {
+          "type": "plan",
+          "clock": 22.10000000000003,
+          "probes": 4505,
+          "ground": 707,
+          "protected": 0
+        },
+        {
+          "type": "start",
+          "clock": 22.10000000000003
+        },
+        {
+          "type": "start",
+          "clock": 22.400000000000034
+        },
+        {
+          "type": "owner",
+          "clock": 22.550000000000036,
+          "accepted": true
+        },
+        {
+          "type": "stop",
+          "clock": 22.550000000000036,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "originalRequest": 434,
+      "originalGoal": false,
+      "key": "companion:many_tail_fox",
+      "goal": {
+        "x": 245.29317358344994,
+        "y": 83.84415989385788
+      },
+      "at": {
+        "x": 245.29317358344994,
+        "y": 83.84415989385788
+      },
+      "v11": {
+        "actual": 0,
+        "error": 8.009999999999984,
+        "issued": false,
+        "violations": 0
+      },
+      "v12": {
+        "actual": 8.009999999999984,
+        "gain": 8.009999999999984,
+        "projected": 8.009999999999984,
+        "goalError": 0,
+        "issued": false,
+        "stopped": 2.5000000000000355,
+        "violations": 0
+      },
+      "helpers": [
+        {
+          "key": "companion:watcher",
+          "from": {
+            "x": 253.3891117755392,
+            "y": 129.83259149724805
+          },
+          "to": {
+            "x": 249.60000051078234,
+            "y": 126.23802692029805
+          },
+          "via": {
+            "x": 252.71154114867593,
+            "y": 130.18896339967543
+          }
+        },
+        {
+          "key": "companion:chicken",
+          "from": {
+            "x": 281.27137415565744,
+            "y": 106.56069918403955
+          },
+          "to": {
+            "x": 280.4293973263202,
+            "y": 109.14177282430632
+          }
+        }
+      ],
+      "events": [
+        {
+          "type": "search",
+          "clock": 20.500000000000007
+        },
+        {
+          "type": "plan",
+          "clock": 21.850000000000026,
+          "probes": 5225,
+          "ground": 709,
+          "protected": 0
+        },
+        {
+          "type": "start",
+          "clock": 21.850000000000026
+        },
+        {
+          "type": "start",
+          "clock": 22.15000000000003
+        },
+        {
+          "type": "owner",
+          "clock": 22.300000000000033,
+          "accepted": true
+        },
+        {
+          "type": "stop",
+          "clock": 22.300000000000033,
+          "accepted": true
+        }
+      ]
+    }
+  ],
+  "lifecycle": [
+    {
+      "case": "uninterrupted",
+      "curve": true,
+      "actual": 8.00999999999999,
+      "error": 0,
+      "interrupted": false,
+      "violations": 0
+    },
+    {
+      "case": "helper has a pending goal",
+      "curve": false,
+      "actual": 0,
+      "error": 8.00999999999999,
+      "interrupted": false,
+      "violations": 0
+    },
+    {
+      "case": "touch helper after first step",
+      "curve": true,
+      "actual": 0,
+      "error": 8.00999999999999,
+      "interrupted": true,
+      "violations": 0
+    },
+    {
+      "case": "new tap",
+      "curve": false,
+      "actual": 0,
+      "error": 8.00999999999999,
+      "interrupted": true,
+      "violations": 0
+    },
+    {
+      "case": "held actor",
+      "curve": false,
+      "actual": 0,
+      "error": 8.00999999999999,
+      "interrupted": true,
+      "violations": 0
+    },
+    {
+      "case": "blocked or paused",
+      "curve": false,
+      "actual": 0,
+      "error": 8.00999999999999,
+      "interrupted": true,
+      "violations": 0
+    },
+    {
+      "case": "changed navigation",
+      "curve": false,
+      "actual": 0,
+      "error": 8.00999999999999,
+      "interrupted": true,
+      "violations": 0
+    },
+    {
+      "case": "replaced intention",
+      "curve": false,
+      "actual": 0,
+      "error": 8.00999999999999,
+      "interrupted": true,
+      "violations": 0
+    }
+  ],
+  "recommended": [
+    {
+      "width": 375,
+      "resident": "石像",
+      "clock": 196.67560000001336,
+      "curve": true,
+      "actual": 8.010000000000005,
+      "error": 0,
+      "gain": 8.010000000000005,
+      "stopped": 3.600000000000051,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "resident": "石像",
+      "clock": 270.1894000000302,
+      "curve": false,
+      "actual": 0,
+      "error": 8.00999999999999,
+      "gain": 0,
+      "stopped": 4.25000000000006,
+      "violations": 0
+    },
+    {
+      "width": 430,
+      "resident": "キツネ",
+      "clock": 311.18750000003956,
+      "curve": true,
+      "actual": 8.009999999999984,
+      "error": 0,
+      "gain": 8.009999999999984,
+      "stopped": 2.5500000000000362,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "resident": "みているなにか",
+      "clock": 118.14539999999832,
+      "curve": true,
+      "actual": 8.000000000000014,
+      "error": 0,
+      "gain": 8.000000000000014,
+      "stopped": 3.1500000000000448,
+      "violations": 0
+    },
+    {
+      "width": 375,
+      "resident": "カワウソ",
+      "clock": 178.24290000000948,
+      "curve": true,
+      "actual": 8.000000000000023,
+      "error": 0,
+      "gain": 8.000000000000023,
+      "stopped": 1.7500000000000249,
+      "violations": 0
+    }
+  ],
+  "distanceAudit": [
+    {
+      "file": "exits-exact-375.json",
+      "width": 375,
+      "lossByStage": [
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [
+            "companion:sekizou"
+          ],
+          "16": [
+            "companion:snail"
+          ]
+        },
+        {
+          "3": [],
+          "8": [
+            "companion:sekizou"
+          ],
+          "16": [
+            "companion:snail"
+          ]
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": [
+            "companion:snail"
+          ]
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": [
+            "companion:snail"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "exits-exact-390.json",
+      "width": 390,
+      "lossByStage": [
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [
+            "companion:hamster",
+            "companion:otter"
+          ],
+          "8": [],
+          "16": []
+        }
+      ]
+    },
+    {
+      "file": "exits-exact-430.json",
+      "width": 430,
+      "lossByStage": [
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": [
+            "companion:cat_friend",
+            "companion:watcher"
+          ]
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": [
+            "companion:cat_friend",
+            "companion:watcher"
+          ]
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": [
+            "companion:cat_friend",
+            "companion:watcher"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "exits-all-watcher.json",
+      "width": 390,
+      "lossByStage": [
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        }
+      ]
+    },
+    {
+      "file": "exits-short-watcher.json",
+      "width": 390,
+      "lossByStage": [
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        }
+      ]
+    },
+    {
+      "file": "exits-all-otter.json",
+      "width": 375,
+      "lossByStage": [
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        }
+      ]
+    },
+    {
+      "file": "exits-short-otter.json",
+      "width": 375,
+      "lossByStage": [
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        }
+      ]
+    }
+  ],
+  "warmCpuMs": [
+    {
+      "file": "bench-all-375.json",
+      "repeats": 5,
+      "firstExcludedFromWarmMedian": true,
+      "warmMedianCurveTotal": 17.3645,
+      "maxSingleResumeCPU": 6.945,
+      "maxSingleResumeWall": 91.26549399999976,
+      "maxWholeStepCPU": 40.916,
+      "maxWholeStepWall": 189.03450900000007
+    },
+    {
+      "file": "bench-all-390.json",
+      "repeats": 5,
+      "firstExcludedFromWarmMedian": true,
+      "warmMedianCurveTotal": 19.723,
+      "maxSingleResumeCPU": 6.296,
+      "maxSingleResumeWall": 105.47149000000002,
+      "maxWholeStepCPU": 7.255,
+      "maxWholeStepWall": 105.64857299999994
+    },
+    {
+      "file": "bench-all-430.json",
+      "repeats": 5,
+      "firstExcludedFromWarmMedian": true,
+      "warmMedianCurveTotal": 12.545000000000002,
+      "maxSingleResumeCPU": 4.986,
+      "maxSingleResumeWall": 52.24211400000013,
+      "maxWholeStepCPU": 4.986,
+      "maxWholeStepWall": 52.95114400000011
+    },
+    {
+      "file": "bench-all-watcher.json",
+      "repeats": 5,
+      "firstExcludedFromWarmMedian": true,
+      "warmMedianCurveTotal": 12.112,
+      "maxSingleResumeCPU": 18.327,
+      "maxSingleResumeWall": 237.00656000000026,
+      "maxWholeStepCPU": 20.365,
+      "maxWholeStepWall": 248.81542899999977
+    },
+    {
+      "file": "bench-old-375.json",
+      "repeats": 5,
+      "firstExcludedFromWarmMedian": true,
+      "warmMedianCurveTotal": 12.858,
+      "maxSingleResumeCPU": 3.784,
+      "maxSingleResumeWall": 29.803710999999794,
+      "maxWholeStepCPU": 6.188,
+      "maxWholeStepWall": 47.994445999999925
+    },
+    {
+      "file": "bench-old-390.json",
+      "repeats": 5,
+      "firstExcludedFromWarmMedian": true,
+      "warmMedianCurveTotal": 3.3644999999999996,
+      "maxSingleResumeCPU": 4.143,
+      "maxSingleResumeWall": 25.464913999999908,
+      "maxWholeStepCPU": 7.449,
+      "maxWholeStepWall": 37.11944100000005
+    },
+    {
+      "file": "bench-old-430.json",
+      "repeats": 5,
+      "firstExcludedFromWarmMedian": true,
+      "warmMedianCurveTotal": 13.653,
+      "maxSingleResumeCPU": 12.238,
+      "maxSingleResumeWall": 110.24453599999993,
+      "maxWholeStepCPU": 16.259,
+      "maxWholeStepWall": 164.5666940000001
+    },
+    {
+      "file": "bench-short-375.json",
+      "repeats": 5,
+      "firstExcludedFromWarmMedian": true,
+      "warmMedianCurveTotal": 16.264,
+      "maxSingleResumeCPU": 3.727,
+      "maxSingleResumeWall": 28.41375599999992,
+      "maxWholeStepCPU": 10.255,
+      "maxWholeStepWall": 112.16113999999993
+    },
+    {
+      "file": "bench-short-390.json",
+      "repeats": 5,
+      "firstExcludedFromWarmMedian": true,
+      "warmMedianCurveTotal": 12.5185,
+      "maxSingleResumeCPU": 4.158,
+      "maxSingleResumeWall": 42.870176000000015,
+      "maxWholeStepCPU": 6.774,
+      "maxWholeStepWall": 43.61181099999999
+    },
+    {
+      "file": "bench-short-430.json",
+      "repeats": 5,
+      "firstExcludedFromWarmMedian": true,
+      "warmMedianCurveTotal": 14.955000000000002,
+      "maxSingleResumeCPU": 6.258,
+      "maxSingleResumeWall": 79.17913099999987,
+      "maxWholeStepCPU": 6.258,
+      "maxWholeStepWall": 81.01414700000032
+    },
+    {
+      "file": "bench-short-watcher.json",
+      "repeats": 5,
+      "firstExcludedFromWarmMedian": true,
+      "warmMedianCurveTotal": 12.3845,
+      "maxSingleResumeCPU": 12.537,
+      "maxSingleResumeWall": 158.25570100000004,
+      "maxWholeStepCPU": 13.257,
+      "maxWholeStepWall": 158.9167110000003
+    }
+  ],
+  "river": [
+    {
+      "guard": "8",
+      "resumes": 26,
+      "poses": 5,
+      "lastExitLostByStage": [
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        }
+      ],
+      "plan": {
+        "type": "plan",
+        "owner": "companion:sekizou",
+        "clock": 73.99999999999794,
+        "source": "ambient",
+        "goal": {
+          "x": 61.71432798810012,
+          "y": 292.0543939194148
+        },
+        "found": true,
+        "q": {
+          "x": 211.41708661522892,
+          "y": 213.6342913003705
+        },
+        "stages": [
+          {
+            "key": "companion:tanuki",
+            "from": {
+              "x": 268.8564957085846,
+              "y": 245.62611769156737
+            },
+            "to": {
+              "x": 281.8773971766559,
+              "y": 242.63561763574268
+            },
+            "via": {
+              "x": 269.8906302332999,
+              "y": 245.62611769156737
+            }
+          },
+          {
+            "key": "companion:chicken",
+            "from": {
+              "x": 242.62234519619804,
+              "y": 219.20556520577114
+            },
+            "to": {
+              "x": 247.99586581220197,
+              "y": 222.0941664432111
+            }
+          }
+        ],
+        "protectedBy": {},
+        "probes": 2431,
+        "ground": 252,
+        "goals": 2,
+        "protected": 0
+      }
+    },
+    {
+      "guard": "short",
+      "resumes": 28,
+      "poses": 5,
+      "lastExitLostByStage": [
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        }
+      ],
+      "plan": {
+        "type": "plan",
+        "owner": "companion:sekizou",
+        "clock": 73.99999999999794,
+        "source": "ambient",
+        "goal": {
+          "x": 61.71432798810012,
+          "y": 292.0543939194148
+        },
+        "found": true,
+        "q": {
+          "x": 211.41708661522892,
+          "y": 213.6342913003705
+        },
+        "stages": [
+          {
+            "key": "companion:tanuki",
+            "from": {
+              "x": 268.8564957085846,
+              "y": 245.62611769156737
+            },
+            "to": {
+              "x": 281.8773971766559,
+              "y": 242.63561763574268
+            },
+            "via": {
+              "x": 269.8906302332999,
+              "y": 245.62611769156737
+            }
+          },
+          {
+            "key": "companion:chicken",
+            "from": {
+              "x": 242.62234519619804,
+              "y": 219.20556520577114
+            },
+            "to": {
+              "x": 247.99586581220197,
+              "y": 222.0941664432111
+            }
+          }
+        ],
+        "protectedBy": {},
+        "probes": 2646,
+        "ground": 264,
+        "goals": 2,
+        "protected": 0
+      }
+    },
+    {
+      "guard": "all",
+      "resumes": 35,
+      "poses": 5,
+      "lastExitLostByStage": [
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        },
+        {
+          "3": [],
+          "8": [],
+          "16": []
+        }
+      ],
+      "plan": {
+        "type": "plan",
+        "owner": "companion:sekizou",
+        "clock": 73.99999999999794,
+        "source": "ambient",
+        "goal": {
+          "x": 61.71432798810012,
+          "y": 292.0543939194148
+        },
+        "found": true,
+        "q": {
+          "x": 211.41708661522892,
+          "y": 213.6342913003705
+        },
+        "stages": [
+          {
+            "key": "companion:tanuki",
+            "from": {
+              "x": 268.8564957085846,
+              "y": 245.62611769156737
+            },
+            "to": {
+              "x": 281.8773971766559,
+              "y": 242.63561763574268
+            },
+            "via": {
+              "x": 269.8906302332999,
+              "y": 245.62611769156737
+            }
+          },
+          {
+            "key": "companion:chicken",
+            "from": {
+              "x": 242.62234519619804,
+              "y": 219.20556520577114
+            },
+            "to": {
+              "x": 247.99586581220197,
+              "y": 222.0941664432111
+            }
+          }
+        ],
+        "protectedBy": {},
+        "probes": 3319,
+        "ground": 299,
+        "goals": 2,
+        "protected": 0
+      }
+    }
+  ],
+  "recommendedLifecycle": [
+    {
+      "case": "uninterrupted",
+      "curve": true,
+      "actual": 8.000000000000014,
+      "error": 0,
+      "interrupted": false,
+      "violations": 0
+    },
+    {
+      "case": "helper has a pending goal",
+      "curve": false,
+      "actual": 0,
+      "error": 8.000000000000014,
+      "interrupted": false,
+      "violations": 0
+    },
+    {
+      "case": "touch helper after first step",
+      "curve": true,
+      "actual": 0,
+      "error": 8.000000000000014,
+      "interrupted": true,
+      "violations": 0
+    },
+    {
+      "case": "new tap",
+      "curve": false,
+      "actual": 0,
+      "error": 8.000000000000014,
+      "interrupted": true,
+      "violations": 0
+    },
+    {
+      "case": "held actor",
+      "curve": false,
+      "actual": 0,
+      "error": 8.000000000000014,
+      "interrupted": true,
+      "violations": 0
+    },
+    {
+      "case": "blocked or paused",
+      "curve": false,
+      "actual": 0,
+      "error": 8.000000000000014,
+      "interrupted": true,
+      "violations": 0
+    },
+    {
+      "case": "changed navigation",
+      "curve": false,
+      "actual": 0,
+      "error": 8.000000000000014,
+      "interrupted": true,
+      "violations": 0
+    },
+    {
+      "case": "replaced intention",
+      "curve": false,
+      "actual": 0,
+      "error": 8.000000000000014,
+      "interrupted": true,
+      "violations": 0
+    }
+  ]
+}

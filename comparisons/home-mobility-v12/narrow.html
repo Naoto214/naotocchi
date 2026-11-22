@@ -1,0 +1,25 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>森の狭い退路を比べる｜なおとっち</title>
+<style>
+*{box-sizing:border-box}body{margin:0;color:#223b30;background:#f8f6ee;font:1rem/1.55 system-ui,sans-serif}main{max-width:42rem;margin:auto;padding:1rem}h1{font-size:clamp(1.4rem,4vw,2.1rem);line-height:1.25;margin:.7rem 0 .35rem}h2{font-size:1.13rem;margin:1.2rem 0 .3rem}p{margin:.35rem 0 .7rem}a{color:#256349}fieldset{margin:.8rem 0 .5rem;padding:0;border:0}legend{font-weight:650;margin:0 0 .25rem}.choices{display:flex;gap:.4rem;flex-wrap:wrap}.choices label{border:1px solid #89998a;border-radius:.5rem;padding:.5rem .75rem;background:#fff;cursor:pointer}.choices label:has(input:checked){background:#e1ecdd;border-color:#3f7257}.choices input{accent-color:#315e45}.scene{position:relative;overflow:hidden;width:100%;max-width:32rem;margin:auto;background:#dce6d8;border:1px solid #647c69;border-radius:.65rem;aspect-ratio:5/4;isolation:isolate}.scene iframe{position:absolute;width:375px;height:792px;transform-origin:0 0;border:0;pointer-events:none;max-width:none}
+#mark{position:absolute;pointer-events:none;transform:translate(-50%,0);background:#fff9df;color:#28422c;border:1px solid #6d7145;border-radius:.35rem;padding:0 .3rem;font-size:.78rem;font-weight:650;white-space:nowrap}#mark:before{content:"";position:absolute;left:50%;bottom:100%;border:4px solid transparent;border-bottom-color:#fff9df;transform:translateX(-50%)}
+#stage-state{min-height:1.6em;margin:.25rem 0;font-variant-numeric:tabular-nums}.bar{display:flex;gap:.35rem .55rem;align-items:center;flex-wrap:wrap;margin:.5rem 0}.bar label{display:flex;align-items:center;gap:.3rem}.bar button,.bar select{font:inherit;min-height:44px;border:1px solid #728875;background:#fff;border-radius:.45rem;padding:.3rem .55rem;color:inherit}.bar button:disabled{opacity:.52}#play{background:#315f46;color:#fff;min-width:5.5rem}.scrub{display:flex;align-items:center;gap:.5rem;width:100%;font-variant-numeric:tabular-nums}.scrub input{flex:1;min-width:3rem;margin:0;accent-color:#315f46;min-height:30px}a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #ad7829;outline-offset:2px}
+#bearings{height:28px;width:100%;display:block}.axis{display:flex;justify-content:space-between;font-size:.8rem;color:#516c5b}.readout{border-left:3px solid #759b76;padding-left:.65rem}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}th,td{border-bottom:1px solid #d0d8c9;text-align:right;padding:.4rem .2rem}th:first-child,td:first-child{text-align:left}caption{text-align:left}small{display:block;color:#526b59;margin-top:1rem}
+</style></head><body><main>
+<a href="./">ホームの比較に戻る</a><h1>森の狭い退路を比べる</h1>
+<p>時計にハリネズミが道を譲る6秒間を、同じ28体・同じ乱数から採った2つの記録で見比べられます。案を替えても再生時刻はそろいます。</p>
+<fieldset><legend>道譲りの判定</legend><div class="choices"><label><input type="radio" name="edition" value="shipped" checked> 現行の3・8px保護</label><label><input type="radio" name="edition" value="margin"> 狭い退路の角度も確認</label></div></fieldset>
+<div class="bar"><label>表示 <select id="crop"><option value="near">3体の足元を拡大</option><option value="full">森全体</option></select></label><label>目印 <select id="subject"><option value="companion:hamster">ハムスター</option><option value="companion:clock">時計</option><option value="companion:hedgehog">ハリネズミ</option><option value="">なし</option></select></label></div>
+<div class="scene" id="scene"><iframe title="記録した28体の森" tabindex="-1"></iframe><span hidden id="mark"></span></div>
+<div class="scrub"><label for="tick">時刻</label><input type="range" min="0" max="180" step="1" value="0" id="tick" disabled><output id="clock" for="tick">195.00秒</output></div>
+<div class="bar"><button id="play" disabled>再生</button><label>速さ <select id="speed"><option value=".25">¼倍</option><option value=".5" selected>½倍</option><option value="1">通常</option></select></label><button id="previous" disabled aria-label="1コマ戻る">−1コマ</button><button id="next" disabled aria-label="1コマ進む">＋1コマ</button></div>
+<div class="bar"><button id="before" disabled>道譲りの直前へ</button><button id="after" disabled>時計の到着へ</button></div>
+<p id="stage-state" role="status">森を準備しています…</p>
+<h2>ハムスターが単独で3px進める方向</h2>
+<p id="exit" class="readout">記録を読み込んでいます。</p>
+<div aria-hidden="true"><canvas id="bearings"></canvas><div class="axis"><span>105°</span><span>120°</span><span>135°</span><span>150°</span></div></div>
+<p>全周を384方向で測定。図は可能な方向が集まる範囲を拡大しています。</p>
+<h2>5分間に自分の目的地まで歩いた回数</h2>
+<table><caption>現行の3・8px保護 → 狭い角度も確認した場合</caption><thead><tr><th>住民</th><th>前半150秒</th><th>後半150秒</th></tr></thead><tbody id="residents"></tbody></table>
+<small>375pxの森・旧調整配置・乱数937。全300秒の比較から195～201秒を取り出し、実際の足と向きを1/30秒ごとにゲームの描画処理へ渡します。この画面の操作は記録の再生と比較です。</small>
+</main><script type="module" src="./narrow.mjs"></script></body></html>
