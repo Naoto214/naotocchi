@@ -49,6 +49,8 @@ if (model.finishSeating) {
 let firstTick=true,firstWalk=true,firstNavigatedWalk=true,firstAmbientWalk=true;
 const originalStep=model.step;
 model.step=function(dt,...rest) {
+  // Optional still photograph. World loading, paint, sizing and seating remain native.
+  if(window.pairHoldOpening && dt>0 && scene?.navigation) return;
   const result=originalStep.call(this,dt,...rest);
   if(dt>0 && firstTick){firstTick=false;window.pairStages.push(observePair('first-clock-tick'));}
   if(dt>0 && firstWalk && model.snapshot().some(a=>['pet','partner'].includes(a.kind)&&a.target)){

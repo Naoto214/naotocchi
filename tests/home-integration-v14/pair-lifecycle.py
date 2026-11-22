@@ -56,7 +56,7 @@ def serve(root, assets):
     threading.Thread(target=server.serve_forever,daemon=True).start()
     return server
 
-def run(browser,base,region,count,out,width,height,before_navigation=False,opening_only=False):
+def run(browser,base,region,count,out,width,height,before_navigation=False,opening_only=False,hold_opening=False):
     context=browser.new_context(viewport=dict(width=width,height=height),is_mobile=True,has_touch=True,
                                 device_scale_factor=2,locale='ja-JP',timezone_id='Asia/Tokyo')
     # The exact launcher household can independently trigger its first anniversary.
@@ -68,6 +68,7 @@ def run(browser,base,region,count,out,width,height,before_navigation=False,openi
         const button=shown.querySelector('.date-movie-actions button:not(.hidden)');
         if(button){pairMovieActions.push(button.id);button.click();}
       },350);""")
+    if hold_opening:context.add_init_script('window.pairHoldOpening=true')
     page=context.new_page()
     page.set_default_timeout(90000)
     errors=[]
@@ -143,6 +144,7 @@ def main():
     p.add_argument('root',type=Path);p.add_argument('out',type=Path)
     p.add_argument('--assets',type=Path);p.add_argument('--browser',choices=['chromium','webkit'],default='chromium')
     p.add_argument('--width',type=int,default=390);p.add_argument('--height',type=int,default=630)
+    p.add_argument('--hold-opening',action='store_true',help='Hold positive model ticks after navigation for a separate opening photograph')
     p.add_argument('--opening-only',action='store_true',help='Capture first presented frame and initial sync trace only')
     p.add_argument('--before-navigation',action='store_true',help='Separate screenshot run holding only the world module response')
     p.add_argument('--executable',required=True)
@@ -159,7 +161,7 @@ def main():
             browser=getattr(pw,args.browser).launch(executable_path=args.executable)
             for region,count in [('forest',28),('mountain',10)]:
                 if args.region and region!=args.region: continue
-                run(browser,f'http://127.0.0.1:{server.server_port}',region,count,args.out,args.width,args.height,args.before_navigation,args.opening_only)
+                run(browser,f'http://127.0.0.1:{server.server_port}',region,count,args.out,args.width,args.height,args.before_navigation,args.opening_only or args.hold_opening,args.hold_opening)
             browser.close()
     finally:server.shutdown()
 
