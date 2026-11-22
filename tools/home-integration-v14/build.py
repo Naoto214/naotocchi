@@ -20,7 +20,8 @@ BASE_SHA = CURRENT_MAIN
 BASE = f'https://raw.githubusercontent.com/Naoto214/naotocchi/{BASE_SHA}/prototypes/card-game/'
 CARD = 'prototypes/card-game/'
 HARD_LIMIT = 256 * 1024 * 1024
-CONTENT_BUDGET = 248 * 1024 * 1024 - 256 * 1024
+# Reserve space for the archived comparison scripts and ustar headers.
+CONTENT_BUDGET = 246 * 1024 * 1024
 
 
 def stage(source, dest):
