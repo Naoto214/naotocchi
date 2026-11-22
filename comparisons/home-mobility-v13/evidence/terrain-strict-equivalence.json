@@ -1,0 +1,144 @@
+{
+  "silhouettes": {
+    "cameras": [
+      {
+        "width": 320,
+        "height": 516,
+        "originalInputSHA256": "2af556e9d845474fce56b91ab4eccd636497f32c60e1061a135a3cb7249c0a73",
+        "strictInputSHA256": "88a800d10e4baecec32b9f49e3219ab65c17302ac80849fb5353bab7f1b85419",
+        "sameScale": true,
+        "sameEveryMarginCountAndWitness": true
+      },
+      {
+        "width": 375,
+        "height": 760,
+        "originalInputSHA256": "0eae61e2561d94a0151fea55e101e15fa298151f5bef89f4cba4787f0a5d7362",
+        "strictInputSHA256": "87773b5e1ce20697d699a3b9c748b40714369e34443562e8b95f94f175e57d3b",
+        "sameScale": true,
+        "sameEveryMarginCountAndWitness": true
+      },
+      {
+        "width": 390,
+        "height": 792,
+        "originalInputSHA256": "2650ed90201c85dc312c30c59cc049d81cdfb73da276215f746dac5c64b034ed",
+        "strictInputSHA256": "9de6a743c2f586f20cf18f61c1116636bd9cf3a2e8457148d216c53cc518b7a5",
+        "sameScale": true,
+        "sameEveryMarginCountAndWitness": true
+      },
+      {
+        "width": 430,
+        "height": 880,
+        "originalInputSHA256": "e2efe4e8c54ac95173ee7b26d29c08c0958ba119ab9e19d4c1bdf530a4f37737",
+        "strictInputSHA256": "3500407e2bfa81fb3aab938e15d341f74bd449f39775b580366416607330cea0",
+        "sameScale": true,
+        "sameEveryMarginCountAndWitness": true
+      },
+      {
+        "width": 320,
+        "height": 792,
+        "originalInputSHA256": "89bd43cdbaebed5efd77c61e8cf25327f9cf9160d94295b3b75e121980da6c5f",
+        "strictInputSHA256": "92505cde4e70df1cdfcd5f0443d63a46ba465b9bb957344255b5b0e0c863fc0e",
+        "sameScale": true,
+        "sameEveryMarginCountAndWitness": true
+      }
+    ],
+    "sameOpaqueCoreCountsAndWitnesses": true
+  },
+  "firstPassNavigationSHA256": "ad5799057e9e9cd43f6cb57b22e27c1b635d648d1fe4d8d682fbc8b6278ad538",
+  "strictNavigationSHA256": "bd2d071bb658caf24f9834d0b5a41445d6199fa67bf648a11557cd76c5eed2bd",
+  "strictPatchSHA256": "88ec84668ec2316ef01bd48689869584c5c8f7fff29ee2e6e00f34834b8b0d37",
+  "comparisons": [
+    {
+      "originalFile": "geometry-320.json",
+      "strictFile": "terrain-strict-320.json",
+      "originalSHA256": "912c3f241b04abb18e6eb7430bf240909aeeaa0a3f1c272aa488ab646c9f6056",
+      "strictSHA256": "912c3f241b04abb18e6eb7430bf240909aeeaa0a3f1c272aa488ab646c9f6056",
+      "byteIdentical": true,
+      "sameNumericalResultsApartFromTimingAndSourceIdentity": true
+    },
+    {
+      "originalFile": "geometry-375.json",
+      "strictFile": "terrain-strict-375.json",
+      "originalSHA256": "51e4f7ab1cb9b208a59e4578a0863368416f29ad4f5f776046f82d2ce509e163",
+      "strictSHA256": "51e4f7ab1cb9b208a59e4578a0863368416f29ad4f5f776046f82d2ce509e163",
+      "byteIdentical": true,
+      "sameNumericalResultsApartFromTimingAndSourceIdentity": true
+    },
+    {
+      "originalFile": "geometry-390.json",
+      "strictFile": "terrain-strict-390.json",
+      "originalSHA256": "c5800fdabe7c3987f61237679644eb750d74f33590490baa445e209dbd2bf5dd",
+      "strictSHA256": "c5800fdabe7c3987f61237679644eb750d74f33590490baa445e209dbd2bf5dd",
+      "byteIdentical": true,
+      "sameNumericalResultsApartFromTimingAndSourceIdentity": true
+    },
+    {
+      "originalFile": "geometry-430.json",
+      "strictFile": "terrain-strict-430.json",
+      "originalSHA256": "dcc7f27d2e99c09870cc8e5663b2c79e983380cdcf915f989e55a21287282021",
+      "strictSHA256": "dcc7f27d2e99c09870cc8e5663b2c79e983380cdcf915f989e55a21287282021",
+      "byteIdentical": true,
+      "sameNumericalResultsApartFromTimingAndSourceIdentity": true
+    },
+    {
+      "originalFile": "geometry-pairs-320.json",
+      "strictFile": "terrain-strict-pairs-4.json",
+      "originalSHA256": "ae471980a07b34719d6ea412c1b6cf0a38ced9c02acde9dfea44b78a1f36fc1f",
+      "strictSHA256": "ae471980a07b34719d6ea412c1b6cf0a38ced9c02acde9dfea44b78a1f36fc1f",
+      "byteIdentical": true,
+      "sameNumericalResultsApartFromTimingAndSourceIdentity": true
+    },
+    {
+      "originalFile": "geometry-pairs-320-fine.json",
+      "strictFile": "terrain-strict-pairs-2.json",
+      "originalSHA256": "0ae8e5738b0c054cbbca80ac8ee8bd5acc4accdcf5096884cfa097ddd1044c52",
+      "strictSHA256": "0ae8e5738b0c054cbbca80ac8ee8bd5acc4accdcf5096884cfa097ddd1044c52",
+      "byteIdentical": true,
+      "sameNumericalResultsApartFromTimingAndSourceIdentity": true
+    },
+    {
+      "originalFile": "geometry-browser.json",
+      "strictFile": "terrain-strict-browser.json",
+      "originalSHA256": "ef82357cc9ec7db7964d6faf47eae2e4efb855dfc3acaaf3ad390b3813352526",
+      "strictSHA256": "4c0cdf78515d50eb81c86cde64816fd165a662dea312c463197b5af614ee4d30",
+      "byteIdentical": false,
+      "sameNumericalResultsApartFromTimingAndSourceIdentity": true
+    },
+    {
+      "originalFile": "geometry-direction-audit.json",
+      "strictFile": "terrain-strict-directions.json",
+      "originalSHA256": "041cf5633f6af40e51771f94fc3cf4b3b09fccce1937277c049a2cda6f6ea98c",
+      "strictSHA256": "233e1c0a05ee8434c0e6f7153c62d3b85cb2cfb015270462b5aeb0337cd8e278",
+      "byteIdentical": false,
+      "sameNumericalResultsApartFromTimingAndSourceIdentity": true
+    },
+    {
+      "originalFile": "geometry-pair-browser.json",
+      "strictFile": "terrain-strict-pair-browser.json",
+      "originalSHA256": "57df28ed0a8c61fe4b565ca5dad0e6c90c4832644336ab3e3d92163367024e57",
+      "strictSHA256": "e3027106b4e6f6849d78b3f2d5f0086168717bc2830086eb5d1acf010495180f",
+      "byteIdentical": false,
+      "sameNumericalResultsApartFromTimingAndSourceIdentity": true
+    },
+    {
+      "originalFile": "geometry-600-c.json",
+      "strictFile": "terrain-strict-600-c.json",
+      "originalSHA256": "ebf749e52fca4887eb17008bec51ab138f5cc84151fa4968efba713c425f6654",
+      "strictSHA256": "2ff3d9072b74546fe9019bfcaa8e1b200cf7bc98ba554131781dd76c1fde0af1",
+      "byteIdentical": false,
+      "sameNumericalResultsApartFromTimingAndSourceIdentity": true,
+      "sameOpening": true,
+      "sameFinalNativeState": true
+    },
+    {
+      "originalFile": "geometry-600-rabbit.json",
+      "strictFile": "terrain-strict-600-rabbit.json",
+      "originalSHA256": "0352f68b0550a055be5b7a1b9d110a163a767784d3a954ce25af0d1c6ba2a0c1",
+      "strictSHA256": "b36699ade1a6504f55c9756498fedbf18b33851d06a132cf334f9c62a31b4df7",
+      "byteIdentical": false,
+      "sameNumericalResultsApartFromTimingAndSourceIdentity": true,
+      "sameOpening": true,
+      "sameFinalNativeState": true
+    }
+  ]
+}

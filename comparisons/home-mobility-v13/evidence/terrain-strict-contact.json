@@ -1,0 +1,486 @@
+{
+  "pixelSizeCSS": 1,
+  "alphaThreshold": 32,
+  "bandBottomFraction": 0.15,
+  "bearings": 96,
+  "pairsPerWidth": 378,
+  "sampling": "hypothetical pair poses on ellipse boundaries; current opaque PNG pixels at original opening sizes",
+  "cases": [
+    {
+      "width": 320,
+      "height": 516,
+      "input": "forest-320-28.json.gz",
+      "sourceSHA256": "88a800d10e4baecec32b9f49e3219ab65c17302ac80849fb5353bab7f1b85419",
+      "nativeScale": [
+        1.340256955194829,
+        0.205093351008313
+      ],
+      "marginsModelPixels": {
+        "10": {
+          "initialContacts": 28,
+          "initialContactsWithBaseInkOverlap": 6,
+          "initialContactsWithBothBottomBandsOverlapping": 0,
+          "boundaryPoses": 36288,
+          "opaqueOverlapPoses": 7389,
+          "bothFootBandOverlapPoses": 0,
+          "newVersusOriginalBodyOverlap": 0,
+          "newVersusOriginalBothFootBands": 0,
+          "newLateralOverlap": 0,
+          "newForeAftOverlap": 0,
+          "strongestNewOverlap": null
+        },
+        "8": {
+          "initialContacts": 24,
+          "initialContactsWithBaseInkOverlap": 6,
+          "initialContactsWithBothBottomBandsOverlapping": 0,
+          "boundaryPoses": 36288,
+          "opaqueOverlapPoses": 7845,
+          "bothFootBandOverlapPoses": 0,
+          "newVersusOriginalBodyOverlap": 458,
+          "newVersusOriginalBothFootBands": 0,
+          "newLateralOverlap": 0,
+          "newForeAftOverlap": 457,
+          "strongestNewOverlap": {
+            "pair": [
+              "companion:tanuki",
+              "companion:hamster"
+            ],
+            "bearing": 251.25,
+            "offsetCSS": [
+              -16,
+              -6
+            ],
+            "opaquePixels": 9,
+            "overlappingBottomBandPixels": 0
+          }
+        },
+        "5": {
+          "initialContacts": 12,
+          "initialContactsWithBaseInkOverlap": 2,
+          "initialContactsWithBothBottomBandsOverlapping": 0,
+          "boundaryPoses": 36288,
+          "opaqueOverlapPoses": 8683,
+          "bothFootBandOverlapPoses": 9,
+          "newVersusOriginalBodyOverlap": 1294,
+          "newVersusOriginalBothFootBands": 9,
+          "newLateralOverlap": 0,
+          "newForeAftOverlap": 1249,
+          "strongestNewOverlap": {
+            "pair": [
+              "companion:owl",
+              "companion:sekizou"
+            ],
+            "bearing": 251.25,
+            "offsetCSS": [
+              -10,
+              -6
+            ],
+            "opaquePixels": 27,
+            "overlappingBottomBandPixels": 0
+          }
+        },
+        "0": {
+          "initialContacts": 5,
+          "initialContactsWithBaseInkOverlap": 2,
+          "initialContactsWithBothBottomBandsOverlapping": 0,
+          "boundaryPoses": 36288,
+          "opaqueOverlapPoses": 10466,
+          "bothFootBandOverlapPoses": 183,
+          "newVersusOriginalBodyOverlap": 3077,
+          "newVersusOriginalBothFootBands": 183,
+          "newLateralOverlap": 0,
+          "newForeAftOverlap": 2190,
+          "strongestNewOverlap": {
+            "pair": [
+              "pet:dog",
+              "companion:tanuki"
+            ],
+            "bearing": 247.5,
+            "offsetCSS": [
+              -17,
+              -6
+            ],
+            "opaquePixels": 74,
+            "overlappingBottomBandPixels": 0
+          }
+        }
+      }
+    },
+    {
+      "width": 375,
+      "height": 760,
+      "input": "forest-375-28.json.gz",
+      "sourceSHA256": "87773b5e1ce20697d699a3b9c748b40714369e34443562e8b95f94f175e57d3b",
+      "nativeScale": [
+        1.3795385584741402,
+        1.0460674294668877
+      ],
+      "marginsModelPixels": {
+        "10": {
+          "initialContacts": 27,
+          "initialContactsWithBaseInkOverlap": 1,
+          "initialContactsWithBothBottomBandsOverlapping": 0,
+          "boundaryPoses": 36288,
+          "opaqueOverlapPoses": 47,
+          "bothFootBandOverlapPoses": 0,
+          "newVersusOriginalBodyOverlap": 0,
+          "newVersusOriginalBothFootBands": 0,
+          "newLateralOverlap": 0,
+          "newForeAftOverlap": 0,
+          "strongestNewOverlap": null
+        },
+        "8": {
+          "initialContacts": 22,
+          "initialContactsWithBaseInkOverlap": 1,
+          "initialContactsWithBothBottomBandsOverlapping": 0,
+          "boundaryPoses": 36288,
+          "opaqueOverlapPoses": 143,
+          "bothFootBandOverlapPoses": 0,
+          "newVersusOriginalBodyOverlap": 96,
+          "newVersusOriginalBothFootBands": 0,
+          "newLateralOverlap": 0,
+          "newForeAftOverlap": 88,
+          "strongestNewOverlap": {
+            "pair": [
+              "pet:dog",
+              "companion:penguin_friend"
+            ],
+            "bearing": 277.5,
+            "offsetCSS": [
+              8,
+              -32
+            ],
+            "opaquePixels": 14,
+            "overlappingBottomBandPixels": 0
+          }
+        },
+        "5": {
+          "initialContacts": 16,
+          "initialContactsWithBaseInkOverlap": 1,
+          "initialContactsWithBothBottomBandsOverlapping": 0,
+          "boundaryPoses": 36288,
+          "opaqueOverlapPoses": 410,
+          "bothFootBandOverlapPoses": 0,
+          "newVersusOriginalBodyOverlap": 363,
+          "newVersusOriginalBothFootBands": 0,
+          "newLateralOverlap": 0,
+          "newForeAftOverlap": 328,
+          "strongestNewOverlap": {
+            "pair": [
+              "partner:forest_bear",
+              "companion:penguin_friend"
+            ],
+            "bearing": 270.0,
+            "offsetCSS": [
+              0,
+              -24
+            ],
+            "opaquePixels": 45,
+            "overlappingBottomBandPixels": 0
+          }
+        },
+        "0": {
+          "initialContacts": 2,
+          "initialContactsWithBaseInkOverlap": 0,
+          "initialContactsWithBothBottomBandsOverlapping": 0,
+          "boundaryPoses": 36288,
+          "opaqueOverlapPoses": 1999,
+          "bothFootBandOverlapPoses": 0,
+          "newVersusOriginalBodyOverlap": 1952,
+          "newVersusOriginalBothFootBands": 0,
+          "newLateralOverlap": 0,
+          "newForeAftOverlap": 1724,
+          "strongestNewOverlap": {
+            "pair": [
+              "pet:dog",
+              "companion:cat_friend"
+            ],
+            "bearing": 258.75,
+            "offsetCSS": [
+              -10,
+              -29
+            ],
+            "opaquePixels": 106,
+            "overlappingBottomBandPixels": 0
+          }
+        }
+      }
+    },
+    {
+      "width": 390,
+      "height": 792,
+      "input": "forest-390-28.json.gz",
+      "sourceSHA256": "9de6a743c2f586f20cf18f61c1116636bd9cf3a2e8457148d216c53cc518b7a5",
+      "nativeScale": [
+        1.3697220060064486,
+        1.134232061136463
+      ],
+      "marginsModelPixels": {
+        "10": {
+          "initialContacts": 22,
+          "initialContactsWithBaseInkOverlap": 1,
+          "initialContactsWithBothBottomBandsOverlapping": 0,
+          "boundaryPoses": 36288,
+          "opaqueOverlapPoses": 23,
+          "bothFootBandOverlapPoses": 0,
+          "newVersusOriginalBodyOverlap": 0,
+          "newVersusOriginalBothFootBands": 0,
+          "newLateralOverlap": 0,
+          "newForeAftOverlap": 0,
+          "strongestNewOverlap": null
+        },
+        "8": {
+          "initialContacts": 17,
+          "initialContactsWithBaseInkOverlap": 1,
+          "initialContactsWithBothBottomBandsOverlapping": 0,
+          "boundaryPoses": 36288,
+          "opaqueOverlapPoses": 40,
+          "bothFootBandOverlapPoses": 0,
+          "newVersusOriginalBodyOverlap": 17,
+          "newVersusOriginalBothFootBands": 0,
+          "newLateralOverlap": 0,
+          "newForeAftOverlap": 16,
+          "strongestNewOverlap": {
+            "pair": [
+              "pet:dog",
+              "companion:punyu"
+            ],
+            "bearing": 258.75,
+            "offsetCSS": [
+              -12,
+              -40
+            ],
+            "opaquePixels": 11,
+            "overlappingBottomBandPixels": 0
+          }
+        },
+        "5": {
+          "initialContacts": 8,
+          "initialContactsWithBaseInkOverlap": 1,
+          "initialContactsWithBothBottomBandsOverlapping": 0,
+          "boundaryPoses": 36288,
+          "opaqueOverlapPoses": 211,
+          "bothFootBandOverlapPoses": 0,
+          "newVersusOriginalBodyOverlap": 188,
+          "newVersusOriginalBothFootBands": 0,
+          "newLateralOverlap": 0,
+          "newForeAftOverlap": 164,
+          "strongestNewOverlap": {
+            "pair": [
+              "pet:dog",
+              "companion:punyu"
+            ],
+            "bearing": 255.0,
+            "offsetCSS": [
+              -15,
+              -36
+            ],
+            "opaquePixels": 44,
+            "overlappingBottomBandPixels": 0
+          }
+        },
+        "0": {
+          "initialContacts": 3,
+          "initialContactsWithBaseInkOverlap": 1,
+          "initialContactsWithBothBottomBandsOverlapping": 0,
+          "boundaryPoses": 36288,
+          "opaqueOverlapPoses": 1186,
+          "bothFootBandOverlapPoses": 0,
+          "newVersusOriginalBodyOverlap": 1163,
+          "newVersusOriginalBothFootBands": 0,
+          "newLateralOverlap": 0,
+          "newForeAftOverlap": 1002,
+          "strongestNewOverlap": {
+            "pair": [
+              "pet:dog",
+              "companion:punyu"
+            ],
+            "bearing": 255.0,
+            "offsetCSS": [
+              -13,
+              -31
+            ],
+            "opaquePixels": 140,
+            "overlappingBottomBandPixels": 0
+          }
+        }
+      }
+    },
+    {
+      "width": 430,
+      "height": 880,
+      "input": "forest-430-28.json.gz",
+      "sourceSHA256": "3500407e2bfa81fb3aab938e15d341f74bd449f39775b580366416607330cea0",
+      "nativeScale": [
+        1.3635176849213149,
+        1.348665608567594
+      ],
+      "marginsModelPixels": {
+        "10": {
+          "initialContacts": 14,
+          "initialContactsWithBaseInkOverlap": 0,
+          "initialContactsWithBothBottomBandsOverlapping": 0,
+          "boundaryPoses": 36288,
+          "opaqueOverlapPoses": 0,
+          "bothFootBandOverlapPoses": 0,
+          "newVersusOriginalBodyOverlap": 0,
+          "newVersusOriginalBothFootBands": 0,
+          "newLateralOverlap": 0,
+          "newForeAftOverlap": 0,
+          "strongestNewOverlap": null
+        },
+        "8": {
+          "initialContacts": 10,
+          "initialContactsWithBaseInkOverlap": 0,
+          "initialContactsWithBothBottomBandsOverlapping": 0,
+          "boundaryPoses": 36288,
+          "opaqueOverlapPoses": 8,
+          "bothFootBandOverlapPoses": 0,
+          "newVersusOriginalBodyOverlap": 8,
+          "newVersusOriginalBothFootBands": 0,
+          "newLateralOverlap": 0,
+          "newForeAftOverlap": 7,
+          "strongestNewOverlap": {
+            "pair": [
+              "pet:dog",
+              "companion:penguin_friend"
+            ],
+            "bearing": 251.25,
+            "offsetCSS": [
+              -22,
+              -46
+            ],
+            "opaquePixels": 4,
+            "overlappingBottomBandPixels": 0
+          }
+        },
+        "5": {
+          "initialContacts": 9,
+          "initialContactsWithBaseInkOverlap": 0,
+          "initialContactsWithBothBottomBandsOverlapping": 0,
+          "boundaryPoses": 36288,
+          "opaqueOverlapPoses": 25,
+          "bothFootBandOverlapPoses": 0,
+          "newVersusOriginalBodyOverlap": 25,
+          "newVersusOriginalBothFootBands": 0,
+          "newLateralOverlap": 0,
+          "newForeAftOverlap": 19,
+          "strongestNewOverlap": {
+            "pair": [
+              "pet:dog",
+              "companion:penguin_friend"
+            ],
+            "bearing": 251.25,
+            "offsetCSS": [
+              -21,
+              -42
+            ],
+            "opaquePixels": 28,
+            "overlappingBottomBandPixels": 0
+          }
+        },
+        "0": {
+          "initialContacts": 2,
+          "initialContactsWithBaseInkOverlap": 0,
+          "initialContactsWithBothBottomBandsOverlapping": 0,
+          "boundaryPoses": 36288,
+          "opaqueOverlapPoses": 363,
+          "bothFootBandOverlapPoses": 0,
+          "newVersusOriginalBodyOverlap": 363,
+          "newVersusOriginalBothFootBands": 0,
+          "newLateralOverlap": 0,
+          "newForeAftOverlap": 290,
+          "strongestNewOverlap": {
+            "pair": [
+              "pet:dog",
+              "companion:penguin_friend"
+            ],
+            "bearing": 258.75,
+            "offsetCSS": [
+              -11,
+              -37
+            ],
+            "opaquePixels": 131,
+            "overlappingBottomBandPixels": 0
+          }
+        }
+      }
+    },
+    {
+      "width": 320,
+      "height": 792,
+      "input": "forest-320-28-long-fixed.json.gz",
+      "sourceSHA256": "92505cde4e70df1cdfcd5f0443d63a46ba465b9bb957344255b5b0e0c863fc0e",
+      "nativeScale": [
+        1.340256955194829,
+        1.324485872144212
+      ],
+      "marginsModelPixels": {
+        "10": {
+          "initialContacts": 25,
+          "initialContactsWithBaseInkOverlap": 0,
+          "initialContactsWithBothBottomBandsOverlapping": 0,
+          "boundaryPoses": 36288,
+          "opaqueOverlapPoses": 0,
+          "bothFootBandOverlapPoses": 0,
+          "newVersusOriginalBodyOverlap": 0,
+          "newVersusOriginalBothFootBands": 0,
+          "newLateralOverlap": 0,
+          "newForeAftOverlap": 0,
+          "strongestNewOverlap": null
+        },
+        "8": {
+          "initialContacts": 23,
+          "initialContactsWithBaseInkOverlap": 0,
+          "initialContactsWithBothBottomBandsOverlapping": 0,
+          "boundaryPoses": 36288,
+          "opaqueOverlapPoses": 0,
+          "bothFootBandOverlapPoses": 0,
+          "newVersusOriginalBodyOverlap": 0,
+          "newVersusOriginalBothFootBands": 0,
+          "newLateralOverlap": 0,
+          "newForeAftOverlap": 0,
+          "strongestNewOverlap": null
+        },
+        "5": {
+          "initialContacts": 20,
+          "initialContactsWithBaseInkOverlap": 0,
+          "initialContactsWithBothBottomBandsOverlapping": 0,
+          "boundaryPoses": 36288,
+          "opaqueOverlapPoses": 0,
+          "bothFootBandOverlapPoses": 0,
+          "newVersusOriginalBodyOverlap": 0,
+          "newVersusOriginalBothFootBands": 0,
+          "newLateralOverlap": 0,
+          "newForeAftOverlap": 0,
+          "strongestNewOverlap": null
+        },
+        "0": {
+          "initialContacts": 6,
+          "initialContactsWithBaseInkOverlap": 0,
+          "initialContactsWithBothBottomBandsOverlapping": 0,
+          "boundaryPoses": 36288,
+          "opaqueOverlapPoses": 41,
+          "bothFootBandOverlapPoses": 0,
+          "newVersusOriginalBodyOverlap": 41,
+          "newVersusOriginalBothFootBands": 0,
+          "newLateralOverlap": 0,
+          "newForeAftOverlap": 35,
+          "strongestNewOverlap": {
+            "pair": [
+              "pet:dog",
+              "companion:penguin_friend"
+            ],
+            "bearing": 247.5,
+            "offsetCSS": [
+              -18,
+              -27
+            ],
+            "opaquePixels": 21,
+            "overlappingBottomBandPixels": 0
+          }
+        }
+      }
+    }
+  ]
+}

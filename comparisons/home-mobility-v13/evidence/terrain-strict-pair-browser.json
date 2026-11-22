@@ -1,0 +1,140 @@
+{
+  "browser": "156.0.8078.79",
+  "modelSHA256": "601ca0c2eded38d6f68e1b9abf60f1936c01aaa9d4826a1f76681686f4735a56",
+  "width": 320,
+  "height": 792,
+  "proposals": [
+    {
+      "changes": [
+        {
+          "key": "companion:rabbit_friend",
+          "dx": 46.55973307012732,
+          "dy": -62.93609432053452
+        }
+      ],
+      "changed": [
+        {
+          "key": "companion:rabbit_friend",
+          "inBounds": true,
+          "visible": true,
+          "onGround": true,
+          "onAddedTerrain": true,
+          "keepsLeadLane": true
+        }
+      ],
+      "worsened": [],
+      "reservedSamples": 17,
+      "oldContacts": 25,
+      "newContacts": 23,
+      "newlyOpen": [
+        "companion:rabbit_friend"
+      ],
+      "lost": []
+    },
+    {
+      "changes": [
+        {
+          "key": "companion:hedgehog",
+          "dx": 0.9238795325112867,
+          "dy": 0.3826834323650898
+        }
+      ],
+      "changed": [
+        {
+          "key": "companion:hedgehog",
+          "inBounds": true,
+          "visible": true,
+          "onGround": true,
+          "onAddedTerrain": false,
+          "keepsLeadLane": true
+        }
+      ],
+      "worsened": [],
+      "reservedSamples": 17,
+      "oldContacts": 25,
+      "newContacts": 25,
+      "newlyOpen": [],
+      "lost": []
+    },
+    {
+      "changes": [
+        {
+          "key": "companion:rabbit_friend",
+          "dx": 46.55973307012732,
+          "dy": -62.93609432053452
+        },
+        {
+          "key": "companion:hedgehog",
+          "dx": 0.9238795325112867,
+          "dy": 0.3826834323650898
+        }
+      ],
+      "changed": [
+        {
+          "key": "companion:rabbit_friend",
+          "inBounds": true,
+          "visible": true,
+          "onGround": true,
+          "onAddedTerrain": true,
+          "keepsLeadLane": true
+        },
+        {
+          "key": "companion:hedgehog",
+          "inBounds": true,
+          "visible": true,
+          "onGround": true,
+          "onAddedTerrain": false,
+          "keepsLeadLane": true
+        }
+      ],
+      "worsened": [],
+      "reservedSamples": 17,
+      "oldContacts": 25,
+      "newContacts": 23,
+      "newlyOpen": [
+        "companion:rabbit_friend"
+      ],
+      "lost": []
+    },
+    {
+      "changes": [
+        {
+          "key": "companion:rabbit_friend",
+          "dx": 46.55973307012732,
+          "dy": -62.93609432053452
+        },
+        {
+          "key": "companion:hedgehog",
+          "dx": 0.8314696123025452,
+          "dy": 0.5555702330196022
+        }
+      ],
+      "changed": [
+        {
+          "key": "companion:rabbit_friend",
+          "inBounds": true,
+          "visible": true,
+          "onGround": true,
+          "onAddedTerrain": true,
+          "keepsLeadLane": true
+        },
+        {
+          "key": "companion:hedgehog",
+          "inBounds": true,
+          "visible": true,
+          "onGround": true,
+          "onAddedTerrain": false,
+          "keepsLeadLane": true
+        }
+      ],
+      "worsened": [],
+      "reservedSamples": 17,
+      "oldContacts": 25,
+      "newContacts": 23,
+      "newlyOpen": [
+        "companion:rabbit_friend"
+      ],
+      "lost": []
+    }
+  ]
+}

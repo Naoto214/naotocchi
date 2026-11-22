@@ -7,6 +7,7 @@ here=Path(__file__).resolve().parent
 p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('out',type=Path)
 p.add_argument('--trial',required=True)
+p.add_argument('--inventory',type=Path,help='Verified GitHub archive inventory from all groups')
 p.add_argument('--group',action='append',default=[],metavar='ID=DIR')
 args=p.parse_args()
 groups={'regional':'13地域の5分試験とタッチ入力','forest':'森28体の10分間と住民別記録',
@@ -32,6 +33,7 @@ for entry in args.group:
     for src in sorted(root.rglob('*')):
         if src.is_file() and not src.name.startswith('.') and src.suffix in {'.zip','.gz','.json','.csv','.md','.jpg','.patch'}:
             retain(group,src.relative_to(root),src)
+if args.inventory:retain('overview','github-archives.json',args.inventory)
 for src in sorted(here.glob('*.md')):
     if src.name!='README.md':retain('overview',src.name,src)
 for src in sorted((here/'evidence').glob('*')):

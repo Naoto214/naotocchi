@@ -1,0 +1,217 @@
+{
+  "width": 430,
+  "modelSHA256": "aa02461028d5e3cbf9eb628b6c4248b0fc9db68cea645cc37a1593ee48bdc15d",
+  "sha256": "b24f17477a2f681cd1313f8397da276e4af7462cde603eaa40c14ac322d82451",
+  "units": "CSS px",
+  "bearings": 96,
+  "distances": [
+    3,
+    8,
+    16
+  ],
+  "arms": {
+    "a": {
+      "contacts": 22,
+      "residentsWithExit": [
+        21,
+        17,
+        11
+      ],
+      "focus": {
+        "companion:tanuki": [
+          [
+            96,
+            14
+          ],
+          [
+            96,
+            14
+          ],
+          [
+            96,
+            0
+          ]
+        ],
+        "companion:panda": [
+          [
+            69,
+            0
+          ],
+          [
+            63,
+            0
+          ],
+          [
+            61,
+            0
+          ]
+        ],
+        "companion:box": [
+          [
+            49,
+            0
+          ],
+          [
+            49,
+            0
+          ],
+          [
+            49,
+            0
+          ]
+        ]
+      },
+      "newWalkerFirstBearingFromA": [],
+      "lostDirections": 0,
+      "newTerrainCSS2": 0,
+      "reachableByBoundsAndInkCSS2": 0
+    },
+    "b": {
+      "contacts": 22,
+      "residentsWithExit": [
+        21,
+        17,
+        11
+      ],
+      "focus": {
+        "companion:tanuki": [
+          [
+            96,
+            14
+          ],
+          [
+            96,
+            14
+          ],
+          [
+            96,
+            0
+          ]
+        ],
+        "companion:panda": [
+          [
+            69,
+            0
+          ],
+          [
+            63,
+            0
+          ],
+          [
+            61,
+            0
+          ]
+        ],
+        "companion:box": [
+          [
+            49,
+            0
+          ],
+          [
+            49,
+            0
+          ],
+          [
+            49,
+            0
+          ]
+        ]
+      },
+      "newWalkerFirstBearingFromA": [],
+      "lostDirections": 0,
+      "newTerrainCSS2": 426,
+      "reachableByBoundsAndInkCSS2": 426
+    },
+    "c": {
+      "contacts": 22,
+      "residentsWithExit": [
+        21,
+        17,
+        12
+      ],
+      "focus": {
+        "companion:tanuki": [
+          [
+            96,
+            14
+          ],
+          [
+            96,
+            14
+          ],
+          [
+            96,
+            0
+          ]
+        ],
+        "companion:panda": [
+          [
+            69,
+            0
+          ],
+          [
+            63,
+            0
+          ],
+          [
+            61,
+            0
+          ]
+        ],
+        "companion:box": [
+          [
+            49,
+            0
+          ],
+          [
+            49,
+            0
+          ],
+          [
+            49,
+            0
+          ]
+        ]
+      },
+      "newWalkerFirstBearingFromA": [
+        {
+          "key": "companion:clock",
+          "opened": [
+            null,
+            null,
+            341.25
+          ]
+        }
+      ],
+      "lostDirections": 0,
+      "newTerrainCSS2": 1650,
+      "reachableByBoundsAndInkCSS2": 1650
+    }
+  },
+  "seatSearch": {
+    "gridSpacingCSS": 2,
+    "radiusCSS": 180,
+    "nearBoundaryCSS": 28,
+    "localDistancesCSS": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      8,
+      12
+    ],
+    "localBearings": 32,
+    "newSites": 521,
+    "counts": {
+      "tested": 5663,
+      "invalid": 33,
+      "newOrWorseContact": 5409,
+      "otherExitLost": 147,
+      "ownExitLost": 70,
+      "preservedButNoNewWalker": 4,
+      "survived": 0
+    },
+    "best": []
+  }
+}

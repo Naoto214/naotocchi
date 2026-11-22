@@ -1,0 +1,75 @@
+{
+  "browser": "156.0.8078.79",
+  "rows": [
+    {
+      "width": 320,
+      "height": 516,
+      "sourceSHA256": "2af556e9d845474fce56b91ab4eccd636497f32c60e1061a135a3cb7249c0a73",
+      "changedArtworkOrMirror": [],
+      "maximumDifferences": {
+        "bodyModel": 0,
+        "seatModel": 0,
+        "rectCSS": 0,
+        "anchorCSS": 0,
+        "actualScale": 0.0
+      },
+      "assetsSHA256": "1d700858403adea75549b1598d2ddb8ecfe2ffbe98a05184a9c6fe5ed5ea2644"
+    },
+    {
+      "width": 375,
+      "height": 760,
+      "sourceSHA256": "0eae61e2561d94a0151fea55e101e15fa298151f5bef89f4cba4787f0a5d7362",
+      "changedArtworkOrMirror": [],
+      "maximumDifferences": {
+        "bodyModel": 0,
+        "seatModel": 0,
+        "rectCSS": 0.0325927734375,
+        "anchorCSS": 0.034942626953125,
+        "actualScale": 0.0
+      },
+      "assetsSHA256": "1d700858403adea75549b1598d2ddb8ecfe2ffbe98a05184a9c6fe5ed5ea2644"
+    },
+    {
+      "width": 390,
+      "height": 792,
+      "sourceSHA256": "2650ed90201c85dc312c30c59cc049d81cdfb73da276215f746dac5c64b034ed",
+      "changedArtworkOrMirror": [],
+      "maximumDifferences": {
+        "bodyModel": 0,
+        "seatModel": 0,
+        "rectCSS": 0,
+        "anchorCSS": 0,
+        "actualScale": 0.0
+      },
+      "assetsSHA256": "1d700858403adea75549b1598d2ddb8ecfe2ffbe98a05184a9c6fe5ed5ea2644"
+    },
+    {
+      "width": 430,
+      "height": 880,
+      "sourceSHA256": "e2efe4e8c54ac95173ee7b26d29c08c0958ba119ab9e19d4c1bdf530a4f37737",
+      "changedArtworkOrMirror": [],
+      "maximumDifferences": {
+        "bodyModel": 0,
+        "seatModel": 0,
+        "rectCSS": 0,
+        "anchorCSS": 0,
+        "actualScale": 0.0
+      },
+      "assetsSHA256": "1d700858403adea75549b1598d2ddb8ecfe2ffbe98a05184a9c6fe5ed5ea2644"
+    },
+    {
+      "width": 320,
+      "height": 792,
+      "sourceSHA256": "89bd43cdbaebed5efd77c61e8cf25327f9cf9160d94295b3b75e121980da6c5f",
+      "changedArtworkOrMirror": [],
+      "maximumDifferences": {
+        "bodyModel": 0,
+        "seatModel": 0,
+        "rectCSS": 0,
+        "anchorCSS": 0,
+        "actualScale": 0.0
+      },
+      "assetsSHA256": "1d700858403adea75549b1598d2ddb8ecfe2ffbe98a05184a9c6fe5ed5ea2644"
+    }
+  ]
+}

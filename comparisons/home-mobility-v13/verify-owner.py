@@ -14,6 +14,7 @@ with sync_playwright() as pw:
     page.on('pageerror',lambda error:errors.append(str(error)))
     page.goto(args.base+'/v13/?arm=a&region=forest&count=28&time=day&paused=1',wait_until='domcontentloaded',timeout=90000)
     ready_timeout=300000 if args.engine=='webkit' else 120000
+    native_prefix={'v11':'v11-compare-v11-foot','v12':'v12-compare-v12'}
     states={}
     for arm in ['a','b','c','d','d-curve','v11','v12']:
         print(args.engine,args.width,arm,flush=True)
@@ -27,6 +28,8 @@ with sync_playwright() as pw:
         }""")
         assert snapshot['region']=='forest' and snapshot['time']=='day' and snapshot['bodyWidth']<=args.width and snapshot['picture'].startswith('forest-day.webp'),{k:v for k,v in snapshot.items() if k!='feet'}
         assert len(set(tuple(v) for v in snapshot['feet']))==28
+        expected_path='/game/mobility-'+native_prefix.get(arm,'v13-owner-'+arm)+'.html'
+        assert snapshot['path']==expected_path,(snapshot['path'],expected_path)
         states[arm]=snapshot
     assert states['a']['feet']==states['b']['feet']==states['c']['feet']
     assert states['d']['feet']==states['d-curve']['feet']
@@ -34,10 +37,17 @@ with sync_playwright() as pw:
     page.select_option('#region','mountain');page.select_option('#count','4');page.select_option('#time','night')
     page.locator('#settings-close').tap()
     page.wait_for_function("document.body.dataset.ready==='true' && document.querySelector('#home').contentWindow.HomeDragTrial?.opening()?.actors.length===4",timeout=ready_timeout)
+    night=page.evaluate("""() => {
+      const w=document.querySelector('#home').contentWindow,o=w.HomeDragTrial.opening();
+      return {region:o.region,time:o.time,count:o.actors.length,
+        picture:w.document.querySelector('.home-art-canvas').dataset.mobilityPainting.split('/').pop()};
+    }""")
+    assert night=={'region':'mountain','time':'night','count':4,'picture':'mountain-night.webp'},night
     page.locator('#freeze').tap()
     page.wait_for_function("document.querySelector('#freeze').getAttribute('aria-pressed')==='false'")
     assert not errors,errors
     report={'browser':args.engine,'width':args.width,'matchedABCFootprints':True,'matchedDAndCurveFootprints':True,'mountainNightResidents':4,'resumed':True,'errors':errors,'arms':states}
+    report['mountainNight']=night
     args.out.write_text(json.dumps(report,ensure_ascii=False,separators=(',',':'))+'\n')
     print(args.engine,args.width,'7 arms, matched feet, 4 mountain residents, pause and resume')
     b.close()

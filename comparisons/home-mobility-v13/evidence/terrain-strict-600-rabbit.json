@@ -1,0 +1,522 @@
+{
+  "arm": "rabbit",
+  "browser": "156.0.8078.79",
+  "seed": 214,
+  "finalSeed": 3855962218,
+  "ticks": 18000,
+  "clock": 600.0000000001116,
+  "source": {
+    "population-beauty.js": "4d7474cb3391f8140ac4df90c4f7866ab8a43ede3613c4cab36733b56512303a",
+    "fixture.js": "a6ae75c1997b2f81144566ef0f24840ab88d4dfc75d814caf6421549d6f33b3a",
+    "home-production-model-mobility-v13-c.js": "601ca0c2eded38d6f68e1b9abf60f1936c01aaa9d4826a1f76681686f4735a56",
+    "drag-trial-hooks.js": "86a657ad0f2d83bea4a165cb55ba49bb201cd6a34fbd45db85d3ab19a6bd35f6"
+  },
+  "initialActorSeed": 3291341858,
+  "originalCheckpointSHA256": "2b916588fffcd8bab100dccbef96b110ac0085db0d262eaf4f4fed6fdda581eb",
+  "nativeStateSHA256": "694fc9724ec7cf3b4565f82745938a24b2ea4c414d4974742769560730565607",
+  "offsetCSS": [
+    46.55973307012732,
+    -62.93609432053452
+  ],
+  "initialContacts": 23,
+  "finalContacts": 11,
+  "rabbitStart": {
+    "x": 258.9055767664781,
+    "y": 322.38924474802485,
+    "minBoundsMarginCSS": 17.64130305461838,
+    "minPairClearance": 1.3141061012614241,
+    "contacts": []
+  },
+  "rabbitEnd": {
+    "x": 251.23221413436087,
+    "y": 314.898183310913,
+    "minBoundsMarginCSS": 27.92558069204556,
+    "minPairClearance": 1.0255253541552318,
+    "contacts": []
+  },
+  "safety": {
+    "steps": 1192,
+    "ground": 0,
+    "ink": 0,
+    "contact": 0
+  },
+  "actors": {
+    "pet:dog": {
+      "normal": [
+        2,
+        0
+      ],
+      "totalCSS": 105.38,
+      "initialRays": [
+        53,
+        9,
+        7
+      ],
+      "finalRays": [
+        24,
+        0,
+        0
+      ]
+    },
+    "partner:forest_bear": {
+      "normal": [
+        2,
+        5
+      ],
+      "totalCSS": 120.68,
+      "initialRays": [
+        29,
+        17,
+        3
+      ],
+      "finalRays": [
+        6,
+        0,
+        0
+      ]
+    },
+    "companion:cat_friend": {
+      "normal": [
+        0,
+        0
+      ],
+      "totalCSS": 8,
+      "initialRays": [
+        4,
+        4,
+        4
+      ],
+      "finalRays": [
+        0,
+        0,
+        0
+      ]
+    },
+    "companion:tanuki": {
+      "normal": [
+        0,
+        0
+      ],
+      "totalCSS": 0,
+      "initialRays": [
+        0,
+        0,
+        0
+      ],
+      "finalRays": [
+        0,
+        0,
+        0
+      ]
+    },
+    "companion:owl": {
+      "normal": [
+        6,
+        3
+      ],
+      "totalCSS": 273.63,
+      "initialRays": [
+        5,
+        2,
+        0
+      ],
+      "finalRays": [
+        70,
+        58,
+        10
+      ]
+    },
+    "companion:hamster": {
+      "normal": [
+        3,
+        2
+      ],
+      "totalCSS": 105.1,
+      "initialRays": [
+        0,
+        0,
+        0
+      ],
+      "finalRays": [
+        9,
+        0,
+        0
+      ]
+    },
+    "companion:monkey": {
+      "normal": [
+        6,
+        0
+      ],
+      "totalCSS": 150.1,
+      "initialRays": [
+        27,
+        0,
+        0
+      ],
+      "finalRays": [
+        0,
+        0,
+        0
+      ]
+    },
+    "companion:sheep": {
+      "normal": [
+        0,
+        0
+      ],
+      "totalCSS": 15.0,
+      "initialRays": [
+        4,
+        4,
+        2
+      ],
+      "finalRays": [
+        0,
+        0,
+        0
+      ]
+    },
+    "companion:bat": {
+      "normal": [
+        3,
+        7
+      ],
+      "totalCSS": 110.15,
+      "initialRays": [
+        14,
+        3,
+        1
+      ],
+      "finalRays": [
+        8,
+        1,
+        0
+      ]
+    },
+    "companion:penguin_friend": {
+      "normal": [
+        0,
+        2
+      ],
+      "totalCSS": 83.45,
+      "initialRays": [
+        62,
+        3,
+        0
+      ],
+      "finalRays": [
+        29,
+        8,
+        0
+      ]
+    },
+    "companion:shiba": {
+      "normal": [
+        1,
+        2
+      ],
+      "totalCSS": 58.64,
+      "initialRays": [
+        20,
+        16,
+        0
+      ],
+      "finalRays": [
+        26,
+        5,
+        0
+      ]
+    },
+    "companion:punyu": {
+      "normal": [
+        1,
+        2
+      ],
+      "totalCSS": 100.49,
+      "initialRays": [
+        0,
+        0,
+        0
+      ],
+      "finalRays": [
+        49,
+        0,
+        0
+      ]
+    },
+    "companion:chameleon": {
+      "normal": [
+        2,
+        2
+      ],
+      "totalCSS": 111.32,
+      "initialRays": [
+        48,
+        23,
+        1
+      ],
+      "finalRays": [
+        41,
+        17,
+        0
+      ]
+    },
+    "companion:unicorn": {
+      "normal": [
+        1,
+        0
+      ],
+      "totalCSS": 15.0,
+      "initialRays": [
+        28,
+        0,
+        0
+      ],
+      "finalRays": [
+        0,
+        0,
+        0
+      ]
+    },
+    "companion:watcher": {
+      "normal": [
+        0,
+        0
+      ],
+      "totalCSS": 8.0,
+      "initialRays": [
+        48,
+        12,
+        0
+      ],
+      "finalRays": [
+        6,
+        0,
+        0
+      ]
+    },
+    "companion:rabbit_friend": {
+      "normal": [
+        2,
+        2
+      ],
+      "totalCSS": 150.59,
+      "initialRays": [
+        37,
+        36,
+        23
+      ],
+      "finalRays": [
+        6,
+        0,
+        0
+      ]
+    },
+    "companion:squirrel": {
+      "normal": [
+        0,
+        0
+      ],
+      "totalCSS": 0,
+      "initialRays": [
+        0,
+        0,
+        0
+      ],
+      "finalRays": [
+        0,
+        0,
+        0
+      ]
+    },
+    "companion:otter": {
+      "normal": [
+        0,
+        0
+      ],
+      "totalCSS": 0,
+      "initialRays": [
+        2,
+        0,
+        0
+      ],
+      "finalRays": [
+        0,
+        0,
+        0
+      ]
+    },
+    "companion:panda": {
+      "normal": [
+        1,
+        2
+      ],
+      "totalCSS": 84.84,
+      "initialRays": [
+        11,
+        5,
+        0
+      ],
+      "finalRays": [
+        35,
+        0,
+        0
+      ]
+    },
+    "companion:parrot": {
+      "normal": [
+        4,
+        2
+      ],
+      "totalCSS": 119.91,
+      "initialRays": [
+        0,
+        0,
+        0
+      ],
+      "finalRays": [
+        11,
+        6,
+        2
+      ]
+    },
+    "companion:seal": {
+      "normal": [
+        0,
+        0
+      ],
+      "totalCSS": 3.0,
+      "initialRays": [
+        5,
+        0,
+        0
+      ],
+      "finalRays": [
+        0,
+        0,
+        0
+      ]
+    },
+    "companion:chicken": {
+      "normal": [
+        1,
+        1
+      ],
+      "totalCSS": 42.5,
+      "initialRays": [
+        7,
+        0,
+        0
+      ],
+      "finalRays": [
+        12,
+        0,
+        0
+      ]
+    },
+    "companion:hedgehog": {
+      "normal": [
+        2,
+        0
+      ],
+      "totalCSS": 30.5,
+      "initialRays": [
+        6,
+        0,
+        0
+      ],
+      "finalRays": [
+        0,
+        0,
+        0
+      ]
+    },
+    "companion:snail": {
+      "normal": [
+        0,
+        0
+      ],
+      "totalCSS": 0,
+      "initialRays": [
+        0,
+        0,
+        0
+      ],
+      "finalRays": [
+        0,
+        0,
+        0
+      ]
+    },
+    "companion:sekizou": {
+      "normal": [
+        2,
+        3
+      ],
+      "totalCSS": 81.3,
+      "initialRays": [
+        5,
+        0,
+        0
+      ],
+      "finalRays": [
+        36,
+        9,
+        0
+      ]
+    },
+    "companion:clock": {
+      "normal": [
+        2,
+        2
+      ],
+      "totalCSS": 133.77,
+      "initialRays": [
+        18,
+        10,
+        8
+      ],
+      "finalRays": [
+        10,
+        3,
+        0
+      ]
+    },
+    "companion:many_tail_fox": {
+      "normal": [
+        1,
+        1
+      ],
+      "totalCSS": 89.61,
+      "initialRays": [
+        0,
+        0,
+        0
+      ],
+      "finalRays": [
+        0,
+        0,
+        0
+      ]
+    },
+    "companion:box": {
+      "normal": [
+        0,
+        0
+      ],
+      "totalCSS": 0,
+      "initialRays": [
+        0,
+        0,
+        0
+      ],
+      "finalRays": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "normalBothHalves": 14
+}
