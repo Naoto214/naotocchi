@@ -1,5 +1,5 @@
 import {V1_CATALOG} from '../records.mjs';
-import {beforeKanji} from './kanji-history-helper.mjs';
+import {beforeKanji, beforeMirrorTitle} from './kanji-history-helper.mjs';
 // ぴょんぴょんジャンプ 改善案B（PR #448・#451）：1段階だけのときおくりで+5、CPUの空振り防止、旧保存（hotseat-2）の再生互換。
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {createHash} from 'node:crypto';
 import * as e from '../engine.mjs';
@@ -76,7 +76,7 @@ test('新規対戦は最新の版（hotseat-4 以降）、旧版（hotseat-2・h
 });
 
 const saves=JSON.parse(readFileSync(new URL('./doodle-jump-hotseat2-saves.json',import.meta.url)));
-const digest=s=>createHash('sha256').update(JSON.stringify({players:s.players,result:s.result,log:s.log})).digest('hex');
+const digest=s=>createHash('sha256').update(JSON.stringify({players:s.players,result:s.result,log:beforeMirrorTitle(s.log)})).digest('hex');
 test('旧保存（hotseat-2、修正前エンジンで作成）は旧効果のまま完全に再生される',()=>{
  assert.equal(saves.rows.length,3);
  for(const r of saves.rows){assert.equal(r.save.version,'hotseat-2');const s=e.restore(JSON.stringify(r.save));

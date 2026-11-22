@@ -9,7 +9,7 @@ import * as eventEffects from './event-effects.mjs';
 /** Shared execution primitives for explicit source-bound effect programs. */
 import * as selections from './selection.mjs';
 import * as replacements from './replacements.mjs';
-import {CATALOG} from './full-catalog.mjs';
+import {CATALOG} from './display-catalog.mjs';
 import {RULES,other,card,board,owner,main,played,countBoard} from './rules.mjs';
 const list=(s,a)=>{const b=board(s,a);return [b.main,b.partner,b.world,...b.companions,...b.prepared.map(e=>e.id)].filter(Boolean);};
 export function targets(s,a,kind,source,event){const p=owner(s,a),b=board(s,a),o=owner(s,other(a));switch(kind){

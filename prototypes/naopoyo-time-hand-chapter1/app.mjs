@@ -39,7 +39,7 @@ function tick(now){frameRequest=null;if(document.hidden||$('details').open||$('d
 function command(id,dx,dy){
  if(!loaded||mode!=='play'||current().cleared)return {ok:false,reason:'view'};
  const before=clone(current().state),r=current().step(id,dx,dy);
- if(!r.ok){message=({wall:'岩や盤面の外へは進めないよ。',corner:'閉じた角は通れないよ。',foothold:'上へ進むには、移動先の下に足場が必要だよ。',gate:'この段階では魔法ゲートを通れないよ。','gate-top':'魔法ゲートの上面は足場。横から通ろう。',terrain:'門や出口の数字を見てみよう。',limit:'やりなおして、もう一度挑戦しよう。'})[r.reason]||'そこへは進めないよ。';render();return r;}
+ if(!r.ok){message=({wall:'岩のあるマスや、盤面の外には進めないよ。',corner:'閉じた角は通れないよ。',foothold:'上へ進むには、移動先の下に足場が必要だよ。',gate:'この段階では魔法ゲートを通れないよ。','gate-top':'魔法ゲートの上面は足場。横から通ろう。',terrain:'門や出口の数字を見てみよう。',limit:'やりなおして、もう一度挑戦しよう。'})[r.reason]||'そこへは進めないよ。';render();return r;}
  message='';
  save();animate(before,r,id,dx,dy);render();if(current().cleared){pendingVictory=!!motion;if(!motion)showVictory();}return r;
 }
@@ -63,7 +63,7 @@ function draw(){const q=shown(),s=q.state,stage=q.stage;syncPresentation();let s
  drawBoard(canvas,state,{gravitySign:sign,stage,selected,stateEffects,now,reduced,gates,candidates,route,turns,showRanks:!!candidates.length,target:stage.objective?.target,effects:motion?contactEffects(motion,Math.min(1,motion.elapsed/motion.duration)):[]});
 }
 function render(){const q=shown(),s=q.stage,isDemo=mode==='demo';$('scene').dataset.scene=s.scene;$('number').textContent=s.id;$('title').textContent=s.title;$('difficulty').textContent='★'.repeat(s.difficulty)+'☆'.repeat(5-s.difficulty);$('goal').textContent=s.goal;$('lesson-text').textContent=s.text;$('lesson-goal').textContent=s.goal;$('hint-text').textContent=s.hint;
- $('phase').textContent=isDemo?'おてほん · 通常プレイと別の盤面':'プレイ中';$('moves').textContent=q.state.moves+' 手';$('mass').textContent='段階合計 '+mass(q.state);$('gravity').textContent=q.state.gravity?'重力 ↓ ・ 支えがないと落ちる':'ひかりの牢屋';$('gravity').hidden=!!q.state.gravity;$('gravity-help').hidden=!q.state.gravity||!gravityHelpOpen||isDemo;$('progress').textContent=progress.completed.filter(Boolean).length+' / 10 クリア';
+ $('phase').textContent=isDemo?'おてほん · 通常プレイと別の盤面':'プレイ中';$('moves').textContent=q.state.moves+' 手';$('mass').textContent='段階の合計 '+mass(q.state);$('gravity').textContent=q.state.gravity?'重力 ↓ ・ 支えがないと落ちる':'ひかりの牢屋';$('gravity').hidden=!!q.state.gravity;$('gravity-help').hidden=!q.state.gravity||!gravityHelpOpen||isDemo;$('progress').textContent=progress.completed.filter(Boolean).length+' / 10 クリア';
  $('dialogue').textContent=q.cleared?'みんなで、自由へ。':s.text;
  $('status').textContent=message||(q.cleared?'全員脱出！':isDemo?'前後に進めて、操作を確かめよう。':'キャラをタップして選択。なぞって移動。');
  $('play-tools').hidden=isDemo;$('replay').hidden=true;$('predict').disabled=isDemo;$('undo').disabled=!current().actions.length;

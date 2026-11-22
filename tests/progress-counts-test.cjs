@@ -110,7 +110,7 @@ test('176 real forms + 72 retired-species keys do not reach dex-complete, goal 4
   assert.equal(header.found, 176, 'dex header counts real forms only (no companions or partners in this save)');
   assert.match(h.api.buildLifeCard(), /ずかん176／248/);
   assert.match(wipeSummary(h), /ずかん<b>176 \/ 248<\/b>/);
-  assert.doesNotMatch(dexSummary(h), /コンプリートの きろく/);
+  assert.doesNotMatch(dexSummary(h), /以前、ずかんをコンプリートした記録/);
 });
 
 test('only retired final forms do not unlock elder-collector', () => {
@@ -141,7 +141,7 @@ test('a true current complete dex still reaches dex-complete, goal 4, the crown 
   assert.equal(unlocked(h, 'elder-collector'), true);
   assert.match(h.get('gameClearDesc').innerHTML, /みつけたすがた: 248 \/ 248/, 'ending screen shows the canonical count, not the raw 321');
   assert.match(h.api.buildLifeCard(), /ずかん248／248/);
-  assert.doesNotMatch(dexSummary(h), /コンプリートの きろく/, 'no record hint when the current dex is complete');
+  assert.doesNotMatch(dexSummary(h), /以前、ずかんをコンプリートした記録/, 'no record hint when the current dex is complete');
 });
 
 test('grandfathered dexCleared keeps every past unlock and shows the record without inflating the count', () => {
@@ -156,7 +156,7 @@ test('grandfathered dexCleared keeps every past unlock and shows the record with
   const real = realFormCount(s.discoveredStages);
   assert.ok(real <= 3 && s.discoveredStages.length >= 10, `real ${real} / raw ${s.discoveredStages.length}`);
   assert.equal(headerParts(h).found, real);
-  assert.match(dexSummary(h), /📖 ずかんコンプリートの きろく あり/);
+  assert.match(dexSummary(h), /📖 以前、ずかんをコンプリートした記録があります/);
   assert.match(h.api.buildLifeCard(), new RegExp(`ずかん${real}／248`));
   assert.match(wipeSummary(h), new RegExp(`ずかん<b>${real} / 248</b>`));
   const saved = JSON.parse(storage.getItem(SAVE));
@@ -170,11 +170,11 @@ test('the record hint is derived from dexCleared and the current registry size o
   const s = h.api.state();
   s.discoveredStages = REAL_KEYS.slice(0, 247);
   s.lifetime.dexCleared = false;
-  assert.doesNotMatch(dexSummary(h), /コンプリートの きろく/);
+  assert.doesNotMatch(dexSummary(h), /以前、ずかんをコンプリートした記録/);
   s.lifetime.dexCleared = true;
-  assert.match(dexSummary(h), /コンプリートの きろく あり/);
+  assert.match(dexSummary(h), /以前、ずかんをコンプリートした記録があります/);
   s.discoveredStages = [...REAL_KEYS];
-  assert.doesNotMatch(dexSummary(h), /コンプリートの きろく/);
+  assert.doesNotMatch(dexSummary(h), /以前、ずかんをコンプリートした記録/);
 });
 
 test('the dex header combines canonical forms, companions and partners', () => {

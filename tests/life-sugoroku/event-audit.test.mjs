@@ -21,7 +21,9 @@ const state=character=>createGame({seed:315,rounds:15,players:Array.from({length
 test('all original event mechanics and ordering match the independent V2 fingerprint',()=>{
  assert.equal(EVENTS.length,46);assert.equal(new Set(EVENTS.map(e=>e.id)).size,46);
  assert.equal(hash(EVENTS),BASELINE);assert.equal(hash(audit.events.map(e=>e.before)),BASELINE);
- assert.deepEqual(audit.events.map(e=>e.after),EVENTS);
+ // V6 updated the friendship heading only. Keep the historical audit intact.
+ const expected=audit.events.map(({after})=>after.id==='romance-02'?{...after,friendshipTitle:'「うれしい」の意味'}:after);
+ assert.deepEqual(EVENTS,expected);
 });
 
 test('audit covers every condition, NPC identity, branch and economic cause',()=>{
@@ -32,7 +34,7 @@ test('audit covers every condition, NPC identity, branch and economic cause',()=
   assert.ok(e.stages[0]>=1&&e.stages[1]<=8);assert.ok(e.regions.every(r=>BOARD.some(t=>t.region===r)));
   assert.equal(record.conditions.previousRelationshipRequired,false);
   assert.ok(record.findings.length>10);assert.ok(record.relationshipRecommendation.next.length>10);
-  if(e.npc){const npc=npcs.find(n=>n.id===e.npc);assert.ok(npc,e.id);assert.equal(record.npc.label,npc.label);assert.equal(record.npc.personality,npc.behavior||npc.hook||'言葉のない箱。台詞を発しない。');assert.deepEqual(record.npc.profile,PARTNER_PROFILES[e.npc]||null);}
+  if(e.npc){const npc=npcs.find(n=>n.id===e.npc);assert.ok(npc,e.id);assert.equal(npc.label,e.npc==='clock'?'時間にルーズな時計':record.npc.label);assert.equal(record.npc.personality,npc.behavior||npc.hook||'言葉のない箱。台詞を発しない。');assert.deepEqual(record.npc.profile,PARTNER_PROFILES[e.npc]||null);}
   for(const [index,c] of e.choices.entries()){
    const item=record.choices[index];assert.equal(item.meaning,c.label);assert.equal(item.result,c.text);
    assert.deepEqual(item.baseDelta,{sodachi:c.sodachi,money:c.money});assert.equal(item.evolution,c.evolve||0);assert.equal(item.time,c.time||0);assert.equal(item.redo,c.redo||false);

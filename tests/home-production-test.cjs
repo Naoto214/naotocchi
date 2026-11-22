@@ -53,6 +53,9 @@ test('latest-main game catalogs, conversations, formal images and other games st
  const cp=require('child_process');const unchanged=['assets/characters','prototypes','conversation-*.js','relationship-*.js','individuality*.js','item-*.js','games.js','quick.js','script.js','style.css','ui.css','character-world-master.v1.js'];
  // Pin the exact V1 choice, navigation and presentation edits. All other
  // files in the protected directories still go through the previous guards.
+ const notation=require('./helpers/approved-notation-v6.cjs');
+ notation.verifyCurrent();
+ for(const file of Object.keys(notation.files))unchanged.push(':(exclude)'+file);
  const v18Scope=require('./helpers/approved-card459-v18.cjs');v18Scope.verify();
  for(const file of Object.keys(v18Scope.files))unchanged.push(':(exclude)'+file);
  const bgmScope=require('./helpers/approved-bgm-scope.cjs'); bgmScope.verify();
@@ -61,7 +64,7 @@ test('latest-main game catalogs, conversations, formal images and other games st
  for(const file of Object.keys(cardScope.files))unchanged.push(':(exclude)'+file);
  const kanjiScope=require('./helpers/approved-kanji-v17.cjs');kanjiScope.verify();
  for(const file of Object.keys(kanjiScope.files))unchanged.push(':(exclude)'+file);
- const checkedBlob=file=>Object.hasOwn(bgmScope.baseline,file)?bgmScope.restoredBlob(file):(cardScope.originalBlob(file)||kanjiScope.originalBlob(file)||v18Scope.originalBlob(file)||cp.execFileSync('git',['hash-object','--',file],{encoding:'utf8'}).trim());
+ const checkedBlob=file=>Object.hasOwn(bgmScope.baseline,file)?bgmScope.restoredBlob(file):(cardScope.originalBlob(file)||kanjiScope.originalBlob(file)||v18Scope.originalBlob(file)||notation.files[file]?.before||cp.execFileSync('git',['hash-object','--',file],{encoding:'utf8'}).trim());
  const homeUI = {
   "individuality-data.js": "1f555e84bd5ebd56d1bcfa8cd4e313ad8f441e7c",
   "prototypes/card-game/app.mjs": "b3180cb0d788580a839521c55f76554bb8cf11a2",
@@ -143,7 +146,7 @@ test('latest-main game catalogs, conversations, formal images and other games st
  const cardNameChanges=changed.filter(file=>cardNameFiles.has(file));
  if(cardNameChanges.length) assert.equal(cp.execFileSync('git',['diff','--name-only',cardNames,'--',...cardNameChanges],{encoding:'utf8'}).trim(),'','PR #519 files must match approved bytes');
  if(originalAdditions.length) assert.equal(cp.execFileSync('git',['diff','--name-only',firstStart,'--',...originalAdditions],{encoding:'utf8'}).trim(),'','FIRST START additions must match approved bytes');
- assert.equal(cp.execFileSync('git',['diff','--name-only',polish,'--',...[...polishFiles].filter(file=>!Object.hasOwn(homeUI,file))],{encoding:'utf8'}).trim(),'','PR #516 files must match approved bytes');
+ assert.equal(cp.execFileSync('git',['diff','--name-only',polish,'--',...[...polishFiles].filter(file=>!Object.hasOwn(homeUI,file)&&!Object.hasOwn(notation.files,file))],{encoding:'utf8'}).trim(),'','PR #516 files must match approved bytes');
  for(const [file,hash] of Object.entries(reviewed)){
   assert.ok(fs.existsSync(file),'retained approved file: '+file);
   assert.equal(checkedBlob(file),homeUI[file] || hash,'approved bytes: '+file);

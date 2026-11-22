@@ -1,4 +1,4 @@
-import {CATALOG} from './full-catalog.mjs';
+import {CATALOG} from './display-catalog.mjs';
 import {lifetime} from './event-effects.mjs';
 const other=a=>a==='A'?'B':'A',card=(s,id)=>CATALOG[s.cards[id]?.cardId];
 function choice(s,l,kind,options,data={}){s.choice={actor:l.actor,kind:'advanced_'+kind,options,resume:'program',link:l,...data};s.phase='choice';return {waiting:true};}

@@ -7,6 +7,8 @@ test('V4 input, physics, app control flow and shared motion/painter/timing sourc
  let source=fs.readFileSync(new URL(file,root));
  // Normalize only the explicitly approved sign-help UI changes; keep the original protected hash.
  if(file==='app.mjs'){
+  // Reconstruct the historical bytes for the two approved V6 display strings.
+  source=Buffer.from(source.toString().replace("wall:'岩のあるマスや、盤面の外には進めないよ。'", "wall:'岩や盤面の外へは進めないよ。'").replace("$('mass').textContent='段階の合計 '", "$('mass').textContent='段階合計 '"));
   source=Buffer.from(source.toString().replace(" const help=$('gravity-help');help.style.left=(bounds.left+8)+'px';help.style.top=(bounds.bottom-cell-14)+'px';help.style.width=Math.max(1,Math.min(300,bounds.width-16))+'px';help.style.setProperty('--tail-left',Math.max(12,cell/2-14)+'px');\n",''));
   source=Buffer.from(source.toString().replace("let gravityHelpOpen=false;\n",""));
   source=Buffer.from(source.toString().replace("mode='play';gravityHelpOpen=false;progress.index=i;","mode='play';progress.index=i;"));

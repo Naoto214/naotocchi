@@ -57,14 +57,14 @@ const normalEquipmentPrices={
 };
 const normalEquipmentDescriptions={
   poop1:'うんちが3個たまると、自動できれいにする。',
-  sleepboost1:'ねると、すぐに元気が満タンになる。',
+  sleepboost1:'ねると、すぐにげんきが満タンになる。',
   bowtie:'おなかがへると、自動で満タンにする。',
   ribbon:'ごきげんが下がると、自動で満タンにする。',
   scarf:'病気になると、自動で治してくれる。',
-  travel1:'たびで、おなかと元気が減らなくなる。',
-  partner1:'こいびとの仲良し度が下がると、自動で満タンにする。',
-  bond1:'なかまの仲良し度が下がると、自動で満タンにする。',
-  gamepass1:'ミニゲームを遊ばず、通常成功にできる。',
+  travel1:'たびで、おなかとげんきが減らなくなる。',
+  partner1:'こいびとのなかよし度が25以下になると、自動で100にもどる。',
+  bond1:'なかまのきずなが25以下になると、自動で100にもどる。',
+  gamepass1:'通常のミニゲームを遊ばずに、通常成功と同じ育成効果と30コインを得られます。プレイ回数や点数には記録されません。',
   star:'通常ミニゲームでもらえるコインが3倍になる。',
 };
 for(const [id,price] of Object.entries(normalEquipmentPrices)){

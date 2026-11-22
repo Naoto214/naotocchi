@@ -6,7 +6,7 @@ import {render,renderBack as adoptedBack} from '../life-clock/v23/clock-v23.mjs'
 import {sample,overlapCases} from '../life-clock/clock.mjs';
 const norm=s=>s.replace(/v6-\d+/g,'v6-ID').replace(/(?:file|https?):[^"<>]*\/life-clock\/v16\//g,'../v16/');
 test('actual CARD GAME equals adopted V23 in all overlap conditions, including bearing and back',()=>{
- for(const c of overlapCases){const state={...sample,...c.state};const actual=renderClock(state);assert.equal(norm(actual),norm(render(state)));assert.deepEqual([...actual.matchAll(/<g data-hand="([012])"/g)].map(m=>+m[1]),[2,1,0]);assert.doesNotMatch(actual,/data-v24/);}
+ for(const c of overlapCases){const state={...sample,...c.state};const actual=renderClock(state);assert.match(actual,/aria-label="人生の時計の表面"/);assert.equal(norm(actual),norm(render(state)).replace('aria-label="GAME EDITION B配置"','aria-label="人生の時計の表面"'));assert.deepEqual([...actual.matchAll(/<g data-hand="([012])"/g)].map(m=>+m[1]),[2,1,0]);assert.doesNotMatch(actual,/data-v24/);}
  assert.equal(norm(renderBack()),norm(adoptedBack()));
 });
 test('canonical adoption and archived comparison cannot follow a rejected renderer',()=>{

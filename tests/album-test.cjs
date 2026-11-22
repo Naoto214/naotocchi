@@ -23,7 +23,7 @@ test('a life card code round-trips and past lives keep their timeline and code',
   assert.equal(typeof card.species, 'string');
   assert.equal(card.log.length, 1);
   assert.match(h.api.lifeCodeCardHTML(card), /life-code-card/);
-  assert.throws(() => h.api.decodeLifeCode('NTS1.abc'), /コードでは ない/);
+  assert.throws(() => h.api.decodeLifeCode('NTS1.abc'), /これは、いっしょうカードのコードではありません。/);
   h.api.archiveLifeAndReset();
   const past = state.lifetime.pastLives.slice(-1)[0];
   assert.equal(past.log.length, 1);

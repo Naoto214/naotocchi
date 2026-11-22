@@ -705,7 +705,7 @@ export const EVENTS = [
     ],
     "album": "ロボットと、気持ちを表す言葉を考えた。",
     "once": true,
-    "friendshipTitle": "うれしいの意味",
+    "friendshipTitle": "「うれしい」の意味",
     "friendshipText": "となりまちのロボットが「誰かに会うと、うれしい？」と尋ねた。答えを、ゆっくり考える時間になった。"
   },
   {

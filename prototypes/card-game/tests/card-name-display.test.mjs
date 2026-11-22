@@ -16,9 +16,9 @@ const titleOf=html=>html.match(/<h3 class="v8-title" data-fit>([\s\S]*?)<\/h3>/)
 const segs=html=>[...titleOf(html).matchAll(/<span>([^<]*)<\/span>/g)].map(m=>m[1]);
 const unescape=s=>s.replaceAll('&amp;','&');
 
-test('全459枚：正式カード名は変えず、改行文字を持たない。改行表は実在する名前だけ',()=>{
+test('全459枚：正式カード名に改行文字を持たず、変更前の名前からも探せる。改行表は実在する名前だけ',()=>{
  assert.equal(Object.keys(CARDS).length,459);
- for(const c of Object.values(CARDS)){assert.equal(c.name,CATALOG[c.id].name,c.id);assert.doesNotMatch(c.name,/[\n|]/,c.id);}
+ for(const c of Object.values(CARDS)){assert.ok(c.name===CATALOG[c.id].name || c.searchAliases?.includes(CATALOG[c.id].name),c.id);assert.doesNotMatch(c.name,/[\n|]/,c.id);}
  const names=new Set(nonMain.flatMap(c=>[c.name,...(c.searchAliases??[])]));
  for(const [name,lines] of TITLE_BREAKS){assert.ok(names.has(name),name);assert.equal(lines.length,2,name);assert.equal(lines.join(''),name);}
 });
@@ -88,8 +88,8 @@ test('すれちがいの正式本文は変えていない。ルールブック�
  assert.equal(CARDS['E-misunderstanding'].text,'相手のこいびと1枚を対象として発動できる。対象を持ち主の手札に戻す。');
  assert.equal(CARDS['E-misunderstanding'].text,CATALOG['E-misunderstanding'].text);
  const ch9=CHAPTERS.find(c=>c.id===9).details.join('\n'),ch15=CHAPTERS.find(c=>c.id===15).details.join('\n');
- assert.match(ch9,/「すれちがい」は、交際中・結婚後のどちらのこいびとカードにも使えます。結婚前に別れると、そだち−5。結婚後に別れると、そだち−10。結婚後の別れでは、結婚後追加能力/);
- assert.match(ch15,/結婚したこいびとにも「すれちがい」は使える/);
+ assert.match(ch9,/「すれ違い」は、交際中・結婚後のどちらのこいびとカードにも使えます。結婚前に別れると、そだち−5。結婚後に別れると、そだち−10。結婚後の別れでは、結婚後追加能力/);
+ assert.match(ch15,/結婚したこいびとにも「すれ違い」は使える/);
  assert.equal(relatedChapter(CARDS['E-misunderstanding']),9);
  assert.equal(relatedChapter({...CARDS['E-misunderstanding'],id:'x1',cardId:'E-misunderstanding'}),9);
  assert.equal(relatedChapter(CARDS['E-first_date']??{type:'event'}),11);

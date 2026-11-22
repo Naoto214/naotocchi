@@ -5,7 +5,7 @@ const fence=[0,1,3,4,5].map(y=>[3,y]);
 // wall column. Only gate cells interrupt it; diagonal corner crossing stays legal.
 export const stages=[
 base(1,'ひかりの牢屋','星の出口へ、指でなぞって脱出しよう。',[a('a',1,2)],{walls:[...Array.from({length:8},(_,x)=>[x,0]),...Array.from({length:8},(_,x)=>[x,5]),...[1,2,3,4].flatMap(y=>[[0,y],[7,y]])]}),
-base(2,'ふたりで、ひとつ','同じ種族・同じ段階の2体で、ひとつ上へ。',[a('a',1,2),a('b',3,2)],{exits:[{x:6,y:2,exact:2}]}),
+base(2,'ふたりで、ひとつ','同じ種族で、同じ段階の2体を合わせると、1段階成長するよ。',[a('a',1,2),a('b',3,2)],{exits:[{x:6,y:2,exact:2}]}),
 base(3,'ぷにっと連続合体','1＋1→2。もう1体の2と合体して3へ。',[a('a',1,2),a('b',2,2),a('c',4,2,2)],{exits:[{x:6,y:2,exact:3}]}),
 base(4,'とげで、ふたりに','トゲで1段階下の2体に。残った子も救出しよう。',[a('a',1,2,2)],{spikes:[[2,2]],exits:[{x:6,y:2,max:1}]}),
 base(5,'もう一度、ひとつに','分裂したら、トゲを離れた場所で再合体。',[a('a',1,2,2)],{spikes:[[2,2]],walls:[...[0,1,2,3,4,5,6,7].flatMap(x=>[[x,1],[x,3]])],exits:[{x:6,y:2,exact:2}]}),
