@@ -8,7 +8,7 @@ from pathlib import Path
 from package import IMPORT
 
 HERE = Path(__file__).resolve().parent
-BASE = '9539e462e78452ad6da5f72d454911679b4ec20e'
+CURRENT_MAIN = '384730f1f2b1ef287a2bc4d17df35b861de9f2ae'
 BEFORE = 'd9df1c609f4397bec647fd9fc74d0c1aa683e29d'
 ENTRY_URL = re.compile(r'((?:src|href)=")([^"?]+)([^"]*)(")')
 
@@ -23,7 +23,7 @@ def tree(sha):
 
 
 def build_comparison(game, root, manifest, candidate):
-    versions = {'main': BASE, 'before': BEFORE, 'fixed': git('rev-parse', '--verify', f'{candidate}^{{commit}}').decode().strip()}
+    versions = {'main': CURRENT_MAIN, 'before': BEFORE, 'fixed': git('rev-parse', '--verify', f'{candidate}^{{commit}}').decode().strip()}
     native = tree(versions['fixed'])
     for name in manifest['files']:
         data = (root / name).read_bytes()
@@ -39,6 +39,10 @@ def build_comparison(game, root, manifest, candidate):
         aliases = {}
         for name in historical:
             if name == 'index.html' or blobs[name] == native.get(name) and name in manifest['files']:
+                continue
+            # The displayed comparison is the native home. Standalone subgames
+            # retain the ordinary preview's scoped bundle when opened separately.
+            if edition == 'main' and name.startswith('prototypes/'):
                 continue
             if '/' in name or Path(name).suffix not in ('.css', '.js', '.mjs'):
                 raise ValueError(f'Unreviewed historical runtime difference: {name}')
