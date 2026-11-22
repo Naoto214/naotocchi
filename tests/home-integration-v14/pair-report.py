@@ -136,6 +136,16 @@ def summarize(rows):
         for p in ('walked', 'lifecycle', 'resized', 'reload', 'travel'):
             for k in ('distance','order','contactPairs','addedContactPairs','invalidTerrain','occluded'):
                 checks[p+k[0].upper()+k[1:]] = values[p][k]
+        alternate=row.get('alternate')
+        if alternate:
+            target=alternate['target']
+            same=bool(target and target['key']==row['target']['key'] and target['from']==row['target']['from'])
+            checks.update(retrySameStart=same,retryChangedGoal=bool(target and target['goal']!=target['originalGoal']),retryHasOpenGoal=bool(target and target['clearance']['alternate']),
+                          retryDragHops=alternate['trace']['sourceHops'].get('drag',0),
+                          retryViolations=sum(alternate['trace'][k] for k in ('terrain','occlusion','contact','speed')),
+                          retryTrusted=alternate['trusted'])
+        else:
+            checks.update(retrySameStart=None,retryChangedGoal=None,retryHasOpenGoal=None,retryDragHops=None,retryViolations=None,retryTrusted=None)
         gate=row['lifecycle'].get('returnGate')
         returned=phase.get('returnTrip')
         checks.update(returnAccepted=gate['accepted'] if gate else None,
@@ -176,6 +186,10 @@ def summarize(rows):
                     'yieldHops','terrain','occlusion','contact','speed','errors','tapped','dragIssued',
                     'dragAccepted','decoded','shadows','conversation','evolution','equipment','census',
                     'time','reload','travelled','persistentPairCrowdContacts','newPersistentPairCrowdVsPrior')},
+            openDirectionRetries=sum(r['retryTrusted'] is not None for r in selected),
+            matchingStarts=sum(bool(r['retrySameStart']) for r in selected),
+            openDirectionWalked=sum(bool(r['retryDragHops']) for r in selected),
+            openDirectionViolations=sum(r['retryViolations'] or 0 for r in selected),
             stationaryDrags=sum(r['dragIssued'] and not r['dragHops'] for r in selected),
             syncShiftAboveHundredth=sum(r['ordinarySyncShift'] > .01 for r in selected),
             maxSyncShift=max(r['ordinarySyncShift'] for r in selected),

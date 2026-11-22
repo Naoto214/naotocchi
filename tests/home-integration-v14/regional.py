@@ -57,15 +57,15 @@ def serve(root):
     threading.Thread(target=httpd.serve_forever,daemon=True).start()
     return 'http://127.0.0.1:'+str(httpd.server_port)
 
-def run(browser,root,base,region,count,width,arm,seconds,pairs=False):
+def run(browser,root,base,region,count,width,arm,seconds,pairs=False,alternate=False):
     ctx=browser.new_context(viewport={'width':width,'height':HEIGHT[width]},device_scale_factor=2,
                              is_mobile=True,has_touch=True,timezone_id='Asia/Tokyo',locale='ja-JP')
     try:
-        return measure(ctx,root,base,region,count,width,arm,seconds,pairs)
+        return measure(ctx,root,base,region,count,width,arm,seconds,pairs,alternate)
     finally:
         ctx.close()
 
-def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False):
+def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False,alternate=False):
     save=seed(region,count)
     hashes={}
     seen_errors=[]
@@ -98,6 +98,8 @@ def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False):
             anchor='return {model,update,sync,interrupt,'
             probe=(HERE/'regional-probe.js').read_text()
             if pairs:probe+=(HERE/'pair-probe.js').read_text()
+            if alternate:
+                probe+=(HERE/'drag-clearance.js').read_text()+'\nregional.clearance=surroundingClearance;\n'
             src=once(src,anchor,probe+anchor)
         else:
             key=re.search(r"const SAVE_KEY = '([^']+)'",src)[1]
@@ -129,11 +131,17 @@ def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False):
     if target:
         touch('touchStart',target['from']);touch('touchEnd',None)
         tap=page.evaluate('regional.summary().selected')
+        if alternate:
+            target['clearance']=page.evaluate('regional.clearance().radii.at(-1)')
+            target['originalGoal']=target['goal']
+            target['goal']=target['clearance']['alternate'] or target['goal']
         touch('touchStart',target['from']);touch('touchMove',target['goal']);touch('touchEnd',None)
     else:
         tap=None
     page.evaluate('n=>regional.advance(n)',seconds)
     observation=page.evaluate('()=>({trace:regionTrace,trusted:window.regionalTrusted||false,end:regional.summary()})')
+    if alternate:
+        return dict(target=target,tap=tap,trace=observation['trace'],trusted=observation['trusted'],errors=seen_errors)
     if pairs:extra['walked']=placement()
     lifecycle=page.evaluate('regionGame.transitions()')
     if pairs:extra['lifecycle']=placement()
@@ -184,6 +192,9 @@ def main():
                     key=f'{a.region}-{n}-{w}-{arm}'
                     try:
                         row=run(browser,roots[arm],bases[roots[arm]],a.region,n,w,arm,a.seconds,a.pairs)
+                        trace=row['observation']['trace']
+                        if a.pairs and arm=='candidate' and row['target'] and not trace['sourceHops'].get('drag') and any(c['name']=='move' for c in trace['commands']):
+                            row['alternate']=run(browser,roots[arm],bases[roots[arm]],a.region,n,w,arm,a.seconds,True,True)
                         (a.out/(key+'.json')).write_text(json.dumps(row,sort_keys=True))
                         print(key,row['observation']['trace']['hops'],flush=True)
                     except Exception as e:
