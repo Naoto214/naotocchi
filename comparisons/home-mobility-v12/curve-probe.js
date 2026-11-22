@@ -1,38 +1,70 @@
-// Installed solely in the isolated saved-pose browser test.
-globalThis.curveProbe=(feet,goalKey,degrees,mode)=>{
- const s=scene.navigation.intentScale;
- for(const [key,x,y,w,h] of feet){
-   const b=actor(key);if(b.w!==w||b.h!==h)throw Error('wrong cast');
-   Object.assign(b,{x,y,target:null,route:[],nextAt:1e5,manualUntil:0,yieldAfter:0,yieldFor:null,lastWalk:0,lastOwnWalk:0,activity:'rest',source:'ambient'});
- }
- clearRelief();waiting.clear();crowdMisses.clear();manualGoals.clear();helpedAt.clear();selected=null;clock=20;paused=false;
- const a=actor(goalKey),angle=degrees*Math.PI/180;
- const q={x:a.x+8*Math.cos(angle)/s.x,y:a.y+8*Math.sin(angle)/s.y};
- const blocked=actors.filter(b=>b!==a&&!contactSegmentSafe(a,q,b,(a.w+b.w)*.5+10,(a.h+b.h)*.38+10));
- const trace=[];globalThis.HomeV12CurveEvent=(type,row)=>trace.push({type,...structuredClone(row)});
- const times=[],before={x:a.x,y:a.y},pts=actors.map(b=>[b.key,b.x,b.y]);let iters=0;
- const p={p:q,blocked};
- const gen=mode==='native'?intentPlan(a,q):curvedHandoff(a,q,[p],true);
- let complete;
- do{const start=performance.now();complete=gen.next();times.push(performance.now()-start);if(++iters>25000)throw Error('work ceiling');}while(!complete.done);
- const pair=complete.value;
- if(!pair)return {found:false,iters,max:Math.max(...times),total:times.reduce((a,b)=>a+b,0),trace};
- const history=[];let violations=0;
- waiting.set(a.key,{point:q,feet:nearbyFeet(a),expires:clock+12,attempted:true});
- relief={owner:a.key,point:q,expires:clock+12,search:null,pair,stage:0};
- for(let i=0;i<180;i++){
-   const old=actors.map(b=>({x:b.x,y:b.y}));
-   step(.05);
-   for(let n=0;n<actors.length;n++){
-     const b=actors[n];const delta=Math.hypot(b.x-old[n].x,b.y-old[n].y);
-     if(delta<1e-10)continue;
-     const box=bounds(b,scene),others=actors.filter(v=>v!==b);
-     if(delta>42*.05+1e-7||b.x<box.left||b.x>box.right||b.y<box.top||b.y>box.bottom||
-       !scene.navigation.segmentSafe(old[n],b,scene.planVisibility(b))||
-       others.some(v=>!contactSegmentSafe(old[n],b,v,(b.w+v.w)*.5+10,(b.h+v.h)*.38+10)))violations++;
-     history.push({key:b.key,x:b.x,y:b.y,source:b.source,clock});
-   }
-   if(!relief&&!a.target)break;
- }
- return {found:true,pair,iters,max:Math.max(...times),total:times.reduce((a,b)=>a+b,0),actual:Math.hypot((a.x-before.x)*s.x,(a.y-before.y)*s.y),goalError:Math.hypot((a.x-q.x)*s.x,(a.y-q.y)*s.y),violations,history,trace};
+// Native-model fixture hook for offline and local Chromium QA only. A recorded
+// pose retains every foot and footprint. The scheduler starts with idle peers.
+globalThis.curveProbe=(feet,goalKey,degrees,mode,radius=8,snapshot={})=>{
+  clearRelief();
+  waiting.clear(); crowdMisses.clear(); manualGoals.clear(); helpedAt.clear();
+  clock=20; nextRecovery=0; idleAt=1e5; selected=null; paused=false;
+  for(const [key,x,y,w,h] of feet){
+    const b=actor(key);
+    if(b.w!==w||b.h!==h)throw Error('Wrong resident footprint: '+key);
+    Object.assign(b,{x,y,target:null,route:[],nextAt:1e5,manualUntil:0,yieldAfter:0,yieldFor:null,
+      lastWalk:0,lastOwnWalk:0,activity:'rest',source:'ambient',pointerDrop:false,intentRoute:false,
+      escapeIntent:null,ambientEscape:false,visualTarget:null,after:'rest'});
+  }
+  const s=scene.navigation.intentScale,a=actor(goalKey),radians=degrees*Math.PI/180;
+  const before={x:a.x,y:a.y};
+  const q=snapshot.original?{x:snapshot.original[0],y:snapshot.original[1]}:{
+    x:a.x+radius*Math.cos(radians)/s.x,y:a.y+radius*Math.sin(radians)/s.y};
+  if(snapshot.pendingHelper){
+    const helper=actor(snapshot.pendingHelper);
+    waiting.set(helper.key,{point:{x:helper.x,y:helper.y},feet:nearbyFeet(helper),attempted:true,expires:clock+12});
+  }
+  const trace=[],history=[],times=[];
+  globalThis.HomeV12CurveEvent=(type,data)=>trace.push({type,...structuredClone(data)});
+  let pair=null,issued,iterations=0,violations=0;
+  const service=mode==='service'||mode==='drag';
+  if(service){
+    const source=mode==='drag'?'drag':'ambient';
+    issued=move(a.key,q,source,{pointerDrop:mode==='drag'});
+  }else{
+    const blocked=actors.filter(b=>b!==a&&!contactSegmentSafe(a,q,b,(a.w+b.w)*.5+10,(a.h+b.h)*.38+10));
+    const gen=mode==='isolated'?curvedHandoff(a,q,[{p:q,blocked}],true):intentPlan(a,q);
+    let result;
+    do{
+      const t=performance.now();result=gen.next();times.push(performance.now()-t);
+      if(++iterations>25000)throw Error('Fixture exceeded native search cap');
+    }while(!result.done);
+    pair=result.value;
+    if(pair){
+      waiting.set(a.key,{point:q,feet:nearbyFeet(a),expires:clock+12,attempted:true});
+      relief={owner:a.key,point:q,expires:clock+12,search:null,pair,stage:0};
+    }
+  }
+  let interrupted=false;
+  for(let i=0;(service||pair)&&i<300;i++){
+    const old=actors.map(b=>({x:b.x,y:b.y})), t=performance.now();
+    if(snapshot.touchHelper && !interrupted && history.some(row=>row.source==='yield')){
+      const helper=history.find(row=>row.source==='yield');
+      interrupted=select(helper.key);
+    }
+    step(.05);
+    if(service){times.push(performance.now()-t);iterations++;}
+    if(!pair)pair=relief?.pair??manualGoals.get(a.key)?.pairNext??null;
+    for(let j=0;j<actors.length;j++){
+      const b=actors[j],delta=Math.hypot(b.x-old[j].x,b.y-old[j].y);
+      if(delta<1e-10)continue;
+      const box=bounds(b,scene);
+      if(delta>42*.05+1e-7||b.x<box.left||b.x>box.right||b.y<box.top||b.y>box.bottom||
+        !scene.navigation.segmentSafe(old[j],b,scene.planVisibility(b))||
+        actors.some(v=>v!==b&&!contactSegmentSafe(old[j],b,v,(b.w+v.w)*.5+10,(b.h+v.h)*.38+10)))violations++;
+      history.push({key:b.key,x:b.x,y:b.y,source:b.source,clock});
+    }
+    if(!relief&&!a.target&&!manualGoals.size)break;
+  }
+  const vx=(a.x-before.x)*s.x,vy=(a.y-before.y)*s.y;
+  const gx=(q.x-before.x)*s.x,gy=(q.y-before.y)*s.y,length=Math.hypot(gx,gy),error=Math.hypot(gx-vx,gy-vy);
+  return {interrupted,found:!!pair,...(pair?{pair}:{}),issued,iters:iterations,
+    max:times.length?Math.max(...times):0,total:times.reduce((x,y)=>x+y,0),original:q,from:before,
+    actual:Math.hypot(vx,vy),goalError:error,gain:length-error,projected:length?(vx*gx+vy*gy)/length:0,
+    stopped:clock-20,violations,history,trace};
 };

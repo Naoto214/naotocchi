@@ -8,7 +8,7 @@
 <main><a href="./">ホームの試遊に戻る</a><h1>成長した瞬間の足元</h1>
 <p>森の28体が立っている状態で、主人公を次の成長段階へ進めます。どの住民の足元が最も動いたかを画面上の距離で比べられます。</p>
 <div class="row"><label for="width">ゲーム画面の幅</label><select id="width"><option>320</option><option>375</option><option selected>390</option><option>430</option></select></div>
-<div class="row" role="group" aria-label="成長時の配置"><button type="button" data-guard="keep" aria-pressed="true">元の足元を保持</button><button type="button" data-guard="walk" aria-pressed="false">主人公が歩く</button><button type="button" data-guard="helpers" aria-pressed="false">近くの住民が譲る</button><button type="button" data-guard="minimal" aria-pressed="false">近隣の足元へ補正</button><button type="button" data-guard="legacy" aria-pressed="false">従来の再配置</button></div>
+<div class="row" role="group" aria-label="成長時の配置"><button type="button" data-guard="auto" aria-pressed="true">V12・安全な順に選ぶ</button><button type="button" data-guard="live" aria-pressed="false">通常の成長・時間制限付き保持</button><button type="button" data-guard="keep" aria-pressed="false">元の足元を保持</button><button type="button" data-guard="walk" aria-pressed="false">主人公が歩く</button><button type="button" data-guard="helpers" aria-pressed="false">近くの住民が譲る</button><button type="button" data-guard="minimal" aria-pressed="false">近隣の足元へ補正</button><button type="button" data-guard="legacy" aria-pressed="false">従来の再配置</button></div>
 <div class="row"><button id="grow" disabled>成長させる</button><button id="restart">初期状態に戻す</button></div>
 <p id="status" role="status">読み込み中</p><div id="result"></div>
 <p class="note">これは一時停止した試遊での比較です。退路の確認に時間がかかる場合があります。</p></main>

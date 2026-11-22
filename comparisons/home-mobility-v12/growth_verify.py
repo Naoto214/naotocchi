@@ -15,9 +15,10 @@ def main():
     with sync_playwright() as pw:
         b=pw.chromium.launch(executable_path='/usr/bin/chromium')
         for width in a.widths:
+            ctx=b.new_context(viewport=dict(width=width,height=792),device_scale_factor=2,is_mobile=True,has_touch=True)
             for mode in a.policies:
                 if any(x['width']==width and x['policy']==mode for x in rows):continue
-                page=b.new_page(viewport=dict(width=width,height=792),device_scale_factor=2,is_mobile=True,has_touch=True)
+                page=ctx.new_page()
                 page.set_default_timeout(120000)
                 errors=[]
                 page.on('pageerror',lambda e:errors.append(str(e)))
@@ -40,5 +41,6 @@ def main():
                 a.out.write_text(json.dumps(dict(browser=b.version,cases=rows),ensure_ascii=False,separators=(',',':'))+'\n')
                 print(width,mode,round(result['maxScreenCss'],3),[s['reason'] for s in result['steps']],sum(len(r['lost']) for r in rays.values()),extra['travel'],flush=True)
                 page.close()
+            ctx.close()
         b.close()
 if __name__=='__main__':main()

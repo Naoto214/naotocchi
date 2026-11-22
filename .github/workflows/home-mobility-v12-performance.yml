@@ -6,7 +6,7 @@ on:
     inputs:
       experiment:
         type: choice
-        options: [all, core, extra, live-forward, live-reverse, fixed, stress, attribution, touch, growth, curve]
+        options: [all, core, extra, final-care, live-forward, live-reverse, fixed, stress, attribution, touch, growth, curve]
         default: all
         description: Native performance measurements
 permissions:
@@ -20,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        experiment: ${{ fromJSON((inputs.experiment == 'core' || contains(github.event.head_commit.message,'[v12-perf-core]')) && '["live-forward","live-reverse","fixed","stress","attribution","touch"]' || (inputs.experiment == 'extra' || contains(github.event.head_commit.message,'[v12-perf-extra]')) && '["growth","curve"]' || inputs.experiment && inputs.experiment != 'all' && format('["{0}"]',inputs.experiment) || '["live-forward","live-reverse","fixed","stress","attribution","touch","growth","curve"]') }}
+        experiment: ${{ fromJSON((inputs.experiment == 'final-care' || contains(github.event.head_commit.message,'[v12-perf-care]')) && '["final-care"]' || (inputs.experiment == 'core' || contains(github.event.head_commit.message,'[v12-perf-core]')) && '["live-forward","live-reverse","fixed","stress","attribution","touch"]' || (inputs.experiment == 'extra' || contains(github.event.head_commit.message,'[v12-perf-extra]')) && '["growth","curve"]' || inputs.experiment && inputs.experiment != 'all' && format('["{0}"]',inputs.experiment) || '["live-forward","live-reverse","fixed","stress","attribution","touch","growth","curve"]') }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -95,6 +95,12 @@ jobs:
             touch)
               python -B "$prior/performance.py" touch --order "$forward" --out "$out/touch-forward.json"
               python -B "$prior/performance.py" touch --order "$reverse" --out "$out/touch-reverse.json"
+              ;;
+            final-care)
+              python -B "$folder/performance-growth.py" --final --out "$out/growth-final.json"
+              python -B "$folder/performance-growth.py" --profile --widths 320 390 --out "$out/care-profile.json"
+              python -B "$folder/performance-growth.py" --life --out "$out/life.json"
+              MOBILITY_GAME="$RUNNER_TEMP/v12/game" node "$folder/performance-statue.mjs" "$out/statue.json"
               ;;
             growth)
               python -B "$folder/performance-growth.py" --out "$out/growth.json"
