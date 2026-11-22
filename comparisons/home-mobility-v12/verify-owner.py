@@ -47,6 +47,7 @@ def test(options):
             errors = []
             page.on('pageerror', lambda error: errors.append(type(error).__name__))
             def room(arm):
+                print(options.engine, options.width, arm, flush=True)
                 page.wait_for_function("""arm=>document.body.dataset.ready==='true' &&
                   document.querySelector('#home').contentWindow.location.pathname.endsWith('-compare-'+arm+'.html')""",arg=arm)
                 return page.locator('#home').element_handle().content_frame()

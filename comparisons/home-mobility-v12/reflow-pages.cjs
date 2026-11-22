@@ -49,12 +49,11 @@ function addReflowPages({add,baseline,modelSource,rendererSource}) {
   add('v12/corridor.html',inherited('corridor.html'));
   add('v12/corridor.mjs',inherited('corridor.mjs').replace('mobility-v11-corridor','mobility-v12-corridor').replace('diagnostics:0','diagnostics:0,footLog:1'));
   const care=growthModel(modelSource), careModel='home-production-model-v12-growth.js';
-  const oldApp='script-v2-mobility-v7.js',newApp='script-v2-mobility-v12-growth.js',app=patchCareGame(game(oldApp));
+  const oldApp='script-v2-mobility-v7.js',newApp='script-v2-mobility-v11-growth.js',app=game(newApp);
   const carePaint='home-production-diorama-v12-growth.js';
   const careRenderer=replaceExact(rendererSource,'    function paint(){','    globalThis.paintV12Growth=()=>paint();\n    function paint(){');
   add('game/'+carePaint,careRenderer);
   add('game/'+careModel,care);
-  add('game/'+newApp,app);
   let growth=swap(basePage,model,careModel,care);
   growth=swap(growth,painter,carePaint,careRenderer);
   add('game/mobility-v12-growth.html',swap(growth,oldApp,newApp,app));

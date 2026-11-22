@@ -1,0 +1,96 @@
+{
+  "hostedYieldTouch390": {
+    "cases": [
+      {
+        "scene": "watcher",
+        "arm": "short",
+        "state": "arrived",
+        "travel": 8.000000000000016,
+        "error": 0,
+        "helpers": [
+          "companion:hedgehog",
+          "companion:tanuki"
+        ],
+        "actorCount": 28,
+        "exits": "終点で周囲が静止した場合の単独8pxの退路。ほかの27体で最後の方向が閉じた住民 · 該当なし。新たに方向が開いた住民 · 該当なし。 全28体で、開始時にあった最後の単独方向を失った住民 · 3px 該当なし、8px 該当なし、16px 該当なし。"
+      },
+      {
+        "scene": "stone-near",
+        "arm": "short",
+        "state": "closed",
+        "travel": 0,
+        "error": 8.00999999999999,
+        "helpers": [],
+        "actorCount": 28,
+        "exits": "終点で周囲が静止した場合の単独8pxの退路。ほかの27体で最後の方向が閉じた住民 · 該当なし。新たに方向が開いた住民 · 該当なし。 同じ開始・終了位置で測定 · ほおぶくろハムスターの単独3px 12→12方向、あそびずきカワウソの単独3px 3→3方向。"
+      },
+      {
+        "scene": "stone-near",
+        "arm": "v12",
+        "state": "arrived",
+        "travel": 8.009999999999987,
+        "error": 0,
+        "helpers": [
+          "companion:hamster"
+        ],
+        "actorCount": 28,
+        "exits": "終点で周囲が静止した場合の単独8pxの退路。ほかの27体で最後の方向が閉じた住民 · 該当なし。新たに方向が開いた住民 · 該当なし。 同じ開始・終了位置で測定 · ほおぶくろハムスターの単独3px 12→0方向、あそびずきカワウソの単独3px 3→0方向。"
+      }
+    ],
+    "errors": []
+  },
+  "localWebKitHome390": {
+    "width": 390,
+    "engine": "webkit",
+    "version": "26.5",
+    "fixedOpening": "0ccf153718cf433bd9307de519092586e26ed09721320679f41188e1a52729de",
+    "historicalOpening": "7c0840ed803293a606f0d8fbd59dd864400bb1c526cfc77fa0453d47d81d1c1d",
+    "sameOpeningAllThree": true,
+    "toolbarFits": true,
+    "footReadoutResidents": 4,
+    "progress": {
+      "arm": "v12-reference",
+      "tracked": 28,
+      "elapsed": 2.6390000000000016,
+      "moved": 1,
+      "syncRecorder": true
+    },
+    "errors": []
+  },
+  "localWebKitGrowth390": {
+    "browser": "WPE WebKit 26.5",
+    "viewport": [
+      390,
+      844
+    ],
+    "origin": "http://127.0.0.1:18642",
+    "cases": [
+      {
+        "mode": "auto",
+        "width": 390,
+        "screen": "主人公の年齢\n25 → 45\n最大の画面変位\n0.58 CSS px\n対象の住民\nおっちょこちょいリス\n足位置を保持した回数\n2 / 2\n再計算 1\n以前の退路を保持\n再計算 2\n以前の退路を保持\n28体の成長前後の退路\n落ちついたいぬ　42 → 48方向（失われた方向 0）\nもりのクマさん　11 → 16方向（失われた方向 0）\nきまぐれなねこ　14 → 14方向（失われた方向 0）\nいたずらたぬき　0 → 0方向（失われた方向 0）\nものしりふくろう　22 → 23方向（失われた方向 0）\nほおぶくろハムスター　0 → 0方向（失われた方向 0）\nまねっこサル　75 → 76方向（失われた方向 0）\nふわふわヒツジ　5 → 5方向（失われた方向 0）\nよふかしコウモリ　47 → 47方向（失われた方向 0）\nすべりたがりペンギン　30 → 30方向（失われた方向 0）\nひとなつっこいしばいぬ　50 → 50方向（失われた方向 0）\nとけかけのぷにゅ　5 → 5方向（失われた方向 0）\nサングラスのカメレオン　0 → 0方向（失われた方向 0）\nまよいこんだユニコーン　13 → 13方向（失われた方向 0）\nみているなにか　17 → 17方向（失われた方向 0）\nすばしっこいうさぎ　13 → 13方向（失われた方向 0）\nおっちょこちょいリス　10 → 10方向（失われた方向 0）\nあそびずきカワウソ　4 → 4方向（失われた方向 0）\nぐうたらパンダ　0 → 0方向（失われた方向 0）\nおしゃべりオウム　8 → 8方向（失われた方向 0）\nごろごろアザラシ　4 → 4方向（失われた方向 0）\nはやおきニワトリ　0 → 0方向（失われた方向 0）\nびっくりハリネズミ　2 → 2方向（失われた方向 0）\nせっかちなカタツムリ　6 → 6方向（失われた方向 0）\nむひょうじょうのせきぞう　1 → 1方向（失われた方向 0）\nじかんにルーズなとけい　19 → 19方向（失われた方向 0）\nしっぽのおおいきつね　0 → 0方向（失われた方向 0）\nただのはこ　0 → 0方向（失われた方向 0）",
+        "ageBefore": 25,
+        "ageAfter": 45,
+        "residents": 28,
+        "route": "http://127.0.0.1:18642/game/mobility-v12-growth.html?count=28&region=forest&time=day&season=autumn&weather=sunny&ground=on&variant=B&paired=1&paused=1&clock=0&growthPolicy=auto&growthLive=0&waitForPainting=1",
+        "method": "trusted touch",
+        "shift": 0.580585239289718,
+        "travel": null,
+        "errors": []
+      },
+      {
+        "mode": "live",
+        "width": 390,
+        "screen": "主人公の年齢\n25 → 45\n最大の画面変位\n0.58 CSS px\n対象の住民\nおっちょこちょいリス\n実際の配置\n2回の照合を完了し、元の足位置を保持\n足位置を保持した回数\n2 / 2\n再計算 1\n以前の退路を保持\n再計算 2\n以前の退路を保持",
+        "ageBefore": 25,
+        "ageAfter": 45,
+        "residents": 28,
+        "route": "http://127.0.0.1:18642/game/mobility-v12-life.html?count=28&region=forest&time=day&season=autumn&weather=sunny&ground=on&variant=B&paired=1&paused=1&clock=0&growthPolicy=live&growthLive=1&waitForPainting=1",
+        "method": "trusted touch",
+        "shift": 0.580585239289718,
+        "travel": null,
+        "errors": []
+      }
+    ]
+  }
+}
