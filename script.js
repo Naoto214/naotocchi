@@ -18061,12 +18061,12 @@
   const MG_DEMO_KINDS = ['pad', 'swipe', 'drag', 'dpad', 'hold', 'tap'];
   function minigameDemoKind(game) {
     const text = (game && MINIGAME_CONTROLS[game.id]) || '';
-    // 「したのパッド」で はじまる せつめいは タッチパッドが 主役
-    if (/^したのパッド/.test(text)) return 'pad';
+    // 新旧どちらの操作説明でも、先頭にあるパッドを主操作とする。
+    if (/^(?:した|下|画面下)のパッド/.test(text)) return 'pad';
     if (/スワイプ|はら[っう]|フリック|なぞって|なぞる/.test(text)) return 'swipe';
     if (/ドラッグ|引っぱ|ひっぱ|なぞ/.test(text)) return 'drag';
     if (/◀▶|↶↷|▲|▼|◀|▶/.test(text)) return 'dpad';
-    if (/長おし|おしっぱなし|おさえ|ためて|おしている間|おしている あいだ/.test(text)) return 'hold';
+    if (/長[お押]し|[お押]しっぱなし|おさえ|ためて|[お押]している(?:間| あいだ)/.test(text)) return 'hold';
     return 'tap';
   }
 
