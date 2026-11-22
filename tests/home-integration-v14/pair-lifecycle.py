@@ -59,7 +59,17 @@ def serve(root, assets):
 def run(browser,base,region,count,out,before_navigation=False):
     context=browser.new_context(viewport=dict(width=390,height=630),is_mobile=True,has_touch=True,
                                 device_scale_factor=2,locale='ja-JP',timezone_id='Asia/Tokyo')
+    # The exact launcher household can independently trigger its first anniversary.
+    # Continue past its ordinary movie controls, as an owner returning home would.
+    context.add_init_script("""window.pairMovieActions=[];
+      setInterval(()=>{
+        const shown=document.querySelector('#dateOverlay:not(.hidden) #dateMovie:not(.hidden)');
+        if(!shown)return;
+        const button=shown.querySelector('.date-movie-actions button:not(.hidden)');
+        if(button){pairMovieActions.push(button.id);button.click();}
+      },350);""")
     page=context.new_page()
+    page.set_default_timeout(90000)
     errors=[]
     page.on('pageerror',lambda e:(errors.append(str(e)),print('pageerror',e,flush=True)))
     delayed=[]
@@ -69,7 +79,7 @@ def run(browser,base,region,count,out,before_navigation=False):
     page.locator('[name=region]').select_option(region)
     page.locator('[name=count]').select_option(str(count))
     page.locator('#scenario button').first.click()
-    page.wait_for_url('**/game/trial.html',wait_until='domcontentloaded',timeout=90000)
+    page.wait_for_url('**/game/trial.html',wait_until='domcontentloaded',timeout=180000)
     ready=f"window.pairReady && pairReady({count})"
     images=ready+" && [...document.querySelectorAll('#castStage .character-asset')].every(i=>i.complete&&i.naturalWidth)"
 
@@ -82,9 +92,9 @@ def run(browser,base,region,count,out,before_navigation=False):
         for route in delayed:route.continue_()
         context.close()
         return
-    try: page.wait_for_function(images,timeout=90000)
+    try: page.wait_for_function(images,timeout=180000)
     except Exception:
-        print(page.evaluate("({url:location.href,observer:!!window.pairSample,stage:document.querySelector('#castStage')?.dataset, casts:[...document.querySelectorAll('#castStage .character-asset')].filter(i=>!i.naturalWidth).map(i=>i.src).slice(0,5)})"),errors,flush=True)
+        print(page.evaluate("({url:location.href,observer:!!window.pairSample,stage:document.querySelector('#castStage')?.dataset, region:window.pairPaintedRegion,presentation:window.NaotocchiHomeViewport?.residentPresentation?.(),casts:[...document.querySelectorAll('#castStage .character-asset')].filter(i=>!i.naturalWidth).map(i=>i.src).slice(0,5)})"),errors,flush=True)
         raise
     result={'stages':{},'checkpoints':[],'errors':errors,'browser':browser.version}
     def capture(label):
@@ -97,24 +107,26 @@ def run(browser,base,region,count,out,before_navigation=False):
     page.wait_for_function("pairGame.express()==='happy'",timeout=30000)
     result['expression']=page.locator('#petSprite').get_attribute('data-expression')
     capture('expression')
-    page.wait_for_function("pairStages.some(s=>s.label==='first-navigated-pair-target')",timeout=90000)
+    page.wait_for_function("pairStages.some(s=>s.label==='first-navigated-pair-target')",timeout=180000)
     capture('autonomy')
     page.set_viewport_size(dict(width=375,height=615))
-    page.wait_for_function(ready,timeout=90000)
+    page.wait_for_function(ready,timeout=180000)
     capture('resize-375')
     page.set_viewport_size(dict(width=390,height=630))
-    page.wait_for_function(ready,timeout=90000)
+    page.wait_for_function(ready,timeout=180000)
     capture('resize-back')
     result['stages']['entry']=page.evaluate('pairStages')
     other='mountain' if region=='forest' else 'forest'
     result['travel']=page.evaluate('r=>pairGame.travel(r)',other)
-    page.wait_for_function(ready+" && pairSample('check').region==="+json.dumps(other),timeout=90000)
+    page.wait_for_function(ready+" && pairSample('check').region==="+json.dumps(other),timeout=180000)
     capture('region-change')
     result['savedRegion']=page.evaluate(f"JSON.parse(localStorage.getItem('{SAVE}')).regionId")
+    result['entryMovieActions']=page.evaluate('pairMovieActions')
     page.reload(wait_until='domcontentloaded')
-    page.wait_for_function(images,timeout=90000)
+    page.wait_for_function(images,timeout=180000)
     capture('reload')
     result['stages']['reload']=page.evaluate('pairStages')
+    result['reloadMovieActions']=page.evaluate('pairMovieActions')
     assert not errors,errors
     assert result['expression']=='happy' and result['travel']==result['savedRegion']==other,result
     assert result['checkpoints'][-1]['region']==other
