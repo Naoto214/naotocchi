@@ -77,9 +77,47 @@ def observe_gesture(page, touch, *args):
 
 def observe_aging(page, touch, meta, subject, tracks):
     page.evaluate(CURVE_OBSERVER)
-    aged,snapshot = native_aging(page,touch,meta,subject,tracks)
+    # A native UI refresh can occur between the 300s observation and the press.
+    # Take the donor immediately after the native gesture has been prepared in
+    # the same JS call, before dispatching any finger input. Preserve both poses.
+    page.evaluate("""() => {
+      const qa=touchQA,prepare=qa.prepare;
+      qa.prepare=function(...args){
+        const plan=prepare.apply(this,args);
+        if(!qa.agedFingerState && qa.model.metrics().clock>=299.999){
+          qa.agedFingerState={state:qa.matrixState(),opening:qa.opening()};
+        }
+        return plan;
+      };
+    }""")
+    aged,prior_snapshot = native_aging(page,touch,meta,subject,tracks)
+    press = page.evaluate("touchQA.agedFingerState")
+    old.require(press and abs(press["state"]["clock"]-300)<.001, "aged finger checkpoint omitted")
+    target = press["opening"][aged["index"]]
+    old.require(target[0]==aged["drag"]["key"] and target[5:7]==aged["drag"]["foot"], "prepared finger and donor foot differ")
+    snapshot = press["state"]
+    if snapshot!=prior_snapshot or aged["opening"]!=press["opening"]:
+        aged["beforeFingerPreparation"]={"state":prior_snapshot,"opening":aged["opening"]}
+    aged["opening"]=press["opening"]
     aged["curve"] = page.evaluate("touchQA.matrixCurve.rows.filter(r=>r.phase==='living')")
     return aged,snapshot
+
+
+# Retry only before dispatch when a paint refresh changed the receiving home.
+# A failed reconstruction never produces a success or a physical gesture.
+CHECK_DONOR_BEFORE_TOUCH = """({opening,seed})=>{
+  const qa=touchQA;qa.stablePrepare??=qa.prepare;
+  qa.beforePressResyncs=[];
+  qa.prepare=function(...args) {
+    for(let i=0;i<3;i++){
+      const plan=qa.stablePrepare.apply(this,args);
+      const actual=qa.opening(),incoming=qa.readSeed();
+      if(JSON.stringify(actual)===JSON.stringify(opening)&&incoming===seed)return plan;
+      qa.beforePressResyncs.push({attempt:i+1,opening:actual,seed:incoming});
+    }
+    throw Error('Receiving household could not restore the same feet and RNG before touch');
+  };
+}"""
 
 
 def crossover(browser, url, coord, sessions):
@@ -96,6 +134,7 @@ def crossover(browser, url, coord, sessions):
                 raw = aged["drag"]
                 request = {k: raw[k] for k in ("start","goal","foot","origin","modelGoal","scale","key")}
                 shared = comparisons.setdefault(donor, dict(snapshot=snapshot, opening=aged["opening"], input=request, replays={}))
+                page.evaluate(CHECK_DONOR_BEFORE_TOUCH,{"opening":aged["opening"],"seed":snapshot["seed"]})
                 retries = []
                 for _ in range(3):
                     row = prior.baseline.shared_drop(page, touch, aged["index"], snapshot, raw, aged["opening"])
@@ -104,7 +143,7 @@ def crossover(browser, url, coord, sessions):
                         break
                     retries.append(differences)
                 old.require(not differences, f"{coord}/{donor}/{arm} unequal physical coordinates {differences}")
-                shared["replays"][arm] = dict(row=row, scripts=meta["hashes"], coordinateRetries=retries)
+                shared["replays"][arm] = dict(row=row, scripts=meta["hashes"], coordinateRetries=retries, beforePressResyncs=page.evaluate("touchQA.beforePressResyncs"))
     return comparisons
 
 

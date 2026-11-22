@@ -1,0 +1,46 @@
+{
+  "validFoot": [
+    185.22782397947284,
+    215.28480688816242
+  ],
+  "otherRecordedFoot": [
+    141.06236990333574,
+    219.6214986602761
+  ],
+  "cases": [
+    {
+      "mode": "normal",
+      "attempts": 0,
+      "pointers": 1,
+      "error": null,
+      "trusted": true,
+      "foot": [
+        185.22782397947284,
+        215.28480688816242
+      ],
+      "countsAsArrival": true
+    },
+    {
+      "mode": "one-delayed-refresh",
+      "attempts": 1,
+      "pointers": 1,
+      "error": null,
+      "trusted": true,
+      "foot": [
+        185.22782397947284,
+        215.28480688816242
+      ],
+      "countsAsArrival": true
+    },
+    {
+      "mode": "persistent-wrong-home",
+      "attempts": 3,
+      "pointers": 0,
+      "error": "receiver-foot-mismatch",
+      "trusted": false,
+      "foot": null,
+      "countsAsArrival": false
+    }
+  ],
+  "browser": "156.0.8078.79"
+}
