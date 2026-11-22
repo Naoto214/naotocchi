@@ -37,7 +37,11 @@ HOP = """
       const x=(a.x-b.x)/rx,y=(a.y-b.y)/ry,dx=(p.x-a.x)/rx,dy=(p.y-a.y)/ry;
       const t=Math.max(0,Math.min(1,-(x*dx+y*dy)/(dx*dx+dy*dy||1)));
       const before=Math.hypot(x,y),closest=Math.hypot(x+t*dx,y+t*dy);
-      if(closest+1e-7<Math.min(1,before))m.contact++;
+      if(closest+1e-7<Math.min(1,before)){
+        m.contact++;
+        if((m.witnesses||=[]).length<10)m.witnesses.push({clock,actor:a.key,peer:b.key,source:a.source,
+          from:[a.x,a.y],to:[p.x,p.y],peerFoot:[b.x,b.y],radii:[rx,ry],before,closest});
+      }
     }
   }
 """
