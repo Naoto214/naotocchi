@@ -21,7 +21,7 @@ const adapter=read('../home-mobility-v11/goal-owl-scene.mjs')
  .replace("'../game/home-visible-ground-navigation-finish.mjs'","'"+ext+"'")
  .replaceAll("'../game/","'"+game)
  .replace('function forest(config){','export function forest(config,patches=[]){')
- .replace('presentation:p,cover}','presentation:p,cover,patches}');
+ .replace('presentation:p,cover}','presentation:p,cover,patches,inkBodies:config.actors}');
 const {forest}=await import(data(adapter));
 const src=reflow.patchReflow(fs.readFileSync(new URL('home-production-model-mobility-v11-foot.js',game),'utf8'));
 const marker='    return {metrics:';

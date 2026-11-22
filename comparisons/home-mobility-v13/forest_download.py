@@ -17,7 +17,10 @@ FILES = {'forest28.json.gz', 'directions.json.gz', 'residents.csv', 'progress.js
 
 
 def api(path):
-    return subprocess.check_output(['gh', 'api', REPO + '/' + path])
+    result = subprocess.run(['gh','api',REPO+'/'+path],capture_output=True)
+    if result.returncode:
+        raise RuntimeError(f'GitHub request failed for {path}. A downloaded ZIP can also be verified with --cached-only.')
+    return result.stdout
 
 
 def download(args):
@@ -37,6 +40,8 @@ def download(args):
         out = folder / case
         out.mkdir(exist_ok=True)
         target = out / 'runner.zip'
+        if args.cached_only and not target.exists():
+            return case, None
         source = target.read_bytes() if target.exists() else api(f'actions/artifacts/{a["id"]}/zip')
         digest = hashlib.sha256(source).hexdigest()
         assert a['digest'] == 'sha256:' + digest and len(source) == a['size_in_bytes'], case
@@ -55,11 +60,13 @@ def download(args):
     assert records['total_count'] == len(records['artifacts'])
     with ThreadPoolExecutor(max_workers=4) as pool:
         for name, complete in pool.map(artifact, records['artifacts']):
-            print(name, 'complete' if complete else 'partial', flush=True)
+            if complete is not None:
+                print(name, 'complete' if complete else 'partial', flush=True)
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('run', type=int)
     parser.add_argument('out', type=Path)
+    parser.add_argument('--cached-only', action='store_true', help='Verify ZIPs placed as CASE/runner.zip by the GitHub connector.')
     download(parser.parse_args())

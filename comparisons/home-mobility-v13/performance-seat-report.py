@@ -15,11 +15,13 @@ old=helpers["old"]
 
 def report(directory, game, out):
     receipt=json.loads((directory/"receipt.json").read_bytes())
-    assert receipt["complete"] and receipt["conclusion"]=="success" and len(receipt["archives"])==2
-    result=dict(run=receipt["run"],url=receipt["url"],commit=receipt["commit"],archives=receipt["archives"],assets={},sources={},measures=[])
+    assert receipt["complete"] and receipt["conclusion"]=="success"
+    seat_archives=[a for a in receipt["archives"] if "-seat-375-" in a["name"]]
+    assert len(seat_archives)==2
+    result=dict(run=receipt["run"],url=receipt["url"],commit=receipt["commit"],archives=seat_archives,assets={},sources={},measures=[])
     commands=None
     opening={}
-    for archive in receipt["archives"]:
+    for archive in seat_archives:
         order=archive["name"].rsplit("-",1)[-1].split(".")[0]
         arms=["v13-c","v13-d"] if order=="forward" else ["v13-d","v13-c"]
         path=directory/archive["name"]

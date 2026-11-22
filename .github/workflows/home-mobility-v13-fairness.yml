@@ -4,6 +4,12 @@ on:
     branches: [draft/home-mobility-v13]
     paths: ['comparisons/home-mobility-v13/forest-ci.request']
   workflow_dispatch:
+    inputs:
+      scope:
+        type: choice
+        description: Owner comparison policies
+        options: [all, terrain]
+        default: all
 permissions:
   contents: read
 jobs:
@@ -15,7 +21,9 @@ jobs:
       fail-fast: false
       matrix:
         profile: [320-214-0-fixed-1, 320-214-0-reference-1, 375-937-0-fixed-1, 390-214-0-fixed-1, 430-214-0-reference-1]
-        policy: [v13-a, v13-b, v13-c, v13-d, v13-d-curve]
+        policy: >-
+          ${{ fromJSON((contains(github.event.head_commit.message, '[forest-v13-guard]') || inputs.scope == 'terrain')
+          && '["v13-b","v13-c","v13-d","v13-d-curve"]' || '["v13-a","v13-b","v13-c","v13-d","v13-d-curve"]') }}
     env:
       PROFILE: ${{ matrix.profile }}
       POLICY: ${{ matrix.policy }}

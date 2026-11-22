@@ -15,6 +15,7 @@ spec = importlib.util.spec_from_file_location('previous_forest_results', V12 / '
 prior = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(prior)
 from forest_collect import digest, write_csv
+from forest_metrics import refusal_intervals
 
 PROFILES = ['320-214-0-fixed-1','320-214-0-reference-1','375-937-0-fixed-1','390-214-0-fixed-1','430-214-0-reference-1']
 POLICIES = ['v11-foot','v12','v13-a','v13-b','v13-c','v13-d','v13-d-curve']
@@ -60,7 +61,8 @@ def geometry(d, observations):
         if previous_row:
             when, old_feet, other_g = previous_row
             old_own = next(r for r in old_feet if r[0] == k)
-            if own == old_own and old_feet != feet:
+            same_bodies = all(a[0]==b[0] and a[3:]==b[3:] for a,b in zip(old_feet,feet,strict=True))
+            if own == old_own and same_bodies and old_feet != feet:
                 for radius in ('3','8','16'):
                     if radius not in g['reachable'] or radius not in other_g['reachable']:
                         continue
@@ -110,7 +112,11 @@ def collect(case, game=None):
     legs = prior.v9.legs(d)
     received = Counter(l['helper_for'] for l in legs if l['source']=='yield' and l['status']=='arrival' and l['finish_s']<=600)
     assert sum(received.values()) == sum(int(r['yields_performed']) for r in people)
-    ends, changes = geometry(d, prior.v9.load(case / 'directions.json.gz')['observations'])
+    observations = prior.v9.load(case / 'directions.json.gz')['observations']
+    ends, changes = geometry(d, observations)
+    with_safe_progress = Counter(obs['key'] for obs in observations if obs['phase']=='refusal'
+        and d['log']['requests'][obs['request']]['clock']<=600 and any(h for rad,h in obs['geometry']['toward'].items()
+        if int(rad) in (8,12,18,24)))
     assert cell['model_s'] >= 600 and cell['wall_s'] >= 600
     initial = {a['key']:a for a in d['initial']['actors']}
     end = {a['key']:a for a in d['baseline']['residents']}
@@ -121,8 +127,10 @@ def collect(case, game=None):
         r.update(meta, completed_help_received=received[k], drag_arrivals=r['opening_arrived']+r['aged_arrived'],
             drag_inputs=r['opening_trusted']+r['aged_trusted'])
         r.update({key: per_actor[k][key] for key in prior.CURVE_KEYS})
+        r['failures_with_8px_safe_progress'] = with_safe_progress[k]
         for phase, prefix in [('opening','opening'),('endpoint','aged')]:
             g = ends[phase,k]
+            r[prefix+'_safe_candidates'] = sum(len(h) for rad,h in g['reachable'].items() if rad != '16')
             if '16' in g['reachable']:
                 r[prefix+'_16px_headings'] = len(g['reachable']['16'])
             r[prefix+'_contacts'] = len(g['contacts'])
@@ -148,6 +156,16 @@ def collect(case, game=None):
         trace = prior.v9.load(case / 'fixed-native.json.gz')
         payload = [trace['state'], *[trace['log'][k] for k in ('requests','motions','choices','budget','syncs')]]
         assert digest(payload) == fixed['physicalSHA256']
+        native = {**trace, 'arm':d['arm'], 'seed':d['seed']}
+        moves = prior.v9.legs(native)
+        fixed['longestBlockedSeconds'] = {}
+        for actor in initial:
+            asks=[(q['clock'],'refusal') for q in trace['log']['requests'] if q['key']==actor and q['source']=='ambient' and q['planned'] and not q['accepted']]
+            own=[(l['start_s'],'own_step') for l in moves if l['key']==actor and l['source']=='ambient']
+            idle=[(t,'idle') for t,key,kind in trace['log']['choices'] if key==actor and kind in ('turn','look','sit','rest')]
+            periods=refusal_intervals(asks+own+idle,600)
+            fixed['longestBlockedSeconds'][actor]=round(max((b-a for a,b,_ in periods),default=0),3)
+
     return dict(**meta, cell=cell, people=compact, receipt=receipt, fixed=fixed), people, changes, walkers
 
 
@@ -166,8 +184,10 @@ def produce(args):
             policy = receipt['case'].split('-',5)[-1]
             if policy not in POLICIES or (year=='v12' and receipt['run'] not in (44991773760,44994820432)):
                 continue
-            if year=='v13' and args.run and receipt['run'] != args.run:
-                continue
+            if year=='v13' and args.run:
+                expected = args.control_run if policy=='v13-a' and args.control_run else args.run
+                if receipt['run'] != expected:
+                    continue
             key = receipt['case']
             if key in inputs:
                 raise ValueError(f'Specify the candidate run to choose repeated {key}')
@@ -196,6 +216,16 @@ def produce(args):
     write_csv(out/'forest-peer-changes.csv', changes)
     for name,value in [('forest-summary',dict(profiles=[p for p in profiles if groups[p]],names=names,homes=homes)),('forest-curve-handoffs',plans)]:
         (out/(name+'.json')).write_text(json.dumps(value, ensure_ascii=False, separators=(',',':'))+'\n')
+    if args.superseded_summary:
+        original = json_file(args.superseded_summary)
+        first = [h for h in original['homes'] if h['policy'] in POLICIES[2:]]
+        assert len(first)==25 and {h['receipt']['run'] for h in first}=={args.control_run}
+        for h in first:
+            if h['policy']=='v13-a':
+                assert h['receipt']==groups[h['profile']]['v13-a']['receipt']
+        (out/'forest-first.json').write_text(json.dumps(dict(status='superseded',
+            reason='An independent painted-art segment audit found newly admitted routes crossing visible obstacles.',
+            profiles=PROFILES, names=original['names'], homes=first),ensure_ascii=False,separators=(',',':'))+'\n')
     print(len(homes),'households,',len(people),'residents,',len(changes),'same-foot opening or closing observations')
     return homes
 
@@ -205,6 +235,8 @@ if __name__ == '__main__':
     for key in ('raw','archived','out'):
         parser.add_argument(key, type=Path)
     parser.add_argument('--run', type=int)
+    parser.add_argument('--control-run', type=int, help='Use the identical A native control from this earlier official run.')
     parser.add_argument('--game', type=Path, help='Check downloaded model, renderer, projection, navigating and input script digests against the built game.')
     parser.add_argument('--partial', action='store_true')
+    parser.add_argument('--superseded-summary', type=Path, help='Earlier complete aggregate, including the unchanged certified A controls.')
     produce(parser.parse_args())

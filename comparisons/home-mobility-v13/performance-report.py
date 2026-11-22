@@ -36,6 +36,8 @@ def report(directory, dist, out, supplements=()):
             path = folder / archive["name"]
             assert sha(path.read_bytes()) == archive["sha256"] and path.stat().st_size == archive["bytes"]
             result["archives"].append(dict(run=receipt["run"], **archive))
+            if "-seat-375-" in archive["name"]:
+                continue  # The four 375px observations are verified by performance-seat-report.py.
             with zipfile.ZipFile(path) as z:
                 rootnames = [n for n in z.namelist() if "/" not in n]
                 if not rootnames:

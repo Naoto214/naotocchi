@@ -21,7 +21,8 @@ function prepare(baseline,{gameplayOnly=false,scenesOnly=false}={}) {
   }
   const geometry = require('./geometry.cjs');
   const navigation = 'home-visible-ground-navigation-v13.mjs';
-  add('game/'+navigation,geometry.patchNavigation(game('home-visible-ground-navigation-finish.mjs')));
+  const navigationSource=geometry.patchNavigation(game('home-visible-ground-navigation-finish.mjs'));
+  add('game/'+navigation,navigationSource);
   const painter = 'home-production-diorama-mobility-v12.js';
   const basePainter = game(painter);
   // D with curved assistance uses the same terrain, painter and seats as D.
@@ -31,7 +32,7 @@ function prepare(baseline,{gameplayOnly=false,scenesOnly=false}={}) {
     for (const kind of ['finish','mobility']) {
       const original = 'home-production-world-v12-'+kind+'.mjs';
       const source = game(original);
-      const result = geometry.patchWorld(source,arm);
+      const result = geometry.patchWorld(source,arm,ref(navigation,navigationSource));
       if(result===source) continue;
       const name = 'home-production-world-v13-'+arm+'-'+kind+'.mjs';
       add('game/'+name,result);
