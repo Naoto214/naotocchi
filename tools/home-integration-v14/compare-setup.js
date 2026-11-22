@@ -35,6 +35,18 @@
     const create = api.createModel;
     api.createModel = options => {
       const model = create({...options, random: random(seed)});
+      // A provisional model may already have coordinates while the native
+      // controller hides the cast to finish its portrait camera fit.
+      let seated = !model.finishSeating;
+      if (model.finishSeating) {
+        const finish = model.finishSeating;
+        model.finishSeating = (...args) => {
+          const pending = model.seatingPending();
+          const result = finish(...args);
+          if (pending && !model.seatingPending()) seated = true;
+          return result;
+        };
+      }
       let navigated = false;
       const sync = model.sync;
       model.sync = (actors, scene, ...rest) => {
@@ -45,13 +57,27 @@
       function pair() {
         const viewport = window.NaotocchiHomeViewport;
         const stage = document.getElementById('castStage');
-        if (!navigated || stage?.dataset.worldRenderer !== 'art-25d') return null;
+        if (!seated || !navigated || model.seatingPending?.() ||
+            stage?.dataset.worldRenderer !== 'art-25d' || stage.dataset.dioramaSeating === 'pending' ||
+            document.hidden || document.body.classList.contains('movie-active') ||
+            document.querySelector('#dateOverlay:not(.hidden), #screenNormal.hidden') ||
+            getComputedStyle(stage).visibility !== 'visible' || !stage.getClientRects().length) return null;
         const camera = viewport?.residentPresentation?.();
         if (document.body.dataset.homeTinyOverview === 'true' && !camera) return null;
         const actors = model.snapshot();
         if (actors.length !== count) return null;
         const pet = actors.find(a => a.kind === 'pet'), bear = actors.find(a => a.kind === 'partner');
         if (!pet || !bear) return null;
+        // The shadows are written by the native actor paint, after layout.
+        // Require its two feet and decoded sprites before exposing a readout.
+        const shadows = [...stage.querySelectorAll('.diorama-shadow')];
+        const painted = actor => {
+          const image = stage.querySelector('[data-diorama-actor="' + actor.key + '"] .character-asset');
+          if (!image?.complete || !image.naturalWidth || !image.getBoundingClientRect().width) return false;
+          return shadows.some(s => Math.abs(parseFloat(s.style.left) - actor.x) < .05 &&
+                                   Math.abs(parseFloat(s.style.top) - actor.y) < .05);
+        };
+        if (!painted(pet) || !painted(bear)) return null;
         // Both feet share the same stage and camera origin. Translation cancels.
         return {dx:(bear.x - pet.x) * (camera?.scaleX || 1),
                 dy:(bear.y - pet.y) * (camera?.scaleY || 1), clock:model.metrics().clock};
