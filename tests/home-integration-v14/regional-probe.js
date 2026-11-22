@@ -24,7 +24,13 @@ window.regional = {
     return null;
   },
   summary() {
+    const offsets=model.snapshot().map(a=>{
+      const style=rows.get(a.key)?.shadow?.style;
+      return Math.hypot(parseFloat(style?.left)-a.x,parseFloat(style?.top)-a.y);
+    });
     return {world:world.stats(),region:scene.region,clock:model.metrics().clock,
+      shadowOffset:offsets.every(Number.isFinite)?Math.max(0,...offsets):null,
+      surfaces:[...new Set([...rows.values()].map(r=>r.shadow.dataset.surface||''))],
       selected:model.selected(),count:model.snapshot().length,shadows:stage.querySelectorAll('.diorama-shadow').length,
       time:stage.dataset.dioramaTime,blocked:blocked()};
   },

@@ -26,7 +26,7 @@ def once(source, key, replacement):
 HOP = """
   if(window.regionStepping){
     const m=window.regionTrace, hop=Math.hypot(p.x-a.x,p.y-a.y);
-    m.hops++; m.distance+=hop;
+    m.hops++; m.distance+=hop; m.sourceHops[a.source]=(m.sourceHops[a.source]||0)+1;
     m.walkers[a.key]=(m.walkers[a.key]||0)+hop;
     if(!scene.navigation.segmentSafe(a,p))m.terrain++;
     if(!scene.visible(p,a))m.occlusion++;
@@ -67,7 +67,7 @@ def measure(ctx,root,base,region,count,width,arm,seconds):
     seen_errors=[]
     page=ctx.new_page()
     page.on('pageerror',lambda e: seen_errors.append(str(e)))
-    ctx.add_init_script("""window.regionTrace={hops:0,distance:0,walkers:{},terrain:0,occlusion:0,speed:0,contact:0,commands:[]};
+    ctx.add_init_script("""window.regionTrace={hops:0,distance:0,walkers:{},sourceHops:{},terrain:0,occlusion:0,speed:0,contact:0,commands:[]};
       let regionalSeed=214;window.regionalRandom=()=>{regionalSeed=(Math.imul(regionalSeed,1664525)+1013904223)>>>0;return regionalSeed/4294967296};
       document.addEventListener('pointerup',e=>window.regionalTrusted=e.isTrusted&&e.pointerType==='touch',true);""")
     def patch(route):
@@ -130,7 +130,7 @@ def main():
     p.add_argument('--arms',nargs='+',choices=ENTRIES,default=list(ENTRIES))
     p.add_argument('--counts',nargs='+',type=int,default=[1,4,10,20,28])
     p.add_argument('--widths',nargs='+',type=int,default=list(HEIGHT))
-    p.add_argument('--seconds',type=int,default=15)
+    p.add_argument('--seconds',type=int,default=30)
     a=p.parse_args()
     roots=dict(production=a.production,candidate=a.candidate,v11=a.historical,v13=a.historical)
     bases={root:serve(root) for root in set(roots.values())}
