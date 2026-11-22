@@ -1,5 +1,5 @@
-import {createTerrainNavigation} from './home-route-navigation.mjs?v=9459d7632eb7';
-import {insidePolygon} from './home-art-navigation.mjs?v=b08b767e0984';
+import {createTerrainNavigation} from './home-route-navigation.mjs?v=32b7d6ca27bb';
+import {insidePolygon} from './home-art-navigation.mjs?v=aac392aafc95';
 import {VISIBLE_GROUND_RULES} from './home-ground-expansion.mjs?v=886c97b278c4';
 
 // Polygon membership can change only at an edge intersection. Split the native
@@ -40,7 +40,7 @@ export function extendVisibleGroundNavigation(legacy,{spec,stage,presentation:p,
   return true;
  };
  const origin=legacy.project({x:0,z:0});
- const union=createTerrainNavigation({width:legacy.width,height:legacy.height,cell:8,gridOrigin:origin,project:q=>q,unproject:q=>({...q,z:q.y}),walkable:valid,segmentWalkable});
+ const union=createTerrainNavigation({staticGeometry:legacy.staticGeometry===true,width:legacy.width,height:legacy.height,cell:8,gridOrigin:origin,project:q=>q,unproject:q=>({...q,z:q.y}),walkable:valid,segmentWalkable});
  const safePath=(from,path,predicate)=>path.every((to,i)=>union.segmentSafe(i?path[i-1]:from,to,predicate));
  const route=(from,to,bounds,predicate=()=>true)=>{
   // An old route is reusable only when it really reaches the requested point;

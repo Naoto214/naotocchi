@@ -1,10 +1,10 @@
 import {surfaceAt} from './home-ground-material.mjs?v=4adaf0c8c69b';
 import {usesAutumnLeaves,paintAutumnLeaves} from './home-autumn-leaves.mjs?v=059657479bfe';
-import {extendVisibleGroundNavigation} from './home-visible-ground-navigation.mjs?v=47d394909efd';
+import {extendVisibleGroundNavigation} from './home-visible-ground-navigation.mjs?v=31893b6c7907';
 import {createDayparts,atmosphere} from './home-dayparts.mjs';
 import {ART_CANDIDATES,selectRecoveredScene} from './home-production-manifest.mjs';
 import {artTransform,paintBackdrop,backdropComposition} from './home-production-transform.mjs';
-import {createRecoveredNavigation} from './home-recovered-navigation.mjs?v=9a7e25d9fbe9';
+import {createRecoveredNavigation} from './home-recovered-navigation.mjs?v=04b4e28df664';
 export function createHomeWorld(options){
  const {container,document:doc,window:win=window,onStatus=()=>{}}=options;
  const painting=doc.createElement('canvas');let paintingKey='';
@@ -98,7 +98,7 @@ export function createHomeWorld(options){
   if(!fade.image&&(env.time==='night'||env.weather==='rain')){ctx.fillStyle=env.time==='night'?'rgba(21,30,73,.24)':'rgba(38,57,78,.15)';if(contain&&v15)ctx.fillRect(t.left,t.top,t.width,t.height);else ctx.fillRect(0,0,host.width,host.height);}
   if(!flags.reducedMotion){ctx.save();ctx.globalCompositeOperation='screen';for(let i=0;i<7;i++){const u=.18+(i*.117)% .65,v=spec.accent==='water'?.28+(i%3)*.035:.16+(i%4)*.13,x=(contain?t.left:0)+u*t.width,y=t.top+v*t.height+Math.sin(time/2400+i)*3;ctx.globalAlpha=.08+.12*(.5+.5*Math.sin(time/1500+i));ctx.fillStyle=spec.accent==='glow'?'#ffdb9b':'#fffad4';ctx.beginPath();ctx.ellipse(x,y,spec.accent==='water'?7:1.4,spec.accent==='water'?1:1.4,0,0,Math.PI*2);ctx.fill();}ctx.restore();}
  }
- return {setEnvironment,navigation,draw,
+ return {pointIndependentOcclusion:true,setEnvironment,navigation,draw,
   groundSurface(x,y){const p=groundProjection;return p?surfaceAt(env.region,p.x+x*p.dx,p.y+y*p.dy):'';},
   observationPoints(n){return spec.points.map(([x,z,action,tag])=>({...n.project({x,z}),activity:action,id:'art-'+env.region+'-'+tag,tag,target:n.project({x:x+.02,z:z-.04})})).filter(p=>n.valid(p));},
   occlusion(p){if(!spec||!nav)return [];const {host,stage}=geometry();
