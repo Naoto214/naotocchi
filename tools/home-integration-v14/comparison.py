@@ -9,7 +9,7 @@ from package import IMPORT
 
 HERE = Path(__file__).resolve().parent
 CURRENT_MAIN = '384730f1f2b1ef287a2bc4d17df35b861de9f2ae'
-BEFORE = 'd9df1c609f4397bec647fd9fc74d0c1aa683e29d'
+BEFORE = 'a917bff999a567ac69a1368b9650f90f985336b3'
 ENTRY_URL = re.compile(r'((?:src|href)=")([^"?]+)([^"]*)(")')
 
 
@@ -42,7 +42,7 @@ def build_comparison(game, root, manifest, candidate):
                 continue
             # The displayed comparison is the native home. Standalone subgames
             # retain the ordinary preview's scoped bundle when opened separately.
-            if edition == 'main' and name.startswith('prototypes/'):
+            if name.startswith('prototypes/'):
                 continue
             if '/' in name or Path(name).suffix not in ('.css', '.js', '.mjs'):
                 raise ValueError(f'Unreviewed historical runtime difference: {name}')

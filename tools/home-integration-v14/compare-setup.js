@@ -17,7 +17,8 @@
   }
   // Other tabs can still send native storage events to a same-origin page.
   window.addEventListener('storage', event => event.stopImmediatePropagation(), true);
-  const region = new URLSearchParams(location.search).get('scene') === 'mountain' ? 'mountain' : 'forest';
+  const scene = new URLSearchParams(location.search).get('scene');
+  const region = ['forest', 'mountain', 'jungle'].includes(scene) ? scene : 'forest';
   const count = region === 'forest' ? 28 : 10;
   const seed = region === 'forest' ? 280214 : 100214;
   function random(initial) {

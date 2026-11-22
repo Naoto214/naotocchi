@@ -1,6 +1,7 @@
 (() => {
-  document.querySelector('#compare select').value =
-    new URLSearchParams(location.search).get('scene') === 'mountain' ? 'mountain' : 'forest';
+  const scene = new URLSearchParams(location.search).get('scene');
+  const scenes = document.querySelector('#compare select');
+  if ([...scenes.options].some(option => option.value === scene)) scenes.value = scene;
   const roster = window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1;
   const form = document.getElementById('scenario');
   const mainKey = 'naotocchi-v14-scenario-v1';
