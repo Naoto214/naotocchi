@@ -1,0 +1,86 @@
+{
+  "runtime": "1ffc653c11df4b5ff148d1a292f24f75fbd8ef53",
+  "probe": "tests/home-integration-v14/foot-replacement.py",
+  "observations": [
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "viewport": [
+        320,
+        792
+      ],
+      "region": "forest",
+      "pageErrors": [],
+      "before": [
+        [
+          "pet:butterfly",
+          163.0796004413747,
+          298.46269702072107
+        ],
+        [
+          "companion:panda",
+          220.45770253790434,
+          148.9776415587096
+        ]
+      ],
+      "after": [
+        [
+          "pet:butterfly",
+          163.0796004413747,
+          298.46269702072107
+        ],
+        [
+          "companion:panda",
+          220.45770253790434,
+          148.9776415587096
+        ]
+      ],
+      "renewed": null,
+      "decision": null,
+      "shadow": [
+        220.458,
+        148.978
+      ]
+    },
+    {
+      "engine": "webkit",
+      "version": "26.5",
+      "viewport": [
+        320,
+        792
+      ],
+      "region": "forest",
+      "pageErrors": [],
+      "before": [
+        [
+          "pet:butterfly",
+          163.07966583232576,
+          298.462255631801
+        ],
+        [
+          "companion:panda",
+          220.4580785358732,
+          148.97639095676968
+        ]
+      ],
+      "after": [
+        [
+          "pet:butterfly",
+          163.07966583232576,
+          298.462255631801
+        ],
+        [
+          "companion:panda",
+          220.4580785358732,
+          148.97639095676968
+        ]
+      ],
+      "renewed": null,
+      "decision": null,
+      "shadow": [
+        220.458079,
+        148.976391
+      ]
+    }
+  ]
+}
