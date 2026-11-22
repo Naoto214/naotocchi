@@ -42,3 +42,20 @@ test('autumn B uses twenty forest and six sunset orchard slots with a bounded, d
     assert.deepEqual(sample(17),prior);
   }
 });
+
+test('portrait habitat crops keep the walking pane uniform and fill the footer continuously',async()=>{
+  const {portraitGroundCrop}=await import('../../home-production-world.mjs');
+  for(const [width,height,frameTop,frameBottom] of [[320,516,124,305],[390,630,140,380],[390,844,140,600],[430,932,158,675]]){
+    const host={width,height,top:0};
+    for(const [region,horizon] of [['forest',.56],['mountain',.445]]){
+      const t=portraitGroundCrop(region,host,frameTop,frameBottom);
+      assert.ok(Math.abs(t.width*1.5-t.height)<1e-9);
+      assert.ok(t.left<=0 && t.left+t.width>=width && t.top<=0);
+      assert.ok(t.footer>frameBottom);
+      assert.ok(Math.abs(t.top+t.height*horizon-frameTop-24)<1e-6);
+      const remaining=t.top+t.height-t.footer;
+      assert.ok(remaining>0 && (height-t.footer)/remaining<=1.4+1e-9);
+    }
+    assert.equal(portraitGroundCrop('home',host,frameTop,frameBottom),null);
+  }
+});
