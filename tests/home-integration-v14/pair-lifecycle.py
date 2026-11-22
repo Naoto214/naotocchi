@@ -149,6 +149,7 @@ def main():
     p.add_argument('--before-navigation',action='store_true',help='Separate screenshot run holding only the world module response')
     p.add_argument('--executable',required=True)
     p.add_argument('--region',choices=['forest','mountain'])
+    p.add_argument('--count',type=int,choices=[4,10,20,28],help='Override the launcher resident count for the selected region')
     args=p.parse_args()
     args.out.mkdir(parents=True,exist_ok=True)
     sources={name:hashlib.sha256((args.root/name).read_bytes()).hexdigest() for name in
@@ -161,7 +162,7 @@ def main():
             browser=getattr(pw,args.browser).launch(executable_path=args.executable)
             for region,count in [('forest',28),('mountain',10)]:
                 if args.region and region!=args.region: continue
-                run(browser,f'http://127.0.0.1:{server.server_port}',region,count,args.out,args.width,args.height,args.before_navigation,args.opening_only or args.hold_opening,args.hold_opening)
+                run(browser,f'http://127.0.0.1:{server.server_port}',region,args.count or count,args.out,args.width,args.height,args.before_navigation,args.opening_only or args.hold_opening,args.hold_opening)
             browser.close()
     finally:server.shutdown()
 
