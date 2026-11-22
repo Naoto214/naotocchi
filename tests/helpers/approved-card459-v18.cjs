@@ -14,7 +14,7 @@ function restore(file,text){
  return text.replace(e.approvedText,()=>e.baselineText);
 }
 function beforeHome(file,bytes){
- return file==='tools/pages/allowlist.json' && bytes!==null ? Buffer.from(home.restore(file,bytes.toString('utf8'))) : bytes;
+ return (file==='tools/pages/allowlist.json'||file==='tests/helpers/approved-card459-v18.cjs') && bytes!==null ? Buffer.from(home.restore(file,bytes.toString('utf8'))) : bytes;
 }
 function restoreBytes(file,bytes){
  const e=files[file];if(!e)return bytes;

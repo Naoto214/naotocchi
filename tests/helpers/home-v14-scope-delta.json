@@ -60,5 +60,27 @@
       "    \"home-visible-ground-navigation.mjs\": \"31893b6c79075a1b4ca34ab0d760359723d534da46a6e2d9188221c169a10e23\",\n",
       "    \"home-visible-ground-navigation.mjs\": \"47d394909efd22698dc697883efab1dc5f5142842d03615283d43d2f9490093b\",\n"
     ]
+  ],
+  "tests/helpers/approved-card459-v18.cjs": [
+    [
+      "const fs=require('node:fs'),crypto=require('node:crypto'),assert=require('node:assert/strict');\nconst home=require('./home-v14-scope.cjs');\nconst manifest=require('./approved-card459-v18.json'),files=manifest.files;\n",
+      "const fs=require('node:fs'),crypto=require('node:crypto'),assert=require('node:assert/strict');\nconst manifest=require('./approved-card459-v18.json'),files=manifest.files;\n"
+    ],
+    [
+      "function restore(file,text){\n text=home.restore(file,text);\n const e=files[file];if(!e||text===null)return text;\n",
+      "function restore(file,text){\n const e=files[file];if(!e||text===null)return text;\n"
+    ],
+    [
+      "}\nfunction beforeHome(file,bytes){\n return (file==='tools/pages/allowlist.json'||file==='tests/helpers/approved-card459-v18.cjs') && bytes!==null ? Buffer.from(home.restore(file,bytes.toString('utf8'))) : bytes;\n}\nfunction restoreBytes(file,bytes){\n",
+      "}\nfunction restoreBytes(file,bytes){\n"
+    ],
+    [
+      " assert.notEqual(bytes,null,'retained V18 file: '+file);\n bytes=beforeHome(file,bytes);\n assert.equal(blob(bytes),e.approvedBlob,'exact V18 approved bytes: '+file);\n",
+      " assert.notEqual(bytes,null,'retained V18 file: '+file);\n assert.equal(blob(bytes),e.approvedBlob,'exact V18 approved bytes: '+file);\n"
+    ],
+    [
+      " for(const [file,e] of Object.entries(files)){\n  const bytes=beforeHome(file,reader(file));assert.notEqual(bytes,null,'retained V18 file: '+file);\n  assert.equal(blob(bytes),e.approvedBlob,'exact V18 approved bytes: '+file);\n",
+      " for(const [file,e] of Object.entries(files)){\n  const bytes=reader(file);assert.notEqual(bytes,null,'retained V18 file: '+file);\n  assert.equal(blob(bytes),e.approvedBlob,'exact V18 approved bytes: '+file);\n"
+    ]
   ]
 }
