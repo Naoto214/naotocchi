@@ -117,8 +117,12 @@ def report(args):
         result["replay"][kind] = model
     touch = raw("touch")["rows"]
     assert [r["arm"] for r in touch] == ARMS
+    if list(args.directory.rglob("touch-reverse.json")):
+        reversed_touch = raw("touch-reverse")["rows"]
+        assert [r["arm"] for r in reversed_touch] == ARMS[::-1]
+        touch = [*touch, *reversed_touch]
     commands = None
-    for row in touch:
+    for index,row in enumerate(touch):
         readings = row["readings"]
         command = [r["command"] for r in readings]
         if commands is None:
@@ -127,16 +131,20 @@ def report(args):
         matched = [r for r in readings if r["command"]["key"] == r.get("key")]
         moving = [r for r in matched if r["firstStepMs"] is not None]
         arrivals = [r["arrivalMs"] for r in moving if r["arrivalMs"] is not None]
-        result["touch"].append(dict(arm=row["arm"], commands=len(command), selected=len(matched), arrivals=len(arrivals),
+        result["touch"].append(dict(arm=row["arm"], order="forward" if index < len(ARMS) else "reverse", commands=len(command), selected=len(matched), arrivals=len(arrivals),
                                     moved=len(moving), movingKeys=[r["key"] for r in moving], onset=summary([r["firstStepMs"] for r in moving]),
                                     arrival=summary(arrivals), queue=summary([r["queueMs"] for r in readings])))
     sync = raw("sync")["rows"]
     assert [r["arm"] for r in sync] == ARMS
-    for row in sync:
+    if list(args.directory.rglob("sync-reverse.json")):
+        reversed_sync = raw("sync-reverse")["rows"]
+        assert [r["arm"] for r in reversed_sync] == ARMS[::-1]
+        sync = [*sync, *reversed_sync]
+    for index,row in enumerate(sync):
         for count in (0,1,26):
             samples = [s for s in row["samples"] if s["count"] == count]
             assert len(samples) == 20
-            result["sync"].append(dict(arm=row["arm"], replaced=count, native=summary([s["nativeSyncMs"] for s in samples]),
+            result["sync"].append(dict(arm=row["arm"], order="forward" if index < len(ARMS) else "reverse", replaced=count, native=summary([s["nativeSyncMs"] for s in samples]),
                                        afterDecode=summary([s["afterDecodeMs"] for s in samples])))
     route_files = list(args.directory.rglob("routes.json"))
     assert len(route_files)==1

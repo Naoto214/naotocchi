@@ -6,7 +6,7 @@ on:
     inputs:
       experiment:
         type: choice
-        options: [all, autonomy, fixed, stress, attribution]
+        options: [all, autonomy, fixed, stress, attribution, reverse-input]
         default: all
         description: Native performance measurements
 permissions:
@@ -14,13 +14,13 @@ permissions:
   actions: read
 jobs:
   measure:
-    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[v11-perf]')
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[v11-perf]') || contains(github.event.head_commit.message, '[v11-reverse-input]')
     runs-on: ubuntu-latest
     timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
-        experiment: ${{ fromJSON(inputs.experiment == 'autonomy' && '["autonomy"]' || inputs.experiment == 'fixed' && '["fixed"]' || inputs.experiment == 'stress' && '["stress"]' || inputs.experiment == 'attribution' && '["attribution"]' || '["autonomy","fixed","stress","attribution"]') }}
+        experiment: ${{ fromJSON((inputs.experiment == 'reverse-input' || contains(github.event.head_commit.message, '[v11-reverse-input]')) && '["reverse-input","notice-v10","notice-v11-foot","notice-v11"]' || inputs.experiment == 'autonomy' && '["autonomy"]' || inputs.experiment == 'fixed' && '["fixed"]' || inputs.experiment == 'stress' && '["stress"]' || inputs.experiment == 'attribution' && '["attribution"]' || '["autonomy","fixed","stress","attribution"]') }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -83,6 +83,14 @@ jobs:
             fixed|stress)
               (cd "$RUNNER_TEMP/tape" && sha256sum -c "$GITHUB_WORKSPACE/comparisons/home-mobility-v10/$EXPERIMENT-fixture.sha256")
               python -B "$folder/performance.py" replay --order v10,v11-foot,v11,v11,v11-foot,v10 --tape "$RUNNER_TEMP/tape" --kind "$EXPERIMENT" --out "$out/$EXPERIMENT.json"
+              ;;
+            notice-*)
+              arm="${EXPERIMENT#notice-}"
+              python -B "$folder/performance-notice.py" --arm "$arm" --seconds 330 --out "$out/$EXPERIMENT.json"
+              ;;
+            reverse-input)
+              python -B "$folder/performance.py" touch --order v11,v11-foot,v10 --out "$out/touch-reverse.json"
+              python -B "$folder/performance.py" sync --order v11,v11-foot,v10 --out "$out/sync-reverse.json"
               ;;
             attribution)
               python -B "$folder/performance.py" native --trace --order v10,v11-foot,v11 --seconds 25 --out "$out/trace.json"
