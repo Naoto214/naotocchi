@@ -20,6 +20,187 @@
     const t=clamp(-dot/(dx*dx+dy*dy||1),0,1);
     return (x+t*dx)**2+(y+t*dy)**2>=1;
   }
+  // Resolve the couple on the final regional pack before it is first painted.
+  // A candidate exchanges only seats in its local obstruction chain. The
+  // full household is checked together before any feet are committed.
+  function fitInitialPair(actors,lead,mate,offset,scene,initialExits,lend,painted){
+    const group=[lead,mate,...actors.filter(a=>a!==lead&&a!==mate)];
+    const n=group.length;
+    // The game has 26 recruitable companions. Each bit identifies one of them.
+    if(n>30)return;
+    const bit=i=>1<<i;
+    const count=bits=>{let n=0;for(;bits;bits&=bits-1)n++;return n;};
+    const spacing=Math.max(Math.hypot(offset.x,offset.y),(lead.w+mate.w)*.5+10),side=offset.x<0?-1:1;
+    const dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+    const boxes=group.map(a=>bounds(a,scene)),nav=scene.navigation;
+    const paintedStart=group.map(a=>painted?.(a));
+    const sees=group.map(a=>scene.planVisibility?.(a)||(p=>!scene.visible||scene.visible(p,a)));
+    function legal(i,p){
+      const b=boxes[i];
+      return p.x>=b.left&&p.x<=b.right&&p.y>=b.top&&p.y<=b.bottom&&nav.valid(p)&&sees[i](p)&&(!paintedStart[i]||painted(p));
+    }
+    // Keep the exact contact ellipses and precompute their scale once per opening.
+    const geometry=group.map(a=>group.map(b=>{
+      const rx=(a.w+b.w)*.5+10,ry=(a.h+b.h)*.38+10;
+      const old=Math.hypot((a.x-b.x)/rx,(a.y-b.y)/ry);
+      return {ix:1/(rx*rx),iy:1/(ry*ry),old};
+    }));
+    function squared(g,p,q){const x=p.x-q.x,y=p.y-q.y;return x*x*g.ix+y*y*g.iy;}
+    let previousCount=0,previousLoss=0,worst=1;
+    for(let i=0;i<n;i++)for(let j=i+1;j<n;j++){
+      const c=geometry[i][j].old;
+      if(c<1-1e-8){previousCount++;previousLoss+=(1-c)**2;worst=Math.min(worst,c);}
+    }
+    function clearsExit(i,p,start,end){
+      const g=geometry[i][0];
+      if(!end)return squared(g,p,start)>=1;
+      const dx=end.x-start.x,dy=end.y-start.y,x=p.x-start.x,y=p.y-start.y;
+      const t=clamp((x*dx*g.ix+y*dy*g.iy)/(dx*dx*g.ix+dy*dy*g.iy||1),0,1);
+      return (x-t*dx)**2*g.ix+(y-t*dy)**2*g.iy>=1;
+    }
+    function grid(i,goal,step,radius=Infinity){
+      const b=boxes[i],points=[];
+      const left=Math.max(0,Math.ceil((goal.x-radius-b.left)/step)),top=Math.max(0,Math.ceil((goal.y-radius-b.top)/step));
+      for(let y=b.top+top*step;y<=Math.min(goal.y+radius,b.bottom+step-.001);y+=step){
+        for(let x=b.left+left*step;x<=Math.min(goal.x+radius,b.right+step-.001);x+=step){
+          const p={x:Math.min(x,b.right),y:Math.min(y,b.bottom)},d=dist(p,goal);
+          if(d<=radius&&legal(i,p))points.push({...p,d});
+        }
+      }
+      return points;
+    }
+    // Index each candidate foot by the neighbors it would displace. The same
+    // floor samples serve every proposed pair and exit in this opening.
+    const alternatives=[];
+    function choices(i){
+      if(alternatives[i])return alternatives[i];
+      const points=grid(i,group[i],4);
+      for(const p of points){
+        let strict=0,soft=0;
+        for(let j=2;j<n;j++){
+          if(i===j)continue;
+          const g=geometry[i][j],c=squared(g,p,group[j]);
+          if(c+1e-9<Math.min(1,g.old)**2)strict|=bit(j);
+          // New peer-only ellipse contacts must stay in the outer eight
+          // percent. The final check also bounds total count and penetration.
+          if(c+1e-9<(g.old<1?worst:.92)**2)soft|=bit(j);
+        }
+        p.strict=strict;p.soft=soft;
+      }
+      points.sort((a,b)=>a.d-b.d);
+      const sets={strict:new Map(),soft:new Map()};
+      for(const p of points)for(const key of ['strict','soft']){
+        const mask=p[key];let entries=sets[key].get(mask);
+        if(!entries)sets[key].set(mask,entries=[]);
+        entries.push(p);
+      }
+      return alternatives[i]=sets;
+    }
+    function assess(placements){
+      let contacts=0,loss=0,added=0;
+      for(let i=0;i<n;i++)for(let j=i+1;j<n;j++){
+        const g=geometry[i][j],c=Math.sqrt(squared(g,placements[i]||group[i],placements[j]||group[j]));
+        if(c>=1-1e-8)continue;
+        if(i<2||c<worst-1e-8||g.old>=1&&c<.92)return null;
+        contacts++;loss+=(1-c)**2;
+        if(g.old>=1)added+=1-c;
+      }
+      return contacts<=previousCount&&loss<=previousLoss+1e-8?added:null;
+    }
+    let best=null;
+    function solve(config,strict,limit){
+      const {anchor,foot,end,mask,base}=config,field=strict?'strict':'soft';
+      // At most three additional residents may lend seats. Limit each search
+      // and reuse equivalent failures while testing a tight regional floor.
+      const failed=new Set();
+      function assign(moving,order,extra){
+        const signature=order.join(',');
+        if(failed.size>=80||failed.has(signature))return null;
+        failed.add(signature);
+        const positions=[anchor,foot],done=[];
+        for(const i of order){
+          let seat=null,donors=0;
+          for(const [hits,points] of choices(i)[field]){
+            const others=hits&~moving;
+            if(others){if(!(others&(others-1)))donors|=others;continue;}
+            for(const p of points){
+              if(seat&&p.d>=seat.d)break;
+              if(clearsExit(i,p,anchor,end)&&squared(geometry[i][1],p,foot)>=1&&done.every(j=>squared(geometry[i][j],p,positions[j])>=(geometry[i][j].old<1?worst:1)**2)){seat=p;break;}
+            }
+          }
+          if(!seat){
+            if(lend&&extra<limit)for(let j=2;j<n;j++)if(donors&bit(j)){
+              const plan=assign(moving|bit(j),[...order,j],extra+1);
+              if(plan)return plan;
+            }
+            return null;
+          }
+          positions[i]=seat;done.push(i);
+        }
+        const added=assess(positions);
+        if(added===null)return null;
+        const travel=done.reduce((sum,i)=>sum+dist(group[i],positions[i]),0);
+        return {positions,close:Math.hypot(foot.x-anchor.x-side*spacing,foot.y-anchor.y)<spacing*.15&&added<=.12,score:base+.025*travel/spacing+.03*done.length+3*added};
+      }
+      const order=[];for(let i=2;i<n;i++)if(mask&bit(i))order.push(i);
+      return assign(mask,order,0);
+    }
+    function consider(anchors,shifted){
+      const plans=[];
+      for(const anchor of anchors){
+        const goal={x:anchor.x+side*spacing,y:anchor.y};
+        const feet=grid(1,goal,shifted?4:8,spacing*(shifted?.48:1));
+        if(legal(1,goal))feet.push({...goal,d:0});
+        for(const p of feet){
+          p.blocked=0;
+          for(let j=2;j<n;j++)if(squared(geometry[1][j],p,group[j])<1)p.blocked|=bit(j);
+        }
+        const reserve=shifted&&initialExits[0].length;
+        const ends=reserve?[]:initialExits.map(path=>path.at(-1));
+        if(reserve){
+          const len=Math.max(40,lead.w*1.2),b=boxes[0];
+          for(let i=0;i<16;i++){
+            const angle=i*Math.PI/8,end={x:clamp(anchor.x+Math.cos(angle)*len,b.left,b.right),y:clamp(anchor.y+Math.sin(angle)*len,b.top,b.bottom)};
+            if(dist(anchor,end)>=len*.8&&nav.valid(end))ends.push(end);
+          }
+        }
+        for(const end of ends){
+          let lane=0;
+          for(let j=2;j<n;j++)if(!clearsExit(j,group[j],anchor,end))lane|=bit(j);
+          if(count(lane)>4||(!lend&&lane))continue;
+          const byMask=new Map();
+          for(const foot of feet){
+            if((foot.x-anchor.x)*side<=0||!clearsExit(1,foot,anchor,end))continue;
+            const mask=lane|foot.blocked,k=count(mask);
+            if(k>4||(!lend&&mask))continue;
+            const base=(foot.d+.3*dist(anchor,lead))/spacing,rank=base+4*k/spacing;
+            if(!byMask.has(mask)||rank<byMask.get(mask).rank)byMask.set(mask,{anchor,end,foot,mask,rank,base});
+          }
+          plans.push(...byMask.values());
+        }
+      }
+      plans.sort((a,b)=>a.rank-b.rank);
+      const shortlist=plans.slice(0,shifted?48:16);
+      for(let limit=0;limit<=(shifted?3:1);limit++)for(const config of shortlist){
+        if(best&&config.base>=best.score)continue;
+        if(shifted&&config.end&&!(config.safe??=nav.segmentSafe(config.anchor,config.end,sees[0])))continue;
+        const plan=solve(config,true,limit)||solve(config,false,limit);
+        if(plan&&(!best||plan.close&&!best.close||plan.score<best.score))best=plan;
+        if(best&&(best.close||best.score<.4))return;
+      }
+    }
+    // Try the regional hero seat first. If its only clear exit is also the
+    // partner’s side, try a small joint shift and verify the replacement exit.
+    consider([lead],false);
+    if(lend&&(!best||!best.close&&best.score>.40)){
+      const anchors=grid(0,lead,4,spacing*.62).filter(a=>a.d>0&&(n<=5||group.slice(2).every((b,j)=>squared(geometry[0][j+2],a,b)>=1)));
+      const ideal={x:lead.x+side*spacing*.55,y:lead.y};
+      anchors.sort((a,b)=>dist(a,ideal)-dist(b,ideal));
+      if(anchors.length)consider([anchors[0]],true);
+      if(!best||!best.close&&best.score>.4)consider(anchors.slice(1),true);
+    }
+    if(best)best.positions.forEach((p,i)=>{group[i].x=p.x;group[i].y=p.y;});
+  }
   function privateRandom(){const bytes=new Uint32Array(1);if(typeof crypto!=='undefined'&&crypto.getRandomValues)crypto.getRandomValues(bytes);let seed=bytes[0]||Date.now()>>>0||1;return ()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return (seed>>>0)/4294967296;};}
   function createModel({random=privateRandom(),onEvent=()=>{}}={}){
     let actors=[],scene={},selected=null,clock=0,idleAt=5,paused=false;
@@ -80,7 +261,9 @@
       return best;
     }
     function cancel(){manualGoals.clear();for(const a of actors){if(a.target)a.target=null;a.route=[];a.activity='rest';a.visualReaction=undefined;a.visualTarget=null;a.nextAt=Math.min(a.nextAt||clock+2,clock+2);}idleAt=clock+2;}
-    function sync(list,next){
+    let pendingPair=null;
+    function finishSeating(painted){const pending=pendingPair;pendingPair=null;pending?.place?.(painted);}
+    function sync(list,next,deferPair=false){
       const changed=next.region!==scene.region||next.width!==scene.width||next.height!==scene.height||next.navigation!==scene.navigation;
       const previousScene=scene,previousActors=actors;
       const exitPolicyChanged=!!next.fiveResidentExit!==!!scene.fiveResidentExit;
@@ -112,19 +295,8 @@
       // around the main character. Reserve one short, terrain-safe exit while
       // arranging a new/reflowed cast. Ordinary syncs never move established
       // residents merely to recreate this initial corridor.
-      let exit=[];
+      let exit=[],lanes=[];
       const lead=actors.find(a=>a.kind==='pet');
-      const mate=lead&&seatPair&&actor(partner.key);
-      // The cast solver owns the side and spacing. Regional seats locate the
-      // household on terrain, but the next generic seat can be across the map.
-      function pairSeat(){
-        const dx=partner.x-main.x,dy=partner.y-main.y;
-        const gap=Math.max(Math.hypot(dx,dy),(lead.w+mate.w)*.5+10);
-        const preferred=limit(mate,{x:lead.x+(dx<0?-gap:gap),y:lead.y},scene);
-        return scene.navigation.nearest(preferred,bounds(mate,scene),p=>visible(mate,p))||mate;
-      }
-      const leadBeforeSeating=mate&&{x:lead.x,y:lead.y};
-      if(mate)Object.assign(mate,pairSeat());
       const arrange=changed||exitPolicyChanged||actors.length!==previousActors.length||actors.some(a=>{const b=previousActors.find(b=>b.key===a.key);return !b||a.w!==b.w||a.h!==b.h;});
       if(lead&&(actors.length>5||scene.fiveResidentExit)&&arrange&&scene.navigation?.segmentSafe){
         const length=Math.max(40,lead.w*1.2),options=[];
@@ -136,12 +308,11 @@
           for(let j=0,n=Math.ceil(length/3);j<=n;j++)points[j]={x:lead.x+(end.x-lead.x)*j/n,y:lead.y+(end.y-lead.y)*j/n};
           options.push({points,cost:actors.filter(a=>a!==lead&&points.some(p=>!separated(lead,p,a))).length});
         }
-        options.sort((a,b)=>a.cost-b.cost);exit=options[0]?.points||[];
+        options.sort((a,b)=>a.cost-b.cost);lanes=options.map(o=>o.points);exit=lanes[0]||[];
       }
       // Keep established actors stable; seat new/reshaped arrivals in the nearest free spot.
       const seated=[];
       for(const a of [...actors].sort((a,b)=>Number(retained.has(b.key))-Number(retained.has(a.key)))){
-        if(a===mate&&(lead.x!==leadBeforeSeating.x||lead.y!==leadBeforeSeating.y))Object.assign(a,pairSeat());
         const fits=p=>(!scene.navigation||scene.navigation.valid(p))&&seated.every(b=>separated(a,p,b))&&visible(a,p)&&(a===lead||exit.every(q=>separated(lead,q,{...a,x:p.x,y:p.y})));
         if(!fits(a)&&(arrange||!retained.has(a.key)||!visible(a,a)||scene.navigation&&!scene.navigation.valid(a))){
           const b=bounds(a,scene),candidates=[];
@@ -163,6 +334,18 @@
           if(best){Object.assign(a,{x:best.x,y:best.y});a.target=null;a.activity='rest';}
         }
         seated.push(a);
+      }
+      // The first viewport fit may still replace both camera and ink bounds.
+      // Keep the regional pack intact until the controller is ready to paint.
+      if(seatPair)pendingPair={key:partner.key,region:scene.region,lend:enteringTerrain};
+      const mate=pendingPair&&lead&&actor(pendingPair.key);
+      if(!mate||pendingPair.region!==scene.region)pendingPair=null;
+      if(pendingPair){
+        if(arrange)pendingPair.lanes=lanes;
+        const exits=pendingPair.lanes?.length?pendingPair.lanes:[[]],lend=pendingPair.lend;
+        const offset={x:partner.x-main.x,y:partner.y-main.y};
+        pendingPair.place=painted=>fitInitialPair(actors,lead,mate,offset,scene,exits,lend,painted);
+        if(!deferPair)finishSeating();
       }
       if(!actor(selected))selected=null;
       if(changed){cancel();cooldown.clear();}
@@ -634,7 +817,7 @@
         stats.distance+=Math.hypot(p.x-a.x,p.y-a.y);a.x=p.x;a.y=p.y;if(Math.abs(dx)>.3)a.direction=dx<0?-1:1;
       }
     }
-    return {metrics:()=>({...stats,activities:{...stats.activities},clock}),sync,select,selected:()=>selected,move,step,cancel,bounds:a=>bounds(a,scene),snapshot:()=>actors.map(a=>({...a,route:(a.route||[]).map(p=>({...p})),target:a.target?{...a.target}:null}))};
+    return {metrics:()=>({...stats,activities:{...stats.activities},clock}),sync,seatingPending:()=>!!pendingPair,finishSeating,select,selected:()=>selected,move,step,cancel,bounds:a=>bounds(a,scene),snapshot:()=>actors.map(a=>({...a,route:(a.route||[]).map(p=>({...p})),target:a.target?{...a.target}:null}))};
   }
   return {supported,bounds,createModel};
 });

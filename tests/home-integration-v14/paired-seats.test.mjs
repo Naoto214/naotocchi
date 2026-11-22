@@ -51,3 +51,41 @@ test('a blocked layout seat is corrected on terrain before the other residents a
   assert.ok(Math.hypot((lead.x-mate.x)/47.5,(lead.y-mate.y)/38.5)>=1);
   assert.ok(Math.hypot(lead.x-mate.x,lead.y-mate.y)<65);
 });
+
+test('fitting a pair into an occupied seat preserves unrelated regional seats', () => {
+  const x=[160,272,104,72];
+  const nav=createTerrainNavigation({width:320,height:200,cell:8,
+    project:p=>({x:p.x,y:p.z}), unproject:p=>({x:p.x,y:0,z:p.y}),
+    walkable:p=>p.z===128});
+  nav.initialPoint=i=>({x:x[i],y:128});
+  const scene={region:'jungle',width:320,height:200,navigation:nav,
+    actorBounds:()=>({left:0,right:320,top:128,bottom:128})};
+  const cast=['pet','partner','companion','companion'].map((kind,i)=>({
+    kind,key:'resident'+i,x:[200,144,104,72][i],y:128,w:22,h:22
+  }));
+  const model=production.createModel({random:()=>.5});
+  model.sync(cast,scene);
+  const positions=model.snapshot().map(a=>a.x);
+  assert.deepEqual(positions,[160,104,40,72]);
+});
+
+
+test('the coupled placement uses the measured camera once before first paint', () => {
+  const nav=createTerrainNavigation({width:320,height:320,project:p=>({x:p.x,y:p.z}),
+    unproject:p=>({x:p.x,y:0,z:p.y}),walkable:()=>true});
+  nav.initialPoint=i=>({x:i?270:160,y:i?100:210});
+  const cast=[{kind:'pet',key:'hero',x:200,y:200,w:30,h:32},
+    {kind:'partner',key:'mate',x:144,y:200,w:22,h:24}];
+  const model=production.createModel({random:()=>.5});
+  const scene={region:'forest',width:320,height:320,navigation:nav,groundTop:40};
+  model.sync(cast,scene,true);
+  assert.ok(model.seatingPending());
+  const provisional=feet(model.snapshot());
+  model.sync(cast,{...scene,actorBounds:()=>({left:90,right:290,top:90,bottom:290})},true);
+  assert.deepEqual(feet(model.snapshot()),provisional);
+  model.finishSeating(p=>p.x>=90);
+  assert.equal(model.seatingPending(),false);
+  assert.deepEqual(feet(model.snapshot()),[[160,210],[104,210]]);
+  model.finishSeating();
+  assert.deepEqual(feet(model.snapshot()),[[160,210],[104,210]]);
+});

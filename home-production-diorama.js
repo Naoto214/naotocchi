@@ -555,7 +555,7 @@ function bodyChanged(old, next) {
       // Only the five-resident landscape sizing candidate needs the same
       // open walking lane as a larger household.
       scene.fiveResidentExit=next.size===5&&doc.body?.dataset.homePopulationProfile==='v1'&&!!env.NaotocchiHomeViewport?.residentPresentation?.()?.landscape;
-      rows=next;model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint});
+      rows=next;model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint},true);
       if(newbornPoint)newbornPending=false;
       const previousEnvelope=stage.__homeResidentEnvelope;
       publishPaintEnvelope();
@@ -571,9 +571,9 @@ function bodyChanged(old, next) {
         clearInput();paint();pendingResidentPresentation=true;return;
       }
       if(presentation&&(doc.body?.dataset.homeDisplayVersion==='18'||doc.body?.dataset.homeDisplayVersion==='17'&&presentation.landscape)&&model.snapshot().some(a=>{const b=model.bounds(a);return a.x<b.left||a.x>b.right||a.y<b.top||a.y>b.bottom;})){
-        model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint:null});
+        model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint:null},true);
       }
-      paint();
+      model.finishSeating(p=>world?.initialPaintedGround?.(p));paint();
     }
     let residentEnvelopeKey='';
     function publishResidentEnvelope(){
