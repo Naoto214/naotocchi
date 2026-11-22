@@ -1236,6 +1236,10 @@
       }
     }
   },
+  "sameCodeOpeningDrift": {
+    "differentResponses": 4,
+    "arrivalLostToOtherRecipient": 4
+  },
   "correctedForestHouseholds": 60,
   "namedForest": [
     {

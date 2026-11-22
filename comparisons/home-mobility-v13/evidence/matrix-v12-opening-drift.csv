@@ -1,0 +1,5 @@
+region,count,width,case,key,startX,startY,goalX,goalY,selectedKeyBefore,issuedBefore,acceptedBefore,blockedClassBefore,selectedKeyFresh,issuedFresh,acceptedFresh,blockedClassFresh,arrivalBefore,arrivalFresh,near4Before,near4Fresh
+countryside,10,320,clear/0,pet:dog,175.35123705863953,193.08491414785385,210.51126802412327,221.45946953897567,pet:dog,True,True,,partner:forest_bear,False,False,selection-miss,True,False,True,False
+countryside,20,320,clear/0,pet:dog,172.2774719595909,201.02198845148087,178.65102051101616,234.27443036806918,pet:dog,True,True,,companion:monkey,False,False,selection-miss,True,False,True,False
+mountain,20,320,clear/0,pet:dog,177.69863891601562,198.43299221992493,160.92758336096543,224.03601450543707,pet:dog,True,True,,companion:monkey,False,False,selection-miss,True,False,True,False
+snow,28,320,clear/0,pet:dog,166.3003904223442,196.71827292442322,201.71558516651967,217.68444730474266,pet:dog,True,True,,companion:chameleon,False,False,selection-miss,True,False,True,False

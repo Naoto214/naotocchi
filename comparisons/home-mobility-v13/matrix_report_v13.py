@@ -58,7 +58,9 @@ def notes(result):
         '| V12・公表値 | 3,217/3,276 | 911/1,058 | 522/1,058 | 246/260 | 2/260 | 234/260 |', *rows, '',
         '通常歩行は住民自身の目的地へ0.75 CSS pxを超えて近づき、退避を除く8 CSS px以上の変位で到着した住民。5分はモデル時計の300秒。入力はV12と同じ12.35モデル秒まで観察する。ドラッグ到着には到着通知のほか、実際に足を運び、補正目的地から0.01 CSS px以内で停止したケースを含む。指先4pxは補正前の実指座標との距離で判定した。生活判断と歩行は実ゲームを走らせ、実時間フレーム性能は別試験で測定する。両方失敗はV12と同じ集計で、対象住民に自律の経路不成立があり歩行開始がなく、ドラッグ指令も発行されたが足が踏み出せなかった家庭。', '',
         f"V12の同じコードを再測定すると、開幕全員の足が過去と同じ家庭は {result['historicFreshV12']['identicalOpeningFeet']}/260、5分後も同じ家庭は {result['historicFreshV12']['identicalAgedFeet']}/260。歩けるようになった住民は {result['historicFreshV12']['gainedWalkers']}、逆の変化は {result['historicFreshV12']['lostWalkers']}、5分後の到着有無が変わった家庭は {result['historicFreshV12']['agedArrivalFlip']}。世帯ごとの明細は `evidence/matrix-historical-drift.csv` に収録した。", '',
+        f"同じ実指座標でも、物理入力の応答フラグが異なった開幕操作は {result['sameCodeOpeningDrift']['differentResponses']} 件。以前は到着した対象の代わりに別の住民を選び到着しなかったのは {result['sameCodeOpeningDrift']['arrivalLostToOtherRecipient']} 件で、目的地を指した後の経路探索に入る前に差が生じた。[対象住民・受け取った住民・指座標](evidence/matrix-v12-opening-drift.csv)", '',
         '## 条件を一つずつ変えた比較', '', *narrative, '',
+        '同じ300秒時点へ復元した入力では、到着・指先4px以内を次のように記録した。'+' ／ '.join(arm+' '+str(r['arrival'])+'/260・'+str(r['near4'])+'/260' for arm,r in result['frozen300'].items())+'。', '',
         'B−Aは森の土道の追加、C−Bは追加の局所退避地、D−Cは初期席の差。すべての案で体格と接触判定は共通。V12−Aでは曲がる道譲りの有無が違う。画面描画の同期待ちや表情更新の発生時刻はブラウザー上で揺れるため、森以外に生じる差は地形変更の効果から切り分ける。', '',
         '## 森28体でタヌキ・パンダ・箱が完了した通常歩行', '',
         '各欄は300秒の完了回数。0回でも休息だけで過ごした住民と、経路が成立しなかった住民を区別できるよう、試行回数・不成立回数・最長不成立時間は `evidence/matrix-forest-named.csv` に記録した。', '',
@@ -115,7 +117,7 @@ def main():
     observed_sources, matched_identity = {}, {}
     browsers = {arm:Counter() for arm in ARMS}
     historic_groups = ([],[],[],[])
-    historic_changes, historic_fresh = [], Counter()
+    historic_changes, historic_fresh, opening_drift = [], Counter(), []
     homes, touches, changes, cells = [], [], [], []
     comparisons = {f'{a} → {b}': {key:Counter() for key in ('forest','elsewhere')} for a,b in zip(ARMS,ARMS[1:])}
     handles = {}
@@ -173,6 +175,17 @@ def main():
                         v11.add_household(c,arm,*rows,safety[arm],Counter())
                         totals = legacy.digest_group(*rows)
                         if arm == 'v12':
+                            for case, before in historic_data['rows'].items():
+                                after = d['rows'][case]
+                                if before.get('skip') or prior.drop_outcome(before) == prior.drop_outcome(after):
+                                    continue
+                                old.require(before['start']==after['start'] and before['goal']==after['goal'], 'V12 finger coordinates differ')
+                                opening_drift.append({'region':region,'count':count,'width':width,'case':case,'key':before['key'],
+                                    'startX':before['start'][0],'startY':before['start'][1],'goalX':before['goal'][0],'goalY':before['goal'][1],
+                                    **{k+'Before':before[k] for k in ('selectedKey','issued','accepted','blockedClass')},
+                                    **{k+'Fresh':after[k] for k in ('selectedKey','issued','accepted','blockedClass')},
+                                    'arrivalBefore':before['arrived'] or before['terminalArrived'], 'arrivalFresh':after['arrived'] or after['terminalArrived'],
+                                    'near4Before':before['near4'] or before['terminalNear4'], 'near4Fresh':after['near4'] or after['terminalNear4']})
                             historic_fresh['identicalOpeningFeet'] += d['opening'] == historic_data['opening']
                             historic_fresh['identicalAgedFeet'] += d['aged']['opening'] == historic_data['aged']['opening']
                             historical_people = {r['key']:r for r in historic_rows[0]}
@@ -259,6 +272,7 @@ def main():
     result['totalViolationsByField'] = {key:sum(s[key] for s in safety.values()) for key in VIOLATIONS}
     result['versusPublishedV12'] = {arm: {k: {'delta':totals[arm][k]-v,
                 'atLeastAsGood': totals[arm][k]<=v if k=='bothFailed' else totals[arm][k]>=v} for k,v in historical.items()} for arm in ARMS}
+    result['sameCodeOpeningDrift'] = {'differentResponses':len(opening_drift),'arrivalLostToOtherRecipient':sum(r['arrivalBefore'] and not r['arrivalFresh'] and r['selectedKeyFresh']!=r['key'] for r in opening_drift)}
     result['correctedForestHouseholds'] = sum(sources[run,arm] for run in a.corrected_runs for arm in ARMS)
     if proof:
         old.require(result['correctedForestHouseholds'] == 60,'incomplete corrected B/C/D forest results')
@@ -272,6 +286,7 @@ def main():
     for i, fname in enumerate(('residents','opening','aged','dual')):
         legacy.csv_write(a.normalized/f'matrix-{fname}.csv.gz',[r for arm in ARMS for r in datasets[arm][i]])
     legacy.csv_write(a.normalized/'matrix-frozen.csv.gz',touches)
+    v11.write_table(a.out/'matrix-v12-opening-drift.csv',opening_drift,('region','count','width','case','key'))
     v11.write_table(a.out/'matrix-historical-drift.csv',historic_changes,('region','count','width','gained','lost'))
     legacy.csv_write(a.out/'matrix-groups.csv',groups)
     legacy.csv_write(a.out/'matrix-households.csv',homes)
