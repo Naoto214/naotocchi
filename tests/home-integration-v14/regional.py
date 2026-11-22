@@ -57,15 +57,15 @@ def serve(root):
     threading.Thread(target=httpd.serve_forever,daemon=True).start()
     return 'http://127.0.0.1:'+str(httpd.server_port)
 
-def run(browser,root,base,region,count,width,arm,seconds,pairs=False,alternate=False):
+def run(browser,root,base,region,count,width,arm,seconds,pairs=False,alternate=False,opening_probe=None):
     ctx=browser.new_context(viewport={'width':width,'height':HEIGHT[width]},device_scale_factor=2,
                              is_mobile=True,has_touch=True,timezone_id='Asia/Tokyo',locale='ja-JP')
     try:
-        return measure(ctx,root,base,region,count,width,arm,seconds,pairs,alternate)
+        return measure(ctx,root,base,region,count,width,arm,seconds,pairs,alternate,opening_probe)
     finally:
         ctx.close()
 
-def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False,alternate=False):
+def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False,alternate=False,opening_probe=None):
     save=seed(region,count)
     hashes={}
     seen_errors=[]
@@ -98,6 +98,8 @@ def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False,alternate=F
             anchor='return {model,update,sync,interrupt,'
             probe=(HERE/'regional-probe.js').read_text()
             if pairs:probe+=(HERE/'pair-probe.js').read_text()
+            if opening_probe:
+                probe+=opening_probe
             if alternate:
                 probe+=(HERE/'drag-clearance.js').read_text()+'\nregional.clearance=surroundingClearance;\n'
             src=once(src,anchor,probe+anchor)
@@ -122,6 +124,8 @@ def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False,alternate=F
     extra={}
     if pairs:
         extra['opening']=placement()
+        if opening_probe:
+            return page.evaluate('regional.measureOpening()')
         extra['sync']=page.evaluate('regional.resync()')
     opening=page.evaluate('regional.summary()')
     target=page.evaluate('regional.target()')
