@@ -392,17 +392,55 @@
       // Keep the face and body centre visible; true triangle masks still cover feet/edges.
       return [.22,.5,.8].every(f=>[-.3,0,.3].every(x=>!polys.some(poly=>inside(p.x+a.w*x+stageRect.left-host.left,p.y-a.h*f+stageRect.top-host.top,poly))));
     }
+    // A relationship expression rebuilds both companion rows. Identical bare
+    // sprites still need their measured bounds on the very first replacement sync.
+    function sameCompanionImage(old, next){
+      function shape(row){
+        const host=row.owner, visual=host.firstElementChild, image=visual?.firstElementChild;
+        if(!host.matches('.companion-chip-small') || host.dataset.companionId!==row.id || host.children.length!==1 ||
+            !visual?.matches('.character-visual.character-companion.has-asset') ||
+            visual.children.length!==2 || !visual.lastElementChild.matches('.character-emoji-fallback') ||
+            !image?.matches('img.character-asset') || image.hasAttribute('srcset') || image.hasAttribute('sizes') ||
+            !row.asset || image.getAttribute('src')!==row.asset || (image.currentSrc && image.currentSrc!==image.src))return null;
+        const geometry=el=>[el.className,...['width','height','object-fit','object-position','transform','scale','rotate']
+          .map(name=>el.style.getPropertyValue(name))];
+        return JSON.stringify([host.className,geometry(visual),geometry(image)]);
+      }
+      if(old.kind!=='companion' || next.kind!=='companion' || old.attachments?.length || next.attachments?.length)return false;
+      const ink=old.paintExtent;
+      if(!ink || ink.up!==Math.max(next.h+12,next.h*1.08+next.w*.12) || ink.down!==8 ||
+          ink.left!==next.w/2 || ink.right!==next.w/2 || ink.side!==next.w/2)return false;
+      // renderCompanionRow installs fresh chips before renderHomeCast applies
+      // the unchanged solver frame. An explicitly styled replacement must match.
+      if(next.owner.hasAttribute('style') && ['left','top','width','height'].some(k=>old.owner.style[k]!==next.owner.style[k]))return false;
+      const before=shape(old);
+      return before!==null && before===shape(next);
+    }
+    let syncedNavigation=null;
     function sync(){
       if(!enabled||!scene||pendingResidentPresentation)return;
       const list=getActors(),next=new Map();
+      const unchangedLayout=!!scene.navigation && scene.navigation===syncedNavigation &&
+        list.some(a=>rows.get(a.key)?.owner!==a.owner) &&
+        list.length===rows.size && list.every(a=>{
+          const r=rows.get(a.key);
+          return r && ['id','kind','asset','x','y','w','h','originX'].every(k=>a[k]===r[k]) &&
+            ['left','right','top','bottom'].every(k=>a.extent?.[k]===r.extent?.[k]);
+        });
       for(const a of list){
         if(!a.owner?.isConnected)continue;
         let row=rows.get(a.key);
-        if(row&&row.owner!==a.owner){restore(row);row=null;}
+        let retainedInk;
+        if(row&&row.owner!==a.owner){
+          if(row.paintExtent && unchangedLayout && sameCompanionImage(row,a))retainedInk=row.paintExtent;
+          restore(row);row=null;
+        }
         if(!row){const shadow=doc.createElement('span');shadow.className='diorama-shadow';overlay.appendChild(shadow);row={shadow,original:Object.fromEntries(['role','tabindex','aria-label','aria-pressed'].map(k=>[k,a.owner.getAttribute?.(k)??null]))};}
+        if(retainedInk)row.paintExtent=retainedInk;
         Object.assign(row,a);a.owner.dataset.dioramaActor=a.key;a.owner.setAttribute('role','button');a.owner.setAttribute('tabindex','0');a.owner.setAttribute('aria-label',`${a.label||a.id}をえらぶ`);
         next.set(a.key,row);
       }
+      syncedNavigation=scene.navigation;
       for(const [key,row]of rows)if(!next.has(key)){restore(row);if(gesture?.key===key)clearGesture();}
       let newbornPoint=null;
       const newborn=list.find(a=>a.kind==='pet');
@@ -646,17 +684,12 @@
     }
     function down(e){if(!enabled)return;if(e.isPrimary===false){clearGesture();return;}if(blocked()||e.button>0||e.target?.closest?.('button,a,input,select,textarea'))return;
       const p=point(e),key=hit(p,e.target);if(!key&&!model.selected())return;
-      gesture={pointerId:e.pointerId,start:p,clientX:e.clientX,clientY:e.clientY,key,drag:false};if(key)model.select(key);paint();try{stage.setPointerCapture(e.pointerId);}catch(_){}e.preventDefault();}
+      gesture={pointerId:e.pointerId,start:p,key,drag:false};if(key)model.select(key);paint();try{stage.setPointerCapture(e.pointerId);}catch(_){}e.preventDefault();}
     function move(e){if(!gesture||gesture.pointerId!==e.pointerId)return;if(blocked()){clearGesture();return;}
       const p=point(e);if(Math.hypot(p.x-gesture.start.x,p.y-gesture.start.y)>=8)gesture.drag=true;
       if(gesture.drag){const key=gesture.key||model.selected(),a=model.snapshot().find(a=>a.key===key);if(a){const b=model.bounds(a);marker.hidden=false;marker.style.left=Math.max(b.left,Math.min(b.right,p.x))+'px';marker.style.top=Math.max(b.top,Math.min(b.bottom,p.y))+'px';}}
       e.preventDefault();}
     function up(e){if(!gesture||gesture.pointerId!==e.pointerId)return;const g=gesture,p=point(e);clearGesture();if(blocked())return;
-      // A quick release can carry the last displacement without a pointermove.
-      // Measure both client points in the release frame if the viewport moved.
-      if(g.key&&!g.drag&&(e.clientX!==g.clientX||e.clientY!==g.clientY)){
-        const start=point(g);g.drag=Math.hypot(p.x-start.x,p.y-start.y)>=8;
-      }
       if(g.key&&model.selected()!==g.key)model.select(g.key);
       if(g.drag||!g.key){const success=model.move(g.key||model.selected(),p,g.drag?'drag':'ground');if(g.drag){if(g.key&&success&&guide.visible())guideWalk=g.key;guide.drag({actor:!!g.key,success});showGuide();}}
       paint();resume();e.preventDefault();}
