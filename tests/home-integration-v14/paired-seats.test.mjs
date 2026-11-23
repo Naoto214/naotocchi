@@ -1,0 +1,173 @@
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import {createTerrainNavigation} from '../../home-route-navigation.mjs';
+import production from '../../home-production-model.js';
+
+const feet = actors => actors.slice(0, 2).map(({x,y}) => [x,y]);
+
+test('first terrain seating keeps the pair on the layout side at its original spacing', () => {
+  const navigation = createTerrainNavigation({
+    width:350, height:350, project:p=>({x:p.x,y:p.z}), unproject:p=>({x:p.x,y:0,z:p.y}), walkable:()=>true
+  });
+  navigation.initialPoint = i => i===0 ? {x:192,y:280} : {x:274,y:87};
+  const scene = {region:'forest',width:350,height:350,navigation,groundTop:50};
+  const cast = [
+    {kind:'pet',key:'pet',x:202,y:226,w:42,h:49},
+    {kind:'partner',key:'bear',x:148,y:226,w:35,h:36}
+  ];
+  const model = production.createModel({random:()=>.5});
+  model.sync(cast,{...scene,navigation:null});
+  model.sync(cast,scene);
+  assert.deepEqual(feet(model.snapshot()), [[192,280],[138,280]]);
+
+  model.select('bear');
+  assert.equal(model.move('bear',{x:90,y:280},'tap'),true);
+  for(let i=0;i<80;i++)model.step(.05,{autonomy:false});
+  const walked=feet(model.snapshot());
+  assert.ok(walked[1][0]<100);
+  model.cancel();
+  model.sync(cast,scene);
+  assert.deepEqual(feet(model.snapshot()),walked);
+  const visitors=Array.from({length:4},(_,i)=>({kind:'companion',key:'guest'+i,x:300,y:70+i*35,w:12,h:12}));
+  model.sync([...cast,...visitors],scene);
+  assert.deepEqual(feet(model.snapshot()),walked);
+  model.sync(cast,{...scene,region:'mountain'});
+  assert.deepEqual(feet(model.snapshot()),[[192,280],[138,280]]);
+});
+
+test('a blocked layout seat is corrected on terrain before the other residents arrive', () => {
+  const nav=createTerrainNavigation({width:350,height:350,
+    project:p=>({x:p.x,y:p.z}), unproject:p=>({x:p.x,y:0,z:p.y}),
+    walkable:p=>p.x>=135});
+  nav.initialPoint=i=>({x:i?320:180,y:i?140:260});
+  const scene={region:'forest',width:350,height:350,navigation:nav,
+    visible:p=>p.y>=160};
+  const hero={kind:'pet',key:'hero',x:200,y:200,w:40,h:40};
+  const bear={kind:'partner',key:'bear',x:145,y:200,w:35,h:35};
+  const model=production.createModel({random:()=>.5});
+  model.sync([hero,bear],scene);
+  const [lead,mate]=model.snapshot();
+  assert.ok(mate.x<lead.x && nav.valid(mate) && scene.visible(mate));
+  assert.ok(Math.hypot((lead.x-mate.x)/47.5,(lead.y-mate.y)/38.5)>=1);
+  assert.ok(Math.hypot(lead.x-mate.x,lead.y-mate.y)<65);
+});
+
+test('an occupied layout seat leaves the lead and every companion in their production seats', () => {
+  const x=[160,272,104,72];
+  const nav=createTerrainNavigation({width:320,height:200,cell:8,
+    project:p=>({x:p.x,y:p.z}), unproject:p=>({x:p.x,y:0,z:p.y}),
+    walkable:p=>p.z===128});
+  nav.initialPoint=i=>({x:x[i],y:128});
+  const scene={region:'jungle',width:320,height:200,navigation:nav,
+    actorBounds:()=>({left:0,right:320,top:128,bottom:128})};
+  const cast=['pet','partner','companion','companion'].map((kind,i)=>({
+    kind,key:'resident'+i,x:[200,144,104,72][i],y:128,w:22,h:22
+  }));
+  const model=production.createModel({random:()=>.5});
+  model.sync(cast,scene);
+  const positions=model.snapshot().map(a=>a.x);
+  assert.deepEqual([positions[0],...positions.slice(2)],[160,104,72]);
+  assert.ok(positions[1]>=192 && positions[1]<272,'the partner alone can use the other side');
+});
+
+
+test('the coupled placement uses the measured camera once before first paint', () => {
+  const nav=createTerrainNavigation({width:320,height:320,project:p=>({x:p.x,y:p.z}),
+    unproject:p=>({x:p.x,y:0,z:p.y}),walkable:()=>true});
+  nav.initialPoint=i=>({x:i?270:160,y:i?100:210});
+  const cast=[{kind:'pet',key:'hero',x:200,y:200,w:30,h:32},
+    {kind:'partner',key:'mate',x:144,y:200,w:22,h:24}];
+  const model=production.createModel({random:()=>.5});
+  const scene={region:'forest',width:320,height:320,navigation:nav,groundTop:40};
+  model.sync(cast,scene,true);
+  assert.ok(model.seatingPending());
+  const provisional=feet(model.snapshot());
+  model.sync(cast,{...scene,actorBounds:()=>({left:90,right:290,top:90,bottom:290})},true);
+  assert.deepEqual(feet(model.snapshot()),provisional);
+  model.finishSeating(p=>p.x>=90);
+  assert.equal(model.seatingPending(),false);
+  assert.deepEqual(feet(model.snapshot()),[[160,210],[104,210]]);
+  model.finishSeating();
+  assert.deepEqual(feet(model.snapshot()),[[160,210],[104,210]]);
+});
+
+test('portrait depth retains the cast offset with only enough width for painted bodies', () => {
+  const nav=createTerrainNavigation({width:340,height:340,project:p=>({x:p.x,y:p.z}),
+    unproject:p=>({x:p.x,y:0,z:p.y}),walkable:()=>true});
+  nav.initialPoint=i=>({x:i?260:180,y:i?100:160});
+  const cast=[{kind:'pet',key:'hero',x:140,y:160,w:40,h:50},
+    {kind:'partner',key:'mate',x:132,y:240,w:30,h:38}];
+  for(const [scaleY,expectedX] of [[.15,153.25],[.45,172]]){
+    const model=production.createModel({random:()=>.5});
+    model.sync(cast,{region:'forest',width:340,height:340,groundTop:20,navigation:nav},true);
+    model.finishSeating(()=>true,{x:1,y:scaleY,body:.75});
+    assert.deepEqual(feet(model.snapshot()),[[180,160],[expectedX,240]]);
+  }
+});
+
+test('a full household packs on the same expanded floor as production', () => {
+  const nav=createTerrainNavigation({width:350,height:300,project:p=>({x:p.x,y:p.z}),
+    unproject:p=>({x:p.x,y:0,z:p.y}),walkable:p=>p.x>=100});
+  nav.initialPoint=i=>({x:140+(i%4)*18,y:180+(i%3)*18});
+  const wider=createTerrainNavigation({width:350,height:300,project:nav.project,unproject:nav.unproject,walkable:()=>true});
+  const expanded={...wider,initialPoint:nav.initialPoint,layoutNavigation:nav};
+  const cast=Array.from({length:28},(_,i)=>({kind:i===0?'pet':i===1?'partner':'companion',key:String(i),
+    x:i===1?100:160,y:180,w:20,h:20}));
+  const scene={region:'city',width:350,height:300,groundTop:40};
+  const traditional=production.createModel({random:()=>.5});
+  traditional.sync(cast,{...scene,navigation:{...wider,initialPoint:nav.initialPoint}},true);
+  const expected=traditional.snapshot().map(({x,y})=>[x,y]);
+  const model=production.createModel({random:()=>.5});
+  model.sync(cast,{...scene,navigation:expanded});
+  const actual=model.snapshot().map(({x,y})=>[x,y]);
+  assert.deepEqual([actual[0],...actual.slice(2)],[expected[0],...expected.slice(2)]);
+});
+
+test('an isolated safe partner seat survives when both adjacent sides are occupied', () => {
+  const points=[160,300,120,200];
+  const nav=createTerrainNavigation({width:340,height:200,project:p=>({x:p.x,y:p.z}),
+    unproject:p=>({x:p.x,y:0,z:p.y}),walkable:p=>p.z===128&&points.includes(p.x)});
+  nav.initialPoint=i=>({x:points[i],y:128});
+  const cast=['pet','partner','companion','companion'].map((kind,i)=>({
+    kind,key:String(i),x:i===1?120:160,y:128,w:20,h:20
+  }));
+  const model=production.createModel({random:()=>.5});
+  model.sync(cast,{region:'mountain',width:340,height:200,navigation:nav,
+    actorBounds:()=>({left:0,right:340,top:128,bottom:128})});
+  assert.deepEqual(model.snapshot().map(a=>a.x),points);
+});
+
+test('the only adjacent safe seat may occupy the lead’s reserved walking lane', () => {
+  const points=[180,300,340,380,420,460];
+  const nav=createTerrainNavigation({width:500,height:240,project:p=>({x:p.x,y:p.z}),
+    unproject:p=>({x:p.x,y:0,z:p.y}),walkable:p=>p.z===180&&(p.x>=120&&p.x<=180||p.x>=300)});
+  nav.initialPoint=i=>({x:points[i],y:180});
+  const cast=['pet','partner',...Array(4).fill('companion')].map((kind,i)=>({
+    kind,key:String(i),x:i===1?135:180,y:180,w:20,h:20
+  }));
+  const model=production.createModel({random:()=>.5});
+  model.sync(cast,{region:'forest',width:500,height:240,navigation:nav,
+    actorBounds:()=>({left:0,right:500,top:180,bottom:180})});
+  const [lead,mate,...peers]=model.snapshot();
+  assert.ok(mate.x>=120&&mate.x<=150);
+  assert.deepEqual([lead.x,...peers.map(p=>p.x)],[180,340,380,420,460]);
+});
+
+test('a near partner seat keeps a usable ground step when the layout side would block it', () => {
+  const points=[180,300,340,380,420,460];
+  const nav=createTerrainNavigation({width:500,height:240,project:p=>({x:p.x,y:p.z}),
+    unproject:p=>({x:p.x,y:0,z:p.y}),walkable:p=>p.z===180&&(p.x>=130&&p.x<=180||p.x>=213&&p.x<=222||p.x>=300)});
+  nav.initialPoint=i=>({x:points[i],y:180});
+  const cast=['pet','partner',...Array(4).fill('companion')].map((kind,i)=>({
+    kind,key:String(i),x:i===1?140:180,y:180,w:20,h:20
+  }));
+  const model=production.createModel({random:()=>.5});
+  model.sync(cast,{region:'forest',width:500,height:240,navigation:nav,
+    actorBounds:()=>({left:0,right:500,top:180,bottom:180})});
+  const [lead,mate,...peers]=model.snapshot();
+  assert.ok(mate.x>=213&&mate.x<=222);
+  assert.deepEqual([lead.x,...peers.map(p=>p.x)],[180,340,380,420,460]);
+  assert.ok(model.move(lead.key,{x:145,y:180},'ground'));
+  for(let i=0;i<30;i++)model.step(.05,{autonomy:false});
+  assert.ok(model.snapshot()[0].x<155);
+});

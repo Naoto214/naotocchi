@@ -1,0 +1,121 @@
+[
+  {
+    "engine": "Chromium",
+    "region": "forest",
+    "count": 28,
+    "time": "day",
+    "viewport": [
+      390,
+      630
+    ],
+    "residentFrameY": [
+      139.59375,
+      365.993408203125
+    ],
+    "uniformZoom": 1.4146,
+    "sourceDaypart": "dayparts-20261103/v2/forest-day.webp",
+    "canvasRect": [
+      -102.05958510890156,
+      -335.4663529829546,
+      594.1191702178031,
+      891.1787553267046
+    ],
+    "minFootScreenY": 181.453,
+    "maxFootScreenY": 358.378,
+    "imageBoxAspect": [
+      1.0101,
+      1.0101
+    ],
+    "maxAbsAlphaFootErrorPx": 0.085,
+    "maxShadowCenterErrorPx": 0.021,
+    "clearing": 28
+  },
+  {
+    "engine": "Chromium",
+    "region": "mountain",
+    "count": 10,
+    "time": "day",
+    "viewport": [
+      390,
+      630
+    ],
+    "residentFrameY": [
+      139.59375,
+      365.995361328125
+    ],
+    "uniformZoom": 1.1215,
+    "sourceDaypart": "dayparts-20261103/v4/mountain-day.webp",
+    "canvasRect": [
+      -40.50703326093958,
+      -150.80813940335435,
+      471.01406652187916,
+      706.5210997828187
+    ],
+    "minFootScreenY": 222.89,
+    "maxFootScreenY": 334.354,
+    "imageBoxAspect": [
+      1.0101,
+      1.0101
+    ],
+    "maxAbsAlphaFootErrorPx": 0.028,
+    "maxShadowCenterErrorPx": 0.013,
+    "clearing": null
+  },
+  {
+    "engine": "Chromium",
+    "region": "forest",
+    "count": 28,
+    "time": "night",
+    "viewport": [
+      390,
+      844
+    ],
+    "residentFrameY": [
+      143.59375,
+      571.996826171875
+    ],
+    "uniformZoom": 1.6152,
+    "sourceDaypart": null,
+    "canvasRect": null,
+    "minFootScreenY": 192.037,
+    "maxFootScreenY": 564.394,
+    "imageBoxAspect": [
+      1.0101,
+      1.0101
+    ],
+    "maxAbsAlphaFootErrorPx": 0.084,
+    "maxShadowCenterErrorPx": 0.028,
+    "clearing": 28
+  },
+  {
+    "engine": "Chromium",
+    "region": "mountain",
+    "count": 10,
+    "time": "night",
+    "viewport": [
+      390,
+      844
+    ],
+    "residentFrameY": [
+      143.59375,
+      571.982666015625
+    ],
+    "uniformZoom": 1.2805,
+    "sourceDaypart": "dayparts-20261103/v6/mountain-night.webp",
+    "canvasRect": [
+      -165.2581794964608,
+      -313.35091962777517,
+      720.5163589929216,
+      1080.7745384893824
+    ],
+    "minFootScreenY": 244.485,
+    "maxFootScreenY": 522.57,
+    "imageBoxAspect": [
+      1.01004,
+      1.0101
+    ],
+    "maxAbsAlphaFootErrorPx": 0.077,
+    "maxShadowCenterErrorPx": 0.021,
+    "clearing": null
+  }
+]

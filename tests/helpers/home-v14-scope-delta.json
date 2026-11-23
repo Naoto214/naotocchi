@@ -1,0 +1,68 @@
+{
+  "index.html": [
+    [
+      "<link rel=\"stylesheet\" href=\"home-production-layout.css?v=ad2694278fb5\">\n",
+      "<link rel=\"stylesheet\" href=\"home-production-layout.css?v=0d1b0a12508f\">\n"
+    ],
+    [
+      "  <script src=\"home-production-model.js?v=2e0a49c4f2a2\"></script>\n  <script src=\"home-production-diorama.js?v=21d93f73c2d1\"></script>\n  <script src=\"script.js?v=b91746ce3644\"></script>\n  <script src=\"home-production-touch.js?v=ec0537400d8a\"></script>\n",
+      "  <script src=\"home-production-model.js?v=812fad81ddc5\"></script>\n  <script src=\"home-production-diorama.js?v=ecac051a6f90\"></script>\n  <script src=\"script.js?v=958e4c160582\"></script>\n  <script src=\"home-production-touch.js?v=df9353d84de4\"></script>\n"
+    ]
+  ],
+  "script.js": [
+    [
+      "  function homeDioramaBlocked(directDrag = false) {\n    const passiveHome=document.body.dataset.homeProduction==='true' && document.body.dataset.homeViewportVersion==='12';\n    const softDrag=directDrag===true&&passiveHome;\n    const idleSpeech=passiveHome && speechActive && el.speechBubble.dataset.reactionEvent==='idle';\n    const conversationLock=passiveHome\n      ? individualityDialogOpen || !!(conv2Unit && conv2Unit.kind!=='banter') || (!softDrag&&homeV11Presentation().lowerUntil>Date.now())\n      : speechActive || conversationIsBusy();\n    // Keep the existing hatch pose while its 2.8s presentation owns the notice.\n    return !!birthCelebration || gameActive || meguruActive || document.visibilityState==='hidden' || isAnyMenuOverlayOpen()\n      || state.isSleeping || state.isSick || state.dying || !!state.transformOptions || conversationLock\n      || !el.lifeCardOverlay.classList.contains('hidden') || (!passiveHome && !el.storyFlash.classList.contains('hidden'))\n      || document.body.classList.contains('movie-active') || el.screenNormal.classList.contains('hidden')\n      || (!!el.castResponse.dataset.reaction&&!(softDrag&&el.castResponse.dataset.reaction==='bounce'))\n      || homeCastActors().some(a=>a.node.dataset.reaction&&!['look','curious','nod','breathe','sway','posture'].includes(a.node.dataset.reaction)\n        && !(softDrag && a.node.dataset.reaction==='bounce')\n        && !(idleSpeech && ['bounce','settle','shy','wiggle'].includes(a.node.dataset.reaction)));\n  }\n",
+      "  function homeDioramaBlocked() {\n    const passiveHome=document.body.dataset.homeProduction==='true' && document.body.dataset.homeViewportVersion==='12';\n    const idleSpeech=passiveHome && speechActive && el.speechBubble.dataset.reactionEvent==='idle';\n    const conversationLock=passiveHome\n      ? individualityDialogOpen || !!(conv2Unit && conv2Unit.kind!=='banter') || homeV11Presentation().lowerUntil>Date.now()\n      : speechActive || conversationIsBusy();\n    // Keep the existing hatch pose while its 2.8s presentation owns the notice.\n    return !!birthCelebration || gameActive || meguruActive || document.visibilityState==='hidden' || isAnyMenuOverlayOpen()\n      || state.isSleeping || state.isSick || state.dying || !!state.transformOptions || conversationLock\n      || !el.lifeCardOverlay.classList.contains('hidden') || (!passiveHome && !el.storyFlash.classList.contains('hidden'))\n      || document.body.classList.contains('movie-active') || el.screenNormal.classList.contains('hidden')\n      || !!el.castResponse.dataset.reaction\n      || homeCastActors().some(a=>a.node.dataset.reaction&&!['look','curious','nod','breathe','sway','posture'].includes(a.node.dataset.reaction)\n        && !(idleSpeech && ['bounce','settle','shy','wiggle'].includes(a.node.dataset.reaction)));\n  }\n"
+    ]
+  ],
+  "tools/pages/allowlist.json": [
+    [
+      "    \"home-art.css\",\n    \"home-autumn-leaves.mjs\",\n",
+      "    \"home-art.css\",\n"
+    ],
+    [
+      "    \"home-ground-expansion.mjs\",\n    \"home-ground-material.mjs\",\n",
+      "    \"home-ground-expansion.mjs\",\n"
+    ],
+    [
+      "    \"home-art-navigation.mjs\": \"aac392aafc95907374a5cc887d64b9cf2507e82f6c96804c8de918616f409aa6\",\n",
+      "    \"home-art-navigation.mjs\": \"b08b767e0984c662aae5bd2e98dfc1463923950b7c41ded9af7ee4a26f8668be\",\n"
+    ],
+    [
+      "    \"home-production-diorama.js\": \"21d93f73c2d136924859cff7503f20e264b210ba626a316677918d3a6d6e9d1f\",\n",
+      "    \"home-production-diorama.js\": \"ecac051a6f903dab5ee2f266d70b879686e15a035fbcefd1e6a84fa5a2db783a\",\n"
+    ],
+    [
+      "    \"home-production-layout.css\": \"ad2694278fb57d5d22506b83596d694a81b5d59b373be3d04e7538fd7853c679\",\n",
+      "    \"home-production-layout.css\": \"0d1b0a12508f0194bbcf62c222be6768242073d0b51a8fed52d8d4a9e81a41fd\",\n"
+    ],
+    [
+      "    \"home-production-model.js\": \"2e0a49c4f2a234e7931d678f2449d7e7cd5f18a0f005053514fd909bf4cb8b7b\",\n    \"home-production-touch.js\": \"ec0537400d8a1f2d470ca35432214e0978278157e03702c54bdd7ee9843a3a7c\",\n",
+      "    \"home-production-model.js\": \"812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856\",\n    \"home-production-touch.js\": \"df9353d84de426e6f71fdd3b9230d31eac2bc8107d801e13ed5eac7d398d8f42\",\n"
+    ],
+    [
+      "    \"home-production-world.mjs\": \"ee2f884cd801ed4aa45cb7f89bef721fcefc1608de297b22882a6681e698dd68\",\n    \"home-recovered-navigation.mjs\": \"04b4e28df664bfcf54f769e14ea8f39176346e371b45cb58168a61ff96db0470\",\n",
+      "    \"home-production-world.mjs\": \"d824c818c676353898afb052b43f8e88db9a14a7add55c3986af0104dbdc9ca6\",\n    \"home-recovered-navigation.mjs\": \"9a7e25d9fbe9598f66f04139fc534b70cf847a289c53b908d5dc69e3eb62578d\",\n"
+    ],
+    [
+      "    \"index.html\": \"105bca1ce46c1ff2a659a9cbbb7cbe8ea2a7e8d4269cbfcbd05a3d977f382f8e\",\n",
+      "    \"index.html\": \"76cd45be9c8bccfa81f96a04a52caa54c9fae9159436a83fca1a0fe42bd72cc7\",\n"
+    ],
+    [
+      "    \"script.js\": \"b91746ce36444a89a5f7945efe38aafbc34a8a319af628e7bce7d1426a9249e7\",\n",
+      "    \"script.js\": \"958e4c16058264dc22ad23ad6c74f78ffc55c8351635f3591cb4f53878601807\",\n"
+    ],
+    [
+      "    \"home-route-navigation.mjs\": \"32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9\",\n",
+      "    \"home-route-navigation.mjs\": \"9459d7632eb786f8415839e102ddd422829804423f0b9e674bae44424eef678e\",\n"
+    ],
+    [
+      "    \"home-visible-ground-navigation.mjs\": \"31893b6c79075a1b4ca34ab0d760359723d534da46a6e2d9188221c169a10e23\",\n",
+      "    \"home-visible-ground-navigation.mjs\": \"47d394909efd22698dc697883efab1dc5f5142842d03615283d43d2f9490093b\",\n"
+    ],
+    [
+      "    \"prototypes/card-game/display-catalog.mjs\": \"b26d16f7560cb0d556bdf0e6e496c8c8b07f1dc99280898cfe15e21492980530\",\n    \"home-ground-material.mjs\": \"4adaf0c8c69bcb6e20b8468a94665155fd7993e8902c4d30432567ddb7b7370e\",\n    \"home-autumn-leaves.mjs\": \"059657479bfee0d2732a67f2b6dc5874df65a718a2468dea5bb3fe5138be0b15\"\n",
+      "    \"prototypes/card-game/display-catalog.mjs\": \"b26d16f7560cb0d556bdf0e6e496c8c8b07f1dc99280898cfe15e21492980530\"\n"
+    ]
+  ]
+}

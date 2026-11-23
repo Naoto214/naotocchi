@@ -1,0 +1,40 @@
+{
+  "engine": "webkit",
+  "version": "26.5",
+  "viewport": [
+    320,
+    792
+  ],
+  "region": "forest",
+  "pageErrors": [],
+  "before": [
+    [
+      "pet:butterfly",
+      163.07966583232582,
+      298.4622556318011
+    ],
+    [
+      "companion:panda",
+      220.4580785358732,
+      148.97639095676968
+    ]
+  ],
+  "after": [
+    [
+      "pet:butterfly",
+      163.07966583232582,
+      298.4622556318011
+    ],
+    [
+      "companion:panda",
+      220.4580785358732,
+      148.97639095676968
+    ]
+  ],
+  "renewed": null,
+  "decision": null,
+  "shadow": [
+    220.458079,
+    148.976391
+  ]
+}

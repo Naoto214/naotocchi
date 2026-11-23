@@ -1,0 +1,182 @@
+[
+  {
+    "region": "mountain",
+    "count": 28,
+    "width": 390,
+    "initialCloudStarted": false,
+    "initialCloudGate": null,
+    "source": {
+      "home-production-diorama.js": "6d9f7829438430f14d37a982495700520a40c86509337e86a0098db9e48b7bd2",
+      "home-production-model.js": "70f8444885a593700943c3f644d89965eb5db1af7807b34ba84f392891c0fe43",
+      "script.js": "0a61fb011e1f23e688aa3519a90c9ea338278cebbbfdf8d179fd7cdf4f428e6c"
+    },
+    "replays": [
+      {
+        "repeat": "1",
+        "gate": {
+          "busy": false,
+          "careAfterglow": false,
+          "context": true,
+          "emotion": "normal",
+          "hasMessage": false,
+          "petBusy": false,
+          "petMotion": false,
+          "speech": false,
+          "suppressIdle": false,
+          "unit": null
+        },
+        "started": true,
+        "tap": "pet:dog",
+        "hops": 188,
+        "errors": []
+      },
+      {
+        "repeat": "2",
+        "gate": {
+          "busy": false,
+          "careAfterglow": false,
+          "context": true,
+          "emotion": "normal",
+          "hasMessage": false,
+          "petBusy": false,
+          "petMotion": false,
+          "speech": false,
+          "suppressIdle": false,
+          "unit": null
+        },
+        "started": true,
+        "tap": "pet:dog",
+        "hops": 188,
+        "errors": []
+      },
+      {
+        "repeat": "3",
+        "gate": {
+          "busy": false,
+          "careAfterglow": false,
+          "context": true,
+          "emotion": "normal",
+          "hasMessage": false,
+          "petBusy": false,
+          "petMotion": false,
+          "speech": false,
+          "suppressIdle": false,
+          "unit": null
+        },
+        "started": true,
+        "tap": "pet:dog",
+        "hops": 188,
+        "errors": []
+      },
+      {
+        "repeat": "4",
+        "gate": {
+          "busy": false,
+          "careAfterglow": false,
+          "context": true,
+          "emotion": "normal",
+          "hasMessage": false,
+          "petBusy": false,
+          "petMotion": false,
+          "speech": false,
+          "suppressIdle": false,
+          "unit": null
+        },
+        "started": true,
+        "tap": "pet:dog",
+        "hops": 188,
+        "errors": []
+      }
+    ]
+  },
+  {
+    "region": "desert",
+    "count": 20,
+    "width": 390,
+    "initialCloudStarted": false,
+    "initialCloudGate": null,
+    "source": {
+      "home-production-diorama.js": "6d9f7829438430f14d37a982495700520a40c86509337e86a0098db9e48b7bd2",
+      "home-production-model.js": "70f8444885a593700943c3f644d89965eb5db1af7807b34ba84f392891c0fe43",
+      "script.js": "0a61fb011e1f23e688aa3519a90c9ea338278cebbbfdf8d179fd7cdf4f428e6c"
+    },
+    "replays": [
+      {
+        "repeat": "1",
+        "gate": {
+          "busy": true,
+          "careAfterglow": false,
+          "context": true,
+          "emotion": "normal",
+          "hasMessage": false,
+          "petBusy": false,
+          "petMotion": false,
+          "speech": false,
+          "suppressIdle": false,
+          "unit": "banter"
+        },
+        "started": false,
+        "tap": "pet:dog",
+        "hops": 248,
+        "errors": []
+      },
+      {
+        "repeat": "2",
+        "gate": {
+          "busy": true,
+          "careAfterglow": false,
+          "context": true,
+          "emotion": "normal",
+          "hasMessage": false,
+          "petBusy": false,
+          "petMotion": false,
+          "speech": false,
+          "suppressIdle": false,
+          "unit": "banter"
+        },
+        "started": false,
+        "tap": "pet:dog",
+        "hops": 248,
+        "errors": []
+      },
+      {
+        "repeat": "3",
+        "gate": {
+          "busy": true,
+          "careAfterglow": false,
+          "context": true,
+          "emotion": "normal",
+          "hasMessage": false,
+          "petBusy": false,
+          "petMotion": false,
+          "speech": false,
+          "suppressIdle": false,
+          "unit": "banter"
+        },
+        "started": false,
+        "tap": "pet:dog",
+        "hops": 248,
+        "errors": []
+      },
+      {
+        "repeat": "4",
+        "gate": {
+          "busy": true,
+          "careAfterglow": false,
+          "context": true,
+          "emotion": "normal",
+          "hasMessage": false,
+          "petBusy": false,
+          "petMotion": false,
+          "speech": false,
+          "suppressIdle": false,
+          "unit": "banter"
+        },
+        "started": false,
+        "tap": "pet:dog",
+        "hops": 248,
+        "errors": []
+      }
+    ]
+  }
+]

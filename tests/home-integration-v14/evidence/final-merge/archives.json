@@ -1,0 +1,72 @@
+{
+  "run": 45086883804,
+  "commit": "f2e44693301cb12f024663a4eeb51bf3a0b8afb3",
+  "url": "https://github.com/Naoto214/naotocchi/actions/runs/45086883804",
+  "verifiedSHA256": [
+    {
+      "id": 14779372695,
+      "name": "pair-v14-city",
+      "digest": "sha256:d86679d6dd4d46dea9d7061e56a5bb9bec80291407b241f1086365a364649771"
+    },
+    {
+      "id": 14779636790,
+      "name": "pair-v14-countryside",
+      "digest": "sha256:604cbd597a708a518e625d1b05be2e3ae235623e99cf67c0c7938332e1b47781"
+    },
+    {
+      "id": 14779732121,
+      "name": "pair-v14-deepsea",
+      "digest": "sha256:0ade45a8264fdcc657f72b43ac62e0a8079b582e3d5648975d5d2faad788e8e2"
+    },
+    {
+      "id": 14779349405,
+      "name": "pair-v14-desert",
+      "digest": "sha256:163ee82caba9e3e4d546adea3530461f074bfeee624fcb2d7dfbc75d4f7e388f"
+    },
+    {
+      "id": 14778943512,
+      "name": "pair-v14-forest",
+      "digest": "sha256:424d33c189c422a477616b8f1664473a85b9396fb3d3f25bf97e0ff40c3364e6"
+    },
+    {
+      "id": 14779113555,
+      "name": "pair-v14-home",
+      "digest": "sha256:9bbad732ee88bc5c514c211e8b5fa06014a2a24781a123c218e193e495120bb5"
+    },
+    {
+      "id": 14779158352,
+      "name": "pair-v14-jungle",
+      "digest": "sha256:8bdfb9282245fd55dbf7fdc474daec03c3a60d4b624019dd3bc3fa1810e2f598"
+    },
+    {
+      "id": 14779717156,
+      "name": "pair-v14-memory_lake",
+      "digest": "sha256:5ca265967169f0b86908167ada11cca7ff9768f014e23b5db9f6b3026d53e283"
+    },
+    {
+      "id": 14779881297,
+      "name": "pair-v14-mountain",
+      "digest": "sha256:eaff67fb7224b5452c840433c132d31ee73a05a848ab5150f2acbd013bd3d968"
+    },
+    {
+      "id": 14779008591,
+      "name": "pair-v14-river_lake",
+      "digest": "sha256:5ac0a46a6780f613ba8827fde6ee45050293df349e52b21d6acfb28b640cdb60"
+    },
+    {
+      "id": 14779392739,
+      "name": "pair-v14-sea",
+      "digest": "sha256:f25371055328d56b6269c9d6ea0317c608a15e728862008e3d21da48df754e77"
+    },
+    {
+      "id": 14779414068,
+      "name": "pair-v14-snow",
+      "digest": "sha256:8b5f16bd72024df40efebae02df33e8c0df05fa2b2d6080366c8899c124f3a67"
+    },
+    {
+      "id": 14780125273,
+      "name": "pair-v14-star_stop",
+      "digest": "sha256:0edec335dc71aa6b86e8a5ccea566da7dea2f8c6d61bcc80ce32093ee161e179"
+    }
+  ]
+}

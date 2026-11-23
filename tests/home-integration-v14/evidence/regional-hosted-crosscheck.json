@@ -1,0 +1,220 @@
+{
+  "run": 45026961024,
+  "url": "https://github.com/Naoto214/naotocchi/actions/runs/45026961024",
+  "sha": "8a45a2ad01d1bd4e9b77ebc9bf7bf57ad2535f4c",
+  "cells": 260,
+  "equal": {
+    "region": 260,
+    "count": 260,
+    "width": 260,
+    "arm": 260,
+    "seconds": 260,
+    "walkers": 260,
+    "ambientHops": 260,
+    "dragHops": 260,
+    "yieldHops": 260,
+    "hops": 260,
+    "terrain": 260,
+    "occlusion": 260,
+    "speed": 260,
+    "contact": 260,
+    "exposed": 260,
+    "trusted": 260,
+    "tapped": 260,
+    "dragIssued": 260,
+    "dragAccepted": 260,
+    "decoded": 260,
+    "shadows": 260,
+    "maxShadowOffset": 251,
+    "conversation": 258,
+    "evolution": 260,
+    "equipment": 260,
+    "census": 260,
+    "time": 260,
+    "reload": 260,
+    "errors": 260
+  },
+  "differences": [
+    {
+      "region": "deepsea",
+      "count": 28,
+      "width": 430,
+      "metric": "maxShadowOffset",
+      "local": 0.000607,
+      "hosted": 0.000615
+    },
+    {
+      "region": "desert",
+      "count": 20,
+      "width": 390,
+      "metric": "conversation",
+      "local": true,
+      "hosted": false
+    },
+    {
+      "region": "forest",
+      "count": 20,
+      "width": 320,
+      "metric": "maxShadowOffset",
+      "local": 0.000645,
+      "hosted": 0.000592
+    },
+    {
+      "region": "forest",
+      "count": 28,
+      "width": 390,
+      "metric": "maxShadowOffset",
+      "local": 0.000659,
+      "hosted": 0.000589
+    },
+    {
+      "region": "forest",
+      "count": 4,
+      "width": 430,
+      "metric": "maxShadowOffset",
+      "local": 0.000598,
+      "hosted": 0.00059
+    },
+    {
+      "region": "home",
+      "count": 10,
+      "width": 375,
+      "metric": "maxShadowOffset",
+      "local": 0.000559,
+      "hosted": 0.000582
+    },
+    {
+      "region": "home",
+      "count": 20,
+      "width": 375,
+      "metric": "maxShadowOffset",
+      "local": 0.00069,
+      "hosted": 0.000696
+    },
+    {
+      "region": "jungle",
+      "count": 4,
+      "width": 430,
+      "metric": "maxShadowOffset",
+      "local": 0.000585,
+      "hosted": 0.000513
+    },
+    {
+      "region": "mountain",
+      "count": 28,
+      "width": 390,
+      "metric": "conversation",
+      "local": true,
+      "hosted": false
+    },
+    {
+      "region": "river_lake",
+      "count": 20,
+      "width": 375,
+      "metric": "maxShadowOffset",
+      "local": 0.000665,
+      "hosted": 0.000663
+    },
+    {
+      "region": "star_stop",
+      "count": 1,
+      "width": 430,
+      "metric": "maxShadowOffset",
+      "local": 0.000549,
+      "hosted": 0.000482
+    }
+  ],
+  "archives": [
+    {
+      "region": "city",
+      "id": 14758166053,
+      "bytes": 22687,
+      "digest": "sha256:c0308c6a6c021b6c99e4eae2391f49b39317d6289395adc71bf8f6a0fc7df4de",
+      "job": 137221973731
+    },
+    {
+      "region": "countryside",
+      "id": 14758246179,
+      "bytes": 23109,
+      "digest": "sha256:afb5ff88916d729af3bf22fa45939267d62f7b15364558a75e58b8db37d45afa",
+      "job": 137221973875
+    },
+    {
+      "region": "deepsea",
+      "id": 14757244340,
+      "bytes": 23045,
+      "digest": "sha256:fbb7c81ef50b929ee109a192a79a5f282759f12758b9f858e7814a61e1bc7e46",
+      "job": 137221973598
+    },
+    {
+      "region": "desert",
+      "id": 14758411433,
+      "bytes": 22731,
+      "digest": "sha256:2df5782df841556569b5ce2ce0f72b953c81dc60b98bd7daf1121e1fdaf092b0",
+      "job": 137221973896
+    },
+    {
+      "region": "forest",
+      "id": 14757746695,
+      "bytes": 22206,
+      "digest": "sha256:0fc0faa6437f94916cd58cbb5e65ed4593038122f2e6af81c778c5c6c673b9f1",
+      "job": 137221973658
+    },
+    {
+      "region": "home",
+      "id": 14758600059,
+      "bytes": 23042,
+      "digest": "sha256:23dede5193b90ecf6a1137a574a91a55c68bcf1f719af259b49d3cb483463eab",
+      "job": 137221973725
+    },
+    {
+      "region": "jungle",
+      "id": 14757693521,
+      "bytes": 22561,
+      "digest": "sha256:a614772ebbe6f39df7ea35ced47b0e877a4ccebb213421f68d84a8190e05671f",
+      "job": 137221973772
+    },
+    {
+      "region": "memory_lake",
+      "id": 14757766659,
+      "bytes": 23473,
+      "digest": "sha256:752f868863584d7b2494f9c3ad6d5a98df349c9f2d64437fe948a54c31c685ac",
+      "job": 137221973642
+    },
+    {
+      "region": "mountain",
+      "id": 14756919769,
+      "bytes": 22890,
+      "digest": "sha256:b0fa256e21b72870dbef935257afb806538a74ecb316a3f94a6393ebe11bdeed",
+      "job": 137221973503
+    },
+    {
+      "region": "river_lake",
+      "id": 14756441973,
+      "bytes": 23896,
+      "digest": "sha256:419dc2cdaa6db4c8fb2fa8a31ce017589ef9dfd3de4c925f6846e1666343512d",
+      "job": 137221973661
+    },
+    {
+      "region": "sea",
+      "id": 14758160400,
+      "bytes": 22040,
+      "digest": "sha256:319d4c5ba2ad47c9d62bb7ff82154e685ca78cd318ad8c42548144b182bd2249",
+      "job": 137221973689
+    },
+    {
+      "region": "snow",
+      "id": 14758120689,
+      "bytes": 22660,
+      "digest": "sha256:bbe7baa6379c22653cb4d3e36b3db22095c18e0e6b8b2e8ad9e1d6301f544bec",
+      "job": 137221973670
+    },
+    {
+      "region": "star_stop",
+      "id": 14758660494,
+      "bytes": 23236,
+      "digest": "sha256:06b44596b6031e2e6a91a7e123ffc8a46efc23b34b1b60c0fd0c0085759a80a0",
+      "job": 137221973830
+    }
+  ]
+}

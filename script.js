@@ -15434,19 +15434,21 @@
     unit.terrainPair=pair;unit.region=e.region;
     conv2Play(unit,beats,null,()=>conv2Finish(unit));
   });
-  function homeDioramaBlocked() {
+  function homeDioramaBlocked(directDrag = false) {
     const passiveHome=document.body.dataset.homeProduction==='true' && document.body.dataset.homeViewportVersion==='12';
+    const softDrag=directDrag===true&&passiveHome;
     const idleSpeech=passiveHome && speechActive && el.speechBubble.dataset.reactionEvent==='idle';
     const conversationLock=passiveHome
-      ? individualityDialogOpen || !!(conv2Unit && conv2Unit.kind!=='banter') || homeV11Presentation().lowerUntil>Date.now()
+      ? individualityDialogOpen || !!(conv2Unit && conv2Unit.kind!=='banter') || (!softDrag&&homeV11Presentation().lowerUntil>Date.now())
       : speechActive || conversationIsBusy();
     // Keep the existing hatch pose while its 2.8s presentation owns the notice.
     return !!birthCelebration || gameActive || meguruActive || document.visibilityState==='hidden' || isAnyMenuOverlayOpen()
       || state.isSleeping || state.isSick || state.dying || !!state.transformOptions || conversationLock
       || !el.lifeCardOverlay.classList.contains('hidden') || (!passiveHome && !el.storyFlash.classList.contains('hidden'))
       || document.body.classList.contains('movie-active') || el.screenNormal.classList.contains('hidden')
-      || !!el.castResponse.dataset.reaction
+      || (!!el.castResponse.dataset.reaction&&!(softDrag&&el.castResponse.dataset.reaction==='bounce'))
       || homeCastActors().some(a=>a.node.dataset.reaction&&!['look','curious','nod','breathe','sway','posture'].includes(a.node.dataset.reaction)
+        && !(softDrag && a.node.dataset.reaction==='bounce')
         && !(idleSpeech && ['bounce','settle','shy','wiggle'].includes(a.node.dataset.reaction)));
   }
   window.addEventListener('home-v6-egg-ready',()=>renderHomeCast());

@@ -1,0 +1,201 @@
+{
+  "sources": {
+    "index.html": "0cbb24629b002922ec49d793b9bd87f7328e4fa3a1a63db8432b0150e1f9bf43",
+    "script.js": "0a61fb011e1f23e688aa3519a90c9ea338278cebbbfdf8d179fd7cdf4f428e6c",
+    "home-production-world.mjs": "ee2f884cd801ed4aa45cb7f89bef721fcefc1608de297b22882a6681e698dd68",
+    "home-production-model.js": "2b5c893266d84e6831f948b405bed41672d0c3f16ab4fc6254812c3336f76849",
+    "home-production-diorama.js": "ad21545be3beabe3160b2535daa5764089b4b1ac30b4ed8d3cf1ac28fbf200f3",
+    "home-production-touch.js": "ec0537400d8a1f2d470ca35432214e0978278157e03702c54bdd7ee9843a3a7c",
+    "home-production-layout.css": "ad2694278fb57d5d22506b83596d694a81b5d59b373be3d04e7538fd7853c679"
+  },
+  "observations": [
+    {
+      "browser": "156.0.8078.79",
+      "engine": "Chromium",
+      "viewport": [
+        320,
+        516
+      ],
+      "region": "forest",
+      "modelClock": 4.2,
+      "pendingHiddenSyncSamples": 4,
+      "finalStageVisibility": "visible",
+      "projection": 4,
+      "drawn": {
+        "left": -51.90422025077794,
+        "top": -193.99909002130698,
+        "width": 423.8084405015559,
+        "height": 635.7126607523338,
+        "region": "forest",
+        "revision": 4
+      },
+      "pair": [
+        {
+          "key": "pet:dog",
+          "artwork": [
+            0.3899,
+            0.6535
+          ],
+          "imageAspect": 1.0101,
+          "screenFoot": [
+            113.327,
+            221.4647
+          ]
+        },
+        {
+          "key": "partner:forest_bear",
+          "artwork": [
+            0.2118,
+            0.6555
+          ],
+          "imageAspect": 1.0101,
+          "screenFoot": [
+            37.8584,
+            222.7287
+          ]
+        }
+      ]
+    },
+    {
+      "browser": "156.0.8078.79",
+      "engine": "Chromium",
+      "viewport": [
+        320,
+        516
+      ],
+      "region": "mountain",
+      "modelClock": 3.3,
+      "pendingHiddenSyncSamples": 4,
+      "finalStageVisibility": "visible",
+      "projection": 4,
+      "drawn": {
+        "left": -12,
+        "top": -67.62,
+        "width": 344,
+        "height": 516,
+        "region": "mountain",
+        "revision": 4
+      },
+      "pair": [
+        {
+          "key": "pet:dog",
+          "artwork": [
+            0.5538,
+            0.5538
+          ],
+          "imageAspect": 1.0101,
+          "screenFoot": [
+            178.5153,
+            218.1295
+          ]
+        },
+        {
+          "key": "partner:forest_bear",
+          "artwork": [
+            0.3283,
+            0.5542
+          ],
+          "imageAspect": 1.0101,
+          "screenFoot": [
+            100.9233,
+            218.3608
+          ]
+        }
+      ]
+    },
+    {
+      "browser": "26.5",
+      "engine": "WPE WebKit",
+      "viewport": [
+        375,
+        667
+      ],
+      "region": "forest",
+      "modelClock": 1.0,
+      "pendingHiddenSyncSamples": 0,
+      "finalStageVisibility": "visible",
+      "projection": 6,
+      "drawn": {
+        "left": -137.58887088660043,
+        "top": -382.55555308948874,
+        "width": 650.1777417732009,
+        "height": 975.2666126598012,
+        "region": "forest",
+        "revision": 6
+      },
+      "pair": [
+        {
+          "key": "pet:dog",
+          "artwork": [
+            0.4878,
+            0.7335
+          ],
+          "imageAspect": 1.0,
+          "screenFoot": [
+            179.5693,
+            332.8078
+          ]
+        },
+        {
+          "key": "partner:forest_bear",
+          "artwork": [
+            0.3866,
+            0.7335
+          ],
+          "imageAspect": 1.0,
+          "screenFoot": [
+            113.79,
+            332.8078
+          ]
+        }
+      ]
+    },
+    {
+      "browser": "26.5",
+      "engine": "WPE WebKit",
+      "viewport": [
+        375,
+        667
+      ],
+      "region": "mountain",
+      "modelClock": 1.0,
+      "pendingHiddenSyncSamples": 0,
+      "finalStageVisibility": "visible",
+      "projection": 7,
+      "drawn": {
+        "left": -70.22825525022796,
+        "top": -180.4734707590543,
+        "width": 515.4565105004559,
+        "height": 773.1847657506838,
+        "region": "mountain",
+        "revision": 7
+      },
+      "pair": [
+        {
+          "key": "pet:dog",
+          "artwork": [
+            0.5353,
+            0.6515
+          ],
+          "imageAspect": 1.0,
+          "screenFoot": [
+            205.6743,
+            323.235
+          ]
+        },
+        {
+          "key": "partner:forest_bear",
+          "artwork": [
+            0.6765,
+            0.6515
+          ],
+          "imageAspect": 1.0,
+          "screenFoot": [
+            278.4826,
+            323.235
+          ]
+        }
+      ]
+    }
+  ]
+}

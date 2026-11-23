@@ -340,7 +340,16 @@
   const original=e.parentNode,next=e.nextSibling;parent.appendChild(e);
   markers.push({remove(){original.insertBefore(e,next?.parentNode===original?next:null);}});
  }
- function actors(){return [...stage.querySelectorAll('[data-diorama-actor]')].filter(e=>rect(e).height>0);}
+ function actors(limit=Infinity){
+  const visible=[];
+  for(const actor of stage.querySelectorAll('[data-diorama-actor]')){
+   if(rect(actor).height>0){
+    visible.push(actor);
+    if(visible.length===limit)break;
+   }
+  }
+  return visible;
+ }
  function reveal(actor,initial=false){if(v12||!actor||!active)return;const delta=revealDelta(rect(frame),rect(actor));frame.scrollLeft+=delta.x;frame.scrollTop+=delta.y;}
  function selected(){return stage.querySelector('[data-diorama-selected="true"]')||stage.querySelector('[data-diorama-actor^="pet:"]')||doc.getElementById('petSprite');}
  function go(step){const list=actors();if(!list.length)return;const current=list.findIndex(e=>e.dataset.dioramaActor===(viewKey||selected()?.dataset.dioramaActor));const actor=list[(current+step+list.length)%list.length];followKey='';viewKey=actor.dataset.dioramaActor;if(v11){followKey=viewKey;followUntil=Infinity;}reveal(actor);navigation.setAttribute('aria-label',(actor.getAttribute('aria-label')||'住民')+'を表示中');}
@@ -566,6 +575,6 @@
  doc.addEventListener('pointercancel',resumeCamera,{passive:true});
  frame.addEventListener('wheel',resumeCamera,{passive:true});
  doc.addEventListener('pointerup',()=>{if(v11){resumeAt=Date.now()+200;followUntil=Infinity;}},{passive:true});
- function track(){if(!v12&&v11&&active&&!dragging&&!followKey&&Date.now()>=resumeAt){followKey=selected()?.dataset.dioramaActor||'';followUntil=Infinity;}if(v10&&active){const single=actors().length<=1?'true':'false';if(stage.dataset.homeSingleActor!==single)stage.dataset.homeSingleActor=single;}if(!v12&&active&&!dragging&&followKey&&Date.now()<followUntil){const a=actors().find(e=>e.dataset.dioramaActor===followKey);reveal(a);}root.requestAnimationFrame(track);}
+ function track(){if(!v12&&v11&&active&&!dragging&&!followKey&&Date.now()>=resumeAt){followKey=selected()?.dataset.dioramaActor||'';followUntil=Infinity;}if(v10&&active){const single=actors(2).length<=1?'true':'false';if(stage.dataset.homeSingleActor!==single)stage.dataset.homeSingleActor=single;}if(!v12&&active&&!dragging&&followKey&&Date.now()<followUntil){const a=actors().find(e=>e.dataset.dioramaActor===followKey);reveal(a);}root.requestAnimationFrame(track);}
  schedule();root.requestAnimationFrame(track);
 })(typeof window==='object'?window:globalThis);

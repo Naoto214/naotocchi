@@ -1,0 +1,175 @@
+name: V14 native regional regression
+on:
+  push:
+    branches: [draft/home-integration-v14]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reference:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[v14-regions]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Check out the isolated candidate
+        uses: actions/checkout@v4
+        with:
+          ref: fb1c8238f937890e73d7a5b69d9fa41b729b7ca2
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-mobility-v13
+            comparisons/home-mobility-v12
+            comparisons/home-mobility-v11
+            comparisons/home-mobility-v10
+            comparisons/home-mobility-v9
+            comparisons/home-mobility-v8
+            comparisons/home-mobility-v7
+            comparisons/home-drag-v6
+            comparisons/home-finish-v5
+      - name: Check out the exact V9 release for building all reference bundles
+        uses: actions/checkout@v4
+        with:
+          ref: be5db6804bf0bee872080bae49cb714f295a461b
+          path: .v9-reference
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-mobility-v9
+            comparisons/home-mobility-v8
+            comparisons/home-mobility-v7
+            comparisons/home-drag-v6
+            comparisons/home-finish-v5
+      - name: Check out pinned cast size tools
+        uses: actions/checkout@v4
+        with:
+          ref: e07d2cc53eca36ff23e02142ab385d6001e0521b
+          path: .cast-reference
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-cast-size-v1
+            comparisons/home-cast-size-v2
+            comparisons/home-cast-size-v3
+            comparisons/home-cast-size-v4
+            tools/work
+      - name: Check out pinned home and artwork
+        uses: actions/checkout@v4
+        with:
+          ref: 28628cf336a8ed92efe4e9e197ca03298b798a1e
+          path: .leaf-reference
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build pinned releases and then the isolated V12 and V13 entries
+        run: |
+          node .cast-reference/comparisons/home-cast-size-v1/build.cjs "$RUNNER_TEMP/v1" --reference-checkout .leaf-reference
+          node .cast-reference/comparisons/home-cast-size-v2/build.cjs "$RUNNER_TEMP/v2" --baseline "$RUNNER_TEMP/v1"
+          node .cast-reference/comparisons/home-cast-size-v3/build.cjs "$RUNNER_TEMP/v3" --baseline "$RUNNER_TEMP/v2"
+          node .cast-reference/comparisons/home-cast-size-v4/build.cjs "$RUNNER_TEMP/v4" --baseline "$RUNNER_TEMP/v3"
+          node .v9-reference/comparisons/home-finish-v5/build.cjs "$RUNNER_TEMP/v5" --baseline "$RUNNER_TEMP/v4"
+          node .v9-reference/comparisons/home-drag-v6/build.cjs "$RUNNER_TEMP/drag" --baseline "$RUNNER_TEMP/v5"
+          node .v9-reference/comparisons/home-mobility-v7/build.cjs "$RUNNER_TEMP/mobility" --baseline "$RUNNER_TEMP/drag"
+          node .v9-reference/comparisons/home-mobility-v8/build.cjs "$RUNNER_TEMP/v8" --baseline "$RUNNER_TEMP/mobility"
+          node .v9-reference/comparisons/home-mobility-v9/build.cjs "$RUNNER_TEMP/v9" --baseline "$RUNNER_TEMP/v8"
+          node comparisons/home-mobility-v10/build.cjs "$RUNNER_TEMP/v10" --baseline "$RUNNER_TEMP/v9"
+          node comparisons/home-mobility-v11/build.cjs "$RUNNER_TEMP/v11" --baseline "$RUNNER_TEMP/v10"
+          node comparisons/home-mobility-v12/build.cjs "$RUNNER_TEMP/v12" --baseline "$RUNNER_TEMP/v11"
+          node comparisons/home-mobility-v13/build.cjs "$RUNNER_TEMP/v13" --baseline "$RUNNER_TEMP/v12" --gameplay-only
+      - name: Archive the reproducible historical runtimes
+        run: tar -cf "$RUNNER_TEMP/v14-references.tar" -C "$RUNNER_TEMP/v13" game
+      - uses: actions/upload-artifact@v4
+        with:
+          name: regional-reference
+          path: ${{ runner.temp }}/v14-references.tar
+          compression-level: 0
+          retention-days: 2
+  region:
+    needs: reference
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      matrix:
+        region: [home, forest, river_lake, city, countryside, mountain, snow, sea, jungle, desert, deepsea, star_stop, memory_lake]
+    env:
+      REGION: ${{ matrix.region }}
+      CHROMIUM_PATH: /usr/bin/google-chrome
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            tests
+            tools/pages
+            assets
+            vendor
+            comparisons/dayparts-20261103
+            comparisons/home-beauty-v7
+      - uses: actions/checkout@v4
+        with:
+          ref: 9539e462e78452ad6da5f72d454911679b4ec20e
+          path: .production
+          persist-credentials: false
+          sparse-checkout: |
+            assets
+            vendor
+            comparisons/dayparts-20261103
+      - uses: actions/download-artifact@v4
+        with:
+          name: regional-reference
+          path: ${{ runner.temp }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Observe four native households per condition and retain all results
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.62.0
+          tar -xf "$RUNNER_TEMP/v14-references.tar" -C "$RUNNER_TEMP"
+          python tests/home-integration-v14/regional.py --production .production --candidate . --historical "$RUNNER_TEMP/game" --region "$REGION" --out "$RUNNER_TEMP/regional"
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: regional-v14-${{ matrix.region }}
+          path: ${{ runner.temp }}/regional
+          retention-days: 14
+          if-no-files-found: error
+  candidate:
+    if: contains(github.event.head_commit.message, '[v14-candidate]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        region: [home, forest, river_lake, city, countryside, mountain, snow, sea, jungle, desert, deepsea, star_stop, memory_lake]
+    env:
+      REGION: ${{ matrix.region }}
+      CHROMIUM_PATH: /usr/bin/google-chrome
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            tests
+            assets
+            vendor
+            comparisons/dayparts-20261103
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Measure the revised candidate using the original matched settings
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.62.0
+          python tests/home-integration-v14/regional.py --production . --candidate . --historical . --arms candidate --region "$REGION" --out "$RUNNER_TEMP/regional"
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: regional-v14-${{ matrix.region }}
+          path: ${{ runner.temp }}/regional
+          retention-days: 14
+          if-no-files-found: error

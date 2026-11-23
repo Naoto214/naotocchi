@@ -1,0 +1,423 @@
+{
+  "production": "384730f1f2b1ef287a2bc4d17df35b861de9f2ae",
+  "before": "d9df1c609f4397bec647fd9fc74d0c1aa683e29d",
+  "fixed": "f6719c5110f164be81f064c6498458cba72f4086",
+  "source": "86fd21b3",
+  "managedSource": "b5849207",
+  "expandedBytes": 268277760,
+  "expandedSha256": "bcab719f54f82fec45fdd07c0cd7d86c0d43c91c11b70b816b107bf209bdee39",
+  "remoteCardCopiesChecked": 119,
+  "remoteCardBytesChecked": 38927210,
+  "unchanged": [
+    "index.html",
+    "launcher.js",
+    "game/index.html",
+    "game/trial.html",
+    "game/compare-before.html",
+    "game/compare-fixed.html"
+  ],
+  "cases": [
+    {
+      "engine": "chromium",
+      "arm": "main",
+      "sha": "384730f1",
+      "verifiedResponses": 122,
+      "region": "forest",
+      "time": "day",
+      "weather": "sunny",
+      "count": 28,
+      "feet": {
+        "dx": 110.78128586878309,
+        "dy": -256.8149936405945,
+        "clock": 1.8333000000000006
+      },
+      "paint": {
+        "dx": 110.78128586878316,
+        "dy": -256.8149936405945,
+        "seating": "ready",
+        "visible": "visible",
+        "movie": false
+      },
+      "background": [
+        "forest-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ],
+      "scriptsChecked": 78,
+      "resourcesChecked": 122
+    },
+    {
+      "engine": "chromium",
+      "arm": "main",
+      "sha": "384730f1",
+      "verifiedResponses": 103,
+      "region": "mountain",
+      "time": "day",
+      "weather": "sunny",
+      "count": 10,
+      "feet": {
+        "dx": -27.47668304513975,
+        "dy": -197.8410541550309,
+        "clock": 0.8333360000000001
+      },
+      "paint": {
+        "dx": -27.476367677030073,
+        "dy": -197.84013222974556,
+        "seating": "ready",
+        "visible": "visible",
+        "movie": false
+      },
+      "background": [
+        "mountain-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ],
+      "scriptsChecked": 78,
+      "resourcesChecked": 103
+    },
+    {
+      "engine": "chromium",
+      "arm": "before",
+      "sha": "d9df1c60",
+      "verifiedResponses": 25,
+      "region": "forest",
+      "time": "day",
+      "weather": "sunny",
+      "count": 28,
+      "feet": {
+        "dx": 110.78128586878309,
+        "dy": -256.8149936405945,
+        "clock": 2.5665480000000005
+      },
+      "paint": {
+        "dx": 110.78128586878316,
+        "dy": -256.8149936405945,
+        "seating": "ready",
+        "visible": "visible",
+        "movie": false
+      },
+      "background": [
+        "forest-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "engine": "chromium",
+      "arm": "before",
+      "sha": "d9df1c60",
+      "verifiedResponses": 25,
+      "region": "mountain",
+      "time": "day",
+      "weather": "sunny",
+      "count": 10,
+      "feet": {
+        "dx": -27.47668304513975,
+        "dy": -197.8410541550309,
+        "clock": 0.2831720000000001
+      },
+      "paint": {
+        "dx": -27.476367677030073,
+        "dy": -197.84013222974556,
+        "seating": "ready",
+        "visible": "visible",
+        "movie": false
+      },
+      "background": [
+        "mountain-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "engine": "chromium",
+      "arm": "fixed",
+      "sha": "f6719c51",
+      "verifiedResponses": 25,
+      "region": "forest",
+      "time": "day",
+      "weather": "sunny",
+      "count": 28,
+      "feet": {
+        "dx": -74.74240024080302,
+        "dy": 0,
+        "clock": 2.1667000000000005
+      },
+      "paint": {
+        "dx": -74.74126605262593,
+        "dy": 0,
+        "seating": "ready",
+        "visible": "visible",
+        "movie": false
+      },
+      "background": [
+        "forest-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "engine": "chromium",
+      "arm": "fixed",
+      "sha": "f6719c51",
+      "verifiedResponses": 25,
+      "region": "mountain",
+      "time": "day",
+      "weather": "sunny",
+      "count": 10,
+      "feet": {
+        "dx": 80.40161580405862,
+        "dy": 0,
+        "clock": 0.2999
+      },
+      "paint": {
+        "dx": 80.40194323500974,
+        "dy": 0,
+        "seating": "ready",
+        "visible": "visible",
+        "movie": false
+      },
+      "background": [
+        "mountain-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "engine": "webkit",
+      "arm": "main",
+      "sha": "384730f1",
+      "verifiedResponses": 121,
+      "region": "forest",
+      "time": "day",
+      "weather": "sunny",
+      "count": 28,
+      "feet": {
+        "dx": 110.78127655038226,
+        "dy": -215.7721478181553,
+        "clock": 0.9999999999999999
+      },
+      "paint": {
+        "dx": 110.78127655038229,
+        "dy": -215.77214822173403,
+        "seating": "ready",
+        "visible": "visible",
+        "movie": false
+      },
+      "background": [
+        "forest-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ],
+      "scriptsChecked": 78,
+      "resourcesChecked": 121
+    },
+    {
+      "engine": "webkit",
+      "arm": "main",
+      "sha": "384730f1",
+      "verifiedResponses": 102,
+      "region": "mountain",
+      "time": "day",
+      "weather": "sunny",
+      "count": 10,
+      "feet": {
+        "dx": -27.476680115554277,
+        "dy": -162.35745752502666,
+        "clock": 0.26
+      },
+      "paint": {
+        "dx": -27.476680459847145,
+        "dy": -162.35745738857116,
+        "seating": "ready",
+        "visible": "visible",
+        "movie": false
+      },
+      "background": [
+        "mountain-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ],
+      "scriptsChecked": 78,
+      "resourcesChecked": 102
+    },
+    {
+      "engine": "webkit",
+      "arm": "before",
+      "sha": "d9df1c60",
+      "verifiedResponses": 25,
+      "region": "forest",
+      "time": "day",
+      "weather": "sunny",
+      "count": 28,
+      "feet": {
+        "dx": 110.78127655038226,
+        "dy": -215.7721478181553,
+        "clock": 0.9999999999999999
+      },
+      "paint": {
+        "dx": 110.78127655038229,
+        "dy": -215.77214822173403,
+        "seating": "ready",
+        "visible": "visible",
+        "movie": false
+      },
+      "background": [
+        "forest-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "engine": "webkit",
+      "arm": "before",
+      "sha": "d9df1c60",
+      "verifiedResponses": 25,
+      "region": "mountain",
+      "time": "day",
+      "weather": "sunny",
+      "count": 10,
+      "feet": {
+        "dx": -27.476680115554277,
+        "dy": -162.35745752502666,
+        "clock": 0.612
+      },
+      "paint": {
+        "dx": -27.476680459847145,
+        "dy": -162.35745738857116,
+        "seating": "ready",
+        "visible": "visible",
+        "movie": false
+      },
+      "background": [
+        "mountain-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "engine": "webkit",
+      "arm": "fixed",
+      "sha": "f6719c51",
+      "verifiedResponses": 25,
+      "region": "forest",
+      "time": "day",
+      "weather": "sunny",
+      "count": 28,
+      "feet": {
+        "dx": -85.21156283011045,
+        "dy": -2.805224010884144,
+        "clock": 0
+      },
+      "paint": {
+        "dx": -85.21156335750845,
+        "dy": -2.8052241583486035,
+        "seating": "ready",
+        "visible": "visible",
+        "movie": false
+      },
+      "background": [
+        "forest-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "engine": "webkit",
+      "arm": "fixed",
+      "sha": "f6719c51",
+      "verifiedResponses": 25,
+      "region": "mountain",
+      "time": "day",
+      "weather": "sunny",
+      "count": 10,
+      "feet": {
+        "dx": 80.40161156249148,
+        "dy": 0,
+        "clock": 0
+      },
+      "paint": {
+        "dx": 80.40161121660253,
+        "dy": 0,
+        "seating": "ready",
+        "visible": "visible",
+        "movie": false
+      },
+      "background": [
+        "mountain-day.webp"
+      ],
+      "size": [
+        390,
+        844
+      ]
+    }
+  ],
+  "ownerSourceCommit": "b5849207131bc965d48bcbc5b03a14eafd72e026",
+  "siteVersion": 7,
+  "audience": {
+    "allowedUsers": 1,
+    "groups": 0,
+    "externalVisitors": 0
+  },
+  "anonymousResponses": [
+    [
+      "/",
+      401,
+      null
+    ],
+    [
+      "/game/",
+      401,
+      null
+    ],
+    [
+      "/game/compare-main.html?scene=forest",
+      401,
+      null
+    ],
+    [
+      "/game/compare-before.html?scene=forest",
+      401,
+      null
+    ],
+    [
+      "/game/compare-fixed.html?scene=forest",
+      401,
+      null
+    ],
+    [
+      "/game/compare-fixed.html?scene=mountain",
+      401,
+      null
+    ]
+  ],
+  "savedArchive": {
+    "commit": "b5849207131bc965d48bcbc5b03a14eafd72e026",
+    "files": 4263,
+    "expandedTarBytes": 268185600,
+    "archiveBytes": 254395714,
+    "sha256": "709e73a785c9b4aea075542e4abf1811a423ef6c88de50788a1da626d0a7b478"
+  }
+}

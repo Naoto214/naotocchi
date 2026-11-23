@@ -1,0 +1,87 @@
+{
+  "region": "home",
+  "count": 20,
+  "width": 430,
+  "randomSeed": 214,
+  "modelSeconds": 30,
+  "measurement": "At each actual committed model step, compute minimum normalized separation from each other current resident over the full segment.",
+  "before": {
+    "modelSHA256": "115c2a98a532a797c7a791c061d11b6c065292ca5f717e668f4de4ad95344454",
+    "hops": 340,
+    "distance": 1363.571695609014,
+    "contact": 1,
+    "terrain": 0,
+    "speed": 0,
+    "occlusion": 0,
+    "commands": [
+      {
+        "key": "pet:dog",
+        "name": "select",
+        "ok": true
+      },
+      {
+        "key": "pet:dog",
+        "name": "select",
+        "ok": true
+      },
+      {
+        "key": "pet:dog",
+        "name": "move",
+        "ok": true
+      }
+    ],
+    "witnesses": [
+      {
+        "actor": "companion:penguin_friend",
+        "before": 1.000003896922444,
+        "clock": 30.000000000000156,
+        "closest": 0.9994578845516371,
+        "end": [
+          106.53001598614699,
+          145.7362775878462
+        ],
+        "intentAware": true,
+        "obstacle": [
+          153.23277593850173,
+          167.48089001008643
+        ],
+        "peer": "companion:tanuki",
+        "region": "home",
+        "rx": 57.135275471698115,
+        "ry": 37.58608756363637,
+        "source": "ambient",
+        "start": [
+          103.65533077440794,
+          148.79833325902672
+        ]
+      }
+    ]
+  },
+  "after": {
+    "modelSHA256": "70f8444885a593700943c3f644d89965eb5db1af7807b34ba84f392891c0fe43",
+    "hops": 339,
+    "distance": 1359.3716956090138,
+    "contact": 0,
+    "terrain": 0,
+    "speed": 0,
+    "occlusion": 0,
+    "commands": [
+      {
+        "key": "pet:dog",
+        "name": "select",
+        "ok": true
+      },
+      {
+        "key": "pet:dog",
+        "name": "select",
+        "ok": true
+      },
+      {
+        "key": "pet:dog",
+        "name": "move",
+        "ok": true
+      }
+    ],
+    "witnesses": []
+  }
+}

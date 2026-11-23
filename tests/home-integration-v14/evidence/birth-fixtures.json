@@ -1,0 +1,51 @@
+{
+  "originalFailedJob": "https://github.com/Naoto214/naotocchi/actions/runs/45025544683/job/137217671987",
+  "mixedFixture": {
+    "sourceCommit": "dc29a33cb0bf1b2f476ed728af322ceaf5105d73",
+    "historicalEntry": "ed182b6d79422f1d85c95f5c8c2777849595f7ce",
+    "newbornCenterY": 315.2533227801323,
+    "visibleCenterY": 318.5,
+    "originalTolerancePx": 2,
+    "width": 320
+  },
+  "reruns": [
+    {
+      "runtime": "historical",
+      "browser": "Chromium",
+      "commit": "ed182b6d79422f1d85c95f5c8c2777849595f7ce",
+      "cases": 10,
+      "passedOriginalAssertions": true,
+      "pageErrors": [],
+      "maxHatchToGrowthGroundDifference": 0.0,
+      "maximumNewbornVerticalCenterErrorPx": 0.020867347717285156
+    },
+    {
+      "runtime": "historical",
+      "browser": "Linux WebKit",
+      "commit": "ed182b6d79422f1d85c95f5c8c2777849595f7ce",
+      "cases": 10,
+      "passedOriginalAssertions": true,
+      "pageErrors": [],
+      "maxHatchToGrowthGroundDifference": 0.0,
+      "maximumNewbornVerticalCenterErrorPx": 0.020867347717285156
+    },
+    {
+      "runtime": "integrated",
+      "browser": "Chromium",
+      "commit": "d3d3a3c3dd9802d0c795826980178486765b0865",
+      "cases": 10,
+      "passedOriginalAssertions": true,
+      "pageErrors": [],
+      "maxHatchToGrowthGroundDifference": 1.1102230246251565e-16
+    },
+    {
+      "runtime": "integrated",
+      "browser": "Linux WebKit",
+      "commit": "d3d3a3c3dd9802d0c795826980178486765b0865",
+      "cases": 10,
+      "passedOriginalAssertions": true,
+      "pageErrors": [],
+      "maxHatchToGrowthGroundDifference": 1.1102230246251565e-16
+    }
+  ]
+}

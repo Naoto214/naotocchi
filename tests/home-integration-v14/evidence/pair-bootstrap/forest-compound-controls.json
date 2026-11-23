@@ -1,0 +1,570 @@
+{
+  "45034186121/prior": {
+    "companion:bat": {
+      "role": "retained",
+      "stagePx": 42.4129871353221,
+      "screenPx": 54.59761611039058
+    },
+    "companion:box": {
+      "role": "removed-and-reintroduced",
+      "stagePx": 259.6574811264093,
+      "screenPx": 213.55181240095314
+    },
+    "companion:cat_friend": {
+      "role": "retained",
+      "stagePx": 9.971571364328975,
+      "screenPx": 11.01104543255245
+    },
+    "companion:chameleon": {
+      "role": "retained",
+      "stagePx": 28.704819943015536,
+      "screenPx": 23.73224828345269
+    },
+    "companion:chicken": {
+      "role": "retained",
+      "stagePx": 49.625576879354746,
+      "screenPx": 40.53933347047122
+    },
+    "companion:clock": {
+      "role": "retained",
+      "stagePx": 80.76363986539016,
+      "screenPx": 77.99215420677412
+    },
+    "companion:hamster": {
+      "role": "retained",
+      "stagePx": 24.92852874891227,
+      "screenPx": 24.12493893563694
+    },
+    "companion:hedgehog": {
+      "role": "retained",
+      "stagePx": 56.28118731925449,
+      "screenPx": 45.72777559694155
+    },
+    "companion:many_tail_fox": {
+      "role": "retained",
+      "stagePx": 173.65802643676764,
+      "screenPx": 171.26324950093044
+    },
+    "companion:monkey": {
+      "role": "retained",
+      "stagePx": 51.62355626816936,
+      "screenPx": 61.70879549644037
+    },
+    "companion:otter": {
+      "role": "retained",
+      "stagePx": 182.05233847388106,
+      "screenPx": 230.25089295893133
+    },
+    "companion:owl": {
+      "role": "retained",
+      "stagePx": 29.081531203290304,
+      "screenPx": 27.945973315314575
+    },
+    "companion:panda": {
+      "role": "retained",
+      "stagePx": 70.66931932905338,
+      "screenPx": 71.6561932850896
+    },
+    "companion:parrot": {
+      "role": "retained",
+      "stagePx": 145.1252621556932,
+      "screenPx": 172.1341837511083
+    },
+    "companion:penguin_friend": {
+      "role": "retained",
+      "stagePx": 1.2884410490492006,
+      "screenPx": 3.8507260240233743
+    },
+    "companion:punyu": {
+      "role": "retained",
+      "stagePx": 15.503929966786202,
+      "screenPx": 15.552405673217622
+    },
+    "companion:rabbit_friend": {
+      "role": "retained",
+      "stagePx": 101.43954941633797,
+      "screenPx": 103.69351560701095
+    },
+    "companion:seal": {
+      "role": "retained",
+      "stagePx": 188.21373601726373,
+      "screenPx": 152.91042154850936
+    },
+    "companion:sekizou": {
+      "role": "retained",
+      "stagePx": 108.28720199172454,
+      "screenPx": 119.8463743540703
+    },
+    "companion:sheep": {
+      "role": "retained",
+      "stagePx": 98.46166605266755,
+      "screenPx": 110.38381467984537
+    },
+    "companion:shiba": {
+      "role": "retained",
+      "stagePx": 10.929031848585286,
+      "screenPx": 16.274580351200868
+    },
+    "companion:snail": {
+      "role": "retained",
+      "stagePx": 335.5922058066529,
+      "screenPx": 342.9950051947067
+    },
+    "companion:squirrel": {
+      "role": "retained",
+      "stagePx": 14.231717388594276,
+      "screenPx": 17.932244145544153
+    },
+    "companion:tanuki": {
+      "role": "retained",
+      "stagePx": 5.684341886080802e-14,
+      "screenPx": 0.03574456679598412
+    },
+    "companion:unicorn": {
+      "role": "retained",
+      "stagePx": 68.07458270192701,
+      "screenPx": 85.85771362106793
+    },
+    "companion:watcher": {
+      "role": "retained",
+      "stagePx": 125.03963951190241,
+      "screenPx": 148.3643000770279
+    },
+    "partner:forest_bear": {
+      "role": "retained",
+      "stagePx": 15.477411448177705,
+      "screenPx": 13.508289422783765
+    },
+    "pet:dog": {
+      "role": "retained",
+      "stagePx": 45.15612508456712,
+      "screenPx": 39.31473307139702
+    }
+  },
+  "45034186121/production": {
+    "companion:bat": {
+      "role": "retained",
+      "stagePx": 39.878706210528556,
+      "screenPx": 48.69327915425042
+    },
+    "companion:box": {
+      "role": "removed-and-reintroduced",
+      "stagePx": 158.0126428817932,
+      "screenPx": 145.28354724415013
+    },
+    "companion:cat_friend": {
+      "role": "retained",
+      "stagePx": 9.971571364328987,
+      "screenPx": 14.973523443520525
+    },
+    "companion:chameleon": {
+      "role": "retained",
+      "stagePx": 91.64951477327305,
+      "screenPx": 122.8742615896063
+    },
+    "companion:chicken": {
+      "role": "retained",
+      "stagePx": 74.37133071074369,
+      "screenPx": 61.904941121775686
+    },
+    "companion:clock": {
+      "role": "retained",
+      "stagePx": 250.9650803938634,
+      "screenPx": 229.55032461890775
+    },
+    "companion:hamster": {
+      "role": "retained",
+      "stagePx": 73.7563556583431,
+      "screenPx": 57.665613730054815
+    },
+    "companion:hedgehog": {
+      "role": "retained",
+      "stagePx": 99.68032699146488,
+      "screenPx": 90.68311610965152
+    },
+    "companion:many_tail_fox": {
+      "role": "retained",
+      "stagePx": 28.925021982794313,
+      "screenPx": 38.5707106079651
+    },
+    "companion:monkey": {
+      "role": "retained",
+      "stagePx": 44.611293489912335,
+      "screenPx": 56.885413781564296
+    },
+    "companion:otter": {
+      "role": "retained",
+      "stagePx": 166.57693226916138,
+      "screenPx": 185.75511670723355
+    },
+    "companion:owl": {
+      "role": "retained",
+      "stagePx": 12.147663327785452,
+      "screenPx": 9.273675148280317
+    },
+    "companion:panda": {
+      "role": "retained",
+      "stagePx": 94.68596517178011,
+      "screenPx": 86.57864776411493
+    },
+    "companion:parrot": {
+      "role": "retained",
+      "stagePx": 145.89880726143684,
+      "screenPx": 135.5486875835461
+    },
+    "companion:penguin_friend": {
+      "role": "retained",
+      "stagePx": 12.421369886655876,
+      "screenPx": 23.483994387758
+    },
+    "companion:punyu": {
+      "role": "retained",
+      "stagePx": 9.382145811370048,
+      "screenPx": 9.742502148544279
+    },
+    "companion:rabbit_friend": {
+      "role": "retained",
+      "stagePx": 50.37773091209084,
+      "screenPx": 66.25230332553235
+    },
+    "companion:seal": {
+      "role": "retained",
+      "stagePx": 194.72940941652269,
+      "screenPx": 159.09914102440052
+    },
+    "companion:sekizou": {
+      "role": "retained",
+      "stagePx": 66.55957983888015,
+      "screenPx": 76.965069071637
+    },
+    "companion:sheep": {
+      "role": "retained",
+      "stagePx": 104.97534685256306,
+      "screenPx": 108.72944081617834
+    },
+    "companion:shiba": {
+      "role": "retained",
+      "stagePx": 7.648748122637098,
+      "screenPx": 10.234297644368523
+    },
+    "companion:snail": {
+      "role": "retained",
+      "stagePx": 5.107860047213137,
+      "screenPx": 19.459230538841215
+    },
+    "companion:squirrel": {
+      "role": "retained",
+      "stagePx": 6.027631268038599,
+      "screenPx": 8.885675927390778
+    },
+    "companion:tanuki": {
+      "role": "retained",
+      "stagePx": 2.842170943040401e-14,
+      "screenPx": 6.3274667135262055
+    },
+    "companion:unicorn": {
+      "role": "retained",
+      "stagePx": 84.99289870427307,
+      "screenPx": 94.69878499326825
+    },
+    "companion:watcher": {
+      "role": "retained",
+      "stagePx": 123.08330520318968,
+      "screenPx": 154.78385762779044
+    },
+    "partner:forest_bear": {
+      "role": "retained",
+      "stagePx": 15.477411448177676,
+      "screenPx": 26.587783497014644
+    },
+    "pet:dog": {
+      "role": "retained",
+      "stagePx": 44.81810109712383,
+      "screenPx": 39.77080831007834
+    }
+  },
+  "45040854695/candidate": {
+    "companion:bat": {
+      "role": "retained",
+      "stagePx": 42.4129871353221,
+      "screenPx": 54.59761611039058
+    },
+    "companion:box": {
+      "role": "removed-and-reintroduced",
+      "stagePx": 266.52110130700027,
+      "screenPx": 219.7307417251675
+    },
+    "companion:cat_friend": {
+      "role": "retained",
+      "stagePx": 5.684341886080802e-14,
+      "screenPx": 1.8105810565430716
+    },
+    "companion:chameleon": {
+      "role": "retained",
+      "stagePx": 165.09049320477132,
+      "screenPx": 138.45579763369543
+    },
+    "companion:chicken": {
+      "role": "retained",
+      "stagePx": 149.51392590520288,
+      "screenPx": 173.61872208145877
+    },
+    "companion:clock": {
+      "role": "retained",
+      "stagePx": 143.12299550541402,
+      "screenPx": 126.42263935166392
+    },
+    "companion:hamster": {
+      "role": "retained",
+      "stagePx": 5.684341886080802e-14,
+      "screenPx": 2.4260229309894044
+    },
+    "companion:hedgehog": {
+      "role": "retained",
+      "stagePx": 150.40786696398638,
+      "screenPx": 128.8273428452265
+    },
+    "companion:many_tail_fox": {
+      "role": "retained",
+      "stagePx": 194.95723339467867,
+      "screenPx": 157.59525780654673
+    },
+    "companion:monkey": {
+      "role": "retained",
+      "stagePx": 193.11749035663289,
+      "screenPx": 189.84011941138323
+    },
+    "companion:otter": {
+      "role": "retained",
+      "stagePx": 195.60406844482023,
+      "screenPx": 243.77824486352392
+    },
+    "companion:owl": {
+      "role": "retained",
+      "stagePx": 28.85732011460903,
+      "screenPx": 25.1654953549127
+    },
+    "companion:panda": {
+      "role": "retained",
+      "stagePx": 192.0305654759999,
+      "screenPx": 155.35508655211268
+    },
+    "companion:parrot": {
+      "role": "retained",
+      "stagePx": 155.40078732555008,
+      "screenPx": 209.27167792910586
+    },
+    "companion:penguin_friend": {
+      "role": "retained",
+      "stagePx": 57.2872002282184,
+      "screenPx": 77.38419914718509
+    },
+    "companion:punyu": {
+      "role": "retained",
+      "stagePx": 3.7950970628987073,
+      "screenPx": 3.198048027061951
+    },
+    "companion:rabbit_friend": {
+      "role": "retained",
+      "stagePx": 105.25422481299684,
+      "screenPx": 107.43464878075349
+    },
+    "companion:seal": {
+      "role": "retained",
+      "stagePx": 146.15832638932528,
+      "screenPx": 144.95863248921538
+    },
+    "companion:sekizou": {
+      "role": "retained",
+      "stagePx": 87.23206090551552,
+      "screenPx": 100.40128170423395
+    },
+    "companion:sheep": {
+      "role": "retained",
+      "stagePx": 101.28596762302696,
+      "screenPx": 114.62512067650346
+    },
+    "companion:shiba": {
+      "role": "retained",
+      "stagePx": 33.774482675799995,
+      "screenPx": 47.335327440640754
+    },
+    "companion:snail": {
+      "role": "retained",
+      "stagePx": 190.1433412770258,
+      "screenPx": 209.36703524255933
+    },
+    "companion:squirrel": {
+      "role": "retained",
+      "stagePx": 60.85825433893706,
+      "screenPx": 66.05922194021848
+    },
+    "companion:tanuki": {
+      "role": "retained",
+      "stagePx": 4.847237138871184,
+      "screenPx": 5.982583557819554
+    },
+    "companion:unicorn": {
+      "role": "retained",
+      "stagePx": 61.5470637053892,
+      "screenPx": 74.69539300159272
+    },
+    "companion:watcher": {
+      "role": "retained",
+      "stagePx": 129.0741410109258,
+      "screenPx": 150.08500646625168
+    },
+    "partner:forest_bear": {
+      "role": "retained",
+      "stagePx": 13.610637489028344,
+      "screenPx": 11.556410488740203
+    },
+    "pet:dog": {
+      "role": "retained",
+      "stagePx": 5.684341886080802e-14,
+      "screenPx": 1.0549224925634348
+    }
+  },
+  "45041969774/candidate": {
+    "companion:bat": {
+      "role": "retained",
+      "stagePx": 42.41298713532211,
+      "screenPx": 50.41863912552731
+    },
+    "companion:box": {
+      "role": "removed-and-reintroduced",
+      "stagePx": 184.91116503425212,
+      "screenPx": 229.87652853023593
+    },
+    "companion:cat_friend": {
+      "role": "retained",
+      "stagePx": 4.0194366942304644e-14,
+      "screenPx": 9.757694029426927
+    },
+    "companion:chameleon": {
+      "role": "retained",
+      "stagePx": 165.09049320477126,
+      "screenPx": 133.8293456610004
+    },
+    "companion:chicken": {
+      "role": "retained",
+      "stagePx": 208.42363787800932,
+      "screenPx": 244.14515866354483
+    },
+    "companion:clock": {
+      "role": "retained",
+      "stagePx": 82.79032743197025,
+      "screenPx": 85.56234852602776
+    },
+    "companion:hamster": {
+      "role": "retained",
+      "stagePx": 0.0,
+      "screenPx": 6.207908627739908
+    },
+    "companion:hedgehog": {
+      "role": "retained",
+      "stagePx": 117.73922325862239,
+      "screenPx": 100.76167114587217
+    },
+    "companion:many_tail_fox": {
+      "role": "retained",
+      "stagePx": 129.31246071489537,
+      "screenPx": 102.25853011114881
+    },
+    "companion:monkey": {
+      "role": "retained",
+      "stagePx": 193.1174903566328,
+      "screenPx": 191.33228975133787
+    },
+    "companion:otter": {
+      "role": "retained",
+      "stagePx": 111.09885112333122,
+      "screenPx": 142.34928806556027
+    },
+    "companion:owl": {
+      "role": "retained",
+      "stagePx": 28.857320114609088,
+      "screenPx": 26.658202765076755
+    },
+    "companion:panda": {
+      "role": "retained",
+      "stagePx": 122.62523585308928,
+      "screenPx": 107.290256845046
+    },
+    "companion:parrot": {
+      "role": "retained",
+      "stagePx": 130.65206183543725,
+      "screenPx": 175.33524205726994
+    },
+    "companion:penguin_friend": {
+      "role": "retained",
+      "stagePx": 57.2872002282184,
+      "screenPx": 77.81598993343093
+    },
+    "companion:punyu": {
+      "role": "retained",
+      "stagePx": 3.7950970628986633,
+      "screenPx": 2.690613023440501
+    },
+    "companion:rabbit_friend": {
+      "role": "retained",
+      "stagePx": 105.25422481299685,
+      "screenPx": 109.52153569219894
+    },
+    "companion:seal": {
+      "role": "retained",
+      "stagePx": 145.0460753926342,
+      "screenPx": 127.3684888039256
+    },
+    "companion:sekizou": {
+      "role": "retained",
+      "stagePx": 30.683518056677507,
+      "screenPx": 24.1883125651969
+    },
+    "companion:sheep": {
+      "role": "retained",
+      "stagePx": 101.28596762302698,
+      "screenPx": 104.01628499645754
+    },
+    "companion:shiba": {
+      "role": "retained",
+      "stagePx": 33.77448267579998,
+      "screenPx": 53.43793182213671
+    },
+    "companion:snail": {
+      "role": "retained",
+      "stagePx": 192.560651161989,
+      "screenPx": 208.37489996190226
+    },
+    "companion:squirrel": {
+      "role": "retained",
+      "stagePx": 60.85825433893709,
+      "screenPx": 56.616909042600795
+    },
+    "companion:tanuki": {
+      "role": "retained",
+      "stagePx": 4.847237138871169,
+      "screenPx": 11.232084110547357
+    },
+    "companion:unicorn": {
+      "role": "retained",
+      "stagePx": 61.547063705389185,
+      "screenPx": 67.34554924136494
+    },
+    "companion:watcher": {
+      "role": "retained",
+      "stagePx": 129.07414101092579,
+      "screenPx": 155.48220237685626
+    },
+    "partner:forest_bear": {
+      "role": "retained",
+      "stagePx": 13.610637489028287,
+      "screenPx": 17.20475922565359
+    },
+    "pet:dog": {
+      "role": "retained",
+      "stagePx": 2.842170943040401e-14,
+      "screenPx": 6.37290121671627
+    }
+  }
+}

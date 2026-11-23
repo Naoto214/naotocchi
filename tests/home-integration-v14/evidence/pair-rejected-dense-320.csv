@@ -1,0 +1,27 @@
+region,count,width,height,priorContacts,priorPairCompanionContacts,priorPartnerArtX,priorPartnerArtZ,priorPartnerGroundPolygon,rejectedContacts,rejectedPairCompanionContacts,rejectedPartnerArtX,rejectedPartnerArtZ,rejectedPartnerGroundPolygon,introducedContactPairs,introducedPairCompanionContacts
+city,20,320,516,5,1,0.472636,0.374668,False,11,0,0.799459,0.439886,False,10,
+city,28,320,516,10,0,0.458112,0.359704,False,13,2,0.402991,0.413981,False,12,partner:forest_bear~companion:hedgehog partner:forest_bear~companion:parrot
+countryside,20,320,516,0,0,0.545933,0.382084,True,0,0,0.716524,0.438044,False,0,
+countryside,28,320,516,0,0,0.534687,0.368512,True,0,0,0.36163,0.427109,False,0,
+deepsea,20,320,516,0,0,0.410766,0.374507,False,0,0,0.715432,0.434785,False,0,
+deepsea,28,320,516,0,0,0.393015,0.363013,False,0,0,0.362397,0.424847,True,0,
+desert,20,320,516,0,0,0.472636,0.373099,False,0,0,0.713562,0.429702,False,0,
+desert,28,320,516,0,0,0.471273,0.362172,False,0,0,0.394338,0.421087,False,0,
+forest,20,320,516,18,3,0.725133,0.370864,False,19,1,0.60768,0.673184,False,17,partner:forest_bear~companion:snail
+forest,28,320,516,24,2,0.747933,0.356839,False,26,1,0.221822,0.644299,False,20,partner:forest_bear~companion:box
+home,20,320,516,0,0,0.480445,0.377766,True,0,0,0.713562,0.436942,True,0,
+home,28,320,516,0,0,0.470621,0.36343,False,0,0,0.383514,0.420012,True,0,
+jungle,20,320,516,8,0,0.670394,0.374958,False,8,0,0.751863,0.429463,False,7,
+jungle,28,320,516,13,1,0.670926,0.360123,False,14,3,0.37055,0.414906,False,9,partner:forest_bear~companion:chicken partner:forest_bear~companion:many_tail_fox
+memory_lake,20,320,516,0,0,0.394547,0.373392,False,0,0,0.697945,0.42541,False,0,
+memory_lake,28,320,516,0,0,0.387253,0.362729,False,1,0,0.372359,0.414,False,1,
+mountain,20,320,516,0,0,0.481494,0.372929,False,0,0,0.727281,0.561799,True,0,
+mountain,28,320,516,0,0,0.463709,0.358736,False,0,0,0.381841,0.551608,True,0,
+river_lake,20,320,516,0,0,0.30865,0.390351,False,0,0,0.721371,0.441234,False,0,
+river_lake,28,320,516,0,0,0.295393,0.37718,False,0,0,0.400738,0.430992,False,0,
+sea,20,320,516,14,2,0.316399,0.379591,False,10,1,0.697945,0.427238,False,9,
+sea,28,320,516,19,2,0.307263,0.37183,False,18,1,0.377943,0.423824,False,9,partner:forest_bear~companion:box
+snow,20,320,516,0,0,0.488253,0.375915,False,0,0,0.697945,0.428982,False,0,
+snow,28,320,516,0,0,0.479008,0.360849,False,0,0,0.366739,0.419074,False,0,
+star_stop,20,320,516,0,0,0.399149,0.373252,False,0,0,0.713562,0.428692,False,0,
+star_stop,28,320,516,0,0,0.389803,0.35884,False,0,0,0.390012,0.4189,False,0,

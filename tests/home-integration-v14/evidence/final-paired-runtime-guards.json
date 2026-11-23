@@ -1,0 +1,102 @@
+{
+  "runtime": "4ecf4e1924c620a65d7046adaf468286eecb3a84",
+  "runtime_sha256": {
+    "home-production-world.mjs": "ee2f884cd801ed4aa45cb7f89bef721fcefc1608de297b22882a6681e698dd68",
+    "home-production-model.js": "a534353d9b92c70cf9aa8ffc56853d4ce7e7622708922ec0964c8907346ad854",
+    "home-production-diorama.js": "e0571dd708aa89a584c35bc80df1ac02c5e22a6e5959822a26e281ef121bfea1",
+    "home-production-layout.css": "ad2694278fb57d5d22506b83596d694a81b5d59b373be3d04e7538fd7853c679",
+    "index.html": "fc27a1a771791d6e31ce30b697bb926bd85f412e32d3eef5d9aa89bbde4c17d5"
+  },
+  "reviewed_pages_sources_verified": 324,
+  "regression_command": "node --test --test-concurrency=3 tests/home-integration-v14/*.test.* tests/home-movement-v*-test.cjs tests/home-terrain-navigation-test.cjs tests/egg-birth-story-test.cjs tests/home-production-birth-test.cjs tests/cast-layout-test.cjs tests/home-production-save-test.cjs tests/save-compat-test.cjs tests/home-production-test.cjs tests/home-production-v1[2-8]*-test.cjs tests/card459-scope-test.cjs tests/kanji-scope-test.cjs",
+  "regression_result": {
+    "tests": 213,
+    "pass": 213,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0
+  },
+  "native_probe": "tests/home-integration-v14/foot-replacement.py",
+  "observations": [
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "viewport": [
+        320,
+        792
+      ],
+      "region": "forest",
+      "pageErrors": [],
+      "before": [
+        [
+          "pet:butterfly",
+          163.0796004413747,
+          298.46269702072107
+        ],
+        [
+          "companion:panda",
+          220.45770253790434,
+          148.9776415587096
+        ]
+      ],
+      "after": [
+        [
+          "pet:butterfly",
+          163.0796004413747,
+          298.46269702072107
+        ],
+        [
+          "companion:panda",
+          220.45770253790434,
+          148.9776415587096
+        ]
+      ],
+      "renewed": null,
+      "decision": null,
+      "shadow": [
+        220.458,
+        148.978
+      ]
+    },
+    {
+      "engine": "webkit",
+      "version": "26.5",
+      "viewport": [
+        320,
+        792
+      ],
+      "region": "forest",
+      "pageErrors": [],
+      "before": [
+        [
+          "pet:butterfly",
+          163.07966583232582,
+          298.4622556318011
+        ],
+        [
+          "companion:panda",
+          220.4580785358732,
+          148.97639095676968
+        ]
+      ],
+      "after": [
+        [
+          "pet:butterfly",
+          163.07966583232582,
+          298.4622556318011
+        ],
+        [
+          "companion:panda",
+          220.4580785358732,
+          148.97639095676968
+        ]
+      ],
+      "renewed": null,
+      "decision": null,
+      "shadow": [
+        220.458079,
+        148.976391
+      ]
+    }
+  ]
+}

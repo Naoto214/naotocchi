@@ -1,0 +1,308 @@
+{
+  "source": "d2af009d8652dc85d6c479877c7d5d1973826474",
+  "sha256": {
+    "home-production-model.js": "a534353d9b92c70cf9aa8ffc56853d4ce7e7622708922ec0964c8907346ad854",
+    "home-production-diorama.js": "ad21545be3beabe3160b2535daa5764089b4b1ac30b4ed8d3cf1ac28fbf200f3",
+    "home-production-world.mjs": "ee2f884cd801ed4aa45cb7f89bef721fcefc1608de297b22882a6681e698dd68",
+    "index.html": "0cbb24629b002922ec49d793b9bd87f7328e4fa3a1a63db8432b0150e1f9bf43"
+  },
+  "engine": "Chromium 156.0.8078.79 built on Debian GNU/Linux 13 (trixie)",
+  "viewport": {
+    "width": 320,
+    "height": 516,
+    "dpr": 2
+  },
+  "method": "Cold native model per navigation. The production save loader reads resident-save.cjs fixtures. Elapsed performance.now() brackets only the pending placement callback inside finishSeating. Autonomous stepping is held until the initial photograph and observation. A single browser serves all 26 cells sequentially while separate project launch checks also run on this shared host. Each repeat uses a fresh Chromium browser and the three listed cases sequentially, after those launcher checks ended. Timings include scheduling contention.",
+  "matrix": [
+    {
+      "region": "city",
+      "count": 20,
+      "elapsedMs": 156.9,
+      "pairDxScreen": 61.68,
+      "pairDyScreen": -4.59,
+      "openingEllipsePairs": 4
+    },
+    {
+      "region": "city",
+      "count": 28,
+      "elapsedMs": 608.5,
+      "pairDxScreen": -59.64,
+      "pairDyScreen": -1.48,
+      "openingEllipsePairs": 9
+    },
+    {
+      "region": "countryside",
+      "count": 20,
+      "elapsedMs": 306.3,
+      "pairDxScreen": 56.59,
+      "pairDyScreen": -0.08,
+      "openingEllipsePairs": 0
+    },
+    {
+      "region": "countryside",
+      "count": 28,
+      "elapsedMs": 573.6,
+      "pairDxScreen": -54.92,
+      "pairDyScreen": 0.0,
+      "openingEllipsePairs": 0
+    },
+    {
+      "region": "deepsea",
+      "count": 20,
+      "elapsedMs": 221.9,
+      "pairDxScreen": 63.57,
+      "pairDyScreen": 0.0,
+      "openingEllipsePairs": 0
+    },
+    {
+      "region": "deepsea",
+      "count": 28,
+      "elapsedMs": 147.5,
+      "pairDxScreen": -55.64,
+      "pairDyScreen": 0.0,
+      "openingEllipsePairs": 0
+    },
+    {
+      "region": "desert",
+      "count": 20,
+      "elapsedMs": 19.6,
+      "pairDxScreen": 60.05,
+      "pairDyScreen": 0.0,
+      "openingEllipsePairs": 0
+    },
+    {
+      "region": "desert",
+      "count": 28,
+      "elapsedMs": 98.8,
+      "pairDxScreen": -50.43,
+      "pairDyScreen": 0.0,
+      "openingEllipsePairs": 0
+    },
+    {
+      "region": "forest",
+      "count": 20,
+      "elapsedMs": 1640.4,
+      "pairDxScreen": 75.83,
+      "pairDyScreen": -1.64,
+      "openingEllipsePairs": 16
+    },
+    {
+      "region": "forest",
+      "count": 28,
+      "elapsedMs": 698.7,
+      "pairDxScreen": -75.47,
+      "pairDyScreen": 1.26,
+      "openingEllipsePairs": 23
+    },
+    {
+      "region": "home",
+      "count": 20,
+      "elapsedMs": 97.5,
+      "pairDxScreen": 60.05,
+      "pairDyScreen": 0.0,
+      "openingEllipsePairs": 0
+    },
+    {
+      "region": "home",
+      "count": 28,
+      "elapsedMs": 290.4,
+      "pairDxScreen": -60.05,
+      "pairDyScreen": 0.36,
+      "openingEllipsePairs": 0
+    },
+    {
+      "region": "jungle",
+      "count": 20,
+      "elapsedMs": 428.6,
+      "pairDxScreen": 70.1,
+      "pairDyScreen": -0.52,
+      "openingEllipsePairs": 4
+    },
+    {
+      "region": "jungle",
+      "count": 28,
+      "elapsedMs": 215,
+      "pairDxScreen": -52.17,
+      "pairDyScreen": -3.66,
+      "openingEllipsePairs": 12
+    },
+    {
+      "region": "memory_lake",
+      "count": 20,
+      "elapsedMs": 40.7,
+      "pairDxScreen": 60.05,
+      "pairDyScreen": 0.0,
+      "openingEllipsePairs": 0
+    },
+    {
+      "region": "memory_lake",
+      "count": 28,
+      "elapsedMs": 112.3,
+      "pairDxScreen": -51.38,
+      "pairDyScreen": 0.0,
+      "openingEllipsePairs": 0
+    },
+    {
+      "region": "mountain",
+      "count": 20,
+      "elapsedMs": 98.8,
+      "pairDxScreen": 61.26,
+      "pairDyScreen": 0.0,
+      "openingEllipsePairs": 0
+    },
+    {
+      "region": "mountain",
+      "count": 28,
+      "elapsedMs": 150.4,
+      "pairDxScreen": -58.57,
+      "pairDyScreen": -1.78,
+      "openingEllipsePairs": 0
+    },
+    {
+      "region": "river_lake",
+      "count": 20,
+      "elapsedMs": 53.8,
+      "pairDxScreen": 60.05,
+      "pairDyScreen": 0.0,
+      "openingEllipsePairs": 0
+    },
+    {
+      "region": "river_lake",
+      "count": 28,
+      "elapsedMs": 559.9,
+      "pairDxScreen": -51.19,
+      "pairDyScreen": -0.75,
+      "openingEllipsePairs": 0
+    },
+    {
+      "region": "sea",
+      "count": 20,
+      "elapsedMs": 214.5,
+      "pairDxScreen": 67.96,
+      "pairDyScreen": -0.52,
+      "openingEllipsePairs": 12
+    },
+    {
+      "region": "sea",
+      "count": 28,
+      "elapsedMs": 1500,
+      "pairDxScreen": -46.15,
+      "pairDyScreen": 3.1,
+      "openingEllipsePairs": 13
+    },
+    {
+      "region": "snow",
+      "count": 20,
+      "elapsedMs": 57.8,
+      "pairDxScreen": 60.05,
+      "pairDyScreen": 0.0,
+      "openingEllipsePairs": 0
+    },
+    {
+      "region": "snow",
+      "count": 28,
+      "elapsedMs": 193.7,
+      "pairDxScreen": -51.6,
+      "pairDyScreen": 0.0,
+      "openingEllipsePairs": 0
+    },
+    {
+      "region": "star_stop",
+      "count": 20,
+      "elapsedMs": 55.6,
+      "pairDxScreen": 60.05,
+      "pairDyScreen": 0.0,
+      "openingEllipsePairs": 0
+    },
+    {
+      "region": "star_stop",
+      "count": 28,
+      "elapsedMs": 289.9,
+      "pairDxScreen": -50.9,
+      "pairDyScreen": 0.0,
+      "openingEllipsePairs": 0
+    }
+  ],
+  "matrixMedianMs": 204.1,
+  "matrixMaxMs": 1640.4,
+  "sequentialRepeats": [
+    [
+      {
+        "region": "forest",
+        "count": 20,
+        "elapsedMs": 478.6,
+        "pairDxScreen": 75.83,
+        "pairDyScreen": -1.64,
+        "openingEllipsePairs": 16
+      },
+      {
+        "region": "forest",
+        "count": 28,
+        "elapsedMs": 115.8,
+        "pairDxScreen": -75.47,
+        "pairDyScreen": 1.26,
+        "openingEllipsePairs": 23
+      },
+      {
+        "region": "sea",
+        "count": 28,
+        "elapsedMs": 417.1,
+        "pairDxScreen": -46.15,
+        "pairDyScreen": 3.1,
+        "openingEllipsePairs": 13
+      }
+    ],
+    [
+      {
+        "region": "forest",
+        "count": 20,
+        "elapsedMs": 453.8,
+        "pairDxScreen": 75.83,
+        "pairDyScreen": -1.64,
+        "openingEllipsePairs": 16
+      },
+      {
+        "region": "forest",
+        "count": 28,
+        "elapsedMs": 115.2,
+        "pairDxScreen": -75.47,
+        "pairDyScreen": 1.26,
+        "openingEllipsePairs": 23
+      },
+      {
+        "region": "sea",
+        "count": 28,
+        "elapsedMs": 267.3,
+        "pairDxScreen": -46.15,
+        "pairDyScreen": 3.1,
+        "openingEllipsePairs": 13
+      }
+    ],
+    [
+      {
+        "region": "forest",
+        "count": 20,
+        "elapsedMs": 433.3,
+        "pairDxScreen": 75.83,
+        "pairDyScreen": -1.64,
+        "openingEllipsePairs": 16
+      },
+      {
+        "region": "forest",
+        "count": 28,
+        "elapsedMs": 110.1,
+        "pairDxScreen": -75.47,
+        "pairDyScreen": 1.26,
+        "openingEllipsePairs": 23
+      },
+      {
+        "region": "sea",
+        "count": 28,
+        "elapsedMs": 329.7,
+        "pairDxScreen": -46.15,
+        "pairDyScreen": 3.1,
+        "openingEllipsePairs": 13
+      }
+    ]
+  ]
+}

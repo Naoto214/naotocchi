@@ -1,0 +1,100 @@
+{
+  "run": 45025541288,
+  "production": "9539e462e78452ad6da5f72d454911679b4ec20e",
+  "referenceSource": "fb1c8238f937890e73d7a5b69d9fa41b729b7ca2",
+  "v11Entry": "mobility-v11-foot.html",
+  "v13Entry": "mobility-v13-a.html",
+  "archives": [
+    {
+      "region": "city",
+      "id": 14756422715,
+      "job": 137218823890,
+      "bytes": 91195,
+      "digest": "sha256:058d08152393f4c97e767decc06ac6a34fa523e891c2ef491c11675d03c2ca26"
+    },
+    {
+      "region": "countryside",
+      "id": 14756938551,
+      "job": 137218823926,
+      "bytes": 93092,
+      "digest": "sha256:8a83a192dcd774d15b0a2231726f676b915b0adf5d68f535eb610f9458fea353"
+    },
+    {
+      "region": "deepsea",
+      "id": 14756754891,
+      "job": 137218823893,
+      "bytes": 92416,
+      "digest": "sha256:1849faa4e0dc6030d09dba25e31a974e67d344ebafbe012df51e312ee65235af"
+    },
+    {
+      "region": "desert",
+      "id": 14757364698,
+      "job": 137218823940,
+      "bytes": 92153,
+      "digest": "sha256:cb73bd7a0c133ca5113197c3170599299c5ad92425bf45f0f7a48f38686b09cb"
+    },
+    {
+      "region": "forest",
+      "id": 14757486572,
+      "job": 137218823910,
+      "bytes": 89911,
+      "digest": "sha256:1f532e914f923ab6512b8590082abbf21dc07fecc004703615cfb69995a99244"
+    },
+    {
+      "region": "home",
+      "id": 14755278899,
+      "job": 137218823851,
+      "bytes": 91688,
+      "digest": "sha256:27b4e39fbc59ec04bd93d3cdad75bfa6e2ed8cee40ada759043d6749d8ac7cef"
+    },
+    {
+      "region": "jungle",
+      "id": 14756359622,
+      "job": 137218823891,
+      "bytes": 91500,
+      "digest": "sha256:485b40bdccb9e5ea402eca62f2d4a4b5a29dffdfcc44fb524da72bc3ae45784b"
+    },
+    {
+      "region": "memory_lake",
+      "id": 14756632603,
+      "job": 137218823903,
+      "bytes": 94364,
+      "digest": "sha256:7fe91f8bb7219008f890fd14b26a232dc358bb96978f477a0f175793a6be7e60"
+    },
+    {
+      "region": "mountain",
+      "id": 14757620721,
+      "job": 137218823902,
+      "bytes": 92707,
+      "digest": "sha256:378028404d8f41072b7f72dd3ca4d6ab1d68dee62a3965cbe768eb66aa985a17"
+    },
+    {
+      "region": "river_lake",
+      "id": 14756574079,
+      "job": 137218823868,
+      "bytes": 94429,
+      "digest": "sha256:8770dbe4d8f08f4274ef77fab3dbf63d8da20fa4715bc77aa818907787f5bb41"
+    },
+    {
+      "region": "sea",
+      "id": 14757780266,
+      "job": 137218823911,
+      "bytes": 90632,
+      "digest": "sha256:cc76f3f3689632364b9189546969d3cbec0501635f7287ffda97f7626d535cdf"
+    },
+    {
+      "region": "snow",
+      "id": 14756342025,
+      "job": 137218823858,
+      "bytes": 91861,
+      "digest": "sha256:ad62b640a430fb8dde037fe0b0c431df7fbf55261a9982483380d5d2bb4e9246"
+    },
+    {
+      "region": "star_stop",
+      "id": 14757483989,
+      "job": 137218823878,
+      "bytes": 94085,
+      "digest": "sha256:8987785c75a9ba889e45bb41a3b27bff7edd487905403e4d134473206c4d1055"
+    }
+  ]
+}

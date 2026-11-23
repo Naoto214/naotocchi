@@ -1,0 +1,129 @@
+{
+  "previousPin": "ca6059cd9c2f2e171f803287147249ce69bacce4",
+  "finalPin": "f6719c5110f164be81f064c6498458cba72f4086",
+  "referenceFiles": [
+    {
+      "path": "../pair-depth/pair-ink-10-residents.json",
+      "sha256": "29494d34a6b3f3ac00fd720649c5f21ca604caf40c0f810f598461aaddbf85d0"
+    },
+    {
+      "path": "../pair-depth/repeats.json",
+      "sha256": "dba24bd43500004eac09a64462f4bdc21652180fad3da875dc35a8532c7aa608"
+    },
+    {
+      "path": "../pair-depth/pair-placement-exceptions.json",
+      "sha256": "c5e07e367f320c56bf73eaf7fe72f3c931b00e581d09f74e6cfd9d23f6b7d16b"
+    }
+  ],
+  "finalNativeSilhouetteSpotChecks": [
+    {
+      "region": "forest",
+      "width": 320,
+      "before": {
+        "region": "forest",
+        "count": 10,
+        "width": 320,
+        "height": 516,
+        "heroPixels": 1211,
+        "matePixels": 834,
+        "currentOverlap": 0,
+        "translatedOverlap": 221,
+        "firstAlpha": 27,
+        "firstLegal": null,
+        "side": -1,
+        "current": [
+          101.69714710315503,
+          229.17630413624104
+        ],
+        "wanted": [
+          143.75451798726417,
+          234.73955108224865
+        ],
+        "hero": [
+          153.8797160097545,
+          220.8972035019639
+        ]
+      },
+      "after": {
+        "region": "forest",
+        "count": 10,
+        "width": 320,
+        "height": 516,
+        "heroPixels": 1209,
+        "matePixels": 834,
+        "currentOverlap": 0,
+        "translatedOverlap": 221,
+        "firstAlpha": 27,
+        "firstLegal": null,
+        "side": -1,
+        "current": [
+          101.69714710315503,
+          229.17630413624104
+        ],
+        "wanted": [
+          143.75451798726417,
+          234.73955108224865
+        ],
+        "hero": [
+          153.8797160097545,
+          220.8972035019639
+        ]
+      }
+    },
+    {
+      "region": "mountain",
+      "width": 375,
+      "before": {
+        "region": "mountain",
+        "count": 10,
+        "width": 375,
+        "height": 615,
+        "heroPixels": 2283,
+        "matePixels": 1188,
+        "currentOverlap": 0,
+        "translatedOverlap": 520,
+        "firstAlpha": 42.5,
+        "firstLegal": 43.75,
+        "side": 1,
+        "current": [
+          257.31342337650204,
+          246.53851095273035
+        ],
+        "wanted": [
+          212.85586778553662,
+          246.53851095273035
+        ],
+        "hero": [
+          205.67433070015773,
+          287.66518995118463
+        ]
+      },
+      "after": {
+        "region": "mountain",
+        "count": 10,
+        "width": 375,
+        "height": 615,
+        "heroPixels": 2269,
+        "matePixels": 1188,
+        "currentOverlap": 0,
+        "translatedOverlap": 507,
+        "firstAlpha": 42.5,
+        "firstLegal": 43.75,
+        "side": 1,
+        "current": [
+          257.31342337650204,
+          246.53851095273035
+        ],
+        "wanted": [
+          212.85586778553662,
+          246.53851095273035
+        ],
+        "hero": [
+          205.67433070015773,
+          287.66518995118463
+        ]
+      }
+    }
+  ],
+  "method": "The prior 52 openings and short drag path receipts retain their own source pin. New hosted opening placement, sizes, artwork, move traces and matched retries are compared separately. The two final silhouette samples use the same PNG alpha >=64 criterion at CSS-pixel centers."
+}

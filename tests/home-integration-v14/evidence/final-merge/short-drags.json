@@ -1,0 +1,328 @@
+[
+  {
+    "cell": "snow-20-430",
+    "trials": [
+      {
+        "radius": 8,
+        "region": "snow",
+        "count": 20,
+        "width": 430,
+        "key": "pet:dog",
+        "fromScreen": [
+          226,
+          307
+        ],
+        "originalGoal": [
+          198,
+          327
+        ],
+        "goal": [
+          229,
+          334
+        ],
+        "clearance": {
+          "radius": 8,
+          "terrain": 72,
+          "bodyBlocked": 57,
+          "clear": 15,
+          "forward": 10,
+          "alternate": [
+            229,
+            334
+          ],
+          "straightTerrain": true,
+          "straightClear": false
+        },
+        "actualTap": "pet:dog",
+        "trusted": true,
+        "dragPath": [
+          {
+            "key": "pet:dog",
+            "clock": 0.1,
+            "from": [
+              210.93927584213,
+              260.6072415787003
+            ],
+            "to": [
+              212.20900876970836,
+              264.61071235948833
+            ]
+          },
+          {
+            "key": "pet:dog",
+            "clock": 0.2,
+            "from": [
+              212.20900876970836,
+              264.61071235948833
+            ],
+            "to": [
+              213.47874169728672,
+              268.61418314027634
+            ]
+          },
+          {
+            "key": "pet:dog",
+            "clock": 0.30000000000000004,
+            "from": [
+              213.47874169728672,
+              268.61418314027634
+            ],
+            "to": [
+              213.65707669648046,
+              269.17647379444224
+            ]
+          }
+        ],
+        "dragHops": 3,
+        "commands": [
+          {
+            "name": "select",
+            "key": "pet:dog",
+            "ok": true
+          },
+          {
+            "name": "select",
+            "key": "pet:dog",
+            "ok": true
+          },
+          {
+            "name": "move",
+            "key": "pet:dog",
+            "ok": true
+          }
+        ],
+        "terrain": 0,
+        "speed": 0,
+        "occlusion": 0,
+        "contact": 0,
+        "errors": []
+      },
+      {
+        "radius": 12,
+        "region": "snow",
+        "count": 20,
+        "width": 430,
+        "key": "pet:dog",
+        "fromScreen": [
+          226,
+          307
+        ],
+        "originalGoal": [
+          198,
+          327
+        ],
+        "goal": [
+          230,
+          338
+        ],
+        "clearance": {
+          "radius": 12,
+          "terrain": 72,
+          "bodyBlocked": 63,
+          "clear": 9,
+          "forward": 5,
+          "alternate": [
+            230,
+            338
+          ],
+          "straightTerrain": true,
+          "straightClear": false
+        },
+        "actualTap": "pet:dog",
+        "trusted": true,
+        "dragPath": [
+          {
+            "key": "pet:dog",
+            "clock": 0.1,
+            "from": [
+              210.93927584213,
+              260.6072415787003
+            ],
+            "to": [
+              212.0957776322692,
+              264.64487747231493
+            ]
+          },
+          {
+            "key": "pet:dog",
+            "clock": 0.2,
+            "from": [
+              212.0957776322692,
+              264.64487747231493
+            ],
+            "to": [
+              213.2522794224084,
+              268.68251336592954
+            ]
+          },
+          {
+            "key": "pet:dog",
+            "clock": 0.30000000000000004,
+            "from": [
+              213.2522794224084,
+              268.68251336592954
+            ],
+            "to": [
+              214.40878121254764,
+              272.7201492595441
+            ]
+          },
+          {
+            "key": "pet:dog",
+            "clock": 0.4,
+            "from": [
+              214.40878121254764,
+              272.7201492595441
+            ],
+            "to": [
+              214.70314865352665,
+              273.74785933811245
+            ]
+          }
+        ],
+        "dragHops": 4,
+        "commands": [
+          {
+            "name": "select",
+            "key": "pet:dog",
+            "ok": true
+          },
+          {
+            "name": "select",
+            "key": "pet:dog",
+            "ok": true
+          },
+          {
+            "name": "move",
+            "key": "pet:dog",
+            "ok": true
+          }
+        ],
+        "terrain": 0,
+        "speed": 0,
+        "occlusion": 0,
+        "contact": 0,
+        "errors": []
+      },
+      {
+        "radius": 18,
+        "region": "snow",
+        "count": 20,
+        "width": 430,
+        "key": "pet:dog",
+        "fromScreen": [
+          226,
+          307
+        ],
+        "originalGoal": [
+          198,
+          327
+        ],
+        "goal": [
+          231,
+          344
+        ],
+        "clearance": {
+          "radius": 18,
+          "terrain": 72,
+          "bodyBlocked": 63,
+          "clear": 9,
+          "forward": 5,
+          "alternate": [
+            231,
+            344
+          ],
+          "straightTerrain": true,
+          "straightClear": false
+        },
+        "actualTap": "pet:dog",
+        "trusted": true,
+        "dragPath": [
+          {
+            "key": "pet:dog",
+            "clock": 0.1,
+            "from": [
+              210.93927584213,
+              260.6072415787003
+            ],
+            "to": [
+              211.92146901082378,
+              264.69078129068686
+            ]
+          },
+          {
+            "key": "pet:dog",
+            "clock": 0.2,
+            "from": [
+              211.92146901082378,
+              264.69078129068686
+            ],
+            "to": [
+              212.90366217951757,
+              268.7743210026734
+            ]
+          },
+          {
+            "key": "pet:dog",
+            "clock": 0.30000000000000004,
+            "from": [
+              212.90366217951757,
+              268.7743210026734
+            ],
+            "to": [
+              213.88585534821135,
+              272.85786071466
+            ]
+          },
+          {
+            "key": "pet:dog",
+            "clock": 0.4,
+            "from": [
+              213.88585534821135,
+              272.85786071466
+            ],
+            "to": [
+              214.86804851690513,
+              276.94140042664657
+            ]
+          },
+          {
+            "key": "pet:dog",
+            "clock": 0.5,
+            "from": [
+              214.86804851690513,
+              276.94140042664657
+            ],
+            "to": [
+              215.74922061057285,
+              280.6049376536178
+            ]
+          }
+        ],
+        "dragHops": 5,
+        "commands": [
+          {
+            "name": "select",
+            "key": "pet:dog",
+            "ok": true
+          },
+          {
+            "name": "select",
+            "key": "pet:dog",
+            "ok": true
+          },
+          {
+            "name": "move",
+            "key": "pet:dog",
+            "ok": true
+          }
+        ],
+        "terrain": 0,
+        "speed": 0,
+        "occlusion": 0,
+        "contact": 0,
+        "errors": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,141 @@
+{
+  "renderer": "Local headed Chromium on X.Org dummy display, DPR 2, native trusted CDP touch, both pinned Git trees and decoded art",
+  "rows": [
+    {
+      "region": "forest",
+      "count": 10,
+      "width": 320,
+      "seconds": 30,
+      "phaseMatches": {
+        "opening": true,
+        "sync": true,
+        "walked": true,
+        "lifecycle": true,
+        "resized": true,
+        "reload": true,
+        "travel": true
+      },
+      "targetMatch": true,
+      "traceMatch": true,
+      "nativeTouch": true,
+      "hops": 58,
+      "errors": [],
+      "sourceHashes": [
+        {
+          "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+          "home-production-diorama.js": "ecac051a6f903dab5ee2f266d70b879686e15a035fbcefd1e6a84fa5a2db783a",
+          "script.js": "1ff8ddd2f5e8d67bed1340b64cc617333f652de96b25cf52c90c3a819b2e879c",
+          "home-production-world.mjs": "d824c818c676353898afb052b43f8e88db9a14a7add55c3986af0104dbdc9ca6"
+        },
+        {
+          "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+          "home-production-diorama.js": "ecac051a6f903dab5ee2f266d70b879686e15a035fbcefd1e6a84fa5a2db783a",
+          "script.js": "958e4c16058264dc22ad23ad6c74f78ffc55c8351635f3591cb4f53878601807",
+          "home-production-world.mjs": "d824c818c676353898afb052b43f8e88db9a14a7add55c3986af0104dbdc9ca6"
+        }
+      ]
+    },
+    {
+      "region": "forest",
+      "count": 28,
+      "width": 390,
+      "seconds": 30,
+      "phaseMatches": {
+        "opening": true,
+        "sync": true,
+        "walked": true,
+        "lifecycle": true,
+        "resized": true,
+        "reload": true,
+        "travel": true
+      },
+      "targetMatch": true,
+      "traceMatch": true,
+      "nativeTouch": true,
+      "hops": 65,
+      "errors": [],
+      "sourceHashes": [
+        {
+          "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+          "home-production-diorama.js": "ecac051a6f903dab5ee2f266d70b879686e15a035fbcefd1e6a84fa5a2db783a",
+          "script.js": "1ff8ddd2f5e8d67bed1340b64cc617333f652de96b25cf52c90c3a819b2e879c",
+          "home-production-world.mjs": "d824c818c676353898afb052b43f8e88db9a14a7add55c3986af0104dbdc9ca6"
+        },
+        {
+          "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+          "home-production-diorama.js": "ecac051a6f903dab5ee2f266d70b879686e15a035fbcefd1e6a84fa5a2db783a",
+          "script.js": "958e4c16058264dc22ad23ad6c74f78ffc55c8351635f3591cb4f53878601807",
+          "home-production-world.mjs": "d824c818c676353898afb052b43f8e88db9a14a7add55c3986af0104dbdc9ca6"
+        }
+      ]
+    },
+    {
+      "region": "mountain",
+      "count": 10,
+      "width": 375,
+      "seconds": 30,
+      "phaseMatches": {
+        "opening": true,
+        "sync": true,
+        "walked": true,
+        "lifecycle": true,
+        "resized": true,
+        "reload": true,
+        "travel": true
+      },
+      "targetMatch": true,
+      "traceMatch": true,
+      "nativeTouch": true,
+      "hops": 352,
+      "errors": [],
+      "sourceHashes": [
+        {
+          "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+          "home-production-diorama.js": "ecac051a6f903dab5ee2f266d70b879686e15a035fbcefd1e6a84fa5a2db783a",
+          "script.js": "1ff8ddd2f5e8d67bed1340b64cc617333f652de96b25cf52c90c3a819b2e879c",
+          "home-production-world.mjs": "d824c818c676353898afb052b43f8e88db9a14a7add55c3986af0104dbdc9ca6"
+        },
+        {
+          "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+          "home-production-diorama.js": "ecac051a6f903dab5ee2f266d70b879686e15a035fbcefd1e6a84fa5a2db783a",
+          "script.js": "958e4c16058264dc22ad23ad6c74f78ffc55c8351635f3591cb4f53878601807",
+          "home-production-world.mjs": "d824c818c676353898afb052b43f8e88db9a14a7add55c3986af0104dbdc9ca6"
+        }
+      ]
+    },
+    {
+      "region": "mountain",
+      "count": 28,
+      "width": 430,
+      "seconds": 30,
+      "phaseMatches": {
+        "opening": true,
+        "sync": true,
+        "walked": true,
+        "lifecycle": true,
+        "resized": true,
+        "reload": true,
+        "travel": true
+      },
+      "targetMatch": true,
+      "traceMatch": true,
+      "nativeTouch": true,
+      "hops": 285,
+      "errors": [],
+      "sourceHashes": [
+        {
+          "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+          "home-production-diorama.js": "ecac051a6f903dab5ee2f266d70b879686e15a035fbcefd1e6a84fa5a2db783a",
+          "script.js": "1ff8ddd2f5e8d67bed1340b64cc617333f652de96b25cf52c90c3a819b2e879c",
+          "home-production-world.mjs": "d824c818c676353898afb052b43f8e88db9a14a7add55c3986af0104dbdc9ca6"
+        },
+        {
+          "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+          "home-production-diorama.js": "ecac051a6f903dab5ee2f266d70b879686e15a035fbcefd1e6a84fa5a2db783a",
+          "script.js": "958e4c16058264dc22ad23ad6c74f78ffc55c8351635f3591cb4f53878601807",
+          "home-production-world.mjs": "d824c818c676353898afb052b43f8e88db9a14a7add55c3986af0104dbdc9ca6"
+        }
+      ]
+    }
+  ]
+}

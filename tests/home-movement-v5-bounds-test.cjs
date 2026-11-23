@@ -73,7 +73,8 @@ test('growth waits for the camera to consume its new envelope before correcting 
  frame.getBoundingClientRect=()=>({left:0,right:350,top:0,bottom:400});stage.closest=()=>frame;
  const presentation={landscape:false,x:0,y:0,scaleX:1,scaleY:.5,bodyScale:1,bodyScaleLimit:1};
  const navigation={valid:()=>true,depthScale:()=>1,nearest:p=>p,unproject:p=>({x:p.x,z:p.y}),project:p=>({x:p.x,y:p.z})};
- const testWorld={navigation:()=>navigation,stats:()=>({projectionRevision:1,renderer:{objects:0}}),occlusion:()=>[],setEnvironment(){},destroy(){}};
+ const cameraDraws=[];
+ const testWorld={draw(dt){cameraDraws.push(dt);},navigation:()=>navigation,stats:()=>({projectionRevision:1,renderer:{objects:0}}),occlusion:()=>[],setEnvironment(){},destroy(){}};
  const module={exports:{}},source=fs.readFileSync('home-production-diorama.js','utf8').replace(/import\('\.\/home-production-world\.mjs\?[^']+'\)/,'Promise.resolve({createHomeWorld:()=>testWorld})');vm.runInNewContext(source,{module,testWorld});
  let requested=0,nextFrame;stage.dispatchEvent=e=>{if(e.type==='home-paint-envelope')requested++;};
  const env={NaotocchiHomeDioramaModel:model,CustomEvent:class{constructor(type){this.type=type;}},matchMedia:()=>({matches:false,addEventListener(){},removeEventListener(){}}),visualViewport:{scale:1},requestAnimationFrame:fn=>{nextFrame=fn;return 1;},cancelAnimationFrame(){},NaotocchiHomeViewport:{residentPresentation:()=>presentation}};
@@ -98,6 +99,13 @@ test('growth waits for the camera to consume its new envelope before correcting 
   a.h=130;a.extent.top=130;owner.style.height='130px';controller.sync();
   assert.equal(controller.model.snapshot()[0].h,130,'a skipped zoom fit must not freeze later syncs');
   env.visualViewport.scale=1;stage.listeners['home-presentation']();
+  // Change the actual frame axes at the same time as the next measured shape.
+  a.h=125;a.extent.top=125;owner.style.height='125px';
+  presentation.scaleX=1.25;cameraDraws.length=0;stage.listeners['home-presentation']();
+  const [paintX,paintY]=owner.style.scale.split(' ').map(Number);
+  assert.equal(cameraDraws.at(-1),0,'the camera event paints its backdrop before the next simulation frame');
+  assert.ok(Math.abs(paintX*presentation.scaleX-paintY*presentation.scaleY)<1e-8,'the pending resident paint compensates both camera axes');
+  stage.listeners['home-presentation']();
   a.h=120;a.extent.top=120;owner.style.height='120px';controller.sync();
   controller.update({region:'unsupported'});controller.update({region:'city'});
   assert.equal(controller.model.snapshot().length,1,'exit/reentry clears a pending presentation before the next camera event');

@@ -91,10 +91,10 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  finally{await page.clock.resume();input.after=await page.evaluate(()=>HomeReleaseQA.detail()).catch(()=>null);input.trace=await page.evaluate(()=>window.HomeReleaseInputTrace).catch(()=>null);saveInputs();}
  }
  }
- const stopInput={engine:engineName,region:'home',count:28,kind:'question-blocks-drag',viewport:{width:844,height:600},status:'started'};inputs.push(stopInput);saveInputs();
+ const stopInput={engine:engineName,region:'snow',count:28,kind:'question-blocks-drag',viewport:{width:844,height:600},status:'started'};inputs.push(stopInput);saveInputs();
  try{
- // The conversation block is shared across regions. Use the home fixture
- // with a verified free route; regional movement is exercised above.
+ // The conversation block is shared across regions. The snow scene has a
+ // visible walking lane in both engines with the complete household.
  // Portrait choices cover the protagonist; use the exposed landscape cast
  // to exercise the controller block with a pointer that actually reaches it.
  await page.setViewportSize(stopInput.viewport);
@@ -113,15 +113,29 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
   stopReady=await page.evaluate(r=>{const d=HomeReleaseQA.detail();return d.world?.loaded&&d.world.region===r&&d.actors.length===28&&!d.blocked&&d.paused==='false';},stopInput.region);
   if(!stopReady)await new Promise(resolve=>setTimeout(resolve,50));
  } while(!stopReady&&Date.now()<stopReadyDeadline);
- assert.ok(stopReady,'decoded home and unblocked cast ready before question');
- await page.clock.runFor(50);
+ assert.ok(stopReady,'decoded scene and unblocked cast ready before question');
+ // Sample an actual walking route while the question is closed. Advance
+ // natural movement when the current crowd temporarily occupies the path.
+ async function openDrag(){
+  for(let elapsed=0;elapsed<=20000;elapsed+=250){
+   await page.clock.runFor(250);
+   if(await page.evaluate(()=>HomeReleaseQA.detail().blocked))continue;
+   try{return await page.evaluate(targetFn,'drag');}
+   catch(error){if(!error.message.includes('No visible grounded destination')&&!error.message.includes('Protagonist cannot be reached'))throw error;}
+  }
+  throw Error('No usable drag within 20 seconds of game time in '+stopInput.region);
+ }
+ async function dragHome(target){
+  await page.mouse.move(target.from.x,target.from.y);await page.mouse.down();
+  await page.mouse.move(target.to.x,target.to.y,{steps:8});await page.mouse.up();
+ }
+ const blockedTarget=await openDrag();stopInput.target=blockedTarget;
  const questionStarted=await page.evaluate(()=>HomeReleaseQA.question());assert.ok(questionStarted,'existing conversation accepts prepared healthy fixture: '+JSON.stringify(await page.evaluate(()=>HomeReleaseQA.conversationStatus())));
  await page.clock.runFor(50);
- const blockedTarget=await page.evaluate(targetFn,'drag');stopInput.target=blockedTarget;
  const blockedBefore=await page.evaluate(()=>({detail:HomeReleaseQA.detail(),traceIndex:HomeReleaseInputTrace.length,blockers:HomeReleaseQA.blockers()}));stopInput.before=blockedBefore;saveInputs();
  assert.ok(blockedBefore.detail.blocked,'question holds movement');
  await page.screenshot({path:path.join(dest,`${engineName}-${stopInput.region}-question-blocks-drag.png`)});
- await page.mouse.move(blockedTarget.from.x,blockedTarget.from.y);await page.mouse.down();await page.mouse.move(blockedTarget.to.x,blockedTarget.to.y,{steps:8});await page.mouse.up();
+ await dragHome(blockedTarget);
  // Advance real animation callbacks while the question owns the block.
  await page.clock.runFor(150);
  const blockedAfter=await page.evaluate(index=>({detail:HomeReleaseQA.detail(),trace:HomeReleaseInputTrace.slice(index)}),blockedBefore.traceIndex);stopInput.after=blockedAfter;saveInputs();
@@ -129,8 +143,20 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  assert.ok(blockedAfter.trace.some(t=>t.type==='pointerup'),'blocked gesture completes');
  assert.equal(blockedAfter.detail.actors[0].x,blockedBefore.detail.actors[0].x,'question blocks drag x');assert.equal(blockedAfter.detail.actors[0].y,blockedBefore.detail.actors[0].y,'question blocks drag y');
  assert.ok(!blockedAfter.trace.some(t=>t.type==='move'&&t.result),'question must not accept a route');
- await page.locator('#speechChoices [data-choice]').first().click();await page.waitForFunction(()=>document.getElementById('speechChoices').classList.contains('hidden'));stopInput.status='passed';
- }catch(error){stopInput.status='failed';stopInput.error=error.message;stopInput.detail=await page.evaluate(()=>HomeReleaseQA.detail()).catch(()=>null);await page.screenshot({path:path.join(dest,`${engineName}-home-question-failure.png`)}).catch(()=>{});throw error;}
+ await page.locator('#speechChoices [data-choice]').first().click();await page.waitForFunction(()=>document.getElementById('speechChoices').classList.contains('hidden'));
+ // The answered conversation and its reply finish on the real game clock.
+ // Check that this same household then accepts a physical protagonist drag.
+ const openTarget=await openDrag(),traceStart=await page.evaluate(()=>HomeReleaseInputTrace.length);
+ await dragHome(openTarget);
+ assert.ok(await page.evaluate(i=>HomeReleaseInputTrace.slice(i).some(t=>t.type==='move'&&t.args[2]==='drag'&&t.result),traceStart),'answered question releases the physical drag');
+ let distance=0;
+ for(let frame=0;frame<50&&distance<=5;frame++){
+  await page.clock.runFor(50);
+  distance=await page.evaluate(from=>{const a=HomeReleaseQA.detail().actors[0];return a.source==='drag'?Math.hypot(a.x-from.x,a.y-from.y):0;},openTarget.a);
+ }
+ assert.ok(distance>5,'the protagonist walks along the accepted post-question route');
+ stopInput.afterAnswer={target:openTarget,distance};stopInput.status='passed';
+ }catch(error){stopInput.status='failed';stopInput.error=error.message;stopInput.detail=await page.evaluate(()=>HomeReleaseQA.detail()).catch(()=>null);await page.screenshot({path:path.join(dest,`${engineName}-${stopInput.region}-question-failure.png`)}).catch(()=>{});throw error;}
  finally{stopInput.trace=await page.evaluate(()=>window.HomeReleaseInputTrace).catch(()=>null);saveInputs();await page.clock.resume();}
  await page.setViewportSize({width:390,height:844});
  await page.locator('#menuBtn').click();await page.locator('#menuOverlay').waitFor({state:'visible'});assert.equal(await page.locator('#menuOverlay .menu-grid > :is(button,a)').count(),12);await page.locator('#menuCloseBtn').click();

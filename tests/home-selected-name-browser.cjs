@@ -57,6 +57,38 @@ async function target(page,kind,skip=0){return page.evaluate(({kind,skip})=>{
  }
  throw Error('No exposed touch target for '+kind+' '+JSON.stringify({presentation:v,stage:s,frame:frame.toJSON(),actors:q.actors.map(a=>({key:a.key,x:a.x,y:a.y,w:a.w,h:a.h,rect:document.querySelector('[data-diorama-actor="'+a.key+'"]').getBoundingClientRect().toJSON()}))}));
 },{kind,skip});}
+// Overlapping transparent PNG frames can cover a resident in the DOM while
+// leaving its art visible. Isolate those actually painted screen pixels with
+// the test clock held, then exercise the normal touchscreen hit test.
+async function exposedInk(page,kind){
+ const actors=await page.evaluate(kind=>HomeReleaseQA.detail().actors.filter(a=>a.kind===kind).map(a=>{
+   const node=document.querySelector('[data-diorama-actor="'+a.key+'"]');
+   return {key:a.key,name:node.getAttribute('aria-label').replace(/をえらぶ$/,'')};
+ }),kind);
+ for(const actor of actors){
+  const image=page.locator('[data-diorama-actor="'+actor.key+'"] img.character-asset').first();
+  const box=await image.boundingBox(),frame=await page.locator('.screen-frame').boundingBox();
+  if(!box||!frame)continue;
+  const x=Math.ceil(Math.max(box.x,frame.x,0)),y=Math.ceil(Math.max(box.y,frame.y,0));
+  const width=Math.floor(Math.min(box.x+box.width,frame.x+frame.width,page.viewportSize().width))-x;
+  const height=Math.floor(Math.min(box.y+box.height,frame.y+frame.height,page.viewportSize().height))-y;
+  if(width<1||height<1)continue;
+  const capture=async()=>require('sharp')(await page.screenshot({clip:{x,y,width,height},scale:'css'})).removeAlpha().raw().toBuffer();
+  const shown=await capture(),previous=await image.evaluate(el=>{
+   const value=el.style.opacity;el.style.opacity='0';return value;
+  });
+  let hidden;
+  try{hidden=await capture();}finally{await image.evaluate((el,value)=>{el.style.opacity=value;},previous);}
+  const points=[];
+  for(let row=1;row<height-1;row+=2)for(let col=1;col<width-1;col+=2){
+   const i=(row*width+col)*3;
+   const contrast=Math.max(...[0,1,2].map(c=>Math.abs(shown[i+c]-hidden[i+c])));
+   if(contrast>=32)points.push({...actor,x:x+col,y:y+row,contrast});
+  }
+  if(points.length)return points.sort((a,b)=>b.contrast-a.contrast);
+ }
+ return [];
+}
 function verifyPaint(state,expected){
  assert.equal(state.text,expected);assert.equal(state.hidden,false);
  assert.equal(state.display,'block');assert.ok(state.label.width>0&&state.label.height>0);
@@ -85,10 +117,13 @@ async function tap(page,kind,single=false){
  // A rotated camera can put the dog in front of an entire visitor. Move it
  // through the real drag handler and advance actual animation frames until
  // the visitor is reachable. Waiting on wall time cannot move a paused page.
- let p;
+ let p,ink=[];
  for(let walk=0;walk<=3&&!p;walk++){
   try{p=await target(page,kind);break;}catch(error){
-   if(kind==='pet'||walk===3||!error.message.includes('No exposed touch target'))throw error;
+   if(!error.message.includes('No exposed touch target'))throw error;
+   ink=await exposedInk(page,kind);
+   if(ink.length){p=ink[0];break;}
+   if(kind==='pet'||walk===3)throw error;
   }
   const move=await page.evaluate(pointerTarget,{kind:'drag',expose:kind});
   await page.mouse.move(move.from.x,move.from.y);await page.mouse.down();
@@ -104,7 +139,10 @@ async function tap(page,kind,single=false){
  // the other genuinely exposed pixels until the shipped hit test selects that
  // same resident; every attempt remains a real touchscreen event.
  for(let probe=0;probe<100;probe++){
-  if(probe)p=await target(page,kind,probe);
+  if(probe){
+   if(ink.length && probe>=ink.length)break;
+   p=ink.length?ink[probe]:await target(page,kind,probe);
+  }
   await page.touchscreen.tap(p.x,p.y);state=await inspect(page);
   if(state.selected===p.key)break;
  }

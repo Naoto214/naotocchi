@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light"><title>なおとっち｜ホーム統合試遊</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f2e9;color:#242e29;font:1rem/1.55 system-ui,sans-serif}main{max-width:38rem;margin:auto;padding:clamp(1rem,6vw,3rem)}h1{font-size:clamp(1.7rem,6vw,2.8rem);line-height:1.15}h2{font-size:1.18rem}form,section{padding:1.2rem;background:white;border:1px solid #d7dacf;border-radius:.7rem;margin:1rem 0}label{display:grid;grid-template-columns:5em 1fr;align-items:center;gap:.5rem;margin:.6rem 0}select,button{font:inherit;min-height:44px;border-radius:.4rem}select{color:inherit;background:white;border:1px solid #718076;padding:.3rem}button{border:none;padding:.6rem 1rem;background:#21503f;color:white;cursor:pointer}p{margin:.6rem 0}button+button{margin-top:.6rem;background:#3c5360}#error{color:#8d2315}
+</style></head><body><main><h1>なおとっち<br>ホーム統合試遊</h1>
+<section id="compare"><h2>同じ条件でホームを比較する</h2>
+<p>昼・晴れ、同じ住民・初期シードで毎回始まります。同じ端末・向きで、開始直後と画面を開いたまま3分後の動き、タップとドラッグを比べてください。画面上端の経過時間を押すと、主人公とクマの足元の位置差（開始時・現在・3分後）と戻るリンクが開きます。</p>
+<form action="game/compare-main.html" style="margin:0;padding:0;border:0"><label>比較条件<select name="scene"><option value="forest">森・28体</option><option value="mountain">山・10体</option><option value="jungle">ジャングル・10体</option></select></label>
+<button formaction="game/compare-main.html">現行 main</button> <button formaction="game/compare-before.html">今回の修正前（#584・a917bff9）</button> <button formaction="game/compare-fixed.html">今回の修正候補</button></form></section>
+<form id="scenario"><h2>条件を選んで試す</h2>
+<label>地域<select name="region" required></select></label><label>時間帯<select name="time"><option value="morning">朝</option><option value="day" selected>昼</option><option value="evening">夕方</option><option value="night">夜</option></select></label>
+<label>住民数<select name="count"><option>1</option><option>4</option><option>10</option><option>20</option><option selected>28</option></select></label>
+<p>新しく始めると、前の試遊用セーブを置き換えます。通常プレイの育成データは別に保存します。</p>
+<button>この条件で始める</button> <button type="button" id="resume" hidden>試遊の続きを遊ぶ</button></form>
+<section><h2>通常プレイ</h2><p>たまごから育てるか、このサイトに保存した通常プレイを再開します。</p><button id="ordinary">通常プレイを開く</button></section>
+<p><a href="https://naotocchi-home-v13.kerzion214.chatgpt.site/v13/foot-corridor.html">V12の山の通路で足元保持を再現する</a><br>同一投影の足元保持は、この記録とiPhone実機で安全性を確認してから採用を判断します。</p>
+<p id="error" role="alert"></p></main><script src="game/character-world-master.v1.js"></script><script src="launcher.js"></script></body></html>

@@ -1,0 +1,76 @@
+name: V14 native household placement
+on:
+  push:
+    branches: [draft/home-integration-v14]
+permissions:
+  contents: read
+jobs:
+  region:
+    if: contains(github.event.head_commit.message, '[v14-pairs]') || contains(github.event.head_commit.message, '[v14-pair-final]') || contains(github.event.head_commit.message, '[v14-current-main]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    strategy:
+      fail-fast: false
+      matrix:
+        region: [home, forest, river_lake, city, countryside, mountain, snow, sea, jungle, desert, deepsea, star_stop, memory_lake]
+    env:
+      REGION: ${{ matrix.region }}
+      CHROMIUM_PATH: /usr/bin/google-chrome
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            tests
+            assets
+            vendor
+            comparisons/dayparts-20261103
+      - uses: actions/checkout@v4
+        if: contains(github.event.head_commit.message, '[v14-pairs]')
+        with:
+          ref: 9539e462e78452ad6da5f72d454911679b4ec20e
+          path: .production
+          persist-credentials: false
+          sparse-checkout: |
+            assets
+            vendor
+            comparisons/dayparts-20261103
+      - uses: actions/checkout@v4
+        if: contains(github.event.head_commit.message, '[v14-pairs]')
+        with:
+          ref: d5bed0e06c2b9185deeef3ad0f38fe74dc23113d
+          path: .prior
+          persist-credentials: false
+          sparse-checkout: |
+            assets
+            vendor
+            comparisons/dayparts-20261103
+      - uses: actions/checkout@v4
+        if: contains(github.event.head_commit.message, '[v14-current-main]')
+        with:
+          ref: 384730f1f2b1ef287a2bc4d17df35b861de9f2ae
+          path: .production
+          persist-credentials: false
+          sparse-checkout: |
+            assets
+            vendor
+            comparisons/dayparts-20261103
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Measure the matched native households
+        env:
+          ARMS: ${{ contains(github.event.head_commit.message, '[v14-pair-final]') && 'candidate' || contains(github.event.head_commit.message, '[v14-current-main]') && 'production' || 'production prior' }}
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.62.0
+          python tests/home-integration-v14/regional.py --pairs --production .production --prior .prior --candidate . --historical . --arms $ARMS --region "$REGION" --out "$RUNNER_TEMP/placements"
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pair-v14-${{ matrix.region }}
+          path: ${{ runner.temp }}/placements
+          retention-days: 14
+          if-no-files-found: error

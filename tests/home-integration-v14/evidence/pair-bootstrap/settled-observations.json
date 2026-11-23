@@ -1,0 +1,762 @@
+[
+  {
+    "pin": "ca6059cd",
+    "region": "forest",
+    "repeat": 0,
+    "removed": "box",
+    "key": "companion:box",
+    "focusScreens": [
+      [
+        305.4448,
+        401.7682
+      ],
+      null,
+      null,
+      [
+        253.1166,
+        188.3593
+      ],
+      [
+        253.1166,
+        188.3593
+      ],
+      [
+        184.0436,
+        207.3842
+      ],
+      [
+        184.0436,
+        207.3842
+      ]
+    ],
+    "resizeFrames": [
+      [
+        397.9932,
+        291.4037
+      ],
+      [
+        301.9941,
+        113.9989
+      ],
+      [
+        301.9941,
+        113.9989
+      ]
+    ],
+    "stableAtFrame": [
+      0,
+      0
+    ],
+    "maxContinuouslyPresentWalkedToRestored": [
+      243.77824,
+      "companion:otter"
+    ],
+    "otherMovedOver1": 27,
+    "maxRestoreWithinSample": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxResizeWithinSample": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxResizeWithinSampleStage": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxFocusStepAfterResize": 0.0,
+    "viewportBeforeAfter": [
+      [
+        430,
+        695
+      ],
+      [
+        320,
+        516
+      ]
+    ],
+    "stateCounts": [
+      28,
+      27,
+      27,
+      28
+    ],
+    "clock": [
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156
+    ],
+    "errors": []
+  },
+  {
+    "pin": "ca6059cd",
+    "region": "forest",
+    "repeat": 1,
+    "removed": "box",
+    "key": "companion:box",
+    "focusScreens": [
+      [
+        305.4448,
+        401.7682
+      ],
+      null,
+      null,
+      [
+        253.1166,
+        188.3593
+      ],
+      [
+        253.1166,
+        188.3593
+      ],
+      [
+        184.0436,
+        207.3842
+      ],
+      [
+        184.0436,
+        207.3842
+      ]
+    ],
+    "resizeFrames": [
+      [
+        397.9932,
+        291.4037
+      ],
+      [
+        301.9941,
+        113.9989
+      ],
+      [
+        301.9941,
+        113.9989
+      ]
+    ],
+    "stableAtFrame": [
+      0,
+      0
+    ],
+    "maxContinuouslyPresentWalkedToRestored": [
+      243.77824,
+      "companion:otter"
+    ],
+    "otherMovedOver1": 27,
+    "maxRestoreWithinSample": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxResizeWithinSample": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxResizeWithinSampleStage": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxFocusStepAfterResize": 0.0,
+    "viewportBeforeAfter": [
+      [
+        430,
+        695
+      ],
+      [
+        320,
+        516
+      ]
+    ],
+    "stateCounts": [
+      28,
+      27,
+      27,
+      28
+    ],
+    "clock": [
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156
+    ],
+    "errors": []
+  },
+  {
+    "pin": "ca6059cd",
+    "region": "home",
+    "repeat": 0,
+    "removed": null,
+    "key": "pet:dog",
+    "focusScreens": [
+      [
+        280.2281,
+        345.212
+      ],
+      [
+        280.2281,
+        345.212
+      ],
+      [
+        280.2281,
+        345.212
+      ],
+      [
+        283.1471,
+        346.7963
+      ],
+      [
+        283.1471,
+        346.7963
+      ],
+      [
+        264.0091,
+        240.358
+      ],
+      [
+        264.0091,
+        240.358
+      ]
+    ],
+    "resizeFrames": [
+      [
+        357.988,
+        246.4057
+      ],
+      [
+        301.998,
+        133.9983
+      ],
+      [
+        301.998,
+        133.9983
+      ]
+    ],
+    "stableAtFrame": [
+      0,
+      0
+    ],
+    "maxContinuouslyPresentWalkedToRestored": [
+      0,
+      null
+    ],
+    "otherMovedOver1": 0,
+    "maxRestoreWithinSample": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxResizeWithinSample": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxResizeWithinSampleStage": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxFocusStepAfterResize": 0.0,
+    "viewportBeforeAfter": [
+      [
+        390,
+        630
+      ],
+      [
+        320,
+        516
+      ]
+    ],
+    "stateCounts": [
+      1,
+      2,
+      2,
+      1
+    ],
+    "clock": [
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156
+    ],
+    "errors": []
+  },
+  {
+    "pin": "ca6059cd",
+    "region": "home",
+    "repeat": 1,
+    "removed": null,
+    "key": "pet:dog",
+    "focusScreens": [
+      [
+        280.2281,
+        345.212
+      ],
+      [
+        280.2281,
+        345.212
+      ],
+      [
+        280.2281,
+        345.212
+      ],
+      [
+        283.1471,
+        346.7963
+      ],
+      [
+        283.1471,
+        346.7963
+      ],
+      [
+        264.0091,
+        240.358
+      ],
+      [
+        264.0091,
+        240.358
+      ]
+    ],
+    "resizeFrames": [
+      [
+        357.988,
+        246.4057
+      ],
+      [
+        301.998,
+        133.9983
+      ],
+      [
+        301.998,
+        133.9983
+      ]
+    ],
+    "stableAtFrame": [
+      0,
+      0
+    ],
+    "maxContinuouslyPresentWalkedToRestored": [
+      0,
+      null
+    ],
+    "otherMovedOver1": 0,
+    "maxRestoreWithinSample": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxResizeWithinSample": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxResizeWithinSampleStage": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxFocusStepAfterResize": 0.0,
+    "viewportBeforeAfter": [
+      [
+        390,
+        630
+      ],
+      [
+        320,
+        516
+      ]
+    ],
+    "stateCounts": [
+      1,
+      2,
+      2,
+      1
+    ],
+    "clock": [
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156
+    ],
+    "errors": []
+  },
+  {
+    "pin": "f6719c51",
+    "region": "forest",
+    "repeat": 0,
+    "removed": "box",
+    "key": "companion:box",
+    "focusScreens": [
+      [
+        305.4448,
+        401.7682
+      ],
+      null,
+      null,
+      [
+        253.1166,
+        188.3593
+      ],
+      [
+        253.1166,
+        188.3593
+      ],
+      [
+        184.0436,
+        207.3842
+      ],
+      [
+        184.0436,
+        207.3842
+      ]
+    ],
+    "resizeFrames": [
+      [
+        397.9932,
+        291.4037
+      ],
+      [
+        301.9941,
+        113.9989
+      ],
+      [
+        301.9941,
+        113.9989
+      ]
+    ],
+    "stableAtFrame": [
+      0,
+      0
+    ],
+    "maxContinuouslyPresentWalkedToRestored": [
+      243.77824,
+      "companion:otter"
+    ],
+    "otherMovedOver1": 27,
+    "maxRestoreWithinSample": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxResizeWithinSample": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxResizeWithinSampleStage": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxFocusStepAfterResize": 0.0,
+    "viewportBeforeAfter": [
+      [
+        430,
+        695
+      ],
+      [
+        320,
+        516
+      ]
+    ],
+    "stateCounts": [
+      28,
+      27,
+      27,
+      28
+    ],
+    "clock": [
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156
+    ],
+    "errors": []
+  },
+  {
+    "pin": "f6719c51",
+    "region": "forest",
+    "repeat": 1,
+    "removed": "box",
+    "key": "companion:box",
+    "focusScreens": [
+      [
+        305.4448,
+        401.7682
+      ],
+      null,
+      null,
+      [
+        253.1166,
+        188.3593
+      ],
+      [
+        253.1166,
+        188.3593
+      ],
+      [
+        184.0436,
+        207.3842
+      ],
+      [
+        184.0436,
+        207.3842
+      ]
+    ],
+    "resizeFrames": [
+      [
+        397.9932,
+        291.4037
+      ],
+      [
+        301.9941,
+        113.9989
+      ],
+      [
+        301.9941,
+        113.9989
+      ]
+    ],
+    "stableAtFrame": [
+      0,
+      0
+    ],
+    "maxContinuouslyPresentWalkedToRestored": [
+      243.77824,
+      "companion:otter"
+    ],
+    "otherMovedOver1": 27,
+    "maxRestoreWithinSample": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxResizeWithinSample": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxResizeWithinSampleStage": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxFocusStepAfterResize": 0.0,
+    "viewportBeforeAfter": [
+      [
+        430,
+        695
+      ],
+      [
+        320,
+        516
+      ]
+    ],
+    "stateCounts": [
+      28,
+      27,
+      27,
+      28
+    ],
+    "clock": [
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156
+    ],
+    "errors": []
+  },
+  {
+    "pin": "f6719c51",
+    "region": "home",
+    "repeat": 0,
+    "removed": null,
+    "key": "pet:dog",
+    "focusScreens": [
+      [
+        280.2281,
+        345.212
+      ],
+      [
+        280.2281,
+        345.212
+      ],
+      [
+        280.2281,
+        345.212
+      ],
+      [
+        283.1471,
+        346.7963
+      ],
+      [
+        283.1471,
+        346.7963
+      ],
+      [
+        264.0091,
+        240.358
+      ],
+      [
+        264.0091,
+        240.358
+      ]
+    ],
+    "resizeFrames": [
+      [
+        357.988,
+        246.4057
+      ],
+      [
+        301.998,
+        133.9983
+      ],
+      [
+        301.998,
+        133.9983
+      ]
+    ],
+    "stableAtFrame": [
+      0,
+      10
+    ],
+    "maxContinuouslyPresentWalkedToRestored": [
+      0,
+      null
+    ],
+    "otherMovedOver1": 0,
+    "maxRestoreWithinSample": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxResizeWithinSample": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxResizeWithinSampleStage": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxFocusStepAfterResize": 0.0,
+    "viewportBeforeAfter": [
+      [
+        390,
+        630
+      ],
+      [
+        320,
+        516
+      ]
+    ],
+    "stateCounts": [
+      1,
+      2,
+      2,
+      1
+    ],
+    "clock": [
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156
+    ],
+    "errors": []
+  },
+  {
+    "pin": "f6719c51",
+    "region": "home",
+    "repeat": 1,
+    "removed": null,
+    "key": "pet:dog",
+    "focusScreens": [
+      [
+        280.2281,
+        345.212
+      ],
+      [
+        280.2281,
+        345.212
+      ],
+      [
+        280.2281,
+        345.212
+      ],
+      [
+        283.1471,
+        346.7963
+      ],
+      [
+        283.1471,
+        346.7963
+      ],
+      [
+        264.0091,
+        240.358
+      ],
+      [
+        264.0091,
+        240.358
+      ]
+    ],
+    "resizeFrames": [
+      [
+        357.988,
+        246.4057
+      ],
+      [
+        301.998,
+        133.9983
+      ],
+      [
+        301.998,
+        133.9983
+      ]
+    ],
+    "stableAtFrame": [
+      0,
+      0
+    ],
+    "maxContinuouslyPresentWalkedToRestored": [
+      0,
+      null
+    ],
+    "otherMovedOver1": 0,
+    "maxRestoreWithinSample": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxResizeWithinSample": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxResizeWithinSampleStage": [
+      0.0,
+      "pet:dog"
+    ],
+    "maxFocusStepAfterResize": 0.0,
+    "viewportBeforeAfter": [
+      [
+        390,
+        630
+      ],
+      [
+        320,
+        516
+      ]
+    ],
+    "stateCounts": [
+      1,
+      2,
+      2,
+      1
+    ],
+    "clock": [
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156,
+      30.000000000000156
+    ],
+    "errors": []
+  }
+]

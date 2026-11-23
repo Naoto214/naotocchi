@@ -1,0 +1,95 @@
+{
+  "productionPagesCommit": "9539e462e78452ad6da5f72d454911679b4ec20e",
+  "existingPaths": 35856,
+  "unchangedExistingPaths": 35840,
+  "changedExistingPaths": [
+    ".github/workflows/home-production.yml",
+    "home-art-navigation.mjs",
+    "home-production-diorama.js",
+    "home-production-layout.css",
+    "home-production-model.js",
+    "home-production-touch.js",
+    "home-production-world.mjs",
+    "home-recovered-navigation.mjs",
+    "home-route-navigation.mjs",
+    "home-visible-ground-navigation.mjs",
+    "index.html",
+    "script.js",
+    "tests/helpers/approved-card459-v18.cjs",
+    "tests/home-production-v12-interaction-test.cjs",
+    "tests/home-selected-name-browser.cjs",
+    "tools/pages/allowlist.json"
+  ],
+  "trialMatchesRuntimeChanges": [
+    "home-art-navigation.mjs",
+    "home-autumn-leaves.mjs",
+    "home-ground-material.mjs",
+    "home-production-diorama.js",
+    "home-production-layout.css",
+    "home-production-model.js",
+    "home-production-touch.js",
+    "home-production-world.mjs",
+    "home-recovered-navigation.mjs",
+    "home-route-navigation.mjs",
+    "home-visible-ground-navigation.mjs",
+    "index.html",
+    "script.js"
+  ],
+  "saveGrowthConversationAndGameTests": 340,
+  "saveGrowthConversationAndGameFailures": 0,
+  "site": {
+    "url": "https://naotocchi-home-integration-v14.kerzion214.chatgpt.site/",
+    "deployment": "appgdep_6b02ed1854fc819180fd3b1ef01d7e7b",
+    "status": "succeeded",
+    "ownerCount": 1,
+    "groupCount": 0,
+    "externalVisitorCount": 0,
+    "anonymousChecks": [
+      [
+        "/",
+        401,
+        null
+      ],
+      [
+        "/game/",
+        401,
+        null
+      ],
+      [
+        "/game/trial.html",
+        401,
+        null
+      ],
+      [
+        "/launcher.js",
+        401,
+        null
+      ]
+    ],
+    "package": {
+      "commit": "0445eb31f4701f346e7fc90ee5d156c2ec7cb167",
+      "files": 4242,
+      "expandedTarBytes": 264437760,
+      "archiveBytes": 253317044,
+      "sha256": "9def54764abb3486b5b35f4a0323bb5cab8666615bf75b58d9c5ec58f2e9f63f"
+    },
+    "version": 2
+  },
+  "matchedPriorPullRequests": [
+    561,
+    567,
+    568,
+    569,
+    570,
+    572,
+    575,
+    576,
+    578,
+    579,
+    580,
+    581,
+    582,
+    583
+  ],
+  "examinedRevisionBeforeEvidenceCommit": "4f0d2b78e9d190970e1b570ce1033ddd9d792c6a"
+}

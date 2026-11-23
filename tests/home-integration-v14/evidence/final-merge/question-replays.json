@@ -1,0 +1,25 @@
+[
+  {
+    "cell": "city-10-430",
+    "hostedStarted": false,
+    "localStarted": true,
+    "localGate": {
+      "busy": false,
+      "careAfterglow": false,
+      "context": true,
+      "emotion": "normal",
+      "hasMessage": false,
+      "petBusy": false,
+      "petMotion": false,
+      "speech": false,
+      "suppressIdle": false,
+      "unit": null
+    },
+    "runtime": {
+      "home-production-diorama.js": "21d93f73c2d136924859cff7503f20e264b210ba626a316677918d3a6d6e9d1f",
+      "home-production-model.js": "2e0a49c4f2a234e7931d678f2449d7e7cd5f18a0f005053514fd909bf4cb8b7b",
+      "home-production-world.mjs": "ee2f884cd801ed4aa45cb7f89bef721fcefc1608de297b22882a6681e698dd68",
+      "script.js": "b91746ce36444a89a5f7945efe38aafbc34a8a319af628e7bce7d1426a9249e7"
+    }
+  }
+]

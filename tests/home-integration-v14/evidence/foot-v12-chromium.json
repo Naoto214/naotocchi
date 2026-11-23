@@ -1,0 +1,55 @@
+{
+  "engine": "chromium",
+  "version": "156.0.8078.79",
+  "viewport": [
+    320,
+    792
+  ],
+  "region": "mountain",
+  "pageErrors": [],
+  "before": [
+    [
+      "pet:butterfly",
+      172.1395602433683,
+      284.8719789048429
+    ],
+    [
+      "companion:panda",
+      135.90031411187988,
+      171.62433474394163
+    ]
+  ],
+  "after": [
+    [
+      "pet:butterfly",
+      172.1395602433683,
+      284.8719789048429
+    ],
+    [
+      "companion:panda",
+      135.90031411187988,
+      171.62433474394163
+    ]
+  ],
+  "renewed": [
+    [
+      "pet:butterfly",
+      172.1395602433683,
+      284.8719789048429
+    ],
+    [
+      "companion:panda",
+      135.90031411187988,
+      171.62433474394163
+    ]
+  ],
+  "decision": {
+    "held": true,
+    "reason": "same-ground",
+    "liveSegments": 0
+  },
+  "shadow": [
+    135.9,
+    171.624
+  ]
+}

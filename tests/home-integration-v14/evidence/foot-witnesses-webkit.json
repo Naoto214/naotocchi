@@ -1,0 +1,402 @@
+{
+  "engine": "Linux WebKit",
+  "version": "26.5",
+  "rendererChange": "Remeasure only equivalent replacements before the first model sync (b6332550)",
+  "cases": [
+    {
+      "arm": "v10",
+      "action": "replace-panda",
+      "count": 28,
+      "changed": [
+        {
+          "key": "companion:panda",
+          "from": {
+            "key": "companion:panda",
+            "x": 113.73032378520752,
+            "y": 370.1350683886255,
+            "body": [
+              30.597895757575756,
+              31.752533333333332
+            ],
+            "asset": "assets/characters/companions/panda.png"
+          },
+          "to": {
+            "key": "companion:panda",
+            "x": 120,
+            "y": 354.18,
+            "body": [
+              30.597895757575756,
+              31.752533333333332
+            ],
+            "asset": "assets/characters/companions/panda.png"
+          },
+          "css": 22.741647930442046
+        }
+      ]
+    },
+    {
+      "arm": "v13-foot",
+      "action": "replace-panda",
+      "count": 28,
+      "changed": []
+    },
+    {
+      "region": "mountain",
+      "panda": 55.6567597898237,
+      "mode": "native",
+      "decision": {
+        "held": false,
+        "reason": "geometry-or-population",
+        "clock": 180.00000000000668,
+        "events": 1,
+        "moves": 0,
+        "distanceCSS": 1.4930079247562968e-14,
+        "from": [
+          125.4093306517028,
+          227.30988999268598
+        ],
+        "to": [
+          125.40933065170279,
+          227.30988999268595
+        ]
+      },
+      "held": false,
+      "oldRays": 1,
+      "rays": 12,
+      "retained": true,
+      "canWalk": true,
+      "bearing": 180,
+      "change": [
+        {
+          "key": "pet:dog",
+          "css": 1.4930079247562968e-14
+        },
+        {
+          "key": "partner:forest_bear",
+          "css": 9.472136044445274e-15
+        },
+        {
+          "key": "companion:cat_friend",
+          "css": 0
+        },
+        {
+          "key": "companion:tanuki",
+          "css": 0
+        },
+        {
+          "key": "companion:owl",
+          "css": 4.736068022222637e-15
+        },
+        {
+          "key": "companion:hamster",
+          "css": 0
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "css": 0
+        },
+        {
+          "key": "companion:squirrel",
+          "css": 4.736068022222637e-15
+        },
+        {
+          "key": "companion:otter",
+          "css": 0
+        },
+        {
+          "key": "companion:panda",
+          "css": 55.6567597898237
+        }
+      ],
+      "oldDirections": 0,
+      "activeRoutes": 1,
+      "step": {
+        "accepted": true,
+        "arrived": true,
+        "done": true,
+        "start": {
+          "x": 125.40933065170279,
+          "y": 227.30988999268595
+        },
+        "end": {
+          "x": 52.43218779455994,
+          "y": 227.30988999268595
+        },
+        "clock": 180.00000000000668,
+        "steps": 35,
+        "walked": 72.7107884526712
+      },
+      "positions": 35,
+      "shadows": 35
+    },
+    {
+      "region": "mountain",
+      "panda": 0,
+      "mode": "guard",
+      "decision": {
+        "held": true,
+        "reason": "reserved-exit-open",
+        "bearing": 176.25,
+        "liveSegments": 2,
+        "clock": 180.00000000000668,
+        "events": 1,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          125.4093306517028,
+          227.30988999268598
+        ],
+        "to": [
+          125.4093306517028,
+          227.30988999268598
+        ]
+      },
+      "held": true,
+      "oldRays": 1,
+      "rays": 1,
+      "retained": true,
+      "canWalk": true,
+      "bearing": 176.25,
+      "change": [
+        {
+          "key": "pet:dog",
+          "css": 0
+        },
+        {
+          "key": "partner:forest_bear",
+          "css": 0
+        },
+        {
+          "key": "companion:cat_friend",
+          "css": 0
+        },
+        {
+          "key": "companion:tanuki",
+          "css": 0
+        },
+        {
+          "key": "companion:owl",
+          "css": 0
+        },
+        {
+          "key": "companion:hamster",
+          "css": 0
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "css": 0
+        },
+        {
+          "key": "companion:squirrel",
+          "css": 0
+        },
+        {
+          "key": "companion:otter",
+          "css": 0
+        },
+        {
+          "key": "companion:panda",
+          "css": 0
+        }
+      ],
+      "oldDirections": 0,
+      "activeRoutes": 1,
+      "step": {
+        "accepted": true,
+        "arrived": true,
+        "done": true,
+        "start": {
+          "x": 125.4093306517028,
+          "y": 227.30988999268598
+        },
+        "end": {
+          "x": 52.58843745924449,
+          "y": 232.0828234978183
+        },
+        "clock": 180.00000000000668,
+        "steps": 35,
+        "walked": 72.55946815682574
+      },
+      "positions": 35,
+      "shadows": 35
+    },
+    {
+      "region": "forest",
+      "panda": 12.223330104565639,
+      "mode": "native",
+      "decision": {
+        "held": false,
+        "reason": "geometry-or-population",
+        "clock": 300.00000000003394,
+        "events": 1,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          146.40714285714284,
+          279.0181318681319
+        ],
+        "to": [
+          146.40714285714284,
+          279.0181318681319
+        ]
+      },
+      "held": false,
+      "oldRays": 0,
+      "rays": 5,
+      "retained": true,
+      "canWalk": true,
+      "bearing": 135,
+      "change": [
+        {
+          "key": "pet:dog",
+          "css": 0
+        },
+        {
+          "key": "partner:forest_bear",
+          "css": 3.7133165577693304e-14
+        },
+        {
+          "key": "companion:cat_friend",
+          "css": 4.6568033052522584e-15
+        },
+        {
+          "key": "companion:tanuki",
+          "css": 1.8420003859911232e-14
+        },
+        {
+          "key": "companion:owl",
+          "css": 7.426633115538661e-14
+        },
+        {
+          "key": "companion:hamster",
+          "css": 9.313606610504517e-15
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "css": 0
+        },
+        {
+          "key": "companion:squirrel",
+          "css": 9.313606610504517e-15
+        },
+        {
+          "key": "companion:otter",
+          "css": 4.6568033052522584e-15
+        },
+        {
+          "key": "companion:panda",
+          "css": 12.223330104565639
+        }
+      ],
+      "oldDirections": 0,
+      "activeRoutes": 0,
+      "step": {
+        "accepted": true,
+        "arrived": true,
+        "done": true,
+        "start": {
+          "x": 146.40714285714284,
+          "y": 279.0181318681319
+        },
+        "end": {
+          "x": 94.80451027123772,
+          "y": 330.62076445403704
+        },
+        "clock": 300.00000000003394,
+        "steps": 35,
+        "walked": 67.41920660153792
+      },
+      "positions": 35,
+      "shadows": 35
+    },
+    {
+      "region": "forest",
+      "panda": 12.223330104565639,
+      "mode": "guard",
+      "decision": {
+        "held": false,
+        "reason": "reserved-exit-closed",
+        "clock": 300.00000000003394,
+        "events": 1,
+        "moves": 0,
+        "distanceCSS": 0,
+        "from": [
+          146.40714285714284,
+          279.0181318681319
+        ],
+        "to": [
+          146.40714285714284,
+          279.0181318681319
+        ]
+      },
+      "held": false,
+      "oldRays": 0,
+      "rays": 5,
+      "retained": true,
+      "canWalk": true,
+      "bearing": 135,
+      "change": [
+        {
+          "key": "pet:dog",
+          "css": 0
+        },
+        {
+          "key": "partner:forest_bear",
+          "css": 3.7133165577693304e-14
+        },
+        {
+          "key": "companion:cat_friend",
+          "css": 4.6568033052522584e-15
+        },
+        {
+          "key": "companion:tanuki",
+          "css": 1.8420003859911232e-14
+        },
+        {
+          "key": "companion:owl",
+          "css": 7.426633115538661e-14
+        },
+        {
+          "key": "companion:hamster",
+          "css": 9.313606610504517e-15
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "css": 0
+        },
+        {
+          "key": "companion:squirrel",
+          "css": 9.313606610504517e-15
+        },
+        {
+          "key": "companion:otter",
+          "css": 4.6568033052522584e-15
+        },
+        {
+          "key": "companion:panda",
+          "css": 12.223330104565639
+        }
+      ],
+      "oldDirections": 0,
+      "activeRoutes": 0,
+      "step": {
+        "accepted": true,
+        "arrived": true,
+        "done": true,
+        "start": {
+          "x": 146.40714285714284,
+          "y": 279.0181318681319
+        },
+        "end": {
+          "x": 94.80451027123772,
+          "y": 330.62076445403704
+        },
+        "clock": 300.00000000003394,
+        "steps": 35,
+        "walked": 67.41920660153792
+      },
+      "positions": 35,
+      "shadows": 35
+    }
+  ]
+}
