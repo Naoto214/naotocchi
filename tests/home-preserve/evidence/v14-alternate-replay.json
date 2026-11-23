@@ -1,0 +1,32 @@
+{
+  "refs": {"main": "384730f1f2b1ef287a2bc4d17df35b861de9f2ae", "candidate": "400fb1d42834f8123faebab87f716194cee5ad51", "oldV14": "b87517f4bf19447e1492e753d03e568b0563a75b"},
+  "scope": "Deterministic model and controller fixtures, independent of browser screens and native timing. Exact model and terrain navigation modules from each revision. No production scene sizing, pair seater or renderer enabled. All arms start with the listed feet and 10x10 actor sizes.",
+  "method": "Reuse lane() in oldV14 tests/home-integration-v14/drag-model.test.mjs, selecting actor 0. Drag with pointerDrop=true. Step 260 times at 0.05s with autonomy disabled. 'Recently selected blocker' selects actor 1 then 0. 'Blocker walks away' additionally sends actor 1 to x96 by keyboard at t1.5. Corners, limits, grid and stationary blocker conditions from that source. 'Open' is its ordinary flat lane. Sample frames with any call to route/referenceRoute/reachable. A direct path can avoid all three. Check every committed hop with nav.segmentSafe and normalized closest resident distance in update order.",
+  "controllerMethod": "Old drag-input.test.cjs inputs() fixture with exact controller down/move/up handlers from each arm, its controlled blocking states, and waiting-drop service if present. Press (34,45), move/release (46,45); tap at (37,45). Clock 150ms after release except expiry at 2600ms. A soft state means ordinary-blocked and direct-input-allowed in V14, representing the lower notice or passive bounce. Hard-block cases use both flags. 'commands' below counts move dispatches, not successful physical travel.",
+  "modelColumns": ["case", "startFeet", "release", "main", "oldV14"],
+  "modelArmColumns": ["acceptedOnRelease", "finalFeet", "graphSearchTimesSeconds"],
+  "modelRows": [
+    ["open", [[40, 36]], [70, 36], [true, [[70, 36]], [0]], [true, [[70, 36]], []]],
+    ["blocked corner", [[42, 65]], [61, 47.8], [true, [[52, 52]], [0, 1.45, 2.5, 3.55, 4.6]], [true, [[59.5173, 49.1422]], [0]]],
+    ["short partial", [[32, 36]], [112, 36], [true, [[48, 36]], [0, 1.45, 2.5, 3.55, 4.6]], [false, [[32, 36]], [0]]],
+    ["long partial", [[32, 36]], [112, 36], [true, [[60, 36]], [0, 1.75, 2.8, 3.85, 4.9]], [true, [[60.9844, 36]], [0]]],
+    ["idle blocker", [[40, 36], [60, 36], [120, 36]], [52, 36], [false, [[40, 36], [60, 36], [120, 36]], [0, 1, 2, 3.05, 4.1]], [false, [[52, 36], [72, 36], [120, 36]], [0]]],
+    ["recently selected blocker", [[40, 36], [60, 36], [120, 36]], [52, 36], [false, [[40, 36], [60, 36], [120, 36]], [0, 1, 2, 3.05, 4.1]], [false, [[40, 36], [60, 36], [120, 36]], [0]]],
+    ["occupied dead end", [[40, 36], [60, 36]], [52, 36], [false, [[40, 36], [60, 36]], [0, 1, 2, 3.05, 4.1]], [false, [[40, 36], [60, 36]], [0]]],
+    ["unreachable island", [[40, 36]], [50, 36], [false, [[40, 36]], [0, 1, 2, 3.05, 4.1]], [false, [[40, 36]], [0]]],
+    ["blocker walks away", [[40, 36], [60, 36], [120, 36]], [52, 36], [false, [[52, 36], [95.7, 36], [120, 36]], [0, 1, 1.5, 2]], [false, [[52, 36], [95.7, 36], [120, 36]], [0, 1.5]]]
+  ],
+  "candidateMatchesMainAcrossAllModelAndHandlerOutputs": true,
+  "terrainFailures": 0,
+  "sweptContactFailures": 0,
+  "controllerColumns": ["case", "mainCommandsBeforeService", "mainCommandsAfterService", "oldV14CommandsBeforeService", "oldV14CommandsAfterService"],
+  "controllerRows": [
+    ["open", 1, 1, 1, 1],
+    ["soft pause clears", 0, 0, 0, 1],
+    ["soft pause expires", 0, 0, 0, 0],
+    ["soft becomes hard", 0, 0, 0, 0],
+    ["hard at press", 0, 0, 0, 0],
+    ["soft tap", 0, 0, 0, 0],
+    ["untrusted soft gesture", 0, 0, 0, 0]
+  ]
+}
