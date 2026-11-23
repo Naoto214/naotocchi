@@ -92,7 +92,8 @@
         "maxMs": 2811,
         "medianCellP95Ms": 99.5,
         "medianRenderP95Ms": 2.5
-      }
+      },
+      "medianPairedDeltaP95Ms": -8.0
     },
     "forest": {
       "production": {
@@ -124,7 +125,8 @@
         "maxMs": 308,
         "medianCellP95Ms": 69.0,
         "medianRenderP95Ms": 2.0
-      }
+      },
+      "medianPairedDeltaP95Ms": -3.5
     },
     "river_lake": {
       "production": {
@@ -156,7 +158,8 @@
         "maxMs": 1846,
         "medianCellP95Ms": 159.0,
         "medianRenderP95Ms": 3.0
-      }
+      },
+      "medianPairedDeltaP95Ms": -68.5
     },
     "city": {
       "production": {
@@ -188,7 +191,8 @@
         "maxMs": 423,
         "medianCellP95Ms": 96.5,
         "medianRenderP95Ms": 3.0
-      }
+      },
+      "medianPairedDeltaP95Ms": -5.0
     },
     "countryside": {
       "production": {
@@ -220,7 +224,8 @@
         "maxMs": 985,
         "medianCellP95Ms": 74.0,
         "medianRenderP95Ms": 2.0
-      }
+      },
+      "medianPairedDeltaP95Ms": -2.5
     },
     "mountain": {
       "production": {
@@ -252,7 +257,8 @@
         "maxMs": 637,
         "medianCellP95Ms": 49.5,
         "medianRenderP95Ms": 2.0
-      }
+      },
+      "medianPairedDeltaP95Ms": -2.0
     },
     "snow": {
       "production": {
@@ -284,7 +290,8 @@
         "maxMs": 995,
         "medianCellP95Ms": 76.0,
         "medianRenderP95Ms": 2.0
-      }
+      },
+      "medianPairedDeltaP95Ms": 0.0
     },
     "sea": {
       "production": {
@@ -316,7 +323,8 @@
         "maxMs": 347,
         "medianCellP95Ms": 84.5,
         "medianRenderP95Ms": 2.0
-      }
+      },
+      "medianPairedDeltaP95Ms": 0.0
     },
     "jungle": {
       "production": {
@@ -348,7 +356,8 @@
         "maxMs": 654,
         "medianCellP95Ms": 89.0,
         "medianRenderP95Ms": 3.0
-      }
+      },
+      "medianPairedDeltaP95Ms": -7.5
     },
     "desert": {
       "production": {
@@ -380,7 +389,8 @@
         "maxMs": 442,
         "medianCellP95Ms": 86.0,
         "medianRenderP95Ms": 2.0
-      }
+      },
+      "medianPairedDeltaP95Ms": 0.0
     },
     "deepsea": {
       "production": {
@@ -412,7 +422,8 @@
         "maxMs": 907,
         "medianCellP95Ms": 222.5,
         "medianRenderP95Ms": 3.0
-      }
+      },
+      "medianPairedDeltaP95Ms": 0.5
     },
     "star_stop": {
       "production": {
@@ -444,7 +455,8 @@
         "maxMs": 614,
         "medianCellP95Ms": 51.0,
         "medianRenderP95Ms": 2.0
-      }
+      },
+      "medianPairedDeltaP95Ms": -1.5
     },
     "memory_lake": {
       "production": {
@@ -476,7 +488,8 @@
         "maxMs": 1353,
         "medianCellP95Ms": 94.5,
         "medianRenderP95Ms": 2.5
-      }
+      },
+      "medianPairedDeltaP95Ms": -5.0
     }
   },
   "global": {
@@ -738,5 +751,6 @@
   "order": {
     "production": 130,
     "candidate": 130
-  }
+  },
+  "medianPairedDeltaP95Ms": -4.0
 }
