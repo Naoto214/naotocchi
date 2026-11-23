@@ -1,0 +1,66 @@
+{
+  "index.html": {
+    "before": "c9432f2b62b2c95a36338f8166627abe8feb97d3",
+    "after": "b1ec05feef0e5d2e2c5ee8b3f60ad5afd51f31e6",
+    "size": 72923,
+    "reverse": [
+      [
+        72286,
+        72298,
+        "ecac051a6f90"
+      ],
+      [
+        72218,
+        72230,
+        "812fad81ddc5"
+      ]
+    ]
+  },
+  "tools/pages/allowlist.json": {
+    "before": "f1b1fb9cf575c6305fac17fb25dcf80a59d13c31",
+    "after": "8e2e91fff2a457e35c7073e212cca6b8d42a679a",
+    "size": 296396,
+    "reverse": [
+      [
+        294368,
+        294432,
+        "47d394909efd22698dc697883efab1dc5f5142842d03615283d43d2f9490093b"
+      ],
+      [
+        291725,
+        291789,
+        "9459d7632eb786f8415839e102ddd422829804423f0b9e674bae44424eef678e"
+      ],
+      [
+        267499,
+        267563,
+        "76cd45be9c8bccfa81f96a04a52caa54c9fae9159436a83fca1a0fe42bd72cc7"
+      ],
+      [
+        266762,
+        266826,
+        "9a7e25d9fbe9598f66f04139fc534b70cf847a289c53b908d5dc69e3eb62578d"
+      ],
+      [
+        266657,
+        266721,
+        "d824c818c676353898afb052b43f8e88db9a14a7add55c3986af0104dbdc9ca6"
+      ],
+      [
+        266351,
+        266415,
+        "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856"
+      ],
+      [
+        265946,
+        266010,
+        "ecac051a6f903dab5ee2f266d70b879686e15a035fbcefd1e6a84fa5a2db783a"
+      ],
+      [
+        265286,
+        265350,
+        "b08b767e0984c662aae5bd2e98dfc1463923950b7c41ded9af7ee4a26f8668be"
+      ]
+    ]
+  }
+}

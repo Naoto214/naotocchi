@@ -1,0 +1,138 @@
+{
+  "main": "384730f1f2b1ef287a2bc4d17df35b861de9f2ae",
+  "runtime": "93e9b8c2d61c4a5fa827f5ede5cf87608cf475e8",
+  "privateSiteSource": "884bd1797b0926f205e5811935b07772904c24d0",
+  "packageSha256": "d14443c9df127cda78710b1ecda4c08888bb28cdd43b4fbe49c00990d306f6a1",
+  "files": 4272,
+  "editions": {
+    "main": "本番と同じホーム",
+    "minimal": "歩行中の接触防止、指を離す瞬間のドラッグ判定、同じ仲間画像への差し替え時の足元保持、固定地形の通行判定結果の再利用",
+    "size": "主人公・パートナー・仲間の表示倍率",
+    "grass": "森の草地で、足元に草を表示",
+    "water": "川・湖の水面に立ったとき、足元に波紋を表示",
+    "shadow": "家の床板・街の舗装で足元に接地影を表示",
+    "leaves": "秋晴れの森と夕方の田園に落ち葉Bを表示"
+  },
+  "tested": [
+    {
+      "engine": "chromium",
+      "case": "minimal:forest",
+      "edition": "minimal",
+      "region": "forest",
+      "count": 28
+    },
+    {
+      "engine": "chromium",
+      "case": "minimal:mountain",
+      "edition": "minimal",
+      "region": "mountain",
+      "count": 10
+    },
+    {
+      "engine": "chromium",
+      "case": "minimal:jungle",
+      "edition": "minimal",
+      "region": "jungle",
+      "count": 10
+    },
+    {
+      "engine": "chromium",
+      "case": "main:forest",
+      "edition": "main",
+      "region": "forest",
+      "count": 28
+    },
+    {
+      "engine": "webkit",
+      "case": "minimal:forest",
+      "edition": "minimal",
+      "region": "forest",
+      "count": 28
+    },
+    {
+      "engine": "webkit",
+      "case": "minimal:mountain",
+      "edition": "minimal",
+      "region": "mountain",
+      "count": 10
+    },
+    {
+      "engine": "webkit",
+      "case": "minimal:jungle",
+      "edition": "minimal",
+      "region": "jungle",
+      "count": 10
+    },
+    {
+      "engine": "webkit",
+      "case": "oldmain:mountain",
+      "edition": null,
+      "region": "mountain",
+      "count": 10
+    },
+    {
+      "engine": "webkit",
+      "case": "oldbefore:forest",
+      "edition": null,
+      "region": "forest",
+      "count": 28
+    },
+    {
+      "engine": "webkit",
+      "case": "oldfixed:forest",
+      "edition": null,
+      "region": "forest",
+      "count": 28
+    },
+    {
+      "engine": "chromium-options",
+      "case": "size:forest",
+      "edition": "size",
+      "region": "forest",
+      "count": 28
+    },
+    {
+      "engine": "chromium-options",
+      "case": "grass:forest",
+      "edition": "grass",
+      "region": "forest",
+      "count": 28
+    },
+    {
+      "engine": "chromium-options",
+      "case": "water:river_lake",
+      "edition": "water",
+      "region": "river_lake",
+      "count": 10
+    },
+    {
+      "engine": "chromium-options",
+      "case": "shadow:home",
+      "edition": "shadow",
+      "region": "home",
+      "count": 10
+    },
+    {
+      "engine": "chromium-options",
+      "case": "shadow:city",
+      "edition": "shadow",
+      "region": "city",
+      "count": 10
+    },
+    {
+      "engine": "chromium-options",
+      "case": "leaves:forest",
+      "edition": "leaves",
+      "region": "forest",
+      "count": 28
+    },
+    {
+      "engine": "chromium-options",
+      "case": "leaves:countryside",
+      "edition": "leaves",
+      "region": "countryside",
+      "count": 10
+    }
+  ],
+  "physicalIphoneConfirmed": false
+}

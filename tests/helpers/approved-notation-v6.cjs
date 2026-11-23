@@ -4,6 +4,7 @@ const assert = require('node:assert/strict');
 const crypto = require('node:crypto');
 const fs = require('node:fs');
 const files = require('./approved-notation-v6.json');
+const homePins = require('./home-production-pins.json');
 
 function blob(bytes) {
   return crypto.createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex');
@@ -11,17 +12,16 @@ function blob(bytes) {
 
 function verifyCurrent() {
   for (const [file, entry] of Object.entries(files)) {
-    assert.equal(blob(fs.readFileSync(file)), entry.after, 'approved V6 bytes: ' + file);
+    assert.equal(blob(restoreDelta(file, fs.readFileSync(file), homePins[file])), entry.after, 'approved V6 bytes: ' + file);
   }
 }
 
-function restoreBytes(file, bytes) {
-  const entry = files[file];
+function restoreDelta(file, bytes, entry) {
   if (!entry || !bytes || bytes.length < entry.size) return bytes;
   const prefix = bytes.subarray(0, entry.size);
   if (blob(prefix) !== entry.after) return bytes;
   if (entry.before === null) {
-    assert.equal(bytes.length, entry.size, 'exact V6 addition: ' + file);
+    assert.equal(bytes.length, entry.size, 'exact addition: ' + file);
     return null;
   }
   // Apply byte offsets from highest to lowest. Preserve any appended bytes so
@@ -30,8 +30,13 @@ function restoreBytes(file, bytes) {
   for (const [start, end, previous] of entry.reverse) {
     prior = Buffer.concat([prior.subarray(0, start), Buffer.from(previous), prior.subarray(end)]);
   }
-  assert.equal(blob(prior), entry.before, 'restored pre-V6 bytes: ' + file);
+  assert.equal(blob(prior), entry.before, 'restored bytes: ' + file);
   return Buffer.concat([prior, bytes.subarray(entry.size)]);
+}
+
+function restoreBytes(file, bytes) {
+  const beforeHome = restoreDelta(file, bytes, homePins[file]);
+  return restoreDelta(file, beforeHome, files[file]);
 }
 
 function restore(file, text) {

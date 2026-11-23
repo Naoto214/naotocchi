@@ -11,6 +11,20 @@
   function limit(a,p,s){const b=bounds(a,s);return {x:clamp(p.x,b.left,b.right),y:clamp(p.y,b.top,b.bottom)};}
   function clearance(a,p,b){return Math.hypot((p.x-b.x)/((a.w+b.w)*.5+10),(p.y-b.y)/((a.h+b.h)*.38+10));}
   function separated(a,p,b){return clearance(a,p,b)>=1;}
+  function safeMovementStep(a,p,b){
+    const rx=(a.w+b.w)*.5+10,ry=(a.h+b.h)*.38+10;
+    if(Math.max(a.x,p.x)<=b.x-rx||Math.min(a.x,p.x)>=b.x+rx||
+       Math.max(a.y,p.y)<=b.y-ry||Math.min(a.y,p.y)>=b.y+ry)return true;
+    // In unit-circle coordinates, the projection is the point of closest contact.
+    const x=(a.x-b.x)/rx,y=(a.y-b.y)/ry,dx=(p.x-a.x)/rx,dy=(p.y-a.y)/ry;
+    const dot=x*dx+y*dy,start=Math.hypot(x,y);
+    if(start<1){
+      const end=Math.hypot(x+dx,y+dy);
+      return dot>=0&&(end>=1||end>start+1e-6);
+    }
+    const t=clamp(-dot/(dx*dx+dy*dy||1),0,1);
+    return Math.hypot(x+t*dx,y+t*dy)>=1;
+  }
   function privateRandom(){const bytes=new Uint32Array(1);if(typeof crypto!=='undefined'&&crypto.getRandomValues)crypto.getRandomValues(bytes);let seed=bytes[0]||Date.now()>>>0||1;return ()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return (seed>>>0)/4294967296;};}
   function createModel({random=privateRandom(),onEvent=()=>{}}={}){
     let actors=[],scene={},selected=null,clock=0,idleAt=5,paused=false;
@@ -300,8 +314,7 @@
         const p=limit(a,{x:a.x+dx/dist*step,y:a.y+dy/dist*step},scene);
         // If a very crowded/short viewport cannot seat everyone, permit escape only
         // when every existing overlap shrinks; never enter a new overlap.
-        const distance=(q,b)=>clearance(a,q,b);
-        const safe=visible(a,p)&&(!scene.navigation||scene.navigation.segmentSafe(a,p))&&actors.every(b=>b===a||separated(a,p,b)||distance(a,b)<1&&distance(p,b)>distance(a,b)+1e-6);
+        const safe=visible(a,p)&&(!scene.navigation||scene.navigation.segmentSafe(a,p))&&actors.every(b=>b===a||safeMovementStep(a,p,b));
         if(!safe){a.target=null;a.route=[];a.activity='look';const request=manualGoals.get(a.key);if(request)request.nextAt=clock+1;defer(a,1+random()*2);continue;}
         stats.distance+=Math.hypot(p.x-a.x,p.y-a.y);a.x=p.x;a.y=p.y;if(Math.abs(dx)>.3)a.direction=dx<0?-1:1;
       }

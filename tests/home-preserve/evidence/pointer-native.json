@@ -1,0 +1,514 @@
+{
+  "browser": "Chromium 156.0.8078.79",
+  "region": "forest",
+  "viewport": [
+    390,
+    792
+  ],
+  "arms": {
+    "main": {
+      "hashes": {
+        "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+        "home-production-diorama.js": "ecac051a6f903dab5ee2f266d70b879686e15a035fbcefd1e6a84fa5a2db783a"
+      },
+      "rows": [
+        {
+          "mode": "tap",
+          "actor": "pet:dog",
+          "start": [
+            209,
+            399
+          ],
+          "end": [
+            233,
+            419
+          ],
+          "selected": "pet:dog",
+          "commands": [],
+          "events": [
+            [
+              "pointerdown",
+              "touch",
+              true
+            ],
+            [
+              "pointerup",
+              "touch",
+              true
+            ]
+          ],
+          "modelDistance": 0.0
+        },
+        {
+          "mode": "tap",
+          "actor": "partner:forest_bear",
+          "start": [
+            272,
+            249
+          ],
+          "end": [
+            295,
+            259
+          ],
+          "selected": "partner:forest_bear",
+          "commands": [],
+          "events": [
+            [
+              "pointerdown",
+              "touch",
+              true
+            ],
+            [
+              "pointerup",
+              "touch",
+              true
+            ]
+          ],
+          "modelDistance": 0.0
+        },
+        {
+          "mode": "drag",
+          "actor": "pet:dog",
+          "start": [
+            209,
+            399
+          ],
+          "end": [
+            233,
+            419
+          ],
+          "selected": "pet:dog",
+          "commands": [
+            {
+              "key": "pet:dog",
+              "source": "drag",
+              "ok": true
+            }
+          ],
+          "events": [
+            [
+              "pointerdown",
+              "touch",
+              true
+            ],
+            [
+              "pointermove",
+              "touch",
+              true
+            ],
+            [
+              "pointerup",
+              "touch",
+              true
+            ]
+          ],
+          "modelDistance": 21.73
+        },
+        {
+          "mode": "drag",
+          "actor": "partner:forest_bear",
+          "start": [
+            272,
+            249
+          ],
+          "end": [
+            295,
+            259
+          ],
+          "selected": "partner:forest_bear",
+          "commands": [
+            {
+              "key": "partner:forest_bear",
+              "source": "drag",
+              "ok": true
+            }
+          ],
+          "events": [
+            [
+              "pointerdown",
+              "touch",
+              true
+            ],
+            [
+              "pointermove",
+              "touch",
+              true
+            ],
+            [
+              "pointerup",
+              "touch",
+              true
+            ]
+          ],
+          "modelDistance": 25.7
+        },
+        {
+          "mode": "release",
+          "actor": "pet:dog",
+          "start": [
+            209,
+            399
+          ],
+          "end": [
+            233,
+            419
+          ],
+          "selected": "pet:dog",
+          "commands": [],
+          "events": [
+            [
+              "pointerdown",
+              "mouse",
+              true
+            ],
+            [
+              "pointerup",
+              "mouse",
+              true
+            ]
+          ],
+          "modelDistance": 0.0
+        },
+        {
+          "mode": "release",
+          "actor": "partner:forest_bear",
+          "start": [
+            272,
+            249
+          ],
+          "end": [
+            295,
+            259
+          ],
+          "selected": "partner:forest_bear",
+          "commands": [],
+          "events": [
+            [
+              "pointerdown",
+              "mouse",
+              true
+            ],
+            [
+              "pointerup",
+              "mouse",
+              true
+            ]
+          ],
+          "modelDistance": 0.0
+        },
+        {
+          "mode": "jitter",
+          "actor": "pet:dog",
+          "start": [
+            209,
+            399
+          ],
+          "end": [
+            211,
+            399
+          ],
+          "selected": "pet:dog",
+          "commands": [],
+          "events": [
+            [
+              "pointerdown",
+              "mouse",
+              true
+            ],
+            [
+              "pointerup",
+              "mouse",
+              true
+            ]
+          ],
+          "modelDistance": 0.0
+        },
+        {
+          "mode": "jitter",
+          "actor": "partner:forest_bear",
+          "start": [
+            272,
+            249
+          ],
+          "end": [
+            274,
+            249
+          ],
+          "selected": "partner:forest_bear",
+          "commands": [],
+          "events": [
+            [
+              "pointerdown",
+              "mouse",
+              true
+            ],
+            [
+              "pointerup",
+              "mouse",
+              true
+            ]
+          ],
+          "modelDistance": 0.0
+        }
+      ]
+    },
+    "candidate": {
+      "hashes": {
+        "home-production-model.js": "d379c81407cfece6fced5d4b17cc95d80956a86bf5f84fce9b94d28cef18de85",
+        "home-production-diorama.js": "1e75216f3bc8cbd632aa2e3d3efd5a5f52113288227560481f43f07adfd67370"
+      },
+      "rows": [
+        {
+          "mode": "tap",
+          "actor": "pet:dog",
+          "start": [
+            209,
+            399
+          ],
+          "end": [
+            233,
+            419
+          ],
+          "selected": "pet:dog",
+          "commands": [],
+          "events": [
+            [
+              "pointerdown",
+              "touch",
+              true
+            ],
+            [
+              "pointerup",
+              "touch",
+              true
+            ]
+          ],
+          "modelDistance": 0.0
+        },
+        {
+          "mode": "tap",
+          "actor": "partner:forest_bear",
+          "start": [
+            272,
+            249
+          ],
+          "end": [
+            295,
+            259
+          ],
+          "selected": "partner:forest_bear",
+          "commands": [],
+          "events": [
+            [
+              "pointerdown",
+              "touch",
+              true
+            ],
+            [
+              "pointerup",
+              "touch",
+              true
+            ]
+          ],
+          "modelDistance": 0.0
+        },
+        {
+          "mode": "drag",
+          "actor": "pet:dog",
+          "start": [
+            209,
+            399
+          ],
+          "end": [
+            233,
+            419
+          ],
+          "selected": "pet:dog",
+          "commands": [
+            {
+              "key": "pet:dog",
+              "source": "drag",
+              "ok": true
+            }
+          ],
+          "events": [
+            [
+              "pointerdown",
+              "touch",
+              true
+            ],
+            [
+              "pointermove",
+              "touch",
+              true
+            ],
+            [
+              "pointerup",
+              "touch",
+              true
+            ]
+          ],
+          "modelDistance": 25.94
+        },
+        {
+          "mode": "drag",
+          "actor": "partner:forest_bear",
+          "start": [
+            272,
+            249
+          ],
+          "end": [
+            295,
+            259
+          ],
+          "selected": "partner:forest_bear",
+          "commands": [
+            {
+              "key": "partner:forest_bear",
+              "source": "drag",
+              "ok": true
+            }
+          ],
+          "events": [
+            [
+              "pointerdown",
+              "touch",
+              true
+            ],
+            [
+              "pointermove",
+              "touch",
+              true
+            ],
+            [
+              "pointerup",
+              "touch",
+              true
+            ]
+          ],
+          "modelDistance": 25.7
+        },
+        {
+          "mode": "release",
+          "actor": "pet:dog",
+          "start": [
+            209,
+            399
+          ],
+          "end": [
+            233,
+            419
+          ],
+          "selected": "pet:dog",
+          "commands": [
+            {
+              "key": "pet:dog",
+              "source": "drag",
+              "ok": true
+            }
+          ],
+          "events": [
+            [
+              "pointerdown",
+              "mouse",
+              true
+            ],
+            [
+              "pointerup",
+              "mouse",
+              true
+            ]
+          ],
+          "modelDistance": 21.08
+        },
+        {
+          "mode": "release",
+          "actor": "partner:forest_bear",
+          "start": [
+            272,
+            249
+          ],
+          "end": [
+            295,
+            259
+          ],
+          "selected": "partner:forest_bear",
+          "commands": [
+            {
+              "key": "partner:forest_bear",
+              "source": "drag",
+              "ok": true
+            }
+          ],
+          "events": [
+            [
+              "pointerdown",
+              "mouse",
+              true
+            ],
+            [
+              "pointerup",
+              "mouse",
+              true
+            ]
+          ],
+          "modelDistance": 25.7
+        },
+        {
+          "mode": "jitter",
+          "actor": "pet:dog",
+          "start": [
+            209,
+            399
+          ],
+          "end": [
+            211,
+            399
+          ],
+          "selected": "pet:dog",
+          "commands": [],
+          "events": [
+            [
+              "pointerdown",
+              "mouse",
+              true
+            ],
+            [
+              "pointerup",
+              "mouse",
+              true
+            ]
+          ],
+          "modelDistance": 0.0
+        },
+        {
+          "mode": "jitter",
+          "actor": "partner:forest_bear",
+          "start": [
+            272,
+            249
+          ],
+          "end": [
+            274,
+            249
+          ],
+          "selected": "partner:forest_bear",
+          "commands": [],
+          "events": [
+            [
+              "pointerdown",
+              "mouse",
+              true
+            ],
+            [
+              "pointerup",
+              "mouse",
+              true
+            ]
+          ],
+          "modelDistance": 0.0
+        }
+      ]
+    }
+  }
+}

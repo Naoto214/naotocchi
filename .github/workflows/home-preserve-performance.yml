@@ -1,0 +1,65 @@
+name: Matched native home timings
+on:
+  push:
+    branches: [draft/home-production-preserve]
+permissions:
+  contents: read
+jobs:
+  webkit:
+    if: contains(github.event.head_commit.message, '[preserve-perf]') || contains(github.event.head_commit.message, '[preserve-perf-bracket]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(contains(github.event.head_commit.message, '[preserve-perf-bracket]') && '[{"region":"forest","count":28},{"region":"mountain","count":10}]' || '[{"region":"forest","count":28},{"region":"mountain","count":10},{"region":"jungle","count":10},{"region":"forest","count":1}]') }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            tests
+            assets
+            vendor
+            comparisons/dayparts-20261103
+      - uses: actions/checkout@v4
+        with:
+          ref: 384730f1f2b1ef287a2bc4d17df35b861de9f2ae
+          path: .production
+          persist-credentials: false
+          sparse-checkout: |
+            assets
+            vendor
+            comparisons/dayparts-20261103
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Linux WebKit
+        run: |
+          python -m pip install playwright==1.62.0
+          python -m playwright install --with-deps webkit
+      - name: Measure both runtimes twice in opposite order
+        env:
+          REGION: ${{ matrix.region }}
+          COUNT: ${{ matrix.count }}
+        run: |
+          python -Bu tests/home-preserve/performance.py .production . tests/home-preserve/resident-save.cjs timing.json --cases "$REGION/$COUNT" --orders reverse forward
+      - name: Replay equal simulation time and compare individual route requests
+        if: contains(github.event.head_commit.message, '[preserve-perf-bracket]')
+        env:
+          REGION: ${{ matrix.region }}
+          COUNT: ${{ matrix.count }}
+        run: |
+          python -Bu tests/home-preserve/performance.py .production . tests/home-preserve/resident-save.cjs bracket.json --cases "$REGION/$COUNT" --orders reverse forward --bracket
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: matched-wpe-${{ matrix.region }}-${{ matrix.count }}
+          path: |
+            timing.json
+            bracket.json
+          if-no-files-found: error
+          retention-days: 14

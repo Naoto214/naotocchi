@@ -1,0 +1,89 @@
+name: Matched production, guarded home and route cache
+on:
+  push:
+    branches: [draft/home-production-preserve]
+permissions:
+  contents: read
+jobs:
+  webkit:
+    if: contains(github.event.head_commit.message, '[preserve-cache ')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {region: forest, count: 28}
+          - {region: mountain, count: 10}
+    steps:
+      - name: Read exact experimental commit
+        id: trial
+        env:
+          MESSAGE: ${{ github.event.head_commit.message }}
+        run: |
+          pattern='\[preserve-cache ([0-9a-f]{40})\]'
+          [[ "$MESSAGE" =~ $pattern ]] || exit 2
+          echo "sha=${BASH_REMATCH[1]}" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            tests
+            assets
+            vendor
+            comparisons/dayparts-20261103
+      - uses: actions/checkout@v4
+        with:
+          ref: 384730f1f2b1ef287a2bc4d17df35b861de9f2ae
+          path: .production
+          persist-credentials: false
+          sparse-checkout: |
+            assets
+            vendor
+            comparisons/dayparts-20261103
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.trial.outputs.sha }}
+          path: .trial
+          persist-credentials: false
+          sparse-checkout: |
+            assets
+            vendor
+            comparisons/dayparts-20261103
+      - uses: actions/checkout@v4
+        with:
+          ref: 400fb1d42834f8123faebab87f716194cee5ad51
+          path: .reference
+          persist-credentials: false
+          sparse-checkout: |
+            assets
+            vendor
+            comparisons/dayparts-20261103
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Linux WebKit
+        run: |
+          python -m pip install playwright==1.62.0
+          python -m playwright install --with-deps webkit
+      - name: Compare native frames then replay the three route tapes
+        env:
+          REGION: ${{ matrix.region }}
+          COUNT: ${{ matrix.count }}
+        run: |
+          args=(.production .trial tests/home-preserve/resident-save.cjs)
+          common=(--reference .reference --cases "$REGION/$COUNT" --orders reverse forward)
+          python -Bu tests/home-preserve/performance.py "${args[@]}" timing.json "${common[@]}"
+          python -Bu tests/home-preserve/performance.py "${args[@]}" bracket.json "${common[@]}" --bracket
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cache-wpe-${{ matrix.region }}-${{ matrix.count }}
+          path: |
+            timing.json
+            bracket.json
+          retention-days: 14
+          if-no-files-found: error

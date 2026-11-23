@@ -1,0 +1,146 @@
+{
+  "fixture": "3ccec9de11adb658fa8e6d5235a83e6fe4fa09041eb30504b7e0ce4e070213f4",
+  "runs": {
+    "base": {
+      "start": {
+        "ms": 3819,
+        "text": "\u3058\u3063\u305b\u304d\u305f\u3063\u305b\u3044!\u300c\u3072\u3088\u3063\u3053\u305d\u3060\u3061\u300d"
+      },
+      "end": {
+        "ms": 13320,
+        "text": "\u3058\u3063\u305b\u304d\u305f\u3063\u305b\u3044!\u300c\u305d\u3070\u306b\u3044\u308b\u3057\u3042\u308f\u305b\u300d"
+      },
+      "events": [
+        {
+          "ms": 900,
+          "id": "age-10",
+          "phase": "request"
+        },
+        {
+          "ms": 900,
+          "id": "age-10",
+          "phase": "draw"
+        },
+        {
+          "ms": 905,
+          "id": "age-25",
+          "phase": "request"
+        },
+        {
+          "ms": 906,
+          "id": "companion-active-5",
+          "phase": "request"
+        },
+        {
+          "ms": 5111,
+          "id": "age-25",
+          "phase": "draw"
+        },
+        {
+          "ms": 9319,
+          "id": "companion-active-5",
+          "phase": "draw"
+        }
+      ],
+      "unlocked": [
+        "age-10",
+        "age-25",
+        "companion-active-5"
+      ]
+    },
+    "stage-c": {
+      "start": {
+        "ms": 3798,
+        "text": "\u3058\u3063\u305b\u304d\u305f\u3063\u305b\u3044!\u300c\u3072\u3088\u3063\u3053\u305d\u3060\u3061\u300d"
+      },
+      "end": {
+        "ms": 13303,
+        "text": "\u3058\u3063\u305b\u304d\u305f\u3063\u305b\u3044!\u300c\u305d\u3070\u306b\u3044\u308b\u3057\u3042\u308f\u305b\u300d"
+      },
+      "events": [
+        {
+          "ms": 864,
+          "id": "age-10",
+          "phase": "request"
+        },
+        {
+          "ms": 864,
+          "id": "age-10",
+          "phase": "draw"
+        },
+        {
+          "ms": 871,
+          "id": "age-25",
+          "phase": "request"
+        },
+        {
+          "ms": 871,
+          "id": "companion-active-5",
+          "phase": "request"
+        },
+        {
+          "ms": 5075,
+          "id": "age-25",
+          "phase": "draw"
+        },
+        {
+          "ms": 9294,
+          "id": "companion-active-5",
+          "phase": "draw"
+        }
+      ],
+      "unlocked": [
+        "age-10",
+        "age-25",
+        "companion-active-5"
+      ]
+    },
+    "base-repeat": {
+      "start": {
+        "ms": 5699,
+        "text": "\u3058\u3063\u305b\u304d\u305f\u3063\u305b\u3044!\u300c\u3059\u304f\u3059\u304f\u305b\u3044\u3061\u3087\u3046\u300d"
+      },
+      "end": {
+        "ms": 15199,
+        "text": "\u3058\u3063\u305b\u304d\u305f\u3063\u305b\u3044!\u300c\u305d\u3070\u306b\u3044\u308b\u3057\u3042\u308f\u305b\u300d"
+      },
+      "events": [
+        {
+          "ms": 1199,
+          "id": "age-10",
+          "phase": "request"
+        },
+        {
+          "ms": 1199,
+          "id": "age-10",
+          "phase": "draw"
+        },
+        {
+          "ms": 1206,
+          "id": "age-25",
+          "phase": "request"
+        },
+        {
+          "ms": 1206,
+          "id": "companion-active-5",
+          "phase": "request"
+        },
+        {
+          "ms": 5458,
+          "id": "age-25",
+          "phase": "draw"
+        },
+        {
+          "ms": 9668,
+          "id": "companion-active-5",
+          "phase": "draw"
+        }
+      ],
+      "unlocked": [
+        "age-10",
+        "age-25",
+        "companion-active-5"
+      ]
+    }
+  }
+}
