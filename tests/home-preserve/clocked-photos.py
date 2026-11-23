@@ -33,9 +33,14 @@ def capture(page, region, count, destination):
     ui=page.evaluate("""()=>({now:Date.now(),clock:regional.summary().clock,slot:document.querySelector('#storyFlashText').textContent,
                          meters:['hunger','happiness','energy','health'].map(k=>document.querySelector('#'+k+'Value').textContent)})""")
     cdp=page.context.new_cdp_session(page)
-    data=cdp.send('Page.captureScreenshot',dict(format='png',fromSurface=True))
-    image=Image.open(io.BytesIO(base64.b64decode(data['data'])))
-    image.resize((375,615),Image.Resampling.LANCZOS).save(destination)
+    def photograph(file):
+        data=cdp.send('Page.captureScreenshot',dict(format='png',fromSurface=True))
+        image=Image.open(io.BytesIO(base64.b64decode(data['data'])))
+        image.resize((375,615),Image.Resampling.LANCZOS).save(file)
+    photograph(destination)
+    # Only this second, diagnostic capture hides weather and seasonal DOM particles.
+    page.add_style_tag(content='.home-dayparts-fx{visibility:hidden!important}')
+    photograph(destination.with_stem(destination.stem+'-without-particles'))
     return dict(ui=ui,placement=placement,stableFrames=len(samples))
 
 
