@@ -22,7 +22,7 @@ const {createPaintedActorProbe}=require('./helpers/painted-actor-probe.cjs');
     await page.waitForFunction(()=>[...document.querySelectorAll('#pet img')].every(i=>i.complete&&i.naturalWidth));
     if(presentation==='production')await page.waitForFunction(()=>document.body.dataset.livingHome==='art-25d'&&!!window.NaotocchiHomeViewport?.residentPresentation?.());
     await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
-    const data=await page.evaluate(({reduced,presentation})=>{
+    const data=await page.evaluate(async({reduced,presentation})=>{
      const $=id=>document.getElementById(id),m=window.NaotocchiCastMotion;
      const painted=window.createPaintedActorProbe();
      const checkPaint=(actor,event)=>{
@@ -35,7 +35,13 @@ const {createPaintedActorProbe}=require('./helpers/painted-actor-probe.cjs');
      for(const node of document.querySelectorAll('[data-companion-id]'))if(node.closest('#companionLeft,#companionRight'))actors.push({kind:'companion',id:node.dataset.companionId,node});
      // This controller owns only its own WAAPI instances; real Home may already
      // own a care cue or CSS animation. Never count those as leaked test motion.
-     if(presentation==='production')for(const actor of actors)checkPaint(actor,'rest');
+     if(presentation==='production'){
+      // WebKit can report complete and naturalWidth before drawImage sees the bitmap.
+      // Decode the same visible sources the probe reads, then sample them in this task.
+      const images=actors.flatMap(actor=>[...actor.node.querySelectorAll('img')]);
+      await Promise.all(images.filter(img=>img.getClientRects().length&&getComputedStyle(img).visibility!=='hidden').map(img=>img.decode()));
+      for(const actor of actors)checkPaint(actor,'rest');
+     }
      const baseline=new Set(actors.flatMap(a=>a.node.getAnimations()));
      const c=m.createController({getActors:()=>actors,getGroup:()=>$('castResponse'),getMotionRadius:()=>m.motionRadiusFor(actors.length-2)});
      const initial=actors.map(a=>[a.node.style.left,a.node.style.top,a.node.style.width,a.node.style.height]);
