@@ -27,7 +27,7 @@ def main():
                 assert phase=='opening'
                 page.screenshot(path=a.out/(path.name+'.png'),scale='css')
             row=regional.run(browser,path,regional.serve(path),a.region,a.count,a.width,'candidate',0,pairs=True,
-                             opening_probe='regional.measureOpening=regional.placement;',phase_observer=photograph)
+                             opening_probe='window.preservePhoto=true;regional.measureOpening=regional.placement;',phase_observer=photograph)
             rows[path.name]=row
         browser.close()
     first=Image.open(a.out/(a.roots[0].name+'.png')).convert('RGB')

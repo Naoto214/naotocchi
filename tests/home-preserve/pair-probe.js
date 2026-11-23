@@ -49,7 +49,7 @@ regional.stableOpening = async function(){
   for(let i=0;i<limit;i++){
     await new Promise(requestAnimationFrame);
     const current=regional.placement();
-    const measured=JSON.stringify([current.camera,current.cover,current.feet.map(a=>[a.actual,a.layer,a.size,a.display])]);
+    const measured=JSON.stringify([current.camera,current.cover,current.feet.map(a=>[a.actual,a.layer,window.preservePhoto?a.size:a.imageSize,a.display])]);
     matches=measured===previous?matches+1:0;
     if(matches>=2)return {...current,settleFrames:i+1};
     previous=measured;
