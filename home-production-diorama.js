@@ -684,12 +684,17 @@
     }
     function down(e){if(!enabled)return;if(e.isPrimary===false){clearGesture();return;}if(blocked()||e.button>0||e.target?.closest?.('button,a,input,select,textarea'))return;
       const p=point(e),key=hit(p,e.target);if(!key&&!model.selected())return;
-      gesture={pointerId:e.pointerId,start:p,key,drag:false};if(key)model.select(key);paint();try{stage.setPointerCapture(e.pointerId);}catch(_){}e.preventDefault();}
+      gesture={pointerId:e.pointerId,start:p,clientX:e.clientX,clientY:e.clientY,key,drag:false};if(key)model.select(key);paint();try{stage.setPointerCapture(e.pointerId);}catch(_){}e.preventDefault();}
     function move(e){if(!gesture||gesture.pointerId!==e.pointerId)return;if(blocked()){clearGesture();return;}
       const p=point(e);if(Math.hypot(p.x-gesture.start.x,p.y-gesture.start.y)>=8)gesture.drag=true;
       if(gesture.drag){const key=gesture.key||model.selected(),a=model.snapshot().find(a=>a.key===key);if(a){const b=model.bounds(a);marker.hidden=false;marker.style.left=Math.max(b.left,Math.min(b.right,p.x))+'px';marker.style.top=Math.max(b.top,Math.min(b.bottom,p.y))+'px';}}
       e.preventDefault();}
     function up(e){if(!gesture||gesture.pointerId!==e.pointerId)return;const g=gesture,p=point(e);clearGesture();if(blocked())return;
+      // A quick release can carry the last displacement without a pointermove.
+      // Measure both client points in the release frame if the viewport moved.
+      if(g.key&&!g.drag&&(e.clientX!==g.clientX||e.clientY!==g.clientY)){
+        const start=point(g);g.drag=Math.hypot(p.x-start.x,p.y-start.y)>=8;
+      }
       if(g.key&&model.selected()!==g.key)model.select(g.key);
       if(g.drag||!g.key){const success=model.move(g.key||model.selected(),p,g.drag?'drag':'ground');if(g.drag){if(g.key&&success&&guide.visible())guideWalk=g.key;guide.drag({actor:!!g.key,success});showGuide();}}
       paint();resume();e.preventDefault();}
