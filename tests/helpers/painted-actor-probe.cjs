@@ -1,6 +1,6 @@
 // Browser-side probe: transform the image's actual alpha pixels through its
 // CSS affine transform. Transparent PNG padding is not visible clipping.
-function createPaintedActorProbe() {
+function createPaintedActorProbe(sourceAlpha={}) {
   const alphaCache=new Map();
   return function paintedActorRects(node) {
     return [...node.querySelectorAll('img')].filter(img=>img.getClientRects().length&&getComputedStyle(img).visibility!=='hidden').map(img=>{
@@ -15,6 +15,13 @@ function createPaintedActorProbe() {
           let left=canvas.width,right=-1;
           for(let x=0;x<canvas.width;x++)if(rgba[(y*canvas.width+x)*4+3]){left=Math.min(left,x);right=x;}
           if(right>=left)pixels.push([left,y],[right+1,y],[left,y+1],[right+1,y+1]);
+        }
+        // WebKit can paint a visible image yet return a transparent canvas on
+        // drawImage. Recover the intrinsic row bounds from that exact source.
+        const decoded=sourceAlpha[key];
+        if(!pixels.length&&decoded){
+          if(decoded.width!==img.naturalWidth||decoded.height!==img.naturalHeight)throw Error('actor source dimensions changed: '+key);
+          for(const [y,left,right] of decoded.rows)pixels.push([left,y],[right,y],[left,y+1],[right,y+1]);
         }
         if(!pixels.length)throw Error('actor image has no painted pixels: '+key);
         alphaCache.set(key,pixels);
@@ -39,4 +46,18 @@ function createPaintedActorProbe() {
     });
   };
 }
-module.exports={createPaintedActorProbe};
+// Independent intrinsic alpha measurement for the browser's currentSrc URL.
+async function decodeSourceAlpha(bytes){
+  const {data,info}=await require('sharp')(bytes).ensureAlpha().raw().toBuffer({resolveWithObject:true});
+  const rows=[];
+  for(let y=0;y<info.height;y++){
+    let left=info.width,right=-1;
+    for(let x=0;x<info.width;x++){
+      const alpha=data[((y*info.width+x)+1)*info.channels-1];
+      if(alpha){left=Math.min(left,x);right=x;}
+    }
+    if(right>=left)rows.push([y,left,right+1]);
+  }
+  return {width:info.width,height:info.height,rows};
+}
+module.exports={createPaintedActorProbe,decodeSourceAlpha};
