@@ -42,7 +42,7 @@ test('every directed neighbor retains the exact eager order in both grids across
 
 test('every fixture endpoint pair retains the same waypoints with each live occupancy predicate',()=>{
   const a=main(opts), b=trial({...opts,staticGeometry:true});
-  const points=a.grid(bounds).nodes.filter((_,i)=>i%4===0);
+  const points=a.grid(bounds).nodes;
   let open=true;
   const live=p=>open||predicate(p);
   for(const state of [true,false,true]){
