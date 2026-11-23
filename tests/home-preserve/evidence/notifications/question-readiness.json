@@ -1,0 +1,162 @@
+[
+  {
+    "arm": "base",
+    "region": "snow",
+    "count": 4,
+    "width": 375,
+    "fixture": "455b881c99872458aacd89bc7de59b5d633e0ed7dbbd355db31d462d8458ea51",
+    "readiness": {
+      "context": true,
+      "active": null,
+      "message": false,
+      "speech": false,
+      "busy": false,
+      "emotion": "normal",
+      "suppressIdle": false,
+      "careAfterglow": false,
+      "petBusy": false,
+      "petMotion": false
+    },
+    "started": true
+  },
+  {
+    "arm": "base",
+    "region": "desert",
+    "count": 4,
+    "width": 375,
+    "fixture": "0461850a4d36442947a86f67ca1fef24618faf582034aac4259b1f415d69c854",
+    "readiness": {
+      "context": true,
+      "active": null,
+      "message": false,
+      "speech": false,
+      "busy": false,
+      "emotion": "normal",
+      "suppressIdle": false,
+      "careAfterglow": false,
+      "petBusy": false,
+      "petMotion": false
+    },
+    "started": true
+  },
+  {
+    "arm": "stage-b",
+    "region": "snow",
+    "count": 4,
+    "width": 375,
+    "fixture": "455b881c99872458aacd89bc7de59b5d633e0ed7dbbd355db31d462d8458ea51",
+    "readiness": {
+      "context": true,
+      "active": null,
+      "message": false,
+      "speech": false,
+      "busy": false,
+      "emotion": "normal",
+      "suppressIdle": false,
+      "careAfterglow": false,
+      "petBusy": false,
+      "petMotion": false
+    },
+    "started": true
+  },
+  {
+    "arm": "stage-b",
+    "region": "desert",
+    "count": 4,
+    "width": 375,
+    "fixture": "0461850a4d36442947a86f67ca1fef24618faf582034aac4259b1f415d69c854",
+    "readiness": {
+      "context": true,
+      "active": null,
+      "message": false,
+      "speech": false,
+      "busy": false,
+      "emotion": "normal",
+      "suppressIdle": false,
+      "careAfterglow": false,
+      "petBusy": false,
+      "petMotion": false
+    },
+    "started": true
+  },
+  {
+    "arm": "stage-c",
+    "region": "snow",
+    "count": 4,
+    "width": 375,
+    "fixture": "455b881c99872458aacd89bc7de59b5d633e0ed7dbbd355db31d462d8458ea51",
+    "readiness": {
+      "context": true,
+      "active": null,
+      "message": false,
+      "speech": false,
+      "busy": false,
+      "emotion": "normal",
+      "suppressIdle": false,
+      "careAfterglow": false,
+      "petBusy": false,
+      "petMotion": false
+    },
+    "started": true
+  },
+  {
+    "arm": "stage-c",
+    "region": "desert",
+    "count": 4,
+    "width": 375,
+    "fixture": "0461850a4d36442947a86f67ca1fef24618faf582034aac4259b1f415d69c854",
+    "readiness": {
+      "context": true,
+      "active": null,
+      "message": false,
+      "speech": false,
+      "busy": false,
+      "emotion": "normal",
+      "suppressIdle": false,
+      "careAfterglow": false,
+      "petBusy": false,
+      "petMotion": false
+    },
+    "started": true
+  },
+  {
+    "arm": "stage-d",
+    "region": "snow",
+    "count": 4,
+    "width": 375,
+    "fixture": "455b881c99872458aacd89bc7de59b5d633e0ed7dbbd355db31d462d8458ea51",
+    "readiness": {
+      "context": true,
+      "active": null,
+      "message": false,
+      "speech": false,
+      "busy": false,
+      "emotion": "normal",
+      "suppressIdle": false,
+      "careAfterglow": false,
+      "petBusy": false,
+      "petMotion": false
+    },
+    "started": true
+  },
+  {
+    "arm": "stage-d",
+    "region": "desert",
+    "count": 4,
+    "width": 375,
+    "fixture": "0461850a4d36442947a86f67ca1fef24618faf582034aac4259b1f415d69c854",
+    "readiness": {
+      "context": true,
+      "active": null,
+      "message": false,
+      "speech": false,
+      "busy": false,
+      "emotion": "normal",
+      "suppressIdle": false,
+      "careAfterglow": false,
+      "petBusy": false,
+      "petMotion": false
+    },
+    "started": true
+  }
+]
