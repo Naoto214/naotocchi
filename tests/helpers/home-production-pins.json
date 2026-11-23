@@ -1,9 +1,14 @@
 {
   "index.html": {
     "before": "c9432f2b62b2c95a36338f8166627abe8feb97d3",
-    "after": "0318d76bab510447b70b5620a5cbd4408a7d0aef",
+    "after": "68e4a7a386a6109ab8034e9a66443e1ba5d97fb0",
     "size": 72923,
     "reverse": [
+      [
+        72286,
+        72298,
+        "ecac051a6f90"
+      ],
       [
         72218,
         72230,
@@ -13,7 +18,7 @@
   },
   "tools/pages/allowlist.json": {
     "before": "f1b1fb9cf575c6305fac17fb25dcf80a59d13c31",
-    "after": "b55fea667f08d2339796c1620c578d077949f63e",
+    "after": "68e7d017f516c128b0e868cf2216650f01867aa8",
     "size": 296396,
     "reverse": [
       [
@@ -25,6 +30,11 @@
         266351,
         266415,
         "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856"
+      ],
+      [
+        265946,
+        266010,
+        "ecac051a6f903dab5ee2f266d70b879686e15a035fbcefd1e6a84fa5a2db783a"
       ]
     ]
   }
