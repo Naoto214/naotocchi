@@ -305,7 +305,7 @@
     function ensureWorld(){
       const M=getMeguru();if(!M||worldLoading||world||!doc.body)return;
       worldLoading=true;const generation=++loadGeneration;worldHost=doc.createElement('div');worldHost.className='home-living-world';worldHost.setAttribute('aria-hidden','true');doc.body.appendChild(worldHost);
-      import('./home-production-world.mjs?v=d824c818c676').then(mod=>{if(generation!==loadGeneration||dead||!enabled)return;
+      import('./home-production-world.mjs?v=fea72cbd43c0').then(mod=>{if(generation!==loadGeneration||dead||!enabled)return;
         world=mod.createHomeWorld({M,container:worldHost,document:doc,window:env,
           getGroundAnchor:()=>scene?displayRect(stage).top-displayRect(worldHost).top+scene.floor*.8:undefined,
           onStatus:(mode,error)=>{stage.dataset.worldRenderer=mode;if(error)stage.dataset.worldError=error;else delete stage.dataset.worldError;doc.body.dataset.livingHome=mode;}});

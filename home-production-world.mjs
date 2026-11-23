@@ -1,8 +1,8 @@
-import {extendVisibleGroundNavigation} from './home-visible-ground-navigation.mjs?v=47d394909efd';
+import {extendVisibleGroundNavigation} from './home-visible-ground-navigation.mjs?v=3a36d9ce7eab';
 import {createDayparts,atmosphere} from './home-dayparts.mjs';
 import {ART_CANDIDATES,selectRecoveredScene} from './home-production-manifest.mjs';
 import {artTransform,paintBackdrop,backdropComposition} from './home-production-transform.mjs';
-import {createRecoveredNavigation} from './home-recovered-navigation.mjs?v=9a7e25d9fbe9';
+import {createRecoveredNavigation} from './home-recovered-navigation.mjs?v=7d12f3f28b14';
 export function createHomeWorld(options){
  const {container,document:doc,window:win=window,onStatus=()=>{}}=options;
  const painting=doc.createElement('canvas');let paintingKey='';
@@ -32,7 +32,7 @@ export function createHomeWorld(options){
   const width=Math.max(real.width,real.height/1.5),height=width*1.5,cover={left:real.left+(real.width-width)/2,top:real.top+(real.height-height)/2,width,height};
   const key=JSON.stringify([env.region,host.width,host.height,stage,stableGrid,addVisible&&[p.x,p.y,p.scaleX,p.scaleY,cover]]);
   if(key!==navKey){
-   navKey=key;const legacy=createRecoveredNavigation(spec,host,stage,{stableGrid,expandCity:stableGrid});
+   navKey=key;const legacy=createRecoveredNavigation(spec,host,stage,{stableGrid,expandCity:stableGrid,staticGeometry:true});
    nav=addVisible?extendVisibleGroundNavigation(legacy,{spec,stage:rect,presentation:p,cover}):legacy;
    revision++;lastPaint='';
   }

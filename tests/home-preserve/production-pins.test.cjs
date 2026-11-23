@@ -6,13 +6,23 @@ const scope = require('../helpers/approved-notation-v6.cjs');
 
 const digest = bytes => createHash('sha256').update(bytes).digest('hex');
 const manifest = JSON.parse(readFileSync('tools/pages/allowlist.json'));
-const html = readFileSync('index.html', 'utf8');
+const imports = {
+  'index.html': ['home-production-model.js', 'home-production-diorama.js'],
+  'home-production-diorama.js': ['home-production-world.mjs'],
+  'home-production-world.mjs': ['home-visible-ground-navigation.mjs', 'home-recovered-navigation.mjs'],
+  'home-recovered-navigation.mjs': ['home-art-navigation.mjs'],
+  'home-art-navigation.mjs': ['home-route-navigation.mjs'],
+  'home-visible-ground-navigation.mjs': ['home-art-navigation.mjs', 'home-route-navigation.mjs'],
+};
 
 test('production movement assets have exact package digests and cache tokens', () => {
-  for (const file of ['home-production-model.js', 'home-production-diorama.js']) {
-    const hash = digest(readFileSync(file));
-    assert.equal(manifest.reviewed_runtime_sources[file], hash, file);
-    assert.ok(html.includes('src="' + file + '?v=' + hash.slice(0, 12) + '"'), file);
+  for (const [parent, children] of Object.entries(imports)) {
+    const source = readFileSync(parent, 'utf8');
+    for (const file of children) {
+      const hash = digest(readFileSync(file));
+      assert.equal(manifest.reviewed_runtime_sources[file], hash, file);
+      assert.ok(source.includes(file + '?v=' + hash.slice(0, 12)), parent + ' loads ' + file);
+    }
   }
 });
 
