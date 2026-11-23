@@ -142,6 +142,21 @@ def main():
     summary['staticOverlap']={phase:{label:{'cells':sum(bool(r[label+'_'+phase+'Contacts']) for r in rows),
                                             'pairs':sum(r[label+'_'+phase+'Contacts'] for r in rows)} for label in ('base','trial')}
                               for phase in phases}
+    if any('reference' in data for data in observations.values()):
+        receipt=[]
+        for case,data in sorted(observations.items()):
+            reference=data['reference'];candidate=data['runs']['candidate'];production=data['runs']['production']
+            check=data['comparison']['referenceCheck']['exact']
+            digest=lambda r:r['observation']['trajectorySha256']
+            receipt.append(dict(case=case,mainSha256=digest(production),originalPlannerSha256=digest(reference),
+                                cachedPlannerSha256=digest(candidate),**check,
+                                pageErrorsEqualAndEmpty=not reference['errors'] and not candidate['errors'],
+                                questionExact=reference['lifecycle']['conversation']==candidate['lifecycle']['conversation'],
+                                evolutionExact=reference['lifecycle']['evolved']==candidate['lifecycle']['evolved']))
+        with (args.out/'reference-trajectories.csv').open('w') as stream:
+            writer=csv.DictWriter(stream,fieldnames=receipt[0],lineterminator='\n')
+            writer.writeheader();writer.writerows(receipt)
+        summary['referenceArm']={k:sum(r[k] for r in receipt) for k in list(receipt[0])[4:]}
     (args.out/'summary.json').write_text(json.dumps(summary,indent=2)+'\n')
     print(json.dumps({k:v for k,v in summary.items() if k not in ['missing','errors']}))
 
