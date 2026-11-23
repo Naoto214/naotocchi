@@ -138,5 +138,9 @@
   "tests/home-preserve/evidence/stage-b/opening-coordinates.csv.gz": {
     "sha256": "cf13f87770bee010f5a600cc926601578c280d1035a38b481dccaef457144cfe",
     "reason": "PR #586で指を離した位置でのドラッグ判定を検証した260条件の比較記録。画面上の足元座標、画像寸法、描画順とカメラ位置を本番と照合できるよう保持。"
+  },
+  "tests/home-preserve/evidence/stage-c/opening-coordinates.csv.gz": {
+    "sha256": "cf13f87770bee010f5a600cc926601578c280d1035a38b481dccaef457144cfe",
+    "reason": "PR #586で移動・入力・足元保持の統合を検証した260条件の比較記録。画面上の足元座標、画像寸法、描画順とカメラ位置を本番と照合できるよう保持。"
   }
 }
