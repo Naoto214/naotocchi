@@ -1,0 +1,72 @@
+{
+  "run": 45103521632,
+  "production": "384730f1f2b1ef287a2bc4d17df35b861de9f2ae",
+  "candidate": "e731b5d0a9c6f8eabc0dc8b40d29f8d2af35dfd2",
+  "archives": [
+    {
+      "id": 14787031155,
+      "name": "native-pairs-city",
+      "digest": "sha256:98f7d715e77d3397203e805a5a95ca0cfaa97e6364989b9427cb5b17b487b41d"
+    },
+    {
+      "id": 14787011195,
+      "name": "native-pairs-snow",
+      "digest": "sha256:476169953986c5498b860f2b2e0fd204017e811df143d39d2bab2fdddb6b499d"
+    },
+    {
+      "id": 14786995823,
+      "name": "native-pairs-mountain",
+      "digest": "sha256:ed6de95c7f1f394bbd7a91ceee66031e0df905252c52fa75c88a53e01ae9fc11"
+    },
+    {
+      "id": 14786885764,
+      "name": "native-pairs-memory_lake",
+      "digest": "sha256:cdbd62ccf271d67d66f5bad856691c491232712143aa80831d617f10e8630897"
+    },
+    {
+      "id": 14786796768,
+      "name": "native-pairs-river_lake",
+      "digest": "sha256:0c06080e0159b6dc2774b3a6d3a85b55d6bf74b5d995965bb71d2810fee510f0"
+    },
+    {
+      "id": 14786751478,
+      "name": "native-pairs-star_stop",
+      "digest": "sha256:3c05c9d121935508c54e501fc5cc276951a7ed8047b17718f266803f89121501"
+    },
+    {
+      "id": 14786567683,
+      "name": "native-pairs-forest",
+      "digest": "sha256:557fe4dab03d617ab2b8fc238f91771f2f68537f06e8d283700793df333c66ab"
+    },
+    {
+      "id": 14786502451,
+      "name": "native-pairs-desert",
+      "digest": "sha256:571568c36eb670685fa26b2f8f654f925e289abd62f9f87279c8295d01a52e33"
+    },
+    {
+      "id": 14786293561,
+      "name": "native-pairs-jungle",
+      "digest": "sha256:2451a62db1793e8151206779ada4c99d20c5861fc838f8af78937dba1738f5c9"
+    },
+    {
+      "id": 14786263223,
+      "name": "native-pairs-sea",
+      "digest": "sha256:31a5f79870ecff8fe74f65d4282b34101494bb1d0554313dae590f5eeea33183"
+    },
+    {
+      "id": 14786209647,
+      "name": "native-pairs-home",
+      "digest": "sha256:30b0e77bb02605701e65a52c472e2e849cdb2ec9a89cfd6b991dc0cd6c207de3"
+    },
+    {
+      "id": 14786139351,
+      "name": "native-pairs-countryside",
+      "digest": "sha256:0b9f4cdeee306d3c22e1cf66d7c0b2d7737812635142a8beefc32d85979be297"
+    },
+    {
+      "id": 14785809640,
+      "name": "native-pairs-deepsea",
+      "digest": "sha256:8ae0e06e491537ec59bd340eb679c16006e24fc13ab904fea1efec540194d11f"
+    }
+  ]
+}

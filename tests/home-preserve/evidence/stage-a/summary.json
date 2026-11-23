@@ -1,0 +1,99 @@
+{
+  "planned": 260,
+  "observed": 260,
+  "missing": [],
+  "errors": {},
+  "lossTotals": {},
+  "gainTotals": {
+    "conversation": 1
+  },
+  "openingEqual": 260,
+  "openingExact": 260,
+  "maxOpeningDelta": {
+    "actual": 0.0,
+    "stage": 0.0,
+    "screen": 0.0,
+    "imageSize": 0.0,
+    "size": 0.0
+  },
+  "drag": {
+    "basePositive": 246,
+    "trialPositive": 246,
+    "gains": 0,
+    "losses": 0,
+    "higher": 0,
+    "lower": 2,
+    "baseTotal": 1892,
+    "trialTotal": 1880
+  },
+  "auto": {
+    "basePositive": 260,
+    "trialPositive": 260,
+    "gains": 0,
+    "losses": 0,
+    "higher": 14,
+    "lower": 43,
+    "baseTotal": 44168,
+    "trialTotal": 43156
+  },
+  "contacts": {
+    "basePositive": 57,
+    "trialPositive": 0,
+    "gains": 0,
+    "losses": 57,
+    "higher": 0,
+    "lower": 57,
+    "baseTotal": 68,
+    "trialTotal": 0
+  },
+  "moved": {
+    "basePositive": 244,
+    "trialPositive": 244,
+    "gains": 0,
+    "losses": 0,
+    "higher": 0,
+    "lower": 0,
+    "baseTotal": 244,
+    "trialTotal": 244
+  },
+  "walkers": {
+    "basePositive": 260,
+    "trialPositive": 260,
+    "gains": 0,
+    "losses": 0,
+    "higher": 8,
+    "lower": 18,
+    "baseTotal": 1961,
+    "trialTotal": 1942
+  },
+  "speed": {
+    "basePositive": 0,
+    "trialPositive": 0,
+    "gains": 0,
+    "losses": 0,
+    "higher": 0,
+    "lower": 0,
+    "baseTotal": 0,
+    "trialTotal": 0
+  },
+  "terrain": {
+    "basePositive": 0,
+    "trialPositive": 0,
+    "gains": 0,
+    "losses": 0,
+    "higher": 0,
+    "lower": 0,
+    "baseTotal": 0,
+    "trialTotal": 0
+  },
+  "occlusion": {
+    "basePositive": 0,
+    "trialPositive": 0,
+    "gains": 0,
+    "losses": 0,
+    "higher": 0,
+    "lower": 0,
+    "baseTotal": 0,
+    "trialTotal": 0
+  }
+}
