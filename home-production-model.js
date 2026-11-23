@@ -50,26 +50,55 @@
     // alternatives closer to the lead than the partner's packed position.
     const start=distance(lead,mate),intended=distance(lead,goal);
     if(start<=intended+1&&fits(mate))return;
-    let best=null,score=Infinity;
-    function consider(p){
-      let d=distance(p,goal);
-      if(d>=score||distance(lead,p)>start||!fits(p))return;
-      // Favor an open exit between similarly close seats. A possible future
-      // walk must not force the partner to open on the opposite side of the scene.
-      if(exit.length&&!contactSegmentSafe(exit[0],exit.at(-1),p,(mate.w+lead.w)*.5+10,(mate.h+lead.h)*.38+10))d+=4;
-      if(d<score){best=p;score=d;}
+    // Preserve a usable first walk. A partner may stand across the original
+    // exit if another short straight walk remains open in the packed household.
+    const clears=(end,resident,p)=>contactSegmentSafe(lead,end,p,(resident.w+lead.w)*.5+10,(resident.h+lead.h)*.38+10);
+    const tapOpen=(end,resident,p)=>!view?.blocksTap?.(end,resident,p);
+    let steps;
+    function stepRank(p){
+      if(!exit.length)return 0;
+      if(!steps){
+        steps=[];
+        const limits=bounds(lead,scene),seesLead=scene.planVisibility?.(lead)||(q=>!scene.visible||scene.visible(q,lead));
+        const length=Math.hypot(exit.at(-1).x-lead.x,exit.at(-1).y-lead.y);
+        const residents=actors.filter(b=>b!==mate);
+        function add(q,original){
+          if(q.x<limits.left||q.x>limits.right||q.y<limits.top||q.y>limits.bottom)return;
+          if(residents.every(b=>tapOpen(q,b,b)&&(b===lead||clears(q,b,b)))&&nav.segmentSafe(lead,q,seesLead))steps.push({q,original});
+        }
+        // Prefer the original walking lane, including a tappable point partway
+        // along it. Then check straight steps on the already-packed floor.
+        for(const q of exit)if(Math.hypot(q.x-lead.x,q.y-lead.y)>=24)add(q,true);
+        for(const r of [length,36,30,24])for(let i=0;i<32;i++){
+          const theta=i*Math.PI/16;add({x:lead.x+r*Math.cos(theta),y:lead.y+r*Math.sin(theta)},false);
+        }
+      }
+      const step=steps.find(({q})=>clears(q,mate,p)&&tapOpen(q,mate,p));
+      return step?(step.original?0:1):2;
     }
-    consider(goal);
-    if(score>0){
-      // A portrait camera compresses depth. Include the whole painted
-      // neighborhood and the exact ink bounds, even when a grid step misses an edge.
-      const radius=spacing*1.5,depthRadius=scale?radius*scale.x/scale.y:radius;
+    let best=null,score=Infinity,bestRank=Infinity;
+    function consider(p){
+      const d=distance(p,goal);
+      if((bestRank===0&&d>=score)||distance(lead,p)>start||!fits(p))return;
+      const rank=stepRank(p);
+      if(rank<bestRank||rank===bestRank&&d<score){best=p;score=d;bestRank=rank;}
+    }
+    function search(radius){
+      const depthRadius=scale?radius*scale.x/scale.y:radius;
       const left=Math.max(box.left,lead.x-radius),right=Math.min(box.right,lead.x+radius);
       const top=Math.max(box.top,lead.y-depthRadius),bottom=Math.min(box.bottom,lead.y+depthRadius);
       for(let y=top;y<bottom+2;y+=2)for(let x=left;x<right+2;x+=2){
         const p={x:Math.min(x,right),y:Math.min(y,bottom)};
         if(distance(lead,p)<=radius)consider(p);
       }
+    }
+    consider(goal);
+    if(score>0||bestRank>0)search(spacing*1.5);
+    // Keep an existing usable ground tap if no adjacent alternative leaves
+    // it open. A slightly wider partner seat can still improve on the old gap.
+    if(bestRank===2&&stepRank(mate)<2){
+      search(Math.min(spacing*2.5,start));
+      if(bestRank===2)return;
     }
     if(best){mate.x=best.x;mate.y=best.y;}
   }

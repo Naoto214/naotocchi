@@ -584,7 +584,8 @@ function bodyChanged(old, next) {
         }
         openingCameraFrames=null;
         const view=presentation&&{x:presentation.scaleX,y:presentation.scaleY,
-          body:Math.min(presentation.bodyScale,presentation.bodyScaleLimit||presentation.bodyScale)*actorVisualScale('partner')};
+          body:Math.min(presentation.bodyScale,presentation.bodyScaleLimit||presentation.bodyScale)*actorVisualScale('partner'),
+          blocksTap:(p,a,foot)=>bodyHit(p,a,foot,(paintedBodyScale??presentation.bodyScale)/presentation.scaleX,(paintedBodyScale??presentation.bodyScale)/presentation.scaleY)||paddedHit(p,a,foot)};
         model.finishSeating(p=>world?.initialPaintedGround?.(p),view);
       }
       paint();
@@ -850,15 +851,21 @@ function bodyChanged(old, next) {
       return fallback;
     }
 
+    function bodyHit(p,a,foot,kx,ky){
+      const scale=actorVisualScale(a.kind);
+      return Math.abs(p.x-foot.x)<=a.w*kx*scale/2&&p.y>=foot.y-a.h*ky*scale&&p.y<=foot.y;
+    }
+    function paddedHit(p,a,foot){
+      return Math.abs(p.x-foot.x)<=Math.max(22,a.w/2)&&p.y>=foot.y-Math.max(44,a.h)&&p.y<=foot.y+10;
+    }
     function rectangleHit(p,target){
       const items=model.snapshot().sort((a,b)=>b.y-a.y);
       const owner=target?.closest?.('[data-diorama-actor]');
       const v=env.NaotocchiHomeViewport?.residentPresentation?.(),kx=v?(paintedBodyScale??v.bodyScale)/v.scaleX:1,ky=v?(paintedBodyScale??v.bodyScale)/v.scaleY:1;
-      const bodyHit=a=>Math.abs(p.x-a.x)<=a.w*kx*actorVisualScale(a.kind)/2&&p.y>=a.y-a.h*ky*actorVisualScale(a.kind)&&p.y<=a.y;
       // PNG frames include transparent padding. A foreground frame must not steal a visible visitor.
-      for(const a of items){const row=rows.get(a.key);if(bodyHit(a)&&(target===row.owner||owner===row.owner))return a.key;}
-      for(const a of items)if(bodyHit(a))return a.key;
-      const padded=items.filter(a=>Math.abs(p.x-a.x)<=Math.max(22,a.w/2)&&p.y>=a.y-Math.max(44,a.h)&&p.y<=a.y+10);
+      for(const a of items){const row=rows.get(a.key);if(bodyHit(p,a,a,kx,ky)&&(target===row.owner||owner===row.owner))return a.key;}
+      for(const a of items)if(bodyHit(p,a,a,kx,ky))return a.key;
+      const padded=items.filter(a=>paddedHit(p,a,a));
       padded.sort((a,b)=>Math.hypot(p.x-a.x,p.y-a.y+a.h/2)-Math.hypot(p.x-b.x,p.y-b.y+b.h/2));
       if(padded.length)return padded[0].key;
       return null;
