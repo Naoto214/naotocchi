@@ -146,5 +146,9 @@
   "tests/home-preserve/evidence/stage-d/opening-coordinates.csv.gz": {
     "sha256": "cf13f87770bee010f5a600cc926601578c280d1035a38b481dccaef457144cfe",
     "reason": "PR #586で固定地形の経路キャッシュを検証した260条件の比較記録。画面上の足元座標、画像寸法、描画順とカメラ位置を本番と照合できるよう保持。"
+  },
+  "tests/home-preserve/evidence/frame-grid/samples.json.gz": {
+    "sha256": "ad277f037e22afcb1ac31fc33b1ed6518ff57c1f260424fe8f77d2f3ad68c42a",
+    "reason": "PR #586で13地域・260条件の本番と候補の実フレーム間隔・描画時間を照合した計測原本。集計表から個別の試行と停止時間を追跡できるよう保持。"
   }
 }
