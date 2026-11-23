@@ -1,0 +1,54 @@
+{
+  "engine": "Linux Playwright WebKit 26.5",
+  "runtime": {
+    "main": "384730f1",
+    "stageD": "93e9b8c2"
+  },
+  "scope": "Synthetic isolated terrain route CPU, no renderer, frame budget, input or physical device. Acceptance still depends on matched production-scene timing.",
+  "fixture": "Original b87517f4 tests/home-integration-v14/planning-cache.test.mjs wall and resident gate; 128×128, cell=8, (8,8)→(120,8). Per new navigation run 15 routes, repeating open/closed/open five times. Wall x∈(55,73) and y<64, movable blocker |x−64|≤4. Measure inside performance.now; compare every waypoint after timing. Alternate main/D order. Two warmup pairs discarded.",
+  "waypointMismatches": 0,
+  "changedResidentGateFailures": 0,
+  "per15Queries": {
+    "mainTerrainSegmentChecks": 11301,
+    "stageDTerrainSegmentChecks": 1378,
+    "residentPredicateCallsBoth": 53260
+  },
+  "pairsMsMainD": [
+    [
+      25,
+      12
+    ],
+    [
+      31,
+      13
+    ],
+    [
+      18,
+      32
+    ],
+    [
+      13,
+      4
+    ],
+    [
+      18,
+      3
+    ],
+    [
+      25,
+      7
+    ],
+    [
+      12,
+      6
+    ],
+    [
+      11,
+      4
+    ]
+  ],
+  "medianMsMainD": [
+    18.0,
+    6.5
+  ]
+}
