@@ -36,7 +36,7 @@ def once(src, before, after):
     return src.replace(before, after)
 
 
-def instrument(page, root, bracket=False):
+def instrument(page, root, bracket=False, frame_grid=False):
     def patch(route):
         name = route.request.url.split('/')[-1].split('?')[0]
         src = (root / name).read_text()
@@ -64,6 +64,18 @@ def instrument(page, root, bracket=False):
         else:
             src = once(src, 'modelAPI.createModel({onEvent:emit})',
                        'modelAPI.createModel({onEvent:emit,random:window.bracketRandom})')
+            if frame_grid:
+                anchor = 'return {model,update,sync,interrupt,'
+                src = once(src, anchor, """window.perfReady=(r,n)=>enabled && scene?.region===r &&
+                    world?.stats().loaded && scene.navigation && rows.size===n && !pendingResidentPresentation &&
+                    [...stage.querySelectorAll('img.character-asset')].every(i=>i.complete&&i.naturalWidth);
+                  window.perfCamera=()=>JSON.stringify([env.NaotocchiHomeViewport.residentPresentation(),
+                    world.stats().projectionRevision,stage.clientWidth,stage.clientHeight]);
+                  window.perfMoving=()=>!blocked() && model.snapshot().some(a=>a.target);
+                """+anchor)
+                anchor='world?.draw(dt,{paused:!isVisible(),reducedMotion:!!media?.matches,tier:flags.tier||0});paint();'
+                src = once(src,anchor,'const drawingAt=performance.now();'+anchor+
+                           'window.sampleOps?.("render",drawingAt,performance.now());')
             if bracket:
                 anchor = 'return {model,update,sync,interrupt,'
                 src = once(src, anchor, """window.bracketReady=(region,count)=>enabled && scene?.region===region &&
@@ -92,7 +104,7 @@ def instrument(page, root, bracket=False):
 
 
 RECORD = """ms=>new Promise(resolve=>{
- const times={frame:[],step:[],move:[],update:[]}, stalls=[], states={}; let prev, start, before;
+ const times={frame:[],step:[],move:[],update:[],render:[]}, stalls=[], states={}; let prev, start, before;
  const operations=[];
  function record(name,a,b){times[name].push(b-a);if(b>a)operations.push([name,a,b]);}
  function frame(t){
@@ -131,8 +143,8 @@ def summarize(values):
             **{f'p{p}': round(values[math.ceil(len(values)*p/100)-1], 1) for p in (50, 95, 99)}}
 
 
-def trial(browser, server, root, save, region, count, seconds, bracket=False):
-    context = browser.new_context(viewport={'width': 375, 'height': 615}, device_scale_factor=2,
+def trial(browser, server, root, save, region, count, seconds, bracket=False, frame_grid=False, width=375):
+    context = browser.new_context(viewport={'width':width, 'height':{320:516,375:615,390:630,430:695}[width]}, device_scale_factor=2,
                                   has_touch=True, is_mobile=True, timezone_id='Asia/Tokyo', locale='ja-JP')
     errors = []
     try:
@@ -156,7 +168,7 @@ def trial(browser, server, root, save, region, count, seconds, bracket=False):
         page = context.new_page()
         page.on('pageerror', lambda error: errors.append(str(error)))
         page.on('response', lambda r: errors.append(str(r.status)+' '+r.url.split('/')[-1]) if r.status >= 400 else None)
-        instrument(page, root, bracket)
+        instrument(page, root, bracket, frame_grid)
         page.goto(f'http://127.0.0.1:{server.server_port}/', wait_until='load', timeout=90000)
         if bracket:
             page.wait_for_function('([r,n])=>window.bracketReady?.(r,n)',arg=[region,count],timeout=60000)
@@ -181,8 +193,24 @@ def trial(browser, server, root, save, region, count, seconds, bracket=False):
             document.querySelectorAll('[data-diorama-actor]').length===n && window.residentStats?.().clock>0""",
                                arg=[region, count], timeout=60000)
         assert page.evaluate('window.nativeClock'), 'Non-native frame clock at navigation'
-        page.wait_for_timeout(3000)
+        grid_state=None
+        if frame_grid:
+            page.wait_for_function('([r,n])=>perfReady(r,n)',arg=[region,count],timeout=60000)
+            grid_state=page.evaluate("""async()=>{
+              let previous,stable=0,seen=false,start=performance.now();
+              while(performance.now()-start<8000){
+                await new Promise(nativeFrame);const camera=perfCamera();
+                stable=camera===previous?stable+1:0;previous=camera;
+                seen=perfMoving();
+                if(stable>=3&&(seen||performance.now()-start>=4000))break;
+              }
+              return {camera:previous,stableFrames:stable,startedWalking:seen,waitMs:performance.now()-start};
+            }""")
+            if grid_state['stableFrames']<3:raise ValueError('Camera failed to settle')
+        else:
+            page.wait_for_timeout(3000)
         row = page.evaluate(RECORD, seconds*1000)
+        if frame_grid:row['opening']=grid_state
         times = row.pop('times')
         before, after = row.pop('before'), row.pop('after')
         row['metrics'] = {key: summarize(value) for key, value in times.items()}

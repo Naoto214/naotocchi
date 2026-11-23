@@ -1,0 +1,64 @@
+name: All native home frame samples
+on:
+  push:
+    branches: [draft/home-production-preserve]
+permissions:
+  contents: read
+jobs:
+  webkit:
+    if: contains(github.event.head_commit.message, '[preserve-frame-grid]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      matrix:
+        region: [home, forest, river_lake, city, countryside, mountain, snow, sea, jungle, desert, deepsea, star_stop, memory_lake]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            tests
+            assets
+            vendor
+            comparisons/dayparts-20261103
+      - uses: actions/checkout@v4
+        with:
+          ref: 384730f1f2b1ef287a2bc4d17df35b861de9f2ae
+          path: .production
+          persist-credentials: false
+          sparse-checkout: |
+            assets
+            vendor
+            comparisons/dayparts-20261103
+      - uses: actions/checkout@v4
+        with:
+          ref: 93e9b8c2d61c4a5fa827f5ede5cf87608cf475e8
+          path: .trial
+          persist-credentials: false
+          sparse-checkout: |
+            assets
+            vendor
+            comparisons/dayparts-20261103
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Linux WebKit
+        run: |
+          python -m pip install playwright==1.62.0
+          python -m playwright install --with-deps webkit
+      - name: Record native frames and resident rendering on 20 matched households
+        env:
+          REGION: ${{ matrix.region }}
+        run: |
+          python -Bu tests/home-preserve/frame-grid.py .production .trial tests/home-preserve/resident-save.cjs frames.json --region "$REGION"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: frame-grid-${{ matrix.region }}
+          path: frames.json
+          retention-days: 14
+          if-no-files-found: error
