@@ -69,6 +69,7 @@ def compare(base, trial):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     for key in ('production','candidate','out'):p.add_argument('--'+key,type=Path,required=True)
+    p.add_argument('--reference',type=Path)
     p.add_argument('--region',choices=regional.REGIONS,required=True)
     p.add_argument('--counts',type=int,nargs='+',default=[1,4,10,20,28])
     p.add_argument('--widths',type=int,nargs='+',default=list(regional.HEIGHT))
@@ -76,6 +77,7 @@ def main():
     args.out.mkdir(parents=True,exist_ok=True)
     roots={'production':args.production,'candidate':args.candidate}
     urls={arm:regional.serve(path) for arm,path in roots.items()}
+    ref_url=regional.serve(args.reference) if args.reference else None
     summary=[]
     with sync_playwright() as pw:
         browser=pw.chromium.launch(executable_path=os.getenv('CHROMIUM_PATH','/usr/bin/chromium'),args=['--disable-dev-shm-usage'])
@@ -85,8 +87,29 @@ def main():
                 try:
                     runs={arm:regional.run(browser,path,urls[arm],args.region,n,w,arm,30,True) for arm,path in roots.items()}
                     result=compare(runs['production'],runs['candidate'])
+                    evidence=dict(runs=runs,comparison=result)
+                    if args.reference:
+                        reference=regional.run(browser,args.reference,ref_url,args.region,n,w,'candidate',30,True)
+                        refcheck=compare(reference,runs['candidate'])
+                        trial=runs['candidate']
+                        def geometry(row):
+                            p=row['placements']['opening']
+                            return [p['camera'],p['cover'],p['frame'],p['paintedFrame'],
+                                    [[a[k] for k in ('key','kind','stage','screen','actual','image','imageSize','display','size','layer','valid','visible')]
+                                     for a in p['feet']]]
+                        digest=reference['observation']['trajectorySha256']
+                        structural=dict(trajectory=digest==trial['observation']['trajectorySha256'],
+                                        opening=geometry(reference)==geometry(trial),
+                                        input=reference['target']==trial['target'] and refcheck['base']==refcheck['candidate'],
+                                        fixture=reference['fixture']==trial['fixture'],
+                                        mutation=reference['lifecycle']['changed']['state']==trial['lifecycle']['changed']['state'],
+                                        saved=reference['lifecycle']['reloaded']==trial['lifecycle']['reloaded'],
+                                        returnGate=reference['lifecycle']['returnGate']==trial['lifecycle']['returnGate'])
+                        result['referenceCheck']=dict(exact=structural,trajectorySha256=digest)
+                        result['losses'].extend('reference-'+k for k,v in structural.items() if not v)
+                        evidence['reference']=reference
                     with gzip.open(args.out/(key+'.json.gz'),'wt') as f:
-                        json.dump(dict(runs=runs,comparison=result),f,separators=(',',':'))
+                        json.dump(evidence,f,separators=(',',':'))
                     summary.append(dict(case=key,losses=result['losses'],base=result['base'],candidate=result['candidate']))
                 except Exception as exc:
                     summary.append(dict(case=key,error=str(exc)))

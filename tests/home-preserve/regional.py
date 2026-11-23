@@ -26,6 +26,7 @@ def once(source, key, replacement):
 HOP = """
   if(window.regionStepping){
     const m=window.regionTrace, hop=Math.hypot(p.x-a.x,p.y-a.y);
+    window.preserveJourney.push([clock,a.key,a.source,a.x,a.y,p.x,p.y]);
     m.hops++; m.distance+=hop; m.sourceHops[a.source]=(m.sourceHops[a.source]||0)+1;
     m.walkers[a.key]=(m.walkers[a.key]||0)+hop;
     if(!scene.navigation.segmentSafe(a,p))m.terrain++;
@@ -73,7 +74,7 @@ def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False,alternate=F
     page.on('pageerror',lambda e: seen_errors.append(str(e)))
     page.clock.set_fixed_time("2026-11-23T03:00:00Z")
     ctx.add_init_script("let preserveSeed=214;Math.random=()=>((preserveSeed=(Math.imul(preserveSeed,1664525)+1013904223)>>>0)/4294967296)")
-    ctx.add_init_script("""window.regionTrace={hops:0,distance:0,walkers:{},sourceHops:{},terrain:0,occlusion:0,speed:0,contact:0,commands:[]};
+    ctx.add_init_script("""window.preserveJourney=[];window.regionTrace={hops:0,distance:0,walkers:{},sourceHops:{},terrain:0,occlusion:0,speed:0,contact:0,commands:[]};
       let regionalSeed=214;window.regionalRandom=()=>{regionalSeed=(Math.imul(regionalSeed,1664525)+1013904223)>>>0;return regionalSeed/4294967296};
       document.addEventListener('pointerup',e=>window.regionalTrusted=e.isTrusted&&e.pointerType==='touch',true);""")
     def patch(route):
@@ -152,6 +153,11 @@ def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False,alternate=F
         tap=None
     page.evaluate('n=>regional.advance(n)',seconds)
     observation=page.evaluate('()=>({trace:regionTrace,trusted:window.regionalTrusted||false,end:regional.summary()})')
+    observation['trajectorySha256']=page.evaluate("""async()=>{
+      const bytes=new TextEncoder().encode(JSON.stringify(window.preserveJourney));
+      const hash=await crypto.subtle.digest('SHA-256',bytes);
+      return Array.from(new Uint8Array(hash),v=>v.toString(16).padStart(2,'0')).join('');
+    }""")
     if alternate:
         return dict(target=target,tap=tap,trace=observation['trace'],trusted=observation['trusted'],errors=seen_errors)
     if pairs:extra['walked']=placement()

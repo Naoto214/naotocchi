@@ -46,6 +46,8 @@ jobs:
             echo "ref=e731b5d0a9c6f8eabc0dc8b40d29f8d2af35dfd2" >> "$GITHUB_OUTPUT"
           elif [[ "$MESSAGE" == *"[preserve-stage-b]"* ]]; then
             echo "ref=190992523134d4e86a0da6838fb45e921f18a6d1" >> "$GITHUB_OUTPUT"
+          elif [[ "$MESSAGE" == *"[preserve-stage-d]"* ]]; then
+            echo "ref=93e9b8c2d61c4a5fa827f5ede5cf87608cf475e8" >> "$GITHUB_OUTPUT"
           else
             echo "ref=$GITHUB_SHA" >> "$GITHUB_OUTPUT"
           fi
@@ -58,13 +60,25 @@ jobs:
             assets
             vendor
             comparisons/dayparts-20261103
+      - uses: actions/checkout@v4
+        if: contains(github.event.head_commit.message, '[preserve-stage-d]')
+        with:
+          path: .reference
+          ref: 295dc7823dec95f4b22c608beebf632ebfcb47da
+          persist-credentials: false
+          sparse-checkout: |
+            assets
+            vendor
+            comparisons/dayparts-20261103
       - name: Exercise paired native households
         env:
           REGION: ${{ matrix.region }}
           CHROMIUM_PATH: /usr/bin/google-chrome
         run: |
           python -m pip install playwright==1.62.0
-          python tests/home-preserve/matrix.py --production .production --candidate .candidate --region "$REGION" --out "$RUNNER_TEMP/pairs"
+          reference=()
+          if [[ -d .reference ]]; then reference=(--reference .reference); fi
+          python tests/home-preserve/matrix.py "${reference[@]}" --production .production --candidate .candidate --region "$REGION" --out "$RUNNER_TEMP/pairs"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
