@@ -11,7 +11,7 @@ const html = readFileSync('index.html', 'utf8');
 test('production movement assets have exact package digests and cache tokens', () => {
   for (const file of ['home-production-model.js', 'home-production-diorama.js']) {
     const hash = digest(readFileSync(file));
-    assert.equal(manifest.sha256[file], hash, file);
+    assert.equal(manifest.reviewed_runtime_sources[file], hash, file);
     assert.ok(html.includes('src="' + file + '?v=' + hash.slice(0, 12) + '"'), file);
   }
 });

@@ -1,0 +1,31 @@
+{
+  "index.html": {
+    "before": "c9432f2b62b2c95a36338f8166627abe8feb97d3",
+    "after": "0318d76bab510447b70b5620a5cbd4408a7d0aef",
+    "size": 72923,
+    "reverse": [
+      [
+        72218,
+        72230,
+        "812fad81ddc5"
+      ]
+    ]
+  },
+  "tools/pages/allowlist.json": {
+    "before": "f1b1fb9cf575c6305fac17fb25dcf80a59d13c31",
+    "after": "b55fea667f08d2339796c1620c578d077949f63e",
+    "size": 296396,
+    "reverse": [
+      [
+        267499,
+        267563,
+        "76cd45be9c8bccfa81f96a04a52caa54c9fae9159436a83fca1a0fe42bd72cc7"
+      ],
+      [
+        266351,
+        266415,
+        "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856"
+      ]
+    ]
+  }
+}
