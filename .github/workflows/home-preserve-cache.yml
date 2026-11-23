@@ -52,7 +52,7 @@ jobs:
             comparisons/dayparts-20261103
       - uses: actions/checkout@v4
         with:
-          ref: 832cb6d740d213582b340d61a6bf1f2bf7d264eb
+          ref: 400fb1d42834f8123faebab87f716194cee5ad51
           path: .reference
           persist-credentials: false
           sparse-checkout: |
