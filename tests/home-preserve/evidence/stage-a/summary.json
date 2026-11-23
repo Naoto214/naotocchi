@@ -95,5 +95,114 @@
     "lower": 0,
     "baseTotal": 0,
     "trialTotal": 0
+  },
+  "lifecycle": {
+    "conversation": {
+      "base": 257,
+      "trial": 258
+    },
+    "evolved": {
+      "base": 260,
+      "trial": 260
+    },
+    "equippedNight": {
+      "base": 260,
+      "trial": 260
+    },
+    "restoredReload": {
+      "base": 260,
+      "trial": 260
+    },
+    "travelAndReturn": {
+      "base": 260,
+      "trial": 260
+    }
+  },
+  "contactFreeMovement": {
+    "matched": 203,
+    "differed": 0,
+    "protectedContactCells": 57
+  },
+  "staticOverlap": {
+    "opening": {
+      "base": {
+        "cells": 29,
+        "pairs": 264
+      },
+      "trial": {
+        "cells": 29,
+        "pairs": 264
+      }
+    },
+    "sync": {
+      "base": {
+        "cells": 29,
+        "pairs": 264
+      },
+      "trial": {
+        "cells": 29,
+        "pairs": 264
+      }
+    },
+    "walked": {
+      "base": {
+        "cells": 26,
+        "pairs": 205
+      },
+      "trial": {
+        "cells": 26,
+        "pairs": 209
+      }
+    },
+    "lifecycle": {
+      "base": {
+        "cells": 30,
+        "pairs": 287
+      },
+      "trial": {
+        "cells": 30,
+        "pairs": 287
+      }
+    },
+    "resized": {
+      "base": {
+        "cells": 44,
+        "pairs": 474
+      },
+      "trial": {
+        "cells": 44,
+        "pairs": 474
+      }
+    },
+    "reload": {
+      "base": {
+        "cells": 36,
+        "pairs": 443
+      },
+      "trial": {
+        "cells": 36,
+        "pairs": 443
+      }
+    },
+    "travel": {
+      "base": {
+        "cells": 12,
+        "pairs": 173
+      },
+      "trial": {
+        "cells": 12,
+        "pairs": 173
+      }
+    },
+    "returnTrip": {
+      "base": {
+        "cells": 37,
+        "pairs": 393
+      },
+      "trial": {
+        "cells": 37,
+        "pairs": 393
+      }
+    }
   }
 }

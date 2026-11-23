@@ -47,6 +47,20 @@ def summarise(data):
     first=r['production']['placements']['opening']
     second=r['candidate']['placements']['opening']
     by_key={a['key']:a for a in second['feet']}
+    original=r['production']['observation']['trace']
+    candidate=r['candidate']['observation']['trace']
+    row['residentDistancesEqual']=original['walkers']==candidate['walkers']
+    row['originalSweptWitnesses']='|'.join(f"{w['actor']}/{w['peer']}/{w['source']}" for w in original.get('witnesses',[]))
+    for arm,label in [('production','base'),('candidate','trial')]:
+        life=r[arm]['lifecycle']
+        row[label+'_conversation']=life['conversation']
+        row[label+'_evolved']=life['evolved']
+        row[label+'_equippedNight']=life['changed']['state'][2:4]==['ribbon','night']
+        row[label+'_restoredReload']=life['restored']==life['reloaded']
+        row[label+'_travelAndReturn']=life['returnGate']['accepted'] and r[arm]['placements']['returnTrip']['region']==r[arm]['region']
+        opened=r[arm]['placements']['opening']
+        row[label+'_openingOutsidePaintedGround']=sum(not a['painted'] for a in opened['feet'])
+        row[label+'_openingOutsideNavigation']=sum(not a['valid'] for a in opened['feet'])
     row['openingRosterOrderEqual']=[a['key'] for a in first['feet']]==[a['key'] for a in second['feet']]
     row['openingCameraExact']=all(first[k]==second[k] for k in ['camera','frame','cover'])
     row['openingPaintExact']=first['paintedFrame']==second['paintedFrame']
@@ -96,6 +110,17 @@ def main():
                             gains=sum(a==0 and b>0 for a,b in values),losses=sum(a>0 and b==0 for a,b in values),
                             higher=sum(b>a for a,b in values),lower=sum(b<a for a,b in values),
                             baseTotal=sum(a for a,b in values),trialTotal=sum(b for a,b in values))
+    for label in ('base','trial'):
+        for field in ('conversation','evolved','equippedNight','restoredReload','travelAndReturn'):
+            summary.setdefault('lifecycle',{}).setdefault(field,{})[label]=sum(r[label+'_'+field] for r in rows)
+    summary['contactFreeMovement']=dict(
+        matched=sum(not r['base_contacts'] and r['residentDistancesEqual'] for r in rows),
+        differed=sum(not r['base_contacts'] and not r['residentDistancesEqual'] for r in rows),
+        protectedContactCells=sum(r['base_contacts']>0 for r in rows))
+    phases=('opening','sync','walked','lifecycle','resized','reload','travel','returnTrip')
+    summary['staticOverlap']={phase:{label:{'cells':sum(bool(r[label+'_'+phase+'Contacts']) for r in rows),
+                                            'pairs':sum(r[label+'_'+phase+'Contacts'] for r in rows)} for label in ('base','trial')}
+                              for phase in phases}
     (args.out/'summary.json').write_text(json.dumps(summary,indent=2)+'\n')
     print(json.dumps({k:v for k,v in summary.items() if k not in ['missing','errors']}))
 
