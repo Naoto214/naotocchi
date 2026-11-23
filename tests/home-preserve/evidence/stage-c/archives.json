@@ -1,0 +1,73 @@
+{
+  "run": 45104406398,
+  "harness": "a677ac7d15d9b8b44189a051b40004d40ccdd751",
+  "production": "384730f1f2b1ef287a2bc4d17df35b861de9f2ae",
+  "candidate": "a677ac7d15d9b8b44189a051b40004d40ccdd751",
+  "archives": [
+    {
+      "id": 14788070355,
+      "name": "native-pairs-deepsea",
+      "digest": "sha256:d1f66567ce05879dc7f39b9b33623a2d815e7de058bb277545e50094b6db4133"
+    },
+    {
+      "id": 14788030916,
+      "name": "native-pairs-desert",
+      "digest": "sha256:4ffc83f8cd22d5da9986dba9303f8af96d60824c0d80ffef06966aa61f0f74b8"
+    },
+    {
+      "id": 14787912052,
+      "name": "native-pairs-countryside",
+      "digest": "sha256:bc63eab688425c8378bfd583809036b7cd542a7e0b6132fde8244fa471f36f72"
+    },
+    {
+      "id": 14787820341,
+      "name": "native-pairs-snow",
+      "digest": "sha256:80f5354f2a8b939b18fdb05394f16254f1c2dbd5d465edde7e4ce6bc44dec0de"
+    },
+    {
+      "id": 14787652622,
+      "name": "native-pairs-forest",
+      "digest": "sha256:8feb44fcf37c86c946dc7d3f2c21fb93df8790b566628b34a1bee03ea2b8a320"
+    },
+    {
+      "id": 14787640493,
+      "name": "native-pairs-sea",
+      "digest": "sha256:98704c2eaa4d247c4a583932d67424064ae43ffc885256cd29d8b16520897535"
+    },
+    {
+      "id": 14787567875,
+      "name": "native-pairs-mountain",
+      "digest": "sha256:53ea0a4a6f91dcd7a03059deb2c5ab615d6b4408faba1c2ce85539e21ca5fe87"
+    },
+    {
+      "id": 14787413115,
+      "name": "native-pairs-river_lake",
+      "digest": "sha256:aae36079d5021c3c786eb86f18ceddb846f055f88a8b16c6909ffe4cb5e26b08"
+    },
+    {
+      "id": 14787384969,
+      "name": "native-pairs-home",
+      "digest": "sha256:b74a93c866b431c94adaa3f4a0400cd980c92411678f07f12a8d28c4dd10536e"
+    },
+    {
+      "id": 14787262679,
+      "name": "native-pairs-star_stop",
+      "digest": "sha256:215449c1590b22186480ebfd578a03ec45242fe10c17966ecf2b516d291ed214"
+    },
+    {
+      "id": 14787172354,
+      "name": "native-pairs-jungle",
+      "digest": "sha256:4909f14ba712f7efe0df6794da2bfad2ee99785bd31c0807d944367c7fdf51d8"
+    },
+    {
+      "id": 14786979111,
+      "name": "native-pairs-city",
+      "digest": "sha256:81860c377f5d54fa1247481748b72bfe7d50a73b400f4928382495856506368f"
+    },
+    {
+      "id": 14786914990,
+      "name": "native-pairs-memory_lake",
+      "digest": "sha256:279ed2788fdc282bc8d8a06e3942f0bac6218b487886d67a7ba073fd0e247dd7"
+    }
+  ]
+}

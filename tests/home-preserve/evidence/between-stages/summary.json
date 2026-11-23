@@ -1,0 +1,56 @@
+{
+  "baselineTracesExact": {
+    "matched": 260,
+    "different": []
+  },
+  "A-B_openingExact": {
+    "matched": 260,
+    "different": []
+  },
+  "A-B_movementTraceExact": {
+    "matched": 260,
+    "different": []
+  },
+  "A-B_mutatedStateExact": {
+    "matched": 260,
+    "different": []
+  },
+  "A-B_savedAndReloadedExact": {
+    "matched": 260,
+    "different": []
+  },
+  "A-B_returnGateExact": {
+    "matched": 260,
+    "different": []
+  },
+  "A-B_questionExact": {
+    "matched": 260,
+    "different": []
+  },
+  "B-C_openingExact": {
+    "matched": 260,
+    "different": []
+  },
+  "B-C_movementTraceExact": {
+    "matched": 260,
+    "different": []
+  },
+  "B-C_mutatedStateExact": {
+    "matched": 260,
+    "different": []
+  },
+  "B-C_savedAndReloadedExact": {
+    "matched": 260,
+    "different": []
+  },
+  "B-C_returnGateExact": {
+    "matched": 260,
+    "different": []
+  },
+  "B-C_questionExact": {
+    "matched": 259,
+    "different": [
+      "snow-4-375"
+    ]
+  }
+}
