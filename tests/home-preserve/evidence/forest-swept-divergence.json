@@ -1,0 +1,121 @@
+{
+  "region": "forest",
+  "count": 28,
+  "width": 375,
+  "DPR": 2,
+  "clockStep": 0.1,
+  "elapsedModelSeconds": 60,
+  "browser": [
+    "webkit",
+    "26.5"
+  ],
+  "revisions": {
+    "production": "384730f1",
+    "reference": "400fb1d4"
+  },
+  "initialStateSha256": "39612fa76227564a59a43424b6978a106e9c89b078f235ae1de9c6112cc45673",
+  "positionsComparedPerTick": 28,
+  "firstDifferentTick": 357,
+  "firstDifferentFeet": [
+    "companion:snail"
+  ],
+  "production": {
+    "witness": {
+      "clock": 35.70000000000024,
+      "actor": "companion:snail",
+      "peer": "companion:punyu",
+      "from": [
+        206.8992170499228,
+        372.6351736741524
+      ],
+      "to": [
+        210.83754384868024,
+        371.17586492471344
+      ],
+      "peerFoot": [
+        186.57401155555556,
+        352.80369655967087
+      ],
+      "radii": [
+        41.96066666666667,
+        24.860018959435628
+      ],
+      "start": 0.9332723190666421,
+      "end": 0.9383626358394522,
+      "closest": 0.9331909903825187,
+      "t": 0.11129455846130062,
+      "accepted": true,
+      "source": "ambient"
+    },
+    "activity": {
+      "clock": 60.0,
+      "distance": 152.194,
+      "moves": 10,
+      "turns": 19
+    },
+    "final": "d5fec57b511429f714f261893085fd6e3fc1171c9fa59aa468697368756cd6a4"
+  },
+  "reference": {
+    "witness": {
+      "clock": 35.70000000000024,
+      "actor": "companion:snail",
+      "peer": "companion:punyu",
+      "from": [
+        206.8992170499228,
+        372.6351736741524
+      ],
+      "to": [
+        210.83754384868024,
+        371.17586492471344
+      ],
+      "peerFoot": [
+        186.57401155555556,
+        352.80369655967087
+      ],
+      "radii": [
+        41.96066666666667,
+        24.860018959435628
+      ],
+      "start": 0.9332723190666421,
+      "end": 0.9383626358394522,
+      "closest": 0.9331909903825187,
+      "t": 0.11129455846130062,
+      "accepted": false,
+      "source": "ambient"
+    },
+    "laterRejection": {
+      "clock": 37.50000000000026,
+      "actor": "companion:snail",
+      "peer": "companion:punyu",
+      "from": [
+        206.8992170499228,
+        372.6351736741524
+      ],
+      "to": [
+        210.83754384868024,
+        371.17586492471344
+      ],
+      "peerFoot": [
+        186.57401155555556,
+        352.80369655967087
+      ],
+      "radii": [
+        41.96066666666667,
+        24.860018959435628
+      ],
+      "start": 0.9332723190666421,
+      "end": 0.9383626358394522,
+      "closest": 0.9331909903825187,
+      "t": 0.11129455846130062,
+      "accepted": false,
+      "source": "ambient"
+    },
+    "activity": {
+      "clock": 60.0,
+      "distance": 110.757,
+      "moves": 11,
+      "turns": 17
+    },
+    "final": "e4b50342e089710ac2a7f7d129f1a26c97989fb27075f024be527ad630a2a380"
+  }
+}
