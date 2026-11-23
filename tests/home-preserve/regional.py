@@ -66,13 +66,17 @@ def run(browser,root,base,region,count,width,arm,seconds,pairs=False,alternate=F
     finally:
         ctx.close()
 
-def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False,alternate=False,opening_probe=None,phase_observer=None):
+def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False,alternate=False,opening_probe=None,phase_observer=None,clocked_photo=None):
     save=seed(region,count)
     hashes={}
     seen_errors=[]
     page=ctx.new_page()
     page.on('pageerror',lambda e: seen_errors.append(str(e)))
-    page.clock.set_fixed_time("2026-11-23T03:00:00Z")
+    if clocked_photo:
+        page.clock.install(time="2026-11-23T02:59:59Z")
+        page.clock.pause_at("2026-11-23T03:00:00Z")
+    else:
+        page.clock.set_fixed_time("2026-11-23T03:00:00Z")
     ctx.add_init_script("let preserveSeed=214;Math.random=()=>((preserveSeed=(Math.imul(preserveSeed,1664525)+1013904223)>>>0)/4294967296)")
     ctx.add_init_script("""window.preserveJourney=[];window.regionTrace={hops:0,distance:0,walkers:{},sourceHops:{},terrain:0,occlusion:0,speed:0,contact:0,commands:[]};
       let regionalSeed=214;window.regionalRandom=()=>{regionalSeed=(Math.imul(regionalSeed,1664525)+1013904223)>>>0;return regionalSeed/4294967296};
@@ -118,6 +122,8 @@ def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False,alternate=F
         page.route(re.compile(r'/home-production-world\.mjs(?:\?|$)'),patch)
     query=urlencode(dict(region=region,count=count,policy='B',gear='none',time='day',season='autumn',weather='sunny',speed=1))
     page.goto(base+'/'+ENTRIES[arm]+'?'+query,wait_until='domcontentloaded',timeout=60000)
+    if clocked_photo:
+        return clocked_photo(page)
     try:
         page.wait_for_function('([r,c])=>window.regional?.ready(r,c)',arg=[region,count],timeout=35000)
     except Exception as exc:
