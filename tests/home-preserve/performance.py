@@ -63,26 +63,33 @@ def instrument(page, root):
 
 RECORD = """ms=>new Promise(resolve=>{
  const times={frame:[],step:[],move:[],update:[]}, stalls=[], states={}; let prev, start, before;
- const peaks={}; window.sampleOps=(name,a,b)=>{
-   times[name].push(b-a);peaks[name]=Math.max(peaks[name]||0,b-a);
- };
+ const operations=[];
+ function record(name,a,b){times[name].push(b-a);if(b>a)operations.push([name,a,b]);}
  function frame(t){
-   if(start===undefined){start=t;before=residentStats();}
+   if(start===undefined){start=t;before=residentStats();window.sampleOps=record;}
    else{
      const gap=t-prev; times.frame.push(gap);
-     if(gap>=100)stalls.push({ms:t-start,gap,...peaks});
+     if(gap>=100)stalls.push({ms:t-start,gap});
    }
-   for(const name of Object.keys(peaks))delete peaks[name];
    const stage=document.getElementById('castStage');
    const key=[stage.dataset.diorama,stage.dataset.dioramaTime,stage.dataset.dioramaPaused].join('/');
    states[key]=(states[key]||0)+1;prev=t;
    if(t-start>=ms){
      window.sampleOps=null;
+     // Both timestamps are relative to performance.timeOrigin. Count only
+     // the part of each operation actually inside the delayed frame interval.
+     for(const stall of stalls){
+       const to=start+stall.ms, from=to-stall.gap;
+       for(const [name,a,b] of operations){
+         const overlap=Math.min(to,b)-Math.max(from,a);
+         if(overlap>0)stall[name]=(stall[name]||0)+overlap;
+       }
+     }
      resolve({times,stalls,states,before,after:residentStats(),elapsed:t-start,
        actors:[...stage.querySelectorAll('[data-diorama-actor]')].map(n=>n.dataset.dioramaActor).sort()});
-   }else requestAnimationFrame(frame);
+   }else nativeFrame(frame);
  }
- requestAnimationFrame(frame);
+ nativeFrame(frame);
 })"""
 
 
@@ -99,11 +106,23 @@ def trial(browser, server, root, save, region, count, seconds):
                                   has_touch=True, is_mobile=True, timezone_id='Asia/Tokyo', locale='ja-JP')
     errors = []
     try:
-        context.add_init_script('let seed=214;Math.random=()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296);'
+        # Align game/calendar time while keeping the browser's actual vsync,
+        # event queue, monotonic clock, and timers. Playwright's Clock API
+        # installs a scheduler that would invalidate real-frame observations.
+        date_only = """window.nativeClock=[requestAnimationFrame,performance.now,setTimeout].every(
+              fn=>Function.prototype.toString.call(fn).includes('[native code]'));
+          window.nativeFrame=requestAnimationFrame.bind(window);
+          const RealDate=Date;
+          const offset=Date.parse('2026-11-23T03:00:00Z')-Date.now();
+          Date=new Proxy(RealDate,{
+            apply(){return new RealDate(RealDate.now()+offset).toString();},
+            construct(target,args){return args.length?new target(...args):new target(RealDate.now()+offset);},
+            get(target,key){return key==='now'?()=>RealDate.now()+offset:Reflect.get(target,key);}
+          });"""
+        context.add_init_script(date_only+'let seed=214;Math.random=()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296);'
                                 'const save='+save+';save.savedAt=Date.now();localStorage.setItem("naotocchi-save-v1",JSON.stringify(save));'
                                 'localStorage.setItem("naotocchi-save-v1:home-guide-v1","done");')
         page = context.new_page()
-        page.clock.set_fixed_time("2026-11-23T03:00:00Z")
         page.on('pageerror', lambda error: errors.append(str(error)))
         page.on('response', lambda r: errors.append(str(r.status)+' '+r.url.split('/')[-1]) if r.status >= 400 else None)
         instrument(page, root)
@@ -111,6 +130,7 @@ def trial(browser, server, root, save, region, count, seconds):
         page.wait_for_function("""([r,n])=>document.getElementById('castStage')?.dataset.diorama===r &&
             document.querySelectorAll('[data-diorama-actor]').length===n && window.residentStats?.().clock>0""",
                                arg=[region, count], timeout=60000)
+        assert page.evaluate('window.nativeClock'), 'Non-native frame clock at navigation'
         page.wait_for_timeout(3000)
         row = page.evaluate(RECORD, seconds*1000)
         times = row.pop('times')
