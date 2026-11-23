@@ -83,7 +83,7 @@ def main():
                 gains.update(x for x in row['gains'].split(',') if x)
     if rows:
         with (args.out/'cells.csv').open('w') as f:
-            writer=csv.DictWriter(f,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
+            writer=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator="\n");writer.writeheader();writer.writerows(rows)
     summary=dict(planned=260,observed=len(rows),missing=missing,errors=errors,lossTotals=dict(losses),gainTotals=dict(gains),
                  openingEqual=sum(r['openingDiffs']==0 for r in rows))
     exactFields=['actual','stage','screen','imageSize','size']

@@ -183,4 +183,3 @@ def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False,alternate=F
     return dict(placements=extra,region=region,count=count,width=width,arm=arm,seconds=seconds,opening=opening,
                 target=target,tap=tap,observation=observation,lifecycle=lifecycle,resized=resized,
                 errors=seen_errors,sources=hashes,fixture=hashlib.sha256(json.dumps(seed(region,count),sort_keys=True).encode()).hexdigest())
-
