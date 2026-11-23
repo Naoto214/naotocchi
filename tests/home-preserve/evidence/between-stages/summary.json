@@ -52,5 +52,29 @@
     "different": [
       "snow-4-375"
     ]
+  },
+  "C-D_openingExact": {
+    "matched": 260,
+    "different": []
+  },
+  "C-D_movementTraceExact": {
+    "matched": 260,
+    "different": []
+  },
+  "C-D_mutatedStateExact": {
+    "matched": 260,
+    "different": []
+  },
+  "C-D_savedAndReloadedExact": {
+    "matched": 260,
+    "different": []
+  },
+  "C-D_returnGateExact": {
+    "matched": 260,
+    "different": []
+  },
+  "C-D_questionExact": {
+    "matched": 260,
+    "different": []
   }
 }

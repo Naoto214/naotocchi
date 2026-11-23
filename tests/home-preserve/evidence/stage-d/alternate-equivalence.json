@@ -1,0 +1,12 @@
+{
+  "comparedCases": 14,
+  "reference": "../no-hop/alternate-minimal.json",
+  "identicalOutputSha256": "b6f35b7d72c4c71756cf09fa810ce96d49cebb8672e23f3f3726b428fb0e22fb",
+  "dataIncludes": [
+    "initialAndSelectedDestination",
+    "perHopNativeFoot",
+    "terminalDistance",
+    "trustedGesture",
+    "crossedContactAndTerrain"
+  ]
+}
