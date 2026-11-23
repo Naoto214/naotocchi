@@ -21,8 +21,9 @@ def outcome(run):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('out',type=Path)
-    p.add_argument('archives',type=Path,nargs=3)
+    p.add_argument('archives',type=Path,nargs='+')
     args=p.parse_args();args.out.mkdir(exist_ok=True,parents=True)
+    if len(args.archives) not in (3,4):p.error('Expected the A, B, C archives and optional D archives')
     matrices=[load(folder)[0] for folder in args.archives]
     common=set.intersection(*(set(m) for m in matrices))
     if len(common)!=260:raise ValueError(f'Incomplete {len(common)}/260')
@@ -34,7 +35,7 @@ def main():
         if len({arm['fixture'] for m in raw for arm in m.values()})!=1:
             raise ValueError('Unmatched starting save '+case)
         row={'case':case,'baselineTracesExact':all(outcome(c)==outcome(controls[0]) for c in controls[1:])}
-        for label,x,y in [('A-B',*stages[:2]),('B-C',*stages[1:])]:
+        for label,x,y in zip(('A-B','B-C','C-D'),stages,stages[1:]):
             row[label+'_openingExact']=opening(x['placements']['opening'])==opening(y['placements']['opening'])
             row[label+'_movementTraceExact']=outcome(x)==outcome(y)
             row[label+'_mutatedStateExact']=x['lifecycle']['changed']['state']==y['lifecycle']['changed']['state']
