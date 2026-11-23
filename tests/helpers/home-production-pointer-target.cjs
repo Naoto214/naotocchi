@@ -76,6 +76,9 @@ module.exports=(request='tap')=>{
   // device. A physical ground tap must actually hit the stage, not that gutter.
   const hit=document.elementFromPoint(to.x,to.y);
   if(kind==='tap'&&hit!==stageNode&&!stageNode.contains(hit))continue;
+  // The live controller uses the painted scale and actor-specific body size.
+  // Its selection result takes precedence over the fixture's estimated bounds.
+  if(kind==='tap'&&q.pointerHit?.(to))continue;
   return {a,p,route,kind,stage:s,from,to,hit:hit?.id||hit?.tagName||null,selectionMs:performance.now()-started};
  }
  candidateCount+=candidates.length;

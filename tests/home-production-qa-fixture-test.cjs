@@ -56,6 +56,12 @@ test('physical pointer targets account for current presentation scale and indepe
    assert.deepEqual(JSON.parse(JSON.stringify(target.p)),{x:148,y:100});
    assert.deepEqual(JSON.parse(JSON.stringify(target.from)),current?{x:70,y:39}:{x:130,y:144});
    assert.deepEqual(JSON.parse(JSON.stringify(target.to)),current?{x:94,y:55}:{x:178,y:160});
+   if(kind==='tap'){
+    context.HomeReleaseQA.pointerHit=p=>p.x===target.to.x&&p.y===target.to.y?'partner:forest_bear':null;
+    const ground=context.module.exports(kind);
+    assert.equal(context.HomeReleaseQA.pointerHit(ground.to),null,'tap must miss the shipped resident hitbox');
+    delete context.HomeReleaseQA.pointerHit;
+   }
    coverage='overlap';
    const uncovered=context.module.exports(kind);
    assert.notDeepEqual(JSON.parse(JSON.stringify(uncovered.from)),JSON.parse(JSON.stringify(target.from)),'overlapping resident cannot steal the physical origin');
