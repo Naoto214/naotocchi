@@ -3,6 +3,7 @@ import argparse
 import csv
 from collections import Counter
 import gzip
+import io
 import json
 from pathlib import Path
 import zipfile
@@ -79,6 +80,25 @@ def summarise(data):
     return row
 
 
+def write_openings(out,observations):
+    # Float-to-text conversion round-trips the browser's original binary64 sample.
+    # The camera and crop have one authoritative value per arm and condition.
+    with (out/'opening-coordinates.csv.gz').open('wb') as f, gzip.GzipFile(filename='',fileobj=f,mode='wb',mtime=0) as gz, io.TextIOWrapper(gz,encoding='utf8',newline='') as stream:
+        writer=csv.writer(stream,lineterminator='\n')
+        writer.writerow(['case','arm','key','kind','stageX','stageY','screenFootX','screenFootY',
+                         'modeledScreenX','modeledScreenY','bodyWidth','bodyHeight','imageWidth','imageHeight',
+                         'zIndex','image','display','visibility','opacity','nativeNavigable','paintedGround',
+                         'cameraX','cameraY','cameraScaleX','cameraScaleY','bodyScale',
+                         'frameLeft','frameTop','frameRight','frameBottom','artLeft','artTop','artWidth','artHeight'])
+        for case,data in sorted(observations.items()):
+            for arm,run in data['runs'].items():
+                p=run['placements']['opening']
+                for a in p['feet']:
+                    writer.writerow([case,arm,a['key'],a['kind'],*a['stage'],*a['actual'],*a['screen'],*a['size'],
+                                     *(a['imageSize'] or ['','']),a['layer'],a['image'],*a['display'],a['valid'],a['painted'],
+                                     *p['camera'],*p['frame'],*p['cover']])
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('archives',type=Path);p.add_argument('out',type=Path)
@@ -96,6 +116,7 @@ def main():
                 losses.update(x for x in row['losses'].split(',') if x)
                 gains.update(x for x in row['gains'].split(',') if x)
     if rows:
+        write_openings(args.out,observations)
         with (args.out/'cells.csv').open('w') as f:
             writer=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator="\n");writer.writeheader();writer.writerows(rows)
     summary=dict(planned=260,observed=len(rows),missing=missing,errors=errors,lossTotals=dict(losses),gainTotals=dict(gains),
