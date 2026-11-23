@@ -14,7 +14,29 @@ def changed(before, after, tolerance=0.01):
     return len(before) != len(after) or any(abs(a-b) > tolerance for a,b in zip(before,after))
 
 
-def compare(base, trial):
+def busy_question(row):
+    gate=row['lifecycle']['initialQuestion']
+    return (not gate['eligible'] and gate['context'] and gate['emotion']=='normal' and not gate['suppressIdle']
+            and any(gate[k] for k in ('active','message','speech','busy','afterglow','petBusy','petMotion')))
+
+
+def matched_questions(replays, base, trial):
+    if not replays or not busy_question(trial):
+        return False
+    questions=[]
+    for arm,row in [('production',base),('candidate',trial)]:
+        replay=replays[arm]
+        q=replay['check']
+        if (replay['errors'] or replay['fixture']!=row['fixture'] or replay['clock']!=row['observation']['end']['clock']
+                or replay['target']!=row['target'] or replay['trajectory']!=row['observation']['trajectorySha256']
+                or not q['ready']['eligible'] or not q['started']
+                or q['active']!='question' or q['id']!=q['question'] or q['before']!=row['lifecycle']['first']):
+            return False
+        questions.append((q['ready'],q['before'],q['residents'],q['question']))
+    return questions[0]==questions[1]
+
+
+def compare(base, trial, question_replays=None):
     opening = []
     differences = {}
     for name, original in base['placements'].items():
@@ -54,16 +76,21 @@ def compare(base, trial):
     for field in ('contacts','terrain','occlusion','speed'):
         if t[field]>b[field]:losses.append(field)
     if (b['tap'] and t['tap']!=b['tap']) or (b['trusted'] and not t['trusted']):losses.append('input')
+    held=[]
+    if trial['lifecycle']['initialQuestion']['eligible'] and not trial['lifecycle']['conversation']:
+        losses.append('eligible-question-refused')
     for field in ('changed','evolved','conversation','restored','reloaded','returnGate'):
         l,r=base['lifecycle'][field],trial['lifecycle'][field]
         if field=='changed':l,r=l['state'],r['state']
         if field=='conversation' and l is False and r is True:
             gains.append(field)
+        elif field=='conversation' and l and not r and matched_questions(question_replays,base,trial):
+            held.append(field)
         elif l!=r:
             losses.append(field)
     if base['errors'] or trial['errors']:losses.append('pageerror')
     if base['fixture']!=trial['fixture']:losses.append('fixture')
-    return dict(losses=losses,gains=gains,base=b,candidate=t,differences=differences)
+    return dict(losses=losses,gains=gains,initialHolds=held,base=b,candidate=t,differences=differences)
 
 
 def main():
@@ -86,8 +113,14 @@ def main():
                 key=f'{args.region}-{n}-{w}'
                 try:
                     runs={arm:regional.run(browser,path,urls[arm],args.region,n,w,arm,30,True) for arm,path in roots.items()}
-                    result=compare(runs['production'],runs['candidate'])
+                    base,trial=runs['production'],runs['candidate']
+                    replays=None
+                    if base['lifecycle']['conversation'] and not trial['lifecycle']['conversation'] and busy_question(trial):
+                        replays={arm:regional.run(browser,path,urls[arm],args.region,n,w,arm,30,True,question_replay=True)
+                                 for arm,path in roots.items()}
+                    result=compare(base,trial,replays)
                     evidence=dict(runs=runs,comparison=result)
+                    if replays:evidence['questionReplays']=replays
                     if args.reference:
                         reference=regional.run(browser,args.reference,ref_url,args.region,n,w,'candidate',30,True)
                         refcheck=compare(reference,runs['candidate'])

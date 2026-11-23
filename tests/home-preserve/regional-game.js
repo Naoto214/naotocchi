@@ -10,11 +10,30 @@ window.regionGame={
     return {special:!!region.special,beforeMax,afterMax,beforeAllowed,afterAllowed,
       accepted:travelToRegion(region)===true};
   },
-  transitions() {
-    const first=this.state();
+  questionReady() {
+    const emotion=deriveHomeEmotion();
+    return {eligible:conv2CanStart(),context:conv2ContextOk(),active:conv2Unit?.kind||null,
+      message:!!message,speech:speechActive,busy:conversationIsBusy(),emotion:emotion.state,
+      suppressIdle:!!emotion.suppressPetIdle,afterglow:!!careAfterglowTimer,
+      petBusy:Date.now()<petBusyUntil,petMotion:!!castMotion?.isActive({kind:'pet'})};
+  },
+  tryEligibleQuestion() {
+    const ready=this.questionReady();
+    if(!ready.eligible)return false;
+    const q=CONVERSATION_BANTER.QUESTIONS[0],before=this.state();
+    const residents=[state.partner?.id||null,...state.companions.map(c=>c.id)];
+    const started=conv2Ask(q);
+    return {ready,before,residents,question:q.id,started,active:conv2Unit?.kind,id:conv2Unit?.id};
+  },
+  prepareQuestion() {
     clearConversationTimers();message='';speechActive=false;conversationBusyUntil=0;petBusyUntil=0;
     if(careAfterglowTimer)clearTimeout(careAfterglowTimer);careAfterglowTimer=null;
     castMotion.clear();el.storyFlash.classList.add('hidden');el.lifeCardOverlay.classList.add('hidden');render();
+  },
+  transitions() {
+    const first=this.state();
+    this.prepareQuestion();
+    const initialQuestion=this.questionReady();
     const conversation=conv2Ask(CONVERSATION_BANTER.QUESTIONS[0]);
     const companion=state.companions.pop();
     if(!companion)state.companions.push({id:NAOTOCCHI_CHARACTER_WORLD_MASTER_V1.companions.normal[0].id,bond:85});
@@ -26,7 +45,7 @@ window.regionGame={
     const changed={state:this.state(),rendered:regional.summary()};
     if(companion)state.companions.push(companion);else state.companions.pop();
     homeCastLayoutKey='';render();homeDiorama.sync();saveState();
-    return {first,changed,conversation,evolved,save:JSON.parse(localStorage.getItem(SAVE_KEY)),restored:this.state()};
+    return {first,changed,conversation,initialQuestion,evolved,save:JSON.parse(localStorage.getItem(SAVE_KEY)),restored:this.state()};
   }
 };
 

@@ -11,7 +11,7 @@ import subprocess
 import threading
 from urllib.parse import urlencode, urlsplit
 
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import TimeoutError as BrowserTimeout, sync_playwright
 
 HERE = Path(__file__).resolve().parent
 REGIONS = 'home forest river_lake city countryside mountain snow sea jungle desert deepsea star_stop memory_lake'.split()
@@ -58,15 +58,15 @@ def serve(root):
     threading.Thread(target=httpd.serve_forever,daemon=True).start()
     return 'http://127.0.0.1:'+str(httpd.server_port)
 
-def run(browser,root,base,region,count,width,arm,seconds,pairs=False,alternate=False,opening_probe=None,phase_observer=None):
+def run(browser,root,base,region,count,width,arm,seconds,pairs=False,alternate=False,opening_probe=None,phase_observer=None,question_replay=False):
     ctx=browser.new_context(viewport={'width':width,'height':HEIGHT[width]},device_scale_factor=2,
                              is_mobile=True,has_touch=True,timezone_id='Asia/Tokyo',locale='ja-JP')
     try:
-        return measure(ctx,root,base,region,count,width,arm,seconds,pairs,alternate,opening_probe,phase_observer)
+        return measure(ctx,root,base,region,count,width,arm,seconds,pairs,alternate,opening_probe,phase_observer,question_replay=question_replay)
     finally:
         ctx.close()
 
-def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False,alternate=False,opening_probe=None,phase_observer=None,clocked_photo=None):
+def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False,alternate=False,opening_probe=None,phase_observer=None,clocked_photo=None,question_replay=False):
     save=seed(region,count)
     hashes={}
     seen_errors=[]
@@ -168,6 +168,18 @@ def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False,alternate=F
         return dict(target=target,tap=tap,trace=observation['trace'],trusted=observation['trusted'],errors=seen_errors)
     if pairs:extra['walked']=placement()
     if phase_observer:phase_observer(page,'walked')
+    if question_replay:
+        # The replay reaches the same gesture and 30-second model checkpoint. Let
+        # native speech/motion timers finish without clearing a protected conversation.
+        page.clock.set_system_time("2026-11-23T03:00:00Z")
+        page.evaluate('regionGame.prepareQuestion()')
+        try:
+            check=page.wait_for_function('() => regionGame.tryEligibleQuestion()',timeout=15000).json_value()
+        except BrowserTimeout:
+            check=dict(started=False,ready=page.evaluate('regionGame.questionReady()'),timeout=True)
+        return dict(check=check,target=target,clock=observation['end']['clock'],
+                    trajectory=observation['trajectorySha256'],errors=seen_errors,
+                    fixture=hashlib.sha256(json.dumps(save,sort_keys=True).encode()).hexdigest())
     lifecycle=page.evaluate('regionGame.transitions()')
     if pairs:extra['lifecycle']=placement()
     if phase_observer:phase_observer(page,'restored')
