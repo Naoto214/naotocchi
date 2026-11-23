@@ -65,6 +65,8 @@ def instrument(page, root, bracket=False):
                 src = once(src, anchor, """window.bracketReady=(region,count)=>enabled && scene?.region===region &&
                   world?.stats().loaded && scene.navigation && model.snapshot().length===count &&
                   !pendingResidentPresentation && [...stage.querySelectorAll('img.character-asset')].every(i=>i.complete&&i.naturalWidth);
+                window.bracketGeometry=()=>JSON.stringify([env.NaotocchiHomeViewport.residentPresentation(),
+                  model.snapshot().map(a=>[a.key,a.x,a.y,a.w,a.h]),world.stats().projectionRevision]);
                 window.bracketRun=n=>{
                   const pack=()=>model.snapshot().map(a=>[a.key,a.x,a.y,a.w,a.h,a.nextAt,a.manualUntil,a.lastWalk,a.target,a.route]);
                   const opening=pack(),before=model.metrics(),cost={move:[],step:[]};
@@ -155,6 +157,13 @@ def trial(browser, server, root, save, region, count, seconds, bracket=False):
         page.goto(f'http://127.0.0.1:{server.server_port}/', wait_until='load', timeout=90000)
         if bracket:
             page.wait_for_function('([r,n])=>window.bracketReady?.(r,n)',arg=[region,count],timeout=60000)
+            page.evaluate("""async()=>{const limit=performance.now()+15000;let previous=null,unchanged=0;
+              while(performance.now()<limit){
+                await new Promise(nativeFrame);const key=bracketGeometry();
+                if(key!==previous){previous=key;unchanged=performance.now();}
+                else if(performance.now()-unchanged>=1500)return;
+              }throw Error('Controlled model did not settle');
+            }""")
             result=page.evaluate('n=>bracketRun(n)',seconds)
             before,after=result['before'],result['after']
             def digest(data):
