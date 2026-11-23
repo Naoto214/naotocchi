@@ -53,14 +53,18 @@ def instrument(page, root, bracket=False):
                     wrapper = wrapper.replace('if(!window.sampleOps)', 'if(!window.bracketActive&&args[0]>0)return;if(!window.sampleOps)')
                 if bracket and operation == 'move':
                     # Capture full peer footprints outside the timed section.
+                    wrapper = wrapper.replace('try{return originalmove(...args);}', 'let result;try{return result=originalmove(...args);}')
+                    wrapper = wrapper.replace('sampleOps("move",start,performance.now());',
+                            'sampleOps("move",start,performance.now());const a=actor(args[0]);'
+                            'window.bracketRoutes.push([result,a?.target,a?.route?.slice()]);')
                     wrapper = wrapper.replace('const start=performance.now();', """
                       window.bracketInputs.push([clock,args,actors.map(a=>[a.key,a.x,a.y,a.w,a.h])]);
                       const start=performance.now();""")
                 src = once(src, anchor, wrapper)
         else:
+            src = once(src, 'modelAPI.createModel({onEvent:emit})',
+                       'modelAPI.createModel({onEvent:emit,random:window.bracketRandom})')
             if bracket:
-                src = once(src, 'modelAPI.createModel({onEvent:emit})',
-                           'modelAPI.createModel({onEvent:emit,random:window.bracketRandom})')
                 anchor = 'return {model,update,sync,interrupt,'
                 src = once(src, anchor, """window.bracketReady=(region,count)=>enabled && scene?.region===region &&
                   world?.stats().loaded && scene.navigation && model.snapshot().length===count &&
@@ -70,11 +74,11 @@ def instrument(page, root, bracket=False):
                 window.bracketRun=n=>{
                   const pack=()=>model.snapshot().map(a=>[a.key,a.x,a.y,a.w,a.h,a.nextAt,a.manualUntil,a.lastWalk,a.target,a.route]);
                   const opening=pack(),before=model.metrics(),cost={move:[],step:[]};
-                  window.bracketInputs=[];window.bracketActive=true;
+                  window.bracketInputs=[];window.bracketRoutes=[];window.bracketActive=true;
                   window.sampleOps=(name,a,b)=>cost[name].push(b-a);
                   try{for(let i=0;i<n*10;i++)model.step(.1,{blocked:false,reducedMotion:false});}
                   finally{window.sampleOps=null;window.bracketActive=false;}
-                  return {opening,inputs:window.bracketInputs,final:pack(),before,after:model.metrics(),cost};
+                  return {opening,inputs:window.bracketInputs,routes:window.bracketRoutes,final:pack(),before,after:model.metrics(),cost};
                 };
                 """+anchor)
             anchor = 'return {model,update,sync,interrupt,'
@@ -148,8 +152,7 @@ def trial(browser, server, root, save, region, count, seconds, bracket=False):
         context.add_init_script(date_only+'let seed=214;Math.random=()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296);'
                                 'const save='+save+';save.savedAt=Date.now();localStorage.setItem("naotocchi-save-v1",JSON.stringify(save));'
                                 'localStorage.setItem("naotocchi-save-v1:home-guide-v1","done");')
-        if bracket:
-            context.add_init_script("let actorSeed=214;window.bracketRandom=()=>((actorSeed=(Math.imul(actorSeed,1664525)+1013904223)>>>0)/4294967296)")
+        context.add_init_script("let actorSeed=214;window.bracketRandom=()=>((actorSeed=(Math.imul(actorSeed,1664525)+1013904223)>>>0)/4294967296)")
         page = context.new_page()
         page.on('pageerror', lambda error: errors.append(str(error)))
         page.on('response', lambda r: errors.append(str(r.status)+' '+r.url.split('/')[-1]) if r.status >= 400 else None)
@@ -170,6 +173,7 @@ def trial(browser, server, root, save, region, count, seconds, bracket=False):
                 return hashlib.sha256(json.dumps(data,separators=(',',':')).encode()).hexdigest()
             return {'opening':digest(result['opening']), 'final':digest(result['final']),
                     'inputs':[digest(entry) for entry in result['inputs']],
+                    'routes':[digest(entry) for entry in result['routes']],
                     'metrics':{k:summarize(values) for k,values in result['cost'].items()},
                     'moveMs':result['cost']['move'], 'errors':errors,
                     'activity':{k:round(after[k]-before[k],3) for k in ('clock','distance','moves','turns')}}
@@ -197,6 +201,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     for name in ['production', 'candidate', 'seed_file', 'output']:
         p.add_argument(name, type=Path)
+    p.add_argument('--reference',type=Path,help='An optional unchanged candidate between the production and trial builds')
     p.add_argument('--seconds', type=int, default=60)
     p.add_argument('--cases', nargs='+', default=['forest/28','mountain/10','jungle/10','forest/1'])
     p.add_argument('--orders', nargs='+', choices=['forward','reverse'], default=['forward','reverse'])
@@ -204,11 +209,15 @@ def main():
     p.add_argument('--engine', choices=['chromium','webkit'], default='webkit')
     p.add_argument('--executable')
     args = p.parse_args()
-    roots = {s: getattr(args,s) for s in ('production','candidate')}
+    roots = {'production':args.production}
+    if args.reference:
+        roots['reference']=args.reference
+    roots['candidate']=args.candidate
     servers = {s: serve(r) for s,r in roots.items()}
     data = {'durationSeconds': args.seconds, 'rows': [], 'controlledSteps':args.bracket,'sha256': {
         s: {f: hashlib.sha256((r/f).read_bytes()).hexdigest() for f in
-            ('home-production-model.js','home-production-diorama.js','index.html')} for s,r in roots.items()}}
+            ('home-production-model.js','home-production-diorama.js','index.html','home-route-navigation.mjs',
+             'home-art-navigation.mjs','home-visible-ground-navigation.mjs','home-recovered-navigation.mjs','home-production-world.mjs')} for s,r in roots.items()}}
     try:
         with sync_playwright() as pw:
             browser = getattr(pw, args.engine).launch(executable_path=args.executable)
