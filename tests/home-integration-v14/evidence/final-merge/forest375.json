@@ -1,0 +1,104 @@
+{
+  "runtime": {
+    "index.html": "105bca1ce46c1ff2a659a9cbbb7cbe8ea2a7e8d4269cbfcbd05a3d977f382f8e",
+    "script.js": "b91746ce36444a89a5f7945efe38aafbc34a8a319af628e7bce7d1426a9249e7",
+    "home-production-world.mjs": "ee2f884cd801ed4aa45cb7f89bef721fcefc1608de297b22882a6681e698dd68",
+    "home-production-model.js": "2e0a49c4f2a234e7931d678f2449d7e7cd5f18a0f005053514fd909bf4cb8b7b",
+    "home-production-diorama.js": "21d93f73c2d136924859cff7503f20e264b210ba626a316677918d3a6d6e9d1f",
+    "home-production-touch.js": "ec0537400d8a1f2d470ca35432214e0978278157e03702c54bdd7ee9843a3a7c",
+    "home-production-layout.css": "ad2694278fb57d5d22506b83596d694a81b5d59b373be3d04e7538fd7853c679"
+  },
+  "browser": "156.0.8078.79",
+  "checkpoint": {
+    "label": "loaded",
+    "region": "forest",
+    "ms": 16267,
+    "clock": 3.0499000000000005,
+    "navigation": true,
+    "projection": 4,
+    "drawn": {
+      "left": -98.1955127798634,
+      "top": -316.37471147017055,
+      "width": 571.3910255597268,
+      "height": 857.0865383395902,
+      "region": "forest",
+      "revision": 4
+    },
+    "viewport": [
+      375,
+      615
+    ],
+    "loaded": true,
+    "pending": false,
+    "bodyScale": 0.7,
+    "camera": [
+      1.3873593449261084,
+      0.5650691439946997
+    ],
+    "seating": null,
+    "stageVisibility": "visible",
+    "input": null,
+    "actors": [
+      {
+        "key": "pet:dog",
+        "stage": [
+          185.22,
+          287.39
+        ],
+        "screen": [
+          178.0193,
+          294.6431
+        ],
+        "artwork": [
+          0.4834,
+          0.7129
+        ],
+        "centeredCover": [
+          0.4769,
+          0.4791
+        ],
+        "image": [
+          154.8743,
+          251.7103,
+          46.2368,
+          45.7744
+        ],
+        "imageFile": "assets/characters/dog/06.png",
+        "destination": null,
+        "source": "ambient",
+        "navigation": true,
+        "visible": true
+      },
+      {
+        "key": "partner:forest_bear",
+        "stage": [
+          262.395,
+          99.083
+        ],
+        "screen": [
+          285.0887,
+          188.2366
+        ],
+        "artwork": [
+          0.6708,
+          0.5888
+        ],
+        "centeredCover": [
+          0.738,
+          0.3061
+        ],
+        "image": [
+          270.8797,
+          161.7093,
+          28.5883,
+          28.3024
+        ],
+        "imageFile": "assets/characters/partners/forest_bear.png",
+        "destination": null,
+        "source": "ambient",
+        "navigation": true,
+        "visible": true
+      }
+    ]
+  }
+}

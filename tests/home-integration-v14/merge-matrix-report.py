@@ -26,7 +26,26 @@ def measure(row, main):
         return math.dist(*(a[field] for a in leads))
     layout = report.regional_report.compact(row)
     retry = row.get('alternate')
+    hero = next(a for a in leads if a['kind'] == 'pet')
+    mate = next((a for a in leads if a['kind'] == 'partner'), None)
+    main_distance = math.dist(main_feet[hero['key']]['screen'],main_feet[mate['key']]['screen']) if mate else None
+    pair_distance = distance('screen') if mate else None
     return dict(
+        heroFootExact=hero['screen']==main_feet[hero['key']]['screen'],
+        exactCompanionFeet=sum(a['screen']==main_feet[a['key']]['screen'] for a in peers),
+        exactCompanionStageFeet=sum(a['stage']==main_feet[a['key']]['stage'] for a in peers),
+        sameCompanionOrder=[a['key'] for a in peers]==[a['key'] for a in main_feet.values() if a['kind']=='companion'],
+        heroMoved=math.dist(hero['screen'], main_feet[hero['key']]['screen']) > .01,
+        mateMoved=(math.dist(mate['screen'], main_feet[mate['key']]['screen']) > .01) if mate else None,
+        pairCloserThanMain=(pair_distance < main_distance - .01) if mate else None,
+        pairFartherThanMain=(pair_distance > main_distance + .01) if mate else None,
+        companionLayoutMatches=all(d <= .01 for d in deviations),
+        invalidOpeningFeet=sum(not a['valid'] for a in feet),
+        occludedOpeningFeet=sum(not a['visible'] for a in feet),
+        unpaintedOpeningFeet=sum(not a['painted'] for a in feet),
+        outsideFrameFeet=sum(a['edge'] < -.001 for a in feet),
+        shadowMisaligned=layout['maxShadowOffset'] is None or layout['maxShadowOffset']>.001,
+        sweptSeconds=layout['seconds'],
         **{k: layout[k] for k in ('hops', 'contact', 'terrain', 'occlusion', 'speed', 'errors',
                                   'tapped', 'dragIssued', 'dragAccepted', 'conversation', 'evolution',
                                   'equipment', 'census', 'time', 'reload', 'decoded', 'shadows')},
@@ -34,7 +53,11 @@ def measure(row, main):
         movedCompanions=sum(d > .01 for d in deviations), maxCompanionPx=max(deviations, default=0),
         layerChangedCompanions=sum(a['layer'] != main_feet[a['key']]['layer'] for a in peers),
         sizeChangedCompanions=sum(a['size'] != main_feet[a['key']]['size'] for a in peers),
-        pairDistance=distance('screen') if len(leads) == 2 else None,
+        pairDistance=pair_distance,
+        partnerDx=(mate['screen'][0]-hero['screen'][0]) if mate else None,
+        partnerDy=(mate['screen'][1]-hero['screen'][1]) if mate else None,
+        partnerFrameRightMargin=(placement['frame'][2]-mate['screen'][0]) if mate else None,
+        partnerFrameTopMargin=(mate['screen'][1]-placement['frame'][1]) if mate else None,
         pairDistanceError=abs(distance('screen') - distance('solverScreen')) if len(leads) == 2 else None,
         openingContacts=len(placement['contacts']),
         openingLeadContacts=sum(any(a['key'] in pair[:2] for a in leads) for pair in placement['contacts']),
@@ -68,11 +91,14 @@ def main():
             values=measure(row,groups['production'][key])
             observations.append(values)
             table.append(dict(region=key[0],count=key[1],width=key[2],arm=label,**values))
-        metrics={}
+        hashes=next(iter(group.values()))['sources']
+        if any(r['sources'] != hashes for r in group.values()):
+            raise ValueError(f'Mixed runtime hashes for {label}')
+        metrics=dict(runtimeSha256=hashes,cells=len(observations))
         for field in observations[0]:
             vals=[r[field] for r in observations if r[field] is not None]
-            if field in ('pairDistance','pairDistanceError'):
-                metrics[field]=dict(cells=len(vals),median=statistics.median(vals),max=max(vals))
+            if field in ('pairDistance','pairDistanceError','partnerDx','partnerDy','partnerFrameRightMargin','partnerFrameTopMargin'):
+                metrics[field]=dict(cells=len(vals),min=min(vals),median=statistics.median(vals),max=max(vals))
             elif field in ('ordinarySyncMaxPx','maxCompanionPx'):
                 metrics[field]=max(vals)
             else:

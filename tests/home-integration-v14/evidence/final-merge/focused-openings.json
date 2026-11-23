@@ -1,0 +1,182 @@
+[
+  {
+    "arm": "#584 before",
+    "region": "forest",
+    "residents": 28,
+    "width": 390,
+    "viewport": [
+      390,
+      630
+    ],
+    "hero": [
+      145.1575,
+      302.9946
+    ],
+    "partner": [
+      68.0091,
+      307.2038
+    ],
+    "distancePx": 77.2631411942331,
+    "errors": [],
+    "browser": "156.0.8078.79",
+    "runtime": {
+      "index.html": "43a0dc57aef2b1f136af08fe7ea27b792c4732b8724606fb704ee63909496c82",
+      "script.js": "0a61fb011e1f23e688aa3519a90c9ea338278cebbbfdf8d179fd7cdf4f428e6c",
+      "home-production-world.mjs": "ee2f884cd801ed4aa45cb7f89bef721fcefc1608de297b22882a6681e698dd68",
+      "home-production-model.js": "a715408c992a4c09971cadd03d43acb75c116cb91193c8fc7cb0bfa4840b72ef",
+      "home-production-diorama.js": "296f4c7dd193ee12b92b5a7b03ceb78535371399f2694bc3f31c0da89f06876b",
+      "home-production-touch.js": "ec0537400d8a1f2d470ca35432214e0978278157e03702c54bdd7ee9843a3a7c",
+      "home-production-layout.css": "ad2694278fb57d5d22506b83596d694a81b5d59b373be3d04e7538fd7853c679"
+    }
+  },
+  {
+    "arm": "#584 before",
+    "region": "mountain",
+    "residents": 10,
+    "width": 375,
+    "viewport": [
+      375,
+      615
+    ],
+    "hero": [
+      205.6743,
+      287.6652
+    ],
+    "partner": [
+      257.3134,
+      246.5385
+    ],
+    "distancePx": 66.0151656947099,
+    "errors": [],
+    "browser": "156.0.8078.79",
+    "runtime": {
+      "index.html": "43a0dc57aef2b1f136af08fe7ea27b792c4732b8724606fb704ee63909496c82",
+      "script.js": "0a61fb011e1f23e688aa3519a90c9ea338278cebbbfdf8d179fd7cdf4f428e6c",
+      "home-production-world.mjs": "ee2f884cd801ed4aa45cb7f89bef721fcefc1608de297b22882a6681e698dd68",
+      "home-production-model.js": "a715408c992a4c09971cadd03d43acb75c116cb91193c8fc7cb0bfa4840b72ef",
+      "home-production-diorama.js": "296f4c7dd193ee12b92b5a7b03ceb78535371399f2694bc3f31c0da89f06876b",
+      "home-production-touch.js": "ec0537400d8a1f2d470ca35432214e0978278157e03702c54bdd7ee9843a3a7c",
+      "home-production-layout.css": "ad2694278fb57d5d22506b83596d694a81b5d59b373be3d04e7538fd7853c679"
+    }
+  },
+  {
+    "arm": "#584 before",
+    "region": "jungle",
+    "residents": 10,
+    "width": 390,
+    "viewport": [
+      390,
+      630
+    ],
+    "hero": [
+      216.3189,
+      295.6782
+    ],
+    "partner": [
+      305.5143,
+      295.6782
+    ],
+    "distancePx": 89.19539999999998,
+    "errors": [],
+    "browser": "156.0.8078.79",
+    "runtime": {
+      "index.html": "43a0dc57aef2b1f136af08fe7ea27b792c4732b8724606fb704ee63909496c82",
+      "script.js": "0a61fb011e1f23e688aa3519a90c9ea338278cebbbfdf8d179fd7cdf4f428e6c",
+      "home-production-world.mjs": "ee2f884cd801ed4aa45cb7f89bef721fcefc1608de297b22882a6681e698dd68",
+      "home-production-model.js": "a715408c992a4c09971cadd03d43acb75c116cb91193c8fc7cb0bfa4840b72ef",
+      "home-production-diorama.js": "296f4c7dd193ee12b92b5a7b03ceb78535371399f2694bc3f31c0da89f06876b",
+      "home-production-touch.js": "ec0537400d8a1f2d470ca35432214e0978278157e03702c54bdd7ee9843a3a7c",
+      "home-production-layout.css": "ad2694278fb57d5d22506b83596d694a81b5d59b373be3d04e7538fd7853c679"
+    }
+  },
+  {
+    "arm": "final",
+    "region": "forest",
+    "residents": 28,
+    "width": 390,
+    "viewport": [
+      390,
+      630
+    ],
+    "hero": [
+      186.3125,
+      304.0332
+    ],
+    "partner": [
+      111.5701,
+      304.0332
+    ],
+    "distancePx": 74.7424,
+    "errors": [],
+    "browser": "156.0.8078.79",
+    "runtime": {
+      "index.html": "105bca1ce46c1ff2a659a9cbbb7cbe8ea2a7e8d4269cbfcbd05a3d977f382f8e",
+      "script.js": "b91746ce36444a89a5f7945efe38aafbc34a8a319af628e7bce7d1426a9249e7",
+      "home-production-world.mjs": "ee2f884cd801ed4aa45cb7f89bef721fcefc1608de297b22882a6681e698dd68",
+      "home-production-model.js": "2e0a49c4f2a234e7931d678f2449d7e7cd5f18a0f005053514fd909bf4cb8b7b",
+      "home-production-diorama.js": "21d93f73c2d136924859cff7503f20e264b210ba626a316677918d3a6d6e9d1f",
+      "home-production-touch.js": "ec0537400d8a1f2d470ca35432214e0978278157e03702c54bdd7ee9843a3a7c",
+      "home-production-layout.css": "ad2694278fb57d5d22506b83596d694a81b5d59b373be3d04e7538fd7853c679"
+    }
+  },
+  {
+    "arm": "final",
+    "region": "mountain",
+    "residents": 10,
+    "width": 375,
+    "viewport": [
+      375,
+      615
+    ],
+    "hero": [
+      205.6743,
+      287.6652
+    ],
+    "partner": [
+      208.3582,
+      218.4146
+    ],
+    "distancePx": 69.30258955890467,
+    "errors": [],
+    "browser": "156.0.8078.79",
+    "runtime": {
+      "index.html": "105bca1ce46c1ff2a659a9cbbb7cbe8ea2a7e8d4269cbfcbd05a3d977f382f8e",
+      "script.js": "b91746ce36444a89a5f7945efe38aafbc34a8a319af628e7bce7d1426a9249e7",
+      "home-production-world.mjs": "ee2f884cd801ed4aa45cb7f89bef721fcefc1608de297b22882a6681e698dd68",
+      "home-production-model.js": "2e0a49c4f2a234e7931d678f2449d7e7cd5f18a0f005053514fd909bf4cb8b7b",
+      "home-production-diorama.js": "21d93f73c2d136924859cff7503f20e264b210ba626a316677918d3a6d6e9d1f",
+      "home-production-touch.js": "ec0537400d8a1f2d470ca35432214e0978278157e03702c54bdd7ee9843a3a7c",
+      "home-production-layout.css": "ad2694278fb57d5d22506b83596d694a81b5d59b373be3d04e7538fd7853c679"
+    }
+  },
+  {
+    "arm": "final",
+    "region": "jungle",
+    "residents": 10,
+    "width": 390,
+    "viewport": [
+      390,
+      630
+    ],
+    "hero": [
+      216.3189,
+      295.6782
+    ],
+    "partner": [
+      262.8366,
+      220.8246
+    ],
+    "distancePx": 88.13034577402948,
+    "errors": [],
+    "browser": "156.0.8078.79",
+    "runtime": {
+      "index.html": "105bca1ce46c1ff2a659a9cbbb7cbe8ea2a7e8d4269cbfcbd05a3d977f382f8e",
+      "script.js": "b91746ce36444a89a5f7945efe38aafbc34a8a319af628e7bce7d1426a9249e7",
+      "home-production-world.mjs": "ee2f884cd801ed4aa45cb7f89bef721fcefc1608de297b22882a6681e698dd68",
+      "home-production-model.js": "2e0a49c4f2a234e7931d678f2449d7e7cd5f18a0f005053514fd909bf4cb8b7b",
+      "home-production-diorama.js": "21d93f73c2d136924859cff7503f20e264b210ba626a316677918d3a6d6e9d1f",
+      "home-production-touch.js": "ec0537400d8a1f2d470ca35432214e0978278157e03702c54bdd7ee9843a3a7c",
+      "home-production-layout.css": "ad2694278fb57d5d22506b83596d694a81b5d59b373be3d04e7538fd7853c679"
+    }
+  }
+]

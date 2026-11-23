@@ -1,0 +1,74 @@
+{
+  "lifecycle": {
+    "observations": 260,
+    "allContacts": 242,
+    "mutualLeadContacts": 0,
+    "leadAndCompanionContacts": 10,
+    "invalidFeet": 0,
+    "occludedFeet": 0,
+    "outsideFrameFeet": 0
+  },
+  "opening": {
+    "observations": 260,
+    "allContacts": 247,
+    "mutualLeadContacts": 0,
+    "leadAndCompanionContacts": 7,
+    "invalidFeet": 0,
+    "occludedFeet": 0,
+    "outsideFrameFeet": 0
+  },
+  "reload": {
+    "observations": 260,
+    "allContacts": 432,
+    "mutualLeadContacts": 0,
+    "leadAndCompanionContacts": 26,
+    "invalidFeet": 0,
+    "occludedFeet": 0,
+    "outsideFrameFeet": 0
+  },
+  "resized": {
+    "observations": 260,
+    "allContacts": 492,
+    "mutualLeadContacts": 0,
+    "leadAndCompanionContacts": 28,
+    "invalidFeet": 0,
+    "occludedFeet": 0,
+    "outsideFrameFeet": 0
+  },
+  "returnTrip": {
+    "observations": 260,
+    "allContacts": 380,
+    "mutualLeadContacts": 0,
+    "leadAndCompanionContacts": 29,
+    "invalidFeet": 0,
+    "occludedFeet": 0,
+    "outsideFrameFeet": 0
+  },
+  "sync": {
+    "observations": 260,
+    "allContacts": 247,
+    "mutualLeadContacts": 0,
+    "leadAndCompanionContacts": 7,
+    "invalidFeet": 0,
+    "occludedFeet": 0,
+    "outsideFrameFeet": 0
+  },
+  "travel": {
+    "observations": 260,
+    "allContacts": 165,
+    "mutualLeadContacts": 0,
+    "leadAndCompanionContacts": 13,
+    "invalidFeet": 0,
+    "occludedFeet": 0,
+    "outsideFrameFeet": 0
+  },
+  "walked": {
+    "observations": 260,
+    "allContacts": 205,
+    "mutualLeadContacts": 0,
+    "leadAndCompanionContacts": 5,
+    "invalidFeet": 0,
+    "occludedFeet": 0,
+    "outsideFrameFeet": 0
+  }
+}
