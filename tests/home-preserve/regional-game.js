@@ -29,3 +29,6 @@ window.regionGame={
     return {first,changed,conversation,evolved,save:JSON.parse(localStorage.getItem(SAVE_KEY)),restored:this.state()};
   }
 };
+
+// Enter the shipped notification queue with an otherwise ordinary story event.
+window.regionGame.notice = () => showStoryEvent({emoji:'🌱',message:'おしらせ'});
