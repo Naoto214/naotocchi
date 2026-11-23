@@ -44,6 +44,8 @@ jobs:
         run: |
           if [[ "$MESSAGE" == *"[preserve-stage-a]"* ]]; then
             echo "ref=e731b5d0a9c6f8eabc0dc8b40d29f8d2af35dfd2" >> "$GITHUB_OUTPUT"
+          elif [[ "$MESSAGE" == *"[preserve-stage-b]"* ]]; then
+            echo "ref=190992523134d4e86a0da6838fb45e921f18a6d1" >> "$GITHUB_OUTPUT"
           else
             echo "ref=$GITHUB_SHA" >> "$GITHUB_OUTPUT"
           fi
