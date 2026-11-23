@@ -6,17 +6,13 @@ permissions:
   contents: read
 jobs:
   webkit:
-    if: contains(github.event.head_commit.message, '[preserve-perf]') || contains(github.event.head_commit.message, '[preserve-matrix]')
+    if: contains(github.event.head_commit.message, '[preserve-perf]') || contains(github.event.head_commit.message, '[preserve-perf-bracket]')
     runs-on: ubuntu-latest
     timeout-minutes: 25
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - {region: forest, count: 28}
-          - {region: mountain, count: 10}
-          - {region: jungle, count: 10}
-          - {region: forest, count: 1}
+        include: ${{ fromJSON(contains(github.event.head_commit.message, '[preserve-perf-bracket]') && '[{"region":"forest","count":28},{"region":"mountain","count":10}]' || '[{"region":"forest","count":28},{"region":"mountain","count":10},{"region":"jungle","count":10},{"region":"forest","count":1}]') }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -50,11 +46,20 @@ jobs:
           REGION: ${{ matrix.region }}
           COUNT: ${{ matrix.count }}
         run: |
-          python -Bu tests/home-preserve/performance.py .production . tests/home-preserve/resident-save.cjs timing.json --cases "$REGION/$COUNT"
+          python -Bu tests/home-preserve/performance.py .production . tests/home-preserve/resident-save.cjs timing.json --cases "$REGION/$COUNT" --orders reverse forward
+      - name: Replay equal simulation time and compare individual route requests
+        if: contains(github.event.head_commit.message, '[preserve-perf-bracket]')
+        env:
+          REGION: ${{ matrix.region }}
+          COUNT: ${{ matrix.count }}
+        run: |
+          python -Bu tests/home-preserve/performance.py .production . tests/home-preserve/resident-save.cjs bracket.json --cases "$REGION/$COUNT" --orders reverse forward --bracket
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: matched-wpe-${{ matrix.region }}-${{ matrix.count }}
-          path: timing.json
+          path: |
+            timing.json
+            bracket.json
           if-no-files-found: error
           retention-days: 14

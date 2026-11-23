@@ -36,7 +36,7 @@ def once(src, before, after):
     return src.replace(before, after)
 
 
-def instrument(page, root):
+def instrument(page, root, bracket=False):
     def patch(route):
         name = route.request.url.split('/')[-1].split('?')[0]
         src = (root / name).read_text()
@@ -49,8 +49,32 @@ def instrument(page, root):
                            f'const start=performance.now();try{{return original{operation}(...args);}}'
                            f'finally{{sampleOps("{operation}",start,performance.now());}}}}'
                            f'function original{operation}({signature}){{')
+                if bracket and operation == 'step':
+                    wrapper = wrapper.replace('if(!window.sampleOps)', 'if(!window.bracketActive&&args[0]>0)return;if(!window.sampleOps)')
+                if bracket and operation == 'move':
+                    # Capture full peer footprints outside the timed section.
+                    wrapper = wrapper.replace('const start=performance.now();', """
+                      window.bracketInputs.push([clock,args,actors.map(a=>[a.key,a.x,a.y,a.w,a.h])]);
+                      const start=performance.now();""")
                 src = once(src, anchor, wrapper)
         else:
+            if bracket:
+                src = once(src, 'modelAPI.createModel({onEvent:emit})',
+                           'modelAPI.createModel({onEvent:emit,random:window.bracketRandom})')
+                anchor = 'return {model,update,sync,interrupt,'
+                src = once(src, anchor, """window.bracketReady=(region,count)=>enabled && scene?.region===region &&
+                  world?.stats().loaded && scene.navigation && model.snapshot().length===count &&
+                  !pendingResidentPresentation && [...stage.querySelectorAll('img.character-asset')].every(i=>i.complete&&i.naturalWidth);
+                window.bracketRun=n=>{
+                  const pack=()=>model.snapshot().map(a=>[a.key,a.x,a.y,a.w,a.h,a.nextAt,a.manualUntil,a.lastWalk,a.target,a.route]);
+                  const opening=pack(),before=model.metrics(),cost={move:[],step:[]};
+                  window.bracketInputs=[];window.bracketActive=true;
+                  window.sampleOps=(name,a,b)=>cost[name].push(b-a);
+                  try{for(let i=0;i<n*10;i++)model.step(.1,{blocked:false,reducedMotion:false});}
+                  finally{window.sampleOps=null;window.bracketActive=false;}
+                  return {opening,inputs:window.bracketInputs,final:pack(),before,after:model.metrics(),cost};
+                };
+                """+anchor)
             anchor = 'return {model,update,sync,interrupt,'
             src = once(src, anchor, 'window.residentStats=()=>model.metrics();'+anchor)
             anchor = 'if(gap>=interval){'
@@ -101,7 +125,7 @@ def summarize(values):
             **{f'p{p}': round(values[math.ceil(len(values)*p/100)-1], 1) for p in (50, 95, 99)}}
 
 
-def trial(browser, server, root, save, region, count, seconds):
+def trial(browser, server, root, save, region, count, seconds, bracket=False):
     context = browser.new_context(viewport={'width': 375, 'height': 615}, device_scale_factor=2,
                                   has_touch=True, is_mobile=True, timezone_id='Asia/Tokyo', locale='ja-JP')
     errors = []
@@ -122,11 +146,24 @@ def trial(browser, server, root, save, region, count, seconds):
         context.add_init_script(date_only+'let seed=214;Math.random=()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296);'
                                 'const save='+save+';save.savedAt=Date.now();localStorage.setItem("naotocchi-save-v1",JSON.stringify(save));'
                                 'localStorage.setItem("naotocchi-save-v1:home-guide-v1","done");')
+        if bracket:
+            context.add_init_script("let actorSeed=214;window.bracketRandom=()=>((actorSeed=(Math.imul(actorSeed,1664525)+1013904223)>>>0)/4294967296)")
         page = context.new_page()
         page.on('pageerror', lambda error: errors.append(str(error)))
         page.on('response', lambda r: errors.append(str(r.status)+' '+r.url.split('/')[-1]) if r.status >= 400 else None)
-        instrument(page, root)
+        instrument(page, root, bracket)
         page.goto(f'http://127.0.0.1:{server.server_port}/', wait_until='load', timeout=90000)
+        if bracket:
+            page.wait_for_function('([r,n])=>window.bracketReady?.(r,n)',arg=[region,count],timeout=60000)
+            result=page.evaluate('n=>bracketRun(n)',seconds)
+            before,after=result['before'],result['after']
+            def digest(data):
+                return hashlib.sha256(json.dumps(data,separators=(',',':')).encode()).hexdigest()
+            return {'opening':digest(result['opening']), 'final':digest(result['final']),
+                    'inputs':[digest(entry) for entry in result['inputs']],
+                    'metrics':{k:summarize(values) for k,values in result['cost'].items()},
+                    'moveMs':result['cost']['move'], 'errors':errors,
+                    'activity':{k:round(after[k]-before[k],3) for k in ('clock','distance','moves','turns')}}
         page.wait_for_function("""([r,n])=>document.getElementById('castStage')?.dataset.diorama===r &&
             document.querySelectorAll('[data-diorama-actor]').length===n && window.residentStats?.().clock>0""",
                                arg=[region, count], timeout=60000)
@@ -137,6 +174,7 @@ def trial(browser, server, root, save, region, count, seconds):
         before, after = row.pop('before'), row.pop('after')
         row['metrics'] = {key: summarize(value) for key, value in times.items()}
         row['hitches'] = {str(t): sum(v>t for v in times['frame']) for t in [100, 250, 500, 1000]}
+        row['stalledMs'] = {str(t): round(sum(v for v in times['frame'] if v>t),1) for t in [100,250,500,1000]}
         row['stalls'] = sorted(row['stalls'], key=lambda r: r['gap'], reverse=True)[:5]
         row['activity'] = {k: round(after[k]-before[k], 2) for k in ['clock', 'distance', 'moves', 'turns']}
         row['errors'] = list(Counter(errors))
@@ -153,12 +191,13 @@ def main():
     p.add_argument('--seconds', type=int, default=60)
     p.add_argument('--cases', nargs='+', default=['forest/28','mountain/10','jungle/10','forest/1'])
     p.add_argument('--orders', nargs='+', choices=['forward','reverse'], default=['forward','reverse'])
+    p.add_argument('--bracket', action='store_true',help='Compare work for identical 100 ms model ticks, independently of frame timing')
     p.add_argument('--engine', choices=['chromium','webkit'], default='webkit')
     p.add_argument('--executable')
     args = p.parse_args()
     roots = {s: getattr(args,s) for s in ('production','candidate')}
     servers = {s: serve(r) for s,r in roots.items()}
-    data = {'durationSeconds': args.seconds, 'rows': [], 'sha256': {
+    data = {'durationSeconds': args.seconds, 'rows': [], 'controlledSteps':args.bracket,'sha256': {
         s: {f: hashlib.sha256((r/f).read_bytes()).hexdigest() for f in
             ('home-production-model.js','home-production-diorama.js','index.html')} for s,r in roots.items()}}
     try:
@@ -171,7 +210,7 @@ def main():
                 for order in args.orders:
                     for arm in list(roots) if order=='forward' else list(reversed(roots)):
                         print(case,order,arm,flush=True)
-                        row = trial(browser, servers[arm], roots[arm], save, region, int(n), args.seconds)
+                        row = trial(browser, servers[arm], roots[arm], save, region, int(n), args.seconds, args.bracket)
                         data['rows'].append(dict(case=case,order=order,arm=arm,**row))
                         args.output.write_text(json.dumps(data, separators=(',',':'))+'\n')
             browser.close()
