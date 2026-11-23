@@ -55,7 +55,13 @@ def summarise(data):
         row['openingMax_'+field]=max(deltas,default=0)
     row['openingDisplayExact']=all(a['key'] in by_key and all(a[k]==by_key[a['key']][k] for k in ['display','layer','image','visible'])
                                    for a in first['feet'])
-    row['losses']=','.join(c['losses'])
+    # Reevaluate the historical symmetric conversation flag from the two original booleans.
+    losses=list(c['losses']);gains=list(c.get('gains',[]))
+    if r['production']['lifecycle']['conversation'] is False and r['candidate']['lifecycle']['conversation'] is True:
+        if 'conversation' in losses:losses.remove('conversation')
+        if 'conversation' not in gains:gains.append('conversation')
+    row['losses']=','.join(losses)
+    row['gains']=','.join(gains)
     return row
 
 
@@ -64,7 +70,7 @@ def main():
     p.add_argument('archives',type=Path);p.add_argument('out',type=Path)
     args=p.parse_args();args.out.mkdir(parents=True,exist_ok=True)
     observations,errors=load(args.archives)
-    rows=[];missing=[];losses=Counter()
+    rows=[];missing=[];losses=Counter();gains=Counter()
     for region in REGIONS:
         for n in COUNTS:
             for w in WIDTHS:
@@ -74,10 +80,11 @@ def main():
                 row=summarise(observations[case])
                 rows.append(dict(region=region,count=n,width=w,**row))
                 losses.update(x for x in row['losses'].split(',') if x)
+                gains.update(x for x in row['gains'].split(',') if x)
     if rows:
         with (args.out/'cells.csv').open('w') as f:
             writer=csv.DictWriter(f,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
-    summary=dict(planned=260,observed=len(rows),missing=missing,errors=errors,lossTotals=dict(losses),
+    summary=dict(planned=260,observed=len(rows),missing=missing,errors=errors,lossTotals=dict(losses),gainTotals=dict(gains),
                  openingEqual=sum(r['openingDiffs']==0 for r in rows))
     exactFields=['actual','stage','screen','imageSize','size']
     summary['openingExact']=sum(all(r[k] for k in ['openingRosterOrderEqual','openingCameraExact','openingPaintExact','openingDisplayExact'])

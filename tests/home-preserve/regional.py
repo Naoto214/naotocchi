@@ -129,6 +129,7 @@ def measure(ctx,root,base,region,count,width,arm,seconds,pairs=False,alternate=F
         page.wait_for_function('([region,count])=>regional.ready(region,count)&&window.preservePaint?.region===region',arg=[region,count])
         placement()  # Load the geometry helpers before taking the settled snapshot.
         extra['opening']=page.evaluate('regional.stableOpening()')
+        if phase_observer:phase_observer(page,'opening')
         if opening_probe:
             return page.evaluate('regional.measureOpening()')
         extra['sync']=page.evaluate('regional.resync()')

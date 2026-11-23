@@ -46,6 +46,7 @@ def compare(base, trial):
                     commands=trace['commands'],tap=row['tap'],trusted=row['observation']['trusted'])
     b,t=metrics(base),metrics(trial)
     losses=[]
+    gains=[]
     if opening:losses.append('opening')
     if base['target']!=trial['target']:losses.append('input-target')
     for field in ('drag','auto','walkers'):
@@ -56,10 +57,13 @@ def compare(base, trial):
     for field in ('changed','evolved','conversation','restored','reloaded','returnGate'):
         l,r=base['lifecycle'][field],trial['lifecycle'][field]
         if field=='changed':l,r=l['state'],r['state']
-        if l!=r:losses.append(field)
+        if field=='conversation' and l is False and r is True:
+            gains.append(field)
+        elif l!=r:
+            losses.append(field)
     if base['errors'] or trial['errors']:losses.append('pageerror')
     if base['fixture']!=trial['fixture']:losses.append('fixture')
-    return dict(losses=losses,base=b,candidate=t,differences=differences)
+    return dict(losses=losses,gains=gains,base=b,candidate=t,differences=differences)
 
 
 def main():
