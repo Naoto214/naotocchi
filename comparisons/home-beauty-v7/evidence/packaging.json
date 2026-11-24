@@ -1,0 +1,13 @@
+{
+  "main": "38b4e9d0c8ed4cacdfc1cc6c072a7a9e62e5c053",
+  "total": 4320,
+  "byteIdentical": 3863,
+  "previewOnlyAdapters": [
+    "home-production-diorama.js",
+    "home-production-world.mjs",
+    "index.html",
+    "prototypes/card-game/ui-art.mjs",
+    "script.js"
+  ],
+  "externalHighResCardArtAtPinnedCommit": 452
+}

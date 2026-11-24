@@ -1,0 +1,139 @@
+{
+ "browser": "156.0.8078.79",
+ "pixels": [
+  390,
+  585
+ ],
+ "rows": {
+  "forest-day": [
+   {
+    "mode": "A",
+    "seconds": 24.5,
+    "changedVsSkipGlyph": 0,
+    "changedVsBarePainting": 49742,
+    "changedVsNormal": 203
+   },
+   {
+    "mode": "A",
+    "seconds": 39,
+    "changedVsSkipGlyph": 0,
+    "changedVsBarePainting": 49535,
+    "changedVsNormal": 234
+   },
+   {
+    "mode": "A",
+    "seconds": 55.25,
+    "changedVsSkipGlyph": 0,
+    "changedVsBarePainting": 49281,
+    "changedVsNormal": 222
+   },
+   {
+    "mode": "B",
+    "seconds": 24.5,
+    "changedVsSkipGlyph": 0,
+    "changedVsBarePainting": 49742,
+    "changedVsNormal": 362
+   },
+   {
+    "mode": "B",
+    "seconds": 39,
+    "changedVsSkipGlyph": 0,
+    "changedVsBarePainting": 49535,
+    "changedVsNormal": 405
+   },
+   {
+    "mode": "B",
+    "seconds": 55.25,
+    "changedVsSkipGlyph": 0,
+    "changedVsBarePainting": 49281,
+    "changedVsNormal": 403
+   },
+   {
+    "mode": "C",
+    "seconds": 24.5,
+    "changedVsSkipGlyph": 0,
+    "changedVsBarePainting": 49742,
+    "changedVsNormal": 570
+   },
+   {
+    "mode": "C",
+    "seconds": 39,
+    "changedVsSkipGlyph": 0,
+    "changedVsBarePainting": 49535,
+    "changedVsNormal": 632
+   },
+   {
+    "mode": "C",
+    "seconds": 55.25,
+    "changedVsSkipGlyph": 0,
+    "changedVsBarePainting": 49281,
+    "changedVsNormal": 647
+   }
+  ],
+  "countryside-evening": [
+   {
+    "mode": "A",
+    "seconds": 24.5,
+    "changedVsSkipGlyph": 0,
+    "changedVsBarePainting": 12176,
+    "changedVsNormal": 192
+   },
+   {
+    "mode": "A",
+    "seconds": 39,
+    "changedVsSkipGlyph": 0,
+    "changedVsBarePainting": 12204,
+    "changedVsNormal": 132
+   },
+   {
+    "mode": "A",
+    "seconds": 55.25,
+    "changedVsSkipGlyph": 0,
+    "changedVsBarePainting": 12097,
+    "changedVsNormal": 207
+   },
+   {
+    "mode": "B",
+    "seconds": 24.5,
+    "changedVsSkipGlyph": 0,
+    "changedVsBarePainting": 12176,
+    "changedVsNormal": 336
+   },
+   {
+    "mode": "B",
+    "seconds": 39,
+    "changedVsSkipGlyph": 0,
+    "changedVsBarePainting": 12204,
+    "changedVsNormal": 252
+   },
+   {
+    "mode": "B",
+    "seconds": 55.25,
+    "changedVsSkipGlyph": 0,
+    "changedVsBarePainting": 12097,
+    "changedVsNormal": 364
+   },
+   {
+    "mode": "C",
+    "seconds": 24.5,
+    "changedVsSkipGlyph": 0,
+    "changedVsBarePainting": 12176,
+    "changedVsNormal": 531
+   },
+   {
+    "mode": "C",
+    "seconds": 39,
+    "changedVsSkipGlyph": 0,
+    "changedVsBarePainting": 12204,
+    "changedVsNormal": 390
+   },
+   {
+    "mode": "C",
+    "seconds": 55.25,
+    "changedVsSkipGlyph": 0,
+    "changedVsBarePainting": 12097,
+    "changedVsNormal": 565
+   }
+  ]
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "browser": "156.0.8078.79",
+ "syntheticVisibilityChange": true,
+ "hiddenWaitMs": 1250,
+ "before": {
+  "steps": 5,
+  "paints": 4,
+  "clock": 2.716700000000001,
+  "blocked": "true",
+  "cast": 28
+ },
+ "after": {
+  "steps": 5,
+  "paints": 4,
+  "clock": 2.716700000000001,
+  "blocked": "true",
+  "cast": 28
+ },
+ "resumed": {
+  "steps": 8,
+  "paints": 6,
+  "clock": 3.4501000000000004,
+  "blocked": "false",
+  "cast": 28
+ },
+ "errors": []
+}
