@@ -1,4 +1,20 @@
 {
+  "comparisons/home-beauty-v3/evidence/v3-sea-duration.jpg": {
+    "sha256": "9ed18569a0088e4e0ee81561854095be4a505dafa3940378704b6b4d230e284e",
+    "reason": "本人依頼の30秒・60秒・180秒の海D3実画面比較。"
+  },
+  "comparisons/home-beauty-v3/evidence/forest-v3.jpg": {
+    "sha256": "9f1d9e93764be0a56fd05bec94806ae7369bfe1e571aa1b6c4b7c00fc19f984e",
+    "reason": "本人がD1・D2・D3の樹冠・木漏れ日・夏夜の蛍を比較するための確定画面。"
+  },
+  "comparisons/home-beauty-v3/evidence/live-scenes.jpg": {
+    "sha256": "505d5b6df141cc0f93ccda0569c0ce186984157b53b6b8053f587c15c695257e",
+    "reason": "本人が5地域×4案の接地・光の位置を同じ画面で判断するための最終実画面比較。"
+  },
+  "comparisons/home-beauty-v3/evidence/lake-pulse.jpg": {
+    "sha256": "a3dffde8d7910457374e077232a3138fe5215f26ced61cdcdbf8e0d780c1e86a",
+    "reason": "本人がきおくのみずうみCの静かな時間と短い発光ピークを比較するための確定2画面。"
+  },
   "docs/naopoyo-time-hand-chapter1-20261102/v10/stage-07.jpg": {
     "sha256": "8aa7f9b95291f64a2b208b3d7d9c9d45dccdf010f84ede47149d7a838c02090c",
     "reason": "本人要求の重力面06・07・10のV10完成スクリーンショット。盤面内左下の接地確認。"

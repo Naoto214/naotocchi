@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>極上幻想・フルモーション比較｜なおとっち</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="bar">
+  <h1><span class="brand">なおとっち</span><span class="bar-title">箱庭の演出比較</span></h1>
+  <select id="quick-variant" aria-label="演出案をすばやく切り替え"></select>
+  <button type="button" id="panel-toggle" aria-controls="panel" aria-expanded="false">比較設定</button>
+</header>
+<main>
+  <section class="view" aria-label="ホームの動作比較">
+    <div class="viewport"><iframe id="home" title="なおとっちのホーム" allow="autoplay"></iframe></div>
+    <p id="status" role="status">ホームを読み込み中…</p>
+  </section>
+  <div id="scrim" hidden></div>
+  <aside id="panel" aria-labelledby="panel-title">
+    <div class="panel-heading"><h2 id="panel-title">比較設定</h2><button type="button" id="panel-close">閉じる</button></div>
+    <form id="settings" autocomplete="off">
+      <fieldset class="variant full-motion"><legend>D案 · 極上幻想・フルモーション</legend><div class="choices" id="full-variants"></div></fieldset>
+      <fieldset class="variant"><legend>現行とVERSION 2の比較案</legend><div class="choices" id="variants"></div></fieldset>
+      <div class="strength-control"><label for="strength">演出強度（D案）</label><output for="strength" id="strength-value">100%</output>
+        <input type="range" id="strength" name="strength" min="0" max="2" step="0.05" value="1">
+      </div>
+      <label class="region-label" for="region">地域</label>
+      <select id="region" name="region"></select>
+      <div id="conditions"></div>
+      <details id="effect-detail"><summary>個別エフェクト</summary><div id="effects"></div>
+        <fieldset class="detail-group"><legend>D案の詳細</legend><div id="full-effects"></div></fieldset>
+        <fieldset class="detail-group"><legend>もりのD案</legend><div id="forest-effects"></div></fieldset>
+      </details>
+      <div class="playback" id="playback"></div>
+      <button type="button" id="replay">同じ配置から再生</button>
+    </form>
+  </aside>
+</main>
+<script type="module" src="./controls.mjs"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{
+  "engine": "chromium",
+  "results": [
+    {
+      "test": "evening-rain-to-night-snow",
+      "result": {
+        "count": 109,
+        "first": [
+          {
+            "at": 4007.4000000003725,
+            "alpha": 0.008350000000000022
+          }
+        ],
+        "last": [
+          {
+            "at": 7987.5,
+            "alpha": 1
+          }
+        ],
+        "load": {
+          "residents": 4,
+          "variant": "B",
+          "seconds": 6.007699999999255,
+          "internalRollingFPS": 23.829308827842407,
+          "frameCountStart": 30,
+          "frameCountEnd": 195,
+          "rafHz": 54.84916479680878,
+          "rafP95ms": 16.800000000000182,
+          "rafMaxMs": 216.70000000000073,
+          "heapBytes": 17261457,
+          "cast": {
+            "distance": 41.4762736979114,
+            "moves": 3,
+            "turns": 1,
+            "activities": {
+              "together": 1,
+              "walk": 3,
+              "look": 1,
+              "observe": 1,
+              "solitude": 1
+            },
+            "clock": 8.183200000000015
+          },
+          "nodes": 1323,
+          "panels": 2
+        }
+      }
+    },
+    {
+      "test": "browser",
+      "result": "156.0.8078.79"
+    }
+  ],
+  "errors": [],
+  "missing": []
+}

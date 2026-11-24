@@ -1,0 +1,32 @@
+/* Keep all production geometry, selection outlines, masks and hit targets. */
+/* The shipped #pet #petSprite reset has two IDs. Match its specificity only
+   in the D comparison, leaving archived A/B/C lighting intact. */
+html[data-beauty-variant^="D"][data-cast-lighting="on"][data-beauty-light="true"] #castStage :is(#petSprite,[data-beauty-lit])[data-beauty-lit],
+html[data-cast-lighting="on"]:not([data-beauty-variant="current"])[data-beauty-light="true"] #castStage [data-beauty-lit] {
+  filter:brightness(var(--cast-ambient,1)) sepia(var(--cast-warmth,0));
+  transition:filter 4s ease;
+}
+html:not([data-beauty-variant="current"])[data-beauty-contact="true"] #castStage .diorama-shadow {
+  background: radial-gradient(ellipse at calc(50% + var(--contact-throw)) 52%,rgb(30 36 38 / var(--contact-opacity)) 0%,rgb(43 43 40 / .17) 33%,transparent 72%);
+}
+html:not([data-beauty-variant="current"])[data-beauty-contact="true"] #castStage .diorama-shadow[data-surface="water"] {
+  background:radial-gradient(ellipse at center, #285e6744 5%,#a6f7f291 40%,#eafffdab 49%,transparent 60%);
+}
+@media(prefers-reduced-motion:reduce) {
+  html #castStage [data-beauty-lit]{transition-duration:0s!important}
+}
+
+#castStage .beauty-foot {
+  position:absolute;pointer-events:none;transform:translate(-50%,-76%);
+  opacity:var(--beauty-foot-opacity,.82);
+}
+html[data-beauty-contact="false"] #castStage .beauty-foot,
+#castStage .beauty-foot[hidden]{display:none!important}
+#castStage .beauty-foot[data-material="grass"] {
+  background:linear-gradient(to top,#5e742e 8%,#94a953 60%,#bdc97c);
+  clip-path:polygon(0 100%,7% 87%,5% 30%,11% 80%,14% 7%,17% 85%,31% 100%,43% 87%,42% 45%,48% 89%,49% 19%,54% 87%,68% 100%,81% 89%,80% 8%,85% 76%,90% 25%,88% 87%,100% 100%);
+}
+#castStage .beauty-foot[data-material="water"] {
+  background:radial-gradient(ellipse at 25% 50%,transparent 40%,#e5fffdc9 49%,#87e5eccc 57%,transparent 67%) left/49% 92% no-repeat,
+             radial-gradient(ellipse at 52% 50%,transparent 35%,#e1fff3cf 49%,#90dcd799 60%,transparent 68%) right/54% 80% no-repeat;
+}
