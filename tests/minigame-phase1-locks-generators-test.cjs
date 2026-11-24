@@ -39,8 +39,9 @@ function start(id, {random = '()=>0.5', mode, ageTicks} = {}) {
 function frame(r) { r.calls.length = 0; r.h.advance(17); return r.calls.slice(); }
 
 // ---------------- B10 / G-AC-36 push-puzzle ----------------
-const PUSH_L0 = ['#######', '#  #  #', '# $   #', '#  #$ #', '# @  ##', '#  ## #', '#######'];
-const PUSH_G0 = [[1, 1], [1, 4]];
+// 1問目は いつも 入門(PUSH_PUZZLE_PLAN = B)。Math.random=0.5 → 入門の 3盤面の まんなか(B1b)、左右反転なし
+const PUSH_L0 = ['#######', '#    ##', '# $   #', '#  @  #', '#   $ #', '##    #', '#######'];
+const PUSH_G0 = [[1, 1], [5, 5]];
 function solvePush(L, G) {
   const st = {p: null, b: []};
   L.forEach((r, y) => [...r].forEach((c, x) => { if (c === '@') st.p = [x, y]; if (c === '$') st.b.push([x, y]); }));
@@ -59,7 +60,7 @@ function solvePush(L, G) {
   return null;
 }
 test('push-puzzle: undo/redo during the clear transition cannot count the same level twice (B10)', () => {
-  const r = start('push-puzzle'), {h, view} = r; // Math.random=0.5 → 1問目は レベル0
+  const r = start('push-puzzle'), {h, view} = r; // Math.random=0.5 → 1問目は B1b(反転なし)
   const canvas = view.querySelector('#pzCanvas'), undo = view.querySelector('#pzUndo'), reset = view.querySelector('#pzReset');
   const level = view.querySelector('#pzLevel'), moves = view.querySelector('#pzMoves');
   const sw = (dx, dy) => { h.dispatch(canvas, 'pointerdown', {pointerId: 1, clientX: 100, clientY: 100}); h.dispatch(canvas, 'pointerup', {pointerId: 1, clientX: 100 + dx * 40, clientY: 100 + dy * 40}); h.advance(130); };

@@ -4595,76 +4595,201 @@
   const JUMP_QUEST_VARIANTS = [mg('jump-quest', makeJumpQuestGame({ title: 'ジャンプクエスト!走って飛んで、旗まで' }))];
 
   // --- 倉庫番パズル: はこを おして ゴールへ。もどす ボタンつき。3もん ---
-  const PUSH_PUZZLE_LEVELS = [
-    ['#######', '#..#..#', '#.$...#', '#..#$.#', '#.@..##', '#..##.#', '#######'].map((r) => r.replace(/\./g, ' ')),
-    ['#######', '#.....#', '#.#$#.#', '#.$@$.#', '#.#$#.#', '#.....#', '#######'].map((r) => r.replace(/\./g, ' ')),
-    ['#######', '#....##', '#.#.$.#', '#..$#.#', '##.@..#', '#.....#', '#######'].map((r) => r.replace(/\./g, ' ')),
-    ['#######', '#.....#', '#..$..#', '#.$@$.#', '#..$..#', '#.....#', '#######'].map((r) => r.replace(/\./g, ' ')),
-  ];
-  const PUSH_PUZZLE_GOALS = [
-    [[1, 1], [1, 4]], [[1, 1], [1, 5], [5, 1], [5, 5]], [[1, 1], [5, 5]], [[1, 1], [1, 5], [5, 1], [5, 5]],
-  ];
+  // 2026-11 見直し: 以前の 4盤面の うち「中央の箱4こ+柱」は 合法解が ない(ソルバーで 全48状態を 確認)うえ、
+  // 4盤面から 3つを ランダム順で えらんでいたので 75% の プレイで 出て、そこで 先へ すすめなく なっていた。
+  // いまは 入門→初級→中級 の じゅんで かならず 出し、左右反転だけ ランダム(解は 鏡うつしで そのまま なりたつ)。
+  // 記法: # かべ / $ 箱 / . ★ / @ じぶん。par = ソルバーの 最短手数、timeMs = その 段階の 1問の 制限時間(ふつう)。
+  // 各段階の boards から 1つを ランダムに えらぶ(前回と おなじ 盤面は さける)。
+  // 全盤面の 解の 有無・最短手数・反転版は tests/push-puzzle-levels-test.cjs と tools/push-puzzle/solver.cjs で 確認する。
+  // 3案(A やさしさ / B バランス / C パズル性)を ならべて あり、PUSH_PUZZLE_PLAN で きりかえる(比較ページ: comparisons/push-puzzle-20261124/)。
+  const PUSH_PUZZLE_PLANS = {
+    A: { name: 'やさしさ重視', levels: [
+      { tier: '入門', timeMs: 60000, boards: [
+        { id: 'A1', par: 5, rows: ['#######', '#     #', '# .   #', '#  $  #', '#     #', '#  @  #', '#######'] },
+      ] },
+      { tier: '初級', timeMs: 75000, boards: [
+        { id: 'A2', par: 13, rows: ['#######', '#.    #', '# $   #', '#  @  #', '#   $ #', '#    .#', '#######'] },
+      ] },
+      { tier: '中級', timeMs: 90000, boards: [
+        { id: 'A3', par: 13, rows: ['#######', '#.   .#', '# $ $ #', '#  @  #', '#  $  #', '#  .  #', '#######'] },
+      ] },
+    ] },
+    // B: 各段階 3盤面(+左右反転)。同じ 段階の 盤面は 最短手数・押す回数・詰みやすさ・初見シミュレーションの 時間が そろう ものを えらんだ
+    B: { name: 'バランス重視', levels: [
+      { tier: '入門', timeMs: 60000, boards: [
+        { id: 'B1a', par: 12, rows: ['#######', '#.   .#', '#     #', '#$   $#', '#  @  #', '#     #', '#######'] },
+        { id: 'B1b', par: 13, rows: ['#######', '#.   ##', '# $   #', '#  @  #', '#   $ #', '##   .#', '#######'] },
+        { id: 'B1c', par: 11, rows: ['#######', '#. $  #', '#     #', '#  @  #', '#     #', '#  $ .#', '#######'] },
+      ] },
+      { tier: '初級', timeMs: 90000, boards: [
+        { id: 'B2a', par: 13, rows: ['#######', '#.   .#', '# $ $ #', '#  @  #', '#  $  #', '#  .  #', '#######'] },
+        { id: 'B2b', par: 9, rows: ['#######', '#.    #', '# $   #', '#  @$.#', '#  $  #', '#  .  #', '#######'] },
+        { id: 'B2c', par: 15, rows: ['#######', '#.   .#', '# $ $ #', '#  @  #', '#     #', '# .$  #', '#######'] },
+      ] },
+      { tier: '中級', timeMs: 120000, boards: [
+        { id: 'B3a', par: 22, rows: ['#######', '#.   .#', '# $ $ #', '#  #  #', '# $ $ #', '#.  @.#', '#######'] },
+        { id: 'B3b', par: 21, rows: ['#######', '#.   .#', '# $ $ #', '#  @  #', '# $ $ #', '#.   .#', '#######'] },
+        { id: 'B3c', par: 21, rows: ['#######', '#.   .#', '# $ $ #', '#  @  #', '# $ $ #', '#.  #.#', '#######'] },
+      ] },
+    ] },
+    C: { name: 'パズル性重視', levels: [
+      { tier: '入門', timeMs: 60000, boards: [
+        { id: 'C1', par: 17, rows: ['#######', '#.  ###', '#.$   #', '# $#  #', '# @   #', '#     #', '#######'] },
+      ] },
+      { tier: '初級', timeMs: 90000, boards: [
+        { id: 'C2', par: 16, rows: ['#######', '#...  #', '# $ $ #', '#  $  #', '#  @  #', '#     #', '#######'] },
+      ] },
+      { tier: '中級', timeMs: 120000, boards: [
+        { id: 'C3', par: 21, rows: ['#######', '#. # .#', '# $ $ #', '#  @  #', '# $ $ #', '#.   .#', '#######'] },
+      ] },
+    ] },
+  };
+  const PUSH_PUZZLE_PLAN = 'B';
+  // 段階ごとに 前回 出した 盤面(このページを ひらいて いる あいだだけ おぼえる。セーブには のこさない)
+  const pushPuzzleLast = {};
+  function pushPuzzlePick(planId, i, boards, forceId) {
+    const forced = forceId && boards.find((b) => b.id === forceId);
+    if (forced) return forced;
+    const key = planId + i, pool = boards.length > 1 ? boards.filter((b) => b.id !== pushPuzzleLast[key]) : boards;
+    const board = pool[Math.floor(Math.random() * pool.length)];
+    pushPuzzleLast[key] = board.id;
+    return board;
+  }
+  const PUSH_PUZZLE_PRACTICE = { id: 'practice', rows: ['#######', '#     #', '#     #', '# @$ .#', '#     #', '#     #', '#######'] };
+  // 記法の 盤面を ゲームの grid(' ', '#', '$', '@')と goals([y, x])に。mirror で 左右反転
+  function pushPuzzleBoard(level, mirror) {
+    const rows = mirror ? level.rows.map((r) => [...r].reverse().join('')) : level.rows, goals = [];
+    rows.forEach((r, y) => [...r].forEach((c, x) => { if (c === '.') goals.push([y, x]); }));
+    return { rows: rows.map((r) => r.replace(/\./g, ' ')), goals };
+  }
+  // 「もどす」を 目立たせる(詰みの 声かけと セット。色だけに たよらない)。style.css は 承認済みの バイトを たもつので、
+  // この ボタンだけに 直接 つける。うごきを へらす 設定では ふくらむ アニメを つけない
+  function pushPuzzleSuggestUndo(btn, on) {
+    if (!btn) return;
+    if (btn.classList) btn.classList.toggle('pz-suggest', on);
+    if (!btn.style) return;
+    btn.style.outline = on ? '3px solid #f2c14e' : '';
+    btn.style.outlineOffset = on ? '2px' : '';
+    const calm = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (btn.pzPulse && typeof btn.pzPulse.cancel === 'function') btn.pzPulse.cancel();
+    btn.pzPulse = null;
+    if (on && !calm && typeof btn.animate === 'function') btn.pzPulse = btn.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.06)' }], { duration: 900, iterations: Infinity, direction: 'alternate', easing: 'ease-in-out' });
+  }
+  // 箱が もう ★へ とどかない ことが 見て わかる かたち(かどに はまった / ★の ない かべぞいに はりついた /
+  // 2x2 で かたまった)。救済の 声かけ だけに つかう(見のがしは あっても、とける 盤面を 詰みとは いわない)
+  function pushPuzzleStuck(grid, isGoal) {
+    const solid = (x, y) => grid[y][x] === '#';
+    // (x, y) の 箱が side(かべの 向き)の かべに そって 動ける はんいに ★が なく、かべが とぎれない
+    const deadAlongWall = (x, y, wx, wy) => {
+      if (!solid(x + wx, y + wy)) return false;
+      const ax = wy ? 1 : 0, ay = wx ? 1 : 0; // かべに そう 向き
+      for (const sgn of [1, -1]) for (let k = 0; ; k++) {
+        const cx = x + ax * sgn * k, cy = y + ay * sgn * k;
+        if (solid(cx, cy)) break;
+        if (isGoal(cx, cy) || !solid(cx + wx, cy + wy)) return false;
+      }
+      return true;
+    };
+    for (let y = 1; y < grid.length - 1; y++) for (let x = 1; x < grid[y].length - 1; x++) {
+      if (grid[y][x] !== '$') continue;
+      if (!isGoal(x, y) && (solid(x - 1, y) || solid(x + 1, y)) && (solid(x, y - 1) || solid(x, y + 1))) return true;
+      if (!isGoal(x, y) && [[-1, 0], [1, 0], [0, -1], [0, 1]].some(([wx, wy]) => deadAlongWall(x, y, wx, wy))) return true;
+      // 2x2 が かべ/箱で うまって いて、★に のって いない 箱が ある
+      for (const [ox, oy] of [[0, 0], [-1, 0], [0, -1], [-1, -1]]) {
+        const cells = [[x + ox, y + oy], [x + ox + 1, y + oy], [x + ox, y + oy + 1], [x + ox + 1, y + oy + 1]];
+        if (cells.every(([cx, cy]) => grid[cy][cx] === '#' || grid[cy][cx] === '$') && cells.some(([cx, cy]) => grid[cy][cx] === '$' && !isGoal(cx, cy))) return true;
+      }
+    }
+    return false;
+  }
   function makePushPuzzleGame({ title }) {
     return {
+      // plans / plan / force: 比較ページと テストが 3案・各盤面を 同じ コードで ためす ための 入口
+      // (ふだんは PUSH_PUZZLE_PLAN、盤面は ランダム。force = 段階ごとの 盤面 id の 配列)
+      plans: PUSH_PUZZLE_PLANS, plan: PUSH_PUZZLE_PLAN, force: null,
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const order = [0, 1, 2, 3].sort(() => Math.random() - 0.5).slice(0, 3);
-        const TIME_LIMIT_MS = mgDuration(60000);
-        let lvIdx = 0, moves = 0, totalMoves = 0, solved = 0, running = true, rafId = null, grid, goals, px, py, history = [], msg = '', msgUntil = 0, anim = null, pushes = 0, levelDone = false;
-        const startTime = performance.now();
+        // 入門→初級→中級 の じゅん。左右反転だけ ランダム。制限時間は 1問ごと(つぎの 問題で また いっぱいに もどる)
+        const planId = PUSH_PUZZLE_PLANS[this.plan] ? this.plan : PUSH_PUZZLE_PLAN, plan = PUSH_PUZZLE_PLANS[planId], force = this.force || [];
+        const levels = plan.levels.map((stage, i) => ({ lv: { ...pushPuzzlePick(planId, i, stage.boards, force[i]), tier: stage.tier }, timeMs: stage.timeMs, mirror: Math.random() < 0.5 }));
+        const limits = levels.map(({ timeMs }) => mgDuration(timeMs)), maxLimit = Math.max(...limits);
+        const parTotal = levels.reduce((n, { lv }) => n + lv.par, 0);
+        let lvIdx = 0, moves = 0, totalMoves = 0, solved = 0, running = true, rafId = null, grid, goals, px, py, history = [], msg = '', msgUntil = 0, anim = null, pushes = 0, levelDone = false, stuckSaid = false;
+        let levelStart = performance.now(), doneAt = 0;
         let mainInputs = 0;
         let practice = false, practiceAt = 0, pausedMs = 0, savedPlay = null;
-        const elapsed = () => performance.now() - startTime - pausedMs - (practice ? performance.now() - practiceAt : 0);
+        // この問題の 経過時間(練習中と、クリア後の 切りかえ中は すすめない)
+        const elapsed = () => (doneAt || performance.now()) - levelStart - pausedMs - (practice ? performance.now() - practiceAt : 0);
+        const remain = () => limits[lvIdx] - elapsed();
         container.innerHTML = `
-          <div class="mg-header"><span id="pzLevel">1/3問目</span><span id="pzMoves">手0</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
+          <div class="mg-header"><span id="pzLevel">1/3問目</span><span id="pzMoves">手0</span>${mgTimerSpan(limits[0])}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="pzCanvas"></canvas></div>
           <div class="mg-hint" id="pzHint">矢印で1マス。箱のうしろに回って★へ押そう。引っぱれないので、困ったら「もどす」。</div>
           <button type="button" class="mg-practice-btn" id="pzPractice">はじめて？ 箱1この練習</button>
           `;
-        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - elapsed(), () => running);
+        mgTimerHud(container, maxLimit, remain, () => running);
         const canvas = container.querySelector('#pzCanvas');
         const { pad } = mgPad(container, { mode: 'steps', axis: 'xy', triggerPx: 14, repeatPx: 34, repeatMs: 160, onStep: (dx, dy) => move(dx, dy) }, `<button class="mg-tap-btn" id="pzUndo" data-key="action2">↩もどす</button><button class="mg-tap-btn" id="pzReset" data-key="action">↻やりなおし</button>`);
+        // 矢印の おしっぱなしで 勝手に 何マスも すすまない(1タップ = 1マス)。なぞる 操作は そのまま
+        if (pad && pad.el && pad.el.querySelectorAll) pad.el.querySelectorAll('[data-hold]').forEach((b) => b.removeAttribute('data-hold'));
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w, { preserveAspect: true });
         const N = 7, CELL = W / N;
-        const levelEl = container.querySelector('#pzLevel'), movesEl = container.querySelector('#pzMoves'), hint = container.querySelector('#pzHint');
+        const levelEl = container.querySelector('#pzLevel'), movesEl = container.querySelector('#pzMoves'), hint = container.querySelector('#pzHint'), undoBtn = container.querySelector('#pzUndo');
         const say = (t, ms = 1300) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
-        function load() {
-          const L = practice ? ['#######','#     #','#     #','# @$  #','#     #','#     #','#######'] : PUSH_PUZZLE_LEVELS[order[lvIdx]]; goals = practice ? [[3,4]] : PUSH_PUZZLE_GOALS[order[lvIdx]];
-          grid = L.map((r) => r.split(''));
+        // fresh = つぎの 問題に すすんだ とき(時間を いっぱいに もどす)。やりなおしは 時間を もどさない
+        function load(fresh) {
+          const cur = practice ? { lv: PUSH_PUZZLE_PRACTICE, mirror: false } : levels[lvIdx], board = pushPuzzleBoard(cur.lv, cur.mirror);
+          goals = board.goals;
+          grid = board.rows.map((r) => r.split(''));
           for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) if (grid[y][x] === '@') { px = x; py = y; grid[y][x] = ' '; }
-          moves = 0; history = []; levelDone = false; levelEl.textContent = practice ? 'れんしゅう・箱1こ' : `${lvIdx + 1}/3問目`; movesEl.textContent = '手0';
+          moves = 0; history = []; levelDone = false; stuckSaid = false; pushPuzzleSuggestUndo(undoBtn, false);
+          canvas.dataset.level = cur.lv.id + (cur.mirror ? 'm' : '');
+          levelEl.textContent = practice ? 'れんしゅう・箱1こ' : `${lvIdx + 1}/3問目`; movesEl.textContent = '手0';
+          if (fresh && !practice) {
+            levelStart = performance.now(); pausedMs = 0; doneAt = 0;
+            const boxes = grid.reduce((n, r) => n + r.filter((c) => c === '$').length, 0);
+            hint.textContent = `${lvIdx + 1}問目・${cur.lv.tier}:箱${boxes}こを★へ。困ったら「もどす」`; // 盤面に かぶせず、下の 案内だけ
+          }
         }
         const isGoal = (x, y) => goals.some(([gy, gx]) => gx === x && gy === y);
         function solvedAll() { return goals.every(([gy, gx]) => grid[gy][gx] === '$'); }
         function move(dx, dy) {
-          if (!running || anim || levelDone) return;
+          // 歩く アニメの 途中でも 入力は すてない(すばやく 2回 おしたら かならず 2マス)。アニメは 先送りして 新しい 1歩に
+          if (!running || levelDone) return;
+          anim = null;
           if (!practice) mainInputs++;
           const nx = px + dx, ny = py + dy;
           if (grid[ny][nx] === '#') { say('かべには進めないよ', 700); return; }
-          const snap = { grid: grid.map((r) => r.slice()), px, py };
-          if (grid[ny][nx] === '$') { const bx = nx + dx, by = ny + dy; if (grid[by][bx] !== ' ') { say('その向きにはおせない', 600); return; } grid[by][bx] = '$'; grid[ny][nx] = ' '; pushes++; sfx('pop'); }
-          history.push(snap); if (history.length > 60) history.shift();
+          const snap = { grid: grid.map((r) => r.slice()), px, py, moves };
+          let pushed = false;
+          if (grid[ny][nx] === '$') { const bx = nx + dx, by = ny + dy; if (grid[by][bx] !== ' ') { say('その向きにはおせない', 600); return; } grid[by][bx] = '$'; grid[ny][nx] = ' '; pushes++; pushed = true; sfx('pop'); }
+          history.push(snap); if (history.length > 300) history.shift();
           anim = { fx: px, fy: py, born: performance.now() }; sfx('tick');
           px = nx; py = ny; moves++; totalMoves++; movesEl.textContent = '手' + moves;
           // クリアしたら つぎの 問題の load まで 入力(うごく・もどす・やりなおし・スワイプ)を とめる。1問を 1かいだけ かぞえる
-          if (solvedAll()) { levelDone = true; if (practice) { say('できた！箱はうしろから押す。本番にもどって挑戦しよう。', 6000); return; } solved++; say(lvIdx + 1 < 3 ? '✅クリア!次の問題' : '🏆ぜんぶクリア!', 1400); setTimeout(() => { if (!running) return; lvIdx++; if (lvIdx >= 3) { finish(); return; } load(); }, 1200); }
+          if (solvedAll()) { levelDone = true; pushPuzzleSuggestUndo(undoBtn, false); if (practice) { say('できた！箱はうしろから押す。本番にもどって挑戦しよう。', 6000); return; } doneAt = performance.now(); solved++; say(lvIdx + 1 < 3 ? '✅クリア!次の問題' : '🏆ぜんぶクリア!', 1400); setTimeout(() => { if (!running) return; lvIdx++; if (lvIdx >= 3) { finish(); return; } load(true); }, 1200); return; }
+          // 救済: 箱が かどに はまる など、もう うごかせない かたちに なったら すぐ おしえる(「もどす」を ひからせる)
+          if (pushed && pushPuzzleStuck(grid, isGoal)) { pushPuzzleSuggestUndo(undoBtn, true); say(stuckSaid ? 'もう一度「もどす」で戻ろう' : 'その箱はもう動かせないかも。「もどす」で1手戻ろう', 2600); stuckSaid = true; }
+          else pushPuzzleSuggestUndo(undoBtn, false);
         }
-        container.querySelector('#pzUndo').addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || levelDone) return; if (!practice) mainInputs++; const s = history.pop(); if (!s) return; sfx('close'); grid = s.grid; px = s.px; py = s.py; moves++; totalMoves++; anim = null; movesEl.textContent = '手' + moves; });
-        container.querySelector('#pzReset').addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || levelDone) return; if (!practice) mainInputs++; load(); say('やりなおし', 600); });
+        // もどす: 1手まえの 盤面と 手数に もどす(手数を ふやさない)。もどせない ときは そう いう
+        undoBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || levelDone) return; if (!practice) mainInputs++; const s = history.pop(); if (!s) { say('これ以上もどせないよ', 700); return; } sfx('close'); grid = s.grid; px = s.px; py = s.py; moves = s.moves; anim = null; movesEl.textContent = '手' + moves; if (!pushPuzzleStuck(grid, isGoal)) pushPuzzleSuggestUndo(undoBtn, false); });
+        container.querySelector('#pzReset').addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || levelDone) return; if (!practice) mainInputs++; load(false); say('はじめの形にもどしたよ(時間はそのまま)', 1200); });
         const practiceButton = container.querySelector('#pzPractice');
         practiceButton.addEventListener('click', () => {
           if (!running || levelDone && !practice) return;
           anim = null;
           if (!practice) {
-            savedPlay = {grid, goals, px, py, history, moves, totalMoves, pushes, lvIdx};
-            practice = true; practiceAt = performance.now(); load();
+            savedPlay = {grid, goals, px, py, history, moves, totalMoves, pushes, lvIdx, level: canvas.dataset.level};
+            practice = true; practiceAt = performance.now(); load(false);
             practiceButton.textContent = '本番にもどる';
             container.querySelector('.mg-timer').hidden = true;
             say('時間は気にせず、右の矢印を1回。箱を★に押してみよう。', 6000);
           } else {
             pausedMs += performance.now() - practiceAt; practice = false;
-            ({grid, goals, px, py, history, moves, totalMoves, pushes, lvIdx} = savedPlay);
+            ({grid, goals, px, py, history, moves, totalMoves, pushes, lvIdx} = savedPlay); canvas.dataset.level = savedPlay.level; stuckSaid = false;
+            pushPuzzleSuggestUndo(undoBtn, pushPuzzleStuck(grid, isGoal));
             savedPlay = null; levelDone = false;
             levelEl.textContent = `${lvIdx + 1}/3問目`; movesEl.textContent = '手' + moves;
             practiceButton.textContent = '箱1この練習';
@@ -4700,16 +4825,17 @@
           ctx.font = `${CELL * 0.8}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(currentSprite(), (drawX + 0.5) * CELL, (drawY + 0.5) * CELL);
           if (now < msgUntil) { ctx.font = 'bold 14px sans-serif'; ctx.fillStyle = 'rgba(0,0,0,.6)'; ctx.fillRect(W / 2 - 90, H / 2 - 14, 180, 28); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, H / 2); }
         }
-        function loop(now) { if (!running) return; render(now); if (!practice && elapsed() > TIME_LIMIT_MS) { finish(); return; } rafId = requestAnimationFrame(loop); }
+        function loop(now) { if (!running) return; render(now); if (!practice && !levelDone && remain() <= 0) { finish(); return; } rafId = requestAnimationFrame(loop); }
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
-          const score = clamp(Math.round(15 + solved * 25 + Math.max(0, 15 - Math.max(0, totalMoves - 45) * 0.5)), 10, 100);
+          // 手数ボーナスは 3案の 最短手数の 合計(parTotal)の 1.5ばいまで 満点。もどした 手も 歩いた 手として かぞえる
+          const score = clamp(Math.round(15 + solved * 25 + Math.max(0, 15 - Math.max(0, totalMoves - parTotal * 1.5) * 0.5)), 10, 100);
           say(solved >= 3 ? `🏆 3問クリア!${totalMoves}手` : `時間切れ…${solved}問クリア`, 2200);
           render(performance.now());
           setTimeout(() => onComplete(score, undefined, {inputs:mainInputs}), 650);
         }
-        load();
+        load(true);
         rafId = requestAnimationFrame(loop);
       },
     };

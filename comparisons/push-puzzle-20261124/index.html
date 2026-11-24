@@ -1,0 +1,376 @@
+<title>そうこばん 3案くらべ</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&display=swap">
+<style>
+/* Layout: one phone-width column — play first (plan switch, board, pad), then the numbers, then why the old boards failed. */
+:root {
+  --bg: #f3ece1;        /* 倉庫の しっくい */
+  --card: #fffaf2;
+  --ink: #3b2f26;
+  --muted: #7a6a59;
+  --line: #dccbb3;
+  --wood: #6b4f3a;      /* ゲームの かべ色 */
+  --accent: #b5651d;    /* 箱の こげ茶 */
+  --gold: #e0a020;      /* ★ */
+  --ok: #2f7d55;
+  --bad: #b23a2a;
+  --chip: #f1e2c8;
+  --display: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
+  --body: "Hiragino Sans", "Noto Sans JP", "Yu Gothic", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #1d1712; --card: #2a221b; --ink: #f1e6d4; --muted: #b9a68f; --line: #4a3c2f; --wood: #8a6a4f; --accent: #e09a55; --gold: #f0b938; --ok: #6cc497; --bad: #ef7b69; --chip: #3a2e23; color-scheme: dark;
+} }
+:root[data-theme="dark"] { --bg: #1d1712; --card: #2a221b; --ink: #f1e6d4; --muted: #b9a68f; --line: #4a3c2f; --wood: #8a6a4f; --accent: #e09a55; --gold: #f0b938; --ok: #6cc497; --bad: #ef7b69; --chip: #3a2e23; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.6; }
+.wrap { max-width: 720px; margin: 0 auto; padding-block: 20px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 28px; }
+h1, h2 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.3; }
+h1 { font-size: 1.75rem; }
+h2 { font-size: 1.2rem; }
+p { margin: 0; }
+.lede { display: grid; gap: 8px; color: var(--muted); }
+.lede strong { color: var(--bad); }
+section { display: grid; gap: 12px; min-width: 0; }
+.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.plan-btn { font: inherit; text-align: left; border: 2px solid var(--line); background: var(--card); color: var(--ink); border-radius: 14px; padding: 10px; cursor: pointer; display: grid; gap: 2px; min-height: 44px; }
+.plan-btn b { font-family: var(--display); font-size: 1.05rem; }
+.plan-btn span { font-size: .86rem; line-height: 1.35; word-break: keep-all; overflow-wrap: anywhere; }
+.plan-btn small { color: var(--muted); font-size: .78rem; line-height: 1.35; }
+.plan-btn[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.plan-btn:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.rec { display: inline-block; font-size: .7rem; letter-spacing: .04em; background: var(--accent); color: var(--card); border-radius: 99px; padding: 0 7px; margin-left: 4px; vertical-align: 2px; font-family: var(--body); }
+.game { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 12px; display: grid; gap: 10px; }
+.hud { display: flex; justify-content: space-between; gap: 8px; font-variant-numeric: tabular-nums; font-weight: 600; flex-wrap: wrap; }
+.hud .low { color: var(--bad); }
+.board { position: relative; width: 100%; max-width: 420px; margin: 0 auto; aspect-ratio: 1; }
+.board canvas { width: 100%; height: 100%; display: block; border-radius: 12px; touch-action: none; }
+.result { position: absolute; inset: 0; display: grid; place-content: center; gap: 10px; text-align: center; background: color-mix(in srgb, var(--card) 88%, transparent); border-radius: 12px; padding: 16px; }
+.result[hidden] { display: none; }
+.result b { font-family: var(--display); font-size: 1.4rem; }
+.hint { min-height: 3.2em; text-align: center; color: var(--muted); font-size: .92rem; }
+.hint.warn { color: var(--bad); font-weight: 600; }
+.controls { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: center; justify-content: center; }
+.dpad { display: grid; grid-template: repeat(3, 56px) / repeat(3, 56px); gap: 4px; }
+.dpad button, .act button, .tools button { font: inherit; border-radius: 14px; border: 1px solid var(--line); background: var(--chip); color: var(--ink); cursor: pointer; touch-action: manipulation; }
+.dpad button { font-size: 1.4rem; }
+.dpad button:active, .act button:active { transform: translateY(1px); filter: brightness(.95); }
+.dpad [data-d="up"] { grid-area: 1 / 2; } .dpad [data-d="left"] { grid-area: 2 / 1; } .dpad [data-d="right"] { grid-area: 2 / 3; } .dpad [data-d="down"] { grid-area: 3 / 2; }
+.act { display: grid; gap: 8px; max-width: 180px; width: 100%; justify-self: end; }
+.act button { min-height: 56px; font-size: 1.05rem; font-weight: 600; }
+#undo.suggest { outline: 3px solid var(--gold); outline-offset: 2px; animation: pulse .9s ease-in-out infinite alternate; }
+@keyframes pulse { to { transform: scale(1.05); } }
+@media (prefers-reduced-motion: reduce) { #undo.suggest { animation: none; } }
+.tools { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.tools button { min-height: 44px; padding: 0 14px; font-size: .88rem; background: transparent; }
+.note { font-size: .8rem; color: var(--muted); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: var(--card); }
+table { border-collapse: collapse; width: 100%; min-width: 620px; font-variant-numeric: tabular-nums; font-size: .88rem; }
+th, td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+th:first-child, td:first-child, th:nth-child(2), td:nth-child(2) { text-align: left; }
+thead th { font-size: .75rem; letter-spacing: .04em; color: var(--muted); font-weight: 600; }
+tbody tr.sep td { border-top: 2px solid var(--line); }
+tr.is-rec td:first-child { color: var(--accent); font-weight: 700; }
+.pill { display: inline-block; border-radius: 99px; padding: 0 8px; font-size: .78rem; background: var(--chip); }
+.pill.bad { background: var(--bad); color: var(--card); }
+.summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.sum { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 10px; display: grid; gap: 4px; min-width: 0; }
+.sum b { font-family: var(--display); }
+.sum span { font-size: .8rem; color: var(--muted); }
+.olds { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.pick { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: .82rem; color: var(--muted); }
+.pick button { font: inherit; min-height: 36px; padding: 0 12px; border-radius: 99px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; font-variant-numeric: tabular-nums; }
+.pick button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--card); }
+.old { display: grid; gap: 4px; font-size: .78rem; min-width: 0; }
+.old canvas { width: 100%; aspect-ratio: 1; border-radius: 8px; }
+.old .bad { color: var(--bad); font-weight: 700; }
+ul.points { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
+@media (max-width: 520px) {
+  .summary { grid-template-columns: 1fr; }
+  .olds { grid-template-columns: repeat(2, 1fr); }
+  .dpad { grid-template: repeat(3, 52px) / repeat(3, 52px); }
+  .controls { gap: 8px; }
+}
+</style>
+
+<div class="wrap">
+  <header class="lede">
+    <h1>そうこばん 3案くらべ</h1>
+    <p>いまの「そうこばん」は 4つの盤面から 3つを出しますが、そのうち<strong>1つ(中央に箱4こ・柱4本)は解がありません</strong>。ソルバーで到達できる全48局面を調べ、どの押し方でも詰むことを確かめました。</p>
+    <p>新しい3案は、どれも 入門→初級→中級 の順で出し、全盤面の解をソルバーとゲーム本体の両方で確認しています。第一候補のB案は、各段階に難しさのそろった3盤面を用意し、遊ぶたびに入れかわります(前回と同じ盤面は出しません)。</p>
+  </header>
+
+  <section aria-labelledby="play-h">
+    <h2 id="play-h">遊んでみる</h2>
+    <div class="plans" role="group" aria-label="案をえらぶ" id="plans"></div>
+    <div class="game">
+      <div class="pick" id="pick" role="group" aria-label="この問題の盤面をえらぶ"></div>
+      <div class="hud"><span id="lvl">1/3問目</span><span id="tier"></span><span id="mv">手0</span><span id="tm">⏱ 0秒</span></div>
+      <div class="board">
+        <canvas id="cv" width="420" height="420" aria-label="そうこばんの盤面"></canvas>
+        <div class="result" id="result" hidden></div>
+      </div>
+      <p class="hint" id="hint" aria-live="polite"></p>
+      <div class="controls">
+        <div class="dpad" role="group" aria-label="1マス動く">
+          <button type="button" data-d="up" aria-label="上へ1マス">▲</button>
+          <button type="button" data-d="left" aria-label="左へ1マス">◀</button>
+          <button type="button" data-d="right" aria-label="右へ1マス">▶</button>
+          <button type="button" data-d="down" aria-label="下へ1マス">▼</button>
+        </div>
+        <div class="act">
+          <button type="button" id="undo">↩ もどす</button>
+          <button type="button" id="reset">↻ やりなおし</button>
+        </div>
+      </div>
+      <div class="tools">
+        <button type="button" id="demo">おてほんを見る</button>
+        <button type="button" id="skip">次の問題へ(確認用)</button>
+        <button type="button" id="restart">この案を最初から</button>
+      </div>
+      <p class="note">盤面をスワイプしても1マス動きます。パソコンでは矢印キー、Zでもどす。本番と同じく、盤面と左右反転はランダムです。上の盤面ボタンで、同じ段階のほかの盤面にも切りかえられます(確認用)。</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="cmp-h">
+    <h2 id="cmp-h">3案の数字</h2>
+    <div class="summary" id="summary"></div>
+    <div class="table-wrap"><table id="tbl"><thead><tr>
+      <th>案</th><th>問題</th><th>箱</th><th>最短手</th><th>押す回数</th><th>詰む押し</th><th>初見・ふつう</th><th>初見・迷いがち</th><th>制限時間</th>
+    </tr></thead><tbody></tbody></table></div>
+    <ul class="points note">
+      <li>最短手・押す回数: ソルバーの最短解。どちらも左右反転した盤面でも同じです。</li>
+      <li>詰む押し: まだ解ける局面からの押し方のうち、もう解けなくなる押し方の割合。低いほど失敗しにくい盤面です。</li>
+      <li>初見・ふつう / 迷いがち: 初めての人をまねたシミュレーション(各300回)の、クリアまでの時間の中央値と、制限時間内にクリアできた割合。ふつう = 箱を★に近づける押しを75%で選び、詰む押しに50%で気づく。迷いがち = 55%・30%。考える時間は1押し2秒、1歩0.45秒で数えています。人で測った値ではなく、盤面どうしを比べるための目安です。</li>
+      <li>制限時間は段階ごとに同じです。B案は、ふつうの人のほぼ全員、迷いがちな人の8割以上が時間内にクリアできる長さにしました。</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="old-h">
+    <h2 id="old-h">いまの盤面(参考)</h2>
+    <p class="note">3問を合わせて60秒。順番はランダムなので、難しい盤面が1問目に来ることもあります。</p>
+    <div class="olds" id="olds"></div>
+  </section>
+</div>
+
+<script>
+const DATA = {"generated":"2026-11-24","recommended":"B","plans":{"A":{"name":"やさしさ重視","levels":[{"tier":"入門","timeSec":60,"boards":[{"id":"A1","tier":"入門","timeSec":60,"rows":["#######","#     #","# .   #","#  $  #","#     #","#  @  #","#######"],"boxes":1,"solvable":true,"minMoves":5,"minPushes":2,"solution":[[0,-1],[0,-1],[1,0],[0,-1],[-1,0]],"states":578,"deadStateRatio":0.664,"trapPushRatio":0.313,"firstTraps":{"total":4,"trap":0},"estSec":16,"naiveRate":1,"sim":{"normal":{"median":13,"p90":21,"within":100},"slow":{"median":13,"p90":33,"within":99}}}]},{"tier":"初級","timeSec":75,"boards":[{"id":"A2","tier":"初級","timeSec":75,"rows":["#######","#.    #","# $   #","#  @  #","#   $ #","#    .#","#######"],"boxes":2,"solvable":true,"minMoves":13,"minPushes":4,"solution":[[1,0],[0,1],[-1,0],[0,1],[1,0],[-1,0],[-1,0],[0,-1],[0,-1],[0,-1],[1,0],[0,-1],[-1,0]],"states":6877,"deadStateRatio":0.304,"trapPushRatio":0.128,"firstTraps":{"total":8,"trap":0},"estSec":24,"naiveRate":1,"sim":{"normal":{"median":23,"p90":36,"within":100},"slow":{"median":29,"p90":55,"within":97}}}]},{"tier":"中級","timeSec":90,"boards":[{"id":"A3","tier":"中級","timeSec":90,"rows":["#######","#.   .#","# $ $ #","#  @  #","#  $  #","#  .  #","#######"],"boxes":3,"solvable":true,"minMoves":13,"minPushes":5,"solution":[[1,0],[0,-1],[-1,0],[0,1],[0,1],[-1,0],[0,-1],[0,-1],[1,0],[0,-1],[1,0],[-1,0],[-1,0]],"states":50457,"deadStateRatio":0.439,"trapPushRatio":0.158,"firstTraps":{"total":12,"trap":0},"estSec":30,"naiveRate":1,"sim":{"normal":{"median":33,"p90":55,"within":99},"slow":{"median":44,"p90":101,"within":88}}}]}]},"B":{"name":"バランス重視","levels":[{"tier":"入門","timeSec":60,"boards":[{"id":"B1a","tier":"入門","timeSec":60,"rows":["#######","#.   .#","#     #","#$   $#","#  @  #","#     #","#######"],"boxes":2,"solvable":true,"minMoves":12,"minPushes":4,"solution":[[1,0],[1,0],[0,-1],[0,-1],[-1,0],[-1,0],[-1,0],[0,1],[0,1],[-1,0],[0,-1],[0,-1]],"states":554,"deadStateRatio":0.374,"trapPushRatio":0.167,"firstTraps":{"total":4,"trap":0},"estSec":25,"naiveRate":1,"sim":{"normal":{"median":24,"p90":38,"within":100},"slow":{"median":30,"p90":54,"within":95}}},{"id":"B1b","tier":"入門","timeSec":60,"rows":["#######","#.   ##","# $   #","#  @  #","#   $ #","##   .#","#######"],"boxes":2,"solvable":true,"minMoves":13,"minPushes":4,"solution":[[1,0],[0,1],[-1,0],[0,1],[1,0],[-1,0],[-1,0],[0,-1],[0,-1],[0,-1],[1,0],[0,-1],[-1,0]],"states":5290,"deadStateRatio":0.405,"trapPushRatio":0.195,"firstTraps":{"total":8,"trap":0},"estSec":26,"naiveRate":1,"sim":{"normal":{"median":23,"p90":36,"within":99},"slow":{"median":28,"p90":50,"within":95}}},{"id":"B1c","tier":"入門","timeSec":60,"rows":["#######","#. $  #","#     #","#  @  #","#     #","#  $ .#","#######"],"boxes":2,"solvable":true,"minMoves":11,"minPushes":4,"solution":[[1,0],[0,-1],[0,-1],[-1,0],[-1,0],[0,1],[0,1],[0,1],[0,1],[1,0],[1,0]],"states":554,"deadStateRatio":0.374,"trapPushRatio":0.167,"firstTraps":{"total":4,"trap":0},"estSec":24,"naiveRate":1,"sim":{"normal":{"median":24,"p90":40,"within":99},"slow":{"median":28,"p90":54,"within":93}}}]},{"tier":"初級","timeSec":90,"boards":[{"id":"B2a","tier":"初級","timeSec":90,"rows":["#######","#.   .#","# $ $ #","#  @  #","#  $  #","#  .  #","#######"],"boxes":3,"solvable":true,"minMoves":13,"minPushes":5,"solution":[[1,0],[0,-1],[-1,0],[0,1],[0,1],[-1,0],[0,-1],[0,-1],[1,0],[0,-1],[1,0],[-1,0],[-1,0]],"states":50457,"deadStateRatio":0.439,"trapPushRatio":0.158,"firstTraps":{"total":12,"trap":0},"estSec":30,"naiveRate":1,"sim":{"normal":{"median":33,"p90":55,"within":99},"slow":{"median":44,"p90":101,"within":88}}},{"id":"B2b","tier":"初級","timeSec":90,"rows":["#######","#.    #","# $   #","#  @$.#","#  $  #","#  .  #","#######"],"boxes":3,"solvable":true,"minMoves":9,"minPushes":4,"solution":[[1,0],[-1,0],[0,1],[-1,0],[0,-1],[0,-1],[1,0],[0,-1],[-1,0]],"states":50458,"deadStateRatio":0.553,"trapPushRatio":0.193,"firstTraps":{"total":12,"trap":0},"estSec":25,"naiveRate":1,"sim":{"normal":{"median":29,"p90":51,"within":100},"slow":{"median":43,"p90":102,"within":86}}},{"id":"B2c","tier":"初級","timeSec":90,"rows":["#######","#.   .#","# $ $ #","#  @  #","#     #","# .$  #","#######"],"boxes":3,"solvable":true,"minMoves":15,"minPushes":5,"solution":[[1,0],[0,-1],[0,1],[0,1],[0,1],[-1,0],[0,-1],[-1,0],[0,-1],[0,-1],[1,0],[0,-1],[1,0],[-1,0],[-1,0]],"states":25430,"deadStateRatio":0.587,"trapPushRatio":0.205,"firstTraps":{"total":10,"trap":0},"estSec":32,"naiveRate":1,"sim":{"normal":{"median":34,"p90":53,"within":98},"slow":{"median":41,"p90":116,"within":84}}}]},{"tier":"中級","timeSec":120,"boards":[{"id":"B3a","tier":"中級","timeSec":120,"rows":["#######","#.   .#","# $ $ #","#  #  #","# $ $ #","#.  @.#","#######"],"boxes":4,"solvable":true,"minMoves":22,"minPushes":8,"solution":[[-1,0],[0,-1],[1,0],[-1,0],[-1,0],[0,-1],[-1,0],[0,1],[1,0],[0,-1],[0,-1],[1,0],[1,0],[0,1],[1,0],[0,1],[0,-1],[0,-1],[-1,0],[-1,0],[0,-1],[-1,0]],"states":210328,"deadStateRatio":0.388,"trapPushRatio":0.15,"firstTraps":{"total":16,"trap":0},"estSec":45,"naiveRate":1,"sim":{"normal":{"median":53,"p90":82,"within":96},"slow":{"median":68,"p90":202,"within":83}}},{"id":"B3b","tier":"中級","timeSec":120,"rows":["#######","#.   .#","# $ $ #","#  @  #","# $ $ #","#.   .#","#######"],"boxes":4,"solvable":true,"minMoves":21,"minPushes":8,"solution":[[1,0],[0,1],[-1,0],[-1,0],[1,0],[0,1],[1,0],[0,-1],[0,-1],[0,-1],[-1,0],[-1,0],[0,1],[-1,0],[0,1],[0,-1],[0,-1],[1,0],[1,0],[0,-1],[1,0]],"states":263760,"deadStateRatio":0.352,"trapPushRatio":0.13,"firstTraps":{"total":16,"trap":0},"estSec":44,"naiveRate":1,"sim":{"normal":{"median":47,"p90":75,"within":96},"slow":{"median":67,"p90":null,"within":82}}},{"id":"B3c","tier":"中級","timeSec":120,"rows":["#######","#.   .#","# $ $ #","#  @  #","# $ $ #","#.  #.#","#######"],"boxes":4,"solvable":true,"minMoves":21,"minPushes":8,"solution":[[-1,0],[0,1],[1,0],[1,0],[-1,0],[0,1],[-1,0],[0,-1],[0,-1],[0,-1],[1,0],[1,0],[0,1],[1,0],[0,1],[0,-1],[0,-1],[-1,0],[-1,0],[0,-1],[-1,0]],"states":208515,"deadStateRatio":0.458,"trapPushRatio":0.164,"firstTraps":{"total":14,"trap":0},"estSec":45,"naiveRate":1,"sim":{"normal":{"median":47,"p90":79,"within":97},"slow":{"median":64,"p90":168,"within":84}}}]}]},"C":{"name":"パズル性重視","levels":[{"tier":"入門","timeSec":60,"boards":[{"id":"C1","tier":"入門","timeSec":60,"rows":["#######","#.  ###","#.$   #","# $#  #","# @   #","#     #","#######"],"boxes":2,"solvable":true,"minMoves":17,"minPushes":4,"solution":[[1,0],[1,0],[0,-1],[0,-1],[-1,0],[-1,0],[1,0],[1,0],[0,1],[0,1],[-1,0],[-1,0],[0,-1],[0,-1],[1,0],[0,-1],[-1,0]],"states":4598,"deadStateRatio":0.682,"trapPushRatio":0.236,"firstTraps":{"total":2,"trap":0},"estSec":30,"naiveRate":1,"sim":{"normal":{"median":23,"p90":41,"within":99},"slow":{"median":30,"p90":58,"within":91}}}]},{"tier":"初級","timeSec":90,"boards":[{"id":"C2","tier":"初級","timeSec":90,"rows":["#######","#...  #","# $ $ #","#  $  #","#  @  #","#     #","#######"],"boxes":3,"solvable":true,"minMoves":16,"minPushes":7,"solution":[[1,0],[1,0],[0,-1],[0,-1],[-1,0],[0,1],[-1,0],[0,-1],[0,1],[-1,0],[0,-1],[0,1],[0,1],[-1,0],[0,-1],[0,-1]],"states":50454,"deadStateRatio":0.796,"trapPushRatio":0.227,"firstTraps":{"total":12,"trap":1},"estSec":40,"naiveRate":1,"sim":{"normal":{"median":43,"p90":62,"within":99},"slow":{"median":51,"p90":90,"within":90}}}]},{"tier":"中級","timeSec":120,"boards":[{"id":"C3","tier":"中級","timeSec":120,"rows":["#######","#. # .#","# $ $ #","#  @  #","# $ $ #","#.   .#","#######"],"boxes":4,"solvable":true,"minMoves":21,"minPushes":8,"solution":[[0,1],[1,0],[-1,0],[-1,0],[1,0],[0,-1],[0,-1],[1,0],[0,1],[1,0],[0,1],[0,-1],[0,-1],[-1,0],[-1,0],[-1,0],[0,1],[-1,0],[0,1],[0,-1],[0,-1]],"states":208302,"deadStateRatio":0.561,"trapPushRatio":0.18,"firstTraps":{"total":16,"trap":2},"estSec":46,"naiveRate":1,"sim":{"normal":{"median":55,"p90":103,"within":93},"slow":{"median":79,"p90":308,"within":73}}}]}]}},"old":[{"id":"旧1","rows":["#######","#. #. #","# $   #","#  #$ #","# @  ##","#  ## #","#######"],"boxes":2,"solvable":true,"minMoves":9,"minPushes":4,"solution":[[1,0],[1,0],[0,-1],[0,-1],[-1,0],[-1,0],[0,1],[-1,0],[0,-1]],"states":2641,"deadStateRatio":0.706,"trapPushRatio":0.32,"firstTraps":{"total":4,"trap":1},"estSec":26,"naiveRate":1},{"id":"旧2","rows":["#######","#.   .#","# #$# #","# $@$ #","# #$# #","#.   .#","#######"],"boxes":4,"solvable":false,"minMoves":null,"minPushes":null,"solution":null,"states":48,"deadStateRatio":1,"trapPushRatio":0,"firstTraps":{"total":4,"trap":4},"estSec":null,"naiveRate":0},{"id":"旧3","rows":["#######","#.   ##","# # $ #","#  $# #","## @  #","#    .#","#######"],"boxes":2,"solvable":true,"minMoves":20,"minPushes":8,"solution":[[0,-1],[0,-1],[0,1],[0,1],[1,0],[1,0],[0,-1],[0,-1],[-1,0],[0,-1],[-1,0],[-1,0],[1,0],[0,1],[0,1],[0,1],[-1,0],[0,1],[1,0],[1,0]],"states":3457,"deadStateRatio":0.571,"trapPushRatio":0.272,"firstTraps":{"total":4,"trap":2},"estSec":44,"naiveRate":1},{"id":"旧4","rows":["#######","#.   .#","#  $  #","# $@$ #","#  $  #","#.   .#","#######"],"boxes":4,"solvable":true,"minMoves":21,"minPushes":12,"solution":[[1,0],[0,1],[1,0],[0,-1],[0,-1],[-1,0],[-1,0],[-1,0],[0,1],[1,0],[0,1],[-1,0],[0,-1],[-1,0],[0,-1],[0,1],[0,1],[1,0],[0,1],[1,0],[1,0]],"states":261116,"deadStateRatio":0.355,"trapPushRatio":0.132,"firstTraps":{"total":4,"trap":0},"estSec":55,"naiveRate":1}]};
+const N = 7;
+const DIRS = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
+const PLAN_NOTE = { A: '箱1→2→3こ。ゆったり', B: '箱2→3→4こ。各段階3盤面', C: '順番を考える3問' };
+const $ = (s) => document.querySelector(s);
+const cv = $('#cv'), ctx = cv.getContext('2d');
+let plan = DATA.recommended, idx = 0, level, picks = [], grid, goals, px, py, moves = 0, totalMoves = 0, history = [], done = false, over = false;
+let levelStart = 0, doneAt = 0, anim = null, demoTimer = null, solved = 0;
+const mirrors = [0, 1, 2].map(() => Math.random() < 0.5);
+const lastPick = {};
+const stages = () => DATA.plans[plan].levels;
+// 本番と おなじ: 段階ごとに 盤面を ランダムに えらび、前回と おなじ 盤面は さける
+function pickBoard(st, i) {
+  const key = plan + i, pool = st.boards.length > 1 ? st.boards.filter((b) => b.id !== lastPick[key]) : st.boards;
+  const b = pool[Math.floor(Math.random() * pool.length)]; lastPick[key] = b.id; return b.id;
+}
+function renderPick() {
+  const el = $('#pick'), st = stages()[idx]; el.textContent = '';
+  if (st.boards.length < 2) { el.hidden = true; return; }
+  el.hidden = false;
+  const lab = document.createElement('span'); lab.textContent = `${st.tier}の盤面:`; el.appendChild(lab);
+  for (const b of st.boards) {
+    const btn = document.createElement('button'); btn.type = 'button'; btn.textContent = b.id; btn.setAttribute('aria-pressed', String(b.id === picks[idx]));
+    btn.addEventListener('click', () => { if (over) return; clearInterval(demoTimer); demoTimer = null; picks[idx] = b.id; mirrors[idx] = Math.random() < 0.5; load(true); });
+    el.appendChild(btn);
+  }
+}
+
+function boardOf(lv, mirror) {
+  const rows = mirror ? lv.rows.map((r) => [...r].reverse().join('')) : lv.rows, g = [];
+  rows.forEach((r, y) => [...r].forEach((c, x) => { if (c === '.' || c === '*') g.push([y, x]); }));
+  return { rows: rows.map((r) => r.replace(/\./g, ' ').replace(/\*/g, '$')), goals: g };
+}
+const isGoal = (x, y) => goals.some(([gy, gx]) => gx === x && gy === y);
+// ゲーム本体(games.js の pushPuzzleStuck)と おなじ 判定
+function stuck() {
+  const solid = (x, y) => grid[y][x] === '#';
+  const along = (x, y, wx, wy) => {
+    if (!solid(x + wx, y + wy)) return false;
+    const ax = wy ? 1 : 0, ay = wx ? 1 : 0;
+    for (const s of [1, -1]) for (let k = 0; ; k++) { const cx = x + ax * s * k, cy = y + ay * s * k; if (solid(cx, cy)) break; if (isGoal(cx, cy) || !solid(cx + wx, cy + wy)) return false; }
+    return true;
+  };
+  for (let y = 1; y < N - 1; y++) for (let x = 1; x < N - 1; x++) {
+    if (grid[y][x] !== '$' || isGoal(x, y)) continue;
+    if ((solid(x - 1, y) || solid(x + 1, y)) && (solid(x, y - 1) || solid(x, y + 1))) return true;
+    if ([[-1, 0], [1, 0], [0, -1], [0, 1]].some(([a, b]) => along(x, y, a, b))) return true;
+  }
+  for (let y = 1; y < N - 1; y++) for (let x = 1; x < N - 1; x++) {
+    const cells = [[x, y], [x + 1, y], [x, y + 1], [x + 1, y + 1]];
+    if (cells.every(([cx, cy]) => grid[cy] && (grid[cy][cx] === '#' || grid[cy][cx] === '$')) && cells.some(([cx, cy]) => grid[cy][cx] === '$' && !isGoal(cx, cy))) return true;
+  }
+  return false;
+}
+function say(t, warn) { const h = $('#hint'); h.textContent = t; h.classList.toggle('warn', !!warn); }
+
+function load(fresh) {
+  level = stages()[idx].boards.find((x) => x.id === picks[idx]);
+  const b = boardOf(level, mirrors[idx]);
+  renderPick();
+  goals = b.goals; grid = b.rows.map((r) => r.split(''));
+  for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) if (grid[y][x] === '@') { px = x; py = y; grid[y][x] = ' '; }
+  moves = 0; history = []; done = false; anim = null; $('#undo').classList.remove('suggest');
+  if (fresh) { levelStart = performance.now(); doneAt = 0; say(`${idx + 1}問目・${level.tier}:箱${level.boxes}こを★へ。困ったら「もどす」`); }
+  hud();
+}
+function startPlan(p) {
+  clearInterval(demoTimer); demoTimer = null;
+  plan = p; idx = 0; totalMoves = 0; solved = 0; over = false; $('#result').hidden = true;
+  picks = stages().map((st, i) => pickBoard(st, i)); mirrors.forEach((_, i) => { mirrors[i] = Math.random() < 0.5; });
+  document.querySelectorAll('.plan-btn').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.plan === plan)));
+  try { localStorage.setItem('pz-plan', plan); } catch (e) {}
+  load(true);
+}
+const remain = () => level.timeSec * 1000 - ((doneAt || performance.now()) - levelStart);
+function hud() {
+  $('#lvl').textContent = `${idx + 1}/3問目`;
+  $('#tier').textContent = `${level.tier}・箱${level.boxes}こ`;
+  $('#mv').textContent = `手${moves}`;
+  const r = Math.max(0, Math.ceil(remain() / 1000)), tm = $('#tm');
+  tm.textContent = `⏱ ${r}秒`; tm.classList.toggle('low', r <= 5);
+}
+function move(dx, dy, fromDemo) {
+  if (over || done || (demoTimer && !fromDemo)) return;
+  anim = null;
+  const nx = px + dx, ny = py + dy;
+  if (grid[ny][nx] === '#') { say('かべには進めないよ'); return; }
+  const snap = { grid: grid.map((r) => r.slice()), px, py, moves };
+  let pushed = false;
+  if (grid[ny][nx] === '$') { const bx = nx + dx, by = ny + dy; if (grid[by][bx] !== ' ') { say('その向きにはおせない'); return; } grid[by][bx] = '$'; grid[ny][nx] = ' '; pushed = true; }
+  history.push(snap);
+  anim = { fx: px, fy: py, born: performance.now() };
+  px = nx; py = ny; moves++; totalMoves++;
+  if (goals.every(([gy, gx]) => grid[gy][gx] === '$')) {
+    done = true; doneAt = performance.now(); solved++; $('#undo').classList.remove('suggest');
+    say(idx < 2 ? `クリア! ${moves}手(最短${level.minMoves}手)。次の問題へ` : `ぜんぶクリア! ${moves}手(最短${level.minMoves}手)`);
+    hud();
+    setTimeout(() => { if (over) return; if (idx < 2) { idx++; load(true); } else finish(true); }, 1300);
+    return;
+  }
+  if (pushed && stuck()) { $('#undo').classList.add('suggest'); say('その箱はもう動かせないかも。「もどす」で1手戻ろう', true); }
+  else { $('#undo').classList.remove('suggest'); if (!pushed) say(''); }
+  hud();
+}
+function undo() {
+  if (over || done || demoTimer) return;
+  const s = history.pop(); if (!s) { say('これ以上もどせないよ'); return; }
+  grid = s.grid; px = s.px; py = s.py; moves = s.moves; anim = null;
+  if (!stuck()) $('#undo').classList.remove('suggest');
+  say(''); hud();
+}
+function finish(clear) {
+  over = true; clearInterval(demoTimer); demoTimer = null;
+  const par = stages().reduce((n, st, i) => n + st.boards.find((x) => x.id === picks[i]).minMoves, 0);
+  const r = $('#result');
+  r.innerHTML = clear ? `<b>3問クリア!</b><span>合計${totalMoves}手(3問の最短 ${par}手)</span>` : `<b>時間切れ</b><span>${solved}問クリア</span>`;
+  const again = document.createElement('button'); again.type = 'button'; again.textContent = 'もう一度遊ぶ'; again.className = 'plan-btn'; again.style.justifySelf = 'center'; again.onclick = () => startPlan(plan);
+  r.appendChild(again); r.hidden = false;
+}
+function demo() {
+  if (over || demoTimer) return;
+  load(false);
+  const sol = level.solution.map(([dx, dy]) => [mirrors[idx] ? -dx : dx, dy]);
+  say('おてほん: 最短の手順を再生中');
+  let i = 0;
+  demoTimer = setInterval(() => { if (i >= sol.length || done || over) { clearInterval(demoTimer); demoTimer = null; return; } move(sol[i][0], sol[i][1], true); i++; }, 280);
+}
+
+function drawBoard(c, g, isG, player, a, now, size) {
+  const S = size / N;
+  c.fillStyle = '#3b2f2f'; c.fillRect(0, 0, size, size);
+  for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
+    const ch = g[y][x];
+    if (ch === '#') { c.fillStyle = '#6b4f3a'; c.fillRect(x * S, y * S, S, S); c.fillStyle = '#8a6a4f'; c.fillRect(x * S + 2, y * S + 2, S - 4, S / 2 - 3); c.fillRect(x * S + 2, y * S + S / 2 + 1, S / 2 - 3, S / 2 - 3); c.fillRect(x * S + S / 2 + 1, y * S + S / 2 + 1, S / 2 - 3, S / 2 - 3); continue; }
+    c.fillStyle = (x + y) % 2 ? '#e9dcc4' : '#e0d2b8'; c.fillRect(x * S, y * S, S, S);
+    if (isG(x, y)) { c.fillStyle = 'rgba(255,200,60,.35)'; c.fillRect(x * S + 3, y * S + 3, S - 6, S - 6); c.font = `${S * .5}px sans-serif`; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillStyle = '#e0a020'; c.fillText('★', (x + .5) * S, (y + .5) * S); }
+    if (ch === '$') {
+      const X = x * S + S * .13, Y = y * S + S * .13, C = S * .74, on = isG(x, y);
+      c.fillStyle = 'rgba(74,44,20,.22)'; c.fillRect(X + 2, Y + 4, C, C);
+      const wood = c.createLinearGradient(X, Y, X + C, Y + C); wood.addColorStop(0, on ? '#e6c872' : '#e5b77b'); wood.addColorStop(1, on ? '#b9913c' : '#b87d48'); c.fillStyle = wood; c.fillRect(X, Y, C, C);
+      c.strokeStyle = '#805637'; c.lineWidth = Math.max(1, S * .035); c.strokeRect(X + 3, Y + 3, C - 6, C - 6);
+      c.beginPath(); c.moveTo(X + 4, Y + 4); c.lineTo(X + C - 4, Y + C - 4); c.moveTo(X + C - 4, Y + 4); c.lineTo(X + 4, Y + C - 4); c.stroke();
+      if (on) { c.font = `bold ${S * .4}px sans-serif`; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillStyle = '#fff9de'; c.fillText('✓', (x + .5) * S, (y + .5) * S); }
+    }
+  }
+  if (!player) return;
+  let dx = player[0], dy = player[1];
+  if (a) { const t = Math.min(1, (now - a.born) / 110); dx = a.fx + (player[0] - a.fx) * t; dy = a.fy + (player[1] - a.fy) * t; }
+  const cx = (dx + .5) * S, cy = (dy + .5) * S;
+  c.fillStyle = 'rgba(72,50,27,.23)'; c.beginPath(); c.ellipse(cx, cy + S * .32, S * .28, S * .1, 0, 0, Math.PI * 2); c.fill();
+  c.fillStyle = '#fff3d6'; c.strokeStyle = '#8a6a4f'; c.lineWidth = Math.max(1.5, S * .04);
+  c.beginPath(); c.ellipse(cx, cy, S * .3, S * .33, 0, 0, Math.PI * 2); c.fill(); c.stroke();
+  c.fillStyle = '#3b2f26'; for (const s of [-1, 1]) { c.beginPath(); c.arc(cx + s * S * .1, cy - S * .04, S * .035, 0, Math.PI * 2); c.fill(); }
+  c.fillStyle = 'rgba(240,140,120,.55)'; for (const s of [-1, 1]) { c.beginPath(); c.arc(cx + s * S * .17, cy + S * .06, S * .045, 0, Math.PI * 2); c.fill(); }
+}
+function frame(now) {
+  drawBoard(ctx, grid, isGoal, [px, py], anim, now, cv.width);
+  if (anim && now - anim.born > 110) anim = null;
+  if (!over && !done && !demoTimer && remain() <= 0) { hud(); finish(false); }
+  else if (!over) hud();
+  requestAnimationFrame(frame);
+}
+
+// 入力: ボタン(押すたびに1マス。おしっぱなしでは進まない)・スワイプ・キーボード
+document.querySelectorAll('.dpad button').forEach((b) => b.addEventListener('pointerdown', (e) => { e.preventDefault(); const [dx, dy] = DIRS[b.dataset.d]; move(dx, dy); }));
+document.querySelectorAll('.dpad button').forEach((b) => b.addEventListener('click', (e) => { if (e.detail === 0) { const [dx, dy] = DIRS[b.dataset.d]; move(dx, dy); } }));
+$('#undo').addEventListener('click', undo);
+$('#reset').addEventListener('click', () => { if (over || done || demoTimer) return; load(false); say('はじめの形にもどしたよ(時間はそのまま)'); });
+$('#demo').addEventListener('click', demo);
+$('#skip').addEventListener('click', () => { clearInterval(demoTimer); demoTimer = null; if (over) return; if (idx < 2) { idx++; load(true); } else finish(false); });
+$('#restart').addEventListener('click', () => startPlan(plan));
+let sw = null;
+cv.addEventListener('pointerdown', (e) => { e.preventDefault(); sw = { x: e.clientX, y: e.clientY, id: e.pointerId }; try { cv.setPointerCapture(e.pointerId); } catch (er) {} });
+cv.addEventListener('pointerup', (e) => { if (!sw || e.pointerId !== sw.id) return; const dx = e.clientX - sw.x, dy = e.clientY - sw.y; sw = null; if (Math.max(Math.abs(dx), Math.abs(dy)) < 16) return; if (Math.abs(dx) > Math.abs(dy)) move(dx < 0 ? -1 : 1, 0); else move(0, dy < 0 ? -1 : 1); });
+cv.addEventListener('pointercancel', () => { sw = null; });
+document.addEventListener('keydown', (e) => {
+  const k = { ArrowUp: 'up', ArrowDown: 'down', ArrowLeft: 'left', ArrowRight: 'right' }[e.key];
+  if (k && !e.repeat) { e.preventDefault(); move(...DIRS[k]); } else if (e.key === 'z' || e.key === 'Backspace') undo();
+});
+
+// 案の ボタン・表・いまの 盤面
+const plansEl = $('#plans');
+for (const [id, p] of Object.entries(DATA.plans)) {
+  const b = document.createElement('button'); b.type = 'button'; b.className = 'plan-btn'; b.dataset.plan = id;
+  b.innerHTML = `<b>${id}案${id === DATA.recommended ? '<span class="rec">おすすめ</span>' : ''}</b><span>${p.name}</span><small>${PLAN_NOTE[id] || ''}</small>`;
+  b.addEventListener('click', () => startPlan(id)); plansEl.appendChild(b);
+}
+const tb = $('#tbl tbody'), sum = $('#summary');
+for (const [id, p] of Object.entries(DATA.plans)) {
+  let first = true;
+  p.levels.forEach((st, i) => st.boards.forEach((l, j) => {
+    const tr = document.createElement('tr'); if (first) tr.className = 'sep'; if (id === DATA.recommended) tr.classList.add('is-rec');
+    const simTd = (x) => `${x.median ?? '-'}秒 ・ ${x.within}%`;
+    tr.innerHTML = `<td>${first ? id + '案' : ''}</td><td>${j === 0 ? `${i + 1}問目 ${st.tier}` : ''} <span class="pill">${l.id}</span></td><td>${l.boxes}</td><td>${l.minMoves}</td><td>${l.minPushes}</td><td>${Math.round(l.trapPushRatio * 100)}%</td><td>${simTd(l.sim.normal)}</td><td>${simTd(l.sim.slow)}</td><td>${j === 0 ? st.timeSec + '秒' : ''}</td>`;
+    tb.appendChild(tr); first = false;
+  }));
+  const avg = (f) => p.levels.reduce((n, st) => n + st.boards.reduce((m, b) => m + f(b), 0) / st.boards.length, 0);
+  const lim = p.levels.reduce((n, st) => n + st.timeSec, 0), count = p.levels.map((st) => st.boards.length);
+  const d = document.createElement('div'); d.className = 'sum';
+  d.innerHTML = `<b>${id}案 ${p.name}</b><span>箱 ${p.levels.map((st) => st.boards[0].boxes).join('→')}こ ・ 盤面 ${count.join('/')}種 ・ 最短 計${Math.round(avg((b) => b.minMoves))}手</span><span>初見(ふつう)計 約${Math.round(avg((b) => b.sim.normal.median || 0))}秒 ・ 制限 計${lim}秒</span>`;
+  sum.appendChild(d);
+}
+const olds = $('#olds');
+DATA.old.forEach((o) => {
+  const b = boardOf(o, false), g = b.rows.map((r) => r.split('')); let pl = null;
+  g.forEach((r, y) => r.forEach((c, x) => { if (c === '@') { pl = [x, y]; r[x] = ' '; } }));
+  const card = document.createElement('div'); card.className = 'old';
+  const c = document.createElement('canvas'); c.width = 210; c.height = 210; card.appendChild(c);
+  drawBoard(c.getContext('2d'), g, (x, y) => b.goals.some(([gy, gx]) => gx === x && gy === y), pl, null, 0, 210);
+  const t = document.createElement('div');
+  t.innerHTML = o.solvable ? `箱${o.boxes}こ ・ 最短${o.minMoves}手 ・ 押す${o.minPushes}回 ・ 詰む押し${Math.round(o.trapPushRatio * 100)}%` : `<span class="bad">解なし</span> ・ 箱${o.boxes}こ ・ 最初の4通りの押し方すべてで詰み`;
+  card.appendChild(t); olds.appendChild(card);
+});
+
+let saved = null; try { saved = localStorage.getItem('pz-plan'); } catch (e) {}
+startPlan(saved && DATA.plans[saved] ? saved : DATA.recommended);
+requestAnimationFrame(frame);
+</script>
