@@ -1,0 +1,57 @@
+name: Push puzzle
+
+# そうこばん(push-puzzle): 本物の ページを スマホ幅・タッチで ひらき、画面の 矢印ボタンで 全案・全盤面を とく。
+# 盤面の 合法解・難易度・救済判定は npm test(Runtime smoke test)の tests/push-puzzle-levels-test.cjs。
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'games.js'
+      - 'script.js'
+      - 'style.css'
+      - 'index.html'
+      - 'tools/push-puzzle/**'
+      - 'tests/push-puzzle-*.cjs'
+      - 'tests/helpers/**'
+      - 'package*.json'
+      - '.github/workflows/push-puzzle.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'games.js'
+      - 'script.js'
+      - 'style.css'
+      - 'index.html'
+      - 'tools/push-puzzle/**'
+      - 'tests/push-puzzle-*.cjs'
+      - 'tests/helpers/**'
+      - 'package*.json'
+      - '.github/workflows/push-puzzle.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  push-puzzle-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Board rules, difficulty and rescue hint
+        run: node --test tests/push-puzzle-levels-test.cjs
+      - name: Real page, phone size, touch arrows (Chromium and WebKit)
+        run: |
+          mkdir -p test-results/push-puzzle
+          node tests/push-puzzle-browser.cjs --engines chromium,webkit --shots test-results/push-puzzle
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: push-puzzle
+          path: test-results/push-puzzle
+          retention-days: 14

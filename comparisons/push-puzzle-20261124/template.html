@@ -80,6 +80,9 @@ tr.is-rec td:first-child { color: var(--accent); font-weight: 700; }
 .sum b { font-family: var(--display); }
 .sum span { font-size: .8rem; color: var(--muted); }
 .olds { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.pick { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: .82rem; color: var(--muted); }
+.pick button { font: inherit; min-height: 36px; padding: 0 12px; border-radius: 99px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; font-variant-numeric: tabular-nums; }
+.pick button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--card); }
 .old { display: grid; gap: 4px; font-size: .78rem; min-width: 0; }
 .old canvas { width: 100%; aspect-ratio: 1; border-radius: 8px; }
 .old .bad { color: var(--bad); font-weight: 700; }
@@ -96,13 +99,14 @@ ul.points { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
   <header class="lede">
     <h1>そうこばん 3案くらべ</h1>
     <p>いまの「そうこばん」は 4つの盤面から 3つを出しますが、そのうち<strong>1つ(中央に箱4こ・柱4本)は解がありません</strong>。ソルバーで到達できる全48局面を調べ、どの押し方でも詰むことを確かめました。</p>
-    <p>新しい3案は、どれも 入門→初級→中級 の順で出し、全盤面の解をソルバーとゲーム本体の両方で確認しています。下で遊んで比べてください。</p>
+    <p>新しい3案は、どれも 入門→初級→中級 の順で出し、全盤面の解をソルバーとゲーム本体の両方で確認しています。第一候補のB案は、各段階に難しさのそろった3盤面を用意し、遊ぶたびに入れかわります(前回と同じ盤面は出しません)。</p>
   </header>
 
   <section aria-labelledby="play-h">
     <h2 id="play-h">遊んでみる</h2>
     <div class="plans" role="group" aria-label="案をえらぶ" id="plans"></div>
     <div class="game">
+      <div class="pick" id="pick" role="group" aria-label="この問題の盤面をえらぶ"></div>
       <div class="hud"><span id="lvl">1/3問目</span><span id="tier"></span><span id="mv">手0</span><span id="tm">⏱ 0秒</span></div>
       <div class="board">
         <canvas id="cv" width="420" height="420" aria-label="そうこばんの盤面"></canvas>
@@ -126,7 +130,7 @@ ul.points { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
         <button type="button" id="skip">次の問題へ(確認用)</button>
         <button type="button" id="restart">この案を最初から</button>
       </div>
-      <p class="note">盤面をスワイプしても1マス動きます。パソコンでは矢印キー、Zでもどす。本番と同じく、左右反転はランダムです。</p>
+      <p class="note">盤面をスワイプしても1マス動きます。パソコンでは矢印キー、Zでもどす。本番と同じく、盤面と左右反転はランダムです。上の盤面ボタンで、同じ段階のほかの盤面にも切りかえられます(確認用)。</p>
     </div>
   </section>
 
@@ -134,12 +138,13 @@ ul.points { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
     <h2 id="cmp-h">3案の数字</h2>
     <div class="summary" id="summary"></div>
     <div class="table-wrap"><table id="tbl"><thead><tr>
-      <th>案</th><th>問題</th><th>箱</th><th>最短手</th><th>押す回数</th><th>詰む押し</th><th>初見めやす</th><th>制限時間</th>
+      <th>案</th><th>問題</th><th>箱</th><th>最短手</th><th>押す回数</th><th>詰む押し</th><th>初見・ふつう</th><th>初見・迷いがち</th><th>制限時間</th>
     </tr></thead><tbody></tbody></table></div>
     <ul class="points note">
       <li>最短手・押す回数: ソルバーの最短解。どちらも左右反転した盤面でも同じです。</li>
       <li>詰む押し: まだ解ける局面からの押し方のうち、もう解けなくなる押し方の割合。低いほど失敗しにくい盤面です。</li>
-      <li>初見めやす: 盤面を読む時間 + 1押しごとに考える時間 + 操作 + 詰んだときのやり直しを足した推定。ゆっくりな人はこの2倍前後と見ています。制限時間はおおむね めやすの2倍以上にしました。</li>
+      <li>初見・ふつう / 迷いがち: 初めての人をまねたシミュレーション(各300回)の、クリアまでの時間の中央値と、制限時間内にクリアできた割合。ふつう = 箱を★に近づける押しを75%で選び、詰む押しに50%で気づく。迷いがち = 55%・30%。考える時間は1押し2秒、1歩0.45秒で数えています。人で測った値ではなく、盤面どうしを比べるための目安です。</li>
+      <li>制限時間は段階ごとに同じです。B案は、ふつうの人のほぼ全員、迷いがちな人の8割以上が時間内にクリアできる長さにしました。</li>
     </ul>
   </section>
 
@@ -154,12 +159,30 @@ ul.points { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
 const DATA = /*DATA*/null;
 const N = 7;
 const DIRS = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
-const PLAN_NOTE = { A: '箱1→2→3こ。ゆったり', B: '箱2→3→4こ。ほどよい', C: '順番を考える3問' };
+const PLAN_NOTE = { A: '箱1→2→3こ。ゆったり', B: '箱2→3→4こ。各段階3盤面', C: '順番を考える3問' };
 const $ = (s) => document.querySelector(s);
 const cv = $('#cv'), ctx = cv.getContext('2d');
-let plan = DATA.recommended, idx = 0, level, grid, goals, px, py, moves = 0, totalMoves = 0, history = [], done = false, over = false;
+let plan = DATA.recommended, idx = 0, level, picks = [], grid, goals, px, py, moves = 0, totalMoves = 0, history = [], done = false, over = false;
 let levelStart = 0, doneAt = 0, anim = null, demoTimer = null, solved = 0;
 const mirrors = [0, 1, 2].map(() => Math.random() < 0.5);
+const lastPick = {};
+const stages = () => DATA.plans[plan].levels;
+// 本番と おなじ: 段階ごとに 盤面を ランダムに えらび、前回と おなじ 盤面は さける
+function pickBoard(st, i) {
+  const key = plan + i, pool = st.boards.length > 1 ? st.boards.filter((b) => b.id !== lastPick[key]) : st.boards;
+  const b = pool[Math.floor(Math.random() * pool.length)]; lastPick[key] = b.id; return b.id;
+}
+function renderPick() {
+  const el = $('#pick'), st = stages()[idx]; el.textContent = '';
+  if (st.boards.length < 2) { el.hidden = true; return; }
+  el.hidden = false;
+  const lab = document.createElement('span'); lab.textContent = `${st.tier}の盤面:`; el.appendChild(lab);
+  for (const b of st.boards) {
+    const btn = document.createElement('button'); btn.type = 'button'; btn.textContent = b.id; btn.setAttribute('aria-pressed', String(b.id === picks[idx]));
+    btn.addEventListener('click', () => { if (over) return; clearInterval(demoTimer); demoTimer = null; picks[idx] = b.id; mirrors[idx] = Math.random() < 0.5; load(true); });
+    el.appendChild(btn);
+  }
+}
 
 function boardOf(lv, mirror) {
   const rows = mirror ? lv.rows.map((r) => [...r].reverse().join('')) : lv.rows, g = [];
@@ -190,8 +213,9 @@ function stuck() {
 function say(t, warn) { const h = $('#hint'); h.textContent = t; h.classList.toggle('warn', !!warn); }
 
 function load(fresh) {
-  level = DATA.plans[plan].levels[idx];
+  level = stages()[idx].boards.find((x) => x.id === picks[idx]);
   const b = boardOf(level, mirrors[idx]);
+  renderPick();
   goals = b.goals; grid = b.rows.map((r) => r.split(''));
   for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) if (grid[y][x] === '@') { px = x; py = y; grid[y][x] = ' '; }
   moves = 0; history = []; done = false; anim = null; $('#undo').classList.remove('suggest');
@@ -201,6 +225,7 @@ function load(fresh) {
 function startPlan(p) {
   clearInterval(demoTimer); demoTimer = null;
   plan = p; idx = 0; totalMoves = 0; solved = 0; over = false; $('#result').hidden = true;
+  picks = stages().map((st, i) => pickBoard(st, i)); mirrors.forEach((_, i) => { mirrors[i] = Math.random() < 0.5; });
   document.querySelectorAll('.plan-btn').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.plan === plan)));
   try { localStorage.setItem('pz-plan', plan); } catch (e) {}
   load(true);
@@ -244,7 +269,7 @@ function undo() {
 }
 function finish(clear) {
   over = true; clearInterval(demoTimer); demoTimer = null;
-  const par = DATA.plans[plan].levels.reduce((n, l) => n + l.minMoves, 0);
+  const par = stages().reduce((n, st, i) => n + st.boards.find((x) => x.id === picks[i]).minMoves, 0);
   const r = $('#result');
   r.innerHTML = clear ? `<b>3問クリア!</b><span>合計${totalMoves}手(3問の最短 ${par}手)</span>` : `<b>時間切れ</b><span>${solved}問クリア</span>`;
   const again = document.createElement('button'); again.type = 'button'; again.textContent = 'もう一度遊ぶ'; again.className = 'plan-btn'; again.style.justifySelf = 'center'; again.onclick = () => startPlan(plan);
@@ -320,14 +345,17 @@ for (const [id, p] of Object.entries(DATA.plans)) {
 }
 const tb = $('#tbl tbody'), sum = $('#summary');
 for (const [id, p] of Object.entries(DATA.plans)) {
-  p.levels.forEach((l, i) => {
-    const tr = document.createElement('tr'); if (i === 0) tr.className = 'sep'; if (id === DATA.recommended) tr.classList.add('is-rec');
-    tr.innerHTML = `<td>${i === 0 ? id + '案' : ''}</td><td>${i + 1}問目 ${l.tier}</td><td>${l.boxes}</td><td>${l.minMoves}</td><td>${l.minPushes}</td><td>${Math.round(l.trapPushRatio * 100)}%</td><td>約${l.estSec}〜${l.estSec * 2}秒</td><td>${l.timeSec}秒</td>`;
-    tb.appendChild(tr);
-  });
-  const mv = p.levels.reduce((n, l) => n + l.minMoves, 0), est = p.levels.reduce((n, l) => n + l.estSec, 0), lim = p.levels.reduce((n, l) => n + l.timeSec, 0);
+  let first = true;
+  p.levels.forEach((st, i) => st.boards.forEach((l, j) => {
+    const tr = document.createElement('tr'); if (first) tr.className = 'sep'; if (id === DATA.recommended) tr.classList.add('is-rec');
+    const simTd = (x) => `${x.median ?? '-'}秒 ・ ${x.within}%`;
+    tr.innerHTML = `<td>${first ? id + '案' : ''}</td><td>${j === 0 ? `${i + 1}問目 ${st.tier}` : ''} <span class="pill">${l.id}</span></td><td>${l.boxes}</td><td>${l.minMoves}</td><td>${l.minPushes}</td><td>${Math.round(l.trapPushRatio * 100)}%</td><td>${simTd(l.sim.normal)}</td><td>${simTd(l.sim.slow)}</td><td>${j === 0 ? st.timeSec + '秒' : ''}</td>`;
+    tb.appendChild(tr); first = false;
+  }));
+  const avg = (f) => p.levels.reduce((n, st) => n + st.boards.reduce((m, b) => m + f(b), 0) / st.boards.length, 0);
+  const lim = p.levels.reduce((n, st) => n + st.timeSec, 0), count = p.levels.map((st) => st.boards.length);
   const d = document.createElement('div'); d.className = 'sum';
-  d.innerHTML = `<b>${id}案 ${p.name}</b><span>箱 ${p.levels.map((l) => l.boxes).join('→')}こ ・ 最短 計${mv}手</span><span>初見めやす 計 約${est}秒 ・ 制限 計${lim}秒</span>`;
+  d.innerHTML = `<b>${id}案 ${p.name}</b><span>箱 ${p.levels.map((st) => st.boards[0].boxes).join('→')}こ ・ 盤面 ${count.join('/')}種 ・ 最短 計${Math.round(avg((b) => b.minMoves))}手</span><span>初見(ふつう)計 約${Math.round(avg((b) => b.sim.normal.median || 0))}秒 ・ 制限 計${lim}秒</span>`;
   sum.appendChild(d);
 }
 const olds = $('#olds');

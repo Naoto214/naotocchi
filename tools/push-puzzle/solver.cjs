@@ -81,8 +81,10 @@ function analyze(rows, goals) {
   for (let i = 0; i < n; i++) { if (!live[i]) continue; liveCount++; for (const e of edges[i]) if (e.push) { livePushes++; if (!live[e.to]) trapPushes++; } }
   // 最初の 局面で、うごいて とどく 範囲から いきなり 詰む 押しが いくつ あるか
   const firstTraps = countFirstTraps(P, states, edges, live, start);
+  // 回り込み: 解の 中で「押す 向き か 押す 箱」が かわった 回数(初見の ひとが 考える ポイントの かず)
+  let regrips = 0; if (solution) { let p = P.player, b = P.boxes, last = null; for (const [dx, dy] of solution) { const r = step(P, p, b, dx, dy); if (r.push) { const cur = dx + ',' + dy; if (last && (last.dir !== cur || last.at !== p)) regrips++; last = { dir: cur, at: r.p }; } p = r.p; b = r.boxes; } }
   return {
-    boxes: P.boxes.length, goals: P.goals.length, solvable, minMoves, minPushes, solutionPushes: solPushes, solution,
+    regrips, boxes: P.boxes.length, goals: P.goals.length, solvable, minMoves, minPushes, solutionPushes: solPushes, solution,
     states: n, deadStateRatio: +(1 - liveCount / n).toFixed(3), trapPushRatio: livePushes ? +(trapPushes / livePushes).toFixed(3) : 0,
     firstTraps,
   };
@@ -171,4 +173,58 @@ function states(rows, goals) {
     return { grid, live: !!live[i] };
   });
 }
-module.exports = { states, analyze, replay, mirror, estimateSeconds, parse, step, naivePlay, naiveRate };
+// 初見の ひとの まね(時間の めやす用)。毎回「歩いて とどく 押し」を 1つ えらぶ:
+//  ・skill の かくりつで、箱を いちばん ちかい あいた ★へ ちかづける 押しを えらぶ(のこりは ためし押し)
+//  ・insight の かくりつで、押す まえに「それは 詰む」と 気づいて べつの 押しに する
+// 詰んだら: ゲームの 案内(stuckFn)が 出れば すぐ「もどす」1回。出ない 詰みは、2回 押して 気づいて、
+// 詰む まえ まで「もどす」を くりかえす。かかった 時間を 読む・考える・歩く・もどす から 見つもる(秒)。
+const SIM_COST = { read: 4, perBox: 1.5, think: 2.0, step: 0.45, undo: 1.2 };
+function beginnerSim(rows, goals, { stuckFn = null, trials = 400, seed = 11, skill = 0.75, insight = 0.5 } = {}) {
+  const { P, states: all, edges } = explore(rows, goals);
+  const n = all.length, rev = Array.from({ length: n }, () => []);
+  edges.forEach((out, i) => out.forEach((e) => rev[e.to].push(i)));
+  const liveSet = new Uint8Array(n), lq = [];
+  for (let i = 0; i < n; i++) if (isSolved(P, all[i].b)) { liveSet[i] = 1; lq.push(i); }
+  for (let qi = 0; qi < lq.length; qi++) for (const j of rev[lq[qi]]) if (!liveSet[j]) { liveSet[j] = 1; lq.push(j); }
+  const ids = new Map(all.map((st, i) => [keyOf(st.p, st.b), i]));
+  const live = (p, b) => !!liveSet[ids.get(keyOf(p, b.slice().sort((x, y) => x - y)))];
+  let s = seed >>> 0; const rng = () => { s = (s + 0x6D2B79F5) >>> 0; let t = s; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+  const W = P.W, gx = (i) => i % W, gy = (i) => Math.floor(i / W);
+  const grid = (b) => Array.from({ length: P.H }, (_, y) => Array.from({ length: W }, (_, x) => (P.wall[y * W + x] ? '#' : b.includes(y * W + x) ? '$' : ' ')));
+  const isGoal = (x, y) => P.goalSet.has(y * W + x);
+  const times = [];
+  for (let t = 0; t < trials; t++) {
+    let p = P.player, b = P.boxes.slice(), sec = SIM_COST.read + SIM_COST.perBox * b.length, hist = [], deadFor = 0;
+    for (let guard = 0; guard < 300 && !isSolved(P, b); guard++) {
+      const dist = new Map([[p, 0]]), q = [p];
+      for (let qi = 0; qi < q.length; qi++) for (const [dx, dy] of DIRS) { const nn = q[qi] + dy * W + dx; if (P.wall[nn] || b.includes(nn) || dist.has(nn)) continue; dist.set(nn, dist.get(q[qi]) + 1); q.push(nn); }
+      const free = P.goals.filter((g) => !b.includes(g));
+      const near = (c) => (free.length ? Math.min(...free.map((g) => Math.abs(gx(g) - gx(c)) + Math.abs(gy(g) - gy(c)))) : 0);
+      let pushes = [];
+      for (const bi of b) for (const [dx, dy] of DIRS) {
+        const from = bi - dy * W - dx, to = bi + dy * W + dx;
+        if (!dist.has(from) || P.wall[to] || b.includes(to)) continue;
+        const nb = b.map((x) => (x === bi ? to : x));
+        pushes.push({ bi, to, walk: dist.get(from), gain: P.goalSet.has(bi) ? -1 : near(bi) - near(to), ok: live(bi, nb) });
+      }
+      if (rng() < insight && pushes.some((x) => x.ok)) pushes = pushes.filter((x) => x.ok);
+      if (!pushes.length) deadFor = 99;
+      else {
+        const good = pushes.filter((x) => x.gain > 0);
+        const pick = good.length && rng() < skill ? good[Math.floor(rng() * good.length)] : pushes[Math.floor(rng() * pushes.length)];
+        hist.push({ p, b: b.slice() });
+        sec += SIM_COST.think + SIM_COST.step * (pick.walk + 1);
+        b = b.map((x) => (x === pick.bi ? pick.to : x)); p = pick.bi;
+        if (stuckFn && stuckFn(grid(b), isGoal)) { const h = hist.pop(); p = h.p; b = h.b; sec += SIM_COST.undo; continue; }
+        deadFor = live(p, b) ? 0 : deadFor + 1;
+      }
+      if (deadFor >= 2) { while (hist.length && !live(p, b)) { const h = hist.pop(); p = h.p; b = h.b; sec += SIM_COST.undo; } deadFor = 0; }
+    }
+    times.push(isSolved(P, b) ? sec : Infinity);
+  }
+  times.sort((a, c) => a - c);
+  const qf = (f) => times[Math.min(times.length - 1, Math.floor(times.length * f))];
+  const r = (v) => (Number.isFinite(v) ? Math.round(v) : null);
+  return { median: r(qf(0.5)), p75: r(qf(0.75)), p90: r(qf(0.9)), times };
+}
+module.exports = { beginnerSim, states, analyze, replay, mirror, estimateSeconds, parse, step, naivePlay, naiveRate };

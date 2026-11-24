@@ -22,14 +22,22 @@ test('the old 4-box plus board really has no solution (why it was removed)', () 
   assert.equal(m.firstTraps.trap, m.firstTraps.total, 'every first push is already a dead end');
 });
 
+const allBoards = (plan) => plan.levels.flatMap((stage, i) => stage.boards.map((b) => ({...b, tier: stage.tier, timeMs: stage.timeMs, stage: i})));
+const pushPuzzleStuck = (() => {
+  const src = require('node:fs').readFileSync('games.js', 'utf8');
+  return new Function(src.match(/  function pushPuzzleStuck\(grid, isGoal\) \{[\s\S]*?\n  \}\n/)[0] + '; return pushPuzzleStuck;')();
+})();
+
 test('every board of every plan (and its mirror) is solvable, par = shortest, tiers grow in order', () => {
   const plans = gameOf(harness()).plans;
   assert.deepEqual(Object.keys(plans).sort(), ['A', 'B', 'C']);
   for (const [id, plan] of Object.entries(plans)) {
     assert.equal(plan.levels.length, 3, id);
     let prevBoxes = 0;
-    plan.levels.forEach((lv, i) => {
-      for (const mirror of [false, true]) {
+    plan.levels.forEach((stage, i) => {
+      assert.ok(stage.boards.length >= 1, `${id}${i + 1}: has boards`);
+      let tierMin = Infinity;
+      for (const lv of stage.boards) for (const mirror of [false, true]) {
         const {rows, goals} = board(lv, mirror);
         assert.ok(rows.every((r) => r.length === 7) && rows.length === 7, `${lv.id}: 7x7`);
         const m = S.analyze(rows, goals);
@@ -37,24 +45,65 @@ test('every board of every plan (and its mirror) is solvable, par = shortest, ti
         assert.equal(m.boxes, m.goals, `${lv.id}: boxes = stars`);
         assert.equal(m.minMoves, lv.par, `${lv.id}: par is the solver's shortest`);
         assert.ok(S.replay(rows, goals, m.solution), `${lv.id}: solution replays under the rules`);
-        assert.ok(m.boxes >= TIERS[i][0] && m.boxes <= TIERS[i][1], `${lv.id}: ${m.boxes} boxes fits ${lv.tier}`);
+        assert.ok(m.boxes >= TIERS[i][0] && m.boxes <= TIERS[i][1], `${lv.id}: ${m.boxes} boxes fits ${stage.tier}`);
         // 気軽さの 上限: 最短 25手・押し 10回 まで、初見の めやす時間が 制限時間の 6わり いか
         assert.ok(m.minMoves <= 25 && m.minPushes <= 10, `${lv.id}: small enough`);
-        assert.ok(S.estimateSeconds(m) * 1000 <= lv.timeMs * 0.6, `${lv.id}: first-try estimate fits the limit`);
+        assert.ok(S.estimateSeconds(m) * 1000 <= stage.timeMs * 0.6, `${lv.id}: first-try estimate fits the limit`);
+        tierMin = Math.min(tierMin, m.boxes);
       }
-      const boxes = lv.rows.join('').split('$').length - 1;
-      assert.ok(boxes >= prevBoxes, `${id}: boxes never decrease`); prevBoxes = boxes;
+      assert.ok(tierMin >= prevBoxes, `${id}: boxes never decrease`); prevBoxes = tierMin;
     });
   }
 });
 
+// B案(採用候補)の 盤面プール: 各段階 3盤面いじょう、べつの パズル(たがいに 行き来できない)、むずかしさが そろって いる
+test('plan B: every tier has 3+ different puzzles of matching difficulty', () => {
+  const B = gameOf(harness()).plans.B;
+  const key = (grid) => grid.map((r) => r.join('')).join('|');
+  B.levels.forEach((stage, i) => {
+    assert.ok(stage.boards.length >= 3, `tier ${i + 1}: 3+ boards`);
+    const info = stage.boards.map((lv) => {
+      const {rows, goals} = board(lv, false), m = S.analyze(rows, goals);
+      const reach = new Set(S.states(rows, goals).map((st) => key(st.grid)));
+      const start = key(rows.map((r) => [...r.replace('@', ' ')]));
+      const mi = S.mirror(rows, goals), startM = key(mi.rows.map((r) => [...r.replace('@', ' ')]));
+      return {lv, m, reach, start, startM, goals};
+    });
+    for (const a of info) for (const b of info) if (a !== b) {
+      assert.ok(!b.reach.has(a.start) && !b.reach.has(a.startM) || JSON.stringify(a.goals) !== JSON.stringify(b.goals), `${a.lv.id} is not just a position inside ${b.lv.id}`);
+    }
+    const spread = (f) => Math.max(...info.map(f)) - Math.min(...info.map(f));
+    assert.ok(spread((x) => x.m.minMoves) <= 6, `tier ${i + 1}: shortest moves are close`);
+    assert.ok(spread((x) => x.m.minPushes) <= 2, `tier ${i + 1}: pushes are close`);
+    assert.ok(spread((x) => x.m.trapPushRatio) <= 0.1, `tier ${i + 1}: dead-end rate is close`);
+    for (const x of info) assert.ok(x.m.trapPushRatio <= 0.21, `${x.lv.id}: dead-end rate stays low`);
+    if (i === 0) for (const x of info) assert.equal(x.m.firstTraps.trap, 0, `${x.lv.id}: no first push is fatal on the first problem`);
+  });
+});
+
+// 初見シミュレーション(tools/push-puzzle/solver.cjs の beginnerSim。乱数は 固定)で 制限時間を 確かめる。
+// ふつう = 箱を ★へ ちかづける 押しを 75% / 詰みに 気づく 50%、迷いがち = 55% / 30%
+test('plan B: simulated first-time players mostly clear each board within its limit, evenly within a tier', () => {
+  const B = gameOf(harness()).plans.B;
+  B.levels.forEach((stage, i) => {
+    const res = stage.boards.map((lv) => {
+      const {rows, goals} = board(lv, false), lim = stage.timeMs / 1000;
+      const rate = (o) => { const {times, median} = S.beginnerSim(rows, goals, {stuckFn: pushPuzzleStuck, trials: 150, ...o}); return {median, within: times.filter((t) => t <= lim).length / times.length}; };
+      return {id: lv.id, normal: rate({}), slow: rate({skill: 0.55, insight: 0.3})};
+    });
+    for (const r of res) {
+      assert.ok(r.normal.within >= 0.93, `${r.id}: ${Math.round(r.normal.within * 100)}% of normal players clear in time`);
+      assert.ok(r.slow.within >= 0.75, `${r.id}: ${Math.round(r.slow.within * 100)}% of hesitant players clear in time`);
+    }
+    const med = res.map((r) => r.normal.median);
+    assert.ok(Math.max(...med) - Math.min(...med) <= 15, `tier ${i + 1}: typical times are close (${med.join(', ')} s)`);
+  });
+});
+
 test('the in-game "stuck" hint never fires on a position that can still be solved', () => {
-  const src = require('node:fs').readFileSync('games.js', 'utf8');
-  const fn = src.match(/  function pushPuzzleStuck\(grid, isGoal\) \{[\s\S]*?\n  \}\n/)[0];
-  const pushPuzzleStuck = new Function(fn + '; return pushPuzzleStuck;')();
   const plans = gameOf(harness()).plans;
   let checked = 0, caught = 0;
-  for (const lv of Object.values(plans).flatMap((p) => p.levels)) for (const mirror of [false, true]) {
+  for (const lv of Object.values(plans).flatMap(allBoards)) for (const mirror of [false, true]) {
     const {rows, goals} = board(lv, mirror), st = S.states(rows, goals);
     const isGoal = (x, y) => goals.some(([gy, gx]) => gx === x && gy === y);
     for (const {grid, live} of st) {
@@ -68,9 +117,9 @@ test('the in-game "stuck" hint never fires on a position that can still be solve
 });
 
 // 実際の ゲームで: 盤面(data-level)を 読み、ソルバーの 手順を スワイプで 入れる
-function startGame(planId, seed) {
+function startGame(planId, seed, force) {
   const h = harness({seed}), game = gameOf(h), scores = [];
-  game.plan = planId;
+  game.plan = planId; game.force = force || null;
   h.api.startMinigame({id: game.id, start(c, done) { return game.start(c, (s) => { scores.push(s); done(s); }); }});
   const view = h.get('minigameOverlay');
   return {h, game, scores, view, canvas: view.querySelector('#pzCanvas')};
@@ -81,16 +130,19 @@ function swipe(r, dx, dy, wait = 130) {
   r.h.advance(wait);
 }
 function currentSolution(r) {
-  const tag = r.canvas.dataset.level, lv = Object.values(r.game.plans).flatMap((p) => p.levels).find((l) => l.id === tag.replace(/m$/, ''));
+  const tag = r.canvas.dataset.level, lv = Object.values(r.game.plans).flatMap(allBoards).find((l) => l.id === tag.replace(/m$/, ''));
   const {rows, goals} = board(lv, tag.endsWith('m'));
   return S.analyze(rows, goals).solution;
 }
 
+const r0 = (planId) => gameOf(harness()).plans[planId].levels;
 for (const planId of ['A', 'B', 'C']) {
-  test(`plan ${planId}: the real game clears all 3 levels in order with the solver's moves (both mirrors)`, () => {
-    const mirrors = new Set();
-    for (const seed of [1, 2, 5]) {
-      const r = startGame(planId, seed), level = r.view.querySelector('#pzLevel'), moves = r.view.querySelector('#pzMoves');
+  test(`plan ${planId}: the real game clears every board in tier order with the solver's moves (both mirrors)`, () => {
+    const mirrors = new Set(), stages = r0(planId), runs = Math.max(3, ...stages.map((s) => s.boards.length)) * 2;
+    for (let k = 0; k < runs; k++) {
+      // k 回目は 各段階の (k mod 盤面数) 番めを 出す → すべての 盤面を 反転あり/なしで とく
+      const force = stages.map((s) => s.boards[k % s.boards.length].id);
+      const r = startGame(planId, k + 1, force), level = r.view.querySelector('#pzLevel'), moves = r.view.querySelector('#pzMoves');
       r.h.advance(50);
       const seen = [];
       for (let i = 0; i < 3; i++) {
@@ -103,7 +155,7 @@ for (const planId of ['A', 'B', 'C']) {
         r.h.advance(1500);
       }
       r.h.advance(1000);
-      assert.deepEqual(Array.from(seen, (t) => t.replace(/m$/, '')), Array.from(r.game.plans[planId].levels, (l) => l.id), 'tiers come in order');
+      assert.deepEqual(Array.from(seen, (t) => t.replace(/m$/, '')), Array.from(force), 'tiers come in order');
       seen.forEach((t) => mirrors.add(t.endsWith('m')));
       assert.equal(r.scores.length, 1, 'game ends after 3 clears');
       assert.ok(r.scores[0] >= 95, `perfect play scores high (${r.scores[0]})`);
@@ -112,9 +164,22 @@ for (const planId of ['A', 'B', 'C']) {
   });
 }
 
+test('plan B picks a random board per tier, never the same one twice in a row, and shows them all', () => {
+  const h = harness({seed: 9}), game = gameOf(h), seen = [new Set()], last = [];
+  for (let play = 0; play < 15; play++) {
+    h.api.startMinigame({id: game.id, start(c, done) { return game.start(c, done); }});
+    // 1問目(入門)の 盤面を 読む。えらび方は 3段階 共通の pushPuzzlePick なので、入門で 確かめれば たりる
+    const canvas = h.get('minigameOverlay').querySelector('#pzCanvas'), now = [canvas.dataset.level.replace(/m$/, '')];
+    h.api.retireMinigame();
+    if (last.length) assert.notEqual(now[0], last[0], `play ${play}: tier 1 board changed`);
+    seen[0].add(now[0]); last[0] = now[0];
+  }
+  assert.equal(seen[0].size, game.plans.B.levels[0].boards.length, 'all tier-1 boards appeared');
+});
+
 test('time limit is per level: a slow first level does not eat the next one', () => {
   const r = startGame('B', 3), timer = r.view.querySelector('#mgTimer');
-  const limits = r.game.plans.B.levels.map((l) => l.timeMs / 1000);
+  const limits = r.game.plans.B.levels.map((stage) => stage.timeMs / 1000);
   assert.equal(timer.textContent, `⏱️${limits[0]}秒`);
   r.h.advance(30000); // 30秒 かんがえてから とく
   for (const [dx, dy] of currentSolution(r)) swipe(r, dx, dy, 600);

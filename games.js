@@ -4598,27 +4598,63 @@
   // 2026-11 見直し: 以前の 4盤面の うち「中央の箱4こ+柱」は 合法解が ない(ソルバーで 全48状態を 確認)うえ、
   // 4盤面から 3つを ランダム順で えらんでいたので 75% の プレイで 出て、そこで 先へ すすめなく なっていた。
   // いまは 入門→初級→中級 の じゅんで かならず 出し、左右反転だけ ランダム(解は 鏡うつしで そのまま なりたつ)。
-  // 記法: # かべ / $ 箱 / . ★ / @ じぶん。par = ソルバーの 最短手数、timeMs = その 1問の 制限時間(ふつう)。
+  // 記法: # かべ / $ 箱 / . ★ / @ じぶん。par = ソルバーの 最短手数、timeMs = その 段階の 1問の 制限時間(ふつう)。
+  // 各段階の boards から 1つを ランダムに えらぶ(前回と おなじ 盤面は さける)。
   // 全盤面の 解の 有無・最短手数・反転版は tests/push-puzzle-levels-test.cjs と tools/push-puzzle/solver.cjs で 確認する。
   // 3案(A やさしさ / B バランス / C パズル性)を ならべて あり、PUSH_PUZZLE_PLAN で きりかえる(比較ページ: comparisons/push-puzzle-20261124/)。
   const PUSH_PUZZLE_PLANS = {
     A: { name: 'やさしさ重視', levels: [
-      { id: 'A1', tier: '入門', timeMs: 60000, par: 5, rows: ['#######', '#     #', '# .   #', '#  $  #', '#     #', '#  @  #', '#######'] },
-      { id: 'A2', tier: '初級', timeMs: 75000, par: 13, rows: ['#######', '#.    #', '# $   #', '#  @  #', '#   $ #', '#    .#', '#######'] },
-      { id: 'A3', tier: '中級', timeMs: 90000, par: 13, rows: ['#######', '#.   .#', '# $ $ #', '#  @  #', '#  $  #', '#  .  #', '#######'] },
+      { tier: '入門', timeMs: 60000, boards: [
+        { id: 'A1', par: 5, rows: ['#######', '#     #', '# .   #', '#  $  #', '#     #', '#  @  #', '#######'] },
+      ] },
+      { tier: '初級', timeMs: 75000, boards: [
+        { id: 'A2', par: 13, rows: ['#######', '#.    #', '# $   #', '#  @  #', '#   $ #', '#    .#', '#######'] },
+      ] },
+      { tier: '中級', timeMs: 90000, boards: [
+        { id: 'A3', par: 13, rows: ['#######', '#.   .#', '# $ $ #', '#  @  #', '#  $  #', '#  .  #', '#######'] },
+      ] },
     ] },
+    // B: 各段階 3盤面(+左右反転)。同じ 段階の 盤面は 最短手数・押す回数・詰みやすさ・初見シミュレーションの 時間が そろう ものを えらんだ
     B: { name: 'バランス重視', levels: [
-      { id: 'B1', tier: '入門', timeMs: 45000, par: 12, rows: ['#######', '#.   .#', '#     #', '#$   $#', '#  @  #', '#     #', '#######'] },
-      { id: 'B2', tier: '初級', timeMs: 75000, par: 15, rows: ['#######', '#.   .#', '# $$$ #', '#  @  #', '#     #', '#  .  #', '#######'] },
-      { id: 'B3', tier: '中級', timeMs: 90000, par: 22, rows: ['#######', '#.   .#', '# $ $ #', '#  #  #', '# $ $ #', '#.  @.#', '#######'] },
+      { tier: '入門', timeMs: 60000, boards: [
+        { id: 'B1a', par: 12, rows: ['#######', '#.   .#', '#     #', '#$   $#', '#  @  #', '#     #', '#######'] },
+        { id: 'B1b', par: 13, rows: ['#######', '#.   ##', '# $   #', '#  @  #', '#   $ #', '##   .#', '#######'] },
+        { id: 'B1c', par: 11, rows: ['#######', '#. $  #', '#     #', '#  @  #', '#     #', '#  $ .#', '#######'] },
+      ] },
+      { tier: '初級', timeMs: 90000, boards: [
+        { id: 'B2a', par: 13, rows: ['#######', '#.   .#', '# $ $ #', '#  @  #', '#  $  #', '#  .  #', '#######'] },
+        { id: 'B2b', par: 9, rows: ['#######', '#.    #', '# $   #', '#  @$.#', '#  $  #', '#  .  #', '#######'] },
+        { id: 'B2c', par: 15, rows: ['#######', '#.   .#', '# $ $ #', '#  @  #', '#     #', '# .$  #', '#######'] },
+      ] },
+      { tier: '中級', timeMs: 120000, boards: [
+        { id: 'B3a', par: 22, rows: ['#######', '#.   .#', '# $ $ #', '#  #  #', '# $ $ #', '#.  @.#', '#######'] },
+        { id: 'B3b', par: 21, rows: ['#######', '#.   .#', '# $ $ #', '#  @  #', '# $ $ #', '#.   .#', '#######'] },
+        { id: 'B3c', par: 21, rows: ['#######', '#.   .#', '# $ $ #', '#  @  #', '# $ $ #', '#.  #.#', '#######'] },
+      ] },
     ] },
     C: { name: 'パズル性重視', levels: [
-      { id: 'C1', tier: '入門', timeMs: 60000, par: 17, rows: ['#######', '#.  ###', '#.$   #', '# $#  #', '# @   #', '#     #', '#######'] },
-      { id: 'C2', tier: '初級', timeMs: 90000, par: 16, rows: ['#######', '#...  #', '# $ $ #', '#  $  #', '#  @  #', '#     #', '#######'] },
-      { id: 'C3', tier: '中級', timeMs: 120000, par: 21, rows: ['#######', '#. # .#', '# $ $ #', '#  @  #', '# $ $ #', '#.   .#', '#######'] },
+      { tier: '入門', timeMs: 60000, boards: [
+        { id: 'C1', par: 17, rows: ['#######', '#.  ###', '#.$   #', '# $#  #', '# @   #', '#     #', '#######'] },
+      ] },
+      { tier: '初級', timeMs: 90000, boards: [
+        { id: 'C2', par: 16, rows: ['#######', '#...  #', '# $ $ #', '#  $  #', '#  @  #', '#     #', '#######'] },
+      ] },
+      { tier: '中級', timeMs: 120000, boards: [
+        { id: 'C3', par: 21, rows: ['#######', '#. # .#', '# $ $ #', '#  @  #', '# $ $ #', '#.   .#', '#######'] },
+      ] },
     ] },
   };
   const PUSH_PUZZLE_PLAN = 'B';
+  // 段階ごとに 前回 出した 盤面(このページを ひらいて いる あいだだけ おぼえる。セーブには のこさない)
+  const pushPuzzleLast = {};
+  function pushPuzzlePick(planId, i, boards, forceId) {
+    const forced = forceId && boards.find((b) => b.id === forceId);
+    if (forced) return forced;
+    const key = planId + i, pool = boards.length > 1 ? boards.filter((b) => b.id !== pushPuzzleLast[key]) : boards;
+    const board = pool[Math.floor(Math.random() * pool.length)];
+    pushPuzzleLast[key] = board.id;
+    return board;
+  }
   const PUSH_PUZZLE_PRACTICE = { id: 'practice', rows: ['#######', '#     #', '#     #', '# @$ .#', '#     #', '#     #', '#######'] };
   // 記法の 盤面を ゲームの grid(' ', '#', '$', '@')と goals([y, x])に。mirror で 左右反転
   function pushPuzzleBoard(level, mirror) {
@@ -4655,14 +4691,16 @@
   }
   function makePushPuzzleGame({ title }) {
     return {
-      // plans / plan: 比較ページと テストが 3案を 同じ コードで ためす ための 入口(ふだんは PUSH_PUZZLE_PLAN)
-      plans: PUSH_PUZZLE_PLANS, plan: PUSH_PUZZLE_PLAN,
+      // plans / plan / force: 比較ページと テストが 3案・各盤面を 同じ コードで ためす ための 入口
+      // (ふだんは PUSH_PUZZLE_PLAN、盤面は ランダム。force = 段階ごとの 盤面 id の 配列)
+      plans: PUSH_PUZZLE_PLANS, plan: PUSH_PUZZLE_PLAN, force: null,
       start(container, onComplete) {
         const difficulty = ageDifficulty();
         // 入門→初級→中級 の じゅん。左右反転だけ ランダム。制限時間は 1問ごと(つぎの 問題で また いっぱいに もどる)
-        const plan = PUSH_PUZZLE_PLANS[this.plan] || PUSH_PUZZLE_PLANS[PUSH_PUZZLE_PLAN], levels = plan.levels.map((lv) => ({ lv, mirror: Math.random() < 0.5 }));
-        const limits = levels.map(({ lv }) => mgDuration(lv.timeMs)), maxLimit = Math.max(...limits);
-        const parTotal = plan.levels.reduce((n, lv) => n + lv.par, 0);
+        const planId = PUSH_PUZZLE_PLANS[this.plan] ? this.plan : PUSH_PUZZLE_PLAN, plan = PUSH_PUZZLE_PLANS[planId], force = this.force || [];
+        const levels = plan.levels.map((stage, i) => ({ lv: { ...pushPuzzlePick(planId, i, stage.boards, force[i]), tier: stage.tier }, timeMs: stage.timeMs, mirror: Math.random() < 0.5 }));
+        const limits = levels.map(({ timeMs }) => mgDuration(timeMs)), maxLimit = Math.max(...limits);
+        const parTotal = levels.reduce((n, { lv }) => n + lv.par, 0);
         let lvIdx = 0, moves = 0, totalMoves = 0, solved = 0, running = true, rafId = null, grid, goals, px, py, history = [], msg = '', msgUntil = 0, anim = null, pushes = 0, levelDone = false, stuckSaid = false;
         let levelStart = performance.now(), doneAt = 0;
         let mainInputs = 0;
