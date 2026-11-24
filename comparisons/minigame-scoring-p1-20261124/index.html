@@ -1,0 +1,268 @@
+<meta charset="utf-8">
+<title>ミニゲーム重大3件 試遊</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="style.css">
+<style>
+/* Layout: 説明 → ゲームと版の切りかえ → スマホ枠の中で本物のゲーム → 結果の記録表。1カラム、最大 720px */
+:root {
+  --p-bg: #f3f6f4; --p-panel: #ffffff; --p-ink: #1f2a27; --p-muted: #5b6a64; --p-line: #d7e1dc;
+  --p-before: #b4472f; --p-before-bg: #fbe9e4; --p-after: #23795d; --p-after-bg: #e2f3ea; --p-accent: #2f6f8f;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --p-bg: #131917; --p-panel: #1c2421; --p-ink: #e4ede9; --p-muted: #9db0a8; --p-line: #2e3a35;
+  --p-before: #ff9a82; --p-before-bg: #3a201a; --p-after: #79d6ae; --p-after-bg: #173126; --p-accent: #8cc8e6; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --p-bg: #131917; --p-panel: #1c2421; --p-ink: #e4ede9; --p-muted: #9db0a8; --p-line: #2e3a35;
+  --p-before: #ff9a82; --p-before-bg: #3a201a; --p-after: #79d6ae; --p-after-bg: #173126; --p-accent: #8cc8e6; color-scheme: dark; }
+html, body { background: var(--p-bg) !important; color: var(--p-ink); }
+body { font: 15px/1.7 "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif; margin: 0; display: block !important; min-height: 0 !important; height: auto !important; overflow: auto !important; }
+.p-wrap { max-width: 720px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 20px 48px; display: grid; gap: 16px; }
+.p-wrap h1 { font-size: 1.35rem; margin: 0; text-wrap: balance; line-height: 1.35; }
+.p-wrap h2 { font-size: 1.02rem; margin: 0; }
+.p-lead { color: var(--p-muted); margin: 4px 0 0; }
+.p-panel { background: var(--p-panel); border: 1px solid var(--p-line); border-radius: 14px; padding: 14px; display: grid; gap: 10px; min-width: 0; }
+.p-panel p, .p-panel ul { margin: 0; }
+.p-panel ul { padding-left: 1.2em; }
+.p-seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.p-seg button, .p-btn { font: inherit; font-size: .9rem; border: 1px solid var(--p-line); background: var(--p-panel); color: var(--p-ink); border-radius: 999px; padding: 6px 14px; cursor: pointer; min-height: 40px; }
+.p-seg button[aria-pressed="true"] { background: var(--p-accent); border-color: var(--p-accent); color: var(--p-panel); font-weight: 700; }
+.p-seg button.v-before[aria-pressed="true"] { background: var(--p-before); border-color: var(--p-before); }
+.p-seg button.v-after[aria-pressed="true"] { background: var(--p-after); border-color: var(--p-after); }
+.p-btn.primary { background: var(--p-ink); color: var(--p-panel); border-color: var(--p-ink); font-weight: 700; }
+.p-btn:disabled { opacity: .5; cursor: default; }
+:focus-visible { outline: 2px solid var(--p-accent); outline-offset: 2px; }
+.p-tag { font-size: .72rem; font-weight: 700; border-radius: 999px; padding: 1px 9px; }
+.p-tag.before { color: var(--p-before); background: var(--p-before-bg); } .p-tag.after { color: var(--p-after); background: var(--p-after-bg); }
+.p-phone { width: 100%; max-width: 390px; height: 620px; margin: 0 auto; border-radius: 22px; overflow: hidden; border: 1px solid var(--p-line); background: #fffaf2; display: flex; flex-direction: column; position: relative; }
+.p-phone .minigame-overlay { flex: 1; min-height: 0; padding: 8px; }
+.p-phone-empty { margin: auto; color: #6b6255; text-align: center; padding: 24px; font-size: .9rem; }
+.p-status { font-size: .85rem; color: var(--p-muted); min-height: 1.6em; }
+.p-result { font-variant-numeric: tabular-nums; }
+.p-scroll { overflow-x: auto; }
+table.p-log { border-collapse: collapse; width: 100%; font-size: .82rem; min-width: 520px; font-variant-numeric: tabular-nums; }
+table.p-log th, table.p-log td { border-top: 1px solid var(--p-line); padding: 6px 8px; text-align: left; vertical-align: top; }
+table.p-log th { color: var(--p-muted); }
+.p-note { font-size: .8rem; color: var(--p-muted); }
+.p-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+</style>
+
+<div class="p-wrap">
+  <header>
+    <div class="p-note">なおとっち・ミニゲーム採点監査 Phase 1(2026-11-24)</div>
+    <h1>重大3件の修正前・修正後を遊んで比べる</h1>
+    <p class="p-lead">本物の games.js を2つ(修正前 = main、修正後 = このブランチ)読みこんでいます。点数・コインの帯は本体と同じ計算で表示します(記録・コインは実際には増えません)。</p>
+  </header>
+
+  <section class="p-panel" aria-label="ゲーム">
+    <div class="p-seg" id="gameSeg" role="group" aria-label="ゲーム">
+      <button type="button" data-game="tilt-maze-3d" aria-pressed="true">たまころがし迷路</button>
+      <button type="button" data-game="shanghai-tiles" aria-pressed="false">上海</button>
+      <button type="button" data-game="slide-puzzle" aria-pressed="false">スライドパズル</button>
+    </div>
+    <div class="p-seg" id="verSeg" role="group" aria-label="版">
+      <button type="button" class="v-before" data-ver="before" aria-pressed="false">修正前(main)</button>
+      <button type="button" class="v-after" data-ver="after" aria-pressed="true">修正後</button>
+    </div>
+    <div id="gameInfo"></div>
+    <div class="p-row">
+      <button type="button" class="p-btn primary" id="playBtn">▶ あそぶ</button>
+      <button type="button" class="p-btn" id="demoBtn">再現する</button>
+      <button type="button" class="p-btn" id="stopBtn">やめる</button>
+    </div>
+    <div class="p-status" id="status" role="status"></div>
+  </section>
+
+  <div class="p-phone" id="phone"><div class="p-phone-empty" id="phoneEmpty">ゲームと版をえらんで「あそぶ」か「再現する」を押してください。</div></div>
+
+  <section class="p-panel">
+    <h2>結果の記録(このページを開いている間だけ)</h2>
+    <div class="p-scroll"><table class="p-log"><thead><tr><th>#</th><th>ゲーム</th><th>版</th><th>あそびかた</th><th>点</th><th>本体での扱い</th><th>メモ</th></tr></thead><tbody id="log"><tr><td colspan="7" class="p-note">まだありません。</td></tr></tbody></table></div>
+    <p class="p-note">本体での扱い: 70点以上=大成功(60コイン)、30〜69点=ふつう(30コイン)、29点以下=しっぱい(0コイン)。たまころがし迷路は操作量メーターがあるので、ほとんど操作しなかった回は「記録しない」になります。</p>
+  </section>
+</div>
+
+<script src="helpers.js"></script>
+<script src="games-before.js"></script>
+<script src="games-after.js"></script>
+<script>
+(() => {
+  'use strict';
+  const $ = (id) => document.getElementById(id);
+  const INFO = {
+    'tilt-maze-3d': {
+      name: 'たまころがし迷路', diff: 0.3,
+      what: '進み具合(ゴールできなかった時の点)の計算を直しました。修正前は、スタート地点にいるだけで進み具合が約半分になり、ゴールできなくても30〜40点(ふつう・30コイン)になっていました。',
+      tryIt: '「あそぶ」で始め、ボールをゴールへ向けて少しだけ動かし、ゴールせずに時間切れ(約24秒)にしてみてください。修正前は30点台、修正後はゴールにどれだけ近づいたかで15〜45点になります。何もしない回は「記録しない」です。',
+      demo: '再現: 3秒ごとに右か下へ少しだけ動かして、ゴールせずに終わります(約24秒)。',
+    },
+    'shanghai-tiles': {
+      name: '上海', diff: 0.3,
+      what: '取る順番によって、同じ場所に重なった2枚だけが最後に残り、「まぜる」でも取れなくなる詰みを直しました(でたらめに取る人のシミュレーションで約4%)。修正後は、取りきれないと分かった時だけ、重なった牌を下の段の空いている場所へおろしてから、まぜ直します。',
+      tryIt: '「再現する」は、修正前に詰みが起きる例を自動で取ります。修正前は最後の2枚が重なったまま取れず、時間切れまで進めません。修正後は「かさなった牌を下におろして、まぜた」と出て、最後まで取りきれます。',
+      demo: '再現: 詰みが起きる例を自動で取ります(約20秒)。',
+    },
+    'slide-puzzle': {
+      name: 'スライドパズル', diff: 0.3,
+      what: 'シャッフルが偶然完成形にもどった時に2枚を入れかえていたため、解けない盤になっていました(3×3で約10万回に1回)。修正後は、もう一度まぜ直します。',
+      tryIt: '「再現する」は、乱数を固定して「シャッフルが完成形にもどる」場面を作ります。盤の下に「この盤は解ける/解けない」を表示します。修正前は1と2が入れかわった解けない盤、修正後は解ける盤になります。',
+      demo: '再現: 完成形にもどるシャッフルを起こします。',
+    },
+  };
+  let game = 'tilt-maze-3d', ver = 'after', session = 0, current = null, logN = 0;
+  const reg = {};
+  function registry(v) {
+    if (reg[v]) return reg[v];
+    const H = window.P1Helpers;
+    const S = {
+      sfx() {}, perfLow: () => false, perfScale: () => 1, foodIconHTML: (_k, e) => e, canvasIllustrations: null, drawProp: () => false,
+      MG_ACTION_START_GRACE_MS: H.MG_ACTION_START_GRACE_MS, MG_SWIPE_MIN: H.MG_SWIPE_MIN, SEASON: {SPRING: 'spring', SUMMER: 'summer', AUTUMN: 'autumn', WINTER: 'winter'},
+      ageDifficulty: () => INFO[game].diff, bindHeldButton: H.bindHeldButton, createTouchPad: H.createTouchPad, createPadRow: H.createPadRow, clamp: H.clamp,
+      createMgCanvas: H.createMgCanvas, currentSprite: () => '🐶', generateMaze: H.generateMaze, lerp: H.lerp, mazeBfs: H.mazeBfs,
+      mgDuration: (ms) => ms, mgPointerPos: H.mgPointerPos, minigameEase: () => 0.5,
+    };
+    const install = v === 'before' ? window.P1InstallBefore : window.P1InstallAfter;
+    const r = install(S);
+    reg[v] = new Map(r.MINIGAMES.map((g) => [g.id, g]));
+    return reg[v];
+  }
+  // 本体の T7 と おなじ 判定(script.js mgParticipated)
+  function participated(play) {
+    if (play && Number.isFinite(play.acts)) return play.acts > 0 && (!Number.isFinite(play.cover) || (play.cover >= 0.2 && (play.cover >= 1 || !(play.spans < 2))));
+    return true;
+  }
+  const band = (s) => s >= 70 ? '大成功・60コイン' : s >= 30 ? 'ふつう・30コイン' : 'しっぱい・0コイン';
+  // 描画の きろく(上海の 自動プレイ・スライドの 盤の よみとり)
+  const draws = {};
+  const P = CanvasRenderingContext2D.prototype, ft = P.fillText, di = P.drawImage;
+  P.fillText = function (...a) { const id = this.canvas && this.canvas.id; if (id === 'shCanvas') (draws[id] = draws[id] || []).push(['t', ...a.slice(0, 3)]); return ft.apply(this, a); };
+  P.drawImage = function (...a) { const id = this.canvas && this.canvas.id; if (id === 'spCanvas' && a.length === 9) (draws[id] = draws[id] || []).push(['i', ...a.slice(1)]); return di.apply(this, a); };
+  const nextFrame = () => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+  const wait = (ms) => new Promise((r) => setTimeout(r, window.__p1Fast ? Math.min(ms, 20) : ms));
+  async function frameDraws(id) { draws[id] = []; await nextFrame(); const seen = new Set(); return (draws[id] || []).filter((d) => { const k = d.join('|'); if (seen.has(k)) return false; seen.add(k); return true; }); }
+
+  const realRandom = Math.random;
+  function lcg(seed) { let s = seed >>> 0; return () => ((s = (Math.imul(s, 1664525) + 1013904223) >>> 0) / 4294967296); }
+
+  function render() {
+    for (const b of document.querySelectorAll('#gameSeg button')) b.setAttribute('aria-pressed', String(b.dataset.game === game));
+    for (const b of document.querySelectorAll('#verSeg button')) b.setAttribute('aria-pressed', String(b.dataset.ver === ver));
+    const i = INFO[game];
+    $('gameInfo').innerHTML = `<p><b>直したこと</b>: ${i.what}</p><p><b>ためしかた</b>: ${i.tryIt}</p><p class="p-note">${i.demo}</p>`;
+  }
+  function stop(msg) {
+    session++; current = null; Math.random = realRandom;
+    if (window.P1Helpers.resetMinigameInput) window.P1Helpers.resetMinigameInput();
+    $('phone').innerHTML = `<div class="p-phone-empty">${msg || 'ゲームと版をえらんで「あそぶ」か「再現する」を押してください。'}</div>`;
+  }
+  function addLog(row) {
+    const tb = $('log'); if (!logN) tb.innerHTML = '';
+    logN++;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${logN}</td><td>${INFO[row.game].name}</td><td><span class="p-tag ${row.ver}">${row.ver === 'before' ? '修正前' : '修正後'}</span></td><td>${row.how}</td><td class="p-result">${row.score ?? '―'}</td><td>${row.treat}</td><td>${row.memo || ''}</td>`;
+    tb.prepend(tr);
+  }
+  function play(how, random) {
+    stop('');
+    const my = ++session;
+    $('phone').innerHTML = '<div class="minigame-overlay" id="minigameOverlay"></div>';
+    const box = $('minigameOverlay');
+    if (random) Math.random = random;
+    const g = registry(ver).get(game), v = ver, id = game;
+    current = {done: null, how};
+    g.start(box, (score, _msg, detail) => {
+      if (my !== session) return;
+      Math.random = realRandom;
+      const s = Math.max(0, Math.min(100, Math.round(score))), rec = participated(detail);
+      const treat = rec ? band(s) : '記録しない(参加なし)';
+      $('status').textContent = `${INFO[id].name}(${v === 'before' ? '修正前' : '修正後'}): ${s}点 → ${treat}`;
+      addLog({game: id, ver: v, how, score: s, treat, memo: current && current.memo});
+      if (current) current.done = s;
+    });
+    return my;
+  }
+
+  // ---- 再現 ----
+  async function demoTilt() {
+    const my = play('再現(少しだけ動かす)');
+    const key = (k, down) => { const b = document.querySelector(`#minigameOverlay .mg-pad-key[data-key="${k}"]`) || document.querySelector('#minigameOverlay [data-key="' + k + '"]'); if (b) b.dispatchEvent(new PointerEvent(down ? 'pointerdown' : 'pointerup', {bubbles: true, pointerId: 1, pointerType: 'touch', isPrimary: true})); };
+    for (let i = 0; i < 12 && my === session && current && current.done == null; i++) {
+      const k = i % 2 ? 'down' : 'right'; key(k, true); await wait(180); key(k, false); await wait(2000);
+    }
+  }
+  const FACES = ['🌸', '🍀', '🍁', '🌙', '⭐', '🐟', '🐢', '🦋', '🍑', '🍇', '🎐', '🏮', '🐉', '🎋', '🍵', '🪷'];
+  async function shTiles() {
+    const c = document.querySelector('#shCanvas'); if (!c) return [];
+    const W = c.clientWidth, H = Math.round(c.getBoundingClientRect().height), OX = (W - 16 * 14) / 2 + 6, OY = (H - 5 * 36) / 2 + 6, out = [];
+    for (const [k, text, cx, cy] of await frameDraws('shCanvas')) {
+      if (k !== 't' || !FACES.includes(text)) continue;
+      for (let layer = 0; layer <= 3; layer++) {
+        const x = (cx - OX - 14 + layer * 3) / 14, y = (cy - 1 - OY - 18 + layer * 3) / 18;
+        if (Math.abs(x - Math.round(x)) < 1e-6 && Math.round(x) % 2 === 0 && Math.abs(y - Math.round(y)) < 1e-6) { out.push({face: text, layer, x: Math.round(x), y: Math.round(y), cx, cy}); break; }
+      }
+    }
+    return out;
+  }
+  function shFree(tiles) {
+    const covers = (a, b) => a.layer === b.layer + 1 && Math.abs(a.x - b.x) < 2 && Math.abs(a.y - b.y) < 2;
+    const side = (t, d) => tiles.some((o) => o !== t && o.layer === t.layer && o.x === t.x + d * 2 && Math.abs(o.y - t.y) < 2);
+    return tiles.filter((t) => !tiles.some((o) => covers(o, t)) && !(side(t, -1) && side(t, 1)));
+  }
+  async function demoShanghai() {
+    const seed = Number(document.body.dataset.shSeed || 0);
+    const my = play(`再現(自動で取る・例 ${seed})`, lcg(seed));
+    const pick = lcg(seed * 2654435761);
+    await wait(400);
+    for (let step = 0; step < 80 && my === session; step++) {
+      const tiles = await shTiles(); if (!tiles.length) return;
+      const free = shFree(tiles), pairs = [];
+      for (let i = 0; i < free.length; i++) for (let j = i + 1; j < free.length; j++) if (free[i].face === free[j].face) pairs.push([free[i], free[j]]);
+      if (!pairs.length) {
+        if (current) current.memo = `のこり${tiles.length}枚が重なったまま取れない(時間切れまで待つしかない)`;
+        $('status').textContent = `詰み: のこり${tiles.length}枚が重なっていて、「まぜる」でも取れません。修正前の不具合です。`;
+        return;
+      }
+      const [a, b] = pairs[Math.floor(pick() * pairs.length)];
+      const c = document.querySelector('#shCanvas'), r = c.getBoundingClientRect();
+      for (const t of [a, b]) c.dispatchEvent(new PointerEvent('pointerdown', {bubbles: true, cancelable: true, clientX: r.left + t.cx, clientY: r.top + t.cy - 1, pointerId: 1, pointerType: 'touch', isPrimary: true}));
+      const hint = document.querySelector('#shHint');
+      if (hint && /おろして/.test(hint.textContent) && current) current.memo = '詰みを見つけて、重なった牌を下におろした';
+      await wait(220);
+    }
+  }
+  function solvable(board, N) {
+    let inv = 0; const p = board.slice();
+    for (let i = 0; i < p.length; i++) while (p[i] !== i) { const j = p[i]; [p[i], p[j]] = [p[j], p[i]]; inv++; }
+    const at = board.indexOf(N * N - 1);
+    return inv % 2 === (Math.abs((at % N) - (N - 1)) + Math.abs(Math.floor(at / N) - (N - 1))) % 2;
+  }
+  async function slideCheck() {
+    const c = document.querySelector('#spCanvas'); if (!c) return;
+    const r = c.getBoundingClientRect();
+    c.dispatchEvent(new PointerEvent('pointerdown', {bubbles: true, clientX: r.left + 5, clientY: r.top + 5, pointerId: 1, pointerType: 'touch', isPrimary: true}));
+    c.dispatchEvent(new PointerEvent('pointerup', {bubbles: true, clientX: r.left + 5, clientY: r.top + 5, pointerId: 1, pointerType: 'touch', isPrimary: true}));
+    await wait(80);
+    const d = (await frameDraws('spCanvas')).filter((x) => x[0] === 'i'); if (!d.length) return;
+    const CELL = d[0][3] / 2, N = Math.round(Math.sqrt(d.length + 1)), board = Array(N * N).fill(N * N - 1);
+    for (const [, sx, sy, , , x, y] of d) board[Math.round(y / CELL) * N + Math.round(x / CELL)] = Math.round(sy / 2 / CELL) * N + Math.round(sx / 2 / CELL);
+    const ok = solvable(board, N);
+    const msg = ok ? 'この盤は解けます' : 'この盤は解けません(置換の偶奇が合わない)';
+    $('status').textContent = `${msg}。ならび: ${board.map((v) => v === N * N - 1 ? '□' : v + 1).join(' ')}`;
+    if (current) current.memo = msg;
+  }
+  async function demoSlide() {
+    const off = Number(document.body.dataset.spOffset || 0), q = [0.75, 0.25, 0.5, 0.25]; let i = off;
+    play('再現(完成形にもどるシャッフル)', () => q[(i++) % 4]);
+    await wait(300);
+    Math.random = realRandom;
+    await slideCheck();
+  }
+
+  $('gameSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; game = b.dataset.game; stop(); render(); });
+  $('verSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; ver = b.dataset.ver; stop(); render(); });
+  $('playBtn').addEventListener('click', async () => { play('ふつうに遊ぶ'); $('status').textContent = ''; if (game === 'slide-puzzle') { await wait(300); /* お手本は そのまま */ } });
+  $('demoBtn').addEventListener('click', () => { $('status').textContent = '再現中…'; ({'tilt-maze-3d': demoTilt, 'shanghai-tiles': demoShanghai, 'slide-puzzle': demoSlide})[game](); });
+  $('stopBtn').addEventListener('click', () => { stop(); $('status').textContent = ''; });
+  window.p1Trial = {setGame: (g) => { game = g; render(); }, setVer: (v) => { ver = v; render(); }, demo: () => ({'tilt-maze-3d': demoTilt, 'shanghai-tiles': demoShanghai, 'slide-puzzle': demoSlide})[game](), state: () => ({session, done: current && current.done, memo: current && current.memo, status: $('status').textContent})};
+  render();
+})();
+</script>

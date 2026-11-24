@@ -2639,6 +2639,9 @@
         const start = { x: 1, y: 1 };
         const d0 = mazeBfs(map, 1, 1);
         const goal = pickFarCell(map, [d0], [start]);
+        // 進み具合(失敗した ときの 点)は「ゴールまでの 道のり」で はかる。スタートでは dG = d0[goal] なので 0、ゴールで 1。
+        // 以前は 更新だけ マンハッタン距離で、スタートに いるだけで 進み具合が 約半分(=30点台)に なっていた(監査 2026-11-24 P1)
+        const dG = mazeBfs(map, goal.x, goal.y);
         const holes = [];
         const floor = [];
         for (let y = 1; y < N - 1; y++) for (let x = 1; x < N - 1; x++) if (map[y][x] === '.' && d0[y][x] >= 3) floor.push({ x, y });
@@ -2698,7 +2701,7 @@
           for (let i = 0; i < sub; i++) { bx += vx * dt / sub; collide(); by += vy * dt / sub; collide(); }
           const cx = Math.floor(bx / CELL), cy = Math.floor(by / CELL);
           for (const h of holes) if (Math.hypot(bx - (h.x + 0.5) * CELL, by - (h.y + 0.5) * CELL) < CELL * 0.24) { lives--; falls++; sfx('bad'); livesEl.textContent = '❤️'.repeat(Math.max(0, lives)) + '🖤'.repeat(3 - Math.max(0, lives)); falling = 0.7; say(lives > 0 ? '🕳️穴に落ちた!スタートにもどる' : '🕳️おちてしまった…'); if (lives <= 0) { finish(false); } return; }
-          if (!isWall(cx, cy) && d0[cy][cx] >= 0) bestD = Math.min(bestD, Math.abs(cx - goal.x) + Math.abs(cy - goal.y));
+          if (!isWall(cx, cy) && dG[cy][cx] >= 0) bestD = Math.min(bestD, dG[cy][cx]);
           if (Math.hypot(bx - (goal.x + 0.5) * CELL, by - (goal.y + 0.5) * CELL) < CELL * 0.36) finish(true);
         }
         function render(now) {
@@ -9867,14 +9870,56 @@
         }
         deal(layout);
         const matchable = () => { const free = tiles.filter((t) => isFree(t)); for (let i = 0; i < free.length; i++) for (let j = i + 1; j < free.length; j++) if (free[i].face === free[j].face) return [free[i], free[j]]; return null; };
+        // のこった 牌の「おきばしょ」だけで とりきれるか(絵は みない)。とった 順に よっては、おなじ ばしょに かさなった
+        // 2まい などが のこり、どう まぜても とれなく なる(監査 2026-11-24 P1: 約4%)
+        function clearable(positions) {
+          const ts = positions.map((p) => ({ ...p, alive: true }));
+          const cov = (a, b) => a.layer === b.layer + 1 && Math.abs(a.x - b.x) < 2 && Math.abs(a.y - b.y) < 2;
+          const side = (t, dir) => ts.some((o) => o.alive && o !== t && o.layer === t.layer && o.x === t.x + dir * 2 && Math.abs(o.y - t.y) < 2);
+          const free = (t) => t.alive && !ts.some((o) => o.alive && cov(o, t)) && !(side(t, -1) && side(t, 1));
+          const seen = new Set(); let budget = 6000, unsure = false;
+          const rec = () => {
+            if (!ts.some((t) => t.alive)) return true;
+            if (budget-- <= 0) { unsure = true; return false; }
+            const key = ts.map((t) => (t.alive ? 1 : 0)).join('');
+            if (seen.has(key)) return false; seen.add(key);
+            const f = ts.filter(free).sort((a, b) => b.layer - a.layer);
+            for (let i = 0; i < f.length; i++) for (let j = i + 1; j < f.length; j++) {
+              f[i].alive = f[j].alive = false;
+              if (rec()) return true;
+              f[i].alive = f[j].alive = true;
+            }
+            return false;
+          };
+          // しらべきれなかった ときは「とりきれる」あつかい(ならびを かえない)。おろすのは とれないと たしかめた ときだけ
+          return rec() || unsure;
+        }
+        // とりきれない ときは、2だん目より 上の 牌を 1だん目の あいている ばしょへ おろす。
+        // 1だんだけの ならびは、いちばん 左と いちばん 右の 牌が かならず とれるので、かならず とりきれる
+        function flatten(positions) {
+          const ground = positions.filter((p) => p.layer === 0);
+          const taken = new Set(ground.map((p) => p.x + ',' + p.y));
+          const empty = layout.filter((p) => p.layer === 0 && !taken.has(p.x + ',' + p.y));
+          const upper = positions.filter((p) => p.layer > 0);
+          if (empty.length < upper.length) return positions; // 1だん目が たりない(ほぼ おきない)ときは いままでどおり
+          const moved = upper.map((p) => {
+            let bi = 0;
+            for (let i = 1; i < empty.length; i++) if (Math.hypot(empty[i].x - p.x, empty[i].y - p.y) < Math.hypot(empty[bi].x - p.x, empty[bi].y - p.y)) bi = i;
+            const [slot] = empty.splice(bi, 1);
+            return { layer: 0, x: slot.x, y: slot.y };
+          });
+          return ground.map((p) => ({ layer: 0, x: p.x, y: p.y })).concat(moved);
+        }
         function reshuffle(auto) {
           const alive = tiles.filter((t) => t.alive);
           if (alive.length < 2) return;
-          const positions = alive.map((t) => ({ layer: t.layer, x: t.x, y: t.y }));
+          let positions = alive.map((t) => ({ layer: t.layer, x: t.x, y: t.y }));
+          const stuck = !clearable(positions);
+          if (stuck) positions = flatten(positions);
           const dead = tiles.filter((t) => !t.alive);
           deal(positions); tiles = tiles.concat(dead);
           sel = null; shuffles++;
-          say(auto ? '🔀取れる牌がなくなったので、まぜた' : '🔀まぜた(解ききれるならび)', 1200);
+          say(stuck ? '🔀かさなった牌を下におろして、まぜた' : auto ? '🔀取れる牌がなくなったので、まぜた' : '🔀まぜた(解ききれるならび)', 1400);
         }
         container.querySelector('#shShuffle').addEventListener('pointerdown', (e) => { e.preventDefault(); if (running) reshuffle(false); });
         hintBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || hints <= 0) return; const p = matchable(); if (!p) { say('今取れるペアはない。まぜよう', 1000); return; } hints--; hintPair = p; hintUntil = performance.now() + 2500; hud(); });
@@ -10151,17 +10196,20 @@
         }
         paintPicture();
         board = Array.from({ length: N * N }, (_, i) => i); blank = N * N - 1;
-        // ただしい てじゅんで シャッフル(かならず とける)
+        // ただしい てじゅんで シャッフル(かならず とける)。たまたま 完成形に もどったら、もういちど まぜる。
+        // 以前は 2枚を 入れかえていたが、それでは 置換の 偶奇が かわり 解けない 盤に なった(監査 2026-11-24 P1)
         let prev = -1;
         const SHUF = N === 3 ? 60 : 140;
-        for (let k = 0; k < SHUF; k++) {
+        const isSolved = () => board.every((v, i) => v === i);
+        let reshuffles = 0;
+        do for (let k = 0; k < SHUF; k++) {
           const bx = blank % N, by = Math.floor(blank / N);
           const opts = [[1, 0], [-1, 0], [0, 1], [0, -1]].map(([dx, dy]) => [bx + dx, by + dy]).filter(([x, y]) => x >= 0 && y >= 0 && x < N && y < N).map(([x, y]) => y * N + x).filter((i) => i !== prev);
           const pick = opts[Math.floor(Math.random() * opts.length)];
           board[blank] = board[pick]; board[pick] = N * N - 1; prev = blank; blank = pick;
-        }
-        const isSolved = () => board.every((v, i) => v === i);
-        if (isSolved()) { const a = board[0]; board[0] = board[1]; board[1] = a; }
+        } while (isSolved() && ++reshuffles < 20);
+        // それでも 完成形なら(乱数が かたよった とき)、空きマスを 1手だけ うごかす(合法手なので 解ける まま)
+        if (isSolved()) { const pick = blank - 1; board[blank] = board[pick]; board[pick] = N * N - 1; blank = pick; }
         function tryMove(idx) {
           if (!running || solved || sliding) return;
           const bx = blank % N, by = Math.floor(blank / N), x = idx % N, y = Math.floor(idx / N);
