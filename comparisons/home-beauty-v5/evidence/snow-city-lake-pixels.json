@@ -1,0 +1,206 @@
+{
+  "chromium": [
+    {
+      "region": "snow",
+      "time": "morning",
+      "delta": 2071,
+      "motion": 983,
+      "reduced": 0,
+      "upperSlider": 581
+    },
+    {
+      "region": "snow",
+      "time": "day",
+      "delta": 2289,
+      "motion": 1032,
+      "reduced": 0,
+      "upperSlider": 668
+    },
+    {
+      "region": "snow",
+      "time": "evening",
+      "delta": 2094,
+      "motion": 985,
+      "reduced": 0,
+      "upperSlider": 779
+    },
+    {
+      "region": "snow",
+      "time": "night",
+      "delta": 1821,
+      "motion": 963,
+      "reduced": 0,
+      "upperSlider": 747
+    },
+    {
+      "region": "city",
+      "time": "morning",
+      "delta": 5702,
+      "motion": 3226,
+      "reduced": 0,
+      "upperSlider": 2742
+    },
+    {
+      "region": "city",
+      "time": "day",
+      "delta": 6022,
+      "motion": 3038,
+      "reduced": 0,
+      "upperSlider": 2062
+    },
+    {
+      "region": "city",
+      "time": "evening",
+      "delta": 5016,
+      "motion": 3019,
+      "reduced": 0,
+      "upperSlider": 4549
+    },
+    {
+      "region": "city",
+      "time": "night",
+      "delta": 3372,
+      "motion": 3088,
+      "reduced": 0,
+      "upperSlider": 4842
+    },
+    {
+      "region": "memory_lake",
+      "time": "morning",
+      "delta": 5722,
+      "motion": 5019,
+      "reduced": 0,
+      "upperSlider": 2339,
+      "weatherDifference": 0
+    },
+    {
+      "region": "memory_lake",
+      "time": "day",
+      "delta": 6384,
+      "motion": 5525,
+      "reduced": 0,
+      "upperSlider": 2634,
+      "weatherDifference": 0
+    },
+    {
+      "region": "memory_lake",
+      "time": "evening",
+      "delta": 6093,
+      "motion": 5547,
+      "reduced": 0,
+      "upperSlider": 2401,
+      "weatherDifference": 0
+    },
+    {
+      "region": "memory_lake",
+      "time": "night",
+      "delta": 7623,
+      "motion": 6955,
+      "reduced": 0,
+      "upperSlider": 3342,
+      "weatherDifference": 0
+    }
+  ],
+  "webkit": [
+    {
+      "region": "snow",
+      "time": "morning",
+      "delta": 1894,
+      "motion": 980,
+      "reduced": 0,
+      "upperSlider": 592
+    },
+    {
+      "region": "snow",
+      "time": "day",
+      "delta": 2084,
+      "motion": 1028,
+      "reduced": 0,
+      "upperSlider": 674
+    },
+    {
+      "region": "snow",
+      "time": "evening",
+      "delta": 1937,
+      "motion": 995,
+      "reduced": 0,
+      "upperSlider": 796
+    },
+    {
+      "region": "snow",
+      "time": "night",
+      "delta": 1676,
+      "motion": 957,
+      "reduced": 0,
+      "upperSlider": 768
+    },
+    {
+      "region": "city",
+      "time": "morning",
+      "delta": 5734,
+      "motion": 3183,
+      "reduced": 0,
+      "upperSlider": 2734
+    },
+    {
+      "region": "city",
+      "time": "day",
+      "delta": 6043,
+      "motion": 3004,
+      "reduced": 0,
+      "upperSlider": 2036
+    },
+    {
+      "region": "city",
+      "time": "evening",
+      "delta": 5130,
+      "motion": 2961,
+      "reduced": 0,
+      "upperSlider": 4520
+    },
+    {
+      "region": "city",
+      "time": "night",
+      "delta": 3268,
+      "motion": 3011,
+      "reduced": 0,
+      "upperSlider": 4879
+    },
+    {
+      "region": "memory_lake",
+      "time": "morning",
+      "delta": 5745,
+      "motion": 4917,
+      "reduced": 0,
+      "upperSlider": 2367,
+      "weatherDifference": 0
+    },
+    {
+      "region": "memory_lake",
+      "time": "day",
+      "delta": 6476,
+      "motion": 5454,
+      "reduced": 0,
+      "upperSlider": 2585,
+      "weatherDifference": 0
+    },
+    {
+      "region": "memory_lake",
+      "time": "evening",
+      "delta": 6177,
+      "motion": 5412,
+      "reduced": 0,
+      "upperSlider": 2413,
+      "weatherDifference": 0
+    },
+    {
+      "region": "memory_lake",
+      "time": "night",
+      "delta": 7673,
+      "motion": 6780,
+      "reduced": 0,
+      "upperSlider": 3342,
+      "weatherDifference": 0
+    }
+  ]
+}
