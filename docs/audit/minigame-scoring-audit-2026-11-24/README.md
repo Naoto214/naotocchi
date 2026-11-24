@@ -2,6 +2,7 @@
 
 - 起点: main `4d12c33d`(PR #589「そうこばん B案を正式採用」のマージ)。
 - **本番のコード・採点式・報酬・ゲーム仕様・環境設定は一切変更していません。** 追加したのは、この監査資料と検証用ツール(`tools/minigame-audit/`)だけです。
+- **追加確認と Phase 2〜5 の方針(2026-11-24 第2回)**: [followup-2026-11-24.md](followup-2026-11-24.md)。B案の採用後、タワーディフェンスを重大に入れなかった理由・参加度メーターの影響・Phase ごとの対象ゲームを整理しました。Phase 1 の実装は別の Draft PR です。
 - 一覧表: [table.md](table.md)(全100本・優先度順)/ 機械可読: [audit.json](audit.json)/ 監査ページ: [index.html](index.html)(スマホで絞り込み可能)
 - 生データ: `data/code-review/*.json`(コード読解)、`data/sim-runs-*.jsonl`(自動プレイ 1,021回)、`data/browser-check.json`(実ブラウザ確認)
 
