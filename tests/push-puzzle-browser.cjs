@@ -67,6 +67,32 @@ async function playRun(browser, engine, plan, force, results, first) {
       assert.equal(await moves(), '手1', 'long press moves exactly one cell');
       await page.locator('#pzUndo').tap();
       assert.equal(await moves(), '手0', 'undo steps the count back');
+      // 盤面の スワイプ(タッチの pointer イベント)でも 1マス。みじかい ふるえ(8px)では うごかない
+      const cb = await page.locator('#pzCanvas').boundingBox(), cx = cb.x + cb.width / 2, cy = cb.y + cb.height / 2;
+      const swipe = async (dx, dy) => {
+        const base = {pointerId: 7, pointerType: 'touch', isPrimary: true, bubbles: true};
+        await page.locator('#pzCanvas').dispatchEvent('pointerdown', {...base, clientX: cx, clientY: cy});
+        await page.locator('#pzCanvas').dispatchEvent('pointerup', {...base, clientX: cx + dx, clientY: cy + dy});
+        await page.waitForTimeout(60);
+      };
+      await swipe(8 * sol[0][0], 8 * sol[0][1]);
+      assert.equal(await moves(), '手0', 'a tiny wobble is not a swipe');
+      await swipe(60 * sol[0][0], 60 * sol[0][1]);
+      assert.equal(await moves(), '手1', 'one swipe on the board moves one cell');
+      // やりなおし: はじめの 形に もどり、時間は もどらない
+      await page.locator('#pzReset').tap();
+      assert.equal(await moves(), '手0', 'reset returns to the start');
+      assert.match(await page.locator('#pzHint').textContent(), /時間はそのまま/);
+      // 制限時間: 段階ごとの 秒数で はじまり、へっていく
+      const limits = plans[plan].levels.map((st) => st.timeMs / 1000);
+      const shown = Number((await page.locator('#mgTimer').textContent()).match(/(\d+)秒/)[1]);
+      assert.ok(shown <= limits[0] && shown >= limits[0] - 5, `timer starts near ${limits[0]}s (${shown})`);
+    }
+    if (first && i > 0) {
+      // つぎの 問題では その 段階の 秒数に もどる(表示は 0.25秒ごとに 更新)
+      await page.waitForTimeout(400);
+      const lim = plans[plan].levels[i].timeMs / 1000, shown = Number((await page.locator('#mgTimer').textContent()).match(/(\d+)秒/)[1]);
+      assert.ok(shown <= lim && shown >= lim - 3, `tier ${i + 1} timer restarts at ${lim}s (${shown})`);
     }
     // すばやい 連続タップ(アニメ 110ms より みじかい 間かく)でも とりこぼさない
     for (const d of sol) await key(KEY[d.join()]).tap({delay: 0});

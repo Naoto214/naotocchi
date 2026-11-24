@@ -216,3 +216,37 @@ test('undo restores board and move count, reset restores the start, stuck boxes 
   r.h.advance(1500);
   assert.equal(r.view.querySelector('#pzLevel').textContent, '2/3問目');
 });
+
+// 育成システムとの つながり: メニューと おなじ 入口(tryStartPlay)から あそび、3問クリア / 時間切れ の あとに
+// 記録・回数・コイン・きげん・結果カード・ホームへの もどり が ふつうの ミニゲームと おなじに うごく
+function playFromHome(seed, solve) {
+  const h = harness({seed}), s = h.api.state(), game = gameOf(h);
+  Object.assign(s, {stage: 'growing', isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80, happiness: 40, transformMeter: 0});
+  s.lifetime.minigamePlayCounts[game.id] = 10;
+  h.api.render();
+  const before = {played: s.lifetime.minigamesPlayed, money: s.lifetime.money, count: s.minigameCount};
+  assert.equal(h.api.tryStartPlay(game), true, 'starts from the home flow');
+  h.advance(800);
+  const r = {h, game, view: h.get('minigameOverlay')}; r.canvas = r.view.querySelector('#pzCanvas');
+  if (solve) for (let i = 0; i < 3; i++) { for (const [dx, dy] of currentSolution(r)) swipe(r, dx, dy); r.h.advance(1500); }
+  else { for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) swipe(r, dx, dy); h.advance(61000); } // 何もしない 放置は 既存の きまりで 回数に 入らないので、少し うごかしてから 時間切れ
+  h.advance(2500);
+  return {h, s, before};
+}
+test('home flow: clearing all 3 records the score, pays coins, lifts mood and returns home', () => {
+  const {h, s, before} = playFromHome(4, true);
+  assert.equal(s.lifetime.minigamesPlayed, before.played + 1);
+  assert.equal(s.minigameCount, before.count + 1);
+  assert.equal(s.lifetime.minigameRecords['push-puzzle'].last >= 95, true, 'score recorded');
+  assert.ok(s.lifetime.money > before.money, 'a great result pays coins');
+  assert.ok(s.happiness > 40, 'mood goes up');
+  assert.ok(h.get('minigameOverlay').classList.contains('hidden'), 'the game screen closes');
+  assert.equal(h.get('mgResultToast').classList.contains('hidden'), false, 'the result card shows');
+});
+test('home flow: running out of time on level 1 still ends cleanly with a low score', () => {
+  const {h, s, before} = playFromHome(4, false);
+  assert.equal(s.lifetime.minigamesPlayed, before.played + 1);
+  // 点の 式は もとの まま(15 + 25×クリア数 + 手数ボーナス 最大15)。0問でも 手数ボーナスが つくので 30点まで
+  assert.ok(s.lifetime.minigameRecords['push-puzzle'].last <= 30, 'no clears = lowest band');
+  assert.ok(h.get('minigameOverlay').classList.contains('hidden'), 'the game screen closes');
+});
