@@ -22,6 +22,8 @@ const script = original.replace(ILLUS, 'null').replace('function ageDifficulty()
     start(id, mode, random) {
       Object.assign(state, {isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80, transformMeter: 0, transformOptions: null});
       state.lifetime.minigameDifficulty = mode || 'normal'; window.__p1Diff = mode === 'hard' ? 1 : null;
+      // 前の 局の 結果カード・メニュー・できごとの 画面を とじてから はじめる(連続プレイで タップを ふさがない ため)
+      try { hideMinigameResultToast(); } catch (e) {} try { closeAllMenuOverlays(); } catch (e) {} try { closeIndividualityDialog(); } catch (e) {}
       const g = buildMinigamePool().find((x) => x.id === id); window.p1QA.scores = [];
       if (random) Math.random = random;
       startMinigame({id: g.id, start(c, done) { return g.start(c, (s, ...rest) => { window.p1QA.scores.push(s); done(s, ...rest); }); }});
@@ -119,8 +121,9 @@ async function shPlay(page, seed, mode) {
   }
   for (let i = 0; i < 10 && await ended(page) === null; i++) await page.clock.runFor(300);
   const score = await ended(page), left = (await shTiles(page)).length;
+  const blocker = left ? await page.evaluate(([x, y]) => { const e = document.elementFromPoint(x, y); return e ? (e.id || e.className || e.tagName) + '' : 'none'; }, [box.x + box.width / 2, box.y + box.height / 2]) : null;
   const hint = await page.locator('#shHint').textContent().catch(() => '-');
-  return {cleared: score !== null && left === 0, left, total, lowered, score, hint};
+  return {cleared: score !== null && left === 0, left, total, lowered, score, hint, blocker};
 }
 
 // ---------- slide-puzzle ----------
@@ -179,7 +182,7 @@ async function slideOpen(page, random) {
         const mode = k % 2 ? 'hard' : null, res = await shPlay(page, 1000 + k * 7919, mode);
         if (!res.cleared && shots) { fs.mkdirSync(shots, {recursive: true}); await page.screenshot({path: path.join(shots, `${engine}-shanghai-fail-${k}.png`)}); }
         assert.equal(res.total, mode ? 68 : 60, `${engine} shanghai size`);
-        assert.ok(res.cleared, `${engine} shanghai game ${k}: のこり ${res.left}/${res.total} hint=${res.hint}`);
+        assert.ok(res.cleared, `${engine} shanghai game ${k}: のこり ${res.left}/${res.total} hint=${res.hint} top=${res.blocker}`);
         assert.ok(res.score >= 60, `${engine} shanghai game ${k}: full-clear score ${res.score}`);
         games.push({mode: mode || 'normal', score: res.score, lowered: res.lowered});
         if (shots && k === 1) { fs.mkdirSync(shots, {recursive: true}); await page.screenshot({path: path.join(shots, `${engine}-shanghai.png`)}); }
