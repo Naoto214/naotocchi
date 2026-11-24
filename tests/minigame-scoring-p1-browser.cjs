@@ -118,8 +118,9 @@ async function shPlay(page, seed, mode) {
     if (/おろして/.test(await page.locator('#shHint').textContent())) lowered = true;
   }
   for (let i = 0; i < 10 && await ended(page) === null; i++) await page.clock.runFor(300);
-  const score = await ended(page);
-  return {cleared: score !== null && (await shTiles(page)).length === 0, total, lowered, score};
+  const score = await ended(page), left = (await shTiles(page)).length;
+  const hint = await page.locator('#shHint').textContent().catch(() => '-');
+  return {cleared: score !== null && left === 0, left, total, lowered, score, hint};
 }
 
 // ---------- slide-puzzle ----------
@@ -170,20 +171,20 @@ async function slideOpen(page, random) {
       const r = await tiltIdle(page);
       assert.equal(r.raw, 15, `${engine} tilt idle raw`); assert.equal(r.recorded, false, `${engine} tilt idle is not recorded`);
       row.tiltIdle = r; assert.deepEqual(errors, []); await ctx.close(); }
-    // shanghai
-    { const {ctx, page, errors} = await openPage(browser, engine);
-      const games = [];
+    // shanghai(1局ごとに 新しい ページ: 何局も つづけると ホームの できごと〔へんしん・寿命など〕が 画面に 出て、タップを ふさぐ ことが ある)
+    { const games = [];
       for (let k = 0; k < 24; k++) {
+        const {ctx, page, errors} = await openPage(browser, engine);
         const mode = k % 2 ? 'hard' : null, res = await shPlay(page, 1000 + k * 7919, mode);
+        if (!res.cleared && shots) { fs.mkdirSync(shots, {recursive: true}); await page.screenshot({path: path.join(shots, `${engine}-shanghai-fail-${k}.png`)}); }
         assert.equal(res.total, mode ? 68 : 60, `${engine} shanghai size`);
-        assert.ok(res.cleared, `${engine} shanghai game ${k}: のこり ${res.left}/${res.total}`);
+        assert.ok(res.cleared, `${engine} shanghai game ${k}: のこり ${res.left}/${res.total} hint=${res.hint}`);
         assert.ok(res.score >= 60, `${engine} shanghai game ${k}: full-clear score ${res.score}`);
         games.push({mode: mode || 'normal', score: res.score, lowered: res.lowered});
-        await page.clock.runFor(4000);
+        if (shots && k === 1) { fs.mkdirSync(shots, {recursive: true}); await page.screenshot({path: path.join(shots, `${engine}-shanghai.png`)}); }
+        assert.deepEqual(errors, []); await ctx.close();
       }
-      if (shots) { fs.mkdirSync(shots, {recursive: true}); await page.screenshot({path: path.join(shots, `${engine}-shanghai.png`)}); }
-      row.shanghai = {games: games.length, cleared: games.length, lowered: games.filter((g) => g.lowered).length, scores: games.map((g) => g.score)};
-      assert.deepEqual(errors, []); await ctx.close(); }
+      row.shanghai = {games: games.length, cleared: games.length, lowered: games.filter((g) => g.lowered).length, scores: games.map((g) => g.score)}; }
     // slide-puzzle
     { const {ctx, page, errors} = await openPage(browser, engine);
       const solvedBoards = [];
