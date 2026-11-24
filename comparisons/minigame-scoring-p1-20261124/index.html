@@ -273,7 +273,7 @@ table.p-log th { color: var(--p-muted); }
   //  spOffset 3: 4こ周期の 乱数で シャッフルが 完成形に もどる → 修正前は「2 1 3 … 8 □」(解けない)
   //  shSeed: でたらめな 順に とると、修正前は 重なった 2まいが のこって 詰む 例
   if (!document.body.dataset.spOffset) document.body.dataset.spOffset = '3';
-  if (!document.body.dataset.shSeed) document.body.dataset.shSeed = '1';
+  if (!document.body.dataset.shSeed) document.body.dataset.shSeed = '28';
   render();
 })();
 </script>
