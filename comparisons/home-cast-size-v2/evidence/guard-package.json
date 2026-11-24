@@ -1,0 +1,36 @@
+{
+  "reference": "e7d881b825622efddac61857075c2c1658da706f",
+  "referenceGameSHA256": "39aae86b5961166f97eace2d9e3c9086d616c2bc4182e9beeb51167fef7a3484",
+  "byteIdenticalGameFiles": 3886,
+  "newFinalGameFiles": [
+    "cast-final.js",
+    "final.html",
+    "home-production-diorama-v2.js",
+    "home-production-world-v2.mjs",
+    "script-v2.js",
+    "seating.js"
+  ],
+  "archivedShellByteIdentical": [
+    "index.html",
+    "style.css",
+    "controls.mjs"
+  ],
+  "officialPaintings": 52,
+  "characterAssetFiles": 2869,
+  "bgmTracks": 32,
+  "cardGameFiles": 547,
+  "natureModules": 14,
+  "residentModelSHA256": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+  "unchangedControllerSections": [
+    "showGuide",
+    "actorBounds",
+    "paint",
+    "point"
+  ],
+  "unchangedWorldExceptNavigationFactory": true,
+  "nativeCoreChanges": [
+    "remove overview from layout parameters",
+    "remove overview callback"
+  ],
+  "finalLoadsFormerOverview": false
+}

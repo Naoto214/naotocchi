@@ -1,0 +1,126 @@
+{
+  "engine": "156.0.8078.79",
+  "stage": "forest",
+  "count": 28,
+  "input": "Chromium CDP touch, CSS coordinates",
+  "modes": {
+    "current": {
+      "taps": [
+        [
+          "partner:forest_bear",
+          "partner:forest_bear"
+        ],
+        [
+          "companion:shiba",
+          "companion:shiba"
+        ],
+        [
+          "companion:panda",
+          "companion:panda"
+        ],
+        [
+          "pet:dog",
+          "pet:dog"
+        ]
+      ],
+      "dragMarker": true,
+      "sourceAfterRelease": "drag",
+      "distanceAfter600ms": 11.45
+    },
+    "A": {
+      "taps": [
+        [
+          "partner:forest_bear",
+          "partner:forest_bear"
+        ],
+        [
+          "companion:shiba",
+          "companion:shiba"
+        ],
+        [
+          "companion:panda",
+          "companion:panda"
+        ],
+        [
+          "pet:dog",
+          "pet:dog"
+        ]
+      ],
+      "dragMarker": true,
+      "sourceAfterRelease": "drag",
+      "distanceAfter600ms": 5.24
+    },
+    "B": {
+      "taps": [
+        [
+          "partner:forest_bear",
+          "partner:forest_bear"
+        ],
+        [
+          "companion:shiba",
+          "companion:shiba"
+        ],
+        [
+          "companion:panda",
+          "companion:panda"
+        ],
+        [
+          "pet:dog",
+          "pet:dog"
+        ]
+      ],
+      "dragMarker": false,
+      "sourceAfterRelease": "drag",
+      "distanceAfter600ms": 0.0
+    }
+  },
+  "observationSeconds": 40,
+  "observedActions": {
+    "tap/tap": 14,
+    "move/ambient": 15,
+    "arrive/ambient": 13,
+    "proximity/ambient": 14,
+    "look/ambient": 27,
+    "move/drag": 2,
+    "arrive/drag": 2,
+    "social/ambient": 1
+  },
+  "actualSpeech": [
+    "大人のいぬ\n動き出す理由を探してる",
+    "ほおぶくろハムスター\nほっぺの中で迷子になった",
+    "大人のいぬ\nBonjour!",
+    "大人のいぬ\nПривет!",
+    "大人のいぬ\nさみしいよ…",
+    "ほおぶくろハムスター\n空いてるのは右のほっぺです",
+    "大人のいぬ\nげんき?",
+    "大人のいぬ\n26さいのぼくもよろしく!",
+    "大人のいぬ\nここにいるのは覚えといてね",
+    "大人のいぬ\nドキッとした?",
+    "大人のいぬ\nあ、目があった!",
+    "ふわふわヒツジ\nふわふわの中に何か入った?",
+    "大人のいぬ\nでらねむいがね",
+    "大人のいぬ\n休憩中ならまぜて"
+  ],
+  "stops": {
+    "resident": 2,
+    "terrainOrBounds": 0
+  },
+  "model": {
+    "distance": 297.8735322120387,
+    "moves": 19,
+    "turns": 27,
+    "activities": {
+      "walk": 19,
+      "observe": 12,
+      "sit": 12,
+      "together": 19,
+      "rest": 19,
+      "solitude": 19,
+      "look": 37,
+      "turn": 13,
+      "approach": 18
+    },
+    "clock": 71.51420000000007
+  },
+  "clock": 77.6139
+}

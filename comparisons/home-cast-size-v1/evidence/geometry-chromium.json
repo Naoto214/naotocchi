@@ -1,0 +1,3958 @@
+{
+ "browser": "chromium",
+ "version": "156.0.8078.79",
+ "widths": {
+  "390": {
+   "river_lake": {
+    "presets": {
+     "current": {
+      "hero": 32,
+      "partner": 21,
+      "companions": [
+       10,
+       20.0,
+       24
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 17,
+       "companion:tanuki": 22,
+       "companion:owl": 22,
+       "companion:hamster": 23,
+       "companion:monkey": 22,
+       "companion:sheep": 19,
+       "companion:bat": 21,
+       "companion:penguin_friend": 10,
+       "companion:shiba": 20,
+       "companion:punyu": 17,
+       "companion:chameleon": 17,
+       "companion:unicorn": 20,
+       "partner:forest_bear": 21,
+       "companion:rabbit_friend": 23,
+       "companion:squirrel": 24,
+       "companion:otter": 23,
+       "companion:panda": 22,
+       "companion:parrot": 20,
+       "companion:seal": 19,
+       "companion:chicken": 21,
+       "companion:hedgehog": 22,
+       "companion:snail": 10,
+       "companion:clock": 20,
+       "companion:many_tail_fox": 20,
+       "companion:box": 20,
+       "companion:watcher": 20,
+       "pet:dog": 32,
+       "companion:sekizou": 21
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         110.94,
+         252.02,
+         121.31,
+         262.39
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         219.94,
+         374.97,
+         232.47,
+         387.5
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 9,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "A": {
+      "hero": 38,
+      "partner": 22,
+      "companions": [
+       10,
+       22.0,
+       25
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 18,
+       "companion:tanuki": 23,
+       "companion:owl": 24,
+       "companion:hamster": 25,
+       "companion:monkey": 23,
+       "companion:sheep": 20,
+       "companion:bat": 22,
+       "companion:penguin_friend": 10,
+       "companion:shiba": 22,
+       "companion:punyu": 18,
+       "companion:chameleon": 18,
+       "companion:unicorn": 20,
+       "partner:forest_bear": 22,
+       "companion:rabbit_friend": 23,
+       "companion:otter": 24,
+       "companion:panda": 24,
+       "companion:parrot": 21,
+       "companion:seal": 21,
+       "companion:chicken": 22,
+       "companion:hedgehog": 23,
+       "companion:snail": 12,
+       "companion:clock": 22,
+       "companion:many_tail_fox": 21,
+       "companion:box": 22,
+       "companion:watcher": 21,
+       "pet:dog": 38,
+       "companion:squirrel": 25,
+       "companion:sekizou": 22
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         111.07,
+         252.06,
+         122.48,
+         263.47
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         220.75,
+         366.13,
+         235.78,
+         381.16
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 9,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "B": {
+      "hero": 39,
+      "partner": 23,
+      "companions": [
+       12,
+       24.0,
+       27
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 20,
+       "companion:tanuki": 25,
+       "companion:owl": 26,
+       "companion:hamster": 27,
+       "companion:monkey": 24,
+       "companion:sheep": 21,
+       "companion:bat": 24,
+       "companion:penguin_friend": 12,
+       "companion:shiba": 24,
+       "companion:punyu": 20,
+       "companion:chameleon": 21,
+       "companion:unicorn": 22,
+       "partner:forest_bear": 23,
+       "companion:rabbit_friend": 27,
+       "companion:otter": 26,
+       "companion:panda": 26,
+       "companion:parrot": 23,
+       "companion:seal": 23,
+       "companion:chicken": 24,
+       "companion:hedgehog": 26,
+       "companion:snail": 13,
+       "companion:clock": 24,
+       "companion:many_tail_fox": 23,
+       "companion:box": 24,
+       "companion:watcher": 22,
+       "pet:dog": 39,
+       "companion:squirrel": 26,
+       "companion:sekizou": 24
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         111.14,
+         252.08,
+         123.07,
+         264.01
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         220.96,
+         363.92,
+         236.61,
+         379.58
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 15,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "pair": {
+      "hero": 38,
+      "partner": 25,
+      "companions": [
+       12,
+       23.0,
+       25
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 19,
+       "companion:tanuki": 24,
+       "companion:owl": 24,
+       "companion:hamster": 25,
+       "companion:monkey": 23,
+       "companion:sheep": 20,
+       "companion:bat": 23,
+       "companion:penguin_friend": 12,
+       "companion:shiba": 23,
+       "companion:punyu": 19,
+       "companion:chameleon": 19,
+       "companion:unicorn": 21,
+       "partner:forest_bear": 25,
+       "companion:rabbit_friend": 25,
+       "companion:otter": 25,
+       "companion:panda": 24,
+       "companion:parrot": 22,
+       "companion:seal": 21,
+       "companion:chicken": 23,
+       "companion:hedgehog": 24,
+       "companion:snail": 12,
+       "companion:clock": 23,
+       "companion:many_tail_fox": 21,
+       "companion:box": 23,
+       "companion:watcher": 21,
+       "pet:dog": 38,
+       "companion:squirrel": 25,
+       "companion:sekizou": 22
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         111.2,
+         252.1,
+         123.65,
+         264.55
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         220.75,
+         366.13,
+         235.78,
+         381.16
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 0,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     }
+    },
+    "pairFootCss": {
+     "pet:dog": {
+      "x": 215.91,
+      "y": 419.19
+     },
+     "partner:forest_bear": {
+      "x": 109.6,
+      "y": 251.6
+     }
+    },
+    "pairDepth": {
+     "pet:dog": 0.928,
+     "partner:forest_bear": 0.823
+    },
+    "matchedCoordinates": 28,
+    "shadowAnchors": 28,
+    "iframe": [
+     390,
+     792
+    ]
+   },
+   "forest": {
+    "presets": {
+     "current": {
+      "hero": 31,
+      "partner": 19,
+      "companions": [
+       9,
+       19.5,
+       23
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 16,
+       "companion:tanuki": 20,
+       "companion:owl": 22,
+       "companion:hamster": 23,
+       "companion:monkey": 21,
+       "companion:sheep": 17,
+       "companion:bat": 19,
+       "companion:penguin_friend": 9,
+       "companion:shiba": 20,
+       "companion:punyu": 18,
+       "companion:chameleon": 19,
+       "companion:unicorn": 17,
+       "companion:watcher": 18,
+       "partner:forest_bear": 19,
+       "pet:dog": 31,
+       "companion:rabbit_friend": 20,
+       "companion:squirrel": 23,
+       "companion:otter": 21,
+       "companion:panda": 21,
+       "companion:parrot": 22,
+       "companion:seal": 16,
+       "companion:chicken": 23,
+       "companion:hedgehog": 19,
+       "companion:snail": 10,
+       "companion:many_tail_fox": 18,
+       "companion:sekizou": 22,
+       "companion:clock": 20,
+       "companion:box": 18
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         297.89,
+         191.38,
+         307.29,
+         200.78
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         190.3,
+         370.55,
+         202.59,
+         382.84
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 13,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 28
+     },
+     "A": {
+      "hero": 37,
+      "partner": 20,
+      "companions": [
+       10,
+       21.0,
+       25
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 17,
+       "companion:tanuki": 21,
+       "companion:owl": 23,
+       "companion:hamster": 25,
+       "companion:monkey": 22,
+       "companion:sheep": 19,
+       "companion:bat": 20,
+       "companion:penguin_friend": 10,
+       "companion:shiba": 21,
+       "companion:punyu": 18,
+       "companion:chameleon": 19,
+       "companion:unicorn": 18,
+       "companion:watcher": 18,
+       "partner:forest_bear": 20,
+       "pet:dog": 37,
+       "companion:rabbit_friend": 22,
+       "companion:squirrel": 24,
+       "companion:otter": 22,
+       "companion:panda": 23,
+       "companion:parrot": 23,
+       "companion:seal": 18,
+       "companion:chicken": 23,
+       "companion:hedgehog": 21,
+       "companion:snail": 11,
+       "companion:many_tail_fox": 19,
+       "companion:sekizou": 24,
+       "companion:clock": 21,
+       "companion:box": 20
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         298.01,
+         191.42,
+         308.35,
+         201.76
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         191.09,
+         361.88,
+         205.84,
+         376.62
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 14,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 28
+     },
+     "B": {
+      "hero": 39,
+      "partner": 21,
+      "companions": [
+       10,
+       23.0,
+       27
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 18,
+       "companion:tanuki": 23,
+       "companion:owl": 26,
+       "companion:hamster": 26,
+       "companion:monkey": 24,
+       "companion:sheep": 20,
+       "companion:bat": 22,
+       "companion:penguin_friend": 10,
+       "companion:shiba": 23,
+       "companion:punyu": 20,
+       "companion:chameleon": 21,
+       "companion:unicorn": 20,
+       "companion:watcher": 21,
+       "partner:forest_bear": 21,
+       "pet:dog": 39,
+       "companion:rabbit_friend": 24,
+       "companion:squirrel": 27,
+       "companion:otter": 25,
+       "companion:panda": 24,
+       "companion:parrot": 25,
+       "companion:seal": 19,
+       "companion:chicken": 26,
+       "companion:hedgehog": 23,
+       "companion:snail": 12,
+       "companion:sekizou": 25,
+       "companion:clock": 23,
+       "companion:many_tail_fox": 21,
+       "companion:box": 21
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         298.07,
+         191.44,
+         308.88,
+         202.25
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         191.29,
+         359.71,
+         206.65,
+         375.07
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 15,
+      "attachmentScaleErrorMaxCssPx": 0.01,
+      "contacts": 28
+     },
+     "pair": {
+      "hero": 38,
+      "partner": 22,
+      "companions": [
+       11,
+       21.5,
+       25
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 17,
+       "companion:tanuki": 22,
+       "companion:owl": 23,
+       "companion:hamster": 25,
+       "companion:monkey": 23,
+       "companion:sheep": 19,
+       "companion:bat": 20,
+       "companion:penguin_friend": 11,
+       "companion:shiba": 22,
+       "companion:punyu": 19,
+       "companion:chameleon": 20,
+       "companion:unicorn": 18,
+       "companion:watcher": 18,
+       "partner:forest_bear": 22,
+       "pet:dog": 38,
+       "companion:rabbit_friend": 22,
+       "companion:squirrel": 25,
+       "companion:otter": 23,
+       "companion:panda": 24,
+       "companion:parrot": 23,
+       "companion:seal": 18,
+       "companion:chicken": 23,
+       "companion:hedgehog": 22,
+       "companion:snail": 12,
+       "companion:many_tail_fox": 21,
+       "companion:sekizou": 24,
+       "companion:clock": 21,
+       "companion:box": 20
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         298.13,
+         191.46,
+         309.42,
+         202.74
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         191.09,
+         361.88,
+         205.84,
+         376.62
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 9,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 28
+     }
+    },
+    "pairFootCss": {
+     "pet:dog": {
+      "x": 186.35,
+      "y": 413.93
+     },
+     "partner:forest_bear": {
+      "x": 296.68,
+      "y": 191.0
+     }
+    },
+    "pairDepth": {
+     "pet:dog": 0.91,
+     "partner:forest_bear": 0.746
+    },
+    "matchedCoordinates": 28,
+    "shadowAnchors": 28,
+    "iframe": [
+     390,
+     792
+    ]
+   },
+   "city": {
+    "presets": {
+     "current": {
+      "hero": 32,
+      "partner": 20,
+      "companions": [
+       10,
+       21.0,
+       23
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 17,
+       "companion:tanuki": 21,
+       "companion:owl": 23,
+       "companion:hamster": 23,
+       "companion:monkey": 22,
+       "companion:sheep": 19,
+       "companion:bat": 22,
+       "companion:penguin_friend": 10,
+       "companion:shiba": 21,
+       "companion:punyu": 18,
+       "companion:chameleon": 18,
+       "companion:unicorn": 20,
+       "companion:watcher": 20,
+       "partner:forest_bear": 20,
+       "pet:dog": 32,
+       "companion:rabbit_friend": 22,
+       "companion:squirrel": 23,
+       "companion:otter": 23,
+       "companion:panda": 22,
+       "companion:parrot": 21,
+       "companion:seal": 20,
+       "companion:chicken": 19,
+       "companion:hedgehog": 22,
+       "companion:snail": 11,
+       "companion:sekizou": 22,
+       "companion:clock": 22,
+       "companion:many_tail_fox": 19,
+       "companion:box": 21
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         178.39,
+         213.12,
+         188.49,
+         223.23
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         248.76,
+         374.42,
+         261.26,
+         386.91
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 15,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "A": {
+      "hero": 38,
+      "partner": 21,
+      "companions": [
+       10,
+       21.0,
+       25
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 17,
+       "companion:tanuki": 21,
+       "companion:owl": 24,
+       "companion:hamster": 24,
+       "companion:monkey": 22,
+       "companion:sheep": 19,
+       "companion:bat": 21,
+       "companion:penguin_friend": 10,
+       "companion:shiba": 22,
+       "companion:punyu": 18,
+       "companion:chameleon": 19,
+       "companion:unicorn": 20,
+       "companion:watcher": 20,
+       "partner:forest_bear": 21,
+       "pet:dog": 38,
+       "companion:rabbit_friend": 23,
+       "companion:squirrel": 25,
+       "companion:otter": 25,
+       "companion:panda": 23,
+       "companion:parrot": 22,
+       "companion:seal": 21,
+       "companion:chicken": 20,
+       "companion:hedgehog": 23,
+       "companion:snail": 11,
+       "companion:sekizou": 23,
+       "companion:clock": 22,
+       "companion:many_tail_fox": 20,
+       "companion:box": 20
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         178.52,
+         213.16,
+         189.63,
+         224.28
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         249.57,
+         365.6,
+         264.56,
+         380.59
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 12,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "B": {
+      "hero": 39,
+      "partner": 22,
+      "companions": [
+       11,
+       23.5,
+       27
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 19,
+       "companion:tanuki": 24,
+       "companion:owl": 27,
+       "companion:hamster": 27,
+       "companion:monkey": 24,
+       "companion:sheep": 21,
+       "companion:bat": 23,
+       "companion:penguin_friend": 11,
+       "companion:shiba": 24,
+       "companion:punyu": 20,
+       "companion:chameleon": 19,
+       "companion:unicorn": 22,
+       "companion:watcher": 22,
+       "partner:forest_bear": 22,
+       "pet:dog": 39,
+       "companion:rabbit_friend": 25,
+       "companion:squirrel": 26,
+       "companion:otter": 27,
+       "companion:panda": 25,
+       "companion:parrot": 24,
+       "companion:chicken": 22,
+       "companion:hedgehog": 25,
+       "companion:snail": 12,
+       "companion:sekizou": 24,
+       "companion:clock": 25,
+       "companion:many_tail_fox": 22,
+       "companion:box": 22,
+       "companion:seal": 23
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         178.58,
+         213.19,
+         190.2,
+         224.8
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         249.77,
+         363.39,
+         265.39,
+         379.01
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 15,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     }
+    },
+    "pairFootCss": {
+     "pet:dog": {
+      "x": 244.74,
+      "y": 418.52
+     },
+     "partner:forest_bear": {
+      "x": 177.09,
+      "y": 212.72
+     }
+    },
+    "pairDepth": {
+     "pet:dog": 0.926,
+     "partner:forest_bear": 0.802
+    },
+    "matchedCoordinates": 28,
+    "shadowAnchors": 28,
+    "iframe": [
+     390,
+     792
+    ]
+   },
+   "home": {
+    "presets": {
+     "current": {
+      "hero": 32,
+      "partner": 21,
+      "companions": [
+       9,
+       20.0,
+       24
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 17,
+       "companion:tanuki": 21,
+       "companion:owl": 21,
+       "companion:hamster": 24,
+       "companion:monkey": 21,
+       "companion:sheep": 20,
+       "companion:bat": 21,
+       "companion:penguin_friend": 9,
+       "companion:shiba": 20,
+       "companion:punyu": 18,
+       "companion:chameleon": 18,
+       "companion:unicorn": 20,
+       "companion:watcher": 19,
+       "partner:forest_bear": 21,
+       "pet:dog": 32,
+       "companion:rabbit_friend": 22,
+       "companion:squirrel": 22,
+       "companion:panda": 24,
+       "companion:parrot": 20,
+       "companion:seal": 20,
+       "companion:chicken": 22,
+       "companion:hedgehog": 23,
+       "companion:snail": 11,
+       "companion:sekizou": 23,
+       "companion:clock": 20,
+       "companion:many_tail_fox": 20,
+       "companion:box": 20,
+       "companion:otter": 24
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         184.31,
+         249.63,
+         194.78,
+         260.09
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         212.63,
+         355.71,
+         225.14,
+         368.22
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 8,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "A": {
+      "hero": 37,
+      "partner": 23,
+      "companions": [
+       10,
+       21.0,
+       25
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 18,
+       "companion:tanuki": 21,
+       "companion:owl": 22,
+       "companion:hamster": 25,
+       "companion:monkey": 22,
+       "companion:sheep": 19,
+       "companion:bat": 21,
+       "companion:penguin_friend": 10,
+       "companion:shiba": 21,
+       "companion:punyu": 19,
+       "companion:chameleon": 20,
+       "companion:unicorn": 21,
+       "companion:watcher": 19,
+       "partner:forest_bear": 23,
+       "companion:rabbit_friend": 23,
+       "companion:squirrel": 22,
+       "companion:panda": 24,
+       "companion:parrot": 20,
+       "companion:seal": 20,
+       "companion:chicken": 23,
+       "companion:hedgehog": 23,
+       "companion:snail": 12,
+       "companion:sekizou": 23,
+       "companion:clock": 21,
+       "companion:box": 21,
+       "pet:dog": 37,
+       "companion:otter": 24,
+       "companion:many_tail_fox": 21
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         184.44,
+         249.67,
+         195.96,
+         261.19
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         213.44,
+         346.88,
+         228.45,
+         361.89
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 3,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "B": {
+      "hero": 40,
+      "partner": 24,
+      "companions": [
+       11,
+       23.0,
+       28
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 19,
+       "companion:tanuki": 23,
+       "companion:owl": 24,
+       "companion:hamster": 28,
+       "companion:monkey": 24,
+       "companion:sheep": 21,
+       "companion:bat": 23,
+       "companion:penguin_friend": 11,
+       "companion:shiba": 23,
+       "companion:chameleon": 22,
+       "companion:unicorn": 22,
+       "companion:watcher": 19,
+       "partner:forest_bear": 24,
+       "companion:rabbit_friend": 25,
+       "companion:squirrel": 24,
+       "companion:panda": 26,
+       "companion:parrot": 22,
+       "companion:seal": 22,
+       "companion:chicken": 26,
+       "companion:hedgehog": 25,
+       "companion:snail": 13,
+       "companion:sekizou": 26,
+       "companion:clock": 23,
+       "companion:punyu": 21,
+       "pet:dog": 40,
+       "companion:otter": 27,
+       "companion:many_tail_fox": 23,
+       "companion:box": 23
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         184.51,
+         249.69,
+         196.55,
+         261.73
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         213.64,
+         344.67,
+         229.27,
+         360.31
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 7,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     }
+    },
+    "pairFootCss": {
+     "pet:dog": {
+      "x": 208.6,
+      "y": 399.86
+     },
+     "partner:forest_bear": {
+      "x": 182.96,
+      "y": 249.2
+     }
+    },
+    "pairDepth": {
+     "pet:dog": 0.927,
+     "partner:forest_bear": 0.831
+    },
+    "matchedCoordinates": 28,
+    "shadowAnchors": 28,
+    "iframe": [
+     390,
+     792
+    ]
+   }
+  },
+  "320": {
+   "river_lake": {
+    "presets": {
+     "current": {
+      "hero": 29,
+      "partner": 19,
+      "companions": [
+       10,
+       19.0,
+       22
+      ],
+      "intersectingPairs": 16,
+      "sharedInkPct": 12.81,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 15,
+       "companion:tanuki": 20,
+       "companion:sheep": 18,
+       "companion:bat": 19,
+       "companion:chameleon": 16,
+       "partner:forest_bear": 19,
+       "companion:rabbit_friend": 21,
+       "companion:hedgehog": 21,
+       "companion:snail": 10,
+       "companion:owl": 20,
+       "companion:hamster": 22,
+       "companion:unicorn": 18,
+       "companion:watcher": 17,
+       "companion:otter": 19,
+       "companion:chicken": 21,
+       "companion:clock": 18,
+       "companion:box": 21,
+       "companion:monkey": 20,
+       "companion:penguin_friend": 10,
+       "companion:squirrel": 20,
+       "companion:parrot": 18,
+       "companion:shiba": 19,
+       "companion:punyu": 16,
+       "pet:dog": 29,
+       "companion:seal": 17,
+       "companion:sekizou": 20,
+       "companion:panda": 21,
+       "companion:many_tail_fox": 19
+      },
+      "threeLargestIntersections": [
+       [
+        "companion:chameleon",
+        "pet:dog",
+        105
+       ],
+       [
+        "companion:box",
+        "companion:hedgehog",
+        105
+       ],
+       [
+        "companion:panda",
+        "companion:squirrel",
+        89
+       ]
+      ],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         91.24,
+         198.72,
+         100.97,
+         208.46
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         180.81,
+         182.82,
+         192.3,
+         194.31
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 11,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "A": {
+      "hero": 35,
+      "partner": 20,
+      "companions": [
+       10,
+       20.0,
+       23
+      ],
+      "intersectingPairs": 19,
+      "sharedInkPct": 14.51,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 16,
+       "companion:tanuki": 21,
+       "companion:sheep": 18,
+       "companion:bat": 20,
+       "companion:chameleon": 16,
+       "companion:rabbit_friend": 22,
+       "companion:snail": 11,
+       "companion:box": 23,
+       "companion:owl": 21,
+       "companion:hamster": 22,
+       "companion:unicorn": 19,
+       "companion:watcher": 18,
+       "companion:otter": 19,
+       "companion:chicken": 22,
+       "companion:hedgehog": 22,
+       "companion:clock": 19,
+       "companion:monkey": 21,
+       "companion:penguin_friend": 10,
+       "partner:forest_bear": 20,
+       "companion:squirrel": 22,
+       "companion:many_tail_fox": 20,
+       "companion:shiba": 20,
+       "companion:punyu": 17,
+       "pet:dog": 35,
+       "companion:parrot": 19,
+       "companion:seal": 18,
+       "companion:panda": 22,
+       "companion:sekizou": 21
+      },
+      "threeLargestIntersections": [
+       [
+        "companion:box",
+        "companion:hedgehog",
+        126
+       ],
+       [
+        "companion:chameleon",
+        "pet:dog",
+        124
+       ],
+       [
+        "companion:panda",
+        "companion:squirrel",
+        106
+       ]
+      ],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         91.35,
+         198.77,
+         102.06,
+         209.47
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         181.56,
+         174.71,
+         195.34,
+         188.5
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 11,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "B": {
+      "hero": 36,
+      "partner": 22,
+      "companions": [
+       11,
+       22.0,
+       25
+      ],
+      "intersectingPairs": 25,
+      "sharedInkPct": 18.2,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 18,
+       "companion:tanuki": 23,
+       "companion:sheep": 20,
+       "companion:bat": 22,
+       "companion:chameleon": 18,
+       "companion:chicken": 24,
+       "companion:snail": 12,
+       "companion:box": 25,
+       "companion:owl": 24,
+       "companion:hamster": 25,
+       "companion:unicorn": 20,
+       "companion:watcher": 20,
+       "companion:otter": 21,
+       "companion:clock": 20,
+       "companion:monkey": 23,
+       "companion:penguin_friend": 11,
+       "partner:forest_bear": 22,
+       "companion:rabbit_friend": 24,
+       "companion:hedgehog": 24,
+       "companion:shiba": 22,
+       "companion:punyu": 18,
+       "pet:dog": 36,
+       "companion:parrot": 22,
+       "companion:seal": 20,
+       "companion:squirrel": 23,
+       "companion:many_tail_fox": 22,
+       "companion:panda": 24,
+       "companion:sekizou": 23
+      },
+      "threeLargestIntersections": [
+       [
+        "companion:box",
+        "companion:hedgehog",
+        177
+       ],
+       [
+        "companion:chameleon",
+        "pet:dog",
+        154
+       ],
+       [
+        "companion:panda",
+        "companion:squirrel",
+        142
+       ]
+      ],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         91.41,
+         198.79,
+         102.6,
+         209.98
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         181.74,
+         172.68,
+         196.1,
+         187.04
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 11,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     }
+    },
+    "pairFootCss": {
+     "pet:dog": {
+      "x": 177.1,
+      "y": 223.37
+     },
+     "partner:forest_bear": {
+      "x": 90.12,
+      "y": 198.26
+     }
+    },
+    "pairDepth": {
+     "pet:dog": 0.928,
+     "partner:forest_bear": 0.823
+    },
+    "matchedCoordinates": 28,
+    "shadowAnchors": 28,
+    "iframe": [
+     320,
+     516
+    ]
+   },
+   "forest": {
+    "presets": {
+     "current": {
+      "hero": 29,
+      "partner": 17,
+      "companions": [
+       8,
+       18.5,
+       22
+      ],
+      "intersectingPairs": 19,
+      "sharedInkPct": 16.14,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 14,
+       "companion:tanuki": 19,
+       "companion:hamster": 22,
+       "companion:sheep": 17,
+       "companion:bat": 19,
+       "companion:chameleon": 17,
+       "companion:unicorn": 21,
+       "companion:watcher": 16,
+       "companion:rabbit_friend": 20,
+       "companion:otter": 15,
+       "companion:box": 22,
+       "companion:owl": 20,
+       "companion:penguin_friend": 8,
+       "companion:shiba": 18,
+       "companion:punyu": 16,
+       "partner:forest_bear": 17,
+       "companion:squirrel": 16,
+       "companion:hedgehog": 21,
+       "companion:monkey": 19,
+       "companion:panda": 18,
+       "companion:chicken": 19,
+       "companion:sekizou": 21,
+       "pet:dog": 29,
+       "companion:snail": 8,
+       "companion:clock": 22,
+       "companion:many_tail_fox": 18,
+       "companion:parrot": 20,
+       "companion:seal": 18
+      },
+      "threeLargestIntersections": [
+       [
+        "companion:many_tail_fox",
+        "companion:rabbit_friend",
+        125
+       ],
+       [
+        "companion:seal",
+        "pet:dog",
+        103
+       ],
+       [
+        "companion:chameleon",
+        "companion:clock",
+        99
+       ]
+      ],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         245.32,
+         188.59,
+         254.14,
+         197.42
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         156.89,
+         182.4,
+         168.16,
+         193.67
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 17,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 28
+     },
+     "A": {
+      "hero": 34,
+      "partner": 19,
+      "companions": [
+       8,
+       19.0,
+       23
+      ],
+      "intersectingPairs": 25,
+      "sharedInkPct": 18.24,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 15,
+       "companion:tanuki": 20,
+       "companion:hamster": 23,
+       "companion:sheep": 17,
+       "companion:bat": 19,
+       "companion:chameleon": 19,
+       "companion:unicorn": 22,
+       "companion:watcher": 17,
+       "companion:rabbit_friend": 21,
+       "companion:otter": 17,
+       "companion:box": 22,
+       "companion:owl": 21,
+       "companion:penguin_friend": 8,
+       "companion:shiba": 19,
+       "companion:punyu": 17,
+       "partner:forest_bear": 19,
+       "companion:squirrel": 16,
+       "companion:hedgehog": 22,
+       "companion:monkey": 20,
+       "companion:panda": 19,
+       "companion:chicken": 21,
+       "companion:sekizou": 22,
+       "pet:dog": 34,
+       "companion:clock": 23,
+       "companion:many_tail_fox": 19,
+       "companion:parrot": 22,
+       "companion:snail": 9,
+       "companion:seal": 19
+      },
+      "threeLargestIntersections": [
+       [
+        "companion:many_tail_fox",
+        "companion:rabbit_friend",
+        137
+       ],
+       [
+        "companion:seal",
+        "pet:dog",
+        130
+       ],
+       [
+        "companion:chameleon",
+        "companion:clock",
+        116
+       ]
+      ],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         245.42,
+         188.64,
+         255.13,
+         198.34
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         157.62,
+         174.44,
+         171.14,
+         187.97
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 12,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 28
+     },
+     "B": {
+      "hero": 35,
+      "partner": 20,
+      "companions": [
+       9,
+       21.5,
+       25
+      ],
+      "intersectingPairs": 29,
+      "sharedInkPct": 21.46,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 16,
+       "companion:tanuki": 22,
+       "companion:hamster": 25,
+       "companion:sheep": 19,
+       "companion:bat": 22,
+       "companion:chameleon": 21,
+       "companion:unicorn": 24,
+       "companion:rabbit_friend": 22,
+       "companion:otter": 17,
+       "companion:owl": 24,
+       "companion:penguin_friend": 9,
+       "companion:shiba": 21,
+       "companion:punyu": 19,
+       "partner:forest_bear": 20,
+       "companion:squirrel": 19,
+       "companion:hedgehog": 24,
+       "companion:monkey": 23,
+       "companion:watcher": 19,
+       "companion:panda": 21,
+       "companion:chicken": 23,
+       "companion:sekizou": 24,
+       "pet:dog": 35,
+       "companion:clock": 25,
+       "companion:many_tail_fox": 21,
+       "companion:parrot": 24,
+       "companion:snail": 10,
+       "companion:seal": 20,
+       "companion:box": 24
+      },
+      "threeLargestIntersections": [
+       [
+        "companion:many_tail_fox",
+        "companion:rabbit_friend",
+        167
+       ],
+       [
+        "companion:seal",
+        "pet:dog",
+        164
+       ],
+       [
+        "companion:chameleon",
+        "companion:clock",
+        149
+       ]
+      ],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         245.47,
+         188.66,
+         255.62,
+         198.81
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         157.8,
+         172.45,
+         171.89,
+         186.54
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 17,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 28
+     }
+    },
+    "pairFootCss": {
+     "pet:dog": {
+      "x": 153.25,
+      "y": 222.18
+     },
+     "partner:forest_bear": {
+      "x": 244.32,
+      "y": 188.18
+     }
+    },
+    "pairDepth": {
+     "pet:dog": 0.91,
+     "partner:forest_bear": 0.746
+    },
+    "matchedCoordinates": 28,
+    "shadowAnchors": 28,
+    "iframe": [
+     320,
+     516
+    ]
+   },
+   "city": {
+    "presets": {
+     "current": {
+      "hero": 29,
+      "partner": 19,
+      "companions": [
+       9,
+       19.0,
+       22
+      ],
+      "intersectingPairs": 15,
+      "sharedInkPct": 7.22,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 16,
+       "companion:tanuki": 19,
+       "companion:owl": 21,
+       "companion:hamster": 21,
+       "companion:sheep": 18,
+       "companion:bat": 19,
+       "companion:shiba": 20,
+       "companion:rabbit_friend": 20,
+       "companion:monkey": 20,
+       "companion:penguin_friend": 9,
+       "companion:punyu": 16,
+       "companion:unicorn": 17,
+       "companion:squirrel": 22,
+       "companion:seal": 17,
+       "companion:chicken": 21,
+       "companion:clock": 19,
+       "companion:many_tail_fox": 17,
+       "companion:chameleon": 16,
+       "companion:watcher": 17,
+       "partner:forest_bear": 19,
+       "pet:dog": 29,
+       "companion:otter": 19,
+       "companion:panda": 20,
+       "companion:parrot": 18,
+       "companion:hedgehog": 21,
+       "companion:sekizou": 20,
+       "companion:box": 19,
+       "companion:snail": 9
+      },
+      "threeLargestIntersections": [
+       [
+        "companion:hedgehog",
+        "companion:otter",
+        64
+       ],
+       [
+        "companion:monkey",
+        "pet:dog",
+        49
+       ],
+       [
+        "companion:tanuki",
+        "pet:dog",
+        44
+       ]
+      ],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         146.78,
+         192.56,
+         156.27,
+         202.04
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         205.83,
+         183.77,
+         217.29,
+         195.23
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 10,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "A": {
+      "hero": 34,
+      "partner": 21,
+      "companions": [
+       8,
+       20.0,
+       23
+      ],
+      "intersectingPairs": 17,
+      "sharedInkPct": 9.51,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 16,
+       "companion:tanuki": 20,
+       "companion:owl": 21,
+       "companion:hamster": 22,
+       "companion:sheep": 19,
+       "companion:bat": 20,
+       "companion:shiba": 21,
+       "companion:sekizou": 20,
+       "companion:monkey": 21,
+       "companion:penguin_friend": 9,
+       "companion:punyu": 17,
+       "companion:unicorn": 18,
+       "companion:squirrel": 23,
+       "companion:seal": 18,
+       "companion:chicken": 23,
+       "companion:clock": 20,
+       "companion:chameleon": 17,
+       "companion:watcher": 18,
+       "partner:forest_bear": 21,
+       "pet:dog": 34,
+       "companion:otter": 19,
+       "companion:rabbit_friend": 20,
+       "companion:panda": 21,
+       "companion:parrot": 18,
+       "companion:hedgehog": 21,
+       "companion:box": 20,
+       "companion:snail": 8,
+       "companion:many_tail_fox": 18
+      },
+      "threeLargestIntersections": [
+       [
+        "companion:monkey",
+        "pet:dog",
+        92
+       ],
+       [
+        "companion:tanuki",
+        "pet:dog",
+        78
+       ],
+       [
+        "companion:hedgehog",
+        "companion:otter",
+        75
+       ]
+      ],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         146.89,
+         192.6,
+         157.32,
+         203.04
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         206.58,
+         175.68,
+         220.33,
+         189.43
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 3,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "B": {
+      "hero": 36,
+      "partner": 21,
+      "companions": [
+       9,
+       21.5,
+       25
+      ],
+      "intersectingPairs": 27,
+      "sharedInkPct": 13.18,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 18,
+       "companion:tanuki": 21,
+       "companion:owl": 24,
+       "companion:hamster": 24,
+       "companion:sheep": 20,
+       "companion:bat": 22,
+       "companion:shiba": 23,
+       "companion:sekizou": 23,
+       "companion:monkey": 23,
+       "companion:penguin_friend": 10,
+       "companion:punyu": 19,
+       "companion:unicorn": 19,
+       "companion:squirrel": 25,
+       "companion:seal": 20,
+       "companion:clock": 22,
+       "companion:chameleon": 20,
+       "companion:watcher": 20,
+       "partner:forest_bear": 21,
+       "pet:dog": 36,
+       "companion:otter": 21,
+       "companion:rabbit_friend": 22,
+       "companion:panda": 23,
+       "companion:parrot": 20,
+       "companion:chicken": 25,
+       "companion:hedgehog": 24,
+       "companion:snail": 9,
+       "companion:many_tail_fox": 19,
+       "companion:box": 22
+      },
+      "threeLargestIntersections": [
+       [
+        "companion:monkey",
+        "pet:dog",
+        115
+       ],
+       [
+        "companion:hedgehog",
+        "companion:otter",
+        103
+       ],
+       [
+        "companion:tanuki",
+        "pet:dog",
+        102
+       ]
+      ],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         146.95,
+         192.63,
+         157.85,
+         203.53
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         206.76,
+         173.66,
+         221.09,
+         187.98
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 13,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     }
+    },
+    "pairFootCss": {
+     "pet:dog": {
+      "x": 202.13,
+      "y": 224.22
+     },
+     "partner:forest_bear": {
+      "x": 145.7,
+      "y": 192.11
+     }
+    },
+    "pairDepth": {
+     "pet:dog": 0.926,
+     "partner:forest_bear": 0.802
+    },
+    "matchedCoordinates": 28,
+    "shadowAnchors": 28,
+    "iframe": [
+     320,
+     516
+    ]
+   },
+   "home": {
+    "presets": {
+     "current": {
+      "hero": 29,
+      "partner": 18,
+      "companions": [
+       8,
+       19.0,
+       21
+      ],
+      "intersectingPairs": 24,
+      "sharedInkPct": 16.94,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 15,
+       "companion:tanuki": 19,
+       "companion:hamster": 21,
+       "companion:penguin_friend": 8,
+       "companion:punyu": 17,
+       "companion:unicorn": 18,
+       "companion:sekizou": 20,
+       "companion:owl": 19,
+       "companion:monkey": 20,
+       "companion:sheep": 17,
+       "companion:bat": 19,
+       "companion:otter": 21,
+       "companion:chicken": 20,
+       "companion:snail": 10,
+       "companion:shiba": 18,
+       "partner:forest_bear": 18,
+       "companion:rabbit_friend": 21,
+       "companion:squirrel": 20,
+       "companion:panda": 19,
+       "companion:chameleon": 17,
+       "companion:watcher": 17,
+       "pet:dog": 29,
+       "companion:parrot": 18,
+       "companion:many_tail_fox": 18,
+       "companion:seal": 18,
+       "companion:hedgehog": 21,
+       "companion:clock": 19,
+       "companion:box": 20
+      },
+      "threeLargestIntersections": [
+       [
+        "companion:hamster",
+        "companion:otter",
+        113
+       ],
+       [
+        "companion:clock",
+        "companion:unicorn",
+        108
+       ],
+       [
+        "companion:box",
+        "companion:rabbit_friend",
+        108
+       ]
+      ],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         151.06,
+         192.38,
+         160.7,
+         202.01
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         175.15,
+         177.88,
+         186.63,
+         189.35
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 14,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "A": {
+      "hero": 34,
+      "partner": 20,
+      "companions": [
+       9,
+       20.0,
+       23
+      ],
+      "intersectingPairs": 27,
+      "sharedInkPct": 19.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 16,
+       "companion:tanuki": 20,
+       "companion:hamster": 23,
+       "companion:penguin_friend": 9,
+       "companion:unicorn": 19,
+       "companion:sekizou": 21,
+       "companion:owl": 20,
+       "companion:monkey": 21,
+       "companion:sheep": 18,
+       "companion:bat": 20,
+       "companion:otter": 22,
+       "companion:chicken": 21,
+       "companion:snail": 10,
+       "companion:shiba": 19,
+       "companion:punyu": 17,
+       "partner:forest_bear": 20,
+       "companion:rabbit_friend": 22,
+       "companion:squirrel": 21,
+       "companion:chameleon": 18,
+       "companion:watcher": 18,
+       "pet:dog": 34,
+       "companion:parrot": 19,
+       "companion:many_tail_fox": 19,
+       "companion:panda": 20,
+       "companion:seal": 19,
+       "companion:hedgehog": 22,
+       "companion:box": 21,
+       "companion:clock": 20
+      },
+      "threeLargestIntersections": [
+       [
+        "companion:box",
+        "companion:rabbit_friend",
+        130
+       ],
+       [
+        "companion:hamster",
+        "companion:otter",
+        129
+       ],
+       [
+        "companion:chameleon",
+        "companion:hamster",
+        120
+       ]
+      ],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         151.17,
+         192.42,
+         161.77,
+         203.02
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         175.9,
+         169.78,
+         189.66,
+         183.55
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 9,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "B": {
+      "hero": 36,
+      "partner": 21,
+      "companions": [
+       10,
+       22.0,
+       25
+      ],
+      "intersectingPairs": 34,
+      "sharedInkPct": 23.35,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 17,
+       "companion:tanuki": 22,
+       "companion:hamster": 25,
+       "companion:penguin_friend": 10,
+       "companion:unicorn": 20,
+       "companion:sekizou": 23,
+       "companion:owl": 22,
+       "companion:monkey": 23,
+       "companion:sheep": 20,
+       "companion:bat": 22,
+       "companion:otter": 24,
+       "companion:chicken": 22,
+       "companion:shiba": 21,
+       "companion:punyu": 19,
+       "partner:forest_bear": 21,
+       "companion:rabbit_friend": 24,
+       "companion:squirrel": 23,
+       "companion:chameleon": 19,
+       "companion:watcher": 20,
+       "companion:parrot": 21,
+       "companion:snail": 11,
+       "companion:clock": 22,
+       "companion:many_tail_fox": 21,
+       "pet:dog": 36,
+       "companion:seal": 21,
+       "companion:hedgehog": 24,
+       "companion:box": 23,
+       "companion:panda": 23
+      },
+      "threeLargestIntersections": [
+       [
+        "companion:hamster",
+        "companion:otter",
+        171
+       ],
+       [
+        "companion:box",
+        "companion:rabbit_friend",
+        171
+       ],
+       [
+        "companion:chameleon",
+        "companion:hamster",
+        157
+       ]
+      ],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         151.23,
+         192.45,
+         162.31,
+         203.53
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         176.08,
+         167.76,
+         190.42,
+         182.1
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 14,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     }
+    },
+    "pairFootCss": {
+     "pet:dog": {
+      "x": 171.44,
+      "y": 218.38
+     },
+     "partner:forest_bear": {
+      "x": 149.96,
+      "y": 191.92
+     }
+    },
+    "pairDepth": {
+     "pet:dog": 0.927,
+     "partner:forest_bear": 0.815
+    },
+    "matchedCoordinates": 28,
+    "shadowAnchors": 28,
+    "iframe": [
+     320,
+     516
+    ]
+   }
+  },
+  "375": {
+   "river_lake": {
+    "presets": {
+     "current": {
+      "hero": 30,
+      "partner": 20,
+      "companions": [
+       11,
+       20.0,
+       23
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 17,
+       "companion:tanuki": 22,
+       "companion:owl": 23,
+       "companion:hamster": 23,
+       "companion:monkey": 21,
+       "companion:sheep": 18,
+       "companion:bat": 20,
+       "companion:penguin_friend": 11,
+       "companion:shiba": 20,
+       "companion:chameleon": 18,
+       "companion:unicorn": 19,
+       "companion:watcher": 20,
+       "partner:forest_bear": 20,
+       "companion:rabbit_friend": 23,
+       "companion:squirrel": 22,
+       "companion:otter": 22,
+       "companion:panda": 22,
+       "companion:parrot": 19,
+       "companion:seal": 20,
+       "companion:chicken": 21,
+       "companion:hedgehog": 22,
+       "companion:snail": 12,
+       "companion:clock": 20,
+       "companion:many_tail_fox": 20,
+       "companion:box": 21,
+       "companion:punyu": 16,
+       "pet:dog": 30,
+       "companion:sekizou": 20
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         106.39,
+         251.52,
+         116.18,
+         261.31
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         210.1,
+         356.89,
+         221.93,
+         368.71
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 11,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "A": {
+      "hero": 36,
+      "partner": 21,
+      "companions": [
+       10,
+       20.0,
+       23
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 17,
+       "companion:tanuki": 22,
+       "companion:owl": 23,
+       "companion:hamster": 23,
+       "companion:monkey": 21,
+       "companion:sheep": 18,
+       "companion:bat": 20,
+       "companion:penguin_friend": 10,
+       "companion:shiba": 21,
+       "companion:chameleon": 18,
+       "companion:unicorn": 19,
+       "companion:watcher": 20,
+       "partner:forest_bear": 21,
+       "companion:rabbit_friend": 23,
+       "companion:squirrel": 23,
+       "companion:otter": 22,
+       "companion:parrot": 19,
+       "companion:seal": 20,
+       "companion:chicken": 21,
+       "companion:snail": 11,
+       "companion:clock": 20,
+       "companion:many_tail_fox": 20,
+       "companion:box": 20,
+       "companion:punyu": 17,
+       "pet:dog": 36,
+       "companion:panda": 22,
+       "companion:hedgehog": 23,
+       "companion:sekizou": 21
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         106.52,
+         251.56,
+         117.28,
+         262.33
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         210.87,
+         348.54,
+         225.06,
+         362.73
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 8,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "B": {
+      "hero": 38,
+      "partner": 22,
+      "companions": [
+       11,
+       22.0,
+       26
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 19,
+       "companion:tanuki": 24,
+       "companion:owl": 25,
+       "companion:hamster": 26,
+       "companion:monkey": 23,
+       "companion:sheep": 20,
+       "companion:bat": 22,
+       "companion:penguin_friend": 11,
+       "companion:chameleon": 18,
+       "companion:unicorn": 22,
+       "companion:watcher": 21,
+       "partner:forest_bear": 22,
+       "companion:rabbit_friend": 25,
+       "companion:squirrel": 26,
+       "companion:otter": 24,
+       "companion:parrot": 21,
+       "companion:seal": 22,
+       "companion:chicken": 22,
+       "companion:hedgehog": 25,
+       "companion:snail": 12,
+       "companion:clock": 22,
+       "companion:many_tail_fox": 21,
+       "companion:box": 22,
+       "companion:shiba": 23,
+       "companion:punyu": 20,
+       "pet:dog": 38,
+       "companion:panda": 24,
+       "companion:sekizou": 23
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         106.58,
+         251.58,
+         117.84,
+         262.84
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         211.06,
+         346.46,
+         225.84,
+         361.24
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 11,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     }
+    },
+    "pairFootCss": {
+     "pet:dog": {
+      "x": 206.29,
+      "y": 398.6
+     },
+     "partner:forest_bear": {
+      "x": 105.13,
+      "y": 251.13
+     }
+    },
+    "pairDepth": {
+     "pet:dog": 0.928,
+     "partner:forest_bear": 0.823
+    },
+    "matchedCoordinates": 28,
+    "shadowAnchors": 28,
+    "iframe": [
+     375,
+     760
+    ]
+   },
+   "forest": {
+    "presets": {
+     "current": {
+      "hero": 29,
+      "partner": 17,
+      "companions": [
+       8,
+       18.5,
+       22
+      ],
+      "intersectingPairs": 1,
+      "sharedInkPct": 0.08,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 15,
+       "companion:tanuki": 19,
+       "companion:owl": 21,
+       "companion:hamster": 22,
+       "companion:monkey": 20,
+       "companion:sheep": 17,
+       "companion:bat": 17,
+       "companion:penguin_friend": 8,
+       "companion:shiba": 19,
+       "companion:punyu": 16,
+       "companion:chameleon": 16,
+       "companion:unicorn": 20,
+       "companion:watcher": 17,
+       "partner:forest_bear": 17,
+       "pet:dog": 29,
+       "companion:rabbit_friend": 21,
+       "companion:squirrel": 21,
+       "companion:otter": 18,
+       "companion:panda": 20,
+       "companion:seal": 16,
+       "companion:chicken": 19,
+       "companion:hedgehog": 17,
+       "companion:snail": 10,
+       "companion:sekizou": 16,
+       "companion:clock": 21,
+       "companion:parrot": 21,
+       "companion:many_tail_fox": 21,
+       "companion:box": 17
+      },
+      "threeLargestIntersections": [
+       [
+        "companion:many_tail_fox",
+        "companion:punyu",
+        5
+       ]
+      ],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         285.69,
+         214.16,
+         294.74,
+         223.21
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         181.81,
+         352.04,
+         193.41,
+         363.64
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 14,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 28
+     },
+     "A": {
+      "hero": 35,
+      "partner": 19,
+      "companions": [
+       9,
+       19.5,
+       23
+      ],
+      "intersectingPairs": 1,
+      "sharedInkPct": 0.09,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 15,
+       "companion:tanuki": 20,
+       "companion:owl": 22,
+       "companion:hamster": 23,
+       "companion:monkey": 21,
+       "companion:sheep": 18,
+       "companion:bat": 17,
+       "companion:penguin_friend": 9,
+       "companion:shiba": 20,
+       "companion:punyu": 17,
+       "companion:chameleon": 17,
+       "companion:unicorn": 20,
+       "companion:watcher": 18,
+       "partner:forest_bear": 19,
+       "pet:dog": 35,
+       "companion:rabbit_friend": 22,
+       "companion:squirrel": 23,
+       "companion:otter": 19,
+       "companion:panda": 21,
+       "companion:seal": 17,
+       "companion:chicken": 20,
+       "companion:hedgehog": 17,
+       "companion:snail": 10,
+       "companion:sekizou": 17,
+       "companion:clock": 22,
+       "companion:parrot": 21,
+       "companion:many_tail_fox": 22,
+       "companion:box": 17
+      },
+      "threeLargestIntersections": [
+       [
+        "companion:many_tail_fox",
+        "companion:punyu",
+        6
+       ]
+      ],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         285.81,
+         214.2,
+         295.77,
+         224.15
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         182.56,
+         343.86,
+         196.48,
+         357.77
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 13,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 28
+     },
+     "B": {
+      "hero": 37,
+      "partner": 21,
+      "companions": [
+       11,
+       20.5,
+       26
+      ],
+      "intersectingPairs": 1,
+      "sharedInkPct": 0.19,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 18,
+       "companion:tanuki": 22,
+       "companion:owl": 24,
+       "companion:hamster": 26,
+       "companion:monkey": 23,
+       "companion:sheep": 19,
+       "companion:bat": 19,
+       "companion:penguin_friend": 11,
+       "companion:shiba": 22,
+       "companion:punyu": 19,
+       "companion:chameleon": 18,
+       "companion:unicorn": 22,
+       "companion:watcher": 18,
+       "partner:forest_bear": 21,
+       "pet:dog": 37,
+       "companion:rabbit_friend": 24,
+       "companion:squirrel": 25,
+       "companion:otter": 20,
+       "companion:panda": 23,
+       "companion:seal": 18,
+       "companion:chicken": 21,
+       "companion:hedgehog": 19,
+       "companion:sekizou": 19,
+       "companion:clock": 24,
+       "companion:parrot": 24,
+       "companion:snail": 11,
+       "companion:many_tail_fox": 24,
+       "companion:box": 19
+      },
+      "threeLargestIntersections": [
+       [
+        "companion:many_tail_fox",
+        "companion:punyu",
+        15
+       ]
+      ],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         285.87,
+         214.21,
+         296.28,
+         224.62
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         182.75,
+         341.81,
+         197.25,
+         356.31
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 12,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 28
+     }
+    },
+    "pairFootCss": {
+     "pet:dog": {
+      "x": 178.08,
+      "y": 392.97
+     },
+     "partner:forest_bear": {
+      "x": 284.54,
+      "y": 213.8
+     }
+    },
+    "pairDepth": {
+     "pet:dog": 0.91,
+     "partner:forest_bear": 0.761
+    },
+    "matchedCoordinates": 28,
+    "shadowAnchors": 28,
+    "iframe": [
+     375,
+     760
+    ]
+   },
+   "city": {
+    "presets": {
+     "current": {
+      "hero": 30,
+      "partner": 19,
+      "companions": [
+       8,
+       19.0,
+       23
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 16,
+       "companion:tanuki": 19,
+       "companion:owl": 22,
+       "companion:hamster": 23,
+       "companion:monkey": 20,
+       "companion:sheep": 17,
+       "companion:bat": 19,
+       "companion:penguin_friend": 8,
+       "companion:shiba": 21,
+       "companion:punyu": 18,
+       "companion:chameleon": 16,
+       "companion:unicorn": 18,
+       "companion:watcher": 18,
+       "partner:forest_bear": 19,
+       "pet:dog": 30,
+       "companion:rabbit_friend": 20,
+       "companion:squirrel": 21,
+       "companion:otter": 20,
+       "companion:panda": 20,
+       "companion:parrot": 18,
+       "companion:seal": 18,
+       "companion:chicken": 21,
+       "companion:hedgehog": 21,
+       "companion:snail": 10,
+       "companion:sekizou": 19,
+       "companion:clock": 18,
+       "companion:many_tail_fox": 19,
+       "companion:box": 20
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         172.02,
+         206.25,
+         181.56,
+         215.79
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         239.32,
+         353.15,
+         251.12,
+         364.95
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 11,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "A": {
+      "hero": 36,
+      "partner": 21,
+      "companions": [
+       9,
+       20.5,
+       23
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 17,
+       "companion:tanuki": 22,
+       "companion:owl": 23,
+       "companion:hamster": 23,
+       "companion:monkey": 22,
+       "companion:sheep": 19,
+       "companion:bat": 20,
+       "companion:penguin_friend": 9,
+       "companion:shiba": 21,
+       "companion:punyu": 17,
+       "companion:chameleon": 17,
+       "companion:unicorn": 20,
+       "companion:watcher": 20,
+       "partner:forest_bear": 21,
+       "pet:dog": 36,
+       "companion:rabbit_friend": 22,
+       "companion:squirrel": 23,
+       "companion:otter": 21,
+       "companion:panda": 21,
+       "companion:parrot": 19,
+       "companion:seal": 20,
+       "companion:chicken": 21,
+       "companion:hedgehog": 21,
+       "companion:snail": 11,
+       "companion:sekizou": 21,
+       "companion:clock": 19,
+       "companion:many_tail_fox": 20,
+       "companion:box": 21
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         172.15,
+         206.29,
+         182.64,
+         216.78
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         240.08,
+         344.83,
+         254.24,
+         358.99
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 6,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "B": {
+      "hero": 38,
+      "partner": 21,
+      "companions": [
+       10,
+       22.0,
+       26
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 18,
+       "companion:tanuki": 22,
+       "companion:owl": 26,
+       "companion:hamster": 26,
+       "companion:monkey": 23,
+       "companion:sheep": 19,
+       "companion:bat": 22,
+       "companion:penguin_friend": 10,
+       "companion:shiba": 24,
+       "companion:punyu": 20,
+       "companion:chameleon": 18,
+       "companion:unicorn": 21,
+       "companion:watcher": 21,
+       "partner:forest_bear": 21,
+       "pet:dog": 38,
+       "companion:rabbit_friend": 23,
+       "companion:squirrel": 24,
+       "companion:otter": 24,
+       "companion:panda": 23,
+       "companion:parrot": 22,
+       "companion:seal": 21,
+       "companion:chicken": 23,
+       "companion:hedgehog": 24,
+       "companion:snail": 11,
+       "companion:sekizou": 23,
+       "companion:clock": 20,
+       "companion:many_tail_fox": 22,
+       "companion:box": 23
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         172.21,
+         206.31,
+         183.17,
+         217.28
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         240.28,
+         342.75,
+         255.02,
+         357.49
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 16,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     }
+    },
+    "pairFootCss": {
+     "pet:dog": {
+      "x": 235.51,
+      "y": 394.77
+     },
+     "partner:forest_bear": {
+      "x": 170.8,
+      "y": 205.88
+     }
+    },
+    "pairDepth": {
+     "pet:dog": 0.926,
+     "partner:forest_bear": 0.802
+    },
+    "matchedCoordinates": 28,
+    "shadowAnchors": 28,
+    "iframe": [
+     375,
+     760
+    ]
+   },
+   "home": {
+    "presets": {
+     "current": {
+      "hero": 31,
+      "partner": 20,
+      "companions": [
+       10,
+       19.5,
+       23
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 16,
+       "companion:tanuki": 21,
+       "companion:owl": 21,
+       "companion:hamster": 23,
+       "companion:monkey": 22,
+       "companion:sheep": 18,
+       "companion:bat": 19,
+       "companion:shiba": 20,
+       "companion:punyu": 16,
+       "companion:chameleon": 17,
+       "companion:unicorn": 19,
+       "companion:watcher": 19,
+       "partner:forest_bear": 20,
+       "pet:dog": 31,
+       "companion:rabbit_friend": 22,
+       "companion:squirrel": 21,
+       "companion:otter": 22,
+       "companion:panda": 21,
+       "companion:parrot": 19,
+       "companion:seal": 18,
+       "companion:chicken": 20,
+       "companion:snail": 10,
+       "companion:sekizou": 21,
+       "companion:clock": 19,
+       "companion:many_tail_fox": 19,
+       "companion:box": 20,
+       "companion:penguin_friend": 10,
+       "companion:hedgehog": 21
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         177.23,
+         216.76,
+         186.92,
+         226.45
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         204.39,
+         335.49,
+         216.2,
+         347.29
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 10,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "A": {
+      "hero": 37,
+      "partner": 22,
+      "companions": [
+       10,
+       20.0,
+       24
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 17,
+       "companion:tanuki": 21,
+       "companion:owl": 21,
+       "companion:hamster": 23,
+       "companion:monkey": 22,
+       "companion:sheep": 19,
+       "companion:bat": 20,
+       "companion:shiba": 19,
+       "companion:punyu": 17,
+       "companion:chameleon": 18,
+       "companion:unicorn": 20,
+       "companion:watcher": 20,
+       "partner:forest_bear": 22,
+       "companion:rabbit_friend": 22,
+       "companion:squirrel": 22,
+       "companion:otter": 24,
+       "companion:panda": 22,
+       "companion:parrot": 19,
+       "companion:seal": 19,
+       "companion:chicken": 21,
+       "companion:sekizou": 22,
+       "companion:clock": 20,
+       "companion:many_tail_fox": 20,
+       "companion:box": 20,
+       "companion:penguin_friend": 10,
+       "pet:dog": 37,
+       "companion:hedgehog": 21,
+       "companion:snail": 11
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         177.35,
+         216.8,
+         188.01,
+         227.46
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         205.15,
+         327.15,
+         219.32,
+         341.32
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 2,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "B": {
+      "hero": 38,
+      "partner": 23,
+      "companions": [
+       11,
+       22.0,
+       27
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 19,
+       "companion:tanuki": 24,
+       "companion:owl": 23,
+       "companion:hamster": 27,
+       "companion:monkey": 25,
+       "companion:sheep": 20,
+       "companion:bat": 22,
+       "companion:shiba": 22,
+       "companion:chameleon": 20,
+       "companion:unicorn": 22,
+       "companion:watcher": 21,
+       "partner:forest_bear": 23,
+       "companion:rabbit_friend": 25,
+       "companion:squirrel": 24,
+       "companion:otter": 26,
+       "companion:parrot": 22,
+       "companion:seal": 21,
+       "companion:chicken": 24,
+       "companion:snail": 12,
+       "companion:clock": 22,
+       "companion:many_tail_fox": 22,
+       "companion:box": 22,
+       "companion:penguin_friend": 11,
+       "companion:punyu": 19,
+       "pet:dog": 38,
+       "companion:panda": 24,
+       "companion:hedgehog": 23,
+       "companion:sekizou": 23
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         177.42,
+         216.82,
+         188.56,
+         227.96
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         205.35,
+         325.07,
+         220.11,
+         339.83
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 8,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     }
+    },
+    "pairFootCss": {
+     "pet:dog": {
+      "x": 200.58,
+      "y": 377.14
+     },
+     "partner:forest_bear": {
+      "x": 175.99,
+      "y": 216.37
+     }
+    },
+    "pairDepth": {
+     "pet:dog": 0.927,
+     "partner:forest_bear": 0.815
+    },
+    "matchedCoordinates": 28,
+    "shadowAnchors": 28,
+    "iframe": [
+     375,
+     760
+    ]
+   }
+  },
+  "430": {
+   "river_lake": {
+    "presets": {
+     "current": {
+      "hero": 35,
+      "partner": 23,
+      "companions": [
+       11,
+       23.0,
+       26
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 19,
+       "companion:tanuki": 25,
+       "companion:owl": 26,
+       "companion:hamster": 26,
+       "companion:monkey": 25,
+       "companion:sheep": 21,
+       "companion:bat": 23,
+       "companion:penguin_friend": 11,
+       "companion:shiba": 24,
+       "companion:punyu": 19,
+       "companion:chameleon": 20,
+       "companion:unicorn": 22,
+       "companion:watcher": 22,
+       "partner:forest_bear": 23,
+       "pet:dog": 35,
+       "companion:rabbit_friend": 26,
+       "companion:squirrel": 26,
+       "companion:otter": 26,
+       "companion:panda": 24,
+       "companion:parrot": 23,
+       "companion:seal": 22,
+       "companion:chicken": 25,
+       "companion:hedgehog": 25,
+       "companion:snail": 12,
+       "companion:sekizou": 23,
+       "companion:clock": 23,
+       "companion:many_tail_fox": 21,
+       "companion:box": 24
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         121.33,
+         255.44,
+         133.07,
+         267.19
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         241.83,
+         426.67,
+         256.02,
+         440.86
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 12,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "A": {
+      "hero": 42,
+      "partner": 26,
+      "companions": [
+       12,
+       24.0,
+       28
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 20,
+       "companion:tanuki": 26,
+       "companion:owl": 27,
+       "companion:hamster": 28,
+       "companion:monkey": 26,
+       "companion:sheep": 22,
+       "companion:bat": 25,
+       "companion:penguin_friend": 12,
+       "companion:shiba": 24,
+       "companion:punyu": 20,
+       "companion:chameleon": 21,
+       "companion:unicorn": 23,
+       "companion:watcher": 23,
+       "partner:forest_bear": 26,
+       "pet:dog": 42,
+       "companion:rabbit_friend": 28,
+       "companion:squirrel": 28,
+       "companion:otter": 27,
+       "companion:panda": 26,
+       "companion:parrot": 24,
+       "companion:chicken": 27,
+       "companion:hedgehog": 26,
+       "companion:snail": 13,
+       "companion:sekizou": 24,
+       "companion:clock": 24,
+       "companion:many_tail_fox": 23,
+       "companion:box": 24,
+       "companion:seal": 23
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         121.48,
+         255.49,
+         134.4,
+         268.41
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         242.75,
+         416.66,
+         259.78,
+         433.69
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 6,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "B": {
+      "hero": 44,
+      "partner": 27,
+      "companions": [
+       13,
+       27.0,
+       31
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 23,
+       "companion:tanuki": 28,
+       "companion:owl": 29,
+       "companion:hamster": 30,
+       "companion:monkey": 28,
+       "companion:sheep": 24,
+       "companion:bat": 27,
+       "companion:penguin_friend": 13,
+       "companion:shiba": 26,
+       "companion:punyu": 22,
+       "companion:chameleon": 23,
+       "companion:unicorn": 25,
+       "partner:forest_bear": 27,
+       "pet:dog": 44,
+       "companion:rabbit_friend": 30,
+       "companion:otter": 30,
+       "companion:panda": 28,
+       "companion:parrot": 26,
+       "companion:seal": 25,
+       "companion:chicken": 28,
+       "companion:hedgehog": 29,
+       "companion:snail": 14,
+       "companion:sekizou": 27,
+       "companion:clock": 27,
+       "companion:many_tail_fox": 25,
+       "companion:box": 27,
+       "companion:watcher": 26,
+       "companion:squirrel": 31
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         121.56,
+         255.51,
+         135.06,
+         269.02
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         242.98,
+         414.16,
+         260.72,
+         431.9
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 10,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     }
+    },
+    "pairFootCss": {
+     "pet:dog": {
+      "x": 237.25,
+      "y": 476.75
+     },
+     "partner:forest_bear": {
+      "x": 119.82,
+      "y": 254.97
+     }
+    },
+    "pairDepth": {
+     "pet:dog": 0.928,
+     "partner:forest_bear": 0.823
+    },
+    "matchedCoordinates": 28,
+    "shadowAnchors": 28,
+    "iframe": [
+     430,
+     880
+    ]
+   },
+   "forest": {
+    "presets": {
+     "current": {
+      "hero": 35,
+      "partner": 21,
+      "companions": [
+       11,
+       22.5,
+       27
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 18,
+       "companion:tanuki": 23,
+       "companion:owl": 25,
+       "companion:hamster": 26,
+       "companion:monkey": 24,
+       "companion:sheep": 20,
+       "companion:bat": 21,
+       "companion:penguin_friend": 11,
+       "companion:shiba": 23,
+       "companion:punyu": 20,
+       "companion:chameleon": 20,
+       "companion:unicorn": 22,
+       "companion:watcher": 21,
+       "partner:forest_bear": 21,
+       "pet:dog": 35,
+       "companion:rabbit_friend": 26,
+       "companion:squirrel": 27,
+       "companion:otter": 25,
+       "companion:panda": 24,
+       "companion:parrot": 21,
+       "companion:seal": 19,
+       "companion:chicken": 26,
+       "companion:hedgehog": 20,
+       "companion:snail": 11,
+       "companion:sekizou": 22,
+       "companion:clock": 26,
+       "companion:many_tail_fox": 23,
+       "companion:box": 25
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         327.58,
+         192.33,
+         338.38,
+         203.12
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         208.6,
+         418.88,
+         222.52,
+         432.8
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 15,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 28
+     },
+     "A": {
+      "hero": 42,
+      "partner": 23,
+      "companions": [
+       11,
+       24.0,
+       28
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 19,
+       "companion:tanuki": 24,
+       "companion:owl": 28,
+       "companion:hamster": 28,
+       "companion:monkey": 25,
+       "companion:sheep": 22,
+       "companion:bat": 21,
+       "companion:penguin_friend": 11,
+       "companion:shiba": 24,
+       "companion:punyu": 20,
+       "companion:chameleon": 22,
+       "companion:unicorn": 24,
+       "companion:watcher": 23,
+       "partner:forest_bear": 23,
+       "pet:dog": 42,
+       "companion:rabbit_friend": 26,
+       "companion:squirrel": 28,
+       "companion:otter": 27,
+       "companion:panda": 27,
+       "companion:parrot": 23,
+       "companion:seal": 20,
+       "companion:chicken": 27,
+       "companion:hedgehog": 22,
+       "companion:snail": 13,
+       "companion:sekizou": 23,
+       "companion:clock": 28,
+       "companion:many_tail_fox": 24,
+       "companion:box": 26
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         327.72,
+         192.37,
+         339.6,
+         204.25
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         209.5,
+         409.05,
+         226.2,
+         425.76
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 14,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 28
+     },
+     "B": {
+      "hero": 43,
+      "partner": 24,
+      "companions": [
+       12,
+       26.0,
+       30
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 20,
+       "companion:tanuki": 27,
+       "companion:owl": 30,
+       "companion:hamster": 30,
+       "companion:monkey": 27,
+       "companion:sheep": 23,
+       "companion:bat": 24,
+       "companion:penguin_friend": 12,
+       "companion:shiba": 26,
+       "companion:punyu": 23,
+       "companion:chameleon": 23,
+       "companion:unicorn": 26,
+       "companion:watcher": 23,
+       "partner:forest_bear": 24,
+       "pet:dog": 43,
+       "companion:rabbit_friend": 29,
+       "companion:squirrel": 30,
+       "companion:otter": 29,
+       "companion:panda": 28,
+       "companion:parrot": 26,
+       "companion:seal": 22,
+       "companion:chicken": 29,
+       "companion:hedgehog": 23,
+       "companion:sekizou": 26,
+       "companion:clock": 30,
+       "companion:many_tail_fox": 26,
+       "companion:snail": 13,
+       "companion:box": 28
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         327.79,
+         192.39,
+         340.21,
+         204.81
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         209.72,
+         406.6,
+         227.12,
+         424.0
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 16,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 28
+     }
+    },
+    "pairFootCss": {
+     "pet:dog": {
+      "x": 204.1,
+      "y": 468.0
+     },
+     "partner:forest_bear": {
+      "x": 326.2,
+      "y": 191.9
+     }
+    },
+    "pairDepth": {
+     "pet:dog": 0.91,
+     "partner:forest_bear": 0.757
+    },
+    "matchedCoordinates": 28,
+    "shadowAnchors": 28,
+    "iframe": [
+     430,
+     880
+    ]
+   },
+   "city": {
+    "presets": {
+     "current": {
+      "hero": 35,
+      "partner": 22,
+      "companions": [
+       11,
+       23.0,
+       27
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 19,
+       "companion:tanuki": 23,
+       "companion:owl": 27,
+       "companion:hamster": 26,
+       "companion:monkey": 23,
+       "companion:sheep": 20,
+       "companion:bat": 24,
+       "companion:penguin_friend": 11,
+       "companion:shiba": 24,
+       "companion:punyu": 20,
+       "companion:chameleon": 20,
+       "companion:unicorn": 21,
+       "companion:watcher": 21,
+       "partner:forest_bear": 22,
+       "pet:dog": 35,
+       "companion:rabbit_friend": 25,
+       "companion:squirrel": 27,
+       "companion:otter": 26,
+       "companion:panda": 24,
+       "companion:parrot": 23,
+       "companion:seal": 20,
+       "companion:chicken": 22,
+       "companion:hedgehog": 26,
+       "companion:snail": 11,
+       "companion:sekizou": 23,
+       "companion:clock": 23,
+       "companion:many_tail_fox": 23,
+       "companion:box": 22
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         195.7,
+         217.65,
+         207.14,
+         229.09
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         274.54,
+         429.14,
+         288.69,
+         443.29
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 15,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "A": {
+      "hero": 43,
+      "partner": 25,
+      "companions": [
+       12,
+       25.0,
+       29
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 20,
+       "companion:tanuki": 25,
+       "companion:owl": 28,
+       "companion:hamster": 29,
+       "companion:monkey": 26,
+       "companion:sheep": 22,
+       "companion:bat": 25,
+       "companion:penguin_friend": 12,
+       "companion:shiba": 25,
+       "companion:punyu": 21,
+       "companion:chameleon": 21,
+       "companion:unicorn": 23,
+       "companion:watcher": 23,
+       "partner:forest_bear": 25,
+       "pet:dog": 43,
+       "companion:rabbit_friend": 27,
+       "companion:squirrel": 28,
+       "companion:otter": 28,
+       "companion:panda": 25,
+       "companion:parrot": 24,
+       "companion:seal": 22,
+       "companion:chicken": 22,
+       "companion:hedgehog": 28,
+       "companion:snail": 13,
+       "companion:sekizou": 25,
+       "companion:clock": 25,
+       "companion:many_tail_fox": 26,
+       "companion:box": 24
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         195.84,
+         217.69,
+         208.43,
+         230.28
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         275.45,
+         419.16,
+         292.44,
+         436.14
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 8,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "B": {
+      "hero": 45,
+      "partner": 27,
+      "companions": [
+       12,
+       27.0,
+       30
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 22,
+       "companion:tanuki": 27,
+       "companion:owl": 30,
+       "companion:hamster": 30,
+       "companion:monkey": 28,
+       "companion:sheep": 24,
+       "companion:bat": 27,
+       "companion:penguin_friend": 12,
+       "companion:shiba": 28,
+       "companion:punyu": 22,
+       "companion:chameleon": 23,
+       "companion:unicorn": 25,
+       "partner:forest_bear": 27,
+       "companion:rabbit_friend": 28,
+       "companion:squirrel": 30,
+       "companion:otter": 30,
+       "companion:panda": 28,
+       "companion:parrot": 27,
+       "companion:seal": 24,
+       "companion:chicken": 25,
+       "companion:hedgehog": 30,
+       "companion:snail": 13,
+       "companion:sekizou": 28,
+       "companion:clock": 27,
+       "companion:many_tail_fox": 29,
+       "companion:box": 25,
+       "companion:watcher": 25,
+       "pet:dog": 45
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         195.92,
+         217.72,
+         209.07,
+         230.87
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         275.68,
+         416.66,
+         293.37,
+         434.35
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 11,
+      "attachmentScaleErrorMaxCssPx": 0.01,
+      "contacts": 0
+     }
+    },
+    "pairFootCss": {
+     "pet:dog": {
+      "x": 269.96,
+      "y": 479.09
+     },
+     "partner:forest_bear": {
+      "x": 194.23,
+      "y": 217.18
+     }
+    },
+    "pairDepth": {
+     "pet:dog": 0.926,
+     "partner:forest_bear": 0.802
+    },
+    "matchedCoordinates": 28,
+    "shadowAnchors": 28,
+    "iframe": [
+     430,
+     880
+    ]
+   },
+   "home": {
+    "presets": {
+     "current": {
+      "hero": 35,
+      "partner": 22,
+      "companions": [
+       11,
+       22.0,
+       27
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 19,
+       "companion:tanuki": 24,
+       "companion:owl": 24,
+       "companion:hamster": 27,
+       "companion:monkey": 25,
+       "companion:sheep": 21,
+       "companion:bat": 22,
+       "companion:penguin_friend": 11,
+       "companion:shiba": 22,
+       "companion:punyu": 20,
+       "companion:chameleon": 20,
+       "companion:unicorn": 21,
+       "companion:watcher": 21,
+       "partner:forest_bear": 22,
+       "pet:dog": 35,
+       "companion:rabbit_friend": 25,
+       "companion:squirrel": 25,
+       "companion:otter": 26,
+       "companion:panda": 24,
+       "companion:parrot": 22,
+       "companion:seal": 21,
+       "companion:chicken": 24,
+       "companion:hedgehog": 24,
+       "companion:snail": 13,
+       "companion:clock": 22,
+       "companion:many_tail_fox": 22,
+       "companion:box": 23,
+       "companion:sekizou": 24
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         202.14,
+         232.69,
+         213.77,
+         244.31
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         233.96,
+         407.2,
+         248.13,
+         421.37
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 12,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "A": {
+      "hero": 42,
+      "partner": 27,
+      "companions": [
+       12,
+       25.0,
+       29
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 21,
+       "companion:tanuki": 26,
+       "companion:owl": 25,
+       "companion:hamster": 29,
+       "companion:monkey": 26,
+       "companion:sheep": 23,
+       "companion:bat": 25,
+       "companion:penguin_friend": 12,
+       "companion:shiba": 24,
+       "companion:chameleon": 23,
+       "companion:unicorn": 23,
+       "companion:watcher": 22,
+       "partner:forest_bear": 27,
+       "companion:rabbit_friend": 27,
+       "companion:squirrel": 27,
+       "companion:otter": 28,
+       "companion:panda": 27,
+       "companion:parrot": 25,
+       "companion:seal": 23,
+       "companion:chicken": 25,
+       "companion:hedgehog": 26,
+       "companion:snail": 14,
+       "companion:sekizou": 26,
+       "companion:clock": 24,
+       "companion:many_tail_fox": 24,
+       "companion:box": 25,
+       "companion:punyu": 20,
+       "pet:dog": 42
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         202.3,
+         232.74,
+         215.08,
+         245.52
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         234.88,
+         397.2,
+         251.88,
+         414.21
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 2,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     },
+     "B": {
+      "hero": 46,
+      "partner": 26,
+      "companions": [
+       13,
+       26.0,
+       30
+      ],
+      "intersectingPairs": 0,
+      "sharedInkPct": 0.0,
+      "outsideClip": [],
+      "zeroInk": [],
+      "heights": {
+       "companion:cat_friend": 22,
+       "companion:tanuki": 28,
+       "companion:owl": 28,
+       "companion:hamster": 30,
+       "companion:monkey": 29,
+       "companion:sheep": 24,
+       "companion:bat": 26,
+       "companion:penguin_friend": 13,
+       "companion:chameleon": 24,
+       "companion:unicorn": 25,
+       "companion:watcher": 25,
+       "partner:forest_bear": 26,
+       "companion:squirrel": 29,
+       "companion:otter": 30,
+       "companion:panda": 28,
+       "companion:parrot": 26,
+       "companion:seal": 25,
+       "companion:chicken": 27,
+       "companion:hedgehog": 28,
+       "companion:snail": 15,
+       "companion:sekizou": 27,
+       "companion:clock": 26,
+       "companion:many_tail_fox": 26,
+       "companion:box": 26,
+       "companion:shiba": 26,
+       "companion:punyu": 24,
+       "pet:dog": 46,
+       "companion:rabbit_friend": 30
+      },
+      "threeLargestIntersections": [],
+      "equipment": [
+       {
+        "name": "partner-ring",
+        "box": [
+         202.37,
+         232.76,
+         215.74,
+         246.13
+        ]
+       },
+       {
+        "name": "petAccessory",
+        "box": [
+         235.1,
+         394.7,
+         252.82,
+         412.41
+        ]
+       }
+      ],
+      "companionTallerThanPartner": 11,
+      "attachmentScaleErrorMaxCssPx": 0.0,
+      "contacts": 0
+     }
+    },
+    "pairFootCss": {
+     "pet:dog": {
+      "x": 229.38,
+      "y": 457.21
+     },
+     "partner:forest_bear": {
+      "x": 200.65,
+      "y": 232.21
+     }
+    },
+    "pairDepth": {
+     "pet:dog": 0.927,
+     "partner:forest_bear": 0.815
+    },
+    "matchedCoordinates": 28,
+    "shadowAnchors": 28,
+    "iframe": [
+     430,
+     880
+    ]
+   }
+  }
+ }
+}

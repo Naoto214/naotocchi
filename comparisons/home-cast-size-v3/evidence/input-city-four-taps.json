@@ -1,0 +1,134 @@
+{
+  "engine": "chromium",
+  "cases": {
+    "375/city/4/optimized/20": {
+      "taps": [
+        {
+          "target": "partner:forest_bear",
+          "point": [
+            150.85917356610298,
+            353.37696969509125
+          ],
+          "predictedKey": "partner:forest_bear",
+          "blocked": false,
+          "selected": "partner:forest_bear",
+          "events": [
+            "partner:forest_bear"
+          ],
+          "calls": [
+            "partner:forest_bear"
+          ]
+        },
+        {
+          "target": "companion:cat_friend",
+          "point": [
+            181.9698988199234,
+            276.5033280849457
+          ],
+          "predictedKey": null,
+          "blocked": true,
+          "selected": "partner:forest_bear",
+          "events": [],
+          "calls": []
+        },
+        {
+          "target": "pet:dog",
+          "point": [
+            230.83191406726837,
+            296.68638277053833
+          ],
+          "predictedKey": null,
+          "blocked": true,
+          "selected": "partner:forest_bear",
+          "events": [],
+          "calls": []
+        }
+      ],
+      "drags": [],
+      "events": {
+        "move/ambient": 8,
+        "arrive/ambient": 6,
+        "environment/ambient": 2,
+        "proximity/ambient": 6,
+        "social/ambient": 2,
+        "tap/tap": 1
+      },
+      "speech": [
+        "もりのクマさん\nここ、座っていい?",
+        "大人のいぬ\nいいよ",
+        "もりのクマさん\n……いすが、いいよって言ってない",
+        "大人のいぬ\nびっくりした?"
+      ],
+      "pageErrors": [],
+      "seed": "9f9b55e963e0fa5c",
+      "dragFirst": false,
+      "tapOnly": true
+    },
+    "375/city/4/fixed/20": {
+      "taps": [
+        {
+          "target": "partner:forest_bear",
+          "point": [
+            173.48602911829948,
+            236.4355320930481
+          ],
+          "predictedKey": "pet:dog",
+          "blocked": false,
+          "selected": "pet:dog",
+          "events": [
+            "pet:dog"
+          ],
+          "calls": [
+            "pet:dog"
+          ]
+        },
+        {
+          "target": "companion:cat_friend",
+          "point": [
+            123.05887174606323,
+            319.23404932022095
+          ],
+          "predictedKey": "pet:dog",
+          "blocked": false,
+          "selected": "pet:dog",
+          "events": [
+            "pet:dog"
+          ],
+          "calls": [
+            "pet:dog"
+          ]
+        },
+        {
+          "target": "pet:dog",
+          "point": [
+            189.2915391921997,
+            300.61125218868256
+          ],
+          "predictedKey": null,
+          "blocked": true,
+          "selected": "pet:dog",
+          "events": [],
+          "calls": []
+        }
+      ],
+      "drags": [],
+      "events": {
+        "move/ambient": 4,
+        "arrive/ambient": 4,
+        "environment/ambient": 2,
+        "proximity/ambient": 3,
+        "tap/tap": 2,
+        "look/ambient": 1
+      },
+      "speech": [
+        "大人のいぬ\nここにいるのは覚えといてね",
+        "大人のいぬ\nひまになったがね"
+      ],
+      "pageErrors": [],
+      "seed": "v2",
+      "dragFirst": false,
+      "tapOnly": true
+    }
+  },
+  "version": "156.0.8078.79"
+}

@@ -1,0 +1,138 @@
+{
+  "engine": "Chromium 156.0.8078.79",
+  "cold360": {
+    "viewport": [
+      360,
+      694
+    ],
+    "region": "river_lake",
+    "size": "B",
+    "curve": "linear",
+    "paused": false,
+    "count": 28,
+    "decoded": 28,
+    "renderer": "art-25d",
+    "paintedShadows": 28,
+    "recovered": 1,
+    "secondsUntilReadyAndPainted": 10.429
+  },
+  "familyCount": 19,
+  "variant": "B",
+  "curve": "linear",
+  "layout": "fixed",
+  "paused": true,
+  "viewport": [
+    375,
+    812
+  ],
+  "regions": {
+    "river_lake": {
+      "morning": "comparisons/dayparts-20261103/v4/river_lake-morning.webp",
+      "day": "comparisons/dayparts-20261103/v4/river_lake-day.webp",
+      "evening": "comparisons/dayparts-20261103/v4/river_lake-evening.webp",
+      "night": "comparisons/dayparts-20261103/v6/river_lake-night.webp"
+    },
+    "forest": {
+      "morning": "comparisons/dayparts-20261103/v2/forest-morning.webp",
+      "day": "comparisons/dayparts-20261103/v2/forest-day.webp",
+      "evening": "comparisons/dayparts-20261103/images/forest-evening.webp",
+      "night": "comparisons/dayparts-20261103/v6/forest-night.webp"
+    },
+    "city": {
+      "morning": "comparisons/dayparts-20261103/v2/city-morning.webp",
+      "day": "comparisons/dayparts-20261103/v2/city-day.webp",
+      "evening": "comparisons/dayparts-20261103/images/city-evening.webp",
+      "night": "comparisons/dayparts-20261103/v6/city-night.webp"
+    },
+    "home": {
+      "morning": "comparisons/dayparts-20261103/v2/home-morning.webp",
+      "day": "comparisons/dayparts-20261103/v2/home-day.webp",
+      "evening": "comparisons/dayparts-20261103/images/home-evening.webp",
+      "night": "comparisons/dayparts-20261103/v6/home-night.webp"
+    },
+    "countryside": {
+      "morning": "comparisons/dayparts-20261103/v4/countryside-morning.webp",
+      "day": "comparisons/dayparts-20261103/v4/countryside-day.webp",
+      "evening": "comparisons/dayparts-20261103/v4/countryside-evening.webp",
+      "night": "comparisons/dayparts-20261103/v6/countryside-night.webp"
+    },
+    "mountain": {
+      "morning": "comparisons/dayparts-20261103/v4/mountain-morning.webp",
+      "day": "comparisons/dayparts-20261103/v4/mountain-day.webp",
+      "evening": "comparisons/dayparts-20261103/v4/mountain-evening.webp",
+      "night": "comparisons/dayparts-20261103/v6/mountain-night.webp"
+    },
+    "snow": {
+      "morning": "comparisons/dayparts-20261103/v4/snow-morning.webp",
+      "day": "comparisons/dayparts-20261103/v4/snow-day.webp",
+      "evening": "comparisons/dayparts-20261103/v4/snow-evening.webp",
+      "night": "comparisons/dayparts-20261103/v6/snow-night.webp"
+    },
+    "sea": {
+      "morning": "comparisons/dayparts-20261103/v4/sea-morning.webp",
+      "day": "comparisons/dayparts-20261103/v4/sea-day.webp",
+      "evening": "comparisons/dayparts-20261103/v4/sea-evening.webp",
+      "night": "comparisons/dayparts-20261103/v6/sea-night.webp"
+    },
+    "jungle": {
+      "morning": "comparisons/dayparts-20261103/v4/jungle-morning.webp",
+      "day": "comparisons/dayparts-20261103/v4/jungle-day.webp",
+      "evening": "comparisons/dayparts-20261103/v4/jungle-evening.webp",
+      "night": "comparisons/dayparts-20261103/v6/jungle-night.webp"
+    },
+    "desert": {
+      "morning": "comparisons/dayparts-20261103/v4/desert-morning.webp",
+      "day": "comparisons/dayparts-20261103/v4/desert-day.webp",
+      "evening": "comparisons/dayparts-20261103/v4/desert-evening.webp",
+      "night": "comparisons/dayparts-20261103/v6/desert-night.webp"
+    },
+    "deepsea": {
+      "morning": "comparisons/dayparts-20261103/v4/deepsea-morning.webp",
+      "day": "comparisons/dayparts-20261103/v4/deepsea-day.webp",
+      "evening": "comparisons/dayparts-20261103/v4/deepsea-evening.webp",
+      "night": "comparisons/dayparts-20261103/v4/deepsea-night.webp"
+    },
+    "star_stop": {
+      "morning": "comparisons/dayparts-20261103/v4/star_stop-morning.webp",
+      "day": "comparisons/dayparts-20261103/v4/star_stop-day.webp",
+      "evening": "comparisons/dayparts-20261103/v4/star_stop-evening.webp",
+      "night": "comparisons/dayparts-20261103/v6/star_stop-night.webp"
+    },
+    "memory_lake": {
+      "morning": "comparisons/dayparts-20261103/v4/memory_lake-morning.webp",
+      "day": "comparisons/dayparts-20261103/v4/memory_lake-day.webp",
+      "evening": "comparisons/dayparts-20261103/v4/memory_lake-evening.webp",
+      "night": "comparisons/dayparts-20261103/v6/memory_lake-night.webp"
+    }
+  },
+  "pageErrors": [],
+  "roster": [
+    "companion:bat",
+    "companion:cat_friend",
+    "companion:chicken",
+    "companion:hamster",
+    "companion:hedgehog",
+    "companion:monkey",
+    "companion:otter",
+    "companion:owl",
+    "companion:panda",
+    "companion:parrot",
+    "companion:penguin_friend",
+    "companion:rabbit_friend",
+    "companion:seal",
+    "companion:sheep",
+    "companion:shiba",
+    "companion:squirrel",
+    "companion:tanuki",
+    "partner:forest_bear",
+    "pet:dog"
+  ],
+  "verifiedPaints": 52,
+  "nativeControllerSHA256": "6fe5b47128f52547d9f0672fa038b636e8734c9a18a8cefffce7c774c18db574",
+  "decodedPixels": [
+    1024,
+    1536
+  ],
+  "fullCanvasOpacity": 1,
+  "reducedMotionForDaypartSweep": true
+}

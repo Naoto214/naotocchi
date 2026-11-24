@@ -1,0 +1,173 @@
+{
+  "engine": "webkit",
+  "cases": {
+    "390/river_lake/28/fixed/20": {
+      "taps": [
+        {
+          "target": "partner:forest_bear",
+          "point": [
+            161.93012118339539,
+            381.46893537044525
+          ],
+          "predictedKey": "partner:forest_bear",
+          "blocked": false,
+          "selected": "partner:forest_bear",
+          "events": [
+            "partner:forest_bear"
+          ]
+        },
+        {
+          "target": "companion:shiba",
+          "point": [
+            133.15580320358276,
+            446.65113949775696
+          ],
+          "predictedKey": "companion:shiba",
+          "blocked": false,
+          "selected": "companion:shiba",
+          "events": [
+            "companion:shiba"
+          ]
+        },
+        {
+          "target": "pet:dog",
+          "point": [
+            216.7075423002243,
+            392.27224934101105
+          ],
+          "predictedKey": "pet:dog",
+          "blocked": false,
+          "selected": "pet:dog",
+          "events": [
+            "pet:dog"
+          ]
+        }
+      ],
+      "drags": [
+        {
+          "assisted": false,
+          "delivered": true,
+          "held": "pet:dog",
+          "marker": true,
+          "requestedDistanceCss": 30.2,
+          "moveAccepted": false,
+          "displacementNative": 0.0,
+          "predicted": true,
+          "nativeRoutes": []
+        },
+        {
+          "assisted": true,
+          "delivered": true,
+          "held": "pet:dog",
+          "marker": true,
+          "requestedDistanceCss": 46.15,
+          "moveAccepted": true,
+          "displacementNative": 9.22,
+          "predicted": true,
+          "nativeRoutes": [
+            {
+              "key": "pet:dog",
+              "x": 196.46858674062267,
+              "y": 297.01272644046367,
+              "waypoints": 1
+            }
+          ]
+        }
+      ],
+      "events": {
+        "tap/tap": 5,
+        "move/ambient": 2,
+        "look/ambient": 12,
+        "arrive/ambient": 2,
+        "environment/ambient": 1,
+        "proximity/ambient": 3,
+        "move/drag": 1,
+        "arrive/drag": 1
+      },
+      "speech": [
+        "よふかしコウモリ\n昼のあくびを、夜まで預かってる"
+      ],
+      "pageErrors": [],
+      "seed": "v2"
+    },
+    "320/forest/28/optimized/20": {
+      "taps": [
+        {
+          "target": "partner:forest_bear",
+          "point": [
+            170.44893604516983,
+            188.57171595096588
+          ],
+          "predictedKey": "pet:dog",
+          "blocked": false,
+          "selected": "pet:dog",
+          "events": [
+            "pet:dog"
+          ]
+        },
+        {
+          "target": "companion:shiba",
+          "point": [
+            41.76528239250183,
+            212.7096803188324
+          ],
+          "predictedKey": "companion:shiba",
+          "blocked": false,
+          "selected": "companion:shiba",
+          "events": [
+            "companion:shiba"
+          ]
+        },
+        {
+          "target": "pet:dog",
+          "point": [
+            153.90086430311203,
+            197.08328902721405
+          ],
+          "predictedKey": "pet:dog",
+          "blocked": false,
+          "selected": "pet:dog",
+          "events": [
+            "pet:dog"
+          ]
+        }
+      ],
+      "drags": [
+        {
+          "assisted": false,
+          "delivered": true,
+          "held": "pet:dog",
+          "marker": true,
+          "requestedDistanceCss": 27.61,
+          "moveAccepted": true,
+          "displacementNative": 8.97,
+          "predicted": true,
+          "nativeRoutes": [
+            {
+              "key": "pet:dog",
+              "x": 171.84871388152206,
+              "y": 296.56957347861834,
+              "waypoints": 1
+            }
+          ]
+        }
+      ],
+      "events": {
+        "tap/tap": 4,
+        "move/ambient": 3,
+        "look/ambient": 2,
+        "move/drag": 1,
+        "arrive/ambient": 1,
+        "proximity/ambient": 2,
+        "arrive/drag": 1
+      },
+      "speech": [
+        "まねっこサル\n今の顔、こう?",
+        "大人のいぬ\n目があうまで待ってみた"
+      ],
+      "pageErrors": [],
+      "seed": "1793b2e62a7283db"
+    }
+  },
+  "version": "26.5"
+}

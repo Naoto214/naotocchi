@@ -1,0 +1,43 @@
+{
+  "names": {
+    "pet:dog": "大人のいぬ",
+    "partner:forest_bear": "もりのクマさん",
+    "companion:cat_friend": "きまぐれなねこ",
+    "companion:rabbit_friend": "すばしっこいうさぎ"
+  },
+  "encounters": [
+    {
+      "seconds": 64.01639999999851,
+      "actor": "pet:dog",
+      "listener": "companion:cat_friend"
+    }
+  ],
+  "speech": [
+    {
+      "seconds": 67.152,
+      "line": "大人のいぬ\nきょう、どこで寝るの?"
+    },
+    {
+      "seconds": 68.20329999999701,
+      "line": "きまぐれなねこ\n決めてない。寝たところ"
+    }
+  ],
+  "matchingPair": {
+    "participants": [
+      "大人のいぬ",
+      "きまぐれなねこ"
+    ],
+    "encounter": {
+      "seconds": 64.01639999999851,
+      "actor": "pet:dog",
+      "listener": "companion:cat_friend"
+    }
+  },
+  "region": "forest",
+  "count": 4,
+  "engine": "156.0.8078.79",
+  "maximumSeconds": 75,
+  "observedSeconds": 23.27,
+  "extra": 20,
+  "layout": "optimized"
+}

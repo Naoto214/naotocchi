@@ -1,0 +1,246 @@
+{
+  "engine": "chromium",
+  "cases": {
+    "375/city/4/optimized/20": {
+      "taps": [
+        {
+          "target": "partner:forest_bear",
+          "point": [
+            146.19962939620018,
+            356.6091729402542
+          ],
+          "predictedKey": null,
+          "blocked": true,
+          "selected": null,
+          "events": [],
+          "calls": []
+        },
+        {
+          "target": "companion:cat_friend",
+          "point": [
+            113.49011081457138,
+            335.6734929084778
+          ],
+          "predictedKey": null,
+          "blocked": true,
+          "selected": null,
+          "events": [],
+          "calls": []
+        },
+        {
+          "target": "pet:dog",
+          "point": [
+            212.48046946525574,
+            287.72026455402374
+          ],
+          "predictedKey": null,
+          "blocked": true,
+          "selected": null,
+          "events": [],
+          "calls": []
+        }
+      ],
+      "drags": [
+        {
+          "assisted": false,
+          "delivered": true,
+          "held": null,
+          "marker": false,
+          "requestedDistanceCss": 111.54,
+          "moveAccepted": false,
+          "displacementNative": 0,
+          "predicted": true,
+          "nativeRoutes": [],
+          "pointerTrace": [
+            [
+              "pointerdown",
+              "touch",
+              "IMG",
+              true
+            ],
+            [
+              "pointermove",
+              "touch",
+              "IMG",
+              true
+            ],
+            [
+              "pointermove",
+              "touch",
+              "IMG",
+              true
+            ],
+            [
+              "pointermove",
+              "touch",
+              "IMG",
+              true
+            ],
+            [
+              "pointermove",
+              "touch",
+              "IMG",
+              true
+            ],
+            [
+              "pointermove",
+              "touch",
+              "IMG",
+              true
+            ],
+            [
+              "pointerup",
+              "touch",
+              "IMG",
+              true
+            ],
+            [
+              "lostpointercapture",
+              "touch",
+              "IMG",
+              true
+            ]
+          ]
+        },
+        {
+          "assisted": true,
+          "delivered": false,
+          "reason": "native home still owns input"
+        }
+      ],
+      "events": {
+        "move/ambient": 3,
+        "social/ambient": 1,
+        "arrive/ambient": 1,
+        "environment/ambient": 1,
+        "proximity/ambient": 1
+      },
+      "speech": [],
+      "pageErrors": [],
+      "seed": "9f9b55e963e0fa5c",
+      "dragFirst": true,
+      "tapOnly": false
+    },
+    "375/city/4/fixed/20": {
+      "taps": [
+        {
+          "target": "partner:forest_bear",
+          "point": [
+            173.48602911829948,
+            286.33348375558853
+          ],
+          "predictedKey": null,
+          "blocked": true,
+          "selected": null,
+          "events": [],
+          "calls": []
+        },
+        {
+          "target": "companion:cat_friend",
+          "point": [
+            135.8402833044529,
+            326.79626178741455
+          ],
+          "predictedKey": null,
+          "blocked": true,
+          "selected": null,
+          "events": [],
+          "calls": []
+        },
+        {
+          "target": "pet:dog",
+          "point": [
+            189.51021432876587,
+            301.95257103443146
+          ],
+          "predictedKey": null,
+          "blocked": true,
+          "selected": null,
+          "events": [],
+          "calls": []
+        }
+      ],
+      "drags": [
+        {
+          "assisted": false,
+          "delivered": true,
+          "held": null,
+          "marker": false,
+          "requestedDistanceCss": 113.22,
+          "moveAccepted": false,
+          "displacementNative": 0,
+          "predicted": true,
+          "nativeRoutes": [],
+          "pointerTrace": [
+            [
+              "pointerdown",
+              "touch",
+              "IMG",
+              true
+            ],
+            [
+              "pointermove",
+              "touch",
+              "IMG",
+              true
+            ],
+            [
+              "pointermove",
+              "touch",
+              "IMG",
+              true
+            ],
+            [
+              "pointermove",
+              "touch",
+              "IMG",
+              true
+            ],
+            [
+              "pointermove",
+              "touch",
+              "IMG",
+              true
+            ],
+            [
+              "pointermove",
+              "touch",
+              "IMG",
+              true
+            ],
+            [
+              "pointerup",
+              "touch",
+              "IMG",
+              true
+            ],
+            [
+              "lostpointercapture",
+              "touch",
+              "IMG",
+              true
+            ]
+          ]
+        },
+        {
+          "assisted": true,
+          "delivered": false,
+          "reason": "native home still owns input"
+        }
+      ],
+      "events": {
+        "move/ambient": 2,
+        "arrive/ambient": 2,
+        "environment/ambient": 1
+      },
+      "speech": [
+        "大人のいぬ\n何か言う顔だけ先にできた"
+      ],
+      "pageErrors": [],
+      "seed": "v2",
+      "dragFirst": true,
+      "tapOnly": false
+    }
+  },
+  "version": "156.0.8078.79"
+}

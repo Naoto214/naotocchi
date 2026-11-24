@@ -1,0 +1,796 @@
+{
+  "engine": "chromium",
+  "cases": {
+    "375/city/4/optimized/20": {
+      "taps": [
+        {
+          "target": "partner:forest_bear",
+          "point": [
+            146.19962939620018,
+            356.6091729402542
+          ],
+          "afterGate": {
+            "atMs": 222440,
+            "pending": false,
+            "enabled": true,
+            "visibility": "visible",
+            "flagsPaused": false,
+            "actual": true,
+            "frozen": false,
+            "cached": "true",
+            "game": {
+              "blocked": true,
+              "passive": true,
+              "individuality": false,
+              "activeOverlay": null,
+              "duelOpen": false,
+              "dateOpen": false,
+              "companionInviteOpen": true,
+              "itemScene": false,
+              "grandGoal": false,
+              "dexDetail": false,
+              "birth": false,
+              "game": false,
+              "meguru": false,
+              "sleep": false,
+              "sick": false,
+              "dying": false,
+              "evolution": false,
+              "unit": null,
+              "lowerRemaining": 0,
+              "speech": false,
+              "speechText": null,
+              "lifeCard": false,
+              "story": false,
+              "movie": false,
+              "normalHidden": false,
+              "response": null,
+              "menu": true,
+              "idle": false,
+              "otherActors": [],
+              "overlays": [
+                [
+                  "companionInviteOverlay",
+                  [
+                    "companionInvitePlayBtn",
+                    "あそぶ!"
+                  ],
+                  [
+                    "companionInviteLaterBtn",
+                    "またこんど"
+                  ]
+                ]
+              ]
+            }
+          },
+          "predictedKey": null,
+          "blocked": true,
+          "selected": null,
+          "events": [],
+          "calls": []
+        },
+        {
+          "target": "companion:cat_friend",
+          "point": [
+            113.49011081457138,
+            335.6734929084778
+          ],
+          "afterGate": {
+            "atMs": 224518,
+            "pending": false,
+            "enabled": true,
+            "visibility": "visible",
+            "flagsPaused": false,
+            "actual": true,
+            "frozen": false,
+            "cached": "true",
+            "game": {
+              "blocked": true,
+              "passive": true,
+              "individuality": false,
+              "activeOverlay": null,
+              "duelOpen": false,
+              "dateOpen": false,
+              "companionInviteOpen": true,
+              "itemScene": false,
+              "grandGoal": false,
+              "dexDetail": false,
+              "birth": false,
+              "game": false,
+              "meguru": false,
+              "sleep": false,
+              "sick": false,
+              "dying": false,
+              "evolution": false,
+              "unit": null,
+              "lowerRemaining": 0,
+              "speech": false,
+              "speechText": null,
+              "lifeCard": false,
+              "story": false,
+              "movie": false,
+              "normalHidden": false,
+              "response": null,
+              "menu": true,
+              "idle": false,
+              "otherActors": [],
+              "overlays": [
+                [
+                  "companionInviteOverlay",
+                  [
+                    "companionInvitePlayBtn",
+                    "あそぶ!"
+                  ],
+                  [
+                    "companionInviteLaterBtn",
+                    "またこんど"
+                  ]
+                ]
+              ]
+            }
+          },
+          "predictedKey": null,
+          "blocked": true,
+          "selected": null,
+          "events": [],
+          "calls": []
+        },
+        {
+          "target": "pet:dog",
+          "point": [
+            212.48046946525574,
+            287.72026455402374
+          ],
+          "afterGate": {
+            "atMs": 225240,
+            "pending": false,
+            "enabled": true,
+            "visibility": "visible",
+            "flagsPaused": false,
+            "actual": true,
+            "frozen": false,
+            "cached": "true",
+            "game": {
+              "blocked": true,
+              "passive": true,
+              "individuality": false,
+              "activeOverlay": null,
+              "duelOpen": false,
+              "dateOpen": false,
+              "companionInviteOpen": true,
+              "itemScene": false,
+              "grandGoal": false,
+              "dexDetail": false,
+              "birth": false,
+              "game": false,
+              "meguru": false,
+              "sleep": false,
+              "sick": false,
+              "dying": false,
+              "evolution": false,
+              "unit": null,
+              "lowerRemaining": 0,
+              "speech": false,
+              "speechText": null,
+              "lifeCard": false,
+              "story": false,
+              "movie": false,
+              "normalHidden": false,
+              "response": null,
+              "menu": true,
+              "idle": false,
+              "otherActors": [],
+              "overlays": [
+                [
+                  "companionInviteOverlay",
+                  [
+                    "companionInvitePlayBtn",
+                    "あそぶ!"
+                  ],
+                  [
+                    "companionInviteLaterBtn",
+                    "またこんど"
+                  ]
+                ]
+              ]
+            }
+          },
+          "predictedKey": null,
+          "blocked": true,
+          "selected": null,
+          "events": [],
+          "calls": []
+        }
+      ],
+      "drags": [
+        {
+          "assisted": false,
+          "delivered": false
+        },
+        {
+          "assisted": true,
+          "delivered": false,
+          "reason": "native painted pause did not clear within wait",
+          "gate": {
+            "atMs": 234128,
+            "pending": false,
+            "enabled": true,
+            "visibility": "visible",
+            "flagsPaused": false,
+            "actual": true,
+            "frozen": false,
+            "cached": "true",
+            "game": {
+              "blocked": true,
+              "passive": true,
+              "individuality": false,
+              "activeOverlay": null,
+              "duelOpen": false,
+              "dateOpen": false,
+              "companionInviteOpen": true,
+              "itemScene": false,
+              "grandGoal": false,
+              "dexDetail": false,
+              "birth": false,
+              "game": false,
+              "meguru": false,
+              "sleep": false,
+              "sick": false,
+              "dying": false,
+              "evolution": false,
+              "unit": null,
+              "lowerRemaining": 0,
+              "speech": false,
+              "speechText": null,
+              "lifeCard": false,
+              "story": false,
+              "movie": false,
+              "normalHidden": false,
+              "response": null,
+              "menu": true,
+              "idle": false,
+              "otherActors": [],
+              "overlays": [
+                [
+                  "companionInviteOverlay",
+                  [
+                    "companionInvitePlayBtn",
+                    "あそぶ!"
+                  ],
+                  [
+                    "companionInviteLaterBtn",
+                    "またこんど"
+                  ]
+                ]
+              ]
+            }
+          }
+        }
+      ],
+      "events": {
+        "move/ambient": 3,
+        "social/ambient": 1,
+        "arrive/ambient": 1,
+        "environment/ambient": 1,
+        "proximity/ambient": 1
+      },
+      "speech": [
+        "大人のいぬ\nここにいるのは覚えといてね",
+        "大人のいぬ\n呼ぶ前にこっち向いたね"
+      ],
+      "pageErrors": [],
+      "recovery": {
+        "initial": {
+          "atMs": 234206,
+          "pending": false,
+          "enabled": true,
+          "visibility": "visible",
+          "flagsPaused": false,
+          "actual": true,
+          "frozen": false,
+          "cached": "true",
+          "game": {
+            "blocked": true,
+            "passive": true,
+            "individuality": false,
+            "activeOverlay": null,
+            "duelOpen": false,
+            "dateOpen": false,
+            "companionInviteOpen": true,
+            "itemScene": false,
+            "grandGoal": false,
+            "dexDetail": false,
+            "birth": false,
+            "game": false,
+            "meguru": false,
+            "sleep": false,
+            "sick": false,
+            "dying": false,
+            "evolution": false,
+            "unit": null,
+            "lowerRemaining": 0,
+            "speech": false,
+            "speechText": null,
+            "lifeCard": false,
+            "story": false,
+            "movie": false,
+            "normalHidden": false,
+            "response": null,
+            "menu": true,
+            "idle": false,
+            "otherActors": [],
+            "overlays": [
+              [
+                "companionInviteOverlay",
+                [
+                  "companionInvitePlayBtn",
+                  "あそぶ!"
+                ],
+                [
+                  "companionInviteLaterBtn",
+                  "またこんど"
+                ]
+              ]
+            ]
+          }
+        },
+        "after": {
+          "atMs": 248021,
+          "pending": false,
+          "enabled": true,
+          "visibility": "visible",
+          "flagsPaused": false,
+          "actual": true,
+          "frozen": false,
+          "cached": "true",
+          "game": {
+            "blocked": true,
+            "passive": true,
+            "individuality": false,
+            "activeOverlay": null,
+            "duelOpen": false,
+            "dateOpen": false,
+            "companionInviteOpen": true,
+            "itemScene": false,
+            "grandGoal": false,
+            "dexDetail": false,
+            "birth": false,
+            "game": false,
+            "meguru": false,
+            "sleep": false,
+            "sick": false,
+            "dying": false,
+            "evolution": false,
+            "unit": null,
+            "lowerRemaining": 0,
+            "speech": false,
+            "speechText": null,
+            "lifeCard": false,
+            "story": false,
+            "movie": false,
+            "normalHidden": false,
+            "response": null,
+            "menu": true,
+            "idle": false,
+            "otherActors": [],
+            "overlays": [
+              [
+                "companionInviteOverlay",
+                [
+                  "companionInvitePlayBtn",
+                  "あそぶ!"
+                ],
+                [
+                  "companionInviteLaterBtn",
+                  "またこんど"
+                ]
+              ]
+            ]
+          }
+        }
+      },
+      "seed": "9f9b55e963e0fa5c",
+      "dragFirst": false,
+      "tapOnly": false
+    },
+    "375/city/4/fixed/20": {
+      "taps": [
+        {
+          "target": "partner:forest_bear",
+          "point": [
+            173.48602911829948,
+            236.4355320930481
+          ],
+          "afterGate": {
+            "atMs": 182146,
+            "pending": false,
+            "enabled": true,
+            "visibility": "visible",
+            "flagsPaused": false,
+            "actual": true,
+            "frozen": false,
+            "cached": "true",
+            "game": {
+              "blocked": true,
+              "passive": true,
+              "individuality": false,
+              "activeOverlay": null,
+              "duelOpen": false,
+              "dateOpen": false,
+              "companionInviteOpen": true,
+              "itemScene": false,
+              "grandGoal": false,
+              "dexDetail": false,
+              "birth": false,
+              "game": false,
+              "meguru": false,
+              "sleep": false,
+              "sick": false,
+              "dying": false,
+              "evolution": false,
+              "unit": null,
+              "lowerRemaining": 0,
+              "speech": false,
+              "speechText": null,
+              "lifeCard": false,
+              "story": false,
+              "movie": false,
+              "normalHidden": false,
+              "response": null,
+              "menu": true,
+              "idle": false,
+              "otherActors": [],
+              "overlays": [
+                [
+                  "companionInviteOverlay",
+                  [
+                    "companionInvitePlayBtn",
+                    "あそぶ!"
+                  ],
+                  [
+                    "companionInviteLaterBtn",
+                    "またこんど"
+                  ]
+                ]
+              ]
+            }
+          },
+          "predictedKey": "pet:dog",
+          "blocked": false,
+          "selected": "pet:dog",
+          "events": [
+            "pet:dog"
+          ],
+          "calls": [
+            "pet:dog"
+          ]
+        },
+        {
+          "target": "companion:cat_friend",
+          "point": [
+            124.78542509675026,
+            312.5566005706787
+          ],
+          "afterGate": {
+            "atMs": 186512,
+            "pending": false,
+            "enabled": true,
+            "visibility": "visible",
+            "flagsPaused": false,
+            "actual": true,
+            "frozen": false,
+            "cached": "true",
+            "game": {
+              "blocked": true,
+              "passive": true,
+              "individuality": false,
+              "activeOverlay": null,
+              "duelOpen": false,
+              "dateOpen": false,
+              "companionInviteOpen": true,
+              "itemScene": false,
+              "grandGoal": false,
+              "dexDetail": false,
+              "birth": false,
+              "game": false,
+              "meguru": false,
+              "sleep": false,
+              "sick": false,
+              "dying": false,
+              "evolution": false,
+              "unit": null,
+              "lowerRemaining": 0,
+              "speech": false,
+              "speechText": null,
+              "lifeCard": false,
+              "story": false,
+              "movie": false,
+              "normalHidden": false,
+              "response": null,
+              "menu": true,
+              "idle": false,
+              "otherActors": [],
+              "overlays": [
+                [
+                  "companionInviteOverlay",
+                  [
+                    "companionInvitePlayBtn",
+                    "あそぶ!"
+                  ],
+                  [
+                    "companionInviteLaterBtn",
+                    "またこんど"
+                  ]
+                ]
+              ]
+            }
+          },
+          "predictedKey": null,
+          "blocked": true,
+          "selected": "pet:dog",
+          "events": [],
+          "calls": []
+        },
+        {
+          "target": "pet:dog",
+          "point": [
+            189.51021432876587,
+            301.95257103443146
+          ],
+          "afterGate": {
+            "atMs": 189817,
+            "pending": false,
+            "enabled": true,
+            "visibility": "visible",
+            "flagsPaused": false,
+            "actual": true,
+            "frozen": false,
+            "cached": "true",
+            "game": {
+              "blocked": true,
+              "passive": true,
+              "individuality": false,
+              "activeOverlay": null,
+              "duelOpen": false,
+              "dateOpen": false,
+              "companionInviteOpen": true,
+              "itemScene": false,
+              "grandGoal": false,
+              "dexDetail": false,
+              "birth": false,
+              "game": false,
+              "meguru": false,
+              "sleep": false,
+              "sick": false,
+              "dying": false,
+              "evolution": false,
+              "unit": null,
+              "lowerRemaining": 0,
+              "speech": false,
+              "speechText": null,
+              "lifeCard": false,
+              "story": false,
+              "movie": false,
+              "normalHidden": false,
+              "response": null,
+              "menu": true,
+              "idle": false,
+              "otherActors": [],
+              "overlays": [
+                [
+                  "companionInviteOverlay",
+                  [
+                    "companionInvitePlayBtn",
+                    "あそぶ!"
+                  ],
+                  [
+                    "companionInviteLaterBtn",
+                    "またこんど"
+                  ]
+                ]
+              ]
+            }
+          },
+          "predictedKey": null,
+          "blocked": true,
+          "selected": "pet:dog",
+          "events": [],
+          "calls": []
+        }
+      ],
+      "drags": [
+        {
+          "assisted": false,
+          "delivered": false
+        },
+        {
+          "assisted": true,
+          "delivered": false,
+          "reason": "native painted pause did not clear within wait",
+          "gate": {
+            "atMs": 201369,
+            "pending": false,
+            "enabled": true,
+            "visibility": "visible",
+            "flagsPaused": false,
+            "actual": true,
+            "frozen": false,
+            "cached": "true",
+            "game": {
+              "blocked": true,
+              "passive": true,
+              "individuality": false,
+              "activeOverlay": null,
+              "duelOpen": false,
+              "dateOpen": false,
+              "companionInviteOpen": true,
+              "itemScene": false,
+              "grandGoal": false,
+              "dexDetail": false,
+              "birth": false,
+              "game": false,
+              "meguru": false,
+              "sleep": false,
+              "sick": false,
+              "dying": false,
+              "evolution": false,
+              "unit": null,
+              "lowerRemaining": 0,
+              "speech": false,
+              "speechText": null,
+              "lifeCard": false,
+              "story": false,
+              "movie": false,
+              "normalHidden": false,
+              "response": null,
+              "menu": true,
+              "idle": false,
+              "otherActors": [],
+              "overlays": [
+                [
+                  "companionInviteOverlay",
+                  [
+                    "companionInvitePlayBtn",
+                    "あそぶ!"
+                  ],
+                  [
+                    "companionInviteLaterBtn",
+                    "またこんど"
+                  ]
+                ]
+              ]
+            }
+          }
+        }
+      ],
+      "events": {
+        "move/ambient": 6,
+        "arrive/ambient": 5,
+        "environment/ambient": 3,
+        "look/ambient": 1,
+        "proximity/ambient": 3,
+        "social/ambient": 1,
+        "tap/tap": 1
+      },
+      "speech": [
+        "大人のいぬ\nいまのぼく、たぶん天才",
+        "大人のいぬ\n振り返る用事、いま作った"
+      ],
+      "pageErrors": [],
+      "recovery": {
+        "initial": {
+          "atMs": 201766,
+          "pending": false,
+          "enabled": true,
+          "visibility": "visible",
+          "flagsPaused": false,
+          "actual": true,
+          "frozen": false,
+          "cached": "true",
+          "game": {
+            "blocked": true,
+            "passive": true,
+            "individuality": false,
+            "activeOverlay": null,
+            "duelOpen": false,
+            "dateOpen": false,
+            "companionInviteOpen": true,
+            "itemScene": false,
+            "grandGoal": false,
+            "dexDetail": false,
+            "birth": false,
+            "game": false,
+            "meguru": false,
+            "sleep": false,
+            "sick": false,
+            "dying": false,
+            "evolution": false,
+            "unit": null,
+            "lowerRemaining": 0,
+            "speech": false,
+            "speechText": null,
+            "lifeCard": false,
+            "story": false,
+            "movie": false,
+            "normalHidden": false,
+            "response": null,
+            "menu": true,
+            "idle": false,
+            "otherActors": [],
+            "overlays": [
+              [
+                "companionInviteOverlay",
+                [
+                  "companionInvitePlayBtn",
+                  "あそぶ!"
+                ],
+                [
+                  "companionInviteLaterBtn",
+                  "またこんど"
+                ]
+              ]
+            ]
+          }
+        },
+        "after": {
+          "atMs": 219689,
+          "pending": false,
+          "enabled": true,
+          "visibility": "visible",
+          "flagsPaused": false,
+          "actual": true,
+          "frozen": false,
+          "cached": "true",
+          "game": {
+            "blocked": true,
+            "passive": true,
+            "individuality": false,
+            "activeOverlay": null,
+            "duelOpen": false,
+            "dateOpen": false,
+            "companionInviteOpen": true,
+            "itemScene": false,
+            "grandGoal": false,
+            "dexDetail": false,
+            "birth": false,
+            "game": false,
+            "meguru": false,
+            "sleep": false,
+            "sick": false,
+            "dying": false,
+            "evolution": false,
+            "unit": null,
+            "lowerRemaining": 0,
+            "speech": false,
+            "speechText": null,
+            "lifeCard": false,
+            "story": false,
+            "movie": false,
+            "normalHidden": false,
+            "response": null,
+            "menu": true,
+            "idle": false,
+            "otherActors": [],
+            "overlays": [
+              [
+                "companionInviteOverlay",
+                [
+                  "companionInvitePlayBtn",
+                  "あそぶ!"
+                ],
+                [
+                  "companionInviteLaterBtn",
+                  "またこんど"
+                ]
+              ]
+            ]
+          }
+        }
+      },
+      "seed": "v2",
+      "dragFirst": false,
+      "tapOnly": false
+    }
+  },
+  "version": "156.0.8078.79"
+}

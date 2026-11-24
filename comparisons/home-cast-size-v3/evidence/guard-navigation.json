@@ -1,0 +1,26 @@
+{
+  "regions": 13,
+  "phoneWidths": 4,
+  "configurations": 520,
+  "exactV2OpeningsAtAllFixedGainsOrZero": 19656,
+  "deterministicOptimizedOpenings": 13104,
+  "changedHintsPassingNativeTerrainCheck": {
+    "5": 522,
+    "10": 556,
+    "15": 535,
+    "20": 520
+  },
+  "identicalNativeFunctionReferences": 5200,
+  "nativeFunctions": [
+    "depthScale",
+    "nearest",
+    "project",
+    "reachable",
+    "referenceNearest",
+    "referenceRoute",
+    "route",
+    "segmentSafe",
+    "unproject",
+    "valid"
+  ]
+}

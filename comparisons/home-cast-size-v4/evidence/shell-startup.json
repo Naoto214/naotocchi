@@ -1,0 +1,23 @@
+{
+  "environment": "Shared Linux host, headless mobile emulation with touch and DPR 2. Geometry, seating and timing jobs were running concurrently. These durations describe the local verifier.",
+  "coldUrl": "/v4/",
+  "viewport": [320, 568],
+  "physicalIPhone": false,
+  "attempts": [
+    {
+      "engine": "Chromium 156",
+      "transport": "Loopback HTTP/1.0",
+      "outcome": "Reached the ready, painted 28-resident home in 44.27 seconds in an exploratory run and in 125.93 seconds in the complete shell suite."
+    },
+    {
+      "engine": "WPE WebKit 26.5",
+      "transport": "Loopback HTTP/1.0",
+      "outcome": "The 180-second readiness deadline expired once."
+    },
+    {
+      "engine": "WPE WebKit 26.5",
+      "transport": "Loopback HTTP/1.1",
+      "outcome": "Two cold loads reached the painted native home in 134.29 and 138.89 seconds. The family, region, time, curve, variant and mobile control state matched the requested defaults."
+    }
+  ]
+}

@@ -1,0 +1,1056 @@
+{
+ "production": {
+  "atSeconds": [
+   0,
+   4,
+   15
+  ],
+  "samples": [
+   {
+    "geom": [
+     278.7,
+     84.8,
+     85.7,
+     47.1
+    ],
+    "pressed": null,
+    "text": "みんなを見る",
+    "grid": [
+     {
+      "x": 280.7,
+      "y": 86.8,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 86.8,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 86.8,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 86.8,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 86.8,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 96.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 96.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 96.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 96.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 96.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 108.3,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 108.3,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 108.3,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 108.3,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 108.3,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 120.1,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 120.1,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 120.1,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 120.1,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 120.1,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 129.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 129.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 129.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 129.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 129.8,
+      "hit": "homeEventSlot",
+      "button": false
+     }
+    ]
+   },
+   {
+    "geom": [
+     278.7,
+     84.8,
+     85.7,
+     47.1
+    ],
+    "pressed": null,
+    "text": "みんなを見る",
+    "grid": [
+     {
+      "x": 280.7,
+      "y": 86.8,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 86.8,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 86.8,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 86.8,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 86.8,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 96.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 96.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 96.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 96.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 96.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 108.3,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 108.3,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 108.3,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 108.3,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 108.3,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 120.1,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 120.1,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 120.1,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 120.1,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 120.1,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 129.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 129.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 129.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 129.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 129.8,
+      "hit": "homeEventSlot",
+      "button": false
+     }
+    ]
+   },
+   {
+    "geom": [
+     278.7,
+     84.8,
+     85.7,
+     47.1
+    ],
+    "pressed": null,
+    "text": "みんなを見る",
+    "grid": [
+     {
+      "x": 280.7,
+      "y": 86.8,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 86.8,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 86.8,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 86.8,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 86.8,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 96.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 96.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 96.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 96.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 96.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 108.3,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 108.3,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 108.3,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 108.3,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 108.3,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 120.1,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 120.1,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 120.1,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 120.1,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 120.1,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 129.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 129.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 129.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 129.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 129.8,
+      "hit": "homeEventSlot",
+      "button": false
+     }
+    ]
+   }
+  ],
+  "touches": [
+   {
+    "hit": {
+     "x": 321.6,
+     "y": 108.3,
+     "hit": "homeEventSlot",
+     "button": false
+    },
+    "before": "みんなを見る",
+    "after": "みんなを見る"
+   },
+   {
+    "hit": {
+     "x": 280.7,
+     "y": 129.8,
+     "hit": "homeEventSlot",
+     "button": false
+    },
+    "before": "みんなを見る",
+    "after": "みんなを見る"
+   },
+   {
+    "hit": {
+     "x": 362.4,
+     "y": 129.8,
+     "hit": "homeEventSlot",
+     "button": false
+    },
+    "before": "みんなを見る",
+    "after": "みんなを見る"
+   }
+  ]
+ },
+ "privateComparison": {
+  "atSeconds": [
+   0,
+   4,
+   15
+  ],
+  "samples": [
+   {
+    "geom": [
+     278.7,
+     96.1,
+     85.7,
+     40.7
+    ],
+    "pressed": null,
+    "text": "みんなを見る",
+    "grid": [
+     {
+      "x": 280.7,
+      "y": 98.1,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 98.1,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 98.1,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 98.1,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 98.1,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 106.3,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 106.3,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 106.3,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 106.3,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 106.3,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 116.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 116.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 116.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 116.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 116.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 126.6,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 126.6,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 126.6,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 126.6,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 126.6,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 134.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 134.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 134.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 134.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 134.8,
+      "hit": "homeEventSlot",
+      "button": false
+     }
+    ]
+   },
+   {
+    "geom": [
+     278.7,
+     96.1,
+     85.7,
+     40.7
+    ],
+    "pressed": null,
+    "text": "みんなを見る",
+    "grid": [
+     {
+      "x": 280.7,
+      "y": 98.1,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 98.1,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 98.1,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 98.1,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 98.1,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 106.3,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 106.3,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 106.3,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 106.3,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 106.3,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 116.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 116.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 116.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 116.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 116.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 126.6,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 126.6,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 126.6,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 126.6,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 126.6,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 134.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 134.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 134.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 134.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 134.8,
+      "hit": "homeEventSlot",
+      "button": false
+     }
+    ]
+   },
+   {
+    "geom": [
+     278.7,
+     96.1,
+     85.7,
+     40.7
+    ],
+    "pressed": null,
+    "text": "みんなを見る",
+    "grid": [
+     {
+      "x": 280.7,
+      "y": 98.1,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 98.1,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 98.1,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 98.1,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 98.1,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 106.3,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 106.3,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 106.3,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 106.3,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 106.3,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 116.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 116.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 116.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 116.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 116.5,
+      "hit": "homeInformation",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 126.6,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 126.6,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 126.6,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 126.6,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 126.6,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 280.7,
+      "y": 134.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 300.1,
+      "y": 134.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 321.6,
+      "y": 134.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 343,
+      "y": 134.8,
+      "hit": "homeEventSlot",
+      "button": false
+     },
+     {
+      "x": 362.4,
+      "y": 134.8,
+      "hit": "homeEventSlot",
+      "button": false
+     }
+    ]
+   }
+  ],
+  "touches": [
+   {
+    "hit": {
+     "x": 321.6,
+     "y": 116.5,
+     "hit": "homeInformation",
+     "button": false
+    },
+    "before": "みんなを見る",
+    "after": "みんなを見る"
+   },
+   {
+    "hit": {
+     "x": 280.7,
+     "y": 134.8,
+     "hit": "homeEventSlot",
+     "button": false
+    },
+    "before": "みんなを見る",
+    "after": "みんなを見る"
+   },
+   {
+    "hit": {
+     "x": 362.4,
+     "y": 134.8,
+     "hit": "homeEventSlot",
+     "button": false
+    },
+    "before": "みんなを見る",
+    "after": "みんなを見る"
+   }
+  ]
+ }
+}

@@ -1,0 +1,92 @@
+{
+  "river_lake": {
+    "cast": 28,
+    "viewport": [
+      390,
+      792
+    ],
+    "dpr": 2.0,
+    "cropCss": [
+      0,
+      226,
+      390,
+      535
+    ],
+    "stableFootCount": 28,
+    "browser": "157.0.8103.78",
+    "sheetSHA256": "e3cf2a8c37cfaba8e610762beff2be4c276b2db8421c6ae31a0578efa6416bc3",
+    "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/v4-river_lake-390-28.webp"
+  },
+  "forest": {
+    "cast": 28,
+    "viewport": [
+      390,
+      792
+    ],
+    "dpr": 2.0,
+    "cropCss": [
+      0,
+      154,
+      390,
+      535
+    ],
+    "stableFootCount": 28,
+    "browser": "157.0.8103.78",
+    "sheetSHA256": "34c28e1943d153089ab6ec1a6e3a927da7ba8fd3812f2c86e4903e3f477f6bbf",
+    "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/v4-forest-390-28.webp"
+  },
+  "home": {
+    "cast": 28,
+    "viewport": [
+      390,
+      792
+    ],
+    "dpr": 2.0,
+    "cropCss": [
+      0,
+      197,
+      390,
+      535
+    ],
+    "stableFootCount": 28,
+    "browser": "157.0.8103.78",
+    "sheetSHA256": "7f5da0747400ddfb4f8595141602e79fc6dac716bec29ce251e95ba43f3d12cb",
+    "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/v4-home-390-28.webp"
+  },
+  "city": {
+    "cast": 28,
+    "viewport": [
+      390,
+      792
+    ],
+    "dpr": 2.0,
+    "cropCss": [
+      0,
+      186,
+      390,
+      535
+    ],
+    "stableFootCount": 28,
+    "browser": "157.0.8103.78",
+    "sheetSHA256": "df9091eb9ecfda3db81ea07d7e7c7834c9e993984acd21f05d7d59cc6f6a5ef7",
+    "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/v4-city-390-28.webp"
+  },
+  "sea": {
+    "cast": 28,
+    "viewport": [
+      390,
+      792
+    ],
+    "dpr": 2.0,
+    "cropCss": [
+      0,
+      173,
+      390,
+      535
+    ],
+    "stableFootCount": 28,
+    "browser": "157.0.8103.78",
+    "sheetSHA256": "36164d8cb39f3c63ae029ad9c8c551a498a0e574038cb253ff315560eda1def7",
+    "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/evidence/v4-sea-390-28.webp"
+  }
+}

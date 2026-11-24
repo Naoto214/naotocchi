@@ -1,0 +1,31 @@
+name: Home cast size private comparison
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'comparisons/home-cast-size-v1/**'
+      - '.github/workflows/home-cast-size-v1.yml'
+permissions:
+  contents: read
+jobs:
+  verify-comparison:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: 28628cf336a8ed92efe4e9e197ca03298b798a1e
+          path: .cast-reference
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Rebuild the approved leaf comparison from its original assets
+        run: node .cast-reference/comparisons/home-beauty-v7/build.cjs "$RUNNER_TEMP/leaf-reference" --fresh
+      - name: Verify the cast-size trial
+        run: node --test comparisons/home-cast-size-v1/*.test.cjs
+      - name: Build the isolated, playable home
+        run: node comparisons/home-cast-size-v1/build.cjs "$RUNNER_TEMP/cast-home" --baseline "$RUNNER_TEMP/leaf-reference"

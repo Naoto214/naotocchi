@@ -1,0 +1,61 @@
+{
+  "engine": "webkit",
+  "devices": [
+    {
+      "width": 390,
+      "height": 844,
+      "toolbarMinWidth": 61.83,
+      "toolbarMinHeight": 44,
+      "candidateGains": {
+        "current": 0,
+        "A": 10,
+        "B": 15,
+        "C": 20
+      },
+      "fixedFeet": 28,
+      "individualCompanions": 26,
+      "companionRange": "仲間26体の範囲　幅 7.4〜25.2 px ／ 高さ 10.6〜25.0 px"
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "toolbarMinWidth": 68.5,
+      "toolbarMinHeight": 44,
+      "candidateGains": {
+        "current": 0,
+        "A": 10,
+        "B": 15,
+        "C": 20
+      },
+      "fixedFeet": 28,
+      "individualCompanions": 26,
+      "companionRange": "仲間26体の範囲　幅 8.4〜28.6 px ／ 高さ 11.9〜28.0 px"
+    }
+  ],
+  "pageErrors": [],
+  "version": "26.5",
+  "coldDefault": {
+    "readySeconds": 57.34,
+    "count": 28,
+    "region": "river_lake",
+    "variant": "B",
+    "curve": "linear",
+    "moving": true
+  },
+  "testedNativeCounts": [
+    1,
+    18,
+    19,
+    23,
+    28
+  ],
+  "touchTrials": [
+    "forest",
+    "home",
+    "river_lake"
+  ],
+  "focusedModal": true,
+  "sameOptimizedRoster": true,
+  "coldLink": "region=river_lake&time=night&count=23&paused=1&variant=C&curve=step&layout=optimized",
+  "pauseAndResume": true
+}

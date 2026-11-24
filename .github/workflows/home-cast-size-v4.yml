@@ -1,0 +1,77 @@
+name: Home cast population V4
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'comparisons/home-cast-size-v4/**'
+      - '.github/workflows/home-cast-size-v4*.yml'
+      - 'tools/work/storage-exceptions.json'
+permissions:
+  contents: read
+jobs:
+  verify-population-trial:
+    if: github.event.pull_request.number == 570
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-cast-size-v1
+            comparisons/home-cast-size-v2
+            comparisons/home-cast-size-v3
+            comparisons/home-cast-size-v4
+            tools/work
+      - uses: actions/checkout@v4
+        with:
+          ref: a6e257fef32ea2f0664b8c9fbed761f60ab63cb0
+          path: .cast-v3-reference
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-cast-size-v1
+            comparisons/home-cast-size-v2
+            comparisons/home-cast-size-v3
+            tools/work
+      - uses: actions/checkout@v4
+        with:
+          ref: 28628cf336a8ed92efe4e9e197ca03298b798a1e
+          path: .leaf-reference
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Rebuild the pinned V3 owner trial
+        run: |
+          node .cast-v3-reference/comparisons/home-cast-size-v1/build.cjs "$RUNNER_TEMP/cast-v1" --reference-checkout .leaf-reference
+          node .cast-v3-reference/comparisons/home-cast-size-v2/build.cjs "$RUNNER_TEMP/cast-v2" --baseline "$RUNNER_TEMP/cast-v1"
+          node .cast-v3-reference/comparisons/home-cast-size-v3/build.cjs "$RUNNER_TEMP/cast-v3" --baseline "$RUNNER_TEMP/cast-v2"
+      - name: Test and build the V4 owner trial
+        run: |
+          node --test comparisons/home-cast-size-v4/*.test.*
+          node comparisons/home-cast-size-v4/build.cjs "$RUNNER_TEMP/cast-v4" --baseline "$RUNNER_TEMP/cast-v3"
+      - name: Compare all prior source paths, V3 evidence and published game files
+        run: |
+          python3 -B comparisons/home-cast-size-v4/verify_protection.py "$RUNNER_TEMP/cast-v3" "$RUNNER_TEMP/cast-v4" --reference .cast-v3-reference
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify cold-fit recovery and native painting in Chromium
+        env:
+          CHROMIUM_PATH: /usr/bin/google-chrome
+        run: |
+          python -m pip install --disable-pip-version-check 'playwright==1.62.0'
+          "$CHROMIUM_PATH" --version
+          python -m http.server 8304 --bind 127.0.0.1 --directory "$RUNNER_TEMP/cast-v4" > "$RUNNER_TEMP/cast-http.log" 2>&1 &
+          server=$!
+          trap 'kill "$server"' EXIT
+          python -B comparisons/home-cast-size-v4/verify_cold_fit.py http://127.0.0.1:8304 --out "$RUNNER_TEMP/cold-fit.json"
+      - name: Retain the native startup measurements
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: cast-v4-cold-fit
+          path: ${{ runner.temp }}/cold-fit.json
+          if-no-files-found: ignore
+          retention-days: 7

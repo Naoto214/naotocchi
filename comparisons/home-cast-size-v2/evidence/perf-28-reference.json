@@ -1,0 +1,895 @@
+{
+ "engine": "chromium",
+ "host": "Linux",
+ "affinity": [
+  0,
+  1
+ ],
+ "viewport": [
+  320,
+  568
+ ],
+ "gameContentHeight": 516,
+ "dpr": 2,
+ "region": "forest",
+ "rows": [
+  {
+   "mode": "current",
+   "trial": 0,
+   "count": 28,
+   "scales": [
+    1,
+    1,
+    1
+   ],
+   "sameRosterKey": "a41961ef30b73c9061ec6aa1851903fa2f27b6e297e51c3e92430e8f7a08a15d",
+   "modelSizes": "7ea65ebb5668f8aa6d0828b920de94bdf0d585d3e2e18068752c5c864b3cc2b0",
+   "startPose": "99b029f897a12dcc9e43120f3d2d2ed0460b3d84c29f19c59cfa2cc53d906e40",
+   "hashes": {
+    "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+    "home-production-diorama.js": "ed8428eee409b393d9e46c951eb74105ca81be39e4882e17f651f9d2caad9cb8",
+    "home-production-world.mjs": "be89698cdc8156c6f8739576b52f6b7156d56a9eb0d7d7277fad30e265d050c4"
+   },
+   "sample": {
+    "seconds": 40.00920000000298,
+    "callbacks": 2044,
+    "rafHz": 51.08824970256461,
+    "p95": 29.30000000447035,
+    "max": 541.5,
+    "long": [
+     {
+      "start": 8428.30000000447,
+      "end": 8694.20000000298,
+      "ms": 265.8999999985099,
+      "events": [
+       [
+        "plan",
+        79.1
+       ],
+       [
+        "model",
+        106.6
+       ]
+      ]
+     },
+     {
+      "start": 17086.20000000298,
+      "end": 17627.70000000298,
+      "ms": 541.5,
+      "events": [
+       [
+        "plan",
+        143.9
+       ],
+       [
+        "plan",
+        337
+       ],
+       [
+        "model",
+        514
+       ]
+      ]
+     },
+     {
+      "start": 23575.20000000298,
+      "end": 23963.89999999851,
+      "ms": 388.69999999552965,
+      "events": [
+       [
+        "plan",
+        131.3
+       ],
+       [
+        "model",
+        213.5
+       ]
+      ]
+     }
+    ],
+    "phases": {
+     "model": {
+      "calls": 1058,
+      "ms": 3389.900000028312,
+      "max": 514
+     },
+     "world": {
+      "calls": 1058,
+      "ms": 739.3000001385808,
+      "max": 53.69999999552965
+     },
+     "actors": {
+      "calls": 1058,
+      "ms": 1558.8999998569489,
+      "max": 76.70000000298023
+     },
+     "nature": {
+      "calls": 319,
+      "ms": 315.29999989271164,
+      "max": 33.100000001490116
+     },
+     "plan": {
+      "calls": 50,
+      "ms": 3034.9999999776483,
+      "max": 337
+     }
+    },
+    "pausedSec": 0,
+    "syncs": 30,
+    "clock": 40.01510000000028,
+    "distance": 159.2722011874518,
+    "moves": 7,
+    "rows": 28,
+    "sameNodes": true
+   },
+   "inputs": [
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:tanuki",
+     "dispatchMs": 97.20000000298023,
+     "afterHandlerMs": 113.60000000149012,
+     "selected": "companion:tanuki",
+     "marker": false,
+     "nextRafMs": 145.39999999850988
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:tanuki",
+     "dispatchMs": 115.29999999701977,
+     "afterHandlerMs": 125.10000000149012,
+     "selected": "companion:tanuki",
+     "marker": false,
+     "nextRafMs": 145.39999999850988
+    },
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:sheep",
+     "dispatchMs": 21.600000001490116,
+     "afterHandlerMs": 29.299999997019768,
+     "selected": "companion:sheep",
+     "marker": false,
+     "nextRafMs": 30.5
+    },
+    {
+     "type": "pointermove",
+     "kind": "touch",
+     "expected": "companion:sheep",
+     "dispatchMs": 25.5,
+     "afterHandlerMs": 25.799999997019768,
+     "selected": "companion:sheep",
+     "marker": true,
+     "nextRafMs": 26.600000001490116
+    },
+    {
+     "type": "pointermove",
+     "kind": "touch",
+     "expected": "companion:sheep",
+     "dispatchMs": 114.29999999701977,
+     "afterHandlerMs": 114.5,
+     "selected": "companion:sheep",
+     "marker": true,
+     "nextRafMs": 115.89999999850988
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:sheep",
+     "dispatchMs": 25.899999998509884,
+     "afterHandlerMs": 103.20000000298023,
+     "selected": "companion:sheep",
+     "marker": false,
+     "nextRafMs": 111.60000000149012
+    },
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:chameleon",
+     "dispatchMs": 18.5,
+     "afterHandlerMs": 25.799999997019768,
+     "selected": "companion:chameleon",
+     "marker": false,
+     "nextRafMs": 43
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:chameleon",
+     "dispatchMs": 26.200000002980232,
+     "afterHandlerMs": 32.20000000298023,
+     "selected": "companion:chameleon",
+     "marker": false,
+     "nextRafMs": 42.900000005960464
+    },
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:rabbit_friend",
+     "dispatchMs": 7.9000000059604645,
+     "afterHandlerMs": 14.400000005960464,
+     "selected": "companion:rabbit_friend",
+     "marker": false,
+     "nextRafMs": 30.5
+    },
+    {
+     "type": "pointermove",
+     "kind": "touch",
+     "expected": "companion:rabbit_friend",
+     "dispatchMs": 39.29999999701977,
+     "afterHandlerMs": 39.600000001490116,
+     "selected": "companion:rabbit_friend",
+     "marker": true,
+     "nextRafMs": 46.399999998509884
+    },
+    {
+     "type": "pointermove",
+     "kind": "touch",
+     "expected": "companion:rabbit_friend",
+     "dispatchMs": 29.599999994039536,
+     "afterHandlerMs": 29.69999999552965,
+     "selected": "companion:rabbit_friend",
+     "marker": true,
+     "nextRafMs": 37.79999999701977
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:rabbit_friend",
+     "dispatchMs": 14.5,
+     "afterHandlerMs": 63.600000001490116,
+     "selected": "companion:rabbit_friend",
+     "marker": false,
+     "nextRafMs": 70.5
+    },
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:seal",
+     "dispatchMs": 31.69999999552965,
+     "afterHandlerMs": 41.5,
+     "selected": "companion:seal",
+     "marker": false,
+     "nextRafMs": 74
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:seal",
+     "dispatchMs": 41.900000005960464,
+     "afterHandlerMs": 52.900000005960464,
+     "selected": "companion:seal",
+     "marker": false,
+     "nextRafMs": 73.90000000596046
+    },
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:box",
+     "dispatchMs": 3.399999998509884,
+     "afterHandlerMs": 10.799999997019768,
+     "selected": "companion:box",
+     "marker": false,
+     "nextRafMs": 26
+    },
+    {
+     "type": "pointermove",
+     "kind": "touch",
+     "expected": "companion:box",
+     "dispatchMs": 23.30000000447035,
+     "afterHandlerMs": 23.5,
+     "selected": "companion:box",
+     "marker": true,
+     "nextRafMs": 24.100000001490116
+    },
+    {
+     "type": "pointermove",
+     "kind": "touch",
+     "expected": "companion:box",
+     "dispatchMs": 31.200000002980232,
+     "afterHandlerMs": 31.5,
+     "selected": "companion:box",
+     "marker": true,
+     "nextRafMs": 31.899999998509884
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:box",
+     "dispatchMs": 33.20000000298023,
+     "afterHandlerMs": 113.40000000596046,
+     "selected": "companion:box",
+     "marker": false,
+     "nextRafMs": 119.70000000298023
+    },
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:sheep",
+     "dispatchMs": 32.600000001490116,
+     "afterHandlerMs": 38.600000001490116,
+     "selected": "companion:sheep",
+     "marker": false,
+     "nextRafMs": 45.5
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:sheep",
+     "dispatchMs": 38.79999999701977,
+     "afterHandlerMs": 44.29999999701977,
+     "selected": "companion:sheep",
+     "marker": false,
+     "nextRafMs": 45.399999998509884
+    },
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:shiba",
+     "dispatchMs": 26,
+     "afterHandlerMs": 32.899999998509884,
+     "selected": "companion:shiba",
+     "marker": false,
+     "nextRafMs": 47.399999998509884
+    },
+    {
+     "type": "pointermove",
+     "kind": "touch",
+     "expected": "companion:shiba",
+     "dispatchMs": 42.69999999552965,
+     "afterHandlerMs": 42.899999998509884,
+     "selected": "companion:shiba",
+     "marker": true,
+     "nextRafMs": 49.599999994039536
+    },
+    {
+     "type": "pointermove",
+     "kind": "touch",
+     "expected": "companion:shiba",
+     "dispatchMs": 25.100000001490116,
+     "afterHandlerMs": 25.30000000447035,
+     "selected": "companion:shiba",
+     "marker": true,
+     "nextRafMs": 32.20000000298023
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:shiba",
+     "dispatchMs": 11.700000002980232,
+     "afterHandlerMs": 67.10000000149012,
+     "selected": "companion:shiba",
+     "marker": false,
+     "nextRafMs": 74.20000000298023
+    },
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:watcher",
+     "dispatchMs": 3.5,
+     "afterHandlerMs": 10.399999998509884,
+     "selected": "companion:watcher",
+     "marker": false,
+     "nextRafMs": 27.899999998509884
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:watcher",
+     "dispatchMs": 10.899999998509884,
+     "afterHandlerMs": 18.099999994039536,
+     "selected": "companion:watcher",
+     "marker": false,
+     "nextRafMs": 27.799999997019768
+    },
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:otter",
+     "dispatchMs": 18,
+     "afterHandlerMs": 26.100000001490116,
+     "selected": "companion:otter",
+     "marker": false,
+     "nextRafMs": 27.200000002980232
+    },
+    {
+     "type": "pointermove",
+     "kind": "touch",
+     "expected": "companion:otter",
+     "dispatchMs": 29.5,
+     "afterHandlerMs": 29.69999999552965,
+     "selected": "companion:otter",
+     "marker": true,
+     "nextRafMs": 30.5
+    },
+    {
+     "type": "pointermove",
+     "kind": "touch",
+     "expected": "companion:otter",
+     "dispatchMs": 29.899999998509884,
+     "afterHandlerMs": 30.099999994039536,
+     "selected": "companion:otter",
+     "marker": true,
+     "nextRafMs": 30.899999998509884
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:otter",
+     "dispatchMs": 25.599999994039536,
+     "afterHandlerMs": 110.79999999701977,
+     "selected": "companion:otter",
+     "marker": false,
+     "nextRafMs": 129
+    }
+   ],
+   "errors": []
+  },
+  {
+   "mode": "adopted",
+   "trial": 0,
+   "count": 28,
+   "scales": [
+    1.2,
+    1.2,
+    1.05
+   ],
+   "sameRosterKey": "a41961ef30b73c9061ec6aa1851903fa2f27b6e297e51c3e92430e8f7a08a15d",
+   "modelSizes": "7ea65ebb5668f8aa6d0828b920de94bdf0d585d3e2e18068752c5c864b3cc2b0",
+   "startPose": "8cb571b9a61a2472bb93de0e1f46cd8219eabdf1c358cfcef295e2932e0c4060",
+   "hashes": {
+    "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+    "home-production-diorama.js": "ed8428eee409b393d9e46c951eb74105ca81be39e4882e17f651f9d2caad9cb8",
+    "home-production-world.mjs": "be89698cdc8156c6f8739576b52f6b7156d56a9eb0d7d7277fad30e265d050c4"
+   },
+   "sample": {
+    "seconds": 40.014600000001494,
+    "callbacks": 1775,
+    "rafHz": 44.35880903470068,
+    "p95": 62.100000001490116,
+    "max": 491.80000000447035,
+    "long": [
+     {
+      "start": 17183.10000000149,
+      "end": 17564.40000000596,
+      "ms": 381.30000000447035,
+      "events": [
+       [
+        "plan",
+        88.1
+       ],
+       [
+        "plan",
+        175.8
+       ],
+       [
+        "model",
+        270.4
+       ]
+      ]
+     },
+     {
+      "start": 22032.10000000149,
+      "end": 22380.5,
+      "ms": 348.3999999985099,
+      "events": [
+       [
+        "plan",
+        174.5
+       ],
+       [
+        "plan",
+        104.6
+       ],
+       [
+        "model",
+        295.9
+       ]
+      ]
+     },
+     {
+      "start": 24784.10000000149,
+      "end": 25075.30000000447,
+      "ms": 291.20000000298023,
+      "events": [
+       [
+        "plan",
+        156.6
+       ],
+       [
+        "model",
+        195.5
+       ]
+      ]
+     },
+     {
+      "start": 26199,
+      "end": 26690.80000000447,
+      "ms": 491.80000000447035,
+      "events": [
+       [
+        "plan",
+        50
+       ],
+       [
+        "plan",
+        224.6
+       ],
+       [
+        "model",
+        340.8
+       ]
+      ]
+     },
+     {
+      "start": 27683.5,
+      "end": 27996.70000000298,
+      "ms": 313.20000000298023,
+      "events": [
+       [
+        "model",
+        75.3
+       ]
+      ]
+     },
+     {
+      "start": 30598.5,
+      "end": 30870.30000000447,
+      "ms": 271.80000000447035,
+      "events": []
+     },
+     {
+      "start": 34185.30000000447,
+      "end": 34451.5,
+      "ms": 266.19999999552965,
+      "events": [
+       [
+        "model",
+        80.8
+       ]
+      ]
+     }
+    ],
+    "phases": {
+     "model": {
+      "calls": 950,
+      "ms": 3322.0000000447035,
+      "max": 340.79999999701977
+     },
+     "world": {
+      "calls": 950,
+      "ms": 1105.3000000342727,
+      "max": 139.69999999552965
+     },
+     "actors": {
+      "calls": 950,
+      "ms": 1868.2999999970198,
+      "max": 122.89999999850988
+     },
+     "nature": {
+      "calls": 314,
+      "ms": 438.6000000536442,
+      "max": 137
+     },
+     "plan": {
+      "calls": 60,
+      "ms": 2936.7999999970198,
+      "max": 224.60000000149012
+     }
+    },
+    "pausedSec": 0,
+    "syncs": 33,
+    "clock": 40.01510000000028,
+    "distance": 77.25024586491901,
+    "moves": 6,
+    "rows": 28,
+    "sameNodes": true
+   },
+   "inputs": [
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:monkey",
+     "dispatchMs": 34.600000001490116,
+     "afterHandlerMs": 51,
+     "selected": "companion:monkey",
+     "marker": false,
+     "nextRafMs": 71.89999999850988
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:monkey",
+     "dispatchMs": 52.099999994039536,
+     "afterHandlerMs": 60,
+     "selected": "companion:monkey",
+     "marker": false,
+     "nextRafMs": 71.59999999403954
+    },
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:sheep",
+     "dispatchMs": 6,
+     "afterHandlerMs": 16,
+     "selected": "companion:sheep",
+     "marker": false,
+     "nextRafMs": 30.5
+    },
+    {
+     "type": "pointermove",
+     "kind": "touch",
+     "expected": "companion:sheep",
+     "dispatchMs": 35,
+     "afterHandlerMs": 35.600000001490116,
+     "selected": "companion:sheep",
+     "marker": true,
+     "nextRafMs": 44.5
+    },
+    {
+     "type": "pointermove",
+     "kind": "touch",
+     "expected": "companion:sheep",
+     "dispatchMs": 25,
+     "afterHandlerMs": 25.30000000447035,
+     "selected": "companion:sheep",
+     "marker": true,
+     "nextRafMs": 34.70000000298023
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:sheep",
+     "dispatchMs": 13.399999998509884,
+     "afterHandlerMs": 111.69999999552965,
+     "selected": "companion:sheep",
+     "marker": false,
+     "nextRafMs": 137.19999999552965
+    },
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:chameleon",
+     "dispatchMs": 30,
+     "afterHandlerMs": 39.399999998509884,
+     "selected": "companion:chameleon",
+     "marker": false,
+     "nextRafMs": 61.399999998509884
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:chameleon",
+     "dispatchMs": 40.100000001490116,
+     "afterHandlerMs": 49,
+     "selected": "companion:chameleon",
+     "marker": false,
+     "nextRafMs": 61.20000000298023
+    },
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:rabbit_friend",
+     "dispatchMs": 24.100000001490116,
+     "afterHandlerMs": 33.69999999552965,
+     "selected": "companion:rabbit_friend",
+     "marker": false,
+     "nextRafMs": 34.5
+    },
+    {
+     "type": "pointermove",
+     "kind": "touch",
+     "expected": "companion:rabbit_friend",
+     "dispatchMs": 40.600000001490116,
+     "afterHandlerMs": 40.80000000447035,
+     "selected": "companion:rabbit_friend",
+     "marker": true,
+     "nextRafMs": 49.399999998509884
+    },
+    {
+     "type": "pointermove",
+     "kind": "touch",
+     "expected": "companion:rabbit_friend",
+     "dispatchMs": 91.70000000298023,
+     "afterHandlerMs": 92,
+     "selected": "companion:rabbit_friend",
+     "marker": true,
+     "nextRafMs": 144.10000000149012
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:rabbit_friend",
+     "dispatchMs": 104.10000000149012,
+     "afterHandlerMs": 186.69999999552965,
+     "selected": "companion:rabbit_friend",
+     "marker": false,
+     "nextRafMs": 187.39999999850988
+    },
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:chicken",
+     "dispatchMs": 30.30000000447035,
+     "afterHandlerMs": 37.600000001490116,
+     "selected": "companion:chicken",
+     "marker": false,
+     "nextRafMs": 44.399999998509884
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:chicken",
+     "dispatchMs": 37.79999999701977,
+     "afterHandlerMs": 43.79999999701977,
+     "selected": "companion:chicken",
+     "marker": false,
+     "nextRafMs": 44.29999999701977
+    },
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:box",
+     "dispatchMs": 3.3000000044703484,
+     "afterHandlerMs": 15.100000001490116,
+     "selected": "companion:box",
+     "marker": false,
+     "nextRafMs": 27.200000002980232
+    },
+    {
+     "type": "pointermove",
+     "kind": "touch",
+     "expected": "companion:box",
+     "dispatchMs": 17.899999998509884,
+     "afterHandlerMs": 18.30000000447035,
+     "selected": "companion:box",
+     "marker": true,
+     "nextRafMs": 19.200000002980232
+    },
+    {
+     "type": "pointermove",
+     "kind": "touch",
+     "expected": "companion:box",
+     "dispatchMs": 48,
+     "afterHandlerMs": 48.20000000298023,
+     "selected": "companion:box",
+     "marker": true,
+     "nextRafMs": 56.70000000298023
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:box",
+     "dispatchMs": 17.5,
+     "afterHandlerMs": 66,
+     "selected": "companion:box",
+     "marker": false,
+     "nextRafMs": 74
+    },
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:monkey",
+     "dispatchMs": 18.599999994039536,
+     "afterHandlerMs": 25.299999997019768,
+     "selected": "companion:monkey",
+     "marker": false,
+     "nextRafMs": 70.5
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:monkey",
+     "dispatchMs": 30.69999999552965,
+     "afterHandlerMs": 48.399999998509884,
+     "selected": "companion:monkey",
+     "marker": false,
+     "nextRafMs": 70.5
+    },
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:shiba",
+     "dispatchMs": 2.899999998509884,
+     "afterHandlerMs": 10.5,
+     "selected": "companion:shiba",
+     "marker": false,
+     "nextRafMs": 24.100000001490116
+    },
+    {
+     "type": "pointermove",
+     "kind": "touch",
+     "expected": "companion:shiba",
+     "dispatchMs": 21.100000001490116,
+     "afterHandlerMs": 21.30000000447035,
+     "selected": "companion:shiba",
+     "marker": true,
+     "nextRafMs": 22
+    },
+    {
+     "type": "pointermove",
+     "kind": "touch",
+     "expected": "companion:shiba",
+     "dispatchMs": 46.29999999701977,
+     "afterHandlerMs": 49.899999998509884,
+     "selected": "companion:shiba",
+     "marker": true,
+     "nextRafMs": 74.59999999403954
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:shiba",
+     "dispatchMs": 42.899999998509884,
+     "afterHandlerMs": 132.5,
+     "selected": "companion:shiba",
+     "marker": false,
+     "nextRafMs": 168.19999999552965
+    },
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:watcher",
+     "dispatchMs": 2.5,
+     "afterHandlerMs": 18.5,
+     "selected": "companion:watcher",
+     "marker": false,
+     "nextRafMs": 34.29999999701977
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:watcher",
+     "dispatchMs": 19,
+     "afterHandlerMs": 26.100000001490116,
+     "selected": "companion:watcher",
+     "marker": false,
+     "nextRafMs": 34.20000000298023
+    },
+    {
+     "type": "pointerdown",
+     "kind": "touch",
+     "expected": "companion:otter",
+     "dispatchMs": 34.600000001490116,
+     "afterHandlerMs": 54.5,
+     "selected": "companion:otter",
+     "marker": false,
+     "nextRafMs": 65.79999999701977
+    },
+    {
+     "type": "pointermove",
+     "kind": "touch",
+     "expected": "companion:otter",
+     "dispatchMs": 25.899999998509884,
+     "afterHandlerMs": 26.100000001490116,
+     "selected": "companion:otter",
+     "marker": true,
+     "nextRafMs": 79.89999999850988
+    },
+    {
+     "type": "pointermove",
+     "kind": "touch",
+     "expected": "companion:otter",
+     "dispatchMs": 98.10000000149012,
+     "afterHandlerMs": 99.20000000298023,
+     "selected": "companion:otter",
+     "marker": true,
+     "nextRafMs": 99.80000000447035
+    },
+    {
+     "type": "pointerup",
+     "kind": "touch",
+     "expected": "companion:otter",
+     "dispatchMs": 26.900000005960464,
+     "afterHandlerMs": 125.60000000149012,
+     "selected": "companion:otter",
+     "marker": false,
+     "nextRafMs": 134.90000000596046
+    }
+   ],
+   "errors": []
+  }
+ ],
+ "browser": "156.0.8078.79"
+}

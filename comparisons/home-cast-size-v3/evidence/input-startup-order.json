@@ -1,0 +1,343 @@
+{
+  "region": "city",
+  "width": 320,
+  "count": 28,
+  "gainAfterReady": 10,
+  "rawPaired": {
+    "320/city/28/fixed/0": {
+      "nativeActorAndTargetSha256": "876306d1ffa10f75f1eb2428aff460d81805842e9a8d60fc6d0b21ff4e3d1be1",
+      "nativeRows": 28,
+      "taps": {
+        "10": {
+          "roles": {
+            "pet": [
+              3,
+              3
+            ],
+            "partner": [
+              2,
+              3
+            ],
+            "companion": [
+              59,
+              78
+            ]
+          },
+          "zero": [
+            "companion:parrot",
+            "companion:box"
+          ]
+        }
+      },
+      "inputsAndCameraSha256": "c97f2bf5d06dd17407f47b65db9bb06f83ebf4a554e8734544b1e01272b76e9a",
+      "inputsSha256": "acf44e504c5b1b973253c8075265cd1217553a6708ae4487576bba5bb5735bb7"
+    },
+    "320/city/28/optimized/10": {
+      "nativeActorAndTargetSha256": "876306d1ffa10f75f1eb2428aff460d81805842e9a8d60fc6d0b21ff4e3d1be1",
+      "nativeRows": 28,
+      "taps": {
+        "10": {
+          "roles": {
+            "pet": [
+              3,
+              3
+            ],
+            "partner": [
+              2,
+              3
+            ],
+            "companion": [
+              59,
+              78
+            ]
+          },
+          "zero": [
+            "companion:parrot",
+            "companion:box"
+          ]
+        }
+      },
+      "inputsAndCameraSha256": "c97f2bf5d06dd17407f47b65db9bb06f83ebf4a554e8734544b1e01272b76e9a",
+      "inputsSha256": "acf44e504c5b1b973253c8075265cd1217553a6708ae4487576bba5bb5735bb7"
+    }
+  },
+  "separateContexts": {
+    "fixed-10-1": {
+      "finalAllFeetModelSizesAndDepthSha256": "d4313d2c7ccff9d47ef8e635075498e806536d5dfdd81f9af6457cf6ef98ab81",
+      "cameraScale": [
+        0.9582049211431332,
+        0.26646021760148914,
+        0.7
+      ],
+      "exactNativeSyncInputsAndHintsByNavigationSha256": "94840b521a923b8c63d5298a2ce6fa181eaa5eef6eba5c4d5cb5597b53c37c66",
+      "taps": {
+        "pet": [
+          3,
+          3
+        ],
+        "partner": [
+          2,
+          3
+        ],
+        "companion": [
+          59,
+          78
+        ]
+      },
+      "nativeSyncCount": null,
+      "initialPointCallsBySync": []
+    },
+    "fixed-0-1": {
+      "finalAllFeetModelSizesAndDepthSha256": "d4313d2c7ccff9d47ef8e635075498e806536d5dfdd81f9af6457cf6ef98ab81",
+      "cameraScale": [
+        0.9582049211431332,
+        0.26646021760148914,
+        0.7
+      ],
+      "exactNativeSyncInputsAndHintsByNavigationSha256": "94840b521a923b8c63d5298a2ce6fa181eaa5eef6eba5c4d5cb5597b53c37c66",
+      "taps": {
+        "pet": [
+          3,
+          3
+        ],
+        "partner": [
+          2,
+          3
+        ],
+        "companion": [
+          59,
+          78
+        ]
+      },
+      "nativeSyncCount": null,
+      "initialPointCallsBySync": []
+    },
+    "optimized-10-1": {
+      "finalAllFeetModelSizesAndDepthSha256": "d4313d2c7ccff9d47ef8e635075498e806536d5dfdd81f9af6457cf6ef98ab81",
+      "cameraScale": [
+        0.9582049211431332,
+        0.26646021760148914,
+        0.7
+      ],
+      "exactNativeSyncInputsAndHintsByNavigationSha256": "94840b521a923b8c63d5298a2ce6fa181eaa5eef6eba5c4d5cb5597b53c37c66",
+      "taps": {
+        "pet": [
+          3,
+          3
+        ],
+        "partner": [
+          2,
+          3
+        ],
+        "companion": [
+          59,
+          78
+        ]
+      },
+      "nativeSyncCount": null,
+      "initialPointCallsBySync": []
+    },
+    "fixed-10-2": {
+      "finalAllFeetModelSizesAndDepthSha256": "d4313d2c7ccff9d47ef8e635075498e806536d5dfdd81f9af6457cf6ef98ab81",
+      "cameraScale": [
+        0.9582049211431332,
+        0.26646021760148914,
+        0.7
+      ],
+      "exactNativeSyncInputsAndHintsByNavigationSha256": "94840b521a923b8c63d5298a2ce6fa181eaa5eef6eba5c4d5cb5597b53c37c66",
+      "taps": {
+        "pet": [
+          3,
+          3
+        ],
+        "partner": [
+          2,
+          3
+        ],
+        "companion": [
+          59,
+          78
+        ]
+      },
+      "nativeSyncCount": null,
+      "initialPointCallsBySync": []
+    },
+    "fixed-0-2": {
+      "finalAllFeetModelSizesAndDepthSha256": "d4313d2c7ccff9d47ef8e635075498e806536d5dfdd81f9af6457cf6ef98ab81",
+      "cameraScale": [
+        0.9582049211431332,
+        0.26646021760148914,
+        0.7
+      ],
+      "exactNativeSyncInputsAndHintsByNavigationSha256": "94840b521a923b8c63d5298a2ce6fa181eaa5eef6eba5c4d5cb5597b53c37c66",
+      "taps": {
+        "pet": [
+          3,
+          3
+        ],
+        "partner": [
+          2,
+          3
+        ],
+        "companion": [
+          59,
+          78
+        ]
+      },
+      "nativeSyncCount": null,
+      "initialPointCallsBySync": []
+    }
+  },
+  "sharedContext": {
+    "fixed-0-1": {
+      "finalAllFeetModelSizesAndDepthSha256": "d4313d2c7ccff9d47ef8e635075498e806536d5dfdd81f9af6457cf6ef98ab81",
+      "cameraScale": [
+        0.9582049211431332,
+        0.26646021760148914,
+        0.7
+      ],
+      "exactNativeSyncInputsAndHintsByNavigationSha256": "94840b521a923b8c63d5298a2ce6fa181eaa5eef6eba5c4d5cb5597b53c37c66",
+      "taps": {
+        "pet": [
+          3,
+          3
+        ],
+        "partner": [
+          2,
+          3
+        ],
+        "companion": [
+          59,
+          78
+        ]
+      },
+      "nativeSyncCount": 25,
+      "initialPointCallsBySync": [
+        [
+          8,
+          28
+        ]
+      ]
+    },
+    "optimized-10-1": {
+      "finalAllFeetModelSizesAndDepthSha256": "d4313d2c7ccff9d47ef8e635075498e806536d5dfdd81f9af6457cf6ef98ab81",
+      "cameraScale": [
+        0.9582049211431332,
+        0.26646021760148914,
+        0.7
+      ],
+      "exactNativeSyncInputsAndHintsByNavigationSha256": "94840b521a923b8c63d5298a2ce6fa181eaa5eef6eba5c4d5cb5597b53c37c66",
+      "taps": {
+        "pet": [
+          3,
+          3
+        ],
+        "partner": [
+          2,
+          3
+        ],
+        "companion": [
+          59,
+          78
+        ]
+      },
+      "nativeSyncCount": 29,
+      "initialPointCallsBySync": [
+        [
+          8,
+          28
+        ]
+      ]
+    },
+    "fixed-10-1": {
+      "finalAllFeetModelSizesAndDepthSha256": "d4313d2c7ccff9d47ef8e635075498e806536d5dfdd81f9af6457cf6ef98ab81",
+      "cameraScale": [
+        0.9582049211431332,
+        0.26646021760148914,
+        0.7
+      ],
+      "exactNativeSyncInputsAndHintsByNavigationSha256": "94840b521a923b8c63d5298a2ce6fa181eaa5eef6eba5c4d5cb5597b53c37c66",
+      "taps": {
+        "pet": [
+          3,
+          3
+        ],
+        "partner": [
+          2,
+          3
+        ],
+        "companion": [
+          59,
+          78
+        ]
+      },
+      "nativeSyncCount": 19,
+      "initialPointCallsBySync": [
+        [
+          8,
+          28
+        ]
+      ]
+    },
+    "optimized-10-2": {
+      "finalAllFeetModelSizesAndDepthSha256": "d4313d2c7ccff9d47ef8e635075498e806536d5dfdd81f9af6457cf6ef98ab81",
+      "cameraScale": [
+        0.9582049211431332,
+        0.26646021760148914,
+        0.7
+      ],
+      "exactNativeSyncInputsAndHintsByNavigationSha256": "94840b521a923b8c63d5298a2ce6fa181eaa5eef6eba5c4d5cb5597b53c37c66",
+      "taps": {
+        "pet": [
+          3,
+          3
+        ],
+        "partner": [
+          2,
+          3
+        ],
+        "companion": [
+          59,
+          78
+        ]
+      },
+      "nativeSyncCount": 39,
+      "initialPointCallsBySync": [
+        [
+          14,
+          28
+        ]
+      ]
+    },
+    "fixed-0-2": {
+      "finalAllFeetModelSizesAndDepthSha256": "d4313d2c7ccff9d47ef8e635075498e806536d5dfdd81f9af6457cf6ef98ab81",
+      "cameraScale": [
+        0.9582049211431332,
+        0.26646021760148914,
+        0.7
+      ],
+      "exactNativeSyncInputsAndHintsByNavigationSha256": "94840b521a923b8c63d5298a2ce6fa181eaa5eef6eba5c4d5cb5597b53c37c66",
+      "taps": {
+        "pet": [
+          3,
+          3
+        ],
+        "partner": [
+          2,
+          3
+        ],
+        "companion": [
+          59,
+          78
+        ]
+      },
+      "nativeSyncCount": 31,
+      "initialPointCallsBySync": [
+        [
+          10,
+          28
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+ "utc": "2026-11-19T14:18:02.893725+00:00",
+ "source": "afecec73e5e0bdb377c42bcccdec0c2ff74efbc2f34c6d7f154dba6776e1954a",
+ "mismatches": [],
+ "fixed": {
+  "files": 260,
+  "sha256": "8decf54929b32fcbce78a7b14cb31ad9a9470222cce9b4c88fa9ed84f21f1e98"
+ },
+ "optimized": {
+  "files": 80,
+  "sha256": "7d63de984a936a6b99272bc7f1195115aeb5bbfe9348b3c6ff84a064ffd10881"
+ },
+ "startupObservation": "geometry-startup-transient.json"
+}

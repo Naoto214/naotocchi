@@ -1,0 +1,693 @@
+{
+ "engine": "chromium",
+ "host": "Linux",
+ "affinity": [
+  0,
+  1
+ ],
+ "viewport": [
+  320,
+  568
+ ],
+ "gameContentHeight": 516,
+ "dpr": 2,
+ "region": "forest",
+ "rows": [
+  {
+   "mode": "current",
+   "trial": 0,
+   "count": 1,
+   "scales": [
+    1,
+    1,
+    1
+   ],
+   "sameRosterKey": "b8de54abeb1ba9a3fbf7ac94ae9c6a0a6074b256736b3a34d6e069766909b931",
+   "modelSizes": "e02c6318f9e8b6b162bf1f0c48732f698d9bfa29e37a8c1fdd4d8eccd622b645",
+   "startPose": "180a2f0de5c4bb53d238f3c77f446d9255d6f63609d4ff5028ed87b8d18cd367",
+   "hashes": {
+    "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+    "home-production-diorama.js": "ed8428eee409b393d9e46c951eb74105ca81be39e4882e17f651f9d2caad9cb8",
+    "home-production-world.mjs": "be89698cdc8156c6f8739576b52f6b7156d56a9eb0d7d7277fad30e265d050c4"
+   },
+   "startup": {
+    "untilTrialReadyMs": 2805,
+    "firstPaintMs": 832,
+    "width": 320,
+    "height": 516,
+    "nativeUpdates": 21,
+    "syncs": 9,
+    "seating": null
+   },
+   "sample": {
+    "seconds": 5.013,
+    "callbacks": 284,
+    "rafHz": 56.652702972272095,
+    "p95": 22.200000002980232,
+    "max": 186.40000000596046,
+    "long": [],
+    "phases": {
+     "model": {
+      "calls": 143,
+      "ms": 198.10000005364418,
+      "max": 168.39999999850988
+     },
+     "nature": {
+      "calls": 88,
+      "ms": 50.79999998211861,
+      "max": 2.2999999970197678
+     },
+     "world": {
+      "calls": 143,
+      "ms": 82.10000000149012,
+      "max": 3.100000001490116
+     },
+     "actors": {
+      "calls": 143,
+      "ms": 89.99999998509884,
+      "max": 4.899999998509884
+     },
+     "plan": {
+      "calls": 2,
+      "ms": 165.5,
+      "max": 110
+     }
+    },
+    "pausedSec": 0,
+    "syncs": 4,
+    "clock": 4.999900000000003,
+    "distance": 92.32965287490256,
+    "moves": 1,
+    "rows": 1,
+    "sameNodes": true
+   },
+   "inputs": [],
+   "errors": []
+  },
+  {
+   "mode": "adopted",
+   "trial": 0,
+   "count": 1,
+   "scales": [
+    1.2,
+    1.2,
+    1.05
+   ],
+   "sameRosterKey": "b8de54abeb1ba9a3fbf7ac94ae9c6a0a6074b256736b3a34d6e069766909b931",
+   "modelSizes": "e02c6318f9e8b6b162bf1f0c48732f698d9bfa29e37a8c1fdd4d8eccd622b645",
+   "startPose": "180a2f0de5c4bb53d238f3c77f446d9255d6f63609d4ff5028ed87b8d18cd367",
+   "hashes": {
+    "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+    "home-production-diorama.js": "ed8428eee409b393d9e46c951eb74105ca81be39e4882e17f651f9d2caad9cb8",
+    "home-production-world.mjs": "be89698cdc8156c6f8739576b52f6b7156d56a9eb0d7d7277fad30e265d050c4"
+   },
+   "startup": {
+    "untilTrialReadyMs": 2979.9000000059605,
+    "firstPaintMs": 736,
+    "width": 320,
+    "height": 516,
+    "nativeUpdates": 24,
+    "syncs": 9,
+    "seating": null
+   },
+   "sample": {
+    "seconds": 5.04580000000447,
+    "callbacks": 271,
+    "rafHz": 53.70803440480398,
+    "p95": 29.600000001490116,
+    "max": 184.39999999850988,
+    "long": [],
+    "phases": {
+     "model": {
+      "calls": 139,
+      "ms": 207.80000000447035,
+      "max": 170.80000000447035
+     },
+     "nature": {
+      "calls": 88,
+      "ms": 64.00000001490116,
+      "max": 3.100000001490116
+     },
+     "world": {
+      "calls": 139,
+      "ms": 103.20000004023314,
+      "max": 9.5
+     },
+     "actors": {
+      "calls": 139,
+      "ms": 102.99999997764826,
+      "max": 4.700000002980232
+     },
+     "plan": {
+      "calls": 2,
+      "ms": 168.2000000104308,
+      "max": 119.30000000447035
+     }
+    },
+    "pausedSec": 0,
+    "syncs": 4,
+    "clock": 5.049900000000006,
+    "distance": 92.32965287490259,
+    "moves": 1,
+    "rows": 1,
+    "sameNodes": true
+   },
+   "inputs": [],
+   "errors": []
+  },
+  {
+   "mode": "adopted",
+   "trial": 0,
+   "count": 4,
+   "scales": [
+    1.2,
+    1.2,
+    1.05
+   ],
+   "sameRosterKey": "a537c40211ae6af227ec0530c10a503aa45066cd62e7d9f53d55e14b91c9b5a0",
+   "modelSizes": "23c21786b1a2153e4950990531aebf58958ba55f941ec368425f03d9f0ed70ff",
+   "startPose": "f08b8df96da88caec6ddf39307e8abdd663ad28005a766268859119516f485fa",
+   "hashes": {
+    "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+    "home-production-diorama.js": "ed8428eee409b393d9e46c951eb74105ca81be39e4882e17f651f9d2caad9cb8",
+    "home-production-world.mjs": "be89698cdc8156c6f8739576b52f6b7156d56a9eb0d7d7277fad30e265d050c4"
+   },
+   "startup": {
+    "untilTrialReadyMs": 3121.8000000044703,
+    "firstPaintMs": 792,
+    "width": 320,
+    "height": 516,
+    "nativeUpdates": 22,
+    "syncs": 9,
+    "seating": null
+   },
+   "sample": {
+    "seconds": 5.0026000000014905,
+    "callbacks": 271,
+    "rafHz": 54.171830648046864,
+    "p95": 23.80000000447035,
+    "max": 137.89999999850988,
+    "long": [],
+    "phases": {
+     "model": {
+      "calls": 141,
+      "ms": 184.70000000298023,
+      "max": 93.29999999701977
+     },
+     "world": {
+      "calls": 141,
+      "ms": 88.20000004023314,
+      "max": 10.300000004470348
+     },
+     "actors": {
+      "calls": 141,
+      "ms": 190.2999999821186,
+      "max": 79.5
+     },
+     "nature": {
+      "calls": 42,
+      "ms": 32.29999999701977,
+      "max": 2.2999999970197678
+     },
+     "plan": {
+      "calls": 6,
+      "ms": 166.3999999910593,
+      "max": 65.5
+     }
+    },
+    "pausedSec": 0,
+    "syncs": 6,
+    "clock": 5.0165000000000015,
+    "distance": 45.97810907279143,
+    "moves": 2,
+    "rows": 4,
+    "sameNodes": true
+   },
+   "inputs": [],
+   "errors": []
+  },
+  {
+   "mode": "current",
+   "trial": 0,
+   "count": 4,
+   "scales": [
+    1,
+    1,
+    1
+   ],
+   "sameRosterKey": "a537c40211ae6af227ec0530c10a503aa45066cd62e7d9f53d55e14b91c9b5a0",
+   "modelSizes": "23c21786b1a2153e4950990531aebf58958ba55f941ec368425f03d9f0ed70ff",
+   "startPose": "f08b8df96da88caec6ddf39307e8abdd663ad28005a766268859119516f485fa",
+   "hashes": {
+    "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+    "home-production-diorama.js": "ed8428eee409b393d9e46c951eb74105ca81be39e4882e17f651f9d2caad9cb8",
+    "home-production-world.mjs": "be89698cdc8156c6f8739576b52f6b7156d56a9eb0d7d7277fad30e265d050c4"
+   },
+   "startup": {
+    "untilTrialReadyMs": 3429.60000000149,
+    "firstPaintMs": 1008,
+    "width": 320,
+    "height": 516,
+    "nativeUpdates": 25,
+    "syncs": 9,
+    "seating": null
+   },
+   "sample": {
+    "seconds": 5.0035,
+    "callbacks": 272,
+    "rafHz": 54.36194663735385,
+    "p95": 27.099999994039536,
+    "max": 149.69999999552965,
+    "long": [],
+    "phases": {
+     "model": {
+      "calls": 142,
+      "ms": 225.59999997913837,
+      "max": 127.30000000447035
+     },
+     "world": {
+      "calls": 142,
+      "ms": 103.5000000372529,
+      "max": 9.299999997019768
+     },
+     "actors": {
+      "calls": 142,
+      "ms": 155.79999999701977,
+      "max": 26.200000002980232
+     },
+     "nature": {
+      "calls": 41,
+      "ms": 52.70000001043081,
+      "max": 9.100000001490116
+     },
+     "plan": {
+      "calls": 6,
+      "ms": 208.10000000149012,
+      "max": 83
+     }
+    },
+    "pausedSec": 0,
+    "syncs": 6,
+    "clock": 5.033200000000008,
+    "distance": 44.797199999999926,
+    "moves": 2,
+    "rows": 4,
+    "sameNodes": true
+   },
+   "inputs": [],
+   "errors": []
+  },
+  {
+   "mode": "current",
+   "trial": 0,
+   "count": 10,
+   "scales": [
+    1,
+    1,
+    1
+   ],
+   "sameRosterKey": "b015a8a056f499d62a8781e36a3159ece04724bb155267784177666556781695",
+   "modelSizes": "ad0cdff3a2b2cf070cab9bc724a2445af643c0bfaee24217152e3b15c8d09565",
+   "startPose": "1c6bcb96cfc18f9ede4b0b0ce18ea258f2eb71ff404ed0cbbf9434566e6ac15e",
+   "hashes": {
+    "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+    "home-production-diorama.js": "ed8428eee409b393d9e46c951eb74105ca81be39e4882e17f651f9d2caad9cb8",
+    "home-production-world.mjs": "be89698cdc8156c6f8739576b52f6b7156d56a9eb0d7d7277fad30e265d050c4"
+   },
+   "startup": {
+    "untilTrialReadyMs": 4700.60000000149,
+    "firstPaintMs": 672,
+    "width": 320,
+    "height": 516,
+    "nativeUpdates": 24,
+    "syncs": 11,
+    "seating": null
+   },
+   "sample": {
+    "seconds": 5.001599999994039,
+    "callbacks": 220,
+    "rafHz": 43.98592450421109,
+    "p95": 31.099999994039536,
+    "max": 473.29999999701977,
+    "long": [
+     {
+      "start": 750.8999999985099,
+      "end": 1224.1999999955297,
+      "ms": 473.29999999701977,
+      "events": [
+       [
+        "plan",
+        63.1
+       ],
+       [
+        "plan",
+        79.5
+       ],
+       [
+        "plan",
+        65.9
+       ],
+       [
+        "plan",
+        80.9
+       ],
+       [
+        "model",
+        453.7
+       ]
+      ]
+     }
+    ],
+    "phases": {
+     "plan": {
+      "calls": 22,
+      "ms": 1002,
+      "max": 83.60000000149012
+     },
+     "model": {
+      "calls": 116,
+      "ms": 1140.9000000357628,
+      "max": 453.69999999552965
+     },
+     "world": {
+      "calls": 116,
+      "ms": 65.60000000149012,
+      "max": 4.200000002980232
+     },
+     "actors": {
+      "calls": 116,
+      "ms": 121.10000002384186,
+      "max": 6.799999997019768
+     },
+     "nature": {
+      "calls": 37,
+      "ms": 30.69999998062849,
+      "max": 2.899999998509884
+     }
+    },
+    "pausedSec": 0,
+    "syncs": 3,
+    "clock": 5.033100000000015,
+    "distance": 59.988438982971104,
+    "moves": 4,
+    "rows": 10,
+    "sameNodes": true
+   },
+   "inputs": [],
+   "errors": []
+  },
+  {
+   "mode": "adopted",
+   "trial": 0,
+   "count": 10,
+   "scales": [
+    1.2,
+    1.2,
+    1.05
+   ],
+   "sameRosterKey": "b015a8a056f499d62a8781e36a3159ece04724bb155267784177666556781695",
+   "modelSizes": "ad0cdff3a2b2cf070cab9bc724a2445af643c0bfaee24217152e3b15c8d09565",
+   "startPose": "1c6bcb96cfc18f9ede4b0b0ce18ea258f2eb71ff404ed0cbbf9434566e6ac15e",
+   "hashes": {
+    "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+    "home-production-diorama.js": "ed8428eee409b393d9e46c951eb74105ca81be39e4882e17f651f9d2caad9cb8",
+    "home-production-world.mjs": "be89698cdc8156c6f8739576b52f6b7156d56a9eb0d7d7277fad30e265d050c4"
+   },
+   "startup": {
+    "untilTrialReadyMs": 3771.6999999955297,
+    "firstPaintMs": 896,
+    "width": 320,
+    "height": 516,
+    "nativeUpdates": 22,
+    "syncs": 9,
+    "seating": null
+   },
+   "sample": {
+    "seconds": 5.00639999999851,
+    "callbacks": 268,
+    "rafHz": 53.53147970599228,
+    "p95": 23.799999997019768,
+    "max": 212.5,
+    "long": [],
+    "phases": {
+     "model": {
+      "calls": 137,
+      "ms": 256.99999997764826,
+      "max": 128.10000000149012
+     },
+     "world": {
+      "calls": 137,
+      "ms": 134.30000004917383,
+      "max": 35
+     },
+     "actors": {
+      "calls": 137,
+      "ms": 147.49999997019768,
+      "max": 25.5
+     },
+     "nature": {
+      "calls": 41,
+      "ms": 76.29999998956919,
+      "max": 34.20000000298023
+     },
+     "plan": {
+      "calls": 6,
+      "ms": 219.99999999254942,
+      "max": 87.19999999552965
+     }
+    },
+    "pausedSec": 0,
+    "syncs": 7,
+    "clock": 5.033100000000009,
+    "distance": 4.820401994592159,
+    "moves": 1,
+    "rows": 10,
+    "sameNodes": true
+   },
+   "inputs": [],
+   "errors": []
+  },
+  {
+   "mode": "adopted",
+   "trial": 0,
+   "count": 20,
+   "scales": [
+    1.2,
+    1.2,
+    1.05
+   ],
+   "sameRosterKey": "a34e97c7b7f0a1be4139333481d63f1d2061f8fb0e960e999db2cdae1b353f8d",
+   "modelSizes": "e06da8c4b46ff3903730cdb022356bef875131053d13c5353641eae02e29a5ac",
+   "startPose": "0399fd129175edb97521f56482af260482a7c08b2fb38575a3d5b2940f11df2b",
+   "hashes": {
+    "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+    "home-production-diorama.js": "ed8428eee409b393d9e46c951eb74105ca81be39e4882e17f651f9d2caad9cb8",
+    "home-production-world.mjs": "be89698cdc8156c6f8739576b52f6b7156d56a9eb0d7d7277fad30e265d050c4"
+   },
+   "startup": {
+    "untilTrialReadyMs": 4456,
+    "firstPaintMs": 716,
+    "width": 320,
+    "height": 516,
+    "nativeUpdates": 19,
+    "syncs": 12,
+    "seating": null
+   },
+   "sample": {
+    "seconds": 5.000099999994039,
+    "callbacks": 214,
+    "rafHz": 42.79914401717068,
+    "p95": 44.20000000298023,
+    "max": 379.3999999985099,
+    "long": [
+     {
+      "start": 391.09999999403954,
+      "end": 701.0999999940395,
+      "ms": 310,
+      "events": [
+       [
+        "plan",
+        51.6
+       ],
+       [
+        "plan",
+        112.3
+       ],
+       [
+        "plan",
+        59.9
+       ],
+       [
+        "model",
+        297.5
+       ]
+      ]
+     },
+     {
+      "start": 1083,
+      "end": 1462.3999999985099,
+      "ms": 379.3999999985099,
+      "events": [
+       [
+        "plan",
+        84.7
+       ],
+       [
+        "plan",
+        107.8
+       ],
+       [
+        "model",
+        365.9
+       ]
+      ]
+     }
+    ],
+    "phases": {
+     "model": {
+      "calls": 113,
+      "ms": 1224.2000000104308,
+      "max": 365.90000000596046
+     },
+     "world": {
+      "calls": 113,
+      "ms": 93.19999995082617,
+      "max": 17.80000000447035
+     },
+     "actors": {
+      "calls": 113,
+      "ms": 167.00000005215406,
+      "max": 11.299999997019768
+     },
+     "nature": {
+      "calls": 37,
+      "ms": 37.9999999627471,
+      "max": 5.300000004470348
+     },
+     "plan": {
+      "calls": 22,
+      "ms": 1096.3999999910593,
+      "max": 112.29999999701977
+     }
+    },
+    "pausedSec": 0,
+    "syncs": 2,
+    "clock": 5.016600000000004,
+    "distance": 88.70028255409335,
+    "moves": 4,
+    "rows": 20,
+    "sameNodes": true
+   },
+   "inputs": [],
+   "errors": []
+  },
+  {
+   "mode": "current",
+   "trial": 0,
+   "count": 20,
+   "scales": [
+    1,
+    1,
+    1
+   ],
+   "sameRosterKey": "a34e97c7b7f0a1be4139333481d63f1d2061f8fb0e960e999db2cdae1b353f8d",
+   "modelSizes": "e06da8c4b46ff3903730cdb022356bef875131053d13c5353641eae02e29a5ac",
+   "startPose": "0399fd129175edb97521f56482af260482a7c08b2fb38575a3d5b2940f11df2b",
+   "hashes": {
+    "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+    "home-production-diorama.js": "ed8428eee409b393d9e46c951eb74105ca81be39e4882e17f651f9d2caad9cb8",
+    "home-production-world.mjs": "be89698cdc8156c6f8739576b52f6b7156d56a9eb0d7d7277fad30e265d050c4"
+   },
+   "startup": {
+    "untilTrialReadyMs": 6542.30000000447,
+    "firstPaintMs": 736,
+    "width": 320,
+    "height": 516,
+    "nativeUpdates": 22,
+    "syncs": 12,
+    "seating": null
+   },
+   "sample": {
+    "seconds": 5.01069999999553,
+    "callbacks": 209,
+    "rafHz": 41.71073901853762,
+    "p95": 38.099999994039536,
+    "max": 715.6000000014901,
+    "long": [
+     {
+      "start": 0,
+      "end": 715.6000000014901,
+      "ms": 715.6000000014901,
+      "events": [
+       [
+        "plan",
+        76.4
+       ],
+       [
+        "plan",
+        140.6
+       ],
+       [
+        "plan",
+        57.8
+       ],
+       [
+        "plan",
+        64.5
+       ],
+       [
+        "plan",
+        215.5
+       ],
+       [
+        "plan",
+        63.1
+       ],
+       [
+        "model",
+        689.1
+       ]
+      ]
+     }
+    ],
+    "phases": {
+     "plan": {
+      "calls": 10,
+      "ms": 715.2999999970198,
+      "max": 215.5
+     },
+     "model": {
+      "calls": 112,
+      "ms": 788.3999999910593,
+      "max": 689.1000000014901
+     },
+     "nature": {
+      "calls": 36,
+      "ms": 64.00000000745058,
+      "max": 15.899999998509884
+     },
+     "world": {
+      "calls": 112,
+      "ms": 130.3000000268221,
+      "max": 21.30000000447035
+     },
+     "actors": {
+      "calls": 112,
+      "ms": 252.2999999821186,
+      "max": 19.900000005960464
+     }
+    },
+    "pausedSec": 0,
+    "syncs": 4,
+    "clock": 5.4332000000000065,
+    "distance": 116.42459285277843,
+    "moves": 3,
+    "rows": 20,
+    "sameNodes": true
+   },
+   "inputs": [],
+   "errors": []
+  }
+ ],
+ "browser": "156.0.8078.79"
+}

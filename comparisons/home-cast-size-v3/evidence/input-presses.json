@@ -1,0 +1,773 @@
+{
+ "method": "Observed expected resident at pointerdown, split by subsequent pointermove/up. Performance input aims at exposed original actor DOM. These are separate from the all-resident 3-point probe.",
+ "sources": {
+  "perf-focus-chromium-fixed.json": [
+   {
+    "region": "forest",
+    "width": 320,
+    "count": 28,
+    "extra": 0,
+    "layout": "fixed",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "forest",
+    "width": 320,
+    "count": 28,
+    "extra": 10,
+    "layout": "fixed",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "forest",
+    "width": 320,
+    "count": 28,
+    "extra": 20,
+    "layout": "fixed",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "forest",
+    "width": 320,
+    "count": 28,
+    "extra": 5,
+    "layout": "fixed",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "forest",
+    "width": 320,
+    "count": 28,
+    "extra": 15,
+    "layout": "fixed",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "river_lake",
+    "width": 390,
+    "count": 28,
+    "extra": 0,
+    "layout": "fixed",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "river_lake",
+    "width": 390,
+    "count": 28,
+    "extra": 10,
+    "layout": "fixed",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     1,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "river_lake",
+    "width": 390,
+    "count": 28,
+    "extra": 20,
+    "layout": "fixed",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "river_lake",
+    "width": 390,
+    "count": 28,
+    "extra": 5,
+    "layout": "fixed",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "river_lake",
+    "width": 390,
+    "count": 28,
+    "extra": 15,
+    "layout": "fixed",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   }
+  ],
+  "perf-focus-chromium-optimized.json": [
+   {
+    "region": "river_lake",
+    "width": 390,
+    "count": 28,
+    "extra": 0,
+    "layout": "optimized",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "river_lake",
+    "width": 390,
+    "count": 28,
+    "extra": 10,
+    "layout": "optimized",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "river_lake",
+    "width": 390,
+    "count": 28,
+    "extra": 20,
+    "layout": "optimized",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "river_lake",
+    "width": 390,
+    "count": 28,
+    "extra": 5,
+    "layout": "optimized",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "river_lake",
+    "width": 390,
+    "count": 28,
+    "extra": 15,
+    "layout": "optimized",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "forest",
+    "width": 320,
+    "count": 28,
+    "extra": 0,
+    "layout": "optimized",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "forest",
+    "width": 320,
+    "count": 28,
+    "extra": 20,
+    "layout": "optimized",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "forest",
+    "width": 320,
+    "count": 28,
+    "extra": 15,
+    "layout": "optimized",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     1,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "forest",
+    "width": 320,
+    "count": 28,
+    "extra": 10,
+    "layout": "optimized",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "forest",
+    "width": 320,
+    "count": 28,
+    "extra": 5,
+    "layout": "optimized",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   }
+  ],
+  "perf-focus-webkit-fixed.json": [
+   {
+    "region": "forest",
+    "width": 320,
+    "count": 28,
+    "extra": 0,
+    "layout": "fixed",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "forest",
+    "width": 320,
+    "count": 28,
+    "extra": 10,
+    "layout": "fixed",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     1,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "forest",
+    "width": 320,
+    "count": 28,
+    "extra": 20,
+    "layout": "fixed",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "forest",
+    "width": 320,
+    "count": 28,
+    "extra": 5,
+    "layout": "fixed",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "forest",
+    "width": 320,
+    "count": 28,
+    "extra": 15,
+    "layout": "fixed",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "river_lake",
+    "width": 390,
+    "count": 28,
+    "extra": 0,
+    "layout": "fixed",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "river_lake",
+    "width": 390,
+    "count": 28,
+    "extra": 10,
+    "layout": "fixed",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "river_lake",
+    "width": 390,
+    "count": 28,
+    "extra": 20,
+    "layout": "fixed",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "river_lake",
+    "width": 390,
+    "count": 28,
+    "extra": 5,
+    "layout": "fixed",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "river_lake",
+    "width": 390,
+    "count": 28,
+    "extra": 15,
+    "layout": "fixed",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   }
+  ],
+  "perf-focus-webkit-optimized.json": [
+   {
+    "region": "river_lake",
+    "width": 390,
+    "count": 28,
+    "extra": 0,
+    "layout": "optimized",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "river_lake",
+    "width": 390,
+    "count": 28,
+    "extra": 10,
+    "layout": "optimized",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "river_lake",
+    "width": 390,
+    "count": 28,
+    "extra": 20,
+    "layout": "optimized",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "river_lake",
+    "width": 390,
+    "count": 28,
+    "extra": 5,
+    "layout": "optimized",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "river_lake",
+    "width": 390,
+    "count": 28,
+    "extra": 15,
+    "layout": "optimized",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "forest",
+    "width": 320,
+    "count": 28,
+    "extra": 0,
+    "layout": "optimized",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "forest",
+    "width": 320,
+    "count": 28,
+    "extra": 20,
+    "layout": "optimized",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "forest",
+    "width": 320,
+    "count": 28,
+    "extra": 15,
+    "layout": "optimized",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "forest",
+    "width": 320,
+    "count": 28,
+    "extra": 10,
+    "layout": "optimized",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   },
+   {
+    "region": "forest",
+    "width": 320,
+    "count": 28,
+    "extra": 5,
+    "layout": "optimized",
+    "tapTarget": [
+     2,
+     2
+    ],
+    "dragStart": [
+     2,
+     2
+    ],
+    "unfinishedPress": [
+     0,
+     0
+    ]
+   }
+  ]
+ }
+}

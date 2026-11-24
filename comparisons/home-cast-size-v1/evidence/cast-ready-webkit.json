@@ -1,0 +1,75 @@
+{
+  "engine": "webkit",
+  "version": "26.5",
+  "standard": {
+    "ready": true,
+    "projection": {
+      "mode": "art-25d",
+      "canvasWidth": 528,
+      "cast": 28,
+      "nativeWorld": true,
+      "revision": 6,
+      "scaleX": 1.3697220060064486,
+      "scaleY": 1.134232061136463,
+      "reduced": false
+    },
+    "checkedPresets": [
+      "current",
+      "A",
+      "B"
+    ],
+    "resumeAndRetain": true,
+    "totalSeconds": 23.3,
+    "initiallyPaused": true
+  },
+  "reduced": {
+    "ready": true,
+    "projection": {
+      "mode": "art-25d",
+      "canvasWidth": 528,
+      "cast": 28,
+      "nativeWorld": true,
+      "revision": 4,
+      "scaleX": 1.3697220060064486,
+      "scaleY": 1.134232061136463,
+      "reduced": true
+    },
+    "checkedPresets": [
+      "current",
+      "A",
+      "B"
+    ],
+    "resumeAndRetain": false,
+    "totalSeconds": 22.8,
+    "initiallyPaused": true
+  },
+  "live": {
+    "ready": true,
+    "initiallyPaused": false,
+    "projection": {
+      "mode": "art-25d",
+      "canvasWidth": 528,
+      "cast": 28,
+      "nativeWorld": null,
+      "revision": null,
+      "scaleX": 1.3697220060064486,
+      "scaleY": 1.134232061136463,
+      "reduced": false
+    },
+    "checkedPresets": [
+      "current",
+      "A",
+      "B"
+    ],
+    "resumeAndRetain": true,
+    "totalSeconds": 21.5
+  },
+  "conditions": {
+    "region": "forest",
+    "width": 390,
+    "height": 844,
+    "deviceScaleFactor": 2,
+    "count": 28,
+    "notes": "nativeWorld/revision are values from the official once-per-15-frames metrics. null means the first metrics window was not yet published. The ready signal itself checks current world.stats().loaded, region, paint, navigation and viewport fit."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "reference": "28628cf336a8ed92efe4e9e197ca03298b798a1e",
+  "referenceGameFiles": 3885,
+  "identicalGameFiles": 3880,
+  "adapters": [
+    "beauty/bridge.js",
+    "beauty/fixture.js",
+    "home-production-diorama.js",
+    "index.html",
+    "script.js"
+  ],
+  "added": [
+    "cast-trial.js"
+  ],
+  "missing": [],
+  "identicalPaintModules": 14,
+  "rendererSHA256": "68aef2849855526e94b45f3b81e138b83fc5876b0fe813183c9e8a1d853df5a3",
+  "identicalCharacterAssets": 2869,
+  "identicalBgmAssets": 32,
+  "unchangedModelSha256": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+  "identicalResidentInfrastructure": [
+    "home-occlusion.mjs",
+    "home-production-egg.mjs",
+    "home-production-layout.css",
+    "home-production-manifest.mjs",
+    "home-production-model.js",
+    "home-production-touch.js",
+    "home-production-transform.mjs",
+    "home-production-world.mjs",
+    "home-route-navigation.mjs",
+    "home-terrain-navigation.mjs",
+    "home-visible-ground-navigation.mjs"
+  ],
+  "cardGameAssetFiles": 547,
+  "gameScriptOnlyChange": "disposable save namespace"
+}

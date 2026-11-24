@@ -1,0 +1,1604 @@
+{
+ "viewport": [
+  390,
+  844
+ ],
+ "DPR": 2,
+ "engine": "chromium",
+ "suite": "live",
+ "affinity": [
+  0,
+  1
+ ],
+ "region": "river_lake",
+ "reference": false,
+ "rows": [
+  {
+   "seconds": 3.12,
+   "callbacks": 141,
+   "rafHz": 45.19230769230769,
+   "p95": 38.80000000447035,
+   "max": 346.70000000298023,
+   "long": [
+    {
+     "start": 579.0999999940395,
+     "end": 925.7999999970198,
+     "ms": 346.70000000298023,
+     "events": []
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 74,
+     "ms": 92.19999997317791,
+     "max": 47.69999999552965
+    },
+    "nature": {
+     "calls": 49,
+     "ms": 29.5,
+     "max": 8.600000001490116
+    },
+    "world": {
+     "calls": 74,
+     "ms": 85.60000001639128,
+     "max": 21.5
+    },
+    "actors": {
+     "calls": 74,
+     "ms": 153.5,
+     "max": 36
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 2,
+   "clock": 3.4165000000000054,
+   "distance": 131.5539254352722,
+   "moves": 0,
+   "rows": 1,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 177,
+    "RecalcStyleCount": 323,
+    "LayoutDuration": 0.04827199999999998,
+    "RecalcStyleDuration": 0.23843900000000007
+   },
+   "count": 1,
+   "preset": "current"
+  },
+  {
+   "seconds": 3.0126999999955295,
+   "callbacks": 160,
+   "rafHz": 53.10850731909497,
+   "p95": 21.399999998509884,
+   "max": 322.5,
+   "long": [
+    {
+     "start": 1650.7999999970198,
+     "end": 1973.2999999970198,
+     "ms": 322.5,
+     "events": []
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 81,
+     "ms": 0.9000000059604645,
+     "max": 0.10000000149011612
+    },
+    "nature": {
+     "calls": 50,
+     "ms": 19.499999970197678,
+     "max": 3.399999998509884
+    },
+    "world": {
+     "calls": 81,
+     "ms": 36.80000004172325,
+     "max": 3.600000001490116
+    },
+    "actors": {
+     "calls": 81,
+     "ms": 49.599999986588955,
+     "max": 4.199999995529652
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 2,
+   "clock": 3.0165999999999995,
+   "distance": 0,
+   "moves": 0,
+   "rows": 1,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 13,
+    "RecalcStyleCount": 186,
+    "LayoutDuration": 0.00826899999999997,
+    "RecalcStyleDuration": 0.1438870000000001
+   },
+   "count": 1,
+   "preset": "A"
+  },
+  {
+   "seconds": 3.16510000000149,
+   "callbacks": 161,
+   "rafHz": 50.867271176242205,
+   "p95": 24.5,
+   "max": 233.19999999552965,
+   "long": [],
+   "phases": {
+    "model": {
+     "calls": 83,
+     "ms": 17.19999998807907,
+     "max": 14
+    },
+    "nature": {
+     "calls": 51,
+     "ms": 15.799999974668026,
+     "max": 2.1999999955296516
+    },
+    "world": {
+     "calls": 83,
+     "ms": 139.70000000298023,
+     "max": 47.399999998509884
+    },
+    "actors": {
+     "calls": 83,
+     "ms": 198.29999995976686,
+     "max": 138.29999999701977
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 2,
+   "clock": 2.9832999999999945,
+   "distance": 0,
+   "moves": 0,
+   "rows": 1,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 93,
+    "RecalcStyleCount": 306,
+    "LayoutDuration": 0.02530600000000005,
+    "RecalcStyleDuration": 0.15833199999999992
+   },
+   "count": 1,
+   "preset": "B"
+  },
+  {
+   "seconds": 3.0126999999955295,
+   "callbacks": 167,
+   "rafHz": 55.432004514305376,
+   "p95": 21.200000002980232,
+   "max": 171.60000000149012,
+   "long": [],
+   "phases": {
+    "model": {
+     "calls": 85,
+     "ms": 5.5,
+     "max": 4.100000001490116
+    },
+    "nature": {
+     "calls": 53,
+     "ms": 17.899999991059303,
+     "max": 3.100000001490116
+    },
+    "world": {
+     "calls": 85,
+     "ms": 49.70000000298023,
+     "max": 12.800000004470348
+    },
+    "actors": {
+     "calls": 85,
+     "ms": 123.70000001043081,
+     "max": 70.79999999701977
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 2,
+   "clock": 3.0166000000000075,
+   "distance": 0,
+   "moves": 0,
+   "rows": 1,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 41,
+    "RecalcStyleCount": 224,
+    "LayoutDuration": 0.014136999999999955,
+    "RecalcStyleDuration": 0.15470899999999999
+   },
+   "count": 1,
+   "preset": "B"
+  },
+  {
+   "seconds": 3.0031999999955294,
+   "callbacks": 169,
+   "rafHz": 56.273308471048075,
+   "p95": 21.900000005960464,
+   "max": 92.19999999552965,
+   "long": [],
+   "phases": {
+    "model": {
+     "calls": 86,
+     "ms": 2.3999999910593033,
+     "max": 0.5
+    },
+    "nature": {
+     "calls": 52,
+     "ms": 16.600000008940697,
+     "max": 1.2999999970197678
+    },
+    "world": {
+     "calls": 86,
+     "ms": 64.99999997019768,
+     "max": 7.0999999940395355
+    },
+    "actors": {
+     "calls": 86,
+     "ms": 58.400000013411045,
+     "max": 9.300000004470348
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 3,
+   "clock": 2.9999000000000358,
+   "distance": 0,
+   "moves": 0,
+   "rows": 1,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 136,
+    "RecalcStyleCount": 319,
+    "LayoutDuration": 0.040086999999999984,
+    "RecalcStyleDuration": 0.10966900000000002
+   },
+   "count": 1,
+   "preset": "A"
+  },
+  {
+   "seconds": 3.00239999999851,
+   "callbacks": 116,
+   "rafHz": 38.63575806023767,
+   "p95": 55.70000000298023,
+   "max": 374.8999999985099,
+   "long": [
+    {
+     "start": 378.70000000298023,
+     "end": 753.6000000014901,
+     "ms": 374.8999999985099,
+     "events": []
+    },
+    {
+     "start": 1704.5,
+     "end": 1964.8999999985099,
+     "ms": 260.3999999985099,
+     "events": []
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 67,
+     "ms": 54.400000013411045,
+     "max": 29.600000001490116
+    },
+    "nature": {
+     "calls": 44,
+     "ms": 36.89999998360872,
+     "max": 8.5
+    },
+    "world": {
+     "calls": 67,
+     "ms": 104.79999998956919,
+     "max": 34.899999998509884
+    },
+    "actors": {
+     "calls": 67,
+     "ms": 164.40000001341105,
+     "max": 24.30000000447035
+    },
+    "plan": {
+     "calls": 2,
+     "ms": 28.399999998509884,
+     "max": 26
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 2,
+   "clock": 3.033300000000029,
+   "distance": 96.59579999999931,
+   "moves": 1,
+   "rows": 1,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 69,
+    "RecalcStyleCount": 253,
+    "LayoutDuration": 0.04700300000000002,
+    "RecalcStyleDuration": 0.4439709999999999
+   },
+   "count": 1,
+   "preset": "current"
+  },
+  {
+   "seconds": 3.0004000000059605,
+   "callbacks": 147,
+   "rafHz": 48.993467537564314,
+   "p95": 48.79999999701977,
+   "max": 116.39999999850988,
+   "long": [],
+   "phases": {
+    "model": {
+     "calls": 79,
+     "ms": 10.600000001490116,
+     "max": 1.0999999940395355
+    },
+    "world": {
+     "calls": 79,
+     "ms": 58.8999999910593,
+     "max": 14.699999995529652
+    },
+    "actors": {
+     "calls": 79,
+     "ms": 86.60000001639128,
+     "max": 13
+    },
+    "nature": {
+     "calls": 25,
+     "ms": 11.599999994039536,
+     "max": 5.800000004470348
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 2,
+   "clock": 2.9999000000000104,
+   "distance": 28.005599999999987,
+   "moves": 0,
+   "rows": 4,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 55,
+    "RecalcStyleCount": 302,
+    "LayoutDuration": 0.011510999999999993,
+    "RecalcStyleDuration": 0.17178400000000005
+   },
+   "count": 4,
+   "preset": "A"
+  },
+  {
+   "seconds": 3.00029999999702,
+   "callbacks": 43,
+   "rafHz": 14.331900143333236,
+   "p95": 108.10000000149012,
+   "max": 1987,
+   "long": [
+    {
+     "start": 631.5,
+     "end": 2618.5,
+     "ms": 1987,
+     "events": [
+      [
+       "plan",
+       1424.1
+      ],
+      [
+       "plan",
+       505.4
+      ],
+      [
+       "model",
+       1930.3
+      ]
+     ]
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 23,
+     "ms": 1937.9999999925494,
+     "max": 1930.2999999970198
+    },
+    "nature": {
+     "calls": 9,
+     "ms": 3.2999999970197678,
+     "max": 1.3000000044703484
+    },
+    "world": {
+     "calls": 23,
+     "ms": 8.599999986588955,
+     "max": 1.7000000029802322
+    },
+    "actors": {
+     "calls": 23,
+     "ms": 37.00000000745058,
+     "max": 8.800000004470348
+    },
+    "plan": {
+     "calls": 2,
+     "ms": 1929.5000000074506,
+     "max": 1424.1000000014901
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 2,
+   "clock": 2.1332999999999984,
+   "distance": 52.29523584797738,
+   "moves": 1,
+   "rows": 4,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 26,
+    "RecalcStyleCount": 105,
+    "LayoutDuration": 0.015533000000000019,
+    "RecalcStyleDuration": 0.21743999999999997
+   },
+   "count": 4,
+   "preset": "B"
+  },
+  {
+   "seconds": 3.0613000000044703,
+   "callbacks": 133,
+   "rafHz": 43.44559500859301,
+   "p95": 66.5,
+   "max": 178.60000000149012,
+   "long": [],
+   "phases": {
+    "model": {
+     "calls": 74,
+     "ms": 177.40000001341105,
+     "max": 160.10000000149012
+    },
+    "nature": {
+     "calls": 25,
+     "ms": 9.699999958276749,
+     "max": 2.2999999970197678
+    },
+    "world": {
+     "calls": 74,
+     "ms": 52.699999913573265,
+     "max": 26.700000002980232
+    },
+    "actors": {
+     "calls": 74,
+     "ms": 98.70000004023314,
+     "max": 9.200000002980232
+    },
+    "plan": {
+     "calls": 2,
+     "ms": 124.59999999403954,
+     "max": 89.69999999552965
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 2,
+   "clock": 3.299900000000001,
+   "distance": 67.29747805437154,
+   "moves": 0,
+   "rows": 4,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 42,
+    "RecalcStyleCount": 285,
+    "LayoutDuration": 0.011050000000000004,
+    "RecalcStyleDuration": 0.20954700000000015
+   },
+   "count": 4,
+   "preset": "current"
+  },
+  {
+   "seconds": 3.0511000000014903,
+   "callbacks": 61,
+   "rafHz": 19.99278948574947,
+   "p95": 45.69999999552965,
+   "max": 1406,
+   "long": [
+    {
+     "start": 894.1000000014901,
+     "end": 1464.7000000029802,
+     "ms": 570.6000000014901,
+     "events": [
+      [
+       "plan",
+       405.4
+      ],
+      [
+       "plan",
+       155
+      ],
+      [
+       "model",
+       560.9
+      ]
+     ]
+    },
+    {
+     "start": 1645.1000000014901,
+     "end": 3051.10000000149,
+     "ms": 1406,
+     "events": [
+      [
+       "plan",
+       893.5
+      ],
+      [
+       "plan",
+       364.9
+      ],
+      [
+       "model",
+       1342.6
+      ]
+     ]
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 33,
+     "ms": 1931.0999999716878,
+     "max": 1342.6000000014901
+    },
+    "nature": {
+     "calls": 11,
+     "ms": 4.800000004470348,
+     "max": 1.8999999985098839
+    },
+    "world": {
+     "calls": 33,
+     "ms": 8.799999997019768,
+     "max": 2.100000001490116
+    },
+    "actors": {
+     "calls": 33,
+     "ms": 41.900000005960464,
+     "max": 13.399999998509884
+    },
+    "plan": {
+     "calls": 6,
+     "ms": 1820.7000000029802,
+     "max": 893.5
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 0,
+   "clock": 1.7332999999999963,
+   "distance": 55.3055999999998,
+   "moves": 3,
+   "rows": 4,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 12,
+    "RecalcStyleCount": 84,
+    "LayoutDuration": 0.004626999999999992,
+    "RecalcStyleDuration": 0.03868700000000014
+   },
+   "count": 4,
+   "preset": "current"
+  },
+  {
+   "seconds": 3.0054000000059604,
+   "callbacks": 143,
+   "rafHz": 47.58102082907979,
+   "p95": 39.100000001490116,
+   "max": 135.80000000447035,
+   "long": [],
+   "phases": {
+    "model": {
+     "calls": 78,
+     "ms": 57.69999999552965,
+     "max": 10.700000002980232
+    },
+    "world": {
+     "calls": 78,
+     "ms": 60.89999997615814,
+     "max": 26.299999997019768
+    },
+    "actors": {
+     "calls": 78,
+     "ms": 168.50000002980232,
+     "max": 32.399999998509884
+    },
+    "nature": {
+     "calls": 23,
+     "ms": 8.399999983608723,
+     "max": 2
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 3,
+   "clock": 3.016500000000036,
+   "distance": 66.13824672464341,
+   "moves": 0,
+   "rows": 4,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 189,
+    "RecalcStyleCount": 357,
+    "LayoutDuration": 0.051288999999999974,
+    "RecalcStyleDuration": 0.2407229999999998
+   },
+   "count": 4,
+   "preset": "B"
+  },
+  {
+   "seconds": 3.0004000000059605,
+   "callbacks": 105,
+   "rafHz": 34.99533395540308,
+   "p95": 60.19999999552965,
+   "max": 348.5,
+   "long": [
+    {
+     "start": 255.30000000447035,
+     "end": 511.6000000014901,
+     "ms": 256.29999999701977,
+     "events": [
+      [
+       "plan",
+       196.6
+      ],
+      [
+       "model",
+       210.7
+      ]
+     ]
+    },
+    {
+     "start": 1855.2000000029802,
+     "end": 2203.7000000029802,
+     "ms": 348.5,
+     "events": []
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 60,
+     "ms": 213.89999999850988,
+     "max": 210.70000000298023
+    },
+    "nature": {
+     "calls": 22,
+     "ms": 14.099999994039536,
+     "max": 9.399999998509884
+    },
+    "world": {
+     "calls": 60,
+     "ms": 36.8999999910593,
+     "max": 9.799999997019768
+    },
+    "actors": {
+     "calls": 60,
+     "ms": 57.79999998956919,
+     "max": 4.300000004470348
+    },
+    "plan": {
+     "calls": 2,
+     "ms": 209.89999999850988,
+     "max": 196.59999999403954
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 2,
+   "clock": 3.033100000000026,
+   "distance": 11.68324064751505,
+   "moves": 1,
+   "rows": 4,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 70,
+    "RecalcStyleCount": 197,
+    "LayoutDuration": 0.026844999999999952,
+    "RecalcStyleDuration": 0.37966999999999973
+   },
+   "count": 4,
+   "preset": "A"
+  },
+  {
+   "seconds": 3.96410000000149,
+   "callbacks": 150,
+   "rafHz": 37.83961050426165,
+   "p95": 37.399999998509884,
+   "max": 1121.3999999985099,
+   "long": [
+    {
+     "start": 2842.7000000029802,
+     "end": 3964.10000000149,
+     "ms": 1121.3999999985099,
+     "events": [
+      [
+       "plan",
+       346.8
+      ],
+      [
+       "plan",
+       370.6
+      ],
+      [
+       "model",
+       1099.2
+      ]
+     ]
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 78,
+     "ms": 1155.3000000491738,
+     "max": 1099.2000000029802
+    },
+    "nature": {
+     "calls": 25,
+     "ms": 25.499999977648258,
+     "max": 9.5
+    },
+    "world": {
+     "calls": 78,
+     "ms": 78.70000001043081,
+     "max": 24.69999999552965
+    },
+    "actors": {
+     "calls": 78,
+     "ms": 122.60000000149012,
+     "max": 9.100000001490116
+    },
+    "plan": {
+     "calls": 2,
+     "ms": 717.4000000059605,
+     "max": 370.6000000014901
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 2,
+   "clock": 3.0665000000000076,
+   "distance": 47.486078897342054,
+   "moves": 0,
+   "rows": 10,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 41,
+    "RecalcStyleCount": 323,
+    "LayoutDuration": 0.010987999999999998,
+    "RecalcStyleDuration": 0.20679800000000004
+   },
+   "count": 10,
+   "preset": "B"
+  },
+  {
+   "seconds": 3.001,
+   "callbacks": 103,
+   "rafHz": 34.32189270243252,
+   "p95": 35.69999999552965,
+   "max": 614,
+   "long": [
+    {
+     "start": 101.29999999701977,
+     "end": 408.1000000014901,
+     "ms": 306.80000000447035,
+     "events": [
+      [
+       "actors",
+       257.2
+      ]
+     ]
+    },
+    {
+     "start": 408.1000000014901,
+     "end": 1022.1000000014901,
+     "ms": 614,
+     "events": [
+      [
+       "plan",
+       131.3
+      ],
+      [
+       "plan",
+       288.7
+      ],
+      [
+       "model",
+       601.8
+      ]
+     ]
+    },
+    {
+     "start": 2510.6999999955297,
+     "end": 2828.39999999851,
+     "ms": 317.70000000298023,
+     "events": []
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 56,
+     "ms": 630.3000000119209,
+     "max": 601.7999999970198
+    },
+    "nature": {
+     "calls": 20,
+     "ms": 5.200000032782555,
+     "max": 0.4000000059604645
+    },
+    "world": {
+     "calls": 56,
+     "ms": 17.100000016391277,
+     "max": 3
+    },
+    "actors": {
+     "calls": 56,
+     "ms": 385.9999999925494,
+     "max": 257.20000000298023
+    },
+    "plan": {
+     "calls": 2,
+     "ms": 420,
+     "max": 288.69999999552965
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 2,
+   "clock": 3.3164999999999942,
+   "distance": 119.69580000000025,
+   "moves": 1,
+   "rows": 10,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 71,
+    "RecalcStyleCount": 286,
+    "LayoutDuration": 0.05371199999999998,
+    "RecalcStyleDuration": 0.4226510000000001
+   },
+   "count": 10,
+   "preset": "current"
+  },
+  {
+   "seconds": 3.013,
+   "callbacks": 6,
+   "rafHz": 1.9913707268503154,
+   "p95": 1102.8999999985099,
+   "max": 1102.8999999985099,
+   "long": [
+    {
+     "start": 0,
+     "end": 710.7999999970198,
+     "ms": 710.7999999970198,
+     "events": [
+      [
+       "plan",
+       481.4
+      ],
+      [
+       "plan",
+       210
+      ],
+      [
+       "model",
+       698.8
+      ]
+     ]
+    },
+    {
+     "start": 710.7999999970198,
+     "end": 1813.6999999955297,
+     "ms": 1102.8999999985099,
+     "events": [
+      [
+       "plan",
+       341.9
+      ],
+      [
+       "plan",
+       89.6
+      ],
+      [
+       "plan",
+       505.9
+      ],
+      [
+       "plan",
+       80.3
+      ],
+      [
+       "model",
+       1053.7
+      ]
+     ]
+    },
+    {
+     "start": 1813.6999999955297,
+     "end": 2616.5999999940395,
+     "ms": 802.8999999985099,
+     "events": [
+      [
+       "plan",
+       487.4
+      ],
+      [
+       "plan",
+       288
+      ],
+      [
+       "model",
+       777.4
+      ]
+     ]
+    }
+   ],
+   "phases": {
+    "plan": {
+     "calls": 8,
+     "ms": 2484.5,
+     "max": 505.90000000596046
+    },
+    "model": {
+     "calls": 6,
+     "ms": 2538.5999999940395,
+     "max": 1053.6999999955297
+    },
+    "nature": {
+     "calls": 5,
+     "ms": 5.299999997019768,
+     "max": 3.8000000044703484
+    },
+    "world": {
+     "calls": 6,
+     "ms": 6.399999998509884,
+     "max": 4
+    },
+    "actors": {
+     "calls": 6,
+     "ms": 47.20000000298023,
+     "max": 11.100000001490116
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 2,
+   "clock": 3.2332,
+   "distance": 314.6105503688408,
+   "moves": 4,
+   "rows": 10,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 39,
+    "RecalcStyleCount": 68,
+    "LayoutDuration": 0.026446000000000025,
+    "RecalcStyleDuration": 0.3260390000000002
+   },
+   "count": 10,
+   "preset": "A"
+  },
+  {
+   "seconds": 3.352,
+   "callbacks": 32,
+   "rafHz": 9.546539379474941,
+   "p95": 614.5,
+   "max": 832.4000000059605,
+   "long": [
+    {
+     "start": 701.5999999940395,
+     "end": 1534,
+     "ms": 832.4000000059605,
+     "events": [
+      [
+       "plan",
+       530.3
+      ],
+      [
+       "plan",
+       167.4
+      ],
+      [
+       "model",
+       794.3
+      ]
+     ]
+    },
+    {
+     "start": 1534,
+     "end": 1914.5,
+     "ms": 380.5,
+     "events": [
+      [
+       "plan",
+       110.8
+      ],
+      [
+       "plan",
+       93.9
+      ],
+      [
+       "model",
+       361.6
+      ]
+     ]
+    },
+    {
+     "start": 2437.5,
+     "end": 2737.5,
+     "ms": 300,
+     "events": []
+    },
+    {
+     "start": 2737.5,
+     "end": 3352,
+     "ms": 614.5,
+     "events": [
+      [
+       "plan",
+       345.8
+      ],
+      [
+       "plan",
+       176.5
+      ],
+      [
+       "model",
+       603.3
+      ]
+     ]
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 22,
+     "ms": 1878.1999999955297,
+     "max": 794.2999999970198
+    },
+    "world": {
+     "calls": 22,
+     "ms": 33.20000001788139,
+     "max": 9.700000002980232
+    },
+    "actors": {
+     "calls": 22,
+     "ms": 204.89999998360872,
+     "max": 122.60000000149012
+    },
+    "nature": {
+     "calls": 11,
+     "ms": 9.400000005960464,
+     "max": 5.300000004470348
+    },
+    "plan": {
+     "calls": 6,
+     "ms": 1424.7000000029802,
+     "max": 530.3000000044703
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 4,
+   "clock": 2.783200000000029,
+   "distance": 22.407000000000153,
+   "moves": 1,
+   "rows": 10,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 22,
+    "RecalcStyleCount": 104,
+    "LayoutDuration": 0.030098000000000014,
+    "RecalcStyleDuration": 0.4094190000000002
+   },
+   "count": 10,
+   "preset": "A"
+  },
+  {
+   "seconds": 3.02129999999702,
+   "callbacks": 145,
+   "rafHz": 47.992585972972904,
+   "p95": 33.100000001490116,
+   "max": 213,
+   "long": [],
+   "phases": {
+    "model": {
+     "calls": 77,
+     "ms": 213,
+     "max": 194
+    },
+    "nature": {
+     "calls": 24,
+     "ms": 7.199999988079071,
+     "max": 0.5
+    },
+    "world": {
+     "calls": 77,
+     "ms": 22.700000010430813,
+     "max": 1.3999999985098839
+    },
+    "actors": {
+     "calls": 77,
+     "ms": 175.10000000149012,
+     "max": 59.100000001490116
+    },
+    "plan": {
+     "calls": 2,
+     "ms": 193.50000000745058,
+     "max": 190.70000000298023
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 3,
+   "clock": 2.9999000000000393,
+   "distance": 61.251755454078875,
+   "moves": 1,
+   "rows": 10,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 48,
+    "RecalcStyleCount": 314,
+    "LayoutDuration": 0.011037000000000019,
+    "RecalcStyleDuration": 0.1981329999999999
+   },
+   "count": 10,
+   "preset": "current"
+  },
+  {
+   "seconds": 4.11770000000298,
+   "callbacks": 71,
+   "rafHz": 17.242635451817428,
+   "p95": 105.19999999552965,
+   "max": 2217.89999999851,
+   "long": [
+    {
+     "start": 812.8999999985099,
+     "end": 1105.3999999985099,
+     "ms": 292.5,
+     "events": []
+    },
+    {
+     "start": 1899.8000000044703,
+     "end": 4117.70000000298,
+     "ms": 2217.89999999851,
+     "events": [
+      [
+       "plan",
+       2173.4
+      ],
+      [
+       "model",
+       2176.3
+      ]
+     ]
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 41,
+     "ms": 2201.900000028312,
+     "max": 2176.2999999970198
+    },
+    "nature": {
+     "calls": 15,
+     "ms": 4.399999991059303,
+     "max": 0.6000000014901161
+    },
+    "world": {
+     "calls": 41,
+     "ms": 74.50000002235174,
+     "max": 52.399999998509884
+    },
+    "actors": {
+     "calls": 41,
+     "ms": 137.49999998509884,
+     "max": 31.69999999552965
+    },
+    "plan": {
+     "calls": 4,
+     "ms": 2183.400000013411,
+     "max": 2173.4000000059605
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 3,
+   "clock": 2.13310000000002,
+   "distance": 9.7901999999998,
+   "moves": 2,
+   "rows": 10,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 19,
+    "RecalcStyleCount": 155,
+    "LayoutDuration": 0.041688,
+    "RecalcStyleDuration": 0.4697630000000004
+   },
+   "count": 10,
+   "preset": "B"
+  },
+  {
+   "seconds": 3.00179999999702,
+   "callbacks": 159,
+   "rafHz": 52.96821906861145,
+   "p95": 27.19999999552965,
+   "max": 184.89999999850988,
+   "long": [],
+   "phases": {
+    "model": {
+     "calls": 80,
+     "ms": 6.700000017881393,
+     "max": 5.100000001490116
+    },
+    "world": {
+     "calls": 80,
+     "ms": 37.90000003576279,
+     "max": 9
+    },
+    "actors": {
+     "calls": 80,
+     "ms": 107.49999997019768,
+     "max": 5.799999997019768
+    },
+    "nature": {
+     "calls": 22,
+     "ms": 7.800000011920929,
+     "max": 1.1999999955296516
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 2,
+   "clock": 2.8666000000000054,
+   "distance": 0,
+   "moves": 0,
+   "rows": 20,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 12,
+    "RecalcStyleCount": 292,
+    "LayoutDuration": 0.008700999999999987,
+    "RecalcStyleDuration": 0.2134229999999997
+   },
+   "count": 20,
+   "preset": "current"
+  },
+  {
+   "seconds": 3.01010000000149,
+   "callbacks": 141,
+   "rafHz": 46.842297598063254,
+   "p95": 44.29999999701977,
+   "max": 179.80000000447035,
+   "long": [],
+   "phases": {
+    "model": {
+     "calls": 76,
+     "ms": 16.299999982118607,
+     "max": 8.699999995529652
+    },
+    "nature": {
+     "calls": 24,
+     "ms": 23.099999994039536,
+     "max": 7.799999997019768
+    },
+    "world": {
+     "calls": 76,
+     "ms": 78.19999995082617,
+     "max": 14.900000005960464
+    },
+    "actors": {
+     "calls": 76,
+     "ms": 222.50000002980232,
+     "max": 89.70000000298023
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 3,
+   "clock": 3.2331999999999947,
+   "distance": 25.62967078656311,
+   "moves": 0,
+   "rows": 20,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 28,
+    "RecalcStyleCount": 256,
+    "LayoutDuration": 0.018843,
+    "RecalcStyleDuration": 0.3520780000000001
+   },
+   "count": 20,
+   "preset": "A"
+  },
+  {
+   "seconds": 3.003,
+   "callbacks": 126,
+   "rafHz": 41.95804195804195,
+   "p95": 68.29999999701977,
+   "max": 169.10000000149012,
+   "long": [],
+   "phases": {
+    "model": {
+     "calls": 73,
+     "ms": 42.200000040233135,
+     "max": 15.400000005960464
+    },
+    "world": {
+     "calls": 73,
+     "ms": 116.8999999538064,
+     "max": 48.599999994039536
+    },
+    "actors": {
+     "calls": 73,
+     "ms": 158.09999997913837,
+     "max": 32
+    },
+    "nature": {
+     "calls": 25,
+     "ms": 13.200000010430813,
+     "max": 2.7000000029802322
+    },
+    "plan": {
+     "calls": 2,
+     "ms": 5.5999999940395355,
+     "max": 5.299999997019768
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 3,
+   "clock": 3.016500000000006,
+   "distance": 23.08890380632343,
+   "moves": 1,
+   "rows": 20,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 23,
+    "RecalcStyleCount": 247,
+    "LayoutDuration": 0.035416999999999976,
+    "RecalcStyleDuration": 0.28168700000000024
+   },
+   "count": 20,
+   "preset": "B"
+  },
+  {
+   "seconds": 3.08689999999851,
+   "callbacks": 71,
+   "rafHz": 23.00042113448258,
+   "p95": 138.79999999701977,
+   "max": 766.2999999970198,
+   "long": [
+    {
+     "start": 342.5,
+     "end": 620.6999999955297,
+     "ms": 278.19999999552965,
+     "events": [
+      [
+       "plan",
+       227.4
+      ],
+      [
+       "model",
+       259
+      ]
+     ]
+    },
+    {
+     "start": 714.8999999985099,
+     "end": 1481.1999999955297,
+     "ms": 766.2999999970198,
+     "events": [
+      [
+       "plan",
+       471.8
+      ],
+      [
+       "plan",
+       72.3
+      ],
+      [
+       "model",
+       550.1
+      ]
+     ]
+    },
+    {
+     "start": 1481.1999999955297,
+     "end": 1804.6999999955297,
+     "ms": 323.5,
+     "events": [
+      [
+       "plan",
+       208.4
+      ],
+      [
+       "plan",
+       57.5
+      ],
+      [
+       "model",
+       266.6
+      ]
+     ]
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 46,
+     "ms": 1148.8000000044703,
+     "max": 550.1000000014901
+    },
+    "world": {
+     "calls": 46,
+     "ms": 33.79999999701977,
+     "max": 11.300000004470348
+    },
+    "actors": {
+     "calls": 46,
+     "ms": 275.8000000193715,
+     "max": 38.79999999701977
+    },
+    "nature": {
+     "calls": 17,
+     "ms": 9.799999989569187,
+     "max": 5.700000002980232
+    },
+    "plan": {
+     "calls": 6,
+     "ms": 1068.7000000104308,
+     "max": 471.80000000447035
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 3,
+   "clock": 3.0666000000000295,
+   "distance": 172.52854524302765,
+   "moves": 3,
+   "rows": 20,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 74,
+    "RecalcStyleCount": 232,
+    "LayoutDuration": 0.03318599999999999,
+    "RecalcStyleDuration": 0.4313910000000001
+   },
+   "count": 20,
+   "preset": "B"
+  },
+  {
+   "seconds": 3.72180000000447,
+   "callbacks": 56,
+   "rafHz": 15.046482884607647,
+   "p95": 506.30000000447035,
+   "max": 1357.5,
+   "long": [
+    {
+     "start": 429.5,
+     "end": 935.8000000044703,
+     "ms": 506.30000000447035,
+     "events": [
+      [
+       "plan",
+       357
+      ],
+      [
+       "plan",
+       119.6
+      ],
+      [
+       "model",
+       487.6
+      ]
+     ]
+    },
+    {
+     "start": 935.8000000044703,
+     "end": 1654.3000000044703,
+     "ms": 718.5,
+     "events": [
+      [
+       "plan",
+       510.2
+      ],
+      [
+       "plan",
+       183.6
+      ],
+      [
+       "model",
+       695.2
+      ]
+     ]
+    },
+    {
+     "start": 2364.3000000044703,
+     "end": 3721.8000000044703,
+     "ms": 1357.5,
+     "events": [
+      [
+       "plan",
+       1113.8
+      ],
+      [
+       "plan",
+       203.5
+      ],
+      [
+       "model",
+       1319.4
+      ]
+     ]
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 33,
+     "ms": 2518.5000000223517,
+     "max": 1319.3999999985099
+    },
+    "nature": {
+     "calls": 13,
+     "ms": 9.100000008940697,
+     "max": 2.899999998509884
+    },
+    "world": {
+     "calls": 33,
+     "ms": 23.19999998807907,
+     "max": 7.5
+    },
+    "actors": {
+     "calls": 33,
+     "ms": 137.00000000745058,
+     "max": 30.600000001490116
+    },
+    "plan": {
+     "calls": 6,
+     "ms": 2487.6999999955297,
+     "max": 1113.7999999970198
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 0,
+   "clock": 2.749900000000032,
+   "distance": 119.33990885802132,
+   "moves": 3,
+   "rows": 20,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 35,
+    "RecalcStyleCount": 146,
+    "LayoutDuration": 0.02185999999999999,
+    "RecalcStyleDuration": 0.2874220000000003
+   },
+   "count": 20,
+   "preset": "A"
+  },
+  {
+   "seconds": 3.00410000000149,
+   "callbacks": 145,
+   "rafHz": 48.267367930471046,
+   "p95": 38.70000000298023,
+   "max": 270.3999999985099,
+   "long": [
+    {
+     "start": 820.8999999985099,
+     "end": 1091.2999999970198,
+     "ms": 270.3999999985099,
+     "events": []
+    }
+   ],
+   "phases": {
+    "model": {
+     "calls": 76,
+     "ms": 11.299999997019768,
+     "max": 3.399999998509884
+    },
+    "world": {
+     "calls": 76,
+     "ms": 67.59999998658895,
+     "max": 32.19999999552965
+    },
+    "actors": {
+     "calls": 76,
+     "ms": 139.9000000357628,
+     "max": 8.5
+    },
+    "nature": {
+     "calls": 23,
+     "ms": 10.499999985098839,
+     "max": 2.7000000029802322
+    }
+   },
+   "pausedSec": 0,
+   "syncs": 2,
+   "clock": 3.0166000000000253,
+   "distance": 16.007920778390144,
+   "moves": 0,
+   "rows": 20,
+   "sameNodes": true,
+   "browserStyleAndLayout": {
+    "LayoutCount": 26,
+    "RecalcStyleCount": 244,
+    "LayoutDuration": 0.021868,
+    "RecalcStyleDuration": 0.3820579999999998
+   },
+   "count": 20,
+   "preset": "current"
+  }
+ ],
+ "browser": "156.0.8078.79"
+}

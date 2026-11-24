@@ -1,0 +1,54 @@
+name: Home cast size limits V3
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'comparisons/home-cast-size-v3/**'
+      - '.github/workflows/home-cast-size-v3.yml'
+      - '.github/workflows/home-cast-size-v3-matrix.yml'
+permissions:
+  contents: read
+jobs:
+  verify-limit-trial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-cast-size-v1
+            comparisons/home-cast-size-v2
+            comparisons/home-cast-size-v3
+      - uses: actions/checkout@v4
+        with:
+          ref: 28628cf336a8ed92efe4e9e197ca03298b798a1e
+          path: .leaf-reference
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: 7e0a8cd6a506142fbe65b9ca6fd4ff4f855d4e9a
+          path: .cast-reference
+          persist-credentials: false
+          sparse-checkout: |
+            comparisons/home-cast-size-v1
+            comparisons/home-cast-size-v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Rebuild the two preserved owner trials
+        run: |
+          node .cast-reference/comparisons/home-cast-size-v1/build.cjs "$RUNNER_TEMP/cast-v1" --reference-checkout .leaf-reference
+          node .cast-reference/comparisons/home-cast-size-v2/build.cjs "$RUNNER_TEMP/cast-v2" --baseline "$RUNNER_TEMP/cast-v1"
+      - name: Protect the native game and former owner trial
+        run: |
+          python3 .cast-reference/comparisons/home-cast-size-v2/verify_protection_package.py "$RUNNER_TEMP/cast-v1" "$RUNNER_TEMP/cast-v2" --out "$RUNNER_TEMP/prior-game.json"
+          node .cast-reference/comparisons/home-cast-size-v2/verify_protection_navigation.mjs "$RUNNER_TEMP/cast-v2/game" "$RUNNER_TEMP/prior-navigation.json"
+      - name: Exercise V3 and build from the pinned V2
+        run: |
+          node --test comparisons/home-cast-size-v3/*.test.*
+          node comparisons/home-cast-size-v3/build.cjs "$RUNNER_TEMP/cast-v3" --baseline "$RUNNER_TEMP/cast-v2"
+      - name: Verify preserved files and the limit trial
+        run: |
+          python3 comparisons/home-cast-size-v3/verify_protection_package.py "$RUNNER_TEMP/cast-v2" "$RUNNER_TEMP/cast-v3" --out "$RUNNER_TEMP/limits-game.json"
+          node comparisons/home-cast-size-v3/verify_protection_navigation.mjs "$RUNNER_TEMP/cast-v3/game" "$RUNNER_TEMP/limits-navigation.json"

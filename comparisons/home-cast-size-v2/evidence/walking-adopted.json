@@ -1,0 +1,97 @@
+{
+  "browser": "156.0.8078.79",
+  "region": "forest",
+  "width": 320,
+  "height": 568,
+  "count": 28,
+  "mode": "adopted-v1",
+  "measure": "Projected source alpha >=96/255, intersection >=4 CSS pixels. Nearest whole-pixel boxes. Before terrain masking, clipping, and equipment.",
+  "samples": [
+    {
+      "elapsedSeconds": 0.02,
+      "projectedAlphaPairs": 21,
+      "residentsMovedSinceFirstSample": 0,
+      "modelSeconds": 7.999999999999989,
+      "recentModelMoves": 7,
+      "observedAmbientEvents": {}
+    },
+    {
+      "elapsedSeconds": 15.43,
+      "projectedAlphaPairs": 24,
+      "residentsMovedSinceFirstSample": 1,
+      "modelSeconds": 23.182700000000054,
+      "recentModelMoves": 8,
+      "observedAmbientEvents": {
+        "move": 1,
+        "arrive": 1,
+        "proximity": 1,
+        "look": 2
+      }
+    },
+    {
+      "elapsedSeconds": 30.11,
+      "projectedAlphaPairs": 23,
+      "residentsMovedSinceFirstSample": 1,
+      "modelSeconds": 37.832000000000185,
+      "recentModelMoves": 8,
+      "observedAmbientEvents": {
+        "move": 1,
+        "arrive": 1,
+        "proximity": 1,
+        "look": 4
+      }
+    },
+    {
+      "elapsedSeconds": 48.18,
+      "projectedAlphaPairs": 23,
+      "residentsMovedSinceFirstSample": 2,
+      "modelSeconds": 42.71530000000025,
+      "recentModelMoves": 8,
+      "observedAmbientEvents": {
+        "move": 2,
+        "arrive": 1,
+        "proximity": 1,
+        "look": 8
+      }
+    },
+    {
+      "elapsedSeconds": 62.52,
+      "projectedAlphaPairs": 24,
+      "residentsMovedSinceFirstSample": 4,
+      "modelSeconds": 48.28180000000032,
+      "recentModelMoves": 9,
+      "observedAmbientEvents": {
+        "move": 4,
+        "arrive": 2,
+        "proximity": 2,
+        "look": 12
+      }
+    },
+    {
+      "elapsedSeconds": 76.97,
+      "projectedAlphaPairs": 24,
+      "residentsMovedSinceFirstSample": 4,
+      "modelSeconds": 59.59810000000043,
+      "recentModelMoves": 11,
+      "observedAmbientEvents": {
+        "move": 4,
+        "arrive": 4,
+        "proximity": 4,
+        "look": 14
+      }
+    },
+    {
+      "elapsedSeconds": 129.08,
+      "projectedAlphaPairs": 23,
+      "residentsMovedSinceFirstSample": 4,
+      "modelSeconds": 59.59810000000043,
+      "recentModelMoves": 11,
+      "observedAmbientEvents": {
+        "move": 4,
+        "arrive": 4,
+        "proximity": 4,
+        "look": 14
+      }
+    }
+  ]
+}

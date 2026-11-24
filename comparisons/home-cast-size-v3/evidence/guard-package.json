@@ -1,0 +1,27 @@
+{
+  "reference": "7e0a8cd6a506142fbe65b9ca6fd4ff4f855d4e9a",
+  "baselineSHA256": "41e3c1643927fda017d6dd16688129221bb80714a3bd89b86237a176e195b79c",
+  "trialSHA256": "c98b1de105f27b97fe5c2fd0e9f83b5ce1621d248e0c315c45c59c299c9ecc2c",
+  "trialFiles": 3909,
+  "identicalPublishedV2Files": 3900,
+  "additions": {
+    "game/cast-limit.js": "b487f48bb57055fdc9138311d768e86e99d0ca0d0b4683596ed7b51befbdca31",
+    "game/home-production-diorama-limit.js": "249e1377ad4115c2fb59af6e3aacc799883ae54c7a77d2c456ae2de97c4162aa",
+    "game/home-production-world-limit.mjs": "cf60de75712483f090d5af5626793f50610c18f9721aade6e8b483fa038cbc6c",
+    "game/limit-seating.js": "afecec73e5e0bdb377c42bcccdec0c2ff74efbc2f34c6d7f154dba6776e1954a",
+    "game/limit.html": "c3c395f1f0833cf37842de3f6436e00c56db3096be8db73a9a73234e8b6a9247",
+    "v3/controls.mjs": "c7f1275871e5576ecf318f7bf0cc973cfba9f016a1ee9bc8a6293784cd7939a2",
+    "v3/index.html": "704eb779dbeb4ad56f7f71517e77fd0917e6db18f00fd4c1ca97a222775fa76f",
+    "v3/shell-model.mjs": "b6bcc47eae95f2b310db56135eb1adb7725c56b5ba15e082d0ee354275d2e16f",
+    "v3/style.css": "9b24529b7040e3f222b2f8b459b7be98dd8739633b760f744f8d7147672eb738"
+  },
+  "nativeGameEntryOnlySwitchesTrialScripts": true,
+  "nativeControllerOnlyDifferentWorldImport": true,
+  "nativeWorldOnlyAddsOpeningSeats": true,
+  "parentViewportMeta": "width=device-width,initial-scale=1,viewport-fit=cover",
+  "gameViewportMeta": "width=device-width, initial-scale=1.0, viewport-fit=cover",
+  "overviewRemoved": true,
+  "unchangedModelSHA256": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+  "unchangedNativeScriptSHA256": "3f5255546fe017d4de625ae24f0016da90f5265ee3c7b8b3744d70607e966844",
+  "approvedLeafAndEnvironmentModules": 14
+}

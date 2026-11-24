@@ -1,0 +1,5978 @@
+{
+ "main": "38b4e9d0c8ed4cacdfc1cc6c072a7a9e62e5c053",
+ "fixtureFrom": "28628cf336a8ed92efe4e9e197ca03298b798a1e",
+ "browser": "156.0.8078.79",
+ "viewport": {
+  "width": 390,
+  "height": 844
+ },
+ "dpr": 2,
+ "media": "reduce",
+ "baseTime": "2026-11-01T04:00:05Z",
+ "counts": {
+  "1": {
+   "rolePercents": [
+    "110",
+    "v1"
+   ],
+   "stage": "river_lake",
+   "bodyScale": 1,
+   "scaleX": 0.8432505369457,
+   "scaleY": 1.7655202726639376,
+   "overview": {
+    "text": "みんなを見る",
+    "visible": false,
+    "pressed": null
+   },
+   "gear": [
+    238.488,
+    231.453,
+    52.849,
+    52.849
+   ],
+   "rows": [
+    {
+     "key": "pet:dog",
+     "src": "assets/characters/dog/06.png",
+     "nativeSize": 164.56,
+     "owner": [
+      145.056,
+      265.219,
+      152.688,
+      152.688
+     ],
+     "sprite": [
+      145.056,
+      276.191,
+      152.688,
+      151.161
+     ],
+     "depth": 0.9279,
+     "body": [
+      114.516,
+      132.266
+     ],
+     "y": 289,
+     "ring": null
+    }
+   ]
+  },
+  "4": {
+   "rolePercents": [
+    "110",
+    "v1"
+   ],
+   "stage": "river_lake",
+   "bodyScale": 1,
+   "scaleX": 0.5886069469835465,
+   "scaleY": 1.2592861188696731,
+   "overview": {
+    "text": "みんなを見る",
+    "visible": false,
+    "pressed": null
+   },
+   "gear": [
+    224.719,
+    271.592,
+    52.849,
+    52.849
+   ],
+   "rows": [
+    {
+     "key": "pet:dog",
+     "src": "assets/characters/dog/06.png",
+     "nativeSize": 164.56,
+     "owner": [
+      131.284,
+      305.359,
+      152.688,
+      152.688
+     ],
+     "sprite": [
+      131.284,
+      316.331,
+      152.688,
+      151.161
+     ],
+     "depth": 0.9279,
+     "body": [
+      114.516,
+      132.266
+     ],
+     "y": 289,
+     "ring": null
+    },
+    {
+     "key": "partner:forest_bear",
+     "src": "assets/characters/partners/forest_bear.png",
+     "nativeSize": 88,
+     "owner": [
+      98.919,
+      247.623,
+      74.729,
+      74.729
+     ],
+     "sprite": [
+      98.919,
+      248.37,
+      74.729,
+      73.982
+     ],
+     "depth": 0.8492,
+     "body": [
+      61.301,
+      62.422
+     ],
+     "y": 177,
+     "ring": [
+      170.635,
+      292.324,
+      32.02,
+      32.02
+     ]
+    },
+    {
+     "key": "companion:cat_friend",
+     "src": "assets/characters/companions/cat_friend.png",
+     "nativeSize": 96.8,
+     "owner": [
+      146.612,
+      264.721,
+      83.578,
+      83.578
+     ],
+     "sprite": [
+      146.612,
+      265.557,
+      83.578,
+      82.743
+     ],
+     "depth": 0.8634,
+     "body": [
+      70.519,
+      56.886
+     ],
+     "y": 197,
+     "ring": null
+    },
+    {
+     "key": "companion:rabbit_friend",
+     "src": "assets/characters/companions/rabbit_friend.png",
+     "nativeSize": 96.8,
+     "owner": [
+      219.247,
+      323.507,
+      86.941,
+      86.941
+     ],
+     "sprite": [
+      219.247,
+      324.376,
+      86.941,
+      86.072
+     ],
+     "depth": 0.8982,
+     "body": [
+      54.338,
+      72.623
+     ],
+     "y": 247,
+     "ring": null
+    }
+   ]
+  },
+  "5": {
+   "rolePercents": [
+    "110",
+    "v1"
+   ],
+   "stage": "river_lake",
+   "bodyScale": 1,
+   "scaleX": 0.5886069469835465,
+   "scaleY": 1.2592861188696731,
+   "overview": {
+    "text": "みんなを見る",
+    "visible": false,
+    "pressed": null
+   },
+   "gear": [
+    224.719,
+    271.592,
+    52.849,
+    52.849
+   ],
+   "rows": [
+    {
+     "key": "pet:dog",
+     "src": "assets/characters/dog/06.png",
+     "nativeSize": 164.56,
+     "owner": [
+      131.284,
+      305.359,
+      152.688,
+      152.688
+     ],
+     "sprite": [
+      131.284,
+      316.331,
+      152.688,
+      151.161
+     ],
+     "depth": 0.9279,
+     "body": [
+      114.516,
+      132.266
+     ],
+     "y": 289,
+     "ring": null
+    },
+    {
+     "key": "partner:forest_bear",
+     "src": "assets/characters/partners/forest_bear.png",
+     "nativeSize": 88,
+     "owner": [
+      98.919,
+      247.623,
+      74.729,
+      74.729
+     ],
+     "sprite": [
+      98.919,
+      248.37,
+      74.729,
+      73.982
+     ],
+     "depth": 0.8492,
+     "body": [
+      61.301,
+      62.422
+     ],
+     "y": 177,
+     "ring": [
+      170.635,
+      292.324,
+      32.02,
+      32.02
+     ]
+    },
+    {
+     "key": "companion:cat_friend",
+     "src": "assets/characters/companions/cat_friend.png",
+     "nativeSize": 96.8,
+     "owner": [
+      146.612,
+      264.721,
+      83.578,
+      83.578
+     ],
+     "sprite": [
+      146.612,
+      265.557,
+      83.578,
+      82.743
+     ],
+     "depth": 0.8634,
+     "body": [
+      70.519,
+      56.886
+     ],
+     "y": 197,
+     "ring": null
+    },
+    {
+     "key": "companion:tanuki",
+     "src": "assets/characters/companions/tanuki.png",
+     "nativeSize": 96.8,
+     "owner": [
+      225.409,
+      342.632,
+      88.035,
+      88.035
+     ],
+     "sprite": [
+      225.409,
+      343.512,
+      88.035,
+      87.155
+     ],
+     "depth": 0.9095,
+     "body": [
+      67.402,
+      72.175
+     ],
+     "y": 263,
+     "ring": null
+    },
+    {
+     "key": "companion:rabbit_friend",
+     "src": "assets/characters/companions/rabbit_friend.png",
+     "nativeSize": 96.8,
+     "owner": [
+      112.096,
+      447.805,
+      94.053,
+      94.053
+     ],
+     "sprite": [
+      112.096,
+      448.746,
+      94.053,
+      93.112
+     ],
+     "depth": 0.9716,
+     "body": [
+      58.783,
+      78.563
+     ],
+     "y": 351,
+     "ring": null
+    }
+   ]
+  },
+  "6": {
+   "rolePercents": [
+    "110",
+    "v1"
+   ],
+   "stage": "river_lake",
+   "bodyScale": 0.9,
+   "scaleX": 0.6735930169000284,
+   "scaleY": 1.2859964251911533,
+   "overview": {
+    "text": "みんなを見る",
+    "visible": true,
+    "pressed": null
+   },
+   "gear": [
+    221.054,
+    330.487,
+    35.846,
+    35.846
+   ],
+   "rows": [
+    {
+     "key": "pet:dog",
+     "src": "assets/characters/dog/06.png",
+     "nativeSize": 124.038,
+     "owner": [
+      157.663,
+      353.404,
+      103.583,
+      103.583
+     ],
+     "sprite": [
+      157.663,
+      360.847,
+      103.583,
+      102.547
+     ],
+     "depth": 0.9279,
+     "body": [
+      77.687,
+      89.729
+     ],
+     "y": 289,
+     "ring": null
+    },
+    {
+     "key": "partner:forest_bear",
+     "src": "assets/characters/partners/forest_bear.png",
+     "nativeSize": 93.5506,
+     "owner": [
+      91.795,
+      255.377,
+      71.919,
+      71.919
+     ],
+     "sprite": [
+      91.795,
+      256.096,
+      71.919,
+      71.2
+     ],
+     "depth": 0.8542,
+     "body": [
+      58.996,
+      60.075
+     ],
+     "y": 184,
+     "ring": [
+      160.822,
+      298.396,
+      30.82,
+      30.82
+     ]
+    },
+    {
+     "key": "companion:cat_friend",
+     "src": "assets/characters/companions/cat_friend.png",
+     "nativeSize": 93.5506,
+     "owner": [
+      142.459,
+      298.238,
+      73.991,
+      73.991
+     ],
+     "sprite": [
+      142.459,
+      298.978,
+      73.991,
+      73.251
+     ],
+     "depth": 0.8788,
+     "body": [
+      62.43,
+      50.36
+     ],
+     "y": 219,
+     "ring": null
+    },
+    {
+     "key": "companion:tanuki",
+     "src": "assets/characters/companions/tanuki.png",
+     "nativeSize": 89.5968,
+     "owner": [
+      204.398,
+      288.194,
+      70.264,
+      70.264
+     ],
+     "sprite": [
+      204.398,
+      288.897,
+      70.264,
+      69.562
+     ],
+     "depth": 0.8714,
+     "body": [
+      53.796,
+      57.606
+     ],
+     "y": 209,
+     "ring": null
+    },
+    {
+     "key": "companion:rabbit_friend",
+     "src": "assets/characters/companions/rabbit_friend.png",
+     "nativeSize": 87.9376,
+     "owner": [
+      139.208,
+      478.336,
+      77.527,
+      77.527
+     ],
+     "sprite": [
+      139.208,
+      479.111,
+      77.527,
+      76.752
+     ],
+     "depth": 0.9796,
+     "body": [
+      48.454,
+      64.76
+     ],
+     "y": 362,
+     "ring": null
+    },
+    {
+     "key": "companion:squirrel",
+     "src": "assets/characters/companions/squirrel.png",
+     "nativeSize": 87.9376,
+     "owner": [
+      220.961,
+      486.555,
+      77.9,
+      77.9
+     ],
+     "sprite": [
+      220.961,
+      487.333,
+      77.9,
+      77.121
+     ],
+     "depth": 0.9843,
+     "body": [
+      58.425,
+      65.071
+     ],
+     "y": 368,
+     "ring": null
+    }
+   ]
+  },
+  "10": {
+   "rolePercents": [
+    "110",
+    "v1"
+   ],
+   "stage": "river_lake",
+   "bodyScale": 0.9,
+   "scaleX": 0.8801995723415057,
+   "scaleY": 1.2630505865932136,
+   "overview": {
+    "text": "みんなを見る",
+    "visible": true,
+    "pressed": null
+   },
+   "gear": [
+    221.471,
+    376.278,
+    23.436,
+    23.436
+   ],
+   "rows": [
+    {
+     "key": "pet:dog",
+     "src": "assets/characters/dog/06.png",
+     "nativeSize": 81.0857,
+     "owner": [
+      180.041,
+      391.261,
+      67.711,
+      67.711
+     ],
+     "sprite": [
+      180.041,
+      396.123,
+      67.711,
+      67.034
+     ],
+     "depth": 0.9279,
+     "body": [
+      50.783,
+      58.655
+     ],
+     "y": 289,
+     "ring": null
+    },
+    {
+     "key": "partner:forest_bear",
+     "src": "assets/characters/partners/forest_bear.png",
+     "nativeSize": 59.9324,
+     "owner": [
+      95.75,
+      231.011,
+      44.424,
+      44.424
+     ],
+     "sprite": [
+      95.75,
+      231.455,
+      44.424,
+      43.979
+     ],
+     "depth": 0.8237,
+     "body": [
+      36.442,
+      37.107
+     ],
+     "y": 141,
+     "ring": [
+      120.263,
+      275.042,
+      19.03,
+      19.03
+     ]
+    },
+    {
+     "key": "companion:cat_friend",
+     "src": "assets/characters/companions/cat_friend.png",
+     "nativeSize": 59.9324,
+     "owner": [
+      157.691,
+      289.475,
+      46.238,
+      46.238
+     ],
+     "sprite": [
+      157.691,
+      289.937,
+      46.238,
+      45.776
+     ],
+     "depth": 0.8574,
+     "body": [
+      39.013,
+      31.471
+     ],
+     "y": 189,
+     "ring": null
+    },
+    {
+     "key": "companion:tanuki",
+     "src": "assets/characters/companions/tanuki.png",
+     "nativeSize": 59.8171,
+     "owner": [
+      257.238,
+      375.242,
+      48.808,
+      48.808
+     ],
+     "sprite": [
+      257.238,
+      375.73,
+      48.808,
+      48.32
+     ],
+     "depth": 0.9067,
+     "body": [
+      37.369,
+      40.015
+     ],
+     "y": 259,
+     "ring": null
+    },
+    {
+     "key": "companion:owl",
+     "src": "assets/characters/companions/owl.png",
+     "nativeSize": 59.8171,
+     "owner": [
+      139.523,
+      438.047,
+      50.754,
+      50.754
+     ],
+     "sprite": [
+      139.523,
+      438.554,
+      50.754,
+      50.246
+     ],
+     "depth": 0.9428,
+     "body": [
+      30.135,
+      41.61
+     ],
+     "y": 310,
+     "ring": null
+    },
+    {
+     "key": "companion:hamster",
+     "src": "assets/characters/companions/hamster.png",
+     "nativeSize": 62.7122,
+     "owner": [
+      282.261,
+      439.234,
+      53.32,
+      53.32
+     ],
+     "sprite": [
+      282.261,
+      439.767,
+      53.32,
+      52.787
+     ],
+     "depth": 0.9448,
+     "body": [
+      39.573,
+      40.827
+     ],
+     "y": 313,
+     "ring": null
+    },
+    {
+     "key": "companion:rabbit_friend",
+     "src": "assets/characters/companions/rabbit_friend.png",
+     "nativeSize": 59.9324,
+     "owner": [
+      146.606,
+      364.327,
+      48.562,
+      48.562
+     ],
+     "sprite": [
+      146.606,
+      364.812,
+      48.562,
+      48.076
+     ],
+     "depth": 0.9005,
+     "body": [
+      30.351,
+      40.564
+     ],
+     "y": 250,
+     "ring": null
+    },
+    {
+     "key": "companion:squirrel",
+     "src": "assets/characters/companions/squirrel.png",
+     "nativeSize": 58.7093,
+     "owner": [
+      52.945,
+      266.298,
+      44.567,
+      44.567
+     ],
+     "sprite": [
+      52.945,
+      266.743,
+      44.567,
+      44.121
+     ],
+     "depth": 0.8435,
+     "body": [
+      33.425,
+      37.227
+     ],
+     "y": 169,
+     "ring": null
+    },
+    {
+     "key": "companion:otter",
+     "src": "assets/characters/companions/otter.png",
+     "nativeSize": 56.441,
+     "owner": [
+      111.289,
+      324.996,
+      44.512,
+      44.512
+     ],
+     "sprite": [
+      111.289,
+      325.441,
+      44.512,
+      44.067
+     ],
+     "depth": 0.8763,
+     "body": [
+      38.252,
+      36.493
+     ],
+     "y": 216,
+     "ring": null
+    },
+    {
+     "key": "companion:panda",
+     "src": "assets/characters/companions/panda.png",
+     "nativeSize": 56.441,
+     "owner": [
+      215.837,
+      345.894,
+      45.122,
+      45.122
+     ],
+     "sprite": [
+      215.837,
+      346.346,
+      45.122,
+      44.671
+     ],
+     "depth": 0.8883,
+     "body": [
+      37.367,
+      38.389
+     ],
+     "y": 233,
+     "ring": null
+    }
+   ]
+  },
+  "20": {
+   "rolePercents": [
+    "110",
+    "v1"
+   ],
+   "stage": "river_lake",
+   "bodyScale": 0.7,
+   "scaleX": 0.9616158258363938,
+   "scaleY": 1.295374491821628,
+   "overview": {
+    "text": "みんなを見る",
+    "visible": true,
+    "pressed": null
+   },
+   "gear": [
+    220.695,
+    404.233,
+    15.599,
+    15.599
+   ],
+   "rows": [
+    {
+     "key": "pet:dog",
+     "src": "assets/characters/dog/06.png",
+     "nativeSize": 69.3943,
+     "owner": [
+      193.108,
+      414.197,
+      45.073,
+      45.073
+     ],
+     "sprite": [
+      193.108,
+      417.431,
+      45.073,
+      44.622
+     ],
+     "depth": 0.9279,
+     "body": [
+      33.805,
+      39.044
+     ],
+     "y": 289,
+     "ring": null
+    },
+    {
+     "key": "partner:forest_bear",
+     "src": "assets/characters/partners/forest_bear.png",
+     "nativeSize": 52.3378,
+     "owner": [
+      95.689,
+      239.012,
+      30.155,
+      30.155
+     ],
+     "sprite": [
+      95.689,
+      239.313,
+      30.155,
+      29.854
+     ],
+     "depth": 0.8232,
+     "body": [
+      24.737,
+      25.189
+     ],
+     "y": 141,
+     "ring": [
+      112.323,
+      268.9,
+      12.923,
+      12.923
+     ]
+    },
+    {
+     "key": "companion:cat_friend",
+     "src": "assets/characters/companions/cat_friend.png",
+     "nativeSize": 52.3378,
+     "owner": [
+      163.793,
+      300.45,
+      31.406,
+      31.406
+     ],
+     "sprite": [
+      163.793,
+      300.764,
+      31.406,
+      31.091
+     ],
+     "depth": 0.8574,
+     "body": [
+      26.499,
+      21.375
+     ],
+     "y": 189,
+     "ring": null
+    },
+    {
+     "key": "companion:tanuki",
+     "src": "assets/characters/companions/tanuki.png",
+     "nativeSize": 53.3253,
+     "owner": [
+      272.736,
+      388.594,
+      33.837,
+      33.837
+     ],
+     "sprite": [
+      272.736,
+      388.932,
+      33.837,
+      33.498
+     ],
+     "depth": 0.9067,
+     "body": [
+      25.906,
+      27.741
+     ],
+     "y": 259,
+     "ring": null
+    },
+    {
+     "key": "companion:owl",
+     "src": "assets/characters/companions/owl.png",
+     "nativeSize": 52.2588,
+     "owner": [
+      143.676,
+      459.03,
+      34.581,
+      34.581
+     ],
+     "sprite": [
+      143.676,
+      459.376,
+      34.581,
+      34.235
+     ],
+     "depth": 0.9455,
+     "body": [
+      20.532,
+      28.351
+     ],
+     "y": 314,
+     "ring": null
+    },
+    {
+     "key": "companion:hamster",
+     "src": "assets/characters/companions/hamster.png",
+     "nativeSize": 55.9538,
+     "owner": [
+      284.857,
+      475.643,
+      37.444,
+      37.444
+     ],
+     "sprite": [
+      284.857,
+      476.018,
+      37.444,
+      37.069
+     ],
+     "depth": 0.956,
+     "body": [
+      27.79,
+      28.671
+     ],
+     "y": 328,
+     "ring": null
+    },
+    {
+     "key": "companion:monkey",
+     "src": "assets/characters/companions/monkey.png",
+     "nativeSize": 50.7138,
+     "owner": [
+      162.804,
+      378.125,
+      31.943,
+      31.943
+     ],
+     "sprite": [
+      162.804,
+      378.445,
+      31.943,
+      31.624
+     ],
+     "depth": 0.9,
+     "body": [
+      23.708,
+      26.436
+     ],
+     "y": 249,
+     "ring": null
+    },
+    {
+     "key": "companion:sheep",
+     "src": "assets/characters/companions/sheep.png",
+     "nativeSize": 50.2443,
+     "owner": [
+      50.171,
+      264.949,
+      29.433,
+      29.433
+     ],
+     "sprite": [
+      50.171,
+      265.243,
+      29.433,
+      29.138
+     ],
+     "depth": 0.837,
+     "body": [
+      24.834,
+      22.992
+     ],
+     "y": 160,
+     "ring": null
+    },
+    {
+     "key": "companion:bat",
+     "src": "assets/characters/companions/bat.png",
+     "nativeSize": 51.1923,
+     "owner": [
+      122.327,
+      327.694,
+      31.236,
+      31.236
+     ],
+     "sprite": [
+      122.327,
+      328.006,
+      31.236,
+      30.923
+     ],
+     "depth": 0.8717,
+     "body": [
+      18.79,
+      25.608
+     ],
+     "y": 209,
+     "ring": null
+    },
+    {
+     "key": "companion:penguin_friend",
+     "src": "assets/characters/companions/penguin_friend.png",
+     "nativeSize": 48.303,
+     "owner": [
+      256.533,
+      438.139,
+      31.526,
+      31.526
+     ],
+     "sprite": [
+      256.533,
+      438.454,
+      31.526,
+      31.211
+     ],
+     "depth": 0.9325,
+     "body": [
+      27.093,
+      12.436
+     ],
+     "y": 295,
+     "ring": null
+    },
+    {
+     "key": "companion:shiba",
+     "src": "assets/characters/companions/shiba.png",
+     "nativeSize": 49.1975,
+     "owner": [
+      124.777,
+      508.973,
+      33.472,
+      33.472
+     ],
+     "sprite": [
+      124.777,
+      509.307,
+      33.472,
+      33.137
+     ],
+     "depth": 0.9721,
+     "body": [
+      28.242,
+      25.629
+     ],
+     "y": 351,
+     "ring": null
+    },
+    {
+     "key": "companion:rabbit_friend",
+     "src": "assets/characters/companions/rabbit_friend.png",
+     "nativeSize": 52.3378,
+     "owner": [
+      251.323,
+      520.496,
+      35.884,
+      35.884
+     ],
+     "sprite": [
+      251.323,
+      520.855,
+      35.884,
+      35.526
+     ],
+     "depth": 0.9797,
+     "body": [
+      22.428,
+      29.975
+     ],
+     "y": 362,
+     "ring": null
+    },
+    {
+     "key": "companion:squirrel",
+     "src": "assets/characters/companions/squirrel.png",
+     "nativeSize": 51.291,
+     "owner": [
+      216.714,
+      368.088,
+      32.114,
+      32.114
+     ],
+     "sprite": [
+      216.714,
+      368.41,
+      32.114,
+      31.793
+     ],
+     "depth": 0.8946,
+     "body": [
+      24.085,
+      26.825
+     ],
+     "y": 242,
+     "ring": null
+    },
+    {
+     "key": "companion:otter",
+     "src": "assets/characters/companions/otter.png",
+     "nativeSize": 50.3585,
+     "owner": [
+      80.811,
+      306.711,
+      30.315,
+      30.315
+     ],
+     "sprite": [
+      80.811,
+      307.014,
+      30.315,
+      30.012
+     ],
+     "depth": 0.8602,
+     "body": [
+      26.052,
+      24.854
+     ],
+     "y": 193,
+     "ring": null
+    },
+    {
+     "key": "companion:panda",
+     "src": "assets/characters/companions/panda.png",
+     "nativeSize": 50.3585,
+     "owner": [
+      117.826,
+      399.159,
+      32.124,
+      32.124
+     ],
+     "sprite": [
+      117.826,
+      399.481,
+      32.124,
+      31.803
+     ],
+     "depth": 0.9116,
+     "body": [
+      26.603,
+      27.331
+     ],
+     "y": 266,
+     "ring": null
+    },
+    {
+     "key": "companion:parrot",
+     "src": "assets/characters/companions/parrot.png",
+     "nativeSize": 50.2443,
+     "owner": [
+      308.769,
+      429.275,
+      32.641,
+      32.641
+     ],
+     "sprite": [
+      308.514,
+      429.602,
+      32.641,
+      32.315
+     ],
+     "depth": 0.9283,
+     "body": [
+      24.736,
+      27.266
+     ],
+     "y": 289,
+     "ring": null
+    },
+    {
+     "key": "companion:seal",
+     "src": "assets/characters/companions/seal.png",
+     "nativeSize": 49.3307,
+     "owner": [
+      94.852,
+      448.297,
+      32.406,
+      32.406
+     ],
+     "sprite": [
+      94.852,
+      448.621,
+      32.406,
+      32.082
+     ],
+     "depth": 0.9385,
+     "body": [
+      27.849,
+      25.315
+     ],
+     "y": 304,
+     "ring": null
+    },
+    {
+     "key": "companion:chicken",
+     "src": "assets/characters/companions/chicken.png",
+     "nativeSize": 49.1975,
+     "owner": [
+      300.418,
+      532.553,
+      33.923,
+      33.923
+     ],
+     "sprite": [
+      300.418,
+      532.892,
+      33.923,
+      33.584
+     ],
+     "depth": 0.9852,
+     "body": [
+      26.237,
+      28.337
+     ],
+     "y": 370,
+     "ring": null
+    },
+    {
+     "key": "companion:hedgehog",
+     "src": "assets/characters/companions/hedgehog.png",
+     "nativeSize": 53.67,
+     "owner": [
+      71.006,
+      365.499,
+      33.576,
+      33.576
+     ],
+     "sprite": [
+      71.006,
+      365.835,
+      33.576,
+      33.241
+     ],
+     "depth": 0.894,
+     "body": [
+      25.969,
+      25.45
+     ],
+     "y": 241,
+     "ring": null
+    },
+    {
+     "key": "companion:snail",
+     "src": "assets/characters/companions/snail.png",
+     "nativeSize": 47.4405,
+     "owner": [
+      23.561,
+      358.992,
+      29.371,
+      29.371
+     ],
+     "sprite": [
+      23.561,
+      359.285,
+      29.371,
+      29.077
+     ],
+     "depth": 0.8845,
+     "body": [
+      25.7,
+      11.813
+     ],
+     "y": 227,
+     "ring": null
+    }
+   ]
+  },
+  "28": {
+   "rolePercents": [
+    "110",
+    "v1"
+   ],
+   "stage": "river_lake",
+   "bodyScale": 0.7,
+   "scaleX": 0.9736202217027006,
+   "scaleY": 1.3070660277108805,
+   "overview": {
+    "text": "みんなを見る",
+    "visible": true,
+    "pressed": null
+   },
+   "gear": [
+    219.942,
+    414.001,
+    12.524,
+    12.524
+   ],
+   "rows": [
+    {
+     "key": "pet:dog",
+     "src": "assets/characters/dog/06.png",
+     "nativeSize": 55.7333,
+     "owner": [
+      197.8,
+      422.011,
+      36.192,
+      36.192
+     ],
+     "sprite": [
+      197.8,
+      424.603,
+      36.192,
+      35.83
+     ],
+     "depth": 0.9279,
+     "body": [
+      27.144,
+      31.351
+     ],
+     "y": 289,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      16,
+      8,
+      112,
+      120
+     ],
+     "inkCoveragePct": 37.38
+    },
+    {
+     "key": "partner:forest_bear",
+     "src": "assets/characters/partners/forest_bear.png",
+     "nativeSize": 42.0346,
+     "owner": [
+      97.573,
+      241.783,
+      24.221,
+      24.221
+     ],
+     "sprite": [
+      97.573,
+      242.025,
+      24.221,
+      23.979
+     ],
+     "depth": 0.8232,
+     "body": [
+      19.869,
+      20.232
+     ],
+     "y": 141,
+     "ring": [
+      110.935,
+      264.924,
+      10.373,
+      10.373
+     ],
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      11,
+      12,
+      116,
+      120
+     ],
+     "inkCoveragePct": 42.5
+    },
+    {
+     "key": "companion:cat_friend",
+     "src": "assets/characters/companions/cat_friend.png",
+     "nativeSize": 42.0346,
+     "owner": [
+      166.681,
+      304.019,
+      25.226,
+      25.226
+     ],
+     "sprite": [
+      166.681,
+      304.271,
+      25.226,
+      24.973
+     ],
+     "depth": 0.8574,
+     "body": [
+      21.284,
+      17.169
+     ],
+     "y": 189,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      10,
+      32,
+      118,
+      120
+     ],
+     "inkCoveragePct": 35.89
+    },
+    {
+     "key": "companion:tanuki",
+     "src": "assets/characters/companions/tanuki.png",
+     "nativeSize": 42.1853,
+     "owner": [
+      277.445,
+      393.804,
+      26.766,
+      26.766
+     ],
+     "sprite": [
+      277.445,
+      394.071,
+      26.766,
+      26.498
+     ],
+     "depth": 0.9067,
+     "body": [
+      20.493,
+      21.944
+     ],
+     "y": 259,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      15,
+      14,
+      113,
+      120
+     ],
+     "inkCoveragePct": 43.54
+    },
+    {
+     "key": "companion:owl",
+     "src": "assets/characters/companions/owl.png",
+     "nativeSize": 42.1853,
+     "owner": [
+      154.96,
+      464.16,
+      27.905,
+      27.905
+     ],
+     "sprite": [
+      154.96,
+      464.439,
+      27.905,
+      27.626
+     ],
+     "depth": 0.9453,
+     "body": [
+      16.569,
+      22.878
+     ],
+     "y": 313,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      26,
+      14,
+      102,
+      120
+     ],
+     "inkCoveragePct": 35.98
+    },
+    {
+     "key": "companion:hamster",
+     "src": "assets/characters/companions/hamster.png",
+     "nativeSize": 45.1681,
+     "owner": [
+      289.78,
+      481.812,
+      30.219,
+      30.219
+     ],
+     "sprite": [
+      289.78,
+      482.114,
+      30.219,
+      29.916
+     ],
+     "depth": 0.956,
+     "body": [
+      22.428,
+      23.138
+     ],
+     "y": 328,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      16,
+      21,
+      111,
+      120
+     ],
+     "inkCoveragePct": 41.97
+    },
+    {
+     "key": "companion:monkey",
+     "src": "assets/characters/companions/monkey.png",
+     "nativeSize": 41.1546,
+     "owner": [
+      218.156,
+      376.232,
+      25.824,
+      25.824
+     ],
+     "sprite": [
+      218.156,
+      376.49,
+      25.824,
+      25.566
+     ],
+     "depth": 0.8967,
+     "body": [
+      19.166,
+      21.372
+     ],
+     "y": 245,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      16,
+      13,
+      111,
+      120
+     ],
+     "inkCoveragePct": 35.93
+    },
+    {
+     "key": "companion:sheep",
+     "src": "assets/characters/companions/sheep.png",
+     "nativeSize": 40.7735,
+     "owner": [
+      59.083,
+      267.659,
+      23.886,
+      23.886
+     ],
+     "sprite": [
+      59.083,
+      267.897,
+      23.886,
+      23.647
+     ],
+     "depth": 0.8371,
+     "body": [
+      20.154,
+      18.659
+     ],
+     "y": 160,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      10,
+      19,
+      118,
+      120
+     ],
+     "inkCoveragePct": 43.11
+    },
+    {
+     "key": "companion:bat",
+     "src": "assets/characters/companions/bat.png",
+     "nativeSize": 41.5428,
+     "owner": [
+      132.955,
+      330.904,
+      25.341,
+      25.341
+     ],
+     "sprite": [
+      132.955,
+      331.158,
+      25.341,
+      25.087
+     ],
+     "depth": 0.8717,
+     "body": [
+      15.244,
+      20.775
+     ],
+     "y": 209,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      25,
+      11,
+      102,
+      117
+     ],
+     "inkCoveragePct": 29.69
+    },
+    {
+     "key": "companion:penguin_friend",
+     "src": "assets/characters/companions/penguin_friend.png",
+     "nativeSize": 39.4131,
+     "owner": [
+      252.76,
+      434.437,
+      25.6,
+      25.6
+     ],
+     "sprite": [
+      252.76,
+      434.693,
+      25.6,
+      25.344
+     ],
+     "depth": 0.9281,
+     "body": [
+      22,
+      10.098
+     ],
+     "y": 289,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      9,
+      69,
+      119,
+      120
+     ],
+     "inkCoveragePct": 23.36
+    },
+    {
+     "key": "companion:shiba",
+     "src": "assets/characters/companions/shiba.png",
+     "nativeSize": 40.143,
+     "owner": [
+      119.73,
+      483.858,
+      26.845,
+      26.845
+     ],
+     "sprite": [
+      119.73,
+      484.127,
+      26.845,
+      26.577
+     ],
+     "depth": 0.9554,
+     "body": [
+      22.65,
+      20.556
+     ],
+     "y": 328,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      10,
+      21,
+      118,
+      120
+     ],
+     "inkCoveragePct": 37.34
+    },
+    {
+     "key": "companion:punyu",
+     "src": "assets/characters/companions/punyu.png",
+     "nativeSize": 40.143,
+     "owner": [
+      251.927,
+      511.782,
+      27.275,
+      27.275
+     ],
+     "sprite": [
+      251.927,
+      512.055,
+      27.275,
+      27.002
+     ],
+     "depth": 0.9707,
+     "body": [
+      23.013,
+      17.298
+     ],
+     "y": 349,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      10,
+      38,
+      118,
+      120
+     ],
+     "inkCoveragePct": 32.66
+    },
+    {
+     "key": "companion:chameleon",
+     "src": "assets/characters/companions/chameleon.png",
+     "nativeSize": 38.7941,
+     "owner": [
+      174.102,
+      539.27,
+      26.748,
+      26.748
+     ],
+     "sprite": [
+      174.102,
+      539.537,
+      26.748,
+      26.48
+     ],
+     "depth": 0.9853,
+     "body": [
+      22.987,
+      19.032
+     ],
+     "y": 370,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      9,
+      28,
+      119,
+      120
+     ],
+     "inkCoveragePct": 36.29
+    },
+    {
+     "key": "companion:unicorn",
+     "src": "assets/characters/companions/unicorn.png",
+     "nativeSize": 38.7941,
+     "owner": [
+      98.025,
+      291.167,
+      23.057,
+      23.057
+     ],
+     "sprite": [
+      98.025,
+      291.398,
+      23.057,
+      22.826
+     ],
+     "depth": 0.8493,
+     "body": [
+      18.193,
+      19.616
+     ],
+     "y": 177,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      13,
+      10,
+      114,
+      120
+     ],
+     "inkCoveragePct": 34.88
+    },
+    {
+     "key": "companion:watcher",
+     "src": "assets/characters/companions/watcher.png",
+     "nativeSize": 40.258,
+     "owner": [
+      188.853,
+      338.233,
+      24.661,
+      24.661
+     ],
+     "sprite": [
+      188.853,
+      338.48,
+      24.661,
+      24.414
+     ],
+     "depth": 0.8753,
+     "body": [
+      7.129,
+      20.218
+     ],
+     "y": 214,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      45,
+      11,
+      82,
+      117
+     ],
+     "inkCoveragePct": 12.87
+    },
+    {
+     "key": "companion:rabbit_friend",
+     "src": "assets/characters/companions/rabbit_friend.png",
+     "nativeSize": 42.0346,
+     "owner": [
+      303.697,
+      433.636,
+      27.318,
+      27.318
+     ],
+     "sprite": [
+      303.697,
+      433.909,
+      27.318,
+      27.045
+     ],
+     "depth": 0.9285,
+     "body": [
+      17.074,
+      22.819
+     ],
+     "y": 290,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      24,
+      12,
+      104,
+      120
+     ],
+     "inkCoveragePct": 29.47
+    },
+    {
+     "key": "companion:squirrel",
+     "src": "assets/characters/companions/squirrel.png",
+     "nativeSize": 41.404,
+     "owner": [
+      133.522,
+      526.469,
+      28.371,
+      28.371
+     ],
+     "sprite": [
+      133.522,
+      526.753,
+      28.371,
+      28.087
+     ],
+     "depth": 0.9792,
+     "body": [
+      21.278,
+      23.698
+     ],
+     "y": 361,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      16,
+      12,
+      112,
+      120
+     ],
+     "inkCoveragePct": 44.57
+    },
+    {
+     "key": "companion:otter",
+     "src": "assets/characters/companions/otter.png",
+     "nativeSize": 40.6512,
+     "owner": [
+      298.686,
+      536.537,
+      28.006,
+      28.006
+     ],
+     "sprite": [
+      298.686,
+      536.817,
+      28.006,
+      27.726
+     ],
+     "depth": 0.9845,
+     "body": [
+      24.068,
+      22.961
+     ],
+     "y": 369,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      9,
+      14,
+      119,
+      120
+     ],
+     "inkCoveragePct": 33.0
+    },
+    {
+     "key": "companion:panda",
+     "src": "assets/characters/companions/panda.png",
+     "nativeSize": 40.6512,
+     "owner": [
+      135.529,
+      423.882,
+      26.249,
+      26.249
+     ],
+     "sprite": [
+      135.529,
+      424.145,
+      26.249,
+      25.986
+     ],
+     "depth": 0.9227,
+     "body": [
+      21.737,
+      22.332
+     ],
+     "y": 281,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      11,
+      10,
+      117,
+      120
+     ],
+     "inkCoveragePct": 48.99
+    },
+    {
+     "key": "companion:parrot",
+     "src": "assets/characters/companions/parrot.png",
+     "nativeSize": 40.7735,
+     "owner": [
+      65.287,
+      320.454,
+      24.712,
+      24.712
+     ],
+     "sprite": [
+      65.094,
+      320.701,
+      24.712,
+      24.465
+     ],
+     "depth": 0.866,
+     "body": [
+      18.727,
+      20.642
+     ],
+     "y": 201,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      15,
+      12,
+      112,
+      120
+     ],
+     "inkCoveragePct": 29.08
+    },
+    {
+     "key": "companion:seal",
+     "src": "assets/characters/companions/seal.png",
+     "nativeSize": 40.0322,
+     "owner": [
+      120.746,
+      381.143,
+      25.193,
+      25.193
+     ],
+     "sprite": [
+      120.746,
+      381.395,
+      25.193,
+      24.941
+     ],
+     "depth": 0.899,
+     "body": [
+      21.65,
+      19.68
+     ],
+     "y": 248,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      9,
+      19,
+      119,
+      120
+     ],
+     "inkCoveragePct": 43.35
+    },
+    {
+     "key": "companion:chicken",
+     "src": "assets/characters/companions/chicken.png",
+     "nativeSize": 40.7735,
+     "owner": [
+      252.214,
+      351.362,
+      25.196,
+      25.196
+     ],
+     "sprite": [
+      252.214,
+      351.613,
+      25.196,
+      24.944
+     ],
+     "depth": 0.883,
+     "body": [
+      19.488,
+      21.046
+     ],
+     "y": 225,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      14,
+      12,
+      113,
+      120
+     ],
+     "inkCoveragePct": 33.7
+    },
+    {
+     "key": "companion:hedgehog",
+     "src": "assets/characters/companions/hedgehog.png",
+     "nativeSize": 43.7924,
+     "owner": [
+      87.013,
+      534.431,
+      30.169,
+      30.169
+     ],
+     "sprite": [
+      87.013,
+      534.732,
+      30.169,
+      29.867
+     ],
+     "depth": 0.9844,
+     "body": [
+      23.334,
+      22.867
+     ],
+     "y": 369,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      14,
+      22,
+      113,
+      120
+     ],
+     "inkCoveragePct": 44.86
+    },
+    {
+     "key": "companion:snail",
+     "src": "assets/characters/companions/snail.png",
+     "nativeSize": 38.7093,
+     "owner": [
+      252.762,
+      471.825,
+      25.602,
+      25.603
+     ],
+     "sprite": [
+      252.762,
+      472.081,
+      25.602,
+      25.346
+     ],
+     "depth": 0.945,
+     "body": [
+      22.402,
+      10.297
+     ],
+     "y": 313,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      8,
+      38,
+      120,
+      90
+     ],
+     "inkCoveragePct": 19.22
+    },
+    {
+     "key": "companion:sekizou",
+     "src": "assets/characters/companions/sekizou.png",
+     "nativeSize": 40.143,
+     "owner": [
+      332.094,
+      464.814,
+      26.552,
+      26.552
+     ],
+     "sprite": [
+      332.094,
+      465.079,
+      26.552,
+      26.286
+     ],
+     "depth": 0.945,
+     "body": [
+      11.409,
+      22.179
+     ],
+     "y": 313,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      36,
+      12,
+      91,
+      120
+     ],
+     "inkCoveragePct": 31.22
+    },
+    {
+     "key": "companion:clock",
+     "src": "assets/characters/companions/clock.png",
+     "nativeSize": 39.5125,
+     "owner": [
+      136.492,
+      269.013,
+      23.155,
+      23.155
+     ],
+     "sprite": [
+      136.492,
+      269.245,
+      23.155,
+      22.923
+     ],
+     "depth": 0.8374,
+     "body": [
+      18.633,
+      19.341
+     ],
+     "y": 161,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      12,
+      12,
+      115,
+      120
+     ],
+     "inkCoveragePct": 38.13
+    },
+    {
+     "key": "companion:many_tail_fox",
+     "src": "assets/characters/companions/many_tail_fox.png",
+     "nativeSize": 38.7941,
+     "owner": [
+      222.461,
+      320.632,
+      23.495,
+      23.495
+     ],
+     "sprite": [
+      222.461,
+      320.867,
+      23.495,
+      23.26
+     ],
+     "depth": 0.8655,
+     "body": [
+      20.191,
+      19.626
+     ],
+     "y": 200,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      9,
+      12,
+      119,
+      120
+     ],
+     "inkCoveragePct": 49.44
+    },
+    {
+     "key": "companion:box",
+     "src": "assets/characters/companions/box.png",
+     "nativeSize": 45.3973,
+     "owner": [
+      321.088,
+      389.061,
+      28.759,
+      28.759
+     ],
+     "sprite": [
+      321.088,
+      389.348,
+      28.759,
+      28.471
+     ],
+     "depth": 0.9051,
+     "body": [
+      21.12,
+      20.686
+     ],
+     "y": 256,
+     "ring": null,
+     "sourcePixels": [
+      128,
+      128
+     ],
+     "sourceBounds": [
+      17,
+      27,
+      111,
+      120
+     ],
+     "inkCoveragePct": 43.11
+    }
+   ],
+   "isolatedRaster": {
+    "pet:dog": [
+     202.0,
+     426.5,
+     229.5,
+     458.5
+    ],
+    "partner:forest_bear": [
+     99.5,
+     244.0,
+     120.0,
+     264.5
+    ],
+    "companion:cat_friend": [
+     168.5,
+     311.0,
+     189.5,
+     329.0
+    ],
+    "companion:tanuki": [
+     280.0,
+     397.0,
+     301.0,
+     419.0
+    ],
+    "companion:owl": [
+     161.0,
+     468.0,
+     178.0,
+     491.0
+    ],
+    "companion:hamster": [
+     293.5,
+     487.0,
+     316.5,
+     510.5
+    ],
+    "companion:monkey": [
+     221.0,
+     380.0,
+     240.5,
+     402.0
+    ],
+    "companion:sheep": [
+     60.5,
+     272.0,
+     81.5,
+     291.5
+    ],
+    "companion:bat": [
+     137.5,
+     334.0,
+     153.0,
+     355.5
+    ],
+    "companion:penguin_friend": [
+     254.0,
+     448.5,
+     276.5,
+     459.0
+    ],
+    "companion:shiba": [
+     121.5,
+     488.5,
+     144.5,
+     509.5
+    ],
+    "companion:punyu": [
+     253.5,
+     520.5,
+     277.0,
+     538.5
+    ],
+    "companion:chameleon": [
+     176.0,
+     545.0,
+     200.0,
+     565.0
+    ],
+    "companion:unicorn": [
+     100.0,
+     293.0,
+     119.0,
+     313.0
+    ],
+    "companion:watcher": [
+     197.5,
+     341.0,
+     205.0,
+     360.5
+    ],
+    "companion:rabbit_friend": [
+     308.5,
+     437.0,
+     326.0,
+     460.5
+    ],
+    "companion:squirrel": [
+     137.0,
+     529.5,
+     158.5,
+     553.0
+    ],
+    "companion:otter": [
+     300.5,
+     540.5,
+     325.0,
+     564.0
+    ],
+    "companion:panda": [
+     137.5,
+     426.0,
+     160.0,
+     449.0
+    ],
+    "companion:parrot": [
+     68.0,
+     323.5,
+     87.0,
+     344.5
+    ],
+    "companion:seal": [
+     122.5,
+     385.5,
+     145.0,
+     405.5
+    ],
+    "companion:chicken": [
+     254.5,
+     354.0,
+     274.5,
+     376.0
+    ],
+    "companion:hedgehog": [
+     90.5,
+     540.0,
+     114.0,
+     563.5
+    ],
+    "companion:snail": [
+     254.0,
+     479.5,
+     277.0,
+     490.5
+    ],
+    "companion:sekizou": [
+     339.5,
+     467.5,
+     351.0,
+     490.0
+    ],
+    "companion:clock": [
+     138.0,
+     271.0,
+     157.5,
+     291.5
+    ],
+    "companion:many_tail_fox": [
+     224.0,
+     324.0,
+     244.5,
+     344.0
+    ],
+    "companion:box": [
+     324.5,
+     395.5,
+     346.0,
+     416.5
+    ],
+    "hero+item": [
+     202.0,
+     418.0,
+     230.5,
+     458.5
+    ],
+    "partner+ring": [
+     99.5,
+     244.0,
+     120.0,
+     274.5
+    ]
+   },
+   "afterToggle": {
+    "rolePercents": [
+     "110",
+     "v1"
+    ],
+    "stage": "river_lake",
+    "bodyScale": 0.7,
+    "scaleX": 0.9794530951083196,
+    "scaleY": 1.3233465306389582,
+    "overview": {
+     "text": "いつもの表示",
+     "visible": true,
+     "pressed": "true"
+    },
+    "gear": [
+     219.434,
+     419.701,
+     10.525,
+     10.525
+    ],
+    "rows": [
+     {
+      "key": "pet:dog",
+      "src": "assets/characters/dog/06.png",
+      "nativeSize": 46.816,
+      "owner": [
+       200.817,
+       426.414,
+       30.407,
+       30.407
+      ],
+      "sprite": [
+       200.817,
+       428.597,
+       30.407,
+       30.103
+      ],
+      "depth": 0.9279,
+      "body": [
+       22.805,
+       26.34
+      ],
+      "y": 289,
+      "ring": null
+     },
+     {
+      "key": "partner:forest_bear",
+      "src": "assets/characters/partners/forest_bear.png",
+      "nativeSize": 35.309,
+      "owner": [
+       98.992,
+       241.639,
+       20.34,
+       20.34
+      ],
+      "sprite": [
+       98.992,
+       241.842,
+       20.34,
+       20.137
+      ],
+      "depth": 0.8232,
+      "body": [
+       16.685,
+       16.991
+      ],
+      "y": 141,
+      "ring": [
+       110.214,
+       261.073,
+       8.72,
+       8.72
+      ]
+     },
+     {
+      "key": "companion:cat_friend",
+      "src": "assets/characters/companions/cat_friend.png",
+      "nativeSize": 35.309,
+      "owner": [
+       168.619,
+       304.791,
+       21.184,
+       21.184
+      ],
+      "sprite": [
+       168.619,
+       305.003,
+       21.184,
+       20.972
+      ],
+      "depth": 0.8574,
+      "body": [
+       17.874,
+       14.418
+      ],
+      "y": 189,
+      "ring": null
+     },
+     {
+      "key": "companion:tanuki",
+      "src": "assets/characters/companions/tanuki.png",
+      "nativeSize": 35.4356,
+      "owner": [
+       280.163,
+       395.956,
+       22.482,
+       22.482
+      ],
+      "sprite": [
+       280.163,
+       396.181,
+       22.482,
+       22.257
+      ],
+      "depth": 0.9067,
+      "body": [
+       17.213,
+       18.432
+      ],
+      "y": 259,
+      "ring": null
+     },
+     {
+      "key": "companion:owl",
+      "src": "assets/characters/companions/owl.png",
+      "nativeSize": 35.4356,
+      "owner": [
+       157.039,
+       467.374,
+       23.439,
+       23.439
+      ],
+      "sprite": [
+       157.039,
+       467.608,
+       23.439,
+       23.204
+      ],
+      "depth": 0.9453,
+      "body": [
+       13.917,
+       19.216
+      ],
+      "y": 313,
+      "ring": null
+     },
+     {
+      "key": "companion:hamster",
+      "src": "assets/characters/companions/hamster.png",
+      "nativeSize": 37.9412,
+      "owner": [
+       292.846,
+       485.606,
+       25.388,
+       25.388
+      ],
+      "sprite": [
+       292.846,
+       485.859,
+       25.388,
+       25.134
+      ],
+      "depth": 0.956,
+      "body": [
+       18.843,
+       19.44
+      ],
+      "y": 328,
+      "ring": null
+     },
+     {
+      "key": "companion:monkey",
+      "src": "assets/characters/companions/monkey.png",
+      "nativeSize": 34.5699,
+      "owner": [
+       220.423,
+       378.011,
+       21.695,
+       21.695
+      ],
+      "sprite": [
+       220.423,
+       378.228,
+       21.695,
+       21.478
+      ],
+      "depth": 0.8967,
+      "body": [
+       16.102,
+       17.954
+      ],
+      "y": 245,
+      "ring": null
+     },
+     {
+      "key": "companion:sheep",
+      "src": "assets/characters/companions/sheep.png",
+      "nativeSize": 34.2498,
+      "owner": [
+       60.257,
+       267.785,
+       20.059,
+       20.059
+      ],
+      "sprite": [
+       60.257,
+       267.986,
+       20.059,
+       19.859
+      ],
+      "depth": 0.8371,
+      "body": [
+       16.925,
+       15.67
+      ],
+      "y": 160,
+      "ring": null
+     },
+     {
+      "key": "companion:bat",
+      "src": "assets/characters/companions/bat.png",
+      "nativeSize": 34.896,
+      "owner": [
+       134.671,
+       331.943,
+       21.289,
+       21.289
+      ],
+      "sprite": [
+       134.671,
+       332.156,
+       21.289,
+       21.076
+      ],
+      "depth": 0.8717,
+      "body": [
+       12.807,
+       17.454
+      ],
+      "y": 209,
+      "ring": null
+     },
+     {
+      "key": "companion:penguin_friend",
+      "src": "assets/characters/companions/penguin_friend.png",
+      "nativeSize": 33.107,
+      "owner": [
+       255.245,
+       436.899,
+       21.499,
+       21.499
+      ],
+      "sprite": [
+       255.245,
+       437.114,
+       21.499,
+       21.284
+      ],
+      "depth": 0.9281,
+      "body": [
+       18.476,
+       8.48
+      ],
+      "y": 289,
+      "ring": null
+     },
+     {
+      "key": "companion:shiba",
+      "src": "assets/characters/companions/shiba.png",
+      "nativeSize": 33.7201,
+      "owner": [
+       121.5,
+       487.136,
+       22.55,
+       22.55
+      ],
+      "sprite": [
+       121.5,
+       487.361,
+       22.55,
+       22.325
+      ],
+      "depth": 0.9554,
+      "body": [
+       19.027,
+       17.267
+      ],
+      "y": 328,
+      "ring": null
+     },
+     {
+      "key": "companion:punyu",
+      "src": "assets/characters/companions/punyu.png",
+      "nativeSize": 33.7201,
+      "owner": [
+       254.525,
+       515.477,
+       22.912,
+       22.911
+      ],
+      "sprite": [
+       254.525,
+       515.706,
+       22.912,
+       22.682
+      ],
+      "depth": 0.9707,
+      "body": [
+       19.332,
+       14.531
+      ],
+      "y": 349,
+      "ring": null
+     },
+     {
+      "key": "companion:chameleon",
+      "src": "assets/characters/companions/chameleon.png",
+      "nativeSize": 32.587,
+      "owner": [
+       176.189,
+       543.222,
+       22.469,
+       22.469
+      ],
+      "sprite": [
+       176.189,
+       543.447,
+       22.469,
+       22.245
+      ],
+      "depth": 0.9853,
+      "body": [
+       19.309,
+       15.989
+      ],
+      "y": 370,
+      "ring": null
+     },
+     {
+      "key": "companion:unicorn",
+      "src": "assets/characters/companions/unicorn.png",
+      "nativeSize": 32.587,
+      "owner": [
+       99.343,
+       291.432,
+       19.369,
+       19.369
+      ],
+      "sprite": [
+       99.343,
+       291.626,
+       19.369,
+       19.175
+      ],
+      "depth": 0.8493,
+      "body": [
+       15.283,
+       16.479
+      ],
+      "y": 177,
+      "ring": null
+     },
+     {
+      "key": "companion:watcher",
+      "src": "assets/characters/companions/watcher.png",
+      "nativeSize": 33.8167,
+      "owner": [
+       190.841,
+       339.256,
+       20.717,
+       20.717
+      ],
+      "sprite": [
+       190.841,
+       339.464,
+       20.717,
+       20.509
+      ],
+      "depth": 0.8753,
+      "body": [
+       5.989,
+       16.984
+      ],
+      "y": 214,
+      "ring": null
+     },
+     {
+      "key": "companion:rabbit_friend",
+      "src": "assets/characters/companions/rabbit_friend.png",
+      "nativeSize": 35.309,
+      "owner": [
+       306.613,
+       436.382,
+       22.941,
+       22.941
+      ],
+      "sprite": [
+       306.613,
+       436.611,
+       22.941,
+       22.712
+      ],
+      "depth": 0.9285,
+      "body": [
+       14.338,
+       19.163
+      ],
+      "y": 290,
+      "ring": null
+     },
+     {
+      "key": "companion:squirrel",
+      "src": "assets/characters/companions/squirrel.png",
+      "nativeSize": 34.7794,
+      "owner": [
+       135.51,
+       530.524,
+       23.83,
+       23.83
+      ],
+      "sprite": [
+       135.51,
+       530.762,
+       23.83,
+       23.591
+      ],
+      "depth": 0.9792,
+      "body": [
+       17.872,
+       19.905
+      ],
+      "y": 361,
+      "ring": null
+     },
+     {
+      "key": "companion:otter",
+      "src": "assets/characters/companions/otter.png",
+      "nativeSize": 34.147,
+      "owner": [
+       301.631,
+       540.661,
+       23.527,
+       23.527
+      ],
+      "sprite": [
+       301.631,
+       540.897,
+       23.527,
+       23.292
+      ],
+      "depth": 0.9845,
+      "body": [
+       20.219,
+       19.289
+      ],
+      "y": 369,
+      "ring": null
+     },
+     {
+      "key": "companion:panda",
+      "src": "assets/characters/companions/panda.png",
+      "nativeSize": 34.147,
+      "owner": [
+       137.351,
+       426.32,
+       22.051,
+       22.051
+      ],
+      "sprite": [
+       137.351,
+       426.54,
+       22.051,
+       21.83
+      ],
+      "depth": 0.9227,
+      "body": [
+       18.261,
+       18.76
+      ],
+      "y": 281,
+      "ring": null
+     },
+     {
+      "key": "companion:parrot",
+      "src": "assets/characters/companions/parrot.png",
+      "nativeSize": 34.2498,
+      "owner": [
+       66.545,
+       321.351,
+       20.753,
+       20.753
+      ],
+      "sprite": [
+       66.383,
+       321.559,
+       20.753,
+       20.545
+      ],
+      "depth": 0.866,
+      "body": [
+       15.727,
+       17.335
+      ],
+      "y": 201,
+      "ring": null
+     },
+     {
+      "key": "companion:seal",
+      "src": "assets/characters/companions/seal.png",
+      "nativeSize": 33.627,
+      "owner": [
+       122.394,
+       382.875,
+       21.161,
+       21.161
+      ],
+      "sprite": [
+       122.394,
+       383.087,
+       21.161,
+       20.95
+      ],
+      "depth": 0.899,
+      "body": [
+       18.185,
+       16.531
+      ],
+      "y": 248,
+      "ring": null
+     },
+     {
+      "key": "companion:chicken",
+      "src": "assets/characters/companions/chicken.png",
+      "nativeSize": 34.2498,
+      "owner": [
+       254.641,
+       352.742,
+       21.159,
+       21.159
+      ],
+      "sprite": [
+       254.641,
+       352.954,
+       21.159,
+       20.948
+      ],
+      "depth": 0.883,
+      "body": [
+       16.365,
+       17.675
+      ],
+      "y": 225,
+      "ring": null
+     },
+     {
+      "key": "companion:hedgehog",
+      "src": "assets/characters/companions/hedgehog.png",
+      "nativeSize": 36.7856,
+      "owner": [
+       88.86,
+       538.876,
+       25.345,
+       25.346
+      ],
+      "sprite": [
+       88.86,
+       539.129,
+       25.345,
+       25.092
+      ],
+      "depth": 0.9844,
+      "body": [
+       19.603,
+       19.211
+      ],
+      "y": 369,
+      "ring": null
+     },
+     {
+      "key": "companion:snail",
+      "src": "assets/characters/companions/snail.png",
+      "nativeSize": 32.5158,
+      "owner": [
+       255.232,
+       473.711,
+       21.509,
+       21.509
+      ],
+      "sprite": [
+       255.232,
+       473.926,
+       21.509,
+       21.294
+      ],
+      "depth": 0.945,
+      "body": [
+       18.82,
+       8.651
+      ],
+      "y": 313,
+      "ring": null
+     },
+     {
+      "key": "companion:sekizou",
+      "src": "assets/characters/companions/sekizou.png",
+      "nativeSize": 33.7201,
+      "owner": [
+       335.114,
+       467.828,
+       22.304,
+       22.304
+      ],
+      "sprite": [
+       335.114,
+       468.051,
+       22.304,
+       22.081
+      ],
+      "depth": 0.945,
+      "body": [
+       9.584,
+       18.631
+      ],
+      "y": 313,
+      "ring": null
+     },
+     {
+      "key": "companion:clock",
+      "src": "assets/characters/companions/clock.png",
+      "nativeSize": 33.1905,
+      "owner": [
+       138.038,
+       269.02,
+       19.454,
+       19.454
+      ],
+      "sprite": [
+       138.038,
+       269.215,
+       19.454,
+       19.26
+      ],
+      "depth": 0.8374,
+      "body": [
+       15.654,
+       16.251
+      ],
+      "y": 161,
+      "ring": null
+     },
+     {
+      "key": "companion:many_tail_fox",
+      "src": "assets/characters/companions/many_tail_fox.png",
+      "nativeSize": 32.587,
+      "owner": [
+       224.583,
+       321.335,
+       19.737,
+       19.737
+      ],
+      "sprite": [
+       224.583,
+       321.533,
+       19.737,
+       19.54
+      ],
+      "depth": 0.8655,
+      "body": [
+       16.961,
+       16.487
+      ],
+      "y": 200,
+      "ring": null
+     },
+     {
+      "key": "companion:box",
+      "src": "assets/characters/companions/box.png",
+      "nativeSize": 38.1338,
+      "owner": [
+       324.24,
+       391.445,
+       24.156,
+       24.156
+      ],
+      "sprite": [
+       324.24,
+       391.687,
+       24.156,
+       23.914
+      ],
+      "depth": 0.9051,
+      "body": [
+       17.74,
+       17.375
+      ],
+      "y": 256,
+      "ring": null
+     }
+    ]
+   },
+   "afterReturn": {
+    "text": "みんなを見る",
+    "visible": true,
+    "pressed": "false"
+   }
+  }
+ },
+ "regions": {
+  "forest": {
+   "rolePercents": [
+    "110",
+    "v1"
+   ],
+   "stage": "forest",
+   "bodyScale": 0.7,
+   "scaleX": 1.3697220060064486,
+   "scaleY": 1.3101470445824122,
+   "overview": {
+    "text": "みんなを見る",
+    "visible": true,
+    "pressed": null
+   },
+   "gear": [
+    190.299,
+    407.235,
+    12.287,
+    12.287
+   ],
+   "rows": [
+    {
+     "key": "pet:dog",
+     "src": "assets/characters/dog/06.png",
+     "nativeSize": 55.7333,
+     "owner": [
+      168.581,
+      415.093,
+      35.506,
+      35.506
+     ],
+     "sprite": [
+      168.581,
+      417.636,
+      35.506,
+      35.151
+     ],
+     "depth": 0.9103,
+     "body": [
+      26.63,
+      30.757
+     ],
+     "y": 283,
+     "ring": null
+    },
+    {
+     "key": "partner:forest_bear",
+     "src": "assets/characters/partners/forest_bear.png",
+     "nativeSize": 42.0346,
+     "owner": [
+      285.392,
+      212.941,
+      22.728,
+      22.728
+     ],
+     "sprite": [
+      285.392,
+      213.169,
+      22.728,
+      22.501
+     ],
+     "depth": 0.7725,
+     "body": [
+      18.644,
+      18.985
+     ],
+     "y": 118,
+     "ring": [
+      297.931,
+      234.656,
+      9.733,
+      9.733
+     ]
+    },
+    {
+     "key": "companion:cat_friend",
+     "src": "assets/characters/companions/cat_friend.png",
+     "nativeSize": 42.0346,
+     "owner": [
+      206.629,
+      234.726,
+      23.144,
+      23.144
+     ],
+     "sprite": [
+      206.629,
+      234.958,
+      23.144,
+      22.912
+     ],
+     "depth": 0.7866,
+     "body": [
+      19.528,
+      15.752
+     ],
+     "y": 135,
+     "ring": null
+    },
+    {
+     "key": "companion:tanuki",
+     "src": "assets/characters/companions/tanuki.png",
+     "nativeSize": 42.1853,
+     "owner": [
+      161.726,
+      310.675,
+      24.677,
+      24.677
+     ],
+     "sprite": [
+      161.726,
+      310.922,
+      24.677,
+      24.43
+     ],
+     "depth": 0.8359,
+     "body": [
+      18.893,
+      20.231
+     ],
+     "y": 194,
+     "ring": null
+    },
+    {
+     "key": "companion:owl",
+     "src": "assets/characters/companions/owl.png",
+     "nativeSize": 42.1853,
+     "owner": [
+      119.739,
+      451.677,
+      27.377,
+      27.377
+     ],
+     "sprite": [
+      119.739,
+      451.951,
+      27.377,
+      27.103
+     ],
+     "depth": 0.9274,
+     "body": [
+      16.255,
+      22.445
+     ],
+     "y": 304,
+     "ring": null
+    },
+    {
+     "key": "companion:hamster",
+     "src": "assets/characters/companions/hamster.png",
+     "nativeSize": 45.1681,
+     "owner": [
+      211.926,
+      526.759,
+      30.893,
+      30.893
+     ],
+     "sprite": [
+      211.926,
+      527.068,
+      30.893,
+      30.584
+     ],
+     "depth": 0.9773,
+     "body": [
+      22.928,
+      23.655
+     ],
+     "y": 364,
+     "ring": null
+    },
+    {
+     "key": "companion:monkey",
+     "src": "assets/characters/companions/monkey.png",
+     "nativeSize": 41.1546,
+     "owner": [
+      125.865,
+      384.842,
+      25.448,
+      25.448
+     ],
+     "sprite": [
+      125.865,
+      385.096,
+      25.448,
+      25.193
+     ],
+     "depth": 0.8836,
+     "body": [
+      18.887,
+      21.06
+     ],
+     "y": 251,
+     "ring": null
+    },
+    {
+     "key": "companion:sheep",
+     "src": "assets/characters/companions/sheep.png",
+     "nativeSize": 40.7735,
+     "owner": [
+      249.353,
+      174.996,
+      21.33,
+      21.33
+     ],
+     "sprite": [
+      249.353,
+      175.209,
+      21.33,
+      21.117
+     ],
+     "depth": 0.7475,
+     "body": [
+      17.997,
+      16.663
+     ],
+     "y": 88,
+     "ring": null
+    },
+    {
+     "key": "companion:bat",
+     "src": "assets/characters/companions/bat.png",
+     "nativeSize": 41.5428,
+     "owner": [
+      162.027,
+      262.9,
+      23.385,
+      23.385
+     ],
+     "sprite": [
+      162.027,
+      263.133,
+      23.385,
+      23.151
+     ],
+     "depth": 0.8044,
+     "body": [
+      14.068,
+      19.172
+     ],
+     "y": 156,
+     "ring": null
+    },
+    {
+     "key": "companion:penguin_friend",
+     "src": "assets/characters/companions/penguin_friend.png",
+     "nativeSize": 39.4131,
+     "owner": [
+      116.942,
+      344.795,
+      23.641,
+      23.641
+     ],
+     "sprite": [
+      116.942,
+      345.031,
+      23.641,
+      23.405
+     ],
+     "depth": 0.857,
+     "body": [
+      20.316,
+      9.325
+     ],
+     "y": 219,
+     "ring": null
+    },
+    {
+     "key": "companion:shiba",
+     "src": "assets/characters/companions/shiba.png",
+     "nativeSize": 40.143,
+     "owner": [
+      71.696,
+      476.358,
+      26.485,
+      26.485
+     ],
+     "sprite": [
+      71.696,
+      476.623,
+      26.485,
+      26.22
+     ],
+     "depth": 0.9426,
+     "body": [
+      22.347,
+      20.28
+     ],
+     "y": 322,
+     "ring": null
+    },
+    {
+     "key": "companion:punyu",
+     "src": "assets/characters/companions/punyu.png",
+     "nativeSize": 40.143,
+     "owner": [
+      159.196,
+      494.073,
+      26.808,
+      26.807
+     ],
+     "sprite": [
+      159.196,
+      494.341,
+      26.808,
+      26.539
+     ],
+     "depth": 0.9541,
+     "body": [
+      22.619,
+      17.002
+     ],
+     "y": 336,
+     "ring": null
+    },
+    {
+     "key": "companion:chameleon",
+     "src": "assets/characters/companions/chameleon.png",
+     "nativeSize": 38.7941,
+     "owner": [
+      182.447,
+      372.365,
+      23.745,
+      23.745
+     ],
+     "sprite": [
+      182.447,
+      372.603,
+      23.745,
+      23.507
+     ],
+     "depth": 0.8747,
+     "body": [
+      20.406,
+      16.896
+     ],
+     "y": 241,
+     "ring": null
+    },
+    {
+     "key": "companion:unicorn",
+     "src": "assets/characters/companions/unicorn.png",
+     "nativeSize": 38.7941,
+     "owner": [
+      71.927,
+      375.324,
+      23.797,
+      23.797
+     ],
+     "sprite": [
+      71.927,
+      375.562,
+      23.797,
+      23.559
+     ],
+     "depth": 0.8766,
+     "body": [
+      18.777,
+      20.246
+     ],
+     "y": 243,
+     "ring": null
+    },
+    {
+     "key": "companion:watcher",
+     "src": "assets/characters/companions/watcher.png",
+     "nativeSize": 40.258,
+     "owner": [
+      204.133,
+      281.229,
+      22.986,
+      22.986
+     ],
+     "sprite": [
+      204.133,
+      281.458,
+      22.986,
+      22.756
+     ],
+     "depth": 0.8158,
+     "body": [
+      6.644,
+      18.845
+     ],
+     "y": 170,
+     "ring": null
+    },
+    {
+     "key": "companion:rabbit_friend",
+     "src": "assets/characters/companions/rabbit_friend.png",
+     "nativeSize": 42.0346,
+     "owner": [
+      46.907,
+      415.782,
+      26.599,
+      26.599
+     ],
+     "sprite": [
+      46.907,
+      416.048,
+      26.599,
+      26.333
+     ],
+     "depth": 0.9041,
+     "body": [
+      16.624,
+      22.218
+     ],
+     "y": 276,
+     "ring": null
+    },
+    {
+     "key": "companion:squirrel",
+     "src": "assets/characters/companions/squirrel.png",
+     "nativeSize": 41.404,
+     "owner": [
+      113.571,
+      529.188,
+      28.317,
+      28.317
+     ],
+     "sprite": [
+      113.571,
+      529.472,
+      28.317,
+      28.033
+     ],
+     "depth": 0.9773,
+     "body": [
+      21.238,
+      23.653
+     ],
+     "y": 364,
+     "ring": null
+    },
+    {
+     "key": "companion:otter",
+     "src": "assets/characters/companions/otter.png",
+     "nativeSize": 40.6512,
+     "owner": [
+      50.401,
+      538.157,
+      27.96,
+      27.96
+     ],
+     "sprite": [
+      50.401,
+      538.437,
+      27.96,
+      27.681
+     ],
+     "depth": 0.9828,
+     "body": [
+      24.028,
+      22.923
+     ],
+     "y": 370,
+     "ring": null
+    },
+    {
+     "key": "companion:panda",
+     "src": "assets/characters/companions/panda.png",
+     "nativeSize": 40.6512,
+     "owner": [
+      269.118,
+      538.158,
+      27.96,
+      27.96
+     ],
+     "sprite": [
+      269.118,
+      538.438,
+      27.96,
+      27.681
+     ],
+     "depth": 0.9828,
+     "body": [
+      23.154,
+      23.788
+     ],
+     "y": 370,
+     "ring": null
+    },
+    {
+     "key": "companion:parrot",
+     "src": "assets/characters/companions/parrot.png",
+     "nativeSize": 40.7735,
+     "owner": [
+      304.467,
+      172.13,
+      21.277,
+      21.277
+     ],
+     "sprite": [
+      304.3,
+      172.343,
+      21.277,
+      21.064
+     ],
+     "depth": 0.7456,
+     "body": [
+      16.124,
+      17.773
+     ],
+     "y": 86,
+     "ring": null
+    },
+    {
+     "key": "companion:seal",
+     "src": "assets/characters/companions/seal.png",
+     "nativeSize": 40.0322,
+     "owner": [
+      107.333,
+      305.029,
+      23.301,
+      23.301
+     ],
+     "sprite": [
+      107.333,
+      305.262,
+      23.301,
+      23.068
+     ],
+     "depth": 0.8315,
+     "body": [
+      20.024,
+      18.202
+     ],
+     "y": 189,
+     "ring": null
+    },
+    {
+     "key": "companion:chicken",
+     "src": "assets/characters/companions/chicken.png",
+     "nativeSize": 40.7735,
+     "owner": [
+      158.859,
+      538.079,
+      28.046,
+      28.046
+     ],
+     "sprite": [
+      158.859,
+      538.359,
+      28.046,
+      27.766
+     ],
+     "depth": 0.9828,
+     "body": [
+      21.692,
+      23.428
+     ],
+     "y": 370,
+     "ring": null
+    },
+    {
+     "key": "companion:hedgehog",
+     "src": "assets/characters/companions/hedgehog.png",
+     "nativeSize": 43.7924,
+     "owner": [
+      204.554,
+      324.546,
+      25.912,
+      25.912
+     ],
+     "sprite": [
+      204.554,
+      324.806,
+      25.912,
+      25.653
+     ],
+     "depth": 0.8455,
+     "body": [
+      20.041,
+      19.641
+     ],
+     "y": 206,
+     "ring": null
+    },
+    {
+     "key": "companion:snail",
+     "src": "assets/characters/companions/snail.png",
+     "nativeSize": 38.7093,
+     "owner": [
+      217.995,
+      209.748,
+      20.757,
+      20.757
+     ],
+     "sprite": [
+      217.995,
+      209.956,
+      20.757,
+      20.55
+     ],
+     "depth": 0.7662,
+     "body": [
+      18.162,
+      8.348
+     ],
+     "y": 111,
+     "ring": null
+    },
+    {
+     "key": "companion:sekizou",
+     "src": "assets/characters/companions/sekizou.png",
+     "nativeSize": 40.143,
+     "owner": [
+      89.504,
+      419.485,
+      25.45,
+      25.45
+     ],
+     "sprite": [
+      89.504,
+      419.739,
+      25.45,
+      25.195
+     ],
+     "depth": 0.9057,
+     "body": [
+      10.936,
+      21.258
+     ],
+     "y": 278,
+     "ring": null
+    },
+    {
+     "key": "companion:clock",
+     "src": "assets/characters/companions/clock.png",
+     "nativeSize": 39.5125,
+     "owner": [
+      39.654,
+      450.521,
+      25.592,
+      25.592
+     ],
+     "sprite": [
+      39.654,
+      450.777,
+      25.592,
+      25.337
+     ],
+     "depth": 0.9256,
+     "body": [
+      20.594,
+      21.378
+     ],
+     "y": 302,
+     "ring": null
+    },
+    {
+     "key": "companion:many_tail_fox",
+     "src": "assets/characters/companions/many_tail_fox.png",
+     "nativeSize": 38.7941,
+     "owner": [
+      327.383,
+      203.176,
+      20.77,
+      20.77
+     ],
+     "sprite": [
+      327.383,
+      203.384,
+      20.77,
+      20.563
+     ],
+     "depth": 0.7651,
+     "body": [
+      17.849,
+      17.35
+     ],
+     "y": 109,
+     "ring": null
+    },
+    {
+     "key": "companion:box",
+     "src": "assets/characters/companions/box.png",
+     "nativeSize": 45.3973,
+     "owner": [
+      248.579,
+      230.856,
+      24.949,
+      24.949
+     ],
+     "sprite": [
+      248.579,
+      231.106,
+      24.949,
+      24.7
+     ],
+     "depth": 0.7852,
+     "body": [
+      18.322,
+      17.946
+     ],
+     "y": 133,
+     "ring": null
+    }
+   ]
+  },
+  "city": {
+   "rolePercents": [
+    "110",
+    "v1"
+   ],
+   "stage": "city",
+   "bodyScale": 0.7,
+   "scaleX": 0.9691080719315254,
+   "scaleY": 1.6815865387289861,
+   "overview": {
+    "text": "みんなを見る",
+    "visible": true,
+    "pressed": null
+   },
+   "gear": [
+    248.763,
+    410.278,
+    12.492,
+    12.492
+   ],
+   "rows": [
+    {
+     "key": "pet:dog",
+     "src": "assets/characters/dog/06.png",
+     "nativeSize": 55.7333,
+     "owner": [
+      226.677,
+      418.268,
+      36.101,
+      36.101
+     ],
+     "sprite": [
+      226.677,
+      420.854,
+      36.101,
+      35.74
+     ],
+     "depth": 0.9256,
+     "body": [
+      27.076,
+      31.273
+     ],
+     "y": 305,
+     "ring": null
+    },
+    {
+     "key": "partner:forest_bear",
+     "src": "assets/characters/partners/forest_bear.png",
+     "nativeSize": 42.0346,
+     "owner": [
+      165.372,
+      192.044,
+      23.592,
+      23.592
+     ],
+     "sprite": [
+      165.372,
+      192.28,
+      23.592,
+      23.356
+     ],
+     "depth": 0.8019,
+     "body": [
+      19.353,
+      19.707
+     ],
+     "y": 162,
+     "ring": [
+      178.388,
+      214.584,
+      10.103,
+      10.103
+     ]
+    },
+    {
+     "key": "companion:cat_friend",
+     "src": "assets/characters/companions/cat_friend.png",
+     "nativeSize": 42.0346,
+     "owner": [
+      98.808,
+      263.267,
+      24.687,
+      24.687
+     ],
+     "sprite": [
+      98.808,
+      263.514,
+      24.687,
+      24.44
+     ],
+     "depth": 0.8391,
+     "body": [
+      20.83,
+      16.803
+     ],
+     "y": 205,
+     "ring": null
+    },
+    {
+     "key": "companion:tanuki",
+     "src": "assets/characters/companions/tanuki.png",
+     "nativeSize": 42.1853,
+     "owner": [
+      230.532,
+      272.088,
+      24.907,
+      24.907
+     ],
+     "sprite": [
+      230.532,
+      272.337,
+      24.907,
+      24.658
+     ],
+     "depth": 0.8437,
+     "body": [
+      19.069,
+      20.42
+     ],
+     "y": 210,
+     "ring": null
+    },
+    {
+     "key": "companion:owl",
+     "src": "assets/characters/companions/owl.png",
+     "nativeSize": 42.1853,
+     "owner": [
+      241.906,
+      520.257,
+      28.735,
+      28.735
+     ],
+     "sprite": [
+      241.906,
+      520.544,
+      28.735,
+      28.448
+     ],
+     "depth": 0.9734,
+     "body": [
+      17.061,
+      23.558
+     ],
+     "y": 360,
+     "ring": null
+    },
+    {
+     "key": "companion:hamster",
+     "src": "assets/characters/companions/hamster.png",
+     "nativeSize": 45.1681,
+     "owner": [
+      304.405,
+      474.956,
+      30.051,
+      30.051
+     ],
+     "sprite": [
+      304.405,
+      475.256,
+      30.051,
+      29.75
+     ],
+     "depth": 0.9507,
+     "body": [
+      22.303,
+      23.01
+     ],
+     "y": 334,
+     "ring": null
+    },
+    {
+     "key": "companion:monkey",
+     "src": "assets/characters/companions/monkey.png",
+     "nativeSize": 41.1546,
+     "owner": [
+      198.894,
+      374.673,
+      25.832,
+      25.832
+     ],
+     "sprite": [
+      198.894,
+      374.931,
+      25.832,
+      25.574
+     ],
+     "depth": 0.897,
+     "body": [
+      19.172,
+      21.378
+     ],
+     "y": 272,
+     "ring": null
+    },
+    {
+     "key": "companion:sheep",
+     "src": "assets/characters/companions/sheep.png",
+     "nativeSize": 40.7735,
+     "owner": [
+      123.96,
+      214.33,
+      23.204,
+      23.204
+     ],
+     "sprite": [
+      123.96,
+      214.562,
+      23.204,
+      22.972
+     ],
+     "depth": 0.8132,
+     "body": [
+      19.578,
+      18.126
+     ],
+     "y": 175,
+     "ring": null
+    },
+    {
+     "key": "companion:bat",
+     "src": "assets/characters/companions/bat.png",
+     "nativeSize": 41.5428,
+     "owner": [
+      65.591,
+      295.425,
+      24.869,
+      24.869
+     ],
+     "sprite": [
+      65.591,
+      295.674,
+      24.869,
+      24.62
+     ],
+     "depth": 0.8554,
+     "body": [
+      14.96,
+      20.388
+     ],
+     "y": 224,
+     "ring": null
+    },
+    {
+     "key": "companion:penguin_friend",
+     "src": "assets/characters/companions/penguin_friend.png",
+     "nativeSize": 39.4131,
+     "owner": [
+      201.001,
+      311.499,
+      23.819,
+      23.819
+     ],
+     "sprite": [
+      201.001,
+      311.737,
+      23.819,
+      23.581
+     ],
+     "depth": 0.8635,
+     "body": [
+      20.469,
+      9.396
+     ],
+     "y": 233,
+     "ring": null
+    },
+    {
+     "key": "companion:shiba",
+     "src": "assets/characters/companions/shiba.png",
+     "nativeSize": 40.143,
+     "owner": [
+      160.386,
+      532.535,
+      27.512,
+      27.512
+     ],
+     "sprite": [
+      160.386,
+      532.81,
+      27.512,
+      27.237
+     ],
+     "depth": 0.9791,
+     "body": [
+      23.213,
+      21.066
+     ],
+     "y": 367,
+     "ring": null
+    },
+    {
+     "key": "companion:punyu",
+     "src": "assets/characters/companions/punyu.png",
+     "nativeSize": 40.143,
+     "owner": [
+      284.465,
+      529.354,
+      27.465,
+      27.465
+     ],
+     "sprite": [
+      284.465,
+      529.628,
+      27.465,
+      27.191
+     ],
+     "depth": 0.9775,
+     "body": [
+      23.174,
+      17.419
+     ],
+     "y": 365,
+     "ring": null
+    },
+    {
+     "key": "companion:chameleon",
+     "src": "assets/characters/companions/chameleon.png",
+     "nativeSize": 38.7941,
+     "owner": [
+      239.428,
+      358.899,
+      24.108,
+      24.108
+     ],
+     "sprite": [
+      239.428,
+      359.14,
+      24.108,
+      23.867
+     ],
+     "depth": 0.8881,
+     "body": [
+      20.718,
+      17.154
+     ],
+     "y": 261,
+     "ring": null
+    },
+    {
+     "key": "companion:unicorn",
+     "src": "assets/characters/companions/unicorn.png",
+     "nativeSize": 38.7941,
+     "owner": [
+      164.019,
+      256.001,
+      22.65,
+      22.65
+     ],
+     "sprite": [
+      164.019,
+      256.228,
+      22.65,
+      22.423
+     ],
+     "depth": 0.8343,
+     "body": [
+      17.872,
+      19.27
+     ],
+     "y": 199,
+     "ring": null
+    },
+    {
+     "key": "companion:watcher",
+     "src": "assets/characters/companions/watcher.png",
+     "nativeSize": 40.258,
+     "owner": [
+      99.785,
+      322.047,
+      24.483,
+      24.483
+     ],
+     "sprite": [
+      99.785,
+      322.292,
+      24.483,
+      24.238
+     ],
+     "depth": 0.869,
+     "body": [
+      7.077,
+      20.072
+     ],
+     "y": 239,
+     "ring": null
+    },
+    {
+     "key": "companion:rabbit_friend",
+     "src": "assets/characters/companions/rabbit_friend.png",
+     "nativeSize": 42.0346,
+     "owner": [
+      267.282,
+      308.451,
+      25.382,
+      25.382
+     ],
+     "sprite": [
+      267.282,
+      308.705,
+      25.382,
+      25.128
+     ],
+     "depth": 0.8627,
+     "body": [
+      15.864,
+      21.202
+     ],
+     "y": 232,
+     "ring": null
+    },
+    {
+     "key": "companion:squirrel",
+     "src": "assets/characters/companions/squirrel.png",
+     "nativeSize": 41.404,
+     "owner": [
+      167.488,
+      427.897,
+      26.797,
+      26.797
+     ],
+     "sprite": [
+      167.488,
+      428.165,
+      26.797,
+      26.529
+     ],
+     "depth": 0.9249,
+     "body": [
+      20.098,
+      22.384
+     ],
+     "y": 304,
+     "ring": null
+    },
+    {
+     "key": "companion:otter",
+     "src": "assets/characters/companions/otter.png",
+     "nativeSize": 40.6512,
+     "owner": [
+      331.155,
+      533.75,
+      27.878,
+      27.878
+     ],
+     "sprite": [
+      331.155,
+      534.028,
+      27.878,
+      27.599
+     ],
+     "depth": 0.9799,
+     "body": [
+      23.958,
+      22.855
+     ],
+     "y": 368,
+     "ring": null
+    },
+    {
+     "key": "companion:panda",
+     "src": "assets/characters/companions/panda.png",
+     "nativeSize": 40.6512,
+     "owner": [
+      153.65,
+      362.015,
+      25.326,
+      25.326
+     ],
+     "sprite": [
+      153.65,
+      362.268,
+      25.326,
+      25.073
+     ],
+     "depth": 0.8902,
+     "body": [
+      20.973,
+      21.547
+     ],
+     "y": 264,
+     "ring": null
+    },
+    {
+     "key": "companion:parrot",
+     "src": "assets/characters/companions/parrot.png",
+     "nativeSize": 40.7735,
+     "owner": [
+      129.854,
+      308.553,
+      24.608,
+      24.608
+     ],
+     "sprite": [
+      129.662,
+      308.799,
+      24.608,
+      24.362
+     ],
+     "depth": 0.8624,
+     "body": [
+      18.648,
+      20.555
+     ],
+     "y": 232,
+     "ring": null
+    },
+    {
+     "key": "companion:seal",
+     "src": "assets/characters/companions/seal.png",
+     "nativeSize": 40.0322,
+     "owner": [
+      107.409,
+      386.926,
+      25.305,
+      25.305
+     ],
+     "sprite": [
+      107.409,
+      387.179,
+      25.305,
+      25.052
+     ],
+     "depth": 0.9031,
+     "body": [
+      21.746,
+      19.768
+     ],
+     "y": 279,
+     "ring": null
+    },
+    {
+     "key": "companion:chicken",
+     "src": "assets/characters/companions/chicken.png",
+     "nativeSize": 40.7735,
+     "owner": [
+      200.449,
+      228.939,
+      23.422,
+      23.422
+     ],
+     "sprite": [
+      200.449,
+      229.173,
+      23.422,
+      23.187
+     ],
+     "depth": 0.8208,
+     "body": [
+      18.115,
+      19.564
+     ],
+     "y": 184,
+     "ring": null
+    },
+    {
+     "key": "companion:hedgehog",
+     "src": "assets/characters/companions/hedgehog.png",
+     "nativeSize": 43.7924,
+     "owner": [
+      128.847,
+      452.126,
+      28.756,
+      28.756
+     ],
+     "sprite": [
+      128.847,
+      452.414,
+      28.756,
+      28.469
+     ],
+     "depth": 0.9383,
+     "body": [
+      22.241,
+      21.797
+     ],
+     "y": 320,
+     "ring": null
+    },
+    {
+     "key": "companion:snail",
+     "src": "assets/characters/companions/snail.png",
+     "nativeSize": 38.7093,
+     "owner": [
+      285.654,
+      437.292,
+      25.084,
+      25.084
+     ],
+     "sprite": [
+      285.654,
+      437.543,
+      25.084,
+      24.833
+     ],
+     "depth": 0.9259,
+     "body": [
+      21.948,
+      10.088
+     ],
+     "y": 305,
+     "ring": null
+    },
+    {
+     "key": "companion:sekizou",
+     "src": "assets/characters/companions/sekizou.png",
+     "nativeSize": 40.143,
+     "owner": [
+      279.766,
+      374.933,
+      25.2,
+      25.2
+     ],
+     "sprite": [
+      279.766,
+      375.185,
+      25.2,
+      24.948
+     ],
+     "depth": 0.8968,
+     "body": [
+      10.828,
+      21.05
+     ],
+     "y": 272,
+     "ring": null
+    },
+    {
+     "key": "companion:clock",
+     "src": "assets/characters/companions/clock.png",
+     "nativeSize": 39.5125,
+     "owner": [
+      247.535,
+      215.706,
+      22.494,
+      22.494
+     ],
+     "sprite": [
+      247.535,
+      215.931,
+      22.494,
+      22.269
+     ],
+     "depth": 0.8135,
+     "body": [
+      18.101,
+      18.789
+     ],
+     "y": 175,
+     "ring": null
+    },
+    {
+     "key": "companion:many_tail_fox",
+     "src": "assets/characters/companions/many_tail_fox.png",
+     "nativeSize": 38.7941,
+     "owner": [
+      72.929,
+      434.795,
+      25.183,
+      25.183
+     ],
+     "sprite": [
+      72.929,
+      435.047,
+      25.183,
+      24.931
+     ],
+     "depth": 0.9277,
+     "body": [
+      21.642,
+      21.036
+     ],
+     "y": 307,
+     "ring": null
+    },
+    {
+     "key": "companion:box",
+     "src": "assets/characters/companions/box.png",
+     "nativeSize": 45.3973,
+     "owner": [
+      307.566,
+      305.094,
+      27.386,
+      27.386
+     ],
+     "sprite": [
+      307.566,
+      305.368,
+      27.386,
+      27.112
+     ],
+     "depth": 0.8619,
+     "body": [
+      20.112,
+      19.699
+     ],
+     "y": 231,
+     "ring": null
+    }
+   ]
+  },
+  "home": {
+   "rolePercents": [
+    "110",
+    "v1"
+   ],
+   "stage": "home",
+   "bodyScale": 0.7,
+   "scaleX": 0.9549656637522789,
+   "scaleY": 1.1425554070708266,
+   "overview": {
+    "text": "みんなを見る",
+    "visible": true,
+    "pressed": null
+   },
+   "gear": [
+    212.628,
+    390.333,
+    12.507,
+    12.507
+   ],
+   "rows": [
+    {
+     "key": "pet:dog",
+     "src": "assets/characters/dog/06.png",
+     "nativeSize": 55.7333,
+     "owner": [
+      190.516,
+      398.331,
+      36.143,
+      36.143
+     ],
+     "sprite": [
+      190.516,
+      400.92,
+      36.143,
+      35.781
+     ],
+     "depth": 0.9267,
+     "body": [
+      27.107,
+      31.308
+     ],
+     "y": 273,
+     "ring": null
+    },
+    {
+     "key": "partner:forest_bear",
+     "src": "assets/characters/partners/forest_bear.png",
+     "nativeSize": 42.0346,
+     "owner": [
+      170.822,
+      235.166,
+      24.445,
+      24.445
+     ],
+     "sprite": [
+      170.822,
+      235.411,
+      24.445,
+      24.2
+     ],
+     "depth": 0.8308,
+     "body": [
+      20.053,
+      20.419
+     ],
+     "y": 118,
+     "ring": [
+      184.308,
+      258.52,
+      10.468,
+      10.468
+     ]
+    },
+    {
+     "key": "companion:cat_friend",
+     "src": "assets/characters/companions/cat_friend.png",
+     "nativeSize": 42.0346,
+     "owner": [
+      283.582,
+      230.04,
+      24.361,
+      24.361
+     ],
+     "sprite": [
+      283.582,
+      230.284,
+      24.361,
+      24.118
+     ],
+     "depth": 0.828,
+     "body": [
+      20.555,
+      16.581
+     ],
+     "y": 114,
+     "ring": null
+    },
+    {
+     "key": "companion:tanuki",
+     "src": "assets/characters/companions/tanuki.png",
+     "nativeSize": 42.1853,
+     "owner": [
+      139.26,
+      314.554,
+      25.82,
+      25.82
+     ],
+     "sprite": [
+      139.26,
+      314.812,
+      25.82,
+      25.562
+     ],
+     "depth": 0.8747,
+     "body": [
+      19.768,
+      21.169
+     ],
+     "y": 189,
+     "ring": null
+    },
+    {
+     "key": "companion:owl",
+     "src": "assets/characters/companions/owl.png",
+     "nativeSize": 42.1853,
+     "owner": [
+      289.353,
+      356.862,
+      26.509,
+      26.509
+     ],
+     "sprite": [
+      289.353,
+      357.127,
+      26.509,
+      26.244
+     ],
+     "depth": 0.898,
+     "body": [
+      15.74,
+      21.733
+     ],
+     "y": 226,
+     "ring": null
+    },
+    {
+     "key": "companion:hamster",
+     "src": "assets/characters/companions/hamster.png",
+     "nativeSize": 45.1681,
+     "owner": [
+      225.88,
+      481.868,
+      30.598,
+      30.598
+     ],
+     "sprite": [
+      225.88,
+      482.174,
+      30.598,
+      30.292
+     ],
+     "depth": 0.968,
+     "body": [
+      22.709,
+      23.429
+     ],
+     "y": 339,
+     "ring": null
+    },
+    {
+     "key": "companion:monkey",
+     "src": "assets/characters/companions/monkey.png",
+     "nativeSize": 41.1546,
+     "owner": [
+      177.937,
+      361.237,
+      25.921,
+      25.921
+     ],
+     "sprite": [
+      177.937,
+      361.496,
+      25.921,
+      25.662
+     ],
+     "depth": 0.9001,
+     "body": [
+      19.238,
+      21.452
+     ],
+     "y": 230,
+     "ring": null
+    },
+    {
+     "key": "companion:sheep",
+     "src": "assets/characters/companions/sheep.png",
+     "nativeSize": 40.7735,
+     "owner": [
+      134.7,
+      207.174,
+      23.258,
+      23.258
+     ],
+     "sprite": [
+      134.7,
+      207.406,
+      23.258,
+      23.025
+     ],
+     "depth": 0.815,
+     "body": [
+      19.624,
+      18.168
+     ],
+     "y": 93,
+     "ring": null
+    },
+    {
+     "key": "companion:bat",
+     "src": "assets/characters/companions/bat.png",
+     "nativeSize": 41.5428,
+     "owner": [
+      253.037,
+      262.503,
+      24.579,
+      24.579
+     ],
+     "sprite": [
+      253.037,
+      262.749,
+      24.579,
+      24.333
+     ],
+     "depth": 0.8454,
+     "body": [
+      14.786,
+      20.151
+     ],
+     "y": 142,
+     "ring": null
+    },
+    {
+     "key": "companion:penguin_friend",
+     "src": "assets/characters/companions/penguin_friend.png",
+     "nativeSize": 39.4131,
+     "owner": [
+      103.368,
+      334.731,
+      24.409,
+      24.409
+     ],
+     "sprite": [
+      103.368,
+      334.975,
+      24.409,
+      24.165
+     ],
+     "depth": 0.8849,
+     "body": [
+      20.976,
+      9.628
+     ],
+     "y": 205,
+     "ring": null
+    },
+    {
+     "key": "companion:shiba",
+     "src": "assets/characters/companions/shiba.png",
+     "nativeSize": 40.143,
+     "owner": [
+      255.61,
+      378.14,
+      25.543,
+      25.543
+     ],
+     "sprite": [
+      255.61,
+      378.396,
+      25.543,
+      25.288
+     ],
+     "depth": 0.9091,
+     "body": [
+      21.552,
+      19.559
+     ],
+     "y": 244,
+     "ring": null
+    },
+    {
+     "key": "companion:punyu",
+     "src": "assets/characters/companions/punyu.png",
+     "nativeSize": 40.143,
+     "owner": [
+      193.457,
+      510.585,
+      27.595,
+      27.595
+     ],
+     "sprite": [
+      193.457,
+      510.861,
+      27.595,
+      27.319
+     ],
+     "depth": 0.9821,
+     "body": [
+      23.283,
+      17.501
+     ],
+     "y": 362,
+     "ring": null
+    },
+    {
+     "key": "companion:chameleon",
+     "src": "assets/characters/companions/chameleon.png",
+     "nativeSize": 38.7941,
+     "owner": [
+      240.243,
+      422.403,
+      25.328,
+      25.328
+     ],
+     "sprite": [
+      240.243,
+      422.656,
+      25.328,
+      25.075
+     ],
+     "depth": 0.933,
+     "body": [
+      21.766,
+      18.023
+     ],
+     "y": 283,
+     "ring": null
+    },
+    {
+     "key": "companion:unicorn",
+     "src": "assets/characters/companions/unicorn.png",
+     "nativeSize": 38.7941,
+     "owner": [
+      195.194,
+      199.831,
+      21.999,
+      21.999
+     ],
+     "sprite": [
+      195.194,
+      200.051,
+      21.999,
+      21.779
+     ],
+     "depth": 0.8104,
+     "body": [
+      17.359,
+      18.716
+     ],
+     "y": 85,
+     "ring": null
+    },
+    {
+     "key": "companion:watcher",
+     "src": "assets/characters/companions/watcher.png",
+     "nativeSize": 40.258,
+     "owner": [
+      283.789,
+      270.319,
+      23.931,
+      23.931
+     ],
+     "sprite": [
+      283.789,
+      270.558,
+      23.931,
+      23.692
+     ],
+     "depth": 0.8494,
+     "body": [
+      6.918,
+      19.62
+     ],
+     "y": 148,
+     "ring": null
+    },
+    {
+     "key": "companion:rabbit_friend",
+     "src": "assets/characters/companions/rabbit_friend.png",
+     "nativeSize": 42.0346,
+     "owner": [
+      137.842,
+      361.24,
+      26.491,
+      26.491
+     ],
+     "sprite": [
+      137.842,
+      361.505,
+      26.491,
+      26.226
+     ],
+     "depth": 0.9004,
+     "body": [
+      16.557,
+      22.128
+     ],
+     "y": 230,
+     "ring": null
+    },
+    {
+     "key": "companion:squirrel",
+     "src": "assets/characters/companions/squirrel.png",
+     "nativeSize": 41.404,
+     "owner": [
+      299.889,
+      397.381,
+      26.658,
+      26.658
+     ],
+     "sprite": [
+      299.889,
+      397.647,
+      26.658,
+      26.392
+     ],
+     "depth": 0.9201,
+     "body": [
+      19.994,
+      22.268
+     ],
+     "y": 262,
+     "ring": null
+    },
+    {
+     "key": "companion:otter",
+     "src": "assets/characters/companions/otter.png",
+     "nativeSize": 40.6512,
+     "owner": [
+      254.721,
+      518.609,
+      28.069,
+      28.069
+     ],
+     "sprite": [
+      254.721,
+      518.889,
+      28.069,
+      27.789
+     ],
+     "depth": 0.9867,
+     "body": [
+      24.122,
+      23.013
+     ],
+     "y": 369,
+     "ring": null
+    },
+    {
+     "key": "companion:panda",
+     "src": "assets/characters/companions/panda.png",
+     "nativeSize": 40.6512,
+     "owner": [
+      132.903,
+      406.843,
+      26.316,
+      26.316
+     ],
+     "sprite": [
+      132.903,
+      407.106,
+      26.316,
+      26.053
+     ],
+     "depth": 0.9251,
+     "body": [
+      21.793,
+      22.389
+     ],
+     "y": 270,
+     "ring": null
+    },
+    {
+     "key": "companion:parrot",
+     "src": "assets/characters/companions/parrot.png",
+     "nativeSize": 40.7735,
+     "owner": [
+      133.186,
+      253.354,
+      23.984,
+      23.984
+     ],
+     "sprite": [
+      132.999,
+      253.594,
+      23.984,
+      23.744
+     ],
+     "depth": 0.8405,
+     "body": [
+      18.175,
+      20.034
+     ],
+     "y": 134,
+     "ring": null
+    },
+    {
+     "key": "companion:seal",
+     "src": "assets/characters/companions/seal.png",
+     "nativeSize": 40.0322,
+     "owner": [
+      256.387,
+      306.397,
+      24.365,
+      24.365
+     ],
+     "sprite": [
+      256.387,
+      306.64,
+      24.365,
+      24.121
+     ],
+     "depth": 0.8695,
+     "body": [
+      20.939,
+      19.033
+     ],
+     "y": 180,
+     "ring": null
+    },
+    {
+     "key": "companion:chicken",
+     "src": "assets/characters/companions/chicken.png",
+     "nativeSize": 40.7735,
+     "owner": [
+      94.291,
+      370.457,
+      25.826,
+      25.826
+     ],
+     "sprite": [
+      94.291,
+      370.715,
+      25.826,
+      25.568
+     ],
+     "depth": 0.905,
+     "body": [
+      19.975,
+      21.573
+     ],
+     "y": 238,
+     "ring": null
+    },
+    {
+     "key": "companion:hedgehog",
+     "src": "assets/characters/companions/hedgehog.png",
+     "nativeSize": 43.7924,
+     "owner": [
+      276.934,
+      440.207,
+      28.947,
+      28.947
+     ],
+     "sprite": [
+      276.934,
+      440.497,
+      28.947,
+      28.657
+     ],
+     "depth": 0.9445,
+     "body": [
+      22.389,
+      21.941
+     ],
+     "y": 301,
+     "ring": null
+    },
+    {
+     "key": "companion:snail",
+     "src": "assets/characters/companions/snail.png",
+     "nativeSize": 38.7093,
+     "owner": [
+      148.049,
+      526.147,
+      26.731,
+      26.731
+     ],
+     "sprite": [
+      148.049,
+      526.415,
+      26.731,
+      26.464
+     ],
+     "depth": 0.9867,
+     "body": [
+      23.39,
+      10.751
+     ],
+     "y": 369,
+     "ring": null
+    },
+    {
+     "key": "companion:sekizou",
+     "src": "assets/characters/companions/sekizou.png",
+     "nativeSize": 40.143,
+     "owner": [
+      279.555,
+      487.696,
+      27.24,
+      27.24
+     ],
+     "sprite": [
+      279.555,
+      487.969,
+      27.24,
+      26.968
+     ],
+     "depth": 0.9695,
+     "body": [
+      11.705,
+      22.754
+     ],
+     "y": 342,
+     "ring": null
+    },
+    {
+     "key": "companion:clock",
+     "src": "assets/characters/companions/clock.png",
+     "nativeSize": 39.5125,
+     "owner": [
+      173.556,
+      278.448,
+      23.611,
+      23.611
+     ],
+     "sprite": [
+      173.556,
+      278.684,
+      23.611,
+      23.375
+     ],
+     "depth": 0.8539,
+     "body": [
+      18.999,
+      19.723
+     ],
+     "y": 155,
+     "ring": null
+    },
+    {
+     "key": "companion:many_tail_fox",
+     "src": "assets/characters/companions/many_tail_fox.png",
+     "nativeSize": 38.7941,
+     "owner": [
+      309.925,
+      298.666,
+      23.478,
+      23.478
+     ],
+     "sprite": [
+      309.925,
+      298.901,
+      23.478,
+      23.243
+     ],
+     "depth": 0.8648,
+     "body": [
+      20.176,
+      19.611
+     ],
+     "y": 173,
+     "ring": null
+    },
+    {
+     "key": "companion:box",
+     "src": "assets/characters/companions/box.png",
+     "nativeSize": 45.3973,
+     "owner": [
+      185.523,
+      313.045,
+      27.797,
+      27.797
+     ],
+     "sprite": [
+      185.523,
+      313.323,
+      27.797,
+      27.519
+     ],
+     "depth": 0.8748,
+     "body": [
+      20.413,
+      19.994
+     ],
+     "y": 189,
+     "ring": null
+    }
+   ]
+  }
+ },
+ "hero100Control": {
+  "rolePercents": [
+   "100",
+   "v1"
+  ],
+  "stage": "river_lake",
+  "bodyScale": 0.7,
+  "scaleX": 0.9841354114659855,
+  "scaleY": 1.3070660316140006,
+  "overview": {
+   "text": "みんなを見る",
+   "visible": true,
+   "pressed": null
+  },
+  "gear": [
+   219.8,
+   418.033,
+   11.387,
+   11.387
+  ],
+  "rows": [
+   {
+    "key": "pet:dog",
+    "src": "assets/characters/dog/06.png",
+    "nativeSize": 50.6667,
+    "owner": [
+     199.665,
+     425.309,
+     32.904,
+     32.904
+    ],
+    "sprite": [
+     199.665,
+     427.668,
+     32.904,
+     32.575
+    ],
+    "depth": 0.9279,
+    "body": [
+     24.678,
+     28.503
+    ],
+    "y": 289,
+    "ring": null
+   },
+   {
+    "key": "partner:forest_bear",
+    "src": "assets/characters/partners/forest_bear.png",
+    "nativeSize": 42.0346,
+    "owner": [
+     96.646,
+     241.796,
+     24.221,
+     24.221
+    ],
+    "sprite": [
+     96.646,
+     242.038,
+     24.221,
+     23.979
+    ],
+    "depth": 0.8232,
+    "body": [
+     19.869,
+     20.232
+    ],
+    "y": 141,
+    "ring": [
+     110.008,
+     264.937,
+     10.373,
+     10.373
+    ]
+   },
+   {
+    "key": "companion:cat_friend",
+    "src": "assets/characters/companions/cat_friend.png",
+    "nativeSize": 42.0346,
+    "owner": [
+     166.507,
+     304.019,
+     25.226,
+     25.226
+    ],
+    "sprite": [
+     166.507,
+     304.271,
+     25.226,
+     24.973
+    ],
+    "depth": 0.8574,
+    "body": [
+     21.284,
+     17.169
+    ],
+    "y": 189,
+    "ring": null
+   },
+   {
+    "key": "companion:tanuki",
+    "src": "assets/characters/companions/tanuki.png",
+    "nativeSize": 42.1853,
+    "owner": [
+     278.476,
+     393.817,
+     26.766,
+     26.766
+    ],
+    "sprite": [
+     278.476,
+     394.084,
+     26.766,
+     26.498
+    ],
+    "depth": 0.9067,
+    "body": [
+     20.493,
+     21.944
+    ],
+    "y": 259,
+    "ring": null
+   },
+   {
+    "key": "companion:owl",
+    "src": "assets/characters/companions/owl.png",
+    "nativeSize": 42.1853,
+    "owner": [
+     168.708,
+     462.95,
+     27.885,
+     27.885
+    ],
+    "sprite": [
+     168.708,
+     463.229,
+     27.885,
+     27.607
+    ],
+    "depth": 0.9446,
+    "body": [
+     16.557,
+     22.862
+    ],
+    "y": 312,
+    "ring": null
+   },
+   {
+    "key": "companion:hamster",
+    "src": "assets/characters/companions/hamster.png",
+    "nativeSize": 45.1681,
+    "owner": [
+     290.952,
+     481.812,
+     30.219,
+     30.219
+    ],
+    "sprite": [
+     290.952,
+     482.114,
+     30.219,
+     29.916
+    ],
+    "depth": 0.956,
+    "body": [
+     22.428,
+     23.138
+    ],
+    "y": 328,
+    "ring": null
+   },
+   {
+    "key": "companion:monkey",
+    "src": "assets/characters/companions/monkey.png",
+    "nativeSize": 41.1546,
+    "owner": [
+     160.436,
+     414.073,
+     26.421,
+     26.421
+    ],
+    "sprite": [
+     160.436,
+     414.338,
+     26.421,
+     26.157
+    ],
+    "depth": 0.9175,
+    "body": [
+     19.609,
+     21.866
+    ],
+    "y": 274,
+    "ring": null
+   },
+   {
+    "key": "companion:sheep",
+    "src": "assets/characters/companions/sheep.png",
+    "nativeSize": 40.7735,
+    "owner": [
+     59.59,
+     267.672,
+     23.886,
+     23.886
+    ],
+    "sprite": [
+     59.59,
+     267.91,
+     23.886,
+     23.647
+    ],
+    "depth": 0.8371,
+    "body": [
+     20.154,
+     18.659
+    ],
+    "y": 160,
+    "ring": null
+   },
+   {
+    "key": "companion:bat",
+    "src": "assets/characters/companions/bat.png",
+    "nativeSize": 41.5428,
+    "owner": [
+     134.296,
+     330.917,
+     25.341,
+     25.341
+    ],
+    "sprite": [
+     134.296,
+     331.171,
+     25.341,
+     25.087
+    ],
+    "depth": 0.8717,
+    "body": [
+     15.244,
+     20.775
+    ],
+    "y": 209,
+    "ring": null
+   },
+   {
+    "key": "companion:penguin_friend",
+    "src": "assets/characters/companions/penguin_friend.png",
+    "nativeSize": 39.4131,
+    "owner": [
+     232.128,
+     382.898,
+     24.82,
+     24.82
+    ],
+    "sprite": [
+     232.128,
+     383.147,
+     24.82,
+     24.572
+    ],
+    "depth": 0.8998,
+    "body": [
+     21.33,
+     9.79
+    ],
+    "y": 249,
+    "ring": null
+   },
+   {
+    "key": "companion:shiba",
+    "src": "assets/characters/companions/shiba.png",
+    "nativeSize": 40.143,
+    "owner": [
+     128.85,
+     473.551,
+     26.686,
+     26.686
+    ],
+    "sprite": [
+     128.85,
+     473.818,
+     26.686,
+     26.419
+    ],
+    "depth": 0.9497,
+    "body": [
+     22.516,
+     20.433
+    ],
+    "y": 320,
+    "ring": null
+   },
+   {
+    "key": "companion:punyu",
+    "src": "assets/characters/companions/punyu.png",
+    "nativeSize": 40.143,
+    "owner": [
+     246.732,
+     501.475,
+     27.116,
+     27.116
+    ],
+    "sprite": [
+     246.732,
+     501.746,
+     27.116,
+     26.845
+    ],
+    "depth": 0.965,
+    "body": [
+     22.879,
+     17.198
+    ],
+    "y": 341,
+    "ring": null
+   },
+   {
+    "key": "companion:chameleon",
+    "src": "assets/characters/companions/chameleon.png",
+    "nativeSize": 38.7941,
+    "owner": [
+     207.778,
+     482.924,
+     25.909,
+     25.909
+    ],
+    "sprite": [
+     207.778,
+     483.183,
+     25.909,
+     25.65
+    ],
+    "depth": 0.9544,
+    "body": [
+     22.266,
+     18.436
+    ],
+    "y": 326,
+    "ring": null
+   },
+   {
+    "key": "companion:unicorn",
+    "src": "assets/characters/companions/unicorn.png",
+    "nativeSize": 38.7941,
+    "owner": [
+     97.097,
+     291.18,
+     23.057,
+     23.057
+    ],
+    "sprite": [
+     97.097,
+     291.411,
+     23.057,
+     22.826
+    ],
+    "depth": 0.8493,
+    "body": [
+     18.193,
+     19.616
+    ],
+    "y": 177,
+    "ring": null
+   },
+   {
+    "key": "companion:watcher",
+    "src": "assets/characters/companions/watcher.png",
+    "nativeSize": 40.258,
+    "owner": [
+     169.1,
+     351.664,
+     24.868,
+     24.868
+    ],
+    "sprite": [
+     169.1,
+     351.912,
+     24.868,
+     24.619
+    ],
+    "depth": 0.8826,
+    "body": [
+     7.188,
+     20.388
+    ],
+    "y": 225,
+    "ring": null
+   },
+   {
+    "key": "companion:rabbit_friend",
+    "src": "assets/characters/companions/rabbit_friend.png",
+    "nativeSize": 42.0346,
+    "owner": [
+     306.884,
+     433.636,
+     27.318,
+     27.318
+    ],
+    "sprite": [
+     306.884,
+     433.909,
+     27.318,
+     27.045
+    ],
+    "depth": 0.9285,
+    "body": [
+     17.074,
+     22.819
+    ],
+    "y": 290,
+    "ring": null
+   },
+   {
+    "key": "companion:squirrel",
+    "src": "assets/characters/companions/squirrel.png",
+    "nativeSize": 41.404,
+    "owner": [
+     166.442,
+     516.166,
+     28.207,
+     28.207
+    ],
+    "sprite": [
+     166.442,
+     516.448,
+     28.207,
+     27.925
+    ],
+    "depth": 0.9735,
+    "body": [
+     21.155,
+     23.562
+    ],
+    "y": 353,
+    "ring": null
+   },
+   {
+    "key": "companion:otter",
+    "src": "assets/characters/companions/otter.png",
+    "nativeSize": 40.6512,
+    "owner": [
+     301.783,
+     536.537,
+     28.006,
+     28.006
+    ],
+    "sprite": [
+     301.783,
+     536.817,
+     28.006,
+     27.726
+    ],
+    "depth": 0.9845,
+    "body": [
+     24.068,
+     22.961
+    ],
+    "y": 369,
+    "ring": null
+   },
+   {
+    "key": "companion:panda",
+    "src": "assets/characters/companions/panda.png",
+    "nativeSize": 40.6512,
+    "owner": [
+     214.721,
+     537.259,
+     28.017,
+     28.017
+    ],
+    "sprite": [
+     214.721,
+     537.539,
+     28.017,
+     27.737
+    ],
+    "depth": 0.9848,
+    "body": [
+     23.202,
+     23.836
+    ],
+    "y": 369,
+    "ring": null
+   },
+   {
+    "key": "companion:parrot",
+    "src": "assets/characters/companions/parrot.png",
+    "nativeSize": 40.7735,
+    "owner": [
+     65.874,
+     320.467,
+     24.712,
+     24.712
+    ],
+    "sprite": [
+     65.681,
+     320.714,
+     24.712,
+     24.465
+    ],
+    "depth": 0.866,
+    "body": [
+     18.727,
+     20.642
+    ],
+    "y": 201,
+    "ring": null
+   },
+   {
+    "key": "companion:seal",
+    "src": "assets/characters/companions/seal.png",
+    "nativeSize": 40.0322,
+    "owner": [
+     129.79,
+     381.143,
+     25.193,
+     25.193
+    ],
+    "sprite": [
+     129.79,
+     381.395,
+     25.193,
+     24.941
+    ],
+    "depth": 0.899,
+    "body": [
+     21.65,
+     19.68
+    ],
+    "y": 248,
+    "ring": null
+   },
+   {
+    "key": "companion:chicken",
+    "src": "assets/characters/companions/chicken.png",
+    "nativeSize": 40.7735,
+    "owner": [
+     262.686,
+     351.375,
+     25.196,
+     25.196
+    ],
+    "sprite": [
+     262.686,
+     351.627,
+     25.196,
+     24.944
+    ],
+    "depth": 0.883,
+    "body": [
+     19.488,
+     21.046
+    ],
+    "y": 225,
+    "ring": null
+   },
+   {
+    "key": "companion:hedgehog",
+    "src": "assets/characters/companions/hedgehog.png",
+    "nativeSize": 43.7924,
+    "owner": [
+     112.418,
+     421.195,
+     28.264,
+     28.264
+    ],
+    "sprite": [
+     112.418,
+     421.478,
+     28.264,
+     27.981
+    ],
+    "depth": 0.9222,
+    "body": [
+     21.86,
+     21.423
+    ],
+    "y": 281,
+    "ring": null
+   },
+   {
+    "key": "companion:snail",
+    "src": "assets/characters/companions/snail.png",
+    "nativeSize": 38.7093,
+    "owner": [
+     333.785,
+     513.221,
+     26.215,
+     26.215
+    ],
+    "sprite": [
+     333.785,
+     513.483,
+     26.215,
+     25.953
+    ],
+    "depth": 0.9676,
+    "body": [
+     22.938,
+     10.543
+    ],
+    "y": 345,
+    "ring": null
+   },
+   {
+    "key": "companion:sekizou",
+    "src": "assets/characters/companions/sekizou.png",
+    "nativeSize": 40.143,
+    "owner": [
+     220.382,
+     338.352,
+     24.604,
+     24.604
+    ],
+    "sprite": [
+     220.382,
+     338.598,
+     24.604,
+     24.357
+    ],
+    "depth": 0.8756,
+    "body": [
+     10.572,
+     20.551
+    ],
+    "y": 215,
+    "ring": null
+   },
+   {
+    "key": "companion:clock",
+    "src": "assets/characters/companions/clock.png",
+    "nativeSize": 39.5125,
+    "owner": [
+     137.84,
+     269.026,
+     23.155,
+     23.155
+    ],
+    "sprite": [
+     137.84,
+     269.258,
+     23.155,
+     22.923
+    ],
+    "depth": 0.8374,
+    "body": [
+     18.633,
+     19.341
+    ],
+    "y": 161,
+    "ring": null
+   },
+   {
+    "key": "companion:many_tail_fox",
+    "src": "assets/characters/companions/many_tail_fox.png",
+    "nativeSize": 38.7941,
+    "owner": [
+     98.53,
+     351.583,
+     23.956,
+     23.956
+    ],
+    "sprite": [
+     98.53,
+     351.823,
+     23.956,
+     23.716
+    ],
+    "depth": 0.8824,
+    "body": [
+     20.587,
+     20.01
+    ],
+    "y": 224,
+    "ring": null
+   },
+   {
+    "key": "companion:box",
+    "src": "assets/characters/companions/box.png",
+    "nativeSize": 45.3973,
+    "owner": [
+     324.441,
+     389.061,
+     28.759,
+     28.759
+    ],
+    "sprite": [
+     324.441,
+     389.348,
+     28.759,
+     28.471
+    ],
+    "depth": 0.9051,
+    "body": [
+     21.12,
+     20.686
+    ],
+    "y": 256,
+    "ring": null
+   }
+  ]
+ }
+}

@@ -1,0 +1,384 @@
+{
+ "engine": "chromium",
+ "host": "Linux",
+ "affinity": [
+  0,
+  1
+ ],
+ "viewport": [
+  320,
+  568
+ ],
+ "gameContentHeight": 516,
+ "dpr": 2,
+ "region": "forest",
+ "rows": [
+  {
+   "mode": "current",
+   "trial": 0,
+   "count": 28,
+   "scales": [
+    1,
+    1,
+    1
+   ],
+   "sameRosterKey": "a41961ef30b73c9061ec6aa1851903fa2f27b6e297e51c3e92430e8f7a08a15d",
+   "modelSizes": "7ea65ebb5668f8aa6d0828b920de94bdf0d585d3e2e18068752c5c864b3cc2b0",
+   "startPose": "568ddb82ad6c725af0757bb6ba0c0c432827f43d97951e48b05d0903cf8cbb0c",
+   "hashes": {
+    "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+    "home-production-diorama.js": "ed8428eee409b393d9e46c951eb74105ca81be39e4882e17f651f9d2caad9cb8",
+    "home-production-world.mjs": "be89698cdc8156c6f8739576b52f6b7156d56a9eb0d7d7277fad30e265d050c4"
+   },
+   "startup": {
+    "untilTrialReadyMs": 10572.80000000447,
+    "firstPaintMs": 1752,
+    "width": 320,
+    "height": 516,
+    "nativeUpdates": 24,
+    "syncs": 15,
+    "seating": null,
+    "seatingBindings": null
+   },
+   "sample": {
+    "seconds": 8.006,
+    "callbacks": 364,
+    "rafHz": 45.46590057456907,
+    "p95": 46.5,
+    "max": 328.5,
+    "long": [
+     {
+      "start": 3038.5,
+      "end": 3367,
+      "ms": 328.5,
+      "events": [
+       [
+        "nature",
+        100.2
+       ],
+       [
+        "world",
+        102.8
+       ],
+       [
+        "actors",
+        71.8
+       ]
+      ]
+     },
+     {
+      "start": 3367,
+      "end": 3634.9000000059605,
+      "ms": 267.90000000596046,
+      "events": []
+     }
+    ],
+    "phases": {
+     "model": {
+      "calls": 194,
+      "ms": 16.69999999552965,
+      "max": 3
+     },
+     "world": {
+      "calls": 194,
+      "ms": 418.80000001192093,
+      "max": 102.80000000447035
+     },
+     "actors": {
+      "calls": 194,
+      "ms": 623.7999999895692,
+      "max": 75.5
+     },
+     "nature": {
+      "calls": 63,
+      "ms": 235.70000003278255,
+      "max": 100.20000000298023
+     }
+    },
+    "pausedSec": 0,
+    "syncs": 7,
+    "clock": 8.016299999999998,
+    "distance": 0,
+    "moves": 0,
+    "rows": 28,
+    "sameNodes": true,
+    "clearanceCalls": 1669,
+    "trace": {
+     "window": "cast-window-0-start",
+     "seconds": 8.020357,
+     "phases": {
+      "RasterTask": {
+       "calls": 49,
+       "totalMs": 42.599,
+       "maxMs": 6.912
+      },
+      "Paint": {
+       "calls": 62,
+       "totalMs": 24.976,
+       "maxMs": 6.578
+      },
+      "Layout": {
+       "calls": 157,
+       "totalMs": 61.831,
+       "maxMs": 8.284
+      },
+      "UpdateLayoutTree": {
+       "calls": 615,
+       "totalMs": 580.585,
+       "maxMs": 39.966
+      },
+      "Layerize": {
+       "calls": 364,
+       "totalMs": 16.685,
+       "maxMs": 4.525
+      }
+     }
+    }
+   },
+   "inputs": [],
+   "errors": []
+  },
+  {
+   "mode": "adopted",
+   "trial": 0,
+   "count": 28,
+   "scales": [
+    1.2,
+    1.2,
+    1.05
+   ],
+   "sameRosterKey": "a41961ef30b73c9061ec6aa1851903fa2f27b6e297e51c3e92430e8f7a08a15d",
+   "modelSizes": "7ea65ebb5668f8aa6d0828b920de94bdf0d585d3e2e18068752c5c864b3cc2b0",
+   "startPose": "ca3c33fbcd3ead007d4a7ab6d74365f13d11a0f90343218f471a19233e332baa",
+   "hashes": {
+    "home-production-diorama.js": "ed8428eee409b393d9e46c951eb74105ca81be39e4882e17f651f9d2caad9cb8",
+    "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+    "home-production-world.mjs": "be89698cdc8156c6f8739576b52f6b7156d56a9eb0d7d7277fad30e265d050c4"
+   },
+   "startup": {
+    "untilTrialReadyMs": 8780.59999999404,
+    "firstPaintMs": 772,
+    "width": 320,
+    "height": 516,
+    "nativeUpdates": 22,
+    "syncs": 13,
+    "seating": null,
+    "seatingBindings": null
+   },
+   "sample": {
+    "seconds": 8.01010000000149,
+    "callbacks": 404,
+    "rafHz": 50.43632414076289,
+    "p95": 38,
+    "max": 208.60000000149012,
+    "long": [],
+    "phases": {
+     "model": {
+      "calls": 215,
+      "ms": 61.50000001490116,
+      "max": 49.29999999701977
+     },
+     "world": {
+      "calls": 215,
+      "ms": 191.19999995082617,
+      "max": 41.70000000298023
+     },
+     "actors": {
+      "calls": 215,
+      "ms": 443.3999999910593,
+      "max": 83.80000000447035
+     },
+     "nature": {
+      "calls": 66,
+      "ms": 119.29999999701977,
+      "max": 39.5
+     },
+     "plan": {
+      "calls": 2,
+      "ms": 48.70000000298023,
+      "max": 31.799999997019768
+     }
+    },
+    "pausedSec": 0,
+    "syncs": 7,
+    "clock": 8.033100000000005,
+    "distance": 12.350826975723876,
+    "moves": 1,
+    "rows": 28,
+    "sameNodes": true,
+    "clearanceCalls": 33668,
+    "trace": {
+     "window": "cast-window-0-start",
+     "seconds": 8.036143,
+     "phases": {
+      "RasterTask": {
+       "calls": 54,
+       "totalMs": 83.626,
+       "maxMs": 20.432
+      },
+      "Paint": {
+       "calls": 46,
+       "totalMs": 15.451,
+       "maxMs": 3.725
+      },
+      "Layout": {
+       "calls": 47,
+       "totalMs": 41.256,
+       "maxMs": 8.07
+      },
+      "UpdateLayoutTree": {
+       "calls": 577,
+       "totalMs": 565.895,
+       "maxMs": 24.199
+      },
+      "Layerize": {
+       "calls": 405,
+       "totalMs": 23.891000000000002,
+       "maxMs": 4.331
+      }
+     }
+    }
+   },
+   "inputs": [],
+   "errors": []
+  },
+  {
+   "mode": "final",
+   "trial": 0,
+   "count": 28,
+   "scales": [
+    1.2,
+    1.2,
+    1.05
+   ],
+   "sameRosterKey": "a41961ef30b73c9061ec6aa1851903fa2f27b6e297e51c3e92430e8f7a08a15d",
+   "modelSizes": "7ea65ebb5668f8aa6d0828b920de94bdf0d585d3e2e18068752c5c864b3cc2b0",
+   "startPose": "4e46400f38983af5408a12f00ee260b4c098fc752da7a40ad0e47ffde98705c0",
+   "hashes": {
+    "seating.js": "b9d63b5e005b3f780af7522e84703f31dc328e7934457371158ea8576c88c54b",
+    "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+    "home-production-diorama-v2.js": "05efcea5931dc74a890355325d615b5dbecb6c72e58f8b53146c7d36407e3b4d",
+    "home-production-world-v2.mjs": "0694f86c09852f37e4c686864705f8756f32dc668d92537d0a39d5d79734960d"
+   },
+   "startup": {
+    "untilTrialReadyMs": 9644.10000000149,
+    "firstPaintMs": 1052,
+    "width": 320,
+    "height": 516,
+    "nativeUpdates": 22,
+    "syncs": 15,
+    "seating": {
+     "calls": 1,
+     "ms": 0.10000000149011612,
+     "max": 0.10000000149011612
+    },
+    "seatingBindings": {
+     "calls": 3,
+     "ms": 0.20000000298023224,
+     "max": 0.20000000298023224
+    }
+   },
+   "sample": {
+    "seconds": 8.01039999999851,
+    "callbacks": 333,
+    "rafHz": 41.57095775492634,
+    "p95": 59,
+    "max": 524.2999999970198,
+    "long": [
+     {
+      "start": 1300.1999999955297,
+      "end": 1607.3999999985099,
+      "ms": 307.20000000298023,
+      "events": []
+     },
+     {
+      "start": 1607.3999999985099,
+      "end": 2131.6999999955297,
+      "ms": 524.2999999970198,
+      "events": [
+       [
+        "model",
+        64
+       ]
+      ]
+     },
+     {
+      "start": 4314.0999999940395,
+      "end": 4585.69999999553,
+      "ms": 271.6000000014901,
+      "events": []
+     }
+    ],
+    "phases": {
+     "model": {
+      "calls": 181,
+      "ms": 110.80000001192093,
+      "max": 64
+     },
+     "nature": {
+      "calls": 59,
+      "ms": 75.3999999910593,
+      "max": 19.200000002980232
+     },
+     "world": {
+      "calls": 181,
+      "ms": 362.00000005960464,
+      "max": 82.10000000149012
+     },
+     "actors": {
+      "calls": 181,
+      "ms": 501.69999995827675,
+      "max": 53.5
+     },
+     "plan": {
+      "calls": 4,
+      "ms": 101.19999999552965,
+      "max": 45.19999999552965
+     }
+    },
+    "pausedSec": 0,
+    "syncs": 8,
+    "clock": 7.999799999999996,
+    "distance": 24.209427411295614,
+    "moves": 2,
+    "rows": 28,
+    "sameNodes": true,
+    "clearanceCalls": 54919,
+    "trace": {
+     "window": "cast-window-0-start",
+     "seconds": 8.039392,
+     "phases": {
+      "RasterTask": {
+       "calls": 85,
+       "totalMs": 124.22200000000001,
+       "maxMs": 46.969
+      },
+      "Paint": {
+       "calls": 71,
+       "totalMs": 19.056,
+       "maxMs": 2.867
+      },
+      "Layout": {
+       "calls": 54,
+       "totalMs": 80.969,
+       "maxMs": 16.067
+      },
+      "UpdateLayoutTree": {
+       "calls": 605,
+       "totalMs": 1357.996,
+       "maxMs": 79.376
+      },
+      "Layerize": {
+       "calls": 334,
+       "totalMs": 43.302,
+       "maxMs": 7.966
+      }
+     }
+    }
+   },
+   "inputs": [],
+   "errors": []
+  }
+ ],
+ "browser": "156.0.8078.79"
+}

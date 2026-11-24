@@ -1,0 +1,158 @@
+{
+  "privateTrial": "https://naotocchi-cast-size.kerzion214.chatgpt.site/v4/",
+  "siteVersion": 8,
+  "siteSourceCommit": "5297c9d39e9760f8165a35239b9e41f6e06b1c8b",
+  "verifiedAtUTC": "2026-11-19T17:24:47.009225+00:00",
+  "allowedRoles": [
+    "owner"
+  ],
+  "externalVisitors": 0,
+  "allowedGroups": 0,
+  "nativeGameFilesCompared": 3920,
+  "nativeControllerSHA256": "e9eaec1883695d97ebfffd33430a12a4bdb23d3d08c55eb17fff98f1128e27ab",
+  "anonymousHTTP": {
+    "/": 401,
+    "/v1/": 401,
+    "/v3/": 401,
+    "/v3/controls.mjs": 401,
+    "/game/limit.html": 401,
+    "/evidence/forest-limit.webp": 401,
+    "/v4/": 401,
+    "/v4/controls.mjs": 401,
+    "/game/population.html": 401,
+    "/evidence/v4-forest-390-28.webp": 401,
+    "/evidence/v4/geometry-scenes.csv.gz": 401,
+    "/evidence/v4/performance-input-regions.tar.gz": 401
+  },
+  "signedInBodyChecks": {
+    "v4/index.html": {
+      "http": 200,
+      "match": true,
+      "sha256": "33bc67a499df3a750356a4f971b0db2d4711346d052609d463dea640b60de189"
+    },
+    "v4/controls.mjs": {
+      "http": 200,
+      "match": true,
+      "sha256": "c8a15a81a5bb6e955cde2e3cf62755a440396d4836e4e3444b0a556b502d21ca"
+    },
+    "game/population.html": {
+      "http": 200,
+      "match": true,
+      "sha256": "80b4079fe8d7b3910da3504f9ca16694de5111b7226ff4420aee5b0b913f5168"
+    },
+    "game/population-policy.js": {
+      "http": 200,
+      "match": true,
+      "sha256": "8773699e127261bf83369dfa38a4cc548cedfe72835f48007c5ac44c41ddfb34"
+    },
+    "game/population-seating.js": {
+      "http": 200,
+      "match": true,
+      "sha256": "4e16f1b768e2a07cebd4064f805890e90da2be765829fbbb4509a47076e71e75"
+    },
+    "game/home-production-diorama-population.js": {
+      "http": 200,
+      "match": true,
+      "sha256": "e9eaec1883695d97ebfffd33430a12a4bdb23d3d08c55eb17fff98f1128e27ab"
+    },
+    "evidence/v4-forest-390-28.webp": {
+      "http": 200,
+      "match": true,
+      "sha256": "34c28e1943d153089ab6ec1a6e3a927da7ba8fd3812f2c86e4903e3f477f6bbf"
+    },
+    "v3/index.html": {
+      "http": 200,
+      "match": true,
+      "sha256": "704eb779dbeb4ad56f7f71517e77fd0917e6db18f00fd4c1ca97a222775fa76f"
+    },
+    "v1/index.html": {
+      "http": 200,
+      "match": true,
+      "sha256": "af7318a329618ebf30abd07a97a1a60aea293eb5e61de5a3e94cbc15e26072ef"
+    },
+    "index.html": {
+      "http": 200,
+      "match": true,
+      "sha256": "a4e10c9f600fff06e93e06649ef11abfa24aa0d9c160a3c1e5a69720d0020d21"
+    },
+    "evidence/v4/geometry-summary.json": {
+      "http": 200,
+      "match": true,
+      "sha256": "0c038b24d1367d677b19d1c3f4c759e64f9a52f44f50a3845c26b3d5ec002634"
+    },
+    "evidence/v4/geometry-fixtures.tar.gz": {
+      "http": 200,
+      "match": true,
+      "sha256": "629701985d831aa5a1d4bf4681043faf6d5051b70ef411c485b5479c02818035"
+    },
+    "evidence/v4/geometry-scenes.csv.gz": {
+      "http": 200,
+      "match": true,
+      "sha256": "8b9f3053b573beb2a6f46cf095c461be6ed74b3c3482104a0e4004fad18f3785"
+    },
+    "evidence/v4/geometry-layout-only.csv.gz": {
+      "http": 200,
+      "match": true,
+      "sha256": "0db6c64b38e3dff22e407c587df3f24f1ec4ee4fc275b301cc9fec266bd3e333"
+    },
+    "evidence/v4/opening-stages.json.gz": {
+      "http": 200,
+      "match": true,
+      "sha256": "e54dc4d00fa294dec56dae816baafb231dcc42d0b162ad6fb30b61927383c807"
+    },
+    "evidence/v4/performance-input-regions.tar.gz": {
+      "http": 200,
+      "match": true,
+      "sha256": "8c43a5fc951c356984b51ae96422394dc61c23c39e449c895b4d3766bf675eef"
+    }
+  },
+  "privateNumericFiles": {
+    "geometry-scenes.csv.gz": {
+      "bytes": 597351,
+      "sha256": "8b9f3053b573beb2a6f46cf095c461be6ed74b3c3482104a0e4004fad18f3785"
+    },
+    "opening-stages.json.gz": {
+      "bytes": 336986,
+      "sha256": "e54dc4d00fa294dec56dae816baafb231dcc42d0b162ad6fb30b61927383c807"
+    },
+    "geometry-layout-only.csv.gz": {
+      "bytes": 1965,
+      "sha256": "0db6c64b38e3dff22e407c587df3f24f1ec4ee4fc275b301cc9fec266bd3e333"
+    },
+    "geometry-summary.json": {
+      "bytes": 2781092,
+      "sha256": "0c038b24d1367d677b19d1c3f4c759e64f9a52f44f50a3845c26b3d5ec002634"
+    },
+    "geometry-fixtures.tar.gz": {
+      "bytes": 9324552,
+      "sha256": "629701985d831aa5a1d4bf4681043faf6d5051b70ef411c485b5479c02818035"
+    },
+    "performance-input-regions.tar.gz": {
+      "bytes": 1248274,
+      "sha256": "8c43a5fc951c356984b51ae96422394dc61c23c39e449c895b4d3766bf675eef"
+    }
+  },
+  "liveInteraction": {
+    "engine": "157.0.8103.78",
+    "viewport": [
+      360,
+      746
+    ],
+    "region": "memory_lake",
+    "url": "https://naotocchi-cast-size.kerzion214.chatgpt.site/v4/",
+    "b": [
+      true,
+      28,
+      12.261457550713748
+    ],
+    "c": [
+      true,
+      28,
+      16.34861006761833
+    ],
+    "unchangedFeet": 28,
+    "individualCompanions": 26,
+    "errors": []
+  },
+  "transport": "Playwright Chromium rendered owner-authorized responses on the Sites hostname, with the owner credential attached on same-origin server fetches. Verified the private game received 28 actors, unchanged feet and 26 individual companion measurements across B/C. An independent unsigned client tested the access boundary."
+}
