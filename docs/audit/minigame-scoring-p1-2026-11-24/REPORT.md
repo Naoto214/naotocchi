@@ -61,7 +61,7 @@
 | 自動テスト(新規)`tests/minigame-scoring-p1-test.cjs`、`npm test` に追加 | 迷路: 放置で15点(8シード)/上海: でたらめな順に取る人が、60枚・68枚で各40局すべて取りきる/スライド: ふつうのシャッフル12盤が解ける(3×3・4×4)、完成形にもどる乱数(4通りのずれ)でも解ける | 5件とも成功 |
 | 同じテストを修正前のコードで実行 | テストが不具合を見つけられるかの確認 | **4件失敗**(迷路30・35点、上海は 60枚で 2/40局・68枚で **5/40局** が詰み、スライドは「1,0,2,3,…」の解けない盤)→ 再発を防止できる |
 | 実ブラウザ(新規)`tests/minigame-scoring-p1-browser.cjs` | 本物のページ、390×844、タッチ。迷路の放置、上海24局(でたらめな順)、スライドの完成形もどり4通り+3盤をタップで完成 | Chromium: すべて成功(上海24局すべて取りきり。うち1局で「おろす」が働いた。スライド3盤はタップで完成して100点) |
-| WebKit | 同じテストを CI(`.github/workflows/minigame-scoring-p1.yml`)で Chromium と WebKit で実行 | この作業環境には WebKit がないため、CI の結果で確認(PR に記載) |
+| WebKit | 同じテストを CI(`.github/workflows/minigame-scoring-p1.yml`)で Chromium と WebKit で実行 | **CI で Chromium・WebKit とも成功**(run 45428747417、「Real page, phone size, touch (Chromium and WebKit)」約10分)。この作業環境には WebKit がないため、CI で確認した |
 | 既存のテスト | `npm test` 全体 | 3,421件中、失敗4件。いずれも main でも同じく失敗する画像テスト(`item-art-unification`、`pet-expression-assets` の3件)で、今回の変更とは関係なし |
 | 公開ゲート | `tests/home-preserve`、`tests/home-best/guards`、表記・カード・BGM のスコープテスト、`tests/pages`(Python) | すべて成功 |
 
