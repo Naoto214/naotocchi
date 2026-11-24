@@ -33,7 +33,7 @@ const TURN_BASED = ['reversi-6', 'animal-shogi', 'connect-four', 'gomoku-9', 'ch
 const T4 = {
   'breakout-classic': 30000, 'dragDecorate-cake': 16000, 'dragDecorate-bento': 11000, 'crane-game-3d': 45000, 'rhythm-highway-3d': 22000,
   'mini-golf-physics': 40000, 'pingpong-3d': 28000, 'tower-defense': 90000, 'roguelike-dungeon': 90000, 'grand-prix-3d': 30000,
-  'push-puzzle': 60000, 'reversi-6': 60000, 'billiards-6': 40000, 'animal-shogi': 60000, 'minesweeper-8': 60000,
+  'push-puzzle': 45000, 'reversi-6': 60000, 'billiards-6': 40000, 'animal-shogi': 60000, 'minesweeper-8': 60000,
   'catapult-castle': 30000, 'connect-four': 60000, 'match-3': 32000, 'gomoku-9': 60000, 'picross-5': 75000,
   'pipe-connect': 50000, 'lights-out': 45000, 'curling-ice': 45000, 'curling-winter': 45000, 'jenga-tower': 45000,
   'line-trace': 32000, 'checkers-6': 60000, 'memory-cards': 45000, 'domino-run': 45000, 'sudoku-mini': 90000, 'mancala-kalah': 60000,

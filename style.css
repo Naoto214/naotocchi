@@ -4558,6 +4558,10 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
 .mg-pad-directions [data-key="down"] { grid-area: 3 / 2; }
 .mg-pad-directions .mg-pad-label { bottom: 2px; font-size: 10px; }
 .mg-practice-btn { align-self: center; border: 1px solid #d5bd94; background: #fff5dc; color: #57472e; border-radius: 12px; padding: 10px 14px; min-height: 44px; font: inherit; cursor: pointer; }
+/* そうこばん: 箱が うごかせなく なった ときに「もどす」を 目立たせる(色だけに たよらず 文字の 声かけと セット) */
+#pzUndo.pz-suggest { outline: 3px solid #f2c14e; outline-offset: 2px; animation: pz-suggest .9s ease-in-out infinite alternate; }
+@keyframes pz-suggest { from { transform: scale(1); } to { transform: scale(1.06); } }
+@media (prefers-reduced-motion: reduce) { #pzUndo.pz-suggest { animation: none; } }
 
 /* Shared game surfaces: readable over every regional background. */
 .minigame-overlay .mg-header { background: #f8f1e8; color: #495847; border-radius: 10px; padding: 4px 8px; text-shadow: none; box-sizing: border-box; }
