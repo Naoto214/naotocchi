@@ -1,0 +1,2203 @@
+{
+ "variant": "D3",
+ "browser": "156.0.8078.79",
+ "url": "http://127.0.0.1:8194",
+ "requestedSeconds": 600,
+ "cpuAffinity": [
+  0,
+  1
+ ],
+ "intervalMicros": 8000,
+ "cgroupDifference": {
+  "usage_usec": 1734659692,
+  "user_usec": 1510367425,
+  "system_usec": 224292268,
+  "nice_usec": 0,
+  "nr_periods": 6029,
+  "nr_throttled": 858,
+  "throttled_usec": 43840920,
+  "nr_bursts": 0,
+  "burst_usec": 0
+ },
+ "scriptSHA256": {
+  "home-production-model.js": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+  "home-production-diorama.js": "d88e6265c414d40f74dd4012ee4601cc42df49a30f907625b0d2bff90da84665",
+  "home-production-touch.js": "df9353d84de426e6f71fdd3b9230d31eac2bc8107d801e13ed5eac7d398d8f42",
+  "script.js": "3c8fa60ebb47f7ed256a0987e41d9e59873c03d2daaa0e54f0dbcb3a2093d61d",
+  "home-production-world.mjs": "c3e01b01658cb82d5ec0659eaf45dba0cb090bd92bb27f675175d39ad4e78240",
+  "paint.mjs": "c668bb68c931cc9c972f032f8e41b5d877e928f546b5ec8821805043cd86e12d",
+  "full-motion.mjs": "c93fef1527c6629e728f6b7ab5b9f634531d3201ee1addcb0b864107b38e6039",
+  "sea-e.mjs": "ea349e1ce297b7c1e4f4c037b12b204f207d668fe665cec57fc9461d27e49c45"
+ },
+ "errors": [],
+ "drag": [
+  {
+   "seconds": 0,
+   "target": [
+    161.89122009277344,
+    549.731591796875
+   ]
+  },
+  {
+   "seconds": 180,
+   "target": [
+    175.697021484375,
+    520.1493713378907
+   ]
+  },
+  {
+   "seconds": 400,
+   "target": [
+    251.50835418701172,
+    545.512744140625
+   ]
+  }
+ ],
+ "checkpoints": [
+  {
+   "at": 4763.10000000149,
+   "frames": 0,
+   "peak": 0,
+   "state": {
+    "visible": "visible",
+    "paused": "false",
+    "choices": false,
+    "speech": false,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 0,
+   "heap": 21426061,
+   "targetSeconds": 0
+  },
+  {
+   "at": 24789.10000000149,
+   "frames": 957,
+   "peak": 316.60000000000036,
+   "state": {
+    "visible": "visible",
+    "paused": "false",
+    "choices": false,
+    "speech": true,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 4,
+   "heap": 36716775,
+   "targetSeconds": 20,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 44795.199999999255,
+   "frames": 1746,
+   "peak": 633.3000000000029,
+   "state": {
+    "visible": "visible",
+    "paused": "false",
+    "choices": false,
+    "speech": false,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 12,
+   "heap": 29651708,
+   "targetSeconds": 40,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 65362.900000002235,
+   "frames": 2144,
+   "peak": 1066.5999999999985,
+   "state": {
+    "visible": "visible",
+    "paused": "false",
+    "choices": false,
+    "speech": true,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 34,
+   "heap": 45495135,
+   "targetSeconds": 60,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 84805.30000000075,
+   "frames": 2822,
+   "peak": 1066.5999999999985,
+   "state": {
+    "visible": "visible",
+    "paused": "false",
+    "choices": false,
+    "speech": false,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 48,
+   "heap": 54949837,
+   "targetSeconds": 80,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 104800.90000000224,
+   "frames": 3446,
+   "peak": 1066.5999999999985,
+   "state": {
+    "visible": "visible",
+    "paused": "false",
+    "choices": false,
+    "speech": false,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 63,
+   "heap": 45398268,
+   "targetSeconds": 100,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 124807.69999999925,
+   "frames": 4008,
+   "peak": 1116.6000000000058,
+   "state": {
+    "visible": "visible",
+    "paused": "false",
+    "choices": false,
+    "speech": true,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 81,
+   "heap": 28847871,
+   "targetSeconds": 120,
+   "care": {
+    "used": [
+     "cleanBtn"
+    ],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 144783.1000000015,
+   "frames": 4982,
+   "peak": 1116.6000000000058,
+   "state": {
+    "visible": "visible",
+    "paused": "false",
+    "choices": false,
+    "speech": false,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 83,
+   "heap": 42032030,
+   "targetSeconds": 140,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 164768.30000000075,
+   "frames": 5890,
+   "peak": 1116.6000000000058,
+   "state": {
+    "visible": "visible",
+    "paused": "false",
+    "choices": false,
+    "speech": true,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 86,
+   "heap": 22509057,
+   "targetSeconds": 160,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 185204.19999999925,
+   "frames": 6792,
+   "peak": 1116.6000000000058,
+   "state": {
+    "visible": "visible",
+    "paused": "false",
+    "choices": false,
+    "speech": true,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 87,
+   "heap": 61223673,
+   "targetSeconds": 180,
+   "care": {
+    "used": [
+     "cleanBtn"
+    ],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 204768.19999999925,
+   "frames": 7481,
+   "peak": 3699.7999999999884,
+   "state": {
+    "visible": "visible",
+    "paused": "false",
+    "choices": false,
+    "speech": true,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 93,
+   "heap": 51301710,
+   "targetSeconds": 200,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 224802.30000000075,
+   "frames": 8215,
+   "peak": 3699.7999999999884,
+   "state": {
+    "visible": "visible",
+    "paused": "false",
+    "choices": false,
+    "speech": false,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 108,
+   "heap": 44820043,
+   "targetSeconds": 220,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 244782.40000000224,
+   "frames": 8974,
+   "peak": 3699.7999999999884,
+   "state": {
+    "visible": "visible",
+    "paused": "false",
+    "choices": false,
+    "speech": true,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 123,
+   "heap": 33963713,
+   "targetSeconds": 240,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 264816.69999999925,
+   "frames": 9704,
+   "peak": 3699.7999999999884,
+   "state": {
+    "visible": "visible",
+    "paused": "false",
+    "choices": false,
+    "speech": false,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 136,
+   "heap": 41580826,
+   "targetSeconds": 260,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 285571.90000000224,
+   "frames": 10399,
+   "peak": 3699.7999999999884,
+   "state": {
+    "visible": "visible",
+    "paused": "false",
+    "choices": false,
+    "speech": true,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 155,
+   "heap": 39126527,
+   "targetSeconds": 280,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 304776.40000000224,
+   "frames": 11068,
+   "peak": 3699.7999999999884,
+   "state": {
+    "visible": "visible",
+    "paused": "true",
+    "choices": false,
+    "speech": true,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 170,
+   "heap": 31125668,
+   "targetSeconds": 300,
+   "care": {
+    "used": [
+     "cleanBtn"
+    ],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 324791.6000000015,
+   "frames": 11658,
+   "peak": 3699.7999999999884,
+   "state": {
+    "visible": "visible",
+    "paused": "false",
+    "choices": false,
+    "speech": false,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 181,
+   "heap": 24369193,
+   "targetSeconds": 320,
+   "care": {
+    "used": [
+     "feedBtn"
+    ],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 344784.90000000224,
+   "frames": 12546,
+   "peak": 3699.7999999999884,
+   "state": {
+    "visible": "visible",
+    "paused": "false",
+    "choices": false,
+    "speech": false,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 185,
+   "heap": 24508607,
+   "targetSeconds": 340,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 364806.80000000075,
+   "frames": 13450,
+   "peak": 3699.7999999999884,
+   "state": {
+    "visible": "visible",
+    "paused": "true",
+    "choices": false,
+    "speech": true,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 189,
+   "heap": 30377042,
+   "targetSeconds": 360,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 384789.40000000224,
+   "frames": 14494,
+   "peak": 3699.7999999999884,
+   "state": {
+    "visible": "visible",
+    "paused": "false",
+    "choices": false,
+    "speech": false,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 190,
+   "heap": 29659618,
+   "targetSeconds": 380,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 404845.80000000075,
+   "frames": 15424,
+   "peak": 3699.7999999999884,
+   "state": {
+    "visible": "visible",
+    "paused": "false",
+    "choices": false,
+    "speech": false,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 192,
+   "heap": 39995116,
+   "targetSeconds": 400,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 424786,
+   "frames": 16258,
+   "peak": 3699.7999999999884,
+   "state": {
+    "visible": "visible",
+    "paused": "true",
+    "choices": false,
+    "speech": true,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 194,
+   "heap": 37434882,
+   "targetSeconds": 420,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 444810.1000000015,
+   "frames": 17305,
+   "peak": 3699.7999999999884,
+   "state": {
+    "visible": "visible",
+    "paused": "false",
+    "choices": false,
+    "speech": false,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 195,
+   "heap": 38967523,
+   "targetSeconds": 440,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 464777.19999999925,
+   "frames": 18170,
+   "peak": 3699.7999999999884,
+   "state": {
+    "visible": "visible",
+    "paused": "true",
+    "choices": true,
+    "speech": true,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 198,
+   "heap": 27109030,
+   "targetSeconds": 460,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 484780.80000000075,
+   "frames": 19280,
+   "peak": 3699.7999999999884,
+   "state": {
+    "visible": "visible",
+    "paused": "true",
+    "choices": true,
+    "speech": true,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 198,
+   "heap": 29637447,
+   "targetSeconds": 480,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 504780.80000000075,
+   "frames": 20418,
+   "peak": 3699.7999999999884,
+   "state": {
+    "visible": "visible",
+    "paused": "true",
+    "choices": true,
+    "speech": true,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 198,
+   "heap": 36124695,
+   "targetSeconds": 500,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 524788.6999999993,
+   "frames": 21586,
+   "peak": 3699.7999999999884,
+   "state": {
+    "visible": "visible",
+    "paused": "true",
+    "choices": true,
+    "speech": true,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 198,
+   "heap": 28291633,
+   "targetSeconds": 520,
+   "care": {
+    "used": [
+     "cleanBtn",
+     "feedBtn"
+    ],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 544777,
+   "frames": 22703,
+   "peak": 3699.7999999999884,
+   "state": {
+    "visible": "visible",
+    "paused": "true",
+    "choices": true,
+    "speech": true,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 199,
+   "heap": 36750101,
+   "targetSeconds": 540,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 564805.9000000022,
+   "frames": 23814,
+   "peak": 3699.7999999999884,
+   "state": {
+    "visible": "visible",
+    "paused": "true",
+    "choices": true,
+    "speech": true,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 199,
+   "heap": 22253358,
+   "targetSeconds": 560,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 584765.1999999993,
+   "frames": 24968,
+   "peak": 3699.7999999999884,
+   "state": {
+    "visible": "visible",
+    "paused": "true",
+    "choices": true,
+    "speech": true,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 199,
+   "heap": 29059471,
+   "targetSeconds": 580,
+   "care": {
+    "used": [],
+    "stage": "growing"
+   }
+  },
+  {
+   "at": 604775.8000000007,
+   "frames": 26139,
+   "peak": 3699.7999999999884,
+   "state": {
+    "visible": "visible",
+    "paused": "true",
+    "choices": true,
+    "speech": true,
+    "lifeCard": false,
+    "actors": 28
+   },
+   "gapCount": 199,
+   "heap": 35072861,
+   "targetSeconds": 600
+  }
+ ],
+ "capture": {
+  "first": 4748.900000002235,
+  "end": 604779,
+  "state": {
+   "visible": "visible",
+   "paused": "true",
+   "choices": true,
+   "speech": true,
+   "lifeCard": false,
+   "actors": 28
+  },
+  "frames": 26139,
+  "stampTotal": 600026,
+  "peak": 3699.7999999999884,
+  "total": {
+   "home-production-model.js/step": {
+    "calls": 15279,
+    "totalMs": 108049.0,
+    "maxMs": 3636.1
+   },
+   "full-motion.mjs/drawFullMotion": {
+    "calls": 4389,
+    "totalMs": 1132.4,
+    "maxMs": 45.2
+   },
+   "paint.mjs/composeNature": {
+    "calls": 4389,
+    "totalMs": 1497.2,
+    "maxMs": 45.3
+   },
+   "home-production-world.mjs/draw": {
+    "calls": 13876,
+    "totalMs": 6198.5,
+    "maxMs": 45.3
+   },
+   "home-production-diorama.js/paint": {
+    "calls": 14526,
+    "totalMs": 139164.9,
+    "maxMs": 131.5
+   },
+   "home-production-diorama.js/frame": {
+    "calls": 26140,
+    "totalMs": 249724.6,
+    "maxMs": 3660.6
+   },
+   "home-production-diorama.js/down": {
+    "calls": 3,
+    "totalMs": 23.8,
+    "maxMs": 15.6
+   },
+   "home-production-diorama.js/move": {
+    "calls": 30,
+    "totalMs": 4.1,
+    "maxMs": 0.4
+   },
+   "script.js/tick": {
+    "calls": 200,
+    "totalMs": 117.4,
+    "maxMs": 11.7
+   },
+   "script.js/renderPetVisual": {
+    "calls": 239,
+    "totalMs": 38.5,
+    "maxMs": 3.8
+   },
+   "home-production-world.mjs/setEnvironment": {
+    "calls": 495,
+    "totalMs": 10.9,
+    "maxMs": 3.5
+   },
+   "home-production-world.mjs/navigation": {
+    "calls": 625,
+    "totalMs": 45.0,
+    "maxMs": 8.4
+   },
+   "home-production-model.js/sync": {
+    "calls": 498,
+    "totalMs": 1170.3,
+    "maxMs": 138.2
+   },
+   "home-production-diorama.js/sync": {
+    "calls": 498,
+    "totalMs": 7310.6,
+    "maxMs": 588
+   },
+   "home-production-diorama.js/update": {
+    "calls": 495,
+    "totalMs": 9233.2,
+    "maxMs": 145.1
+   },
+   "script.js/renderHomeDiorama": {
+    "calls": 495,
+    "totalMs": 9253.7,
+    "maxMs": 145.1
+   },
+   "script.js/renderEnvironment": {
+    "calls": 213,
+    "totalMs": 5554.1,
+    "maxMs": 145.4
+   },
+   "script.js/render": {
+    "calls": 213,
+    "totalMs": 11774.2,
+    "maxMs": 1210.7
+   },
+   "script.js/loop": {
+    "calls": 200,
+    "totalMs": 10186.5,
+    "maxMs": 301.4
+   },
+   "home-production-diorama.js/up": {
+    "calls": 3,
+    "totalMs": 246.9,
+    "maxMs": 134.2
+   },
+   "home-production-touch.js/apply": {
+    "calls": 130,
+    "totalMs": 14032.1,
+    "maxMs": 658.3
+   }
+  },
+  "visibility": [],
+  "observed": [
+   "element",
+   "event",
+   "first-input",
+   "interaction-contentful-paint",
+   "largest-contentful-paint",
+   "layout-shift",
+   "long-animation-frame",
+   "longtask",
+   "mark",
+   "measure",
+   "navigation",
+   "paint",
+   "resource",
+   "soft-navigation",
+   "visibility-state"
+  ],
+  "dropped": 0,
+  "p95": 33.300000000046566,
+  "allLongTasks": 912,
+  "allLongAnimationFrames": 872,
+  "maxLongTaskMs": 3697.0,
+  "allGaps250ms": 199,
+  "stampCounts": {
+   "250": 186,
+   "500": 39,
+   "1000": 8,
+   "2000": 2
+  },
+  "wallCounts": {
+   "250": 177,
+   "500": 41,
+   "1000": 7,
+   "2000": 2
+  },
+  "top": [
+   {
+    "from": 192417.5,
+    "to": 196177.1000000015,
+    "stampFrom": 192403.2,
+    "stampTo": 196103,
+    "state": {
+     "visible": "visible",
+     "paused": "false",
+     "choices": false,
+     "speech": true,
+     "lifeCard": false,
+     "actors": 28
+    },
+    "wallMs": 3759.6,
+    "stampMs": 3699.8,
+    "stageMs": {
+     "home-production-world.mjs/draw": 0.7,
+     "home-production-diorama.js/paint": 41.2,
+     "home-production-diorama.js/frame": 3660.6,
+     "home-production-model.js/sync": 13.6,
+     "home-production-diorama.js/sync": 35.4,
+     "home-production-diorama.js/update": 36.2,
+     "script.js/renderHomeDiorama": 36.3,
+     "home-production-model.js/step": 3636.1
+    },
+    "stageUnionMs": 3696.9,
+    "longTaskMs": 3758.0,
+    "loafMs": 3723.5,
+    "cpuSamples": 460,
+    "gcSamples": 16,
+    "topCPU": [
+     [
+      "native/getBoundingClientRect",
+      106
+     ],
+     [
+      "home-art-navigation.mjs?v=b08b767e0984/walkable",
+      46
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/(anonymous)",
+      38
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/valid",
+      32
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/buildEdges",
+      31
+     ],
+     [
+      "home-art-navigation.mjs?v=b08b767e0984/unproject",
+      25
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/segmentSafe",
+      17
+     ],
+     [
+      "home-visible-ground-navigation.mjs?v=47d394909efd/polygonCuts",
+      16
+     ]
+    ],
+    "loafDetail": [
+     {
+      "from": 192417.30000000075,
+      "to": 196079.30000000075,
+      "renderAt": 192417.5,
+      "layoutAt": 196078.6000000015,
+      "scripts": [
+       {
+        "from": 192417.5,
+        "to": 196078.30000000075,
+        "file": "home-production-diorama.js?v=ecac051a6f90",
+        "fn": "frame",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 18.9
+       }
+      ]
+     },
+     {
+      "from": 196115.40000000224,
+      "to": 196874.1000000015,
+      "renderAt": 196177.1000000015,
+      "layoutAt": 196873.69999999925,
+      "scripts": [
+       {
+        "from": 196177.30000000075,
+        "to": 196873.40000000224,
+        "file": "home-production-diorama.js?v=ecac051a6f90",
+        "fn": "frame",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 10
+       },
+       {
+        "from": 196115.80000000075,
+        "to": 196176.90000000224,
+        "file": "script.js?v=20261114-ebb7bae6",
+        "fn": "",
+        "invoker": "TimerHandler:setTimeout",
+        "forcedLayoutMs": 35.6
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "from": 310401.5,
+    "to": 312714.19999999925,
+    "stampFrom": 310398.4,
+    "stampTo": 312548.4,
+    "state": {
+     "visible": "visible",
+     "paused": "false",
+     "choices": false,
+     "speech": true,
+     "lifeCard": false,
+     "actors": 28
+    },
+    "wallMs": 2312.7,
+    "stampMs": 2150.0,
+    "stageMs": {
+     "home-production-diorama.js/paint": 91.2,
+     "home-production-diorama.js/frame": 2142.5,
+     "home-production-model.js/sync": 7.2,
+     "home-production-diorama.js/sync": 87.8,
+     "home-production-diorama.js/update": 104.7,
+     "script.js/renderHomeDiorama": 104.9,
+     "script.js/renderEnvironment": 75.3,
+     "script.js/render": 127.7,
+     "home-production-model.js/step": 2128.2
+    },
+    "stageUnionMs": 2283.9,
+    "longTaskMs": 2281.9,
+    "loafMs": 2309.0,
+    "cpuSamples": 281,
+    "gcSamples": 22,
+    "topCPU": [
+     [
+      "native/getBoundingClientRect",
+      69
+     ],
+     [
+      "home-art-navigation.mjs?v=b08b767e0984/walkable",
+      29
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/(anonymous)",
+      26
+     ],
+     [
+      "native/(garbage collector)",
+      22
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/buildEdges",
+      18
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/valid",
+      18
+     ],
+     [
+      "home-visible-ground-navigation.mjs?v=47d394909efd/polygonCuts",
+      10
+     ],
+     [
+      "home-production-model.js?v=812fad81ddc5/clearance",
+      8
+     ]
+    ],
+    "loafDetail": [
+     {
+      "from": 310386.5,
+      "to": 312544.69999999925,
+      "renderAt": 310401.40000000224,
+      "layoutAt": 312544.40000000224,
+      "scripts": [
+       {
+        "from": 310401.5,
+        "to": 312544,
+        "file": "home-production-diorama.js?v=ecac051a6f90",
+        "fn": "frame",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 11.7
+       }
+      ]
+     },
+     {
+      "from": 312548.40000000224,
+      "to": 313144.19999999925,
+      "renderAt": 312714.19999999925,
+      "layoutAt": 313129.6000000015,
+      "scripts": [
+       {
+        "from": 312821,
+        "to": 313129.19999999925,
+        "file": "home-production-touch.js?v=df9353d84de4",
+        "fn": "apply",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 174.7
+       },
+       {
+        "from": 312577.69999999925,
+        "to": 312713.6000000015,
+        "file": "script.js?v=20261114-ebb7bae6",
+        "fn": "",
+        "invoker": "TimerHandler:setTimeout",
+        "forcedLayoutMs": 88.1
+       },
+       {
+        "from": 312714.30000000075,
+        "to": 312820.69999999925,
+        "file": "home-production-diorama.js?v=ecac051a6f90",
+        "fn": "frame",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 7.7
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "from": 326119.5,
+    "to": 326447.69999999925,
+    "stampFrom": 324814.5,
+    "stampTo": 326281.1,
+    "state": {
+     "visible": "visible",
+     "paused": "true",
+     "choices": false,
+     "speech": true,
+     "lifeCard": false,
+     "actors": 28
+    },
+    "wallMs": 328.2,
+    "stampMs": 1466.6,
+    "stageMs": {
+     "home-production-diorama.js/paint": 57.1,
+     "script.js/tick": 0.7,
+     "home-production-model.js/sync": 8.9,
+     "home-production-diorama.js/sync": 65.8,
+     "home-production-diorama.js/update": 85.1,
+     "script.js/renderHomeDiorama": 85.3,
+     "script.js/renderEnvironment": 38.1,
+     "script.js/render": 89.1,
+     "script.js/loop": 90.7,
+     "home-production-touch.js/apply": 157.1
+    },
+    "stageUnionMs": 268.7,
+    "longTaskMs": 325.9,
+    "loafMs": 320.3,
+    "cpuSamples": 38,
+    "gcSamples": 0,
+    "topCPU": [
+     [
+      "native/getBoundingClientRect",
+      25
+     ],
+     [
+      "home-production-touch.js?v=df9353d84de4/paintScroll",
+      4
+     ],
+     [
+      "home-production-touch.js?v=df9353d84de4/__hitch_apply",
+      3
+     ],
+     [
+      "script.js?v=20261114-ebb7bae6/setSpeechBubble",
+      2
+     ],
+     [
+      "native/contains",
+      1
+     ],
+     [
+      "native/(program)",
+      1
+     ],
+     [
+      "home-production-diorama.js?v=ecac051a6f90/__hitch_sync",
+      1
+     ],
+     [
+      "home-production-world.mjs?v=d824c818c676/__hitch_setEnvironment",
+      1
+     ]
+    ],
+    "loafDetail": [
+     {
+      "from": 324827.69999999925,
+      "to": 326281.69999999925,
+      "renderAt": 326119.40000000224,
+      "layoutAt": 326278.30000000075,
+      "scripts": [
+       {
+        "from": 324834.30000000075,
+        "to": 326105.1000000015,
+        "file": "script.js?v=20261114-ebb7bae6",
+        "fn": "",
+        "invoker": "BUTTON#feedBtn.onclick",
+        "forcedLayoutMs": 1102.6
+       },
+       {
+        "from": 326119.80000000075,
+        "to": 326278.30000000075,
+        "file": "home-production-touch.js?v=df9353d84de4",
+        "fn": "apply",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 145.2
+       },
+       {
+        "from": 326108.90000000224,
+        "to": 326117.90000000224,
+        "file": "home-production-touch.js?v=df9353d84de4",
+        "fn": "paintScroll",
+        "invoker": "MutationCallback",
+        "forcedLayoutMs": 8.8
+       }
+      ]
+     },
+     {
+      "from": 326289.6000000015,
+      "to": 326606.30000000075,
+      "renderAt": 326447.69999999925,
+      "layoutAt": 326603.80000000075,
+      "scripts": [
+       {
+        "from": 326462.19999999925,
+        "to": 326603.6000000015,
+        "file": "home-production-touch.js?v=df9353d84de4",
+        "fn": "apply",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 127.8
+       },
+       {
+        "from": 326342.30000000075,
+        "to": 326447.5,
+        "file": "script.js?v=20261114-ebb7bae6",
+        "fn": "loop",
+        "invoker": "TimerHandler:setInterval",
+        "forcedLayoutMs": 76.7
+       },
+       {
+        "from": 326289.90000000224,
+        "to": 326341,
+        "file": "script.js?v=20261114-ebb7bae6",
+        "fn": "",
+        "invoker": "TimerHandler:setTimeout",
+        "forcedLayoutMs": 38
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "from": 107694,
+    "to": 109064.5,
+    "stampFrom": 107673.2,
+    "stampTo": 108789.8,
+    "state": {
+     "visible": "visible",
+     "paused": "false",
+     "choices": false,
+     "speech": false,
+     "lifeCard": false,
+     "actors": 28
+    },
+    "wallMs": 1370.5,
+    "stampMs": 1116.6,
+    "stageMs": {
+     "home-production-world.mjs/draw": 0.5,
+     "home-production-diorama.js/paint": 106.2,
+     "home-production-diorama.js/frame": 1070.7,
+     "script.js/tick": 0.4,
+     "home-production-model.js/sync": 4.2,
+     "home-production-diorama.js/sync": 72.6,
+     "home-production-diorama.js/update": 143.6,
+     "script.js/renderHomeDiorama": 144.1,
+     "script.js/renderEnvironment": 119.4,
+     "script.js/render": 227.1,
+     "script.js/loop": 228.2,
+     "home-production-model.js/step": 1020.7
+    },
+    "stageUnionMs": 1298.9,
+    "longTaskMs": 1368.0,
+    "loafMs": 1340.2,
+    "cpuSamples": 119,
+    "gcSamples": 4,
+    "topCPU": [
+     [
+      "native/getBoundingClientRect",
+      34
+     ],
+     [
+      "home-art-navigation.mjs?v=b08b767e0984/walkable",
+      11
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/valid",
+      11
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/(anonymous)",
+      9
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/buildEdges",
+      6
+     ],
+     [
+      "home-art-navigation.mjs?v=b08b767e0984/unproject",
+      5
+     ],
+     [
+      "home-production-diorama.js?v=ecac051a6f90/polygonsAt",
+      4
+     ],
+     [
+      "home-visible-ground-navigation.mjs?v=47d394909efd/polygonCuts",
+      4
+     ]
+    ],
+    "loafDetail": [
+     {
+      "from": 107690.30000000075,
+      "to": 108769.30000000075,
+      "renderAt": 107693.80000000075,
+      "layoutAt": 108769.10000000149,
+      "scripts": [
+       {
+        "from": 107694.19999999925,
+        "to": 108765.19999999925,
+        "file": "home-production-diorama.js?v=ecac051a6f90",
+        "fn": "frame",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 52.7
+       }
+      ]
+     },
+     {
+      "from": 108799.60000000149,
+      "to": 109803.30000000075,
+      "renderAt": 109064.30000000075,
+      "layoutAt": 109799.10000000149,
+      "scripts": [
+       {
+        "from": 109064.5,
+        "to": 109638.60000000149,
+        "file": "home-production-diorama.js?v=ecac051a6f90",
+        "fn": "frame",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 18.6
+       },
+       {
+        "from": 108800.69999999925,
+        "to": 109064.30000000075,
+        "file": "script.js?v=20261114-ebb7bae6",
+        "fn": "loop",
+        "invoker": "TimerHandler:setInterval",
+        "forcedLayoutMs": 188.8
+       },
+       {
+        "from": 109638.90000000224,
+        "to": 109799.10000000149,
+        "file": "home-production-touch.js?v=df9353d84de4",
+        "fn": "apply",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 144.8
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "from": 324799.1000000015,
+    "to": 326119.5,
+    "stampFrom": 324797.9,
+    "stampTo": 324814.5,
+    "state": {
+     "visible": "visible",
+     "paused": "true",
+     "choices": false,
+     "speech": false,
+     "lifeCard": false,
+     "actors": 28
+    },
+    "wallMs": 1320.4,
+    "stampMs": 16.6,
+    "stageMs": {
+     "home-production-diorama.js/paint": 158.4,
+     "home-production-diorama.js/frame": 23.9,
+     "home-production-model.js/sync": 5.6,
+     "home-production-diorama.js/sync": 89.0,
+     "home-production-diorama.js/update": 139.0,
+     "script.js/renderHomeDiorama": 139.3,
+     "script.js/renderEnvironment": 113.8,
+     "script.js/render": 1210.7
+    },
+    "stageUnionMs": 1283.5,
+    "longTaskMs": 1290.3,
+    "loafMs": 1291.8,
+    "cpuSamples": 82,
+    "gcSamples": 0,
+    "topCPU": [
+     [
+      "native/getBoundingClientRect",
+      69
+     ],
+     [
+      "native/(program)",
+      1
+     ],
+     [
+      "native/setProperty",
+      1
+     ],
+     [
+      "script.js?v=20261114-ebb7bae6/homeV11Upper",
+      1
+     ],
+     [
+      "script.js?v=20261114-ebb7bae6/renderMeterValue",
+      1
+     ],
+     [
+      "native/matches",
+      1
+     ],
+     [
+      "native/setAttribute",
+      1
+     ],
+     [
+      "home-production-diorama.js?v=ecac051a6f90/publishPaintEnvelope",
+      1
+     ]
+    ],
+    "loafDetail": [
+     {
+      "from": 324827.69999999925,
+      "to": 326281.69999999925,
+      "renderAt": 326119.40000000224,
+      "layoutAt": 326278.30000000075,
+      "scripts": [
+       {
+        "from": 324834.30000000075,
+        "to": 326105.1000000015,
+        "file": "script.js?v=20261114-ebb7bae6",
+        "fn": "",
+        "invoker": "BUTTON#feedBtn.onclick",
+        "forcedLayoutMs": 1102.6
+       },
+       {
+        "from": 326119.80000000075,
+        "to": 326278.30000000075,
+        "file": "home-production-touch.js?v=df9353d84de4",
+        "fn": "apply",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 145.2
+       },
+       {
+        "from": 326108.90000000224,
+        "to": 326117.90000000224,
+        "file": "home-production-touch.js?v=df9353d84de4",
+        "fn": "paintScroll",
+        "invoker": "MutationCallback",
+        "forcedLayoutMs": 8.8
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "from": 246618.6000000015,
+    "to": 247807.90000000224,
+    "stampFrom": 246617.7,
+    "stampTo": 247767.6,
+    "state": {
+     "visible": "visible",
+     "paused": "false",
+     "choices": false,
+     "speech": true,
+     "lifeCard": false,
+     "actors": 28
+    },
+    "wallMs": 1189.3,
+    "stampMs": 1149.9,
+    "stageMs": {
+     "home-production-diorama.js/paint": 30.5,
+     "home-production-diorama.js/frame": 1122.3,
+     "home-production-model.js/sync": 1.0,
+     "home-production-diorama.js/sync": 13.1,
+     "home-production-diorama.js/update": 14.3,
+     "script.js/renderHomeDiorama": 14.3,
+     "home-production-model.js/step": 1102.9
+    },
+    "stageUnionMs": 1136.6,
+    "longTaskMs": 1152.9,
+    "loafMs": 1159.1,
+    "cpuSamples": 129,
+    "gcSamples": 9,
+    "topCPU": [
+     [
+      "native/getBoundingClientRect",
+      28
+     ],
+     [
+      "home-art-navigation.mjs?v=b08b767e0984/walkable",
+      15
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/(anonymous)",
+      12
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/valid",
+      10
+     ],
+     [
+      "native/(garbage collector)",
+      9
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/buildEdges",
+      8
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/segmentSafe",
+      7
+     ],
+     [
+      "home-visible-ground-navigation.mjs?v=47d394909efd/polygonCuts",
+      5
+     ]
+    ],
+    "loafDetail": [
+     {
+      "from": 246602.6000000015,
+      "to": 247741.90000000224,
+      "renderAt": 246618.5,
+      "layoutAt": 247741.19999999925,
+      "scripts": [
+       {
+        "from": 246618.69999999925,
+        "to": 247741.1000000015,
+        "file": "home-production-diorama.js?v=ecac051a6f90",
+        "fn": "frame",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 22.7
+       }
+      ]
+     },
+     {
+      "from": 247772.1000000015,
+      "to": 247822.80000000075,
+      "renderAt": 247807.80000000075,
+      "layoutAt": 247822.5,
+      "scripts": [
+       {
+        "from": 247772.30000000075,
+        "to": 247806.69999999925,
+        "file": "script.js?v=20261114-ebb7bae6",
+        "fn": "",
+        "invoker": "TimerHandler:setTimeout",
+        "forcedLayoutMs": 27.7
+       },
+       {
+        "from": 247808,
+        "to": 247822.30000000075,
+        "file": "home-production-diorama.js?v=ecac051a6f90",
+        "fn": "frame",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 11.2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "from": 50040.5,
+    "to": 51119.699999999255,
+    "stampFrom": 50025.5,
+    "stampTo": 51092.1,
+    "state": {
+     "visible": "visible",
+     "paused": "false",
+     "choices": false,
+     "speech": false,
+     "lifeCard": false,
+     "actors": 28
+    },
+    "wallMs": 1079.2,
+    "stampMs": 1066.6,
+    "stageMs": {
+     "home-production-world.mjs/draw": 0.4,
+     "home-production-diorama.js/paint": 33.6,
+     "home-production-diorama.js/frame": 1038.8,
+     "home-production-model.js/step": 1004.0
+    },
+    "stageUnionMs": 1038.8,
+    "longTaskMs": 1061.0,
+    "loafMs": 1057.2,
+    "cpuSamples": 87,
+    "gcSamples": 3,
+    "topCPU": [
+     [
+      "native/getBoundingClientRect",
+      12
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/(anonymous)",
+      11
+     ],
+     [
+      "home-art-navigation.mjs?v=b08b767e0984/walkable",
+      11
+     ],
+     [
+      "home-visible-ground-navigation.mjs?v=47d394909efd/polygonCuts",
+      8
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/buildEdges",
+      6
+     ],
+     [
+      "home-visible-ground-navigation.mjs?v=47d394909efd/segmentWalkable",
+      4
+     ],
+     [
+      "home-production-touch.js?v=df9353d84de4/presentationRect",
+      3
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/valid",
+      3
+     ]
+    ],
+    "loafDetail": [
+     {
+      "from": 50040.10000000149,
+      "to": 51080.300000000745,
+      "renderAt": 50040.5,
+      "layoutAt": 51080.10000000149,
+      "scripts": [
+       {
+        "from": 50040.60000000149,
+        "to": 51079.5,
+        "file": "home-production-diorama.js?v=ecac051a6f90",
+        "fn": "frame",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 30.8
+       }
+      ]
+     },
+     {
+      "from": 51102.300000000745,
+      "to": 51297.199999999255,
+      "renderAt": 51119.699999999255,
+      "layoutAt": 51296.699999999255,
+      "scripts": [
+       {
+        "from": 51119.800000000745,
+        "to": 51296.5,
+        "file": "home-production-diorama.js?v=ecac051a6f90",
+        "fn": "frame",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 16.9
+       },
+       {
+        "from": 51102.60000000149,
+        "to": 51117,
+        "file": "script.js?v=20261114-ebb7bae6",
+        "fn": "",
+        "invoker": "TimerHandler:setTimeout",
+        "forcedLayoutMs": 13.4
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "from": 314176,
+    "to": 315149.30000000075,
+    "stampFrom": 314131.6,
+    "stampTo": 315148.3,
+    "state": {
+     "visible": "visible",
+     "paused": "false",
+     "choices": false,
+     "speech": true,
+     "lifeCard": false,
+     "actors": 28
+    },
+    "wallMs": 973.3,
+    "stampMs": 1016.7,
+    "stageMs": {
+     "home-production-world.mjs/draw": 0.8,
+     "home-production-diorama.js/paint": 78.1,
+     "home-production-diorama.js/frame": 140.7,
+     "home-production-model.js/sync": 138.2,
+     "home-production-diorama.js/sync": 588.0,
+     "home-production-model.js/step": 130.2,
+     "home-production-touch.js/apply": 658.3
+    },
+    "stageUnionMs": 799.0,
+    "longTaskMs": 935.6,
+    "loafMs": 907.4,
+    "cpuSamples": 103,
+    "gcSamples": 1,
+    "topCPU": [
+     [
+      "native/getBoundingClientRect",
+      24
+     ],
+     [
+      "native/getBBox",
+      19
+     ],
+     [
+      "native/(program)",
+      8
+     ],
+     [
+      "home-production-diorama.js?v=ecac051a6f90/publishResidentEnvelope",
+      7
+     ],
+     [
+      "home-production-diorama.js?v=ecac051a6f90/(anonymous)",
+      5
+     ],
+     [
+      "home-production-diorama.js?v=ecac051a6f90/actorBounds",
+      5
+     ],
+     [
+      "home-production-touch.js?v=df9353d84de4/(anonymous)",
+      5
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/buildEdges",
+      3
+     ]
+    ],
+    "loafDetail": [
+     {
+      "from": 314130.90000000224,
+      "to": 315045.1000000015,
+      "renderAt": 314175.80000000075,
+      "layoutAt": 314977.80000000075,
+      "scripts": [
+       {
+        "from": 314317,
+        "to": 314977.5,
+        "file": "home-production-touch.js?v=df9353d84de4",
+        "fn": "apply",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 346.5
+       },
+       {
+        "from": 314176,
+        "to": 314316.80000000075,
+        "file": "home-production-diorama.js?v=ecac051a6f90",
+        "fn": "frame",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 8.7
+       },
+       {
+        "from": 314992.80000000075,
+        "to": 315044.90000000224,
+        "file": "home-production-touch.js?v=df9353d84de4",
+        "fn": "",
+        "invoker": "ResizeObserverCallback",
+        "forcedLayoutMs": 50.6
+       }
+      ]
+     },
+     {
+      "from": 315111,
+      "to": 315178.6000000015,
+      "renderAt": 315148.5,
+      "layoutAt": 315178.1000000015,
+      "scripts": [
+       {
+        "from": 315149.40000000224,
+        "to": 315177.69999999925,
+        "file": "home-production-diorama.js?v=ecac051a6f90",
+        "fn": "frame",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 24.6
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "from": 109064.5,
+    "to": 109905.40000000224,
+    "stampFrom": 108789.8,
+    "stampTo": 109806.5,
+    "state": {
+     "visible": "visible",
+     "paused": "false",
+     "choices": false,
+     "speech": true,
+     "lifeCard": false,
+     "actors": 28
+    },
+    "wallMs": 840.9,
+    "stampMs": 1016.7,
+    "stageMs": {
+     "home-production-world.mjs/draw": 0.6,
+     "home-production-diorama.js/paint": 51.7,
+     "home-production-diorama.js/frame": 573.8,
+     "home-production-model.js/sync": 17.3,
+     "home-production-diorama.js/sync": 33.1,
+     "home-production-diorama.js/update": 33.8,
+     "script.js/renderHomeDiorama": 33.8,
+     "home-production-model.js/step": 544.2,
+     "home-production-touch.js/apply": 157.8
+    },
+    "stageUnionMs": 765.4,
+    "longTaskMs": 837.8,
+    "loafMs": 823.8,
+    "cpuSamples": 84,
+    "gcSamples": 5,
+    "topCPU": [
+     [
+      "native/getBoundingClientRect",
+      24
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/(anonymous)",
+      7
+     ],
+     [
+      "home-art-navigation.mjs?v=b08b767e0984/walkable",
+      6
+     ],
+     [
+      "native/(garbage collector)",
+      5
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/buildEdges",
+      4
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/valid",
+      4
+     ],
+     [
+      "home-visible-ground-navigation.mjs?v=47d394909efd/segmentWalkable",
+      3
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/segmentSafe",
+      3
+     ]
+    ],
+    "loafDetail": [
+     {
+      "from": 108799.60000000149,
+      "to": 109803.30000000075,
+      "renderAt": 109064.30000000075,
+      "layoutAt": 109799.10000000149,
+      "scripts": [
+       {
+        "from": 109064.5,
+        "to": 109638.60000000149,
+        "file": "home-production-diorama.js?v=ecac051a6f90",
+        "fn": "frame",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 18.6
+       },
+       {
+        "from": 108800.69999999925,
+        "to": 109064.30000000075,
+        "file": "script.js?v=20261114-ebb7bae6",
+        "fn": "loop",
+        "invoker": "TimerHandler:setInterval",
+        "forcedLayoutMs": 188.8
+       },
+       {
+        "from": 109638.90000000224,
+        "to": 109799.10000000149,
+        "file": "home-production-touch.js?v=df9353d84de4",
+        "fn": "apply",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 144.8
+       }
+      ]
+     },
+     {
+      "from": 109820.40000000224,
+      "to": 110202.19999999925,
+      "renderAt": 109905.40000000224,
+      "layoutAt": 110201.80000000075,
+      "scripts": [
+       {
+        "from": 109905.5,
+        "to": 110201.5,
+        "file": "home-production-diorama.js?v=ecac051a6f90",
+        "fn": "frame",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 21.8
+       },
+       {
+        "from": 109822.80000000075,
+        "to": 109905.10000000149,
+        "file": "script.js?v=20261114-ebb7bae6",
+        "fn": "",
+        "invoker": "TimerHandler:setTimeout",
+        "forcedLayoutMs": 48.6
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "from": 316789.19999999925,
+    "to": 317793.30000000075,
+    "stampFrom": 316781.5,
+    "stampTo": 317714.9,
+    "state": {
+     "visible": "visible",
+     "paused": "false",
+     "choices": false,
+     "speech": false,
+     "lifeCard": false,
+     "actors": 28
+    },
+    "wallMs": 1004.1,
+    "stampMs": 933.4,
+    "stageMs": {
+     "full-motion.mjs/drawFullMotion": 0.6,
+     "paint.mjs/composeNature": 0.8,
+     "home-production-world.mjs/draw": 2.0,
+     "home-production-diorama.js/paint": 89.9,
+     "home-production-diorama.js/frame": 885.3,
+     "script.js/tick": 0.8,
+     "home-production-model.js/sync": 5.3,
+     "home-production-diorama.js/sync": 28.6,
+     "home-production-diorama.js/update": 48.2,
+     "script.js/renderHomeDiorama": 48.2,
+     "script.js/renderEnvironment": 38.5,
+     "script.js/render": 63.4,
+     "script.js/loop": 70.5,
+     "home-production-model.js/step": 812.5,
+     "script.js/renderPetVisual": 2.7
+    },
+    "stageUnionMs": 955.8,
+    "longTaskMs": 981.1,
+    "loafMs": 988.3,
+    "cpuSamples": 94,
+    "gcSamples": 6,
+    "topCPU": [
+     [
+      "native/getBoundingClientRect",
+      24
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/(anonymous)",
+      11
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/segmentSafe",
+      6
+     ],
+     [
+      "home-art-navigation.mjs?v=b08b767e0984/unproject",
+      6
+     ],
+     [
+      "native/(garbage collector)",
+      6
+     ],
+     [
+      "home-art-navigation.mjs?v=b08b767e0984/walkable",
+      5
+     ],
+     [
+      "home-visible-ground-navigation.mjs?v=47d394909efd/polygonCuts",
+      4
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/reachable",
+      3
+     ]
+    ],
+    "loafDetail": [
+     {
+      "from": 316788.90000000224,
+      "to": 317677.40000000224,
+      "renderAt": 316789.1000000015,
+      "layoutAt": 317676.1000000015,
+      "scripts": [
+       {
+        "from": 316789.30000000075,
+        "to": 317674.90000000224,
+        "file": "home-production-diorama.js?v=ecac051a6f90",
+        "fn": "frame",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 44.4
+       }
+      ]
+     },
+     {
+      "from": 317693.19999999925,
+      "to": 317912.19999999925,
+      "renderAt": 317793.30000000075,
+      "layoutAt": 317910.6000000015,
+      "scripts": [
+       {
+        "from": 317801.19999999925,
+        "to": 317910.5,
+        "file": "home-production-touch.js?v=df9353d84de4",
+        "fn": "apply",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 93.4
+       },
+       {
+        "from": 317708.80000000075,
+        "to": 317786.5,
+        "file": "script.js?v=20261114-ebb7bae6",
+        "fn": "loop",
+        "invoker": "TimerHandler:setInterval",
+        "forcedLayoutMs": 48.9
+       },
+       {
+        "from": 317793.5,
+        "to": 317801.1000000015,
+        "file": "home-production-diorama.js?v=ecac051a6f90",
+        "fn": "frame",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 5.5
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "from": 110565.30000000075,
+    "to": 111223.60000000149,
+    "stampFrom": 110223.2,
+    "stampTo": 111206.4,
+    "state": {
+     "visible": "visible",
+     "paused": "false",
+     "choices": false,
+     "speech": true,
+     "lifeCard": false,
+     "actors": 28
+    },
+    "wallMs": 658.3,
+    "stampMs": 983.2,
+    "stageMs": {
+     "home-production-world.mjs/draw": 0.6,
+     "home-production-diorama.js/paint": 25.0,
+     "home-production-diorama.js/frame": 513.5,
+     "home-production-model.js/step": 499.2,
+     "home-production-touch.js/apply": 123.2
+    },
+    "stageUnionMs": 636.7,
+    "longTaskMs": 656.0,
+    "loafMs": 640.7,
+    "cpuSamples": 67,
+    "gcSamples": 7,
+    "topCPU": [
+     [
+      "native/getBoundingClientRect",
+      17
+     ],
+     [
+      "native/(garbage collector)",
+      7
+     ],
+     [
+      "home-art-navigation.mjs?v=b08b767e0984/unproject",
+      5
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/buildEdges",
+      5
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/valid",
+      4
+     ],
+     [
+      "home-art-navigation.mjs?v=b08b767e0984/walkable",
+      3
+     ],
+     [
+      "home-production-diorama.js?v=ecac051a6f90/inside",
+      3
+     ],
+     [
+      "home-production-touch.js?v=df9353d84de4/presentationRect",
+      3
+     ]
+    ],
+    "loafDetail": [
+     {
+      "from": 110226.80000000075,
+      "to": 111206,
+      "renderAt": 110565.19999999925,
+      "layoutAt": 111204.30000000075,
+      "scripts": [
+       {
+        "from": 110566,
+        "to": 111079.60000000149,
+        "file": "home-production-diorama.js?v=ecac051a6f90",
+        "fn": "frame",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 11.9
+       },
+       {
+        "from": 110227.19999999925,
+        "to": 110565.19999999925,
+        "file": "script.js?v=20261114-ebb7bae6",
+        "fn": "loop",
+        "invoker": "TimerHandler:setInterval",
+        "forcedLayoutMs": 265
+       },
+       {
+        "from": 111080,
+        "to": 111204.19999999925,
+        "file": "home-production-touch.js?v=df9353d84de4",
+        "fn": "apply",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 118
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "from": 47039.300000000745,
+    "to": 47924.199999999255,
+    "stampFrom": 47025.6,
+    "stampTo": 47825.6,
+    "state": {
+     "visible": "visible",
+     "paused": "false",
+     "choices": false,
+     "speech": false,
+     "lifeCard": false,
+     "actors": 28
+    },
+    "wallMs": 884.9,
+    "stampMs": 800.0,
+    "stageMs": {
+     "home-production-world.mjs/draw": 0.6,
+     "home-production-diorama.js/paint": 39.6,
+     "home-production-diorama.js/frame": 775.5,
+     "home-production-model.js/sync": 5.1,
+     "home-production-diorama.js/sync": 31.9,
+     "home-production-diorama.js/update": 64.4,
+     "script.js/renderHomeDiorama": 64.6,
+     "script.js/renderEnvironment": 49.3,
+     "script.js/render": 81.6,
+     "script.js/loop": 82.8,
+     "home-production-model.js/step": 758.1
+    },
+    "stageUnionMs": 858.3,
+    "longTaskMs": 883.0,
+    "loafMs": 872.1,
+    "cpuSamples": 81,
+    "gcSamples": 4,
+    "topCPU": [
+     [
+      "native/getBoundingClientRect",
+      17
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/valid",
+      6
+     ],
+     [
+      "home-art-navigation.mjs?v=b08b767e0984/unproject",
+      6
+     ],
+     [
+      "home-route-navigation.mjs?v=9459d7632eb7/(anonymous)",
+      6
+     ],
+     [
+      "home-art-navigation.mjs?v=b08b767e0984/walkable",
+      5
+     ],
+     [
+      "home-visible-ground-navigation.mjs?v=47d394909efd/polygonCuts",
+      5
+     ],
+     [
+      "native/(garbage collector)",
+      4
+     ],
+     [
+      "home-visible-ground-navigation.mjs?v=47d394909efd/segmentWalkable",
+      4
+     ]
+    ],
+    "loafDetail": [
+     {
+      "from": 47039,
+      "to": 47816,
+      "renderAt": 47039.199999999255,
+      "layoutAt": 47815.5,
+      "scripts": [
+       {
+        "from": 47039.400000002235,
+        "to": 47815,
+        "file": "home-production-diorama.js?v=ecac051a6f90",
+        "fn": "frame",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 53.5
+       }
+      ]
+     },
+     {
+      "from": 47828.800000000745,
+      "to": 48488,
+      "renderAt": 47924.199999999255,
+      "layoutAt": 48486.10000000149,
+      "scripts": [
+       {
+        "from": 47973.300000000745,
+        "to": 48486,
+        "file": "home-production-touch.js?v=df9353d84de4",
+        "fn": "apply",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 488.4
+       },
+       {
+        "from": 47829.199999999255,
+        "to": 47923.800000000745,
+        "file": "script.js?v=20261114-ebb7bae6",
+        "fn": "loop",
+        "invoker": "TimerHandler:setInterval",
+        "forcedLayoutMs": 70.1
+       },
+       {
+        "from": 47924.300000000745,
+        "to": 47972.900000002235,
+        "file": "home-production-diorama.js?v=ecac051a6f90",
+        "fn": "frame",
+        "invoker": "FrameRequestCallback",
+        "forcedLayoutMs": 45.4
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "cpuProfile": {
+   "samples": 70097,
+   "firstMs": 4722.058000002056,
+   "lastMs": 607604.6290000007
+  }
+ }
+}
