@@ -131,6 +131,7 @@ async function slideBoard(page) {
   return {board, N, CELL};
 }
 function solvable(board, N) {
+  assert.ok(board.slice().sort((x, y) => x - y).every((v, i) => v === i), 'board was read as a permutation: ' + board);
   let inv = 0; const p = board.slice();
   for (let i = 0; i < p.length; i++) while (p[i] !== i) { const j = p[i]; [p[i], p[j]] = [p[j], p[i]]; inv++; }
   const at = board.indexOf(N * N - 1);

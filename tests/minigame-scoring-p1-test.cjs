@@ -122,6 +122,7 @@ function slideBoard(calls) {
 }
 // 15パズルの 解ける 条件: (空きマスを ふくめた 置換の 偶奇) = (空きマスの 本来の 位置からの マンハッタン距離の 偶奇)
 function solvable(board, N) {
+  assert.ok(board.slice().sort((x, y) => x - y).every((v, i) => v === i), 'board was read as a permutation: ' + board);
   let inv = 0; const seen = board.slice(), blank = N * N - 1;
   for (let i = 0; i < seen.length; i++) while (seen[i] !== i) { const j = seen[i]; [seen[i], seen[j]] = [seen[j], seen[i]]; inv++; }
   const at = board.indexOf(blank), dist = Math.abs((at % N) - (N - 1)) + Math.abs(Math.floor(at / N) - (N - 1));

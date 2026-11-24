@@ -134,8 +134,8 @@ table.p-log th { color: var(--p-muted); }
   // 描画の きろく(上海の 自動プレイ・スライドの 盤の よみとり)
   const draws = {};
   const P = CanvasRenderingContext2D.prototype, ft = P.fillText, di = P.drawImage;
-  P.fillText = function (...a) { const id = this.canvas && this.canvas.id; if (id === 'shCanvas') (draws[id] = draws[id] || []).push(['t', ...a.slice(0, 3)]); return ft.apply(this, a); };
-  P.drawImage = function (...a) { const id = this.canvas && this.canvas.id; if (id === 'spCanvas' && a.length === 9) (draws[id] = draws[id] || []).push(['i', ...a.slice(1)]); return di.apply(this, a); };
+  P.fillText = function (...a) { const id = this.canvas && this.canvas.isConnected && this.canvas.id; if (id === 'shCanvas') (draws[id] = draws[id] || []).push(['t', ...a.slice(0, 3)]); return ft.apply(this, a); };
+  P.drawImage = function (...a) { const id = this.canvas && this.canvas.isConnected && this.canvas.id; if (id === 'spCanvas' && a.length === 9) (draws[id] = draws[id] || []).push(['i', ...a.slice(1)]); return di.apply(this, a); };
   const nextFrame = () => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
   const wait = (ms) => new Promise((r) => setTimeout(r, window.__p1Fast ? Math.min(ms, 20) : ms));
   async function frameDraws(id) { draws[id] = []; await nextFrame(); const seen = new Set(); return (draws[id] || []).filter((d) => { const k = d.join('|'); if (seen.has(k)) return false; seen.add(k); return true; }); }
@@ -229,7 +229,9 @@ table.p-log th { color: var(--p-muted); }
       await wait(220);
     }
   }
+  const isPerm = (board) => board.slice().sort((x, y) => x - y).every((v, i) => v === i);
   function solvable(board, N) {
+    if (!isPerm(board)) return null; // よみとり失敗(うごいている とちゅう など)
     let inv = 0; const p = board.slice();
     for (let i = 0; i < p.length; i++) while (p[i] !== i) { const j = p[i]; [p[i], p[j]] = [p[j], p[i]]; inv++; }
     const at = board.indexOf(N * N - 1);
@@ -240,11 +242,15 @@ table.p-log th { color: var(--p-muted); }
     const r = c.getBoundingClientRect();
     c.dispatchEvent(new PointerEvent('pointerdown', {bubbles: true, clientX: r.left + 5, clientY: r.top + 5, pointerId: 1, pointerType: 'touch', isPrimary: true}));
     c.dispatchEvent(new PointerEvent('pointerup', {bubbles: true, clientX: r.left + 5, clientY: r.top + 5, pointerId: 1, pointerType: 'touch', isPrimary: true}));
-    await wait(80);
-    const d = (await frameDraws('spCanvas')).filter((x) => x[0] === 'i'); if (!d.length) return;
-    const CELL = d[0][3] / 2, N = Math.round(Math.sqrt(d.length + 1)), board = Array(N * N).fill(N * N - 1);
-    for (const [, sx, sy, , , x, y] of d) board[Math.round(y / CELL) * N + Math.round(x / CELL)] = Math.round(sy / 2 / CELL) * N + Math.round(sx / 2 / CELL);
-    const ok = solvable(board, N);
+    let board, N, ok = null;
+    for (let tries = 0; tries < 10 && ok === null; tries++) {
+      await new Promise((r) => setTimeout(r, 150));
+      const d = (await frameDraws('spCanvas')).filter((x) => x[0] === 'i'); if (!d.length) continue;
+      const CELL = d[0][3] / 2; N = Math.round(Math.sqrt(d.length + 1)); board = Array(N * N).fill(N * N - 1);
+      for (const [, sx, sy, , , x, y] of d) board[Math.round(y / CELL) * N + Math.round(x / CELL)] = Math.round(sy / 2 / CELL) * N + Math.round(sx / 2 / CELL);
+      ok = solvable(board, N);
+    }
+    if (ok === null) { $('status').textContent = '盤を読みとれませんでした。もう一度「再現する」を押してください。'; return; }
     const msg = ok ? 'この盤は解けます' : 'この盤は解けません(置換の偶奇が合わない)';
     $('status').textContent = `${msg}。ならび: ${board.map((v) => v === N * N - 1 ? '□' : v + 1).join(' ')}`;
     if (current) current.memo = msg;
@@ -263,6 +269,11 @@ table.p-log th { color: var(--p-muted); }
   $('demoBtn').addEventListener('click', () => { $('status').textContent = '再現中…'; ({'tilt-maze-3d': demoTilt, 'shanghai-tiles': demoShanghai, 'slide-puzzle': demoSlide})[game](); });
   $('stopBtn').addEventListener('click', () => { stop(); $('status').textContent = ''; });
   window.p1Trial = {setGame: (g) => { game = g; render(); }, setVer: (v) => { ver = v; render(); }, demo: () => ({'tilt-maze-3d': demoTilt, 'shanghai-tiles': demoShanghai, 'slide-puzzle': demoSlide})[game](), state: () => ({session, done: current && current.done, memo: current && current.memo, status: $('status').textContent})};
+  // 再現の 既定値(tools/minigame-audit で 修正前に 起きる ことを たしかめた 値)
+  //  spOffset 3: 4こ周期の 乱数で シャッフルが 完成形に もどる → 修正前は「2 1 3 … 8 □」(解けない)
+  //  shSeed: でたらめな 順に とると、修正前は 重なった 2まいが のこって 詰む 例
+  if (!document.body.dataset.spOffset) document.body.dataset.spOffset = '3';
+  if (!document.body.dataset.shSeed) document.body.dataset.shSeed = '1';
   render();
 })();
 </script>
