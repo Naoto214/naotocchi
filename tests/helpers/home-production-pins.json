@@ -23,7 +23,7 @@
   },
   "tools/pages/allowlist.json": {
     "before": "f1b1fb9cf575c6305fac17fb25dcf80a59d13c31",
-    "after": "e361ee271f93809f1638052a4f76e9873a04c052",
+    "after": "d9b36be870a645afbd407a17000fc4b5fb6ca29b",
     "size": 296524,
     "reverse": [
       [
@@ -37,9 +37,9 @@
         "    \"home-ground-expansion.mjs\": "
       ],
       [
-        174918,
-        174981,
-        "    \"home-ground-expansion.mjs\",\n"
+        174736,
+        174766,
+        ""
       ],
       [
         266351,
