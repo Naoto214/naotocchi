@@ -1,0 +1,151 @@
+{
+  "chromium": "156.0.8078.79",
+  "paintSize": [
+    300,
+    450
+  ],
+  "referencePR": 567,
+  "referenceCommit": "fae83a21915f9ada92f4ac13ac1aaacd397e333d",
+  "referenceCases": 260,
+  "referenceMismatches": [],
+  "focuses": {
+    "forest/day/autumn/sunny": {
+      "30": {
+        "changedPixels": 138,
+        "referenceAtRightEdge": 0,
+        "candidateAtLeftEdge": 0
+      },
+      "60": {
+        "changedPixels": 142,
+        "referenceAtRightEdge": 0,
+        "candidateAtLeftEdge": 0
+      },
+      "180": {
+        "changedPixels": 129,
+        "referenceAtRightEdge": 0,
+        "candidateAtLeftEdge": 0
+      },
+      "reducedTemporalPixels": 0,
+      "countControlPixels": 56,
+      "windControlPixels": 24347,
+      "sizeControlPixels": 141,
+      "speedControlPixels": 114,
+      "withParticlesDisabled": 0
+    },
+    "forest/day/spring/sunny": {
+      "30": {
+        "changedPixels": 154,
+        "referenceAtRightEdge": 0,
+        "candidateAtLeftEdge": 0
+      },
+      "60": {
+        "changedPixels": 174,
+        "referenceAtRightEdge": 0,
+        "candidateAtLeftEdge": 0
+      },
+      "180": {
+        "changedPixels": 160,
+        "referenceAtRightEdge": 0,
+        "candidateAtLeftEdge": 0
+      },
+      "reducedTemporalPixels": 0,
+      "countControlPixels": 92,
+      "windControlPixels": 24353,
+      "sizeControlPixels": 239,
+      "speedControlPixels": 172,
+      "withParticlesDisabled": 0
+    },
+    "countryside/evening/autumn/sunny": {
+      "30": {
+        "changedPixels": 24,
+        "referenceAtRightEdge": 0,
+        "candidateAtLeftEdge": 0
+      },
+      "60": {
+        "changedPixels": 45,
+        "referenceAtRightEdge": 0,
+        "candidateAtLeftEdge": 0
+      },
+      "180": {
+        "changedPixels": 25,
+        "referenceAtRightEdge": 0,
+        "candidateAtLeftEdge": 0
+      },
+      "reducedTemporalPixels": 0,
+      "countControlPixels": 35,
+      "windControlPixels": 4299,
+      "sizeControlPixels": 102,
+      "speedControlPixels": 68,
+      "withParticlesDisabled": 0
+    },
+    "snow/day/winter/snow": {
+      "30": {
+        "changedPixels": 341,
+        "referenceAtRightEdge": 0,
+        "candidateAtLeftEdge": 0
+      },
+      "60": {
+        "changedPixels": 340,
+        "referenceAtRightEdge": 0,
+        "candidateAtLeftEdge": 0
+      },
+      "180": {
+        "changedPixels": 348,
+        "referenceAtRightEdge": 0,
+        "candidateAtLeftEdge": 0
+      },
+      "reducedTemporalPixels": 0,
+      "countControlPixels": 182,
+      "windControlPixels": 2585,
+      "sizeControlPixels": 497,
+      "speedControlPixels": 350,
+      "withParticlesDisabled": 0
+    },
+    "snow/night/winter/snow": {
+      "30": {
+        "changedPixels": 411,
+        "referenceAtRightEdge": 0,
+        "candidateAtLeftEdge": 0
+      },
+      "60": {
+        "changedPixels": 375,
+        "referenceAtRightEdge": 0,
+        "candidateAtLeftEdge": 0
+      },
+      "180": {
+        "changedPixels": 394,
+        "referenceAtRightEdge": 0,
+        "candidateAtLeftEdge": 0
+      },
+      "reducedTemporalPixels": 0,
+      "countControlPixels": 203,
+      "windControlPixels": 2294,
+      "sizeControlPixels": 575,
+      "speedControlPixels": 399,
+      "withParticlesDisabled": 0
+    },
+    "sea/day/summer/rain": {
+      "30": {
+        "changedPixels": 311,
+        "referenceAtRightEdge": 0,
+        "candidateAtLeftEdge": 0
+      },
+      "60": {
+        "changedPixels": 283,
+        "referenceAtRightEdge": 0,
+        "candidateAtLeftEdge": 0
+      },
+      "180": {
+        "changedPixels": 270,
+        "referenceAtRightEdge": 0,
+        "candidateAtLeftEdge": 0
+      },
+      "reducedTemporalPixels": 0,
+      "countControlPixels": 186,
+      "windControlPixels": 335,
+      "sizeControlPixels": 388,
+      "speedControlPixels": 331,
+      "withParticlesDisabled": 0
+    }
+  }
+}

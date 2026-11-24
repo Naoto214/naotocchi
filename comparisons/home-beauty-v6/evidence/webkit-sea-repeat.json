@@ -1,0 +1,332 @@
+{
+ "engine": "webkit",
+ "suite": "load",
+ "at": "2026-11-19T10:07:36.232507+00:00",
+ "viewport": [
+  390,
+  844
+ ],
+ "dpr": 2,
+ "affinity": [
+  3,
+  4
+ ],
+ "url": "http://127.0.0.1:8196",
+ "conditions": {
+  "forest-leaves": [
+   "forest",
+   "day",
+   "autumn",
+   "sunny"
+  ],
+  "forest-petals": [
+   "forest",
+   "day",
+   "spring",
+   "sunny"
+  ],
+  "snow-day": [
+   "snow",
+   "day",
+   "winter",
+   "snow"
+  ],
+  "snow-night": [
+   "snow",
+   "night",
+   "winter",
+   "snow"
+  ],
+  "country-leaves": [
+   "countryside",
+   "evening",
+   "autumn",
+   "sunny"
+  ],
+  "sea-rain": [
+   "sea",
+   "day",
+   "summer",
+   "rain"
+  ]
+ },
+ "seconds": 18.0,
+ "rows": [
+  {
+   "elapsed": 18.027,
+   "frames": 234,
+   "rafHz": 13.093839180795703,
+   "p95": 199,
+   "max": 1050,
+   "over250": 9,
+   "firstDelay": 180,
+   "stepHz": 8.93104787263549,
+   "natureHz": 6.268375214955344,
+   "clockDelta": 18.711000000000002,
+   "clockMarkers": [],
+   "pausedSec": 0,
+   "invitations": 0,
+   "cast": 4,
+   "moving": 4,
+   "visibility": "visible",
+   "phases": {
+    "model": {
+     "n": 161,
+     "total": 1792,
+     "max": 999
+    },
+    "nature": {
+     "n": 113,
+     "total": 166,
+     "max": 10
+    },
+    "world": {
+     "n": 161,
+     "total": 267,
+     "max": 11
+    },
+    "actors": {
+     "n": 161,
+     "total": 236,
+     "max": 10
+    }
+   },
+   "slow": [
+    {
+     "name": "model",
+     "start": 5734,
+     "ms": 999
+    },
+    {
+     "name": "model",
+     "start": 7348,
+     "ms": 293
+    },
+    {
+     "name": "model",
+     "start": 12261,
+     "ms": 140
+    },
+    {
+     "name": "model",
+     "start": 12482,
+     "ms": 94
+    }
+   ],
+   "long": [
+    {
+     "start": 155,
+     "end": 835,
+     "ms": 680,
+     "paused": "false"
+    },
+    {
+     "start": 1899,
+     "end": 2150,
+     "ms": 251,
+     "paused": "false"
+    },
+    {
+     "start": 3342,
+     "end": 3648,
+     "ms": 306,
+     "paused": "false"
+    },
+    {
+     "start": 5734,
+     "end": 6784,
+     "ms": 1050,
+     "paused": "false"
+    },
+    {
+     "start": 7347,
+     "end": 7764,
+     "ms": 417,
+     "paused": "false"
+    },
+    {
+     "start": 7893,
+     "end": 8189,
+     "ms": 296,
+     "paused": "false"
+    },
+    {
+     "start": 10870,
+     "end": 11122,
+     "ms": 252,
+     "paused": "false"
+    },
+    {
+     "start": 13878,
+     "end": 14278,
+     "ms": 400,
+     "paused": "false"
+    },
+    {
+     "start": 16880,
+     "end": 17131,
+     "ms": 251,
+     "paused": "false"
+    }
+   ],
+   "scene": "sea-rain",
+   "mode": "E3",
+   "count": 4,
+   "errors": []
+  },
+  {
+   "elapsed": 18.044,
+   "frames": 177,
+   "rafHz": 9.868971285196544,
+   "p95": 300,
+   "max": 2607,
+   "over250": 11,
+   "firstDelay": 122,
+   "stepHz": 6.428729771669253,
+   "natureHz": 4.5444469075592995,
+   "clockDelta": 13.994000000000002,
+   "clockMarkers": [],
+   "pausedSec": 4.767,
+   "invitations": 0,
+   "cast": 4,
+   "moving": 4,
+   "visibility": "visible",
+   "phases": {
+    "model": {
+     "n": 116,
+     "total": 3896,
+     "max": 2430
+    },
+    "nature": {
+     "n": 82,
+     "total": 140,
+     "max": 6
+    },
+    "world": {
+     "n": 116,
+     "total": 208,
+     "max": 8
+    },
+    "actors": {
+     "n": 116,
+     "total": 259,
+     "max": 30
+    }
+   },
+   "slow": [
+    {
+     "name": "model",
+     "start": 7289,
+     "ms": 2430
+    },
+    {
+     "name": "model",
+     "start": 11643,
+     "ms": 125
+    },
+    {
+     "name": "model",
+     "start": 12266,
+     "ms": 571
+    },
+    {
+     "name": "model",
+     "start": 14688,
+     "ms": 136
+    },
+    {
+     "name": "model",
+     "start": 15542,
+     "ms": 423
+    }
+   ],
+   "long": [
+    {
+     "start": 104,
+     "end": 883,
+     "ms": 779,
+     "paused": "false"
+    },
+    {
+     "start": 4640,
+     "end": 4906,
+     "ms": 266,
+     "paused": "true"
+    },
+    {
+     "start": 4906,
+     "end": 5234,
+     "ms": 328,
+     "paused": "true"
+    },
+    {
+     "start": 7288,
+     "end": 9895,
+     "ms": 2607,
+     "paused": "true"
+    },
+    {
+     "start": 9895,
+     "end": 10195,
+     "ms": 300,
+     "paused": "true"
+    },
+    {
+     "start": 10195,
+     "end": 10596,
+     "ms": 401,
+     "paused": "false"
+    },
+    {
+     "start": 12266,
+     "end": 13059,
+     "ms": 793,
+     "paused": "true"
+    },
+    {
+     "start": 13059,
+     "end": 13532,
+     "ms": 473,
+     "paused": "true"
+    },
+    {
+     "start": 13532,
+     "end": 13790,
+     "ms": 258,
+     "paused": "false"
+    },
+    {
+     "start": 15541,
+     "end": 16082,
+     "ms": 541,
+     "paused": "false"
+    },
+    {
+     "start": 16082,
+     "end": 16465,
+     "ms": 383,
+     "paused": "false"
+    }
+   ],
+   "scene": "sea-rain",
+   "mode": "E3plus",
+   "count": 4,
+   "errors": []
+  }
+ ],
+ "renderers": {
+  "deepsea-stars.mjs": "0aad4b0335ef47314a0d1e36493fb1f5fe7cdb55b9fd80ad3801f3a6e8698a7f",
+  "fall-motion.mjs": "3d3ddf1801223d4cc5a1cfaaf632d5968c08d36fc780b7b71a414b53f67bc726",
+  "forest-e.mjs": "0696967255d9e7dd3c9873bb0a4fc097595337f70d71dee89e636acf008db3da",
+  "full-motion.mjs": "c93fef1527c6629e728f6b7ab5b9f634531d3201ee1addcb0b864107b38e6039",
+  "mountain-jungle-desert.mjs": "0e676e9ec87c17824830d4e97fdc1ad7dd5b5d6684e98aee31f245acb865cb33",
+  "nature.mjs": "7d1cdd479413b6ecd98d5bde074af49e3dfb9247f9b1eca7d8b377058472456e",
+  "other-regions.mjs": "26132fd774b4a8e2d449697b98cb1d7b8cd6d7910214a2fe3e9310322bc4f398",
+  "paint.mjs": "ec6f8105fbac4b8f14754fa66473af7ae53b0f8e28579f85d3c9f6c6750756e4",
+  "regional-fall.mjs": "231b7798340c7713eb19dce5da760bee4d514a28f8e07bc9074a3302c131da4c",
+  "river-home-country.mjs": "c6a3787760865a0ebf165391b65b20b31816eed554ac220e9794a1f6fb0f8ca4",
+  "sea-e.mjs": "eb661a269a98c4b2991e8bdc3bdbd868fde2dbc7861f74c43efdaeda1ade2450",
+  "snow-city-lake.mjs": "881cb234be3aed0378c053a308e273a99849716dbbf2e5cb765eaf4713c3ef9c"
+ },
+ "browser": "26.5"
+}
