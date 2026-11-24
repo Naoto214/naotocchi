@@ -11,6 +11,20 @@
   function limit(a,p,s){const b=bounds(a,s);return {x:clamp(p.x,b.left,b.right),y:clamp(p.y,b.top,b.bottom)};}
   function clearance(a,p,b){return Math.hypot((p.x-b.x)/((a.w+b.w)*.5+10),(p.y-b.y)/((a.h+b.h)*.38+10));}
   function separated(a,p,b){return clearance(a,p,b)>=1;}
+  function safeMovementStep(a,p,b,from=a){
+    const rx=(a.w+b.w)*.5+10,ry=(a.h+b.h)*.38+10;
+    if(Math.max(from.x,p.x)<=b.x-rx||Math.min(from.x,p.x)>=b.x+rx||
+       Math.max(from.y,p.y)<=b.y-ry||Math.min(from.y,p.y)>=b.y+ry)return true;
+    // In unit-circle coordinates, the projection is the point of closest contact.
+    const x=(from.x-b.x)/rx,y=(from.y-b.y)/ry,dx=(p.x-from.x)/rx,dy=(p.y-from.y)/ry;
+    const dot=x*dx+y*dy,start=Math.hypot(x,y);
+    if(start<1){
+      const end=Math.hypot(x+dx,y+dy);
+      return dot>=0&&(end>=1||end>start+1e-6);
+    }
+    const t=clamp(-dot/(dx*dx+dy*dy||1),0,1);
+    return Math.hypot(x+t*dx,y+t*dy)>=1;
+  }
   function privateRandom(){const bytes=new Uint32Array(1);if(typeof crypto!=='undefined'&&crypto.getRandomValues)crypto.getRandomValues(bytes);let seed=bytes[0]||Date.now()>>>0||1;return ()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return (seed>>>0)/4294967296;};}
   function createModel({random=privateRandom(),onEvent=()=>{}}={}){
     let actors=[],scene={},selected=null,clock=0,idleAt=5,paused=false;
@@ -54,19 +68,19 @@
       }
       return null;
     }
-    function referenceDestination(a,p,b=scene.referenceBounds?.(a),nav=scene.navigation){
+    function referenceDestination(a,p,b=scene.referenceBounds?.(a),nav=scene.navigation,freePoint){
       if(!b||!nav?.referenceNearest)return null;
-      const point=nav.referenceNearest({x:clamp(p.x,b.left,b.right),y:clamp(p.y,b.top,b.bottom)},b,q=>free(a,q));
-      const safe=bounds(a,scene);if(!point||point.x<safe.left||point.x>safe.right||point.y<safe.top||point.y>safe.bottom||!free(a,point))return null;
+      const point=nav.referenceNearest({x:clamp(p.x,b.left,b.right),y:clamp(p.y,b.top,b.bottom)},b,freePoint);
+      const safe=bounds(a,scene);if(!point||point.x<safe.left||point.x>safe.right||point.y<safe.top||point.y>safe.bottom||!freePoint(point))return null;
       return {point,bounds:b};
     }
-    function destination(a,p,nav=scene.navigation){
-      if(nav)return nav.nearest(nav.rawDestination?p:limit(a,p,scene),bounds(a,scene),q=>free(a,q));
-      const q=limit(a,p,scene);if(free(a,q))return q;
+    function destination(a,p,nav=scene.navigation,freePoint){
+      if(nav)return nav.nearest(nav.rawDestination?p:limit(a,p,scene),bounds(a,scene),freePoint);
+      const q=limit(a,p,scene);if(freePoint(q))return q;
       let best=null,dist=Infinity;
       for(let r=20;r<=120;r+=20)for(let i=0;i<16;i++){
         const c=limit(a,{x:q.x+Math.cos(i*Math.PI/8)*r,y:q.y+Math.sin(i*Math.PI/8)*r*.6},scene);
-        const d=Math.hypot(c.x-q.x,c.y-q.y);if(d<dist&&free(a,c)){best=c;dist=d;}
+        const d=Math.hypot(c.x-q.x,c.y-q.y);if(d<dist&&freePoint(c)){best=c;dist=d;}
       }
       return best;
     }
@@ -144,7 +158,7 @@
       if(changed){cancel();cooldown.clear();}
     }
     function select(key){const a=actor(key);if(!a||paused)return false;manualGoals.delete(key);selected=key;a.visualReaction=undefined;a.visualTarget=null;a.target=null;a.route=[];a.manualUntil=clock+12;defer(a,4);emit('tap',a,'tap');idleAt=clock+4;return true;}
-    function move(key,p,source='tap'){
+    function move(key,p,source='tap',{pointerDrop=false}={}){
       const a=actor(key);if(!a||paused||!Number.isFinite(p?.x+p?.y))return false;
       if(source==='ambient'&&(clock<a.manualUntil||a.target&&a.source!=='ambient'))return false;
       if(source!=='ambient'&&retryingKey!==key)a.manualUntil=clock+12;
@@ -153,14 +167,36 @@
       const retreats=(q,r)=>['x','y'].some(axis=>(q[axis]-r[axis])*Math.sign(p[axis]-a[axis])< -1e-7);
       // A cramped fallback seat may already overlap. Allow only escape that
       // does not worsen that overlap; step() still requires strict improvement.
-      const routeFree=p=>visible(a,p)&&actors.every(b=>b===a||separated(a,p,b)||clearance(a,a,b)<1&&clearance(a,p,b)>=clearance(a,a,b)-1e-9);
+      const canSee=scene.planVisibility?.(a)||((point)=>visible(a,point));
+      // Only this synchronous plan shares occupancy results. A retry, another
+      // resident's plan, and every accepted motion step see the live cast again.
+      const obstacles=actors.filter(b=>b!==a).map(b=>({x:b.x,y:b.y,rx:(a.w+b.w)*.5+10,ry:(a.h+b.h)*.38+10,initial:clearance(a,a,b)}));
+      const occupancy=new Map();
+      function available(point){
+        let row=occupancy.get(point.y);
+        if(!row){row=new Map();occupancy.set(point.y,row);}
+        if(row.has(point.x))return row.get(point.x);
+        // 2 is strictly clear. 1 permits only escape from existing contact.
+        let result=2;
+        for(const item of obstacles){
+          const dx=(point.x-item.x)/item.rx,dy=(point.y-item.y)/item.ry;
+          if(Math.abs(dx)>=1||Math.abs(dy)>=1)continue;
+          const separation=Math.hypot(dx,dy);
+          if(separation>=1)continue;
+          if(!(item.initial<1&&separation>=item.initial-1e-9)){result=0;break;}
+          result=1;
+        }
+        if(result&&!canSee(point))result=0;
+        row.set(point.x,result);return result;
+      }
+      const freePoint=point=>available(point)===2,routeFree=point=>available(point)>0;
       const safeBounds=bounds(a,scene),referenceFree=p=>p.x>=safeBounds.left&&p.x<=safeBounds.right&&p.y>=safeBounds.top&&p.y<=safeBounds.bottom&&routeFree(p);
       const currentRoute=(point,nav=scene.navigation)=>nav?nav.route(a,point,safeBounds,routeFree):[point];
       // Pure planning permits a complete V4 comparison, including its stable
       // grid and supplemental route, without changing scene or actor state.
       const plan=nav=>{
-        const proposal=destination(a,p,nav),originalReference=referenceDestination(a,p,undefined,nav);
-        const expandedReference=scene.referenceBounds?.(a)?referenceDestination(a,p,safeBounds,nav):null;
+        const proposal=destination(a,p,nav,freePoint),originalReference=referenceDestination(a,p,undefined,nav,freePoint);
+        const expandedReference=scene.referenceBounds?.(a)?referenceDestination(a,p,safeBounds,nav,freePoint):null;
         const reference=expandedReference&&(!originalReference||!retreats(expandedReference.point,originalReference.point))?expandedReference:originalReference;
         const preferReference=reference&&(!proposal||Math.hypot(proposal.x-reference.point.x,proposal.y-reference.point.y)<1e-7||retreats(proposal,reference.point));
         let q=preferReference?reference.point:proposal;
@@ -172,7 +208,7 @@
         if(!path.length&&originalReference&&originalReference!==reference){q=originalReference.point;path=nav.referenceRoute(a,q,originalReference.bounds,referenceFree);if(!path.length)path=currentRoute(q,nav);}
         if(nav?.reachable){
           const prior=path.length?q:null,score=prior?Math.hypot(prior.x-p.x,prior.y-p.y):Infinity;
-          const better=score>1e-5?nav.reachable(a,p,safeBounds,referenceFree,point=>Math.hypot(point.x-a.x,point.y-a.y)>=3&&free(a,point)&&(!prior||!retreats(point,prior))&&Math.hypot(point.x-p.x,point.y-p.y)<score-1e-5):[];
+          const better=score>1e-5?nav.reachable(a,p,safeBounds,referenceFree,point=>Math.hypot(point.x-a.x,point.y-a.y)>=3&&freePoint(point)&&(!prior||!retreats(point,prior))&&Math.hypot(point.x-p.x,point.y-p.y)<score-1e-5):[];
           if(better.length){path=better;q=better[better.length-1];}
         }
         return {point:q,path,originalReference,expandedReference};
@@ -196,7 +232,7 @@
         if(prior.path.length&&Math.hypot(prior.point.x-a.x,prior.point.y-a.y)>=3&&(!scene.navigation.intentAware||forward(prior.point))&&(!path.length||retreats(q,prior.point))){
           q=prior.point;path=prior.path;
           const score=Math.hypot(q.x-p.x,q.y-p.y),floor=q;
-          const better=scene.navigation.reachable?.(a,p,safeBounds,referenceFree,point=>Math.hypot(point.x-a.x,point.y-a.y)>=3&&free(a,point)&&!retreats(point,floor)&&Math.hypot(point.x-p.x,point.y-p.y)<score-1e-5)||[];
+          const better=scene.navigation.reachable?.(a,p,safeBounds,referenceFree,point=>Math.hypot(point.x-a.x,point.y-a.y)>=3&&freePoint(point)&&!retreats(point,floor)&&Math.hypot(point.x-p.x,point.y-p.y)<score-1e-5)||[];
           if(better.length){path=better;q=better.at(-1);}
         }
       }
@@ -205,7 +241,7 @@
           // A reachable fallback can otherwise send a downward drag upwards.
           // Keep any safe legacy endpoint that follows the request, and compare
           // it with the reachable forward component before deciding to stay put.
-          const eligible=point=>forward(point)&&Math.hypot(point.x-a.x,point.y-a.y)>=3&&referenceFree(point)&&free(a,point);
+          const eligible=point=>forward(point)&&Math.hypot(point.x-a.x,point.y-a.y)>=3&&referenceFree(point)&&freePoint(point);
           const options=[];
           for(const candidate of [originalReference,expandedReference])if(candidate&&eligible(candidate.point)){
             let route=scene.navigation.referenceRoute(a,candidate.point,candidate.bounds,referenceFree);
@@ -219,6 +255,31 @@
         }
       }
       if(!path.length||Math.hypot(q.x-a.x,q.y-a.y)<3)return false;
+      // A near miss can sit just across a painted corner from the release.
+      // Extend only a route already accepted, and keep its endpoint as a floor.
+      if(pointerDrop&&source==='drag'&&scene.navigation?.intentAware&&scene.navigation.segmentSafe){
+        const from=path.at(-1),miss=Math.hypot((from.x-p.x)*sx,(from.y-p.y)*sy);
+        if(miss>=3&&miss<=24&&Math.hypot(from.x-q.x,from.y-q.y)<1e-5){
+          const inside=t=>t.x>=safeBounds.left&&t.x<=safeBounds.right&&t.y>=safeBounds.top&&t.y<=safeBounds.bottom;
+          const safeLeg=(u,v)=>inside(v)&&actors.every(b=>b===a||safeMovementStep(a,v,b,u))&&scene.navigation.segmentSafe(u,v,routeFree);
+          let extension=null;
+          for(const r of [0,2,4,8]){
+            if(r>miss-2)break;
+            let best=Infinity;
+            for(let i=0;i<(r?8:1);i++){
+              const angle=i*Math.PI/4,end={x:p.x+r*Math.cos(angle)/sx,y:p.y+r*Math.sin(angle)/sy};
+              if(!inside(end)||retreats(end,from)||!freePoint(end)||!scene.navigation.valid(end))continue;
+              if(safeLeg(from,end)){extension=[end];break;}
+              for(const bend of [{x:from.x,y:end.y},{x:end.x,y:from.y}]){
+                const dist=Math.hypot((from.x-bend.x)*sx,(from.y-bend.y)*sy)+Math.hypot((end.x-bend.x)*sx,(end.y-bend.y)*sy);
+                if(dist<best&&safeLeg(from,bend)&&safeLeg(bend,end)){extension=[bend,end];best=dist;}
+              }
+            }
+            if(extension)break;
+          }
+          if(extension){path=[...path,...extension];q=path.at(-1);}
+        }
+      }
       const request=manualGoals.get(key);
       if(request?.floor&&['x','y'].some(axis=>(q[axis]-request.floor[axis])*request.direction[axis]<-1e-7))return false;
       if(request){request.nextAt=Infinity;request.floor={...q};}
@@ -300,8 +361,7 @@
         const p=limit(a,{x:a.x+dx/dist*step,y:a.y+dy/dist*step},scene);
         // If a very crowded/short viewport cannot seat everyone, permit escape only
         // when every existing overlap shrinks; never enter a new overlap.
-        const distance=(q,b)=>clearance(a,q,b);
-        const safe=visible(a,p)&&(!scene.navigation||scene.navigation.segmentSafe(a,p))&&actors.every(b=>b===a||separated(a,p,b)||distance(a,b)<1&&distance(p,b)>distance(a,b)+1e-6);
+        const safe=visible(a,p)&&(!scene.navigation||scene.navigation.segmentSafe(a,p))&&actors.every(b=>b===a||safeMovementStep(a,p,b));
         if(!safe){a.target=null;a.route=[];a.activity='look';const request=manualGoals.get(a.key);if(request)request.nextAt=clock+1;defer(a,1+random()*2);continue;}
         stats.distance+=Math.hypot(p.x-a.x,p.y-a.y);a.x=p.x;a.y=p.y;if(Math.abs(dx)>.3)a.direction=dx<0?-1:1;
       }
